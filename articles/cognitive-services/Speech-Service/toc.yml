@@ -159,6 +159,12 @@
           href: third-party-notices.md
     - name: Konuşma Cihazları SDK’sı
       items:
+        - name: İndirme
+          href: 'get-speech-devices-sdk.md#download-the-speech-devices-sdk'
+        - name: Örnekler
+          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
+        - name: Sürüm notları
+          href: devices-sdk-release-notes.md
         - name: Lisans
           href: speech-devices-sdk-license.md
           displayName: 'roobo, speech devices sdk'

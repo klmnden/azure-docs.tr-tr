@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/27/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 53f8f9ea5b3fea20202dd5aaa001a789d66f5a11
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: d5b92681b9677db085b3c271c37490154d781d84
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282747"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494319"
 ---
 # <a name="tutorial-8-add-keyphrase-entity"></a>Öğretici: 8. keyPhrase varlığını ekleme 
 Bu öğreticide konuşmalardaki temel konuları ayıklamayı gösteren bir uygulama kullanacaksınız.
@@ -71,15 +71,8 @@ Konuşmaların konusunu ayıklamak için önceden oluşturulmuş keyPhrase varl�
     [ ![keyPhrases etiketli konuşmalarla Utilities.Confirm amacının ekran görüntüsü](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png)](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>LUIS uygulamasını eğitme
-Uygulamanın yeni `keyphrase` sürümünün eğitilmesi gerekir.  
 
-1. LUIS web sitesinin sağ üst kısmından **Train** (Eğitim) düğmesini seçin.
-
-    ![Uygulamayı eğitme](./media/luis-quickstart-intent-and-key-phrase/train-button.png)
-
-2. Web sitesinin üst kısmında işlemin başarılı olduğunu belirten yeşil durum çubuğunu gördüğünüzde eğitim tamamlanmış olur.
-
-    ![Eğitim başarılı oldu](./media/luis-quickstart-intent-and-key-phrase/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-app-to-endpoint"></a>Uygulamayı uç noktasına yayımlama
 
@@ -190,7 +183,8 @@ Sohbet botunuz artık konuşmadaki bir sonraki adımı belirlemek için yeterli 
 LUIS uygulamasının bu istek üzerinde gerçekleştirebileceği işlemler bu kadardır. Sohbet botu gibi bir çağrı uygulaması topScoringIntent sonucunu ve konuşmadaki keyPhrase verilerini alarak bir sonraki adımı gerçekleştirebilir. LUIS, bot veya çağrı uygulaması için programlama işini gerçekleştirmez. LUIS yalnızca kullanıcının amacını belirler. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Sol üstteki menüden **My apps** (Uygulamalarım) öğesini seçin. Uygulama listesinde uygulama adının yanındaki üç nokta (***...***) düğmesini ve sonra da **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

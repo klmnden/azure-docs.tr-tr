@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 601742d82c1bd9a0e691de28ff9c4a09f12b538e
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 81cd4d247ba6153fd205ead36f29a52b420bb427
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186388"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502837"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Öğretici: Azure’da bir Service Fabric uygulamasını kümeye dağıtma
 
@@ -65,7 +65,7 @@ Bu öğreticide, Visual Studio kullanarak Voting uygulamasını Service Fabric k
 * Aboneliğinizde mevcut bir kümeye yayımlama.  [Azure portalı](https://portal.azure.com) aracılığıyla, [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) veya [Azure CLI](./scripts/cli-create-cluster.md) betiklerini kullanarak ya da bir [Azure Resource Manager şablonundan](service-fabric-tutorial-create-vnet-and-windows-cluster.md) Service Fabric kümeleri oluşturabilirsiniz.
 
 > [!NOTE]
-> Birçok hizmet birbiriyle iletişim kurmak için ters proxy kullanır. Visual Studio'dan oluşturulan kümelerde ve grup kümelerinde ters proxy varsayılan olarak etkindir.  Mevcut kümelerden birini kullanıyorsanız, [kümede ters proxy'yi etkinleştirmelisiniz](service-fabric-reverseproxy.md#setup-and-configuration).
+> Birçok hizmet birbiriyle iletişim kurmak için ters proxy kullanır. Visual Studio'dan oluşturulan kümelerde ve grup kümelerinde ters proxy varsayılan olarak etkindir.  Mevcut kümelerden birini kullanıyorsanız, [kümede ters proxy'yi etkinleştirmelisiniz](service-fabric-reverseproxy-setup.md#).
 
 
 ### <a name="find-the-votingweb-service-endpoint-for-your-azure-subscription"></a>Azure aboneliğiniz için VotingWeb hizmet uç noktasını bulma

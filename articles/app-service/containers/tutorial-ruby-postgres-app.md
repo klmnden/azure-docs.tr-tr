@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 927c8f6d0fefbc592999487217c41aeecc96b0d9
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 925537b3dff852921aad1e74d009e09fc90c394a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950990"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445085"
 ---
 # <a name="build-a-ruby-and-postgres-web-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service'te bir Ruby ve PostgreSQL web uygulaması derleme
 
@@ -123,7 +123,7 @@ Bu adımda, [PostgreSQL için Azure Veritabanı](/azure/postgresql/) içinde bir
 
 ### <a name="create-a-postgres-server"></a>Postgres sunucusu oluşturmak
 
-[`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) komutuyla PostgreSQL sunucusu oluşturun.
+[`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) komutuyla PostgreSQL sunucusu oluşturun.
 
 Aşağıdaki komutu Cloud Shell'de çalıştırın ve *\<postgres_server_name>* yerine benzersiz bir sunucu adı girin. Sunucu adı Azure'daki tüm sunucular arasında benzersiz olmalıdır. 
 
@@ -155,7 +155,7 @@ PostgreSQL için Azure Veritabanı sunucusu oluşturulduğunda Azure CLI, aşağ
 
 ### <a name="configure-server-firewall"></a>Sunucu güvenlik duvarını yapılandırma
 
-Cloud Shell'de, [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az_postgres_server_firewall_rule_create) komutunu kullanarak Postgres sunucunuzun istemci bağlantılarına izin vermesi için bir güvenlik duvarı kuralı oluşturun. Hem başlangıç hem bitiş IP’si 0.0.0.0 olarak ayarlandığında, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır. *\<postgres_server_name>* yerine benzersiz bir sunucu adı girin.
+Cloud Shell'de, [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az-postgres-server-firewall-rule-create) komutunu kullanarak Postgres sunucunuzun istemci bağlantılarına izin vermesi için bir güvenlik duvarı kuralı oluşturun. Hem başlangıç hem bitiş IP’si 0.0.0.0 olarak ayarlandığında, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır. *\<postgres_server_name>* yerine benzersiz bir sunucu adı girin.
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server <postgres_server_name> --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -300,7 +300,7 @@ Bu adımda, Postgres'e bağlı Rails uygulamasını Azure App Service'e dağıt�
 
 ### <a name="configure-database-settings"></a>Veritabanı ayarlarını yapılandırma
 
-App Service’te, Cloud Shell'de [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) komutunu kullanarak ortam değişkenlerini _uygulama ayarları_ olarak ayarlayabilirsiniz.
+App Service’te, Cloud Shell'de [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) komutunu kullanarak ortam değişkenlerini _uygulama ayarları_ olarak ayarlayabilirsiniz.
 
 Aşağıdaki Cloud Shell komutu `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` ve `DB_PASSWORD` uygulama ayarlarını yapılandırır. _&lt;appname>_ ve _&lt;postgres_server_name>_ yer tutucularını değiştirin.
 

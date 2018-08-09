@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: c2735d385b0a3c2201ec2dad83c0c32fe44d458c
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: d1e4d8dd7201935ef1dbdc83224f905c812f9cca
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258252"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447484"
 ---
 # <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Öğretici: Azure Resource Manager’a erişmek için Linux VM’de kullanıcı tarafından atanan kimliği kullanma
 
@@ -72,7 +72,7 @@ Bu öğretici için önce yeni bir Linux VM'si oluşturursunuz. Var olan bir VM'
     az login
     ```
 
-2. Kullanıcı tarafından atanan kimliği oluşturmak için [az identity create](/cli/azure/identity#az_identity_create) kullanın. `-g` parametresi Yönetilen Hizmet Kimliği'nin oluşturulduğu kaynak grubunu belirtirken, `-n` parametresi de bunun adını belirtir. `<RESOURCE GROUP>` ve `<MSI NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın:
+2. Kullanıcı tarafından atanan kimliği oluşturmak için [az identity create](/cli/azure/identity#az-identity-create) kullanın. `-g` parametresi Yönetilen Hizmet Kimliği'nin oluşturulduğu kaynak grubunu belirtirken, `-n` parametresi de bunun adını belirtir. `<RESOURCE GROUP>` ve `<MSI NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın:
     
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -102,7 +102,7 @@ Yanıt, aşağıdaki örneğe benzer biçimde, oluşturulmuş kullanıcı taraf�
 
 Kullanıcı tarafından atanan kimlik, istemciler tarafından birden çok Azure kaynağında kullanılabilir. Aşağıdaki komutları kullanarak kullanıcı tarafından atanan kimliği tek bir VM'ye atayın. `-IdentityID` parametresi için önceki adımda döndürülen `Id` özelliğini kullanın.
 
-Kullanıcı tarafından atanan Yönetilen Hizmet Kimliği'ni [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity) komutunu kullanarak Linux VM'nize atayın. `<RESOURCE GROUP>` ve `<VM NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `--identities` parametre değeri için önceki adımda döndürülen `id` özelliğini kullanın.
+Kullanıcı tarafından atanan Yönetilen Hizmet Kimliği'ni [az vm assign-identity](/cli/azure/vm#az-vm-assign-identity) komutunu kullanarak Linux VM'nize atayın. `<RESOURCE GROUP>` ve `<VM NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `--identities` parametre değeri için önceki adımda döndürülen `id` özelliğini kullanın.
 
 ```azurecli-interactive
 az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"

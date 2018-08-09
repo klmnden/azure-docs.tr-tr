@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 12a6e34db4134ffdb38428c0a38d94351747cc48
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: ccc0836a296bb392e60dd0c973516a7087ff6ea5
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900567"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429335"
 ---
 # <a name="deploy-a-dcos-cluster"></a>DC/OS kümesi dağıtma
 
@@ -26,7 +26,7 @@ Bu öğretici, Azure CLI 2.0.4 veya sonraki bir sürümü gerektirir. Sürümü 
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma 
 
-[az login](/cli/azure/reference-index#az_login) komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
+[az login](/cli/azure/reference-index#az-login) komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
 
 ```azurecli
 az login
@@ -34,7 +34,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
+[az group create](/cli/azure/group#az-group-create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
 
 Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
@@ -44,7 +44,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-dcos-cluster"></a>DC/OS kümesi oluşturma
 
-[az acs create](/cli/azure/acs#az_acs_create) komutuyla bir DC/OS kümesi oluşturun.
+[az acs create](/cli/azure/acs#az-acs-create) komutuyla bir DC/OS kümesi oluşturun.
 
 Aşağıdaki örnekte *myDCOSCluster* adlı bir DC/OS kümesi ve henüz yoksa SSH anahtarları oluşturulur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.  
 
@@ -52,7 +52,7 @@ Aşağıdaki örnekte *myDCOSCluster* adlı bir DC/OS kümesi ve henüz yoksa SS
 az acs create --orchestrator-type dcos --resource-group myResourceGroup --name myDCOSCluster --generate-ssh-keys
 ```
 
-Sınırlı deneme sürümünde olduğu gibi bazı durumlarda, bir Azure aboneliğinin Azure kaynaklarına sınırlı erişimi olur. Dağıtım sınırlı kullanılabilir çekirdek sayısı nedeniyle başarısız olursa, `--agent-count 1` öğesini [az acs create](/cli/azure/acs#az_acs_create) komutuna ekleyerek varsayılan aracı sayısını azaltın. 
+Sınırlı deneme sürümünde olduğu gibi bazı durumlarda, bir Azure aboneliğinin Azure kaynaklarına sınırlı erişimi olur. Dağıtım sınırlı kullanılabilir çekirdek sayısı nedeniyle başarısız olursa, `--agent-count 1` öğesini [az acs create](/cli/azure/acs#az-acs-create) komutuna ekleyerek varsayılan aracı sayısını azaltın. 
 
 Birkaç dakika sonra komut tamamlanır ve dağıtım hakkında bilgi döndürür.
 
@@ -157,7 +157,7 @@ Bu adrese göz atıldığında varsayılan NGINX sitesi döndürülür.
 
 ## <a name="delete-dcos-cluster"></a>DC/OS kümesini silme
 
-Artık gerekli değilse, [az group delete](/cli/azure/group#az_group_delete) komutunu kullanarak kaynak grubunu, DC/OS kümesini ve tüm ilgili kaynakları kaldırabilirsiniz.
+Artık gerekli değilse, [az group delete](/cli/azure/group#az-group-delete) komutunu kullanarak kaynak grubunu, DC/OS kümesini ve tüm ilgili kaynakları kaldırabilirsiniz.
 
 ```azurecli
 az group delete --name myResourceGroup --no-wait

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
-ms.openlocfilehash: a2cc6e7f79f2443f1e203576673f0c2353b75ac8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7078b79685cbb8c593de4832377e841914082abe
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32161948"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447267"
 ---
 # <a name="create-an-azure-container-service-kubernetes-windows-cluster"></a>Azure Container Service Kubernetes Windows Kümesi oluşturma
 
@@ -60,8 +60,8 @@ Bu betik, dağıtımı oluşturmak için aşağıdaki komutları kullanır. Tabl
 
 | Komut | Notlar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [az acs create](https://docs.microsoft.com/cli/azure/acs#az_acs_create) | ACS kümesi oluşturur. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az acs create](https://docs.microsoft.com/cli/azure/acs#az-acs-create) | ACS kümesi oluşturur. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

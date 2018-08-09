@@ -2,23 +2,20 @@
 title: 'Öğretici: HDInsight üzerinde Hive kullanarak ayıklama, dönüştürme, yükleme (ETL) işlemleri gerçekleştirme - Azure'
 description: Ham CSV veri kümesinden veri ayıklama, HDInsight üzerinde Hive kullanarak dönüştürme ve sonra Sqoop kullanarak dönüştürülmüş verileri Azure SQL veritabanına yükleme hakkında bilgi edinin.
 services: storage
-documentationcenter: ''
 author: jamesbak
-manager: jahogg
 tags: azure-portal
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 4f71a4e0570695abbe580ffc16b3361d5cd71ac1
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 376ac623c37183cdfbd6e27c54b0c726928237e2
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136495"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526013"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Öğretici: Azure HDInsight üzerinde Apache Hive kullanarak verileri ayıklama, dönüştürme ve yükleme
 
@@ -72,7 +69,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 Bir HDInsight kümesiyle ilişkili depolama birimine veri yüklemenin birçok yolu vardır. Bu bölümde, verileri karşıya yüklemek için `scp` kullanacaksınız. Diğer veri yükleme yöntemleri hakkında bilgi edinmek için bkz. [Azure Depolama Blogları ile Data Lake Storage Gen2 Önizleme arasında veri kopyalamak için Distcp kullanma](use-distcp.md).
 
-1. Bir komut istemi açın ve aşağıdaki komutu kullanarak .zip dosyasını HDInsight kümesini baş düğümüne yükleyin:
+1. Bir komut istemi açın ve aşağıdaki komutu kullanarak .zip dosyasını HDInsight kümesinin baş düğümüne yükleyin:
 
     ```bash
     scp <FILE_NAME>.zip <SSH_USER_NAME>@<CLUSTER_NAME>-ssh.azurehdinsight.net:<FILE_NAME.zip>
@@ -220,7 +217,7 @@ Hive işinin bir parçası olarak, verileri .csv dosyasından **Delays** adlı b
 
 Bu bölümde, daha önce bir Azure SQL veritabanı oluşturduğunuz varsayılır. Henüz bir SQL veritabanınız yoksa, bir tane oluşturmak için [Azure portalında Azure SQL veritabanı oluşturma](../../sql-database/sql-database-get-started.md) bölümündeki bilgileri kullanın.
 
-Zaten bir SQL veritabanınız varsa, sunucu adını almanız gerekir. Sunucuyu bulmak için [Azure portalında](https://portal.azure.com) adlandırın, **SQL Veritabanları**’nı seçin ve sonra kullanmayı seçtiğiniz veritabanının adıyla filtreleyin. Sunucu adı, **Sunucu adı** sütununda listelenir.
+Zaten bir SQL veritabanınız varsa, sunucu adını almanız gerekir. [Azure portalında](https://portal.azure.com) sunucu adını bulmak için **SQL Veritabanları**’nı seçin ve sonra kullanmayı seçtiğiniz veritabanının adıyla filtreleyin. Sunucu adı, **Sunucu adı** sütununda listelenir.
 
 ![Azure SQL server ayrıntılarını alma](./media/tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "Azure SQL server ayrıntılarını alma")
 
@@ -316,7 +313,7 @@ Zaten bir SQL veritabanınız varsa, sunucu adını almanız gerekir. Sunucuyu b
     GO
     ```
 
-    Tabloda verilerin bir listesini görürsünüz. Tablo, şehir adını ve bu şehre ait ortalama uçuş gecikme süresini içerir. 
+    Tabloda verilerin listesini görürsünüz. Tablo, şehir adını ve bu şehre ait ortalama uçuş gecikme süresini içerir. 
 
     Tsql yardımcı programından çıkmak için `exit` yazın.
 

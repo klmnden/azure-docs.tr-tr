@@ -9,21 +9,21 @@ ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 84215daac950f602c815e1ffc5ae6dd5269d9bdf
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: efedb7cde06ed03ec330027a18b00bcc897919cf
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32167121"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576928"
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Container Service’te bir Kubernetes kümesi için Azure AD hizmet sorumlusu oluşturma
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-Azure Container Service'te Kubernetes kümesi, Azure API'leri ile etkileşime geçmek için [Azure Active Directory hizmet sorumlusu](../../active-directory/develop/active-directory-application-objects.md) gerektirir. Hizmet sorumlusu, [kullanıcı tanımlı yollar](../../virtual-network/virtual-networks-udr-overview.md) ve [4. Katman Azure Load Balancer](../../load-balancer/load-balancer-overview.md) gibi kaynakları dinamik olarak yönetmek için gereklidir.
+Azure Container Service'te Kubernetes kümesi, Azure API'leri ile etkileşime geçmek için [Azure Active Directory hizmet sorumlusu](../../active-directory/develop/app-objects-and-service-principals.md) gerektirir. Hizmet sorumlusu, [kullanıcı tanımlı yollar](../../virtual-network/virtual-networks-udr-overview.md) ve [4. Katman Azure Load Balancer](../../load-balancer/load-balancer-overview.md) gibi kaynakları dinamik olarak yönetmek için gereklidir.
 
 
-Bu makalede Kubernetes kümeniz için hizmet sorumlusu ayarlamak üzere kullanabileceğiniz farklı seçenekler gösterilmektedir. Örneğin, [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklemesini ve kurulumunu yaptıysanız, [`az acs create`](/cli/azure/acs#az_acs_create) komutunu çalıştırarak Kubernetes kümesini ve hizmet sorumlusunu aynı anda oluşturabilirsiniz.
+Bu makalede Kubernetes kümeniz için hizmet sorumlusu ayarlamak üzere kullanabileceğiniz farklı seçenekler gösterilmektedir. Örneğin, [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklemesini ve kurulumunu yaptıysanız, [`az acs create`](/cli/azure/acs#az-acs-create) komutunu çalıştırarak Kubernetes kümesini ve hizmet sorumlusunu aynı anda oluşturabilirsiniz.
 
 
 ## <a name="requirements-for-the-service-principal"></a>Hizmet sorumlusu için gereksinimler
@@ -96,7 +96,7 @@ Aşağıdaki örnekte Azure CLI 2.0 ile parametreleri iletme yollarından biri g
 
 ## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>2. Seçenek: `az acs create` ile küme oluştururken hizmet sorumlusu oluşturma
 
-Kubernetes kümesini oluşturmak için [`az acs create`](/cli/azure/acs#az_acs_create) komutunu çalıştırırsanız, otomatik olarak bir hizmet sorumlusu oluşturma seçeneğine sahip olursunuz.
+Kubernetes kümesini oluşturmak için [`az acs create`](/cli/azure/acs#az-acs-create) komutunu çalıştırırsanız, otomatik olarak bir hizmet sorumlusu oluşturma seçeneğine sahip olursunuz.
 
 Diğer Kubernetes kümesi oluşturma seçeneklerinde olduğu gibi, `az acs create` çalıştırırken mevcut bir hizmet sorumlusunun parametrelerini belirtebilirsiniz. Ancak, bu parametreleri atlarsanız Azure CLI, Container Service ile kullanılacak bir hizmet sorumlusunu otomatik olarak oluşturur. Bu işlem dağıtım sırasında saydam bir şekilde gerçekleştirilir.
 
@@ -132,7 +132,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 Bir hizmet sorumlusu oluştururken `--years` parametresiyle özel bir geçerlilik penceresi belirtmediğiniz sürece, bir hizmet sorumlusu oluşturduğunuzda, kimlik bilgileri oluşturma zamanından sonraki 1 yıl boyunca geçerli olur. Kimlik bilgilerinin süresi dolduğunda, küme düğümleriniz bir **NotReady** durumu girebilir.
 
-Bir hizmet sorumlusunun sona erme tarihini denetlemek için, [az ad uygulamasını göster](/cli/azure/ad/app#az_ad_app_show) komutunu `--debug` parametresiyle yürütün ve çıktının altının yakınında bulunda `passwordCredentials` alanındaki `endDate` değerini arayın:
+Bir hizmet sorumlusunun sona erme tarihini denetlemek için, [az ad uygulamasını göster](/cli/azure/ad/app#az-ad-app-show) komutunu `--debug` parametresiyle yürütün ve çıktının altının yakınında bulunda `passwordCredentials` alanındaki `endDate` değerini arayın:
 
 ```azurecli
 az ad app show --id <appId> --debug
@@ -146,7 +146,7 @@ az ad app show --id <appId> --debug
 ...
 ```
 
-Hizmet sorumlusu kimlik bilgilerinizin süresi dolduysa, kimlik bilgilerini güncelleştirmek için [az ad sp reset-credentials](/cli/azure/ad/sp#az_ad_sp_reset_credentials) komutunu kullanın:
+Hizmet sorumlusu kimlik bilgilerinizin süresi dolduysa, kimlik bilgilerini güncelleştirmek için [az ad sp reset-credentials](/cli/azure/ad/sp#az-ad-sp-reset-credentials) komutunu kullanın:
 
 ```azurecli
 az ad sp reset-credentials --name <appId>

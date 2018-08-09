@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/18/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 233129a6ddb655483812fdd222b55a6c3623a9b4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: dfaee72be883ee8902fe4550890d757f114ff932
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114960"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426119"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure portalıyla Batch hesabı oluşturma
 
@@ -34,11 +34,11 @@ Batch hesapları ve senaryoları hakkında arka plan bilgileri için bkz. [özel
 
 1. [Azure portalında][azure_portal] oturum açın.
 
-2. **Kaynak oluştur** > **İşlem** > **Batch Hizmeti**'ni seçin.
+1. **Kaynak oluştur** > **İşlem** > **Batch Hizmeti**'ni seçin.
 
     ![Market’te Batch][marketplace_portal]
 
-3. **Yeni Batch hesabı** ayarlarını girin. Aşağıdaki ayrıntılara bakın.
+1. **Yeni Batch hesabı** ayarlarını girin. Aşağıdaki ayrıntılara bakın.
 
     ![Batch hesabı oluşturma][account_portal]
 
@@ -56,7 +56,7 @@ Batch hesapları ve senaryoları hakkında arka plan bilgileri için bkz. [özel
 
     f. **Havuz ayırma modu**: Çoğu senaryoda varsayılan **Batch hizmeti**'ni kabul edin.
 
-4. Hesabı oluşturmak için **Oluştur**'u seçin.
+1. Hesabı oluşturmak için **Oluştur**'u seçin.
 
 
 
@@ -85,22 +85,22 @@ Kullanıcı aboneliği modunda ilk Batch hesabınızı oluştururken, aboneliği
 
 1. [Azure portalında][azure_portal] oturum açın.
 
-2. **Tüm hizmetler** > **Abonelikler**'i ve ardından Batch hesabı için kullanmak istediğiniz aboneliği seçin.
+1. **Tüm hizmetler** > **Abonelikler**'i ve ardından Batch hesabı için kullanmak istediğiniz aboneliği seçin.
 
-3. **Abonelik** sayfasında **Kaynak sağlayıcıları**'nı seçip **Microsoft.Batch**'i arayın. **Microsoft.Batch** kaynak sağlayıcısının aboneliğe kayıtlı olup olmadığını kontrol edin. Kayıtlı değilse **Kaydet** bağlantısını seçin.
+1. **Abonelik** sayfasında **Kaynak sağlayıcıları**'nı seçip **Microsoft.Batch**'i arayın. **Microsoft.Batch** kaynak sağlayıcısının aboneliğe kayıtlı olup olmadığını kontrol edin. Kayıtlı değilse **Kaydet** bağlantısını seçin.
 
     ![Microsoft.Batch sağlayıcısını kaydetme][register_provider]
 
-3. **Abonelik** sayfasında **Erişim denetimi (IAM)** > **Ekle**'yi seçin.
+1. **Abonelik** sayfasında **Erişim denetimi (IAM)** > **Ekle**'yi seçin.
 
     ![Abonelik erişim denetimi][subscription_access]
 
-4. **İzin ekle** sayfasında **Katkıda Bulunan** rolünü seçin ve Batch API'sini arayın. API'yi bulana kadar aşağıdaki dizelerden her birini arayın:
+1. **İzin ekle** sayfasında **Katkıda Bulunan** rolünü seçin ve Batch API'sini arayın. API'yi bulana kadar aşağıdaki dizelerden her birini arayın:
     1. **MicrosoftAzureBatch**.
-    2. **Microsoft Azure Batch**. Daha yeni Azure AD kiracıları bu adı kullanıyor olabilir.
-    3. Batch API'sinin kimliği: **ddbf3205-c6bd-46ae-8127-60eb93363864**. 
+    1. **Microsoft Azure Batch**. Daha yeni Azure AD kiracıları bu adı kullanıyor olabilir.
+    1. Batch API'sinin kimliği: **ddbf3205-c6bd-46ae-8127-60eb93363864**. 
 
-5. Batch API'sini bulduktan sonra seçin ve **Kaydet**'i seçin.
+1. Batch API'sini bulduktan sonra seçin ve **Kaydet**'i seçin.
 
     ![Batch izinleri ekleme][add_permission]
 
@@ -109,7 +109,7 @@ Kullanıcı aboneliği modunda, oluşturulacak Batch hesabı ile aynı kaynak gr
 
 1. [Azure portalında][azure_portal] **Yeni** > **Güvenlik** > **Anahtar Kasası**'nı seçin.
 
-2. **Key Vault Oluştur** sayfasında anahtar kasası için bir ad girin ve Batch hesabınız için istediğiniz bölgede bir kaynak grubu oluşturun. Kalan ayarları varsayılan değerlerinde bırakın ve ardından **Oluştur**'u seçin.
+1. **Key Vault Oluştur** sayfasında anahtar kasası için bir ad girin ve Batch hesabınız için istediğiniz bölgede bir kaynak grubu oluşturun. Kalan ayarları varsayılan değerlerinde bırakın ve ardından **Oluştur**'u seçin.
 
 Batch hesabını kullanıcı aboneliği modunda oluştururken, anahtar kasasının kaynak grubunu kullanın, havuz ayırma modu olarak **Kullanıcı aboneliği**’ni belirtin ve anahtar kasasını seçin.
 

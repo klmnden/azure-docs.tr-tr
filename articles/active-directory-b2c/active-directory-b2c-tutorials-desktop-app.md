@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: ff9cfd0f1f3d8ee62b7f93d88023b3dedce3e7be
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 18db911782e03d17f0b2e2ace3f8b00ddfdebf70
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711741"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599945"
 ---
 # <a name="tutorial-enable-desktop-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C’yi kullanan hesaplarla masaüstü uygulama kimlik doğrulamasını etkinleştirme
 
@@ -37,7 +37,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="register-desktop-app"></a>Masaüstü uygulaması kaydetme
 
-Uygulamaların Azure Active Directory’den [erişim belirteçlerini](../active-directory/develop/active-directory-dev-glossary.md#access-token) alabilmesi için öncelikle kiracınızda [kayıtlı](../active-directory/develop/active-directory-dev-glossary.md#application-registration) olması gerekir. Uygulama kaydı, kiracınızda uygulama için bir [uygulama kimliği](../active-directory/develop/active-directory-dev-glossary.md#application-id-client-id) oluşturur. 
+Uygulamaların Azure Active Directory’den [erişim belirteçlerini](../active-directory/develop/developer-glossary.md#access-token) alabilmesi için öncelikle kiracınızda [kayıtlı](../active-directory/develop/developer-glossary.md#application-registration) olması gerekir. Uygulama kaydı, kiracınızda uygulama için bir [uygulama kimliği](../active-directory/develop/developer-glossary.md#application-id-client-id) oluşturur. 
 
 [Azure portalında](https://portal.azure.com/) Azure AD B2C kiracınızın genel yöneticisi olarak oturum açın.
 
@@ -86,7 +86,7 @@ Erişim sağlamak üzere kullanıcıları kaydetmek ve masaüstü uygulamasında
     | **Ad** | SiUpIn | İlke için bir **Ad** girin. İlke adı, **B2C_1_** ön ekine sahip olur. Örnek kodda **B2C_1_SiUpIn** olan tam ilke adını kullanırsınız. | 
     | **Kimlik sağlayıcı** | E-posta ile kaydolma | Kimlik sağlayıcı, kullanıcıyı benzersiz şekilde tanımlamak için kullanılır. |
     | **Kaydolma öznitelikleri** | Görünen Ad ve Posta Kodu | Kayıt sırasında kullanıcıdan toplanacak öznitelikleri seçin. |
-    | **Uygulama talepleri** | Görünen Ad, Posta Kodu, Kullanıcının yeni olma durumu, Kullanıcının Nesne Kimliği | [Erişim belirtecine](../active-directory/develop/active-directory-dev-glossary.md#access-token) eklenmesini istediğiniz [talepleri](../active-directory/develop/active-directory-dev-glossary.md#claim) seçin. |
+    | **Uygulama talepleri** | Görünen Ad, Posta Kodu, Kullanıcının yeni olma durumu, Kullanıcının Nesne Kimliği | [Erişim belirtecine](../active-directory/develop/developer-glossary.md#access-token) eklenmesini istediğiniz [talepleri](../active-directory/develop/developer-glossary.md#claim) seçin. |
 
 2. İlkenizi oluşturmak için **Oluştur**'a tıklayın. 
 
@@ -103,7 +103,7 @@ Kullanıcıların, kullanıcı profili bilgilerini kendi kendine sıfırlamasın
     | **Ad** | SiPe | İlke için bir **Ad** girin. İlke adı, **B2C_1_** ön ekine sahip olur. Örnek kodda, **B2C_1_SiPe** olan tam ilke adını kullanırsınız. | 
     | **Kimlik sağlayıcı** | Yerel Hesap Oturum Açma Bilgileri | Kimlik sağlayıcı, kullanıcıyı benzersiz şekilde tanımlamak için kullanılır. |
     | **Profil öznitelikleri** | Görünen Ad ve Posta Kodu | Profil düzenleme işlemi sırasında kullanıcıların değiştirebileceği öznitelikleri seçin. |
-    | **Uygulama talepleri** | Görünen Ad, Posta Kodu, Kullanıcının Nesne Kimliği | Başarılı bir profil düzenleme işleminden sonra [erişim belirtecine](../active-directory/develop/active-directory-dev-glossary.md#access-token) eklenmesini istediğiniz [talepleri](../active-directory/develop/active-directory-dev-glossary.md#claim) seçin. |
+    | **Uygulama talepleri** | Görünen Ad, Posta Kodu, Kullanıcının Nesne Kimliği | Başarılı bir profil düzenleme işleminden sonra [erişim belirtecine](../active-directory/develop/developer-glossary.md#access-token) eklenmesini istediğiniz [talepleri](../active-directory/develop/developer-glossary.md#claim) seçin. |
 
 2. İlkenizi oluşturmak için **Oluştur**'a tıklayın. 
 
@@ -119,7 +119,7 @@ Uygulamanızda parola sıfırlama özelliği sunmak için bir **parola sıfırla
     | ------------ | ------- | -------------------------------------------------- |
     | **Ad** | SSPR | İlke için bir **Ad** girin. İlke adı, **B2C_1_** ön ekine sahip olur. Örnek kodda, **B2C_1_SSPR** olan tam ilke adını kullanırsınız. | 
     | **Kimlik sağlayıcı** | E-posta adresi kullanarak parola sıfırlama | Bu, kullanıcıyı benzersiz şekilde tanımlamak için kullanılan kimlik sağlayıcıdır. |
-    | **Uygulama talepleri** | Kullanıcının Nesne Kimliği | Başarılı bir parola sıfırlama işleminden sonra [erişim belirtecine](../active-directory/develop/active-directory-dev-glossary.md#access-token) eklenmesini istediğiniz [talepleri](../active-directory/develop/active-directory-dev-glossary.md#claim) seçin. |
+    | **Uygulama talepleri** | Kullanıcının Nesne Kimliği | Başarılı bir parola sıfırlama işleminden sonra [erişim belirtecine](../active-directory/develop/developer-glossary.md#access-token) eklenmesini istediğiniz [talepleri](../active-directory/develop/developer-glossary.md#claim) seçin. |
 
 2. İlkenizi oluşturmak için **Oluştur**'a tıklayın. 
 

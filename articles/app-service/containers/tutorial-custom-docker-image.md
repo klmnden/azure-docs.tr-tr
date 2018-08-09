@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 887ed316605ab423159ef0d2e07f0960c702ed8b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 161207b96deb2f7bd605d845a9207393f9f59c23
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38317966"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444751"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Kapsayıcılar için Web App’e yönelik özel Docker görüntüsü kullanma
 
@@ -205,7 +205,7 @@ Azure Web Apps kullanarak yerel Linux uygulamalarını bulutta barındırabilirs
 
 ### <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
-Cloud Shell’de, [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) komutuyla `myAppServicePlan` App Service planında bir [web uygulaması](app-service-linux-intro.md) oluşturun. _<appname>_ değerini benzersiz bir uygulama adıyla ve _\<docker-ID>_ öğesini kendi Docker kimliğinizle değiştirmeyi unutmayın.
+Cloud Shell’de, [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) komutuyla `myAppServicePlan` App Service planında bir [web uygulaması](app-service-linux-intro.md) oluşturun. _<appname>_ değerini benzersiz bir uygulama adıyla ve _\<docker-ID>_ öğesini kendi Docker kimliğinizle değiştirmeyi unutmayın.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
@@ -232,7 +232,7 @@ Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan çıktıdaki gi
 
 Çoğu Docker görüntüsünün, yapılandırılması gereken ortam değişkenleri vardır. Başka biri tarafından hazırlanmış mevcut bir Docker görüntüsü kullanıyorsanız, görüntü 80'den farklı bir bağlantı noktası kullanıyor olabilir. `WEBSITES_PORT` uygulama ayarını kullanarak Azure'a görüntünüzün kullandığı bağlantı noktası hakkında bilgi verirsiniz. [Bu öğreticideki Python örneği](https://github.com/Azure-Samples/docker-django-webapp-linux) için GitHub sayfası, `WEBSITES_PORT` olarak _8000_ ayarlamanız gerektiğini gösterir.
 
-Uygulama ayarlarını belirlemek için Cloud Shell'de [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) komutunu kullanın. Uygulama ayarları büyük/küçük harfe duyarlıdır ve boşlukla ayrılmıştır.
+Uygulama ayarlarını belirlemek için Cloud Shell'de [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) komutunu kullanın. Uygulama ayarları büyük/küçük harfe duyarlıdır ve boşlukla ayrılmıştır.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_PORT=8000
@@ -353,7 +353,7 @@ Tebrikler! Kapsayıcılar için Web App’e yönelik özel Docker görüntüsü 
 
 [Web uygulaması oluşturma](#create-a-web-app) adımında, `az webapp create` komutuyla Docker Hub'da bir görüntü belirttiniz. Bu, genel bir görüntü için yeterlidir. Özel görüntü kullanmak için, Azure web uygulamanızda Docker hesabınızın kimliğini ve parolasını yapılandırmanız gerekir.
 
-Cloud Shell'de, `az webapp create` komutunu [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) ile izleyin. *\<app_name>* değerini ve ayrıca _\<docker-id>_ ile _\<password>_ değerlerini Docker kimliğiniz ve parolanızla değiştirin.
+Cloud Shell'de, `az webapp create` komutunu [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) ile izleyin. *\<app_name>* değerini ve ayrıca _\<docker-id>_ ile _\<password>_ değerlerini Docker kimliğiniz ve parolanızla değiştirin.
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-registry-server-user <docker-id> --docker-registry-server-password <password>
@@ -393,7 +393,7 @@ Azure Container Registry, özel görüntüleri barındırmak üzere Azure'dan y�
 
 ### <a name="create-an-azure-container-registry"></a>Azure Container Registry oluşturma
 
-Cloud Shell'de, [`az acr create`](/cli/azure/acr?view=azure-cli-latest#az_acr_create) komutunu kullanarak bir Azure Container Registry oluşturun. Buna adı, kaynak grubunu ve SKU için `Basic` değerini geçirin. Kullanılabilir SKU'lar `Classic`, `Basic`, `Standard` ve `Premium`'dur.
+Cloud Shell'de, [`az acr create`](/cli/azure/acr?view=azure-cli-latest#az-acr-create) komutunu kullanarak bir Azure Container Registry oluşturun. Buna adı, kaynak grubunu ve SKU için `Basic` değerini geçirin. Kullanılabilir SKU'lar `Classic`, `Basic`, `Standard` ve `Premium`'dur.
 
 ```azurecli-interactive
 az acr create --name <azure-container-registry-name> --resource-group myResourceGroup --sku Basic --admin-enabled true
@@ -431,7 +431,7 @@ Use an existing service principal and assign access:
 
 ### <a name="log-in-to-azure-container-registry"></a>Azure Container Registry oturumu açma
 
-Görüntüyü kayıt defterine göndermek için, kimlik bilgilerini girerek kayıt defterinin gönderimi kabul etmesini sağlamanız gerekir. Cloud Shell'de [`az acr show`](/cli/azure/acr?view=azure-cli-latest#az_acr_show) komutunu kullanarak bu kimlik bilgilerini alabilirsiniz. 
+Görüntüyü kayıt defterine göndermek için, kimlik bilgilerini girerek kayıt defterinin gönderimi kabul etmesini sağlamanız gerekir. Cloud Shell'de [`az acr show`](/cli/azure/acr?view=azure-cli-latest#az-acr-show) komutunu kullanarak bu kimlik bilgilerini alabilirsiniz. 
 
 ```azurecli-interactive
 az acr credential show --name <azure-container-registry-name>
@@ -495,7 +495,7 @@ Kayıt defterindeki görüntüler listelenerek `mydockerimage` görüntüsünün
 
 Kapsayıcılar için Web App'i yapılandırarak Azure Container Registry'de depolanan bir kapsayıcıyı çalıştırmasını sağlayabilirsiniz. Azure Container Registry, aynı herhangi bir özel kayıt defteri gibi kullanılır, dolayısıyla kendi özel kayıt defterinizi kullanmanız gerekiyorsa çok benzer adımlarla bu görevi tamamlayabilirsiniz.
 
-Cloud Shell'de [`az acr credential show`](/cli/azure/acr/credential?view=azure-cli-latest#az_acr_credential_show) komutunu çalıştırarak Azure Container Registry için kullanıcı adını ve parolayı görüntüleyin. Kullanıcı adını ve parolalardan birini kopyalayın; bunları sonraki adımda web uygulamasını yapılandırmak için kullanırsınız.
+Cloud Shell'de [`az acr credential show`](/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show) komutunu çalıştırarak Azure Container Registry için kullanıcı adını ve parolayı görüntüleyin. Kullanıcı adını ve parolalardan birini kopyalayın; bunları sonraki adımda web uygulamasını yapılandırmak için kullanırsınız.
 
 ```bash
 az acr credential show --name <azure-container-registry-name>
@@ -517,7 +517,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-Cloud Shell'de [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) komutunu çalıştırarak web uygulamasına özel Docker görüntüsünü atayın. *\<app_name>*, *\<docker-registry-server-url>*, _\<registry-username>_ ve _\<password>_ değerlerini değiştirin. Azure Container Registry için *\<docker-registry-server-url>*, `https://<azure-container-registry-name>.azurecr.io` biçimindedir. Docker Hub'ın yanı sıra herhangi bir kayıt defteri kullanıyorsanız, görüntü adının kayıt defterinizin tam etki alanı adıyla (FQDN) başlaması gerekir. Azure Container Registry için, `<azure-container-registry>.azurecr.io/mydockerimage` benzeri bir değer olmalıdır. 
+Cloud Shell'de [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) komutunu çalıştırarak web uygulamasına özel Docker görüntüsünü atayın. *\<app_name>*, *\<docker-registry-server-url>*, _\<registry-username>_ ve _\<password>_ değerlerini değiştirin. Azure Container Registry için *\<docker-registry-server-url>*, `https://<azure-container-registry-name>.azurecr.io` biçimindedir. Docker Hub'ın yanı sıra herhangi bir kayıt defteri kullanıyorsanız, görüntü adının kayıt defterinizin tam etki alanı adıyla (FQDN) başlaması gerekir. Azure Container Registry için, `<azure-container-registry>.azurecr.io/mydockerimage` benzeri bir değer olmalıdır. 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name <azure-container-registry-name>.azurecr.io/mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>

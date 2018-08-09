@@ -1,20 +1,20 @@
 ---
 title: Azure IoT Hub Cihazı Sağlama Hizmeti için cihazı ayarlama
 description: Cihaz üretim süreci sırasında IoT Hub Cihazı Sağlama Hizmeti aracılığıyla sağlanacak cihazı ayarlama
-author: dsk-2015
-ms.author: dkshir
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/02/2018
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d589c0ece2b36970a31884aa72ee7ab87941a656
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 6e90d20053a8ccfcafc7648d81c61e9313ec57ab
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39146456"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523368"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Cihazı Sağlama Hizmeti’ni kullanarak sağlanacak bir cihaz ayarlama
 
@@ -55,7 +55,7 @@ Cihaz Sağlama Hizmeti İstemci SDK’sı, cihaz kaydı yazılımınızı uygula
 
     `CMake` yüklemesine başlamadan **önce** makinenizde Visual Studio önkoşullarının (Visual Studio ve "C++ ile masaüstü geliştirme" iş yükü) yüklenmiş olması önemlidir. Önkoşullar sağlandıktan ve indirme doğrulandıktan sonra, CMake derleme sistemini yükleyin.
 
-2. Komut istemini veya Git Bash kabuğunu açın. Aşağıdaki komutu yürüterek [Azure IoT C SDK'sı](https://github.com/Azure/azure-iot-sdk-c) GitHub deposunu kopyalayın:
+1. Komut istemini veya Git Bash kabuğunu açın. Aşağıdaki komutu yürüterek [Azure IoT C SDK'sı](https://github.com/Azure/azure-iot-sdk-c) GitHub deposunu kopyalayın:
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
@@ -63,7 +63,7 @@ Cihaz Sağlama Hizmeti İstemci SDK’sı, cihaz kaydı yazılımınızı uygula
     Bu deponun boyutu şu anda 220 MB kadardır. Bu işlemin tamamlanması için birkaç dakika beklemeniz gerekebilir.
 
 
-3. Git deposunun kök dizininde bir `cmake` alt dizini oluşturun ve o klasöre gidin. 
+1. Git deposunun kök dizininde bir `cmake` alt dizini oluşturun ve o klasöre gidin. 
 
     ```cmd/sh
     cd azure-iot-sdk-c
@@ -71,7 +71,7 @@ Cihaz Sağlama Hizmeti İstemci SDK’sı, cihaz kaydı yazılımınızı uygula
     cd cmake
     ```
 
-4. SDK'yı kullanacağınız kanıtlama mekanizmasıyla tercih edeceğiniz geliştirme platformuna göre derleyin. Aşağıdaki komutlardan birini kullanın (her komutun sonundaki yan yana iki nokta işaretine dikkat edin). Tamamlandığında CMake, cihazınıza özgü içerikle `/cmake` alt dizinini derler:
+1. SDK'yı kullanacağınız kanıtlama mekanizmasıyla tercih edeceğiniz geliştirme platformuna göre derleyin. Aşağıdaki komutlardan birini kullanın (her komutun sonundaki yan yana iki nokta işaretine dikkat edin). Tamamlandığında CMake, cihazınıza özgü içerikle `/cmake` alt dizinini derler:
  
     - Kanıtlama için TPM simülatörünü kullanan cihazlar için:
 
@@ -103,7 +103,7 @@ SDK'yı kanıtlama için fiziksel TPM/HSM veya X.509 sertifikası kullanacak şe
 - Bir X.509 cihazı için cihazlarınıza verilmiş sertifikaları almanız gerekir. Sağlama hizmeti, X.509 kanıtlama mekanizmasını kullanan cihazlara erişimi kontrol eden iki kayıt girişi türü sunar. Gerekli sertifikalar, kullanacağınız kayıt türüne göre değişiklik gösterir.
 
     1. Bireysel kayıtlar: Tek bir cihaz kaydı. Bu kayıt girişi türü için [end-entity, "leaf", certificates](concepts-security.md#end-entity-leaf-certificate) kullanılması gerekir.
-    2. Kayıt grupları: Bu kayıt girişi türü için ara veya kök sertifika kullanılması gerekir. Daha fazla bilgi için bkz. [X.509 sertifikalarıyla sağlama hizmetine cihaz erişimini denetleme](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+    1. Kayıt grupları: Bu kayıt girişi türü için ara veya kök sertifika kullanılması gerekir. Daha fazla bilgi için bkz. [X.509 sertifikalarıyla sağlama hizmetine cihaz erişimini denetleme](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ### <a name="simulated-devices"></a>Sanal cihazlar
 
@@ -122,21 +122,21 @@ SDK'yı kanıtlama için fiziksel TPM veya X.509 sertifikası kullanacak şekild
       > [!NOTE]
       > Bu adım için Git Bash komut istemini kullanıyorsanız ters eğik çizgileri eğik çizgi olarak değiştirmeniz gerekir: `./provisioning_client/deps/utpm/tools/tpm_simulator/Simulator.exe`.
 
-   2. Visual Studio kullanarak, `azure_iot_sdks.sln` adlı *cmake* klasöründe oluşturulan çözümü açın ve "Derleme" menüsündeki "Çözümü derle" komutunu kullanarak bunu derleyin.
+   1. Visual Studio kullanarak, `azure_iot_sdks.sln` adlı *cmake* klasöründe oluşturulan çözümü açın ve "Derleme" menüsündeki "Çözümü derle" komutunu kullanarak bunu derleyin.
 
-   3. Visual Studio'nın *Çözüm Gezgini* bölmesinde **Sağlama\_Araçlar** klasörüne gidin. **tpm_device_provision** projesine sağ tıklayın ve **Başlangıç Projesi Olarak Ayarla**’yı seçin. 
+   1. Visual Studio'nın *Çözüm Gezgini* bölmesinde **Sağlama\_Araçlar** klasörüne gidin. **tpm_device_provision** projesine sağ tıklayın ve **Başlangıç Projesi Olarak Ayarla**’yı seçin. 
 
-   4. "Hata Ayıklama" menüsündeki “Başlat” komutlarından birini kullanarak çözümü çalıştırın. Çıktı penceresi, cihaz kaydı için gereken TPM simülatörün **_Kayıt Kimliği_**’ni ve **_Kayıt Anahtarı_**’nı görüntüler. Daha sonra kullanmak için bu değerleri kopyalayın. Bu pencereyi (Kayıt Kimliği ve Onay Anahtarı ile) kapatabilirsiniz, ancak 1. adımda başlattığınız TPM simülatörü penceresini çalışır durumda bırakın.
+   1. "Hata Ayıklama" menüsündeki “Başlat” komutlarından birini kullanarak çözümü çalıştırın. Çıktı penceresi, cihaz kaydı için gereken TPM simülatörün **_Kayıt Kimliği_**’ni ve **_Kayıt Anahtarı_**’nı görüntüler. Daha sonra kullanmak için bu değerleri kopyalayın. Bu pencereyi (Kayıt Kimliği ve Onay Anahtarı ile) kapatabilirsiniz, ancak 1. adımda başlattığınız TPM simülatörü penceresini çalışır durumda bırakın.
 
 - Sanal X.509 cihazı için:
 
   1. Visual Studio kullanarak, `azure_iot_sdks.sln` adlı *cmake* klasöründe oluşturulan çözümü açın ve "Derleme" menüsündeki "Çözümü derle" komutunu kullanarak bunu derleyin.
 
-  2. Visual Studio'nın *Çözüm Gezgini* bölmesinde **Sağlama\_Araçlar** klasörüne gidin. **dice\_device\_enrollment** projesine sağ tıklayın ve **Başlangıç Projesi Olarak Ayarla**’yı seçin. 
+  1. Visual Studio'nın *Çözüm Gezgini* bölmesinde **Sağlama\_Araçlar** klasörüne gidin. **dice\_device\_enrollment** projesine sağ tıklayın ve **Başlangıç Projesi Olarak Ayarla**’yı seçin. 
   
-  3. "Hata Ayıklama" menüsündeki “Başlat” komutlarından birini kullanarak çözümü çalıştırın. Çıktı penceresinde, istendiğinde tek kayıt için **i** girin. Çıktı penceresi, sanal cihazınız için yerel olarak oluşturulmuş X.509 sertifikasını görüntüler. *-----BEGIN CERTIFICATE-----* ile başlayıp ilk *-----END PUBLIC KEY-----* ile biten çıktıyı panoya kopyalayın ve bu iki satırı da dahil ettiğinizden emin olun. Yalnızca çıktı penceresindeki ilk sertifikayı kopyalamanız gerekir.
+  1. "Hata Ayıklama" menüsündeki “Başlat” komutlarından birini kullanarak çözümü çalıştırın. Çıktı penceresinde, istendiğinde tek kayıt için **i** girin. Çıktı penceresi, sanal cihazınız için yerel olarak oluşturulmuş X.509 sertifikasını görüntüler. *-----BEGIN CERTIFICATE-----* ile başlayıp ilk *-----END PUBLIC KEY-----* ile biten çıktıyı panoya kopyalayın ve bu iki satırı da dahil ettiğinizden emin olun. Yalnızca çıktı penceresindeki ilk sertifikayı kopyalamanız gerekir.
  
-  4. **_X509testcert.pem_** adlı bir dosya oluşturun, dosyayı dilediğiniz metin düzenleyicide açın ve panonun içeriklerini bu dosyaya kopyalayın. Cihaz kaydı için daha sonra kullanacağınızdan, dosyayı kaydedin. Kayıt yazılımınız çalıştırıldığında, otomatik sağlamadaki aynı sertifikayı kullanır.    
+  1. **_X509testcert.pem_** adlı bir dosya oluşturun, dosyayı dilediğiniz metin düzenleyicide açın ve panonun içeriklerini bu dosyaya kopyalayın. Cihaz kaydı için daha sonra kullanacağınızdan, dosyayı kaydedin. Kayıt yazılımınız çalıştırıldığında, otomatik sağlamadaki aynı sertifikayı kullanır.    
 
 Cihaz Sağlama Hizmeti’nde cihazınızın kaydı sırasında bu güvenlik yapıları gerekir. Sağlama hizmeti, cihazın önyüklenmesini ve daha sonra buna bağlanmasını bekler. Cihazınız ilk kez önyüklendiğinde, istemci SDK’sı mantığı, cihazdaki güvenlik yapılarını ayıklamak için yonganız (veya simülatör) ile etkileşime geçer ve Cihaz Sağlama hizmetinize kaydı doğrular. 
 
@@ -151,9 +151,9 @@ Son adım, cihazı IoT Hub hizmetine kaydetmek için Cihaz Sağlama Hizmeti iste
 
     ![Portal dikey penceresinden DPS uç nokta bilgilerini ayıklama](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
 
-2. Makinenizdeki Visual Studio *Çözüm Gezgini*'nde **Sağlama\_Örnekler** klasörüne gidin. **prov\_dev\_client\_sample** adlı örnek projeyi seçip **prov\_dev\_client\_sample.c** kaynak dosyasını açın.
+1. Makinenizdeki Visual Studio *Çözüm Gezgini*'nde **Sağlama\_Örnekler** klasörüne gidin. **prov\_dev\_client\_sample** adlı örnek projeyi seçip **prov\_dev\_client\_sample.c** kaynak dosyasını açın.
 
-3. 1. adımda elde edilen _Kimlik Kapsamı_ değerini `id_scope` değişkenine atayın (left/`[` ve right/`]` ayraçlarını kaldırarak): 
+1. 1. adımda elde edilen _Kimlik Kapsamı_ değerini `id_scope` değişkenine atayın (left/`[` ve right/`]` ayraçlarını kaldırarak): 
 
     ```c
     static const char* global_prov_uri = "global.azure-devices-provisioning.net";
@@ -162,16 +162,16 @@ Son adım, cihazı IoT Hub hizmetine kaydetmek için Cihaz Sağlama Hizmeti iste
 
     Başvuru için, `IoTHubClient_LL_CreateFromDeviceAuth` IoT Hub istemci kaydı API’sinin, belirlenen Cihaz Sağlama Hizmeti örneğine bağlanmasına olanak sağlayan `global_prov_uri` değişkeni.
 
-4. Aynı dosyadaki **main()** işlevinde, cihazınızın kayıt yazılımı (TPM veya X.509) tarafından kullanılmakta olan kanıtlama mekanizmasıyla eşleşen `hsm_type` değişkenine açıklama ekleyin veya bu değişkenin açıklamasını kaldırın: 
+1. Aynı dosyadaki **main()** işlevinde, cihazınızın kayıt yazılımı (TPM veya X.509) tarafından kullanılmakta olan kanıtlama mekanizmasıyla eşleşen `hsm_type` değişkenine açıklama ekleyin veya bu değişkenin açıklamasını kaldırın: 
 
     ```c
     hsm_type = SECURE_DEVICE_TYPE_TPM;
     //hsm_type = SECURE_DEVICE_TYPE_X509;
     ```
 
-5. Değişikliklerinizi kaydedin ve "Derleme" menüsünden "Çözümü derle" seçeneğini belirleyerek **prov\_dev\_client\_sample** örneğini yeniden derleyin. 
+1. Değişikliklerinizi kaydedin ve "Derleme" menüsünden "Çözümü derle" seçeneğini belirleyerek **prov\_dev\_client\_sample** örneğini yeniden derleyin. 
 
-6. **Sağlama\_Örnekler** klasörünün altında **prov\_dev\_client\_sample** projesine sağ tıklayın ve **Başlangıç Projesi Olarak Ayarla**’yı seçin. Henüz örnek uygulamayı ÇALIŞTIRMAYIN.
+1. **Sağlama\_Örnekler** klasörünün altında **prov\_dev\_client\_sample** projesine sağ tıklayın ve **Başlangıç Projesi Olarak Ayarla**’yı seçin. Henüz örnek uygulamayı ÇALIŞTIRMAYIN.
 
 > [!IMPORTANT]
 > Henüz cihazı çalıştırmayın/başlatmayın! Cihazı başlatmadan önce ilk olarak Cihaz Sağlama Hizmeti’ne cihazı kaydederek işlemi tamamlamanız gerekir. Aşağıda yer alan Sonraki adımlar, sonraki makale için size yol gösterecektir.
@@ -204,7 +204,7 @@ Ayrıca, ilk olarak bir sanal cihaz kullanarak Cihaz Sağlama Hizmeti istemci ka
 Bu noktada, Cihaz Sağlama ve IoT Hub hizmetleri portalda çalışıyor olabilir. Cihaz sağlama kurulumundan çıkmak ve/veya bu öğretici serisinin tamamlanmasını geciktirmek istiyorsanız, gereksiz yinelenen maliyetler oluşmasını önlemek için bunların kapatılmasını öneririz.
 
 1. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’ı ve ardından Cihaz Sağlama hizmetini seçin. **Tüm kaynaklar** dikey pencerenin en üstündeki **Sil** seçeneğine tıklayın.  
-2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’ı ve ardından IoT hub’ınızı seçin. **Tüm kaynaklar** dikey pencerenin en üstündeki **Sil** seçeneğine tıklayın.  
+1. Azure portalında sol taraftaki menüden **Tüm kaynaklar**’ı ve ardından IoT hub’ınızı seçin. **Tüm kaynaklar** dikey pencerenin en üstündeki **Sil** seçeneğine tıklayın.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:

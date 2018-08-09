@@ -11,12 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: c5de0b1384958bc8553aa3722ad6a5829b69ab12
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fab67b503d060c8c01b5a3692c8a07b24c425c78
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488708"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437415"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Linux üzerinde özel görüntü kullanarak bir işlev oluşturma (önizleme)
 
@@ -161,7 +161,7 @@ Linux İşlev barındırma şu anda tüketim planlarında desteklenmemektedir. B
 
 ## <a name="create-and-deploy-the-custom-image"></a>Özel görüntü oluşturup dağıtma
 
-İşlev uygulaması, işlevlerinizin yürütülmesini barındırır. [az functionapp create](/cli/azure/functionapp#az_functionapp_create) komutunu kullanarak bir Docker Hub görüntüsünden işlev uygulaması oluşturun. 
+İşlev uygulaması, işlevlerinizin yürütülmesini barındırır. [az functionapp create](/cli/azure/functionapp#az-functionapp-create) komutunu kullanarak bir Docker Hub görüntüsünden işlev uygulaması oluşturun. 
 
 Aşağıdaki komutta benzersiz bir işlev uygulamasının adını `<app_name>` yer tutucusunun ve `<storage_name>` depolama hesabı adının yerine ekleyin. `<app_name>`, işlev uygulamasının varsayılan DNS etki alanı olarak kullanılacağı için adın Azure’daki tüm uygulamalarda benzersiz olması gerekir. Daha önce olduğu gibi, `<docker-id>` Docker hesap adınızdır.
 
@@ -196,7 +196,7 @@ _deployment-container-image-name_ parametresi, işlev uygulamasını oluşturmak
 
 İşlevin varsayılan depolama hesabına bağlanması için bağlantı dizesi gerekir. Özel görüntünüzü bir özel kapsayıcı hesabında yayımlarken, bunun yerine [ENV instruction](https://docs.docker.com/engine/reference/builder/#env) ya da eşdeğerini kullanarak Dockerfile dosyasında ortam değişkeni olarak bu uygulama ayarlarını belirlemeniz gerekir. 
 
-Bu durumda `<storage_account>`, oluşturduğunuz depolama hesabının adıdır. [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) komutu ile bağlantı dizesini alın. [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) komutu ile bu uygulama ayarlarını işlev uygulamasına ekleyin.
+Bu durumda `<storage_account>`, oluşturduğunuz depolama hesabının adıdır. [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) komutu ile bağlantı dizesini alın. [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) komutu ile bu uygulama ayarlarını işlev uygulamasına ekleyin.
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
-ms.openlocfilehash: 2daff49e90213b2fadc0f75e0209f668a94d3dea
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1e5ca9fb44ea3ad15206f36a16e61f2865d79f5f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32161931"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427780"
 ---
 # <a name="scale-an-azure-container-service-cluster"></a>Azure Container Service Kümesini Ölçeklendirme
 
@@ -51,7 +51,7 @@ Bu betik, dağıtımı oluşturmak için aşağıdaki komutları kullanır. Tabl
 
 | Komut | Notlar |
 |---|---|
-| [az acs scale](/cli/azure/acs#az_acs_scale) | ACS kümesini ölçeklendirin. |
+| [az acs scale](/cli/azure/acs#az-acs-scale) | ACS kümesini ölçeklendirin. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

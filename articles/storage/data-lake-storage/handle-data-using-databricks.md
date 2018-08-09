@@ -3,19 +3,18 @@ title: Azure Databricks'i kullanarak ayıklama, yükleme ve aktarma işlemlerini
 description: Azure Data Lake Storage Gen2 Önizleme'den Azure Databricks'e veri ayıklamayı, verileri dönüştürmeyi ve sonra da Azure SQL Veri Ambarı'na yüklemeyi öğrenin.
 services: azure-databricks
 author: jamesbak
-manager: jahogg
 ms.component: data-lake-storage-gen2
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 10aad06d4ac8d76dc023648e8d6c0366bff859e6
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: dcc0cb6d761fde5af16dbc86c674e2fc00dad58a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344720"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522297"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Öğretici: Azure Databricks kullanarak verileri ayıklama, dönüştürme ve yükleme
 
@@ -43,7 +42,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 Bu öğreticiyi tamamlamak için:
 
-* Bir Azure SQL Veri Ambarı oluşturun, sunucu tarafı güvenlik duvarı kuralı oluşturun ve sunucu yöneticisi olarak sunucuya bağlanın. [Hızlı başlangıç: Azure SQL Veri Ambarı oluşturma](../../sql-data-warehouse/create-data-warehouse-portal.md) başlığı altındaki yönergeleri izleyin
+* Bir Azure SQL Veri Ambarı oluşturun, sunucu düzeyi güvenlik duvarı kuralı oluşturun ve sunucu yöneticisi olarak sunucuya bağlanın. [Hızlı başlangıç: Azure SQL Veri Ambarı oluşturma](../../sql-data-warehouse/create-data-warehouse-portal.md) başlığı altındaki yönergeleri izleyin
 * Azure SQL Veri Ambarı için veritabanı ana anahtarı oluşturun. [Veritabanı Ana Anahtarı oluşturma](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key) başlığı altındaki yönergeleri izleyin.
 * [Azure Data Lake Storage Gen2 hesabı oluşturma](quickstart-create-account.md)
 
@@ -266,7 +265,7 @@ Ham örnek veriler (**small_radio_json.json**) radyo istasyonunun hedef kitlesin
 
 Bu bölümde, dönüştürülen verileri Azure SQL Veri Ambarı'na yüklersiniz. Azure Databricks için Azure SQL Veri Ambarı bağlayıcısını kullanıp veri çerçevesini bir tablo olarak doğrudan SQL veri ambarına yükleyebilirsiniz.
 
-Daha önce de belirtildiği gibi, SQL veri ambarı bağlayıcısı verileri Azure Databricks ile Azure SQL Veri Ambarı arasında yüklemek için geçici depolama olarak Azure Blob Depolama'yı kullanır. Bu nedenle, depolama hesabına bağlanmak için yapılandırmayı sağlamaya başlarsınız. Bu makalenin önkoşullarından biri olarak hesabı önceden oluşturmuş olmalısınız.
+Daha önce de belirtildiği gibi, SQL veri ambarı bağlayıcısı verileri Azure Databricks ile Azure SQL Veri Ambarı arasında aktarmak üzere karşıya yüklemek için geçici depolama alanı olarak Azure Blob Depolama'yı kullanır. Bu nedenle, depolama hesabına bağlanmak için kullanılacak yapılandırmayı sağlayarak başlarsınız. Bu makalenin önkoşullarından biri olarak hesabı önceden oluşturmuş olmalısınız.
 
 1. Azure Databricks'ten Azure Depolama hesabına erişmek için yapılandırmayı sağlayın.
 

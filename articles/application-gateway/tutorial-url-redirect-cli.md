@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 161f823660f984a1e691c156cf3e27da87de66b7
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 6a6dfd602db6fe3e5a2ccf02fa323c5b5d463ee7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069082"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445609"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Öğretici: Azure CLI kullanarak URL yolu tabanlı yeniden yönlendirme ile bir uygulama ağ geçidi oluşturma
 
@@ -53,7 +53,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Ağ kaynakları oluşturma 
 
-[az network vnet create](/cli/azure/network/vnet#az_net) komutunu kullanarak *myVNet* adlı sanal ağı ve *myAGSubnet* adlı alt ağı oluşturun. Daha sonra [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) kullanan arka uç sunucularının gerek duyduğu *myBackendSubnet* adlı alt ağı ekleyebilirsiniz. [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create) komutunu kullanarak *myAGPublicIPAddress* adlı genel IP adresini oluşturun.
+[az network vnet create](/cli/azure/network/vnet#az-net) komutunu kullanarak *myVNet* adlı sanal ağı ve *myAGSubnet* adlı alt ağı oluşturun. Daha sonra [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create) kullanan arka uç sunucularının gerek duyduğu *myBackendSubnet* adlı alt ağı ekleyebilirsiniz. [az network public-ip create](/cli/azure/public-ip#az-network_public_ip_create) komutunu kullanarak *myAGPublicIPAddress* adlı genel IP adresini oluşturun.
 
 ```azurecli-interactive
 az network vnet create \
@@ -106,7 +106,7 @@ az network application-gateway create \
 
 ### <a name="add-backend-pools-and-ports"></a>Arka uç havuzları ve bağlantı noktaları ekleme
 
-[az network application-gateway address-pool create](/cli/azure/application-gateway#az_network_application_gateway_address-pool_create) kullanarak *imagesBackendPool* ve *videoBackendPool* adlı arka uç adres havuzlarını uygulama ağ geçidinize ekleyebilirsiniz. [az network application-gateway frontend-port create](/cli/azure/application-gateway#az_network_application_gateway_frontend_port_create) kullanarak havuzlara ön uç bağlantı noktalarını eklersiniz. 
+[az network application-gateway address-pool create](/cli/azure/application-gateway#az-network_application_gateway_address-pool_create) kullanarak *imagesBackendPool* ve *videoBackendPool* adlı arka uç adres havuzlarını uygulama ağ geçidinize ekleyebilirsiniz. [az network application-gateway frontend-port create](/cli/azure/application-gateway#az-network_application_gateway_frontend_port_create) kullanarak havuzlara ön uç bağlantı noktalarını eklersiniz. 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -136,7 +136,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-listeners"></a>Dinleyiciler ekleme
 
-[az network application-gateway http-listener create](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create) kullanarak trafiği yönlendirmek için gereken *backendListener* ve *redirectedListener* adlı arka uç dinleyicilerini ekleyin.
+[az network application-gateway http-listener create](/cli/azure/application-gateway#az-network_application_gateway_http_listener_create) kullanarak trafiği yönlendirmek için gereken *backendListener* ve *redirectedListener* adlı arka uç dinleyicilerini ekleyin.
 
 
 ```azurecli-interactive
@@ -157,7 +157,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-default-url-path-map"></a>Varsayılan URL yolu eşlemesi ekleme
 
-URL yol eşlemeleri belirli URL'lerin belirli arka uç havuzlarına yönlendirilmesini sağlar. [az network application-gateway url-path-map create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_create) ve [az network application-gateway url-path-map rule create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_rule_create) kullanarak *imagePathRule* ve *videoPathRule* adlı URL yol eşlemelerini oluşturabilirsiniz.
+URL yol eşlemeleri belirli URL'lerin belirli arka uç havuzlarına yönlendirilmesini sağlar. [az network application-gateway url-path-map create](/cli/azure/application-gateway#az-network_application_gateway_url_path_map_create) ve [az network application-gateway url-path-map rule create](/cli/azure/application-gateway#az-network_application_gateway_url_path_map_rule_create) kullanarak *imagePathRule* ve *videoPathRule* adlı URL yol eşlemelerini oluşturabilirsiniz.
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -182,7 +182,7 @@ az network application-gateway url-path-map rule create \
 
 ### <a name="add-redirection-configuration"></a>Yeniden yönlendirme yapılandırması ekleme
 
-[az network application-gateway redirect-config create](/cli/azure/application-gateway#az_network_application_gateway_redirect_config_create) kullanarak dinleyici için yeniden yönlendirmeyi yapılandırabilirsiniz.
+[az network application-gateway redirect-config create](/cli/azure/application-gateway#az-network_application_gateway_redirect_config_create) kullanarak dinleyici için yeniden yönlendirmeyi yapılandırabilirsiniz.
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -209,7 +209,7 @@ az network application-gateway url-path-map create \
 
 ### <a name="add-routing-rules"></a>Yönlendirme kuralları ekleme
 
-Yönlendirme kuralları, URL yolu eşlemelerini oluşturduğunuz dinleyicilerle ilişkilendirir. [az network application-gateway rule create](/cli/azure/application-gateway#az_network_application_gateway_rule_create) kullanarak *defaultRule* ve *redirectedRule* adlı kuralları ekleyebilirsiniz.
+Yönlendirme kuralları, URL yolu eşlemelerini oluşturduğunuz dinleyicilerle ilişkilendirir. [az network application-gateway rule create](/cli/azure/application-gateway#az-network_application_gateway_rule_create) kullanarak *defaultRule* ve *redirectedRule* adlı kuralları ekleyebilirsiniz.
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -283,7 +283,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Uygulama ağ geçidini test etme
 
-Uygulama ağ geçidinin genel IP adresini almak için [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) komutunu kullanın. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın. Örneğin, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, *http://40.121.222.19:8080/video/test.htm* veya *http://40.121.222.19:8081/images/test.htm*.
+Uygulama ağ geçidinin genel IP adresini almak için [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show) komutunu kullanın. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın. Örneğin, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, *http://40.121.222.19:8080/video/test.htm* veya *http://40.121.222.19:8081/images/test.htm*.
 
 ```azurepowershell-interactive
 az network public-ip show \

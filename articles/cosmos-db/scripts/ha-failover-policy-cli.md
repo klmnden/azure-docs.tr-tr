@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: sngun
-ms.openlocfilehash: 94d91c59aef569b952799ede45222914af698bc4
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 49cae1d5187a04ef1d7a87eacfdb32faf042bd0b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795525"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444727"
 ---
 # <a name="create-a-failover-policy-for-high-availability-using-the-azure-cli"></a>Azure CLI kullanarak yüksek kullanılabilirlik için yük devretme ilkesi oluşturma
 
@@ -47,10 +47,10 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 
 | Komut | Notlar |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [az cosmosdb create](/cli/azure/sql/server#az_sql_server_create) | Azure Cosmos DB hesabı oluşturur. |
-| [az cosmosdb update](/cli/azure/cosmosdb#az_cosmosdb_update) | Azure Cosmos DB hesabını güncelleştirir. |
-| [az group delete](/cli/azure/resource#az_resource_delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
+| [az group create](/cli/azure/group#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az cosmosdb create](/cli/azure/sql/server#az-sql-server-create) | Azure Cosmos DB hesabı oluşturur. |
+| [az cosmosdb update](/cli/azure/cosmosdb#az-cosmosdb-update) | Azure Cosmos DB hesabını güncelleştirir. |
+| [az group delete](/cli/azure/resource#az-resource-delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

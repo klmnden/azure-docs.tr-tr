@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 2/14/2018
 ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: eff5a292138bca8f443b77ec8e3ce8e3ee15464e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2fd993960d8ae5d1f26939d333e546da760d8f43
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607586"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432591"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Azure’da dosyaları sanal makineye geri yükleme
 Azure Backup, coğrafi olarak yedekli kurtarma kasalarında depolanan kurtarma noktaları oluşturur. Bir kurtarma noktasından geri yüklediğinizde, tüm sanal makineyi veya tek tek dosyaları geri yükleyebilirsiniz. Bu makalede tek tek dosyaların nasıl geri yükleneceği açıklanmaktadır. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
@@ -45,7 +45,7 @@ Veri aktarımı tamamlandığında, anlık görüntü kaldırılır ve bir kurta
 ## <a name="delete-a-file-from-a-vm"></a>Sanal makineden bir dosyayı silme
 Yanlışlıkla bir dosyayı siler veya dosya üzerinde değişiklik yaparsanız, bir kurtarma noktasından tek tek dosyaları geri yükleyebilirsiniz. Bu işlem, bir kurtarma noktasında yedeklenen dosyalara göz atmanıza ve yalnızca ihtiyaç duyduğunuz dosyaları geri yüklemenize olanak sağlar. Bu örnekte, dosya düzeyinde kurtarma işlemini göstermek için bir web sunucusundan dosyayı sileriz.
 
-1. Sanal makinenize bağlanmak için [az vm show](/cli/azure/vm?view=azure-cli-latest#az_vm_show) ile sanal makinenizin IP adresini edinin:
+1. Sanal makinenize bağlanmak için [az vm show](/cli/azure/vm?view=azure-cli-latest#az-vm-show) ile sanal makinenizin IP adresini edinin:
 
      ```azurecli-interactive
      az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
@@ -81,7 +81,7 @@ Yanlışlıkla bir dosyayı siler veya dosya üzerinde değişiklik yaparsanız,
 ## <a name="generate-file-recovery-script"></a>Dosya kurtarma betiği oluşturma
 Dosyalarınızı geri yüklemek için Azure Backup, yerel dosya olarak kurtarma noktanızı bağlayan sanal makinenizde çalıştırılacak bir betik sağlar. Bu yerel sürücüye göz atabilir, sanal makineye dosyaları geri yükleyebilir, ardından kurtarma noktasının bağlantısını kesebilirsiniz. Azure Backup, zamanlama ve bekletme için atanan ilke temelinde verilerinizi yedeklemeye devam eder.
 
-1. Sanal makinenize yönelik kurtarma noktalarını listelemek için [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list) komutunu kullanın. Bu örnekte, *myRecoveryServicesVault* içinde korunan *myVM* adlı sanal makine için en son kurtarma noktasını seçiyoruz:
+1. Sanal makinenize yönelik kurtarma noktalarını listelemek için [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) komutunu kullanın. Bu örnekte, *myRecoveryServicesVault* içinde korunan *myVM* adlı sanal makine için en son kurtarma noktasını seçiyoruz:
 
     ```azurecli-interactive
     az backup recoverypoint list \
@@ -93,7 +93,7 @@ Dosyalarınızı geri yüklemek için Azure Backup, yerel dosya olarak kurtarma 
         --output tsv
     ```
 
-2. Kurtarma noktasını sanal makinenize bağlayan veya takan betiği almak için [az backup restore files mount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp) komutunu kullanın. Aşağıdaki örnek, *myRecoveryServicesVault* içinde korunan *myVM* adlı sanal makine için betiği alır.
+2. Kurtarma noktasını sanal makinenize bağlayan veya takan betiği almak için [az backup restore files mount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-mount-rp) komutunu kullanın. Aşağıdaki örnek, *myRecoveryServicesVault* içinde korunan *myVM* adlı sanal makine için betiği alır.
 
     *myRecoveryPointName* değerini, önceki komutta aldığınız kurtarma noktasının adıyla değiştirin:
 
@@ -140,7 +140,7 @@ Sanal makinenize kurtarma betiği kopyalandığına göre artık kurtarma noktas
     ./myVM_we_1571974050985163527.sh
     ```
 
-    Komut dosyası çalıştırılırken, kurtarma noktasına erişmek için bir parola girmeniz istenir. Kurtarma betiğini oluşturan önceki [az backup restore files mount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp) komutundan elde edilen çıktıda gösterilen parolayı girin.
+    Komut dosyası çalıştırılırken, kurtarma noktasına erişmek için bir parola girmeniz istenir. Kurtarma betiğini oluşturan önceki [az backup restore files mount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-mount-rp) komutundan elde edilen çıktıda gösterilen parolayı girin.
 
     Betikteki çıktı size kurtarma noktasının yolunu sunar. Aşağıdaki örnek çıktı, */home/azureuser/myVM-20170919213536/Volume1* dizinine bağlanan kurtarma noktasını gösterir:
 
@@ -180,7 +180,7 @@ Sanal makinenize kurtarma betiği kopyalandığına göre artık kurtarma noktas
     exit
     ```
 
-8. [az backup restore files unmount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_unmount_rp) ile sanal makinenizden kurtarma noktasını çıkarın. Aşağıdaki örnek, *myRecoveryServicesVault* içindeki *myVM* adlı sanal makineden kurtarma noktasını çıkarır.
+8. [az backup restore files unmount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-unmount-rp) ile sanal makinenizden kurtarma noktasını çıkarın. Aşağıdaki örnek, *myRecoveryServicesVault* içindeki *myVM* adlı sanal makineden kurtarma noktasını çıkarır.
 
     *myRecoveryPointName* değerini, önceki komutlarda aldığınız kurtarma noktasının adıyla değiştirin:
     

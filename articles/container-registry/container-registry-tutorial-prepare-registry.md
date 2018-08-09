@@ -9,11 +9,12 @@ ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: afdee938145dacf50538ceb186957933fe7ec3bd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 379878e261007eca13a4e455ef2b97237c81eeba
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450037"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Öğretici: Coğrafi çoğaltmalı Azure Container Registry’yi hazırlama
 
@@ -31,7 +32,7 @@ Sonraki öğreticilerde, kapsayıcıyı özel kayıt defterinizden iki Azure bö
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu öğretici, Azure CLI’nın (sürüm 2.0.31 veya sonraki bir sürüm) yerel bir yüklemesini gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+Bu öğretici, Azure CLI’nın (sürüm 2.0.31 veya sonraki bir sürüm) yerel bir yüklemesini gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
 
 Kapsayıcılar, kapsayıcı görüntüleri ve temel Docker CLI komutları gibi temel Docker kavramları hakkında bilgi sahibi olmanız gerekir. Kapsayıcı temelleri hakkında bilgi için bkz. [Docker ile çalışmaya başlama]( https://docs.docker.com/get-started/).
 
@@ -89,7 +90,7 @@ Yeşil altıgeni seçip ardından **Çoğaltma oluştur** bölümünden **Oluşt
 
 Coğrafi çoğaltmayı yapılandırdığınıza göre, bir kapsayıcı görüntüsü oluşturun ve kayıt defterinize gönderin. Görüntüleri göndermeden önce ACR örneğinizde oturum açmanız gerekir.
 
-Kimlik doğrulaması yapmak ve kayıt defterinize yönelik kimlik bilgilerini önbelleğe almak için [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) komutunu kullanın. `<acrName>` değerini, önceden oluşturduğunuz kayıt defterinin adıyla değiştirin.
+Kimlik doğrulaması yapmak ve kayıt defterinize yönelik kimlik bilgilerini önbelleğe almak için [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) komutunu kullanın. `<acrName>` değerini, önceden oluşturduğunuz kayıt defterinin adıyla değiştirin.
 
 ```azurecli
 az acr login --name <acrName>

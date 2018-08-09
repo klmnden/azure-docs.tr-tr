@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/13/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 5686266774603413fc255c53a0d1ad30f9baa8eb
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 6d328d8a3556f565e7eac8ee079bd191b7dcadef
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173869"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433451"
 ---
 # <a name="deploy-a-python-web-app-in-web-app-for-containers"></a>Kapsayıcılar için Web App’te bir Python web uygulaması dağıtma
 
@@ -96,7 +96,7 @@ Görüntü gönderme işlemi tamamlandıktan sonra Azure web uygulamanızda kull
 
 ## <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
-[az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) komutuyla `myAppServicePlan` App Service planında bir [web uygulaması](../app-service-web-overview.md) oluşturun. *\<app name>* yerine global olarak benzersiz bir uygulama adı, *\<dockerhub_id>* yerine de Docker Hub kimliğinizi yazın.
+[az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) komutuyla `myAppServicePlan` App Service planında bir [web uygulaması](../app-service-web-overview.md) oluşturun. *\<app name>* yerine global olarak benzersiz bir uygulama adı, *\<dockerhub_id>* yerine de Docker Hub kimliğinizi yazın.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name <dockerhub_id>/flask-quickstart
@@ -125,7 +125,7 @@ Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan çıktıdaki gi
 
 _Dockerfile_ içinde belirtildiği üzere kapsayıcınız 8000 numaralı bağlantı noktasını dinler. App Service'in isteğinizi doğru bağlantı noktasından yönlendirmesi için *WEBSITES_PORT* uygulama ayarını kullanmanız gerekir.
 
-Cloud Shell'de, [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) komutunu çalıştırın.
+Cloud Shell'de, [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) komutunu çalıştırın.
 
 
 ```azurecli-interactive

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 01c13b214d40fba278ce788047e2b158adc20287
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 98c86f5613116dce5423aa9ca6a2ff43e5414592
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711605"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594789"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Öğretici - Azure Active Directory B2C kullanarak bir masaüstü uygulamasından Node.js web API'sine erişim izni verme
 
@@ -39,7 +39,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="register-web-api"></a>Web API’si kaydetme
 
-Web API’si kaynaklarının Azure Active Directory’den bir [erişim belirteci](../active-directory/develop/active-directory-dev-glossary.md#access-token) sunan [istemci uygulamalar](../active-directory/develop/active-directory-dev-glossary.md#client-application) tarafından [korunan kaynak isteklerini](../active-directory/develop/active-directory-dev-glossary.md#resource-server) kabul etmesi ve yanıtlaması için kiracınızda kayıtlı olmaları gerekir. Kayıt, kiracınızda [uygulama ve hizmet sorumlusu nesnesini](../active-directory/develop/active-directory-dev-glossary.md#application-object) belirler. 
+Web API’si kaynaklarının Azure Active Directory’den bir [erişim belirteci](../active-directory/develop/developer-glossary.md#access-token) sunan [istemci uygulamalar](../active-directory/develop/developer-glossary.md#client-application) tarafından [korunan kaynak isteklerini](../active-directory/develop/developer-glossary.md#resource-server) kabul etmesi ve yanıtlaması için kiracınızda kayıtlı olmaları gerekir. Kayıt, kiracınızda [uygulama ve hizmet sorumlusu nesnesini](../active-directory/develop/developer-glossary.md#application-object) belirler. 
 
 [Azure portalında](https://portal.azure.com/) Azure AD B2C kiracınızın genel yöneticisi olarak oturum açın.
 
@@ -59,7 +59,7 @@ Web API’si kaynaklarının Azure Active Directory’den bir [erişim belirteci
     | **Web uygulamasını / web API'sini dahil etme** | Yes | Web API’si için **Evet**’i seçin. |
     | **Örtük akışa izin verme** | Yes | API [OpenID Connect oturumu](active-directory-b2c-reference-oidc.md) kullandığından **Evet**’i seçin. |
     | **Yanıt URL'si** | `http://localhost:5000` | Yanıt URL'leri, Azure AD B2C'nin, API’niz tarafından istenen belirteçleri döndürdüğü uç noktalardır. Bu öğreticide örnek web API’si yerel olarak (localhost) çalışır ve 5000 numaralı bağlantı noktasını dinler. |
-    | **Uygulama Kimliği URI'si** | demoapi | URI, kiracıdaki API’yi benzersiz olarak tanımlar. Bu, kiracı başına birden çok API kaydetmenize olanak sağlar. [Kapsamlar](../active-directory/develop/active-directory-dev-glossary.md#scopes) korumalı API kaynağına erişimi yönetir ve Uygulama Kimliği URI’si başına tanımlanır. |
+    | **Uygulama Kimliği URI'si** | demoapi | URI, kiracıdaki API’yi benzersiz olarak tanımlar. Bu, kiracı başına birden çok API kaydetmenize olanak sağlar. [Kapsamlar](../active-directory/develop/developer-glossary.md#scopes) korumalı API kaynağına erişimi yönetir ve Uygulama Kimliği URI’si başına tanımlanır. |
     | **Yerel istemci** | Hayır | Bu, bir web API’si olduğu için ve yerel bir istemci olmadığı için Hayır’ı seçin. |
     
 3. API’nizi kaydetmek için **Oluştur** seçeneğine tıklayın.
@@ -74,7 +74,7 @@ Web API’nizi Azure AD B2C ile kaydetmek bir güven ilişkisini tanımlar. API 
 
 ## <a name="define-and-configure-scopes"></a>Kapsamları tanımlama ve yapılandırma
 
-[Kapsamlar](../active-directory/develop/active-directory-dev-glossary.md#scopes) korumalı kaynaklara erişimi yönetmenin bir yolunu sunar. Kapsamlar web API’si tarafından kapsam tabanlı erişim denetimi uygulamak için kullanılır. Örneğin, bazı kullanıcılar hem okuma hem de yazma erişimine sahipken diğer kullanıcıların salt okunur izinleri olabilir. Bu öğreticide web API’si için okuma ve yazma izinlerini tanımlayacaksınız.
+[Kapsamlar](../active-directory/develop/developer-glossary.md#scopes) korumalı kaynaklara erişimi yönetmenin bir yolunu sunar. Kapsamlar web API’si tarafından kapsam tabanlı erişim denetimi uygulamak için kullanılır. Örneğin, bazı kullanıcılar hem okuma hem de yazma erişimine sahipken diğer kullanıcıların salt okunur izinleri olabilir. Bu öğreticide web API’si için okuma ve yazma izinlerini tanımlayacaksınız.
 
 ### <a name="define-scopes-for-the-web-api"></a>Web API’si için kapsamları tanımlama
 
@@ -108,9 +108,9 @@ Bir uygulamadan korumalı web API’sini çağırmak için, API’ye uygulama iz
 
     ![uygulama için kapsamları seçme](media/active-directory-b2c-tutorials-web-api/selecting-scopes-for-app.png)
 
-5. **Tamam**’a tıklayın.
+5. **Tamam** düğmesine tıklayın.
 
-**Örnek WPF Uygulamam**, korumalı **Örnek Node.js web API’si** öğesini çağırmak için kaydedilir. Kullanıcılar WPF masaüstü uygulamasını kullanmak için Azure AD B2C ile [kimlik doğrulaması yapar](../active-directory/develop/active-directory-dev-glossary.md#authentication). Masaüstü uygulaması, korumalı web API’sine erişmek için Azure AD B2C’den bir [yetkilendirme izni](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant) alır.
+**Örnek WPF Uygulamam**, korumalı **Örnek Node.js web API’si** öğesini çağırmak için kaydedilir. Kullanıcılar WPF masaüstü uygulamasını kullanmak için Azure AD B2C ile [kimlik doğrulaması yapar](../active-directory/develop/developer-glossary.md#authentication). Masaüstü uygulaması, korumalı web API’sine erişmek için Azure AD B2C’den bir [yetkilendirme izni](../active-directory/develop/developer-glossary.md#authorization-grant) alır.
 
 ## <a name="update-web-api-code"></a>Web API kodunu güncelleştirme
 

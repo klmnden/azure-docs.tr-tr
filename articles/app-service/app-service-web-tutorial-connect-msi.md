@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f1388843f2c5d3ea607b876ece288db1370329a2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 173588c0200666c52f3ac0a5d2e70d667cfe3294
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38461546"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445570"
 ---
 # <a name="tutorial-secure-sql-database-connection-with-managed-service-identity"></a>Öğretici: Yönetilen hizmet kimliği ile SQL Veritabanı bağlantısını güvenli hale getirme
 
@@ -48,7 +48,7 @@ Bu makale, [Öğretici: Azure’da SQL Veritabanı ile ASP.NET uygulaması derle
 
 ## <a name="enable-managed-service-identity"></a>Yönetilen hizmet kimliğini etkinleştirme
 
-Azure uygulamanızda bir hizmet kimliği etkinleştirmek için Cloud Shell’de [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az_webapp_identity_assign) komutunu kullanın. Aşağıdaki komutta *\<app name>* değerini değiştirin.
+Azure uygulamanızda bir hizmet kimliği etkinleştirmek için Cloud Shell’de [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) komutunu kullanın. Aşağıdaki komutta *\<app name>* değerini değiştirin.
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app name>
@@ -73,7 +73,7 @@ az ad sp show --id <principalid>
 
 ## <a name="grant-database-access-to-identity"></a>Kimliğe veritabanı erişimi verme
 
-Ardından, Cloud Shell’de [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az_sql_server_ad-admin_create) komutunu kullanarak uygulamanızın hizmet kimliğine veritabanı erişimi verin. Aşağıdaki komutta *\<server_name>* ve <principalid_from_last_step> değerlerini değiştirin. *\<admin_user>* için bir yönetici adı yazın.
+Ardından, Cloud Shell’de [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) komutunu kullanarak uygulamanızın hizmet kimliğine veritabanı erişimi verin. Aşağıdaki komutta *\<server_name>* ve <principalid_from_last_step> değerlerini değiştirin. *\<admin_user>* için bir yönetici adı yazın.
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
@@ -83,7 +83,7 @@ Yönetilen hizmet kimliği artık Azure SQL Veritabanı sunucunuza erişebilir.
 
 ## <a name="modify-connection-string"></a>Bağlantı dizesini değiştirme
 
-Cloud Shell’de [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) komutunu kullanarak uygulamanız için daha önce ayarladığınız bağlantıyı değiştirin. Aşağıdaki komutta *\<app name>* değerini uygulamanızın adıyla, *\<server_name>* ile *\<db_name>* değerlerini ise SQL Veritabanınızın adlarıyla değiştirin.
+Cloud Shell’de [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) komutunu kullanarak uygulamanız için daha önce ayarladığınız bağlantıyı değiştirin. Aşağıdaki komutta *\<app name>* değerini uygulamanızın adıyla, *\<server_name>* ile *\<db_name>* değerlerini ise SQL Veritabanınızın adlarıyla değiştirin.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='Server=tcp:<server_name>.database.windows.net,1433;Database=<db_name>;' --connection-string-type SQLAzure

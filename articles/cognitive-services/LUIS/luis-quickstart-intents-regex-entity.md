@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/30/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 9da2454afa130c4c2ccab458099a90d78354b3e2
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 994bd6f2a041e25d15c7e0b4a216952cec4101fa
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358313"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492832"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>Öğretici: 3. Normal ifade varlığı ekleme
 Bu öğreticide **Regular Expression** varlığını kullanarak bir konuşmadaki tutarlı bir şekilde biçimlendirilmiş verileri ayıklamayı gösteren bir uygulama oluşturacaksınız.
@@ -110,15 +110,8 @@ Aşağıdaki adımları izleyerek LUIS uygulamasına HRF-numara biçimini bildir
     Varlık, makine öğrenmesi varlığı olmadığından etiket oluşturulduktan hemen sonra konuşmalara uygulanır ve LUIS web sitesinde görüntülenir.
 
 ## <a name="train-the-luis-app"></a>LUIS uygulamasını eğitme
-Normal ifade varlığı için eğitim gerekli değildir ancak yeni amaç ve konuşmalar için eğitim gereklidir. 
 
-1. LUIS web sitesinin sağ üst kısmından **Train** (Eğitim) düğmesini seçin.
-
-    ![Eğitim düğmesinin görüntüsü](./media/luis-quickstart-intents-regex-entity/train-button.png)
-
-2. Web sitesinin üst kısmında işlemin başarılı olduğunu belirten yeşil durum çubuğunu gördüğünüzde eğitim tamamlanmış olur.
-
-    ![Başarılı işlem bildirim çubuğunun görüntüsü](./media/luis-quickstart-intents-regex-entity/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Uç nokta URL'sini almak için uygulamayı yayımlama
 
@@ -237,7 +230,8 @@ Sohbet botunuz artık `FindForm` birincil eylemini ve aramada yer alan form numa
 LUIS uygulamasının bu istek üzerinde gerçekleştirebileceği işlemler bu kadardır. Sohbet botu gibi bir çağrı uygulaması topScoringIntent sonucunu ve form numaralarını alarak üçüncü taraf bir API ile arama gerçekleştirebilir. LUIS bu görevi gerçekleştirmez. LUIS yalnızca kullanıcının amacını belirler ve bu amaçla ilgili verileri ayıklar. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Sol üstteki menüden **My apps** (Uygulamalarım) öğesini seçin. Uygulama listesinde uygulama adının yanındaki üç noktayı (***...***) ve sonra da **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

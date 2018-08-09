@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 4b00f28d3a1183d5033d0655d8c3f244e3d108e7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e99d6e917df1bf3bbb4658524f1b3e249a01da72
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226001"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433893"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Öğretici: Kapsayıcılar için Web App uygulamasında çok kapsayıcılı (önizleme) uygulama oluşturma
 
@@ -68,7 +68,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
 
-Cloud Shell içinde [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) komutuyla bir kaynak grubu oluşturun. Aşağıdaki örnek *Orta Güney ABD* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur. **Standart** katmanda Linux üzerinde App Service için desteklenen tüm konumları görüntülemek için [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) komutunu çalıştırın.
+Cloud Shell içinde [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) komutuyla bir kaynak grubu oluşturun. Aşağıdaki örnek *Orta Güney ABD* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur. **Standart** katmanda Linux üzerinde App Service için desteklenen tüm konumları görüntülemek için [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations) komutunu çalıştırın.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -80,7 +80,7 @@ Komut tamamlandığında, bir JSON çıkışı size kaynak grubu özelliklerini 
 
 ## <a name="create-an-azure-app-service-plan"></a>Azure App Service planı oluşturma
 
-Cloud Shell’de, kaynak grubunda [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) komutuyla bir App Service planı oluşturun.
+Cloud Shell’de, kaynak grubunda [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) komutuyla bir App Service planı oluşturun.
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
@@ -141,7 +141,7 @@ Kapsayıcılar için Web App uygulamasında desteklenen ve desteklenmeyen Docker
 
 ## <a name="create-a-docker-compose-app"></a>Docker Compose uygulaması oluşturma
 
-Cloud Shell'de [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) komutunu kullanarak `myAppServicePlan` App Service planında çok kapsayıcılı bir [web uygulaması](app-service-linux-intro.md) oluşturun. _\<app_name>_ yerine benzersiz bir uygulama adı girmeyi unutmayın.
+Cloud Shell'de [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) komutunu kullanarak `myAppServicePlan` App Service planında çok kapsayıcılı bir [web uygulaması](app-service-linux-intro.md) oluşturun. _\<app_name>_ yerine benzersiz bir uygulama adı girmeyi unutmayın.
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
@@ -178,7 +178,7 @@ Dağıtılan uygulamaya göz atmak için (`http://<app_name>.azurewebsites.net`)
 
 ### <a name="create-an-azure-database-for-mysql-server"></a>MySQL için Azure Veritabanı sunucusu oluşturma
 
-[`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) komutuyla MySQL için Azure Veritabanı sunucusu oluşturun.
+[`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create) komutuyla MySQL için Azure Veritabanı sunucusu oluşturun.
 
 Aşağıdaki komutta, _&lt;mysql_server_name>_ yer tutucusunu gördüğünüz yerde MySQL sunucunuzun adını değiştirin (geçerli karakterler `a-z`, `0-9` ve `-`). Bu ad, MySQL sunucusu ana bilgisayar adının (`<mysql_server_name>.database.windows.net`) bir parçasıdır ve genel olarak benzersiz olması gerekir.
 
@@ -203,7 +203,7 @@ Sunucunun oluşturulması birkaç dakika sürebilir. MySQL sunucusu oluşturuldu
 
 ### <a name="configure-server-firewall"></a>Sunucu güvenlik duvarını yapılandırma
 
-[`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create) komutunu kullanarak MySQL sunucunuzun istemci bağlantılarına izin vermesi için bir güvenlik duvarı kuralı oluşturun. Hem başlangıç hem bitiş IP’si 0.0.0.0 olarak ayarlandığında, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır.
+[`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create) komutunu kullanarak MySQL sunucunuzun istemci bağlantılarına izin vermesi için bir güvenlik duvarı kuralı oluşturun. Hem başlangıç hem bitiş IP’si 0.0.0.0 olarak ayarlandığında, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -237,7 +237,7 @@ Veritabanı oluşturulduğunda Cloud Shell, aşağıdaki örneğe benzer bilgile
 
 WordPress uygulaması ile yeni oluşturduğunuz MySQL sunucusu arasında bağlantı kurmak için `MYSQL_SSL_CA` ile tanımlanan SSL CA yolu da dahil olmak üzere WordPress'e özgü birkaç ortam değişkenini yapılandıracaksınız. [DigiCert](http://www.digicert.com/) tarafından sağlanan [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm), aşağıdaki [özel görüntüde](https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations) gösterilmiştir.
 
-Bu değişiklikleri yapmak için Cloud Shell'de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) komutunu kullanın. Uygulama ayarları büyük/küçük harfe duyarlıdır ve boşlukla ayrılmıştır.
+Bu değişiklikleri yapmak için Cloud Shell'de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) komutunu kullanın. Uygulama ayarları büyük/küçük harfe duyarlıdır ve boşlukla ayrılmıştır.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WORDPRESS_DB_HOST="<mysql_server_name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql_server_name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
@@ -309,7 +309,7 @@ Değişikliklerinizi kaydedin ve nanodan çıkın. Kaydetmek için `^O` ve çık
 
 ### <a name="update-app-with-new-configuration"></a>Uygulamayı yeni yapılandırmayla güncelleştirme
 
-Cloud Shell'de [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) komutunu kullanarak çok kapsayıcılı [web uygulamanızı](app-service-linux-intro.md) yeniden yapılandırın. _\<app_name>_ yerine önceki adımlarda oluşturduğunuz web uygulamasının adını yazmayı unutmayın.
+Cloud Shell'de [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) komutunu kullanarak çok kapsayıcılı [web uygulamanızı](app-service-linux-intro.md) yeniden yapılandırın. _\<app_name>_ yerine önceki adımlarda oluşturduğunuz web uygulamasının adını yazmayı unutmayın.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
@@ -338,7 +338,7 @@ Dağıtılan uygulamaya göz atmak için (`http://<app_name>.azurewebsites.net`)
 
 ### <a name="configure-environment-variables"></a>Ortam değişkenlerini yapılandırma
 
-Kalıcı depolamayı kullanmak için App Service'te ilgili ayarı etkinleştirmeniz gerekir. Bu değişikliği yapmak için Cloud Shell'de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) komutunu kullanın. Uygulama ayarları büyük/küçük harfe duyarlıdır ve boşlukla ayrılmıştır.
+Kalıcı depolamayı kullanmak için App Service'te ilgili ayarı etkinleştirmeniz gerekir. Bu değişikliği yapmak için Cloud Shell'de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) komutunu kullanın. Uygulama ayarları büyük/küçük harfe duyarlıdır ve boşlukla ayrılmıştır.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
@@ -385,7 +385,7 @@ services:
 
 ### <a name="update-app-with-new-configuration"></a>Uygulamayı yeni yapılandırmayla güncelleştirme
 
-Cloud Shell'de [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) komutunu kullanarak çok kapsayıcılı [web uygulamanızı](app-service-linux-intro.md) yeniden yapılandırın. _\<app_name>_ yerine benzersiz bir uygulama adı girmeyi unutmayın.
+Cloud Shell'de [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) komutunu kullanarak çok kapsayıcılı [web uygulamanızı](app-service-linux-intro.md) yeniden yapılandırın. _\<app_name>_ yerine benzersiz bir uygulama adı girmeyi unutmayın.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
@@ -430,7 +430,7 @@ Redis kapsayıcısını yapılandırma dosyasının en altına ekleyerek aşağ�
 
 ### <a name="configure-environment-variables"></a>Ortam değişkenlerini yapılandırma
 
-Redis'i kullanmak için App Service'te `WP_REDIS_HOST` ayarını etkinleştirmeniz gerekir. Bu, WordPress'in Redis ana bilgisayarıyla iletişim kurabilmesi için *yapılması gerekli olan bir ayardır*. Bu değişikliği yapmak için Cloud Shell'de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) komutunu kullanın. Uygulama ayarları büyük/küçük harfe duyarlıdır ve boşlukla ayrılmıştır.
+Redis'i kullanmak için App Service'te `WP_REDIS_HOST` ayarını etkinleştirmeniz gerekir. Bu, WordPress'in Redis ana bilgisayarıyla iletişim kurabilmesi için *yapılması gerekli olan bir ayardır*. Bu değişikliği yapmak için Cloud Shell'de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) komutunu kullanın. Uygulama ayarları büyük/küçük harfe duyarlıdır ve boşlukla ayrılmıştır.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WP_REDIS_HOST="redis"
@@ -456,7 +456,7 @@ Uygulama ayarı oluşturulduğunda Cloud Shell, aşağıdaki örneğe benzer bil
 
 ### <a name="update-app-with-new-configuration"></a>Uygulamayı yeni yapılandırmayla güncelleştirme
 
-Cloud Shell'de [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) komutunu kullanarak çok kapsayıcılı [web uygulamanızı](app-service-linux-intro.md) yeniden yapılandırın. _\<app_name>_ yerine benzersiz bir uygulama adı girmeyi unutmayın.
+Cloud Shell'de [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) komutunu kullanarak çok kapsayıcılı [web uygulamanızı](app-service-linux-intro.md) yeniden yapılandırın. _\<app_name>_ yerine benzersiz bir uygulama adı girmeyi unutmayın.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -531,7 +531,7 @@ Bu bölümde birden fazla kapsayıcı dağıtmak için Kubernetes yapılandırma
 
 ### <a name="create-an-azure-database-for-mysql-server"></a>MySQL için Azure Veritabanı sunucusu oluşturma
 
-MySQL için Azure Veritabanı içinde [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) komutu ile bir sunucu oluşturun.
+MySQL için Azure Veritabanı içinde [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create) komutu ile bir sunucu oluşturun.
 
 Aşağıdaki komutta, _&lt;mysql_server_name>_ yer tutucusunu gördüğünüz yerde MySQL sunucunuzun adını değiştirin (geçerli karakterler `a-z`, `0-9` ve `-`). Bu ad, MySQL sunucusu ana bilgisayar adının (`<mysql_server_name>.database.windows.net`) bir parçasıdır ve genel olarak benzersiz olması gerekir.
 
@@ -556,7 +556,7 @@ MySQL sunucusu oluşturulduğunda Cloud Shell, aşağıdaki örneğe benzer bilg
 
 ### <a name="configure-server-firewall"></a>Sunucu güvenlik duvarını yapılandırma
 
-[`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create) komutunu kullanarak MySQL sunucunuzun istemci bağlantılarına izin vermesi için bir güvenlik duvarı kuralı oluşturun. Hem başlangıç hem bitiş IP’si 0.0.0.0 olarak ayarlandığında, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır.
+[`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create) komutunu kullanarak MySQL sunucunuzun istemci bağlantılarına izin vermesi için bir güvenlik duvarı kuralı oluşturun. Hem başlangıç hem bitiş IP’si 0.0.0.0 olarak ayarlandığında, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -590,7 +590,7 @@ Veritabanı oluşturulduğunda Cloud Shell, aşağıdaki örneğe benzer bilgile
 
 ### <a name="configure-database-variables-in-wordpress"></a>WordPress'te veritabanı değişkenlerini yapılandırma
 
-WordPress uygulaması ile yeni oluşturduğunuz MySQL sunucusu arasında bağlantı kurmak için WordPress'e özgü birkaç ortam değişkenini yapılandıracaksınız. Bu değişikliği yapmak için Cloud Shell'de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) komutunu kullanın. Uygulama ayarları büyük/küçük harfe duyarlıdır ve boşlukla ayrılmıştır.
+WordPress uygulaması ile yeni oluşturduğunuz MySQL sunucusu arasında bağlantı kurmak için WordPress'e özgü birkaç ortam değişkenini yapılandıracaksınız. Bu değişikliği yapmak için Cloud Shell'de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) komutunu kullanın. Uygulama ayarları büyük/küçük harfe duyarlıdır ve boşlukla ayrılmıştır.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WORDPRESS_DB_HOST="<mysql_server_name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql_server_name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
@@ -629,7 +629,7 @@ Uygulama ayarı oluşturulduğunda Cloud Shell, aşağıdaki örneğe benzer bil
 
 ### <a name="configure-environment-variables"></a>Ortam değişkenlerini yapılandırma
 
-Kalıcı depolamayı kullanmak için App Service'te ilgili ayarı etkinleştirmeniz gerekir. Bu değişikliği yapmak için Cloud Shell'de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) komutunu kullanın. Uygulama ayarları büyük/küçük harfe duyarlıdır ve boşlukla ayrılmıştır.
+Kalıcı depolamayı kullanmak için App Service'te ilgili ayarı etkinleştirmeniz gerekir. Bu değişikliği yapmak için Cloud Shell'de [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) komutunu kullanın. Uygulama ayarları büyük/küçük harfe duyarlıdır ve boşlukla ayrılmıştır.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
@@ -649,7 +649,7 @@ Uygulama ayarı oluşturulduğunda Cloud Shell, aşağıdaki örneğe benzer bil
 
 ### <a name="create-a-multi-container-app-kubernetes"></a>Çok kapsayıcılı uygulama oluşturma (Kubernetes)
 
-Cloud Shell'de [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) komutunu kullanarak `myResourceGroup` kaynak grubunda ve `myAppServicePlan` App Service planında çok kapsayıcılı bir [web uygulaması](app-service-linux-intro.md) oluşturun. _\<app_name>_ yerine benzersiz bir uygulama adı girmeyi unutmayın.
+Cloud Shell'de [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) komutunu kullanarak `myResourceGroup` kaynak grubunda ve `myAppServicePlan` App Service planında çok kapsayıcılı bir [web uygulaması](app-service-linux-intro.md) oluşturun. _\<app_name>_ yerine benzersiz bir uygulama adı girmeyi unutmayın.
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type kube --multicontainer-config-file kubernetes-wordpress.yml

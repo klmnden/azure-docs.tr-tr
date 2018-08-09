@@ -16,12 +16,12 @@ ms.date: 07/30/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: d81a41a0012d4e0be4e812d48074e7af1e92213a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: c6c7b3f897e38fbd67098c9f881380bc073f13da
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391155"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432659"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Azure İzleyici Uyarıları ile olaylara yanıt verme
 Belirtilen günlük sorgularını düzenli aralıklarla otomatik olarak çalıştırmak için, Azure Uyarıları tarafından günlük arama kuralları oluşturulur.  Günlük sorgusunun sonuçları belirli ölçütlerle eşleşiyorsa bir uyarı kaydı oluşturulur. Ardından kural, [Eylem Grupları](../monitoring-and-diagnostics/monitoring-action-groups.md)'nı kullanıp bir veya birden çok eylemi otomatik olarak çalıştırabilir.  Bu öğretici, [Log Analytics verilerinin panolarını oluşturma ve paylaşma](log-analytics-tutorial-dashboards.md) öğreticisinin devamı niteliğindedir.   
@@ -43,15 +43,15 @@ Uyarılar, Azure İzleyici'deki uyarı kuralları tarafından oluşturulur ve ka
 Aşağıdaki örnekte, [Veri görselleştirme öğreticisinde](log-analytics-tutorial-dashboards.md) kaydedilen *Azure VM'leri - İşlemci Kullanımı* sorgusuna dayanarak bir metrik ölçüm uyarı kuralı oluşturacaksınız. Yüzde 90'lık bir eşiği aşan her sanal makine için bir uyarı oluşturulur.
 
 1. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **İzleyici** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **İzleyici**'yi seçin.
-2. Sol bölmede, **Uyarılar**'ı seçin ve ardından yeni bir uyarı oluşturmak için sayfanın üst kısmındaki **Yeni Uyarı Kuralı**'na tıklayın.
+1. Sol bölmede, **Uyarılar**'ı seçin ve ardından yeni bir uyarı oluşturmak için sayfanın üst kısmındaki **Yeni Uyarı Kuralı**'na tıklayın.
 
     ![Yeni uyarı kuralı oluşturma](./media/log-analytics-tutorial-response/alert-rule-02.png)
 
-3. İlk adımda, **Uyarı Oluştur** bölümünde, bu günlük tabanlı bir uyarı sinyali olduğundan kaynak olarak Log Analytics çalışma alanınızı seçeceksiniz.  Birden fazla aboneliğiniz varsa aşağı açılan listeden daha önce oluşturulan VM'yi ve Log Analytics çalışma alanını içeren bir **Abonelik** seçerek sonuçları filtreleyin.  **Kaynak Türü**'nü aşağı açılan listeden **Log Analytics**'i seçerek filtreleyin.  Son olarak, **Kaynak** **DefaultLAWorkspace**'i ve sonra **Bitti**'yi seçin.
+1. İlk adımda, **Uyarı Oluştur** bölümünde, bu günlük tabanlı bir uyarı sinyali olduğundan kaynak olarak Log Analytics çalışma alanınızı seçeceksiniz.  Birden fazla aboneliğiniz varsa aşağı açılan listeden daha önce oluşturulan VM'yi ve Log Analytics çalışma alanını içeren bir **Abonelik** seçerek sonuçları filtreleyin.  **Kaynak Türü**'nü aşağı açılan listeden **Log Analytics**'i seçerek filtreleyin.  Son olarak, **Kaynak** **DefaultLAWorkspace**'i ve sonra **Bitti**'yi seçin.
 
     ![Uyarı oluşturma 1. adım görevi](./media/log-analytics-tutorial-response/alert-rule-03.png)
 
-4. **Uyarı Ölçütleri** bölümünde, sorguyu tanımlamak için **Ölçüt Ekle**'ye tıklayın ve uyarı kuralının uyacağı mantığı belirtin. **Sinyal mantığını yapılandırma** bölmesinde sinyal adı olarak **Özel günlük araması**'nı seçin ve **Arama sorgusu** alanına sorgunuzu girin.
+1. **Uyarı Ölçütleri** bölümünde, sorguyu tanımlamak için **Ölçüt Ekle**'ye tıklayın ve uyarı kuralının uyacağı mantığı belirtin. **Sinyal mantığını yapılandırma** bölmesinde sinyal adı olarak **Özel günlük araması**'nı seçin ve **Arama sorgusu** alanına sorgunuzu girin.
 
     Örnek:
     ```
@@ -62,21 +62,21 @@ Aşağıdaki örnekte, [Veri görselleştirme öğreticisinde](log-analytics-tut
 
     Bölme, uyarının yapılandırma ayarlarını göstermek için güncelleşir.  Üstte, seçilen sinyal için son 30 dakikanın sonuçları gösterilir.
 
-5. Uyarıyı aşağıdaki bilgilerle yapılandırın:  
+1. Uyarıyı aşağıdaki bilgilerle yapılandırın:  
    a. Aşağı açılan **Tetikleyici* listesinden **Metrik ölçüm**'ü seçin.  Bir metrik ölçümü, sorgudaki belirttiğimiz eşiği aşan her nesne için bir uyarı oluşturacaktır.  
    b. **Koşul** için **Büyüktür**'ü seçin ve **Eşik** için **90**'ı girin.  
    c. Uyarı Tetikleyicisi bölümünde **Art arda ihlaller**'i ve seçin ve aşağı açılan listeden **Büyüktür**'ü seçip 3 değerini girin.  
    d. Değerlendirme ölçütü bölümünde, varsayılanları kabul edin. Kural beş dakikada bir çalışır ve bu süre içinde oluşturulan kayıtları döndürür.  
-6. **Bitti**'ye tıklayarak uyarı kuralını tamamlayın.
+1. **Bitti**'ye tıklayarak uyarı kuralını tamamlayın.
 
     ![Uyarı sinyalini yapılandırma](./media/log-analytics-tutorial-response/alert-signal-logic-02.png)
 
-7. Şimdi ikinci adıma geçiyoruz. Uyarınız için **Uyarı kuralı adı** alanına **CPU yüzdesi 90'dan büyük** gibi bir ad girin.  Uyarının ayrıntılarını veren bir **Açıklama** girin ve sağlanan seçeneklerden **Önem düzeyi** için **Kritik (Önem derecesi 0)** değerini belirleyin.
+1. Şimdi ikinci adıma geçiyoruz. Uyarınız için **Uyarı kuralı adı** alanına **CPU yüzdesi 90'dan büyük** gibi bir ad girin.  Uyarının ayrıntılarını veren bir **Açıklama** girin ve sağlanan seçeneklerden **Önem düzeyi** için **Kritik (Önem derecesi 0)** değerini belirleyin.
 
     ![Uyarı ayrıntılarını yapılandırma](./media/log-analytics-tutorial-response/alert-signal-logic-04.png)
 
-8. Oluşturmadan hemen sonra uyarı kuralını etkinleştirmek için, **Oluşturulduktan sonra kuralı etkinleştir** için varsayılan değeri kabul edin.  
-9. Üçüncü ve son adım olarak, bir uyarı tetiklendiğinde aynı eylemlerin yapılmasını sağlayan tanımladığınız her kural için kullanılabilecek bir **Eylem Grubu** belirtin.  Yeni bir eylem grubunu aşağıdaki bilgilerle yapılandırın:  
+1. Oluşturmadan hemen sonra uyarı kuralını etkinleştirmek için, **Oluşturulduktan sonra kuralı etkinleştir** için varsayılan değeri kabul edin.  
+1. Üçüncü ve son adım olarak, bir uyarı tetiklendiğinde aynı eylemlerin yapılmasını sağlayan tanımladığınız her kural için kullanılabilecek bir **Eylem Grubu** belirtin.  Yeni bir eylem grubunu aşağıdaki bilgilerle yapılandırın:  
    a. **Yeni eylem grubu**'nu seçerseniz **Eylem grubu ekle** bölmesi görünür.  
    b. **Eylem grubu adı** olarak **BT İşlemleri - Bildirim** gibi bir ad ve **btisl-b** gibi bir **Kısa ad** belirtin.  
    c. **Abonelik** ve **Kaynak grubu** varsayılan değerlerinin doğru olduğundan emin olun. Değilse, aşağı açılan listeden doğru olanı seçin.  
@@ -85,8 +85,8 @@ Aşağıdaki örnekte, [Veri görselleştirme öğreticisinde](log-analytics-tut
    f. Değişikliklerinizi kaydetmek için **Tamam**’a tıklayın.  
        ![Yeni eylem grubu oluşturma](./media/log-analytics-tutorial-response/action-group-properties-01.png)
 
-10. Eylem grubunu tamamlamak için **Tamam**'a tıklayın.
-11. Uyarı kuralını tamamlamak için **Uyarı kuralı oluştur**'a tıklayın. Hemen çalıştırılmaya başlar.
+1. Eylem grubunu tamamlamak için **Tamam**'a tıklayın.
+1. Uyarı kuralını tamamlamak için **Uyarı kuralı oluştur**'a tıklayın. Hemen çalıştırılmaya başlar.
 
     ![Yeni uyarı kuralı oluşturmayı tamamlama](./media/log-analytics-tutorial-response/alert-rule-01.png)
 

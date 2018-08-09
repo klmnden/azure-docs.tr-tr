@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 1fa27cf04e136033c51b951271a3d329a910a720
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: baa449bb9e78a5c6437b0a9528e5d1f10dfa519f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223628"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520461"
 ---
 # <a name="tutorial-9--add-sentiment-analysis"></a>Öğretici: 9.  Yaklaşım analizi ekleme
 Bu öğreticide konuşmalardaki pozitif, negatif ve nötr yaklaşımları ayıklamayı gösteren bir uygulama oluşturacaksınız.
@@ -27,7 +27,7 @@ Bu öğreticide konuşmalardaki pozitif, negatif ve nötr yaklaşımları ayıkl
 > * Uygulamayı eğitme ve yayımlama
 > * LUIS JSON yanıtını görmek için uygulamanın uç noktasını sorgulama 
 
-Bu makale için kendi LUIS uygulamanızı yazma amacıyla ücretsiz bir [LUIS](luis-reference-regions.md#luis-website) hesabına ihtiyacınız olacak.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 [Önceden oluşturulmuş keyPhrase varlığı](luis-quickstart-intent-and-key-phrase.md) öğreticisinde oluşturulan İnsan Kaynakları uygulamasına sahip değilseniz JSON verilerini [içe aktararak](luis-how-to-start-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) web sitesinde yeni bir uygulama oluşturun. İçeri aktarmanız gereken uygulama [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json) Github deposunda bulunmaktadır.
@@ -79,15 +79,8 @@ Yaklaşım analizi, tüm konuşmalar için geçerli olan bir uygulama ayarıdır
     [ ![EmployeeFeedback amacındaki örnek konuşmaları gösteren LUIS uygulamasının ekran görüntüsü](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>LUIS uygulamasını eğitme
-LUIS uygulaması eğitilene kadar yeni amaç ve örnek konuşmalar hakkında bilgi sahibi değildir. 
 
-1. LUIS web sitesinin sağ üst kısmından **Train** (Eğitim) düğmesini seçin.
-
-    ![Vurgulanmış Train (Eğitim) düğmesinin ekran görüntüsü](./media/luis-quickstart-intent-and-sentiment-analysis/train-button.png)
-
-2. Web sitesinin üst kısmında işlemin başarılı olduğunu belirten yeşil durum çubuğunu gördüğünüzde eğitim tamamlanmış olur.
-
-    ![Eğitim başarılı bildirim çubuğunun ekran görüntüsü ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-trained-inline.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="configure-app-to-include-sentiment-analysis"></a>Uygulamayı yaklaşım analizi içerecek şekilde yapılandırma
 Yaklaşım analizini **Publish** (Yayımla) sayfasında yapılandırın. 
@@ -96,17 +89,15 @@ Yaklaşım analizini **Publish** (Yayımla) sayfasında yapılandırın.
 
     ![Publish (Yayımla) düğmesi genişletilmiş Intent (Amaç) sayfasının ekran görüntüsü ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-button-in-top-nav-highlighted.png)
 
-2. **Enable Sentiment Analysis** (Yaklaşım Analizini Etkinleştir) öğesini seçin. Production (Üretim) yuvasını ve ardından **Publish** (Yayımla) düğmesini seçin.
+2. **Enable Sentiment Analysis** (Yaklaşım Analizini Etkinleştir) öğesini seçin. 
 
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png "Publish to production slot (Üretim yuvasında yayımla) düğmesi vurgulanmış Yayımlama sayfasının ekran görüntüsü")](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png#lightbox)
+## <a name="publish-app-to-endpoint"></a>Uygulamayı uç noktasına yayımlama
 
-4. Web sitesinin üst kısmında işlemin başarılı olduğunu belirten yeşil durum çubuğunu gördüğünüzde yayımlama işlemi tamamlanmış olur.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>Uç noktayı bir konuşmayla sorgulama
 
-1. **Publish** (Yayımla) sayfasının en altında bulunan **endpoint** (uç nokta) bağlantısını seçin. Bu eylem adres çubuğunda uç nokta URL'sinin bulunduğu başka bir tarayıcı penceresi açar. 
-
-    ![Uç nokta URL'si vurgulanmış Publish (Yayımla) sayfası ekran görüntüsü](media/luis-quickstart-intent-and-sentiment-analysis/hr-endpoint-url-inline.png)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Adres çubuğundaki URL'nin sonuna gidip `Jill Jones work with the media team on the public portal was amazing` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. Bu konuşma, etiketlenmiş olan konuşmalarla aynı olmadığından iyi bir testtir ve `EmployeeFeedback` amacını yaklaşım analizi ayıklanmış şekilde döndürmelidir.
 
@@ -212,7 +203,8 @@ Sohbet botunuz artık konuşmadaki bir sonraki adımı belirlemek için yeterli 
 LUIS uygulamasının bu istek üzerinde gerçekleştirebileceği işlemler bu kadardır. Sohbet botu gibi bir çağrı uygulaması topScoringIntent sonucunu ve konuşmadaki yaklaşım verilerini alarak bir sonraki adımı gerçekleştirebilir. LUIS, bot veya çağrı uygulaması için programlama işini gerçekleştirmez. LUIS yalnızca kullanıcının amacını belirler. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Sol üstteki menüden **My apps** (Uygulamalarım) öğesini seçin. Uygulama listesinde uygulama adının yanındaki üç noktayı (***...***) ve sonra da **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

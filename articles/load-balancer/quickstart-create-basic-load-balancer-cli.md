@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 6c7a9bd83af5d23bdc9e6dd8c910dbf64a6efd6f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 7cca2475228155de6dc1f5c00a0d306e3a40c11a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304928"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441995"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Hızlı Başlangıç: Azure CLI 2.0 kullanarak sanal makinelerin yük dengelemesi için genel yük dengeleyici oluşturma
 
@@ -147,7 +147,7 @@ Sanal ağınıza gelen bağlantıları tanımlamak için ağ güvenlik grubu olu
 ```
 ### <a name="create-nics"></a>NIC’leri oluşturma
 
-[az network nic create](/cli/azure/network/nic#az_network_nic_create) ile üç ağ arabirimi oluşturun ve bunları Genel IP adresi ve ağ güvenlik grubu ile ilişkilendirin. 
+[az network nic create](/cli/azure/network/nic#az-network-nic-create) ile üç ağ arabirimi oluşturun ve bunları Genel IP adresi ve ağ güvenlik grubu ile ilişkilendirin. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -169,7 +169,7 @@ Bu örnekte, yük dengeleyici için arka uç sunucular olarak kullanılacak üç
 
 ### <a name="create-an-availability-set"></a>Kullanılabilirlik kümesi oluşturma
 
-[az vm availabilityset create](/cli/azure/network/nic#az_network_availabilityset_create) komutunu kullanarak kullanılabilirlik kümesi oluşturun
+[az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create) komutunu kullanarak kullanılabilirlik kümesi oluşturun
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -223,7 +223,7 @@ runcmd:
   - nodejs index.js
 ``` 
  
-[az vm create](/cli/azure/vm#az_vm_create) komutunu kullanarak sanal makineleri oluşturun.
+[az vm create](/cli/azure/vm#az-vm-create) komutunu kullanarak sanal makineleri oluşturun.
 
  ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -242,7 +242,7 @@ Sanal makinelerin dağıtılması birkaç dakika sürebilir.
 
 ## <a name="test-the-load-balancer"></a>Yük dengeleyiciyi test etme
 
-Yük dengeleyicinin genel IP adresini almak için [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) komutunu kullanın. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın.
+Yük dengeleyicinin genel IP adresini almak için [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) komutunu kullanın. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın.
 
 ```azurecli-interactive
   az network public-ip show \
@@ -255,7 +255,7 @@ Yük dengeleyicinin genel IP adresini almak için [az network public-ip show](/c
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli değilse, [az group delete](/cli/azure/group#az_group_delete) komutunu kullanarak kaynak grubunu, yük dengeleyiciyi ve tüm ilgili kaynakları kaldırabilirsiniz.
+Artık gerekli değilse, [az group delete](/cli/azure/group#az-group-delete) komutunu kullanarak kaynak grubunu, yük dengeleyiciyi ve tüm ilgili kaynakları kaldırabilirsiniz.
 
 ```azurecli-interactive 
   az group delete --name myResourceGroupLB

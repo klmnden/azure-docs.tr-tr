@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: ambapat
-ms.openlocfilehash: a3493c9e9ef6a5bafd832510f42f33cc3f07f088
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 8bc2355c5df73d2469cab63bfbf783624228b341
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070388"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576976"
 ---
 # <a name="secure-your-key-vault"></a>Anahtar kasanızın güvenliğini sağlama
 Azure Anahtar Kasası, bulut uygulamalarınıza ait şifreleme anahtarlarını ve parolaları (sertifikalar, bağlantı dizeleri, parolalar gibi) koruyan bir bulut hizmetidir. Bu veriler hassas ve iş için önemli olduğundan, anahtar kasalarınıza erişimi yalnızca yetkili uygulamaların ve kullanıcıların erişebileceği şekilde güvenli hale getirmek istersiniz. Bu makalede anahtar kasası erişim modeline genel bakış sunulmakta, kimlik doğrulaması ve yetkilendirme açıklanmakta ve bulut uygulamalarınız için anahtar kasasına erişimin güvenliğini sağlama işlemi bir örnekle anlatılmaktadır.
@@ -47,7 +47,7 @@ Bir Azure aboneliğinde yeni bir anahtar kasası oluşturduğunuzda, kasa bu abo
 * **kullanıcı+uygulama erişimi** - bu seçenek genellikle oturum açmış bir kullanıcı adına anahtar kasasına erişen uygulamalar için geçerlidir. Azure PowerShell ve Azure Portalı bu tür erişimin örneğidir. Kullanıcılara iki yolla erişim verilebilir: bir yolu, anahtar kasasına herhangi bir uygulamadan erişebilmeleri için kullanıcılara erişim verilmesi, diğer yolu ise kullanıcıya yalnızca belirli bir uygulamayı kullandıklarında (birleşik kimlik olarak adlandırılır) anahtar kasası erişimi verilmesidir. 
 * **yalnızca uygulama erişimi** - daemon hizmetleri, arka plan işleri, vb. çalıştıran uygulamalar içindir. Uygulamanın kimliğine anahtar kasası erişimi verilir.
 
-Her iki uygulama türünde de, [desteklenen kimlik doğrulama yöntemlerinden](../active-directory/active-directory-authentication-scenarios.md) biri kullanılarak uygulamanın Azure Active Directory kimlik doğrulaması yapılır ve uygulama bir belirteç alır. Kullanılan kimlik doğrulama yöntemi, uygulama türüne bağlıdır. Uygulama bundan sonra bu belirteci kullanıcı ve anahtar kasasına REST API isteği gönderir. Yönetim düzlemi erişiminde istekler Azure Resource Manager uç noktasından yönlendirilir. Veri düzlemine erişirken uygulamalar bir anahtar kasası uç noktasıyla doğrudan konuşur. [Kimlik doğrulama akışının tamamı](../active-directory/active-directory-protocols-oauth-code.md) hakkında daha fazla bilgi edinin. 
+Her iki uygulama türünde de, [desteklenen kimlik doğrulama yöntemlerinden](../active-directory/develop/authentication-scenarios.md) biri kullanılarak uygulamanın Azure Active Directory kimlik doğrulaması yapılır ve uygulama bir belirteç alır. Kullanılan kimlik doğrulama yöntemi, uygulama türüne bağlıdır. Uygulama bundan sonra bu belirteci kullanıcı ve anahtar kasasına REST API isteği gönderir. Yönetim düzlemi erişiminde istekler Azure Resource Manager uç noktasından yönlendirilir. Veri düzlemine erişirken uygulamalar bir anahtar kasası uç noktasıyla doğrudan konuşur. [Kimlik doğrulama akışının tamamı](../active-directory/develop/v1-protocols-oauth-code.md) hakkında daha fazla bilgi edinin. 
 
 Uygulamanın belirteç istediği kaynak adı, uygulamanın yönetim düzlemine veya veri düzlemine erişmesine bağlı olarak değişir. Bu nedenle kaynak adı, Azure ortamına bağlı olarak sonraki bir bölümde bulunan tablodaki yönetim düzlemi veya veri düzlemi uç noktasıdır.
 
@@ -223,7 +223,7 @@ Bu örnekte basit bir senaryo gösterilmektedir. Gerçek yaşam senaryoları dah
 * [Ignite’tan Microsoft Azure için Rol Tabanlı Erişim Denetimi](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
   
   Bu bağlantı 2015 MS Ignite konferansının 9. Kanalındaki videoya aittir. Bu oturumda, Azure’daki erişim yönetimi ve raporlama özellikleri konuşulmakta ve Azure Active Directory'yi kullanarak Azure aboneliklerine erişimin güvenliğini sağlama konusundaki en iyi uygulamalar keşfedilmektedir.
-* [OAuth 2.0 ve Azure Active Directory kullanarak web uygulamalarına erişim yetkisi verme](../active-directory/active-directory-protocols-oauth-code.md)
+* [OAuth 2.0 ve Azure Active Directory kullanarak web uygulamalarına erişim yetkisi verme](../active-directory/develop/v1-protocols-oauth-code.md)
   
   Bu makalede Azure Active Directory ile kimlik doğrulaması için tam OAuth 2.0 akışı açıklanmaktadır.
 * [anahtar kasası Yönetim REST API’leri](https://msdn.microsoft.com/library/azure/mt620024.aspx)
@@ -238,7 +238,7 @@ Bu örnekte basit bir senaryo gösterilmektedir. Gerçek yaşam senaryoları dah
 * [Gizli anahtar erişim denetimi](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
   
   Anahtar erişim denetimi başvuru belgelerinin bağlantısı.
-* PowerShell kullanarak anahtar kasası erişimini [ayarlama](https://msdn.microsoft.com/library/mt603625.aspx) ve [kaldırma](https://msdn.microsoft.com/library/mt619427.aspx)
+* PowerShell kullanarak anahtar kasası erişimini [ayarlama](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) ve [kaldırma](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Remove-AzureRmKeyVaultAccessPolicy)
   
   Anahtar kasası erişim ilkesini yönetmeye yönelik PowerShell cmdlet’lerinin başvuru belgesi bağlantıları.
 

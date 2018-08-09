@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 578fdb5593e75e3584e81d73d7643162f7af5cbc
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: de295a93d395cee4c4dfbea4f2e7f7338036feb8
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358147"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494382"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Öğretici: 1. Özel etki alanıyla bir uygulama derleme
 Bu öğreticide kullanıcının uygulamaya gönderdiği konuşmaya (metin) göre _amacını_ belirlemek için **amaçların** nasıl kullanılacağını gösteren bir uygulama oluşturacaksınız. İşlemi tamamladığınızda bulut üzerinde çalışan bir LUIS uç noktasına sahip olacaksınız.
@@ -84,19 +84,15 @@ Bu uygulamanın birkaç amacı vardır. İlk amaç olan **`GetJobInformation`**,
     Sohbet botu gibi LUIS çağrı uygulamasında LUIS, bir konuşma için **None** (Yok) amacını döndürdüğünde kullanıcının konuşmayı sonlandırmak isteyip istemediğini sorabilir. Kullanıcının konuşmayı sonlandırmak istememesi durumunda sohbet botu devam etme talimatları verebilir. 
 
 ## <a name="train-and-publish-the-app"></a>Uygulamayı eğitme ve yayımlama
-1. LUIS web sitesinin sağ üst kısmından **Train** (Eğitim) düğmesini seçin. 
 
-    ![Train (Eğitim) düğmesi](./media/luis-quickstart-intents-only/train-button.png)
-
-2. Web sitesinin üst kısmında işlemin başarılı olduğunu belirten yeşil durum çubuğunu gördüğünüzde eğitim tamamlanmış olur.
-
-    ![Eğitim durumu çubuğu](./media/luis-quickstart-intents-only/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-app-to-endpoint"></a>Uygulamayı uç noktasına yayımlama
 
 [!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="query-endpoint-for-getjobinformation-intent"></a>Uç noktayı GetJobInformation amacı için sorgulama
+
 1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Adres çubuğundaki URL'nin sonuna gidip `I'm looking for a job with Natual Language Processing` yazın. Son sorgu dizesi parametresi konuşma **sorgusu** olan `q` öğesidir. Bu konuşma, 4. adımdaki örnek konuşmalarla aynı olmadığından test için iyidir ve en yüksek puanlı amaç olarak `GetJobInformation` amacını döndürmelidir. 
@@ -189,7 +185,8 @@ En yüksek puanlı amaç, JSON sonucu ile gösterilmiştir. Tüm puanlar 1 ile 0
 LUIS uygulamasının bu istek üzerinde gerçekleştirebileceği işlemler bu kadardır. Sohbet botu gibi bir çağrı uygulaması topScoringIntent sonucunu alarak soruyu yanıtlamak için gerekli bilgileri (LUIS içinde depolanmaz) bulabilir veya sohbeti sonlandırabilir. Bunlar bot veya çağrı uygulaması için programlama ile gerçekleştirilen seçeneklerdir. LUIS bu görevi gerçekleştirmez. LUIS yalnızca kullanıcının amacını belirler. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Bunun için sol üstteki menüden **My apps** (Uygulamalarım) öğesini seçin. Uygulama listesinde uygulama adının yanındaki üç noktayı (***...***) ve sonra da **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

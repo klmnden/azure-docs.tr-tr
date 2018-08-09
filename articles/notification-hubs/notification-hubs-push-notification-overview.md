@@ -15,12 +15,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 44086bc20966d9c01ff27dda68f837101c71a778
-ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
+ms.openlocfilehash: ccf27748699a49c569a43f041cbc5e3625055852
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "33777938"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503426"
 ---
 # <a name="what-is-azure-notification-hubs"></a>Azure Notification Hubs nedir?
 Azure Notification Hubs, herhangi bir arka uçtan (bulut ya da şirket içi) herhangi bir platforma (iOS, Android, Windows, Kindle, Baidu vb.) bildirim göndermenize olanak tanıyan, kullanımı kolay ve ölçeği artırılmış bir gönderme altyapısı sağlar. Notification Hubs hem kuruluş hem de tüketici senaryoları için sorunsuzca çalışır. Birkaç senaryo örneği aşağıda verilmiştir:
@@ -35,7 +35,7 @@ Azure Notification Hubs, herhangi bir arka uçtan (bulut ya da şirket içi) her
 ## <a name="what-are-push-notifications"></a>Anında iletme bildirimleri nedir?
 Anında iletme bildirimleri, mobil uygulama kullanıcılarının istenen belirli bilgiler hakkında genellikle bir açılır pencere ya da iletişim kutusu içinde bildirim aldığı, uygulamadan kullanıcıya iletişim biçimidir. Kullanıcılar genellikle iletiyi görüntülemeyi veya kapatmayı seçebilir. İletiyi görüntülemeyi seçtiklerinde, bildirimi ileten mobil uygulama açılır.
 
-Anında iletme bildirimleri, tüketici uygulamalarının uygulama katılımı ve kullanımını artırması ve kurumsal uygulamaların güncel iş bilgilerini iletmesi için çok önemlidir. Mobil cihazlar için enerji verimlili, bildirimi gönderenler için esneklik ve ilgili uygulamalar etkin olmadığında kullanılabilirlik sağladığından, uygulamadan kullanıcıya en iyi iletişim yöntemidir.
+Anında iletme bildirimleri, tüketici uygulamalarında uygulama etkileşiminin ve kullanımının artırılması, kurumsal uygulamalarda ise güncel iş bilgilerinin iletilmesi açısından çok önemlidir. Mobil cihazlar için enerji verimliliği, bildirimi gönderenler için esneklik ve ilgili uygulamalar etkin olmadığında kullanılabilirlik sağladığından, en iyi uygulamadan kullanıcıya iletişim yöntemidir.
 
 Birkaç popüler platformda anında iletme bildirimleri hakkında daha fazla bilgi için aşağıdaki konulara bakın: 
 * [iOS](https://developer.apple.com/notifications/)
@@ -43,7 +43,7 @@ Birkaç popüler platformda anında iletme bildirimleri hakkında daha fazla bil
 * [Windows](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
 
 ## <a name="how-push-notifications-work"></a>Anında iletme bildirimleri nasıl çalışır?
-Anında iletme bildirimleri, *Platform Bildirim Sistemleri* (PNS) adlı platforma özgü altyapılar aracılığıyla teslim edilir. Bunlar, sağlanan bir tanıtıcı ile bir cihaza iletileri ulaştırmak için tenel gönderme işlevleri sunarlar ve ortak bir arabirimleri yoktur. Bir uygulamanın iOS, Android ve Windows sürümlerinde tüm müşterilere bir bildirim göndermek için geliştiricinin Apple Anında İletilen Bildirim Servisi (APNS), Firebase Cloud Messaging (FCM) ve Windows Bildirim Hizmeti (WNS) ile birlikte çalışması gerekir.
+Anında iletme bildirimleri, *Platform Bildirim Sistemleri* (PNS) adlı platforma özgü altyapılar aracılığıyla teslim edilir. Bunlar, sağlanan tanıtıcıyla bir cihaza ileti teslim etmek için temel gönderme işlevleri sunarlar ve ortak bir arabirimleri yoktur. Bir uygulamanın iOS, Android ve Windows sürümlerinde tüm müşterilere bir bildirim göndermek için geliştiricinin Apple Anında İletilen Bildirim Servisi (APNS), Firebase Cloud Messaging (FCM) ve Windows Bildirim Hizmeti (WNS) ile birlikte çalışması gerekir.
 
 Yüksek bir düzeyde gönderme işlemi şu şekilde çalışır:
 
@@ -122,4 +122,39 @@ Bu tümleştirme ile geliştiricilere sağlanan bazı kolaylıklar şunlardır:
 - **[Azure portalında](https://portal.azure.com) tümleşik deneyim**: Mobile Apps'te gönderim özelliği görsel olarak temsil edilir ve geliştiriciler Mobile Apps aracılığıyla ilişkili bildirim hub'ı ile kolayca çalışabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Öğretici: Mobil uygulamalara anında iletme bildirimleri gönderme](notification-hubs-android-push-notification-google-fcm-get-started.md) bölümünü takip ederek bildirim hub’ı oluşturmaya ve kullanmaya başlayın. [0]: ./media/notification-hubs-overview/registration-diagram.png [1]: ./media/notification-hubs-overview/notification-hub-diagram.png [Müşteriler Notification Hubs’ı nasıl kullanıyor]: http://azure.microsoft.com/services/notification-hubs [Notification Hubs öğreticileri ve kılavuzları]: http://azure.microsoft.com/documentation/services/notification-hubs [iOS]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started [Android]: http://azure.microsoft.com/documentation/articles/notification-hubs-android-get-started [Windows Evrensel]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started [Windows Phone]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-phone-get-started [Kindle]: http://azure.microsoft.com/documentation/articles/notification-hubs-kindle-get-started [Xamarin.iOS]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-ios-get-started [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx [App Service Mobile Apps]: https://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop/ [şablonlar]: notification-hubs-templates-cross-platform-push-messages.md [Azure portalı]: https://portal.azure.com [etiketler]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
+
+[Öğretici: Mobil uygulamalara anında iletme bildirimleri gönderme](notification-hubs-android-push-notification-google-fcm-get-started.md) bölümünü takip ederek bildirim hub’ı oluşturmaya ve kullanmaya başlayın. 
+
+[0]: ./media/notification-hubs-overview/registration-diagram.png
+
+[1]: ./media/notification-hubs-overview/notification-hub-diagram.png
+
+[How customers are using Notification Hubs]: http://azure.microsoft.com/services/notification-hubs
+
+[Notification Hubs tutorials and guides]: http://azure.microsoft.com/documentation/services/notification-hubs
+
+[iOS]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started
+
+[Android]: http://azure.microsoft.com/documentation/articles/notification-hubs-android-get-started
+
+[Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started
+
+[Windows Phone]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-phone-get-started
+
+[Kindle]: http://azure.microsoft.com/documentation/articles/notification-hubs-kindle-get-started
+
+[Xamarin.iOS]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-ios-get-started
+
+[Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
+
+[Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
+
+[Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
+
+[App Service Mobile Apps]: https://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop/
+
+[templates]: notification-hubs-templates-cross-platform-push-messages.md
+
+[Azure portal]: https://portal.azure.com
+
+[tags]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)

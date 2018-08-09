@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 07/13/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 20b549914daf71c0d23235b5c20ebb6f14367471
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: ce84498ab89891bd7b96cfcc6b0c7ac029c93cbd
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172043"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423088"
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Azure'da Docker Python ve PostgreSQL web uygulaması oluşturma
 
@@ -133,7 +133,7 @@ Bu adımda, Azure’da bir SQL Veritabanı oluşturursunuz. Uygulamanız Azure�
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>PostgreSQL için Azure Veritabanı sunucusu oluşturma
 
-Cloud Shell'de [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) komutuyla bir PostgreSQL sunucusu oluşturun.
+Cloud Shell'de [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) komutuyla bir PostgreSQL sunucusu oluşturun.
 
 Aşağıdaki örnek komutta *\<postgresql_name>* yerine benzersiz bir sunucu adı, *\<admin_username>* ve *\<admin_password>* yerine de kullanmak istediğiniz kullanıcı bilgilerini yazın. Sunucu adı, PostgreSQL uç noktasının bir parçası olan `https://<postgresql_name>.postgres.database.azure.com` olarak kullanıldığından, adın Azure’daki tüm sunucularda benzersiz olması gerekir. Kullanıcı kimlik bilgileri, veritabanı yönetici kullanıcısı için geçerli olacaktır. 
 
@@ -339,7 +339,7 @@ Bu adımda Azure App Service'te bir uygulama oluşturacak ve Azure Container Reg
 
 ### <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
-Cloud Shell'de *myAppServicePlan* App Service planında [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) komutuyla bir web uygulaması oluşturun.
+Cloud Shell'de *myAppServicePlan* App Service planında [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) komutuyla bir web uygulaması oluşturun.
 
 Aşağıdaki komutta, *\<app_name>* yer tutucusunu benzersiz bir uygulama adıyla değiştirin. Bu ad web uygulamasına ilişkin varsayılan URL'nin bir parçasıdır; dolayısıyla, Azure App Service'teki tüm uygulamalar arasında benzersiz olmalıdır.
 
@@ -368,7 +368,7 @@ Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan örnekteki gibi
 
 Öğreticinin önceki bölümlerinde, PostgreSQL veritabanınıza bağlanmak üzere ortam değişkenleri tanımladınız.
 
-App Service'te, [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) komutunu kullanıp ortam değişkenlerini _uygulama ayarları_ olarak belirlersiniz.
+App Service'te, [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) komutunu kullanıp ortam değişkenlerini _uygulama ayarları_ olarak belirlersiniz.
 
 Şu örnek, veritabanı bağlantı ayrıntılarını uygulama ayarları olarak belirtir. Ayrıca kapsayıcının 5000 numaralı bağlantı noktası için *WEBSITES_PORT* değişkenini kullanarak kapsayıcının 80 numaralı bağlantı noktasından HTTP trafiği almasına izin verir.
 
@@ -378,7 +378,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 ### <a name="configure-custom-container-deployment"></a>Özel kapsayıcı dağıtımını yapılandırma
 
-Kapsayıcı görüntüsü adını belirtilmiş olmanıza rağmen özel kayıt defteri URL'sini ve kullanıcı kimlik bilgilerini de belirtmeniz gerekir. Cloud Shell'de [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) komutunu çalıştırın.
+Kapsayıcı görüntüsü adını belirtilmiş olmanıza rağmen özel kayıt defteri URL'sini ve kullanıcı kimlik bilgilerini de belirtmeniz gerekir. Cloud Shell'de [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) komutunu çalıştırın.
 
 ```azurecli-interactive
 az webapp config container set --resource-group myResourceGroup --name <app_name> --docker-registry-server-user "<registry_name>" --docker-registry-server-password "<registry_password>" --docker-registry-server-url "https://<registry_name>.azurecr.io"

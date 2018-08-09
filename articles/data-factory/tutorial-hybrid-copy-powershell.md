@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: d002955bcdb6e521fd3daddc223e07afa50f2208
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 5c80abcfa4fe14bc211bf829f24d190790d80353
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082723"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430813"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Öğretici: Verileri şirket içi SQL Server veritabanından Azure Blob depolamaya kopyalama
 Bu öğreticide, Azure PowerShell kullanarak verileri şirket içi SQL Server veritabanından bir Azure Blob depolama alanına kopyalayan bir veri fabrikası işlem hattı oluşturacaksınız. Verileri şirket içi ile bulut veri depoları arasında taşıyan, şirket içinde barındırılan bir tümleştirme çalışma zamanı oluşturup kullanabilirsiniz. 
@@ -51,13 +51,13 @@ Bu öğreticide, şirket içi SQL Server veritabanını bir *kaynak* veri deposu
 
 1. SQL Server Management Studio’yu başlatın. Makinenizde zaten yüklü değilse [SQL Server Management Studio'yu indirme](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)’ye gidin. 
 
-2. Kimlik bilgilerinizi kullanarak SQL Server örneğinize bağlanın. 
+1. Kimlik bilgilerinizi kullanarak SQL Server örneğinize bağlanın. 
 
-3. Örnek bir veritabanı oluşturun. Ağaç görünümünde **Veritabanları**'na sağ tıklayın ve **Yeni Veritabanı**'nı seçin. 
+1. Örnek bir veritabanı oluşturun. Ağaç görünümünde **Veritabanları**'na sağ tıklayın ve **Yeni Veritabanı**'nı seçin. 
  
-4. **Yeni Veritabanı** penceresinde, veritabanı için bir ad girin ve **Tamam**'ı seçin. 
+1. **Yeni Veritabanı** penceresinde, veritabanı için bir ad girin ve **Tamam**'ı seçin. 
 
-5. **emp** tablosunu oluşturmak ve içine bazı örnek verileri eklemek için veritabanında aşağıdaki sorgu betiğini çalıştırın:
+1. **emp** tablosunu oluşturmak ve içine bazı örnek verileri eklemek için veritabanında aşağıdaki sorgu betiğini çalıştırın:
 
    ```
        INSERT INTO emp VALUES ('John', 'Doe')
@@ -65,7 +65,7 @@ Bu öğreticide, şirket içi SQL Server veritabanını bir *kaynak* veri deposu
        GO
    ```
 
-6. Ağaç görünümünde, oluşturduğunuz veritabanına sağ tıklayın ve **Yeni Sorgu**'yu seçin.
+1. Ağaç görünümünde, oluşturduğunuz veritabanına sağ tıklayın ve **Yeni Sorgu**'yu seçin.
 
 ### <a name="azure-storage-account"></a>Azure Storage hesabı
 Bu öğreticide, genel amaçlı bir Azure depolama hesabını (özel olarak Blob depolamayı) hedef/havuz veri deposu olarak kullanırsınız. Genel amaçlı bir Azure depolama hesabınız yoksa bkz. [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account). Bu öğreticide oluşturduğunuz veri fabrikasındaki işlem hattı, verileri şirket içi SQL Server veritabanından (kaynak) bu Azure Blob depolama alanına (havuz) kopyalar. 
@@ -75,17 +75,17 @@ Bu öğreticide, Azure depolama hesabınızın adını ve anahtarını kullanır
 
 1. Azure kullanıcı adı ve parolanızla [Azure portalında](https://portal.azure.com) oturum açın. 
 
-2. Sol bölmede, **Depolama** anahtar sözcüğünü kullanarak **Diğer hizmetler** filtresini ve ardından **Depolama hesapları**’nı seçin.
+1. Sol bölmede, **Depolama** anahtar sözcüğünü kullanarak **Diğer hizmetler** filtresini ve ardından **Depolama hesapları**’nı seçin.
 
     ![Depolama hesabını arama](media/tutorial-hybrid-copy-powershell/search-storage-account.png)
 
-3. Depolama hesapları listesinde, depolama hesabınız için filtre uygulayın (gerekirse) ve depolama hesabınızı seçin. 
+1. Depolama hesapları listesinde, depolama hesabınız için filtre uygulayın (gerekirse) ve depolama hesabınızı seçin. 
 
-4. **Depolama hesabı** penceresinde **Erişim anahtarları**'nı seçin.
+1. **Depolama hesabı** penceresinde **Erişim anahtarları**'nı seçin.
 
     ![Depolama hesabı adını ve anahtarını alma](media/tutorial-hybrid-copy-powershell/storage-account-name-key.png)
 
-5. **Depolama hesabı adı** ve **key1** kutularında değerleri kopyalayın ve ardından onları öğreticide daha sonra kullanmak için Not Defteri'ne veya başka bir düzenleyiciye yapıştırın. 
+1. **Depolama hesabı adı** ve **key1** kutularında değerleri kopyalayın ve ardından onları öğreticide daha sonra kullanmak için Not Defteri'ne veya başka bir düzenleyiciye yapıştırın. 
 
 #### <a name="create-the-adftutorial-container"></a>Adftutorial kapsayıcını oluşturma 
 Bu bölümde, Azure Blob depolama alanınızda **adftutorial** adlı bir blob kapsayıcısı oluşturursunuz. 
@@ -94,19 +94,19 @@ Bu bölümde, Azure Blob depolama alanınızda **adftutorial** adlı bir blob ka
 
     ![Bloblar seçeneğini belirleyin](media/tutorial-hybrid-copy-powershell/select-blobs.png)
 
-2. **Blob hizmeti** penceresinde **Kapsayıcı**’yı seçin. 
+1. **Blob hizmeti** penceresinde **Kapsayıcı**’yı seçin. 
 
     ![Kapsayıcı ekle düğmesi](media/tutorial-hybrid-copy-powershell/add-container-button.png)
 
-3. **Yeni kapsayıcı** penceresinde, **Ad** kutusuna **adftutorial** girin ve ardından **Tamam**’ı seçin. 
+1. **Yeni kapsayıcı** penceresinde, **Ad** kutusuna **adftutorial** girin ve ardından **Tamam**’ı seçin. 
 
     ![Kapsayıcı adını girin](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
 
-4. Kapsayıcılar listesinde **adftutorial**’ı seçin.  
+1. Kapsayıcılar listesinde **adftutorial**’ı seçin.  
 
     ![Kapsayıcıyı seçin](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
 
-5. **adftutorial** öğesine ait **kapsayıcı** penceresini açık tutun. Öğreticinin sonundaki çıktıyı doğrulamak için bu sayfayı kullanırsınız. Data Factory bu kapsayıcıda çıktı klasörünü otomatik olarak oluşturduğundan sizin oluşturmanız gerekmez.
+1. **adftutorial** öğesine ait **kapsayıcı** penceresini açık tutun. Öğreticinin sonundaki çıktıyı doğrulamak için bu sayfayı kullanırsınız. Data Factory bu kapsayıcıda çıktı klasörünü otomatik olarak oluşturduğundan sizin oluşturmanız gerekmez.
 
     ![Kapsayıcı penceresi](media/tutorial-hybrid-copy-powershell/container-page.png)
 
@@ -117,9 +117,9 @@ Makinenizde önceden yüklü değilse Azure PowerShell’in en son sürümünü 
 
 1. [Azure SDK indirmelerine](https://azure.microsoft.com/downloads/) gidin. 
 
-2. **Komut satırı araçları** altında, **PowerShell** bölümünde, **Windows yüklemesi**’ni seçin. 
+1. **Komut satırı araçları** altında, **PowerShell** bölümünde, **Windows yüklemesi**’ni seçin. 
 
-3. Azure PowerShell'i yüklemek için MSI dosyasını çalıştırın. 
+1. Azure PowerShell'i yüklemek için MSI dosyasını çalıştırın. 
 
 Ayrıntılı yönergeler için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps). 
 
@@ -129,13 +129,13 @@ Ayrıntılı yönergeler için bkz. [Azure PowerShell'i yükleme ve yapılandır
 
     ![PowerShell'i başlatma](media/tutorial-hybrid-copy-powershell/search-powershell.png)
 
-2. Aşağıdaki komutu çalıştırın ve sonra Azure portalında oturum açmak için kullandığınız Azure kullanıcı adını ve parolasını girin:
+1. Aşağıdaki komutu çalıştırın ve sonra Azure portalında oturum açmak için kullandığınız Azure kullanıcı adını ve parolasını girin:
        
     ```powershell
     Connect-AzureRmAccount
     ```        
 
-3. Birden çok Azure aboneliğiniz varsa, birlikte çalışmak istediğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın. **SubscriptionId**’yi Azure aboneliğinizin kimliği ile değiştirin:
+1. Birden çok Azure aboneliğiniz varsa, birlikte çalışmak istediğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın. **SubscriptionId**’yi Azure aboneliğinizin kimliği ile değiştirin:
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
@@ -149,7 +149,7 @@ Ayrıntılı yönergeler için bkz. [Azure PowerShell'i yükleme ve yapılandır
     $resourceGroupName = "ADFTutorialResourceGroup"
     ```
 
-2. Azure kaynak grubunu oluşturmak için aşağıdaki komutu çalıştırın: 
+1. Azure kaynak grubunu oluşturmak için aşağıdaki komutu çalıştırın: 
 
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
@@ -157,7 +157,7 @@ Ayrıntılı yönergeler için bkz. [Azure PowerShell'i yükleme ve yapılandır
 
     Kaynak grubu zaten varsa, üzerine yazılmasını istemeyebilirsiniz. `$resourceGroupName` değişkenine farklı bir değer atayın ve komutu yeniden çalıştırın.
 
-3. Daha sonra PowerShell komutlarında kullanabileceğiniz veri fabrikası adı için bir değişken tanımlayın. Ad bir harf veya rakamla başlamalıdır; yalnızca harf, rakam ve tire (-) karakteri içerebilir.
+1. Daha sonra PowerShell komutlarında kullanabileceğiniz veri fabrikası adı için bir değişken tanımlayın. Ad bir harf veya rakamla başlamalıdır; yalnızca harf, rakam ve tire (-) karakteri içerebilir.
 
     > [!IMPORTANT]
     >  Veri fabrikasının adını genel olarak benzersiz bir adla güncelleştirin. Örnek olarak ADFTutorialFactorySP1127 olabilir. 
@@ -166,13 +166,13 @@ Ayrıntılı yönergeler için bkz. [Azure PowerShell'i yükleme ve yapılandır
     $dataFactoryName = "ADFTutorialFactory"
     ```
 
-4. Veri fabrikasının konumu için bir değişken tanımlayın: 
+1. Veri fabrikasının konumu için bir değişken tanımlayın: 
 
     ```powershell
     $location = "East US"
     ```  
 
-5. Veri fabrikasını oluşturmak için aşağıdaki `Set-AzureRmDataFactoryV2` cmdlet’ini çalıştırın: 
+1. Veri fabrikasını oluşturmak için aşağıdaki `Set-AzureRmDataFactoryV2` cmdlet’ini çalıştırın: 
     
     ```powershell       
     Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
@@ -199,7 +199,7 @@ Bu bölümde, şirket içinde barındırılan bir tümleştirme çalışma zaman
    $integrationRuntimeName = "ADFTutorialIR"
     ```
 
-2. Şirket içinde barındırılan tümleştirme çalışma zamanı oluşturma. 
+1. Şirket içinde barındırılan tümleştirme çalışma zamanı oluşturma. 
 
     ```powershell
     Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
@@ -215,7 +215,7 @@ Bu bölümde, şirket içinde barındırılan bir tümleştirme çalışma zaman
     Description       : selfhosted IR description
     ```
 
-3. Oluşturulan tümleştirme çalışma zamanının durumunu almak için aşağıdaki komutu çalıştırın:
+1. Oluşturulan tümleştirme çalışma zamanının durumunu almak için aşağıdaki komutu çalıştırın:
 
     ```powershell
    Get-AzureRmDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
@@ -240,7 +240,7 @@ Bu bölümde, şirket içinde barındırılan bir tümleştirme çalışma zaman
     State                     : NeedRegistration
     ```
 
-4. Şirket içinde barındırılan tümleştirme çalışma zamanını bulutta Data Factory hizmetine kaydetmek üzere *kimlik doğrulaması anahtarlarını* almak için aşağıdaki komutu çalıştırın. Sonraki adımda makinenize yüklediğiniz şirket içinde barındırılan tümleştirme çalışma zamanını kaydetmek için anahtarların birini (çift tırnak işaretlerini atarak) kopyalayın. 
+1. Şirket içinde barındırılan tümleştirme çalışma zamanını bulutta Data Factory hizmetine kaydetmek üzere *kimlik doğrulaması anahtarlarını* almak için aşağıdaki komutu çalıştırın. Sonraki adımda makinenize yüklediğiniz şirket içinde barındırılan tümleştirme çalışma zamanını kaydetmek için anahtarların birini (çift tırnak işaretlerini atarak) kopyalayın. 
 
     ```powershell
     Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
@@ -258,21 +258,21 @@ Bu bölümde, şirket içinde barındırılan bir tümleştirme çalışma zaman
 ## <a name="install-the-integration-runtime"></a>Tümleştirme çalışma zamanını yükleme
 1. [Azure Data Factory Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717)’ı yerel Windows makinesine indirin ve yüklemeyi çalıştırın. 
 
-2. **Microsoft Integration Runtime Kurulum Sihirbazına Hoş Geldiniz** sayfasında **İleri**'yi seçin.  
+1. **Microsoft Integration Runtime Kurulum Sihirbazına Hoş Geldiniz** sayfasında **İleri**'yi seçin.  
 
-3. **Son Kullanıcı Lisans Sözleşmesi** penceresinde koşulları ve lisans sözleşmesini kabul edin ve **İleri**'yi seçin. 
+1. **Son Kullanıcı Lisans Sözleşmesi** penceresinde koşulları ve lisans sözleşmesini kabul edin ve **İleri**'yi seçin. 
 
-4. **Hedef Klasör** penceresinde **İleri**’yi seçin. 
+1. **Hedef Klasör** penceresinde **İleri**’yi seçin. 
 
-5. **Microsoft Integration Runtime yüklenmeye hazır** penceresinde **Yükle**'yi seçin. 
+1. **Microsoft Integration Runtime yüklenmeye hazır** penceresinde **Yükle**'yi seçin. 
 
-6. Bilgisayarın kullanılmadığında uyku veya hazırda bekleme moduna geçecek şekilde yapılandırıldığını bildiren bir uyarı iletisi görürseniz **Tamam**'ı seçin. 
+1. Bilgisayarın kullanılmadığında uyku veya hazırda bekleme moduna geçecek şekilde yapılandırıldığını bildiren bir uyarı iletisi görürseniz **Tamam**'ı seçin. 
 
-7. **Güç Seçenekleri** penceresini görüntülenirse kapatın ve kurulum penceresine geçin. 
+1. **Güç Seçenekleri** penceresini görüntülenirse kapatın ve kurulum penceresine geçin. 
 
-8. **Microsoft Integration Runtime Kurulum Sihirbazı Tamamlandı** sayfasında **Son**'u seçin.
+1. **Microsoft Integration Runtime Kurulum Sihirbazı Tamamlandı** sayfasında **Son**'u seçin.
 
-9. **Integration Runtime’ı (şirket içinde barındırılan) Kaydet** penceresinde, önceki bölümde kaydettiğiniz anahtarı yapıştırın ve **Kaydol**'u seçin. 
+1. **Integration Runtime’ı (şirket içinde barındırılan) Kaydet** penceresinde, önceki bölümde kaydettiğiniz anahtarı yapıştırın ve **Kaydol**'u seçin. 
 
     ![Tümleştirme çalışma zamanını kaydetme](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
@@ -280,22 +280,22 @@ Bu bölümde, şirket içinde barındırılan bir tümleştirme çalışma zaman
 
     ![Başarıyla kaydedildi](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
-10. **Yeni Integration Runtime (şirket içinde barındırılan) Düğümü** penceresinde **İleri**'yi seçin. 
+1. **Yeni Integration Runtime (şirket içinde barındırılan) Düğümü** penceresinde **İleri**'yi seçin. 
 
     ![Yeni Integration Runtime Düğümü penceresi](media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png)
 
-11. **İntranet İletişim Kanalı** penceresinde **Atla**'yı seçin.  
+1. **İntranet İletişim Kanalı** penceresinde **Atla**'yı seçin.  
     Çok düğümlü bir tümleştirme çalışma zamanı ortamında düğüm içi iletişimin güvenliğini sağlamak için TLS/SSL sertifikası seçebilirsiniz.
 
     ![İntranet iletişim kanalı penceresi](media/tutorial-hybrid-copy-powershell/intranet-communication-channel-page.png)
 
-12. **Integration Runtime’ı (şirket içinde barındırılan) Kaydet** penceresinde **Configuration Manager'ı Başlat**'ı seçin. 
+1. **Integration Runtime’ı (şirket içinde barındırılan) Kaydet** penceresinde **Configuration Manager'ı Başlat**'ı seçin. 
 
-13. Düğüm bulut hizmetine bağlandığında şu ileti görüntülenir:
+1. Düğüm bulut hizmetine bağlandığında şu ileti görüntülenir:
 
     ![Düğüm bağlı](media/tutorial-hybrid-copy-powershell/node-is-connected.png)
 
-14. Aşağıdakini yaparak SQL Server veritabanınıza olan bağlantıyı test edin:
+1. Aşağıdakini yaparak SQL Server veritabanınıza olan bağlantıyı test edin:
 
     ![Tanılama sekmesi](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png)   
 
@@ -344,9 +344,9 @@ Bu adımda, Azure depolama hesabınızı veri fabrikasına bağlarsınız.
     }
    ```
 
-2. PowerShell’de *C:\ADFv2Tutorial* klasörüne geçin.
+1. PowerShell’de *C:\ADFv2Tutorial* klasörüne geçin.
 
-3. AzureStorageLinkedService adlı bağlı hizmeti oluşturmak için aşağıdaki `Set-AzureRmDataFactoryV2LinkedService` cmdlet’ini çalıştırın: 
+1. AzureStorageLinkedService adlı bağlı hizmeti oluşturmak için aşağıdaki `Set-AzureRmDataFactoryV2LinkedService` cmdlet’ini çalıştırın: 
 
    ```powershell
    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -424,14 +424,14 @@ Bu adımda, şirket içi SQL Server örneğinizi veri fabrikasına bağlarsını
     > - Dosyayı kaydetmeden önce **\<sunucuadı>**, **\<veritabanıadı>**, **\<kullanıcıadı>** ve **\<parola>** değerleri yerine SQL Server örneğinizin değerlerini koyun.
     > - Kullanıcı hesabınızda veya sunucu adında ters eğik çizgi karakteri (\\) kullanmanız gerekirse önüne kaçış karakterini (\\) koyun. Örneğin, *etkialanim\\\\kullanicim* şeklinde kullanın. 
 
-2. Hassas verileri (kullanıcı adı, parola ve benzeri) şifrelemek için `New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential` cmdlet'ini çalıştırın.  
+1. Hassas verileri (kullanıcı adı, parola ve benzeri) şifrelemek için `New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential` cmdlet'ini çalıştırın.  
     Bu şifreleme, kimlik bilgilerinin Veri Koruma Uygulama Programlama Arabirimi (DPAPI) kullanılarak şifrelenmesini sağlar. Şifrelenmiş kimlik bilgileri, şirket içinde barındırılan tümleştirme çalışma zamanı düğümünde (yerel makine) yerel olarak kaydedilir. Çıktı yükü, şifrelenmiş kimlik bilgilerini içeren başka bir JSON dosyasına (bu örnekte *encryptedLinkedService.json*) yönlendirilebilir.
     
    ```powershell
    New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName $integrationRuntimeName -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
    ```
 
-3. EncryptedSqlServerLinkedService öğesini oluşturan aşağıdaki komutu çalıştırın:
+1. EncryptedSqlServerLinkedService öğesini oluşturan aşağıdaki komutu çalıştırın:
 
    ```powershell
    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json"
@@ -476,7 +476,7 @@ Bu adımda, SQL Server veritabanı örneğindeki verileri temsil eden bir veri k
     }
     ```
 
-2. SqlServerDataset veri kümesini oluşturmak için `Set-AzureRmDataFactoryV2Dataset` cmdlet'ini çalıştırın.
+1. SqlServerDataset veri kümesini oluşturmak için `Set-AzureRmDataFactoryV2Dataset` cmdlet'ini çalıştırın.
 
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerDataset" -File ".\SqlServerDataset.json"
@@ -518,7 +518,7 @@ Bağlı hizmet, veri fabrikasının çalışma zamanında Azure depolama hesabı
     }
     ```
 
-2. AzureBlobDataset veri kümesini oluşturmak için `Set-AzureRmDataFactoryV2Dataset` cmdlet'ini çalıştırın.
+1. AzureBlobDataset veri kümesini oluşturmak için `Set-AzureRmDataFactoryV2Dataset` cmdlet'ini çalıştırın.
 
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureBlobDataset" -File ".\AzureBlobDataset.json"
@@ -573,7 +573,7 @@ Bu öğreticide, kopyalama etkinliği ile bir işlem hattı oluşturursunuz. Kop
     }
     ```
 
-2. SqlServerToBlobPipeline işlem hattını oluşturmak için `Set-AzureRmDataFactoryV2Pipeline` cmdlet’ini çalıştırın.
+1. SqlServerToBlobPipeline işlem hattını oluşturmak için `Set-AzureRmDataFactoryV2Pipeline` cmdlet’ini çalıştırın.
 
     ```powershell
     Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SQLServerToBlobPipeline" -File ".\SQLServerToBlobPipeline.json"
@@ -634,7 +634,7 @@ $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -
     Error             : {errorCode, message, failureType, target}
     ```
 
-2. SQLServerToBlobPipeline işlem hattının çalıştırma kimliğini alabilir ve aşağıdaki komutu çalıştırarak ayrıntılı etkinlik çalıştırma sonucunu denetleyebilirsiniz: 
+1. SQLServerToBlobPipeline işlem hattının çalıştırma kimliğini alabilir ve aşağıdaki komutu çalıştırarak ayrıntılı etkinlik çalıştırma sonucunu denetleyebilirsiniz: 
 
     ```powershell
     Write-Host "Pipeline 'SQLServerToBlobPipeline' run result:" -foregroundcolor "Yellow"
@@ -662,8 +662,8 @@ $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -
 1. Çıktı klasörünü görmek için, Azure portalındaki **adftutorial** kapsayıcı penceresinde **Yenile**’yi seçin.
 
     ![Oluşturulan çıktı klasörü](media/tutorial-hybrid-copy-powershell/fromonprem-folder.png)
-2. Klasör listesinde `fromonprem` seçeneğini belirleyin. 
-3. `dbo.emp.txt` adlı bir dosya gördüğünüzü onaylayın.
+1. Klasör listesinde `fromonprem` seçeneğini belirleyin. 
+1. `dbo.emp.txt` adlı bir dosya gördüğünüzü onaylayın.
 
     ![Çıktı dosyası](media/tutorial-hybrid-copy-powershell/fromonprem-file.png)
 

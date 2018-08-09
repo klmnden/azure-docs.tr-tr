@@ -6,13 +6,14 @@ author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/04/2018
-ms.author: bryanla
-ms.openlocfilehash: b57e688b5f830c8c7d34315a68be94e4e4c99466
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.author: anshan
+manager: cshankar
+ms.openlocfilehash: 7faec1608845d218a738c70f147f79248a549dde
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295856"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626781"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Öğretici: Azure Time Series Insights ortamı oluşturma
 
@@ -217,7 +218,7 @@ Bu öğreticide, TSI ortamını ve cihaz benzetimi çözümünü desteklemek üz
 Azure portalında soldaki menüden:
 
 1. **Kaynak grupları** simgesine tıklayın, ardından TSI Ortamı için oluşturduğunuz kaynak grubunu seçin. Sayfanın üst kısmında **Kaynak grubunu sil**’e tıklayın, kaynak grubunun adını girin, ardından **Sil**’e tıklayın. 
-2. **Kaynak grupları** simgesine tıklayın, ardından cihaz benzetimi çözüm hızlandırıcısı tarafından oluşturulan kaynak grubunu seçin. Sayfanın üst kısmında **Kaynak grubunu sil**’e tıklayın, kaynak grubunun adını girin, ardından **Sil**’e tıklayın. 
+2. **Kaynak grupları** simgesine tıklayın, ardından cihaz simülasyonu çözüm hızlandırıcısı tarafından oluşturulan kaynak grubunu seçin. Sayfanın üst kısmında **Kaynak grubunu sil**’e tıklayın, kaynak grubunun adını girin, ardından **Sil**’e tıklayın. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

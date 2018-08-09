@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 478c6dcaa6afd67742df91366021c6186fc1427e
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 792d9b1409b9571474f47da4940724df7a764d82
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098541"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429891"
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Kubernetes pod’larını ve altyapısını ölçeklendirme
 
@@ -115,7 +115,7 @@ Birkaç dakika sonra Azure Vote uygulamasında en az yük ile, pod çoğaltmalar
 
 ## <a name="scale-the-agents"></a>Aracıları ölçeklendirme
 
-Önceki öğreticide Kubernetes kümenizi varsayılan komutları kullanarak oluşturduysanız, burada üç aracı düğümü bulunur. Kümenizde daha fazla veya daha az kapsayıcı iş yükü planlıyorsanız, aracı sayısını el ile ayarlayabilirsiniz. [az acs scale](/cli/azure/acs#az_acs_scale) komutunu kullanın ve `--new-agent-count` parametresi ile aracı sayısını belirtin.
+Önceki öğreticide Kubernetes kümenizi varsayılan komutları kullanarak oluşturduysanız, burada üç aracı düğümü bulunur. Kümenizde daha fazla veya daha az kapsayıcı iş yükü planlıyorsanız, aracı sayısını el ile ayarlayabilirsiniz. [az acs scale](/cli/azure/acs#az-acs-scale) komutunu kullanın ve `--new-agent-count` parametresi ile aracı sayısını belirtin.
 
 Aşağıdaki örnek, *myK8sCluster* adlı Kubernetes kümesinde aracı düğümlerinin sayısını 4’e yükseltir. Komutun tamamlanması birkaç dakika sürer.
 

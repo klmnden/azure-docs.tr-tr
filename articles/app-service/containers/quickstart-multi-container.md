@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: bf567402a66f9152c7eb9b97925fec2a159ffe56
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6fa0bab5d2b402c85ea3ee70e7356f8c8c989ab9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38593129"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446791"
 ---
 # <a name="create-a-multi-container-preview-app-using-web-app-for-containers"></a>Kapsayıcılar için Web App uygulamasını kullanarak çok kapsayıcılı (önizleme) uygulama oluşturma
 
@@ -60,7 +60,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
 
-Cloud Shell içinde [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) komutuyla bir kaynak grubu oluşturun. Aşağıdaki örnek *Orta Güney ABD* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur. **Standart** katmanda Linux üzerinde App Service için desteklenen tüm konumları görüntülemek için [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) komutunu çalıştırın.
+Cloud Shell içinde [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) komutuyla bir kaynak grubu oluşturun. Aşağıdaki örnek *Orta Güney ABD* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur. **Standart** katmanda Linux üzerinde App Service için desteklenen tüm konumları görüntülemek için [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations) komutunu çalıştırın.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -72,7 +72,7 @@ Komut tamamlandığında, bir JSON çıkışı size kaynak grubu özelliklerini 
 
 ## <a name="create-an-azure-app-service-plan"></a>Azure App Service planı oluşturma
 
-Cloud Shell’de, kaynak grubunda [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) komutuyla bir App Service planı oluşturun.
+Cloud Shell’de, kaynak grubunda [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) komutuyla bir App Service planı oluşturun.
 
 Aşağıdaki örnek, **Standart** fiyatlandırma katmanı (`--sku S1`) ve bir Linux kapsayıcısı (`--is-linux`) içinde `myAppServicePlan` adlı bir App Service planı oluşturur.
 
@@ -102,7 +102,7 @@ App Service planı oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bi
 
 ## <a name="create-a-docker-compose-app"></a>Docker Compose uygulaması oluşturma
 
-Cloud Shell terminalinde [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) komutunu kullanarak `myAppServicePlan` App Service planında çok kapsayıcılı bir [web uygulaması](app-service-linux-intro.md) oluşturun. _\<app_name>_ yerine benzersiz bir uygulama adı girmeyi unutmayın.
+Cloud Shell terminalinde [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) komutunu kullanarak `myAppServicePlan` App Service planında çok kapsayıcılı bir [web uygulaması](app-service-linux-intro.md) oluşturun. _\<app_name>_ yerine benzersiz bir uygulama adı girmeyi unutmayın.
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b08033c53185e6229e6fa368a3456749e19eb1f0
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: eeaac4f694c3e7197a5f798d7462b39d42e14e03
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021332"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505840"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Öğretici: Azure’da SQL Veritabanı ile ASP.NET uygulaması derleme
 
@@ -50,9 +50,8 @@ Visual Studio’yu önceden yüklediyseniz, **Araçlar** > **Araçları ve Özel
 
 ## <a name="download-the-sample"></a>Örneği indirme
 
-<a name="-download-the-sample-projecthttpsgithubcomazure-samplesdotnet-sqldb-tutorialarchivemasterzip"></a>-[Örnek projeyi indirin](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
--
--*dotnet-sqldb-tutorial-master.zip* dosyasını ayıklayın (sıkıştırmasını açın).
+- [Örnek projeyi indirin](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
+- *Dotnet-sqldb-tutorial-master.zip* dosyasını ayıklayın (sıkıştırmasını açın).
 
 Örnek proje, [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) kullanan temel bir [ASP.NET MVC](https://www.asp.net/mvc) oluşturma-okuma-güncelleştirme-silme (CRUD) uygulaması içerir.
 
@@ -144,7 +143,7 @@ Bu kullanıcı adını ve parolayı unutmayın. Daha sonra mantıksal sunucu ör
 
 ![SQL Server örneği oluşturma](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
-**Tamam**’a tıklayın. **SQL Veritabanını Yapılandır** iletişim kutusunu henüz kapatmayın.
+**Tamam** düğmesine tıklayın. **SQL Veritabanını Yapılandır** iletişim kutusunu henüz kapatmayın.
 
 ### <a name="create-a-sql-database"></a>SQL Veritabanı oluşturma
 

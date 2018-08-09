@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: c8bcc2bf11ef4adbe9139635d3c24c240a46783c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 536092c1ee50045e6df4e2933c7d6eb0ee7a8b42
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525766"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429796"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Depolama Gezgini’ni Azure Dosya depolama ile kullanma
 
@@ -41,17 +41,17 @@ Aşağıdaki adımlar, Depolama Gezgini içinde bir dosya paylaşımı oluşturm
 
 1. Depolama Gezgini'ni açın.
 
-2. Sol bölmede, Dosya Paylaşımını oluşturmak istediğiniz depolama hesabını genişletin
+1. Sol bölmede, Dosya Paylaşımını oluşturmak istediğiniz depolama hesabını genişletin
 
-3. **Dosya Paylaşımları**’na sağ tıklayın ve bağlam menüsünden **Dosya Paylaşımı Oluştur**’u seçin.
+1. **Dosya Paylaşımları**’na sağ tıklayın ve bağlam menüsünden **Dosya Paylaşımı Oluştur**’u seçin.
 
     ![Dosya Paylaşımı Oluşturma](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-4. **Dosya Paylaşımları** klasörünün altında bir metin kutusu görünür. Dosya paylaşımınızın adını girin. Dosya paylaşımlarını adlandırmayla ilgili kural ve kısıtlamaların listesi için [Paylaşım adlandırma kuralları](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container) bölümüne bakın.
+1. **Dosya Paylaşımları** klasörünün altında bir metin kutusu görünür. Dosya paylaşımınızın adını girin. Dosya paylaşımlarını adlandırmayla ilgili kural ve kısıtlamaların listesi için [Paylaşım adlandırma kuralları](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container) bölümüne bakın.
 
     ![Paylaşımı adlandırma](media/vs-azure-tools-storage-explorer-files/image2.png)
 
-5. Dosya paylaşımını oluşturma işlemi tamamlandığında **Enter** tuşuna veya iptal etmek için **Esc** tuşuna basın. Dosya paylaşımı başarıyla oluşturulduktan sonra, seçili depolama hesabının **Dosya Paylaşımları** klasörü altında gösterilir.
+1. Dosya paylaşımını oluşturma işlemi tamamlandığında **Enter** tuşuna veya iptal etmek için **Esc** tuşuna basın. Dosya paylaşımı başarıyla oluşturulduktan sonra, seçili depolama hesabının **Dosya Paylaşımları** klasörü altında gösterilir.
 
     ![Yeni paylaşım](media/vs-azure-tools-storage-explorer-files/image3.png)
 
@@ -63,15 +63,15 @@ Aşağıdaki adımlar, Depolama Gezgini’ndeki bir dosya paylaşımının içer
 
 1. Depolama Gezgini'ni açın.
 
-2. Sol bölmede, görüntülemek istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
+1. Sol bölmede, görüntülemek istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
 
-3. Depolama hesabının **Dosya Paylaşımları**’nı genişletin.
+1. Depolama hesabının **Dosya Paylaşımları**’nı genişletin.
 
-4. Görüntülemek istediğiniz dosya paylaşımına sağ tıklayın ve bağlam menüsünden **Aç**’ı seçin. Ayrıca, görüntülemek istediğiniz dosya paylaşımına çift tıklayabilirsiniz.
+1. Görüntülemek istediğiniz dosya paylaşımına sağ tıklayın ve bağlam menüsünden **Aç**’ı seçin. Ayrıca, görüntülemek istediğiniz dosya paylaşımına çift tıklayabilirsiniz.
 
     ![Paylaşımı açma](media/vs-azure-tools-storage-explorer-files/image4.png)
 
-5. Ana bölmede dosya paylaşımının içeriğini gösterilir.
+1. Ana bölmede dosya paylaşımının içeriğini gösterilir.
     
     ![Paylaşımın içeriği](media/vs-azure-tools-storage-explorer-files/image5.png)
 
@@ -83,15 +83,15 @@ Aşağıdaki adımlar, Depolama Gezgini içinde bir dosya paylaşımı silme iş
 
 1. Depolama Gezgini'ni açın.
 
-2. Sol bölmede, görüntülemek istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
+1. Sol bölmede, görüntülemek istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
 
-3. Depolama hesabının **Dosya Paylaşımları**’nı genişletin.
+1. Depolama hesabının **Dosya Paylaşımları**’nı genişletin.
 
-4. Silmek istediğiniz dosya paylaşımına sağ tıklayın ve bağlam menüsünden **Sil**’i seçin. Ayrıca **Sil** tuşuna basarak o anda seçili dosya paylaşımını silebilirsiniz.
+1. Silmek istediğiniz dosya paylaşımına sağ tıklayın ve bağlam menüsünden **Sil**’i seçin. Ayrıca **Sil** tuşuna basarak o anda seçili dosya paylaşımını silebilirsiniz.
 
     ![Sil](media/vs-azure-tools-storage-explorer-files/image6.png)
 
-5. Onay iletişim kutusunda **Evet**’i seçin.
+1. Onay iletişim kutusunda **Evet**’i seçin.
     
     ![Onay iletişim kutusu](media/vs-azure-tools-storage-explorer-files/image7.png)
 
@@ -103,15 +103,15 @@ Aşağıdaki adımlar, dosya paylaşımını bir depolama hesabından diğerine 
 
 1. Depolama Gezgini'ni açın.
 
-2. Sol bölmede, kopyalamak istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
+1. Sol bölmede, kopyalamak istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
 
-3. Depolama hesabının **Dosya Paylaşımları**’nı genişletin.
+1. Depolama hesabının **Dosya Paylaşımları**’nı genişletin.
 
-4. Kopyalamak istediğiniz dosya paylaşımına sağ tıklayın ve bağlam menüsünden **Dosya Paylaşımını Kopyala**’yı seçin.
+1. Kopyalamak istediğiniz dosya paylaşımına sağ tıklayın ve bağlam menüsünden **Dosya Paylaşımını Kopyala**’yı seçin.
 
     ![Dosya Paylaşımını Kopyala](media/vs-azure-tools-storage-explorer-files/image8.png)
 
-5. Dosya paylaşımını yapıştırmak istediğiniz "hedef" depolama hesabına sağ tıklayın ve bağlam menüsünden **Dosya Paylaşımını Yapıştır**’ı seçin.
+1. Dosya paylaşımını yapıştırmak istediğiniz "hedef" depolama hesabına sağ tıklayın ve bağlam menüsünden **Dosya Paylaşımını Yapıştır**’ı seçin.
 
     ![Dosya Paylaşımını Yapıştır](media/vs-azure-tools-storage-explorer-files/image9.png)
 
@@ -123,25 +123,25 @@ Aşağıdaki adımlar, bir dosya paylaşımı için SAS oluşturma işlemini gö
 
 1. Depolama Gezgini'ni açın.
 
-2. Sol bölmede, SAS almak istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
+1. Sol bölmede, SAS almak istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
 
-3. Depolama hesabının **Dosya Paylaşımları**’nı genişletin.
+1. Depolama hesabının **Dosya Paylaşımları**’nı genişletin.
 
-4. İstediğiniz dosya paylaşımına sağ tıklayın ve bağlam menüsünden **Paylaşılan Erişim İmzası Al**’ı seçin.
+1. İstediğiniz dosya paylaşımına sağ tıklayın ve bağlam menüsünden **Paylaşılan Erişim İmzası Al**’ı seçin.
 
     ![Paylaşılan Erişim İmzası Al](media/vs-azure-tools-storage-explorer-files/image10.png)
 
-5. **Paylaşılan Erişim İmzası** iletişim kutusunda ilkeyi, başlangıç ve sona erme tarihlerini, saat dilimini ve kaynak için istediğiniz erişim düzeylerini belirtin.
+1. **Paylaşılan Erişim İmzası** iletişim kutusunda ilkeyi, başlangıç ve sona erme tarihlerini, saat dilimini ve kaynak için istediğiniz erişim düzeylerini belirtin.
 
     ![SAS iletişim kutusu](media/vs-azure-tools-storage-explorer-files/image11.png)
 
-6. SAS seçeneklerini belirtmeyi tamamladığınızda **Oluştur**’u seçin.
+1. SAS seçeneklerini belirtmeyi tamamladığınızda **Oluştur**’u seçin.
 
-7. Bu durumda, depolama kaynağına erişmek için kullanabileceğiniz URL ve QueryStrings ile birlikte dosya paylaşımını listeleyen ikinci bir **Paylaşılan Erişim İmzası** iletişim kutusu görüntülenir. Panoya kopyalamak istediğiniz URL’nin yanındaki **Kopyala** öğesini seçin.
+1. Bu durumda, depolama kaynağına erişmek için kullanabileceğiniz URL ve QueryStrings ile birlikte dosya paylaşımını listeleyen ikinci bir **Paylaşılan Erişim İmzası** iletişim kutusu görüntülenir. Panoya kopyalamak istediğiniz URL’nin yanındaki **Kopyala** öğesini seçin.
     
     ![İkinci SAS iletişim kutusu](media/vs-azure-tools-storage-explorer-files/image12.png)
 
-8. İşiniz bittiğinde **Kapat**’ı seçin.
+1. İşiniz bittiğinde **Kapat**’ı seçin.
 
 ## <a name="manage-access-policies-for-a-file-share"></a>Bir dosya paylaşımı için Erişim İlkelerini yönetme
 
@@ -149,19 +149,19 @@ Aşağıdaki adımlar, bir dosya paylaşımı için erişim ilkelerini yönetme 
 
 1. Depolama Gezgini'ni açın.
 
-2. Sol bölmede, erişim ilkelerini yönetmek istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
+1. Sol bölmede, erişim ilkelerini yönetmek istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
 
-3. Depolama hesabının **Dosya Paylaşımları**’nı genişletin.
+1. Depolama hesabının **Dosya Paylaşımları**’nı genişletin.
 
-4. İstediğiniz dosya paylaşımını ve bağlam menüsünden **Erişim İlkelerini Yönet**’i seçin.
+1. İstediğiniz dosya paylaşımını ve bağlam menüsünden **Erişim İlkelerini Yönet**’i seçin.
 
     ![Erişim ilkelerini yönet bağlam menüsü](media/vs-azure-tools-storage-explorer-files/image13.png)
 
-5. **Erişim İlkeleri** iletişim kutusunda, seçili dosya paylaşımı için daha önce oluşturulmuş erişim ilkeleri listelenir.
+1. **Erişim İlkeleri** iletişim kutusunda, seçili dosya paylaşımı için daha önce oluşturulmuş erişim ilkeleri listelenir.
     
     ![Erişim İlkeleri](media/vs-azure-tools-storage-explorer-files/image14.png)
 
-6. Erişim ilkesi yönetim görevine bağlı olarak aşağıdaki adımları izleyin:
+1. Erişim ilkesi yönetim görevine bağlı olarak aşağıdaki adımları izleyin:
     
     - **Yeni bir erişim ilkesi ekleme** - **Ekle**’yi seçin. Oluşturulduktan sonra, **Erişim İlkeleri** iletişim kutusunda yeni eklenen erişim ilkesi (varsayılan ayarlarla birlikte) gösterilir.
 
@@ -169,7 +169,7 @@ Aşağıdaki adımlar, bir dosya paylaşımı için erişim ilkelerini yönetme 
 
     - **Erişim ilkesini kaldırma** - Kaldırmak istediğiniz erişim ilkesinin yanındaki **Kaldır** öğesini seçin.
 
-7. Daha önce oluşturduğunuz Erişim İlkesi'ni kullanarak yeni bir SAS URL'si oluşturun:
+1. Daha önce oluşturduğunuz Erişim İlkesi'ni kullanarak yeni bir SAS URL'si oluşturun:
     
     ![SAS alma](media/vs-azure-tools-storage-explorer-files/image15.png)
     
@@ -183,19 +183,19 @@ Aşağıdaki adımlar bir dosya paylaşımındaki dosyaları (ve klasörleri) y�
 
 1.  Depolama Gezgini'ni açın.
 
-2.  Sol bölmede, yönetmek istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
+1.  Sol bölmede, yönetmek istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
 
-3.  Depolama hesabının **Dosya Paylaşımları**’nı genişletin.
+1.  Depolama hesabının **Dosya Paylaşımları**’nı genişletin.
 
-4.  Görüntülemek istediğiniz dosya paylaşımına çift tıklayın.
+1.  Görüntülemek istediğiniz dosya paylaşımına çift tıklayın.
 
-5.  Ana bölmede dosya paylaşımının içeriğini gösterilir.
+1.  Ana bölmede dosya paylaşımının içeriğini gösterilir.
 
     ![Paylaşımın içeriği](media/vs-azure-tools-storage-explorer-files/image17.png)
 
-6.  Ana bölmede dosya paylaşımının içeriğini gösterilir.
+1.  Ana bölmede dosya paylaşımının içeriğini gösterilir.
 
-7.  Gerçekleştirmek istediğiniz göreve bağlı olarak aşağıdaki adımları izleyin:
+1.  Gerçekleştirmek istediğiniz göreve bağlı olarak aşağıdaki adımları izleyin:
 
     - **Bir dosya paylaşımına dosya yükleme**
 

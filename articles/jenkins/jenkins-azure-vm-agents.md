@@ -8,12 +8,12 @@ manager: jpconnock
 ms.service: devops
 ms.custom: jenkins
 ms.date: 07/31/2018
-ms.openlocfilehash: 7f3facbc1bca51061d49ca99778c60d58c525144
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 069c6df38f9caa73a30fbc25baafdf7efbd2f402
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391283"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429405"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Talebi karşılamak için Jenkins dağıtımlarınızı Azure VM aracılarıyla ölçeklendirin
 
@@ -44,13 +44,13 @@ Bu öğreticide şunları yapacaksınız:
 > Jenkins'i Azure'a [çözüm şablonunu](install-jenkins-solution-template.md) kullanarak dağıttıysanız Azure VM Agents eklentisi zaten yüklüdür.
 
 1. Jenkins panosundan **Manage Jenkins** (Jenkins’i Yönet) ve ardından **Manage Plugins** (Eklentileri Yönet) öğelerini seçin.
-2. **Available** (Kullanılabilir) sekmesini seçtikten sonra **Azure VM Agents** (Azure VM Aracıları) araması yapın. Eklentinin yanındaki onay kutusunu seçtikten sonra panonun en altında bulunan **Install without restart** (Yeniden başlatmadan yükle) öğesini seçin.
+1. **Available** (Kullanılabilir) sekmesini seçtikten sonra **Azure VM Agents** (Azure VM Aracıları) araması yapın. Eklentinin yanındaki onay kutusunu seçtikten sonra panonun en altında bulunan **Install without restart** (Yeniden başlatmadan yükle) öğesini seçin.
 
 ## <a name="configure-the-azure-vm-agents-plugin"></a>Azure VM Agents eklentisini yapılandırma
 
 1. Jenkins panosundan **Manage Jenkins** (Jenkins'i Yönet) ve ardından **Configure System** (Sistemi Yapılandır) öğelerini seçin.
-2. Sayfanın en altına gidin ve **Cloud** (Bulut) bölümündeki **Add new cloud** (Yeni bulut ekle) açılan menüsünden **Microsoft Azure VM Agents** (Microsoft Azure VM Aracıları) öğesini seçin.
-3. **Azure Credentials** (Azure Kimlik Bilgileri) bölümündeki **Add** (Ekle) açılan menüsünden var olan hizmet sorumlularından birini seçin. Liste boşsa aşağıdaki adımları izleyerek Azure hesabınız için [bir hizmet sorumlusu oluşturun](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager) ve bunu Jenkins yapılandırmanıza ekleyin:   
+1. Sayfanın en altına gidin ve **Cloud** (Bulut) bölümündeki **Add new cloud** (Yeni bulut ekle) açılan menüsünden **Microsoft Azure VM Agents** (Microsoft Azure VM Aracıları) öğesini seçin.
+1. **Azure Credentials** (Azure Kimlik Bilgileri) bölümündeki **Add** (Ekle) açılan menüsünden var olan hizmet sorumlularından birini seçin. Liste boşsa aşağıdaki adımları izleyerek Azure hesabınız için [bir hizmet sorumlusu oluşturun](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager) ve bunu Jenkins yapılandırmanıza ekleyin:   
 
     a. **Azure Credentials** (Azure Kimlik Bilgileri) bölümünden **Add** (Ekle) öğesini ve ardından **Jenkins**'i seçin.   
     b. **Add Credentials** (Kimlik Bilgilerini Ekle) iletişim kutusundaki **Kind** (Tür) açılan menüsünden **Microsoft Azure Service Principal** (Microsoft Azure Hizmet Sorumlusu) girişini seçin.   
@@ -95,20 +95,20 @@ Bu öğreticide şunları yapacaksınız:
 
     
 
-4. **Resource Group Name** (Kaynak Grubu Adı) bölümünde **Create new** (Yeni oluştur) değerini bırakın ve `myJenkinsAgentGroup` yazın.
-5. **Verify configuration** (Yapılandırmayı doğrula) bağlantısını seçerek profil ayarlarını test etmek için Azure'a bağlanın.
-6. Eklenti yapılandırmasını güncelleştirmek için **Apply** (Uygula) öğesini seçin.
+1. **Resource Group Name** (Kaynak Grubu Adı) bölümünde **Create new** (Yeni oluştur) değerini bırakın ve `myJenkinsAgentGroup` yazın.
+1. **Verify configuration** (Yapılandırmayı doğrula) bağlantısını seçerek profil ayarlarını test etmek için Azure'a bağlanın.
+1. Eklenti yapılandırmasını güncelleştirmek için **Apply** (Uygula) öğesini seçin.
 
 ## <a name="configure-agent-resources"></a>Aracı kaynaklarını yapılandırma
 
 Bir Azure VM aracısı tanımlamak için kullanılacak şablonu yapılandırın. Bu şablon, yeni oluşturulan her aracıda bulunacak işlem kaynaklarını tanımlar.
 
 1. **Add Azure Virtual Machine Template** (Azure Sanal Makine Şablonu Ekle) bölümündeki **Add** (Ekle) öğesini seçin.
-2. **Name** (Ad) alanına `defaulttemplate` yazın.
-3. **Label** (Etiket) alanına `ubuntu` yazın.
-4. Birleşik giriş kutusundan istediğiniz [Azure region](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) (Azure bölgesi) seçimini yapın.
-5. **Virtual Machine Size** (Sanal Makine Boyutu) bölümündeki [VM size](/azure/virtual-machines/linux/sizes) (VM boyutu) açılan menüsünden seçim yapın. Bu öğretici için genel amaçlı `Standard_DS1_v2` boyutu yeterli olacaktır.   
-6. **Retention time** (Saklama süresi) değerini `60` olarak bırakın. Bu ayar, boştaki aracıları serbest bırakmadan önce Jenkins’in kaç dakika bekleyeceğini belirler. Boştaki aracıların otomatik olarak kaldırılmasını istemiyorsanız 0 değerini belirtin.
+1. **Name** (Ad) alanına `defaulttemplate` yazın.
+1. **Label** (Etiket) alanına `ubuntu` yazın.
+1. Birleşik giriş kutusundan istediğiniz [Azure region](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) (Azure bölgesi) seçimini yapın.
+1. **Virtual Machine Size** (Sanal Makine Boyutu) bölümündeki [VM size](/azure/virtual-machines/linux/sizes) (VM boyutu) açılan menüsünden seçim yapın. Bu öğretici için genel amaçlı `Standard_DS1_v2` boyutu yeterli olacaktır.   
+1. **Retention time** (Saklama süresi) değerini `60` olarak bırakın. Bu ayar, boştaki aracıları serbest bırakmadan önce Jenkins’in kaç dakika bekleyeceğini belirler. Boştaki aracıların otomatik olarak kaldırılmasını istemiyorsanız 0 değerini belirtin.
 
    ![Genel VM yapılandırması](./media/jenkins-azure-vm-agents/general-config.png)
 
@@ -125,22 +125,22 @@ Yapılandırmayı doğrulamak için **Verify Template** (Şablonu Doğrula) öğ
 ## <a name="create-a-job-in-jenkins"></a>Jenkins içinde iş oluşturma
 
 1. Jenkins panosunda **Yeni Öğe**’ye tıklayın. 
-2. Ad için `demoproject1` yazın, **Freestyle project** (Serbest tarzda proje) ve ardından **Tamam** öğesini seçin.
-3. **General** (Genel) sekmesinde **Restrict where project can be run** (Projenin nerede çalıştırılabileceğini kısıtla) öğesini seçip **Label Expression** (Etiket İfadesi) alanına `ubuntu` yazın. Etiketin bir önceki adımda oluşturulan buluta yapılandırması tarafında sunulduğunu onaylayan bir ileti göreceksiniz. 
+1. Ad için `demoproject1` yazın, **Freestyle project** (Serbest tarzda proje) ve ardından **Tamam** öğesini seçin.
+1. **General** (Genel) sekmesinde **Restrict where project can be run** (Projenin nerede çalıştırılabileceğini kısıtla) öğesini seçip **Label Expression** (Etiket İfadesi) alanına `ubuntu` yazın. Etiketin bir önceki adımda oluşturulan buluta yapılandırması tarafında sunulduğunu onaylayan bir ileti göreceksiniz. 
    ![İşi ayarlama](./media/jenkins-azure-vm-agents/job-config.png)
-4. **Source Code Management** (Kaynak Kod Yönetimi) sekmesinde **Git**'i seçin ve **Repository URL** (Depo URL'si) alanına şu URL'yi yazın: `https://github.com/spring-projects/spring-petclinic.git`
-5. **Build** (Derleme) sekmesinde **Add build step** (Derleme adımı ekle) ve ardından **Invoke top-level Maven targets** (Üst düzey Maven hedeflerini çağır) öğesini seçin. **Goals** (Hedefler) alanına `package` yazın.
-6. İş tanımını kaydetmek için **Save** (Kaydet) öğesini seçin.
+1. **Source Code Management** (Kaynak Kod Yönetimi) sekmesinde **Git**'i seçin ve **Repository URL** (Depo URL'si) alanına şu URL'yi yazın: `https://github.com/spring-projects/spring-petclinic.git`
+1. **Build** (Derleme) sekmesinde **Add build step** (Derleme adımı ekle) ve ardından **Invoke top-level Maven targets** (Üst düzey Maven hedeflerini çağır) öğesini seçin. **Goals** (Hedefler) alanına `package` yazın.
+1. İş tanımını kaydetmek için **Save** (Kaydet) öğesini seçin.
 
 ## <a name="build-the-new-job-on-an-azure-vm-agent"></a>Yeni işi Azure VM aracısında derleme
 
 1. Jenkins panosuna geri dönün.
-2. Bir önceki adımda oluşturduğunuz işi seçin ve **Build now** (Şimdi derle) öğesine tıklayın. Yeni bir derleme kuyruğa alınır ancak Azure aboneliğinizde bir aracı VM oluşturulana kadar başlatılmaz.
-3. Derleme tamamlandıktan sonra **Konsol çıktısı**’na gidin. Derlemenin Azure aracısı üzerinde uzaktan gerçekleştirildiğini görürsünüz.
+1. Bir önceki adımda oluşturduğunuz işi seçin ve **Build now** (Şimdi derle) öğesine tıklayın. Yeni bir derleme kuyruğa alınır ancak Azure aboneliğinizde bir aracı VM oluşturulana kadar başlatılmaz.
+1. Derleme tamamlandıktan sonra **Konsol çıktısı**’na gidin. Derlemenin Azure aracısı üzerinde uzaktan gerçekleştirildiğini görürsünüz.
 
 ![Konsol çıktısı](./media/jenkins-azure-vm-agents/console-output.png)
 
-## <a name="troubleshooting-the-jenkins-plugin"></a>Jenkins eklentisiyle ilgili sorunlarını giderme
+## <a name="troubleshooting-the-jenkins-plugin"></a>Jenkins eklentisiyle ilgili sorunları giderme
 
 Jenkins eklentileriyle ilgili hatalarla karşılaşırsanız [Jenkins JIRA](https://issues.jenkins-ci.org/) sayfasında söz konusu bileşenle ilgili sorun bildirebilirsiniz.
 

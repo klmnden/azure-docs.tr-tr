@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: ab354410ba3b0b37ae630a2b68daec63a9051555
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6e421aa630dc121589dece789e2e0d7f9a56bbe6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700834"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434848"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Öğretici: IoT Hub'ı ile ileti yönlendirmeyi yapılandırma
 
@@ -80,13 +80,13 @@ Aşağıdaki bölümlerde bu gerekli adımların nasıl uygulanacağı açıklan
 
     <!-- When they add the Basic tier, change this to use Basic instead of Standard. -->
 
-2. S1 katmanında IoT hub'ı oluşturun. IOT hub'ınızı bir tüketici grubu ekleyin. Tüketici grubu Azure Stream Analytics tarafından veriler alınırken kullanılır.
+1. S1 katmanında IoT hub'ı oluşturun. IOT hub'ınızı bir tüketici grubu ekleyin. Tüketici grubu Azure Stream Analytics tarafından veriler alınırken kullanılır.
 
-3. Standard_LRS çoğaltmasıyla standart bir V1 depolama hesabı oluşturun.
+1. Standard_LRS çoğaltmasıyla standart bir V1 depolama hesabı oluşturun.
 
-4. Service Bus ad alanı ve kuyruğu oluşturun. 
+1. Service Bus ad alanı ve kuyruğu oluşturun. 
 
-5. Hub'ınıza iletiler gönderen simülasyon cihazı için cihaz kimliği oluşturun. Test aşaması için anahtarı kaydedin.
+1. Hub'ınıza iletiler gönderen simülasyon cihazı için cihaz kimliği oluşturun. Test aşaması için anahtarı kaydedin.
 
 ### <a name="azure-cli-instructions"></a>Azure CLI yönergeleri
 
@@ -265,15 +265,15 @@ Sonra bir cihaz kimliği oluşturun ve anahtarını daha sonra kullanmak üzere 
 
 1. [Azure portalını](https://portal.azure.com) açın ve Azure hesabınızla oturum açın.
 
-2. **Kaynak grupları**'na tıklayın ve kaynak grubunuzu seçin. Bu öğreticide **ContosoResources** kullanılır.
+1. **Kaynak grupları**'na tıklayın ve kaynak grubunuzu seçin. Bu öğreticide **ContosoResources** kullanılır.
 
-3. Kaynak listesinde IoT hub'ınıza tıklayın. Bu öğreticide **ContosoTestHub** kullanılır. Hub bölmesinden **IoT Cihazları**'nı seçin.
+1. Kaynak listesinde IoT hub'ınıza tıklayın. Bu öğreticide **ContosoTestHub** kullanılır. Hub bölmesinden **IoT Cihazları**'nı seçin.
 
-4. **+ Ekle**'ye tıklayın. Cihaz Ekle bölmesinde cihaz kimliğini girin. Bu öğreticide **Contoso-Test-Device** kullanılır. Anahtarları boş bırakın ve **Anahtarları Otomatik Olarak Oluştur**'a tıklayın. **Cihazı IoT Hub'ına bağla** seçeneğinin etkinleştirildiğinden emin olun. **Kaydet**’e tıklayın.
+1. **+ Ekle**'ye tıklayın. Cihaz Ekle bölmesinde cihaz kimliğini girin. Bu öğreticide **Contoso-Test-Device** kullanılır. Anahtarları boş bırakın ve **Anahtarları Otomatik Olarak Oluştur**'a tıklayın. **Cihazı IoT Hub'ına bağla** seçeneğinin etkinleştirildiğinden emin olun. **Kaydet**’e tıklayın.
 
    ![Cihaz ekle ekranı gösteren ekran görüntüsü.](./media/tutorial-routing/add-device.png)
 
-5. Artık oluşturulduğuna göre, üretilen anahtarları görmek için cihaza tıklayın. Birincil anahtarda Kopyala simgesine tıklayın ve bu anahtarı bu öğreticinin test aşaması için Not Defteri gibi bir yere kaydedin.
+1. Artık oluşturulduğuna göre, üretilen anahtarları görmek için cihaza tıklayın. Birincil anahtarda Kopyala simgesine tıklayın ve bu anahtarı bu öğreticinin test aşaması için Not Defteri gibi bir yere kaydedin.
 
    ![Anahtarlarla birlikte cihaz ayrıntılarını gösteren ekran görüntüsü.](./media/tutorial-routing/device-details.png)
 
@@ -303,7 +303,7 @@ Simülasyon cihazı tarafından iletiye eklenen özellikler temelinde iletileri 
    
    Uç nokta ekleme işlemini bitirmek için **Tamam**'a tıklayın.
    
-2. IoT hub'ınızda **Yollar**'a tıklayın. İletileri az önce uç nokta olarak eklediğiniz depolama kapsayıcısına yönlendiren bir yönlendirme kuralı oluşturacaksınız. Yollar bölmesinin üst kısmındaki **+Ekle**'ye tıklayın. Ekrandaki alanları doldurun. 
+1. IoT hub'ınızda **Yollar**'a tıklayın. İletileri az önce uç nokta olarak eklediğiniz depolama kapsayıcısına yönlendiren bir yönlendirme kuralı oluşturacaksınız. Yollar bölmesinin üst kısmındaki **+Ekle**'ye tıklayın. Ekrandaki alanları doldurun. 
 
    **Ad**: Yönlendirme kuralınız için bir ad girin. Bu öğreticide **StorageRule** kullanılır.
 
@@ -335,7 +335,7 @@ Simülasyon cihazı tarafından iletiye eklenen özellikler temelinde iletileri 
 
    Uç noktayı kaydetmek için **Tamam**’a tıklayın. İşlem tamamlandıktan sonra Uç Noktalar bölmesini kapatın. 
     
-2. IoT hub'ınızda **Yollar**'a tıklayın. İletileri az önce uç nokta olarak eklediğiniz Service Bus kuyruğuna yönlendiren bir yönlendirme kuralı oluşturacaksınız. Yollar bölmesinin üst kısmındaki **+Ekle**'ye tıklayın. Ekrandaki alanları doldurun. 
+1. IoT hub'ınızda **Yollar**'a tıklayın. İletileri az önce uç nokta olarak eklediğiniz Service Bus kuyruğuna yönlendiren bir yönlendirme kuralı oluşturacaksınız. Yollar bölmesinin üst kısmındaki **+Ekle**'ye tıklayın. Ekrandaki alanları doldurun. 
 
    **Ad**: Yönlendirme kuralınız için bir ad girin. Bu öğreticide **SBQueueRule** kullanılır. 
 
@@ -373,17 +373,17 @@ Service Bus kuyruğu kritik olarak belirlenmiş iletileri almak için kullanıla
 
    **Oluştur**’a tıklayın.
 
-4. Şimdi Mantıksal Uygulama'ya gidin. Mantıksal Uygulama'ya ulaşmanın en kolay yolu **Kaynak grupları**'na tıklamak, kaynak grubunuzu seçmek (bu öğreticide **ContosoResources** kullanılır), sonra da kaynak listesinden Mantıksal Uygulama'yı seçmektir. Logic Apps Tasarımcısı sayfası gösterilir (sayfanın tamamını görmek için ekranı sağa doğru kaydırmanız gerekebilir). Logic Apps Tasarımcısı sayfasında, **Boş Mantıksal Uygulama +** adlı kutucuğu görene kadar ekranı aşağı kaydırın ve bu kutucuğa tıklayın. 
+1. Şimdi Mantıksal Uygulama'ya gidin. Mantıksal Uygulama'ya ulaşmanın en kolay yolu **Kaynak grupları**'na tıklamak, kaynak grubunuzu seçmek (bu öğreticide **ContosoResources** kullanılır), sonra da kaynak listesinden Mantıksal Uygulama'yı seçmektir. Logic Apps Tasarımcısı sayfası gösterilir (sayfanın tamamını görmek için ekranı sağa doğru kaydırmanız gerekebilir). Logic Apps Tasarımcısı sayfasında, **Boş Mantıksal Uygulama +** adlı kutucuğu görene kadar ekranı aşağı kaydırın ve bu kutucuğa tıklayın. 
 
-5. Bağlayıcı listesi görüntülenir. **Service Bus**'ı seçin. 
+1. Bağlayıcı listesi görüntülenir. **Service Bus**'ı seçin. 
 
    ![Bağlayıcı listesini gösteren ekran görüntüsü.](./media/tutorial-routing/logic-app-connectors.png)
 
-6. Tetikleyici listesi görüntülenir. **Service Bus - Kuyrukta bir ileti alındığında (otomatik tamamla)** öğesini seçin. 
+1. Tetikleyici listesi görüntülenir. **Service Bus - Kuyrukta bir ileti alındığında (otomatik tamamla)** öğesini seçin. 
 
    ![Service Bus için tetikleyici listesini gösteren ekran görüntüsü.](./media/tutorial-routing/logic-app-triggers.png)
 
-6. Sonraki ekranda, Bağlantı Adı alanını doldurun. Bu öğreticide **ContosoConnection** kullanılır. 
+1. Sonraki ekranda, Bağlantı Adı alanını doldurun. Bu öğreticide **ContosoConnection** kullanılır. 
 
    ![Service Bus kuyruğu için bağlantının ayarlanmasını gösteren ekran görüntüsü.](./media/tutorial-routing/logic-app-define-connection.png)
 
@@ -391,21 +391,21 @@ Service Bus kuyruğu kritik olarak belirlenmiş iletileri almak için kullanıla
    
    ![Bağlantı ayarlama işleminin bitirilmesini gösteren ekran görüntüsü.](./media/tutorial-routing/logic-app-finish-connection.png)
 
-7. Sonraki ekranda, açılan listeden kuyruğun adını seçin (bu öğreticide **contososbqueue** kullanılır). Kalan alanlar için varsayılan değerleri kullanabilirsiniz. 
+1. Sonraki ekranda, açılan listeden kuyruğun adını seçin (bu öğreticide **contososbqueue** kullanılır). Kalan alanlar için varsayılan değerleri kullanabilirsiniz. 
 
    ![Kuyruk seçeneklerini gösteren ekran görüntüsü.](./media/tutorial-routing/logic-app-queue-options.png)
 
-7. Şimdi kuyrukta bir ileti alındığında e-posta gönderme eylemini ayarlayın. Logic Apps Tasarımcısı'nda **+ Yeni adım**'a tıklayarak bir adım ekleyin ve ardından **Eylem ekle**'ye tıklayın. **Eylem seçin** bölmesinde **Office 365 Outlook**'u bulun ve tıklayın. Tetikleyiciler ekranında **Office 365 Outlook - E-posta gönder**'i seçin.  
+1. Şimdi kuyrukta bir ileti alındığında e-posta gönderme eylemini ayarlayın. Logic Apps Tasarımcısı'nda **+ Yeni adım**'a tıklayarak bir adım ekleyin ve ardından **Eylem ekle**'ye tıklayın. **Eylem seçin** bölmesinde **Office 365 Outlook**'u bulun ve tıklayın. Tetikleyiciler ekranında **Office 365 Outlook - E-posta gönder**'i seçin.  
 
    ![Office 365 seçeneklerini gösteren ekran görüntüsü.](./media/tutorial-routing/logic-app-select-outlook.png)
 
-8. Ardından, bağlantıyı ayarlamak için Office 365 hesabınızda oturum açın. E-postaların alıcıları için e-posta adreslerini belirtin. Ayrıca konuyu da belirtin ve alıcının gövdede görmesini istediğiniz iletiyi yazın. Test amacıyla, alıcı olarak kendi e-posta adresinizi girin.
+1. Ardından, bağlantıyı ayarlamak için Office 365 hesabınızda oturum açın. E-postaların alıcıları için e-posta adreslerini belirtin. Ayrıca konuyu da belirtin ve alıcının gövdede görmesini istediğiniz iletiyi yazın. Test amacıyla, alıcı olarak kendi e-posta adresinizi girin.
 
    Eklediğiniz iletinin içeriğini göstermek için **Dinamik içerik ekle**'ye tıklayın. **İçerik** öğesini seçin; e-postadaki iletiyi içerecektir. 
 
    ![Mantıksal uygulama için e-posta seçeneklerini gösteren ekran görüntüsü.](./media/tutorial-routing/logic-app-send-email.png)
 
-9. **Kaydet**’e tıklayın. Sonra Logic App Tasarımcısı'nı kapatın.
+1. **Kaydet**’e tıklayın. Sonra Logic App Tasarımcısı'nı kapatın.
 
 ## <a name="set-up-azure-stream-analytics"></a>Azure Stream Analytics'i ayarlama
 
@@ -415,7 +415,7 @@ Verileri Power BI görselleştirmesinde görmek için, önce bir Stream Analytic
 
 1. [Azure portalında](https://portal.azure.com), **Kaynak oluştur** > **Nesnelerin İnterneti** > **Stream Analytics işi**'ne tıklayın.
 
-2. İş için aşağıdaki bilgileri girin.
+1. İş için aşağıdaki bilgileri girin.
 
    **İş adı**: İşin adı. Adın genel olarak benzersiz olması gerekir. Bu öğreticide **contosoJob** kullanılır.
 
@@ -425,13 +425,13 @@ Verileri Power BI görselleştirmesinde görmek için, önce bir Stream Analytic
 
    ![Stream Analytics işi oluşturma işleminin gösterildiği ekran görüntüsü.](./media/tutorial-routing/stream-analytics-create-job.png)
 
-3. İşi oluşturma için **Oluştur**'a tıklayın. İşe dönmek için **Kaynak grupları**'na tıklayın. Bu öğreticide **ContosoResources** kullanılır. Kaynak grubunu seçin ve ardından kaynak listesinde Stream Analytics işine tıklayın. 
+1. İşi oluşturma için **Oluştur**'a tıklayın. İşe dönmek için **Kaynak grupları**'na tıklayın. Bu öğreticide **ContosoResources** kullanılır. Kaynak grubunu seçin ve ardından kaynak listesinde Stream Analytics işine tıklayın. 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Stream Analytics işine giriş ekleme
 
 1. **İş Topolojisi**'nin altında **Girişler**'e tıklayın.
 
-2. **Girişler** bölmesinde **Akış girişi ekle**'ye tıklayın ve IoT Hub'ını seçin. Görüntülenen ekranda aşağıdaki alanları doldurun:
+1. **Girişler** bölmesinde **Akış girişi ekle**'ye tıklayın ve IoT Hub'ını seçin. Görüntülenen ekranda aşağıdaki alanları doldurun:
 
    **Giriş diğer adı**: Bu öğreticide **contosoinputs** kullanılır.
 
@@ -449,13 +449,13 @@ Verileri Power BI görselleştirmesinde görmek için, önce bir Stream Analytic
 
    ![Stream Analytics işi için girişlerin ayarlanmasını gösteren ekran görüntüsü.](./media/tutorial-routing/stream-analytics-job-inputs.png)
 
-5. **Kaydet**’e tıklayın.
+1. **Kaydet**’e tıklayın.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Stream Analytics işine çıkış ekleme
 
 1. **İş Topolojisi**'nin altında **Çıkışlar**'a tıklayın.
 
-2. **Çıkışlar** bölmesinde **Ekle**'ye tıklayın ve **Power BI**'ı seçin. Görüntülenen ekranda aşağıdaki alanları doldurun:
+1. **Çıkışlar** bölmesinde **Ekle**'ye tıklayın ve **Power BI**'ı seçin. Görüntülenen ekranda aşağıdaki alanları doldurun:
 
    **Çıkış diğer adı**: Çıkışın benzersiz diğer adı. Bu öğreticide **contosooutputs** kullanılır. 
 
@@ -465,25 +465,25 @@ Verileri Power BI görselleştirmesinde görmek için, önce bir Stream Analytic
 
    Kalan alanlarda varsayılan değerleri kabul edin.
 
-3. **Yetkilendir**'e tıklayın ve Power BI hesabınızda oturum açın.
+1. **Yetkilendir**'e tıklayın ve Power BI hesabınızda oturum açın.
 
    ![Stream Analytics işi için çıkışların ayarlanmasını gösteren ekran görüntüsü.](./media/tutorial-routing/stream-analytics-job-outputs.png)
 
-4. **Kaydet**’e tıklayın.
+1. **Kaydet**’e tıklayın.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Stream Analytics işinin sorgusunu yapılandırma
 
 1. **İş Topolojisi**'nin altında **Sorgu**'ya tıklayın.
 
-2. `[YourInputAlias]` değerini işin giriş diğer adıyla değiştirin. Bu öğreticide **contosoinputs** kullanılır.
+1. `[YourInputAlias]` değerini işin giriş diğer adıyla değiştirin. Bu öğreticide **contosoinputs** kullanılır.
 
-3. `[YourOutputAlias]` değerini işin çıkış diğer adıyla değiştirin. Bu öğreticide **contosooutputs** kullanılır.
+1. `[YourOutputAlias]` değerini işin çıkış diğer adıyla değiştirin. Bu öğreticide **contosooutputs** kullanılır.
 
    ![Stream Analytics işi için sorgunun ayarlanmasını gösteren ekran görüntüsü.](./media/tutorial-routing/stream-analytics-job-query.png)
 
-4. **Kaydet**’e tıklayın.
+1. **Kaydet**’e tıklayın.
 
-5. Sorgu bölmesini kapatın. Bu sizi Kaynak Grubu'ndaki kaynakların görünümüne döndürür. Stream Analytics işine tıklayın. Bu öğreticide **contosoJob** olarak adlandırılmıştır.
+1. Sorgu bölmesini kapatın. Bu sizi Kaynak Grubu'ndaki kaynakların görünümüne döndürür. Stream Analytics işine tıklayın. Bu öğreticide **contosoJob** olarak adlandırılmıştır.
 
 ### <a name="run-the-stream-analytics-job"></a>Stream Analytics işini çalıştırma
 
@@ -525,7 +525,7 @@ Her şey düzgün ayarlandıysa, bu noktada aşağıdaki sonuçları görüyor o
    * İletiyi Service Bus kuyruğundan alan Mantıksal Uygulama düzgün çalışıyor.
    * Mantıksal Uygulama'nın Outlook bağlayıcısı düzgün çalışıyor. 
 
-2. [Azure portalında](https://portal.azure.com) **Kaynak grupları**'na tıklayın ve Kaynak Grubunuzu seçin. Bu öğreticide **ContosoResources** kullanılır. Depolama hesabını seçin, **Blob'lar** öğesine tıklayın ve Kapsayıcı seçin. Bu öğreticide **contosoresults** kullanılır. Bir klasör görüyor olmalısınız ve bir veya birden çok dosya görünceye kadar dizinlerde ayrıntıya gidebilirsiniz. Bu dosyalardan birini açın; depolama hesabına yönlendirilen girdileri içerir. 
+1. [Azure portalında](https://portal.azure.com) **Kaynak grupları**'na tıklayın ve Kaynak Grubunuzu seçin. Bu öğreticide **ContosoResources** kullanılır. Depolama hesabını seçin, **Blob'lar** öğesine tıklayın ve Kapsayıcı seçin. Bu öğreticide **contosoresults** kullanılır. Bir klasör görüyor olmalısınız ve bir veya birden çok dosya görünceye kadar dizinlerde ayrıntıya gidebilirsiniz. Bu dosyalardan birini açın; depolama hesabına yönlendirilen girdileri içerir. 
 
    ![Depolamada sonuç dosyalarını gösteren ekran görüntüsü.](./media/tutorial-routing/results-in-storage.png)
 
@@ -539,17 +539,17 @@ Bunun anlamı:
 
 1. [Power BI](https://powerbi.microsoft.com/) hesabınızda oturum açın.
 
-2. **Çalışma Alanları**'na gidin ve Stream Analytics işi için çıkış oluştururken ayarladığını çalışma alanını seçin. Bu öğreticide **My Workspace** kullanılır. 
+1. **Çalışma Alanları**'na gidin ve Stream Analytics işi için çıkış oluştururken ayarladığını çalışma alanını seçin. Bu öğreticide **My Workspace** kullanılır. 
 
-3. **Veri kümeleri**'ne tıklayın.
+1. **Veri kümeleri**'ne tıklayın.
 
    Stream Analytics işi için çıkış oluştururken belirttiğiniz veri kümesinin listelendiğini görüyor olmalısınız. Bu öğreticide **contosodataset** kullanılır. (Veri kümesinin ilk kez görüntülenmesi 5-10 dakika kadar sürebilir.)
 
-4. **EYLEMLER**'in altında, ilk simgeye tıklayarak bir rapor oluşturun.
+1. **EYLEMLER**'in altında, ilk simgeye tıklayarak bir rapor oluşturun.
 
    ![Eylemler ve rapor simgesinin vurgulandığı Power BI çalışma alanını gösteren ekran görüntüsü.](./media/tutorial-routing/power-bi-actions.png)
 
-5. Zamanla değişen gerçek zamanlı sıcaklığı göstermek için bir çizgi grafik oluşturun.
+1. Zamanla değişen gerçek zamanlı sıcaklığı göstermek için bir çizgi grafik oluşturun.
 
    a. Rapor oluşturma sayfasında, çizgi grafik simgesine tıklayarak çizgi grafiği oluşturun.
 
@@ -563,11 +563,11 @@ Bunun anlamı:
 
    Bir çizgi grafik oluşturulur. Grafiğin x ekseninde UTC saat dilimine göre tarih ve saat görüntülenir. Grafiğin y ekseninde algılayıcıdan alınan sıcaklık görüntülenir.
 
-7. Zamanla değişen gerçek zamanlı nem oranını göstermek için bir çizgi grafik daha oluşturun. İkinci grafiği ayarlamak için yukarıdaki adımları aynı şekilde izleyin ve x eksenine **EventEnqueuedUtcTime**, y eksenine de **humidity** öğelerini yerleştirin.
+1. Zamanla değişen gerçek zamanlı nem oranını göstermek için bir çizgi grafik daha oluşturun. İkinci grafiği ayarlamak için yukarıdaki adımları aynı şekilde izleyin ve x eksenine **EventEnqueuedUtcTime**, y eksenine de **humidity** öğelerini yerleştirin.
 
    ![İki grafiği olan Power BI raporunun son halini gösteren ekran görüntüsü.](./media/tutorial-routing/power-bi-report.png)
 
-8. Raporu kaydetmek için **Kaydet**’e tıklayın.
+1. Raporu kaydetmek için **Kaydet**’e tıklayın.
 
 Her iki grafikteki verileri de görüyor olmalısınız. Bunun anlamı:
 

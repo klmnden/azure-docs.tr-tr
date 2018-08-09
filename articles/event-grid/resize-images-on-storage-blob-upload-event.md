@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/20/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f1f10e0cb552dfa938b85280f3acb302b4591426
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 922c87f2d577aff86d51a1fde53f221ebd2fa82c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295958"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446699"
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Karşıya yüklenen görüntüleri yeniden boyutlandırmayı Event Grid kullanarak otomatikleştirme
 
@@ -52,7 +52,7 @@ Cloud Shell kullanmıyorsanız önce `az login` kullanarak oturum açmanız gere
 
 ## <a name="create-an-azure-storage-account"></a>Azure Depolama hesabı oluşturma
 
-Azure İşlevleri, genel bir depolama hesabı gerektirir. Kaynak grubunda [az storage account create](/cli/azure/storage/account#az_storage_account_create) komutunu kullanarak ayrı bir genel depolama hesabı oluşturun.
+Azure İşlevleri, genel bir depolama hesabı gerektirir. Kaynak grubunda [az storage account create](/cli/azure/storage/account#az-storage-account-create) komutunu kullanarak ayrı bir genel depolama hesabı oluşturun.
 
 Depolama hesabı adları 3 ile 24 karakter arasında olmalı ve yalnızca sayıyla küçük harf içermelidir. 
 
@@ -66,7 +66,7 @@ az storage account create --name <general_storage_account> \
 
 ## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma  
 
-İşlevinizin yürütülmesini barındıran bir işlev uygulamasına sahip olmanız gerekir. İşlev uygulaması, işlev kodunuzun sunucusuz yürütülmesine yönelik bir ortam sağlar. [az functionapp create](/cli/azure/functionapp#az_functionapp_create) komutunu kullanarak bir işlev uygulaması oluşturun. 
+İşlevinizin yürütülmesini barındıran bir işlev uygulamasına sahip olmanız gerekir. İşlev uygulaması, işlev kodunuzun sunucusuz yürütülmesine yönelik bir ortam sağlar. [az functionapp create](/cli/azure/functionapp#az-functionapp-create) komutunu kullanarak bir işlev uygulaması oluşturun. 
 
 Aşağıdaki komutta kendi benzersiz işlev uygulamanızın adını `<function_app>` yer tutucusunun yerine ekleyin. İşlev uygulaması adı, işlev uygulamasının varsayılan DNS etki alanı olarak kullanılacağı için adın Azure’daki tüm uygulamalarda benzersiz olması gerekir. `<general_storage_account>` için, oluşturduğunuz genel depolama hesabının adını kullanın.
 

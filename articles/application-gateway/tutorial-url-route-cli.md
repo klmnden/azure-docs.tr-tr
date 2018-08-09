@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 45057a23d54f42a4f5b165fc3eb50c001ce92e8d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: a774d491de4ca1dfdb96181ff13fa644a061cd65
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069177"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434223"
 ---
 # <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Öğretici: Azure CLI kullanarak URL'ye göre web trafiğini yönlendirme
 
@@ -53,7 +53,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Ağ kaynakları oluşturma 
 
-[az network vnet create](/cli/azure/network/vnet#az_net) komutunu kullanarak *myVNet* adlı sanal ağı ve *myAGSubnet* adlı alt ağı oluşturun. Daha sonra [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) kullanan arka uç sunucularının gerek duyduğu *myBackendSubnet* adlı alt ağı ekleyin. [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create) komutunu kullanarak *myAGPublicIPAddress* adlı genel IP adresini oluşturun.
+[az network vnet create](/cli/azure/network/vnet#az-net) komutunu kullanarak *myVNet* adlı sanal ağı ve *myAGSubnet* adlı alt ağı oluşturun. Daha sonra [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create) kullanan arka uç sunucularının gerek duyduğu *myBackendSubnet* adlı alt ağı ekleyin. [az network public-ip create](/cli/azure/public-ip#az-network_public_ip_create) komutunu kullanarak *myAGPublicIPAddress* adlı genel IP adresini oluşturun.
 
 ```azurecli-interactive
 az network vnet create \
@@ -106,7 +106,7 @@ az network application-gateway create \
 
 ### <a name="add-image-and-video-backend-pools-and-port"></a>Görüntü ve video arka uç havuzlarını ve bağlantı noktasını ekleme
 
-[az network application-gateway address-pool create](/cli/azure/application-gateway#az_network_application_gateway_address-pool_create) kullanarak *imagesBackendPool* ve *videoBackendPool* adlı arka uç havuzlarını uygulama ağ geçidinize ekleyin. [az network application-gateway frontend-port create](/cli/azure/application-gateway#az_network_application_gateway_frontend_port_create) kullanarak havuzlara ön uç bağlantı noktasını ekleyebilirsiniz. 
+[az network application-gateway address-pool create](/cli/azure/application-gateway#az-network_application_gateway_address-pool_create) kullanarak *imagesBackendPool* ve *videoBackendPool* adlı arka uç havuzlarını uygulama ağ geçidinize ekleyin. [az network application-gateway frontend-port create](/cli/azure/application-gateway#az-network_application_gateway_frontend_port_create) kullanarak havuzlara ön uç bağlantı noktasını ekleyebilirsiniz. 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -128,7 +128,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-backend-listener"></a>Arka uç dinleyicisi ekleme
 
-[az network application-gateway http-listener create](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create) kullanarak trafiği yönlendirmek için gereken *backendListener* adlı arka uç dinleyicisini ekleyin.
+[az network application-gateway http-listener create](/cli/azure/application-gateway#az-network_application_gateway_http_listener_create) kullanarak trafiği yönlendirmek için gereken *backendListener* adlı arka uç dinleyicisini ekleyin.
 
 
 ```azurecli-interactive
@@ -142,7 +142,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-url-path-map"></a>URL yol eşlemesini ekleme
 
-URL yol eşlemeleri belirli URL'lerin belirli arka uç havuzlarına yönlendirilmesini sağlar. [az network application-gateway url-path-map create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_create) ve [az network application-gateway url-path-map rule create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_rule_create) kullanarak *imagePathRule* ve *videoPathRule* adlı URL yol eşlemelerini oluşturun
+URL yol eşlemeleri belirli URL'lerin belirli arka uç havuzlarına yönlendirilmesini sağlar. [az network application-gateway url-path-map create](/cli/azure/application-gateway#az-network_application_gateway_url_path_map_create) ve [az network application-gateway url-path-map rule create](/cli/azure/application-gateway#az-network_application_gateway_url_path_map_rule_create) kullanarak *imagePathRule* ve *videoPathRule* adlı URL yol eşlemelerini oluşturun
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -167,7 +167,7 @@ az network application-gateway url-path-map rule create \
 
 ### <a name="add-routing-rule"></a>Yönlendirme kuralı ekleme
 
-Yönlendirme kuralı URL eşlemelerini oluşturduğunuz dinleyici ile ilişkilendirir. [az network application-gateway rule create](/cli/azure/application-gateway#az_network_application_gateway_rule_create) kullanarak *rule2* adlı bir kural ekleyin.
+Yönlendirme kuralı URL eşlemelerini oluşturduğunuz dinleyici ile ilişkilendirir. [az network application-gateway rule create](/cli/azure/application-gateway#az-network_application_gateway_rule_create) kullanarak *rule2* adlı bir kural ekleyin.
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -234,7 +234,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Uygulama ağ geçidini test etme
 
-Uygulama ağ geçidinin genel IP adresini almak için [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) komutunu kullanın. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın. Örneğin *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* veya *http://40.121.222.19:8080/video/test.htm*.
+Uygulama ağ geçidinin genel IP adresini almak için [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show) komutunu kullanın. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın. Örneğin *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* veya *http://40.121.222.19:8080/video/test.htm*.
 
 ```azurecli-interactive
 az network public-ip show \

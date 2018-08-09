@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 8a119d611d4b2817ad85ebe30b88d11cce6fca9f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 75b1228df8bc19ced1d8377768c08048e6ef9150
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652853"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441665"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Azure CLI kullanarak bir MySQL için Azure Veritabanı sunucusunun yapılandırmalarını listeleme ve güncelleştirme
 Bu örnek CLI betiği, MySQL için Azure Veritabanı sunucusuna ait tüm kullanılabilir yapılandırma parametrelerini izin verilen değerleriyle birlikte listeler ve *innodb_lock_wait_timeout* öğesini varsayılandan farklı bir değere ayarlar.
@@ -38,12 +38,12 @@ Bu betik, aşağıdaki tabloda ana hatları verilen komutları kullanır:
 
 | **Komut** | **Notlar** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [az mysql server create](/cli/azure/mysql/server#az_msql_server_create) | Veritabanlarını barındıran bir MySQL sunucusu oluşturur. |
-| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az_msql_server_configuration_list) | Bir MySQL için Azure Veritabanı sunucusunun yapılandırmalarını listeleyin. |
-| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_msql_server_configuration_set) | Bir MySQL için Azure Veritabanı sunucusunun yapılandırmasını güncelleştirin. |
-| [az mysql server configuration show](/cli/azure/mysql/server/configuration#az_msql_server_configuration_show) | Bir MySQL için Azure Veritabanı sunucusunun yapılandırmasını görüntüleyin. |
-| [az group delete](/cli/azure/group#az_group_delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
+| [az group create](/cli/azure/group#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az mysql server create](/cli/azure/mysql/server#az-msql-server-create) | Veritabanlarını barındıran bir MySQL sunucusu oluşturur. |
+| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az-msql-server-configuration-list) | Bir MySQL için Azure Veritabanı sunucusunun yapılandırmalarını listeleyin. |
+| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az-msql-server-configuration-set) | Bir MySQL için Azure Veritabanı sunucusunun yapılandırmasını güncelleştirin. |
+| [az mysql server configuration show](/cli/azure/mysql/server/configuration#az-msql-server-configuration-show) | Bir MySQL için Azure Veritabanı sunucusunun yapılandırmasını görüntüleyin. |
+| [az group delete](/cli/azure/group#az-group-delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Azure CLI hakkında daha fazla bilgi okuyun: [Azure CLI belgeleri](/cli/azure).

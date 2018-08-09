@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 18ca639dae006e310a7f03f7300f2203b9de4f1d
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: d550812f9cb23fd17d3c73c851a306190be293fa
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867751"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423649"
 ---
 # <a name="route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Azure CLI ve Event Grid ile özel olayları Azure Kuyruk depolamaya yönlendirme
 
@@ -27,7 +27,7 @@ Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Azure Kuyruk depol
 
 Event Grid konuları Azure kaynaklarıdır ve bir Azure kaynak grubuna yerleştirilmelidir. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal koleksiyondur.
 
-[az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. 
+[az group create](/cli/azure/group#az-group-create) komutuyla bir kaynak grubu oluşturun. 
 
 Aşağıdaki örnek *westus2* konumunda *gridResourceGroup* adlı bir kaynak grubu oluşturur.
 

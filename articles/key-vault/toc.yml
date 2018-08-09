@@ -44,30 +44,24 @@
       href: key-vault-ovw-throttling.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Yönetme
-      items:
-        - name: Azure Key Vault günlüğü
-          href: key-vault-logging.md
-        - name: Güvenlik duvarı arkasına erişme
-          href: key-vault-access-behind-firewall.md
-        - name: Kullanılabilirlik ve yedekleme
-          href: key-vault-disaster-recovery-guidance.md
-        - name: İstemci kimliğini değiştirme
-          href: key-vault-subscription-move-fix.md
-        - name: Azure CLI kullanarak dağıtma ve yönetme
-          href: key-vault-manage-with-cli2.md
-        - name: Anahtar Kasası geçici silmeyi CLI ile kullanma
-          href: key-vault-soft-delete-cli.md
-        - name: Anahtar Kasası geçici silmeyi Azure PowerShell ile kullanma
-          href: key-vault-soft-delete-powershell.md
-        - name: Erişim vermek için grupları kullanma
-          href: key-vault-group-permissions-for-apps.md
-        - name: Anahtar kasanızın güvenliğini sağlama
-          href: key-vault-secure-your-key-vault.md
-    - name: Otomatikleştirme
-      items:
-        - name: Azure otomasyonu
-          href: automation-manage-key-vault.md
+    - name: Azure Key Vault günlüğü
+      href: key-vault-logging.md
+    - name: Güvenlik duvarı arkasına erişme
+      href: key-vault-access-behind-firewall.md
+    - name: Kullanılabilirlik ve yedekleme
+      href: key-vault-disaster-recovery-guidance.md
+    - name: İstemci kimliğini değiştirme
+      href: key-vault-subscription-move-fix.md
+    - name: Azure CLI kullanarak dağıtma ve yönetme
+      href: key-vault-manage-with-cli2.md
+    - name: Anahtar Kasası geçici silmeyi CLI ile kullanma
+      href: key-vault-soft-delete-cli.md
+    - name: Anahtar Kasası geçici silmeyi Azure PowerShell ile kullanma
+      href: key-vault-soft-delete-powershell.md
+    - name: Erişim vermek için grupları kullanma
+      href: key-vault-group-permissions-for-apps.md
+    - name: Anahtar kasanızın güvenliğini sağlama
+      href: key-vault-secure-your-key-vault.md
 - name: Başvuru
   items:
     - name: Azure PowerShell

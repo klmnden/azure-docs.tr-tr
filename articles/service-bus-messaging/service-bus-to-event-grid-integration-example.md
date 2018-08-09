@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 5d0ab8cf9e87fc13b78b00dbe77ec6f9fb38c4b9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 72a9cc905adda5146cf943d8f0ed2789c3088422
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32189400"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447399"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Azure Service Bus - Azure Event Grid tümleştirmesi örnekleri
 
@@ -46,13 +46,13 @@ Service Bus konunuza ileti göndermek için herhangi bir yöntemi kullanabilirsi
 
 1. [GitHub azure-service-bus deposunu](https://github.com/Azure/azure-service-bus/) kopyalayın.
 
-2. Visual Studio’da *\samples\DotNet\Microsoft.ServiceBus.Messaging\ServiceBusEventGridIntegration* klasörüne gidin ve *SBEventGridIntegration.sln* dosyasını açın.
+1. Visual Studio’da *\samples\DotNet\Microsoft.ServiceBus.Messaging\ServiceBusEventGridIntegration* klasörüne gidin ve *SBEventGridIntegration.sln* dosyasını açın.
 
-3. **MessageSender** projesine gidin ve **Program.cs** öğesini seçin.
+1. **MessageSender** projesine gidin ve **Program.cs** öğesini seçin.
 
    ![8][]
 
-4. Konu adınızı ve bağlantı dizenizi doldurup aşağıdaki konsol uygulama kodunu yürütün:
+1. Konu adınızı ve bağlantı dizenizi doldurup aşağıdaki konsol uygulama kodunu yürütün:
 
     ```CSharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
@@ -65,7 +65,7 @@ Senaryonun tamamı üzerinde çalışmadan önce, hata ayıklamak ve hangi olayl
 
 1. Azure portalında yeni bir Azure İşlevleri uygulaması oluşturun. Azure İşlevlerinin temel bilgilerini öğrenmek için [Azure İşlevleri belgelerine](https://docs.microsoft.com/azure/azure-functions/) bakın.
 
-2. Yeni oluşturduğunuz işlevde artı işaretini (+) seçerek bir HTTP tetikleyici işlevi ekleyin:
+1. Yeni oluşturduğunuz işlevde artı işaretini (+) seçerek bir HTTP tetikleyici işlevi ekleyin:
 
     ![2][]
     
@@ -73,9 +73,9 @@ Senaryonun tamamı üzerinde çalışmadan önce, hata ayıklamak ve hangi olayl
 
     ![3][]
 
-3. Sırayla **Web Kancası + API** düğmesini, **CSharp** öğesini seçin ve **Bu işlevi oluştur** seçeneğini belirleyin.
+1. Sırayla **Web Kancası + API** düğmesini, **CSharp** öğesini seçin ve **Bu işlevi oluştur** seçeneğini belirleyin.
  
-4. Aşağıdaki kodu işleve yapıştırın:
+1. Aşağıdaki kodu işleve yapıştırın:
 
     ```CSharp
     #r "Newtonsoft.Json"
@@ -121,7 +121,7 @@ Senaryonun tamamı üzerinde çalışmadan önce, hata ayıklamak ve hangi olayl
     }
     ```
 
-5. **Kaydet ve çalıştır**’ı seçin.
+1. **Kaydet ve çalıştır**’ı seçin.
 
 ## <a name="connect-the-function-and-namespace-via-event-grid"></a>Event Grid aracılığıyla işlev ve ad alanını bağlama
 
@@ -133,16 +133,16 @@ Azure Event Grid aboneliği oluşturmak için aşağıdakileri yapın:
 
     ![20][]
 
-2. **Olay Aboneliği**’ni seçin.  
+1. **Olay Aboneliği**’ni seçin.  
     **Olay Aboneliği** penceresi açılır. Aşağıdaki resimde, filtreler uygulamadan bir Azure işlevine veya web kancasına abone olmanın bir formu görüntülenir.
 
     ![21][]
 
-3. Gösterildiği gibi formu doldurun ve **Sonek Filtresi** kutusuna ilgili filtreyi girmeyi unutmayın.
+1. Gösterildiği gibi formu doldurun ve **Sonek Filtresi** kutusuna ilgili filtreyi girmeyi unutmayın.
 
-4. **Oluştur**’u seçin.
+1. **Oluştur**’u seçin.
 
-5. "Önkoşullar" bölümünde belirtildiği gibi Service Bus konunuza bir ileti gönderin ve Azure İşlevleri İzleme özelliği aracılığıyla olayların akışa alındığını doğrulayın.
+1. "Önkoşullar" bölümünde belirtildiği gibi Service Bus konunuza bir ileti gönderin ve Azure İşlevleri İzleme özelliği aracılığıyla olayların akışa alındığını doğrulayın.
 
 Bir sonraki adım, işlevi ve Service Bus ad alanını birbirine bağlamaktır. Bu örnek için Azure portalını kullanın. Bu adımı gerçekleştirmek için PowerShell veya Azure CLI’nın nasıl kullanılacağını anlamak için bkz. [Azure Service Bus - Azure Event Grid tümleştirmesine genel bakış](service-bus-to-event-grid-integration-concept.md).
 
@@ -160,26 +160,26 @@ Azure İşlevleri içindeki Service Bus işlevleri henüz yeni Event Grid tümle
 
     ![10][]
 
-2. Aşağıdaki koda bağlantı dizenizi girin:
+1. Aşağıdaki koda bağlantı dizenizi girin:
 
     ```Csharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     ```
 
-3. Azure portalında, "Test işlevi ayarlama" bölümünde oluşturduğunuz Azure işlevi için yayımlama profilini indirin.
+1. Azure portalında, "Test işlevi ayarlama" bölümünde oluşturduğunuz Azure işlevi için yayımlama profilini indirin.
 
     ![11][]
 
-4. Visual Studio’da **SBEventGridIntegration** öğesine sağ tıklayın ve **Yayımla**’yı seçin. 
+1. Visual Studio’da **SBEventGridIntegration** öğesine sağ tıklayın ve **Yayımla**’yı seçin. 
 
-5. Önceden indirdiğiniz yayımlama profilinin **Yayımla** bölmesinde **Profili içeri aktar**’ı ve sonra **Yayımla**’yı seçin.
+1. Önceden indirdiğiniz yayımlama profilinin **Yayımla** bölmesinde **Profili içeri aktar**’ı ve sonra **Yayımla**’yı seçin.
 
     ![12][]
 
-6. Yeni Azure işlevini yayımladıktan sonra, yeni Azure işlevini işaret eden yeni bir Azure Event Grid aboneliği oluşturun.  
+1. Yeni Azure işlevini yayımladıktan sonra, yeni Azure işlevini işaret eden yeni bir Azure Event Grid aboneliği oluşturun.  
     **İle biter** kutusunda, doğru filtreyi uyguladığınızdan emin olun. Bu, Service Bus abonelik adınız olmalıdır.
 
-7. Daha önce oluşturduğunuz Azure Service Bus konusuna bir ileti gönderin ve olayların akışa alındığından ve iletilerin alındığından emin olmak için Azure portalında Azure İşlevleri günlüğünü izleyin.
+1. Daha önce oluşturduğunuz Azure Service Bus konusuna bir ileti gönderin ve olayların akışa alındığından ve iletilerin alındığından emin olmak için Azure portalında Azure İşlevleri günlüğünü izleyin.
 
     ![12-1][]
 
@@ -195,22 +195,22 @@ Aşağıdakileri yaparak Azure Service Bus ve Azure Event Grid ile bir mantıksa
 
     ![14][]
 
-2. Aşağıdakileri yaparak bilgilerinizi ekleyin:
+1. Aşağıdakileri yaparak bilgilerinizi ekleyin:
 
     a. **Kaynak Adı** kutusuna kendi ad alanı adınızı girin. 
 
     b. **Gelişmiş seçenekler** bölümünde **Sonek Filtresi** kutusuna aboneliğiniz için filtre girin.
 
-3. Bir konu aboneliğinden iletiler almak için Service Bus alma eylemi ekleyin.  
+1. Bir konu aboneliğinden iletiler almak için Service Bus alma eylemi ekleyin.  
     Aşağıdaki resimde son eylem gösterilmektedir:
 
     ![15][]
 
-4. Aşağıdaki resimde gösterildiği gibi tam bir olay ekleyin:
+1. Aşağıdaki resimde gösterildiği gibi tam bir olay ekleyin:
 
     ![16][]
 
-5. Mantıksal uygulamayı kaydedin ve "Önkoşullar" bölümünde belirtildiği gibi Service Bus konunuza bir ileti gönderin.  
+1. Mantıksal uygulamayı kaydedin ve "Önkoşullar" bölümünde belirtildiği gibi Service Bus konunuza bir ileti gönderin.  
     Mantıksal uygulamanın yürütülmesini gözlemleyin. Yürütmeye ilişkin daha fazla veri görüntülemek için **Genel Bakış**’ı seçin ve **Çalıştırma geçmişi** bölümünde verileri görüntüleyin.
 
     ![17][]

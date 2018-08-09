@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 0aac3eab8a60dc1e1e15b4656fad9ffea062c08e
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 689730edcc98a23c82373ae8d36c3b831b33c076
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968628"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627449"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Cloud Foundry ile Azure’ı tümleştirme
 
@@ -81,8 +81,8 @@ F ve D VM serisi Pivotal Cloud Foundry üretim ortamı için yaygın olarak öne
 #### <a name="managed-standard-disk"></a>Standart yönetilen Disk: 
 Premium diskler üretimde güvenilir performansı için önerilen.  İle [yönetilen Disk](https://azure.microsoft.com/services/managed-disks/), standart depolama da benzer bir güvenilirlik, farklı bir performans sunun. Performans açısından duyarlı değil iş yükü için geliştirme ve Test ya da kritik olmayan bir ortam gibi standart yönetilen diskler daha düşük maliyetle alternatif bir seçenek sunar.  
 ### <a name="cost-saving-in-general"></a>Maliyet tasarrufu genel 
-#### <a name="significant-vm-cost-saving-with-reserved-instances"></a>Önemli VM maliyeti kaydetme ile ayrılmış örnekleri: 
-Bugün, tüm CF VM'lerin "isteğe bağlı" fiyatlandırması, ortamları genellikle süresiz olarak olmanıza rağmen kullanılarak ayrıca faturalandırılır. Şimdi yedek 1 veya 3 yıllık bir terim üzerinde VM kapasite ve 65 45 oranında indirim elde edebilirsiniz. Ortamınızda değişiklik yapmadan faturalandırma sisteminde indirimi uygulanmaz. Ayrıntılar için bkz [nasıl ayrılmış örnekleri works](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
+#### <a name="significant-vm-cost-saving-with-azure-reservations"></a>Önemli VM maliyeti kaydetme Azure ayırmaları ile: 
+Bugün, tüm CF VM'lerin "isteğe bağlı" fiyatlandırması, ortamları genellikle süresiz olarak olmanıza rağmen kullanılarak ayrıca faturalandırılır. Şimdi yedek 1 veya 3 yıllık bir terim üzerinde VM kapasite ve 65 45 oranında indirim elde edebilirsiniz. Ortamınızda değişiklik yapmadan faturalandırma sisteminde indirimi uygulanmaz. Ayrıntılar için bkz [Azure ayırmaları works](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
 #### <a name="managed-premium-disk-with-smaller-sizes"></a>Premium Disk küçük boyutları ile yönetilen: 
 Diskleri destek küçük disk boyutları P4(32 GB) ve P6(64 GB) hem premium hem de standart diskler için yönetilen. Küçük iş yükleriniz varsa, standart premium disklerden premium yönetilen disklere geçirirken maliyet tasarruf sağlayabilirsiniz.
 #### <a name="utilizing-azure-first-party-services"></a>Azure birinci taraf hizmetleri kullanan: 

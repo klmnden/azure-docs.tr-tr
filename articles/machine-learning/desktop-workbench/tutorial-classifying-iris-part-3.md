@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: 5b751546320ca6728573954290bd2258e837775f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2270080f8612c69a69955202ececab44136f335c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723230"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445545"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>Öğretici 3: Iris Sınıflandırma: Model dağıtma
 Azure Machine Learning (önizleme) uzman veri bilimcilerine yönelik tümleşik, uçtan uca ve gelişmiş bir analiz çözümüdür. Veri bilimcileri bu çözümü kullanarak veri hazırlayabilir, denemeler geliştirebilir ve bulut ölçeğinde modeller dağıtabilir.
@@ -47,11 +47,11 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 1. Machine Learning Workbench uygulamasını açın. Sonra, öğretici serisinin önceki bölümlerinde oluşturduğunuz **myIris** projesini açın.
 
-2. Proje açıldıktan sonra sol bölmedeki **Dosyalar** düğmesine (klasör simgesi) tıklayarak proje klasörünüzdeki dosya listesini açın.
+1. Proje açıldıktan sonra sol bölmedeki **Dosyalar** düğmesine (klasör simgesi) tıklayarak proje klasörünüzdeki dosya listesini açın.
 
-3. **iris_sklearn.py** dosyasını seçin. Python kodu workbench içinde yeni bir metin düzenleyici sekmesinde açılır.
+1. **iris_sklearn.py** dosyasını seçin. Python kodu workbench içinde yeni bir metin düzenleyici sekmesinde açılır.
 
-4. **iris_sklearn.py** dosyasını gözden geçirerek pickle dosyasının oluşturulduğu yeri bulun. Ctrl+F kısayolunu seçerek **Bul** iletişim kutusunu açın ve sonra Python kodunda **pickle** sözcüğünü bulun.
+1. **iris_sklearn.py** dosyasını gözden geçirerek pickle dosyasının oluşturulduğu yeri bulun. Ctrl+F kısayolunu seçerek **Bul** iletişim kutusunu açın ve sonra Python kodunda **pickle** sözcüğünü bulun.
 
    Bu kod parçacığı, pickle çıktı dosyasının nasıl oluşturulduğunu gösterir. Pickle çıktı dosyası diskte **model.pkl** olarak adlandırılır. 
 
@@ -62,7 +62,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
    f.close()
    ```
 
-5. Önceki bir çalıştırmanın çıktı dosyalarının arasında model pickle dosyasını bulun.
+1. Önceki bir çalıştırmanın çıktı dosyalarının arasında model pickle dosyasını bulun.
    
    **iris_sklearn.py** betiğini çalıştırdığınızda model dosyası **outputs** klasörüne **model.pkl** adıyla kaydedilmişti. Bu klasör yerel proje klasörünüzde değil betiği çalıştırmayı seçtiğiniz yürütme ortamında bulunur. 
    
@@ -83,29 +83,29 @@ Model dosyası ile birlikte web hizmetini dağıtmak için bir Puanlama komut do
 
 1. Machine Learning Workbench uygulamasını açın. Sonra, öğretici serisinin önceki bölümünde oluşturduğunuz **myIris** projesini açın.
 
-2. Proje açıldıktan sonra sol bölmedeki **Dosyalar** düğmesine (klasör simgesi) tıklayarak proje klasörünüzdeki dosya listesini açın.
+1. Proje açıldıktan sonra sol bölmedeki **Dosyalar** düğmesine (klasör simgesi) tıklayarak proje klasörünüzdeki dosya listesini açın.
 
-3. **score_iris.py** dosyasını seçin. Python betiği açılır. Bu dosya puanlama dosyası olarak kullanılır.
+1. **score_iris.py** dosyasını seçin. Python betiği açılır. Bu dosya puanlama dosyası olarak kullanılır.
 
    ![Puanlama dosyası](media/tutorial-classifying-iris/model_data_collection.png)
 
-4. Şema dosyasını almak için betiği çalıştırın. Komut çubuğundan **yerel** ortamını ve **score_iris.py** betiğini seçip **Çalıştır** seçeneğini belirleyin. 
+1. Şema dosyasını almak için betiği çalıştırın. Komut çubuğundan **yerel** ortamını ve **score_iris.py** betiğini seçip **Çalıştır** seçeneğini belirleyin. 
 
    Bu betik modelin ihtiyaç duyduğu giriş verileri şemasını alan **çıktılar** bölümünde bir JSON dosyası oluşturur.
 
-6. **Proje Panosu** bölmesinin sağ tarafındaki **İşler** bölmesini inceleyin. En son **score_iris.py** işinin yeşil **Tamamlandı** durumunu göstermesini bekleyin. Ardından, çalıştırma ayrıntılarını görmek için en son iş çalıştırmasına ait **score_iris.py** bağlantısını seçin. 
+1. **Proje Panosu** bölmesinin sağ tarafındaki **İşler** bölmesini inceleyin. En son **score_iris.py** işinin yeşil **Tamamlandı** durumunu göstermesini bekleyin. Ardından, çalıştırma ayrıntılarını görmek için en son iş çalıştırmasına ait **score_iris.py** bağlantısını seçin. 
 
-7. **Çalıştırma Özellikleri** bölmesinin **Çıktılar** bölümünde yeni oluşturulan **service_schema.json** dosyasını seçin. Dosya adının yanındaki onay kutusunu ve sonra **İndir**’i seçin. Dosyayı projenizin kök klasörüne tıklayın.
+1. **Çalıştırma Özellikleri** bölmesinin **Çıktılar** bölümünde yeni oluşturulan **service_schema.json** dosyasını seçin. Dosya adının yanındaki onay kutusunu ve sonra **İndir**’i seçin. Dosyayı projenizin kök klasörüne tıklayın.
 
-8. **score_iris.py** betiğini açtığınız önceki sekmeye dönün. Veri koleksiyonu kullanarak, web hizmetinden model girişlerini ve tahminlerini alabilirsiniz. Aşağıdaki adımlar veri koleksiyonuyla yakından ilgilidir.
+1. **score_iris.py** betiğini açtığınız önceki sekmeye dönün. Veri koleksiyonu kullanarak, web hizmetinden model girişlerini ve tahminlerini alabilirsiniz. Aşağıdaki adımlar veri koleksiyonuyla yakından ilgilidir.
 
-9. Model veri koleksiyonu işlevini içerdiği için **ModelDataCollector** dosya içeri aktarım sınıfının en üstündeki kodu gözden geçirin:
+1. Model veri koleksiyonu işlevini içerdiği için **ModelDataCollector** dosya içeri aktarım sınıfının en üstündeki kodu gözden geçirin:
 
    ```python
    from azureml.datacollector import ModelDataCollector
    ```
 
-10. **init()** işlevindeki **ModelDataCollector** örneği oluşturan aşağıdaki kod satırlarını gözden geçirin:
+1. **init()** işlevindeki **ModelDataCollector** örneği oluşturan aşağıdaki kod satırlarını gözden geçirin:
 
     ```python
     global inputs_dc, prediction_dc
@@ -113,7 +113,7 @@ Model dosyası ile birlikte web hizmetini dağıtmak için bir Puanlama komut do
     prediction_dc = ModelDataCollector('model.pkl', identifier="prediction")`
     ```
 
-11. **run(input_df)** işlevindeki giriş ve tahmin verilerini toplayan aşağıdaki kod satırlarını gözden geçirin:
+1. **run(input_df)** işlevindeki giriş ve tahmin verilerini toplayan aşağıdaki kod satırlarını gözden geçirin:
 
     ```python
     inputs_dc.collect(input_df)
@@ -139,7 +139,7 @@ Geliştirme ve test için _yerel modu_ kullanabilirsiniz. Modeli hazır hale get
    Komut satırı istemi geçerli proje klasörünüzün bulunduğu **c:\temp\myIris>** konumunda açılır.
 
 
-2. **Microsoft.ContainerRegistry** adlı Azure kaynak sağlayıcısının aboneliğinize kayıtlı olduğundan emin olun. 3. adımda bir ortam oluşturabilmeniz için önce bu kaynak sağlayıcısını kaydetmeniz gerekir. Aşağıdaki komutu kullanarak önceden kaydedilip kaydedilmediğini kontrol edebilirsiniz:
+1. **Microsoft.ContainerRegistry** adlı Azure kaynak sağlayıcısının aboneliğinize kayıtlı olduğundan emin olun. 3. adımda bir ortam oluşturabilmeniz için önce bu kaynak sağlayıcısını kaydetmeniz gerekir. Aşağıdaki komutu kullanarak önceden kaydedilip kaydedilmediğini kontrol edebilirsiniz:
    ``` 
    az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
    ``` 
@@ -169,7 +169,7 @@ Geliştirme ve test için _yerel modu_ kullanabilirsiniz. Modeli hazır hale get
    >[!NOTE] 
    Bir ACS kümesine dağıtıyorsanız, aynı yaklaşımı kullanarak **Microsoft.ContainerService** kaynak sağlayıcısını da kaydetmeniz gerekir.
 
-3. Ortamı oluşturun. Bu adımı her ortam için bir kez çalıştırmanız gerekir. Örneğin, geliştirme ortamı için bir kez ve üretim için bir kez çalıştırın. Bu ilk ortam için _yerel modu_ kullanın. Aşağıdaki komutta `-c` veya `--cluster` anahtarını kullanarak daha sonra _küme modunda_ bir ortam oluşturabilirsiniz.
+1. Ortamı oluşturun. Bu adımı her ortam için bir kez çalıştırmanız gerekir. Örneğin, geliştirme ortamı için bir kez ve üretim için bir kez çalıştırın. Bu ilk ortam için _yerel modu_ kullanın. Aşağıdaki komutta `-c` veya `--cluster` anahtarını kullanarak daha sonra _küme modunda_ bir ortam oluşturabilirsiniz.
 
    Aşağıdaki kurulum komutu için, abonelik üzerinde Katkıda Bulunan erişimine sahip olmanız gerekir. Buna sahip değilseniz, en azından içine dağıtım yaptığınız kaynak grubuna Katkıda Bulunan erişiminizin olması gerekir. İkinci durumda, kurulum komutunun içinde `-g` bayrağını kullanıp kaynak grubunu adını belirtmelisiniz. 
 
@@ -191,17 +191,17 @@ Geliştirme ve test için _yerel modu_ kullanabilirsiniz. Modeli hazır hale get
 
    ![Hazırlama Durumu](media/tutorial-classifying-iris/provisioning_state.png)
  
-3. Bu öğreticinin önceki kısımlarında bir Model Yönetimi hesabı oluşturmadıysanız şimdi yapın. Tek seferlik bir kurulumdur.
+1. Bu öğreticinin önceki kısımlarında bir Model Yönetimi hesabı oluşturmadıysanız şimdi yapın. Tek seferlik bir kurulumdur.
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
    
-4. Model Yönetimi hesabını ayarlayın.
+1. Model Yönetimi hesabını ayarlayın.
    ```azurecli
    az ml account modelmanagement set -n <youracctname> -g <yourresourcegroupname>
    ```
 
-5. Ortamı ayarlayın.
+1. Ortamı ayarlayın.
 
    Kurulum tamamlandıktan sonra aşağıdaki komutu kullanarak ortamı çalışır duruma getirmek için gereken ortam değişkenlerini ayarlayın. Daha önce 3. adımda kullandığınız ortam adının aynısını kullanın. Kurulum işlemi tamamlandıktan sonra komut penceresinde verilen kaynak grubu adının aynısını kullanın.
 
@@ -209,7 +209,7 @@ Geliştirme ve test için _yerel modu_ kullanabilirsiniz. Modeli hazır hale get
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
 
-6. Yerel web hizmeti dağıtımı için hazır hale getirme ortamınızı doğru şekilde yapılandırdığınızdan emin olmak için aşağıdaki komutu girin:
+1. Yerel web hizmeti dağıtımı için hazır hale getirme ortamınızı doğru şekilde yapılandırdığınızdan emin olmak için aşağıdaki komutu girin:
 
    ```azurecli
    az ml env show
@@ -247,13 +247,13 @@ Geliştirme ve test için _yerel modu_ kullanabilirsiniz. Modeli hazır hale get
    >[!IMPORTANT]
    >Hizmet adının (aynı zamanda yeni Docker görüntüsünün adıdır) tamamının küçük harf olması gerekir. Aksi takdirde bir hata alırsınız. 
 
-2. Komutu çalıştırdığınızda model ve puanlama dosyaları, ortam kurulumu sırasında oluşturduğunuz depolama hesabına yüklenir. Dağıtım işlemi; modeliniz, şemanız ve içindeki puanlama dosyasıyla bir Docker görüntüsünü derleyip Azure kapsayıcı kayıt defterine iletir: **\<ACR_name\>.azureacr.io/\<imagename\>:\<version\>**. 
+1. Komutu çalıştırdığınızda model ve puanlama dosyaları, ortam kurulumu sırasında oluşturduğunuz depolama hesabına yüklenir. Dağıtım işlemi; modeliniz, şemanız ve içindeki puanlama dosyasıyla bir Docker görüntüsünü derleyip Azure kapsayıcı kayıt defterine iletir: **\<ACR_name\>.azureacr.io/\<imagename\>:\<version\>**. 
 
    Komut daha sonra bu görüntüyü yerel bilgisayarınıza çeker ve bu görüntüyle bir Docker kapsayıcısı başlatır. Ortamınız küme modunda yapılandırılmışsa Docker kapsayıcısı Azure Cloud Services Kubernetes kümesine dağıtılır.
 
    Dağıtımın bir parçası olarak yerel makinenizde web hizmeti için bir HTTP REST uç noktası oluşturulur. Birkaç dakika sonra komutun başarıyla tamamlandığını belirten bir ileti görüntüler. Web hizmetiniz için eyleme hazırdır!
 
-3. Çalışan Docker kapsayıcısını görmek için **docker ps** komutunu kullanın:
+1. Çalışan Docker kapsayıcısını görmek için **docker ps** komutunu kullanın:
 
    ```azurecli
    docker ps
@@ -271,7 +271,7 @@ Daha önce gösterilen **az ml service create realtime** komutunun bir alternati
    ```
    Bu komut bir model kimliği oluşturur.
 
-2. Bir bildirim oluşturun.
+1. Bir bildirim oluşturun.
 
    Bildirim oluşturmak için aşağıdaki komutu kullanın ve önceki adımdan gelen model kimliği çıktısını sağlayın:
 
@@ -280,7 +280,7 @@ Daha önce gösterilen **az ml service create realtime** komutunun bir alternati
    ```
    Bu komut bir bildirim kimliği oluşturur.
 
-3. Bir Docker görüntüsü oluşturun.
+1. Bir Docker görüntüsü oluşturun.
 
    Docker görüntüsü oluşturmak için aşağıdaki komutu kullanın ve önceki adımdan gelen bildirim kimliği değeri çıktısını sağlayın. Ayrıca isteğe bağlı olarak `-c` anahtarını kullanarak conda bağımlılıklarını ekleyebilirsiniz.
 
@@ -289,7 +289,7 @@ Daha önce gösterilen **az ml service create realtime** komutunun bir alternati
    ```
    Bu komut bir Docker görüntüsü kimliği oluşturur.
    
-4. Hizmeti oluşturun.
+1. Hizmeti oluşturun.
 
    Hizmet oluşturmak için aşağıdaki komutu kullanın ve önceki adımdan gelen görüntü kimliği çıktısını sağlayın:
 
@@ -310,7 +310,7 @@ Daha önce gösterilen **az ml service create realtime** komutunun bir alternati
    az ml service usage realtime -i <web service ID>
    ```
 
-2. Hizmeti test etmek için döndürülen hizmet çalıştırma komutunu yürütün:
+1. Hizmeti test etmek için döndürülen hizmet çalıştırma komutunu yürütün:
     
    ```azurecli
    az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
@@ -322,20 +322,20 @@ Daha önce gösterilen **az ml service create realtime** komutunun bir alternati
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Depolama hesaplarınızı bulun. Bunun için **Tüm Hizmetler**'i seçin.
+1. Depolama hesaplarınızı bulun. Bunun için **Tüm Hizmetler**'i seçin.
 
-3. Arama kutusuna **Depolama hesapları**’nı girin ve ardından Enter düğmesini seçin.
+1. Arama kutusuna **Depolama hesapları**’nı girin ve ardından Enter düğmesini seçin.
 
-4. **Depolama hesapları** arama kutusundan ortamınızla eşleşen **Depolama hesabı** kaynağını seçin. 
+1. **Depolama hesapları** arama kutusundan ortamınızla eşleşen **Depolama hesabı** kaynağını seçin. 
 
    > [!TIP]
    > Hangi depolama alanının kullanımda olduğunu belirlemek için:
    > 1. Machine Learning Workbench’i açın.
-   > 2. Üzerinde çalıştığınız projeyi seçin.
-   > 3. **Dosya** menüsünden bir komut satırı istemi açın.
-   > 4. Komut satırı istemine `az ml env show -v` girin ve *storage_account* değerini denetleyin. Bu değer, depolama hesabınızın adıdır.
+   > 1. Üzerinde çalıştığınız projeyi seçin.
+   > 1. **Dosya** menüsünden bir komut satırı istemi açın.
+   > 1. Komut satırı istemine `az ml env show -v` girin ve *storage_account* değerini denetleyin. Bu değer, depolama hesabınızın adıdır.
 
-5. **Depolama hesabı** bölmesi açıldıktan sonra **Hizmetler** bölümünden **Bloblar**’ı seçin. **modeldata** adlı kapsayıcıyı bulun. 
+1. **Depolama hesabı** bölmesi açıldıktan sonra **Hizmetler** bölümünden **Bloblar**’ı seçin. **modeldata** adlı kapsayıcıyı bulun. 
  
    Herhangi bir veri görmüyorsanız, verilerin depolama hesabına dolmaya başladığını görmek için ilk web hizmeti isteğinden sonra 10 dakikaya kadar beklemeniz gerekebilir.
 
@@ -345,7 +345,7 @@ Daha önce gösterilen **az ml service create realtime** komutunun bir alternati
    /modeldata/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<day>/data.csv
    ```
 
-6. Bu verileri Azure Blob depolamadan kullanabilirsiniz. Hem Microsoft yazılımlarını hem de aşağıdaki açık kaynak araçları kullanan çeşitli araçlar mevcuttur:
+1. Bu verileri Azure Blob depolamadan kullanabilirsiniz. Hem Microsoft yazılımlarını hem de aşağıdaki açık kaynak araçları kullanan çeşitli araçlar mevcuttur:
 
    * Machine Learning: CSV dosyasını veri kaynağı olarak ekleyerek CSV dosyasını açın.
 

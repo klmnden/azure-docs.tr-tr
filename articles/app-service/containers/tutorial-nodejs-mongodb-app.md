@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ee7f37f83d6b3503df1af61509f6f85ca19bc13e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3380322286740e3b87df11107ac5ade62ffa535d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38472960"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432074"
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service’te bir Node.js ve MongoDB web uygulaması derleme
 
@@ -131,7 +131,7 @@ MongoDB için bu öğreticide [Azure Cosmos DB](/azure/documentdb/) kullanılır
 
 ### <a name="create-a-cosmos-db-account"></a>Cosmos DB hesabı oluşturma
 
-Cloud Shell'de, [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) komutuyla bir Cosmos DB hesabı oluşturun.
+Cloud Shell'de, [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) komutuyla bir Cosmos DB hesabı oluşturun.
 
 Aşağıdaki komutta, *\<cosmosdb_name>* yer tutucusunu benzersiz bir Cosmos DB adıyla değiştirin. Bu ad, Cosmos DB uç noktasının bir parçası olan `https://<cosmosdb_name>.documents.azure.com/` olarak kullanıldığından, adın Azure’daki tüm Cosmos DB hesaplarında benzersiz olması gerekir. Ad yalnızca küçük harf, rakam ve tire (-) karakteri içerebilir; 3 ila 50 karakter uzunluğunda olmalıdır.
 
@@ -165,7 +165,7 @@ Bu adımda, MEAN.js örnek uygulamanızı, MongoDB bağlantı dizesi kullanarak 
 
 ### <a name="retrieve-the-database-key"></a>Veritabanı anahtarını alma
 
-Cosmos DB veritabanına bağlanmak için veritabanı anahtarı gerekir. Cloud Shell'de, birincil anahtarı almak için [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) komutunu kullanın.
+Cosmos DB veritabanına bağlanmak için veritabanı anahtarı gerekir. Cloud Shell'de, birincil anahtarı almak için [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-keys) komutunu kullanın.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -259,7 +259,7 @@ Bu adımda, MongoDB’ye bağlı Node.js uygulamanızı Azure App Service’e da
 
 Varsayılan olarak, MEAN.js projesi _config/env/local-production.js_ öğesini Git deposu dışında tutar. Azure web uygulamanız için, uygulama ayarlarını kullanarak MongoDB bağlantı dizenizi tanımlayın.
 
-Uygulama ayarlarını belirlemek için Cloud Shell'de [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) komutunu kullanın.
+Uygulama ayarlarını belirlemek için Cloud Shell'de [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) komutunu kullanın.
 
 Aşağıdaki örnekte, Azure web uygulamanız için bir `MONGODB_URI` uygulama ayarı yapılandırılmıştır. *\<app_name>*, *\<cosmosdb_name>* ve *\<primary_master_key>* yer tutucularını değiştirin.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 654c187bcd552e9682115bc5e53ba69a3dca7c1d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ddea4621277303dd6c153205b683b4eea0151db0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38472729"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432271"
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service’te .NET Core ve SQL Veritabanı uygulaması oluşturma
 
@@ -98,7 +98,7 @@ SQL Veritabanı için bu öğreticide [Azure SQL Veritabanı](/azure/sql-databas
 
 ### <a name="create-a-sql-database-logical-server"></a>SQL Veritabanı mantıksal sunucusu oluşturma
 
-Cloud Shell’de, [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create) komutuyla SQL Veritabanı mantıksal sunucusu oluşturun.
+Cloud Shell’de, [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) komutuyla SQL Veritabanı mantıksal sunucusu oluşturun.
 
 *\<server_name>* yer tutucusunu benzersiz bir SQL Veritabanı adıyla değiştirin. Bu ad, SQL Veritabanı uç noktasının bir parçası olan `<server_name>.database.windows.net` olarak kullanıldığından, adın Azure’daki tüm mantıksal sunucularda benzersiz olması gerekir. Ad yalnızca küçük harf, rakam ve tire (-) karakteri içerebilir; 3 ila 50 karakter uzunluğunda olmalıdır. Ayrıca, *\<db_username>* ve *\<db_password>* değerlerini dilediğiniz kullanıcı adı ve parolayla değiştirin. 
 
@@ -129,7 +129,7 @@ SQL Veritabanı mantıksal sunucusu oluşturulduğunda Azure CLI, aşağıdaki �
 
 ### <a name="configure-a-server-firewall-rule"></a>Sunucu güvenlik duvarı kurallarını yapılandırma
 
-[`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create) komutunu kullanarak [Azure SQL Veritabanı sunucusu düzeyinde güvenlik duvarı kuralı](../../sql-database/sql-database-firewall-configure.md) oluşturun. Hem başlangıç hem bitiş IP’si 0.0.0.0 olarak ayarlandığında, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır. 
+[`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create) komutunu kullanarak [Azure SQL Veritabanı sunucusu düzeyinde güvenlik duvarı kuralı](../../sql-database/sql-database-firewall-configure.md) oluşturun. Hem başlangıç hem bitiş IP’si 0.0.0.0 olarak ayarlandığında, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -137,7 +137,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>Veritabanı oluşturma
 
-[`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) komutunu kullanarak sunucuda [S0 performans düzeyine](../../sql-database/sql-database-service-tiers-dtu.md) sahip bir veritabanı oluşturun.
+[`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) komutunu kullanarak sunucuda [S0 performans düzeyine](../../sql-database/sql-database-service-tiers-dtu.md) sahip bir veritabanı oluşturun.
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -171,7 +171,7 @@ Bu adımda, Linux’ta App Service üzerinde SQL Veritabanı’na bağlı .NET C
 
 ### <a name="configure-an-environment-variable"></a>Ortam değişkeni yapılandırma
 
-Azure uygulamanıza yönelik bağlantı dizeleri ayarlamak için, Cloud Shell’de [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) komutunu kullanın. Aşağıdaki komutta, *\<app name>* ve *\<connection_string>* parametrelerini, önceden oluşturduğunuz bağlantı dizesiyle değiştirin.
+Azure uygulamanıza yönelik bağlantı dizeleri ayarlamak için, Cloud Shell’de [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) komutunu kullanın. Aşağıdaki komutta, *\<app name>* ve *\<connection_string>* parametrelerini, önceden oluşturduğunuz bağlantı dizesiyle değiştirin.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer

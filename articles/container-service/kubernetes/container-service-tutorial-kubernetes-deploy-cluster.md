@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 29a5cc67ab4d515809d00e5f0b4277f95bfb08e6
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 8403e5d8dd3bad07e412b08709dcb8c28201bcdf
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100188"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434433"
 ---
 # <a name="deploy-a-kubernetes-cluster-in-azure-container-service"></a>Azure Container Service’te bir Kubernetes kümesi dağıtma
 
@@ -35,7 +35,7 @@ Sonraki öğreticilerde, Azure Vote uygulaması kümeye dağıtılır, ölçekle
 
 ## <a name="create-kubernetes-cluster"></a>Kubernetes kümesi oluşturma
 
-Azure Container Service'te [az acs create](/cli/azure/acs#az_acs_create) komutuyla Kubernetes kümesi oluşturun. 
+Azure Container Service'te [az acs create](/cli/azure/acs#az-acs-create) komutuyla Kubernetes kümesi oluşturun. 
 
 Şu örnek, `myResourceGroup` adlı Kaynak Grubunda `myK8sCluster` adlı bir küme oluşturur. Bu Kaynak Grubu, [bir önceki öğreticide](./container-service-tutorial-kubernetes-prepare-acr.md) oluşturuldu.
 
@@ -43,7 +43,7 @@ Azure Container Service'te [az acs create](/cli/azure/acs#az_acs_create) komutuy
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
 ```
 
-Sınırlı deneme sürümünde olduğu gibi bazı durumlarda, bir Azure aboneliğinin Azure kaynaklarına sınırlı erişimi olur. Dağıtım sınırlı kullanılabilir çekirdek sayısı nedeniyle başarısız olursa, `--agent-count 1` öğesini [az acs create](/cli/azure/acs#az_acs_create) komutuna ekleyerek varsayılan aracı sayısını azaltın. 
+Sınırlı deneme sürümünde olduğu gibi bazı durumlarda, bir Azure aboneliğinin Azure kaynaklarına sınırlı erişimi olur. Dağıtım sınırlı kullanılabilir çekirdek sayısı nedeniyle başarısız olursa, `--agent-count 1` öğesini [az acs create](/cli/azure/acs#az-acs-create) komutuna ekleyerek varsayılan aracı sayısını azaltın. 
 
 Birkaç dakika sonra dağıtım tamamlanır ve ACS dağıtımı hakkında JSON tarafından biçimlendirilmiş bilgiler döndürür.
 

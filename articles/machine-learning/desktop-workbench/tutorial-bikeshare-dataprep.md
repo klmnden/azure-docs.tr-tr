@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 951ce8947d113eaad2ea0e3b5df5e9714aa33dd8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2a50350b9ba49d82a20b92804ffb92ec6906186d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723196"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439909"
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Öğretici: Azure Machine Learning Workbench'i kullanarak gelişmiş veri hazırlığı (Bisiklet paylaşımı verileri)
 Azure Machine Learning (önizleme), uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve gelişmiş bir analiz çözümüdür.
@@ -60,7 +60,7 @@ Bu öğreticide [Boston hubway veri kümesi](https://s3.amazonaws.com/hubway-dat
       - [201610-hubway-tripdata.zip](https://s3.amazonaws.com/hubway-data/201610-hubway-tripdata.zip)
       - [201701-hubway-tripdata.zip](https://s3.amazonaws.com/hubway-data/201701-hubway-tripdata.zip)
 
-2. İndirdiğiniz her .zip dosyasını açın.
+1. İndirdiğiniz her .zip dosyasını açın.
 
 ## <a name="upload-data-files-to-azure-blob-storage"></a>Veri dosyalarını Azure Blob depolamaya yükleme
 Azure Blob depolamayı veri dosyalarınızı barındırmak için kullanabilirsiniz.
@@ -69,9 +69,9 @@ Azure Blob depolamayı veri dosyalarınızı barındırmak için kullanabilirsin
 
     ![HDInsight küme depolama hesabı](media/tutorial-bikeshare-dataprep/hdinsightstorageaccount.png)
 
-2. **BikeShare** veri dosyalarını depolamak için **data-files** adlı yeni bir kapsayıcı oluşturun.
+1. **BikeShare** veri dosyalarını depolamak için **data-files** adlı yeni bir kapsayıcı oluşturun.
 
-3. Veri dosyalarını karşıya yükleyin. `BostonWeather.csv` dosyasını `weather` adlı klasöre yükleyin. Seyahat veri dosyalarını `tripdata` adlı klasöre yükleyin.
+1. Veri dosyalarını karşıya yükleyin. `BostonWeather.csv` dosyasını `weather` adlı klasöre yükleyin. Seyahat veri dosyalarını `tripdata` adlı klasöre yükleyin.
 
     ![Veri dosyalarını karşıya yükleme](media/tutorial-bikeshare-dataprep/azurestoragedatafile.png)
 
@@ -91,7 +91,7 @@ Azure Blob depolamayı veri dosyalarınızı barındırmak için kullanabilirsin
 
    * **HOURLYWindSpeed**
 
-2. __Hubway__ verileri, yıl ve aya göre dosyalar halinde düzenlenmiştir. Örneğin, `201501-hubway-tripdata.zip` adlı dosya Ocak 2015’e ait verilerin bulunduğu bir .csv dosyası içerir. Verilerde aşağıdaki alanlar bulunur ve her satır bir bisiklet seyahatini temsil eder:
+1. __Hubway__ verileri, yıl ve aya göre dosyalar halinde düzenlenmiştir. Örneğin, `201501-hubway-tripdata.zip` adlı dosya Ocak 2015’e ait verilerin bulunduğu bir .csv dosyası içerir. Verilerde aşağıdaki alanlar bulunur ve her satır bir bisiklet seyahatini temsil eder:
 
    * **Trip Duration (in seconds)**
 
@@ -114,7 +114,7 @@ Azure Blob depolamayı veri dosyalarınızı barındırmak için kullanabilirsin
 ## <a name="create-a-new-project"></a>Yeni bir proje oluşturma
 1. Başlangıç menünüzden veya başlatıcıdan **Machine Learning Workbench**’i başlatın.
 
-2. Yeni bir Machine Learning projesi oluşturun. **Projeler** sayfasındaki **+** düğmesini veya **Dosya** > **Yeni**'yi seçin.
+1. Yeni bir Machine Learning projesi oluşturun. **Projeler** sayfasındaki **+** düğmesini veya **Dosya** > **Yeni**'yi seçin.
 
    * **Bike Share** şablonunu kullanın.
 
@@ -126,7 +126,7 @@ Azure Blob depolamayı veri dosyalarınızı barındırmak için kullanabilirsin
 
    ![Veri görünümü sekmesi](media/tutorial-bikeshare-dataprep/navigatetodatatab.png)
 
-2. Bir veri kaynağı ekleyin. **+** simgesini ve sonra da **Veri Kaynağı Ekle**’yi seçin.
+1. Bir veri kaynağı ekleyin. **+** simgesini ve sonra da **Veri Kaynağı Ekle**’yi seçin.
 
    ![Veri Kaynağı Ekle seçeneği](media/tutorial-bikeshare-dataprep/newdatasource.png)
 
@@ -136,11 +136,11 @@ Azure Blob depolamayı veri dosyalarınızı barındırmak için kullanabilirsin
 
    ![Dosyalar/Dizin girdisi](media/tutorial-bikeshare-dataprep/datasources.png)
 
-2. **Dosya Seçimi**: Hava durumu verilerini ekleyin. Daha önce Blob Depolama'ya yüklemiş olduğunuz `BostonWeather.csv` dosyasına göz atın ve bu dosyayı seçin. **İleri**’yi seçin.
+1. **Dosya Seçimi**: Hava durumu verilerini ekleyin. Daha önce Blob Depolama'ya yüklemiş olduğunuz `BostonWeather.csv` dosyasına göz atın ve bu dosyayı seçin. **İleri**’yi seçin.
 
    ![BostonWeather.csv dosyasının seçili olduğu dosya seçimi](media/tutorial-bikeshare-dataprep/azureblobpickweatherdatafile.png)
 
-3. **Dosya Ayrıntıları**: Algılanan dosya şemasını doğrulayın. Machine Learning Workbench, dosyadaki verileri analiz eder ve kullanılacak şemayı algılar.
+1. **Dosya Ayrıntıları**: Algılanan dosya şemasını doğrulayın. Machine Learning Workbench, dosyadaki verileri analiz eder ve kullanılacak şemayı algılar.
 
    ![Dosya ayrıntılarını doğrulama](media/tutorial-bikeshare-dataprep/fileparameters.png)
 
@@ -170,7 +170,7 @@ Azure Blob depolamayı veri dosyalarınızı barındırmak için kullanabilirsin
 
    Devam etmek için **İleri**’yi seçin.
 
-4. **Veri Türleri**: Otomatik olarak algılanan veri türlerini gözden geçirin. Machine Learning Workbench, dosyadaki verileri analiz eder ve kullanılacak veri türlerini algılar.
+1. **Veri Türleri**: Otomatik olarak algılanan veri türlerini gözden geçirin. Machine Learning Workbench, dosyadaki verileri analiz eder ve kullanılacak veri türlerini algılar.
 
    a. Bu veriler için, tüm sütunlarda **DATA TYPE** değerini **Dize** olarak değiştirin.
 
@@ -181,7 +181,7 @@ Azure Blob depolamayı veri dosyalarınızı barındırmak için kullanabilirsin
 
    b. Devam etmek için __İleri__’yi seçin. 
 
-5. **Örnekleme**: Örnekleme şeması oluşturmak için **Düzenle**'yi seçin. Yeni eklenen __İlk 10000__ satırını ve sonra __Düzenle__’yi seçin. __Örnek Stratejisi__’ni **Tam Dosya** olarak ayarladıktan sonra **Uygula**’yı seçin.
+1. **Örnekleme**: Örnekleme şeması oluşturmak için **Düzenle**'yi seçin. Yeni eklenen __İlk 10000__ satırını ve sonra __Düzenle__’yi seçin. __Örnek Stratejisi__’ni **Tam Dosya** olarak ayarladıktan sonra **Uygula**’yı seçin.
 
    ![Yeni örnekleme stratejisi ekleme](media/tutorial-bikeshare-dataprep/weatherdatasamplingfullfile.png)
 
@@ -191,14 +191,14 @@ Azure Blob depolamayı veri dosyalarınızı barındırmak için kullanabilirsin
 
    Devam etmek için **İleri**’yi seçin.
 
-6. **Yol Sütunu**: İçeri aktarılan verilere tam dosya yolunu bir sütun olarak eklemek için __Yol Sütunu__ bölümünü kullanın. __Yol Sütununu Ekleme__’yi seçin.
+1. **Yol Sütunu**: İçeri aktarılan verilere tam dosya yolunu bir sütun olarak eklemek için __Yol Sütunu__ bölümünü kullanın. __Yol Sütununu Ekleme__’yi seçin.
 
    > [!TIP]
    > Farklı dosya adlarına sahip çok sayıda dosya içeren bir klasörü içeri aktarıyorsanız, yolun bir sütun olarak eklenmesi yararlı olur. Dosya adlarının daha sonra ayıklamak istediğiniz bilgileri içerdiği durumlarda da bu özellikten yararlanabilirsiniz.
 
    ![Ekleme olarak ayarlanmış Yol Sütunu](media/tutorial-bikeshare-dataprep/pathcolumn.png)
 
-7. **Son**: Veri kaynağı oluşturmayı tamamlamak için **Son**'u seçin.
+1. **Son**: Veri kaynağı oluşturmayı tamamlamak için **Son**'u seçin.
 
     __BostonWeather__ adlı yeni bir veri kaynağı sekmesi açılır. Verilerin bir örneği, kılavuz görünümünde gösterilir. Örnek, daha önce belirtilmiş olan etkin örnekleme şemasını temel alır.
 
@@ -221,17 +221,17 @@ __Veri__ görünümüne dönmek için sayfanın sol üst kısmındaki __Veri__ �
 
 1. Verileri hazırlamaya başlamak için __Hazırla__’yı seçin. 
 
-2. İstendiğinde, veri hazırlama paketi için **BikeShare Data Prep** gibi bir ad girin. 
+1. İstendiğinde, veri hazırlama paketi için **BikeShare Data Prep** gibi bir ad girin. 
 
-3. Devam etmek için __Tamam__'ı seçin.
+1. Devam etmek için __Tamam__'ı seçin.
 
    ![Hazırla iletişim kutusu](media/tutorial-bikeshare-dataprep/dataprepdialog.png)
 
-4. __Veri__ sekmesinin __Veri Hazırlığı__ bölümünün altında **BikeShare Data Prep** adlı yeni bir paket gösterilir. 
+1. __Veri__ sekmesinin __Veri Hazırlığı__ bölümünün altında **BikeShare Data Prep** adlı yeni bir paket gösterilir. 
 
    Paketi görüntülemek için bu girdiyi seçin. 
 
-5. __Veri Akışları__'nı genişletmek ve pakette yer alan veri akışlarını görüntülemek için **>>** düğmesini seçin. Bu örnekte yalnızca __BostonWeather__ veri akışı bulunur.
+1. __Veri Akışları__'nı genişletmek ve pakette yer alan veri akışlarını görüntülemek için **>>** düğmesini seçin. Bu örnekte yalnızca __BostonWeather__ veri akışı bulunur.
 
    > [!IMPORTANT]
    > Bir paket birden çok veri akışı içerebilir.
@@ -241,7 +241,7 @@ __Veri__ görünümüne dönmek için sayfanın sol üst kısmındaki __Veri__ �
 ## <a name="filter-data-by-value"></a>Verileri değere göre filtreleme
 1. Verileri filtrelemek için belirli bir değer içeren bir hücreye sağ tıklayın ve __Filtrele__’yi seçin. Ardından filtre türünü seçin.
 
-2. Bu öğretici için, `FM-15` değerini içeren hücreyi seçin. Ardından filtreyi **eşittir** olarak ayarlayın.  Bundan böyle veriler yalnızca __REPORTTYPE__ değeri `FM-15` olan satırları döndürür.
+1. Bu öğretici için, `FM-15` değerini içeren hücreyi seçin. Ardından filtreyi **eşittir** olarak ayarlayın.  Bundan böyle veriler yalnızca __REPORTTYPE__ değeri `FM-15` olan satırları döndürür.
 
    ![Filtre iletişim kutusu](media/tutorial-bikeshare-dataprep/weatherfilterinfm15.png)
 
@@ -263,17 +263,17 @@ __REPORTTYPE__ sütunu artık gerekli değildir. Sütun üst bilgisine sağ tık
 
    * **HOURLYWindSpeed**
 
-2. Seçili sütun üst bilgilerinden birine sağ tıklayın ve **Alan Türünü Sayısala Dönüştür**’ü seçin. Bu seçenek sütunların veri türünü sayısala dönüştürür.
+1. Seçili sütun üst bilgilerinden birine sağ tıklayın ve **Alan Türünü Sayısala Dönüştür**’ü seçin. Bu seçenek sütunların veri türünü sayısala dönüştürür.
 
    ![Birden çok sütunu sayısala dönüştürme](media/tutorial-bikeshare-dataprep/weatherconverttonumeric.png)
 
-3. Hata değerlerini filtreleyin. Bazı sütunlarda veri türü dönüştürme sorunları vardır. Bu sorun, sütunun __Veri Kalitesi Çubuğu__’nda kırmızı renkle gösterilir.
+1. Hata değerlerini filtreleyin. Bazı sütunlarda veri türü dönüştürme sorunları vardır. Bu sorun, sütunun __Veri Kalitesi Çubuğu__’nda kırmızı renkle gösterilir.
 
    Hata içeren satırları kaldırmak için **HOURLYDRYBULBTEMPF** sütun üst bilgisine sağ tıklayın. **Sütunu Filtrele**’yi seçin. Varsayılan **İstiyorum** değerini **Satırları Tutmak** olarak kullanın. **Koşullar** açılır listesini değiştirerek **hata değil**’i seçin. Filtreyi uygulamak için **Tamam**’ı seçin.
 
    ![Hata değerlerini filtreleme](media/tutorial-bikeshare-dataprep/filtererrorvalues.png)
 
-4. Diğer sütunlarda kalan hata satırlarını kaldırmak için, bu filtreleme işlemini **HOURLYRelativeHumidity** ve **HOURLYWindSpeed** sütunlarında da tekrarlayın.
+1. Diğer sütunlarda kalan hata satırlarını kaldırmak için, bu filtreleme işlemini **HOURLYRelativeHumidity** ve **HOURLYWindSpeed** sütunlarında da tekrarlayın.
 
 ## <a name="use-by-example-transformations"></a>Örnek dönüşümlere göre kullanma
 
@@ -291,9 +291,9 @@ Verileri iki saatlik bloklara yönelik bir tahminde kullanmak için, iki saatlik
 
    ![Sütunu Örneğe Göre Böl girdisi](media/tutorial-bikeshare-dataprep/weathersplitcolumnbyexample.png)
 
-2. Machine Learning Workbench otomatik olarak anlamlı bir sınırlayıcı tanımlar ve verileri tarih ile saat değerlerine bölerek iki sütun oluşturur. 
+1. Machine Learning Workbench otomatik olarak anlamlı bir sınırlayıcı tanımlar ve verileri tarih ile saat değerlerine bölerek iki sütun oluşturur. 
 
-3. Bölme işlemi sonuçlarını kabul etmek için __Tamam__’ı seçin.
+1. Bölme işlemi sonuçlarını kabul etmek için __Tamam__’ı seçin.
 
    ![Bölünmüş DATE_1 ve DATE_2 sütunları](media/tutorial-bikeshare-dataprep/weatherdatesplitted.png)
 
@@ -305,7 +305,7 @@ Verileri iki saatlik bloklara yönelik bir tahminde kullanmak için, iki saatlik
 
    Null değerlerle yeni bir boş sütun eklenir.
 
-2. Yeni sütundaki ilk boş hücreyi seçin. İstenen zaman aralığının bir örneğini sağlamak için, yeni sütuna **12:00-02:00** yazın ve Enter'ı seçin.
+1. Yeni sütundaki ilk boş hücreyi seçin. İstenen zaman aralığının bir örneğini sağlamak için, yeni sütuna **12:00-02:00** yazın ve Enter'ı seçin.
 
    ![Değeri 12.00-02.00 aralığında olan yeni sütun](media/tutorial-bikeshare-dataprep/weathertimerangeexample.png)
 
@@ -315,26 +315,26 @@ Verileri iki saatlik bloklara yönelik bir tahminde kullanmak için, iki saatlik
    > [!IMPORTANT]
    > Workbench'in geçerli sürümünde Mac'te istisnai durumların tanımlanması çalışmayabilir. Mac bilgisayarlarda, aşağıdaki 3. ve 4. adımları atlayın. Bunun yerine, tüm satırlar türetilen değerlerle doldurulduktan sonra __Tamam__'ı seçin.
    
-3. Kılavuzun üzerindeki **Veriler Analiz Ediliyor** iletisi, Workbench’in istisnai durumları algılamaya çalıştığını belirtir. İşlem bittiğinde, durum **Önerilen sonraki satırı gözden geçirin** veya **Öneri yok** olarak değişir. Bu örnekte, **Önerilen sonraki satırı gözden geçirin** durumu döndürülür.
+1. Kılavuzun üzerindeki **Veriler Analiz Ediliyor** iletisi, Workbench’in istisnai durumları algılamaya çalıştığını belirtir. İşlem bittiğinde, durum **Önerilen sonraki satırı gözden geçirin** veya **Öneri yok** olarak değişir. Bu örnekte, **Önerilen sonraki satırı gözden geçirin** durumu döndürülür.
 
-4. Önerilen değişiklikleri gözden geçirmek için **Önerilen sonraki satırı gözden geçirin** öğesini seçin. Gözden geçirmeniz ve gerekirse düzeltmeniz gereken hücre ekranda vurgulanır.
+1. Önerilen değişiklikleri gözden geçirmek için **Önerilen sonraki satırı gözden geçirin** öğesini seçin. Gözden geçirmeniz ve gerekirse düzeltmeniz gereken hücre ekranda vurgulanır.
 
    ![Önerilen sonraki satırı gözden geçirin](media/tutorial-bikeshare-dataprep/weatherreviewnextsuggested.png)
 
     Dönüştürmeyi kabul etmek için __Tamam__’ı seçin.
  
-5. __BostonWeather__ verilerinin kılavuz görünümüne geri dönersiniz. Kılavuz bu durumda önceden eklenen üç sütunu içerir.
+1. __BostonWeather__ verilerinin kılavuz görünümüne geri dönersiniz. Kılavuz bu durumda önceden eklenen üç sütunu içerir.
 
    ![Eklenen satırlarla birlikte kılavuz görünümü](media/tutorial-bikeshare-dataprep/timerangecomputed.png)
 
    > [!TIP]
    > Yaptığınız tüm değişiklikler **Adımlar** bölmesinde saklanır. **Adımlar** bölmesinde oluşturduğunuz adıma gidin, aşağı oku seçin ve sonra da **Düzenle**’yi seçin. Gelişmiş **Sütunu Örneğe Göre Türet** penceresi gösterilir. Tüm örnekleriniz burada saklanır. Ayrıca, aşağıdaki kılavuzda bir satıra çift tıklayarak örnekleri el ile ekleyebilirsiniz. Değişiklikleri uygulamadan ana kılavuza geri dönmek için **İptal**’i seçin. Bu görünüme, **Sütunu Örneğe Göre Türet** dönüşümünü gerçekleştirirken **Gelişmiş mod**’u seçerek de erişebilirsiniz.
 
-6. Sütunu yeniden adlandırmak için sütun üst bilgisine çift tıklayın ve **Hour Range** yazın. Değişikliği kaydetmek için Enter'ı seçin.
+1. Sütunu yeniden adlandırmak için sütun üst bilgisine çift tıklayın ve **Hour Range** yazın. Değişikliği kaydetmek için Enter'ı seçin.
 
    ![Sütunları yeniden adlandırma](media/tutorial-bikeshare-dataprep/weatherhourrangecolumnrename.png)
 
-7. Tarih ve saat aralığını türetmek için **Date\_1** ve **Hour Range** sütunlarını birlikte seçin, sonra da **Sütunu Örneğe Göre Türet**’i seçin.
+1. Tarih ve saat aralığını türetmek için **Date\_1** ve **Hour Range** sütunlarını birlikte seçin, sonra da **Sütunu Örneğe Göre Türet**’i seçin.
 
    ![Sütunu Örneğe Göre Türet](media/tutorial-bikeshare-dataprep/weatherderivedatehourrange.png)
 
@@ -350,7 +350,7 @@ Verileri iki saatlik bloklara yönelik bir tahminde kullanmak için, iki saatlik
    > * **1 Şubat 2015 12:00-02:00** değerini içeren ilk hücreye gidin. Bu 15. satır olmalıdır. Değeri **2 Ocak 2015 12:00-02:00** olarak düzeltin ve Enter'ı seçin. 
    
 
-8. **Veriler Analiz Ediliyor** durumunun **Önerilen sonraki satırı gözden geçirin** olarak değişmesini bekleyin. Bu değişiklik birkaç saniye sürebilir. Önerilen satıra gitmek için durum bağlantısını seçin. 
+1. **Veriler Analiz Ediliyor** durumunun **Önerilen sonraki satırı gözden geçirin** olarak değişmesini bekleyin. Bu değişiklik birkaç saniye sürebilir. Önerilen satıra gitmek için durum bağlantısını seçin. 
 
    ![Gözden geçirmek için önerilen satır](media/tutorial-bikeshare-dataprep/wetherdatehourrangedisambiguate.png)
 
@@ -358,7 +358,7 @@ Verileri iki saatlik bloklara yönelik bir tahminde kullanmak için, iki saatlik
 
    ![Doğru biçimlendirilmiş veriler](media/tutorial-bikeshare-dataprep/wetherdatehourrangedisambiguated.png)
 
-9. Dönüştürmeyi kabul etmek için **Tamam**’ı seçin.
+1. Dönüştürmeyi kabul etmek için **Tamam**’ı seçin.
 
    ![Tamamlanan dönüştürme kılavuzu](media/tutorial-bikeshare-dataprep/weatherdatehourrangecomputed.png)
 
@@ -366,9 +366,9 @@ Verileri iki saatlik bloklara yönelik bir tahminde kullanmak için, iki saatlik
    > Bu adımda **Sütunu Örneğe Göre Türet** öğesinde **Gelişmiş mod**'u kullanmak için, **Adımlar** bölmesinde aşağı oku seçin. Veri kılavuzunda, **DATE\_1** ve **Hour Range** sütunlarının yanında onay kutuları bulunur. Çıkışın nasıl değiştiğini görmek için **Hour Range** sütununun yanındaki onay kutusunu temizleyin. Girdi olarak **Hour Range** sütunu mevcut olmadığında, **12.00-2.00** sabit olarak kabul edilir ve türetilmiş değerlere eklenir. Değişikliklerinizi uygulamadan ana kılavuza geri dönmek için **İptal**’i seçin.
    ![Gelişmiş mod](media/tutorial-bikeshare-dataprep/derivedcolumnadvancededitdeselectcolumn.png)
 
-10. Sütunu yeniden adlandırmak için üst bilgiye çift tıklayın. Adı **Date Hour Range** olarak değiştirin ve Enter'ı seçin.
+1. Sütunu yeniden adlandırmak için üst bilgiye çift tıklayın. Adı **Date Hour Range** olarak değiştirin ve Enter'ı seçin.
 
-11. **DATE**, **DATE\_1**, **DATE\_2** ve **Hour Range** sütunlarını birlikte seçin. Sağ tıklayın ve sonra **Sütunu kaldır**’ı seçin.
+1. **DATE**, **DATE\_1**, **DATE\_2** ve **Hour Range** sütunlarını birlikte seçin. Sağ tıklayın ve sonra **Sütunu kaldır**’ı seçin.
 
 ## <a name="summarize-data-mean"></a>Verileri özetleme (ortalama)
 
@@ -378,7 +378,7 @@ Sonraki adımda, değerlerin saat aralığına göre gruplandırılmış ortalam
 
     ![Dönüşümler menüsü](media/tutorial-bikeshare-dataprep/weathersummarizemenu.png)
 
-2. Verileri özetlemek için, sütunları sayfanın alt kısmındaki kılavuzdan üstteki sol ve sağ bölmelere sürükleyin. Sol bölmede **Verileri gruplandırmak için sütunları buraya sürükleyin** iletisi bulunur. Sağ bölmede **Verileri özetlemek için sütunları buraya sürükleyin** iletisi bulunur. 
+1. Verileri özetlemek için, sütunları sayfanın alt kısmındaki kılavuzdan üstteki sol ve sağ bölmelere sürükleyin. Sol bölmede **Verileri gruplandırmak için sütunları buraya sürükleyin** iletisi bulunur. Sağ bölmede **Verileri özetlemek için sütunları buraya sürükleyin** iletisi bulunur. 
 
     a. **Date Hour Range** sütununu alttaki kılavuzdan sol bölmeye sürükleyin. **HOURLYDRYBULBTEMPF**, **HOURLYRelativeHumidity** ve **HOURLYWindSpeed** sütunlarını sağ bölmeye sürükleyin. 
 
@@ -392,7 +392,7 @@ Sayısal sütunlardaki verilerin 0 - 1 aralığında olacak şekilde değiştiri
 
 1. **Dönüşüm** menüsünde **Dönüşüm Veri Akışı (Betik)** öğesini seçin.
 
-2. Görüntülenen metin kutusuna aşağıdaki kodu girin. Sütun adlarını kullandıysanız, kod değişiklik yapılmadan çalışmalıdır. Python’da basit bir min-maks normalleştirme mantığı yazıyorsunuz.
+1. Görüntülenen metin kutusuna aşağıdaki kodu girin. Sütun adlarını kullandıysanız, kod değişiklik yapılmadan çalışmalıdır. Python’da basit bir min-maks normalleştirme mantığı yazıyorsunuz.
 
     > [!WARNING]
     > Betik daha önce bu öğreticide kullanılan sütun adlarını bekler. Farklı sütun adları kullandıysanız, betikteki adları değiştirmeniz gerekir.
@@ -421,7 +421,7 @@ Sayısal sütunlardaki verilerin 0 - 1 aralığında olacak şekilde değiştiri
     
    ![Dönüşüm Veri Akışı (Betik) iletişim kutusu](media/tutorial-bikeshare-dataprep/transformdataflowscript.png)
 
-3. Betiği kullanmak için __Tamam__’ı seçin. Kılavuzdaki sayısal sütunlar artık 0 -1 aralığındaki değerleri içerir.
+1. Betiği kullanmak için __Tamam__’ı seçin. Kılavuzdaki sayısal sütunlar artık 0 -1 aralığındaki değerleri içerir.
 
     ![0 ile 1 arasındaki değerleri içeren kılavuz](media/tutorial-bikeshare-dataprep/datagridwithdecimals.png)
 
@@ -437,13 +437,13 @@ Hava durumu verilerini hazırlamayı tamamladınız. Şimdi seyahat verilerini h
 
     * __Veri Türü__: Varsayılanları kabul edin.
 
-2. Verileri içeri aktardıktan sonra hazırlamaya başlamak için __Hazırla__’yı seçin. Var olan **BikeShare Data Prep.dprep** paketini ve ardından __Tamam__’ı seçin.
+1. Verileri içeri aktardıktan sonra hazırlamaya başlamak için __Hazırla__’yı seçin. Var olan **BikeShare Data Prep.dprep** paketini ve ardından __Tamam__’ı seçin.
 
     Bu işlem yeni bir dosya oluşturmak yerine var olan **Data Preparation** dosyasına bir **Veri Akışı** ekler.
 
     ![Mevcut paketi seçme](media/tutorial-bikeshare-dataprep/addjandatatodprep.png)
 
-3. Kılavuz yüklendikten sonra __DATAFLOWS__ öğesini genişletin. Artık iki veri akışı vardır: **BostonWeather** ve **201701-hubway-tripdata**. **201701-hubway-tripdata** girdisini seçin.
+1. Kılavuz yüklendikten sonra __DATAFLOWS__ öğesini genişletin. Artık iki veri akışı vardır: **BostonWeather** ve **201701-hubway-tripdata**. **201701-hubway-tripdata** girdisini seçin.
 
     ![201701-hubway-tripdata girdisi](media/tutorial-bikeshare-dataprep/twodfsindprep.png)
 
@@ -458,11 +458,11 @@ Veri hazırlığı için, dize verileriyle sayısal ve coğrafi verilere yöneli
 
     ![Harita görselleştirme](media/tutorial-bikeshare-dataprep/launchMapInspector.png)
 
-2. Harita görselleştirmeyi en üst düzeye çıkarmak **Ekranı Kapla** simgesini seçin. Haritayı pencereye sığdırmak için görselleştirmenin sol üst kısmındaki **E** simgesini seçin.
+1. Harita görselleştirmeyi en üst düzeye çıkarmak **Ekranı Kapla** simgesini seçin. Haritayı pencereye sığdırmak için görselleştirmenin sol üst kısmındaki **E** simgesini seçin.
 
     ![Tam ekran görüntüsü](media/tutorial-bikeshare-dataprep/maximizedmap.png)
 
-3. Kılavuz görünümüne dönmek için **Simge Durumuna Küçült** düğmesini seçin.
+1. Kılavuz görünümüne dönmek için **Simge Durumuna Küçült** düğmesini seçin.
 
 ## <a name="use-the-column-statistics-inspector"></a>Sütun istatistikleri denetçisini kullanma
 
@@ -491,7 +491,7 @@ Histogram yararlı bir sonuç vermez çünkü aykırı değerler grafı eğer.
 
     ![Sütun Ekle (Betik) menüsü](media/tutorial-bikeshare-dataprep/computecolscript.png)
 
-2. __Sütun Ekle (Betik)__ iletişim kutusunda aşağıdaki değerleri kullanın:
+1. __Sütun Ekle (Betik)__ iletişim kutusunda aşağıdaki değerleri kullanın:
 
     * __Yeni Sütun Adı__: logtripduration
 
@@ -503,9 +503,9 @@ Histogram yararlı bir sonuç vermez çünkü aykırı değerler grafı eğer.
 
    ![Sütun Ekle (Betik) iletişim kutusu](media/tutorial-bikeshare-dataprep/computecolscriptdialog.png)
 
-3. **Logtripduration** sütununu eklemek için __Tamam__’ı seçin.
+1. **Logtripduration** sütununu eklemek için __Tamam__’ı seçin.
 
-4. Sütuna sağ tıklayın ve **Histogram**’ı seçin.
+1. Sütuna sağ tıklayın ve **Histogram**’ı seçin.
 
     ![Logtripduration sütununun histogramı](media/tutorial-bikeshare-dataprep/logtriphistogram.png)
 
@@ -517,7 +517,7 @@ Veriler üzerinde bir filtre kullanılması, denetçileri yeni dağıtımla gün
 
 1. **Logtripduration** sütununa sağ tıklayın ve **Sütunu Filtrele**'yi seçin. 
 
-2. __Düzenle__ iletişim kutusunda aşağıdaki değerleri kullanın:
+1. __Düzenle__ iletişim kutusunda aşağıdaki değerleri kullanın:
 
     * __Bu Sayı Sütununu Filtrele__: logtripduration
 
@@ -531,7 +531,7 @@ Veriler üzerinde bir filtre kullanılması, denetçileri yeni dağıtımla gün
 
     ![Filtre seçenekleri](media/tutorial-bikeshare-dataprep/loftripfilter.png)
 
-3. Filtreyi uygulamak için __Tamam__’ı seçin.
+1. Filtreyi uygulamak için __Tamam__’ı seçin.
 
     ![Filtre uygulandıktan sonra güncelleştirilmiş histogramlar](media/tutorial-bikeshare-dataprep/loftripfilteredinspector.png)
 
@@ -550,11 +550,11 @@ Veriler üzerinde bir filtre kullanılması, denetçileri yeni dağıtımla gün
     > [!NOTE]
     > Mavi histogram, öncekine göre daha kısa görünür. Bu farkın nedeni, yeni aralıkta verilerin yeniden demetlenmesidir.
 
-2. Haloyu kaldırmak için __Düzenle__’yi seçin ve __Halo göster__ seçeneğinin işaretini kaldırın.
+1. Haloyu kaldırmak için __Düzenle__’yi seçin ve __Halo göster__ seçeneğinin işaretini kaldırın.
 
     ![Histogram seçenekleri](media/tutorial-bikeshare-dataprep/uncheckhalo.png)
 
-3. **Tamam**'ı seçenek halo etkisini devre dışı bırakın. Ardından histogramı küçültün.
+1. **Tamam**'ı seçenek halo etkisini devre dışı bırakın. Ardından histogramı küçültün.
 
 ### <a name="remove-columns"></a>Sütunları kaldırma
 
@@ -570,7 +570,7 @@ Seyahat verilerinde her satır bir bisiklet alma olayını temsil eder. Bu öğr
 
     ![Sütunu Örneğe Göre Türet seçeneği](media/tutorial-bikeshare-dataprep/tripdataderivebyexample.png)
 
-2. Örneğin, ilk satır için **1 Ocak 2017 12:00-02:00** değerini girin.
+1. Örneğin, ilk satır için **1 Ocak 2017 12:00-02:00** değerini girin.
 
     > [!IMPORTANT]
     > Türetilen sütunlara ilişkin önceki örnekte, tarih ve saati içeren bir sütun türetmek için birden çok adım kullandınız. Bu örnekte, son çıktının bir örneğini sağlayarak bu işlemin tek bir adımda gerçekleştirilebileceğini görebilirsiniz.
@@ -585,19 +585,19 @@ Seyahat verilerinde her satır bir bisiklet alma olayını temsil eder. Bu öğr
    >
    > * **1 Ocak 2017 1:00-2:00** değerini içeren ilk hücreye gidin. Bu 14. satır olmalıdır. Değeri **1 Ocak 2017 12:00-02:00** olarak düzeltin ve Enter'ı seçin. 
 
-3. Uygulamanın değerleri tüm satırlara göre hesaplamasını bekleyin. İşlem birkaç saniye sürebilir. Analiz bittikten sonra verileri gözden geçirmek için __Önerilen sonraki satırı gözden geçirin__ bağlantısını kullanın.
+1. Uygulamanın değerleri tüm satırlara göre hesaplamasını bekleyin. İşlem birkaç saniye sürebilir. Analiz bittikten sonra verileri gözden geçirmek için __Önerilen sonraki satırı gözden geçirin__ bağlantısını kullanın.
 
    ![Biten analiz ve gözden geçirme bağlantısı](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)
 
     Hesaplanan değerlerin doğru olduğundan emin olun. Doğru değilse, değeri beklenen değerle güncelleştirin ve Enter tuşuna basın. Sonra analizin bitmesini bekleyin. **Öneri yok** ifadesini görene kadar **Önerilen sonraki satırı gözden geçirin** işlemini tamamlayın. **Öneri yok** ifadesi, uygulamanın istisnai durumlara baktığı ve sentezlenen programı uygun bulduğu anlamına gelir. Dönüşümü kabul etmeden önce görsel denetim gerçekleştirmek iyi bir yöntemdir. 
 
-4. Dönüştürmeyi kabul etmek için **Tamam**’ı seçin. Yeni oluşturulan sütunu **Date Hour Range** olarak adlandırın.
+1. Dönüştürmeyi kabul etmek için **Tamam**’ı seçin. Yeni oluşturulan sütunu **Date Hour Range** olarak adlandırın.
 
     ![Yeniden adlandırılan sütun](media/tutorial-bikeshare-dataprep/tripdatasummarize.png)
 
-5. **Starttime** sütun üst bilgisine sağ tıklayın ve **Sütunu kaldır**’ı seçin.
+1. **Starttime** sütun üst bilgisine sağ tıklayın ve **Sütunu kaldır**’ı seçin.
 
-6. Verileri özetlemek için __Dönüşüm__ menüsünde __Özetle__’yi seçin. Dönüşümü oluşturmak için aşağıdaki adımları kullanın:
+1. Verileri özetlemek için __Dönüşüm__ menüsünde __Özetle__’yi seçin. Dönüşümü oluşturmak için aşağıdaki adımları kullanın:
 
     * __Date Hour Range__ ve __start station id__ sütunlarını soldaki **Gruplandırma Ölçütü** bölmesine sürükleyin.
 
@@ -605,7 +605,7 @@ Seyahat verilerinde her satır bir bisiklet alma olayını temsil eder. Bu öğr
 
    ![Özetleme seçenekleri](media/tutorial-bikeshare-dataprep/tripdatacount.png)
 
-7. Özet sonucunu kabul etmek için **Tamam**’ı seçin.
+1. Özet sonucunu kabul etmek için **Tamam**’ı seçin.
 
 ## <a name="join-dataflows"></a>Veri akışlarını birleştirme
 
@@ -613,15 +613,15 @@ Hava durumu verilerini seyahat verileriyle birleştirmek için aşağıdaki adı
 
 1. __Dönüşümler__ menüsünde __Birleştir__’i seçin.
 
-2. __Tablolar__: **Sol** veri akışı olarak **BostonWeather**’ı, **Sağ** veri akışı olarak **201701-hubway-tripdata** öğesini seçin. Devam etmek için **İleri**’yi seçin.
+1. __Tablolar__: **Sol** veri akışı olarak **BostonWeather**’ı, **Sağ** veri akışı olarak **201701-hubway-tripdata** öğesini seçin. Devam etmek için **İleri**’yi seçin.
 
     ![Tablo seçimleri](media/tutorial-bikeshare-dataprep/jointableselection.png)
 
-3. __Anahtar Sütunları__: Tabloların her ikisinde **Date Hour Range** sütununu ve sonra __İleri__’yi seçin.
+1. __Anahtar Sütunları__: Tabloların her ikisinde **Date Hour Range** sütununu ve sonra __İleri__’yi seçin.
 
     ![Anahtar Sütunu seçimleri](media/tutorial-bikeshare-dataprep/joinkeyselection.png)
 
-4. __Birleştirme Türü__: Birleştirme türü olarak __Eşleşen satırlar__’ı seçin ve sonra da __Son__’u seçin.
+1. __Birleştirme Türü__: Birleştirme türü olarak __Eşleşen satırlar__’ı seçin ve sonra da __Son__’u seçin.
 
     ![Eşleşen satırlar birleştirme türü](media/tutorial-bikeshare-dataprep/joinscreen.png)
 
@@ -633,11 +633,11 @@ Hava durumu verilerini seyahat verileriyle birleştirmek için aşağıdaki adı
 
     ![Haftanın günü için yeni sütun oluşturma](media/tutorial-bikeshare-dataprep/featureweekday.png)
 
-2. Bir satırın saat aralığını içeren bir sütun oluşturmak için **Date Hour Range** sütununa sağ tıklayın ve **Sütunu Örneğe Göre Türet**’i seçin. **1 Ocak 2017 12:00-02:00** değerini içeren satır için **12:00-02:00** değerini kullanın. Enter'ı seçin ve sonra da **Tamam**'ı seçin. Bu sütunu **Period** olarak adlandırın.
+1. Bir satırın saat aralığını içeren bir sütun oluşturmak için **Date Hour Range** sütununa sağ tıklayın ve **Sütunu Örneğe Göre Türet**’i seçin. **1 Ocak 2017 12:00-02:00** değerini içeren satır için **12:00-02:00** değerini kullanın. Enter'ı seçin ve sonra da **Tamam**'ı seçin. Bu sütunu **Period** olarak adlandırın.
 
     ![Dönem sütunu](media/tutorial-bikeshare-dataprep/featurehourrange.png)
 
-3. **Date Hour Range** ve **r_Date Hour Range** sütunlarını kaldırmak için Ctrl’yi (Mac’te ⌘ komutu) ve ardından her bir sütun üst bilgisini seçin. Sağ tıklayın ve **Sütunu Kaldır**’ı seçin.
+1. **Date Hour Range** ve **r_Date Hour Range** sütunlarını kaldırmak için Ctrl’yi (Mac’te ⌘ komutu) ve ardından her bir sütun üst bilgisini seçin. Sağ tıklayın ve **Sütunu Kaldır**’ı seçin.
 
 ## <a name="read-data-from-python"></a>Python'dan veri okuma
 
@@ -672,7 +672,7 @@ Bu öğreticide dosyanın adı `BikeShare Data Prep.py` şeklindedir. Bu dosya �
 
     ![Visual Studio Code'da projeyi açma](media/tutorial-bikeshare-dataprep/openprojectinvscode.png)
 
-2. Aşağıdaki kodu kullanarak `BikeShare Data Prep.py` dosyasındaki Python betiğini güncelleştirin:
+1. Aşağıdaki kodu kullanarak `BikeShare Data Prep.py` dosyasındaki Python betiğini güncelleştirin:
 
     ```python
     import pyspark
@@ -706,7 +706,7 @@ Bu öğreticide dosyanın adı `BikeShare Data Prep.py` şeklindedir. Bu dosya �
     print('done')
     ```
 
-3. `Your Azure Storage blob path` değerini, oluşturulacak çıkış dosyasının yoluyla değiştirin. `blobfolder` ve `csvfiles` değişkenlerinin ikisini de değiştirin.
+1. `Your Azure Storage blob path` değerini, oluşturulacak çıkış dosyasının yoluyla değiştirin. `blobfolder` ve `csvfiles` değişkenlerinin ikisini de değiştirin.
 
 ## <a name="create-an-hdinsight-run-configuration"></a>HDInsight çalıştırma yapılandırması oluşturma
 
@@ -717,7 +717,7 @@ Bu öğreticide dosyanın adı `BikeShare Data Prep.py` şeklindedir. Bu dosya �
    >[!IMPORTANT]
    >Aşağıdaki adımları gerçekleştirmek için komut satırı penceresini (Workbench'ten açılan) kullanmanız gerekir.
 
-2. Komut istemini kullanarak Azure'da oturum açın. 
+1. Komut istemini kullanarak Azure'da oturum açın. 
 
    Siz Azure kaynaklarında kimlik doğrulaması yaparken, Workbench uygulaması ve CLI bağımsız kimlik bilgisi önbellekleri kullanır. Bu işlemi yalnızca bir kez yapmanız gerekir; önbelleğe alınan belirtecin süresi dolana kadar geçerli olacaktır. `az account list` komutu, oturum açma bilgilerinizle kullanılabilen aboneliklerin listesini döndürür. Birden fazla varsa, istenen abonelikteki kimlik değerini kullanın. Bu aboneliği `az account set -s` komutuyla birlikte kullanılacak varsayılan hesap olarak ayarlayın ve sonra abonelik kimliği değerini sağlayın. Ardından hesap `show` komutunu kullanarak ayarı doğrulayın.
 
@@ -735,7 +735,7 @@ Bu öğreticide dosyanın adı `BikeShare Data Prep.py` şeklindedir. Bu dosya �
    az account show
    ```
 
-3. HDInsight çalıştırma yapılandırmasını oluşturun. Kümenizin adını ve `sshuser` parolasını biliyor olmalısınız.
+1. HDInsight çalıştırma yapılandırmasını oluşturun. Kümenizin adını ve `sshuser` parolasını biliyor olmalısınız.
 
     ```azurecli
     az ml computetarget attach cluster --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password>
@@ -750,9 +750,9 @@ Betiğinizi HDInsight kümesinde çalıştırmak için Machine Learning Workbenc
 
 1. Sol taraftaki **Giriş** simgesini seçerek projenizin giriş ekranına dönün.
 
-2. Betiğinizi HDInsight kümesinde çalıştırmak için açılan listeden **hdinsight** öğesini seçin.
+1. Betiğinizi HDInsight kümesinde çalıştırmak için açılan listeden **hdinsight** öğesini seçin.
 
-3. **Çalıştır**'ı seçin. Betik, bir iş olarak gönderilir. Dosya depolama kapsayıcınızda belirtilen konuma yazıldıktan sonra iş durumu __Tamamlandı__ olarak değişir.
+1. **Çalıştır**'ı seçin. Betik, bir iş olarak gönderilir. Dosya depolama kapsayıcınızda belirtilen konuma yazıldıktan sonra iş durumu __Tamamlandı__ olarak değişir.
 
     ![HDInsight betik çalıştırma](media/tutorial-bikeshare-dataprep/hdinsightrunscript.png)
 
@@ -776,13 +776,13 @@ Betiğinizi HDInsight kümesinde çalıştırmak için Machine Learning Workbenc
 
    Sonraki adımlarda kullanılacağı için bu veri kaynağının adını kaydedin.
 
-2. Dosyaları projenizde görüntülemek için klasör simgesini seçin. __aml\_config__ dizinini genişletip `hdinsight.runconfig` dosyasını seçin.
+1. Dosyaları projenizde görüntülemek için klasör simgesini seçin. __aml\_config__ dizinini genişletip `hdinsight.runconfig` dosyasını seçin.
 
     ![Hdinsight.runconfig dosyasının konumu](media/tutorial-bikeshare-dataprep/hdinsightsubstitutedatasources.png) 
 
-3. Dosyayı Visual Studio Code'da açmak için **Düzenle** düğmesini seçin.
+1. Dosyayı Visual Studio Code'da açmak için **Düzenle** düğmesini seçin.
 
-4. `hdinsight.runconfig` dosyasının sonuna aşağıdaki satırları ekleyin ve sonra disk simgesini seçerek dosyayı kaydedin.
+1. `hdinsight.runconfig` dosyasının sonuna aşağıdaki satırları ekleyin ve sonra disk simgesini seçerek dosyayı kaydedin.
 
     ```yaml
     DataSourceSubstitutions:
@@ -827,9 +827,9 @@ Betiğinizi HDInsight kümesinde çalıştırmak için Machine Learning Workbenc
     print('done')
     ```
 
-2. Eğitim verileri çıkışı için `traindata` adlı klasörü kullanın.
+1. Eğitim verileri çıkışı için `traindata` adlı klasörü kullanın.
 
-3. Yeni bir iş göndermek için **Çalıştır**'ı seçin. **hdinsight** öğesinin seçili olduğundan emin olun. Yeni yapılandırmayla bir iş gönderilir. Bu işin çıkışı, eğitim verileridir. Bu veriler, daha önce izlediğiniz veri hazırlama adımları kullanılarak oluşturulur. İşin tamamlanması birkaç dakika sürebilir.
+1. Yeni bir iş göndermek için **Çalıştır**'ı seçin. **hdinsight** öğesinin seçili olduğundan emin olun. Yeni yapılandırmayla bir iş gönderilir. Bu işin çıkışı, eğitim verileridir. Bu veriler, daha önce izlediğiniz veri hazırlama adımları kullanılarak oluşturulur. İşin tamamlanması birkaç dakika sürebilir.
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme

@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 4b842f9a00587e8a9771e6ca92806c09e711e6db
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: afad3fe725fddd0748cc206517a7274815cf1653
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345789"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495273"
 ---
 # <a name="tutorial-4-add-list-entity"></a>Öğretici: 4. Liste varlığı ekleme
 Bu öğreticide önceden tanımlanmış bir listeyle eşleşen verileri nasıl alacağınızı gösteren bir uygulama oluşturacaksınız. 
@@ -134,15 +134,8 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
     |ABD sosyal güvenlik numarası|234-56-7891|
 
 ## <a name="train-the-luis-app"></a>LUIS uygulamasını eğitme
-LUIS uygulaması eğitilene kadar amaçlar ve varlıklar (model) üzerinde yapılan değişiklikleri bilemez. 
 
-1. LUIS web sitesinin sağ üst kısmından **Train** (Eğitim) düğmesini seçin.
-
-    ![Uygulamayı eğitme](./media/luis-quickstart-intent-and-list-entity/train-button.png)
-
-2. Web sitesinin üst kısmında işlemin başarılı olduğunu belirten yeşil durum çubuğunu gördüğünüzde eğitim tamamlanmış olur.
-
-    ![Eğitim başarılı oldu](./media/luis-quickstart-intent-and-list-entity/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Uç nokta URL'sini almak için uygulamayı yayımlama
 
@@ -278,7 +271,8 @@ Sohbet botunuz artık `MoveEmployee` birincil eylemini ve taşınacak çalışan
 LUIS uygulamasının bu istek üzerinde gerçekleştirebileceği işlemler bu kadardır. Sohbet botu gibi bir çağrı uygulaması topScoringIntent sonucunu ve varlık verilerini alarak bir sonraki adımı gerçekleştirebilir. LUIS, bot veya çağrı uygulaması için programlama işini gerçekleştirmez. LUIS yalnızca kullanıcının amacını belirler. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Sol üstteki menüden **My apps** (Uygulamalarım) öğesini seçin. Uygulama listesinde uygulama adının yanındaki üç noktayı (***...***) ve sonra da **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

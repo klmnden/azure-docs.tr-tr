@@ -2,22 +2,19 @@
 title: 'Hızlı Başlangıç: Şablon kullanarak HDInsight’ta Spark kümesi oluşturma'
 description: Bu hızlı başlangıçta, Kaynak Yöneticisi şablonu kullanılarak nasıl Azure HDInsight’ta Apache Spark kümesi oluşturulacağı ve basit bir Spark SQL sorgusu çalıştırılacağı gösterilmektedir.
 services: azure-hdinsight
-author: mumian
-manager: cgronlun
-editor: cgronlun
-ms.assetid: 91f41e6a-d463-4eb4-83ef-7bbb1f4556cc
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: jgao
+ms.author: jasonh
 ms.custom: mvc
-ms.openlocfilehash: 6774bd156e31bde0a933b942e4597ec46425d2a9
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: d8a56704afda30a0a9466cab9d78a31490b113de
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097837"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619456"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-template"></a>Hızlı Başlangıç: Şablon kullanarak HDInsight’ta Spark kümesi oluşturma
 

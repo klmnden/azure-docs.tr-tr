@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: john.papa
 ms.custom: mvc
-ms.openlocfilehash: f9464b2a839d1305057670ee7efe206e3bed771c
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e561701aa8d54889797db08131c97d6c4108539f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248995"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420123"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account-using-the-azure-cli"></a>Angular ve Azure Cosmos DB ile bir MongoDB, uygulaması oluşturma - 4. Bölüm: Azure CLI kullanarak Azure Cosmos DB hesabı oluşturma
 
@@ -50,7 +50,7 @@ Bu öğretici bölümünde Azure Cloud Shell’i (İnternet tarayıcınızda) ve
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB hesabı oluşturma
 
-[`az cosmosdb create`](/cli/azure/cosmosdb#az_cosmosdb_create) komutuyla bir Azure Cosmos DB hesabı oluşturun.
+[`az cosmosdb create`](/cli/azure/cosmosdb#az-cosmosdb-create) komutuyla bir Azure Cosmos DB hesabı oluşturun.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 83cd90babaa5bcb396f792c7e933d38b3911cebb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: cedc13cb18440eee32e333d395494043e2eca9d1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970365"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442522"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Hızlı Başlangıç: Service Fabric'e Java Spring Boot uygulaması dağıtma
 
@@ -48,13 +48,13 @@ Bu hızlı başlangıcı tamamlamak için:
     
     b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 
-2. [Git'i yükleyin](https://git-scm.com/)
-3. Yeoman’ı yükleme
+1. [Git'i yükleyin](https://git-scm.com/)
+1. Yeoman’ı yükleme
 
     a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
 
     b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
-4. Java Ortamını Ayarlama
+1. Java Ortamını Ayarlama
 
     a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
     
@@ -78,11 +78,11 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 ## <a name="package-the-spring-boot-application"></a>Spring Boot uygulamasını paketleme 
 1. Kopyanızdaki `gs-spring-boot` dizininde `yo azuresfguest` komutunu çalıştırın. 
 
-2. Her istem için aşağıdaki ayrıntıları girin.
+1. Her istem için aşağıdaki ayrıntıları girin.
 
     ![Yeoman Girişleri](./media/service-fabric-quickstart-java-spring-boot/yeomanspringboot.png)
 
-3. `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code` klasöründe `entryPoint.sh` adlı bir dosya oluşturun. Aşağıdakileri `entryPoint.sh` dosyasına ekleyin. 
+1. `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code` klasöründe `entryPoint.sh` adlı bir dosya oluşturun. Aşağıdakileri `entryPoint.sh` dosyasına ekleyin. 
 
     ```bash
     #!/bin/bash
@@ -91,7 +91,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     java -jar gs-spring-boot-0.1.0.jar
     ```
 
-4. **Uç noktalar** kaynağını `gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml` dosyasına ekleme
+1. **Uç noktalar** kaynağını `gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml` dosyasına ekleme
 
     ```xml 
         <Resources>
@@ -150,19 +150,19 @@ Bu aşamada, Spring Boot Kullanmaya Başlama örneği için Service Fabric’e d
     
     ![Yerel küme sorunsuz çalışıyor](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
 
-2. `gs-spring-boot/SpringServiceFabric` klasörüne gidin.
-3. Yerel kümenize bağlanmak için aşağıdaki komutu çalıştırın.
+1. `gs-spring-boot/SpringServiceFabric` klasörüne gidin.
+1. Yerel kümenize bağlanmak için aşağıdaki komutu çalıştırın.
 
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
     ```
-4. `install.sh` betiğini çalıştırın.
+1. `install.sh` betiğini çalıştırın.
 
     ```bash
     ./install.sh
     ```
 
-5. Sık kullandığınız web tarayıcısını açın ve**http://localhost:8080** adresine giderek uygulamaya erişin.
+1. Sık kullandığınız web tarayıcısını açın ve**http://localhost:8080** adresine giderek uygulamaya erişin.
 
     ![Uygulama ön ucu Konumu](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
@@ -213,18 +213,18 @@ Sisteminizde sertifikayı içeri aktarmak için size en rahat gelen yöntemi kul
 Uygulama ve kümeniz qhazır olduğuna göre, doğrudan komut satırındaki bir kümeye dağıtabilirsiniz.
 
 1. `gs-spring-boot/SpringServiceFabric` klasörüne gidin.
-2. Azure kümenize bağlanmak için aşağıdaki komutu çalıştırın.
+1. Azure kümenize bağlanmak için aşağıdaki komutu çalıştırın.
 
     ```bash
     sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
     ```
-3. `install.sh` betiğini çalıştırın.
+1. `install.sh` betiğini çalıştırın.
 
     ```bash
     ./install.sh
     ```
 
-4. Web tarayıcınızı açın ve **http://\<ConnectionIPOrUrl>:8080** adresine giderek uygulamaya erişin.
+1. Web tarayıcınızı açın ve **http://\<ConnectionIPOrUrl>:8080** adresine giderek uygulamaya erişin.
 
     ![Uygulama ön ucu Konumu](./media/service-fabric-quickstart-java-spring-boot/springbootsfazure.png)
 
@@ -239,13 +239,13 @@ Service Fabric Explorer tüm Service Fabric kümelerinde çalıştırılır ve t
 Web ön uç hizmetini ölçeklendirmek için aşağıdakileri yapın:
 
 1. Kümenizde Service Fabric Explorer'ı açın. Örneğin: `http://localhost:19080`.
-2. Ağaç görünümünde **fabric:/SpringServiceFabric/SpringGettingStarted** düğümünün yanındaki üç noktaya tıklayın ve **Hizmeti Ölçeklendir**'i seçin.
+1. Ağaç görünümünde **fabric:/SpringServiceFabric/SpringGettingStarted** düğümünün yanındaki üç noktaya tıklayın ve **Hizmeti Ölçeklendir**'i seçin.
 
     ![Service Fabric Explorer Hizmeti Ölçeklendir](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
 
     Şimdi hizmetin örnek sayısını ölçeklendirebilirsiniz.
 
-3. Rakamı **3** olarak değiştirin ve **Hizmeti Ölçeklendir**'e tıklayın.
+1. Rakamı **3** olarak değiştirin ve **Hizmeti Ölçeklendir**'e tıklayın.
 
     Komut satırını kullanarak hizmeti ölçeklendirmenin alternatif bir yolu aşağıda verilmiştir.
 
@@ -257,7 +257,7 @@ Web ön uç hizmetini ölçeklendirmek için aşağıdakileri yapın:
     sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted' --instance-count 3 --stateless 
     ``` 
 
-4. Ağaç görünümünde **fabric:/SpringServiceFabric/SpringGettingStarted** düğümüne tıklayın ve bölüm düğümünü (GUID ile gösterilir) genişletin.
+1. Ağaç görünümünde **fabric:/SpringServiceFabric/SpringGettingStarted** düğümüne tıklayın ve bölüm düğümünü (GUID ile gösterilir) genişletin.
 
     ![Service Fabric Explorer Hizmeti Ölçeklendirme Tamamlandı](./media/service-fabric-quickstart-java-spring-boot/sfxscaledservice.png)
 
@@ -270,10 +270,10 @@ Bu basit yönetim görevi sayesinde ön uç hizmetinin kullanıcı yükünü iş
 Hizmet yük devretmesini göstermek için Service Fabric Explorer'ı kullanarak bir düğümü yeniden başlatma işleminin benzetimi yapılmıştır. Hizmetinizin yalnızca bir örneğinin çalıştığından emin olun.
 
 1. Kümenizde Service Fabric Explorer'ı açın. Örneğin: `http://localhost:19080`.
-2. Hizmetinizin örneğini çalıştıran düğümün yanındaki üç nokta işaretine tıklayın ve düğümü yeniden başlatın.
+1. Hizmetinizin örneğini çalıştıran düğümün yanındaki üç nokta işaretine tıklayın ve düğümü yeniden başlatın.
 
     ![Service Fabric Explorer Düğümünü Yeniden Başlatma](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
-3. Hizmetinizin örneği bu durumda farklı bir düğüme taşınmıştır ve uygulamanızda kesinti yaşanmaz.
+1. Hizmetinizin örneği bu durumda farklı bir düğüme taşınmıştır ve uygulamanızda kesinti yaşanmaz.
 
     ![Service Fabric Explorer Düğümünü Yeniden Başlatma Başarılı](./media/service-fabric-quickstart-java-spring-boot/sfxfailedover.png)
 

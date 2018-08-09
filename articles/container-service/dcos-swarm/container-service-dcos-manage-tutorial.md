@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 28c217430dcbc8ee17998742c31888e06dddf96f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 5b7f2f1bd1872f78377a0d16567ca4df8f8d0968
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902155"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440686"
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Azure Container Service öğreticisi - DC/OS Yönetme
 
@@ -34,7 +34,7 @@ Bu öğretici, Azure CLI 2.0.4 veya sonraki bir sürümü gerektirir. Sürümü 
 
 ## <a name="create-dcos-cluster"></a>DC/OS kümesi oluşturma
 
-Öncelikle, [az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
+Öncelikle, [az group create](/cli/azure/group#az-group-create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
 
 Aşağıdaki örnek *westeurope* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
@@ -42,7 +42,7 @@ Aşağıdaki örnek *westeurope* konumunda *myResourceGroup* adlı bir kaynak gr
 az group create --name myResourceGroup --location westeurope
 ```
 
-Sonra, [az acs create](/cli/azure/acs#az_acs_create) komutuyla bir DC/OS kümesi oluşturun.
+Sonra, [az acs create](/cli/azure/acs#az-acs-create) komutuyla bir DC/OS kümesi oluşturun.
 
 Aşağıdaki örnekte *myDCOSCluster* adlı bir DC/OS kümesi ve henüz yoksa SSH anahtarları oluşturulur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.  
 
@@ -240,13 +240,13 @@ Bu adrese göz atıldığında varsayılan NGINX sitesi döndürülür.
 
 Önceki örneklerde, bir uygulama birden çok örneğe ölçeklendirilmişti. DC/OS altyapısı ayrıca daha fazla veya daha az işlem kapasitesi sağlayacak şekilde ölçeklendirilebilir. Bu, [az acs scale]() komutuyla sağlanır. 
 
-DC/OS aracılarının geçerli sayısını görmek için [acs az show](/cli/azure/acs#az_acs_show) komutunu kullanın.
+DC/OS aracılarının geçerli sayısını görmek için [acs az show](/cli/azure/acs#az-acs-show) komutunu kullanın.
 
 ```azurecli
 az acs show --resource-group myResourceGroup --name myDCOSCluster --query "agentPoolProfiles[0].count"
 ```
 
-Sayıyı 5’e artırmak için [az acs scale](/cli/azure/acs#az_acs_scale) komutunu kullanın. 
+Sayıyı 5’e artırmak için [az acs scale](/cli/azure/acs#az-acs-scale) komutunu kullanın. 
 
 ```azurecli
 az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-count 5
@@ -254,7 +254,7 @@ az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-c
 
 ## <a name="delete-dcos-cluster"></a>DC/OS kümesini silme
 
-Artık gerekli değilse, [az group delete](/cli/azure/group#az_group_delete) komutunu kullanarak kaynak grubunu, DC/OS kümesini ve tüm ilgili kaynakları kaldırabilirsiniz.
+Artık gerekli değilse, [az group delete](/cli/azure/group#az-group-delete) komutunu kullanarak kaynak grubunu, DC/OS kümesini ve tüm ilgili kaynakları kaldırabilirsiniz.
 
 ```azurecli 
 az group delete --name myResourceGroup --no-wait

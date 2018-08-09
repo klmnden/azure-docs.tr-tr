@@ -2,26 +2,20 @@
 title: Azure portalda depolama hesabı oluşturma, yönetme veya silme | Microsoft Docs
 description: Azure portalda yeni bir depolama hesabı oluşturun, hesap erişim tuşlarınızı yönetin veya bir depolama hesabını silin. Standart ve premium depolama hesapları hakkında bilgi edinin.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 87c37da0-6cc6-4d88-a330-ef2896a1531d
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 f1_keywords:
 - sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: ce561c61d25946a508df3e92c461f1c8e889a07e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.component: common
+ms.openlocfilehash: 980053adc89cc121f3218233d521c8db4f075eb7
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776729"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523657"
 ---
 # <a name="about-azure-storage-accounts"></a>Azure Storage hesapları hakkında
 

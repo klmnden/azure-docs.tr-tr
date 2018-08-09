@@ -5,13 +5,14 @@ author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/14/2018
-ms.author: bryanla
-ms.openlocfilehash: 4442a724cf3e37d5e7271d9c29f99138ab1faa5f
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.author: anshan
+manager: cshankar
+ms.openlocfilehash: 312e15f976a6782e3f39cfcc5ce0721ac6357a16
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295839"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626764"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Öğretici: Azure Time Series Insights tek sayfalı web uygulaması oluşturma
 
@@ -42,11 +43,11 @@ Bu öğreticide örnek uygulamanın TSI ortamındaki veriler de kullanılacaktı
 Uygulamayı derlemeden önce Azure AD’ye kaydetmeniz gerekir. Kayıt işlemi sırasında uygulama için kimlik yapılandırması gerçekleştirilerek çoklu oturum açma için OAuth desteğini kullanması sağlanır. OAuth için SPA’larda "örtük" yetkilendirme kullanılması ve bunu uygulama bildiriminde güncelleştirmeniz gerekir. Uygulama bildirimi, uygulama kimliği yapılandırmasının JSON gösterimidir. 
 
 1. Azure abonelik hesabınızı kullanarak [Azure portalında](https://portal.azure.com) oturum açın.  
-2. Sol taraftaki bölmeden **Azure Active Directory** kaynağını ve ardından **Uygulama kayıtları**, **+ Yeni uygulama kaydı**’nı seçin:  
+1. Sol taraftaki bölmeden **Azure Active Directory** kaynağını ve ardından **Uygulama kayıtları**, **+ Yeni uygulama kaydı**’nı seçin:  
    
    ![Azure portalı Azure AD uygulaması kaydı](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png)
 
-3. **Oluştur** sayfasında gerekli parametreleri girin:
+1. **Oluştur** sayfasında gerekli parametreleri girin:
    
    Parametre|Açıklama
    ---|---
@@ -58,27 +59,27 @@ Uygulamayı derlemeden önce Azure AD’ye kaydetmeniz gerekir. Kayıt işlemi s
 
    ![Azure portalı Azure AD uygulaması kaydı - oluşturma](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png)
 
-4. Kaynak uygulamaları, diğer uygulamalar tarafından kullanılan ve Azure AD’ye kaydedilecek REST API’lerini sağlar. API’ler "kapsamları" kullanarak istemci uygulamalarına ayrıntılı/güvenli erişim sağlar. Uygulamanız "Azure Time Series Insights" API’sini kullanacağından çalışma zamanında iznin isteneceği/verileceği API’yi ve kapsamı belirtmeniz gerekir. **Ayarlar**’ı ve ardından **Gerekli izinler**’i ve **+ Ekle**’yi seçin:
+1. Kaynak uygulamaları, diğer uygulamalar tarafından kullanılan ve Azure AD’ye kaydedilecek REST API’lerini sağlar. API’ler "kapsamları" kullanarak istemci uygulamalarına ayrıntılı/güvenli erişim sağlar. Uygulamanız "Azure Time Series Insights" API’sini kullanacağından çalışma zamanında iznin isteneceği/verileceği API’yi ve kapsamı belirtmeniz gerekir. **Ayarlar**’ı ve ardından **Gerekli izinler**’i ve **+ Ekle**’yi seçin:
 
    ![Azure portalı Azure AD izin ekleme](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png)
 
-5. **API erişimi ekle** sayfasında **1 Bir API seçin**’e tıklayarak TSI API’sini belirtin. **Bir API seçin** sayfasında arama alanına "azure time" yazın. Sonuç listesinden "Azure Time Series Insights" API’sini seçip **Seçin**’e tıklayın: 
+1. **API erişimi ekle** sayfasında **1 Bir API seçin**’e tıklayarak TSI API’sini belirtin. **Bir API seçin** sayfasında arama alanına "azure time" yazın. Sonuç listesinden "Azure Time Series Insights" API’sini seçip **Seçin**’e tıklayın: 
 
    ![Azure portalı Azure AD izinleri - API](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png)
 
-6. Şimdi bir API kapsamı belirtin. **API erişimi ekle** sayfasında **2 İzinleri seçin**’e tıklayın. **Erişimi Etkinleştir** sayfasında "Access Azure Time Series Insights hizmeti" kapsamını seçin. **Seçin**’e tıklayın ve açılan **API erişimi ekle** sayfasında **Bitti**’ye tıklayın:
+1. Şimdi bir API kapsamı belirtin. **API erişimi ekle** sayfasında **2 İzinleri seçin**’e tıklayın. **Erişimi Etkinleştir** sayfasında "Access Azure Time Series Insights hizmeti" kapsamını seçin. **Seçin**’e tıklayın ve açılan **API erişimi ekle** sayfasında **Bitti**’ye tıklayın:
 
    ![Azure portalı Azure AD izinleri - kapsam](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png)
 
-7. **Gerekli izinler** sayfasına döndüğünüzde "Azure Time Series Insights" API’sinin listelenmiş olduğunu görürsünüz. Ayrıca tüm kullanıcılar için, uygulamanın API’ye ve kapsama erişmesi amacıyla ön onay izni vermeniz gerekir. En üstteki **İzin ver** düğmesine tıklayıp **Evet**’i seçin:
+1. **Gerekli izinler** sayfasına döndüğünüzde "Azure Time Series Insights" API’sinin listelenmiş olduğunu görürsünüz. Ayrıca tüm kullanıcılar için, uygulamanın API’ye ve kapsama erişmesi amacıyla ön onay izni vermeniz gerekir. En üstteki **İzin ver** düğmesine tıklayıp **Evet**’i seçin:
 
    ![Azure portalı Azure AD gerekli izinler - onay](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png)
 
-8. Önceden belirtildiği üzere uygulama bildirimini de güncelleştirmeniz gerekir. İçerik haritasındaki uygulama adına tıklayarak **Kayıtlı uygulama** sayfasına dönün. **Bildirim**’i seçin, `oauth2AllowImplicitFlow` özelliğini `true` olarak değiştirin ve **Kaydet**’e tıklayın:
+1. Önceden belirtildiği üzere uygulama bildirimini de güncelleştirmeniz gerekir. İçerik haritasındaki uygulama adına tıklayarak **Kayıtlı uygulama** sayfasına dönün. **Bildirim**’i seçin, `oauth2AllowImplicitFlow` özelliğini `true` olarak değiştirin ve **Kaydet**’e tıklayın:
 
    ![Azure portalı Azure AD bildirim güncelleştirme](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png)
 
-9. Son olarak içerik haritasına tıklayarak **Kayıtlı uygulama** sayfasına dönün ve uygulamanızın **Giriş sayfası** URL’si ile **Uygulama kimliği** özelliklerini kopyalayın. Bu özellikleri ilerleyen adımlarda kullanacaksınız:
+1. Son olarak içerik haritasına tıklayarak **Kayıtlı uygulama** sayfasına dönün ve uygulamanızın **Giriş sayfası** URL’si ile **Uygulama kimliği** özelliklerini kopyalayın. Bu özellikleri ilerleyen adımlarda kullanacaksınız:
 
    ![Azure portalı Azure AD özellikleri](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png)
 
@@ -92,15 +93,15 @@ Uygulamayı derlemeden önce Azure AD’ye kaydetmeniz gerekir. Kayıt işlemi s
    - **index.html** Sayfa için HTML ve JavaScript https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html
    - **sampleStyles.css:** CSS stil sayfası: https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
     
-2. Web uygulaması projesini oluşturmak için Visual Studio uygulamasını çalıştırın ve oturum açın. **Dosya** menüsünde **Aç**, **Web Sitesi** seçeneğini belirtin. **Web Sitesi Aç** iletişim kutusunda HTML ve CSS dosyalarını kaydettiğiniz çalışma dizinini seçin ve **Aç**’a tıklayın:
+1. Web uygulaması projesini oluşturmak için Visual Studio uygulamasını çalıştırın ve oturum açın. **Dosya** menüsünde **Aç**, **Web Sitesi** seçeneğini belirtin. **Web Sitesi Aç** iletişim kutusunda HTML ve CSS dosyalarını kaydettiğiniz çalışma dizinini seçin ve **Aç**’a tıklayın:
 
    ![VS - Dosya, aç, web sitesi](media/tutorial-create-tsi-sample-spa/vs-file-open-web-site.png)
 
-3. Visual Studio **Görünüm** menüsünden **Çözüm Gezgini**’ni açın. HTML ve CSS dosyalarını içeren bir web sitesi projesine (dünya simgesi) sahip olan yeni çözümünüzün görünmesi gerekir:
+1. Visual Studio **Görünüm** menüsünden **Çözüm Gezgini**’ni açın. HTML ve CSS dosyalarını içeren bir web sitesi projesine (dünya simgesi) sahip olan yeni çözümünüzün görünmesi gerekir:
 
    ![VS - Çözüm gezgini, yeni çözüm](media/tutorial-create-tsi-sample-spa/vs-solution-explorer.png)
 
-4. Uygulamayı yayımlayabilmeniz için **index.html** içindeki JavaScript kodu bölümlerini güncelleştirmeniz gerekir: 
+1. Uygulamayı yayımlayabilmeniz için **index.html** içindeki JavaScript kodu bölümlerini güncelleştirmeniz gerekir: 
 
    a. İlk olarak `<head>` öğesi içindeki JavaScript ve stil sayfası referansı yollarını değiştirin. Visual Studio çözümünüzdeki **index.html** dosyasını açın ve aşağıdaki JavaScript kodu satırlarını bulun. "PROD RESOURCE LINKS" altındaki üç satırın açıklamasını kaldırın ve "DEV RESOURCE LINKS" altındaki üç satırı açıklama satırı yapın:
    
@@ -133,7 +134,7 @@ Uygulamayı derlemeden önce Azure AD’ye kaydetmeniz gerekir. Kayıt işlemi s
 
    c. Düzenlemeyi tamamladığınızda **index.html** dosyasını kaydedin.
 
-5. Şimdi web uygulamasını Azure aboneliğinizde Azure App Service olarak yayımlayın:  
+1. Şimdi web uygulamasını Azure aboneliğinizde Azure App Service olarak yayımlayın:  
 
    > [!NOTE]
    > Aşağıdaki iletişim kutularındaki yer alan birçok alan Azure aboneliğinizden alınan verilerle doldurulmuştur. Bu nedenle devam etmeden önce iletişim kutularının tamamen yüklenmesi için birkaç saniye beklemeniz gerekebilir.  
@@ -187,7 +188,7 @@ Bu öğretici çalışan birkaç Azure hizmeti oluşturur. Bu öğretici serisin
 Azure portalında soldaki menüden:
 
 1. **Kaynak grupları** simgesine tıklayın, ardından TSI Ortamı için oluşturduğunuz kaynak grubunu seçin. Sayfanın üst kısmında **Kaynak grubunu sil**’e tıklayın, kaynak grubunun adını girin, ardından **Sil**’e tıklayın. 
-2. **Kaynak grupları** simgesine tıklayın, ardından cihaz simülasyonu çözüm hızlandırıcısı tarafından oluşturulan kaynak grubunu seçin. Sayfanın üst kısmında **Kaynak grubunu sil**’e tıklayın, kaynak grubunun adını girin, ardından **Sil**’e tıklayın. 
+1. **Kaynak grupları** simgesine tıklayın, ardından cihaz simülasyonu çözüm hızlandırıcısı tarafından oluşturulan kaynak grubunu seçin. Sayfanın üst kısmında **Kaynak grubunu sil**’e tıklayın, kaynak grubunun adını girin, ardından **Sil**’e tıklayın. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

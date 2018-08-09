@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 46e222ffe40db186343250efc71e20d41adbc285
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 77cd4c1d5333f7f10e6caccee5011200bdb4ccca
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33203128"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424397"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Öğretici: Azure’da Java ve MySQL web uygulaması derleme
 
@@ -126,7 +126,7 @@ bu adımda, [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-[`az group create`](/cli/azure/group#az_group_create) komutuyla bir [kaynak grubu](../azure-resource-manager/resource-group-overview.md) oluşturun. Azure kaynak grubu; web uygulamaları, veritabanları ve depolama hesapları gibi ilgili kaynakların dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
+[`az group create`](/cli/azure/group#az-group-create) komutuyla bir [kaynak grubu](../azure-resource-manager/resource-group-overview.md) oluşturun. Azure kaynak grubu; web uygulamaları, veritabanları ve depolama hesapları gibi ilgili kaynakların dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
 
 Aşağıdaki örnekte Kuzey Avrupa bölgesinde bir kaynak grubu oluşturulmaktadır:
 
@@ -138,7 +138,7 @@ az group create --name myResourceGroup --location "North Europe"
 
 ### <a name="create-a-mysql-server"></a>MySQL sunucusu oluşturma
 
-Cloud Shell’de, [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) komutuyla MySQL için Azure Veritabanı içinde bir sunucu oluşturun.
+Cloud Shell’de, [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create) komutuyla MySQL için Azure Veritabanı içinde bir sunucu oluşturun.
 
 Aşağıdaki komutta *\<mysql_server_name>* yer tutucusunu benzersiz bir sunucu ile değiştirin, *\<admin_user>* için bir kullanıcı adı ve *\<admin_password>* yer tutucusu için bir parola girin. Sunucu adı, PostgreSQL uç noktasının bir parçası olan `https://<mysql_server_name>.mysql.database.azure.com` olarak kullanıldığından, adın Azure’daki tüm sunucularda benzersiz olması gerekir.
 
@@ -174,7 +174,7 @@ MySQL sunucusu oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgil
 
 ### <a name="configure-server-firewall"></a>Sunucu güvenlik duvarını yapılandırma
 
-Cloud Shell’de, [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) komutunu kullanarak MySQL sunucunuzun istemci bağlantılarına izin vermesi için bir güvenlik duvarı kuralı oluşturun. Hem başlangıç hem bitiş IP’si 0.0.0.0 olarak ayarlandığında, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır. 
+Cloud Shell’de, [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create) komutunu kullanarak MySQL sunucunuzun istemci bağlantılarına izin vermesi için bir güvenlik duvarı kuralı oluşturun. Hem başlangıç hem bitiş IP’si 0.0.0.0 olarak ayarlandığında, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır. 
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -217,7 +217,7 @@ quit
 
 ## <a name="deploy-the-sample-to-azure-app-service"></a>Örneği Azure App Service’e dağıtma
 
-[`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) CLI komutunu kullanarak **ÜCRETSİZ** fiyatlandırma katmanıyla bir Azure App Service planı oluşturun. Uygulama hizmeti planı, uygulamalarınızı barındırmak için kullanılan fiziksel kaynakları tanımlar. Uygulama hizmeti planına atanan tüm uygulamalar bu kaynakları paylaşarak birden çok uygulamayı barındırırken, maliyetten tasarruf etmenize imkan sağlar. 
+[`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) CLI komutunu kullanarak **ÜCRETSİZ** fiyatlandırma katmanıyla bir Azure App Service planı oluşturun. Uygulama hizmeti planı, uygulamalarınızı barındırmak için kullanılan fiziksel kaynakları tanımlar. Uygulama hizmeti planına atanan tüm uygulamalar bu kaynakları paylaşarak birden çok uygulamayı barındırırken, maliyetten tasarruf etmenize imkan sağlar. 
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
@@ -243,7 +243,7 @@ Plan hazır olduğunda, Azure CLI aşağıdaki örnekte gösterilene benzer bir 
 
 ### <a name="create-an-azure-web-app"></a>Azure Web uygulaması oluşturma
 
-Cloud Shell'de, [`az webapp create`](/cli/azure/appservice/web#az_appservice_web_create) CLI komutunu kullanarak `myAppServicePlan` App Service planında bir web uygulaması tanımı oluşturun. Web uygulaması tanımı, uygulamanıza erişebilmek için bir URL sağlar ve çeşitli seçenekleri yapılandırarak kodunuzu Azure'a dağıtır. 
+Cloud Shell'de, [`az webapp create`](/cli/azure/appservice/web#az-appservice-web-create) CLI komutunu kullanarak `myAppServicePlan` App Service planında bir web uygulaması tanımı oluşturun. Web uygulaması tanımı, uygulamanıza erişebilmek için bir URL sağlar ve çeşitli seçenekleri yapılandırarak kodunuzu Azure'a dağıtır. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
@@ -270,7 +270,7 @@ Web uygulaması tanımı hazır olduğunda Azure CLI aşağıda yer alan örnekt
 
 ### <a name="configure-java"></a>Java'yı yapılandırma 
 
-Cloud Shell'de, [`az webapp config set`](/cli/azure/webapp/config#az_webapp_config_set) komutuyla uygulamanıza gereken Java çalışma zamanı yapılandırmasını ayarlayın.
+Cloud Shell'de, [`az webapp config set`](/cli/azure/webapp/config#az-webapp-config-set) komutuyla uygulamanıza gereken Java çalışma zamanı yapılandırmasını ayarlayın.
 
 Aşağıdaki komut web uygulamasını yeni Java 8 JDK ve [Apache Tomcat](http://tomcat.apache.org/) 8.0 üzerinde çalıştırılacak şekilde yapılandırır.
 
@@ -299,7 +299,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_p
 ### <a name="get-ftp-deployment-credentials"></a>FTP dağıtım kimlik bilgilerini alma 
 Uygulamanızı FTP, yerel Git, GitHub, Visual Studio Team Services ve Bitbucket gibi çeşitli yollarla Azure uygulama hizmetine dağıtabilirsiniz. Bu örnekte, daha önce yerel makinenizde oluşturulan .WAR dosyasını Azure App Service'e dağıtmak için FTP kullanılır.
 
-Ftp komutunda Web App'e hangi kimlik bilgilerinin geçirileceğini saptamak için, Cloud Shell'de [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az_appservice_web_deployment_list_publishing_profiles) komutunu kullanın: 
+Ftp komutunda Web App'e hangi kimlik bilgilerinin geçirileceğini saptamak için, Cloud Shell'de [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az-appservice-web-deployment-list-publishing-profiles) komutunu kullanın: 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --output json
@@ -413,7 +413,7 @@ Uygulamayı yenilediğinizde, **Oluşturulma Zamanı** sütunu artır görünür
 
 Java uygulamanız Azure App Service'te çalışırken, doğrudan terminalinize yönlendirilen konsol günlüklerini alabilirsiniz. Böylece, uygulama hatalarını ayıklamanıza yardımcı olan tanılama iletilerinin aynısını alabilirsiniz.
 
-Günlük akışını başlatmak için Cloud Shell’de [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) komutunu kullanın.
+Günlük akışını başlatmak için Cloud Shell’de [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) komutunu kullanın.
 
 ```azurecli-interactive 
 az webapp log tail --name <app_name> --resource-group myResourceGroup 

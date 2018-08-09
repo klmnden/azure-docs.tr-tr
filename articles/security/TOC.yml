@@ -9,7 +9,7 @@
     - name: Azure günlük kaydı ve denetim
       href: azure-log-audit.md
     - name: Azure ağ güvenliği
-      href: azure-network-security.md
+      href: abstract-azure-network-security.md
     - name: Azure sunucusuz platform güvenliği
       href: abstract-serverless-platform-security.md
     - name: İşletimsel güvenliği etkinleştirme

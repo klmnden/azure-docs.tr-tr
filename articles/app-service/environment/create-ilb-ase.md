@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 9fdbfd0338b1c4b6ac863f07e5808ce6ccd9a6c7
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: df4730078b890353c697b0e9213fb66cdb4e7f9b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347366"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436701"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Bir App Service Ortamı ile iç yük dengeleyici oluşturma ve kullanma #
 
@@ -58,17 +58,17 @@ ILB ASE oluşturmak için:
 
 1. Azure portalında **Kaynak oluştur** > **Web ve Mobil** > **App Service Ortamı**’nı seçin.
 
-2. Aboneliğinizi seçin.
+1. Aboneliğinizi seçin.
 
-3. Kaynak grubunu seçin veya oluşturun.
+1. Kaynak grubunu seçin veya oluşturun.
 
-4. Bir VNet seçin veya oluşturun.
+1. Bir VNet seçin veya oluşturun.
 
-5. Varolan bir sanal ağı seçerseniz, ASE’yi tutmak için bir alt ağ oluşturmanız gerekir. Alt ağ boyutunu, ASE’nizin gelecekteki her türlü büyümesine uyum sağlayacak kadar büyük ayarladığınızdan emin olun. 256 adres içeren ve en büyük boyutlu ASE’yi işleyebilen ve ölçeklendirme ihtiyaçlarını karşılayabilen `/24` dosya boyutu önerilir. 
+1. Varolan bir sanal ağı seçerseniz, ASE’yi tutmak için bir alt ağ oluşturmanız gerekir. Alt ağ boyutunu, ASE’nizin gelecekteki her türlü büyümesine uyum sağlayacak kadar büyük ayarladığınızdan emin olun. 256 adres içeren ve en büyük boyutlu ASE’yi işleyebilen ve ölçeklendirme ihtiyaçlarını karşılayabilen `/24` dosya boyutu önerilir. 
 
-6. **Sanal Ağ/Konum** > **Sanal Ağ Yapılandırması**’nı seçin. **VIP Türü**’nü **İç** olarak ayarlayın.
+1. **Sanal Ağ/Konum** > **Sanal Ağ Yapılandırması**’nı seçin. **VIP Türü**’nü **İç** olarak ayarlayın.
 
-7. Etki alanı adı girin. Bu etki alanı, bu ASE içinde oluşturulan uygulamalar için kullanılır. Bazı kısıtlamalar vardır. Şunlar olamaz:
+1. Etki alanı adı girin. Bu etki alanı, bu ASE içinde oluşturulan uygulamalar için kullanılır. Bazı kısıtlamalar vardır. Şunlar olamaz:
 
     * net   
 
@@ -88,7 +88,7 @@ ILB ASE oluşturmak için:
 
    Uygulamalarınızın özel etki alanı adlarını biliyorsanız, ILB ASE için bu özel etki alanı adları ile çakışmayacak bir etki alanı seçin. Bu örnekte, *.contoso.com* ile sona eren özel etki alanı adlarıyla çakışmayacağından, ASE’nizin etki alanı için *contoso-internal.com* gibi bir şey kullanabilirsiniz.
 
-8. **Tamam**’ı ve ardından **Oluştur**’u seçin.
+1. **Tamam**’ı ve ardından **Oluştur**’u seçin.
 
     ![ASE oluşturma][1]
 
@@ -105,19 +105,19 @@ ILB ASE'de uygulama oluşturma işlemi, normalde bir ASE’de uygulama oluşturm
 
 1. Azure portalında **Kaynak oluştur** > **Web ve Mobil** > **Web Uygulaması** seçeneğini belirleyin.
 
-2. Uygulamanın adını girin.
+1. Uygulamanın adını girin.
 
-3. Aboneliği seçin.
+1. Aboneliği seçin.
 
-4. Kaynak grubunu seçin veya oluşturun.
+1. Kaynak grubunu seçin veya oluşturun.
 
-5. İşletim sisteminizi seçin. 
+1. İşletim sisteminizi seçin. 
 
     * Özel bir Docker kapsayıcısı kullanarak bir Linux uygulaması oluşturmak istiyorsanız, [buradaki][linuxapp] yönergeleri izleyerek kendi kapsayıcınızı kullanıma sunabilirsiniz. 
 
-6. Bir App Service planı seçin ya da oluşturun. Yeni bir App Service planı oluşturmak istiyorsanız, konum olarak ASE’nizi seçin. App Service planınızın oluşturulmasını istediğiniz çalışan havuzunu seçin. App Service planını oluştururken, ASE’nizi konum olarak seçin ve çalışan havuzunu belirleyin. Uygulamanın adını belirttiğinizde, uygulama adının altındaki etki alanı ASE’nizin etki alanı ile değiştirilir.
+1. Bir App Service planı seçin ya da oluşturun. Yeni bir App Service planı oluşturmak istiyorsanız, konum olarak ASE’nizi seçin. App Service planınızın oluşturulmasını istediğiniz çalışan havuzunu seçin. App Service planını oluştururken, ASE’nizi konum olarak seçin ve çalışan havuzunu belirleyin. Uygulamanın adını belirttiğinizde, uygulama adının altındaki etki alanı ASE’nizin etki alanı ile değiştirilir.
 
-7. **Oluştur**’u seçin. Uygulamanızın panonuzda görünmesini istiyorsanız, **Panoya Sabitle** onay kutusunu seçin.
+1. **Oluştur**’u seçin. Uygulamanızın panonuzda görünmesini istiyorsanız, **Panoya Sabitle** onay kutusunu seçin.
 
     ![App Service planı oluşturma][2]
 
@@ -156,27 +156,27 @@ Kendi sertifikalarınızı yüklemek ve erişimi test etmek için:
 
 1. ASE oluşturulduktan sonra ASE kullanıcı arabirimine gidin. **ASE** > **Ayarlar** > **ILB Sertifikası**’nı seçin.
 
-2. ILB sertifikasını ayarlamak için sertifika .pfx dosyasını seçin ve parolayı girin. Bu adımın işlenmesi biraz sürebilir. Karşıya yükleme işleminin devam ettiğini belirten bir ileti görüntülenir.
+1. ILB sertifikasını ayarlamak için sertifika .pfx dosyasını seçin ve parolayı girin. Bu adımın işlenmesi biraz sürebilir. Karşıya yükleme işleminin devam ettiğini belirten bir ileti görüntülenir.
 
-3. ASE’nizin ILB adresini alın. **ASE** > **Özellikler** > **Sanal IP Adresi**’ni seçin.
+1. ASE’nizin ILB adresini alın. **ASE** > **Özellikler** > **Sanal IP Adresi**’ni seçin.
 
-4. ASE oluşturulduktan sonra ASE’nizde bir web uygulaması oluşturun.
+1. ASE oluşturulduktan sonra ASE’nizde bir web uygulaması oluşturun.
 
-5. Bu sanal ağ içinde yoksa bir VM oluşturun.
+1. Bu sanal ağ içinde yoksa bir VM oluşturun.
 
     > [!NOTE] 
     > Başarısız olacağından veya sorunlara yol açacağından, bu VM’yi ASE ile aynı sanal ağ içinde oluşturmaya çalışmayın.
     >
 
-6. ASE etki alanınızın DNS’ini ayarlayın. DNS’inizde etki alanınızla birlikte bir joker karakter kullanabilirsiniz. Bazı basit testler yapmak için, VM üzerindeki konak dosyalarını düzenleyerek web uygulaması adını VIP IP adresine ayarlayın:
+1. ASE etki alanınızın DNS’ini ayarlayın. DNS’inizde etki alanınızla birlikte bir joker karakter kullanabilirsiniz. Bazı basit testler yapmak için, VM üzerindeki konak dosyalarını düzenleyerek web uygulaması adını VIP IP adresine ayarlayın:
 
     a. ASE’nizde _.ilbase.com_ etki alanı adı varsa ve _mytestapp_ adlı web uygulamasını oluşturursanız, adresi _mytestapp.ilbase.com_ şeklinde olur. Daha sonra ILB adresini çözümlemek için _mytestapp.ilbase.com_ adresini ayarlarsınız. (Windows’ta konak dosyası _C:\Windows\System32\drivers\etc\_ dizinindedir.)
 
     b. Web dağıtımı yayımlamayı veya gelişmiş konsola erişimi test etmek için bir _mytestapp.scm.ilbase.com_ kaydı oluşturun.
 
-7. Veya bu sanal makinedeki bir tarayıcıyı kullanıp http://mytestapp.ilbase.com sayfasına gidin. (Veya etki alanınızda web uygulamanızın adına gidin.)
+1. Veya bu sanal makinedeki bir tarayıcıyı kullanıp http://mytestapp.ilbase.com sayfasına gidin. (Veya etki alanınızda web uygulamanızın adına gidin.)
 
-8. Veya bu sanal makinedeki bir tarayıcıyı kullanıp https://mytestapp.ilbase.com sayfasına gidin. Otomatik olarak imzalanan sertifika kullanıyorsanız, güvenlik eksikliğini kabul edin.
+1. Veya bu sanal makinedeki bir tarayıcıyı kullanıp https://mytestapp.ilbase.com sayfasına gidin. Otomatik olarak imzalanan sertifika kullanıyorsanız, güvenlik eksikliğini kabul edin.
 
     ILB’nizin IP adresi, **IP adresleri** altında listelenir. Bu listede ayrıca dış VIP tarafından ve gelen yönetim trafiği için kullanılan IP adresleri bulunur.
 

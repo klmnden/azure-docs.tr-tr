@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
-ms.openlocfilehash: 2b0420302bc74d4534d712de618959ef68c76514
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 133cc9d8fa52bb655e9baaad53ee157fdc7524f7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126377"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429429"
 ---
 # <a name="process-emails-and-attachments-with-azure-logic-apps"></a>Azure Logic Apps ile e-postaları ve ekleri işleme
 
@@ -48,7 +48,7 @@ Azure aboneliğiniz yoksa başlamadan önce <a href="https://azure.microsoft.com
 
 * <a href="https://storageexplorer.com/" target="_blank">Ücretsiz Microsoft Azure Depolama Gezgini</a>’ni indirip yükleyin. Bu araç, depolama kapsayıcınızın doğru şekilde ayarlanıp ayarlanmadığını denetlemenize yardımcı olur.
 
-## <a name="sign-in-to-azure-portal"></a>Azure portalda oturum açma
+## <a name="sign-in-to-azure-portal"></a>Azure portalda oturum açın
 
 Azure hesabınızın kimlik bilgileriyle <a href="https://portal.azure.com" target="_blank">Azure portalında</a> oturum açın.
 
@@ -82,7 +82,7 @@ Gelen e-postaları ve ekleri, [Azure depolama kapsayıcısında](../storage/comm
 
       ![Depolama hesabı adını ve anahtarını kopyalayıp kaydedin](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   Depolama hesabınızın erişim anahtarını almak için [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) veya [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az_storage_account_keys_list) uygulamalarını da kullanabilirsiniz. 
+   Depolama hesabınızın erişim anahtarını almak için [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) veya [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list) uygulamalarını da kullanabilirsiniz. 
 
 3. E-posta ekleriniz için bir blob depolama kapsayıcısı oluşturun.
    
@@ -100,7 +100,7 @@ Gelen e-postaları ve ekleri, [Azure depolama kapsayıcısında](../storage/comm
 
       ![Tamamlanan depolama kapsayıcısı](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   Depolama kapsayıcısı oluşturmak için [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) veya [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az_storage_container_create) uygulamalarını da kullanabilirsiniz. 
+   Depolama kapsayıcısı oluşturmak için [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) veya [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) uygulamalarını da kullanabilirsiniz. 
 
 Sonra, Depolama Gezgini’ni depolama hesabınıza bağlayın.
 

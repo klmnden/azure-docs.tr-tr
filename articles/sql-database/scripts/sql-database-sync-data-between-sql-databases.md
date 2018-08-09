@@ -17,12 +17,12 @@ ms.workload: database
 ms.date: 04/01/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: c03384f71787e4ab3ad3bd56e2355558e8d0155a
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 7375771d0a80073811149dc74b1c7fd3c17b478f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37024776"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619999"
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>PowerShell kullanarak birden çok SQL Veritabanı arasında eşitleme
  
@@ -375,8 +375,6 @@ SQL Data Sync hakkında daha fazla bilgi için bkz.:
 
 -   SQL Data Sync’in nasıl yapılandırılacağını gösteren tam PowerShell örnekleri:
     -   [PowerShell kullanarak bir Azure SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme](sql-database-sync-data-between-azure-onprem.md)
-
--   [SQL Data Sync REST API belgelerini indirin](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 SQL Veritabanı hakkında daha fazla bilgi için bkz.:
 

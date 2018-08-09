@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f58a8d76cc46ac25474c7b91e464974612876a06
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8f14a7aabbdf815992e0777eaf5335a69570ce2e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164971"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429259"
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Azure Container Registry’yi dağıtma ve kullanma
 
@@ -39,13 +39,13 @@ Bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümü kullanmanız gere
 
 Bir Azure Container Registry dağıtırken önce bir kaynak grubuna ihtiyaç duyarsınız. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
-[az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Bu örnekte, `westeurope`bölgesinde `myResourceGroup` adlı bir kaynak grubu oluşturulur.
+[az group create](/cli/azure/group#az-group-create) komutuyla bir kaynak grubu oluşturun. Bu örnekte, `westeurope`bölgesinde `myResourceGroup` adlı bir kaynak grubu oluşturulur.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
 ```
 
-[az acr create](/cli/azure/acr#az_acr_create) komutuyla Azure Container kayıt defteri oluşturun. Container Registry adı **benzersiz olmalıdır**.
+[az acr create](/cli/azure/acr#az-acr-create) komutuyla Azure Container kayıt defteri oluşturun. Container Registry adı **benzersiz olmalıdır**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -55,7 +55,7 @@ Bu öğreticinin geri kalan aşamalarında, kapsayıcı kayıt defteri adı içi
 
 ## <a name="container-registry-login"></a>Kapsayıcı kayıt defterinde oturum açma
 
-ACR örneğinde oturum açmak için [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) komutunu kullanın. Kapsayıcı kayıt defterine oluşturulduğunda verilen benzersiz bir adı sağlamanız gerekir.
+ACR örneğinde oturum açmak için [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) komutunu kullanın. Kapsayıcı kayıt defterine oluşturulduğunda verilen benzersiz bir adı sağlamanız gerekir.
 
 ```azurecli
 az acr login --name <acrName>
@@ -124,7 +124,7 @@ Bu işlemin tamamlanması birkaç dakika sürer.
 
 ## <a name="list-images-in-registry"></a>Kayıt defterindeki görüntüleri listeleme
 
-Azure Container Registry’nize gönderilen görüntülerin listesini döndürmek için [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list) komutunu kullanın. Komutu ACR örneği adıyla güncelleştirin.
+Azure Container Registry’nize gönderilen görüntülerin listesini döndürmek için [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list) komutunu kullanın. Komutu ACR örneği adıyla güncelleştirin.
 
 ```azurecli
 az acr repository list --name <acrName> --output table

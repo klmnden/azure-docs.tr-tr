@@ -8,15 +8,15 @@ tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 2/14/2018
-ms.author: iainfou
+ms.date: 8/3/2018
+ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: 68aeb6e96e7588696d31b7b03e0c639506e0c89b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9693c619b9723ed6dfd9da02bfdf41e93518f6f4
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38598382"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504643"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>CLI ile Azure'daki bir sanal makineyi yedekleme
 Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Düzenli aralıklarla yedekleme yaparak verilerinizi koruyabilirsiniz. Azure Backup, coğrafi olarak yedekli kurtarma kasalarında saklanabilecek kurtarma noktaları oluşturur. Bu makalede Azure CLI ile Azure'daki bir sanal makinenin nasıl yedekleneceği anlatılmaktadır. Bu adımları [Azure PowerShell](quick-backup-vm-powershell.md) veya [Azure portalı](quick-backup-vm-portal.md) ile de gerçekleştirebilirsiniz.
@@ -31,7 +31,7 @@ CLI'yı yerel ortamda yüklemek ve kullanmak için Azure CLI sürüm 2.0.18 veya
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma hizmetleri kasası oluşturma
 Kurtarma Hizmetleri kasası, Azure sanal makineleri gibi koruma altındaki kaynakların yedeklenen verilerini saklayan bir mantıksal kapsayıcıdır. Koruma altındaki bir kaynak için yedekleme işi çalıştığında Kurtarma Hizmetleri kasasının içinde bir kurtarma noktası oluşturulur. Daha sonra bu kurtarma noktalarından birini kullanarak verileri dilediğiniz zaman geri yükleyebilirsiniz.
 
-[az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault#az_backup_vault_create) komutuyla bir Kurtarma Hizmetleri kasası oluşturun. Korumak istediğiniz sanal makineyle aynı kaynak grubunu ve konumu belirtin. [VM hızlı başlangıç](../virtual-machines/linux/quick-create-cli.md) adımını kullandıysanız şu öğeler oluşturulmuştur:
+[az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault#az-backup-vault-create) komutuyla bir Kurtarma Hizmetleri kasası oluşturun. Korumak istediğiniz sanal makineyle aynı kaynak grubunu ve konumu belirtin. [VM hızlı başlangıç](../virtual-machines/linux/quick-create-cli.md) adımını kullandıysanız şu öğeler oluşturulmuştur:
 
 - *myResourceGroup* adlı bir kaynak grubu,
 - *myVM* adlı bir VM,
@@ -47,7 +47,7 @@ Varsayılan olarak Kurtarma Hizmetleri kasasında Coğrafi Olarak Yedekli depola
 
 
 ## <a name="enable-backup-for-an-azure-vm"></a>Bir Azure sanal makinesi için yedeklemeyi etkinleştirme
-Bir yedekleme işinin çalışma zamanını ve kurtarma noktalarının saklama süresini tanımlamak için bir koruma ilkesi oluşturun. Varsayılan koruma ilkesi yedekleme işini her gün çalıştırır ve kurtarma noktalarını 30 gün boyunca tutar. Sanal makinenizi hızlı bir şekilde koruma altına almak için bu varsayılan ilke değerlerini kullanabilirsiniz. Bir sanal makine için yedekleme korumasını etkinleştirmek amacıyla [az backup protection enable-for-vm](https://docs.microsoft.com/cli/azure/backup/protection#az_backup_protection_enable_for_vm) komutunu kullanın. Korumaya alınacak kaynak grubunu ve sanal makineyi belirttikten sonra kullanılacak ilkeyi seçin:
+Bir yedekleme işinin çalışma zamanını ve kurtarma noktalarının saklama süresini tanımlamak için bir koruma ilkesi oluşturun. Varsayılan koruma ilkesi yedekleme işini her gün çalıştırır ve kurtarma noktalarını 30 gün boyunca tutar. Sanal makinenizi hızlı bir şekilde koruma altına almak için bu varsayılan ilke değerlerini kullanabilirsiniz. Bir sanal makine için yedekleme korumasını etkinleştirmek amacıyla [az backup protection enable-for-vm](https://docs.microsoft.com/cli/azure/backup/protection#az-backup-protection-enable-for-vm) komutunu kullanın. Korumaya alınacak kaynak grubunu ve sanal makineyi belirttikten sonra kullanılacak ilkeyi seçin:
 
 ```azurecli-interactive 
 az backup protection enable-for-vm \
@@ -69,7 +69,7 @@ az backup protection enable-for-vm \
 ```
 
 ## <a name="start-a-backup-job"></a>Bir yedekleme işi başlatma
-Varsayılan ilkenin işi planlanan saatte başlatmasını beklemek yerine yedekleme işini hemen başlatmak için [az backup protection backup-now](https://docs.microsoft.com/cli/azure/backup/protection#az_backup_protection_backup_now) komutunu kullanın. İlk yedekleme işi tam kurtarma noktası oluşturur. Bu ilk yedekleme sonrasında çalıştırılan tüm yedekleme işleri artımlı kurtarma noktaları oluşturur. Yalnızca son yedekleme sonrasında yapılan değişiklikleri aktardığından artımlı kurtarma noktaları depolama alanı ve süre açısından verimlilik sağlar.
+Varsayılan ilkenin işi planlanan saatte başlatmasını beklemek yerine yedekleme işini hemen başlatmak için [az backup protection backup-now](https://docs.microsoft.com/cli/azure/backup/protection#az-backup-protection-backup-now) komutunu kullanın. İlk yedekleme işi tam kurtarma noktası oluşturur. Bu ilk yedekleme sonrasında çalıştırılan tüm yedekleme işleri artımlı kurtarma noktaları oluşturur. Yalnızca son yedekleme sonrasında yapılan değişiklikleri aktardığından artımlı kurtarma noktaları depolama alanı ve süre açısından verimlilik sağlar.
 
 Sanal makineyi yedeklemek için aşağıdaki parametreler kullanılır:
 
@@ -90,7 +90,7 @@ az backup protection backup-now \
 
 
 ## <a name="monitor-the-backup-job"></a>Yedekleme işini izleme
-Yedekleme işlerinin durumunu izlemek için [az backup job list](https://docs.microsoft.com/cli/azure/backup/job#az_backup_job_list) komutunu kullanın:
+Yedekleme işlerinin durumunu izlemek için [az backup job list](https://docs.microsoft.com/cli/azure/backup/job#az-backup-job-list) komutunu kullanın:
 
 ```azurecli-interactive 
 az backup job list \
@@ -112,7 +112,7 @@ Yedekleme işinin *Durum* bilgisi *Tamamlandı* olduğunda sanal makineniz Kurta
 
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme
-Artık gerekli değilse sanal makine korumasını devre dışı bırakabilir, kurtarma noktalarını ve Kurtarma Hizmetleri kasasını kaldırabilir ve ardından sanal makine kaynaklarıyla ilişkilendirilmiş kaynak grubunu silebilirsiniz. Var olan bir sanal makineyi kullandıysanız son [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete) komutunu atlayarak kaynak grubunu ve sanal makineyi bırakabilirsiniz.
+Artık gerekli değilse sanal makine korumasını devre dışı bırakabilir, kurtarma noktalarını ve Kurtarma Hizmetleri kasasını kaldırabilir ve ardından sanal makine kaynaklarıyla ilişkilendirilmiş kaynak grubunu silebilirsiniz. Var olan bir sanal makineyi kullandıysanız son [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) komutunu atlayarak kaynak grubunu ve sanal makineyi bırakabilirsiniz.
 
 VM verilerinizi geri yüklemeyi gösteren bir Backup öğreticisini denemek istiyorsanız [Sonraki adımlar](#next-steps) bölümüne gidin. 
 

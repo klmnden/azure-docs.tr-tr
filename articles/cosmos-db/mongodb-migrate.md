@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: bdaead6fe739d62340ca225aa1a6d8adf9e86cb9
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: a55727c58f8f9d4a05f547100875f18291328ea2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100305"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435331"
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: MongoDB verilerini içeri aktarma 
 
@@ -45,8 +45,8 @@ Bu öğretici aşağıdaki görevleri kapsar:
 ## <a name="find-your-connection-string-information-host-port-username-and-password"></a>Bağlantı dizesi bilgilerinizi bulun (konak, bağlantı noktası, kullanıcı adı ve parola)
 
 1. [Azure portalında](https://portal.azure.com), sol bölmeden **Azure Cosmos DB** girdisine tıklayın.
-2. **Abonelikler** bölmesinde, hesabınızın adını seçin.
-3. **Bağlantı Dizesi** dikey penceresinde **Bağlantı Dizesi**’ne tıklayın.
+1. **Abonelikler** bölmesinde, hesabınızın adını seçin.
+1. **Bağlantı Dizesi** dikey penceresinde **Bağlantı Dizesi**’ne tıklayın.
 
    Sağ bölme, hesabınıza başarıyla bağlanmak için gereken tüm bilgileri içerir.
 
@@ -102,7 +102,7 @@ MongoDB hesabı için API’nize verileri geri yüklemek için, içeri aktarmay�
         }
         ```
 
-2. Tek bir belge yazma için yaklaşık RU ücretini hesaplayın:
+1. Tek bir belge yazma için yaklaşık RU ücretini hesaplayın:
 
     a. MongoDB Kabuğu’ndan Azure Cosmos DB MongoDB veritabanınıza bağlanın. [Azure Cosmos DB’ye MongoDB uygulaması bağlama](connect-mongodb-account.md) bölümünde yönergeleri bulabilirsiniz.
     
@@ -125,7 +125,7 @@ MongoDB hesabı için API’nize verileri geri yüklemek için, içeri aktarmay�
         
     d. İstek ücretini not edin.
     
-3. Makinenizden Azure Cosmos DB bulut hizmetine gecikmeyi belirleyin:
+1. Makinenizden Azure Cosmos DB bulut hizmetine gecikmeyi belirleyin:
     
     a. Bu komutu kullanarak MongoDB Kabuğu’ndan ayrıntılı günlüğe yazmayı etkinleştirin: ```setVerboseShell(true)```
     
@@ -135,9 +135,9 @@ MongoDB hesabı için API’nize verileri geri yüklemek için, içeri aktarmay�
         Fetched 1 record(s) in 100(ms)
         ```
         
-4. Yinelenen belgeler olmadığından emin olmak için geçişten önce eklenen belgeyi kaldırın. Bu komutu kullanarak belgeleri kaldırabilirsiniz: ```db.coll.remove({})```
+1. Yinelenen belgeler olmadığından emin olmak için geçişten önce eklenen belgeyi kaldırın. Bu komutu kullanarak belgeleri kaldırabilirsiniz: ```db.coll.remove({})```
 
-5. Yaklaşık *batchSize* ve *numInsertionWorkers* değerlerini hesaplayın:
+1. Yaklaşık *batchSize* ve *numInsertionWorkers* değerlerini hesaplayın:
 
     * *batchSize* için, toplam sağlanan RU’yu 3. adımdaki tek belge yazmanızda kullanılan RU’ya bölün.
     
@@ -157,7 +157,7 @@ MongoDB hesabı için API’nize verileri geri yüklemek için, içeri aktarmay�
     
     *numInsertionWorkers = (10000 RU x 0,1 s) / (24 x 10 RU) = 4,1666*
 
-6. Son geçiş komutunu çalıştırın:
+1. Son geçiş komutunu çalıştırın:
 
    ```
    mongoimport.exe --host comsosdb-mongodb-account.documents.azure.com:10255 -u comsosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24

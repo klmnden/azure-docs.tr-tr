@@ -1,20 +1,20 @@
 ---
 title: Bir Azure Resource Manager şablonu kullanarak Cihaz Sağlama’yı ayarlama | Microsoft Docs
 description: Azure Hızlı Başlangıç - Şablon kullanarak Azure IoT Hub Cihazı Sağlama Hizmeti’ni ayarlama
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 06/18/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6bd1073012a68149d194e21e745604a43dfe92c0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e3aa2cf93e529fcc430162ac90be06a75690fb21
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219705"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523453"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu ile IoT Hub Cihazı Sağlama Hizmeti’ni ayarlama
 
@@ -301,7 +301,7 @@ Son adımda tanımladığınız şablon, IoT Hub’ının adını, sağlama hizm
 
 Şablonlarınızı dağıtmak ve dağıtımı doğrulamak için aşağıdaki Azure CLI komutlarını kullanın.
 
-1. Şablonunuzu dağıtmak için [bir dağıtım başlatmak üzere aşağıdaki komutu](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create) çalıştırın:
+1. Şablonunuzu dağıtmak için [bir dağıtım başlatmak üzere aşağıdaki komutu](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create) çalıştırın:
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -312,7 +312,7 @@ Son adımda tanımladığınız şablon, IoT Hub’ının adını, sağlama hizm
    ![Sağlama çıkışı](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. Dağıtımınızı doğrulamak üzere [kaynakları listelemek](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az_resource_list) ve çıkışta yeni sağlama hizmetinin yanı sıra IoT hub’ını kontrol etmek için aşağıdaki komutu çalıştırın:
+2. Dağıtımınızı doğrulamak üzere [kaynakları listelemek](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list) ve çıkışta yeni sağlama hizmetinin yanı sıra IoT hub’ını kontrol etmek için aşağıdaki komutu çalıştırın:
 
     ```azurecli
      az resource list -g {your resource group name}
