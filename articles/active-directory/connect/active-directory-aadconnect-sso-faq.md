@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 08/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9c59db56ad78818d9b6165d27fd2e64f0bfd902c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 29ed96044ceaa914db3f8b7090a1be5f65827e54
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283232"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627483"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sorunsuz çoklu oturum açma: sık sorulan sorular
 
@@ -40,19 +40,20 @@ Hayır. Sorunsuz çoklu oturum açma, yalnızca dünya çapındaki örneğini Az
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Hangi uygulamaların `domain_hint` veya `login_hint` parametresi sorunsuz çoklu oturum açma yeteneğini?
 
-Aşağıda listelenen uygulamaları Azure AD'ye bu parametreleri gönderin ve bu nedenle kullanıcıların sorunsuz çoklu oturum açma (yani, kullanıcılarınızın, kullanıcı adlarını giriş gerek) kullanarak sessiz oturum açma deneyimi sağlar, kapsamlı olmayan bir listesidir:
+Aşağıda listelenen, bu parametreleri Azure AD'ye gönderebilir ve bu nedenle kullanıcıların sorunsuz çoklu oturum açma (yani, kullanıcılarınızın, kullanıcı adlarını veya parolaları giriş gerek) kullanarak sessiz oturum açma deneyimi sağlayan uygulamalar kapsamlı olmayan bir listesidir:
 
 | Uygulama adı | Kullanılacak uygulama URL'si |
 | -- | -- |
-| Erişim paneli | myapps.microsoft.com/contoso.com |
-| Web üzerinde Outlook'u | Outlook.Office365.com/contoso.com |
+| Erişim paneli | https://myapps.microsoft.com/contoso.com |
+| Web üzerinde Outlook'u | https://outlook.office365.com/contoso.com |
+| Office 365 portalı | https://portal.office.com?domain_hint=contoso.com |
 
 Ayrıca, diğer bir deyişle, Azure AD'nin kiralanan uç noktalar için - uygulamanın oturum açma isteği gönderirse, sessiz bir oturum açma deneyimi kullanıcıların alma https://login.microsoftonline.com/contoso.com/<..> veya https://login.microsoftonline.com/<tenant_ID>/<..> - Azure AD'nin ortak uç nokta - diğer bir deyişle, yerine https://login.microsoftonline.com/common/<...>. Aşağıda listelenen, oturum açma istekleri bu tür uygulamalar, kapsamlı olmayan bir listesidir.
 
 | Uygulama adı | Kullanılacak uygulama URL'si |
 | -- | -- |
-| SharePoint Online | contoso.SharePoint.com |
-| Azure portal | Portal.Azure.com/contoso.com |
+| SharePoint Online | https://contoso.sharepoint.com |
+| Azure portal | https://portal.azure.com/contoso.com |
 
 Yukarıdaki tablolarda, "contoso.com" etki alanı adınızın kiracınız için doğru uygulama URL'lere almak için değiştirin.
 

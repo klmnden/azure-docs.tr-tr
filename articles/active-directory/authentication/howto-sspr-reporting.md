@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 2560296c088491b7ae0cd414f88ae337c1383c9a
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 5931958d17ea119e58c066a78a44169be2b9f451
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258805"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627534"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD parola yönetimi için raporlama seçenekleri
 
@@ -40,7 +40,7 @@ Dağıtımdan sonra birçok kuruluşun öğrenmek istediğiniz nasıl ya da (SSP
 
 ## <a name="power-bi-content-pack"></a>Power BI İçerik Paketi
 
-Power BI kullanıcısıysanız, yok bir içerik paketi SSPR için kullanımı kolay raporlama içeren Azure AD için. İçerik paketini dağıtmak ve nasıl kullanılacağı hakkında daha fazla bilgi için bkz. [Azure Active Directory Power BI içerik Paketi'ni kullanma](../active-directory-reporting-power-bi-content-pack-how-to.md). İçerik Paketi ile kendi panolarınızı oluşturun ve bunları başkalarıyla kuruluşunuzda paylaşın.
+Power BI kullanıcısıysanız, yok bir içerik paketi SSPR için kullanımı kolay raporlama içeren Azure AD için. İçerik paketini dağıtmak ve nasıl kullanılacağı hakkında daha fazla bilgi için bkz. [Azure Active Directory Power BI içerik Paketi'ni kullanma](../reports-monitoring/howto-power-bi-content-pack.md). İçerik Paketi ile kendi panolarınızı oluşturun ve bunları başkalarıyla kuruluşunuzda paylaşın.
 
 ## <a name="how-to-view-password-management-reports-in-the-azure-portal"></a>Azure portalında parola yönetim raporlarını görüntüleme
 

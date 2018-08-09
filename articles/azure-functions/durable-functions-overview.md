@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a760e66d40d7af7178ec9a2d5fc14afec2a55b10
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 25f7cf6de4f217219e510ae00ce21762e755d2e8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115406"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627415"
 ---
 # <a name="durable-functions-overview"></a>Dayanıklı işlevler genel bakış
 
@@ -44,7 +44,7 @@ Dayanıklı işlevler için birincil kullanım durumu, sunucusuz uygulamalar kar
 
 Dayanıklı İşlevler, bu düzen kısaca koda uygulanması olanak verir.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C# betiği
 
 ```cs
 public static async Task<object> Run(DurableOrchestrationContext ctx)
@@ -62,6 +62,8 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
     }
 }
 ```
+> [!NOTE]
+> Önceden derlenmiş bir kalıcı işlevi C# vs'de C# betik örneği önce gösterilen yazılırken küçük farklılıklar vardır. C# önceden derlenmiş işlevi sürekli parametreleri ilgili öznitelikleri ile donatılmış gerekir. Bir örnek `[OrchestrationTrigger]` özniteliğini `DurableOrchestrationContext` parametresi. Parametreleri doğru donatılmış değil, çalışma zamanı değişkenleri işleve eklemesine mümkün olmaz ve hata verirsiniz. Lütfen [örnek](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples) daha fazla örnek için.
 
 #### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
 
@@ -88,7 +90,7 @@ module.exports = df(function*(ctx) {
 
 Normal işlevlerde olduğu fanning sahip birden fazla ileti bir kuyruğa gönderebilirsiniz işlevi tarafından yapılabilir. Ancak geri fanning çok daha zor olabilir. Kuyruk ile tetiklenen işlev sonlandırmak ve işlev çıktılarının depolanması ne zaman açtıklarını izlemek için kod yazmanız gerekir. Bu düzen görece basit kod ile dayanıklı işlevler uzantısını işler.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C# betiği
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -203,7 +205,7 @@ Bir örnek, önceki zaman uyumsuz HTTP API senaryosu ters. Uzun süreli bir işl
 
 Dayanıklı işlevler kullanarak, birkaç kod satırıyla rastgele uç noktaları inceleyin birden çok monitör oluşturulabilir. Bazı koşullar karşılanması veya tarafından sonlandırılacak izleyiciler yürütme sona erdirebilirsiniz [DurableOrchestrationClient](durable-functions-instance-management.md), ve bunların bekleme aralığının bazı koşullar (yani üstel geri alma.) göre değiştirilebilir. Aşağıdaki kod, temel bir izleyici uygular.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C# betiği
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -271,7 +273,7 @@ Bir iş sürecini insan etkileşimi içeren bir onay işlemi örneğidir. Örne�
 
 Bu düzen bir düzenleyici işlevi kullanılarak uygulanır. Orchestrator kullanacağınız bir [dayanıklı Zamanlayıcı](durable-functions-timers.md) onay isteyin ve zaman aşımı oluşması halinde ilerletebilirsiniz. İçin beklemeniz gerekir bir [dış olay](durable-functions-external-events.md), bazı insan etkileşimi tarafından oluşturulan bildirim olacaktır.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C# betiği
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)

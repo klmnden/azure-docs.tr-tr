@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 65757abe13c45ce1a929c4648637f98360659030
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: def1bbd52e05666f380ab9d5a9295366798d5ae0
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284879"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626932"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sorunsuz çoklu oturum açma sorunlarını giderme
 
@@ -50,7 +50,7 @@ Sorunsuz çoklu oturum açma için etkinleştirilen tüm AD ormanına görmek i�
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Azure Active Directory Yönetim Merkezi'nde oturum açma hatası nedeniyle (bir Premium lisansı gerekir)
 
-Kiracınızın ilişkili bir Azure AD Premium lisansınız varsa, ayrıca bakabilirsiniz [oturum açma etkinliği raporunu](../active-directory-reporting-activity-sign-ins.md) içinde [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com/).
+Kiracınızın ilişkili bir Azure AD Premium lisansınız varsa, ayrıca bakabilirsiniz [oturum açma etkinliği raporunu](../reports-monitoring/concept-sign-ins.md) içinde [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com/).
 
 ![Azure Active Directory Yönetim Merkezi: oturum açma işlemleri raporu](./media/active-directory-aadconnect-sso/sso9.png)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: b7a0050791690e5157a4937df0d49a0f03f3df24
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 85d0c91a0b1cdf5703b394d6d232ab9cee72ee0c
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617607"
+ms.locfileid: "39627153"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Azure App Service için SSL Sertifikası Satın Alma ve Yapılandırma
 
@@ -78,7 +78,7 @@ Aynı **sertifika Yapılandırması** adım 3'te kullanılan sayfasında **2. ad
 
 Tercih edilen etki alanı doğrulama yöntemi seçin. 
 
-App Service sertifikaları tarafından desteklenen etki alanı doğrulaması dört tür vardır: App Service, etki alanı, posta ve el ile doğrulama. Bu doğrulama türleri daha ayrıntılı olarak açıklanmıştır [bölümü Gelişmiş](#advanced).
+App Service sertifikaları tarafından desteklenen etki alanı doğrulaması dört tür vardır: App Service, etki alanı ve el ile doğrulama. Bu doğrulama türleri daha ayrıntılı olarak açıklanmıştır [bölümü Gelişmiş](#advanced).
 
 > [!NOTE]
 > **App Service doğrulaması** doğrulamak istediğiniz etki alanını aynı Abonelikteki bir App Service uygulaması zaten eşlenmiş en uygun seçenektir. App Service uygulaması zaten etki alanı sahipliğini doğruladı olgu avantajlarından yararlanır.
@@ -135,16 +135,7 @@ Bu noktada, kullanıp uygulamanızın ziyaret etmek erişebileceğinizi `HTTPS:/
 
 ### <a name="verifying-domain-ownership"></a>Etki alanı sahipliğini doğrulama
 
-Etki alanı doğrulaması App service sertifikaları tarafından desteklenen daha fazla iki tür vardır: e-posta ve el ile doğrulama.
-
-#### <a name="mail-verification"></a>Posta Doğrulama
-
-Bu özel etki alanı ile ilişkili e-posta adreslerine doğrulama e-posta zaten gönderildi.
-E-posta doğrulama adımını tamamlamak için e-posta açın ve doğrulama bağlantısına tıklayın.
-
-![e-posta doğrulama resmi Ekle](./media/app-service-web-purchase-ssl-web-site/KVVerifyEmailSuccess.png)
-
-Doğrulama e-posta göndermek gerekiyorsa tıklayın **yeniden e-posta** düğmesi.
+App service sertifikaları tarafından desteklenen etki alanı doğrulaması diğer iki tür vardır: etki alanı doğrulaması ve el ile doğrulama.
 
 #### <a name="domain-verification"></a>Etki Alanı Doğrulama
 

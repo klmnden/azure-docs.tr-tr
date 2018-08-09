@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 6fe439daad78d6d660fd84be8a1e0263b231adbd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 460a52f240f6b3723f93e81a11a8cd1ccc6c30c9
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444384"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626702"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Öğretici: Azure Active Directory Ziflow ile tümleştirme
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Ziflow yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Ziflow çoklu oturum açma etkin
 
 > [!NOTE]
@@ -53,7 +53,7 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Ziflow ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-ziflow-from-the-gallery"></a>Galeriden Ziflow ekleme
 Azure AD'de Ziflow tümleştirmesini yapılandırmak için Ziflow Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
@@ -64,15 +64,15 @@ Azure AD'de Ziflow tümleştirmesini yapılandırmak için Ziflow Galeriden yön
 
     ![Azure Active Directory düğmesi][1]
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
     
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-1. Arama kutusuna **Ziflow**seçin **Ziflow** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+4. Arama kutusuna **Ziflow**seçin **Ziflow** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Sonuç listesinde Ziflow](./media/ziflow-tutorial/tutorial_ziflow_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Tek iş için oturum açma için Azure AD ne Ziflow karşılığı kullanıcı i
 Yapılandırma ve Azure AD çoklu oturum açma Ziflow ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Ziflow test kullanıcısı oluşturma](#create-a-ziflow-test-user)**  - kullanıcı Azure AD gösterimini bağlı Ziflow Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Ziflow test kullanıcısı oluşturma](#create-a-ziflow-test-user)**  - kullanıcı Azure AD gösterimini bağlı Ziflow Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -100,51 +100,50 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Z
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+
     ![Çoklu oturum açma iletişim kutusu](./media/ziflow-tutorial/tutorial_ziflow_samlbase.png)
 
-1. Üzerinde **Ziflow etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Ziflow etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Ziflow etki alanı ve URL'ler tek oturum açma bilgileri](./media/ziflow-tutorial/tutorial_ziflow_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<subdomain>.ziflow.io/#/login-sso/<Unique ID>`
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
 
-    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `urn:auth0:ziflow-production:<Unique ID>`
+    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `urn:auth0:ziflow-production:<UniqueID>`
 
-    > [!NOTE] 
-    > Yukarıdaki değerleri gerçek değildir. Benzersiz kimlik değerini tanımlayıcısı ve oturum açma URL'si, öğreticinin ilerleyen bölümlerinde açıklanan gerçek değeri ile güncelleştirir. İlgili kişi [Ziflow Destek ekibine](mailto:support@ziflow.com) oturum açma URL'si alt etki alanı değeri.
-    
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+    > [!NOTE]
+    > Yukarıdaki değerleri gerçek değildir. Benzersiz kimlik değerini tanımlayıcısı ve oturum açma URL'si, öğreticinin ilerleyen bölümlerinde açıklanan gerçek değeri ile güncelleştirir.
+
+4. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/ziflow-tutorial/tutorial_ziflow_certificate.png) 
 
-1. Tıklayın **Kaydet** düğmesi.
+5. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/ziflow-tutorial/tutorial_general_400.png)
 
-1. Üzerinde **Ziflow yapılandırma** bölümünde **yapılandırma Ziflow** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+6. Üzerinde **Ziflow yapılandırma** bölümünde **yapılandırma Ziflow** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Ziflow yapılandırma](./media/ziflow-tutorial/tutorial_ziflow_configure.png) 
 
-1. Bir başka web tarayıcı penceresinde Ziflow bir güvenlik yöneticisi olarak oturum açın.
+7. Bir başka web tarayıcı penceresinde Ziflow bir güvenlik yöneticisi olarak oturum açın.
 
-
-1. Sağ üst köşedeki Avatar üzerinde tıklayın ve ardından **hesabını yönetme**.
+8. Sağ üst köşedeki Avatar üzerinde tıklayın ve ardından **hesabını yönetme**.
 
     ![Ziflow yapılandırmasını yönetme](./media/ziflow-tutorial/tutorial_ziflow_manage.png)
 
-1. Sol üst köşedeki, tıklayın **çoklu oturum açma**.
+9. Sol üst köşedeki, tıklayın **çoklu oturum açma**.
 
     ![Ziflow yapılandırma oturum](./media/ziflow-tutorial/tutorial_ziflow_signon.png)
 
-1. Üzerinde **çoklu oturum açma** sayfasında, aşağıdaki adımları gerçekleştirin:
+10. Üzerinde **çoklu oturum açma** sayfasında, aşağıdaki adımları gerçekleştirin:
 
     ![Ziflow yapılandırma tek](./media/ziflow-tutorial/tutorial_ziflow_page.png)
 
     a. Seçin **türü** olarak **SAML2.0**.
 
-    b.In **oturum açma URL'si** metin değerini yapıştırın **SAML çoklu oturum açma hizmeti URL'si**, hangi Azure portaldan kopyaladığınız.
+    b. İçinde **oturum açma URL'si** metin değerini yapıştırın **SAML çoklu oturum açma hizmeti URL'si**, hangi Azure portaldan kopyaladığınız.
 
     c. Azure portalından içine yüklediğiniz base-64 kodlanmış sertifikasını karşıya yükle **imzalama sertifikası X509**.
 
@@ -164,15 +163,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Azure Active Directory düğmesi](./media/ziflow-tutorial/create_aaduser_01.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
     !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/ziflow-tutorial/create_aaduser_02.png)
 
-1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/ziflow-tutorial/create_aaduser_03.png)
 
-1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![Kullanıcı iletişim kutusu](./media/ziflow-tutorial/create_aaduser_04.png)
 
@@ -192,15 +191,15 @@ Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin
 
 1. İçin Ziflow bir güvenlik yöneticisi olarak oturum açın.
 
-1. Gidin **kişiler** üstte.
+2. Gidin **kişiler** üstte.
 
     ![Ziflow yapılandırma kişiler](./media/ziflow-tutorial/tutorial_ziflow_people.png)
 
-1. Tıklayın **Ekle** ve ardından **Kullanıcı Ekle**.
+3. Tıklayın **Ekle** ve ardından **Kullanıcı Ekle**.
 
     ![Kullanıcı ekleniyor Ziflow yapılandırma](./media/ziflow-tutorial/tutorial_ziflow_add.png)
 
-1. Üzerinde **kullanıcı ekleme** açılan, aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **kullanıcı ekleme** açılan, aşağıdaki adımları gerçekleştirin:
 
     ![Kullanıcı ekleniyor Ziflow yapılandırma](./media/ziflow-tutorial/tutorial_ziflow_adduser.png)
 
@@ -229,23 +228,23 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Ziflow erişim vererek B
 
     ![Kullanıcı Ata][201] 
 
-1. Uygulamalar listesinde **Ziflow**.
+2. Uygulamalar listesinde **Ziflow**.
 
     ![Uygulamalar listesinde Ziflow bağlantı](./media/ziflow-tutorial/tutorial_ziflow_app.png)  
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Atama Ekle bölmesi][203]
 
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: bwren
-ms.openlocfilehash: 262099bbe45e483efd269445aa8042b30668ebe3
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 48cbfac78b41b47419799584837e094d45757628
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036532"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627466"
 ---
 # <a name="sources-of-monitoring-data-in-azure"></a>Azure'da veri izleme kaynakları
 Bu makalede, Azure kaynaklarının ve bunlar üzerinde çalışan uygulamaların performans ve sistem durumu izlemek için kullanılabilen veri açıklanır.  Toplayıp bu verileri açıklanan araçları ile analiz [toplama azure'da verileri izleme](monitoring-data-collection.md)
@@ -42,7 +42,7 @@ Belirli bir kaynak için etkinlik günlüğü kendi içinde birden çok kaynakta
 
 
 ### <a name="azure-active-directory-audit-logs"></a>Azure Active Directory denetim günlüklerini
-[Azure Active Directory raporlama](../active-directory/active-directory-reporting-azure-portal.md) oturum açma etkinlik ve denetim izi belirli bir kiracıda yapılan değişikliklerin geçmişini içerir. Şu anda yalnızca Azure Active Directory aracılığıyla erişilebilir olduğu gibi Azure Active Directory denetim verilerinin diğer izleme verilerinin ile birleştirilemez ve [Azure Active Directory raporlama API'SİYLE](../active-directory/active-directory-reporting-api-getting-started-azure-portal.md).
+[Azure Active Directory raporlama](../active-directory/reports-monitoring/overview-reports.md) oturum açma etkinlik ve denetim izi belirli bir kiracıda yapılan değişikliklerin geçmişini içerir. Şu anda yalnızca Azure Active Directory aracılığıyla erişilebilir olduğu gibi Azure Active Directory denetim verilerinin diğer izleme verilerinin ile birleştirilemez ve [Azure Active Directory raporlama API'SİYLE](../active-directory/reports-monitoring/concept-reporting-api.md).
 
 
 ## <a name="azure-services"></a>Azure Hizmetleri

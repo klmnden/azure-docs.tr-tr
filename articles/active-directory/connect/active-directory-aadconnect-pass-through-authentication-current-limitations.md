@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e549293bf09781363e74c85ae689869d35de3092
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: a112e2f201109b71b7bab1c2b344ec4fcf2a851c
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258295"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627653"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory geçişli kimlik doğrulaması: Geçerli sınırlamalar
 
@@ -42,7 +42,7 @@ Aşağıdaki senaryolar desteklenir:
 
 Aşağıdaki senaryolar _değil_ desteklenir:
 
-- Algılama sahip kullanıcıların [kimlik bilgilerinin sızdırılması](../active-directory-reporting-risk-events.md#leaked-credentials).
+- Algılama sahip kullanıcıların [kimlik bilgilerinin sızdırılması](../reports-monitoring/concept-risk-events.md#leaked-credentials).
 - Azure AD Domain Services parola karması Eşitleme'nın Kiracı üzerinde etkin gerekir. Bu nedenle, geçişli kimlik doğrulaması kullanan kiracılar _yalnızca_ Azure AD Domain Services gerektiren senaryolar için çalışmaz.
 - Geçişli kimlik doğrulaması ile tümleşik olmayan [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
 

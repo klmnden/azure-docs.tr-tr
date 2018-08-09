@@ -14,12 +14,12 @@ ms.component: users-groups-roles
 ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecb0919b68516fdb886ea745d963349ff29f83b4
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 15b52920774a878cd386ced5966d507768a8af70
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867333"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627398"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Senaryoları, sınırlamalar ve bilinen sorunlar Azure Active Directory'de lisanslama yönetmek için grupları kullanma
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD), Grup tabanlı lisanslama daha gelişmiş anla
 
 ## <a name="usage-location"></a>Kullanım konumu
 
-Bazı Microsoft Hizmetleri, tüm konumlardaki kullanılamaz. Yönetici bir kullanıcıya lisans atanabilmesi için önce belirtmesi gerekir **kullanım konumu** kullanıcı özelliği. İçinde [Azure portalında](https://portal.azure.com), belirleyebilirsiniz **kullanıcı** &gt; **profili** &gt; **ayarları**.
+Bazı Microsoft hizmetleri tüm konumlarda kullanılamaz. Yönetici bir kullanıcıya lisans atanabilmesi için önce belirtmesi gerekir **kullanım konumu** kullanıcı özelliği. İçinde [Azure portalında](https://portal.azure.com), belirleyebilirsiniz **kullanıcı** &gt; **profili** &gt; **ayarları**.
 
 Grup lisansı atama için kullanım konumu belirtilmemiş olmadan herhangi bir kullanıcı dizin konumunu devralır. Birden fazla konumda kullanıcılarınız varsa, lisans gruplarına kullanıcıları eklemeden önce kullanıcı, nesneyi doğru bir şekilde yansıtan emin olun.
 
@@ -146,13 +146,13 @@ Kullanıcıların doğrudan atanan veya bir gruptan devralınan bir lisans olup 
 
 ## <a name="use-audit-logs-to-monitor-group-based-licensing-activity"></a>Grup tabanlı lisanslama etkinliğini izlemek için denetim günlüklerini kullanın.
 
-Kullanabileceğiniz [Azure AD denetim günlükleri](./../active-directory-reporting-activity-audit-logs.md#audit-logs) tüm etkinlik görmek için ilgili grup tabanlı lisanslama için de dahil olmak üzere:
+Kullanabileceğiniz [Azure AD denetim günlükleri](../reports-monitoring/concept-audit-logs.md#audit-logs) tüm etkinlik görmek için ilgili grup tabanlı lisanslama için de dahil olmak üzere:
 - kimin gruplardaki lisansları değişti
 - sistem Grup lisans değişikliği işlem başlatıldığında ve bittiğinde,
 - Grup lisansı atama sonucu olarak bir kullanıcıya hangi lisans değişiklikler yapıldı.
 
 >[!NOTE]
-> Denetim günlükleri çoğu dikey pencereleri portalı Azure Active Directory bölümünde kullanılabilir. Bunları eriştiğinize bağlı olarak, filtre yalnızca etkinlik dikey penceresinin içeriği ilgili gösterecek şekilde önceden uygulanmış olabilir. Beklediğiniz sonuçları görmediğinizden, inceleyin [filtreleme seçenekleri](./../active-directory-reporting-activity-audit-logs.md#filtering-audit-logs) veya altında filtrelenmemiş denetim günlüklerine erişmek [ **Azure Active Directory > etkinlik > Denetim günlükleri** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit).
+> Denetim günlükleri çoğu dikey pencereleri portalı Azure Active Directory bölümünde kullanılabilir. Bunları eriştiğinize bağlı olarak, filtre yalnızca etkinlik dikey penceresinin içeriği ilgili gösterecek şekilde önceden uygulanmış olabilir. Beklediğiniz sonuçları görmediğinizden, inceleyin [filtreleme seçenekleri](../reports-monitoring/concept-audit-logs.md#filtering-audit-logs) veya altında filtrelenmemiş denetim günlüklerine erişmek [ **Azure Active Directory > etkinlik > Denetim günlükleri** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit).
 
 ### <a name="find-out-who-modified-a-group-license"></a>Grup lisansı kimin değiştirdiğini kullanıma Bul
 
@@ -231,9 +231,9 @@ Grup tabanlı lisanslama kullanıyorsanız, aşağıdaki sınırlamalar ve bilin
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Diğer senaryolar için Grup tabanlı lisanslama aracılığıyla lisans yönetimi hakkında daha fazla bilgi için bkz:
+Grup tabanlı lisanslama aracılığıyla lisans yönetimine yönelik diğer senaryolar hakkında daha fazla bilgi edinmek için bkz:
 
 * [Grup tabanlı Azure Active Directory lisansı nedir?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Azure Active Directory'deki bir gruba lisans atama](licensing-groups-assign.md)
-* [Azure Active Directory'de bir grup için lisans sorunlarını belirleme ve çözme](licensing-groups-resolve-problems.md)
-* [Azure Active Directory'de Grup tabanlı lisanslama için tek tek lisanslı kullanıcıları geçirme](licensing-groups-migrate-users.md)
+* [Azure Active Directory'de gruba lisans atama](licensing-groups-assign.md)
+* [Azure Active Directory'de grubun lisans sorunlarını tanımlama ve çözme](licensing-groups-resolve-problems.md)
+* [Azure Active Directory'de tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](licensing-groups-migrate-users.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: f139f9520b6bcb5f39fd4436a1ea2eee6fddf344
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d093aa6119b5ab316e5ffba77806e10cd067b032
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618980"
+ms.locfileid: "39626820"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook prova: yapı taşları
 
@@ -159,7 +159,7 @@ Yaklaşık bir saat tamamlamaya: 60 dakika
 | Sağlama tamamlanırken birkaç dakika bekleyin.  Bu arada, sağlama raporlarda denetleyebilirsiniz. |  |
 | Oturum https://myapps.microsoft.com/ erişimi olan bir test kullanıcısı olarak | [Erişim paneli nedir?](user-help/active-directory-saas-access-panel-introduction.md) |
 | Az önce oluşturulan uygulama kutucuğuna tıklayın. Erişimi onaylama |  |
-| İsteğe bağlı olarak, uygulama kullanım raporlarını kontrol edebilirsiniz. Bu nedenle raporlarında trafiği görmek için bir süre beklemeniz gerekir biraz gecikme süresi olduğuna dikkat edin. | [Azure Active Directory portalındaki oturum açma etkinlik raporları: yönetilen uygulamaların kullanımı](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory rapor bekletme ilkeleri](active-directory-reporting-retention.md) |
+| İsteğe bağlı olarak, uygulama kullanım raporlarını kontrol edebilirsiniz. Bu nedenle raporlarında trafiği görmek için bir süre beklemeniz gerekir biraz gecikme süresi olduğuna dikkat edin. | [Azure Active Directory portalındaki oturum açma etkinlik raporları: yönetilen uygulamaların kullanımı](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory rapor bekletme ilkeleri](reports-monitoring/reference-reports-data-retention.md) |
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
@@ -191,7 +191,7 @@ Yaklaşık tamamlama süresi: 15 dakika
 | Az önce oluşturulan uygulama kutucuğuna tıklayın. | [Erişim paneli nedir?: parola tabanlı SSO kimlik sağlama olmadan](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Uygulama kimlik bilgileri sağlayın | [Erişim paneli nedir?: parola tabanlı SSO kimlik sağlama olmadan](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Tarayıcıyı kapatın ve oturum açma yineleyin. Bu sefer orada kullanıcı uygulamaya sorunsuz erişim görmeniz gerekir. |  |
-| İsteğe bağlı olarak, uygulama kullanım raporlarını kontrol edebilirsiniz. Bu nedenle raporlarında trafiği görmek için bir süre beklemeniz gerekir biraz gecikme süresi olduğuna dikkat edin. | [Azure Active Directory portalındaki oturum açma etkinlik raporları: yönetilen uygulamaların kullanımı](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory rapor bekletme ilkeleri](active-directory-reporting-retention.md) |
+| İsteğe bağlı olarak, uygulama kullanım raporlarını kontrol edebilirsiniz. Bu nedenle raporlarında trafiği görmek için bir süre beklemeniz gerekir biraz gecikme süresi olduğuna dikkat edin. | [Azure Active Directory portalındaki oturum açma etkinlik raporları: yönetilen uygulamaların kullanımı](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory rapor bekletme ilkeleri](reports-monitoring/reference-reports-data-retention.md) |
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
@@ -223,7 +223,7 @@ Yaklaşık tamamlama süresi: 30 dakika
 | Parola SSO yapılandırma | [Yeni Azure portalında kurumsal uygulamalar için çoklu oturum açmayı yönetme: parola tabanlı oturum açma](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
 | Grubun kimlik bilgilerini atarken Önkoşullarda tanımlanan uygulama atama | [Kurumsal bir uygulamayı Azure Active Directory'de bir kullanıcı veya grup atama](manage-apps/assign-user-or-group-access-portal.md) |
 | Bu erişim uygulama olarak farklı kullanıcı olarak oturum **aynı hesabı paylaşılan.**  |  |
-| İsteğe bağlı olarak, uygulama kullanım raporlarını kontrol edebilirsiniz. Bu nedenle raporlarında trafiği görmek için bir süre beklemeniz gerekir biraz gecikme süresi olduğuna dikkat edin. | [Azure Active Directory portalındaki oturum açma etkinlik raporları: yönetilen uygulamaların kullanımı](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory rapor bekletme ilkeleri](active-directory-reporting-retention.md) |
+| İsteğe bağlı olarak, uygulama kullanım raporlarını kontrol edebilirsiniz. Bu nedenle raporlarında trafiği görmek için bir süre beklemeniz gerekir biraz gecikme süresi olduğuna dikkat edin. | [Azure Active Directory portalındaki oturum açma etkinlik raporları: yönetilen uygulamaların kullanımı](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory rapor bekletme ilkeleri](reports-monitoring/reference-reports-data-retention.md) |
 
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
@@ -500,17 +500,17 @@ Yaklaşık tamamlama süresi: 20 dakika
 | Önkoşul | Kaynaklar |
 | --- | --- |
 | Tor tarayıcısı olan bir cihaz indirilmesi ve yüklenmesi | [Tor tarayıcı indirin](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Oturum açma yapmak için POC kullanıcıya erişim | [Azure Active Directory kimlik koruması Kılavuzu](active-directory-identityprotection-playbook.md) |
+| Oturum açma yapmak için POC kullanıcıya erişim | [Azure Active Directory kimlik koruması Kılavuzu](identity-protection/playbook.md) |
 
 ### <a name="steps"></a>Adımlar
 
 | Adım | Kaynaklar |
 | --- | --- |
 | Açık tor tarayıcı | [Tor tarayıcı indirin](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Oturum https://myapps.microsoft.com POC kullanıcı hesabıyla | [Azure Active Directory kimlik koruması Kılavuzu: Risk olaylarının benzetimini](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Oturum https://myapps.microsoft.com POC kullanıcı hesabıyla | [Azure Active Directory kimlik koruması Kılavuzu: Risk olaylarının benzetimini](identity-protection/playbook.md#simulating-risk-events) |
 | 5-7 dakika bekleyin |  |
 | İçin genel yönetici olarak oturum https://portal.azure.com ve kimlik koruma dikey penceresini açın | https://aka.ms/aadipgetstarted |
-| Risk olayları dikey penceresini açın. "Oturum açma işlemleri anonim IP adreslerinden" altında bir giriş görmeniz gerekir  | [Azure Active Directory kimlik koruması Kılavuzu: Risk olaylarının benzetimini](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Risk olayları dikey penceresini açın. "Oturum açma işlemleri anonim IP adreslerinden" altında bir giriş görmeniz gerekir  | [Azure Active Directory kimlik koruması Kılavuzu: Risk olaylarının benzetimini](identity-protection/playbook.md#simulating-risk-events) |
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
@@ -534,14 +534,14 @@ Yaklaşık tamamlama süresi: 10 dakika
 | Adım | Kaynaklar |
 | --- | --- |
 | İçin genel yönetici olarak oturum https://portal.azure.com ve kimlik koruma dikey penceresini açın | https://aka.ms/aadipgetstarted |
-| Oturum açma riski İlkesi şu şekilde etkinleştirin:<br/>-Atanan: POC kullanıcı<br/>-Koşullar: Oturum açma riski Orta büyüklükte ya da daha yüksek (oturum açma anonim konumdan kabul orta düzeyde risk düzeyi olarak)<br/>-Denetimleri: MFA gerektirme | [Azure Active Directory kimlik koruması Kılavuzu: oturum açma riski](active-directory-identityprotection-playbook.md) |
+| Oturum açma riski İlkesi şu şekilde etkinleştirin:<br/>-Atanan: POC kullanıcı<br/>-Koşullar: Oturum açma riski Orta büyüklükte ya da daha yüksek (oturum açma anonim konumdan kabul orta düzeyde risk düzeyi olarak)<br/>-Denetimleri: MFA gerektirme | [Azure Active Directory kimlik koruması Kılavuzu: oturum açma riski](identity-protection/playbook.md) |
 | Açık tor tarayıcı | [Tor tarayıcı indirin](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Oturum https://myapps.microsoft.com PoC kullanıcı hesabıyla |  |
-| MFA testini dikkat edin. | [Azure AD kimlik koruması ile karşılaştığında oturum açma: oturum açma riskli kurtarma](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
+| MFA testini dikkat edin. | [Azure AD kimlik koruması ile karşılaştığında oturum açma: oturum açma riskli kurtarma](identity-protection/flows.md#risky-sign-in-recovery)
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
-Bu özellik Azure AD Premium P2 ve/veya EMS E5 parçasıdır. Ziyaret risk olayları hakkında daha fazla bilgi edinmek için: [Azure Active Directory risk olayları](active-directory-reporting-risk-events.md)
+Bu özellik Azure AD Premium P2 ve/veya EMS E5 parçasıdır. Ziyaret risk olayları hakkında daha fazla bilgi edinmek için: [Azure Active Directory risk olayları](reports-monitoring/concept-risk-events.md)
 
 ## <a name="configuring-certificate-based-authentication"></a>Sertifika tabanlı kimlik doğrulamasını yapılandırma
 

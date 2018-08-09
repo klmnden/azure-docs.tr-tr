@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 497c3b54238c9e38144a5840b59cac38af581f39
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 62a55672a4326df585fc84699dfd72424be362dc
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525935"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627500"
 ---
 # <a name="configure-named-locations-in-azure-active-directory"></a>Azure Active Directory'de adlandırılmış konumları yapılandırma
 
 Adlandırılmış konumlar ile kuruluşunuzda güvenilen IP adresi aralıkları etiketleyebilirsiniz. Azure Active Directory bağlamında adlandırılmış konumlar kullanır:
 
-- Algılanması [risk olayları](active-directory-reporting-risk-events.md) bildirilen hatalı pozitif sonuç sayısını azaltmak için.  
+- Algılanması [risk olayları](reports-monitoring/concept-risk-events.md) bildirilen hatalı pozitif sonuç sayısını azaltmak için.  
 
 - [Konum tabanlı koşullu erişim](conditional-access/location-condition.md).
 
@@ -99,6 +99,6 @@ Daha fazla bilgi için bkz.
 
 - [Konum koşulları Azure Active Directory koşullu erişim](conditional-access/location-condition.md)
 
-- [Azure Active Directory risk olayları](active-directory-reporting-risk-events.md).
+- [Azure Active Directory risk olayları](reports-monitoring/concept-risk-events.md).
 
-- [Azure Active Directory portalındaki riskli oturum açma işlemleri raporu](active-directory-reporting-security-risky-sign-ins.md).  
+- [Azure Active Directory portalındaki riskli oturum açma işlemleri raporu](reports-monitoring/concept-risky-sign-ins.md).  

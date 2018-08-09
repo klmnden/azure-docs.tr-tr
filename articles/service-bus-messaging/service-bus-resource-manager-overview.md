@@ -1,6 +1,6 @@
 ---
-title: Resource Manager şablonları kullanarak Azure Service Bus kaynakları oluşturun | Microsoft Docs
-description: Service Bus kaynaklarını oluşturmayı otomatikleştirmek için Azure Resource Manager şablonlarını kullanma
+title: Resource Manager şablonlarını kullanarak Azure Service Bus kaynakları oluşturma | Microsoft Docs
+description: Service Bus kaynaklarının oluşturulmasını otomatik hale getirmek için Azure Resource Manager şablonlarını kullanma
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -14,55 +14,55 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/11/2018
 ms.author: sethm
-ms.openlocfilehash: c8d84de608ccf3d9a9293c20c07c10a00b73da68
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 64942d80a2b8477c395abf185a332f31709598c6
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598294"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627102"
 ---
-# <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager şablonları kullanarak Service Bus kaynakları oluşturun
+# <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarını kullanarak Service Bus kaynakları oluşturma
 
-Bu makalede, Azure Resource Manager şablonları, PowerShell ve Service Bus kaynak sağlayıcısı kullanarak Service Bus kaynaklarını oluşturup açıklar.
+Bu makalede, Azure Resource Manager şablonları, PowerShell ve Service Bus kaynak Sağlayıcısı'nı kullanarak Service Bus kaynakları oluşturup dağıtmayı açıklar.
 
-Azure Resource Manager şablonları bir çözümü dağıtmak ve parametreleri ve farklı ortamlar için değer girmesini sağlayan değişkenleri belirtmek için kaynakları tanımlamanıza yardımcı. Şablon JSON'de yazılır ve dağıtımınız için değerleri oluşturmada kullanabileceğiniz ifadeler oluşur. Azure Resource Manager şablonları ve şablon biçimi tartışması yazma hakkında ayrıntılı bilgi için bkz: [yapısı ve Azure Resource Manager şablonları sözdizimini](../azure-resource-manager/resource-group-authoring-templates.md).
+Azure Resource Manager şablonları, bir çözümü dağıtmak ve parametreleri ve farklı ortamlar için değer girmenizi sağlayan değişkenleri belirtmek için kaynakları tanımlamanıza yardımcı olur. Şablon JSON biçiminde yazılır ve dağıtımınız için değerleri oluşturmada kullanabileceğiniz ifadeler oluşur. Azure Resource Manager şablonları ve şablon biçimi ayrıntılı bir yazma hakkında ayrıntılı bilgi için bkz: [yapısını ve Azure Resource Manager şablonları söz dizimini](../azure-resource-manager/resource-group-authoring-templates.md).
 
 > [!NOTE]
-> Bu makaledeki örnekler Azure Resource Manager bir hizmet veri yolu ad alanı ve mesajlaşma varlığıyla (kuyruk) oluşturmak için nasıl kullanılacağını gösterir. Diğer şablon örnekler için ziyaret [Azure hızlı başlangıç Şablon Galerisi] [ Azure Quickstart Templates gallery] arayın ve **Service Bus**.
+> Bu makaledeki örneklerde, bir Service Bus ad alanı ve mesajlaşma varlığı (sıra) oluşturmak için Azure Resource Manager'ı kullanma gösterilmektedir. Diğer şablon örneklerinde, ziyaret [Azure hızlı başlangıç şablonları galeri] [ Azure Quickstart Templates gallery] araması **Service Bus**.
 >
 >
 
-## <a name="service-bus-resource-manager-templates"></a>Hizmet veri yolu Resource Manager şablonları
+## <a name="service-bus-resource-manager-templates"></a>Service Bus Resource Manager şablonları
 
-Bu hizmet veri yolu Azure Resource Manager şablonları, yükleme ve dağıtım için kullanılabilir. Her biri, GitHub şablonlar için bağlantılar ile birlikte hakkında ayrıntılı bilgi için aşağıdaki bağlantıları tıklatın:
+Bu Service Bus Azure Resource Manager şablonları, yükleme ve dağıtım için kullanılabilir. Her biri, github'da şablonları bağlantılarla ilgili ayrıntıları için aşağıdaki bağlantılara tıklayın:
 
-* [Hizmet veri yolu ad alanı oluşturma](service-bus-resource-manager-namespace.md)
-* [Sıra ile Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-queue.md)
-* [Hizmet veri yolu ad alanı konu ve abonelik oluşturma](service-bus-resource-manager-namespace-topic.md)
-* [Kuyruk ve yetkilendirme kuralı ile Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-auth-rule.md)
-* [Konu, abonelik ve kuralı ile Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-topic-with-rule.md)
+* [Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace.md)
+* [Kuyruk ile bir Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-queue.md)
+* [Konu ve abonelik ile Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-topic.md)
+* [Kuyruk ve yetkilendirme kuralı ile bir Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-auth-rule.md)
+* [Konusu, aboneliği ve kuralı ile bir Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-topic-with-rule.md)
 
 ## <a name="deploy-with-powershell"></a>PowerShell ile dağıtma
 
-Aşağıdaki yordam, standart katmanı Service Bus ad alanı ve bu ad alanı içindeki bir kuyruk oluşturur bir Azure Resource Manager şablonu dağıtmak için PowerShell kullanmayı açıklar. Bu örnek dayanır [sıra ile Service Bus ad alanı oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue) şablonu. Yaklaşık iş akışı aşağıdaki gibidir:
+Aşağıdaki yordamı, standart katman hizmet veri yolu ad alanı ve bu ad alanı içinde bir kuyruk oluşturan bir Azure Resource Manager şablonu dağıtmak için PowerShell kullanmayı açıklar. Bu örnekte dayanır [sırası ile Service Bus ad alanı oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-servicebus-create-queue) şablonu. Yaklaşık iş akışı aşağıdaki gibidir:
 
 1. PowerShell yükleyin.
-2. Şablon ve (isteğe bağlı) bir parametre dosyası oluşturun.
+2. Şablon ve (isteğe bağlı olarak) bir parametre dosyası oluşturun.
 3. PowerShell'de, Azure hesabınızda oturum açın.
 4. Bir mevcut değilse yeni bir kaynak grubu oluşturun.
 5. Dağıtımı test etme.
 6. İsterseniz, dağıtım modu ayarlayın.
-7. Şablon dağıtın.
+7. Şablonu dağıtın.
 
-Azure Resource Manager şablonları dağıtma hakkında tam bilgi için bkz: [kaynakları Azure Resource Manager şablonları ile dağıtma][Deploy resources with Azure Resource Manager templates].
+Azure Resource Manager şablonlarını dağıtma hakkında tam bilgi için bkz. [kaynakları Azure Resource Manager şablonları ile dağıtma][Deploy resources with Azure Resource Manager templates].
 
 ### <a name="install-powershell"></a>PowerShell yükleme
 
-Azure PowerShell yönergelerini takip ederek yükleyin [Azure PowerShell ile çalışmaya başlama](/powershell/azure/get-started-azureps).
+' Ndaki yönergeleri takip ederek Azure PowerShell'i yükleme [Azure PowerShell'i kullanmaya başlama](/powershell/azure/get-started-azureps).
 
 ### <a name="create-a-template"></a>Şablon oluşturma
 
-Depo veya kopya kopyalama [201-servicebus--kuyruk oluşturma](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) github'dan şablon:
+Depo veya kopyalama kopyalama [201-servicebus-oluşturma-kuyruk](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) github'dan şablon:
 
 ```json
 {
@@ -135,9 +135,9 @@ Depo veya kopya kopyalama [201-servicebus--kuyruk oluşturma](https://github.com
 }
 ```
 
-### <a name="create-a-parameters-file-optional"></a>Bir parametre dosyası (isteğe bağlı) oluşturun
+### <a name="create-a-parameters-file-optional"></a>Bir parametre dosyası oluşturma (isteğe bağlı)
 
-Bir isteğe bağlı parametreler dosyası kullanmak için kopyalamanız [201-servicebus--kuyruk oluşturma](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json) dosya. Değerini `serviceBusNamespaceName` bu dağıtımda oluşturun ve değerini değiştirmek istediğiniz hizmet veri yolu ad alanı ile `serviceBusQueueName` oluşturmak istediğiniz kuyruk adı.
+İsteğe bağlı parametreler dosyası kullanmak için kopyalayın [201-servicebus-oluşturma-kuyruk](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json) dosya. Değiştirin `serviceBusNamespaceName` bu dağıtımı oluşturma ve değerini değiştirmek istediğiniz Service Bus ad alanı adı ile `serviceBusQueueName` ile oluşturmak istediğiniz Kuyruğun adı.
 
 ```json
 {
@@ -157,9 +157,9 @@ Bir isteğe bağlı parametreler dosyası kullanmak için kopyalamanız [201-ser
 }
 ```
 
-Daha fazla bilgi için bkz: [parametreleri](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) makalesi.
+Daha fazla bilgi için [parametreleri](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) makalesi.
 
-### <a name="log-in-to-azure-and-set-the-azure-subscription"></a>Azure'da oturum açma ve Azure abonelik ayarlayın
+### <a name="log-in-to-azure-and-set-the-azure-subscription"></a>Azure'da oturum açın ve Azure aboneliğini ayarlayın
 
 Bir PowerShell isteminden aşağıdaki komutu çalıştırın:
 
@@ -173,7 +173,7 @@ Azure hesabınızda oturum açmak için istenir. Oturum açtıktan sonra kullan�
 Get-AzureRMSubscription
 ```
 
-Bu komut kullanılabilir Azure Aboneliklerin listesini döndürür. Aşağıdaki komutu çalıştırarak geçerli oturum için bir abonelik seçin. Değiştir `<YourSubscriptionId>` kullanmak istediğiniz Azure aboneliği için GUID ile:
+Bu komut, kullanılabilir Azure abonelikleri listesini döndürür. Aşağıdaki komutu çalıştırarak geçerli oturum için bir abonelik seçin. Değiştirin `<YourSubscriptionId>` ile kullanmak istediğiniz Azure abonelik GUİD'i:
 
 ```powershell
 Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
@@ -181,13 +181,13 @@ Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
 ### <a name="set-the-resource-group"></a>Kaynak grubu
 
-Grup, yeni bir kaynak grubu oluşturmak için mevcut bir kaynağı yoksa ** New-AzureRmResourceGroup ** komutu. Kullanmak istediğiniz konumu ve kaynak grubu adını sağlayın. Örneğin:
+Mevcut bir kaynak grubu, yeni bir kaynak grubu oluşturun yoksa ** New-AzureRmResourceGroup ** komutu. Kullanmak istediğiniz konum ve kaynak grubu adını sağlayın. Örneğin:
 
 ```powershell
 New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
 ```
 
-Başarılı olursa, yeni kaynak grubu bir özeti görüntülenir.
+Başarılı olursa, yeni kaynak grubunun bir özeti gösterilir.
 
 ```powershell
 ResourceGroupName : MyDemoRG
@@ -199,7 +199,7 @@ ResourceId        : /subscriptions/<GUID>/resourceGroups/MyDemoRG
 
 ### <a name="test-the-deployment"></a>Dağıtımı test etme
 
-Çalıştırarak, dağıtımınızı doğrulama `Test-AzureRmResourceGroupDeployment` cmdlet'i. Tam dağıtım yürütülürken gibi dağıtım sınarken parametreleri sağlar.
+Çalıştırarak dağıtımınızı doğrulama `Test-AzureRmResourceGroupDeployment` cmdlet'i. Tam dağıtım yürütülürken gibi test etme ve dağıtım parametreleri belirtin.
 
 ```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
@@ -207,9 +207,9 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <p
 
 ### <a name="create-the-deployment"></a>Dağıtım oluşturma
 
-Yeni dağıtım oluşturmak için çalıştırın `New-AzureRmResourceGroupDeployment` cmdlet'ini ve istendiğinde gerekli parametreleri belirtin. Parametreleri adına, kaynak grubu ve yolu veya URL'si şablon dosyası, dağıtımınız için bir ad içerir. Varsa **modu** parametresi belirtilmezse, varsayılan değeri **artımlı** kullanılır. Daha fazla bilgi için bkz: [artımlı ve tam dağıtımları](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments).
+Yeni dağıtım oluşturmak için çalıştırılması `New-AzureRmResourceGroupDeployment` cmdlet'ini ve istendiğinde gerekli parametreleri belirtin. Kaynak grubunuzu ve yolu veya URL adı şablon dosyasına dağıtımınız için bir ad parametreleri içerir. Varsa **modu** parametresi belirtilmezse, varsayılan değerini **artımlı** kullanılır. Daha fazla bilgi için [artımlı ve tam dağıtımları](../azure-resource-manager/deployment-modes.md).
 
-Aşağıdaki komutu PowerShell penceresinde üç parametre ister:
+Aşağıdaki komutu PowerShell penceresine üç parametrelerinde ister:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
@@ -221,20 +221,20 @@ Bunun yerine bir parametre dosyası belirtmek için aşağıdaki komutu kullanı
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
 ```
 
-Dağıtım cmdlet'ini çalıştırdığınızda, satır içi parametreleri de kullanabilirsiniz. Komut aşağıdaki gibidir:
+Dağıtım cmdlet'ini çalıştırdığınızda, satır içi parametreleri kullanabilirsiniz. Komutu aşağıdaki gibidir:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
-Çalıştırmak için bir [tam](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) dağıtımı, **modu** parametresi **tam**:
+Çalıştırılacak bir [tam](../azure-resource-manager/deployment-modes.md) dağıtımı, **modu** parametresi **tam**:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 ### <a name="verify-the-deployment"></a>Dağıtımı doğrulama
-Kaynakları başarıyla dağıtılmışsa, dağıtım özetini PowerShell penceresinde görüntülenir:
+Kaynakları başarıyla dağıtılırsa, dağıtımın bir özeti PowerShell penceresinde görüntülenir:
 
 ```powershell
 DeploymentName    : MyDemoDeployment
@@ -253,10 +253,10 @@ Parameters        :
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi bir Azure Resource Manager şablonunu dağıtmak için komutları ve temel iş akışı gördünüz. Daha ayrıntılı bilgi için aşağıdaki bağlantıları ziyaret edin:
+Artık, bir Azure Resource Manager şablonu dağıtmak için komutları ve temel iş akışı gördünüz. Daha ayrıntılı bilgi için aşağıdaki bağlantıları ziyaret edin:
 
 * [Azure Resource Manager'a genel bakış][Azure Resource Manager overview]
-* [Resource Manager şablonları ve Azure PowerShell ile kaynakları dağıtma][Deploy resources with Azure Resource Manager templates]
+* [Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma][Deploy resources with Azure Resource Manager templates]
 * [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md)
 
 [Azure Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md
