@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 08/06/2018
 ms.author: jeedes
-ms.openlocfilehash: b2c48c8c4566fb143f0a356f342d21580b1b6359
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a8816451b45171e0ba8cbd7acc937201c587c481
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420266"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627959"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Öğretici: Azure Active Directory Qlik algılama Enterprise ile tümleştirme
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi Qlik algılama Enterprise ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Qlik anlamda Kurumsal çoklu oturum açma etkin
 
 > [!NOTE]
@@ -53,26 +53,26 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Qlik anlamda Kurumsal ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-qlik-sense-enterprise-from-the-gallery"></a>Galeriden Qlik anlamda Kurumsal ekleme
 Azure AD'de Qlik anlamda Kurumsal tümleştirmesini yapılandırmak için Qlik anlamda Kurumsal Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Qlik anlamda Kurumsal eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi][1]
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
-    
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-1. Arama kutusuna **Qlik anlamda Kurumsal**seçin **Qlik anlamda Kurumsal** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+4. Arama kutusuna **Qlik anlamda Kurumsal**seçin **Qlik anlamda Kurumsal** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Sonuç listesinde Qlik anlamda Kurumsal](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_addfromgallery.png)
 
@@ -86,11 +86,11 @@ Qlik algılama kuruluşta değerini atayın **kullanıcı adı** değerini Azure
 
 Yapılandırma ve Azure AD çoklu oturum açma Qlik algılama Enterprise ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Qlik anlamda Kurumsal test kullanıcısı oluşturma](#create-a-qlik-sense-enterprise-test-user)**  - Qlik algılama kuruluşta, kullanıcının Azure AD gösterimini bağlı Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on) ** - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user) ** - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Qlik anlamda Kurumsal test kullanıcısı oluşturma](#create-a-qlik-sense-enterprise-test-user) ** - Qlik algılama kuruluşta, kullanıcının Azure AD gösterimini bağlı Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user) ** - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#test-single-sign-on) ** - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -102,156 +102,155 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Q
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+
     ![Çoklu oturum açma iletişim kutusu](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_samlbase.png)
 
-1. Üzerinde **Qlik anlamda Kurumsal etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Qlik anlamda Kurumsal etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Qlik anlamda Kurumsal etki alanı ve URL'ler tek oturum açma bilgileri](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<Qlik Sense Fully Qualifed Hostname>:443//samlauthn/`
-    
-    > [!NOTE]
-    > Bu URI, sonunda eğik unutmayın. Gerekli değildir.
-    
+    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<Qlik Sense Fully Qualifed Hostname>:4443/azure/hub`
+
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
     | |
     |--|
     | `https://<Qlik Sense Fully Qualifed Hostname>.qlikpoc.com`|
     | `https://<Qlik Sense Fully Qualifed Hostname>.qliksense.com`|
+    | |
 
-    > [!NOTE] 
-    > Bu değerler gerçek değildir. Daha sonra Bu öğreticide veya kişi içinde açıklanan gerçek oturum açma URL'si ve tanımlayıcı, bu değerleri güncelleştirmek [Qlik anlamda Kurumsal İstemci Destek ekibine](https://www.qlik.com/us/services/support) bu değerleri almak için. 
+    c. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak:
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+    `https://<Qlik Sense Fully Qualifed Hostname>:4443/samlauthn/`
 
-    ![Sertifika indirme bağlantısı](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_certificate.png) 
+    > [!NOTE]
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si, tanımlayıcıya ve yanıt URL'si, Bu öğretici veya kişi daha sonra açıklanacak olan güncelleştirme [Qlik anlamda Kurumsal İstemci Destek ekibine](https://www.qlik.com/us/services/support) bu değerleri almak için.
 
-1. Tıklayın **Kaydet** düğmesi.
+4. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+
+    ![Sertifika indirme bağlantısı](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_certificate.png)
+
+5. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/qliksense-enterprise-tutorial/tutorial_general_400.png)
 
-1. Böylece, Qlik Sense sunucusuna yükleyebilirsiniz, Federasyon meta veri XML dosyasını hazırlayın.
-   
+6. Böylece, Qlik Sense sunucusuna yükleyebilirsiniz, Federasyon meta veri XML dosyasını hazırlayın.
+
     > [!NOTE]
     > Qlik Sense sunucuya IDP meta verilerini karşıya yüklemeden önce dosyayı Azure AD arasında düzgün çalışmasını sağlamak için bilgileri kaldırmak için düzenlenmesi gereken ve Qlik Sense sunucusu.
-    
+
     ![QlikSense][qs24]
-   
+
     a. Bir metin düzenleyicisinde Azure portalından indirilen FederationMetaData.xml dosyasını açın.
-   
+
     b. Ara değer **verilerde Securitytokenservicetype**.  Dört girdi (açılış ve kapanış etiketlerinin öğesi, iki çiftleri) vardır.
-   
+
     c. Verilerde Securitytokenservicetype etiketler ve tüm bilgileri arasında dosyadan silin.
-   
+
     d. Dosyayı kaydedin ve bu belgenin ilerleyen bölümlerinde kullanmak için yakın tutun.
 
-1. Qlik algılama Qlik Yönetim Konsolu (QMC) için sanal proxy yapılandırmaları oluşturabilen bir kullanıcı olarak gidin.
+7. Qlik algılama Qlik Yönetim Konsolu (QMC) için sanal proxy yapılandırmaları oluşturabilen bir kullanıcı olarak gidin.
 
-1. QMC içinde tıklayarak **sanal proxy'leri** menü öğesi.
-   
-    ![QlikSense][qs6] 
+8. QMC içinde tıklayarak **sanal proxy'leri** menü öğesi.
 
-1. Ekranın alt kısmında tıklayın **Yeni Oluştur** düğmesi.
-   
+    ![QlikSense][qs6]
+
+9. Ekranın alt kısmında tıklayın **Yeni Oluştur** düğmesi.
+
     ![QlikSense][qs7]
 
-1. Sanal proxy düzenleme ekranında görüntülenir.  Ekranın sağ tarafında yapılandırma seçenekleri görünür yapmak için bir menü kalır.
-   
+10. Sanal proxy düzenleme ekranında görüntülenir.  Ekranın sağ tarafında yapılandırma seçenekleri görünür yapmak için bir menü kalır.
+
     ![QlikSense][qs9]
 
-1. İşaretli kimliği menü seçeneği ile Azure sanal proxy yapılandırması için tanımlayıcı bilgileri girin.
-    
+11. İşaretli kimliği menü seçeneği ile Azure sanal proxy yapılandırması için tanımlayıcı bilgileri girin.
+
     ![QlikSense][qs8]  
-    
+
     a. **Açıklama** sanal proxy yapılandırması için bir kolay ad alanıdır.  Bir değer için bir açıklama girin.
-    
+
     b. **Önek** alan Qlik Sense ile Azure AD çoklu oturum açma bağlanmak için sanal proxy uç nokta tanımlar.  Bu sanal proxy'si için bir benzersiz ön ek adı girin.
-    
+
     c. **Oturum etkin olmama zaman aşımı (dakika)** sanal bu Ara sunucu üzerinden bağlantılar için zaman aşımı.
-    
+
     d. **Oturum tanımlama bilgisi üstbilgisi adı** oturum tanımlayıcıyı bir kullanıcı alır başarılı kimlik doğrulamasından sonra Qlik Sense oturumu için depolama tanımlama bilgisi adı.  Bu ad benzersiz olmalıdır.
 
-1. Görünür yapmak için kimlik doğrulama menü seçeneğine tıklayın.  Kimlik doğrulama ekranı görünür.
-    
+12. Görünür yapmak için kimlik doğrulama menü seçeneğine tıklayın.  Kimlik doğrulama ekranı görünür.
+
     ![QlikSense][qs10]
-    
+
     a. **Anonim erişim modu** açılan anonim kullanıcılar sanal proxy üzerinden Qlik Sense erişim olmadığını belirler.  Anonim kullanıcı varsayılan seçenektir.
-    
+
     b. **Kimlik doğrulama yöntemi** açılan belirler sanal proxy kimlik doğrulama düzeni kullanır.  SAML, aşağı açılan listeden seçin.  Sonuç olarak daha fazla seçenek görüntülenir.
-    
+
     c. İçinde **SAML konak URI alan**, ana bilgisayar adı kullanıcıları girin Qlik Sense bu SAML sanal proxy üzerinden erişmek için giriş.  URI Qlik Sense sunucusunun adıdır.
-    
+
     d. İçinde **SAML varlık kimliği**, SAML konak URI alan için girdiğiniz aynı değeri girin.
-    
+
     e. **IDP SAML meta veri** daha önce düzenlenebilir bir dosya **Azure AD yapılandırmasından Federasyon meta verileri Düzenle** bölümü.  **IDP meta verilerini karşıya yüklemeden önce dosyayı düzenlenmesi gereken** Azure AD arasında düzgün çalışmasını sağlamak için bilgileri kaldırmak için ve Qlik Sense sunucusu.  **Düzenlenecek dosyayı henüz varsa lütfen yönergeleri inceleyin.**  Dosyayı düzenlerseniz sanal proxy yapılandırması için yüklenecek düzenlenen meta veri dosyasını seçin ve Gözat düğmesine tıklayın.
-    
+
     f. SAML gösteren özniteliği için öznitelik adı veya şema başvurusu girin **UserID** Azure AD Qlik Sense sunucusuna gönderir.  Azure uygulama ekranları post yapılandırmada şema başvuru bilgileri kullanılabilir.  Ad özniteliği kullanmak için girin `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
-    
+
     g. Si **kullanıcı dizini** , eklenen kullanıcılara Qlik Sense sunucusuna Azure AD üzerinden kimlik doğrulaması sırasında.  Sabit kodlanmış değerler arasına, tarafından **köşeli ayraçlar []**.  Azure AD SAML onaylaması içinde gönderilen bir özniteliği kullanacak şekilde öznitelik adı bu metin kutusuna girin **olmadan** köşeli ayraç.
-    
+
     h. **SAML imzalama algoritması** sanal proxy yapılandırması için imzalama hizmet sağlayıcısında (büyük/küçük harf bu Qlik Sense sunucusu) sertifika ayarlar.  SAML imzalama algoritması Qlik Sense sunucusu Microsoft Gelişmiş RSA ve AES şifreleme sağlayıcısı kullanılarak oluşturulan güvenilen bir sertifika kullanıyorsa, Değiştir **SHA-256'yı**.
-    
+
     i. Güvenlik kuralları'nda kullanılmak için Qlik Sense gönderilecek grupları gibi ek öznitelikler için SAML öznitelik eşlemesi bölümü sağlar.
 
-1. Tıklayarak **yük DENGELEME** görünür yapmak için menü seçeneği.  Yük Dengeleme ekranı görüntülenir.
-    
+13. Tıklayarak **yük DENGELEME** görünür yapmak için menü seçeneği.  Yük Dengeleme ekranı görüntülenir.
+
     ![QlikSense][qs11]
 
-1. Tıklayarak **Ekle yeni sunucu düğümü** düğme, select altyapısı düğümü veya düğümleri Qlik Sense gönderecek Yükü Dengeleme amaçlar için ve oturumları **Ekle** düğmesi.
-    
+14. Tıklayarak **Ekle yeni sunucu düğümü** düğme, select altyapısı düğümü veya düğümleri Qlik Sense gönderecek Yükü Dengeleme amaçlar için ve oturumları **Ekle** düğmesi.
+
     ![QlikSense][qs12]
 
-1. Görünür yapmak için Gelişmiş menü seçeneğine tıklayın. Gelişmiş ekran görüntülenir.
-    
+15. Görünür yapmak için Gelişmiş menü seçeneğine tıklayın. Gelişmiş ekran görüntülenir.
+
     ![QlikSense][qs13]
-    
+
     Konak beyaz liste Qlik Sense sunucuya bağlanırken kabul ana bilgisayar adlarını tanımlar.  **Kullanıcıların Qlik Sense sunucuya bağlanırken belirteceği ana bilgisayar adı girin.** SAML konak Uri'si ' https://'olmadan aynı değere adıdır.
 
-1. Tıklayın **Uygula** düğmesi.
-    
+16. Tıklayın **Uygula** düğmesi.
+
     ![QlikSense][qs14]
 
-1. Sanal Ara sunucuya bağlı proxy'leri yeniden başlatılacak belirten uyarı iletisini kabul etmek için Tamam'a tıklayın.
-    
+17. Sanal Ara sunucuya bağlı proxy'leri yeniden başlatılacak belirten uyarı iletisini kabul etmek için Tamam'a tıklayın.
+
     ![QlikSense][qs15]
 
-1. Ekranın sağ tarafında, ilişkili öğeleri menü görünür.  Tıklayarak **proxy'leri** menü seçeneği.
-    
+18. Ekranın sağ tarafında, ilişkili öğeleri menü görünür.  Tıklayarak **proxy'leri** menü seçeneği.
+
     ![QlikSense][qs16]
 
-1. Proxy ekranı görüntülenir.  Tıklayın **bağlantı** sanal proxy sunucusuna bir ara sunucu bağlantısını için alt kısımdaki düğmesi.
-    
+19. Proxy ekranı görüntülenir.  Tıklayın **bağlantı** sanal proxy sunucusuna bir ara sunucu bağlantısını için alt kısımdaki düğmesi.
+
     ![QlikSense][qs17]
 
-1. Bu sanal Ara sunucu bağlantısı desteği ve proxy düğümü seçin **bağlantı** düğmesi.  Bağladıktan sonra proxy ilişkili proxy'leri altında listelenir.
-    
+20. Bu sanal Ara sunucu bağlantısı desteği ve proxy düğümü seçin **bağlantı** düğmesi.  Bağladıktan sonra proxy ilişkili proxy'leri altında listelenir.
+
     ![QlikSense][qs18]
   
     ![QlikSense][qs19]
 
-1. Yaklaşık beş ila on saniye sonra Yenile QMC iletisi görüntülenir.  Tıklayın **Yenile QMC** düğmesi.
-    
+21. Yaklaşık beş ila on saniye sonra Yenile QMC iletisi görüntülenir.  Tıklayın **Yenile QMC** düğmesi.
+
     ![QlikSense][qs20]
 
-1. QMC yenilendiğinde tıklayarak **sanal proxy'leri** menü öğesi. Yeni SAML sanal proxy giriş ekranında tabloda listelenir.  Tek sanal proxy girişe tıklayın.
-    
+22. QMC yenilendiğinde tıklayarak **sanal proxy'leri** menü öğesi. Yeni SAML sanal proxy giriş ekranında tabloda listelenir.  Tek sanal proxy girişe tıklayın.
+
     ![QlikSense][qs51]
 
-1. Ekranın alt kısmında, SP indirme meta veri düğmesi etkinleşir.  Tıklayın **SP indirme meta veri** düğmesini meta verileri bir dosyaya kaydedin.
-    
+23. Ekranın alt kısmında, SP indirme meta veri düğmesi etkinleşir.  Tıklayın **SP indirme meta veri** düğmesini meta verileri bir dosyaya kaydedin.
+
     ![QlikSense][qs52]
 
-1. Sp meta veri dosyası açın.  Gözlemleyin **Entityıd** girişi ve **AssertionConsumerService** girişi.  Bu değerleri eşdeğer **tanımlayıcı** ve **oturum açma URL'si** Azure AD uygulama yapılandırması. Bu değerleri yapıştırın **Qlik anlamda Kurumsal etki alanı ve URL'ler** Azure AD uygulaması Yapılandırma Sihirbazı'nda değiştirmelisiniz sonra bunlar, eşleşen değil, Azure AD Uygulama Yapılandırması bölümünde.
-    
+24. Sp meta veri dosyası açın.  Gözlemleyin **Entityıd** girişi ve **AssertionConsumerService** girişi.  Bu değerleri eşdeğer **tanımlayıcı**, **oturum açma URL'si** ve **yanıt URL'si** Azure AD uygulama yapılandırması. Bu değerleri yapıştırın **Qlik anlamda Kurumsal etki alanı ve URL'ler** Azure AD uygulaması Yapılandırma Sihirbazı'nda değiştirmelisiniz sonra bunlar, eşleşen değil, Azure AD Uygulama Yapılandırması bölümünde.
+
     ![QlikSense][qs53]
 
-> [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
 ![Bir Azure AD test kullanıcısı oluşturma][100]
@@ -262,15 +261,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
    ![Azure Active Directory düğmesi](./media/qliksense-enterprise-tutorial/create_aaduser_01.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/qliksense-enterprise-tutorial/create_aaduser_02.png)
 
-1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
    ![Ekle düğmesi](./media/qliksense-enterprise-tutorial/create_aaduser_03.png)
 
-1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
    ![Kullanıcı iletişim kutusu](./media/qliksense-enterprise-tutorial/create_aaduser_04.png)
 
@@ -281,46 +280,46 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 
    d. **Oluştur**’a tıklayın.
- 
+
 ### <a name="create-a-qlik-sense-enterprise-test-user"></a>Qlik anlamda Kurumsal test kullanıcısı oluşturma
 
-Bu bölümde, Qlik anlamda Kurumsal Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [Qlik anlamda Kurumsal İstemci Destek ekibine](https://www.qlik.com/us/services/support) Qlik anlamda Kurumsal platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
+Bu bölümde, Qlik anlamda Kurumsal Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [Qlik anlamda Kurumsal İstemci Destek ekibine](https://www.qlik.com/us/services/support) Qlik anlamda Kurumsal platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Qlik algılama kuruluş erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+![Kullanıcı rolü atayın][200]
 
 **Britta Simon Qlik algılama kuruluş atamak için aşağıdaki adımları gerçekleştirin:**
 
 1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı Ata][201] 
+    ![Kullanıcı Ata][201]
 
-1. Uygulamalar listesinde **Qlik anlamda Kurumsal**.
+2. Uygulamalar listesinde **Qlik anlamda Kurumsal**.
 
     ![Uygulamalar listesinde Qlik anlamda Kurumsal bağlantı](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_app.png)  
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Atama Ekle bölmesi][203]
 
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde Qlik anlamda Kurumsal kutucuğa tıkladığınızda, otomatik olarak Qlik anlamda Kurumsal uygulamanıza açan. 
+Erişim panelinde Qlik anlamda Kurumsal kutucuğa tıkladığınızda, otomatik olarak Qlik anlamda Kurumsal uygulamanıza açan.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -360,4 +359,3 @@ Erişim panelinde Qlik anlamda Kurumsal kutucuğa tıkladığınızda, otomatik 
 [qs51]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_51.png
 [qs52]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_52.png
 [qs53]: ./media/qliksense-enterprise-tutorial/tutorial_qliksenseenterprise_53.png
-

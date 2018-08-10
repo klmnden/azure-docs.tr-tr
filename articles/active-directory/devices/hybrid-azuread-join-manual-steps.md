@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 546717330a08b348800ea9c4c9cd7784f54595eb
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ba47223f86005809189214f26a63b75b21449e3a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618532"
+ms.locfileid: "39630628"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Öğretici: Azure Active Directory'ye katılmış cihazlarda karma el ile yapılandırma 
 
@@ -35,40 +35,18 @@ Bir şirket içi Active Directory ortamınız varsa ve etki alanına katılan ci
 > Azure AD Connect kullanarak sizin için bir seçenek olup olmadığını, [senaryonuzu seçin](hybrid-azuread-join-plan.md#select-your-scenario). Azure AD Connect kullanarak hibrit Azure AD'ye katılma yapılandırmasını önemli ölçüde basitleştirebilir.
 
 
-## <a name="before-you-begin"></a>Başlamadan önce
-
-Hibrit Azure AD'ye katılmış cihazları yapılandırma ortamınıza başlamadan önce desteklenen senaryolar ve kısıtlamalar ile planladığınızdan.  
-
-Bağlı, [Sistem Hazırlama Aracı'nı (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), bir Azure AD ile kaydedilmemiş Windows yüklemesinden görüntüleri oluşturduğunuz emin olun.
-
-Tüm etki alanına katılmış cihazlar Azure AD'ye cihaz yeniden başlatma veya kullanıcı ile çalışan Windows 10 Yıldönümü güncelleştirmesi ve Windows Server 2016'ın otomatik olarak kaydedilecek aşağıda belirtilen yapılandırma adımları tamamlandıktan sonra oturum. **Bu otomatik yazmaç davranışı tercih edilen değilse ya da denetimli bir şekilde kademeli isteniyorsa**, Lütfen önce seçerek etkinleştirin veya önce otomatik dağıtımı devre dışı bırakmak için aşağıdaki "Adım 4: denetim dağıtım ve piyasaya çıkma" bölümündeki yönergeleri izleyin başka yapılandırma adımları izleyerek.  
-
-Açıklamaları okunabilirliğini geliştirmek için bu makalede aşağıdaki terimi kullanılmaktadır: 
-
-- **Windows cihazları** -Windows 10 veya Windows Server 2016 çalıştıran etki alanına katılmış cihazlar için bu terimi anlamına gelir.
-- **Windows alt düzey cihazları** -bu terim tümüne başvuruyor **desteklenen** çalışan Windows 10 ne Windows Server 2016 etki alanına katılmış Windows cihazlar.  
-
-### <a name="windows-current-devices"></a>Windows cihazları
-
-- Windows masaüstü işletim sistemini çalıştıran cihazlar için desteklenen sürüm Windows 10 Yıldönümü Güncelleştirmesi (sürüm 1607) olan veya üzeri. 
-- Geçerli Windows cihazların kaydını **olduğu** parola karması eşitleme yapılandırması gibi Federasyon olmayan ortamlarda desteklenir.  
-
-
-### <a name="windows-down-level-devices"></a>Windows alt düzey cihazları
-
-- Aşağıdaki Windows alt düzey cihazlar desteklenir:
-    - Windows 8.1
-    - Windows 7
-    - Windows Server 2012 R2
-    - Windows Server 2012
-    - Windows Server 2008 R2
-- Windows alt düzey cihazların kaydını **olduğu** sorunsuz çoklu oturum açma aracılığıyla Federasyon olmayan ortamlarda desteklenen [Azure Active Directory sorunsuz çoklu oturum açma](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
-- Windows alt düzey cihazların kaydını **değil** sorunsuz çoklu oturum açma olmadan Azure AD geçişli kimlik doğrulaması kullanılırken desteklenir.
-- Windows alt düzey cihazların kaydını **değil** dolaşım profilleri kullanan cihazlar için desteklenir. Gezici profilleri veya ayarlarını FQDN'yi kullanıyorsanız, Windows 10 kullanın.
-
 
 
 ## <a name="prerequisites"></a>Önkoşullar
+
+Bu öğretici, aşina olduğunuzu varsayar:
+    
+-  [Azure Active Directory'de cihaz yönetimine giriş](../device-management-introduction.md)
+    
+-  [Hibrit Azure Active Directory'ye katılma uygulamanızı planlama](hybrid-azuread-join-plan.md)
+
+-  [Cihazlarınızın hibrit Azure AD'ye katılımını denetleme](hybrid-azuread-join-control.md)
+
 
 Kuruluşunuzdaki hibrit Azure AD'ye katılmış cihazların etkinleştirme başlamadan önce emin olmanız gerekir:
 
@@ -117,7 +95,6 @@ Senaryonuz için gerekli olan adımları genel bakışını almak için aşağı
 | Hizmet bağlantı noktasını yapılandırma | ![İşaretli][1]                            | ![İşaretli][1]                    | ![İşaretli][1]        |
 | Talep verme Kurulumu           |                                        | ![İşaretli][1]                    | ![İşaretli][1]        |
 | Windows 10 cihazları etkinleştirme      |                                        |                                | ![İşaretli][1]        |
-| Denetim dağıtım ve sunum     | ![İşaretli][1]                            | ![İşaretli][1]                    | ![İşaretli][1]        |
 | Katılan cihazlar doğrulayın          | ![İşaretli][1]                            | ![İşaretli][1]                    | ![İşaretli][1]        |
 
 
@@ -562,59 +539,6 @@ Sertifika önlemek için kayıt cihazlardaki kullanıcılar yerel Intranet bölg
 
 `https://device.login.microsoftonline.com`
 
-## <a name="control-deployment-and-rollout"></a>Denetim dağıtım ve sunum
-
-Gerekli adımları tamamladıktan sonra etki alanına katılmış cihazlar otomatik olarak Azure AD'ye katılmak hazırdır:
-
-- Windows 10 Yıldönümü güncelleştirmesi ve Windows Server 2016 çalıştıran tüm etki alanına katılmış cihazlar Azure AD'ye cihaz kaydı otomatik olarak yeniden başlatın veya kullanıcı oturum açma. 
-
-- Yeni cihazlar etki alanına katılma işlemi tamamlandıktan sonra cihaz yeniden başlatıldığında, Azure AD'ye kaydetme.
-
-- Kayıtlı (örneğin, Intune için) daha önce Azure AD cihazları için geçiş "*etki alanına katılmış, AAD kayıtlı*"; Ancak, etki alanının gelen normal akıştaki nedeniyle tüm cihazlardaki tamamlamak bu işlem biraz zaman alabilir ve kullanıcı etkinliği.
-
-### <a name="remarks"></a>Açıklamalar
-
-- Bir Grup İlkesi nesnesi veya Windows 10 ve Windows Server 2016 etki alanına katılmış bilgisayarların otomatik kayıt piyasaya sürümü denetlemek için System Center Configuration Manager istemcisi ayarı kullanabilirsiniz. **Bu cihazlar otomatik olarak Azure AD'ye kaydetme istemediğiniz veya kayıt denetlemek istiyorsanız**, önce bu cihazlara otomatik kayıt devre dışı bırakma, Grup İlkesi alma gerekir sonra veya yapılandırma Yönetici altındaki bulut Hizmetleri ayarı yapılandırmanız gerekir > otomatik olarak "tüm yapılandırma adımlarını başlatmadan önce Hayır", Azure Active Directory'ye yeni Windows 10 etki alanına katılmış cihazları kaydedin. 
-
-> [!Important]
-> Uygulamasındaki yeni Windows 10 cihazlarının otomatik kayıt denemesi sırasında oluşabilen etki alanına katılmış bilgisayarlarda Grup İlkesi nesnesinin olası gecikme olduğundan, şimdiye kadar hiç bir Windows 10 cihazından yeni bir sysprep görüntüsü oluşturmanız gerekir daha önce otomatik olarak kayıtlı ve Windows 10 cihazların otomatik kaydını devre dışı bırakın ve kuruluşunuzun etki alanına yeni bilgisayarları sağlamak için sysprep görüntüsü GPO zaten vardır.
-
-Bitirdikten sonra yapılandırmak, ve test hazır olduğunuzda, Grup İlkesi yalnızca sınama cihazları için otomatik kaydı etkinleştirme kullanıma alma ve diğer tüm cihazlar aynı tercih olmalıdır.
-
-- Windows alt düzey bilgisayar dağıtım için dağıtabileceğiniz bir [Windows Installer paketi](#windows-installer-packages-for-non-windows-10-computers) seçtiğiniz bilgisayarlara.
-
-- Windows 8.1 etki alanına katılmış cihazlar için Grup İlkesi nesnesi gönderirseniz, bir birleştirme girişiminde; Ancak, kullanmanız önerilir [Windows Installer paketi](#windows-installer-packages-for-non-windows-10-computers) tüm Windows alt düzey cihazları eklemek için. 
-
-### <a name="create-a-group-policy-object"></a>Bir Grup İlkesi nesnesi oluşturun 
-
-Geçerli Windows bilgisayarların piyasaya sürümü denetlemek için dağıtmanız **bilgisayarları etki alanına katılmış cihaz olarak kaydetme** kaydolmak istediğiniz cihazlara Grup İlkesi nesnesi. Örneğin, bir kuruluş birimi veya güvenlik grubuna ilke dağıtabilirsiniz.
-
-**İlke ayarlamak için:**
-
-1. Açık **Sunucu Yöneticisi'ni**ve ardından `Tools > Group Policy Management`.
-2. Geçerli Windows bilgisayarları otomatik kaydı etkinleştirmek için istediğiniz etki alanına karşılık gelen etki alanı düğümüne gidin.
-3. Sağ **Grup İlkesi nesneleri**ve ardından **yeni**.
-4. Grup İlkesi nesneniz için bir ad yazın. Örneğin, * hibrit Azure AD'ye katılma. 
-5. **Tamam** düğmesine tıklayın.
-6. Yeni Grup İlkesi nesnenizin sağ tıklayın ve ardından **Düzenle**.
-7. Git **Bilgisayar Yapılandırması** > **ilkeleri** > **Yönetim Şablonları** > **Windows Bileşenleri** > **cihaz kaydı**. 
-8. Sağ **bilgisayarları etki alanına katılmış cihaz olarak kaydetme**ve ardından **Düzenle**.
-   
-   > [!NOTE]
-   > Bu Grup İlkesi şablonu Grup İlkesi Yönetimi konsolunun önceki sürümlerinden yeniden adlandırıldı. Konsol önceki bir sürümünü kullanıyorsanız, Git `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
-
-7. Seçin **etkin**ve ardından **Uygula**. Seçmelisiniz **devre dışı bırakılmış** otomatik olarak Azure AD'ye kaydetme bu Grup İlkesi tarafından denetlenen cihazları engellemek için ilke istiyorsanız.
-
-8. **Tamam** düğmesine tıklayın.
-9. Grup İlkesi nesnesini, seçtiğiniz bir konuma bağlayın. Örneğin, belirli bir kuruluş birimi olarak bağlayabilirsiniz. Otomatik olarak Azure AD'ye katılan bilgisayarların belirli bir güvenlik grubuna da bağlayabilirsiniz. Tüm etki alanına katılmış Windows 10 ve Windows Server 2016, kuruluşunuzdaki bilgisayarlar için bu ilke ayarlamak için Grup İlkesi nesnesini, etki alanına bağlayın.
-
-### <a name="windows-installer-packages-for-non-windows-10-computers"></a>Windows 10 bilgisayarları için Windows Installer paketleri
-
-Birleştirilmiş bir ortamda Windows alt düzey bilgisayarları etki alanına katılmış katılmak için indirin ve bu Windows Installer (.msi) paketi İndirme Merkezi'nden yüklemek [Windows 10 bilgisayarları için Microsoft çalışma alanına katılma](https://www.microsoft.com/en-us/download/details.aspx?id=53554) Sayfa.
-
-System Center Configuration Manager gibi bir yazılım dağıtım sistemi kullanarak pakete dağıtabilirsiniz. Paket ile standart sessiz yükleme seçeneklerini destekler *sessiz* parametresi. System Center Configuration Manager geçerli dalının tamamlanmış kayıtları izleme yeteneği gibi daha önceki sürümlerin ek avantajlar sunar. Daha fazla bilgi için [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager).
-
-Yükleyici, kullanıcının bağlamında çalışan sistemdeki zamanlanmış bir görev oluşturur. Windows için kullanıcının oturum açtığı zaman görevi tetiklenir. Görev, kullanıcı kimlik bilgileriyle tümleşik Windows kimlik doğrulamasını kullanarak kimlik doğrulaması sonra Azure AD ile cihaz sessizce birleştirir. Cihaz zamanlanan görevde görmek için Git **Microsoft** > **çalışma alanına katılma**ve ardından Görev Zamanlayıcı Kitaplığı'na gidin.
 
 ## <a name="verify-joined-devices"></a>Katılan cihazlar doğrulayın
 
