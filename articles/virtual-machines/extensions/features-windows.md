@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 939c8d203382d76c1b163eb68143f3fff78d71d3
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: e23d3c39c6fd4e69f03ab0f2c11c9b523307b788
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413047"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715150"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Sanal makine uzantıları ve özellikleri Windows için
 
@@ -135,7 +135,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-`Set-AzureRmVMExtension` Komutu, herhangi bir VM uzantısı'nı başlatmak için kullanılabilir. Daha fazla bilgi için [Set-AzureRmVMExtension başvuru](https://msdn.microsoft.com/library/mt603745.aspx).
+`Set-AzureRmVMExtension` Komutu, herhangi bir VM uzantısı'nı başlatmak için kullanılabilir. Daha fazla bilgi için [Set-AzureRmVMExtension başvuru](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension).
 
 
 ### <a name="azure-portal"></a>Azure portal

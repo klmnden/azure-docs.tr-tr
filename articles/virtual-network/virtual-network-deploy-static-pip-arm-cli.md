@@ -13,143 +13,71 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2016
+ms.date: 08/08/2018
 ms.author: jdial
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd44971162a79e53b731c5c89316f14e8bb0a1a6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 203c886828fa13433f784d1db9a032b06fab398a
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38651968"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715208"
 ---
-# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Azure CLI kullanarak bir statik genel IP adresiyle VM oluşturma
+# <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-cli"></a>Azure CLI kullanarak bir statik genel IP adresiyle bir sanal makine oluşturun
 
-> [!div class="op_single_selector"]
-> * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
-> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-> * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
-> * [PowerShell (Klasik)](virtual-networks-reserved-public-ip.md)
+Bir statik genel IP adresiyle bir sanal makine oluşturabilirsiniz. Genel bir IP adresi bir sanal makineye internet üzerinden iletişim kurmasına olanak tanır. Adresi hiçbir zaman değiştirdiğinden emin olmak için bir dinamik adres yerine bir statik genel IP adresi atayın. Daha fazla bilgi edinin [statik genel IP adresleri](virtual-network-ip-addresses-overview-arm.md#allocation-method). Varolan bir sanal makineye gelen dinamik statik olarak atanmış bir genel IP adresini değiştirmek için veya özel IP adresleri ile çalışmak için bkz: [ekleme, değiştirme veya kaldırma IP adresleri](virtual-network-network-interface-addresses.md). Genel IP adreslerine sahip bir [nominal bir ücret](https://azure.microsoft.com/pricing/details/ip-addresses)İşte bir [sınırı](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) için abonelik başına kullanabileceğiniz ortak IP adresi sayısı.
 
-[!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
+## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 
-Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bu makale Klasik dağıtım modeli yerine en yeni dağıtımlar için Microsoft'un önerdiği Resource Manager dağıtım modelini incelemektedir.
+Yerel bilgisayarınızdan veya Azure Cloud Shell'i kullanarak aşağıdaki adımları tamamlayabilirsiniz. Yerel bilgisayarınıza kullanılacak olduğundan emin olun [Azure CLI'yı](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure Cloud Shell'i kullanmak için **deneyin** takip eden herhangi bir komut kutusunu sağ üst köşesindeki içinde. Cloud Shell oturumunuzu Azure'da oturum açar.
 
-[!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
+1. Cloud Shell kullanıyorsanız, 2. adıma atlayın. Azure'a komut oturumuna ve oturum açma `az login`.
+2. [az group create](/cli/azure/group#az-group-create) komutuyla bir kaynak grubu oluşturun. Aşağıdaki örnek, Doğu ABD Azure bölgesinde bir kaynak grubu oluşturur:
 
-## <a name = "create"></a>VM oluşturma
+   ```azurecli-interactive
+   az group create --name myResourceGroup --location eastus
+   ```
 
-Değerler "" adımları değişkenlerinde senaryosundaki ayarlarla kaynakları oluşturun. Ortamınız için uygun değerleri değiştirin.
+3. [az vm create](/cli/azure/vm#az-vm-create) komutuyla bir sanal makine oluşturun. `--public-ip-address-allocation=static` Seçeneği, sanal makine için statik genel IP adresi atar. Aşağıdaki örnek, adlandırılmış bir statik, temel SKU genel IP adresiyle bir Ubuntu sanal makinesi oluşturur *Mypublicıpaddress*:
 
-1. Yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) , zaten yüklü değilse.
-2. İçindeki adımları tamamlayarak Linux VM'ler için SSH ortak ve özel anahtar çifti oluşturma [Linux VM'ler için SSH ortak ve özel anahtar çifti oluşturma](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-3. Oturum açma komutu ile bir komut kabuğu'ndan `az login`.
-4. VM, bir Linux veya Mac bilgisayarda aşağıdaki komut dosyasını çalıştırarak oluşturun. Azure genel IP adresi, sanal ağ, ağ arabirimi ve VM kaynaklarının tümünü aynı konumda bulunmalıdır. Kaynakların tümü aynı kaynak grubunda olması gerekmez ancak bunlar aşağıdaki betikte yapın.
+   ```azurecli-interactive
+   az vm create \
+     --resource-group myResourceGroup \
+     --name myVM \
+     --image UbuntuLTS \
+     --admin-username azureuser \
+     --generate-ssh-keys \
+     --public-ip-address myPublicIpAddress \
+     --public-ip-address-allocation static
+   ```
 
-```bash
-RgName="IaaSStory"
-Location="westus"
+   Standart SKU genel IP adresi olması gerekiyorsa, ekleme `--public-ip-sku Standard` önceki komutu. Daha fazla bilgi edinin [SKU genel IP adresi](virtual-network-ip-addresses-overview-arm.md#sku). Sanal makine genel bir Azure Load Balancer arka uç havuzuna eklenecek, sanal makinenin genel IP adresinin SKU yük dengeleyicinin genel IP adresinin SKU eşleşmesi gerekir. Ayrıntılar için bkz [Azure Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#skus).
 
-# Create a resource group.
+4. Atanan genel IP adresini görüntüleyin ve ile bir statik, temel SKU adresi oluşturulduğunu onaylayın [az ağ public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show):
 
-az group create \
---name $RgName \
---location $Location
+   ```azurecli-interactive
+   az network public-ip show \
+     --resource-group myResourceGroup \
+     --name myPublicIpAddress \
+     --query [ipAddress,publicIpAllocationMethod,sku] \
+     --output table
+   ```
 
-# Create a public IP address resource with a static IP address using the --allocation-method Static option.
-# If you do not specify this option, the address is allocated dynamically. The address is assigned to the
-# resource from a pool of IP adresses unique to each Azure region. The DnsName must be unique within the
-# Azure location it's created in. Download and view the file from https://www.microsoft.com/en-us/download/details.aspx?id=41653#
-# that lists the ranges for each region.
+   Azure, sanal makineyi oluşturduğunuz bölge içinde kullanılan adreslerinden genel bir IP adresi atanır. Azure [Genel](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [Çin](https://www.microsoft.com/download/details.aspx?id=57062) ve [Almanya](https://www.microsoft.com/download/details.aspx?id=57064) bulutları için bu aralıkların (ön ekler) listesini indirebilirsiniz.
 
-PipName="PIPWEB1"
-DnsName="iaasstoryws1"
-az network public-ip create \
---name $PipName \
---resource-group $RgName \
---location $Location \
---allocation-method Static \
---dns-name $DnsName
+> [!WARNING]
+Sanal makinenin işletim sistemi içinde IP adresi ayarlarını değiştirmeyin. İşletim sistemi Azure genel IP adreslerini farkında değil. Özel IP adresi ayarları işletim sistemine ekleyebilirsiniz ancak sürece bunu öneririz gerektiği kadar edindikten sonra değil [bir işletim sistemine özel bir IP adresi Ekle](virtual-network-network-interface-addresses.md#private).
 
-# Create a virtual network with one subnet
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-VnetName="TestVNet"
-VnetPrefix="192.168.0.0/16"
-SubnetName="FrontEnd"
-SubnetPrefix="192.168.1.0/24"
-az network vnet create \
---name $VnetName \
---resource-group $RgName \
---location $Location \
---address-prefix $VnetPrefix \
---subnet-name $SubnetName \
---subnet-prefix $SubnetPrefix
+Artık gerekli değilse, [az group delete](/cli/azure/group#az-group-delete) komutunu kullanarak kaynak grubunu ve içerdiği tüm kaynakları kaldırabilirsiniz:
 
-# Create a network interface connected to the VNet with a static private IP address and associate the public IP address
-# resource to the NIC.
-
-NicName="NICWEB1"
-PrivateIpAddress="192.168.1.101"
-az network nic create \
---name $NicName \
---resource-group $RgName \
---location $Location \
---subnet $SubnetName \
---vnet-name $VnetName \
---private-ip-address $PrivateIpAddress \
---public-ip-address $PipName
-
-# Create a new VM with the NIC
-
-VmName="WEB1"
-
-# Replace the value for the VmSize variable with a value from the
-# https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes article.
-VmSize="Standard_DS1"
-
-# Replace the value for the OsImage variable with a value for *urn* from the output returned by entering
-# the `az vm image list` command. 
-
-OsImage="credativ:Debian:8:latest"
-Username='adminuser'
-
-# Replace the following value with the path to your public key file.
-SshKeyValue="~/.ssh/id_rsa.pub"
-
-az vm create \
---name $VmName \
---resource-group $RgName \
---image $OsImage \
---location $Location \
---size $VmSize \
---nics $NicName \
---admin-username $Username \
---ssh-key-value $SshKeyValue
-# If creating a Windows VM, remove the previous line and you'll be prompted for the password you want to configure for the VM.
+```azurecli-interactive
+az group delete --name myResourceGroup --yes
 ```
-
-Bir sanal makine oluşturmaya ek olarak, komut dosyası oluşturur:
-- Varsayılan olarak tek bir premium yönetilen disk, ancak diğer seçenekler için oluşturabileceğiniz disk türü vardır. Okuma [Azure CLI 2.0 kullanarak bir Linux VM oluşturma](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makale Ayrıntılar için.
-- Sanal ağ, alt ağ, NIC ve genel IP adresi kaynakları. Alternatif olarak, *mevcut* sanal ağ, alt ağ, NIC veya genel IP adresi kaynakları. Ek kaynak oluşturmaya yerine var olan ağ kaynaklarını kullanmayı öğrenmek için girin `az vm create -h`.
-
-## <a name = "validate"></a>VM oluşturma ve genel IP adresini doğrula
-
-1. Komutu girdikten `az resource list --resouce-group IaaSStory --output table` betiği tarafından oluşturulan kaynakların bir listesini görmek için. Döndürülen çıktısında beş kaynaklar olmalıdır: ağ arabirimi, disk, genel IP adresi, sanal ağ ve sanal makine.
-2. Komutu girdikten `az network public-ip show --name PIPWEB1 --resource-group IaaSStory --output table`. Döndürülen çıktısında değerini not edin **IPADDRESS** ve değerini **Publicıpallocationmethod** olduğu *statik*.
-3. Aşağıdaki komutu yürütmeden önce çatal karakterini kaldırın ve değiştirin *kullanıcıadı* için kullanılan ad ile **kullanıcı adı** betik ve değiştirme değişkeni *IPADDRESS*ile **IPADDRESS** önceki adımdan. VM'ye bağlanmak için aşağıdaki komutu çalıştırın: `ssh -i ~/.ssh/azure_id_rsa <Username>@<ipAddress>`. 
-
-## <a name= "clean-up"></a>Sanal Makineyi ve ilişkili kaynakları Kaldır
-
-Üretimde kullanmaz, bu alıştırmada oluşturulan kaynakları silmeniz önerilir. Sağlanan sürece VM, genel IP adresi ve disk kaynakları, ücretleri. Bu alıştırmada sırasında oluşturulan kaynakları kaldırmak için aşağıdaki adımları tamamlayın:
-
-1. Kaynak grubundaki kaynakları görüntülemek için çalıştırın `az resource list --resource-group IaaSStory` komutu.
-2. Bu makalede betik tarafından oluşturulan kaynakları dışındaki kaynak grubunda kaynak yok onaylayın. 
-3. Bu alıştırmada oluşturulan tüm kaynakları silmek için çalıştırın `az group delete -n IaaSStory` komutu. Komut, kaynak grubunu ve içerdiği tüm kaynakları siler.
- 
-## <a name="set-ip-addresses-within-the-operating-system"></a>İşletim sistemi içinde IP adreslerini ayarlayın
-
-Hiçbir zaman el ile bir Azure sanal makinesi sanal makinenin işletim sistemi içinde atanan genel IP adresi atamanız gerekir. Önerilen, statik olarak bir sanal makinenin işletim sistemi içinde Azure sanal makinesine atanmış özel IP sürece atamayın, gerekli olduğunda gibi [birden çok IP adresleri atama bir Windows VM'ye](virtual-network-multiple-ip-addresses-cli.md). İşletim sistemi içinde özel IP adresini el ile ayarlamanız durumunda Azure atanmış özel IP adresiyle aynı adresi olduğundan emin olun [ağ arabirimi](virtual-network-network-interface-addresses.md#change-ip-address-settings), ya da sanal makineye bağlantı kaybedebilir. Daha fazla bilgi edinin [özel IP adresi](virtual-network-network-interface-addresses.md#private) ayarları.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede oluşturulan VM'ye gelen ve giden ağ trafiğini akabilir. Ağ arabirimi, alt ağ veya her ikisi de gelen ve giden akış trafiğini sınırlandırmak gelen ve giden güvenlik kuralları bir ağ güvenlik grubu içinde tanımlayabilirsiniz. Ağ güvenlik grupları hakkında daha fazla bilgi için bkz. [ağ güvenlik grubu genel bakış](security-overview.md).
+- Daha fazla bilgi edinin [genel IP adresleri](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) azure'da
+- Tüm hakkında daha fazla bilgi [genel IP adresi ayarları](virtual-network-public-ip-address.md#create-a-public-ip-address)
+- Daha fazla bilgi edinin [özel IP adresleri](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) ve atama bir [statik özel IP adresi](virtual-network-network-interface-addresses.md#add-ip-addresses) bir Azure sanal makinesi için
+- Oluşturma hakkında daha fazla bilgi edinin [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal makineler

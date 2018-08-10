@@ -1,9 +1,9 @@
 ---
 title: Apache Storm kullanan Azure Event Hubs'tan gelen olayları alma | Microsoft Docs
-description: Apache Storm kullanarak Event Hubs'dan alma kullanmaya başlama
+description: Apache Storm kullanarak Event Hubs'dan almaya başlama
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,36 +13,36 @@ ms.tgt_pltfrm: java
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2018
-ms.author: sethm
-ms.openlocfilehash: 6f558ff0613937d17f2dd7c2c9db6eb2de31ab9e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: shvija
+ms.openlocfilehash: 3880ffe1b61b59e4d05e594a34e1119188177b56
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405679"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002772"
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Apache Storm kullanarak Event Hubs'dan olayları alma
 
-[Apache Storm](https://storm.incubator.apache.org) sınırsız olarak veri akışları güvenilir işlenmesini kolaylaştırır dağıtılmış gerçek zamanlı hesaplama sistemidir. Bu bölümde Azure olay hub'ları Storm spout olayları olay hub'larından almak için nasıl kullanılacağını gösterir. Apache Storm kullanarak, farklı düğümlerde barındırılan birden çok işlemler arasında olayları bölebilirsiniz. Storm ile olay hub'ları tümleştirme olay tüketimi saydam denetim noktası oluşturma Storm'ın Zookeeper yükleme seçeneğini kullanarak, kalıcı denetim noktalarını yönetme, ilerleme durumunu basitleştirir ve olay hub'larından paralel alır.
+[Apache Storm](https://storm.incubator.apache.org) güvenilir işlenmesini sınırsız veri akışlarını basitleştiren bir dağıtılmış gerçek zamanlı bir hesaplama sistemidir. Bu bölümde, olayları Event Hubs'dan olay almak için bir Azure olay hub'ları Storm spout kullanmayı gösterir. Apache Storm kullanan, farklı düğümlerde barındırılan birden çok işlem arasında olayları bölebilirsiniz. Storm ile Event Hubs tümleştirme olay tüketiminin şeffaf bir şekilde denetim noktası tarafından Storm'ın Zookeeper yükleme, kalıcı denetim noktalarını yönetme, ilerleme durumunu basitleştirir ve paralel Event Hubs'dan alır.
 
-Alma desenleri Event Hubs hakkında daha fazla bilgi için bkz: [Event Hubs'a genel bakış][Event Hubs overview].
+Event Hubs hakkında daha fazla bilgi için desenler almak için bkz: [Event Hubs'a genel bakış][Event Hubs overview].
 
 ## <a name="create-project-and-add-code"></a>Proje oluşturma ve kod ekleme
 
-Bu öğretici kullanan bir [Hdınsight Storm] [ HDInsight Storm] zaten kullanılabilir Event Hubs spout ile birlikte gelen yükleme.
+Bu öğreticide bir [HDInsight Storm] [ HDInsight Storm] zaten kullanılabilir Event Hubs spout ile birlikte gelen yükleme.
 
-1. İzleyin [Hdınsight Storm - Get Started](../hdinsight/storm/apache-storm-overview.md) yeni bir Hdınsight kümesi oluşturma ve Uzak Masaüstü aracılığıyla bağlanmak için yordamı.
-2. Kopya `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` yerel geliştirme ortamınızı dosyasına. Bu olaylar storm spout içerir.
-3. Paketi yerel Maven deposuna yüklemek için aşağıdaki komutu kullanın. Bu, sonraki adımda Storm projesi başvuru olarak eklemenize olanak sağlar.
+1. İzleyin [HDInsight Storm - Get Started](../hdinsight/storm/apache-storm-overview.md) yeni bir HDInsight kümesi oluşturma ve Uzak Masaüstü aracılığıyla bağlanmak için yordamı.
+2. Kopyalama `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` yerel geliştirme ortamınıza dosya. Bu olayları storm spout içerir.
+3. Paketi yerel Maven deposuna yüklemek için aşağıdaki komutu kullanın. Bu, sonraki bir adımda Storm projedeki bir başvuruyu olarak eklemenize olanak sağlar.
 
     ```shell
     mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
     ```
-4. Eclipse'te, yeni bir Maven projesi oluşturun (tıklatın **dosya**, ardından **yeni**, ardından **proje**).
+4. Eclipse'te, yeni bir Maven projesi oluşturun (tıklayın **dosya**, ardından **yeni**, ardından **proje**).
    
     ![][12]
-5. Seçin **varsayılan çalışma alanı konumu kullanacak**, ardından **sonraki**
-6. Seçin **maven archetype quickstart** archetype, ardından **sonraki**
+5. Seçin **varsayılan çalışma alanı konumu kullanın**, ardından **İleri**
+6. Seçin **maven archetype hızlı** archetype, ardından **İleri**
 7. INSERT bir **GroupID** ve **Artifactıd**, ardından **son**
 8. İçinde **pom.xml**, aşağıdaki bağımlılıkları ekleyin `<dependency>` düğümü.
 
@@ -76,7 +76,7 @@ Bu öğretici kullanan bir [Hdınsight Storm] [ HDInsight Storm] zaten kullanıl
     </dependency>
     ```
 
-9. İçinde **src** klasörünü adlı bir dosya oluşturun **Config.properties** ve aşağıdaki kopyalayın değiştirerek, içerik `receive rule key` ve `event hub name` değerler:
+9. İçinde **src** klasöründe adlı bir dosya oluşturun **Config.properties** ve aşağıdakini kopyalayın değiştirerek içerik `receive rule key` ve `event hub name` değerleri:
 
     ```java
     eventhubspout.username = ReceiveRule
@@ -91,8 +91,8 @@ Bu öğretici kullanan bir [Hdınsight Storm] [ HDInsight Storm] zaten kullanıl
     eventhubspout.checkpoint.interval = 10
     eventhub.receiver.credits = 10
     ```
-    Değeri **eventhub.receiver.credits** Storm ardışık düzene serbest bırakmadan önce kaç tane olayları toplu belirler. Basitleştirmek amacıyla, bu örnekte bu değer 10'a ayarlar. Üretimde, genellikle daha yüksek değerine ayarlanmalıdır; Örneğin, 1024.
-10. Adlı yeni bir sınıf oluşturmak **LoggerBolt** aşağıdaki kod ile:
+    Değeri **eventhub.receiver.credits** Storm işlem hattına bırakmadan önce kaç tane olay toplu belirler. Basitleştirmek amacıyla, bu örnekte bu değer 10'a ayarlar. Üretim ortamında, bunu genellikle yüksek değerler için ayarlanmalıdır; Örneğin, 1024.
+10. Adlı yeni bir sınıf oluşturma **LoggerBolt** aşağıdaki kod ile:
     
     ```java
     import java.util.Map;
@@ -131,7 +131,7 @@ Bu öğretici kullanan bir [Hdınsight Storm] [ HDInsight Storm] zaten kullanıl
     }
     ```
     
-    Bu Storm Cıvata alınan olayların içeriğini günlüğe kaydeder. Bu kolayca diziler depolama hizmetinde depolamak için genişletilebilir. [Hdınsight Storm olay hub'ı örnekle] Azure Storage ve Power BI verileri depolamak için aynı bu yaklaşımı kullanır.
+    Bu Storm bolt, alınan olayların içeriğini günlüğe kaydeder. Bu kolayca bir depolama hizmetine tanımlama grupları depolamak için genişletilebilir. [Olay hub'ı örneği ile HDInsight Storm] Azure depolama ve Power BI ile verileri depolamak için bu yaklaşımı kullanır.
 11. Adlı bir sınıf oluşturmak **LogTopology** aşağıdaki kod ile:
     
     ```java
@@ -236,7 +236,7 @@ Bu öğretici kullanan bir [Hdınsight Storm] [ HDInsight Storm] zaten kullanıl
     }
     ```
 
-    Bu sınıfın örneğini başlatmak için yapılandırma dosyasında özelliklerini kullanarak yeni bir Event Hubs spout oluşturur. Bu örneğin sayıda spout'lar görevleri olay hub'ındaki bölüm sayısı olarak bu olay hub'ı tarafından izin verilen maksimum paralellik kullanmak için oluşturduğu dikkate almak önemlidir.
+    Bu sınıfın örneğini başlatmak için yapılandırma dosyasında özelliklerini kullanarak yeni bir Event Hubs spout oluşturur. Bu örnek çok spout görevleri olarak olay hub'ındaki bölüm sayısı, olay hub'ı tarafından izin verilen en büyük paralellik kullanmak için oluşturduğu dikkat edin önemlidir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıdaki bağlantıları inceleyerek Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
@@ -248,7 +248,7 @@ Aşağıdaki bağlantıları inceleyerek Event Hubs hakkında daha fazla bilgi e
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
-[Hdınsight Storm olay hub'ı örnekle]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
+[Olay hub'ı örneği ile HDInsight Storm]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
 
 <!-- Images -->
 

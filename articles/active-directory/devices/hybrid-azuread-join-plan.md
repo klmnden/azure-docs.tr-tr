@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 27068c1154a4cc5776bbcc74922ca31c4f28ced6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 4e6600d81fedd884cf415d055aedd29d163b3365
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399926"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629659"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Hibrit Azure Active Directory join uygulamanızı planlama
 
@@ -96,6 +96,13 @@ Sistem hazırlığı Aracı (Sysprep) FQDN'yi kullanıyorsanız, bir hibrit Azur
 Ek sanal makineler oluşturmak için bir sanal makine (VM) üzerinde anlık görüntü FQDN'yi kullanıyorsanız, hibrit Azure AD'ye katılım için yapılandırılmamış bir VM anlık görüntüsü kullandığınızdan emin olun.
 
 Windows alt düzey cihazların kaydını dolaşımı veya gezici kullanıcı profili için yapılandırılan cihazlar için desteklenmiyor. Gezici profilleri veya ayarlarını FQDN'yi kullanıyorsanız, Windows 10 kullanın.
+
+- Windows alt düzey cihazların kaydını **olduğu** sorunsuz çoklu oturum açma aracılığıyla Federasyon olmayan ortamlarda desteklenen [Azure Active Directory sorunsuz çoklu oturum açma](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
+ 
+- Windows alt düzey cihazların kaydını **değil** sorunsuz çoklu oturum açma olmadan Azure AD geçişli kimlik doğrulaması kullanılırken desteklenir.
+
+- Windows alt düzey cihazların kaydını **değil** dolaşım profilleri kullanan cihazlar için desteklenir. Gezici profilleri veya ayarlarını FQDN'yi kullanıyorsanız, Windows 10 kullanın.
+
 
 Windows etki alanı denetleyicisi (DC) rolünü çalıştıran sunucu kaydını desteklenmiyor.
 

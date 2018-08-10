@@ -1,6 +1,6 @@
 ---
-title: Kullandıkça Öde aboneliğiniz için Azure ayrılmış örnek kullanımını anlamak | Microsoft Docs
-description: Kullandıkça Öde aboneliğiniz için Azure ayrılmış VM örneğine nasıl uygulandığını anlamak için kullanımınızı okuma öğrenin.
+title: Kullandıkça Öde aboneliğine Azure ayırma kullanımını anlama | Microsoft Docs
+description: Azure ayırma için Kullandıkça Öde aboneliğinizi nasıl uygulanacağını anlamak için kullanım okumayı öğrenin.
 services: billing
 documentationcenter: ''
 author: manish-shukla01
@@ -12,24 +12,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
+ms.date: 08/08/2018
 ms.author: manshuk
-ms.openlocfilehash: 7e303f3e5ce0e618d941be4190f6fadb40f2e09d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: cf1d7c67fe6033bf41317e75a33349ae07ecf643
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064054"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627892"
 ---
-# <a name="understand-reserved-instance-usage-for-your-pay-as-you-go-subscription"></a>Kullandıkça Öde aboneliğiniz için ayrılmış örnek kullanımını anlamak
+# <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Kullandıkça Öde aboneliğinizi Azure ayırma kullanımını anlama
 
-Reservationıd gelen kullanarak Azure ayrılmış VM örneği kullanımını anlamak [ayırma sayfası](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) ve kullanım dosyasından [Azure hesapları portal](https://account.azure.com).
+Reservationıd gelen kullanın [ayırma sayfası](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) ve kullanım dosyasından [Azure hesap portalını](https://account.azure.com) ayırma kullanımınızı değerlendirilecek.
 
+Bir kurumsal anlaşma kapsamında olan bir Müşteriyseniz bkz [Kurumsal kayıt için ayırma kullanımını anlayın.](billing-understand-reserved-instance-usage-ea.md).
 
->[!NOTE]
->Bu makalede EA müşteriler için geçerli değildir. EA müşteri olup olmadığını görmek [olduğunuz Kurumsal kayıt için ayrılmış örnek anlamak kullanımı.](billing-understand-reserved-instance-usage-ea.md) Bu makalede ayrıca ayrılmış örnek için tek bir abonelik uygulandığını varsayar. Ayrılmış örnek için birden fazla abonelik uyguladıysanız, ayrılmış örnek avantajı birden çok kullanım csv dosyalarını yayılabilir. 
+Bu makalede ayırma tek bir abonelik için geçerli olduğunu varsayar. Rezervasyon için birden fazla aboneliğiniz uygulanırsa, rezervasyon Avantajı'nızı birden çok kullanım CSV dosyalarını yayılabilir.
 
-İçin aşağıdaki bölümde, Doğu ABD bölgesi ve aşağıdaki tabloda, ayrılmış örnek bilgi görülüyor Standard_DS1_v2 Windows VM çalıştığını varsayın:
+## <a name="usage-for-reserved-virtual-machine-instances"></a>Kullanım için ayrılmış sanal makine örnekleri
+
+Aşağıdaki bölümlerde için Standard_DS1_v2 Windows VM, ayrılmış VM örneği bilgi aşağıdaki gibi görünür aşağıdaki tabloda, Doğu ABD bölgesinde çalıştığını varsayalım:
 
 | Alan | Değer |
 |---| :---: |
@@ -38,36 +40,69 @@ Reservationıd gelen kullanarak Azure ayrılmış VM örneği kullanımını anl
 |SKU | Standard_DS1_v2|
 |Bölge | eastus |
 
-## <a name="reserved-instance-application"></a>Ayrılmış örnek uygulama
+Dağıtılan VM ayırma öznitelikleri ile eşleştiği için sanal makinenin donanım bölümü ele alınmıştır. Ayrılmış VM örneği tarafından hangi Windows yazılım kapsamında değildir görmek için bkz [Azure ayrılmış VM örnekleri Windows yazılım maliyetleri](billing-reserved-instance-windows-software-costs.md)
 
-Dağıtılan VM ayrılmış örnek öznitelikleri eşleştiğinden VM donanım bölümünü ele alınmıştır. Hangi Windows yazılım tarafından ayrılmış örnek kapsamında değil görmek için Git [Azure ayırma VM örnekleri Windows yazılım maliyetleri.](billing-reserved-instance-windows-software-costs.md)
+### <a name="statement-section-of-csv-file-for-vms"></a>VM'ler için CSV dosyası bölümünü deyimi
 
-### <a name="statement-section-of-csv"></a>Csv deyimi bölümü
-Bu bölümde, csv, ayrılmış örnek için toplam kullanım gösterir. "Ayırma-" ve verilerinizin aşağıdaki ekran görüntüsüne benzer içeren ölçer alt kategorisi alanın filtre uygulamak: ![filtrelenmiş ayrılmış örnek kullanım ayrıntılarını ve ücretleri ekran görüntüsü](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
+CSV dosyanız bu bölümü, ayırma için toplam kullanım gösterir. Filtre uygulamak **ölçüm alt kategorisi** içeren alan **"Ayırma-"**. Aşağıdaki ekran görüntüsüne benzer bir şey görürsünüz:
 
-Ayırma temel VM satırı ayrılmış örneği tarafından kapsanan toplam süreyi içeriyor. Bu satırı $0,00 çünkü ayrılmış örnek kapsar. Ayırma Windows Svr (1 çekirdek) satır Windows yazılım maliyetini kapsar.
+![Filtrelenmiş ayırma kullanım ayrıntıları ve ücretleri ekran görüntüsü](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
 
-### <a name="daily-usage-section-of-csv"></a>Csv günlük kullanımı bölümü
-Filtre hakkında ek bilgiler ve yazın, **ayırma kimliği**. Aşağıdaki ekran görüntüsünde, ayrılmış örnek ilgili alanları gösterir. 
+**Ayırma-temel VM** ayırma tarafından kapsanan toplam süreyi satırı içeriyor. Bu satırı 0,00 ABD Doları çünkü ayırma kapsar. **Ayırma-Windows Svr (1 çekirdek)** satırı Windows yazılımının maliyetini kapsar.
 
-![Günlük kullanım ayrıntılarını ve ücretleri ekran görüntüsü](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-details.png)
+### <a name="daily-usage-section-of-csv-file"></a>Günlük kullanım bölümüne CSV dosyası
 
-1. **Reservationıd** ek bilgilerini avantajı VM uygulamak için kullanılan ayrılmış örnek bir alandır.
-2. ConsumptionMeter VM ölçer kimliğidir.
-3. Ayırma tabanlı VM ölçer alt satır deyimi bölüm $0 maliyet satırını temsil eder. Bu VM çalıştıran maliyetini zaten tarafından ayrılmış örnek Ücretli.
-4. Bu ayrılmış örnek için ölçüm kimliğidir. Bu ölçüm maliyetini $0'dır. Ayrılmış örnek için niteleyen VM maliyeti hesap için csv bu MeterId sahiptir. 
-5. Standard_DS1_v2 olan bir vCPU VM ve VM Azure karma avantajı dağıtılır. Bu nedenle, bu ölçüm, Windows yazılım ekstra ücret ele alınmaktadır. Bkz: [Azure ayırma VM örnekleri Windows yazılım maliyetleri.](billing-reserved-instance-windows-software-costs.md) 1 çekirdek VM için D serisinin karşılık gelen ölçer bulmak için. Azure karma avantajı kullanılırsa, bu ekstra ücret uygulanmaz. 
+Filtre **ek bilgi** ve yazın, **rezervasyon kimliği**. Aşağıdaki ekran görüntüsünde ayırmaya ilgili alanları gösterir.
+
+![Günlük kullanım ayrıntıları ve ücretleri ekran görüntüsü](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-details.png)
+
+1. **Reservationıd** içinde **ek bilgi** VM'ye uygulanan ayırma bir alandır.
+2. **ConsumptionMeter** VM için ölçüm kimliğidir.
+3. **Ayırma-temel VM** **ölçüm alt kategorisi** satır 0 ABD Doları maliyet deyimi bölümünde temsil eder. Bu VM çalıştırmanın maliyeti, rezervasyon zaten ödenir.
+4. **Ölçüm kimliği** ayırma için ölçüm kimliği. Bu ölçüm maliyeti 0 TL'dir. Bu ölçüm kimliği için ayırma indirimi niteleyen herhangi bir VM için görünür.
+5. Standard_DS1_v2 bir vCPU olan VM ve VM Azure karma avantajı olmadan dağıtılır. Bu nedenle, bu ölçüm, Windows yazılım başka bir ücret kapsar. D serisi 1 çekirdek VM karşılık gelen bir ölçüm bulmak için bkz: [Azure ayrılmış VM örnekleri Windows yazılım maliyetleri](billing-reserved-instance-windows-software-costs.md). Azure hibrit avantajı varsa, bu ek ücret uygulanmaz.
+
+## <a name="usage-for-sql-database-reserved-capacity-reservations"></a>Kapasite kullanımı SQL veritabanı için ayrılmış
+
+İçin aşağıdaki bölümlerde, Doğu ABD bölgesinde ve aşağıdaki tabloda, ayırma bilgileri ayarlanmış bir SQL veritabanı Gen 4 çalıştığını varsayalım:
+
+| Alan | Değer |
+|---| --- |
+|Reservationıd |446ec809-423D-467c-8c5c-bbd5d22906b1|
+|Miktar |2|
+|Ürün| SQL veritabanı 4. nesil (2 Çekirdek)|
+|Bölge | eastus |
+
+### <a name="statement-section-of-csv-file"></a>CSV dosyasının deyimi bölümü
+
+Filtre **ayrılmış örnek kullanımını** ölçüm adı. Aşağıdaki ekran görüntüsüne benzer bir şey görürsünüz:
+
+![SQL veritabanı ayrılmış kapasite için CSV dosyası](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
+
+**Ayrılmış örnek kullanımını** çizgi bulunan Çekirdek saatleri ayırma tarafından kapsanan toplam sayısı. Rezervasyon maliyeti anlatıldığı gibi bu satırı 0 ABD Doları hızıdır.
+
+### <a name="detail-section-of-csv-file"></a>CSV dosyasının ayrıntı bölümü
+
+Filtre **ek bilgi** ve yazın, **rezervasyon kimliği**. Aşağıdaki ekran görüntüsünde, SQL veritabanı ayrılmış kapasite ayırma için ilgili alanları gösterir.
+
+![SQL veritabanı ayrılmış kapasite için CSV dosyası](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
+
+1. **Reservationıd** içinde **ek bilgi** SQL veritabanı kaynağı uygulanan SQL veritabanı ayrılmış kapasite ayırma bir alandır.
+2. **ConsumptionMeter** SQL veritabanı kaynak için ölçüm kimliği.
+3. **Ölçüm kimliği** ayırma ölçer. Bu ölçüm maliyeti 0 TL'dir. Ayırma indirimini Bu ölçüm kimliği CSV dosyasında gösterir. uygun bir SQL veritabanı kaynaklar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Ayrılmış örnekler hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-- [Azure ayrılmış VM örnekleri nelerdir?](billing-save-compute-costs-reservations.md)
+Rezervasyonlar hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
+
+- [Azure ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
 - [Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Azure'da ayrılmış örnekler yönetme](billing-manage-reserved-vm-instance.md)
-- [Ayrılmış örnek indirim nasıl uygulandığını anlama](billing-understand-vm-reservation-charges.md)
-- [İşletme kaydı için ayrılmış örnek kullanım anlama](billing-understand-reserved-instance-usage-ea.md)
-- [Windows yazılım maliyetleri ile ayrılmış örnekler dahil değil](billing-reserved-instance-windows-software-costs.md)
+- [Azure SQL veritabanı'nın ayrılmış kapasite ile SQL veritabanı bilgi işlem kaynakları için ön ödeme](../sql-database/sql-database-reserved-capacity.md)
+- [Azure'da ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
+- [Ayırma indirimi nasıl uygulanacağını anlama](billing-understand-vm-reservation-charges.md)
+- [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
+- [Windows yazılım maliyetleri ile ayırmaları dahil değil](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 
-Hala daha fazla, sorularınız varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.
+Hala başka sorularınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.

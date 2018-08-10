@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 266404a69c691cfbbfabc49e4d78deb11db74b52
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 17b03ee9521ddf1980e27ee9a63d2ba74ea6e6b7
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249164"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629693"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Azure tanılama günlüklerini arşivleme
 
@@ -163,5 +163,5 @@ PT1H.json dosyasına içinde her olay şu biçimi takip "kayıt" dizisinde depol
 
 * [Blobları analiz için indirin](../storage/storage-dotnet-how-to-use-blobs.md)
 * [Bir Event Hubs ad alanı için Stream tanılama günlükleri](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-* [Azure İzleyici ile Azure Active Directory günlüklerini arşivleme](../active-directory/reporting-azure-monitor-diagnostics-azure-storage-account.md)
+* [Azure İzleyici ile Azure Active Directory günlüklerini arşivleme](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Tanılama günlükleri hakkında daha fazla bilgi](monitoring-overview-of-diagnostic-logs.md)

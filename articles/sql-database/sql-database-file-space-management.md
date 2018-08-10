@@ -2,22 +2,21 @@
 title: Azure SQL veritabanı dosya alanı yönetimi | Microsoft Docs
 description: Bu sayfada Azure SQL veritabanı ile dosya alanı yönetme işlemi açıklanır ve nasıl gerçekleştirmek için bir veritabanı küçültme işlemi nasıl de bir veritabanı küçültme gerekip gerekmediğini belirlemek için kod örneği sağlanmıştır.
 services: sql-database
-author: CarlRabeler
+author: oslake
 manager: craigg
 ms.service: sql-database
 ms.custom: how-to
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: carlrab
-ms.openlocfilehash: 9d461c2b9b01ef269decbcae920cb4d2a1824f38
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.date: 08/08/2018
+ms.author: moslake
+ms.openlocfilehash: 5dce07996191af3df3a4bdf16b211c29d59a994f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620510"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003867"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Azure SQL veritabanı'nda dosya alanı yönetme
-
 Bu makalede, Azure SQL veritabanı ve açıkça yönetilecek gereksinimlerini elastik havuzlar ve veritabanları için ayrılan dosya alanı gerçekleştirilen adımlar, depolama alanının farklı türleri açıklanmaktadır.
 
 ## <a name="overview"></a>Genel Bakış
@@ -33,7 +32,7 @@ Ayırma veritabanları için temel alınan veri dosyaları burada kullanılan ve
 SQL DB hizmetini otomatik olarak kullanılmayan bir ayrılmış alanı veritabanı performans için potansiyel etkisi nedeniyle geri kazanmak için veri dosyalarını küçülmez.  Müşterilerin kendi seçme içinde açıklanan adımları izleyerek bir zaman Self Servis aracılığıyla veri dosyalarını ancak küçültülebilir [geri kullanılmayan ayrılmış alanı](#reclaim-unused-allocated-space). 
 
 > [!NOTE]
-> Olduğundan bu işlem veritabanı performansını etkilemez veri dosyalarının aksine, SQL veritabanı hizmeti günlük dosyalarını otomatik olarak küçülür.
+> Olduğundan bu işlem veritabanı performansını etkilemez veri dosyalarının aksine, SQL veritabanı hizmeti günlük dosyalarını otomatik olarak küçülür. 
 
 ## <a name="understanding-types-of-storage-space-for-a-database"></a>Bir veritabanı için depolama alanı türlerini anlama
 
@@ -49,7 +48,7 @@ Aşağıdaki depolama alanı miktarları anlama bir veritabanının dosya alanı
 
 Aşağıdaki diyagramda, farklı bir veritabanı için depolama alanı türleri arasındaki ilişkiyi gösterir.
 
-![depolama alanı türleri ve ilişkiler](./media/sql-database-file-space-management/storage-types.png)
+![depolama alanı türleri ve ilişkiler](./media/sql-database-file-space-management/storage-types.png) 
 
 ## <a name="query-a-database-for-storage-space-information"></a>Depolama alanı bilgisi için bir veritabanını sorgulama
 

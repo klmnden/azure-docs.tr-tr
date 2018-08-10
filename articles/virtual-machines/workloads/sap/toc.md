@@ -63,6 +63,7 @@
 ##### [Tek Azure bölgesi içinde Azure üzerinde SAP HANA Kullanılabilirliği](sap-hana-availability-one-region.md)
 ##### [Azure bölgeleri arasında Azure üzerinde SAP HANA Kullanılabilirliği](sap-hana-availability-across-regions.md)
 ## [SAP Olağanüstü Durum Kurtarma için Azure Site Recovery](../../../site-recovery/site-recovery-workload.md#protect-sap)
+## [Azure için SAP LaMa bağlayıcısı](lama-installation.md)
 # AAD SAP Kimlik Tümleştirmesi ve Çoklu Oturum Açma
 ## [SAP Bulut ile tümleştirme](../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [SAP Cloud Platform Kimlik Doğrulaması ile AAD Tümleştirmesi](../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)

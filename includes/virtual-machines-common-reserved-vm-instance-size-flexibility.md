@@ -4,12 +4,12 @@ ms.author: manshuk
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08-03-2018
-ms.openlocfilehash: d8e749d7c665bcaef9190bcc572e9552a307aa08
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 41216fe12e10f72f76043f1a8bc361b538259ac1
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39496212"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39720826"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Ayrılmış VM örnekleri ile sanal makine boyutu esnekliği
 
@@ -22,7 +22,7 @@ ms.locfileid: "39496212"
 
 Ancak bu ayırma indirimi DSv2 serisi, yüksek bellek tabloda nedir gibi farklı tablolarda listelenen VM boyutları için geçerli değildir: Standard_DS11_v2, Standard_DS12_v2, ve benzeri.
 
-Boyutu seri grubu içinde VM ayırma indirimi geçerlidir ayrılmış örnek satın aldığınızda tarifeniz seçtiğiniz VM boyutuna bağlıdır. Ayrıca, olan Vm'leri boyutlarına bağlıdır çalışıyor. Aşağıdaki tablolarda listelenenler oranı sütun, o grup içindeki her VM boyutu için göreli ayak izini karşılaştırır. Ayırma indirimi Vm'lere, uygulanması hakkında hesaplamak için oran değerine sahip kullanım çalışıyor.
+Boyutu seri grubu içinde ayırma indirimi uygulandığı VM'ler bir ayırma satın aldığınızda tarifeniz seçtiğiniz VM boyutuna bağlıdır. Ayrıca, olan Vm'leri boyutlarına bağlıdır çalışıyor. Aşağıdaki tablolarda listelenenler oranı sütun, o grup içindeki her VM boyutu için göreli ayak izini karşılaştırır. Ayırma indirimi Vm'lere, uygulanması hakkında hesaplamak için oran değerine sahip kullanım çalışıyor.
 
 ## <a name="examples"></a>Örnekler
 

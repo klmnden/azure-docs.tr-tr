@@ -1,9 +1,9 @@
 ---
-title: Azure Event Hubs'a C kullanarak olayları göndermek | Microsoft Docs
-description: Azure Event Hubs'a C kullanarak olayları Gönder
+title: Olayları C kullanarak Azure Event Hubs'a gönderme | Microsoft Docs
+description: C kullanarak Azure Event Hubs için olayları gönderme
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,45 +13,45 @@ ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
 ms.date: 12/4/2017
-ms.author: sethm
-ms.openlocfilehash: e3267b54fa0c8593e0f9366c009656f36e4094ef
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.author: shvija
+ms.openlocfilehash: 25da8255af6a23a4f01db5a1ec4f1ddcd2eeb1bb
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807824"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002466"
 ---
-# <a name="send-events-to-azure-event-hubs-using-c"></a>Azure Event Hubs'a C kullanarak olayları Gönder
+# <a name="send-events-to-azure-event-hubs-using-c"></a>C kullanarak Azure Event Hubs için olayları gönderme
 
 ## <a name="introduction"></a>Giriş
-Olay hub'ları saniye başına milyonlarca olayı alma, bir uygulamaya etkinleştirme işlemek ve veri bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki analiz bir yüksek düzeyde ölçeklenebilir bir alım sistemine olur. Bir olay hub'ına toplandığında, dönüştürme ve herhangi bir gerçek zamanlı analiz sağlayıcısı veya depolama kümesi kullanarak verileri depolar.
+Event Hubs, saniye başına milyonlarca olayı içe almak, işlemek ve çok büyük miktarda veriyi uygulamanızın bağlı cihazlarınız ve uygulamalarınız tarafından üretilen uygulama etkinleştirme bir yüksek düzeyde ölçeklenebilir bir alım sistemidir. Bir olay hub'ına toplandıktan sonra dönüştürme ve herhangi bir gerçek zamanlı analiz sağlayıcısı veya depolama kümesi kullanarak verileri depolama.
 
 Daha fazla bilgi için lütfen bkz [Event Hubs'a genel bakış](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview).
 
-Bu öğretici, c dilinde bir konsol uygulaması kullanarak bir olay hub'ına olayları göndermeyi açıklar Olayları alma hakkında bilgi edinmek için sol taraftaki İçindekiler uygun alıcı dilde'ı tıklatın.
+Bu öğretici, c dilinde bir konsol uygulaması kullanarak olay hub'ına olayları göndermek açıklar Olayları alma hakkında bilgi edinmek için soldaki içindekiler bölümünden uygun alma diline tıklayın.
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-* Bir C geliştirme ortamı. Bu öğretici Azure Linux VM'de Ubuntu 14.04 ile gcc yığın varsayar.
+* Bir C geliştirme ortamı. Bu öğreticide, Azure Linux VM'de Ubuntu 14.04 ile gcc yığında varsayılır.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
 * Etkin bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="send-messages-to-event-hubs"></a>Event Hubs’a ileti gönderme
-Bu bölümde, olay hub'ınıza olayları göndermek için C uygulama yazmak gösterilmiştir. Kodu Proton AMQP Kitaplığı'ndan kullanan [Apache Qpid proje](http://qpid.apache.org/). Bu hizmet veri yolu sıraları ve konuları AMQP ile C'den gösterildiği gibi kullanmaya benzer [bu örnekteki](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Daha fazla bilgi için bkz: [Qpid Proton belgelerine](http://qpid.apache.org/proton/index.html).
+Bu bölümde, olay hub'ınıza olayları göndermek için bir C uygulaması yazma işlemi gösterilmektedir. Kod Proton AMQP Kitaplığı'ndan kullanır [Apache Qpid proje](http://qpid.apache.org/). Bu Service Bus kuyrukları ve konular ile AMQP C'den gösterildiği gibi kullanarak benzer [bu](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Daha fazla bilgi için [Qpid Proton belgeleri](http://qpid.apache.org/proton/index.html).
 
-1. Gelen [Qpid AMQP Messenger sayfa](https://qpid.apache.org/proton/messenger.html), Qpid Proton, ortamınıza bağlı olarak yüklemek için yönergeleri izleyin.
-2. Protonun durgun kitaplığı derlemek için aşağıdaki paketleri yükleyin:
+1. Gelen [Qpid AMQP Messenger sayfa](https://qpid.apache.org/proton/messenger.html), ortamınıza bağlı olarak Qpid Proton yüklemek için yönergeleri izleyin.
+2. Proton kitaplığı derlemek için aşağıdaki paketleri yükleyin:
    
     ```shell
     sudo apt-get install build-essential cmake uuid-dev openssl libssl-dev
     ```
-3. Karşıdan [Qpid Proton Kitaplığı](http://qpid.apache.org/proton/index.html)ve, örneğin ayıklayın:
+3. İndirme [Qpid Proton Kitaplığı](http://qpid.apache.org/proton/index.html)ve, örneğin ayıklayın:
    
     ```shell
     wget http://archive.apache.org/dist/qpid/proton/0.7/qpid-proton-0.7.tar.gz
     tar xvfz qpid-proton-0.7.tar.gz
     ```
-4. Derleme dizini, derleme ve yükleme oluşturun:
+4. Bir derleme dizini, derleme ve yükleme oluşturun:
    
     ```shell
     cd qpid-proton-0.7
@@ -60,7 +60,7 @@ Bu bölümde, olay hub'ınıza olayları göndermek için C uygulama yazmak gös
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     sudo make install
     ```
-5. İş dizininizde adlı yeni bir dosya oluşturun **sender.c** aşağıdaki kod ile. SAS anahtar/adı, olay hub'ı adı ve ad alanı için değerleri değiştirmek unutmayın. Anahtar için URL kodlu sürümü yerine gerekir **SendRule** daha önce oluşturduğunuz. URL kodlamak için bunu [burada](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. Çalışma dizininizde adlı yeni bir dosya oluşturmak **sender.c** aşağıdaki kod ile. SAS anahtarı/adı, olay hub'ı adı ve ad alanı değerleri değiştirmeyi unutmayın. Anahtar için URL kodlu sürümünü de yerine gerekir **SendRule** daha önce oluşturduğunuz. URL kodlaması için bunu [burada](http://www.w3schools.com/tags/ref_urlencode.asp).
    
     ```c
     #include "proton/message.h"
@@ -141,14 +141,14 @@ Bu bölümde, olay hub'ınıza olayları göndermek için C uygulama yazmak gös
         return 0;
     }
     ```
-6. Dosyasını derleyin varsayılarak **gcc**:
+6. Dosyanın derleme varsayılarak **gcc**:
    
     ```
     gcc sender.c -o sender -lqpid-proton
     ```
 
     > [!NOTE]
-    > Bu kodu 1 giden bir pencere iletileri mümkün olan en kısa sürede zorlamak için kullanır. Uygulamanızı verimliliğini artırmak için toplu iletileri deneyin önerilir. Bkz: [Qpid AMQP Messenger sayfa](https://qpid.apache.org/proton/messenger.html) bu ve diğer ortamlara ve bağlamaları sağlanan platformları Qpid Proton kitaplığını kullanma hakkında bilgi için (şu anda Perl, PHP, Python ve Ruby).
+    > Bu kodu 1 giden bir pencere iletilerini olabildiğince çabuk zorlamak için kullanır. Bu, uygulamanızın aktarım hızı artırmak için toplu iletileri deneyin önerilir. Bkz: [Qpid AMQP Messenger sayfa](https://qpid.apache.org/proton/messenger.html) bu ve diğer ortamlara ve bağlamaları sağlanan platformlarından Qpid Proton kitaplığını kullanma hakkında bilgi için (şu anda Perl, PHP, Python ve Ruby).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

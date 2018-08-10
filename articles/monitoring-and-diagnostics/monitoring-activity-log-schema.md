@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: 123ae27310d70812918f3c81ac3b9a71959a6c2c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9c1f4699f067ece3108813d28ff834c68f44316d
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917236"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003840"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure etkinlik günlüğü olay şeması
 **Azure etkinlik günlüğü** Azure'da gerçekleşen herhangi bir abonelik düzeyindeki olayların sağlayan günlüktür. Bu makalede veri kategorisini başına olay şeması. Portal, PowerShell, CLI veya karşı REST API aracılığıyla doğrudan veri okunuyorsa veri şeması bağlı olarak farklı [veri depolama veya günlük profilini kullanarak Event Hubs akış](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). Aşağıdaki örnekler, portal, PowerShell, CLI ve REST API kullanıma sunulan teklifinizle şema gösterir. Bu özellikler için bir eşleme [Azure tanılama günlükleri şema](./monitoring-diagnostic-logs-schema.md) makalenin sonunda sağlanır.
@@ -120,7 +120,7 @@ Bu kategoride tüm kaydı oluşturma, güncelleştirme, silme ve eylem işlemler
 | açıklama |Olay açıklaması statik metin. |
 | eventDataId |Olayın benzersiz tanımlayıcısı. |
 | HTTP isteği |Http isteği açıklayan blob. Genellikle "Clientrequestıd'ye", "clientIpAddress" ve "method" (HTTP yöntemi. içerir For example, PUT). |
-| düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error"Uyarı",", "Bilgilendirici" ve "Ayrıntılı" |
+| düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error", "Uyarı" ve "Bilgilendirici" |
 | resourceGroupName |Etkilenen kaynak için kaynak grubunun adı. |
 | resourceProviderName |Etkilenen kaynak için kaynak sağlayıcısının adı |
 | resourceId |Etkilenen kaynak kaynak kimliği. |
@@ -266,7 +266,7 @@ Bu kategorideki tüm etkinleştirmeleri Azure uyarıları kaydını içerir. Bu 
 | correlationId | Dize biçiminde bir GUID. |
 | açıklama |Uyarı olayının açıklaması statik metin. |
 | eventDataId |Uyarı olayı benzersiz tanımlayıcısı. |
-| düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error"Uyarı",", "Bilgilendirici" ve "Ayrıntılı" |
+| düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error", "Uyarı" ve "Bilgilendirici" |
 | resourceGroupName |Etkilenen kaynak ölçüm uyarısı ise kaynak grubunun adı. Diğer uyarı türleri için bu uyarıyı içeren kaynak grubunun adıdır. |
 | resourceProviderName |Etkilenen kaynak ölçüm uyarısı ise kaynak sağlayıcı adı. Diğer uyarı türleri için uyarı için kaynak sağlayıcısının adını budur. |
 | resourceId | Etkilenen kaynak ölçüm uyarısı ise kaynak kimliği adı. Diğer uyarı türleri için uyarı kaynağın kaynak kimliği budur. |
@@ -375,7 +375,7 @@ Bu kategori, kayıt işlemi herhangi bir otomatik ölçeklendirme ayarı, abonel
 | correlationId | Dize biçiminde bir GUID. |
 | açıklama |Otomatik ölçeklendirme olayının statik metin açıklaması. |
 | eventDataId |Otomatik ölçeklendirme olayının benzersiz tanımlayıcısı. |
-| düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error"Uyarı",", "Bilgilendirici" ve "Ayrıntılı" |
+| düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error", "Uyarı" ve "Bilgilendirici" |
 | resourceGroupName |Otomatik ölçeklendirme ayarı için kaynak grubunun adı. |
 | resourceProviderName |Otomatik ölçeklendirme ayarı için kaynak sağlayıcısının adı. |
 | resourceId |Otomatik ölçeklendirme ayarı kaynak kimliği. |
@@ -465,7 +465,7 @@ Bu kategori, Azure Güvenlik Merkezi tarafından oluşturulan herhangi bir uyar�
 | eventDataId |Güvenlik olayı benzersiz tanımlayıcısı. |
 | EventName |Güvenlik olayı kolay adı. |
 | id |Güvenlik olayı benzersiz bir kaynak tanımlayıcısı. |
-| düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error"Uyarı",", "Bilgilendirici" veya "Ayrıntılı" |
+| düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error", "Uyarı" veya "Bilgilendirici" |
 | resourceGroupName |Kaynak için kaynak grubunun adı. |
 | resourceProviderName |Azure Güvenlik Merkezi kaynak sağlayıcısının adı. Her zaman "Microsoft.Security". |
 | Kaynak türü |"Microsoft.Security/locations/alerts" gibi bir güvenlik olayı oluşturulan kaynak türü |
@@ -545,7 +545,7 @@ Bu kategori, hizmetlerinizi için oluşturulan yeni önerisi kaydını içerir. 
 | eventDataId | Öneri etkinliğin benzersiz tanımlayıcısı. |
 | category | Her zaman "öneri" |
 | id |Öneri olayın benzersiz bir kaynak tanımlayıcısı. |
-| düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error"Uyarı",", "Bilgilendirici" veya "Ayrıntılı" |
+| düzey |Olay düzeyi. Aşağıdaki değerlerden biri: "Kritik", "Error", "Uyarı" veya "Bilgilendirici" |
 | operationName |İşlemin adı.  Her zaman "Microsoft.Advisor/generateRecommendations/action"|
 | resourceGroupName |Kaynak için kaynak grubunun adı. |
 | resourceProviderName |"Gibi MICROSOFT.COMPUTE" için bu önerinin geçerli kaynak için kaynak sağlayıcısının adı |

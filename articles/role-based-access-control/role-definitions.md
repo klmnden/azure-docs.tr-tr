@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 416565a248fc9ef0861b5309d71fdac3b8fccc22
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 3d88ac7adc950e2c216824f74586ff6ef4f70712
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116070"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715779"
 ---
 # <a name="understand-role-definitions"></a>Rol tanımlarını anlama
 
@@ -144,7 +144,7 @@ Sahip
 &nbsp;&nbsp;&nbsp;&nbsp;Eylemler<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
 
-Depolama Blob verileri katkıda bulunan (Önizleme)
+Depolama Blob Verileri Katkıda Bulunan (Önizleme)
 
 &nbsp;&nbsp;&nbsp;&nbsp;Eylemler<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
@@ -185,7 +185,7 @@ Görüntülemek ve veri işlemleriyle çalışmak için doğru SDK'lar ve Araçl
 | `Microsoft.Compute/virtualMachines/*` | Veren tüm sanal makineler ve alt işlemlerin için kaynak türleri erişin.|
 | `microsoft.web/sites/restart/Action` | Bir web uygulaması yeniden erişimi verir.|
 
-## <a name="notactions"></a>notActions
+## <a name="notactions"></a>NotActions
 
 `NotActions` İzni hariç tutulan yönetim işlemlerini belirler izin verilen gelen `Actions`. Kullanım `NotActions` izin vermek istediğiniz işlem kümesini kısıtlı işlemleri hariç tutarak daha kolay tanımlı değilse izni. Bir rol (etkili izinleri) tarafından verilen erişimi çıkarılmasıyla hesaplanır `NotActions` işlemlerinden `Actions` operations.
 
@@ -214,7 +214,7 @@ Görüntülemek ve veri işlemleriyle çalışmak için doğru SDK'lar ve Araçl
 
 ## <a name="assignablescopes"></a>assignableScopes
 
-`AssignableScopes` Özellik rol atama için kullanılabilir olduğunu kapsamlar (yönetim gruplarına (şu anda önizlemede), abonelik, kaynak grupları veya kaynak) belirtir. Rol atama için uygun abonelikleri yalnızca yapabileceğiniz veya ve değil dağınıklığı kullanıcı gerektiren kaynak grupları aboneliklere veya kaynak gruplarına geri kalanı için karşılaşabilirsiniz. En az bir yönetim kullanmalısınız grup, aboneliği, kaynak grubu veya kaynak kimliği.
+`AssignableScopes` Özellik rol atama için kullanılabilir olduğunu kapsam (abonelik, kaynak grupları veya kaynak) belirtir. Rol atama için uygun abonelikleri yalnızca yapabileceğiniz veya ve değil dağınıklığı kullanıcı gerektiren kaynak grupları aboneliklere veya kaynak gruplarına geri kalanı için karşılaşabilirsiniz. En az birini kullanmanız gerekir aboneliğe, kaynak grubuna ya da kaynak kimliği.
 
 Yerleşik rolleri `AssignableScopes` kök kapsamı ayarlayın (`"/"`). Kök kapsam rolü tüm kapsamlarda atama için uygun olduğunu gösterir. Geçerli atanabilir kapsamlarla örnekleri şunlardır:
 

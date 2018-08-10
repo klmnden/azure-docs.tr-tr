@@ -1,0 +1,230 @@
+---
+title: Microsoft Graph için Azure Active Directory kimlik koruması | Microsoft Docs
+description: Risk olayları ve ilişkili Azure Active Directory bilgilerinden bir listesi için Microsoft Graph sorgulamayı öğrenin.
+services: active-directory
+keywords: Azure active directory kimlik koruması, risk olayı, güvenlik açığı, güvenlik ilkesi, Microsoft Graph
+documentationcenter: ''
+author: MarkusVi
+manager: mtillman
+ms.assetid: fa109ba7-a914-437b-821d-2bd98e681386
+ms.service: active-directory
+ms.component: conditional-access
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/08/2017
+ms.author: markvi
+ms.reviewer: nigu
+ms.custom: seohack1
+ms.openlocfilehash: 3bdf44e0a1cf0ccda6d015fa3683964f3530d4af
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003492"
+---
+# <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Microsoft Graph ve Azure Active Directory kimlik koruması ile çalışmaya başlama
+Microsoft Graph olan Microsoft unified API uç noktası ve giriş, [Azure Active Directory kimlik koruması](../active-directory-identityprotection.md) API'leri. İlk API **identityRiskEvents**, Microsoft Graph listesi için sorgu sağlar [risk olayları](../reports-monitoring/concept-risk-events.md) ve ilişkili bilgileri. Bu makalede, bu API sorgulama başlamanıza yardımcı olur. Bir ayrıntılı giriş, tüm belgeler ve Graph Gezgini erişimi için bkz. [Microsoft Graph site](https://graph.microsoft.io/).
+
+
+Microsoft Graph üzerinden kimlik koruması verilere erişmek için dört adım vardır:
+
+1. Etki alanınızın adını alın.
+2. Yeni bir uygulama kaydı oluşturun. 
+2. Bir kimlik doğrulama belirteci nereden alacağınızı Microsoft Graph üzerinde kimlik doğrulaması için bu gizli dizi ve bazı diğer bilgilere kullanın. 
+3. API uç noktasına yönelik isteklerde ve kimlik koruma verilerini geri almak için bu belirteci kullanın.
+
+Başlamadan önce şunları yapmanız gerekir:
+
+* Azure AD'de uygulama oluşturmak için yönetici ayrıcalıkları
+* Kiracınızın etki alanının (örneğin, contoso.onmicrosoft.com)
+
+
+## <a name="retrieve-your-domain-name"></a>Etki alanı adınızı alma 
+
+1. [Oturum](https://portal.azure.com) yönetici olarak, Azure portalı. 
+
+2. Sol gezinti bölmesinde **Active Directory**. 
+   
+    ![Uygulama oluşturma](./media/graph-get-started/41.png)
+
+
+3. İçinde **Yönet** bölümünde **özellikleri**.
+
+    ![Uygulama oluşturma](./media/graph-get-started/42.png)
+
+4. Etki alanı adınızı kopyalayın.
+
+
+## <a name="create-a-new-app-registration"></a>Yeni bir uygulama kaydı oluşturma
+
+1. Üzerinde **Active Directory** sayfasında **Yönet** bölümünde **uygulama kayıtları**.
+
+    ![Uygulama oluşturma](./media/graph-get-started/42.png)
+
+
+2. Üstteki menüden **yeni uygulama kaydı**.
+   
+    ![Uygulama oluşturma](./media/graph-get-started/43.png)
+
+3. Üzerinde **Oluştur** sayfasında, aşağıdaki adımları gerçekleştirin:
+   
+    ![Uygulama oluşturma](./media/graph-get-started/44.png)
+
+    a. İçinde **adı** metin kutusu, uygulamanız için bir ad yazın (örneğin: AADIP Risk olayı API uygulama).
+   
+    b. Olarak **türü**seçin **Web uygulaması ve / veya Web API**.
+   
+    c. İçinde **oturum açma URL'si** metin kutusuna `http://localhost`.
+
+    d. **Oluştur**’a tıklayın.
+
+4. Açmak için **ayarları** sayfasında, uygulamalar listesinde, yeni oluşturulan uygulama kayıt'a tıklayın. 
+
+5. Kopyalama **uygulama kimliği**.
+
+
+## <a name="grant-your-application-permission-to-use-the-api"></a>API'yi kullanmak için uygulama izni verme
+
+1. Üzerinde **ayarları** sayfasında **gerekli izinler**.
+   
+    ![Uygulama oluşturma](./media/graph-get-started/15.png)
+
+2. Üzerinde **gerekli izinler** sayfasında, üstteki araç çubuğunda tıklatın **Ekle**.
+   
+    ![Uygulama oluşturma](./media/graph-get-started/16.png)
+   
+3. Üzerinde **API erişimi Ekle** sayfasında **bir API seçin**.
+   
+    ![Uygulama oluşturma](./media/graph-get-started/17.png)
+
+4. Üzerinde **bir API seçin** sayfasında **Microsoft Graph**ve ardından **seçin**.
+   
+    ![Uygulama oluşturma](./media/graph-get-started/18.png)
+
+5. Üzerinde **API erişimi Ekle** sayfasında **izinleri seçin**.
+   
+    ![Uygulama oluşturma](./media/graph-get-started/19.png)
+
+6. Üzerinde **erişimini etkinleştir** sayfasında **tüm kimlik risk bilgilerini okuma**ve ardından **seçin**.
+   
+    ![Uygulama oluşturma](./media/graph-get-started/20.png)
+
+7. Üzerinde **API erişimi Ekle** sayfasında **Bitti**.
+   
+    ![Uygulama oluşturma](./media/graph-get-started/21.png)
+
+8. Üzerinde **gerekli izinler** sayfasında **izinler**ve ardından **Evet**.
+   
+    ![Uygulama oluşturma](./media/graph-get-started/22.png)
+
+
+
+## <a name="get-an-access-key"></a>Bir erişim anahtarı alma
+
+1. Üzerinde **ayarları** sayfasında **anahtarları**.
+   
+    ![Uygulama oluşturma](./media/graph-get-started/23.png)
+
+2. Üzerinde **anahtarları** sayfasında, aşağıdaki adımları gerçekleştirin:
+   
+    ![Uygulama oluşturma](./media/graph-get-started/24.png)
+
+    a. İçinde **anahtar açıklaması** metin kutusuna bir açıklama yazın (örneğin, *AADIP Risk olayı*).
+    
+    b. Olarak **süresi**seçin **1 yıl**.
+
+    c. **Kaydet**’e tıklayın.
+   
+    d. Anahtar değerini kopyalayın ve güvenli bir konuma yapıştırın.   
+   
+   > [!NOTE]
+   > Bu anahtar kaybederseniz, bu bölüme geri dönün ve yeni bir anahtar oluşturmanız gerekir. Bu anahtarı gizli tutmak: sahip herkes verilerinize erişebilirsiniz.
+   > 
+   > 
+
+## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-events-api"></a>Microsoft Graph üzerinde kimlik doğrulaması ve kimlik Risk olayları API sorgulama
+Bu noktada, aşağıdakiler:
+
+- Kiracınızın etki alanı adı
+
+- İstemci kimliği 
+
+- Anahtarı 
+
+
+Kimlik doğrulaması için bir post isteği gönderin. `https://login.microsoft.com` gövdesinde şu parametrelerle:
+
+- grant_type değeri: "**client_credentials**"
+
+-  Kaynak: "**https://graph.microsoft.com**"
+
+- client_id: \<istemci Kimliğiniz\>
+
+- client_secret: \<anahtarınız\>
+
+
+Başarılı olursa, bu kimlik doğrulama belirteci döndürür.  
+API'yi çağırmak için aşağıdaki parametresiyle birlikte bir başlık oluşturun:
+
+    `Authorization`=”<token_type> <access_token>"
+
+
+Kimlik doğrulaması yapılırken döndürülen belirteç simge türü ve erişim belirteci bulabilirsiniz.
+
+Bu üst bilgi aşağıdaki API URL'sine istek olarak gönder: `https://graph.microsoft.com/beta/identityRiskEvents`
+
+Yanıt başarılı olursa, kimlik risk olayları ve ilişkili veriler ayrıştırılır ve gördüğünüz gibi ele OData JSON biçiminde koleksiyonudur.
+
+Kimlik doğrulama ve PowerShell kullanarak API'yi çağırmak için örnek kod aşağıda verilmiştir.  
+Kiracı etki alanı istemci Kimliğinizi ve gizli anahtarı eklemeniz yeterlidir.
+
+    $ClientID       = "<your client ID here>"        # Should be a ~36 hex character string; insert your info here
+    $ClientSecret   = "<your client secret here>"    # Should be a ~44 character string; insert your info here
+    $tenantdomain   = "<your tenant domain here>"    # For example, contoso.onmicrosoft.com
+
+    $loginURL       = "https://login.microsoft.com"
+    $resource       = "https://graph.microsoft.com"
+
+    $body       = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
+    $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
+
+    Write-Output $oauth
+
+    if ($oauth.access_token -ne $null) {
+        $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
+
+        $url = "https://graph.microsoft.com/beta/identityRiskEvents"
+        Write-Output $url
+
+        $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
+
+        foreach ($event in ($myReport.Content | ConvertFrom-Json).value) {
+            Write-Output $event
+        }
+
+    } else {
+        Write-Host "ERROR: No Access Token"
+    } 
+
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Tebrikler, ilk çağrınızı Microsoft Graph için yaptığınız!  
+Artık kimlik risk olayları sorgulamak ve gördüğünüz ancak verileri kullanın.
+
+Microsoft Graph ve Graph API'sini kullanarak uygulamalar oluşturma hakkında daha fazla bilgi edinmek için kullanıma [belgeleri](https://graph.microsoft.io/docs) ve çok daha fazlasını [Microsoft Graph site](https://graph.microsoft.io/). Ayrıca, yer işareti emin [Azure AD kimlik koruması API](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root) kimlik koruma API'lerini grafikte kullanılabilir tüm listeleyen sayfası. Kimlik koruması API aracılığıyla birlikte çalışmak için yeni yöntemler ekleyeceğiz gibi bu sayfada görürsünüz.
+
+İlgili bilgiler için bkz:
+
+-  [Azure Active Directory kimlik koruması](../active-directory-identityprotection.md)
+
+-  [Azure Active Directory kimlik koruması tarafından algılanan risk olayı türleri](../reports-monitoring/concept-risk-events.md)
+
+- [Microsoft Graph](https://graph.microsoft.io/)
+
+- [Microsoft Graph'ne genel bakış](https://graph.microsoft.io/docs)
+
+- [Azure AD kimlik koruması hizmeti kök](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root)
+

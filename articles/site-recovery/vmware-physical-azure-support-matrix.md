@@ -6,18 +6,20 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/09/2018
 ms.author: raynew
-ms.openlocfilehash: fc45b9e4a568842b5a935d7c28de5ef0a57e1b86
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d19aa4c3765beecc853a1b800a7ba1d3ebd74e9c
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442539"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004336"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>VMware ve fiziksel sunucu çoğaltması azure'a destek matrisi
 
 Bu makalede kullanarak desteklenen bileşenler ve Azure'da VMware vm'lerinin olağanüstü durum kurtarma için ayarları özetler [Azure Site Recovery](site-recovery-overview.md).
+
+En basit dağıtım senaryosu ile Azure Site Recovery kullanmaya başlamak için ziyaret bizim [öğreticiler](tutorial-prepare-azure.md). Azure Site Recovery mimarisi hakkında daha fazla bilgi [burada](vmware-azure-architecture.md).
 
 ## <a name="replication-scenario"></a>Çoğaltma senaryosu
 
@@ -241,12 +243,15 @@ Kasa kaynak grupları arasında taşıma<br/><br/> İçinde ve arasında aboneli
 Depolama, ağ, Azure Vm'leri kaynak grupları arasında taşıma<br/><br/> İçinde ve arasında abonelikler | Hayır
 
 
-## <a name="mobility-service"></a>Mobility hizmeti
+## <a name="download-latest-azure-site-recovery-components"></a>En son Azure Site Recovery bileşenlerini yükle
 
-**Ad** | **Açıklama** | **En son sürümü** | **Ayrıntılar**
+**Ad** | **Açıklama** | **En son sürümü indirme yönergeleri** 
 --- | --- | --- | --- | ---
-Azure Site Recovery birleşik Kurulumu | Şirket içi VMware sunucularını ve Azure arasındaki iletişimleri koordine eder <br/><br/> Şirket içi VMware sunucularında yüklü | 9.12.4653.1 (portalında kullanılabilir) | [En son özellikler ve düzeltmeler](https://aka.ms/latest_asr_updates)
-Mobility hizmeti | Şirket içi VMware sunucuları/fiziksel sunucular ile Azure/ikincil site arasında çoğaltma koordinatları<br/><br/> VMware VM veya fiziksel sunucuları çoğaltmak istediğiniz yüklü | 9.12.4653.1 (portalında kullanılabilir) | [En son özellikler ve düzeltmeler](https://aka.ms/latest_asr_updates)
+Yapılandırma sunucusu | Şirket içi VMware sunucularını ve Azure arasındaki iletişimleri koordine eder <br/><br/> Şirket içi VMware sunucularında yüklü | Yeni yükleme için tıklatın [burada](vmware-azure-deploy-configuration-server.md). Varolan bileşeni en son sürüme yükseltmek için tıklayın [burada](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+İşlem sunucusu|Varsayılan olarak yapılandırma sunucusuna yüklenir. Bu çoğaltma verilerini alıp; Bu, önbelleğe alma, sıkıştırma ve şifreleme ile iyileştirir; ve Azure depolamaya gönderir. Dağıtımınız büyüdükçe, daha büyük çoğaltma trafiği hacimlerini idare etmek ayrı, ek işlem sunucuları ekleyebilirsiniz.| Yeni yükleme için tıklatın [burada](vmware-azure-set-up-process-server-scale.md). Varolan bileşeni en son sürüme yükseltmek için tıklayın [burada](vmware-azure-manage-process-server.md#upgrade-a-process-server).
+Mobility hizmeti | Şirket içi VMware sunucuları/fiziksel sunucular ile Azure/ikincil site arasında çoğaltma koordinatları<br/><br/> VMware VM veya fiziksel sunucuları çoğaltmak istediğiniz yüklü | Yeni yükleme için tıklatın [burada](vmware-azure-install-mobility-service.md). Varolan bileşeni en son sürüme yükseltmek için tıklayın [burada](vmware-azure-install-mobility-service.md#update-mobility-service).
+
+En son özellikler ve düzeltmeler hakkında bilgi edinmek için tıklayın [burada](https://aka.ms/latest_asr_updates).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

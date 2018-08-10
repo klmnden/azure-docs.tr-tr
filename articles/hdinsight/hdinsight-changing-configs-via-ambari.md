@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: b16020ec421eb077dca8318c765834e6f64f3235
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: a516f1a22f4bb802d1b0c93b38dd36b56e2b5e0e
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600606"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716187"
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>HDInsight küme yapılandırmalarını en iyi duruma getirmek için Ambari kullanın
 
@@ -25,7 +25,7 @@ Oturum açın Ambari `https://CLUSTERNAME.azurehdidnsight.net` küme kimlik bilg
 
 ![Ambari Panosu](./media/hdinsight-changing-configs-via-ambari/ambari-dashboard.png)
 
-Ambari web kullanıcı Arabirimi, konaklar, hizmetleri, uyarılar, yapılandırmaları ve görünümleri yönetmek için kullanılabilir. Ambari can t, bir HDInsight kümesi oluşturma, hizmetleri yükseltme, yığın ve sürümlerini yönetmek, yetkisini veya konakları recommission veya hizmetleri kümeye eklemek için kullanılabilir.
+Ambari web kullanıcı Arabirimi, konaklar, hizmetleri, uyarılar, yapılandırmaları ve görünümleri yönetmek için kullanılabilir. Ambari, bir HDInsight kümesi oluşturma, hizmetleri yükseltme, yığın ve sürümlerini yönetmek, yetkisini veya konakları recommission veya hizmetleri kümeye eklemek için kullanılamaz.
 
 ## <a name="manage-your-clusters-configuration"></a>Kümenizin yapılandırmasını yönetme
 
@@ -190,7 +190,7 @@ Genel bir kural olarak bölümlenebilir sıkıştırma yöntemi olması önemlid
     ![Hive exec sıkıştırma Ara](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
     > [!NOTE]
-    > Ara dosyaları sıkıştırmak için yüksek oranda sıkıştırma çıkış codec eklenmemişse t olsa bile maliyet, daha düşük CPU ile bir sıkıştırma codec bileşeni seçin.
+    > Ara dosyaları sıkıştırmak için yüksek oranda sıkıştırma çıkış codec almasa bile maliyet, daha düşük CPU ile sıkıştırma codec bileşeni seçin.
 
 1. Ara sıkıştırma codec ayarlamak için özel özellik ekleme `mapred.map.output.compression.codec` için `hive-site.xml` veya `mapred-site.xml` dosya.
 
@@ -227,7 +227,7 @@ Son Yığın çıktısı da birleştirilebilir.
 
 Kurgusal yürütmeyi algılar ve görev sonuçları iyileştirerek toplam iş yürütme artırırken yavaş çalışan görev İzleyici kara için yinelenen görevleri belirli bir sayıda başlatılır.
 
-Kurgusal yürütmeyi paylaşılmamalıdır t giriş büyük miktarlarda ile uzun süreli MapReduce görevleri için açık olması.
+Giriş büyük miktarlarda ile uzun süreli MapReduce görevleri için kurgusal yürütmeyi açık olması gerekir.
 
 * Kurgusal yürütmeyi sağlamak için Hive gidin **yapılandırmaları** sekmesine ve ardından `hive.mapred.reduce.tasks.speculative.execution` parametresi true. Varsayılan değer false'tur.
 

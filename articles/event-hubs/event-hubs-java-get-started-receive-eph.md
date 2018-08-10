@@ -1,64 +1,60 @@
 ---
 title: Java kullanarak Azure Event Hubs'tan gelen olayları alma | Microsoft Docs
-description: Java kullanarak Event Hubs'dan alma kullanmaya başlama
+description: Java kullanarak Event Hubs'dan almaya başlama
 services: event-hubs
-documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
-ms.assetid: 38e3be53-251c-488f-a856-9a500f41b6ca
 ms.service: event-hubs
 ms.workload: core
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
-ms.author: sethm
-ms.openlocfilehash: bf87bed80c142bce6229ad858a33a1c6ede63a23
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 06/12/2018
+ms.author: shvija
+ms.openlocfilehash: 1472dd6917b241ee60da316a7f7aeb09e5db646b
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40006831"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Java kullanarak Azure Event Hubs'tan gelen olayları alma
 
-Olay hub'ları saniye başına milyonlarca olayı alma, bir uygulamaya etkinleştirme işlemek ve veri bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki analiz bir yüksek düzeyde ölçeklenebilir bir alım sistemine olur. Veriler Event Hubs hizmetinde toplandığında, herhangi bir gerçek zamanlı analitik sağlayıcısı veya depolama kümesi kullanarak bu verileri dönüştürebilir veya depolayabilirsiniz.
+Event Hubs, saniye başına milyonlarca olayı içe almak, işlemek ve çok büyük miktarda veriyi uygulamanızın bağlı cihazlarınız ve uygulamalarınız tarafından üretilen uygulama etkinleştirme bir yüksek düzeyde ölçeklenebilir bir alım sistemidir. Veriler Event Hubs hizmetinde toplandığında, herhangi bir gerçek zamanlı analitik sağlayıcısı veya depolama kümesi kullanarak bu verileri dönüştürebilir veya depolayabilirsiniz.
 
-Daha fazla bilgi için bkz: [Event Hubs'a genel bakış][Event Hubs overview].
+Daha fazla bilgi için [Event Hubs'a genel bakış][Event Hubs overview].
 
-Bu öğretici Java'da yazılmış bir konsol uygulaması kullanarak bir event hub içine olaylarını almak nasıl gösterir.
+Bu öğreticide, Java dilinde yazılmış bir konsol uygulaması kullanarak bir event hub olay alma işlemi gösterilmektedir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticiyi tamamlamak için aşağıdaki önkoşullar gerekir:
+Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız gerekir:
 
-* Java geliştirme ortamı. Bu öğretici için varsayıyoruz [Eclipse](https://www.eclipse.org/).
-* Etkin bir Azure hesabı. Bir Azure aboneliğiniz yoksa oluşturma bir [ücretsiz bir hesap][] başlamadan önce.
+* Java geliştirme ortamı. Bu öğreticide, varsayıyoruz [Eclipse](https://www.eclipse.org/).
+* Etkin bir Azure hesabı. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][] oluşturun.
 
-Bu öğreticideki kod dayanır [EventProcessorSample kodu github'da](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/EventProcessorSample), hangi tam görmek için inceleyebilirsiniz çalışan bir uygulama.
+Bu öğreticideki kod dayanır [EventProcessorSample kodu github'da](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/EventProcessorSample), hangi tam görmek için inceleyebilirsiniz çalışan uygulama.
 
 ## <a name="receive-messages-with-eventprocessorhost-in-java"></a>Java’da EventProcessorHost bulunan iletiler alma
 
-**EventProcessorHost** kalıcı denetim noktalarını yöneterek Event Hubs'a ait alma olaylarını basitleştiren bir Java sınıfı ve paralel alımları bu Event Hubs'a ait. EventProcessorHost kullanarak, olayları birden çok alıcı arasında farklı düğümlerde barındırıldığında bile bölebilirsiniz. Bu örnek, tek alıcı için EventProcessorHost’un nasıl kullanıldığını göstermektedir.
+**EventProcessorHost** kalıcı denetim noktalarını yöneterek Event Hubs'a ait alma olaylarını basitleştiren bir Java sınıfıdır ve paralel alımları bu Event Hubs'a ait. Eventprocessorhost'u kullanarak, olayları birden çok alıcı arasında farklı düğümlerde barındırıldığında bile bölebilirsiniz. Bu örnek, tek alıcı için EventProcessorHost’un nasıl kullanıldığını göstermektedir.
 
 ### <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-EventProcessorHost kullanmak için olmalıdır bir [Azure depolama hesabı][Azure Storage account]:
+Eventprocessorhost'u kullanmak için olmalıdır bir [Azure depolama hesabı][Azure Storage account]:
 
-1. Oturum [Azure portal][Azure portal], tıklatıp **+ kaynak oluşturma** ekranın sol taraftaki.
-2. **Depolama** ve ardından **Depolama hesabı**’na tıklayın. İçinde **depolama hesabı oluşturma** penceresinde, depolama hesabı için bir ad yazın. Alanları geri kalanını tamamlamak için istediğiniz bölgeyi seçin ve ardından **oluşturma**.
+1. Oturum [Azure portalında][Azure portal], tıklatıp **+ kaynak Oluştur** ekranın sol taraftaki.
+2. **Depolama** ve ardından **Depolama hesabı**’na tıklayın. İçinde **depolama hesabı oluşturma** penceresinde, depolama hesabı için bir ad yazın. Alanları geri kalanını tamamlamak için istediğiniz bölgeyi seçin ve ardından **Oluştur**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
-3. Yeni oluşturulan depolama hesabı'nı tıklatın ve ardından **erişim tuşları**:
+3. Yeni oluşturulan depolama hesabına tıklayın ve ardından **erişim anahtarlarını**:
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
-    Key1 değer daha sonra Bu öğreticide kullanmak için geçici bir konuma kopyalayın.
+    Key1 değeri daha sonra Bu öğreticide kullanmak üzere geçici bir konuma kopyalayın.
 
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>EventProcessor Ana Bilgisayarını kullanarak Java projesi oluşturma
 
-Olay hub'ları için Java istemci kitaplığı Maven projelerden kullanmak için kullanılabilir [Maven merkezi bir depoya][Maven Package]ve aşağıdaki bağımlılığı bildirimi, Maven içinde kullanarak başvurulabilir Proje dosyası. Geçerli sürümü 1.0.0 şöyledir:    
+Event Hubs için Java istemci kitaplığı içindeki Maven projelerinde kullanılabilir [Maven Central Repository][Maven Package]ve Maven içinde aşağıdaki bağımlılık bildirimi kullanılarak başvurulabilir Proje dosyası. Geçerli sürüm 1.0.0.:    
 
 ```xml
 <dependency>
@@ -73,9 +69,9 @@ Olay hub'ları için Java istemci kitaplığı Maven projelerden kullanmak için
 </dependency>
 ```
 
-Derleme ortamları farklı türleri için en son yayımlanan JAR dosyalarını açıkça edinebilirsiniz [Maven merkezi bir depoya][Maven Package].  
+Derleme ortamlarının farklı türleri için en son JAR dosyalarının açıkça edinebilirsiniz [Maven Central Repository][Maven Package].  
 
-1. Aşağıdaki örnek için önce en sevdiğiniz Java geliştirme ortamında bir konsol/kabuk uygulaması için yeni bir Maven projesi oluşturun. Sınıf adı verilen `ErrorNotificationHandler`.     
+1. Aşağıdaki örnek için önce en sevdiğiniz Java geliştirme ortamında bir konsol/kabuk uygulaması için yeni bir Maven projesi oluşturun. Sınıf `ErrorNotificationHandler`.     
    
     ```java
     import java.util.function.Consumer;
@@ -90,7 +86,7 @@ Derleme ortamları farklı türleri için en son yayımlanan JAR dosyalarını a
         }
     }
     ```
-2. `EventProcessorSample` adlı yeni bir sınıf oluşturmak için aşağıdaki kodu kullanın. Yer tutucuları olay hub'ı ve depolama hesabı oluştururken kullanılan değerlerle değiştirin:
+2. `EventProcessorSample` adlı yeni bir sınıf oluşturmak için aşağıdaki kodu kullanın. Yer tutucuları olay hub'ı ve depolama hesabı oluştururken kullandığınız değerlerle değiştirin:
    
    ```java
    package com.microsoft.azure.eventhubs.samples.eventprocessorsample;
@@ -187,18 +183,14 @@ Derleme ortamları farklı türleri için en son yayımlanan JAR dosyalarını a
     {
         private int checkpointBatchingCount = 0;
 
-        // OnOpen is called when a new event processor instance is created by the host. In a real implementation, this
-        // is the place to do initialization so that events can be processed when they arrive, such as opening a database
-        // connection.
+        // OnOpen is called when a new event processor instance is created by the host. 
         @Override
         public void onOpen(PartitionContext context) throws Exception
         {
             System.out.println("SAMPLE: Partition " + context.getPartitionId() + " is opening");
         }
 
-        // OnClose is called when an event processor instance is being shut down. The reason argument indicates whether the shut down
-        // is because another host has stolen the lease for this partition or due to error or host shutdown. In a real implementation,
-        // this is the place to do cleanup for resources that were opened in onOpen.
+        // OnClose is called when an event processor instance is being shut down. 
         @Override
         public void onClose(PartitionContext context, CloseReason reason) throws Exception
         {
@@ -206,18 +198,13 @@ Derleme ortamları farklı türleri için en son yayımlanan JAR dosyalarını a
         }
         
         // onError is called when an error occurs in EventProcessorHost code that is tied to this partition, such as a receiver failure.
-        // It is NOT called for exceptions thrown out of onOpen/onClose/onEvents. EventProcessorHost is responsible for recovering from
-        // the error, if possible, or shutting the event processor down if not, in which case there will be a call to onClose. The
-        // notification provided to onError is primarily informational.
         @Override
         public void onError(PartitionContext context, Throwable error)
         {
             System.out.println("SAMPLE: Partition " + context.getPartitionId() + " onError: " + error.toString());
         }
 
-        // onEvents is called when events are received on this partition of the Event Hub. The maximum number of events in a batch
-        // can be controlled via EventProcessorOptions. Also, if the "invoke processor after receive timeout" option is set to true,
-        // this method will be called with null when a receive timeout occurs.
+        // onEvents is called when events are received on this partition of the Event Hub. 
         @Override
         public void onEvents(PartitionContext context, Iterable<EventData> events) throws Exception
         {
@@ -225,8 +212,6 @@ Derleme ortamları farklı türleri için en son yayımlanan JAR dosyalarını a
             int eventCount = 0;
             for (EventData data : events)
             {
-                // It is important to have a try-catch around the processing of each event. Throwing out of onEvents deprives
-                // you of the chance to process any remaining events in the batch. 
                 try
                 {
                     System.out.println("SAMPLE (" + context.getPartitionId() + "," + data.getSystemProperties().getOffset() + "," +
@@ -235,10 +220,7 @@ Derleme ortamları farklı türleri için en son yayımlanan JAR dosyalarını a
                     
                     // Checkpointing persists the current position in the event stream for this partition and means that the next
                     // time any host opens an event processor on this event hub+consumer group+partition combination, it will start
-                    // receiving at the event after this one. Checkpointing is usually not a fast operation, so there is a tradeoff
-                    // between checkpointing frequently (to minimize the number of events that will be reprocessed after a crash, or
-                    // if the partition lease is stolen) and checkpointing infrequently (to reduce the impact on event processing
-                    // performance). Checkpointing every five events is an arbitrary choice for this sample.
+                    // receiving at the event after this one. 
                     this.checkpointBatchingCount++;
                     if ((checkpointBatchingCount % 5) == 0)
                     {
@@ -259,12 +241,10 @@ Derleme ortamları farklı türleri için en son yayımlanan JAR dosyalarını a
     }
     ```
 
-> [!NOTE]
-> Bu öğretici, EventProcessorHost’un tek bir örneğini kullanır. Verimliliğini artırmak için birden çok örneğini EventProcessorHost, tercihen ayrı makinelerde çalıştırmanız önerilir.  Bu da artıklık sağlar. Böyle durumlarda, alınan olayların yük dengesi için çeşitli örnekler otomatik olarak birbirleriyle koordine olurlar. Birden çok alıcının her birinin *tüm* olayları işlemesini istiyorsanız **ConsumerGroup** kavramını kullanmalısınız. Olaylar farklı makinelerden alındığında, dağıtıldıkları makineleri (veya rolleri) temel alan EventProcessorHost örnekleri için ad belirtmek yararlı olabilir.
-> 
-> 
+Bu öğretici, EventProcessorHost’un tek bir örneğini kullanır. Verimliliği artırmak için birden çok örneğini EventProcessorHost, tercihen ayrı makinelerde çalıştırmanız önerilir.  Bu da yedeklilik sağlar. Böyle durumlarda, alınan olayların yük dengesi için çeşitli örnekler otomatik olarak birbirleriyle koordine olurlar. Birden çok alıcının her birinin *tüm* olayları işlemesini istiyorsanız **ConsumerGroup** kavramını kullanmalısınız. Olaylar farklı makinelerden alındığında, dağıtıldıkları makineleri (veya rolleri) temel alan EventProcessorHost örnekleri için ad belirtmek yararlı olabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Aşağıdaki bağlantıları inceleyerek Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
 
 * [Event Hubs’a genel bakış](event-hubs-what-is-event-hubs.md)

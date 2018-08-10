@@ -1,21 +1,21 @@
 ---
-title: Erişim ve Azure zaman serisi Öngörüler yönetmek için güvenliği yapılandırma | Microsoft Docs
-description: Bu makalede güvenlik ve izinler yönetim erişimi nasıl yapılandırılacağı ilkeler ve veri erişim ilkeleri Azure zaman serisi Öngörüler güvenli hale getirmek için.
+title: Erişim ve Azure Time Series Insights'ı yönetmek için güvenlik yapılandırma | Microsoft Docs
+description: Bu makalede güvenlik ve izinler yönetim erişimi yapılandırma ilkeleri ve veri erişim ilkeleri Azure Time Series Insights güvenliğini sağlamak için.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
 ms.author: anshan
-manager: jhubbard
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 4306d22f03faa55fb6fc8be1a359aea3410e8038
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 97c9480d6f2b75d83252bfb6410d7b5f946757ef
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653819"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630662"
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Azure Portal’ı kullanarak Zaman Serisi Görüşleri ortamına veri erişimi verme
 
@@ -24,7 +24,7 @@ Zaman Serisi Görüşleri ortamlarının birbirinden bağımsız türde iki eri�
 * Yönetim erişimi ilkeleri
 * Veri erişimi ilkeleri
 
-Her iki ilke de Azure Active Directory asıl adlarına (kullanıcılar ve uygulamalar) belirli bir ortam üzerinde çeşitli izinler verir. Ortam içeren abonelikle ilişkili (Azure Kiracı olarak da bilinir) active Directory ilkelerini (kullanıcılar ve uygulamalar) ait olması gerekir.
+Her iki ilke de Azure Active Directory asıl adlarına (kullanıcılar ve uygulamalar) belirli bir ortam üzerinde çeşitli izinler verir. Ortamı içeren abonelikle ilişkili (Azure kiracısı bilinir) active Directory asıl adlarına (kullanıcılar ve uygulamalar) ait olmalıdır.
 
 Yönetim erişimi ilkeleri, ortamı, olay kaynaklarını, başvuru veri kümelerini oluşturma ve
 *   Silme, veri erişimi ilkelerini yönetme gibi ortamın yapılandırmasıyla ilgili izinler
@@ -32,29 +32,29 @@ Yönetim erişimi ilkeleri, ortamı, olay kaynaklarını, başvuru veri kümeler
 
 Veri erişimi ilkeleri, veri sorguları gönderme, ortamdaki başvuru verilerini işleme, ortamla ilişkilendirilmiş kaydedilen sorguları ve perspektifleri paylaşma izinleri verir.
 
-İki ilke türü de ortamın yönetimine erişim ile ortam içindeki verilere erişim arasında net bir ayrım yapmaya olanak tanır. Örneğin, sahibi/Oluşturucusu ortamının veri erişimden kaldırılır, bir ortamı ayarlamak mümkündür. Ayrıca, kullanıcılar ve ortamdan verileri okumak için izin verilen hizmetler ortamının yapılandırması erişimi verilebilir.
+İki ilke türü de ortamın yönetimine erişim ile ortam içindeki verilere erişim arasında net bir ayrım yapmaya olanak tanır. Örneğin, ortamın sahibinin/oluşturucusunun veri erişiminden kaldırılır, bir ortamı ayarlamak mümkündür. Ayrıca, kullanıcılar ve ortamdan veri okumak için izin verilen hizmetler ortamının yapılandırması erişim verilebilir.
 
 ## <a name="grant-data-access"></a>Veri erişim izni verme
 Bir kullanıcı asıl veri erişimi vermek için aşağıdaki adımları izleyin:
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. Zaman serisi Öngörüler ortamınızı bulun. Tür **zaman serisi** içinde **arama** kutusu. Seçin **zaman serisi ortam** arama sonuçlarında. 
+2. Time Series Insights ortamınızı bulun. Tür **zaman serisi** içinde **arama** kutusu. Seçin **zaman serisi ortamı** arama sonuçlarında. 
 
 3. Listeden Zaman Serisi Görüşleri ortamınızı seçin.
    
-4. Seçin **veri erişimi ilkelerini**seçeneğini belirleyip **+ Ekle**.
-  ![Zaman serisi Öngörüler kaynak - yönetmek ortamı](media/data-access/getstarted-grant-data-access1.png)
+4. Seçin **veri erişimi ilkeleri**, ardından **+ Ekle**.
+  ![Zaman serisi görüşleri kaynağını yönetme - ortam](media/data-access/getstarted-grant-data-access1.png)
 
-5. Seçin **kullanıcı**.  Eklemek istediğiniz kullanıcı bulmak kullanıcı adı veya e-posta adresi arayın. Tıklatın **seçin** Seçimi onaylamak için. 
+5. Seçin **Kullanıcı Seç**.  Eklemek istediğiniz kullanıcı bulmak kullanıcı adı veya e-posta adresi arayın. Tıklayın **seçin** Seçimi onaylamak için. 
 
    ![Zaman Serisi Görüşleri kaynağını yönetme - ekleme](media/data-access/getstarted-grant-data-access2.png)
 
-6. Seçin **Select rol**. Kullanıcı için uygun erişim rolünü seçin:
-   - Seçin **katkıda bulunan** perspektif Ortamı'nın diğer kullanıcılarla başvuru verileri ve kaydedilmiş paylaşımı sorgular ve değiştirmek kullanıcı izin vermek istiyorsanız. 
-   - Aksi takdirde seçin **okuyucu** kullanıcı sorgu veri ortamda izin ver ve kişisel (paylaşılmayan) sorguları ortamda kaydetmek için.
+6. Seçin **rol seçme**. Kullanıcı için uygun erişim rolü seçin:
+   - Seçin **katkıda bulunan** başvuru verileri ve kaydedilmiş paylaşımı sorguları ve Perspektifleri ortamın diğer kullanıcılarla değiştirmek kullanıcı izin vermek istiyorsanız. 
+   - Aksi takdirde seçin **okuyucu** ortamında kullanıcı veri izin verme veya kişisel (paylaşılmayan) sorguları ortama kaydetmesine.
 
-   Seçin **Tamam** rolü Seçimi onaylamak için.
+   Seçin **Tamam** rolü seçiminizi onaylamak için.
 
    ![Zaman Serisi Görüşleri kaynağını yönetme - kullanıcı seçme](media/data-access/getstarted-grant-data-access3.png)
 
@@ -62,11 +62,11 @@ Bir kullanıcı asıl veri erişimi vermek için aşağıdaki adımları izleyin
 
    ![Zaman Serisi Görüşleri kaynağını yönetme - rol seçme](media/data-access/getstarted-grant-data-access4.png)
 
-9. **Veri erişimi ilkelerini** sayfası kullanıcılar ve her kullanıcı için rolleri listeler.
+9. **Veri erişimi ilkeleri** sayfası, kullanıcıları ve her kullanıcı için rolleri listeler.
 
    ![Zaman Serisi Görüşleri kaynağını yönetme - sonuçlar](media/data-access/getstarted-grant-data-access5.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bilgi [Azure zaman serisi Öngörüler ortamınız için bir olay hub'ı olay kaynağı ekleme](time-series-insights-how-to-add-an-event-source-eventhub.md).
-* [Olayları göndermek](time-series-insights-send-events.md) olay kaynağı.
-* Ortamınızdaki görüntülemek [zaman serisi Öngörüler explorer](https://insights.timeseries.azure.com).
+* Bilgi [Azure zaman serisi görüşleri ortamınıza bir Event Hub olay kaynağı ekleme](time-series-insights-how-to-add-an-event-source-eventhub.md).
+* [Olayları gönderme](time-series-insights-send-events.md) olay kaynağına.
+* Ortamınızı görüntüleyebilirsiniz [Time Series Insights gezgininin](https://insights.timeseries.azure.com).

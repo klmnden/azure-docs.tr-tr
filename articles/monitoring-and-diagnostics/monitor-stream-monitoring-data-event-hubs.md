@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/31/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: a43b70d2ce7a8205903fb877ea056dea88ac8bb5
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 2990ba290dfdaf45d8a341138ea515bad16d5b30
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389618"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628180"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure harici bir aracı tarafından veri tüketimi için olay hub'ına izleme
 
@@ -50,11 +50,11 @@ Ayrıca bkz [Azure Event Hubs SSS Sayfasındaki](../event-hubs/event-hubs-faq.md
 
 ## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>Olay hub'ına akışla için izleme verilerini Azure Kiracı nasıl kurarım?
 
-Azure Kiracı izleme verilerini şu anda yalnızca Azure Active Directory için kullanılabilir. Verilerden kullanabileceğiniz [Azure Active Directory raporlama](../active-directory/active-directory-reporting-azure-portal.md), oturum açma etkinlik ve denetim izi belirli bir kiracıda yapılan değişikliklerin geçmişini içerir.
+Azure Kiracı izleme verilerini şu anda yalnızca Azure Active Directory için kullanılabilir. Verilerden kullanabileceğiniz [Azure Active Directory raporlama](../active-directory/reports-monitoring/overview-reports.md), oturum açma etkinlik ve denetim izi belirli bir kiracıda yapılan değişikliklerin geçmişini içerir.
 
 ### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>Azure Active Directory verilerini bir olay hub'ına Stream
 
-Bir Event Hubs ad alanına Azure Active Directory günlüğünden veri göndermek için bir kiracı tanılama ayarı AAD kiracınızda ayarlayın. [Bu kılavuzu izleyerek](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md) Kiracı tanılama ayarı oluşturmanız için.
+Bir Event Hubs ad alanına Azure Active Directory günlüğünden veri göndermek için bir kiracı tanılama ayarı AAD kiracınızda ayarlayın. [Bu kılavuzu izleyerek](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) Kiracı tanılama ayarı oluşturmanız için.
 
 ## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>Olay hub'ına akışla için izleme verilerini Azure aboneliğini nasıl kurarım?
 

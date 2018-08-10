@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 0cd31a6acaa248b53fbe90684894b3bb3e7ebf86
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 1606b5e38b79cb535108ca747783a05de1fbc982
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37907052"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40026829"
 ---
 Dengeli CPU / bellek oranı genel amaçlı sanal makine boyutları sağlar. Test ve geliştirme, küçük - orta boyutlu veritabanları, düşük - orta yoğunluklu trafiğe sahip web sunucuları için idealdir. Bu makalede, Vcpu, veri diskleri ve NIC yanı sıra bu gruplandırmaki boyutları için depolama aktarım hızı sayısı hakkında bilgi sağlar. 
 
@@ -21,7 +21,7 @@ Dengeli CPU / bellek oranı genel amaçlı sanal makine boyutları sağlar. Test
 
 - Orijinal D Serisinin üzerine geliştirilen Dv2 Serisi, daha güçlü bir CPU'ya sahiptir. Dv2 Serisi CPU, D Serisi CPU'dan yaklaşık %35 daha hızlıdır. Temel en yeni nesil Intel Xeon® E5-2673 v3 (Haswell) 2,4 GHz veya E5-2673 v4 (Broadwell) 2,3 GHz işlemcileri ve Intel Turbo Boost Technology 2.0 ile 3,1 GHz'e varan hızlara çıkabilir. Dv2 Serisi, D Serisi ile aynı bellek ve disk yapılandırmalarına sahiptir.
 
-- Dv3 serisi Dv2 serisi, ancak en genel amaçlı iş yükleri için daha iyi bir değer önerisi sağlama yanı sıra diğer birçok bulut ile genel amaçlı sanal hizalama Dv3 getirmek hiper iş parçacıklı bir yapılandırmada aynı işlemci özellikleri.  Disk ve ağ sınırlarını hiper iş parçacıklı Git ile hizalamak için çekirdek başına temelinde ayarlanmış durumdayken (Başlangıç ~3.5 GiB/vCPU için 4 GiB/vCPU) bellek genişletildi.  Dv3 artık yüksek bellek VM boyutları D/Dv2 ailelerinin sahipse, bu yeni Ev3 ailesi için taşınmıştır.
+- Dv3 serisi özellikleri 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) işlemci veya en son 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell) işlemciyi sağlayarak daha iyi bir değer önerisi en genel amaçlı iş yükleri için hiper iş parçacıklı bir yapılandırmada,.  Disk ve ağ sınırlarını hiper iş parçacıklı Git ile hizalamak için çekirdek başına temelinde ayarlanmış durumdayken (Başlangıç ~3.5 GiB/vCPU için 4 GiB/vCPU) bellek genişletildi.  Dv3 artık yüksek bellek VM boyutları D/Dv2 ailelerinin sahipse, bu yeni Ev3 ailesi için taşınmıştır.
 
 
 ## <a name="b-series"></a>B serisi

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 403f1214758c48b4c05d2ae116d0f5125c341504
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 06535cd86e32d9e5d083bfde5f1c40e345a88640
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620122"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004628"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>İçin ve SQL Server'dan Azure Data Factory kullanarak veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -444,7 +444,7 @@ SqlSink bölümü gibi kopyalama etkinliği tanımlayın.
 }
 ```
 
-Veritabanınızda, aynı ada sahip bir saklı yordam SqlWriterStoredProcedureName tanımlayın. Bu, çıkış tabloya belirtilen kaynak ve birleştirme gelen giriş verilerinin işler. Saklı yordam parametre adı veri kümesinde tanımlanan "tableName" ile aynı olmalıdır dikkat edin.
+Veritabanınızda, aynı ada sahip bir saklı yordam SqlWriterStoredProcedureName tanımlayın. Bu, çıkış tabloya belirtilen kaynak ve birleştirme gelen giriş verilerinin işler. Tablo türünde saklı yordam parametre adı veri kümesinde tanımlanan "tableName" ile aynı olması gerekir.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)

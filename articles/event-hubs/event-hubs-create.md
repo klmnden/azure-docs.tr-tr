@@ -1,31 +1,31 @@
 ---
 title: Bir Azure olay hub'ı oluşturma | Microsoft Docs
-description: Azure Event Hubs ad alanı ve Azure portalını kullanarak bir event hub oluşturma
+description: Bir Azure Event Hubs ad alanı ve Azure portalını kullanarak bir olay hub'ı oluşturma
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
-ms.author: sethm
-ms.openlocfilehash: 9b466d4e727c1511ca2318c0da3ec2807a965a5d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: shvija
+ms.openlocfilehash: fb2020f7bfc8521e141adb4eefbc227e8123a269
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625551"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002629"
 ---
-# <a name="create-an-event-hubs-namespace-and-an-event-hub-using-the-azure-portal"></a>Bir olay hub'ları ad alanı ve Azure portalını kullanarak bir event hub oluşturma
+# <a name="create-an-event-hubs-namespace-and-an-event-hub-using-the-azure-portal"></a>Bir Event Hubs ad alanı ve Azure portalını kullanarak bir olay hub'ı oluşturma
 
-## <a name="create-an-event-hubs-namespace"></a>Bir olay hub'ları ad alanı oluşturma
+## <a name="create-an-event-hubs-namespace"></a>Event Hubs ad alanı oluşturma
 
-1. Oturum [Azure portal][Azure portal], tıklatıp **kaynak oluşturma** en üst ekranın sol.
-2. Tıklatın **nesnelerin interneti**ve ardından **olay hub'ları**.
+1. Oturum [Azure portalında][Azure portal], tıklatıp **kaynak Oluştur** , ekranın sol üst köşesindeki.
+2. **Nesnelerin İnterneti**’ne ve ardından **Event Hubs**’a tıklayın.
    
     ![](./media/event-hubs-create/create-event-hub9.png)
 
-3. İçinde **ad alanı oluşturma**, bir ad alanı adı girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.  
+3. **Ad alanı oluştur** bölümüne bir ad alanı adı girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.  
 
 4. Ad alanı adının kullanılabilir durumda olduğundan emin olduktan sonra fiyatlandırma katmanını (Temel veya Standart) seçin. Ayrıca, bir Azure aboneliği, kaynak grubu ve kaynağın oluşturulacağı konumu seçin.
  
@@ -33,19 +33,19 @@ ms.locfileid: "34625551"
 
     ![](./media/event-hubs-create/create-event-hub1.png)
 
-6. Ad alanları portal listesinde yeni oluşturulan ad alanına tıklayın.
+6. Portaldaki ad alanları listesinde, yeni oluşturulan ad alanına tıklayın.
 
-7. Tıklatın **paylaşılan erişim ilkeleri**ve ardından **RootManageSharedAccessKey**.
+7. **Paylaşılan erişim ilkeleri**'ne ve ardından **RootManageSharedAccessKey** öğesine tıklayın.
     
     ![](./media/event-hubs-create/create-event-hub7.png)
 
-8. **RootManageSharedAccessKey** bağlantı dizesini panoya kopyalamak için kopyala düğmesine tıklayın. Bu bağlantı dizesi daha sonra kullanmak üzere not defteri gibi geçici bir konuma kaydedin.
+8. **RootManageSharedAccessKey** bağlantı dizesini panoya kopyalamak için kopyala düğmesine tıklayın. Bu bağlantı dizesini daha sonra kullanmak üzere Not Defteri gibi geçici bir konuma kaydedin.
     
     ![](./media/event-hubs-create/create-event-hub8.png)
 
 ## <a name="create-an-event-hub"></a>Olay hub’ı oluşturma
 
-1. Olay hub'ları ad listesinde yeni oluşturulan ad alanına tıklayın.      
+1. Event Hubs ad alanı listesinde yeni oluşturulan ad alanına tıklayın.      
    
     ![](./media/event-hubs-create/create-event-hub2.png) 
 
@@ -53,16 +53,16 @@ ms.locfileid: "34625551"
    
     ![](./media/event-hubs-create/create-event-hub3.png)
 
-3. Dikey pencerenin üstündeki **+ olay hub'ı**.
+3. Dikey pencerenin en üstünde tıklayın **+ olay hub'ı**.
    
     ![](./media/event-hubs-create/create-event-hub4.png)
-4. Olay hub'ınız için bir ad yazın ve ardından **oluşturma**. 
+4. Olay hub'ınız için bir ad yazın, ardından **Oluştur**’a tıklayın. 
 
-Olay hub'ınız şimdi oluşturulur ve olayları alıp göndermek için gereken bağlantı dizelerine sahipsiniz.
+Olay hub'ınız şimdi oluşturuldu ve olayları alıp göndermek için gereken bağlantı dizelerine sahipsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Event Hubs hakkında daha fazla bilgi için aşağıdaki bağlantıları ziyaret edin:
+Event Hubs hakkında daha fazla bilgi için şu bağlantıları ziyaret edin:
 
 * [Event Hubs’a genel bakış](event-hubs-what-is-event-hubs.md)
 * [Event Hubs API’sine genel bakış](event-hubs-api-overview.md)

@@ -25,6 +25,8 @@
       href: app-service-web-get-started-java.md
     - name: Statik HTML sitesi oluşturma
       href: app-service-web-get-started-html.md
+    - name: Özel Windows kapsayıcısını çalıştırma
+      href: app-service-web-get-started-windows-container.md
 - name: Öğreticiler
   items:
     - name: DB ile uygulama

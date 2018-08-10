@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: ellacroi
-ms.openlocfilehash: ce862758d97737d16ef26ca7172cad39f8d8336a
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 95ad327380707dcfe14aa5aa3d91b8da2309eb05
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39360009"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630900"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure iş ortağı müşteri kullanım attribution
 
@@ -55,23 +55,8 @@ GUID ekleme, tek bir ana şablon dosyasının değiştirilmesini şöyledir:
 
 ## <a name="sample-template-code"></a>Örnek şablon kodu
 
-```
+![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/tracking-sample-code-for-lu-1.PNG?token=Ak8ZDB0JzsBdUGlKEIeHNJRS7b0BWn4Gks5bbMwwwA%3D%3D)
 
-{ // add this resource to the mainTemplate.json (do not add the entire file)
-      "apiVersion": "2018-02-01",
-      "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your GUID here
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": []
-        }
-      }
-    } // remove all comments from the file when done
-
-```
 
 ## <a name="method-2-azure-resource-manager-apis"></a>Yöntem 2: Azure Resource Manager API'leri
 
@@ -81,6 +66,8 @@ Bir Azure Resource Manager şablonu kullanıyorsanız, yukarıdaki yönergeleri 
 
 **Azure Resource Manager API'leri kullanarak bir dağıtım etiketleme:** isteğindeki kullanıcı aracısını üst bilgisindeki bir GUID içerecektir, API çağrıları tasarlarken, bu yaklaşım için. SKU veya her teklif için GUID'i eklenmesi gerekir.  Dize öneki ile biçimlendirilmiş olması gerekir PID - ve üretilen iş ortağı GUID.   
 
+![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG?token=Ak8ZDDiokRcj4PJj0aMkZmfF8BdOuOTzks5bbM35wA%3D%3D)
+
 >[!Note] 
 >Kullanıcı Aracısı içine eklenmek için GUID biçimi: pid-eb7927c8-dd66-43e1-b0cf-c346a422063 / / "PID-sonra", GUID girin
 
@@ -88,13 +75,7 @@ Dize biçimi büyük/küçük harf önemlidir. "PID-" önekini dahil edilmezse, 
 
 **Python SDK'sını kullanarak bir örnek:** Python için gereken "yapılandırma" özniteliğini kullanın. Yalnızca bir UserAgent için ekleyebilirsiniz. Örnek aşağıda verilmiştir:
 
-```python
-
-client = azure.mgmt.servicebus.ServiceBusManagementClient(**parameters)
-        client.config.add_user_agent("pid-eb7927c8-dd66-43e1-b0cf-c346a422063")
-
-
-```
+![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/python-for-lu.PNG?token=Ak8ZDK5Um4J6oY-7x25tuBpa168BEiYMks5bbMuUwA%3D%3D)
 
 >Bu her istemci için yapılması gerekir, genel statik yapılandırma (her istemci çalıştığına emin olmak için bir istemci fabrikası yapmayı tercih. 
 >[Ek başvuru bilgileri](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)

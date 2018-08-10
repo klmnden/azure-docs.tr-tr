@@ -1,78 +1,78 @@
 ---
-title: İzleme ve Azure zaman serisi öngörü azaltma azaltmak nasıl | Microsoft Docs
-description: Bu makalede, izleme, tanılama ve gecikme süresi ve azaltma Azure zaman serisi öngörü neden performans sorunlarını azaltmak açıklar.
+title: Azure zaman serisi Öngörülerinde azaltma azaltmak ve izlemek nasıl | Microsoft Docs
+description: Bu makalede, izleme, tanılama ve gecikme süresi ve azaltma Azure zaman serisi Öngörülerinde neden performans sorunlarını azaltmak açıklar.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: jasonh
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: 35860838d03d61e1145d35fd2516c1688c3bb64f
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: a404eb1393f9e99c2e2932c2d23724051f1b72a0
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130589"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628496"
 ---
-# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>İzleme ve Azure zaman serisi Öngörüler gecikmesini azaltmak için azaltma azaltmak
-Gelen veri miktarına, ortam yapılandırma aşarsa, gecikme veya Azure zaman serisi öngörü azaltma karşılaşabilirsiniz.
+# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Azure zaman serisi görüşleri'nde gecikme süresini azaltmak için azaltmayı giderme ve izleme
+Ortamınızın yapılandırmasını gelen veri miktarı aşarsa, gecikme süresi veya Azure zaman serisi Öngörülerinde azaltma karşılaşabilirsiniz.
 
 Gecikme süresi ve analiz etmek istediğiniz veri miktarı, ortamınızı düzgün şekilde yapılandırarak azaltma önleyebilirsiniz.
 
 Gecikme süresi ve ne zaman azaltma deneyimi büyük olasılıkla:
 
-- (Zaman serisi Öngörüler Yakala gerekir), ayrılan giriş hızı aşabilir eski verileri içeren bir olay kaynağı ekleyin.
-- Daha fazla olay kaynakları (ortamınızı 's kapasite aşabilir) ek olaylar depodan sonuçta bir ortam ekleyin.
-- Büyük miktarda geçmiş olayları (zaman serisi Öngörüler Yakala gerekir) bir gecikme sonuçta bir olay kaynağı iletin.
-- Başvuru verileri büyük olay boyutu elde telemetriyle katılın.  Bir azaltma açısından ingressed veri paketi paket boyutu 32 KB'ın 32 olayları olarak kabul edilir, her 1 KB boyuta sahip. İzin verilen en fazla olay boyutu 32 KB'tır; veri paketlerinin 32 KB'den büyük kesilir.
+- Ayrılan giriş oranınız (zaman serisi öngörüleri edinmek için gerekir) aşabilir eski verileri içeren olay kaynağı ekleme.
+- Daha fazla olay kaynağı (Bu ortamınızın kapasiteyi aşabilir) ek olaylar depodan Sonuçta, bir ortam ekleyin.
+- Olay kaynağı (zaman serisi öngörüleri edinmek için gerekir) bir gecikme bunun sonucunda, büyük miktarlarda geçmiş olaylar gönderin.
+- Telemetri, daha büyük olay boyutu elde başvuru verileriyle birleştirin.  Azaltma açısından, paket boyutu 32 KB'lık bir ingressed veri paketi 32 olayları olarak kabul edilir, her 1 KB boyutlu. 32 KB izin verilen en uzun olay boyutudur; 32 KB'den büyük veri paketleri kesilir.
 
 
-## <a name="monitor-latency-and-throttling-with-alerts"></a>İzleyici gecikme süresi ve uyarılarla azaltma
+## <a name="monitor-latency-and-throttling-with-alerts"></a>Gecikme süresi ve azaltma uyarılarla izleme
 
-Uyarılar tanılamak ve ortamınızın neden gecikmesi sorunları azaltmaya yardımcı olmak için yardımcı olabilir. 
+Uyarılar, ortamınız tarafından neden gecikme sorunlarını tanılamak ve azaltmak amacıyla yardımcı olabilir. 
 
-1. Azure portalında tıklatın **ölçümleri**. 
+1. Azure portalında **ölçümleri**. 
 
    ![Ölçümler](media/environment-mitigate-latency/add-metrics.png)
 
-2. Tıklatın **ölçüm uyarı Ekle**.  
+2. Tıklayın **ölçüm uyarısı Ekle**.  
 
-    ![Ölçüm uyarısı ekleme](media/environment-mitigate-latency/add-metric-alert.png)
+    ![Ölçüm uyarısı Ekle](media/environment-mitigate-latency/add-metric-alert.png)
 
 Buradan, aşağıdaki ölçümleri kullanarak uyarıları yapılandırabilirsiniz:
 
 |Ölçüm  |Açıklama  |
 |---------|---------|
-|**Giriş alınan bayt miktarı**     | Olay kaynaklardan okuma ham bayt sayısı. Ham sayısı genellikle özellik adı ve değeri içerir.  |  
-|**Giriş geçersiz ileti alındı**     | Geçersiz ileti sayısı, tüm Azure Event Hubs ya da Azure IOT Hub olay kaynağından okuyun.      |
-|**Giriş alınan iletileri**   | İleti sayısı tüm Event Hubs ya da IOT hub'ları olay kaynağından okuyun.        |
-|**Bayt giriş depolanan**     | Toplam boyut depolanan olayların ve sorgu için kullanılabilir. Boyutu yalnızca özellik değeri hesaplanır.        |
-|**Giriş olayları depolanan**     |   Sayısı düzleştirilmiş depolanan ve sorgu için kullanılabilir.      |
-|**Giriş alınan ileti zaman gecikmesini**    |  İleti sıraya alınan olay olduğu zaman arasında saniye cinsinden kaynak ve giriş işlendiği zaman fark.      |
-|**İleti sayısı öteleme giriş alındı**    |  Son sıraya alınan ileti sıra numarası arasındaki farkı olay kaynağı giriş işlenen ileti bölüm ve sıra sayısı.      |
+|**Giriş alınan bayt**     | Ham bayt sayısı, olay kaynaklarından okuyun. Ham sayısı genellikle özellik adı ve değeri içerir.  |  
+|**Giriş geçersiz ileti alındı.**     | Geçersiz ileti sayısı, tüm Azure Event Hubs veya Azure IOT Hub olay kaynağından okur.      |
+|**Giriş iletileri alındı**   | İletilerin sayısı, tüm olay hub'ları veya IOT hub'ları olay kaynakları okuyun.        |
+|**Giriş bayt depolanan**     | Toplam depolanan olayları boyutuna ve sorgu için kullanılabilir. Yalnızca özellik değerine boyutu hesaplanır.        |
+|**Giriş olayları depolanan**     |   Düzleştirilmiş olayları depolanır ve sorgu için kullanılabilir sayısı.      |
+|**Alınan ileti zaman gecikmesini giriş**    |  İleti sıraya alınan olay olduğu zaman arasındaki saniye cinsinden kaynak ve giriş işlendiği zaman farkı.      |
+|**İleti sayısı Lag giriş alındı**    |  Son sıradaki ileti sıra numarası arasındaki fark, giriş işlenmekte olan ileti bölüm ve sıra sayısı olay kaynağı.      |
 
 
 ![Gecikme süresi](media/environment-mitigate-latency/latency.png)
 
-Kısıtlanan değilse, için bir değer görür *giriş alınan ileti zaman gecikmesini*, size TSI arkasında kaç saniye gerçek saati ileti mı olduğunu bildiren isabetler (appx dizin oluşturma süresi hariç. olay kaynağı 30-60 saniye).  *Giriş alınan ileti sayısı öteleme* de kaç iletiler, arkasında belirlemenize olanak sağlayan bir değer olmalıdır.  Yakalanan için en kolay yolu, ortamınızın 's kapasite fark üstesinden olanak tanıyan bir boyut artırmaktır.  
+Aşarak, bir değer görürsünüz *giriş alınan ileti zaman gecikmesini*, TSI arkasında kaç saniye gerçekleşen süresi iletidir size bildiren İsabetleri (appx dizin oluşturma zamanı dışında. olay kaynağı 30-60 saniye).  *Giriş alınan ileti sayısı Lag* arkasında, ileti sayısını belirlemek sağlayan bir değer de sahip olmalıdır.  Yakalanan için en kolay yolu, fark üstesinden olanak sağlayacak bir boyuta ortamınızın kapasite artırmaktır.  
 
-Örneğin, bir tek birim S1 ortamınız varsa ve beş milyon ileti öteleme olup olmadığını, yakalanan için altı birimler için günde bir geçici ortamınıza boyutunu arttırabilir.  Hatta catch daha fazla sınırlandıramazsınız yukarı daha hızlı artırabilir.  Yakalama süresi, özellikle bu olayları içinde zaten bir olay kaynağına bağlandığınızda başlangıçta bir ortam sağlamada veya karşıya yükleme çok fazla geçmiş veri toplu sık karşılaştıkları değil.
+Örneğin, bir tek birim S1 ortamınız varsa ve beş milyon ileti lag görmek, ortamınıza yakalandı için altı birim için günde bir geçici boyutunu arttırabilir.  Hatta daha fazla sınırlandıramazsınız catch yukarı daha hızlı artırabilir.  Oldukça sık karşılaştıkları özellikle bu olayları zaten var. bir olay kaynağı bağlandığınızda başlangıçta bir ortam sağlanırken veya geçmiş verileri karşıya yükleme çok sayıda toplu dönemdir.
 
-Ayarlamak için başka bir tekniktir bir **giriş depolanan olayları** uyarı > bir eşiğinin biraz toplam ortamı kapasitenizi 2 saat boyunca =.  Bu uyarı, bir yüksek gecikme olasılığını gösterir kapasitede sürekli olup olmadığını anlamanıza yardımcı olabilir.  
+Ayarlamak için başka bir tekniktir bir **depolanan giriş olayları** uyarı > = 2 saat boyunca toplam ortam kapasite biraz aşağıda bir eşiği.  Bu uyarı, gecikme süresi yüksek bir olasılığını gösteren kapasitede sürekli olup olmadığını anlamanıza yardımcı olabilir.  
 
-Örneğin, sağlanan üç S1 birimler (veya dakika giriş kapasite başına 2100 olayları) varsa, ayarlayabileceğiniz bir **giriş depolanan olayları** için uyarı > 1900 olayları = için 2 saat. Sürekli olarak bu Eşiği aşan ve bu nedenle, uyarıyı tetikleyen varsa, büyük olasılıkla altında-sağlanır.  
+Sağlanan üç adet S1 birimi (veya 2100 olay başına dakika alma kapasitesi) varsa, örneğin, ayarlayabilirsiniz bir **depolanan giriş olayları** için uyarı > 1900 olayları için 2 saat =. Sürekli olarak bu eşiğini ve bu nedenle, uyarıyı tetikleyen ise, büyük olasılıkla altında-sağlanır.  
 
-Ayrıca, kısıtlanan şüpheleniyorsanız karşılaştırabileceğiniz, **giriş alınan iletilerin** , olay ile kaynak iletileri egressed.  Olay Hub'ınızı içine giriş büyükse, **giriş alınan iletilerin**, zaman serisinin Öngörülerinizi olasılıkla kısıtlanan.
+Kaynaklarınızın azaltılıp şüpheleniyorsanız, ayrıca, karşılaştırabilirsiniz, **giriş alınan iletilerin** ile olay kaynağı iletileri egressed.  Olay hub'ıyla giriş sayısından büyükse, **giriş alınan iletilerin**, zaman serisi görüşleri, büyük olasılıkla aşarak.
 
 ## <a name="improving-performance"></a>Performansı iyileştirme 
-Azaltma veya gecikme yaşıyor azaltmak için düzeltmek için en iyi yolu ortamınızı 's kapasite artırmaktır. 
+Azaltma veya karşılaşılan gecikme süresini azaltmak için bunu düzeltmek için en iyi yolu ortamınızın kapasite artırmaktır. 
 
-Gecikme süresi ve analiz etmek istediğiniz veri miktarı, ortamınızı düzgün şekilde yapılandırarak azaltma önleyebilirsiniz. Ortamınız için kapasite ekleme hakkında daha fazla bilgi için bkz: [ortamınızın ölçeğini](time-series-insights-how-to-scale-your-environment.md).
+Gecikme süresi ve analiz etmek istediğiniz veri miktarı, ortamınızı düzgün şekilde yapılandırarak azaltma önleyebilirsiniz. Ortamınız için kapasite ekleme hakkında daha fazla bilgi için bkz. [ortamınızı ölçeklendirme](time-series-insights-how-to-scale-your-environment.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Ek sorun giderme adımları için [Tanıla ve zaman serisi Öngörüler ortamınızdaki sorunları](time-series-insights-diagnose-and-solve-problems.md).
-- Ek Yardım için bir konuşma başlatmak [MSDN Forumu](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) veya [yığın taşması](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). De başvurabilirsiniz [Azure Destek](https://azure.microsoft.com/support/options/) yardımlı destek seçenekleri için.
+- Ek sorun giderme adımları için [tanılama ve zaman serisi görüşleri ortamınıza problemleri çözmenize](time-series-insights-diagnose-and-solve-problems.md).
+- Ek Yardım için üzerinde bir konuşma Başlat [MSDN Forumu](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) veya [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). Ayrıca [Azure Destek](https://azure.microsoft.com/support/options/) yardımlı destek seçenekleri için.

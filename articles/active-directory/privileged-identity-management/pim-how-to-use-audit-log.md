@@ -13,15 +13,15 @@ ms.component: pim
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: af3ba66bbc0be3aca3999abc6a0de5ec0e0aae95
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 922658f75a0d00998072c7bd8f2160e9db27f318
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621445"
+ms.locfileid: "39627799"
 ---
 # <a name="using-the-audit-log-in-pim"></a>PIM'de denetim günlüğünü kullanma
-Privileged Identity Management (PIM) denetim günlüğü, belirli bir süre içinde tüm kullanıcı atama ve etkinleştirme görmek için kullanabilirsiniz. Etkinlik, kiracınızda yönetici ve son kullanıcı eşitleme etkinliği de dahil olmak üzere tam denetim geçmişini görmek istiyorsanız kullanabileceğiniz [Azure Active Directory erişim ve kullanım raporlarını.](../active-directory-reporting-azure-portal.md)
+Privileged Identity Management (PIM) denetim günlüğü, belirli bir süre içinde tüm kullanıcı atama ve etkinleştirme görmek için kullanabilirsiniz. Etkinlik, kiracınızda yönetici ve son kullanıcı eşitleme etkinliği de dahil olmak üzere tam denetim geçmişini görmek istiyorsanız kullanabileceğiniz [Azure Active Directory erişim ve kullanım raporlarını.](../reports-monitoring/overview-reports.md)
 
 ## <a name="navigate-to-the-audit-log"></a>Denetim günlüğüne gidin
 Gelen [Azure portalında](https://portal.azure.com) panoyu seçin **Azure AD Privileged Identity Management** uygulama. Buradan, Denetim günlüğüne tıklayarak erişim **ayrıcalıklı rollerimi Yönet** > **denetim geçmişi** PIM panosunda.

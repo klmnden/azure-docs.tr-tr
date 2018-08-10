@@ -1,41 +1,41 @@
 ---
-title: C# kullanarak Azure zaman serisi Öngörüler ortamında başvuru verileri yönetme | Microsoft Docs
-description: Bu makalede, C# (c-sharp) .NET dilinde yazılmış özel bir uygulama oluşturarak Azure zaman serisi Öngörüler ortamı için başvuru verileri yönetmek açıklar.
+title: C# kullanarak Azure zaman serisi görüşleri ortamdaki başvuru verilerini yönetme | Microsoft Docs
+description: Bu makalede C# (c-sharp) .NET dilinde yazılan özel bir uygulama oluşturarak bir Azure zaman serisi görüşleri ortamınıza başvuru veri yönetme konusunda açıklanır.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: venkatja
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.openlocfilehash: 0bb216e8be98b0ee795176a6d3ca9ed73baad231
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 52456533d40c8efde6a196d4e480c06bce2f08ab
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294133"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629194"
 ---
-# <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>C# kullanarak Azure zaman serisi Öngörüler ortamı için başvuru verileri yönetme
+# <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>C# kullanarak bir Azure zaman serisi görüşleri ortamınıza başvuru verilerini yönetme
 
-Bu makalede Azure zaman serisi Öngörüler ortamı için başvuru verileri yönetmek için derleyebilirsiniz örnek C# projesinde açıklanmaktadır.
+Bu makalede bir Azure zaman serisi görüşleri ortamınıza başvuru veri yönetmek için derleme örnek C# projesinde açıklanır.
 
-## <a name="prerequistes"></a>Prerequistes
-Derleme ve örnek kod çalıştırma önce aşağıdaki adımları tamamlayın:
-1. [Bir başvuru veri kümesi oluşturma](time-series-insights-add-reference-data-set.md).
+## <a name="prerequistes"></a>Önkoşulları
+Derlemek ve örnek kodu çalıştırma önce aşağıdaki adımları tamamlayın:
+1. [Başvuru veri kümesi oluşturma](time-series-insights-add-reference-data-set.md).
 
-2. Uygulama için yetkilendirme erişim belirtecini yapılandırın. Belirteç Azure Active Directory API aracılığıyla edinilen emin olun. Bu, belirteç geçirmelisiniz `Authorization` her sorgu API isteği üstbilgisi. 
+2. Uygulama kimlik doğrulama erişim belirtecinin yapılandırın. Belirteç, Azure Active Directory API'si edinilen emin olun. Bu belirteci geçmelidir `Authorization` her sorgu API'si isteği üstbilgisi. 
  
    Etkileşimli olmayan uygulama ayarlama hakkında daha fazla bilgi için bkz: [kimlik doğrulama ve yetkilendirme](time-series-insights-authentication-and-authorization.md).
 
-3. Örnek kod, atanan örnek sabitleri değiştirmek için Düzenle **DUMMY #**, yakınında kod başlangıcı. 
+3. Örnek kod, atanan örnek sabitleri değiştirmek için Düzenle **DUMMY #**, neredeyse kod başlangıcı. 
 
-Bu örnek kodu de bulunabilir. [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
+Bu örnek kodu da bulunabilir. [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
 
 ## <a name="project-references"></a>Proje başvuruları
-NuGet paketleri ekleme `Microsoft.IdentityModel.Clients.ActiveDirectory` ve `Newtonsoft.Json` Bu örnek için. 
+NuGet paketleri Ekle `Microsoft.IdentityModel.Clients.ActiveDirectory` ve `Newtonsoft.Json` bu örneğin. 
 
 ## <a name="c-sample-code"></a>C# örnek kod 
 ```csharp
@@ -240,4 +240,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Başvuru verileri API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)
+[Başvuru verileri API'si](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)

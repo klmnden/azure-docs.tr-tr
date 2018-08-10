@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 08/08/2018
 ms.author: marsma
-ms.openlocfilehash: cfe034d6dcac48d7c9e4b2ce17e4926a81a27886
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 1d7855ff840fc1dd68effb19c43c3a691bd15d62
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216113"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714681"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Ağ yapılandırması Azure Kubernetes Service (AKS)
 
@@ -21,7 +21,7 @@ Azure Kubernetes Service (AKS) kümesini oluştururken, iki ağ seçenekler aras
 
 ## <a name="basic-networking"></a>Temel ağ
 
-**Temel** olan AKS kümesi oluşturma için varsayılan yapılandırma seçeneği ağ. Küme ve kendi pod'ların ağ yapılandırmasını tamamen Azure tarafından yönetilen ve özel sanal ağ yapılandırma gerektirmeyen dağıtımlar için uygundur. Alt ağlar ve IP adresi aralıklarını temel ağ seçtiğinizde kümeye atanan gibi ağ yapılandırmanız üzerinde denetimi yoktur.
+**Temel** olan AKS kümesi oluşturma için varsayılan yapılandırma seçeneği ağ. Küme ve kendi pod'ların ağ yapılandırmasını tamamen Azure tarafından yönetilir ve özel sanal ağ yapılandırma gerektirmeyen dağıtımları için uygundur. Alt ağlar ve IP adresi aralıklarını temel ağ seçtiğinizde kümeye atanan gibi ağ yapılandırmanız üzerinde denetimi yoktur.
 
 Temel ağ kullanılmak üzere yapılandırılmış bir AKS kümesindeki düğümlere [kubernetes] [ kubenet] Kubernetes eklentisi.
 
@@ -97,15 +97,14 @@ Bir AKS kümesi oluşturduğunuzda, aşağıdaki parametreleri için Gelişmiş 
 
 **Alt ağ**: kümeyi dağıtmak istediğiniz sanal ağ içindeki alt ağ. Kümeniz için sanal ağda yeni bir alt ağ oluşturmak isteyip istemediğinizi seçin *Yeni Oluştur* ve adımları izleyerek *alt ağ oluşturma* bölümü.
 
-**Kubernetes hizmeti adres aralığı**: *Kubernetes hizmeti adres aralığı* içinden adresleri atanmış Kubernetes kümenizi Hizmetleri'nde IP aralığı ( Kuberneteshizmetlerihakkındadahafazlabilgiiçinbkz.[ Hizmetleri] [ services] Kubernetes belgelerinde).
-
-Kubernetes hizmeti IP adresi aralığı:
+**Kubernetes hizmeti adres aralığı**: Kubernetes atar sanal IP'ler kümesidir [Hizmetleri] [ services] kümenizdeki. Aşağıdaki gereksinimleri karşılayan herhangi bir özel adres aralığını kullanabilirsiniz:
 
 * Kümeniz sanal ağ IP adresi aralığında olmamalıdır.
 * ' % S'küme sanal ağ ile eşleri diğer Vnet'lere ile çakışmaması gerekir
 * Tüm şirket içi IP'leri ile çakışmaması gerekir
+* Aralıklar olmamalıdır `169.254.0.0/16`, `172.30.0.0/16`, veya `172.31.0.0/16`
 
-Çakışan IP aralıkları kullanılıyorsa öngörülemeyen davranışlara neden olabilir. Örneğin, bir pod küme dışında bir IP erişmeye ve IP de hizmet IP'LERİNDEN biri olur, beklenmeyen davranışla sonuçlanarak ve hataları görebilirsiniz.
+Bunun yapılması hizmeti adres aralığı aynı VNet içindeki kümenizi belirtmek teknik olarak mümkün olsa da, bu nedenle önerilmez. Çakışan IP aralıkları kullanılıyorsa öngörülemeyen davranışlara neden olabilir. Daha fazla bilgi için [SSS](#frequently-asked-questions) bu makalenin. Kubernetes hizmetleri hakkında daha fazla bilgi için bkz. [Hizmetleri] [ services] Kubernetes belgelerinde.
 
 **Kubernetes DNS hizmeti IP adresi**: küme DNS hizmeti için IP adresi. İçinde bu adresi olmalıdır *Kubernetes hizmeti adres aralığı*.
 
@@ -154,6 +153,10 @@ Aşağıdaki sorular ve yanıtlar uygulamak **Gelişmiş** ağ yapılandırması
 * *AKS kümesi oluşturulurken oluşturduğum alt ağ için ek özelliklerini nasıl yapılandırırım? Örneğin, hizmet uç noktaları.*
 
   VNet ve AKS küme oluşturma sırasında oluşturduğunuz alt ağlar için özelliklerin tam listesi, standart sanal ağ yapılandırma sayfasında Azure Portalı'nda yapılandırılabilir.
+
+* *Kümem sanal ağ içinde farklı bir alt kullanabilirsiniz için* **Kubernetes hizmeti adres aralığı**?
+
+  Önerilmez, ancak bu yapılandırma mümkündür. Hizmeti adres aralığı, Kubernetes kümenizdeki Hizmetleri atar sanal IP'ler (VIP) kümesidir. Azure ağı yok görünürlük bir Kubernetes kümesinin hizmet IP aralığı vardır. Küme hizmeti adres aralığı görünürlük eksikliği nedeniyle, daha sonra Küme hizmeti adres aralığı ile çakışıyor. sanal ağ içinde yeni bir alt ağ oluşturmak mümkündür. Böyle bir çakışma ortaya çıkarsa, Kubernetes hizmet öngörülemeyen davranışlara veya hatalara neden alt ağdaki başka bir kaynak tarafından kullanımda bir IP atayabilirsiniz. Küme sanal ağ dışındaki bir adres aralığı kullandığınız sağlayarak bu çakışma risk önleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

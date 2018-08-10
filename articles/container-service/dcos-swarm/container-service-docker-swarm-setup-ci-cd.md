@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: b88fba4e04adb56742edf8023fde34e8ff6519c2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ac3133ac093d578c89d24bddd1cc0a7c9588c2fd
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437925"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715007"
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-visual-studio-team-services"></a>Visual Studio Team Services kullanarak Docker Swarm ile Azure Container Service üzerinde çok kapsayıcılı bir uygulama dağıtmak için tam CI/CD işlem hattı
 
@@ -46,7 +46,7 @@ Bu öğreticiye başlamadan önce aşağıdaki görevleri tamamlamanız gerekir:
 - [Azure Container Service'te Swarm kümesi oluşturma](container-service-deployment.md)
 - [Azure Container Service'teki Swarm kümesine bağlanma](../container-service-connect.md)
 - [Azure container registry oluşturma](../../container-registry/container-registry-get-started-portal.md)
-- [Oluşturulan bir Visual Studio Team Services hesabı ve takım projesine sahip olmak](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
+- [Oluşturulan bir Visual Studio Team Services hesabı ve takım projesine sahip olmak](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student)
 - [GitHub hesabınıza GitHub depo çatalı oluşturma](https://github.com/jcorioland/MyShop/)
 
 [!INCLUDE [container-service-swarm-mode-note](../../../includes/container-service-swarm-mode-note.md)]

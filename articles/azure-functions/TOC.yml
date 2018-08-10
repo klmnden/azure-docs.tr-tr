@@ -171,6 +171,8 @@
           href: functions-how-to-use-azure-function-app-settings.md
         - name: Çalıştırma sürümünü ayarlama
           href: set-runtime-version.md
+        - name: İşlevi devre dışı bırakma
+          href: disable-function.md
     - name: İzleme
       href: functions-monitoring.md
     - name: Tümleştirme

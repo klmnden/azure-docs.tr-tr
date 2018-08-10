@@ -1,6 +1,6 @@
 ---
-title: Kuruluş için Azure ayrılmış örnek kullanımını anlamak | Microsoft Docs
-description: İşletme kaydı için Azure ayrılmış VM örneğine nasıl uygulandığını anlamak için kullanımınızı okuma öğrenin.
+title: Kuruluş için Azure ayırma kullanımını anlama | Microsoft Docs
+description: Kurumsal kayıt için Azure ayırma nasıl uygulanacağını anlamak için kullanım okumayı öğrenin.
 services: billing
 documentationcenter: ''
 author: manish-shukla01
@@ -12,22 +12,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
+ms.date: 08/08/2018
 ms.author: manshuk
-ms.openlocfilehash: d6e8b2544f919abeb7fde0e37fc12bd29f0171ef
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 5ce0103315f297996ed3f3bd88b5e53558e22e14
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064134"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628241"
 ---
-# <a name="understand-azure-reserved-instance-usage-for-your-enterprise-enrollment"></a>İşletme kaydı için Azure ayrılmış örnek kullanım anlama
-Ayrılmış örnek kullanımını kullanarak anlayın **Reservationıd** gelen [ayırmaları sayfa](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) ve kullanım dosyasından [EA portal](https://ea.azure.com). Ayrılmış örnek kullanım Kullanım Özeti bölümünde de görebilirsiniz [EA portal](https://ea.azure.com).
+# <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Kurumsal kayıt için Azure ayırma kullanımını anlama
 
->[!NOTE]
->Kullandıkça Öde fatura bağlamda ayrılmış örnek satın aldıysanız, bkz: [anlayın Kullandıkça Öde aboneliğiniz için örnek kullanım ayrılmış.](billing-understand-reserved-instance-usage.md)
+Kullanım **Reservationıd** gelen [ayırmaları sayfa](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) ve kullanım dosyasından [EA portal](https://ea.azure.com) ayırma kullanımınızı değerlendirilecek. Kullanımı Özet bölümünde ayırma kullanım atabilirsiniz [EA portal](https://ea.azure.com).
 
-İçin aşağıdaki bölümde, Doğu ABD bölgesi ve aşağıdaki tabloda, ayrılmış örnek bilgi görülüyor Standard_D1_v2 Windows VM çalıştığını varsayın:
+Bir Kullandıkça Öde faturalandırma bağlamında rezervasyon satın aldıysanız, bkz. [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlayın.](billing-understand-reserved-instance-usage.md)
+
+## <a name="usage-for-reserved-virtual-machines-instances"></a>Kullanım için ayrılmış sanal makine örnekleri
+
+İçin aşağıdaki bölümlerde, Doğu ABD bölgesinde ve aşağıdaki tabloda, ayırma bilgileri görünür işler için standart_d1_v2 Windows VM çalıştığını varsayalım:
 
 | Alan | Değer |
 |---| --- |
@@ -36,38 +38,59 @@ Ayrılmış örnek kullanımını kullanarak anlayın **Reservationıd** gelen [
 |SKU | Standard_D1|
 |Bölge | eastus |
 
-## <a name="reserved-instance-application"></a>Ayrılmış örnek uygulama
+Dağıtılan VM ayırma öznitelikleri ile eşleştiği için sanal makinenin donanım bölümü ele alınmıştır. Hangi Windows yazılım rezervasyon kapsamında değildir görmek için bkz [Azure ayrılmış VM örnekleri Windows yazılım maliyetleri](billing-reserved-instance-windows-software-costs.md).
 
-Dağıtılan VM ayrılmış örnek öznitelikleri eşleştiğinden VM donanım bölümünü ele alınmıştır. Hangi Windows yazılım tarafından ayrılmış örnek kapsamında değil görmek için Azure ayrılmış VM örnekleri yazılım maliyetlerinin gidin, Git [Azure ayırma VM örnekleri Windows yazılım maliyetleri.](billing-reserved-instance-windows-software-costs.md)
+### <a name="usage-in-csv-file-for-reserved-vm-instances"></a>Ayrılmış VM örnekleri için CSV dosyası kullanımı
 
+Enterprise Portal'da Kurumsal kullanım CSV dosyası indirebilirsiniz. CSV dosyasında filtre **ek bilgi** ve yazın, **Reservationıd**. Aşağıdaki ekran görüntüsünde ayırmaya ilgili alanları gösterir:
 
-### <a name="reserved-instance-usage-in-csv"></a>Ayrılmış örnek kullanım csv
-EA kullanım csv EA Portalı'ndan yükleyebilirsiniz. Hakkında ek bilgiler indirilen csv dosyasında filtre ve yazın, **Reservationıd**. Aşağıdaki ekran görüntüsü, ayrılmış örnek ilgili alanları gösterir:
+![Azure ayırma için Kurumsal Anlaşma (EA) csv](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-csv.png)
 
-![Azure ayrılmış örnek için Kurumsal Anlaşma (Kurumsal Sözleşme) csv](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-csv.png)
+1. **Reservationıd** içinde **ek bilgi** alanını temsil eden sanal Makineye uygulanan ayırma.
+2. **ConsumptionMeter** VM için ölçüm kimliğidir.
+3. **Ölçüm kimliği** 0 ABD Doları maliyetle ayırma ölçer. Çalışan VM maliyeti, ayrılmış VM örneği tarafından ödenir.
+4. Olan bir vCPU işler için standart_d1 VM ve VM Azure hibrit avantajı dağıtılır. Bu nedenle bu ölçüm, Windows yazılım başka bir ücret kapsar. 1 çekirdek VM için D serisi karşılık gelen bir ölçüm bulmak için bkz: [Azure ayrılmış VM örnekleri Windows yazılım maliyetleri](billing-reserved-instance-windows-software-costs.md).  Azure hibrit avantajı varsa, bu ek ücret uygulanmaz.
 
-1. **Reservationıd** ek bilgilerini avantajı VM uygulamak için kullanılan ayrılmış örnek alanını temsil eder.
-2. ConsumptionMeter MeterId VM için ' dir.
-3. VM çalıştıran maliyetini zaten tarafından ayrılmış örnek Ücretli beri $0 maliyeti ile ayırma ölçer budur. 
-4. Standard_D1 olan bir vCPU VM ve VM Azure karma avantajı dağıtılır. Bu nedenle, bu ölçüm, Windows yazılım ekstra ücret ele alınmaktadır. Bkz: [Azure ayırma VM örnekleri Windows yazılım maliyetleri.](billing-reserved-instance-windows-software-costs.md) 1 çekirdek VM için D serisinin karşılık gelen ölçer bulmak için. Azure karma avantajı kullanılırsa, bu ekstra ücret uygulanmaz.
+## <a name="usage-for-sql-database-reserved-capacity-reservations"></a>Kapasite kullanımı SQL veritabanı için ayrılmış
 
-### <a name="reserved-instance-usage-in-usage-summary-page-in-ea-portal"></a>Ayrılmış örnek kullanım EA Portalı'ndaki Özet sayfasında kullanımı
+İçin aşağıdaki bölümlerde, Doğu ABD bölgesinde ve aşağıdaki tabloda, ayırma bilgileri ayarlanmış bir SQL veritabanı Gen 4 çalıştığını varsayalım:
 
-Ayrılmış örnek kullanım ayrıca görüntülenir Kullanım Özeti EA portalı bölümünde: ![Kurumsal Anlaşma (Kurumsal Sözleşme) Kullanım Özeti](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
+| Alan | Değer |
+|---| --- |
+|Reservationıd |8244e673-83e9-45ad-B54B-3f5295d37cae|
+|Miktar |2|
+|Ürün| SQL veritabanı 4. nesil (2 Çekirdek)|
+|Bölge | eastus |
 
-1. Ayrılmış örnek tarafından kapsanan olarak VM donanım bileşeni için ücretlendirilirsiniz değil. 
-2. Azure karma avantajı kullanılmaz gibi Windows yazılım için sizden ücret kesilir. 
+### <a name="usage-in-csv-file-for-sql-database-reserved-capacity"></a>SQL veritabanı ayrılmış kapasite için CSV dosyası kullanımı
+
+Filtre **ek bilgi** ve yazın, **rezervasyon kimliği**. Aşağıdaki ekran görüntüsünde ayırmaya ilgili alanları gösterir.
+
+![SQL veritabanı için Kurumsal Anlaşma (EA) csv ayrılmış kapasite](./media/billing-understand-reserved-instance-usage-ea/billing-ea-sql-db-reserved-capacity-csv.png)
+
+1. **Reservationıd** içinde **ek bilgi** SQL veritabanı kaynağı uygulanan ayırma bir alandır.
+2. **ConsumptionMeter** SQL veritabanı kaynak için ölçüm kimliği.
+3. **Ölçüm kimliği** 0 ABD Doları maliyetle ayırma ölçer. Ayırma için uygun bir SQL veritabanı kaynak bu ölçüm kimliği CSV dosyasında gösterir.
+
+## <a name="usage-summary-page-in-enterprise-portal"></a>Enterprise Portal'da kullanım Özet sayfası
+
+Azure ayırma kullanımınızı da Enterprise portal'ın kullanımı Özeti bölümü gösterilir: ![Kurumsal Anlaşma (EA) Kullanım Özeti](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
+
+1. Rezervasyon anlatılan sanal makinenin donanım bileşeni için ücretlendirilmezsiniz. Bir SQL veritabanı ayırma için gördüğünüz bir çizgiyle **hizmet adı** kapasite kullanımı Azure SQL veritabanı ayrılmış.
+2. Bu örnekte, sanal makine ile kullanılan Windows yazılım için ücret ödersiniz için Azure hibrit teklifi yok.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure ayrılmış örnekler hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-- [Azure ayrılmış VM örnekleri nelerdir?](billing-save-compute-costs-reservations.md)
+Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
+
+- [Azure ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
 - [Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Azure'da ayrılmış örnekler yönetme](billing-manage-reserved-vm-instance.md)
-- [Ayrılmış örnek indirim nasıl uygulandığını anlama](billing-understand-vm-reservation-charges.md)
-- [Kullandıkça Öde aboneliğiniz için ayrılmış örnek kullanımını anlamak](billing-understand-reserved-instance-usage.md)
-- [Windows yazılım maliyetleri ile ayrılmış örnekler dahil değil](billing-reserved-instance-windows-software-costs.md)
+- [Azure SQL veritabanı'nın ayrılmış kapasite ile SQL veritabanı bilgi işlem kaynakları için ön ödeme](../sql-database/sql-database-reserved-capacity.md) 
+- [Azure ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
+- [Ayırma indirimi nasıl uygulanacağını anlama](billing-understand-vm-reservation-charges.md)
+- [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
+- [Windows yazılım maliyetleri ile ayırmaları dahil değil](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 
-Hala daha fazla, sorularınız varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.
+Hala başka sorularınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.

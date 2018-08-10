@@ -27,13 +27,13 @@
           href: search-import-data-rest-api.md
         - name: Arama
           href: search-query-rest-api.md
-        - name: REST istemcileri ile test
+        - name: Postman veya Fiddler'ı kullanarak keşfetme
           href: search-fiddler.md
 - name: Öğreticiler
   items:
     - name: Yerleşik araçları kullanma
       href: search-get-started-portal.md
-    - name: Bilişsel arama geliştirme
+    - name: Bilişsel arama API'lerini kullanma
       href: cognitive-search-tutorial-blob.md
     - name: Azure bloblarını dizinleme
       href: search-semi-structured-data.md
@@ -143,12 +143,12 @@
           href: search-synonyms.md
     - name: Veri dizinleme
       items:
-        - name: Gönderme - Çekme dizini oluşturma
+        - name: Veri yükleme
           href: search-what-is-data-import.md
-        - name: İçeri aktarma sihirbazı (portal)
-          href: search-import-data-portal.md
         - name: Bir dizini yeniden derleme
           href: search-howto-reindex.md
+        - name: İçeri aktarma sihirbazı (portal)
+          href: search-import-data-portal.md
         - name: Büyük veri kümelerini dizinleme
           href: search-howto-large-index.md
         - name: Eş zamanlı güncelleştirmeleri tanımlama
@@ -175,7 +175,7 @@
               href: search-indexer-field-mappings.md
     - name: Veri arama
       items:
-        - name: Temel Konular
+        - name: Sorgu türleri/birleştirme
           href: search-query-overview.md
         - name: Arama gezgini (portal)
           href: search-explorer.md

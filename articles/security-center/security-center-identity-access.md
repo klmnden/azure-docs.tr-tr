@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/05/2018
+ms.date: 08/08/2018
 ms.author: rkarlin
-ms.openlocfilehash: 821a88f3627b19951c26677838bd2f86d0948ab9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4a934bd69e63605fd624d06533c4e411bc94b531
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526839"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630927"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Kimlik ve erişim (Önizleme) Azure Güvenlik Merkezi'nde izleme
 Bu makale kullanıcılarınızın kimliğini ve erişim etkinliğini izleme amacıyla Azure Güvenlik Merkezi'ni kullanmanıza yardımcı olur.
@@ -86,7 +86,7 @@ Altında **abonelikleri**, aboneliklerin listesi yoktur. İlk sütun abonelikler
 
   - **Öneriler**: Değerlendirme başarısız oldu Güvenlik Merkezi tarafından gerçekleştirilen göre.
   - **Değerlendirmeler geçirilen**: Güvenlik Merkezi tarafından geçirilen gerçekleştirdiği değerlendirmeler listesi.
-  - **Kullanılamayan iç değerlendirmeler**: bir hata nedeniyle çalıştırılamadı değerlendirmelerinin listesini veya abonelik 250'den fazla hesap yok.
+  - **Kullanılamayan iç değerlendirmeler**: bir hata nedeniyle çalıştırılamadı değerlendirmelerinin listesini veya 600'den fazla hesap abonelik yok.
 
   Altında **önerileri** seçili abonelik için önerilerin bir listesi ve önerilerin önem derecesi.
 

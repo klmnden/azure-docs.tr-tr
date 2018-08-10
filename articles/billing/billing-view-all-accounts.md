@@ -1,6 +1,6 @@
 ---
-title: Azure Portalı'nda tüm fatura hesaplarını görüntülemek | Microsoft Docs
-description: Hem kişisel hem de Enteprise anlaşma fatura hesapları Azure portalında görüntülemeyi öğrenin.
+title: Tüm faturalandırma hesaplarınızı Azure portalında görüntüleme | Microsoft Docs
+description: Azure portalında hem kişisel hem de Enteprise anlaşma fatura hesapları görüntülemeyi öğrenin.
 services: ''
 documentationcenter: ''
 author: amberbhargava
@@ -14,34 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
 ms.author: amberb
-ms.openlocfilehash: 344d4032b59a920630a18f026aa3765fbc69d6d5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 7c4152140d291270386203e121da169b2a8deff5
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077867"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630815"
 ---
-# <a name="view-all-your-billing-accounts-in-azure-portal"></a>Tüm Fatura hesaplarınızı Azure portalında görüntüleyin  
+# <a name="view-all-your-billing-accounts-in-azure-portal"></a>Azure portalında faturalama hesaplarınızı görüntüleyin  
 
-Faturalama hesapları, Azure fatura ilişkileri tanımlayın. Birden çok Faturalama hesabı olabilir. Örneğin, kişisel projeler için kullandığınız bir Azure aboneliğine sahip olabilir. Azure, kuruluşunuzun Kurumsal Anlaşma aracılığıyla erişimi de olabilir. Git [Yönetimi maliyeti + faturalama](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview) tüm fatura hesaplarını görüntülemek için Azure Portalı'nda.
+Faturalama hesaplarının Azure faturalandırma ilişkilerinizi tanımlayın. Faturalandırma birden çok hesap olabilir. Örneğin, kişisel projeleri için kullandığınız bir Azure aboneliğine sahip olabilir. Ayrıca, kuruluşunuzun Kurumsal Anlaşma aracılığıyla azure'a erişimi olabilir. Git [maliyet Yönetimi + faturalandırma](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview) fatura hesaplarınızı görüntülemek için Azure portalında.
 
-Şu anda, yalnızca kişisel ve Kurumsal Anlaşma fatura hesapları görüntüleyebilirsiniz. Varsayılan olarak, [Yönetimi maliyeti + faturalama](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview) sayfası kişisel fatura hesabınıza gösterir. Ancak, gidebilirsiniz **faturalama hesapları** ve hesabı değiştirin.
+Şu anda yalnızca kişisel ve Kurumsal Anlaşma fatura hesapları görüntüleyebilir. Varsayılan olarak, [maliyet Yönetimi + faturalandırma](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview) sayfası kişisel fatura hesabınıza gösterir. Ancak, gidebilirsiniz **faturalama hesaplarının** ve hesabı değiştirin.
 
-Kişisel fatura hesapları için yönetmek ve içindeki tüm ücretlerinizi görüntülemek [Azure portal](https://portal.azure.com). Ancak, Kurumsal Anlaşma hesapları için yalnızca ayrılmış örnek satın alma işlemleri, bakiye ve ay tarih ücretleri görüntüleyebilirsiniz. Bu Kurumsal Anlaşma özellikleri önizlemede ve yalnızca bir kuruluş Yönetici rolü varsa kullanılabilir.
+Fatura kişisel hesapları için yönetmek ve görüntülemek, tüm ücretleri [Azure portalında](https://portal.azure.com). Ancak, Kurumsal Anlaşma hesapları yalnızca Azure rezervasyon satın alma işlemleri, bakiye ve ay başından bu yana ücretleri görüntüleyebilirsiniz. Bu Kurumsal Anlaşma özellikler Önizleme aşamasındadır ve yalnızca bir Kurumsal Yönetici rolü varsa kullanılabilir.
 
-## <a name="change-billing-account-view"></a>Faturalama hesabı görünümünü değiştirme 
+## <a name="change-billing-account-view"></a>Fatura hesabı görünümünü değiştirme 
 
 1.  [Azure Portal](https://portal.azure.com)’da oturum açın.
 
-2.  Portalın sol taraftan seçin **Yönetimi maliyeti + faturalama**. 
+2.  Portalın sol tarafında seçin **maliyet Yönetimi + faturalandırma**. 
 
-3.  Varsayılan olarak, varsa kişisel fatura hesabınıza bakın. Kişisel bir faturalama hesabı yoksa veya bir Kurumsal Anlaşma hesapla select değiştirmek istediğiniz **hesapları faturalama**.
+3.  Varsayılan olarak, yoksa Kişisel fatura hesabınıza görürsünüz. Kişisel bir faturalama hesabı yoksa veya bir Kurumsal Anlaşma hesabına, select değiştirmek istediğiniz **hesapları faturalama**.
 
-4.  Ayrıntılarını görüntülemek için bir hesap seçin. Kurumsal Anlaşma için bir kuruluş yöneticisi olduğunuz yalnızca fatura hesapları görürsünüz. Diğer Kurumsal Anlaşma rolleri gelecekte desteklenecektir.
+4.  Ayrıntılarını görüntülemek için bir hesap seçin. Kurumsal anlaşmalar için Kurumsal Yönetici nerede yalnızca fatura hesapları görürsünüz. Diğer Kurumsal Anlaşma rolleri gelecekte desteklenecektir.
 
-    ![Fatura hesaplarının listesini gösteren ekran görüntüsü](./media/billing-view-all-accounts/billing-list-of-accounts.png)
+    ![Fatura hesap listesini gösteren ekran görüntüsü](./media/billing-view-all-accounts/billing-list-of-accounts.png)
 
  
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 
-Yardıma gereksiniminiz varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.
+Yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.

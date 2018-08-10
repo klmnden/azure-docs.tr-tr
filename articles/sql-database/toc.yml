@@ -84,6 +84,8 @@
           href: sql-database-service-tiers-dtu.md
         - name: Kaynak sınırları
           href: sql-database-resource-limits.md
+        - name: Ayrılmış kapasite için ön ödeme yapma
+          href: sql-database-reserved-capacity.md
     - name: Mantıksal sunucular
       items:
         - name: Oluşturma ve yönetme

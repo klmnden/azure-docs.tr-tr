@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: d3c033efb034cbce2e439ba22097cafc029d8b63
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: c2d0f14bca2b9ab062c61407479ab45a0104ff0a
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620493"
+ms.locfileid: "39716272"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Bulut tabanlı Azure multi-Factor Authentication'ı dağıtma
 
@@ -30,7 +30,7 @@ Başlamadan önce aşağıdaki önkoşulların karşılandığından emin olun:
 
 **Koşullu erişim ilkesi tarafından etkinleştirilen** -bu yöntem, bu makalede ele alınmıştır. Kullanıcılarınız için iki aşamalı doğrulamayı etkinleştirmek için en esnek yöntemdir. Yalnızca koşullu erişim ilkesi kullanarak etkinleştirmek için bulutta Azure MFA çalışır ve Azure AD premium özelliğidir.
 
-Bu yöntem Azure AD kimlik koruması tarafından - etkin iki aşamalı kimlik doğrulaması oturum açma riski tüm bulut uygulamaları için yalnızca temel Azure AD kimlik Koruması riski İlkesi kullanır. Bu yöntem, Azure Active Directory P2 lisansı gerektirir. Bu yöntem hakkında daha fazla bilgi bulunabilir [Azure Active Directory kimlik koruması](../active-directory-identityprotection.md#risky-sign-ins)
+Bu yöntem Azure AD kimlik koruması tarafından - etkin iki aşamalı kimlik doğrulaması oturum açma riski tüm bulut uygulamaları için yalnızca temel Azure AD kimlik Koruması riski İlkesi kullanır. Bu yöntem, Azure Active Directory P2 lisansı gerektirir. Bu yöntem hakkında daha fazla bilgi bulunabilir [Azure Active Directory kimlik koruması](../identity-protection/overview.md#risky-sign-ins).
 
 Kullanıcı değiştirerek etkin durumu - iki aşamalı doğrulama gerektirme geleneksel yöntem budur. Bu, hem de bulutta Azure MFA ve Azure MFA sunucusu ile çalışır. Bu yöntemi kullanarak, kullanıcıların iki aşamalı doğrulamanın gerektirir **her** oturum açın ve koşullu erişim ilkeleri geçersiz kılar. Bu yöntem hakkında daha fazla bilgi bulunabilir [bir kullanıcı için iki aşamalı doğrulama gerektirme](howto-mfa-userstates.md)
 

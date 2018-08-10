@@ -1,49 +1,44 @@
 ---
 title: Standart .NET API'ları Azure Event Hubs'a genel bakış | Microsoft Docs
-description: .NET standart API genel bakış
+description: .NET standard API'sine genel bakış
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
-ms.assetid: a173f8e4-556c-42b8-b856-838189f7e636
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: 855f6e7f401621d7f923d68215ca880c05d38629
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: HT
+ms.date: 06/13/2018
+ms.author: shvija
+ms.openlocfilehash: d44cdf9204ac041a12cecce995efef71272204e6
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26783008"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40006829"
 ---
-# <a name="event-hubs-net-standard-api-overview"></a>Event Hubs .NET standart API genel bakış
+# <a name="event-hubs-net-standard-api-overview"></a>Event Hubs .NET standart API'sine genel bakış
 
-Bu makalede olay hub'ları .NET standart istemci API anahtarı özetlenmektedir. Şu anda iki .NET standart istemci kitaplıkları vardır:
+Bu makalede, Azure Event Hubs anahtar bazıları özetlenmektedir [.NET Standard istemci API'leri](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/). Şu anda Event Hubs için iki .NET Standard istemci kitaplıkları vardır:
 
 * [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs): tüm temel çalışma zamanı işlemler sağlar.
-* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): işlenen olayları izlemek sağlar ve bir event hub'ından okuma yapmanın en kolay yolu olan ek işlevsellik ekler.
+* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): işlenen olaylar izlemek sağlar ve en kolay yolu, bir olay hub'ından okumak için ek işlevler ekler.
 
-## <a name="event-hubs-client"></a>Olay hub'ları istemci
+## <a name="event-hubs-client"></a>Event Hubs istemcisi
 
-[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) olayları göndermek, alıcılar oluşturmak ve çalışma zamanı bilgileri almak için kullandığınız birincil nesnesidir. Bu istemci belirli bir olay hub'ına bağlanır ve Event Hubs uç noktası için yeni bir bağlantı oluşturur.
+[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) olayları göndermek, alıcılar oluşturun ve çalışma zamanı bilgilerini almak için birincil nesnedir. Bu istemci, belirli bir olay hub'ına bağlanır ve Event hubs'ı uç noktasına yeni bir bağlantı oluşturur.
 
 ### <a name="create-an-event-hubs-client"></a>Event Hubs istemcisi oluşturma
 
 Bir [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) nesnesi, bir bağlantı dizesinden oluşturulur. Yeni bir istemci örneği oluşturmak için en basit yolu, aşağıdaki örnekte gösterilmiştir:
 
 ```csharp
-var eventHubClient = EventHubClient.CreateFromConnectionString("{Event Hubs connection string}");
+var eventHubClient = EventHubClient.CreateFromConnectionString("Event Hubs connection string");
 ```
 
-Program aracılığıyla bağlantı dizesini düzenlemek için kullanabileceğiniz [EventHubsConnectionStringBuilder](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) sınıfı ve bağlantı dizesi parametresi olarak geçirin [EventHubClient.CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_).
+Program aracılığıyla bağlantı dizesini düzenlemek için kullanabileceğiniz [EventHubsConnectionStringBuilder](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) sınıfı ve bağlantı dizesini bir parametre olarak geçirmek [EventHubClient.CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_).
 
 ```csharp
-var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hubs connection string}")
+var connectionStringBuilder = new EventHubsConnectionStringBuilder("Event Hubs connection string")
 {
     EntityPath = EhEntityPath
 };
@@ -53,7 +48,7 @@ var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringB
 
 ### <a name="send-events"></a>Olayları gönderme
 
-Olay hub'ına olayları göndermek için kullanmak [EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata) sınıfı. Gövdesi olmalıdır bir `byte` diziye veya `byte` dizi kesimi.
+Olay hub'ına olayları göndermek için [EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata) sınıfı. Gövdesi olmalıdır bir `byte` diziye veya `byte` dizi kesimi.
 
 ```csharp
 // Create a new EventData object by encoding a string as a byte array
@@ -66,11 +61,11 @@ await eventHubClient.SendAsync(data);
 
 ### <a name="receive-events"></a>Olayları alma
 
-Olay hub'larından olaylarını almak için önerilen yöntem kullanılarak [olay işleyicisi konağı](#event-processor-host-apis), otomatik olarak olay hub'ı uzaklık ve bölüm bilgileri izlemek için işlevsellik sağlar. Ancak, olaylarını almak için temel olay hub'ları kitaplığı esnekliğini kullanmak isteyebilirsiniz bazı durumlar vardır.
+Event Hubs'dan olay almak için önerilen yöntem kullanarak [Event Processor Host](#event-processor-host-apis), otomatik olarak olay hub'ı uzaklığı ve bölüm bilgileri izlemek için işlevsellik sağlar. Ancak, çekirdek Event Hubs kitaplığına esnekliği olaylarını almak için kullanmak isteyebilirsiniz bazı durumlar vardır.
 
 #### <a name="create-a-receiver"></a>Alıcı oluşturma
 
-Alıcıları belirli bölümlere, böylece tüm olayları bir event hub'ında almak için bağlıdır, birden çok örneği oluşturmanız gerekir. Bölüm bilgileri programlı şekilde, bölüm kimlikleri kodlamak yerine almak için iyi bir uygulamadır. Bunu yapmak için kullanabileceğiniz [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) yöntemi.
+Alıcılar belirli bölümlere, bu nedenle tüm olayları bir event hub'ında almak için bağlıdır, birden çok örnek oluşturma gerekir. Bölüm bilgileri, programlama arabiriminde bölüm kimlikleri kodlamak yerine almak için iyi bir uygulamadır. Bunu yapmak için kullanabileceğiniz [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) yöntemi.
 
 ```csharp
 // Create a list to keep track of the receivers
@@ -87,7 +82,7 @@ foreach (var partitionId in runTimeInformation.PartitionIds)
 }
 ```
 
-Olayları bir event hub'ından hiçbir zaman kaldırılır (ve yalnızca sona çünkü) uygun başlangıç noktası belirtmeniz gerekir. Aşağıdaki örnek, olası birleşimleri gösterir:
+Olayları bir event hub'ından hiçbir zaman kaldırılır (ve yalnızca sona çünkü) uygun bir başlangıç noktası belirtmeniz gerekir. Aşağıdaki örnekte, olası eşleştirme birleşimlerini gösterilmektedir:
 
 ```csharp
 // partitionId is assumed to come from GetRuntimeInformationAsync()
@@ -122,9 +117,9 @@ if (ehEvents != null)
 }       
 ```
 
-## <a name="event-processor-host-apis"></a>Olay işlemcisi konağı API'leri
+## <a name="event-processor-host-apis"></a>Olay işlemcisi konak API
 
-Bu API'leri kullanılabilir çalışanları bölüm dağıtarak, kullanılamayabilir çalışan işlemleri için esneklik sağlar.
+Bu API'ler, bölümler arasında kullanılabilir çalışanlar dağıtarak, kullanılamayabilir çalışan işlemleri için dayanıklılık sağlar:
 
 ```csharp
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
@@ -149,7 +144,7 @@ await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
 await eventProcessorHost.UnregisterEventProcessorAsync();
 ```
 
-Aşağıdaki örnek uygulamasıdır [Ieventprocessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor).
+Aşağıdaki örnek uygulamasıdır [Ieventprocessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) arabirimi:
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -186,12 +181,13 @@ public class SimpleEventProcessor : IEventProcessor
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Event Hubs senaryoları hakkında daha fazla bilgi almak için aşağıdaki bağlantıları ziyaret edin:
 
 * [Azure Event Hubs nedir?](event-hubs-what-is-event-hubs.md)
 * [Kullanılabilir olay hub'ları API'leri](event-hubs-api-overview.md)
 
-.NET API başvuru şunlardır:
+.NET API başvuruları şunlardır:
 
 * [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
 * [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)

@@ -1,6 +1,6 @@
 ---
-title: Azure ayrılmış örnekler indirim anlama | Microsoft Docs
-description: Çalışan sanal makinelere Azure ayrılmış VM örnek indirim nasıl uygulandığı hakkında bilgi edinin.
+title: Azure ayrılmış VM örnekleri indirim anlama | Microsoft Docs
+description: Azure ayrılmış VM örneği indirim çalışan sanal makinelere nasıl uygulanacağını öğrenin.
 services: billing
 documentationcenter: ''
 author: yashesvi
@@ -11,54 +11,61 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
+ms.date: 08/08/2018
 ms.author: yashar
-ms.openlocfilehash: d1229a49a5bb3bf3198c91a748ed37b7a626c506
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: bce4e05cbc4ecc8a44f2929eecbeee4093d39652
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064043"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628367"
 ---
-# <a name="understand-how-the-reserved-instance-discount-is-applied"></a>Ayrılmış örnek indirim nasıl uygulandığını anlama
-Azure ayrılmış VM örnek satın sonra ayrılmış örnek indirim öznitelikleri ve ayrılmış örnek miktarı ile eşleşen sanal makinelere otomatik olarak uygulanır. Ayrılmış örnek sanal makinelerinizi altyapı maliyetinden kapsar. Ayrılmış örnek satın aldıktan sonra sanal makine maliyetlerini aşağıdaki tabloda gösterilmektedir. Her durumda, depolama ve ağ aygıtları için ücretlendirilirsiniz normal hızlarında.
+# <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Azure ayırma indirimi sanal makinelerine nasıl uygulanacağını anlama
 
-| Sanal makine türü  | Ayrılmış örnek ile ücretleri |    
+Azure ayrılmış sanal makine örneği satın aldığınız sonra ayırma indirimini öznitelikleri ve ayırma miktarı ile eşleşen sanal makinelere otomatik olarak uygulanır. Rezervasyon sanal makinelerinizi işlem maliyetini kapsar.
+
+SQL veritabanı ayrılmış kapasite için bkz: [Azure ayrılmış örnekler anlamak indirim](billing-understand-reservation-charges.md).
+
+Ayrılmış VM örneği satın aldıktan sonra sanal makineniz için maliyetleri aşağıdaki tabloda gösterilmektedir. Her durumda, depolama ve ağ için ücretlendirildiğiniz normal fiyatlar.
+
+| Sanal makine türü  | Ayrılmış VM örneği ile ücretleri |
 |-----------------------|--------------------------------------------|
-|Ek yazılım olmadan Linux VM'ler | Ayrılmış örnek VM altyapı maliyetlerini kapsar.|
-|Yazılım giderleri (örneğin, Red Hat) ile Linux VM'ler | Ayrılmış örnek altyapı maliyetlerini kapsar. Ek yazılım için sizden ücret kesilir.|
-|Windows Vm'lerini ek yazılım olmadan |Ayrılmış örnek altyapı maliyetlerini kapsar. Windows yazılım için sizden ücret kesilir.|
-|Ek yazılım (örneğin, SQL server) ile Windows sanal makineleri | Ayrılmış örnek altyapı maliyetlerini kapsar. Windows yazılım ve diğer yazılım için sizden ücret kesilir.|
-|Windows VM ile birlikte [Azure karma avantajı](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Ayrılmış örnek altyapı maliyetlerini kapsar. Windows yazılım maliyetleri Azure karma avantajı tarafından ele alınmıştır. Ek yazılım ayrı olarak ücretlendirilir.| 
+|Ek yazılım olmadan Linux Vm'leri | VM altyapı maliyetlerinizi ayırma kapsar.|
+|Yazılım ücretleri (örneğin, Red Hat) ile Linux Vm'leri | Ayırma, altyapı maliyetlerini kapsar. Ek yazılım için ücret ödersiniz.|
+|Ek yazılım olmadan Windows Vm'leri |Ayırma, altyapı maliyetlerini kapsar. Windows yazılım için ücret ödersiniz.|
+|Ek yazılım (örneğin, SQL server) ile Windows Vm'leri | Ayırma, altyapı maliyetlerini kapsar. Windows yazılım ve ek yazılım için ücret ödersiniz.|
+|İle Windows Vm'leri [Azure hibrit avantajı](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Ayırma, altyapı maliyetlerini kapsar. Windows yazılım maliyetleri, Azure hibrit avantajı tarafından ele alınmaktadır. Herhangi bir ek yazılım ayrı olarak ücretlendirilir.| 
 
-## <a name="application-of-reserved-instance-discount-to-non-windows-vms"></a>Ayrılmış örnek indirim uygulamasının Windows olmayan VM'ler için
- Saatlik olarak başka bir VM örnekleri çalıştırmak için Azure ayrılmış örnek indirim uygulanır. Satın aldığınız ayrılmış örnekler, ayrılmış örnek indirimi uygulamak için çalışan VM'ler tarafından gösterilen kullanımı eşleştirilir. Tam saat çalışmayabilir VM'ler için ayrılmış örnek Vm'leri eşzamanlı olarak çalışan dahil olmak üzere ayrılmış bir örnek kullanmayan diğer VM'lerin doldurulur. Saat sonunda bir saat içinde ayrılmış örnek uygulama VM'ler için kilitlendi. Bir VM için bir saat çalışmaz veya saat içinde eşzamanlı VM'ler ayrılmış örnek saatlik doldurmayın durumunda, ayrılmış örnek için bu saat gereğinden az. Aşağıdaki grafikte ayrılmış bir örnek uygulama Faturalanabilir VM kullanımını gösterir. Çizimde, bir ayrılmış örnek satın alma ve eşleşen iki VM örneğini dayanır.
+## <a name="application-of-reservation-discount-to-non-windows-vms"></a>Ayırma indirimi uygulamasının Windows olmayan Vm'leri için
 
-![Uygulanan bir ayrılmış örnek ve eşleşen iki VM örneğini ekran görüntüsü](media/billing-reserved-vm-instance-application/billing-reserved-vm-instance-application.png)
+ Azure ayırma indirimi, saatlik olarak VM örnekleri çalıştırmak için uygulanır. Rezervasyon satın aldığınız ayırma indirimini uygulamak için çalışan VM'ler tarafından yayılan kullanım eşleştirilir. Tam bir saat çalışmayabilir VM'ler için Vm'leri eşzamanlı olarak çalışan dahil olmak üzere, bir ayırma kullanmayan diğer Vm'lerden ayırma doldurulur. Saatin sonunda, VM'ler için ayırma uygulama bir saat içinde kilitli. Bir VM için bir saat çalışmaz veya saat içinde eşzamanlı VM ayırma saatlik doldurmayın durumunda, ayırma için o saat potansiyelinden az kullanılmasına neden. Aşağıdaki grafikte, Faturalanabilir VM kullanımı için ayırma uygulamasını gösterir. Çizim, bir rezervasyon satın alma ve iki eşleşen VM örnekleri üzerinde temel alır.
 
-1.  Ayrılmış örnek satırın üstünde kullanım normal Kullandıkça Öde ücretleri temel alınarak. Ayrılmış örnek satın alma bir parçası olarak önceden ödenen beri ayrılmış örnekler satırın altındaki tüm kullanım için ücret etmediğinizden.
-2.  Saat 1, 1 örneği; 0,75 saat boyunca çalışır ve örnek 2 0,5 saattir çalıştırır. Saat 1 için toplam kullanım 1,25 saattir. Kullandıkça Öde oranları kalan 0,25 saatler için ücretlendirilirsiniz.
-3.  Saat 2 ve 3 saat için her iki örnek 1 saat boyunca her verdi. Bir örneği tarafından ayrılmış örnek ele ve diğer Kullandıkça Öde ücretlerinden ücretlendirilir.
-4.  4 saat, 1 örneği 0,5 saat çalışır ve örnek 2 1 saat boyunca çalışır. Örnek 1 ayrılmış örneği tarafından tam olarak ele ve örnek 2 0,5 saatlik kapsanan. Kullandıkça Öde oranı kalan 0,5 saatler için ücret ödersiniz.
+![Ekran görüntüsü uygulanan bir ayırma ve iki sanal makine örnekleri eşleştirme](media/billing-reserved-vm-instance-application/billing-reserved-vm-instance-application.png)
 
-Anlamak ve Azure ayrılmış örneklerinizi uygulama kullanım raporlarını faturalama görüntülemek için bkz: [anlamak ayrılmış örnek kullanım](https://go.microsoft.com/fwlink/?linkid=862757).
+1. Ayırma satırın üzerinde tüm kullanımlar, normal Kullandıkça Öde fiyatları üzerinden ücret. Rezervasyon satın alma işleminin bir parçası olarak önceden ödenen sonra ayırmalar satırın altına herhangi bir kullanım ücreti olmaz.
+2. 1 saat, örneği 1 saatlerini 0.75 çalışır ve örneği 2 0,5 saat boyunca çalışır. 1 saat için toplam kullanım 1,25 saattir. Kalan 0,25 saatliğine Kullandıkça Öde fiyatları üzerinden ücret ödersiniz.
+3. Saat 2 ve 3 saat için her iki örnek 1 saat boyunca her çalıştı. Bir örnek tarafından ayırma kapsamındadır ve diğer Kullandıkça Öde fiyatları üzerinden ücretlendirilir.
+4. 4 saat, örnek 1 0,5 saat çalışır ve örnek 2, 1 saat boyunca çalıştırılır. Örnek 1 ayırma tarafından tam olarak ele alınmıştır ve örnek 2 0,5 saat ele alınmaktadır. Kullandıkça Öde fiyatı kalan 0,5 saat için ücret ödersiniz.
 
-## <a name="application-of-reserved-instance-discount-to-windows-vms"></a>Ayrılmış örnek indirim uygulama Windows VM'ler için
-Windows VM örnekleri çalıştırırken, ayrılmış örnek altyapı maliyetlerini karşılamak üzere uygulanır. Windows sanal makineleri VM altyapı maliyetlerini ayrılmış örnek uygulamasının Windows olmayan VM'ler için aynıdır. Ayrıca, Windows yazılım vCPU başına temelinde ücretlendirilirsiniz. Bkz: [Windows yazılım maliyetleri ayrılmış örnekler ile](https://go.microsoft.com/fwlink/?linkid=862756). Lisanslama maliyetleri [karma avantajı Windows Server için Azure] ile Windows kapak (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+Anlamak ve kullanım raporları faturalama Azure ayırmalarınızın uygulamayı görüntülemek için bkz: [ayırma kullanımını anlamak](https://go.microsoft.com/fwlink/?linkid=862757).
+
+## <a name="application-of-reservation-discount-to-windows-vms"></a>Ayırma indirimi, bir uygulama için Windows Vm'leri
+
+Windows VM örneklerini çalıştırırken ayırma altyapı maliyetlerini karşılamak için uygulanır. VM altyapı maliyetleri için Windows Vm'leri için ayırma uygulamasının Windows olmayan Vm'leri için aynıdır. Windows yazılım vCPU başına temelinde için ayrı olarak ücret ödersiniz. Bkz: [ayırmaları Windows yazılım maliyetleri](https://go.microsoft.com/fwlink/?linkid=862756). [Azure hibrit avantajı için Windows Server] ile maliyetleri lisanslama, Windows ele (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Ayrılmış örnekler hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-- [Azure ayrılmış VM örnekleri nelerdir?](billing-save-compute-costs-reservations.md)
+Rezervasyonlar hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
+
+- [Azure ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
 - [Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Azure'da ayrılmış örnekler yönetme](billing-manage-reserved-vm-instance.md)
-- [Ayrılmış örnek indirim nasıl uygulandığını anlama](billing-understand-vm-reservation-charges.md)
-- [Kullandıkça Öde aboneliğiniz için ayrılmış örnek kullanımını anlamak](billing-understand-reserved-instance-usage.md)
-- [İşletme kaydı için ayrılmış örnek kullanım anlama](billing-understand-reserved-instance-usage-ea.md)
-- [Ayrılmış örnek kullanım CSP aboneliklerinin anlama](https://docs.microsoft.com/partner-center/azure-reservations)
-- [Windows yazılım maliyetleri ile ayrılmış örnekler dahil değil](billing-reserved-instance-windows-software-costs.md)
-
+- [Azure SQL veritabanı'nın ayrılmış kapasite ile SQL veritabanı bilgi işlem kaynakları için ön ödeme](../sql-database/sql-database-reserved-capacity.md)
+- [Azure ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
+- [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
+- [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
+- [CSP abonelikleri için ayırma kullanımını anlama](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Windows yazılım maliyetleri ile ayırmaları dahil değil](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 
-Hala daha fazla, sorularınız varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.
+Hala başka sorularınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.

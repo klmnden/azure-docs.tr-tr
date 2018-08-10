@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/02/2018
+ms.date: 08/09/2018
 ms.author: jroth
-ms.openlocfilehash: e9033724f62b383ce70488b98a3a8919e3cb198a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: a748532de7e8b8e910e335b67a693c4470861bf1
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345286"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003568"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure Vm'leri için fiyatlandırma Kılavuzu
 
@@ -90,9 +90,12 @@ Bu kullanım başına ödeme görüntülerden birini ile bir SQL Server 2017 Azu
 >
 >Ek SQL Server Lisans maliyetlerini Web, Standard ve Enterprise sürümleri içermez. En doğru fiyatlandırma kestirmek için işletim sistemi ve SQL Server sürümü için Fiyatlandırma sayfasında seçin [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) veya [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-## <a name="bring-your-own-license-byol"></a>Kendi lisansınızı getirin (BYOL)
+## <a id="byol"></a> Kendi lisansınızı getirin (BYOL)
 
 **Lisans taşınabilirliği kendi SQL Server lisansınızı getirmek**, de denilen **KLG**, Azure VM'deki Yazılım Güvencesi içeren mevcut bir SQL Server toplu lisans kullanarak anlamına gelir. SQL Server zaten lisanslarınızı ve Yazılım Güvencesi Toplu Lisanslama programı aracılığıyla satın aldığınız koşuluyla, tek ücretleri KLG VM çalıştırmanın maliyeti, SQL Server Lisans değil, kullanarak bir VM.
+
+> [!IMPORTANT]
+> KLG görüntüleri, Yazılım Güvencesi ile Kurumsal Sözleşme gerektirir. Şu anda Azure Cloud Solution Partner (CSP) bir parçası olarak kullanılamaz.
 
 > [!NOTE]
 > KLG görüntüleri şu anda yalnızca Windows sanal makineler için kullanılabilir. Ancak, yalnızca Linux VM üzerinde SQL Server el ile yükleyebilirsiniz. İçindeki yönergelere bakın [Linux SQL VM SSS](../../linux/sql/sql-server-linux-faq.md).

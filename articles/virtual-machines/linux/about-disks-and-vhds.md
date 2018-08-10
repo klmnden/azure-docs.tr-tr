@@ -1,21 +1,20 @@
 ---
 title: (Sayfa blobları) yönetilmeyen ve yönetilen diskler depolaması için Microsoft Azure Linux Vm'leri hakkında | Microsoft Docs
 description: İle ilgili temel bilgileri öğrenin (sayfa blobları) yönetilmeyen ve yönetilen diskler depolaması için azure'da Linux sanal makineleri.
-services: virtual-machines
+services: virtual-machines-linux,storage
 author: roygara
-manager: twooley
-ms.service: virtual-machines
-ms.workload: storage
+ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-ms.openlocfilehash: a1c867e97879b1830a8596683b8314fd6535aa7c
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.component: disks
+ms.openlocfilehash: feb3e60ee1b43ec85c81912fbce086858bb33742
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036008"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715939"
 ---
 # <a name="about-disks-storage-for-azure-linux-vms"></a>Azure Linux Vm'leri için diskleri depolama hakkında
 Yalnızca diğer bilgisayarlar gibi azure'da sanal makineler bir işletim sistemini, uygulamalarını ve verilerini depolamak için bir farkı şudur diskleri kullanın. Tüm Azure sanal makineler, en az iki diskin – Linux işletim sistemi diski ve geçici bir diskle sahiptir. İşletim sistemi diski bir görüntüden oluşturulur ve hem işletim sistemi diski ile görüntü sanal sabit bir Azure depolama hesabında depolanan diskleri (VHD). Sanal makineler, VHD'ler olarak da depolanan bir veya daha fazla veri diski olarak da olabilir.

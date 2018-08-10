@@ -1,6 +1,6 @@
 ---
-title: Service Fabric ve kapsayıcıları genel bakış | Microsoft Docs
-description: Service Fabric ve kapsayıcıları kullanımını mikro hizmet uygulamalarını dağıtmak için genel bakış. Bu makalede nasıl kapsayıcıları kullanılabilir bir genel bakış ve Service Fabric içinde kullanılabilen özellikleri sağlar.
+title: Service Fabric ve kapsayıcılar'na genel bakış | Microsoft Docs
+description: Mikro hizmet uygulamalarını dağıtmak için Service Fabric ve kapsayıcılar kullanımına genel bakış. Bu makalede, kapsayıcıları nasıl kullanılabileceğini genel bir bakış ve Service fabric'te kullanılabilen özellikleri sağlar.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -12,78 +12,103 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/21/2018
+ms.date: 8/8/2018
 ms.author: msfussell
-ms.openlocfilehash: fe6db569c0f70362676251a9413fa859f27f5046
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6715142be7f40955861afa634bf6e2472c9f7294
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641924"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005784"
 ---
-# <a name="service-fabric-and-containers"></a>Service Fabric ve kapsayıcıları
+# <a name="service-fabric-and-containers"></a>Service Fabric ve kapsayıcılar
 
 ## <a name="introduction"></a>Giriş
-Azure Service fabric bir [orchestrator](service-fabric-cluster-resource-manager-introduction.md) makine bir küme içinde kullanım ve yüksek ölçüde ölçeklendirmeyi iyileştirme yıllık ile Microsoft Hizmetleri. Hizmetleri kullanmanın birçok yönden geliştirilebilir [Service Fabric modellerini programlama](service-fabric-choose-framework.md) dağıtma [Konuk yürütülebilir dosyalar](service-fabric-guest-executables-introduction.md). Varsayılan olarak, Service Fabric dağıtır ve bu hizmetleri işlemler olarak etkinleştirir. İşlemler hızlı etkinleştirme ve küme kaynaklarının yüksek yoğunluk kullanım sağlar. Service Fabric kapsayıcı görüntüleri Hizmetleri'nde de dağıtabilirsiniz. Önemlisi işlemlerde Hizmetleri ve Hizmetleri aynı uygulamada kapsayıcılardaki karıştırabilirsiniz.   
 
-## <a name="what-are-containers"></a>Kapsayıcıları nelerdir?
-Bir işletim sistemi sağlar sanallaştırma yararlanmak için aynı çekirdek yalıtılmış örneklerinde Çalıştır kapsüllenmiş, ayrı ayrı dağıtılabilir bileşenleri kapsayıcılardır. Bu nedenle, her uygulama ve çalışma zamanı, bağımlılıklar ve sistem başlatılamadığından içinde bir kapsayıcı, tam, özel erişim ile işletim sistemi yapıları yalıtılmış kapsayıcının kendi görünümüne'e çalıştırın. Taşınabilirlik yanı sıra, bu güvenlik ve kaynak ayırma derecesini kapsayıcıları, aksi takdirde Hizmetleri işlemlerde çalışan Service Fabric ile kullanmak için ana avantajdır.
+Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur.
 
-Uygulamaları temel işletim sisteminden sanallaştıran sanallaştırma teknolojisi kapsayıcılardır. Kapsayıcıları derecelerde yalıtım ile çalışacak uygulamaları için sabit bir ortam sağlar. Kapsayıcıları doğrudan üstünde çekirdek çalıştırın ve dosya sistemi ve diğer kaynakları yalıtılmış bir görünüm. Sanal makineler ile karşılaştırıldığında, kapsayıcıları aşağıdaki avantajlara sahip olursunuz:
+Service Fabric, Microsoft'un [kapsayıcı Düzenleyicisi](service-fabric-cluster-resource-manager-introduction.md) bir makine kümesindeki mikro hizmetler dağıtmak için. Service Fabric avantajları Hizmetleri çok büyük ölçekte Microsoft'ta çalışan, yıl boyunca derslerden.
 
-* **Küçük**: verimliliği artırmak için kapsayıcılar kullanma tek bir depolama alanı ve katman sürümleri ve güncelleştirmeler.
-* **Hızlı**: kapsayıcıları, bunlar çok daha hızlı, genellikle saniye cinsinden başlatabilmeniz tüm bir işletim sistemi önyükleme zorunda değilsiniz.
-* **Taşınabilirlik**: kapsayıcılı uygulama görüntüsü şirket içinde sanal makinelerde ya da doğrudan fiziksel makinelerde bulutta çalıştırmak için bağlantı noktası kurulmuş.
+Mikro hizmetler, [Service Fabric programlama modelleri](service-fabric-choose-framework.md), [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) kullanmaktan [tercih ettiğiniz herhangi bir kodun](service-fabric-guest-executables-introduction.md) dağıtılmasına kadar birçok yolla geliştirilebilir. Veya yalnızca isterseniz [kapsayıcıları dağıtmak ve yönetmek](service-fabric-containers-overview.md), Service Fabric, ayrıca harika bir seçim.
+
+Varsayılan olarak, Service Fabric dağıtır ve hizmetlerin işlemler olarak etkinleştirir. Bir kümedeki kaynak yoğunluklu kullanımı en yüksek ve en hızlı etkinleştirme işlemleri sağlar. Service Fabric, kapsayıcı görüntüleri Hizmetleri'nde olarak da dağıtabilirsiniz. Ayrıca, hizmetleri ve kapsayıcıları, aynı uygulama Hizmetleri'nde karıştırabilirsiniz.
+
+Hemen başlayın ve Service Fabric kapsayıcıları denemek için hızlı başlangıç, öğretici ve örnek deneyin:  
+
+[Hızlı Başlangıç: bir Service Fabric Linux kapsayıcı uygulaması dağıtma](service-fabric-quickstart-containers-linux.md)  
+[Hızlı Başlangıç: bir Windows kapsayıcı uygulaması Service fabric'e dağıtma](service-fabric-quickstart-containers.md)  
+[Mevcut bir .NET uygulamasını kapsayıcılı hale getirme](service-fabric-host-app-in-a-container.md)  
+[Service Fabric Kapsayıcı Örnekleri](https://azure.microsoft.com/resources/samples/service-fabric-containers/)  
+
+## <a name="what-are-containers"></a>Kapsayıcıları nelerdir
+
+Kapsayıcılar, güvenilir bir şekilde uygulamaları çalıştırmak bir uygulama için sabit bir ortam sağlayarak farklı bilgi işlem ortamlarında çalışan sorununu çözün. Kapsayıcılar, 'yazılım kapsayıcı içinde çalıştırmak için gereken her şeyi içeren, kendi yalıtılmış kutusuna' bir uygulama ve tüm bağımlılıklarını kitaplıkları ve yapılandırma dosyaları gibi kaydırın. Kapsayıcıyı çalıştıran her yerde, her zaman uygulama içindeki doğru sürümlerini, bağımlı kitaplıkları, tüm yapılandırma dosyalarını ve çalışması için gereken başka bir şey gibi çalışması için gereken her şeyi sahiptir.
+
+Kapsayıcılar, doğrudan çekirdek üzerinde çalıştırma ve dosya sistemi ve diğer kaynakları yalıtılmış bir görünüm. Bir kapsayıcıdaki bir uygulama, diğer tüm uygulamalar ve süreçler, kapsayıcısı dışındaki olanağıyla sahiptir. Her uygulama ve çalışma zamanı, bağımlılıklar ve sistem kitaplıklarını bir kapsayıcı içinde tam ve özel erişim ile işletim sisteminin yalıtılmış kapsayıcının kendi görünümüne çalıştırın. Hale getirmenin yanı sıra tüm uygulama bağımlılıklarınızın farklı bilgi işlem ortamında çalıştırmak için ihtiyaç duyduğu sağlamak güvenlik ve kaynak yalıtımı ile Service Fabric'i--aksi çalıştığı Hizmetleri, kapsayıcılar kullanmanın önemli avantajları kolaydır bir işlem.
+
+Sanal makinelere kıyasla, kapsayıcılar, şu avantajlara sahip olursunuz:
+
+* **Küçük**: etkinliği arttırmak için kapsayıcılar kullanma tek bir depolama alanı ve katman sürümler ve güncelleştirmeler.
+* **Hızlı**: kapsayıcılar, bunlar çok daha hızlı--genellikle saniye içinde analize başlamanızı bütün bir işletim sistemi önyükleme zorunda değilsiniz.
+* **Taşınabilirlik**: bulutta, şirket içi, sanal makineler içinde veya fiziksel makinelere doğrudan çalıştırmak için bir kapsayıcı uygulama görüntüsü verilir.
 * **Kaynak İdaresi**: bir kapsayıcı, konakta tüketebileceği fiziksel kaynakları sınırlayabilirsiniz.
 
-## <a name="container-types-and-supported-environments"></a>Kapsayıcı türleri ve desteklenen ortamlar
-Service Fabric kapsayıcıları hem Linux hem de Windows ve aynı zamanda Hyper-V yalıtım modunu ikinci üzerinde destekler. 
+### <a name="container-types-and-supported-environments"></a>Kapsayıcı türü ve desteklenen ortamlar
 
-### <a name="docker-containers-on-linux"></a>Linux üzerinde docker kapsayıcıları
-Docker oluşturmak ve Linux çekirdek kapsayıcıları üstünde kapsayıcıları yönetmek için üst düzey API'ler sağlar. Docker hub'a depolamak ve kapsayıcı görüntüleri almak için merkezi bir depodur.
-Bir öğretici için bkz: [Docker kapsayıcısı dağıtmak için Service Fabric](service-fabric-get-started-containers-linux.md).
+Service Fabric, hem Linux hem de Windows kapsayıcılarını destekleyen ve Windows üzerinde Hyper-V yalıtım modunu destekler.
 
-### <a name="windows-server-containers"></a>Windows Server kapsayıcıları
-Windows Server 2016 sağlanan yalıtım düzeyi farklı kapsayıcılar iki farklı türde sağlar. Her ikisi de ad alanı ve dosya sistemi ayırma varsa, ancak bunlar çalıştıran ana çekirdek paylaşmak için Windows Server kapsayıcıları ve Docker kapsayıcıları benzerdir. Linux üzerinde bu yalıtım tarafından geleneksel olarak sağlanmış `cgroups` ve `namespaces`, ve Windows Server kapsayıcıları benzer şekilde davranır.
+#### <a name="docker-containers-on-linux"></a>Linux'ta docker kapsayıcıları
 
-Her kapsayıcı diğer kapsayıcılar veya ana bilgisayar işletim sistemi çekirdeği paylaşmaz çünkü Windows kapsayıcıları Hyper desteğiyle fazla yalıtım ve güvenlik sağlar. Bu daha yüksek düzeyde güvenlik yalıtım ile Hyper-V etkin kapsayıcıları saldırgan, çok müşterili senaryolarında hedefler.
-Bir öğretici için bkz: [bir Windows kapsayıcıyı dağıtmak için Service Fabric](service-fabric-get-started-containers.md).
+Docker, oluşturmak ve Linux çekirdek kapsayıcıları üzerine kapsayıcıları yönetmek için API'ler sağlar. Docker Hub depolamak ve kapsayıcı görüntüleri almak için merkezi bir depo sunar.
+Linux tabanlı bir öğretici için bkz. [Linux'ta ilk Service Fabric kapsayıcı uygulamanızı oluşturma](service-fabric-get-started-containers-linux.md).
 
-Aşağıdaki şekilde sanallaştırmasının ve yalıtım düzeyi işletim sisteminde kullanılabilir farklı uygulama türleri gösterilmektedir.
-![Service Fabric platformundan][Image1]
+#### <a name="windows-server-containers"></a>Windows Server kapsayıcıları
 
-## <a name="scenarios-for-using-containers"></a>Kapsayıcıları kullanma senaryoları
+Windows Server 2016, iki farklı yalıtım düzeyine göre farklı kapsayıcılar sağlar. Windows Server kapsayıcıları ve Docker kapsayıcıları hem de çekirdek çalıştırıldıkları konak ile paylaşım sırasında ad alanı ve dosya sistemi yalıtım olduğundan benzerdir. Linux üzerinde bu yalıtım, geleneksel olarak cgroups ve ad alanları tarafından sağlanmıştır ve Windows Server kapsayıcıları benzer şekilde davranır.
+
+Hiçbir kapsayıcı başka bir kapsayıcı veya ana bilgisayar ile işletim sistemi çekirdeği paylaştığından Windows kapsayıcılarını Hyper-V desteği ile daha fazla yalıtım ve güvenlik sağlar. Bu daha yüksek düzeyde güvenlik yalıtımı ile Hyper-V etkin kapsayıcıları potansiyel olarak tehlikeli, çok kiracılı senaryolarda hedefler.
+Windows tabanlı bir öğretici için bkz. [Windows üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma](service-fabric-get-started-containers.md).
+
+Aşağıdaki şekilde sanallaştırmasının ve yalıtım düzeyleri farklı türleri gösterilmektedir.
+![Service Fabric platformu][Image1]
+
+## <a name="scenarios-for-using-containers"></a>Kapsayıcıları kullanmaya yönelik senaryolar
+
 Burada bir kapsayıcı iyi bir seçimdir tipik örnekler şunlardır:
 
-* **IIS kaldırın ve shift**: Varolan varsa [ASP.NET MVC](https://www.asp.net/mvc) kullanmaya devam etmek istediğiniz uygulamaları geçirmek yerine bir kapsayıcıda bunları put ASP.NET Core onları. Bu ASP.NET MVC uygulamaları Internet Information Services (IIS) bağlıdır. Bu kapsayıcı görüntüleri uygulamalarla precreated IIS görüntüden paketini ve bunları Service Fabric ile dağıtabilirsiniz. Bkz: [kapsayıcı Windows Server görüntülerinde](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) Windows kapsayıcıları hakkında bilgi için.
-* **Karışık kapsayıcıları ve Service Fabric mikro**: uygulamanızın bir parçası için var olan bir kapsayıcı görüntüsünü kullanın. Örneğin, kullanabilirsiniz [NGINX kapsayıcısı](https://hub.docker.com/_/nginx/) uygulama ve durum bilgisi olan hizmetler daha yoğun arka uç hesaplama için web ön ucu için.
-* **"Gürültülü komşu" Hizmetleri etkisini azaltmak**: bir konakta bir hizmetin kullandığı kaynakları kısıtlamak için kapsayıcıları kaynak İdaresi özelliğini kullanabilirsiniz. Hizmetleri birçok kaynaklarını tüketebilir ve diğer performans (örneğin, uzun süre çalışan, sorgu benzeri işlemi) etkiler, bu hizmetleri kaynak İdaresi kapsayıcılarına yerleştirmeyi düşünün.
+* **IIS lift- and -shift**: mevcut bir koyabilirsiniz [ASP.NET MVC](https://www.asp.net/mvc) geçirmek yerine, bir kapsayıcıdaki uygulama ASP.NET Core için. Bu ASP.NET MVC uygulamaları, Internet Information Services (IIS) bağlıdır. Bu kapsayıcı görüntülerini uygulamalarla precreated IIS görüntüden paketini ve Service Fabric ile dağıtın. Bkz: [kapsayıcı görüntülerini Windows Server'da](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) Windows kapsayıcıları hakkında daha fazla bilgi için.
 
-## <a name="service-fabric-support-for-containers"></a>Kapsayıcıları için Service Fabric desteği
-Service Fabric, Hyper-V yalıtım modunu desteğinin yanı sıra Windows Server 2016, Linux ve Windows Server kapsayıcılarında Docker kapsayıcıları dağıtımını destekler. 
+* **Kapsayıcıları ve Service Fabric mikro hizmetler karıştırmak**: uygulamanızın bir parçası için var olan bir kapsayıcı görüntüsü kullanın. Örneğin, kullanabileceğinize [NGINX kapsayıcısını](https://hub.docker.com/_/nginx/) web ön uç uygulama ve daha yoğun bir arka uç hesaplama için durum bilgisi olan hizmetler için.
 
-Service Fabric içinde [uygulama modeli](service-fabric-application-model.md), hangi birden çok çoğaltmaları hizmete bir uygulama konağı bir kapsayıcıyı temsil eder. Service Fabric, herhangi bir kapsayıcıdaki çalıştırabilir ve senaryosu benzer [Konuk yürütülebilir senaryo](service-fabric-guest-executables-introduction.md), bir kapsayıcı içinde var olan bir uygulama paketi burada. Genel kullanım örneği kapsayıcıları için bu senaryodur ve herhangi bir dil veya çerçevelerini kullanarak, ancak yerleşik Service Fabric programlama modelleri kullanmayan yazılmış bir uygulama çalıştıran örnekler.
+* **"Gürültülü komşu" Hizmetleri etkisini azaltmak**: kaynak İdaresi özelliği kapsayıcıların bir konakta bir hizmetin kullandığı kaynakları sınırlamak için kullanabilirsiniz. Hizmetleri pek çok kaynak tüketen ve başkalarının (örneğin, uzun süre çalışan, sorgu benzeri işlemi) performansını etkiler, bu hizmetler kaynak İdaresi kapsayıcılarına yerleştirme göz önünde bulundurun.
 
-Ayrıca, çalıştırabilirsiniz [Service Fabric Hizmetleri kapsayıcılar içinde](service-fabric-services-inside-containers.md) de. Kapsayıcılar içinde çalışan Service Fabric Hizmetleri için destek şu anda sınırlıdır ve gelecek sürümlerde geliştirildi.
+## <a name="service-fabric-support-for-containers"></a>Kapsayıcıları Service Fabric desteği
 
-Service Fabric sahip birkaç yardımcı kapsayıcı yeteneklerini oluşturmak, kapsayıcılı mikro uygulamalarının oluşur. Service Fabric kapsayıcılı Hizmetleri için aşağıdaki özellikleri sunar:
+Service Fabric Linux üzerinde Docker kapsayıcıları ve Windows Server kapsayıcıları dağıtımını desteğinin yanı sıra Hyper-V yalıtım modunda Windows Server 2016'da destekler. 
+
+Service Fabric sağlar bir [uygulama modeli](service-fabric-application-model.md) hangi birden çok çoğaltmaları hizmete bir uygulama konağı bir kapsayıcıyı temsil eden içinde. Service Fabric ayrıca destekleyen bir [Konuk yürütülebilir senaryo](service-fabric-guest-executables-introduction.md) , yerleşik Service Fabric programlama modellerini kullanmayın, ancak bunun yerine içinde herhangi bir dil veya framework kullanılarak yazılmış mevcut bir uygulama paketi içindeki bir kapsayıcı. Kapsayıcılar için yaygın kullanım örneği senaryodur.
+
+Ayrıca çalıştırabileceğiniz [bir kapsayıcı içinde Service Fabric Hizmetleri](service-fabric-services-inside-containers.md). Kapsayıcıların içinde çalışan Service Fabric Hizmetleri için destek sınırlıdır.
+
+Service Fabric, kapsayıcılı mikro hizmetler gibi hizmetlerden oluşturulmuş uygulamalara yardımcı olacak birkaç kapsayıcı özellikleri oluşturmanızı sağlar:
 
 * Kapsayıcı görüntü dağıtımının ve etkinleştirmesinin.
-* Varsayılan olarak Azure kümelerinde ayar kaynak değerleri dahil olmak üzere kaynak İdaresi.
+* Kaynak değerler varsayılan olarak Azure kümelerinde ayarlanması dahil olmak üzere kaynak İdaresi.
 * Depo kimlik doğrulaması.
-* Ana bilgisayar bağlantı noktası eşlemesi noktasına kapsayıcı.
-* Kapsayıcıya bulma ve iletişim.
-* Yapılandırma ve ortam değişkenlerini ayarlama kabiliyeti.
-* Güvenlik kimlik bilgileri kapsayıcısında ayarlama kabiliyeti.
-* Kapsayıcıları için farklı ağ modları seçimine.
+* Kapsayıcı bağlantı noktasından konak bağlantı noktası eşlemesi.
+* İletişim ve kapsayıcı kapsayıcı bulma.
+* Yapılandırma ve ortam değişkenlerini ayarlama yeteneği.
+* Kapsayıcıdaki güvenlik kimlik bilgilerini ayarlama olanağı.
+* Kapsayıcılar için farklı ağ modları seçimi.
+
+Kapsayıcı kapsamlı bir bakış için destek, Azure'da Azure Kubernetes hizmeti ile nasıl bir Kubernetes kümesi oluşturmak nasıl gibi Azure Container Registry ve daha fazla özel bir Docker kayıt defteri oluşturmak için bkz [kapsayıcılariçinAzure](https://docs.microsoft.com/azure/containers/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, öğrenilen kapsayıcıları hakkında bir kapsayıcı orchestrator Service Fabric olduğunu ve bu Service Fabric kapsayıcıları destekleyen özellikler sahip. Sonraki adım olarak, bunların nasıl kullanılacağını göstermek için özelliklerin her biri üzerinde örnekler alacağız.
 
-[Windows üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma](service-fabric-get-started-containers.md)
+Bu makalede, Service Fabric kapsayıcıları çalıştırmak için sağladığı desteği hakkında bilgi edindiniz. Ardından, bunların nasıl kullanılacağını göstermek için özelliklerin her biri örnekleri ele alacağız.
 
-[Linux üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma](service-fabric-get-started-containers-linux.md)
-
+[Linux'ta ilk Service Fabric kapsayıcı uygulamanızı oluşturma](service-fabric-get-started-containers-linux.md)  
+[Windows üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma](service-fabric-get-started-containers.md)  
 [Windows kapsayıcıları hakkında daha fazla bilgi edinin](https://docs.microsoft.com/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png

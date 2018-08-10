@@ -1,38 +1,38 @@
 ---
-title: C# kodu kullanarak Azure zaman serisi Öngörüler ortamı veri sorgulama | Microsoft Docs
-description: Bu makalede, C# (C-sharp) .NET dilinde yazılmış özel bir uygulama kodlayarak Azure zaman serisi Öngörüler ortam verileri sorgulamak açıklar.
+title: C# kodu kullanarak bir Azure zaman serisi görüşleri ortamından veri sorgulama | Microsoft Docs
+description: Bu makalede C# (C-sharp) .NET dilinde yazılan özel bir uygulama kodlama yaparak bir Azure zaman serisi görüşleri ortamından veri sorgulama işlemini açıklamaktadır.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: ankryach
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.openlocfilehash: 19531fc5bde1f833021cf5bd781e4811b2c23155
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 6c4a99096efc95f439d6c9479cb9014957207ea6
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293613"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630866"
 ---
-# <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>C# kullanarak Azure zaman serisi Öngörüler Ortamı'ndan veri sorgulama
+# <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>C# kullanarak Azure zaman serisi görüşleri ortamından veri sorgulama
 
-C# örnek Azure zaman serisi Öngörüler Ortamı'ndan veri sorgulama gösterir.
+Bu C# örneği, Azure zaman serisi görüşleri ortamından veri sorgulama işlemini gösterir.
 Örnek, Sorgu API’si kullanımının birkaç temel örneğini gösterir:
-1. Hazırlama adım olarak, Azure Active Directory API'si aracılığıyla erişim belirteci alın. Bunu, belirteç geçirmek `Authorization` her sorgu API isteği üstbilgisi. Etkileşimli olmayan uygulamalar için bkz: [kimlik doğrulama ve yetkilendirme](time-series-insights-authentication-and-authorization.md). Ayrıca, örnek başında tanımlanan tüm sabit doğru ayarlandığından emin olun.
-2. Kullanıcı erişimi ortamları listesi elde edilir. Ortamlar birini ilgi ortamı olarak kayıt ve verileri bu ortam için daha fazla sorgulanır.
+1. Hazırlık adımı olarak, Azure Active Directory API'si aracılığıyla erişim belirteci alın. Bu belirteci geçirmek `Authorization` her sorgu API'si isteği üstbilgisi. Etkileşimli olmayan uygulamalar ayarlamak için bkz: [kimlik doğrulama ve yetkilendirme](time-series-insights-authentication-and-authorization.md). Ayrıca, örnek başına tanımlı sabitler doğru ayarlandığından emin olun.
+2. Kullanıcı erişimi olan ortamların listesi elde edilir. Ortamların biri ilgilenilen ortam seçilir ve daha fazla veri bu ortam için sorgulanır.
 3. HTTPS isteğinin bir örneği olarak, ilgilenilen ortam için kullanılabilirlik verileri istenir.
 4. Web yuvası isteğinin bir örneği olarak, ilgilenilen ortam için toplam olay verileri istenir. Veriler kullanılabilir oldukları tüm zaman aralığı için istenir.
 
-Bu örnek kodu de bulunabilir. [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
+Bu örnek kodu da bulunabilir. [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
 
 ## <a name="project-references"></a>Proje başvuruları
-NuGet paketleri ekleme `Microsoft.IdentityModel.Clients.ActiveDirectory` ve `Newtonsoft.Json` Bu örnek için. 
+NuGet paketleri Ekle `Microsoft.IdentityModel.Clients.ActiveDirectory` ve `Newtonsoft.Json` bu örneğin. 
 
-## <a name="c-example"></a>C# örnek
+## <a name="c-example"></a>C# örneği
 
 ```csharp
 using System;
@@ -456,4 +456,4 @@ namespace TimeSeriesInsightsQuerySample
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]
-> [Sorgu API Başvurusu](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
+> [Sorgu API'si başvurusu](/rest/api/time-series-insights/time-series-insights-reference-queryapi).

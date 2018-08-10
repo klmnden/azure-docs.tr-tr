@@ -1,5 +1,5 @@
 ---
-title: Azure Search'te temelleri sorgu | Microsoft Docs
+title: Sorgu türleri ve Azure Search birleşimde | Microsoft Docs
 description: Filtre uygulamak için parametreleri kullanarak Azure Search, arama sorgusu oluşturmak için temel bilgileri seçin ve sonuçları sıralamak.
 author: HeidiSteen
 manager: cgronlun
@@ -8,14 +8,14 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.openlocfilehash: 7e34e5fdfc674804faaba5d1fc19d24b9f51c61e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 098718293cda1699fb07e09fa81af94a95bbdeca
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503066"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715167"
 ---
-# <a name="query-fundamentals-in-azure-search"></a>Azure Search'te sorgu temelleri
+# <a name="query-types-and-composition-in-azure-search"></a>Sorgu türleri ve Azure Search oluşturma
 
 Azure Search'te sorgu oluşturma olduğu bir isteğin tam bir belirtimi: eşleşen ölçütleri yanı sıra, sorgu yürütme yönlendirerek ve yanıt şekillendirmek için parametreleri. Bir istek, sıralama veya filtreleme, geri dönmek için hangi alanların dahil vb. için hangi alanların belirtir. Belirtilmezse, rastgele sırayla kümesi puanlanmayan bir sonuç döndüren bir tam metin arama işlemi olarak tüm aranabilir alanları karşı bir sorgu çalıştırır.
 
@@ -55,7 +55,7 @@ Diğer parametreler örnekte sorgunun sonuçlarının ilgilidir:
 
 **Dizin özniteliklerini işlemleriyle etkinleştirme**
 
-Dizin tasarımı ve tasarım Azure Search'te sıkıca sorgu. Burada gösterilmez, ancak bir kritik Önden bilmek, noktasıdır *dizin şeması*, her bir alan özniteliklerinde ile sorgu yapı türünü belirler. Bir alan belirleme özniteliklerinde dizin bir alan olup olmadığını işlemleri - izin verilen *aranabilir* dizinde *alınabilir* sonuçlarında *sıralanabilir*,  *filtrelenebilir*ve böyle devam eder. Örnekte, `"orderby": "listingId"` listingId alan olarak işaretlenmişse yalnızca çalışır *sıralanabilir* dizin şemasında. Dizin öznitelikleri hakkında daha fazla bilgi için bkz: [dizin REST API oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Dizin tasarımı ve tasarım Azure Search'te sıkıca sorgu. Burada gösterilmez, ancak bir kritik Önden bilmek, noktasıdır *dizin şeması*, her bir alan özniteliklerinde ile sorgu yapı türünü belirler. Bir alan belirleme özniteliklerinde dizin bir alan olup olmadığını işlemleri - izin verilen *aranabilir* dizinde *alınabilir* sonuçlarında *sıralanabilir*, * filtrelenebilir*ve böyle devam eder. Örnekte, `"orderby": "listingId"` listingId alan olarak işaretlenmişse yalnızca çalışır *sıralanabilir* dizin şemasında. Dizin öznitelikleri hakkında daha fazla bilgi için bkz: [dizin REST API oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 Alan başına temelinde işlemlerine izin dizin tanımını sorgu yürütme bildiren yalnızca bir yoludur. Dizinde etkin diğer özellikleri şunlardır:
 

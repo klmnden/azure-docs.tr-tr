@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 08/08/2018
 ms.author: marsma
-ms.openlocfilehash: b56f2a8b2ae8cf04b8c27ab657be3f4d77ee7402
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: d2f7769469c9f3ebdbef5fc6ee1f09b1acd573ef
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205400"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715838"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Azure Container Registry'den Azure Kubernetes hizmeti ile kimlik doğrulaması
 
@@ -72,7 +72,7 @@ echo "Service principal password: $SP_PASSWD"
 
 İçinde bir Kubernetes hizmet sorumlusunun kimlik bilgileri artık depolayabilirsiniz [görüntü çekme gizli][image-pull-secret], AKS kümenizin kapsayıcı çalıştırırken başvuran.
 
-Aşağıdaki **kubectl** Kubernetes gizli dizi oluşturmak için komutu. Değiştirin `<acr-login-server>` (biçim "acrname.azurecr.io" olduğu) bir Azure kapsayıcı kayıt defterinizin tam ada sahip. Değiştirin `<service-principal-ID>` ve `<service-principal-password>` önceki betiği çalıştırarak aldığınız değerlerle.
+Aşağıdaki **kubectl** Kubernetes gizli dizi oluşturmak için komutu. Değiştirin `<acr-login-server>` (biçim "acrname.azurecr.io" olduğu) bir Azure kapsayıcı kayıt defterinizin tam ada sahip. Değiştirin `<service-principal-ID>` ve `<service-principal-password>` önceki betiği çalıştırarak aldığınız değerlerle. Değiştirin `<email-address>` herhangi bir iyi biçimlendirilmiş bir e-posta adresine sahip.
 
 ```bash
 kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> --docker-email <email-address>

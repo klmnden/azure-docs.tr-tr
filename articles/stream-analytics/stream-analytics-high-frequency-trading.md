@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 11/05/2017
-ms.openlocfilehash: a58b5c315b9f1baa3a0c3fe55917e94a47006f62
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 85f80ef1ea776d48d9c2f8091568d40dbf46db46
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258540"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716483"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Stream Analytics ile yüksek frekanslı alım-satım simülasyonu
 Azure Stream Analytics’te SQL dili ve JavaScript kullanıcı tanımlı işlevleri (UDF) ile kullanıcı tanımlı toplamların (UDAs) birleşimi, kullanıcıların gelişmiş analiz gerçekleştirmesine olanak tanır. Gelişmiş analizler, çevrimiçi makine öğrenimi eğitim ve puanlamasının yanı sıra durum bilgisi olan işlem simülasyonunu içerebilir. Bu makalede, yüksek frekanslı bir alım-satım senaryosunda sürekli çalıştıran ve puanlama yapan bir Azure Stream Analytics işinde nasıl doğrusal regresyon gerçekleştirileceği açıklanır.
@@ -444,7 +444,7 @@ Son olarak, görselleştirme için çıkışları Power BI panosuna veririz.
 ## <a name="summary"></a>Özet
 Gerçekçi bir yüksek frekanslı alım-satım modelini Azure Stream Analytics’te ortalama karmaşıklıkta bir sorguyla uygulayabiliriz. Yerleşik doğrusal regresyon işlevinin olmamasından dolayı, beş giriş değişkenini ikiye düşürerek modeli basitleştirmemiz gerekti. Bununla birlikte, kararlı bir kullanıcı için daha büyük boyutlu ve gelişmiş algoritmaların JavaScript UDA olarak da gerçekleştirilmesi mümkündür. 
 
-JavaScript UDA’dan farklı olarak sorgunun büyük bölümünün Visual Studio’nun içinden [Visual Studio için Azure Stream Analytics araçları](stream-analytics-tools-for-visual-studio.md) kullanılarak test edilebileceğini ve hatalarının ayıklanabileceğini belirtmekte yarar var. İlk sorgu yazıldıktan sonra, yazar Visual Studio'da 30 dakikadan kısa bir sürede sorguyu test edebilir ve hatalarını ayıklayabilir. 
+JavaScript UDA’dan farklı olarak sorgunun büyük bölümünün Visual Studio’nun içinden [Visual Studio için Azure Stream Analytics araçları](stream-analytics-tools-for-visual-studio-install.md) kullanılarak test edilebileceğini ve hatalarının ayıklanabileceğini belirtmekte yarar var. İlk sorgu yazıldıktan sonra, yazar Visual Studio'da 30 dakikadan kısa bir sürede sorguyu test edebilir ve hatalarını ayıklayabilir. 
 
 Şu anda, Visual Studio’da UDA’nın hata ayıklaması yapılamaz. JavaScript kodunun üzerinden geçme becerisiyle bunu etkinleştirmek için çalışmalarımız sürüyor. Ayrıca, UDA’ya ulaşan alanların adlarının küçük harfle başladığını unutmayın. Sorgu testi sırasında bu açıkça görülen bir davranış değildi. Ancak Azure Stream Analytics uyumluluk düzeyi 1.1 ile, daha doğal bir davranış için alan adındaki büyük/küçük harf kullanımını koruruz.
 

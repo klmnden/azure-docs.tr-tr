@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: e732164e50a270b3eacdef2e5c17e6c226702103
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: c9595b0e6313dc4620b48296fdca6dc2c6ae6413
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596139"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628146"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Kaynakları Resource Manager şablonları ve Azure CLI ile dağıtma
 
@@ -197,19 +197,6 @@ Komut, şablonunuzun söz dizimi hatası varsa, şablon ayrıştırılamadı bel
 }
 ```
 
-[!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
-
-Tam modda kullanmak için `mode` parametresi:
-
-```azurecli-interactive
-az group deployment create \
-  --name ExampleDeployment \
-  --mode Complete \
-  --resource-group ExampleGroup \
-  --template-file storage.json \
-  --parameters storageAccountType=Standard_GRS
-```
-
 ## <a name="sample-template"></a>Örnek şablon
 
 Bu makaledeki örneklerde aşağıdaki şablonu kullanılır. Kopyalayıp storage.json adlı bir dosya olarak kaydedin. Bu şablonu oluşturma hakkında bilgi almak için bkz. [ilk Azure Resource Manager şablonunuzu oluşturma](resource-manager-create-first-template.md).  
@@ -261,7 +248,7 @@ Bu makaledeki örneklerde aşağıdaki şablonu kullanılır. Kopyalayıp storag
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bu makaledeki örneklerde, varsayılan aboneliğinizde bir kaynak grubunda kaynak dağıtın. Farklı bir aboneliği kullanmak için bkz: [birden çok Azure aboneliklerini yönetme](/cli/azure/manage-azure-subscriptions-azure-cli).
-* Bir şablon dağıtan bir tam örnek betik için bkz. [Resource Manager şablonu dağıtım betiği](resource-manager-samples-cli-deploy.md).
+* Kaynak grubunda var, ancak şablonunda tanımlanmayan kaynak nasıl ele alınacağını belirtmek için bkz: [Azure Resource Manager dağıtım modları](deployment-modes.md).
 * Şablonunuzda parametreleri tanımlayan anlamak için bkz. [yapısını ve Azure Resource Manager şablonları söz dizimini anlamak](resource-group-authoring-templates.md).
 * Sık karşılaşılan dağıtım hataları çözümleme hakkında daha fazla ipucu için bkz. [Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme](resource-manager-common-deployment-errors.md).
 * Bir SAS belirteci gerektiren şablonu dağıtma hakkında daha fazla bilgi için bkz: [SAS belirteci ile özel şablonu Dağıt](resource-manager-cli-sas-token.md).

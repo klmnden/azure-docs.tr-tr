@@ -88,6 +88,8 @@
           href: iot-accelerators-time-series-insights.md
         - name: Data Lake ile telemetriyi analiz etme
           href: iot-accelerators-integrate-data-lake.md
+        - name: Rol tabanlı erişim denetimlerini yapılandırma
+          href: iot-accelerators-remote-monitoring-rbac.md
     - name: Uzaktan İzleme (önceki sürüm)
       items:
         - name: Önceden yapılandırılmış çözümler nelerdir?

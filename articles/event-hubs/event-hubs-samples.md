@@ -3,7 +3,7 @@ title: Azure Event Hubs örnekleri | Microsoft Docs
 description: Azure Event hubs'ı örnekleri
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2018
-ms.author: sethm
-ms.openlocfilehash: 8e80587f7b3f6b0cb081fd963848c7aa3ab11e3e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: shvija
+ms.openlocfilehash: fbde6e5a5ed053d6c151b3af25535c397a496ef4
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431265"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005343"
 ---
 # <a name="event-hubs-samples"></a>Event Hubs örnekleri 
-Event Hubs örnekleri bulabilirsiniz [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Bu örnekler temel özellikler gösterilmiştir [Azure Event Hubs](/azure/event-hubs/). Bu makale, kategorilere ayırır ve her biri için bağlantılarla birlikte kullanılabilir örnekler açıklar.
+Event Hubs örnekleri bulabilirsiniz [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Bu örnekler, anahtar özelliklerini gösteren [Azure Event Hubs](/azure/event-hubs/). Bu makale, kategorilere ayırır ve her biri için bağlantılarla birlikte kullanılabilir örnekler açıklar.
 
 ## <a name="net-samples"></a>.NET örnekleri
 

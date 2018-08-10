@@ -32,6 +32,8 @@
       maintainContext: true
     - name: Bulut tutarlılığına yönelik şablonlar
       href: templates-cloud-consistency.md
+    - name: Dağıtım modları
+      href: deployment-modes.md
 - name: Nasıl yapılır
   items:
     - name: Şablon oluşturma

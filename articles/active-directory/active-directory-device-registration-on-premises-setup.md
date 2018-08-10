@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: fb4ac675462cf9946a0667e2956c4c0c75b591bf
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: f0a6e164ed6b2269ec223a18f37d3475316d3e77
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390356"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629081"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Azure Active Directory cihaz kaydı'nı kullanarak şirket içi koşullu erişimi ayarlama
 Azure Active Directory (Azure AD) cihaz kayıt hizmeti için kişisel cihazlarını çalışma alanına katılma kullanıcılara ihtiyaç duyduğunuzda, cihazlarını kuruluşunuza bilinen olarak işaretlenebilir. Aşağıda, Windows Server 2012 R2'de Active Directory Federasyon Hizmetleri (AD FS) kullanarak şirket içi uygulamalara koşullu erişimi etkinleştirmek için adım adım yönergeler verilmektedir.
@@ -158,14 +158,14 @@ Bu URL'yi, kullanıcılarınıza iletmenin birçok farklı yolu vardır. Örneğ
 
 ### <a name="join-a-windows-81-device-by-using-azure-active-directory-device-registration"></a>Azure Active Directory cihaz kaydı'nı kullanarak Windows 8.1 cihaz ekleme
 1. Windows 8.1 Cihazınızı seçin **PC Ayarları** > **ağ** > **çalışma alanına**.
-2. Kullanıcı adı UPN biçiminde girin; Örneğin, **dan@contoso.com**.
+2. Kullanıcı adı UPN biçiminde girin; Örneğin, ** dan@contoso.com **.
 3. Seçin **katılın**.
 4. İstendiğinde, kimlik bilgilerinizle oturum açın. Cihaz artık katıldı.
 
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>Azure Active Directory cihaz kaydı'nı kullanarak Windows 7 cihaz ekleme
 Windows 7 etki alanına katılmış cihazları kaydetmek için dağıtmak için ihtiyacınız [cihaz kayıt yazılım paketini](https://www.microsoft.com/download/details.aspx?id=53554).
 
-Paketin nasıl kullanılacağı hakkında yönergeler için bkz: [Windows 10 bilgisayarları için Windows Installer paketleri](devices/hybrid-azuread-join-manual-steps.md#windows-installer-packages-for-non-windows-10-computers).
+Paketin nasıl kullanılacağı hakkında yönergeler için bkz: [Windows 10 bilgisayarları için Windows Installer paketleri](devices/hybrid-azuread-join-control.md#control-windows-down-level-devices).
 
 ## <a name="verify-that-registered-devices-are-written-back-to-active-directory"></a>Kayıtlı cihazlar için Active Directory geri yazılır doğrulayın
 Görüntüleyebilir ve cihazı nesnelerinizin geri Active Directory'nize LDP.exe veya ADSI Edit kullanarak yazılmış olduğunu doğrulayın. Her ikisi de, Active Directory Yöneticisi Araçları ile kullanılabilir.

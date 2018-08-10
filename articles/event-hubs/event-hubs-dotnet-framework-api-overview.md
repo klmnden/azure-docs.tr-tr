@@ -1,35 +1,30 @@
 ---
 title: .NET Framework API'ları Azure Event Hubs'a genel bakış | Microsoft Docs
-description: Bazı temel olay hub'ları .NET Framework istemci API özeti.
+description: Bazı temel Event Hubs .NET Framework istemci API'leri özeti.
 services: event-hubs
-documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
-ms.assetid: 7f3b6cc0-9600-417f-9e80-2345411bd036
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: a51d4552df2643a25ce492b8525b9aa7fa36e21c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: HT
+ms.date: 06/13/2018
+ms.author: shvija
+ms.openlocfilehash: dd915671c8b7d51595fea520187b917005f5dc53
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26781903"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40006827"
 ---
-# <a name="event-hubs-net-framework-api-overview"></a>Event Hubs .NET Framework API genel bakış
+# <a name="event-hubs-net-framework-api-overview"></a>Event Hubs .NET Framework API'sine genel bakış
 
-Bu makalede olay hub'ları .NET Framework istemci API anahtarı özetlenmektedir. İki kategorisi vardır: Yönetim ve çalıştırma API'leri. Çalışma zamanı API'leri bir ileti alıp göndermek için gereken tüm işlemler oluşur. Yönetim işlemlerini bir olay hub'ları varlık durumu oluşturma, güncelleştirme ve silme varlıklar olarak yönetmek etkinleştirin.
+Bu makalede, Azure Event Hubs anahtar bazıları özetlenmektedir [.NET Framework istemci API'leri](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). İki kategorisi vardır: Yönetim ve çalışma zamanı API'ları. Çalışma zamanı API'ları bir ileti gönderip için gereken tüm işlemleri oluşur. Yönetim işlemleri oluşturma, güncelleştirme ve silme varlıklar tarafından bir olay hub'ları varlık durumu yönetmek etkinleştirin.
 
-[İzleme senaryoları](event-hubs-metrics-azure-monitor.md) yönetim ve çalışma zamanı span. .NET API'ları üzerinde ayrıntılı başvuru belgeleri için bkz: [Service Bus .NET](/dotnet/api/microsoft.servicebus.messaging) ve [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) başvuruları.
+[İzleme senaryoları](event-hubs-metrics-azure-monitor.md) hem yönetim hem de çalışma zamanı özellikli. .NET API'ları üzerinde ayrıntılı referans belgeleri için bkz. [.NET Framework](/dotnet/api/microsoft.servicebus.messaging.eventhubclient), [.NET Standard](/dotnet/api/microsoft.azure.eventhubs), ve [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) başvuruları.
 
 ## <a name="management-apis"></a>Yönetim API'leri
 
-Aşağıdaki yönetim işlemlerini gerçekleştirmek için olmalıdır **Yönet** olay hub'ları ad alanı izinleri:
+Aşağıdaki yönetim işlemlerini gerçekleştirmek için olmalıdır **Yönet** Event Hubs ad alanı izinlerini:
 
 ### <a name="create"></a>Oluştur
 
@@ -59,8 +54,8 @@ await namespaceManager.UpdateEventHubAsync(ehd);
 await namespaceManager.DeleteEventHubAsync("event hub name");
 ```
 
-## <a name="run-time-apis"></a>Çalışma zamanı API'leri
-### <a name="create-publisher"></a>Yayımcı oluşturma
+## <a name="run-time-apis"></a>Çalışma zamanı API'ları
+### <a name="create-publisher"></a>Yayımcı oluştur
 
 ```csharp
 // EventHubClient model (uses implicit factory instance, so all links on same connection)
@@ -118,9 +113,9 @@ var info = message.GetBytes();
 msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 
-## <a name="event-processor-host-apis"></a>Olay işlemcisi konağı API'leri
+## <a name="event-processor-host-apis"></a>Olay işlemcisi konak API
 
-Bu API'leri kullanılabilir çalışanları bölüm dağıtarak, kullanılamayabilir çalışan işlemleri için esneklik sağlar.
+Bu API, kullanılabilir çalışanlar arasında bölümler dağıtarak, kullanılamayabilir çalışan işlemleri için esneklik sağlar.
 
 ```csharp
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
@@ -180,12 +175,13 @@ public class SimpleEventProcessor : IEventProcessor
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Event Hubs senaryoları hakkında daha fazla bilgi almak için aşağıdaki bağlantıları ziyaret edin:
 
 * [Azure Event Hubs nedir?](event-hubs-what-is-event-hubs.md)
 * [Event Hubs programlama kılavuzu](event-hubs-programming-guide.md)
 
-.NET API başvuru şunlardır:
+.NET API başvuruları şunlardır:
 
 * [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
 * [Microsoft.Azure.EventHubs.EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)

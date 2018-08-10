@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 1f60b7d30c073c49d5e0a7d35e7263c2181ed744
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e1342ed574d84ed5b4edd5060c2d6d3ec8bca1a8
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903073"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003120"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>IOT hub'ınıza yükseltme
 
@@ -27,7 +27,7 @@ Daha fazla cihaz sahip ve daha fazla özelliğe ihtiyacınız olduğunda, IOT hu
 
 Bu değişiklikleri tüm mevcut işlemleri kesintiye uğratmadan ortaya çıkabilir.
 
-IOT hub'ınıza düşürmek istiyorsanız, birimleri kaldırın ve IOT hub'ı azaltın. Ancak, daha düşük bir katmana inemezsiniz. Örneğin, S1 katmanına S2 katmanından ancak B1 katmanı için S2 katmanı taşıyabilirsiniz. 
+IOT hub'ınıza düşürmek istiyorsanız, birimleri kaldırın ve IOT hub'ı azaltın. Ancak, daha düşük bir katmana inemezsiniz. Örneğin, S1 katmanına S2 katmanından ancak B1 katmanı için S2 katmanı taşıyabilirsiniz. Ayrıca, bu yalnızca bir tür unutmayın [edition](https://azure.microsoft.com/pricing/details/iot-hub/) IOT hub'ı bir katman içinde seçilebilir. Örneğin, birden çok S1 birimi olan, ancak bir karışımını birimleri S1 ve B3 ya da S1 ve S2 gibi farklı sürümleri ile değil, bir IOT hub'ı oluşturabilirsiniz.
 
 Bu örnekler, IOT hub'ınıza çözüm değişikliklerinizi ayarlamak nasıl anlamanıza yardımcı olması için yöneliktir. Her katmanın özellikleri hakkında belirli bilgiler için her zaman başvurmanız gerekir [Azure IOT Hub fiyatlandırması](https://azure.microsoft.com/pricing/details/iot-hub/). 
 
@@ -45,7 +45,7 @@ Bu örnekler, IOT hub'ınıza çözüm değişikliklerinizi ayarlamak nasıl anl
 4. Hub'ınızdaki birim sayısını değiştirmek için altında yeni bir değer girin. **IOT Hub birimlerinin**. 
 5. Seçin **Kaydet** yaptığınız değişiklikleri kaydedin. 
 
-IOT hub'ınız şimdi ayarlanır ve yapılandırmalarınızı değiştirilmez. IOT hub'ı bölüm sınırından temel katmanı Not 8'dir. Bu sınırı kaldığından Temel katmandan standart katmana geçiş yaptığınızda.
+IOT hub'ınız şimdi ayarlanır ve yapılandırmalarınızı değiştirilmez. Temel katman IOT hub'ı için en yüksek bölüm sınırı 8'dir ve standart katman için 32'dir unutmayın. Çoğu IOT hub'ları yalnızca 4 bölüm gerekir. IOT hub'ı oluşturulduğunda ve CİHAZDAN buluta iletileri bu iletileri eşzamanlı okuyucu sayısıyla ilgilidir'ün bölüm sınırından seçilir. Bu değer, Temel katmandan standart katmana geçiş yaptığınızda değişmeden kalır. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

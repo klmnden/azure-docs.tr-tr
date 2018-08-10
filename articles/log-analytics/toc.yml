@@ -110,9 +110,17 @@
     - name: Verileri sorgulama
       items:
         - name: Dil belgeleri
-          href: 'https://docs.loganalytics.io'
-        - name: Eski dilden geçiş
-          href: log-analytics-log-search-transition.md
+          items:
+            - name: Eski dilden geçiş
+              href: log-analytics-log-search-transition.md
+            - name: Analytics portalını kullanmaya başlama
+              href: query-language/get-started-analytics-portal.md
+            - name: Sorguları kullanmaya başlama
+              href: query-language/get-started-queries.md
+            - name: Arama sorguları
+              href: query-language/search-queries.md
+            - name: Dil başvurusu
+              href: 'https://docs.loganalytics.io'
         - name: Kaynaklar arası aramalar
           href: log-analytics-cross-workspace-search.md
         - name: Arama sonuçlarına göre işlem yapma

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/08/2018
 ms.author: glenga
-ms.openlocfilehash: 0875829a405cafcea755d47214903c6ccab4ff16
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 6afc54bfcbef4d0714e9a09d0aa27ea4829d4dd5
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521305"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715395"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure işlevleri için olay Kılavuzu tetikleyicisi
 
@@ -440,12 +440,16 @@ Abonelik oluşturulurken, işlevi yerel olarak çalışıyor olması gerekir bö
 
 ### <a name="create-a-subscription"></a>Abonelik oluşturma
 
-Test etmek istediğiniz türde bir Event Grid aboneliği oluşturun ve şu biçimi kullanarak ngrok uç noktanıza, verin:
+Test etmek istediğiniz türde bir Event Grid aboneliği oluşturun ve ngrok uç noktanızı verin.
 
+İşlevler için bu endpoint düzeni kullanın 1.x:
 ```
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
-
+İşlevler için bu endpoint düzeni kullanın 2.x:
+```
+https://{subdomain}.ngrok.io/runtime/webhooks/EventGridExtensionConfig?functionName={functionName}
+``` 
 `functionName` Parametresi, belirtilen adı olmalıdır `FunctionName` özniteliği.
 
 Azure CLI kullanarak bir örnek aşağıda verilmiştir:

@@ -3,19 +3,19 @@ title: Yönetilen hizmet kimliği ile Azure Event Hubs Önizleme | Microsoft Doc
 description: Yönetilen hizmet kimlikleri, Azure Event Hubs ile kullanma
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
-ms.author: sethm
-ms.openlocfilehash: abff3f715a1fccba172147f02b83f7209f87cf9e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.author: shvija
+ms.openlocfilehash: f87a04b3b78bab124ca1b75006ed2c93a74f9198
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902525"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005842"
 ---
 # <a name="managed-service-identity-preview"></a>Yönetilen Hizmet Kimliği (önizleme)
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 5d12b9f04dc1cc5017ab4c9ff1bde9b84ac24cfe
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: b3279006d1ff947b76dd8fbba1438972e5f3ad8b
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400388"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630971"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob depolama: Sık erişimli, seyrek erişimli ve arşiv depolama katmanları
 
@@ -71,6 +71,9 @@ Aynı hesapta üç farklı depolama katmanına sahip bloblar birlikte bulunabili
 
 > [!NOTE]
 > Arşiv depolama ve blob düzeyinde katman ayarlama, yalnızca blok bloblarını destekler. Anlık görüntüleri olan bir blok blobun katmanını da değiştiremezsiniz.
+
+### <a name="blob-lifecycle-management"></a>BLOB yaşam döngüsü yönetimi
+BLOB Depolama yaşam döngüsü yönetimi (Önizleme), verilerinizi en iyi erişim katmanına geçiş yapmak ve veri yaşam döngüsü sonunda süresi dolacak şekilde kullanabileceğiniz, kurala dayalı zengin bir ilke sunar. Bkz: [Azure Blob Depolama yaşam döngüsünü yönetme](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts) daha fazla bilgi için.  
 
 ### <a name="blob-level-tiering-billing"></a>Blob düzeyinde katman ayarlama faturalandırması
 
@@ -187,6 +190,8 @@ Diğer sınırlarla birlikte veri depolama da depolama katmanına göre değil h
 ### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>GPv2 Blob depolama hesaplarında sık erişimli, seyrek erişimli ve arşiv seçeneklerini değerlendirme
 
 [Bölgeye göre sık, seyrek ve arşiv kullanılabilirliğini denetleme](https://azure.microsoft.com/regions/#services)
+
+[Azure Blob Depolama yaşam döngüsünü yönetme](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts)
 
 [Azure Depolama ölçümlerini etkinleştirerek geçerli depolama hesaplarınızın kullanımını değerlendirme](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 

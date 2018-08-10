@@ -12,44 +12,61 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2018
+ms.date: 08/03/2018
 ms.author: damaerte
-ms.openlocfilehash: 5e318a0f64033aa0c4b306e547c11e1994afa229
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: aad474195060c01a3f9d85e6f9037b568b0c16ad
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861898"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630395"
 ---
 # <a name="powershell-in-azure-cloud-shell-for-windows-users"></a>PowerShell için Azure Cloud Shell Windows kullanıcılar
 
-Mayıs 2018'de yapılan değişiklikleri [duyurulan](https://azure.microsoft.com/blog/pscloudshellrefresh/) Azure Cloud shell'de PowerShell için.  Azure Cloud shell'de PowerShell deneyimi, Linux'ta PowerShell Core 6 sunulmuştur.
-Bu değişiklik, Windows PowerShell 5.1 beklenenden farklı Cloud Shell'deki PowerShell hizmetinde bazı yönlerini vardır.
+Mayıs 2018'de yapılan değişiklikleri [duyurulan](https://azure.microsoft.com/blog/pscloudshellrefresh/) Azure Cloud shell'de PowerShell için.
+Azure Cloud Shell şimdi çalıştırmalarında PowerShell deneyimi [PowerShell Core 6](https://github.com/powershell/powershell) Linux ortamında.
+Bu değişiklik, olabilir bir Windows PowerShell gerekenin karşılaştırıldığında Cloud shell'de PowerShell deneyiminde bazı farklılıklar deneyimi.
 
-## <a name="case-sensitivity"></a>Büyük/küçük harfe duyarlılık
+## <a name="file-system-case-sensitivity"></a>Dosya sistemi büyük/küçük harfe duyarlılık
 
-Windows dosya sistemi büyük/küçük harf duyarlıdır.  Linux'ta, dosya sistemi büyük/küçük harf duyarlıdır.
-Daha önce buna `file.txt` ve `FILE.txt` aynı dosyanın farklı dosya olarak kabul edilir artık olarak kabul.
-Doğru büyük/küçük harf kullanılmalıdır sırada `tab` dosya sisteminde tamamlanıyor.  Gibi PowerShell özel deneyimler `tab` cmdlet'ler, büyük küçük harfe duyarlı değildir. 
+Linux üzerinde dosya sistemi büyük/küçük harfe iken dosya sistemi Windows, duyarlıdır.
+Daha önce `file.txt` ve `FILE.txt` aynı dosyaya olabilir, ancak bunlar farklı dosyalar olarak değerlendirilir artık kabul.
+Doğru büyük/küçük harf kullanılmalıdır sırada `tab-completing` dosya sistemindeki.
+Gibi PowerShell özel deneyimler `tab-completing` cmdlet adları, parametreler ve değerler büyük küçük harfe duyarlı değildir.
 
-## <a name="windows-powershell-alias-vs-linux-utilities"></a>Windows PowerShell diğer vs Linux yardımcı programları
+## <a name="windows-powershell-aliases-vs-linux-utilities"></a>Windows PowerShell diğer adlar vs Linux yardımcı programları
 
-Varolan, Linux'ta gibi komutları `ls`, `sort`, ve `sleep` PowerShell diğer adlarını önceliklidir.  Eşdeğer komutları yanı sıra ortak kaldırılan diğer adlar aşağıda verilmiştir:  
+Yerleşik Linux komutları, aynı adları gibi bazı mevcut PowerShell diğer sahip `cat`,`ls`, `sort`, `sleep`vb. PowerShell Core 6'da, yerleşik Linux komutlarıyla birbiriyle çakışır diğer adlar kaldırıldı.
+Kaldırılan ortak diğer adlar ve bunun yanı sıra, eşdeğer komutlar aşağıda verilmiştir:  
 
 |Diğer ad kaldırıldı   |Eşdeğer komutu   |
 |---|---|
+|`cat`    | `Get-Content` |
+|`curl`   | `Invoke-WebRequest` |
+|`diff`   | `Compare-Object` |
 |`ls`     | `dir` <br> `Get-ChildItem` |
-|`sort`   | `Sort-Object` |
+|`mv`     | `Move-Item`   |
+|`rm`     | `Remove-Item` |
 |`sleep`  | `Start-Sleep` |
+|`sort`   | `Sort-Object` |
+|`wget`   | `Invoke-WebRequest` |
 
-## <a name="persisting-home-vs-homeclouddrive"></a>$Home vs $home\clouddrive kalıcı yapma
+## <a name="persisting-home"></a>Kalıcı $HOME
 
-Betikleri ve diğer dosyaları kendi bulut sürücülerine kalıcı olan kullanıcılar için $HOME dizininizin artık oturumları arasında kalıcıdır.
+Daha önceki kullanıcılar yalnızca betikler ve diğer dosyaları kendi bulut sürücülerine kalıcı olamadı.
+Şimdi, kullanıcının $HOME dizininizin artık oturumları arasında kalıcıdır.
 
 ## <a name="powershell-profile"></a>PowerShell profili
 
-Varsayılan olarak, bir PowerShell profili oluşturulmaz.  Profiliniz oluşturmak için bir `PowerShell` altında dizin `$HOME/.config`.  İçinde `$HOME/.config/PowerShell`, profilinizi adı altında oluşturduğunuz `Microsoft.PowerShell_profile.ps1`.
+Varsayılan olarak, bir kullanıcının PowerShell profilini oluşturulmaz.
+Profiliniz oluşturmak için bir `PowerShell` altında dizin `$HOME/.config`.
+
+```azurepowershell-interactive
+mkdir (Split-Path $profile.CurrentUserAllHosts)
+```
+
+Altında `$HOME/.config/PowerShell`, profili dosyalarınızı - oluşturabilirsiniz `profile.ps1` ve/veya `Microsoft.PowerShell_profile.ps1`.
 
 ## <a name="whats-new-in-powershell-core-6"></a>PowerShell Core 6'da yenilikler nelerdir?
 
-PowerShell Core 6'da yenilikler hakkında daha fazla bilgi için başvuru [PowerShell docs](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6) ve [PowerShell Core ile çalışmaya başlama](https://blogs.msdn.microsoft.com/powershell/2017/06/09/getting-started-with-powershell-core-on-windows-mac-and-linux/) blog gönderisi
+PowerShell Core 6'da yenilikler hakkında daha fazla bilgi için başvuru [PowerShell docs](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6) ve [PowerShell Core ile çalışmaya başlama](https://blogs.msdn.microsoft.com/powershell/2017/06/09/getting-started-with-powershell-core-on-windows-mac-and-linux/) blog gönderisi.

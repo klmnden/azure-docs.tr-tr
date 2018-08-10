@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 6bd07439d4c6b1ccb5919fbfb286f714bac3b628
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: b9f0571c88b6ec4aa9e3851d5bf618e5104b0652
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158905"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716255"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Bir kullanıcı için iki aşamalı doğrulama gerektirme
 
@@ -30,7 +30,7 @@ ms.locfileid: "39158905"
 
 Koşullu erişim ilkesi tarafından - etkin kullanıcılarınız için iki aşamalı doğrulamayı etkinleştirmek için en esnek yolu budur. Yalnızca koşullu erişim ilkesi kullanarak etkinleştirmek için bulutta Azure MFA çalışır ve Azure AD premium özelliğidir. Bu yöntem hakkında daha fazla bilgi bulunabilir [Azure multi-Factor Authentication'ı bulut tabanlı dağıtım](howto-mfa-getstarted.md).
 
-Bu yöntem Azure AD kimlik koruması tarafından - etkin iki aşamalı kimlik doğrulaması oturum açma riski tüm bulut uygulamaları için yalnızca temel Azure AD kimlik Koruması riski İlkesi kullanır. Bu yöntem, Azure Active Directory P2 lisansı gerektirir. Bu yöntem hakkında daha fazla bilgi bulunabilir [Azure Active Directory kimlik koruması](../active-directory-identityprotection.md#risky-sign-ins)
+Bu yöntem Azure AD kimlik koruması tarafından - etkin iki aşamalı kimlik doğrulaması oturum açma riski tüm bulut uygulamaları için yalnızca temel Azure AD kimlik Koruması riski İlkesi kullanır. Bu yöntem, Azure Active Directory P2 lisansı gerektirir. Bu yöntem hakkında daha fazla bilgi bulunabilir [Azure Active Directory kimlik koruması](../identity-protection/overview.md#risky-sign-ins)
 
 > [!Note]
 > Lisanslar ve fiyatlandırma hakkında daha fazla bilgi bulunabilir [Azure AD'ye](https://azure.microsoft.com/pricing/details/active-directory/

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 5b4a15204a934bf55810fcdccd48a7a15a48c5ed
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 9d4d7633428cd174a31214db2db6b6d9928230bd
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258193"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627925"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Olay hub'ına Stream Azure tanılama günlükleri
-**[Azure tanılama günlükleri](monitoring-overview-of-diagnostic-logs.md)**  portalında veya Azure aracılığıyla bir tanılama ayarını olay hub'ı yetkilendirme kuralı kimliği etkinleştirerek yerleşik "Dışarı aktarmak için Event Hubs" seçeneğini kullanarak herhangi bir uygulama için neredeyse gerçek zamanlı akış PowerShell cmdlet'lerini veya Azure CLI 2.0.
+**[Azure tanılama günlükleri](monitoring-overview-of-diagnostic-logs.md) ** portalında veya Azure aracılığıyla bir tanılama ayarını olay hub'ı yetkilendirme kuralı kimliği etkinleştirerek yerleşik "Dışarı aktarmak için Event Hubs" seçeneğini kullanarak herhangi bir uygulama için neredeyse gerçek zamanlı akış PowerShell cmdlet'lerini veya Azure CLI 2.0.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>Tanılama günlükleri ve Event Hubs ile yapabilecekleriniz
 Akış özelliği için tanılama günlüklerini kullanabilir birkaç yolu vardır:
@@ -195,6 +195,6 @@ Ayrıca Windows Azure tanılama aracısını kullanarak işlem kaynaklarını ta
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure İzleyici ile Stream Azure Active Directory günlükleri](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md)
-* [Azure tanılama günlükleri hakkında daha fazla bilgi](monitoring-overview-of-diagnostic-logs.md)
+* [Azure İzleyici ile Stream Azure Active Directory günlükleri](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
+* [Azure Tanılama Günlükleri](monitoring-overview-of-diagnostic-logs.md)
 * [Event Hubs kullanmaya başlayın](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

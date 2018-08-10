@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: d7cae11314876bf07b9fcf3d3632a9f42b378626
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c2ef24692f9166fdca7eb19f648aee9ed3b0514f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38945416"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40025893"
 ---
 Bellek, ilişkisel veritabanı sunucuları, Orta veya büyük boyutlu önbellekler ve bellek içi analiz için harika olan yüksek bellek CPU oranı VM boyutları teklifi en iyi duruma getirilmiş. Bu makalede, Vcpu, veri diskleri ve NIC yanı sıra depolama aktarım hızı ve ağ bant genişliği için bu gruplandırma her boyutundaki sayısı hakkında bilgi sağlar. 
 
@@ -78,11 +78,13 @@ Veri disk depolaması, sanal makinelerden ayrı olarak faturalandırılır. Prem
 | Standard_E16_v3 | 16        | 128         | 400            | 32             | 24000/375/187                                            | 8 / 8,000                     |
 | Standard_E32_v3 | 32        | 256         | 800            | 32             | 48000/750/375                                            | 8 / 16,000                 |
 | Standard_E64_v3 | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |
-| Standard_E64i_v3&nbsp;<sup>2</sup> | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |
+| İşler için standart_e64i_v3&nbsp;<sup>2&nbsp;3</sup> | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |
 
 <sup>1</sup> Ev3 serisi sanal makineler özellik Intel® Hyper-Threading Teknolojisi.
 
-<sup>2</sup> sınırlı kullanılabilir çekirdek boyutu. 
+<sup>2</sup> sınırlı kullanılabilir çekirdek boyutu.
+
+<sup>3</sup> örneği, tek bir müşteriye özel donanımla yalıtılır.
 
 
 ## <a name="m-series"></a>M serisi 
@@ -173,7 +175,7 @@ ACU: 210-250 <sup>1</sup>
 
 Premium Depolama: desteklenir
 
-Premium depolama önbelleğe alma: Desteklenmez
+Premium depolama önbelleğe alma: desteklenir
 
 | Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 | --- | --- | --- | --- | --- | --- | --- | --- |

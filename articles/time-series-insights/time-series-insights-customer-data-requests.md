@@ -1,66 +1,66 @@
 ---
-title: Müşteri verileri Azure zaman serisi Öngörüler özelliklerinde isteği
-description: Müşteri verileri isteği özelliklerinin özeti.
+title: Azure Time Series Insights müşteri verileri istek özellikleri
+description: Müşteri verilerini talep özelliklerin özeti.
 author: ashannon7
-ms.author: dobett
-manager: timlt
+ms.author: anshan
+manager: cshankar
 ms.date: 05/17/2018
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
-ms.openlocfilehash: 5714782d4fe44ce4521dd604055e925937a7328d
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 4696cdaf96a73c54334f553a0affe459e3476946
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295287"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629744"
 ---
-# <a name="summary-of-customer-data-request-features"></a>Müşteri verileri isteği özelliklerinin özeti
+# <a name="summary-of-customer-data-request-features"></a>Müşteri verilerini talep özelliklerin özeti
 
-Azure zaman serisi Öngörüler alma, depolama, keşfetmek ve olayları milyarlarca aynı anda analiz kolaylaştırmak depolama, analiz ve görselleştirme bileşenleri ile yönetilen bir bulut hizmetidir.
+Azure zaman serisi görüşleri depolama, analiz ve görselleştirme bileşenleriyle almak, depolamak, keşfedin ve milyarlarca olayı aynı anda keşfedip analiz daha kolay hale yönetilen bir bulut hizmetidir.
 
 [!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]
 
-Görüntülemek, verme ve veri konu isteği tabi olabilir kişisel verilerini silmek için Azure zaman serisi Öngörüler Kiracı yönetici Azure portalı veya REST API'ler kullanabilirsiniz. Veri konu isteklere hizmet Azure Portalı'nı kullanarak, kullanıcıların çoğunun tercih bu işlemleri gerçekleştirmek için en az karmaşık bir yöntem sağlar.
+Görüntüleme, dışarı aktarma ve bir veri sahibi isteği tabi olabilir kişisel verilerini silme için Azure Time Series Insights Kiracı yönetici, Azure portalı veya REST API'lerini kullanabilirsiniz. Hizmet gdpr veri sahibi istekleri için Azure portalını kullanarak, çoğu kullanıcının tercih bu işlemleri gerçekleştirmek için daha az karmaşık bir yöntem sağlar.
 
 ## <a name="identifying-customer-data"></a>Müşteri verileri tanımlama
 
-Azure zaman serisi Öngörüler, kişisel verilerin Yöneticiler ve zaman serisi Öngörüler kullanıcılarının ilişkili veri dikkate alır. Zaman serisi Öngörüler ortamına erişimi olan kullanıcılar Azure Active Directory nesne kimliği depolar. Kullanıcı e-posta adresleri, Azure portal görüntüler, ancak bu e-posta adresleri zaman serisi Öngörüler içinde depolanmaz, bunlar Azure Active Directory'de Azure Active Directory nesne kimliği kullanılarak dinamik olarak arandığı.
+Azure Time Series Insights, Yöneticiler ve kullanıcılar, zaman serisi görüşleri ile ilişkili veri olarak kişisel verileri dikkate alır. Zaman serisi görüşleri ortamına erişimi olan kullanıcılar Azure Active Directory nesne Kimliğini depolar. Kullanıcı e-posta adresleri, Azure portalında görüntüler, ancak bu e-posta adresleri Time Series Insights içinde depolanmaz, bunlar Azure Active Directory'de Azure Active Directory nesne kimliği kullanılarak dinamik olarak arandığı.
 
 ## <a name="deleting-customer-data"></a>Müşteri verileri silme
 
-Kiracı Yöneticisi, Azure portalını kullanarak müşteri verilerini silebilirsiniz.
+Kiracı Yöneticisi, Azure portalını kullanarak müşteri verileri silebilirsiniz.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-Ancak, portal üzerinden müşteri verileri silmeden önce Azure portalındaki zaman serisi Öngörüler ortamından kullanıcının erişim ilkeleri kaldırmanız gerekir. Daha fazla bilgi için bkz: [Azure portalını kullanarak bir zaman serisi Öngörüler ortamı için veri erişim](time-series-insights-data-access.md).
+Portal aracılığıyla müşteri verileri silmeden önce Azure portalındaki zaman serisi görüşleri ortamından kullanıcının erişim ilkelerini kaldırmalısınız. Daha fazla bilgi için [Azure portalını kullanarak zaman serisi görüşleri ortamına veri erişimi verme](time-series-insights-data-access.md).
 
-REST API kullanarak erişim ilkeleri silme işlemleri de gerçekleştirebilirsiniz. Daha fazla bilgi için bkz: [erişim ilkelerini - silin](https://docs.microsoft.com/rest/api/time-series-insights-management/accesspolicies/delete).
+Ayrıca, REST API kullanarak erişim ilkeleri üzerinde silme işlemleri gerçekleştirebilirsiniz. Daha fazla bilgi için [erişim ilkelerini - Sil](https://docs.microsoft.com/rest/api/time-series-insights-management/accesspolicies/delete).
 
-Zaman serisi Öngörüler Azure portalındaki ilke dikey tümleşiktir. Zaman serisi Öngörüler ve ilke dikey penceresinde, görüntülemek, verme ve hizmet içinde depolanan kullanıcı verilerini silmek etkinleştirin. Azure portal sonuçları zaman serisi Öngörüler içindeki kullanıcı verileri silme ilkesi dikey gerçekleştirilen eylem silin. Örneğin, bir kullanıcının kaydedilmiş kişisel sorgu varsa, bu sorgu zaman serisi Öngörüler Gezgini'nden kalıcı olarak silinir. Kullanıcının kaydedilmiş paylaşılan sorgu varsa, sorgu devam ederse, ancak kullanıcı bilgilerini kalıcı olarak silinir. Aşağıdaki nota bu görevleri gerçekleştirmek üzere yönergeler içerir.
+Time Series Insights, ilke dikey penceresinde Azure portalı ile tümleşiktir. Time Series Insights hem de ilke dikey penceresinde görüntülemek için dışarı aktarma ve hizmet içinde depolanan kullanıcı verilerini silmek sağlar. İlke dikey penceresinde Time Series Insights içinde kullanıcı verileri silme işlemi, Azure portal sonuçlarının içinde gerçekleştirilen eylem silin. Örneğin, kullanıcının kişisel kaydedilmiş sorgu varsa bu sorguyu Time Series Insights Gezgini'nden kalıcı olarak silinir. Kullanıcının paylaşılan kaydedilmiş bir sorgu varsa, sorgu devam ediyorsa, ancak kullanıcı bilgilerini kalıcı olarak silinir. Aşağıdaki Not, şu görevleri gerçekleştirmek yönergeler içerir.
 
-## <a name="exporting-customer-data"></a>Müşteri verileri dışarı aktarma
+## <a name="exporting-customer-data"></a>Müşteri verilerini dışarı aktarma
 
-Benzer şekilde verileri silmek için bir kiracı Yöneticisi görüntüleyebilir ve Azure portalında İlkesi dikey penceresinden zaman serisi öngörü depolanan verileri dışarı aktarma.
+Benzer şekilde veri silmek için bir kiracı Yöneticisi görüntüleyebilir ve Azure portalında ilke dikey penceresinden Time Series Insights içinde depolanan verileri dışarı aktarma.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-Bir kiracı Yöneticisi iseniz, Azure portalında veri erişimi ilkelerini zaman serisi Öngörüler ortamda görüntüleyebilirsiniz. Daha fazla bilgi için bkz: [Azure portalını kullanarak bir zaman serisi Öngörüler ortamı için veri erişim](time-series-insights-data-access.md).
+Kiracı yöneticisiyseniz, içinde zaman serisi görüşleri ortamına veri erişimi ilkeleri Azure Portalı'nda görüntüleyebilirsiniz. Daha fazla bilgi için [Azure portalını kullanarak zaman serisi görüşleri ortamına veri erişimi verme](time-series-insights-data-access.md).
 
-"Ortam listeyi" işlemi içinde sağlanan REST API kullanarak erişim ilkeleri verme işlemleri gerçekleştirmek mümkündür. Daha fazla bilgi için bkz: [erişim ilkeleri - listesi tarafından ortamı](https://docs.microsoft.com/rest/api/time-series-insights-management/accesspolicies/listbyenvironment).
+Erişim ilkeleri "listesi ortama göre" işlemi belirtilen REST API kullanarak dışarı aktarma işlemleri mümkündür. Daha fazla bilgi için [erişim ilkeleri - listesi tarafından ortamı](https://docs.microsoft.com/rest/api/time-series-insights-management/accesspolicies/listbyenvironment).
 
-## <a name="to-delete-data-stored-within-time-series-insights"></a>Zaman serisi Öngörüler içinde depolanan verileri silmek için
+## <a name="to-delete-data-stored-within-time-series-insights"></a>Time Series Insights içinde depolanan verileri silmek için
 
-Kişisel veriler, zaman serisi Öngörüler depolamaya farklı bir senaryo kullanıcı ve yönetici veri yolu yapabilir. Zaman serisi Öngörüler kişisel veriler olarak depolanan verilere göz önünde bulundurun, verme ve aşağıdaki adımları kullanarak bu verileri sil:
+Kişisel verileri, zaman serisi görüşleri depolama, kullanıcı ve yönetici verileri farklı bir senaryodan içine yolu sağlayabilirsiniz. Time Series Insights kişisel verileri olarak depolanan veriler göz önünde bulundurun, dışarı aktarma ve aşağıdaki adımları kullanarak bu verileri sil:
 
-**Görüntülemek ve verileri dışarı aktarma**
+**Verileri dışarı aktarma ve görüntüleme**
 
-Görüntülemek ve zaman serisi Öngörüler içinde depolanan verileri dışarı aktarmak için bu verileri aramanız gerekir. Görüntülemek ve verileri dışarı aktarma için zaman serisi Öngörüler explorer veya zaman serisi Öngörüler sorgu API'leri kullanabilirsiniz. Görüntülemek ve zaman serisi Öngörüler explorer kullanarak verileri dışarı aktarmak için söz konusu kullanıcı verileri bulmak için ilk arayın. Arama yaptıktan sonra sağ tıklatın ve grafik **olayları keşfedin**. Olayları kılavuz görünür ve veri CSV ve JSON verme seçeneklerini sunar.
+Time Series Insights içinde depolanan verileri dışarı aktarma ve görüntülemek için bu veriler için arama yapmanız gerekmiyor. Time Series Insights Gezgini veya zaman serisi görüşleri sorgu API'leri, görüntülemek ve veri dışarı aktarmak için kullanabilirsiniz. Time Series Insights Gezginini kullanarak verileri dışarı aktarmak ve görüntülemek için söz konusu kullanıcı verileri bulmak için ilk arayın. Arama yaptıktan sonra sağ tıklatın ve grafik **olayları keşfet**. Olay ızgarası, görünür ve CSV ve JSON verileri dışarı aktarma seçenekleri sunar.
 
-Daha fazla bilgi için bkz: [Azure zaman serisi Öngörüler explorer](time-series-insights-explorer.md).
+Daha fazla bilgi için [Azure Time Series Insights gezgininin](time-series-insights-explorer.md).
 
-**Verileri silme**
+**Verileri Sil**
 
-Şu anda, zaman serisinin Öngörüler veri ayrıntılı silme işlemini desteklemiyor. Ancak, zaman serisinin Öngörüler bekletme ilkeleri yapılandırarak zaman serisi Öngörüler içinde depolanan müşteri verileri kaldırma özelliği sağlar. Herhangi bir sayıda gün silme gereksinimlerinizi desteklemek için tüm zaman serisi Öngörüler ortama saklama süresi ayarlayabilirsiniz.
+Şu anda, zaman serisi görüşleri veri ayrıntılı olarak silinmesini desteklemez. Ancak, zaman serisi görüşleri bekletme ilkeleri yapılandırarak Time Series Insights içinde depolanan müşteri verileri kaldırma özelliği sağlar. Herhangi bir sayıda gün silme gereksinimlerinizi desteklemek için tüm Time Series Insights ortamınızı saklama süresini ayarlayabilirsiniz.
 
-Daha fazla bilgi için bkz: [zaman serisi öngörü saklamayı yapılandırmaya](time-series-insights-how-to-configure-retention.md).
+Daha fazla bilgi için [bekletme zaman serisi Öngörülerinde yapılandırma](time-series-insights-how-to-configure-retention.md).

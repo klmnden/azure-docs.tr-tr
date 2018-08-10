@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 6d3fe519729bd56dafd11720a3662eb00b916a98
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 478b678f514959b8ae9f6492d4920faf894c321d
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056618"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004190"
 ---
 # <a name="set-up-additional-process-servers-for-scalability"></a>Ölçeklenebilirlik için ek işlem sunucularını ayarlama
 
@@ -34,6 +34,8 @@ Tabloda özetlenen boyutlandırma gereksinimlerini doğrulayın. Genel olarak, d
 |4 Vcpu (2 yuva * 2 Çekirdek \@ 2.5 GHz), 8 GB bellek |300 GB |250 GB veya daha az |85 ya da daha az makineleri çoğaltabilir. |
 |8 Vcpu (2 yuva * 4 çekirdek \@ 2.5 GHz), 12 GB bellek |600 GB |250 GB ila 1 TB |85 150 makineler arasında çoğaltılır. |
 |12 Vcpu (2 yuva * 6 çekirdek \@ 2.5 GHz) 24 GB bellek |1 TB |1 TB ile 2 TB |150-225 makineler arasında çoğaltılır. |
+
+Her korumalı olduğunda, kaynak makinenin 100 GB'lık 3 diskleri ile yapılandırıldı.
 
 ### <a name="prerequisites"></a>Önkoşullar
 

@@ -4,7 +4,7 @@ description: Azure işlevleri'nde Zamanlayıcı Tetikleyicileri kullanma hakkın
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: Azure işlevleri, İşlevler, olay işleme dinamik işlem, sunucusuz mimari
@@ -14,15 +14,15 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 08/08/2018
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: 8459c08866fb71e755663aaddd32015af8b0d1df
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6712fb0865284ccc2b84e3c2fcd49972f541f69b
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345251"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004224"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure işlevleri için Zamanlayıcı tetikleyicisi 
 
@@ -178,9 +178,9 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**type** | yok | "TimerTrigger için" olarak ayarlanmalıdır. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır.|
 |**direction** | yok | "İçin" ayarlanmalıdır. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır. |
 |**Adı** | yok | İşlev kodunu Zamanlayıcı nesneyi temsil eden değişken adı. | 
-|**schedule**|**ScheduleExpression**|A [CRON ifadesi](#cron-expressions) veya [TimeSpan](#timespan) değeri. A `TimeSpan` bir App Service planı üzerinde çalıştırılan bir işlev uygulaması için kullanılabilir. Bir uygulama ayarında zamanlama ifadeyi ve ayar adı içinde sarmalanmış bir uygulama için bu özelliği ayarlayın **%** Bu örnekte olduğu gibi işaretlere: "% ScheduleAppSetting %". |
-|**RunOnStartup**|**RunOnStartup**|Varsa `true`, çalışma zamanı başladığında işlevi çağrılır. Örneğin, işlev uygulaması uyanır eylemsizlik nedeniyle boşta filtrelemesinden geçtikten sonra çalışma zamanı başlatır. ne zaman işlev uygulaması, işlev değişiklikleri nedeniyle ve işlev uygulamasını kullanıma ölçeklendirildiğinde yeniden başlatır. Bu nedenle **runOnStartup** nadiren şimdiye kadar ayarlanması gerekir `true`yüksek oranda beklenmeyen zamanlarda execute kodunu hale getirecek şekilde.|
-|**UseMonitor**|**UseMonitor**|Kümesine `true` veya `false` zamanlama izlenmesi gereken olup olmadığını belirtmek için. İzleme zamanlaması bile işlevi uygulama örneklerini yeniden başlattığınızda zamanlama doğru yönetilmesini sağlamak yardımcı olmak için zamanlama örnekleri'ni kalıcıdır. Açıkça ayarlanmazsa varsayılan olup olmadığını `true` bir yinelenme aralığı 1 dakikadan daha uzun olan zamanlamalar. Dakika başına birden çok kez tetikleyen zamanlamalar için varsayılandır `false`.
+|**schedule**|**ScheduleExpression**|A [CRON ifadesi](#cron-expressions) veya [TimeSpan](#timespan) değeri. A `TimeSpan` bir App Service planı üzerinde çalıştırılan bir işlev uygulaması için kullanılabilir. Bir uygulama ayarında zamanlama ifadeyi ve ayar adı içinde sarmalanmış bir uygulama için bu özelliği ayarlayın ** % ** Bu örnekte olduğu gibi işaretlere: "% ScheduleAppSetting %". |
+|**runOnStartup**|**runOnStartup**|Varsa `true`, çalışma zamanı başladığında işlevi çağrılır. Örneğin, işlev uygulaması uyanır eylemsizlik nedeniyle boşta filtrelemesinden geçtikten sonra çalışma zamanı başlatır. ne zaman işlev uygulaması, işlev değişiklikleri nedeniyle ve işlev uygulamasını kullanıma ölçeklendirildiğinde yeniden başlatır. Bu nedenle **runOnStartup** nadiren şimdiye kadar ayarlanması gerekir `true`yüksek oranda beklenmeyen zamanlarda execute kodunu hale getirecek şekilde.|
+|**useMonitor**|**useMonitor**|Kümesine `true` veya `false` zamanlama izlenmesi gereken olup olmadığını belirtmek için. İzleme zamanlaması bile işlevi uygulama örneklerini yeniden başlattığınızda zamanlama doğru yönetilmesini sağlamak yardımcı olmak için zamanlama örnekleri'ni kalıcıdır. Açıkça ayarlanmazsa varsayılan olup olmadığını `true` bir yinelenme aralığı 1 dakikadan daha uzun olan zamanlamalar. Dakika başına birden çok kez tetikleyen zamanlamalar için varsayılandır `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -259,6 +259,8 @@ Veya adlı işlev uygulamanız için bir uygulama ayarı oluşturmak `WEBSITE_TI
 ```json
 "schedule": "0 0 10 * * *"
 ``` 
+
+Kullanırken `WEBSITE_TIME_ZONE`, zaman, gün ışığından yararlanma saatine gibi belirli saat dilimi zaman değişiklikler için ayarlanır. 
 
 ## <a name="timespan"></a>Zaman aralığı
 

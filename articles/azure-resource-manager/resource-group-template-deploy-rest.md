@@ -1,6 +1,6 @@
 ---
-title: REST API ve şablon kaynaklarla dağıtma | Microsoft Docs
-description: Azure Resource Manager ve Resource Manager REST API'si bir kaynakları Azure'a dağıtmak için kullanın. Kaynaklar, bir Resource Manager şablonunda tanımlanır.
+title: REST API ve şablon ile kaynak dağıtma | Microsoft Docs
+description: Bir kaynakları Azure'a dağıtmak için Azure Resource Manager ve Resource Manager REST API'si kullanın. Kaynaklar, bir Resource Manager şablonunda tanımlanır.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,33 +14,31 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6ae77eb1f619928f43a502cd4631a0895a9e91f4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ae2393d16d2c9c1000b00f5514e63c988303a83c
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603749"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628520"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Kaynakları Resource Manager şablonları ve Resource Manager REST API’si ile dağıtma
 
-Bu makalede Resource Manager REST API Resource Manager şablonları ile kaynakları Azure'a dağıtmak için nasıl kullanılacağı açıklanmaktadır.  
+Bu makalede, Resource Manager REST API'si Resource Manager şablonları ile kaynaklarınızı Azure'a dağıtmak için kullanmayı açıklar.  
 
 > [!TIP]
-> Dağıtım sırasında bir hata ayıklama daha fazla yardım için bkz:
+> Dağıtım sırasında bir hata ayıklama ile ilgili Yardım için bkz:
 > 
-> * [Dağıtım işlemlerini görüntülemek](resource-manager-deployment-operations.md) , hata gidermenize yardımcı olacak bilgileri alma hakkında bilgi için
-> * [Kaynakları Azure Azure Resource Manager ile dağıtırken sık karşılaşılan sorunları giderme](resource-manager-common-deployment-errors.md) genel dağıtım hatalarını gidermek öğrenmek için
+> * [Dağıtım işlemlerini görüntüleme](resource-manager-deployment-operations.md) hata gidermenize yardımcı olacak bilgileri alma hakkında bilgi için
+> * [Azure Resource Manager ile Azure kaynakları dağıtılırken sık karşılaşılan sorunları giderme](resource-manager-common-deployment-errors.md) sık karşılaşılan dağıtım hatalarını çözme hakkında bilgi edinmek için
 > 
 > 
 
-Şablonunuz, yerel bir dosya veya bir URI kullanılabilir olan dış dosyası olabilir. Şablonunuzu bir depolama hesabında bulunduğunda, şablona erişimi kısıtlayabilir ve dağıtım sırasında bir paylaşılan erişim imzası (SAS) belirteci sağlayın.
-
-[!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
+Şablonunuz yerel dosya veya bir URI kullanıma hazır bir dış dosya olabilir. Şablonunuzu bir depolama hesabında bulunduğunda, şablona erişimini kısıtlamak ve dağıtım sırasında bir paylaşılan erişim imzası (SAS) belirteci sağlayın.
 
 ## <a name="deploy-with-the-rest-api"></a>REST API ile dağıtma
-1. Ayarlama [ortak parametrelerini ve üstbilgileri](/rest/api/azure/), kimlik doğrulama belirteçleri de dahil olmak üzere.
+1. Ayarlama [ortak parametreleri ve üst bilgileri](/rest/api/azure/), kimlik doğrulama belirteçlerinizi de dahil olmak üzere.
 
-2. Varolan bir kaynak grubu yoksa, bir kaynak grubu oluşturun. Abonelik Kimliğinizi, yeni kaynak grubunu ve çözümünüz için gereksinim duyduğunuz konumu adını sağlayın. Daha fazla bilgi için bkz: [bir kaynak grubu oluşturmak](/rest/api/resources/resourcegroups/createorupdate).
+2. Mevcut bir kaynak grubu yoksa, bir kaynak grubu oluşturun. Abonelik Kimliğinizi, yeni kaynak grubu, çözümünüz için gereken yeri ve adı belirtin. Daha fazla bilgi için [bir kaynak grubu oluşturma](/rest/api/resources/resourcegroups/createorupdate).
 
   ```HTTP
   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2015-01-01
@@ -52,9 +50,9 @@ Bu makalede Resource Manager REST API Resource Manager şablonları ile kaynakla
   }
   ```
 
-3. Çalıştırarak çalıştırmadan önce dağıtımınızı doğrulama [şablon dağıtımı doğrulamak](/rest/api/resources/deployments/validate) işlemi. Tam olarak (sonraki adımda gösterilen) dağıtım yürütülürken gibi dağıtım sınarken parametreleri sağlar.
+3. Çalıştırarak çalıştırmadan önce dağıtımınızı doğrulama [şablon dağıtımı doğrulamak](/rest/api/resources/deployments/validate) işlemi. Tam olarak (bir sonraki adımda gösterilmiştir) dağıtım yürütülürken gibi test etme ve dağıtım parametreleri belirtin.
 
-4. Bir dağıtım oluşturun. Abonelik Kimliğiniz, kaynak grubunun adı, dağıtım ve şablonunuzu bağlantı adını sağlayın. Şablon dosyası hakkında daha fazla bilgi için bkz: [parametre dosyası](#parameter-file). Bir kaynak grubu oluşturmak için REST API hakkında daha fazla bilgi için bkz: [şablon dağıtımı oluşturmak](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_CreateOrUpdate). Bildirim **modu** ayarlanır **artımlı**. Tam dağıtım çalışacak şekilde ayarlanmış **modu** için **tam**. Şablonunuzda olmayan kaynakları yanlışlıkla silebilirsiniz gibi tam modu kullanırken dikkatli olun.
+4. Bir dağıtım oluşturun. Abonelik Kimliğiniz, kaynak grubu adı, dağıtım ve şablon için bir bağlantı adı belirtin. Şablon dosyası hakkında daha fazla bilgi için bkz. [parametre dosyası](#parameter-file). Bir kaynak grubu oluşturmak için REST API hakkında daha fazla bilgi için bkz: [şablon dağıtımı oluşturma](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_CreateOrUpdate). Bildirim **modu** ayarlanır **artımlı**. Tam dağıtım çalışacak şekilde ayarlanmış **modu** için **tam**. Tam modda, şablonunuzda bulunmayan kaynaklar yanlışlıkla silebilirsiniz gibi kullanırken dikkatli olun.
 
   ```HTTP
   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
@@ -73,7 +71,7 @@ Bu makalede Resource Manager REST API Resource Manager şablonları ile kaynakla
   }
   ```
 
-    Yanıt içeriğini, istek içeriği veya her ikisi de oturum istiyorsanız dahil **debugSetting** isteği.
+    Yanıt içeriğini, istek içeriği veya her ikisi de oturum açmak istiyorsanız, dahil **debugSetting** istek.
 
   ```HTTP
   "debugSetting": {
@@ -81,19 +79,19 @@ Bu makalede Resource Manager REST API Resource Manager şablonları ile kaynakla
   }
   ```
 
-    Bir paylaşılan erişim imzası (SAS) belirteci kullanmak üzere depolama hesabınızı ayarlayabilirsiniz. Daha fazla bilgi için bkz: [paylaşılan erişim imzası için temsilci seçme erişimle](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
+    Depolama hesabınızı ayarladığınızda, paylaşılan erişim imzası (SAS) belirteci kullanmak için ayarlayabilirsiniz. Daha fazla bilgi için [bir paylaşılan erişim imzası ile erişim için temsilci seçme](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
 
-5. Şablon dağıtımı durumunu alın. Daha fazla bilgi için bkz: [şablon dağıtımı hakkında bilgi alma](/rest/api/resources/deployments/get).
+5. Şablon dağıtımı durumunu alın. Daha fazla bilgi için [şablon dağıtımı hakkında bilgi alma](/rest/api/resources/deployments/get).
 
   ```HTTP
   GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
   ```
 
-## <a name="redeploy-when-deployment-fails"></a>Dağıtımı başarısız olduğunda yeniden dağıtın
+## <a name="redeploy-when-deployment-fails"></a>Dağıtım başarısız olduğunda yeniden dağıtma
 
-Başarısız dağıtımları için dağıtım geçmişiniz önceki bir dağıtıma otomatik olarak imzalanmasını belirtebilirsiniz. Dağıtımlarınızı bu seçeneği kullanmak için geçmişinde tanımlanan şekilde benzersiz adlara sahip olmalıdır. Benzersiz adlara sahip değilseniz, geçerli başarısız dağıtım geçmişini önceden başarılı dağıtım üzerine yazabilirsiniz. Bu gibi durumlarda, bu seçenek yalnızca kök düzeyinde dağıtımlar kullanabilirsiniz. İç içe geçmiş bir şablondan dağıtımları yeniden dağıtım için kullanılamaz.
+Başarısız dağıtımlar, dağıtım geçmişiniz önceki bir dağıtıma otomatik olarak imzalanmasını belirtebilirsiniz. Bu seçeneği kullanmak için dağıtımlarınızı geçmişinde tanımlanan şekilde benzersiz adları olmalıdır. Benzersiz adlara sahip değilseniz, geçerli başarısız dağıtım geçmişini daha önce başarılı dağıtım üzerine yazılabilir. Bu gibi durumlarda, bu seçenek yalnızca kök düzey dağıtımlar kullanabilirsiniz. İç içe geçmiş şablon dağıtımları, yeniden dağıtım için kullanılamaz.
 
-Geçerli dağıtım başarısız olursa son başarılı dağıtımı yeniden dağıtmak için kullanın:
+Geçerli dağıtım başarısız olursa, son başarılı dağıtımı yeniden dağıtmak için kullanın:
 
 ```HTTP
 "onErrorDeployment": {
@@ -101,7 +99,7 @@ Geçerli dağıtım başarısız olursa son başarılı dağıtımı yeniden da�
 },
 ```
 
-Geçerli dağıtım başarısız olursa belirli bir dağıtımı yeniden dağıtmak için kullanın:
+Geçerli dağıtım başarısız olursa, belirli bir dağıtımı yeniden dağıtmak için kullanın:
 
 ```HTTP
 "onErrorDeployment": {
@@ -114,7 +112,7 @@ Belirtilen dağıtım başarılı gerekir.
 
 ## <a name="parameter-file"></a>Parametre dosyası
 
-Dağıtım sırasında parametre değerleri geçirmek için bir parametre dosyası kullanmak, bir JSON dosyası formatı ile aşağıdaki örneğe benzer şekilde oluşturmanız gerekir:
+Dağıtım sırasında parametre değerlerini geçirmek için bir parametre dosyası kullanıyorsanız, aşağıdaki örneğe benzer bir biçimi ile bir JSON dosyası oluşturun gerekir:
 
 ```json
 {
@@ -142,14 +140,14 @@ Dağıtım sırasında parametre değerleri geçirmek için bir parametre dosyas
 }
 ```
 
-Parametre dosyanın boyutu 64 KB'den büyük olamaz.
+Parametre dosyasının boyutu 64 KB'den daha büyük olamaz.
 
-Bir parametre (örneğin, parola) için önemli bir değer sağlamanız gerekiyorsa, bu değer bir anahtar Kasası'na ekleyin. Anahtar kasası, önceki örnekte gösterildiği gibi dağıtım sırasında alın. Daha fazla bilgi için bkz: [dağıtımı sırasında güvenli değerlerini geçirin](resource-manager-keyvault-parameter.md). 
+Bir parametre (parola gibi) için duyarlı bir değer sağlamanız gerekiyorsa, bu değer bir anahtar Kasası'na ekleyin. Önceki örnekte gösterildiği gibi anahtar kasası dağıtım sırasında alın. Daha fazla bilgi için [dağıtım sırasında güvenlik değerlerini geçirme](resource-manager-keyvault-parameter.md). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Zaman uyumsuz REST işlemlerini işleme hakkında bilgi edinmek için [izlemek zaman uyumsuz Azure işlemleri](resource-manager-async-operations.md).
-* .NET istemci kitaplığını kaynaklarına dağıtma ilişkin bir örnek için bkz: [.NET kitaplıkları ve bir şablon kullanarak kaynakları dağıtmak](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Kaynak grubunda var, ancak şablonunda tanımlanmayan kaynak nasıl ele alınacağını belirtmek için bkz: [Azure Resource Manager dağıtım modları](deployment-modes.md).
+* REST işlemlerini zaman uyumsuz işleme hakkında bilgi edinmek için [Azure zaman uyumsuz işlemleri izleme](resource-manager-async-operations.md).
+* .NET istemci kitaplığı aracılığıyla kaynak dağıtmaya ilişkin bir örnek için bkz [.NET kitaplıkları ve şablon kullanarak kaynakları dağıtma](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Şablonda parametreleri tanımlamak için bkz: [şablonları yazma](resource-group-authoring-templates.md#parameters).
-* Çözümünüzü farklı ortamlarda dağıtmaya yönelik kılavuz için bkz. [Microsoft Azure’da geliştirme ve test ortamları](solution-dev-test-environments.md).
 * Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: 18bdd27f1f18b9ca938a3c81c65e1905e4fbe5df
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: a03b72200f97c54bce188ec6a6ad8a06a43f26ae
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576483"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002588"
 ---
 # <a name="setup-dpdk-in-a-linux-virtual-machine"></a>Bir Linux sanal makinesinde DPDK Kurulumu
 
@@ -62,7 +62,7 @@ Bir Linux sanal makinesinde hızlandırılmış ağ etkin olmalıdır. Sanal Mak
 
 ## <a name="install-dpdk-dependencies"></a>DPDK bağımlılıklarını yükleyin
 
-### <a name="ubuntu-1804"></a>Ubuntu 18.04
+### <a name="ubuntu-1604"></a>Ubuntu 16.04
 
 ```bash
 sudo add-apt-repository ppa:canonical-server/dpdk-azure -y
@@ -70,7 +70,7 @@ sudo apt-get update
 sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev
 ```
 
-### <a name="ubuntu-1604"></a>Ubuntu 16.04
+### <a name="ubuntu-1804"></a>Ubuntu 18.04
 
 ```bash
 sudo apt-get update
@@ -108,11 +108,10 @@ zypper \
 ## <a name="setup-virtual-machine-environment-once"></a>(Bir kez) sanal makine ortamı Kurulumu
 
 1. [En son DPDK indirme](https://core.dpdk.org/download). Azure için 18.02 veya üzeri bir sürüm gereklidir.
-2. Yükleme *libnuma geliştirme* ile paket `sudo apt-get install libnuma-dev`.
-3. Varsayılan yapılandırma ile derlediğinizden `make config T=x86_64-native-linuxapp-gcc`.
-4. Mellanox PMDs ile oluşturulan yapılandırmasını etkinleştir `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`.
-5. Derleme `make`.
-6. İle yükleme `make install DESTDIR=<output folder>`.
+2. Varsayılan yapılandırma ile derlediğinizden `make config T=x86_64-native-linuxapp-gcc`.
+3. Mellanox PMDs ile oluşturulan yapılandırmasını etkinleştir `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`.
+4. Derleme `make`.
+5. İle yükleme `make install DESTDIR=<output folder>`.
 
 # <a name="configure-runtime-environment"></a>Çalışma zamanı ortamı yapılandırma
 
@@ -134,14 +133,14 @@ Sistem yeniden başlatıldıktan sonra aşağıdaki komutları bir kez çalışt
      > [!NOTE]
      > Bir yolu takip ederek önyükleme ayrılmış büyük sayfalar grub dosya değiştirin [yönergeleri](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) DPDK için. Sayfanın alt kısmında yönergedir. Bir Azure Linux sanal makinesinde çalışan, yeniden başlatmalar arasında hugepages ayırmak için bunun yerine, /etc/config/grub.d altındaki dosyaları değiştirin.
 
-2. MAC ve IP adresleri: kullanım `ifconfig –a` MAC ve IP adresi ağ arabirimlerinin görüntüleyebilirsiniz. *VF* ağ arabirimi ve *NETVSC* ağ arabirimine sahip olmalı, ancak aynı MAC adresini *NETVSC* ağ arabirimi bir IP adresi vardır.
+2. MAC ve IP adresleri: kullanım `ifconfig –a` MAC ve IP adresi ağ arabirimlerinin görüntüleyebilirsiniz. *VF* ağ arabirimi ve *NETVSC* ağ arabirimine sahip olmalı, ancak aynı MAC adresini *NETVSC* ağ arabirimi bir IP adresi vardır. VF arabirimleri NETVSC arabirimleri bağımlı arabirimleri olarak çalışıyor.
 
 3. PCI adresleri
 
    * Kullanılmak üzere hangi PCI adresi öğrenmek *VF* ile `ethtool -i <vf interface name>`.
    * Bu testpmd değil yanlışlıkla konuşturabilirsiniz VF PCI aygıtı sağlamak *eth0*, *eth0* etkin ağ hızlandırdı. DPDK uygulama yönetim ağ arabirimi üzerinden yanlışlıkla sürdü ve SSH bağlantınızı kaybına neden olur, seri konsol DPDK uygulama KILL veya durdurmak veya sanal makineyi başlatmak için kullanın.
 
-4. Yük *ibuverbs* ile her başlatmada `modprobe -a ib_uverbs`. Yalnızca SLES 15 için yük *mlx4_ib* 'modprobe mlx4_ib' ile.
+4. Yük *ibuverbs* ile her başlatmada `modprobe -a ib_uverbs`. Yalnızca SLES 15 için aynı zamanda yük *mlx4_ib* ile `modprobe -a mlx4_ib`.
 
 ## <a name="failsafe-pmd"></a>Hatasız PMD
 
@@ -153,23 +152,23 @@ Kullanım `sudo` önce *testpmd* kök modunda çalıştırmak için komutu.
 
 ### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Temel: Sağlamlık onay, hatasız bağdaştırıcısı başlatma
 
-1. Bir tek bağlantı noktası uygulamayı başlatmak için aşağıdaki komutları çalıştırın:
+1. Bir tek bağlantı noktası testpmd uygulamayı başlatmak için aşağıdaki komutları çalıştırın:
 
    ```bash
    testpmd -w <pci address from previous step> \
      --vdev="net_vdev_netvsc0,iface=eth1" \
-     -i \
+     -- -i \
      --port-topology=chained
     ```
 
-2. Bir çift bağlantı noktası uygulamayı başlatmak için aşağıdaki komutları çalıştırın:
+2. Bir çift bağlantı noktası testpmd uygulamayı başlatmak için aşağıdaki komutları çalıştırın:
 
    ```bash
    testpmd -w <pci address nic1> \
    -w <pci address nic2> \
    --vdev="net_vdev_netvsc0,iface=eth1" \
    --vdev="net_vdev_netvsc1,iface=eth2" \
-   -i
+   -- -i
    ```
 
    2'den fazla NIC ile çalışıyorsa `--vdev` bağımsız değişkeni, bu deseni izler: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>`.
@@ -186,30 +185,30 @@ Aşağıdaki komutları düzenli aralıklarla paket başına ikinci istatistikle
 1. TX tarafında aşağıdaki komutu çalıştırın:
 
    ```bash
-   Testpmd \
-     –l <core-mask> \
+   testpmd \
+     -l <core-list> \
      -n <num of mem channels> \
      -w <pci address of the device intended to use> \
-     --vdev=”net_vdev_netvsc<id>,iface=<the iface to attach to>” \
-     --port-topology=chained \
+     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
+     -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=txonly \
-     –eth-peer=<port id>,<peer MAC address> \
+     --eth-peer=<port id>,<receiver peer MAC address> \
      --stats-period <display interval in seconds>
    ```
 
 2. RX tarafında aşağıdaki komutu çalıştırın:
 
    ```bash
-   Testpmd \
-     –l <core-mask> \
+   testpmd \
+     -l <core-list> \
      -n <num of mem channels> \
      -w <pci address of the device intended to use> \
-     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>” \
-     --port-topology=chained \
+     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
+     -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=rxonly \
-     –eth-peer=<port id>,<peer MAC address> \
+     --eth-peer=<port id>,<sender peer MAC address> \
      --stats-period <display interval in seconds>
    ```
 
@@ -221,31 +220,31 @@ Aşağıdaki komutları düzenli aralıklarla paket başına ikinci istatistikle
 1. TX tarafında aşağıdaki komutu çalıştırın:
 
    ```bash
-   Testpmd \
-     –l <core-mask> \
+   testpmd \
+     -l <core-list> \
      -n <num of mem channels> \
      -w <pci address of the device intended to use> \
-     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>” \
-     --port-topology=chained \
+     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
+     -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
      --forward-mode=txonly \
-     –eth-peer=<port id>,<peer MAC address> \
+     --eth-peer=<port id>,<receiver peer MAC address> \
      --stats-period <display interval in seconds>
     ```
 
 2. İleri Sar tarafında aşağıdaki komutu çalıştırın:
 
    ```bash
-   Testpmd \
-     –l <core-mask> \
+   testpmd \
+     -l <core-list> \
      -n <num of mem channels> \
      -w <pci address NIC1> \
      -w <pci address NIC2> \
-     --vdev=”net_vdev_netvsc<id>,iface=<the iface to attach to>” \
-     --vdev=”net_vdev_netvsc<2nd id>,iface=<2nd iface to attach to>” (you need as many --vdev arguments as the number of devices used by testpmd, in this case) \
-     --nb-cores <number of cores to use for test pmd> \
+     --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
+     --vdev="net_vdev_netvsc<2nd id>,iface=<2nd iface to attach to>" (you need as many --vdev arguments as the number of devices used by testpmd, in this case) \
+     -- --nb-cores <number of cores to use for test pmd> \
      --forward-mode=io \
-     –eth-peer=<recv port id>,<peer MAC address> \
+     --eth-peer=<recv port id>,<sender peer MAC address> \
      --stats-period <display interval in seconds>
     ```
 

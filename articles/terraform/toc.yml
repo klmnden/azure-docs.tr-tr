@@ -43,3 +43,9 @@
       href: 'https://registry.terraform.io/modules/Azure'
     - name: Terraform başvurusu
       href: 'http://aka.ms/terraform'
+- name: Kaynaklar
+  items:
+    - name: Azure ve Terraform
+      href: 'https://azure.microsoft.com/solutions/devops/terraform/'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'

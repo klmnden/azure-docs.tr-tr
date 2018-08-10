@@ -1,6 +1,6 @@
 ---
-title: Azure kotaları vCPU | Microsoft Docs
-description: Azure için vCPU kotaları hakkında bilgi edinin.
+title: Azure için vCPU kotaları | Microsoft Docs
+description: VCPU kotaları hakkında bilgi edinmek için Azure.
 keywords: ''
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: a880ee18bb13b2cd8471cc58157469555397b872
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 56ee63e15c429c5a6212be36d420ae59afa48546
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716525"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629098"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Sanal makine vCPU kotaları
 
-Sanal makineler ve sanal makine ölçek kümeleri vCPU kotaları her bölgede her abonelik için iki katmanlarda düzenlenir. İlk katmanı toplam bölgesel Vcpu'lar ve çeşitli VM boyutu ailesi çekirdek D-serisi Vcpu'lar gibi ikinci katman şeklindedir. Yeni VM dilediğiniz zaman Vcpu'lar dağıtılmış VM VM boyutu ailesi vCPU kotası veya toplam bölgesel vCPU kota aşmamalıdır. Kotalarda birini aşılırsa, VM dağıtımı izin verilmiyor. Sanal makine bölgede genel sayısı için bir kota yoktur. Her bu kotalar ayrıntıları görülebilir **kullanım + kotaları** bölümünü **abonelik** sayfasındaki [Azure portal](https://portal.azure.com), ya da Azure kullanarak değerleri için sorgu CLI.
+VCPU kotaları sanal makineler ve sanal makine ölçek kümeleri için her bölgede her abonelik için iki katmanda düzenlenir. İlk katmandır toplam bölgesel vcpu sayısı ve çeşitli VM boyutu ailesi çekirdek D serisi Vcpu gibi ikinci katmandır. Dilediğiniz zaman yeni bir VM Vcpu dağıtılmış VM vCPU kotası VM boyutu ailesi veya toplam bölgesel vCPU kotası aşmamalıdır. Kotalarda biri aşılırsa, VM dağıtımı izin verilmiyor. Genel bölgesindeki sanal makine sayısı kotasının yoktur. Bu kotalar ayrıntı görülebilir **kullanım ve kotalar** bölümünü **abonelik** sayfasını [Azure portalı](https://portal.azure.com), ya da Azure kullanarak değerler için sorgu yapabilirsiniz CLI.
 
 
-## <a name="check-usage"></a>Kullanımını denetleyin
+## <a name="check-usage"></a>Kullanımı denetleme
 
-Kota kullanımı kullanarak denetleyebilirsiniz [az vm listesi-kullanım](/cli/azure/vm#az_vm_list_usage).
+Kota kullanımı kullanarak denetleyebilirsiniz [az vm listesi kullanım](/cli/azure/vm#az_vm_list_usage).
 
 ```azurecli-interactive
 az vm list-usage --location "East US" -o table
@@ -63,10 +63,10 @@ Premium Storage Managed Disks                  5    10000
 ```
 
 ## <a name="reserved-vm-instances"></a>Ayrılmış VM Örnekleri
-Tek bir aboneliği kapsamlıdır, ayrılmış VM örnekleri yeni en boy vCPU kotaları ekler. Bu değerler, abonelikte dağıtılabilir belirtilen boyut örnekleri sayısını tanımlar. Bu kota ayrılmış örnekler abonelikte dağıtılabilir olduğundan emin olmak için ayrılmış emin olmak için kota sistemindeki yer tutucu olarak çalışırlar. Örneğin, belirli bir aboneliği 10 Standard_D1 ayrılmış varsa kullanımlar için ayrılmış örnekler Standard_D1 sınırlamak örnekleri 10 olacaktır. Bu, her zaman en az 10 Vcpu'lar Standard_D1 örnekleri için kullanılacak toplam bölgesel Vcpu'lar kota bulunan ve en az 10 Vcpu'lar Standard_D1 örnekleri için kullanılacak standart D Ailesi vCPU kota bulunan emin olmak Azure neden olur.
+Tek bir aboneliği kapsamlıdır, ayrılmış VM örneklerini yeni bir boyut için vCPU kotaları ekler. Bu değerler, abonelikte dağıtılabilir belirtilen boyut örnek sayısını tanımlar. Bu kota Azure ayırmaları abonelikte dağıtılabilir emin olmak için ayrılmış emin olmak için kota sisteminde yer tutucu olarak çalışırlar. Örneğin, belirli bir aboneliğe 10 işler için standart_d1 ayırmaları sahipse işler için standart_d1 ayırmalar için kullanım sınırı 10 olacaktır. Bu, kullanılabilir her zaman en az 10 Vcpu işler için standart_d1 örnekleri için kullanılacak toplam bölgesel Vcpu kotası, ve en az 10 Vcpu işler için standart_d1 örnekleri için kullanılacak standart D Ailesi vCPU kotası kullanılabilir sağlamak için Azure'da neden olur.
 
-Kota artışı ya da tek bir abonelik RI satın almanız gerekiyorsa, yapabilecekleriniz [kota artışı isteği](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) aboneliğinizi üzerinde.
+Kota artışı ya da tek bir abonelik RI satın almanız gerekiyorsa, şunları yapabilirsiniz [bir kota artırım talebinde](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) aboneliğinizde.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Faturalama ve kotaları hakkında daha fazla bilgi için bkz: [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=/azure/billing/TOC.json).
+Faturalama ve kotalar hakkında daha fazla bilgi için bkz: [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=/azure/billing/TOC.json).

@@ -131,13 +131,13 @@
           href: automation-linux-hrw-install.md
         - name: Karma Runbook Çalışanı üzerinde runbook çalıştırma
           href: automation-hrw-run-runbooks.md
-    - name: Yapılandırma yönetimi (DSC) dağıtma
+    - name: Durum Yapılandırması
       items:
-        - name: İstenen Durum Yapılandırması’na (DSC) genel bakış
+        - name: Durum Yapılandırmasına genel bakış
           href: automation-dsc-overview.md
         - name: Başlarken
           href: automation-dsc-getting-started.md
-        - name: Azure Otomasyonu ile sunucuları istenen duruma göre yapılandırma ve kaymaları yönetme
+        - name: Durum Yapılandırması ile sunucuları istenen duruma göre yapılandırma ve kaymaları yönetme
           href: tutorial-configure-servers-desired-state.md
         - name: Makineleri yönetim için hazırlama
           href: automation-dsc-onboarding.md
@@ -145,7 +145,7 @@
           href: automation-dsc-compile.md
         - name: Chocolatey kullanarak sürekli dağıtım
           href: automation-dsc-cd-chocolatey.md
-        - name: Azure Automation DSC raporlama verilerini OMS Log Analytics’e iletme
+        - name: Durum Yapılandırması raporlama verilerini Log Analytics'e iletme
           href: automation-dsc-diagnostics.md
     - name: Paylaşılan kaynakları yönetme
       items:

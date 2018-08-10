@@ -8,7 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
-ms.component: protection
+ms.component: conditional-access
 ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: d89c887930b1ea1310e1579f97b8b3e76b7985a8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a7aeecc84a3629b43f2c1eb40030866a941d0d3b
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531795"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627993"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Hızlı Başlangıç: Bulut uygulamaları erişmeden önce kabul edilmesi için kullanım koşullarını gerektirir 
 

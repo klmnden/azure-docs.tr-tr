@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 147d9ecfa64267322aeef40d84e1f3c79611b2f0
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9ebc3a8cb01d93fc6cec5d208c5a10020413cec2
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593007"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39631104"
 ---
 # <a name="enable-automatic-tuning"></a>Otomatik ayarlamayı etkinleştirme
 
@@ -86,7 +86,7 @@ T-SQL aracılığıyla tek tek otomatik ayarlama seçeneklerini yapılandırmak 
    
 Tek tek ayarlama seçeneği ON olarak ayarlanamadı, devralınan veritabanı tüm ayarını geçersiz kılın ve ayarlama seçeneğini etkinleştirin. OFF olarak ayarlamak, ayrıca devralınan veritabanı tüm ayarını geçersiz kılın ve ayarlama seçeneği devre dışı bırakın. Kendisi için varsayılan belirtilirse, otomatik ayarlama seçeneği yapılandırma veritabanı düzeyinden otomatik ayarlama ayarını devralır.  
 
-Otomatik ayarlama yapılandırmak için bkz: T-SQL seçenekleri daha sonlandıran Bul [ALTER DATABASE SET seçenekleri (Transact-SQL) SQL veritabanı mantıksal sunucusu için](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017&tabs=sqldbls#arguments-1)
+Otomatik ayarlama yapılandırmak için bkz: T-SQL seçenekleri daha sonlandıran Bul [ALTER DATABASE SET seçenekleri (Transact-SQL) SQL veritabanı mantıksal sunucusu için](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017&tabs=sqldbls#arguments-1).
 
 ## <a name="disabled-by-the-system"></a>Sistem tarafından devre dışı bırakıldı
 Otomatik ayarlama, veritabanı üzerinde gereken tüm eylemleri izleme ve bazı durumlarda, otomatik ayarlama düzgün veritabanı üzerinde çalışamaz olduğunu belirleyebilirsiniz. Bu durumda ayarlama seçeneği sistem tarafından devre dışı bırakılır. Çoğu durumda, Query Store etkin değil veya belirli bir veritabanı salt okunur durumda olduğundan bu gerçekleşir.

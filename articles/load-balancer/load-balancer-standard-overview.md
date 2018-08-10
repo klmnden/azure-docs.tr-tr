@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 08/08/2018
 ms.author: kumud
-ms.openlocfilehash: f8779af725346a456efe8e718cfc8ff3a91c72fc
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: dad76ab9f2a1a621fb513a4d411792fe2f88a557
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325260"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005884"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer Standard genel bakış
 
@@ -64,7 +64,15 @@ Tek başına sanal makineler, kullanılabilirlik kümeleri veya sanal makine öl
 
 Arka uç havuzu tasarlamak nasıl değerlendirirken için en az tasarlayabilirsiniz. daha fazla yönetim işlemlerinin süresini iyileştirmek için tek bir arka uç havuzu kaynakları sayısı.  Veri düzlemi performansı veya ölçeği fark yoktur.
 
-## <a name="az"></a>Kullanılabilirlik alanları
+### <a name="probes"></a>Sistem durumu araştırmaları
+  
+Standart Load Balancer için destek ekler [HTTPS durum araştırmaları](load-balancer-custom-probe-overview.md#httpprobe) (Aktarım Katmanı Güvenliği (TLS) sarmalayıcısıyla HTTP araştırması) doğru bir şekilde HTTPS uygulamalarınızı izlemek için.  
+
+Buna ek olarak, tüm arka uç havuzuna [aşağı araştırmaları](load-balancer-custom-probe-overview.md#probedown), Standard Load Balancer, devam etmek tüm yerleşik TCP bağlantılarını sağlar. (Temel yük dengeleyici, tüm örnekleri için tüm TCP bağlantıları sonlanacaktır).
+
+Gözden geçirme [yük dengeleyici sistem durumu araştırmalarının](load-balancer-custom-probe-overview.md) Ayrıntılar için.
+
+### <a name="az"></a>Kullanılabilirlik alanları
 
 Standart Load Balancer, kullanılabilirlik alanları kullanılabilir olduğu bölgelerde ek yetenekler destekler.  Bu özellikler, tüm standart yük dengeleyici için artımlı sağlar.  Kullanılabilirlik yapılandırmaları için genel ve iç standart yük dengeleyici kullanılabilir.
 
@@ -167,7 +175,7 @@ SKU'ları değişebilir değildir. Bir kaynak SKU diğerine taşımak için bu b
 
 ### <a name="migrate-from-basic-to-standard-sku"></a>Temel katmandan standart SKU için geçirme
 
-1. Yeni bir standart kaynak (yük dengeleyici ve genel gerektiğinde IP'ler) oluşturun. Kuralları yeniden oluşturun ve tanımları araştırma.
+1. Yeni bir standart kaynak (yük dengeleyici ve genel gerektiğinde IP'ler) oluşturun. Kuralları yeniden oluşturun ve tanımları araştırma.  Daha önce 443/tcp için bir TCP araştırması kullandıysanız bu araştırma protokolü için bir HTTPS araştırması değiştirmeyi göz önünde bulundurun ve bir yol ekleyin.
 
 2. Yeni veya mevcut bir NSG NIC veya alt ağ vermek istediğiniz diğer tüm trafiğin yanı sıra beyaz liste yük dengeli trafiği, araştırma güncelleştirilemiyor.
 
@@ -177,7 +185,7 @@ SKU'ları değişebilir değildir. Bir kaynak SKU diğerine taşımak için bu b
 
 ### <a name="migrate-from-standard-to-basic-sku"></a>Standart katmandan temel SKU için geçirme
 
-1. Yeni bir temel kaynak (yük dengeleyici ve genel gerektiğinde IP'ler) oluşturun. Kuralları yeniden oluşturun ve tanımları araştırma. 
+1. Yeni bir temel kaynak (yük dengeleyici ve genel gerektiğinde IP'ler) oluşturun. Kuralları yeniden oluşturun ve tanımları araştırma.  Bir HTTPS araştırması bir TCP araştırması için 443/tcp olarak değiştirin. 
 
 2. Standart SKU kaynakları (yük dengeleyici ve uygunsa genel IP'ler) tüm VM örneklerinden kaldırın. Bir kullanılabilirlik kümesindeki tüm VM örneklerini de kaldırdığınızdan emin olun.
 
@@ -218,15 +226,16 @@ Standart Load Balancer, Yük Dengeleme kuralları yapılandırılmış ve işlen
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Kullanma hakkında bilgi edinin [standart Load Balancer ve kullanılabilirlik bölgeleri](load-balancer-standard-availability-zones.md)
+- Kullanma hakkında bilgi edinin [standart Load Balancer ve kullanılabilirlik bölgeleri](load-balancer-standard-availability-zones.md).
+- Hakkında bilgi edinin [sistem durumu araştırmaları](load-balancer-custom-probe-overview.md).
 - Daha fazla bilgi edinin [kullanılabilirlik](../availability-zones/az-overview.md).
 - Hakkında bilgi edinin [standart yük dengeleyici tanılama](load-balancer-standard-diagnostics.md).
 - Hakkında bilgi edinin [çok boyutlu ölçümler desteklenen](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) tanılama yenilikleri [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview.md).
-- Kullanma hakkında bilgi edinin [giden bağlantılar için yük dengeleyici](load-balancer-outbound-connections.md)
-- Hakkında bilgi edinin [standart Load Balancer ile yüksek kullanılabilirlik bağlantı noktaları Yük Dengeleme kuralları](load-balancer-ha-ports-overview.md)
-- Kullanma hakkında bilgi edinin [birden çok ön uç yük Dengeleyiciyle](load-balancer-multivip-overview.md)
+- Kullanma hakkında bilgi edinin [giden bağlantılar için yük dengeleyici](load-balancer-outbound-connections.md).
+- Hakkında bilgi edinin [standart Load Balancer ile yüksek kullanılabilirlik bağlantı noktaları Yük Dengeleme kuralları](load-balancer-ha-ports-overview.md).
+- Kullanma hakkında bilgi edinin [birden çok ön uç yük Dengeleyiciyle](load-balancer-multivip-overview.md).
 - Hakkında bilgi edinin [sanal ağlar](../virtual-network/virtual-networks-overview.md).
 - Daha fazla bilgi edinin [ağ güvenlik grupları](../virtual-network/security-overview.md).
-- Hakkında bilgi edinin [sanal ağ hizmet uç noktaları](../virtual-network/virtual-network-service-endpoints-overview.md)
+- Hakkında bilgi edinin [sanal ağ hizmet uç noktaları](../virtual-network/virtual-network-service-endpoints-overview.md).
 - Başka bir tuşa bazıları hakkında bilgi edinin [ağ özelliklerinden](../networking/networking-overview.md) azure'da.
 - Daha fazla bilgi edinin [yük dengeleyici](load-balancer-overview.md).

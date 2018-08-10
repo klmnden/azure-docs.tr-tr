@@ -25,21 +25,29 @@
       href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
     - name: Harcama limitini anlama
       href: billing-spending-limit.md
-    - name: Ayrılmış VM Örnekleri ile tasarruf etme
+    - name: Azure ayırmaları ile kaydetme
       items:
-        - name: Ayrılmış örnekler nelerdir?
+        - name: Azure ayırmaları nedir?
           href: billing-save-compute-costs-reservations.md
-        - name: Ayrılmış örnek satın alma
-          href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: Ayırma satın alma
+          items:
+            - name: Sanal makine
+              href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+            - name: SQL Veritabanı
+              href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
         - name: İndirim nasıl uygulanır?
-          href: billing-understand-vm-reservation-charges.md
+          items:
+            - name: Ayrılmış VM Örnekleri
+              href: billing-understand-vm-reservation-charges.md
+            - name: SQL Veritabanı ayrılmış kapasitesi
+              href: billing-understand-reservation-charges.md
         - name: Yazılım maliyetleri dahil değil
           href: billing-reserved-instance-windows-software-costs.md
         - name: Kullandıkça Öde için kullanım
           href: billing-understand-reserved-instance-usage.md
         - name: Kurumsal için kullanım
           href: billing-understand-reserved-instance-usage-ea.md
-        - name: Ayrılmış örnekleri yönetme
+        - name: Azure ayırmalarını yönetme
           href: billing-manage-reserved-vm-instance.md
 - name: Hesabı yönetme
   items:

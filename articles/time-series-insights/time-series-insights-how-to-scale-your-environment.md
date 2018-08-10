@@ -1,63 +1,63 @@
 ---
-title: Azure zaman serisi Öngörüler ortamınızı ölçeklendirme | Microsoft Docs
-description: Bu makalede, Azure zaman serisi Öngörüler ortamınızın ölçeğini açıklar. Eklemek veya içinde bir fiyatlandırma SKU kapasitesi çıkarmak için Azure Portalı'nı kullanın.
+title: Azure Time Series Insights ortamınızı ölçeklendirme | Microsoft Docs
+description: Bu makalede, Azure Time Series Insights ortamınızı ölçeklendirme açıklar. Eklemek veya bir fiyatlandırma SKU kapasitesiyle çıkarmak için Azure portalını kullanın.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: edett
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 3e357f8a1667677c763e94c6f7d57402a7aa175d
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: f80c3ad28c3944bd365100d1d873231869da46f8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294362"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629727"
 ---
-# <a name="how-to-scale-your-time-series-insights-environment"></a>Zaman serisi Öngörüler ortamınızı ölçeklendirme
+# <a name="how-to-scale-your-time-series-insights-environment"></a>Time Series Insights ortamınızı ölçeklendirme
 
-Bu makalede, Azure portalını kullanarak zaman serisi Öngörüler ortamınızı ortamınızı kapasitesini değiştirmek açıklar. Kapasite Giriş oranı, depolama kapasitesi ve maliyet, seçilen SKU ile ilişkili uygulanan çarpanı toplamıdır. 
+Bu makalede, Azure portalını kullanarak zaman serisi görüşleri ortamınıza ortamınızın kapasiteyi değiştirmek açıklar. Giriş oranı, depolama kapasitesi ve maliyeti, seçilen SKU ile ilişkili uygulanan çarpan kapasitesidir. 
 
 Artırmak veya belirli bir fiyatlandırma SKU kapasitesiyle azaltmak için Azure portalını kullanabilirsiniz. 
 
-Ancak, fiyatlandırma katmanı değiştirilirse SKU izin verilmiyor. Örneğin, SKU fiyatlandırma bir S1 olan bir ortamda bir S2 içine veya tersi dönüştürülemiyor. 
+Ancak, fiyatlandırma katmanını değiştirme SKU izin verilmiyor. Örneğin, S2 veya tam tersi bir S1 fiyatlandırma SKU'su bir ortam dönüştürülemez. 
 
 
-## <a name="s1-sku-ingress-rates-and-capacities"></a>S1 SKU giriş hızları ve kapasiteleri
+## <a name="s1-sku-ingress-rates-and-capacities"></a>S1 SKU'ya giriş oranları ve kapasite
 
-| S1 SKU kapasitesi | Giriş oranı | Maksimum depolama kapasitesi
+| S1 SKU kapasitesi | Giriş oranı | En fazla depolama kapasitesi
 | --- | --- | --- |
-| 1 | 1 GB (1 milyon olay) | Aylık 30 GB (30 milyon olay) |
+| 1 | 1 GB (1 milyon olay) | 30 GB / ay (30 milyona kadar olay) |
 | 10 | 10 GB (10 milyon olay) | Ayda 300 GB (300 milyon olay) |
 
-## <a name="s2-sku-ingress-rates-and-capacities"></a>S2 SKU giriş hızları ve kapasiteleri
+## <a name="s2-sku-ingress-rates-and-capacities"></a>S2 SKU giriş oranları ve kapasite
 
-| S2 SKU kapasitesi | Giriş oranı | Maksimum depolama kapasitesi
+| S2 SKU kapasitesi | Giriş oranı | En fazla depolama kapasitesi
 | --- | --- | --- |
 | 1 | 10 GB (10 milyon olay) | Ayda 300 GB (300 milyon olay) |
-| 10 | 100 GB (100 milyon olay) | Aylık 3 TB (3 milyon olay) |
+| 10 | 100 GB (100 milyon arası olay) | (3 milyar olaya) 3 TB / ay |
 
-Kapasiteleri doğrusal olarak, S1 SKU kapasitesi 2 ile her ay gün giriş oranı ve 60 GB (60 milyon olayları) başına 2 GB (2 milyon) olay destekler şekilde ölçeklendirilir.
+Kapasiteleri doğrusal olarak, ölçeği, böylece bir S1 SKU kapasitesi 2 ile aylık günlük giriş oranı ve 60 GB (60 milyon olay) başına 2 GB (2 milyon) olayları destekler.
 
-## <a name="change-the-capacity-of-your-environment"></a>Ortamınızı kapasitesini değiştirme
-1. Azure portalında bulun ve zaman serisi Öngörüler ortamınızı seçin. 
+## <a name="change-the-capacity-of-your-environment"></a>Ortamınızın kapasitesini değiştirme
+1. Azure portalında bulun ve zaman serisi görüşleri ortamınızı seçin. 
 
-2. Zaman serisi Insighs ortamınızı menüsünü **yapılandırma**.
+2. Zaman serisi Insighs ortamınız için menüde **yapılandırma**.
 
    ![Configure.PNG](media/scale-your-environment/configure.png)
 
-3. Ayarlama **kapasite** giriş ücretlerinizi gereksinimlerini karşılayan kapasitesini ve depolama kapasitesini seçmek için kaydırıcıyı. Bildirim **giriş oranı**, **depolama kapasitesi**, ve **maliyet tahmini** dinamik olarak değişikliğin etkisini göstermek için güncelleştirme. 
+3. Ayarlama **kapasite** kaydırıcısının giriş ücretlerinizi gereksinimlerini karşılayan kapasite ve depolama kapasitesini seçin. Bildirim **giriş oranı**, **depolama kapasitesi**, ve **tahmini maliyet** dinamik olarak değişikliğin etkisini göstermek için güncelleştirme. 
 
    ![Kaydırıcı](media/scale-your-environment/slider.png)
 
-   Alternatif olarak, kaydırıcıyı sağa metin kutusuna kapasite çarpanı sayısını yazın. 
+   Alternatif olarak, metin kutusuna kaydırıcı sağındaki kapasite çarpanı sayısını yazın. 
 
-4. Seçin **kaydetmek** ortamı ölçeklendirme. İlerleme göstergesi, kısa bir süre içinde değişiklik uygulanır kadar görüntülenir. 
+4. Seçin **Kaydet** ortamı ölçeklendirebilirsiniz. İlerleme göstergesi, kısa bir süre içinde değişiklik kaydedilinceye kadar görüntülenir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]
-> [Yeni Kapasite azaltma önlemek yeterli olduğunu doğrulayın](time-series-insights-diagnose-and-solve-problems.md).
+> [Yeni Kapasite azaltmayı önlemek için yeterli olduğundan emin olun](time-series-insights-diagnose-and-solve-problems.md).

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: ee03ed3159ad2fc1cd8da4a84fd1be34d0b656c8
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e6cb83eb6aaaea38686c63d0f3f70738efa4bcff
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224339"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630765"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Ayarlar ve veri dolaşımı hakkında SSS
 Bu makalede, BT yöneticileri, ayarları ve uygulama verilerini eşitleme hakkında olabilir. bazı sorular yanıtlanmaktadır.
@@ -99,7 +99,7 @@ Kurumsal durumda Dolaşım tüm eşitlenmiş veriler, Azure bulutta depolar. UE-
 ## <a name="who-owns-the-data-thats-being-roamed"></a>Dolaşımda verilerin sahibi kim?
 Kuruluşların kendi veri Kurumsal durumda Dolaşım dolaşıma açıldı. Veriler bir Azure veri merkezinde depolanır. Hem aktarım hem de Azure Information protection'dan Azure Rights Management hizmetini kullanarak bulutta bekleyen tüm kullanıcı verileri şifrelenir. Cihaz bırakmadan önce belirli kullanıcı kimlik bilgileri gibi yalnızca hassas verileri şifreler Microsoft hesabı tabanlı ayarları eşitlemeye izin, karşılaştırıldığında bir geliştirme budur.
 
-Microsoft müşteri verilerini koruma için taahhüt eder. Başka bir kullanıcı bu verileri okuyabilmesi için bir Windows 10 cihaz bırakır. önce bir kurumsal kullanıcı ayarları verileri Azure Rights Management hizmeti tarafından otomatik olarak şifrelenir. Kuruluşunuzda Azure Rights Management hizmeti için ücretli bir abonelik varsa, izleme gibi diğer koruma özelliklerini kullanmak ve belgeleri iptal edebilir, otomatik olarak, hassas bilgiler içeren bir e-postaları korumak ve kendi anahtarlarınızı yönetme ("Getir kendi anahtarınızı"Çözüm, BYOK olarak da bilinir). Bu özellikler ve bu koruma hizmetinin nasıl çalıştığı hakkında daha fazla bilgi için bkz. [Azure Rights Management nedir](https://docs.microsoft.com/azure/information-protection/understand-explore/what-is-information-protection).
+Microsoft müşteri verilerini koruma için taahhüt eder. Başka bir kullanıcı bu verileri okuyabilmesi için bir Windows 10 cihaz bırakır. önce bir kurumsal kullanıcı ayarları verileri Azure Rights Management hizmeti tarafından otomatik olarak şifrelenir. Kuruluşunuzda Azure Rights Management hizmeti için ücretli bir abonelik varsa, izleme gibi diğer koruma özelliklerini kullanmak ve belgeleri iptal edebilir, otomatik olarak, hassas bilgiler içeren bir e-postaları korumak ve kendi anahtarlarınızı yönetme ("Getir kendi anahtarınızı"Çözüm, BYOK olarak da bilinir). Bu özellikler ve bu koruma hizmetinin nasıl çalıştığı hakkında daha fazla bilgi için bkz. [Azure Rights Management nedir](/azure/information-protection/what-is-information-protection).
 
 ## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>Eşitleme ayarı veya belirli bir uygulama için yönetebilirim?
 Windows 10'da için tek bir uygulamayı dolaşımı devre dışı bırakmak için Grup İlkesi veya MDM ayar yoktur. Kiracı yöneticileri, yönetilen bir cihazda tüm uygulamalar için appdata eşitleme devre dışı bırakabilirsiniz, ancak bir uygulama başına veya içinde uygulama düzeyinde daha hassas bir denetim yoktur.
