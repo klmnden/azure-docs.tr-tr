@@ -1,6 +1,6 @@
 ---
-title: 'Azure Hızlı Başlangıç: Anahtar Kasasından gizli dizi okumak için bir Azure web uygulaması yapılandırma | Microsoft Docs'
-description: Anahtar Kasasından gizli dizi okumak için bir ASP.NET Core uygulaması yapılandırma adımlarını gösteren hızlı başlangıç
+title: 'Azure Hızlı Başlangıç: Anahtar Kasasından gizli dizi ayarlamak ve almak için bir Azure web uygulaması yapılandırma | Microsoft Docs'
+description: Anahtar kasasından gizli dizi ayarlamak ve almak için bir ASP.NET Core uygulaması yapılandırma adımlarını gösteren hızlı başlangıç
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 07a7bc5713f093e34a775aacab27094780ac6c7e
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 8b5624ae3083d92213b4ee919dc0860bf5ff4ab7
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247834"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480211"
 ---
-# <a name="quickstart-set-and-read-a-secret-from-key-vault-in-a-net-web-app"></a>Hızlı başlangıç: Bir .NET web uygulaması içindeki Anahtar Kasasında gizli dizi belirleme ve okuma
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-net-web-app"></a>Hızlı başlangıç: .NET Web Uygulaması kullanarak Azure Key Vault'tan gizli dizi ayarlama ve alma
 
 Bu hızlı başlangıçta, Azure web uygulamasının yönetilen hizmet kimliklerini kullanarak Anahtar Kasasından bilgi okumasını sağlamak için gerekli adımların üzerinden geçeceksiniz. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
@@ -56,7 +56,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
+[az group create](/cli/azure/group#az-group-create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
 Lütfen bir Kaynak Grubu adı seçin ve yer tutucunun yerine yazın.
 Aşağıdaki örnekte, *eastus* konumunda *<YourResourceGroupName>* adlı bir kaynak grubu oluşturulur.

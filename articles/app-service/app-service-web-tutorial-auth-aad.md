@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/03/2018
+ms.date: 08/07/2018
 ms.author: cephalin
-ms.openlocfilehash: 4bdb182d93b842bf94e75672b1d7b4cf4f6da253
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e597ba5236fb2d7fea8649f423c4a952b01f87ee
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31589161"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599640"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Öğretici: Azure App Service'te kullanıcıların kimliğini doğrulama ve kullanıcıları uçtan uca yetkilendirme
 
@@ -241,7 +241,7 @@ AD uygulamasının yönetim sayfasından **Uygulama Kimliği**’ni bir not deft
 
 Ön uç uygulaması için de aynı adımları izleyin, ancak son adımı atlayın. Ön uç uygulaması için **Uygulama Kimliği** gerekli değildir. **Azure Active Directory Ayarları** sayfasını açık tutun.
 
-İsterseniz `http://<front_end_app_name>.azurewebsites.net` sayfasına gidin. Şimdi oturum açma sayfasına yönlendirilmeniz gerekir. Oturum açtıktan sonra hala yapmanız gereken üç işlem olduğu için, arka uç uygulamasından verilere erişemezsiniz:
+İsterseniz `http://<front_end_app_name>.azurewebsites.net` sayfasına gidin. Şimdi güvenli oturum açma sayfasına yönlendirilmeniz gerekir. Oturum açtıktan sonra hala yapmanız gereken üç işlem olduğu için, arka uç uygulamasından verilere erişemezsiniz:
 
 - Arka uca ön uç erişimi verme
 - App Service’i kullanılabilir bir belirteç döndürecek şekilde yapılandırma
@@ -322,7 +322,7 @@ git commit -m "add authorization header for server code"
 git push frontend master
 ```
 
-`http://<front_end_app_name>.azurewebsites.net` oturumunu yeniden açın. Kullanıcı veri kullanımı sözleşmesi sayfasında **Kabul Et**’e tıklayın.
+`https://<front_end_app_name>.azurewebsites.net` oturumunu yeniden açın. Kullanıcı veri kullanımı sözleşmesi sayfasında **Kabul Et**’e tıklayın.
 
 Artık daha önce olduğu gibi arka uç uygulamanızdan verileri oluşturabilir, okuyabilir, güncelleştirebilir ve silebilirsiniz. Şimdiki tek fark, her iki uygulamanın da, hizmetten hizmete çağrılar dahil olmak üzere, App Service kimlik doğrulama ve yetkilendirmesi ile güvenli hale getirilmesidir.
 
@@ -340,7 +340,7 @@ Sunucu kodu istek üst bilgilerine erişebilse de, istemci kodu aynı erişim be
 
 ### <a name="configure-cors"></a>CORS Yapılandırma
 
-Cloud Shell'de, [`az resource update`](/cli/azure/resource#az_resource_update) komutunu kullanarak istemcinizin URL'sinde CORS'yi etkinleştirin. _\<back\_end\_app\_name>_ ve _\<front\_end\_app\_name>_ yer tutucularını değiştirin.
+Cloud Shell'de, [`az resource update`](/cli/azure/resource#az-resource-update) komutunu kullanarak istemcinizin URL'sinde CORS'yi etkinleştirin. _\<back\_end\_app\_name>_ ve _\<front\_end\_app\_name>_ yer tutucularını değiştirin.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back_end_app_name> --set properties.cors.allowedOrigins="['https://<front_end_app_name>.azurewebsites.net']" --api-version 2015-06-01
@@ -352,7 +352,7 @@ Bu adım, kimlik doğrulama ve yetkilendirme ile ilgili değildir. Ancak, taray�
 
 Yerel depoda _wwwroot/index.html_ dosyasını açın.
 
-51. satırda, `apiEndpoint` değişkenini arka uç uygulamanızın URL'sine (`http://<back_end_app_name>.azurewebsites.net`) ayarlayın. _\<back\_end\_app\_name>_ değerini App Service’teki uygulamanızın adıyla değiştirin.
+51. satırda, `apiEndpoint` değişkenini arka uç uygulamanızın URL'sine (`https://<back_end_app_name>.azurewebsites.net`) ayarlayın. _\<back\_end\_app\_name>_ değerini App Service’teki uygulamanızın adıyla değiştirin.
 
 Yerel depoda _wwwroot/app/scripts/todoListSvc.js_ dosyasını açıp tüm API çağrılarının başına `apiEndpoint` ekinin getirildiğini görün. Angular.js uygulamanız artık arka uç API'lerini çağırır. 
 
@@ -406,9 +406,13 @@ git commit -m "add authorization header for Angular"
 git push frontend master
 ```
 
-`http://<front_end_app_name>.azurewebsites.net` sayfasına yeniden gidin. Artık doğrudan Angular.js uygulamasında veri oluşturabilir, okuyabilir, güncelleştirebilir ve silebilirsiniz.
+`https://<front_end_app_name>.azurewebsites.net` sayfasına yeniden gidin. Artık doğrudan Angular.js uygulamasında veri oluşturabilir, okuyabilir, güncelleştirebilir ve silebilirsiniz.
 
 Tebrikler! İstemci kodunuz artık kimliği doğrulanmış kullanıcı adına arka uç verilerine erişir.
+
+## <a name="when-access-tokens-expire"></a>Erişim belirteçlerinin sona erme zamanı
+
+Erişim belirtecinizin süresi bir süre sonra sona erer. Kullanıcıların uygulamanızda yeniden kimlik doğrulamasından geçmesine gerek kalmadan erişim belirteçlerini yenileme hakkında bilgi için bkz. [Erişim belirteçlerini yenileme](app-service-authentication-how-to.md#refresh-access-tokens).
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

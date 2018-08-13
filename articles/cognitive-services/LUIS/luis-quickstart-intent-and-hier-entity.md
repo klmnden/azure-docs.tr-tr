@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: f4e03271f45c29ed2556256346e29c297be563cc
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 41f74ff00e4fad751d4a2b7ae96ebb048bbcdfcd
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345367"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492707"
 ---
 # <a name="tutorial-5-add-hierarchical-entity"></a>Öğretici: 5. Hiyerarşik varlık ekleme
 Bu öğreticide, bağlama bağlı ilgili veri parçalarını nasıl bulacağınızı gösteren bir uygulama oluşturacaksınız. 
@@ -119,15 +119,8 @@ LUIS uygulamasının konuşmalardaki kaynak ve hedef konumları etiketleyerek ko
     ![Önceden oluşturulmuş varlıklar iletişim kutusunda sayının seçildiğini gösteren ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
 
 ## <a name="train-the-luis-app"></a>LUIS uygulamasını eğitme
-LUIS uygulaması eğitilene kadar amaçlar ve varlıklar (model) üzerinde yapılan değişiklikleri bilemez. 
 
-1. LUIS web sitesinin sağ üst kısmından **Train** (Eğitim) düğmesini seçin.
-
-    ![Uygulamayı eğitme](./media/luis-quickstart-intent-and-hier-entity/train-button.png)
-
-2. Web sitesinin üst kısmında işlemin başarılı olduğunu belirten yeşil durum çubuğunu gördüğünüzde eğitim tamamlanmış olur.
-
-    ![Eğitim başarılı oldu](./media/luis-quickstart-intent-and-hier-entity/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Uç nokta URL'sini almak için uygulamayı yayımlama
 
@@ -242,6 +235,10 @@ Evet, kaynak ve hedef rollerle bir normal ifade oluşturup desen içinde kullana
 
 Bu örnekteki konumlarda `a-1234` gibi bir veya iki harf, kısa çizgi ve 4 ya da 5 basamaklı sayı kullanılan bir biçim kullanılmıştır. Bu veriler her bir konum için bir role sahip olan normal ifade varlığı olarak tanımlanabilir. Roller, desenlerle birlikte kullanılabilir. Bu konuşmaları temel alan desenler oluşturduktan sonra konum biçimi için bir normal ifade oluşturup desenlere ekleyebilirsiniz. <!-- Go to this tutorial to see how that is done -->
 
+## <a name="patterns-with-roles"></a>Rollere sahip desenler
+
+[!include[LUIS Compare hierarchical entities to patterns with roles](../../../includes/cognitive-services-luis-hier-roles.md)]
+
 ## <a name="what-has-this-luis-app-accomplished"></a>Bu LUIS uygulaması hangi işlemleri gerçekleştirdi?
 Yalnızca birkaç amaca ve bir hiyerarşik varlığa sahip olan bu uygulama, doğal dil sorgu varlığını tanımladı ve ayıklanan verileri döndürdü. 
 
@@ -251,7 +248,8 @@ Sohbet botunuz artık `MoveEmployee` birincil eylemini ve konuşmada bulunan kon
 LUIS uygulamasının bu istek üzerinde gerçekleştirebileceği işlemler bu kadardır. Sohbet botu gibi bir çağrı uygulaması topScoringIntent sonucunu ve varlık verilerini alarak bir sonraki adımı gerçekleştirebilir. LUIS, bot veya çağrı uygulaması için programlama işini gerçekleştirmez. LUIS yalnızca kullanıcının amacını belirler. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Bunu yapmak için uygulama listesinde uygulama adının yanındaki üç nokta (***...***) düğmesini ve sonra da **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"] 

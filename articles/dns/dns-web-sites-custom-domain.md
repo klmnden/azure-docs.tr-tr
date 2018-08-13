@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 7/20/2018
 ms.author: victorh
-ms.openlocfilehash: 9ebbc955bcb426738db598491266c2a1bcb9dd33
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: b39c2c672869bb446e58134a85130d10491fe047
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39204951"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621122"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Öğretici: Bir web uygulaması için özel etki alanında DNS kaydı oluşturma 
 
@@ -56,7 +56,7 @@ Bölge oluşturduktan ve Azure DNS'ye devrettikten sonra özel etki alanınız i
 
 ## <a name="create-an-a-record-and-txt-record"></a>A kaydı ve TXT kaydı oluşturma
 
-A kaydı, bir adı bir IP adresiyle eşlemek için kullanılır. Aşağıdaki örnekte web uygulamanızın IPv4 adresini kullanarak "@" ifadesini A kaydı olarak atayın. @ genellikle kök etki alanını temsil eder.
+A kaydı, bir adı bir IP adresiyle eşlemek için kullanılır. Aşağıdaki örnekte web uygulamanızın IPv4 adresini kullanarak "\@" ifadesini A kaydı olarak atayın. \@ genellikle kök etki alanını temsil eder.
 
 ### <a name="get-the-ipv4-address"></a>IPv4 adresini alma
 

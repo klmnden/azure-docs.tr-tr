@@ -14,12 +14,12 @@ ms.date: 07/20/2018
 ms.author: lizross
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 7804d6b0d4a100997fb545e678458424dac6ceed
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 45637122af3df1906a8c3b4b16233f6361eecca3
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39227313"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528335"
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Hızlı başlangıç: Azure AD'de oturum açma sayfanıza şirket markası ekleme
 Birçok şirket, karışıklığı önlemek için yönettikleri hizmetlerde ve web sitelerinde tutarlı bir genel görünüm uygulamak ister. Azure Active Directory (Azure AD), oturum açma sayfasının görünümünü şirket logonuzla ve özel renk düzenleriyle özelleştirmenize olanak tanıyarak size bu özelliği sunar. Oturum açma sayfası, Office 365 gibi kimlik sağlayıcısı olarak Azure AD'yi kullanan web tabanlı uygulamalarda oturum açmak istediğinizde görüntülenir. Kimlik bilgilerinizi girmek için bu sayfayla etkileşim kurarsınız.
@@ -71,7 +71,7 @@ Bu renk, düşük bant genişliği durumlarında arka plan görüntüsünün yer
 ### <a name="square-logo-image"></a>Kare logo görüntü
 Açıklama | Kısıtlamalar | Öneriler
 ------- | ------- | ----------
-Bu görüntü yeni Enterprise Windows 10 bilgisayarlar için kurulum sırasında görüntülenir. Yeni iş bilgisayarının kurulumunu yapan çalışanlar için bir bağlam sunar. Görüntü iş cihazlarını dağıtmak için [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) kullanan kiracılarda ve diğer Windows 10 deneyimlerindeki parola giriş sayfalarında görüntülenir. | Saydam PNG (tercih edilir) veya JPG<br>Görüntü boyutları: 240x240 piksel<br>Dosya boyutu: &lt; 10 KB | Burada kuruluşunuzun logosunu kullanın.<br> Saydam bir görüntü kullanın.<br>Arka planın beyaz olacağını düşünmeyin.<br>Logonuza veya görüntünüze iç boşluk eklemeyin, aksi halde logonuz orantısız bir şekilde küçük görünür.
+Bu görüntü yeni Enterprise Windows 10 bilgisayarlar için kurulum sırasında görüntülenir. Yeni iş bilgisayarının kurulumunu yapan çalışanlar için bir bağlam sunar. Görüntü iş cihazlarını dağıtmak için [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) kullanan kiracılarda ve diğer Windows 10 deneyimlerindeki parola giriş sayfalarında görüntülenir.<br>Kare logo yalnızca Windows kimlik doğrulamasında kullanılır. Koyu tema sürüm kullanım dışı bırakılmıştır ve artık herhangi bir yerde kullanılmamaktadır. | Saydam PNG (tercih edilir) veya JPG<br>Görüntü boyutları: 240x240 piksel<br>Dosya boyutu: &lt; 10 KB | Burada kuruluşunuzun logosunu kullanın.<br> Saydam bir görüntü kullanın.<br>Arka planın beyaz olacağını düşünmeyin.<br>Logonuza veya görüntünüze iç boşluk eklemeyin, aksi halde logonuz orantısız bir şekilde küçük görünür.
 
 ### <a name="show-option-to-remain-signed-in"></a>Oturumu açık bırak seçeneğini göster
 Açıklama | Kısıtlamalar | Öneriler

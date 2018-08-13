@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/15/2018
 ms.author: juliako
-ms.openlocfilehash: 2ceae5b530d1967ccca2b33c05c183302684be41
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8bfe2fb7274fb8c6dcf977e8bd72af525d8ce8a5
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116776"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528179"
 ---
 # <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>DRM dinamik şifreleme ve lisans teslim hizmetini kullanma
 
@@ -65,6 +65,7 @@ Bu makalede anlatılan örnek aşağıdaki sonucu üretir:
 Öğreticiyi tamamlamak için aşağıdakiler gereklidir.
 
 * [İçerik korumaya genel bakış](content-protection-overview.md) makalesini gözden geçirin.
+* [Erişim denetimi ile birden çok DRM ile içerik koruma sistemi tasarlama](design-multi-drm-system-with-access-control.md) makalesini gözden geçirin.
 * Visual Studio Code veya Visual Studio yükleme
 * [Bu hızlı başlangıçta](create-account-cli-quickstart.md) açıklandığı gibi yeni bir Azure Media Services hesabı oluşturun.
 * [Erişim API'lerini](access-api-cli-how-to.md) kullanarak Media Services API'lerini kullanmak için gerekli kimlik bilgilerini edinin.

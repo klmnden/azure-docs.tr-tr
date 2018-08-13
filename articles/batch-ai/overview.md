@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 10/13/2017
 ms.author: asutton
 ms.custom: ''
-ms.openlocfilehash: 9834dbbc2232fc286451bcdcd19dfc639f49d3bf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 504504f278907536e89055cd5c912d2d1f280931
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30903484"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627211"
 ---
 # <a name="what-is-batch-ai-in-azure"></a>Azure’da Batch AI nedir?
 Batch AI, veri bilimcilerinin ve yapay zeka araştırmacılarının, GPU desteğine sahip sanal makineler dahil, Azure sanal makine kümelerindeki yapay zeka ve diğer makine öğrenmesi modellerini eğitmesini sağlayan bir yönetilen hizmettir. Siz işinizin gereksinimlerini, girdilerin nerede bulunacağını ve çıktıların nerede depolanacağını açıklarsınız, gerisini Batch AI yapar.  
@@ -40,7 +40,7 @@ Batch AI, yapay zeka eğitim ve testi için özelleştirilmiş kaynak yönetimi 
 * GPU veya CPU kullanılarak sanal makine kümelerinin otomatik ya da el ile ölçeklendirmesi 
 * Sanal makineler arasında ve uzaktan erişim için SSH iletişimini yapılandırma 
 * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK) (CNTK), [TensorFlow](https://www.tensorflow.org/) ve [Chainer](https://chainer.org/) gibi popüler araç setleri için iyileştirilmiş yapılandırma işleviyle tüm Ayrıntılı Öğrenme veya makine öğrenmesi çerçeveleri desteği 
-* Kümeleri paylaşmak ve düşük öncelikli sanal makinelerden ve ayrılmış örneklerden yararlanmak için öncelik tabanlı iş kuyruğu  
+* Kümeleri paylaşmak ve düşük öncelikli sanal makinelerden ve Azure ayrılmış örneklerinden yararlanmak için öncelik tabanlı iş kuyruğu  
 * Azure Dosyaları ve yönetilen NFS sunucusu da dahil esnek depolama seçenekleri 
 * Uzak dosya paylaşımlarını sanal makineye ve isteğe bağlı kapsayıcıya bağlama 
 * İş durumu sağlama ve sanal makine hataları olması durumunda yeniden başlatma 

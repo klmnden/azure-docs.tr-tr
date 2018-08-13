@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: barclayn
-ms.openlocfilehash: cd9dd4d400177e511f23c2677b77198a50420a35
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 08331a399044eba17060d15f24af1863df38caf5
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283005"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480262"
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Anahtar Kasası nedir?
 
@@ -33,6 +33,8 @@ Azure Key Vault, gizli dizilerin güvenli bir şekilde depolanması ve bunlara e
 Aşağıda bazı önemli terimler verilmiştir:
 - **Kiracı**: Kiracı, Microsoft bulut hizmetlerinin belirli bir örneğine sahip olan ve onu yöneten kuruluştur. Genelde bir kuruluş için Azure ve Office 365 hizmetlerinden oluşan kümeyi belirtmek için kullanılır
 - **Kasa Sahibi**: Key Vault oluşturarak üzerinde tam erişime ve denetime sahip olabilir. Kasa sahibi gizli dizilere ve anahtarlara erişimi günlüğe kaydetmek için denetim özelliklerini de ayarlayabilir. Yöneticiler anahtarların yaşam döngüsünü kontrol edebilir. Anahtarı yeni sürüme geçirme, yedekleme gibi işlemler gerçekleştirebilir.
+- **Kaynak**: Azure ile kullanılabilen yönetilebilir bir öğedir. Sanal makine, depolama hesabı, web uygulaması, veritabanı ve sanal ağ bazı yaygın kaynaklardandır, ancak çok daha fazlası mevcuttur.
+- **Kaynak grubu**: Bir Azure çözümü için ilgili kaynakları bir arada tutan bir kapsayıcıdır. Kaynak grubu bir çözümün tüm kaynaklarını veya yalnızca grup olarak yönetmek istediğiniz kaynakları içerebilir. Kuruluş için önemli olan faktörleri temel alarak kaynakları kaynak gruplarına nasıl ayıracağınıza siz karar verirsiniz. Bkz. Kaynak grupları.
 - **Kasa Tüketicisi**: Key Vault sahibinin kendisine verdiği izinlere bağlı olarak varlıklar üzerinde eylem gerçekleştirebilir.
 - **[Azure Active Directory](../active-directory/active-directory-whatis.md)**, kiracının Azure AD hizmetidir. Her dizinde bir veya daha fazla etki alanı vardır. Dizinde birden fazla abonelik bulunabilir ancak tek bir kiracı olur. 
 - **Azure Kiracı Kimliği**: Bir Azure Aboneliği içindeki Azure Active Directory'nin benzersiz bir şekilde tanımlanmasını sağlar. 

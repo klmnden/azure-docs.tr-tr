@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be11ea2195705b344638b93ea2657481897d6ef7
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 84696b4135570168f8093b15f9a2deb4790eeebe
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358955"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480892"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Öğretici: Azure portalı kullanarak Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -166,7 +166,7 @@ Srv-Work sanal makinesinin **Ayarlar** sayfasını yapılandırmak için aşağ�
    |Kaynak grubu     |**Var olanı kullan**: Test-FW-RG |
    |Konum     |Önceden kullandığınız konumu seçin|
    |Bir sanal ağ seçin     |**Var olanı kullan**: Test-FW-VN|
-   |Genel IP adresi     |Yeni oluştur|
+   |Genel IP adresi     |**Yeni oluşturun**. Genel IP adresinin türü Standart SKU olmalıdır.|
 
 2. **Gözden geçir ve oluştur**’a tıklayın.
 3. Özeti gözden geçirin ve **Oluştur**'a tıklayarak güvenlik duvarını oluşturun.
@@ -175,10 +175,6 @@ Srv-Work sanal makinesinin **Ayarlar** sayfasını yapılandırmak için aşağ�
 4. Dağıtım tamamlandıktan sonra **Test-FW-RG** kaynak grubuna gidin ve **Test-FW01** güvenlik duvarına tıklayın.
 6. Özel IP adresini not edin. Varsayılan rotayı oluştururken bu adresi kullanacaksınız.
 
-> [!NOTE]
-> Genel IP adresinin türü Standart SKU olmalıdır.
-
-[//]: # (Güvenlik duvarının özel IP adresini not etmeyi unutmayın.)
 
 ## <a name="create-a-default-route"></a>Varsayılan rota oluşturma
 
@@ -279,7 +275,7 @@ Güvenlik duvarı kurallarının çalıştığını doğruladığınıza göre:
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli olmadığında **Test-FW-RG** kaynak grubunu silerek güvenlik duvarıyla ilgili tüm kaynakları silebilirsiniz.
+Güvenlik duvarı kaynaklarını bir sonraki öğretici için tutabilirsiniz veya artık gerekli değilse **Test-FW-RG** kaynak grubunu silerek güvenlik duvarıyla ilgili tüm kaynakları silebilirsiniz.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

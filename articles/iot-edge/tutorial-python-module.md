@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 49fa81d89fb195e1caedc2348a8b0990022b0d0d
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 5766f9708d2439f42f9ad77169fd1fe7f7dc451e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414275"
+ms.locfileid: "39439121"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Öğretici: Python IoT Edge modülü geliştirme ve sanal cihazınıza dağıtma
 
@@ -34,15 +34,21 @@ Bu öğreticide oluşturacağınız IoT Edge modülü, cihazınız tarafından o
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Hızlı başlangıçta [Linux](quickstart-linux.md) için oluşturduğunuz Azure IoT Edge cihazı.
+Bir Azure IoT Edge cihazı:
 
-   >[!Note]
-   >Azure IoT Edge için Python modülleri Windows veya ARM cihazlarını desteklemez. 
+* [Linux](quickstart-linux.md) için hızlı başlangıç adımlarını izleyerek dağıtım makinenizi veya sanal makinenizi bir Edge cihazı olarak kullanabilirsiniz.
+* IoT Edge Python modülleri ARM işlemcileri veya Windows cihazları desteklemez.
+
+Bulut kaynakları:
+
+* Azure'da standart katman [IoT Hub'ı](../iot-hub/iot-hub-create-through-portal.md). 
+
+Geliştirme kaynakları:
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Visual Studio Code için Azure IoT Edge uzantısı](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
-* [Visual Studio Code için Python uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-python.python). 
-* Visual Studio Code içeren aynı bilgisayarda [Docker](https://docs.docker.com/engine/installation/). Community Edition (CE) bu öğretici için yeterlidir. 
+* Visual Studio Code için [Azure IoT Edge uzantısı](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
+* Visual Studio Code için [Python uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-python.python). 
+* [Docker CE](https://docs.docker.com/engine/installation/). 
 * [Python](https://www.python.org/downloads/).
 * Python paketlerini (genellikle Python yüklemenize dahildir) yüklemek için [PIP](https://pip.pypa.io/en/stable/installing/#installation).
 
@@ -243,7 +249,7 @@ Geçmeyecekseniz ücret kesilmesini önlemek için yerel yapılandırmalarınız
 Yalnızca IoT hub'ını silmek için hub adını ve kaynak grubu adını kullanarak aşağıdaki komutu çalıştırın:
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
+az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
 ```
 
 

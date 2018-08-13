@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 86cc435a7d632f1cc1b9a0e4a2e6508059d4d675
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3e04f231ad68d3da4b705d1fe78163628bed7c0a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602827"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617726"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure portalında ilk işlevinizi oluşturma
 
@@ -30,6 +30,9 @@ Azure İşlevleri, öncelikle bir VM oluşturmak veya bir web uygulaması yayım
 ![Azure portalında işlev uygulaması oluşturma](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+> [!NOTE]
+> C# geliştiricileri portalda oluşturmak yerine [Visual Studio 2017'da ilk işlevinizi oluşturma](functions-create-your-first-function-visual-studio.md) sayfasını incelemelidir. 
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 

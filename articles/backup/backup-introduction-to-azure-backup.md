@@ -7,15 +7,15 @@ manager: carmonm
 keywords: yedekleme ve geri yükleme; kurtarma hizmetleri; yedekleme çözümleri
 ms.service: backup
 ms.topic: overview
-ms.date: 3/1/2018
+ms.date: 8/2/2018
 ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: bbcb05fcc17b958711b704c75a53cf4af4d41bd0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0a5b9e6cdb5329705cb3c6d4676dfc8d987119e4
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607108"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480982"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure Backup özelliklerine genel bakış
 Azure Backup, verilerinizi Microsoft bulutunda yedeklemek (veya korumak) ve geri yüklemek için kullanabileceğiniz Azure tabanlı bir hizmettir. Azure Backup, var olan şirket içi veya şirket dışı yedekleme çözümünüzün yerine, güvenilir, güvenli ve maliyet açısından rekabetçi bir bulut tabanlı çözüm sunar. Azure Backup, indirdikten sonra uygun bilgisayar, sunucu veya buluta dağıtabileceğiniz birden fazla bileşene sahiptir. Dağıtacağınız bileşen veya aracı, korumak istediğiniz nesnelere göre değişiklik gösterir. Tüm Azure Backup bileşenleri (koruduğunuz veriler şirket içi veya bulut verileri olabilir), verileri Azure’daki bir Kurtarma Hizmetleri kasasına yedeklemek için kullanılabilir. Belirli verileri, uygulamaları veya iş yüklerini korumak için kullanılacak bileşenler hakkında bilgi almak için [Azure Backup bileşen tablosuna](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (bu makalenin ilerleyen bölümlerinde) bakın.
@@ -157,8 +157,8 @@ Her yedekleme yönteminin depolama alanı tüketimi, kurtarma süresi hedefi (RT
 ### <a name="security"></a>Güvenlik
 | Özellik | Azure Backup aracısı | System Center DPM | Azure Backup Sunucusu | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
-| Ağ güvenliği<br/> (Azure’a) |![Yes][green] |![Yes][green] |![Evet][green] |![Kısmi][yellow] |
-| Veri güvenliği<br/> (Azure’da) |![Yes][green] |![Yes][green] |![Evet][green] |![Kısmi][yellow] |
+| Ağ güvenliği<br/> (Azure’a) |![Yes][green] |![Yes][green] |![Yes][green] |![Yes][green] |
+| Veri güvenliği<br/> (Azure’da) |![Yes][green] |![Yes][green] |![Yes][green] |![Yes][green] |
 
 ![tablo anahtarı](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -171,7 +171,7 @@ Sunucularınızdan Kurtarma Hizmetleri kasasına giden tüm yedekleme trafiği, 
 >
 
 #### <a name="data-security"></a>Veri güvenliği
-Azure VM'lerin yedeklenmesi için şifrelemenin sanal makine *içinde* ayarlanması gerekir. Windows sanal makinelerde BitLocker'ı ve Linux sanal makinelerde **dm-crypt** özelliğini kullanın. Azure Backup, bu yol üzerinden gelen yedekleme verilerini otomatik olarak şifrelemez.
+Azure VM'lerin yedeklenmesi için şifrelemenin sanal makine *içinde* ayarlanması gerekir. Azure Backup, Windows sanal makinelerde BitLocker, Linux sanal makinelerde ise **dm-crypt** kullanan Azure Disk Şifrelemesi özelliğini destekler. Azure Backup arka uçta bekleyen verileri koruyan [Azure Depolama Hizmeti şifrelemesini](../storage/common/storage-service-encryption.md) kullanır.
 
 ### <a name="network"></a>Ağ
 | Özellik | Azure Backup aracısı | System Center DPM | Azure Backup Sunucusu | Azure IaaS VM Backup |

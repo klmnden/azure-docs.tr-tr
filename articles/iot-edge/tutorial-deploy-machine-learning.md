@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a1b34fe75f76d5f615ab33069f3012f22dc7ef2e
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 28b963922b423bb776aa97e9b76392bc484ddcd6
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413082"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627816"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Öğretici: Azure Machine Learning'i bir IoT Edge modülü olarak dağıtma (önizleme)
 
@@ -46,9 +46,10 @@ Bir Azure IoT Edge cihazı:
 Bulut kaynakları:
 
 * Azure'da standart katman [IoT Hub'ı](../iot-hub/iot-hub-create-through-portal.md). 
+* Bir Azure Machine Learning hesabı. [Azure Machine Learning hesapları oluşturma ve Azure Machine Learning Workbench yükleme](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts) yönergelerini izleyin. Bu öğretici için çalışma ekranı uygulamasını yüklemeniz gerekmez. 
 
 Geliştirme kaynakları:
-* Bir Azure Machine Learning hesabı. [Azure Machine Learning hesapları oluşturma ve Azure Machine Learning Workbench yükleme](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts) yönergelerini izleyin. Bu öğretici için çalışma ekranı uygulamasını yüklemeniz gerekmez. 
+
 * Azure ML için Model Yönetimi. Ortamınızı kurmak ve bir hesap oluşturmak için, [Model yönetimi kurulumu](../machine-learning/desktop-workbench/deployment-setup-configuration.md)'ndaki yönergeleri izleyin. Dağıtım kurulumu sırasında mümkünse küme yerine yerel adımların seçilmesi önerilir.
 
 ### <a name="disable-process-identification"></a>İşlem tanımlamasını devre dışı bırakma
@@ -56,7 +57,7 @@ Geliştirme kaynakları:
 >[!NOTE]
 >
 > Azure Machine Learning, önizleme sürümünde IoT Edge ile varsayılan olarak etkinleştirilen işlem tanımlaması güvenlik özelliğini desteklemez. 
-> Aşağıdaki adımları kullanarak bu özelliği devre dışı bırakabilirsiniz. Ancak bu süreç üretimde kullanıma uygun değildir. Bu işlemleri Windows Edge çalışma zamanı kurulum adımlarında zaten gerçekleştireceğinizden bunları yalnızca Linux'ta gerçekleştirmeniz gerekir.
+> Aşağıdaki adımları kullanarak bu özelliği devre dışı bırakabilirsiniz. Ancak bu süreç üretimde kullanıma uygun değildir. Bu işlemleri Windows Edge çalışma zamanı yüklemesinde zaten gerçekleştireceğinizden bunları yalnızca Linux'ta gerçekleştirmeniz gerekir.
 
 IoT Edge cihazınızda işlem tanımlamasını devre dışı bırakmak için IoT Edge daemon yapılandırmasının **connect** bölümünde yer alan **workload_uri** ve **management_uri** parametreleri için IP adresini ve bağlantı noktasını belirtmeniz gerekir.
 
@@ -93,7 +94,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 ## <a name="create-the-azure-ml-container"></a>Azure ML kapsayıcısını oluşturma
 Bu bölümde eğitilen modelin dosyalarını indirecek ve bunları Azure ML kapsayıcısına dönüştüreceksiniz.
 
-Azure ML için Modül Yönetimi'ni çalıştıran makinede, GitHub'daki Azure ML IoT Toolkit'ten [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) ve [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) dosyalarını indirin ve kaydedin. Bu dosyalar, Iot Edge cihazınıza dağıtacağınız eğitilen makine öğrenme modelini tanımlar.
+Azure ML için Model Yönetimi'ni çalıştıran makinede, GitHub'daki Azure ML IoT Toolkit'ten [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) ve [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) dosyalarını indirin ve kaydedin. Bu dosyalar, Iot Edge cihazınıza dağıtacağınız eğitilen makine öğrenme modelini tanımlar.
 
 Eğitilen modeli IoT Edge cihazlarına dağıtılabilecek bir kapsayıcı oluşturmak için kullanın. Şunları yapmak için aşağıdaki komutu kullanın:
 
@@ -187,7 +188,7 @@ Bu komutları bir Linux cihazında gerçekleştirirseniz yükseltilmiş izinler 
 
 ### <a name="view-data-arriving-at-your-iot-hub"></a>IoT hub'ınıza ulaşan verileri görüntüleme
 
-IoT Hub'ınızın [IoT Hub gezginini](https://github.com/azure/iothub-explorer) veya [Visual Studio Code için Azure IoT Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) kullanarak aldığı cihazdan buluta iletilerini görüntüleyebilirsiniz.
+IoT Hub'ınızın [Visual Studio Code için Azure IoT Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) kullanarak aldığı cihazdan buluta iletilerini görüntüleyebilirsiniz.
 
 Aşağıdaki adımlar, IoT hub'ınıza ulaşan cihazdan buluta iletileri izlemek için yapmanız gereken Visual Studio Code ayarlarını göstermektedir. 
 
@@ -220,7 +221,7 @@ Geçmeyecekseniz ücret kesilmesini önlemek için yerel yapılandırmalarınız
 Yalnızca IoT Hub'ı silmek için hub adını ve kaynak grubu adını kullanarak aşağıdaki komutu çalıştırın:
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
+az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
 ```
 
 

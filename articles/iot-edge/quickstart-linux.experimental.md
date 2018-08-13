@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8ee43a1e3b448faae79a7e3086e2e1d639c341f2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: dfbe931bbe5887e9c0545558c4d2b2565718dd0a
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611936"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578499"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Hızlı Başlangıç: Bir Linux x64 cihazına ilk IoT Edge modülünüzü dağıtma
 
@@ -94,7 +94,7 @@ IoT Edge çalışma zamanı, kapsayıcılardan oluşan bir kümedir ve IoT Edge 
    sudo apt-get update
    ```
 
-Kapsayıcı çalışma zamanı olan **Moby**’i yükleyin.
+Kapsayıcı çalışma zamanı olan **Moby**’yi yükleyin.
 
    ```bash
    sudo apt-get install moby-engine
@@ -192,7 +192,7 @@ Oturum kapatma ve açma döngüsünden sonra yukarıdaki komut için *sudo* kull
 
 Günlüğün son satırında `Using transport Mqtt_Tcp_Only` varsa sıcaklık sensörü modülü Edge Hub'ına bağlanmayı bekliyor olabilir. Modülü sonlandırıp Edge Aracısı tarafından yeniden başlatılmasını sağlayın. `sudo docker stop tempSensor` komutuyla sonlandırabilirsiniz.
 
-[IoT Hub gezginini][lnk-iothub-explorer] veya [Visual Studio Code için Azure IoT Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) kullanarak cihazın gönderdiği telemetri verilerini de görüntüleyebilirsiniz. 
+[Visual Studio Code için Azure IoT Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) kullanarak cihazın gönderdiği telemetri verilerini de görüntüleyebilirsiniz. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -202,7 +202,7 @@ IoT Edge öğreticilerine devam etmek istiyorsanız bu hızlı başlangıçta ka
 
 Sanal makinenizi ve IoT hub’ınızı yeni bir kaynak grubunda oluşturduysanız, bu grubu ve ilişkili tüm kaynaklarını silebilirsiniz. İlgili kaynak grubunda bulunan saklamak istediğiniz bir şey varsa, temizlemek istediğiniz kaynakları silmeniz yeterlidir. 
 
-Bir kaynak grubunu kaldırmak için aşağıdaki adımları izleyin: 
+Kaynak grubunu kaldırmak için aşağıdaki adımları izleyin: 
 
 1. [Azure portalında](https://portal.azure.com) oturum açın ve **Kaynak grupları**’na tıklayın.
 2. **Ada göre filtrele...** metin kutusuna IoT Hub'ınızın bulunduğu kaynak grubunun adını girin. 
@@ -225,7 +225,7 @@ IoT Edge çalışma zamanı kaldırıldığında, oluşturduğu kapsayıcılar d
    sudo docker ps -a
    ```
 
-IoT Edge çalışma zamanı tarafından cihazınızda oluşturulan kapsayıcıları silin. Ona farklı bir ad verdiyseniz tempSensor kapsayıcısının adını değiştirin. 
+IoT Edge çalışma zamanı tarafından cihazınızda oluşturulan kapsayıcıları silin. Farklı bir ad verdiyseniz, tempSensor kapsayıcısının adını değiştirin. 
 
    ```bash
    sudo docker rm -f tempSensor
@@ -263,4 +263,3 @@ Bu hızlı başlangıç, tüm IoT Edge öğreticilerinin önkoşuludur. Azure Io
 <!-- Links -->
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
