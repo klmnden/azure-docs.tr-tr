@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e926bfb023fe3edfd564aa6389e21f6594bec169
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 5e265543e2ce5feeed095d89cdb47ede9817bad1
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117507"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002687"
 ---
 # <a name="create-your-first-function-with-java-and-intellij-preview"></a>Intellij (Önizleme) ve Java ile ilk işlevinizi oluşturma
 
@@ -74,8 +74,15 @@ Maven, _artifactId_ adlı yeni bir dosyada proje dosyalarını oluşturur. Oluş
 İşiniz bittiğinde Çalıştır iletişim kutusunu kapatın, işlevinizi test etme. İşlevi yalnızca bir ana bilgisayar etkin olduğu ve çalıştırıldığı yerel olarak bir zaman olabilir.
 
 ### <a name="debug-the-function-in-intellij"></a>Intellij işlevde hata ayıklama
+Ekleme işlevi konak hata ayıklama modunda başlatmak için **- DenableDebug** işlevinizi çalıştırdığınızda bağımsız değişken olarak. Komut satırı terminalde aşağıdaki çalıştırın veya içerdiği yapılandırmak [maven hedefleri](https://www.jetbrains.com/help/idea/maven-support.html#run_goal). Ardından işlev konak hata ayıklama bağlantı noktası 5005 açılır. 
 
-Başlatma işleminden sonra işlevi konağa ekleyerek Intellij işlevlerinde hata ayıklama yapabilirsiniz.  Yerel olarak yukarıda ve sonra da adımları kullanarak Azure işlevini çalıştırma **çalıştırma** menüsünü seçin **iliştirme yerel**.  Kullanılabilir 5005 bağlantı noktasına bir işlem görmeniz gerekir.  Ekledikten sonra isabet ve işlev uygulamanızı içinde hata ayıklama kesme noktaları olabilir.
+```
+mvn azure-functions:run -DenableDebug
+```
+
+Intellij içinde hata ayıklamak için **çalıştırma** menüsünü seçin **yapılandırmalarını Düzenle**. Tıklayın ** + ** eklemek için bir **uzak**. Doldurun **adı** ve **ayarları**ve ardından **Tamam** yapılandırmayı kaydetmek için. Ayarladıktan sonra tıklayın **hata ayıklama** 'Bilgisayarınızı uzaktan yapılandırma adı' veya isabet **SHIFT + F9** hata ayıklama başlatılamıyor.
+
+![Intellij işlevlerinde hata ayıklama](media/functions-create-first-java-intellij/debug-configuration-intellij.PNG)
 
 İşiniz bittiğinde hata ayıklayıcı ve çalışan işlemi durdurun. Yalnızca bir işlev konak aynı anda etkin olduğu ve çalıştırıldığı yerel olarak en olabilir.
 

@@ -1,39 +1,39 @@
 ---
-title: Azure Otomasyonu DSC ile çalışmaya başlama
-description: Açıklama ve en yaygın görevleri, Azure Otomasyonu Desired State Configuration (DSC) örnekleri
+title: Azure Otomasyonu durum yapılandırması ile çalışmaya başlama
+description: Açıklama ve Azure Otomasyonu durum yapılandırması (DSC) en yaygın görevleri örnekleri
 services: automation
 ms.service: automation
 ms.component: dsc
-author: georgewallace
-ms.author: gwallace
-ms.date: 08/06/2018
+author: DCtheGeek
+ms.author: dacoulte
+ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9f2312064e9fb7676d5609ee077d5ed7e02e8f30
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 9a18855d11c0b367b7d58ffb0f4c62e752c05b89
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524473"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004241"
 ---
-# <a name="getting-started-with-azure-automation-dsc"></a>Azure Otomasyonu DSC ile çalışmaya başlama
+# <a name="getting-started-with-azure-automation-state-configuration"></a>Azure Otomasyonu durum yapılandırması ile çalışmaya başlama
 
-Bu makalede ile Azure Otomasyonu Desired State Configuration (oluşturma, alma ve yapılandırmaları, makineleri yönetmek için hazırlama derleme ve raporları görüntüleme gibi DSC), en yaygın görevlerin nasıl yapılacağını açıklar. Hangi Azure Automation DSC genel bir bakış için bkz. [Azure Automation DSC genel bakış](automation-dsc-overview.md). DSC belgeleri için bkz. [Windows PowerShell Desired State Configuration genel](/powershell/dsc/overview).
+Bu makalede, Azure Otomasyonu durumu oluşturma, alma ve yapılandırmaları, makineleri yönetmek için hazırlama derleme ve raporları görüntüleme gibi yapılandırma ile en yaygın görevlerin nasıl yapılacağını açıklar. Azure Otomasyonu durum Yapılandırması'ne genel bakış için bkz. [Azure Otomasyon durum yapılandırmasına genel bakış](automation-dsc-overview.md). Desired State Configuration ' nı (DSC) belgeleri için bkz. [Windows PowerShell Desired State Configuration genel](/powershell/dsc/overview).
 
-Bu makalede, Azure Automation DSC kullanarak adım adım yönergeler sağlar. Bu makalede açıklanan adımları izleyerek olmadan ayarlamış bir örnek ortamı istiyorsanız, aşağıdaki Resource Manager şablonu kullanabilirsiniz: Bu şablon, Azure VM gibi bir tamamlanmış Azure Automation DSC ortamını ayarlama ayarlar Azure Automation DSC tarafından yönetilir.
+Bu makalede, Azure Otomasyonu durum yapılandırmasını kullanarak adım adım yönergeler sağlar. Bu makalede açıklanan adımları izleyerek olmadan ayarlamış bir örnek ortamı istiyorsanız, aşağıdaki Resource Manager şablonu kullanabilirsiniz: [Azure Otomasyon yönetilen düğüm şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Bu şablon, Azure Otomasyonu durumu yapılandırması tarafından yönetilen bir Azure VM gibi tamamlanmış bir Azure Otomasyonu durum yapılandırması ortamı ayarlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu makaledeki örnekleri tamamlamak için aşağıdakiler gereklidir:
 
-* Azure Otomasyonu hesabı. Bir Azure Otomasyonu Garklı Çalıştır hesabı oluşturma yönergeleri için bkz. [Azure Farklı Çalıştır Hesabı](automation-sec-configure-azure-runas-account.md).
-* Azure Resource Manager VM (Klasik değil) Windows Server 2008 R2 çalıştıran veya üzeri. VM oluşturma yönergeleri için bkz. [Azure portalında ilk Windows sanal makinenizi oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- Azure Otomasyonu hesabı. Bir Azure Otomasyonu Garklı Çalıştır hesabı oluşturma yönergeleri için bkz. [Azure Farklı Çalıştır Hesabı](automation-sec-configure-azure-runas-account.md).
+- Azure Resource Manager VM (Klasik değil) Windows Server 2008 R2 çalıştıran veya üzeri. VM oluşturma yönergeleri için bkz. [Azure portalında ilk Windows sanal makinenizi oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## <a name="creating-a-dsc-configuration"></a>DSC yapılandırması oluşturma
 
 Basit bir [DSC Yapılandırması](/powershell/dsc/configurations) varlığı veya yokluğu sağlar **Web-Server** Windows özelliği (düğümleri nasıl atadığınız bağlı olarak IIS).
 
-1. Windows PowerShell ISE'yi (veya herhangi bir metin düzenleyicisinde) başlatın.
+1. Başlangıç [VSCode](https://code.visualstudio.com/docs) (veya herhangi bir metin düzenleyicisinde).
 1. Aşağıdaki metni yazın:
 
     ```powershell
@@ -46,7 +46,6 @@ Basit bir [DSC Yapılandırması](/powershell/dsc/configurations) varlığı vey
                 Ensure               = 'Present'
                 Name                 = 'Web-Server'
                 IncludeAllSubFeature = $true
-
             }
         }
 
@@ -56,14 +55,13 @@ Basit bir [DSC Yapılandırması](/powershell/dsc/configurations) varlığı vey
             {
                 Ensure               = 'Absent'
                 Name                 = 'Web-Server'
-
             }
         }
     }
     ```
 1. Dosyayı Farklı Kaydet `TestConfig.ps1`.
 
-Bu yapılandırma, her düğüm bloğunda bir kaynak çağırır [WindowsFeature kaynağı](https://msdn.microsoft.com/powershell/dsc/windowsfeatureresource), varlığı veya yokluğu sağlar **Web-Server** özelliği.
+Bu yapılandırma, her düğüm bloğunda bir kaynak çağırır [WindowsFeature kaynağı](/powershell/dsc/windowsfeatureresource), varlığı veya yokluğu sağlar **Web-Server** özelliği.
 
 ## <a name="importing-a-configuration-into-azure-automation"></a>Bir yapılandırma Azure Automation'a aktarma
 
@@ -71,11 +69,12 @@ Ardından, yapılandırmayı Otomasyon hesabına aktarın.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 1. Sol tarafta, tıklayın **tüm kaynakları** ve ardından bunları Otomasyon hesabınıza adı.
-1. Üzerinde **Otomasyon hesabı** sayfasında **DSC yapılandırmaları** altında **yapılandırma yönetimi**.
-1. Üzerinde **DSC yapılandırmaları** sayfasında **+ yapılandırma Ekle**.
+1. Üzerinde **Otomasyon hesabı** sayfasında **durum yapılandırması (DSC)** altında **yapılandırma yönetimi**.
+1. Üzerinde **durum yapılandırması (DSC)** sayfasında **yapılandırmaları** sekmesine ve ardından tıklayın **+ Ekle**.
 1. Üzerinde **alma Yapılandırması** sayfasında, Gözat `TestConfig.ps1` bilgisayarınızda dosyanın bulunduğu.
 
-    ![Ekran görüntüsü ** ** içeri aktarma yapılandırma sayfası](./media/automation-dsc-getting-started/AddConfig.png)
+   ![Ekran görüntüsü ** içeri aktarma yapılandırması ** dikey penceresi](./media/automation-dsc-getting-started/AddConfig.png)
+
 1. **Tamam** düğmesine tıklayın.
 
 ## <a name="viewing-a-configuration-in-azure-automation"></a>Azure Otomasyonu'nda bir yapılandırmayı görüntüleme
@@ -84,25 +83,26 @@ Yapılandırma içeri aktardıktan sonra Azure portalında görüntüleyebilirsi
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 1. Sol tarafta, tıklayın **tüm kaynakları** ve ardından bunları Otomasyon hesabınıza adı.
-1. Üzerinde **Otomasyon hesabı** sayfasında **DSC yapılandırmaları** altında **yapılandırma yönetimi**.
-1. Üzerinde **DSC yapılandırmaları** sayfasında **TestConfig** (Bu önceki yordamda aktardığınız yapılandırmayı adıdır).
+1. Üzerinde **Otomasyon hesabı** sayfasında **durum yapılandırması (DSC)** altında **yapılandırma yönetimi**.
+1. Üzerinde **durum yapılandırması (DSC)** sayfasında **yapılandırmaları** sekmesine ve ardından tıklayın **TestConfig** (Bu önceki aktardığınız yapılandırmayı adıdır yordam).
 1. Üzerinde **TestConfig yapılandırma** sayfasında **yapılandırma kaynağını görüntüle**.
 
-    ![TestConfig yapılandırma sayfasının ekran görüntüsü](./media/automation-dsc-getting-started/ViewConfigSource.png)
+   ![TestConfig yapılandırma dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/ViewConfigSource.png)
 
-    A **TestConfig yapılandırma kaynağı** sayfası açılır, yapılandırma PowerShell kodunu görüntüleme.
+   A **TestConfig yapılandırma kaynağı** sayfası açılır, yapılandırma PowerShell kodunu görüntüleme.
 
 ## <a name="compiling-a-configuration-in-azure-automation"></a>Azure automation'da bir yapılandırma derleme
 
-Bir düğüm için istenen durumu uygulayabilmeniz için önce bu durum tanımlayan bir DSC yapılandırması gerekir bir veya daha fazla düğüm yapılandırmaları (MOF belgesi) derlenmiş ve Automation DSC çekme sunucusuna yerleştirilen. Azure Otomasyonu DSC yapılandırmaları derleme daha ayrıntılı açıklaması için bkz [Azure Automation DSC yapılandırmaları derleme](automation-dsc-compile.md). Derleme yapılandırmaları hakkında daha fazla bilgi için bkz. [DSC yapılandırmaları](/powershell/dsc/configurations).
+Bir düğüm için istenen durumu uygulayabilmeniz için önce bu durum tanımlayan bir DSC yapılandırması gerekir bir veya daha fazla düğüm yapılandırmaları (MOF belgesi) derlenmiş ve Automation DSC çekme sunucusuna yerleştirilen. Derleme yapılandırmaları Azure Automation durum Yapılandırması'nda daha ayrıntılı açıklaması için bkz [yapılandırmaları Azure Automation durum yapılandırmasında derleme](automation-dsc-compile.md).
+Derleme yapılandırmaları hakkında daha fazla bilgi için bkz. [DSC yapılandırmaları](/powershell/dsc/configurations).
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 1. Sol tarafta, tıklayın **tüm kaynakları** ve ardından bunları Otomasyon hesabınıza adı.
-1. Üzerinde **Otomasyon hesabı** sayfasında **DSC yapılandırmaları** altında **yapılandırma yönetimi**.
-1. Üzerinde **DSC yapılandırmaları** sayfasında **TestConfig** (daha önce içeri aktarılan yapılandırma adı).
+1. Üzerinde **Otomasyon hesabı** sayfasında **durum yapılandırması (DSC)** altında **yapılandırma yönetimi**.
+1. Üzerinde **durum yapılandırması (DSC)** sayfasında **yapılandırmaları** sekmesine ve ardından tıklayın **TestConfig** (daha önce içeri aktarılan yapılandırma adı).
 1. Üzerinde **TestConfig yapılandırma** sayfasında **derleme**ve ardından **Evet**. Bu, bir derleme işi başlatır.
 
-    ![Derleme düğmesi vurgulama TestConfig yapılandırma sayfasının ekran görüntüsü](./media/automation-dsc-getting-started/CompileConfig.png)
+   ![Derleme düğmesi vurgulama TestConfig yapılandırma sayfasının ekran görüntüsü](./media/automation-dsc-getting-started/CompileConfig.png)
 
 > [!NOTE]
 > Bir Azure Otomasyonu yapılandırmasında derlediğinizde, çekme sunucusuna otomatik olarak oluşturulan düğümü yapılandırmaların MOF'lar dağıtır.
@@ -113,83 +113,90 @@ Bir derleme başlattıktan sonra içinde görüntüleyebilirsiniz **derleme işl
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 1. Sol tarafta, tıklayın **tüm kaynakları** ve ardından bunları Otomasyon hesabınıza adı.
-1. Üzerinde **Otomasyon hesabı** sayfasında **DSC yapılandırmaları** altında **yapılandırma yönetimi**.
-1. Üzerinde **DSC yapılandırmaları** sayfasında **TestConfig** (daha önce içeri aktarılan yapılandırma adı).
-1. Altında **derleme işleri**, görüntülemek istediğiniz derleme işi seçin. A **derleme işi** sayfası açılır, derleme işi başlatıldığı tarihten etiketli.
+1. Üzerinde **Otomasyon hesabı** sayfasında **durum yapılandırması (DSC)** altında **yapılandırma yönetimi**.
+1. Üzerinde **durum yapılandırması (DSC)** sayfasında **yapılandırmaları** sekmesine ve ardından tıklayın **TestConfig** (daha önce içeri aktarılan yapılandırma adı).
+1. Altında **derleme işleri**, görüntülemek istediğiniz derleme işi seçin. A **derleme işi** sayfası derleme işi başlatıldığı tarihten etiketli açılır.
 
-    ![Derleme işi sayfasının ekran görüntüsü](./media/automation-dsc-getting-started/CompilationJob.png)
+   ![Derleme işi sayfasının ekran görüntüsü](./media/automation-dsc-getting-started/CompilationJob.png)
+
 1. Herhangi bir kutucuğa tıklayın **derleme işi** görmek için sayfayı daha fazla iş hakkında ayrıntılar.
 
 ## <a name="viewing-node-configurations"></a>Düğüm yapılandırmaları görüntüleme
 
-Bir derleme işinin başarıyla tamamlandığında, bir veya daha fazla yeni düğüm yapılandırması oluşturur. Düğüm yapılandırması çekme sunucusuna ve çekilir ve bir veya daha fazla düğüm tarafından uygulanan hazır dağıtılan bir MOF belgedir. Otomasyon hesabınızda düğüm yapılandırmaları görüntüleyebilirsiniz **DSC düğüm yapılandırmaları** sayfası. Düğüm yapılandırması form olan bir ada sahip *ConfigurationName*. *NodeName*.
-
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-1. Hub menüsünde **tüm kaynakları** ve ardından bunları Otomasyon hesabınıza adı.
-1. Üzerinde **Otomasyon hesabı** sayfasında **durum yapılandırması (DSC)**, ardından **yapılandırmaları**.
-
-    ![DSC düğüm yapılandırmaları sayfasının ekran görüntüsü](./media/automation-dsc-getting-started/NodeConfigs.png)
-
-## <a name="onboarding-an-azure-vm-for-management-with-azure-automation-dsc"></a>Azure Otomasyonu DSC ile yönetim için bir Azure VM ekleme
-
-Azure Automation DSC, Azure Vm'leri (Klasik ve Resource Manager), şirket içi Vm'leri, Linux makineler, AWS VM ve şirket içi fiziksel makineleri yönetmek için kullanabilirsiniz. Bu makalede, şunların nasıl yerleşik yalnızca Azure Resource Manager Vm'lerinde. Ekleme hakkında bilgi için bkz: diğer türleri, makinelerin [makineleri Azure Automation DSC tarafından Yönetim için hazırlama](automation-dsc-onboarding.md).
-
-### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-dsc"></a>Eklemek için bir Azure Resource Manager VM için Azure Automation DSC Yönetimi
+Bir derleme işinin başarıyla tamamlandığında, bir veya daha fazla yeni düğüm yapılandırması oluşturur. Düğüm yapılandırması çekme sunucusuna ve çekilir ve bir veya daha fazla düğüm tarafından uygulanan hazır dağıtılan bir MOF belgedir. Otomasyon hesabınızda düğüm yapılandırmaları görüntüleyebilirsiniz **durum yapılandırması (DSC)** sayfası. Düğüm yapılandırması form olan bir ada sahip *ConfigurationName*.* NodeName*.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 1. Sol tarafta, tıklayın **tüm kaynakları** ve ardından bunları Otomasyon hesabınıza adı.
-1. Üzerinde **Otomasyon hesabı** sayfasında **durum yapılandırması (DSC)** altında **yapılandırma yönetimi** seçip **düğümleri**.
-1. İçinde **düğümleri** sayfasında **+ Ekle**.
+1. Üzerinde **Otomasyon hesabı** dikey penceresinde tıklayın **durum yapılandırması (DSC)** altında **yapılandırma yönetimi**.
+1. Üzerinde **durum yapılandırması (DSC)** sayfasında **yapılandırmaları derlenmiş** sekmesi.
 
-    ![Azure VM Ekle düğmesi vurgulama DSC düğümleri sayfasının ekran görüntüsü](./media/automation-dsc-getting-started/OnboardVM.png)
+   ![Derlenmiş yapılandırmaları sekmesinin Ekran görüntüsü](./media/automation-dsc-getting-started/NodeConfigs.png)
 
-1. Sanal makineler sayfasındaki VM'nizi seçin. **Azure Vm'leri ekleme** sayfasında **eklenecek sanal makineleri seçin**.
-1. **Bağlan**'a tıklayın.
+## <a name="onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration"></a>Azure Otomasyonu durum yapılandırması ile yönetim için bir Azure VM ekleme
+
+Azure Vm'leri (Klasik ve Resource Manager), şirket içi Vm'leri, Linux makineler, AWS VM ve şirket içi fiziksel makineleri yönetmek için Azure Otomasyon durum Yapılandırması'nı kullanabilirsiniz. Bu makalede, şunların nasıl yerleşik yalnızca Azure Resource Manager Vm'lerinde. Ekleme hakkında bilgi için bkz: diğer türleri, makinelerin [makineleri Azure Otomasyon durum yapılandırması tarafından Yönetim için hazırlama](automation-dsc-onboarding.md).
+
+### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-state-configuration"></a>Eklemek için bir Azure Resource Manager VM için Azure Otomasyon durum yapılandırması yönetimi
+
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+1. Sol tarafta, tıklayın **tüm kaynakları** ve ardından bunları Otomasyon hesabınıza adı.
+1. Üzerinde **Otomasyon hesabı** dikey penceresinde tıklayın **durum yapılandırması (DSC)** altında **yapılandırma yönetimi**.
+1. Üzerinde **durum yapılandırması (DSC)** sayfası üzerinde çalışırken **düğümleri** sekmesinde **+ Ekle**.
+
+   ![Azure VM Ekle düğmesi vurgulama DSC düğümleri sayfasının ekran görüntüsü](./media/automation-dsc-getting-started/OnboardVM.png)
+
+1. Üzerinde **sanal makineler** sayfasında, VM'nize seçin.
+1. Üzerinde **sanal makine** ayrıntı sayfası, tıklayın **+ Connect**.
 
    > [!IMPORTANT]
    > Bu Windows Server 2008 R2 çalıştıran bir Azure Resource Manager sanal makinesi olmalıdır veya üzeri.
 
-1. İçinde **kayıt** sayfasında, sanal makineye uygulamak istediğiniz düğüm yapılandırmasının adı girin **düğüm yapılandırması adı** kutusu. Bu, Otomasyon hesabında bir düğüm yapılandırmasının adı tam olarak eşleşmelidir. Bu noktada bir ad sağlayarak, isteğe bağlıdır. Düğüm ekleme sonra atanan düğüm yapılandırmasını değiştirebilirsiniz.
-   Denetleme **gerekirse düğümü yeniden başlatma**ve ardından **Tamam**.
+1. İçinde **kayıt** sayfasında, sanal makineye uygulamak istediğiniz düğüm yapılandırmasının adı **düğüm yapılandırması adı** kutusu. Bu noktada bir ad sağlayarak, isteğe bağlıdır. Düğüm ekleme sonra atanan düğüm yapılandırmasını değiştirebilirsiniz.
+   Denetleme **gerekirse düğümü yeniden başlatma**, ardından **Tamam**.
 
-    ![Kayıt sayfasının ekran görüntüsü](./media/automation-dsc-getting-started/RegisterVM.png)
+   ![Kayıt dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/RegisterVM.png)
 
-    Belirtilen aralıklarda tarafından belirtilen VM uygulanır düğüm yapılandırmasının **yapılandırma modu sıklığı**, ve VM düğüm yapılandırması tarafından belirtilen aralıklarla güncelleştirmeleri denetler **Yenile Sıklık**. Bu değerleri nasıl kullanıldığı hakkında daha fazla bilgi için bkz. [yerel Configuration Manager Yapılandırma](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
-1. İçinde **Azure Vm'leri ekleme** sayfasında **Oluştur**.
+   Belirtilen aralıklarda tarafından belirtilen VM uygulanır düğüm yapılandırmasının **yapılandırma modu sıklığı**, ve VM düğüm yapılandırması tarafından belirtilen aralıklarla güncelleştirmeleri denetler **Yenile Sıklık**. Bu değerleri nasıl kullanıldığı hakkında daha fazla bilgi için bkz. [yerel Configuration Manager Yapılandırma](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
+1. İçinde **Azure Vm'leri ekleme** dikey penceresinde tıklayın **Oluştur**.
 
 Azure VM ekleme işlemini başlatır. Tamamlandığında, VM görünür **düğümleri** sekmesinde **durum yapılandırması (DSC)** Otomasyon hesabı sayfasında.
 
-## <a name="viewing-the-list-of-dsc-nodes"></a>DSC düğümleri listesini görüntüleme
+## <a name="viewing-the-list-of-managed-nodes"></a>Yönetilen düğümler listesini görüntüleme
 
 Eklenen Otomasyon hesabınızda yönetimine yönelik olan tüm makinelerin listesini görüntüleyebileceğiniz **düğümleri** sekmesinde **durum yapılandırması (DSC)** sayfası.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Sol tarafta, tıklayın **tüm kaynakları** ve ardından bunları Otomasyon hesabınıza adı.
-3. Üzerinde **Otomasyon hesabı** sayfasında **durum yapılandırması (DSC)**, ardından **düğümleri** sekmesi.
+1. Sol tarafta, tıklayın **tüm kaynakları** ve ardından bunları Otomasyon hesabınıza adı.
+1. Üzerinde **Otomasyon hesabı** dikey penceresinde tıklayın **durum yapılandırması (DSC)** altında **yapılandırma yönetimi**.
+1. Üzerinde **durum yapılandırması (DSC)** sayfasında **düğümleri** sekmesi.
 
-## <a name="viewing-reports-for-dsc-nodes"></a>DSC düğüm raporları görüntüleme
+## <a name="viewing-reports-for-managed-nodes"></a>Yönetilen düğümler için raporlarını görüntüleme
 
-Her zaman Azure Automation DSC, yönetilen bir düğüm üzerindeki bir tutarlılık denetimi gerçekleştirir. düğüm durum raporu çekme sunucusuna geri gönderir. Bu düğüm için sayfadaki bu raporları görüntüleyebilirsiniz.
+Azure Otomasyonu durum yapılandırması, yönetilen bir düğüm üzerindeki bir tutarlılık denetimi gerçekleştirir her zaman düğüm bir durum raporu çekme sunucusuna geri gönderir. Bu düğüm için sayfadaki bu raporları görüntüleyebilirsiniz.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Sol tarafta, tıklayın **tüm kaynakları** ve ardından bunları Otomasyon hesabınıza adı.
-3. Üzerinde **Otomasyon hesabı** sayfasında **durum yapılandırması (DSC)** ve ardından **düğümleri** sekmesi.
-4. İçinde **düğümleri** listesinde, görüntülemek istediğiniz düğümü seçin.
-5. Üzerinde **düğüm** sayfasında, altında görüntülemek istediğiniz raporu tıklatın **raporları**.
+1. Sol tarafta, tıklayın **tüm kaynakları** ve ardından bunları Otomasyon hesabınıza adı.
+1. Üzerinde **Otomasyon hesabı** dikey penceresinde tıklayın **durum yapılandırması (DSC)** altında **yapılandırma yönetimi**.
+1. Üzerinde **durum yapılandırması (DSC)** sayfasında **düğümleri** sekmesi. Burada, yapılandırma durumu ve ayrıntıları her düğüm için genel bakış görebilirsiniz.
 
-    ![Rapor sayfasının ekran görüntüsü](./media/automation-dsc-getting-started/NodeReport.png)
+   ![Ekran görüntüsü, düğümü sayfası](./media/automation-dsc-getting-started/NodesTab.png)
 
-Her bir rapor sayfasında, aşağıdaki durum bilgileri için karşılık gelen bir tutarlılık denetimi görebilirsiniz:
+1. Üzerinde çalışırken **düğümleri** sekmesini ve ardından Raporlama'yı açmak için düğümü kaydı. Raporlama ek ayrıntıları görüntülemek istediğiniz raporu tıklatın.
 
-* Rapor durumu — "Uyumlu", "Başarısız" yapılandırma düğümüdür ya da "Uyumlu" bir düğümdür (düğüm olduğunda **applyandmonitor** modu ve makine istenilen durumda değil).
-* Tutarlılık denetimi için başlangıç saati.
-* Tutarlılık denetimi için toplam çalışma zamanı.
-* Tutarlılık denetimi türü.
-* Hata kodu ve hata iletisi dahil olmak üzere tüm hatalar.
-* Yapılandırma ve her bir kaynak (düğüm bu kaynak için istenen durumda olup) durumunu kullanılan tüm DSC kaynakları — bu kaynak için daha ayrıntılı bilgi almak için her kaynak tıklayabilirsiniz.
-* Adı, IP adresi ve düğümün yapılandırma modu.
+   ![Raporu dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/NodeReport.png)
 
-Ayrıca **ham raporu görüntüle** düğümün sunucuya gönderdiği gerçek verileri görmek için. Bu verileri kullanma hakkında daha fazla bilgi için bkz. [DSC rapor sunucusu kullanarak](https://msdn.microsoft.com/powershell/dsc/reportserver).
+Her bir rapor dikey penceresinde, aşağıdaki durum bilgileri için karşılık gelen bir tutarlılık denetimi görebilirsiniz:
+
+- Rapor durumu — "Uyumlu", "Başarısız" yapılandırma düğümüdür ya da "Uyumlu" bir düğümdür (düğüm olduğunda **ApplyandMonitor** modu ve makine istenilen durumda değil).
+- Tutarlılık denetimi için başlangıç saati.
+- Tutarlılık denetimi için toplam çalışma zamanı.
+- Tutarlılık denetimi türü.
+- Hata kodu ve hata iletisi dahil olmak üzere tüm hatalar.
+- Yapılandırma ve her bir kaynak (düğüm bu kaynak için istenen durumda olup) durumunu kullanılan tüm DSC kaynakları — bu kaynak için daha ayrıntılı bilgi almak için her kaynak tıklayabilirsiniz.
+- Adı, IP adresi ve düğümün yapılandırma modu.
+
+Ayrıca **ham raporu görüntüle** düğümün sunucuya gönderdiği gerçek verileri görmek için.
+Bu verileri kullanma hakkında daha fazla bilgi için bkz. [DSC rapor sunucusu kullanarak](/powershell/dsc/reportserver).
 
 Bu raporun ilk kullanılabilir olmadan önce bir düğüm eklendikten sonra biraz zaman alabilir. İlk rapor için en fazla 30 dakika sonra yerleşik bir düğüm beklemeniz gerekebilir.
 
@@ -198,13 +205,15 @@ Bu raporun ilk kullanılabilir olmadan önce bir düğüm eklendikten sonra bira
 Başlangıçta atanan olandan farklı bir düğüm yapılandırması kullanmak için bir düğüm atayabilirsiniz.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Sol tarafta, tıklayın **tüm kaynakları** ve ardından bunları Otomasyon hesabınıza adı.
-3. Üzerinde **Otomasyon hesabı** sayfasında **durum yapılandırması (DSC)** ve ardından **düğümleri** sekmesi.
-4. Üzerinde **düğümleri** sekmesinde, atamak istediğiniz düğümün adına tıklayın.
-5. Bu düğüm için sayfasında tıklayın **düğüm yapılandırması Ata**.
+1. Sol tarafta, tıklayın **tüm kaynakları** ve ardından bunları Otomasyon hesabınıza adı.
+1. Üzerinde **Otomasyon hesabı** dikey penceresinde tıklayın **durum yapılandırması (DSC)** altında **yapılandırma yönetimi**.
+1. Üzerinde **durum yapılandırması (DSC)** sayfasında **düğümleri** sekmesi.
+1. Üzerinde **düğümleri** sekmesinde, atamak istediğiniz düğümün adına tıklayın.
+1. Bu düğüm için sayfasında tıklayın **düğüm yapılandırması Ata**.
 
-    ![Ata düğüm düğmesini vurgulama düğüm sayfasının ekran görüntüsü](./media/automation-dsc-getting-started/AssignNode.png)
-6. Üzerinde **düğüm yapılandırması Ata** sayfasında, düğüm yapılandırması düğüme atamak ve ardından istediğiniz **Tamam**.
+    ![Ata düğüm yapılandırma düğmesini vurgulama düğüm ayrıntıları sayfasının ekran görüntüsü](./media/automation-dsc-getting-started/AssignNode.png)
+
+1. Üzerinde **düğüm yapılandırması Ata** sayfasında, düğüm yapılandırması düğüme atamak ve ardından istediğiniz **Tamam**.
 
     ![Düğüm yapılandırması Ata sayfasının ekran görüntüsü](./media/automation-dsc-getting-started/AssignNodeConfig.png)
 
@@ -213,17 +222,18 @@ Başlangıçta atanan olandan farklı bir düğüm yapılandırması kullanmak i
 Azure Automation DSC tarafından yönetilecek bir düğüm artık istemiyorsanız kaydını kaldırabilirsiniz.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Sol tarafta, tıklayın **tüm kaynakları** ve ardından bunları Otomasyon hesabınıza adı.
-3. Üzerinde **Otomasyon hesabı** sayfasında **durum yapılandırması (DSC)** ve ardından **düğümleri** tab.git 
-4. Üzerinde **düğümleri** sekmesinde, silmek istediğiniz düğümün adına tıklayın.
-5. Bu düğüm için sayfasında tıklayın **Unregister**.
+1. Sol tarafta, tıklayın **tüm kaynakları** ve ardından bunları Otomasyon hesabınıza adı.
+1. Üzerinde **Otomasyon hesabı** dikey penceresinde tıklayın **durum yapılandırması (DSC)** altında **yapılandırma yönetimi**.
+1. Üzerinde **durum yapılandırması (DSC)** sayfasında **düğümleri** sekmesi.
+1. Üzerinde **düğümleri** sekmesinde, silmek istediğiniz düğümün adına tıklayın.
+1. Bu düğüm için sayfasında tıklayın **Unregister**.
 
-    ![Kaydı Kaldır düğmesine vurgulama düğüm sayfasının ekran görüntüsü](./media/automation-dsc-getting-started/UnregisterNode.png)
+    ![Kaydı Kaldır düğmesine vurgulama düğüm ayrıntıları sayfasının ekran görüntüsü](./media/automation-dsc-getting-started/UnregisterNode.png)
 
 ## <a name="related-articles"></a>İlgili makaleler
 
-* [Azure Automation DSC genel bakış](automation-dsc-overview.md)
-* [Makineleri Azure Automation DSC tarafından Yönetim için hazırlama](automation-dsc-onboarding.md)
-* [Windows PowerShell Desired State Configuration ' ne genel bakış](https://msdn.microsoft.com/powershell/dsc/overview)
-* [Azure Otomasyonu DSC cmdlet'leri](/powershell/module/azurerm.automation/#automation)
-* [Azure Otomasyonu DSC fiyatlandırması](https://azure.microsoft.com/pricing/details/automation/)
+- [Azure Otomasyonu durum yapılandırmasına genel bakış](automation-dsc-overview.md)
+- [Makineleri Azure Otomasyon durum yapılandırması tarafından Yönetim için hazırlama](automation-dsc-onboarding.md)
+- [Windows PowerShell Desired State Configuration ' ne genel bakış](/powershell/dsc/overview)
+- [Azure Otomasyonu durumu yapılandırma cmdlet'leri](/powershell/module/azurerm.automation/#automation)
+- [Azure Otomasyonu durumu fiyatlandırma yapılandırması](https://azure.microsoft.com/pricing/details/automation/)

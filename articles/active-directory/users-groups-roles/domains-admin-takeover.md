@@ -14,12 +14,12 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 625894738b6cbf680baef0a1eeeea518586e4506
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 52ae7da666acaf234920a7f03afe3766f29a1e85
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37872731"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629132"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Azure Active Directory'de yönetici olarak yönetilmeyen bir dizini devralma
 Bu makalede, Azure Active Directory (Azure AD) bir yönetilmeyen dizinde bir DNS etki alanı adı ele iki yolu açıklanır. Bir self servis kullanıcısı, Azure AD kullanan bir bulut hizmetine kaydolduğunda bu kullanıcı, e-posta etki alanına göre yönetilmeyen bir Azure AD dizinine eklenir. Self Servis veya "viral" kayıt bir hizmet için hakkında daha fazla bilgi için bkz. [Azure Active Directory için Self Servis kaydolma nedir?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-self-service-signup)
@@ -56,13 +56,13 @@ Yukarıdaki adımları tamamladıktan sonra artık Office 365'te Fourth Coffee k
 ### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Etki alanı adı, Azure AD'de yönetilen bir kiracıya ekleme 
 
 1. Açık [Office 365 Yönetim Merkezi](https://portal.office.com/adminportal/Home).
-2. Seçin **kullanıcılar** sekmesini tıklatıp gibi yeni bir kullanıcı hesabı oluşturmanız *user@fourthcoffeexyz.onmicrosoft.com* özel etki alanı adını kullanmaz. 
+2. Seçin **kullanıcılar** sekmesini tıklatıp gibi yeni bir kullanıcı hesabı oluşturmanız * user@fourthcoffeexyz.onmicrosoft.com * özel etki alanı adını kullanmaz. 
 3. Yeni kullanıcı hesabının Azure AD kiracınız için genel yönetici ayrıcalıkları olduğundan emin olun.
 4. Açık **etki alanları** sekmesinde Office 365 Yönetim merkezinde, etki alanı adını seçip seçin **Kaldır**. 
   
   ![etki alanı adını Office 365'ten Kaldır](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Kullanıcıları veya grupları Office 365'te başvuran Kaldırılan etki alanı adı varsa, bunlar için kaydedilmelidir. onmicrosoft.com etki alanı. Zorlarsanız, etki alanı adını silmek, tüm kullanıcılar otomatik olarak, bu örnekte adlandırılır *user@fourthcoffeexyz.onmicrosoft.com*.
+5. Kullanıcıları veya grupları Office 365'te başvuran Kaldırılan etki alanı adı varsa, bunlar için kaydedilmelidir. onmicrosoft.com etki alanı. Zorlarsanız, etki alanı adını silmek, tüm kullanıcılar otomatik olarak, bu örnekte adlandırılır * user@fourthcoffeexyz.onmicrosoft.com *.
   
 6. Oturum [Azure AD yönetim merkezini](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) Azure AD kiracınız için genel yönetici olan bir hesapla.
   
@@ -71,7 +71,7 @@ Yukarıdaki adımları tamamladıktan sonra artık Office 365'te Fourth Coffee k
   ![Azure AD'ye eklemiş etki alanı](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Office 365 kiracıya atanan lisanslara sahip tüm kullanıcılar Power BI veya Azure Rights Management hizmeti, etki alanı adı kaldırılırsa, panoları kaydetmeniz gerekir. Gibi bir kullanıcı adı ile oturum açmaları gerektiğini *user@fourthcoffeexyz.onmicrosoft.com* yerine *user@fourthcoffee.xyz*.
+> Office 365 kiracıya atanan lisanslara sahip tüm kullanıcılar Power BI veya Azure Rights Management hizmeti, etki alanı adı kaldırılırsa, panoları kaydetmeniz gerekir. Gibi bir kullanıcı adı ile oturum açmaları gerektiğini * user@fourthcoffeexyz.onmicrosoft.com * yerine * user@fourthcoffee.xyz *.
 
 ## <a name="external-admin-takeover"></a>Dış yönetici devralma
 
@@ -104,7 +104,7 @@ Hizmet planları, SharePoint, OneDrive veya iş için Skype Kurumsal dahil olan 
 
 #### <a name="more-information-about-rms-for-individuals"></a>Kişiler için RMS hakkında daha fazla bilgi
 
-İçin [kişiler için RMS](/information-protection/understand-explore/rms-for-individuals), yönetilmeyen bir kiracı Kiracı ile aynı bölgede size ait olduğunu, otomatik olarak oluşturulan olduğunda [Azure Information Protection Kiracı anahtarınızı](/information-protection/plan-design/plan-implement-tenant-key) ve [varsayılan koruma şablonları](/information-protection/deploy-use/configure-usage-rights#rights-included-in-the-default-templates) etki alanı adıyla ayrıca taşındığını. 
+İçin [kişiler için RMS](/azure/information-protection/rms-for-individuals), yönetilmeyen bir kiracı Kiracı ile aynı bölgede size ait olduğunu, otomatik olarak oluşturulan olduğunda [Azure Information Protection Kiracı anahtarınızı](/azure/information-protection/plan-implement-tenant-key) ve [varsayılan koruma şablonları](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) etki alanı adıyla ayrıca taşındığını. 
 
 Yönetilmeyen Kiracı farklı bir bölgede olduğunda anahtar ve şablonları taşınmaz. Örneğin, Avrupa ve Kuzey Amerika içinde olan sahip kiracısı yönetilmeyen Kiracı olur. 
 
@@ -114,7 +114,7 @@ Kişiler için RMS korumalı içeriği açmak için Azure AD kimlik doğrulamas�
 Bu cmdlet'ler içinde kullanılan görebilirsiniz [PowerShell örneği](#powershell-example).
 
 
-cmdlet'i | Kullanım 
+Cmdlet'i | Kullanım 
 ------- | -------
 `connect-msolservice` | İstendiğinde, yönetilen bir kiracı için oturum açın.
 `get-msoldomain` | Etki alanı adlarınızla geçerli Kiracı ile ilişkilendirilen gösterir.

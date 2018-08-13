@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: b0e078e3e7f18e3370ff1bcd90935e7fece265f0
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 1a4b970b07514619b2d81a0483546ac64d07927f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391189"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005484"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 
@@ -94,7 +94,9 @@ context.bindings.myOutput = {
 context.done([err],[propertyBag])
 ```
 
-Kodunuzu bitirdi çalışma zamanı bildirir. Çağırmalısınız `context.done`, veya başka bir çalışma zamanı hiçbir zaman işlevinizi tamamlandıktan ve yürütme zaman aşımı olur bilir. 
+Kodunuzu bitirdi çalışma zamanı bildirir. İşlevinizi kullanıyorsa `async function` bildirimi (kullanılabilir işlevler sürüm 8 + düğümü kullanan 2.x), kullanın gerekmez `context.done()`. `context.done` Geri çağırma örtük olarak çağrılır.
+
+İşlevinizi bir zaman uyumsuz işlev değilse **çağırmalısınız `context.done` ** çalışma zamanının işlevinizi tamamlandığını bildirmek için. Yürütme zaman aşımı eksik olması durumunda olur.
 
 `context.done` Yöntemi sayesinde çalışma zamanı ve özellikler üzerine bir özellik paketi özellikleri hem de bir kullanıcı tanımlı hata geri geçirmek `context.bindings` nesne.
 

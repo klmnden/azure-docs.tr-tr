@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 48b2aab9d2a3937fb53a2e63efa26efc18a894f8
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 53b35fbdc469639b1fdc09293e05247bcc5d8c31
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413867"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714494"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook'ları ile hatalarını giderme
 
@@ -38,18 +38,42 @@ Kimlik bilgisi varlığı adı geçerli değil veya kullanıcı adı ve Otomasyo
 
 Neyin yanlış olduğunu belirlemek için aşağıdaki adımları uygulayın:  
 
-1. Dahil olmak üzere herhangi bir özel karakter içermediğinden emin olun **@** Azure'a bağlanmak için kullandığınız Otomasyon kimlik bilgisi varlığı ad karakteri.  
+1. Dahil olmak üzere herhangi bir özel karakter içermediğinden emin olun ** @ ** Azure'a bağlanmak için kullandığınız Otomasyon kimlik bilgisi varlığı ad karakteri.  
 2. Azure Otomasyonu kimlik bilgisi, yerel PowerShell ISE Düzenleyici içinde depolanan parola ve kullanıcı adı kullanıp kullanmadığını denetleyin. PowerShell ISE'de aşağıdaki cmdlet'leri çalıştırarak bunu yapabilirsiniz:  
 
    ```powershell
    $Cred = Get-Credential  
-   #Using Azure Service Management   
+   #Using Azure Service Management
    Add-AzureAccount –Credential $Cred  
    #Using Azure Resource Manager  
    Connect-AzureRmAccount –Credential $Cred
    ```
 
 3. Yerel olarak, kimlik doğrulama başarısız olursa, bu, Azure Active Directory bilgilerinizi düzgün bir şekilde kurmadığınızı fark anlamına gelir. Başvurmak [Azure Active Directory'yi kullanarak Azure için kimlik doğrulama](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog gönderisi doğru şekilde ayarlanan Azure Active Directory hesabı.  
+
+4. Geçici bir hata görüntüleniyorsa, daha sağlam hale kimlik doğrulaması için kimlik doğrulama yordamına yeniden deneme mantığı eklemeyi deneyin.
+
+   ```powershell
+   # Get the connection "AzureRunAsConnection"
+   $connectionName = "AzureRunAsConnection"
+   $servicePrincipalConnection = Get-AutomationConnection -Name $connectionName
+
+   $logonAttempt = 0
+   $logonResult = $False
+
+   while(!($connectionResult) -And ($logonAttempt -le 10))
+   {
+   $LogonAttempt++
+   # Logging in to Azure...
+   $connectionResult = Connect-AzureRmAccount `
+      -ServicePrincipal `
+      -TenantId $servicePrincipalConnection.TenantId `
+      -ApplicationId $servicePrincipalConnection.ApplicationId `
+      -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint
+
+   Start-Sleep -Seconds 30
+   }
+   ```
 
 ### <a name="unable-to-find-subscription"></a>Senaryo: Azure aboneliği bulunamadı
 
@@ -285,7 +309,7 @@ Bir modül başarıyla Azure Otomasyonu'na ekleme alabilir olmayan bazı yaygın
 
 Aşağıdaki çözümlerden birini sorunu düzeltin:
 
-* Modül aşağıdaki biçimde uyduğundan emin olun: ModuleName.Zip **->** ModuleName veya sürüm numarası **->** (ModuleName.psm1, ModuleName.psd1)
+* Modül aşağıdaki biçimde uyduğundan emin olun: ModuleName.Zip ** -> ** ModuleName veya sürüm numarası ** -> ** (ModuleName.psm1, ModuleName.psd1)
 * .Psd1 dosyasını açın ve modülü herhangi bir bağımlılığın olup olmadığına bakın. Aksi halde bu modüller Otomasyon hesabına yükleyin.
 * Başvurulan tüm .dll Modülü klasörde mevcut olduğundan emin olun.
 

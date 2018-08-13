@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/02/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f0bfc494894a31a1ee61a4f23d702df38b13c4e7
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 856673d2a5465f9646172a1436ed75c0d73692cb
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626507"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003181"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Taban çizgisi protection (Önizleme) nedir?  
 
@@ -51,7 +51,7 @@ Kullanıcılara ayrıcalıklı hesaplara erişim ortamınıza sınırsız erişi
 
 ![Azure Active Directory](./media/baseline-protection/01.png)
 
-Bu temel ilke kullanıcıları ve grupları Dışla seçeneği sağlar. Biri hariç tutmak isteyebileceğiniz *[Acil Durum erişimi yönetici hesabı](../users-groups-roles/directory-emergency-access.md)* , kilitli dışında Kiracı emin olmak için.
+Bu temel ilke kullanıcıları ve grupları Dışla seçeneği sağlar. Biri hariç tutmak isteyebileceğiniz * [Acil Durum erişimi yönetici hesabı](../users-groups-roles/directory-emergency-access.md) * , kilitli dışında Kiracı emin olmak için.
 
 
 ## <a name="enable-a-baseline-policy"></a>Temel ilke etkinleştir 
@@ -95,6 +95,9 @@ Temel ilkeleri POP, IMAP, eski Office masaüstü istemcisi gibi eski bir kimlik 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Koşullu erişim ilkesi yapılandırmak için bkz. nasıl bilmek istiyorsanız [Azure Active Directory koşullu erişimiyle belirli uygulamalar için MFA gerektiren](app-based-mfa.md).
+Daha fazla bilgi için bkz.
 
-Ortamınız için koşullu erişim ilkelerini yapılandırmaya hazırsanız bkz [Azure Active Directory'de koşullu erişim için en iyi yöntemler](best-practices.md). 
+- [Kimlik altyapınızın güvenliğini sağlamak için beş adım](https://docs.microsoft.com/azure/security/azure-ad-secure-steps)
+
+- [Azure Active Directory'de koşullu erişim nedir?](overview.md) 
+

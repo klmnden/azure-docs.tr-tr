@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: f61f0649900c27a6aa3a873f60dc60b4985f5d4f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 55818bf3c6997925fbac32f913d573d630bc20f4
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424196"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004387"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Öğretici: yönetilen etki alanları için hibrit Azure Active Directory join yapılandırın
 
@@ -49,6 +49,9 @@ Bu öğretici, aşina olduğunuzu varsayar:
 -  [Azure Active Directory'de cihaz yönetimine giriş](../device-management-introduction.md)
     
 -  [Hibrit Azure Active Directory'ye katılma uygulamanızı planlama](hybrid-azuread-join-plan.md)
+
+-  [Cihazlarınızın hibrit Azure AD'ye katılımını denetleme](hybrid-azuread-join-control.md)
+  
 
 Bu makaledeki senaryoda yapılandırmak için ihtiyacınız [Azure AD Connect'in en son sürümünü](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 veya üzeri) yüklenecek. 
  
@@ -101,7 +104,7 @@ Azure AD Connect kullanarak bir hibrit Azure AD'ye katılım'ı yapılandırmak 
 
     ![Cihaz seçenekleri](./media/hybrid-azuread-join-managed-domains/15.png)
 
-6. Üzerinde **SCP** sayfasında, istediğiniz Azure AD Connect'in SCP'yi için aşağıdaki adımları uygulayın ve ardından her bir orman için **sonraki**: 
+6. Üzerinde **SCP** sayfasında, kullanmak istediğiniz Azure AD Connect'in SCP'yi yapılandırmak için aşağıdaki adımları uygulayın ve ardından her bir orman için **sonraki**: 
 
     ![SCP](./media/hybrid-azuread-join-managed-domains/16.png)
 
@@ -156,15 +159,13 @@ Başarıyla eksiksiz hibrit Azure AD'ye katılmak, Windows alt düzey cihazları
 
 - `https://device.login.microsoftonline.com`
 
-- `https://device.login.microsoftonline.com`
-
 - `https://autologon.microsoftazuread-sso.com`.
 
 Ayrıca, etkinleştirmek gereken **izin vermek için durum çubuğu komut dosyası aracılığıyla güncelleştirmeleri** kullanıcının yerel intranet bölgesi.
 
 ## <a name="verify-the-registration"></a>Kayıt doğrulayın
 
-Cihaz kayıt durumu, Azure kiracınızdaki doğrulamak için kullanabileceğiniz **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** cmdlet'inde  **[Azure Active Directory PowerShell Modülü](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
+Cihaz kayıt durumu, Azure kiracınızdaki doğrulamak için kullanabileceğiniz ** [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) ** cmdlet'inde ** [Azure Active Directory PowerShell Modülü](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
 
 Kullanırken **Get-MSolDevice** cmdlet'ini hizmet ayrıntılarını kontrol edin:
 
