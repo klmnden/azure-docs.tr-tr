@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
-ms.openlocfilehash: 798bf5f2b2a408798539c2e30076c2eca15c214a
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 603e7c3a0c30eb42cb75d6a6ff87a96d847b7c9f
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043964"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "40100936"
 ---
 Azure sanal makineleri (VM'ler) halinde kategorilere farklı durumları geçtikleri *sağlama* ve *güç* durumları. Bu makalenin amacı, bu durumları açıklayan ve müşterilerin olduğunda özellikle vurgulamak için örneği için kullanım faturalandırılır ' dir. 
 
@@ -44,13 +44,13 @@ Açıklama
 </td>
 <td>
 <p>VM başlatılıyor.</p>
-<code>"statuses": [</br>
-   {</br>
-      "code": "PowerState/starting",</br>
-       "level": "Info",</br>
-        "displayStatus": "VM starting"</br>
-    }</br>
-    ]</code></br>
+<code>"statuses": [<br>
+   {<br>
+      "code": "PowerState/starting",<br>
+       "level": "Info",<br>
+        "displayStatus": "VM starting"<br>
+    }<br>
+    ]</code><br>
 </td>
 <td>
 <p><b>Faturalandırılmaz</b></p>
@@ -62,13 +62,13 @@ Açıklama
 </td>
 <td>
 <p>Bir VM için normal çalışma durumu</p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/running",</br>
- "level": "Info",</br>
- "displayStatus": "VM running"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/running",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM running"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Faturalandırılır</b></p>
@@ -80,13 +80,13 @@ Açıklama
 </td>
 <td>
 <p>Bu geçici bir durumdur. Tamamlandığında, olarak görünür **durduruldu**.</p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/stopping",</br>
- "level": "Info",</br>
- "displayStatus": "VM stopping"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/stopping",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM stopping"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Faturalandırılır</b></p>
@@ -99,13 +99,13 @@ Açıklama
 <td>
 <p>VM Kapat konuk işletim sistemi içinde aşağı gelen veya değiştiremiyor API'lerini kullanarak.</p>
 <p>Donanım yine de VM ayrılır ve konak üzerinde kalır. </p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/stopped",</br>
- "level": "Info",</br>
- "displayStatus": "VM stopped"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/stopped",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM stopped"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Faturalandırılmaz&#42;</b></p>
@@ -117,13 +117,13 @@ Açıklama
 </td>
 <td>
 <p>Geçiş durumu. Tamamlandığında, VM olarak görünür **Deallocated**.</p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/deallocating",</br>
- "level": "Info",</br>
- "displayStatus": "VM deallocating"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/deallocating",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM deallocating"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Faturalandırılmaz&#42;</b></p>
@@ -135,13 +135,13 @@ Açıklama
 </td>
 <td>
 <p>VM başarıyla durduruldu ve ana bilgisayardan kaldırılır. </p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/deallocated",</br>
- "level": "Info",</br>
- "displayStatus": "VM deallocated"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/deallocated",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM deallocated"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Faturalandırılmaz</b></p>
@@ -186,12 +186,12 @@ Kullanıcı tarafından başlatılan bir eylem platformu kabul ettikten sonra ge
 <p><b>Oluşturma</b></p>
 </td>
 <td width="366">
-<code>"statuses": [</br>
- {</br>
- "code": "ProvisioningState/creating",</br>
- "level": "Info",</br>
- "displayStatus": "Creating"</br>
- }</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/creating",<br>
+ "level": "Info",<br>
+ "displayStatus": "Creating"<br>
+ }</code><br>
 </td>
 </tr>
 <tr>
@@ -199,13 +199,13 @@ Kullanıcı tarafından başlatılan bir eylem platformu kabul ettikten sonra ge
 <p><b>Güncelleştirme</b></p>
 </td>
 <td width="366">
-<code>"statuses": [</br>
- {</br>
- "code": "ProvisioningState/updating",</br>
- "level": "Info",</br>
- "displayStatus": "Updating"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/updating",<br>
+ "level": "Info",<br>
+ "displayStatus": "Updating"<br>
+ }<br>
+ ]</code><br>
 </td>
 </tr>
 <tr>
@@ -213,13 +213,13 @@ Kullanıcı tarafından başlatılan bir eylem platformu kabul ettikten sonra ge
 <p><b>Silme</b></p>
 </td>
 <td width="366">
-<code>"statuses": [</br>
- {</br>
- "code": "ProvisioningState/deleting",</br>
- "level": "Info",</br>
- "displayStatus": "Deleting"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/deleting",<br>
+ "level": "Info",<br>
+ "displayStatus": "Deleting"<br>
+ }<br>
+ ]</code><br>
 </td>
 </tr>
 <tr>
@@ -229,21 +229,21 @@ Kullanıcı tarafından başlatılan bir eylem platformu kabul ettikten sonra ge
 <td width="366">
 <p>Bir işletim sistemi görüntüsüne ve özelleştirilmiş bir görüntü değil ile oluşturulan bir VM'yi, aşağıdaki alt durum gösterilebilir:</p>
 <p>1. <b>OSProvisioningInprogress</b> &ndash; VM çalışıyor ve konuk işletim sistemi yüklemesi devam ediyor. <p /> 
-<code> "statuses": [</br>
- {</br>
- "code": "ProvisioningState/creating/OSProvisioningInprogress",</br>
- "level": "Info",</br>
- "displayStatus": "OS Provisioning In progress"</br>
- }</br>
-]</code></br>
+<code> "statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/creating/OSProvisioningInprogress",<br>
+ "level": "Info",<br>
+ "displayStatus": "OS Provisioning In progress"<br>
+ }<br>
+]</code><br>
 <p>2. <b>OSProvisioningComplete</b> &ndash; kısa süreli durumu. VM için hızlı bir şekilde geçiş **başarı** sürece herhangi bir uzantısı yüklü olması gerekir. Uzantıları Yükleme zaman alabilir. <br />
-<code> "statuses": [</br>
- {</br>
- "code": "ProvisioningState/creating/OSProvisioningComplete",</br>
- "level": "Info",</br>
- "displayStatus": "OS Provisioning Complete"</br>
- }</br>
-]</code></br>
+<code> "statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/creating/OSProvisioningComplete",<br>
+ "level": "Info",<br>
+ "displayStatus": "OS Provisioning Complete"<br>
+ }<br>
+]</code><br>
 <p><b>Not</b>: işletim sistemi sağlama geçiş için **başarısız** bir işletim sistemi hatası veya işletim sistemi sürede yüklemez. Müşteriler, altyapı üzerinde dağıtılan sanal makine için faturalandırılırsınız.</p>
 </td>
 </tr>
@@ -255,14 +255,14 @@ Kullanıcı tarafından başlatılan bir eylem platformu kabul ettikten sonra ge
 - **Başarılı** – kullanıcı tarafından başlatılan Eylemler tamamladınız.
 
     ```
- "statuses": \[ 
+ "statuses": [ 
  {
      "code": "ProvisioningState/succeeded",
      "level": "Info",
      "displayStatus": "Provisioning succeeded",
      "time": "time"
  }
- \]
+ ]
     ```
 
  
@@ -278,6 +278,7 @@ Kullanıcı tarafından başlatılan bir eylem platformu kabul ettikten sonra ge
       "message": "Operation abandoned due to internal error. Please try again later.",
       "time": "time"
     }
+    ]
     ```
 
 
