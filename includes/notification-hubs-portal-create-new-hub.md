@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 22c1d24042072de5d57d41da379a5fad18180de7
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 19ea9c749b58f6f81dc2087caa77573062d883b5
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972527"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39486003"
 ---
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. **Kaynak oluştur** > **Mobil** > **Bildirim Hub'ı** seçeneğini belirleyin.
+1. **Kaynak oluştur** > **Mobil** > **Bildirim Hub'ı** seçeneğini belirleyin.
    
       ![Azure portalı - Bildirim hub'ı oluşturma](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
       
-3. **Bildirim Hub'ı** kutusuna benzersiz bir ad yazın. **Bölge**, **Abonelik** ve **Kaynak Grubu** (zaten varsa) seçimi yapın. 
+1. **Bildirim Hub'ı** kutusuna benzersiz bir ad yazın. **Bölge**, **Abonelik** ve **Kaynak Grubu** (zaten varsa) seçimi yapın. 
    
       Hizmet veri yolu ad alanınız yoksa hub adına göre oluşturulan (ad alanı adı varsa) varsayılan adı kullanabilirsiniz.
     
@@ -33,10 +33,10 @@ ms.locfileid: "38972527"
    
       ![Azure portalı - Bildirim hub'ı özelliklerini ayarlama](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-4. **Bildirimler**’i (Zil simgesi) ve **Kaynağa git**’i seçin. 
+1. **Bildirimler**’i (Zil simgesi) ve **Kaynağa git**’i seçin. 
 
       ![Azure portalı - bildirimler -> Kaynağa git](./media/notification-hubs-portal-create-new-hub/notification-go-to-resource.png)    
-5. Listeden **Erişim İlkeleri**'ni seçin. Verilen iki bağlantı dizesini not edin. Bu dizelere daha sonra anında iletme bildirimleri için ihtiyaç duyacaksınız.
+1. Listeden **Erişim İlkeleri**'ni seçin. Verilen iki bağlantı dizesini not edin. Bu dizelere daha sonra anında iletme bildirimleri için ihtiyaç duyacaksınız.
 
       >[!IMPORTANT]
       >Uygulamanızda DefaultFullSharedAccessSignature **KULLANMAYIN**. Bunu yalnızca arka ucunuzda kullanmanız gerekir.
