@@ -2,26 +2,26 @@
 title: "Azure Hızlı Başlangıç: Azure CLI'yı kullanarak olay akışlarını işleme | Microsoft Docs"
 description: Bu hızlı başlangıçta Azure CLI'yı kullanarak olay akışlarını işlemeyi öğreneceksiniz.
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
-ms.openlocfilehash: 3e4689aa4ef5cdbd52aa2c70b8ba754013cab3db
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: shvija
+ms.openlocfilehash: 7a15b252727589194da90af729a74e1baad7094f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425961"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004574"
 ---
 # <a name="quickstart-process-event-streams-using-azure-cli-and-java"></a>Hızlı başlangıç: Azure CLI ve Java kullanarak olay akışlarını işleme
 
 Azure Event Hubs saniyede milyonlarca olay alıp işleyebilen, ölçeklenebilirlik yüzeyi yüksek bir veri akışı platformu ve veri alma hizmetidir. Bu hızlı başlangıçta Azure CLI kullanarak Event Hubs kaynağı oluşturmayı ve Java kodu kullanarak olay hub'ı ile olay akışı alışverişi yapmayı öğreneceksiniz.
 
-Bu hızlı başlangıcı tamamlamak bir Azure aboneliğinizin olması gerekir. Aboneliğiniz yoksa başlamadan önce [Ücretsiz hesap oluşturun][] oluşturun.
+Bu hızlı başlangıcı tamamlamak bir Azure aboneliğinizin olması gerekir. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun][].
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -292,7 +292,7 @@ Bu makalede, Event Hubs ad alanını ve olay hub'ınızdan olay gönderip almak 
 > [!div class="nextstepaction"]
 > [Event Hubs veri akışları üzerindeki veri anormalliklerini görselleştirme](event-hubs-tutorial-visualize-anomalies.md)
 
-[Ücretsiz hesap oluşturun]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[ücretsiz bir hesap oluşturun]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install Azure CLI 2.0]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az-group-create
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/03/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 60f1b133bdd6acdb25717c2b98f81b57b751d505
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 9dbd230e431b2bc3041cfc854c0161ce8d453870
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39721170"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "40133374"
 ---
 <a name="virtual-networking-limits-classic"></a>Aşağıdaki sınırlar yalnızca abonelik başına klasik dağıtım modeliyle yönetilen ağ kaynakları için geçerlidir. Bilgi edinmek için nasıl [, abonelik limitleri göre geçerli kaynak kullanımınızı görüntüleyin](../articles/networking/check-usage-against-limits.md).
 
@@ -38,7 +38,7 @@ ms.locfileid: "39721170"
 Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resource Manager ile yönetilen ağ kaynakları için geçerlidir. Bilgi edinmek için nasıl [, abonelik limitleri göre geçerli kaynak kullanımınızı görüntüleyin](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
-> Size yakın zamanda tüm varsayılan sınır en fazla limitlerini artırdık. Yoksa hiçbir **sınırı** sütun, ardından kaynak sınırları ayarlanabilir yok. Varsa bunlar sahip artırılana sınırları geçmişte desteklemek ve güncelleştirilmiş sınırları aşağıdaki gibi görmüyorsanız, şunları yapabilirsiniz [ücretsiz bir çevrimiçi müşteri destek isteği açın](../articles/azure-resource-manager/resource-manager-quota-errors.md)
+> Size yakın zamanda tüm varsayılan sınır en fazla limitlerini artırdık. Yoksa hiçbir **sınırı** sütun, ardından kaynak sınırları ayarlanabilir yok. Olan destek geçmişte artırılana limitler ve güncelleştirilmiş sınırları aşağıdaki gibi görmezsiniz varsa [ücretsiz bir çevrimiçi müşteri destek isteği açın](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
 | Kaynak | Varsayılan limit | 
 | --- | --- |

@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: nolachar
-ms.openlocfilehash: 5dc9478516f4e9850543a6ee129fef0f1d3ee4f7
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 353c1d91b7925a84667ef1bb7c38ab87c6a89cc1
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214926"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716381"
 ---
 # <a name="tutorial-write-a-wpf-application-for-translator-text-using-c35"></a>Öğretici: Translator Metin Çevirisi için C&#35; kullanarak bir WPF uygulaması yazma
 
@@ -666,9 +666,9 @@ Daha sonra, metni bir POST isteği gövdesinde serileştirilmiş bir JSON dizisi
 `X-ClientTraceId` adlı HTTP üst bilgisi isteğe bağlıdır. Değer, bir GUID olmalıdır. İstemci tarafından sağlanan iz kimliği bir şeyler beklendiği gibi gitmediğinde istekleri izlemek için yararlıdır. Ancak kullanışlı olması için, X-ClientTraceID değerinin istemci tarafından kaydedilmesi gerekir. İstemci izleme kimliği ve isteklerin tarihi Microsoft’un oluşabilecek sorunları tanılamasına yardımcı olabilir.
 
 > [!NOTE]
-> Bu öğretici Microsoft Translator hizmetine odaklanmaktadır, bu nedenle `DetectLanguage()` ve `CorrectSpelling()` yöntemleri ayrıntılı olarak ele alınmaz. Metin analizi ve Bing Yazım Denetimi hizmetleri XML değil JSON biçiminde yanıt sağlar ve Metin Analizi de isteğin JSON olarak biçimlendirilmesini gerektirir. Bu özellikler burada tartışılan yöntemler ile kod farkının büyük bir bölümünü oluşturur.
+> Bu öğretici Microsoft Translator hizmetine odaklanmaktadır, bu nedenle `DetectLanguage()` ve `CorrectSpelling()` yöntemleri ayrıntılı olarak ele alınmaz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Microsoft Translator Metin Çevirisi API’si başvurusu](http://docs.microsofttranslator.com/text-translate.html)
+> [Microsoft Translator Metin Çevirisi API’si başvurusu](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)

@@ -3,25 +3,25 @@ title: 'Azure Hızlı Başlangıç: Azure portalı kullanarak olay akışların�
 description: Bu hızlı başlangıçta Azure portalı kullanarak olay akışlarını işlemeyi öğreneceksiniz.
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
-ms.openlocfilehash: da48294962dc5af5f9d623c84f9bbff1d49be03e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: shvija
+ms.openlocfilehash: 1938f7a8400587f8f0405cb576bfbdfe8bf1dddd
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132442"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004319"
 ---
 # <a name="quickstart-process-event-streams-using-the-azure-portal-and-net"></a>Hızlı başlangıç: Azure portalı ve .NET kullanarak olay akışlarını işleme
 
 Azure Event Hubs saniyede milyonlarca olay alıp işleyebilen, ölçeklenebilirlik yüzeyi yüksek bir veri akışı platformu ve veri alma hizmetidir. Bu hızlı başlangıçta [Azure portalı](https://portal.azure.com) kullanarak olay hub'ı oluşturma ve .NET Standard SDK'sını kullanarak olay hub'ıyla ileti alışverişi yapma adımları gösterilmektedir.
 
-Bu hızlı başlangıcı tamamlamak bir Azure aboneliğinizin olması gerekir. Aboneliğiniz yoksa başlamadan önce [Ücretsiz hesap oluşturun][] oluşturun.
+Bu hızlı başlangıcı tamamlamak bir Azure aboneliğinizin olması gerekir. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun][].
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -52,7 +52,7 @@ Kaynak grubu, Azure kaynakları için mantıksal bir koleksiyondur. Tüm kaynakl
 
 Event Hubs ad alanı, tam etki alanı adının başvurduğu, içinde bir veya daha fazla olay hub'ı oluşturduğunuz benzersiz bir kapsam kapsayıcısı sağlar. Portalı kullanarak kaynak grubunuzda bir ad alanı oluşturmak için aşağıdakileri yapın:
 
-1. [Azure Portal][] oturum açın ve ekranın sol üst köşesindeki **Kaynak oluştur**'a tıklayın.
+1. [Azure portalda][] oturum açın ve ekranın sol üst köşesindeki **Kaynak oluştur**'a tıklayın.
 
 2. **Nesnelerin İnterneti**’ne ve ardından **Event Hubs**’a tıklayın.
 
@@ -95,7 +95,7 @@ Tebrikler! Portalı kullanarak bir Event Hubs ad alanı ve bu ad alanının içi
 
 Olay İşleyicisi Ana Bilgisayarı, olay hub’larına ait kalıcı denetim noktalarını ve paralel alımları yöneterek bu olay hub’larından olay almayı basitleştiren akıllı bir aracıdır. Olay İşleyicisi Ana Bilgisayarı, denetim noktası için bir depolama hesabına ihtiyaç duyar. Aşağıdaki örnekte depolama hesabı oluşturma ve erişim için anahtarını alma adımları gösterilmiştir:
 
-1. [Azure portal][Azure portal] üzerinde oturum açın ve ekranın sol üst köşesindeki **Yeni**’ye tıklayın.
+1. [Azure portalda][Azure portalda] üzerinde oturum açın ve ekranın sol üst köşesindeki **Yeni**’ye tıklayın.
 
 2. **Depolama** ve ardından **Depolama hesabı**’na tıklayın.
    
@@ -173,8 +173,8 @@ Bu makalede, Event Hubs ad alanını ve olay hub'ınızdan olay gönderip almak 
 > [!div class="nextstepaction"]
 > [Event Hubs veri akışları üzerindeki veri anormalliklerini görselleştirme](event-hubs-tutorial-visualize-anomalies.md)
 
-[Ücretsiz hesap oluşturun]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Azure Portal]: https://portal.azure.com/
+[ücretsiz bir hesap oluşturun]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[Azure portalda]: https://portal.azure.com/
 [1]: ./media/event-hubs-quickstart-portal/resource-groups1.png
 [2]: ./media/event-hubs-quickstart-portal/resource-groups2.png
 [3]: ./media/event-hubs-quickstart-portal/sender1.png
