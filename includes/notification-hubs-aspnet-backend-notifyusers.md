@@ -378,7 +378,7 @@ Ardından bu uygulamayı tüm cihazlardan erişilebilir kılmak için bir Azure 
 
 1. **AppBackend** projesine sağ tıklayıp **Yayımla**’yı seçin.
 
-2. Yayımlama hedefi olarak **Microsoft Azure App Service**’i ve ardından **Yayımla’yı seçin. App Service Oluştur penceresi açılır. Burada, Azure’da ASP.NET web uygulamasını çalıştırmak için gereken tüm Azure kaynaklarını oluşturabilirsiniz.
+2. Yayımlama hedefi olarak **Microsoft Azure App Service**’i ve ardından \*\*Yayımla’yı seçin. App Service Oluştur penceresi açılır. Burada, Azure’da ASP.NET web uygulamasını çalıştırmak için gereken tüm Azure kaynaklarını oluşturabilirsiniz.
 
     ![Microsoft Azure App Service kutucuğu][B15]
 
