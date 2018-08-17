@@ -196,13 +196,13 @@ Azure Premium depolama sayesinde, Windows ve Linux çalıştıran sanal makinele
 Linux çalıştıran Premium depolama sayesinde, yüksek performans sağlamak için gerekli sürücüler hakkında en son güncelleştirmeleri denetleyin.
 
 ## <a name="premium-storage-disk-sizes"></a>Premium depolama diski boyutları
-Azure Premium depolama şu anda yedi disk boyutları sunar. Her disk boyutu, IOPS, bant genişliği ve depolama için farklı ölçek sınırına sahiptir. Sağ uygulama gereksinimleri ve büyük ölçekli VM boyutuna bağlı olarak Premium depolama Disk boyutu seçin. Aşağıdaki tabloda, yedi disk boyutları ve bunların özelliklerini gösterir. P4 ve P6 boyutları şu anda yalnızca yönetilen diskler için desteklenir.
+Azure Premium depolama şu anda sekiz disk boyutları sunar. Her disk boyutu, IOPS, bant genişliği ve depolama için farklı ölçek sınırına sahiptir. Sağ uygulama gereksinimleri ve büyük ölçekli VM boyutuna bağlı olarak Premium depolama Disk boyutu seçin. Aşağıdaki tabloda, sekiz diskleri boyutlara ve bunların özelliklerini gösterir. P4, P6 ve P15 boyutları şu anda yalnızca yönetilen diskler için desteklenir.
 
-| Premium disk türü  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Disk boyutu           | 32 GB | 64 GB | 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| Disk başına IOPS       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
-| Disk başına aktarım hızı | Saniye başına 25 MB  | Saniye başına 50 MB  | Saniye başına 100 MB | 150 MB / saniye | Saniye başına 200 MB | Saniye başına 250 MB | Saniye başına 250 MB | 
+| Premium disk türü  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Disk boyutu           | 32 GB | 64 GB | 128 GB| 256 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| Disk başına IOPS       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 
+| Disk başına aktarım hızı | Saniye başına 25 MB  | Saniye başına 50 MB  | Saniye başına 100 MB |Saniye başına 125 MB | 150 MB / saniye | Saniye başına 200 MB | Saniye başına 250 MB | Saniye başına 250 MB | 
 
 
 Seçilen diskte bağlıdır seçtiğiniz kaç diskinin boyutu. Uygulama dağıtımı gereksinimi karşılamak için tek bir P50 disk veya birden çok P10 disk kullanabilirsiniz. Seçim yaparken, aşağıda listelenen hesabında dikkate alınacak noktalar alın.

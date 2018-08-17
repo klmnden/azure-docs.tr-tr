@@ -83,7 +83,7 @@ Portalda, bildirim hub'ınızın **Configure** (Yapılandır) sekmesine gizli an
 ADM kitaplıklarını Eclipse projenize ekleyin:
 
 1. ADM kitaplığını almak için [SDK’yı indirin]. SDK zip dosyasını ayıklayın.
-2. Eclipse'te, projenize sağ tıklayın ve ardından **Properties** (Özellikler) seçeneğine tıklayın. Soldaki **Java Build Path**'ı (Java Derleme Yolu) ve ardından üstteki **Libraries** (Kitaplıklar) sekmesini seçin. **Add External Jar** (Dış Jar Ekle) seçeneğine tıklayın ve Amazon SDK'sını ayıkladığınız dizinden `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` dosyasını seçin.
+2. Eclipse'te, projenize sağ tıklayın ve ardından **Properties** (Özellikler) seçeneğine tıklayın. Soldaki **Java Build Path**'ı (Java Derleme Yolu) ve ardından üstteki Libraries (Kitaplıklar) sekmesini seçin. **Add External Jar** (Dış Jar Ekle) seçeneğine tıklayın ve Amazon SDK'sını ayıkladığınız dizinden `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` dosyasını seçin.
 3. NotificationHubs Android SDK'sını indirin (bağlantı).
 4. Paketin sıkıştırmasını açın ve ardından `notification-hubs-sdk.jar` dosyasını Eclipse'te `libs` klasörünün içine sürükleyin.
 

@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 8a7207328f49488b0df8f6e1e0ed86c6f965d32f
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 533fa1a8491a701571011f407b338e04fb6a7e8b
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34307446"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40182963"
 ---
-B-serisi VM ailesi, hangi VM boyutu en fazla % 100'ünü Intel® Broadwell E5-2673 v4 CPU performans veri bloğu olanağı, iş yükü için gerekli temel düzey performans sağlar seçmenize olanak verir 2.3 GHz veya bir Intel® Haswell 2.4 GHz E5-2673 v3 işlemcisi vCPU.
+B serisi VM ailesi, hangi sanal makine boyutu %100 Intel® Broadwell E5-2673 v4'üne kadar CPU performans düzeyine çıkış yapması özelliği sayesinde, iş yükü için gereken temel düzeyde performans sağlar seçmenizi sağlar 2.3 GHz veya bir Intel® Haswell 2.4 GHz E5-2673 v3 işlemci vCPU.
 
-B-serisi VM'ler CPU tam performansını sürekli olarak, web sunucuları gibi küçük veritabanları ve geliştirme gerekir ve ortamlarında test iş yükleri için idealdir. Bu iş yükleri genellikle burstable performans gereksinimleri vardır. B-serisi, bir VM boyutu taban çizgisi performansı ile satın almanıza olanak sağlar ve taban sayısından az kullanırken VM örneği kredilerinizin tamamını oluşturur. VM kredi birikmiş, VM uygulamanız daha yüksek CPU performans gerektirdiğinde % 100 vCPU, kullanarak temel veri bloğu.
+B serisi sanal makineler, CPU'nun tam performansta küçük veritabanları ve geliştirme gibi web sunucuları gibi sürekli olarak gerekir ve test ortamları iş yükleri için idealdir. Bu iş yükleri genellikle seri aktarıma uygun performans gereksinimleri vardır. B serisi, bir VM boyutu temel performans satın almanıza olanak sağlar ve taban sayısından az kullanılırken, sanal makine örneği kredi oluşturur. VM VM kredi toplandığında, daha yüksek bir CPU performans uygulamanızın gerektirdiği kadar vCPU %100 kullandığınızda temel veri bloğu.
 
-B-serisi aşağıdaki altı VM boyutları sunar:
+B serisi, aşağıdaki altı VM boyutlarında gelir:
 
-| Boyut          | vCPU'ın | Bellek: GiB | Geçici depolama (SSD) GiB | VM temel CPU performans | En fazla CPU performans VM | Bankaya nakledilen krediler / saat | Max krediler Bankaya nakledilen |
+| Boyut          | vCPU'ın | Bellek: GiB | Geçici depolama (SSD) GiB | Sanal makinenin temel bir CPU performans | En fazla CPU performans VM | Bankaya nakledilen KREDİLERİ / saat | En fazla KREDİLERİ Bankaya nakledilen |
 |---------------|--------|-------------|----------------|--------------------------------|---------------------------|-----------------------|--------------------|
 | Standard_B1s  | 1      | 1           | 4              | %10                            | 100%                      | 6                     | 144                |
 | Standard_B1ms | 1      | 2           | 4              | %20                            | 100%                      | 12                    | 288                |
@@ -35,32 +35,32 @@ B-serisi aşağıdaki altı VM boyutları sunar:
 
 ## <a name="q--a"></a>Soru-Cevap 
 
-### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>S: nasıl bir sanal makineden %135 temel performans elde?
-**A**: %135 VM boyutu hale 8 vCPU's arasında paylaşılır. Örneğin, uygulamanız üzerindeki toplu işleme çalışma 8 çekirdek 4 kullanıyorsa ve % 30 kullanımı sırasında çalışan her bu 4 vCPU ait bir VM CPU performans toplam miktarı %120 eşit.  VM kredi zamanını temel performans % 15 delta dayalı derleme anlamına gelir.  Ancak, ayrıca, aynı VM tüm 8 vCPU % 100'ünü kullanabileceğiniz krediler varken bu VM %800 en fazla CPU performansını vermiş olduğunu gösterir.
+### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>S: nasıl bir VM'den %135 temel performans elde ederim?
+**A**: %135 yaptığınız VM boyutu 8 vCPU's arasında paylaşılır. Örneğin, 4, 8 çekirdek toplu işlem üzerinde çalışan uygulama kullanıyorsa ve % 30 kullanımı sırasında çalışan her biri bu 4 vCPU's VM CPU performansı toplam miktarı %120 eşit.  Sanal makinenizin temel performansınızı % 15 deltasında dayalı kredi zaman oluşturursunuz anlamına gelir.  Ancak, aynı VM tüm 8 vCPU, %100 kullanabileceğiniz krediler olduğunda bu VM bir en fazla CPU performans %800 vererek, ayrıca anlamına gelir.
 
 
-### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>S: nasıl ı my kredi bakiyesi ve tüketim izleyebilir mi
-**A**: biz 2 yeni ölçümleri önümüzdeki haftalarda Tanıtımı **kredi** ölçüm etmenizi sağlar, VM Bankaya nakledilen kaç krediler görüntülemek ve **ConsumedCredit** ölçüm kaç CPU gösterir VM banka tüketmiş krediler.    Bu ölçümler ölçümleri bölmesinden portalında veya Azure İzleyici API'ler aracılığıyla programlı olarak görüntülemek kuramaz.
+### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>S: my kredi bakiye ve tüketimi nasıl izleyebilirim
+**A**: şu 2 yeni ölçümler önümüzdeki haftalarda sunmuyoruz **kredi** ölçüm, kaç tane VM'niz Bankaya nakledilen KREDİLERİ görüntülemenize olanak sağlayacaktır ve **ConsumedCredit** ölçüm, kaç CPU gösterilir KREDİLERİ sanal makinenize banka tüketti.    Portalında veya Azure İzleyici API'ler aracılığıyla programlı olarak ölçümleri bölmesinden bu ölçümleri görüntüleme olanağınız olacaktır.
 
-Ölçüm verilerini Azure için erişim hakkında daha fazla bilgi için bkz: [Microsoft Azure ölçümlerini genel bakış](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Ölçüm verilerini Azure için erişim hakkında daha fazla bilgi için bkz. [Microsoft azure'da ölçümlere genel bakış](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-### <a name="q-how-are-credits-accumulated"></a>S: nasıl krediler toplanır?
-**A**: VM Birikme ve tüketim ücretleri en temel performans düzeyde tam olarak çalışan bir VM ne net Birikme ya da krediler emniyeti, tüketim sağlayacak şekilde ayarlanır.  Bir VM temel performans düzeyiyle çalıştığında net bir artış krediler içinde sahip olur ve VM temel performans düzeyiyle'birden fazla CPU kullanan her krediler net bir düşüş gerekir.
+### <a name="q-how-are-credits-accumulated"></a>S: nasıl KREDİLERİ toplanır?
+**A**: VM birikmesi ve Tüketim oranları, tamamen kendi temel performans düzeyinde çalışan bir VM ağ birikmesi veya KREDİLERİ Patlaması, tüketim ne sağlayacak şekilde ayarlanır.  Bir VM, temel performans düzeyinin altında çalışır durumda olduğunda krediler net bir artış olacaktır ve VM temel performans düzeyiyle birden çok CPU kullanan her KREDİLERİ net bir düşüş olur.
 
-**Örnek**: küçük zaman ve katılımcı veritabanı Uygulamam için B1ms boyutu kullanarak bir VM'i dağıtma. Bu boyutta bir vCPU % 20'ye kadar banka veya kullanabilirim dakika başına.2 krediler my taban çizgisi olarak kullanılacak Uygulamam sağlar. 
+**Örnek**: küçük zaman ve katılım veritabanı Uygulamam için B1ms boyutunu kullanarak VM dağıtabilir. Bu boyut en fazla %20 bir vCPU,.2 kredi veya banka kullanabilirim dakika başına my taban çizgisi olarak kullanılacak Uygulamam sağlar. 
 
-Uygulamam başına ve 7:00-09:00:00 ve 4:00-06:00 saatleri arasında my çalışanların iş günü sonunda meşgul. Diğer 20 sırasında günün, Uygulamam genellikle saattir adresindeki, yalnızca % 10 ' vCPU kullanarak boş. Yoğun olmayan saatler ı dakikada 0.2 krediler kazanma ancak VM'im 60 x.1 banka şekilde, dakikada 0.l iadeleri yalnızca tüketen saat başına 6 krediler =.  20, ı yoğun olmayan saatler için ı 120 krediler banka.  
+Uygulamamın 7:00-9:00 ÖÖ ve 4:00-18:00:00 arasında my çalışanların iş günü sonunda ve başındaki meşgul. Diğer 20 saatleri günün Uygulamam genellikle olduğu anda, yalnızca % 10 ' vCPU kullanarak boş. Yoğun olmayan saatler miyim dakika başına 0.2 KREDİLERİ kazanın ancak sanal Makinem 60 x.1 banka şekilde yalnızca dakika başına 0.l aktarımla birlikte bunların 6 KREDİLERİ / saat =.  20, ı yoğun olmayan saatler için ı 120 KREDİLERİ banka.  
 
-Yoğun saatlerde Uygulamam % 60 vCPU kullanımı ortalama, ı hala dakikada 0.2 krediler kazanma ancak dakikada 0,6 krediler kullanmak, net maliyetini.4 krediler için bir dakika veya.4 x 60 = 24 saat başına KREDİLERİ. 4 x 24 = 96 maliyetleri için en yüksek kullanım, günde 4 saat sahip my en yüksek kullanımı için iadeleri.
+Yoğun saatlerde Uygulamam % 60 vCPU kullanımı ortalama, ı hala dakika başına 0.2 KREDİLERİ kazanın ancak ben dakika başına 0,6 aktarımla birlikte bunların,.4 KREDİLERİ net maliyeti için bir dakika ya da.4 x 60 = 24 saatlik kredisi. En yüksek kullanımı, günde 4 saat sahibim 4 x 24 = 96 maliyetleri için en yüksek kullanımı için kredi.
 
-I kazanılan 120 krediler yoğun olmayan almak ve my yoğun saatlerde için kullanılan 96 krediler çıkarma, diğer etkinlik WINS'e için kullanabileceğim günde bir ek 24 krediler banka.
+120 miyim kazanılan krediler yoğun alın ve benim için tepe zamanları kullandım 96 KREDİLERİ çıkarma, ı kullanabileceğim diğer etkinlik patlamalarına günde bir ek 24 KREDİLERİ banka.
 
 
-### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>S: B-serisi Premium depolama veri diskleri destekliyor mu?
-**A**: Evet, tüm B-serisi boyutları Premium depolama veri disklerini destekler.   
+### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>S: B serisi, Premium depolama diskleri destekleyen mu?
+**A**: Evet, Premium depolama diskleri tüm B serisi boyutları destekler.   
     
-### <a name="q-why-is-my-remaining-credit-are-set-to-0-after-a-redepoy-or-a-stopstart"></a>My kalan kredi neden olan 0 olarak ayarlanmış bir redepoy veya Durdur/Başlat sonra?
-**A** : bir VM zamanı "REDPLOYED" olan ve VM başka bir düğüme taşır birikmiş kredi kaybolur. VM durduruldu ve başlatıldı, ancak aynı düğümde kalır, VM birikmiş kredi korur. VM bir düğümünde yeni başlattığında, ilk kredi alır, isteğe bağlı olarak Standard_B8ms için 240 dakika olur.
+### <a name="q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart"></a>S: neden kalan kredilerimi sonra bir yeniden dağıtın veya durdurmak/başlatmak 0 olarak ayarlanır?
+**A** : olduğunda bir VM olan "REDPLOYED" ve sanal Makineyi başka bir düğüme taşır birikmiş kredi kaybolur. VM durduruldu ve başlatıldı ancak aynı düğümde kalır, VM birikmiş kredi korur. Sanal makine bir düğüm üzerinde yeni başlatıldığında bir başlangıç kredisi alır, Standard_B8ms için 240 dakika.
 
     
 
