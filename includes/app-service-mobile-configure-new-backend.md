@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 05/25/2018
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: 4da469ac31c3ee50d601c87b4d7487ae5bb7bc3a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1d3bfb7bc8a5432392dba3b0c5019902b3e59773
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34664025"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39514115"
 ---
 1. **Uygulama Hizmetleri** düğmesine tıklayın, Mobile Apps arka ucunuzu seçin, **Hızlı Başlangıç**’ı seçin ve ardından, istemci platformunuzu (iOS, Android, Xamarin, Cordova) seçin.
 
     ![Mobile Apps Hızlı Başlangıcın vurgulandığı Azure Portal][quickstart]
 
-2. Veritabanı bağlantısı yapılandırılmamışsa aşağıdakileri yaparak bir bağlantı oluşturun:
+1. Veritabanı bağlantısı yapılandırılmamışsa aşağıdakileri yaparak bir bağlantı oluşturun:
 
     ![Mobile Apps ile Azure Portal, veritabanına bağlanma][connect]
 
-    a. Yeni bir SQL veritabanı ve sunucusu oluşturun.
+    a. Yeni bir SQL veritabanı ve sunucusu oluşturun. Aşağıdaki 3 numaralı adımı tamamlamak için bağlantı dizesi adı alanındaki MS_TableConnectionString varsayılan değerini tutmanız gerekir.
 
     ![Mobile Apps ile Azure Portal, yeni veritabanı ve sunucu oluşturma][server]
 
@@ -35,9 +35,9 @@ ms.locfileid: "34664025"
 
     ![Azure Portal bildirimi, "Bir veri bağlantınız zaten var"][already-connection]
 
-3. **2. Tablo API'si oluştur**'un altında **Arka uç dili** olarak Node.js seçeneğini belirleyin.
+1. **2. Tablo API'si oluştur**'un altında **Arka uç dili** olarak Node.js seçeneğini belirleyin.
 
-4. Bildirimi kabul edin ve **TodoItem tablosu oluştur**’u seçin.
+1. Bildirimi kabul edin ve **TodoItem tablosu oluştur**’u seçin.
     Böylece veritabanınızda yeni bir yapılacaklar tablosu oluşturulur.
 
     >[!IMPORTANT]

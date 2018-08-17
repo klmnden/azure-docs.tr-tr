@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 0c7f9807605236a8250d75623d0885730c9945a0
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 83e34f926ec3133f89ccb90979fc3e6708613a80
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950691"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39713936"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Portalda Azure Search hizmeti oluşturma
 
@@ -60,7 +60,7 @@ Azure hizmeti olarak Azure Search, dünyanın dört bir yanındaki veri merkezle
 ## <a name="select-a-pricing-tier-sku"></a>Fiyatlandırma katmanı (SKU) seçme
 [Azure Search şu anda birden fazla fiyatlandırma katmanında sunulmaktadır](https://azure.microsoft.com/pricing/details/search/): Ücretsiz, Temel veya Standart. Her katmanın kendi [kapasitesi ve sınırları](search-limits-quotas-capacity.md) vardır. Yönergeler için [Fiyatlandırma katmanı veya SKU seçme](search-sku-tier.md) bölümüne bakın.
 
-Bu kılavuzda, hizmetimiz için Standart katmanı seçtik.
+Üretim iş yükleri için genellikle Standart seçilir ancak çoğu müşteri başlangıçta Ücretsiz hizmeti kullanır.
 
 Hizmet oluşturulduktan sonra fiyatlandırma katmanı değiştirilemez. Daha yüksek veya daha düşük bir katmana ihtiyacınız olursa, hizmeti yeniden oluşturmanız gerekir.
 

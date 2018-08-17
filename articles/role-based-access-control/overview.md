@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a2e0bf35f73a355197f821f7cce12294f7b35576
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: d0d140a1656719b406567fee431d8e48a51852c5
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344758"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714460"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Rol tabanlı erişim denetimi (RBAC) nedir?
 
@@ -79,16 +79,15 @@ Azure, bir nesne içindeki verilere erişim izni vermenizi sağlayan veri işlem
 
 *Kapsam*, erişimin geçerli olduğu sınırları belirtir. Bir rol atadığınızda kapsam tanımlayarak izin verilen eylemleri sınırlandırabilirsiniz. Bu özellik bir kullanıcıyı yalnızca bir kaynak grubu için [Web Sitesi Katılımcısı](built-in-roles.md#website-contributor) yapmak istediğiniz durumlarda kullanışlıdır.
 
-Azure'da abonelik, kaynak grubu veya kaynak olmak üzere birden fazla seviyede kapsam belirtebilirsiniz. Kapsamlar üst öğe-alt öğe ilişkisine sahiptir ve her alt öğenin yalnızca bir üst öğesi vardır.
+Azure'da [yönetim grubu](../azure-resource-manager/management-groups-overview.md), abonelik, kaynak grubu veya kaynak olmak üzere birden fazla seviyede kapsam belirtebilirsiniz. Kapsamlar üst-alt öğe ilişkisiyle yapılandırılmıştır.
 
 ![Rol ataması kapsamı](./media/overview/rbac-scope.png)
 
-Üst kapsama atadığınız erişim, alt kapsam tarafından devralınır. Örnek:
+Üst kapsamda verdiğiniz erişim izinleri alt kapsamlar tarafından devralınır. Örnek:
 
+- [Sahip](built-in-roles.md#owner) rolünü yönetim grubu kapsamında bir kullanıcıya atarsanız bu kullanıcı yönetim grubundaki tüm aboneliklerde bulunan nesneleri yönetebilir.
 - [Okuyucu](built-in-roles.md#reader) rolünü bir gruba abonelik kapsamında atadığınızda grubun üyeleri aboneliğin içindeki tüm kaynak gruplarını ve kaynakları görüntüleyebilir.
 - [Katkıda bulunan](built-in-roles.md#contributor) rolünü bir uygulamaya kaynak grubu kapsamında atadığınızda ilgili grup bu kaynak grubundaki her türlü kaynağı yönetebilir ancak abonelikteki diğer kaynak gruplarını yönetemez.
-
-Azure ayrıca önizleme sürümünde [yönetim grupları](../azure-resource-manager/management-groups-overview.md) adlı abonelik üstü bir kapsama da sahiptir. Yönetim grupları, birden fazla aboneliği yönetmek için kullanılır. RBAC için kapsam belirtme sırasında bir yönetim grubu veya bir abonelik, kaynak grubu veya kaynak hiyerarşisi belirtebilirsiniz.
 
 ### <a name="role-assignment"></a>Rol ataması
 

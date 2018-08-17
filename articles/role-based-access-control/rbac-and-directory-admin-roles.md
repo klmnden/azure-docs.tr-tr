@@ -1,5 +1,5 @@
 ---
-title: Klasik abonelik yönetici rolleri, Azure RBAC rolleri ve Azure AD yönetici rollerinin karşılaştırması | Microsoft Docs
+title: Klasik abonelik yönetici rolleri ile Azure RBAC rolleri ve Azure AD yönetici rollerinin karşılaştırması | Microsoft Docs
 description: Azure - Klasik abonelik yönetici rolleri, Azure role tabanlı erişim denetimi (RBAC) rolleri ve Azure Active Directory (Azure AD) yönetici rollerindeki farklı roller açıklanmaktadır
 services: active-directory
 documentationcenter: ''
@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/02/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 68127a38e28524b5f093cf0aafb0d0b7bb9ae1b6
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 8c00476078d4e16b649296be42795b92ebbfd9c4
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445459"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714103"
 ---
-# <a name="classic-subscription-administrator-roles-vs-azure-rbac-roles-vs-azure-ad-administrator-roles"></a>Klasik abonelik yönetici rolleri, Azure RBAC rolleri ve Azure AD yönetici rollerinin karşılaştırması
+# <a name="classic-subscription-administrator-roles-vs-azure-rbac-roles-vs-azure-ad-administrator-roles"></a>Klasik abonelik yönetici rolleri ile Azure RBAC rolleri ve Azure AD yönetici rolleri
 
 Azure'da yeniyseniz farklı rolleri kavrama konusunda zorluk yaşıyor olabilirsiniz. Bu makalede aşağıdaki roller ve bunları kullanacağınız zamanlar açıklanmaktadır:
 - Klasik abonelik yönetici rolleri
@@ -63,7 +63,7 @@ Azure abonelikleri, Azure kaynaklarına erişimi düzenlemenize de yardımcı ol
 Hesaplar ve abonelikler [Azure Hesap Merkezi](https://account.azure.com/Subscriptions)'nden yönetilir.
 ## <a name="azure-rbac-roles"></a>Azure RBAC rolleri
 
-Azure RBAC, [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)'ı temel alan, işlem ve depolama gibi Azure kaynakları için ayrıntılı erişim yönetimi sağlayan bir yetkilendirme sistemidir. Azure RBAC'de 60'ın üzerinde yerleşik rol bulunur. Dört temel RBAC rolü vardır. İlk üçü tüm kaynak türleri için geçerlidir:
+Azure RBAC, [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)'ı temel alan, işlem ve depolama gibi Azure kaynakları için ayrıntılı erişim yönetimi sağlayan bir yetkilendirme sistemidir. Azure RBAC'de 70'in üzerinde yerleşik rol bulunur. Dört temel RBAC rolü vardır. İlk üçü tüm kaynak türleri için geçerlidir:
 
 | Azure RBAC rolü | İzinler | Notlar |
 | --- | --- | --- |
