@@ -37,7 +37,7 @@ Oluşturup uygun ölçekte tutarlı bir şekilde Azure sanal makineleri (VM'ler)
 
 Şunları nasıl yapacağınızı öğrenin:
 
-- [Azure Market'ten Puppet dağıtma](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2016-1?tab=Overview).
+- [Azure Market'ten Puppet dağıtma](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2?tab=Overview).
 
 
 ## <a name="cloud-init"></a>Cloud-init
