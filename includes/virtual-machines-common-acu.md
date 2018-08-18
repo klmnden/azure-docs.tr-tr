@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: cynthn;davberg
 ms.custom: include file
-ms.openlocfilehash: 8f2cc3ce7e19a71422d3087bd78f8176bbff7364
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 61119097668fca147c2d20fd50de80fc106b24fe
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "36338314"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "40185315"
 ---
 Kavram, Azure işlem birimi (ACU) açısından, bilgi işlem (CPU) performansını Azure SKU'ları arasında karşılaştırma bir yol sağlar. Bu birim, performans ihtiyaçlarınızı karşılayabilecek SKU'yu kolayca belirlemenize yardımcı olacak.  ACU şu anda Küçük (Standard_A1) VM'de 100 olarak standart haline getirilmiş ve diğer tüm SKU'lar, standart bir karşılaştırmalı testte sunabilecekleri yaklaşık hıza göre derecelendirilmiştir. 
 
@@ -51,4 +51,4 @@ Kavram, Azure işlem birimi (ACU) açısından, bilgi işlem (CPU) performansın
 
 * işaretli ACU'lar, CPU frekansını artırmak ve performans artışı sağlamak için Intel® Turbo Boost teknolojisinden faydalanır.  Performans artışının oranı VM boyutuna, iş yüküne ve aynı ana bilgisayarda çalışan iş yüklerine göre değişiklik gösterebilir.
 
-\*\* Hiper iş parçacığı. 
+** Hyper Threading ve iç içe sanallaştırmayı çalıştıran özellikli
