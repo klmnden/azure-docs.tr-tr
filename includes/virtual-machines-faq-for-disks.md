@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 336e6e163178cd6d244460dbf9bee2a5bc9d714e
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: fabb734d5e21015f7cc3022993f01809daec0648
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37935794"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "40210774"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure Iaas VM diskleri ve yönetilen ve yönetilmeyen premium diskleri hakkında sık sorulan sorular
 
@@ -67,7 +67,7 @@ Hayır. Bir kullanılabilirlik kümesindeki VM'ler, tüm yönetilen diskler veya
 
 **Yönetilen diskler, Azure portalında varsayılan seçenektir?**
 
-Evet. 
+Evet.
 
 **Boş bir yönetilen disk oluşturabilir miyim?**
 
@@ -101,7 +101,6 @@ Müşteriler, yönetilen disk anlık görüntüsünü alın ve sonra başka bir 
 
 Evet, yönetilmeyen ve yönetilen diskleri desteklenir. Yeni iş yükleri için yönetilen diskleri kullanma ve geçerli iş yüklerinizi yönetilen disklere geçirme öneririz.
 
-
 **128 GB disk oluşturun ve ardından 130 GB'a artırırsanız, sonraki disk boyutu (256 GB) ücretlendirilirim?**
 
 Evet.
@@ -129,6 +128,14 @@ Hayır. Bilgisayar adı özelliği güncelleştirilemiyor. Yeni sanal makine iş
 **Yönetilmeyen ve yönetilen diskleri aynı VM'de birlikte bulabilirim?**
 
 Hayır.
+
+**Bir disk blobu oluştururken bu kaynak blob ile sürekli olarak var olan herhangi bir ilişki mı?**
+
+Hayır, yeni disk oluşturulurken o anda o blobu tam tek başına bir kopyası olduğundan ve iki arasında bağlantı yoktur. Diski oluşturduktan sonra isterseniz kaynak blobun herhangi bir şekilde yeni oluşturulan disk etkilemeden silinebilir.
+
+**Oluşturulduktan sonra ı yönetilen veya yönetilmeyen bir disk yeniden adlandırabilir miyim?**
+
+Yönetilen diskler için bunları yeniden adlandıramazsınız. Ancak, şu anda bir VHD veya VM'ye bağlı değil sürece yönetilmeyen disk yeniden adlandırabilirsiniz.
 
 ## <a name="standard-ssd-disks-preview"></a>Standart SSD disk (Önizleme)
 
@@ -177,11 +184,11 @@ Standart SSD disk Hayır, yalnızca yönetilen diskler olarak kullanılabilir.
 **Standart SSD disk "Tek Örnekli sanal makine SLA" destekliyor musunuz?**
 Hayır, standart SSD'ler Tek Örnekli sanal makine SLA'sı yoktur. Premium SSD diskleri tek örnek sanal makine SLA'sını kullanın.
 
-## <a name="migrate-to-managed-disks"></a>Yönetilen Disklere geçme 
+## <a name="migrate-to-managed-disks"></a>Yönetilen Disklere geçme
 
 **Hangi değişiklikleri bir önceden var olan Azure Backup hizmeti yapılandırma önceki/sonraki yönetilen Diskler'e geçiş gerekli midir?**
 
-Değişiklik, gerekmez. 
+Değişiklik, gerekmez.
 
 **Azure Backup hizmeti geçiş işleminden önce aracılığıyla oluşturulan VM yedeklemelerim çalışmaya devam eder mi?**
 
@@ -189,15 +196,15 @@ Evet, yedeklemeler sorunsuz çalışır.
 
 **Hangi değişiklikleri bir önceden var olan Azure disk şifrelemesi yapılandırma önceki/sonraki yönetilen Diskler'e geçiş gerekli midir?**
 
-Değişiklik, gerekmez. 
+Değişiklik, gerekmez.
 
 **Otomatik geçişi mevcut bir sanal makine ölçek kümeleri yönetilmeyen disklerden yönetilen disklere desteklenir mi?**
 
-Hayır. Yeni bir ölçek kümesi yönetilen diskler ile yönetilmeyen diskler eski ölçek kümenizi görüntüyü kullanarak oluşturabilirsiniz. 
+Hayır. Yeni bir ölçek kümesi yönetilen diskler ile yönetilmeyen diskler eski ölçek kümenizi görüntüyü kullanarak oluşturabilirsiniz.
 
 **Yönetilen disklere geçirmeden önce geçen sayfa blob anlık görüntüden yönetilen Disk oluşturabilir miyim?**
 
-Hayır. Sayfa blob anlık görüntüsü bir sayfa blobu dışarı aktarma ve yönetilen bir Disk dışarı aktarılan sayfa blob'u oluşturun. 
+Hayır. Sayfa blob anlık görüntüsü bir sayfa blobu dışarı aktarma ve yönetilen bir Disk dışarı aktarılan sayfa blob'u oluşturun.
 
 **Yönetilen disklerle bir VM için Azure Site Recovery tarafından korunan şirket içi makinelerime üzerinden başarısız olabilir?**
 
@@ -211,7 +218,7 @@ Evet. Yönetilen disklere sahip VM'ler için Azure Site Recovery Azure'a korumay
 
 Evet
 
-## <a name="managed-disks-and-storage-service-encryption"></a>Yönetilen diskler ve depolama hizmeti şifrelemesi 
+## <a name="managed-disks-and-storage-service-encryption"></a>Yönetilen diskler ve depolama hizmeti şifrelemesi
 
 **Yönetilen disk oluşturduğumda Azure depolama hizmeti şifrelemesi varsayılan olarak etkin mi?**
 
