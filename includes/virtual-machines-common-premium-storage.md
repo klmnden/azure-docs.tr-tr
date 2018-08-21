@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 2223c1ed95675a5091ce91a38a7901d6b61ac8d4
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: e6a2493b0bc9e2b4c9695e29ae0c175dac9814fe
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40167116"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40238812"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Yüksek performanslı Premium depolama ve VM'ler için yönetilen diskler
 Azure Premium depolama, giriş/çıkış (g/ç) ile sanal makineleri (VM'ler) için yüksek performanslı, düşük gecikme süreli disk desteği sunar-yoğun iş yükleri. Premium depolama kullanan sanal makine diskleri verileri katı hal sürücülerine (SSD) depolar. Hızını avantajlarından ve premium depolama disklerini performansını yararlanmak için var olan VM diskleri Premium depolamaya geçiş yapabilirsiniz.
@@ -52,7 +52,7 @@ Premium depolama özelliklerinden bazıları şunlardır:
 
 * **Premium depolama diskleri**
 
-    Premium depolama için belirli boyut serisi VM'ler eklenebilecek VM disklerini destekler. Premium depolama, çok çeşitli Azure Vm'leri destekler. Yedi disk boyutları vardır: P4 (32 GB) P6 (64 GB) P10 (128 GB), P20 (512 GB) P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). P4 ve P6 disk boyutları henüz yalnızca yönetilen diskler için desteklenir. Her disk boyutu, kendi performans özellikleri vardır. Uygulama gereksinimlerinize bağlı olarak, sanal makinenizde bir veya daha fazla disk ekleyebilirsiniz. Özellikleri daha ayrıntılı olarak açıklanmaktadır [Premium depolama ölçeklenebilirlik ve performans hedefleri](#scalability-and-performance-targets).
+    Premium depolama için belirli boyut serisi VM'ler eklenebilecek VM disklerini destekler. Premium depolama, çok çeşitli Azure Vm'leri destekler. Yedi disk boyutları vardır: P4 (32 GB) P6 (64 GB) P10 (128 GB) P15 (256 GB), P20 (512 GB) P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). P4 ve P6 disk boyutları henüz yalnızca yönetilen diskler için desteklenir. Her disk boyutu, kendi performans özellikleri vardır. Uygulama gereksinimlerinize bağlı olarak, sanal makinenizde bir veya daha fazla disk ekleyebilirsiniz. Özellikleri daha ayrıntılı olarak açıklanmaktadır [Premium depolama ölçeklenebilirlik ve performans hedefleri](#scalability-and-performance-targets).
 
 * **Premium sayfa blobları**
 

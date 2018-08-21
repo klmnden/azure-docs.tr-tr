@@ -1,0 +1,1 @@
+*İçin geçerlidir: Azure Stack tümleşik sistemleri.*

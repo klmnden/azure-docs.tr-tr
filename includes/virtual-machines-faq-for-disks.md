@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: fabb734d5e21015f7cc3022993f01809daec0648
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: e8005da056c08b21bf0b91dc71b3dafac281de1f
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "40210774"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40238847"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure Iaas VM diskleri ve yönetilen ve yönetilmeyen premium diskleri hakkında sık sorulan sorular
 
@@ -142,18 +142,11 @@ Yönetilen diskler için bunları yeniden adlandıramazsınız. Ancak, şu anda 
 **Azure standart SSD disk nelerdir?**
 Standart SSD disk olarak daha düşük IOPS düzeylerinde tutarlı bir performans gerektiren iş yükleri için düşük maliyetli depolama için iyileştirilmiş katı hal medya tarafından desteklenen standart disklerdir. Önizleme aşamasında oldukları bölgesiyle sınırlı yönetilebilirlik (Resource Manager şablonları kullanılabilir) sınırlı sayıda kullanılabilir.
 
-<a id="standard-ssds-azure-regions"></a>**Standart SSD disk için (Önizleme) şu anda desteklenen bölgeler nelerdir?**
-* Kuzey Avrupa
-* Fransa Orta
-* Doğu ABD 2
-* Orta ABD
-* Orta Kanada
-* Doğu Asya
-* Kore Güney
-* Avustralya Doğu
+<a id="standard-ssds-azure-regions"></a>**Standart SSD disk için şu anda desteklenen bölgeler nelerdir?**
+Tüm Azure bölgelerinde artık standart SSD diskleri destekler.
 
 **Standart SSD disk nasıl oluşturulur?**
-Şu anda, Azure Resource Manager şablonlarını kullanarak standart SSD disk oluşturabilirsiniz. Standart SSD disk oluşturmak için Resource Manager şablonunda gereken parametreleri aşağıdadır:
+Standart SSD disk Azure Resource Manager şablonları, SDK, PowerShell veya CLI kullanarak oluşturabilirsiniz. Standart SSD disk oluşturmak için Resource Manager şablonunda gereken parametreleri aşağıdadır:
 
 * *apiVersion* Microsoft.Compute olarak ayarlanması için `2018-04-01` (veya üzeri)
 * Belirtin *managedDisk.storageAccountType* olarak `StandardSSD_LRS`
@@ -177,6 +170,9 @@ Standart SSD disk ile bir şablon oluşturma tam şablon örneği için bkz [sta
 **Standart SSD için mevcut disklerim dönüştürebilir miyim?**
 Evet, uygulayabilirsiniz. Başvurmak [dönüştürme Azure yönetilen diskler depolama standart, premium ve tersi](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage) yönetilen diskleri dönüştürme için genel yönergeler için. Ve için standart SSD disk türünü güncelleştirmek için aşağıdaki değeri kullanın.
 -AccountType StandardSSD_LRS
+
+**Standart SSD diskleri HDD yerine kullanmanın avantajı nedir?**
+Standart SSD disk daha iyi gecikme süresi, tutarlılık, kullanılabilirlik ve güvenilirlik HDD disklere karşılaştırma sunun. Uygulama iş yükleri üzerinde standart SSD nedeniyle, çok daha sorunsuz bir şekilde çalıştırın. Premium SSD diskleri yoğun g/ç üretim iş yüklerinin çoğu için önerilen çözüm olduğunu unutmayın. 
 
 **Standart SSD yönetilmeyen diskler kullanabilir miyim?**
 Standart SSD disk Hayır, yalnızca yönetilen diskler olarak kullanılabilir.
