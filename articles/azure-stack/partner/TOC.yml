@@ -1,0 +1,76 @@
+items:
+- name: Azure Stack iş ortağı belgeleri
+  href: index.yml
+- name: Genel Bakış
+  href: index.yml
+  items:
+  - name: Azure Stack için hizmet olarak doğrulama
+    href: azure-stack-vaas-overview.md
+  - name: Sürüm notları
+    href: azure-stack-vaas-release-notes.md
+    items:
+    - name: 2018-04-02 güncelleştirme
+      href: azure-stack-partner-update-1803.md
+    - name: 2018-01-30 güncelleştirme
+      href: azure-stack-partner-update-1802.md
+  - name: Bilinen sorunlar
+    href: azure-stack-vaas-known-issues.md
+  expanded: true
+- name: Hızlı Başlangıç
+  items:
+  - name: İlk test pass'inizin zamanlama
+    href: azure-stack-vaas-schedule-your-first-test.md
+- name: Öğretici
+  items:
+  - name: Azure Stack doğrulama ile hesabınızı ayarlama
+    href: azure-stack-vaas-set-up-account.md
+  - name: PowerShell ile Azure Stack doğrulamayı otomatikleştirin
+    href: azure-stack-vaas-automate-with-powershell.md
+  - name: Yeni bir Azure Stack çözüm doğrula
+    href: azure-stack-vaas-validate-solution-new.md
+  - name: OEM paketleri doğrula
+    href: azure-stack-vaas-validate-oem-package.md
+  - name: Microsoft yazılım güncelleştirmeleri doğrulayın
+    href: azure-stack-vaas-validate-microsoft-updates.md
+  - name: Test sanal makineleri
+    href: azure-stack-vaas-test-vm.md
+- name: Kavramlar
+  items:
+  - name: Bir test izleyin
+    href: azure-stack-vaas-monitor-test.md
+  - name: Doğrulama yapılandırma dosyası
+    href: azure-stack-vaas-parameters.md
+  - name: Test parametreleri
+    href: azure-stack-vaas-parameters-test.md
+  - name: Hizmet olarak doğrulama sorunlarını giderme
+    href: azure-stack-vaas-troubleshoot.md
+- name: Başvuru
+  items:
+  - name: (Öğe JH gelen)
+- name: İlgili
+  items:
+  - name: Azure Stack Belgeleri
+    href: /azure/azure-stack
+  - name: Azure Active Directory
+    href: /azure/active-directory/
+    maintainContext: true
+- name: Kaynaklar
+  items:
+  - name: Azure Stack yol haritası
+    href: https://azure.microsoft.com/roadmap/?tag=azure-stack
+  - name: Azure Stack MSDN Forumu
+    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureStack
+  - name: Azure Stack belgeleri geri bildirim
+    href: https://feedback.azure.com/forums/344565-azure-stack?category_id=160275
+  - name: Fiyatlandırma bilgileri
+    href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-stack
+  - name: Eğitim ve sertifika
+    href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
+ms.openlocfilehash: 15f87b24299726c2390c736a9801306e9dcf945b
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40235436"
