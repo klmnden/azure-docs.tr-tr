@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: e1f55b26e7e9f76ae4bc3f6d4af98c8110c3d37a
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 3004e2e4db12b7b5beb7ab024562d4e285c99a50
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399983"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40238279"
 ---
 |  |
 |--|
-|Yönetilen Hizmet Kimliği, Azure Active Directory’nin genel bir önizleme özelliğidir. Başlamadan önce [bilinen sorunları](/azure/active-directory/managed-service-identity/known-issues) gözden geçirdiğinizden emin olun. Önizlemeler hakkında daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+|Yönetilen Hizmet Kimliği, Azure Active Directory’nin bir özelliğidir. [Yönetilen hizmet kimliğini destekleyen Azure hizmetlerinin](/azure/active-directory/managed-service-identity/services-support-msi) her biri kendi zaman çizelgesine tabidir. Başlamadan önce kaynağınıza yönelik yönetilen kimliklerin [kullanılabilirlik](/azure/active-directory/managed-service-identity/services-support-msi) durumunu ve [bilinen sorunları](/azure/active-directory/managed-service-identity/known-issues) gözden geçirdiğinizden emin olun.|
 |  |

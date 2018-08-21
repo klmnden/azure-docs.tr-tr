@@ -5,19 +5,19 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: include
-ms.date: 07/05/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: a7ed21d8246b618149aa0d116070a14b033d5370
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 74d96952d6cafb6bd7bb16ccf2f4d69b4fbd6de3
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869653"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40233974"
 ---
 ## <a name="enable-event-grid-resource-provider"></a>Event Grid kaynak sağlayıcısını etkinleştirme
 
-Azure aboneliğinizde daha önce Event Grid kullanmadıysanız Event Grid kaynak sağlayıcısına kaydolmanız gerekebilir. Şu komutu çalıştırın:
+Azure aboneliğinizde daha önce Event Grid kullanmadıysanız Event Grid kaynak sağlayıcısına kaydolmanız gerekebilir. Sağlayıcıyı kaydetmek için şu komutu çalıştırın:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.EventGrid
@@ -26,7 +26,7 @@ az provider register --namespace Microsoft.EventGrid
 Kayıt işleminin tamamlanması biraz sürebilir. Durumu denetlemek için şunu çalıştırın:
 
 ```azurecli-interactive
-az provider show -n Microsoft.EventGrid --query "registrationState"
+az provider show --namespace Microsoft.EventGrid --query "registrationState"
 ```
 
 `registrationState` `Registered` olduğu zaman devam edebilirsiniz.
