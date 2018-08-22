@@ -19,8 +19,8 @@ Oluşturup uygun ölçekte tutarlı bir şekilde Azure sanal makineleri (VM'ler)
 Şunları nasıl yapacağınızı öğrenin:
 
 - [Yükleme ve Azure ile kullanmak için Linux üzerinde Ansible yapılandırma](../articles/virtual-machines/linux/ansible-install-configure.md).
-- [Temel VM oluşturma](../articles/virtual-machines/linux/ansible-create-vm.md).
-- [Destekleyen kaynaklar dahil olmak üzere eksiksiz bir VM ortamı oluşturma](../articles/virtual-machines/linux/ansible-create-complete-vm.md).
+- [Bir Linux sanal makinesi oluşturma](../articles/virtual-machines/linux/ansible-create-vm.md).
+- [Bir Linux sanal makinesini yönetin](../articles/virtual-machines/linux/ansible-manage-linux-vm.md).
 
 
 ## <a name="chef"></a>Chef

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: 021ae7808f53c3417a9f9ba5f427cb34c5e585b4
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 70f80b880fadaeb4d5859524b3ba3b55ececbdda
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40182989"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40258399"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Uygun maliyetli standart depolama ile yönetilmeyen ve yönetilen Azure VM diskleri
 
@@ -42,7 +42,7 @@ Yönetilen disklerle bir VM oluşturma hakkında daha fazla bilgi için aşağı
 
 Standart depolama özelliklerinden bazılarını gösteren bir göz atalım. Daha fazla ayrıntı için lütfen bkz [Azure Storage'a giriş](../articles/storage/common/storage-introduction.md).
 
-**Standart depolama**: Azure Standard Storage, Azure diskleri, Azure Blobları, Azure dosyaları, Azure tabloları ve Azure kuyruklarının destekler. İle standart depolama hizmetlerini kullanmak için başlangıç [bir Azure depolama hesabı oluşturma](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
+**Standart depolama**: Azure Standard Storage, Azure diskleri, Azure Blobları, Azure dosyaları, Azure tabloları ve Azure kuyruklarının destekler. İle standart depolama hizmetlerini kullanmak için başlangıç [bir Azure depolama hesabı oluşturma](../articles/storage/common/storage-quickstart-create-account.md).
 
 **Standart SSD disk:** standart SSD disk standart HDD diskleri daha daha güvenilir performans sağlar ve şu anda Önizleme sürümünde kullanılabilir. Standart SSD disk bölge kullanılabilirliği hakkında daha fazla bilgi için bkz. [standart SSD disk (Önizleme) bölge kullanılabilirliği](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
 
