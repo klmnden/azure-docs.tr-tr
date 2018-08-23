@@ -1,273 +1,286 @@
+items:
 - name: Genel Bakış
   href: azure-ad-developers-guide.md
   items:
-    - name: Neden Azure AD?
-      href: 'https://azure.microsoft.com/develop/identity/signin/'
-    - name: Auth temel bilgileri
-      href: authentication-scenarios.md
-    - name: Uygulama türleri
-      href: 'authentication-scenarios.md#application-types-and-scenarios'
+  - name: Neden Azure AD?
+    href: https://azure.microsoft.com/develop/identity/signin/
+  - name: Auth temel bilgileri
+    href: authentication-scenarios.md
+  - name: Uygulama türleri
+    href: authentication-scenarios.md#application-types-and-scenarios
 - name: Başlarken
   items:
-    - name: Mobil ve Masaüstü uygulamaları
-      items:
-        - name: Genel Bakış
-          href: 'active-directory-authentication-scenarios.md#native-application-to-web-api'
-        - name: iOS
-          href: quickstart-v1-ios.md
-        - name: Android
-          href: quickstart-v1-android.md
-        - name: .NET (Windows Masaüstü)
-          href: quickstart-v1-dotnet.md
-        - name: .NET (Xamarin)
-          href: quickstart-v1-xamarin.md
-        - name: OAuth 2.0
-          href: v1-protocols-oauth-code.md
-    - name: Web uygulamaları
-      items:
-        - name: Genel Bakış
-          href: 'active-directory-authentication-scenarios.md#web-browser-to-web-application'
-        - name: ASP.NET
-          href: quickstart-v1-aspnet-webapp.md
-        - name: ASP.NET Çekirdeği
-          href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore'
-        - name: Java
-          href: 'https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect'
-        - name: Python
-          href: 'https://github.com/Azure-Samples/active-directory-python-webapp-graphapi'
-        - name: NodeJS
-          href: quickstart-v1-openid-connect-code.md
-        - name: OpenID Connect
-          href: v1-protocols-openid-connect-code.md
-    - name: Tek Sayfa Uygulamaları
-      items:
-        - name: Genel Bakış
-          href: 'active-directory-authentication-scenarios.md#single-page-application-spa'
-        - name: Angular JS
-          href: quickstart-v1-angularjs-spa.md
-        - name: Javascript
-          href: 'https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi'
-    - name: Web API'leri
-      items:
-        - name: Genel Bakış
-          href: 'active-directory-authentication-scenarios.md#web-application-to-web-api'
-        - name: ASP.NET
-          href: quickstart-v1-dotnet-webapi.md
-        - name: NodeJS
-          href: quickstart-v1-nodejs-webapi.md
-    - name: Hizmetten Hizmete
-      items:
-        - name: Genel Bakış
-          href: 'active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api'
-        - name: .NET
-          href: 'sample-v1-code.md#server-or-daemon-application-to-web-api'
-        - name: OAuth 2.0 istemci kimlik bilgileri
-          href: v1-oauth2-client-creds-grant-flow.md
+  - name: Mobil ve Masaüstü uygulamaları
+    items:
+    - name: Genel Bakış
+      href: active-directory-authentication-scenarios.md#native-application-to-web-api
+    - name: iOS
+      href: quickstart-v1-ios.md
+    - name: Android
+      href: quickstart-v1-android.md
+    - name: .NET (Windows Masaüstü)
+      href: quickstart-v1-dotnet.md
+    - name: .NET (Xamarin)
+      href: quickstart-v1-xamarin.md
+    - name: OAuth 2.0
+      href: v1-protocols-oauth-code.md
+  - name: Web uygulamaları
+    items:
+    - name: Genel Bakış
+      href: active-directory-authentication-scenarios.md#web-browser-to-web-application
+    - name: ASP.NET
+      href: quickstart-v1-aspnet-webapp.md
+    - name: ASP.NET Çekirdeği
+      href: https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore
+    - name: Java
+      href: https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect
+    - name: Python
+      href: https://github.com/Azure-Samples/active-directory-python-webapp-graphapi
+    - name: NodeJS
+      href: quickstart-v1-openid-connect-code.md
+    - name: OpenID Connect
+      href: v1-protocols-openid-connect-code.md
+  - name: Tek Sayfa Uygulamaları
+    items:
+    - name: Genel Bakış
+      href: active-directory-authentication-scenarios.md#single-page-application-spa
+    - name: Angular JS
+      href: quickstart-v1-angularjs-spa.md
+    - name: Javascript
+      href: https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi
+  - name: Web API'leri
+    items:
+    - name: Genel Bakış
+      href: active-directory-authentication-scenarios.md#web-application-to-web-api
+    - name: ASP.NET
+      href: quickstart-v1-dotnet-webapi.md
+    - name: NodeJS
+      href: quickstart-v1-nodejs-webapi.md
+  - name: Hizmetten Hizmete
+    items:
+    - name: Genel Bakış
+      href: active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api
+    - name: .NET
+      href: sample-v1-code.md#server-or-daemon-application-to-web-api
+    - name: OAuth 2.0 istemci kimlik bilgileri
+      href: v1-oauth2-client-creds-grant-flow.md
 - name: Kılavuzlar
   items:
-    - name: Uygulama kaydı
-      href: quickstart-v1-integrate-apps-with-azure-ad.md
-    - name: Çok kiracılı uygulamalar
-      href: howto-convert-app-to-be-multi-tenant.md
-    - name: Koşullu erişim
-      href: conditional-access-dev-guide.md
-    - name: İzinler
-      href: v1-permissions-and-consent.md
-    - name: OAuth ve OpenID Connect
-      items:
-        - name: OpenID Connect protokolü
-          href: v1-protocols-openid-connect-code.md
-        - name: OAuth 2.0 kimlik doğrulama kodu verme
-          href: v1-protocols-oauth-code.md
-        - name: OAuth 2.0 örtülü izin
-          href: v1-oauth2-implicit-grant-flow.md
-    - name: SAML 2.0
-      href: active-directory-saml-protocol-reference.md
-      items:
-        - name: Rol talebini yapılandırma
-          href: ../active-directory-enterprise-app-role-management.md
-        - name: Talep özelleştirme
-          href: active-directory-saml-claims-customization.md
-        - name: SAML tabanlı SSO hata ayıklama
-          href: howto-v1-debug-saml-sso-issues.md
-        - name: Çoklu oturum açma SAML protokolü
-          href: single-sign-on-saml-protocol.md
-        - name: Çoklu oturum kapatma SAML protokolü
-          href: single-sign-out-saml-protocol.md
-    - name: Kiracı oluşturma
-      href: quickstart-create-new-tenant.md
-    - name: Hizmet koşulları ve gizlilik bildirimi
-      href: howto-add-terms-of-service-privacy-statement.md
-    - name: Marka yönergeleri
-      href: howto-add-branding-in-azure-ad-apps.md
-    - name: Mobil ve Masaüstü SSO
-      items:
-        - name: Android’de SSO etkinleştirme
-          href: howto-v1-enable-sso-android.md
-        - name: iOS’te SSO etkinleştirme
-          href: howto-v1-enable-sso-ios.md
-    - name: Azure AD B2B
-      href: ../active-directory-b2b-what-is-azure-ad-b2b.md
-    - name: SCIM ile kullanıcı sağlama
-      href: ../active-directory-scim-provisioning.md
-    - name: Azure AD Graph API
-      href: active-directory-graph-api.md
-      items:
-        - name: AAD Graph’ı kullanmaya başlama
-          href: active-directory-graph-api-quickstart.md
-    - name: AppSource sertifikasyonu
-      href: howto-get-appsource-certified.md
-    - name: Azure AD uygulama galerisi
-      href: howto-app-gallery-listing.md
-    - name: Office 365 Satıcı Panosu
-      href: 'https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard'
-    - name: Visual Studio ile çalışma
-      items:
-        - name: Active Directory bağlı hizmetini kullanma
-          href: vs-active-directory-add-connected-service.md
-        - name: .NET MVC projelerini kullanmaya başlama
-          href: vs-active-directory-dotnet-getting-started.md
-        - name: .NET MVC projeme ne oldu?
-          href: vs-active-directory-dotnet-what-happened.md
-        - name: .NET WebAPI projelerini kullanmaya başlama
-          href: vs-active-directory-webapi-getting-started.md
-        - name: WebAPI projeme ne oldu?
-          href: vs-active-directory-webapi-what-happened.md
-        - name: Kimlik doğrulama algılama sırasında bir hata oluştu
-          href: vs-active-directory-error.md
-    - name: Windows Server ADFS
-      href: 'https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers'
-    - name: ACS Geçişi
-      href: active-directory-acs-migration.md
-    - name: ADAL hatalarıyla ilgili en iyi uygulamalar
-      href: active-directory-devhowto-adal-error-handling.md
+  - name: Uygulama kaydı
+    href: quickstart-v1-integrate-apps-with-azure-ad.md
+  - name: Çok kiracılı uygulamalar
+    href: howto-convert-app-to-be-multi-tenant.md
+  - name: Koşullu erişim
+    href: conditional-access-dev-guide.md
+  - name: İzinler
+    displayName: Scopes
+    href: v1-permissions-and-consent.md
+  - name: OAuth ve OpenID Connect
+    items:
+    - name: OpenID Connect protokolü
+      href: v1-protocols-openid-connect-code.md
+    - name: OAuth 2.0 kimlik doğrulama kodu verme
+      href: v1-protocols-oauth-code.md
+    - name: OAuth 2.0 örtülü izin
+      href: v1-oauth2-implicit-grant-flow.md
+  - name: SAML 2.0
+    href: active-directory-saml-protocol-reference.md
+    items:
+    - name: Rol talebini yapılandırma
+      href: ../active-directory-enterprise-app-role-management.md
+    - name: Talep özelleştirme
+      href: active-directory-saml-claims-customization.md
+    - name: SAML tabanlı SSO hata ayıklama
+      href: howto-v1-debug-saml-sso-issues.md
+    - name: Çoklu oturum açma SAML protokolü
+      href: single-sign-on-saml-protocol.md
+    - name: Çoklu oturum kapatma SAML protokolü
+      href: single-sign-out-saml-protocol.md
+  - name: Kiracı oluşturma
+    href: quickstart-create-new-tenant.md
+  - name: Hizmet koşulları ve gizlilik bildirimi
+    href: howto-add-terms-of-service-privacy-statement.md
+  - name: Marka yönergeleri
+    href: howto-add-branding-in-azure-ad-apps.md
+  - name: Mobil ve Masaüstü SSO
+    items:
+    - name: Android’de SSO etkinleştirme
+      href: howto-v1-enable-sso-android.md
+    - name: iOS’te SSO etkinleştirme
+      href: howto-v1-enable-sso-ios.md
+  - name: Azure AD B2B
+    href: ../active-directory-b2b-what-is-azure-ad-b2b.md
+  - name: SCIM ile kullanıcı sağlama
+    href: ../active-directory-scim-provisioning.md
+  - name: Azure AD Graph API
+    href: active-directory-graph-api.md
+    items:
+    - name: AAD Graph’ı kullanmaya başlama
+      href: active-directory-graph-api-quickstart.md
+  - name: AppSource sertifikasyonu
+    href: howto-get-appsource-certified.md
+  - name: Azure AD uygulama galerisi
+    href: howto-app-gallery-listing.md
+  - name: Office 365 Satıcı Panosu
+    href: https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard
+  - name: Visual Studio ile çalışma
+    items:
+    - name: Active Directory bağlı hizmetini kullanma
+      href: vs-active-directory-add-connected-service.md
+    - name: .NET MVC projelerini kullanmaya başlama
+      href: vs-active-directory-dotnet-getting-started.md
+    - name: .NET MVC projeme ne oldu?
+      href: vs-active-directory-dotnet-what-happened.md
+    - name: .NET WebAPI projelerini kullanmaya başlama
+      href: vs-active-directory-webapi-getting-started.md
+    - name: WebAPI projeme ne oldu?
+      href: vs-active-directory-webapi-what-happened.md
+    - name: Kimlik doğrulama algılama sırasında bir hata oluştu
+      href: vs-active-directory-error.md
+  - name: Windows Server ADFS
+    href: https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers
+  - name: ACS Geçişi
+    href: active-directory-acs-migration.md
+  - name: ADAL hatalarıyla ilgili en iyi uygulamalar
+    href: active-directory-devhowto-adal-error-handling.md
 - name: Başvuru
   items:
-    - name: Kod örnekleri
-      href: 'https://azure.microsoft.com/resources/samples/?service=active-directory'
-    - name: Kimlik doğrulama kitaplıkları (ADAL)
-      href: active-directory-authentication-libraries.md
-    - name: Senaryoya göre kod örnekleri
-      href: sample-v1-code.md
-    - name: Sözlük
-      href: developer-glossary.md
-    - name: Kimlik doğrulama protokolleri
-      href: active-directory-authentication-protocols.md
-      items:
-        - name: OpenID Connect
-          href: v1-protocols-openid-connect-code.md
-        - name: Oauth
-          href: v1-protocols-oauth-code.md
-        - name: Hizmetten hizmete çağrılar
-          href: v1-oauth2-client-creds-grant-flow.md
-        - name: On-behalf-of akışı
-          href: v1-oauth2-on-behalf-of-flow.md
-        - name: Desteklenen belirteç ve talep türleri
-          href: v1-id-and-access-tokens.md
-        - name: İsteğe bağlı ve özel uygulama taleplerini yapılandırma
-          href: active-directory-optional-claims.md
-        - name: İmzalama anahtarı geçiş işlemi
-          href: active-directory-signing-key-rollover.md
-        - name: Federasyon meta verileri
-          href: azure-ad-federation-metadata.md
-        - name: Sertifika kimlik bilgileri
-          href: active-directory-certificate-credentials.md
-    - name: Uygulama nesneleri
-      href: app-objects-and-service-principals.md
-      items:
-        - name: Uygulamalar ve Azure AD
-          href: active-directory-how-applications-are-added.md
-    - name: Uygulama bildirimi
-      href: reference-app-manifest.md
-    - name: Belirteç kullanım ömrü
-      href: ../active-directory-configurable-token-lifetimes.md
-    - name: Hizmet sınırlamaları
-      href: ../active-directory-service-limits-restrictions.md
+  - name: Kod örnekleri
+    href: https://azure.microsoft.com/resources/samples/?service=active-directory
+  - name: Kimlik doğrulama kitaplıkları (ADAL)
+    href: active-directory-authentication-libraries.md
+  - name: Senaryoya göre kod örnekleri
+    displayName: ADAL
+    href: sample-v1-code.md
+  - name: Sözlük
+    href: developer-glossary.md
+  - name: Kimlik doğrulama protokolleri
+    href: active-directory-authentication-protocols.md
+    items:
+    - name: OpenID Connect
+      href: v1-protocols-openid-connect-code.md
+    - name: Oauth
+      href: v1-protocols-oauth-code.md
+    - name: Hizmetten hizmete çağrılar
+      href: v1-oauth2-client-creds-grant-flow.md
+    - name: On-behalf-of akışı
+      href: v1-oauth2-on-behalf-of-flow.md
+    - name: Desteklenen belirteç ve talep türleri
+      href: v1-id-and-access-tokens.md
+    - name: İsteğe bağlı ve özel uygulama taleplerini yapılandırma
+      href: active-directory-optional-claims.md
+    - name: İmzalama anahtarı geçiş işlemi
+      href: active-directory-signing-key-rollover.md
+    - name: Federasyon meta verileri
+      href: azure-ad-federation-metadata.md
+    - name: Sertifika kimlik bilgileri
+      href: active-directory-certificate-credentials.md
+  - name: Uygulama nesneleri
+    href: app-objects-and-service-principals.md
+    items:
+    - name: Uygulamalar ve Azure AD
+      href: active-directory-how-applications-are-added.md
+  - name: Uygulama bildirimi
+    href: reference-app-manifest.md
+  - name: Belirteç kullanım ömrü
+    href: ../active-directory-configurable-token-lifetimes.md
+  - name: Hizmet sınırlamaları
+    href: ../active-directory-service-limits-restrictions.md
 - name: v2.0 uç nokta
+  displayName: MSAL
   items:
-    - name: Genel Bakış
-      href: active-directory-appmodel-v2-overview.md
+  - name: Genel Bakış
+    href: active-directory-appmodel-v2-overview.md
+    items:
+    - name: Uygulama türleri
+      href: v2-app-types.md
+    - name: Sınırlamalar
+      href: active-directory-v2-limitations.md
+    - name: v1-v2 karşılaştırması
+      href: azure-ad-endpoint-comparison.md
+  - name: Başlarken
+    items:
+    - name: Mobil ve Masaüstü uygulamaları
       items:
-        - name: Uygulama türleri
-          href: v2-app-types.md
-        - name: Sınırlamalar
-          href: active-directory-v2-limitations.md
-        - name: v1-v2 karşılaştırması
-          href: azure-ad-endpoint-comparison.md
-    - name: Başlarken
+      - name: iOS
+        href: tutorial-v2-ios.md
+      - name: Android
+        href: tutorial-v2-android.md
+      - name: Windows Masaüstü .NET
+        href: tutorial-v2-windows-desktop.md
+      - name: Evrensel Windows Platformu
+        href: tutorial-v2-windows-uwp.md
+    - name: Web uygulamaları
       items:
-        - name: Mobil ve Masaüstü uygulamaları
-          items:
-            - name: iOS
-              href: tutorial-v2-ios.md
-            - name: Android
-              href: tutorial-v2-android.md
-            - name: Windows Masaüstü .NET
-              href: tutorial-v2-windows-desktop.md
-            - name: Evrensel Windows Platformu
-              href: tutorial-v2-windows-uwp.md
-        - name: Web uygulamaları
-          items:
-            - name: ASP.NET
-              href: tutorial-v2-asp-webapp.md
-            - name: ASP.NET Çekirdeği
-              href: 'https://azure.microsoft.com/resources/samples/active-directory-aspnetcore-webapp-openidconnect-v2'
-            - name: NodeJS
-              href: 'https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs'
-        - name: Web API'leri
-          items:
-            - name: ASP.NET
-              href: 'https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet'
-            - name: ASP.NET Çekirdeği
-              href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2'
-            - name: NodeJS
-              href: 'https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2'
-        - name: Tek sayfa uygulamalar
-          items:
-            - name: JavaScript
-              href: tutorial-v2-javascript-spa.md
-        - name: Hizmetten hizmete
-          items:
-            - name: ASP.NET
-              href: 'https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2'
-    - name: Kılavuzlar
+      - name: ASP.NET
+        href: tutorial-v2-asp-webapp.md
+      - name: ASP.NET Çekirdeği
+        href: https://azure.microsoft.com/resources/samples/active-directory-aspnetcore-webapp-openidconnect-v2
+      - name: NodeJS
+        href: https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs
+    - name: Web API'leri
       items:
-        - name: Bir uygulamayı kaydetme
-          href: quickstart-v2-register-an-app.md
-        - name: Uygulama kayıt başvurusu
-          href: active-directory-v2-registration-portal.md
-    - name: Başvuru
+      - name: ASP.NET
+        href: https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet
+      - name: ASP.NET Çekirdeği
+        href: https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2
+      - name: NodeJS
+        href: https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2
+    - name: Tek sayfa uygulamalar
       items:
-        - name: Kimlik doğrulama kitaplıkları
-          href: reference-v2-libraries.md
-        - name: Senaryoya göre v2.0 kod örnekleri
-          href: sample-v2-code.md
-        - name: v2.0 kimlik doğrulama protokolleri
-          href: active-directory-v2-protocols.md
-          items:
-            - name: OpenID Connect
-              href: v2-protocols-oidc.md
-            - name: OAuth 2.0 yetkilendirme kodu verme
-              href: v2-oauth2-auth-code-flow.md
-            - name: OAuth 2.0 örtülü izin
-              href: v2-oauth2-implicit-grant-flow.md
-            - name: OAuth 2.0 istemci kimlik bilgileri verme
-              href: v2-oauth2-client-creds-grant-flow.md
-            - name: OAuth 2.0 on-behalf-of akışı
-              href: v2-oauth2-on-behalf-of-flow.md
-            - name: Sertifika kimlik bilgileri
-              href: active-directory-certificate-credentials.md
-            - name: OAuth 2.0 kod örneği
-              href: active-directory-protocols-oauth-get-jwt-token.md
-        - name: Belirteçler
-          href: v2-id-and-access-tokens.md
-        - name: Kapsamlar ve Onay
-          href: v2-permissions-and-consent.md
+      - name: JavaScript
+        href: tutorial-v2-javascript-spa.md
+    - name: Hizmetten hizmete
+      items:
+      - name: ASP.NET
+        href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
+  - name: Kılavuzlar
+    items:
+    - name: Bir uygulamayı kaydetme
+      href: quickstart-v2-register-an-app.md
+    - name: Uygulama kayıt başvurusu
+      href: active-directory-v2-registration-portal.md
+  - name: Başvuru
+    items:
+    - name: Kimlik doğrulama kitaplıkları
+      displayName: MSAL
+      href: reference-v2-libraries.md
+    - name: Senaryoya göre v2.0 kod örnekleri
+      displayName: MSAL
+      href: sample-v2-code.md
+    - name: v2.0 kimlik doğrulama protokolleri
+      displayName: MSAL
+      href: active-directory-v2-protocols.md
+      items:
+      - name: OpenID Connect
+        href: v2-protocols-oidc.md
+      - name: OAuth 2.0 yetkilendirme kodu verme
+        href: v2-oauth2-auth-code-flow.md
+      - name: OAuth 2.0 örtülü izin
+        href: v2-oauth2-implicit-grant-flow.md
+      - name: OAuth 2.0 istemci kimlik bilgileri verme
+        href: v2-oauth2-client-creds-grant-flow.md
+      - name: OAuth 2.0 on-behalf-of akışı
+        href: v2-oauth2-on-behalf-of-flow.md
+      - name: Sertifika kimlik bilgileri
+        href: active-directory-certificate-credentials.md
+      - name: OAuth 2.0 kod örneği
+        href: active-directory-protocols-oauth-get-jwt-token.md
+    - name: Belirteçler
+      href: v2-id-and-access-tokens.md
+    - name: Kapsamlar ve Onay
+      href: v2-permissions-and-consent.md
 - name: Kaynaklar
   items:
-    - name: Yardım alma
-      href: developer-support-help-options.md
-    - name: Azure yol haritası
-      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
-    - name: Fiyatlandırma hesaplayıcı
-      href: 'https://azure.microsoft.com/pricing/calculator/'
+  - name: Yardım alma
+    href: developer-support-help-options.md
+  - name: Azure yol haritası
+    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: Fiyatlandırma hesaplayıcı
+    href: https://azure.microsoft.com/pricing/calculator/
+ms.openlocfilehash: 4bc0ff25b45da262d7db0bea3546edca23457ff6
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41927691"

@@ -17,12 +17,12 @@
 ### [AAD uygulaması oluşturmak için Azure PowerShell’i kullanma](media-services-powershell-create-and-configure-aad-app.md)
 
 ## İsteğe bağlı video gönderme
-### [Azure Portal](media-services-portal-vod-get-started.md)
+### [Azure portalındaki](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
 ## Canlı akış gerçekleştirme
-### [Azure Portal](media-services-portal-live-passthrough-get-started.md)
+### [Azure portalındaki](media-services-portal-live-passthrough-get-started.md)
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
 # Nasıl yapılır
@@ -31,7 +31,7 @@
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
 ### [Akış uç noktaları](media-services-streaming-endpoints-overview.md)
-#### [Azure Portal](media-services-portal-manage-streaming-endpoints.md)
+#### [Azure portalındaki](media-services-portal-manage-streaming-endpoints.md)
 #### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### Depolama
 #### [Depolama erişim anahtarlarını değiştirdikten Sonra Media Services’ı güncelleştirme](media-services-roll-storage-access-keys.md)
@@ -43,7 +43,7 @@
 ### [Ortam](postman-environment.md)
 ## İçerik yükleme
 ### Bir hesaba dosya yükleme
-#### [Azure Portal](media-services-portal-upload-files.md)
+#### [Azure portalındaki](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
 ### [Aspera ile büyük dosyaları karşıya yükleme](media-services-upload-files-with-aspera.md)
@@ -57,7 +57,7 @@
 #### [Media Encoder Standard Biçimleri ve Kod Çözücüleri](media-services-media-encoder-standard-formats.md)
 #### [Otomatik olarak bit hızı merdiveni oluşturmak için MES kullanma](media-services-autogen-bitrate-ladder-with-mes.md)
 #### Media Encoder Standard ile kodlama
-##### [Azure Portal](media-services-portal-encode.md)
+##### [Azure portalındaki](media-services-portal-encode.md)
 ##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 ##### [REST](media-services-rest-encode-asset.md)
 #### [MES ile gelişmiş kodlama](media-services-advanced-encoding-with-mes.md)
@@ -112,10 +112,10 @@
 ## [Canlı akış](media-services-manage-channels-overview.md)
 ### [Şirket içi kodlayıcılar](media-services-live-streaming-with-onprem-encoders.md)
 #### [Önerilen şirket içi kodlayıcılar](media-services-recommended-encoders.md)
-#### [Azure Portal](media-services-portal-live-passthrough-get-started.md)
+#### [Azure portalındaki](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [Bulut kodlayıcıyla canlı akış](media-services-manage-live-encoder-enabled-channels.md)
-#### [Azure Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+#### [Azure portalındaki](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Şirket içi kodlayıcıları bulut kodlayıcıyla kullanılmak üzere yapılandırma](media-services-live-encoders-overview.md)
 #### [FMLE kodlayıcı](media-services-configure-fmle-live-encoder.md)
@@ -131,7 +131,7 @@
 ### [Klavye kısayollarını yapılandırma](media-services-azure-media-clipper-keyboard-shortcuts.md)
 ### [Yerelleştirmeyi yapılandırma](media-services-azure-media-clipper-localization.md)
 ### [Kırpma işlerini gönderme](media-services-azure-media-clipper-submit-job.md)
-### [Azure Portal](media-services-azure-media-clipper-portal.md)
+### [Azure portalındaki](media-services-azure-media-clipper-portal.md)
 
 ## [İçerik koruma](media-services-content-protection-overview.md)
 ### [Depolama şifrelemesi](media-services-rest-storage-encryption.md)
@@ -153,7 +153,7 @@
 #### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
 #### [REST](media-services-rest-configure-asset-delivery-policy.md)
 ### İçerik anahtarı yetkilendirme ilkesini yapılandırma
-#### [Azure Portal](media-services-portal-configure-content-key-auth-policy.md)
+#### [Azure portalındaki](media-services-portal-configure-content-key-auth-policy.md)
 #### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
 ### [Kimlik doğrulama belirteçlerini AMS’ye geçirme](media-services-pass-authentication-tokens.md)
@@ -181,10 +181,10 @@
 
 ## Ölçek
 ### [Medya İşleme](media-services-scale-media-processing-overview.md)
-#### [Azure Portal](media-services-portal-scale-media-processing.md)
+#### [Azure portalındaki](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
 ### Akış Uç Noktaları
-#### [Azure Portal](media-services-portal-scale-streaming-endpoints.md)
+#### [Azure portalındaki](media-services-portal-scale-streaming-endpoints.md)
 
 ## [İçerik teslim etme](media-services-deliver-content-overview.md)
 ### [Dinamik paketleme](media-services-dynamic-packaging-overview.md)
@@ -193,7 +193,7 @@
 #### [REST ile filtre oluşturma](media-services-rest-dynamic-manifest.md)
 ### [Media Services Uzantısında CDN Önbelleğe Alma İlkesi](../../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
 ### İçerik yayımlama
-#### [Azure Portal](media-services-portal-publish.md)
+#### [Azure portalındaki](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
 #### [REST](media-services-rest-deliver-streaming-content.md)
 ### [İndirme ile teslim etme](media-services-deliver-asset-download.md)
@@ -216,7 +216,7 @@
 ## İzleme
 ### İşin ilerleme durumunu denetleme
 #### [REST](media-services-rest-check-job-progress.md)
-#### [Azure Portal](media-services-portal-check-job-progress.md)
+#### [Azure portalındaki](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
 ### [Kuyruk depolama ile iş bildirimlerini izleme](media-services-dotnet-check-job-progress-with-queues.md)
 ### [Web kancaları ile iş bildirimlerini izleme](media-services-dotnet-check-job-progress-with-webhooks.md)
@@ -230,7 +230,7 @@
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=media-services)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
-## [Azure PowerShell (Hizmet Yönetimi)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure PowerShell (Hizmet Yönetimi)](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](/rest/api/media/mediaservice)
 ## Belirtimler

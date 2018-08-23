@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2018
 ms.author: kumud
-ms.openlocfilehash: b3a9bbe8b88df4ac7dcb96903341e92261a2649b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c969dbc347f0463f6f675a11f69776948d45a9e2
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39532048"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42023850"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>Hızlı başlangıç: Yüksek oranda kullanılabilir web uygulaması için Traffic Manager profili oluşturma
 
@@ -128,7 +128,7 @@ Artık gerekli olmadığında kaynak grubunu, web uygulamalarını ve tüm ilgil
 Bu hızlı başlangıçta yüksek oranda kullanılabilir bir web uygulaması oluşturma amacıyla kullanıcı trafiğini yönlendirmenizi sağlayan bir Traffic Manager profili oluşturdunuz. Trafiği yönlendirme hakkında daha fazla bilgi edinmek için Traffic Manager öğreticilerine geçin.
 
 > [!div class="nextstepaction"]
-> [Traffic Manager öğreticileri](traffic-manager-configure-performance-routing-method.md)
+> [Traffic Manager öğreticileri](tutorial-traffic-manager-improve-website-response.md)
 
 
 
