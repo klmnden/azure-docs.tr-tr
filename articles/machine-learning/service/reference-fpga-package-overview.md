@@ -1,57 +1,57 @@
 ---
-title: Azure Machine Learning donanım hızlandırmasını için FPGA paketi
-description: Azure Machine Learning kullanıcılar için kullanılabilir python paketlerini hakkında bilgi edinin.
+title: Azure Machine Learning için donanım hızlandırma FPGA paketi
+description: Azure Machine Learning kullanıcıların kullanımına python paketleri hakkında bilgi edinin.
 ms.service: machine-learning
-ms.component: studio
+ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-ms.author: routlaw
-author: rloutlaw
+ms.author: tedway
+author: tedway
 ms.date: 05/07/2018
-ms.openlocfilehash: e680ef34be1d5dae2942c432de5e81fe620bbdc4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a81f5f811058f3c7940da79419b9801225716e6b
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832987"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42055943"
 ---
-# <a name="azure-machine-learning-hardware-acceleration-package"></a>Azure Machine Learning donanım hızlandırma paketi
+# <a name="azure-machine-learning-hardware-acceleration-package"></a>Azure Machine Learning donanım hızlandırma paket
 
-Azure Machine Learning donanım hızlandırmasını paket Python PIP yüklenebilir için bir veri bilimcileri ve AI geliştiricilerin hızla sağlayan Azure Machine Learning uzantıdır:
+Veri bilimcileri ve yapay ZEKA geliştiricilerine hızla sağlayan Azure Machine Learning için Python bir kolayca yüklenebilir uzantısı Azure Machine Learning donanım hızlandırma pakettir:
 
-+ ResNet 50 quantized sürümüyle Featurize görüntüleri
++ ResNet-50 quantized sürümüyle özellik kazandırın görüntüleri
 
-+ Bu özellikleri temel sınıflandırıcı eğitme
++ Bu özelliklere göre sınıflandırıcılar eğitin
 
-+ Modellere dağıtmak [alan programlanabilir kapısı diziler (FPGA)](concept-accelerate-with-fpgas.md) son derece düşük gecikme süresi inferencing için azure'da
++ Model için [alan programlanabilir kapı dizileri (FPGA)](concept-accelerate-with-fpgas.md) Ultra düşük gecikme süresi çıkarım için azure'da
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 1. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-1. Bir Azure Machine Learning modeli yönetim hesabı oluşturmanız gerekir. Hesap oluşturma hakkında daha fazla bilgi için bkz: [Azure Machine Learning Quickstart ve çalışma ekranı yükleme](../service/quickstart-installation.md) belge. 
+1. Bir Azure Machine Learning Model Yönetimi hesabı oluşturmanız gerekir. Hesap oluşturmayla ilgili daha fazla bilgi için [Azure Machine Learning hızlı ve Workbench'i yükleme](../service/quickstart-installation.md) belge. 
 
 1. Paketin yüklenmesi gerekir. 
 
  
 ## <a name="how-to-install-the-package"></a>Paket yükleme
 
-1. En son sürümünü karşıdan yükleyip [Git](https://git-scm.com/downloads).
+1. En son sürümünü indirip [Git](https://git-scm.com/downloads).
 
 2. Yükleme [Anaconda (Python 3.6)](https://conda.io/miniconda.html)
 
-3. Önceden yapılandırılmış bir Anaconda ortamı indirmek için Git isteminden şu komutu kullanın:
+   Önceden yapılandırılmış bir Anaconda ortam indirmek için Git isteminden aşağıdaki komutu kullanın:
 
     ```
     git clone https://aka.ms/aml-real-time-ai
     ```
-5. Ortamı oluşturmak için açık bir **Anaconda komut istemi** ve aşağıdaki komutu kullanın:
+1. Ortam oluşturmak için açık bir **Anaconda istemi** ve aşağıdaki komutu kullanın:
 
     ```
     conda env create -f aml-real-time-ai/environment.yml
     ```
 
-6. Ortam etkinleştirmek için aşağıdaki komutu kullanın:
+1. Ortam etkinleştirmek için aşağıdaki komutu kullanın:
 
     ```
     conda activate amlrealtimeai
@@ -59,15 +59,15 @@ Azure Machine Learning donanım hızlandırmasını paket Python PIP yüklenebil
 
 ## <a name="sample-code"></a>Örnek kod
 
-Bu örnek kod, bir model için bir FPGA dağıtmak için SDK kullanılarak üzerinden açıklanmaktadır.
+Bu örnek kod SDK'sını kullanarak bir FPGA için model dağıtma adımları gösterilmektedir.
 
-1. Paket içeri aktarın:
+1. Paketi içeri aktarın:
    ```python
    import amlrealtimeai
    from amlrealtimeai import resnet50
    ```
 
-1. Ön işleme görüntü:
+1. Görüntünün önceden işleyebilir:
    ```python 
    from amlrealtimeai.resnet50.model import LocalQuantizedResNet50
    model_path = os.path.expanduser('~/models')
@@ -75,7 +75,7 @@ Bu örnek kod, bir model için bir FPGA dağıtmak için SDK kullanılarak üzer
    print(model.version)
    ```
 
-1. Featurize görüntüler:
+1. Özellik kazandırın görüntüler:
    ```python 
    from amlrealtimeai.resnet50.model import LocalQuantizedResNet50
    model_path = os.path.expanduser('~/models')
@@ -83,7 +83,7 @@ Bu örnek kod, bir model için bir FPGA dağıtmak için SDK kullanılarak üzer
    print(model.version)
    ```
 
-1. Bir sınıflandırıcı oluşturun:
+1. Sınıflandırıcı oluşturma:
    ```python
    model.import_graph_def(include_featurizer=False)
    print(model.classifier_input)
@@ -104,7 +104,7 @@ Bu örnek kod, bir model için bir FPGA dağıtmak için SDK kullanılarak üzer
    print(service_def_path)
    ```
  
-1. Modelin bir FPGA üzerinde çalıştırmak için hazırlayın:
+1. Model bir FPGA üzerinde çalıştırmak için hazırlayın:
    ```python
    from amlrealtimeai import DeploymentClient
 
@@ -118,7 +118,7 @@ Bu örnek kod, bir model için bir FPGA dağıtmak için SDK kullanılarak üzer
    deployment_client = DeploymentClient(subscription_id, resource_group, model_management_account)
    ```
 
-1. Bir FPGA üzerinde çalıştırmak için modeli dağıtın:
+1. Bir FPGA üzerinde çalıştırmak için model dağıtma:
    ```python
    service = deployment_client.get_service_by_name(service_name)
    model_id = deployment_client.register_model(model_name, service_def_path)

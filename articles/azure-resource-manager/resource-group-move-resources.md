@@ -4,22 +4,20 @@ description: Kaynakları yeni kaynak grubuna veya aboneliğe taşıma için Azur
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 69614fe84941ea2003d39de165c692b812d10785
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7ddab3717626df14f491662849d01cb85658791c
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503589"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617299"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -57,7 +55,7 @@ Bir kaynağı taşımadan önce gerçekleştirmeniz gereken bazı önemli adıml
   Kaynak ve hedef abonelikler için Kiracı kimlikleri aynı değilse, Kiracı kimlikleri karşılaştırmak için aşağıdaki yöntemleri kullanın:
 
   * [Azure aboneliğinin sahipliğini başka bir hesaba devretme](../billing/billing-subscription-transfer.md)
-  * [İlişkilendirme veya Azure Active Directory'ye bir Azure aboneliği ekleme](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+  * [Azure Active Directory'ye bir Azure aboneliğini ekleme veya ilişkilendirme](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 2. Hizmet, kaynakları taşıma olanağını sağlamalıdır. Bu makalede, hangi hizmetlerin kaynakların taşınması etkinleştirmek ve hangi hizmetlerin kaynakların taşınması etkinleştirme listelenmektedir.
 3. Hedef abonelik, taşınan kaynağın kaynak sağlayıcısına kayıtlı olmalıdır. Belirten bir hata alırsanız, **kaynak türü için abonelik kayıtlı değil**. Kaynağı taşıdığınız yeni abonelik, ilgili kaynak türüyle daha önce kullanılmamışsa bu sorunla karşılaşabilirsiniz.
@@ -113,11 +111,11 @@ Bu makalede gösterilen Self-Servis işlemler çoğu kaynaklarında taşıyabili
 
 Bir yeni kaynak grubuna ve aboneliğe geri taşıyarak sağlayan hizmetler şunlardır:
 
+* Analysis Services
 * API Management
 * App Service uygulamaları (web uygulamaları) - bkz [App Service kısıtlamaları](#app-service-limitations)
 * App Service Sertifikaları
 * Application Insights
-* Analysis Services
 * Otomasyon
 * Azure Active Directory B2C
 * Azure Cosmos DB
@@ -133,6 +131,8 @@ Bir yeni kaynak grubuna ve aboneliğe geri taşıyarak sağlayan hizmetler şunl
 * Bilişsel Hizmetler
 * Container Kayıt Defteri
 * Content Moderator
+* Maliyet Yönetimi
+* Customer Insights
 * Veri Kataloğu
 * Data Factory
 * Data Lake Analytics
@@ -141,12 +141,14 @@ Bir yeni kaynak grubuna ve aboneliğe geri taşıyarak sağlayan hizmetler şunl
 * Event Grid
 * Event Hubs
 * Bkz: HDInsight kümeleri - [HDInsight sınırlamaları](#hdinsight-limitations)
+* IOT Central
 * IoT Hub
 * Key Vault
 * Yük Dengeleyiciler - bkz [yük dengeleyici sınırlamaları](#lb-limitations)
 * Log Analytics
 * Logic Apps
 * Machine Learning - Machine Learning Studio web hizmetleri aynı abonelikte ancak farklı bir abonelikte bir kaynak grubuna taşındı. Diğer Machine Learning kaynakları abonelikler arasında taşınabilir.
+* Yönetilen kimlik - kullanıcı tarafından atanan
 * Media Services
 * Mobile Engagement
 * Notification Hubs
@@ -160,6 +162,7 @@ Bir yeni kaynak grubuna ve aboneliğe geri taşıyarak sağlayan hizmetler şunl
 * Arama
 * Service Bus
 * Service Fabric
+* Service Fabric Mesh
 * SignalR hizmeti
 * Depolama
 * Depolama alanı (Klasik) - [Klasik dağıtım sınırlamalarını](#classic-deployment-limitations)
@@ -187,15 +190,19 @@ Bir yeni kaynak grubuna ve aboneliğe geri taşıyarak sağlayan hizmetler şunl
 * Azure Databricks
 * Batch AI
 * Sertifikalar - App Service sertifikaları taşınabilir, ancak karşıya yüklenen Sertifikalar [sınırlamaları](#app-service-limitations).
+* Container Instances
 * Kapsayıcı Hizmeti
+* Data Box
+* Geliştirme alanları
 * Dynamics LCS
 * Express Route
-* Kubernetes hizmeti
+* Kubernetes Service
 * Lab Services'i - aynı Abonelikteki yeni kaynak grubuna taşıma etkin, ancak çapraz abonelik taşıma etkin değil.
 * Yük Dengeleyiciler - bkz [yük dengeleyici sınırlamaları](#lb-limitations)
 * Yönetilen Uygulamalar
 * Bkz: yönetilen diskler - [sanal makineler sınırlamaları](#virtual-machines-limitations)
 * Microsoft Genomiks
+* NetApp
 * Genel IP - bkz [genel IP kısıtlamaları](#pip-limitations)
 * Kurtarma Hizmetleri kasası - ayrıca yoksa, Kurtarma Hizmetleri kasası ile ilişkili işlem, ağ ve depolama kaynakları taşıma bkz [kurtarma Hizmetleri sınırlamalarını](#recovery-services-limitations).
 * Azure’da SAP HANA
@@ -225,7 +232,7 @@ Key Vault'ta depolanan bir sertifika ile sanal makineler için yeni bir kaynak g
 
 ## <a name="virtual-networks-limitations"></a>Sanal ağlar sınırlamaları
 
-Bir sanal ağ taşırken, bağımlı kaynaklarını da taşımanız gerekir. Örneğin, ağ geçitleri sanal ağ ile taşımanız gerekir.
+Bir sanal ağ taşırken, bağımlı kaynaklarını da taşımanız gerekir. VPN ağ geçitleri için IP adresleri, sanal ağ geçitleri ve tüm ilişkili bağlantı kaynakları taşımanız gerekir. Yerel ağ geçitleri farklı kaynak grubunda olabilir.
 
 Eşlenmiş sanal ağın taşımak için önce sanal ağ eşlemesi devre dışı bırakmanız gerekir. Devre dışı sonra sanal ağ taşıyabilirsiniz. Taşıma sonrasında, sanal ağ eşlemesi yeniden etkinleştirin.
 

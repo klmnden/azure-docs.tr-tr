@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 79585195cf95e2074a1c455c82faa500af20218a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d7cbeebff42bddd93cac35a0205d031a90bb4715
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618776"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42059948"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB dizin verileri nasıl yapar?
 
@@ -36,6 +36,22 @@ Bu makaleyi okuduktan sonra aşağıdaki soruları yanıtlamak mümkün olacakt�
 * ORDER BY veya aralık sorguları gerçekleştirmek üzere nasıl yapılandırabilirim?
 * Bir koleksiyonun dizin oluşturma ilkesini için nasıl bir değişiklik yapıyor?
 * Nasıl miyim depolama ve farklı bir dizin oluşturma ilkeleri performansını karşılaştırmak?
+
+## <a id="Indexing"></a> Cosmos DB'yi dizine ekleme
+
+İyi bir aktarım hızı ve düşük gecikme süresi sunarken en düşük kaynak tüketimi (CPU ve giriş/çıkış gibi) çeşitli formlar ve şekiller sorgular sunmak için veritabanı dizinleri amacı budur. Genellikle, bir veritabanı'nı sorgulamak için doğru dizin seçimi kadar planlama ve deneme gerektirir. Bu yaklaşım verilerin katı bir şemaya uygun değil ve geliştikçe hızlı bir şekilde şemasız veritabanları için bir sınama oluşturur. 
+
+Bu nedenle, Cosmos DB dizinleme alt tasarladığımız, biz aşağıdaki hedefleri ayarlayın:
+
+* Dizin belgeleri şema gerek kalmadan: dizin oluşturma alt sistemi tüm şema bilgileri gerektirmez veya şeması hakkında varsayımlar belgeleri.  
+
+* Verimli, zengin hiyerarşik ve ilişkisel sorguları için destek: hiyerarşik ve ilişkisel projeksiyonlar desteği dahil olmak üzere verimli bir şekilde dizini Cosmos sorgu dili destekler.  
+
+* Sürekli bir yazma işlemleri hacmini in face of tutarlı sorgu desteği: yüksek yazma işleme iş yükleri için tutarlı sorgularla dizini artımlı olarak, verimli ve çevrimiçi sürekli bir yazma işlemleri hacmini karşılaşıldığında güncelleştirilir. Tutarlı dizin güncelleştirme kullanıcı belge hizmeti yapılandırılmış tutarlılık düzeyinde sorgular sunmak çok önemlidir.  
+
+* Çok kiracılı desteği: ayırmaya dayalı modeli için kaynak İdaresi kiracılar genelinde göz önünde bulundurulduğunda, dizin güncelleştirmelerini çoğaltma ayrılan sistem kaynaklarının (CPU, bellek ve saniye başına giriş/çıkış işlemi) bir bütçe içinde gerçekleştirilir.  
+
+* Depolama verimliliği: sınırlanmış ve tahmin edilebilir maliyet verimliliği için dizini disk üzerinde depolama yükü. Cosmos DB sorgu performansı ile ilgili olarak dizin yükü arasındaki dengeleri maliyet tabanlı hale getirmek Geliştirici izin verdiği için önemlidir.  
 
 ## Bir koleksiyonun dizin oluşturma ilkesini özelleştirme <a id="CustomizingIndexingPolicy"></a>  
 Varsayılan dizinleme ilkesinin bir Azure Cosmos DB koleksiyonu geçersiz kılarak, depolama, yazma ve sorgu performansı ve sorgu tutarlılık arasındaki dengelemeler özelleştirebilirsiniz. Aşağıdaki durumlara yapılandırabilirsiniz:

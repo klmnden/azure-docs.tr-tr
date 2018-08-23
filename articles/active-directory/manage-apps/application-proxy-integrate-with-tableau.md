@@ -1,26 +1,23 @@
 ---
 title: Azure Active Directory Uygulama proxy'si ve Tableau | Microsoft Docs
-description: Tableau dağıtımınız için uzaktan erişim sağlamak için Azure Active Directory (Azure AD) uygulama proxy'si kullanmayı öğrenin.  .
+description: Tableau dağıtımınız için uzaktan erişim sağlamak için Azure Active Directory (Azure AD) uygulama proxy'si kullanmayı öğrenin.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/20/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 7cace1af527c1c7c80bf0e23f7a88aa9ac9f9d03
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: a68b0465acdb416cd953e22d7f024eb399c94493
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365031"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42059767"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory Uygulama proxy'si ve Tableau 
 
@@ -35,19 +32,10 @@ Bu makaledeki senaryoda, olduğunu varsayar:
 - Bir [uygulama ara sunucusu bağlayıcısını](application-proxy-enable.md) yüklü. 
 
  
-
 ## <a name="enabling-application-proxy-for-tableau"></a>Tableau için uygulama ara sunucusunu etkinleştirme 
 
-Uygulama proxy'si için Tableau kullanmak istiyorsanız, bir e-posta göndermek gereken [ aadapfeedback@microsoft.com ](mailto:aadapfeedback@microsoft.com) etkin bu senaryo alınamıyor.
-E-postanızda:
+Uygulama Ara sunucusu OAuth 2.0 yetki akışı, düzgün çalışması Tableau için gerekli olduğu destekler. Başka bir deyişle, artık, yayımlama adımları izleyerek yapılandırma dışında bu uygulama, etkinleştirmek için gereken tüm özel adım vardır.
 
--   Uygulama Ara sunucusunu etkinleştirme Tableau için konu olarak kullanın.
--   Kiracı Kimliğinizi gövdesinde içerir    
-
-Uygulamayı kullanmaya hazır olduğunuzda, bir onay alırsınız. Onay beklenirken yapılandırmaları tamamlayabilir.
-
-
- 
 
 ## <a name="publish-your-applications-in-azure"></a>Uygulamalarınızı Azure'da yayımlayın 
 

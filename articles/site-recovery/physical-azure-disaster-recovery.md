@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 173423c1a578500a990d6a7b43017d06ea96f6e7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3a82fa0464cd98c1e056e097018ba22ac19d72ac
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704909"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056366"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Şirket içi fiziksel sunucuların azure'a olağanüstü durum kurtarmayı ayarlama
 
@@ -76,7 +76,7 @@ Ayarlanmış bir [Azure ağı](../virtual-network/quick-create-portal.md).
 
 ## <a name="set-up-an-azure-storage-account"></a>Azure depolama hesabı ayarlama
 
-Ayarlanmış bir [Azure depolama hesabı](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+Ayarlanmış bir [Azure depolama hesabı](../storage/common/storage-quickstart-create-account.md).
 
 - Site Recovery, şirket içi makinelerin Azure depolama alanına çoğaltır. Yük devretme gerçekleştikten sonra depolamadan azure sanal makineleri oluşturulur.
 - Depolama hesabının, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir.

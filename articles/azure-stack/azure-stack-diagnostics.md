@@ -1,54 +1,54 @@
 ---
 title: Azure Stack’te tanılama
-description: Azure yığınında tanılama günlük dosyaları toplamak nasıl
+description: Azure Stack'te tanılama günlük dosyaları toplamak nasıl
 services: azure-stack
 author: jeffgilb
 manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 08/22/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 50fef25a3b7b71821e64638729eb8d93f65b9e31
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: a36609ae63351070bb28469d9ccf1f3deb7bc6ff
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064047"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616958"
 ---
-# <a name="azure-stack-diagnostics-tools"></a>Azure yığın tanılama araçları
+# <a name="azure-stack-diagnostics-tools"></a>Azure Stack tanılama araçları
 
-Azure yığın birlikte çalışan ve birbiriyle etkileşim bileşenleri büyük bir koleksiyonudur. Tüm bu bileşenlerin kendi benzersiz günlükler oluşturur. Bu, özellikle Azure yığın bileşenleri etkileşim birden çok from gelen hataları zor bir görev tanılama sorunları hale getirebilirsiniz. 
+Azure Stack, birlikte çalışan ve birbiriyle etkileşim bileşenleri büyük bir koleksiyonudur. Bu bileşenler, kendi benzersiz günlükler oluşturur. Bu, özellikle birden çok Azure Stack bileşenleri etkileşim gelen hatalara zor bir görev tanılama sorunlarını hale getirebilirsiniz. 
 
-Bizim tanılama araçları, kolay ve verimli günlüğü koleksiyonu mekanizması sağlamaya yardımcı olur. Aşağıdaki diyagramda gösterildiği toplama araçları Azure yığın işlerinde nasıl oturum:
+Tanılama araçlarımızı kolay ve etkili günlük toplama mekanizması olduğundan emin olun yardımcı olur. Aşağıdaki diyagramda gösterildiği Azure Stack iş verileri toplama araçları nasıl oturum açın:
 
-![Azure yığın tanılama araçları](media/azure-stack-diagnostics/get-azslogs.png)
+![Azure Stack tanılama araçları](media/azure-stack-diagnostics/get-azslogs.png)
  
  
-## <a name="trace-collector"></a>Trace Toplayıcı
+## <a name="trace-collector"></a>Toplayıcısı izleme
  
-Trace Toplayıcı varsayılan olarak etkindir ve Azure yığın bileşen hizmetlerinden tüm olay izleme için Windows (ETW) günlükleri toplamak için arka planda sürekli olarak çalışır. ETW günlükleri beş gün yaş sınırına sahip ortak bir yerel paylaşıma depolanır. Bu sınıra ulaşıldığında, yeni bir tane oluşturuldukça eski dosyalar silinir. Her dosya için varsayılan boyut üst sınırını 200 MB'tır. Bir boyut denetimi 2 dakikada bir gerçekleşir ve geçerli dosya > = 200 MB kaydedilir ve yeni bir dosya oluşturulur. Ayrıca bir 8 GB sınırı yoktur olay oturumu oluşturulan toplam dosya boyutu. 
+İzleme toplayıcı, varsayılan olarak etkindir ve sürekli olarak Azure Stack bileşeni hizmetlerinden tüm olay izleme için Windows (ETW) günlüklerini toplamak için arka planda çalıştırır. ETW günlükleri beş gün yaş sınırı sahip ortak bir yerel paylaşıma depolanır. Bu sınıra ulaşıldığında, yeni oluşturulan eski dosyalar silinir. Her dosya için geçerli varsayılan en büyük boyutu 200 MB'dir. Bir boyut denetimi 2 dakikada bir gerçekleşir ve geçerli dosya > 200 MB = kaydedildikten ve yeni bir dosya oluşturulur. Ayrıca bir 8 GB sınırı yoktur olay oturumu oluşturulan toplam dosya boyutu. 
 
-## <a name="log-collection-tool"></a>Günlük koleksiyonu aracı
+## <a name="log-collection-tool"></a>Günlük toplama aracı
  
-PowerShell cmdlet **Get-AzureStackLog** Azure yığın ortamında tüm bileşenleri günlükleri toplamak için kullanılabilir. Bu kullanıcı tanımlı bir konumda ZIP dosyaları kaydeder. Azure yığın teknik destek ekibinin sorunu gidermenize yardımcı olması için günlüklerinizi gerekiyorsa, bunlar, bu aracı çalıştırmanızı isteyebilir.
+PowerShell cmdlet **Get-AzureStackLog** Azure Stack ortamında tüm bileşenleri günlükleri toplamak için kullanılabilir. Bu kullanıcı tarafından tanımlanan bir konumda zip dosyaları kaydeder. Azure yığını teknik destek ekibinden bir sorunu gidermeye yardımcı olmak için günlüklerinizi gerekiyorsa, bunlar, bu aracı çalıştırmak için isteyebilir.
 
 > [!CAUTION]
-> Bu günlük dosyaları, kişisel bilgileri (PII) içerebilir. Genel olarak tüm günlük dosyalarını sonrası önce bu dikkate alın.
+> Bu günlük dosyaları, kişisel bilgileri (PII) içerebilir. Genel olarak tüm günlük dosyalarını göndermeden önce bunu dikkate alın.
  
 Toplanan bazı örnek günlük türleri şunlardır:
-*   **Azure yığın dağıtım günlükleri**
+*   **Azure Stack dağıtım günlükleri**
 *   **Windows olay günlükleri**
 *   **Panther günlükleri**
 *   **Küme günlükleri**
-*   **Depolama tanılama günlükleri**
+*   **Depolama, tanılama günlükleri**
 *   **ETW günlükleri**
 
-Bu dosyalar toplanır ve bir paylaşımına izleme toplayıcısı tarafından kaydedilir. **Get-AzureStackLog** PowerShell cmdlet'ini ardından bunları gerekli olduğunda toplamak için kullanılabilir.
+Bu dosyalar toplanan ve bir paylaşımı izleme toplayıcısı tarafından kaydedildi. **Get-AzureStackLog** PowerShell cmdlet'i ardından bunları gerekli olduğunda toplamak için kullanılabilir.
 
-### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems"></a>Tümleşik sistemleri Azure yığında Get-AzureStackLog çalıştırmak için 
-Tümleşik bir sistemde oturum koleksiyonu aracını çalıştırmak için erişim için ayrıcalıklı uç noktası (CESARETLENDİRİCİ) olması gerekir. Tümleşik bir sistemde günlükleri toplamak için CESARETLENDİRİCİ kullanarak çalıştırabilirsiniz bir örnek komut dosyası şöyledir:
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems"></a>Get-AzureStackLog Azure Stack'te çalıştırılacak tümleşik sistemleri 
+Günlük toplama aracı, tümleşik bir sistemde çalıştırmak için erişim için ayrıcalıklı uç noktasına (CESARETLENDİRİCİ) olması gerekir. Tümleşik bir sistemde günlükleri toplamak için CESARETLENDİRİCİ kullanarak çalıştırabileceğiniz bir örnek betiği şu şekildedir:
 
 ```powershell
 $ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
@@ -71,100 +71,102 @@ if($s)
 }
 ```
 
-- Parametreleri **OutputSharePath** ve **OutputShareCredential** günlükleri harici bir paylaşılan klasöre yüklemek için kullanılır.
-- Önceki örnekte gösterildiği gibi **FromDate** ve **ToDate** parametreleri, belirli bir süre için günlükleri toplamak için kullanılabilir. Bu tümleşik bir sistemde bir güncelleştirme paketini uygulamadan sonra günlükleri toplamayı gibi senaryolar için kullanışlı gelebilir.
+- Parametreleri **OutputSharePath** ve **OutputShareCredential** harici paylaşılan klasör için günlükleri karşıya yüklemek için kullanılır.
+- Önceki örnekte gösterilen şekilde **FromDate** ve **ToDate** parametreleri, belirli bir süre için günlükleri toplamak için kullanılabilir. Bu güncelleştirme paketi üzerinde tümleşik bir sistem uygulandıktan sonra günlüklerinin toplanması gibi senaryolar için kullanışlı olabilir.
 
 
  
-### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Get-AzureStackLog bir Azure yığın Geliştirme Seti (ASDK) sistemde çalıştırmak için
-1. Olarak oturum açın **AzureStack\CloudAdmin** ana bilgisayarda.
-2. Bir yönetici olarak bir PowerShell penceresi açın.
+### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Get-AzureStackLog bir Azure Stack geliştirme Seti'ni (ASDK) sistem üzerinde çalışacak şekilde
+1. Olarak oturum **AzureStack\CloudAdmin** konaktaki.
+2. Yönetici olarak bir PowerShell penceresi açın.
 3. Çalıştırma **Get-AzureStackLog** PowerShell cmdlet'i.
 
 **Örnekler:**
 
-  Tüm rolleri için tüm günlükleri toplama:
+  Tüm roller için tüm günlükleri toplayın:
 
   ```powershell
   Get-AzureStackLog -OutputPath C:\AzureStackLogs
   ```
 
-  VirtualMachines ve BareMetal rollerinden günlüklerini toplayın:
+  Günlükleri VirtualMachines ve BareMetal rollerdeki verileri toplar:
 
   ```powershell
   Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
   ```
 
-  Tarihi geçmiş 8 saat için günlük dosyalarını filtreleme ile VirtualMachines ve BareMetal rollerinden günlüklerini toplayın:
+  Günlük VirtualMachines ve BareMetal rollerden son 8 saat boyunca günlük dosyaları için filtreleme tarihi olan toplama:
     
   ```powershell
   Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
   ```
 
-  8 saat önce 2 saat önce arasındaki zaman aralığı için günlük dosyaları için filtreleme tarihle VirtualMachines ve BareMetal rollerinden günlüklerini toplayın:
+  Günlük VirtualMachines ve BareMetal rollerden 8 saat önce önce 2 saat arasındaki zaman aralığı için günlük dosyaları için filtreleme tarihi olan toplama:
 
   ```powershell
   Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>ASDK ve tümleşik sistemleri için parametre konuları
+### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>ASDK hem tümleşik sistemler için parametre konuları
 
-- Varsa **FromDate** ve **ToDate** parametreleri belirtilmemişse, günlükleri, son dört saat için varsayılan olarak toplanır.
-- Kullanabileceğiniz **TimeOutInMinutes** günlük toplama için zaman aşımını ayarlamanız parametresi. Varsayılan olarak, 150 (2.5 saat) ayarlanır.
-- Sürüm 1805 ve daha sonra döküm dosyası günlük toplama varsayılan olarak devre dışıdır. Etkinleştirmek için kullanın **IncludeDumpFile** parametresi geçin. 
+- Varsa **FromDate** ve **ToDate** parametreleri belirtilmemişse, varsayılan olarak son dört saat boyunca günlükleri toplanır.
+- Kullanım **FilterByNode** günlükleri bilgisayar adına göre filtre uygulamak için parametre. Örneğin, ```Get-AzureStackLog -OutputPath <path> -FilterByNode azs-xrp01```
+- Kullanım **FilterByLogType** günlükleri türüne göre filtrelemek için parametre. Dosya, paylaşım veya WindowsEvent göre filtrelemek seçebilirsiniz. Örneğin, ```Get-AzureStackLog -OutputPath <path> -FilterByLogType File```
+- Kullanabileceğiniz **TimeOutInMinutes** parametresini kullanarak günlük toplama için zaman aşımını ayarlayın. 150 (2,5 saat) için varsayılan olarak ayarlanır.
+- Sürüm 1805 ve daha sonra döküm dosyası günlük toplama varsayılan olarak devre dışıdır. Bunu etkinleştirmek için **IncludeDumpFile** parametresi geçin. 
 - Şu anda kullanabileceğiniz **FilterByRole** aşağıdaki rolleri tarafından filtre oturum koleksiyonuna parametre:
 
-   |   |   |   |
-   | - | - | - |
-   | ACS                    | DeploymentMachine                | NC                         |
-   | ACSBlob                | DiskRP                           | Ağ                    |
-   | ACSFabric              | Etki alanı                           | NonPrivilegedAppGateway    |
-   | ACSFrontEnd            | ECE                              | NRP                        |
-   | ACSMetrics             | ExternalDNS                      | OEM                        |
-   | ACSMigrationService    | Fabric                           | PXE                        |
-   | ACSMonitoringService   | FabricRing                       | SeedRing                   | 
-   | ACSSettingsService     | FabricRingServices               | SeedRingServices           |
-   | ACSTableMaster         | FRP                              | SLB                        |   
-   | ACSTableServer         | Galeri                          | SlbVips                    |
-   | ACSWac                 | Ağ geçidi                          | SQL                        |   
-   | ADFS                   | Ögesi                 | SRP                        |
-   | ASAppGateway           | HRP                              | Depolama                    |   
-   | NCAzureBridge          | IBC                              | StorageAccounts            |    
-   | AzurePackConnector     | Identityprovider                 | StorageController          |  
-   | AzureStackBitlocker    | IDN'ler                             | Kiracı                     |
-   | BareMetal              | InfraServiceController           | TraceCollector             |
-   | BRP                    | Altyapı                   | URP                        |
-   | CA                     | KeyVaultAdminResourceProvider    | UsageBridge                |
-   | Bulut                  | KeyVaultControlPlane             | virtualMachines            |
-   | Küme                | KeyVaultDataPlane                | EDİLDİ                        |
-   | İşlem                | KeyVaultInternalControlPlane     | WASBootstrap               |
-   | CPI                    | KeyVaultInternalDataPlane        | WASPUBLIC                  |
-   | CRP                    | KeyVaultNamingService            |                            |
-   | DatacenterIntegration  | MonitoringAgent                  |                            |
-   |                        |                                  |                            |
+ |   |   |   |    |
+ | - | - | - | -  |   
+ |ACS|İşlem|InfraServiceController|QueryServiceCoordinator|
+ |ACSBlob|CPI|Altyapı|QueryServiceWorker|
+ |ACSDownloadService|CRP|KeyVaultAdminResourceProvider|SeedRing|
+ |ACSFabric|DatacenterIntegration|KeyVaultControlPlane|SeedRingServices|
+ |ACSFrontEnd|DeploymentMachine|KeyVaultDataPlane|SLB|
+ |ACSMetrics|DiskRP|KeyVaultInternalControlPlane|SlbVips|
+ |ACSMigrationService|Etki alanı|KeyVaultInternalDataPlane|SQL|
+ |ACSMonitoringService|ECE|KeyVaultNamingService|SRP|
+ |ACSSettingsService|EventAdminRP|MDM|Depolama|
+ |ACSTableMaster|EventRP|MetricsAdminRP|StorageAccounts|
+ |ACSTableServer|ExternalDNS|MetricsRP|StorageController|
+ |ACSWac|Fabric|MetricsServer|Kiracı|
+ |ADFS|FabricRing|MetricsStoreService|TraceCollector|
+ |ApplicationController|FabricRingServices|MonAdminRP|URP|
+ |ASAppGateway|FirstTierAggregationService|MonitoringAgent|Kullanım|
+ |AzureBridge|FRP|MonRP|UsageBridge|
+ |AzureMonitor|Galeri|NC|virtualMachines|
+ |AzureStackBitlocker|Ağ geçidi|Ağ|OLUŞTU|
+ |BareMetal|Ögesi|NonPrivilegedAppGateway|WASBootstrap|
+ |BRP|HintingServiceV2|NRP|WASPUBLIC|
+ |CA|HRP|OboService|WindowsDefender|
+ |CacheService|IBC|OEM|     |
+ |Bulut|Identityprovider|OnboardRP|     |   
+ |Küme|IDN'ler|PXE|     |
+ |   |   |   |    |
 
-### <a name="bkmk_gui"></a>Bir grafik kullanıcı arabirimini kullanarak günlüklerini toplayın
-Azure yığın günlükleri almak Get-AzureStackLog cmdlet'i için gerekli parametreleri sağlayarak yerine, ana Azure yığın araçları GitHub araçları deposunu bulunan kullanılabilir açık kaynak Azure yığın araçları da kullanabilirsiniz http://aka.ms/AzureStackTools.
 
-**ERCS_AzureStackLogs.ps1** PowerShell Betiği GitHub araçları deposunda depolanır ve düzenli olarak güncelleştirilir. Kullanılabilir en son sürüme sahip, doğrudan indirmelisiniz emin olmak için http://aka.ms/ERCS. Yönetici bir PowerShell oturumundan başlatıldı, komut dosyası ayrıcalıklı uç noktasına bağlanır ve Get-AzureStackLog sağlanan parametrelerle çalıştırır. Hiçbir parametre kullanılmazsa, komut dosyasını bir grafik kullanıcı arabirimi aracılığıyla parametreler için sormadan için varsayılan olarak ayarlanır.
+### <a name="bkmk_gui"></a>Bir grafik kullanıcı arabirimi kullanarak günlük toplama
+Azure Stack günlükleri almak Get-AzureStackLog cmdlet'i için gerekli parametreleri sağlamak yerine, ana Azure Stack araçları GitHub araçları deponun bulunan kullanılabilir açık kaynak Azure Stack araçları da yararlanabilirsiniz http://aka.ms/AzureStackTools.
 
-ERCS_AzureStackLogs.ps1 PowerShell komut dosyası hakkında daha fazla bilgi için izleyebilir [kısa bir video](https://www.youtube.com/watch?v=Utt7pLsXEBc) veya betiğin görüntüleyin [Benioku dosyasını](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) Azure yığın araçları GitHub deposunda bulunan. 
+**ERCS_AzureStackLogs.ps1** PowerShell Betiği, GitHub araçları deposunda depolanır ve düzenli olarak güncelleştirilir. Kullanılabilir en son sürüme sahip, doğrudan indirmelisiniz emin olmak için http://aka.ms/ERCS. Bir yönetici PowerShell oturumundan başlatıldı, betik, ayrıcalıklı uç noktasına bağlanır ve Get-AzureStackLog sağlanan parametrelerle çalıştırılır. Betik parametre belirtilirse, bir grafik kullanıcı arabirimi aracılığıyla parametreler için sormadan için varsayılan olarak ayarlanır.
+
+ERCS_AzureStackLogs.ps1 PowerShell komut dosyası hakkında daha fazla bilgi için izleyebilirsiniz [kısa bir video](https://www.youtube.com/watch?v=Utt7pLsXEBc) veya betiğin görüntüleme [Benioku dosyası](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) Azure Stack araçları GitHub deposunda bulunur. 
 
 ### <a name="additional-considerations"></a>Diğer konular
 
-* Komut günlükleri toplamaya hangi rollere göre çalıştırmak için biraz zaman alır. Faktörlere de günlük toplama ve Azure yığın ortamında düğümleri sayısı için belirtilen süre içerir.
-* Koleksiyon çalışmalarını günlük olarak oluşturulan yeni klasörü denetleyin **OutputSharePath** komutunda belirtilen parametre.
-* Her rol günlüklerinin içindeki tek tek posta dosyaları sahiptir. Toplanan günlükleri boyutuna bağlı olarak, bir rol içindeki birden çok ZIP dosyaları bölme günlüklerinin olabilir. Tek bir klasör içinde sıkıştırması tüm günlük dosyalarını sahip olmak istiyorsanız, bu tür bir rol için (örneğin, 7zip) toplu genişletebilirsiniz bir araç kullanın. Rolü için daraltılmış tüm dosyaları seçin ve Seç **burada ayıklamak**. Bu rol tek bir birleştirilmiş klasördeki tüm günlük dosyalarını unzips.
-* Dosya adında **Get-AzureStackLog_Output.log** de daraltılmış günlük dosyalarını içeren klasörde oluşturulur. Günlük toplama sırasında sorunları gidermek için kullanılabilir komut çıktısı Günlüğü dosyasıdır. Bazen günlük dosyası içeren `PS>TerminatingError` beklenen günlük dosyaları sonra eksik olduğu sürece, güvenli bir şekilde, göz ardı edilebilir girişlerini oturum koleksiyonu çalıştırır.
-* Belirli bir arızası araştırmak için birden çok bileşenden günlükleri gerekli olabilir.
-    -   Sistem ve tüm altyapı VM'ler için olay günlüklerini de toplanır *VirtualMachines* rol.
-    -   Sistem ve tüm ana bilgisayarlar için olay günlüklerini de toplanır *BareMetal* rol.
-    -   Yük devretme kümesi ve Hyper-V olay günlüklerini toplanır *depolama* rol.
+* Komutu, günlükleri toplamaya hangi rolleri üzerinde göre çalıştırılacak biraz zaman alabilir. Faktörlere günlük toplama ve Azure Stack ortamında düğümleri sayısı için belirtilen süreyi de içerir.
+* Oturum koleksiyonu çalıştırmaları gibi oluşturduğunuz yeni klasör denetleyin **OutputSharePath** komutunda belirtilen parametre.
+* Her rolün içindeki tek bir ZIP dosyaları kendi günlükleri vardır. Toplanan günlükler boyutuna bağlı olarak, bir rol içinde birden çok zip dosyaları bölme günlüklerinin olabilir. İçinde tek bir klasöre sıkıştırması açılan tüm günlük dosyalarını olmasını istiyorsanız, bu tür bir rol için toplu (örneğin, 7zip) sıkıştırılmış dosyayı açabilirsiniz bir araç kullanın. Rolü için tüm sıkıştırılmış dosyalar seçip **buradan ayıklamak**. Bu, bu rolün tek ve birleştirilmiş bir klasördeki tüm günlük dosyalarını unzips.
+* Dosya adında **Get-AzureStackLog_Output.log** da sıkıştırılmış günlük dosyalarını içeren klasörde oluşturulur. Günlük toplama sırasında sorunları gidermek için kullanılabilir komut çıktısını bir günlük dosyasıdır. Bazen günlük dosyası içeren `PS>TerminatingError` beklenen günlük dosyaları sonra eksik olduğu sürece, güvenli bir şekilde, göz ardı edilebilir girişler oturum koleksiyonu çalıştırır.
+* Belirli bir kültür araştırmak için birden fazla bileşenden günlükleri gerekli olabilir.
+    -   İçinde sistem ve tüm altyapı Vm'leri için olay günlükleri toplanır *VirtualMachines* rol.
+    -   İçinde sistem ve tüm konaklar için olay günlükleri toplanır *BareMetal* rol.
+    -   Yük devretme kümesi ve Hyper-V olay günlükleri toplanır *depolama* rol.
     -   ACS günlükleri toplanır *depolama* ve *ACS* rolleri.
 
 > [!NOTE]
-> Boyutu ve yaş sınırları günlükleriyle taşan açılmıyor emin olmak için depolama alanınızı etkili kullanımını sağlamak için temel olarak toplanan günlüklerini zorunlu tutulmaz. Ancak, bir sorunu tanılamada bazen bu sınırları nedeniyle artık mevcut olmayabilir günlükleri gerekir. Bu nedenle, olan **tavsiye** günlüklerinizi bir harici depolama alanı (Azure depolama hesabı, ek şirket içi depolama aygıtı vb.) için yük boşaltma 8 ila 12 saatte bir ve bunları orada bağlı olarak, 1-3 ay tutun, gereksinimleri. Ayrıca, bu depolama konumu şifrelendiğinden emin olun.
+> Boyutu ve yaş sınırı, günlükleriyle yığılma katılmaz emin olmak için depolama alanınızı etkili kullanımını sağlamak için temel olarak toplanan günlüklerde uygulanır. Ancak, bir sorun özel durumunda tanılama yaparken, bazen bu limitleri nedeniyle bulunmayabilir günlükleri gerekir. Bu nedenle, **kesinlikle önerilir** günlüklerinizi bir dış depolama alanı (Azure depolama hesabında, ek şirket içi depolama cihazı vb.) için yük boşaltma 8 ila 12 saatte bir ve orada bağlı olarak, 1-3 ay tutun, gereksinimleri. Ayrıca, bu depolama konumu şifrelendiğinden emin olun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Microsoft Azure yığın sorunlarını giderme](azure-stack-troubleshooting.md)
+[Microsoft Azure Stack sorunlarını giderme](azure-stack-troubleshooting.md)
 

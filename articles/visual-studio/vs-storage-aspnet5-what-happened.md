@@ -1,27 +1,28 @@
 ---
-title: My ASP.NET 5 Proje ne (Visual Studio bağlı Hizmetleri) | Microsoft Docs
-description: Visual Studio kullanarak bir Visual Studio ASP.NET 5 Proje Azure depolama hesabında bağlanma Hizmetleri bağlandıktan sonra ne olacağını açıklar
+title: ASP.NET 5 projeme ne oldu (Visual Studio bağlı hizmetler) | Microsoft Docs
+description: Visual Studio kullanarak bir ASP.NET 5 içeren Visual Studio projesi içinde bir Azure depolama hesabına bağlanma bağlı hizmetler sonra ne olacağı açıklanır
 services: storage
 author: ghogen
 manager: douge
 ms.assetid: e7caa9fa-c780-45eb-a546-299fc1c68455
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: f99ba4b6c954ae9faa87b9604c06e94c56e4f631
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0e38e570b5ecb2a19af943e0dde96e2ed66f3507
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31791469"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056181"
 ---
-# <a name="what-happened-to-my-aspnet-5-project-visual-studio-azure-storage-connected-services"></a>My ASP.NET 5 Proje ne (Visual Studio Azure depolama bağlı Hizmetleri)?
+# <a name="what-happened-to-my-aspnet-5-project-visual-studio-azure-storage-connected-services"></a>ASP.NET 5 projeme ne oldu (Visual Studio Azure Depolama'ya bağlı hizmet)?
 ## <a name="references-added"></a>Eklenen başvuruları
-Azure depolama NuGet paketini Visual Studio projenizi eklendi.  
-Bu paket aşağıdaki .NET başvuru ekler:
+Azure depolama NuGet paketini Visual Studio projenize eklendi.  
+Bu paket, aşağıdaki .NET başvuruları ekler:
 
 * **Microsoft.Data.Edm**
 * **Microsoft.Data.OData**
@@ -34,8 +35,8 @@ Bu paket aşağıdaki .NET başvuru ekler:
 
 Ayrıca, NuGet paketi **Microsoft.Framework.Configuration.Json** eklendi.
 
-## <a name="connection-string-for-azure-storage-added"></a>Azure eklenen depolama alanı için bağlantı dizesi
-Projeniz config.json dosyasında bir öğeyi seçilen depolama hesabı bağlantı dizesi ve anahtarı ile oluşturuldu.
+## <a name="connection-string-for-azure-storage-added"></a>Eklenen Azure depolama bağlantı dizesi
+Projenizin config.json dosyası bir öğenin seçili depolama hesabının bağlantı dizesini ve anahtarı ile oluşturuldu.
 
-Daha fazla bilgi için bkz: [ASP.NET 5](http://www.asp.net/vnext).
+Daha fazla bilgi için [ASP.NET 5](http://www.asp.net/vnext).
 

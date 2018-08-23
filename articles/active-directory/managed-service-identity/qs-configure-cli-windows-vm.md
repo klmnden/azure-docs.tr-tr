@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: e12cc37c579c10d3b59197d126589d36e80a8451
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ffe15fc42aad2945ba622f1e38566100f2625340
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444530"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42056251"
 ---
 # <a name="configure-managed-service-identity-on-an-azure-vm-using-azure-cli"></a>Azure CLI kullanarak bir Azure VM yönetilen hizmet kimliği yapılandırma
 
@@ -42,7 +42,11 @@ Bu makalede, Azure CLI kullanarak bir Azure sanal makinesinde aşağıdaki yöne
 - CLI betiği örnekleri çalıştırmak için üç seçeneğiniz vardır:
     - Kullanım [Azure Cloud Shell](../../cloud-shell/overview.md) Azure portalından (sonraki bölüme bakın).
     - Katıştırılmış Azure Cloud Shell aracılığıyla her kod bloğunun sağ üst köşesinde bulunan "Try It" düğmesini kullanın.
-    - [CLI 2. 0'ın en son sürümünü yüklemek](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 veya üzeri) yerel bir CLI konsol kullanmak istiyorsanız. 
+    - [Azure CLI'ın en son sürümü yükleyin](https://docs.microsoft.com/cli/azure/install-azure-cli) yerel CLI konsol kullanmak istiyorsanız.
+      
+      > [!NOTE]
+      > Komutlar, en son sürümünü yansıtacak şekilde güncelleştirildi [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).     
+        
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -88,7 +92,7 @@ Sistem tarafından atanan mevcut VM'yi hizmetinizle ihtiyacınız varsa:
    az vm identity assign -g myResourceGroup -n myVm
    ```
 
-### <a name="disable-the-system-assigned-identity-from-an-azure-vm"></a>Bir Azure VM'den atanan kimliği sistemi devre dışı bırak
+### <a name="disable-system-assigned-identity-from-an-azure-vm"></a>Bir Azure VM'den atanan kimliği sistemi devre dışı bırak
 
 Artık sistem tarafından atanan kimlik gerekiyor, ancak yine de kullanıcı tarafından atanan kimliklerle gereken bir sanal makine varsa, aşağıdaki komutu kullanın:
 
@@ -140,7 +144,7 @@ Bu bölümde, bir kullanıcı tarafından atanan kimliği atama ile VM oluşturm
        "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
        "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
        "location": "westcentralus",
-       "name": "<MSI NAME>",
+       "name": "<USER ASSIGNED IDENTITY NAME>",
        "principalId": "e5fdfdc1-ed84-4d48-8551-fe9fb9dedfll",
        "resourceGroup": "<RESOURCE GROUP>",
        "tags": {},
@@ -149,10 +153,10 @@ Bu bölümde, bir kullanıcı tarafından atanan kimliği atama ile VM oluşturm
    }
    ```
 
-3. [az vm create](/cli/azure/vm/#az-vm-create) kullanarak VM oluşturun. Aşağıdaki örnekte belirtildiği gibi yeni atanmış kullanıcı kimliğiyle ilişkili bir VM oluşturur `--assign-identity` parametresi. `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>` ve `<MSI ID>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. İçin `<MSI ID>`, kullanıcı tarafından atanan kimliğin kaynağı `id` önceki adımda oluşturduğunuz özelliği: 
+3. [az vm create](/cli/azure/vm/#az-vm-create) kullanarak VM oluşturun. Aşağıdaki örnekte belirtildiği gibi yeni atanmış kullanıcı kimliğiyle ilişkili bir VM oluşturur `--assign-identity` parametresi. `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>` ve `<USER ASSIGNED IDENTITY NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. 
 
    ```azurecli-interactive 
-   az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
+   az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME>
    ```
 
 ### <a name="assign-a-user-assigned-identity-to-an-existing-azure-vm"></a>Bir kullanıcı tarafından atanan kimliği mevcut bir Azure VM'ye atayın
@@ -165,7 +169,7 @@ Bu bölümde, bir kullanıcı tarafından atanan kimliği atama ile VM oluşturm
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
-Yanıt, aşağıdakine benzer şekilde oluşturulmuş yönetilen kimlik atanmış kullanıcı ayrıntılarını içerir. Kaynak `id` kullanıcı tarafından atanan kimlik için atanan değer, aşağıdaki adımda kullanılır.
+   Yanıt, aşağıdakine benzer şekilde oluşturulmuş yönetilen kimlik atanmış kullanıcı ayrıntılarını içerir. 
 
    ```json
    {
@@ -182,18 +186,18 @@ Yanıt, aşağıdakine benzer şekilde oluşturulmuş yönetilen kimlik atanmı�
    }
    ```
 
-2. Atanan kullanıcı kimliğini kullanarak VM atama [az vm kimliği atamak](/cli/azure/vm#az-vm-identity-assign). `<RESOURCE GROUP>` ve `<VM NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<MSI ID>` Atanan kullanıcı kimliğin kaynak olacak `id` önceki adımda oluşturulan özelliği:
+2. Atanan kullanıcı kimliğini kullanarak VM atama [az vm kimliği atamak](/cli/azure/vm#az-vm-identity-assign). `<RESOURCE GROUP>` ve `<VM NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<USER ASSIGNED IDENTITY>` Atanan kullanıcı kimliğin kaynağı `name` önceki adımda oluşturulan özelliği:
 
     ```azurecli-interactive
-    az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI ID>
+    az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>
     ```
 
 ### <a name="remove-a-user-assigned-identity-from-an-azure-vm"></a>Bir kullanıcı tarafından atanan kimliği bir Azure VM'den kaldırın
 
-Bir kullanıcı tarafından atanan kimliği VM kullanımdan kaldırılacağı [az vm kimliğini kaldırma](/cli/azure/vm#az-vm-identity-remove). `<RESOURCE GROUP>` ve `<VM NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<MSI NAME>` Atanan kullanıcı kimliğin olacaktır `name` tarafından VM kullanarak kimlik bölümünde bulunabilir özelliği `az vm identity show`:
+Bir kullanıcı tarafından atanan kimliği VM kullanımdan kaldırılacağı [az vm kimliğini kaldırma](/cli/azure/vm#az-vm-identity-remove). Bu sanal makineye atanan yalnızca kullanıcı tarafından atanan kimliği ise `UserAssigned` kimlik türü değerinden kaldırılacak.  `<RESOURCE GROUP>` ve `<VM NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<USER ASSIGNED IDENTITY>` Atanan kullanıcı kimliğin olacaktır `name` özelliğini kullanarak sanal makine kimlik bölümünde bulunabilir `az vm identity show`:
 
 ```azurecli-interactive
-az vm identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
+az vm identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>
 ```
 
 Sanal makinenize bir sistem tarafından atanan kimlik yok ve tüm kullanıcı kimlikleri atanmış kaldırmak istediğiniz, aşağıdaki komutu kullanın:
@@ -202,13 +206,13 @@ Sanal makinenize bir sistem tarafından atanan kimlik yok ve tüm kullanıcı ki
 > Değer `none` büyük/küçük harfe duyarlıdır. Küçük harf olması gerekir.
 
 ```azurecli-interactive
-az vm update -n myVM -g myResourceGroup --set identity.type="none" identity.identityIds=null
+az vm update -n myVM -g myResourceGroup --set identity.type="none" identity.userAssignedIdentities=null
 ```
 
 Sanal makinenize atanmış sistem ve kullanıcı tarafından atanan kimliklerle varsa, yalnızca atanan sistemi kullanmaya geçiş tarafından atanan kimliklerle tüm kullanıcı kaldırabilirsiniz. Aşağıdaki komutu kullanın:
 
 ```azurecli-interactive
-az vm update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' identity.identityIds=null 
+az vm update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' identity.userAssignedIdentities=null 
 ```
 
 ## <a name="related-content"></a>İlgili içerik

@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: a519cd242b88916d1a11df47c0b7450594848ef5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: d7ed440ba794bcdfab4744e0ac4864aab6896ca8
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920558"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42057068"
 ---
 # <a name="archive-the-azure-activity-log"></a>Azure Etkinlik günlüğünü arşivleme
 Bu makalede, biz arşivlemek için Azure portalı, PowerShell cmdlet'leri veya platformlar arası CLI nasıl kullanabileceğinizi gösterir, [ **Azure etkinlik günlüğü** ](monitoring-overview-activity-logs.md) bir depolama hesabında. Etkinlik günlüğünüzü 90 günden uzun (ile bekletme ilkesini üzerinde tam denetim) denetim, statik analiz veya yedekleme korumak istiyorsanız, bu seçenek kullanışlıdır. Yalnızca olaylarınızı 90 gün boyunca Beklet gerekir ya da daha az, etkinlik günlüğü olaylarını arşivleme etkinleştirmeden Azure platformunda 90 gün boyunca bekletilir olduğundan bir depolama hesabına arşivleme ayarlamak ihtiyacınız yoktur.
 
 > [!WARNING]
-> Depolama hesabı günlüğü verileri biçimi JSON satırlarına 1 Kasım 2018'de değişir. [Etki ve yeni biçime işlemek için araçlarınızı güncelleştirmek nasıl bir açıklaması için bu makaleye bakın.](./monitor-diagnostic-logs-append-blobs.md) 
+> Depolama hesabındaki günlük verilerinin biçimi, 1 Kasım 2018 tarihinde JSON Satırları olarak değişecektir. [Etkinin açıklaması ve yeni biçimi işlemek üzere araçlarınızı güncelleştirme için bu makaleye bakın.](./monitor-diagnostic-logs-append-blobs.md) 
 >
 > 
 
 ## <a name="prerequisites"></a>Önkoşullar
-Başlamadan önce yapmanız [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) etkinlik günlüğünüzü arşiv. İçinde depolanır, bu sayede daha iyi İzleme verilerine erişimi denetleyebilir, diğer izleme olmayan veriler içeren mevcut bir depolama hesabını kullanmamanızı öneririz. Ayrıca Tanılama günlükleri ve ölçümler bir depolama hesabına arşivleme, Bununla birlikte, tüm izleme verilerini merkezi bir konumda tutmak için etkinlik günlüğü de bu depolama hesabını kullanmak için mantıklı olabilir. Ayarı yapılandıran kullanıcının her iki abonelik için uygun RBAC erişimine sahip olduğu sürece, günlükleri yayan ile aynı abonelikte olması depolama hesabı yok.
+Başlamadan önce yapmanız [depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md) etkinlik günlüğünüzü arşiv. İçinde depolanır, bu sayede daha iyi İzleme verilerine erişimi denetleyebilir, diğer izleme olmayan veriler içeren mevcut bir depolama hesabını kullanmamanızı öneririz. Ayrıca Tanılama günlükleri ve ölçümler bir depolama hesabına arşivleme, Bununla birlikte, tüm izleme verilerini merkezi bir konumda tutmak için etkinlik günlüğü de bu depolama hesabını kullanmak için mantıklı olabilir. Ayarı yapılandıran kullanıcının her iki abonelik için uygun RBAC erişimine sahip olduğu sürece, günlükleri yayan ile aynı abonelikte olması depolama hesabı yok.
 
 > [!NOTE]
 >  Şu anda arşivlenemiyor verileri bir depolama hesabı, güvenli bir sanal ağda.
@@ -79,10 +79,10 @@ Aşağıdaki yöntemlerden birini kullanarak Etkinlik günlüğünü arşivleme 
 | --- | --- | --- |
 | ad |Evet |Günlük profilinin adı. |
 | Depolama hesabı kimliği |Evet |Etkinlik günlükleri kaydedileceği depolama hesabı kaynak kimliği. |
-| konumları |Evet |Boşlukla ayrılmış etkinlik günlüğü olayları toplamak istiyorsanız bölgelerin listesi. Tüm bölgelerin listesi için aboneliği kullanarak görüntüleyebileceğiniz `az account list-locations --query [].name`. |
+| konumlar |Evet |Boşlukla ayrılmış etkinlik günlüğü olayları toplamak istiyorsanız bölgelerin listesi. Tüm bölgelerin listesi için aboneliği kullanarak görüntüleyebileceğiniz `az account list-locations --query [].name`. |
 | gün |Evet |Hangi olayların tutulacağını, 1 ile 2147483647 arasında bir gün sayısı. Sıfır değeri günlükler süresiz olarak depolar (sonsuz).  Sıfır ise, ardından etkin parametresi ayarlanmalıdır true. |
 |enabled | Evet |TRUE veya False.  Bekletme İlkesi devre dışı bırakmak veya etkinleştirmek için kullanılır.  TRUE ise gün parametresi 0'dan büyük bir değer olması gerekir.
-| Kategorileri |Evet |Boşlukla ayrılmış toplanması gereken olay kategorilerinin listesi. Olası değerler şunlardır: yazma, silme ve eylem. |
+| kategoriler |Evet |Boşlukla ayrılmış toplanması gereken olay kategorilerinin listesi. Olası değerler şunlardır: yazma, silme ve eylem. |
 
 ## <a name="storage-schema-of-the-activity-log"></a>Etkinlik günlüğü depolama şeması
 Arşiv ayarlamış olduğunuz sonra bir etkinlik günlüğü olayı oluşur oluşmaz depolama hesabında bir depolama kapsayıcısı oluşturulur. Aşağıda gösterildiği gibi etkinlik ve tanılama günlükleri arasında adlandırma kuralını kapsayıcı içindeki blobları izleyin:

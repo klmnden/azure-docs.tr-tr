@@ -1,40 +1,38 @@
 ---
-title: Azure Kubernetes hizmet (AKS) kubelet günlüklerini alma
-description: Azure Kubernetes hizmet (AKS) küme düğümlerinden kubelet günlüklerini alma
+title: Görünüm kubelet günlüklerini Azure Kubernetes Service (AKS)
+description: Azure Kubernetes Service (AKS) düğümlerden kubelet günlüklerinde sorun giderme bilgilerini görüntüleme
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 08/21/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: 6fadc502812ea0d983b86c94914d86fcb21a54cd
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: aeab24685f3663ba2c50205344d33db3d34676c2
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100186"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42441957"
 ---
-# <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Azure Kubernetes hizmet (AKS) küme düğümlerinden kubelet günlüklerini alma
+# <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Azure Kubernetes Service (AKS) kümesi düğümlerinden kubelet günlüklerini alma
 
-Bazen, sorun giderme amacıyla bir Azure Kubernetes hizmet (AKS) düğümden kubelet günlükleri yapmanız gerekebilir. Bu belgede, bu günlükler çekmek için bir seçenek ayrıntıları verilmektedir.
+Bazen, almanız gerekebilir *kubelet* sorun giderme amacıyla bir Azure Kubernetes Service (AKS) düğümü günlüklerini. Bu makalede, nasıl kullanabileceğinizi gösterir. `journalctl` görüntülemek için *kubelet* günlükleri.
 
-## <a name="create-an-ssh-connection"></a>Bir SSH bağlantısı oluşturma
+## <a name="create-an-ssh-connection"></a>Bir SSH bağlantısı oluşturun
 
-İlk olarak, bir SSH bağlantısı kubelet günlüklerini gerek düğümle oluşturun. Bu işlem içinde ayrıntılı [Azure Kubernetes hizmet (AKS) küme düğümleri içine SSH] [ aks-ssh] belge.
+İlk olarak, bir SSH bağlantısı üzerinde görüntülemek için ihtiyacınız olan düğüm oluşturma *kubelet* günlükleri. Bu işlem, ayrıntılı [Azure Kubernetes Service (AKS) kümesi düğümleri içine SSH] [ aks-ssh] belge.
 
 ## <a name="get-kubelet-logs"></a>Kubelet günlüklerini alma
 
-Bir kez kubelet günlükleri çıkarmak için aşağıdaki komutu çalıştırın düğümü bağlandınız.
-
-```azurecli-interactive
-journalctl -u kubelet -o cat
-```
-
-Örnek çıktı:
+Düğüme bağlandıktan sonra çekmek için aşağıdaki komutu çalıştırın *kubelet* günlükleri:
 
 ```console
+sudo journalctl -u kubelet -o cat
+```
+
+Aşağıdaki örnek çıktı gösterilmektedir *kubelet* oturum verileri:
+
+```
 I0508 12:26:17.905042    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
 I0508 12:26:27.943494    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
 I0508 12:26:28.920125    8672 server.go:796] GET /stats/summary: (10.370874ms) 200 [[Ruby] 10.244.0.2:52292]
@@ -58,5 +56,10 @@ I0508 12:28:48.321952    8672 kubelet_node_status.go:497] Using Node Hostname fr
 I0508 12:28:58.344656    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
 ```
 
+## <a name="next-steps"></a>Sonraki adımlar
+
+Kubernetes yöneticisinden ek sorun giderme bilgisi gerekirse bkz [Kubernetes AKS ana düğüm günlüklerini görüntüleyin][aks-master-logs].
+
 <!-- LINKS - internal -->
-[aks-ssh]: aks-ssh.md
+[aks-ssh]: ssh.md
+[aks-master-logs]: view-master-logs.md

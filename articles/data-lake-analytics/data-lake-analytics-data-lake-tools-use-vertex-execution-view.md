@@ -1,6 +1,6 @@
 ---
-title: Visual Studio için Data Lake araçları köşe yürütme görünümünde kullanın
-description: Bu makalede, köşe yürütme görünümü incelemesi Data Lake Analytics işleri için kullanmayı açıklar.
+title: Visual Studio için Data Lake araçları, köşe yürütme görünümünü kullanma
+description: Bu makalede, sınavı Data Lake Analytics işleri için köşe yürütme görünümünü kullanmayı açıklar.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: mumian
@@ -11,47 +11,47 @@ ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.topic: conceptual
 ms.date: 10/13/2016
 ms.openlocfilehash: af15bb9fd1131f598dc87f13c4af481b63d023e3
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735450"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056107"
 ---
-# <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake araçları köşe yürütme görünümünde kullanın
-Köşe yürütme görünümü incelemesi Data Lake Analytics işlerini kullanmayı öğrenin.
+# <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake araçları, köşe yürütme görünümünü kullanma
+Köşe yürütme görünümünü sınavı Data Lake Analytics işleri için kullanmayı öğrenin.
 
 
-## <a name="open-the-vertex-execution-view"></a>Köşe yürütme görünümü Aç
-U-SQL işi Visual Studio için Data Lake araçları içinde açın. Tıklatın **köşe yürütme görünümü** sol alt köşedeki içinde. Profilleri ilk yük istenebilir ve ağ bağlantınızı bağlı olarak biraz zaman alabilir.
+## <a name="open-the-vertex-execution-view"></a>Köşe yürütme görünümünü Aç
+U-SQL işi, Visual Studio için Data Lake Araçları ' açın. Tıklayın **köşe yürütme görünümünü** sol alt köşedeki. İlk yük profillerine istenebilir ve ağ bağlantınızı bağlı olarak biraz zaman alabilir.
 
-![Data Lake Analytics köşe yürütme görünümü araçları](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-open-vertex-execution-view.png)
+![Köşe yürütme görünümünü Data Lake Analytics araçları](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-open-vertex-execution-view.png)
 
-## <a name="understand-vertex-execution-view"></a>Köşe yürütme görünümü anlama
-Köşe yürütme görünümü üç bölümden oluşur:
+## <a name="understand-vertex-execution-view"></a>Köşe yürütme görünümünü anlama
+Köşe yürütme görünümü, üç bölümden oluşur:
 
-![Data Lake Analytics köşe yürütme görünümü araçları](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view.png)
+![Köşe yürütme görünümünü Data Lake Analytics araçları](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view.png)
 
-**Köşe Seçici** üzerinde sol sağlar (10 veri top gibi okuma veya aşamasına göre seçin) özellikleri tarafından köşeleri seçin. En sık kullanılan filtreleri biri görmek için **kritik yol köşelerinin**. **Kritik yol** köşeleri U-SQL işi, en uzun zinciri. Kritik yol anlama işleriniz hangi köşe uzun süren denetleyerek en iyi duruma getirme için yararlıdır.
+**Köşe Seçici** üzerinde sol sağlar (ilk 10 veri okuma, veya gibi aşamasına göre seçin) özellikleri tarafından köşe seçin. En sık kullanılan filtrelerden biri olduğunu görmek için **kritik yol üzerindeki köşelerin**. **Kritik yol** köşelerin bir U-SQL işinin en uzun zinciri. Kritik yol anlama, köşe uzun sürüyor denetleyerek işlerinizi iyileştirmek için kullanışlıdır.
   
-![Data Lake Analytics köşe yürütme görünümü araçları](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane2.png)
+![Köşe yürütme görünümünü Data Lake Analytics araçları](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane2.png)
 
-Üst Orta bölmesinde gösterir **tüm köşeleri durumunu çalıştıran**.
+Üst Orta bölmesinde gösterildiği **tüm köşelerin durumunu çalıştıran**.
   
-![Data Lake Analytics köşe yürütme görünümü araçları](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane3.png)
+![Köşe yürütme görünümünü Data Lake Analytics araçları](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane3.png)
 
-Alt bölmeyi her köşe hakkında bilgileri gösterir:
-* İşlem adı: Köşe örneğinin adı. StageName farklı bölümlerinin oluşan | VertexName | VertexRunInstance. Örneğin, ikinci çalışan örneği (.v1, dizini 0'dan başlayarak) SV7_Split [62] .v1 köşe gösterir 62 köşe sayısının aşama SV7_Split.
-* Toplam veri okuma/yazılan: Bu köşe tarafından okunur/yazılır veri.
-* Durumu/Çıkış durumu: köşe sona erdikten sonra son durumu.
-* Çıkış kodu/hatası türü: köşe başarısız olduğunda hata oluştu.
-* Oluşturma nedeni: Köşe neden oluşturuldu.
-* Kaynak gecikme/işlem gecikmesi/PN sıra gecikme süresi: kaynaklar için beklenecek köşe için verileri işlemek ve sırada kalmak için geçen süre.
-* İşlem/Creator GUID: Geçerli çalışan köşe veya oluşturana GUID.
-* Sürümü: (birçok nedeni, örneğin yük devretme, işlem için artıklık, vb. Sistem köşe yeni örneklerini zamanlama.) çalışan köşesinin n. örneği
-* Sürümü zaman oluşturuldu.
-* İşlem oluşturma başlangıç süre/işlem sıraya alınan süre/işlem başlangıç saati/işlem tam zamanı: köşe işlemi oluşturma; başladığında Köşe işlem kuyruğuna başladığında; belirli köşe işlem başladığında; belirli köşe tamamlandığında.
+Alt Orta bölmede, her köşe hakkında bilgileri gösterir:
+* İşlem adı: Köşe örneğinin adı. Farklı parçaların StageName içinde oluşan | VertexName | VertexRunInstance. Örneğin, ikinci çalışan örneği (.v1, dizini 0'dan itibaren) SV7_Split [62] .v1 köşe gösterir 62 köşe sayısının aşama SV7_Split.
+* Toplam veri okuma/yazılan: Tarafından bu köşenin okunan/yazılan veri.
+* Durum/Çıkış durumu: köşe sonlandırıldığında son durumu.
+* Çıkış kodu/hata türü: köşe başarısız olduğunda hata.
+* Oluşturma nedeni: Neden köşe oluşturuldu.
+* Kaynak gecikme süresi/işlem gecikme süresi/PN kuyruk gecikme süresi: kaynaklar için beklenecek köşe verilerini işlemek ve kuyrukta kalmak için geçen süre.
+* İşlem/oluşturucusunun GUID: GUID geçerli çalışan köşe veya Oluşturucusu.
+* Sürüm: n. örneğini çalıştıran köşe (yedeklilik, vb. birçok nedeni, örneğin yük devretme, işlem için sistem yeni bir köşe örneklerini zamanlayabilirsiniz.)
+* Sürüm oluşturma saati.
+* İşlem oluşturma başlangıç zaman/işlemi sıraya alınan zaman/işlem başlangıç saati/işlem tam zamanı: oluşturma; köşe işlem başladığında Köşe işlem kuyruğuna başladığında; belirli köşe işlem başladığında; belirli bir köşe tamamlandığında.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Tanılama bilgilerini günlüğe kaydetmek için bkz. [Azure Data Lake Analytics için tanılama günlüklerine erişme](data-lake-analytics-diagnostic-logs.md)
 * Daha karmaşık bir sorgu görmek için [Azure Data Lake Analytics'i kullanarak Web sitesi günlüklerini çözümleme](data-lake-analytics-analyze-weblogs.md) makalesine bakın.
-* İş ayrıntılarını görüntülemek için bkz: [kullanım iş tarayıcı ve Azure Data lake Analytics işleri için iş görünümünde](data-lake-analytics-data-lake-tools-view-jobs.md)
+* İş ayrıntılarını görüntülemek için bkz: [kullanımı iş tarayıcı ve Azure Data lake Analytics işleri için iş görünümünü](data-lake-analytics-data-lake-tools-view-jobs.md)

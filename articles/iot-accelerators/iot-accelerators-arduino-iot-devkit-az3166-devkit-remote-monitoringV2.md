@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: isacabe
-ms.openlocfilehash: e900b952ab9bb2054b9e4174670894027cdd2618
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 88ce34125009665d346cf034f5d02ba7e21f48fc
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969461"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42061751"
 ---
 # <a name="connect-mxchip-iot-devkit-az3166-to-the-iot-remote-monitoring-solution-accelerator"></a>MXChip IOT DevKit AZ3166 IOT Uzaktan izleme çözüm hızlandırıcısına bağlamayı
 
@@ -139,12 +139,6 @@ Birkaç saniye içinde fiziksel MX yonganız LED'i RGB rengi değiştirmeniz ger
 
 ![Yol MX yonga](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-devkit-led.png)
 
-
-## <a name="change-device-id"></a>Cihaz Kimliğini değiştirme
-
-IOT hub cihaz kimliği izleyerek değiştirebilirsiniz [bu kılavuzda](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/).
-
-
 ## <a name="problems-and-feedback"></a>Sorunları ve geri bildirim
 
 Sorunlarla karşılaşırsanız, başvurmak [SSS](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) veya aşağıdaki kanal aracılığıyla bize ulaşın:
@@ -158,3 +152,4 @@ IOT çözüm hızlandırıcılarınız DevKit cihaz bağlanıp algılayıcı ver
 
 * [IOT çözüm hızlandırıcılarına genel bakış](https://docs.microsoft.com/azure/iot-suite/)
 * [MXChip IOT DevKit cihaz Microsoft IoT Central uygulamanızı bağlayın](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [IOT Geliştirici Seti](https://microsoft.github.io/azure-iot-developer-kit/)

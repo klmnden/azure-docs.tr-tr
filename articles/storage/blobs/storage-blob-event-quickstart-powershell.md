@@ -8,12 +8,12 @@ ms.date: 07/05/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 26e80f166e1add5cebb837c1c05e45f25ff2d086
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 502f378bd1eddc0a104438037dce50bafd508ad9
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262761"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057153"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>PowerShell ile bir özel web uç noktası için BLOB Depolama olaylarını yönlendirme
 
@@ -36,9 +36,6 @@ Bu makale için Azure PowerShell'in en yeni sürümünü kullanmanız gerekir. Y
 ```powershell
 Connect-AzureRmAccount
 ```
-
-> [!NOTE]
-> Depolama olaylarının kullanılabilirliği Event Grid'in [kullanılabilirliğine](../../event-grid/overview.md) bağlıdır ve Event Grid gibi diğer bölgelerde kullanıma sunulacaktır.
 
 Bu örnekte **westus2** ve seçim kullanılmak üzere bir değişkende depolar.
 

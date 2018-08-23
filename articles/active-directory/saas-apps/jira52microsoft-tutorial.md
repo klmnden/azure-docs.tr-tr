@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 84afd45f6fb56222aa6d2dea063251353f406b26
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d7f53efd4b473f36aa03628da4992d1c4c2fb04b
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042685"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42058310"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Öğretici: Azure Active Directory JIRA SAML SSO tarafından Microsoft (V5.2) ile tümleştirme
 
@@ -42,7 +42,7 @@ Microsoft Azure Active Directory hesabınız Atlassian JIRA sunucusu ile çoklu 
 
 JIRA SAML SSO tarafından Microsoft (V5.2) ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - JIRA çekirdek ve yazılım 5.2 yüklü ve yapılandırılmış Windows 64-bit sürümü
 - HTTPS etkin JIRA sunucusudur
 - JIRA eklentisi için desteklenen sürümler bölümü belirtilmiştir unutmayın.
@@ -76,7 +76,7 @@ Azure AD'de JIRA SAML SSO tarafından Microsoft (V5.2) tümleştirmesini yapıla
 
 **Galeriden JIRA SAML SSO tarafından Microsoft (V5.2) eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -151,7 +151,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/jira52microsoft-tutorial/addon7.png)
 
-9. Eklentisini indirin [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56521). Microsoft tarafından sağlanan eklentisini el ile karşıya **karşıya yükleme, eklenti** menüsü. Eklenti indirilmesini altında ele [Microsoft hizmet sözleşmesi](https://www.microsoft.com/en-us/servicesagreement/).
+9. Eklentisini indirin [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56521). Microsoft tarafından sağlanan eklentisini el ile karşıya **karşıya yükleme, eklenti** menüsü. Eklenti indirilmesini altında ele [Microsoft hizmet sözleşmesi](https://www.microsoft.com/servicesagreement/).
 
     ![Çoklu oturum açmayı yapılandırın](./media/jira52microsoft-tutorial/addon12.png)
 
@@ -296,7 +296,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

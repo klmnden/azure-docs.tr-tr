@@ -1,6 +1,6 @@
 ---
-title: Veri özellikleri Hive sorgularını kullanarak, Hadoop küme oluşturma | Microsoft Docs
-description: Bir Azure Hdınsight Hadoop kümesinde depolanan verilerin özelliklerini Oluştur Hive sorguları örnekleri.
+title: Hive sorgularını kullanarak bir Hadoop kümesindeki verilerin özelliklerini oluşturma | Microsoft Docs
+description: Bir Azure HDInsight Hadoop kümesinde depolanan verilerin özelliklerini oluşturma Hive sorgularının örnekleri.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,43 +15,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: deguhath
-ms.openlocfilehash: 0e46ce327bb4beffd631ef6369864a0888580c11
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: bca1e609570d9ea0dee9845969de8bb4b29cc1ff
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836672"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42057749"
 ---
-# <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Hive sorgularını kullanarak bir Hadoop kümesinde veri özellikleri oluşturma
-Bu belge Hive sorgularını kullanarak, Azure Hdınsight Hadoop kümesi depolanan verilerin özelliklerini oluşturulacağını gösterir. Bu Hive sorguları katıştırılmış Hive User-Defined olduğu için komut dosyalarını sağlanan işlevler (UDF'ler) kullanın.
+# <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Bir Hadoop kümesinde Hive sorgularını kullanarak verilerin özelliklerini oluşturma
+Bu belge, Hive sorgularını kullanarak bir Azure HDInsight Hadoop kümesinde depolanan verilerin özelliklerini oluşturma işlemi gösterilmektedir. Bu Hive sorguları katıştırılmış Hive User-Defined betikleri, sağlanan işlevler (UDF'ler) kullanın.
 
-Özellikleri oluşturmak için gereken işlem bellek yoğun olabilir. Hive sorguları performansını bu gibi durumlarda daha önemli hale gelir ve belirli parametreleri ayarlama tarafından geliştirilebilir. Bu parametreleri ayarlama son bölümünde ele alınmıştır.
+Özellikler oluşturmak için gereken işlemleri, bellek kullanımı yoğun olabilir. Hive sorgu performansı bu gibi durumlarda daha önemli hale gelir ve belirli parametreleri ayarlayarak geliştirilebilir. Bu parametreleri ayarlama son bölümde ele alınmıştır.
 
-Sunulan sorguları örnekler için belirli [NYC ücreti seyahat veri](http://chriswhong.com/open-data/foil_nyc_taxi/) senaryoları burada da sunulmaktadır [GitHub deposunu](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Bu sorgular zaten belirtilen veri şeması varsa ve çalıştırmak için gönderilmesi hazırsınız. Son bölümünde kullanıcılar ayarlayabilirsiniz ve böylece Hive sorguları performansı artırılabilir parametreleri de ele alınmıştır.
+Sunulan sorgularının örnekleri için belirli [NYC taksi seyahat verilerini](http://chriswhong.com/open-data/foil_nyc_taxi/) senaryoları burada da sunulmaktadır [GitHub deposu](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Bu sorgular zaten belirtilen veri şemasına sahip ve çalıştırmak için gönderilmeye hazır. Son bölümde, kullanıcılar ayarlayabilirsiniz ve böylelikle Hive sorgu performansı artırılabilir parametreleri de ele alınmıştır.
 
 [!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
 
-Bu **menü** özellikleri veriler için çeşitli ortamlar oluşturmak nasıl açıklayan konulara bağlantılar. Bu görev bir adımdır [takım veri bilimi işlem (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Bu **menü** verilerin özelliklerini oluşturma çeşitli ortamlarda nasıl açıklayan konulara bağlantılar. Bu görev bir adımdır [Team Data Science işlem (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu makalede, sahip olduğunuz varsayılmaktadır:
+Bu makalede, olduğunu varsayar:
 
-* Bir Azure depolama hesabı oluşturuldu. Yönergeler gerekiyorsa bkz [bir Azure depolama hesabı oluşturma](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
-* Özelleştirilmiş bir Hadoop kümesine Hdınsight hizmetiyle sağlandı.  Yönergeler gerekiyorsa bkz [Advanced Analytics için Azure Hdınsight Hadoop kümeleri özelleştirme](customize-hadoop-cluster.md).
-* Azure Hdınsight Hadoop kümeleri Hive tabloları için verileri karşıya yüklendi. Henüz gelmemiş izleyin [Hive tabloları oluşturma ve yük verileri](move-hive-tables.md) verileri ilk Hive tablolara yüklemek için.
-* Küme uzak erişim etkin. Yönergeler gerekiyorsa bkz [Hadoop küme baş düğümü erişim](customize-hadoop-cluster.md).
+* Bir Azure depolama hesabı oluşturuldu. Yönergelere ihtiyacınız varsa bkz [bir Azure depolama hesabı oluşturma](../../storage/common/storage-quickstart-create-account.md)
+* HDInsight hizmeti ile özelleştirilmiş bir Hadoop kümesi hazırlandı.  Yönergelere ihtiyacınız varsa bkz [Gelişmiş analiz için Azure HDInsight Hadoop kümelerini özelleştirin](customize-hadoop-cluster.md).
+* Azure HDInsight Hadoop kümeleri Hive tablolarında için verileri karşıya yüklendi. Henüz yoksa izleyin [Hive tabloları oluşturma ve yük verileri](move-hive-tables.md) verileri ilk Hive tablolarına yükleme.
+* Kümeye uzaktan erişim etkin. Yönergelere ihtiyacınız varsa bkz [Hadoop küme baş düğümüne erişmek](customize-hadoop-cluster.md).
 
 ## <a name="hive-featureengineering"></a>Özellik oluşturma
-Bu bölümde, hangi özellikler Hive sorguları oluşturarak yolları bazı örnekleri açıklanmaktadır. Ek özellikler oluşturduktan sonra bunları varolan tablonun sütun olarak ekleyin veya özgün tabloyla katılabilir birincil anahtar ve ek özellikler ile yeni bir tablo oluşturun. Sunulan örnekler şunlardır:
+Bu bölümde, hangi özellikleri kullanarak Hive sorguları oluşturma yol çeşitli örneklerini açıklanmaktadır. Ek özellikler oluşturduktan sonra bunları mevcut tabloya sütun olarak ekleyin veya birincil anahtar, özgün tablonun katılabilir ve ek özellikler ile yeni bir tablo oluşturabilirsiniz. Sunulan örnekleri aşağıda verilmiştir:
 
-1. [Sıklık tabanlı özelliği oluşturma](#hive-frequencyfeature)
-2. [İkili sınıflandırma kategorik değişkenlerin riskleri](#hive-riskfeature)
-3. [Datetime alanından özellikleri Ayıkla](#hive-datefeatures)
-4. [Metin alanından özellikleri Ayıkla](#hive-textfeatures)
-5. [GPS koordinatları arasındaki uzaklığı Hesapla](#hive-gpsdistance)
+1. [Sıklığa dayalı özellik oluşturma](#hive-frequencyfeature)
+2. [İkili sınıflandırma kategorik değişkenlerinde risklerini](#hive-riskfeature)
+3. [Datetime alanı özellikleri ayıklayın](#hive-datefeatures)
+4. [Metin alanından özellikleri ayıklayın](#hive-textfeatures)
+5. [GPS koordinatlarını arasındaki uzaklık hesaplayın](#hive-gpsdistance)
 
-### <a name="hive-frequencyfeature"></a>Sıklık tabanlı özelliği oluşturma
-Genellikle, bir kategorik değişken düzeylerini sıklıkları veya birden çok kategorik değişkenleri düzeylerinden belirli birleşimlerini sıklıkları hesaplamak kullanışlıdır. Kullanıcılar bu sıklıklarını hesaplamak için aşağıdaki betiği kullanabilir:
+### <a name="hive-frequencyfeature"></a>Sıklığa dayalı özellik oluşturma
+Genellikle, Kategorik bir değişken düzeyleri sıklığını ya da birden fazla kategorik değişken düzeylerinden belirli birleşimlerini sıklığını hesaplamak kullanışlıdır. Kullanıcılar bu frekansları hesaplamak için aşağıdaki betiği kullanabilirsiniz:
 
         select
             a.<column_name1>, a.<column_name2>, a.sub_count/sum(a.sub_count) over () as frequency
@@ -64,8 +64,8 @@ Genellikle, bir kategorik değişken düzeylerini sıklıkları veya birden çok
         order by frequency desc;
 
 
-### <a name="hive-riskfeature"></a>İkili sınıflandırma kategorik değişkenlerin riskleri
-Yalnızca kullanılan modelleri sayısal özellikleri zaman ikili sınıflandırmasında sayısal olmayan kategorik değişkenleri sayısal özelliklerini dönüştürülmesi gerekir. Bu dönüştürme ile sayısal bir risk her sayısal olmayan düzeyi değiştirerek yapılır. Bu bölümde bir kategorik değişkenin risk değerleri (günlük büyük olasılıkla) hesaplama bazı genel Hive sorguları gösterir.
+### <a name="hive-riskfeature"></a>İkili sınıflandırma kategorik değişkenlerinde risklerini
+Yalnızca kullanılan modelleri sayısal özelliklerini alırken ikili Sınıflandırma, sayısal olmayan kategorik değişkenleri sayısal özelliklerini dönüştürülmesi gerekir. Bu dönüştürme, her sayısal olmayan düzeyi ile sayısal bir risk değiştirilerek gerçekleştirilir. Bu bölüm, Kategorik bir değişken (günlük ekledikçe) risk değerleri hesaplama genel bazı Hive sorguları gösterir.
 
         set smooth_param1=1;
         set smooth_param2=20;
@@ -85,40 +85,40 @@ Yalnızca kullanılan modelleri sayısal özellikleri zaman ikili sınıflandır
             group by <column_name1>, <column_name2>
             )b
 
-Bu örnekte, değişkenleri `smooth_param1` ve `smooth_param2` verilerden hesaplanan risk değerlerinin düzgün şekilde ayarlayın. Risk -INF INF arasındaki aralığı yok. Risk > 0 hedef 1'e eşit olduğunu olasılık 0,5 büyük olduğunu gösterir.
+Bu örnekte, değişken `smooth_param1` ve `smooth_param2` verilerden hesaplanan risk değerlerinin düzgün şekilde ayarlanmıştır. Riskler -INF INF arasındaki aralığı vardır. Bir risk > 0 hedefi 1'e eşit olduğunu olasılık 0,5 büyük olduğunu gösterir.
 
-Risk sonra tablosu hesaplanan, kullanıcıların risk değerlerinin bir tabloya risk tabloyla birleştirerek atayabilirsiniz. Hive katılma sorgusu, önceki bölümde sağlandı.
+Risk sonra tablo hesaplanır, kullanıcıların risk değerlerinin bir tabloya risk tabloyla katılarak atayabilirsiniz. Hive katılan sorgu, önceki bölümde sağlanmadı.
 
-### <a name="hive-datefeatures"></a>Datetime alanlardan özellikleri Ayıkla
-Hive, datetime alanları işlemek için UDF'ler kümesiyle birlikte gelir. Kovanında, varsayılan datetime biçimidir ' yyyy-aa-gg 00:00:00 ' (' 1970'ten-01-01 12:21:32 ' gibi). Bu bölümde, gün, ay, bir datetime alanı month ayıklamak örnekler ve varsayılan biçiminde bir tarih/saat dizesine varsayılan biçimlendirin dışında tarih saat biçiminde bir dize olarak bir dönüştürme diğer örnekleri gösterir.
+### <a name="hive-datefeatures"></a>Özellikleri datetime alanları Ayıkla
+Hive, datetime alanları işleme için bir UDF'ler kümesi ile birlikte gelir. Hive, varsayılan datetime biçimi ' yyyy-aa-gg 00:00:00 ' ('1970-01-01 12:21:32 ' gibi). Bu bölümde, bir ay, bir datetime alanı ayın gününü çıkarma örnekleri ve başka bir tarih saat dizesi için varsayılan biçimi varsayılan biçimlendirme dışında bir biçimde bir tarih/saat dizeye Dönüştür diğer örnekler gösterilmektedir.
 
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Bu Hive sorgusu varsayar *<datetime field>* varsayılan tarih saat biçiminde değil.
+Bu Hive sorgusu olduğunu varsayar *<datetime field>* varsayılan tarih/saat biçimi.
 
-Bir datetime alanı varsayılan biçiminde değilse, datetime alanı UNIX zaman damgası dönüştürmeniz ve UNIX zaman damgası varsayılan biçiminde bir tarih saat dizeye dönüştürmeniz gerekir. Datetime biçim varsayılan olduğunda, kullanıcılar katıştırılmış datetime özellikleri ayıklamak için UDF'ler uygulayabilir.
+Bir datetime alanı varsayılan biçiminde değilse, datetime alanı Unix zaman damgası dönüştürmeniz ve varsayılan biçiminde olan bir tarih saat dizesi Unix zaman damgası dönüştürmek gerekir. Varsayılan tarih ve saat biçim olduğunda, kullanıcılar katıştırılmış tarih ve saat özellikleri ayıklanacak UDF'ler uygulayabilir.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-Bu sorgu, *<datetime field>* gibi düzeni sahip *03/26/2015 12:04:39*,  *<pattern of the datetime field>'* olmalıdır `'MM/dd/yyyy HH:mm:ss'`. Test etmek için kullanıcıların çalıştırabileceği
+Bu sorgu, *<datetime field>* desen gibi sahip *26/03/2015 12:04:39*,  *<pattern of the datetime field>'* olmalıdır `'MM/dd/yyyy HH:mm:ss'`. Kullanıcılar, test etmek için çalıştırabilirsiniz
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
 
-*Hivesampletable* kümeleri sağlandığında bu sorguda tüm Azure Hdınsight Hadoop kümeleri üzerinde varsayılan olarak önceden yüklenmiş olarak gelir.
+*Hivesampletable* kümeleri sağlandığında bu sorgu tüm Azure HDInsight Hadoop kümelerinde varsayılan olarak önceden yüklenmiş olarak gelir.
 
-### <a name="hive-textfeatures"></a>Metin alanları özellikleri Ayıkla
-Hive tablosu boşluklarla ayrılmış sözcükler dizesi içeren bir metin alanı olduğunda, aşağıdaki sorgu dizesi ve dizesindeki sözcük sayısını uzunluğu ayıklar.
+### <a name="hive-textfeatures"></a>Özellikleri metin alanları Ayıkla
+Hive tablosu boşluklarla ayrılmış sözcük içeren bir metin alanı varsa, aşağıdaki sorguyu dize ve dize sözcük sayısı uzunluğunu ayıklar.
 
         select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num
         from <databasename>.<tablename>;
 
-### <a name="hive-gpsdistance"></a>GPS koordinat kümeleri arasındaki uzaklıkları Hesapla
-Bu bölümde verilen sorgu NYC ücreti seyahat verilere doğrudan uygulanabilir. Bu sorgu amacı özellikleri oluşturmak için Hive katıştırılmış bir matematik işlevinde uygulamak nasıl göstermektir.
+### <a name="hive-gpsdistance"></a>GPS koordinatlarını kümesi arasındaki uzaklıkları hesaplayın
+Bu bölümde belirtilen sorgu için NYC taksi seyahat verilerini doğrudan uygulanabilir. Bu sorgu amacı özellikler oluşturmak için Hive içinde katıştırılmış bir matematiksel işlev uygulamak nasıl göstermektir.
 
-Bu sorguda kullanılan adlı, toplama ve dropoff konumları GPS koordinatları alanları *toplama\_boylam*, *toplama\_enlem*, *dropoff\_boylam*, ve *dropoff\_enlem*. Toplama ve dropoff koordinatları arasında doğrudan uzaklığı hesaplamak sorgular şunlardır:
+Bu sorguda kullanılan adlı, toplama ve dropoff konumları GPS koordinatlarını alanlar *toplama\_boylam*, *toplama\_enlem*,  *dropoff\_boylam*, ve *dropoff\_enlem*. Toplama ve dropoff koordinatları arasında doğrudan uzaklık hesaplayın sorgular şunlardır:
 
         set R=3959;
         set pi=radians(180);
@@ -136,44 +136,44 @@ Bu sorguda kullanılan adlı, toplama ve dropoff konumları GPS koordinatları a
         and dropoff_latitude between 30 and 90
         limit 10;
 
-İki GPS koordinatları arasındaki uzaklığı hesaplamak matematiksel denklemini bulunabilir <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">taşınabilir tür betikleri</a> Peter Lapisu tarafından yazılan site. Bu Javascript işlevi içinde `toRad()` tıpkı *lat_or_lon*pi/180 *, radyan için derece dönüştürür. Burada, *lat_or_lon* enlem veya boylam. Hive işlevi sağlamadığından `atan2`, ancak işlev sağlar `atan`, `atan2` işlevi tarafından gerçekleştirilir `atan` sağlanan tanımı kullanılarak yukarıdaki Hive sorgusu işlevinde <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+İki GPS koordinatlarını arasındaki uzaklık hesaplayın matematik denklemlerini bulunabilir <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">taşınabilir tür betikleri</a> site, Peter Lapisu tarafından yazıldı. Bu Javascript işlevi olarak `toRad()` tıpkı *lat_or_lon*pi/180 *, bu Dereceyi radyana dönüştürür. Burada, *lat_or_lon* enlem veya boylam. Hive işlevi sağlamadığından `atan2`, ancak işlev sağlar `atan`, `atan2` işlevi tarafından gerçekleştirilir `atan` sağlanan tanımı kullanarak yukarıdaki Hive sorgusu işlevinde <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
-![Çalışma alanı oluştur](./media/create-features-hive/atan2new.png)
+![Çalışma alanı oluşturma](./media/create-features-hive/atan2new.png)
 
-Katıştırılmış UDF'ler bulunabilir Hive tam listesi **yerleşik işlevler** bölümünde <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
+Katıştırılmış UDF'ler bulunabilir Hive tam listesini **yerleşik işlevler** bölümünde <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
-## <a name="tuning"></a> Gelişmiş konular: Sorgu hızını artırmak için ayarlama Hive parametreleri
-Varsayılan parametre ayarları Hive kümesinin Hive sorguları ve sorguları işlerken veri için uygun olmayabilir. Bu bölümde, kullanıcıların Hive sorguları performansını artırmak için ayarlayabilirsiniz bazı parametreler açıklanmaktadır. Kullanıcıların veri işleme sorguları önce sorguları ayarlama parametresini eklemeniz gerekir.
+## <a name="tuning"></a> Gelişmiş konular: Sorgu hızını artırmak için ayar Hive parametreleri
+Hive kümesinin varsayılan parametre ayarları Hive sorguları ve sorgular işlenirken veri için uygun olmayabilir. Bu bölümde, kullanıcılar Hive sorgularının performansını geliştirmek için dinleyebilirsiniz bazı parametreler açıklanmaktadır. Veri işleme sorgular önce sorguları ayarlama parametre eklemek kullanıcıların gerekir.
 
-1. **Java yığın alanı**: büyük veri kümeleri katılma veya uzun kayıtlarının işlenmesinden içeren sorgular için **yığın alana sahip** sık karşılaşılan biridir. Bu hata parametrelerini ayarlayarak önlenebilir *mapreduce.map.java.opts* ve *mapreduce.task.io.sort.mb* istenen değerleri için. Örnek aşağıda verilmiştir:
+1. **Java yığın alanı**: büyük veri kümelerini katılma veya uzun kayıtları işleme içeren sorgular için **yığın alanı kalmadı çalıştıran** sık karşılaşılan biridir. Bu hata, parametreleri ayarlayarak önlenebilir *mapreduce.map.java.opts* ve *mapreduce.task.io.sort.mb* için istenen değerleri. Örnek aşağıda verilmiştir:
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
-    Bu parametre, Java yığın alanı için 4 GB bellek ayırır ve ayrıca sıralama daha verimli daha fazla bellek ayırarak hale getirir. Başarısızlık hatalarını yığın alanı ilgili herhangi bir işi varsa bu ayırma ile yürütmek için iyi bir fikirdir.
+    Bu parametre, Java yığın alanı için 4 GB bellek ayırır ve ayrıca sıralama daha verimli daha fazla bellek ayırarak yapar. Yığın alanı ilgili bir başarısızlık hatalarını herhangi bir iş varsa bu ayırmaları ile yürütmek için iyi bir fikirdir.
 
-1. **DFS bloğu boyutunu**: Bu parametre en küçük birim dosya sistemi depolar veri ayarlar. DFS blok boyutu 128 MB, ardından tüm veri boyutuna ve kadar küçükse örnek olarak, tek bir blok 128 MB depolanır. 128 MB ek blokları ayrılan büyük veriler. 
-2. Dosyaya ilgili ilgili blok bulmak için çok daha fazla isteklerini işlemek ad düğümü olduğu için bir küçük blok boyutu seçme büyük ek yüklerini Hadoop neden olur. Bir önerilen ilgilenme gigabayt ile (veya daha büyük olduğunda) ayarı veriler:
+1. **DFS bloğu boyutunu**: Bu parametre en küçük birim dosya sistemi depolar veri ayarlar. DFS blok boyutu düşük ve en fazla 128 MB, ardından boyuttaki veriyi olursa örnek olarak, 128 MB tek bir blok içinde depolanır. 128 MB'den büyük veri, ek blokları atanır. 
+2. Ad düğümü dosyasıyla ilgili blok bulmak için çok daha fazla isteklerini işlemek olduğundan küçük blok boyutu seçme büyük ek yüklerini Hadoop neden olur. Bir önerilen ilgilenme gigabayt ile (veya daha büyük olduğunda) ayarı veriler:
 
         set dfs.block.size=128m;
 
-2. **Hive katılma işleminde en iyi duruma getirme**: birleştirme işlemleri harita/azaltın Framework'te azaltın aşamasında, bazen yer genellikle alırken muazzam kazançlar ("mapjoins" olarak da bilinir) harita aşamasında birleştirmeler zamanlayarak sağlanabilir. Mümkün olduğunda bunun için Hive yönlendirecek şekilde ayarlayın:
+2. **Hive katılma işleminde en iyi duruma getirme**: birleştirme işlemleri map/reduce Framework azaltın aşamasında, bazen bir yerde genellikle alırken çok büyük bir kazanç birleşimler ("mapjoins" olarak da bilinir) map aşamasında zamanlama tarafından gerçekleştirilebilir. Mümkün olduğunda bunu yapmak için Hive yönlendirmek için aşağıdakileri ayarlayın:
    
        set hive.auto.convert.join=true;
 
-3. **Hive mappers sayısını belirterek**: sırada Hadoop reducers sayısını ayarlamak kullanıcı sağlar, mappers sayısı genellikle kullanıcı tarafından değil ayarlanabilir. Bu sayı denetiminde bazı derecesini izin veren bir eli Hadoop değişkenleri seçmektir *mapred.min.split.size* ve *mapred.max.split.size* her eşleme boyutu görev tarafından belirlenir:
+3. **Hive için azaltıcının sayısını belirten**: sırada Hadoop genişletin sayısını ayarlamak kullanıcının sağlar, azaltıcının sayısı genellikle kullanıcı tarafından ayarlanamaz. Bu sayı denetimde bir ölçüde veren el Hadoop değişkenleri seçmektir *mapred.min.split.size* ve *mapred.max.split.size* her eşleme boyutu görev tarafından belirlenir:
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    
     Genellikle, varsayılan değeri:
     
     - *mapred.Min.split.size* 0 ' dır,
-    - *mapred.max.split.size* olan **Long.MAX** ve 
+    - *mapred.max.split.size* olduğu **Long.MAX** ve 
     - *DFS.Block.size* 64 MB'tır.
 
-    Veri boyutu verilen görebiliriz gibi "ayarlayarak" Bu parametreleri ayarlama sağlar bize kullanılan mappers sayısını ayarlamak.
+    Biz, veri boyutu verilen görebileceğiniz gibi "ayarı" tarafından bu parametreleri ayarlama sağlar bize kullanılan azaltıcının sayısını ayarlamak.
 
-4. İşte birkaç daha **Gelişmiş Seçenekler** Hive performansını iyileştirmek için. Bu harita ve görevleri azaltmak için ayrılan bellek ayarlamanıza olanak sağlar ve performans uyguladıkça yararlı olabilir. Aklınızda *mapreduce.reduce.memory.mb* Hadoop kümesindeki her bir çalışan düğümünün fiziksel bellek boyutundan büyük olamaz.
+4. İşte birkaç daha **Gelişmiş Seçenekler** Hive performansını iyileştirme için. Bu harita ve görevleri azaltmak için ayrılan bellek ayarlamanıza olanak sağlar ve performans ince ayar yapma yararlı olabilir. Aklınızda *mapreduce.reduce.memory.mb* Hadoop kümesindeki her çalışan düğümüne fiziksel bellek boyutu büyük olamaz.
    
         set mapreduce.map.memory.mb = 2048;
         set mapreduce.reduce.memory.mb=6144;

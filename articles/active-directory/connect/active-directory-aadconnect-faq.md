@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1897f2c5d532c030b2711a35eabeefd889f560c8
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 4f3ffb3c769adeabd1edc10ce064653f7b336330
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265004"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42058311"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect SSS
 
@@ -65,7 +65,7 @@ Bunu yapmanın en kolay yolu, Azure AD Connect ile aynı makinede yüklü SQL Se
 Tüm ağ yazılımı, fiziksel cihazlar veya başka bir şey bağlantıları açık kalabileceği en uzun süreyi sınırlayan bir eşiği en az beş dakika (300 saniye), Azure AD Connect istemcisinin yüklü olduğu sunucu arasında bağlantı kurmak için kullanmanız gerekir ve Azure Active Directory. Bu öneri, tüm daha önce yayımlanmış Microsoft Identity eşitleme araçları için de geçerlidir.
 
 **S: desteklenen tek etiketli etki alanları (SLD'ler)?**  
-Bu ağ yapılandırması karşı öneririz ancak ([makaleye bakın](https://support.microsoft.com/en-us/help/2269810/microsoft-support-for-single-label-domains)), bir tek etiketli etki alanı ile Azure AD Connect eşitleme kullanarak desteklenir, tek düzey etki alanı için ağ yapılandırması çalıştığından sürece doğru.
+Bu ağ yapılandırması karşı öneririz ancak ([makaleye bakın](https://support.microsoft.com/help/2269810/microsoft-support-for-single-label-domains)), bir tek etiketli etki alanı ile Azure AD Connect eşitleme kullanarak desteklenir, tek düzey etki alanı için ağ yapılandırması çalıştığından sürece doğru.
 
 **S: desteklenen kopuk AD etki alanları ile ormanları?**  
 Hayır, Azure AD Connect, kopuk ad alanlarını içeren şirket içi ormana desteklemez.
@@ -91,8 +91,8 @@ Hayır. Eşitleme Altyapısı SQL veritabanı örneğine bağlanamıyor oluştur
 **S: neden Azure AD userPrincipalName (UPN) öznitelik, şirket içi UPN eşleşmeyen?**  
 Bilgi için şu makalelere bakın:
 
-* [Office 365, Azure veya Intune'daki kullanıcı adları, şirket içi UPN veya alternatif oturum açma kimliği eşleşmiyor.](https://support.microsoft.com/en-us/kb/2523192)
-* [Farklı bir Federasyon etki alanı kullanmak için bir kullanıcı hesabının UPN'sini değiştirdikten sonra değişiklikler tarafından Azure Active Directory Eşitleme Aracı eşitlenmiş değil](https://support.microsoft.com/en-us/kb/2669550)
+* [Office 365, Azure veya Intune'daki kullanıcı adları, şirket içi UPN veya alternatif oturum açma kimliği eşleşmiyor.](https://support.microsoft.com/kb/2523192)
+* [Farklı bir Federasyon etki alanı kullanmak için bir kullanıcı hesabının UPN'sini değiştirdikten sonra değişiklikler tarafından Azure Active Directory Eşitleme Aracı eşitlenmiş değil](https://support.microsoft.com/kb/2669550)
 
 Azure AD eşitleme altyapısı UPN güncelleştirmek açıklandığı izin vermek için de yapılandırabilirsiniz [Azure AD Connect eşitleme hizmeti özelliklerini](active-directory-aadconnectsyncservice-features.md).
 
@@ -134,11 +134,11 @@ PowerShell betiğini çalıştırmak için [betiği indirin](https://aka.ms/repa
 
 El ile yükseltmek için indirin ve AADConnect.msi dosyanın en son sürümünü çalıştırması gerekir.
  
--  Geçerli sürümünüzü 1.1.750.0 eskiyse [indirin ve en son sürüme yükseltme](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+-  Geçerli sürümünüzü 1.1.750.0 eskiyse [indirin ve en son sürüme yükseltme](https://www.microsoft.com/download/details.aspx?id=47594).
 - Azure AD Connect sürümünüzü 1.1.750.0 veya daha sonra başka bir eylem gerekli ise. Otomatik yükseltme düzeltme içeren bir sürüm zaten kullanmakta olduğunuz. 
 
 **S: otomatik yükseltmeyi yeniden etkinleştirmek için en son sürüme yükseltmek için bana bildiren bir e-posta aldım. Sürüm 1.1.654.0 kullanıyorum. Yükseltmem gerekiyor mu?**  
-Evet, 1.1.750.0 sürümüne yükseltin veya daha sonra otomatik yükseltmeyi yeniden etkinleştirmek için gerekir. [Karşıdan yükle ve en son sürüme yükseltme](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+Evet, 1.1.750.0 sürümüne yükseltin veya daha sonra otomatik yükseltmeyi yeniden etkinleştirmek için gerekir. [Karşıdan yükle ve en son sürüme yükseltme](https://www.microsoft.com/download/details.aspx?id=47594).
 
 **S: otomatik yükseltmeyi yeniden etkinleştirmek için en son sürüme yükseltmek için bana bildiren bir e-posta aldım. Otomatik yükseltmeyi etkinleştirmek için PowerShell kullandığımı olursa hala en son sürümünü yüklemek ihtiyacım var?**  
 Evet, yine 1.1.750.0 sürüme yükseltin veya üzeri gerekir. PowerShell ile otomatik yükseltme hizmetini etkinleştirme 1.1.750.0 öncesi sürümlerinde bulunan Otomatik yükseltme sorunu hafifletmeye değil.
@@ -190,7 +190,7 @@ Yardıma ihtiyacınız varsa Azure AD Connect'in yeni bir sürüme yükseltme s�
 ## <a name="troubleshooting"></a>Sorun giderme
 **S: Azure AD Connect ile ilgili Yardım alabilirim?**
 
-[Microsoft Bilgi Bankası (KB) arama](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
+[Microsoft Bilgi Bankası (KB) arama](https://www.microsoft.com/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
 
 * KB ortak onarım sorunları için Azure AD Connect desteği hakkında teknik çözümler için arama yapın.
 

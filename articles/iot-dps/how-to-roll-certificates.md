@@ -1,6 +1,6 @@
 ---
 title: Azure IOT Hub cihazı sağlama hizmeti içinde nasıl dağıtılacağıdır X.509 sertifikaları | Microsoft Docs
-description: Hizmet örneği sağlama cihazınızla X.509 sertifikaları sunma
+description: Cihaz sağlama hizmeti örneğinizi X.509 sertifikalarıyla sunma
 author: wesmc7777
 ms.author: wesmc
 ms.date: 08/06/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9c73ce159ae7cf5778210e0fb587135f37c73f57
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: a8ba667e6af316620d7a8530f29a6640edada13d
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40025186"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42056567"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>X.509 cihaz sertifikaları sunma
 
@@ -46,7 +46,7 @@ Kendi cihaz sertifikaları yönetiyorsanız, sertifikalar güncelleştirmek içi
 
 ## <a name="roll-the-certificate-in-the-iot-hub"></a>IOT hub'ında sertifika alma
 
-Cihaz sertifikasını el ile bir IOT hub'ına eklenebilir. Sertifika kullanarak cihaz sağlama hizmeti örneğine otomatik olarak da yapılabilir. Bu makalede, bir sağlama hizmeti örneği otomatik sağlamayı desteklemek için kullanılıyor varsayacağız.
+Cihaz sertifikasını el ile bir IOT hub'ına eklenebilir. Sertifika bir cihaz sağlama hizmeti örneği kullanarak otomatik olarak da yapılabilir. Bu makalede, bir cihaz sağlama hizmeti örneği otomatik sağlamayı desteklemek için kullanılıyor varsayacağız.
 
 Ne zaman bir cihaz, başlangıçta otomatik sağlama yoluyla, onu başlatır-up, sağlanan ve sağlama hizmeti ile iletişim kurar. Sağlama hizmeti içinde kimlik bilgisi olarak cihazın yaprak sertifikayı kullanarak bir IOT hub'a bir cihaz kimliği oluşturmadan önce bir kimlik denetimi gerçekleştirerek yanıt verir. Sağlama hizmeti, cihazın hangi IOT hub'a atanır ve cihaz kimlik doğrulaması ve IOT hub'ına bağlanmak için kendi yaprak sertifikayı ardından kullanır. daha sonra bildirir. 
 
@@ -104,7 +104,7 @@ Yanıt olarak bir güvenlik ihlali bir grup kaydı güncelleştirmek için geçe
 
 #### <a name="update-compromised-root-ca-certificates"></a>Güvenliği aşılmış kök CA sertifikaları güncelleştirme
 
-1. Tıklayın **sertifikaları** sağlama hizmeti örneğinizi için sekmesinde.
+1. Tıklayın **sertifikaları** cihaz sağlama hizmeti örneğinizi için sekmesinde.
 
 2. Güvenliği aşılmış sertifika listesinde tıklayın ve ardından **Sil** düğmesi. Sertifika adı girerek silme işlemini onaylamak ve tıklayın **Tamam**. Bu işlem, tüm riskli sertifikaları için yineleyin.
 
@@ -112,7 +112,7 @@ Yanıt olarak bir güvenlik ihlali bir grup kaydı güncelleştirmek için geçe
 
 3. Özetlenen adımları [doğrulanmış CA sertifikalarını yapılandırma](how-to-verify-certificates.md) ekleme ve yeni bir kök CA sertifika doğrulama.
 
-4. Tıklayın **kayıtları Yönet** sağlama hizmeti örneğinizi için sekmesinde ve tıklayın **kayıt grupları** listesi. Kayıt grubu adınız listede tıklayın.
+4. Tıklayın **kayıtları Yönet** cihaz sağlama hizmeti örneğinizi için sekmesinde ve tıklayın **kayıt grupları** listesi. Kayıt grubu adınız listede tıklayın.
 
 5. Tıklayın **CA sertifikası**ve yeni kök CA sertifikanızı seçin. Daha sonra **Kaydet**'e tıklayın. 
 
@@ -149,13 +149,13 @@ Daha sonra ikincil sertifika aynı zamanda, süre sonu yaklaştığında ve geri
 
 1. Özetlenen adımları [doğrulanmış CA sertifikalarını yapılandırma](how-to-verify-certificates.md) ekleme ve yeni bir kök CA sertifika doğrulama.
 
-2. Tıklayın **kayıtları Yönet** sağlama hizmeti örneğinizi için sekmesinde ve tıklayın **kayıt grupları** listesi. Kayıt grubu adınız listede tıklayın.
+2. Tıklayın **kayıtları Yönet** cihaz sağlama hizmeti örneğinizi için sekmesinde ve tıklayın **kayıt grupları** listesi. Kayıt grubu adınız listede tıklayın.
 
 3. Tıklayın **CA sertifikası**ve altında yeni kök CA sertifikanızı seçin **ikincil sertifika** yapılandırma. Daha sonra **Kaydet**'e tıklayın. 
 
     ![Yeni kök CA sertifikasını seçin](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
-4. Daha sonra birincil sertifikasının süresi doldu, tıklayın **sertifikaları** sağlama hizmeti örneğinizi için sekmesinde. Süresi dolan sertifikanın listesinde tıklayın ve ardından **Sil** düğmesi. Sertifika adı girerek silme işlemini onaylamak ve tıklayın **Tamam**.
+4. Daha sonra birincil sertifikasının süresi doldu, tıklayın **sertifikaları** cihaz sağlama hizmeti örneğinizi için sekmesinde. Süresi dolan sertifikanın listesinde tıklayın ve ardından **Sil** düğmesi. Sertifika adı girerek silme işlemini onaylamak ve tıklayın **Tamam**.
 
     ![Kök CA sertifikasını Sil](./media/how-to-roll-certificates/delete-root-cert.png)
 
@@ -177,7 +177,7 @@ Daha sonra ikincil sertifika aynı zamanda, süre sonu yaklaştığında ve geri
 
 ## <a name="reprovision-the-device"></a>Cihaz yeniden hazırlayın
 
-Hem cihaz ve cihaz sağlama hizmeti sertifika döndürülür sonra cihazın kendisi cihaz sağlama hizmeti iletişim kurarak yeniden sağlamak. 
+Hem cihaz hem de cihaz sağlama hizmeti sertifikası alınıyor sonra cihazın kendisi cihaz sağlama hizmeti iletişim kurarak yeniden sağlamak. 
 
 Yeniden sağlamak için bir kolayca programlama cihazların cihaz IOT hub'a bağlanmaya çalışmasını "yetkisiz" hatası alırsa sağlama akışını gitmek için sağlama hizmetiyle bağlantı kurmak için cihaz programı için yoludur.
 

@@ -8,22 +8,21 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4b6e642c86c5e618cae2d46aad84a61b3f4866ae
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: a53bcbe90f39999a838c84807ca834a1e6cd1813
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446155"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42060372"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works Öğreticisi
 
-Bu öğreticide, [SQL Server Veri Araçları (SSDT) ile Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)’yu kullanarak 1400 uyumluluk düzeyinde bir tablosal modelin nasıl oluşturulduğu ve dağıtıldığı ile ilgili dersler sağlanmaktadır.  
-
+Bu öğreticide, oluşturma ve Visual Studio'yu kullanarak 1400 uyumluluk düzeyinde bir tablosal model dağıtma ile ilgili dersler sağlanmaktadır. [Analysis Services projeleri](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects) veya [SQL Server veri Araçları (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 Analysis Services ve tablosal modelleme konusunda yeniyseniz, Visual Studio kullanarak basit bir tablosal model oluşturup dağıtmayı öğrenmenin en hızlı yolu bu öğreticiyi tamamlamaktır. Ön koşullar karşılandıktan sonra, tamamlanması iki ila üç saat arası sürmelidir.  
   
 ## <a name="what-you-learn"></a>Öğrenecekleriniz   
   
--   SSDT ile Visual Studio’da **1400 uyumluluk düzeyinde** yeni bir tablosal model projesi oluşturma.
+-   Yeni bir tablosal model projesi oluşturma işlemini **1400 uyumluluk düzeyinde** Visual Studio'da.
   
 -   İlişkisel veritabanındaki verileri bir tablosal model projesi çalışma alanı veritabanına aktarma.  
   
@@ -37,7 +36,7 @@ Analysis Services ve tablosal modelleme konusunda yeniyseniz, Visual Studio kull
   
 -   Kullanıcı üyeleriyle roller oluşturarak model nesnelerinin ve verilerinin güvenliğini sağlama.  
   
--   SSDT kullanarak bir **Azure Analysis Services** sunucusuna ya da **SQL Server 2017 Analysis Services** sunucusuna tablosal model dağıtma.  
+-   Tablosal model dağıtma bir **Azure Analysis Services** sunucu veya **SQL Server 2017 Analysis Services** Visual Studio'yu kullanarak sunucu.  
   
 ## <a name="prerequisites"></a>Önkoşullar  
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:  

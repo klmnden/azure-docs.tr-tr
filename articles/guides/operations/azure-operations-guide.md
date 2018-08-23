@@ -1,6 +1,6 @@
 ---
-title: Kılavuzu Azure BT operatörleri için Başlarken | Microsoft Docs
-description: Azure BT operatörleri için başlangıç kılavuzu
+title: Azure BT operatörleri için Başlarken Kılavuzu | Microsoft Docs
+description: Azure BT operatörleri için Başlarken Kılavuzu edinin
 services: ''
 documentationcenter: ''
 author: themichaelbender-ms
@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 06/12/2017
+ms.date: 08/21/2018
 ms.author: mibender
-ms.openlocfilehash: 86f11e7c2d5503a0c474a6c15501a6b872c564e3
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 286b9b133bfbe633ad1fe69f66aa11b9e4c4fc1d
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072343"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056283"
 ---
-# <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Bulut bilgi işleme giriş ve Microsoft Azure
+# <a name="get-started-for-azure-it-operators"></a>Azure BT operatörleri için Başlarken
 
 Bu kılavuz, bir Microsoft Azure altyapısının yönetim ve dağıtım için ilgili temel kavramlar tanıtılmaktadır. Yeni başladıysanız bilgi işlem veya Azure bulut hizmetine kendisi, bu kılavuz hızla kavramlarını, dağıtım ve yönetim ayrıntıları başlamanıza yardımcı olmak yardımcı olur. Bu kılavuz birçok bölümlerini bir sanal makine dağıtma gibi bir işlem tartışın ve sonra ayrıntılı teknik bilgiler için bir bağlantı sağlayın.
 
@@ -53,27 +53,33 @@ Küçük ölçekli işletmeler için işlem artışları için isteğe bağlı o
 
 Kullanılabilir Azure bölgeleri hakkında daha fazla bilgi için bkz. [Azure bölgeleri](https://azure.microsoft.com/regions/).
 
-### <a name="cloud-computing-is-classified-into-three-categories-saas-paas-and-iaas"></a>Sınıflandırılmış üç kategoriye bulut: SaaS, PaaS ve Iaas.
+### <a name="cloud-computing-model"></a>Bulut bilgi işlem modeli
 
-#### <a name="saas-software-as-a-service"></a>SaaS: Bir hizmet olarak yazılım
-
-SaaS merkezi olarak barındırılan ve yönetilen bir yazılımdır. Çok kiracılı bir mimaride genellikle temel: tek bir sürüm uygulamanın tüm müşteriler için kullanılır. Bunu tüm konumlarda en iyi performansı elde etmek için birden çok örneğe genişletilebilir. SaaS yazılım genellikle bir aylık veya yıllık aboneliğiniz lisanslanır.
-
-Microsoft Office 365 sunan bir SaaS iyi bir örnektir. Aboneleri aylık veya yıllık abonelik ücreti ödersiniz ve Microsoft Exchange, Microsoft OneDrive ve hizmet olarak Microsoft Office paketinin geri kalanını alın. Abonelerin her zaman en son sürümü Al ve Exchange server sizin adınıza yönetilir. Her yıl Office Yükseltme ve yükleme ile karşılaştırıldığında, bu daha düşük maliyetli ve daha az çaba gerektirir.
-
-#### <a name="paas-platform-as-a-service"></a>PaaS: Bir hizmet olarak Platform
-
-PaaS ile bulut hizmeti satıcısı sağlayan bir ortama uygulamanızı dağıtın. Uygulama geliştirme üzerinde odaklanabilirsiniz satıcı tüm altyapı yönetimini desteklemez.
-
-Azure teklifleri, Azure App Service ve Azure Cloud Services (web ve çalışan rolleri), Web Apps özelliği dahil olmak üzere çeşitli PaaS işlem sağlar. Her iki durumda da geliştiriciler uygulamalarını destekleyen yazılımındaki ilgili hiçbir şeyi bilmeden dağıtmak için birçok yolu vardır. Geliştiriciler, sanal makineler (VM'ler) oluşturmak, Uzak Masaüstü Protokolü (RDP) her biri için oturum açarken kullandığınız ya da uygulamayı yüklemek zorunda kalmaz. Bunlar yalnızca bir düğmesine tıklayın (veya kapatmak için) ve Microsoft tarafından sağlanan araçları Vm'leri hazırlama dağıtın ve uygulamayı yükler.
+Azure, bir bulut müşterilerine sunulan hizmet kategorilerini dayalı modeli kullanır. Hizmet üç kategoriye olarak bir hizmet (Iaas), Platform (PaaS) hizmet olarak yazılım (SaaS) hizmet olarak altyapı içerir. Satıcılar, bazılarını veya tümünü bu kategorilerin her bilgi işlem yığını bileşenlerini sorumluluğunu paylaşır. Bulut için kategorilerin her birine bir göz atalım bilgi işlem.
+![Bulut bilgi işlem yığını karşılaştırması](./media/cloud-computing-comparison.png)
 
 #### <a name="iaas-infrastructure-as-a-service"></a>Iaas: Hizmet olarak altyapı
 
-Bir Iaas bulut satıcı çalıştırır ve tüm fiziksel hesaplama kaynakları ve bilgisayar sanallaştırmayı etkinleştirmek için gerekli yazılımı yönetir. Bu hizmet, bir müşteri sanal makineleri bu barındırılan veri merkezleri içinde dağıtır. Sanal makineleri bir şirket dışı veri merkezinde bulunan olsa da, Iaas tüketici yönetimlerinin ve yapılandırmayı üzerinde denetimi yoktur.
+Bir Iaas bulut satıcı çalıştırır ve tüm fiziksel hesaplama kaynakları ve bilgisayar sanallaştırmayı etkinleştirmek için gerekli yazılımı yönetir. Bu hizmet, bir müşteri sanal makineleri bu barındırılan veri merkezleri içinde dağıtır. Sanal makineleri bir şirket dışı veri merkezinde bulunan olsa da, Iaas tüketici yapılandırma ve yönetim işletim sisteminin altyapının bulut satıcıya bırakarak üzerinde denetimi yoktur.
 
 Azure sanal makineler, sanal makine ölçek kümeleri ve ilgili ağ altyapısı dahil olmak üzere çeşitli Iaas çözümleri içerir. Sanal makinelerin bir popüler olduğunu başlangıçta geçirmek istediğiniz hizmetleri Azure'a çünkü bir "kaldırma ve kaydırma" geçiş modeli sağlar. Şu anda, hizmetler, veri merkezinde çalışan altyapısı gibi bir VM yapılandırın ve ardından yazılım yeni VM'ye geçirmeniz. Diğer hizmetlere veya depolama URL'leri gibi yapılandırma güncelleştirmeleri yapmanız gerekebilir, ancak çoğu uygulama bu şekilde geçiş yapabilirsiniz.
 
 Sanal makine ölçek kümeleri, Azure sanal makineler üzerinde oluşturulmuş ve kümeleri, birbirinin aynısı olan Vm'leri dağıtmak için kolay bir yol sağlar. Böylece yeni VM'ler otomatik olarak gerektiğinde dağıtılabilir sanal makine ölçek kümeleri, ayrıca otomatik ölçeklendirmeyi destekler. Bu sanal makine ölçek kümeleri için ideal bir platform konak üst düzey mikro işlem kümeleri, Azure Service Fabric ve Azure Container Service gibi yapar.
+
+#### <a name="paas-platform-as-a-service"></a>PaaS: Bir hizmet olarak Platform
+
+PaaS ile bulut hizmeti satıcısı sağlayan bir ortama uygulamanızı dağıtın. Satıcı tüm veri yönetimi ve uygulama geliştirme üzerinde odaklanabilirsiniz altyapı yönetimini desteklemez.
+
+Azure teklifleri, Azure App Service ve Azure Cloud Services (web ve çalışan rolleri), Web Apps özelliği dahil olmak üzere çeşitli PaaS işlem sağlar. Her iki durumda da geliştiriciler uygulamalarını destekleyen yazılımındaki ilgili hiçbir şeyi bilmeden dağıtmak için birçok yolu vardır. Geliştiriciler, sanal makineler (VM'ler) oluşturmak, Uzak Masaüstü Protokolü (RDP) her biri için oturum açarken kullandığınız ya da uygulamayı yüklemek zorunda kalmaz. Bunlar yalnızca bir düğmesine tıklayın (veya kapatmak için) ve Microsoft tarafından sağlanan araçları Vm'leri hazırlama dağıtın ve uygulamayı yükler.
+
+#### <a name="saas-software-as-a-service"></a>SaaS: Bir hizmet olarak yazılım
+
+SaaS merkezi olarak barındırılan ve yönetilen bir yazılımdır. Çok kiracılı bir mimaride genellikle temel: tek bir sürüm uygulamanın tüm müşteriler için kullanılır. Bunu tüm konumlarda en iyi performansı elde etmek için birden çok örneğe genişletilebilir. SaaS yazılım genellikle bir aylık veya yıllık aboneliğiniz lisanslanır. SaaS yazılım genellikle bir aylık veya yıllık aboneliğiniz lisanslanır. Yönettiğiniz tüm için sağlanan hizmetleri SaaS yazılım satıcıları için yazılım yığınının tüm bileşenleri sorumludur.
+
+Microsoft Office 365 sunan bir SaaS iyi bir örnektir. Aboneleri aylık veya yıllık abonelik ücreti ödersiniz ve Microsoft Exchange, Microsoft OneDrive ve hizmet olarak Microsoft Office paketinin geri kalanını alın. Abonelerin her zaman en son sürümü Al ve Exchange server sizin adınıza yönetilir. Her yıl Office Yükseltme ve yükleme ile karşılaştırıldığında, bu daha düşük maliyetli ve daha az çaba gerektirir.
+
+
+
 
 ## <a name="azure-services"></a>Azure hizmetleri
 
@@ -145,7 +151,7 @@ Azure dünyanın dört bir yanındaki birçok bölgede genel kullanıma açık o
 
 Azure kullanımının beneﬁts dünyanın çeşitli veri merkezleri, uygulamalarınızı dağıtabilirsiniz biridir. Seçtiğiniz bölge aﬀect, uygulamanızın performansı yapabilirsiniz. En iyi ağ istek gecikme süresini azaltmak için en müşterilerinizin yakın bir bölge seçin. Ayrıca, uygulamanızın belirli ülkelerde dağıtmak için yasal gereksinimleri karşılamak için bir bölge seçebilirsiniz.
 
-### <a name="azure-portal"></a>Azure portalına
+### <a name="azure-portal"></a>Azure portal
 
 Azure portalında Azure kaynaklarını ve Hizmetleri Kaldır oluşturmak ve yönetmek için kullanılan bir web tabanlı bir uygulamadır. Azure portalında şu konumdadır https://portal.azure.com. Bu, özelleştirilebilir bir Pano ve Azure kaynaklarını yönetmek için Araçlar içerir. Ayrıca, faturalandırma ve abonelik bilgileri sağlar. Daha fazla bilgi için [Microsoft Azure portalına genel bakış](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) ve [Azure kaynaklarınızı portal üzerinden yönetme](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
@@ -175,6 +181,9 @@ Azure komut satırı arabirimi oluşturmak, yönetmek ve Azure kaynaklarını ko
 
 **REST API'leri** Azure REST API'leri, Azure portalı kullanıcı arabirimini destekleyen bir dizi üzerinde oluşturulur. Bu REST API'lerin çoğu, program aracılığıyla sağlama ve Azure kaynaklarınızın ve uygulamalarınızın Internet özellikli herhangi bir CİHAZDAN yönetme izin vermek için de desteklenir. Daha fazla bilgi için [Azure REST SDK başvurusu](https://docs.microsoft.com/rest/api/index).
 
+### <a name="azure-cloud-shell"></a>Azure Cloud Shell
+
+Yöneticiler, Azure PowerShell ve Azure CLI'yı Azure Cloud Shell adlı tarayıcı erişilebilir bir deneyim erişebilir. Bu etkileşimli bir arabirim, kendi seçtiğiniz, Bash veya PowerShell komut satırı arabirimi kullanmak Linux ve Windows yöneticileri için esnek bir araç sağlar. Azure Cloud Shell, bir tek başına web arabirimi portal üzerinden erişim olabilir [shell.azure.com](https://shell.azure.com), veya diğer erişim noktaları sayısı. Daha fazla bilgi için [Azure Cloud shell'e genel bakış](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
 ## <a name="azure-subscriptions"></a>Azure abonelikleri
 
 Bir Azure hesabına bağlı mantıksal bir gruplandırması olan Azure hizmetlerini bir aboneliktir. Bir Azure hesabı singe birden fazla abonelik içerebilir. Azure Hizmetleri için faturalama, abonelik başına temelinde gerçekleştirilir. Abonelik üzerinde tam denetime sahip bir Hesap Yöneticisi ve Abonelikteki tüm hizmetleri üzerinde denetime sahip bir Hizmet Yöneticisi Azure aboneliğiniz yok. Yöneticiler ek olarak, bireysel hesaplar verilebilir ayrıntılı RBAC aracılığıyla Azure kaynak denetimi.
@@ -355,6 +364,7 @@ Bir sanal makineyi Internet'ten erişmeyi gerektirir ilişkili ağ arabirimi ya 
 
 Bir ağ güvenlik grubu (NSG) kaynak kullanarak genel IP adresi sanal makineye erişimi yönetin. Bir NSG bir güvenlik duvarı gibi davranır ve izin verir veya ağ arabirimiyle ya da bir dizi tanımlanmış bağlantı noktalarına alt ağ arasında trafiği engeller. Örneğin, bir Azure VM ile Uzak Masaüstü oturumu oluşturmak için 3389 numaralı bağlantı noktasında gelen trafiğe izin veren NSG yapılandırmanız gerekir. Daha fazla bilgi için [Azure portalını kullanarak Azure'da bağlantı noktalarını VM'ye açma](../../virtual-machines/windows/nsg-quickstart-portal.md).
 
+
 Son olarak, gibi Yönetimi herhangi bir bilgisayar sisteminin, size güvenlik bir Azure sanal makine işletim sistemi için güvenlik kimlik bilgileri ve yazılım güvenlik duvarları kullanarak sağlamanız gerekir.
 
 ## <a name="azure-storage"></a>Azure Storage
@@ -415,7 +425,7 @@ Bir depolama hesabı dağıtmak için birkaç seçenek vardır.
 
 **Portal**
 
-Azure portalını kullanarak bir depolama hesabı dağıtmak, yalnızca bir etkin Azure aboneliği ve bir web tarayıcısına erişimi gerekir. Yeni bir depolama hesabı, yeni veya mevcut bir kaynak grubuna dağıtabilirsiniz. Depolama hesabı oluşturduktan sonra portalı kullanarak blob kapsayıcı veya dosya paylaşımı oluşturabilirsiniz. Tablo oluşturma ve depolama varlıkları program aracılığıyla kuyruk. Daha fazla bilgi için [depolama hesabı oluşturma](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+Azure portalını kullanarak bir depolama hesabı dağıtmak, yalnızca bir etkin Azure aboneliği ve bir web tarayıcısına erişimi gerekir. Yeni bir depolama hesabı, yeni veya mevcut bir kaynak grubuna dağıtabilirsiniz. Depolama hesabı oluşturduktan sonra portalı kullanarak blob kapsayıcı veya dosya paylaşımı oluşturabilirsiniz. Tablo oluşturma ve depolama varlıkları program aracılığıyla kuyruk. Daha fazla bilgi için [depolama hesabı oluşturma](../../storage/common/storage-quickstart-create-account.md).
 
 Azure portalında bir depolama hesabından dağıtımına ek olarak, portalda bir Azure Resource Manager şablonu dağıtabilirsiniz. Bu, dağıtmak ve tüm kaynakların herhangi bir depolama hesabı dahil olmak üzere şablonda tanımlanan şekilde yapılandırın. Daha fazla bilgi için [kaynakları Resource Manager şablonları ve Azure portalı ile dağıtma](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 

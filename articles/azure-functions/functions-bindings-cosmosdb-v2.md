@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: e77ccdc5b4bc03ba233aae49eda8465704e5405e
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e562b694b2d3f226d0b4f5bc03b54d6562e52244
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344384"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42058312"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>Azure işlevleri için Azure Cosmos DB bağlamaları 2.x (Önizleme)
 
@@ -54,6 +54,7 @@ Dile özgü örneğe bakın:
 * [C#](#trigger---c-example)
 * [C# betiği (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 [Tetikleyici örnekler atla](#trigger---attributes)
 
@@ -159,7 +160,43 @@ JavaScript kod aşağıdaki gibidir:
     }
 ```
 
-## <a name="trigger---attributes"></a>Tetikleyici - öznitelikleri
+### <a name="trigger---java-example"></a>Tetikleyici - Java örnek
+
+Aşağıdaki örnek, bağlama bir Cosmos DB tetikleyicisi gösterir *function.json* dosyası ve bir [Java işlevi](functions-reference-java.md) bağlama kullanan. İşlevi, eklemeleri olduğunda karmaşıktır veya belirtilen veritabanı ve koleksiyonu güncelleştirir.
+
+```json
+{
+    "type": "cosmosDBTrigger",
+    "name": "items",
+    "direction": "in",
+    "leaseCollectionName": "leases",
+    "connectionStringSetting": "AzureCosmosDBConnection",
+    "databaseName": "ToDoList",
+    "collectionName": "Items",
+    "createLeaseCollectionIfNotExists": false
+}
+```
+
+Java kod aşağıdaki gibidir:
+
+```java
+    @FunctionName("cosmosDBMonitor")
+    public void cosmosDbProcessor(
+        @CosmosDBTrigger(name = "items",
+            databaseName = "ToDoList",
+            collectionName = "Items",
+            leaseCollectionName = "leases",
+            reateLeaseCollectionIfNotExists = true,
+            connectionStringSetting = "AzureCosmosDBConnection") String[] items,
+            final ExecutionContext context ) {
+                context.getLogger().info(items.length + "item(s) is/are changed.");
+            }
+```
+
+
+İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@CosmosDBTrigger` ek açıklama parametreleri değeri, Cosmos DB'den gelmesi.  Bu ek açıklama yerel Java türler, pojo'ları veya isteğe bağlı kullanarak boş değer atanabilir değer ile kullanılabilir<T>. 
+
+## <a name="trigger---c-attributes"></a>Tetikleyici - C# öznitelikleri
 
 İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) özniteliği.
 
@@ -178,6 +215,7 @@ JavaScript kod aşağıdaki gibidir:
 
 Tam bir örnek için bkz. [tetikleyici - C# örneği](#trigger---c-example).
 
+
 ## <a name="trigger---configuration"></a>Tetikleyici - yapılandırma
 
 Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini açıklayan *function.json* dosya ve `CosmosDBTrigger` özniteliği.
@@ -187,21 +225,21 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**type** || Ayarlanmalıdır `cosmosDBTrigger`. |
 |**direction** || Ayarlanmalıdır `in`. Azure portalında tetikleyicisi oluşturduğunuzda bu parametre otomatik olarak ayarlanır. |
 |**Adı** || Değişken adı değişikliklerle belgelerin listesini temsil eden bir işlev kodunu kullanılır. | 
-|**ConnectionStringSetting**|**ConnectionStringSetting** | İzlenmekte olan Azure Cosmos DB hesabına bağlanmak için kullanılan bağlantı dizesi içeren bir uygulama ayarı adı. |
-|**DatabaseName**|**DatabaseName**  | İzlenmekte olan toplama ile Azure Cosmos DB veritabanının adı. |
-|**CollectionName** |**CollectionName** | İzlenmekte olan koleksiyonun adı. |
-|**LeaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (İsteğe bağlı) Kira koleksiyonu içeren hizmete yönelik bağlantı dizesini içeren bir uygulama ayarı adı. Ne zaman ayarlanmadı, `connectionStringSetting` değeri kullanılır. Bu parametre, portalda bağlama oluşturulduğunda otomatik olarak ayarlanır. Bağlantı dizesini kiralarını koleksiyonuna yazma izinlerine sahip olmalıdır.|
-|**LeaseDatabaseName** |**LeaseDatabaseName** | (İsteğe bağlı) Kiraları depolamak için kullanılan koleksiyonu içeren veritabanının adı. Ne zaman ayarlı değil, değerini `databaseName` ayarı kullanılır. Bu parametre, portalda bağlama oluşturulduğunda otomatik olarak ayarlanır. |
-|**LeaseCollectionName** | **LeaseCollectionName** | (İsteğe bağlı) Kiraları depolamak için kullanılan koleksiyonun adı. Ne zaman ayarlı değil, değer `leases` kullanılır. |
-|**CreateLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (İsteğe bağlı) Ayarlandığında `true`, kiralarını koleksiyonuna zaten mevcut değilse otomatik olarak oluşturulur. Varsayılan değer `false` şeklindedir. |
-|**LeasesCollectionThroughput**| **LeasesCollectionThroughput**| (İsteğe bağlı) Kiralarını koleksiyonuna oluşturulduğunda atamak için istek birimi miktarı tanımlar. Bu ayar yalnızca kullanılan yaparken önemlidir `createLeaseCollectionIfNotExists` ayarlanır `true`. Bu parametre, portalı kullanarak bağlama oluşturulduğunda otomatik olarak ayarlanır.
-|**LeaseCollectionPrefix**| **LeaseCollectionPrefix**| (İsteğe bağlı) Ayarlandığında, bir önek etkili bir şekilde iki ayrı Azure aynı kira koleksiyonu farklı önekler kullanarak paylaşmak işlevlere izin verme, bu işlev için kira koleksiyonu oluşturulan kiraları ekler.
-|**FeedPollDelay**| **FeedPollDelay**| (İsteğe bağlı) Kümesi, milisaniye cinsinden gecikme bir bölüm akışın yeni değişiklikleri için yoklama arasında tanımlar, tüm geçerli değişiklikleri boşaltılır. 5000 (5 saniye) varsayılandır.
-|**LeaseAcquireInterval**| **LeaseAcquireInterval**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden aralığı bölümler bilinen barındırma örnekleri arasında eşit olarak dağıtılmış, işlem için bir görev başlatabilir tanımlar. 13000 (13 saniye) varsayılandır.
-|**LeaseExpirationInterval**| **LeaseExpirationInterval**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden kira bir bölüm temsil eden bir kira alınmış aralığı tanımlar. Kira bu aralıkta yenilenmezse, süresi dolacak şekilde neden olur ve bölüm sahipliğini başka bir örneğine taşınır. 60000 (60 saniye) varsayılandır.
-|**LeaseRenewInterval**| **LeaseRenewInterval**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden geçerli bir örnek tarafından tutulan bölümler için tüm kira yenileme aralığı tanımlar. 17000 (17 saniye) varsayılandır.
-|**CheckpointFrequency**| **CheckpointFrequency**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden kira kontrol noktaları arasındaki süreyi tanımlar. Başarılı işlev çağrısından sonra her zaman bir varsayılandır.
-|**MaxItemsPerInvocation**| **MaxItemsPerInvocation**| (İsteğe bağlı) Ayarlandığında, işlev çağrısı alınan öğeleri en uzun süreyi özelleştirir.
+|**connectionStringSetting**|**connectionStringSetting** | İzlenmekte olan Azure Cosmos DB hesabına bağlanmak için kullanılan bağlantı dizesi içeren bir uygulama ayarı adı. |
+|**databaseName**|**databaseName**  | İzlenmekte olan toplama ile Azure Cosmos DB veritabanının adı. |
+|**collectionName** |**collectionName** | İzlenmekte olan koleksiyonun adı. |
+|**leaseConnectionStringSetting** | **leaseConnectionStringSetting** | (İsteğe bağlı) Kira koleksiyonu içeren hizmete yönelik bağlantı dizesini içeren bir uygulama ayarı adı. Ne zaman ayarlanmadı, `connectionStringSetting` değeri kullanılır. Bu parametre, portalda bağlama oluşturulduğunda otomatik olarak ayarlanır. Bağlantı dizesini kiralarını koleksiyonuna yazma izinlerine sahip olmalıdır.|
+|**leaseDatabaseName** |**leaseDatabaseName** | (İsteğe bağlı) Kiraları depolamak için kullanılan koleksiyonu içeren veritabanının adı. Ne zaman ayarlı değil, değerini `databaseName` ayarı kullanılır. Bu parametre, portalda bağlama oluşturulduğunda otomatik olarak ayarlanır. |
+|**leaseCollectionName** | **leaseCollectionName** | (İsteğe bağlı) Kiraları depolamak için kullanılan koleksiyonun adı. Ne zaman ayarlı değil, değer `leases` kullanılır. |
+|**createLeaseCollectionIfNotExists** | **createLeaseCollectionIfNotExists** | (İsteğe bağlı) Ayarlandığında `true`, kiralarını koleksiyonuna zaten mevcut değilse otomatik olarak oluşturulur. Varsayılan değer `false` şeklindedir. |
+|**leasesCollectionThroughput**| **leasesCollectionThroughput**| (İsteğe bağlı) Kiralarını koleksiyonuna oluşturulduğunda atamak için istek birimi miktarı tanımlar. Bu ayar yalnızca kullanılan yaparken önemlidir `createLeaseCollectionIfNotExists` ayarlanır `true`. Bu parametre, portalı kullanarak bağlama oluşturulduğunda otomatik olarak ayarlanır.
+|**leaseCollectionPrefix**| **leaseCollectionPrefix**| (İsteğe bağlı) Ayarlandığında, bir önek etkili bir şekilde iki ayrı Azure aynı kira koleksiyonu farklı önekler kullanarak paylaşmak işlevlere izin verme, bu işlev için kira koleksiyonu oluşturulan kiraları ekler.
+|**feedPollDelay**| **feedPollDelay**| (İsteğe bağlı) Kümesi, milisaniye cinsinden gecikme bir bölüm akışın yeni değişiklikleri için yoklama arasında tanımlar, tüm geçerli değişiklikleri boşaltılır. 5000 (5 saniye) varsayılandır.
+|**leaseAcquireInterval**| **leaseAcquireInterval**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden aralığı bölümler bilinen barındırma örnekleri arasında eşit olarak dağıtılmış, işlem için bir görev başlatabilir tanımlar. 13000 (13 saniye) varsayılandır.
+|**leaseExpirationInterval**| **leaseExpirationInterval**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden kira bir bölüm temsil eden bir kira alınmış aralığı tanımlar. Kira bu aralıkta yenilenmezse, süresi dolacak şekilde neden olur ve bölüm sahipliğini başka bir örneğine taşınır. 60000 (60 saniye) varsayılandır.
+|**leaseRenewInterval**| **leaseRenewInterval**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden geçerli bir örnek tarafından tutulan bölümler için tüm kira yenileme aralığı tanımlar. 17000 (17 saniye) varsayılandır.
+|**checkpointFrequency**| **checkpointFrequency**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden kira kontrol noktaları arasındaki süreyi tanımlar. Başarılı işlev çağrısından sonra her zaman bir varsayılandır.
+|**maxItemsPerInvocation**| **maxItemsPerInvocation**| (İsteğe bağlı) Ayarlandığında, işlev çağrısı alınan öğeleri en uzun süreyi özelleştirir.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -229,6 +267,7 @@ Tek bir belgenin kimlik değerini belirterek okuma dile özgü örneklere bakın
 * [C# betiği (.csx)](#input---c-script-examples)
 * [JavaScript](#input---javascript-examples)
 * [F#](#input---f-examples)
+* [Java](#input---java-examples)
 
 [Giriş örnekleri atla](#input---attributes)
 
@@ -1156,6 +1195,32 @@ Bu örnekte gerektiren bir `project.json` belirten dosyası `FSharp.Interop.Dyna
 
 Eklemek için bir `project.json` bkz [F # paket Yönetimi](functions-reference-fsharp.md#package).
 
+### <a name="input---java-examples"></a>Giriş - Java örnekleri
+
+Aşağıdaki örnek, tek bir belge alır bir Java işlev gösterir. İşlevi, aranacak kimliği belirtmek için bir sorgu dizesi kullanan bir HTTP isteği tarafından tetiklenir. Bu kimlik, bir Todoıtem belge belirtilen veritabanı ve koleksiyonu almak için kullanılır.
+
+Java kod aşağıdaki gibidir:
+
+```java
+@FunctionName("getItem")
+public String cosmosDbQueryById(
+    @HttpTrigger(name = "req",
+                  methods = {HttpMethod.GET},
+                  authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> dummy,
+    @CosmosDBInput(name = "database",
+                      databaseName = "ToDoList",
+                      collectionName = "Items",
+                      leaseCollectionName = "",
+                      id = "{Query.id}"
+                      connectionStringSetting = "AzureCosmosDBConnection") Optional<String> item,
+    final ExecutionContext context
+ ) {
+    return item.orElse("Not found");
+ }
+ ```
+
+İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@CosmosDBInput` ek açıklamayı işlevi parametre değeri, Cosmos DB'den gelmesi.  Bu ek açıklama yerel Java türler, pojo'ları veya isteğe bağlı kullanarak boş değer atanabilir değer ile kullanılabilir<T>. 
+
 ## <a name="input---attributes"></a>Giriş - öznitelikleri
 
 İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) özniteliği.
@@ -1171,12 +1236,12 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**type**     || Ayarlanmalıdır `cosmosDB`.        |
 |**direction**     || Ayarlanmalıdır `in`.         |
 |**Adı**     || İşlevinde belgeyi temsil eden bağlama parametresinin adı.  |
-|**DatabaseName** |**DatabaseName** |Belge içeren veritabanı.        |
-|**CollectionName** |**CollectionName** | Belgeyi içeren koleksiyon adı. |
+|**databaseName** |**databaseName** |Belge içeren veritabanı.        |
+|**collectionName** |**collectionName** | Belgeyi içeren koleksiyon adı. |
 |**Kimliği**    | **Kimlik** | Alınacak belgenin kimliği. Bu özelliği destekleyen [ifadeleri bağlama](functions-triggers-bindings.md#binding-expressions-and-patterns). Her ikisi de ayarlamamanız **kimliği** ve **sqlQuery** özellikleri. Tek ayarlamazsanız, tüm koleksiyon alınır. |
 |**sqlQuery**  |**SqlQuery**  | Birden çok belge almak için kullanılan bir Azure Cosmos DB SQL sorgusu. Bu örnekte olduğu gibi çalışma zamanı bağlamaları özelliği destekler: `SELECT * FROM c where c.departmentId = {departmentId}`. Her ikisi de ayarlamamanız **kimliği** ve **sqlQuery** özellikleri. Tek ayarlamazsanız, tüm koleksiyon alınır.|
-|**ConnectionStringSetting**     |**ConnectionStringSetting**|Azure Cosmos DB bağlantı dizenizi içeren uygulama ayarının adı.        |
-|**PartitionKey**|**PartitionKey**|Arama için bölüm anahtarı değeri belirtir. Bağlama parametrelerinde içerebilir.|
+|**connectionStringSetting**     |**connectionStringSetting**|Azure Cosmos DB bağlantı dizenizi içeren uygulama ayarının adı.        |
+|**partitionKey**|**partitionKey**|Arama için bölüm anahtarı değeri belirtir. Bağlama parametrelerinde içerebilir.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -1201,6 +1266,7 @@ Dile özgü örneklere bakın:
 * [C# betiği (.csx)](#output---c-script-examples)
 * [JavaScript](#output---javascript-examples)
 * [F#](#output---f-examples)
+* [Java](#output---java-example)
 
 Ayrıca bkz: [giriş örnek](#input---c-examples) kullanan `DocumentClient`.
 
@@ -1565,6 +1631,24 @@ Bu örnekte gerektiren bir `project.json` belirten dosyası `FSharp.Interop.Dyna
 
 Eklemek için bir `project.json` bkz [F # paket Yönetimi](functions-reference-fsharp.md#package).
 
+## <a name="output---java-examples"></a>Çıkış - Java örnekleri
+
+Aşağıdaki örnek, bir belge verilerle bir veritabanı için kuyruk depolama alanında bir ileti ekler bir Java işlev gösterir.
+
+```java
+@FunctionName("getItem")
+@CosmosDBOutput(name = "database", databaseName = "ToDoList", collectionName = "Items", connectionStringSetting = "AzureCosmosDBConnection")
+public String cosmosDbQueryById(
+     @QueueTrigger(name = "msg", queueName = "myqueue-items", connection = "AzureWebJobsStorage") String message,
+     final ExecutionContext context
+)  {
+     return "{ id: " + System.currentTimeMillis() + ", Description: " + message + " }";
+   }
+```
+
+İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@CosmosDBOutput` Cosmos DB'ye yazılacak parametre üzerindeki ek açıklama.  Ek açıklama parametre türü OutputBinding olmalıdır<T>, yerel bir Java türü veya bir POJO'ya T olduğu.
+
+
 ## <a name="output---attributes"></a>Çıkış - öznitelikleri
 
 İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/master/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) özniteliği.
@@ -1592,12 +1676,12 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**type**     || Ayarlanmalıdır `cosmosDB`.        |
 |**direction**     || Ayarlanmalıdır `out`.         |
 |**Adı**     || İşlevinde belgeyi temsil eden bağlama parametresinin adı.  |
-|**DatabaseName** | **DatabaseName**|Belge oluşturulduğu koleksiyonu içeren veritabanı.     |
-|**CollectionName** |**CollectionName**  | Belge oluşturulduğu koleksiyonun adı. |
+|**databaseName** | **databaseName**|Belge oluşturulduğu koleksiyonu içeren veritabanı.     |
+|**collectionName** |**collectionName**  | Belge oluşturulduğu koleksiyonun adı. |
 |**Createıfnotexists**  |**Createıfnotexists**    | Mevcut değilse, koleksiyonun oluşturulup oluşturulmayacağını belirten bir Boole değeri. Varsayılan değer *false* etkileri maliyet ayrılmış işleme ile yeni Koleksiyonlar oluşturulduğundan. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/cosmos-db/).  |
-|**PartitionKey**|**PartitionKey** |Zaman `CreateIfNotExists` true ise, oluşturulan koleksiyon için bölüm anahtarı yolunu tanımlar.|
-|**CollectionThroughput**|**CollectionThroughput**| Zaman `CreateIfNotExists` true ise, tanımlar [aktarım hızı](../cosmos-db/set-throughput.md) oluşturulan koleksiyon.|
-|**ConnectionStringSetting**    |**ConnectionStringSetting** |Azure Cosmos DB bağlantı dizenizi içeren uygulama ayarının adı.        |
+|**partitionKey**|**partitionKey** |Zaman `CreateIfNotExists` true ise, oluşturulan koleksiyon için bölüm anahtarı yolunu tanımlar.|
+|**collectionThroughput**|**collectionThroughput**| Zaman `CreateIfNotExists` true ise, tanımlar [aktarım hızı](../cosmos-db/set-throughput.md) oluşturulan koleksiyon.|
+|**connectionStringSetting**    |**connectionStringSetting** |Azure Cosmos DB bağlantı dizenizi içeren uygulama ayarının adı.        |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

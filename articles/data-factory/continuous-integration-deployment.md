@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 08/16/2018
 ms.author: douglasl
-ms.openlocfilehash: c3aeb57bf9c613da3edb8c5dda0e88aa308a4b6e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8bbc64a34b5ae95e044b95f921770adc9045574c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448450"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057060"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Sürekli tümleştirme ve dağıtım Azure Data factory'de
 
@@ -47,6 +47,10 @@ Bu eylem, Azure portalında nerede dışarı aktarılan şablonu içeri aktarabi
 Seçin **yük dosyası** dışarı aktarılan Resource Manager şablonu seçin ve tüm yapılandırma değerleri (örneğin, bağlı hizmetler) girin.
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
+
+**Bağlantı dizeleri**. Bağlantı dizeleri tek tek bağlayıcılar hakkında makaleler oluşturmak için gerekli bilgileri bulabilirsiniz. Örneğin, Azure SQL veritabanı için bkz. [veri kopyalama için veya Azure SQL veritabanı'ndan Azure Data Factory kullanarak](connector-azure-sql-database.md). -Bağlı bir hizmet için doğru bağlantı dizesini doğrulamak için örneğin - da kaynak kod görünümü Data Factory kullanıcı Arabiriminde açabilirsiniz. Kod Görünümü'nde, ancak bağlantı dizesinin parolanızı veya hesabınızı anahtar bölümünü kaldırılır. Kod görünümü açmak için aşağıdaki ekran görüntüsünde vurgulanmış simgesini seçin.
+
+![Bağlantı dizesini görmek için kod görünümü Aç](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## <a name="continuous-integration-lifecycle"></a>Sürekli Tümleştirme yaşam döngüsü
 Sürekli tümleştirme ve kullanabileceğiniz dağıtımı için tüm yaşam döngüsüne İşte VSTS GIT tümleştirmesi Data Factory kullanıcı arabiriminde etkinleştirdikten sonra:
@@ -174,11 +178,7 @@ Etkin Tetikleyicileri güncelleştirmeye çalışırsanız, dağıtım başarıs
 
 Benzer adımları izleyin ve benzer bir kod kullanın (ile `Start-AzureRmDataFactoryV2Trigger` işlevi) Tetikleyiciler dağıtımdan sonra yeniden başlatmak için.
 
-## <a name="sample-template-and-script"></a>Örnek şablonu ve komut dosyası
-Data Factory için sürekli tümleştirme ve dağıtım kullanmaya başlamak için kullanabileceğiniz iki örnek aşağıda verilmiştir:
-
--   VSTS'de içeri aktarabileceğiniz bir örnek dağıtım şablonu.
--   Dağıtımdan önce Tetikleyicileri durdurmak ve yeniden başlatmak için örnek betik daha sonra tetikler. Betik ayrıca kaldırılmış olan kaynakları silmek için kod içerir.
+## <a name="sample-deployment-template"></a>Örnek dağıtım şablonu
 
 VSTS'de içeri aktarabileceğiniz bir örnek dağıtım şablonu aşağıda verilmiştir.
 
@@ -718,7 +718,9 @@ VSTS'de içeri aktarabileceğiniz bir örnek dağıtım şablonu aşağıda veri
 }
 ```
 
-Dağıtımdan önce Tetikleyicileri durdurmak ve Tetikleyicileri daha sonra yeniden başlatmak için bir örnek betiği şu şekildedir:
+## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>Durdur ve Tetikleyicileri yeniden başlatın ve temizlemek için betik örnek
+
+Dağıtımdan önce Tetikleyicileri durdurmak ve Tetikleyicileri daha sonra yeniden başlatmak için bir örnek betiği aşağıda verilmiştir. Betik ayrıca kaldırılmış olan kaynakları silmek için kod içerir.
 
 ```powershell
 param

@@ -3,7 +3,7 @@ title: Azure stack'teki Ruby ile API Sürüm profillerini kullanma | Microsoft D
 description: Azure stack'teki Ruby ile API Sürüm profillerini kullanma hakkında bilgi edinin.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: B82E4979-FB78-4522-B9A1-84222D4F854B
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
-ms.author: mabrigg
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 4d62c192b4e74980fc8cd8a671a702ba2ddfdbcb
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: a000a54f79e479567168992cdd0786eb9e8b5c32
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866602"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42062116"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Azure stack'teki Ruby ile API Sürüm profillerini kullanma
 
@@ -132,7 +132,7 @@ Aşağıdaki iki profilleri azure_sdk toplaması gem sahiptir:
 
 1. **V2017_03_09**  
   Azure Stack için yerleşik profili. Azure Stack ile en uyumlu olacak şekilde hizmetler için bu profili kullanın.
-2. **En son**  
+2. **en son**  
   Profil hizmetlerinin en son sürümleri içerir. Tüm hizmetler en son sürümlerini kullanın.
 
 Azure Stack ve API profilleri hakkında daha fazla bilgi için bkz. bir [API özeti profilleri](azure-stack-version-profiles.md#summary-of-api-profiles).

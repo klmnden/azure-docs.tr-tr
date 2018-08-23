@@ -1,6 +1,6 @@
 ---
-title: Azure Machine Learning için GPU kullanma | Microsoft Docs
-description: Bu makalede, Azure Machine Learning çalışma ekranındaki derin sinir ağları eğitmek için grafik işlem birimi (GPU) kullanmayı açıklar.
+title: Azure Machine Learning için GPU kullanmayı | Microsoft Docs
+description: Bu makalede, Azure Machine Learning workbench'te derin sinir ağı eğitmek için grafik işlem birimi (GPU) kullanmayı açıklar.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,31 +11,31 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 852f514a36ea640f478c5cc5ebbb137ca962703a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f3b6c4f6af14615511400650662fe7a350c172ba
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37116192"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42055941"
 ---
-# <a name="how-to-use-gpu-in-azure-machine-learning"></a>GPU Azure Machine Learning ile kullanma
-Grafik işlem birimi (GPU) genellikle belirli derin sinir ağı modelleri eğitim ortaya çıkar pkı'ya yoğun görevler işlemek için yaygın olarak kullanılır. GPU kullanarak modellerin eğitim süresini önemli ölçüde azaltabilir. Bu belgede, Azure ML çalışma ekranı kullanacak şekilde yapılandırma konusunda bilgi edinin [DSVM (veri bilimi sanal makine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) yürütme hedef olarak GPU ile donatılmış. 
+# <a name="how-to-use-gpu-in-azure-machine-learning"></a>Azure Machine Learning'de GPU kullanma
+Grafik işlem birimi (GPU), genellikle bazı derin sinir ağı modelleri eğitimindeki oluşabilir işlem bakımından yoğun görevlerini işlemek için yaygın olarak kullanılır. GPU'ları kullanarak modellerin eğitim süresini önemli ölçüde azaltabilir. Bu belgede, Azure ML Workbench uygulamasını kullanmak için yapılandırma hakkında bilgi edinin [DSVM (veri bilimi sanal makinesi)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) yürütme hedefi Gpu'lar ile donatılmış. 
 
 ## <a name="prerequisites"></a>Önkoşullar
-- Nasıl yapılır bu kılavuzu için öncelikle gereklidir [Azure ML çalışma ekranı yüklemek](../service/quickstart-installation.md).
-- NVIDIA Gpu'lara bilgisayarlarda erişiminizin olması gerekir.
-    - GPU ile doğrudan yerel makinede (Windows veya macOS), komut dosyalarınızı çalıştırabilirsiniz.
-    - GPU olan bir makinede bir Docker kapsayıcısı komut dosyalarını da çalıştırabilirsiniz.
+- Bu nasıl yapılır kılavuzunda adımlamak için öncelikle gereken [Azure ML Workbench'i yükleme](../service/quickstart-installation.md).
+- NVIDIA GPU'ları ile bilgisayarlarda erişiminiz olması gerekir.
+    - Komut dosyalarınızı Gpu'lar ile doğrudan yerel makine üzerinde (Windows veya macOS) çalıştırabilirsiniz.
+    - Ayrıca GPU ile Linux makinesinde bir Docker kapsayıcısında komut dosyalarını çalıştırabilirsiniz...
 
-## <a name="execute-in-local-environment-with-gpus"></a>Yürütün _yerel_ GPU ortamı
-Azure ML çalışma ekranı GPU ile donatılmış bir bilgisayara yükleyin ve karşı yürütme _yerel_ ortamı. Bu olabilir:
-- Bir fiziksel Windows veya macOS makine.
-- Windows Azure NC-serisi VM'ler şablon kullanılarak hazırlanmış bir DSVM gibi Windows VM (sanal makine).
+## <a name="execute-in-local-environment-with-gpus"></a>İçinde yürütülen _yerel_ Gpu'lar ile ortam
+Azure ML Workbench Gpu'lar ile donatılmış bir bilgisayara yükleyin ve karşı yürütmek _yerel_ ortam. Bu olabilir:
+- Fiziksel Windows veya macOS makine.
+- Bir Windows sanal makinesi (VM) gibi Azure NC serisi VM'ler şablon kullanılarak hazırlanmış bir Windows DSVM'sini.
 
-Bu durumda, Azure ML çalışma ekranı içinde gerekli özel yapılandırma vardır. Yalnızca tüm gerekli sürücüleri, araç takımları ve GPU özellikli makine öğrenimi kitaplıkları yerel olarak yüklenmiş olduğundan emin olun. Yalnızca karşı yürütme _yerel_ nerede Python çalışma zamanı doğrudan erişim yerel GPU donanım ortamı.
+Bu durumda, Azure ML Workbench'te gereken özel bir yapılandırma var. Yalnızca tüm gerekli sürücüleri, araç setleri ve GPU etkin machine learning kitaplıkları yerel olarak yüklü olduğundan emin olun. Yalnızca karşı yürütmek _yerel_ burada Python çalışma zamanını doğrudan erişim sağlayabilir yerel GPU donanım ortam.
 
-1. AML çalışma ekranı açın. Git **dosya** ve **komut istemini açın**. 
-2. Komut satırından GPU etkin derin öğrenme çerçevesi Microsoft Bilişsel araç seti, TensorFlow ve vb. gibi yükleyin. Örneğin:
+1. AML Workbench'i açın. Git **dosya** ve **komut istemini Aç**. 
+2. Microsoft Bilişsel araç seti, TensorFlow ve vb. gibi ayrıntılı öğrenme GPU özellikli framework komut satırından yükleyin. Örneğin:
 
 ```batch
 REM install latest TensorFlow with GPU support
@@ -45,48 +45,48 @@ REM install Microsoft Cognitive Toolkit 2.5 with GPU support on Windows
 C:\MyProj> pip install https://cntk.ai/PythonWheel/GPU/cntk_gpu-2.5.1-cp35-cp35m-win_amd64.whl
 ```
 
-3. Kitaplıkları öğrenme derin yararlanır Python kodu yazın.
-4. Seçin _yerel_ ortamı işlem ve Python kodunu yürütün.
+3. Derin öğrenme kitaplıkları yararlanan Python kod yazın.
+4. Seçin _yerel_ işlem ortamı ve Python kodunu yürütün.
 
 ```batch
 REM execute Python script in local environment
 C:\MyProj> az ml experiment submit -c local my-deep-learning-script.py
 ```
 
-## <a name="execute-in-docker-environment-on-linux-vm-with-gpus"></a>Yürütün _docker_ GPU Linux VM ortamda
-Azure ML çalışma ekranı ayrıca desteği yürütme Azure Linux VM'de Docker. Burada, güçlü sanal donanım parçasına pkı'ya yoğun işleri çalıştırmak ve bittiğinde kapatma tarafından yalnızca kullanım için ödeme için harika bir seçeneğiniz vardır. Ubuntu tabanlı DSVM İlkesi GPU herhangi bir Linux sanal makinede kullanmak mümkün olmakla birlikte, gerekli CUDA sürücüleri ve önceden yüklenmiş kitaplıkları'nın Kurulum çok daha kolay hale gelir. İzleyin aşağıdaki adımları:
+## <a name="execute-in-docker-environment-on-linux-vm-with-gpus"></a>İçinde yürütülen _docker_ GPU ile Linux sanal ortam
+Azure ML Workbench de yürütme, destek Azure Linux VM'de Docker. Burada güçlü sanal donanım parçası üzerinde işlem bakımından yoğun işlerini çalıştırın ve işiniz bittiğinde kapatıp yalnızca kullanım için ödeme harika bir seçenekleri var. Ubuntu tabanlı DSVM İlkesi, GPU'ları herhangi bir Linux sanal makinede kullanmak mümkün olsa da, gerekli CUDA sürücüleri ve önceden yüklenmiş, kitaplıkları'nın Kurulum çok daha kolay hale gelir. İzleyin aşağıdaki adımları:
 
-### <a name="create-a-ubuntu-based-linux-data-science-virtual-machine-in-azure"></a>Ubuntu tabanlı Linux veri bilimi sanal makine oluşturma
+### <a name="create-a-ubuntu-based-linux-data-science-virtual-machine-in-azure"></a>Azure'da bir Ubuntu tabanlı Linux veri bilimi sanal makinesi oluşturma
 1. Web tarayıcınızı açın ve gidin [Azure portalı](https://portal.azure.com)
 
-2. Seçin **+ yeni** portalın sol.
+2. Seçin **+ yeni** portalının sol taraftaki.
 
-3. "Veri bilimi sanal makine için Linux (Ubuntu)" Market'te arayın.
+3. "Veri bilimi sanal makinesi için Linux (Ubuntu)" Market'te arayın.
 
-4. Tıklatın **oluşturma** bir Ubuntu DSVM oluşturmak için.
+4. Tıklayın **Oluştur** bir Ubuntu DSVM oluşturma.
 
-5. Doldurmak **Temelleri** form gerekli bilgileri.
-VM için konum seçerken, GPU VM'ler yalnızca belirli Azure bölgelerde, örneğin, kullanılabilir olduğuna dikkat edin **Orta Güney ABD**. Bkz: [bölgeye göre ürünleri işlem](https://azure.microsoft.com/regions/services/).
-Kaydetmek için Tamam'ı **Temelleri** bilgi.
+5. Doldurun **Temelleri** formunu gerekli bilgiler ile.
+VM'niz için konum seçildiğinde, GPU Vm'lerine yalnızca belirli Azure bölgelerinde Örneğin, kullanılabilir olduğunu unutmayın **Orta Güney ABD**. Bkz: [bölgelere göre kullanılabilir ürünler işlem](https://azure.microsoft.com/regions/services/).
+Kaydetmek için Tamam'a tıklayın **Temelleri** bilgileri.
 
-6. Sanal makine boyutunu seçin. NVIDIA GPU yongaları ile donatılmış NC önekli VM'ler ile boyutlarından birini seçin.  Tıklatın **tümünü görüntüle** gerektiği gibi tam listesini görmek için. Daha fazla bilgi edinmek [GPU donatılmış Azure Vm'leri](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).
+6. Sanal makine boyutu seçin. NVIDIA GPU yongaları ile donatılmış NC önekli VM boyutlarından birini seçin.  Tıklayın **görünümü tüm** gerektiğinde tam listesini görmek için. Daha fazla bilgi edinin [GPU donatılmış Azure Vm'leri](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).
 
-7. Kalan ayarlarını tamamlayın ve satın alma bilgileri gözden geçirin. VM oluşturmak için satın alma'ı tıklatın. Sanal makine için ayrılmış IP adresini not alın. 
+7. Geri kalan ayarlar tamamlayın ve satın alma bilgileri gözden geçirin. Satın alma, VM oluşturmak için tıklayın. Sanal makineye ayrılan IP adresini not alın. 
 
-### <a name="create-a-new-project-in-azure-ml-workbench"></a>Azure ML çalışma ekranı içinde yeni bir proje oluşturun 
+### <a name="create-a-new-project-in-azure-ml-workbench"></a>Azure ML Workbench'te yeni proje oluşturma 
 Kullanabileceğiniz _TensorFlow kullanarak MNIST sınıflandırma_ örnek, veya _CNTK sınıflandırma MNIST kümesiyle_ örnek.
 
-### <a name="create-a-new-compute-target"></a>Yeni bir işlem hedef oluşturma
-Azure ML çalışma ekranı komut satırından başlatın. Aşağıdaki komutu girin. Aşağıdaki örnekte yer tutucu metni kendi değerlerinizi adı, IP adresi, kullanıcı adı ve parola ile değiştirin. 
+### <a name="create-a-new-compute-target"></a>Yeni bir işlem hedefi oluşturma
+Azure ML Workbench komut satırından başlatın. Aşağıdaki komutu girin. Aşağıdaki örnekte yer tutucu metni adı, IP adresi, kullanıcı adı ve parolasını kendi değerlerinizle değiştirin. 
 
 ```batch
 C:\MyProj> az ml computetarget attach remotedocker --name "my_dsvm" --address "my_dsvm_ip_address" --username "my_name" --password "my_password" 
 ```
 
-### <a name="configure-azure-ml-workbench-to-access-gpu"></a>Azure ML çalışma ekranına erişim GPU yapılandırın
-Proje geri gidin ve açık **dosya görünümü**ve isabet **yenileme** düğmesi. Şimdi iki yeni yapılandırma dosyalarını görmek `my_dsvm.compute` ve `my_dsvm.runconfig`.
+### <a name="configure-azure-ml-workbench-to-access-gpu"></a>Azure ML Workbench GPU erişimi yapılandırma
+Proje geri gidin ve açık **dosya görünümü**ve isabet **Yenile** düğmesi. Şimdi iki yeni yapılandırma dosyalarını gördüğünüz `my_dsvm.compute` ve `my_dsvm.runconfig`.
  
-Açık `my_dsvm.compute`. Değişiklik `baseDockerImage` için `microsoft/mmlspark:plus-gpu-0.7.9` ve yeni bir satır ekleyin `nvidiaDocker: true`. Böylece dosyayı bu iki satır olmalıdır:
+Açık `my_dsvm.compute`. Değişiklik `baseDockerImage` için `microsoft/mmlspark:plus-gpu-0.7.9` ve yeni bir satır eklemek `nvidiaDocker: true`. Bu nedenle dosyada şu iki satırı olmalıdır:
  
 ```yaml
 ...
@@ -94,13 +94,13 @@ baseDockerImage: microsoft/mmlspark:plus-gpu-0.9.9
 nvidiaDocker: true
 ```
  
-Şimdi açmak `my_dsvm.runconfig`, değiştirme `Framework` değeri `PySpark` için `Python`. Bu satır görmüyorsanız, varsayılan değer olacaktır beri eklemek `PySpark`.
+Artık `my_dsvm.runconfig`, değiştirme `Framework` değerini `PySpark` için `Python`. Bu satırı görmüyorsanız, varsayılan değer olduğundan, ekleme `PySpark`.
 
 ```yaml
 "Framework": "Python"
 ```
-### <a name="reference-deep-learning-framework"></a>Başvuru derin öğrenme çerçevesi 
-Açık `conda_dependencies.yml` dosya ve framework Python paketlerini öğrenme derin GPU sürümünü kullandığınızdan emin olun. Bu değişikliği yapmak gereken şekilde örnek projelerine CPU sürümleri listelenir.
+### <a name="reference-deep-learning-framework"></a>Derin öğrenme Framework başvurusu 
+Açık `conda_dependencies.yml` dosya ve derin framework Python paketlerini öğrenme GPU sürümünü kullandığınızdan emin olun. Bu değişiklik yapmanız için örnek projelerine CPU sürümleri listelenir.
 
 TensorFlow örneğin: 
 ```
@@ -111,7 +111,7 @@ dependencies:
   - tensorflow-gpu
 ```
 
-Örneğin Microsoft Bilişsel Araç Seti için:
+Microsoft Bilişsel Araç Seti için örnek:
 ```yaml
 name: project_environment
 dependencies:
@@ -122,13 +122,13 @@ dependencies:
 ```
 
 ### <a name="execute"></a>Yürütme
-Şimdi, Python komut dosyalarını çalıştırmak hazırsınız. Azure ML çalışma ekranı kullanarak içinde çalıştırabilirsiniz `my_dsvm` bağlamı veya başlatın, komut satırından:
+Artık, Python betikleri çalıştırmaya hazırsınız. Azure ML Workbench kullanarak içinde çalıştırabilirsiniz `my_dsvm` bağlamı veya başlatabilir, komut satırından:
  
 ```batch
 C:\myProj> az ml experiment submit -c my_dsvm my_tensorflow_or_cntk_script.py
 ```
  
-GPU kullandığını doğrulamak için aşağıdakine benzer görmek için çalışma çıktıyı inceleyin:
+GPU kullandığını doğrulamak için aşağıdaki gibi görmek için çalıştırma çıktıyı inceleyin:
 
 ```
 name: Tesla K80
@@ -138,7 +138,7 @@ Total memory: 11.17GiB
 Free memory: 11.11GiB
 ```
 
-Tebrikler! Komut, yalnızca GPU güç Docker kapsayıcısı aracılığıyla harnessed!
+Tebrikler! Betiğinizi yalnızca GPU gücünü bir Docker kapsayıcısı üzerinden harnessed!
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure ML galeri derin sinir ağı eğitim hızlandırmak üzere GPU kullanma örneği bakın.
+Azure ML galeri derin sinir ağı eğitim hızlandırmak için GPU kullanımı örneği bakın.

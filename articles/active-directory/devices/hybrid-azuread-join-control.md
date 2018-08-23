@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 9ffc84009adfca60e9ae6b188b65b15e874e7d9c
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d49b5404f1a2b4ac7fa4cc170ccc010a28bf98a2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622179"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42061115"
 ---
 # <a name="how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Cihazlarınızı hibrit Azure AD'ye katılma denetleme
 
@@ -116,7 +116,7 @@ Bu istemci ayarı, tercih ettiğiniz bir konuma bağlamak gerekir. Örneğin, ku
 
 ## <a name="control-windows-down-level-devices"></a>Windows alt düzey cihazları denetleme
 
-Windows alt düzey cihazları kaydetmek için karşıdan yükle ve Itanium tabanlı sistemler için Windows Installer paketi (.msi) İndirme Merkezi'nden yüklemek için ihtiyaç duyduğunuz [Microsoft Workplace Join Windows 10 bilgisayarlar için](https://www.microsoft.com/en-us/download/details.aspx?id=53554) sayfası.
+Windows alt düzey cihazları kaydetmek için karşıdan yükle ve Itanium tabanlı sistemler için Windows Installer paketi (.msi) İndirme Merkezi'nden yüklemek için ihtiyaç duyduğunuz [Microsoft Workplace Join Windows 10 bilgisayarlar için](https://www.microsoft.com/download/details.aspx?id=53554) sayfası.
 
 System Center Configuration Manager gibi bir yazılım dağıtım sistemi kullanarak pakete dağıtabilirsiniz. Paket sessiz parametresiyle standart sessiz yükleme seçeneklerini destekler. [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager) geçerli dal tamamlanmış kayıtları izleme yeteneği gibi daha önceki sürümlerin ek avantajlar sunar.
 

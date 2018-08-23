@@ -1,6 +1,6 @@
 ---
-title: SQL Data Warehouse'a terabayt veri yükleme | Microsoft Docs
-description: Azure Data Factory ile altında 15 dakika nasıl 1 TB'lık veriyi Azure SQL Data Warehouse'a yüklenebilir gösterir
+title: SQL veri ambarı'na terabaytlarca veri yükleme | Microsoft Docs
+description: Azure Data Factory ile 15 dakika nasıl 1 TB veri Azure SQL veri ambarı'na yüklenebilir gösterir
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -14,74 +14,74 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6a7f31cf541bc1cccd3a5d565a0d3a223ccd3aee
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5fb4034d49982d600fe5b0de17d0b198e3ee653e
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045176"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056275"
 ---
-# <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>1 TB altında 15 dakika Data Factory ile Azure SQL Data Warehouse'a veri yükleme
+# <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>1 TB 15 dakika Data Factory ile Azure SQL Data Warehouse'a veri yükleme
 > [!NOTE]
-> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [veri kopyalama ya da Azure SQL veri ambarından veri fabrikası kullanarak](../connector-azure-sql-data-warehouse.md).
+> Bu makale, Data Factory’nin 1. sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [veri kopyalama için veya Azure SQL veri ambarı Data Factory kullanarak](../connector-azure-sql-data-warehouse.md).
 
 
-[Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) bir bulut tabanlı genişleme büyük miktarda veriyi, ilişkisel ve ilişkisel olmayan işleyebilen veritabanıdır.  SQL Data Warehouse, yüksek düzeyde paralel işleme (MPP) mimarisi üzerine kurulu, kurumsal veri ambarı iş yükleri için optimize edilmiştir.  Bu bulut esneklik depolama ölçeklendirmenizi ve bağımsız olarak işlem esnekliği sunar.
+[Azure SQL veri ambarı](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) bir bulut tabanlı genişleme veriler, ilişkisel ve ilişkisel olmayan çok geniş hacimlerdeki işleyebilen veritabanıdır.  SQL veri ambarı, yüksek düzeyde paralel işleme (MPP) mimaride oluşturulmuş kurumsal veri ambarı iş yükleri için optimize edilmiştir.  Bulut esnekliği bağımsız olarak işlem ve depolama ölçeklendirme yapma esnekliği sunar.
 
-Azure SQL Data Warehouse ile çalışmaya başlama artık her zamankinden kullanmaktan daha kolay **Azure Data Factory**.  Azure Data Factory SQL Data Warehouse, var olan sisteminizden ve SQL Data Warehouse değerlendirmek ve analizlerinizi oluşturma, değerli zamandan kaydetme verilerle doldurmak için kullanılan bir bulut tabanlı tam olarak yönetilen bir veri tümleştirme hizmetidir çözümleri. Azure SQL Data Azure Data Factory kullanarak Warehouse'a veri yükleme avantajları şunlardır:
+Azure SQL veri ambarı ile çalışmaya başlama, artık her zamankinden kullanmaktan daha kolay **Azure Data Factory**.  Azure Data Factory, SQL veri ambarı mevcut sistemi ve SQL veri ambarı değerlendirmek ve analizlerinizi oluşturmaya çalışırken, önemli ölçüde zaman kaydetme verilerle doldurmak için kullanılan bir tam olarak yönetilen bulut tabanlı veri tümleştirme hizmeti çözümler. Azure SQL Data Azure Data Factory kullanarak Warehouse'a veri yükleme önemli avantajları şunlardır:
 
-* **Ayarlamak kolay**: 5-adım sezgisel Sihirbazı ile gerekli komut dosyası yok.
-* **Zengin veri depolamak Destek**: zengin bir şirket içi ve bulut tabanlı veri depoları için yerleşik destek.
-* **Güvenli ve uyumlu**: veriler HTTPS veya ExpressRoute üzerinden aktarılır ve küresel hizmet varlığı sağlar, verilerinizin hiçbir zaman coğrafi sınır bırakır
-* **PolyBase kullanarak benzersiz performansı** – Polybase kullanarak Azure SQL Data Warehouse'a veri taşımak için en verimli şekilde eder. Hazırlama blob özelliğini kullanarak, varsayılan olarak Polybase destekleyen Azure Blob Depolama yanı sıra veri depolarına tüm türlerinden yüksek yük hızları elde edebilirsiniz.
+* **Kolay ayarlama**: 5 adımlı sezgisel Sihirbazı ile gerekli komut dosyası yok.
+* **Zengin veri deposu desteği**: zengin bir şirket içi ve bulut tabanlı veri depoları için yerleşik destek.
+* **Güvenli ve uyumlu**: verileri HTTPS veya ExpressRoute üzerinden aktarılır ve küresel hizmet varlığı sağlar verilerinizin hiçbir zaman ayrılmaz coğrafi sınır
+* **PolyBase kullanarak benzersiz bir performansın** – Polybase kullanarak, Azure SQL Data Warehouse'a veri taşımak için en verimli yoludur. Hazırlama blob özelliğini kullanarak Azure Blob Depolama, Polybase varsayılan destekliyor yanı sıra veri depolarının tüm türlerinden yüksek yükleme hızları elde edebilirsiniz.
 
-Bu makalede veri fabrikası Kopyalama Sihirbazı'nı tekrar 1,2 GB/sn üretilen işi en altında 15 dakika içinde 1 TB verileri Azure Blob depolama alanından Azure SQL Data Warehouse'a veri yüklemek için nasıl kullanılacağı gösterilmektedir.
+Bu makalede Data Factory Kopyalama Sihirbazı'nı tekrar 1,2 GB/sn aktarım hızı anda altında 15 dakika içinde 1 TB verileri Azure Blob depolama alanından Azure SQL veri ambarı'na yüklemek için nasıl kullanılacağı gösterilmektedir.
 
-Bu makalede Kopyalama Sihirbazı'nı kullanarak Azure SQL Data Warehouse'a veri taşımak için adım adım yönergeler sağlar.
+Bu makalede, kopyalama Sihirbazı'nı kullanarak Azure SQL Data Warehouse'a veri taşımak için adım adım yönergeler sağlar.
 
 > [!NOTE]
->  Veri taşımada/Azure SQL Data Warehouse genel veri fabrikasının özellikleri hakkında bilgi için bkz: [veri taşıma Azure Data Factory kullanarak Azure SQL veri ambarından](data-factory-azure-sql-data-warehouse-connector.md) makalesi.
+>  / Azure SQL veri ambarı veri taşımada genel Data Factory özellikleri hakkında daha fazla bilgi için [gelen Azure Data Factory kullanarak Azure SQL veri ambarı ve veri taşıma](data-factory-azure-sql-data-warehouse-connector.md) makalesi.
 >
-> Ayrıca, Azure portalı, Visual Studio, PowerShell kullanılarak işlem hatlarını oluşturabilirsiniz vs. Bkz: [öğretici: kopyalama verileri Azure Blob'tan Azure SQL veritabanına](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) hızlı bir kılavuz kopya etkinliği Azure Data Factory kullanarak için adım adım yönergeler için.  
+> Ayrıca, Azure portalı, Visual Studio, PowerShell kullanarak işlem hatları oluşturabilirsiniz vs. Bkz: [öğretici: verileri Azure Blobundan Azure SQL veritabanına kopyalama](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliğini kullanarak Azure Data Factory'de için adım adım yönergeleri içeren hızlı bir kılavuz.  
 >
 >
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Azure Blob Storage: TPC-H sınama veri kümesi depolamak için bu denemeyi Azure Blob Depolama (GRS) kullanır.  Azure depolama hesabınız yoksa, bilgi [bir depolama hesabı oluşturmak nasıl](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
-* [TPC-H](http://www.tpc.org/tpch/) veri: biz TPC-H sınama veri kümesi kullanacağınız.  Bunu yapmak için kullanmanız gerekir `dbgen` TPC-H araç setinin yardımcı olan, veri kümesi oluşturur.  Kaynak kodu ya da indirebilirsiniz `dbgen` gelen [TPC Araçları](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) ve kendiniz derleme veya derlenmiş ikili dosyadan indirme [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools).  Dbgen.exe için 1 TB düz dosya oluşturmak için aşağıdaki komutları çalıştırın `lineitem` yayılan 10 dosyalardaki tablosu:
+* Azure Blob Depolama: Bu deneyde Azure Blob Depolama (GRS) TPC-H sınama veri kümesi depolamak için kullanır.  Azure depolama hesabınız yoksa, bilgi [bir depolama hesabının nasıl oluşturulacağını](../../storage/common/storage-quickstart-create-account.md).
+* [TPC-H](http://www.tpc.org/tpch/) veri: TPC-H sınama veri kümesi olarak kullanmak için kullanacağız.  Bunu yapmak için kullanmanız gerekir `dbgen` TPC-H araç setinin yardımcı olan, veri kümesi oluştur.  Ya da kaynak kodunu indirebilirsiniz `dbgen` gelen [TPC Araçları](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) , kendiniz derleyebilir veya derlenmiş ikili dosyadan yükle [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools).  Dbgen.exe için 1 TB düz dosya oluşturmak için aşağıdaki komutları çalıştırın `lineitem` yayılma 10 dosyalardaki Tablo:
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
   * `Dbgen -s 1000 -S **2** -C 10 -T L -v`
   * …
   * `Dbgen -s 1000 -S **10** -C 10 -T L -v`
 
-    Artık Azure Blob oluşturulan dosyaları kopyalayın.  Başvurmak [veri taşıma için ve bir şirket içi dosya sisteminden Azure Data Factory kullanarak](data-factory-onprem-file-system-connector.md) nasıl için ADF kopyalama kullanarak.    
-* Azure SQL Data Warehouse: Azure SQL Data Warehouse 6,000 Dwu ile oluşturulan veri bu deneme yükler
+    Artık Azure Blob için oluşturulan dosyaları kopyalayın.  Başvurmak [veri taşıma, şirket içi dosya sisteminden bir Azure Data Factory kullanarak](data-factory-onprem-file-system-connector.md) bunu nasıl yapacağınız için ADF kopyalama kullanarak.    
+* Azure SQL veri ambarı: Bu deneme 6000 Dwu ile oluşturulan Azure SQL veri ambarı'na veri yükler
 
-    Başvurmak [bir Azure SQL Data Warehouse oluşturma](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) SQL Data Warehouse veritabanı oluşturma konusunda ayrıntılı yönergeler için.  En iyi olası yük performansı Polybase kullanarak SQL Data Warehouse'a veri almak için biz veri ambarı birimlerini (Dwu'lar) 6,000 Dwu olan performans ayarında, izin verilen en fazla sayısını seçin.
+    Başvurmak [bir Azure SQL Data Warehouse oluşturma](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) SQL Data Warehouse veritabanı oluşturma hakkında ayrıntılı yönergeler için.  En iyi olası bir yük performansı Polybase kullanarak SQL Data Warehouse'a veri almak için biz veri ambarı birimi (Dwu) 6000 dwu'ları olan performans ayarında, izin verilen en fazla sayısını seçin.
 
   > [!NOTE]
-  > Azure Blob'tan yüklenirken veri performans yükleme SQL veri ambarını yapılandırma Dwu sayısı orantılıdır:
+  > Azure Blobundan yüklenirken, yükleme performansını verileri SQL veri ambarı yapılandırma Dwu sayısı orantılıdır:
   >
-  > 1 TB 1.000 yüklenirken DWU SQL Data Warehouse 87 dakika (~ 200 MB/sn verim) yükleme 1 TB 14 dakika (~1.2 GB/sn verim) alır 46 dakika (~ 380 MB/sn verim) yükleme 1 TB 6,000 DWU SQL veri ambarında sürer 2.000 DWU SQL Data Warehouse'a alır
+  > 1. 000'içinde 1 TB yükleme DWU SQL veri ambarı 87 dakika (yaklaşık 200 MB/sn Aktarım Hızı) yüklenirken 1 TB alır 46 dakika (~ 380 MB/sn Aktarım Hızı) yüklenirken 1 TB 6000 DWU SQL veri ambarı'na 14 dakika (~1.2 GB/sn Aktarım Hızı) sürer 2.000 DWU SQL Data Warehouse'a alır
   >
   >
 
-    6000 Dwu ile SQL Data Warehouse oluşturmak için kaydırıcıyı sağa performans kaydırıcıyı taşıyın:
+    6000 Dwu ile SQL veri ambarı oluşturmak için sağındaki tüm performans kaydırıcıyı taşıyın:
 
     ![Performans kaydırıcı](media/data-factory-load-sql-data-warehouse/performance-slider.png)
 
-    6000 Dwu ile yapılandırılmamış bir var olan veritabanı için bunu Azure portal kullanarak ölçeklendirebilirsiniz.  Azure portalında veritabanına gidin ve var. bir **ölçek** düğmesini **genel bakış** aşağıdaki görüntüde gösterilen paneli:
+    6000 Dwu ile yapılandırılmamış var olan bir veritabanı için Azure portalını kullanarak ölçeklendiremezsiniz.  Azure portalında veritabanı gidin ve var olan bir **ölçek** düğmesine **genel bakış** paneli aşağıdaki görüntüde gösterilen:
 
     ![Ölçek düğmesi](media/data-factory-load-sql-data-warehouse/scale-button.png)    
 
-    Tıklatın **ölçek** aşağıdaki paneli, kaydırıcıyı en büyük değere ve'düğmesini **kaydetmek** düğmesi.
+    Tıklayın **ölçek** aşağıdaki paneli, kaydırıcıyı maksimum değerine ve'düğmesini **Kaydet** düğmesi.
 
     ![Ölçek iletişim](media/data-factory-load-sql-data-warehouse/scale-dialog.png)
 
-    Azure SQL Data Warehouse kullanarak verileri bu deneme yükler `xlargerc` kaynak sınıfı.
+    Bu denemeyi Azure SQL veri ambarı kullanarak verileri yükler `xlargerc` kaynak sınıfı.
 
-    Olası en iyi verime ulaşmak için kopyalama kullanarak ait bir SQL Data Warehouse kullanıcı gerçekleştirilmesi gerekir `xlargerc` kaynak sınıfı.  Aşağıdaki kullanarak bunu öğrenin [kullanıcı kaynak sınıfı örneğini değiştirmek](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md).  
+    Mümkün olan en iyi performans sağlamak için kopyalama kullanarak ait bir SQL veri ambarı kullanıcı gerçekleştirilmesi gerekiyor `xlargerc` kaynak sınıfı.  Bunu izleyerek öğrenin [kullanıcı kaynak sınıfı örneğini değiştirmek](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md).  
 * Hedef Tablo şemasını Azure SQL veri ambarı veritabanında aşağıdaki DDL deyimini çalıştırarak oluşturun:
 
     ```SQL  
@@ -110,15 +110,15 @@ Bu makalede Kopyalama Sihirbazı'nı kullanarak Azure SQL Data Warehouse'a veri 
         CLUSTERED COLUMNSTORE INDEX
     )
     ```
-Önkoşul adımları tamamlanırken biz şimdi Kopyalama Sihirbazı'nı kullanarak kopyalama etkinliği yapılandırmaya hazırsınız demektir.
+Önkoşul adımları tamamlanmış artık Kopyalama Sihirbazı'nı kullanarak kopyalama etkinliği yapılandırmak hazırız.
 
 ## <a name="launch-copy-wizard"></a>Kopyalama Sihirbazı'nı başlatma
 1. [Azure Portal](https://portal.azure.com)’da oturum açın.
-2. ' I tıklatın **kaynak oluşturma** sol üst köşeden tıklatın **Intelligence + analiz**, tıklatıp **Data Factory**.
-3. İçinde **yeni data factory** bölmesi:
+2. Tıklayın **kaynak Oluştur** sol üst köşesdeki **zeka + analiz**, tıklatıp **Data Factory**.
+3. İçinde **yeni veri fabrikası** bölmesi:
 
    1. Girin **LoadIntoSQLDWDataFactory** için **adı**.
-       Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Hatayı alırsanız: **veri fabrikası adı "LoadIntoSQLDWDataFactory" kullanılabilir değil**, veri fabrikası (örneğin, yournameLoadIntoSQLDWDataFactory) adını değiştirin ve oluşturmayı yeniden deneyin. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.  
+       Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Hatayı alırsanız: **veri fabrikası adı "LoadIntoSQLDWDataFactory" kullanılamıyor**(örneğin, yournameLoadIntoSQLDWDataFactory) veri fabrikasının adını değiştirin ve yeniden oluşturmayı deneyin. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.  
    2. Azure **aboneliğinizi** seçin.
    3. Kaynak Grubu için aşağıdaki adımlardan birini uygulayın:
       1. Var olan bir kaynak grubu seçmek için **Var olanı kullan**’ı seçin.
@@ -136,84 +136,84 @@ Bu makalede Kopyalama Sihirbazı'nı kullanarak Azure SQL Data Warehouse'a veri 
    >
    >
 
-## <a name="step-1-configure-data-loading-schedule"></a>1. adım: veri zamanlama yükleme yapılandırma
-İlk adım, zamanlama yüklenirken veri yapılandırmaktır.  
+## <a name="step-1-configure-data-loading-schedule"></a>1. adım: veri yükleme zamanlamasını yapılandırma
+İlk adım, veri yükleme zamanlaması yapılandırmaktır.  
 
 **Özellikler** sayfasında:
 
 1. Girin **CopyFromBlobToAzureSqlDataWarehouse** için **görev adı**
-2. Seçin **kez Şimdi Çalıştır** seçeneği.   
+2. Seçin **şimdi bir kez çalıştır** seçeneği.   
 3. **İleri**’ye tıklayın.  
 
     ![Kopyalama Sihirbazı - Özellikler sayfası](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
 ## <a name="step-2-configure-source"></a>2. adım: kaynak yapılandırma
-Bu bölümde, kaynak yapılandırma adımlarını gösterir: Azure 1 TB TPC içeren Blob-H satır öğesi dosyaları.
+Bu bölümde, kaynak yapılandırma adımları gösterilir: Azure Blob içeren 1 TB TPC-H satır öğesi dosyaları.
 
-1. Seçin **Azure Blob Storage** olarak veri depolamak ve tıklatın **sonraki**.
+1. Seçin **Azure Blob Depolama** verileri depolamak ve tıklayın **sonraki**.
 
-    ![Kopyalama Sihirbazı - Kaynak Seç sayfası](media/data-factory-load-sql-data-warehouse/select-source-connection.png)
+    ![Kopyalama Sihirbazı'nı - Kaynak Seç sayfası](media/data-factory-load-sql-data-warehouse/select-source-connection.png)
 
-2. Azure Blob Depolama hesabı bağlantı bilgileri girin ve tıklayın **sonraki**.
+2. Azure Blob Depolama hesabı için bağlantı bilgilerini girin ve tıklatın **sonraki**.
 
-    ![Kopyalama Sihirbazı - kaynağı bağlantı bilgileri](media/data-factory-load-sql-data-warehouse/source-connection-info.png)
+    ![Kopyalama Sihirbazı'nı - kaynak bağlantı bilgisi](media/data-factory-load-sql-data-warehouse/source-connection-info.png)
 
-3. Seçin **klasörü** öğesi dosyalarını satır ve tıklatın TPC-H içeren **sonraki**.
+3. Seçin **klasör** TPC-H içeren satır öğesi dosyaları ve tıklayın **sonraki**.
 
     ![Kopyalama Sihirbazı - giriş klasörü seçin](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
 
-4. Tıklatarak bağlı **sonraki**, dosya biçimi ayarları otomatik olarak algılanır.  Bu sütun sınırlayıcı olduğundan emin olmak için onay ' | 'yerine varsayılan virgül','.  Tıklatın **sonraki** veri önizlemesi sonra.
+4. Üzerine tıklayarak **sonraki**, dosya biçimi ayarları otomatik olarak algılanır.  Bu sütun sınırlayıcısı olduğundan emin olmak için onay ' | 'yerine varsayılan virgül','.  Tıklayın **sonraki** sonra verilerin önizlemesini görebilirsiniz.
 
-    ![Kopyalama Sihirbazı - dosya biçimi ayarları](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
+    ![Kopyalama Sihirbazı'nı - dosya biçimi ayarları](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 
 ## <a name="step-3-configure-destination"></a>3. adım: hedef yapılandırma
-Bu bölümde hedef yapılandırılacağı gösterilmiştir: `lineitem` Azure SQL Data Warehouse veritabanı tablosunda.
+Bu bölümde, hedef yapılandırma işlemini göstermektedir: `lineitem` Azure SQL veri ambarı veritabanındaki tablo.
 
-1. Seçin **Azure SQL Data Warehouse** hedef olarak depolamak ve tıklatın **sonraki**.
+1. Seçin **Azure SQL veri ambarı** hedef olarak depolamak ve tıklayın **sonraki**.
 
-    ![Kopyalama Sihirbazı - select hedef veri deposu](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
+    ![-Select hedef veri deposuna Kopyalama Sihirbazı'nı](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
 
-2. Azure SQL Data Warehouse için bağlantı bilgilerini doldurun.  Rolünün bir üyesi olan kullanıcı belirttiğinizden emin olun `xlargerc` (bkz **Önkoşullar** ayrıntılı yönergeler için bölüm), tıklatıp **sonraki**.
+2. Azure SQL veri ambarı için bağlantı bilgilerini girin.  Kullanıcı rolünün bir üyesi belirttiğinizden emin olun `xlargerc` (bkz **önkoşulları** bölümünde ayrıntılı yönergeler için), tıklatıp **sonraki**.
 
-    ![Kopyalama Sihirbazı - hedef bağlantı bilgileri](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
+    ![Kopyalama Sihirbazı'nı - hedef bağlantı bilgisi](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
 
-3. Hedef tablo seçin ve tıklatın **sonraki**.
+3. Hedef tablo seçin ve tıklayın **sonraki**.
 
     ![Kopyalama Sihirbazı - Tablo eşleme sayfası](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
 
-4. Şema Eşleme sayfasında "Sütun eşlemesi uygulama" seçeneği işaretsiz bırakın ve tıklatın **sonraki**.
+4. Şema eşleme sayfası içinde "Sütun eşlemesi uygulama" seçeneği işaretlemeden bırakıp tıklayın **sonraki**.
 
 ## <a name="step-4-performance-settings"></a>4. adım: Performans ayarları
 
-**Polybase izin** varsayılan olarak işaretli.  **İleri**’ye tıklayın.
+**Polybase izin** varsayılan olarak işaretlidir.  **İleri**’ye tıklayın.
 
 ![Kopyalama Sihirbazı - şema eşleme sayfası](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 
 ## <a name="step-5-deploy-and-monitor-load-results"></a>5. adım: Dağıtma ve yükleme sonuçları izleme
-1. Tıklatın **son** dağıtmak için düğmesi.
+1. Tıklayın **son** dağıtmak için düğme.
 
     ![Kopyalama Sihirbazı - Özet sayfası](media/data-factory-load-sql-data-warehouse/summary-page.png)
 
-2. Dağıtım tamamlandıktan sonra tıklayın `Click here to monitor copy pipeline` Çalıştır ilerlemesi kopyalama izlemek için. Oluşturduğunuz kopyalama işlem hattını seçin **etkinlik Windows** listesi.
+2. Dağıtım tamamlandıktan sonra tıklayın `Click here to monitor copy pipeline` ilerleme çalıştırma kopyalama izlemek için. Oluşturduğunuz kopyalama işlem hattını seçin **etkinlik Windows** listesi.
 
     ![Kopyalama Sihirbazı - Özet sayfası](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
 
-    Ayrıntılar Çalıştır kopyalama görüntüleyebilirsiniz **etkinlik penceresini Explorer** kaynaktan okunan ve hedef, süre ve ortalama verimi çalıştırma için yazılan veri hacmi sağ panelde dahil olmak üzere.
+    Çalıştırma ayrıntıları Kopyala görüntüleyebileceğiniz **etkinlik penceresi Gezgini** kaynağından okumak ve hedef, süre ve ortalama aktarım hızı çalıştırma için yazılan veri hacmi sağ bölmede, dahil.
 
-    Aşağıdaki ekran gördüğünüz gibi 1 TB Azure Blob depolama alanından SQL Data Warehouse'a veri kopyalama etkili bir şekilde 1.22 GBps verimlilik elde 14 dakika sürdü!
+    Aşağıdaki ekran görüntüsünde görebileceğiniz gibi 1 TB Azure Blob depolama alanından SQL Data Warehouse'a veri kopyalama etkili bir şekilde 1.22 GB/sn aktarım hızı elde 14 dakika sürdü!
 
-    ![Kopyalama Sihirbazı - başarılı oldu, iletişim kutusu](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
+    ![Kopyalama Sihirbazı - başarılı iletişim kutusu](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 
 ## <a name="best-practices"></a>En iyi uygulamalar
-Azure SQL Data Warehouse veritabanınızı çalıştırmak için birkaç en iyi uygulamalar şunlardır:
+Azure SQL Data Warehouse veritabanınıza çalıştırmaya yönelik bazı en iyi uygulamalar şunlardır:
 
-* Daha büyük bir kaynak sınıfı, bir kümelenmiş COLUMNSTORE DİZİNİNE yüklerken kullanın.
-* Daha verimli birleştirmeler için hepsini bir kez deneme dağıtımı varsayılan yerine select bir sütuna göre karma dağıtım kullanmayı düşünün.
-* İçin daha hızlı yük hızları, geçici verileri öbek kullanmayı düşünün.
-* Azure SQL Data Warehouse yüklemeyi bitirdikten sonra İstatistikler oluşturun.
+* Kümelenmiş COLUMNSTORE bir DİZİNE yüklemeye daha büyük bir kaynak sınıfı kullanın.
+* Daha verimli birleşimler için varsayılan hepsini bir kez deneme dağıtım yerine bir seçim sütunu karma dağıtım kullanarak göz önünde bulundurun.
+* Daha hızlı yükleme hızları için geçici veriler için yığın kullanmayı düşünün.
+* Azure SQL veri ambarı yükleme işlemini tamamladıktan sonra istatistik oluşturma.
 
-Bkz: [en iyi uygulamalar Azure SQL Data Warehouse için](../../sql-data-warehouse/sql-data-warehouse-best-practices.md) Ayrıntılar için.
+Bkz: [en iyi uygulamalar için Azure SQL veri ambarı](../../sql-data-warehouse/sql-data-warehouse-best-practices.md) Ayrıntılar için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Data Factory Kopyalama Sihirbazı](data-factory-copy-wizard.md) -bu makalede Kopyalama Sihirbazı hakkında ayrıntılar sağlar.
-* [Etkinlik performans ve ayarlama Kılavuzu kopyalama](data-factory-copy-activity-performance.md) -bu makalede başvuru performans ölçümleri ve ayarlama kılavuzu içerir.
+* [Data Factory Kopyalama Sihirbazı](data-factory-copy-wizard.md) -bu makalede Kopyalama Sihirbazı'nı hakkında ayrıntılar sağlar.
+* [Etkinlik performansı ve ayarlama Kılavuzu kopyalama](data-factory-copy-activity-performance.md) -bu makalede başvuru performans ölçümleri ve ayar kılavuzu içerir.

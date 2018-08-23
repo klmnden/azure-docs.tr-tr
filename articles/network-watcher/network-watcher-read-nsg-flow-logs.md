@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: 492a0a63198fe2013cfeac0459fc6da8521a5e6e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b43c082b5c4925fee2b1145956a2847e7f30bb11
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056809"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057744"
 ---
 # <a name="read-nsg-flow-logs"></a>NSG akış günlüklerini okuma
 
@@ -28,7 +28,7 @@ NSG akış günlükleri bir depolama hesabında depolanır [blok blobları](/res
 
 ## <a name="scenario"></a>Senaryo
 
-Aşağıdaki senaryoda, bir depolama hesabında depolanmış bir örnek akış günlüğü vardır. Biz nasıl seçerek en son olayları NSG akış günlüklerini okuyabilirsiniz adım. Bu makalede PowerShell kullanacağız, ancak makalesinde açıklanan kavramları programlama diline sınırlı değildir ve Azure depolama API'ları tarafından desteklenen tüm dillerde uygulanabilir
+Aşağıdaki senaryoda, bir depolama hesabında depolanmış bir örnek akış günlüğü vardır. NSG akış günlüklerini en son olayları seçerek okumayı öğrenin. Bu makalede PowerShell kullanın, ancak makalesinde açıklanan kavramları programlama diline sınırlı değildir ve tüm diller için geçerli Azure depolama API'leri tarafından desteklenir.
 
 ## <a name="setup"></a>Kurulum
 
@@ -98,7 +98,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## <a name="read-the-block-blob"></a>Blok blobu okuma
 
-Sonraki okumak ihtiyacımız `$blocklist` verileri almak üzere değişkeni. Bu örnekte, biz engelleme listesi yineleme her bloğundan okunan bayt sayısı ve bunları bir dizide yazı. Kullandığımız [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) verileri almak için yöntemi.
+Okumak gereken sonraki `$blocklist` verileri almak üzere değişkeni. Bu örnekte, biz engelleme listesi yineleme her bloğundan okunan bayt sayısı ve bunları bir dizide yazı. Kullanım [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) verileri almak için yöntemi.
 
 ```powershell
 # Set the size of the byte array to the largest block
@@ -132,7 +132,7 @@ $valuearray += $value
 }
 ```
 
-Artık `$valuearray` dizi her blok dize değeri içerir. Giriş doğrulamak için ikinci son değerine diziden çalıştırarak alın `$valuearray[$valuearray.Length-2]`. Köşeli ayraç yalnızca son değerdir istemezsiniz.
+Artık `$valuearray` dizi her blok dize değeri içerir. Giriş doğrulamak için ikinci son değerine diziden çalıştırarak alın `$valuearray[$valuearray.Length-2]`. Sağ köşeli ayraç olduğu son değeri istemezsiniz.
 
 Bu değer sonuçları, aşağıdaki örnekte gösterilmiştir:
 
@@ -157,7 +157,6 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 ```
 
 Bu senaryo, tüm günlük ayrıştırma gerek kalmadan girişleri NSG akış günlüklerini okuma örneğidir. Blok Kimliğini kullanarak veya blok blobu depolanan blokları uzunluğunu izleme yazıldıkları şekilde günlüğüne yeni girişler okuyabilirsiniz. Bu, yalnızca yeni girişler okumanızı sağlar.
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

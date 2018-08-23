@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: b4fc67acae83573db772923a94cdbb6b1c4a301f
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: b6f1185a94f865578d9a6514fb6841f8811b2230
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159850"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057145"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication hakkında sık sorulan sorular
 
@@ -218,7 +218,7 @@ Bu hata ayrı kullanıcı için geçici bir çözüm için yönetici ile ilgili 
 
 Lütfen Sorunuzu buraya yanıtlanmadıysa sayfanın alt kısmındaki açıklamalarda bırakın. Veya Yardım almak için bazı ek seçenekler şunlardır:
 
-* Arama [Microsoft destek Bilgi Bankası](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) teknik sık karşılaşılan sorunlara çözümler için.
+* Arama [Microsoft destek Bilgi Bankası](https://www.microsoft.com/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) teknik sık karşılaşılan sorunlara çözümler için.
 * İçin arama yapın ve teknik sorular ve cevaplar topluluğundan göz atın veya kendi soru [Azure Active Directory forumları](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 * Eski PhoneFactor müşteri iseniz ve sorularınız varsa veya kullanımı bir parola sıfırlama yardıma gereksinim [parola sıfırlama](mailto:phonefactorsupport@microsoft.com) bir destek olayı açmaya yönelik bağlantı.
 * Üzerinden bir destek uzmanına başvurun [Azure multi-Factor Authentication sunucusu (PhoneFactor) Destek](https://support.microsoft.com/oas/default.aspx?prid=14947). Mümkün olduğunca sorununuzla ilgili kadar bilgi dahil ederseniz bizimle iletişime geçtiğiniz yararlı olur. Hata, söz konusu hata kodunu, belirli bir oturum kimliği ve hata gördüğünüz kullanıcı Kimliğini nerede gördüğünüzü sayfası, sağladığınız bilgiler içerir.

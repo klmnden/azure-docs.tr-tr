@@ -1,6 +1,6 @@
 ---
-title: Yük Dengeleyici için işlemleri, olayları ve sayaçları izleme | Microsoft Docs
-description: Uyarı olayları etkinleştir ve Azure yük dengeleyici için sistem durumu günlüğü araştırma hakkında bilgi edinin
+title: İzleme işlemleri, olayları ve sayaçlar için genel temel yük dengeleyici | Microsoft Docs
+description: Uyarı olayları etkinleştirmektedir ve genel temel yük dengeleyici için sistem durumu günlüğü araştırma hakkında bilgi edinin
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -12,62 +12,64 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: dabf4bcae957559978e731636bb13554f1a68b73
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5c196a24d5cc9e4343762e55b5885c1264c2fcad
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30179064"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056580"
 ---
-# <a name="log-analytics-for-azure-load-balancer"></a>Azure Load Balancer için günlük analizi
+# <a name="log-analytics-for-public-basic-load-balancer"></a>Genel temel Load Balancer için log analytics
 
->[!NOTE] 
->Azure Load Balancer iki farklı türü destekler: Temel ve Standart. Bu makalede Temel Yük Dengeleyici anlatılmaktadır. Standart yük dengeleyici hakkında daha fazla bilgi için bkz: [standart yük dengeleyici genel bakış](load-balancer-standard-overview.md).
+>[!IMPORTANT] 
+>Azure Load Balancer iki farklı türü destekler: Temel ve Standart. Bu makalede Temel Yük Dengeleyici anlatılmaktadır. Standard Load Balancer hakkında daha fazla bilgi için bkz: [standart Load Balancer'a genel bakış](load-balancer-standard-overview.md) telemetri üzerinden çok boyutlu ölçümler Azure İzleyici'de kullanıma sunar.
 
-Azure'da günlükleri farklı türlerde yönetmek ve yük dengeleyici sorunlarını gidermek için kullanabilirsiniz. Bu günlükler bazıları Portalı aracılığıyla erişilebilir. Tüm günlükleri Azure blob depolama alanından ayıklanan ve farklı araçlar, Excel ve Powerbı gibi görüntülenebilir. Aşağıdaki listeden günlükleri farklı türleri hakkında daha fazla bilgi edinebilirsiniz.
+Günlükleri farklı türde, yönetme ve sorun giderme temel yük Dengeleyiciler için Azure'da kullanabilirsiniz. Bu günlükler bazıları, portal üzerinden erişilebilir. Tüm günlükler Azure blob depolama alanından ayıklanır ve Excel ve Power BI gibi farklı Araçları'nda görüntülenebilir. Günlükleri aşağıdaki listeden farklı türleri hakkında daha fazla bilgi edinebilirsiniz.
 
-* **Denetim günlüklerini:** kullanabileceğiniz [Azure denetim günlükleri](../monitoring-and-diagnostics/insights-debugging-with-events.md) (eskiden İşlem günlükleri olarak bilinir) Azure Abonelikleriniz ve durumlarını gönderilen tüm işlemleri görüntülemek için. Denetim günlüklerini varsayılan olarak etkindir ve Azure Portalı'nda görüntülenebilir.
-* **Uyarı olayı günlükleri:** yük dengeleyici tarafından oluşturulan uyarılar görüntülemek için bu günlük kullanabilirsiniz. Yük Dengeleyici için durum her beş dakikada toplanır. Bu günlük yalnızca bir yük dengeleyici uyarı olayı tetiklenir yazılır.
-* **Sistem durumu araştırma günlüklerini:** , arka uç havuzundaki istekleri sistem durumu araştırma hataları nedeniyle yük dengeleyiciden gösterilmeyen örnek sayısı gibi sistem durumu araştırma tarafından algılanan sorunları görüntülemek için bu günlük kullanabilirsiniz. Sistem durumu araştırma durumundaki bir değişiklik olduğunda bu günlük yazılır.
+* **Denetim günlükleri:** kullanabileceğiniz [Azure denetim günlükleri](../monitoring-and-diagnostics/insights-debugging-with-events.md) (önceden işlem günlükleri olarak da bilinir) Azure Abonelikleriniz ve durumlarını gönderilen tüm işlemleri görüntülemek için. Denetim günlükleri varsayılan olarak etkindir ve Azure portalında görüntülenebilir.
+* **Uyarı olay günlüklerini:** yük dengeleyici tarafından oluşturulan uyarılar görüntülemek için bu günlük kullanabilirsiniz. Yük Dengeleyici için durum beş dakikada toplanır. Bu günlük yalnızca bir yük dengeleyici uyarı olayı tetiklenir yazılır.
+* **Sistem durumu araştırma günlükleri:** istekler yük dengeleyiciden sistem durumu araştırma hatası nedeniyle almıyor örneklerinin arka uç havuzundaki gibi sistem durumu araştırması tarafından algılanan sorunları görüntülemek için bu günlük kullanabilirsiniz. Sistem durumu araştırması durumundaki bir değişiklik olduğunda bu günlüğe yazılır.
 
 > [!IMPORTANT]
-> Günlük analizi yük dengeleyici yalnızca Internet'e yönelik için şu anda çalışıyor. Günlükleri yalnızca Resource Manager dağıtım modelinde dağıtılan kaynaklar için kullanılabilir. Klasik dağıtım modelinde kaynakların günlükleri kullanamazsınız. Dağıtım modelleri hakkında daha fazla bilgi için bkz: [anlama Resource Manager dağıtımını ve klasik dağıtımı](../azure-resource-manager/resource-manager-deployment-model.md).
+> Günlük analizi şu anda yük Dengeleyiciler yalnızca ortak temel çalışır. Günlükleri yalnızca Resource Manager dağıtım modelinde dağıtılan kaynaklar için kullanılabilir. Klasik dağıtım modelinde kaynakların günlükleri'ni kullanamazsınız. Dağıtım modelleri hakkında daha fazla bilgi için bkz. [anlama Resource Manager dağıtımını ve klasik dağıtımı](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="enable-logging"></a>Günlü kaydını etkinleştir
 
-Denetim günlüğü, her Resource Manager kaynak için otomatik olarak etkinleştirilir. Olay ve bu günlükleri kullanılabilir veri toplama başlatmak için araştırma sistem günlüğü etkinleştirmeniz gerekir. Günlük kaydını etkinleştirmek için aşağıdaki adımları kullanın.
+Denetim günlüğü, her bir Resource Manager kaynağı için otomatik olarak etkinleştirilir. Olay ve bu günlükleri kullanılabilir veri toplamaya başlamak için durum araştırması günlüğe kaydetme etkinleştirmeniz gerekir. Günlüğe kaydetmeyi etkinleştirmek için aşağıdaki adımları kullanın.
 
-Oturum açma için [Azure portal](http://portal.azure.com). Bir yük dengeleyici, henüz yoksa [bir yük dengeleyici oluşturma](load-balancer-get-started-internet-arm-ps.md) devam etmeden önce.
+Oturum açma için [Azure portalında](http://portal.azure.com). Bir yük dengeleyici henüz yoksa [yük dengeleyici oluşturma](load-balancer-get-started-internet-arm-ps.md) devam etmeden önce.
 
-1. Portalı'nda tıklatın **Gözat**.
-2. Seçin **yük dengeleyici**.
+1. Portalında **Gözat**.
+2. Seçin **yük Dengeleyiciler**.
 
-    ![Portal - yük dengeleyici](./media/load-balancer-monitor-log/load-balancer-browse.png)
+    ![Portalı - yük dengeleyici](./media/load-balancer-monitor-log/load-balancer-browse.png)
 
-3. Mevcut bir Yük Dengeleyiciyi seçin >> **tüm ayarları**.
-4. Yük Dengeleyici adı altında iletişim kutusunun sağ tarafta kaydırın **izleme**, tıklatın **tanılama**.
+3. Mevcut bir Yük Dengeleyiciyi seçin >> **tüm ayarlar**.
+4. Yük dengeleyicinin adı altında iletişim kutusunun sağ tarafında kaydırarak **izleme**, tıklayın **tanılama**.
 
-    ![Portal - yük dengeleyici ayarları](./media/load-balancer-monitor-log/load-balancer-settings.png)
+    ![Portalı - yük dengeleyici ayarları](./media/load-balancer-monitor-log/load-balancer-settings.png)
 
-5. İçinde **tanılama** bölmesi altında **durum**seçin **üzerinde**.
-6. Tıklatın **depolama hesabı**.
-7. Altında **GÜNLÜKLERİ**, mevcut bir depolama hesabını seçin veya yeni bir tane oluşturun. Olay verilerini kaç gün olay günlüklerinde depolanacak belirlemek için kaydırıcıyı kullanın. 
+5. İçinde **tanılama** bölmesi altında **durumu**seçin **üzerinde**.
+6. Tıklayın **depolama hesabı**.
+7. Altında **GÜNLÜKLERİ**, mevcut bir depolama hesabını seçin veya yeni bir tane oluşturun. Kaç gün olay verileri olay günlüklerinde depolanacak belirlemek için kaydırıcıyı kullanın. 
 8. **Kaydet**’e tıklayın.
 
-    ![Portal - tanılama günlükleri](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
+Tanılama belirtilen depolama hesabında tablo depolamaya kaydedilir. Günlükleri kaydediliyor değil, ilgili günlük üretilmiş olmasıdır.
+
+![Portalı - tanılama günlükleri](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 
 > [!NOTE]
-> Denetim günlükleri ayrı bir depolama hesabı gerektirmez. Kullanım olay ve sistem durumu depolama araştırma günlük kaydı hizmeti ücret uygulanabilir.
+> Denetim günlükleri ayrı bir depolama hesabı gerektirmez. Kullanım depolama olay sistem durumu araştırması günlüğe kaydetme hizmeti ücret uygulanabilir.
 
 ## <a name="audit-log"></a>Denetleme günlüğü
 
-Denetim günlüğü varsayılan olarak oluşturulur. Günlükleri 90 gün boyunca Azure'nın olay günlüklerini deposunda saklanır. Bu günlükler hakkında daha fazla bilgi okuyarak [olayları görüntülemek ve Denetim günlükleri](../monitoring-and-diagnostics/insights-debugging-with-events.md) makale.
+Denetim günlüğü varsayılan olarak oluşturulur. Günlükleri, Azure'nın olay günlüklerini deposunda 90 gün boyunca korunur. Bu günlükler hakkında daha fazla bilgi edinmek [olayları görüntülemek ve Denetim günlükleri](../monitoring-and-diagnostics/insights-debugging-with-events.md) makalesi.
 
 ## <a name="alert-event-log"></a>Uyarı olay günlüğü
 
-Bu günlük yalnızca üzerinde etkinleştirdikten, oluşturulan bir yük dengeleyici temelinde. Olayları JSON biçiminde günlüğe kaydedilen ve günlüğe kaydetme etkinleştirildiğinde, belirtilen depolama hesabında depolanır. Bir olayın bir örnek verilmiştir.
+Bunu şirket etkinleştirdiyseniz bu günlük yalnızca oluşturulan bir yük dengeleyici temelinde. Olayları JSON biçiminde günlüğe kaydedilen ve günlüğe kaydetme etkinleştirildiğinde, belirtilen depolama hesabında depolanır. Bir olayın bir örnek verilmiştir.
 
 ```json
 {
@@ -86,11 +88,11 @@ Bu günlük yalnızca üzerinde etkinleştirdikten, oluşturulan bir yük dengel
 }
 ```
 
-JSON çıktısını gösterir *eventname* yük dengeleyici nedenini açıklayan özelliğini bir uyarı oluşturdu. Bu durumda, oluşturulan uyarı TCP bağlantı noktası Tükenme nedeniyle IP NAT kaynağı tarafından sınırları (SNAT) neden oldu.
+JSON çıktısını gösterir *eventname* yük dengeleyici nedenini açıklayan özelliği bir uyarı oluşturulur. Bu durumda, oluşturulan uyarı TCP bağlantı noktası tükenmesi nedeniyle kaynak IP NAT tarafından sınırları (SNAT) neden oldu.
 
-## <a name="health-probe-log"></a>Sistem durumu araştırma günlük
+## <a name="health-probe-log"></a>Sistem durumu araştırması günlüğü
 
-Bu günlük yalnızca üzerinde etkinleştirdikten, oluşturulan bir yük dengeleyici temel olarak ayrıntılı yukarıdaki başına. Veri günlük kaydı etkinleştirildiğinde, belirtilen depolama hesabında depolanır. 'Öngörüler günlükleri loadbalancerprobehealthstatus' adlı bir kapsayıcı oluşturulur ve aşağıdaki veriler günlüğe kaydedilir:
+Bunu şirket etkinleştirdiyseniz bu günlük yalnızca oluşturulan bir yük dengeleyici olarak ayrıntılı olarak yukarıdaki. Veri günlük kaydı etkinleştirildiğinde, belirtilen depolama hesabında depolanır. 'Insights günlükleri loadbalancerprobehealthstatus' adlı bir kapsayıcı oluşturulur ve aşağıdaki veriler günlüğe kaydedilir:
 
 ```json
 {
@@ -126,26 +128,26 @@ Bu günlük yalnızca üzerinde etkinleştirdikten, oluşturulan bir yük dengel
 }
 ```
 
-JSON çıktısını özellikleri alanında araştırma sistem durumu için temel bilgileri gösterir. *DipDownCount* özelliği, ağ trafiğini başarısız araştırma yanıtları nedeniyle gösterilmeyen uç üzerinde örnekleri toplam sayısını gösterir.
+JSON çıkışını özellikleri alanın sistem durumu araştırması için temel bilgileri gösterir. *DipDownCount* özellik üzerinde hangi makinenin başarısız araştırma yanıtları nedeniyle ağ trafiği almıyor uç örneklerinin toplam sayısı gösterilmiştir.
 
-## <a name="view-and-analyze-the-audit-log"></a>Görüntüleme ve denetim günlüğü çözümleme
+## <a name="view-and-analyze-the-audit-log"></a>Görüntüleme ve analiz denetim günlüğü
 
-Görüntüleme ve aşağıdaki yöntemlerden birini kullanarak denetim günlüğü verilerini çözümleme:
+Görüntüleyebilir ve aşağıdaki yöntemlerden birini kullanarak denetim günlüğü verilerini analiz edin:
 
-* **Azure Araçları:** bilgi almanızı Azure PowerShell, Azure komut satırı arabirimi (CLI), Azure REST API veya Azure preview portal aracılığıyla denetim günlükleri. Her yöntem için adım adım yönergeler ayrıntılı olarak [denetim işlemleri Resource Manager ile](../azure-resource-manager/resource-group-audit.md) makalesi.
-* **Power BI:** zaten yoksa bir [Power BI](https://powerbi.microsoft.com/pricing) hesabı deneyebilirsiniz, ücretsiz. Kullanarak [Azure denetim günlükleri paketi Power BI için içerik](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), önceden yapılandırılmış panolar verilerinizle analiz edebilirsiniz veya görünümler gereksinimlerinize uyacak şekilde özelleştirebilirsiniz.
+* **Azure Araçları:** Azure PowerShell, Azure komut satırı arabirimi (CLI), Azure REST API'si veya Azure preview portal aracılığıyla denetim günlüklerinden bilgi alın. Her yöntem için adım adım yönergeleri ayrıntılı olarak [Resource Manager denetim işlemleri](../azure-resource-manager/resource-group-audit.md) makalesi.
+* **Power BI:** zaten yoksa bir [Power BI](https://powerbi.microsoft.com/pricing) hesabı deneyebilirsiniz, ücretsiz. Kullanarak [Azure denetim günlükleri içerik paketi Power BI için](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), önceden yapılandırılmış Panolar ile verilerinizi analiz edin veya görünümleri gereksinimlerinize uyacak şekilde özelleştirebilirsiniz.
 
-## <a name="view-and-analyze-the-health-probe-and-event-log"></a>Görüntüleme ve durum araştırması ve olay günlüğü çözümleme
+## <a name="view-and-analyze-the-health-probe-and-event-log"></a>Durum araştırması ve olay günlüğünü görüntüleme ve çözümleme
 
-Depolama hesabınıza bağlanın ve olay ve sistem durumu araştırma günlükleri için JSON günlük girişlerini almak gerekir. JSON dosyaları yükledikten sonra CSV ve Excel, Powerbı veya başka bir veri görselleştirme araç görünümünde dönüştürebilirsiniz.
+Depolama hesabınıza bağlanın ve olay ve sistem durumu araştırma günlükleri için JSON günlük girişlerini almak gerekir. JSON dosyalarını yükledikten sonra CSV ve Excel, Powerbı veya herhangi bir veri görselleştirme aracını görünümünde dönüştürme yapabilirsiniz.
 
 > [!TIP]
-> Visual Studio ve sabitleri ve değişkenleri C# değerlerini değiştirmenin temel kavramları biliyorsanız, kullanabileceğiniz [Dönüştürücü Araçları oturum](https://github.com/Azure-Samples/networking-dotnet-log-converter) github'dan kullanılabilir.
+> Visual Studio ve C# ile sabit ve değişken değerlerini değiştirme konusunda temel kavramlara hakimseniz GitHub'daki [günlük dönüştürücü araçlarını](https://github.com/Azure-Samples/networking-dotnet-log-converter) kullanabilirsiniz.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure denetim günlükleri Power BI ile görselleştirme](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blog postası.
-* [Görüntüleme ve Azure denetim günlükleri Power BI ve daha fazla çözümleme](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog postası.
+* [Power BI ile Azure denetim günlüklerinizi görselleştirin](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blog gönderisi.
+* [Görüntüleme ve Power BI ve Azure denetim günlükleri analiz](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog gönderisi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

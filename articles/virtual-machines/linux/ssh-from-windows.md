@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 08/20/2018
 ms.author: danlep
-ms.openlocfilehash: d0762f80267fa927681344a3e0de78b0800c8306
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fc245d38af90e0c395389e24b14d061fcfe0c10c
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630220"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056371"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure'da Windows ile SSH anahtarlarını kullanma
 
@@ -33,9 +33,9 @@ Bu makalede, oluşturmak ve güvenli Kabuk (SSH) anahtarları oluşturmak ve azu
 ## <a name="windows-packages-and-ssh-clients"></a>Windows paketlerini ve SSH istemcileri
 Bağlanmak ve kullanarak azure'da Linux sanal makineleri yönetme bir *SSH istemcisi*. SSH komut oluşturma ve SSH anahtarlarını yönetme ve SSH bağlantılarına takımının bir Linux veya Macos'ta genellikle çalıştıran bilgisayarlar vardır. 
 
-Windows bilgisayarlar, her zaman yüklü karşılaştırılabilir SSH komutları yoktur. İçeren Windows 10 sürümlerini [Linux için Windows alt sistemi](https://docs.microsoft.com/windows/wsl/about) çalıştırın ve yardımcı programları gibi bir SSH istemcisi bir Bash kabuğunda içinde yerel olarak erişim sağlar. 
+Windows bilgisayarlar, her zaman yüklü karşılaştırılabilir SSH komutları yoktur. Windows 10 'un en son sürümlerini sağlamak [OpenSSH istemcisi komutları](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) oluşturmak ve SSH anahtarlarını yönetme ve bir komut istemi'nden SSH bağlantıları oluşturmak için. Yeni Windows 10 sürümleri de dahil [Linux için Windows alt sistemi](https://docs.microsoft.com/windows/wsl/about) çalıştırın ve yardımcı programları gibi bir SSH istemcisi bir Bash kabuğunda içinde yerel olarak erişmek için. 
 
-Bash için Windows dışında bir şey kullanmak istiyorsanız, yerel olarak yükleyebilirsiniz ortak Windows SSH istemcileri aşağıdaki paketlerde dahildir:
+Yerel olarak yükleyebilirsiniz ortak Windows SSH istemcileri, Windows için başka bir SSH aracını kullanmak istiyorsanız, aşağıdaki paketleri dahil edilmiştir:
 
 * [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [Windows için Git](https://git-for-windows.github.io/)
@@ -52,7 +52,7 @@ Bu bölümde, Windows üzerinde SSH anahtar çifti oluşturmak için iki seçene
 
 ### <a name="create-ssh-keys-with-ssh-keygen"></a>Ssh-keygen ile SSH anahtarları oluşturma
 
-Bash için Windows veya GitBash (veya Azure Cloud Shell'deki Bash hizmetinde) gibi bir komut kabuğunu çalıştırabileceğiniz, bir SSH anahtar çiftini kullanarak oluşturma `ssh-keygen` komutu. Aşağıdaki komutu yazın ve istemlerini yanıtlayın. Geçerli konumu bir SSH anahtar çiftiniz varsa bu dosyaların üzerine yazılır. 
+Windows üzerinde SSH istemci araçlarını destekleyen bir komut kabuğunu çalıştırın (veya Azure Cloud Shell'i kullanırsanız) kullanarak bir SSH anahtar çifti oluşturma `ssh-keygen` komutu. Aşağıdaki komutu yazın ve istemlerini yanıtlayın. Geçerli konumu bir SSH anahtar çiftiniz varsa bu dosyaların üzerine yazılır. 
 
 ```bash
 ssh-keygen -t rsa -b 2048

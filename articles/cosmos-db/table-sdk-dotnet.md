@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 03/26/2018
+ms.date: 08/17/2018
 ms.author: rnagpal
-ms.openlocfilehash: 2fba67b247ad0b53e11ca012969163a68013e82f
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: d0bd7dba5d50445cb681c16d9575b1bd69167e2f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126720"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056268"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tablosu .NET API'si: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ ms.locfileid: "39126720"
 ## <a name="release-notes"></a>Sürüm notları
 
 ### <a name="a-name113113"></a><a name="1.1.3"/>1.1.3
-* Sabit Nuget Paket bağımlılıklarını Microsoft.Azure.Storage.Common ve Microsoft.Azure.DocumentDB.
+* Sabit NuGet Paket bağımlılıklarını Microsoft.Azure.Storage.Common ve Microsoft.Azure.DocumentDB.
 * Hata düzeltmeleri JsonConvert.DefaultSettings yapılandırıldığında tablo serileştirme hakkında.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
@@ -60,7 +60,7 @@ ms.locfileid: "39126720"
 ## <a name="release-and-retirement-dates"></a>Yayın ve sona erme tarihleri
 Microsoft'un sağladığı bildirim en az **12 ay** yeni/desteklenen bir sürüme geçiş hafifletmek için bir SDK'yı devre dışı bırakmadan önce.
 
-[WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) Önizleme paket kullanım dışı ve yerine [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) paket. WindowsAzure.Storage-PremiumTable SDK'sı 15 Kasım 2018'de kullanımdan kaldırılacaktır, hangi zaman isteklerini devre dışı bırakılan SDK'sını değil izin verilir.
+[WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) Önizleme paket kullanım dışı ve yerine [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) paket. WindowsAzure.Storage-PremiumTable SDK'sı 15 Kasım 2018'de kullanımdan kaldırılacaktır, hangi zaman isteklerini devre dışı bırakılan SDK'sını değil izin verilir. `Microsoft.Azure.CosmosDB.Table` Kitaplığı kullanılabilir .NET Standard için şu anda yalnızca, henüz .NET Core için kullanılabilir değil.
 
 Geçerli SDK'sı yalnızca eklenen yeni özellikler ve işlevsellik ve en iyi duruma getirme, bu nedenle, her zaman en son SDK sürümüne erken mümkün olduğunca yükseltmeniz önerilir. 
 
@@ -91,7 +91,7 @@ Microsoft.Azure.CosmosDB.Table NuGet paketini kullanmaya çalıştığınızda, 
     Install-Package Microsoft.Azure.CosmosDB.Table -IncludePrerelease
     ```
     
-* Nuget paket, tercih edilen Yönetim Aracı'nı kullanarak, Microsoft.Azure.CosmosDB.Table yüklemeden önce Microsoft.Azure.Storage.Common Nuget paketini yükleyin.
+* NuGet paket, tercih edilen Yönetim Aracı'nı kullanarak, Microsoft.Azure.CosmosDB.Table yüklemeden önce Microsoft.Azure.Storage.Common NuGet paketini yükleyin.
 
 ## <a name="faq"></a>SSS
 

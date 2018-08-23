@@ -3,17 +3,16 @@ title: Azure Event Grid aboneliği olay şeması
 description: Abonelik olayları Azure Event Grid ile sağlanan özellikleri tanımlar
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/02/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6eb5cd9a086522bfe5125189f87a2498dda0ef7e
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 18f2a64a4354fbd99f1a471c21cc35cbf5df6619
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493583"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42057140"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Abonelikler için Azure Event Grid olay şeması
 
@@ -27,7 +26,9 @@ Bir Azure aboneliği için olaylara abone olduğunuzda, uç noktanızı Bu abone
 
 Program aracılığıyla olayları işlemek için olayları bakarak sıralayabilirsiniz `operationName` değeri. Örneğin, olay uç noktanızı eşit olan işlemleri için olayları yalnızca işleyebilir `Microsoft.Compute/virtualMachines/write` veya `Microsoft.Storage/storageAccounts/write`.
 
-Etkinlik konusu işlemin hedef kaynağın kaynak kimliğidir. Bir kaynak için olayları filtrelemek için bu kaynak sağlayan olay aboneliği oluştururken kimliği. Örnek betikler için bkz: [abonelik ve kaynak grubu - PowerShell için filtre](scripts/event-grid-powershell-resource-group-filter.md) veya [abonelik ve kaynak grubu - Azure CLI için filtre](scripts/event-grid-cli-resource-group-filter.md). Bir kaynak türüne göre filtre uygulamak için aşağıdaki biçimde bir değer kullanın: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+Etkinlik konusu işlemin hedef kaynağın kaynak kimliğidir. Bir kaynak için olayları filtrelemek için bu kaynak sağlayan olay aboneliği oluştururken kimliği. Bir kaynak türüne göre filtre uygulamak için aşağıdaki biçimde bir değer kullanın: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+
+Örnek betikler ve öğreticiler listesi için bkz: [Azure aboneliği olay kaynağı](event-sources.md#azure-subscriptions).
 
 ## <a name="available-event-types"></a>Kullanılabilir olay türleri
 

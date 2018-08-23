@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 29226f0645a772ffe02e378c9b4df0a87909731a
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 39ec7c979294860967deb3307f5d87112b762257
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358129"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42059676"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Yedekleme ve kurtarma hesabı kimlik bilgileriyle Microsoft Authenticator uygulaması
 
@@ -100,9 +100,7 @@ Yedekleme kullanılabilir olmamasının birkaç nedeni vardır:
 Yedeklenebilir ve hesap kimlik bilgilerinizi yeni Cihazınızı kurtarılan göre kimliğinizi doğrulamak için Microsoft Authenticator uygulamasını kullanmaya devam edebilirsiniz.
 
 ## <a name="related-topics"></a>İlgili konular
-- [Microsoft Authenticator uygulaması ile çalışmaya başlama](microsoft-authenticator-app-how-to.md)  
-
-- [Telefonunuzla oturum açma](microsoft-authenticator-app-phone-signin-faq.md)
+- [Microsoft Authenticator uygulamasını kullanmaya başlama](microsoft-authenticator-app-how-to.md)  
 
 - [Microsoft Authenticator uygulaması hakkında SSS](microsoft-authenticator-app-faq.md)
 

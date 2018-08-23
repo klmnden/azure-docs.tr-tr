@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/03/2018
+ms.date: 08/20/2018
 ms.author: roiyz
-ms.openlocfilehash: 463a00823997f1acfb65fdd739a093e556982a61
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: f7c7877768e2dc06e73f8c91016edd521151a11c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39411959"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42061126"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Windows için NVIDIA GPU sürücüsünün uzantısı
 
@@ -63,7 +63,8 @@ Aşağıdaki JSON şema uzantısı gösterir.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.2",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -77,7 +78,7 @@ Aşağıdaki JSON şema uzantısı gösterir.
 | apiVersion | 2015-06-15 | tarih |
 | Yayımcı | Microsoft.HpcCompute | dize |
 | type | NvidiaGpuDriverWindows | dize |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1.2 | int |
 
 
 ## <a name="deployment"></a>Dağıtım
@@ -103,7 +104,8 @@ Aşağıdaki örnek, uzantıyı sanal makine kaynağı içinde iç içe varsayar
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.2",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -120,7 +122,7 @@ Set-AzureRmVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverWindows" `
     -ExtensionType "NvidiaGpuDriverWindows" `
-    -TypeHandlerVersion 1.0 `
+    -TypeHandlerVersion 1.2 `
     -SettingString '{ `
     }'
 ```
@@ -133,7 +135,7 @@ az vm extension set `
   --vm-name myVM `
   --name NvidiaGpuDriverWindows `
   --publisher Microsoft.HpcCompute `
-  --version 1.0 `
+  --version 1.2 `
   --settings '{ `
   }'
 ```
@@ -164,7 +166,8 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | :---: | --- | --- |
 | 0 | İşlem başarılı |
 | 1 | İşlem başarılı. Yeniden başlatma gerekli. |
-| 4, 10 | İşlem zaman aşımı. | İşlemi yeniden deneyin.
+| 100 | İşlem değil, desteklenen veya tamamlanamadı. | Olası nedenler: PowerShell sürümü desteklenmiyor, VM boyutu, veri indirme hatası bir N serisi VM'LERİNDEN değil. Hatanın nedenini belirlemek için günlük dosyalarına bakın. |
+| 240, 840 olan | İşlem zaman aşımı. | İşlemi yeniden deneyin. |
 | -1 | Özel durum oluştu. | Özel durumun nedenini belirlemek için günlük dosyalarına bakın. |
 | -5 x | İşlem nedeniyle yeniden başlatma kesildi. | VM'yi yeniden başlatın. Yükleme yeniden başlatıldıktan sonra devam edecek. Kaldırma el ile çağrılmalıdır. |
 

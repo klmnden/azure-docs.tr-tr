@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 6f6fa1ebc086530f138d32ee5a9c799b5bfbbdeb
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 3b05f553e591de2660e9842f316de0cb6f80c852
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412119"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056269"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Azure SQL veritabanı kaynak limitleri genel bakış 
 
@@ -22,15 +22,15 @@ Bu makalede, Azure SQL veritabanı kaynağı genel bir bakış sınırlar ve bu 
 
 ## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>Sunucular ve veritabanları sayısı nedir?
 
-| Maksimum | Değer |
-| :--- | :--- |
-| Sunucu başına veritabanı | 5000 |
-| Her bölgede abonelik başına sunucular varsayılan sayısı | 20 |
-| Sunucuları her bölgede abonelik başına en fazla sayısı | 200 |
-| DTU / sunucu başına eDTU kotası | 54,000 |
-| Sunucu başına sanal çekirdek kotası | 540 |
-| Sunucu başına en fazla havuz | Dtu veya sanal çekirdek sayısı sınırlıdır. |
-|||
+| Maksimum | Mantıksal sunucu | Yönetilen örnek |
+| :--- | :--- | :--- |
+| Server/örneği başına veritabanı | 5000 | 100 |
+| Her bölgede abonelik başına sunucular varsayılan sayısı | 20 | Yok |
+| Sunucuları her bölgede abonelik başına en fazla sayısı | 200 | Yok | 
+| DTU / sunucu başına eDTU kotası | 54,000 | Yok |  
+| Sunucu/örnek başına sanal çekirdek kotası | 540 | 80 |
+| Sunucu başına en fazla havuz | Dtu veya sanal çekirdek sayısı sınırlıdır. | Yok |
+||||
 
 > [!NOTE]
 > Daha fazla DTU /eDTU kotası, sanal çekirdek kota veya varsayılan tutarından daha fazla sunucu elde etmek için yeni bir destek isteği sorun türünü "Kota" aboneliği için Azure portalında gönderilebilir. DTU / sunucu başına eDTU kota ve veritabanı sınırı sunucu başına elastik havuzlar sayısını kısıtlar. 

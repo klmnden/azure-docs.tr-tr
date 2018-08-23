@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 08/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: b6547bee13d039dcd34377565eb518eeb6739a38
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 47509cd0a9208f41a52bf1a07c460bcdda2cb479
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480910"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056271"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer nedir?
 
@@ -44,7 +44,7 @@ Azure Load Balancer için kullanabilirsiniz:
 
 
 >[!NOTE]
-> Azure senaryolarınız için tam olarak yönetilen Yük Dengeleme çözümleri sağlar. Aradığınız Aktarım Katmanı Güvenliği (TLS) protokolü sonlandırma ("SSL yük boşaltma") veya başına HTTP/HTTPS isteği, uygulama katmanı için gözden geçirin [Application Gateway](../application-gateway/application-gateway-introduction.md). Arıyorsanız, Genel DNS için Yük Dengeleme, gözden [Traffic Manager](../traffic-manager/traffic-manager-overview.md). Gerektiğinde bu çözümleri birleştiren uçtan uca senaryolarınızı yararlanabilir.
+> Azure, senaryolarınız için tam olarak yönetilen yük dengeleme çözümleri sunar. Aktarım Katmanı Güvenliği (TLS) protokolü sonlandırma ("SSL yük boşaltma") veya HTTP/HTTPS isteği başına uygulama katmanı işleme özellikleri istiyorsanız [Application Gateway](../application-gateway/application-gateway-introduction.md)'i inceleyin. Arıyorsanız, Genel DNS için Yük Dengeleme, gözden [Traffic Manager](../traffic-manager/traffic-manager-overview.md). Uçtan uca senaryolarınızda bu çözümleri bir arada da kullanabilirsiniz.
 
 ## <a name="what-are-load-balancer-resources"></a>Yük Dengeleyici kaynakları nelerdir?
 
@@ -86,15 +86,11 @@ Yük Dengeleyici için TCP ve UDP uygulamaları aşağıdaki temel özellikleri 
 
 * **Sistem durumu araştırmaları**
 
-     Arka uç havuzundaki örneklerinin durumunu belirlemek için yük dengeleyici tanımladığınız sistem durumu araştırmaları kullanır. Bir araştırma yanıt veremediğinde, yük dengeleyici yeni bağlantılar için iyi durumda olmayan örnekler göndermeyi durdurur. Varolan bağlantılar etkilenmez ve VM'yi kapatın veya bir boşta kalma zaman aşımı oluşur, akış uygulama sonlanana kadar devam ederler.
+    Arka uç havuzundaki örneklerinin durumunu belirlemek için yük dengeleyici tanımladığınız sistem durumu araştırmaları kullanır. Bir araştırma yanıt veremediğinde, yük dengeleyici yeni bağlantılar için iyi durumda olmayan örnekler göndermeyi durdurur. Varolan bağlantılar etkilenmez ve VM'yi kapatın veya bir boşta kalma zaman aşımı oluşur, akış uygulama sonlanana kadar devam ederler.
+     
+    Yük Dengeleyici sağlar [farklı sistem durumu araştırması türleri](load-balancer-custom-probe-overview.md#types) TCP, HTTP ve HTTPS uç noktaları için.
 
-    Araştırmalar üç türleri desteklenir:
-
-    - **HTTP özel araştırma**: Bu araştırma, bir arka uç havuzu örneğinin sistem durumunu belirlemek için kendi özel mantığı oluşturmak için kullanabilirsiniz. Yük Dengeleyici uç noktanızı (15 saniyede, varsayılan olarak) düzenli olarak araştırmaları. Örnek zaman aşımı süresi içinde (varsayılan değer olan 31 saniye) ile bir HTTP 200 yanıt verirse sağlıklı olarak kabul edilir. HTTP 200 dışındaki herhangi bir durum, bu araştırma başarısız olmasına neden olur. Bu araştırma, load balancer'ın döndürme örnekleri kaldırmak için kendi mantığını uygulamak için de yararlıdır. Örneğin, örnek yüzde 90 CPU büyükse bir 200 durumuna döndürmek için örnek yapılandırabilirsiniz.  Bu araştırma varsayılan Konuk aracı araştırması geçersiz kılar.
-
-    - **TCP özel araştırma**: bir başarılı bir tanımlı araştırma bağlantı noktası TCP oturumu oluşturma üzerinde Bu araştırma kullanır. Belirtilen dinleyici VM'deki mevcut olduğu sürece, bu araştırma başarılı olur. Bağlantıyı reddetti araştırma başarısız olur. Bu araştırma varsayılan Konuk aracı araştırması geçersiz kılar.
-
-    - **Konuk aracı araştırması**: yük dengeleyici Konuk Aracısı VM içinde de kullanabilir. Konuk Aracısı dinleyen ve yalnızca bir örneğinin hazır durumda olduğunda ile bir HTTP 200 OK yanıtı yanıt verir. Aracıyı bir HTTP 200 OK ile yanıt vermezse, yük dengeleyici örnek yanıt vermiyor olarak işaretler ve bu örneğe trafik göndermeyi durdurur. Yük Dengeleyici örneği ulaşmaya çalışır devam eder. Yük dengeleyicinin trafiği bu örneğe Konuk Aracısı bir HTTP 200 yanıt verirse, yeniden gönderir. Konuk Aracısı araştırmaları olan bir _önerilmez ve son çare_ HTTP veya TCP özel araştırma yapılandırması ne zaman mümkündür. 
+    Ayrıca, ek türü Klasik bulut hizmetlerini kullanırken izin: [Konuk Aracısı](load-balancer-custom-probe-overview.md#guestagent).  Bu durum araştırması son çare olarak düşündüğünüz olmalıdır ve diğer seçenekleri uygulanabilir olduğunda önerilmez.
     
 * **Giden bağlantılar (SNAT)**
 
@@ -170,7 +166,7 @@ Standart yük dengeleyici SLA'sı hakkında daha fazla bilgi için Git [yük den
 ## <a name="limitations"></a>Sınırlamalar
 
 - Yük Dengeleyici, Yük Dengeleme ve bu belirli IP protokolleri için bağlantı noktası iletme için TCP veya UDP bir üründür.  Yük Dengeleme kuralları ve gelen NAT kuralları TCP ve UDP için desteklenen ve ICMP gibi diğer IP protokolleri için desteklenmiyor. Aksi takdirde bir UDP veya TCP akışı yükü ile etkileşime veya yanıt veya yük dengeleyici değil sonlandır. Bir proxy değil. Bir ön uç bağlantı başarılı doğrulama gerçekleştirmeniz gereken bant bağlantısı ile bir Yük Dengeleme veya gelen NAT kuralı (TCP veya UDP) kullanılan aynı protokol _ve_ en az bir sanal makinelerinizin gerekir oluşturmak bir yanıt için bir istemci için bir ön uç noktasından yanıt bakın.  Yük Dengeleyici ön uç bir bant dışı yanıt almadıktan hiçbir sanal makine yanıt verebilmesi gösterir.  Bir sanal makine yanıt verebilmesi olmadan bir yük dengeleyici ön uç ile etkileşim kurmak mümkün değildir.  Bu durum giden bağlantılar için de geçerlidir burada [bağlantı noktası maske SNAT](load-balancer-outbound-connections.md#snat) olduğu TCP ve UDP; yalnızca ICMP dahil olmak üzere diğer IP protokolleri de başarısız olur.  Azaltmak için bir örnek düzeyi genel IP adresi atayın.
-- Sağlayan ortak yük Dengeleyiciler aksine [giden bağlantılar](load-balancer-outbound-connections.md) sanal ağ içindeki özel IP adresleri için ortak IP adresleri aşamasından geçme, iç yük dengeleyici giden çevrilmemesine kaynağı ön uç için her ikisi de olarak bir iç yük dengeleyicisinin özel IP adres alanı bağlantılardır.  Bu çeviri gerekli olduğu değil, benzersiz, iç IP adresi alanı içindeki SNAT tükenmesi olasılığını ortadan kaldırır.  Arka uç havuzundaki bir VM'den giden bir akışı hangi havuzda bulunduğu iç yük dengeleyicinin ön uç bir akışa çalışırsa, yan etkisi olan _ve_ eşlendi geri kendisine, akışın iki Bacak eşleşmiyor ve akışın başarısız olur.  Akış ön uç için akışı oluşturduğunuz arka uç havuzundaki aynı sanal makine için yeniden eşleyemiyorsanız, akışın başarılı olur.   Kendisine geri akışı eşler giden akış ön uç VM'den oluşmuş görünür ve karşılık gelen akışta VM'den kendisine oluşmuş görünür. Konuk işletim sisteminin açısından bakıldığında, sanal makinenin içinde aynı akışın gelen ve giden bölümleri eşleşmiyor. TCP yığınına, kaynak ve hedef eşleşmeyen gibi aynı akışı parçası olacak şekilde bu yarısının aynı akışı tanımaz.  Arka uç havuzundaki herhangi bir VM akışı eşlendiği akışı yarısının eşleşir ve VM akışa başarılı bir şekilde yanıt verebilir.  Bu senaryo için aralıklı bağlantı zaman aşımları belirtisidir. Bir üçüncü taraf proxy'nin arkasında iç yük ya da ekleme içeren güvenilir bir şekilde (arka uç havuzundan arka uç havuzları ilgili iç yük dengeleyici ön uç akışlara kaynak) Bu senaryo elde etmek için kullanabileceğiniz birkaç ortak geçici çözümler vardır Dengeleyici veya [DSR stili kurallarını kullanarak](load-balancer-multivip-overview.md).  Elde edilen senaryo azaltmak için bir genel yük dengeleyici kullanabilirken potansiyeli [SNAT tükenmesi](load-balancer-outbound-connections.md#snat) ve dikkatli bir şekilde yönetilen sürece kaçınılmalıdır.
+- Sağlayan ortak yük Dengeleyiciler aksine [giden bağlantılar](load-balancer-outbound-connections.md) sanal ağ içindeki özel IP adresleri için ortak IP adresleri aşamasından geçme, iç yük dengeleyici giden çevrilmemesine kaynağı ön uç için her ikisi de olarak bir iç yük dengeleyicisinin özel IP adres alanı bağlantılardır.  Bu çeviri gerekli olduğu değil, benzersiz, iç IP adresi alanı içindeki bağlantı noktası tükenmesi SNAT olasılığını ortadan kaldırır.  Arka uç havuzundaki bir VM'den giden bir akışı hangi havuzda bulunduğu iç yük dengeleyicinin ön uç bir akışa çalışırsa, yan etkisi olan _ve_ eşlendi geri kendisine, akışın iki Bacak eşleşmiyor ve akışın başarısız olur.  Akış ön uç için akışı oluşturduğunuz arka uç havuzundaki aynı sanal makine için yeniden eşleyemiyorsanız, akışın başarılı olur.   Kendisine geri akışı eşler giden akış ön uç VM'den oluşmuş görünür ve karşılık gelen akışta VM'den kendisine oluşmuş görünür. Konuk işletim sisteminin açısından bakıldığında, sanal makinenin içinde aynı akışın gelen ve giden bölümleri eşleşmiyor. TCP yığınına, kaynak ve hedef eşleşmeyen gibi aynı akışı parçası olacak şekilde bu yarısının aynı akışı tanımaz.  Arka uç havuzundaki herhangi bir VM akışı eşlendiği akışı yarısının eşleşir ve VM akışa başarılı bir şekilde yanıt verebilir.  Flow, akışı kaynağı aynı arka uç döndürüldüğünde bu senaryo için aralıklı bağlantı zaman aşımları belirtisidir. İç yük dengeleyicinin arkasındaki proxy katmanı ya da ekleme dahil güvenilir bir şekilde (arka uç havuzundan arka uç havuzları ilgili iç yük dengeleyici ön uç akışlara kaynak) Bu senaryo elde etmek için kullanabileceğiniz birkaç ortak geçici çözümler vardır veya [DSR stili kurallarını kullanarak](load-balancer-multivip-overview.md).  Müşteriler, bir iç yük dengeleyici birleştirebilirsiniz, tüm 3 taraf proxy veya yedek dahili [Application Gateway](../application-gateway/application-gateway-introduction.md) sınırlı bir HTTP/HTTPS Ara sunucu senaryoları için. Elde edilen senaryo azaltmak için bir genel yük dengeleyici kullanabilirken potansiyeli [SNAT tükenmesi](load-balancer-outbound-connections.md#snat) ve dikkatli bir şekilde yönetilen sürece kaçınılmalıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

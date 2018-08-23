@@ -13,46 +13,51 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/03/2017
+ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 83436fe7f47c156f70995d66922e9fc0564ef872
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: a2876ccdfe073a3c642304a1381faf77ae4a7d90
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39601951"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42060393"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory için AppSource sertifikalı alma
+
 [Microsoft AppSource](https://appsource.microsoft.com/) keşfedin, deneyin ve satır iş kolu SaaS uygulamaları (tek başına SaaS ve mevcut Microsoft SaaS ürünlerine eklenti) yönetmek iş kullanıcıları için bir hedef.
 
-Bağımsız bir SaaS uygulamasında appsource'ta listelemek için uygulamanızı herhangi bir şirket veya Azure Active Directory sahip kuruluş iş hesaplarından çoklu oturum açmayı kabul etmelisiniz. Oturum açma işlemi kullanmalısınız [Openıd Connect](v1-protocols-openid-connect-code.md) veya [OAuth 2.0](v1-protocols-oauth-code.md) protokoller. AppSource sertifikası için SAML tümleştirme kabul edilmedi.
+Bağımsız bir SaaS uygulamasında appsource'ta listelemek için uygulamanızı herhangi bir şirket veya Azure Active Directory (Azure AD) sahip kuruluş iş hesaplarından çoklu oturum açmayı kabul etmelisiniz. Oturum açma işlemi kullanmalısınız [Openıd Connect](v1-protocols-openid-connect-code.md) veya [OAuth 2.0](v1-protocols-oauth-code.md) protokoller. AppSource sertifikası için SAML tümleştirme kabul edilmedi.
 
 ## <a name="guides-and-code-samples"></a>Kılavuzlar ve kod örnekleri
-Tümleştirme hakkında bilgi edinmek istiyorsanız Open ID kullanarak Azure Active Directory ile uygulamanızı bağlanmak, kılavuzlarımızı izleyin ve kod örneklerinde [Azure Active Directory Geliştirici Kılavuzu](azure-ad-developers-guide.md#get-started "Azure ile çalışmaya başlama Geliştiriciler için AD").
+
+Tümleştirme hakkında bilgi edinmek istiyorsanız Open ID kullanarak Azure AD uygulamanızla bağlanmak, kılavuzlarımızı izleyin ve kod örneklerinde [Azure Active Directory Geliştirici Kılavuzu](azure-ad-developers-guide.md#get-started "için Azure AD ile çalışmaya başlama geliştiriciler").
 
 ## <a name="multi-tenant-applications"></a>Çok kiracılı uygulamalar
 
-Oturum açma işlemleri ayrı örneği, yapılandırma ve dağıtım gerek kalmadan Azure Active Directory sahip kullanıcılar herhangi bir şirket veya kuruluş kabul eden bir uygulama olarak bilinen bir *çok kiracılı uygulama*. AppSource önerir uygulamaları etkinleştirmek için çok kiracılı uygulama *tek tıklamayla* ücretsiz deneme sürümü deneyimi.
+A *çok kiracılı uygulama* ayrı örneği, yapılandırma ve dağıtım gerek kalmadan Azure AD'si olan kullanıcıların herhangi bir şirket veya kuruluş oturum açma işlemlerini kabul eden bir uygulamadır. AppSource önerir uygulamaları etkinleştirmek için çok kiracılı uygulama *tek tıklamayla* ücretsiz deneme sürümü deneyimi.
 
-Uygulamanızda çok kiracılı modeli etkinleştirme için:
-- Ayarlama `Multi-Tenanted` özelliğini `Yes` içindeki uygulama kaydı 's bilgileri [Azure portalı](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (varsayılan olarak, Azure portalında oluşturulan uygulamaların olarak yapılandırılmış *tek kiracılı*)
-- İstekler göndermek için kodunuzu güncelleştirin '`common`' uç noktası (uç noktasından güncelleştirme *https://login.microsoftonline.com/{yourtenant}* için *https://login.microsoftonline.com/common*)
-- ASP.NET gibi bazı platformlar için de birden çok verenler kabul etmek için kodunuzu güncelleştirmeniz gerekir
+Uygulamanızda çok kiracılı modeli etkinleştirme için bu adımları izleyin:
+1. Ayarlama `Multi-Tenanted` özelliğini `Yes` içindeki uygulama kaydı 's bilgileri [Azure portalında](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Varsayılan olarak, Azure portalında oluşturulan uygulamaların olarak yapılandırılmış  *[tek kiracılı](#single-tenant-applications)*.
+1. İstekler göndermek için kodunuzu güncelleştirin `common` uç noktası. Bunu yapmak için uç noktasından güncelleştirme `https://login.microsoftonline.com/{yourtenant}` için `https://login.microsoftonline.com/common*`.
+1. ASP .NET gibi bazı platformlar için de birden çok verenler kabul edecek şekilde güncelleştirmeniz gerekir.
 
-Çok kiracılı modeli hakkında daha fazla bilgi için bkz: [çok kiracılı uygulama desenini kullanarak istediğiniz bir Azure Active Directory (AD) kullanıcısı ile oturum açma](howto-convert-app-to-be-multi-tenant.md).
+Çok kiracılı modeli hakkında daha fazla bilgi için bkz: [çok kiracılı uygulama desenini kullanarak istediğiniz bir Azure Active Directory (Azure AD) kullanıcısı ile oturum açma](howto-convert-app-to-be-multi-tenant.md).
 
 ### <a name="single-tenant-applications"></a>Tek kiracılı uygulamalar
-Yalnızca kullanıcı tanımlı bir Azure Active Directory örneği oturum açma işlemleri kabul edin. uygulamalar olarak bilinir *tek kiracılı uygulama*. Dış kullanıcıları (diğer kuruluşlardan iş veya Okul hesapları veya kişisel hesabı dahil) uygulamasında oturum açabilir her bir kullanıcı olarak ekledikten sonra tek kiracılı bir uygulama *Konuk hesabı* , Azure Active Directory örneği uygulama kaydedilir. Azure Active Directory Konuk hesapları olarak kullanıcıları ekleyebilirsiniz [ *Azure AD B2B işbirliği* ](../b2b/what-is-b2b.md) - ve onu yapılabilir [programlı şekilde](../../active-directory-b2c/code-samples.md). Bir Azure Active Directory'ye Konuk hesabı olarak bir kullanıcı eklediğinizde, davet e-postadaki bağlantıya tıklayarak daveti kabul etmek için olan kullanıcı, davet e-posta gönderilir. Ayrıca iş ortağı kuruluşun üyesi olan bir davet eden kuruluştaki ek bir kullanıcıya gönderilen davet oturum açmak için bir daveti kabul etmek için gerekli değildir.
 
-Tek kiracılı uygulamalar etkinleştirebilir *benimle iletişim kurun* karşılaşabilirsiniz, ancak AppSource önerir tek tıklamayla / ücretsiz deneme sürümü deneyimi etkinleştirmek istiyorsanız, çok kiracılı, uygulamanızın üzerinde yerine etkinleştirin.
+A *tek kiracılı uygulama* yalnızca tanımlı bir Azure kullanıcıları oturum açma işlemleri kabul eden bir uygulama olan AD örneği. Dış kullanıcılar (iş veya Okul hesapları diğer kuruluşlardan ya da kişisel hesaplar dahil) her bir kullanıcı, uygulama kayıtlı Azure AD örneği için bir Konuk hesabı olarak ekledikten sonra tek kiracılı bir uygulama için oturum açabilir. 
 
+Azure ad ile Konuk hesapları olarak kullanıcıları ekleyebilirsiniz [Azure AD B2B işbirliği](../b2b/what-is-b2b.md) ve bunu yapabilirsiniz [programlı şekilde](../../active-directory-b2c/code-samples.md). B2B kullanırken, kullanıcıların oturum açmak için bir davet gerektirmeyen bir Self Servis portalı oluşturabilirsiniz. Daha fazla bilgi için bkz. [Self Servis portalı için Azure AD B2B işbirliği kaydolma](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal).
+
+Tek kiracılı uygulamalar etkinleştirebilir *benimle iletişim kurun* karşılaşabilirsiniz, ancak AppSource önerir tek tıklayın/ücretsiz deneme sürümü deneyimi etkinleştirmek istiyorsanız, çok kiracılı, uygulamanızın üzerinde yerine etkinleştirin.
 
 ## <a name="appsource-trial-experiences"></a>AppSource deneme deneyimleri
 
 ### <a name="free-trial-customer-led-trial-experience"></a>Ücretsiz deneme sürümü (deneme sürümü deneyimi müşteri tarafından yönetilen) 
-*Müşteri destekli deneme sürümü* uygulamanız için bir tek tıklamayla erişim sunar, AppSource önerir deneyimidir. Nasıl bir gösterimi bu deneyim şu şekilde görünür:<br/><br/>
+
+Müşteri destekli deneme sürümü, uygulamanız için bir tek tıklamayla erişim sunar, AppSource önerir deneyimidir. Nasıl bir gösterimi bu deneyim şu şekilde görünür:<br/><br/>
 
 <table >
 <tr>
@@ -68,7 +73,8 @@ Tek kiracılı uygulamalar etkinleştirebilir *benimle iletişim kurun* karşıl
 </table>
 
 ### <a name="contact-me-partner-led-trial-experience"></a>Bana (iş ortağı destekli deneme sürümü deneyimi)
-*Deneme sürümü deneyimi iş ortağı* el ile veya uzun süreli bir işlemi kullanıcının sağlamak için yapılması gerektiğinde kullanılabilir / company: sanal makineler, veritabanı örnekleri veya işlemleri sağlamak, örneğin, uygulamanızın ihtiyaç duyduğu çok fazla zaman alır. Bu durumda, kullanıcı seçer sonra *'İstek deneme'* düğme ve bir form doldurur, AppSource, kullanıcının kişi bilgileri gönderir. Bu bilgiler alır almaz, daha sonra ortamı sağlamak ve deneme sürümü deneyimi nasıl kullanıcı yönergeleri gönderin:<br/><br/>
+
+Örneğin, uygulamanızın kullanıcı/şirket--sağlamalıdır sanal makineler, veritabanı örnekleri ve tamamlanması çok uzun süren işlemleri sağlamak olmasını el ile veya uzun süreli bir işlem ihtiyacı olduğunda iş ortağı deneme deneyimini kullanabilir. Bu durumda, kullanıcı seçer sonra **istek deneme** düğme ve bir form doldurur, AppSource, kullanıcının kişi bilgileri gönderir. Bu bilgiler aldığınızda, daha sonra ortamı sağlamak ve deneme sürümü deneyimi nasıl kullanıcı yönergeleri gönderin:<br/><br/>
 
 <table valign="top">
 <tr>
@@ -101,17 +107,18 @@ Tek kiracılı uygulamalar etkinleştirebilir *benimle iletişim kurun* karşıl
 </table>
 
 ### <a name="more-information"></a>Daha fazla bilgi
+
 AppSource deneme deneyimi hakkında daha fazla bilgi için bkz. [bu videoyu](https://aka.ms/trialexperienceforwebapps). 
  
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-- Azure Active Directory oturum açma işlemleri destekleyen uygulamalar derleme hakkında daha fazla bilgi için bkz. [Azure AD için kimlik doğrulama senaryoları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios) 
-
+- Azure AD oturum açma işlemleri destekleyen uygulamalar derleme hakkında daha fazla bilgi için bkz. [Azure AD için kimlik doğrulama senaryoları](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 - SaaS uygulamanızı appsource'ta listeleyin hakkında daha fazla bilgi için bkz: Git [AppSource iş ortağı bilgileri](https://appsource.microsoft.com/partners)
 
 
 ## <a name="get-support"></a>Destek alın
-Azure Active Directory Tümleştirmesi için kullandığımız [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) desteklemek için toplulukla birlikte. 
+
+Azure AD tümleştirmesi için kullandığımız [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) desteklemek için toplulukla birlikte. 
 
 Sorularınızı Stack Overflow sitesinde ilk sormak ve mevcut sorunları birisi önce sorunuzu sormadığını görmek için Gözat öneririz. Sorularınızı ve yorumlarınızı ile etiketlendiğinden emin [ `[azure-active-directory]` ve `[appsource]` ](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 

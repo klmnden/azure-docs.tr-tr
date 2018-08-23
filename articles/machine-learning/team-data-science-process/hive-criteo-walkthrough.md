@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 4c368c3f06347b1164731d056a7341bdabb759b4
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: b368bf76516b0b6f87ad8ff57ca886a44b71926c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34837353"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42060995"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team Data Science Process'in çalışması - 1 TB veri kümesinde bir Azure HDInsight Hadoop kümesi kullanarak
 
@@ -64,7 +64,7 @@ Bu veri kümesinde içinde hem bir sayısal ve kategorik sütunlar eksik değerl
 
 Üç adımda HDInsight kümeleri ile Tahmine dayalı analiz çözümleri oluşturmak için Azure veri bilimi ortamınızı ayarlayın:
 
-1. [Depolama hesabı oluşturma](../../storage/common/storage-create-storage-account.md): Bu depolama hesabı, verileri Azure Blob Storage'da depolamak için kullanılır. HDInsight kümelerinde kullanılan veri burada depolanır.
+1. [Depolama hesabı oluşturma](../../storage/common/storage-quickstart-create-account.md): Bu depolama hesabı, verileri Azure Blob Storage'da depolamak için kullanılır. HDInsight kümelerinde kullanılan veri burada depolanır.
 2. [Veri bilimi için Azure HDInsight Hadoop kümelerini özelleştirin](customize-hadoop-cluster.md): Bu adım, 64-bit Anaconda Python 2.7 tüm düğümlerde yüklü olan Azure HDInsight Hadoop kümesi oluşturur. HDInsight küme özelleştirirken tamamlamak için (Bu konuda açıklanan) iki önemli adımlar vardır.
    
    * Oluşturulduğunda, HDInsight kümenizle 1. adımda oluşturduğunuz depolama hesabına bağlamanız gerekir. Bu depolama hesabı, küme içinde işlenebilecek verilere erişmek için kullanılır.

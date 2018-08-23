@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2017
+ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 67a7a701eb7700fab9aa9d0ec22354cc1618f856
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 9b4d992d690bb3237f8c92e44020c0ac83978d7e
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004703"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42056257"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Kullanılabilirlik ve tutarlılık olay hub'ları
 
@@ -37,7 +37,7 @@ Brewer'ın Teoremi tutarlılık ve kullanılabilirlik gibi tanımlar:
 Olay hub'ları bölümlenmiş verileri bir model temelinde oluşturulmuştur. Kurulum sırasında olay hub'ında bölüm sayısı yapılandırabilirsiniz, ancak bu değer daha sonra değiştiremezsiniz. Bölümler Event Hubs ile kullanmayı olduğundan, kullanılabilirlik ve tutarlılık için uygulamanızın hakkında bir karar vermeniz gerekir.
 
 ## <a name="availability"></a>Kullanılabilirlik
-Event Hubs ile çalışmaya başlama en basit yolu, varsayılan davranışını kullanmaktır. Yeni bir oluşturursanız ** [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) ** kullanın ve nesne ** [Gönder](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_) ** yöntemi, olaylarınızı otomatik olarak dağıtılan arasında Olay hub'ınızdaki bölümler. Bu davranış, büyük miktarda zaman verir.
+Event Hubs ile çalışmaya başlama en basit yolu, varsayılan davranışını kullanmaktır. Yeni bir oluşturursanız **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** kullanın ve nesne **[Gönder](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** yöntemi, olaylarınızı otomatik olarak dağıtılan arasında Olay hub'ınızdaki bölümler. Bu davranış, büyük miktarda zaman verir.
 
 En fazla çalışma zamanını iste için kullanım örnekleri, bu model tercih edilir.
 

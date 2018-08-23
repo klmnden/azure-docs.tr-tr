@@ -13,23 +13,28 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 06/06/2018
 ms.author: bahariri
-ms.openlocfilehash: f6671e05c53b8be2e06eb969adc8a4d5736aff37
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 674c3b5cbd3b4253833a785b32e2bc4b0f1928da
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284471"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056466"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Akka akışları için Apache Kafka ile Event hubs'ı kullanma
-
-Apache Kafka kullanmanın önemli avantajları için bağlanabilir çerçeveleri ekosistemi biridir. Kafka özellikli Event Hubs Kafka'nın esneklik, ölçeklenebilirlik, tutarlılık ve Azure ekosistemi desteği ile birleştirir.
-
 Bu öğreticide Protokolü istemcilerinize değiştirme veya kendi kümeleri çalıştıran Akka akışları Kafka özellikli event hubs'a bağlanma gösterilmektedir. Kafka için Azure Event Hubs'ı destekleyen [Apache Kafka sürüm 1.0.](https://kafka.apache.org/10/documentation.html)
+
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+> [!div class="checklist"]
+> * Event Hubs ad alanı oluşturma
+> * Örnek projesini kopyalama
+> * Flink üretici çalıştırın 
+> * Flink tüketici çalıştırın
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdaki önkoşulların karşılandığından emin olun:
 
+* Okumak [Apache Kafka için Event Hubs](event-hubs-for-kafka-ecosystem-overview.md) makalesi. 
 * Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 * [Java Geliştirme Seti (JDK) 1.8 +](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
     * Ubuntu’da JDK’yi yüklemek için `apt-get install default-jdk` komutunu çalıştırın.
@@ -52,7 +57,7 @@ git clone https://github.com/Azure/azure-event-hubs.git
 cd azure-event-hubs/samples/kafka/akka
 ```
 
-## <a name="akka-streams-producer"></a>Akka akışları üretici
+## <a name="run-akka-streams-producer"></a>Üretici Akka akışları çalıştırma
 
 Sağlanan Akka akışları üretici örneği kullanarak Event Hubs hizmeti için iletiler gönderin.
 
@@ -89,7 +94,7 @@ mvn exec:java -Dexec.mainClass="AkkaTestProducer"
 
 Üretici konu, Kafka etkin olay hub'ına olay göndermeye başlar `test`ve stdout olaylara yazdırır.
 
-## <a name="akka-streams-consumer"></a>Akka akışları tüketici
+## <a name="run-akka-streams-consumer"></a>Tüketici Akka akışları çalıştırma
 
 Sağlanan tüketici örneği kullanarak iletiler Kafka özellikli event hubs'dan alır.
 
@@ -132,6 +137,15 @@ Kafka özellikli bir olay hub'ı olayları varsa (örneğin, üretici da çalı�
 Kullanıma [Akka akışları Kafka Kılavuzu](https://doc.akka.io/docs/akka-stream-kafka/current/home.html) Akka akışları hakkında daha ayrıntılı bilgi için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+Bu öğreticide, Protokolü istemcilerinize değiştirme veya kendi kümeleri çalıştıran Akka akışları Kafka özellikli event hubs'a bağlanma öğrendiniz. Kafka için Azure Event Hubs'ı destekleyen [Apache Kafka sürüm 1.0.](https://kafka.apache.org/10/documentation.html). Bu öğreticinin bir parçası olarak aşağıdaki eylemleri yapar: 
+
+> [!div class="checklist"]
+> * Event Hubs ad alanı oluşturma
+> * Örnek projesini kopyalama
+> * Flink üretici çalıştırın 
+> * Flink tüketici çalıştırın
+
+Kafka için Event Hubs ile Event Hubs hakkında daha fazla bilgi edinmek için şu konuya bakın:  
 
 * [Event Hubs hakkında bilgi edinin](event-hubs-what-is-event-hubs.md)
 * [Kafka için Event Hubs hakkında bilgi edinin](event-hubs-for-kafka-ecosystem-overview.md)

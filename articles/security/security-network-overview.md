@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 08/17/2018
 ms.author: terrylan
-ms.openlocfilehash: 7533f9db25da8e69d3fcfa76a61a06af2f1bc78c
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: ec8e4b1edfe815670664de83edf98a9e478101d2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345966"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42060988"
 ---
 # <a name="azure-network-security-overview"></a>Azure ağ güvenliğine genel bakış
 
@@ -57,6 +57,9 @@ Azure, çeşitli ağ erişim denetimi gibi destekler:
 ### <a name="network-layer-control"></a>Ağ katmanı denetimi
 
 Herhangi bir güvenli dağıtıma bazı ölçü ağ erişim denetimi gerektirir. Ağ erişim denetimi gerekli sistemleri için sanal makine iletişimi sınırlandırmak için hedefidir. Diğer iletişim girişimleri engellenir.
+
+>[!NOTE]
+Depolama güvenlik duvarlarını kapsamdaki [Azure depolama güvenliğine genel bakış](security-storage-overview.md) makale
 
 #### <a name="network-security-rules-nsgs"></a>Ağ güvenlik kuralları (Nsg'ler)
 
@@ -323,7 +326,6 @@ Ayrıca [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), g
 Daha fazla bilgi edinin:
 
 * [Ağ güvenlik grupları (Nsg'ler) için log Analytics](../virtual-network/virtual-network-nsg-manage-log.md)
-
 
 ## <a name="azure-ddos-protection"></a>Azure DDoS koruması
 

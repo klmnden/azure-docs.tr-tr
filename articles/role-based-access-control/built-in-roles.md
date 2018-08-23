@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 08/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 5a373c397df09653395eea7996b19262aee75c7a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 537777d2e379959d427c025036652a87ecc4a1fe
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619058"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617167"
 ---
 # <a name="built-in-roles-in-azure"></a>Azure'da yerleşik roller
 [Rol tabanlı erişim denetimi (RBAC)](overview.md) kullanıcılara, gruplara veya hizmet sorumluları için atayabileceğiniz birkaç yerleşik rol tanımlarına sahiptir. Rol atamaları, azure'daki kaynaklara erişimi denetlemek yoludur. Yerleşik roller kuruluşunuzun ihtiyaçlarını karşılamıyorsa kendi [özel rollerinizi](custom-roles.md) oluşturabilirsiniz.
@@ -47,6 +47,8 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 | [Otomasyon işi işleci](#automation-job-operator) | Otomasyon Runbook'larını kullanarak İş oluşturun ve yönetin. |
 | [Otomasyon operatörü](#automation-operator) | Otomasyon Operatörleri, işleri başlatabilir, durdurabilir, askıya alabilir ve sürdürebilir |
 | [Otomasyon Runbook'u işleci](#automation-runbook-operator) | Runbook'un İşlerini oluşturabilmek için Runbook özelliklerini okuyun. |
+| [Azure Kubernetes hizmeti Küme Yöneticisi rolü](#azure-kubernetes-service-cluster-admin-role) | Küme Yöneticisi kimlik bilgileri eylem listeleyin. |
+| [Azure Kubernetes hizmeti küme kullanıcı rolü](#azure-kubernetes-service-cluster-user-role) | Küme kullanıcı kimlik bilgileri eylem listeleyin. |
 | [Azure Stack kayıt sahibi](#azure-stack-registration-owner) | Azure Stack kayıtlarını yönetmenize imkan sağlar. |
 | [Yedekleme Katılımcısı](#backup-contributor) | Yedekleme hizmetini yönetmenize olanak sağlar ancak kasa oluşturma ve diğer kullanıcılara erişim verme izni sağlamaz |
 | [Yedekleme işletmeni](#backup-operator) | Yedekleme kaldırma, kasa oluşturma ve diğer kullanıcılara erişim verme dışındaki yedekleme hizmetlerini yönetmenize olanak sağlar |
@@ -60,8 +62,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 | [Klasik Ağ Katılımcısı](#classic-network-contributor) | Klasik ağları yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Klasik depolama hesabı Katılımcısı](#classic-storage-account-contributor) | Klasik depolama hesaplarını yönetmenize izin verir ancak bu hesaplara erişim hakkı vermez. |
 | [Klasik depolama hesabı anahtarı işleci hizmet rolü](#classic-storage-account-key-operator-service-role) | Klasik Depolama Hesabı Anahtarı İşleçlerine, Klasik Depolama Hesaplarında anahtarları listeleme ve yeniden oluşturma izni verilir |
-| [Klasik sanal makine Katılımcısı](#classic-virtual-machine-contributor) | Klasik sanal makineleri yönetmenizi sağlar ancak bunlara veya bağlı oldukları sanal ağ ya da depolama hesaplarına yönelik erişimi yönetme izni vermez. |
-| [ClearDB MySQL DB Katılımcısı](#cleardb-mysql-db-contributor) | ClearDB MySQL veritabanlarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
+| [Klasik sanal makine Katılımcısı](#classic-virtual-machine-contributor) | Klasik sanal makineleri yönetmenizi sağlar ancak bunlara veya bağlı oldukları sanal ağ ya da depolama hesaplarına yönelik erişimi yönetme izni vermez.|
 | [Cosmos DB hesabı okuyucusu rolü](#cosmos-db-account-reader-role) | Azure Cosmos DB hesabı verileri okuyabilir. Bkz: [DocumentDB hesabı Katılımcısı](#documentdb-account-contributor) Azure Cosmos DB hesapları yönetme. |
 | [Veri kutusu katkıda bulunan](#data-box-contributor) | Erişim başkalarına vererek dışında veri kutusu hizmeti altındaki her şeyi yönetmenizi sağlar. |
 | [Veri kutusu işleci](#data-box-operator) | Sipariş oluşturma veya sipariş ayrıntılarını düzenleme ve erişim başkalarına vererek dışındaki veri kutusu hizmeti yönetmenizi sağlar. |
@@ -84,6 +85,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 | [Yönetim grubu katkıda bulunan](#management-group-contributor) | Yönetim Grubu Katkıda Bulunanı Rolü |
 | [Yönetim grubu okuyucusu](#management-group-reader) | Yönetim Grubu Okuyucusu Rolü |
 | [İzleme katkıda bulunanı](#monitoring-contributor) | Tüm izleme verilerini okuyabilir ve izleme ayarlarını düzenleyin. Ayrıca bkz: [Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+| [İzleme ölçümlerini yayımcı](#monitoring-metrics-publisher) | Azure kaynaklarına karşı ölçümleri yayımlama etkinleştirir |
 | [İzleme okuyucusu](#monitoring-reader) | (Ölçümler, günlükler, vb.) tüm izleme verilerini okuyabilir. Ayrıca bkz: [Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Ağ Katılımcısı](#network-contributor) | Ağları yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Yeni Relic APM hesap Katılımcısı](#new-relic-apm-account-contributor) | New Relic Application Performance Management hesaplarını ve uygulamalarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
@@ -275,13 +277,14 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | **Kimlik** | 4fe576fe-1146-4730-92eb-48519fa6bf9f |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
+> | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Karma Runbook çalışanı kaynaklarını okur |
 > | Microsoft.Automation/automationAccounts/jobs/read | Bir Azure Otomasyonu işini alır |
 > | Microsoft.Automation/automationAccounts/jobs/resume/action | Bir Azure Otomasyonu işini sürdürür |
 > | Microsoft.Automation/automationAccounts/jobs/stop/action | Bir Azure Otomasyonu işini durdurur |
-> | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Karma Runbook çalışanı kaynaklarını okur |
 > | Microsoft.Automation/automationAccounts/jobs/streams/read | Bir Azure Otomasyonu iş akışı alır |
 > | Microsoft.Automation/automationAccounts/jobs/suspend/action | Azure Otomasyonu işini askıya alır |
 > | Microsoft.Automation/automationAccounts/jobs/write | Bir Azure Otomasyonu işi oluşturur |
+> | Microsoft.Automation/automationAccounts/jobs/output/read | Bir işin çıktısını alır |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve yönetme Insights uyarı kuralları |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
@@ -329,6 +332,24 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
+
+## <a name="azure-kubernetes-service-cluster-admin-role"></a>Azure Kubernetes hizmeti Küme Yöneticisi rolü
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Küme Yöneticisi kimlik bilgileri eylem listeleyin. |
+> | **Kimlik** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
+> | **Eylemler** |  |
+> | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Yönetilen bir küme clusterAdmin kimlik listesi |
+
+## <a name="azure-kubernetes-service-cluster-user-role"></a>Azure Kubernetes hizmeti küme kullanıcı rolü
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Küme kullanıcı kimlik bilgileri eylem listeleyin. |
+> | **Kimlik** | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
+> | **Eylemler** |  |
+> | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Yönetilen bir küme clusterUser kimlik listesi |
 
 ## <a name="azure-stack-registration-owner"></a>Azure Stack Kayıt Sahibi
 > [!div class="mx-tableFixed"]
@@ -631,21 +652,6 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
-
-## <a name="cleardb-mysql-db-contributor"></a>ClearDB MySQL DB Katılımcısı
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Açıklama** | ClearDB MySQL veritabanlarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
-> | **Kimlik** | 9106cda0-8a86-4E81-b686-29a22c54effe |
-> | **Eylemler** |  |
-> | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
-> | Microsoft.Insights/alertRules/* | Oluşturma ve uyarı kurallarını yönet |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
-> | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
-> | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
-> | successbricks.cleardb/Databases/* | ClearDB MySQL veritabanları oluşturma ve yönetme |
 
 ## <a name="cosmos-db-account-reader-role"></a>Cosmos DB Hesabı Okuyucusu Rolü
 > [!div class="mx-tableFixed"]
@@ -1041,6 +1047,19 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 > | Microsoft.WorkloadMonitor/workloads/* |  |
 > | Microsoft.WorkloadMonitor/workloadInsights/* |  |
+
+## <a name="monitoring-metrics-publisher"></a>İzleme ölçümlerini yayımcı
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Azure kaynaklarına karşı ölçümleri yayımlama etkinleştirir |
+> | **Kimlik** | 3913510d-42f4-4E42-8a64-420c390055eb |
+> | **Eylemler** |  |
+> | Microsoft.Insights/Register/Action | Microsoft Insights sağlayıcısını Kaydet |
+> | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
+> | **DataActions** |  |
+> | Microsoft.Insights/Metrics/Write | Ölçümleri yaz |
 
 ## <a name="monitoring-reader"></a>İzleme Okuyucusu
 > [!div class="mx-tableFixed"]

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/27/2016
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7957fdf245090cbca3726cb1e4788ec34f63faca
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1801fe9695aa15850d600300b957df2c7d7cd9ef
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440428"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057444"
 ---
 # <a name="azure-active-directory-b2c-threat-management"></a>Azure Active Directory B2C: Tehdit Yönetimi
 
@@ -29,4 +29,4 @@ Azure AD B2C kullanır algılama ve Önleme teknikleri SYN tanımlama bilgileri 
 
 Azure AD B2C azaltma teknikleri parola saldırıları için bir yerde de vardır. Parola deneme yanılma saldırıları ve sözlük parola saldırılarını azaltma içerir. Kullanıcılar tarafından ayarlanan parolaların makul karmaşık olması gerekmez. Çeşitli sinyalleri kullanarak, Azure AD B2C isteklerinin bütünlüğünü analiz eder. Azure AD B2C, hedeflenen kullanıcıların bilgisayar korsanlarının ve botnet akıllı bir şekilde ayırt etmek için tasarlanmıştır. Azure AD B2C, karmaşık bir strateji, bir saldırı olasılığını girilen parolaları temel hesapları kilitlemek için sağlar.
 
-Daha fazla bilgi için ziyaret [Microsoft Trust Center](https://www.microsoft.com/en-us/trustcenter/default.aspx).
+Daha fazla bilgi için ziyaret [Microsoft Trust Center](https://www.microsoft.com/trustcenter/default.aspx).

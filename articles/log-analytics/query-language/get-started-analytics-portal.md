@@ -1,6 +1,6 @@
 ---
-title: Analytics Portalı'nda Azure Log Analytics ile çalışmaya başlama | Microsoft Docs
-description: Bu makale, Log Analytics'te sorgu yazmak için Analytics portalı kullanmaya yönelik bir öğretici sağlar.
+title: Azure portalında Log Analytics sayfası ile çalışmaya başlama | Microsoft Docs
+description: Bu makale, Log Analytics sorguları yazma sayfasından bir öğretici sağlar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 08/20/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 6f6916b27aa251bc0a0c25be060378c11faab607
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 493497476fdfe7d96d6f2dde735bab0147e547a7
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39635143"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056280"
 ---
-# <a name="get-started-with-the-analytics-portal"></a>Analytics portalı ile çalışmaya başlama
+# <a name="get-started-with-the-log-analytics-page-in-the-azure-portal"></a>Azure portalında Log Analytics sayfası ile çalışmaya başlama
 
-Bu öğreticide, Azure Log Analytics sorguları yazma için Analytics portalı kullanmayı öğreneceksiniz. Size nasıl yardımcı olacak için:
+Bu öğreticide, Log Analytics sorguları yazma (şu anda önizlemede) Azure portalında Log Analytics sayfa kullanmayı öğreneceksiniz. Size nasıl yardımcı olacak için:
 
 - Basit Sorgu yazma
 - Verilerinizin şemasını anlama
@@ -35,12 +35,12 @@ Bu öğreticide, Azure Log Analytics sorguları yazma için Analytics portalı k
 - Verme ve sorguları paylaşma
 
 
-## <a name="meet-the-analytics-portal"></a>Analytics portalını karşılamak
-Analytics portalını, yazma ve Azure Log Analytics sorgularını yürütmek için kullanılan bir web aracıdır. 
+## <a name="meet-the-log-analytics-page"></a>Log Analytics sayfanın karşılamak 
+Log Analytics, yazma ve Azure Log Analytics sorgularını yürütmek için kullanılan bir web aracını sayfasıdır. Seçerek açın **günlükleri (Önizleme)** Log Analytics menüsünde. Yeni bir boş sorgu ile başlar.
 
 ![Giriş sayfası](media/get-started-analytics-portal/homepage.png)
 
-Giriş sayfasında son ve kaydedilmiş sorgular ve örnekler gibi yararlı kaynaklar için kolay erişim sunar. Kendi sorgular yazmaya başlamak için yeni bir sekme açın.
+
 
 ## <a name="basic-queries"></a>Temel sorgular
 Sorgular, arama terimleri, eğilimleri belirlemenize, biçimlerini çözümleme ve verilerinizi temel alan birçok öngörüden sağlamak için kullanılabilir. Temel bir sorgu başlatın:
@@ -74,7 +74,7 @@ Tıklayarak bir sorgu çalıştırın **çalıştırma** düğme veya tuşların
 
 ![Şema](media/get-started-analytics-portal/schema.png)
 
-Her tabloda sütun adının yanındaki simge tarafından belirtildiği gibi farklı veri türleriyle sütunlardaki verileri düzenlenir. Örneğin, _olay_ ekran görüntüsünde gösterilen tablo içeren sütunlar gibi _bilgisayar_ metin olduğu _EventCategory_ bir sayı olan ve _ TimeGenerated_ olduğu tarih/saat.
+Her tabloda sütun adının yanındaki simge tarafından belirtildiği gibi farklı veri türleriyle sütunlardaki verileri düzenlenir. Örneğin, _olay_ ekran görüntüsünde gösterilen tablo içeren sütunlar gibi _bilgisayar_ metin olduğu _EventCategory_ bir sayı olan ve  _TimeGenerated_ olduğu tarih/saat.
 
 ## <a name="filter-the-results"></a>Sonuçları filtreleme
 Her şeyi alınırken Start _olay_ tablo.
@@ -83,7 +83,7 @@ Her şeyi alınırken Start _olay_ tablo.
 Event
 ```
 
-Analytics portalını sonuçlarına göre otomatik olarak kapsamları:
+Log Analytics sayfasında, sonuçları otomatik olarak kapsamları:
 
 - Zaman aralığı: varsayılan olarak, sorgular son 24 saat sınırlıdır.
 - Sonuç sayısı: sonucu olan sınırlı en fazla 10.000 kaydeder.
@@ -121,7 +121,7 @@ Sonuçlar tablosu, genellikle çok sayıda sütun içerir. Geri dönen sütunlar
 
 
 ## <a name="select-a-time-range"></a>Bir zaman aralığı seçin
-Analytics portalını varsayılan olarak, geçerli _son 24 saat_ zaman aralığı. Farklı bir aralık kullanmak için Saat Seçici başka bir değer seçin ve **çalıştırma**. Önceden oluşturulmuş değerlere ek olarak, kullandığınız _özel zaman aralığı_ sorgunuz için mutlak bir aralık seçmek için seçenek.
+Varsayılan olarak, Log Analytics sayfa geçerlidir _son 24 saat_ zaman aralığı. Farklı bir aralık kullanmak için Saat Seçici başka bir değer seçin ve **çalıştırma**. Önceden oluşturulmuş değerlere ek olarak, kullandığınız _özel zaman aralığı_ sorgunuz için mutlak bir aralık seçmek için seçenek.
 
 ![Saat Seçici](media/get-started-analytics-portal/time-picker.png)
 
@@ -131,7 +131,7 @@ Sorgu için bir filtre açıkça içeriyorsa _TimeGenerated_Seçici başlık gö
 
 
 ## <a name="charts"></a>Grafikler
-Ayrıca bir tablodaki sonuçları döndürmek, sorgu sonuçları visual biçimlerde sunulabilir. Örnek olarak aşağıdaki sorguyu kullanın:
+Bir tablodaki sonuçları döndüren yanı sıra sorgu sonuçlarını visual biçimlerde sunulabilir. Örnek olarak aşağıdaki sorguyu kullanın:
 
 ```OQL
 Event 
@@ -183,7 +183,7 @@ Sorgu Gezgini simgesine sağ üst alandır. Bu, tüm kaydedilmiş sorgular kateg
 ![Sorgu gezgini](media/get-started-analytics-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>Dışarı aktarma ve bağlantı olarak paylaşın
-Analytics portalını birkaç verme yöntemleri destekler:
+Log Analytics sayfanın birkaç verme yöntemleri destekler:
 
 - Excel: sonuçları bir CSV dosyası olarak kaydedin.
 - Power BI: sonuçları bir power BI dışarı aktarın. Bkz: [alma Azure Log Analytics verilerini Power bı'a](../log-analytics-powerbi.md) Ayrıntılar için.

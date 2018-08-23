@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/22/2018
-ms.openlocfilehash: e87fc5b91e9e1d5f4f8449e84b17bcdab9c0b6b2
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: ba00d859dcfa968dcff7b321d571d61aea98463f
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713603"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42057065"
 ---
 # <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>Visual Studio için Azure Stream Analytics araçları yükleme
 Azure Stream Analytics araçları, Visual Studio 2017, 2015 ve 2013 destekler. Bu makalede, yükleme ve kaldırma araçları açıklar.
@@ -38,7 +38,7 @@ Etkinleştirme **Azure geliştirme** gösterildiği gibi iş yükü:
 ### <a name="visual-studio-2013-2015"></a>Visual Studio 2013, 2015
 * Visual Studio 2015 veya Visual Studio 2013 güncelleştirme 4 yükleyin. Enterprise (Ultimate/Premium), Professional ve Community sürümleri desteklenir. Express sürümü desteklenmez. 
 * .NET sürüm 2.7.1 veya üzeri için Microsoft Azure SDK'yı yükleme kullanarak [Web Platformu yükleyicisi](http://www.microsoft.com/web/downloads/platform.aspx).
-* Yükleme [Visual Studio için Azure Stream Analytics Araçları](http://aka.ms/asatoolsvs).
+* Yükleme [Visual Studio için Azure Stream Analytics Araçları](https://www.microsoft.com/en-us/download/details.aspx?id=49504).
 
 ## <a name="update"></a>Güncelleştirme
 

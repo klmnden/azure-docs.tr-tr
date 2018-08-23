@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/06/2018
+ms.date: 08/20/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: 0140c34a14f67064eaa28df65360cee6e92ff31a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: faf4e06b714714fce206ef8227a934df8c290447
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618463"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42057158"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure'da hizmet eşlemesi yapılandırma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--kritik Hizmetleri sunmak birbirine sistemleri düşündüğünüz sunucularınızın görüntülemek için kullanabilirsiniz. Hizmet eşlemesi, tüm TCP bağlantılı mimarisi, gerekli bir aracı yüklemesini dışında hiçbir yapılandırma boyunca sunucuları, işlemler ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -87,19 +87,12 @@ Aşağıdaki bölümde, Red Hat Enterprise Linux, CentOS Linux ve Oracle Linux (
 | 6.8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
 
-### <a name="red-hat-linux-5"></a>Red Hat Linux 5
-
-| İşletim sistemi sürümü | Çekirdek sürümü |
-|:--|:--|
-| 5.8 | 2.6.18-308 |
-| 5.9 | 2.6.18-348 |
-| 5.10 | 2.6.18-371 |
-| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419<br>2.6.18-420 |
-
 ### <a name="ubuntu-server"></a>Ubuntu Server
 
 | İşletim sistemi sürümü | Çekirdek sürümü |
 |:--|:--|
+| Ubuntu 18.04 | Çekirdek 4.15. * |
+| Ubuntu 16.04.3 | Çekirdek 4.15. * |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
 
@@ -119,13 +112,12 @@ Aşağıdaki bölümde, Red Hat Enterprise Linux, CentOS Linux ve Oracle Linux (
 | 5.10 | Oracle 2.6.39-400 (UEK R2) |
 | 5.11 | Oracle 2.6.39-400 (UEK R2) |
 
-### <a name="suse-linux-11-enterprise-server"></a>SUSE Linux 11 kuruluş sunucusu
+## <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 kuruluş sunucusu
 
 | İşletim sistemi sürümü | Çekirdek sürümü
 |:--|:--|
-| 11 SP2 | 3.0.101-0.7 |
-| 11 SP3 | 3.0.101-0.47 |
-| 11 SP4 | 3.0.101-65 |
+|12 SP2 | 4.4. * |
+|12 SP3 | 4.4. * |
 
 ## <a name="dependency-agent-downloads"></a>Bağımlılık aracısını yükleme
 
@@ -264,7 +256,7 @@ Bağımlılık Aracısı'nı Linux bilgisayarlardan yüklenir `InstallDependency
 
 Bağımlılık Aracısı'nı her Linux bilgisayara yüklemek için aşağıdaki adımları kullanın:
 
-1.  Açıklanan yöntemlerden birini uygulayarak OMS aracısını yükleme [Log Analytics aracısını ile karma bir ortamda veri toplama](../log-analytics/log-analytics-concept-hybrid.md).
+1.  Açıklanan yöntemlerden birini uygulayarak Log Analytics aracısını yükleme [Log Analytics aracısını ile karma bir ortamda veri toplama](../log-analytics/log-analytics-concept-hybrid.md).
 2.  Linux bağımlılık aracısını kök olarak aşağıdaki komutu çalıştırarak yükleyin:
     
     `sh InstallDependencyAgent-Linux64.bin`
@@ -394,9 +386,9 @@ Bağımlılık Aracısı yüklendi, ancak hizmet eşlemesi çözüm sunucunuzda 
 
 * Sunucu gönderen günlük ve performans verilerini Log Analytics'e mi? Günlük araması gidin ve bilgisayarınız için aşağıdaki sorguyu çalıştırın: 
 
-        * Computer="<your computer name here>" | measure count() by Type
-        
-  Sonuçlar arasında olaylar çeşitli mı aldınız? Verilerin güncel mi? Bu durumda, OMS Aracısı düzgün çalışmasını ve Log Analytics ile iletişim kurulurken. Aksi takdirde, OMS Aracısı sunucunuzda denetleyin: [sorun giderme için OMS Aracısı Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) veya [sorun giderme Linux için OMS Aracısı](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
+        Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
+
+Sonuçlar arasında olaylar çeşitli mı aldınız? Verilerin güncel mi? Bu durumda, Log Analytics aracısını düzgün çalışmasını ve Log Analytics ile iletişim kurulurken. Aksi takdirde, sunucudaki aracı denetleyin: [Windows sorun giderme için Log Analytics aracısını](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) veya [Linux sorun giderme için Log Analytics aracısını](../log-analytics/log-analytics-agent-linux-support.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Sunucu, hizmet eşlemesinde görünür ancak hiçbir işlem sahiptir
 Hizmet eşlemesi sunucunuzun bakın, ancak işlem veya bağlantı veri yok, bağımlılık Aracısı'nı yüklü ve çalışır durumdadır, ancak çekirdek sürücüsü yüklenmedi gösterir. 

@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: bd62ff03c3158743337ce958eb1bda7c7bd2a7f6
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e7b07ba892f8f904b1b2127fa8e76649eb004388
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348524"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42059758"
 ---
 # <a name="set-up-security-info-to-use-an-authenticator-app-preview"></a>Güvenlik bilgileri (Önizleme) bir authenticator uygulamasını kullanmak için ayarlayın
 
@@ -60,6 +60,9 @@ Kuruluşunuzun ayarlara bağlı olarak, oturum açtığınızda Microsoft Authen
 6. Uygulamasını etkinleştirmek için bildirimi onaylamanız için Microsoft Authenticator uygulamasını kullanın.
 
     İki aşamalı doğrulama veya Self Servis parola sıfırlaması kullanırken, kimliğinizi doğrulamak için Microsoft Authenticator uygulamasını kullanmak için güvenlik bilgileriniz güncelleştirildi.
+
+    >[!Note]
+    >Kuruluşunuz izin veriyorsa, ayrıca Microsoft Authenticator uygulama bildirimi ile birlikte bir doğrulama kodu alırsınız. Varsayılan yönteminizi kod yapmak istiyorsanız,'ndaki yönergeleri izleyin [güvenlik bilgilerinizi yönetmek](security-info-setup-auth-app.md).
 
 ## <a name="additional-security-info-options"></a>Ek güvenlik bilgisi seçenekleri
 

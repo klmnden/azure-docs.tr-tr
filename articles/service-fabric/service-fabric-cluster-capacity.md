@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 0a5c73728f939fc239f4af79f5f084867856581a
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: dc70a20667db7e59f0fe77ec4d84831cfb7e75a5
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494217"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617227"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric kümesi kapasite planlaması konuları
 Herhangi bir üretim dağıtımı için kapasite planlaması önemli bir adımdır. Bu işlemin bir parçası olarak dikkate almanız gereken öğelerden bazıları aşağıda verilmiştir.
@@ -82,7 +82,8 @@ Dayanıklılık katmanı, sanal makinelerinizin temel Azure altyapısıyla sahip
 
 > [!WARNING]
 > Çalışan Bronz dayanıklılığa sahip düğüm türleri elde _ayrıcalıkların olmadığı_. Bu durum bilgisiz iş yüklerinizi etkileyen altyapı işler değil durduruldu veya kaldırılacak geciktirilmiş, hangi iş yüklerinizi etkileyebilecek anlamına gelir. Yalnızca Bronz yalnızca durum bilgisiz iş yükleri çalıştıran düğümü türleri için kullanın. Üretim iş yükleri çalıştıran Silver veya yukarıda önerilir. 
->
+
+> Herhangi bir dayanıklılık düzeyi ne olursa olsun [ayırmayı kaldırma](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/deallocate) VM ölçek kümesi üzerinde işlem kümesi yok eder
 
 **Silver veya Gold dayanıklılık düzeyleri kullanmanın avantajları**
  
@@ -150,7 +151,7 @@ Güvenilirlik katmanı seçme öneri aşağıdadır.
 
 Birincil düğüm türü kapasite planlama Kılavuzu şu şekildedir:
 
-- **Tüm üretim iş yüklerini Azure'da çalıştırmak için sanal makine örneği sayısını:** 5 en az bir birincil düğüm türü boyutunu belirtmeniz gerekir. 
+- **Tüm üretim iş yüklerini Azure'da çalıştırmak için sanal makine örneği sayısını:** 5 ve güvenilirlik katmanını Silver'ın en az bir birincil düğüm türü boyutu belirtmeniz gerekir.  
 - **Test iş yüklerini Azure'da çalıştırmak için sanal makine örneği sayısını** 1 veya 3 en düşük birincil düğüm türü boyutu belirtebilirsiniz. Bir düğüm kümesi çalıştıran özel bir yapılandırma ve bu nedenle, bu küme olarak ölçeklendirilmesini desteklenmiyor. Tek düğümlü bir küme, güvenilirlik ve bu nedenle Resource Manager şablonunuzu, sahip olduğunuz Kaldır/değil söz konusu yapılandırmayı belirtmek (yapılandırma değeri ayarı yok değil yeterli). Portal ayarlanan bir düğüm kümesi ayarlama, daha sonra yapılandırma otomatik olarak dikkate. Bir ile üç düğümlü kümeler, üretim iş yüklerini çalıştırmak için desteklenmez. 
 - **Sanal makine SKU'su:** birincil düğüm türü olduğundan Sistem Hizmetleri çalıştırdığı için gereken genel yoğun dikkate al yüklemek, seçtiğiniz sanal makine SKU'su planı kümesine yerleştirmek. Ne burada bilmem göstermek-birincil düğüm türü, "Lungs", oxygen, beyin için sağlanan korumanın olduğunu düşündüğünüz bir benzerliği işte ve beyin yeterli oxygen almazsa, bu nedenle, gövde alternatife. 
 
@@ -166,8 +167,7 @@ Küme kapasitesi gereksinimlerini belirlenir olduğundan, kümedeki çalıştır
 - Standart A1 SKU, performans nedenleriyle üretim iş yükleri için desteklenmiyor.
 
 > [!WARNING]
-> Şu anda birincil düğüm üzerinde çalışan bir küme VM SKU boyutu değiştirilmesi desteklenmiyor. Bu nedenle birincil düğüm türü VM SKU dikkatli bir şekilde, kapasite gelecekteki ihtiyaçlarınızı dikkate alarak seçin. Şu anda birincil düğüm türünüz için yeni bir VM SKU (küçük veya büyük) olan doğru kapasiteye sahip yeni bir küme oluşturmak için taşımak için desteklenen tek yolu dağıtmak ve (varsa) uygulama durumunu geri yüklenmesi, uygulamalarınızı gelen [ yedeklemeleri'en son hizmet](service-fabric-reliable-services-backup-restore.md) eski kümeden önlemlerin. Herhangi bir sistem hizmet durumunu geri yüklemek gerekmez, yeni kümenize Uygulama dağıtırken yeniden oluşturulur. Yalnızca olsaydı tüm bunu daha sonra durum bilgisiz uygulamaların kümenizde çalışan uygulamalarınızı yeni kümeye dağıtın, geri yüklemek için hiçbir şey vardır.
-> 
+> Birincil düğüm üzerinde çalışan bir küme VM SKU boyutu değiştirme bir ölçeklendirme işlemi ve belirtilmiştir [sanal makine ölçek kümesi ölçeği genişletme](virtual-machine-scale-set-scale-node-type-scale-out.md) belgeleri.
 
 ## <a name="non-primary-node-type---capacity-guidance-for-stateful-workloads"></a>Olmayan birincil düğüm türü - durum bilgisi olan iş yükleri için kapasite Kılavuzu
 

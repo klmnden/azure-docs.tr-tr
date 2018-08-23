@@ -1,49 +1,50 @@
 ---
-title: Visual Studio'da Azure yığın şablonlarıyla dağıtma | Microsoft Docs
-description: Visual Studio'da Azure yığın şablonlarıyla dağıtmayı öğrenin.
+title: Şablonları Azure Stack'te Visual Studio ile dağıtma | Microsoft Docs
+description: Şablonları Visual Studio'da Azure Stack ile dağıtmayı öğrenin.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 628da2ae-64cc-42e0-b8b7-a6a3724cb974
 ms.service: azure-stack
-ms.workload: na
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 6cd722fedc0483e37ce6ee491d74a7c985111353
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 585f890b11ab71f9c10479ff65aff74922a30ed1
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605132"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42147060"
 ---
-# <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>Visual Studio kullanarak Azure yığınındaki şablonlarını dağıtma
+# <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>Şablonları Visual Studio kullanarak Azure Stack'te dağıtma
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Azure Resource Manager şablonları Azure yığınına dağıtmak için Visual Studio'yu kullanabilirsiniz.
+Visual Studio, Azure Stack için Azure Resource Manager şablonlarını dağıtmak için kullanabilirsiniz.
 
 ## <a name="to-deploy-a-template"></a>Bir şablonu dağıtmak için
 
-1. [Yüklemek ve bağlamak](azure-stack-install-visual-studio.md) Visual Studio ile Azure yığınına.
+1. [Yükleme ve bağlanma](azure-stack-install-visual-studio.md) Visual Studio ile Azure Stack için.
 2. Visual Studio'yu açın.
 3. Seçin **dosya**ve ardından **yeni**. İçinde **yeni proje**seçin **Azure kaynak grubu**.
-4. Girin bir **adı** yeni proje ve ardından **Tamam**.
-5. İçinde **Azure Şablonu Seç**, çekme **Azure yığın Quickstart** aşağı açılan listeden.
-6. Seçin **101 oluşturma depolama hesabı**ve ardından **Tamam**.
-7. Yeni projeniz genişletin **şablonları** düğümünde **Çözüm Gezgini** kullanılabilir şablonları görmek için.
-8. İçinde **Çözüm Gezgini**projenizin adını seçin ve ardından **dağıtma**. Seçin **yeni dağıtım**.
-9. İçinde **kaynak grubuna Dağıt**, kullanın **abonelik** Microsoft Azure yığın aboneliğinizi seçmek için aşağı açılan liste.
-10. Gelen **kaynak grubu** listesinde, varolan bir kaynak grubu seçin veya yeni bir tane oluşturun.
-11. Gelen **kaynak grubu konumu** listesinde, bir konum seçin ve ardından **dağıtma**.
-12. İçinde **parametreleri Düzenle**, (Bu şablona göre değişir) parametreler için değerler sağlayın ve ardından **kaydetmek**.
+4. Girin bir **adı** seçin ve yeni proje için **Tamam**.
+5. İçinde **Azure şablonunu Seç**, çekme **Azure Stack hızlı** aşağı açılan listeden.
+6. Seçin **101 oluşturduğunuz depolama hesabı**ve ardından **Tamam**.
+7. Yeni projenizi genişletin **şablonları** düğümünde **Çözüm Gezgini** kullanılabilir şablonları görmek için.
+8. İçinde **Çözüm Gezgini**projenizin adını seçin ve ardından **Dağıt**. Seçin **yeni dağıtım**.
+9. İçinde **kaynak grubuna Dağıt**, kullanın **abonelik** Microsoft Azure Stack aboneliğinizi seçmek için aşağı açılan listesi.
+10. Gelen **kaynak grubu** listesinde, var olan bir kaynak grubu seçin veya yeni bir tane oluşturun.
+11. Gelen **kaynak grubu konumu** listesinde, bir konum seçin ve ardından **Dağıt**.
+12. İçinde **parametreleri Düzenle**, (Bu şablona göre değişiklik gösterir) parametreleri için değerler sağlayın ve ardından **Kaydet**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Şablonları komut satırı ile dağıtma](azure-stack-deploy-template-command-line.md)
-* [Şablonları geliştirmek için Azure yığını](azure-stack-develop-templates.md)
+* [Şablonları Azure Stack için geliştirme](azure-stack-develop-templates.md)

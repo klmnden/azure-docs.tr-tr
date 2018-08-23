@@ -3,26 +3,28 @@ title: Azure Event Hubs için Apache Kafka | Microsoft Docs
 description: Azure Event Hubs'a genel bakış ve Kafka'ya giriş etkin
 services: event-hubs
 documentationcenter: .net
-author: djrosanova
+author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: darosa
-ms.openlocfilehash: 51f2ad736ccbf27cafb05b8f68653f5effdecbf0
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.date: 08/16/2018
+ms.author: bahariri
+ms.openlocfilehash: 16c101068be48ba1435ef230b29c679fcef17d08
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503511"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057154"
 ---
 # <a name="azure-event-hubs-for-apache-kafka-preview"></a>Azure Event Hubs için Apache Kafka (Önizleme)
 
-Event Hubs, kullanılabilir bir Kafka uç noktası sağlar, varolan Kafka kendi Kafka kümesi çalıştıran alternatif olarak tabanlı uygulamalar. Event hubs'ı destekleyen [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) ve daha yeni istemci sürümleri ve mevcut Kafka uygulamalarınızı çalışır MirrorMaker dahil olmak üzere. Bağlantı dizesini değiştirin ve olayları Event Hubs'a Kafka protokolünü kullanan uygulamalarınızı akış başlatın.
+Event Hubs, kullanılabilir bir Kafka uç noktası sağlar, varolan Kafka kendi Kafka kümesi çalıştıran alternatif olarak tabanlı uygulamalar. Event hubs'ı destekleyen [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) ve daha yeni istemci sürümleri ve mevcut Kafka uygulamalarınızı çalışır MirrorMaker dahil olmak üzere. 
 
 ## <a name="what-does-event-hubs-for-kafka-provide"></a>Event Hubs, Kafka için neler sağlar?
 
-Olay hub'ları Kafka özelliği için bir protokol head ile Kafka sürümleri 1.0 ve daha sonra hem okuma hem de Kafka konularını yazmak için ikili uyumlu olan Azure Event Hubs üzerinde sağlar. Kafka ile Event Hubs kavramsal olarak neredeyse aynı: her iki bölümlenmiş günlük verilerinin akışı için yerleşik oldukları. Aşağıdaki tablo, Event Hubs ile Kafka arasındaki kavramları eşler.
+Olay hub'ları Kafka özelliği için bir protokol head ile Kafka sürümleri 1.0 ve daha sonra hem okuma hem de Kafka konularını yazmak için ikili uyumlu olan Azure Event Hubs üzerinde sağlar. Kafka uç noktasından uygulamalarınızı kod değişikliği ancak en az bir yapılandırma değişikliği kullanarak başlayabilir. Kafka kümenize işaret eden yerine olay hub'ınız tarafından kullanıma sunulan Kafka uç noktasını işaret edecek şekilde yapılandırmaları bağlantı dizesinde güncelle Ardından, Event Hubs'a Kafka protokolünü kullanan uygulamalarınızı olaylardan akış başlatabilirsiniz. 
+
+Kafka ile Event Hubs kavramsal olarak neredeyse aynı: her iki bölümlenmiş günlük verilerinin akışı için yerleşik oldukları. Aşağıdaki tablo, Event Hubs ile Kafka arasındaki kavramları eşler.
 
 ### <a name="kafka-and-event-hub-conceptual-mapping"></a>Kafka ve olay hub'ı kavramsal eşleme
 
@@ -36,7 +38,7 @@ Olay hub'ları Kafka özelliği için bir protokol head ile Kafka sürümleri 1.
 
 ### <a name="key-differences-between-kafka-and-event-hubs"></a>Event Hubs ile Kafka arasındaki temel farklılıklar
 
-Sırada [Apache Kafka](https://kafka.apache.org/) seçtiğiniz her yerde, çalıştırabileceğiniz, yazılım, Event Hubs, Azure Blob depolama alanına benzer bir bulut hizmetidir. Sunucu yok veya yönetmek için ağ ve hiçbir aracıları yapılandırmak için vardır. İçinde konuları canlı bir FQDN olduğundan, bir ad alanı oluşturur ve ardından olay hub'ları veya bu ad alanı içindeki konuları oluşturun. Event Hubs ve ad alanları hakkında daha fazla bilgi için bkz: [Event Hubs nedir](event-hubs-what-is-event-hubs.md). İstemciler, aracıları veya kümesindeki makineleri bilmeniz gerekmez. Bu nedenle bir bulut hizmeti olarak tek bir kararlı sanal IP adresi Event Hubs uç noktası olarak kullanır. 
+Sırada [Apache Kafka](https://kafka.apache.org/) seçtiğiniz her yerde, çalıştırabileceğiniz, yazılım, Event Hubs, Azure Blob depolama alanına benzer bir bulut hizmetidir. Sunucu yok veya yönetmek için ağ ve hiçbir aracıları yapılandırmak için vardır. İçinde konuları canlı bir FQDN olduğundan, bir ad alanı oluşturur ve ardından olay hub'ları veya bu ad alanı içindeki konuları oluşturun. Event Hubs ve ad alanları hakkında daha fazla bilgi için bkz: [Event Hubs özellikleri](event-hubs-features.md#namespace). İstemciler, aracıları veya kümesindeki makineleri bilmeniz gerekmez. Bu nedenle bir bulut hizmeti olarak tek bir kararlı sanal IP adresi Event Hubs uç noktası olarak kullanır. 
 
 Event Hubs ölçek tarafından kaç tane işleme birimi, saniyede 1 MB ile entitling her bir üretilen iş birimi veya giriş saniyede 1000 olay ile satın aldığınız denetlenir. Sınırlarınızı ile ulaştığında varsayılan olarak, Event Hubs işleme birimleri ölçeklendirir. [otomatik Şişme](event-hubs-auto-inflate.md) özelliği; bu da Event Hubs ile works Kafka özellik için özellik. 
 

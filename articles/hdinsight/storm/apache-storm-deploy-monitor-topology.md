@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/01/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1ad1d6662d276039ae1e01e49c60fc06682cb54a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: b71dd51547365503ac4ce76f07d6c783d26acd50
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622825"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42060379"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Windows tabanlı HDInsight üzerinde Apache Storm topolojilerini dağıtma ve yönetme
 
@@ -88,7 +88,7 @@ Bir bağlantıdan seçerek **topoloji özeti** bölüm topoloji hakkında aşağ
 
   * **Yeniden Dengeleme**: topolojinin paralelliğini ayarlar. Kümedeki düğüm sayısını değiştirdikten sonra çalışan topolojileri yeniden dengelemeniz gerekir. Bu kümedeki düğümlere artan veya azalan sayısını dengelemek üzere paralelliği ayarlamaya imkan tanır.
 
-      Daha fazla bilgi için [bir Storm topolojisinin paralelliğini anlama (http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+      Daha fazla bilgi için bkz. [Bir Storm topolojisinin paralelliğini anlama](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
   * **KILL**: belirtilen zaman aşımından sonra Storm topolojisini sonlandırır.
 

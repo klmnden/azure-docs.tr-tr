@@ -1,32 +1,287 @@
 ---
 title: Başvuru iş akışı tanımlama dili - Azure Logic Apps işlevleri | Microsoft Docs
-description: Logic apps iş akışı tanımlama dili ile oluşturmak için işlevleri hakkında bilgi edinin
+description: Azure Logic Apps için iş akışı tanımı dil işlevleri hakkında bilgi edinin
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.topic: reference
-ms.date: 04/25/2018
+ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 46ccf9484b76ec5f24dba470a194b5b83c32f013
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 6292ea4ccd3780e1da86252b7ec9c09c2eea3982
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263785"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057448"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps iş akışı tanımı dil işlevleri başvurusu
 
-Bu makalede oluşturma otomatik iş akışları ile kullanabileceğiniz işlevleri [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Mantıksal uygulama tanımları işlevleri hakkında daha fazla bilgi için bkz. [Azure Logic Apps iş akışı tanımlama dili](../logic-apps/logic-apps-workflow-definition-language.md#functions). 
+Bazı [ifadeleri](../logic-apps/logic-apps-workflow-definition-language.md#expressions) içinde [Azure Logic Apps](../logic-apps/logic-apps-overview.md) mantıksal uygulama iş akışı tanımınızı çalışmaya başladığında henüz bulunmayabilir çalışma zamanı eylemlerden değerleri alın. Başvuru veya bu değerleri ifadelerde çalışmak için kullanabileceğiniz *işlevleri* tarafından sağlanan [iş akışı tanımlama dili](../logic-apps/logic-apps-workflow-definition-language.md). Örneğin, hesaplamalar için matematiksel işlevler gibi kullanabilirsiniz [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) tamsayılar ya da float toplamını döndüren işlev. İşlevler ile gerçekleştirebileceğiniz birkaç daha fazla örnek görevler aşağıda verilmiştir:
+
+| Görev | İşlev sözdizimi | Sonuç | 
+| ---- | --------------- | ------ | 
+| Küçük harf biçiminde bir dize döndürür. | toLower ('<*metin*>') <p>Örneğin: toLower('Hello') | "hello" | 
+| Bir genel benzersiz tanıtıcısı (GUID) döndürür. | Guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" | 
+|||| 
+
+Bu makalede, mantıksal uygulama tanımları oluştururken kullanabileceğiniz işlevleri açıklanmaktadır.
+İşlevlerin bulunacağı [kendi genel amacına bağlı](#ordered-by-purpose), aşağıdaki tabloları ile devam edin. Veya her işlevi hakkında ayrıntılı bilgi için bkz. [alfabetik liste](#alphabetical-list). 
 
 > [!NOTE]
 > Parametre tanımlarıyla sözdiziminde, bir soru bir parametre, parametre anlamına gelir sonra görüntülenen işareti (?) isteğe bağlıdır. Örneğin, [getFutureTime()](#getFutureTime).
 
+## <a name="functions-in-expressions"></a>İşlevler ifadelerde
+
+Bir ifade bir işlev kullanmayı göstermek için bu örnek değeri nasıl elde edileceği gösterilmektedir `customerName` parametresi ve değeri Ata `accountName` kullanarak özellik [parameters()](#parameters) işlevi bir ifadede:
+
+```json
+"accountName": "@parameters('customerName')"
+```
+
+İşlevler ifadelerde kullanabilirsiniz diğer bazı genel yollar şunlardır:
+
+| Görev | İfadede işlev sözdizimi | 
+| ---- | -------------------------------- | 
+| Bu öğe bir işleve geçirerek bir öğe ile çalışma gerçekleştirin. | "\@<*functionName*> (<*öğesi*>)" | 
+| 1. Alma *parameterName*ait iç içe kullanarak değer `parameters()` işlevi. </br>2. Bu değeri geçirerek sonuç içeren çalışma gerçekleştirme *functionName*. | "\@<*functionName*> (parametreleri ('<*parameterName*>'))" | 
+| 1. İç içe geçmiş içteki işlevden sonucu elde *functionName*. </br>2. Sonuç dış işlevine geçirebileceğimiz *functionName2*. | "\@<*functionName2*> (<*functionName*> (<*öğesi*>))" | 
+| 1. Sonuç Alma *functionName*. </br>2. Sonuç özelliğine sahip bir nesne olması koşuluyla, *propertyName*, bu özelliğin değerini alın. | "\@<*functionName*>(<*item*>). <*propertyName*>" | 
+||| 
+
+Örneğin, `concat()` işlevi parametre olarak dize değerleri iki veya daha fazla sürebilir. Bu işlev, bu dizelerin tek dizesinde birleştirir. Birleştirilmiş bir dize, "SophiaOwen" alabilmeniz ya da dize değişmez değerleri, örneğin, "Sophia" ve "Owen" geçirebilirsiniz:
+
+```json
+"customerName": "@concat('Sophia', 'Owen')"
+```
+
+Veya, parametrelerinden dize değerleri alabilirsiniz. Bu örnekte `parameters()` her işlevde `concat()` parametresi ve `firstName` ve `lastName` parametreleri. Daha sonra çıkan dizeleri için geçirdiğiniz `concat()` birleşik bir dize, örneğin, "SophiaOwen" alabilmeniz işlev:
+
+```json
+"customerName": "@concat(parameters('firstName'), parameters('lastName'))"
+```
+
+Her iki durumda da, sonucu örneklerin her ikisi de atama `customerName` özelliği. 
+
+Sıralı, genel amaçlı kullanabileceğiniz işlevler şunlardır veya temel işlevleri göz atabilirsiniz [alfabetik](#alphabetical-list).
+
+<a name="ordered-by-purpose"></a>
+<a name="string-functions"></a>
+
+## <a name="string-functions"></a>Dize işlevleri
+
+Dizeleri ile çalışmak için bu dize işlevleri ve ayrıca bazı kullanabilirsiniz [toplama işlevleri](#collection-functions). Dize işlevleri yalnızca dizeler üzerinde çalışır. 
+
+| Dize işlevi | Görev | 
+| --------------- | ---- | 
+| [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | İki veya daha fazla dizeleri birleştirmek ve birleştirilmiş dizeyi döndürür. | 
+| [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Bir dizeyi, belirtilen alt dizeyle bitip bitmediğini kontrol edin. | 
+| [GUID](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Bir dize olarak bir genel benzersiz tanıtıcısı (GUID) oluşturur. | 
+| [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Bir alt dizenin başlangıç konumunu döndürür. | 
+| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Bitiş konumu için bir alt dizeyi döndürür. | 
+| [Değiştir](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Belirtilen dizenin bir alt dizenin yerini ve güncelleştirilmiş dizeyi döndür. | 
+| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Tüm karakterleri ve her karakter ile belirli sınırlayıcı karakter ayıran bir dizi döndürür. | 
+| [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Bir dizeyi belirli bir alt dizesi ile başlayıp başlamadığını kontrol edin. | 
+| [alt dize](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Belirtilen konumundan başlayan bir dizeden karakterleri döndürür. | 
+| [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Küçük harf biçiminde bir dize döndürür. | 
+| [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Büyük harf biçiminde bir dize döndürür. | 
+| [Kırpma](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Bir dizeden öndeki ve sondaki boşlukları kaldırın ve güncelleştirilmiş bir dize döndürür. | 
+||| 
+
+<a name="collection-functions"></a>
+
+## <a name="collection-functions"></a>Toplama işlevleri
+
+Koleksiyonlar, genellikle dizi, dizeleri ve sözlükleri ile bazen çalışmak için bu toplama işlevleri kullanabilirsiniz. 
+
+| Toplama işlevi | Görev | 
+| ------------------- | ---- | 
+| [içerir](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Bir koleksiyon için belirli bir öğe olup olmadığını denetleyin. |
+| [boş](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Bir koleksiyonun boş olup olmadığını denetleyin. | 
+| [ilk](../logic-apps/workflow-definition-language-functions-reference.md#first) | Bir koleksiyondaki ilk öğeyi döndürür. | 
+| [kesişimi](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Sahip bir koleksiyonun dönüş *yalnızca* belirtilen koleksiyonlarla arasında ortak öğeleri. | 
+| [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | İçeren bir dize döndürecek *tüm* bir dizi, öğeleri belirtilen karakteriyle ayrılmış. | 
+| [Son](../logic-apps/workflow-definition-language-functions-reference.md#last) | Bir koleksiyondaki son öğeyi döndürür. | 
+| [Uzunluğu](../logic-apps/workflow-definition-language-functions-reference.md#length) | Bir dize ya da dizideki öğe sayısını döndürür. | 
+| [Atla](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Bir koleksiyonun önünden öğeleri kaldırıp dönüş *diğer tüm* öğeleri. | 
+| [sınav zamanı](../logic-apps/workflow-definition-language-functions-reference.md#take) | Bir koleksiyonun önünden öğelerini döndürür. | 
+| [birleşim](../logic-apps/workflow-definition-language-functions-reference.md#union) | Sahip bir koleksiyonun dönüş *tüm* belirtilen koleksiyonlarla öğelerinden. | 
+||| 
+
+<a name="comparison-functions"></a>
+
+## <a name="logical-comparison-functions"></a>Mantıksal karşılaştırma işlevleri
+
+Koşullar ile çalışma, değerleri ve ifade sonuçları karşılaştırmak ya da mantıksal çeşitli değerlendirmek için bu mantıksal karşılaştırma işlevleri kullanabilirsiniz. Her işlev hakkındaki tam başvuru için bkz: [alfabetik liste](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Mantıksal bir karşılaştırma işlevi | Görev | 
+| --------------------------- | ---- | 
+| [ve](../logic-apps/workflow-definition-language-functions-reference.md#and) | Tüm ifadelerin doğru olup olmadığını denetleyin. | 
+| [eşittir](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Her iki değer eşit olup olmadığını denetleyin. | 
+| [daha büyük](../logic-apps/workflow-definition-language-functions-reference.md#greater) | İlk değer ikinci değerden büyük olup olmadığını denetleyin. | 
+| [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | İlk değer ikinci değerine eşit veya daha büyük olup olmadığını denetleyin. | 
+| [Eğer](../logic-apps/workflow-definition-language-functions-reference.md#if) | İfadenin true veya false olup olmadığını denetleyin. Sonuca bağlı, belirli bir değeri döndürme. | 
+| [daha az](../logic-apps/workflow-definition-language-functions-reference.md#less) | İkinci değer ilk değer olup değerinden denetleyin. | 
+| [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | İlk değer ya da ikinci değer eşit olup olmadığını denetleyin. | 
+| [değil](../logic-apps/workflow-definition-language-functions-reference.md#not) | Bir ifadenin false olup olmadığını denetleyin. | 
+| [veya](../logic-apps/workflow-definition-language-functions-reference.md#or) | En az bir ifadenin doğru olup olmadığını denetleyin. |
+||| 
+
+<a name="conversion-functions"></a>
+
+## <a name="conversion-functions"></a>Dönüşüm işlevleri
+
+Bir değer türü veya biçimi değiştirmek için bu dönüştürme işlevleri kullanabilirsiniz. Örneğin, bir Boole değeri tamsayıya değiştirebilirsiniz. Logic Apps içerik türlerine dönüştürme işlemi sırasında nasıl işlediğini öğrenmek için bkz: [içerik türlerini işleme](../logic-apps/logic-apps-content-type.md). Her işlev hakkındaki tam başvuru için bkz: [alfabetik liste](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Dönüştürme işlevi | Görev | 
+| ------------------- | ---- | 
+| [Dizi](../logic-apps/workflow-definition-language-functions-reference.md#array) | Belirtilen tek bir giriş için bir dizi döndürür. Birden çok giriş için bkz. [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray). | 
+| [Base64](../logic-apps/workflow-definition-language-functions-reference.md#base64) | Base64 kodlamalı sürümü bir dize döndürür. | 
+| [base64ToBinary](../logic-apps/workflow-definition-language-functions-reference.md#base64ToBinary) | İkili dosya sürümü için base64 ile kodlanmış bir dize döndürür. | 
+| [base64ToString](../logic-apps/workflow-definition-language-functions-reference.md#base64ToString) | Dize sürümü base64 ile kodlanmış bir dize döndürür. | 
+| [İkili](../logic-apps/workflow-definition-language-functions-reference.md#binary) | İkili dosya sürümü için giriş değeri döndürür. | 
+| [bool](../logic-apps/workflow-definition-language-functions-reference.md#bool) | Boole sürümü için giriş değeri döndürür. | 
+| [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray) | Birden çok girişler bir dizi döndürür. | 
+| [dataUri](../logic-apps/workflow-definition-language-functions-reference.md#dataUri) | ' % S'veri URI'si için bir giriş değeri döndürür. | 
+| [dataUriToBinary](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToBinary) | Bir veri URI'SİNİN ikili sürümü döndürür. | 
+| [dataUriToString](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToString) | Bir veri URI'SİNİN dize sürümü döndürür. | 
+| [decodeBase64](../logic-apps/workflow-definition-language-functions-reference.md#decodeBase64) | Dize sürümü base64 ile kodlanmış bir dize döndürür. | 
+| [decodeDataUri](../logic-apps/workflow-definition-language-functions-reference.md#decodeDataUri) | Bir veri URI'SİNİN ikili sürümü döndürür. | 
+| [Decodeurıcomponent](../logic-apps/workflow-definition-language-functions-reference.md#decodeUriComponent) | Değiştirir kodu çözülmüş sürümleriyle karakter kaçış bir dize döndürür. | 
+| [Encodeurıcomponent](../logic-apps/workflow-definition-language-functions-reference.md#encodeUriComponent) | URL güvenli olmayan karakterleri kaçış karakterleri yerini alan bir dize döndürür. | 
+| [kayan nokta](../logic-apps/workflow-definition-language-functions-reference.md#float) | Döndürür bir kayan nokta sayısı için bir giriş değeri. | 
+| [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Tamsayı sürümü bir dize döndürür. | 
+| [JSON](../logic-apps/workflow-definition-language-functions-reference.md#json) | JavaScript nesne gösterimi (JSON) türü değeri veya dize veya XML nesnesi döndürür. | 
+| [dize](../logic-apps/workflow-definition-language-functions-reference.md#string) | Dize sürümü için giriş değeri döndürür. | 
+| [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | URL güvenli olmayan karakterleri kaçış karakterleri ile değiştirerek bir giriş değeri için URI ile kodlanmış sürümünü döndürür. | 
+| [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | İkili dosya sürümü için URI ile kodlanmış bir dize döndürür. | 
+| [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Dize sürümü için URI ile kodlanmış bir dize döndürür. | 
+| [xml](../logic-apps/workflow-definition-language-functions-reference.md#xml) | XML sürümü bir dize döndürür. | 
+||| 
+
+<a name="math-functions"></a>
+
+## <a name="math-functions"></a>Matematiksel işlevler
+
+Tamsayı float'lar ile çalışmak için bu matematik işlevleri kullanabilirsiniz. Her işlev hakkındaki tam başvuru için bkz: [alfabetik liste](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Matematik işlevi | Görev | 
+| ------------- | ---- | 
+| [Ekleme](../logic-apps/workflow-definition-language-functions-reference.md#add) | İki sayıyı eklemesini sonucu döndürür. | 
+| [div](../logic-apps/workflow-definition-language-functions-reference.md#div) | Sonucu, iki sayı arasındaki bölme işleminin sonucunu döndürür. | 
+| [en fazla](../logic-apps/workflow-definition-language-functions-reference.md#max) | En yüksek değer bir dizi numaraları veya bir dizi döndürür. | 
+| [Min](../logic-apps/workflow-definition-language-functions-reference.md#min) | En düşük değer bir dizi numaraları veya bir dizi döndürür. | 
+| [mod](../logic-apps/workflow-definition-language-functions-reference.md#mod) | Kalan iki sayı arasındaki bölme işleminin sonucunu döndürür. | 
+| [mul](../logic-apps/workflow-definition-language-functions-reference.md#mul) | Ürün iki sayı arasındaki çarpma işleminin sonucunu döndürür. | 
+| [rand](../logic-apps/workflow-definition-language-functions-reference.md#rand) | Belirtilen bir aralıktaki rastgele bir tamsayı döndürür. | 
+| [Aralığı](../logic-apps/workflow-definition-language-functions-reference.md#range) | Belirtilen bir tamsayı başlayan bir tamsayı dizisi döndürür. | 
+| [alt](../logic-apps/workflow-definition-language-functions-reference.md#sub) | İlk numarasından ikinci sayı arasındaki çıkarma işleminin sonucu döndürür. | 
+||| 
+
+<a name="date-time-functions"></a>
+
+## <a name="date-and-time-functions"></a>Tarih ve saat işlevleri
+
+Tarihler ve saatler ile çalışmak için bu tarih ve saat işlevleri kullanabilirsiniz.
+Her işlev hakkındaki tam başvuru için bkz: [alfabetik liste](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Tarih veya saat işlevi | Görev | 
+| --------------------- | ---- | 
+| [addDays](../logic-apps/workflow-definition-language-functions-reference.md#addDays) | Bir gün sayısı için bir zaman damgası ekleyin. | 
+| [addHours](../logic-apps/workflow-definition-language-functions-reference.md#addHours) | Saat sayısı için bir zaman damgası ekleyin. | 
+| [addMinutes](../logic-apps/workflow-definition-language-functions-reference.md#addMinutes) | Dakika sayısı için bir zaman damgası ekleyin. | 
+| [saniyeEkle](../logic-apps/workflow-definition-language-functions-reference.md#addSeconds) | Saniye sayısı için bir zaman damgası ekleyin. |  
+| [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime) | Zaman birimlerinin sayısı için bir zaman damgası ekleyin. Ayrıca bkz: [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime). | 
+| [convertFromUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertFromUtc) | Bir zaman damgası (UTC) saat Eşgüdümlü Evrensel hedef saat dilimine dönüştürür. | 
+| [convertTimeZone](../logic-apps/workflow-definition-language-functions-reference.md#convertTimeZone) | Bir zaman damgasını kaynak saat diliminden hedef saat dilimine dönüştürür. | 
+| [convertToUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertToUtc) | Bir zaman damgasını kaynak saat diliminden saati Eşgüdümlü Evrensel (UTC) dönüştürün. | 
+| [dayOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#dayOfMonth) | İtibaren zaman damgası ayın günü bileşenini döndürür. | 
+| [dayOfWeek](../logic-apps/workflow-definition-language-functions-reference.md#dayOfWeek) | İtibaren zaman damgası haftanın günü bileşenini döndürür. | 
+| [dayOfYear](../logic-apps/workflow-definition-language-functions-reference.md#dayOfYear) | İtibaren zaman damgası yılın günü bileşenini döndürür. | 
+| [formatDateTime](../logic-apps/workflow-definition-language-functions-reference.md#formatDateTime) | Tarihten itibaren zaman damgası döndürür. | 
+| [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime) | Yanı sıra belirtilen zaman birimi geçerli zaman damgasını döndürür. Ayrıca bkz: [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime). | 
+| [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime) | Belirtilen zaman birimi eksi geçerli zaman damgasını döndürür. Ayrıca bkz: [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime). | 
+| [startOfDay](../logic-apps/workflow-definition-language-functions-reference.md#startOfDay) | Bir zaman damgası için günün başlangıcını döndürür. | 
+| [startOfHour](../logic-apps/workflow-definition-language-functions-reference.md#startOfHour) | Bir zaman damgası için saatin başlangıcını döndürür. | 
+| [startOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#startOfMonth) | Bir zaman damgası için ayın başlangıcını döndürür. | 
+| [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime) | Bir zaman damgası saat birimleri sayısı çıkarın. Ayrıca bkz: [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime). | 
+| [saat döngüsü](../logic-apps/workflow-definition-language-functions-reference.md#ticks) | Dönüş `ticks` belirtilen bir zaman damgası için özellik değeri. | 
+| [utcNow](../logic-apps/workflow-definition-language-functions-reference.md#utcNow) | Geçerli zaman damgasını dize olarak döndürür. | 
+||| 
+
+<a name="workflow-functions"></a>
+
+## <a name="workflow-functions"></a>İş akışı işlevleri
+
+Bu iş akışı işlevleri size yardımcı olabilir:
+
+* Çalışma zamanında bir iş akışı örneği hakkındaki ayrıntıları alın. 
+* Mantıksal uygulamalar oluşturmak için kullanılan girişleri çalışın.
+* Tetikleyiciler ve Eylemler çıkışlarına başvuruyor.
+
+Örneğin, bir eylemden çıkışlarına başvuruyor ve bir sonraki eylem bu verileri kullanabilirsiniz. Her işlev hakkındaki tam başvuru için bkz: [alfabetik liste](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| İş akışı işlevi | Görev | 
+| ----------------- | ---- | 
+| [Eylem](../logic-apps/workflow-definition-language-functions-reference.md#action) | Çalışma zamanı veya değerleri geçerli eylemin çıkışını diğer JSON ad ve değer çiftlerinden geri döndürür. Ayrıca bkz: [eylemleri](../logic-apps/workflow-definition-language-functions-reference.md#actions). | 
+| [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | Bir eylemin dönüş `body` çalışma zamanında çıktı. Ayrıca bkz: [gövdesi](../logic-apps/workflow-definition-language-functions-reference.md#body). | 
+| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | Çalışma zamanında bir eylemin çıkışını geri döndürür. Bkz: [eylemleri](../logic-apps/workflow-definition-language-functions-reference.md#actions). | 
+| [Eylemler](../logic-apps/workflow-definition-language-functions-reference.md#actions) | Bir eylemin çıkışını çalışma zamanı veya değerleri diğer JSON ad ve değer çiftlerinden geri döndürür. Ayrıca bkz: [eylem](../logic-apps/workflow-definition-language-functions-reference.md#action).  | 
+| [Gövde](#body) | Bir eylemin dönüş `body` çalışma zamanında çıktı. Ayrıca bkz: [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). | 
+| [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Bir anahtar adı ile eşleşen değerleriyle bir dizi oluşturmak *form verilerini* veya *form kodlu* eylem çıktı. | 
+| [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Bir eylem içinde bir anahtar adı ile eşleşen tek bir değer döndürmesi *form verisinin* veya *form kodlu çıkış*. | 
+| [Öğesi](../logic-apps/workflow-definition-language-functions-reference.md#item) | Bir dizi üzerindeki bir yinelenen eylemi olduğu zaman içinde eylemin geçerli yineleme sırasında dizideki geçerli öğeyi döndürür. | 
+| [Öğeleri](../logic-apps/workflow-definition-language-functions-reference.md#items) | İçinde için-her veya-kadar-döngü, geri döndürme işlevi, geçerli öğenin belirtilen döngünün.| 
+| [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | "Bir tetikleyici veya eylemi çağırır geri çağırma URL'si" döndürür. | 
+| [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Birden çok bölümü olan bir eylemin çıkış belirli bir parçanın gövdesini döndürür. | 
+| [parametreler](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Mantıksal uygulama tanımınızı açıklanan bir parametre için bir değer döndürür. | 
+| [Tetikleyici](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Çalışma zamanı veya diğer JSON ad ve değer çiftleri bir tetikleyicinin çıkışını geri döndürür. Ayrıca bkz: [triggerOutputs](#triggerOutputs) ve [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). | 
+| [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Bir tetikleyicinin dönüş `body` çalışma zamanında çıktı. Bkz: [tetikleyici](../logic-apps/workflow-definition-language-functions-reference.md#trigger). | 
+| [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | İçinde bir anahtar adı ile eşleşen tek bir değer döndürmesi *form verisinin* veya *form kodlu* çıkışları tetikleyin. | 
+| [triggerMultipartBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerMultipartBody) | Bir tetikleyicinin çok parçalı çıkışında belirli bir parçanın gövdesini döndürür. | 
+| [triggerFormDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues) | Değerleri bir anahtar adı eşleşen bir dizi oluşturmak *form-data* veya *form kodlu* çıkışları tetikleyin. | 
+| [triggerOutputs](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs) | Çalışma zamanı veya değerleri bir tetikleyicinin çıkışını diğer JSON ad ve değer çiftlerinden geri döndürür. Bkz: [tetikleyici](../logic-apps/workflow-definition-language-functions-reference.md#trigger). | 
+| [Değişkenleri](../logic-apps/workflow-definition-language-functions-reference.md#variables) | Belirtilen bir değişkenin değerini döndürür. | 
+| [İş akışı](../logic-apps/workflow-definition-language-functions-reference.md#workflow) | İş akışı hakkında tüm ayrıntıları, çalışma zamanı sırasında döndürür. | 
+||| 
+
+<a name="uri-parsing-functions"></a>
+
+## <a name="uri-parsing-functions"></a>URI ayrıştırma işlevleri
+
+Tekdüzen Kaynak Tanımlayıcıları (URI'lar) çalışır ve bu bir URI'leri için çeşitli özellik değerlerini almak için bu URI ayrıştırma işlevleri kullanabilirsiniz. Her işlev hakkındaki tam başvuru için bkz: [alfabetik liste](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| URI ayrıştırma işlevi | Görev | 
+| -------------------- | ---- | 
+| [uriHost](../logic-apps/workflow-definition-language-functions-reference.md#uriHost) | Dönüş `host` Tekdüzen Kaynak Tanımlayıcısı (URI) değeri. | 
+| [uriPath](../logic-apps/workflow-definition-language-functions-reference.md#uriPath) | Dönüş `path` Tekdüzen Kaynak Tanımlayıcısı (URI) değeri. | 
+| [uriPathAndQuery](../logic-apps/workflow-definition-language-functions-reference.md#uriPathAndQuery) | Dönüş `path` ve `query` Tekdüzen Kaynak Tanımlayıcısı (URI) değerleri. | 
+| [uriPort](../logic-apps/workflow-definition-language-functions-reference.md#uriPort) | Dönüş `port` Tekdüzen Kaynak Tanımlayıcısı (URI) değeri. | 
+| [uriQuery](../logic-apps/workflow-definition-language-functions-reference.md#uriQuery) | Dönüş `query` Tekdüzen Kaynak Tanımlayıcısı (URI) değeri. | 
+| [uriScheme](../logic-apps/workflow-definition-language-functions-reference.md#uriScheme) | Dönüş `scheme` Tekdüzen Kaynak Tanımlayıcısı (URI) değeri. | 
+||| 
+
+<a name="manipulation-functions"></a>
+
+## <a name="manipulation-functions-json--xml"></a>İşleme işlevleri: JSON ve XML
+
+JSON nesneleri ve XML düğümü ile çalışmak için bu işleme işlevleri kullanabilirsiniz. Her işlev hakkındaki tam başvuru için bkz: [alfabetik liste](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| İşleme işlevi | Görev | 
+| --------------------- | ---- | 
+| [addProperty](../logic-apps/workflow-definition-language-functions-reference.md#addProperty) | Bir özellik, değer veya ad-değer çifti için bir JSON nesnesi ekleyin ve güncelleştirilmiş nesneyi döndürür. | 
+| [birleşim](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | Bir veya daha fazla parametrelerinden ilk null olmayan değer döndürür. | 
+| [removeProperty](../logic-apps/workflow-definition-language-functions-reference.md#removeProperty) | Bir JSON nesnesinden bir özelliğini kaldırın ve güncelleştirilmiş nesneyi döndürür. | 
+| [setProperty](../logic-apps/workflow-definition-language-functions-reference.md#setProperty) | Bir JSON nesnesi özelliği değerini ayarlayın ve güncelleştirilmiş nesneyi döndürür. | 
+| [XPath](../logic-apps/workflow-definition-language-functions-reference.md#xpath) | Düğümleri veya bir (XML Path Language) XPath ifadesi eşleşen değerler için XML denetleyin ve eşleşen düğümleri veya değerleri döndürür. | 
+||| 
+
+<a name="alphabetical-list"></a>
 <a name="action"></a>
 
-## <a name="action"></a>action
+### <a name="action"></a>eylem
 
 Dönüş *geçerli* çalışma zamanı ya da bir ifadeye atayabilirsiniz diğer JSON ad ve değer çiftleri değerlerinden çıkış eylem. Varsayılan olarak, bu işlevi tüm eylem nesnesine başvuruyor ancak değerini istediğiniz bir özellik isteğe bağlı olarak belirtebilirsiniz. Ayrıca bkz: [actions()](../logic-apps/workflow-definition-language-functions-reference.md#actions).
 
@@ -53,7 +308,7 @@ action().outputs.body.<property>
 
 <a name="actionBody"></a>
 
-## <a name="actionbody"></a>actionBody
+### <a name="actionbody"></a>actionBody
 
 Bir eylemin dönüş `body` çalışma zamanında çıktı. İçin Toplu özellik `actions('<actionName>').outputs.body`. Bkz: [body()](#body) ve [actions()](#actions).
 
@@ -98,7 +353,7 @@ Ve bu sonucu verir:
 
 <a name="actionOutputs"></a>
 
-## <a name="actionoutputs"></a>actionOutputs
+### <a name="actionoutputs"></a>actionOutputs
 
 Çalışma zamanında bir eylemin çıkışını geri döndürür. İçin Toplu özellik `actions('<actionName>').outputs`. Bkz: [actions()](#actions).
 
@@ -161,7 +416,7 @@ Ve bu sonucu verir:
 
 <a name="actions"></a>
 
-## <a name="actions"></a>Eylemler
+### <a name="actions"></a>Eylemler
 
 Bir ifadeyi atayabilirsiniz diğer JSON ad ve değer çiftleri gelen bir eylemin çıkış çalışma zamanı veya değerleri döndürür. Varsayılan olarak, tüm eylem nesnesi işlev başvuruyor, ancak isteğe bağlı olarak bir özellik belirtin, istediğiniz değeri. Toplu sürümleri için bkz: [actionBody()](#actionBody), [actionOutputs()](#actionOutputs), ve [body()](#body). Geçerli eylem için bkz: [action()](#action).
 
@@ -196,7 +451,7 @@ Ve bu sonucu verir: `"Succeeded"`
 
 <a name="add"></a>
 
-## <a name="add"></a>ekle
+### <a name="add"></a>ekle
 
 İki sayıyı eklemesini sonucu döndürür.
 
@@ -226,7 +481,7 @@ Ve bu sonucu verir: `2.5`
 
 <a name="addDays"></a>
 
-## <a name="adddays"></a>addDays
+### <a name="adddays"></a>addDays
 
 Bir gün sayısı için bir zaman damgası ekleyin.
 
@@ -268,7 +523,7 @@ Ve bu sonucu verir: `"2018-03-10T00:00:0000000Z"`
 
 <a name="addHours"></a>
 
-## <a name="addhours"></a>addHours
+### <a name="addhours"></a>addHours
 
 Saat sayısı için bir zaman damgası ekleyin.
 
@@ -310,7 +565,7 @@ Ve bu sonucu verir: `"2018-03-15T10:00:0000000Z"`
 
 <a name="addMinutes"></a>
 
-## <a name="addminutes"></a>addMinutes
+### <a name="addminutes"></a>addMinutes
 
 Dakika sayısı için bir zaman damgası ekleyin.
 
@@ -352,7 +607,7 @@ Ve bu sonucu verir: `"2018-03-15T00:15:00.0000000Z"`
 
 <a name="addProperty"></a>
 
-## <a name="addproperty"></a>addProperty
+### <a name="addproperty"></a>addProperty
 
 Bir özellik, değer veya ad-değer çifti için bir JSON nesnesi ekleyin ve güncelleştirilmiş nesneyi döndürür. Çalışma zamanında nesne zaten varsa, işlev bir hata oluşturur.
 
@@ -382,7 +637,7 @@ addProperty(json('customerProfile'), 'accountNumber', guid())
 
 <a name="addSeconds"></a>
 
-## <a name="addseconds"></a>saniyeEkle
+### <a name="addseconds"></a>saniyeEkle
 
 Saniye sayısı için bir zaman damgası ekleyin.
 
@@ -424,7 +679,7 @@ Ve bu sonucu verir: `"2018-03-15T00:00:25.0000000Z"`
 
 <a name="addToTime"></a>
 
-## <a name="addtotime"></a>addToTime
+### <a name="addtotime"></a>addToTime
 
 Zaman birimlerinin sayısı için bir zaman damgası ekleyin. Ayrıca bkz: [getFutureTime()](#getFutureTime).
 
@@ -467,7 +722,7 @@ Ve isteğe bağlı bir "D" biçim kullanarak sonucunu döndürür: `"Tuesday, Ja
 
 <a name="and"></a>
 
-## <a name="and"></a>ve
+### <a name="and"></a>ve
 
 Tüm ifadelerin doğru olup olmadığını denetleyin. Tüm ifadeler doğru olduğunda true döndürür veya en az bir ifade false olduğunda false döndürür.
 
@@ -519,7 +774,7 @@ Ve bu sonuçları döndürür:
 
 <a name="array"></a>
 
-## <a name="array"></a>array
+### <a name="array"></a>array
 
 Belirtilen tek bir giriş için bir dizi döndürür. Birden çok giriş için bkz. [createArray()](#createArray). 
 
@@ -549,7 +804,7 @@ Ve bu sonucu verir: `["hello"]`
 
 <a name="base64"></a>
 
-## <a name="base64"></a>Base64
+### <a name="base64"></a>Base64
 
 Base64 kodlamalı sürümü bir dize döndürür.
 
@@ -579,7 +834,7 @@ Ve bu sonucu verir: `"aGVsbG8="`
 
 <a name="base64ToBinary"></a>
 
-## <a name="base64tobinary"></a>base64ToBinary
+### <a name="base64tobinary"></a>base64ToBinary
 
 İkili dosya sürümü için base64 ile kodlanmış bir dize döndürür.
 
@@ -611,7 +866,7 @@ Ve bu sonucu verir:
 
 <a name="base64ToString"></a>
 
-## <a name="base64tostring"></a>base64ToString
+### <a name="base64tostring"></a>base64ToString
 
 Base64 dizesi etkili bir şekilde kod çözme base64 ile kodlanmış bir dize, dize sürümü döndürür. Bu işlevi kullanmak yerine [decodeBase64()](#decodeBase64). Her iki işlev aynı şekilde çalışır ancak `base64ToString()` tercih edilir.
 
@@ -641,7 +896,7 @@ Ve bu sonucu verir: `"hello"`
 
 <a name="binary"></a>
 
-## <a name="binary"></a>İkili 
+### <a name="binary"></a>İkili 
 
 İkili dosya sürümü bir dize döndürür.
 
@@ -673,7 +928,7 @@ Ve bu sonucu verir:
 
 <a name="body"></a>
 
-## <a name="body"></a>body
+### <a name="body"></a>body
 
 Bir eylemin dönüş `body` çalışma zamanında çıktı. İçin Toplu özellik `actions('<actionName>').outputs.body`. Bkz: [actionBody()](#actionBody) ve [actions()](#actions).
 
@@ -718,7 +973,7 @@ Ve bu sonucu verir:
 
 <a name="bool"></a>
 
-## <a name="bool"></a>bool
+### <a name="bool"></a>bool
 
 Boole sürümü için bir değer döndürür.
 
@@ -752,7 +1007,7 @@ Ve bu sonuçları döndürür:
 
 <a name="coalesce"></a>
 
-## <a name="coalesce"></a>birleşim
+### <a name="coalesce"></a>birleşim
 
 Bir veya daha fazla parametrelerinden ilk null olmayan değer döndürür. Boş dizeler, boş diziler ve boş nesneler boş değildir.
 
@@ -788,7 +1043,7 @@ Ve bu sonuçları döndürür:
 
 <a name="concat"></a>
 
-## <a name="concat"></a>concat
+### <a name="concat"></a>concat
 
 İki veya daha fazla dizeleri birleştirmek ve birleştirilmiş dizeyi döndürür. 
 
@@ -818,7 +1073,7 @@ Ve bu sonucu verir: `"HelloWorld"`
 
 <a name="contains"></a>
 
-## <a name="contains"></a>içerir
+### <a name="contains"></a>içerir
 
 Bir koleksiyon için belirli bir öğe olup olmadığını denetleyin. Öğesi bulunduğunda true döndürür veya return false olduğunda nebyl nalezen. Bu işlev büyük/küçük harf duyarlıdır.
 
@@ -862,7 +1117,7 @@ contains('hello world', 'universe')
 
 <a name="convertFromUtc"></a>
 
-## <a name="convertfromutc"></a>convertFromUtc
+### <a name="convertfromutc"></a>convertFromUtc
 
 Bir zaman damgası (UTC) saat Eşgüdümlü Evrensel hedef saat dilimine dönüştürür.
 
@@ -904,7 +1159,7 @@ Ve bu sonucu verir: `"Monday, January 1, 2018"`
 
 <a name="convertTimeZone"></a>
 
-## <a name="converttimezone"></a>convertTimeZone
+### <a name="converttimezone"></a>convertTimeZone
 
 Bir zaman damgasını kaynak saat diliminden hedef saat dilimine dönüştürür.
 
@@ -947,7 +1202,7 @@ Ve bu sonucu verir: `"Monday, January 1, 2018"`
 
 <a name="convertToUtc"></a>
 
-## <a name="converttoutc"></a>convertToUtc
+### <a name="converttoutc"></a>convertToUtc
 
 Bir zaman damgasını kaynak saat diliminden saati Eşgüdümlü Evrensel (UTC) dönüştürün.
 
@@ -989,7 +1244,7 @@ Ve bu sonucu verir: `"Monday, January 1, 2018"`
 
 <a name="createArray"></a>
 
-## <a name="createarray"></a>createArray
+### <a name="createarray"></a>createArray
 
 Birden çok girişler bir dizi döndürür. Tek giriş diziler için bkz: [array()](#array).
 
@@ -1019,7 +1274,7 @@ Ve bu sonucu verir: `["h", "e", "l", "l", "o"]`
 
 <a name="dataUri"></a>
 
-## <a name="datauri"></a>dataUri
+### <a name="datauri"></a>dataUri
 
 Bir veri Tekdüzen kaynak tanımlayıcısıdır (URI) bir dize döndürür. 
 
@@ -1049,7 +1304,7 @@ Ve bu sonucu verir: `"data:text/plain;charset=utf-8;base64,aGVsbG8="`
 
 <a name="dataUriToBinary"></a>
 
-## <a name="datauritobinary"></a>dataUriToBinary
+### <a name="datauritobinary"></a>dataUriToBinary
 
 İkili dosya sürümü için bir veri Tekdüzen Kaynak Tanımlayıcısı (URI) döndürür. Bu işlevi kullanmak yerine [decodeDataUri()](#decodeDataUri). Her iki işlev aynı şekilde çalışır ancak `decodeDataUri()` tercih edilir.
 
@@ -1084,7 +1339,7 @@ Ve bu sonucu verir:
 
 <a name="dataUriToString"></a>
 
-## <a name="datauritostring"></a>dataUriToString
+### <a name="datauritostring"></a>dataUriToString
 
 Bir veri Tekdüzen Kaynak Tanımlayıcısı (URI) dize sürümü döndürür.
 
@@ -1114,7 +1369,7 @@ Ve bu sonucu verir: `"hello"`
 
 <a name="dayOfMonth"></a>
 
-## <a name="dayofmonth"></a>dayOfMonth
+### <a name="dayofmonth"></a>dayOfMonth
 
 Ayın gününü itibaren zaman damgası döndürür. 
 
@@ -1144,7 +1399,7 @@ Ve bu sonucu verir: `15`
 
 <a name="dayOfWeek"></a>
 
-## <a name="dayofweek"></a>dayOfWeek
+### <a name="dayofweek"></a>dayOfWeek
 
 Haftanın günü itibaren zaman damgası döndürür.  
 
@@ -1174,7 +1429,7 @@ Ve bu sonucu verir: `3`
 
 <a name="dayOfYear"></a>
 
-## <a name="dayofyear"></a>dayOfYear
+### <a name="dayofyear"></a>dayOfYear
 
 İtibaren zaman damgası yılın gününü döndürür. 
 
@@ -1204,7 +1459,7 @@ Ve bu sonucu verir: `74`
 
 <a name="decodeBase64"></a>
 
-## <a name="decodebase64"></a>decodeBase64
+### <a name="decodebase64"></a>decodeBase64
 
 Base64 dizesi etkili bir şekilde kod çözme base64 ile kodlanmış bir dize, dize sürümü döndürür. Kullanmayı [base64ToString()](#base64ToString) yerine `decodeBase64()`. Her iki işlev aynı şekilde çalışır ancak `base64ToString()` tercih edilir.
 
@@ -1234,7 +1489,7 @@ Ve bu sonucu verir: `"hello"`
 
 <a name="decodeDataUri"></a>
 
-## <a name="decodedatauri"></a>decodeDataUri
+### <a name="decodedatauri"></a>decodeDataUri
 
 İkili dosya sürümü için bir veri Tekdüzen Kaynak Tanımlayıcısı (URI) döndürür. Kullanmayı [dataUriToBinary()](#dataUriToBinary), yerine `decodeDataUri()`. Her iki işlev aynı şekilde çalışır ancak `dataUriToBinary()` tercih edilir.
 
@@ -1269,7 +1524,7 @@ Ve bu sonucu verir:
 
 <a name="decodeUriComponent"></a>
 
-## <a name="decodeuricomponent"></a>Decodeurıcomponent
+### <a name="decodeuricomponent"></a>Decodeurıcomponent
 
 Değiştirir kodu çözülmüş sürümleriyle karakter kaçış bir dize döndürür. 
 
@@ -1299,7 +1554,7 @@ Ve bu sonucu verir: `"https://contoso.com"`
 
 <a name="div"></a>
 
-## <a name="div"></a>div
+### <a name="div"></a>div
 
 Tamsayı sonucu, iki sayı arasındaki bölme işleminin sonucunu döndürür. Kalanı sonucu elde etmek için bkz: [mod()](#mod).
 
@@ -1331,7 +1586,7 @@ Ve bu sonucu döndürür: `2`
 
 <a name="encodeUriComponent"></a>
 
-## <a name="encodeuricomponent"></a>Encodeurıcomponent
+### <a name="encodeuricomponent"></a>Encodeurıcomponent
 
 URL güvenli olmayan karakterleri kaçış karakterleri ile değiştirerek bir Tekdüzen Kaynak Tanımlayıcısı (URI) ile kodlanmış sürümü bir dize döndürür. Kullanmayı [uriComponent()](#uriComponent), yerine `encodeUriComponent()`. Her iki işlev aynı şekilde çalışır ancak `uriComponent()` tercih edilir.
 
@@ -1361,7 +1616,7 @@ Ve bu sonucu verir: `"http%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
-## <a name="empty"></a>boş
+### <a name="empty"></a>boş
 
 Bir koleksiyonun boş olup olmadığını denetleyin. Koleksiyon boş olduğunda true döndürür veya boş değil olduğunda false döndürür.
 
@@ -1396,7 +1651,7 @@ Ve bu sonuçları döndürür:
 
 <a name="endswith"></a>
 
-## <a name="endswith"></a>endsWith
+### <a name="endswith"></a>endsWith
 
 Bir dizeyi belirli bir alt dizesi ile bitip bitmediğini kontrol edin. Alt dize bulunduğunda true döndürür veya return false olduğunda nebyl nalezen. Bu işlev büyük küçük harfe duyarlı değil.
 
@@ -1437,7 +1692,7 @@ Ve bu sonucu verir: `false`
 
 <a name="equals"></a>
 
-## <a name="equals"></a>şuna eşittir:
+### <a name="equals"></a>şuna eşittir:
 
 Hem değer, ifadeler veya nesneleri eşdeğer olup olmadığını denetleyin. Her ikisi de eşit veya eşdeğer bulunmasa false döndürün olduğunda true döndürür.
 
@@ -1471,7 +1726,7 @@ Ve bu sonuçları döndürür:
 
 <a name="first"></a>
 
-## <a name="first"></a>ilk
+### <a name="first"></a>ilk
 
 Bir dize veya diziden ilk öğeyi döndürür.
 
@@ -1506,7 +1761,7 @@ Ve bu sonuçlar döndürebilir:
 
 <a name="float"></a>
 
-## <a name="float"></a>float
+### <a name="float"></a>float
 
 Bir kayan noktalı sayı için bir dize sürümü için gerçek kayan nokta sayısı dönüştürün. Yalnızca özel parametreler bir mantıksal uygulama gibi bir uygulamaya geçirirken, bu işlevi kullanabilirsiniz.
 
@@ -1536,7 +1791,7 @@ Ve bu sonucu verir: `10.333`
 
 <a name="formatDateTime"></a>
 
-## <a name="formatdatetime"></a>formatDateTime
+### <a name="formatdatetime"></a>formatDateTime
 
 Bir zaman damgası belirtilen biçimde döndürür.
 
@@ -1567,7 +1822,7 @@ Ve bu sonucu verir: `"2018-03-15T12:00:00"`
 
 <a name="formDataMultiValues"></a>
 
-## <a name="formdatamultivalues"></a>formDataMultiValues
+### <a name="formdatamultivalues"></a>formDataMultiValues
 
 Bir eylem içinde bir anahtar adıyla eşleşen değerleri içeren bir dizi döndürür *form verisinin* veya *form kodlu* çıktı. 
 
@@ -1598,7 +1853,7 @@ Ve konu metnini, örneğin bir dizide döndürür: `["Hello world"]`
 
 <a name="formDataValue"></a>
 
-## <a name="formdatavalue"></a>formDataValue
+### <a name="formdatavalue"></a>formDataValue
 
 Bir eylem içinde bir anahtar adı ile eşleşen tek bir değer döndürmesi *form verisinin* veya *form kodlu* çıktı. İşlev, işlev birden fazla eşleşme bulunursa, bir hata oluşturur.
 
@@ -1629,7 +1884,7 @@ Ve konu metnini, örneğin bir dize olarak döndürür: `"Hello world"`
 
 <a name="getFutureTime"></a>
 
-## <a name="getfuturetime"></a>getFutureTime
+### <a name="getfuturetime"></a>getFutureTime
 
 Yanı sıra belirtilen zaman birimi geçerli zaman damgasını döndürür.
 
@@ -1671,7 +1926,7 @@ Ve bu sonucu verir: `"Tuesday, March 6, 2018"`
 
 <a name="getPastTime"></a>
 
-## <a name="getpasttime"></a>getPastTime
+### <a name="getpasttime"></a>getPastTime
 
 Belirtilen zaman birimi eksi geçerli zaman damgasını döndürür.
 
@@ -1713,7 +1968,7 @@ Ve bu sonucu verir: `"Saturday, January 27, 2018"`
 
 <a name="greater"></a>
 
-## <a name="greater"></a>daha büyük
+### <a name="greater"></a>daha büyük
 
 İlk değer ikinci değerden büyük olup olmadığını denetleyin. İlk değeri daha fazla olduğunda true döndürür veya ne zaman false döndürün daha az.
 
@@ -1749,7 +2004,7 @@ Ve bu sonuçlar döndürebilir:
 
 <a name="greaterOrEquals"></a>
 
-## <a name="greaterorequals"></a>greaterOrEquals
+### <a name="greaterorequals"></a>greaterOrEquals
 
 İlk değer ikinci değerine eşit veya daha büyük olup olmadığını denetleyin.
 İlk değeri sıfırdan büyük veya eşit olduğunda true döndürür veya ilk değeri daha az olduğunda false döndürür.
@@ -1786,7 +2041,7 @@ Ve bu sonuçlar döndürebilir:
 
 <a name="guid"></a>
 
-## <a name="guid"></a>GUID
+### <a name="guid"></a>GUID
 
 Örneğin, "c2ecc88d-88c8-4096-912c-d6f2e2b138ce" bir dize olarak bir genel benzersiz tanıtıcısı (GUID) oluşturur: 
 
@@ -1822,7 +2077,7 @@ Ve bu sonucu verir: `"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
 <a name="if"></a>
 
-## <a name="if"></a>Eğer
+### <a name="if"></a>Eğer
 
 İfadenin true veya false olup olmadığını denetleyin. Sonuca bağlı, belirli bir değeri döndürme.
 
@@ -1852,7 +2107,7 @@ if(equals(1, 1), 'yes', 'no')
 
 <a name="indexof"></a>
 
-## <a name="indexof"></a>indexOf
+### <a name="indexof"></a>indexOf
 
 Başlangıç konumu veya bir alt dizin değerini döndürür. Bu işlev büyük küçük harfe duyarlı değildir ve dizinleri sayısı 0 ile başlatın. 
 
@@ -1883,7 +2138,7 @@ Ve bu sonucu verir: `6`
 
 <a name="int"></a>
 
-## <a name="int"></a>int
+### <a name="int"></a>int
 
 Tamsayı sürümü bir dize döndürür.
 
@@ -1913,7 +2168,7 @@ Ve bu sonucu verir: `10`
 
 <a name="item"></a>
 
-## <a name="item"></a>Öğesi
+### <a name="item"></a>Öğesi
 
 Bir dizi üzerinde yinelenen bir eylem içinde kullanıldığında, geçerli öğeyi dizide eylemin geçerli yineleme sırasında döndürür. Ayrıca, bu öğeye ait özellikleri değerleri alabilirsiniz. 
 
@@ -1936,7 +2191,7 @@ item().body
 
 <a name="items"></a>
 
-## <a name="items"></a>öğeler
+### <a name="items"></a>öğeler
 
 Her döngü için-her bir döngü içinde öğesinden geçerli öğeyi döndürür. Bu işlev için-her bir döngü içinde kullanın.
 
@@ -1964,7 +2219,7 @@ items('myForEachLoopName')
 
 <a name="json"></a>
 
-## <a name="json"></a>json
+### <a name="json"></a>json
 
 JavaScript nesne gösterimi (JSON) türü değeri veya dize veya XML nesnesi döndürür.
 
@@ -2033,7 +2288,7 @@ Ve bu sonucu verir:
 
 <a name="intersection"></a>
 
-## <a name="intersection"></a>kesişimi
+### <a name="intersection"></a>kesişimi
 
 Sahip bir koleksiyonun dönüş *yalnızca* belirtilen koleksiyonlarla arasında ortak öğeleri. Sonuçta görüntülenmek üzere bir öğe bu işleve geçirilen tüm koleksiyonlarda yer almalıdır. Bir veya daha fazla öğe aynı ada sahipse, bu ada sahip son öğeyi sonuçta da görüntülenir.
 
@@ -2064,7 +2319,7 @@ Ve bir dizi döndürür *yalnızca* bu öğeler: `[1, 2]`
 
 <a name="join"></a>
 
-## <a name="join"></a>join
+### <a name="join"></a>join
 
 Bir dizideki tüm öğeler ve her karakter sahip bir dize ayırarak döndürülecek bir *sınırlayıcı*.
 
@@ -2095,7 +2350,7 @@ Ve bu sonucu verir: `"a.b.c"`
 
 <a name="last"></a>
 
-## <a name="last"></a>Son
+### <a name="last"></a>Son
 
 Bir koleksiyondaki son öğeyi döndürür.
 
@@ -2130,7 +2385,7 @@ Ve bu sonuçları döndürür:
 
 <a name="lastindexof"></a>
 
-## <a name="lastindexof"></a>lastIndexOf
+### <a name="lastindexof"></a>lastIndexOf
 
 Bir alt dize için bitiş konumu veya dizin değerini döndürür. Bu işlev büyük küçük harfe duyarlı değildir ve dizinleri sayısı 0 ile başlatın.
 
@@ -2161,7 +2416,7 @@ Ve bu sonucu verir: `10`
 
 <a name="length"></a>
 
-## <a name="length"></a>Uzunluğu
+### <a name="length"></a>Uzunluğu
 
 Bir koleksiyondaki öğe sayısını döndürür.
 
@@ -2193,7 +2448,7 @@ Ve bu sonucu döndürür: `4`
 
 <a name="less"></a>
 
-## <a name="less"></a>daha az
+### <a name="less"></a>daha az
 
 İkinci değer ilk değer olup değerinden denetleyin.
 İlk değer daha az olduğunda true döndürür veya ilk değeri daha fazla olduğunda false döndürür.
@@ -2230,7 +2485,7 @@ Ve bu sonuçlar döndürebilir:
 
 <a name="lessOrEquals"></a>
 
-## <a name="lessorequals"></a>lessOrEquals
+### <a name="lessorequals"></a>lessOrEquals
 
 İlk değer ya da ikinci değer eşit olup olmadığını denetleyin.
 İlk değer küçük veya eşit olduğunda true döndürür veya ilk değeri daha fazla olduğunda false döndürür.
@@ -2267,7 +2522,7 @@ Ve bu sonuçlar döndürebilir:
 
 <a name="listCallbackUrl"></a>
 
-## <a name="listcallbackurl"></a>listCallbackUrl
+### <a name="listcallbackurl"></a>listCallbackUrl
 
 "Bir tetikleyici veya eylemi çağırır geri çağırma URL'si" döndürür. Bu işlev, tetikleyiciler ve Eylemler için birlikte çalışır **HttpWebhook** ve **ApiConnectionWebhook** bağlayıcı türleri, ancak **el ile**,  **Yinelenme**, **HTTP**, ve **APIConnection** türleri. 
 
@@ -2288,7 +2543,7 @@ Bu örnek, bu işlev döndürebilir örnek geri çağırma URL'sini gösterir:
 
 <a name="max"></a>
 
-## <a name="max"></a>en çok
+### <a name="max"></a>en çok
 
 Bir listeden veya dizi sayılarla her iki uçta da dahil en yüksek değeri döndürür. 
 
@@ -2321,7 +2576,7 @@ Ve bu sonucu döndürür: `3`
 
 <a name="min"></a>
 
-## <a name="min"></a>dk
+### <a name="min"></a>dk
 
 En düşük değer bir dizi numaraları veya bir dizi döndürür.
 
@@ -2354,7 +2609,7 @@ Ve bu sonucu döndürür: `1`
 
 <a name="mod"></a>
 
-## <a name="mod"></a>mod
+### <a name="mod"></a>mod
 
 Kalan iki sayı arasındaki bölme işleminin sonucunu döndürür. Tamsayı sonucu elde etmek için bkz: [div()](#div).
 
@@ -2385,7 +2640,7 @@ Ve bu sonucu döndürür: `1`
 
 <a name="mul"></a>
 
-## <a name="mul"></a>mul
+### <a name="mul"></a>mul
 
 Ürün iki sayı arasındaki çarpma işleminin sonucunu döndürür.
 
@@ -2420,7 +2675,7 @@ Ve bu sonuçlar döndürebilir:
 
 <a name="multipartBody"></a>
 
-## <a name="multipartbody"></a>multipartBody
+### <a name="multipartbody"></a>multipartBody
 
 Birden çok bölümü olan bir eylemin çıkış belirli bir parçanın gövdesini döndürür.
 
@@ -2441,7 +2696,7 @@ multipartBody('<actionName>', <index>)
 
 <a name="not"></a>
 
-## <a name="not"></a>değil
+### <a name="not"></a>değil
 
 Bir ifadenin false olup olmadığını denetleyin. İfade false olduğunda true döndürür veya true olduğunda false döndürür.
 
@@ -2489,7 +2744,7 @@ Ve bu sonuçlar döndürebilir:
 
 <a name="or"></a>
 
-## <a name="or"></a>or
+### <a name="or"></a>or
 
 En az bir ifadenin doğru olup olmadığını denetleyin. En az bir ifade true olduğunda true döndürür veya tümü false olduğunda false döndürür.
 
@@ -2537,7 +2792,7 @@ Ve bu sonuçlar döndürebilir:
 
 <a name="parameters"></a>
 
-## <a name="parameters"></a>parametreler
+### <a name="parameters"></a>parametreler
 
 Mantıksal uygulama tanımınızı açıklanan bir parametre için bir değer döndürür. 
 
@@ -2575,7 +2830,7 @@ Ve bu sonucu verir: `"Sophia Owen"`
 
 <a name="rand"></a>
 
-## <a name="rand"></a>rand
+### <a name="rand"></a>rand
 
 Yalnızca başlangıç sonunda dahil belirtilen bir aralıktan rastgele bir tamsayı döndürür.
 
@@ -2606,7 +2861,7 @@ Ve sonuç olarak bu numaraları birini döndürür: `1`, `2`, `3`, veya `4`
 
 <a name="range"></a>
 
-## <a name="range"></a>Aralığı
+### <a name="range"></a>Aralığı
 
 Belirtilen bir tamsayı başlayan bir tamsayı dizisi döndürür.
 
@@ -2637,7 +2892,7 @@ Ve bu sonucu verir: `[1, 2, 3, 4]`
 
 <a name="replace"></a>
 
-## <a name="replace"></a>Değiştir
+### <a name="replace"></a>Değiştir
 
 Belirtilen dizenin bir alt dizenin yerini ve sonuç dizeyi döndürür. Bu işlev büyük/küçük harf duyarlıdır.
 
@@ -2669,7 +2924,7 @@ Ve bu sonucu verir: `"the new string"`
 
 <a name="removeProperty"></a>
 
-## <a name="removeproperty"></a>removeProperty
+### <a name="removeproperty"></a>removeProperty
 
 Bir nesneden bir özelliğini kaldırın ve güncelleştirilmiş nesneyi döndürür.
 
@@ -2698,7 +2953,7 @@ removeProperty(json('customerProfile'), 'accountLocation')
 
 <a name="setProperty"></a>
 
-## <a name="setproperty"></a>setProperty
+### <a name="setproperty"></a>setProperty
 
 Bir nesnenin özellik değerini ayarlayın ve güncelleştirilmiş nesneyi döndürür. Yeni bir özellik eklemek için bu işlevi kullanabilirsiniz veya [addProperty()](#addProperty) işlevi.
 
@@ -2728,7 +2983,7 @@ setProperty(json('customerProfile'), 'accountNumber', guid())
 
 <a name="skip"></a>
 
-## <a name="skip"></a>Atla
+### <a name="skip"></a>atla
 
 Bir koleksiyonun önünden öğeleri kaldırıp dönüş *diğer tüm* öğeleri.
 
@@ -2759,7 +3014,7 @@ Bu dizinin kalan öğeleri döndürür: `[1,2,3]`
 
 <a name="split"></a>
 
-## <a name="split"></a>split
+### <a name="split"></a>split
 
 Ayrılmış bir dize değerinden tüm karakterleri ve her karakter sahip bir dizi döndürür bir *sınırlayıcı*.
 
@@ -2790,7 +3045,7 @@ Ve bu sonucu verir: `[a, b, c]`
 
 <a name="startOfDay"></a>
 
-## <a name="startofday"></a>startOfDay
+### <a name="startofday"></a>startOfDay
 
 Bir zaman damgası için günün başlangıcını döndürür. 
 
@@ -2821,7 +3076,7 @@ Ve bu sonucu verir: `"2018-03-15T00:00:00.0000000Z"`
 
 <a name="startOfHour"></a>
 
-## <a name="startofhour"></a>startOfHour
+### <a name="startofhour"></a>startOfHour
 
 Bir zaman damgası için saatin başlangıcını döndürür. 
 
@@ -2852,7 +3107,7 @@ Ve bu sonucu verir: `"2018-03-15T13:00:00.0000000Z"`
 
 <a name="startOfMonth"></a>
 
-## <a name="startofmonth"></a>startOfMonth
+### <a name="startofmonth"></a>startOfMonth
 
 Bir zaman damgası için ayın başlangıcını döndürür. 
 
@@ -2883,7 +3138,7 @@ Ve bu sonucu verir: `"2018-03-01T00:00:00.0000000Z"`
 
 <a name="startswith"></a>
 
-## <a name="startswith"></a>startsWith
+### <a name="startswith"></a>startsWith
 
 Bir dizeyi belirli bir alt dizesi ile başlayıp başlamadığını kontrol edin. Alt dize bulunduğunda true döndürür veya return false olduğunda nebyl nalezen. Bu işlev büyük küçük harfe duyarlı değil.
 
@@ -2924,7 +3179,7 @@ Ve bu sonucu verir: `false`
 
 <a name="string"></a>
 
-## <a name="string"></a>string
+### <a name="string"></a>dize
 
 Dize sürümü için bir değer döndürür.
 
@@ -2964,7 +3219,7 @@ Ve bu sonucu verir: `"{ \\"name\\": \\"Sophie Owen\\" }"`
 
 <a name="sub"></a>
 
-## <a name="sub"></a>alt
+### <a name="sub"></a>alt
 
 İlk numarasından ikinci sayı arasındaki çıkarma işleminin sonucu döndürür.
 
@@ -2995,7 +3250,7 @@ Ve bu sonucu verir: `10`
 
 <a name="substring"></a>
 
-## <a name="substring"></a>alt dize
+### <a name="substring"></a>alt dize
 
 Dönüş karakteri bir dizeden belirtilen konumu veya dizin başlatılıyor. Sayı 0 ile değerleri başlangıç dizini. 
 
@@ -3027,7 +3282,7 @@ Ve bu sonucu verir: `"world"`
 
 <a name="subtractFromTime"></a>
 
-## <a name="subtractfromtime"></a>subtractFromTime
+### <a name="subtractfromtime"></a>subtractFromTime
 
 Bir zaman damgası saat birimleri sayısı çıkarın. Ayrıca bkz: [getPastTime](#getPastTime).
 
@@ -3070,7 +3325,7 @@ Ve isteğe bağlı "D" biçimini kullanarak bu sonucunu döndürür: `"Monday, J
 
 <a name="take"></a>
 
-## <a name="take"></a>sınav zamanı
+### <a name="take"></a>sınav zamanı
 
 Bir koleksiyonun önünden öğelerini döndürür. 
 
@@ -3106,7 +3361,7 @@ Ve bu sonuçlar döndürebilir:
 
 <a name="ticks"></a>
 
-## <a name="ticks"></a>saat döngüsü
+### <a name="ticks"></a>tık
 
 Dönüş `ticks` belirtilen bir zaman damgası için özellik değeri. A *değer çizgisi* 100 nanosaniyelik aralık.
 
@@ -3126,7 +3381,7 @@ ticks('<timestamp>')
 
 <a name="toLower"></a>
 
-## <a name="tolower"></a>toLower
+### <a name="tolower"></a>toLower
 
 Küçük harf biçiminde bir dize döndürür. Dizesindeki bir karakter, bir küçük harf sürüm yoksa, bu karakter döndürülen dizeye değiştirilmeden kalır.
 
@@ -3156,7 +3411,7 @@ Ve bu sonucu verir: `"hello world"`
 
 <a name="toUpper"></a>
 
-## <a name="toupper"></a>toUpper
+### <a name="toupper"></a>toUpper
 
 Büyük harf biçiminde bir dize döndürür. Dizesindeki bir karakter, bir büyük harfli sürümünü yoksa, bu karakter döndürülen dizeye değiştirilmeden kalır.
 
@@ -3186,7 +3441,7 @@ Ve bu sonucu verir: `"HELLO WORLD"`
 
 <a name="trigger"></a>
 
-## <a name="trigger"></a>Tetikleyici
+### <a name="trigger"></a>Tetikleyici
 
 Bir ifadeyi atayabilirsiniz diğer JSON ad ve değer çiftleri gelen bir tetikleyicinin çıkış çalışma zamanı veya değerleri döndürür. 
 
@@ -3207,7 +3462,7 @@ trigger()
 
 <a name="triggerBody"></a>
 
-## <a name="triggerbody"></a>triggerBody
+### <a name="triggerbody"></a>triggerBody
 
 Bir tetikleyicinin dönüş `body` çalışma zamanında çıktı. İçin Toplu özellik `trigger().outputs.body`. Bkz: [trigger()](#trigger). 
 
@@ -3222,7 +3477,7 @@ triggerBody()
 
 <a name="triggerFormDataMultiValues"></a>
 
-## <a name="triggerformdatamultivalues"></a>triggerFormDataMultiValues
+### <a name="triggerformdatamultivalues"></a>triggerFormDataMultiValues
 
 Bir tetikleyici içinde bir anahtar adıyla eşleşen değerleri içeren bir dizi döndürür *form verisinin* veya *form kodlu* çıktı. 
 
@@ -3252,7 +3507,7 @@ Ve bu dizi bir örnek sonucu verir: `["http://feeds.reuters.com/reuters/topNews"
 
 <a name="triggerFormDataValue"></a>
 
-## <a name="triggerformdatavalue"></a>triggerFormDataValue
+### <a name="triggerformdatavalue"></a>triggerFormDataValue
 
 Bir tetikleyici içinde bir anahtar adı ile eşleşen tek bir değer içeren bir dize döndürecek *form verisinin* veya *form kodlu* çıktı. İşlev, işlev birden fazla eşleşme bulunursa, bir hata oluşturur.
 
@@ -3300,7 +3555,7 @@ triggerMultipartBody(<index>)
 
 <a name="triggerOutputs"></a>
 
-## <a name="triggeroutputs"></a>triggerOutputs
+### <a name="triggeroutputs"></a>triggerOutputs
 
 Çalışma zamanı veya değerleri bir tetikleyicinin çıkışını diğer JSON ad ve değer çiftlerinden geri döndürür. İçin Toplu özellik `trigger().outputs`. Bkz: [trigger()](#trigger). 
 
@@ -3315,7 +3570,7 @@ triggerOutputs()
 
 <a name="trim"></a>
 
-## <a name="trim"></a>Kırpma
+### <a name="trim"></a>Kırpma
 
 Bir dizeden öndeki ve sondaki boşlukları kaldırın ve güncelleştirilmiş bir dize döndürür.
 
@@ -3345,7 +3600,7 @@ Ve bu sonucu verir: `"Hello World"`
 
 <a name="union"></a>
 
-## <a name="union"></a>birleşim
+### <a name="union"></a>birleşim
 
 Sahip bir koleksiyonun dönüş *tüm* belirtilen koleksiyonlarla öğelerinden. Sonuçta görüntülenmek üzere bu işleve geçirilen koleksiyondaki bir öğe görünebilir. Bir veya daha fazla öğe aynı ada sahipse, bu ada sahip son öğeyi sonuçta da görüntülenir. 
 
@@ -3376,7 +3631,7 @@ Ve bu sonucu verir: `[1, 2, 3, 10, 101]`
 
 <a name="uriComponent"></a>
 
-## <a name="uricomponent"></a>uriComponent
+### <a name="uricomponent"></a>uriComponent
 
 URL güvenli olmayan karakterleri kaçış karakterleri ile değiştirerek bir Tekdüzen Kaynak Tanımlayıcısı (URI) ile kodlanmış sürümü bir dize döndürür. Bu işlevi kullanmak yerine [encodeUriComponent()](#encodeUriComponent). Her iki işlev aynı şekilde çalışır ancak `uriComponent()` tercih edilir.
 
@@ -3406,7 +3661,7 @@ Ve bu sonucu verir: `"http%3A%2F%2Fcontoso.com"`
 
 <a name="uriComponentToBinary"></a>
 
-## <a name="uricomponenttobinary"></a>uriComponentToBinary
+### <a name="uricomponenttobinary"></a>uriComponentToBinary
 
 Bir Tekdüzen Kaynak Tanımlayıcısı (URI) bileşeni için ikili dosya sürümü döndürür.
 
@@ -3441,7 +3696,7 @@ Ve bu sonucu verir:
 
 <a name="uriComponentToString"></a>
 
-## <a name="uricomponenttostring"></a>uriComponentToString
+### <a name="uricomponenttostring"></a>uriComponentToString
 
 Bir Tekdüzen Kaynak Tanımlayıcısı (URI) dize sürümü kodlamalı dize, etkili bir şekilde URI ile kodlanmış bir dize kod çözme döndürür.
 
@@ -3471,7 +3726,7 @@ Ve bu sonucu verir: `"https://contoso.com"`
 
 <a name="uriHost"></a>
 
-## <a name="urihost"></a>uriHost
+### <a name="urihost"></a>uriHost
 
 Dönüş `host` Tekdüzen Kaynak Tanımlayıcısı (URI) değeri.
 
@@ -3501,7 +3756,7 @@ Ve bu sonucu verir: `"www.localhost.com"`
 
 <a name="uriPath"></a>
 
-## <a name="uripath"></a>uriPath
+### <a name="uripath"></a>uriPath
 
 Dönüş `path` Tekdüzen Kaynak Tanımlayıcısı (URI) değeri. 
 
@@ -3531,7 +3786,7 @@ Ve bu sonucu verir: `"/catalog/shownew.htm"`
 
 <a name="uriPathAndQuery"></a>
 
-## <a name="uripathandquery"></a>uriPathAndQuery
+### <a name="uripathandquery"></a>uriPathAndQuery
 
 Dönüş `path` ve `query` Tekdüzen Kaynak Tanımlayıcısı (URI) değerleri.
 
@@ -3561,7 +3816,7 @@ Ve bu sonucu verir: `"/catalog/shownew.htm?date=today"`
 
 <a name="uriPort"></a>
 
-## <a name="uriport"></a>uriPort
+### <a name="uriport"></a>uriPort
 
 Dönüş `port` Tekdüzen Kaynak Tanımlayıcısı (URI) değeri.
 
@@ -3591,7 +3846,7 @@ Ve bu sonucu verir: `8080`
 
 <a name="uriQuery"></a>
 
-## <a name="uriquery"></a>uriQuery
+### <a name="uriquery"></a>uriQuery
 
 Dönüş `query` Tekdüzen Kaynak Tanımlayıcısı (URI) değeri.
 
@@ -3621,7 +3876,7 @@ Ve bu sonucu verir: `"?date=today"`
 
 <a name="uriScheme"></a>
 
-## <a name="urischeme"></a>uriScheme
+### <a name="urischeme"></a>uriScheme
 
 Dönüş `scheme` Tekdüzen Kaynak Tanımlayıcısı (URI) değeri.
 
@@ -3651,7 +3906,7 @@ Ve bu sonucu verir: `"http"`
 
 <a name="utcNow"></a>
 
-## <a name="utcnow"></a>utcNow
+### <a name="utcnow"></a>utcNow
 
 Geçerli zaman damgasını döndürür. 
 
@@ -3694,7 +3949,7 @@ Ve bu sonucu verir: `"Sunday, April 15, 2018"`
 
 <a name="variables"></a>
 
-## <a name="variables"></a>Değişkenleri
+### <a name="variables"></a>Değişkenleri
 
 Belirtilen bir değişkenin değerini döndürür. 
 
@@ -3724,7 +3979,7 @@ Ve bu sonucu verir: `20`
 
 <a name="workflow"></a>
 
-## <a name="workflow"></a>iş akışı
+### <a name="workflow"></a>iş akışı
 
 İş akışı hakkında tüm ayrıntıları, çalışma zamanı sırasında döndürür. 
 
@@ -3747,7 +4002,7 @@ workflow().run.name
 
 <a name="xml"></a>
 
-## <a name="xml"></a>xml
+### <a name="xml"></a>xml
 
 XML sürümü için bir JSON nesnesi içeren bir dize döndürür. 
 
@@ -3805,7 +4060,7 @@ Ve bu XML sonucunu döndürür:
 
 <a name="xpath"></a>
 
-## <a name="xpath"></a>XPath
+### <a name="xpath"></a>XPath
 
 Düğümleri veya bir (XML Path Language) XPath ifadesi eşleşen değerler için XML denetleyin ve eşleşen düğümleri veya değerleri döndürür. Bir XPath ifadesi veya yalnızca "XPath", bir XML belge yapısı içinde XML içeriği düğümleri veya işlem değerleri seçebilirsiniz gezinmenize yardımcı olur.
 

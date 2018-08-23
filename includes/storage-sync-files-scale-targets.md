@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: a9aa4680d91a4ab95933ae636c4467217fd162b2
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: e2e8da3d2dec2c74bbd1c0ca0f52b7eaba5c024e
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39277914"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42056482"
 ---
 | Kaynak | Hedef | Sabit sınırı |
 |----------|--------------|------------|
@@ -27,5 +27,6 @@ ms.locfileid: "39277914"
 | Dosya sistemi nesneleri (dizinler ve dosyalar) her bir eşitleme grubu | 25 milyon nesneleri | Hayır |
 | Dosya sistemi nesneleri (dizinleri ve dosyaları) bir dizinde en fazla sayısı | 200.000 nesneleri | Evet |
 | En büyük nesne (dizinler ve dosyalar) adı uzunluğu | 255 karakter | Evet |
+| En büyük nesne (dizinler ve dosyalar) güvenlik tanımlayıcısı boyutu | 4 KiB | Evet |
 | Dosya boyutu | 100 giB | Hayır |
 | Katmanlanmış bir dosyanın en küçük dosya boyutu | 64 KiB | Evet |

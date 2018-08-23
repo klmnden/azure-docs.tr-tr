@@ -1,5 +1,16 @@
 <!--author=alkohli last changed:01/14/2016-->
 
+---
+title: include dosyası
+description: include dosyası
+services: storage
+author: alkohli
+ms.service: storage
+ms.topic: include
+ms.date: 08/20/2018
+ms.author: alkohli
+ms.custom: include file
+---
 
 #### <a name="to-create-a-new-service"></a>Yeni hizmet oluşturmak için
 1. Microsoft hesabı kimlik bilgilerinizi kullanarak, bu URL'de Klasik Azure portalında oturum açın: [ https://manage.windowsazure.com/ ](https://manage.windowsazure.com/).
@@ -10,7 +21,7 @@
    2. Hizmetiniz için bir **Konum** sağlayın. Genel olarak, cihazınızı dağıtmak istediğiniz coğrafi bölgeye yakın bir konum seçmek istersiniz. Aşağıdakilerin de etkili olmasını isteyebilirsiniz: 
       
       * Azure’da, StorSimple cihazınızla dağıtmak istediğiniz var olan iş yükleriniz varsa o veri merkezini kullanmanız gerekir.
-      * StorSimple Yöneticisi hizmeti ve Azure Storage ayrı iki konumda olabilir. Böyle bir durumda, StorSimple Yöneticisi ve Azure Storage hesabını ayrı ayrı oluşturmanız gerekir. Azure Storage hesabı oluşturmak için Klasik Azure portalındaki Azure Storage hizmetine gidin ve [Azure Storage hesabı oluşturma](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)’daki adımları uygulayın. Bu hesabı oluşturduktan sonra [Hizmet için yeni bir depolama hesabı yapılandırma](../articles/storsimple/storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service)’daki adımları uygulayarak bunu StorSimple Yöneticisi hizmetine ekleyin.
+      * StorSimple Yöneticisi hizmeti ve Azure Storage ayrı iki konumda olabilir. Böyle bir durumda, StorSimple Yöneticisi ve Azure Storage hesabını ayrı ayrı oluşturmanız gerekir. Azure Storage hesabı oluşturmak için Klasik Azure portalındaki Azure Storage hizmetine gidin ve [Azure Storage hesabı oluşturma](../articles/storage/common/storage-quickstart-create-account.md)’daki adımları uygulayın. Bu hesabı oluşturduktan sonra [Hizmet için yeni bir depolama hesabı yapılandırma](../articles/storsimple/storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service)’daki adımları uygulayarak bunu StorSimple Yöneticisi hizmetine ekleyin.
    3. Açılan listeden bir **Abonelik** seçin. Abonelik fatura hesabınıza bağlıdır. Bu alan bir aboneliğiniz olmadığı sürece yoktur.
    4. Otomatik olarak hizmeti olan bir depolama hesabı oluşturmak için **Yeni depolama hesabı oluştur**’u seçin. Bu depolama hesabının "storsimplebwv8c6dcnf" gibi özel bir adı olacaktır. Verilerinizin farklı bir konumda olması gerekiyorsa bu kutunun işaretini kaldırın. 
    5. Hizmeti oluşturmak için **StorSimple Yöneticisi Oluştur**’a tıklayın.

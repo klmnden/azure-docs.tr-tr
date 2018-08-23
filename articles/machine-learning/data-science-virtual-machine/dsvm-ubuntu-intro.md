@@ -3,7 +3,8 @@ title: Azure'da bir Linux (Ubuntu) veri bilimi sanal makinesi sağlama | Microso
 description: Yapılandırın ve analiz ve makine öğrenimi için Azure'da bir veri bilimi sanal makinesi için Linux (Ubuntu) oluşturun.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
+ms.author: gokuma
 manager: cgronlun
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
@@ -13,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: bradsev
-ms.openlocfilehash: 19f190c66f7bb4042c640f2cbb82f911746ceb45
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f45bb3b47209bd6b02cea49c23b0a59ad75fc2e2
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422384"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42060387"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Linux (Ubuntu) için veri bilimi sanal makinesi sağlama
 
@@ -53,7 +53,7 @@ Linux için veri bilimi sanal makinesi de dahil olmak üzere veri bilimi ve geli
 * Machine learning araçları
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): hızlı makine öğrenme çevrimiçi, karma, allreduce, indirimleri, learning2search, etkin, gibi teknikler destekleyen sistem ve etkileşimli öğrenme
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): hızlı ve doğru artırmalı ağaç uygulaması sağlayan bir araç
-  * [Rattle](http://rattle.togaware.com/): veri analizi ve makine öğrenimi R kolay kullanmaya başlama yapar grafik bir araç
+  * [Rattle](https://togaware.com/rattle/): veri analizi ve makine öğrenimi R kolay kullanmaya başlama yapar grafik bir araç
   * [LightGBM](https://github.com/Microsoft/LightGBM): framework artırma hızlı, dağıtılmış, yüksek performanslı bir gradyan
 * Azure SDK'sı, Java, Python, node.js, Ruby, PHP
 * Kitaplıklarında, R ve Python için Azure Machine Learning ve diğer Azure Hizmetleri kullanma
@@ -149,7 +149,7 @@ VM'ye SSH istemcisi veya XFCE grafik Masaüstü X2Go istemcisi aracılığıyla 
 
 Ubuntu DSVM çalıştıran [JupyterHub](https://github.com/jupyterhub/jupyterhub), çok kullanıcılı Jupyter sunucusu. Bağlanmak için Gözat https://your-vm-ip:8000 , dizüstü bilgisayarınız veya masaüstü, kullanıcı adını ve VM oluşturma ve oturum açmak için kullandığınız parolayı girin. Birçok örnek not defterleri göz atın ve denemek için kullanılabilir.
 
-JupyterLab, Jupyter Not defterlerinden ve JupyterHub, yeni nesil de kullanılabilir. Erişmek için JupyterHub için oturum açın ve ardından URL'ye Gözat https://your-vm-ip:8000/lab. Bu satır için /etc/jupyterhub/jupyterhub_config.py ekleyerek JupyterLab varsayılan not defteri sunucusu olarak ayarlayabilirsiniz:
+JupyterLab, Jupyter Not defterlerinden ve JupyterHub, yeni nesil de kullanılabilir. Erişmek için JupyterHub için oturum açın ve ardından URL'ye Gözat https://your-vm-ip:8000/user/your-username/lab. Bu satır için /etc/jupyterhub/jupyterhub_config.py ekleyerek JupyterLab varsayılan not defteri sunucusu olarak ayarlayabilirsiniz:
 
     c.Spawner.default_url = '/lab'
 
@@ -238,7 +238,7 @@ Conda için her zaman ortam adı belirtmeniz gerekir (_py35_ veya _kök_):
 
 Bir grafik arabirimde olan veya yedekleme kümesi iletme X11 varsa yazabilirsiniz **pycharm** PyCharm Python IDE başlatmak için. Varsayılan metin düzenleyicisi kullanabilirsiniz. Ayrıca, Spyder, Anaconda Python dağıtımları ile birlikte bir Python IDE kullanabilirsiniz. Grafik bir masaüstü veya X11 Spyder gereken iletme. İçinde grafik desktop.s Spyder kısayolu sağlanır
 
-### <a name="jupyter-notebook"></a>Jupyter not defteri
+### <a name="jupyter-notebook"></a>Jupyter notebook
 Anaconda dağıtım bir Jupyter not defteri ile kod ve analiz paylaşmak için bir ortam da gelir. Jupyter not defteri JupyterHub erişilir. Yerel Linux kullanıcı adınızı ve parolanızı kullanarak oturum açın.
 
 Jupyter notebook sunucusu Python 2, Python 3 ve R çekirdekler ile önceden yapılandırıldı. Not Defteri sunucuya erişmek için tarayıcıyı başlatmak için "Jupyter Notebook" adlı bir masaüstü simgesi vardır. VM X2Go ya da SSH istemcisi kullanıyorsanız, da ziyaret edebilirsiniz [ https://localhost:8000/ ](https://localhost:8000/) Jupyter notebook sunucusu erişmek için.

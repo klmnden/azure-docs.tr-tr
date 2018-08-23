@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 725a705f746bbf5e32fcc410ba4153ac29e3fc3d
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e9fbe59c40fe55218429a3b479ddbbec7220c66a
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003862"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42059684"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Bulut hizmeti izleme giriş
 
@@ -58,7 +58,7 @@ Her rolün oluşturulduğundan, Visual Studio için Azure tanılama uzantısın�
 
 ## <a name="setup-diagnostics-extension"></a>Kurulum tanılama uzantısı
 
-Öğeniz yoksa ilk olarak, bir **Klasik** depolama hesabı [oluşturmak](../storage/common/storage-create-storage-account.md#create-a-storage-account). Emin depolama hesabı ile oluşturulduğundan **Klasik dağıtım modelini** belirtilen.
+Öğeniz yoksa ilk olarak, bir **Klasik** depolama hesabı [oluşturmak](../storage/common/storage-quickstart-create-account.md). Emin depolama hesabı ile oluşturulduğundan **Klasik dağıtım modelini** belirtilen.
 
 Ardından, gitmek **depolama hesabı (Klasik)** kaynak. Seçin **ayarları** > **erişim anahtarları** ve kopyalama **birincil bağlantı dizesi** değeri. Bulut hizmeti için bu değere ihtiyacınız. 
 

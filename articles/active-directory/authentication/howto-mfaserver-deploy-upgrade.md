@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: dbb95c8aadc66e7ece93fa800055a0f6be81f015
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 7e7952a327134197f1e8492931d7ada871789395
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161421"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055624"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>En son Azure multi-Factor Authentication Sunucusu'na yükseltme
 
 Bu makalede Azure multi-Factor Authentication (MFA) sunucusu v6.0 yükseltme sürecini veya daha yüksek sizi yönlendirir. PhoneFactor Aracısı'nın eski bir sürümüne yükseltmeniz gerekirse, başvurmak [PhoneFactor Aracısı, Azure multi-Factor Authentication Sunucusu'na yükseltme](howto-mfaserver-deploy-upgrade-pf.md).
 
-V6.x veya v7.x eski veya yeni yükseltiyorsanız, tüm bileşenleri .NET 2. 0 ' .NET 4.5 olarak değiştirin. Tüm bileşenleri ayrıca Microsoft Visual C++ 2015 yeniden dağıtılabilir güncelleştirme 1 veya üzeri gerekir. Bunlar zaten yüklü değilse MFA sunucusu Yükleyici bu bileşenlerin x86 ve x64 sürümlerini yükler. Kullanıcı Portalı ve mobil uygulama Web Hizmeti'nin ayrı sunucularda çalıştırırsanız, bu bileşenlerin yükseltmeden önce bu paketleri yüklemeniz gerekir. En son Microsoft Visual C++ 2015 yeniden dağıtılabilir güncelleştirme için arama yapabilirsiniz [Microsoft Download Center](https://www.microsoft.com/en-us/download/). 
+V6.x veya v7.x eski veya yeni yükseltiyorsanız, tüm bileşenleri .NET 2. 0 ' .NET 4.5 olarak değiştirin. Tüm bileşenleri ayrıca Microsoft Visual C++ 2015 yeniden dağıtılabilir güncelleştirme 1 veya üzeri gerekir. Bunlar zaten yüklü değilse MFA sunucusu Yükleyici bu bileşenlerin x86 ve x64 sürümlerini yükler. Kullanıcı Portalı ve mobil uygulama Web Hizmeti'nin ayrı sunucularda çalıştırırsanız, bu bileşenlerin yükseltmeden önce bu paketleri yüklemeniz gerekir. En son Microsoft Visual C++ 2015 yeniden dağıtılabilir güncelleştirme için arama yapabilirsiniz [Microsoft Download Center](https://www.microsoft.com/download/). 
 
 ## <a name="install-the-latest-version-of-azure-mfa-server"></a>Azure MFA sunucusu en son sürümünü yükleyin
 

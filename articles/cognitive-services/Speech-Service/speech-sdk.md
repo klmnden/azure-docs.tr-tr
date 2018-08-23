@@ -7,14 +7,14 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 08/16/2018
 ms.author: v-jerkin
-ms.openlocfilehash: c7eaa2aa37b05bd0e125e1841357979af4f6763a
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 6b5796bf4d049579dbdede2251f2ca67cc9c4bfd
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39326068"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41987475"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>Bilişsel hizmetler konuşma SDK hakkında
 
@@ -26,39 +26,56 @@ Bilişsel hizmetler konuşma Yazılım Geliştirme Seti (SDK), uygulamalarınız
 
 ## <a name="get-the-sdk"></a>SDK'yı edinme
 
-### <a name="get-the-windows-sdk"></a>Windows SDK'sı Al
+### <a name="windows"></a>Windows
 
-Speech SDK'sı Windows sürümünü, 32-bit ve 64-bit C/C++ istemci kitaplıklarının yanı sıra C# ile kullanmak için yönetilen (.NET) kitaplıkları içerir. SDK'sı NuGet kullanarak Visual Studio'da yüklenebilir; Arama `Microsoft.CognitiveServices.Speech`.
+Windows için biz aşağıdaki dilleri destekler:
 
-### <a name="get-the-linux-sdk"></a>Linux SDK'yı edinme
+* C# (UWP ve .NET), C++: başvuru ve bizim konuşma SDK'sı NuGet paketi en son sürümünü kullanın.
+  Paket yönetilen (.NET) kitaplıklarının yanı sıra 32 bit ve 64 bit istemci kitaplıkları içerir.
+  SDK'sı NuGet kullanarak Visual Studio'da yüklenebilir; Arama `Microsoft.CognitiveServices.Speech`.
 
-Aşağıdaki Kabuk komutları çalıştırarak gerekli derleyici ve kitaplıkları olduğundan emin olun:
+* Java: Başvurabilir ve yalnızca Windows x64 destekleyen bizim konuşma SDK Maven paketini en son sürümünü kullanın.
+  Maven projenizde ekleyin `https://csspeechstorage.blob.core.windows.net/maven/` bir ek bir depo ve başvuru olarak `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0` bağımlılık olarak. 
+
+### <a name="linux"></a>Linux
+
+> [!NOTE]
+> Şu anda yalnızca Ubuntu 16.04 PC'de (x86 veya x64 C++ geliştirme için .NET Core ve Java için x64) destekliyoruz.
+
+Gerekli derleyici ve kitaplıkları, aşağıdaki Kabuk komutları çalıştırarak yüklü olduğundan emin olun:
 
 ```sh
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 ```
 
-> [!NOTE]
-> Ubuntu 16.04 (x86 veya x64) bir bilgisayar çalıştırıyorsanız bu yönergeler varsayar. Farklı bir Ubuntu sürümüne veya farklı bir Linux dağıtımı, ortamınız için bu adımları uyarlayabilirsiniz.
+* C# ' ta: Başvuru ve bizim konuşma SDK'sı NuGet paketi en son sürümünü kullanın.
+  SDK'ya başvurmak için şu paket başvuruyu projenize ekleyin:
 
-Ardından, [SDK'sını indirin](https://aka.ms/csspeech/linuxbinary) ve tercih ettiğiniz bir dizine dosyalarında paket. Bu tabloda SDK klasörü yapısı gösterilmektedir.
+  ```xml
+  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="0.6.0" />
+  ```
 
-|Yol|Açıklama|
-|-|-|
-|`license.md`|Lisans|
-|`third-party-notices.md`|Üçüncü taraf bildirimleri|
-|`include`|C ve C++ üstbilgi dosyaları|
-|`lib/x64`|Yerel x64 uygulamanızla bağlama kitaplığı|
-|`lib/x86`|Yerel x86 uygulamanızla bağlama kitaplığı|
+* Java: Başvurabilir ve bizim konuşma SDK Maven paketini en son sürümünü kullanın.
+  Maven projenizde ekleyin `https://csspeechstorage.blob.core.windows.net/maven/` bir ek bir depo ve başvuru olarak `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0` bağımlılık olarak. 
 
-Bir uygulama oluşturmak için kopyalayın veya gerekli ikili dosyaların (ve kitaplıkları) geliştirme ortamınıza taşıyın ve bunları, derleme sürecinizle gerektiği gibi ekleyin.
+* C++: SDK'yı indirin bir [.tar paketinin](https://aka.ms/csspeech/linuxbinary) ve tercih ettiğiniz bir dizine dosyalarında paket. Aşağıdaki tabloda, SDK klasörü yapısı gösterilmektedir.
 
-### <a name="get-the-java-sdk"></a>Alma Java SDK'sı
+  |Yol|Açıklama|
+  |-|-|
+  |`license.md`|Lisans|
+  |`ThirdPartyNotices.md`|Üçüncü taraf bildirimleri|
+  |`include`|C ve C++ üstbilgi dosyaları|
+  |`lib/x64`|Yerel x64 uygulamanızla bağlama kitaplığı|
+  |`lib/x86`|Yerel x86 uygulamanızla bağlama kitaplığı|
+
+  Bir uygulama oluşturmak için kopyalayın veya gerekli ikili dosyaların (ve kitaplıkları) geliştirme ortamınıza taşıyın ve bunları, derleme sürecinizle gerektiği gibi ekleyin.
+
+### <a name="android"></a>Android
 
 Android için Java SDK'sı olarak paketlenmiş bir [AAR (Android kitaplık)](https://developer.android.com/studio/projects/android-library), gerekli kitaplıkların yanı sıra kullanım Android gerekli izinleri içerir.
-Maven deponun barındırılan `https://csspeechstorage.blob.core.windows.net/maven/` paketi olarak `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0`.
-Android Studio projenizi paketinden Tüket aşağıdaki değişiklikleri yapın:
+Maven deponun barındırılan `https://csspeechstorage.blob.core.windows.net/maven/` paketi olarak `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0`.
+Android Studio projenizden paketi kullanmak için aşağıdaki değişiklikleri yapın:
 
 * Proje düzeyi `build.gradle` dosyasında, aşağıdaki ekleyin `repository` bölümü:
 
@@ -69,7 +86,7 @@ Android Studio projenizi paketinden Tüket aşağıdaki değişiklikleri yapın:
 * Modül düzeyi `build.gradle` dosyasında, aşağıdaki ekleyin `dependencies` bölümü:
 
   ```text
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:0.5.0'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:0.6.0'
   ```
 
 Java SDK'sını da olan parçası [konuşma cihaz SDK'sı](speech-devices-sdk.md).

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 07/31/2018
+ms.date: 08/22/2018
 ms.author: rolyon
-ms.openlocfilehash: edf8eccf8c0a1cba70ac178ac5863a68b26f14a3
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 6162ee59689df12e2dace9a0419490979a13d4c5
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622084"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616872"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory Kullanım Koşulları özelliği
 Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar. Bu sunum, kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlar. Bu makalede Azure AD Kullanım Koşullarını kullanmaya nasıl başlayacağınız açıklanmaktadır.
@@ -122,6 +122,8 @@ Bir kullanım koşulları belgesi oluşturulup uygulandığında sonra kapsam da
 Aşağıdaki ekranda Kullanım Koşulları belgesinin mobil cihazlarda nasıl göründüğü gösterilmiştir.
 
 ![Denetim Olayı](media/active-directory-tou/mobile-tou.png)
+
+Kullanıcılar yalnızca kullanım koşulları bir kez kabul etmesi gerekir ve oturum açmalar yeniden üzerinde sonraki kullanım koşullarını görmezsiniz.
 
 ### <a name="how-users-can-review-their-terms-of-use"></a>Kullanıcılar kendi Kullanım Koşullarını nasıl gözden geçirebilir?
 Kullanıcılar, kabul ettikleri kullanım koşullarını gözden geçirip incelemek için aşağıdaki yordamı kullanabilir.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 15bc320bd82ea21ff608fcc834ba51b9bc7b6dea
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 6709fb8ae328f749b367c58f95b8a9ef8da9bc65
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716153"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056178"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de kullanıcı erişimini yönetme
 
@@ -46,7 +46,7 @@ Uygulama düzenleme bağlı olarak, ebeveyn izni yetişkin doğrulanmış bir ku
 
 Kullanıcı akışı ebeveyn izni toplamak için bir örnek verilmiştir:
 
-1. Bir [Azure Active Directory Graph API'si](https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog) işlemi kullanıcı küçük olarak tanımlar ve işaretsiz bir JSON belirteci biçiminde uygulama kullanıcı verilerini döndürür.
+1. Bir [Azure Active Directory Graph API'si](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog) işlemi kullanıcı küçük olarak tanımlar ve işaretsiz bir JSON belirteci biçiminde uygulama kullanıcı verilerini döndürür.
 
 2. Uygulama, JSON belirteci işler ve ondan ebeveyn izni gerekli olduğunu bildiren ve çevrimiçi bir üst izni isteyen küçük için gösteren bir ekranla karşılaşırsınız. 
 
@@ -56,7 +56,7 @@ Kullanıcı akışı ebeveyn izni toplamak için bir örnek verilmiştir:
 
 5. Küçük veya yetişkin onayı iptal eder, Azure AD Graph API'si değiştirmek için kullanılabilir **consentProvidedForMinor** için **reddedildi**. Alternatif olarak, uygulama, onayı iptal edilmiş küçük silmek tercih edebilirsiniz. Kimliği doğrulanmış küçük (veya ikincil'ın hesabını kullanarak üst) onayı iptal edebilir, böylece kullanıcı akışını özelleştirmek isteğe bağlı olarak mümkündür. Azure AD B2C kayıtları **consentProvidedForMinor** olarak **reddedildi**.
 
-Hakkında daha fazla bilgi için **legalAgeGroupClassification**, **consentProvidedForMinor**, ve **yaş**, bkz: [kullanıcı kaynak türü](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/user). Özel öznitelikler hakkında daha fazla bilgi için bkz. [tüketicileriniz hakkında bilgi toplamak için özel öznitelikler kullanma](active-directory-b2c-reference-custom-attr.md). Genişletilmiş öznitelikleri Azure AD Graph API'sini kullanarak adres, öznitelik uzun sürümü gibi kullanmalısınız *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
+Hakkında daha fazla bilgi için **legalAgeGroupClassification**, **consentProvidedForMinor**, ve **yaş**, bkz: [kullanıcı kaynak türü](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Özel öznitelikler hakkında daha fazla bilgi için bkz. [tüketicileriniz hakkında bilgi toplamak için özel öznitelikler kullanma](active-directory-b2c-reference-custom-attr.md). Genişletilmiş öznitelikleri Azure AD Graph API'sini kullanarak adres, öznitelik uzun sürümü gibi kullanmalısınız *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
 
 ## <a name="gather-date-of-birth-and-country-data"></a>Tarih Doğum ve ülke veri toplayın
 

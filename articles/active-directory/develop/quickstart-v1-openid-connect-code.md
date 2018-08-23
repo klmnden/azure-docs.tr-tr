@@ -17,12 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 91cb7df9d38432d660930c21f6a9d0d64215d6e6
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 1f8f19944f64a5dfd5421a99734c5fd0fc3be1bc
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577448"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42060997"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js web uygulaması kullanmaya başlama
 Burada Passport kullanın:
@@ -195,8 +195,8 @@ Burada, Express Openıd Connect kimlik doğrulama protokolünü kullanacak biçi
     ```JavaScript
     // configure Express (section 2)
 
-        var app = express();
-        app.configure(function() {
+      var app = express();
+      app.configure(function() {
       app.set('views', __dirname + '/views');
       app.set('view engine', 'ejs');
       app.use(express.logger());
@@ -408,9 +408,9 @@ Son olarak, derleme ve uygulamanızı çalıştırın. Çalıştırma `node app.
 
 Kişisel bir Microsoft hesabı veya bir iş veya Okul hesabı kullanarak oturum açma ve kullanıcı kimliği/Account listesinde nasıl yansıtılır dikkat edin. Artık kullanıcıların hem kişisel ve iş/Okul hesapları ile kullanıcıların kimliğini doğrulayabilen endüstri standardı protokoller ile güvenli bir web uygulamasına sahipsiniz.
 
-Tamamlanan örnek, başvuru için (yapılandırma değerleriniz olmadan) [.zip dosyası olarak sağlanır](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip). Alternatif olarak, Github'dan kopyalayabilirsiniz:
+Tamamlanan örnek, başvuru için (yapılandırma değerleriniz olmadan) [.zip dosyası olarak sağlanır](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/master.zip). Alternatif olarak, Github'dan kopyalayabilirsiniz:
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
+```git clone --branch master https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
 Artık daha ileri seviyeli konulara geçebilirsiniz. Denemek isteyebilirsiniz:
 

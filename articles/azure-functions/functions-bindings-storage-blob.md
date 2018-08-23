@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 0bd14e85496da8c6c12ecb98b7c8f1730a16e640
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4a5a0634e371e4a762b3877b0c3e45682924a27d
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524575"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42061744"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
@@ -84,6 +84,7 @@ Dile özgü örneğe bakın:
 * [C#](#trigger---c-example)
 * [C# betiği (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Tetikleyici - C# örneği
 
@@ -181,6 +182,45 @@ module.exports = function(context) {
     context.done();
 };
 ```
+
+### <a name="trigger---java-example"></a>Tetikleyici - Java örnek
+
+Aşağıdaki örnek, bir blob tetikleyicisi bağlama gösterir. bir *function.json* dosya ve [Java kod](functions-reference-java.md) bağlama kullanan. Bir blob eklendiğinde veya güncelleştirdiğiniz işlevi günlüğe yazar `myblob` kapsayıcı.
+
+İşte *function.json* dosyası:
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "file",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "myblob/{name}",
+            "connection":"MyStorageAccountAppSetting"
+        }
+    ]
+}
+```
+
+Java kod aşağıdaki gibidir:
+
+```java
+ @FunctionName("blobprocessor")
+ public void run(
+    @BlobTrigger(name = "file",
+                  dataType = "binary",
+                  path = "myblob/filepath",
+                  connection = "myconnvarname") byte[] content,
+    @BindingName("name") String filename,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info("Name: " + name + " Size: " + content.length + " bytes");
+ }
+
+```
+
 
 ## <a name="trigger---attributes"></a>Tetikleyici - öznitelikleri
 
@@ -391,6 +431,7 @@ Dile özgü örneğe bakın:
 * [C#](#input---c-example)
 * [C# betiği (.csx)](#input---c-script-example)
 * [JavaScript](#input---javascript-example)
+* [Java](#input---java-example)
 
 ### <a name="input---c-example"></a>Giriş - C# örneği
 
@@ -505,6 +546,23 @@ module.exports = function(context) {
 };
 ```
 
+### <a name="input---java-example"></a>Giriş - Java örnek
+
+Aşağıdaki örnek bir kuyruk tetikleyicisi ve giriş blob bağlama kullanan bir Java işlevidir. Kuyruk iletisi blob adını içerir ve işlev blob boyutu günlüğe kaydeder.
+
+```java
+@FunctionName("getBlobSize")
+@StorageAccount("AzureWebJobsStorage")
+public void blobSize(@QueueTrigger(name = "filename",  queueName = "myqueue-items") String filename,
+                    @BlobInput(name = "file", dataType = "binary", path = "samples-workitems/{queueTrigger") byte[] content,
+       final ExecutionContext context) {
+      context.getLogger().info("The size of \"" + filename + "\" is: " + content.length + " bytes");
+ }
+ ```
+
+  İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@BlobInput` ek açıklama parametreleri değeri bir blobun gelmesi.  Bu ek açıklama yerel Java türler, pojo'ları veya kullanarak boş değer atanabilir değer ile kullanılabilir `Optional<T>`. 
+
+
 ## <a name="input---attributes"></a>Giriş - öznitelikleri
 
 İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs).
@@ -587,6 +645,7 @@ Dile özgü örneğe bakın:
 * [C#](#output---c-example)
 * [C# betiği (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
+* [Java](#output---java-example)
 
 ### <a name="output---c-example"></a>Çıkış - C# örneği
 
@@ -718,6 +777,24 @@ module.exports = function(context) {
     context.done();
 };
 ```
+
+### <a name="output---java-example"></a>Çıkış - Java örnek
+
+Aşağıdaki örnekte gösterildiği blob giriş ve çıkış bağlamaları bir Java işlev. İşlevi, bir metin blob bir kopyasını oluşturur. İşlevin blob kopyalama adını içeren bir kuyruk iletisi tarafından tetiklenir. Yeni blob {originalblobname} adlı-Kopyala
+
+```java
+@FunctionName("copyTextBlob")
+@StorageAccount("AzureWebJobsStorage")
+@BlobOutput(name = "target", path = "samples-workitems/{queueTrigger}-Copy")
+public String blobCopy(
+    @QueueTrigger(name = "filename", queueName = "myqueue-items") String filename,
+    @BlobInput(name = "source", path = "samples-workitems/{queueTrigger}") String content ) {
+      return content;
+ }
+ ```
+
+ İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@BlobOutput` değeri blob depolama içinde bir nesneye yazılabilir işlevi parametrelere ilişkin açıklama.  Parametre türü olmalıdır `OutputBinding<T>`, burada T bir POJO'ya herhangi bir yerel Java türü.
+
 
 ## <a name="output---attributes"></a>Çıkış - öznitelikleri
 

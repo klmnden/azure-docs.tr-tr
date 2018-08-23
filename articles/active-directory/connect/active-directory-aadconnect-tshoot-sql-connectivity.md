@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: SQL bağlantı sorunlarını giderme | Microsoft Docs'
-description: Azure AD Connect ile ortaya SQL bağlantı sorunlarının nasıl giderileceği açıklanmaktadır.
+description: Azure AD Connect ile oluşan SQL bağlantı sorunlarını gidermek nasıl açıklar.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 05/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ad1e5d176caff6553159c5f35fe2b199ba50769f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9a9b22d3b0c6a4bad594b7fb238360207dd25e1f
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592390"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057057"
 ---
-# <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Azure AD Connect ile ilgili SQL bağlantı sorunlarını giderme
-Bu makalede, Azure AD Connect ve SQL Server arasında bağlantı sorunlarının nasıl giderileceği açıklanmaktadır. 
+# <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Azure AD Connect ile SQL bağlantı sorunlarını giderme
+Bu makalede, Azure AD Connect ile SQL Server arasındaki bağlantı sorunlarını gidermek açıklanmaktadır. 
 
-SQL Server bulunamazsa, aşağıdaki ekran görüntüsünde tipik bir hata gösterir.
+Aşağıdaki ekran görüntüsünde, SQL Server bulunamazsa tipik bir hata gösterir.
 
 ![SQL hatası](media/active-directory-aadconnect-tshoot-sql-connectivity/sql1.png)
 
@@ -35,17 +35,17 @@ Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\A
 ```
 
 >[!NOTE]
->Install-Module gerektirir güncelleştirme [PowerShell 5. 0'ı (WMF 5.0)](https://www.microsoft.com/download/details.aspx?id=50395) veya üzeri;  
-Ya da yükleme [PackageManagement PowerShell modülleri Önizleme - Mart 2016 için PowerShell 3.0/4.0](https://www.microsoft.com/en-us/download/details.aspx?id=51451) 
+>Install-Module gerektirir güncelleştirme [PowerShell 5.0 (WMF 5.0)](https://www.microsoft.com/download/details.aspx?id=50395) veya üzeri;  
+Veya yükleme [PackageManagement PowerShell modülleri Önizleme - Mart 2016 için PowerShell 3.0/4.0](https://www.microsoft.com/download/details.aspx?id=51451) 
 
-- **Tüm komutları gösterme**: `Get-Command -Module AdSyncTools` 
-- **Powershell işlevi yürütmek**: `Connect-ADSyncDatabase` aşağıdaki parametrelerle
+- **Tüm komutları göster**: `Get-Command -Module AdSyncTools` 
+- **Powershell işlevi yürütme**: `Connect-ADSyncDatabase` aşağıdaki parametrelere sahip
     - Sunucu. SQL Server adı.
-    - örneği. (İsteğe bağlı) SQL Server örneği adı ve isteğe bağlı olarak, kullanmak istediğiniz bağlantı noktası numarası. Varsayılan örneği kullanmak için bu parametreyi belirtmeyin.
-    - Kullanıcı adı. (İsteğe bağlı) Bağlanmak için kullanıcı hesabı. Boş bırakılırsa, şu anda oturum açmış olan kullanıcının kullanılır. Bu Azure ADConnect SQL bağlantısı için oluşturduğunuz özel hizmet hesabı olmalıdır uzak bir SQL Server'a bağlanıyorsanız. Azure AD Connect uzak bir SQL server kimlik doğrulaması için Azure AD Connect eşitleme hizmeti hesabını kullanır.
-    - Parola. (İsteğe bağlı) Belirtilen kullanıcı adı parolası.
+    - örneği. (İsteğe bağlı) SQL Server örneği adı ve isteğe bağlı olarak kullanmak istediğiniz bağlantı noktası numarası. Varsayılan örneği kullanmak için bu parametreyi belirtmeyin.
+    - Kullanıcı adı. (İsteğe bağlı) Bağlanmak için kullanıcı hesabı. Boş bırakılırsa, şu anda oturum açmış kullanıcı kullanılacaktır. Bu Azure ADConnect SQL bağlantısı için oluşturduğunuz özel hizmet hesabı olmalıdır bir uzak SQL Server'a bağlanıyorsanız. Azure AD Connect için uzak bir SQL server kimlik doğrulaması için Azure AD Connect eşitleme hizmeti hesabının kullanır.
+    - Parola. (İsteğe bağlı) Sağlanan kullanıcı adının parolası.
 
-Bu powershell işlevi, belirtilen SQL Server ve örnek geçirilen kimlik bilgilerini kullanarak bağlanmaya veya geçerli kullanıcının kimlik bilgilerini kullanın. SQL Server betik etkin protokoller ve bağlantı noktalarını belirlemek için SQL Browser hizmeti bağlanmayı deneyeceğini bulunamazsa.
+Bu powershell işlevi, belirtilen SQL Server ve örnek geçirilen kimlik bilgilerini kullanarak bağlanmaya veya geçerli kullanıcının kimlik bilgilerini kullanın. SQL Server betik etkin protokoller ve bağlantı noktalarını belirlemek için SQL Browser hizmetine bağlanmaya çalışır bulunamazsa.
 
 Örnek: yalnızca bir sunucu adı kullanma
 ```

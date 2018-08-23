@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 522bc9e757abeae930e47eaf53bb6da4bd9d0531
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 1c56f705c07e2001e1ef8f5f9f05c264c33c2c3f
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224118"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42058297"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Visual Studio kullanarak Azure App Service'te bir web uygulaması sorunlarını giderme
 ## <a name="overview"></a>Genel Bakış
-Bu öğreticide, bir web uygulamasında hata ayıklama amacıyla Visual Studio araçlarını kullanmayı gösterilmektedir [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), çalıştırarak [hata ayıklama modu](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) uzaktan veya uygulama günlükleri ve web sunucusu günlüklerini görüntüleyerek.
+Bu öğreticide, bir web uygulamasında hata ayıklama amacıyla Visual Studio araçlarını kullanmayı gösterilmektedir [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), çalıştırarak [hata ayıklama modu](https://docs.microsoft.com/visualstudio/debugger/) uzaktan veya uygulama günlükleri ve web sunucusu günlüklerini görüntüleyerek.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -134,7 +134,8 @@ public ActionResult About()
     return View();
 }
 ```
-4. [Bir kesme noktası ayarlamak](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) üzerinde `ViewBag.Message` satır.
+
+4. [Bir kesme noktası ayarlamak](https://docs.microsoft.com/visualstudio/debugger/) üzerinde `ViewBag.Message` satır.
 
 5. İçinde **Çözüm Gezgini**, projeye sağ tıklayın ve **Yayımla**.
 
@@ -185,7 +186,7 @@ Uzaktan hata ayıklama yalnızca sürekli WebJobs ile çalışır. Zamanlanmış
 
 2. ContosoAdsWebJob projeyi *Functions.cs*.
 
-3. [Bir kesme noktası ayarlamak](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) ilk deyimde üzerinde `GnerateThumbnail` yöntemi.
+3. [Bir kesme noktası ayarlamak](https://docs.microsoft.com/visualstudio/debugger/) ilk deyimde üzerinde `GnerateThumbnail` yöntemi.
 
     ![kesme noktası Ayarla](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
@@ -250,7 +251,7 @@ Uzaktan hata ayıklama yalnızca sürekli WebJobs ile çalışır. Zamanlanmış
   <httpRuntime targetFramework="4.5" />
 </system.web>
 ```
-* Hata ayıklayıcının hata ayıklamak istediğiniz kodda ilerleyebilmeniz değil olduğunu fark ederseniz, yalnızca kendi kodum ayarı değiştirmeniz gerekebilir.  Daha fazla bilgi için [Adımlamayı yalnızca kendi kodum kısıtlama](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
+* Hata ayıklayıcının hata ayıklamak istediğiniz kodda ilerleyebilmeniz değil olduğunu fark ederseniz, yalnızca kendi kodum ayarı değiştirmeniz gerekebilir.  Daha fazla bilgi için [yalnızca kendi kodum, Visual Studio kullanarak kullanıcı kodunda hata ayıklama Artırılmayacağını](https://docs.microsoft.com/visualstudio/debugger/just-my-code).
 * Uzaktan hata ayıklama özelliği etkinleştirmeniz ve 48 saat sonra özelliği otomatik olarak devre dışı Zamanlayıcı sunucuda başlar. Bu 48 saatlik sınırın, güvenlik ve Performans nedeniyle meydana gelir. Bu gibi durumlarda, özellik kolayca istediğiniz geri çok defa kapatabilirsiniz. Değil etkin bir şekilde ayıklarken devre dışı bırakılması önerilir.
 * Bu gibi durumlarda, hata ayıklayıcı el ile herhangi bir işlem için yalnızca web uygulaması işlemi (w3wp.exe) ekleyebilirsiniz. Visual Studio'da hata ayıklama modu kullanma hakkında daha fazla bilgi için bkz. [Visual Studio'da hata ayıklama](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: 961126f62c3e8fbb947b9d1b34ac157bf37a8cba
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 610771e659a80e330fbb1c9d6fd97c15ff832386
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480946"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056363"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure işlevleri için Azure Event Hubs bağlamaları
 
@@ -79,6 +79,7 @@ Dile özgü örneğe bakın:
 * [C# betiği (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### <a name="trigger---c-example"></a>Tetikleyici - C# örneği
 
@@ -312,6 +313,34 @@ module.exports = function (context, eventHubMessages) {
 };
 ```
 
+### <a name="trigger---java-example"></a>Tetikleyici - Java örnek
+
+Aşağıdaki örnek, bir olay hub'ı tetikleyicisi bağlama gösterir. bir *function.json* dosyası ve bir [Java işlevi](functions-reference-java.md) bağlama kullanan. İşlevi, olay hub'ı tetikleyicisi ileti gövdesi günlüğe kaydeder.
+
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "msg",
+  "direction": "in",
+  "eventHubName": "myeventhubname",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+
+```java
+@FunctionName("ehprocessor")
+public void eventHubProcessor(
+  @EventHubTrigger(name = "msg",
+                  eventHubName = "myeventhubname",
+                  connection = "myconnvarname") String message,
+       final ExecutionContext context ) 
+       {
+          context.getLogger().info(message);
+ }
+ ```
+
+ İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `EventHubTrigger` değerini olay Hub'ından gelen parametre üzerindeki ek açıklama. Bu ek açıklamalar parametrelerle bir olay geldiğinde çalıştırmak işlev neden.  Bu ek açıklama yerel Java türler, pojo'ları veya isteğe bağlı kullanarak boş değer atanabilir değer ile kullanılabilir<T>. 
+
 ## <a name="trigger---attributes"></a>Tetikleyici - öznitelikleri
 
 İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) özniteliği.
@@ -381,6 +410,7 @@ Dile özgü örneğe bakın:
 * [C# betiği (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
+* [Java](#output---java-example)
 
 ### <a name="output---c-example"></a>Çıkış - C# örneği
 
@@ -530,6 +560,21 @@ module.exports = function(context) {
     context.done();
 };
 ```
+
+### <a name="output---java-example"></a>Çıkış - Java örnek
+
+Aşağıdaki örnek, geçerli saati bir olay Hub'ına ileti contianing yazan bir Java işlev gösterir.
+
+```java
+@}FunctionName("sendTime")
+@EventHubOutput(name = "event", eventHubName = "samples-workitems", connection = "AzureEventHubConnection")
+public String sendTime(
+   @TimerTrigger(name = "sendTimeTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo)  {
+     return LocalDateTime.now().toString();
+ }
+ ```
+
+İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@EventHubOutput` ek açıklama parametreleri değeri, olay hub'ına poublished olacaktır.  Tür parametresi olmalıdır `OutputBinding<T>` , burada T bir POJO'ya veya herhangi bir yerel Java türü. 
 
 ## <a name="output---attributes"></a>Çıkış - öznitelikleri
 

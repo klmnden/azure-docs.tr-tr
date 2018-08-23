@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 9d398d810a2d43b3754fd8950376c605d4654f38
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: cde70518164c386697127b079979b5b3b76ae088
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621540"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055631"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory'de Uygulama Yönetimi için Makale Dizini
 Bu sayfa, Azure Active Directory (Azure AD) çeşitli uygulama ile ilgili özellikler hakkında yazılan her belgenin kapsamlı bir listesini sağlar.
@@ -96,7 +96,7 @@ Kuruluşunuzda kullanılan şirket içi bulut Azure Active Directory ile birlikt
 |:---:| --- |
 | Hibrit ortamları yönetme hakkında bilgi yanı sıra, Azure AD Connect çoklu oturum açma seçenekleri hakkında genel bir bakış sunulan |[Kullanıcı oturum açma seçenekleri Azure ad Connect](active-directory-aadconnect-user-signin.md) |
 | Hem ortamlarını yönetmek için genel kılavuz Active Directory ve Azure Active Directory şirket |[Azure AD karma kimlik tasarım konuları](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md) |
-| SSO'yu etkinleştirmek için parola eşitlemeyi kullanma yönergeleri |[Azure AD ile parola eşitlemeyi uygulama bağlama](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[Parola eşitleme sorunlarını giderme](https://support.microsoft.com/en-us/kb/2855271) |
+| SSO'yu etkinleştirmek için parola eşitlemeyi kullanma yönergeleri |[Azure AD ile parola eşitlemeyi uygulama bağlama](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[Parola eşitleme sorunlarını giderme](https://support.microsoft.com/kb/2855271) |
 | SSO'yu etkinleştirmek için parola geri yazma özelliğini kullanma yönergeleri |[Azure AD'de parola yönetimine Başlarken](authentication/quickstart-sspr.md)<br /><br />[Parola Geri Yazma Sorunlarını Giderme](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | SSO'yu etkinleştirmek için üçüncü taraf kimlik sağlayıcıları kullanma yönergeleri |[Çoklu oturum açmayı etkinleştirmek için kullanılan uyumlu üçüncü taraf kimlik sağlayıcıları listesi](https://aka.ms/ssoproviders) |
 | Windows 10 kullanıcıları Azure AD'ye katılım aracılığıyla çoklu oturum açmayı avantajlarından nasıl yararlanabilirsiniz |[10 cihaz Azure Active Directory aracılığıyla bulut işlevlerini Windows genişletme katılın](active-directory-azureadjoin-overview.md) |

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 4322f1837c9b7fffba180f7106911d010a9ad8aa
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8525dd443e80bb7d67bc48cc007ab1632ee3e611
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448545"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056024"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure SQL Data Warehouse'a veri yükleme
 
@@ -40,7 +40,7 @@ Bu makale, Data Factory-veri kopyalama aracını işlemini göstermektedir _yük
 * Azure aboneliği: Azure aboneliğiniz yoksa, oluşturun bir [ücretsiz bir hesap](https://azure.microsoft.com/free/) başlamadan önce.
 * Azure SQL veri ambarı: Veri ambarı üzerinde SQL veritabanından kopyalanan verileri tutar. Bir Azure SQL veri ambarı yoksa, yönergelere bakın [SQL veri ambarı oluşturma](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
 * Azure SQL veritabanı: Bu öğretici, Adventure Works LT örnek verileriyle bir Azure SQL veritabanından veri kopyalar. SQL veritabanı'ndaki yönergeleri takip ederek oluşturabileceğiniz [bir Azure SQL veritabanı oluşturma](../sql-database/sql-database-get-started-portal.md). 
-* Azure depolama hesabı: Azure depolama olarak kullanılan _hazırlama_ blob toplu kopyalama işleminde. Azure depolama hesabınız yoksa [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) bölümündeki yönergelere bakın.
+* Azure depolama hesabı: Azure depolama olarak kullanılan _hazırlama_ blob toplu kopyalama işleminde. Azure depolama hesabınız yoksa [Depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md) bölümündeki yönergelere bakın.
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 

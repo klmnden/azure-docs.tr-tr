@@ -5,15 +5,15 @@ services: storage
 author: fauhse
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 08/08/2018
 ms.author: fauhse
 ms.component: files
-ms.openlocfilehash: 44bfdd192f846b710e378b1f00799eda304cec1e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f5fa68488fa8130ad49da37c91b7f4c04376edb3
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522773"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42440688"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure Dosya Eşitleme proxy’si ve güvenli duvarı ayarları
 Azure dosya eşitleme, şirket içi sunucularınızı Azure çok siteli eşitleme ve bulut katmanlaması özellikleri etkinleştirme dosyaları'na bağlanır. Bu nedenle, bir şirket içi sunucu internet'e bağlanması gerekir. Bir BT yöneticisi Azure bulut hizmetlerine erişmek sunucu için en iyi yolu karar vermeniz gerekir.
@@ -46,15 +46,47 @@ Azure dosya eşitleme bulunamazsınız kullanılabilir azure'a otomatik olarak u
 ## <a name="proxy"></a>Ara sunucu
 Azure dosya eşitleme uygulamaya özgü ve makine genelindeki proxy ayarlarını destekler.
 
-Sunucusunun tüm trafiğin proxy üzerinden yönlendirilmesini gibi makine genelindeki proxy ayarları Azure dosya eşitleme aracısı için saydamdır.
-
-Uygulamaya özgü proxy ayarları Azure dosya eşitleme trafiği için özel bir ara sunucu yapılandırmasını sağlar. Uygulamaya özgü proxy ayarları 3.0.12.0 Aracı sürüm veya üstü ve aracı yükleme sırasında veya Set-StorageSyncProxyConfiguration PowerShell cmdlet'i kullanılarak yapılandırılabilir.
+**Uygulamaya özel proxy ayarlarını** Azure dosya eşitleme trafiği için özel bir ara sunucu yapılandırmasına izin verin. Uygulamaya özgü proxy ayarları 3.0.12.0 Aracı sürüm veya üstü ve aracı yükleme sırasında veya Set-StorageSyncProxyConfiguration PowerShell cmdlet'i kullanılarak yapılandırılabilir.
 
 Uygulamaya özel proxy ayarlarını yapılandırmak için PowerShell komutları:
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
 ```
+**Makine genelindeki proxy ayarlarının** sunucusunun tüm trafiğin proxy üzerinden yönlendirilmesini olarak Azure dosya eşitleme aracısı için saydamdır.
+
+Makine genelinde proxy ayarlarını yapılandırmak için aşağıdaki adımları izleyin: 
+
+1. .NET uygulamaları için proxy ayarlarını yapılandırma 
+
+  - Bu iki dosyayı düzenleyin:  
+    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
+    C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+
+  - Machine.config dosyaları (aşağıda < system.serviceModel > bölümünde) < system.net > bölümüne ekleyin.  IP adresi ve bağlantı noktası proxy sunucusu için 127.0.01:8888 değiştirin. 
+  ```
+      <system.net>
+        <defaultProxy enabled="true" useDefaultCredentials="true">
+          <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
+        </defaultProxy>
+      </system.net>
+  ```
+
+2. WinHTTP proxy ayarları ayarlayın 
+
+  - Bir yükseltilmiş komut istemi veya var olan proxy ayarı görmek için PowerShell'de aşağıdaki komutu çalıştırın:   
+
+    Netsh winhttp show proxy
+
+  - Bir yükseltilmiş komut istemi veya PowerShell proxy ayarını ayarlamak için aşağıdaki komutu çalıştırın (127.0.01:8888 IP adresi ve bağlantı noktası proxy sunucusu için değiştirin):  
+
+    Netsh winhttp proxy 127.0.0.1:8888 ayarlayın
+
+3. Bir yükseltilmiş komut istemi veya PowerShell aşağıdaki komutu çalıştırarak depolama eşitleme Aracısı hizmetini yeniden başlatın: 
+
+      net stop filesyncsvc
+
+      Not: Depolama Eşitleme Aracı (filesyncsvc) hizmetini otomatik başlangıç bir kez durduruldu.
 
 ## <a name="firewall"></a>Güvenlik duvarı
 Bir önceki bölümde belirtildiği gibi bağlantı noktası 443 gereksinimlerini olmasını giden açın. Veri Merkezi, dal veya bölgenizde ilkelerine bağlı olarak, daha fazla trafik Bu bağlantı noktası üzerinden belirli etki alanlarına erişimi kısıtlama istenen gerekli veya olabilir.
@@ -76,7 +108,22 @@ Varsa &ast;. one.microsoft.com çok geniş, Azure dosya eşitleme hizmeti yalnı
 
 İş sürekliliği ve olağanüstü durum kurtarma (BCDR) nedenleriyle, bir genel olarak yedekli (GRS) depolama hesabı, Azure dosya paylaşımlarını belirtmiş olabilirsiniz. Bu durumda, ardından Azure dosya paylaşımlarınızın üzerinden eşleştirilmiş bölgede kalıcı bölgesel bir kesinti durumunda başarısız olur. Azure dosya eşitleme aynı bölge çiftlerini depolama alanı olarak kullanır. Bu nedenle GRS depolama hesapları kullanıyorsanız, sunucunuzun eşleştirilmiş bölgede Azure dosya eşitleme için iletişim kurmasına izin vermek ek URL'ler etkinleştirmek gerekir. Aşağıdaki tabloda, bu "çiftli bölge" çağırır. Ayrıca, de etkinleştirilmesi gerekir bir traffic manager profil URL'si yok. Bu, ağ trafiği sorunsuz bir şekilde eşleştirilmiş bölge için bir yük devretme durumunda yeniden yönlendirilebilir ve aşağıdaki tabloda "Bulma URL'si" olarak adlandırılan garanti eder.
 
-| Bölge | Birincil uç nokta URL'si | Eşleştirilmiş bölge | Bulma URL'si | |---|---|| --------|| ---------------------------------------| | Avustralya Doğu | https://kailani-aue.one.microsoft.com | Avustralya Souteast | https://kailani-aue.one.microsoft.com | | Avustralya Güneydoğu | https://kailani-aus.one.microsoft.com | Avustralya Doğu | https://tm-kailani-aus.one.microsoft.com | | Kanada Orta | https://kailani-cac.one.microsoft.com | Kanada Doğu | https://tm-kailani-cac.one.microsoft.com | | Kanada Doğu | https://kailani-cae.one.microsoft.com | Kanada Orta | https://tm-kailani.cae.one.microsoft.com | | Orta ABD | https://kailani-cus.one.microsoft.com | Doğu ABD 2 | https://tm-kailani-cus.one.microsoft.com | | Doğu Asya | https://kailani11.one.microsoft.com | Güneydoğu Asya | https://tm-kailani11.one.microsoft.com | | Doğu ABD | https://kailani1.one.microsoft.com | Batı ABD | https://tm-kailani1.one.microsoft.com | | Doğu ABD 2 | https://kailani-ess.one.microsoft.com | Orta ABD | https://tm-kailani-ess.one.microsoft.com | | Kuzey Avrupa | https://kailani7.one.microsoft.com | Batı Avrupa | https://tm-kailani7.one.microsoft.com | | Güneydoğu Asya | https://kailani10.one.microsoft.com | Doğu Asya | https://tm-kailani10.one.microsoft.com | | UK Güney | https://kailani-uks.one.microsoft.com | UK Batı | https://tm-kailani-uks.one.microsoft.com | | UK Batı | https://kailani-ukw.one.microsoft.com | UK Güney | https://tm-kailani-ukw.one.microsoft.com | | Batı Avrupa | https://kailani6.one.microsoft.com | Kuzey Avrupa | https://tm-kailani6.one.microsoft.com | | Batı ABD | https://kailani.one.microsoft.com | Doğu ABD | https://tm-kailani.one.microsoft.com |
+| Bölge | Birincil uç nokta URL'si | Eşleştirilmiş bölge | Bulma URL'si |
+|--------|---------------------------------------|--------|---------------------------------------|
+| Avustralya Doğu | https://kailani-aue.one.microsoft.com | Avustralya Souteast | https://kailani-aue.one.microsoft.com |
+| Avustralya Güneydoğu | https://kailani-aus.one.microsoft.com | Avustralya Doğu | https://tm-kailani-aus.one.microsoft.com |
+| Orta Kanada | https://kailani-cac.one.microsoft.com | Doğu Kanada | https://tm-kailani-cac.one.microsoft.com |
+| Doğu Kanada | https://kailani-cae.one.microsoft.com | Orta Kanada | https://tm-kailani.cae.one.microsoft.com |
+| Orta ABD | https://kailani-cus.one.microsoft.com | Doğu ABD 2 | https://tm-kailani-cus.one.microsoft.com |
+| Doğu Asya | https://kailani11.one.microsoft.com | Güneydoğu Asya | https://tm-kailani11.one.microsoft.com |
+| Doğu ABD | https://kailani1.one.microsoft.com | Batı ABD | https://tm-kailani1.one.microsoft.com |
+| Doğu ABD 2 | https://kailani-ess.one.microsoft.com | Orta ABD | https://tm-kailani-ess.one.microsoft.com |
+| Kuzey Avrupa | https://kailani7.one.microsoft.com | Batı Avrupa | https://tm-kailani7.one.microsoft.com |
+| Güneydoğu Asya | https://kailani10.one.microsoft.com | Doğu Asya | https://tm-kailani10.one.microsoft.com |
+| Birleşik Krallık Güney | https://kailani-uks.one.microsoft.com | Birleşik Krallık Batı | https://tm-kailani-uks.one.microsoft.com |
+| Birleşik Krallık Batı | https://kailani-ukw.one.microsoft.com | Birleşik Krallık Güney | https://tm-kailani-ukw.one.microsoft.com |
+| Batı Avrupa | https://kailani6.one.microsoft.com | Kuzey Avrupa | https://tm-kailani6.one.microsoft.com |
+| Batı ABD | https://kailani.one.microsoft.com | Doğu ABD | https://tm-kailani.one.microsoft.com |
 
 - Yerel olarak yedekli (LRS) veya bölge olarak yedekli (ZRS) depolama hesapları kullanıyorsanız, yalnızca "birincil uç nokta URL'si altında" listelenen URL'sini etkinleştirmek gerekir.
 

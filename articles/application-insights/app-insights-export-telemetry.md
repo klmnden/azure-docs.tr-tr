@@ -1,6 +1,6 @@
 ---
-title: Application Insights telemetrisini sürekli verilmesini | Microsoft Docs
-description: Microsoft Azure depolama için tanılama ve kullanım verilerini dışa aktarın ve buradan indirin.
+title: Application Insights telemetrisini sürekli dışarı aktarma | Microsoft Docs
+description: Microsoft Azure depolama için tanılama ve kullanım verileri dışarı aktarma ve buradan indirin.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -10,119 +10,118 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 02/23/2017
+ms.topic: conceptual
+ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 942cc355c186b73e0b8802bfbf79ef8b4b39191a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a960ace141d5d71559c39c627f96746a25bf5207
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42057461"
 ---
-# <a name="export-telemetry-from-application-insights"></a>Application Insights telemetrisini dışarı aktarma
-Telemetrinize standart saklama süresinden daha uzun süre tutmak mı istiyorsunuz? Veya özelleştirilmiş bir şekilde işlemek? Sürekli verme bunun için idealdir. Application Insights portalında görmek olayları JSON biçiminde Microsoft Azure depolama alanına aktarılabilir. Buradan, verilerinizi indirin ve size kod yazma işlemesi gerekir.  
+# <a name="export-telemetry-from-application-insights"></a>Application Insights'tan telemetriyi dışarı aktarma
+Telemetrinizi standart saklama süresinden daha uzun süre tutmak mı istiyorsunuz? Veya özel bir şekilde işlemek? Sürekli dışarı aktarma için idealdir. Application Insights portalında gördüğünüz olayları için Microsoft Azure Depolama'da JSON biçiminde dışarı aktarılabilir. Buradan verilerinizi indirin ve, kod yazma, işlemeniz gerekir.  
 
-Sürekli verme özelliğini kullanarak ek bir ücret maruz kalabilirsiniz. Denetleyin, [fiyatlandırma modeli](https://azure.microsoft.com/pricing/details/application-insights/).
+Sürekli dışarı aktarmayı ayarlamadan önce bazı alternatifleri düşünün isteyebileceğiniz vardır:
 
-Sürekli verme ayarlamadan önce göz önünde bulundurabilirsiniz bazı alternatifleri vardır:
+* Dışarı Aktar düğmesini ölçümleri veya arama dikey penceresinin üst tablolar aktarmanıza olanak tanır ve bir Excel elektronik tablosuna grafikleri.
 
-* Ölçümleri veya arama dikey pencerenin üstündeki dışa aktarma düğmesi tabloları aktarmanıza olanak sağlar ve bir Excel elektronik tablosuna grafikleri.
+* [Analytics](app-insights-analytics.md) telemetri için güçlü bir sorgu dili sağlar. Ayrıca sonuçlarını dışarı aktarabilirsiniz.
+* İçin arıyorsanız [verilerinizi Power bı'da araştırma](app-insights-export-power-bi.md), sürekli dışarı aktarma dosyası olmadan bunu yapabilirsiniz.
+* [Veri erişimi REST API](https://dev.applicationinsights.io/) , telemetrinizi programlı bir şekilde erişmenize olanak tanır.
+* Kurulum da erişebilirsiniz [Powershell aracılığıyla sürekli dışarı aktarma](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
 
-* [Analytics](app-insights-analytics.md) telemetri için güçlü sorgu dili sağlar. Ayrıca sonuçlarını dışarı aktarabilirsiniz.
-* İçin arıyorsanız [Power BI verilerinizi keşfedin](app-insights-export-power-bi.md), bunu sürekli verme kullanmadan yapabilirsiniz.
-* [Veri erişim REST API](https://dev.applicationinsights.io/) siz telemetrinize programlı erişim sağlar.
-* Kurulum da erişebilirsiniz [Powershell aracılığıyla sürekli verme](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
+Sürekli dışarı aktarma (burada, kalarak için istediğiniz sürece) depolama alanına veri kopyaladıktan sonra her zamanki için Application Insights'da hala kullanılabilir [saklama süresi](app-insights-data-retention-privacy.md).
 
-Sürekli verme verilerinizi (burada, kalarak için istediğiniz sürece) depolama birimine kopyaladıktan sonra her zamanki için Application Insights'ta hala kullanılabilir [saklama dönemi](app-insights-data-retention-privacy.md).
+## <a name="setup"></a> Sürekli dışarı aktarma oluştur
+1. Application Insights kaynağı uygulamanız için sürekli dışarı aktarma açın ve seçin **Ekle**:
 
-## <a name="setup"></a> Sürekli bir dışarı aktarma oluşturma
-1. Application Insights kaynağı uygulamanız için sürekli verme açın ve seçin **Ekle**:
-
-    ![Aşağı kaydırın ve sürekli ver](./media/app-insights-export-telemetry/01-export.png)
+    ![Ekranı aşağı kaydırın ve sürekli dışarı aktarma tıklayın](./media/app-insights-export-telemetry/01-export.png)
 
 2. Telemetriyi dışarı aktarmak istediğiniz veri türlerini seçin.
 
-3. Oluşturma veya seçme bir [Azure depolama hesabı](../storage/common/storage-introduction.md) , verileri depolamak istediğiniz.
+3. Oluşturma veya seçme bir [Azure depolama hesabı](../storage/common/storage-introduction.md) istediğiniz verileri depolamak.
 
     > [!Warning]
-    > Varsayılan olarak, depolama konumu Application Insights kaynağınıza aynı coğrafi bölgede şekilde ayarlanacak. Farklı bir bölgede depolarsanız, aktarım ödemelere maruz kalabilirsiniz.
+    > Varsayılan olarak, Application Insights kaynağınıza aynı coğrafi bölgede için depolama konumu da ayarlanır. Farklı bir bölgede depolamak, aktarımı ücrete tabi olabilirsiniz.
 
-    ![Dışarı aktarmak, hedef depolama hesabı Ekle'yi ve ardından yeni bir depolama alanı oluşturmak veya mevcut deposunu seçin](./media/app-insights-export-telemetry/02-add.png)
+    ![Dışarı aktarma, hedef depolama hesabı Ekle'a tıklayın ve yeni bir depo oluşturun veya var olan bir depo seçin](./media/app-insights-export-telemetry/02-add.png)
 
-4. Oluşturma veya depolama alanında bir kapsayıcı seçin:
+4. Oluşturun veya depolama birimindeki kapsayıcı seçin:
 
-    ![Seç olay türleri](./media/app-insights-export-telemetry/create-container.png)
+    ![Choose olay türleri](./media/app-insights-export-telemetry/create-container.png)
 
-Dışa aktarma oluşturduktan sonra olmaya başlar. Yalnızca verme oluşturduktan sonra ulaşan Veri Al
+Dışarı aktarma oluşturduktan sonra kullanmaya başlar. Yalnızca bir dışarı aktarma oluşturduktan sonra gelen verileri elde edersiniz.
 
-Yaklaşık bir saat veri depolama alanında görüntülenmeden önce bir gecikme olabilir.
+Veri depolamada görünmeden önce bir saatlik bir gecikme olabilir.
 
-### <a name="to-edit-continuous-export"></a>Sürekli verme düzenlemek için
+### <a name="to-edit-continuous-export"></a>Sürekli dışarı aktarma düzenlemek için
 
-Yalnızca olay türleri daha sonra değiştirmek istiyorsanız, dışa aktarma düzenleyin:
+Olay türleri daha sonra değiştirmek istiyorsanız, yalnızca dışarı aktarmayı düzenleyin:
 
-![Seç olay türleri](./media/app-insights-export-telemetry/05-edit.png)
+![Choose olay türleri](./media/app-insights-export-telemetry/05-edit.png)
 
-### <a name="to-stop-continuous-export"></a>Sürekli verme durdurmak için
+### <a name="to-stop-continuous-export"></a>Sürekli dışarı aktarma durdurmak için
 
-Dışarı aktarma durdurmak için devre dışı bırak'ı tıklatın. Etkinleştirme tekrar tıklattığınızda, dışa aktarma yeni verilerle yeniden başlatılır. Dışarı aktarma devre dışıyken Portalı'nda gelen verileri alamazsınız.
+Dışarı aktarma durdurmak için devre dışı bırak'a tıklayın. Etkinleştirme yeniden'e tıkladığınızda, dışarı aktarma yeni verilerle yeniden başlatılır. Dışarı aktarma devre dışıyken portalda gelen verileri elde etmezsiniz.
 
-Dışarı aktarma kalıcı olarak durdurmak için dosyayı silin. Bunun yapılması, veri depolama biriminden silmez.
+Dışarı aktarma kalıcı olarak durdurmak için silin. Bunun yapılması, veri depolama alanından silinmesine neden olmaz.
 
-### <a name="cant-add-or-change-an-export"></a>Ekleyemez veya verme değiştirmek mi?
-* Eklemek veya dışarı aktarma değiştirmek için sahibi, katkıda bulunan veya uygulama Öngörüler katkıda erişim haklarına sahip olmanız gerekir. [Rolleri hakkında bilgi edinin][roles].
+### <a name="cant-add-or-change-an-export"></a>Ekleyemez veya bir dışarı aktarma Değiştir?
+* Ekleme veya değiştirme dışarı aktarmaları için erişim haklarına sahip, katkıda bulunan veya Application Insights katkıda bulunan gerekir. [Rolleri hakkında bilgi edinin][roles].
 
-## <a name="analyze"></a> Hangi olayların alıyorum?
-İstemci IP adresinden biz hesaplamak konum verileri eklediğimiz dışarı aktarılan verileri uygulamanızdan aldığımız ham telemetri olmasıdır.
+## <a name="analyze"></a> Hangi olayların elde ederim?
+Şu hesapla konum verileri istemci IP adresinden eklediğimiz dışarı aktarılan verileri uygulamanızdan aldığımız ham telemetri olmasıdır.
 
-Tarafından atılan veri [örnekleme](app-insights-sampling.md) dışarı aktarılan verileri dahil edilmez.
+Tarafından atılan veri [örnekleme](app-insights-sampling.md) dışarı aktarılan verileri dahil değildir.
 
-Hesaplanan diğer ölçümleri dahil edilmez. Örneğin, ortalama CPU kullanımı verme yoktur, ancak içinden ortalama hesaplanır ham telemetri verme.
+Diğer hesaplanmış ölçüler dahil edilmez. Örneğin, ortalama CPU kullanımı biz vermeyin ancak biz içinden ortalaması hesaplanır ham telemetriyi dışarı aktarma.
 
-Veriler ayrıca herhangi sonuçlarını içerir [kullanılabilirlik web testleri](app-insights-monitor-web-app-availability.md) ayarlamış olduğunuz.
+Veriler ayrıca sonuçları herhangi içerir [kullanılabilirlik web testleri](app-insights-monitor-web-app-availability.md) ayarlamış olduğunuz.
 
 > [!NOTE]
 > **Örnekleme.** Uygulamanız çok miktarda veri gönderiyorsa örnekleme özelliği çalışır ve yalnızca bir kesir oluşturulan telemetri gönderin. [Örnekleme hakkında daha fazla bilgi edinin.](app-insights-sampling.md)
 >
 >
 
-## <a name="get"></a> Verileri inceleyin.
-Doğrudan portal içinde depolama inceleyebilirsiniz. Tıklatın **Gözat**, depolama hesabınızı seçin ve ardından açın **kapsayıcıları**.
+## <a name="get"></a> Verileri İnceleme
+Doğrudan portalda depolama inceleyebilirsiniz. Tıklayın **Gözat**, depolama hesabınızı seçin ve ardından açın **kapsayıcıları**.
 
-Visual Studio'da Azure depolama incelemek için açık **Görünüm**, **Cloud Explorer**. (Bu komutu yoksa, Azure SDK'yı yüklemeniz gerekir: açık **yeni proje** iletişim kutusunda, Visual C# ' ı genişletin / Bulut ve **.NET için Microsoft Azure SDK almak**.)
+Visual Studio'da Azure depolama incelemek için açık **görünümü**, **Cloud Explorer**. (Bu menü komutu sahip değilseniz Azure SDK'yı yüklemeniz gerekir: açık **yeni proje** iletişim kutusunda, Visual C# ' ı genişletin / bulut seçip **.NET için Microsoft Azure SDK alma**.)
 
-Blob deposu açtığınızda, blob dosya kümesini içeren bir kapsayıcı göreceksiniz. Application Insights kaynağı adı, izleme anahtarı, telemetri-türü/tarih/saat türetilen her dosya URI'si. (Kaynak adının tamamen küçük harflerden ve tire izleme anahtarı atlar.)
+Blob deponuza açtığınızda, bir dizi blob dosyalarını içeren bir kapsayıcıya görürsünüz. Application Insights kaynak adınız, izleme anahtarı, telemetri-türü/tarih/saat türetilen her dosya URI'si. (Kaynak adı tamamen küçük harflerden ve kısa çizgi izleme anahtarı atlar.)
 
-![Uygun bir araçla blob deposu inceleyin.](./media/app-insights-export-telemetry/04-data.png)
+![Uygun bir aracı ile blob deposu inceleyin](./media/app-insights-export-telemetry/04-data.png)
 
-Tarih ve saati UTC ve telemetri deposunda - değil oluşturulduğu zaman borç zaman. Veri indirmek için kod yazma varsa, bu nedenle, doğrusal olarak verilerine taşıyabilirsiniz.
+Tarih ve saati UTC ve telemetri deposunda - oluşturulduğu saat borç zaman. Verileri indirmek için kod yazma, bu nedenle, doğrusal olarak verilerine taşıyabilirsiniz.
 
-Yolu şöyledir:
+Yol biçimi şu şekildedir:
 
     $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
 
 Konum
 
-* `blobCreationTimeUtc` depolama alanı hazırlama blob dahili olarak oluşturulduğu süresi
-* `blobDeliveryTimeUtc` blob verme hedef depolama için ne zaman kopyalanır zamanı
+* `blobCreationTimeUtc` Depolama blob dahili olarak oluşturulduğu zaman zaman hazırlama
+* `blobDeliveryTimeUtc` süresi ne zaman blob dışarı aktarma hedef depolama alanına kopyalanır.
 
 ## <a name="format"></a> Veri biçimi
-* Her bir blob birden çok içeren bir metin dosyasıdır ' \n'-separated satır. Bir süre kabaca yarım bir dakika boyunca işlenen telemetri içerir.
-* Her satır bir istek veya sayfa görünümü gibi bir telemetri veri noktasını temsil eder.
-* Her satır bir biçimlendirilmemiş bir JSON dosyasıdır. Yaslanın ve yerinde stare yapmak istiyorsanız, Visual Studio'da açın ve seçin, Gelişmiş biçim dosyasını düzenleyin:
+* Her blob, birden çok içeren bir metin dosyasıdır ' \n'-separated satır. Bu işleme yaklaşık yarım bir dakikalık bir zaman aralığında toplanan telemetriyi içerir.
+* Her satır bir istek veya sayfa görüntüleme gibi bir telemetri veri noktasını temsil eder.
+* Her satır bir biçimlendirilmemiş bir JSON belgesidir. Yaslanın ve adresinden stare istiyorsanız, Visual Studio'da açın ve seçin, Gelişmiş biçim dosyasını düzenleyin:
 
-![Uygun bir araçla telemetri görüntüleyin](./media/app-insights-export-telemetry/06-json.png)
+![Uygun bir araç telemetri görüntüleme](./media/app-insights-export-telemetry/06-json.png)
 
-Süreler olduğunuz nerede 10 000 işaretlerini çizgilerine içinde = 1 ms. Örneğin, bu değerleri 1 süresini gösterir ve 1.8 almak için tarayıcıdan, 3 ms bir istek göndermek için ms s sayfasını tarayıcıda işlemek için:
+Süreler olduğundan burada 10 000 işaretlerini dalgalanmasındaki = 1 ms. Örneğin, bu değerleri 1 süresini göster ms ve 1.8 almak için tarayıcıdan 3 ms istek göndermek için s sayfasını tarayıcıda işlemek için:
 
     "sendRequest": {"value": 10000.0},
     "receiveRequest": {"value": 30000.0},
     "clientProcess": {"value": 17970000.0}
 
-[Ayrıntılı veri özellik türleri ve değerleri için başvuru modeli.](app-insights-export-data-model.md)
+[Ayrıntılı veri özellik türleri ve değerleri için başvuru model.](app-insights-export-data-model.md)
 
 ## <a name="processing-the-data"></a>Veri işleme
-Küçük bir ölçekte verilerinizi birbirinden çekme, elektronik tabloya okuyun ve benzeri için bazı kod yazabilirsiniz. Örneğin:
+Küçük bir ölçekte verilerinizi uzaklıkta çekme, elektronik tabloya okuyun ve benzeri için bazı kod yazabilirsiniz. Örneğin:
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
     {
@@ -141,59 +140,59 @@ Küçük bir ölçekte verilerinizi birbirinden çekme, elektronik tabloya okuyu
       }
     }
 
-Daha büyük bir kod örneği için bkz: [çalışan rolü kullanarak][exportasa].
+Daha büyük bir kod örneği için bkz. [bir çalışan rolü kullanarak][exportasa].
 
-## <a name="delete"></a>Eski verileri Sil
-Lütfen depolama kapasitesi yönetme ve gerekirse eski verileri silmek için sorumlu olduğunu unutmayın.
+## <a name="delete"></a>Eski verilerinizi silme
+Depolama kapasitenizi yönetme ve gerekirse eski verileri silmek için sorumlu olduğunuzu unutmayın.
 
-## <a name="if-you-regenerate-your-storage-key"></a>Depolama anahtarınızı yeniden oluşturursanız...
-Depolama alanınızın anahtar değiştirirseniz, sürekli verme çalışmayı durdurur. Azure hesabınızda bir bildirim görürsünüz.
+## <a name="if-you-regenerate-your-storage-key"></a>Depolama anahtarı yeniden oluşturursanız...
+Depolama anahtarı değiştirirseniz, sürekli dışarı aktarma çalışmayı durdurur. Azure hesabınızda bir bildirim görürsünüz.
 
-Sürekli Dışarı Aktar dikey penceresini açın ve dışa aktarma düzenleyin. Dışarı aktarma hedefi Düzenle, ancak yalnızca seçili aynı depolama birimi bırakın. Onaylamak için Tamam'ı tıklatın.
+Sürekli dışarı aktarma dikey penceresini açın ve dışarı aktarma düzenleyin. Dışarı aktarma hedefi düzenlemek, ancak yalnızca seçilen aynı depolama bırakın. Onaylamak için Tamam'a tıklayın.
 
-![Üç verme hedef düzenleme sürekli verme, açık ve kapalı.](./media/app-insights-export-telemetry/07-resetstore.png)
+![Üç rol dışarı hedef düzenleme sürekli dışarı aktarma, açık ve kapalı.](./media/app-insights-export-telemetry/07-resetstore.png)
 
-Sürekli verme yeniden başlatılır.
+Sürekli dışarı aktarmayı yeniden başlatılır.
 
 ## <a name="export-samples"></a>Dışarı aktarma örnekleri
 
-* [Akış analizi kullanarak SQL dışarı aktarma][exportasa]
-* [Stream Analytics örnek 2](app-insights-export-stream-analytics.md)
+* [Stream Analytics kullanarak SQL'e aktarma][exportasa]
+* [Stream Analytics örneği 2](app-insights-export-stream-analytics.md)
 
-Büyük ölçek üzerinde dikkate [Hdınsight](https://azure.microsoft.com/services/hdinsight/) -Hadoop kümelerini bulutta. Hdınsight çeşitli teknolojiler yönetmek ve büyük veri çözümleme sağlar ve Application Insights ' dışarı aktarılan verileri işlemek için kullanabilirsiniz.
+Büyük ölçekleri üzerinde düşünün [HDInsight](https://azure.microsoft.com/services/hdinsight/) -Hadoop kümelerini bulutta. Çeşitli teknolojiler yönetmek ve büyük veri analizi için HDInsight sağlar ve Application Insights'tan dışarı aktarılan verileri işlemek için kullanabilirsiniz.
 
 ## <a name="q--a"></a>Soru-Cevap
-* *Ancak tüm istiyorum tek seferlik bir indirme bir grafik.*  
+* *Ancak tüm istiyorum grafik tek seferlik bir indirme.*  
 
-    Evet, bunu yapabilirsiniz. Dikey pencerenin üstündeki **verileri dışa aktar**.
-* *Bir verme ayarlayın, ancak my deposunda verisi yok.*
+    Evet, bunu yapabilirsiniz. Dikey pencerenin en üstünde tıklayın **verileri dışarı aktarma**.
+* *Bir dışarı aktarma ayarlarım ancak my deposunda veri yoktur.*
 
-    Verme ayarladığınız bu yana Application Insights uygulamanızdan tüm telemetri aldınız mı? Yalnızca yeni verileri alırsınız.
-* *I verme ayarlanmaya çalışıldı, ancak erişim reddedildi*
+    Dışarı aktarma ' olarak ayarlandığı Application Insights, uygulamanızdan hiç telemetri aldınız? Yalnızca yeni verileri de alacaksınız.
+* *Ben bir dışarı aktarma ayarlanmaya çalışıldı ancak erişim reddedildi*
 
-    Hesap, kuruluşunuz tarafından aitse sahipler veya katkıda bulunanlar grupların üyesi olmak zorunda.
-* *Doğrudan kendi şirket içi depoya dışa aktarabilirsiniz?*
+    Hesap kuruluşunuza ait, sahip veya katkıda bulunan grupların bir üyesi olmanız gerekir.
+* *Doğrudan kendi şirket içi deposuna dışa aktarabilir miyim?*
 
-    Hayır, özür dileriz. Bizim verme Altyapısı şu anda yalnızca Azure storage ile şu anda çalışıyor.  
-* *My deposunda put veri miktarı için herhangi bir sınır var mıdır?*
+    Hayır, özür dileriz. Dışarı aktarma altyapımız şu anda yalnızca Azure depolama ile şu anda çalışır.  
+* *My deposunda koyduğunuz veri miktarı için herhangi bir sınır var mıdır?*
 
-    Hayır. Dışarı aktarma silene kadar biz verisi itmesi tutmak. Biz blob storage için dış sınırına ulaşıp ancak oldukça büyük durdurmanız. Bu, kullandığınız ne kadar depolama alanı denetlemek için hazır.  
-* *Kaç tane BLOB Depolama alanında ı görmeniz gerekir?*
+    Hayır. Dışarı aktarma silene kadar biz veri gönderme saklamak. Biz blob depolama için dış sınırlarına gelindiğinde, ancak oldukça büyük olan durdurmanız. Bunun ne kadar depolama alanı kontrol etmek için size aittir.  
+* *Depolama alanında kaç blobları görüyorum?*
 
-  * (Verileri kullanılabilir ise), dışarı aktarmak için seçtiğiniz her veri türü için yeni bir blob dakikada oluşturulur.
-  * Ayrıca, yüksek trafiğe sahip uygulamalar için ek bölüm birimleri ayrılır. Bu durumda her birimi dakikada bir blob oluşturur.
-* *Depolama için anahtar yeniden oluşturulacak veya kapsayıcı adının değişip ve dışarı aktarma artık çalışmıyor.*
+  * (Veri varsa) dışarı aktarmak için seçtiğiniz her veri türü için yeni bir blob dakikada oluşturulur.
+  * Ayrıca, yüksek trafiğe sahip uygulamalar için ek bölüm birimleri ayrılır. Bu durumda her bir birimi dakikada bir blob oluşturur.
+* *İçin depolama anahtarı yeniden oluşturuldu veya kapsayıcının adı değiştirilmiş ve dışarı aktarma artık çalışmaz.*
 
-    Dışarı aktarma düzenleyin ve dışarı aktarma hedefi dikey penceresini açın. Önceki seçili aynı depolama bırakın ve onaylamak için Tamam'ı tıklatın. Dışarı aktarma yeniden başlatılır. Son birkaç gün içinde değişiklik varsa, veri kaybı olmaz.
-* *Dışarı aktarma duraklatabilir miyim?*
+    Dışarı aktarmayı düzenleyin ve dışarı aktarma hedefi dikey penceresini açın. Aynı depolama alanı olarak önce seçili bırakın ve onaylamak için Tamam'a tıklayın. Dışarı aktarma yeniden başlatılır. Son birkaç gün içinde değişiklik olduysa, veri kaybı olmaz.
+* *Dışarı aktarma duraklatarak miyim?*
 
-    Evet. Devre dışı bırak'ı tıklatın.
+    Evet. Devre dışı bırak'a tıklayın.
 
 ## <a name="code-samples"></a>Kod örnekleri
 
-* [Akış analizi örneği](app-insights-export-stream-analytics.md)
-* [Akış analizi kullanarak SQL dışarı aktarma][exportasa]
-* [Ayrıntılı veri özellik türleri ve değerleri için başvuru modeli.](app-insights-export-data-model.md)
+* [Stream Analytics örnek](app-insights-export-stream-analytics.md)
+* [Stream Analytics kullanarak SQL'e aktarma][exportasa]
+* [Ayrıntılı veri özellik türleri ve değerleri için başvuru model.](app-insights-export-data-model.md)
 
 <!--Link references-->
 

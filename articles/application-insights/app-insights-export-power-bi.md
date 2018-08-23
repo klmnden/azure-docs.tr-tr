@@ -1,6 +1,6 @@
 ---
-title: Azure Application Insights Power BI verme | Microsoft Docs
-description: Power BI'da analiz sorguları görüntülenebilir.
+title: Azure Application Insights'tan Power BI'a dışarı aktarma | Microsoft Docs
+description: Analiz sorguları, Power BI'da görüntülenebilir.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -11,136 +11,149 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/18/2016
+ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: dee3313082fbe75d76bf27105979cf7e869fafad
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fc651b3bc28e59c5c5a195211d811e206eee3e42
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294131"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056273"
 ---
-# <a name="feed-power-bi-from-application-insights"></a>Power BI Application Insights akış
-[Power BI](http://www.powerbi.com/) , verileri çözümlemek ve paylaşmak Öngörüler yardımcı olan bir iş araçları paketidir. Zengin panolar her cihazda kullanılabilir. Analytics sorgularından dahil olmak üzere pek çok kaynaktan veri birleştirebilirsiniz [Azure Application Insights](app-insights-overview.md).
+# <a name="feed-power-bi-from-application-insights"></a>Application Insights'tan Power BI akışı
+[Power BI](http://www.powerbi.com/) verileri analiz etmek ve öngörüleri paylaşmak yardımcı olan bir iş araçları paketidir. Her cihazda kullanılabilen zengin panolar. Analytics sorguları da dahil olmak üzere pek çok kaynaktan veri birleştirebilir [Azure Application Insights](app-insights-overview.md).
 
-Power BI için Application Insights verileri dışarı aktarma, önerilen üç yöntem vardır. Bunları ayrı olarak veya birlikte kullanabilirsiniz.
+Application Insights verilerini Power BI'a verme üç yöntem vardır:
 
-* [**Power BI bağdaştırıcısı**](#power-pi-adapter). Uygulamanızdan telemetrinin bir tam Pano ayarlayın. Grafikler dizi önceden tanımlanmış, ancak diğer kaynaklardan gelen kendi sorgularınızı ekleyebilirsiniz.
-* [**Analitik sorguları dışarı**](#export-analytics-queries). Herhangi bir yazma istediğiniz ve Power BI için dışarı aktarma sorgu. Analytics kullanarak sorgunuzu yazın ya da bunları kullanım Funnels yazma. Bu sorgu, diğer verilerin bir Panoda yerleştirebilirsiniz.
-* [**Sürekli dışarı aktarma ve Azure akış analizi**](app-insights-export-stream-analytics.md). Bu yöntem, uzun süre boyunca verilerinizi korumak istiyorsanız kullanışlıdır. Bunu yapmazsanız, bunu ayarlamak için daha fazla iş içerdiğinden diğer yöntemlerden birini kullanın.
+* [**Analiz sorguları dışarı aktar**](#export-analytics-queries). Tercih edilen yöntem budur. Herhangi bir yazma sorgu istediğiniz ve Power BI'a aktarın. Bu sorgu, herhangi bir veri yanı sıra bir Pano üzerinde yerleştirebilirsiniz.
+* [**Sürekli dışarı aktarma ve Azure Stream Analytics**](app-insights-export-stream-analytics.md). Bu yöntem, verilerinizi uzun sürelerle depolamak istiyorsanız kullanışlıdır. Bir genişletilmiş veri saklama gereksinimine sahip değilseniz, dışarı aktarma analytics sorgu yöntemini kullanın. Sürekli dışarı aktarma ve Stream Analytics, daha fazla ayarlamak için iş ve ek depolama ek yükü içerir.
+* [**Power BI bağdaştırıcısı**](#power-pi-adapter). Grafikler dizi önceden tanımlanmış, ancak diğer kaynaklardan gelen kendi sorgularınızı ekleyebilirsiniz.
 
-## <a name="power-bi-adapter"></a>Power BI bağdaştırıcısı
-Bu yöntem telemetri tam bir Pano oluşturur. İlk veri kümesi önceden, ancak daha fazla veri ekleyebilirsiniz.
+> [!NOTE]
+> Power BI artık bağdaştırıcısıdır **kullanım dışı**. Bu çözüm için önceden tanımlanmış grafikleri statik düzenlenemez sorgular tarafından doldurulur. Bu sorguları düzenleme olanağına sahip değildir ve verilerinizin belirli özelliklerini bağlı olarak Power BI'ın başarılı olması için bağlantı mümkündür, ancak hiçbir veri doldurulur. Bu, sabit kodlanmış sorgu içinde ayarlanan hariç tutma kriterleri kaynaklanır. Bu çözüm, yine de bazı müşteriler için çalışabilir ancak bağdaştırıcısının flexiblity eksikliği nedeniyle kullanmak için önerilen çözüm olduğunu [ **Analytics sorgusu dışarı** ](#export-analytics-queries) işlevselliği.
 
-### <a name="get-the-adapter"></a>Bağdaştırıcı Al
-1. Oturum [Power BI](https://app.powerbi.com/).
-2. Açık **veri alma**, **Hizmetleri**ve ardından **Application Insights**.
-   
-    ![Ekran görüntüleri alma Application Insights veri kaynağından](./media/app-insights-export-power-bi/power-bi-adapter.png)
-3. Application Insights kaynağınıza ayrıntılarını sağlayın.
-   
-    ![Ekran görüntüsü alma Application Insights veri kaynağından](./media/app-insights-export-power-bi/azure-subscription-resource-group-name.png)
-4. Bir veya verilerin alınması iki dakika bekleyin.
-   
-    ![Power BI ekran bağdaştırıcısı](./media/app-insights-export-power-bi/010.png)
+## <a name="export-analytics-queries"></a>Analiz sorguları Dışarı Aktar
+Bu yol, beğendiğiniz veya kullanım Huniler ' dışarı aktarma Analytics sorgusunu yazmak ve ardından, bir Power BI panosuna dışarı sağlar. (Bağdaştırıcı tarafından oluşturulan bir panoya ekleyebilirsiniz.)
 
-Application Insights grafikler olanla diğer kaynakları ve analiz sorguları birleştirme panoyu düzenleyebilirsiniz. Daha fazla grafik görselleştirme galerisinde alabilirsiniz ve her bir grafik sahiptir ayarlayabilirsiniz.
-
-İlk içeri aktardıktan sonra günlük güncelleştirmek panoyu ve raporları devam. Veri kümesi üzerinde yenileme zamanlamasını kontrol edebilirsiniz.
-
-## <a name="export-analytics-queries"></a>Analitik sorguları dışarı aktarma
-Bu yol, ister ya da kullanım Funnels dışarı herhangi Analytics sorgu yazın ve ardından, bir Power BI panosuna dışa olanak sağlar. (Bağdaştırıcı tarafından oluşturulan Panoda ekleyebilirsiniz.)
-
-### <a name="one-time-install-power-bi-desktop"></a>Bir kez: Power BI Desktop yükleyin
-Application Insights sorgunuzu içeri aktarmak için Power BI'ın Masaüstü sürümünü kullanın. Ardından, Web veya Power BI bulut çalışma alanınıza yayımlayabilirsiniz. 
+### <a name="one-time-install-power-bi-desktop"></a>Bir kez: Power BI Desktop uygulamasını yükleme
+Application Insights sorgunuzu almak için Power BI'ın Masaüstü sürümünü kullanın. Ardından, Web veya Power BI bulut çalışma yayımlayabilirsiniz. 
 
 Yükleme [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
-### <a name="export-an-analytics-query"></a>Analytics sorgusu dışarı aktarma
+### <a name="export-an-analytics-query"></a>Bir Analytics sorgusunu dışarı aktarma
 1. [Analytics açın ve sorgunuzu yazma](app-insights-analytics-tour.md).
-2. Test ve Sonuçlardan memnun kaldıysanız kadar sorgu daraltın. Vermeden önce sorgu analizleri düzgün çalıştığından emin olun.
-3. Üzerinde **verme** menüsünde seçin **Power BI (M)**. Metin dosyasını kaydedin.
+2. Test ve Sonuçlardan memnun kadar sorgu daraltın. Vermeden önce sorgu Analytics'te düzgün çalıştığından emin olun.
+3. Üzerinde **dışarı** menüsünde seçin **Power BI (M)**. Metin dosyasını kaydedin.
    
-    ![Ekran görüntüsü, Analytics, ile vurgulanan verme menüsü](./media/app-insights-export-power-bi/analytics-export-power-bi.png)
-4. Power BI Desktop'ta seçin **Veri Al** > **boş sorgu**. Ardından, sorgu Düzenleyicisi'nde altında **Görünüm**seçin **Gelişmiş Düzenleyici**.
+    ![Ekran görüntüsü, analizi, vurgulanan dışarı aktarma menüsüyle](./media/app-insights-export-power-bi/analytics-export-power-bi.png)
+4. Power BI Desktop'ta seçin **Veri Al** > **boş sorgu**. Ardından, sorgu Düzenleyicisi'nde altında **görünümü**seçin **Gelişmiş Düzenleyici**.
 
-    Dışarı aktarılan M Dil komut dosyasını Gelişmiş düzenleyiciye yapıştırın.
+    Dışarı aktarılan M Dil betiğini Gelişmiş düzenleyiciye yapıştırın.
 
-    ![Ekran görüntüsü, Power BI Desktop, Gelişmiş vurgulanmış düzenleyicisiyle](./media/app-insights-export-power-bi/power-bi-import-analytics-query.png)
+    ![Ekran görüntüsü, Power BI Desktop ile vurgulanmış Gelişmiş Düzenleyici](./media/app-insights-export-power-bi/power-bi-import-analytics-query.png)
 
-1. Power BI'ı Azure erişmesine izin vermek için kimlik bilgilerini sağlamanız gerekebilir. Kullanım **kuruluş hesabı** için Microsoft hesabınızla oturum açın.
+1. Power BI'ın Azure erişmesine izin vermek için kimlik bilgilerini sağlamanız gerekebilir. Kullanım **kuruluş hesabı** için Microsoft hesabınızla oturum açın.
    
     ![Ekran Power BI sorgu Ayarları iletişim kutusu](./media/app-insights-export-power-bi/power-bi-import-sign-in.png)
 
-    Kimlik bilgilerini doğrulamak gereksinim duyarsanız kullanın **veri kaynağı ayarları** sorgu Düzenleyicisi'nde menü komutu. Power BI için kimlik bilgilerinizi farklı olabilir Azure için kullandığınız kimlik bilgilerini belirttiğinizden emin olun.
-2. Sorgunuz için bir görselleştirme seçmesi ve x ekseni, y ekseni ve boyut kesimlere alanları seçin.
+    Kimlik bilgilerini doğrulamak ihtiyacınız varsa **veri kaynağı ayarları** sorgu Düzenleyicisi'nde menü komutu. Power BI için kimlik bilgilerinizi farklı olabilecek, Azure için kullandığınız kimlik bilgilerini belirttiğinizden emin olun.
+2. Sorgunuz için bir görselleştirmeyi seçin ve x eksenini, y ekseni ve boyut kesimlere için alanları seçin.
    
-    ![Power BI Desktop ekran vizualization seçenekleri](./media/app-insights-export-power-bi/power-bi-analytics-visualize.png)
-3. Raporunuzu Power BI bulut alanınıza yayımlayın. Buradan, eşitlenen sürüm diğer web sayfalarına eklenebilir.
+    ![Power BI Desktop ekran görselleştirme seçenekleri](./media/app-insights-export-power-bi/power-bi-analytics-visualize.png)
+3. Raporunuzu Power BI bulut çalışma alanınıza yayımlayın. Burada, diğer web sayfalarına eşitlenmiş sürüm ekleyebilir.
    
-    ![Ekran görüntüsü, Power BI Desktop, Yayımla düğmesi vurgulanan](./media/app-insights-export-power-bi/publish-power-bi.png)
-4. Raporun aralıklarla el ile yenileme veya zamanlanan yenileme seçenekleri sayfasında ayarlayın.
+    ![Ekran görüntüsü, Power BI Desktop, Yayımla düğmesi](./media/app-insights-export-power-bi/publish-power-bi.png)
+4. Rapor aralıklarla el ile yenileme veya zamanlanmış yenileme seçenekleri sayfasında ayarlayın.
 
 ### <a name="export-a-funnel"></a>Bir huni dışarı aktarma
 1. [Huni olun](usage-funnels.md).
-2. Seçin **Power BI**. 
+2. Seçin **Power BI**.
 
    ![Power BI ekran düğmesi](./media/app-insights-export-power-bi/button.png)
-   
-3. Power BI Desktop'ta seçin **Veri Al** > **boş sorgu**. Ardından, sorgu Düzenleyicisi'nde altında **Görünüm**seçin **Gelişmiş Düzenleyici**.
+
+3. Power BI Desktop'ta seçin **Veri Al** > **boş sorgu**. Ardından, sorgu Düzenleyicisi'nde altında **görünümü**seçin **Gelişmiş Düzenleyici**.
 
    ![Ekran görüntüsü, Power BI Desktop, boş sorgu düğmesi vurgulanan](./media/app-insights-export-power-bi/blankquery.png)
 
-   Dışarı aktarılan M Dil komut dosyasını Gelişmiş düzenleyiciye yapıştırın. 
+   Dışarı aktarılan M Dil betiğini Gelişmiş düzenleyiciye yapıştırın. 
 
-   ![Ekran görüntüsü, Power BI Desktop, Gelişmiş vurgulanmış düzenleyicisiyle](./media/app-insights-export-power-bi/advancedquery.png)
+   ![Ekran görüntüsü, Power BI Desktop ile vurgulanmış Gelişmiş Düzenleyici](./media/app-insights-export-power-bi/advancedquery.png)
 
-4. Sorgudan öğeleri seçin ve bir huni görselleştirme seçin.
+4. Sorgudan öğeleri seçin ve bir huni görselleştirmeyi seçin.
 
-   ![Power BI Desktop ekran vizualization seçenekleri](./media/app-insights-export-power-bi/selectsequence.png)
+   ![Power BI Desktop ekran görselleştirme seçenekleri](./media/app-insights-export-power-bi/selectsequence.png)
 
-5. Başlık anlamlı olacak şekilde değiştirin ve raporunuzu Power BI bulut alanınıza yayımlayın. 
+5. Başlığı anlamlı olacak şekilde değiştirin ve raporunuzu Power BI bulut çalışma alanınıza yayımlayın. 
 
-   ![Ekran görüntüsü, Power BI Desktop, vurgulanmış başlık değişikliği](./media/app-insights-export-power-bi/changetitle.png)
+   ![Ekran görüntüsü, Power BI Desktop ile vurgulanmış Unvan değişikliği](./media/app-insights-export-power-bi/changetitle.png)
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Kimlik bilgileri veya veri kümesi boyutunu ilgili hatalarla karşılaşabilirsiniz. Aşağıda, bu hatalar hakkında yapmanız gerekenler hakkında bazı bilgiler verilmiştir.
+Kimlik bilgileri veya veri kümesi boyutu için ilgili hatalarla karşılaşabilirsiniz. Bu hatalar hakkında yapmanız gerekenler hakkında bazı bilgiler aşağıda verilmiştir.
 
 ### <a name="unauthorized-401-or-403"></a>Yetkisiz (401 veya 403)
-Yenileme belirteci güncelleştirilmez bu durum meydana gelebilir. Hala erişiminiz olduğundan emin olmak için aşağıdaki adımları deneyin:
+Yenileme belirtecinizi güncelleştirilmediyse, bu durum oluşabilir. Hâlâ erişiminiz olduğundan emin olmak için aşağıdaki adımları deneyin:
 
 1. Azure portalında oturum açın ve kaynak erişebildiğinden emin olun.
 2. Pano için kimlik bilgilerini yenilemeyi deneyin.
 
- Erişiminiz ve kimlik bilgilerini yenileme işe yaramazsa, Lütfen bir destek bileti açın.
+ Erişiminiz ve kimlik bilgileri yenileme işe yaramazsa, Lütfen bir destek bileti açın.
 
 ### <a name="bad-gateway-502"></a>Hatalı ağ geçidi (502)
-Bunun nedeni genellikle çok fazla veri döndüren bir Analytics sorgusu. Küçük bir zaman aralığı için sorgu kullanmayı deneyin. 
+Bunun nedeni genellikle çok fazla veri döndüren bir Analytics sorgusunu tarafından. Daha küçük bir zaman aralığı için sorgu kullanmayı deneyin. 
 
-Analytics sorgusundan gelen veri kümesi azaltma gereksinimlerinizi karşılamıyorsa, kullanmayı [API](https://dev.applicationinsights.io/documentation/overview) daha büyük bir veri kümesi çıkarmak için. API kullanmak için M sorgu verme dönüştürme bırakılır.
+Veri kümesini analiz sorgusundan gelen azaltma gereksinimlerinizi karşılamıyorsa kullanmayı [API](https://dev.applicationinsights.io/documentation/overview) daha büyük bir veri kümesini çekmek için. API'yi kullanmak için M sorgu verme dönüştürme açıklanmıştır.
 
 1. Oluşturma bir [API anahtarı](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
-2. Azure Resource Manager URL Application Insights API'si ile değiştirerek Analytics'ten dışarı Power BI M komut dosyasını güncelleştirin.
-   * Değiştir  **https://management.azure.com/subscriptions/...**
+2. Azure Resource Manager URL'si ile Application Insights API değiştirerek Analytics'ten dışarı Power BI M betik güncelleştirin.
+   * Değiştirin  **https://management.azure.com/subscriptions/...**
    * ile  **https://api.applicationinsights.io/beta/apps/...**
-3. Son olarak, kimlik bilgileri için temel güncelleştirin ve API anahtarınızı kullanın.
+3. Son olarak, kimlik bilgilerini temel güncelleştirin ve API anahtarınızı kullanın.
   
 
-**Varolan komut dosyası**
+**Var olan bir komut dosyası**
  ```
  Source = Json.Document(Web.Contents("https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups//providers/microsoft.insights/components//api/query?api-version=2014-12-01-preview",[Query=[#"csl"="requests",#"x-ms-app"="AAPBI"],Timeout=#duration(0,0,4,0)]))
  ```
-**Güncelleştirilmiş bir komut dosyası**
+**Güncelleştirilmiş betiği**
  ```
  Source = Json.Document(Web.Contents("https://api.applicationinsights.io/beta/apps/<APPLICATION_ID>/query?api-version=2014-12-01-preview",[Query=[#"csl"="requests",#"x-ms-app"="AAPBI"],Timeout=#duration(0,0,4,0)]))
  ```
 
 ## <a name="about-sampling"></a>Örnekleme hakkında
-Uygulamanız çok miktarda veri gönderiyorsa telemetrinizi yalnızca bir yüzdesini gönderir Uyarlamalı örnekleme özelliğini kullanmak isteyebilirsiniz. El ile SDK veya alım örnekleme ayarladıysanız, aynı geçerlidir. [Örnekleme hakkında daha fazla bilgi](app-insights-sampling.md).
+Uygulamanız çok miktarda veri gönderiyorsa, telemetrinizi yalnızca bir yüzdesini gönderen Uyarlamalı örnekleme özelliği kullanmak isteyebilirsiniz. Aynı el ile SDK'sında ya da alımdan örnekleme ayarladıysanız, geçerlidir. [Örnekleme hakkında daha fazla bilgi](app-insights-sampling.md).
 
+## <a name="power-bi-adapter-deprecated"></a>Power BI bağdaştırıcısı (kullanım dışı)
+Bu yöntem telemetri tamamlanmış bir Pano oluşturur. İlk veri kümesi önceden ancak daha fazla veri ekleyebilirsiniz.
+
+### <a name="get-the-adapter"></a>Bağdaştırıcısı alma
+1. Oturum [Power BI](https://app.powerbi.com/).
+2. Açık **Veri Al** ![sol alt köşedeki GetData simgesi ekran](./media/app-insights-export-power-bi/001.png), **Hizmetleri**.
+
+    ![Ekran görüntüleri faydalanmaya Application Insights veri kaynağından](./media/app-insights-export-power-bi/002.png)
+
+3. Seçin **şimdi edinin** Application Insights altında.
+
+   ![Ekran görüntüleri faydalanmaya Application Insights veri kaynağından](./media/app-insights-export-power-bi/003.png)
+4. Application Insights kaynağınıza ayrıntılarını sağlayın ve ardından **oturum açma**.
+
+    ![Ekran faydalanmaya Application Insights veri kaynağından](./media/app-insights-export-power-bi/005.png)
+
+     Bu bilgiler Application Insights'a genel bakış bölmesinde bulunabilir:
+
+     ![Ekran faydalanmaya Application Insights veri kaynağından](./media/app-insights-export-power-bi/004.png)
+
+5. Yeni oluşturulan Application Insights Power BI uygulamasını açın.
+
+6. Bir veya iki içeri aktarılacak veriler için dakika bekleyin.
+
+    ![Power BI ekran bağdaştırıcısı](./media/app-insights-export-power-bi/010.png)
+
+Application Insights grafikleri değerlerle diğer kaynakları ve analiz sorguları ile birleştirerek panoyu düzenleyebilirsiniz. Daha fazla görselleştirme galeri grafiklerde alabilirsiniz ve her grafik sahiptir ayarlayabilirsiniz.
+
+İlk içeri aktarmadan sonra Pano ve raporlar günlük olarak güncelleştirilmeye devam. Veri kümesindeki yenileme zamanlamasını denetleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Power BI - öğrenin](http://www.powerbi.com/learning/)
-* [Analytics Öğreticisi](app-insights-analytics-tour.md)
+* [Analizi Öğreticisi](app-insights-analytics-tour.md)
 

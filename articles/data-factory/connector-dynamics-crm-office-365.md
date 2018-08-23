@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 3f45f9337a5522f490c268bbdae3ef1a41205175
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e4ebddc35b402d7a8997d899ce97577e93a27b84
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859383"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444869"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri kopyalama kaynak ve hedef (Common Data Service) Dynamics 365 veya Dynamics CRM
 
@@ -155,7 +155,7 @@ Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Dataset öğesinin type özelliği ayarlanmalıdır **DynamicsEntity**. |Evet |
-| entityName | Alınacak varlığın mantıksal adı. | Evet, havuz için (etkinlik kaynağı "sorgu" belirtilmişse) kaynak için Hayır |
+| EntityName | Alınacak varlığın mantıksal adı. | Evet, havuz için (etkinlik kaynağı "sorgu" belirtilmişse) kaynak için Hayır |
 
 > [!IMPORTANT]
 >- Dynamics verileri kopyaladığınızda, "yapı" bölümünde Dynamics kümesinde gereklidir. Sütun adı ve veri türü üzerinde kopyalamak istediğiniz Dynamics verileri tanımlar. Daha fazla bilgi için bkz. [Dataset yapısını](concepts-datasets-linked-services.md#dataset-structure) ve [Dynamics için veri türü eşlemesi](#data-type-mapping-for-dynamics).
@@ -272,7 +272,7 @@ Dynamics veri kopyalamak için kopyalama etkinliğine de Havuz türü ayarlayın
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği havuz öğesinin type özelliği ayarlanmalıdır **DynamicsSink**. | Evet |
-| writeBehavior | İşlemi yazma davranışını.<br/>Değer izin verilen **"Upsert"**. | Evet |
+| WriteBehavior | İşlemi yazma davranışını.<br/>Değer izin verilen **"Upsert"**. | Evet |
 | writeBatchSize | Her toplu Dynamics yazılan veriler satır sayısı. | Hayır (varsayılan: 10) |
 | ignoreNullValues | (Anahtar alanı dışında) giriş verilerinden null değerler yazma işlemi sırasında yok sayılacak belirtir.<br/>İzin verilen değerler **true** ve **false**.<br>- **True**: upsert/güncelleştirme işlemi yaptığınızda hedef nesnedeki verileri değiştirmeden bırakın. Bir ekleme işlemi yaptığınızda, tanımlanan varsayılan bir değer ekleyin.<br/>- **False**: upsert/güncelleştirme işlemi yaptığınızda verileri hedef nesne NULL olarak güncelleştirin. Bir ekleme işlemi yaptığınızda, bir NULL değer ekleyin. | Hayır (varsayılan değer: false) |
 
@@ -333,7 +333,7 @@ Karşılık gelen Data Factory veri türü, kaynak Dynamics veri türü eşlemes
 | AttributeType.Double | çift | ✓ | ✓ |
 | AttributeType.EntityName | Dize | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ | ✓ (ile ilişkili tek bir tür) |
+| AttributeType.Lookup | Guid | ✓ | ✓ (ile ilişkili tek hedef) |
 | AttributeType.ManagedProperty | Boole | ✓ | |
 | AttributeType.Memo | Dize | ✓ | ✓ |
 | AttributeType.Money | Ondalık | ✓ | ✓ |

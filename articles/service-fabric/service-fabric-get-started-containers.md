@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: e76ffa3256da5acecf55ad37ea3d927510565ffe
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 41246e434f8adade65f39b3471417888f62d7528
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577297"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056099"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma
 > [!div class="op_single_selector"]
@@ -204,6 +204,8 @@ Kapsayıcıya alınmış hizmetin iletişim sağlayabilmesi için bir uç nokta 
   </Endpoints>
 </Resources>
 ```
+> [!NOTE]
+> Ek uç noktalar bir hizmet için geçerli özellik değerlerine sahip ek uç nokta öğeler bildirerek eklenebilir. Her bağlantı noktası yalnızca bir protokol değeri bildirebilirsiniz.
 
 Uç nokta tanımlandığında, Service Fabric uç noktayı Adlandırma hizmetinde yayımlar. Kümede çalışan diğer hizmetler bu kapsayıcıyı çözümleyebilir. Ayrıca, [ters proxy](service-fabric-reverseproxy.md)’yi kullanarak kapsayıcıdan kapsayıcıya iletişim kurabilirsiniz. İletişim, ters proxy’nin HTTP dinleme bağlantı noktasını ve iletişim kurmak istediğiniz hizmetlerin adlarının ortam değişkenleri olarak sağlanmasıyla gerçekleştirilir.
 
@@ -247,6 +249,8 @@ Kapsayıcıyla iletişim kurmak için kullanılan konak bağlantı noktasını y
     ...
 </ServiceManifestImport>
 ```
+> [!NOTE]
+> Bir hizmet için ek PortBindings ek PortBinding öğelerle ilgili özellik değerlerini bildirerek eklenebilir.
 
 ## <a name="configure-container-registry-authentication"></a>Kapsayıcı kayıt defteri kimlik doğrulamasını yapılandırma
 ApplicationManifest.xml dosyasının `ContainerHostPolicies` öğesine bir `RepositoryCredentials` öğesi ekleyerek kapsayıcı kayıt defteri kimlik doğrulamasını yapılandırın. Hizmetin depodan kapsayıcı görüntüsünü indirmesini sağlayan myregistry.azurecr.io kapsayıcı kayıt defterine hesap ve parola ekleyin.
@@ -598,13 +602,13 @@ Service Fabric çalışma zaman, kapsayıcı görüntülerinin indirilip ayıkla
 
 ```json
 {
-"name": "Hosting",
+        "name": "Hosting",
         "parameters": [
           {
               "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
-]
+        ]
 }
 ```
 
@@ -626,7 +630,7 @@ Service Fabric çalışma zamanı 6.2 sürümü ve üzeriyle, Docker cinini öze
 
 ```json
 { 
-   "name": "Hosting", 
+        "name": "Hosting", 
         "parameters": [ 
           { 
             "name": "ContainerServiceArguments", 

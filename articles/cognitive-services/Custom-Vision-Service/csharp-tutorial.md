@@ -1,6 +1,6 @@
 ---
-title: Özel görme Hizmeti'yle bir C# uygulamasından - Azure Bilişsel hizmetler | Microsoft Docs
-description: Microsoft Bilişsel Hizmetleri'nde özel görme API'sini kullanan temel bir C# uygulama keşfedin. Bir proje oluşturun, etiket ekleme, resimler yükleyin, projenizin eğitmek ve varsayılan uç nokta kullanarak tahminde bulunmak.
+title: Bir C# uygulamasından - Azure Bilişsel hizmetler Custom Vision Service'e kullanın | Microsoft Docs
+description: Microsoft Bilişsel hizmetler özel görüntü işleme API'sini kullanan basit bir C# uygulaması keşfedin. Bir proje oluşturun, etiketler ekleyin, görüntüleri karşıya yüklemek, projenizi eğitmek ve varsayılan uç nokta kullanarak bir tahminde bulunmak.
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
@@ -9,38 +9,44 @@ ms.component: custom-vision
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 80cb022808748ed2c60dff7c363d6020cb4043a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d3c2ffb0fd9578458bd07241eed4a87cf70d3c3c
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352870"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617443"
 ---
-# <a name="use-the-custom-vision-service-from-a-c35-application"></a>C özel görme Hizmeti'yle&#35; uygulama
+# <a name="use-the-custom-vision-service-from-a-c35-application"></a>Custom Vision Service'e c kullanın&#35; uygulama
 
-Bir C# uygulaması özel görme hizmetinden kullanmayı öğrenin. Oluşturulduktan sonra etiket ekleme, resimler yükleyin, proje Eğitimi, projenin varsayılan tahmin uç noktasının URL'sini elde etmek ve program aracılığıyla bir görüntü sınamak için uç nokta kullanın. Bu açık kaynak örneği özel görme hizmet API'sini kullanarak Windows için kendi uygulamanızı oluşturmak için şablon olarak kullanın.
+Bir C# uygulamasından özel görüntü işleme hizmeti kullanmayı öğrenin. Oluşturulduktan sonra etiketler ekleyin, görüntüleri karşıya yüklemek, proje eğitmek, projenin varsayılan tahmin uç nokta URL'si almak ve program aracılığıyla resim test etmek için uç noktayı kullanın. Bu açık kaynaklı örneği, özel görüntü işleme hizmeti API'sini kullanarak Windows için kendi uygulamanızı oluşturmaya yönelik şablon olarak kullanın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Herhangi bir sürümünü Visual Studio 2015 veya Windows için 2017.
+* Windows için Visual Studio 2017'in herhangi bir sürümü.
 
-* [Özel görme hizmeti SDK'sını](http://github.com/Microsoft/Cognitive-CustomVision-Windows/). Bu örnek ve bu belgede kullanılan görüntülerini içerir.
+## <a name="get-the-custom-vision-sdk-and-samples"></a>Custom Vision SDK'sı ve örnekleri edinin
+Bu örneği oluşturmak için özel görüntü işleme SDK'sı NuGet paketleri gerekir:
 
-## <a name="get-the-training-and-prediction-keys"></a>Eğitim ve tahmin anahtarı alma
+* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
+* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
-Bu örnekte kullanılan anahtarlarını almak için şurayı ziyaret edin [özel görme web sayfası](https://customvision.ai) seçip __dişli simgesi__ sağ üst. İçinde __hesapları__ bölümünde, değerleri kopyalamak __eğitim anahtar__ ve __tahmin anahtar__ alanları.
+Görüntüleri ile birlikte indirebilirsiniz [C# örnekleri](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision).
+
+## <a name="get-the-training-and-prediction-keys"></a>Eğitim ve tahmin anahtarları alma
+
+Bu örnekte kullanılan anahtarlarını almak için şurayı ziyaret edin [Custom Vision web sayfası](https://customvision.ai) seçip __dişli simgesini__ sağ üst köşedeki. İçinde __hesapları__ bölümünde, değerleri kopyalayın __eğitim anahtarı__ ve __tahmin anahtar__ alanları.
 
 ![UI anahtarları görüntüsü](./media/csharp-tutorial/training-prediction-keys.png)
 
 ## <a name="understand-the-code"></a>Kodu anlama
 
-Visual Studio'da bulunan projesini açın `Samples/CustomVision.Sample/` SDK proje dizininde.
+Visual Studio'da bulunan proje açmak `Samples/CustomVision.Sample/` SDK proje dizininde.
 
-Bu uygulama, alınan önceki adlı yeni bir proje oluşturmak için eğitim anahtar kullanan __My yeni proje__. Sonra eğitmek ve bir sınıflandırıcı sınamak için görüntüleri yükler. Bir ağaç olup sınıflandırıcı tanımlayan bir __köknar__ veya __Japonca tek tek__.
+Bu uygulamayı aldığınız önceki adlı yeni bir proje oluşturmak için eğitim anahtar kullanan __Yeni Projem__. Ardından, eğitmek ve bir sınıflandırıcı test etmek için görüntüleri yükler. Sınıflandırıcı bir ağaç olup olmadığını tanımlayan bir __köknar__ veya __Japonca tek tek seçme işlemi__.
 
-Aşağıdaki kod parçacıkları Bu örnek birincil işlevlerini uygular:
+Aşağıdaki kod parçacıkları, bu örnekte birincil işlevselliğini uygular:
 
-* __Yeni bir özel görme hizmet projesi oluşturun__:
+* __Yeni özel görüntü işleme hizmeti projesi oluşturma__:
 
     ```csharp
      // Create a new project
@@ -48,7 +54,7 @@ Aşağıdaki kod parçacıkları Bu örnek birincil işlevlerini uygular:
     var project = trainingApi.CreateProject("My New Project");
     ```
 
-* __Bir proje ile etiketler oluşturma__:
+* __Etiketler, bir proje oluşturma__:
 
     ```csharp
     // Make two tags in the new project
@@ -77,7 +83,7 @@ Aşağıdaki kod parçacıkları Bu örnek birincil işlevlerini uygular:
     trainingApi.CreateImagesFromFiles(project.Id, new ImageFileCreateBatch(imageFiles, new List<Guid>() { japaneseCherryTag.Id }));
     ```
 
-* __Sınıflandırıcı eğitmek__:
+* __Sınıflandırıcı eğitme__:
 
     ```csharp
     // Now there are images with tags start training the project
@@ -110,7 +116,7 @@ Aşağıdaki kod parçacıkları Bu örnek birincil işlevlerini uygular:
     PredictionEndpoint endpoint = new PredictionEndpoint() { ApiKey = predictionKey };
     ```
  
-* __Resim tahmin uç noktasına gönderme__:
+* __Görüntü tahmin uç noktasına göndermesi__:
 
     ```csharp
     // Make a prediction against the new project
@@ -126,15 +132,15 @@ Aşağıdaki kod parçacıkları Bu örnek birincil işlevlerini uygular:
 
 ## <a name="run-the-application"></a>Uygulamayı çalıştırma
 
-1. Uygulama eğitim ve tahmin anahtarları eklemek için aşağıdaki değişiklikleri yapın:
+1. Eğitim ve tahmin anahtarları uygulama eklemek için aşağıdaki değişiklikleri yapın:
 
-    * Ekle, __eğitim anahtar__ aşağıdaki satırı için:
+    * Ekleme, __eğitim anahtar__ aşağıdaki satırı:
 
         ```csharp
         string trainingKey = "<your key here>";
         ```
 
-    * Ekle, __tahmin anahtar__ aşağıdaki satırı için:
+    * Ekleme, __tahmin anahtar__ aşağıdaki satırı:
 
         ```csharp
         string predictionKey = "<your key here>";

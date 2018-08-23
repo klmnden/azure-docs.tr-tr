@@ -4,7 +4,7 @@ description: Azure işlevleri'nde Event Grid olayların nasıl işleneceğini an
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: ''
@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/08/2018
+ms.date: 08/20/2018
 ms.author: glenga
-ms.openlocfilehash: 6afc54bfcbef4d0714e9a09d0aa27ea4829d4dd5
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: f0cb698bad42bcfd035451361b9a20d0f0b5bddf
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715395"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056027"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure işlevleri için olay Kılavuzu tetikleyicisi
 
@@ -53,6 +53,7 @@ Bir olay Kılavuzu tetikleyicisi için dile özgü örneğe bakın:
 * [C#](#c-example)
 * [C# betiği (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
+* [Java](#trigger---java-example)
 
 HTTP tetikleyicisi örneği için bkz. [HTTP tetikleyicisi kullanmayı](#use-an-http-trigger-as-an-event-grid-trigger) bu makalenin ilerleyen bölümlerinde.
 
@@ -180,6 +181,36 @@ module.exports = function (context, eventGridEvent) {
     context.done();
 };
 ```
+
+### <a name="trigger---java-example"></a>Tetikleyici - Java örnek
+
+Aşağıdaki örnek, bir tetikleyici bağlamasında gösterir. bir *function.json* dosyası ve bir [Java işlevi](functions-reference-java.md) bağlama kullanır ve bir olay yazdırır.
+
+```json
+{
+  "bindings": [
+    {
+      "type": "eventGridTrigger",
+      "name": "eventGridEvent",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+Java kod aşağıdaki gibidir:
+
+```java
+@FunctionName("eventGridMonitor")
+  public void logEvent(
+     @EventGridTrigger(name = "event") String content,
+      final ExecutionContext context
+  ) { 
+      context.getLogger().info(content);
+    }
+```
+
+İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `EventGridTrigger` ek açıklama parametreleri değeri EventGrid ' gelmesi. Bu ek açıklamalar parametrelerle bir olay geldiğinde çalıştırmak işlev neden.  Bu ek açıklama yerel Java türler, pojo'ları veya kullanarak boş değer atanabilir değer ile kullanılabilir `Optional<T>`. 
      
 ## <a name="attributes"></a>Öznitelikler
 
@@ -310,7 +341,7 @@ Aşağıdaki API (HTTP GET) kullanarak sistem anahtarı alabilirsiniz:
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={adminkey}
 ```
 
-Gerektiriyorsa Bu olduğundan bir yönetici API'sini, [yönetici anahtarını](functions-bindings-http-webhook.md#authorization-keys). (Bir olay Kılavuzu tetikleyicisi işlevi çağırma için) sistemi anahtarı (Yönetim görevleri işlev uygulamasını gerçekleştirdiği) için yönetici anahtarı ile karıştırmayın. Bir olay Kılavuzu konu başlığına abone olduğunuzda, sistem anahtarını kullandığınızdan emin olun.
+İşlev uygulamanızı gerektiriyorsa Bu olduğundan bir yönetici API'si, [ana anahtarı](functions-bindings-http-webhook.md#authorization-keys). (Bir olay Kılavuzu tetikleyicisi işlevi çağırma için) sistemi anahtarı (için yönetim görevleri işlev uygulamasını gerçekleştirdiği) ana anahtarı ile karıştırmayın. Bir olay Kılavuzu konu başlığına abone olduğunuzda, sistem anahtarını kullandığınızdan emin olun. 
 
 Sistem anahtarı sağlayan yanıtın bir örnek aşağıda verilmiştir:
 

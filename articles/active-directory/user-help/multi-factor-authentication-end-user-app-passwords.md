@@ -12,12 +12,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: c6340133971a226002ce11ae1521bdc88e3e7975
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 86cc98721681750617e374679c38ad29cf5a2362
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343297"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057443"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>İki aşamalı doğrulama için uygulama parolaları yönetme
 
@@ -38,7 +38,7 @@ Uygulama parolaları kullanırken unutmamak önemlidir:
 
 Size bir uygulama parolası, ilk iki aşamalı doğrulama kaydı sırasında verilir. En fazla bir parola gerekiyorsa, ek parolalar, iki aşamalı doğrulamanın nasıl kullandığınıza bağlı oluşturabilirsiniz:
 
-- **İki aşamalı doğrulama ile Microsoft Azure hesabınızı kullanırsınız.** Oluşturma ve kullanma, uygulama parolalarını Sil [Azure portalında](https://portal.azure.com). Daha fazla bilgi için bkz. [uygulama parolaları ve iki aşamalı doğrulama](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) makalesi.
+- **İki aşamalı doğrulama ile Microsoft Azure hesabınızı kullanırsınız.** Oluşturma ve kullanma, uygulama parolalarını Sil [Azure portalında](https://portal.azure.com). Daha fazla bilgi için bkz. [uygulama parolaları ve iki aşamalı doğrulama](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) makalesi.
 
 - **İki aşamalı doğrulama, kişisel Microsoft hesabınızla kullandığınız.** Oluşturma ve kullanma, uygulama parolalarını Sil [güvenlik temel kavramları](https://account.microsoft.com/account/) Microsoft hesabınızla sayfası. Daha fazla bilgi için bkz. [uygulama parolaları ve iki aşamalı doğrulama](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) makalesi.
 

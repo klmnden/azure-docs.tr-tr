@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: f42948f0f3acf1bacf6c80010489890f4b8d122b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 28a6082718080314a769b59c81cf51a20ff7e120
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523674"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42060384"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure tablo depolama bağlamaları
 
@@ -58,6 +58,7 @@ Dile özgü örneğe bakın:
 * [C# betik bağlama CloudTable](#input---c-script-example---cloudtable)
 * [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
+* [Java](#input---java-example)
 
 ### <a name="input---c-example---one-entity"></a>-C# örneği - bir varlık giriş
 
@@ -414,6 +415,25 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
+### <a name="input---java-example"></a>Giriş - Java örnek
+
+Aşağıdaki örnek, belirli bir bölüme tablo depolamasında toplam öğe sayısını döndüren bir HTTP ile tetiklenen işlev gösterir.
+
+```java
+@FunctionName("getallcount")
+public int run(
+   @HttpTrigger(name = "req",
+                 methods = {"get"},
+                 authLevel = AuthorizationLevel.ANONYMOUS) Object dummyShouldNotBeUsed,
+   @TableInput(name = "items",
+                tableName = "mytablename",  partitionKey = "myparkey",
+                connection = "myconnvarname") MyItem[] items
+) {
+    return items.length;
+}
+```
+
+
 ## <a name="input---attributes"></a>Giriş - öznitelikleri
  
 İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), bir tablo giriş bağlama yapılandırmak için aşağıdaki öznitelikleri kullanın:
@@ -471,6 +491,10 @@ Kullanılacak depolama hesabı aşağıdaki sırada belirlenir:
 * `StorageAccount` İşleve uygulanmış bir öznitelik.
 * `StorageAccount` Sınıfına uygulanan bir öznitelik.
 * İşlev uygulaması (uygulama ayarı "AzureWebJobsStorage") için varsayılan depolama hesabı.
+
+## <a name="input---java-annotations"></a>Giriş - Java ek açıklamaları
+
+İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@TableInput` ek açıklama parametreleri değerini Table storage'gelmesi.  Bu ek açıklama yerel Java türler, pojo'ları veya isteğe bağlı kullanarak boş değer atanabilir değer ile kullanılabilir<T>. 
 
 ## <a name="input---configuration"></a>Giriş - yapılandırma
 

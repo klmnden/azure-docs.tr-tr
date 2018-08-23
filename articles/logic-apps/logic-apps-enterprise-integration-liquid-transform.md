@@ -1,54 +1,50 @@
 ---
-title: JSON veri sıvı dönüşümler - Azure Logic Apps ile Dönüştür | Microsoft Docs
-description: Dönüşümler veya Logic Apps ve sıvı şablonunu kullanarak gelişmiş JSON dönüştürmeleri için eşlemeleri oluşturun.
+title: Liquid dönüşümler - Azure Logic Apps ile JSON verileri dönüştürme | Microsoft Docs
+description: Dönüşümler veya Logic Apps ve Liquid şablonunu kullanarak gelişmiş JSON dönüştürmeleri için harita oluşturma
 services: logic-apps
-documentationcenter: ''
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: divyaswarnkar
+ms.author: divswa
+manager: jeconnoc
+ms.reviewer: estfan, LADocs
+ms.suite: integration
 ms.topic: article
-ms.date: 12/05/2017
-ms.author: LADocs; divswa
-ms.openlocfilehash: 42a102c9b2663380a93d56cc5f8fb82abaa83b74
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 08/16/2018
+ms.openlocfilehash: 140c92d260ac6423127e478e304cbebcf9c42124
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299520"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42056017"
 ---
-# <a name="perform-advanced-json-transformations-with-a-liquid-template"></a>Sıvı şablonuyla Gelişmiş JSON dönüştürmeleri gerçekleştirebilirsiniz
+# <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Azure Logic Apps'te Liquid şablonları ile Gelişmiş JSON dönüştürmeleri gerçekleştirebilirsiniz
 
-Azure mantıksal uygulamaları destekleyen yerel veri işlem eylemleri aracılığıyla temel JSON dönüşümleri gibi **oluşturma** veya **ayrıştırma JSON**. Gelişmiş JSON dönüştürmeleri için logic apps ile sıvı şablonları kullanabilirsiniz. 
-[Sıvı](https://shopify.github.io/liquid/) esnek web uygulamaları için açık kaynak şablonu dilidir.
- 
-Bu makalede, sıvı harita veya yineleme, Denetim akışları, değişkenler vb. gibi daha karmaşık JSON dönüşümleri destekler şablonu nasıl kullanılacağını öğrenin. Mantıksal uygulamanızı sıvı dönüştürme gerçekleştirmek için önce tümleştirme hesabınızda eşlemeden JSON JSON için bir harita sıvı harita ve deposu ile tanımlamanız gerekir.
+Temel JSON dönüştürmeleri mantıksal uygulamalarınızda yerel veri işlem eylemlerle gibi gerçekleştirebileceğiniz **Compose** veya **JSON Ayrıştır**. Gelişmiş JSON dönüştürmeleri gerçekleştirmek için şablonları veya eşlemeleriyle oluşturabilirsiniz [Liquid](https://shopify.github.io/liquid/), esnek web apps için bir açık kaynak şablonu dil olduğu. Liquid şablonları, JSON çıkışını ve daha karmaşık destekler dönüştürme hakkında tanımlamanıza izin yineleme gibi JSON dönüştürmeleri denetlemek akışlar, değişkenler ve benzeri. 
+
+Mantıksal uygulamanızda Liquid dönüştürme gerçekleştirmek için önce bu nedenle, ilk JSON JSON eşlemesi bir harita Liquid şablonu ve depolama ile tümleştirme hesabınızdaki tanımlayın. Bu makalede oluşturma ve bu Liquid şablon ya da harita kullanma gösterilmektedir. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Azure aboneliği. Bir aboneliğiniz yoksa [ücretsiz bir Azure hesabı ile başlayabilirsiniz](https://azure.microsoft.com/free/). Ya da [Kullandıkça Öde aboneliğine kaydolabilirsiniz](https://azure.microsoft.com/pricing/purchase-options/).
+* Azure aboneliği. Bir aboneliğiniz yoksa [ücretsiz bir Azure hesabı ile başlayabilirsiniz](https://azure.microsoft.com/free/). Veya, [için Kullandıkça Öde aboneliğine kaydolun](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Hakkındaki temel bilgileri [mantıksal uygulamalar oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Hakkında temel bilgilere [mantıksal uygulamalar oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Temel bir [tümleştirme hesabı](logic-apps-enterprise-integration-create-integration-account.md)
+* Temel bir [tümleştirme hesabı](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
+## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Liquid şablonu veya tümleştirme hesabı için harita oluşturma
 
-## <a name="create-a-liquid-template-or-map-for-your-integration-account"></a>Bir sıvı şablonu veya tümleştirme hesabınız için harita oluşturma
+1. Bu örnekte, bu adımda açıklandığı gibi örnek Liquid şablonu oluşturun.
+Liquid şablonunuzda herhangi bir filtre kullanmak istiyorsanız, bu filtreleri ile büyük Başlat emin olun. Daha fazla bilgi edinin [sıvı filtreler](https://shopify.github.io/liquid/basics/introduction/#filters). 
 
-1. Bu örnek için örnek sıvı şablon oluşturun. Sıvı şablonu burada açıklandığı gibi JSON girişi dönüştürmek nasıl tanımlar:
-
-   ``` json
+   ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
-      {
-        "fullName": "{{content.firstName | Append: ' ' | Append: content.lastName}}",
-        "firstNameUpperCase": "{{content.firstName | Upcase}}",
-        "phoneAreaCode": "{{content.phone | Slice: 1, 3}}",
-        "devices" : [
-        {%- for device in deviceList -%}
+   
+   {
+      "fullName": "{{content.firstName | Append: ' ' | Append: content.lastName}}",
+      "firstNameUpperCase": "{{content.firstName | Upcase}}",
+      "phoneAreaCode": "{{content.phone | Slice: 1, 3}}",
+      "devices" : [
+         {%- for device in deviceList -%}
             {%- if forloop.Last == true -%}
             "{{device}}"
             {%- else -%}
@@ -56,80 +52,78 @@ Bu makalede, sıvı harita veya yineleme, Denetim akışları, değişkenler vb.
             {%- endif -%}
         {%- endfor -%}
         ]
-      }
+   }
    ```
-   > [!NOTE]
-   > Sıvı şablonunuzu herhangi kullanıyorsa [filtreleri](https://shopify.github.io/liquid/basics/introduction/#filters), bu filtreler büyük harf ile başlamalıdır. 
 
-2. [Azure Portal](https://portal.azure.com) oturum açın.
-
-3. Ana Azure menüsünde, **tüm kaynakları**. 
-
-4. Arama kutusuna bulun ve tümleştirme hesabınızı seçin.
+2. [Azure Portal](https://portal.azure.com) oturum açın. Ana Azure menüsünde **tüm kaynakları**. Arama kutusuna bulmak ve tümleştirme hesabınızı seçin.
 
    ![Tümleştirme hesabı seçin](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account.png)
 
-5.  Tümleştirme hesap kutucuğunu seçin **eşlemeleri**.
+3.  Altında **bileşenleri**seçin **haritalar**.
 
-   ![Eşlemeleri](./media/logic-apps-enterprise-integration-liquid-transform/add-maps.png)
+    ![MAPS'ı seçin](./media/logic-apps-enterprise-integration-liquid-transform/add-maps.png)
 
-6. Seçin **Ekle** ve bu bilgi için eşlemenizi sağlar:
+4. Seçin **Ekle** ve haritanızı için bu ayrıntıları sağlayın:
 
-   * **Ad**: Bu örnekte "JsontoJsonTemplate" dir haritanızı adı
-   * **Eşleme türü**: haritanızı türü. JSON dönüştürme için JSON seçmelisiniz **sıvı**.
-   * **Harita**: Bu örnekte "SimpleJsonToJsonTemplate.liquid" olan bir dönüştürme için kullanılacak bir varolan sıvı şablon ya da eşlem dosyası. Bu dosyayı bulmak için dosya seçiciyi kullanabilirsiniz.
+   | Özellik | Değer | Açıklama | 
+   |----------|-------|-------------|
+   | **Ad** | JsonToJsonTemplate | Bu örnekte "JsonToJsonTemplate" olan haritanızı adı | 
+   | **Eşleme türü** | **Sıvı** | Haritanızı türü. JSON dönüştürme için JSON için seçmelisiniz **liquid**. | 
+   | **Harita** | "SimpleJsonToJsonTemplate.liquid" | Bu örnekte "SimpleJsonToJsonTemplate.liquid" olan bir dönüştürme için kullanılacak bir mevcut Liquid şablonu veya eşleme dosyası. Bu dosyayı bulmak için dosya seçiciyi kullanabilirsiniz. |
+   ||| 
 
-   ![Sıvı şablonu Ekle](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
+   ![Liquid şablonu Ekle](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
     
-## <a name="add-the-liquid-action-for-json-transformation"></a>JSON dönüştürülmesine sıvı Eylem Ekle
+## <a name="add-the-liquid-action-for-json-transformation"></a>JSON dönüştürme için sıvı eylemi ekleme
 
-1. [Mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+1. Azure portalında aşağıdaki adımları [boş mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2. Ekleme [isteği tetikleyici](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) mantığı uygulamanıza.
+2. Logic Apps Tasarımcısı'nda ekleme [istek tetikleyicisi](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) mantıksal uygulamanız için.
 
-3. Seçin **+ yeni adım > Eylem Ekle**. Arama kutusuna *sıvı*seçip **sıvı - dönüştürme JSON JSON olarak**.
+3. Tetikleyici altında seçin **yeni adım**. Arama kutusuna filtreniz olarak "Sıvı" girin ve şu eylemi seçin: **dönüştürme JSON-JSON - Sıvı**
 
-   ![Bulma ve sıvı bir eylem seçin](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
+   ![Bulma ve Liquid eylemini seçin](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
-4. İçinde **içerik** kutusunda **gövde** dinamik içerik listesi veya parametre listesi, hangi görüntülenir.
+4. İçine tıklayın **içeriği** dinamik içerik listesinde görünmesi kutusunda ve seçin **gövdesi** belirteci.
   
    ![Gövde seçin](./media/logic-apps-enterprise-integration-liquid-transform/select-body.png)
  
-5. Gelen **harita** listesinde, bu örnekte "JsonToJsonTemplate" dir, sıvı şablonu seçin.
+5. Gelen **harita** listesinde, bu örnekte "JsonToJsonTemplate" olan, sıvı şablonunuzu seçin.
 
-   ![Harita seçin](./media/logic-apps-enterprise-integration-liquid-transform/select-map.png)
+   ![Harita Seç](./media/logic-apps-enterprise-integration-liquid-transform/select-map.png)
 
-   Liste boşsa, mantıksal uygulamanızı olasılıkla tümleştirme hesabınıza bağlı değil. 
-   Mantıksal uygulamanızı sıvı şablon ya da eşleme içeren tümleştirme hesabınıza bağlamak için aşağıdaki adımları izleyin:
+   Haritalar liste boşsa, büyük olasılıkla, mantıksal uygulama tümleştirme hesabınıza bağlı değil. 
+   Mantıksal uygulamanızı Liquid şablon veya harita olan tümleştirme hesabı bağlamak için şu adımları izleyin:
 
-   1. Mantıksal uygulama menünüzde seçin **iş akışı ayarları**.
-   2. Gelen **tümleştirme hesabı seçme** listesinde, tümleştirme hesabınızı seçin ve **kaydetmek**.
+   1. Mantıksal uygulama menüsünde seçin **iş akışı ayarları**.
 
-   ![Bağlantı mantıksal uygulama tümleştirmesi hesabı](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
+   2. Gelen **tümleştirme hesabı seçin** listesinde, tümleştirme hesabınızı seçin ve seçin **Kaydet**.
 
-## <a name="test-your-logic-app"></a>Mantıksal uygulamanızı test etme
+     ![Tümleştirme hesabı için mantıksal uygulamayı Bağla](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
 
-POST JSON giriş mantığı uygulamanıza [Postman](https://www.getpostman.com/postman) veya benzer bir aracı. Mantıksal uygulamanızı dönüştürülen JSON çıktısını aşağıdaki gibi görünür:
+## <a name="test-your-logic-app"></a>Mantıksal uygulamanızı test edin
+
+Gönderi mantıksal uygulamanızdan JSON girişi [Postman](https://www.getpostman.com/postman) veya benzer bir araç. Dönüştürülen JSON çıktısı, mantıksal uygulamanız şu örnekteki gibi görünür:
   
 ![Örnek çıktı](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
 
-## <a name="more-liquid-action-examples"></a>Daha fazla sıvı eylem örnekleri
-Sıvı yalnızca JSON dönüştürmeleri için sınırlı değildir. Sıvı kullanan diğer kullanılabilir dönüştürme eylemler şunlardır.
+## <a name="more-liquid-action-examples"></a>Liquid eylem ile ilgili daha fazla örnek
+Sıvı yalnızca JSON dönüştürmeleri için sınırlı değildir. Sıvı kullanan diğer kullanılabilir dönüştürme Eylemler aşağıda verilmiştir.
 
-* JSON Metne Dönüştür
+* JSON metnine Dönüştür
   
-  Bu örnek için kullanılan sıvı şablon şöyledir:
+  Bu örnek için kullanılan Liquid şablonu aşağıda verilmiştir:
    
    ``` json
    {{content.firstName | Append: ' ' | Append: content.lastName}}
    ```
    Örnek giriş ve çıkış şunlardır:
   
-   ![Örnek çıktı JSON metni](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
+   ![Metin çıktı JSON örneği](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
 
 * XML-JSON dönüştürmesi uygula
   
-  Bu örnek için kullanılan sıvı şablon şöyledir:
+  Bu örnek için kullanılan Liquid şablonu aşağıda verilmiştir:
    
    ``` json
    [{% JSONArrayFor item in content -%}
@@ -138,11 +132,11 @@ Sıvı yalnızca JSON dönüştürmeleri için sınırlı değildir. Sıvı kull
    ```
    Örnek giriş ve çıkış şunlardır:
 
-   ![Örnek Çıktı XML ve JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
+   ![Örnek Çıktı XML-JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
 
-* XML Metne Dönüştür
+* XML metni dönüştürme
   
-  Bu örnek için kullanılan sıvı şablon şöyledir:
+  Bu örnek için kullanılan Liquid şablonu aşağıda verilmiştir:
 
    ``` json
    {{content.firstName | Append: ' ' | Append: content.lastName}}
@@ -150,7 +144,7 @@ Sıvı yalnızca JSON dönüştürmeleri için sınırlı değildir. Sıvı kull
 
    Örnek giriş ve çıkış şunlardır:
 
-   ![Örnek Çıktı XML metni](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
+   ![Metin çıktı XML örneği](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

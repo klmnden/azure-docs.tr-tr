@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: df6224208e93f4a332247440933b3a4d11c1bb43
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 65ff0e47cf7a53d519bfd0c50ea4c3ebd09a5766
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283040"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41987554"
 ---
 # <a name="shipping-an-application"></a>Uygulamaya aktarma
 
@@ -31,7 +31,7 @@ Bilişsel hizmetler konuşma SDK'sı gerektirir [Microsoft Visual C++ yeniden da
 - [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
 
-Yönetilen kod, uygulamanızın kullanıyorsa `.Net Framework 4.6.1` veya daha sonra hedef makinede gereklidir.
+Yönetilen kod, uygulamanızın kullanıyorsa `.NET Framework 4.6.1` veya daha sonra hedef makinede gereklidir.
 
 Mikrofon girişi için Media Foundation kitaplıkları yüklü olması gerekir. Bu kitaplıklar, Windows 10 ve Windows Server 2016'ya bir parçasıdır. Mikrofon ses giriş cihazını kullanılmaz sürece bu kitaplıklar Speech SDK'sı kullanmak mümkündür.
 

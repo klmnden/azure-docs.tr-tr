@@ -1,23 +1,26 @@
 ---
-title: "Visual Studio CodeLens’te Application Insights telemetrisi | Microsoft Belgeleri"
-description: "Application Insights istek ve özel durum telemetrinize Visual Studio’daki CodeLens ile hızlıca erişin."
+title: Visual Studio CodeLens’te Application Insights telemetrisi | Microsoft Belgeleri
+description: Application Insights istek ve özel durum telemetrinize Visual Studio’daki CodeLens ile hızlıca erişin.
 services: application-insights
 documentationcenter: .net
-author: numberbycolors
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 93559e44-23cb-4b9d-8425-60f7f0d0a82c
 ms.service: application-insights
-ms.workload: tbd
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/17/2017
+ms.reviewer: daviste
 ms.author: mbullwin
-ms.openlocfilehash: 418c391f896ac60f509b963f0aff70ad699fc43b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 7df49258895aa0dfa5c8cc592914ba6998a97cb8
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442119"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Visual Studio CodeLens’te Application Insights telemetrisi
 Web uygulamanızın kodundaki yöntemlere, çalışma zamanı özel durumları ve istek yanıt süreleri hakkında telemetri ile açıklama eklenebilir. [Azure Application Insights](app-insights-overview.md)’ı uygulamanıza yüklerseniz telemetri Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) içinde (işlevin başvurulduğu yer sayısı veya düzenleyen kişi gibi yararlı bilgileri görmeye alışkın olduğunuz her bir işlevin üst kısmında) görünür.

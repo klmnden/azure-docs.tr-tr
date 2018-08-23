@@ -4,7 +4,7 @@ description: Hibrit Azure AD'ye katılma sonrası yapılandırma görevleri içi
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: samueld
+manager: mtillman
 editor: billmath
 ms.assetid: ''
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9949275b18206ca66f38bab036337a00fdde6ee5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 05cb6d10a7e4269cbe5f9c97ef70cd9eb5a4d68e
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916556"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057739"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Sonrası yapılandırma görevleri için hibrit Azure AD'ye katılma
 
@@ -62,7 +62,7 @@ Azure AD bağlı olan taraf güveni talep kuralları, kuruluşunuzun, Azure AD'd
 
 ## <a name="6-enable-azure-ad-seamless-sso-for-windows-down-level-devices"></a>6. Azure AD sorunsuz SSO için Windows alt düzey cihazları etkinleştirme
 
-Kuruluşunuz Azure AD'de oturum açmak için parola karması eşitleme veya doğrudan kimlik doğrulaması kullanıyorsa, Windows alt düzey cihazların kimliklerini doğrulamak için oturum açma yöntemi Azure AD sorunsuz çoklu oturum açmayı etkinleştir: https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso. 
+Kuruluşunuz Azure AD'de oturum açmak için parola karması eşitleme veya doğrudan kimlik doğrulaması kullanıyorsa, Windows alt düzey cihazların kimliklerini doğrulamak için oturum açma yöntemi Azure AD sorunsuz çoklu oturum açmayı etkinleştir: https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso. 
 
 ## <a name="7-set-azure-ad-policy-for-windows-down-level-devices"></a>7. İçin Windows alt düzey cihazları Azure AD'ye İlkesi ayarlama
 
@@ -81,7 +81,7 @@ Kullanıyorsanız [sorunsuz çoklu oturum açma](https://aka.ms/hybrid/sso), ayr
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Microsoft Workplace Join Windows alt düzey cihazlarda yükleyin
 
-Bu yükleyici, kullanıcının bağlamında çalışan cihazın sistemdeki zamanlanmış bir görev oluşturur. Windows için kullanıcının oturum açtığı zaman görevi tetiklenir. Görev, kullanıcı kimlik bilgileriyle tümleşik Windows kimlik doğrulamasını kullanarak kimlik doğrulaması sonra Azure AD ile cihaz sessizce birleştirir. İndirme Merkezi'nde altındadır https://www.microsoft.com/en-us/download/details.aspx?id=53554. 
+Bu yükleyici, kullanıcının bağlamında çalışan cihazın sistemdeki zamanlanmış bir görev oluşturur. Windows için kullanıcının oturum açtığı zaman görevi tetiklenir. Görev, kullanıcı kimlik bilgileriyle tümleşik Windows kimlik doğrulamasını kullanarak kimlik doğrulaması sonra Azure AD ile cihaz sessizce birleştirir. İndirme Merkezi'nde altındadır https://www.microsoft.com/download/details.aspx?id=53554. 
 
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. Cihaz kaydı izin vermek için Grup İlkesi yapılandırma
 

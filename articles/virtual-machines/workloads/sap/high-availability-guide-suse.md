@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/27/2017
+ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 935b501964435e80172ef3e147f777bf47119b48
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: fa8bb25af1ecefefac4cb1347e64ac11af0c2c2c
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285131"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42059757"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP uygulamaları için SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde SAP NetWeaver için yüksek kullanılabilirlik
 
@@ -75,15 +75,13 @@ Bu makalede, sanal makineleri dağıtmak, sanal makineleri yapılandırma, küme
 * [Azure sanal makineleri planlama ve uygulama için Linux üzerinde SAP][planning-guide]
 * [(Bu makale) Linux'ta SAP için Azure sanal makineler dağıtımı][deployment-guide]
 * [Linux'ta SAP için Azure sanal makineleri DBMS dağıtım][dbms-guide]
-* [SUSE SAP HA en iyi uygulama kılavuzları] [ suse-ha-guide] ve SAP HANA sistem çoğaltması şirket içi kılavuzları Netweaver HA ayarlamak için gerekli tüm bilgileri içerir. Lütfen. Bu genel bir temel olarak kılavuzları kullanın. Bunlar çok daha ayrıntılı bilgi sağlar.
-* [Yüksek oranda kullanılabilir NFS depolama DRBD ve Pacemaker] [ suse-drbd-guide] kılavuz yüksek oranda kullanılabilir bir NFS sunucusu kurmak için gerekli tüm bilgileri içerir. Bu kılavuzu temel olarak kullanın.
-
+* [SUSE SAP HA en iyi uygulama kılavuzları] [ suse-ha-guide] ve SAP HANA sistem çoğaltması şirket içi kılavuzları Netweaver HA ayarlamak için gerekli tüm bilgileri içerir. Bu kılavuzlar, genel bir temel olarak kullanın. Bunlar çok daha ayrıntılı bilgi sağlar.
 
 ## <a name="overview"></a>Genel Bakış
 
 Yüksek kullanılabilirlik elde etmek için bir NFS sunucusunun SAP NetWeaver'ı gerektirir. NFS sunucusu ayrı bir kümede yapılandırılmış ve birden çok SAP sistemleri tarafından kullanılabilir.
 
-![SAP NetWeaver-yüksek kullanılabilirlik genel bakış](./media/high-availability-guide-suse/img_001.png)
+![SAP NetWeaver-yüksek kullanılabilirlik genel bakış](./media/high-availability-guide-suse/ha-suse.png)
 
 NFS sunucusu, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver Ağıranlar ve SAP HANA veritabanı sanal ana bilgisayar adı ve sanal IP adresleri kullanın. Azure üzerinde bir yük dengeleyici sanal IP adresi kullanmak için gereklidir. Aşağıdaki liste, (A) yapılandırılmasını gösterir SCS ve Ağıranlar yük dengeleyici.
 
@@ -120,7 +118,7 @@ NFS sunucusu, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver Ağıranlar v
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>Yüksek oranda kullanılabilir bir NFS sunucusunu ayarlama
 
-SAP NetWeaver, taşıma ve profil dizin için paylaşılan depolama gerektirir. Okuma [SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde NFS için yüksek kullanılabilirlik] [ nfs-ha] bir NFS sunucusu için SAP NetWeaver ayarlama konusunda.
+SAP NetWeaver taşıma ve profil dizin için paylaşılan depolama gerektirir. Okuma [SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde NFS için yüksek kullanılabilirlik] [ nfs-ha] bir NFS sunucusu için SAP NetWeaver ayarlama konusunda.
 
 ## <a name="setting-up-ascs"></a>(A) SCS ayarlama
 
@@ -130,7 +128,7 @@ Sanal makineler de dahil olmak üzere tüm gerekli Azure kaynakları dağıtmak 
 
 Azure Market görüntü için SUSE Linux Enterprise Server SAP uygulamaları 12 için yeni sanal makineleri dağıtmak için kullanabileceğiniz içerir. Market görüntüsü için SAP NetWeaver kaynak aracı içerir.
 
-Tüm gerekli kaynakları dağıtmak için github'da hızlı başlangıç şablonlarından birini kullanabilirsiniz. Şablonu, sanal makineler, yük dengeleyici, kullanılabilirlik vb. kümesi dağıtır. Şablonu dağıtmak için aşağıdaki adımları izleyin:
+Tüm gerekli kaynakları dağıtmak için Github'da hızlı başlangıç şablonlarından birini kullanabilirsiniz. Şablonu, sanal makineler, yük dengeleyici, kullanılabilirlik vb. kümesi dağıtır. Şablonu dağıtmak için aşağıdaki adımları izleyin:
 
 1. Açık [ASCS/SCS çoklu SID şablon] [ template-multisid-xscs] veya [şablon yakınsanmış] [ template-converged] ASCS/SCS şablon oluşturur. yalnızca Azure portalında yakınsanmış şablonu ayrıca bir veritabanı (örneğin, Microsoft SQL Server veya SAP HANA) için Yük Dengeleme kuralları oluşturur ancak Yük Dengeleme SAP NetWeaver ASCS/SCS ve Ağıranlar için (yalnızca Linux) örnekleri kuralları. SAP NetWeaver tabanlı sistem yüklemeyi planladığınız ve ayrıca istiyorsanız aynı makinelerde veritabanını yüklemek kullanın [şablon yakınsanmış][template-converged].
 1. Aşağıdaki parametreleri girin
@@ -161,11 +159,11 @@ Tüm gerekli kaynakları dağıtmak için github'da hızlı başlangıç şablon
 1. Sanal Ağ Oluştur
 1. Kullanılabilirlik kümesi oluşturma  
    Kümesi en çok güncelleştirme etki alanı
-1. 1 sanal makine oluşturma   
+1. 1 sanal makine oluşturma  
    En azından bu örnek SLES4SAP 12 SP1 görüntüsünde SLES4SAP 12 SP1 https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM  
    SLES için SAP uygulamaları 12 SP1 kullanılır  
    Daha önce oluşturduğunuz kullanılabilirlik kümesi seçin  
-1. 2 sanal makine oluşturma   
+1. 2 sanal makine oluşturma  
    En azından bu örnek SLES4SAP 12 SP1 görüntüsünde SLES4SAP 12 SP1 https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM  
    SLES için SAP uygulamaları 12 SP1 kullanılır  
    Daha önce oluşturduğunuz kullanılabilirlik kümesi seçin  
@@ -206,7 +204,7 @@ Tüm gerekli kaynakları dağıtmak için github'da hızlı başlangıç şablon
          1. Protokol tutmak **TCP**, bağlantı noktasını girin **3200**
          1. 30 dakika boşta kalma zaman aşımı süresini artırın
          1. **Kayan IP etkinleştirdiğinizden emin olun**
-         1. Tamam'a tıklayın    
+         1. Tamam'a tıklayın
       1. ASCS için ek bağlantı noktaları
          * 36 bağlantı noktaları için yukarıdaki adımları yineleyin**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 ve ASCS TCP
       1. ASCS Ağıranlar için ek bağlantı noktaları
@@ -221,15 +219,16 @@ Bağlantısındaki [SLES azure'daki SUSE Linux Enterprise Server üzerinde Pacem
 Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]** - düğüm 1 yalnızca uygulanabilir veya **[2]** - yalnızca düğüm 2 için geçerlidir.
 
 1. **[A]**  SUSE bağlayıcısını
-   
-   <pre><code>
-   sudo zypper install sap-suse-cluster-connector
+
+   <pre><code>sudo zypper install sap-suse-cluster-connector
    </code></pre>
+
+   > [!NOTE]
+   > Tire, küme düğümlerinin ana bilgisayar adları kullanmayın. Aksi takdirde, küme çalışmaz. Bu bilinen bir sınırlamadır ve SUSE bir düzeltme üzerinde çalışmaktadır. Sap suse bulut Bağlayıcısı paket bir düzeltme eki bir düzeltme kullanıma sunulacaktır.
 
    SAP SUSE Küme Bağlayıcısı yeni sürümünün yüklü olduğundan emin olun. Eskisini sap_suse_cluster_connector çağrıldı ve yeni bir tane çağrılır **sap suse Küme Bağlayıcısı**.
 
-   <pre><code>
-   sudo zypper info sap-suse-cluster-connector
+   <pre><code>sudo zypper info sap-suse-cluster-connector
    
    Information for package sap-suse-cluster-connector:
    ---------------------------------------------------
@@ -250,38 +249,33 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
    
    Aracılar kaynak paketi için bir düzeltme eki, bu makalede açıklanan yeni yapılandırmayı kullanmak için gereklidir. Aşağıdaki komutla düzeltme eki zaten yüklediyseniz, kontrol edebilirsiniz
 
-   <pre><code>
-   sudo grep 'parameter name="IS_ERS"' /usr/lib/ocf/resource.d/heartbeat/SAPInstance
+   <pre><code>sudo grep 'parameter name="IS_ERS"' /usr/lib/ocf/resource.d/heartbeat/SAPInstance
    </code></pre>
 
    Çıktı aşağıdakine benzer olmalıdır.
 
-   <pre><code>
-   &lt;parameter name="IS_ERS" unique="0" required="0"&gt;
+   <pre><code>&lt;parameter name="IS_ERS" unique="0" required="0"&gt;
    </code></pre>
 
    Grep komut IS_ERS parametresi bulamazsa, listelenen düzeltme ekini yüklemeniz gerekir [SUSE indirme sayfası](https://download.suse.com/patch/finder/#bu=suse&familyId=&productId=&dateRange=&startDate=&endDate=&priority=&architecture=&keywords=resource-agents)
 
-   <pre><code>
-   # example for patch for SLES 12 SP1
+   <pre><code># example for patch for SLES 12 SP1
    sudo zypper in -t patch SUSE-SLE-HA-12-SP1-2017-885=1
    # example for patch for SLES 12 SP2
    sudo zypper in -t patch SUSE-SLE-HA-12-SP2-2017-886=1
    </code></pre>
 
-1. **[A]**  Kurulum ana bilgisayar adı çözümlemesi   
+1. **[A]**  Kurulum ana bilgisayar adı çözümlemesi
 
    Bir DNS sunucusu kullanabilir veya/etc/hosts tüm düğümlerde değiştirin. Bu örnek/Etc/Hosts dosyasının nasıl kullanılacağını gösterir.
    IP adresi ve aşağıdaki komutlarda bulunan ana bilgisayar adını değiştirin
 
-   <pre><code>
-   sudo vi /etc/hosts
+   <pre><code>sudo vi /etc/hosts
    </code></pre>
-   
+
    / Etc/hosts aşağıdaki satırları ekleyin. IP adresi ve ana bilgisayar adını, ortamınızla eşleşecek şekilde değiştirin.   
-   
-   <pre><code>
-   # IP address of the load balancer frontend configuration for NFS
+
+   <pre><code># IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
    <b>10.0.0.7 nw1-ascs</b>
@@ -295,13 +289,12 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
 
 1. **[A]**  Paylaşılan dizinler oluşturma
 
-   <pre><code>
-   sudo mkdir -p /sapmnt/<b>NW1</b>
+   <pre><code>sudo mkdir -p /sapmnt/<b>NW1</b>
    sudo mkdir -p /usr/sap/trans
    sudo mkdir -p /usr/sap/<b>NW1</b>/SYS
    sudo mkdir -p /usr/sap/<b>NW1</b>/ASCS<b>00</b>
    sudo mkdir -p /usr/sap/<b>NW1</b>/ERS<b>02</b>
-
+   
    sudo chattr +i /sapmnt/<b>NW1</b>
    sudo chattr +i /usr/sap/trans
    sudo chattr +i /usr/sap/<b>NW1</b>/SYS
@@ -310,9 +303,8 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
    </code></pre>
 
 1. **[A]**  Autofs yapılandırın
- 
-   <pre><code>
-   sudo vi /etc/auto.master
+
+   <pre><code>sudo vi /etc/auto.master
    
    # Add the following line to the file, save and exit
    +auto.master
@@ -321,28 +313,23 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
 
    Bir dosya oluşturun
 
-   <pre><code>
-   sudo vi /etc/auto.direct
+   <pre><code>sudo vi /etc/auto.direct
    
    # Add the following lines to the file, save and exit
    /sapmnt/<b>NW1</b> -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/sapmntsid
    /usr/sap/trans -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/trans
    /usr/sap/<b>NW1</b>/SYS -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/sidsys
-   /usr/sap/<b>NW1</b>/ASCS<b>00</b> -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/ASCS
-   /usr/sap/<b>NW1</b>/ERS<b>02</b> -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/ASCSERS
    </code></pre>
 
    Yeni paylaşımlar bağlamak autofs yeniden başlatın
 
-   <pre><code>
-   sudo systemctl enable autofs
+   <pre><code>sudo systemctl enable autofs
    sudo service autofs restart
    </code></pre>
 
 1. **[A]**  Yapılandırma TAKAS dosyası
 
-   <pre><code>
-   sudo vi /etc/waagent.conf
+   <pre><code>sudo vi /etc/waagent.conf
    
    # Set the property ResourceDisk.EnableSwap to y
    # Create and use swapfile on resource disk.
@@ -356,8 +343,7 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
 
    Değişikliği etkinleştirmek için aracıyı yeniden başlatın
 
-   <pre><code>
-   sudo service waagent restart
+   <pre><code>sudo service waagent restart
    </code></pre>
 
 
@@ -365,8 +351,12 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
 
 1. **[1]**  Sanal IP kaynak ve sistem durumu araştırması ASCS örneği oluşturma
 
-   <pre><code>
-   sudo crm node standby <b>nw1-cl-1</b>
+   <pre><code>sudo crm node standby <b>nw1-cl-1</b>
+   
+   sudo crm configure primitive fs_<b>NW1</b>_ASCS Filesystem device='<b>nw1-nfs</b>:/<b>NW1</b>/ASCS' directory='/usr/sap/<b>NW1</b>/ASCS<b>00</b>' fstype='nfs4' \
+     op start timeout=60s interval=0 \
+     op stop timeout=60s interval=0 \
+     op monitor interval=20s timeout=40s
    
    sudo crm configure primitive vip_<b>NW1</b>_ASCS IPaddr2 \
      params ip=<b>10.0.0.7</b> cidr_netmask=<b>24</b> \
@@ -382,8 +372,7 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
 
    Küme durumunun Tamam olduğunu ve tüm kaynakları başlatıldığından emin olun. Hangi düğümünde kaynaklarını çalıştıran önemli değildir.
 
-   <pre><code>
-   sudo crm_mon -r
+   <pre><code>sudo crm_mon -r
    
    # Node nw1-cl-1: standby
    # <b>Online: [ nw1-cl-0 ]</b>
@@ -391,8 +380,8 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
    # Full list of resources:
    # 
    # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-0</b>
-   # rsc_st_azure    (stonith:fence_azure_arm):      <b>Started nw1-cl-0</b>
    #  Resource Group: g-NW1_ASCS
+   #      fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    <b>Started nw1-cl-0</b>
    #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-0</b>
    #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-0</b>
    </code></pre>
@@ -403,22 +392,24 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
 
    SAPINST_REMOTE_ACCESS_USER sapinst parametresi, bir kök olmayan kullanıcı için sapinst bağlanmasına izin vermek için kullanabilirsiniz.
 
-   <pre><code>
-   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
+   <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
    Bir alt klasör/usr/sap/oluşturmak yükleme başarısız olursa**NW1**/ASCS**00**, sahibi ve ASCS grubu yapmayı deneyin**00** klasörü ve yeniden deneyin.
 
-   <pre><code>
-   chown nw1adm /usr/sap/<b>NW1</b>/ASCS<b>00</b>
+   <pre><code>chown nw1adm /usr/sap/<b>NW1</b>/ASCS<b>00</b>
    chgrp sapsys /usr/sap/<b>NW1</b>/ASCS<b>00</b>
    </code></pre>
 
 1. **[1]**  Sanal IP kaynak ve sistem durumu araştırması Ağıranlar örneği oluşturma
 
-   <pre><code>
-   sudo crm node online <b>nw1-cl-1</b>
+   <pre><code>sudo crm node online <b>nw1-cl-1</b>
    sudo crm node standby <b>nw1-cl-0</b>
+   
+   sudo crm configure primitive fs_<b>NW1</b>_ERS Filesystem device='<b>nw1-nfs</b>:/<b>NW1</b>/ASCSERS' directory='/usr/sap/<b>NW1</b>/ERS<b>02</b>' fstype='nfs4' \
+     op start timeout=60s interval=0 \
+     op stop timeout=60s interval=0 \
+     op monitor interval=20s timeout=40s
    
    sudo crm configure primitive vip_<b>NW1</b>_ERS IPaddr2 \
      params ip=<b>10.0.0.8</b> cidr_netmask=<b>24</b> \
@@ -431,13 +422,12 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
    # WARNING: Resources nc_NW1_ASCS,nc_NW1_ERS violate uniqueness for parameter "binfile": "/usr/bin/nc"
    # Do you still want to commit (y/n)? y
    
-   sudo crm configure group g-<b>NW1</b>_ERS nc_<b>NW1</b>_ERS vip_<b>NW1</b>_ERS
+   sudo crm configure group g-<b>NW1</b>_ERS fs_<b>NW1</b>_ERS nc_<b>NW1</b>_ERS vip_<b>NW1</b>_ERS
    </code></pre>
- 
+
    Küme durumunun Tamam olduğunu ve tüm kaynakları başlatıldığından emin olun. Hangi düğümünde kaynaklarını çalıştıran önemli değildir.
 
-   <pre><code>
-   sudo crm_mon -r
+   <pre><code>sudo crm_mon -r
    
    # Node <b>nw1-cl-0: standby</b>
    # <b>Online: [ nw1-cl-1 ]</b>
@@ -445,23 +435,23 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
    # Full list of resources:
    #
    # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-1</b>
-   # rsc_st_azure    (stonith:fence_azure_arm):      <b>Started nw1-cl-1</b>
    #  Resource Group: g-NW1_ASCS
+   #      fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    <b>Started nw1-cl-1</b>
    #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
    #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
    #  Resource Group: g-NW1_ERS
+   #      fs_NW1_ERS (ocf::heartbeat:Filesystem):    <b>Started nw1-cl-1</b>
    #      nc_NW1_ERS (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
    #      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
    </code></pre>
 
-1. **[2]**  SAP NetWeaver Ağıranlar yükleyin  
+1. **[2]**  SAP NetWeaver Ağıranlar yükleyin
 
    Örneğin IP adresini yük dengeleyici ön uç yapılandırması Ağıranlar için eşleşen bir sanal ana bilgisayar adı kullanarak ikinci düğümü kök olarak SAP NetWeaver Ağıranlar yükleme <b>nw1 aers</b>, <b>10.0.0.8</b> ve örnek, örneğin yük dengeleyici araştırması için kullandığınız numarası <b>02</b>.
 
    SAPINST_REMOTE_ACCESS_USER sapinst parametresi, bir kök olmayan kullanıcı için sapinst bağlanmasına izin vermek için kullanabilirsiniz.
 
-   <pre><code>
-   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
+   <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
    > [!NOTE]
@@ -469,18 +459,16 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
 
    Bir alt klasör/usr/sap/oluşturmak yükleme başarısız olursa**NW1**/ERS**02**, sahibi ve Ağıranlar grubu yapmayı deneyin**02** klasörü ve yeniden deneyin.
 
-   <pre><code>
-   chown nw1adm /usr/sap/<b>NW1</b>/ERS<b>02</b>
+   <pre><code>chown nw1adm /usr/sap/<b>NW1</b>/ERS<b>02</b>
    chgrp sapsys /usr/sap/<b>NW1</b>/ERS<b>02</b>
    </code></pre>
-   > 
+
 
 1. **[1]**  Adapt ASCS/SCS ve Ağıranlar örnek profilleri
  
    * ASCS/SCS profili
 
-   <pre><code> 
-   sudo vi /sapmnt/<b>NW1</b>/profile/<b>NW1</b>_<b>ASCS00</b>_<b>nw1-ascs</b>
+   <pre><code>sudo vi /sapmnt/<b>NW1</b>/profile/<b>NW1</b>_<b>ASCS00</b>_<b>nw1-ascs</b>
    
    # Change the restart command to a start command
    #Restart_Program_01 = local $(_EN) pf=$(_PF)
@@ -496,46 +484,47 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
 
    * Cıların profili
 
-   <pre><code> 
-   sudo vi /sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>
+   <pre><code>sudo vi /sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>
+   
+   # Change the restart command to a start command
+   #Restart_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
+   Start_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
    
    # Add the following lines
    service/halib = $(DIR_CT_RUN)/saphascriptco.so
    service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
+   
+   # remove Autostart from ERS profile
+   # Autostart = 1
    </code></pre>
-
 
 1. **[A]**  Tutmayı yapılandırma
 
    SAP NetWeaver uygulama sunucusu ve ASCS/SCS arasındaki iletişimi, yazılım yük dengeleyici üzerinden yönlendirilir. Yük Dengeleyici, yapılandırılabilir bir zaman aşımından sonra etkin olmayan bağlantılarını keser. Bunu önlemek için SAP NetWeaver ASCS/SCS profilinde bir parametre ve Linux sistem ayarlarını değiştirmeniz gerekir. Okuma [SAP notu 1410736] [ 1410736] daha fazla bilgi için.
-   
+
    ASCS/SCS profili parametresi enque/encni/set_so_keepalive, son adımda zaten eklendi.
 
-   <pre><code> 
-   # Change the Linux system configuration
+   <pre><code># Change the Linux system configuration
    sudo sysctl net.ipv4.tcp_keepalive_time=120
    </code></pre>
 
 1. **[A]**  SAP kullanıcılar yükleme sonrasında yapılandırın
- 
-   <pre><code>
-   # Add sidadm to the haclient group
-   sudo usermod -aG haclient <b>nw1</b>adm   
+
+   <pre><code># Add sidadm to the haclient group
+   sudo usermod -aG haclient <b>nw1</b>adm
    </code></pre>
 
 1. **[1]**  ASCS ve Ağıranlar SAP Hizmetleri sapservice dosyaya ekleyin
 
    ASCS ikinci düğüme giriş hizmet ve ilk düğümü Ağıranlar hizmet girişi kopyalama ekleyin.
 
-   <pre><code>
-   cat /usr/sap/sapservices | grep ASCS<b>00</b> | sudo ssh <b>nw1-cl-1</b> "cat >>/usr/sap/sapservices"
+   <pre><code>cat /usr/sap/sapservices | grep ASCS<b>00</b> | sudo ssh <b>nw1-cl-1</b> "cat >>/usr/sap/sapservices"
    sudo ssh <b>nw1-cl-1</b> "cat /usr/sap/sapservices" | grep ERS<b>02</b> | sudo tee -a /usr/sap/sapservices
    </code></pre>
 
 1. **[1]**  SAP küme kaynaklarını oluşturma
 
-   <pre><code>
-   sudo crm configure property maintenance-mode="true"   
+   <pre><code>sudo crm configure property maintenance-mode="true"
    
    sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
     operations \$id=rsc_sap_<b>NW1</b>_ASCS<b>00</b>-operations \
@@ -563,20 +552,20 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
 
    Küme durumunun Tamam olduğunu ve tüm kaynakları başlatıldığından emin olun. Hangi düğümünde kaynaklarını çalıştıran önemli değildir.
 
-   <pre><code>
-   sudo crm_mon -r
+   <pre><code>sudo crm_mon -r
    
    # Online: <b>[ nw1-cl-0 nw1-cl-1 ]</b>
    #
    # Full list of resources:
    #
    # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-1</b>
-   # rsc_st_azure    (stonith:fence_azure_arm):      <b>Started nw1-cl-1</b>
    #  Resource Group: g-NW1_ASCS
+   #      fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    <b>Started nw1-cl-1</b>
    #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
    #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
    #      rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-1</b>
    #  Resource Group: g-NW1_ERS
+   #      fs_NW1_ERS (ocf::heartbeat:Filesystem):    <b>Started nw1-cl-0</b>
    #      nc_NW1_ERS (ocf::heartbeat:anything):      <b>Started nw1-cl-0</b>
    #      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-0</b>
    #      rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-0</b>
@@ -588,17 +577,29 @@ Bazı veritabanları veritabanı örneği yüklemesi bir uygulama sunucusunda y�
 
 Adımları aşağıdaki varsayılır uygulama sunucusu ASCS/SCS ve HANA sunucularından farklı bir sunucuya yükleyin. Aksi takdirde (örneğin, ana bilgisayar adı çözümlemesi yapılandırma) adımlardan bazıları gerekli değildir.
 
+1. İşletim sistemini Yapılandır
+
+   Kirli önbellek boyutunu küçültün. Daha fazla bilgi için [düşük performans SLES 11/12 üzerinde yazma büyük RAM sunucularıyla](https://www.suse.com/support/kb/doc/?id=7010287).
+
+   <pre><code>sudo vi /etc/sysctl.conf
+
+   # Change/set the following settings
+   vm.dirty_bytes = 629145600
+   vm.dirty_background_bytes = 314572800
+   </code></pre>
+
 1. Ana bilgisayar adı çözümlemesi Kurulumu
 
    Bir DNS sunucusu kullanabilir veya/etc/hosts tüm düğümlerde değiştirin. Bu örnek/Etc/Hosts dosyasının nasıl kullanılacağını gösterir.
    IP adresi ve aşağıdaki komutlarda bulunan ana bilgisayar adını değiştirin
+
    ```bash
    sudo vi /etc/hosts
    ```
-   / Etc/hosts aşağıdaki satırları ekleyin. IP adresi ve ana bilgisayar adını, ortamınızla eşleşecek şekilde değiştirin.    
-    
-   <pre><code>
-   # IP address of the load balancer frontend configuration for NFS
+
+   / Etc/hosts aşağıdaki satırları ekleyin. IP adresi ve ana bilgisayar adını, ortamınızla eşleşecek şekilde değiştirin.
+
+   <pre><code># IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS/SCS
    <b>10.0.0.7 nw1-ascs</b>
@@ -613,8 +614,7 @@ Adımları aşağıdaki varsayılır uygulama sunucusu ASCS/SCS ve HANA sunucula
 
 1. Sapmnt dizini oluşturma
 
-   <pre><code>
-   sudo mkdir -p /sapmnt/<b>NW1</b>
+   <pre><code>sudo mkdir -p /sapmnt/<b>NW1</b>
    sudo mkdir -p /usr/sap/trans
 
    sudo chattr +i /sapmnt/<b>NW1</b>
@@ -622,9 +622,8 @@ Adımları aşağıdaki varsayılır uygulama sunucusu ASCS/SCS ve HANA sunucula
    </code></pre>
 
 1. AutoFS yapılandırın
- 
-   <pre><code>
-   sudo vi /etc/auto.master
+
+   <pre><code>sudo vi /etc/auto.master
    
    # Add the following line to the file, save and exit
    +auto.master
@@ -633,8 +632,7 @@ Adımları aşağıdaki varsayılır uygulama sunucusu ASCS/SCS ve HANA sunucula
 
    Yeni bir dosya oluşturun
 
-   <pre><code>
-   sudo vi /etc/auto.direct
+   <pre><code>sudo vi /etc/auto.direct
    
    # Add the following lines to the file, save and exit
    /sapmnt/<b>NW1</b> -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/sapmntsid
@@ -643,15 +641,13 @@ Adımları aşağıdaki varsayılır uygulama sunucusu ASCS/SCS ve HANA sunucula
 
    Yeni paylaşımlar bağlamak autofs yeniden başlatın
 
-   <pre><code>
-   sudo systemctl enable autofs
+   <pre><code>sudo systemctl enable autofs
    sudo service autofs restart
    </code></pre>
 
 1. TAKAS dosyası yapılandırma
- 
-   <pre><code>
-   sudo vi /etc/waagent.conf
+
+   <pre><code>sudo vi /etc/waagent.conf
    
    # Set the property ResourceDisk.EnableSwap to y
    # Create and use swapfile on resource disk.
@@ -665,8 +661,7 @@ Adımları aşağıdaki varsayılır uygulama sunucusu ASCS/SCS ve HANA sunucula
 
    Değişikliği etkinleştirmek için aracıyı yeniden başlatın
 
-   <pre><code>
-   sudo service waagent restart
+   <pre><code>sudo service waagent restart
    </code></pre>
 
 ## <a name="install-database"></a>Veritabanı Yükleme
@@ -679,13 +674,12 @@ Bu örnekte, SAP HANA'da SAP NetWeaver yüklenir. Bu yükleme için desteklenen 
 
    SAPINST_REMOTE_ACCESS_USER sapinst parametresi, bir kök olmayan kullanıcı için sapinst bağlanmasına izin vermek için kullanabilirsiniz.
 
-   <pre><code>
-   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
+   <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
 ## <a name="sap-netweaver-application-server-installation"></a>SAP NetWeaver uygulama sunucusu yükleme
 
-SAP uygulama sunucusu yüklemek için aşağıdaki adımları izleyin. 
+SAP uygulama sunucusu yüklemek için aşağıdaki adımları izleyin.
 
 1. Uygulama sunucusu hazırlama
 
@@ -697,8 +691,7 @@ Bu bölümdeki adımları [SAP NetWeaver uygulama sunucusu hazırlığı](high-a
 
    SAPINST_REMOTE_ACCESS_USER sapinst parametresi, bir kök olmayan kullanıcı için sapinst bağlanmasına izin vermek için kullanabilirsiniz.
 
-   <pre><code>
-   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
+   <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
 1. SAP HANA Güvenli Depo güncelleştirme
@@ -706,29 +699,459 @@ Bu bölümdeki adımları [SAP NetWeaver uygulama sunucusu hazırlığı](high-a
    SAP HANA Güvenli Depo SAP HANA sistem çoğaltması Kurulumu sanal adına işaret edecek şekilde güncelleştirin.
 
    Girişleri listelemek için aşağıdaki komutu çalıştırın
-   <pre><code>
-   hdbuserstore List
+   <pre><code>hdbuserstore List
    </code></pre>
 
    Bu tüm girişleri listeler ve benzer şekilde görünmelidir
-   <pre><code>
-   DATA FILE       : /home/nw1adm/.hdb/nw1-di-0/SSFS_HDB.DAT
+   <pre><code>DATA FILE       : /home/nw1adm/.hdb/nw1-di-0/SSFS_HDB.DAT
    KEY FILE        : /home/nw1adm/.hdb/nw1-di-0/SSFS_HDB.KEY
    
    KEY DEFAULT
      ENV : 10.0.0.14:<b>30313</b>
      USER: <b>SAPABAP1</b>
-     DATABASE: HN1
+     DATABASE: <b>HN1</b>
    </code></pre>
 
-   Çıktı, varsayılan giriş IP adresini sanal makineye ve load balancer'ın IP adresi işaret ettiğini gösterir. Bu girişi yük dengeleyicinin sanal ana bilgisayar için işaret edecek şekilde değiştirilmesi gerekir. Aynı bağlantı noktasını kullandığınızdan emin olun (**30313** yukarıdaki çıktıda)!
+   Çıktı, varsayılan giriş IP adresini sanal makineye ve load balancer'ın IP adresi işaret ettiğini gösterir. Bu girişi yük dengeleyicinin sanal ana bilgisayar için işaret edecek şekilde değiştirilmesi gerekir. Aynı bağlantı noktasını kullandığınızdan emin olun (**30313** yukarıdaki çıktıda) ve veritabanı adını (**HN1** yukarıdaki çıktıda)!
 
-   <pre><code>
-   su - <b>nw1</b>adm
-   hdbuserstore SET DEFAULT <b>nw1-db</b>:<b>30313</b> <b>SAPABAP1</b> <b>&lt;password of ABAP schema&gt;</b>
+   <pre><code>su - <b>nw1</b>adm
+   hdbuserstore SET DEFAULT <b>nw1-db:30313@HN1</b> <b>SAPABAP1</b> <b>&lt;password of ABAP schema&gt;</b>
+   </code></pre>
+
+## <a name="test-the-cluster-setup"></a>Test kümesi Kurulumu
+
+En iyi uygulamalar kılavuzları SUSE, test çalışmalarını bir kopyasını testlerdir. Kolaylık olması için kopyalanırlar. Ayrıca her zaman en iyi uygulamalar Kılavuzları'nı okuyun ve eklenmiş tüm ek testler gerçekleştirin.
+
+1. Test HAGetFailoverConfig ve HACheckConfig HACheckFailoverConfig
+
+   Olarak aşağıdaki komutları çalıştırın \<sapsid > adm ASCS örneği şu anda çalıştığı düğüm üzerinde. Komutları hata ile başarısız olursa: yetersiz bellek, kaynaklanıyor olabilir, ana bilgisayar adı tirelerin. Bu bilinen bir sorundur ve sap suse Küme Bağlayıcısı paketi SUSE göre düzeltilecektir.
+
+   <pre><code>nw1-cl-0:nw1adm 54> sapcontrol -nr <b>00</b> -function HAGetFailoverConfig
+   
+   # 15.08.2018 13:50:36
+   # HAGetFailoverConfig
+   # OK
+   # HAActive: TRUE
+   # HAProductVersion: Toolchain Module
+   # HASAPInterfaceVersion: Toolchain Module (sap_suse_cluster_connector 3.0.1)
+   # HADocumentation: https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/
+   # HAActiveNode:
+   # HANodes: nw1-cl-0, nw1-cl-1
+   
+   nw1-cl-0:nw1adm 55> sapcontrol -nr 00 -function HACheckConfig
+   
+   # 15.08.2018 14:00:04
+   # HACheckConfig
+   # OK
+   # state, category, description, comment
+   # SUCCESS, SAP CONFIGURATION, Redundant ABAP instance configuration, 2 ABAP instances detected
+   # SUCCESS, SAP CONFIGURATION, Redundant Java instance configuration, 0 Java instances detected
+   # SUCCESS, SAP CONFIGURATION, Enqueue separation, All Enqueue server separated from application server
+   # SUCCESS, SAP CONFIGURATION, MessageServer separation, All MessageServer separated from application server
+   # SUCCESS, SAP CONFIGURATION, ABAP instances on multiple hosts, ABAP instances on multiple hosts detected
+   # SUCCESS, SAP CONFIGURATION, Redundant ABAP SPOOL service configuration, 2 ABAP instances with SPOOL service detected
+   # SUCCESS, SAP STATE, Redundant ABAP SPOOL service state, 2 ABAP instances with active SPOOL service detected
+   # SUCCESS, SAP STATE, ABAP instances with ABAP SPOOL service on multiple hosts, ABAP instances with active ABAP SPOOL service on multiple hosts detected
+   # SUCCESS, SAP CONFIGURATION, Redundant ABAP BATCH service configuration, 2 ABAP instances with BATCH service detected
+   # SUCCESS, SAP STATE, Redundant ABAP BATCH service state, 2 ABAP instances with active BATCH service detected
+   # SUCCESS, SAP STATE, ABAP instances with ABAP BATCH service on multiple hosts, ABAP instances with active ABAP BATCH service on multiple hosts detected
+   # SUCCESS, SAP CONFIGURATION, Redundant ABAP DIALOG service configuration, 2 ABAP instances with DIALOG service detected
+   # SUCCESS, SAP STATE, Redundant ABAP DIALOG service state, 2 ABAP instances with active DIALOG service detected
+   # SUCCESS, SAP STATE, ABAP instances with ABAP DIALOG service on multiple hosts, ABAP instances with active ABAP DIALOG service on multiple hosts detected
+   # SUCCESS, SAP CONFIGURATION, Redundant ABAP UPDATE service configuration, 2 ABAP instances with UPDATE service detected
+   # SUCCESS, SAP STATE, Redundant ABAP UPDATE service state, 2 ABAP instances with active UPDATE service detected
+   # SUCCESS, SAP STATE, ABAP instances with ABAP UPDATE service on multiple hosts, ABAP instances with active ABAP UPDATE service on multiple hosts detected
+   # SUCCESS, SAP STATE, SCS instance running, SCS instance status ok
+   # SUCCESS, SAP CONFIGURATION, SAPInstance RA sufficient version (nw1-ascs_NW1_00), SAPInstance includes is-ers patch
+   # SUCCESS, SAP CONFIGURATION, Enqueue replication (nw1-ascs_NW1_00), Enqueue replication enabled
+   # SUCCESS, SAP STATE, Enqueue replication state (nw1-ascs_NW1_00), Enqueue replication active
+   
+   nw1-cl-0:nw1adm 56> sapcontrol -nr 00 -function HACheckFailoverConfig
+   
+   # 15.08.2018 14:04:08
+   # HACheckFailoverConfig
+   # OK
+   # state, category, description, comment
+   # SUCCESS, SAP CONFIGURATION, SAPInstance RA sufficient version, SAPInstance includes is-ers patch
+   </code></pre>
+
+1. ASCS örneği el ile geçirme
+
+   Kaynak durumu, test başlamadan önce:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+   </code></pre>
+
+   Kök olarak ASCS örneği geçirmek için aşağıdaki komutları çalıştırın.
+
+   <pre><code>nw1-cl-0:~ # crm resource migrate rsc_sap_NW1_ASCS00 force
+   # INFO: Move constraint created for rsc_sap_NW1_ASCS00
+   
+   nw1-cl-0:~ # crm resource unmigrate rsc_sap_NW1_ASCS00
+   # INFO: Removed migration constraints for rsc_sap_NW1_ASCS00
+   
+   # Remove failed actions for the ERS that occured as part of the migration
+   nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
+   </code></pre>
+
+   Kaynak durumu test sonra:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+1. Test HAFailoverToNode
+
+   Kaynak durumu, test başlamadan önce:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+   Olarak aşağıdaki komutları çalıştırın \<sapsid > adm ASCS örneği geçirilecek.
+
+   <pre><code>nw1-cl-0:nw1adm 55> sapcontrol -nr 00 -host nw1-ascs -user nw1adm &lt;password&gt; -function HAFailoverToNode ""
+   
+   # run as root
+   # Remove failed actions for the ERS that occured as part of the migration
+   nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
+   </code></pre>
+
+   Kaynak durumu test sonra:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+   </code></pre>
+
+1. Düğüm kilitlenmesi benzetimi
+
+   Kaynak durumu, test başlamadan önce:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+   </code></pre>
+
+   Düğümdeki kök olarak ASCS örneğinin çalıştığı aşağıdaki komutu çalıştırın
+
+   <pre><code>nw1-cl-0:~ # echo b > /proc/sysrq-trigger
+   </code></pre>
+
+   SBD kullanırsanız, otomatik olarak sonlandırılan düğüm üzerinde Pacemaker başlamamalıdır. Düğümü yeniden başlatıldıktan sonra durumu yeniden şu şekilde görünmelidir.
+
+   <pre><code>Online: [ nw1-cl-1 ]
+   OFFLINE: [ nw1-cl-0 ]
+   
+   Full list of resources:
+   
+   stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+   
+   Failed Actions:
+   * rsc_sap_NW1_ERS02_monitor_11000 on nw1-cl-1 'not running' (7): call=219, status=complete, exitreason='none',
+       last-rc-change='Wed Aug 15 14:38:38 2018', queued=0ms, exec=0ms
+   </code></pre>
+
+   Pacemaker sonlandırılan bir düğümde başlamaya SBD iletileri temizlemek ve başarısız kaynakları temizlemek için aşağıdaki komutları kullanın.
+
+   <pre><code># run as root
+   # list the SBD device(s)
+   nw1-cl-0:~ # cat /etc/sysconfig/sbd | grep SBD_DEVICE=
+   # SBD_DEVICE="/dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116;/dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1;/dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3"
+   
+   nw1-cl-0:~ # sbd -d /dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116 -d /dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1 -d /dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3 message nw1-cl-0 clear
+   
+   nw1-cl-0:~ # systemctl start pacemaker
+   nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ASCS00
+   nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
+   </code></pre>
+
+   Kaynak durumu test sonra:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+1. Test ASCS örneğinin el ile yeniden başlatma
+
+   Kaynak durumu, test başlamadan önce:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+   Örnek düzenleme işlem su01 bir kullanıcı tarafından kuyruğa kilit oluşturun. Olarak aşağıdaki komutları çalıştırın \<sapsid > adm ASCS örneğinin çalıştığı düğüm üzerinde. Komutlar ASCS örneğini durdurun ve yeniden başlatın. Bu sınamada kaybolur kuyruğa kilit bekleniyor.
+
+   <pre><code>nw1-cl-1:nw1adm 54> sapcontrol -nr 00 -function StopWait 600 2
+   </code></pre>
+
+   ASCS örneği artık Pacemaker içinde devre dışı bırakılmalıdır
+
+   <pre><code>rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Stopped (disabled)
+   </code></pre>
+
+   ASCS örneği aynı düğümde yeniden başlatın.
+
+   <pre><code>nw1-cl-1:nw1adm 54> sapcontrol -nr 00 -function StartWait 600 2
+   </code></pre>
+
+   İşlem su01, sıraya alma kilidi, kayıp olmalıdır ve arka uç sıfırlamalısınız. Kaynak durumu test sonra:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+1. İleti sunucu işlemi Sonlandır
+
+   Kaynak durumu, test başlamadan önce:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+   Kök olarak ileti sunucusu işlemi belirleyip bunu sonlandırmak için aşağıdaki komutları çalıştırın.
+
+   <pre><code>nw1-cl-1:~ # pgrep ms.sapNW1 | xargs kill -9
+   </code></pre>
+
+   Yalnızca ileti sunucusu kez KILL, sapstart tarafından başlatılacak. Bu genellikle yeterli Pacemaker sonunda olacak KILL ASCS örneği başka bir düğüme taşıyın. Kaynak durumunu ASCS ve Ağıranlar örneğinin sonra test temizlemek için kök olarak aşağıdaki komutları çalıştırın.
+
+   <pre><code>nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ASCS00
+   nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
+   </code></pre>
+
+   Kaynak durumu test sonra:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+   </code></pre>
+
+1. Sıraya alma sunucu işlemi Sonlandır
+
+   Kaynak durumu, test başlamadan önce:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+   </code></pre>
+
+   Aşağıdaki komutları kök olarak, kuyruğa sunucunun sonlandırmak için ASCS örneğinin çalıştığı düğüm üzerinde çalıştırın.
+
+   <pre><code>nw1-cl-0:~ # pgrep en.sapNW1 | xargs kill -9
+   </code></pre>
+
+   ASCS örneği hemen başka bir düğüme yük devretme. ASCS başlatıldıktan sonra Ağıranlar örneği de yük devretme. Kaynak durumunu ASCS ve Ağıranlar örneğinin sonra test temizlemek için kök olarak aşağıdaki komutları çalıştırın.
+
+   <pre><code>nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ASCS00
+   nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
+   </code></pre>
+
+   Kaynak durumu test sonra:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+1. Sıraya alma çoğaltma sunucusu işlemini sonlandır
+
+   Kaynak durumu, test başlamadan önce:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+   Aşağıdaki komutu, sıraya alma çoğaltma sunucusu işlemi sonlandırmak için Ağıranlar örneğinin çalıştığı düğüm üzerinde kök olarak çalıştırın.
+
+   <pre><code>nw1-cl-0:~ # pgrep er.sapNW1 | xargs kill -9
+   </code></pre>
+
+   Yalnızca komutu bir kez çalıştırırsanız, sapstart işlemini yeniden başlatır. Bunu çalıştırırsanız, genellikle yeterli sapstart işlem yeniden ve kaynak durdurulmuş durumda olacaktır. Kaynak durumunu Ağıranlar örneğinin sonra test temizlemek için kök olarak aşağıdaki komutları çalıştırın.
+
+   <pre><code>nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
+   </code></pre>
+
+   Kaynak durumu test sonra:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+1. Sıraya alma sapstartsrv işlemini sonlandır
+
+   Kaynak durumu, test başlamadan önce:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+   Aşağıdaki komutları kök olarak, ASCS çalıştığı düğüm üzerinde çalıştırın.
+
+   <pre><code>nw1-cl-1:~ # pgrep -fl ASCS00.*sapstartsrv
+   # 59545 sapstartsrv
+   
+   nw1-cl-1:~ # kill -9 59545
+   </code></pre>
+
+   Sapstartsrv işlemi her zaman Pacemaker kaynak aracı tarafından yeniden başlatılması. Kaynak durumu test sonra:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * [Azure sanal makineleri planlama ve uygulama için SAP][planning-guide]
 * [SAP için Azure sanal makineler dağıtımı][deployment-guide]
 * [SAP için Azure sanal makineleri DBMS dağıtım][dbms-guide]

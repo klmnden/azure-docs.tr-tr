@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: a86c4c4227795a712dd51ace1fbefe9d2b96518a
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 9eef382ea264bcf9e59dcc408d14a59355b0369b
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116121"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42445686"
 ---
 # <a name="reference-architecture-enterprise-integration-with-queues-and-events"></a>Başvuru mimarisi: sıralar ve olaylar ile Kurumsal tümleştirme
 
@@ -42,7 +42,7 @@ Mimari aşağıdaki bileşenlere sahiptir:
 - **Bağlayıcılar**. Logic Apps kullanan [Bağlayıcılar](https://docs.microsoft.com/azure/connectors/apis-list) Hizmetleri için yaygın olarak bağlanmak için kullanılır. Logic Apps farklı bağlayıcıları yüzlerce zaten sahip, ancak bir özel bağlayıcı oluşturabilirsiniz.
 - **Azure Service Bus**. [Service Bus](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview) güvenli ve güvenilir Mesajlaşma sağlar. Mesajlaşma uygulamaları ayırmanıza ve ileti tabanlı diğer sistemlerle tümleştirmek için kullanılabilir.
 - **Azure Event grid'i**. [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) yayımlama ve uygulama olayları teslim etmek için kullanılan sunucusuz bir platformdur.
-- **IP adresi**. Azure API Management hizmeti sabit bir ortak sahip [IP adresi](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) ve bir etki alanı adı. Azure-api.net contoso.azure-api.net gibi bir alt etki alanı adıdır. Logic Apps ve Service Bus bir genel IP adresi de. Ancak, bu mimaride, biz yalnızca IP adresi API Management'ın Logic Apps Uç noktalara (güvenlik için) çağırmaya yönelik erişimi kısıtlayın. Service Bus çağrıları bir paylaşılan erişim imzası (SAS) korunur.
+- **IP adresi**. Azure API Management hizmeti sabit bir ortak sahip [IP adresi](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) ve bir etki alanı adı. Azure-api.net contoso.azure-api.net gibi alt etki alanı varsayılan etki alanı adıdır ancak [özel etki alanları](https://docs.microsoft.com/azure/api-management/configure-custom-domain) de yapılandırılabilir. Logic Apps ve Service Bus bir genel IP adresi de. Ancak, bu mimaride, biz yalnızca IP adresi API Management'ın Logic Apps Uç noktalara (güvenlik için) çağırmaya yönelik erişimi kısıtlayın. Service Bus çağrıları bir paylaşılan erişim imzası (SAS) korunur.
 - **Azure DNS**. [Azure DNS](https://docs.microsoft.com/azure/dns/) DNS etki alanları için bir barındırma hizmetidir. Azure DNS, Microsoft Azure altyapısı kullanılarak ad çözümlemesi sağlar. Etki alanlarınızı azure'da barındırarak aynı kimlik bilgilerini, API'leri, araçları kullanarak ve faturalama, diğer Azure Hizmetleri için kullandığınız DNS kayıtlarınızı yönetebilirsiniz. Özel etki alanı adı (ör. contoso.com) kullanmak için özel etki alanı adını IP adresine eşleyen DNS kayıtları oluşturun. Daha fazla bilgi için [API Yönetimi'nde bir özel etki alanı adı yapılandırma](https://docs.microsoft.com/en-us/azure/api-management/configure-custom-domain).
 - **Azure Active Directory (Azure AD)**. Kullanım [Azure AD'ye](https://docs.microsoft.com/azure/active-directory/) veya kimlik doğrulaması için başka bir kimlik sağlayıcısı. Azure AD, API uç noktalarını geçirerek erişim için kimlik doğrulaması sağlar bir [API Management için JSON Web belirteci](https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims) doğrulamak için. Azure AD (yalnızca standart ve Premium Katmanlar) API Management Geliştirici portalına erişim güvenliğini sağlayabilirsiniz.
 

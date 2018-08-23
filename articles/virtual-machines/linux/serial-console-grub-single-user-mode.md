@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: e0b5978f1c0254cdd4c0216a4188e84f67eb4263
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 059cb0cbc7e62af16dbf95693be421feebcc1ee0
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177659"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42061146"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>GRUB ve tek kullanıcı modu erişmek için seri Konsolu
 Tek kullanıcı modunda, en az bir işlevselliğe sahip en az bir ortamdır. Daha az Hizmetleri arka planda çalıştırabilir ve çalışma düzeyi bağlı olarak bir dosya sistemi bile otomatik olarak takılı önyükleme sorunlarını araştırmanıza veya ağ sorunları için faydalı olabilir. Bu, bozuk bir dosya, bozuk bir fstab sistemi gibi durumlarda araştırmak veya ağ bağlantısı (yanlış iptables yapılandırması) kullanışlıdır.
@@ -64,7 +64,7 @@ Ayarlamış olduğunuz, yukarıdaki yönergeleri ile erişim GRUB ve kök ve ard
 1. Uygulanan ayarları ile yeniden başlatma işleminden çıkmak için Ctrl + X tuşlarına basın.
 1. Yönetici parolasını sizden istenir tek kullanıcı moduna girmek için - bu, yukarıdaki yönergeleri oluşturduğunuz parolayı    
 
-    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-systemd-unit-rescue-target.png)
+    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>Kök hesabı RHEL etkin olmayan tek kullanıcı moduna gir
 Kök kullanıcı etkinleştirmek için yukarıdaki adımları gitti değil ise, hala kök parolanızı sıfırlayabilirsiniz. Aşağıdaki yönergeleri kullanın:
@@ -81,7 +81,7 @@ Kök kullanıcı etkinleştirmek için yukarıdaki adımları gitti değil ise, 
 1. Tek kullanıcı moduna önyüklemesini sonra yazın `chroot /sysroot` uygulamasına geçmeniz `sysroot` jailbreak
 1. Kök sunulmuştur. Kök parolanızı sıfırlayabilir `passwd` ve tek kullanıcı moduna girmek için yukarıdaki yönergeleri kullanın. Tür `reboot -f` tamamladıktan sonra yeniden başlatmak için.
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-rd-break.png)
+![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > Not: düzenleme gibi görevleri de yapabilmesi için yukarıdaki yönergeleri ile çalışan, Acil Durum kabuğundan bıraktı.%n%ndizinleri `fstab`. Ancak, tek kullanıcı moduna girmek için kullanın ve kök parolanızı sıfırlamak için genel olarak kabul edilen öneri olur. 
 
@@ -136,7 +136,7 @@ SLES GRUB erişim YaST aracılığıyla şifresizdir yapılandırma gerektirir. 
 1. GRUB girmek için VM'yi yeniden başlatın ve GRUB ekranda kalın hale getirmek için önyükleme sırası sırasında herhangi bir tuşa basın.
     - GRUB varsayılan zaman aşımını 1s ' dir. Bunu değiştirerek değiştirebilirsiniz `GRUB_TIMEOUT` değişkeninde `/etc/default/grub`
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-bootloader.png)
+![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
 
 ### <a name="single-user-mode-in-suse-sles"></a>Tek kullanıcı modunda SUSE SLES
 SLES normal şekilde önyükleme işlemi yapamıyorsanız Acil shell'e otomatik olarak bırakılır. Acil Durum Kabuk el ile girmek için aşağıdaki yönergeleri kullanın:

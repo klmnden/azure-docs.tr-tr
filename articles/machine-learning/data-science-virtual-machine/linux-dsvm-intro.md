@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: db1d449e5c9f66446f00b637c5550dc9144920ff
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3883fc71c099718face38c16897040788fe0c6ab
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446774"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056189"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Azure'da bir Linux CentOS veri bilimi sanal makinesi sağlama
 
@@ -38,7 +38,7 @@ Linux veri bilimi sanal makinesi bir CentOS tabanlı Azure sanal bir dizi önced
   * [Bilişsel Araç Seti](https://github.com/Microsoft/CNTK): bir derin Microsoft Research'nden yazılımları Araç Seti öğrenme.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): hızlı makine öğrenme çevrimiçi, karma, allreduce, indirimleri, learning2search, etkin, gibi teknikler destekleyen sistem ve etkileşimli öğrenme.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): hızlı ve doğru artırmalı ağaç uygulaması sağlayan bir araç.
-  * [Rattle](http://rattle.togaware.com/) (R analitik aracı için bilgi kolayca): veri analizi ve r ile GUI tabanlı veri araştırması ile verileri kolay öğrenme ve otomatik R kod oluşturma ile modelleme makine kullanmaya başlama sağlayan bir araç.
+  * [Rattle](https://togaware.com/rattle/) (R analitik aracı için bilgi kolayca): veri analizi ve r ile GUI tabanlı veri araştırması ile verileri kolay öğrenme ve otomatik R kod oluşturma ile modelleme makine kullanmaya başlama sağlayan bir araç.
 * Azure SDK'sı, Java, Python, node.js, Ruby, PHP
 * Kitaplıklarında, R ve Python için Azure Machine Learning ve diğer Azure Hizmetleri kullanma
 * Geliştirme araçları ve Düzenleyicileri (RStudio, PyCharm, Intellij, Emacs, gedit, olduğu gibi vi)
@@ -63,7 +63,7 @@ Bir [Ubuntu](dsvm-ubuntu-intro.md) görüntüsüdür Ayrıca aynı araçları bi
 Linux veri bilimi sanal makinesi oluşturmadan önce aşağıdakilere sahip olmanız gerekir:
 
 * **Bir Azure aboneliği**: Abonelik sahibi için bkz: [alma Azure ücretsiz deneme sürümü](https://azure.microsoft.com/free/).
-* **Azure depolama hesabınız**: oluşturmak için bkz: [bir Azure depolama hesabı oluşturma](../../storage/common/storage-create-storage-account.md#create-a-storage-account). Alternatif olarak, var olan bir hesabı kullanacak şekilde istemiyorsanız, depolama hesabı VM oluşturma işleminin bir parçası olarak oluşturulabilir.
+* **Azure depolama hesabınız**: oluşturmak için bkz: [bir Azure depolama hesabı oluşturma](../../storage/common/storage-quickstart-create-account.md). Alternatif olarak, var olan bir hesabı kullanacak şekilde istemiyorsanız, depolama hesabı VM oluşturma işleminin bir parçası olarak oluşturulabilir.
 
 ## <a name="create-your-linux-data-science-virtual-machine"></a>Linux veri bilimi sanal makinenizi oluşturma
 Bir örneği, Linux veri bilimi sanal makinesi oluşturmak için adımlar şunlardır:
@@ -160,7 +160,7 @@ Ek Python kitaplıklarını yüklemek için çalıştırmanız gerekir ```conda`
     sudo /anaconda/bin/conda install -n py35 <package> #conda for Python 3.5
 
 
-### <a name="jupyter-notebook"></a>Jupyter not defteri
+### <a name="jupyter-notebook"></a>Jupyter notebook
 Anaconda dağıtım bir Jupyter not defteri ile kod ve analiz paylaşmak için bir ortam da gelir. Jupyter not defteri JupyterHub erişilir. Yerel Linux kullanıcı adınızı ve parolanızı kullanarak oturum açın.
 
 Jupyter notebook sunucusu Python 2, Python 3 ve R çekirdekler ile önceden yapılandırıldı. Not Defteri sunucuya erişmek için tarayıcıyı başlatmak için "Jupyter Notebook" adlı bir masaüstü simgesi vardır. VM X2Go ya da SSH istemcisi kullanıyorsanız, da ziyaret edebilirsiniz [ https://localhost:8000/ ](https://localhost:8000/) Jupyter notebook sunucusu erişmek için.

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 08/05/2018
 ms.author: juliako
-ms.openlocfilehash: 2c7c74d81f6d6634312b9af3f8657c520449787a
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 66ba79926a949371cb2280de408835862dd1a099
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577343"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41987556"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure'a bağlı bir Video Indexer hesabı oluşturun
 
@@ -44,11 +44,11 @@ Bu makalede bir Azure aboneliğine bağlı bir Video Indexer hesabınız ve Azur
 
         ![Erişim denetimi](./media/create-account/access-control-iam.png)
 
-    * Azure portalını kullanarak EventGrid kaynak sağlayıcısını kaydedin.
+* Azure portalını kullanarak EventGrid kaynak sağlayıcısını kaydedin.
 
-        Azure portalında Git **abonelikleri** > [. abonelik] > **ResourceProviders** > **Microsoft.EventGrid**. Durumda değil "Kaydedildi" ise, tıklayın **kaydetme**. Bu işlem birkaç dakika kaydedilecek götürür. 
+    Azure portalında Git **abonelikleri** > [. abonelik] > **ResourceProviders** > **Microsoft.EventGrid**. Durumda değil "Kaydedildi" ise, tıklayın **kaydetme**. Bu işlem birkaç dakika kaydedilecek götürür. 
 
-        ![EventGrid](./media/create-account/event-grid.png)
+    ![EventGrid](./media/create-account/event-grid.png)
 
 ## <a name="connect-to-azure"></a>Azure'a Bağlanma
 

@@ -14,15 +14,15 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 52ae7da666acaf234920a7f03afe3766f29a1e85
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 210526e105793820a2e8a80a11b356b1d7d764da
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629132"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42061735"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Azure Active Directory'de yönetici olarak yönetilmeyen bir dizini devralma
-Bu makalede, Azure Active Directory (Azure AD) bir yönetilmeyen dizinde bir DNS etki alanı adı ele iki yolu açıklanır. Bir self servis kullanıcısı, Azure AD kullanan bir bulut hizmetine kaydolduğunda bu kullanıcı, e-posta etki alanına göre yönetilmeyen bir Azure AD dizinine eklenir. Self Servis veya "viral" kayıt bir hizmet için hakkında daha fazla bilgi için bkz. [Azure Active Directory için Self Servis kaydolma nedir?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-self-service-signup)
+Bu makalede, Azure Active Directory (Azure AD) bir yönetilmeyen dizinde bir DNS etki alanı adı ele iki yolu açıklanır. Bir self servis kullanıcısı, Azure AD kullanan bir bulut hizmetine kaydolduğunda bu kullanıcı, e-posta etki alanına göre yönetilmeyen bir Azure AD dizinine eklenir. Self Servis veya "viral" kayıt bir hizmet için hakkında daha fazla bilgi için bkz. [Azure Active Directory için Self Servis kaydolma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Nasıl yönetilmeyen bir dizini devralma istediğinize karar verin
 Yönetici devralma işlemi sırasında, [Azure AD’ye özel etki alanı adı ekleme](../fundamentals/add-custom-domain.md) bölümünde açıklandığı gibi sahipliği kanıtlayabilirsiniz. Sonraki bölümlerde, yönetici deneyimi daha ayrıntılı şekilde açıklanmaktadır, ancak bir özeti aşağıda verilmiştir:
@@ -56,13 +56,13 @@ Yukarıdaki adımları tamamladıktan sonra artık Office 365'te Fourth Coffee k
 ### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Etki alanı adı, Azure AD'de yönetilen bir kiracıya ekleme 
 
 1. Açık [Office 365 Yönetim Merkezi](https://portal.office.com/adminportal/Home).
-2. Seçin **kullanıcılar** sekmesini tıklatıp gibi yeni bir kullanıcı hesabı oluşturmanız * user@fourthcoffeexyz.onmicrosoft.com * özel etki alanı adını kullanmaz. 
+2. Seçin **kullanıcılar** sekmesini tıklatıp gibi yeni bir kullanıcı hesabı oluşturmanız *user@fourthcoffeexyz.onmicrosoft.com* özel etki alanı adını kullanmaz. 
 3. Yeni kullanıcı hesabının Azure AD kiracınız için genel yönetici ayrıcalıkları olduğundan emin olun.
 4. Açık **etki alanları** sekmesinde Office 365 Yönetim merkezinde, etki alanı adını seçip seçin **Kaldır**. 
   
   ![etki alanı adını Office 365'ten Kaldır](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Kullanıcıları veya grupları Office 365'te başvuran Kaldırılan etki alanı adı varsa, bunlar için kaydedilmelidir. onmicrosoft.com etki alanı. Zorlarsanız, etki alanı adını silmek, tüm kullanıcılar otomatik olarak, bu örnekte adlandırılır * user@fourthcoffeexyz.onmicrosoft.com *.
+5. Kullanıcıları veya grupları Office 365'te başvuran Kaldırılan etki alanı adı varsa, bunlar için kaydedilmelidir. onmicrosoft.com etki alanı. Zorlarsanız, etki alanı adını silmek, tüm kullanıcılar otomatik olarak, bu örnekte adlandırılır *user@fourthcoffeexyz.onmicrosoft.com*.
   
 6. Oturum [Azure AD yönetim merkezini](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) Azure AD kiracınız için genel yönetici olan bir hesapla.
   
@@ -71,7 +71,7 @@ Yukarıdaki adımları tamamladıktan sonra artık Office 365'te Fourth Coffee k
   ![Azure AD'ye eklemiş etki alanı](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Office 365 kiracıya atanan lisanslara sahip tüm kullanıcılar Power BI veya Azure Rights Management hizmeti, etki alanı adı kaldırılırsa, panoları kaydetmeniz gerekir. Gibi bir kullanıcı adı ile oturum açmaları gerektiğini * user@fourthcoffeexyz.onmicrosoft.com * yerine * user@fourthcoffee.xyz *.
+> Office 365 kiracıya atanan lisanslara sahip tüm kullanıcılar Power BI veya Azure Rights Management hizmeti, etki alanı adı kaldırılırsa, panoları kaydetmeniz gerekir. Gibi bir kullanıcı adı ile oturum açmaları gerektiğini *user@fourthcoffeexyz.onmicrosoft.com* yerine *user@fourthcoffee.xyz*.
 
 ## <a name="external-admin-takeover"></a>Dış yönetici devralma
 

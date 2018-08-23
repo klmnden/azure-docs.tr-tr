@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b4b37a073f41295bf800d4e6c34681e0a06799c7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f465a6e6cb0642f64670a8d2727c939f91bad134
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449781"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617258"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure güvenlik ve uyumluluk planı: PaaS Web UK resmi iş yükleri için uygulama barındırma
 
@@ -23,7 +23,7 @@ Azure bir Blueprint'i Kılavuzu belgeleri ve akreditasyon veya uyumluluk gereksi
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure güvenlik ve uyumluluk planı sağlayan bir Microsoft Azure sunmak için rehberlik ve Otomasyon betikleri [(PaaS) hizmet olarak platform](https://azure.microsoft.com/overview/what-is-paas/) barındırılan sınıflandırılmış iş yüklerini işlemek için uygun web uygulaması mimarisi olarak [UK-OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/251480/Government-Security-Classifications-April-2014.pdf). Bu güvenlik sınıflandırmasının oluşturulan veya Kamu sektörü tarafından işlenebilir bilgiler çoğunu kapsar. Bu yordamı işle ilgili işlemler ve hangi if medya bazıları zararlı sonuçları olabilir, yayımlanan veya çalınırsa kayıp, hizmetleri içerir. Tipik iş parçacığı profil resmi sınıflandırma için çok değerli bilgiler ve hizmetleri sağlayan özel bir iş aynıdır. UK resmi İngiltere veri ya da hizmetleri tehdit veya ile saldırganlar tarafından tehlikeye karşı korumak için gereken özellikleri ve kaynakları gibi sınırlanmış düşünmektedir (ancak bunlarla sınırlı değil) hactivists, single-issue baskısı grupları araştırma gazetecilerin, yetkin bireysel saldırganların ve çoğu cezai bireyler ve gruplar.
+Azure güvenlik ve uyumluluk planı sağlayan bir Microsoft Azure sunmak için rehberlik ve Otomasyon betikleri [(PaaS) hizmet olarak platform](https://azure.microsoft.com/overview/what-is-paas/) barındırılan sınıflandırılmış iş yüklerini işlemek için uygun web uygulaması mimarisi olarak [UK-OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf). Bu güvenlik sınıflandırmasının oluşturulan veya Kamu sektörü tarafından işlenebilir bilgiler çoğunu kapsar. Bu yordamı işle ilgili işlemler ve hangi if medya bazıları zararlı sonuçları olabilir, yayımlanan veya çalınırsa kayıp, hizmetleri içerir. Tipik iş parçacığı profil resmi sınıflandırma için çok değerli bilgiler ve hizmetleri sağlayan özel bir iş aynıdır. UK resmi İngiltere veri ya da hizmetleri tehdit veya ile saldırganlar tarafından tehlikeye karşı korumak için gereken özellikleri ve kaynakları gibi sınırlanmış düşünmektedir (ancak bunlarla sınırlı değil) hactivists, single-issue baskısı grupları araştırma gazetecilerin, yetkin bireysel saldırganların ve çoğu cezai bireyler ve gruplar.
 
 Bu plan, Birleşik Krallık Ulusal siber Güvenlik Merkezi (NCSC tarafından) Gözden geçirildi ve NCSC 14 bulut güvenliği prensipleri hizalar.
 

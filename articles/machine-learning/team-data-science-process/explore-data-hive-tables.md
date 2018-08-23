@@ -1,6 +1,6 @@
 ---
-title: Hive tabloları Hive sorguları ile keşfedin | Microsoft Docs
-description: Hive sorgularını kullanarak Hive tablolarındaki verileri keşfedin.
+title: Hive sorguları ile Hive tablosundaki verileri keşfedin | Microsoft Docs
+description: Hive sorgularını kullanarak Hive tablosundaki verileri keşfedin.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,38 +15,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: b0156cc32348a086a9aeb720acfbbfe31efb285c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 79d40617ae4f9cd83d04cad213e5d8fd76b03876
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837115"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42061754"
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Hive sorguları ile Hive tablosundaki verileri keşfedin
-Bu belgede bir Hdınsight Hadoop kümesindeki Hive tablolarındaki verileri keşfetmek için kullanılan örnek Hive komut dosyaları sağlar.
+Bu belge, bir HDInsight Hadoop kümesindeki Hive tablolarındaki verileri araştırmak için kullanılan örnek Hive betiklerini sağlar.
 
-Aşağıdaki **menü** araçları çeşitli depolama ortamlarından verileri araştırmak için nasıl kullanılacağını açıklayan konulara bağlantılar.
+Aşağıdaki **menü** Araçlar çeşitli depolama ortamlarından verileri araştırmak için nasıl kullanılacağını açıklayan konulara bağlantılar.
 
 [!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu makalede, sahip olduğunuz varsayılmaktadır:
+Bu makalede, olduğunu varsayar:
 
-* Bir Azure depolama hesabı oluşturuldu. Yönergeler gerekiyorsa bkz [bir Azure depolama hesabı oluşturma](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
-* Özelleştirilmiş bir Hadoop kümesine Hdınsight hizmetiyle sağlandı. Yönergeler gerekiyorsa bkz [Advanced Analytics için Azure Hdınsight Hadoop kümeleri özelleştirme](customize-hadoop-cluster.md).
-* Azure Hdınsight Hadoop kümeleri Hive tabloları için verileri karşıya yüklendi. Sahip değil,'ndaki yönergeleri izleyin. [Hive tabloları oluşturma ve yük verileri](move-hive-tables.md) verileri ilk Hive tablolara yüklemek için.
-* Küme uzak erişim etkin. Yönergeler gerekiyorsa bkz [Hadoop küme baş düğümü erişim](customize-hadoop-cluster.md).
+* Bir Azure depolama hesabı oluşturuldu. Yönergelere ihtiyacınız varsa bkz [bir Azure depolama hesabı oluşturma](../../storage/common/storage-quickstart-create-account.md)
+* HDInsight hizmeti ile özelleştirilmiş bir Hadoop kümesi hazırlandı. Yönergelere ihtiyacınız varsa bkz [Gelişmiş analiz için Azure HDInsight Hadoop kümelerini özelleştirin](customize-hadoop-cluster.md).
+* Azure HDInsight Hadoop kümeleri Hive tablolarında için verileri karşıya yüklendi. Sahip değil,'ndaki yönergeleri izleyin. [Hive tabloları oluşturma ve yük verileri](move-hive-tables.md) Hive tablolarına veri önce yüklenecek.
+* Kümeye uzaktan erişim etkin. Yönergelere ihtiyacınız varsa bkz [Hadoop küme baş düğümüne erişmek](customize-hadoop-cluster.md).
 * Hive sorguları göndermek yönergeler gerekiyorsa bkz [nasıl Hive sorguları göndermek için](move-hive-tables.md#submit)
 
-## <a name="example-hive-query-scripts-for-data-exploration"></a>Veri keşfi için örnek Hive sorgusu komut dosyaları
-1. Bölüm başına gözlemleri sayısını alın  `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
-2. Gün başına gözlemleri sayısını alın  `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
-3. Kategorik bir sütunda düzeylerini Al  
+## <a name="example-hive-query-scripts-for-data-exploration"></a>Veri keşfi için örnek Hive sorgu betikleri
+1. Bölüm başına gözlemler sayısını alın  `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
+2. Gün başına gözlemler sayısını alın  `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
+3. Kategorik bir sütundaki düzeylerini Al  
     `SELECT  distinct <column_name> from <databasename>.<tablename>`
-4. İki kategorik sütun arada düzey sayısını Al  `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
-5. Sayısal sütunlar için dağıtım Al  
+4. Kategorik iki sütunu birlikte düzey sayısını Al  `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
+5. Sayısal sütunlara dağıtımı Al  
     `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
-6. İki tablo birleştirme kayıtları Ayıkla
+6. İki tablo katılmasını kayıtları Ayıkla
    
         SELECT
             a.<common_columnname1> as <new_name1>,
@@ -73,6 +73,6 @@ Bu makalede, sahip olduğunuz varsayılmaktadır:
             ) b
             ON a.<common_columnname1>=b.<common_columnname1> and a.<common_columnname2>=b.<common_columnname2>
 
-## <a name="additional-query-scripts-for-taxi-trip-data-scenarios"></a>Ücreti seyahat veri senaryoları için ek sorgu komut dosyaları
-Özel sorgular örnekleri [NYC ücreti seyahat veri](http://chriswhong.com/open-data/foil_nyc_taxi/) senaryoları burada da sunulmaktadır [GitHub deposunu](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Bu sorgular zaten belirtilen veri şeması varsa ve çalıştırmak için gönderilmesi hazırsınız.
+## <a name="additional-query-scripts-for-taxi-trip-data-scenarios"></a>Taksi seyahat veri senaryoları için ek sorgu betikleri
+Özel sorgular örnekleri [NYC taksi seyahat verilerini](http://chriswhong.com/open-data/foil_nyc_taxi/) senaryoları burada da sunulmaktadır [GitHub deposu](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Bu sorgular zaten belirtilen veri şemasına sahip ve çalıştırmak için gönderilmeye hazır.
 

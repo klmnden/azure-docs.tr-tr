@@ -1,9 +1,9 @@
 ---
-title: Azure yığınında Portalı'nı kullanarak şablonlarını dağıtma | Microsoft Docs
-description: Şablonları dağıtmak için Azure yığın Portalı'nı kullanmayı öğrenin.
+title: Şablonları portal kullanarak Azure Stack'te dağıtma | Microsoft Docs
+description: Şablonları dağıtmak için Azure Stack portal'ı kullanmayı öğrenin.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: eafa60f2-16c9-4ef1-b724-47709e9ea29e
@@ -12,31 +12,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: eea4f568f21693764222c8fdbe3316bf6008cc05
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 931c3d8beb9f2ed12228c74f09f84bbdee1798b8
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604242"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055883"
 ---
-# <a name="deploy-templates-using-the-azure-stack-portal"></a>Azure yığın Portalı'nı kullanarak şablonlarını dağıtma
+# <a name="deploy-templates-using-the-azure-stack-portal"></a>Şablonları Azure Stack portalını kullanarak dağıtma
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Portal, Azure Resource Manager şablonları Azure yığınına dağıtmak için kullanabilirsiniz.
+Portal, Azure Stack için Azure Resource Manager şablonlarını dağıtmak için kullanabilirsiniz.
 
 ## <a name="to-deploy-a-template"></a>Bir şablonu dağıtmak için
 
 1. Portal, select oturum **yeni**ve ardından **özel**.
 2. Seçin **şablon dağıtımı**.
-3. Seçin **Düzen şablonu**ve JSON şablonu kodunuzu kodu penceresine yapıştırın. **Kaydet**’i seçin.
-4. Seçin **Düzenle parametreleri**, gösterilir ve ardından parametreleri için değerler sağlamak **Tamam**.
+3. Seçin **şablonu Düzen**ve ardından JSON şablon kodunuz kod penceresine yapıştırın. **Kaydet**’i seçin.
+4. Seçin **parametreleri Düzenle**, gösterilir ve ardından bu parametrelerin değerlerini sağlamasını **Tamam**.
 5. Seçin **abonelik**. Kullanın ve ardından istediğiniz aboneliği seçin **Tamam**.
-6. Seçin **kaynak grubu**. Varolan bir kaynak grubu seçin veya yeni bir tane oluşturun ve ardından **Tamam**.
-7. **Oluştur**’u seçin. Bir Pano üzerinde yeni bir kutucuk şablonu dağıtımınızın ilerlemesini izler.
+6. Seçin **kaynak grubu**. Mevcut bir kaynak grubu seçin veya yeni bir tane oluşturun ve ardından **Tamam**.
+7. **Oluştur**’u seçin. Yeni bir kutucuk Panoda şablon dağıtımınızın ilerlemesini izler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

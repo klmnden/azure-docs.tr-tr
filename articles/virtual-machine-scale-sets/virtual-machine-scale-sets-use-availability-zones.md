@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: e19130c5ee418ebaa41f9ee42e217c52cdeec6cb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7297633b5a8954eb39e0a40bfd45b02d3838a734
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697951"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42059664"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Kullanılabilirlik alanları kullanan bir sanal makine ölçek kümesi oluşturma
 
@@ -45,10 +45,10 @@ Bir ölçek kümesi dağıtırken, tek bir dağıtmak için seçeneğiniz de [ye
 
 ### <a name="zone-balancing"></a>Bölge Dengeleme
 
-Son olarak, birden çok alanda dağıtılan ölçek kümeleri için de "en iyi çaba alan dengesi" veya "katı alan dengesi" seçme seçeneğiniz vardır. Her bölgedeki VM'lerin sayısını, VM ölçek kümesi için diğer tüm bölgelerde biri içinde ise ölçek kümesi "Kurumsal" olarak kabul edilir. Örneğin:
+Son olarak, birden çok alanda dağıtılan ölçek kümeleri için de "en iyi çaba alan dengesi" veya "katı alan dengesi" seçme seçeneğiniz vardır. Bir ölçek kümesi "her VM ile aynı sayıda bölge, dengeli" olarak kabul edilir veya +\\-1 sanal makine ölçek kümesi için diğer tüm bölgelerde. Örneğin:
 
-- Bölge 1, bölge 3, 2 ve 3 Vm'leri olarak kabul edilir bölgedeki 3 VM içinde 2 VM içeren bir ölçek dengeli.
-- Ölçek bölge 1 ile 1 sanal makine kümesi, bölge 3, 2 ve 3 Vm'leri olarak kabul edilir bölgedeki 3 VM dengesiz.
+- Bölge 1, bölge 3, 2 ve 3 Vm'leri olarak kabul edilir bölgedeki 3 VM içinde 2 VM içeren bir ölçek dengeli. Farklı bir VM sayısı ile yalnızca bir alan yoktur ve diğer bölgeler'den küçük olan yalnızca 1 olan. 
+- Ölçek bölge 1 ile 1 sanal makine kümesi, bölge 3, 2 ve 3 Vm'leri olarak kabul edilir bölgedeki 3 VM dengesiz. Bölge 1, 2, bölge 2 ve 3'den daha az VM var.
 
 Ölçek kümesindeki sanal makineler başarıyla oluşturuldu, ancak bu vm'lerdeki uzantılarını dağıtma başarısız olabilir. Bu VM uzantısı hatalarıyla yine de bir ölçek kümesi dengelenir belirlerken dikkate alınır. Örneği için 3 VM içeren bölge 1, bölge 2, 3 VM ve bölge 3, 3 VM içinde bir ölçek kümesi 1 bölgesinde tüm uzantıları başarısız olsa bile dengeli olarak kabul edilir ve tüm uzantıları 2 ve 3 bölgelerde başarılı oldu.
 
@@ -98,7 +98,7 @@ Tam bir örnek bir tek bölgeli ölçek kümesi ve ağ kaynakları için bkz [Bu
 
 ### <a name="zone-redundant-scale-set"></a>Bölgesel olarak yedekli ölçek kümesi
 
-Bölgesel olarak yedekli ölçek oluşturmak için kullandığınız bir *standart* SKU genel IP adresi ve yük dengeleyici. Gelişmiş artıklık *standart* SKU bölgesel olarak yedekli ağ kaynakları oluşturur. Daha fazla bilgi için [Azure Load Balancer Standard genel bakış](../load-balancer/load-balancer-standard-overview.md).
+Bölgesel olarak yedekli ölçek oluşturmak için kullandığınız bir *standart* SKU genel IP adresi ve yük dengeleyici. Gelişmiş artıklık *standart* SKU bölgesel olarak yedekli ağ kaynakları oluşturur. Daha fazla bilgi için [Azure Load Balancer Standard genel bakış](../load-balancer/load-balancer-standard-overview.md) ve [standart Load Balancer ve kullanılabilirlik bölgeleri](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Bölgesel olarak yedekli ölçek kümesi oluşturmak için birden fazla bölge ile belirtin `--zones` parametresi. Aşağıdaki örnekte adlı bir bölgesel olarak yedekli ölçek kümesi oluşturur *myScaleSet* bölgelerindeki *1,2,3*:
 
@@ -215,7 +215,7 @@ Bölgesel olarak yedekli ölçek kümesi oluşturmak için birden çok değeri n
 }
 ```
 
-Genel bir IP adresi veya bir yük dengeleyici oluşturursanız belirtin *"sku": {"name": "Standart"} "* bölgesel olarak yedekli ağ kaynakları oluşturma özelliği. Ayrıca, bir ağ güvenlik grubu ve kuralları tüm trafiğe izin verecek şekilde oluşturmanız gerekir. Daha fazla bilgi için [Azure Load Balancer Standard genel bakış](../load-balancer/load-balancer-standard-overview.md).
+Genel bir IP adresi veya bir yük dengeleyici oluşturursanız belirtin *"sku": {"name": "Standart"} "* bölgesel olarak yedekli ağ kaynakları oluşturma özelliği. Ayrıca, bir ağ güvenlik grubu ve kuralları tüm trafiğe izin verecek şekilde oluşturmanız gerekir. Daha fazla bilgi için [Azure Load Balancer Standard genel bakış](../load-balancer/load-balancer-standard-overview.md) ve [standart Load Balancer ve kullanılabilirlik bölgeleri](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Tam bir örnek bir bölgesel olarak yedekli ölçek kümesi ve ağ kaynakları için bkz [Bu örnek Resource Manager şablonu](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 

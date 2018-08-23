@@ -1,9 +1,9 @@
 ---
-title: PowerShell kullanarak Azure yığınında şablonlarını dağıtma | Microsoft Docs
-description: Bir şablonu Azure PowerShell kullanarak yığınına dağıtın.
+title: Şablonları PowerShell kullanarak Azure Stack'te dağıtma | Microsoft Docs
+description: Bir şablonu PowerShell kullanarak Azure Stack'e dağıtma.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 12fe32d7-0a1a-4c02-835d-7b97f151ed0f
@@ -12,32 +12,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 4af82deef029120aa2699e7c69c501ae61a1e8bd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 445628679a09a1884f63cdce446adec476af39af
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359824"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056179"
 ---
-# <a name="deploy-a-template-to-azure-stack-using-powershell"></a>Azure PowerShell kullanarak yığınına şablon dağıtma
+# <a name="deploy-a-template-to-azure-stack-using-powershell"></a>Bir şablonu PowerShell kullanarak Azure Stack'e dağıtma
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Azure Resource Manager şablonları Azure yığınına dağıtmak için PowerShell kullanın. Bu makalede PowerShell bir şablonu dağıtmak için nasıl kullanılacağı gösterilmektedir.
+Azure Stack için Azure Resource Manager şablonlarını dağıtmak için PowerShell kullanabilirsiniz. Bu makalede bir şablonu dağıtmak için PowerShell kullanmayı gösterir.
 
 ## <a name="run-azurerm-powershell-cmdlets"></a>AzureRM PowerShell cmdlet'lerini çalıştırın
 
-Bu örnek AzureRM PowerShell cmdlet'leri ve GitHub üzerinde depolanan bir şablonu kullanır. Bir Windows Server 2012 R2 Datacenter sanal makine şablonu oluşturur.
+Bu örnek, AzureRM PowerShell cmdlet'leri ve Github'a depolanmış bir şablon kullanır. Şablon, Windows Server 2012 R2 Datacenter sanal makine oluşturur.
 
 >[!NOTE]
->Bu örnek çalışmadan önce açtığınızdan emin olun [PowerShell yapılandırılmış](azure-stack-powershell-configure-user.md) Azure yığın kullanıcı için.
+>Bu örnekte denemeden önce emin olun [PowerShell yapılandırılmış](azure-stack-powershell-configure-user.md) Azure Stack kullanıcısı için.
 
-1. Git <http://aka.ms/AzureStackGitHub> ve Bul **101-basit-windows-vm** şablonu. Şablonu bu konuma kaydedin: C:\\şablonları\\azuredeploy-101-basit-windows-vm.json.
+1. Git <http://aka.ms/AzureStackGitHub> ve bulma **basit windows vm 101** şablonu. Şablonu bu konuma kaydedin: C:\\şablonları\\azuredeploy-101-basit-windows-vm.json.
 2. Yükseltilmiş bir PowerShell komut istemi açın.
-3. Değiştir *kullanıcıadı* ve *parola* aşağıdaki komut, kullanıcı adı ve parola ve komut dosyasını çalıştırın.
+3. Değiştirin *kullanıcıadı* ve *parola* aşağıdaki komut, kullanıcı adı ve parola ve betiği çalıştırın.
 
    ```PowerShell
        # Set Deployment Variables
@@ -62,9 +62,9 @@ Bu örnek AzureRM PowerShell cmdlet'leri ve GitHub üzerinde depolanan bir şabl
    ```
 
    >[!IMPORTANT]
-   >Bu komut dosyasını çalıştırmak her dağıtımınızı üzerine yazılmasını engellemek için "$myNum" parametresinin değerini artırın.
+   >Bu komut, çalıştırdığınız her dağıtımınızı üzerine yazmasını engellemek için "$myNum" parametresinin değerini artırın.
 
-4. Azure yığın portal, select açmak **Gözat**ve ardından **sanal makineleri** , yeni bir sanal makine bulmak için (*myDeployment001*).
+4. Azure Stack portal, select açın **Gözat**ve ardından **sanal makineler** yeni sanal makinenize bulmak için (*myDeployment001*).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

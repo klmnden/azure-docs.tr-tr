@@ -1,6 +1,6 @@
 ---
-title: Sertifika ortak adı kullanarak bir Azure Service Fabric kümesi oluştur | Microsoft Docs
-description: Bir şablondan sertifika ortak adı kullanarak bir Service Fabric kümesi oluşturmayı öğrenin.
+title: Sertifika ortak adını kullanarak bir Azure Service Fabric kümesi oluşturma | Microsoft Docs
+description: Bir şablondan sertifika ortak adını kullanarak bir Service Fabric kümesi oluşturmayı öğrenin.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8725dd1931b120b0369d0810fa49108a00c71e8e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c4c60cccb890c883e9e57c9f146cc93aae99f224
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211074"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42060949"
 ---
-# <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Sertifika ortak adı yerine parmak izi kullanan bir Service Fabric kümesi dağıtma
-İki sertifika küme sertifika geçişine veya yönetim zorlaştırır aynı parmak olabilir. Birden çok sertifika, ancak aynı ortak adı veya konu sahip olabilir.  Sertifika ortak adları kullanarak bir küme sertifika yönetimini daha kolay hale getirir. Bu makalede, sertifikanın ortak adı sertifika parmak izi yerine kullanılacak bir Service Fabric kümesi dağıtmayı açıklar.
+# <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Parmak izi yerine sertifika ortak adını kullanan bir Service Fabric kümesi dağıtma
+İki sertifika küme sertifika geçişi veya yönetim zorlaştırır aynı parmak olabilir. Ancak, aynı ortak adı veya konu birden çok sertifika sahip olabilir.  Sertifika ortak adları kullanarak bir küme, sertifika yönetimi çok daha kolay hale getirir. Bu makalede, sertifika ortak adına sertifika parmak izi yerine kullanılacak bir Service Fabric kümesi dağıtmayı açıklar.
  
 ## <a name="get-a-certificate"></a>Sertifika alma
-İlk olarak, bir sertifika alın bir [sertifika yetkilisi (CA)](https://wikipedia.org/wiki/Certificate_authority).  Sertifikanın ortak adı, küme ana bilgisayar adı olmalıdır.  Örneğin, "myclustername.southcentralus.cloudapp.azure.com".  
+İlk olarak, bir sertifika alın bir [sertifika yetkilisi (CA)](https://wikipedia.org/wiki/Certificate_authority).  Sertifikanın ortak adı, kümenin ana bilgisayar adı olmalıdır.  Örneğin, "myclustername.southcentralus.cloudapp.azure.com".  
 
-Test amacıyla, boş veya açık bir sertifika yetkilisinden CA imzalı bir sertifika alabilir.
+Test amacıyla, ücretsiz veya açık bir sertifika yetkilisinden bir CA imzalı bir sertifika alabilir.
 
 > [!NOTE]
-> Azure portalında bir Service Fabric kümesi dağıtırken oluşturulan dahil olmak üzere otomatik olarak imzalanan sertifikalar desteklenmez.
+> Azure portalında bir Service Fabric küme dağıtılırken oluşturulan dahil olmak üzere otomatik olarak imzalanan sertifikalar desteklenmiyor.
 
-## <a name="upload-the-certificate-to-a-key-vault"></a>Bir anahtar kasası ve sertifikayı karşıya yüklemek
-Azure üzerinde bir sanal makine ölçek kümesi üzerinde bir Service Fabric kümesi dağıtılır.  Sertifika bir anahtar Kasası'na karşıya yükleyin.  Küme dağıttığında, sertifikayı küme çalışan sanal makine ölçek kümesini yükler.
+## <a name="upload-the-certificate-to-a-key-vault"></a>Bir anahtar kasasına sertifika yükleme
+Azure'da bir sanal makine ölçek kümesi üzerinde bir Service Fabric kümesine dağıtılır.  Sertifikayı bir anahtar Kasası'na yükleyin.  Kümeye dağıttığında, sertifikayı kümesi çalıştıran sanal makine ölçek kümesinde yükler.
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -72,18 +72,18 @@ Write-Host "SourceVault              :"  $SourceVault
 Write-Host "Common Name              :"  $CommName    
 ```
 
-## <a name="download-and-update-a-sample-template"></a>Karşıdan yüklemek ve bir örnek şablonunu güncelleştirme
-Bu makalede kullanan [5-node güvenli küme örnek](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure) şablonu ve şablon parametreleri. Karşıdan *azuredeploy.json* ve *azuredeploy.parameters.json* dosyaları bilgisayarınıza.
+## <a name="download-and-update-a-sample-template"></a>İndirin ve bir örnek şablonu güncelleştirin
+Bu makalede [güvenli kümesi 5 düğümlü örnek](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure) şablon ve şablon parametreleri. İndirme *azuredeploy.json* ve *azuredeploy.parameters.json* bilgisayarınıza dosyaları.
 
-### <a name="update-parameters-file"></a>Parametre dosyasını güncelleştirme
-İlk olarak, açık *azuredeploy.parameters.json* dosyasını bir metin düzenleyicisinde açın ve aşağıdaki parametre değerini ekleyin:
+### <a name="update-parameters-file"></a>Parametreler dosyasını güncelleştirme
+İlk olarak, açık *azuredeploy.parameters.json* dosyasını bir metin düzenleyicisinde ve aşağıdaki parametreyi ekleyin:
 ```json
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
 },
 ```
 
-Ardından, ayarlayın *certificateCommonName*, *sourceVaultValue*, ve *certificateUrlValue* parametre değerleri bu önceki komut dosyası tarafından döndürülen:
+Ardından, ayarlama *certificateCommonName*, *sourceVaultValue*, ve *certificateUrlValue* parametre değerlerini bu önceki komut dosyası tarafından döndürülen:
 ```json
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
@@ -97,9 +97,9 @@ Ardından, ayarlayın *certificateCommonName*, *sourceVaultValue*, ve *certifica
 ```
 
 ### <a name="update-the-template-file"></a>Şablon dosyasını güncelleştirme
-Ardından, açık *azuredeploy.json* dosyasını bir metin düzenleyicisinde ve sertifika ortak adı desteklemek için üç güncelleştirmeleri yapın.
+Ardından, açık *azuredeploy.json* dosyasını bir metin düzenleyicisinde ve sertifika ortak adına desteklemek için üç güncelleştirmeleri yapın.
 
-1. İçinde **parametreleri** bölümünde bir *certificateCommonName* parametre:
+1. İçinde **parametreleri** bölümünde, eklemek bir *certificateCommonName* parametresi:
     ```json
     "certificateCommonName": {
       "type": "string",
@@ -111,12 +111,20 @@ Ardından, açık *azuredeploy.json* dosyasını bir metin düzenleyicisinde ve 
 
     Ayrıca kaldırmayı düşünün *certificateThumbprint*, artık gerekli.
 
-2. Değerini *sfrpApiVersion* "2018-02-01" için değişken:
+2. Değerini *sfrpApiVersion* "2018-02-01" değişkenini:
     ```json
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. İçinde **Microsoft.Compute/virtualMachineScaleSets** kaynak, sertifika parmak izini ayarlarında ortak adı kullanmak için sanal makine uzantısını güncelleştirin.  İçinde **virtualMachineProfile**->**extenstionProfile**->**uzantıları**->**özellikleri** -> **ayarları**->**sertifika**, ekleme `"commonNames": ["[parameters('certificateCommonName')]"],` kaldırıp `"thumbprint": "[parameters('certificateThumbprint')]",`.
+3. İçinde **Microsoft.Compute/virtualMachineScaleSets** kaynağın ortak adı yerine parmak izi sertifika ayarlarını kullanmak için sanal makine uzantısını güncelleştirin.  İçinde **virtualMachineProfile**->**extenstionProfile**->**uzantıları**->**özellikleri** -> **ayarları**->**sertifika**, Ekle 
+    ```json
+       "commonNames": [
+        "[parameters('certificateCommonName')]"
+       ],
+    ```
+
+    kaldırıp `"thumbprint": "[parameters('certificateThumbprint')]",`.
+
     ```json
     "virtualMachineProfile": {
       "extensionProfile": {
@@ -139,7 +147,9 @@ Ardından, açık *azuredeploy.json* dosyasını bir metin düzenleyicisinde ve 
                 "enableParallelJobs": true,
                 "nicPrefixOverride": "[variables('subnet0Prefix')]",
                 "certificate": {
-                  "commonNames": ["[parameters('certificateCommonName')]"],
+                  "commonNames": [
+                     "[parameters('certificateCommonName')]"
+                  ],
                   "x509StoreName": "[parameters('certificateStoreValue')]"
                 }
               },
@@ -148,7 +158,7 @@ Ardından, açık *azuredeploy.json* dosyasını bir metin düzenleyicisinde ve 
           },
     ```
 
-4.  İçinde **Microsoft.ServiceFabric/clusters** kaynak, güncelleştirme API'sı sürüm "2018-02-01" olarak.  Ayrıca bir **certificateCommonNames** ayarı bir **commonNames** özellik ekleme ve kaldırma **sertifika** (parmak izi özelliğiyle) aşağıdaki gibi ayar Örnek:
+4.  İçinde **Microsoft.ServiceFabric/clusters** kaynak, "2018-02-01" için güncelleştirme API sürümü.  Ayrıca bir **certificateCommonNames** ayarı bir **commonNames** özelliği ekleme ve kaldırma **sertifika** (parmak izi özelliğiyle) şu şekilde ayarlama Örnek:
     ```json
     {
         "apiVersion": "2018-02-01",
@@ -176,7 +186,7 @@ Ardından, açık *azuredeploy.json* dosyasını bir metin düzenleyicisinde ve 
     ```
 
 ## <a name="deploy-the-updated-template"></a>Güncelleştirilmiş şablonu dağıtma
-Güncelleştirilmiş şablonu değişiklikleri yaptıktan sonra yeniden dağıtın.
+Güncelleştirilmiş şablonu, değişiklikleri yaptıktan sonra yeniden dağıtın.
 
 ```powershell
 # Variables.
@@ -195,7 +205,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParame
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hakkında bilgi edinin [küme güvenlik](service-fabric-cluster-security.md).
-* Bilgi edinmek için nasıl [rollover küme sertifika](service-fabric-cluster-rollover-cert-cn.md)
-* [Güncelleştirme ve küme sertifikaları yönetme](service-fabric-cluster-security-update-certs-azure.md)
+* Bilgi edinmek için nasıl [geçişi bir küme sertifikası](service-fabric-cluster-rollover-cert-cn.md)
+* [Küme sertifikalarını yönetme ve güncelleştirme](service-fabric-cluster-security-update-certs-azure.md)
+* Sertifika yönetimi basitleştirmek [değiştirme kümeden sertifika parmak izi için ortak ad](service-fabric-cluster-change-cert-thumbprint-to-cn.md)
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png

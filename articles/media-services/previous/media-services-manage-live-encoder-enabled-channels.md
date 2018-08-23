@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 08/20/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: f4b57241085381f4b975c07038b41133b8a4319b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 008fac84eedfd58cbcfe563504a50bc19d519382
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436200"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42061137"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services aracılığıyla canlı akış gerçekleştirerek çoklu bit hızına sahip akışlar oluşturma
 
@@ -130,7 +130,7 @@ Varsa **Kodlayıcı türü** ayarlanır **standart**, geçerli seçenekler şunl
 * Tekli bit hızı **parçalanmış MP4** (kesintisiz akış)
 
 #### <a id="single_bitrate_RTMP"></a>Tek bit hızlı RTMP
-Dikkate alınacak noktalar:
+Dikkat edilmesi gerekenler:
 
 * Gelen akışın Çoklu bit hızına sahip video içeremez
 * Video akışı aşağıda 15 MB/sn ortalama bir hızına sahip olmalıdır
@@ -153,7 +153,7 @@ Tipik kullanım örneği:
 
 Kullanım şirket içi Canlı Kodlayıcıları satıcılardan Elemental teknolojileri, Ericsson, Ateme, Envivio Giriş akışı açık internet üzerinden yakında Azure'a göndermek için veri merkezi.
 
-Dikkate alınacak noktalar:
+Dikkat edilmesi gerekenler:
 
 Olarak aynı [tek bit hızlı RTMP](media-services-manage-live-encoder-enabled-channels.md#single_bitrate_RTMP).
 
@@ -228,7 +228,8 @@ Bu kanal içindeki gerçek zamanlı Kodlayıcı tarafından kullanılmak üzere 
 | 200 |340 |192 |30 |Taban Çizgisi |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Ses çıkış Stream
-64 KB/sn, 44,1 kHz örnekleme hızı anda stereo AAC-LC ses kodlanır.
+
+128 Kb/sn, 48 kHz örnekleme hızı anda stereo AAC-LC ses kodlanır.
 
 ## <a name="signaling-advertisements"></a>Sinyal reklamları
 Kanalınızın Canlı kodlama etkin olduğunda, video işleme, işlem hattı, bir bileşene sahip ve onu işleyebilirsiniz. Giden bit hızı Uyarlamalı akışa maskeleme görüntülerini ve/veya reklamlar kanalın için sinyal verebilirsiniz. Maskeleme görüntülerini yine de bazı özel durumlarda Canlı giriş akışını'kurmak (örneğin bir ticari sonu sırasında) karşılamak için kullanabileceğiniz görüntüleridir. Sinyaller reklam, saatin eşitlenmiş sinyalleri uygun zamanda duyuru geçmek gibi özel bir eylem – yararlanmak için video oynatıcı bildirmek için giden akış içine ekleme var. Bkz. Bu [blog](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) SCTE-35 sinyal mekanizması bu amaç için kullanılan genel bir bakış için. Canlı etkinliğiniz uygulayabileceğine tipik bir senaryo aşağıdadır.
@@ -281,7 +282,7 @@ Varsa **varsayılan maskeleme görüntüsü varlık kimliği** belirtilmezse, ve
 ## <a name="channels-programs"></a>Kanalın programlar
 Kanal, bir canlı akıştaki segmentlerin yayımlanması ve depolanmasını denetlemenizi sağlayan programlarla ilişkilidir. Kanallar, Programları yönetir. Kanal ve Program ilişki, burada bir kanal sabit bir içerik akışının vardır ve bir programın bu kanalda zamanlanmış bir olayı kapsamlı geleneksel Medyadaki çok benzer.
 
-Program için kaydedilen içeriği kaç saat tutmak istediğinizi **Arşiv Penceresi** uzunluğunu ayarlayarak belirleyebilirsiniz. Bu değer en az 5 dakika, en çok 25 saat olarak ayarlanabilir. Arşiv penceresi uzunluğu, istemcilerin geçerli canlı konumdan zamanda geri gidebilecekleri en uzun süre miktarını da belirler. Olaylar belirtilen süre miktarından uzun sürebilir, ancak pencere uzunluğunun gerisine düşen içerik sürekli olarak atılır. Bu özelliğin bu değeri, istemci bildiriminin ne kadar uzayabileceğini de belirler.
+Program için kaydedilen içeriği kaç saat tutmak istediğinizi **Arşiv Penceresi** uzunluğunu ayarlayarak belirleyebilirsiniz. Bu değer en az 5 dakika, en çok 25 saat olarak ayarlanabilir. Arşiv penceresi uzunluğu ayrıca en fazla saat istemciyi geçmişe geçerli Canlı konumdan gidebilecekleri. Olaylar belirtilen süre miktarından uzun sürebilir, ancak pencere uzunluğunun gerisine düşen içerik sürekli olarak atılır. Bu özelliğin bu değeri, istemci bildiriminin ne kadar uzayabileceğini de belirler.
 
 Her program akış içeriği depolayan bir varlıkla ilişkilidir. Bir varlık, bir Azure depolama hesabındaki blok blob kapsayıcısını eşlenir ve varlık içindeki dosyalara, kapsayıcıdaki blobları olarak depolanır. Müşterilerinizin akış görebilecek şekilde programı yayımlamak için ilişkili varlığa yönelik bir OnDemand Bulucu oluşturmanız gerekir. Bu bulucuya sahip olmak, istemcilerinize sağlayabileceğiniz bir akış URL’si oluşturmanıza olanak tanır.
 
@@ -336,9 +337,9 @@ Aşağıdaki tabloda, Kanal durumlarının faturalandırma modu ile nasıl eşle
 * Kodlama Önayarı "max kare hızı" 30 fps kavramını kullanır. Giriş 60 fps ise bunu / 59.94i, giriş çerçeveleri bırakılan/sona erdirme olanağı-için 30/29.97 fps interlaced. Giriş 50 fps/50i giriş çerçeveleri bırakılan/sona erdirme olanağı-25 fps için interlaced tutulur. 25 fps giriş ise çıktı 25 fps kalır.
 * DURDURMA YOUR işiniz bittiğinde kanala unutmayın. Yapmadığınız takdirde, faturalandırma devam eder.
 
-## <a name="known-issues"></a>Bilinen sorunlar
+## <a name="known-issues"></a>Bilinen Sorunlar
 * Kanal başlatma süresi 2 dakika ortalama için iyileştirilmiştir, ancak bazen artan talebi en fazla 20'den fazla dakika yine de gerçekleştirebilir.
-* Maskeleme görüntüleri açıklanan kısıtlamaları için uyması [burada](media-services-manage-live-encoder-enabled-channels.md#default_slate). Denerseniz, bir kanal oluşturmak 1920 x 1080 ' büyük olan bir varsayılan Kurşun ile istek olacak sonuçta ortaya çıkan hata giderildi.
+* Maskeleme görüntüleri açıklanan kısıtlamaları için uyması [burada](media-services-manage-live-encoder-enabled-channels.md#default_slate). 1920 x 1080 ' büyük bir varsayılan maskeleme görüntüsü ile bir kanal oluşturmaya çalışırsanız, istek olacak sonuçta ortaya çıkan hata giderildi.
 * Bir kez daha... İşiniz bittiğinde durdurma YOUR KANALLARA unutmayın akış. Yapmadığınız takdirde, faturalandırma devam eder.
 
 ## <a name="next-step"></a>Sonraki adım

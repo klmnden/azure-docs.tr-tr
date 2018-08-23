@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/17/2018
 ms.author: juliako
-ms.openlocfilehash: c4a755d0c13516ce3cb0177cea2ea17e4a3abcbb
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 8a9409c46cac8397bc449c586374729a4d864036
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390978"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41988774"
 ---
 # <a name="upload-and-index-your-videos"></a>Karşıya yükleme ve videolarınızı dizin  
 
@@ -47,15 +47,15 @@ Dizin oluşturulurken bildirmek için bir POST URL'si tamamlanır. Video Indexer
 
 Video Indexer çağrısı göndermeden önce URL'sine daha fazla parametre ekleyebilir ve bu parametreleri geri aramada dahil edilir. Sorgu dizesini ayrıştırmak ve alma kodunuzda (URL'si artı Video Indexer tarafından sağlanan bilgileri için başlangıçta eklenmiş veriler.) sorgu dizesinde belirtilen parametrelerin tümü daha sonra tekrar 
 
-### <a name="streamingpereset"></a>streamingPereset
+### <a name="streamingpreset"></a>streamingPreset
 
 Videonuz karşıya yüklendikten sonra Video Indexer, isteğe bağlı olarak kodlar video. Ardından, dizin oluşturma ve video Çözümleme devam eder. Video Indexer bittiğinde çözümleme, video kimliğe sahip bir bildirim alırsınız  
 
-Kullanırken [videoyu karşıya yükle](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) veya [yeniden dizin Video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API'si, isteğe bağlı parametrelerden biri, `streamingPreset`. Ayarlarsanız `streamingPereset` için `Default`, `SingleBitrate`, veya `AdaptiveBitrate`, kodlama işlemi tetiklenir. Dizin oluşturma ve işleri kodlama tamamladıktan sonra videonuzu akışla, böylece videonun yayımlanır. Videonuzun akışını yapmak istediğiniz akış uç olmalıdır **çalıştıran** durumu.
+Kullanırken [videoyu karşıya yükle](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) veya [yeniden dizin Video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API'si, isteğe bağlı parametrelerden biri, `streamingPreset`. Ayarlarsanız `streamingPreset` için `Default`, `SingleBitrate`, veya `AdaptiveBitrate`, kodlama işlemi tetiklenir. Dizin oluşturma ve işleri kodlama tamamladıktan sonra videonuzu akışla, böylece videonun yayımlanır. Videonuzun akışını yapmak istediğiniz akış uç olmalıdır **çalıştıran** durumu.
 
 Dizin oluşturma ve kodlama işleri çalıştırmak için [Azure Media Services hesabına bağlı Video Indexer hesabınız](connect-to-azure.md), ayrılmış birim gerektirir. Daha fazla bilgi için [medya işlemeyi ölçeklendirme](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview). Bu işlem gücü kullanımlı işleri olduğundan, S3 birimi türü önemle tavsiye edilir. RU sayısı, paralel olarak çalıştırılabilir işler en fazla sayısını tanımlar. 10 S3 RU'ları temel önerilir. 
 
-Yalnızca videonuzu dizinlemeyi istiyoruz, ancak bunu kodlamamayı verilirse `streamingPereset`için `NoStreaming`.
+Yalnızca videonuzu dizinlemeyi istiyoruz, ancak bunu kodlamamayı verilirse `streamingPreset`için `NoStreaming`.
 
 ## <a name="code-sample"></a>Kod örneği
 

@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 08/16/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 1b9807b587b6b52594133e8c792c72b21e8bd4ea
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7d27b95f9c7d21f49f547534ca99a44657062abc
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503630"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42061098"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Oluşturma, değiştirme veya bir sanal ağ eşlemesini Sil
 
-Oluşturma, değiştirme veya bir sanal ağ eşlemesini Sil öğrenin. Sanal Ağ eşlemesi sanal ağları Azure omurga ağı aracılığıyla birbirine bağlamanıza olanak sağlar. Eşlendikten sonra sanal ağ ayrı kaynaklar olarak hala yönetilir. Sanal Ağ eşlemesi için yeni başlıyorsanız daha fazla bilgi edinebilirsiniz [sanal ağ eşleme genel bakış](virtual-network-peering-overview.md) veya tamamlayarak bir [öğretici](tutorial-connect-virtual-networks-portal.md).
+Oluşturma, değiştirme veya bir sanal ağ eşlemesini Sil öğrenin. Sanal Ağ eşlemesi (diğer adıyla genel sanal ağ eşleme) bölgede ve aynı bölgedeki sanal ağları bağlamak, Azure omurga ağı aracılığıyla sağlar. Eşlendikten sonra sanal ağ ayrı kaynaklar olarak hala yönetilir. Sanal Ağ eşlemesi için yeni başlıyorsanız daha fazla bilgi edinebilirsiniz [sanal ağ eşleme genel bakış](virtual-network-peering-overview.md) veya tamamlayarak bir [öğretici](tutorial-connect-virtual-networks-portal.md).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -112,10 +112,10 @@ Sanal ağlar, bazen kurmak istiyor, ancak her zaman bir eşdüzey hizmet sağlam
 
 ## <a name="requirements-and-constraints"></a>Gereksinimler ve kısıtlamalar 
 
-- <a name="cross-region"></a>Aynı bölgede ya da farklı bölgelerdeki sanal ağları eşleyebilirsiniz. Her iki sanal ağ içinde olduğunda aşağıdaki kısıtlamalar geçerli değildir *aynı* bölge, ancak genel olarak sanal ağlar eşlendiğinde geçerlidir: 
-    - Sanal ağların herhangi bir bölgedeki Azure genel bulut, ancak Ulusal Azure bulutlarında bulunabilir.
-    - Bir sanal ağ içindeki kaynaklarla IP adresi eşlenen sanal ağdaki bir Azure iç yük dengeleyici ile iletişim kuramıyor. Yük Dengeleyici ve bununla iletişim kuran kaynakları, aynı sanal ağda olmalıdır.
-    - Uzak ağ geçitlerini veya ağ geçidi aktarımına izin ver kullanılamaz. Uzak ağ geçitlerini kullan veya ağ geçidi aktarımına izin vermek için her iki sanal ağ eşleme, aynı bölgede bulunmalıdır. 
+- <a name="cross-region"></a>Aynı bölgede ya da farklı bölgelerdeki sanal ağları eşleyebilirsiniz. Sanal ağlar farklı bölgelerde de denir olarak eşlemesi *genel eşleme*. 
+- Genel eşleme oluştururken, eşlenen sanal ağlarda herhangi bir bölgedeki Azure genel bulut, ancak Ulusal Azure bulutlarında bulunabilir. Yalnızca Ulusal bulutlarda aynı bölgedeki sanal ağları eşleyebilirsiniz.
+- Bir sanal ağ içindeki kaynaklarla genel olarak eşlenmiş sanal ağdaki bir Azure iç yük dengeleyici ön uç IP adresi ile iletişim kuramıyor. Yük Dengeleyici ve bununla iletişim kuran kaynakları bir sanal ağ aynı bölgede olması gerekir. Eşlenen sanal ağlarda aynı bölgede ancak varsa, her iki sanal ağ içindeki kaynaklarla eşlemesindeki her iki sanal ağdaki bir Azure iç yük dengeleyici ön uç IP adresi ile iletişim kurabilir.
+- Uzak ağ geçitlerini veya genel olarak eşlenmiş sanal ağlarda ağ geçidi aktarımına izin ver kullanılamaz. Uzak ağ geçitlerini kullan veya ağ geçidi aktarımına izin vermek için eşlenen sanal ağlarda aynı bölgede olması gerekir.
 - Sanal ağlar aynı ya da farklı Aboneliklerde olabilir. Farklı Aboneliklerdeki sanal ağları eşleyebilme, her iki aboneliğin aynı Azure Active Directory kiracısı ile ilişkilendirilmesi gerekir. Bir AD kiracısına zaten sahip değilseniz, hızla yapabilirsiniz [oluşturmak](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Kullanabileceğiniz bir [VPN ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) farklı Active Directory kiracılarıyla ilişkili farklı Aboneliklerde bulunan iki sanal ağları bağlamak için.
 - Eş sanal ağlar, IP adresi alanları çakışmamalıdır olması gerekir.
 - Adres aralıklarını ekleyin veya başka bir sanal ağ ile sanal ağ eşlendikten sonra sanal ağın adres alanından adres aralıkları silin. Adres aralıkları kaldırın, eşlemeyi silmek, eklediğinizde veya adres aralıklarını kaldırmak için ardından eşleme yeniden oluşturun. Adres aralıklarını ekleyin veya adres aralıkları sanal ağlardan bağlantısını kaldırmak için bkz: [sanal ağlarını yönetme](manage-virtual-network.md).

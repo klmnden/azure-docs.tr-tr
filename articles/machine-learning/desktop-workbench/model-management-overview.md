@@ -1,129 +1,127 @@
 ---
-title: Azure Machine Learning modeli Yönetimi kavramsal genel bakış | Microsoft Docs
-description: Bu belge, Azure Machine Learning için Model yönetimi kavramlarını açıklar.
+title: Azure Machine Learning Model Yönetimi kavramsal genel bakış | Microsoft Docs
+description: Bu belge için Azure Machine Learning Model yönetimi kavramlarını açıklar.
 services: machine-learning
-author: nk773
-ms.author: padou
-manager: mwinkle
-ms.reviewer: jasonwhowell, mldocs
+author: hjerezmsft
+ms.author: hjerez
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 6fac3fa0207d942c5a7f5fa438ba8262ea5b7a22
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 041f7147f171514d941555ff2f6144bac2062b06
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832236"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057748"
 ---
 # <a name="azure-machine-learning-model-management"></a>Azure Machine Learning Model Yönetimi
 
-Azure Machine Learning modeli yönetim, yönetmek ve machine learning iş akışları ve modelleri dağıtmanızı sağlar. 
+Azure Machine Learning Model yönetimi, yönetmek ve makine öğrenimi iş akışları ve modelleri dağıtmak sağlar. 
 
-Model yönetim yeteneklerini sağlar:
+Model yönetimi için özellikleri sağlar:
 - Model sürüm oluşturma
-- Üretim modellerinde izleme
-- Model AzureML işlem ortamıyla aracılığıyla üretime dağıtma [Azure kapsayıcı hizmeti](https://azure.microsoft.com/services/container-service/) ve [Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
+- Modelleri üretimde izleme
+- Modelleri üretime AzureML işlem ortamıyla aracılığıyla dağıtma [Azure Container Service](https://azure.microsoft.com/services/container-service/) ve [Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
 - Docker kapsayıcıları ile modelleri oluşturma ve yerel olarak test etme
 - Otomatik modeli yeniden eğitme
-- Eyleme dönüştürülebilir Öngörüler için yakalama modeli telemetri. 
+- Eyleme dönüştürülebilir Öngörüler için model telemetri yakalama. 
 
-Azure Machine Learning modeli yönetim modeli sürümlerinin bir kayıt defteri sağlar. Ayrıca paketleme ve Machine Learning kapsayıcılar REST API'leri olarak dağıtma için otomatik iş akışları sağlar. Modelleri ve çalışma zamanı bağımlılıklarını, Linux tabanlı Docker kapsayıcısı tahmin API ile paketlenmiştir. 
+Azure Machine Learning Model yönetimi, bir kayıt defteri model sürümleri sağlar. Ayrıca paketleme ve REST API'leri olarak makine öğrenimi kapsayıcıları dağıtma için otomatik iş akışları sağlar. Modeller ve çalışma zamanı bağımlılıklarını Linux tabanlı bir Docker kapsayıcısında tahmin API ile paketlenmiştir. 
 
-Azure Machine Learning işlem ortamları modelleri barındırmak için ölçeklenebilir kümeleri ayarlamanıza yardımcı olur. Bilgi işlem ortamı Azure kapsayıcı Services'de temel alır. Azure kapsayıcı hizmetlerini Machine Learning API'ları otomatik riskini aşağıdaki özelliklerle REST API uç noktaları olarak sağlar:
+Azure Machine Learning işlem ortamları ayarlama ve modellerini barındırmak için ölçeklenebilir kümelerini yönetmek için yardımcı olur. İşlem ortamı, Azure Container Service üzerinde temel alır. Azure Container Services REST API uç noktaları aşağıdaki özelliklere sahip olarak Machine Learning API'leri otomatik riskini sağlar:
 
 - Kimlik Doğrulaması
 - Yük dengeleme
 - Otomatik ölçeklendirme
 - Şifreleme
 
-Azure Machine Learning modeli yönetim CLI, API ve Azure portalı üzerinden bu özellikleri sağlar. 
+Azure Machine Learning Model Yönetimi CLI, API ve Azure portalı üzerinden bu özellikleri sağlar. 
 
-Azure Machine Learning modeli yönetim aşağıdaki bilgileri kullanır:
+Azure Machine Learning model Yönetimi aşağıdaki bilgiler kullanılmaktadır:
 
- - Model dosyası veya model dosyalarında sahip bir dizin
- - Kullanıcı işlevi Puanlama modeli uygulama Python dosyası oluşturuldu
- - Çalışma zamanı bağımlılıkları listeleme Conda bağımlılık dosyası
- - Çalışma zamanı ortamı seçim ve 
- - API parametreleri için şema dosyası 
+ - Model dosya veya dizin ile model dosyaları
+ - Kullanıcı bir model Puanlama işlevi uygulama Python dosyası oluşturuldu
+ - Çalışma zamanı bağımlılıklarını listeleme Conda bağımlılık dosyası
+ - Çalışma zamanı ortamı seçeneği ve 
+ - API parametreler için şema dosyası 
 
 Bu bilgiler aşağıdaki eylemleri gerçekleştirirken kullanılır:
 
-- Bir model kaydetme
-- Bir bildirim oluşturmak bir kapsayıcı oluşturulurken kullanılır
-- Bir Docker kapsayıcısı görüntü oluşturma
-- Azure kapsayıcı hizmeti için bir kapsayıcı dağıtma
+- Model kaydediliyor
+- Bir kapsayıcı oluştururken bir bildirim oluşturma kullanılır
+- Bir Docker kapsayıcı görüntüsü oluşturma
+- Azure Container Service için bir kapsayıcı dağıtma
  
-Aşağıdaki şekilde nasıl modelleri kayıtlı ve kümeye dağıtılan özetini gösterir. 
+Kümeye dağıtılan modelleri nasıl kayıtlı ve bir genel bakış aşağıdaki şekilde gösterilmiştir. 
 
 ![](media/model-management-overview/modelmanagement.png)
 
 ## <a name="create-and-manage-models"></a>Modelleri oluşturmak ve yönetmek 
-Model sürümleri üretimde izlemek için Azure Machine Learning modeli yönetimiyle modelleri kaydedebilirsiniz. Yeniden Üretilebilirlik ve idare kolaylaştırmak için hizmet tüm bağımlılıkları ve ilişkili bilgilerini yakalar. Performans, daha ayrıntılı Öngörüler için sağlanan SDK'sını kullanarak modeli telemetri yakalayabilirsiniz. Model telemetri kullanıcı tarafından sağlanan depolama arşivlenir. Model telemetri modeli performansını analiz etme, yeniden eğitme ve işletmeniz için Öngörüler elde daha sonra kullanılabilir.
+Model sürümleri üretimde izleme için modeller Azure Machine Learning Model yönetimi ile kaydedebilirsiniz. İçin yeniden üretilebilirliğini ve yönetim kolaylığı, hizmetin tüm bağımlılıkları ve ilişkili bilgileri yakalar. Performans, daha ayrıntılı bilgiler için sağlanan SDK'sını kullanarak model telemetri yakalayabilirsiniz. Kullanıcı tarafından sağlanan depolama modeli telemetri arşivlenir. Model telemetri, daha sonra model performansını analiz etme, yeniden eğitme ve işletmeniz için öngörü için de kullanılabilir.
 
 ## <a name="create-and-manage-manifests"></a>Oluşturma ve bildirimleri yönetme 
-Modelleri üretime dağıtmak için ek yapıları gerektirir. Sistem modeli, bağımlılıkları, çıkarım komut dosyası (diğer adıyla Puanlama komut dosyası), örnek verileri, şema vb. kapsayan bir bildirimi oluşturma yeteneği sağlar. Bu bildirim bir Docker kapsayıcısı görüntüsü oluşturmak için tarif davranır. Kuruluşların bildirim otomatik olarak oluşturmak, farklı sürümlerini oluşturun ve bunların bildirimleri yönetin. 
+Modelleri üretime dağıtmak için ek yapıtları gerektirir. Sistem modeli, bağımlılıkları, çıkarım betik (diğer adıyla Puanlama betik), örnek verileri, şema vb. kapsayan bir bildirim oluşturma olanağı sağlar. Bu bildirimi bir Docker kapsayıcı görüntüsü oluşturmak için tarif görev yapar. Kuruluşların bildirimi otomatik olarak oluşturmak, farklı sürümlerini oluşturun ve bunların bildirimlerini yönetme. 
 
-## <a name="create-and-manage-docker-container-images"></a>Oluşturun ve Docker kapsayıcısı görüntülerini yönetme 
-Önceki adımda bildirimden ilgili ortamlarında Docker tabanlı kapsayıcı görüntüleri oluşturmak için kullanabilirsiniz. Kapsayıcılı, Docker tabanlı görüntüleri kuruluşların bu görüntüler aşağıdaki işlem ortamda çalıştırmak için esneklik sağlar:
+## <a name="create-and-manage-docker-container-images"></a>Oluşturma ve Docker kapsayıcı görüntülerini yönetin 
+Önceki adımdan gelen bildirim ilgili ortamlarındaki Docker tabanlı kapsayıcı görüntülerini oluşturmak için kullanabilirsiniz. Kapsayıcılı, Docker tabanlı görüntüleri kuruluşların bu görüntüler aşağıdaki işlem ortamlarını üzerinde çalıştırma esnekliğini sağlar:
 
-- [Azure kapsayıcı hizmeti Kubernetes dayalı](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
-- Şirket içi kapsayıcı hizmetlerini
+- [Azure Container Service Kubernetes tabanlı](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
+- Şirket içi kapsayıcı Hizmetleri
 - Geliştirme ortamları
 - IoT cihazları
 
-Bu Docker tabanlı kapsayıcılı görüntüler tahminleri oluşturmak için gereken tüm gerekli bağımlılıkları kendi içinde yer alan. 
+Bu Docker tabanlı kapsayıcı görüntüleri Öngörüler oluşturmak için gereken tüm gerekli bağımlılıkları olan diğerlerinden bağımsızdır. 
 
-## <a name="deploy-docker-container-images"></a>Docker kapsayıcısı görüntüleri dağıtma 
-Azure Machine Learning modeli Management'ı tek bir komut Docker tabanlı kapsayıcı görüntülerle ML işlem ortamı tarafından yönetilen Azure kapsayıcı hizmeti dağıtabilirsiniz. Bu dağıtımlar aşağıdaki özellikleri sağlayan bir ön uç sunucusu ile oluşturulur:
+## <a name="deploy-docker-container-images"></a>Docker kapsayıcı görüntüleri dağıtma 
+Azure Machine Learning Model yönetimi ile tek bir komutla Docker tabanlı kapsayıcı görüntüleri, ML işlem ortamı tarafından yönetilen Azure Container Service'e dağıtabilirsiniz. Bu dağıtımları, aşağıdaki özellikleri sağlayan bir ön uç sunucusu ile oluşturulur:
 
-- Düşük gecikme süresi tahminleri ölçekte
+- Uygun ölçekte düşük gecikme süresi Öngörüler
 - Yük dengeleme
-- Otomatik ölçeklendirme ML uç noktaları
-- API anahtarı yetkilendirme
-- API swagger belgesinin
+- ML uç noktaları otomatik olarak ölçeklendirme
+- API anahtarı kimlik doğrulama
+- API swagger belgesi
 
-Dağıtım ölçek ve telemetri aşağıdaki yapılandırma ayarları aracılığıyla denetleyebilirsiniz:
+Dağıtım ölçek ve telemetri aracılığıyla aşağıdaki yapılandırma ayarları kontrol edebilirsiniz:
 
-- Sistem günlük kaydı ve her web hizmet düzeyi için model telemetri. Etkinleştirilirse, tüm stdout günlükleri için akışı [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Model telemetri sağladığınız depolama arşivlenir. 
-- Otomatik ölçek ve eşzamanlılık sınırlar. Bu ayarlar otomatik olarak var olan küme içindeki yük göre dağıtılan kapsayıcıları sayısını artırın. Bunlar ayrıca üretilen iş ve tahmin gecikme tutarlılığını denetler.
+- Sistem günlük kaydı ve her web hizmet düzeyi için model telemetri. Etkinleştirilirse, tüm stdout günlüklerini akışla [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Model telemetri, sağladığınız depolama arşivlenir. 
+- Otomatik ölçeklendirme ve eşzamanlılık sınırları. Bu ayarlar otomatik olarak dağıtılan kapsayıcılar mevcut küme içindeki yük sayısını artırın. Aktarım hızı ve tutarlılık tahmin gecikme de denetler.
 
 ## <a name="consumption"></a>Tüketim 
-Azure Machine Learning modeli yönetim REST API için swagger belgesinin birlikte dağıtılan modeli oluşturur. API ile REST API anahtarı ve satır iş kolu uygulamaları bir parçası olarak Öngörüler almak için girişleri model arama tarafından dağıtılan modelleri kullanmasını sağlayabilirsiniz. Örnek kod dillerde Java, Github'da kullanılabilir [Python](https://github.com/CortanaAnalyticsGallery-Int/digit-recognition-cnn-tf/blob/master/client.py)ve REST API'leri çağırmak için C#. Azure Machine Learning modeli yönetim CLI bu REST API'leri ile çalışmak için kolay bir yol sağlar. Tek bir CLI komutu, bir swagger özellikli uygulamalar veya curl kullanarak API'leri kullanabilir. 
+Azure Machine Learning Model Yönetimi REST API'si için swagger belgesinin birlikte dağıtılan modeli oluşturur. API ile REST API anahtarı ve satır iş kolu uygulamaları bir parçası olarak tahminler elde etmek alınacağı girişleri model arama tarafından dağıtılan modellerinde kullanabilir. Örnek kod diller için Java, Github'da kullanılabilir [Python](https://github.com/CortanaAnalyticsGallery-Int/digit-recognition-cnn-tf/blob/master/client.py)ve REST API'leri çağırmak için C#. Azure Machine Learning Model Yönetimi CLI bu REST API'leri ile çalışmak için kolay bir yol sağlar. Tek bir CLI komutu, bir swagger özellikli uygulamalar veya curl kullanarak API'leri kullanabilir. 
 
 ## <a name="retraining"></a>Yeniden eğitme 
-Azure Machine Learning modeli yönetim Modellerinizi yeniden eğitme kullandığınız API'ler sağlar. API'ler, model güncelleştirilmiş sürümlerini güncelleştirme mevcut dağıtımları için de kullanabilirsiniz. Veri bilimi akışı bir parçası olarak, model deneme ortamınızda oluşturun. Ardından, Model yönetimiyle modelini kaydettirmek ve varolan dağıtımları güncelleştirin. Güncelleştirmeleri tek bir güncelleştirme CLI komutu kullanılarak gerçekleştirilir. Güncelleştirme komut API URL veya anahtar değiştirmeden var olan dağıtımlar güncelleştirir. Model kullanan uygulamaları devam herhangi bir kod değişikliği çalışma ve yeni modeli kullanarak daha iyi Öngörüler almaya başlayın.
+Azure Machine Learning Model yönetimi, modelleri yeniden eğitme için kullanabileceğiniz API'ler sağlar. API'leri, model güncelleştirilmiş sürümlerini güncelleştirme mevcut dağıtımları için de kullanabilirsiniz. Veri bilimi iş akışının bir parçası olarak, modeli deneme ortamınıza yeniden. Ardından, modelin Model yönetimi ile kaydolmak ve güncelleştirme mevcut dağıtımları. Güncelleştirmeleri, tek bir güncelleştirme CLI komutu kullanarak gerçekleştirilir. Güncelleştirme komut API URL'si veya anahtar değişikliği yapmadan mevcut dağıtımları güncelleştirir. Modeli kullanan uygulamalar herhangi bir kod değişikliği çalışabilir ve yeni modeli kullanarak daha iyi tahmin başlanması devam.
 
-Bu kavramlar açıklayan tam iş akışı aşağıdaki resimde yakalanır.
+Bu kavramları açıklayan bir tam iş akışı, aşağıdaki şekilde kapsanır.
 
 ![](media/model-management-overview/modelmanagementworkflow.png)
 
 ## <a name="frequently-asked-questions-faq"></a>Sık sorulan sorular (SSS) 
-- **Hangi veri türleri destekleniyor mu? NumPy diziler doğrudan web hizmeti için giriş olarak geçirebilirsiniz?**
+- **Hangi veri türleri desteklenir? NumPy dizileri doğrudan web hizmeti giriş olarak geçirebilirsiniz?**
 
-   Ardından generate_schema SDK kullanılarak oluşturulmuş şema dosyası sağlıyorsanız NumPy ve/veya Pandas DF geçirebilirsiniz. Ayrıca, tüm JSON seri hale getirilebilir girişleri geçirebilirsiniz. İkili Kodlanmış dize da görüntü geçirebilirsiniz.
+   Ardından generate_schema SDK kullanılarak oluşturulmuş bir şema dosyası sağlıyorsanız NumPy ve/veya Pandas DF geçirebilirsiniz. Herhangi bir JSON seri hale getirilebilir girişleri de geçirebilirsiniz. Görüntü ikili kodlanmış dize olarak de geçirebilirsiniz.
 
-- **Web hizmeti birden çok girişi desteklemek veya farklı girişleri ayrıştırma?**
+- **Web hizmetini birden fazla giriş veya desteklemez farklı girdiler ayrıştırma?**
 
-   Evet, bir JSON istekteki bir sözlük olarak paketlenmiş birden çok girişi alabilir. Her giriş için tek benzersiz sözlük anahtarı karşılık gelir.
+   Evet, birden çok girdiyi bir JSON istekteki bir sözlük olarak paketlenmiş alabilir. Her bir giriş tek benzersiz sözlük anahtarına karşılık gelir.
 
-- **Olduğu web isteğine etkinleştiren aramaya hizmet engelleme çağrısı veya bir zaman uyumsuz çağrı?**
+- **Olan bir web isteğine etkinleştiren çağrı hizmet engelleme çağrısının veya zaman uyumsuz bir çağrı?**
 
-   Engelleme/zaman uyumlu bir çağrı yapılır ve ardından hizmet CLI ya da API, bir parçası olarak gerçek zamanlı seçeneği kullanılarak oluşturulduysa. Gerçek zamanlı hızlı olması bekleniyor. İstemci iş parçacığı önlemek için zaman uyumsuz HTTP kitaplığını kullanarak çağırabilirsiniz istemci tarafında engelleme rağmen.
+   Hizmet API ve CLI bir parçası olarak gerçek zamanlı seçeneği kullanılarak oluşturulmuş, ardından engelleme/zaman uyumlu çağrıyı olur. Gerçek zamanlı hızlı olması beklenir. Bunu önlemek için zaman uyumsuz HTTP kitaplığını kullanarak çağırabilirsiniz istemci tarafında istemci iş parçacığı engelleme rağmen.
 
-- **Kaç tane istekleri web hizmeti aynı anda işleyebilir?**
+- **Web hizmeti kaç istek eşzamanlı olarak işleyebilirsiniz?**
 
-   Küme ve web hizmeti ölçeğini bağlıdır. Çoğaltmaların 100 x hizmetinize ölçeğini ve ardından, birçok istek eşzamanlı olarak işleyebilir. Hizmet verimliliğini artırmak için en fazla eşzamanlı istek başına çoğaltma da yapılandırabilirsiniz.
+   Bu, küme ve web hizmeti ölçeğini bağlıdır. 100 kat çoğaltmaların, hizmetinizin genişletebilir ve ardından onu çok sayıda istek eşzamanlı olarak işleyebilirsiniz. Hizmet verimliliğini artırmak için en fazla eş zamanlı istek başına çoğaltma da yapılandırabilirsiniz.
 
-- **Kaç tane istekleri web hizmeti sıraya?**
+- **Kaç istek web hizmeti kuyrukta?**
 
-   Yapılandırılabilir. Varsayılan olarak, tek çoğaltma başına 10 ~ ayarlanmış, ancak, artırma/bunu uygulama gereksinimlerinizi azaltma. Genellikle, artan sıraya alınan istek sayısı hizmet performansı artırır ancak yüksek yüzdebirlik değeri gecikmeleri daha da kötüsü yapar. Gecikme tutarlı tutmak için düşük bir değer (1-5) queuing ayarlamak istediğiniz ve üretilen işi işlemek için yineleme sayısı artar. Ayrıca ayarlama çoğaltmaların sayısı yüküne göre otomatik olarak yapmak için otomatik ölçeklendirmeyi etkinleştirebilirsiniz. 
+   Yapılandırılabilir. Varsayılan olarak, tek bir çoğaltma başına yaklaşık 10 ayarlanmış, ancak, artış /, uygulama gereksinimlerinize azaltabilir. Genellikle bunu artırmak sıralanmış isteklerin sayısı hizmet verimliliğini artırır ancak gecikmeleri daha da kötüsü daha yüksek yüzdebirliklerini yapar. Gecikme süreleri tutarlı tutmak için düşük bir değere (1-5), sıraya alma ayarlamak istediğiniz ve aktarım hızını işlemek için yineleme sayısını artırın. Ayrıca ayarlama çoğaltmaların sayısı üzerindeki yükü temel alınarak otomatik hale getirmek için otomatik ölçeklendirmeyi etkinleştirebilirsiniz. 
 
-- **Aynı makine ya da küme için birden çok web hizmeti uç noktaları kullanılabilir mi?**
+- **Birden fazla web hizmeti uç noktası için aynı makine ya da küme için kullanılabilir mi?**
 
-   Kesinlikle. Aynı kümede Hizmetleri/uç noktaları 100 x çalıştırabilirsiniz. 
+   Kesinlikle. 100 kat Hizmetleri/uç noktalar aynı kümede çalıştırabilirsiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Model yönetimine Başlarken için bkz: [yapılandırma modeli Yönetim](deployment-setup-configuration.md).
+Model yönetimi ile başlamak için bkz: [Model yönetimi yapılandırma](deployment-setup-configuration.md).

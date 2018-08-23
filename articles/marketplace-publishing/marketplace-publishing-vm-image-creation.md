@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 9199c9fc9a46e6b09eb066be5125c74420ad6cd6
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: bf2ba6d31c170715a52b84439276c45665293c35
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715344"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056190"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Market sanal makine görüntüsü oluşturma Kılavuzu
 Bu makalede **2. adım**, sanal sabit Azure Marketi'nde dağıtacağınız diskleri (VHD) hazırlama konusunda size yol gösterir. Vhd'lerinizi sku'nuzun temelidir. İşlemi, bir Linux veya Windows tabanlı SKU kullanmanıza bağlı olarak farklılık gösterir. Bu makalede her iki senaryoyu da kapsamaktadır. Bu işlem ile paralel olarak gerçekleştirilebilir [hesap oluşturma ve kayıt][link-acct-creation].
@@ -69,9 +69,9 @@ VM görüntünüzün işletim sistemi VHD'si, Windows Server veya SQL Server iç
 
 Başlamak için aşağıdaki görüntülerden birinden bir VM oluşturma bulunan [Microsoft Azure Portal'da][link-azure-portal]:
 
-* Windows Server ([2012 R2 Datacenter][link-datactr-2012-r2], [2012 Datacenter][link-datactr-2012], [2008 R2 SP1] [link-datactr-2008-r2])
-* SQL Server 2014 ([Kurumsal][link-sql-2014-ent], [standart][link-sql-2014-std], [Web] [ link-sql-2014-web])
-* SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent], [Standard][link-sql-2012-std], [Web][link-sql-2012-web])
+* Windows Server ([2012 R2 Datacenter] [bağlantı-datactr-2012-r2] [2012 Datacenter] [bağlantı-datactr-2012], [2008 R2 SP1][link-datactr-2008-r2])
+* SQL Server 2014 
+* SQL Server 2012 SP2 
 
 Bu bağlantılar SKU sayfasındaki Yayımlama Portalı'nda da bulunabilir.
 
@@ -431,7 +431,7 @@ Microsoft Azure Depolama Gezgini'ni kullanarak SAS URL'si oluşturmak için adı
 
 Azure CLI kullanarak bir SAS URL'si oluşturmak için adımları aşağıda verilmiştir
 
-1.  Microsoft Azure CLI'dan indirme [burada](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). İçin farklı bağlantıları da bulabilirsiniz ** [Windows](http://aka.ms/webpi-azure-cli) ** ve ** [MAC OS](http://aka.ms/mac-azure-cli)**.
+1.  Microsoft Azure CLI'dan indirme [burada](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). İçin farklı bağlantıları da bulabilirsiniz **[Windows](http://aka.ms/webpi-azure-cli)** ve  **[MAC OS](http://aka.ms/mac-azure-cli)**.
 
 2.  Lütfen indirme işlemi tamamlandığınızda yükleyin
 
@@ -515,11 +515,11 @@ Teklifinizi ve SKU'nuzu oluşturduktan sonra SKU ile ilişkili görüntü ayrın
 
 |Sorun|Hata iletisi|Düzelt|Belgeleri bağlantısı|
 |---|---|---|---|
-|Kopyalama hatası görüntüleri - "?" SAS url bulunamadı|Hata: Görüntüleri kopyalanıyor. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor.|Önerilen araçlar kullanarak SAS URL'sini güncelleştirme|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Görüntüleri kopyalama hatası - SAS URL'si değil, "s" ve "se" parametreleri|Hata: Görüntüleri kopyalanıyor. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor.|Başlangıç ve bitiş tarihlerini üzerindeki ile SAS URL'sini güncelleştirme|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Görüntüleri "sp rl SAS URL'si değil =" - kopyalama hatası|Hata: Görüntüleri kopyalanıyor. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor|"Okuma" ve "liste ayarlanan izinler ile SAS URL'sini güncelleştirme|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Görüntüleri - SAS URL'sini kopyalama hatası vhd adında boşluk olması|Hata: Görüntüleri kopyalanıyor. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor.|Beyaz boşluk olmadan SAS URL'sini güncelleştirme|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Görüntüleri: SAS Url Yetkilendirme hatası kopyalama hatası|Hata: Görüntüleri kopyalanıyor. Yetkilendirme hatası nedeniyle blobu indirmek karşılaştırılamıyor|SAS URL'sini yeniden oluştur|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Kopyalama hatası görüntüleri - "?" SAS url bulunamadı|Hata: Görüntüleri kopyalanıyor. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor.|Önerilen araçlar kullanarak SAS URL'sini güncelleştirme|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Görüntüleri kopyalama hatası - SAS URL'si değil, "s" ve "se" parametreleri|Hata: Görüntüleri kopyalanıyor. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor.|Başlangıç ve bitiş tarihlerini üzerindeki ile SAS URL'sini güncelleştirme|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Görüntüleri "sp rl SAS URL'si değil =" - kopyalama hatası|Hata: Görüntüleri kopyalanıyor. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor|"Okuma" ve "liste ayarlanan izinler ile SAS URL'sini güncelleştirme|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Görüntüleri - SAS URL'sini kopyalama hatası vhd adında boşluk olması|Hata: Görüntüleri kopyalanıyor. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor.|Beyaz boşluk olmadan SAS URL'sini güncelleştirme|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Görüntüleri: SAS Url Yetkilendirme hatası kopyalama hatası|Hata: Görüntüleri kopyalanıyor. Yetkilendirme hatası nedeniyle blobu indirmek karşılaştırılamıyor|SAS URL'sini yeniden oluştur|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Görüntüleri – SAS URL'si "st" ve "se" parametreleri kopyalama hatası tam tarih-saat belirtimine sahip değil|Hata: Görüntüleri kopyalanıyor. Yanlış SAS URL'si nedeniyle blobu indirmek karşılaştırılamıyor |SAS Url başlangıç ve bitiş tarihi parametreleri ("s", "se") 11 gibi tam tarih-saat belirtimine sahip için gerekli-02-2017T00:00:00Z ve yalnızca tarih ve saat için kısaltılmış sürümleri. Azure CLI 2.0 (az komutu) kullanarak bu senaryoyu karşılaşmak mümkündür. Tam tarih-saat belirtimi sağlayın ve SAS URL'sini yeniden emin olun.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Sonraki adım
@@ -557,15 +557,6 @@ SKU ayrıntılarla bitirdikten sonra İleri taşıyabilirsiniz [Azure Market paz
 [link-technet-2]:https://msdn.microsoft.com/library/dn495261.aspx
 [link-azure-portal]:https://portal.azure.com
 [link-pubportal]:https://publish.windowsazure.com
-[link-sql-2014-ent]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014enterprisewindowsserver2012r2/
-[link-sql-2014-std]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014standardwindowsserver2012r2/
-[link-sql-2014-web]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014webwindowsserver2012r2/
-[link-sql-2012-ent]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012/
-[link-sql-2012-std]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012/
-[link-sql-2012-web]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012/
-[link-datactr-2012-r2]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012r2datacenter/
-[link-datactr-2012]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/
-[link-datactr-2008-r2]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
 [link-technet-1]:https://technet.microsoft.com/library/hh848454.aspx
 [link-azure-vm-2]:./virtual-machines-linux-agent-user-guide/

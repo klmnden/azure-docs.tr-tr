@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 17ff6ebed615971b4157831431d9e2395ca68b48
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: dcfcfb24d2b47a8272c576856fc3accc547f354a
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441684"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42062121"
 ---
 # <a name="create-a-model-in-azure-portal"></a>Azure portalında bir model oluşturma
 
@@ -23,9 +23,10 @@ Web Tasarımcısı göz önünde bulundurun, **Önizleme**. İşlevselliği sın
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-- Standart veya Geliştirici katmanı, bir Azure Analysis Services sunucusu. Web Tasarımcısı kullanılarak oluşturulan yeni DirectQuery, yalnızca bu katmanları tarafından desteklenen modelleridir.
+- Azure Analysis Services sunucunuz standart veya Geliştirici katmanında olmalıdır. Web Tasarımcısı kullanılarak oluşturulan yeni DirectQuery, yalnızca bu katmanları tarafından desteklenen modelleridir.
 - Bir Azure SQL veritabanı, Azure SQL veri ambarı veya bir veri kaynağı olarak Power BI Desktop (.pbix) dosyası. Power BI Desktop dosyaları desteği Azure SQL veritabanı ve Azure SQL veri ambarı ' oluşturulan yeni modeller.
 - Bir SQL Server hesabı ve Azure SQL veritabanı veya Azure SQL veri ambarı veri kaynaklarına bağlanmak için parola.
+- Yeni bir model oluşturmak için sunucu yönetici ayrıcalıklarınız olmalıdır. Düzenlemek ve bir model Tasarımcısını kullanarak sorgu için veritabanı yönetici ayrıcalıkları gerekir.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 

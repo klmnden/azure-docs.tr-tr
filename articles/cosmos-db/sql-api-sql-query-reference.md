@@ -8,29 +8,27 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/18/2017
+ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 4e9bdfab3abf9545218e80bf79d1b9b5df0cf2ff
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 33614628926e53354db14886530d7ca44da61f0a
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042019"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057452"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos DB SQL söz dizimi başvurusu
 
-Tanıdık bir SQL (yapılandırılmış sorgu dili) kullanarak belgelerin sorgulanmasını azure Cosmos DB destekler, bir açık şema veya ikincil dizinlerin oluşturulmasını gerek kalmadan, hiyerarşik JSON belgelerini dilbilgisi ister. Bu konu, SQL API'si hesapları ile uyumlu SQL sorgu dili için başvuru belgeleri sağlar.
-
-SQL sorgu dili için bkz [Azure Cosmos DB SQL sorgularında](sql-api-sql-query.md).  
+Tanıdık bir SQL (yapılandırılmış sorgu dili) kullanarak belgelerin sorgulanmasını azure Cosmos DB destekler, bir açık şema veya ikincil dizinlerin oluşturulmasını gerek kalmadan, hiyerarşik JSON belgelerini dilbilgisi ister. Bu makalede SQL API hesabı ile uyumlu SQL sorgu dili başvurusu/söz dizimi belgelerine sağlar. SQL yönergeleri için bkz: örnek verilerle sorguları [Azure Cosmos DB veri sorgulama](sql-api-sql-query.md).  
   
-Biz de ziyaret etmek için sizi davet [sorgu oyun alanı](http://www.documentdb.com/sql/demo) , Azure Cosmos DB'yi deneyin ve bizim veri kümesinde SQL sorguları çalıştırın.  
+Ziyaret [sorgu oyun alanı](http://www.documentdb.com/sql/demo) , Azure Cosmos DB'yi deneyin ve bizim veri kümesinde SQL sorguları çalıştırın.  
   
 ## <a name="select-query"></a>SELECT sorgusu  
-JSON belgelerini veritabanından alır. İfade değerlendirme, filtreleme, projeksiyonlar destekler ve birleştirir.  SELECT deyimleri tanımlamak için kullanılan kuralları söz dizimi kuralları bölümünde tabloda verilmiştir.  
+Her sorgu bir SELECT yan tümcesi ve isteğe bağlı FROM oluşur ve WHERE yan tümcelerini başına ANSI SQL standartları. Genellikle, her sorgu için kaynak FROM yan tümcesindeki numaralandırılmış alan şeklinde. Ardından filtre WHERE yan tümcesinde bir alt kümesi JSON belgelerini almak için kaynak uygulanır. Son olarak, SELECT yan tümcesi, select listesindeki istenen JSON değerleri proje için kullanılır. SELECT deyimleri tanımlamak için kullanılan kuralları söz dizimi kuralları bölümünde tabloda verilmiştir. Örnekler için bkz [SELECT sorgu örnekleri](sql-api-sql-query.md#SelectClause)
   
 **Söz dizimi**  
   
-```
+```sql
 <select_query> ::=  
 SELECT <select_specification>   
     [ FROM <from_specification>]   
@@ -42,17 +40,14 @@ SELECT <select_specification>
   
  Her yan tümcesi için bölümlere aşağıdaki bakın:  
   
--   [SELECT yan tümcesi](#bk_select_query)  
-  
--   [FROM yan tümcesi](#bk_from_clause)  
-  
--   [WHERE yan tümcesi](#bk_where_clause)  
-  
+-   [SELECT yan tümcesi](#bk_select_query)    
+-   [FROM yan tümcesi](#bk_from_clause)    
+-   [WHERE yan tümcesi](#bk_where_clause)    
 -   [ORDER BY yan tümcesi](#bk_orderby_clause)  
   
 Yan tümceleri SELECT deyiminde, yukarıda gösterildiği gibi sıralanmış olmaları gerekmektedir. İsteğe bağlı yan tümceleri herhangi biri atlanabilir. Ancak, isteğe bağlı yan tümceleri kullanıldığında, doğru sırada yer almalıdır.  
   
-**Mantıksal sipariş işleme SELECT deyiminin**  
+### <a name="logical-processing-order-of-the-select-statement"></a>Mantıksal sipariş işleme SELECT deyiminin  
   
 Yan tümceleri işlenme sırası şöyledir:  
 
@@ -63,7 +58,7 @@ Yan tümceleri işlenme sırası şöyledir:
 
 Bu söz diziminde görünme sırasını farklı olduğunu unutmayın. İşlenen bir yan tümce tarafından kullanıma sunulan tüm yeni simgeler görünür ve daha sonra işlenen yan tümcelerinde kullanılabilir olacağı şekilde sıralamadır. Örneğin, bir FROM yan tümcesinde bildirilen diğer adlar nerede erişilebilir ve SELECT yan.  
 
-**Boşluk karakterleri ve açıklamalar**  
+### <a name="whitespace-characters-and-comments"></a>Boşluk karakterleri ve açıklamalar  
 
 Tırnak işaretli dize parçası olmayan veya teklif tanımlayıcısı tüm boşluk karakterlerinin dil dilbilgisi parçası değildir ve ayrıştırma sırasında yok sayılır.  
 
@@ -74,10 +69,11 @@ T-SQL stili açıklamaları gibi sorgu dili destekler
 Boşluk karakterleri ve açıklamalar herhangi bir anlam dilbilgisi değil olsa da, belirteçlerin ayırmak için kullanılmalıdır. Örneğin: `-1e5` tek bir sayı belirteç süre olan`: – 1 e5` eksi bir belirteç sayısı 1 ve tanımlayıcı e5 tarafından izlenir.  
 
 ##  <a name="bk_select_query"></a> SELECT yan tümcesi  
-Yan tümceleri SELECT deyiminde, yukarıda gösterildiği gibi sıralanmış olmaları gerekmektedir. İsteğe bağlı yan tümceleri herhangi biri atlanabilir. Ancak, isteğe bağlı yan tümceleri kullanıldığında, doğru sırada yer almalıdır.  
+Yan tümceleri SELECT deyiminde, yukarıda gösterildiği gibi sıralanmış olmaları gerekmektedir. İsteğe bağlı yan tümceleri herhangi biri atlanabilir. Ancak, isteğe bağlı yan tümceleri kullanıldığında, doğru sırada yer almalıdır. Örnekler için bkz [SELECT sorgu örnekleri](sql-api-sql-query.md#SelectClause)
 
 **Söz dizimi**  
-```  
+
+```sql
 SELECT <select_specification>  
 
 <select_specification> ::=   
@@ -92,25 +88,25 @@ SELECT <select_specification>
   
  **Bağımsız Değişkenler**  
   
- `<select_specification>`  
+- `<select_specification>`  
+
+  Özellikleri veya sonuç kümesi için seçilecek değeri.  
   
- Özellikleri veya sonuç kümesi için seçilecek değeri.  
+- `'*'`  
+
+  Değer herhangi bir değişiklik yapmadan alınması gerektiğini belirtir. İşlenen değer bir nesne ise, özellikle, tüm özellikleri alınır.  
   
- `'*'`  
+- `<object_property_list>`  
   
-Değer herhangi bir değişiklik yapmadan alınması gerektiğini belirtir. İşlenen değer bir nesne ise, özellikle, tüm özellikleri alınır.  
+  Alınacak özelliklerinin listesini belirtir. Her döndürülen değer, belirtilen özellikleri içeren bir nesne olacaktır.  
   
- `<object_property_list>`  
+- `VALUE`  
+
+  JSON değerinin yerine tam JSON nesne alınacağını belirtir. Bunun aksine `<property_list>` Öngörülen Değer nesneyi kaydırma değil.  
   
-Alınacak özelliklerinin listesini belirtir. Her döndürülen değer, belirtilen özellikleri içeren bir nesne olacaktır.  
-  
-`VALUE`  
-  
-JSON değerinin yerine tam JSON nesne alınacağını belirtir. Bunun aksine `<property_list>` Öngörülen Değer nesneyi kaydırma değil.  
-  
-`<scalar_expression>`  
-  
-Hesaplanmasını değeri gösteren ifade. Bkz: [skaler ifadelerin](#bk_scalar_expressions) ayrıntıları bölümü.  
+- `<scalar_expression>`  
+
+  Hesaplanmasını değeri gösteren ifade. Bkz: [skaler ifadelerin](#bk_scalar_expressions) ayrıntıları bölümü.  
   
 **Açıklamalar**  
   
@@ -118,17 +114,17 @@ Hesaplanmasını değeri gösteren ifade. Bkz: [skaler ifadelerin](#bk_scalar_ex
   
 Unutmayın `SELECT <select_list>` ve `SELECT *` "söz dizimi sugar" olan ve aşağıda gösterildiği gibi basit bir SELECT deyimi kullanarak alternatif olarak belirtilebilir.  
   
-1.  `SELECT * FROM ... AS from_alias ...`  
+1. `SELECT * FROM ... AS from_alias ...`  
   
-     eşdeğerdir:  
+   eşdeğerdir:  
   
-     `SELECT from_alias FROM ... AS from_alias ...`  
+   `SELECT from_alias FROM ... AS from_alias ...`  
   
-2.  `SELECT <expr1> AS p1, <expr2> AS p2,..., <exprN> AS pN [other clauses...]`  
+2. `SELECT <expr1> AS p1, <expr2> AS p2,..., <exprN> AS pN [other clauses...]`  
   
-     eşdeğerdir:  
+   eşdeğerdir:  
   
-     `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
+   `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
 **Ayrıca bkz:**  
   
@@ -136,11 +132,11 @@ Unutmayın `SELECT <select_list>` ve `SELECT *` "söz dizimi sugar" olan ve aşa
 [SELECT yan tümcesi](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> FROM yan tümcesi  
-Kaynak veya birleştirilmiş kaynakları belirtir. FROM yan tümcesi isteğe bağlıdır. Aksi durumda belirtilirse, diğer yan tümceleri hala FROM yan tümcesi tek bir belge sağladıysanız olarak yürütülür.  
+Kaynak veya birleştirilmiş kaynakları belirtir. Kaynak filtre veya sorguyu daha sonra öngörülen sürece FROM yan tümcesi isteğe bağlıdır. Bu yan tümce amacı, veri kaynağına bağlı sorgu çalışmalıdır belirtmektir. Yaygın olarak tüm kaynak koleksiyonudur, ancak bunun yerine koleksiyonunun bir alt kümesi belirtebilirsiniz. Bu yan tümce belirtilmezse, diğer yan tümceleri hala FROM yan tümcesi tek bir belge sağladıysanız olarak yürütülür. Örnekler için bkz [yan tümcesi ÖRNEKLERDEN](sql-api-sql-query.md#FromClause)
   
 **Söz dizimi**  
   
-```  
+```sql  
 FROM <from_specification>  
   
 <from_specification> ::=   
@@ -160,55 +156,55 @@ FROM <from_specification>
   
 **Bağımsız Değişkenler**  
   
-`<from_source>`  
+- `<from_source>`  
   
-Bir veri kaynağı olan veya olmayan bir diğer ad belirtir. Diğer ad belirtilmezse, içinden gösterilen `<collection_expression>` kuralları kullanarak:  
+  Bir veri kaynağı olan veya olmayan bir diğer ad belirtir. Diğer ad belirtilmezse, içinden gösterilen `<collection_expression>` kuralları kullanarak:  
   
--   İfade bir toplama_adı ise toplama_adı diğer ad olarak kullanılır.  
+  -  İfade bir toplama_adı ise toplama_adı diğer ad olarak kullanılır.  
   
--   İfade ise `<collection_expression>`, property_name sonra property_name diğer ad olarak kullanılır. İfade bir toplama_adı ise toplama_adı diğer ad olarak kullanılır.  
+  -  İfade ise `<collection_expression>`, property_name sonra property_name diğer ad olarak kullanılır. İfade bir toplama_adı ise toplama_adı diğer ad olarak kullanılır.  
   
-FARKLI `input_alias`  
+- FARKLI `input_alias`  
   
-Belirten `input_alias` temel Toplama ifadesi tarafından döndürülen değerler kümesidir.  
+  Belirten `input_alias` temel Toplama ifadesi tarafından döndürülen değerler kümesidir.  
  
-`input_alias` GİRİŞ  
+- `input_alias` GİRİŞ  
   
-Belirten `input_alias` temel Toplama ifadesi tarafından döndürülen her dizinin tüm dizi öğeleri üzerinde yineleme tarafından alınan değerler kümesini temsil etmelidir. Bir dizi değil temel Toplama ifadesi tarafından döndürülen herhangi bir değer yoksayılır.  
+  Belirten `input_alias` temel Toplama ifadesi tarafından döndürülen her dizinin tüm dizi öğeleri üzerinde yineleme tarafından alınan değerler kümesini temsil etmelidir. Bir dizi değil temel Toplama ifadesi tarafından döndürülen herhangi bir değer yoksayılır.  
   
-`<collection_expression>`  
+- `<collection_expression>`  
   
-Belgeleri almak için kullanılacak koleksiyon ifadesi belirtir.  
+  Belgeleri almak için kullanılacak koleksiyon ifadesi belirtir.  
   
-`ROOT`  
+- `ROOT`  
   
-Bu belge, varsayılan, bağlı durumda koleksiyon alınması gerektiğini belirtir.  
+  Bu belge, varsayılan, bağlı durumda koleksiyon alınması gerektiğini belirtir.  
   
-`collection_name`  
+- `collection_name`  
   
-Bu belgede sağlanan koleksiyondan alınacağını belirtir. Koleksiyonun adı şu anda bağlı koleksiyonun adı eşleşmelidir.  
+  Bu belgede sağlanan koleksiyondan alınacağını belirtir. Koleksiyonun adı şu anda bağlı koleksiyonun adı eşleşmelidir.  
   
-`input_alias`  
+- `input_alias`  
   
-Bu belgede sağlanan diğer ad tarafından tanımlanan diğer kaynaktan alınması gerektiğini belirtir.  
+  Bu belgede sağlanan diğer ad tarafından tanımlanan diğer kaynaktan alınması gerektiğini belirtir.  
   
-`<collection_expression> '.' property_`  
+- `<collection_expression> '.' property_`  
   
-Bu belge erişerek alınabilir belirtir `property_name` özelliği veya dizi_dizini dizi öğesi tarafından alınan tüm belgeler için belirtilen toplama ifadesi.  
+  Bu belge erişerek alınabilir belirtir `property_name` özelliği veya dizi_dizini dizi öğesi tarafından alınan tüm belgeler için belirtilen toplama ifadesi.  
   
-`<collection_expression> '[' "property_name" | array_index ']'`  
+- `<collection_expression> '[' "property_name" | array_index ']'`  
   
-Bu belge erişerek alınabilir belirtir `property_name` özelliği veya dizi_dizini dizi öğesi tarafından alınan tüm belgeler için belirtilen toplama ifadesi.  
+  Bu belge erişerek alınabilir belirtir `property_name` özelliği veya dizi_dizini dizi öğesi tarafından alınan tüm belgeler için belirtilen toplama ifadesi.  
   
 **Açıklamalar**  
   
 Tüm diğer adları içinde çıkarımı yapılan veya sağlanan `<from_source>(`s) benzersiz olmalıdır. Söz dizimi `<collection_expression>.`property_name aynıdır `<collection_expression>' ['"property_name"']'`. Ancak, bir özellik adı bir tanımlayıcı olmayan karakter içeriyorsa, ikinci sözdizimi kullanılabilir.  
   
-**Dizi öğeleri eksik özellikleri, eksik değerleri işleme tanımsız**  
+### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>Dizi öğeleri yanı sıra, tanımsız değerler eksik özellikler eksik işleme
   
 Bir toplama ifadesi özellikleri veya dizi öğeleri ve değeri yok erişirse, bu değer yoksayılır ve daha fazla işlenmedi.  
   
-**Koleksiyon ifadesi bağlam kapsamı**  
+### <a name="collection-expression-context-scoping"></a>Koleksiyon ifadesi bağlam kapsamı  
   
 Bir toplama ifadesi, toplama kapsamlı veya belge kapsamlı olabilir:  
   
@@ -216,11 +212,11 @@ Bir toplama ifadesi, toplama kapsamlı veya belge kapsamlı olabilir:
   
 -   Bir ifade belge temel alınan kaynak toplama ifadesinin ise kapsamlı, `input_alias` sorgu daha önce sunulan. Böyle bir ifade, diğer adlı koleksiyonla ilişkili bir kümeye ait her bir belgenin kapsamında toplama ifadesinin değerlendirilmesi elde belgeleri kümesini temsil eder.  Sonuç kümesi her belgeler temel alınan bir toplama ifadesinin değerlendirilmesi elde edilen kümeleri birleşimi olacaktır.  
   
-**Birleşimler**  
+### <a name="joins"></a>Birleştirme 
   
-Geçerli sürümde, Azure Cosmos DB iç birleştirmeler destekler. Ek birleştirme özellikleri yeni çıkacak.
+Geçerli sürümde, Azure Cosmos DB iç birleştirmeler destekler. Ek birleştirme özellikleri yeni çıkacak. 
 
-İç birleştirmeler birleştirme işleminde katılan kümeleri, eksiksiz bir çapraz ürün sonuçlanır. Çok yönlü birleştirme sonucunu, burada her bir tanımlama grubu değeri katılan birleştirme işleminde ayarlamak diğer adlı ile ilişkilendirilir ve bu diğer ad diğer yan tümceleri içinde başvurarak erişilebilir N-öğe dizilerini kümesidir.  
+İç birleştirmeler birleştirme işleminde katılan kümeleri, eksiksiz bir çapraz ürün sonuçlanır. Çok yönlü birleştirme sonucunu, burada her bir tanımlama grubu değeri katılan birleştirme işleminde ayarlamak diğer adlı ile ilişkilendirilir ve bu diğer ad diğer yan tümceleri içinde başvurarak erişilebilir N-öğe dizilerini kümesidir. Örnekler için bkz [birleştirme anahtar sözcüğü örnekleri](sql-api-sql-query.md#Joins)
   
 Birleşimin değerlendirme katılımcı kümelerinin bağlam kapsamına bağlıdır:  
   
@@ -230,13 +226,13 @@ Birleşimin değerlendirme katılımcı kümelerinin bağlam kapsamına bağlıd
   
  Geçerli sürümde, koleksiyon kapsamlı bir ifadenin en fazla sorgu işlemcisi tarafından desteklenir.  
   
-**Birleştirme örnekleri:**  
+### <a name="examples-of-joins"></a>Birleştirme örnekleri  
   
 Aşağıdaki FROM yan tümcesi göz atalım: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
  Her kaynak tanımlamak olanak `input_alias1, input_alias2, …, input_aliasN`. Bu FROM yan tümcesi, N-tanımlama grubu (N değeri ile tanımlama grubu) kümesini döndürür. Her bir tanımlama grubunu tüm koleksiyon diğer adları kendi ilgili ayarlar yineleme tarafından üretilen değerler içeriyor.  
   
-*Örnek 1, 2 kaynaklarıyla KATIL:*  
+**Örnek 1** -2 kaynakları  
   
 - İzin `<from_source1>` koleksiyonu kapsamına- ve set {A, B, C} temsil eder.  
   
@@ -254,7 +250,7 @@ Aşağıdaki FROM yan tümcesi göz atalım: `<from_source1> JOIN <from_source2>
   
     `(A, 1), (A, 2), (B, 3), (C, 4), (C, 5)`  
   
-*Örnek 2, 3 kaynaklarıyla KATIL:*  
+**Örnek 2** -3 kaynakları  
   
 - İzin `<from_source1>` koleksiyonu kapsamına- ve set {A, B, C} temsil eder.  
   
@@ -278,10 +274,10 @@ Aşağıdaki FROM yan tümcesi göz atalım: `<from_source1> JOIN <from_source2>
   
     (BİR, 1, 100), (A, 1, 200), (B, 3, 300)  
   
-> [!NOTE]
-> Diğer değerler için demetleri eksikliği `input_alias1`, `input_alias2`, kendisi için `<from_source3>` herhangi bir değer döndürmedi.  
+  > [!NOTE]
+  > Diğer değerler için demetleri eksikliği `input_alias1`, `input_alias2`, kendisi için `<from_source3>` herhangi bir değer döndürmedi.  
   
-*Örnek 3, 3 kaynaklarıyla KATIL:*  
+**Örnek 3** -3 kaynakları  
   
 - < Koleksiyon kapsamlı ve set {A, B, C} temsil from_source1 > sağlar.  
   
@@ -307,19 +303,19 @@ Aşağıdaki FROM yan tümcesi göz atalım: `<from_source1> JOIN <from_source2>
   
     (BİR, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200), (C, 4, 300), (C, 5, 300)  
   
-> [!NOTE]
-> Bu arasında çapraz ürün içinde sonuçlanan `<from_source2>` ve `<from_source3>` her ikisi de aynı belirlenir çünkü `<from_source1>`.  (2 x 2) 4'te bu durum diziler değerini 0 tanımlama grubu B (1 x 0) değerine sahip olan ve 2 (2 x 1) değeri c diziler  
+  > [!NOTE]
+  > Bu arasında çapraz ürün içinde sonuçlanan `<from_source2>` ve `<from_source3>` her ikisi de aynı belirlenir çünkü `<from_source1>`.  (2 x 2) 4'te bu durum diziler değerini 0 tanımlama grubu B (1 x 0) değerine sahip olan ve 2 (2 x 1) değeri c diziler  
   
 **Ayrıca bkz:**  
   
  [SELECT yan tümcesi](#bk_select_query)  
   
 ##  <a name="bk_where_clause"></a> WHERE yan tümcesi  
- Sorgu tarafından döndürülen belgeler için arama koşulunu belirtir.  
+ Sorgu tarafından döndürülen belgeler için arama koşulunu belirtir. Örnekler için bkz [WHERE yan tümcesi örnekleri](sql-api-sql-query.md#WhereClause)
   
  **Söz dizimi**  
   
-```  
+```sql  
 WHERE <filter_condition>  
 <filter_condition> ::= <scalar_expression>  
   
@@ -340,11 +336,11 @@ WHERE <filter_condition>
  Filtre olarak belirtilen bir ifade döndürülecek belge sırada koşul true olarak değerlendirilmelidir. Başka bir değer koşulu, Boole değeri true yerine getirecek yalnızca: tanımsız, null, false, sayı, dizi veya nesne karşılamaz koşul.  
   
 ##  <a name="bk_orderby_clause"></a> ORDER BY yan tümcesi  
- Sorgu tarafından döndürülen sonuçları sıralama düzenini belirtir.  
+ Sorgu tarafından döndürülen sonuçları sıralama düzenini belirtir. Örnekler için bkz [ORDER BY yan tümcesi örnekleri](sql-api-sql-query.md#OrderByClause)
   
  **Söz dizimi**  
   
-```  
+```sql  
 ORDER BY <sort_specification>  
 <sort_specification> ::= <sort_expression> [, <sort_expression>]  
 <sort_expression> ::= <scalar_expression> [ASC | DESC]  
@@ -378,13 +374,13 @@ ORDER BY <sort_specification>
  Sorgu dil bilgisi, özellik tarafından birden çok sipariş desteklese de, Azure Cosmos DB sorgu çalışma zamanı yalnızca tek bir özelliğe karşı ve özellik adları, yalnızca karşı başka bir deyişle, hesaplanan özellikleri karşı sıralamayı destekler. Sıralama, aynı zamanda dizin oluşturma ilkesini özelliği ve verilen duyarlık ile belirtilen tür için bir aralık dizini içerir gerektirir. Daha fazla ayrıntı için dizin oluşturma ilkesi belgeleri bakın.  
   
 ##  <a name="bk_scalar_expressions"></a> Skaler ifade  
- Skaler bir ifade, semboller ve işleçleri tek bir değer almak için değerlendirilen bir birleşimidir. Basit ifadeler sabitler, özellik başvuru, dizi öğesi başvuruları, diğer başvurular veya işlev çağrıları olabilir. Basit ifadeler işleçleri kullanarak karmaşık ifadelere birleştirilebilir.  
+ Skaler bir ifade, semboller ve işleçleri tek bir değer almak için değerlendirilen bir birleşimidir. Basit ifadeler sabitler, özellik başvuru, dizi öğesi başvuruları, diğer başvurular veya işlev çağrıları olabilir. Basit ifadeler işleçleri kullanarak karmaşık ifadelere birleştirilebilir. Örnekler için bkz [skaler ifade örnekleri](sql-api-sql-query.md#scalar-expressions)
   
  Hangi skaler bir ifade olabilir değerleri hakkında daha fazla bilgi için bkz: [sabitleri](#bk_constants) bölümü.  
   
  **Söz dizimi**  
   
-```  
+```sql  
 <scalar_expression> ::=  
        <constant>   
      | input_alias   
@@ -550,7 +546,7 @@ ORDER BY <sort_specification>
   
  **Söz dizimi**  
   
-```  
+```sql  
 <constant> ::=  
    <undefined_constant>  
      | <null_constant>   
@@ -580,45 +576,45 @@ ORDER BY <sort_specification>
   
  **Bağımsız Değişkenler**  
   
-1.  `<undefined_constant>; undefined`  
+* `<undefined_constant>; undefined`  
   
-     Türü tanımlanmamış değerini tanımsız temsil eder.  
+  Türü tanımlanmamış değerini tanımsız temsil eder.  
   
-2.  `<null_constant>; null`  
+* `<null_constant>; null`  
   
-     Temsil eden **null** türünün değerini **Null**.  
+  Temsil eden **null** türünün değerini **Null**.  
   
-3.  `<boolean_constant>`  
+* `<boolean_constant>`  
   
-     Boole türünde bir sabiti temsil eder.  
+  Boole türünde bir sabiti temsil eder.  
   
-4.  `false`  
+* `false`  
   
-     Temsil eden **false** türü Boolean değeri.  
+  Temsil eden **false** türü Boolean değeri.  
   
-5.  `true`  
+* `true`  
   
-     Temsil eden **true** türü Boolean değeri.  
+  Temsil eden **true** türü Boolean değeri.  
   
-6.  `<number_constant>`  
+* `<number_constant>`  
   
-     Bir sabiti temsil eder.  
+  Bir sabiti temsil eder.  
   
-7.  `decimal_literal`  
+* `decimal_literal`  
   
-     Ondalık sabit değerleri ondalık gösterim veya bilimsel gösterim kullanılarak temsil sayılardır.  
+  Ondalık sabit değerleri ondalık gösterim veya bilimsel gösterim kullanılarak temsil sayılardır.  
   
-8.  `hexadecimal_literal`  
+* `hexadecimal_literal`  
   
-     Onaltılık değişmez değerler, önek '0 x'ı bir veya daha fazla onaltılık basamağın geldiği' kullanılarak temsil sayılardır.  
+  Onaltılık değişmez değerler, önek '0 x'ı bir veya daha fazla onaltılık basamağın geldiği' kullanılarak temsil sayılardır.  
   
-9. `<string_constant>`  
+* `<string_constant>`  
   
-     String türünde bir sabiti temsil eder.  
+  String türünde bir sabiti temsil eder.  
   
-10. `string _literal`  
+* `string _literal`  
   
-     Dize değişmez değerleri, sıfır veya daha fazla Unicode karakter dizisi veya kaçış dizileri tarafından temsil edilen Unicode dizelerdir. Dize sabit değerlerinin tek tırnak içine alınmış (kesme işareti: ') veya çift tırnak (tırnak işareti: ").  
+  Dize değişmez değerleri, sıfır veya daha fazla Unicode karakter dizisi veya kaçış dizileri tarafından temsil edilen Unicode dizelerdir. Dize sabit değerlerinin tek tırnak içine alınmış (kesme işareti: ') veya çift tırnak (tırnak işareti: ").  
   
  Aşağıdaki kaçış dizileri izin verilir:  
   
@@ -1854,7 +1850,7 @@ SELECT
 |[DAHA DÜŞÜK](#bk_lower)|[LTRIM](#bk_ltrim)|[DEĞİŞTİR](#bk_replace)|  
 |[ÇOĞALTILAN](#bk_replicate)|[GERİYE DOĞRU](#bk_reverse)|[SAĞ](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[ALT DİZE](#bk_substring)|  
-|[ToString](#bk_tostring)|[ÜST](#bk_upper)|||  
+|[ToString](#bk_tostring)|[KIRPMA](#bk_trim)|[ÜST](#bk_upper)||| 
   
 ####  <a name="bk_concat"></a> CONCAT  
  İki veya daha fazla dize değerlerini birleştirirken sonucu olan bir dize döndürür.  
@@ -2440,7 +2436,40 @@ JOIN n IN food.nutrients
 {"nutrientID":"307","nutritionVal":"912"},
 {"nutrientID":"308","nutritionVal":"90"},
 {"nutrientID":"309","nutritionVal":"null"}]
- ```  
+ ``` 
+ 
+####  <a name="bk_trim"></a> KIRPMA  
+ Baştaki ve sondaki boşlukları kaldırır sonra bir dize ifadesi döndürür.  
+  
+ **Söz dizimi**  
+  
+```  
+TRIM(<str_expr>)  
+```  
+  
+ **Bağımsız Değişkenler**  
+  
+-   `str_expr`  
+  
+     Herhangi bir geçerli dize ifade var.  
+  
+ **Dönüş türleri**  
+  
+ Bir dize ifadesi döndürür.  
+  
+ **Örnekler**  
+  
+ Aşağıdaki örnek, bir sorgu içinde TRIM kullanmayı gösterir.  
+  
+```  
+SELECT TRIM("   abc"), TRIM("   abc   "), TRIM("abc   "), TRIM("abc")   
+```  
+  
+ Sonuç kümesini burada verilmiştir.  
+  
+```  
+[{"$1": "abc", "$2": "abc", "$3": "abc", "$4": "abc"}]  
+``` 
 ####  <a name="bk_upper"></a> ÜST  
  Küçük harf karakter verileri büyük harfe dönüştürmenin sonra bir dize ifadesi döndürür.  
   

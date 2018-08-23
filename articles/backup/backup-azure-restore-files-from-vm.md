@@ -7,14 +7,14 @@ manager: shivamg
 keywords: öğe düzeyinde kurtarma; Dosya Kurtarma Azure VM yedeklemesi; Azure VM'den dosyaları geri yükleme
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/20/2017
+ms.date: 8/22/2018
 ms.author: pullabhk
-ms.openlocfilehash: fecdb54af58faaf601ab74f89039a47e0d32e650
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1f3b81c31dc566e5e3011167eee00145f6791cb1
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493390"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616918"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure sanal makine yedeklemesinden dosya kurtarma
 
@@ -33,9 +33,13 @@ Kurtarma noktasından dosyaları veya klasörleri geri yüklemek için sanal mak
 
 2. Sanal makinenin menüde **yedekleme** yedekleme panosunu açın.
 
-    ![Açık kurtarma Hizmetleri kasası yedekleme öğesi](./media/backup-azure-restore-files-from-vm/open-vault-from-vm.png)
+    ![Açık kurtarma Hizmetleri kasası yedekleme öğesi](./media/backup-azure-restore-files-from-vm/open-vault-for-vm.png)
 
-3. Yedekleme Pano menüde **dosya kurtarma** alt menüsünü açın.
+3. Yedekleme Pano menüde **dosya kurtarma**.
+
+    ![Dosya Kurtarma düğmesi](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+
+    **Dosya kurtarma** menüsü açılır.
 
     ![Dosya Kurtarma menüsü](./media/backup-azure-restore-files-from-vm/file-recovery-blade.png)
 
@@ -95,7 +99,7 @@ Dosyalar belirleniyor ve yerel depolama konumuna kopyalayarak sonra Kaldır (vey
 
 ![Diskleri çıkarın](./media/backup-azure-restore-files-from-vm/unmount-disks3.png)
 
-Diskleri kaldırılan yaptıktan sonra size başarılı olduğunu bildiren bir ileti alırsınız. Bu bağlantının diskleri kaldırabilir miyim yenilemek birkaç dakika sürebilir.
+Diskleri kaldırılan yaptıktan sonra bir ileti alırsınız. Bu bağlantının diskleri kaldırabilir miyim yenilemek birkaç dakika sürebilir.
 
 Kurtarma noktası için bağlantı yazıyordunuz sonra Linux işletim sistemi karşılık gelen bağlama yolları otomatik olarak kaldırmaz. Bağlama yolu "artık" birimleri olarak mevcut ve görülebilir ancak, / dosyaları yazma erişimi olduğunda bir hata oluşturur. Bunlar el ile kaldırılabilir. Çalıştırdığınızda, betik, herhangi bir önceki kurtarma noktalarından varolan gibi herhangi bir birimi tanımlar ve onay temizler.
 
@@ -213,7 +217,7 @@ Sanal makinelerden dosya kurtarma sırasında sorunlarla karşılaşırsanız, e
 | Exe çıkış: *hedef bağlanan özel durumu* |Betik kurtarma noktasına erişmek mümkün değildir.    | Makine önceki erişim gereksinimlerini karşıladığı olup olmadığını denetleyin. |  
 | Exe çıkış: *hedef zaten bir iSCSI oturumu oturum açıldı.* | Komut dosyasını aynı makinede zaten yürütüldü ve sürücüleri eklenmiş olması gerekir | Kurtarma noktası birimleri zaten eklenmiş olması gerekir. Bunlar orijinal VM ile aynı sürücü harflerini takılamadı değil. Dosya Gezgini'nde dosyanız için kullanılabilir tüm birimleri göz atın |
 | Exe çıkış: *disklerin sınırı portal/aşıldı 12 saat çıkarıldı olduğundan, bu komut dosyası geçersiz. Portaldan yeni bir betik indirin.* |    Diskleri portalı ya da 12 saatlik sınırı aşıldı çıkarıldı | Bu belirli exe artık geçersiz ve çalıştırılamaz. Bu kurtarma noktasını zamanında dosyalara erişmek istiyorsanız, yeni bir exe için portalı ziyaret edin.|
-| Exe çalıştırıldığı makinede: yeni birimlere sonra dismount düğmeye tıkladı çıkarıldı değil | Makinede iSCSI başlatıcısı, hedef bağlantı yanıt/yenileme değil ve önbellek Bakımı |    Çıkarma düğmeye basıldığında sonra için bazı dakika bekleyin. Yeni birimleri hala bağlantısı değil, lütfen tüm birimler üzerinden göz atın. Bu bağlantı yenilemek için Başlatıcı zorlar ve birim disk kullanılabilir değil bir hata iletisiyle çıkarıldı|
+| Exe çalıştırıldığı makinede: yeni birimlere sonra dismount düğmeye tıkladı çıkarıldı değil | Makinede iSCSI başlatıcısı değil, hedef bağlantı yanıt/yenilenmesi ve önbellek bakımını yapma. |  ' I tıklattıktan sonra **çıkarmaya**, birkaç dakika bekleyin. Yeni birimleri çıkarıldı değil, tüm birimler göz atın. Başlatıcı bağlantı yenilemek için tüm birimleri tarama zorlar ve birim disk kullanılabilir değil bir hata iletisiyle çıkarıldı.|
 | Exe çıkış: Komut başarıyla çalışır ancak "Yeni birimlere bağlı" betik çıktı görüntülenmez |    Bu geçici bir hatadır    | Birimler zaten eklenmiş. Göz atmak için gezginini açın. Her komut dosyaları çalıştırmak için aynı makineye kullanıyorsanız, makinenin yeniden başlatılması göz önünde bulundurun ve sonraki exe çalıştırma listesinde görüntülenmelidir. |
 | Linux özel: İstenen birimleri görüntülemek karşılaştırılamıyor | Betiğin çalıştırıldığı makinenin işletim sistemini temel alınan dosya sistemi korunan sanal makinenin algılamayabilir | Kilitlenme tutarlı veya dosya tutarlı kurtarma noktası olup olmadığını denetleyin. Dosya tutarlı, başka bir komut dosyasını çalıştırmak, işletim sistemi makine, korumalı sanal makinenin dosya sistemi tanır. |
 | Windows özel: İstenen birimleri görüntülemek karşılaştırılamıyor | Diskleri eklenmiş ancak birimleri değil yapılandırılmamış | Disk yönetimi ekranında kurtarma noktası ile ilgili ek diskleri belirleyin. Bu disk, çevrimdışı olduğunda durumu diske sağ tıklayarak bunları çevrimiçi yapmayı deneyin ve 'Çevrimiçi' tıklayın|

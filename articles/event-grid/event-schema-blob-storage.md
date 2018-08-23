@@ -1,36 +1,37 @@
 ---
-title: Azure olay kılavuz blob depolama olay şeması
-description: Blob depolama Azure olay kılavuz olaylarla için sağlanan özellikler açıklar
+title: Azure Event Grid blob depolama olay şeması
+description: Blob depolama olayları Azure Event Grid ile sağlanan özellikleri tanımlar
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/30/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: a4d3f5d50df49851437cfd3bcec16ad217220eca
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 11524f8868a0102e30b06f3385a26b1bd06aae6e
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34301398"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42060727"
 ---
-# <a name="azure-event-grid-event-schema-for-blob-storage"></a>Blob Depolama için Azure olay kılavuz olay şeması
+# <a name="azure-event-grid-event-schema-for-blob-storage"></a>Blob Depolama için Azure Event Grid olay şeması
 
-Bu makale, blob depolama olaylar için şema ve özellikleri sağlar. Olay şemaları giriş için bkz: [Azure olay kılavuz olay şema](event-schema.md).
+Bu makale, blob depolama olayları için şema ve özellikleri sağlar. Olay şemaları için bir giriş için bkz [Azure Event Grid olay şeması](event-schema.md).
+
+Örnek betikler ve öğreticiler listesi için bkz: [depolama olay kaynağı](event-sources.md#storage).
 
 ## <a name="available-event-types"></a>Kullanılabilir olay türleri
 
-BLOB Depolama aşağıdaki olay türlerini gösterir:
+BLOB Depolama, aşağıdaki olay türlerini gösterir:
 
 | Olay türü | Açıklama |
 | ---------- | ----------- |
 | Microsoft.Storage.BlobCreated | Bir blob oluşturulduğunda oluşturulur. |
-| Microsoft.Storage.BlobDeleted | Bir blob silindiğinde oluşturuldu. |
+| Microsoft.Storage.BlobDeleted | Bir blob silindiğinde oluşturulur. |
 
-## <a name="example-event"></a>Örnek olayı
+## <a name="example-event"></a>Örnek olay
 
-Aşağıdaki örnek, olay oluşturulmuş bir blob şeması gösterir: 
+Aşağıdaki örnek, olay oluşturan bir blobun şema gösterir: 
 
 ```json
 [{
@@ -58,7 +59,7 @@ Aşağıdaki örnek, olay oluşturulmuş bir blob şeması gösterir:
 }]
 ```
 
-Bir blob silinmiş olayı için şemayı benzer: 
+Silinen bir blob olayın şeması benzer: 
 
 ```json
 [{
@@ -85,36 +86,36 @@ Bir blob silinmiş olayı için şemayı benzer:
  
 ## <a name="event-properties"></a>Olay Özellikleri
 
-Bir olay aşağıdaki üst düzey veri sahiptir:
+Bir olay aşağıdaki üst düzey veri vardır:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| Konu | dize | Olay kaynağı tam kaynak yolu. Bu alan yazılabilir değil. Bu değer olay kılavuz sağlar. |
-| Konu | dize | Olay konu yayımcı tarafından tanımlanan yolu. |
-| Olay türü | dize | Bu olay kaynağı için kayıtlı olay türünden biri. |
-| EventTime | dize | Olayı oluşturan zaman sağlayıcının UTC zamanı temel alınarak. |
-| id | dize | Olay için benzersiz tanımlayıcı. |
-| veriler | object | BLOB Depolama olay verileri. |
-| dataVersion | dize | Veri nesnesinin şema sürümü. Yayımcı şema sürümü tanımlar. |
-| metadataVersion | dize | Olay meta verilerinin şema sürümü. Olay kılavuz, şemanın en üst düzey özellikleri tanımlar. Bu değer olay kılavuz sağlar. |
+| konu başlığı | dize | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
+| Konu | dize | Yayımcı tarafından tanımlanan olay konu yolu. |
+| olay türü | dize | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
+| eventTime | dize | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
+| id | dize | Olayın benzersiz tanımlayıcısı. |
+| veri | object | BLOB Depolama olay verileri. |
+| dataVersion | dize | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
+| metadataVersion | dize | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
 
-Veri nesnesi aşağıdaki özelliklere sahiptir:
+Veri nesnesi, aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
 | api | dize | Olayı tetikleyen işlemi. |
-| ClientRequestId | dize | Bir istemci tarafından oluşturulan, donuk değerle bir 1 KB karakter sınırı. Depolama çözümlemeleri günlük kaydı etkinleştirildiğinde, analytics günlüklerine kaydedilir. |
+| Clientrequestıd'ye | dize | Bir 1 KB'lık karakter sınırı ile istemci oluşturulur, genel olmayan bir değer. Depolama analizi günlük kaydı etkinleştirildiğinde, bu analizi günlüklerine kaydedilir. |
 | requestId | dize | İstek için benzersiz tanımlayıcı. İstek sorun giderme için kullanın. |
-| ETag | dize | Koşullu işlemleri gerçekleştirmek için kullanabileceğiniz değeri. |
-| ContentType | dize | İçerik türü için blob belirtildi. |
+| eTag | dize | Koşullu işlemleri gerçekleştirmek için kullanabileceğiniz bir değer. |
+| contentType | dize | Blob'u için belirtilen içerik türü. |
 | contentLength | integer | Blob bayt cinsinden boyutu. |
-| BlobType | dize | Blob türü. Geçerli değerler "BlockBlob" veya "PageBlob" dir. |
+| BlobType | dize | Blob türü. Geçerli değerler "BlockBlob" veya "PageBlob" olmalı. |
 | url | dize | Blob yolu. |
 | Sıralayıcı | dize | İstekleri izlemek için kullanabileceğiniz bir kullanıcı tarafından denetlenen bir değer. |
 | storageDiagnostics | object | Depolama Tanılama hakkında bilgi sağlar. |
  
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Azure olay kılavuz giriş için bkz: [olay kılavuz nedir?](overview.md)
-* Bir Azure olay kılavuz abonelik oluşturma hakkında daha fazla bilgi için bkz: [olay kılavuz abonelik şema](subscription-creation-schema.md).
-* Blob depolama olaylarla çalışma giriş için bkz: [rota Blob Depolama olayları - Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json). 
+* Azure Event grid'e giriş için bkz [Event Grid nedir?](overview.md)
+* Azure Event Grid aboneliği oluşturma hakkında daha fazla bilgi için bkz. [Event Grid aboneliği şema](subscription-creation-schema.md).
+* Blob Depolama olaylarını çalışmak için bir giriş için bkz [rota Blob Depolama olayları - Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json). 

@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d39d98a39fb8692d696adfbedc9bb1a34f8be4d6
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: d4bbf26f6535f50b15068125d911df6a1ca20a72
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358843"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055933"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'deki yenilikler nelerdir?
 
-> Abone olarak güncelleştirmeler için bu sayfayı yeniden ziyaret etmeniz ne zaman hakkında bildirim almak [ ![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [akış](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
+>Bu ekleyerek güncelleştirmeler için bu sayfayı yeniden ziyaret etmeniz ne zaman hakkında bildirim almak [URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) için ![RSS simgesi](./media/whats-new/feed-icon-16x16.png) okuyucu akış.
 
 Azure AD iyileştirmeleri düzenli olarak alır. İle en son gelişmeleri güncel kalmak için bu makalede, ile hakkında bilgi sağlar:
 
@@ -39,7 +39,25 @@ Bu sayfaya ay güncelleştirilir, böylece bunu düzenli olarak tekrar ziyaret.
 
 ## <a name="july-2018"></a>Temmuz 2018
 
-### <a name="improvements-to-azure-active-directory-email-notifications"></a>Azure Active Directory geliştirmeleri e-posta bildirimleri
+### <a name="changes-to-azure-active-directory-ip-address-ranges"></a>Azure Active Directory IP adresi aralıklarını değişiklikler
+
+**Türü:** değişiklik planı  
+**Hizmet kategorisi:** diğer  
+**Ürün özelliği:** platformu
+
+Daha büyük IP aralıklarını, güvenlik duvarları, yönlendiriciler veya ağ güvenlik grupları, Azure AD IP adresi aralıklarını yapılandırdığınız anlamına güncelleştirmeniz gerekecektir Azure AD'ye kullanıma sunduğumuz. Azure AD yeni uç nokta eklediğinde, güvenlik duvarı, yönlendirici veya ağ güvenlik grupları IP aralığı yapılandırmaları yeniden değiştirmek zorunda kalmamanız için bu güncelleştirmeyi yapıyoruz. 
+
+Ağ trafiği için bu yeni aralıklar sonraki iki ay içinde taşınıyor. Kesintisiz hizmet ile devam etmek için bu güncelleştirilmiş değerleri 10 Eylül 2018'den önce IP adreslerinizi eklemeniz gerekir:
+
+- 20.190.128.0/18 
+
+- 40.126.0.0/18 
+
+Tüm ağ trafiğinizin taşındı kadar yeni aralıklar için eski IP adres aralıklarını kaldırılmıyor kesinlikle öneririz. Güncelleştirmeler taşıma hakkında ve ne zaman eski aralıkları kaldırabilirsiniz öğrenmek için bkz [Office 365 URL'leri ve IP adresi aralıkları](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+
+---
+
+### <a name="improvements-to-azure-active-directory-email-notifications"></a>Azure Active Directory e-posta bildirimleri iyileştirmeleri
 
 **Türü:** değiştirilen özellik  
 **Hizmet kategorisi:** diğer  
@@ -63,7 +81,7 @@ Bir örnek, bazı yeni e-posta tasarımları ve daha fazla bilgi için bkz [e-po
 
 ---
 
-### <a name="azure-ad-activity-logs-are-now-available-through-azure-monitor"></a>Azure AD etkinlik günlüklerini Azure İzleyici kullanılabilir
+### <a name="azure-ad-activity-logs-are-now-available-through-azure-monitor"></a>Azure AD Etkinlik Günlükleri artık Azure İzleyici'de kullanılabilir
 
 **Türü:** yeni özellik  
 **Hizmet kategorisi:** raporlama  
@@ -81,7 +99,7 @@ Blogumuzu bu yeni özellikler hakkında daha fazla bilgi için bkz. [Azure AD et
 
 ---
 
-### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Koşullu erişim bilgilerini Mac için Azure AD oturum açma işlemleri raporu eklendi
+### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Koşullu erişim bilgileri Azure AD oturum açma raporuna eklendi
 
 **Türü:** yeni özellik  
 **Hizmet kategorisi:** raporlama  
@@ -101,7 +119,7 @@ Sunulmasıyla birlikte **istemci uygulaması** alan oturum açma etkinlik günl�
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---july-2018"></a>Yeni Federasyon uygulamaları kullanılabilir Azure AD uygulama galerisinde - Temmuz 2018
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---july-2018"></a>Azure AD uygulama galerisinde yeni Federasyon Uygulamaları kullanılabilir - Temmuz 2018
 
 **Türü:** yeni özellik  
 **Hizmet kategorisi:** kurumsal uygulamalar  
@@ -115,7 +133,7 @@ Uygulamalar hakkında daha fazla bilgi için bkz. [Azure Active Directory ile Sa
 
 ---
  
-### <a name="new-user-provisioning-saas-app-integrations---july-2018"></a>SaaS uygulama tümleştirmeleri - Temmuz 2018 sağlama yeni kullanıcı
+### <a name="new-user-provisioning-saas-app-integrations---july-2018"></a>Yeni kullanıcı sağlama SaaS uygulama tümleştirmeleri - Temmuz 2018
 
 **Türü:** yeni özellik  
 **Hizmet kategorisi:** uygulama sağlama  
@@ -133,7 +151,7 @@ Azure AD Galerisi'nde kullanıcı sağlamayı destekleyen tüm uygulamalar liste
 
 ---
 
-### <a name="connect-health-for-sync---an-easier-way-to-fix-orphaned-and-duplicate-attribute-sync-errors"></a>Connect Health eşitleme - yalnız bırakılmış ve yinelenen öznitelik Eşitleme hataları düzeltmek için daha kolay bir yolu
+### <a name="connect-health-for-sync---an-easier-way-to-fix-orphaned-and-duplicate-attribute-sync-errors"></a>Eşitleme için Connect Health - Yalnız bırakılmış ve çoğaltışmış öznitelik eşitleme hatalarını kolaylıkla düzeltme
 
 **Türü:** yeni özellik  
 **Hizmet kategorisi:** AD Bağlan  
@@ -151,7 +169,7 @@ Daha fazla bilgi için [Tanıla ve yinelenen öznitelik eşitleme hatalarını D
 
 ---
 
-### <a name="visual-updates-to-the-azure-ad-and-msa-sign-in-experiences"></a>Azure AD'ye Visual güncelleştirir ve MSA oturum açma deneyimleri
+### <a name="visual-updates-to-the-azure-ad-and-msa-sign-in-experiences"></a>Azure AD ve MSA oturum açma deneyimleri için görsel güncelleştirmeler
 
 **Türü:** değiştirilen özellik  
 **Hizmet kategorisi:** Azure AD  
@@ -161,7 +179,7 @@ Microsoft online services oturum açma deneyimi için kullanıcı Arabirimi gibi
 
 ---
 
-### <a name="new-release-of-azure-ad-connect---july-2018"></a>Azure AD Connect - Temmuz 2018 tarihinden itibaren yeni yayın
+### <a name="new-release-of-azure-ad-connect---july-2018"></a>Yeni Azure AD Connect sürümü - Temmuz 2018
 
 **Türü:** değiştirilen özellik  
 **Hizmet kategorisi:** uygulama sağlama  
@@ -179,7 +197,7 @@ Bu güncelleştirme hakkında daha fazla bilgi için bkz. [Azure AD Connect: sü
 
 ---
 
-### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>Kullanım koşulları (ToU) son kullanıcı UI güncelleştirmeleri
+### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>Kullanım Koşulları (ToU) son kullanıcı arabirimi güncelleştirmeleri
 
 **Türü:** değiştirilen özellik  
 **Hizmet kategorisi:** kullanım koşulları  
@@ -193,7 +211,7 @@ Kabul dize TOU son kullanıcı arabiriminde güncelleştiriyoruz.
 
 ---
  
-### <a name="pass-through-authentication-supports-legacy-protocols-and-applications"></a>Geçişli kimlik doğrulaması eski protokolleri ve uygulamaları destekler
+### <a name="pass-through-authentication-supports-legacy-protocols-and-applications"></a>Doğrudan kimlik doğrulama eski protokolleri ve uygulamaları destekliyor
 
 **Türü:** değiştirilen özellik  
 **Hizmet kategorisi:** kimlik doğrulamaları (oturum açma bilgileri)  
@@ -213,7 +231,7 @@ Geçişli kimlik doğrulaması artık eski protokolleri ve uygulamaları destekl
 
 ---
  
-### <a name="converged-security-info-management-for-self-service-password-reset-and-multi-factor-authentication"></a>Self Servis parola sıfırlama ve çok faktörlü kimlik doğrulaması için yakınsanmış güvenlik bilgileri yönetimi
+### <a name="converged-security-info-management-for-self-service-password-reset-and-multi-factor-authentication"></a>Self servis parola sıfırlama ve Multi-Factor Authentication için yakınsanmış güvenlik bilgileri yönetimi
 
 **Türü:** yeni özellik  
 **Hizmet kategorisi:** SSPR  
@@ -227,7 +245,7 @@ Bu bir katılım genel önizlemesidir. Yöneticilerin yeni deneyimi (istenirse) 
 
 ---
  
-### <a name="use-the-microsoft-authenticator-app-to-verify-your-identity-when-you-reset-your-password"></a>Parolanızı sıfırladıktan gerçekleştirdiğinizde kimliğinizi doğrulamak için Microsoft Authenticator uygulamasını kullanın
+### <a name="use-the-microsoft-authenticator-app-to-verify-your-identity-when-you-reset-your-password"></a>Parolanızı sıfırlarken kimliğinizi doğrulamak için Microsoft Authenticator uygulamasını kullanın
 
 **Türü:** değiştirilen özellik  
 **Hizmet kategorisi:** SSPR  
@@ -527,7 +545,7 @@ Azure AD uygulama galerisinde uygulamanızı listeleme hakkında daha fazla bilg
 
 ---
  
-### <a name="new-step-by-step-deployment-guides-for-azure-active-directory"></a>Azure Active Directory için yeni bir adım adım dağıtım kılavuzları
+### <a name="new-step-by-step-deployment-guides-for-azure-active-directory"></a>Azure Active Directory için yeni adım adım dağıtım kılavuzları
 
 **Türü:** yeni özellik  
 **Hizmet kategorisi:** diğer  
@@ -549,13 +567,13 @@ Hizmet sorumluları / uygulamalarınızı bulma konusunda sorun mu yaşıyorsunu
 
 ---
  
-### <a name="the-may-release-of-aadconnect-contains-a-public-preview-of-the-integration-with-pingfederate-important-security-updates-many-bug-fixes-and-new-great-new-troubleshooting-tools"></a>Genel Önizleme aşamasında, PingFederate ile tümleştirme AADConnect sürümünü içeren Mayıs önemli güvenlik güncelleştirmeleri, birçok hata düzeltmeleri ve yeni harika yeni sorun giderme araçları. 
+### <a name="the-may-release-of-aadconnect-contains-a-public-preview-of-the-integration-with-pingfederate-important-security-updates-many-bug-fixes-and-new-great-new-troubleshooting-tools"></a>AADConnect Mayıs sürümü PingFederate tümleştirmesinin genel önizlemesi, önemli güvenlik güncelleştirmeleri, birçok hata düzeltmesi ve yeni ve harika sorun giderme araçlarını içerir. 
 
 **Türü:** değiştirilen özellik  
 **Hizmet kategorisi:** AD Bağlan  
 **Ürün özelliği:** kimlik yaşam döngüsü yönetimi
  
-Genel Önizleme aşamasında, PingFederate ile tümleştirme AADConnect sürümünü içeren Mayıs önemli güvenlik güncelleştirmeleri, birçok hata düzeltmeleri ve yeni harika yeni sorun giderme araçları. Sürüm notlarında bulabilirsiniz [burada](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#118190).
+AADConnect Mayıs sürümü PingFederate tümleştirmesinin genel önizlemesi, önemli güvenlik güncelleştirmeleri, birçok hata düzeltmesi ve yeni ve harika sorun giderme araçlarını içerir. Sürüm notlarında bulabilirsiniz [burada](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#118190).
 
 ---
 
@@ -795,7 +813,7 @@ Bu konuda hakkında daha fazla bilgiyi bizim [blog gönderisi](https://cloudblog
 
 Daha fazla bilgi için bkz.
 
-- [Uygulama tabanlı koşullu erişim Kurulumu](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Uygulama tabanlı koşullu erişim Kurulumu](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 - [Yönetilen tarayıcı ilkelerini yapılandırma](https://aka.ms/managedbrowser)  
 
@@ -1155,7 +1173,7 @@ Aşağıdaki uygulamalar Şubat sonuna eklenecek:
 Daha fazla bilgi için bkz.
 
 - [Onaylı istemci uygulama gereksinimi](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD uygulama tabanlı koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Azure AD uygulama tabanlı koşullu erişim](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1447,13 +1465,13 @@ Daha fazla bilgi için [koşullu erişim, Azure AD'de](https://docs.microsoft.co
 
 Aşağıdaki uygulamalar listede yer [onaylı istemci uygulamalar](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
-- [Microsoft Kaizala](https://microsoft.com/garage/profiles/kaizala/)
+- [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
 - [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
 
 Daha fazla bilgi için bkz.
 
 - [Onaylı istemci uygulama gereksinimi](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD uygulama tabanlı koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Azure AD uygulama tabanlı koşullu erişim](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1491,9 +1509,9 @@ Daha fazla bilgi için [şirket tümleştirme](https://docs.microsoft.com/azure/
 **Hizmet kategorisi:** Azure AD  
 **Ürün özelliği:** kimlik güvenliği ve koruması
 
-Artık Office 365 ve diğer Azure AD bağlantılı bulut uygulamaları için erişimi kısıtlayabilirsiniz [onaylı istemci uygulamalar](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) kullanarak Intune uygulama koruma ilkelerini destekleyen [Azure AD uygulama tabanlı koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam). Intune uygulama koruma ilkelerini yapılandırma ve bu istemci uygulamalarını üzerindeki şirket verilerini korumak için kullanılır.
+Artık Office 365 ve diğer Azure AD bağlantılı bulut uygulamaları için erişimi kısıtlayabilirsiniz [onaylı istemci uygulamalar](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) kullanarak Intune uygulama koruma ilkelerini destekleyen [Azure AD uygulama tabanlı koşullu erişim](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). Intune uygulama koruma ilkelerini yapılandırma ve bu istemci uygulamalarını üzerindeki şirket verilerini korumak için kullanılır.
 
-Birleştirme tarafından [uygulama tabanlı](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) ile [cihaz tabanlı](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) koşullu erişim ilkeleri, kişisel verileri ve şirket cihazları korumak için esnekliğe sahip.
+Birleştirme tarafından [uygulama tabanlı](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) ile [cihaz tabanlı](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) koşullu erişim ilkeleri, kişisel verileri ve şirket cihazları korumak için esnekliğe sahip.
 
 Aşağıdaki koşullar ve denetimleri artık uygulama tabanlı koşullu erişim ile kullanılmak üzere mevcuttur:
 
@@ -1510,7 +1528,7 @@ Aşağıdaki koşullar ve denetimleri artık uygulama tabanlı koşullu erişim 
 
 - Onaylı istemci uygulaması gerektir
 
-Daha fazla bilgi için [Azure AD uygulama tabanlı koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam).
+Daha fazla bilgi için [Azure AD uygulama tabanlı koşullu erişim](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access).
  
 ---
 
@@ -1607,7 +1625,7 @@ Aşağıdaki uygulamalar listesine eklenmiş olmasından [onaylı istemci uygula
 Daha fazla bilgi için bkz.
 
 - [Onaylı istemci uygulama gereksinimi](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD uygulama tabanlı koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Azure AD uygulama tabanlı koşullu erişim](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 
 ---

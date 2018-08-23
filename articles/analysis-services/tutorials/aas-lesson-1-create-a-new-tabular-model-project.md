@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/15/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 17abcc7dea2f695b4678b30fe7448b0bcbb11590
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b9d3e9df62ffd31a6a01ea427fec8d5a3d168bfa
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441522"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055617"
 ---
 # <a name="create-a-tabular-model-project"></a>Tablosal model projesi oluşturma
 
-Bu derste, SQL Server Veri Araçları (SSDT) ile Visual Studio’yu kullanarak 1400 uyumluluk düzeyinde yeni bir tablosal model projesi oluşturursunuz. Yeni projeniz oluşturulduktan sonra, veri eklemeye ve modelinizi yazmaya başlayabilirsiniz. Bu ders, Visual Studio’da tablosal model yazma ortamı hakkında temel bilgiler de sağlamaktadır.  
+Bu derste, Visual Studio Analiz Hizmetleri projeleri veya SQL Server veri Araçları (SSDT) kullanarak 1400 uyumluluk düzeyinde yeni bir tablosal model projesi oluşturmak için kullanın. Yeni projeniz oluşturulduktan sonra, veri eklemeye ve modelinizi yazmaya başlayabilirsiniz. Bu ders, Visual Studio’da tablosal model yazma ortamı hakkında temel bilgiler de sağlamaktadır.  
   
 Bu dersin tahmini tamamlanma süresi: **10 dakika**  
   
@@ -36,7 +36,7 @@ Bu konu, tablosal model yazma öğreticisindeki ilk derstir. Bu dersi tamamlamak
   
     Varsayılan olarak **Çözüm Adı** proje adıyla aynıdır, ancak farklı bir çözüm adı yazabilirsiniz.  
   
-4.  **Tamam**’a tıklayın.  
+4.  **Tamam** düğmesine tıklayın.  
   
 5.  **Tablosal model tasarımcısı** iletişim kutusunda **Tümleşik çalışma alanı**’nı seçin.  
   
@@ -49,7 +49,7 @@ Bu konu, tablosal model yazma öğreticisindeki ilk derstir. Bu dersi tamamlamak
     Uyumluluk düzeyi liste kutusunda SQL Server 2017 / Azure Analysis Services (1400) seçeneğini görmüyorsanız SQL Server Veri Araçları’nın son sürümünü kullanmıyorsunuz demektir. Son sürümü edinmek için bkz. [SQL Server Veri Araçları’nı yükleme](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
       
   
-## <a name="understanding-the-ssdt-tabular-model-authoring-environment"></a>SSDT tablosal model yazma ortamını anlama  
+## <a name="understanding-the-visual-studio-tabular-model-authoring-environment"></a>Visual Studio tablosal model yazma ortamını anlama  
 Artık yeni bir tablosal model projesi oluşturduğunuza göre, Visual Studio’daki tablosal model yazma ortamını keşfetmeye biraz zaman ayırabiliriz.  
   
 Projeniz oluşturulduktan sonra Visual Studio’da açılır. Sağ taraftaki **Tablosal Model Gezgini**’nde, modelinizdeki nesnelerin ağaç görünümünü görürsünüz. Henüz içeri veri aktarmadığınızdan klasörler boştur. Bir nesne klasörüne sağ tıklayarak menü çubuğuna benzer şekilde çeşitli eylemler gerçekleştirebilirsiniz. Bu öğreticide ilerledikçe, model projenizdeki farklı nesnelere gitmek için Tablosal Model Gezgini’ni kullanırsınız.
@@ -68,7 +68,7 @@ Model projesi oluşturduğunuz sırada, bazı model özellikleri, **Araçlar** m
 
 **Çözüm Gezgini**’nde **AW İnternet Satışları**’na (proje) sağ tıklayıp **Özellikler**’e tıklayın. **AW İnternet Satışları Özellik Sayfaları** iletişim kutusu açılır. Bu özelliklerden bazılarını, daha sonra modelinizi dağıtırken ayarlarsınız.  
   
-SSDT’yi yüklediğinizde Visual Studio ortamına birkaç yeni menü öğesi eklendi. **Model** menüsüne tıklayın. Buradan içeri veri aktarabilir, çalışma alanı verilerini yenileyebilir, Excel’de modelinize göz atabilir, perspektifler ve roller oluşturabilir, model görünümünü seçebilir ve hesaplama seçeneklerini ayarlayabilirsiniz. **Tablo** menüsüne tıklayın. Buradan ilişkiler oluşturup bunları yönetebilir, tarih tablosu ayarlarını belirtebilir, bölümler oluşturabilir ve tablo özelliklerini düzenleyebilirsiniz. **Sütun** menüsüne tıklarsanız bir tabloya sütun ekleyebilir ve tablodaki sütunları silebilir, sütunları dondurabilir ve sıralama düzenini belirtebilirsiniz. SSDT tarafından çubuğa da birkaç düğme eklenir. Bu düğmelerin en kullanışlısı, seçilen bir sütuna yönelik standart bir toplama ölçüsü oluşturmak için kullanılabilen Otomatik Toplam özelliğidir. Diğer araç çubuğu düğmeleri, sık kullanılan özelliklere ve komutlara hızlı erişim sağlar.  
+Analysis Services projeleri veya SSDT'yi yüklediğinizde Visual Studio ortamına birkaç yeni menü öğesi eklendi. **Model** menüsüne tıklayın. Buradan içeri veri aktarabilir, çalışma alanı verilerini yenileyebilir, Excel’de modelinize göz atabilir, perspektifler ve roller oluşturabilir, model görünümünü seçebilir ve hesaplama seçeneklerini ayarlayabilirsiniz. **Tablo** menüsüne tıklayın. Buradan ilişkiler oluşturup bunları yönetebilir, tarih tablosu ayarlarını belirtebilir, bölümler oluşturabilir ve tablo özelliklerini düzenleyebilirsiniz. **Sütun** menüsüne tıklarsanız bir tabloya sütun ekleyebilir ve tablodaki sütunları silebilir, sütunları dondurabilir ve sıralama düzenini belirtebilirsiniz. Visual Studio bazı düğmeler çubuğunu da ekler. Bu düğmelerin en kullanışlısı, seçilen bir sütuna yönelik standart bir toplama ölçüsü oluşturmak için kullanılabilen Otomatik Toplam özelliğidir. Diğer araç çubuğu düğmeleri, sık kullanılan özelliklere ve komutlara hızlı erişim sağlar.  
   
 Tablosal modeller yazmaya özgü bu çeşitli özelliklerin iletişim kutularını ve konumlarını keşfedin. Bazı öğeler henüz etkin olmasa da tablosal model yazma ortamı hakkında fikir edinebilirsiniz.  
   

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 7cf41a10f13e2edeb4ab1944c0d38cc7064c02bb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 88a4bcf018387ac83b485ec9e2efac11f85ba97c
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40161497"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42432298"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>Güncelleştirme 3 sürüm notları Azure Stack üzerinde App Service'e
 
@@ -70,6 +70,10 @@ Azure Stack güncelleştirme 3'te Azure App Service, aşağıdaki geliştirmeler
   - Eklenen Wincache 2.0.0.8
   - Güncelleştirilmiş Git için Windows V'ye 2.17.1.2
   - Güncelleştirilmiş Kudu 74.10611.3437 için
+  
+- **Tüm rollerin temel işletim sistemi güncelleştirmeleri**:
+  - [Windows Server 2016 x64 tabanlı sistemleri (KB4132216) için hizmet yığını güncelleştirmesi](https://support.microsoft.com/help/4132216/servicing-stack-update-for-windows-10-1607-may-17-2018)
+  - [2018-07-x64 tabanlı sistemleri (KB4338822) için Windows Server 2016 için toplu güncelleştirme](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822)
 
 ### <a name="post-update-steps-optional"></a>(İsteğe bağlı) sonrası adımlar güncelleştirme
 
@@ -80,7 +84,7 @@ Azure App Service Azure Stack 1.3 Güncelleştirmesi tamamlandıktan sonra Azure
 >
 >
 
-1. Ekleme [veritabanını bir kullanılabilirlik grubuna](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)
+1. Ekleme [bir kullanılabilirlik grubuna AppService veritabanları (appservice_hosting ve appservice_metering)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)
 
 1. Veritabanını bulunan etkinleştir
     ```sql

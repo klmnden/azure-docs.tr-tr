@@ -1,26 +1,27 @@
 ---
-title: Yayımlama WebApplicationWebSite (Windows PowerShell komut dosyası) | Microsoft Docs
-description: Bir web projesini Azure Web sitesine yayımlamak öğrenin. Bu komut dosyası yoksa gerekli kaynakları Azure aboneliğinizde oluşturur.
+title: Yayımlama WebApplicationWebSite (Windows PowerShell Betiği) | Microsoft Docs
+description: Bir Azure Web sitesine bir web projesi yayımlamayı öğrenin. Bu betik, mevcut olmaması durumunda Azure aboneliğinizde gerekli kaynakları oluşturur.
 services: visual-studio-online
 author: ghogen
 manager: douge
 assetId: 63cfaa2d-f04d-40dc-8677-345385c278d5
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/11/2016
 ms.author: ghogen
-ms.openlocfilehash: b540734f17ed11e4c438e1248ed9612fb892e89a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ea8e36aabb75839a9c301f45a82241e3a859d42a
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792523"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056097"
 ---
 # <a name="publish-webapplicationwebsite-windows-powershell-script"></a>Yayımlama WebApplicationWebSite (Windows PowerShell komut dosyası)
 ## <a name="syntax"></a>Sözdizimi
-Bir web projesini Azure Web sitesine yayımlar. Komut dosyası yoksa gerekli kaynakları Azure aboneliğinizde oluşturur.
+Bir Azure Web sitesine bir web projesi yayımlar. Mevcut olmaması durumunda betik, Azure aboneliğinizde gerekli kaynakları oluşturur.
 
     Publish-WebApplicationWebSite
     –Configuration <configuration>
@@ -32,69 +33,69 @@ Bir web projesini Azure Web sitesine yayımlar. Komut dosyası yoksa gerekli kay
 
 
 ## <a name="configuration"></a>Yapılandırma
-Dağıtım ayrıntılarını açıklayan JSON yapılandırma dosyasının yolu.
+Dağıtım ayrıntılarını açıklayan JSON yapılandırma dosyası yolu.
 
 | Parametre | Varsayılan değer |
 | --- | --- |
 | Diğer adlar |yok |
 | Gerekli mi? |true |
-| Konum |Adlı |
+| Konum |adlı |
 | Varsayılan değer |yok |
-| Ardışık Düzen giriş kabul edilsin mi? |false |
+| Ardışık giriş yapılabilir mi? |false |
 | Joker karakterler kabul edilsin mi? |false |
 
 ## <a name="subscriptionname"></a>Abonelik adı
-Web sitesi oluşturmak istediğiniz Azure aboneliği adı.
+Web sitesi oluşturmak istediğiniz Azure aboneliğini adı.
 
 | Parametre | Varsayılan değer |
 | --- | --- |
 | Diğer adlar |yok |
 | Gerekli mi? |false |
-| Konum |Adlı |
+| Konum |adlı |
 | Varsayılan değer |yok |
-| Ardışık Düzen giriş kabul edilsin mi? |false |
+| Ardışık giriş yapılabilir mi? |false |
 | Joker karakterler kabul edilsin mi? |false |
 
 ## <a name="webdeploypackage"></a>WebDeployPackage
-Web sitesine yayımlamak için web dağıtım paketi yolu. Visual Studio'da Web'i Yayımla Sihirbazı'nı kullanarak bu paketi oluşturabilirsiniz. Daha fazla bilgi için bkz: [Azure Cloud Services ve ASP.NET kullanmaya başlama](http://go.microsoft.com/fwlink/p/?LinkID=623089).
+Web sitesine yayımlamak için web dağıtım paketi yolu. Bu paket, Visual Studio'da Web'i Yayımla Sihirbazı'nı kullanarak oluşturabilirsiniz. Daha fazla bilgi için [Azure Cloud Services ve ASP.NET kullanmaya başlama](http://go.microsoft.com/fwlink/p/?LinkID=623089).
 
 | Parametre | Varsayılan değer |
 | --- | --- |
 | Diğer adlar |yok |
 | Gerekli mi? |false |
-| Konum |Adlı |
+| Konum |adlı |
 | Varsayılan değer |yok |
-| Ardışık Düzen giriş kabul edilsin mi? |false |
+| Ardışık giriş yapılabilir mi? |false |
 | Joker karakterler kabul edilsin mi? |false |
 
 ## <a name="databaseserverpassword"></a>DatabaseServerPassword
-Kullanıcı adı ve parola Azure SQL veritabanı için.
+Kullanıcı adı ve Azure SQL veritabanı için parola.
 
 | Parametre | Varsayılan değer |
 | --- | --- |
 | Diğer adlar |yok |
 | Gerekli mi? |false |
-| Konum |Adlı |
+| Konum |adlı |
 | Varsayılan değer |yok |
-| Ardışık Düzen giriş kabul edilsin mi? |false |
+| Ardışık giriş yapılabilir mi? |false |
 | Joker karakterler kabul edilsin mi? |false |
 
 ## <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
-TRUE ise, yazdırma betikten çıkış akışına iletileri.
+TRUE ise, yazdırma komut dosyasından çıkış akışına iletileri.
 
 | Parametre | Varsayılan değer |
 | --- | --- |
 | Diğer adlar |yok |
 | Gerekli mi? |false |
-| Konum |Adlı |
+| Konum |adlı |
 | Varsayılan değer |false |
-| Ardışık Düzen giriş kabul edilsin mi? |false |
+| Ardışık giriş yapılabilir mi? |false |
 | Joker karakterler kabul edilsin mi? |false |
 
 ## <a name="remarks"></a>Açıklamalar
-Geliştirme ve Test ortamları, komut dosyası oluşturmak için nasıl kullanılacağını tam bir açıklaması için bkz: [geliştirme ve Test ortamları için yayımlamak için Windows PowerShell betiklerini kullanarak](vs-azure-tools-publishing-using-powershell-scripts.md).
+Geliştirme ve Test ortamları oluşturmak için komut dosyası kullanmayı tam bir açıklaması için bkz [yayımlamak için geliştirme ve Test ortamları için Windows PowerShell betiklerini kullanarak](vs-azure-tools-publishing-using-powershell-scripts.md).
 
-JSON yapılandırma dosyası dağıtılacak nedir ayrıntılarını belirtir. Proje adı ve Web sitesi için kullanıcı adı gibi oluşturduğunuzda belirtilen bilgileri içerir. Ayrıca veritabanını hazırlamak, varsa içerir. Aşağıdaki kod örnek bir JSON yapılandırma dosyası gösterir:
+JSON yapılandırma dosyası, dağıtılacak nedir ayrıntılarını belirtir. Bu Web sitesi için kullanıcı adı ve adı gibi bir proje oluştururken belirttiğiniz bilgileri içerir. Ayrıca veritabanını sağlama, varsa içerir. Aşağıdaki kod, örnek bir JSON yapılandırma dosyası gösterir:
 
     {
         "environmentSettings": {
@@ -118,8 +119,8 @@ JSON yapılandırma dosyası dağıtılacak nedir ayrıntılarını belirtir. Pr
         }
     }
 
-Ne dağıtılan değiştirmek için JSON yapılandırma dosyasını düzenleyebilirsiniz. Bir Web Bölümü gereklidir, ancak veritabanı bölümü isteğe bağlıdır.
+Ne dağıtılır değiştirmek için JSON yapılandırma dosyasını düzenleyebilirsiniz. Bir Web Bölümü gereklidir, ancak veritabanı bölümü isteğe bağlıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi için bkz: [Yayımla-WebApplicationVM (Windows PowerShell komut dosyası)](vs-azure-tools-publish-webapplicationvm.md)
+Daha fazla bilgi için [Yayımla-WebApplicationVM (Windows PowerShell komut dosyası)](vs-azure-tools-publish-webapplicationvm.md)
 

@@ -1,175 +1,198 @@
 ---
 title: Bir grubun veya koleksiyonun - Azure Logic Apps işlem EDI iletilerini toplu | Microsoft Docs
 description: EDI iletilerini toplu logic apps'te işleme için Gönder
-keywords: Toplu işlem, toplu işlem, toplu kodlama
-author: divswa
-manager: jeconnoc
-editor: ''
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: divyaswarnkar
+ms.author: divswa
+manager: jeconnoc
 ms.topic: article
-ms.date: 09/21/2017
-ms.author: LADocs; estfan; divswa
-ms.openlocfilehash: fb15688968cb29039fc669ed6b8685ba64df9e81
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.date: 08/19/2018
+ms.reviewer: estfan, LADocs
+ms.openlocfilehash: 77965e20e7d42d12b34bcb2f7cc6c8680ba34b3a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432142"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42059952"
 ---
-# <a name="send-x12-messages-in-batch-to-trading-partners"></a>Ticari ortaklar için toplu iş'te iletileri gönderebilir X12
+# <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Azure Logic Apps ile ortaklar için EDI iletilerini toplu olarak gönder
 
-İşletmeler arası (B2B) senaryolarında iş ortakları, genellikle grupları veya toplu olarak mesaj alışverişi. Ticari ortaklar için gruplar veya toplu ileti göndermek için toplu birden çok öğe ve ardından maddelerini toplu olarak işlemek için batch eylemini kullanın X12 oluşturabilirsiniz.
+İşletmeler arası (B2B) senaryolarında iş ortakları genellikle gruplardaki mesaj alışverişi veya *toplu*. Logic Apps ile toplu bir çözüm derlediğinizde, ticari iş ortakları için iletiler gönderin ve bu iletileri birlikte toplu işler. Bu makalede nasıl X12 örnek olarak, mantıksal uygulama "toplu sender" ve "toplu alıcı" mantıksal uygulama oluşturarak kullanarak EDI iletilerini işleme, işlem yapabileceğiniz açıklanır. 
 
+İletileri works X12 toplu işleme gibi diğer iletiler; toplu işleme bir toplu işlem ve toplu iletiler gönderen bir toplu işlem iletileri toplayan bir toplu iş tetikleyicisi kullanırsınız. Ayrıca, X12 ticaret iş ortağı veya diğer hedef iletileri geçmeden önce adım kodlama x X12 toplu iş oluşturmayı içerir. Toplu tetikleyici ve eylem hakkında daha fazla bilgi için bkz: [toplu işlem iletileri](../logic-apps/logic-apps-batch-process-send-receive-messages.md).
 
-X12 için toplu işlem iletileri, diğer iletiler gibi kullanır toplu tetikleyici ve eylem. Ayrıca batch X12 için x X12 giden iş ortağı veya diğer herhangi bir hedefe geçmeden önce kodla adım. Toplu tetikleyici ve eylem hakkında daha fazla bilgi için bkz: [toplu işlem iletileri](logic-apps-batch-process-send-receive-messages.md).
+Bu makalede, toplu işleme çözümünü aynı Azure aboneliği, Azure bölgesi ve aşağıdaki iki logic apps'te oluşturarak oluşturacaksınız bu belirli bir sıraya göre:
 
-Bu konu, X12 işleminin nasıl gösterir. Bu görevleri gerçekleştirerek toplu olarak iletileri:
-* [Öğeleri alır ve bir toplu iş oluşturan bir mantıksal uygulama oluşturma](#receiver). Bu "alıcı" mantıksal uygulama, aşağıdaki eylemleri gerçekleştirir:
- 
-   * Toplu iş olarak öğeleri bırakmadan önce karşılamak üzere batch adı ve sürüm ölçütünü belirtir.
+* A ["toplu alıcı"](#receiver) kabul eder ve belirtilen ölçütlerinize karşılanıyorsa kadar serbest ve bu iletileri işlemek için bir toplu iş içine iletileri toplayan mantıksal uygulama. Bu senaryoda, batch alıcı da toplu işlem iletileri belirtilen X12 kullanarak kodlar sözleşmesi ya da iş ortağı kimlikleri.
 
-   * İşleyen veya belirtilen X12 kullanarak batch öğeleri kodlar sözleşmesi ya da iş ortağı kimlikleri.
+  Batch gönderen oluşturduğunuzda, daha sonra batch hedef seçebilmeniz için batch alıcı ilk oluşturduğunuzdan emin olun.
 
-* [Öğe için bir batch gönderen bir mantıksal uygulama oluşturma](#sender). Bu "sender" mantıksal uygulama, var olan bir alıcı mantıksal uygulama olması için toplu işleme, öğeleri gönderileceği belirtir.
+* A ["toplu sender"](#sender) mantıksal uygulama, daha önce oluşturulan batch alıcısına iletileri gönderir. 
 
+Batch alıcı ve gönderen batch aynı Azure aboneliğinde paylaştığınızdan emin olun *ve* Azure bölgesi. Yoksa, bunların birbirlerine görünmeyen olmadığınızdan batch gönderen oluşturduğunuzda, batch alıcı seçemezsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu örneği takip etmek için bu öğeler gerekir:
 
-* Azure aboneliği. Bir aboneliğiniz yoksa [ücretsiz bir Azure hesabı ile başlayabilirsiniz](https://azure.microsoft.com/free/). Ya da [Kullandıkça Öde aboneliğine kaydolabilirsiniz](https://azure.microsoft.com/pricing/purchase-options/).
+* Azure aboneliği. Bir aboneliğiniz yoksa [ücretsiz bir Azure hesabı ile başlayabilirsiniz](https://azure.microsoft.com/free/). Veya, [için Kullandıkça Öde aboneliğine kaydolun](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Bir [tümleştirme hesabı](logic-apps-enterprise-integration-create-integration-account.md) zaten tanımlanmış ve Azure aboneliğinizle ilişkili
+* Hakkında temel bilgilere [mantıksal uygulamalar oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* En az iki [iş ortakları](logic-apps-enterprise-integration-partners.md) , tümleştirme hesabınızdaki tanımladınız. Her iş ortağı X12 (standart taşıyıcı alfa kodu) kullandığından emin olun olarak bir iş kimliği iş ortağının özelliklerinde niteleyicisi.
+* Mevcut bir [tümleştirme hesabı](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) Azure aboneliğinizle ilişkili ve logic apps için bağlandı
 
-* Bir [X12 sözleşmesi](logic-apps-enterprise-integration-x12.md) , tümleştirme hesabında zaten tanımlı
+* En az iki varolan [iş ortakları](../logic-apps/logic-apps-enterprise-integration-partners.md) tümleştirme hesabı. Her iş ortağı X12 (standart taşıyıcı alfa kodu) kullanmanız gerekir bir iş kimliği iş ortağının özellikleri olarak niteleyicisi.
+
+* Mevcut bir [X12 sözleşmesi](../logic-apps/logic-apps-enterprise-integration-x12.md) tümleştirme hesabı
+
+* Azure portalı yerine Visual Studio kullanmak üzere emin olursunuz [Logic Apps ile çalışmak için Visual Studio'yu ayarlama](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 <a name="receiver"></a>
 
-## <a name="create-a-logic-app-that-receives-x12-messages-and-creates-a-batch"></a>Bir mantık oluşturabilirsiniz X12 alan uygulaması iletileri ve bir toplu iş oluşturur
+## <a name="create-x12-batch-receiver"></a>X12 oluşturma batch alıcısı
 
-Bir toplu iletileri göndermeden önce ilk "alıcı" mantıksal uygulama ile oluşturmalısınız **Batch** tetikleyici. Bu şekilde, gönderen mantıksal uygulama oluşturduğunuzda bu alıcı mantıksal uygulama seçebilirsiniz. Alıcı için toplu işlem adını belirtin, yayın ölçütleri X12 sözleşmesi ve diğer ayarları. 
+Bir toplu iletileri göndermeden önce toplu iletiler göndermek burada hedef olarak önce mevcut olması gerekir. Bu nedenle ilk olarak, ile başlar "toplu alıcı" mantıksal uygulama oluşturma **Batch** tetikleyici. "Toplu sender" mantıksal uygulama oluşturduğunuzda, bu şekilde, batch alıcı mantıksal uygulama seçebilirsiniz. Batch alıcı, ileti belirtilen ölçütlerinize karşılanıyorsa kadar serbest bırakarak ve bu iletileri için toplama devam eder. Batch alıcılar batch Gönderenler ilgili hiçbir şeyi bilmeniz gerekmez ancak toplu Gönderenler iletileri burada gönderdikleri hedef bilmeniz gerekir. 
 
+Bu batch alıcı için belirttiğiniz toplu iş modu, ad yayın ölçütü X12 sözleşmesi ve diğer ayarları. 
 
-1. İçinde [Azure portalında](https://portal.azure.com), bu ada sahip bir mantıksal uygulama oluşturun: "BatchX12Messages".
+1. İçinde [Azure portalında](https://portal.azure.com) veya Visual Studio, bu ada sahip bir mantıksal uygulama oluşturun: "BatchX12Messages"
 
-1. Logic Apps Tasarımcısı'nda ekleme **Batch** mantıksal uygulama iş akışınızı başlatan bir tetikleyici. Arama kutusuna filtreniz olarak "toplu" girin. Şu tetikleyiciyi seçin: **Batch – toplu iletileri**
+2. [Mantıksal uygulamanızı tümleştirme hesabınıza bağlayın](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
+
+3. Logic Apps Tasarımcısı'nda ekleme **Batch** mantıksal uygulama iş akışınızı başlatan bir tetikleyici. Arama kutusuna filtreniz olarak "toplu" girin. Şu tetikleyiciyi seçin: **toplu iletiler**
 
    ![Toplu tetikleyici ekleme](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-receiver-trigger.png)
 
-1. Batch için bir ad sağlayın ve toplu işlem, örneğin serbest ölçütlerini belirtin:
+4. Batch, alıcı özellikleri ayarlayın: 
 
-   * **Batch adı**: Bu örnekte "TestBatch" olan batch tanımlamak için kullanılan ad.
+   | Özellik | Değer | Notlar | 
+   |----------|-------|-------|
+   | **Toplu iş modu** | Satır İçi |  |  
+   | **Toplu işlem adı** | TestBatch | Yalnızca **satır içi** toplu iş modu | 
+   | **Yayın ölçütü** | Zamanlama tabanlı, ileti sayısı tabanlı | Yalnızca **satır içi** toplu iş modu | 
+   | **İleti sayısı** | 10 | Yalnızca **ileti sayısı tabanlı** yayın ölçütleri | 
+   | **Aralık** | 10 | Yalnızca **zamanlama tabanlı** yayın ölçütleri | 
+   | **Sıklık** | dakika | Yalnızca **zamanlama tabanlı** yayın ölçütleri | 
+   ||| 
 
-   * **Yayın ölçütleri**: ileti sayısı, zamanlama veya her ikisi de dayalı toplu sürüm ölçütlerini.
-   
-     ![Toplu tetikleyici ayrıntılarını sağlayın](./media/logic-apps-batch-process-send-receive-messages/receive-batch-release-criteria.png)
+   ![Toplu tetikleyici ayrıntılarını sağlayın](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png)
 
-   * **İleti sayısı**: Bu örnekte, "5" olan işleme bırakmadan önce toplu iş olarak tutmak için ileti sayısı.
+   > [!NOTE]
+   > Aynı bölüm anahtarını her toplu işin kullanması için bu örnek toplu işlem için bir bölüm ayarlama değil. Bölümleri hakkında daha fazla bilgi için bkz. [toplu işlem iletileri](../logic-apps/logic-apps-batch-process-send-receive-messages.md#batch-sender).
 
-     ![Toplu tetikleyici ayrıntılarını sağlayın](./media/logic-apps-batch-process-send-receive-messages/receive-batch-count-based.png)
+5. Şimdi her toplu işin kodlayan bir eylem ekleyin: 
 
-   * **Zamanlama**: "10 dakikada" Bu örnekte olan işleme için batch yayın zamanlaması.
+   1. Toplu tetikleyici altında seçin **yeni adım**.
 
-     ![Toplu tetikleyici ayrıntılarını sağlayın](./media/logic-apps-scenario-EDI-send-batch-messages/receive-batch-schedule-based.png)
+   2. Arama kutusuna "X 12 batch" filtreniz olarak ve (tüm sürümler) şu eylemi seçin: **toplu kodlama <*sürüm*>-X12** 
 
+      ![X12 seçin eylem toplu kodlama](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
 
-1. Başka bir gruplandırılmış kodlar veya iletileri toplu işlemleri ve x X12 oluşturur eylem toplu ileti. 
+   3. Daha önce tümleştirme hesabınıza bağlanın alamadık, artık bağlantı oluşturun. Bağlantınız için bir ad girin ve ardından tümleştirme hesabı seçin **Oluştur**.
 
-   a. Seçin **+ yeni adım** > **Eylem Ekle**.
+      ![Batch Kodlayıcısı ve tümleştirme hesabı arasında bağlantı oluşturma](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encoder-connect-integration-account.png)
 
-   b. Arama kutusuna "X 12 batch" filtreniz olarak ve bir eylem seçin **X12-toplu kodlama**. İster X12 bağlayıcı kodlayın, birden çok eylem kodlama batch çeşitliliğe. Bunlardan birini seçebilirsiniz.
+   4. Batch Kodlayıcı eylemleriniz için bu özellikleri ayarlayın:
 
-   ![X12 seçin eylem toplu kodlama](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
-   
-1. Yeni eklediğiniz bir eylemin özelliklerini ayarlayın.
+      | Özellik | Açıklama |
+      |----------|-------------|
+      | **X12 adını Sözleşmesi** | Listeyi açın ve mevcut sözleşmenize seçin. <p>Listeniz boşsa, emin olun [mantıksal uygulama tümleştirme hesabı'na bağlantı](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account) istediğiniz sözleşmesi içeriyor. | 
+      | **BatchName** | Bu kutusunun içine tıklayın ve dinamik içerik listesinde göründükten sonra seçin **Tpl** belirteci. | 
+      | **PartitionName** | Bu kutusunun içine tıklayın ve dinamik içerik listesinde göründükten sonra seçin **bölüm adı** belirteci. | 
+      | **Öğeleri** | Öğe ayrıntıları kutusunu kapatın ve ardından bu kutusunun içine tıklayın. Dinamik içerik listesinde göründükten sonra seçin **toplu öğeleri** belirteci. | 
+      ||| 
 
-   * İçinde **X12 adını sözleşmesi** kutusunda, anlaşmayı aşağı açılan listeden seçin. Listeniz boşsa, tümleştirme hesabınıza bir bağlantı oluşturulduğundan emin olun.
+      ![Batch kodla eylem ayrıntıları](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-details.png)
 
-   * İçinde **BatchName** kutusunda **Tpl** dinamik içerik listesinden alan.
-   
-   * İçinde **PartitionName** kutusunda **bölüm adı** dinamik içerik listesinden alan.
+      İçin **öğeleri** kutusunda:
 
-   * İçinde **öğeleri** kutusunda **toplu öğeleri** dinamik içerik listesinden.
+      ![Batch kodla eylem öğeleri](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-items.png)
 
-   ![Batch kodla eylem ayrıntıları](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-details.png)
+6. Mantıksal uygulamanızı kaydedin. 
 
-1. Test amacıyla, toplu ileti göndermek için HTTP Eylem Ekle [istek depo hizmeti](https://requestbin.fullcontact.com/). 
+7. Visual Studio kullanıyorsanız, emin [batch alıcı mantıksal uygulamanızı Azure'a dağıtma](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). Aksi halde, batch gönderen oluşturduğunuzda, batch alıcı seçemezsiniz.
 
-   1. Arama kutusuna filtreniz olarak "HTTP" girin. Şu eylemi seçin: **HTTP - HTTP**
+### <a name="test-your-logic-app"></a>Mantıksal uygulamanızı test edin
+
+Beklendiği gibi batch alıcı works emin olmak için test amacıyla bir HTTP eylemi ekleyebilir ve toplu ileti gönder [istek depo hizmeti](https://requestbin.fullcontact.com/). 
+
+1. Eylem altında X12 kodlama öğesini **yeni adım**. 
+
+2. Arama kutusuna filtreniz olarak "http" girin. Şu eylemi seçin: **HTTP - HTTP**
     
-      ![HTTP eylemi seçin](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receive-add-http-action.png)
+   ![HTTP eylemi seçin](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action.png)
 
-   1. Gelen **yöntemi** listesinden **POST**. İçin **URI** kutusuna, istek depo için bir URI oluşturmayı ve bu URI'yi girin. İçinde **gövdesi** dinamik listesi açıldığında kutusunu seçin **gövdesi** altında **sözleşme adına göre toplu kodlama** bölümü. Görmüyorsanız **gövdesi**, seçin **daha fazla bilgi bkz** yanındaki **sözleşme adına göre toplu kodlama**.
+3. HTTP eylemi için özellikleri ayarlayın:
 
-      ![HTTP eylem ayrıntılarını sağlayın](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receive-add-http-action-details.png)
+   | Özellik | Açıklama | 
+   |----------|-------------|
+   | **Yöntemi** | Bu listeden **POST**. | 
+   | **URI** | Bir URI, istek depo oluşturun ve ardından bu URI, bu kutuya girin. | 
+   | **Gövde** | Bu kutusunun içine tıklayın ve dinamik içerik listesinden açıldıktan sonra seçin **gövdesi** bölümünde görünen belirteci **sözleşme adına göre toplu kodlama**. <p>Görmüyorsanız **gövdesi** yanındaki simge **sözleşme adına göre toplu kodlama**seçin **daha fazla bilgi bkz**. | 
+   ||| 
 
-1.  Bir alıcı mantıksal uygulama oluşturdunuz, mantıksal uygulamanızı kaydedin.
+   ![HTTP eylem ayrıntılarını sağlayın](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action-details.png)
 
-    ![Mantıksal uygulamanızı kaydetme](./media/logic-apps-scenario-EDI-send-batch-messages/save-batch-receiver-logic-app.png)
+4. Mantıksal uygulamanızı kaydedin. 
 
-    > [!IMPORTANT]
-    > Bir bölüm 5.000 iletileri veya 80 MB sınırı vardır. Her iki koşul karşılanıyorsa, hatta kullanıcı tanımlı koşul karşılanmadığında batch, kullanıma.
+   Batch alıcı mantıksal uygulamanız şu örnekteki gibi görünür: 
+
+   ![Batch alıcı mantıksal uygulamanızı kaydetme](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-finished.png)
 
 <a name="sender"></a>
 
-## <a name="create-a-logic-app-that-sends-x12-messages-to-a-batch"></a>X12 gönderen bir mantıksal uygulama oluşturma bir toplu olarak işlenecek iletiler
+## <a name="create-x12-batch-sender"></a>X12 oluşturma batch gönderen
 
-Artık alıcı mantıksal uygulama tarafından tanımlanan toplu iş öğelerini göndermek bir veya daha fazla mantıksal uygulamalar oluşturun. Gönderenin alıcı mantıksal uygulama ve toplu iş adı, ileti içeriği ve diğer ayarları belirtin. İsteğe bağlı olarak, toplu iş öğeleri bu anahtarla toplamak için alt kümelerini bölmek için benzersiz bir bölüm anahtarı sağlayabilir.
+Artık ileti göndermek için batch alıcı mantıksal uygulama bir veya daha fazla mantıksal uygulamalar oluşturun. Her batch gönderici batch alıcı mantıksal uygulama ve toplu iş adı, ileti içeriği ve diğer ayarları belirtin. İsteğe bağlı olarak, bu anahtarla iletileri toplamak için alt kümelerini toplu bölmek için benzersiz bir bölüm anahtarı sağlayabilir. 
 
-Gönderen logic apps, alıcı logic apps Gönderenler ilgili hiçbir şeyi bilmeniz gerekmez ancak öğeleri gönderileceği bilmeniz gerekir.
+* Seçtiğiniz emin zaten [batch Alıcınız oluşturulan](#receiver) , batch gönderen oluşturduğunuzda, mevcut batch alıcı hedef toplu seçebilmeniz için. Batch alıcılar batch Gönderenler ilgili hiçbir şeyi bilmeniz gerekmez ancak toplu Gönderenler iletilerin gönderileceği bilmeniz gerekir. 
 
+* Batch alıcı ve gönderen batch aynı Azure bölgesindeki paylaştığınızdan emin olun *ve* Azure aboneliği. Yoksa, bunların birbirlerine görünmeyen olmadığınızdan batch gönderen oluşturduğunuzda, batch alıcı seçemezsiniz.
 
-1. Bu ada sahip başka bir mantıksal uygulama oluşturun: "X12MessageSender". Mantıksal uygulamanız Bu tetikleyici ekleme: **istek / yanıt - istek** 
+1. Bu ada sahip başka bir mantıksal uygulama oluşturun: "SendX12MessagesToBatch" 
+
+2. Arama kutusuna filtreniz olarak "http isteği," girin. Şu tetikleyiciyi seçin: **olduğunda bir HTTP isteği alındığında** 
    
    ![İstek tetikleyicisi Ekle](./media/logic-apps-scenario-EDI-send-batch-messages/add-request-trigger-sender.png)
 
-1. Bir toplu ileti göndermek için yeni bir adım ekleyin.
+3. Bir toplu iletiler gönderen bir eylem ekleme.
 
-   1. Seçin **+ yeni adım** > **Eylem Ekle**.
+   1. HTTP isteği eylem altında seçin **yeni adım**.
 
-   1. Arama kutusuna filtreniz olarak "toplu" girin. 
+   2. Arama kutusuna filtreniz olarak "toplu" girin. 
+   Seçin **eylemleri** listeleyin ve ardından şu eylemi seçin: **toplu işlem tetikleyicisi - toplu iletileri gönderme içeren bir Logic Apps iş akışı seçin**
 
-1. Şu eylemi seçin: **toplu – toplu işlem tetikleyicisi içeren bir Logic Apps iş akışı seçin için ileti gönderme**
+      !["Toplu işlem tetikleyicisi içeren bir Logic Apps iş akışı seçin" seçin](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-trigger.png)
 
-   !["Toplu iletileri gönder" öğesini seçin](./media/logic-apps-scenario-EDI-send-batch-messages/send-messages-batch-action.png)
+   3. Şimdi daha önce oluşturduğunuz "BatchX12Messages" mantıksal uygulamanızı seçin.
 
-1. Artık bir eylemi olarak artık görünen daha önce oluşturduğunuz "BatchX12Messages" mantıksal uygulamanızı seçin.
+      !["Toplu alıcı" mantıksal uygulama seçin](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-receiver.png)
 
-   !["Toplu alıcı" mantıksal uygulama seçin](./media/logic-apps-scenario-EDI-send-batch-messages/send-batch-select-batch-receiver.png)
+   4. Şu eylemi seçin: **Batch_messages - <*your-batch-alıcısı*>**
 
-   > [!NOTE]
-   > Liste, batch tetikleyicilere sahip diğer logic apps de gösterir.
+      !["Batch_messages" eylemini seçin](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-messages-action.png)
 
-1. Batch özelliklerini ayarlayın.
+4. Batch, gönderenin özelliklerini ayarlayın.
 
-   * **Batch adı**: Bu örnekte "TestBatch" olan ve çalışma zamanında doğrulanır alıcı mantıksal uygulama tarafından tanımlanan toplu işlem adı.
-
-     > [!IMPORTANT]
-     > Alıcı mantıksal uygulama tarafından belirtilen toplu iş adı eşleşmelidir batch adı değişmez emin olun.
-     > Batch adının değiştirilmesi, gönderen neden başarısız için mantıksal uygulama.
-
-   * **İleti içeriği**: Toplu göndermek istediğiniz iletinin içeriği
+   | Özellik | Açıklama | 
+   |----------|-------------| 
+   | **Toplu işlem adı** | Bu örnekte "TestBatch" olduğundan alıcı mantıksal uygulama tarafından tanımlanan toplu işlem adı <p>**Önemli**: toplu işlem adı, çalışma zamanında doğrulanacağı ve alıcı mantıksal uygulama tarafından belirtilen adla eşleşmelidir. Batch adının değiştirilmesi, batch gönderici başarısız olmasına neden olur. | 
+   | **İleti içeriği** | İçeriği olan göndermek istediğiniz iletinin **gövdesi** Bu örnekte belirteci | 
+   ||| 
    
-   ![Batch özelliklerini ayarlama](./media/logic-apps-scenario-EDI-send-batch-messages/send-batch-select-batch-properties.png)
+   ![Batch özelliklerini ayarlama](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-set-batch-properties.png)
 
-1. Mantıksal uygulamanızı kaydedin. Gönderen mantıksal uygulamanız bu örnektekine benzer görünür:
+5. Mantıksal uygulamanızı kaydedin. 
 
-   ![Gönderen mantıksal uygulamanızı kaydetme](./media/logic-apps-scenario-EDI-send-batch-messages/send-batch-finished.png)
+   Batch gönderen mantıksal uygulamanız şu örnekteki gibi görünür:
+
+   ![Batch gönderen mantıksal uygulamanızı kaydetme](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-finished.png)
 
 ## <a name="test-your-logic-apps"></a>Mantıksal uygulamalarınızı test edin
 
-Toplu işlem çözümünüzü test etmek için post X12 gönderen mantıksal uygulamanızdan iletileri [Postman](https://www.getpostman.com/postman) veya benzer bir araç. Bir süre sonra başlama başlamalıdır X12 iletilerini, istek Kutusu'ndaki - beş öğelerin veya her 10 dakikada toplu olarak ya da tümü aynı bölüm anahtarına.
+Toplu işlem çözümünüzü test etmek için post X12 batch gönderen mantıksal uygulamanızdan iletileri [Postman](https://www.getpostman.com/postman) veya benzer bir araç. Yakında X12 alma başlattığınız her 10 dakikada, istek bin veya toplu işler halinde 10, aynı bölüm anahtarına sahip tüm iletileri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Toplu olarak işlem iletileri](logic-apps-batch-process-send-receive-messages.md) 
-* [Visual Studio'da Azure Logic Apps ve işlevler ile sunucusuz uygulama oluşturma](../logic-apps/logic-apps-serverless-get-started-vs.md)
-* [Logic apps için hata günlüğünü ve özel durum işleme](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
+* [Toplu olarak işlem iletileri](../logic-apps/logic-apps-batch-process-send-receive-messages.md) 

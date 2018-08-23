@@ -1,58 +1,59 @@
 ---
-title: Bir Azure bulut hizmeti için sabit bir sanal IP adresi korumak nasıl | Microsoft Docs
-description: Azure bulut hizmetinizin sanal IP adresi (VIP) değişmez emin olmak öğrenin.
+title: Azure bulut hizmeti için sabit bir sanal IP adresi korumak nasıl | Microsoft Docs
+description: Azure bulut hizmeti sanal IP adresi (VIP) değişmemesini sağlayın öğrenin.
 services: visual-studio-online
 author: ghogen
 manager: douge
 assetId: 4a58e2c6-7a79-4051-8a2c-99182ff8b881
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/21/2017
 ms.author: ghogen
-ms.openlocfilehash: c02e80a97fe5943019f446299e370bf029a01ff4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 2f82663f6b53c6d4e32b8d655dcbd67a321d91ed
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795101"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057442"
 ---
-# <a name="retain-a-constant-virtual-ip-address-for-an-azure-cloud-service"></a>Bir Azure bulut hizmeti için sabit bir sanal IP adresi koru
-Azure üzerinde barındırılan bir bulut hizmeti güncelleştirdiğinizde, sanal IP adresi (VIP) hizmetinin değiştirmez emin olmak gerekebilir. Birçok etki alanı Yönetim Hizmetleri, etki alanı adlarını kaydetme için etki alanı adı sistemi (DNS) kullanın. VIP aynı kalırsa DNS çalışır. Kullanabileceğiniz **Yayımlama Sihirbazı** bulut hizmetinizin VIP ne zaman değiştirmez emin olmak için Azure araçlarında güncelleştirmeniz. DNS etki alanı yönetimi için bulut hizmetlerini kullanma hakkında daha fazla bilgi için bkz: [bir Azure bulut hizmeti için bir özel etki alanı adı yapılandırma](cloud-services/cloud-services-custom-domain-name-portal.md).
+# <a name="retain-a-constant-virtual-ip-address-for-an-azure-cloud-service"></a>Azure bulut hizmeti için sabit bir sanal IP adresini koruma
+Azure'da barındırılan bir bulut hizmeti güncelleştirdiğinizde, hizmet sanal IP adresi (VIP) emin olmanız gerekebilir. Birçok etki alanı Yönetimi Hizmetleri, etki alanı adı sistemi (DNS) etki alanı adlarını kaydetmek için kullanın. VIP aynı kalırsa DNS çalışır. Kullanabileceğiniz **Yayımlama Sihirbazı** bulut hizmetinizin VIP'si ne zaman değişmez emin olmak için Azure Araçları, güncelleştirin. Bulut Hizmetleri için DNS etki alanı yönetimi kullanma hakkında daha fazla bilgi için bkz. [Azure bulut hizmeti için bir özel etki alanı adı yapılandırma](cloud-services/cloud-services-custom-domain-name-portal.md).
 
-## <a name="publish-a-cloud-service-without-changing-its-vip"></a>Bir bulut hizmeti, VIP değiştirmeden yayımlama
-İlk kez, Azure'a üretim ortamı gibi belirli bir ortamda dağıttığınızda bir bulut hizmeti VIP tahsis edilir. VIP yalnızca dağıtımı açıkça silin veya dağıtım örtük olarak dağıtımı güncelleştirme işlemi tarafından silinmesi durumunda değiştirir. VIP korumak için dağıtımınızı silmemelisiniz ve Visual Studio, dağıtımınızı otomatik olarak silmez emin olmanız gerekir. 
+## <a name="publish-a-cloud-service-without-changing-its-vip"></a>VIP değiştirme olmadan bir bulut hizmeti yayımlama
+Önce Azure'da üretim ortamı gibi belirli bir ortamda dağıtımı yaparken, bir bulut hizmeti VIP'si ayrılır. VIP, yalnızca açıkça dağıtımı silin veya dağıtım dağıtımı güncelleştirme işlemi tarafından örtük olarak silindi değiştirir. VIP korumak için dağıtımınızı silmeniz gerekir değil ve Visual Studio, dağıtımınızı otomatik olarak silmez emin olmanız gerekir. 
 
-Dağıtım ayarlarında belirttiğiniz **Yayımlama Sihirbazı**, çeşitli dağıtım seçenekleri destekler. Yeni bir dağıtımını veya artımlı veya eşzamanlı olabilir bir güncelleştirme dağıtımı belirtebilirsiniz. Her iki tür güncelleştirme dağıtımı VIP korur. Bu farklı dağıtım türleri tanımları için bkz: [Azure uygulaması Yayımlama Sihirbazı](vs-azure-tools-publish-azure-application-wizard.md). Ayrıca, bir hata oluşursa bir bulut hizmeti önceki dağıtımını silinip silinmediğini kontrol edebilirsiniz. Bu seçenek doğru şekilde ayarlamazsanız, VIP beklenmedik bir şekilde değiştirebilirsiniz.
+Dağıtım ayarlarında belirttiğiniz **Yayımlama Sihirbazı**, çeşitli dağıtım seçenekleri destekler. Yeni bir dağıtımını veya artımlı ya da eşzamanlı bir güncelleştirme dağıtımı belirtebilirsiniz. Güncelleştirme dağıtımının her iki tür VIP korur. Farklı dağıtım türlerinin tanımları için bkz: [Azure uygulaması Yayımlama Sihirbazı](vs-azure-tools-publish-azure-application-wizard.md). Ayrıca, bir hata oluşursa önceki bir bulut hizmeti dağıtımını silinmiş olup olmadığını kontrol edebilirsiniz. Doğru seçeneği ayarlamazsanız, VIP beklenmedik bir şekilde değiştirebilirsiniz.
 
-## <a name="update-a-cloud-service-without-changing-its-vip"></a>Güncelleştirme, VIP değiştirmeden bir bulut hizmeti
+## <a name="update-a-cloud-service-without-changing-its-vip"></a>VIP değiştirme olmadan bir bulut hizmeti güncelleştirme
 1. Oluşturun veya bir Azure bulut hizmeti projesini Visual Studio'da açın. 
 
-2. İçinde **Çözüm Gezgini**, projeye sağ tıklayın. Kısayol menüsünden seçin **Yayımla**.
+2. İçinde **Çözüm Gezgini**, projeye sağ tıklayın. Kısayol menüsünde **Yayımla**.
 
     ![Yayımla menüsü](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/solution-explorer-publish-menu.png)
 
 3. İçinde **Azure uygulamasını Yayımla** iletişim kutusunda, dağıtmak istediğiniz Azure aboneliğini seçin. Gerekli ve select oturum **sonraki**.
 
-    ![Azure uygulama oturum aç sayfasında yayımlama](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-signin.png)
+    ![Azure uygulama oturum açma sayfasına yayımlama](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-signin.png)
 
-4. Üzerinde **ortak ayarları** sekmesinde, doğrulayın bulut adını hizmet dağıtımı, **ortam**, **yapı yapılandırması**ve **Hizmet yapılandırmasını** doğru olduğunu.
+4. Üzerinde **ortak ayarları** sekmesinde, doğrulayın bulutun adını hizmet dağıtım yapıyorsanız, **ortam**, **derleme Yapılandırması**ve **Hizmet yapılandırması** tümü doğrudur.
 
-    ![Azure uygulama ortak ayarlar sekmesinde yayımlama](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-common-settings.png)
+    ![Azure uygulama ortak ayarlar sekmesinde Yayımla](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-common-settings.png)
 
-5. Üzerinde **Gelişmiş ayarları** sekmesinde şunları doğrulayın **dağıtım etiketi** ve **depolama hesabı** doğrudur. Doğrulayın **hata durumunda dağıtımı Sil** onay kutusu işaretli değildir ve doğrulayın **dağıtım güncelleştirme** onay kutusu seçilidir. Temizleme tarafından **hata durumunda dağıtımı Sil** onay kutusunu olun dağıtımı sırasında bir hata meydana gelirse, VIP kayıp değil. Seçerek **dağıtım güncelleştirme** onay kutusu, dağıtımınızı silinmez ve uygulamanızı yayımladığınızda, VIP kaybı olmadığından emin olun. 
+5. Üzerinde **Gelişmiş ayarlar** sekmesinde, doğrulayın **dağıtım etiketi** ve **depolama hesabı** doğrudur. Doğrulayın **hata durumunda dağıtımı Sil** onay kutusu işaretli değildir ve doğrulayın **dağıtım güncelleştirme** onay kutusu seçilidir. Öğenizin **hata durumunda dağıtımı Sil** onay kutusunu olun dağıtım sırasında bir hata oluşursa, VIP kaybolmaz. Seçerek **dağıtım güncelleştirme** onay kutusunu, dağıtımınızı silinmez ve uygulamanızı yeniden yayımladığınızda, VIP kaybı olmadığından emin olun. 
 
-    ![Azure uygulama Gelişmiş Ayarlar sekmesi yayımlama](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-advanced-settings.png)
+    ![Azure uygulama ayarları, Gelişmiş sekmesini yayımlama](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-advanced-settings.png)
 
-6. Daha fazla nasıl güncelleştirilmesi rolleri istediğinizi belirtmek için seçin **ayarları** yanına **dağıtım güncelleştirme**. Şunlardan birini seçin **Artımlı güncelleştirme** veya **eşzamanlı güncelleştirme**seçip **Tamam**. Seçin **Artımlı güncelleştirme** uygulama her zaman kullanılabilir olmasını sağlamak, uygulamanızın her örneği birbiri ardından güncelleştirilecek. Seçin **eşzamanlı güncelleştirme** uygulamanız aynı anda tüm örneklerini güncelleştirmek için. Eşzamanlı güncelleştirme hızlıdır ancak hizmetiniz güncelleştirme işlemi sırasında kullanılamayabilir. İşiniz bittiğinde, seçin **sonraki**.
+6. Daha fazla rollerinin güncelleştirilmesi için nasıl istediğinizi belirtmek için seçin **ayarları** yanındaki **dağıtım güncelleştirme**. Şunlardan birini seçin **Artımlı güncelleştirme** veya **eşzamanlı güncelleştirme**seçip **Tamam**. Seçin **Artımlı güncelleştirme** uygulama her zaman kullanılabilir olduğunu, uygulamanızın her örneği birbiri ardına güncelleştirmek için. Seçin **eşzamanlı güncelleştirme** uygulamanız aynı anda tüm örneklerini güncelleştirilecek. Eşzamanlı güncelleştirilmesi daha hızlıdır, ancak hizmet uygulamanızın güncelleştirme işlemi sırasında kullanılabilir olmayabilir. İşlemi tamamladığınızda, seçin **sonraki**.
 
     ![Azure uygulama dağıtım ayarları sayfasında yayımlama](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-deployment-update-settings.png)
 
-7. İçinde **Azure uygulamasını Yayımla** iletişim kutusunda **sonraki** kadar **Özet** sayfası görüntülenir. Lütfen ayarlarınızı doğrulayın ve ardından **Yayımla**.
+7. İçinde **Azure uygulamasını Yayımla** iletişim kutusunda **sonraki** kadar **özeti** sayfası görüntülenir. Lütfen ayarlarınızı doğrulayın ve ardından **Yayımla**.
    
-    ![Azure uygulama Özet sayfası yayımlama](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-summary.png)
+    ![Azure uygulama özeti sayfasında yayımlama](./media/vs-azure-tools-cloud-service-retain-a-constant-virtual-ip-address/azure-publish-summary.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Visual Studio kullanarak yayımla Azure Uygulama Sihirbazı](vs-azure-tools-publish-azure-application-wizard.md)
+- [Visual Studio kullanarak Azure Uygulama Sihirbazı yayımlama](vs-azure-tools-publish-azure-application-wizard.md)
 

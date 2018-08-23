@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 68d8ba6b08811b96df8b8b2daa074166301ffcd0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 856809d6eb480d0112eb7ed85c33560950be7d64
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422000"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057446"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Öğretici: Azure Active Directory Tümleştirme ile Microsoft tarafından Confluence SAML SSO
 
@@ -42,7 +42,7 @@ Microsoft Azure Active Directory hesabınız Atlassian Confluence sunucusu ile �
 
 Azure AD tümleştirmesi Microsoft tarafından Confluence SAML SSO ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir Windows 64 bit sunucuda yüklü confluence sunucu uygulaması (şirket içinde veya bulutta Iaas altyapınıza)
 - HTTPS etkin confluence sunucusudur
 - Not Confluence eklentisi için desteklenen sürümler bölümü belirtilmiştir.
@@ -76,7 +76,7 @@ Azure AD'de Microsoft tarafından Confluence SAML SSO tümleştirmesini yapılan
 
 **Galeriden Microsoft tarafından Confluence SAML SSO eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -150,7 +150,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     ![Çoklu oturum açmayı yapılandırın](./media/confluencemicrosoft-tutorial/addon1.png)
 
-1. Eklentisini indirin [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56503). Microsoft tarafından sağlanan eklentisini el ile karşıya **karşıya yükleme, eklenti** menüsü. Eklenti indirilmesini altında ele [Microsoft hizmet sözleşmesi](https://www.microsoft.com/en-us/servicesagreement/). 
+1. Eklentisini indirin [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56503). Microsoft tarafından sağlanan eklentisini el ile karşıya **karşıya yükleme, eklenti** menüsü. Eklenti indirilmesini altında ele [Microsoft hizmet sözleşmesi](https://www.microsoft.com/servicesagreement/). 
     
     ![Çoklu oturum açmayı yapılandırın](./media/confluencemicrosoft-tutorial/addon12.png)
 

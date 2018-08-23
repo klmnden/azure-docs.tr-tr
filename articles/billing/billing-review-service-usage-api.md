@@ -13,31 +13,33 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: alleonar
-ms.openlocfilehash: 1b7b1455413fb4886b317d468e6d278111c094b1
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 2af87c87916dd272026a3bd7e1438507c655053b
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40226025"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617002"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>REST API kullanarak Azure kaynak kullanımını gözden geçirin
 
+Gözden geçirin ve tüketimini, Azure kaynaklarınızın yönetmenize, azure maliyet Yönetimi API'leri Yardım.
 
-Azure [tüketim API'leri](https://docs.microsoft.com/rest/api/consumption/) Yardım, Azure kaynaklarınızın maliyet ve kullanım verileri inceleyin.
+Bu makalede, saatlik kullanım bilgilerinizi ve filtreleri kullanarak raporu özelleştirebilir, veritabanları, sanal makinelerinin kullanım sorgulayabilmesi için nasıl kullanılacağını virgülle ayrılmış değer belge oluşturur ve etiketli günlük bir raporun nasıl oluşturulacağını öğrenin bir Azure kaynak grubundaki kaynaklar.
 
-Bu sonuçları filtrelemek için temel olarak nasıl bu makalede, almak ve bir Azure kaynak grubundaki kaynaklar için kaynak kullanım bilgilerini toplamak de öğrenirsiniz [Azure resource manager etiketleri](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags).
+>[!NOTE]
+> Maliyet Yönetimi API'si şu anda özel Önizleme aşamasındadır.
 
-## <a name="get-usage-for-a-resource-group"></a>Kullanım için bir kaynak grubu Al
+## <a name="create-a-basic-cost-management-report"></a>Temel Maliyet Yönetimi raporu oluşturma
 
-İşlem, veritabanı ve diğer kaynakları bir kaynak grubu, kaynak kullanımını almak için kullanın `usageDetails` REST işlemini ve kaynak grubuna göre sonuçları filtreleyin.
+Kullanım `reports` maliyet raporlama nasıl oluşturulacağını ve raporları nereye yayımlanacak tanımlamak için maliyet Yönetimi API işlemi.
 
 ```http
-https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Consumption/usageDetails?api-version=2018-06-30&filter=properties/resourceGroup eq '{resource-group}]
+https://management.azure.com/subscriptions/{subscriptionGuid}/providers/Microsoft.CostManagement/reports/{reportName}?api-version=2018-09-01-preview
 Content-Type: application/json   
 Authorization: Bearer
 ```
 
-`{subscription-id}` Parametresi gereklidir ve okuyucu rolüne sahip {kaynak-grubu} kaynak grubunda erişebilen bir abonelik kimliği içermelidir. 
+`{subscriptionGuid}` Parametresi gereklidir ve kimlik bilgilerini provieed API belirteci kullanılarak okunabilir bir abonelik kimliği içermelidir. , `{reportName}`
 
 Aşağıdaki üst bilgiler gereklidir: 
 
@@ -46,91 +48,111 @@ Aşağıdaki üst bilgiler gereklidir:
 |*İçerik türü:*| Gereklidir. Kümesine `application/json`. |  
 |*Yetkilendirme:*| Gereklidir. Geçerli bir kümesi `Bearer` belirteci. |
 
-### <a name="response"></a>Yanıt  
-
-200 (Tamam) durum kodunu subscriptipon Kimliğine sahip kaynak grubunda her Azure kaynağı için kullanım istatistiklerini listesini içeren başarılı bir yanıt için döndürülen `00000000-0000-0000-0000-000000000000`.
+HTTP istek gövdesinde raporun parametrelerini yapılandırın. Aşağıdaki örnekte, her gün ne zaman etkin, bir Azure depolama blob kapsayıcısına yazılmış bir CSV dosyasıdır ve saatlik kaynak grubundaki tüm kaynaklar için maliyet bilgilerini içeren oluşturmak için rapor ayarlanır `westus`.
 
 ```json
 {
-  "value": [
-    {
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Billing/billingPeriods/201702/providers/Microsoft.Consumption/usageDetails/usageDetailsId1",
-      "name": "usageDetailsId1",
-      "type": "Microsoft.Consumption/usageDetails",
-      "properties": {
-        "billingPeriodId": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Billing/billingPeriods/201702",
-        "invoiceId": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Billing/invoices/201703-123456789",
-        "usageStart": "2017-02-13T00:00:00Z",
-        "usageEnd": "2017-02-13T23:59:59Z",
-        "instanceName": "shared1",
-        "instanceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group/providers/Microsoft.Web/sites/shared1",
-        "instanceLocation": "eastasia",
-        "currency": "USD",
-        "usageQuantity": 0.00328,
-        "billableQuantity": 0.00328,
-        "pretaxCost": 0.67,
-        "isEstimated": false,
-        "meterId": "00000000-0000-0000-0000-000000000000",
-        "partNumber": "Part Number 1",
-        "resourceGuid": "00000000-0000-0000-0000-000000000000",
-        "offerId": "Offer Id 1",
-        "chargesBilledSeparately": true,
-        "location": "EU West"
-      }
-    } ] }
-```
-
-## <a name="get-usage-for-tagged-resources"></a>Kullanım için etiketli kaynakları alma
-
-Etiketlere göre düzenlenmiş kaynaklarını kullanmak için kaynak kullanımını almak için `usageDetails` REST işlemini ve etiket adını kullanarak sonuçları filtreleyin `$filter` sorgu parametresi.
-
-```http
-https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Consumption/usageDetails?$filter=tags eq 'tag1'&api-version=2018-06-30
-Content-Type: application/json   
-Authorization: Bearer
-```
-
-`{subscription-id}` Parametresi gereklidir ve etiketli kaynaklara erişebilen bir abonelik kimliği içermelidir.
-
-
-### <a name="response"></a>Yanıt  
-
-200 (Tamam) durum kodunu subscriptipon Kimliğine sahip kaynak grubunda her Azure kaynağı için kullanım istatistiklerini listesini içeren başarılı bir yanıt için döndürülen `00000000-0000-0000-0000-000000000000` ve etiket adı anahtar kasası çifti `dev` ve `tools`. 
-
-Örnek yanıt:
-
-```json
-{
-  "value": [
-    {
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Billing/billingPeriods/201702/providers/Microsoft.Consumption/usageDetails/usageDetailsId1",
-      "name": "usageDetailsId1",
-      "type": "Microsoft.Consumption/usageDetails",
-      "tags": {
-        "dev": "tools"
-      },
-      "properties": {
-        "billingPeriodId": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Billing/billingPeriods/201702",
-        "invoiceId": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Billing/invoices/201703-123456789",
-        "usageStart": "2017-02-13T00:00:00Z",
-        "usageEnd": "2017-02-13T23:59:59Z",
-        "instanceName": "shared1",
-        "instanceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-Web-eastasia/providers/Microsoft.Web/sites/shared1",
-        "instanceLocation": "eastasia",
-        "currency": "USD",
-        "usageQuantity": 0.00328,
-        "billableQuantity": 0.00328,
-        "pretaxCost": 0.67,
-        "isEstimated": false,
-        "meterId": "00000000-0000-0000-0000-000000000000",
-        "partNumber": "Part Number 1",
-        "resourceGuid": "00000000-0000-0000-0000-000000000000",
-        "offerId": "Offer Id 1",
-        "chargesBilledSeparately": true,
-        "location": "EU West"
-      }
+    "properties": {
+        "schedule": {
+            "status": "Inactive",
+            "recurrence": "Daily",
+            "recurrencePeriod": {
+                "from": "2018-08-21",
+                "to": "2019-10-31"
+            }
+        },
+        "deliveryInfo": {
+            "destination": {
+                "resourceId": "/subscriptions/{subscriptionGuid}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}",
+                "container": "MyReportContainer",
+                "rootFolderPath": "MyScheduleTest"
+            }
+        },
+        "format": "Csv",
+        "definition": {
+            "type": "Usage",
+            "timeframe": "MonthToDate",
+            "dataSet": {
+                "granularity": "Hourly",
+                "filter": {
+                    "dimensions": {
+                        "name": "ResourceLocation",
+                        "operator": "In",
+                        "values": [
+                            "westus"
+                        ]
+                    }
+                }
+            }
+        }
     }
-  ]
+}
+```
+
+,
+
+## <a name="filtering-reports"></a>Raporları filtreleme
+
+`filter` Ve `dimensions` maliyetlerinden belirli kaynak türlerine yönelik bir rapor odaklanmanıza olanak tanır, oluştururken, istek gövdesi bölümü. Önceki istek gövdesi bir bölgedeki tüm kaynaklara göre nasıl filtreleme yapılacağını gösterir. 
+
+### <a name="get-all-compute-usage"></a>Tüm işlem kullanımını Al
+
+Kullanım `ResourceType` tüm bölgeler arasında Azure sanal makine maliyetlerini aboneliğinizdeki bildirmek için boyut.
+
+```json
+"filter": {
+    "dimensions": {
+        "name": "ResourceType",
+        "operator": "In",
+        "values": [
+                "Microsoft.ClassicCompute/virtualMachines", 
+                "Microsoft.Compute/virtualMachines"
+        ] 
+    }
+}
+```
+
+### <a name="get-all-database-usage"></a>Tüm veritabanı kullanımını Al
+
+Kullanım `ResourceType` rapor Azure SQL veritabanı maliyetleri, aboneliğinizdeki tüm bölgeler arasında boyut.
+
+```json
+"filter": {
+    "dimensions": {
+        "name": "ResourceType",
+        "operator": "In",
+        "values": [
+                "Microsoft.Sql/servers"
+        ] 
+    }
+}
+```
+
+### <a name="report-on-specific-instances"></a>Belirli örnekleri raporu
+
+`Resource` Boyut sayesinde rapor belirli kaynakların maliyetlerini.
+
+```json
+"filter": {
+    "dimensions": {
+        "name": "Resource",
+        "operator": "In",
+        "values": [
+            "subscriptions/{subscriptionGuid}/resourceGroups/{resourceGroup}/providers/Microsoft.ClassicCompute/virtualMachines/{ResourceName}"
+        ]
+    }
+}
+```
+
+### <a name="changing-timeframes"></a>Zaman çerçevelerini değiştirme
+
+Ayarlama `timeframe` tanımına `Custom` hafta dışında bir zaman çerçevesinde tarih ve ay seçeneklerinde yerleşik tarih ayarlamak için.
+
+```json
+"timeframe": "Custom",
+"timePeriod": {
+    "from": "2017-12-31T00:00:00.000Z",
+    "to": "2018-12-30T00:00:00.000Z"
 }
 ```
 

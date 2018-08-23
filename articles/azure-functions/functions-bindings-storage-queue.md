@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 04502e80cea096ce384f97559bc7bad95ee2bcd8
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e034d6c57c619ea74003f531d3309f7da17210b0
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344108"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42059949"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure kuyruk depolama bağlamaları
 
@@ -54,6 +54,7 @@ Dile özgü örneğe bakın:
 * [C#](#trigger---c-example)
 * [C# betiği (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---Java-example)
 
 ### <a name="trigger---c-example"></a>Tetikleyici - C# örneği
 
@@ -166,6 +167,22 @@ module.exports = function (context) {
 ```
 
 [Kullanım](#trigger---usage) bölümde açıklanmaktadır `myQueueItem`, tarafından adlı `name` function.json özelliği.  [İleti meta veriler bölümü](#trigger---message-metadata) tüm gösterilen değişkenleri açıklar.
+
+### <a name="trigger---java-example"></a>Tetikleyici - Java örnek
+
+Aşağıdaki Java örneğinde kuyruğuna yerleştirilir tetiklenen ileti günlüğe kaydeden işlevleri depolama kuyruğu tetikleyici gösterir `myqueuename`.
+ 
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
 
 ## <a name="trigger---attributes"></a>Tetikleyici - öznitelikleri
  
@@ -299,6 +316,7 @@ Dile özgü örneğe bakın:
 * [C#](#output---c-example)
 * [C# betiği (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
+* [Java](#output---java-example)
 
 ### <a name="output---c-example"></a>Çıkış - C# örneği
 
@@ -428,6 +446,25 @@ module.exports = function(context) {
     context.done();
 };
 ```
+
+### <a name="output---java-example"></a>Çıkış - Java örnek
+
+ Aşağıdaki örnek, bir HTTP isteği tarafından tetiklendiğinde bir kuyruk iletisi için oluşturan bir Java işlev gösterir.
+
+```java
+@FunctionName("httpToQueue")
+@QueueOutput(name = "item", queueName = "myqueue-items", connection = "AzureWebJobsStorage")
+ public String pushToQueue(
+     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+     final String message,
+     @HttpOutput(name = "response") final OutputBinding&lt;String&gt; result) {
+       result.setValue(message + " has been added.");
+       return message;
+ }
+ ```
+
+İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@QueueOutput` ek açıklama parametreleri değeri kuyruk Depolama'ya yazılan.  Parametre türü olmalıdır `OutputBinding<T>`, burada T bir POJO'ya herhangi bir yerel Java türü.
+
 
 ## <a name="output---attributes"></a>Çıkış - öznitelikleri
  

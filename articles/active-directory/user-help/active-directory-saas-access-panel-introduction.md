@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/11/18
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: a5b96279993c35aad4cc49c52950576f12dd15ce
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: f69830deb4d2c74b5fe1c85ad8c9452097dd2a1e
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345952"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056177"
 ---
 # <a name="what-is-the-access-panel"></a>Erişim paneli nedir?
 
@@ -79,7 +79,7 @@ Parola tabanlı çoklu oturum açma için oturum açmak için uzantı kullanman�
 - Uygulamanın doğrudan kullanarak bir uygulamaya oturum açabilir **oturum açma URL'si**. Uygulamanın URL'si kullandığınızda, uzantı işlemleri algılar ve uzantı oturum açma seçeneği sunar.
 - Erişim paneli uygulamalarınızdan birini kullanarak başlatabilirsiniz *hızlı arama* uzantı özelliğidir. 
 - Uzantı, başlatılan son üç uygulamalar gösterilmektedir **kısa süre önce kullanılan** bölümü.
-- Şirket içi URL'ler uzaktan çalışırken kullanabileceğiniz [uygulama proxy'si](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started)
+- Şirket içi URL'ler uzaktan çalışırken kullanabileceğiniz [uygulama proxy'si](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
 > Ek özellikler, yalnızca Edge, Chrome ve Firefox için kullanılabilir.
@@ -97,8 +97,8 @@ My Apps URL dışında kullanıyorsanız `https://myapps.microsoft.com`, aşağ�
 5. Seçin **kullanmaya başlamak oturum**.
 
 Şirket içi URL'leri uzantıyı kullanarak uzaktan erişim sırasında kullanmak için aşağıdakileri yapın:
-1. [Uygulama Ara sunucusu yapılandırma](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) kiracınıza.
-2. [Uygulama yayımlama](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) ve uygulama proxy'si aracılığıyla uygulama URL'si.
+1. [Uygulama Ara sunucusu yapılandırma](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) kiracınıza.
+2. [Uygulama yayımlama](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) ve uygulama proxy'si aracılığıyla uygulama URL'si.
 3. Uzantıyı yüklemek ve ona oturum açma'yı seçerek kullanmaya başlamak için oturum açın.
 4. Artık uzaktan çalışırken bile şirket içi URL'sine göz atabilirsiniz.
 

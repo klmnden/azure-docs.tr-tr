@@ -1,6 +1,6 @@
 ---
-title: Dosyaları .NET kullanarak bir Media Services hesabına veri yükleme | Microsoft Docs
-description: Oluşturma ve karşıya varlıklar Media Services'e medya içeriği alma hakkında bilgi.
+title: .NET kullanarak bir Media Services hesabına dosya yükleme | Microsoft Docs
+description: Medya içeriği oluşturma ve karşıya yükleme varlıklar Media Services'e almayı öğrenin.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2017
+ms.date: 08/21/2018
 ms.author: juliako
-ms.openlocfilehash: 4b7383c4d2ee29a77120531041389b944a787763
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9edfa8ea0c9e469d09cef7ddbd1c7edda4484b47
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261874"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444638"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>.NET kullanarak bir Media Services hesabına dosya yükleme
 > [!div class="op_single_selector"]
@@ -29,39 +29,39 @@ ms.locfileid: "35261874"
 > 
 > 
 
-Media Services’de, dijital dosyalar bir varlığa yüklenir (veya alınır). **Varlık** varlık içerebilir video, ses, görüntüler, küçük resim koleksiyonları, metin parçaları ve kapalı açıklamalı alt yazı dosyaları (ve bu dosyalar hakkındaki meta verileri.)  Dosyalar yüklendiğinde, içeriğiniz sonraki işleme ve akışla aktarma faaliyetleri için güvenli bir şekilde bulutta depolanmış olur.
+Media Services’de, dijital dosyalar bir varlığa yüklenir (veya alınır). **Varlık** varlığı video, ses, görüntüler, küçük resim koleksiyonları, metin parçaları ve kapalı açıklamalı alt yazı dosyaları (ve bu dosyalar hakkındaki meta veriler.) içerebilir  Dosyalar yüklendiğinde, içeriğiniz sonraki işleme ve akışla aktarma faaliyetleri için güvenli bir şekilde bulutta depolanmış olur.
 
-Varlık içindeki dosyalara **Varlık Dosyaları** adı verilir. **AssetFile** örneği ve gerçek medya dosyası olan iki farklı nesneler. Medya dosyasının gerçek medya içeriği içerirken AssetFile örneği medya dosyası hakkındaki meta verileri içerir.
+Varlık içindeki dosyalara **Varlık Dosyaları** adı verilir. **AssetFile** örneği ve gerçek medya dosyası olan iki farklı bir nesne. Medya dosyası gerçek medya içeriği içerirken AssetFile örneği medya dosyası hakkındaki meta verileri içerir.
 
 > [!NOTE]
 > Aşağıdaki maddeler geçerlidir:
 > 
-> * Media Services IAssetFile.Name özelliğinin değeri, URL akış içeriğini (örneğin, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) oluştururken kullanır. Bu nedenle, yüzde kodlama izin verilmiyor. Değeri **adı** özelliği aşağıdakilerden herhangi birini içeremez [yüzde kodlama-ayrılmış karakterleri](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Ayrıca, yalnızca bir olabilir '.' dosya adı uzantısı için.
+> * Media Services IAssetFile.Name özelliğinin değeri, URL'leri akış içeriği için (örneğin, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) oluştururken kullanır. Bu nedenle, yüzde kodlama izin verilmez. Değerini **adı** özelliği aşağıdakilerden herhangi birini içeremez [yüzde kodlama-ayrılmış karakterleri](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Ayrıca, yalnızca bir olabilir '.' dosya adı uzantısı için.
 > * Adının uzunluğu 260 karakterden uzun olmamalıdır.
 > * Media Services ile işleme için desteklenen dosya boyutlarına yönelik üst sınır uygulanır. Dosya boyutu sınırlaması hakkında ayrıntılı bilgi için [bu](media-services-quotas-and-limitations.md) makaleye bakın.
 > * Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için [bu makaleye](media-services-dotnet-manage-entities.md#limit-access-policies) bakın.
 > 
 
-Varlıklar oluşturduğunuzda, aşağıdaki şifreleme seçenekleri belirleyebilirsiniz:
+Varlıklar oluşturduğunuzda, aşağıdaki şifreleme seçenekleri belirtebilirsiniz:
 
-* **Hiçbiri**: Şifreleme kullanılmaz. Varsayılan değer budur. Bu seçenek kullanıldığında, içeriğinizin aktarım veya deposunda kalan korunmaz.
-  Bir MP4 iletmeyi planlıyorsanız, aşamalı indirme kullanarak, bu seçeneği kullanın: 
+* **Hiçbiri**: Şifreleme kullanılmaz. Varsayılan değer budur. Bu seçeneği tercih edildiğinde, içeriğinizi Aktarımdaki veya depolama bölgesinde, bekleyen korunmaz.
+  Bir MP4 iletmeyi planlıyorsanız aşamalı indirme kullanarak, bu seçeneği kullanın: 
 * **CommonEncryption** -zaten şifrelenmiş ve ortak şifreleme veya PlayReady DRM (örneğin, ile korunan kesintisiz akış PlayReady DRM) ile korunan içerik yüklüyorsanız bu seçeneği kullanın.
-* **EnvelopeEncrypted** – AES ile şifrelenmiş HLS yüklüyorsanız bu seçeneği kullanın. Dosyaların Transform Manager tarafından kodlanmış ve şifrelenmiş olması gerektiğini unutmayın.
-* **StorageEncrypted** - Temizle içeriğinizi yerel olarak AES 256 bit şifreleme kullanarak şifreler ve Azure depolanır şifrelenen depolama alanına yükler. Depolama Şifrelemesi ile korunan varlıklar, kodlamadan önce otomatik olarak şifrelenerek şifrelenmiş bir dosya sistemine yerleştirilir ve yeni bir çıktı varlığı şeklinde geri yüklenmeden önce isteğe bağlı olarak yeniden şifrelenir. Depolama Şifrelemesinin birincil kullanım nedeni, yüksek kaliteli girdi medya dosyalarınızın güvenliğini güçlü şifrelemeyle diskte bekleyen konumda sağlamak istediğiniz durumdur.
+* **EnvelopeEncrypted** : AES ile şifrelenmiş HLS yüklüyorsanız bu seçeneği kullanın. Dosyaların Transform Manager tarafından kodlanmış ve şifrelenmiş olması gerektiğini unutmayın.
+* **StorageEncrypted** - clear içeriğinizi AES-256 bit şifreleme kullanarak yerel olarak şifreler ve bunu Azure bunu depolandığı bekleme sırasında şifrelenmiş depolama alanına yükler. Depolama Şifrelemesi ile korunan varlıklar, kodlamadan önce otomatik olarak şifrelenerek şifrelenmiş bir dosya sistemine yerleştirilir ve yeni bir çıktı varlığı şeklinde geri yüklenmeden önce isteğe bağlı olarak yeniden şifrelenir. Depolama Şifrelemesinin birincil kullanım nedeni, yüksek kaliteli girdi medya dosyalarınızın güvenliğini güçlü şifrelemeyle diskte bekleyen konumda sağlamak istediğiniz durumdur.
   
-    Media Services değil üzerinden dijital hak Yöneticisi (DRM) gibi hat varlıklarınızı için disk üzerinde depolama şifreleme sağlar.
+    Media Services değil üzerinden dijital hak Yöneticisi (DRM) gibi hat varlıklarınız için disk üzerinde depolama şifrelemesi sağlar.
   
-    Şifrelenmiş depolama varlığınız olması durumunda, varlık teslim ilkesini yapılandırmanız gerekir. Daha fazla bilgi için bkz: [varlık teslim ilkesini yapılandırma](media-services-dotnet-configure-asset-delivery-policy.md).
+    Şifrelenmiş depolama varlığınız ise varlık teslim ilkesini yapılandırmanız gerekir. Daha fazla bilgi için [varlık teslim ilkesini yapılandırma](media-services-dotnet-configure-asset-delivery-policy.md).
 
-Varlığınıza ile şifrelenmiş belirtirseniz, bir **CommonEncrypted** seçeneği veya bir **EnvelopeEncypted** seçeneği ihtiyacınız Varlığınızı ile ilişkilendirilecek bir **ContentKey**. Daha fazla bilgi için bkz: [bir ContentKey oluşturma](media-services-dotnet-create-contentkey.md). 
+İle şifrelenmiş varlığınıza belirtirseniz bir **CommonEncrypted** seçeneği veya bir **EnvelopeEncypted** seçeneğine ihtiyacınız varlığınız ile ilişkilendirilecek bir **ContentKey**. Daha fazla bilgi için [bir ContentKey oluşturma](media-services-dotnet-create-contentkey.md). 
 
 Varlığınıza ile şifrelenmiş belirtirseniz bir **StorageEncrypted** seçeneğini Media Services SDK'sı .NET oluşturur bir **StorateEncrypted** **ContentKey** varlığınıza.
 
-Bu makalede, Media Services .NET SDK uzantıları yanı sıra, Media Services .NET SDK'sı bir Media Services varlığa dosyaları yüklemek için nasıl kullanılacağı gösterilmektedir.
+Bu makalede, Media Services varlığa dosyaları karşıya yüklemek için Media Services .NET SDK uzantıları yanı sıra, Media Services .NET SDK'sını kullanma gösterilmektedir.
 
-## <a name="upload-a-single-file-with-media-services-net-sdk"></a>Media Services .NET SDK'sı ile tek bir dosyayı karşıya yükleme
-Aşağıdaki kod, tek bir dosyayı karşıya yüklemek için .NET kullanır. AccessPolicy ve Bulucu oluşturulur ve karşıya yükleme işlevi tarafından yok. 
+## <a name="upload-a-single-file-with-media-services-net-sdk"></a>Media Services .NET SDK ile tek bir dosyayı karşıya yükleyin
+Aşağıdaki kod, tek bir dosyayı karşıya yüklemek için .NET kullanır. AccessPolicy Bulucu oluşturulur ve karşıya yükleme işlevi tarafından yok. 
 
 ```csharp
         static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
@@ -87,20 +87,20 @@ Aşağıdaki kod, tek bir dosyayı karşıya yüklemek için .NET kullanır. Acc
 ```
 
 
-## <a name="upload-multiple-files-with-media-services-net-sdk"></a>Media Services .NET SDK'sı ile birden çok dosya karşıya yükleme
-Aşağıdaki kod, bir varlık oluşturun ve birden çok dosya karşıya yükleme gösterilmektedir.
+## <a name="upload-multiple-files-with-media-services-net-sdk"></a>Media Services .NET SDK ile birden çok dosya yükleme
+Aşağıdaki kod bir varlık oluşturun ve birden çok dosya yükleme işlemini gösterir.
 
 Kod şunları yapar:
 
 * Önceki adımda tanımlanan CreateEmptyAsset yöntemi kullanarak boş bir varlık oluşturur.
-* Oluşturur bir **AccessPolicy** izinler ve erişim süresi varlık için tanımlar örneği.
-* Oluşturur bir **Bulucu** varlık için erişim sağlayan örneği.
-* Oluşturur bir **BlobTransferClient** örneği. Bu tür Azure BLOB'ları üzerinde çalıştığı bir istemci temsil eder. Bu örnekte, istemci yükleme ilerleme durumunu izler. 
-* Belirtilen dizindeki dosyaları aracılığıyla numaralandırır ve oluşturan bir **AssetFile** her dosya için örneği.
-* Media Services kullanarak dosyaları karşıya yükleme **UploadAsync** yöntemi. 
+* Oluşturur bir **AccessPolicy** varlığına erişim süresi ve izinleri tanımlar örneği.
+* Oluşturur bir **Bulucu** varlığına erişim sağlayan bir örneği.
+* Oluşturur bir **BlobTransferClient** örneği. Bu tür, Azure BLOB'ları üzerinde çalışan bir istemci temsil eder. Bu örnekte, istemci yükleme ilerleme durumunu izler. 
+* Belirtilen dizindeki dosyaları aracılığıyla numaralandırır ve oluşturan bir **AssetFile** örneği her dosya için.
+* Media Services kullanarak dosyaları yükler **UploadAsync** yöntemi. 
 
 > [!NOTE]
-> Çağrıları engellemediğini ve paralel olarak karşıya yüklenen dosyaların emin olmak için UploadAsync yöntemini kullanın.
+> Kullanım UploadAsync yöntemi çağrıları değil engellemediğinden emin olun ve dosyalar paralel olarak karşıya yüklenir.
 > 
 > 
 
@@ -163,22 +163,22 @@ Kod şunları yapar:
 ```
 
 
-Çok sayıda varlıklar karşıya yüklenirken aşağıdakileri göz önünde bulundurun:
+Çok sayıda varlık karşıya yüklerken aşağıdakileri göz önünde bulundurun:
 
-* Yeni bir **CloudMediaContext** iş parçacığı başına nesne. **CloudMediaContext** sınıfı iş parçacığı açısından güvenli değil.
-* NumberOfConcurrentTransfers 2 varsayılan değerinden daha yüksek bir değere 5 gibi artırın. Bu özelliği ayarlamak etkiler tüm örneklerini **CloudMediaContext**. 
-* ParallelTransferThreadCount 10 varsayılan değerini koruyun.
+* Yeni bir **CloudMediaContext** iş parçacığı başına nesne. **CloudMediaContext** sınıf iş parçacığı açısından güvenli değildir.
+* NumberOfConcurrentTransfers 5 gibi daha yüksek bir değere 2 varsayılan değerini artırın. Bu özelliğin ayarlanması etkileyen tüm örneklerini **CloudMediaContext**. 
+* ParallelTransferThreadCount 10 varsayılan değerinde tutmak.
 
-## <a id="ingest_in_bulk"></a>Varlıklar Media Services .NET SDK kullanarak toplu alma
-Büyük varlık dosyaları karşıya yükleme varlık oluşturma sırasında bir performans sorunu olabilir. Varlıklar toplu ya da "Toplu alma" alanını, karşıya yükleme işlemi varlık oluşturma kesilmesi içerir. Toplu bir yaklaşım alanını kullanmak için varlık ve ilişkili dosyaları tanımlayan bir bildirim (IngestManifest) oluşturun. Sonra bildirim blob kapsayıcısına ilişkili dosyaları karşıya yükleme için tercih ettiğiniz karşıya yükleme yöntemini kullanın. Microsoft Azure Media Services bildirimini ile ilişkili blob kapsayıcısı izler. Dosya blob kapsayıcısına yüklendikten sonra Microsoft Azure Media Services (IngestManifestAsset) bildiriminde varlık yapılandırmasını temel alarak varlık oluşturma işlemini tamamlar.
+## <a id="ingest_in_bulk"></a>Varlıklar Media Services .NET SDK kullanarak toplu başlayan kümeniz
+Büyük varlık dosyaları karşıya yükleme, varlık oluşturma sırasında bir performans sorunu olabilir. Toplu veya "Toplu başlayan kümeniz" varlıklar başlayan kümeniz, karşıya yükleme işlemi varlık oluşturma ayırma içerir. Bir toplu yaklaşım başlayan kümeniz kullanmak için varlık ve ilişkili dosyalarını tanımlayan bir bildirim (IngestManifest) oluşturun. Ardından ilişkili dosyalar bildirim blob kapsayıcısını karşıya yüklemek için tercih ettiğiniz karşıya yükleme yöntemi kullanın. Microsoft Azure Media Services bildirimi ile ilişkili blob kapsayıcısı izler. Blob kapsayıcısına bir dosya karşıya yüklendikten sonra Microsoft Azure Media Services (IngestManifestAsset) bildirimindeki varlığın yapılandırmasına göre varlık oluşturmayı tamamlar.
 
-Yeni bir IngestManifest oluşturmak için CloudMediaContext IngestManifests koleksiyonda tarafından sunulan oluşturma yöntemini çağırın. Bu yöntem, sağladığınız bildirim adıyla yeni bir IngestManifest oluşturur.
+Yeni bir IngestManifest oluşturmak için CloudMediaContext IngestManifests koleksiyonunda tarafından kullanıma sunulan Create yöntemini çağırın. Bu yöntem, yeni IngestManifest bildirim sağladığınız adla oluşturur.
 
 ```csharp
     IIngestManifest manifest = context.IngestManifests.Create(name);
 ```
 
-IngestManifest toplu ile ilişkili varlıklar oluşturun. Toplu alma için varlık üzerinde istenen şifreleme seçeneklerini yapılandırın.
+Toplu IngestManifest ile ilişkili olan varlıkları oluşturun. Toplu almak için varlık üzerinde istenen şifreleme seçeneklerini yapılandırın.
 
 ```csharp
     // Create the assets that will be associated with this bulk ingest manifest
@@ -186,9 +186,9 @@ IngestManifest toplu ile ilişkili varlıklar oluşturun. Toplu alma için varl�
     IAsset destAsset2 = _context.Assets.Create(name + "_asset_2", AssetCreationOptions.None);
 ```
 
-Bir IngestManifestAsset toplu alma için bir toplu IngestManifest bir varlık ilişkilendirir. Ayrıca, her varlık yapar AssetFiles ilişkilendirir. Bir IngestManifestAsset oluşturmak için sunucu içeriğine oluşturma yöntemini kullanın.
+Bir varlığı bir IngestManifestAsset toplu almak için bir toplu IngestManifest ilişkilendirir. Ayrıca, her varlık yapan AssetFiles ilişkilendirir. Bir IngestManifestAsset oluşturmak için sunucu bağlamı üzerinde Create yöntemini kullanın.
 
-Aşağıdaki örnek, daha önce toplu oluşturulan iki varlıklar ilişkilendirmek ekleme iki yeni IngestManifestAssets bildirim alma gösterir. Her IngestManifestAsset toplu alma sırasında yüklenen dosyaları her varlık için bir dizi de ilişkilendirir.  
+Aşağıdaki örnek, toplu olarak önceden oluşturulmuş iki varlıkları ilişkilendirme ekleme iki yeni IngestManifestAssets bildirim alma gösterir. Her IngestManifestAsset toplu başlayan kümeniz sırasında yüklenen dosyalar her varlık için bir dizi de ilişkilendirir.  
 
 ```csharp
     string filename1 = _singleInputMp4Path;
@@ -199,16 +199,18 @@ Aşağıdaki örnek, daha önce toplu oluşturulan iki varlıklar ilişkilendirm
     IIngestManifestAsset bulkAsset2 =  manifest.IngestManifestAssets.Create(destAsset2, new[] { filename2, filename3 });
 ```
 
-Blob depolama kapsayıcısını URI tarafından sağlanan varlık dosyaları yükleme yeteneğine sahip herhangi bir yüksek hızlı istemci uygulama kullanabileceğiniz **IIngestManifest.BlobStorageUriForUpload** IngestManifest özelliği. Bir önem düzeyindeki yüksek hızlı karşıya yükleme hizmetidir [Aspera istendiğinde Azure uygulaması için](https://datamarket.azure.com/application/2cdbc511-cb12-4715-9871-c7e7fbbb82a6). Aşağıdaki kod örneğinde gösterildiği gibi varlıklar dosyaları karşıya yükleme için kod da yazabilirsiniz.
+Blob depolama kapsayıcısının URI tarafından sağlanan varlık dosyaları karşıya özellikli herhangi bir yüksek hızlı bir istemci uygulama kullanabileceğiniz **IIngestManifest.BlobStorageUriForUpload** IngestManifest özelliğidir. 
+
+Aşağıdaki kod varlık dosyaları karşıya yüklemek için .NET SDK'sını kullanmayı gösterir.
 
 ```csharp
-    static void UploadBlobFile(string destBlobURI, string filename)
+    static void UploadBlobFile(string containerName, string filename)
     {
         Task copytask = new Task(() =>
         {
             var storageaccount = new CloudStorageAccount(new StorageCredentials(_storageAccountName, _storageAccountKey), true);
             CloudBlobClient blobClient = storageaccount.CreateCloudBlobClient();
-            CloudBlobContainer blobContainer = blobClient.GetContainerReference(destBlobURI);
+            CloudBlobContainer blobContainer = blobClient.GetContainerReference(containerName);
 
             string[] splitfilename = filename.Split('\\');
             var blob = blobContainer.GetBlockBlobReference(splitfilename[splitfilename.Length - 1]);
@@ -226,7 +228,7 @@ Blob depolama kapsayıcısını URI tarafından sağlanan varlık dosyaları yü
     }
 ```
 
-Bu makalede kullanılan örnek için varlık dosyaları karşıya yükleme için kod aşağıdaki kod örneğinde gösterilir:
+Bu makalede kullanılan örnek için varlık dosyaları karşıya yükleme için kodu aşağıdaki kod örneğinde gösterilmiştir:
 
 ```csharp
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename1);
@@ -234,7 +236,7 @@ Bu makalede kullanılan örnek için varlık dosyaları karşıya yükleme için
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename3);
 ```
 
-İle ilişkili tüm varlıklar için toplu alma ilerlemesini belirlemek bir **IngestManifest** istatistikleri özelliği yoklayarak **IngestManifest**. İlerleme durumu bilgileri güncelleştirmek için yeni bir kullanmalısınız **CloudMediaContext** her zaman istatistikleri özelliği yoklamak.
+İle ilişkili tüm varlıklar için toplu almak ilerleme durumunu belirlemek bir **IngestManifest** istatistikleri özelliği yoklayarak **IngestManifest**. İlerleme durumu bilgileri güncelleştirmek için yeni bir kullanmalısınız **CloudMediaContext** her zaman istatistikleri özelliği yoklar.
 
 Aşağıdaki örnek, bir IngestManifest tarafından yoklama gösterir, **kimliği**.
 
@@ -273,8 +275,8 @@ Aşağıdaki örnek, bir IngestManifest tarafından yoklama gösterir, **kimliğ
 ```
 
 
-## <a name="upload-files-using-net-sdk-extensions"></a>.NET SDK uzantıları kullanarak dosyaları karşıya yükleme
-Aşağıdaki örnek, .NET SDK uzantıları kullanarak tek bir dosyayı karşıya gösterilmektedir. Bu durumda **CreateFromFile** yöntemi kullanılır, ancak zaman uyumsuz sürümü de kullanılabilir (**CreateFromFileAsync**). **CreateFromFile** yöntemini dosya adı, şifreleme seçeneği ve bir geri çağırma dosya karşıya yükleme ilerlemesini bildirmek üzere belirtmenize olanak sağlar.
+## <a name="upload-files-using-net-sdk-extensions"></a>.NET SDK uzantıları kullanarak karşıya dosya yükleme
+Aşağıdaki örnek, .NET SDK uzantıları kullanarak tek bir dosyayı karşıya yükleme işlemini gösterir. Bu durumda **CreateFromFile** yöntemi kullanılır, ancak zaman uyumsuz sürümü de sağlanır (**CreateFromFileAsync**). **CreateFromFile** yöntemi dosya karşıya yükleme ilerlemesini bildirmek üzere dosya adı, şifreleme seçeneği ve bir geri çağırma belirtmenize olanak sağlar.
 
 ```csharp
     static public IAsset UploadFile(string fileName, AssetCreationOptions options)
@@ -293,7 +295,7 @@ Aşağıdaki örnek, .NET SDK uzantıları kullanarak tek bir dosyayı karşıya
     }
 ```
 
-Aşağıdaki örnek UploadFile işlevini çağırır ve depolama şifrelemesi varlık oluşturma seçeneği olarak belirtir.  
+Aşağıdaki örnek, UploadFile işlevini çağırır ve depolama şifrelemesi varlık oluşturma seçeneği olarak belirtir.  
 
 ```csharp
     var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
@@ -312,7 +314,7 @@ Yapılandırılmış kapsayıcıya gelen dosyaya göre bir kodlama işi tetiklem
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>Sonraki adım
-Bir varlık için Media Services karşıya yüklediğiniz, Git [medya işlemcisi alma] [ How to Get a Media Processor] makalesi.
+Yüklediğiniz bir varlık için Media Services, Git [Medya işleyicisi alma] [ How to Get a Media Processor] makalesi.
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
 

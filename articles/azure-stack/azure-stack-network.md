@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/22/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: f54849b9fef8ff09aa9b5b6254c92fc3c452ef4a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 48e2f85488adfb776da5f52c154028f8aafb167a
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414434"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617030"
 ---
 # <a name="network-connectivity"></a>Ağ bağlantısı
 Bu makalede, Azure Stack mevcut ağ ortamınıza en iyi şekilde tümleştirmek nasıl karar vermenize yardımcı olmak için Azure Stack ağ altyapı bilgileri sağlar. 
@@ -41,7 +41,7 @@ Aşağıdaki tabloda, mantıksal ağlar ve planlamanız gereken ilişkili IPv4 a
 
 | Mantıksal ağ | Açıklama | Boyut | 
 | -------- | ------------- | ------------ | 
-| Genel VIP | Azure Stack 32 adresleri bu ağ üzerinden toplam kullanır. Rest, Kiracı sanal makineler tarafından kullanılır ve sekiz genel IP adresleri Azure Stack'i Hizmetleri küçük bir kümesi için kullanılır. App Service ve SQL kaynak Sağlayıcısı'nı kullanmayı planlıyorsanız, 7 daha fazla adresleri kullanılır. | / 26 (62 konakları) - /22 (1022 ana)<br><br>Önerilen /24 (254 ana bilgisayardan) = | 
+| Genel VIP | Azure Stack 31 adresleri bu ağ üzerinden toplam kullanır. Rest, Kiracı sanal makineler tarafından kullanılır ve sekiz genel IP adresleri Azure Stack'i Hizmetleri küçük bir kümesi için kullanılır. App Service ve SQL kaynak Sağlayıcısı'nı kullanmayı planlıyorsanız, 7 daha fazla adresleri kullanılır. Kalan 15 IP'ler, gelecekte Azure Hizmetleri için ayrılmıştır. | / 26 (62 konakları) - /22 (1022 ana)<br><br>Önerilen /24 (254 ana bilgisayardan) = | 
 | Geçiş altyapısı | Noktadan noktaya yönlendirme amacıyla, adanmış IP adresleri yönetim arabirimleri ve anahtara atanmış geri döngü adresi geçin. | /26 | 
 | Altyapı | Azure Stack iç bileşenleri için iletişim kurmak için kullanılır. | /24 |
 | Özel | Depolama ağı ve özel VIP'ler için kullanılır. | /24 | 

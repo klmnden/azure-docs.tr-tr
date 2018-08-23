@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 8fe77522297dc6020cf98f4532aea9f580d8bdb9
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: ba1fdcf64592bdfe23195e781a21d7a2db693325
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004820"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42056087"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL Data Sync ile birden fazla Bulut ve şirket içi veritabanı arasında veri eşitleme
 
@@ -178,7 +178,10 @@ Doğrudan yönetilemez. SQL Server şirket içi veritabanı arasında dolaylı o
 Evet. Kaynak grupları tarafından farklı aboneliklere ait ait bir SQL veritabanı arasında eşitleyebilirsiniz.
 -   Aboneliklerin aynı kiracıda ve tüm abonelikleri iznine sahip, eşitleme grubunun Azure portalında yapılandırabilirsiniz.
 -   Aksi takdirde, farklı aboneliklere ait eşitleme üyesi ekleme için PowerShell kullanmanız gerekir.
-   
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china"></a>Farklı bulutlara (örneğin, Azure genel bulutunda hem Azure Çin) ait bir SQL veritabanı arasında eşitlenecek veri eşitleme kullanabilir miyim?
+Evet. Farklı bulutlara ait bir SQL veritabanı arasında eşitleme, farklı aboneliklere ait eşitleme üyesi ekleme için PowerShell kullanmanız gerekir.
+
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>Veri eşitleme için çekirdek veri üretim Veritabanım için boş bir veritabanı kullanmak ve miyim bunları eşitleyebilirsiniz?
 
 Evet. Şema el ile özgün komut dosyası tarafından yeni veritabanı oluşturun. Şema oluşturduktan sonra tabloları, verileri kopyalayın ve eşitlenmiş kalmasını sağlamak için bir eşitleme grubuna ekleyin.

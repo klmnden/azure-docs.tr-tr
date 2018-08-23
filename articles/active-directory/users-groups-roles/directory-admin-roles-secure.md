@@ -13,19 +13,19 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: c8c0f4c3f99aa413531f54c1807883fcd73f039a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: b52a447bf643510528e1bd8c6d473bf5d77731fe
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627942"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056093"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD'de karma ve bulut dağıtımları için ayrıcalıklı erişim güvenliğini sağlama
 
 Modern bir kuruluştaki çoğu veya tüm iş varlıklarının güvenliği, BT sistemlerini yöneten ayrıcalıklı hesapların bütünlüğüne bağlıdır. Siber saldırganlar genellikle dahil olmak üzere kötü amaçlı aktörler yönetici hesapları ve diğer öğeleri hızlı bir şekilde hassas verileri ve sistemleri kimlik bilgisi hırsızlığı saldırılarını kullanarak erişim elde etme girişiminde ayrıcalıklı erişimin hedefleyin. Bulut Hizmetleri, engelleme ve yanıt bulut hizmeti sağlayıcısına ve müşteri birleşik sorumluluklarını olan. Uç noktaları ve bulut için en son tehditler hakkında daha fazla bilgi için bkz. [Microsoft Güvenlik zekası raporu](https://www.microsoft.com/security/sir/default.aspx). Bu makalede, geçerli planlarınızı ve burada açıklanan yönergeleri arasındaki boşlukları kapatma doğru bir yol haritası geliştirmenize yardımcı olabilir.
 
 > [!NOTE] 
-> Microsoft, en yüksek düzeyde güven, şeffaflık, standartlara uyumluluk ve yasal uyumluluk için taahhüt eder. Hakkında daha fazla nasıl Microsoft küresel olay yanıtı ekibi saldırılarına karşı bulut Hizmetleri etkilerini azaltır ve bir Microsoft iş ürünlerini ve bulut Hizmetleri, güvenlik nasıl oluşturulduğunu [Microsoft Trust Center - güvenlik](https://www.microsoft.com/en-us/trustcenter/security)ve adresindeki Microsoft Uyumluluk hedefleri [Microsoft Trust Center - Uyumluluk](https://www.microsoft.com/en-us/trustcenter/compliance).
+> Microsoft, en yüksek düzeyde güven, şeffaflık, standartlara uyumluluk ve yasal uyumluluk için taahhüt eder. Hakkında daha fazla nasıl Microsoft küresel olay yanıtı ekibi saldırılarına karşı bulut Hizmetleri etkilerini azaltır ve bir Microsoft iş ürünlerini ve bulut Hizmetleri, güvenlik nasıl oluşturulduğunu [Microsoft Trust Center - güvenlik](https://www.microsoft.com/trustcenter/security)ve adresindeki Microsoft Uyumluluk hedefleri [Microsoft Trust Center - Uyumluluk](https://www.microsoft.com/trustcenter/compliance).
 
 <!--## Risk management, incident response, and recovery preparation
 
@@ -337,7 +337,7 @@ Ayrıcalıklı erişim hesaplarınızı yönetmeye ek olarak aşağıdaki düzen
 * Yalnızca gerektiğinde ayrıcalıklı erişim vermek ve daha sonra (tam zamanında) kaldırın.
 * Korumak ve ayrıcalıklı hesaplara ilişkin denetim etkinliği gözden geçirin.
 
-Tüm güvenlik yol haritası oluşturma hakkında daha fazla bilgi için bkz: [Microsoft bulut BT mimarisi kaynaklarına](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Bu konulardan herhangi birine ile yardımcı olmak üzere Microsoft hizmetlerini kullanma hakkında daha fazla bilgi için Microsoft temsilcinize başvurun veya bakın [derleme kuruluşunuzu korumak için kritik siber savunmaları](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Tüm güvenlik yol haritası oluşturma hakkında daha fazla bilgi için bkz: [Microsoft bulut BT mimarisi kaynaklarına](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Bu konulardan herhangi birine ile yardımcı olmak üzere Microsoft hizmetlerini kullanma hakkında daha fazla bilgi için Microsoft temsilcinize başvurun veya bakın [derleme kuruluşunuzu korumak için kritik siber savunmaları](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 Bu yol haritasının ayrıcalıklı erişim güvenliğinin son devam eden aşaması şu bileşenleri içerir.
 
@@ -440,16 +440,16 @@ Microsoft Office 365 güvenlik olaylarına nasıl işlediği hakkında daha fazl
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Microsoft Güvenlik ürün Trust Center](https://www.microsoft.com/en-us/trustcenter/security) – Microsoft güvenlik özelliklerinin bulut ürünleri ve Hizmetleri
+* [Microsoft Güvenlik ürün Trust Center](https://www.microsoft.com/trustcenter/security) – Microsoft güvenlik özelliklerinin bulut ürünleri ve Hizmetleri
 
-* [Microsoft Trust Center - Uyumluluk](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) – Microsoft'un kapsamlı uyumluluk teklifleri cloud Services
+* [Microsoft Trust Center - Uyumluluk](https://www.microsoft.com/trustcenter/compliance/complianceofferings) – Microsoft'un kapsamlı uyumluluk teklifleri cloud Services
 
-* [Bir risk değerlendirmesi gerçekleştirmek hakkında yönergeler](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment) -Microsoft bulut Hizmetleri için güvenlik ve uyumluluk gereksinimlerini yönetme
+* [Bir risk değerlendirmesi gerçekleştirmek hakkında yönergeler](https://www.microsoft.com/trustcenter/guidance/risk-assessment) -Microsoft bulut Hizmetleri için güvenlik ve uyumluluk gereksinimlerini yönetme
 
 ### <a name="other-ms-online-services"></a>Diğer MS Çevrimiçi Hizmetler 
 
-* [Microsoft Intune güvenlik](https://www.microsoft.com/en-us/trustcenter/security/intune-security) – Intune mobil cihaz yönetimi, mobil uygulama yönetimi ve buluttan bilgisayar yönetimi olanakları sağlar.
+* [Microsoft Intune güvenlik](https://www.microsoft.com/trustcenter/security/intune-security) – Intune mobil cihaz yönetimi, mobil uygulama yönetimi ve buluttan bilgisayar yönetimi olanakları sağlar.
 
-* [Microsoft Dynamics 365 güvenlik](https://www.microsoft.com/en-us/trustcenter/security/dynamics365-security) – Dynamics 365, müşteri ilişkileri yönetimi (CRM) ve kurumsal kaynak planlama (ERP) özelliklerini birleştiren Microsoft bulut tabanlı çözümüdür.
+* [Microsoft Dynamics 365 güvenlik](https://www.microsoft.com/trustcenter/security/dynamics365-security) – Dynamics 365, müşteri ilişkileri yönetimi (CRM) ve kurumsal kaynak planlama (ERP) özelliklerini birleştiren Microsoft bulut tabanlı çözümüdür.
 
  

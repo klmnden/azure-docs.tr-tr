@@ -1,6 +1,6 @@
 ---
 title: Visual Studio için Azure Data Lake Araçları’nı yükleme
-description: Bu makalede, Visual Studio için Azure Data Lake araçları yüklemeyi açıklar.
+description: Bu makalede, Visual Studio için Azure Data Lake araçları yüklemek açıklar.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -11,11 +11,11 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.openlocfilehash: c520c437212c23cc9dc8327c95b9f2a77b08e1ac
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622879"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056186"
 ---
 # <a name="install-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake Araçları’nı yükleme.
 
@@ -48,4 +48,4 @@ Visual Studio için Azure Data Lake Araçları, Visual Studio 2017 15.3 veya üz
 ## <a name="next-steps"></a>Sonraki Adımlar
 * Tanılama bilgilerini günlüğe kaydetmek için bkz. [Azure Data Lake Analytics için tanılama günlüklerine erişme](data-lake-analytics-diagnostic-logs.md)
 * Daha karmaşık bir sorgu görmek için [Azure Data Lake Analytics'i kullanarak Web sitesi günlüklerini çözümleme](data-lake-analytics-analyze-weblogs.md) makalesine bakın.
-* Köşe yürütme görünümü kullanmak için bkz: [köşe yürütme görünümü Data Lake araçları Visual Studio için kullanın.](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+* Köşe yürütme görünümünü kullanma hakkında bilgi için bkz: [Visual Studio için Data Lake araçlarına köşe yürütme görünümünü kullanma](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)

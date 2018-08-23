@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b56dbd4321c8b87639e34cc7fb5db2141334101f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 3fb6cad6243bd6cd0b6a09827d590f7097550e31
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600464"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055224"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0 protokolleri - OAuth 2.0 yetkilendirme kod akışı
 OAuth 2.0 yetkilendirme kodu verme, web API'leri gibi korunan kaynakları erişim kazanmak için cihazda yüklü olan uygulamalarda kullanılabilir. Uygulama modeli v2.0'ın uygulama OAuth 2.0 kullanarak oturum açın ve API'ye erişmek için mobil ve Masaüstü uygulamalarınızı da ekleyebilirsiniz. Bu kılavuz dilden bağımsızdır ve HTTP iletileri gönderip herhangi birini kullanmadan açıklar [Azure açık kaynak kimlik doğrulama kitaplıkları](active-directory-authentication-libraries.md).
@@ -67,7 +67,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | response_type         | gerekli    | İçermelidir `code` yetkilendirme kod akışı için.       |
 | redirect_uri          | Önerilen | Burada kimlik doğrulama yanıtlarının gönderilebilen veya uygulamanız tarafından alınan uygulamanızın redirect_uri. Bu url olarak kodlanmış olması dışında Portalı'nda kayıtlı redirect_uris biri tam olarak eşleşmesi gerekir. Yerel & mobil uygulamaları için varsayılan değeri kullanması gereken `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
 | scope                 | gerekli    | Boşlukla ayrılmış bir listesini [kapsamları](v2-permissions-and-consent.md) onay kullanıcıya istiyor.           |
-| response_mode         | Önerilen | Uygulamanıza elde edilen belirteç geri göndermek için kullanılması gereken yöntemini belirtir. Olabilir `query`, `fragment`, veya `form_post`. `query` kod, yeniden yönlendirme URI'si üzerinde bir sorgu dizesi parametresi olarak sağlar. Örtük akışını kullanarak bir kimlik belirteci istediği, kullanamazsınız `query` belirtilmiş [Openıd spec](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Yalnızca kodum istediği, kullanabileceğiniz `query`, `fragment`, veya `form_post`. `form_post` kodu, yeniden yönlendirme URI'sini içeren bir GÖNDERİ yürütür. Daha fazla bilgi için bkz. [Openıd Connect protokolünü](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  |
+| response_mode         | Önerilen | Uygulamanıza elde edilen belirteç geri göndermek için kullanılması gereken yöntemini belirtir. Olabilir `query`, `fragment`, veya `form_post`. `query` kod, yeniden yönlendirme URI'si üzerinde bir sorgu dizesi parametresi olarak sağlar. Örtük akışını kullanarak bir kimlik belirteci istediği, kullanamazsınız `query` belirtilmiş [Openıd spec](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Yalnızca kodum istediği, kullanabileceğiniz `query`, `fragment`, veya `form_post`. `form_post` kodu, yeniden yönlendirme URI'sini içeren bir GÖNDERİ yürütür. Daha fazla bilgi için bkz. [Openıd Connect protokolünü](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  |
 | durum                 | Önerilen | Belirteç yanıtta döndürülecek isteğinde bulunan bir değer. Bu, istediğiniz herhangi bir içerik dizesi olabilir. Rastgele oluşturulmuş bir benzersiz değer için genellikle kullanılan [siteler arası istek sahteciliğini saldırılarını önleme](http://tools.ietf.org/html/rfc6749#section-10.12). Sayfa ya da görünümü üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce değeri uygulamasında kullanıcının durumu hakkında bilgi de şifreleyebilirsiniz. |
 | istemi                | isteğe bağlı    | Gerekli olan kullanıcı etkileşimi türünü belirtir. Şu anda yalnızca geçerli değerler 'login', 'none' olan ve 'onay'. `prompt=login` Bu isteğin negating çoklu oturum açma kimlik bilgilerini girmesini zorunlu tutar. `prompt=none` -tersidir kullanıcı hiçbir etkileşimli istemi olmadan sunulmayan sağlayacaktır. V2.0 uç noktası isteği sessizce aracılığıyla çoklu oturum açma işleminin neden tamamlanamadığına varsa, döndürür bir `interaction_required` hata. `prompt=consent` Kullanıcı uygulamayı izinler istendiği anın, oturum açtıktan sonra OAuth onay iletişim tetikler. |
 | login_hint            | isteğe bağlı    | Önceden, kullanıcı adını biliyorsanız, kullanıcı için oturum açma sayfası kullanıcı adı/e-posta adresi alanının önceden doldurmak için kullanılabilir. Kullanıcı adı önceki oturum açma kullanarak bir zaten ayıklanan yeniden kimlik doğrulaması sırasında bu parametre genellikle uygulamaları kullanacağı `preferred_username` talep.                                                                                                                                                                                                                                                                                                    |

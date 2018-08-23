@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 59dc090053c78dbddc1854f21db39f66df7bc91c
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 7427af3e814752801c4738675f7cd2263843f9b8
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020554"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617095"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>İlk Azure Service Fabric uygulamanızı oluşturma
 > [!div class="op_single_selector"]
@@ -41,27 +41,19 @@ Service Fabric, Yeoman şablon oluşturucuları kullanarak terminalden Service F
 
 1. Makinenize nodejs ve NPM yükleme
 
-   Ubuntu
    ```bash
-   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
-   sudo apt-get install -y nodejs 
+   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
+   nvm install node 
    ```
-
-   Red Hat Enterprise Linux 7.4 (Service Fabric önizleme desteği)
-   ```bash
-   sudo yum install nodejs
-   sudo yum install npm
-   ```
-
 2. NPM’den makinenize [Yeoman](http://yeoman.io/) şablon oluşturucuyu yükleme
 
   ```bash
-  sudo npm install -g yo
+  npm install -g yo
   ```
 3. NPM'den Service Fabric Yeoman C# uygulama oluşturucuyu yükleme
 
   ```bash
-  sudo npm install -g generator-azuresfcsharp
+  npm install -g generator-azuresfcsharp
   ```
 
 ## <a name="create-the-application"></a>Uygulama oluşturma
@@ -109,7 +101,7 @@ Bu komutların parametreleri, uygulama paketi içinde oluşturulmuş bildirimler
 Uygulama dağıtıldığında bir tarayıcı açın ve [http://localhost:19080/Explorer](http://localhost:19080/Explorer) konumundaki [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)'a gidin. Ardından, **Uygulamalar** düğümünü genişletin ve geçerli olarak uygulamanızın türü için bir giriş ve bu türün ilk örneği için başka bir giriş olduğuna dikkat edin.
 
 > [!IMPORTANT]
-> Uygulamayı azure'da güvenli bir Linux kümesi dağıtmak için Service Fabric çalışma zamanı ile uygulamanızı doğrulamak için bir sertifika yapılandırmanız gerekir. Bunun yapılması, temel alınan Service Fabric çalışma API'leri ile iletişim kurmak güvenilir hizmetler hizmetlerinizi sağlar. Daha fazla bilgi için bkz: [Linux kümeleri üzerinde çalıştırmak için güvenilir hizmetler uygulamasını yapılandırma](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Uygulamayı azure'da güvenli bir Linux kümesi dağıtmak için Service Fabric çalışma zamanı uygulamanızla doğrulamak için bir sertifika yapılandırmanız gerekir. Bunun yapılması, temel alınan Service Fabric çalışma API'leri ile iletişim kurmak Reliable Services hizmetlerinizi sağlar. Daha fazla bilgi için bkz. [Linux kümelerinde çalıştırmak için bir Reliable Services uygulaması yapılandırırsınız](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
 >
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Test istemcisini başlatma ve yük devre gerçekleştirme
@@ -117,7 +109,7 @@ Actor projeleri kendi başına bir işlem yapamaz. Bunlar başka bir hizmet veya
 
 1. Actor hizmetinin çıktısını görmek için izleme yardımcı programını kullanarak betiği çalıştırın.
 
-   MAC OS X durumunda aşağıdaki ek komutları çalıştırarak myactorsvcTestClient klasörü kapsayıcı içindeki bazı konuma kopyalamanız gerekir.
+   MAC OS X, aşağıdaki ek komutları çalıştırarak myactorsvcTestClient klasörü kapsayıcı içinde bazı konuma kopyalamanız gerekir.
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home

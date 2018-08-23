@@ -1,6 +1,6 @@
 ---
-title: Güncelleştirmeleri Azure kullanan ayrıcalıklı uç noktasını yığınında izleme | Microsoft Docs
-description: Azure tümleşik yığını sistemleri güncelleştirme durumunu izlemek için ayrıcalıklı uç noktası kullanmayı öğrenin.
+title: Azure stack'teki ayrıcalıklı uç noktayı kullanarak güncelleştirmeleri izleyin | Microsoft Docs
+description: Azure Stack tümleşik sistemleri güncelleştirme durumunu izlemek için ayrıcalıklı uç noktası kullanmayı öğrenin.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,50 +12,49 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 08/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 96eebf340f13f2f5e9e922fee8032d04fce1d130
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 8f384a79811c9a9b104acb98c8f6b6e162946ab8
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/06/2018
-ms.locfileid: "27621870"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42059677"
 ---
-# <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Azure kullanan ayrıcalıklı uç noktasını yığınında güncelleştirmelerini izleme
+# <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Ayrıcalıklı uç noktayı kullanarak Azure stack'teki güncelleştirmelerini izleme
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri*
 
-Ayrıcalıklı endpoint ilerleme Azure yığın güncelleştirme çalışma durumunu izlemek için kullanabileceğiniz ve son başarılı adımından çalıştırmak başarısız bir güncelleştirme devam etmek için Azure yığın gereken portal kullanılamaz duruma gelir.  Azure yığın Portalı'nı kullanarak Azure yığınında güncelleştirmeleri yönetmek için önerilen yöntemdir.
+Ayrıcalıklı uç nokta bir Azure Stack güncelleştirme çalıştırması ilerlemesini izlemek için kullanabileceğiniz ve başarısız bir güncelleştirme son başarılı adımından çalışmaya devam etmek için Azure Stack gereken portalı kullanılamıyor.  Azure Stack portalını kullanarak Azure Stack'te güncelleştirmeleri yönetmek için önerilen yöntemdir.
 
-Güncelleştirme yönetimi için aşağıdaki yeni PowerShell cmdlet'leri Azure tümleşik yığını sistemler 1710 güncelleştirmesi dahil edilmiştir.
+Güncelleştirme yönetimi için aşağıdaki yeni PowerShell cmdlet'leri, Azure Stack tümleşik sistemleri 1710 güncelleştirmesine dahil edilir.
 
 | Cmdlet  | Açıklama  |
 |---------|---------|
-| `Get-AzureStackUpdateStatus` | Şu anda çalışan, tamamlanan veya başarısız güncelleştirme durumunu döndürür. Güncelleştirme işlemi ve geçerli adımı ve karşılık gelen durum tanımlayan bir XML belgesi üst düzey durumunu sağlar. |
-| `Get-AzureStackUpdateVerboseLog` | Güncelleştirme ile oluşturulan ayrıntılı günlükleri döndürür. |
-| `Resume-AzureStackUpdate` | Başarısız olduğu bir noktada başarısız bir güncelleştirme devam ettirir. Bazı senaryolarda, güncelleştirmeye devam et önce azaltma adımlarını tamamlamak zorunda kalabilirsiniz.         |
+| `Get-AzureStackUpdateStatus` | Şu anda çalışan, tamamlandı veya başarısız güncelleştirme durumunu döndürür. Güncelleştirme işlemi ve geçerli adımı ve karşılık gelen durumunu hem açıklayan bir XML belgesi üst düzey durumunu sağlar. |
+| `Resume-AzureStackUpdate` | Başarısız olduğu bir noktada başarısız bir güncelleştirme devam ettirir. Belirli senaryolarda güncelleştirmeye devam et önce risk azaltma adımlarını tamamlamanız gerekebilir.         |
 | | |
 
-## <a name="verify-the-cmdlets-are-available"></a>Cmdlet'leri kullanılabilir doğrulayın
-Cmdlet'leri Azure yığınının 1710 güncelleştirme paketindeki yeni olduğundan, izleme yeteneği kullanılabilir olmadan önce belirli bir noktaya almak 1710 güncelleştirme işlemi gerekir. Genellikle, cmdlet'leri Yönetici portalı'nı durum 1710 güncelleştirme sırasında olduğunu gösteriyorsa, kullanılabilir **depolama konaklar yeniden** adım. Özellikle, cmdlet güncelleştirme sırasında ortaya çıkan **. adım: adım 2.6 - güncelleştirme PrivilegedEndpoint beyaz liste çalıştıran**.
+## <a name="verify-the-cmdlets-are-available"></a>Cmdlet'lerin kullanılabilir olduğunu doğrulayın
+Cmdlet'ler, Azure Stack için 1710 güncelleştirme paketindeki yeni olduğundan, izleme olanağı kullanılabilir olmadan önce belirli bir noktaya almak 1710 güncelleştirme işlemi gerekiyor. Genellikle, cmdlet'leri Yönetici portalını durum 1710 güncelleştirme sırasında olduğunu gösteriyorsa, kullanılabilir **depolama konakları yeniden** adım. Özellikle, cmdlet güncelleştirme sırasında ortaya çıkan **. adım: adım 2.6 - güncelleştirme PrivilegedEndpoint beyaz liste çalıştıran**.
 
-Ayrıca, cmdlet'leri program aracılığıyla ayrıcalıklı uç noktasından komut listesi sorgulayarak kullanılabilir olup olmadığını belirleyebilirsiniz. Bunu yapmak için donanım yaşam döngüsü ana bilgisayardan veya bir ayrıcalıklı erişim istasyonundan aşağıdaki komutları çalıştırın. Ayrıca, bir güvenilir ana bilgisayar ayrıcalıklı uç noktası olduğundan emin olun. Daha fazla bilgi için bkz: 1. adımını [ayrıcalıklı uç noktasına erişmek](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). 
+Ayrıca, cmdlet öğelerini programlı olarak ayrıcalıklı uç noktasından komut listesi sorgulayarak kullanılabilir olup olmadığını belirleyebilirsiniz. Bunu yapmak için donanım yaşam döngüsü konak ya da bir ayrıcalıklı erişim iş istasyonu aşağıdaki komutları çalıştırın. Ayrıca, bir güvenilir ana bilgisayar ayrıcalıklı uç noktası olduğundan emin olun. Daha fazla bilgi için bkz: 1. adımı [ayrıcalıklı uç noktasına erişmek](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). 
 
-1. Azure yığın ortamınızdaki ERCS sanal makinelerin herhangi bir PowerShell oturumu oluşturun (*önek*-ERCS01, *önek*-ERCS02, veya *önek*-ERCS03). Değiştir *önek* ortamınıza sanal makine önek dizesi ile.
+1. Azure Stack ortamınıza ERCS sanal makinelerin herhangi bir PowerShell oturumu oluşturun (*önek*-ERCS01, *önek*-ERCS02, veya *önek*-ERCS03). Değiştirin *önek* ortamınıza özgü olan sanal makine ön eki dizesi ile.
 
    ```powershell
    $cred = Get-Credential
 
    $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -ConfigurationName PrivilegedEndpoint 
    ```
-   Kimlik bilgileri istendiğinde kullanmak &lt; *Azure yığın etki alanı*&gt;\cloudadmin hesabı ya da CloudAdmins grubunun bir üyesi olan bir hesap. CloudAdmin hesap için AzureStackAdmin etki alanı yönetici hesabı için yükleme sırasında sağlanan parolanın aynısını girin.
+   Kimlik bilgileri istendiğinde kullanın &lt; *Azure Stack etki*&gt;\cloudadmin hesabı veya CloudAdmins grubunun bir üyesi olan bir hesap. CloudAdmin hesabı için AzureStackAdmin etki alanı yönetici hesabı için yükleme sırasında sağlanan parolanın aynısını girin.
 
-2. Ayrıcalıklı uç kullanılabilir komutların tam listesini alın. 
+2. Ayrıcalıklı uç noktasında kullanılabilir komutların tam listesini alın. 
 
    ```powershell
    $commands = Invoke-Command -Session $pepSession -ScriptBlock { Get-Command } 
    ```
-3. Ayrıcalıklı endpoint güncelleştirildi belirler.
+3. Ayrıcalıklı uç nokta güncelleştirildi belirleyin.
 
    ```powershell
    $updateManagementModuleName = "Microsoft.Azurestack.UpdateManagement"
@@ -66,7 +65,7 @@ Ayrıca, cmdlet'leri program aracılığıyla ayrıcalıklı uç noktasından ko
     } 
    ```
 
-4. Microsoft.AzureStack.UpdateManagement modülüne özgü komutlar listeleyin.
+4. Microsoft.AzureStack.UpdateManagement modülü özgü komutların listesi.
 
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName 
@@ -78,29 +77,28 @@ Ayrıca, cmdlet'leri program aracılığıyla ayrıcalıklı uç noktasından ko
    CommandType     Name                                               Version    Source                                                  PSComputerName
     -----------     ----                                               -------    ------                                                  --------------
    Function        Get-AzureStackUpdateStatus                         0.0        Microsoft.Azurestack.UpdateManagement                   Contoso-ercs01
-   Function        Get-AzureStackUpdateVerboseLog                     0.0        Microsoft.Azurestack.UpdateManagement                   Contoso-ercs01
    Function        Resume-AzureStackUpdate                            0.0        Microsoft.Azurestack.UpdateManagement                   Contoso-ercs01
    ``` 
 
 ## <a name="use-the-update-management-cmdlets"></a>Güncelleştirme yönetimi cmdlet'leri kullanın
 
 > [!NOTE]
-> Donanım yaşam döngüsü ana bilgisayardan veya bir ayrıcalıklı erişim istasyonundan aşağıdaki komutları çalıştırın. Ayrıca, bir güvenilir ana bilgisayar ayrıcalıklı uç noktası olduğundan emin olun. Daha fazla bilgi için bkz: 1. adımını [ayrıcalıklı uç noktasına erişmek](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint).
+> Donanım yaşam döngüsü ana makineden veya bir ayrıcalıklı erişim iş istasyonu aşağıdaki komutları çalıştırın. Ayrıca, bir güvenilir ana bilgisayar ayrıcalıklı uç noktası olduğundan emin olun. Daha fazla bilgi için bkz: 1. adımı [ayrıcalıklı uç noktasına erişmek](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint).
 
-### <a name="connect-to-the-privileged-endpoint-and-assign-session-variable"></a>Ayrıcalıklı bitiş noktasına bağlanmak ve oturum değişkeni atayın
+### <a name="connect-to-the-privileged-endpoint-and-assign-session-variable"></a>Ayrıcalıklı uç noktasına bağlanmak ve oturum değişkeni atayın
 
-Azure yığın ortamınızdaki ERCS sanal makinelerin herhangi bir PowerShell oturumu oluşturmak için aşağıdaki komutları çalıştırın (*önek*-ERCS01, *önek*-ERCS02, veya *önek*-ERCS03) ve bir oturum değişkeni atamak için.
+Azure Stack ortamınıza ERCS sanal makinelerin herhangi bir PowerShell oturumu oluşturmak için aşağıdaki komutları çalıştırın (*önek*-ERCS01, *önek*-ERCS02, veya *önek*-ERCS03) ve bir oturum değişkeni atayın.
 
 ```powershell
 $cred = Get-Credential
 
 $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -ConfigurationName PrivilegedEndpoint 
 ```
- Kimlik bilgileri istendiğinde kullanmak &lt; *Azure yığın etki alanı*&gt;\cloudadmin hesabı ya da CloudAdmins grubunun bir üyesi olan bir hesap. CloudAdmin hesap için AzureStackAdmin etki alanı yönetici hesabı için yükleme sırasında sağlanan parolanın aynısını girin.
+ Kimlik bilgileri istendiğinde kullanın &lt; *Azure Stack etki*&gt;\cloudadmin hesabı veya CloudAdmins grubunun bir üyesi olan bir hesap. CloudAdmin hesabı için AzureStackAdmin etki alanı yönetici hesabı için yükleme sırasında sağlanan parolanın aynısını girin.
 
-### <a name="get-high-level-status-of-the-current-update-run"></a>Geçerli güncelleştirme Çalıştır üst düzey durumunu Al 
+### <a name="get-high-level-status-of-the-current-update-run"></a>Üst düzey geçerli güncelleştirme çalıştırma durumu 
 
-Geçerli güncelleştirme Çalıştır üst düzey durumunu almak için aşağıdaki komutları çalıştırın: 
+Üst düzey geçerli güncelleştirme çalıştırma durumu almak için aşağıdaki komutları çalıştırın: 
 
 ```powershell
 $statusString = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateStatus -StatusOnly }
@@ -115,11 +113,11 @@ Olası değerler şunlardır:
 - Başarısız 
 - İptal edildi
 
-Art arda en güncel durumunu görmek için bu komutları çalıştırabilirsiniz. Yeniden denetlemek için bir bağlantı yeniden oluşturmak zorunda değilsiniz.
+Art arda en güncel durumunu görmek için şu komutları çalıştırabilirsiniz. Yeniden denetlemek için bir bağlantı yeniden oluşturmak zorunda değilsiniz.
 
-### <a name="get-the-full-update-run-status-with-details"></a>Çalışma durumu ayrıntılarla tam güncelleştirmeyi alın 
+### <a name="get-the-full-update-run-status-with-details"></a>Tam güncelleştirme çalıştırma durumu ayrıntıları alın 
 
-XML dizesi olarak özeti çalıştırın tam güncelleştirme elde edebilirsiniz. Dize incelemek, bir dosyaya yazmak veya bir XML belgesi dönüştürün ve onu ayrıştırmak için PowerShell kullanın. Aşağıdaki komutu şu anda çalışan adımların hiyerarşik bir listesini almak için XML ayrıştırır.
+XML dizesi olarak özeti Çalıştır tam güncelleştirme alabilirsiniz. Dize inceleme, bir dosyaya yazma veya bir XML belgesine dönüştürmek ve ayrıştırmak için PowerShell kullanın. Aşağıdaki komut, şu anda çalışan adımlar, hiyerarşik bir listesini almak için XML ayrıştırır.
 
 ```powershell
 [xml]$updateStatus = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateStatus }
@@ -127,7 +125,7 @@ XML dizesi olarak özeti çalıştırın tam güncelleştirme elde edebilirsiniz
 $updateStatus.SelectNodes("//Step[@Status='InProgress']")
 ```
 
-Aşağıdaki örnekte, güncelleştirme ve depolama ana bilgisayarları yeniden başlatmak için bir alt plan (bulut güncelleştirmesi) en üst düzey adım vardır. Bu depolama konaklar yeniden planı bir ana bilgisayar üzerindeki Blob Depolama Birimi hizmeti güncelleştiriyor gösterir.
+Aşağıdaki örnekte, güncelleştirme ve depolama ana bilgisayarları yeniden başlatmak için bir alt planı (bulut güncelleştirmesi) en üst düzey adım vardır. Bu depolama konakları yeniden planı Blob Depolama hizmetini konaklardan birine güncelleştiriyor gösterir.
 
 ```powershell
 [xml]$updateStatus = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateStatus }
@@ -160,32 +158,9 @@ $updateStatus.SelectNodes("//Step[@Status='InProgress']")
     Task          : Task
 ```
 
-### <a name="get-the-verbose-progress-log"></a>Ayrıntılı ilerleme durumu günlük Al
+### <a name="resume-a-failed-update-operation"></a>Başarısız güncelleştirme işlemi sürdürme
 
-Günlük dosyasını incelemek için yazabilirsiniz. Bu güncelleştirme hatası tanılamanıza yardımcı olabilir.
-
-```powershell
-$log = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateVerboseLog }
-
-$log > ".\UpdateVerboseLog.txt" 
-```
-
-### <a name="actively-view-the-verbose-logging"></a>Ayrıntılı günlük kaydı etkin olarak görüntüleme
-
-İçin etkin olarak ayrıntılı günlüğü'nün güncelleştirilmesi sırasında çalıştırın ve en son girişlere atlama görünüm aşağıdaki komutları çalıştırın oturum etkileşimli modda girin ve günlük göstermek için:
-
-```powershell
-Enter-PSSession -Session $pepSession 
-
-Get-AzureStackUpdateVerboseLog -Wait 
-```
-60 saniyede günlük güncelleştirir ve yeni içerik (varsa) konsoluna yazılır. 
-
-Uzun süre çalışan arka plan işlemleri sırasında konsol çıktısı konsola süre için yazılabilir değil. Etkileşimli çıktıyı iptal etmek için Ctrl + C tuşlarına basın. 
-
-### <a name="resume-a-failed-update-operation"></a>Bir başarısız güncelleştirme işlemi sürdürme
-
-Güncelleştirmesi başarısız olursa, güncelleştirme çalışmasındaki kaldığı yerden devam edebilirsiniz.
+Güncelleştirme başarısız olursa, güncelleştirme çalışması kaldığı yerden devam edebilir.
 
 ```powershell
 Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate } 
@@ -193,10 +168,10 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 ## <a name="troubleshoot"></a>Sorun giderme
 
-Ayrıcalıklı uç noktası, tüm ERCS sanal makinelerinde Azure yığın ortamında kullanılabilir. Bağlantı için yüksek oranda kullanılabilir bir uç noktası oluşturulmayan nedeniyle, zaman zaman kesintiler, uyarı veya hata iletileri karşılaşabilirsiniz. Bu iletiler oturum kesildi veya ECE hizmetiyle iletişim kurulurken bir hata olduğunu gösteriyor olabilir. Bu davranış beklenir. İşlemi birkaç dakika içinde yeniden deneyin veya diğer ERCS sanal makinelerden birinde yeni bir ayrıcalıklı endpoint oturumu oluşturun. 
+Ayrıcalıklı uç noktası, Azure Stack ortamında tüm ERCS sanal makinelerde kullanılabilir. Yüksek oranda kullanılabilir bir uç noktasına bağlantı bırakılmaz nedeniyle zaman kesintiler, uyarı veya hata iletilerini karşılaşabilirsiniz. Bu iletiler oturum kesildi veya ECE hizmetiyle iletişim kurulurken bir hata olduğunu gösteriyor olabilir. Bu davranış beklenmektedir. Birkaç dakika sonra işlemi yeniden deneyin veya diğer ERCS sanal makinelerden birinde yeni bir ayrıcalıklı uç nokta oturumu oluşturur. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure yığınında güncelleştirmelerini yönetme](azure-stack-updates.md) 
+- [Azure Stack güncelleştirmeleri yönetme](azure-stack-updates.md) 
 
 

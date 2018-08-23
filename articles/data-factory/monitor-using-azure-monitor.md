@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2018
+ms.date: 08/22/2018
 ms.author: shlo
-ms.openlocfilehash: 25bb455ea46fdc96e32e34d434dd844779b0b650
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1023eadbf4b799cd8b0c761c1689b9249cee450a
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495307"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616853"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Azure İzleyicisi'ni kullanarak veri fabrikalarını izleme ve uyarı
 Bulut uygulamaları ile birçok hareketli parçadan karmaşıktır. İzleme, uygulama güncel kalıp emin olmak için veri ve sağlam bir durumda çalışmasını sağlar. Ayrıca olası sorunları stave veya olanları sorun gidermeye yardımcı olur. Ayrıca, uygulamanızı daha ayrıntılı Öngörüler elde etmek için izleme verilerini kullanabilirsiniz. Bu bilgi bakım ya da uygulama performansı artırmak için yardımcı veya aksi halde el ile müdahale gerektiren eylemleri otomatikleştirme.
@@ -26,7 +26,7 @@ Bulut uygulamaları ile birçok hareketli parçadan karmaşıktır. İzleme, uyg
 Azure İzleyici, çoğu Microsoft Azure Hizmetleri için temel düzeyde altyapı ölçüm ve günlükleri sağlar. Ayrıntılar için bkz [izlemeye genel bakış](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Azure tanılama günlükleri, kaynak işlemiyle ilgili zengin, sık sık veri sağlayan bir kaynak tarafından gösterilen günlüklerdir. Data Factory, Azure İzleyici'de tanılama günlükleri çıkarır.
 
 ## <a name="persist-data-factory-data"></a>Veri Fabrikası verileri kalıcı hale
-Veri Fabrikası işlem hattı 45 gün boyunca veri çalıştırması yalnızca depolar. Azure İzleyicisi'ni kullanarak işlem hattı verileri çalıştırması fazla 45 gün için kalıcı hale getirmek istiyorsanız, yalnızca tanılama günlüklerini analiz için yönlendirebilir değil, seçeneğini belirleyin, süre için Fabrika bilgi alacak şekilde, bunları bir depolama hesabına kalıcı hale getirebilirsiniz.
+Veri Fabrikası işlem hattı 45 gün boyunca veri çalıştırması yalnızca depolar. Azure İzleyicisi'ni kullanarak işlem hattı verileri çalıştırması fazla 45 gün için kalıcı hale getirmek istiyorsanız, yalnızca tanılama günlüklerini analiz için yönlendirebilir değil, seçtiğiniz süre için Fabrika bilgi alacak şekilde, bunları bir depolama hesabına kalıcı hale getirebilirsiniz.
 
 ## <a name="diagnostic-logs"></a>Tanılama günlükleri
 
@@ -398,6 +398,70 @@ Aşağıdaki ölçümler ADFV2 yayar
 | TriggerFailedRuns    | Tetikleyici çalıştırmaları ölçümleri başarısız oldu     | Sayı    | Toplam                | Toplam tetikleyici içinde bir dakika aralığında başarısız çalıştırmaları      |
 
 Ölçümlere erişmek için makaledeki yönergeleri izleyin- https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
+
+## <a name="monitor-data-factory-metrics-with-azure-monitor"></a>Azure İzleyici ile veri fabrikası ölçümlerini izleme
+
+Azure İzleyici ile Azure Data Factory tümleştirme, Azure İzleyici verileri yönlendirmek için kullanabilirsiniz. Bu tümleştirme, aşağıdaki senaryolarda kullanışlıdır:
+
+1.  Azure İzleyici Data Factory'ye yayımlanır ölçümleri zengin bir dizi karmaşık sorgular yazmak istediğiniz. Ayrıca, Azure İzleyici aracılığıyla bu sorguları özel uyarılar oluşturabilirsiniz.
+
+2.  Veri fabrikaları arasında izlemek istediğiniz. Veri için tek bir Azure İzleyici çalışma birden çok veri fabrikaları yönlendirebilirsiniz.
+
+Yedi dakikalık bir giriş ve bu özelliği için şu videoyu izleyin:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Monitor-Data-Factory-pipelines-using-Operations-Management-Suite-OMS/player]
+
+### <a name="configure-diagnostic-settings-and-workspace"></a>Tanılama ayarları ve çalışma alanını yapılandırma
+
+Veri fabrikanızın tanılama ayarlarını etkinleştirme.
+
+1.  Seçin **Azure İzleyici** -> **tanılama ayarları** -> data factory tanılamayı Aç -> seçin.
+
+    ![İzleyici oms image1.png](media/data-factory-monitor-oms/monitor-oms-image1.png)
+
+2.  Çalışma alanının yapılandırılması dahil olmak üzere tanılama ayarları sağlar.
+
+    ![İzleyici oms image2.png](media/data-factory-monitor-oms/monitor-oms-image2.png)
+
+### <a name="install-azure-data-factory-analytics-from-azure-marketplace"></a>Azure Data Factory Analytics'i Azure Market'ten yüklemeniz
+
+![İzleyici oms image3.png](media/data-factory-monitor-oms/monitor-oms-image3.png)
+
+![İzleyici oms image4.png](media/data-factory-monitor-oms/monitor-oms-image4.png)
+
+Tıklayın **Oluştur** ve çalışma alanı ve çalışma alanı seçin ayarları.
+
+![İzleyici oms image5.png](media/data-factory-monitor-oms/monitor-oms-image5.png)
+
+### <a name="monitor-data-factory-metrics"></a>Data Factory ölçümlerini izleme
+
+Yükleme **Azure Data Factory Analytics** şu ölçümler sağlayan görünümleri varsayılan kümesi oluşturur:
+
+- Veri fabrikası tarafından ADF çalıştırır-1) işlem hattı çalıştırmaları
+
+- Veri fabrikası tarafından etkinlik çalıştırmalarını ADF çalıştırır-2)
+
+- Veri fabrikası tarafından ADF çalıştırır-3) tetikleyici çalıştırmaları
+
+- ADF hataları-1) ilk 10 veri fabrikası işlem hattı hataları
+
+- Veri fabrikası tarafından ADF hataları-2) ilk 10 etkinlik çalıştırmaları
+
+- Veri fabrikası tarafından ADF hataları-3) ilk 10 tetikleyici hataları
+
+- Türe göre etkinlik çalıştırmalarını ADF İstatistikleri-1)
+
+- Türe göre ADF istatistikleri-2) tetikleyici çalıştırmaları
+
+- ADF istatistikleri-3) en fazla işlem hattı süresi çalıştırır.
+
+![İzleyici oms image6.png](media/data-factory-monitor-oms/monitor-oms-image6.png)
+
+![İzleyici oms image7.png](media/data-factory-monitor-oms/monitor-oms-image7.png)
+
+Yukarıdaki ölçümlerini görselleştirmek, bu ölçümleri arkasında sorguları bakmak, sorguları Düzenle, uyarı oluşturma ve VS.
+
+![İzleyici oms image8.png](media/data-factory-monitor-oms/monitor-oms-image8.png)
 
 ## <a name="alerts"></a>Uyarılar
 

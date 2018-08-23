@@ -9,12 +9,12 @@ ms.author: dacoulte
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6f4f3939b1e8fc50c1a942498d7f90d6e0db0633
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 03b22e3a4c2c0b8eb87ee0b61edba3c6f0923170
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003103"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443824"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Azure Otomasyonu durumu yapılandırması DSC yapılandırmaları derleme
 
@@ -55,7 +55,9 @@ Kullanabileceğiniz [ `Start-AzureRmAutomationDscCompilationJob` ](/powershell/m
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
 ```
 
-`Start-AzureRmAutomationDscCompilationJob` durumunu izlemek için kullanabileceğiniz bir derleme iş nesnesi döndürür. Ardından bu derleme iş nesnesi ile kullanabileceğiniz [ `Get-AzureRmAutomationDscCompilationJob` ](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjob) derleme işinin durumunu belirlemek için ve [ `Get-AzureRmAutomationDscCompilationJobOutput` ](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjoboutput) kendi akışlarını (çıktı) görüntülemek için. Aşağıdaki örnek kod derlemesini başlatır **SampleConfig** yapılandırması tamamlandı ve daha sonra kendi akışlarını görüntüler kadar bekler.
+`Start-AzureRmAutomationDscCompilationJob` durumunu izlemek için kullanabileceğiniz bir derleme iş nesnesi döndürür. Daha sonra bu derleme iş nesnesi ile kullanabilirsiniz [`Get-AzureRmAutomationDscCompilationJob`](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjob)
+derleme işi durumunu belirlemek için ve [`Get-AzureRmAutomationDscCompilationJobOutput`](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjoboutput)
+kendi akışlarını (çıktı) görüntülemek için. Aşağıdaki örnek kod derlemesini başlatır **SampleConfig** yapılandırması tamamlandı ve daha sonra kendi akışlarını görüntüler kadar bekler.
 
 ```powershell
 $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
@@ -233,8 +235,7 @@ Varlık başvuruları Azure Otomasyonu durum yapılandırması ve runbook'ları 
 
 ### <a name="credential-assets"></a>Kimlik bilgisi varlıkları
 
-DSC yapılandırmaları Azure Automation Otomasyon kimlik bilgisi varlıkları kullanarak başvurabilir `Get-AzureRmAutomationCredential`. Bir yapılandırması olan bir parametreye sahipse bir **PSCredential** yazın, sonra da kullanabilirsiniz `Get-AutomationRmAutomationCredential` cmdlet'i cmdlet'e kimlik bilgisi almak için bir Azure Otomasyonu kimlik bilgisi varlığı dize adını geçirerek. Kullanın sonra gerektiren parametresi için bu nesneyi kullanırsınız **PSCredential** nesne. Arka planda bu ada sahip bir Azure Otomasyonu kimlik bilgisi varlığı alınır ve yapılandırmaya geçirildi.
-Aşağıdaki örnekte, bu eylemi gösterilmektedir.
+DSC yapılandırmaları Azure Automation Otomasyon kimlik bilgisi varlıkları kullanarak başvurabilir `Get-AzureRmAutomationCredential`. Bir yapılandırması olan bir parametreye sahipse bir **PSCredential** yazın, sonra da kullanabilirsiniz `Get-AutomationRmAutomationCredential` cmdlet'i cmdlet'e kimlik bilgisi almak için bir Azure Otomasyonu kimlik bilgisi varlığı dize adını geçirerek. Parametre gerektiren için daha sonra söz konusu nesne kullanabilirsiniz **PSCredential** nesne. Arka planda bu ada sahip bir Azure Otomasyonu kimlik bilgisi varlığı alınır ve yapılandırmaya geçirildi. Aşağıdaki örnekte, bu eylemi gösterilmektedir.
 
 Kimlik bilgilerini tutma düğüm yapılandırmaları (MOF yapılandırma belge), güvenli düğümü yapılandırma MOF dosyasının kimlik bilgilerini şifrelenmesini gerektirir. Ancak, şu anda PowerShell DSC PowerShell DSC kastettiğinizi bilemez Azure Otomasyonu tüm MOF dosyasını sonra neslini şifreleme, çünkü kimlik bilgilerini düz metin olarak düğüm yapılandırma MOF oluşturma sırasında verilecek sorunsuz bildirmeniz gerekir derleme işi.
 
@@ -246,7 +247,7 @@ Aşağıdaki örnek, bir Otomasyon kimlik bilgisi varlığı kullanan bir DSC ya
 Configuration CredentialSample
 {
     Import-DscResource -ModuleName PSDesiredStateConfiguration
-    $Cred = Get-AutomationRmAutomationCredential -ResourceGroupName 'ResourceGroup01' -AutomationAccountName 'ContosoAutomationAccount' -Name 'SomeCredentialAsset'
+    $Cred = Get-AutomationPSCredential 'SomeCredentialAsset'
 
     Node $AllNodes.NodeName
     {

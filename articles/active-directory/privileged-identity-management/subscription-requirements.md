@@ -16,12 +16,12 @@ ms.component: pim
 ms.date: 06/01/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2fe80f01faae89256c96e23944025d3bd0c55811
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: dbe4efa57a7c4c31b2bdca84665eef8179564a8f
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617199"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617078"
 ---
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Azure Active Directory Privileged Identity Management abonelik gereksinimleri
 
@@ -42,7 +42,7 @@ Bu komut, kiracınızdaki Aboneliklerin listesini alır. Döndürülen satır va
 
 Bu komut bir satır döndürürse hangi SkuPartNumber "AAD_PREMIUM_P2" veya "EMSPREMIUM" ve IsTrial "True" ise, bu kiracıda mevcut bir Azure AD Premium P2 deneme sürümü olduğunu gösterir.  Sonra abonelik durumu etkin değil ve bir Azure AD Premium P2 veya EMS E5 aboneliği satın almak zorunda kalmazsınız, bir Azure AD Premium P2 aboneliği veya Azure AD Privileged Identity Management'ı kullanmaya devam etmek için EMS E5 aboneliği satın almalısınız.
 
-Azure AD Premium P2 aracılığıyla bir [Microsoft Kurumsal anlaşması](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), [açık Toplu Lisanslama programı](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)ve [bulut çözüm sağlayıcıları program](https://partner.microsoft.com/en-US/cloud-solution-provider). Azure ve Office 365 aboneleri, Azure AD Premium P2 çevrimiçi da satın alabilir.  Azure AD Premium fiyatlandırma ve çevrimiçi sipariş et hakkında daha fazla bilgi şu adreste bulunabilir: [Azure Active Directory fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure AD Premium P2 aracılığıyla bir [Microsoft Kurumsal anlaşması](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), [açık Toplu Lisanslama programı](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)ve [bulut çözüm sağlayıcıları program](https://partner.microsoft.com/cloud-solution-provider). Azure ve Office 365 aboneleri, Azure AD Premium P2 çevrimiçi da satın alabilir.  Azure AD Premium fiyatlandırma ve çevrimiçi sipariş et hakkında daha fazla bilgi şu adreste bulunabilir: [Azure Active Directory fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="azure-ad-privileged-identity-management-is-not-available-in-tenant"></a>Azure AD Privileged Identity Management kiracısında mevcut değil
 

@@ -1,6 +1,6 @@
 ---
-title: Günlük analizi ağ izleme hakkında | Microsoft Docs
-description: Ağ çözümleri bulut, şirket içi ve karma ortamlar genelinde ağlarını yönetmek için NPM dahil olmak üzere, izleme genel bakış.
+title: Log Analytics'te ağ izleme hakkında | Microsoft Docs
+description: Ağ izleme çözümleri, NPM, bulut, şirket içi ve karma ortamlar genelinde ağlarını yönetmek için de dahil olmak üzere genel bakış.
 services: monitoring-and-diagnostics
 documentationcenter: na
 author: agummadi
@@ -15,107 +15,107 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: aea43eed0cb66b0e0d3bb7a393f569714feb475d
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 0656cfcc2dcded284be1a337f797681117f3b313
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850146"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42062128"
 ---
-# <a name="network-monitoring-solutions"></a>Ağ çözümleri izleme 
+# <a name="network-monitoring-solutions"></a>Ağ izleme çözümleri 
 
-Azure ağ varlıklarınızı izlemek için bir konak çözümleri sunar. Azure çözümleri ve bulut ağ trafiğini analiz ve ağ bağlantısı, ExpressRoute bağlantı hatları durumunu izlemek için yardımcı programlar sahiptir.
+Azure ağ varlıklarınızı izlemek için bir konak çözümleri sunar. Azure, çözümler ve ağ bağlantısı, ExpressRoute devreleri durumunu izlemek ve bulut ağ trafiği çözümleme için yardımcı programlar sahiptir.
 
-## <a name="network-performance-monitor-npm"></a>Ağ Performans İzleyicisi'ni (NPM)
+## <a name="network-performance-monitor-npm"></a>Ağ Performansı İzleyicisi'ni (NPM)
 
-Ağ Performans İzleyicisi'ni (NPM) her biri ağ, ağ bağlantısı, uygulamalarınız için sistem durumu izleme doğrultusunda sağlamıştır ve ağ performansını fikir sağlar özellikleri paketidir. NPM, bulut tabanlı olduğundan ve bir karma ağ arasında bağlantı izler çözüm izleme sağlar:
+Ağ Performansı İzleyicisi'ni (NPM), her biri ağ bağlantısı ve uygulamalarınıza ağınızın sistem izleme doğru olarak ve ağ performansı sağlar özelliklerine paketidir. NPM, bulut tabanlı ve bir hibrit ağ izleme arasındaki bağlantıyı izleyen çözümü sağlar:
  
-* Bulut dağıtımları ve şirket içi konumlarına
-* Birden çok veri merkezi ve şube
-* Görev kritik çok katmanlı uygulamalar/mikro-hizmetler
-* Kullanıcı konumları ve web tabanlı uygulamalara (HTTP/HTTPs) 
+* Bulut dağıtımları ve şirket içi konumu
+* Birden çok veri merkezi ve şube ofisleri
+* Görev açısından kritik çok katmanlı uygulamalar/mikro hizmetler
+* Kullanıcı konumlarında ve web tabanlı uygulamalara (HTTP/HTTPs) 
 
-Performans İzleyicisi, ExpressRoute İzleyici ve hizmet uç noktası İzleyicisi NPM içinde özellikleri izleme ve aşağıda açıklanmıştır.
+Performans İzleyicisi, ExpressRoute İzleyicisi ve hizmet bağlantı İzleyicisi NPM kullanılabilmesine izleme ve aşağıda açıklanmıştır.
 
 ## <a name="performance-monitor"></a>Performans İzleyicisi
 
-Performans İzleyicisi'ni NPM bir parçasıdır ve ağ bulut, karma ve şirket içi ortamları için izleme. Uzak şube ve alan ofisleri, depolama konumları, veri merkezleri ve bulut arasında ağ bağlantısı izleyebilirsiniz. Kullanıcılarınızın şikayetçi önce ağ sorunları algılayabilir. Anahtar avantajları şunlardır:
+Performans İzleyicisi NPM bir parçasıdır ve bulut, karma ve şirket içi ortamlar için ağ izleme. Uzak dalı ve saha ofisleri, mağaza konumları, veri merkezleri ve Bulutlar ağ bağlantısı izleyebilirsiniz. Ağ sorunlarını, kullanıcılarınız şikayet etmeden önce algılayabilir. Önemli avantajlar şunlardır:
 
 * Çeşitli alt ağlar genelinde kaybı ve gecikmeyi izleyin ve uyarılar koyun
-* Ağdaki tüm yolları (yedekli yollar dahil) izleme
-* Çoğaltma zor olan geçici ve zaman içinde nokta ağ sorunlarını giderme
-* İçin performans sorumlu olduğu ağ, belirli kesiminde belirleme
+* Ağdaki tüm yolları (yedekli yolları dahil) izleme
+* Çoğaltması zor olan geçici ve zaman içinde nokta ağ sorunlarını giderme
+* Ağdaki performansın düşmesine neden olan segmenti belirleme
 * Ağın sistem durumunu SNMP'ye gerek kalmadan izleyin
 
 ![NPM topoloji Haritası](./media/network-monitoring-overview/npm-topology-map.png) 
 
 Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* [Bir ağ Performans İzleyicisi çözümü günlük analizi yapılandırın](../log-analytics/log-analytics-network-performance-monitor.md) 
+* [Log Analytics'te Ağ Performansı İzleyicisi çözümü yapılandırma](../log-analytics/log-analytics-network-performance-monitor.md) 
 * [Kullanım örnekleri](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
 *  Ürün güncelleştirmeleri: [Şubat 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [Ağustos 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
 ## <a name="expressroute-monitor"></a>ExpressRoute İzleyicisi
 
-NPM ExpressRoute için Azure özel eşleme ve Microsoft eşleme bağlantıları için izleme kapsamlı ExpressRoute sunar. ExpressRoute üzerinde E2E bağlantısı ve şube ofislerinde ve Azure arasında performansını izleyebilir. Temel işlevler şunlardır:
+ExpressRoute için NPM izleme Azure özel eşleme ve Microsoft eşleme bağlantıları için kapsamlı ExpressRoute sunar. ExpressRoute üzerinden E2E bağlantıyı ve performansı şubeleriniz ve Azure arasında izleyebilirsiniz. Temel işlevler şunlardır:
 
 * Aboneliğinizle ilişkili ER devreler otomatik algılama
-* Şirket içi ağ topolojisinin bulut uygulamalarınıza algılama
-* Kapasite planlama, bant genişliği kullanımını çözümleme
-* İzleme ve birincil ve ikincil yollarında uyarı
-* Azure bağlantı izleme gibi Office 365, Dynamics 365... ExpressRoute Hizmetleri
-* Sanal ağlara bağlanma düşmesine Algıla
+* Ağ topolojisini şirket içi ve bulut uygulamalarınıza algılanması
+* Kapasite planlaması, bant genişliği kullanımı analizi
+* İzleme ve uyarı birincil ve ikincil yollarında
+* Azure'a bağlantısı izleme gibi Office 365, Dynamics 365... ExpressRoute üzerinden Hizmetleri
+* Sanal ağlar için bağlantı performansında algılayın
 
-![Coğrafi harita gösteren trafiği bölgeler arasında](./media/network-monitoring-overview/expressroute-topology-map.png) 
+![Bölgeler arasında coğrafi harita gösteren trafiği](./media/network-monitoring-overview/expressroute-topology-map.png) 
 
 Daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * [ExpressRoute için Ağ Performansı İzleyicisini Yapılandırma](../expressroute/how-to-npm.md)
-* [blog gönderisi](https://aka.ms/NPMExRmonitorGA)
+* [Blog gönderisi](https://aka.ms/NPMExRmonitorGA)
 
-## <a name="service-endpoint-monitor"></a>Hizmet Uç Noktası İzleyicisi
+## <a name="service-connectivity-monitor"></a>Hizmet Bağlantısı İzleyicisi
 
-Hizmet uç noktası izleme ile artık ulaşılabilirlik uygulamaların test edin ve şirket içi, taşıyıcı ağlar ve bulut/özel veri merkezleri üzerinden performans sorunları algılar.
+Hizmet bağlantı izleme ile artık uygulamaları erişilebilirliğini test ve şirket içi, taşıyıcı ağlar ve bulut/özel veri merkezleri arasında performans sorunlarını algılama.
 
-* Uçtan uca ağ bağlantısı uygulamaları izleme
-* Uygulama teslim ağ performansı ile ilişkilendirmek, düşmesine yol kullanıcı ve uygulama arasında kesin konumunu Algıla
-* Dünya çapında uygulama ulaşılabilirlik birden çok kullanıcı konumlardan gelen sınama
-* Ağ gecikme süresi ve paket kaybı hattınızın iş ve SaaS uygulamaları için belirleme
-* Etkin noktalar zayıf uygulama performans neden olabilecek, ağdaki belirleme
-* Microsoft Office 365, Dynamics 365 Skype Kurumsal için yerleşik testleri ve diğer Microsoft hizmetlerini kullanarak Office 365 uygulamalarına ulaşılabilirlik izleme
+* Uygulamalar için uçtan uca ağ bağlantılarını izlemek
+* Ağ performansı ile uygulama teslimini ilişkilendirin, yol kullanıcı ve uygulama arasındaki performans düşüşü kesin konumunu algılayın
+* Dünyanın dört bir yanındaki birden fazla kullanıcı konumdan uygulama erişimi test etme
+* İş ve SaaS uygulamalarına kolunuz için ağ gecikme süresi ve paket kaybı belirleyin
+* Kötü uygulama performansı neden olabilecek ağ üzerindeki etkin noktaları belirleme
+* Microsoft Office 365, Dynamics 365, Skype Kurumsal için yerleşik testleri ve diğer Microsoft hizmetlerini kullanarak Office 365 uygulamaları için erişimi izleme
 
 Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* [Hizmet uç noktaları izleme için ağ Performans İzleyicisi'ni yapılandırma](https://aka.ms/applicationconnectivitymonitorguide)
-* [blog gönderisi](https://aka.ms/svcendptmonitor)
+* [Hizmet uç noktaları izlemek için Ağ Performansı İzleyicisi'ni yapılandırma](https://aka.ms/applicationconnectivitymonitorguide)
+* [Blog gönderisi](https://aka.ms/svcendptmonitor)
 
 ## <a name="traffic-analytics"></a>Trafik Analizi
-Trafik analizi, bulut ağlarda kullanıcı ve uygulama etkinlik görünürlük sağlayan bir bulut tabanlı bir çözümdür. NSG akış günlükleri Öngörüler sağlamak için analiz edilir:
+Trafik analizi, kullanıcı ve uygulama etkinlik görünürlüğü sağlayarak bulut ağlarınızda sağlayan bir bulut tabanlı bir çözümdür. Öngörüler sağlamak için NSG akış günlüklerini analiz edilir:
 
-* Ağlar Azure ile Internet, genel bulut bölgeleri, sanal ağlar ve alt ağlar arasındaki trafik akışı
-* Uygulamalar ve algılayıcılar veya ayrılmış akış Toplayıcı uygulamaları gerek kalmadan, ağınızdaki protokolleri
-* Etkin noktalarına üst talkers, chatty uygulamaları, bulut VM görüşmeleri trafiği
-* Kaynakları ve sanal ağlar, kritik iş Hizmetleri ve uygulamaları arasındaki arası ilişkileri üzerinden trafik hedefleri
-* Güvenlik – kötü amaçlı trafiği, bağlantı noktalarını Internet, uygulama veya Internet erişmeye VM'ler Aç...
-* Kapasite kullanımı - VPN ağ geçitleri ve diğer hizmetleri kullanım eğilimleri izleme tarafından aşırı sağlama veya yetersiz kullanım sorunları ortadan kaldırmanıza yardımcı olur
+* Azure ve Internet, genel bulut bölgeleri, sanal ağlar ve alt ağlar arasında ağlar arasında trafik akışları
+* Uygulamalar ve algılayıcılar veya ayrılmış akış Toplayıcı Gereçleri gerek kalmadan, ağ protokolleri
+* Popüler konuşmacılar, sık iletişim kuran uygulamaları, bulutta, trafik etkin noktaları VM konuşmaları
+* Kaynakları ve hedefleridir ağlarda arası ilişkileri kritik iş Hizmetleri ve uygulamaları arasındaki trafiği
+* Güvenlik – kötü amaçlı trafik, bağlantı noktalarını Internet, uygulamaları veya İnternet'e erişmeye çalışan VM'ler için Aç...
+* Kapasite kullanımı -, VPN ağ geçitleri ve diğer hizmetleri kullanım eğilimlerini izleyerek, fazladan sağlama veya Tıkanıklığı gibi sorunları ortadan kaldırmanıza yardımcı olur
 
-Trafik Analytics yardımcı olur, kuruluşunuzun ağ etkinliği, güvenli uygulamaları ve verileri, Denetim iş yükü performansını iyileştirmek ve uyumlu kalın tıklatılabilir bilgilerle donatır.
+Trafik Analizi ile kuruluşunuzun ağ etkinliği, güvenli uygulamaları ve verileri, Denetim iş yükü performansı iyileştirmek ve yardımcı uyumluluğu sürdürün olan eyleme dönüştürülebilir bilgiler donatır.
 
-![Coğrafi harita gösteren trafiği bölgeler arasında](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
+![Bölgeler arasında coğrafi harita gösteren trafiği](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
 
 İlgili bağlantılar:
-* [Blog gönderisi](https://aka.ms/trafficanalytics), [belgelerine](https://aka.ms/trafficanalyticsdocs), [SSS](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
+* [Blog gönderisi](https://aka.ms/trafficanalytics), [belgeleri](https://aka.ms/trafficanalyticsdocs), [SSS](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
 
 ## <a name="dns-analytics"></a>DNS Analizi
-DNS yöneticileri için yerleşik, bu çözüm toplar, çözümler ve güvenlik, işlemler ve performans ile ilgili Öngörüler sağlamak için DNS günlükleri karşılık gelen.  Özelliklerden bazıları şunlardır:
+DNS yöneticileri için tasarlanan bu çözüm toplar, çözümler ve güvenlik işlemleri ve performans ile ilgili Öngörüler için DNS günlüklerini ilişkilendirir.  Bazı özellikleri şunlardır:
 
-* Kötü amaçlı etki alanlarına çözümlemeye istemcileri tanımlaması
-* Eski kaynak kayıtlarının tanımlama
-* Sık sık sorgulanan etki alanı adları ve talkative DNS istemcileri görünürlük
-* DNS sunucularında istek yükünü görünürlük
-* Dinamik DNS kayıt hatalarını izleme
+* Kötü amaçlı etki alanlarına çözümlemeye istemci kimliği
+* Eski kaynak kayıtları kimliği
+* Sık sık sorgulanan etki alanı adlarını ve DNS sık iletişim kuran istemcileri görünürlük
+* DNS sunucularındaki istek yükünü görünürlük
+* Dinamik DNS kayıt hatalarının izleme
 
-![DNS Analytics Panosu](./media/network-monitoring-overview/dns-analytics-overview.png) 
+![DNS analizi Panosu](./media/network-monitoring-overview/dns-analytics-overview.png) 
 
 İlgili bağlantılar:
 * [Blog gönderisi](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [belgeleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)

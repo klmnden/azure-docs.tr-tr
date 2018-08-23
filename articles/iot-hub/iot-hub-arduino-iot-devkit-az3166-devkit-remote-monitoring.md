@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 806ae38f614c44ce25b8fcc159b74f1bda3f00f3
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 79a44e3f5303aaf0d337333b482c2df670e0b3da
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343126"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42061745"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>MXChip IOT DevKit Azure IOT Uzaktan izleme çözüm hızlandırıcısına bağlamayı
 
@@ -120,7 +120,7 @@ DevKit yeniden başlatır ve kod çalışmaya başlar.
 
 ## <a name="change-device-id"></a>Cihaz Kimliğini değiştirme
 
-IOT hub cihaz kimliği izleyerek değiştirebilirsiniz [cihaz kimliği Özelleştirme Kılavuzu](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/). Sabit kodlanmış değiştirmek istiyorsanız **AZ3166** kodda bir özelleştirilmiş cihaz kimliği için görüntülenen kodu OI değiştirin [Uzaktan izleme örnek](https://github.com/Microsoft/devkit-sdk/blob/master/AZ3166/src/libraries/AzureIoT/examples/RemoteMonitoring/RemoteMonitoring.ino#L23).
+Sabit kodlanmış değiştirmek istiyorsanız **AZ3166** kodda bir özelleştirilmiş cihaz kimliği için görüntülenen kod satırının değiştirme [Uzaktan izleme örnek](https://github.com/Microsoft/devkit-sdk/blob/master/AZ3166/src/libraries/AzureIoT/examples/RemoteMonitoring/RemoteMonitoring.ino#L23).
 
 ## <a name="problems-and-feedback"></a>Sorunları ve geri bildirim
 
@@ -136,3 +136,5 @@ Algılayıcı verilerini Görselleştirme ve DevKit cihaz, Azure IOT Uzaktan izl
 * [Azure IOT çözüm hızlandırıcılarına genel bakış](https://docs.microsoft.com/azure/iot-suite/)
 
 * [Azure IOT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+
+* [IOT Geliştirici Seti](https://microsoft.github.io/azure-iot-developer-kit/) 

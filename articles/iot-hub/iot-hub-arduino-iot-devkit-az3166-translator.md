@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: acfff95afacfa1e5c75a799ba84d64cfa0579f66
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: cd67e612dd020ba600e33ac8baf77bc094d8afd3
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592100"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42055934"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>IOT DevKit AZ3166 dil translator yapmak için Azure işlevleri ve Bilişsel hizmetler ile kullanın
 
@@ -122,10 +122,6 @@ Uygulama başlatma DevKit ekrandaki yönergeleri izleyin. Varsayılan kaynak dil
 ![Mini-Solution-Voice-to-tweet-Diagram](media/iot-hub-arduino-iot-devkit-az3166-translator/diagram.png)
 
 Bir Azure işlevi tetiklemek için sesinizi ardından HTTP gönderileri Arduino taslak kayıtları isteyin. Bilişsel hizmet konuşma çevirmeni API'sini çeviri yapmak için Azure işlevi çağırır. Azure işlevi çeviri metin aldıktan sonra cihaza bir C2D (bulut-cihaz) iletisi gönderir. Ardından çeviri ekranında görüntülenir.
-
-## <a name="change-device-id"></a>Cihaz Kimliğini değiştirme
-
-Azure IOT hub'da kayıtlı varsayılan cihaz kimliği **AZ3166**. Cihaz kimliği değiştirmek için bkz. nasıl [DevKit için IOT cihaz kimliği özelleştirme](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/).
 
 ## <a name="problems-and-feedback"></a>Sorunları ve geri bildirim
 

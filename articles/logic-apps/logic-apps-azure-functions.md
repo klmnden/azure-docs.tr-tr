@@ -7,21 +7,21 @@ author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 20ad738541554279ff9fd6dd6babe90a38676c00
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: a63bd8e3b071ed996db8ad5aeaeb5e451b4d92e9
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263199"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056578"
 ---
 # <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>Ekleme ve Azure işlevleri ile Azure Logic apps'te özel kod parçacıkları çalıştırma
 
-Oluşturmak istediğiniz zaman ve logic apps içinde belirli bir soruna yönelik yeterli kod çalıştırmak, kendi işlevleri kullanarak oluşturabileceğiniz [Azure işlevleri](../azure-functions/functions-overview.md). Bu hizmet oluşturmak ve tüm uygulama veya kodunuzu çalıştırmak için bir altyapı oluşturma hakkında endişelenmeden logic apps Node.js veya C# ile yazılan özel kod parçacıklarını çalıştırmak yeteneği sağlar. Azure işlevleri, sunucusuz bulut bilgi işlem sağlar ve aşağıdaki örnekte olduğu gibi görevleri gerçekleştirmek için yararlıdır:
+Logic apps içinde belirli bir işi yapan yeterli kodu çalıştırmak istediğinizde, kendi işlevleri ile oluşturabileceğiniz [Azure işlevleri](../azure-functions/functions-overview.md). Bu hizmet bütün bir uygulama veya kodunuzu çalıştırmak için altyapı oluşturmak zorunda kalmamak için Node.js, C# ve F # kod parçacıkları oluşturmanıza yardımcı olur. Azure işlevleri, sunucusuz bilgi işlem bulutta sağlar ve aşağıdaki örnekte olduğu gibi görevleri gerçekleştirmek için yararlıdır:
 
-* Mantıksal uygulamanızın davranışını, Node.js veya C# tarafından desteklenen işlevleri ile genişletin.
+* Node.js veya C# işlevleri ile mantıksal uygulamanızın davranışını genişletin.
 * Mantıksal uygulama iş akışınızı hesaplamalar gerçekleştirin.
 * Gelişmiş biçimlendirme uygulamak veya logic apps alanları işlem.
 
@@ -29,69 +29,57 @@ Ayrıca [logic apps'ten çağrı Azure işlevleri içindeki](#call-logic-app).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu makalede takip etmek için gereksinim duyduğunuz öğeleri şunlardır:
+Bu makalede takip etmek için bu öğeler gerekir:
 
 * Henüz Azure aboneliğiniz yoksa, <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
 
-* İşlev eklemek istediğiniz mantıksal uygulama
+* Azure işlevleri ve Azure işleviniz için bir kapsayıcı bir Azure işlev uygulaması. Bir işlev uygulaması yoksa [ilk işlev uygulamanızı oluşturmak](../azure-functions/functions-create-first-azure-function.md). İşlevinizi ya da sonra oluşturma [ayrı ayrı mantıksal uygulamanızı dışında](#create-function-external), veya [gelen mantıksal uygulamanız içinde](#create-function-designer) mantıksal Uygulama Tasarımcısı'nda.
+
+  Mevcut ve yeni işlev uygulaması ve işlevleri, logic apps ile çalışmak için aynı gereksinimleri vardır:
+
+  * İşlev uygulamanızın mantıksal uygulamanızı aynı Azure aboneliğinde olması gerekir.
+
+  * İşlevinize HTTP tetikleyicisi, örneğin kullanır, **HTTP tetikleyicisi** işlev şablonu için **JavaScript** veya **C#**. 
+
+    HTTP tetikleyici şablonu olan içeriği kabul edebilir `application/json` mantıksal uygulamanızdan türü. 
+    Bir Azure işlevi mantıksal uygulamanıza eklediğinizde, mantıksal Uygulama Tasarımcısı, Azure aboneliğinizde bu şablondan oluşturulan özel işlevler gösterir. 
+
+  * İşlevinizi tanımladınız sürece özel yollar kullanmayan bir [Openapı tanımı](../azure-functions/functions-openapi-definition.md), eski adıyla bir [Swagger dosyası](http://swagger.io/). 
+  
+  * İşleviniz için bir Openapı tanımı tanımladıysanız, Logic Apps Tasarımcısı'nda, işlev parametreleri ile çalışmak için daha zengin bir deneyim sunar. Mantıksal uygulamanızı bulun ve erişim Openapı tanımlarıyla sahip işlevlerin önce [aşağıdaki adımları izleyerek işlev uygulamanızı ayarlama](#function-swagger).
+
+* İşlev eklemek istediğiniz mantıksal uygulama da dahil olmak üzere bir [tetikleyici](../logic-apps/logic-apps-overview.md#logic-app-concepts) mantıksal uygulamanızı ilk adımı olarak 
+
+  İşlevleri çalıştırmak üzere eylemleri eklemeden önce mantıksal uygulamanızın bir tetikleyici ile başlamalıdır.
 
   Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md) ve [hızlı başlangıç: ilk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-
-* A [tetikleyici](../logic-apps/logic-apps-overview.md#logic-app-concepts) mantıksal uygulamanızı ilk adımı olarak 
-
-  İşlevleri çalıştırmak için Eylemler eklemeden önce mantıksal uygulamanızın bir tetikleyici ile başlamalıdır.
-
-* Azure işlevleri ve Azure işleviniz için bir kapsayıcı bir Azure işlev uygulaması. Bir işlev uygulaması yoksa, şunları yapmalısınız [ilk işlev uygulamanızı oluşturmak](../azure-functions/functions-create-first-azure-function.md). İşlevinizi ya da sonra oluşturma [ayrı ayrı mantıksal uygulamanızı dışında](#create-function-external), veya [gelen mantıksal uygulamanız içinde](#create-function-designer) mantıksal Uygulama Tasarımcısı'nda.
-
-  Yeni ve mevcut Azure işlev uygulamaları hem de işlevleri, logic apps ile çalışmak için aynı gereksinimleri vardır:
-
-  * İşlev uygulamanızın mantıksal uygulamanızı Azure aboneliğine ait olmalıdır.
-
-  * İşlevinizi kullanmalısınız **Genel Web kancası** ya da işlev şablonu **JavaScript** veya **C#**. Bu şablon olan içeriği kabul edebilir `application/json` mantıksal uygulamanızdan türü. Bu şablonlar, bulmak ve görüntülemek için logic apps bu işlevleri eklediğinizde, bu şablonları ile oluşturduğunuz özel işlevler mantıksal Uygulama Tasarımcısı da yardımcı olur.
-
-  * Bu maddeyi işlevi şablonun **modu** özelliği **Web kancası** ve **Web kancası türü** özelliği **genel JSON**.
-
-    1. <a href="https://portal.azure.com" target="_blank">Azure Portal</a>’da oturum açın.
-    2. Ana Azure menüsünde **işlev uygulamaları**. 
-    3. İçinde **işlev uygulamaları** listesinde, işlev uygulamanızı seçin, işlevinizi genişletin ve seçin **tümleştir**. 
-    4. Denetleme, şablonun **modu** özelliği **Web kancası** ve **Web kancası türü** özelliği **genel JSON**. 
-
-  * İşleviniz varsa bir [API tanımı](../azure-functions/functions-openapi-definition.md), eski adıyla bir [Swagger dosyası](http://swagger.io/), Logic Apps Tasarımcısı'nda işlev parametrelerini çalışmak için daha zengin bir deneyim sunar. 
-  Mantıksal uygulamanızı bulun ve erişim Swagger açıklamaları olan işlevler önce [aşağıdaki adımları izleyerek işlev uygulamanızı ayarlama](#function-swagger).
 
 <a name="create-function-external"></a>
 
 ## <a name="create-functions-outside-logic-apps"></a>İşlevleri dış mantıksal uygulamalar oluşturma
 
-İçinde <a href="https://portal.azure.com" target="_blank">Azure portalında</a>, mantıksal uygulamanızı aynı Azure aboneliğinde olması gerekir ve ardından Azure işlevinizi oluşturma, Azure işlev uygulaması oluşturma. Azure işlevleri'ne yeniyseniz, bilgi nasıl [Azure portalında ilk işlevinizi oluşturma](../azure-functions/functions-create-first-azure-function.md), ancak bu gereksinimler ekleyebilir ve çağrı logic apps'ten Azure işlevleri'ni oluşturmak için dikkat edin.
+İçinde <a href="https://portal.azure.com" target="_blank">Azure portalında</a>, mantıksal uygulamanızı aynı Azure aboneliğinde olması gerekir ve ardından Azure işlevinizi oluşturma, Azure işlev uygulaması oluşturma.
+Azure işlevleri'ni oluşturmaya yeni başlıyorsanız öğrenin nasıl [Azure portalında ilk işlevinizi oluşturma](../azure-functions/functions-create-first-azure-function.md), ancak mantıksal uygulamalardan arayabileceğiniz işlevleri oluşturmak için bu gereksinimleri dikkate alın:
 
-* Seçtiğinizden emin olun **Genel Web kancası** ya da işlev şablonu **JavaScript** veya **C#**.
+* Seçtiğinizden emin olun **HTTP tetikleyicisi** ya da işlev şablonu **JavaScript** veya **C#**.
 
-  ![Genel Web kancası - JavaScript ya da C#](./media/logic-apps-azure-functions/generic-webhook.png)
-
-* Azure işlevinizi oluşturduktan sonra bu maddeyi şablonun **modu** ve **Web kancası türü** özellikleri doğru şekilde ayarlanır.
-
-  1. İçinde **işlev uygulamaları** listesinde, işlevinizi genişletin ve seçin **tümleştir**. 
-
-  2. Denetleyin, şablonun **modu** özelliği **Web kancası** ve **Web kancası türü** özelliği **genel JSON**. 
-
-     ![İşlev şablonunun "Tümleştirme" özellikleri](./media/logic-apps-azure-functions/function-integrate-properties.png)
+  ![HTTP tetikleyicisi - JavaScript ya da C#](./media/logic-apps-azure-functions/http-trigger-function.png)
 
 <a name="function-swagger"></a>
 
-* İsteğe bağlı olarak, varsa, [bir API tanımı oluşturmayı](../azure-functions/functions-openapi-definition.md), eski adıyla bir [Swagger dosyası](http://swagger.io/), işleviniz için Logic Apps Tasarımcısı'nda işlev parametreleri ile çalışırken daha zengin bir deneyim elde edebilirsiniz. Mantıksal uygulamanızı bulun ve Swagger açıklamaları olan işlevler erişmek için işlev uygulamanızı ayarlamak için:
+* İsteğe bağlı olarak, varsa, [bir API tanımı oluşturmayı](../azure-functions/functions-openapi-definition.md), eski adıyla bir [Swagger dosyası](http://swagger.io/), işleviniz için Logic Apps Tasarımcısı'nda işlev parametreleri ile çalışırken daha zengin bir deneyim elde edebilirsiniz. Mantıksal uygulamanızı bulun ve Swagger açıklamaları işlevleri kullanmak için işlev uygulamanızı ayarlamak için aşağıdaki adımları izleyin:
 
-  * İşlev uygulamanızı etkin bir şekilde çalıştığından emin olun.
+  1. İşlev uygulamanızı etkin bir şekilde çalıştığından emin olun.
 
-  * İşlev uygulamanız ayarlanan [çıkış noktaları arası kaynak paylaşımı (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) tüm kaynaklara izin verilen şekilde:
+  2. İşlev uygulamanız ayarlanan [çıkış noktaları arası kaynak paylaşımı (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) için aşağıdaki adımları izleyerek tüm kaynaklara izin verilir:
 
-    1. Başlangıç **işlev uygulamaları** listesinde, işlev uygulamanızı seçin > **Platform özellikleri** > **CORS**.
+     1. Gelen **işlev uygulamaları** listesinde, işlev uygulamanızı seçin > **Platform özellikleri** > **CORS**.
 
-       ![İşlev uygulamanızı seçin > "Platform özellikleri" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors.png)
+        ![İşlev uygulamanızı seçin > "Platform özellikleri" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors.png)
 
-    2. Altında **CORS**, ekleme `*` joker karakter, ancak tüm diğer kaynakları listeden kaldırın ve seçin **Kaydet**.
+     2. Altında **CORS**, ekleme `*` joker karakter, ancak tüm diğer kaynakları listeden kaldırın ve seçin **Kaydet**.
 
-       ![İşlev uygulamanızı seçin > "Platform özellikleri" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
+        ![Ayarlama "CORS * joker karakteri için" * "](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
 
 ### <a name="access-property-values-inside-http-requests"></a>HTTP isteklerini içinde erişim özellik değerleri
 
@@ -130,7 +118,11 @@ Mantıksal Uygulama Tasarımcısı'nda mantıksal uygulama içinde başlayarak b
 
 1. İçinde <a href="https://portal.azure.com" target="_blank">Azure portalında</a>, mantıksal Uygulama Tasarımcısı'nda mantıksal uygulamanızı açın. 
 
-2. Oluşturma ve işlev eklemek istediğiniz adımı altında seçin **yeni adım** > **Eylem Ekle**. 
+2. Oluşturma ve işlevinizi eklemek için senaryonuz için geçerli adımı izleyin:
+
+   * Mantıksal uygulamanızın iş akışında son adımı altında seçin **yeni adım**.
+
+   * Mantıksal uygulamanızın iş akışında mevcut adımlar arasındaki okun üzerine fareyi hareket ettirin seçin artı (+) oturum açın ve ardından **Eylem Ekle**.
 
 3. Arama kutusuna filtreniz olarak "azure işlevleri" girin.
 Eylem listesinden şu eylemi seçin: **Azure işlevleri - Azure işlevi seçin** 
@@ -145,36 +137,34 @@ Eylem listesinden şu eylemi seçin: **Azure işlevleri - Azure işlevi seçin**
 
    1. İçinde **işlev adı** kutusunda, işleviniz için bir ad sağlayın. 
 
-   2. İçinde **kod** kutusunda, eklemek istediğiniz yük ve yanıt dahil olmak üzere bu şablon, işlev kodunuzun işlevinizi çalışmayı tamamladıktan sonra mantıksal uygulamanıza döndürdü. 
-   Şablon kod bağlamı nesneye ileti ve mantıksal uygulamanızı işlevinize, örneğin geçirir içerik açıklar:
+   2. İçinde **kod** kutusunda, eklemek istediğiniz yük ve yanıt dahil, bir işlev şablonu kodunuza işlevinizi çalışmayı tamamladıktan sonra mantıksal uygulamanızı döndürdü. 
 
       ![İşlevinizi tanımlayın](./media/logic-apps-azure-functions/function-definition.png)
 
-      İşlevinizi içinde bu söz dizimini kullanarak bağlam nesnesi özelliklerinde başvurabilirsiniz:
+      Şablonun kodda  *`context` nesne* aracılığıyla, mantıksal uygulamanın gönderdiği ileti başvurduğu **istek gövdesi** sonraki bir adımda alan. 
+      Erişim için `context` nesnenin özelliklerinden, işlevin içindeki bu sözdizimini kullanın: 
 
-      ```text
-      context.<token-name>.<property-name>
-      ```
-      Bu örnekte, kullanacağınız sözdizimi aşağıdadır:
+      `context.body.<property-name>`
 
-      ```text
-      context.body.content
-      ```
+      Örneğin, başvuru için `content` özelliği içinde `context` nesne, bu sözdizimini kullanın: 
 
+      `context.body.content`
+
+      Ayrıca şablon kodunu içeren bir `input` değerini depolayan değişken `data` işlevinizi değeri işlemleri gerçekleştirebilmesi için parametre. 
+      JavaScript işlevleri içinde `data` değişkeni, ayrıca bir kısayol `context.body`.
+
+      > [!NOTE]
+      > `body` Özelliği burada uygulandığı `context` nesne ve aynı olmayan **gövdesi** eylem belirtecinden çıkış, hangi işlevinize de geçebilir. 
+ 
    3. İşiniz bittiğinde **Oluştur**’u seçin.
 
-6. İçinde **istek gövdesi** kutusunda, hangi biçimlendirilmelidir işlevinizin giriş olarak geçirmek için bağlam nesnesini JavaScript nesne gösterimi (JSON) belirtin. Tıkladığınızda **istek gövdesi** kutusu, dinamik içerik listesi açılır belirteçleri kullanılabilir özellikleri için önceki adımlardan seçebilmeniz için. 
+6. İçinde **istek gövdesi** kutusunda, işlevinizin giriş, JavaScript nesne gösterimi (JSON) nesnesi olarak biçimlendirilmelidir, sağlayın. 
 
-   Bu örnekte nesnesinde geçirir **gövdesi** e-posta tetikleyici belirteç:  
+   Bu giriş *bağlam nesnesi* veya mantıksal uygulamanızı işlevinize gönderen bir ileti. Tıkladığınızda **istek gövdesi** alan, dinamik içerik listesi görüntülenir önceki adımlardan bir çıkış belirteçleri seçebilmeniz. Bu örnek bağlamı yükü adlı bir özellik içerdiğini belirtir `content` olan **gelen** e-posta tetikleyicisi değerinden belirteci:
 
    !["İstek gövdesi" örnek - bağlam nesnesi yükü](./media/logic-apps-azure-functions/function-request-body-example.png)
 
-   Bağlam nesnesini içeriği bağlı olarak, mantıksal Uygulama Tasarımcısı sonra satır içi düzenleme yapabileceğiniz bir işlev şablonu oluşturur. 
-   Logic Apps, giriş bağlam nesnesini temel alan değişkenleri de oluşturur.
-
-   İçeriği doğrudan için JSON yükü eklendikten şekilde bu örnekte, bir dize olarak cast bağlam nesnesi değil. 
-   Ancak, nesne bir dize, bir JSON nesnesi veya bir JSON dizisi olmalıdır, bir JSON belirteci değilse bir hata alırsınız. 
-   Dize olarak bağlam nesnesi için çift tırnak işareti, örneğin ekleyin:
+   Burada, nesne içeriğini, doğrudan JSON yükü için eklenen için bağlam nesnesini bir dize olarak cast değil. Ancak, bağlam nesnesini bir dize, bir JSON nesnesi veya bir JSON dizisi gönderen bir JSON belirteç bulunmadığında hata alırsınız. Bu nedenle, bu örnekte kullanılan **alınma zamanı** belirteci bunun yerine, bağlam nesnesini bir dize olarak çift tırnak işareti eklenerek çevirebilirsiniz:  
 
    ![Dize olarak atama nesnesi](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
 
@@ -199,20 +189,17 @@ Eylem listesinden şu eylemi seçin: **Azure işlevleri - Azure işlevi seçin**
 
    ![İşlev uygulaması ve Azure işlevi seçin](./media/logic-apps-azure-functions/select-function-app-existing-function.png)
 
-   API tanımı (Swagger açıklamaları) sahip olan ve olmayan işlevler için [mantıksal uygulamanızı bulabilir ve bu işlevlere erişmek için ayarlanan](#function-swagger), seçebileceğiniz **Swagger eylemleri**:
+   API tanımı (Swagger açıklamaları) varsa ve işlevler [mantıksal uygulamanızı bulabilir ve bu işlevlere erişmek için ayarlanan](#function-swagger), seçebileceğiniz **Swagger eylemleri**:
 
    ![İşlev uygulaması, "Swagger eylemleri" seçin "ve Azure işlevinizin](./media/logic-apps-azure-functions/select-function-app-existing-function-swagger.png)
 
-5. İçinde **istek gövdesi** kutusunda, hangi biçimlendirilmelidir işlevinizin giriş olarak geçirmek için bağlam nesnesini JavaScript nesne gösterimi (JSON) belirtin. Bu bağlam nesnesinin ileti ve işlevinize, mantıksal uygulamanın gönderdiği içeriklere açıklar. 
+5. İçinde **istek gövdesi** kutusunda, işlevinizin giriş, JavaScript nesne gösterimi (JSON) nesnesi olarak biçimlendirilmelidir, sağlayın. 
 
-   Tıkladığınızda **istek gövdesi** kutusu, dinamik içerik listesi açılır belirteçleri kullanılabilir özellikleri için önceki adımlardan seçebilmeniz için. 
-   Bu örnekte nesnesinde geçirir **gövdesi** e-posta tetikleyici belirteç:
+   Bu giriş *bağlam nesnesi* veya mantıksal uygulamanızı işlevinize gönderen bir ileti. Tıkladığınızda **istek gövdesi** alan, dinamik içerik listesi görüntülenir önceki adımlardan bir çıkış belirteçleri seçebilmeniz. Bu örnek bağlamı yükü adlı bir özellik içerdiğini belirtir `content` olan **gelen** e-posta tetikleyicisi değerinden belirteci:
 
    !["İstek gövdesi" örnek - bağlam nesnesi yükü](./media/logic-apps-azure-functions/function-request-body-example.png)
 
-   İçeriği doğrudan için JSON yükü eklendikten şekilde bu örnekte, bir dize olarak cast bağlam nesnesi değil. 
-   Ancak, nesne bir dize, bir JSON nesnesi veya bir JSON dizisi olmalıdır, bir JSON belirteci değilse bir hata alırsınız. 
-   Dize olarak bağlam nesnesi için çift tırnak işareti, örneğin ekleyin:
+   Burada, nesne içeriğini, doğrudan JSON yükü için eklenen için bağlam nesnesini bir dize olarak cast değil. Ancak, bağlam nesnesini bir dize, bir JSON nesnesi veya bir JSON dizisi gönderen bir JSON belirteç bulunmadığında hata alırsınız. Bu nedenle, bu örnekte kullanılan **alınma zamanı** belirteci bunun yerine, bağlam nesnesini bir dize olarak çift tırnak işareti eklenerek çevirebilirsiniz: 
 
    ![Dize olarak atama nesnesi](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
 
@@ -222,7 +209,7 @@ Eylem listesinden şu eylemi seçin: **Azure işlevleri - Azure işlevi seçin**
 
 ## <a name="call-logic-apps-from-functions"></a>Mantıksal uygulamaları çağırma işlevleri
 
-Bir Azure işlevi içinde bir mantıksal uygulamadan tetiklemek için bu mantıksal uygulama çağrılabilir uç nokta olmalıdır ya da daha açık belirtmek gerekirse bir **istek** tetikleyici. Ardından, işlevinizin bir HTTP POST isteği URL'sini için gönderen **isteği** tetikleyin ve işlemek için bu mantıksal uygulama istediğiniz yükü içerir. Daha fazla bilgi için [çağrı, tetikleyici veya iç içe mantıksal uygulamalar](../logic-apps/logic-apps-http-endpoint.md). 
+Bir Azure işlevi içinde bir mantıksal uygulamadan tetiklemek istediğinizde, mantıksal uygulama bir çağrılabilir uç noktası sağlayan bir tetikleyici ile başlamalıdır. Örneğin, mantıksal uygulama ile başlayabilirsiniz **HTTP**, **istek**, **Azure kuyrukları**, veya **Event Grid** tetikleyici. İçinde işlevinizi tetikleyicinin URL'sine HTTP POST isteği gönderin ve istediğiniz işlemek için bu mantıksal uygulama yükü içerir. Daha fazla bilgi için [çağrı, tetikleyici veya iç içe mantıksal uygulamalar](../logic-apps/logic-apps-http-endpoint.md). 
 
 ## <a name="get-support"></a>Destek alın
 

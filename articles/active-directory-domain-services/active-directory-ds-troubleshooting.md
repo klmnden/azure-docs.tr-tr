@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 41a06846e914eb79e15aa47c7203b17166731ae0
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: fa4d40786fdc61183c119a17b6e36bd853a6fd64
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502337"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42061736"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD etki alanı Hizmetleri - sorun giderme kılavuzu
 Bu makalede, ayarlama veya Azure Active Directory (AD) etki alanı Hizmetleri yönetme karşılaşabileceğiniz sorunları için sorun giderme ipuçları sağlar.
@@ -139,7 +139,7 @@ Azure AD kiracınızdaki kullanıcıların bir veya daha fazla yeni oluşturulan
 * **Dış hesaplar:** etkilenen kullanıcı hesabının Azure AD kiracısında bir dış hesap olmadığından emin olun. Örnekler dış hesaplar Microsoft hesapları (örneğin, 'joe@live.com') veya bir dış kullanıcı hesapları Azure AD dizini. Azure AD Domain Services yok olduğundan bu tür kullanıcı hesapları için kimlik bilgilerini, bu kullanıcılar yönetilen etki alanında oturum açamaz.
 * **Eşitlenen hesaplar:** bir şirket içi dizinden etkilenen kullanıcı hesapları eşitlenmişse, doğrulayın:
 
-  * Dağıtılan veya güncelleştirildi [en son sürüm, Azure AD Connect'in önerilen](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+  * Dağıtılan veya güncelleştirildi [en son sürüm, Azure AD Connect'in önerilen](https://www.microsoft.com/download/details.aspx?id=47594).
   * Azure AD Connect'e yapılandırdığınız [tam eşitleme gerçekleştir](active-directory-ds-getting-started-password-sync.md).
   * Dizininizin boyutuna bağlı olarak, bir kullanıcı hesapları için birkaç dakika sürebilir ve kimlik bilgisi karmalarının Azure AD Etki Alanı Hizmetleri'nde kullanılabilir olması. Yeterince uzun bir kimlik doğrulama yeniden denemeden önce beklenmesini emin olun.
   * Önceki adımlarda doğrulandıktan sonra sorun devam ederse, Microsoft Azure AD eşitleme hizmeti yeniden başlatmayı deneyin. Eşitleme makinenizden bir komut istemi başlatın ve aşağıdaki komutları yürütün:

@@ -2,25 +2,22 @@
 title: Azure AD Uygulama Ara Sunucusu ile uygulama yayımlama | Microsoft Belgeleri
 description: Azure AD uygulama ara sunucusu ile şirket içi uygulamaları buluta, Azure portalında yayımlayın.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/20/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 1224642bb7e6fc0c51b3f839a78449132db5b4bb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 973a6201a227e6c2e295e6e5ea2f40c302572504
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364266"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42057465"
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Azure AD Uygulama Ara Sunucusu ile uygulama yayımlama
 
@@ -72,6 +69,7 @@ Uygulama proxy'si kullanarak uygulamalarınızı yayımlamak için aşağıdaki 
    ![Uygulamanızı yapılandırma](./media/application-proxy-publish-azure-portal/configure-app.png)
 5. Gerekirse, ek ayarları yapılandırın. Çoğu uygulama için bu ayarları varsayılan durumlarına tutmanız gerekir. 
    - **Arka uç uygulama zaman aşımı**: Bu değer kümesine **uzun** uygulamanız kimlik doğrulaması ve bağlanmak yavaş ise. 
+   - **Azaltmaya tanımlama bilgisi kullanmak**: Bu değer kümesine **Evet** tanımlama bilgileri uygulama proxy'si için HTTP yanıt üst bilgisinde HTTPOnly bayrağını ekleyin.
    - **Üst bilgilerinde URL'leri**: Bu değer olarak tutmak **Evet** özgün ana bilgisayar üst bilgisi'kimlik doğrulama isteği, uygulamanızın gerektirdiği durumlar haricinde.
    - **Uygulama gövdesindeki URL'leri**: Bu değer olarak tutmak **Hayır** sürece diğer şirket içi uygulamalara yönelik sabit kodlanmış HTML bağlantıları ve özel etki alanları kullanmayın. Daha fazla bilgi için [çeviri uygulama ara sunucusu ile bağlantı](application-proxy-configure-hard-coded-link-translation.md).
    

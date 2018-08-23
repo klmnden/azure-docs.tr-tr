@@ -1,6 +1,6 @@
 ---
-title: Azure günlük analizi günlük arama Portalı'nı kullanarak | Microsoft Docs
-description: Bu makalede günlük aramalar oluşturun ve günlük arama Portalı'nı kullanarak günlük analizi çalışma alanınızda depolanan verileri çözümleyen açıklar bir öğretici içerir.  Öğreticiye farklı veri türlerinin döndürülmesine ve sonuçların çözümlenmesi için bazı basit sorguların çalıştırılması da dahildir.
+title: Azure Log Analytics'te günlük araması portalını kullanma | Microsoft Docs
+description: Bu makale, günlük aramalarının oluşturulması ve günlük araması portalını kullanarak Log Analytics çalışma alanınızda depolanmış verileri analiz etme açıklayan bir öğretici içerir.  Öğreticiye farklı veri türlerinin döndürülmesine ve sonuçların çözümlenmesi için bazı basit sorguların çalıştırılması da dahildir.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,41 +11,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 08/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 8468186d545d7aae484b037f3962b01b0ed4cd2e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: e97bab36a9a1a18cab1d45abfa451139323b2320
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127559"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057746"
 ---
-# <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Günlük arama Portalı'nı kullanarak Azure günlük analizi günlük aramalar oluşturun
+# <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Günlük araması portalını kullanarak Azure Log Analytics günlük aramalarının oluşturulması
 
-> [!NOTE]
-> Bu makalede Azure günlük analizi yeni sorgu dili kullanarak günlük arama portalında açıklanmaktadır.  Yeni dil hakkında daha fazla bilgi ve çalışma alanı yükseltme yordamı elde [Azure günlük analizi çalışma alanınız için yeni günlük arama yükseltme](log-analytics-log-search-upgrade.md).  
->
-> Çalışma alanınızı yeni sorgu dili yükseltilmedi, için başvurmalıdır [Bul günlük aramaları günlük analizi kullanarak verileri](log-analytics-log-searches.md) günlük arama Portalı'nın geçerli sürümü hakkında bilgi için.
+Bu makale, günlük aramalarının oluşturulması ve günlük araması portalını kullanarak Log Analytics çalışma alanınızda depolanmış verileri analiz etme açıklayan bir öğretici içerir.  Öğreticiye farklı veri türlerinin döndürülmesine ve sonuçların çözümlenmesi için bazı basit sorguların çalıştırılması da dahildir.  Doğrudan değiştirme yerine sorgu değiştirilmeden için günlük araması portalında özelliklere odaklanır.  Doğrudan sorgu düzenleme hakkında daha fazla bilgi için bkz [sorgu dili başvurusu](https://go.microsoft.com/fwlink/?linkid=856079).
 
-Bu makalede günlük aramalar oluşturun ve günlük arama Portalı'nı kullanarak günlük analizi çalışma alanınızda depolanan verileri çözümleyen açıklar bir öğretici içerir.  Öğreticiye farklı veri türlerinin döndürülmesine ve sonuçların çözümlenmesi için bazı basit sorguların çalıştırılması da dahildir.  Doğrudan değiştirmek yerine sorgu değiştirmek için günlük arama portal özelliklerinde odaklanır.  Doğrudan sorgu düzenleme hakkında daha fazla bilgi için bkz: [sorgu dili başvurusu](https://go.microsoft.com/fwlink/?linkid=856079).
-
-Günlük arama portalı yerine Advanced Analytics portalında aramaları oluşturmak için bkz [Analytics portalı ile çalışmaya başlama](https://go.microsoft.com/fwlink/?linkid=856587).  Her iki portalları aynı sorgu dili günlük analizi çalışma alanındaki aynı verilere erişmek için kullanın.
+Gelişmiş analiz portalını günlük araması portalı yerine, aramalar oluşturmak için bkz [Analytics portalı ile çalışmaya başlama](https://go.microsoft.com/fwlink/?linkid=856587).  Her iki Portal, Log Analytics çalışma alanında aynı verilere erişmek için aynı sorgu dilini kullanın.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu öğretici, bir günlük analizi çalışma alanı çözümlemek için sorgular için veri üretir en az bir bağlı kaynağıyla zaten sahip olduğunuzu varsayar.  
+Bu öğretici, Log Analytics çalışma ile verileri analiz etmek sorgular oluşturur ve bağlı en az bir kaynak zaten sahibi olduğunuzu varsayar.  
 
-- Bir çalışma alanı yoksa, en yordamı kullanarak boş bir tane oluşturabilirsiniz [günlük analizi çalışma alanı ile çalışmaya başlama](log-analytics-get-started.md).
-- En az bir bağlanma [Windows Aracısı](log-analytics-windows-agent.md) veya bir [Linux Aracısı](log-analytics-linux-agents.md) çalışma alanı.  
+- Bir çalışma alanınız yoksa, ücretsiz bir yordamı kullanarak oluşturabileceğiniz [bir Log Analytics çalışma alanını kullanmaya başlama](log-analytics-get-started.md).
+- En az bir bağlama [Windows Aracısı](log-analytics-windows-agent.md) veya bir [Linux Aracısı](log-analytics-linux-agents.md) çalışma alanına.  
 
 ## <a name="open-the-log-search-portal"></a>Günlük Araması portalını açma
 Günlük Araması portalını açarak işleme başlayın. 
 
 1. Azure portalı açın.
-2. Günlük analizi gidin ve çalışma alanınızı seçin.
-3. Seçin **oturum arama**.
+2. Log Analytics'e gidip çalışma alanınızı seçin.
+3. Seçin **günlük arama**.
 
-![Günlük Ara düğmesi](media/log-analytics-log-search-log-search-portal/log-search-button.png)
+![Günlük araması düğmesi](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 
 ## <a name="create-a-simple-search"></a>Basit bir arama oluşturma
 Üzerinde çalışılacak bazı verileri almanın en hızlı yolu, tablodaki tüm kayıtları döndüren basit bir sorgudur.  Çalışma alanınıza bağlı Windows veya Linux istemcileriniz varsa Olay (Windows) veya Syslog (Linux) tablosunda verileriniz olur.
@@ -67,17 +62,17 @@ Her kaydın yalnızca ilk birkaç özelliği görüntülenir.  Belirli bir kayda
 
 ![Kayıt ayrıntıları](media/log-analytics-log-search-log-search-portal/log-search-portal-02.png)
 
-## <a name="set-the-time-scope"></a>Zaman kapsamını Ayarla
-Günlük analizi tarafından toplanan her kaydına sahip bir **TimeGenerated** kaydın oluşturulduğu saat ve tarihi içeren özelliği.  Günlük arama portal sorguda yalnızca kayıtlarıyla döndüren bir **TimeGenerated** zaman kapsamdaki ekranın sol tarafında görüntülenir.  
+## <a name="set-the-time-scope"></a>Zaman kapsamı ayarlayın
+Log Analytics tarafından toplanan tüm kayıtların sahip bir **TimeGenerated** kaydın oluşturulduğu saat ve tarihi içeren özelliği.  Günlük araması portalı bir sorguda yalnızca kayıtlarla döndürür bir **TimeGenerated** zaman kapsamında ekranın sol tarafında görüntülenir.  
 
-Zaman filtresi açılır seçerek veya kaydırıcıyı değiştirerek değiştirebilirsiniz.  Kaydırıcı her zaman diliminin aralıkta kayıtlarını göreli sayısını gösteren bir çubuk grafiği görüntüler.  Bu kesimin aralığın bağlı olarak değişir.
+Süresi filtre açılır menüyü seçerek veya kaydırıcıyı değiştirerek değiştirebilirsiniz.  Kaydırıcı kayıt her zaman bir segment aralığı içinde göreli sayısını gösteren bir çubuk grafik görüntüler.  Bu kesim aralığı bağlı olarak değişir.
 
-Varsayılan süre kapsamı **1 gün**.  Bu değeri değiştirmek **7 gün**, ve kayıtların toplam sayısını artırmalısınız.
+Varsayılan zaman kapsamı **1 gün**.  Bu değeri değiştirmek **7 gün**, ve kayıt toplam sayısını artırmalısınız.
 
-![Tarih saat kapsamı](media/log-analytics-log-search-log-search-portal/log-search-portal-03.png)
+![Tarih zaman kapsamı](media/log-analytics-log-search-log-search-portal/log-search-portal-03.png)
 
 ## <a name="filter-results-of-the-query"></a>Sorgu sonuçlarını filtreleme
-Ekranın sol tarafında, doğrudan değişiklik yapmadan sorguya filtreleme eklemenize olanak tanıyan bir filtre bölmesi mevcuttur.  Döndürülen kayıtları birkaç özelliklerini ilk on değerleriyle kendi kayıt sayısı ile birlikte görüntülenir.
+Ekranın sol tarafında, doğrudan değişiklik yapmadan sorguya filtreleme eklemenize olanak tanıyan bir filtre bölmesi mevcuttur.  Döndürülen kayıtları çeşitli özellikleri, kullanıcıların kayıt sayısı ile en iyi on değerleriyle görüntülenir.
 
 **Event** ile çalışıyorsanız **EVENTLEVELNAME**’in altındaki **Error**’ın yanındaki onay kutusunu işaretleyin.   **Syslog** ile çalışıyorsanız **SEVERITYLEVEL**’ın altındaki **err**’in yanındaki onay kutusunu işaretleyin.  Bu, sonuçları hata olaylarıyla sınırlamak için sorguyu aşağıdakilerden birine değiştirir.
 
@@ -96,11 +91,11 @@ Kayıtlardan birindeki özellik menüsünden **Filtrelere ekle** seçeneğini be
 
 Filtrelemek istediğiniz değere sahip bir kayıt için özellik menüsünden **Filtre** seçeneğini belirleyerek aynı filtreyi ayarlayabilirsiniz.  
 
-Yalnızca **filtre** adlarının mavi olan özellikleri seçeneği.  Bunlar, arama koşulları için dizini oluşturulmuş *aranabilir* alanlardır.  Gri alanlar yalnızca **Başvuruları göster** seçeneğinin bulunduğu *serbest metin aranabilir* alanlardır.  Bu seçenek, herhangi bir özellikte söz konusu değere sahip kayıtları döndürür.
+Yalnızca **filtre** mavi adında özelliklerle seçeneği.  Bunlar, arama koşulları için dizini oluşturulmuş *aranabilir* alanlardır.  Gri alanlar yalnızca **Başvuruları göster** seçeneğinin bulunduğu *serbest metin aranabilir* alanlardır.  Bu seçenek, herhangi bir özellikte söz konusu değere sahip kayıtları döndürür.
 
 ![Filtre menüsü](media/log-analytics-log-search-log-search-portal/log-search-portal-01a.png)
 
-Kayıt menüsünde **Gruplandırma ölçütü** seçeneğini belirleyerek tek bir özellikteki sonuçları gruplandırabilirsiniz.  Bu işlem, sorgunuza sonuçları bir grafikte görüntüleyen bir [özetleme](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) işleci ekler.  Birden fazla özelliği gruplandırabilirsiniz, ancak sorguyu doğrudan düzenlemeniz gerekir.  Kayıt sonraki menüsünü **bilgisayar** özelliği ve select **'Bilgisayar' grupla**.  
+Kayıt menüsünde **Gruplandırma ölçütü** seçeneğini belirleyerek tek bir özellikteki sonuçları gruplandırabilirsiniz.  Bu işlem, sorgunuza sonuçları bir grafikte görüntüleyen bir [özetleme](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) işleci ekler.  Birden fazla özelliği gruplandırabilirsiniz, ancak sorguyu doğrudan düzenlemeniz gerekir.  **Bilgisayar** özelliğinin yanındaki kayıt menüsünü seçin ve **'Bilgisayara' Göre Gruplandır** seçeneğini belirleyin.  
 
 ![Bilgisayara göre gruplandırma](media/log-analytics-log-search-log-search-portal/log-search-portal-10.png)
 
@@ -130,7 +125,7 @@ Bir sütun başlığını sonuçların üst tarafına sürükleyerek söz konusu
 
 
 ## <a name="work-with-performance-data"></a>Performans verileriyle çalışma
-Hem Windows hem de Linux aracıları için performans verileri depolanan **Perf** tablosundaki Log Analytics çalışma alanında depolanmaktadır.  Diğer kaydı gibi performans kayıtları aramak ve biz tüm performans kayıtları olayları ile olduğu gibi veren basit bir sorgu yazabilirsiniz.
+Hem Windows hem de Linux aracıları için performans verileri depolanan **Perf** tablosundaki Log Analytics çalışma alanında depolanmaktadır.  Performans kayıtları diğer kayıtlar gibi görünür ve tüm performans kayıtlarını şimdi olaylarda olduğu gibi döndüren basit bir sorgu yazabiliriz.
 
 ```
 Perf
@@ -164,5 +159,5 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Günlük analizi sorgu dili hakkında daha fazla bilgi [Analytics portalı ile çalışmaya başlama](https://go.microsoft.com/fwlink/?linkid=856079).
-- Eğitmen kullanılarak üzerinden yol [Advanced Analytics portalı](https://go.microsoft.com/fwlink/?linkid=856587) olanak sağlayan aynı sorguları çalıştırmak ve günlük arama portalı aynı verilere erişmek.
+- Log Analytics sorgu dili hakkında daha fazla bilgi [Analytics portalı ile çalışmaya başlama](https://go.microsoft.com/fwlink/?linkid=856079).
+- Bir öğretici kullanarak yol [Gelişmiş analiz portalını](https://go.microsoft.com/fwlink/?linkid=856587) aynı sorguları çalıştırmak ve günlük araması portalını aynı verilere erişmesine olanak tanıyan.

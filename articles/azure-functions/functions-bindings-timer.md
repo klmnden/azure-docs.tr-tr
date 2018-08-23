@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 08/08/2018
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: 6712fb0865284ccc2b84e3c2fcd49972f541f69b
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 270228e73243e6b2670e7ccb30765526a5db6463
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004224"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057743"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure işlevleri için Zamanlayıcı tetikleyicisi 
 
@@ -50,6 +50,7 @@ Dile özgü örneğe bakın:
 * [C# betiği (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### <a name="c-example"></a>C# örneği
 
@@ -151,6 +152,21 @@ module.exports = function (context, myTimer) {
 };
 ```
 
+### <a name="java-example"></a>Java örnek
+
+Aşağıdaki örnek işlevi tetikler ve beş dakikada çalıştırılır. `@TimerTrigger` İşlev üzerindeki ek açıklama tanımlar aynı dize biçimi kullanarak zamanlama [sıralanmış iş ifadeleri](http://en.wikipedia.org/wiki/Cron#CRON_expression).
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
 ## <a name="attributes"></a>Öznitelikler
 
 İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
@@ -178,7 +194,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**type** | yok | "TimerTrigger için" olarak ayarlanmalıdır. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır.|
 |**direction** | yok | "İçin" ayarlanmalıdır. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır. |
 |**Adı** | yok | İşlev kodunu Zamanlayıcı nesneyi temsil eden değişken adı. | 
-|**schedule**|**ScheduleExpression**|A [CRON ifadesi](#cron-expressions) veya [TimeSpan](#timespan) değeri. A `TimeSpan` bir App Service planı üzerinde çalıştırılan bir işlev uygulaması için kullanılabilir. Bir uygulama ayarında zamanlama ifadeyi ve ayar adı içinde sarmalanmış bir uygulama için bu özelliği ayarlayın ** % ** Bu örnekte olduğu gibi işaretlere: "% ScheduleAppSetting %". |
+|**schedule**|**ScheduleExpression**|A [CRON ifadesi](#cron-expressions) veya [TimeSpan](#timespan) değeri. A `TimeSpan` bir App Service planı üzerinde çalıştırılan bir işlev uygulaması için kullanılabilir. Bir uygulama ayarında zamanlama ifadeyi ve ayar adı içinde sarmalanmış bir uygulama için bu özelliği ayarlayın **%** Bu örnekte olduğu gibi işaretlere: "% ScheduleAppSetting %". |
 |**runOnStartup**|**runOnStartup**|Varsa `true`, çalışma zamanı başladığında işlevi çağrılır. Örneğin, işlev uygulaması uyanır eylemsizlik nedeniyle boşta filtrelemesinden geçtikten sonra çalışma zamanı başlatır. ne zaman işlev uygulaması, işlev değişiklikleri nedeniyle ve işlev uygulamasını kullanıma ölçeklendirildiğinde yeniden başlatır. Bu nedenle **runOnStartup** nadiren şimdiye kadar ayarlanması gerekir `true`yüksek oranda beklenmeyen zamanlarda execute kodunu hale getirecek şekilde.|
 |**useMonitor**|**useMonitor**|Kümesine `true` veya `false` zamanlama izlenmesi gereken olup olmadığını belirtmek için. İzleme zamanlaması bile işlevi uygulama örneklerini yeniden başlattığınızda zamanlama doğru yönetilmesini sağlamak yardımcı olmak için zamanlama örnekleri'ni kalıcıdır. Açıkça ayarlanmazsa varsayılan olup olmadığını `true` bir yinelenme aralığı 1 dakikadan daha uzun olan zamanlamalar. Dakika başına birden çok kez tetikleyen zamanlamalar için varsayılandır `false`.
 

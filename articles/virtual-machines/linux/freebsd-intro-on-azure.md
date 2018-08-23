@@ -1,6 +1,6 @@
 ---
-title: Azure üzerinde FreeBSD giriş | Microsoft Docs
-description: Azure üzerinde FreeBSD sanal makineleri kullanma hakkında bilgi edinin
+title: Azure üzerinde Freebsd'ye giriş | Microsoft Docs
+description: Azure'da FreeBSD sanal makineleri kullanma hakkında bilgi edinin
 services: virtual-machines-linux
 documentationcenter: ''
 author: thomas1206
@@ -15,50 +15,50 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: 9c7cf223eab3e989436e12c39b122f2aee7619a0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: dfbdc9e3091255267afe6c60363b7f93c4623e02
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30906669"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42056256"
 ---
-# <a name="introduction-to-freebsd-on-azure"></a>Azure üzerinde FreeBSD giriş
-Bu konuda FreeBSD sanal makine Azure'da çalışan bir genel bakış sağlar.
+# <a name="introduction-to-freebsd-on-azure"></a>Azure üzerinde Freebsd'ye giriş
+Bu makalede, FreeBSD sanal makine Azure'da çalışan genel bir bakış sağlar.
 
 ## <a name="overview"></a>Genel Bakış
-Microsoft Azure FreeBSD gelişmiş bilgisayar işletim sisteminin güç modern sunuculara, masaüstü bilgisayarları, kullanılan ve embedded platformları ' dir.
+Microsoft Azure için FreeBSD gelişmiş bilgisayar işletim sistemi platformları embedded ve power modern sunuculara, masaüstü, kullanılan ' dir.
 
-Microsoft Corporation'ın yapmadan FreeBSD görüntülerini kullanılabilir ile azure'da [Azure VM Konuk aracısının](https://github.com/Azure/WALinuxAgent/) önceden yapılandırılmış. Şu anda aşağıdaki FreeBSD sürümleri görüntü olarak Microsoft tarafından sunulan:
+Microsoft Corporation çalışmalarımız FreeBSD görüntülerini kullanılabilir Azure ile [Azure VM Konuk Aracısı](https://github.com/Azure/WALinuxAgent/) önceden yapılandırılmış. Şu anda aşağıdaki FreeBSD sürümleri görüntü olarak Microsoft tarafından sunulur:
 
-- FreeBSD 10.3-RELEASE
-- FreeBSD 11.0-sürüm
-- FreeBSD 11.1-sürüm
+- FreeBSD 10.3 yayın
+- FreeBSD 10.4 yayın
+- FreeBSD 11.1 yayın
 
-Aracı FreeBSD VM ve VM ilk kullanımda (kullanıcı adı, parola veya SSH anahtarı, ana bilgisayar adı, vb.) sağlama ve işlevlerini seçmeli VM uzantıları için etkinleştirmek gibi işlemleri için Azure doku arasındaki iletişim için sorumludur.
+Aracı, Azure fabric ilk kullanımda (kullanıcı adı, parola veya SSH anahtarı, konak adı, vb.) VM sağlama ve seçmeli VM uzantıları için işlevleri etkinleştirme gibi işlemler için FreeBSD VM arasındaki iletişimi sorumludur.
 
-FreeBSD gelecek sürümlerinde olduğu gibi stratejisi güncel ve FreeBSD yayın mühendislik ekibi tarafından kısa süre içinde yayımladıktan sonra en son sürümlerde kullanılabilir yapmaktır.
+FreeBSD gelecekteki sürümlerinde olduğu gibi güncel kalın ve FreeBSD yayın mühendislik ekibi tarafından kısa süre içinde yayımladıktan sonra en son sürümlerine hale stratejisidir.
 
 ## <a name="deploying-a-freebsd-virtual-machine"></a>FreeBSD sanal makine dağıtma
-FreeBSD sanal makine dağıtımı Azure portalından Azure Marketi'nden görüntü kullanarak bir işlemdir:
+FreeBSD sanal makine dağıtma Azure portalından Azure Marketi'nden bir görüntü kullanarak bir işlemdir:
 
-- [FreeBSD Azure Market'te 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
-- [FreeBSD Azure Market'te 11.0](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/)
-- [FreeBSD Azure Market'te 11.1](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111)
+- [FreeBSD 10.3 Azure Marketi'nde](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103)
+- [FreeBSD 10.4 Azure Marketi'nde](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeBSD104)
+- [FreeBSD 11.1 Azure Marketi'nde](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111)
 
-### <a name="create-a-freebsd-vm-through-azure-cli-20-on-freebsd"></a>Azure CLI 2.0 aracılığıyla bir FreeBSD VM üzerinde FreeBSD oluşturma
-Yüklemek gereken ilk [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) FreeBSD makinede komutu aşağıdaki olsa.
+### <a name="create-a-freebsd-vm-through-azure-cli-20-on-freebsd"></a>Azure CLI 2.0 aracılığıyla FreeBSD VM üzerinde Freebsd'ye oluşturma
+Yüklemek gereken ilk [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) FreeBSD makinede aşağıdaki komut rağmen.
 
 ```bash 
 curl -L https://aka.ms/InstallAzureCli | bash
 ```
 
-Bash FreeBSD makinenize yüklü değilse, komutu yüklemeden önce aşağıdaki çalıştırın. 
+Bash FreeBSD makinenizde yüklü değilse, aşağıdaki komut yüklemeden önce çalıştırın. 
 
 ```bash
 sudo pkg install bash
 ```
 
-Python FreeBSD makinenize yüklü değilse, komutları yüklemeden önce aşağıdaki çalıştırın. 
+Python FreeBSD makinenizde yüklü değilse, komutları yüklemeden önce aşağıdaki çalıştırın. 
 
 ```bash
 sudo pkg install python35
@@ -67,9 +67,9 @@ sudo rm /usr/local/bin/python
 sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
 ```
 
-Yükleme sırasında istendiğinde `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)`. Yanıtı verirseniz `y` ve girin `/etc/rc.conf` olarak `a path to an rc file to update`, sorunu karşılayan `ERROR: [Errno 13] Permission denied`. Bu sorunu gidermek için yazma geçerli kullanıcının dosyayı karşı sağdan vermelisiniz `etc/rc.conf`.
+Yükleme sırasında sizden istenir `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)`. Cevabı verirseniz `y` girin `/etc/rc.conf` olarak `a path to an rc file to update`, sorun karşılamak `ERROR: [Errno 13] Permission denied`. Bu sorunu çözmek için yazma geçerli kullanıcının dosyayı karşı sağdan vermelisiniz `etc/rc.conf`.
 
-Şimdi Azure'da oturum ve FreeBSD VM oluşturun. Aşağıda bir FreeBSD 11.0 VM oluşturmak için bir örnek verilmiştir. Parametresi de ekleyebilirsiniz `--public-ip-address-dns-name` yeni oluşturulan bir genel IP için genel benzersiz bir DNS adına sahip. 
+Artık Azure'da oturum açın ve FreeBSD VM'nizi oluşturun. FreeBSD 11.0 VM oluşturmak için bir örnek aşağıda verilmiştir. Parametre de ekleyebilirsiniz `--public-ip-address-dns-name` yeni oluşturulan bir genel IP için genel olarak benzersiz bir DNS adına sahip. 
 
 ```azurecli
 az login 
@@ -81,57 +81,57 @@ az vm create --name myFreeBSD11 \
     --generate-ssh-keys
 ```
 
-Ardından, sizin FreeBSD VM Dağıtım yukarıdaki çıktıda yazdırılan IP adresi üzerinden oturum açabilir. 
+Ardından, FreeBSD vm'nize dağıtım yukarıdaki çıktıda yazdırılan IP adresi üzerinden oturum açabilir. 
 
 ```bash
 ssh azureuser@xx.xx.xx.xx -i /etc/ssh/ssh_host_rsa_key
 ```   
 
-## <a name="vm-extensions-for-freebsd"></a>FreeBSD VM uzantıları
+## <a name="vm-extensions-for-freebsd"></a>FreeBSD için VM uzantıları
 Desteklenen VM uzantıları FreeBSD aşağıda verilmiştir.
 
 ### <a name="vmaccess"></a>VMAccess
 [VMAccess](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) uzantısı kullanabilirsiniz:
 
-* Özgün sudo kullanıcının parolasını sıfırlayın.
-* Yeni bir sudo kullanıcı belirtilen parolayla oluşturun.
-* Verilen anahtarla genel ana bilgisayar anahtarını ayarlayın.
-* Ana makine anahtarı sağlanmazsa, VM sağlama işlemi sırasında sağlanan genel ana bilgisayar anahtarını sıfırlayın.
+* Sudo kullanıcının parolasını sıfırlayın.
+* Belirtilen parolayla yeni bir sudo kullanıcı oluşturun.
+* Verilen anahtara sahip genel ana bilgisayar anahtarını ayarlayın.
+* Ana bilgisayar anahtarı sağlanmazsa, VM sağlama sırasında sağlanan genel ana bilgisayar anahtarı sıfırlayın.
 * SSH bağlantı noktası (22) açın ve reset_ssh ayarlarsanız sshd_config geri true.
-* Varolan bir kullanıcı kaldırın.
+* Mevcut kullanıcıyı kaldırın.
 * Diskleri denetleyin.
-* Eklenen bir disk onarın.
+* Eklenen bir diski onarın.
 
 ### <a name="customscript"></a>CustomScript
 [CustomScript](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript) uzantısı kullanabilirsiniz:
 
-* Sağlanırsa, özel komut dosyaları Azure Storage veya dış ortak depolama (örneğin, GitHub) indirin.
-* Giriş noktası komut dosyasını çalıştırın.
+* Sağlanırsa, özel komut dosyaları Azure depolama veya genel dış depo (örneğin GitHub) indirin.
+* Giriş noktası betiğini çalıştırın.
 * Satır içi komutları destekler.
-* Windows stili yeni satır kabuk ve Python komut dosyaları otomatik olarak dönüştürür.
-* Ürün reçetesi kabuk ve Python komut dosyaları otomatik olarak kaldırın.
-* CommandToExecute gizli verileri koruyun.
+* Windows stili satır içinde kabuk ve Python betiklerini otomatik olarak dönüştürür.
+* BOM kabuk ve Python komut dosyaları otomatik olarak kaldırın.
+* CommandToExecute hassas verileri koruyun.
 
 > [!NOTE]
-> FreeBSD VM yalnızca destekler CustomScript sürüm 1.x şimdi tarafından.  
+> FreeBSD VM CustomScript sürümü yalnızca destekler 1.x şimdi tarafından.  
 
-## <a name="authentication-user-names-passwords-and-ssh-keys"></a>Kimlik doğrulaması: kullanıcı adları, parolalar ve SSH anahtarları
-Azure portalı kullanarak bir FreeBSD sanal makine oluştururken, bir kullanıcı adı, parola veya SSH ortak anahtarı sağlamanız gerekir.
-Azure FreeBSD sanal makine dağıtmak için kullanıcı adları system hesaplarının adlarını değil eşleşmesi gerekir (UID < 100) sanal makine ("Kök", örneğin) zaten mevcut.
-Şu anda yalnızca RSA SSH anahtarı desteklenir. Çok satırlı SSH anahtarı ile başlamalıdır `---- BEGIN SSH2 PUBLIC KEY ----` ve sonunda `---- END SSH2 PUBLIC KEY ----`.
+## <a name="authentication-user-names-passwords-and-ssh-keys"></a>Kimlik doğrulaması: kullanıcı adı, parola ve SSH anahtarları
+Azure portalını kullanarak bir FreeBSD sanal makine oluştururken, bir kullanıcı adı, parola veya SSH ortak anahtarı sağlamanız gerekir.
+FreeBSD sanal makine azure'da dağıtmak için kullanıcı adları, system hesaplarının adlarını değil eşleşmelidir (UID < 100) ("Kök", örneğin) sanal makine zaten mevcut.
+Şu anda yalnızca RSA SSH anahtarı desteklenir. Çok satırlı bir SSH anahtarı ile başlamalıdır `---- BEGIN SSH2 PUBLIC KEY ----` ve ile sona erdi `---- END SSH2 PUBLIC KEY ----`.
 
-## <a name="obtaining-superuser-privileges"></a>Süper kullanıcı ayrıcalıkları alma
-Azure üzerinde sanal makine örneği dağıtımı sırasında belirtilen kullanıcı hesabı ayrıcalıklı bir hesaptır. Sudo paketi yayımlanmış FreeBSD görüntüde yüklendi.
-Bu kullanıcı hesabıyla oturum açtınız sonra komut sözdizimini kullanarak kök olarak komutları çalıştırabilirsiniz.
+## <a name="obtaining-superuser-privileges"></a>Süper kullanıcı ayrıcalıkları edinme
+Azure'da sanal makine örneği dağıtım sırasında belirtilen kullanıcı hesabının ayrıcalıklı bir hesapsa. Sudo paketinin yayımlanan FreeBSD görüntüde yüklendi.
+Bu kullanıcı hesabıyla oturum açtınız sonra komut söz dizimini kullanarak komutları kök olarak çalıştırabilirsiniz.
 
 ```
 $ sudo <COMMAND>
 ```
 
-Bir kök Kabuğu'nu kullanarak isteğe bağlı olarak elde edebilirsiniz `sudo -s`.
+Kullanarak isteğe bağlı olarak bir kök Kabuk edinebilirsiniz `sudo -s`.
 
 ## <a name="known-issues"></a>Bilinen sorunlar
-[Azure VM Konuk aracısının](https://github.com/Azure/WALinuxAgent/) 2.2.2 sahip [bilinen bir sorun] sürüm (https://github.com/Azure/WALinuxAgent/pull/517) , sağlama hatası Azure FreeBSD sanal makine için neden olur. Düzeltme tarafından yakalanan [Azure VM Konuk aracısının](https://github.com/Azure/WALinuxAgent/) sürüm 2.2.3 ve sonraki sürümlerinde. 
+[Azure VM Konuk Aracısı](https://github.com/Azure/WALinuxAgent/) 2.2.2 sahip [bilinen sorun] sürümü (https://github.com/Azure/WALinuxAgent/pull/517) azure'da FreeBSD VM için sağlama hatası neden. Düzeltme tarafından yakalanan [Azure VM Konuk Aracısı](https://github.com/Azure/WALinuxAgent/) 2.2.3 Sürüm ve sonraki sürümleri. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Git [Azure Marketi](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) FreeBSD VM oluşturmak için.
+* Git [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111) FreeBSD VM oluşturmak için.

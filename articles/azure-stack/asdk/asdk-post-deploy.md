@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 23d99c498c139da3a145a1df230f419b4591b256
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e057d7a649397083240e9f67080808a3057c7f50
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38598450"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42059248"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK yükleme sonrası yapılandırma görevleri
 
@@ -43,7 +43,7 @@ Azure Stack uyumlu AzureRM modülleri belirtmek için API sürümü profillerini
 En son Azure Stack PowerShell modülü ile veya ASDK konak bilgisayara Internet bağlantısı olmadan yükleyebilirsiniz:
 
 > [!IMPORTANT]
-> Gerekli sürümü yüklemeden önce emin olun, [tüm mevcut Azure PowerShell modülleri kaldırma](.\.\azure-stack-powershell-install.md#uninstall-existing-versions-of-the-azure-stack-powershell-modules).
+> Gerekli sürümü yüklemeden önce emin olun, [tüm mevcut Azure PowerShell modülleri kaldırma](.\.\azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules).
 
 - **İnternet bağlantısı ile** ASDK ana bilgisayar. Bu modüller, Geliştirme Seti yüklemesine yüklemek için aşağıdaki PowerShell betiğini çalıştırın:
 
@@ -56,8 +56,8 @@ En son Azure Stack PowerShell modülü ile veya ASDK konak bilgisayara Internet 
   Use-AzureRmProfile `
     -Profile 2017-03-09-profile -Force
 
-  # Install Azure Stack Module Version 1.3.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.
-  Install-Module -Name AzureStack -RequiredVersion 1.3.0 
+  # Install Azure Stack Module Version 1.4.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.
+  Install-Module -Name AzureStack -RequiredVersion 1.4.0 
 
   ```
 
@@ -82,8 +82,8 @@ En son Azure Stack PowerShell modülü ile veya ASDK konak bilgisayara Internet 
     -Name AzureStack `
     -Path $Path `
     -Force `
-  # Install Azure Stack Module Version 1.3.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.  
-    -RequiredVersion 1.3.0
+  # Install Azure Stack Module Version 1.4.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.  
+    -RequiredVersion 1.4.0
   ```
 
   Ardından, indirilen paketler ASDK bilgisayara kopyalayın ve varsayılan depo konumu kaydetmek ve bu depodan AzureRM ve AzureStack modüllerini yükleyin:

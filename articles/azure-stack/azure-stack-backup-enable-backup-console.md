@@ -12,14 +12,14 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 08/16/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 08bce6284b672ae092e2cee3c26140e8c6049a34
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: 6231ee760902618afedf64443690be0b02c4d0eb
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242861"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42056088"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Yönetim Portalı'ndan Azure Stack için yedeklemeyi etkinleştirme
 Azure Stack yedekleme oluşturabilmesi altyapı Backup Hizmeti Yönetim Portalı aracılığıyla etkinleştirin. Bu yedeklemeler bulut kurtarma durumunda kullanarak ortamınızda geri yüklemek için kullanabileceğiniz [geri dönülemez bir arıza](.\azure-stack-backup-recover-data.md). Bulut kurtarma amacı, Kurtarma tamamlandıktan sonra operatörler ve kullanıcılar portalına geri dönüp oturum açabildiğinizden emin sağlamaktır. Kullanıcılar, rol tabanlı erişim izinleri ve rolleri, özgün planları, teklifleri ve önceden tanımlı bilgi işlem, depolama ve ağ kotaları dahil olmak üzere geri aboneliklerini sahip olacaktır.
@@ -33,26 +33,60 @@ Yöneticiler ve kullanıcılar için yedekleme ve Iaas ve PaaS kaynakları ayrı
 - [SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
 
 
-> [!Note]  
-> Yedekleme Konsolu aracılığıyla etkinleştirmeden önce yedekleme hizmetini yapılandırmanız gerekir. PowerShell kullanarak backup hizmeti yapılandırabilirsiniz. Daha fazla bilgi için [PowerShell ile Azure Stack için yedeklemeyi etkinleştir](azure-stack-backup-enable-backup-powershell.md).
+## <a name="enable-or-reconfigure-backup"></a>Etkinleştirmek veya yedekleme yeniden yapılandırın
 
-## <a name="enable-backup"></a>Yedeklemeyi etkinleştir
-
-1. Azure Stack Yönetim Portalı'ndaki açın [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
+1. Açık [Azure Stack Yönetim Portalı](azure-stack-manage-portals.md).
 2. Seçin **diğer hizmetler** > **altyapı yedeklemesine**. Seçin **yapılandırma** içinde **altyapı yedeklemesine** dikey penceresi.
-
-    ![Azure Stack - yedekleme denetleyicisi ayarları](media\azure-stack-backup\azure-stack-backup-settings.png).
-
 3. Yolunu yazın **yedekleme depolama konumu**. Ayrı bir cihazda barındırılan bir dosya paylaşımı yolu için bir Evrensel Adlandırma Kuralı (UNC) dize kullanın. Bir UNC dize paylaşılan dosyalarını veya cihazları gibi kaynakların konumunu belirtir. Hizmet için bir IP adresi kullanabilirsiniz. Yedekleme verilerinin kullanılabilirlik, olağanüstü bir durumla karşılaştığınızda emin olmak için cihaz ayrı bir konumda olmalıdır.
+
     > [!Note]  
     > Ortamınızı Azure Stack altyapısını ağdan ad çözümlemesi Kurumsal ortamınıza destekliyorsa, IP yerine bir FQDN kullanabilirsiniz.
+    
 4. Tür **kullanıcıadı** kullanıcı adı ve etki alanı dosyalarını okuma ve yazma için yeterli erişim ile kullanma. Örneğin, `Contoso\backupshareuser`.
 5. Tür **parola** kullanıcı.
-5. Parolayı yeniden yazın **parolayı onayla**.
-6. Önceden paylaşılan bir anahtarı sağlayan **şifreleme anahtarı** kutusu. Yedekleme dosyaları, bu anahtarı kullanılarak şifrelenir. Bu anahtarı güvenli bir konuma depoladığınızdan emin olun. Bu anahtar ilk kez ayarlayın veya anahtarı gelecekte Döndür sonra bu anahtar bu arabirimden görüntüleyemezsiniz. Önceden paylaşılan anahtar oluşturmak daha fazla bilgi için komut dosyalarını izleyin [PowerShell ile Azure Stack için yedeklemeyi etkinleştir](azure-stack-backup-enable-backup-powershell.md).
-7. Seçin **Tamam** yedekleme denetleyicisi ayarlarınızı kaydetmek için.
+6. Parolayı yeniden yazın **parolayı onayla**.
+7. **Sıklık saat içindeki** ne sıklıkta belirleyen yedekleme oluşturulur. 12 varsayılan değerdir. Zamanlayıcı, en fazla 12 ve en az 4 destekler. 
+8. **Bekletme süresi (gün)** kaç güne kadar yedek bir dış konuma göre korunur belirler. Varsayılan değer 7'dir. Zamanlayıcı, en fazla 14 ve en az 2 destekler. Yedekleri saklama süresinden daha eski bir dış konumdan otomatik olarak silinir.
 
-Bir yedekleme yürütmek için Azure Stack Araçları'nı indirin ve ardından PowerShell cmdlet'ini çalıştırmak gereken **başlangıç AzSBackup** , Azure Stack yönetim düğümünde. Daha fazla bilgi için [Azure Stack yedekleme](azure-stack-backup-back-up-azure-stack.md ).
+    > [!Note]  
+    > Yedekleri saklama süresinden daha eski arşivlemek istiyorsanız, Zamanlayıcı yedeklerin de sileceğini önce dosyaları yedekleme emin olun. Yedekleme bekletme süresi azaltılırsa (örneğin 7 gün-5 gün), Zamanlayıcı yeni saklama süresinden daha eski olan tüm yedeklemeler silin. Bu değer güncelleştirmeden önce silinmiş yedeklemeleri Tamam olduğundan emin olun. 
+
+9. Önceden paylaşılan bir anahtarı sağlayan **şifreleme anahtarı** kutusu. Yedekleme dosyaları, bu anahtarı kullanılarak şifrelenir. Bu anahtarı güvenli bir konuma depoladığınızdan emin olun. Bu anahtar ilk kez ayarlayın veya anahtarı gelecekte Döndür sonra anahtarı bu arabirimden görüntüleyemezsiniz. Anahtar oluşturmak için aşağıdaki Azure Stack PowerShell komutlarını çalıştırın:
+    ```powershell
+    New-AzsEncryptionKeyBase64
+    ```
+10. Seçin **Tamam** yedekleme denetleyicisi ayarlarınızı kaydetmek için.
+
+    ![Azure Stack - yedekleme denetleyicisi ayarları](media\azure-stack-backup\backup-controller-settings.png)
+
+## <a name="start-backup"></a>Yedeklemeyi Başlat
+Bir yedekleme başlatmak için tıklayın **Şimdi Yedekle** isteğe bağlı yedekleme başlatmak için. İsteğe bağlı yedekleme sonraki zamanlanmış yedekleme için saat değiştirmez. Görev tamamlandıktan sonra ayarları onaylayın **Essentials**:
+
+![Azure Stack - isteğe bağlı yedekleme](media\azure-stack-backup\scheduled-backup.png).
+
+PowerShell cmdlet'ini de çalıştırabilirsiniz **başlangıç AzsBackup** Azure Stack yönetim bilgisayarınızda. Daha fazla bilgi için [Azure Stack yedekleme](azure-stack-backup-back-up-azure-stack.md).
+
+## <a name="enable-or-disable-automatic-backups"></a>Etkinleştirmek veya devre dışı otomatik yedekleme
+Yedeklemeler, otomatik yedeklemeyi etkinleştirdiğinizde zamanlanır. Sonraki zamanlama yedekleme zamanını kontrol edebilirsiniz **Essentials**. 
+
+![Azure Stack - isteğe bağlı yedekleme](media\azure-stack-backup\on-demand-backup.png)
+
+Sonraki zamanlanmış yedeklemeleri devre dışı bırakmanız gerekirse, tıklayarak **Otomatik yedeklemeleri devre dışı**. Devre dışı bırakma otomatik yedeklemeler, yapılandırılan yedekleme ayarları tutar ve yedekleme zamanlaması korur. Bu eylem, gelecekteki yedeklemeler atlamak için Zamanlayıcı yalnızca söyler. 
+
+![Azure Stack - devre dışı bırakma zamanlanmış yedeklemeler](media\azure-stack-backup\disable-auto-backup.png)
+
+Sonraki zamanlanmış yedeklemelerin içinde devre dışı olduğunu onaylayın **Essentials**:
+
+![Azure Stack - yedeklemeleri devre dışı bırakıldı onaylayın](media\azure-stack-backup\confirm-disable.png)
+
+Tıklayarak **etkinleştirmek otomatik yedeklemeler** zamanlanan saatte gelecekte yedeklemeleri başlatmak için Zamanlayıcı bildirmek için. 
+
+![Azure Stack - enable zamanlanmış yedeklemeler](media\azure-stack-backup\enable-auto-backup.png)
+
+
+> [!Note]  
+> Altyapı yedekleme için 1807 güncelleştirmeden önce yapılandırdıysanız, otomatik yedeklemeler devre dışı bırakılır. Bu şekilde, Azure Stack tarafından başlatılan yedeklemeleri dış bir görev zamanlama altyapısı tarafından başlatılan bir yedekleme ile çakışmaz. Tüm dış Görev Zamanlayıcı'yı devre dışı bıraktıktan sonra tıklayarak **etkinleştirmek otomatik yedeklemeler**.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

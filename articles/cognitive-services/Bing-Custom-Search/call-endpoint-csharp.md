@@ -1,6 +1,6 @@
 ---
-title: C# - Bing özel arama - Microsoft Bilişsel hizmetler kullanarak uç nokta çağırma
-description: Bu hızlı başlangıç Bing özel arama uç noktasını çağırmak için C# kullanarak özel arama örneğinden arama sonuçlarında istek gösterilmektedir.
+title: C# - Bing özel arama - Microsoft Bilişsel hizmetler kullanarak uç noktasını çağırmak
+description: Bu hızlı başlangıçta, Bing özel arama uç noktasını çağırmak için C# kullanarak arama sonuçlarını özel arama örneğinizin isteği gösterilmektedir.
 services: cognitive-services
 author: brapel
 manager: ehansen
@@ -9,25 +9,25 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: be4cc79d16b9a22124f16878b11ca04a916f98ae
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 87970e1c5e8487f9afca2acc680bdfeb610dc89f
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352858"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41988463"
 ---
-# <a name="call-bing-custom-search-endpoint-c"></a>Çağrı Bing özel arama uç noktası (C#)
+# <a name="call-bing-custom-search-endpoint-c"></a>Bing özel arama uç noktası çağrısı (C#)
 
-Bu hızlı başlangıç Bing özel arama uç noktasını çağırmak için C# kullanarak özel arama örneğinden arama sonuçlarında istek gösterilmektedir. 
+Bu hızlı başlangıçta, Bing özel arama uç noktasını çağırmak için C# kullanarak arama sonuçlarını özel arama örneğinizin isteği gösterilmektedir. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
--  Bir kullanıma hazır özel arama örneği. Bkz: [ilk Bing özel arama örneğinizi oluşturmak](quick-start.md).
--  [.NET core](https://www.microsoft.com/net/download/core) yüklü.
-- A [Bilişsel Hizmetleri API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Bing arama API'leri**. [Ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) Bu Hızlı Başlangıç için yeterlidir. Ücretsiz deneme sürümünüzü etkinleştirmek ya da Ücretli abonelik anahtarı Azure panonuza kullanabilir sağlanan erişim anahtarı gerekir.  
+-  Bir kullanıma hazır özel arama örneği. Bkz: [ilk Bing özel arama örneğinizin oluşturma](quick-start.md).
+-  [.Net Core](https://www.microsoft.com/net/download/core) yüklü.
+- A [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Bing arama API'leri**. [Ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) Bu Hızlı Başlangıç için yeterlidir. Ücretsiz deneme sürümünüzü etkinleştirin ya da Ücretli abonelik anahtarı, Azure panosundan kullanabilir sağlanan erişim anahtarı gerekir.  
 
   >[!NOTE]  
-  >Veya bu tarihten önce 15 Ekim 2017 sağlanan bir önizleme anahtara sahip varolan Bing özel arama müşteriler kendi anahtarları 30 Kasım 2017 kadar veya sayısı izin verilen sorgular tüketmiş kadar kullanmanız mümkün olacaktır. Daha sonra Azure ile ilgili genel olarak kullanılabilir sürümüne geçirmek gerekir. 
+  >15 Ekim 2017 tarihinde veya öncesinde sağlanmış bir önizleme anahtarı sahip mevcut Bing özel arama müşteriler kendi anahtarlarını 30 Kasım 2017 tarihine kadar veya bunlar sayısı izin verilen sorgular tüketmiş kadar kullanmanız mümkün olacaktır. Ardından, Azure üzerinde genel kullanıma sunulan sürüme geçirmek gerekir. 
  
 ## <a name="run-the-code"></a>Kodu çalıştırma
 
@@ -43,8 +43,8 @@ Bu örneği çalıştırmak için aşağıdaki adımları izleyin:
     dotnet restore
    ```
 
-4. Program.cs için aşağıdaki kodu kopyalayın.
-5. Değiştir **YOUR ABONELİK anahtarı** ve **YOUR-özel-CONFIG-ID** , anahtar ve yapılandırma kimliği
+4. Program.cs'ye aşağıdaki kodu kopyalayın.
+5. Değiştirin **YOUR-SUBSCRIPTION-KEY** ve **YOUR-özel-CONFIG-ID** anahtarınızı ve yapılandırma kimliğinizle
 
     ``` CSharp
     using System;
@@ -118,16 +118,18 @@ Bu örneği çalıştırmak için aşağıdaki adımları izleyin:
         }
     }
     ```
-6. Aşağıdaki komutu kullanarak uygulaması oluşturma. Komut çıktısı tarafından başvurulan dll yolu unutmayın.
+6. Aşağıdaki komutu kullanarak uygulama oluşturun. Komut çıktısı tarafından başvurulan dll yolu unutmayın.
+
     <pre>
     dotnet build 
     </pre>
-7. Değiştirerek aşağıdaki komutu kullanarak uygulamayı çalıştırmak **yolu için çıktı** derleme adımı tarafından başvurulan yoluna sahip.
+7. Değiştirerek aşağıdaki komutu kullanarak uygulamayı çalıştırın **yolu için çıkış** derleme adımı tarafından başvurulan yoluna sahip.
+
     <pre>    
     dotnet **PATH TO OUTPUT**
     </pre>
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Barındırılan UI deneyiminizi yapılandırın](./hosted-ui.md)
-- [Metni vurgulama için decoration işaretlerini kullanın](./hit-highlighting.md)
+- [Metni vurgulayacak şekilde decoration işaretçileri kullanma](./hit-highlighting.md)
 - [Sayfa Web sayfaları](./page-webpages.md)

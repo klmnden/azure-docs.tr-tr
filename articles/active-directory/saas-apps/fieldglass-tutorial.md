@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 446eac2bf6eed10f919d6c64de1d7b9dbba1f35d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a14aeb55d9e5756660708e9e63a867a66a54a7b6
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420371"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443961"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>Öğretici: Azure Active Directory Fieldglass ile tümleştirme
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Fieldglass yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Fieldglass çoklu oturum açma etkin
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD'de Fieldglass tümleştirmesini yapılandırmak için Fieldglass Galeri
 
 **Galeriden Fieldglass eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -121,7 +121,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve F
     | `https://<company name>.fgvms.com/<company name>`|
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. İlgili kişi [Fieldglass Destek ekibine](http://www.fieldglass.com/solutions/support) bu değerleri almak için.
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. İlgili kişi [Fieldglass Destek ekibine](https://www.fieldglass.com/customer-support) bu değerleri almak için.
  
 1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
@@ -135,7 +135,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve F
 
     ![Çoklu oturum açmayı yapılandırın](./media/fieldglass-tutorial/tutorial_fieldglass_configure.png) 
 
-1. Çoklu oturum açmayı yapılandırma **Fieldglass** tarafı, indirilen göndermek için ihtiyacınız **Certificate(Base64)** ve **oturum kapatma URL'si, SAML varlık kimliği** için [ Fieldglass Destek ekibine](http://www.fieldglass.com/solutions/support). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+1. Çoklu oturum açmayı yapılandırma **Fieldglass** tarafı, indirilen göndermek için ihtiyacınız **Certificate(Base64)** ve **oturum kapatma URL'si, SAML varlık kimliği** için [ Fieldglass Destek ekibine](https://www.fieldglass.com/customer-support). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
 > İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -173,7 +173,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="creating-a-fieldglass-test-user"></a>Fieldglass test kullanıcısı oluşturma
 
-Bu bölümün amacı FieldGlass Britta Simon adlı bir kullanıcı oluşturmaktır. Lütfen birlikte çalışarak, [Fieldglass Destek ekibine](http://www.fieldglass.com/solutions/support) Fieldglass hesabında kullanıcıları eklemek için.
+Bu bölümün amacı FieldGlass Britta Simon adlı bir kullanıcı oluşturmaktır. Lütfen birlikte çalışarak, [Fieldglass Destek ekibine](https://www.fieldglass.com/customer-support) Fieldglass hesabında kullanıcıları eklemek için.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: borisb
-ms.openlocfilehash: 570b820e21df6db70b9cadf33d5a120132be62ed
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4a8bc45b253def1130e5a02dfcd6d359f0e74506
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426760"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056033"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure'da isteğe bağlı Red Hat Enterprise Linux VM'ler için Red Hat güncelleştirme altyapısı
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) gibi Red Hat barındırılan depo içeriğini yansıtmak için özel depolar ile Azure özgü içerik oluşturmak ve son kullanıcı VM'ler için kullanılabilir hale getirmek amacıyla bulut sağlayıcıları sağlar.
@@ -29,7 +29,7 @@ Red Hat Enterprise Linux (RHEL) Kullandıkça Öde (PAYG) görüntüleri Azure R
 ## <a name="important-information-about-azure-rhui"></a>Azure RHUI hakkında önemli bilgiler
 * Azure RHUI, şu anda yalnızca en son alt sürüm her RHEL ailesi (RHEL6 veya RHEL7) destekler. RHUI küçük en son sürüme bağlı RHEL VM örneği yükseltmek için çalıştırmanız `sudo yum update`.
 
-    Örneğin, bir RHEL 7.2 PAYG görüntüden bir VM sağlama ve çalıştırıyorsanız `sudo yum update`, RHEL 7.4 VM (en son alt sürüm RHEL7 ailesindeki) elde edersiniz.
+    Örneğin, bir RHEL 7.2 PAYG görüntüden bir VM sağlama ve çalıştırıyorsanız `sudo yum update`, RHEL 7.5 VM (en son alt sürüm RHEL7 ailesindeki) elde edersiniz.
 
     Bu davranışı önlemek için açıklandığı gibi kendi görüntünüzü oluşturmak gereken [oluşturup Azure için Red Hat tabanlı bir sanal makine yükleme](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) makalesi. Bir farklı güncelleştirme altyapınıza bağlamak gerekir ([doğrudan Red Hat içerik teslim](https://access.redhat.com/solutions/253273) veya [Red Hat uydu sunucu](https://access.redhat.com/products/red-hat-satellite)).
 

@@ -9,12 +9,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 8f794f1d29b5fde9acd43fa4a018ccb39a8ccd25
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: b8bc24123fe75e876f607b07e37423ae68d92ee4
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324787"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41987489"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-using-the-speech-sdk"></a>Hızlı Başlangıç: c++ konuşma Speech SDK'sı kullanarak Linux'ta tanıması
 
@@ -37,7 +37,7 @@ Bu makalede, Linux (Ubuntu 16.04) Konuşmayı metne dönüştürme özelliği Bi
 
 [!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Bilişsel hizmetler konuşma SDK'ın geçerli sürümü `0.5.0`.
+Bilişsel hizmetler konuşma SDK'ın geçerli sürümü `0.6.0`.
 
 Bilişsel hizmetler konuşma SDK'sı Linux, 64-bit ve 32-bit uygulamaları derleme için kullanılabilir.
 Gerekli dosyaları tar dosyasından olarak indirilebilir https://aka.ms/csspeech/linuxbinary.

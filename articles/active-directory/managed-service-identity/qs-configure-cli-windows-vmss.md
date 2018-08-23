@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: 6474b34abeceb58c2eff9e7a2d2237ec47e61933
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 225fd7800f05514e989ec0153b5de22e63b62bde
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447532"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42058301"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Sanal Makine Yapılandırma Yönetilen hizmet kimliği (MSI) Azure CLI kullanarak ölçek kümesi
 
@@ -43,7 +43,10 @@ Bu makalede, aşağıdaki üzerinde bir Azure sanal makine ölçek kümesi (Azur
 - CLI betiği örnekleri çalıştırmak için üç seçeneğiniz vardır:
     - Kullanım [Azure Cloud Shell](../../cloud-shell/overview.md) Azure portalından (sonraki bölüme bakın).
     - Katıştırılmış Azure Cloud Shell aracılığıyla her kod bloğunun sağ üst köşesinde bulunan "Try It" düğmesini kullanın.
-    - [CLI 2. 0'ın en son sürümünü yüklemek](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 veya üzeri) yerel bir CLI konsol kullanmak istiyorsanız. 
+    - [Azure CLI'ın en son sürümü yükleyin](https://docs.microsoft.com/cli/azure/install-azure-cli) yerel CLI konsol kullanmak istiyorsanız. 
+      
+      > [!NOTE]
+      > Komutlar, en son sürümünü yansıtacak şekilde güncelleştirildi [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -116,7 +119,7 @@ az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGrou
 
 Bu bölümde, etkinleştirmek ve Azure CLI kullanarak bir kullanıcı tarafından atanan kimliği kaldırma konusunda bilgi edinin.
 
-### <a name="assign-a-user-assigned-identity-during-the-creation-of-an-azure-vmss"></a>Bir kullanıcı tarafından atanan kimliği Azure VMSS oluşturma sırasında atama
+### <a name="assign-a-user-assigned-identity-during-the-creation-of-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesi oluşturma sırasında bir kullanıcıya atanan kimlik atama
 
 Bu bölümde bir VMSS oluşturulmasını ve bir kullanıcı tarafından atanan kimliği VMSS'ye atamasının gösterilmektedir. Kullanmak istediğiniz bir VMSS zaten varsa, bu bölümü atlayın ve sonraki devam edin.
 
@@ -150,13 +153,13 @@ Bu bölümde bir VMSS oluşturulmasını ve bir kullanıcı tarafından atanan k
    }
    ```
 
-3. Kullanarak bir VMSS oluşturma [az vmss oluşturma](/cli/azure/vmss/#az-vmss-create). Aşağıdaki örnekte belirtildiği gibi yeni atanmış kullanıcı kimliğiyle ilişkili bir VMSS oluşturur `--assign-identity` parametresi. `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>` ve `<USER ASSIGNED IDENTITY ID>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. İçin `<USER ASSIGNED IDENTITY ID>`, kullanıcı tarafından atanan kimliğin kaynağı `id` önceki adımda oluşturduğunuz özelliği: 
+3. Kullanarak bir VMSS oluşturma [az vmss oluşturma](/cli/azure/vmss/#az-vmss-create). Aşağıdaki örnekte belirtildiği gibi yeni atanmış kullanıcı kimliğiyle ilişkili bir VMSS oluşturur `--assign-identity` parametresi. `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>` ve `<USER ASSIGNED IDENTITY>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. 
 
    ```azurecli-interactive 
-   az vmss create --resource-group <RESOURCE GROUP> --name <VMSS NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY ID>
+   az vmss create --resource-group <RESOURCE GROUP> --name <VMSS NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY>
    ```
 
-### <a name="assign-a-user-assigned-identity-to-an-existing-azure-vm"></a>Bir kullanıcı tarafından atanan kimliği mevcut bir Azure VM'ye atayın
+### <a name="assign-a-user-assigned-identity-to-an-existing-virtual-machine-scale-set"></a>Bir kullanıcı tarafından atanan kimliği mevcut bir sanal makine ölçek kümesine atama
 
 1. Kimlik bilgileriniz kullanılarak atanan bir kullanıcı oluşturmak [az kimliği oluşturma](/cli/azure/identity#az-identity-create).  `-g` Parametresi, kullanıcı tarafından atanan kimliği oluşturulduğu, kaynak grubunu belirtir ve `-n` parametre adını belirtir. `<RESOURCE GROUP>` ve `<USER ASSIGNED IDENTITY NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın:
 
@@ -166,7 +169,7 @@ Bu bölümde bir VMSS oluşturulmasını ve bir kullanıcı tarafından atanan k
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
     ```
-Yanıt, Ayrıntılar için aşağıdakine benzer şekilde oluşturulmuş kullanıcı tarafından atanan kimlik içerir. Kaynak `id` kullanıcı tarafından atanan kimlik için atanan değer, aşağıdaki adımda kullanılır.
+Yanıt, Ayrıntılar için aşağıdakine benzer şekilde oluşturulmuş kullanıcı tarafından atanan kimlik içerir.
 
    ```json
    {
@@ -183,18 +186,18 @@ Yanıt, Ayrıntılar için aşağıdakine benzer şekilde oluşturulmuş kullan�
    }
    ```
 
-2. Atanan kullanıcı kimliğini kullanarak VMSS atama [az vmss kimliği atamak](/cli/azure/vmss/identity#az-vm-assign-identity). `<RESOURCE GROUP>` ve `<VMSS NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<USER ASSIGNED IDENTITY ID>` Atanan kullanıcı kimliğin kaynak olacak `id` önceki adımda oluşturulan özelliği:
+2. Atanan kullanıcı kimliğini kullanarak VMSS atama [az vmss kimliği atamak](/cli/azure/vmss/identity#az-vm-assign-identity). `<RESOURCE GROUP>` ve `<VMSS NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<USER ASSIGNED IDENTITY>` Atanan kullanıcı kimliğin kaynağı `name` önceki adımda oluşturulan özelliği:
 
     ```azurecli-interactive
-    az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY ID>
+    az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY>
     ```
 
 ### <a name="remove-a-user-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Bir kullanıcı tarafından atanan kimliği bir Azure sanal makine ölçek kümesinden Kaldır
 
-Bir kullanıcı tarafından atanan kimliği bir sanal makine ölçek kümesi kullanımdan kaldırılacağı [az vmss kimliğini kaldırma](/cli/azure/vmss/identity#az-vmss-identity-remove). `<RESOURCE GROUP>` ve `<VMSS NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<MSI NAME>` Atanan kullanıcı kimliğin olacaktır `name` tarafından VM kullanarak kimlik bölümünde bulunabilir özelliği `az vmss identity show`:
+Bir kullanıcı tarafından atanan kimliği bir sanal makine ölçek kümesi kullanımdan kaldırılacağı [az vmss kimliğini kaldırma](/cli/azure/vmss/identity#az-vmss-identity-remove). Bu sanal makine ölçek kümesine atanan yalnızca kullanıcı tarafından atanan kimliği ise `UserAssigned` kimlik türü değerinden kaldırılacak.  `<RESOURCE GROUP>` ve `<VMSS NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<USER ASSIGNED IDENTITY>` Atanan kullanıcı kimliğin olacaktır `name` özelliğini kullanarak sanal makine ölçek kümesi'nin kimlik bölümünde bulunabilir `az vmss identity show`:
 
 ```azurecli-interactive
-az vmss identity remove -g <RESOURCE GROUP> -n <VMSS NAME> --identities <MSI NAME>
+az vmss identity remove -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY>
 ```
 
 Sanal makine ölçek kümesi bir sistem tarafından atanan kimlik yok ve tüm kullanıcı kimlikleri atanmış kaldırmak istediğiniz, aşağıdaki komutu kullanın:
@@ -203,13 +206,13 @@ Sanal makine ölçek kümesi bir sistem tarafından atanan kimlik yok ve tüm ku
 > Değer `none` büyük/küçük harfe duyarlıdır. Küçük harf olması gerekir.
 
 ```azurecli-interactive
-az vmss update -n myVMSS -g myResourceGroup --set identity.type="none" identity.identityIds=null
+az vmss update -n myVMSS -g myResourceGroup --set identity.type="none" identity.userAssignedIdentities=null
 ```
 
 Sanal makine ölçek kümenize atanan sistem ve kullanıcı tarafından atanan kimliklerle varsa, yalnızca atanan sistemi kullanmaya geçiş tarafından atanan kimliklerle tüm kullanıcı kaldırabilirsiniz. Aşağıdaki komutu kullanın:
 
 ```azurecli-interactive
-az vmss update -n myVMSS -g myResourceGroup --set identity.type='SystemAssigned' identity.identityIds=null 
+az vmss update -n myVMSS -g myResourceGroup --set identity.type='SystemAssigned' identity.userAssignedIdentities=null 
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

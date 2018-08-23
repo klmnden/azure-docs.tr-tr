@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 8afd743f6010822709bf3d49f7a3bbcd51b19edf
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: c8e14091d7a3fb5b925735824b1dd3ce26f034e8
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346496"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42060385"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator uygulaması ile çalışmaya başlama
 
-Microsoft Authenticator uygulamasını hesaplarına ve sahte işlemleri çalışmanız için ek bir güvenlik düzeyi vererek durdurmak için yetkisiz erişimi önlemeye yardımcı olmak ya da Okul hesabı (örneğin, alain@contoso.com) veya kişisel Microsoft hesabınızı (için Örneğin, alain@outlook.com). Ya da, ikinci bir doğrulama yöntemi olarak değiştirme veya parolanızı için telefonla oturum açma kullanırken kullanabilirsiniz. Ayarlama ve parolasız telefonla oturum açma kullanma konusunda daha fazla bilgi için bkz. [telefonunuzla parolanız yerine telefonunuzla oturum](microsoft-authenticator-app-phone-signin-faq.md).
+Microsoft Authenticator uygulamasını hesaplarına ve sahte işlemleri çalışmanız için ek bir güvenlik düzeyi vererek durdurmak için yetkisiz erişimi önlemeye yardımcı olmak ya da Okul hesabı (örneğin, alain@contoso.com) veya kişisel Microsoft hesabınızı (için Örneğin, alain@outlook.com).
 
 Uygulama için iki aşamalı doğrulamayı kullanırken, iki yoldan biriyle çalışabilirsiniz:
 
@@ -110,8 +110,6 @@ Uygulama doğrulama kodları kullanmayı seçerseniz, bunları görmek başlayac
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Uygulama hakkında daha fazla genel sorularınız varsa bkz [Microsoft Authenticator ile ilgili SSS](microsoft-authenticator-app-faq.md)
-
-- Telefonla oturum açma kullanma hakkında sorularınız varsa bkz [telefonunuzla parolanız yerine telefonunuzla oturum açın](microsoft-authenticator-app-phone-signin-faq.md)
 
 - İki aşamalı doğrulama hakkında daha fazla bilgi istiyorsanız bkz [hesabım için iki aşamalı doğrulama ayarlayın](multi-factor-authentication-end-user-first-time.md)
 

@@ -1,71 +1,71 @@
 ---
-title: API sürümü profillerini Azure yığınında Git ile kullanma | Microsoft Docs
-description: Azure yığınında Git ile API sürümü profillerini kullanma hakkında bilgi edinin.
+title: Azure stack'teki GO ile API Sürüm profillerini kullanma | Microsoft Docs
+description: Azure stack'teki GO ile API Sürüm profillerini kullanma hakkında bilgi edinin.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
-ms.author: mabrigg
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: dd2d0c46c0829a73d32c96b506b9f2111eda3c84
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 9ad4402098e938f72cf4b8c61cce8d0d46b5a147
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010073"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42055613"
 ---
-# <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Azure yığınında Git ile API sürümü profilleri kullanma
+# <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Azure stack'teki Git ile API Sürüm profillerini kullanma
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-## <a name="go-and-version-profiles"></a>Git ve sürüm profilleri
+## <a name="go-and-version-profiles"></a>Go ve sürüm profilleri
 
-Bir profil farklı hizmetlerinden farklı sürümlerini farklı kaynak türlerinin birleşimidir. Bir profili kullanarak karıştırmak ve farklı kaynak türleri arasında eşleşen yardımcı olur. Profilleri sağlayabilir:
+Bir profili farklı sürümlerini farklı hizmetlerden farklı kaynak türlerinin birleşimidir. Bir profil kullanarak, karıştırın ve eşleştirin farklı kaynak türleri arasında yardımcı olur. Profilleri sağlayabilir:
 
- - Kararlılık belirli API sürümleri için kilitleme tarafından uygulamanız için.
- - Azure yığını ve bölgesel Azure veri merkezleri ile uyumluluğu, uygulamanız için.
+ - Kararlılık, uygulamanızın belirli API sürümleri için kilitleme tarafından.
+ - Azure Stack ve bölgesel Azure veri merkezleri ile uyumluluğu, uygulamanız için.
 
-Git SDK profilleri profiller altında kullanılabilir / yoluyla kendi sürümünde **YYYY-AA-GG** biçimi. Şimdi, en son Azure profil sürümü yığınının **2017-03-09**. Belirli bir hizmeti bir profilden içeri aktarmak için karşılık gelen modülü profilden içeri aktarmanız gerekir. Örneğin, içeri aktarmak için **işlem** gelen hizmet **2017-03-09** profili:
+Go SDK profiller profiller altında kullanılabilir / sürümü yolu **YYYY-AA-GG** biçimi. Şu anda en son Azure profil sürümü Stack **2017-03-09**. Belirli bir hizmete bir profilden içeri aktarmak için karşılık gelen modülü profilinden içeri aktarmak gerekir. Örneğin, içeri aktarmak için **işlem** hizmetinde **2017-03-09** profili:
 
 ````go
 import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute" 
 ````
 
-## <a name="install-azure-sdk-for-go"></a>Git için Azure SDK'sını yükleyin
+## <a name="install-azure-sdk-for-go"></a>Go için Azure SDK'sını yükleme
 
-  1. Git'i yükleyin. Yönergeler için bkz: [Git yükleme Başlarken -](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-  2. Yükleme [Git programlama dili](https://golang.org/dl).  
-  Azure için API profilleri Git 1.9 veya daha yeni sürümünü gerektirir.
-  3. Git Azure SDK'sını ve bağımlılıklarını aşağıdaki bash komutu çalıştırarak yükleyin:
+  1. Git'i yükleyin. Yönergeler için [Git'i yükledikten Başlarken -](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+  2. Yükleme [Go programlama dili](https://golang.org/dl).  
+  Azure için API profillerini Go 1.9 veya daha yeni bir sürümü gerektirir.
+  3. Aşağıdaki bash komutunu çalıştırarak Azure Go SDK'sını ve bağımlılıklarını yükleyin:
   ```
     go get -u -d github.com/Azure/azure-sdk-for-go/...
   ```
 
-### <a name="the-go-sdk"></a>Git SDK'sı
+### <a name="the-go-sdk"></a>GO SDK'sı
 
-Git Azure SDK hakkında daha fazla bilgi bulabilirsiniz:
-- Azure SDK Git [Git için Azure SDK'sını yükleme](https://docs.microsoft.com/go/azure/azure-sdk-go-install).
-- Azure Git SDK'sı github'da genel olarak kullanılabilir [Git için azure sdk](https://github.com/Azure/azure-sdk-for-go).
+Azure SDK Git hakkında daha fazla bilgi bulabilirsiniz:
+- Azure SDK, Go [Go için Azure SDK'sını yükleme](https://docs.microsoft.com/go/azure/azure-sdk-go-install).
+- Azure Go SDK'sı github'da herkes tarafından kullanılabilir [go için azure SDK'sı](https://github.com/Azure/azure-sdk-for-go).
 
 ### <a name="go-autorest-dependencies"></a>Git AutoRest bağımlılıkları
 
-Azure Resource Manager Uç noktalara REST istekleri göndermek için Azure Git-AutoRest modülleri Git SDK bağlıdır. Azure Git-AutoRest modülü bağımlılıklardan içe aktarmanız gerekir [Azure Git-AutoRest github'da](https://github.com/Azure/go-autorest). Yükleme bash komutlar bulabilirsiniz **yükleme** bölümü.
+GO SDK'sı, Azure Resource Manager uç noktaları için REST istekleri göndermek için Azure Git-AutoRest modülleri bağlıdır. Azure Git-AutoRest modülü bağımlılıklardan aktarmanız gerekecektir [Azure Git-AutoRest github'da](https://github.com/Azure/go-autorest). Yükleme bash komutları bulabilirsiniz **yükleme** bölümü.
 
-## <a name="how-to-use-go-sdk-profiles-on-azure-stack"></a>Azure yığında Git SDK profilleri kullanma
+## <a name="how-to-use-go-sdk-profiles-on-azure-stack"></a>Azure Stack'te GO SDK profilleri kullanma
 
-Azure yığında Git kod örneği çalıştırmak için:
-  1. Git ve bağımlılıkları için Azure SDK'sını yükleyin. Yönerge için önceki bölüm bakın [Git için Azure SDK yüklemek](#install-azure-sdk-for-go).
-  2. Meta veri bilgileri Resource Manager uç noktasından alır. Uç nokta Git kodunuzu çalıştırmak için gerekli bilgileri bir JSON dosyası döndürür.
+Azure Stack'te Go kod örneği çalıştırmak için:
+  1. Azure SDK, Go ve onun bağımlılıklarını yükleyin. Yönerge için önceki bölüme bakın [Go için Azure SDK yükleme](#install-azure-sdk-for-go).
+  2. Resource Manager uç noktasından meta veri bilgilerini alın. Uç nokta Git kodunuzu çalıştırmak için gerekli bilgileri bir JSON dosyası döndürür.
 
   > [!Note]  
-  > **ResourceManagerUrl** Azure yığın Geliştirme Seti (ASDK) olan: `https://management.local.azurestack.external/`  
-  > **ResourceManagerUrl** tümleşik sistemlerindeki: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
+  > **ResourceManagerUrl** olan Azure Stack geliştirme Seti'ni (ASDK): `https://management.local.azurestack.external/`  
+  > **ResourceManagerUrl** tümleşik sisteminde: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
   > Gerekli meta verilerini almak için: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
   Örnek JSON dosyası:
@@ -81,16 +81,16 @@ Azure yığında Git kod örneği çalıştırmak için:
   }
   ```
 
-  3. Yoksa, bir abonelik oluşturun ve daha sonra kullanılmak üzere abonelik kimliği kaydedin. Bir abonelik oluşturma hakkında daha fazla bilgi için bkz: [Azure yığınında teklifleri için abonelikleri oluşturma](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm). 
-  4. Bir hizmet sorumlusu "Abonelik" kapsamlı bir grup oluşturun ve **sahibi** rol. Hizmet sorumluları Kimliğini ve parolasını kaydedin. Azure yığını için bir hizmet sorumlusu oluşturma hakkında daha fazla bilgi için bkz: [hizmet sorumlusu oluşturma](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad). Azure yığın ortamınızı ayarlayın.
-  5. Kodunuzda Git SDK profilinden hizmet modülünü alın. Azure yığın profili geçerli sürümü **2017-03-09**. Örneğin, ağ modülünden içe aktarmak için **2017-03-09** profil türü: 
+  3. Yoksa, bir abonelik oluşturur ve daha sonra kullanılmak üzere abonelik Kimliğini kaydedin. Abonelik oluşturma hakkında daha fazla bilgi için bkz. [Azure Stack'te teklifleri abonelikleri oluşturma](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm). 
+  4. "Abonelik" kapsam ile hizmet sorumlusu oluşturma ve **sahibi** rol. Hizmet sorumluları, Kimliğini ve parolasını kaydedin. Azure Stack için hizmet sorumlusu oluşturma hakkında daha fazla bilgi için bkz. [hizmet sorumlusu oluşturma](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad). Azure Stack ortamınızı ayarlayın.
+  5. Bir hizmeti modülü kodunuzda Go SDK profilinden içeri aktarın. Azure Stack profilinin geçerli sürümü **2017-03-09**. Örneğin, ağ modülünü içeri aktarmak için **2017-03-09** profil türü: 
 
   ````go
     package main 
     import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
   ````
   
-  6. İşlevinizi oluşturun ve sahip bir istemci kimlik doğrulaması bir **yeni** istemci işlevi çağrısı. Bir sanal ağ istemcisi oluşturmak için aşağıdaki kodu kullanabilirsiniz:  
+  6. İşlevinizi oluşturun ve bir istemci ile kimlik doğrulaması bir **yeni** istemci işlev çağrısı. Bir sanal ağ istemcisi oluşturmak için aşağıdaki kodu kullanabilirsiniz:  
 
   ````go
   package main 
@@ -104,9 +104,9 @@ Azure yığında Git kod örneği çalıştırmak için:
 
   Ayarlama `<baseURI>` için **ResourceManagerUrl** iki adımda kullanılan değer.
   Ayarlama `<subscriptionID>` için **Subscriptionıd** üç adımda kaydedilen değeri.
-  Bkz: kimlik doğrulaması belirteci oluşturmak için aşağıdaki bölümü.  
+  Belirteci oluşturmak için bkz: kimlik doğrulaması bölümüne bakın.  
 
-  7. Önceki adımda oluşturduğunuz istemci kullanarak API yöntemlerini çağırın. Örneğin, önceki adımda bizim istemciden kullanarak bir sanal ağ oluşturmak için şunu yazın: 
+  7. Önceki adımda oluşturduğunuz istemcisini kullanarak API yöntemleri çağırır. Örneğin, önceki adımda istemci kullanarak bir sanal ağ oluşturmak için şunu yazın: 
   
 ````go
 package main
@@ -119,17 +119,17 @@ func main() {
   vnetClient .CreateOrUpdate( ) 
 ````
   
-  Git SDK profilini kullanarak Azure yığın üzerinde bir sanal ağ oluşturma tam örnek için bkz [örnek](#example).
+  Go SDK profilini kullanarak Azure Stack üzerinde bir sanal ağ oluşturma tam bir örnek için bkz [örnek](#example).
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
 
-Azure SDK'sı Git kullanarak Active Directory Yetkilendiricisi özelliği almak için Git AutoRest modüllerini yükleyin. Bu modüller zaten "SDK Git" yüklemeye yüklenmiş olması gerekir; değilse, yükleme [github'da kimlik doğrulama paketi](https://github.com/Azure/go-autorest/tree/master/autorest/adal).
+Azure Active Go SDK'sını kullanarak Directory'den yetkilendirici özelliği almak için Git AutoRest modüllerini yükleyin. Bu modüller zaten "Go SDK" yüklemeye yüklenmiş olması gerekir; Aksi takdirde, yükleme [github'da kimlik doğrulama paketi](https://github.com/Azure/go-autorest/tree/master/autorest/adal).
 
-Yetkilendiricisi kaynak istemci Yetkilendiricisi olarak ayarlamanız gerekir. Bir Yetkilendiricisi almak için farklı yöntemler vardır; bir tam listesi için bkz. burada.
+Yetkilendirici yetkilendirici kaynağı istemcisi olarak ayarlanmalıdır. Bir yetkilendirici almak için farklı yöntemler vardır. bir tam listesini görmek için buraya.
 
-Bu bölümde, istemci kimlik bilgilerini kullanarak Azure yığında Yetkilendiricisi belirteçleri almak için ortak bir yol sunar:
+Bu bölümde, istemci kimlik bilgilerini kullanarak Azure Stack'te yetkilendirici belirteçlerini almak için ortak bir yol sunar:
 
-  1. Bir hizmet sorumlusu abonelik sahibi rolü varsa, bu adımı atlayın. Aksi takdirde bir hizmet sorumlusu oluşturun [yönergeleri]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) ve aboneliğiniz için kapsamlı bir "sahip" rolü atayın [yönergeleri]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Hizmet Asıl uygulama Kimliğini ve parolasını kaydedin. 
+  1. Abonelikte sahip rolü hizmet sorumlusuyla varsa, bu adımı atlayın. Aksi takdirde bir hizmet sorumlusu oluşturma [yönergeleri]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) ve aboneliğinize kapsamlı bir "sahip" rol atayın [yönergeleri]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Hizmet sorumlusunun uygulama Kimliğini ve parolasını kaydedin. 
 
   2. İçeri aktarma **adal** Git AutoRest paketinden kodunuzda. 
   
@@ -150,10 +150,10 @@ Bu bölümde, istemci kimlik bilgilerini kullanarak Azure yığında Yetkilendir
       oauthConfig, err := adal.NewOAuthConfig(activeDirectoryEndpoint, tenantID)
   ````
    
-  Ayarlama `<activeDirectoryEndpoint>` "loginEndpoint" değerine ResourceManagerUrl meta veri özelliği, bu belgenin önceki bölümünde bulunan alınır.
-  Ayarlama `<tenantID>` Azure yığın Kiracı kimliğinizi değerine 
+  Ayarlama `<activeDirectoryEndpoint>` "loginEndpoint" değerine ResourceManagerUrl meta veri özelliği bu belgenin önceki bölümde üzerinde alınır.
+  Ayarlama `<tenantID>` Azure Stack Kiracı kimliğiniz için değeri 
 
-  4. Son olarak, bir hizmet asıl belirteci adal modülden NewServicePrincipalToken yöntemini kullanarak oluşturun. 
+  4. Son olarak, adal modülündeki NewServicePrincipalToken yöntemini kullanarak bir hizmet sorumlusu belirteci oluşturun. 
 
   ````go
   package main 
@@ -171,18 +171,18 @@ Bu bölümde, istemci kimlik bilgilerini kullanarak Azure yığında Yetkilendir
       return token, err
   ````
   
-  Ayarlama `<activeDirectoryResourceID>` ResourceManagerUrl meta verileri listesinden "hedef kitleyi" değerlerden biri için bu belgenin önceki bölümünde bulunan alınan.  
-  Ayarlama `<clientID>` hizmet asıl uygulama kimliği kaydedilen hizmet sorumlusu, bu belgenin önceki bölümünde bulunan oluşturulduğu zaman.  
-  Ayarlama `<clientSecret>` hizmet sorumlusu, bu belgenin önceki bölümünde bulunan oluşturulduğunda hizmet asıl uygulama gizli anahtarı kaydedildi.  
+  Ayarlama `<activeDirectoryResourceID>` ResourceManagerUrl meta verileri listeden bir değerler "audience" Bu belgenin önceki bölümde üzerinde alınan.  
+  Ayarlama `<clientID>` hizmet sorumlusu uygulama kimliği kaydettiğiniz hizmet sorumlusu, bu belgenin önceki bölümde üzerinde oluşturulduğu zaman.  
+  Ayarlama `<clientSecret>` hizmet sorumlusu, bu belgenin önceki bölümde üzerinde oluşturulduğu sırada hizmet sorumlusu uygulama gizli anahtarı kaydedildi.  
 
 ## <a name="example"></a>Örnek
 
-Bu bölümde Azure yığında sanal ağ oluşturmak için Git kodu örneği gösterir. Git SDK tam örnekleri görmek için [Azure SDK'sını Git örnekleri depo](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Karma altında Azure yığın örnekleri kullanılabilir / hizmet klasörleri depo içinde yolu.
+Bu bölümde, Azure Stack üzerinde sanal ağ oluşturmak için Go kod örneği gösterilmektedir. Go SDK'ın tam örnekler için bkz [Azure Go SDk örnekleri depomuzdan](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Azure Stack örnekleri karma altında kullanılabilir / hizmet klasör deponun içinde yolu.
 
 > [!Note]  
-> Bu örnekte kodu çalıştırmak için kullanılan abonelikle sahip olduğunu doğrulayın **ağ** kaynak sağlayıcısı olarak listelenen **kayıtlı**. Bunu doğrulamak için Azure yığın portal abonelikte arayın ve tıklayın **kaynak sağlayıcıları.**
+> Bu örnekte, kodu çalıştırmak için kullanılan abonelik sahip olduğunu doğrulayın **ağ** kaynak sağlayıcısı olarak listelenen **kayıtlı**. Doğrulamak için Azure Stack portalında abonelik bulun ve tıklayarak **kaynak sağlayıcıları.**
 
-1. Kodunuzda gerekli paketleri içeri aktarın. Ağ modülü içeri aktarmak için Azure yığında en son kullanılabilir profil kullanmanız gerekir. 
+1. Kodunuzda gerekli paketleri içeri aktarın. Ağ modülü içeri aktarmak için Azure Stack üzerinde en son kullanılabilir profili kullanmanız gerekir. 
   
   ````go
   package main
@@ -197,7 +197,7 @@ Bu bölümde Azure yığında sanal ağ oluşturmak için Git kodu örneği gös
   )
   ````
 
-2. Ortam değişkenleri tanımlayın. Bir sanal ağ oluşturmak için bir kaynak grubu olması gerekir. 
+2. Ortam değişkenlerini tanımlayın. Bir sanal ağ oluşturmak için bir kaynak grubu olması gerekir. 
 
   ````go
   var (
@@ -212,7 +212,7 @@ Bu bölümde Azure yığında sanal ağ oluşturmak için Git kodu örneği gös
   )
   ````
 
-3. Ortam değişkenlerini tanımladığınız, kullanarak kimlik doğrulama belirtecini oluşturmak için bir yöntem ekleyin **adal** paket. Önceki bölümde kimlik doğrulama hakkında ayrıntılar bakın.
+3. Ortam değişkenlerini tanımladığınıza göre kullanarak kimlik doğrulama belirteci oluşturmak için bir yöntem ekleyin **adal** paket. Önceki bölümde kimlik doğrulaması hakkındaki ayrıntıları bakın.
   
   ````go
   //CreateToken creates a service principal token
@@ -228,7 +228,7 @@ Bu bölümde Azure yığında sanal ağ oluşturmak için Git kodu örneği gös
   }
   ````
 
-4. Main yöntemi ekleyin. Main yöntemi önceki adımda tanımlanan yöntemi kullanarak bir belirteç ilk alır. Ardından, Profilinden ağ modülü kullanarak bir istemci oluşturur. Son olarak, bir sanal ağ oluşturur. 
+4. Main yöntemini ekleyin. Main yöntemini önce önceki adımda tanımlanan yöntemini kullanarak bir belirteç alır. Ardından, Profilinden ağ modülü kullanarak bir istemci oluşturur. Son olarak, bir sanal ağ oluşturur. 
   
 ````go
 package main
@@ -300,4 +300,4 @@ func main() {
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Stack için PowerShell yükleme](azure-stack-powershell-install.md)
-* [Azure yığın kullanıcının PowerShell ortamını yapılandırma](azure-stack-powershell-configure-user.md)  
+* [Azure Stack kullanıcının PowerShell ortamını yapılandırma](azure-stack-powershell-configure-user.md)  

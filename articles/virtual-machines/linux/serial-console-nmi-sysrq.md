@@ -1,6 +1,6 @@
 ---
-title: GRUB ve tek kullanıcı modu Azure seri konsol | Microsoft Docs
-description: Azure sanal makineler'de grub seri konsol kullanarak.
+title: Azure seri konsol SysRq ve NMI çağrı | Microsoft Docs
+description: Seri konsol için SysRq ve NMI kullanarak Azure sanal makineler'de çağırır.
 services: virtual-machines-linux
 documentationcenter: ''
 author: alsin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 54b5fb4ace64cc304a8eb8ce6d762d33ae18619a
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 14bf68355550d756bd3f4da1a367133d83ddbf07
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177667"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42059898"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Seri konsol SysRq ve NMI çağrıları için kullanın.
 

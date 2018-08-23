@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 5f6538c69139b8cd254b44cb9875e18a14c8fa8b
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 183dad8f70a4094f6d6ba3605fd19f8921dcc988
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344156"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057450"
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure işlevleri HTTP ve Web kancası bağlamaları
 
@@ -58,6 +58,7 @@ Dile özgü örneğe bakın:
 * [C# betiği (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### <a name="trigger---c-example"></a>Tetikleyici - C# örneği
 
@@ -276,6 +277,45 @@ module.exports = function(context, req) {
     context.done();
 };
 ```
+
+### <a name="trigger---java-example"></a>Tetikleyici - Java örnek
+
+Aşağıdaki örnek, bir tetikleyici bağlamasında gösterir. bir *function.json* dosyası ve bir [Java işlevi](functions-reference-java.md) bağlama kullanan. İşlev bir "Hello" ile tetikleme istek gövdesi Karşılama ön ekleri arequest gövdesi ile HTTP durum kodu 200 yanıtının döndürür.
+
+
+İşte *function.json* dosyası:
+
+```json
+{
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "anonymous",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
+```
+
+Java kod aşağıdaki gibidir:
+
+```java
+@FunctionName("hello")
+public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS), Optional<String> request,
+                        final ExecutionContext context) 
+    {
+        // default HTTP 200 response code
+        return String.format("Hello, %s!", request);
+    }
+}
+```
      
 ## <a name="trigger---webhook-example"></a>Tetikleyici - Web kancası örneği
 
@@ -461,7 +501,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 | **type** | yok| Gerekli - kümesine olmalıdır `httpTrigger`. |
 | **direction** | yok| Gerekli - kümesine olmalıdır `in`. |
 | **Adı** | yok| Gereklidir - değişken adı işlev kodu isteği veya istek gövdesi için kullanılır. |
-| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Anahtarlar, varsa, işlevin çalıştırılabilmesi için istekte bulunması gerekenleri belirler. Yetkilendirme düzeyi aşağıdaki değerlerden biri olabilir: <ul><li><code>anonymous</code>&mdash;Hiçbir API anahtarı gereklidir.</li><li><code>function</code>&mdash;İşleve özgü API anahtarı gereklidir. Belirtilmezse varsayılan değer budur.</li><li><code>admin</code>&mdash;Ana anahtarı gereklidir.</li></ul> Daha fazla bilgi için konudaki [yetkilendirme anahtarları](#authorization-keys). |
+| <a name="http-auth"></a>**authLevel** |  **authLevel** |Anahtarlar, varsa, işlevin çalıştırılabilmesi için istekte bulunması gerekenleri belirler. Yetkilendirme düzeyi aşağıdaki değerlerden biri olabilir: <ul><li><code>anonymous</code>&mdash;Hiçbir API anahtarı gereklidir.</li><li><code>function</code>&mdash;İşleve özgü API anahtarı gereklidir. Belirtilmezse varsayılan değer budur.</li><li><code>admin</code>&mdash;Ana anahtarı gereklidir.</li></ul> Daha fazla bilgi için konudaki [yetkilendirme anahtarları](#authorization-keys). |
 | **Yöntemleri** |**Yöntemleri** | Bir dizi işlev yanıt vereceği HTTP yöntemleri. Belirtilmemişse, işlev tüm HTTP yöntemlerine yanıt verir. Bkz: [http uç noktasına özelleştirme](#customize-the-http-endpoint). |
 | **yol** | **yol** | İstek, işlevinizin yanıt URL'lerini denetleme için rota şablonu tanımlar. Varsayılan değer sağlanmazsa `<functionname>`. Daha fazla bilgi için [http uç noktasına özelleştirme](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** |HTTP tetikleyicisi olarak davranacak şekilde yapılandırır bir [Web kancası](https://en.wikipedia.org/wiki/Webhook) belirtilen sağlayıcının alıcı. Ayarlamamanız `methods` bu özelliği ayarlarsanız özelliği. Web kancası türü aşağıdaki değerlerden biri olabilir:<ul><li><code>genericJson</code>&mdash;Genel amaçlı bir Web kancası uç noktası olmadan belirli bir sağlayıcı için mantığı. Bu ayar, yalnızca HTTP POST ve ile kullanmak için istekleri kısıtlar `application/json` içerik türü.</li><li><code>github</code>&mdash;İşlev yanıtlar [GitHub Web kancası](https://developer.github.com/webhooks/). Kullanmayın _authLevel_ GitHub Web kancası özellik. Daha fazla bilgi için bu makalenin devamındaki GitHub Web kancaları bölümüne bakın.</li><li><code>slack</code>&mdash;İşlev yanıtlar [Slack Web kancaları](https://api.slack.com/outgoing-webhooks). Kullanmayın _authLevel_ Slack Web kancaları ile özelliği. Daha fazla bilgi için bu makalenin devamındaki Slack Web kancaları bölümüne bakın.</li></ul>|

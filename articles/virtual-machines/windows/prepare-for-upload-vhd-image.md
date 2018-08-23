@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/01/2018
 ms.author: genli
-ms.openlocfilehash: 48037bc92d26cd01086451fdc778651df5b6bf67
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 0f7b19b0848886c7a906e79d63a814fddf5ef5a6
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398980"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056281"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Bir Windows VHD veya VHDX yüklemek için hazırlama
 Bir Windows sanal makinelerine (VM) şirket içi Microsoft Azure'ı yüklemeden önce sanal sabit disk (VHD veya VHDX) hazırlamanız gerekir. Azure'un destekledikleri **yalnızca 1. kuşak Vm'leri** VHD dosyası biçiminde ve sabit boyutlu bir diske sahip. VHD için izin verilen boyut 1,023 GB'dir. Nesil 1 VM'den VHDX dosya sistemi VHD ve sabit boyutlu için dinamik olarak genişleyen bir diskten dönüştürebilirsiniz. Ancak, bir sanal makinenin oluşturulması değiştiremezsiniz. Daha fazla bilgi için [oluşturmalıyım 1 veya 2. nesil Hyper-v VM](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -67,7 +67,7 @@ Azure'a yüklemek planladığınız sanal makinede aşağıdaki adımlardan tüm
 1. Tüm statik kalıcı yolu yönlendirme tablosunda kaldırın:
    
    * Rota tablosunu görüntülemek için çalıştırın `route print` komut isteminde.
-   * Denetleme **Kalıcılık yollar** bölümler. Kalıcı bir yolu ise kullanın [route delete](https://technet.microsoft.com/library/cc739598.apx) kaldırmak için.
+   * Denetleme **Kalıcılık yollar** bölümler. Kalıcı bir yolu ise kullanın **route delete** kaldırmak için komutu.
 2. WinHTTP proxy kaldırın:
    
     ```PowerShell
@@ -90,7 +90,7 @@ Azure'a yüklemek planladığınız sanal makinede aşağıdaki adımlardan tüm
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -name "RealTimeIsUniversal" 1 -Type DWord
 
-    Set-Service -Name w32time -StartupType Auto
+    Set-Service -Name w32time -StartupType Automatic
     ```
 5. Güç profili kümesine **yüksek performanslı**:
 
@@ -102,17 +102,17 @@ Azure'a yüklemek planladığınız sanal makinede aşağıdaki adımlardan tüm
 Aşağıdaki Windows hizmetlerinin her biri olarak ayarlandığından emin olun **Windows varsayılan değerler**. Bunlar, VM'nin bağlantısı olduğundan emin olmak için ayarlanmalıdır hizmetlerinin en düşük sayılardır. Başlangıç ayarlarını sıfırlamak için aşağıdaki komutları çalıştırın:
    
 ```PowerShell
-Set-Service -Name bfe -StartupType Auto
-Set-Service -Name dhcp -StartupType Auto
-Set-Service -Name dnscache -StartupType Auto
-Set-Service -Name IKEEXT -StartupType Auto
-Set-Service -Name iphlpsvc -StartupType Auto
+Set-Service -Name bfe -StartupType Automatic
+Set-Service -Name dhcp -StartupType Automatic
+Set-Service -Name dnscache -StartupType Automatic
+Set-Service -Name IKEEXT -StartupType Automatic
+Set-Service -Name iphlpsvc -StartupType Automatic
 Set-Service -Name netlogon -StartupType Manual
 Set-Service -Name netman -StartupType Manual
-Set-Service -Name nsi -StartupType Auto
+Set-Service -Name nsi -StartupType Automatic
 Set-Service -Name termService -StartupType Manual
-Set-Service -Name MpsSvc -StartupType Auto
-Set-Service -Name RemoteRegistry -StartupType Auto
+Set-Service -Name MpsSvc -StartupType Automatic
+Set-Service -Name RemoteRegistry -StartupType Automatic
 ```
 
 ## <a name="update-remote-desktop-registry-settings"></a>Uzak Masaüstü kayıt defteri ayarlarını güncelleştirme
@@ -307,11 +307,22 @@ Aşağıdaki ayarlar, Uzak Masaüstü bağlantısı için doğru şekilde yapıl
     - Uzak Masaüstü Hizmetleri üzerinden Bilgisayar Yapılandırması\Windows Ayarları\Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları ataması\yerel oturum açma
 
 
-9. Windows yine de sağlıklı olduğundan emin olmak için VM yeniden başlatma, RDP bağlantısını kullanarak erişilebilir. Bu noktada, yerel Hyper-VM tamamen başlangıç emin olun ve ardından RDP erişilebilir olup olmadığını test etmek için V'de bir sanal makine oluşturmak isteyebilirsiniz.
+9. Aşağıdakilerden herhangi birini kaldırmıyorsunuz emin olmak için aşağıdaki AD ilkeyi denetlemek gerekli erişim hesapları:
 
-10. TCP analiz yazılımı gibi ek bir aktarım sürücüsü arabirimi filtreleri, kaldırma paketler ya da ek güvenlik duvarları. Gerekirse Azure'da VM dağıtıldıktan sonra bu üzerinde sonraki bir aşamasında gözden geçirebilirsiniz.
+    - Bilgisayar Yapılandırması\Windows Ayarları\Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Assignment\Access ağdan bu işlem
 
-11. Herhangi bir üçüncü taraf yazılım ve fiziksel bileşenler veya başka bir sanallaştırma teknolojisi ilgili sürücü kaldırın.
+    Aşağıdaki gruplar bu ilkeye bağlı olarak listelenmesi gerekir:
+
+    - Yöneticiler
+    - Yedekleme işleçleri
+    - Herkes
+    - Kullanıcılar
+
+10. Windows yine de sağlıklı olduğundan emin olmak için VM yeniden başlatma, RDP bağlantısını kullanarak erişilebilir. Bu noktada, yerel Hyper-VM tamamen başlangıç emin olun ve ardından RDP erişilebilir olup olmadığını test etmek için V'de bir sanal makine oluşturmak isteyebilirsiniz.
+
+11. TCP analiz yazılımı gibi ek bir aktarım sürücüsü arabirimi filtreleri, kaldırma paketler ya da ek güvenlik duvarları. Gerekirse Azure'da VM dağıtıldıktan sonra bu üzerinde sonraki bir aşamasında gözden geçirebilirsiniz.
+
+12. Herhangi bir üçüncü taraf yazılım ve fiziksel bileşenler veya başka bir sanallaştırma teknolojisi ilgili sürücü kaldırın.
 
 ### <a name="install-windows-updates"></a>Windows güncelleştirmeleri yükle
 İdeal Yapılandırması **makineyi en son düzeltme eki düzeyine sahip**. Bu mümkün değilse, aşağıdaki güncelleştirmelerinin yüklendiğinden emin olun:

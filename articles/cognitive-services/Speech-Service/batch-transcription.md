@@ -8,27 +8,27 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: f21973855ceb3a257627c147490ac50465c54020
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 5af829ca076b39758973c28a44d918b9ba5782b1
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281948"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42351259"
 ---
 # <a name="batch-transcription"></a>Toplu iş transkripsiyonu
 
-Batch tanıma, ses büyük miktarda kullanım örnekleri için idealdir. Bu ses dosyalarının olduğu noktaya ve döküm zaman uyumsuz modda dönmek Geliştirici sağlar.
+Batch tanıma, ses büyük miktarlarda varsa idealdir. Ses dosyalarının olduğu noktaya ve döküm zaman uyumsuz modda geri dönebilirsiniz.
 
 ## <a name="batch-transcription-api"></a>Batch tanıma API'si
 
-Batch tanıma API'si, yukarıdaki senaryoyu mümkün kılar. Zaman uyumsuz konuşma metin tanıma birlikte ek özellikler sunar.
+Batch tanıma API'si, metin tanıma, ek özellikleri ile birlikte zaman uyumsuz konuşma sunar.
 
 > [!NOTE]
-> Batch tanıma API'si, genellikle saatlik ses binlerce accumulate çağrı merkezleri için idealdir. API'nin yangın & unut felsefesi ses kayıtlarını büyük hacimli konuşmaların daha kolay hale getirir.
+> Batch tanıma API'si, genellikle saatlik ses binlerce accumulate çağrı merkezleri için idealdir. API, büyük hacimli ses kayıtlarını özelliği kolaylaştıran bir "Başlat ve unut" felsefemiz tarafından yönlendirilir.
 
 ### <a name="supported-formats"></a>Desteklenen biçimler
 
-Çevrimdışı çağrı senaryoları ile ilgili center de kaybolmayacaktır olur ve tüm ilgili biçimleri için destek sunmak için Batch transkripsiyonu API amaçlar. Şu anda desteklenen biçimler:
+Batch tanıma API'si aşağıdaki biçimlerde destekler:
 
 Ad| Kanal  |
 ----|----------|
@@ -37,7 +37,7 @@ MP3 |  Stereo  |
 WAV |   Mono   |
 WAV |  Stereo  |
 
-Stereo ses akışları için Batch döküm sırasında transkripsiyonu sol ve sağ kanal bölecektir. Sonuç ile iki JSON dosyaları her tek bir kanaldan oluşturulur. Zaman damgaları utterance başına bir sıralı son döküm oluşturmak Geliştirici etkinleştirin. Aşağıdaki JSON örneği, bir kanal çıktısını gösterir.
+Stereo ses akışları için Batch döküm sırasında transkripsiyonu sol ve sağ kanal böler. Sonuç ile iki JSON dosyaları her tek bir kanaldan oluşturulur. Zaman damgaları utterance başına bir sıralı son döküm oluşturmak Geliştirici etkinleştirin. Aşağıdaki JSON örneği, bir kanal çıktısını gösterir.
 
 ```json
        {
@@ -55,28 +55,28 @@ Stereo ses akışları için Batch döküm sırasında transkripsiyonu sol ve sa
 ```
 
 > [!NOTE]
-> Batch tanıma API'si, döküm, durum ve ilişkili sonuçları istenirken bir REST hizmeti kullanıyor. API, herhangi bir dilde kullanılabilir. Sonraki bölümde, nasıl kullanıldığı açıklanır.
+> Batch tanıma API'si, döküm, durum ve ilişkili sonuçları istenirken bir REST hizmeti kullanıyor. Herhangi bir dilde API'den kullanabilirsiniz. Sonraki bölümde, nasıl kullanıldığı açıklanır.
 
 ## <a name="authorization-token"></a>Yetkilendirme belirteci
 
-Birleşik konuşma hizmeti tüm özellikleri ile bir abonelik anahtarı oluşturmak kullanıcı gereksinimleriniz değiştikçe [Azure portalında](https://portal.azure.com). Ayrıca, bir API anahtarı konuşma tanıma Portalı'ndan elde edilmesi gerekir. Bir API anahtarı oluşturmak için bu adımları:
+Birleşik konuşma hizmeti tüm özellikleri ile bir abonelik anahtarı oluştururken [Azure portalında](https://portal.azure.com). Ayrıca, bir API anahtarı konuşma portaldan edindiğiniz: 
 
-1. Oturum https://customspeech.ai.
+1. Oturum [özel konuşma](https://customspeech.ai).
 
-2. Abonelikler'e tıklayın.
+2. **Abonelikler**'i seçin.
 
-3. Seçeneğe tıklayın `Generate API Key`.
+3. Seçin **API anahtarı oluşturma**.
 
-    ![Karşıya yükleme görüntüle](media/stt/Subscriptions.jpg)
+    ![Özel konuşma abonelikler ekran sayfası](media/stt/Subscriptions.jpg)
 
 4. Kopyalayın ve bu anahtarın aşağıdaki örnekte istemci kodu yapıştırın.
 
 > [!NOTE]
-> Ardından, özel bir model kullanmayı planlıyorsanız, bu modeli kimliği çok gerekir. Bu uç noktası ayrıntıları görüntüle ancak bu modelin ayrıntıları tıkladığınızda almak model Kimliğini bulma uç noktası kimliği ya da dağıtım olmadığına dikkat edin
+> Özel bir model kullanmayı planlıyorsanız, bu model Kimliğini çok gerekir. Bu uç noktası Ayrıntıları görünümünde bulduğunuz dağıtım veya uç noktası kimliği olmadığını unutmayın. Bu modelin ayrıntılarını seçtiğinizde, alabileceğiniz model kimliği var.
 
 ## <a name="sample-code"></a>Örnek kod
 
-API'si kullanan oldukça oldukça kolaydır. Bir abonelik anahtarı ve buna karşılık olarak aşağıdaki kod parçacığı bir taşıyıcı belirteç almak Geliştirici sağlayan bir API anahtarı ile özelleştirilmesi gereken aşağıdaki örnek kodları gösterir:
+Aşağıdaki örnek kod bir abonelik anahtarı ve bir API anahtarı ile özelleştirin. Bu, bir taşıyıcı belirteç edinme sağlar.
 
 ```cs
     public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
@@ -93,7 +93,7 @@ API'si kullanan oldukça oldukça kolaydır. Bir abonelik anahtarı ve buna kar�
         }
 ```
 
-Belirteç alındıktan sonra Geliştirici transkripsiyonu isteyen bir ses dosyasına işaret eden SAS URI'sini belirtin gerekir. Kodun geri kalanını yalnızca durum yinelenir ve sonuçları görüntüler.
+Belirteç edindikten sonra transkripsiyonu isteyen bir ses dosyasına işaret eden SAS URI'sini belirtmeniz gerekir. Kodun geri kalanını durumu yinelenir ve sonuçları görüntüler.
 
 ```cs
    static async Task TranscribeAsync()
@@ -152,28 +152,27 @@ Belirteç alındıktan sonra Geliştirici transkripsiyonu isteyen bir ses dosyas
 ```
 
 > [!NOTE]
-> Yukarıdaki kod parçacığında geçen abonelik anahtarı, Azure portalında oluşturduğunuz Speech(Preview) kaynaktan anahtardır. Özel konuşma hizmeti kaynaktan alınan anahtarlar çalışmaz.
+> Önceki kodda, Azure portalında oluşturduğunuz Speech(Preview) kaynak abonelik anahtarını arasındadır. Özel konuşma hizmeti kaynaktan alınan tuşu çalışmıyor.
 
+Ses gönderme ve döküm durumu almak için zaman uyumsuz Kurulum dikkat edin. Oluşturulan istemci, bir .NET Http istemcidir. Var. bir `PostTranscriptions` ses dosyası ayrıntıları, gönderme yöntemi ve bir `GetTranscriptions` sonuçlarını almak için yöntemi. `PostTranscriptions` bir tanıtıcı döndürür ve `GetTranscriptions` transkripsiyonu durumunu almak için bir tanıtıcı oluşturmak için bu tutamacı kullanır.
 
-Ses gönderme ve döküm durumu almak için zaman uyumsuz Kurulum dikkat edin. Oluşturulan istemci, bir .NET Http istemcidir. Var. bir `PostTranscriptions` ses dosyası ayrıntıları, gönderme yöntemi ve bir `GetTranscriptions` sonuçlarını almak için yöntemi. `PostTranscriptions` bir tanıtıcı döndürür ve `GetTranscriptions` yöntemi transkripsiyonu durumunu almak için bir tanıtıcı oluşturmak için bu tutamacı kullanıyor.
+Geçerli örnek kod, herhangi bir özel modelleri belirtmiyor. Hizmet, dosya veya dosyalar fotoğrafını için temel modelleri kullanır. Modelleri belirtmek için model kimliklerini akustik ve dil modeli için aynı yönteme geçirebilirsiniz. 
 
-Geçerli örnek kod, herhangi bir özel modelleri belirtmiyor. Hizmet, dosyaları fotoğrafını için temel modelleri kullanır. Kullanıcı modelleri belirtin isterse bir modelIDs akustik ve dil modeli için aynı yönteme geçirebilirsiniz. 
-
-Bir taban çizgisi değil kullanıyorsanız, bir model kimliği için hem akustik ve dil modellerini geçmesi gerekir.
+Taban çizgisi kullanmak istemiyorsanız, hem akustik ve dil modelleri için model kimliklerini geçmesi gerekir.
 
 > [!NOTE]
-> Şunun için taban çizgisi temel modelleri uç noktalarına bildirmek döküm kullanıcı yok. Kullanıcı özel modelleri kullanmak istiyorsa yaptığı uç noktaları kimlikleri sağlamanız gerekir [örnek](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Kullanıcı bir akustik temeli ile temel bir dil modeli kullanmak istiyorsa ardından kendisi yalnızca özel modelin uç noktası kimliği bildirmeniz gerekir Dahili olarak sistemimiz (Akustik veya dil olması) iş ortağı temel modelinin ölçeğini şekil ve, döküm isteği yerine getirmek için kullanın.
+> Taban çizgisi döküm için temel modelleri uç noktalarına bildirmeniz gerekmez. Özel modelleri kullanmak istiyorsanız, uç noktaları kimlikleri olarak sağladığınız [örnek](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Temel dil modeli ile bir akustik temel kullanmak istiyorsanız, yalnızca özel modelin uç noktası kimliği bildirmeniz gerekir Microsoft (Akustik veya dil olması) iş ortağı temel model algılar ve, döküm isteği yerine getirmek için kullanır.
 
 ### <a name="supported-storage"></a>Desteklenen depolama
 
-Şu anda desteklenen tek Azure blob depolamadır.
+Şu anda desteklenen tek depolama, Azure Blob depolama alanıdır.
 
 ## <a name="downloading-the-sample"></a>Örneği indirme
 
-Burada görüntülenen örnek açıktır [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
+Burada gösterilen örnek açıktır [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
-> Genellikle bir ses tanıma, ses dosyası artı 2-3 dakika yükü süre eşit bir zaman aralığı gerektirir.
+> Genellikle, bir ses tanıma, ses dosyası yanı sıra, 2-3 dakika yükü süresi için eşit bir zaman aralığı gerektirir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

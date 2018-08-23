@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: d864a663604794a249b08a7c7be471c3abba32af
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0b731e94675992e59f79b61a2f3a15fa20bdf8a7
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971545"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42060381"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Sık sorulan sorular Service Fabric
 
@@ -27,11 +27,11 @@ Service Fabric neler yapabileceğinizi ve nasıl kullanılmalıdır hakkında pe
 
 ## <a name="cluster-setup-and-management"></a>Küme kurulumu ve Yönetimi
 
-### <a name="how-do-i-rollback-my-service-fabric-cluster-certificate"></a>Nasıl yaparım geri alma Service Fabric kümesi Sertifikamı?
+### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Nasıl Service Fabric kümesi Sertifikamı geri alma?
 
 Geri alma, Service Fabric Küme çekirdeğini değişiklik yapmadan önce sistem durumu hata algılama uygulamanıza yükseltme gerektirir; Kaydettiğim değişiklikleri yalnızca ileri alınabilir. Yükseltme mühendisi ait Müşteri Destek Hizmetleri aracılığıyla gerekebilir kümenizi, kurtarılır izlenmeyen bir sertifika değişiklik sunulan durumunda.  [Service Fabric'in uygulama yükseltmesi](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) geçerlidir [uygulama yükseltme parametreleri](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master), ve sıfır kapalı kalma süresi yükseltme promise sunar.  İzlenen modu önerilen uygulamamızı yükseltme, otomatik güncelleştirme etki alanlarını ilerlemeyi durum denetimleri otomatik olarak varsayılan hizmet güncelleştirme geçen, sıralı geri başarısız temel alır.
  
-Kümenizi hala Klasik önerilir, Resource Manager şablonunuzu sertifika parmak izi özelliği yararlanarak varsa, [ortak adı için sertifika parmak izi değişikliği kümeden](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), modern gizli dizileri yararlanmak için Yönetim Özellikleri.
+Kümenizi hala Klasik Resource Manager şablonunuzu sertifika parmak izi özelliği yararlanarak, onu önerilir [ortak adı için sertifika parmak izi değişikliği kümeden](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), modern gizli dizileri yararlanmak için Yönetim Özellikleri.
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>Birden fazla Azure bölgesini veya kendi veri merkezlerini yayılan bir küme oluşturabilir miyim?
 
@@ -119,6 +119,12 @@ Evet.  Daha fazla bilgi için [bağlı veri diskleri ile küme oluşturma](../vi
 | FabricRM.exe |
 | FileStoreService.exe |
  
+### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>Anahtar kasası için gizli dizileri almak üzere uygulamamı nasıl kimlik doğrulaması yapabilir?
+Uygulamanız için KeyVault kimlik doğrulaması için kimlik bilgilerini almak için yol şunlardır:
+
+A. Derleme/paketleme işlemi sırasında uygulamalarınızı, bir sertifika SF uygulamanızın veri pakete çekme ve için KeyVault kimlik doğrulaması için bunu kullanın.
+B. MSI etkin konak sanal makine ölçek kümesi için bir basit PowerShell almak için SetupEntryPoint SF uygulamanız için geliştirebilirsiniz [MSI uç noktasından bir erişim belirteci](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/how-to-use-vm-token), ardından [KeyVault, gizli dizilerini alma](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0)
+
 ## <a name="application-design"></a>Uygulama tasarımı
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Güvenilir bir koleksiyonun bölümler arasında veri en iyi yolu nedir?

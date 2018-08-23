@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a4b63c9d184f58fe13c1271f9a425919a42fd897
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 8e107c1721d5623239a694eba39b32e8a2a6089d
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216551"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42055875"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure sanal makinelerinde SQL Server Yük devretme kümesi örneğini yapılandırma
 
@@ -421,7 +421,7 @@ Yük Dengeleyici oluşturmak için:
    - **Boşta kalma zaman aşımı (dakika)**: 4.
    - **Kayan IP (doğrudan sunucu dönüşü)**: etkin
 
-1. **Tamam**’a tıklayın.
+1. **Tamam** düğmesine tıklayın.
 
 ## <a name="step-6-configure-cluster-for-probe"></a>6. adım: küme araştırması için yapılandırma
 
@@ -481,7 +481,13 @@ Bağlantıyı test etmek için aynı sanal ağdaki başka bir sanal makinede otu
 >Gerekirse, yapabilecekleriniz ise [SQL Server Management Studio'yu indirme](http://msdn.microsoft.com/library/mt238290.aspx).
 
 ## <a name="limitations"></a>Sınırlamalar
-Azure sanal makinelerinde RPC bağlantı noktası, yük dengeleyici tarafından desteklenmediği için Microsoft Dağıtılmış İşlem Düzenleyicisi (DTC) Fcı'lerde üzerinde desteklenmiyor.
+
+Azure sanal makineleri kümelenmiş paylaşılan birimleri (CSV) depolaması ile Windows Server 2019 üzerinde Microsoft Dağıtılmış İşlem Düzenleyicisi (MSDTC) desteği ve [standart load balancer](../../../load-balancer/load-balancer-standard-overview.md).
+
+Azure sanal makinelerinde MSDTC Windows Server 2016 ve önceki sürümleri için desteklenmez:
+
+- Kümelenmiş MSDTC'nin kaynak, paylaşılan depolama kullanmak için yapılandırılamaz. Bir MSDTC kaynağı oluşturursanız, depolama olsa bile ile Windows Server 2016, tüm paylaşılan depolama kullanmak için kullanılabilir göstermez. Windows Server 2019 ' Bu sorun düzeltilmiştir.
+- Temel Azure load balancer'a RPC bağlantı noktalarını işlemez.
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 

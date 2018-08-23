@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 5d4fa878197732daf188fcc318569b178e608684
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 00164789d7f37277127878911c3f368a56ec7710
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345969"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616981"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux üzerinde geliştirme ortamınızı hazırlama
 > [!div class="op_single_selector"]
@@ -208,27 +208,20 @@ Service Fabric, Yeoman şablon oluşturucuları kullanarak terminalden Service F
 
 1. Makinenize nodejs ve npm’yi yükleyin.
 
-    * Ubuntu
-        ```bash
-        curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
-        sudo apt-get install -y nodejs 
-        ```
-
-    * Red Hat Enterprise Linux 7.4 (Service Fabric önizleme desteği)
-        ```bash
-        sudo yum install nodejs
-        sudo yum install npm
-        ```
+    ```bash
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+    nvm install node
+    ```
 2. Makinenize npm’den [Yeoman](http://yeoman.io/) şablon oluşturucuyu yükleyin.
 
     ```bash
-    sudo npm install -g yo
+    npm install -g yo
     ```
 3. npm’den Service Fabric Yeo kapsayıcı oluşturucusunu ve konuk yürütülebilir dosya oluşturucusunu yükleyin.
 
     ```bash
-    sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
-    sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
+    npm install -g generator-azuresfcontainer  # for Service Fabric container application
+    npm install -g generator-azuresfguest      # for Service Fabric guest executable application
     ```
 
 Oluşturucuları yükledikten sonra, sırasıyla `yo azuresfguest` ve `yo azuresfcontainer` komutlarını çalıştırarak konuk yürütülebilir dosyasını veya kapsayıcı hizmetlerini oluşturun.
@@ -260,7 +253,7 @@ Service Fabric hizmetlerini Java kullanarak derlemek için JDK 1.8 ve Gradle yü
 Ayrıca Java yürütülebilir dosyaları için Service Fabric Yeo oluşturucusunu da yüklemelisiniz. [Yeoman'ı yüklediğinizden](#set-up-yeoman-generators-for-containers-and-guest-executables) emin olun ve ardından aşağıdaki komutu çalıştırın:
 
   ```bash
-  sudo npm install -g generator-azuresfjava
+  npm install -g generator-azuresfjava
   ```
  
 ## <a name="install-the-eclipse-plug-in-optional"></a>Eclipse eklentisini yükleme (isteğe bağlı)
@@ -310,8 +303,8 @@ Service Fabric SDK'larını kaldırmak için aşağıdaki komutları çalıştı
 
     ```bash
     sudo apt-get remove servicefabric servicefabicsdkcommon
-    sudo npm uninstall generator-azuresfcontainer
-    sudo npm uninstall generator-azuresfguest
+    npm uninstall -g generator-azuresfcontainer
+    npm uninstall -g generator-azuresfguest
     sudo apt-get install -f
     ```
 
@@ -319,9 +312,9 @@ Service Fabric SDK'larını kaldırmak için aşağıdaki komutları çalıştı
 * Red Hat Enterprise Linux 7.4 (Service Fabric önizleme desteği)
 
     ```bash
-    sudo yum remote servicefabric servicefabicsdkcommon
-    sudo npm uninstall generator-azuresfcontainer
-    sudo npm uninstall generator-azuresfguest
+    sudo yum remove servicefabric servicefabicsdkcommon
+    npm uninstall -g generator-azuresfcontainer
+    npm uninstall -g generator-azuresfguest
     ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

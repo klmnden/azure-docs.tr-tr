@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 08/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 69e3e308fb5af98dd5763c56503cc28bd4ecfa9e
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 19ba4a97b93c01a049f921904d0f5aba4b8c0617
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125257"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442063"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri öğesinden ve salesforce'a kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -184,7 +184,7 @@ Salesforce veri kopyalamak için kopyalama etkinliği için kaynak türünü aya
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır **SalesforceSource**. | Evet |
-| sorgu |Verileri okumak için özel sorgu kullanın. 92 SQL sorgusu kullanabilirsiniz veya [Salesforce nesne sorgu dili (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) sorgu. `select * from MyTable__c` bunun bir örneğidir. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| sorgu |Verileri okumak için özel sorgu kullanın. Kullanabileceğiniz [Salesforce nesne sorgu dili (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) sorgusu veya 92 SQL sorgusu. Daha fazla ipuçlarını bkz [sorgu ipuçları](#query-tips) bölümü. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 | readBehavior | Var olan kayıtların sorgu veya sorgu tüm kayıtları silinen olanlar da dahil olmak üzere görüntülenip görüntülenmeyeceğini gösterir. Belirtilmezse, varsayılan davranışı eski olur. <br>İzin verilen değerler: **sorgu** (varsayılan), **queryAll**.  | Hayır |
 
 > [!IMPORTANT]
@@ -282,10 +282,20 @@ Bir sorgu olarak belirterek, Salesforce raporlarından veri alabilir `{call "<re
 
 ### <a name="retrieve-deleted-records-from-the-salesforce-recycle-bin"></a>Salesforce Geri Dönüşüm Kutusu'ndan silinen kayıtları alın
 
-Salesforce dönüşüm geçici silinen kayıtlarını sorgulamak için belirtebileceğiniz **"IsDeleted = 1"** sorgunuzda. Örneğin:
+Salesforce dönüşüm geçici silinen kayıtlarını sorgulamak için belirtebileceğiniz `readBehavior` olarak `queryAll`. 
 
-* Yalnızca silinen kayıtlar sorgulamak için belirtin "seçin * MyTable__c gelen **burada IsDeleted = 1**."
-* Varolan dahil olmak üzere tüm kayıtları ve Silinen sorgulamak için belirtin "seçin * MyTable__c gelen **burada IsDeleted = 0 ya da IsDeleted = 1**."
+### <a name="difference-between-soql-and-sql-query-syntax"></a>Sorgu söz dizimi SOQL ve SQL arasındaki fark
+
+Salesforce veri kopyalama yapılırken, SOQL sorgu veya SQL sorgusu kullanabilirsiniz. Bu iki olmadığını farklı söz dizimi ve İşlevler destek unutmayın, bu karıştırmayın. Salesforce tarafından yerel olarak desteklenen SOQL sorgusunu kullanmak için önerilir. Aşağıdaki tabloda farklar listelenmektedir:
+
+| Sözdizimi | SOQL modu | SQL modu |
+|:--- |:--- |:--- |
+| Sütun Seçimi | Ör sorgusunda kopyalanacak alanları için numaralandırılamadı gerekir `SELECT field1, filed2 FROM objectname` | `SELECT *` Sütun seçimini ek olarak desteklenir. |
+| Tırnak işaretleri | Dosyalanmış nesne adları tırnak içine olamaz. | Alan/nesne adları, örneğin tırnak içine `SELECT "id" FROM "Account"` |
+| Tarih/Saat biçimi |  Ayrıntılara bakın [burada](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) ve sonraki bölümdeki örnekler. | Ayrıntılara bakın [burada](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) ve sonraki bölümdeki örnekler. |
+| Boole değerleri | Olarak temsil edilen `False` ve `Ture`, örneğin `SELECT … WHERE IsDeleted=True`. | Örneğin 0 veya 1 temsil edilen `SELECT … WHERE IsDeleted=1`. |
+| Sütun yeniden adlandırma | Desteklenmiyor. | Desteklenir, örneğin: `SELECT a AS b FROM …`. |
+| İlişki | Örneğin, desteklenen `Account_vod__r.nvs_Country__c`. | Desteklenmiyor. |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Where kullanarak veri DateTime sütunu yan tümcesi
 

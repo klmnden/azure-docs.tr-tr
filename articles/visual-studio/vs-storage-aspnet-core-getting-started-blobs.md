@@ -8,17 +8,18 @@ manager: wpickett
 editor: ''
 ms.service: storage
 ms.workload: web
+ms.custom: vs-azure
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: casoper
-ms.openlocfilehash: 42390effd6a2d2a8afe9350e0a77d3c0a17b6129
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 82c5fb0f3f3e8edad948b82f77c9c336636f3077
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38720238"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442750"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Azure Blob ile çalışmaya başlama depolama ve Visual Studio bağlı hizmetler (ASP.NET Core)
 
@@ -69,7 +70,7 @@ Bu bölüm geliştirme ortamını ayarlama aracılığıyla size yol gösterir. 
 1. İçinde **Azure depolama** Azure depolama hesabı Bu öğretici için kullanılacak iletişim kutusunda seçin. Yeni bir Azure depolama hesabı oluşturmak için Seç **yeni depolama hesabı oluşturma**ve formu doldurun. Ya da mevcut bir depolama hesabını seçmek veya yeni bir oluşturduktan sonra seçin **Ekle**. Visual Studio, Azure depolama ve bir depolama bağlantı dizesi için NuGet paketi yükler **appsettings.json**.
 
 > [!TIP]
-> Bir depolama hesabı oluşturma hakkında bilgi edinmek için [Azure portalında](https://portal.azure.com), bakın [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+> Bir depolama hesabı oluşturma hakkında bilgi edinmek için [Azure portalında](https://portal.azure.com), bakın [depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md).
 >
 > Kullanarak bir depolama hesabı oluşturabilirsiniz [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), [Azure CLI](../storage/common/storage-azure-cli.md), veya [Azure Cloud Shell](../cloud-shell/overview.md).
 

@@ -6,15 +6,15 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 08/17/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c65cfec41c2002fd4d4ff27ea74daf0bb4246b5f
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: b5adf161c99ebe6d7b8b2d7b0c7b5b73c67bec02
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145606"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42060380"
 ---
 # <a name="deploy-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>HTTPS giriş denetleyicisine Azure Kubernetes Service'teki (AKS) dağıtma
 
@@ -51,6 +51,40 @@ eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none> 
 Hiçbir giriş kuralları henüz oluşturulmamış. Genel IP adresine göz atarsanız, NGINX giriş denetleyicinin varsayılan 404 sayfa, aşağıdaki örnekte gösterildiği gibi görüntülenir:
 
 ![Varsayılan NGINX arka uç](media/ingress/default-back-end.png)
+
+### <a name="use-an-existing-static-public-ip-address"></a>Mevcut bir statik genel IP adresini kullanın
+
+Önceki `helm install` adım, NGINX giriş denetleyicisine bir yeni, dinamik genel IP adresi ataması ile oluşturuldu. Varolan sağlamak için ortak bir yapılandırma gereksinimi olan *statik* genel IP adresi. Bu yaklaşım, var olan DNS kayıtlarını ve ağ yapılandırmalarına tutarlı bir şekilde kullanmanıza olanak sağlar. Aşağıdaki isteğe bağlı adımları önceki yerine kullanılabilir `helm install` burada dinamik genel IP adresi atandığı sizin için komutu.
+
+Statik genel IP adresi oluşturmanız gerekiyorsa, ilk kaynak grubu adını kullanarak AKS kümesiyle alın [az aks show] [ az-aks-show] komutu:
+
+```azurecli
+az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+```
+
+Ardından, bir genel IP adresiyle oluşturun *statik* ayırma yöntemiyle [az network public-IP oluşturma] [ az-network-public-ip-create] komutu. Aşağıdaki örnekte adlı bir genel IP adresi oluşturur *myAKSPublicIP* AKS kümesi önceki adımda elde edilen kaynak grubu:
+
+```azurecli
+az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
+```
+
+Şimdi Dağıt *ngınx giriş* Helm grafiği. Ekleme `--set controller.service.loadBalancerIP` parametresi ve önceki adımda oluşturulan kendi genel IP adresi belirtin:
+
+```console
+helm install stable/nginx-ingress --namespace kube-system --set controller.service.loadBalancerIP="40.121.63.72"
+```
+
+NGINX giriş denetleyici için Kubernetes Yük Dengeleyici Hizmeti oluşturulduğunda, statik IP adresiniz, aşağıdaki örnek çıktıda gösterildiği gibi atanır:
+
+```
+$ kubectl get service -l app=nginx-ingress --namespace kube-system
+
+NAME                                        TYPE           CLUSTER-IP    EXTERNAL-IP    PORT(S)                      AGE
+dinky-panda-nginx-ingress-controller        LoadBalancer   10.0.232.56   40.121.63.72   80:31978/TCP,443:32037/TCP   3m
+dinky-panda-nginx-ingress-default-backend   ClusterIP      10.0.95.248   <none>         80/TCP                       3m
+```
+
+Yine, genel IP adresine göz atın NGINX giriş denetleyicisinin varsayılan 404 sayfa görüntülenir bu nedenle hiçbir giriş kuralları henüz oluşturulmadı. Aşağıdaki adımlarda yapılandırılmış giriş kural.
 
 ## <a name="configure-a-dns-name"></a>Bir DNS adı yapılandırma
 
@@ -119,10 +153,10 @@ spec:
     http01: {}
 ```
 
-Verici oluşturmak için kullanın `kubectl create -f cluster-issuer.yaml` komutu.
+Verici oluşturmak için kullanın `kubectl apply -f cluster-issuer.yaml` komutu.
 
 ```
-$ kubectl create -f cluster-issuer.yaml
+$ kubectl apply -f cluster-issuer.yaml
 
 clusterissuer.certmanager.k8s.io/letsencrypt-staging created
 ```
@@ -153,10 +187,10 @@ spec:
     kind: ClusterIssuer
 ```
 
-Sertifika kaynak oluşturmak için kullanın `kubectl create -f certificates.yaml` komutu.
+Sertifika kaynak oluşturmak için kullanın `kubectl apply -f certificates.yaml` komutu.
 
 ```
-$ kubectl create -f certificates.yaml
+$ kubectl apply -f certificates.yaml
 
 certificate.certmanager.k8s.io/tls-secret created
 ```
@@ -219,10 +253,10 @@ spec:
           servicePort: 80
 ```
 
-Giriş kullanarak kaynak oluşturma `kubectl create -f hello-world-ingress.yaml` komutu.
+Giriş kullanarak kaynak oluşturma `kubectl apply -f hello-world-ingress.yaml` komutu.
 
 ```
-$ kubectl create -f hello-world-ingress.yaml
+$ kubectl apply -f hello-world-ingress.yaml
 
 ingress.extensions/hello-world-ingress created
 ```
@@ -267,3 +301,5 @@ Bu makalede, AKS dış bazı bileşenleri dahil. Bu bileşenler hakkında daha f
 <!-- LINKS - internal -->
 [use-helm]: kubernetes-helm.md
 [azure-cli-install]: /cli/azure/install-azure-cli
+[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create

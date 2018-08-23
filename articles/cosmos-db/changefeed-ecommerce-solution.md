@@ -9,18 +9,18 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 21f63ebcca4b766f8df8c7b2390c4f44ff4dc7b1
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: d2c4c890e1a1599e68fba1a0728061ec244f382f
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099964"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42056250"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Kullanım Azure Cosmos DB değişiklik akışı, gerçek zamanlı veri analizi görselleştirmek için
 
 Azure Cosmos DB değişiklik akışı kayıtları gönderildiğini gibi bir Azure Cosmos DB kapsayıcısından kayıtların sürekli ve artımlı bir akışa almak için bir mekanizmadır oluşturulmuş veya değiştirilmiş. Değişiklik, herhangi bir değişiklik kapsayıcıya dinleyerek destek works akış. Ardından, değiştirilmiş olan sırayla değiştirilen belgelerin sıralanmış listesini çıkarır. Değişiklik akışı hakkında daha fazla bilgi için bkz: [değişiklik akışı ile çalışma](change-feed.md) makalesi. 
 
-Değişiklik akışı bir perakende şirketi tarafından nasıl kullanılabileceğini kullanıcı desenlerini öğrenir, gerçek zamanlı veri analizi ve görselleştirme gerçekleştirmek için bu makalede açıklanır. Bir kullanıcı bir öğeyi görüntüleme, kendi sepetine öğe ekleme veya bir öğe satın alma gibi olayları analiz eder. Bu olaylardan biri oluştuğunda, yeni bir kayıt oluşturulur ve kayıt günlükleri değişiklik akışı. Değişiklik, ardından bir dizi adım etkinlik ve şirket performansı analiz ölçümleri görselleştirmede kaynaklanan Tetikleyicileri akış. Gelir, benzersiz bir site ziyaretçilerinin, en popüler öğeleri görselleştirebilir miyim örnek ölçümler içerir ve karşı bir sepet karşı eklenen görüntülenen öğelerin ortalama fiyat satın. Bu örnek ölçümler, site popüler değerlendirmek, reklam ve fiyatlandırma stratejilerini geliştirin ve yatırım yapmaya hangi envanteri ile ilgili kararlar bir e-ticaret şirket yardımcı olabilir.
+Değişiklik akışı bir e-ticaret şirket tarafından nasıl kullanılabileceğini kullanıcı desenlerini öğrenir, gerçek zamanlı veri analizi ve görselleştirme gerçekleştirmek için bu makalede açıklanır. Bir kullanıcı bir öğeyi görüntüleme, kendi sepetine öğe ekleme veya bir öğe satın alma gibi olayları analiz eder. Bu olaylardan biri oluştuğunda, yeni bir kayıt oluşturulur ve kayıt günlükleri değişiklik akışı. Değişiklik, ardından bir dizi adım etkinlik ve şirket performansı analiz ölçümleri görselleştirmede kaynaklanan Tetikleyicileri akış. Gelir, benzersiz bir site ziyaretçilerinin, en popüler öğeleri görselleştirebilir miyim örnek ölçümler içerir ve karşı bir sepet karşı eklenen görüntülenen öğelerin ortalama fiyat satın. Bu örnek ölçümler, site popüler değerlendirmek, reklam ve fiyatlandırma stratejilerini geliştirin ve yatırım yapmaya hangi envanteri ile ilgili kararlar bir e-ticaret şirket yardımcı olabilir.
 
 Başlarken önce çözüm ilgili bir video bakın şu videoyu izlerken ilgi:
 
@@ -315,7 +315,7 @@ Power BI, verileri analiz edip öngörü paylaşmaya yönelik İş analizi araç
    * Gelir, bir çizgi grafiğin zaman ekseni ve fiyatlar toplamını değeri olarak yapmak için anlamlı olmaz. Görüntülenecek zaman penceresi, teslim etmek mümkün olduğunca fazla bilgi için olası en büyük olmalıdır.  
    * Benzersiz ziyaretçi için bir kart görselleştirmesi benzersiz ziyaretçi sayısı ile değeri olarak yapmak için anlamlı olacaktır.
 
-   Bu, bizim Pano ile bu grafikleri nasıl göründüğünü oluşur:
+   Örnek pano ile bu grafikleri nasıl göründüğünü budur:
 
    ![görselleştirmeler](./media/changefeed-ecommerce-solution/visualizations.png)
 

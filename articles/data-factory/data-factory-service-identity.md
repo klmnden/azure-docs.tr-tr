@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory hizmeti kimliği | Microsoft Docs
+title: Azure veri fabrikası hizmet kimliği | Microsoft Docs
 description: Azure Data factory'de veri fabrikası hizmet kimliği hakkında bilgi edinin.
 services: data-factory
 author: linda33wj
@@ -10,50 +10,50 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: ba965b0610525f66c24dd6d5bad3fd113a6b6758
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ffe7337282d06dd9a7e22d6750ac98b3a56964bd
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050874"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42061121"
 ---
-# <a name="azure-data-factory-service-identity"></a>Azure Data Factory hizmet kimliği
+# <a name="azure-data-factory-service-identity"></a>Azure veri fabrikası hizmet kimliği
 
-Bu makalede, veri fabrikası hizmet Kimliği nedir ve nasıl çalıştığını anlamanıza yardımcı olur.
+Bu makale, veri fabrikası hizmet Kimliği nedir ve nasıl çalıştığını anlamanıza yardımcı olur.
 
 ## <a name="overview"></a>Genel Bakış
 
-Veri Fabrikası oluştururken, bir hizmet kimliği factory oluşturmayla birlikte oluşturulabilir. Hizmet kimliği Azure etkinlik dizinine kayıtlı yönetilen bir uygulama ve bu belirli veri üretecini temsil eder.
+Veri Fabrikası oluştururken, bir hizmet kimliği factory oluşturmayla birlikte oluşturulabilir. Hizmet kimliği için Azure Activity Directory kayıtlı bir yönetilen uygulama ve bu belirli veri üretecini temsil eder.
 
-Veri Fabrikası hizmet kimliği aşağıdaki iki özellik avantajlar:
+Veri Fabrikası hizmet kimliği aşağıdaki özellikler avantajları:
 
-- [Azure anahtar kasası kimlik bilgisi depolamak](store-credentials-in-key-vault.md), veri fabrikası hizmet kimliği; bu durumda Azure anahtar kasası kimlik doğrulaması için kullanılır.
-- [/ Azure Data Lake Store'a veri kopyalamak](connector-azure-data-lake-store.md), bu durumda veri fabrikası hizmet kimliği desteklenen Data Lake Store kimlik doğrulama türlerinden biri olarak kullanılabilir.
+- [Azure anahtar Kasası'nda kimlik bilgisi Store](store-credentials-in-key-vault.md), bu durumda, veri fabrikası hizmet kimliği Azure Key Vault kimlik doğrulaması için kullanılır.
+- Bağlayıcıyı [Azure Blob Depolama](connector-azure-blob-storage.md), [Azure Data Lake depolama Gen1](connector-azure-data-lake-store.md), [Azure SQL veritabanı](connector-azure-sql-database.md), ve [Azure SQL veri ambarı](connector-azure-sql-data-warehouse.md).
 
 ## <a name="generate-service-identity"></a>Hizmet kimliği oluşturma
 
 Veri Fabrikası hizmet kimliği şu şekilde oluşturulur:
 
-- Veri Fabrikası aracılığıyla oluştururken **Azure portal veya PowerShell**, hizmet kimliği her zaman otomatik olarak oluşturulur.
-- Veri Fabrikası aracılığıyla oluştururken **SDK**, yalnızca belirtirseniz, hizmet kimliği oluşturulacak "kimlik yeni FactoryIdentity() =" oluşturma için Fabrika nesnesinde. Örnekte bkz [.NET hızlı başlangıç - veri fabrikası oluşturma](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
-- Veri Fabrikası aracılığıyla oluştururken **REST API**, istek gövdesinde "kimlik" bölümü belirtirseniz, hizmet kimliği oluşturulur. Örnekte bkz [REST hızlı başlangıç - veri fabrikası oluşturma](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
+- Data factory sayesinde oluştururken **Azure portalı veya PowerShell**, hizmet kimliği her zaman otomatik olarak oluşturulur.
+- Data factory sayesinde oluştururken **SDK**, yalnızca belirttiğiniz, hizmet kimliği oluşturulacak "kimlik yeni FactoryIdentity() =" oluşturma için Fabrika nesnesinde. Örnekte bakın [.NET hızlı başlangıç - veri fabrikası oluşturma](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
+- Data factory sayesinde oluştururken **REST API**, hizmet kimliği, istek gövdesinde "kimlik" bölümünde belirtirseniz oluşturulur. Örnekte bakın [veri fabrikası oluşturma - Hızlı Başlangıç'ı REST](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 
-Veri fabrikanızın aşağıdaki ilişkili hizmet kimliği yok bulursanız [hizmet kimliği alma](#retrieve-service-identity) yönerge, siz açıkça üretebilir bir data factory ile kimlik Başlatıcı program aracılığıyla güncelleştirme:
+Veri fabrikanızın aşağıdaki ilişkili hizmet kimliği yoksa bulup bulamayacağınızı [hizmet kimliği almak](#retrieve-service-identity) yönergesi, açıkça oluşturun bir data factory kimlik Başlatıcı ile program aracılığıyla güncelleştirerek:
 
 - [PowerShell kullanarak hizmet kimliği oluşturma](#generate-service-identity-using-powershell)
 - [REST API kullanarak hizmet kimliği oluşturma](#generate-service-identity-using-rest-api)
-- [SDK'yı kullanarak hizmet kimliği oluşturma](#generate-service-identity-using-sdk)
+- [Hizmet kimliği kullanarak SDK oluşturma](#generate-service-identity-using-sdk)
 
 >[!NOTE]
 >- Hizmet kimliği değiştirilemez. Bir hizmet kimliği zaten olan bir veri fabrikası güncelleştirme hiçbir etkisi olmaz, hizmet kimliği değiştirilmemiş tutulur.
->- Zaten bir hizmet kimliği üretecini "kimlik" parametresinde belirtmeden veya REST istek gövdesinde "kimlik" bölümü belirtmeden sahip bir veri fabrikası güncelleştirirseniz, bir hata alırsınız.
->- Veri Fabrikası sildiğinizde, ilişkili hizmet kimliği boyunca silinir.
+>- Zaten bir hizmet kimliği üretecini "kimlik" parametresini belirtmeden veya "kimlik" bölümünde REST istek gövdesinde belirtmeden sahip bir veri fabrikası güncelleştirirseniz, bir hata alırsınız.
+>- Bir veri fabrikasını silmek, ilişkili hizmet kimliği birlikte silinecek.
 
 ### <a name="generate-service-identity-using-powershell"></a>PowerShell kullanarak hizmet kimliği oluşturma
 
-Çağrı **kümesi AzureRmDataFactoryV2** "Kimlik" alanları yeni oluşturulan gördüğünüz daha sonra yeniden, komut:
+Çağrı **Set-AzureRmDataFactoryV2** "Kimlik" alanları yeni oluşturulan gördüğünüz daha sonra yeniden komutu:
 
 ```powershell
 PS C:\WINDOWS\system32> Set-AzureRmDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
@@ -75,7 +75,7 @@ ProvisioningState : Succeeded
 PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2017-09-01-preview
 ```
 
-**İstek gövdesindeki**: "kimlik" ekleyin: {"tür": "SystemAssigned"}.
+**İstek gövdesi**: "identity" ekleyin: {"type": "SystemAssigned"}.
 
 ```json
 {
@@ -88,7 +88,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-**Yanıt**: hizmet kimliği otomatik olarak oluşturulur ve "kimlik" bölümü buna uygun olarak doldurulur.
+**Yanıt**: hizmet kimliği otomatik olarak oluşturulur ve "kimlik" bölümüne uygun şekilde doldurulur.
 
 ```json
 {
@@ -111,9 +111,9 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-### <a name="generate-service-identity-using-sdk"></a>SDK'yı kullanarak hizmet kimliği oluşturma
+### <a name="generate-service-identity-using-sdk"></a>Hizmet kimliği kullanarak SDK oluşturma
 
-Kimliğine sahip veri fabrikası create_or_update işlevini çağırın yeni FactoryIdentity() =. .NET kullanarak örnek kod:
+Kimlik ile veri fabrikası create_or_update işlevi çağrısı yeni FactoryIdentity() =. .NET kullanarak örnek kod:
 
 ```csharp
 Factory dataFactory = new Factory
@@ -124,26 +124,26 @@ Factory dataFactory = new Factory
 client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 ```
 
-## <a name="retrieve-service-identity"></a>Hizmet kimliği alma
+## <a name="retrieve-service-identity"></a>Hizmet kimliği alınamıyor
 
-Azure portalından veya program aracılığıyla hizmet kimliği alabilir. Aşağıdaki bölümlerde bazı örnekler göstermektedir.
+Azure portalından veya programlama yoluyla hizmet kimliği alabilir. Aşağıdaki bölümlerde bazı örnekler gösterilmektedir.
 
 >[!TIP]
-> Hizmet kimliği görmüyorsanız, [hizmet kimliği oluşturma](#generate-service-identity) Fabrikanızda güncelleştirerek.
+> Hizmet kimliği görmüyorsanız [hizmet kimliği oluşturma](#generate-service-identity) fabrikanızı güncelleştirerek.
 
-### <a name="retrieve-service-identity-using-azure-portal"></a>Azure portalını kullanarak hizmet kimliği alma
+### <a name="retrieve-service-identity-using-azure-portal"></a>Azure portalını kullanarak hizmet kimliği alınamıyor
 
-Bulabileceğiniz Azure portalından hizmeti kimlik bilgileri -> veri fabrikanızın Ayarları -> Özellikler ->:
+Bulabilirsiniz hizmet kimlik bilgilerini Azure portalından -> data factory'nizi -> Ayarlar -> Özellikler:
 
-- HİZMET KİMLİK KİMLİĞİ
-- HİZMET KİMLİK KİRACI
-- **HİZMETİ kimliği uygulama kimliği** > Bu değeri kopyalayın
+- HİZMET KİMLİĞİ TANIMLAYICISI
+- HİZMET KİMLİĞİ KİRACISI
+- **Hizmet kimliği uygulama kimliği** > Bu değeri kopyalayın
 
-![Hizmet kimliği alma](media/data-factory-service-identity/retrieve-service-identity-portal.png)
+![Hizmet kimliği alınamıyor](media/data-factory-service-identity/retrieve-service-identity-portal.png)
 
-### <a name="retrieve-service-identity-using-powershell"></a>PowerShell kullanarak hizmet kimliği alma
+### <a name="retrieve-service-identity-using-powershell"></a>PowerShell kullanarak hizmet kimliği alınamıyor
 
-Belirli veri fabrikası gibi aldığınızda, hizmet kimliği asıl kimliği ve Kiracı kimliği döndürülür:
+Hizmet kimliği asıl kimliği ve Kiracı kimliği gibi belirli veri fabrikası aldığınızda döndürülür:
 
 ```powershell
 PS C:\WINDOWS\system32> (Get-AzureRmDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
@@ -153,7 +153,7 @@ PrincipalId                          TenantId
 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc 72f988bf-XXXX-XXXX-XXXX-2d7cd011db47
 ```
 
-Sorumlu Kimliği kopyalayın ve sonra aşağıdaki Azure Active Directory komutunu asıl kimliği ile almak için parametre olarak çalıştır **ApplicationId**, hangi erişim vermek için kullanın:
+Sorumlu Kimliği kopyalayın, sonra aşağıdaki komutu Azure Active Directory ile asıl kimlik almak için parametre olarak çalıştırın. **ApplicationId**, hangi erişim vermek için kullanın:
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzureRmADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -166,9 +166,9 @@ Type                  : ServicePrincipal
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Veri Fabrikası hizmet kimlik kullanmak üzere nasıl ve ne zaman tanıtmak için aşağıdaki konulara bakın:
+Ne zaman ve nasıl veri fabrikası hizmet kimliği kullanmak aşağıdaki konulara bakın:
 
-- [Azure anahtar kasası kimlik bilgisi deposu](store-credentials-in-key-vault.md)
-- [Yönetilen hizmet kimlik doğrulama kullanarak Azure Data Lake Store başlangıç/bitiş veri kopyalama](connector-azure-data-lake-store.md)
+- [Azure anahtar Kasası'nda kimlik bilgisi Store](store-credentials-in-key-vault.md)
+- [/ İçin Yönetilen hizmet kimliği kimlik doğrulamasını kullanarak Azure Data Lake Store veri kopyalama](connector-azure-data-lake-store.md)
 
-Bkz: [MSI genel bakış](~/articles/active-directory/msi-overview.md) hangi veri fabrikası hizmet kimliği yönetilen hizmet kimliği hakkında daha fazla arka plan için temel aldığı. 
+Bkz: [MSI genel bakış](~/articles/active-directory/msi-overview.md) yönetilen hizmet kimliği daha fazla arka plan için hangi veri fabrikası hizmet kimliği temel alır. 

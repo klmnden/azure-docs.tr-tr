@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fd2505d6262948e193531d91222cdec319f33100
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 72035c2f13f5a2a749feabbb26db5500f6c3fc0a
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597162"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056571"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory cihaz yönetimi hakkında SSS
 
@@ -99,12 +99,12 @@ Windows 10 ve Windows Server 2016, birleşim durumu temizlemek için AD etki ala
 
 **S: kullanıcılar Azure AD alanına katılmış aygıtlar yazıcıları arama yapamazsınız. Azure AD alanına katılmış aygıtlar yazdırma nasıl etkinleştirebilirim?**
 
-**Y:** yazıcılar için Azure AD alanına katılmış aygıtlar dağıtmak için bkz: [karma bulut yazdırma](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Hibrit bulut yazdırma dağıtmak için bir şirket içi Windows Server gerekir. Şu anda, bulut tabanlı yazdırma hizmeti kullanılabilir değil. 
+**Y:** yazıcılar için Azure AD alanına katılmış aygıtlar dağıtmak için bkz: [karma bulut yazdırma](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Hibrit bulut yazdırma dağıtmak için bir şirket içi Windows Server gerekir. Şu anda, bulut tabanlı yazdırma hizmeti kullanılabilir değil. 
 
 ---
 
 **S: Uzak bir Azure AD'ye nasıl bağlanırım cihazı alanına? ** 
- **Y:** makaleye bakın https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc Ayrıntılar için.
+ **Y:** makaleye bakın https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc Ayrıntılar için.
 
 ---
 

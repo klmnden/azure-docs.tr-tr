@@ -1,6 +1,6 @@
 ---
-title: Data Lake Store’da erişim denetimine genel bakış | Microsoft Belgeleri
-description: Azure Data Lake Store’da erişim denetiminin çalışma şekli hakkında bilgi edinin
+title: Data Lake depolama Gen1 erişim denetimine genel bakış | Microsoft Docs
+description: Azure Data Lake depolama Gen1 erişim denetiminin nasıl çalıştığını anlama
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: afe1a784ecc0a8f8846a71d21cc7ca8eb76078ec
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 86cc1a71bb09ea465621d65f84d2b838cb169a62
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337684"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42057045"
 ---
-# <a name="access-control-in-azure-data-lake-store"></a>Azure Data Lake Store’da erişim denetimi
+# <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 erişim denetimi
 
-Azure Data Lake Store; HDFS ve sonuç olarak POSIX erişim denetimi modelinden türetilen bir erişim denetimi modeli kullanır. Bu makalede Data Lake Store için erişim denetimi modelinin temel bilgileri özetlenmektedir. HDFS erişim denetimi modeli hakkında daha fazla bilgi için bkz. [HDFS İzinleri Kılavuzu](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
+Azure Data Lake depolama Gen1 sırayla POSIX erişim denetimi modelinden türetilen hdfs, türetilen bir erişim denetimi modeli kullanır. Bu makalede Data Lake depolama Gen1 için erişim denetimi modelinin temel bilgileri özetlenmektedir. HDFS erişim denetimi modeli hakkında daha fazla bilgi için bkz. [HDFS İzinleri Kılavuzu](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
 
 ## <a name="access-control-lists-on-files-and-folders"></a>Dosyalar ve klasörler üzerindeki erişim denetimi listeleri
 
@@ -31,11 +31,11 @@ Azure Data Lake Store; HDFS ve sonuç olarak POSIX erişim denetimi modelinden t
 
 * **Varsayılan ACL’ler**: Bir klasör ile ilişkili olan ACL’lerin o klasör altında oluşturulan tüm alt öğelere ilişkin Erişim ACL’lerini belirleyen bir "şablonudur". Dosyalar Varsayılan ACL’ye sahip değildir.
 
-![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-acls-1.png)
+![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-acls-1.png)
 
 Hem Erişim ACL'leri hem de Varsayılan ACL'ler aynı yapıdadır.
 
-![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-acls-2.png)
+![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-acls-2.png)
 
 
 
@@ -54,7 +54,7 @@ Her dosya ve klasör bu kimlikler için farklı izinlere sahiptir:
 * Adlandırılmış gruplar
 * Diğer tüm kullanıcılar
 
-Kullanıcıların ve grupların kimlikleri, Azure Active Directory (Azure AD) kimlikleridir. Bu nedenle, aksi belirtilmediği sürece, Data Lake Store bağlamında "Kullanıcı", Azure AD kullanıcısı veya Azure AD güvenlik grubu olabilir.
+Kullanıcıların ve grupların kimlikleri, Azure Active Directory (Azure AD) kimlikleridir. Aksi belirtilmediği sürece "kullanıcı" Data Lake depolama Gen1, bağlamında şekilde ya da bir Azure AD kullanıcısı veya Azure AD güvenlik grubu anlamına gelir.
 
 ## <a name="permissions"></a>İzinler
 
@@ -64,7 +64,7 @@ Dosya sistemi nesnesi üzerinde **Okuma**, **Yazma** ve **Yürütme** izinleri b
 |------------|-------------|----------|
 | **Okuma (R)** | Bir dosyanın içeriğini okuyabilir | Klasörün içeriğini listelemek için **Okuma** ve **Yürütme** izinlerini gerektirir|
 | **Yazma (W)** | Bir dosyaya yazabilir veya ekleyebilir | Bir klasörde alt öğeler oluşturmak için **Yazma** ve **Yürütme** gerektirir |
-| **Yürütme (X)** | Data Lake Store bağlamında herhangi bir anlamı yoktur | Bir klasörün alt öğelerini geçirmek için gereklidir |
+| **Yürütme (X)** | Data Lake depolama Gen1 bağlamında herhangi bir şey gelmez | Bir klasörün alt öğelerini geçirmek için gereklidir |
 
 ### <a name="short-forms-for-permissions"></a>İzinlerin kısaltmaları
 
@@ -80,29 +80,29 @@ Dosya sistemi nesnesi üzerinde **Okuma**, **Yazma** ve **Yürütme** izinleri b
 
 ### <a name="permissions-do-not-inherit"></a>İzinler devralınmaz
 
-Data Lake Store tarafından kullanılan POSIX stili modelinde bir öğenin izinleri öğenin kendisine depolanır. Diğer bir deyişle, bir öğenin izinleri üst öğelerinden devralınamaz.
+Data Lake depolama Gen1 tarafından kullanılan POSIX stili modelinde bir öğenin izinleri öğenin kendisine depolanır. Diğer bir deyişle, bir öğenin izinleri üst öğelerinden devralınamaz.
 
 ## <a name="common-scenarios-related-to-permissions"></a>İzinlerle ilgili yaygın senaryolar
 
-Bir Data Lake Store hesabı üzerinde belirli işlemlerin gerçekleştirilmesi için gereken izinleri anlamanıza yardımcı olacak bazı yaygın senaryolar aşağıda verilmiştir.
+Bir Data Lake depolama Gen1 hesabı üzerinde belirli işlemlerin gerçekleştirilmesi için gereken izinleri anlamanıza yardımcı olacak bazı yaygın senaryolar aşağıda verilmiştir.
 
 ### <a name="permissions-needed-to-read-a-file"></a>Bir dosyayı okumak için gereken izinler
 
-![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-acls-3.png)
+![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-acls-3.png)
 
 * Dosyanın okunması için çağıranın **Okuma** izinlerine sahip olması gerekir.
 * Dosyayı içeren klasör yapısındaki tüm klasörler için çağıranın **Yürütme** izinlerine sahip olması gerekir.
 
 ### <a name="permissions-needed-to-append-to-a-file"></a>Bir dosyaya eklemek için gereken izinler
 
-![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-acls-4.png)
+![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-acls-4.png)
 
 * Eklemenin yapılacağı dosya için çağıranın **Yazma** izinlerine sahip olması gerekir.
 * Dosyayı içeren tüm klasörler için çağıranın **Yürütme** izinlerine sahip olması gerekir.
 
 ### <a name="permissions-needed-to-delete-a-file"></a>Bir dosyayı silmek için gereken izinler
 
-![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-acls-5.png)
+![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-acls-5.png)
 
 * Üst klasör için çağıranın **Yazma + Yürütme** izinlerine sahip olması gerekir.
 * Dosyanın yolundaki diğer tüm klasörler için çağıranın **Yürütme** izinlerine sahip olması gerekir.
@@ -116,24 +116,24 @@ Bir Data Lake Store hesabı üzerinde belirli işlemlerin gerçekleştirilmesi i
 
 ### <a name="permissions-needed-to-enumerate-a-folder"></a>Bir klasörü listelemek için gereken izinler
 
-![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-acls-6.png)
+![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-acls-6.png)
 
 * Listelenecek klasör için çağıranın **Okuma + Yürütme** izinlerine sahip olması gerekir.
 * Tüm üst klasörler için çağıranın **Yürütme** izinlerine sahip olması gerekir.
 
 ## <a name="viewing-permissions-in-the-azure-portal"></a>Azure portalında görüntüleme izinleri
 
-Data Lake Store hesabının **Veri Gezgini** dikey penceresinde **Erişim**’e tıklayarak Veri Gezgini’nde görüntülenmekte olan dosya veya klasörün ACL’lerini görebilirsiniz. **mydatastore** hesabı altındaki **catalog** klasörüne ilişkin ACL’leri görmek için **Erişim**’e tıklayın.
+Gelen **Veri Gezgini** Data Lake depolama Gen1 hesabı dikey penceresine tıklayın **erişim** dosya veya veri Gezgini'nde görüntülenmekte olan klasörün ACL'lerini görebilirsiniz. **mydatastore** hesabı altındaki **catalog** klasörüne ilişkin ACL’leri görmek için **Erişim**’e tıklayın.
 
-![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
+![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
 Bu dikey pencerenin üst kısmında sahiplerin izinleri gösterilir. (Ekran görüntüsünde Bob sahip olan kullanıcıdır.) Bunun ardından atanan Erişim ACL’leri gösterilir. 
 
-![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
+![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
 Varsayılan ACL’ler, maske ve süper kullanıcıların açıklamasının gösterildiği daha gelişmiş görünümü görmek için **Gelişmiş Görünüm**’e tıklayın.  Bu dikey pencere, geçerli klasörün izinlerine dayalı olarak alt dosyalar ve klasörler için yinelemeli olarak Erişim ve Varsayılan ACL’leri ayarlamanın bir yolunu sunar.
 
-![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
+![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
 ## <a name="the-super-user"></a>Süper kullanıcı
 
@@ -143,13 +143,13 @@ Süper kullanıcı, Data Lake Store’daki tüm kullanıcılar arasında en fazl
 * Herhangi bir dosya veya klasörün izinlerini değiştirebilir.
 * Herhangi bir dosya veya klasörün sahibi olan kullanıcıyı ya da grubu değiştirebilir.
 
-Azure’da bir Data Lake Store hesabının birkaç Azure rolü vardır, bunlar:
+Azure'da bir Data Lake depolama Gen1 hesabının birkaç Azure rolü vardır:
 
 * Sahipler
 * Katkıda Bulunanlar
 * Okuyucular
 
-Bir Data Lake Store hesabında **Sahipler** rolündeki herkes otomatik olarak o hesabın süper kullanıcısıdır. Daha fazla bilgi için bkz. [Rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md).
+Herkes **sahipleri** rolü bir Data Lake depolama Gen1 hesabı için otomatik olarak o hesabın Süper kullanıcısıdır. Daha fazla bilgi için bkz. [Rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md).
 Süper kullanıcı izinlerine sahip özel bir rol tabanlı erişim denetimi (RBAC) rolü oluşturmak isterseniz şu izinleri vermeniz gerekir:
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
@@ -171,9 +171,9 @@ Süper kullanıcı izinlerine sahip özel bir rol tabanlı erişim denetimi (RBA
 
 POSIX ACL’lerinde her kullanıcı bir "birincil grup" ile ilişkilendirilir. Örneğin, "gamze" adlı kullanıcı "finans" grubuna ait olabilir. Gamze ayrıca birden fazla gruba ait olabilir, ancak bir grup her zaman birincil grubu olarak atanır. POSIX’te Gamze bir dosya oluşturduğunda o dosyanın sahibi olan grup birincil grubu olarak ayarlanır (bu örnekte "finans" grubudur).
 
-Yeni bir dosya sistemi öğesi oluşturulduğunda, Data Lake Store sahip olan gruba bir değer atar.
+Yeni bir dosya sistemi öğesi oluşturulduğunda, Data Lake depolama Gen1 sahip olan grup için bir değer atar.
 
-* **Olay 1**: Kök klasör "/". Bir Data Lake Store hesabı oluşturulduğunda bu klasör oluşturulur. Bu durumda sahip olan grup, hesabı oluşturan kullanıcıya ayarlanır.
+* **Olay 1**: Kök klasör "/". Bir Data Lake depolama Gen1 hesabı oluşturulduğunda bu klasör oluşturulur. Bu durumda sahip olan grup, hesabı oluşturan kullanıcıya ayarlanır.
 * **Olay 2** (Diğer her olay): Yeni bir olay oluşturulduğunda sahip olan grup üst klasörden kopyalanır.
 
 Aksi takdirde sahip olan grup, diğer kullanıcılar/gruplar için atanan izinlere benzer şekilde davranır.
@@ -187,9 +187,9 @@ Sahip olan grup aşağıdakiler tarafından değiştirilebilir:
 
 ## <a name="access-check-algorithm"></a>Erişim denetimi algoritması
 
-Aşağıdaki çizimde Data Lake Store hesaplarına yönelik erişim denetimi algoritması gösterilmektedir.
+Aşağıdaki çizimde Data Lake depolama Gen1 hesapları için erişim denetimi algoritması temsil eder.
 
-![Data Lake Store ACL’leri algoritması](./media/data-lake-store-access-control/data-lake-store-acls-algorithm.png)
+![Data Lake depolama Gen1 ACL'leri algoritması](./media/data-lake-store-access-control/data-lake-store-acls-algorithm.png)
 
 
 ## <a name="the-mask-and-effective-permissions"></a>Maske ve "etkili izinler"
@@ -202,18 +202,18 @@ Aşağıdaki çizimde Data Lake Store hesaplarına yönelik erişim denetimi alg
 
 Bazı örneklere bakalım. Aşağıdaki örnekte maske **RWX** olarak ayarlanmıştır. Diğer bir deyişle maske herhangi bir izni kaldırmaz. Adlandırılmış kullanıcı, sahip olan kullanıcı ve adlandırılmış grup, erişim denetimi sırasında değiştirilmez.
 
-![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-acls-mask-1.png)
+![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-acls-mask-1.png)
 
 Aşağıdaki örnekte maske **R-X** olarak ayarlanmıştır. Bu nedenle, erişim denetimi sırasında **adlandırılmış kullanıcı**, **sahip olan grup** ve **adlandırılmış grup** için **Yazma izinlerini kapatır**.
 
-![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-acls-mask-2.png)
+![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-acls-mask-2.png)
 
 Başvuru için bir dosyanın veya klasörün maskesinin Azure portalında nerede göründüğü aşağıda gösterilmiştir.
 
-![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
+![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
 
 > [!NOTE]
-> Yeni bir Data Lake Store hesabı için kök klasörün ("/") Erişim ACL’si için maske varsayılan olarak RWX’tir.
+> Yeni bir Data Lake depolama Gen1 hesabı için kök klasörün ("/") erişim ACL'si için maske varsayılan olarak RWX'tir.
 >
 >
 
@@ -228,7 +228,7 @@ Var olan bir klasör altında yeni bir dosya ya da klasör oluşturulduğunda ü
 
 Bir alt dosya veya klasör oluşturulduğunda, üst öğenin Varsayılan ACL’si alt dosya veya klasörün Erişim ACL’si olarak kopyalanır. Ayrıca, **diğer** kullanıcının üst klasör varsayılan ACL’sinde RWX izinleri varsa alt öğenin Erişim ACL’sinden kaldırılır.
 
-![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-acls-child-items-1.png)
+![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-acls-child-items-1.png)
 
 Çoğu senaryoda yukarıdaki bilgiler bir alt öğenin Erişim ACL’sinin belirlenmesi için yeterlidir. Ancak, POSIX sistemlerini biliyor ve bu bilgilerin nasıl elde edildiğini derinlemesine öğrenmek istiyorsanız bu makalenin sonraki bölümlerinde bulunan [Yeni dosyalar ve klasörler için Erişim ACL’lerini oluşturmada Umask rolü](#umasks-role-in-creating-the-access-acl-for-new-files-and-folders) kısmına bakın.
 
@@ -237,17 +237,17 @@ Bir alt dosya veya klasör oluşturulduğunda, üst öğenin Varsayılan ACL’s
 
 Üst klasör altında bir alt klasör oluşturulduğunda üst klasörün Varsayılan ACL’si olduğu gibi alt klasörün Varsayılan ACL’sine kopyalanır.
 
-![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-acls-child-items-2.png)
+![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-acls-child-items-2.png)
 
-## <a name="advanced-topics-for-understanding-acls-in-data-lake-store"></a>Data Lake Store’da ACL’leri anlamaya yönelik gelişmiş konular
+## <a name="advanced-topics-for-understanding-acls-in-data-lake-storage-gen1"></a>Data Lake depolama Gen1 ACL'lerinde anlamaya yönelik gelişmiş konular
 
-Data Lake Store dosyaları veya klasörleri için ACL’lerin nasıl belirlendiğini anlamanıza yardımcı olan birkaç gelişmiş konu aşağıda verilmiştir.
+Data Lake depolama Gen1 dosyaları veya klasörleri için ACL'lerin nasıl belirlendiğini anlamanıza yardımcı olan birkaç Gelişmiş konu aşağıda verilmiştir.
 
 ### <a name="umasks-role-in-creating-the-access-acl-for-new-files-and-folders"></a>Yeni dosyalar ve klasörler için Erişim ACL’lerini oluşturmada Umask rolü
 
 POSIX ile uyumlu bir sistemde genel kavram umask’in yeni bir alt klasör veya klasörün Erişim ACL’si üzerinde **sahip olan kullanıcı**, **sahip olan grup** ve **diğer** iznini dönüştürmek için kullanılan üst klasördeki 9 bitlik bir değer olmasıdır. Bir umask’in bit değerleri alt öğenin Erişim ACL’sinde hangi bitlerin kapatılacağını belirler. Bu nedenle **sahip olan kullanıcı**, **sahip olan grup** ve **diğer** için izinlerin yayılmasını seçici olarak önlemek üzere kullanılır.
 
-Bir HDFS sisteminde umask genellikle yöneticiler tarafından denetlenen site genelindeki bir yapılandırma seçeneğidir. Data Lake Store değiştirilemeyen bir **hesap genelinde umask** kullanır. Aşağıdaki tabloda Data Lake Store için umask gösterilmektedir.
+Bir HDFS sisteminde umask genellikle yöneticiler tarafından denetlenen site genelindeki bir yapılandırma seçeneğidir. Data Lake depolama Gen1 kullanan bir **hesap genelinde umask** , değiştirilemez. Aşağıdaki tabloda Data Lake depolama Gen1 için umask gösterilmektedir.
 
 | Kullanıcı grubu  | Ayar | Yeni alt öğenin Erişim ACL’si üzerindeki etkisi |
 |------------ |---------|---------------------------------------|
@@ -257,13 +257,13 @@ Bir HDFS sisteminde umask genellikle yöneticiler tarafından denetlenen site ge
 
 Aşağıdaki çizimde bu umask eylemi gösterilmektedir. Net etki **diğer** kullanıcı için **Okuma + Yazma + Yürütme** izninin kaldırılmasıdır. Umask **sahip olan kullanıcı** ve **sahip olan grup** için bitleri belirtmediğinden bu izinler dönüştürülmez.
 
-![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-acls-umask.png)
+![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-acls-umask.png)
 
 ### <a name="the-sticky-bit"></a>Yapışkan bit
 
-Yapışkan bit POSIX dosya sisteminin daha gelişmiş bir özelliğidir. Data Lake Store bağlamında yapışkan bitin gerekli olması düşük bir olasılıktır.
+Yapışkan bit POSIX dosya sisteminin daha gelişmiş bir özelliğidir. Data Lake depolama Gen1 bağlamında Yapışkan bitin gerekli olması düşüktür.
 
-Aşağıdaki tabloda yapışkan bitin Data Lake Store’da nasıl çalıştığı gösterilmektedir.
+Aşağıdaki tabloda Yapışkan bitin Data Lake depolama Gen1 içinde nasıl çalıştığı gösterilmektedir.
 
 | Kullanıcı grubu         | Dosya    | Klasör |
 |--------------------|---------|-------------------------|
@@ -272,13 +272,13 @@ Aşağıdaki tabloda yapışkan bitin Data Lake Store’da nasıl çalıştığ�
 
 Yapışkan bit Azure portalında gösterilmez.
 
-## <a name="common-questions-about-acls-in-data-lake-store"></a>Data Lake Store’daki ACL’ler hakkında sık sorulan sorular
+## <a name="common-questions-about-acls-in-data-lake-storage-gen1"></a>Data Lake depolama Gen1 ACL'ler hakkında sık sorulan sorular
 
-Data Lake Store’daki ACL’lerle ilgili olarak sık sorulan bazı sorular aşağıda verilmiştir.
+Data Lake depolama Gen1 ACL'ler hakkında sık gündeme bazı sorular aşağıda verilmiştir.
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>ACL desteğini etkinleştirmem gerekiyor mu?
 
-Hayır. ACL’ler üzerinden erişim denetimi Data Lake Store hesabı için her zaman açıktır.
+Hayır. ACL'ler üzerinden erişim denetimi her zaman bir Data Lake depolama Gen1 hesabı için açıktır.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>Bir klasörü ve içindekileri yinelemeli olarak silmek için hangi izinler gereklidir?
 
@@ -310,7 +310,7 @@ ACL’lerdeki girişler, Azure AD’de kullanıcılara karşılık gelen GUID’
 
 Kullanıcı artık Azure AD’de mevcut değilse bir GUID gösterilir. Bu genellikle, kullanıcı şirketten ayrıldığında veya Azure AD’de kullanıcının hesabı silindiğinde gerçekleşir.
 
-### <a name="does-data-lake-store-support-inheritance-of-acls"></a>Data Lake Store ACL’lerin devralınmasını destekler mi?
+### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>Data Lake depolama Gen1 ACL'lerin devralınmasını destekler mi?
 
 Hayır, ancak üst klasör altında yeni oluşturulan alt dosyalara ve klasöre yönelik ACL’yi ayarlamak için Varsayılan ACL’ler kullanılabilir.  
 
@@ -318,7 +318,7 @@ Hayır, ancak üst klasör altında yeni oluşturulan alt dosyalara ve klasöre 
 
 | maske | umask|
 |------|------|
-| **Maske** özelliği her dosya ve klasörde bulunur. | **Umask** ise Data Lake Store hesabının bir özelliğidir. Bu nedenle, Data Lake Store’de yalnızca tek bir umask vardır.    |
+| **Maske** özelliği her dosya ve klasörde bulunur. | **Umask** Data Lake depolama Gen1 hesabının bir özelliğidir. Bu nedenle Data Lake depolama Gen1 yalnızca tek bir umask vardır.    |
 | Bir dosya veya klasördeki maske özelliği, dosyanın sahibi olan kullanıcı veya grup ya da süper kullanıcı tarafından değiştirilebilir. | Umask özelliği ise süper kullanıcı dahil hiçbir kullanıcı tarafından değiştirilemez. Bu özellik, değiştirilemeyen sabit bir değerdir.|
 | Maske özelliği bir kullanıcının dosya ya da klasör üzerinde işlem gerçekleştirme hakkına sahip olup olmadığını belirlemek üzere çalışma zamanındaki erişim denetimi algoritması sırasında kullanılır. Maskenin rolü, erişim denetimi sırasında "etkili izinleri" oluşturmaktır. | Umask, erişim denetimi sırasında hiç kullanılmaz. Umask bir klasörün yeni alt öğelerinin Erişim ACL’sini belirlemek için kullanılır. |
 | Maske, erişim denetimi sırasında adlandırılmış kullanıcı, sahip olan grup ve adlandırılmış grup için geçerli olan 3 bitlik bir RWX değeridir.| Umask ise yeni bir alt öğenin sahip olan kullanıcı, sahip olan grup ve **diğer** kullanıcısı için geçerli olan 9 bitlik bir değerdir.|
@@ -343,4 +343,4 @@ Hayır, ancak üst klasör altında yeni oluşturulan alt dosyalara ve klasöre 
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Azure Data Lake Store'a Genel Bakış](data-lake-store-overview.md)
+* [Azure Data Lake depolama Gen1 genel bakış](data-lake-store-overview.md)

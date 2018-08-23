@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/14/2018
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: edf0b52e5889fe8fa875de65fcaa8c2a22df1a7f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9245e85781482a3aa1e45333d8e8a748983675b6
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590758"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42059682"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>V2.0 uç noktası kullanmalıyım?
 
@@ -101,6 +101,7 @@ Uygulama kayıt Portalı'nda bir uygulamayı kaydetme hakkında bilgi için bkz:
 * Masaüstü veya mobil bir uygulama oluşturuyorsanız Microsoft kimlik doğrulama kitaplığı (MSAL) önizleme birini kullanabilirsiniz. Bu kitaplıklar üretim desteklenen bir önizleme aşamasında olduğundan, bunları üretim uygulamalarında kullanmak daha güvenlidir. Daha fazla Önizleme kullanılabilir kitaplıkları ve terimler hakkında [kimlik doğrulama kitaplıkları başvuru](reference-v2-libraries.md).
 * Microsoft kitaplıkları tarafından kapsamında olmayan platformlar için doğrudan uygulama kodunuzda protokolü ileti alma ve gönderme tarafından v2.0 uç noktası ile tümleştirebilirsiniz. V2.0 Openıd Connect ve OAuth protokolleri [açıkça belirtilmiştir](active-directory-v2-protocols.md) bu tür bir tümleştirme gerçekleştirmenizi sağlayacak.
 * Son olarak, v2.0 uç noktası ile tümleştirmek için açık kaynak açın ID Connect ve OAuth kitaplıklarını kullanabilirsiniz. V2.0 protokol önemli değişiklikler olmadan birçok açık kaynak Protokolü kitaplıkları ile uyumlu olmalıdır. Bu tür kitaplıkları kullanılabilirliğini, dil ve platforma göre değişir. [Open ID Connect](http://openid.net/connect/) ve [OAuth 2.0](http://oauth.net/2/) Web siteleri korumak popüler uygulamaları listesi. Daha fazla bilgi için [Azure Active Directory v2.0 ve kimlik doğrulama kitaplıkları](reference-v2-libraries.md), açık kaynak istemci kitaplıkları ve v2.0 uç noktası ile test edilmiştir örnekleri listesi.
+  * Başvuru için `.well-known` v2.0 ortak uç nokta için uç nokta `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` .  Değiştirin `common` kiracınıza belirli verileri almak için Kiracı kimliği.  
 
 ## <a name="restrictions-on-protocols"></a>Protokolleri kısıtlamaları
 
@@ -109,7 +110,6 @@ V2.0 uç noktası, SAML veya WS-Federation desteklemez; yalnızca, Open ID Conne
 Şu anda aşağıdaki protokolü özellikleri ve yetenekleri olan *kullanılamıyor* v2.0 uç noktasını:
 
 * Şu anda `email` talep yalnızca döndürülen isteğe bağlı bir talep yapılandırılır ve kapsam kapsam = e-posta, istekte belirtildi. Ancak, bu davranışı, v2.0 uç noktası daha da Open ID Connect ve OAuth2.0 standartlarına uymak için güncelleştirilmiş şekilde değiştirir.
-* Openıd Connect UserInfo uç nokta v2.0 uç noktada uygulanmadı. Ancak, büyük olasılıkla bu uç noktada alacak tüm kullanıcı profil verileri kullanılabilir Microsoft Graph'teki `/me` uç noktası.
 * V2.0 uç noktası kimliği belirteçler veren bir rol veya grup talepleri desteklemez.
 * [OAuth 2.0 kaynak sahibi parola kimlik bilgileri verme](https://tools.ietf.org/html/rfc6749#section-4.3) v2.0 uç noktası tarafından desteklenmiyor.
 

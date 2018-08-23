@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 08/15/2018
 ms.author: jeffgo
-ms.openlocfilehash: 5af8380accc23a62baf04b842430e692fdff3692
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d24902b894a632e9fe8c57f2fb2b652b44ab128c
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443561"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42060730"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Azure Stack için Red Hat tabanlı bir sanal makine hazırlama
 
@@ -40,7 +40,7 @@ Bu bölümde zaten varsa Red Hat Web sitesinden bir ISO dosyası ve RHEL görün
 * Linux işletim sistemi yüklediğinizde, genellikle çoğu yüklemeleri için varsayılan olan mantıksal birim Yöneticisi (LVM) yerine standart bölümleri kullanmanızı öneririz. Özellikle, hiç olmadığı kadar başka bir özdeş sanal sorun giderme için makine bir işletim sistemi diski gerekiyorsa bu yöntem LVM ad çakışmalarını kopyalanan sanal makinelerle önler.
 * Evrensel Disk Biçimi (UDF) dosya sistemleri bağlamak için çekirdek desteği gereklidir. İlk önyüklemede Konuk bağlı UDF biçimli medya Linux sanal makinesi için sağlama yapılandırması geçirir. Azure Linux Aracısı yapılandırmasını okuma ve sanal makine sağlamak için UDF dosya sistemini bağlamalarına gerekir.
 * İşletim sistemi diski üzerinde takas bölümü yapılandırmayın. Linux Aracısı, geçici kaynak diski üzerinde takas dosyası oluşturmak için yapılandırılabilir. Aşağıdaki adımlarda hakkında daha fazla bilgi bulunabilir.
-* Tüm VHD'leri azure'da bir sanal Boyut 1 MB ile uyumlu olması gerekir. Ham bir diskten VHD'ye dönüştürme yaparken ham disk boyutu 1 MB dönüştürmeden önce bir çok olduğundan emin olmalısınız. Aşağıdaki adımlarda daha fazla ayrıntı bulunabilir.
+* Tüm VHD'leri azure'da bir sanal Boyut 1 MB ile uyumlu olması gerekir. Ham bir diskten VHD'ye dönüştürme yaparken, ham disk boyutu 1 MB dönüştürmeden önce bir çok olduğundan emin olmalısınız. Aşağıdaki adımlarda daha fazla ayrıntı bulunabilir.
 * Azure Stack, cloud-init desteklemez. VM'niz ile desteklenen bir sürümünü, Windows Azure Linux Aracısı'nı (WALA) yapılandırılması gerekir.
 
 ### <a name="prepare-a-rhel-7-virtual-machine-from-hyper-v-manager"></a>Hyper-V Yöneticisi'nden RHEL 7 sanal makinesini hazırlama
@@ -71,14 +71,14 @@ Bu bölümde zaten varsa Red Hat Web sitesinden bir ISO dosyası ve RHEL görün
 
 1. Ağ hizmeti aşağıdaki komutu çalıştırarak önyükleme sırasında başladığından emin olun:
 
-    ```sh
-    # sudo systemctl enable network
+    ```bash
+    sudo systemctl enable network
     ```
 
 1. Aşağıdaki komutu çalıştırarak RHEL depodan paketler yüklenmesini etkinleştirmek için Red Hat aboneliğinizi kaydedin:
 
-    ```sh
-    # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
+    ```bash
+    sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
 1. Kernel önyükleme satırına grub yapılandırmanızda ek çekirdek parametreleri için Azure içerecek şekilde değiştirin. Bu değişikliği yapmak için açık `/etc/default/grub` bir metin düzenleyicisinde ve değiştirme `GRUB_CMDLINE_LINUX` parametresi. Örneğin:
@@ -87,7 +87,7 @@ Bu bölümde zaten varsa Red Hat Web sitesinden bir ISO dosyası ve RHEL görün
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
-   Bu, Azure size yardımcı olabilir ilk seri bağlantı noktası için tüm konsol ileti gönderilmesini sağlar sorunları hata ayıklama desteği. Bu yapılandırma, ayrıca NIC'ler için yeni RHEL 7 adlandırma kurallarını devre dışı bırakır. 
+   Bu, Azure size yardımcı olabilir ilk seri bağlantı noktası için tüm konsol ileti gönderilmesini sağlar sorunları hata ayıklama desteği. Bu yapılandırma, ayrıca NIC'ler için yeni RHEL 7 adlandırma kurallarını devre dışı bırakır.
 
    Grafik ve sessiz önyükleme seri bağlantı noktasına gönderilmesi için tüm günlükleri istediğimiz bir bulut ortamında kullanışlı değildir. Bırakabilirsiniz `crashkernel` isterseniz yapılandırılmış seçeneği. Bu parametre, daha küçük sanal makine boyutlarına sorunlu olabilir sanal makinede 128 MB veya daha fazla kullanılabilir bellek miktarını azaltır unutmayın. Aşağıdaki parametreleri kaldırmanızı öneririz:
 
@@ -97,8 +97,8 @@ Bu bölümde zaten varsa Red Hat Web sitesinden bir ISO dosyası ve RHEL görün
 
 1. Bitirdikten sonra düzenleme `/etc/default/grub`, grub yapılandırması yeniden oluşturmak için aşağıdaki komutu çalıştırın:
 
-    ```sh
-    # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```bash
+    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
 1. SSH sunucusu yüklü ve, genellikle varsayılan önyükleme sırasında başlatılacak şekilde yapılandırılmış emin olun. Değiştirme `/etc/ssh/sshd_config` aşağıdaki satırı dahil etmek için:
@@ -109,15 +109,15 @@ Bu bölümde zaten varsa Red Hat Web sitesinden bir ISO dosyası ve RHEL görün
 
 1. WALinuxAgent paket `WALinuxAgent-<version>`, Red Hat ek özellikler deposuna gönderildi. Ek özellikler depo, aşağıdaki komutu çalıştırarak etkinleştirin:
 
-    ```sh
-    # subscription-manager repos --enable=rhel-7-server-extras-rpms
+    ```bash
+    subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
 1. Azure Linux Aracısı, aşağıdaki komutu çalıştırarak yükleyin:
 
-    ```sh
-    # sudo yum install WALinuxAgent
-    # sudo systemctl enable waagent.service
+    ```bash
+    sudo yum install WALinuxAgent
+    sudo systemctl enable waagent.service
     ```
 
 1. İşletim sistemi diski üzerinde takas alanı oluşturabilirsiniz.
@@ -129,23 +129,23 @@ Bu bölümde zaten varsa Red Hat Web sitesinden bir ISO dosyası ve RHEL görün
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
     ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
+    ResourceDisk.SwapSizeMB=2048    #NOTE: set this to whatever you need it to be.
     ```
 
 1. Abonelik kaydını kaldırmak istiyorsanız, aşağıdaki komutu çalıştırın:
 
-    ```sh
-    # sudo subscription-manager unregister
+    ```bash
+    sudo subscription-manager unregister
     ```
 
 1. Bir kuruluş sertifika yetkilisi kullanılarak dağıtılmıştır bir sistemi kullanıyorsanız, RHEL VM, Azure Stack kök sertifikasını güven yok. Güvenilen kök deposuna yerleştirmeniz gerekir. Bkz: [ekleyerek güvenilen kök sertifikalar sunucuya](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Sanal makinenin sağlamasını kaldırma ve Azure'da sağlama için hazırlamak için aşağıdaki komutları çalıştırın:
 
-    ```sh
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
+    ```bash
+    sudo waagent -force -deprovision
+    export HISTSIZE=0
+    logout
     ```
 
 1. Tıklayın **eylem** > **kapatma** Hyper-V Yöneticisi'nde.
@@ -160,14 +160,14 @@ Bu bölümde zaten varsa Red Hat Web sitesinden bir ISO dosyası ve RHEL görün
 
     Şifreli bir parola oluşturmak ve komutunun çıktısını kopyalayın:
 
-    ```sh
-    # openssl passwd -1 changeme
+    ```bash
+    openssl passwd -1 changeme
     ```
 
    Guestfish ile bir kök parola ayarlayın:
 
     ```sh
-    # guestfish --rw -a <image-name>
+    guestfish --rw -a <image-name>
     > <fs> run
     > <fs> list-filesystems
     > <fs> mount /dev/sda1 /
@@ -201,14 +201,14 @@ Bu bölümde zaten varsa Red Hat Web sitesinden bir ISO dosyası ve RHEL görün
 
 1. Ağ hizmeti aşağıdaki komutu çalıştırarak önyükleme sırasında başladığından emin olun:
 
-    ```sh
-    # sudo systemctl enable network
+    ```bash
+    sudo systemctl enable network
     ```
 
 1. Aşağıdaki komutu çalıştırarak RHEL depodan paketler yüklenmesini etkinleştirmek için Red Hat aboneliğinizi kaydedin:
 
-    ```sh
-    # subscription-manager register --auto-attach --username=XXX --password=XXX
+    ```bash
+    subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
 1. Kernel önyükleme satırına grub yapılandırmanızda ek çekirdek parametreleri için Azure içerecek şekilde değiştirin. Bu yapılandırma için açmak `/etc/default/grub` bir metin düzenleyicisinde ve değiştirme `GRUB_CMDLINE_LINUX` parametresi. Örneğin:
@@ -227,8 +227,8 @@ Bu bölümde zaten varsa Red Hat Web sitesinden bir ISO dosyası ve RHEL görün
 
 1. Bitirdikten sonra düzenleme `/etc/default/grub`, grub yapılandırması yeniden oluşturmak için aşağıdaki komutu çalıştırın:
 
-    ```sh
-    # grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```bash
+    grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
 1. Hyper-V modüllerini initramfs ekleyin.
@@ -241,20 +241,20 @@ Bu bölümde zaten varsa Red Hat Web sitesinden bir ISO dosyası ve RHEL görün
 
     İnitramfs yeniden oluşturun:
 
-    ```sh
-    # dracut -f -v
+    ```bash
+    dracut -f -v
     ```
 
 1. Cloud-init kaldırın:
 
-    ```sh
-    # yum remove cloud-init
+    ```bash
+    yum remove cloud-init
     ```
 
 1. SSH sunucusu yüklü ve önyükleme sırasında başlatılacak şekilde yapılandırılmış olduğundan emin olun:
 
-    ```sh
-    # systemctl enable sshd
+    ```bash
+    systemctl enable sshd
     ```
 
     /Etc/ssh/sshd_config aşağıdaki satırları içerecek şekilde değiştirin:
@@ -266,20 +266,20 @@ Bu bölümde zaten varsa Red Hat Web sitesinden bir ISO dosyası ve RHEL görün
 
 1. WALinuxAgent paket `WALinuxAgent-<version>`, Red Hat ek özellikler deposuna gönderildi. Ek özellikler depo, aşağıdaki komutu çalıştırarak etkinleştirin:
 
-    ```sh
-    # subscription-manager repos --enable=rhel-7-server-extras-rpms
+    ```bash
+    subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
 1. Azure Linux Aracısı, aşağıdaki komutu çalıştırarak yükleyin:
 
-    ```sh
-    # yum install WALinuxAgent
+    ```bash
+    yum install WALinuxAgent
     ```
 
     Waagent hizmeti etkinleştirin:
 
-    ```sh
-    # systemctl enable waagent.service
+    ```bash
+    systemctl enable waagent.service
     ```
 
 1. İşletim sistemi diski üzerinde takas alanı oluşturabilirsiniz.
@@ -291,23 +291,23 @@ Bu bölümde zaten varsa Red Hat Web sitesinden bir ISO dosyası ve RHEL görün
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
     ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
+    ResourceDisk.SwapSizeMB=2048    #NOTE: set this to whatever you need it to be.
     ```
 
 1. Abonelik (gerekiyorsa) aşağıdaki komutu çalıştırarak kaydı:
 
-    ```sh
-    # subscription-manager unregister
+    ```bash
+    subscription-manager unregister
     ```
 
 1. Bir kuruluş sertifika yetkilisi kullanılarak dağıtılmıştır bir sistemi kullanıyorsanız, RHEL VM, Azure Stack kök sertifikasını güven yok. Güvenilen kök deposuna yerleştirmeniz gerekir. Bkz: [ekleyerek güvenilen kök sertifikalar sunucuya](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Sanal makinenin sağlamasını kaldırma ve Azure'da sağlama için hazırlamak için aşağıdaki komutları çalıştırın:
 
-    ```sh
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
+    ```bash
+    sudo waagent -force -deprovision
+    export HISTSIZE=0
+    logout
     ```
 
 1. KVM sanal makineyi kapatın.
@@ -319,30 +319,30 @@ Bu bölümde zaten varsa Red Hat Web sitesinden bir ISO dosyası ve RHEL görün
 
     Önce görüntünün ham biçimine dönüştürün:
 
-    ```sh
-    # qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
+    ```bash
+    qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
     ```
 
     Ham görüntüsünün boyutu 1 MB ile uyumlu olduğunu doğrulayın. Aksi takdirde, boyutu 1 MB ile hizalamak için yukarı yuvarlar:
 
-    ```sh
-    # MB=$((1024*1024))
-    # size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
+    ```bash
+    MB=$((1024*1024))
+    size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
     gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-    # rounded_size=$((($size/$MB + 1)*$MB))
-    # qemu-img resize rhel-7.4.raw $rounded_size
+    rounded_size=$((($size/$MB + 1)*$MB))
+    qemu-img resize rhel-7.4.raw $rounded_size
     ```
 
     Ham disk sabit boyutlu VHD'ye dönüştürür:
 
-    ```sh
-    # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
+    ```bash
+    qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
     Veya qemu sürümüyle **2.6 +** dahil `force_size` seçeneği:
 
-    ```sh
-    # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
+    ```bash
+    qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>Vmware'den Red Hat tabanlı bir sanal makine hazırlama
@@ -377,14 +377,14 @@ Bu bölümde, VMware ortamınızda RHEL sanal makine zaten yüklediğinizi varsa
 
 1. Ağ hizmeti aşağıdaki komutu çalıştırarak önyükleme sırasında başlayacağını emin olun:
 
-    ```sh
-    # sudo chkconfig network on
+    ```bash
+    sudo chkconfig network on
     ```
 
 1. Aşağıdaki komutu çalıştırarak RHEL depodan paketler yüklenmesini etkinleştirmek için Red Hat aboneliğinizi kaydedin:
 
-    ```sh
-    # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
+    ```bash
+    sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
 1. Kernel önyükleme satırına grub yapılandırmanızda ek çekirdek parametreleri için Azure içerecek şekilde değiştirin. Bu değişikliği yapmak için açık `/etc/default/grub` bir metin düzenleyicisinde ve değiştirme `GRUB_CMDLINE_LINUX` parametresi. Örneğin:
@@ -403,8 +403,8 @@ Bu bölümde, VMware ortamınızda RHEL sanal makine zaten yüklediğinizi varsa
 
 1. Bitirdikten sonra düzenleme `/etc/default/grub`, grub yapılandırması yeniden oluşturmak için aşağıdaki komutu çalıştırın:
 
-    ```sh
-    # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```bash
+    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
 1. Hyper-V modüller için initramfs ekleyin.
@@ -417,8 +417,8 @@ Bu bölümde, VMware ortamınızda RHEL sanal makine zaten yüklediğinizi varsa
 
     İnitramfs yeniden oluşturun:
 
-    ```sh
-    # dracut -f -v
+    ```bash
+    dracut -f -v
     ```
 
 1. SSH sunucusu yüklü ve önyükleme sırasında başlatılacak şekilde yapılandırılmış emin olun. Bu genellikle varsayılan ayardır. Değiştirme `/etc/ssh/sshd_config` aşağıdaki satırı dahil etmek için:
@@ -429,15 +429,15 @@ Bu bölümde, VMware ortamınızda RHEL sanal makine zaten yüklediğinizi varsa
 
 1. WALinuxAgent paket `WALinuxAgent-<version>`, Red Hat ek özellikler deposuna gönderildi. Ek özellikler depo, aşağıdaki komutu çalıştırarak etkinleştirin:
 
-    ```sh
-    # subscription-manager repos --enable=rhel-7-server-extras-rpms
+    ```bash
+    subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
 1. Azure Linux Aracısı, aşağıdaki komutu çalıştırarak yükleyin:
 
-    ```sh
-    # sudo yum install WALinuxAgent
-    # sudo systemctl enable waagent.service
+    ```bash
+    sudo yum install WALinuxAgent
+    sudo systemctl enable waagent.service
     ```
 
 1. İşletim sistemi diski üzerinde takas alanı oluşturabilirsiniz.
@@ -449,56 +449,56 @@ Bu bölümde, VMware ortamınızda RHEL sanal makine zaten yüklediğinizi varsa
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
     ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
+    ResourceDisk.SwapSizeMB=2048    NOTE: set this to whatever you need it to be.
     ```
 
 1. Abonelik kaydını kaldırmak istiyorsanız, aşağıdaki komutu çalıştırın:
 
-    ```sh
-    # sudo subscription-manager unregister
+    ```bash
+    sudo subscription-manager unregister
     ```
 
 1. Bir kuruluş sertifika yetkilisi kullanılarak dağıtılmıştır bir sistemi kullanıyorsanız, RHEL VM, Azure Stack kök sertifikasını güven yok. Güvenilen kök deposuna yerleştirmeniz gerekir. Bkz: [ekleyerek güvenilen kök sertifikalar sunucuya](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Sanal makinenin sağlamasını kaldırma ve Azure'da sağlama için hazırlamak için aşağıdaki komutları çalıştırın:
 
-    ```sh
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
+    ```bash
+    sudo waagent -force -deprovision
+    export HISTSIZE=0
+    logout
     ```
 
 1. Sanal makineyi kapatır ve VMDK dosyasını VHD biçimine dönüştürün.
 
     > [!NOTE]
-    > Qemu img sürümlerinde bilinen bir hata olduğunu > düzgün şekilde biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 içinde düzeltilmiştir. Qemu-img 2.2.0 ya da alt kullanın veya 2.6 veya sonraki bir sürüme güncelleştirmek için önerilir. Başvuru: <https://bugs.launchpad.net/qemu/+bug/1490611.>
+    > Qemu img sürümlerinde bilinen bir hata olduğunu > düzgün şekilde biçimlendirilmemiş bir VHD sonuçları 2.2.1 =. Sorun QEMU 2.6 içinde düzeltilmiştir. Qemu-img 2.2.0 ya da alt kullanın veya 2.6 veya sonraki bir sürüme güncelleştirmek için önerilir. Başvuru: <https://bugs.launchpad.net/qemu/+bug/1490611>.
 
     Önce görüntünün ham biçimine dönüştürün:
 
-    ```sh
-    # qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
+    ```bash
+    qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
     ```
 
     Ham görüntüsünün boyutu 1 MB ile uyumlu olduğunu doğrulayın. Aksi takdirde, boyutu 1 MB ile hizalamak için yukarı yuvarlar:
 
-    ```sh
-    # MB=$((1024*1024))
-    # size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
+    ```bash
+    MB=$((1024*1024))
+    size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
     gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-    # rounded_size=$((($size/$MB + 1)*$MB))
-    # qemu-img resize rhel-7.4.raw $rounded_size
+    rounded_size=$((($size/$MB + 1)*$MB))
+    qemu-img resize rhel-7.4.raw $rounded_size
     ```
 
     Ham disk sabit boyutlu VHD'ye dönüştürür:
 
-    ```sh
-    # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
+    ```bash
+    qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
     Veya qemu sürümüyle **2.6 +** dahil `force_size` seçeneği:
 
-    ```sh
-    # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
+    ```bash
+    qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-an-iso-by-using-a-kickstart-file-automatically"></a>Red Hat tabanlı bir sanal makine bir ISO'dan bir kickstart dosyası otomatik olarak kullanarak hazırlama
@@ -506,58 +506,58 @@ Bu bölümde, VMware ortamınızda RHEL sanal makine zaten yüklediğinizi varsa
 1. Aşağıdaki içeriği içeren bir kickstart dosyası oluşturun ve dosyayı kaydedin. Kickstart yükleme hakkında daha fazla ayrıntı için bkz: [Kickstart Yükleme Kılavuzu](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
     ```sh
-    # Kickstart for provisioning a RHEL 7 Azure VM
+    Kickstart for provisioning a RHEL 7 Azure VM
 
-    # System authorization information
+    System authorization information
     auth --enableshadow --passalgo=sha512
 
-    # Use graphical install
+    Use graphical install
     text
 
-    # Do not run the Setup Agent on first boot
+    Do not run the Setup Agent on first boot
     firstboot --disable
 
-    # Keyboard layouts
+    Keyboard layouts
     keyboard --vckeymap=us --xlayouts='us'
 
-    # System language
+    System language
     lang en_US.UTF-8
 
-    # Network information
+    Network information
     network  --bootproto=dhcp
 
-    # Root password
+    Root password
     rootpw --plaintext "to_be_disabled"
 
-    # System services
+    System services
     services --enabled="sshd,waagent,NetworkManager"
 
-    # System timezone
+    System timezone
     timezone Etc/UTC --isUtc --ntpservers 0.rhel.pool.ntp.org,1.rhel.pool.ntp.org,2.rhel.pool.ntp.org,3.rhel.pool.ntp.org
 
-    # Partition clearing information
+    Partition clearing information
     clearpart --all --initlabel
 
-    # Clear the MBR
+    Clear the MBR
     zerombr
 
-    # Disk partitioning information
+    Disk partitioning information
     part /boot --fstype="xfs" --size=500
     part / --fstyp="xfs" --size=1 --grow --asprimary
 
-    # System bootloader configuration
+    System bootloader configuration
     bootloader --location=mbr
 
-    # Firewall configuration
+    Firewall configuration
     firewall --disabled
 
-    # Enable SELinux
+    Enable SELinux
     selinux --enforcing
 
-    # Don't configure X
+    Don't configure X
     skipx
 
-    # Power down the machine after install
+    Power down the machine after install
     poweroff
 
     %packages
@@ -574,41 +574,41 @@ Bu bölümde, VMware ortamınızda RHEL sanal makine zaten yüklediğinizi varsa
 
     #!/bin/bash
 
-    # Register Red Hat Subscription
+    Register Red Hat Subscription
     subscription-manager register --username=XXX --password=XXX --auto-attach --force
 
-    # Install latest repo update
+    Install latest repo update
     yum update -y
 
-    # Enable extras repo
+    Enable extras repo
     subscription-manager repos --enable=rhel-7-server-extras-rpms
 
-    # Install WALinuxAgent
+    Install WALinuxAgent
     yum install -y WALinuxAgent
 
-    # Unregister Red Hat subscription
+    Unregister Red Hat subscription
     subscription-manager unregister
 
-    # Enable waaagent at boot-up
+    Enable waaagent at boot-up
     systemctl enable waagent
 
-    # Disable the root account
+    Disable the root account
     usermod root -p '!!'
 
-    # Configure swap in WALinuxAgent
+    Configure swap in WALinuxAgent
     sed -i 's/^\(ResourceDisk\.EnableSwap\)=[Nn]$/\1=y/g' /etc/waagent.conf
     sed -i 's/^\(ResourceDisk\.SwapSizeMB\)=[0-9]*$/\1=2048/g' /etc/waagent.conf
 
-    # Set the cmdline
+    Set the cmdline
     sed -i 's/^\(GRUB_CMDLINE_LINUX\)=".*"$/\1="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"/g' /etc/default/grub
 
-    # Enable SSH keepalive
+    Enable SSH keepalive
     sed -i 's/^#\(ClientAliveInterval\).*$/\1 180/g' /etc/ssh/sshd_config
 
-    # Build the grub cfg
+    Build the grub cfg
     grub2-mkconfig -o /boot/grub2/grub.cfg
 
-    # Configure network
+    Configure network
     cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth0
     DEVICE=eth0
     ONBOOT=yes
@@ -620,7 +620,7 @@ Bu bölümde, VMware ortamınızda RHEL sanal makine zaten yüklediğinizi varsa
     NM_CONTROLLED=no
     EOF
 
-    # Deprovision and prepare for Azure
+    Deprovision and prepare for Azure
     waagent -force -deprovision
 
     %end
@@ -656,15 +656,15 @@ Bu sorunu çözmek için initramfs Hyper-V modüllerini ekleyin ve yeniden oluş
 
 Düzen `/etc/dracut.conf`ve aşağıdaki içeriği ekleyin:
 
-```sh
-add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
-```
+    ```sh
+    add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+    ```
 
 İnitramfs yeniden oluşturun:
 
-```sh
-# dracut -f -v
-```
+    ```bash
+    dracut -f -v
+    ```
 
 Daha fazla bilgi için [initramfs yeniden](https://access.redhat.com/solutions/1958).
 

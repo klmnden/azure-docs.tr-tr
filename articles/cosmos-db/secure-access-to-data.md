@@ -2,19 +2,19 @@
 title: Azure Cosmos DB'de veri erişiminin güvenliğini sağlama hakkında bilgi edinin | Microsoft Docs
 description: Erişim denetimi kavramlarına ana anahtarları, salt okunur anahtarlar, kullanıcılar ve izinler de dahil olmak üzere Azure Cosmos DB'de hakkında bilgi edinin.
 services: cosmos-db
-author: SnehaGunda
+author: rafats
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2017
-ms.author: sngun
-ms.openlocfilehash: c51d399b646e7914ba85048c0928837caac7c15b
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.date: 08/19/2018
+ms.author: rafats
+ms.openlocfilehash: cfd1160d1592c03eea94e3c4d04fdc5754eca671
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901128"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42062139"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Azure Cosmos DB verilere erişimin güvenliğini sağlama
 Bu makalede depolanan verilere erişimin güvenliğini sağlama genel bir bakış sağlar [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -174,6 +174,20 @@ foreach (Permission perm in permFeed)
 
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
+
+## <a name="add-users-and-assign-roles"></a>Kullanıcı ekleme ve Rolleri Ata
+
+Azure Cosmos DB hesabı okuyucusu erişimi kullanıcı hesabınıza eklemek için Azure portalında aşağıdaki adımları uygulayın, bir abonelik sahibi var.
+
+1. Azure portalını açın ve Azure Cosmos DB hesabınızı seçin.
+2. Tıklayın **erişim denetimi (IAM)** sekmesine ve ardından **+ Ekle**.
+3. İçinde **izinleri eklemek** bölmesinde, **rol** kutusunda **Cosmos DB hesabı okuyucusu rolü**.
+4. İçinde **kutusuna erişim atama**seçin **Azure AD kullanıcı, Grup veya uygulama**.
+5. Dizininizde, erişim vermek istediğiniz kullanıcı, Grup veya uygulama seçin.  Görünen ad, e-posta adresi veya nesne tanımlayıcıları dizin arama yapabilirsiniz.
+    Seçilen kullanıcıya, gruba veya uygulamaya seçili Üyeler listesinde görünür.
+6. **Kaydet**’e tıklayın.
+
+Varlık, artık Azure Cosmos DB kaynaklarını okuyabilir.
 
 ## <a name="delete-or-export-user-data"></a>Kullanıcı verilerini dışarı aktarma veya silme
 Azure Cosmos DB, arayın, seçin, değiştirmek ve veritabanı veya koleksiyon içinde bulunan herhangi bir kişisel verilerini silme sağlar. Azure Cosmos DB API'leri bulup ancak kişisel verilerini silme sağlar, API'leri ve kişisel verileri silmek için gerekli mantığı tanımlamak için sizin sorumluluğunuzdadır. Farklı dil aramak ve kişisel verilerini silme yöntemlerini içeren SDK'ları her çok modelli bir API (SQL API'si, MongoDB API, Gremlin API'si, Cassandra API, tablo API'si) sağlar. Ayrıca etkinleştirebilirsiniz [süresi (TTL) canlı](time-to-live.md) belirli bir süre sonra otomatik olarak silmek herhangi bir ek ücret ödemeden veri özelliği.

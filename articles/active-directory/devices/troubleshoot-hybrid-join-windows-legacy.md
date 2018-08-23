@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1121bc9e34f0e544ba5d7acb9179944ee2382efd
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: aad2b4c3edcdc488257940062e8861613ece25e8
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414962"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42062126"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Alt düzey cihazları katılmış karma Azure Active Directory sorun giderme 
 
@@ -57,7 +57,7 @@ Bu makalede, sorun giderme rehberi olası sorunların nasıl giderileceğini üz
 
 - Bir işletim sistemi veya bir el ile yeniden kayıt yüklenmesinden dolayı bir cihazda kullanıcı bilgileri sekmesi için birden çok girişi elde edebilirsiniz. 
 
-- Emin [KB4284842](https://support.microsoft.com/en-us/help/4284842) Windows 7 SP1 veya Windows Server 2008 R2 SP1 durumunda yüklenir. Bu güncelleştirme, parolayı değiştirdikten sonra korumalı anahtarları gelecekteki kimlik doğrulama hataları nedeniyle müşterinin erişim kaybını engeller.
+- Emin [KB4284842](https://support.microsoft.com/help/4284842) Windows 7 SP1 veya Windows Server 2008 R2 SP1 durumunda yüklenir. Bu güncelleştirme, parolayı değiştirdikten sonra korumalı anahtarları gelecekteki kimlik doğrulama hataları nedeniyle müşterinin erişim kaybını engeller.
 
 ## <a name="step-1-retrieve-the-registration-status"></a>1. adım: kayıt durumunu alma 
 

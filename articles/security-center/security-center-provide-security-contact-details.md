@@ -1,6 +1,6 @@
 ---
-title: Azure Güvenlik Merkezi'nde güvenlik iletişim ayrıntılarını sağlamak | Microsoft Docs
-description: Bu belgede Azure Güvenlik Merkezi'nde güvenlik kişi ayrıntıları gösterilmiştir.
+title: Azure Güvenlik Merkezi'nde güvenlik kişi ayrıntılarını sağlama | Microsoft Docs
+description: Bu belge, Azure Güvenlik Merkezi'nde güvenlik kişi ayrıntılarını sağlama işlemini göstermektedir.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,45 +12,45 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 08/20/2018
 ms.author: terrylan
-ms.openlocfilehash: 726b59c45e2eb18eebe28a180db23336ae141408
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c268538cf401b29f68210c6d017c2eac55e88939
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23866530"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42055936"
 ---
-# <a name="provide-security-contact-details-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik iletişim ayrıntılarını sağlayın
-Azure Güvenlik Merkezi, henüz yapmadıysanız, Azure aboneliğiniz için güvenlik iletişim ayrıntılarını sağlayın önerir. Bu bilgiler, Microsoft Güvenlik Yanıt Merkezi (MSRC) müşteri verilerinize yasadışı veya yetkisiz bir tarafın eriştiğini belirlerse Microsoft tarafından sizinle iletişim kurmak için kullanılır. MSRC select güvenlik Azure ağ ve altyapı izleme gerçekleştirir ve Üçüncü taraflardan tehdit Intelligence ve kötüye şikayetlerinden alır.
+# <a name="provide-security-contact-details-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik kişi ayrıntılarını sağlama
+Azure Güvenlik Merkezi, henüz yapmadıysanız, Azure aboneliğiniz için güvenlik kişi ayrıntılarını sağlama önerir. Bu bilgiler, Microsoft Güvenlik Yanıt Merkezi (MSRC) müşteri verilerinize yasadışı veya yetkisiz bir tarafın eriştiğini belirlerse Microsoft tarafından sizinle iletişim kurmak için kullanılır. MSRC select güvenlik Azure ağ ve altyapı izleme gerçekleştirir ve Üçüncü taraflardan tehdit zekası ve kötüye kullanımı şikayetlerinin alır.
 
-İlk günlük oluşması bir uyarı ve yüksek öneme sahip uyarılar için yalnızca bir e-posta bildirimi gönderilir. E-posta tercihleri yalnızca abonelik ilkeleri için yapılandırılabilir. Bir abonelik içindeki kaynak grupları, bu ayarları devralır.
+İlk günlük örneğinde bir uyarı ve yalnızca yüksek önem düzeyindeki uyarılar için e-posta bildirimi gönderilir. E-posta tercihleri yalnızca abonelik ilkeleri için yapılandırılabilir. Bir abonelik içindeki kaynak grupları, bu ayarları devralır.
 
 > [!NOTE]
 > Bu belge, örnek bir dağıtım kullanarak hizmeti tanıtır.  Bu, adım adım ilerleyen bir kılavuz değildir.
 >
 >
 
-## <a name="implement-the-recommendation"></a>Öneriyi uygulamayı
-1. Altında **önerileri**seçin **güvenlik iletişim ayrıntılarını sağlamak**.
-   ![Güvenlik kişi sağlayın][1]
-2. Kişi bilgileri sağlamak için Azure aboneliğini seçin.
-3. Bu açılır **güvenlik ilkesi - e-posta bildirimleri**.
+## <a name="implement-the-recommendation"></a>Önerisini uygulama
+1. Altında **önerileri**seçin **güvenlik kişi ayrıntılarını sağlama**.
+   ![Güvenlik ilgili kişi sağlayın][1]
+2. Şirket iletişim bilgilerini sağlamak için Azure aboneliği seçin.
+3. Bu açılır **e-posta bildirimleri**.
 
    ![Güvenlik ilgili kişi bilgilerini belirtin][2]
 
-   * Güvenlik iletişim e-posta adresini veya adreslerini noktalı virgüllerle ayırarak girin. Girdiğiniz e-posta adresi sayısı için bir sınır değil.
-   * Bir güvenlik kişi uluslararası telefon numarası girin.
-   * Yüksek öneme sahip uyarılar hakkında e-postaları için seçeneğini açın **bana Gönder e-postalar uyarılar hakkında**.
-   * Gelecekte, abonelik sahipleri için e-posta bildirimleri gönderme seçeneği gerekir. Bu seçenek, gri renkte görüntülenir.
-   * Seçin **kaydetmek** aboneliğinize güvenlik bilgilerini uygulanacak.
+   * Güvenlik ilgili kişi e-posta adresini veya adreslerini noktalı virgüllerle ayırarak girin. Girdiğiniz e-posta adresleri sayısına bir sınır yoktur.
+   * Bir güvenlik ilgili kişi uluslararası telefon numarası girin.
+   * Yüksek önem düzeyindeki uyarılar hakkında e-posta almak için seçeneğini açın **Gönder e-posta uyarıları hakkında**.
+   * Gelecekte, abonelik sahiplerine e-posta bildirimleri göndermek için seçeneğine sahip olursunuz. Bu seçenek, gri renkte gösterilir.
+   * Seçin **Kaydet** aboneliğiniz için güvenlik bilgilerini uygulamak için.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
 * [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --nasıl önerilerin Azure kaynaklarınızı korumanıza yardımcı öğrenin.
-* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) --Azure kaynaklarınızı sağlığını izlemek öğrenin.
+* [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.
+* [Güvenlik durumunu, Azure Güvenlik Merkezi'nde izleme](security-center-monitoring.md) --Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) - İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) -- Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.

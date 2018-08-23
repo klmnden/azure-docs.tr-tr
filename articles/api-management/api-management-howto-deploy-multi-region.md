@@ -1,9 +1,9 @@
 ---
-title: Birden çok Azure bölgeler ile Azure API Management services dağıtma | Microsoft Docs
-description: Azure API Management hizmet örneği için birden fazla Azure bölgesine dağıtmayı öğrenin.
+title: Azure API Management Hizmetleri birden çok Azure bölgesine dağıtma | Microsoft Docs
+description: Azure API Management hizmet örneği birden çok Azure bölgesine dağıtma konusunda bilgi edinin.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,56 +11,101 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: ff0101bde54f99f99461d0f042af520b1642d0df
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2ec8d53b0d8da3a7d643362abf58d3a5d4b42e74
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31586815"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42058305"
 ---
-# <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Azure API Management hizmet örneği birden çok Azure bölgeler ile dağıtma
-API Management istenen Azure bölgeleri herhangi bir sayıda arasında tek bir API management hizmeti dağıtmak API yayımcılar sağlayan bölgeli dağıtımını destekler. Bu istek tarafından algılanan gecikme API tüketicileri coğrafi olarak dağıtılmış ve bir bölge çevrimdışı olursa hizmet kullanılabilirliği de geliştirir azaltılmasına yardımcı olur. 
+# <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Azure API Management hizmet örneği birden çok Azure bölgesine dağıtma
 
-Bir API Management hizmeti başlangıçta oluşturulduğunda, yalnızca bir tane içeriyor [birim] [ unit] ve birincil bölge belirlenmiş tek bir Azure bölgesi bulunur. Ek bölgeler kolayca Azure Portalı aracılığıyla eklenebilir. Bir API Management ağ geçidi sunucusu her bölgeye dağıtılır ve arama trafiği için en yakın ağ geçidi yönlendirilir. Bir bölge çevrimdışı olursa, otomatik olarak sonraki en yakın ağ geçidine yeniden yönlendirilmiş bir trafiğidir. 
+Azure API yönetimi, istenen Azure bölgeleri arasında herhangi bir sayı tek bir Azure API management hizmeti dağıtmak API yayımcılarının sağlayan çok bölgeli dağıtım destekler. Bu durum, istek tarafından algılanan gecikme API tüketicilerini coğrafi olarak dağıtılan ve tek bir bölge çevrimdışı olması durumunda da hizmet kullanılabilirliği artırır azaltmaya yardımcı olur.
+
+Yeni bir Azure API Management hizmeti başlangıçta yalnızca bir tane içeriyor [birim] [ unit] tek bir Azure bölgesinde, birincil bölge. Ek bölgeler Azure Portalı aracılığıyla kolayca eklenebilir. Bir API Management ağ geçidi sunucusu, her bir bölgeye dağıtılır ve arama trafiği en yakın ağ geçidine yönlendirilir. Bir bölgeyi çevrimdışı olması durumunda, trafiği otomatik olarak sonraki en yakın ağ geçidine yönlendirilir.
 
 > [!IMPORTANT]
-> Bölgeli dağıtım bulunan yalnızca **[Premium] [ Premium]** katmanı.
-> 
-> 
+> Çok bölgeli dağıtım bulunan yalnızca **[Premium] [ Premium]** katmanı.
 
-## <a name="add-region"> </a>API Management hizmet örneği için yeni bir bölge dağıtma
 > [!NOTE]
-> Henüz bir API Management hizmeti örneği oluşturmadıysanız, bkz: [bir API Management hizmet örneği oluşturma][Create an API Management service instance].
-> 
-> 
+> Azure API Management, yalnızca API ağ geçidi bileşenini bölgeler arasında çoğaltır. Hizmet Yönetimi bileşeni, yalnızca birincil bölgede barındırılır. Birincil bölgede kesinti olması durumunda, bir Azure API Management hizmet örneği için yapılandırma değişikliklerini uygulama ayarları veya ilkeleri güncelleştirmeleri dahil olmak üzere - yapılamaz.
 
-Azure Portalı'nda gidin **ölçek ve fiyatlandırma** , API Management hizmet örneğinizin sayfası. 
+## <a name="add-region"> </a>API Management hizmet örneği için yeni bir bölgeye dağıtın.
 
-![Ölçek sekmesi][api-management-scale-service]
+> [!NOTE]
+> Henüz bir API Management hizmet örneği oluşturmadıysanız bkz [bir API Management hizmet örneği oluşturma][Create an API Management service instance].
 
-Yeni bir bölgeye dağıtmayı tıklayın **+ Ekle bölge** araç çubuğundan.
+Azure portalında gidin **ölçeklendirme ve fiyatlandırma** API Management hizmet örneğinizin sayfası. 
+
+![Ölçek sekmesini][api-management-scale-service]
+
+Yeni bir bölgeye dağıtmak için tıklayın **+ Ekle bölge** araç çubuğundan.
 
 ![Bölge ekle][api-management-add-region]
 
-Aşağı açılan listeden konumu seçin ve kaydırıcı ile birim sayısını ayarlayın.
+Aşağı açılan listeden konumu seçin ve kaydırıcı ile için birim sayısını ayarlayın.
 
 ![Birimler belirtin][api-management-select-location-units]
 
-Tıklatın **Ekle** konumlar tablosunda seçiminizi yerleştirilecek. 
+Tıklayın **Ekle** seçiminizi konumlar tablosunda yerleştirmek için. 
 
-Yapılandırılan tüm konumları elde edene kadar bu işlemi yineleyin ve'ı tıklatın **kaydetmek** dağıtım işlemini başlatmak için araç çubuğundan.
+Yapılandırılan tüm konumları bulunana kadar bu işlemi yineleyin ve'ı tıklatın **Kaydet** dağıtım işlemini başlatmak için araç çubuğundan.
 
-## <a name="remove-region"> </a>API Management hizmet örneği bir konumdan Sil
+## <a name="remove-region"> </a>Bir konumdan bir API Management hizmet örneği silme
 
-Azure Portalı'nda gidin **ölçek ve fiyatlandırma** , API Management hizmet örneğinizin sayfası. 
+Azure portalında gidin **ölçeklendirme ve fiyatlandırma** API Management hizmet örneğinizin sayfası. 
 
-![Ölçek sekmesi][api-management-scale-service]
+![Ölçek sekmesini][api-management-scale-service]
 
-Kaldırmak istediğiniz konumu için bağlam menüsünü kullanarak açın **...**  tablo sağ ucunda düğmesi. Seçin **silmek** seçeneği.
+Kaldırmak istediğiniz konum için bağlam menüsünü açın **...**  tablonun sonuna doğru düğmesi. Seçin **Sil** seçeneği.
 
-Silme işlemini onaylamak ve tıklayın **kaydetmek** değişiklikleri uygulamak için.
+Silme işlemini onaylayın ve tıklayın **Kaydet** değişiklikleri uygulamak için.
+
+## <a name="route-backend"> </a>Bölgesel bir arka uç Hizmetleri için yol API çağrıları
+
+Azure API Management, yalnızca bir arka uç hizmeti URL'si sunar. Çeşitli bölgelerdeki Azure API Management örneği olsa bile API ağ geçidi istekleri hala iletmek üzere tek bir bölgede dağıtılan aynı arka uç hizmetine olur. Bu durumda, performans kazanç isteği belirli bir bölgede Azure API Management içinde önbelleğe alınan yanıtları kaynağından gelir, ancak arka uç, dünya çapında iletişim kurmasını hala yüksek gecikmeye neden olabilir.
+
+Coğrafi dağıtım, sisteminizin tam olarak yararlanmak için Azure API Management örneği ile aynı bölgede dağıtılan arka uç Hizmetleri olmalıdır. Ardından, ilkeleri kullanarak ve `@(context.Deployment.Region)` özelliği, yerel bir arka uç örneklerine trafiği yönlendirebilirsiniz.
+
+1. Azure API Management Örneğinize gidin ve tıklayarak **API'leri** sol menüden.
+2. İstenen API'nizi seçin.
+3. Tıklayın **Kod Düzenleyicisi** ok açılır menüde gelen **gelen işlem**.
+
+    ![API Kod Düzenleyicisi](./media/api-management-howto-deploy-multi-region/api-management-api-code-editor.png)
+
+4. Kullanım `set-backend` koşullu ile birleştirilmiş `choose` içinde uygun bir yönlendirme ilkesi oluşturmak için ilkeleri `<inbound> </inbound>` dosyasının.
+
+    Örneğin, XML dosyası Batı ABD ve Doğu Asya bölgelerinde için işe yarar:
+
+    ```xml
+    <policies>
+        <inbound>
+            <base />
+            <choose>
+                <when condition="@("West US".Equals(context.Deployment.Region, StringComparison.OrdinalIgnoreCase))">
+                    <set-backend-service base-url="http://contoso-us.com/" />
+                </when>
+                <when condition="@("East Asia".Equals(context.Deployment.Region, StringComparison.OrdinalIgnoreCase))">
+                    <set-backend-service base-url="http://contoso-asia.com/" />
+                </when>
+                <otherwise>
+                    <set-backend-service base-url="http://contoso-other.com/" />
+                </otherwise>
+            </choose>
+        </inbound>
+        <backend>
+            <base />
+        </backend>
+        <outbound>
+            <base />
+        </outbound>
+        <on-error>
+            <base />
+        </on-error>
+    </policies>
+    ```
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
 
@@ -77,4 +122,3 @@ Silme işlemini onaylamak ve tıklayın **kaydetmek** değişiklikleri uygulamak
 
 [unit]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
-

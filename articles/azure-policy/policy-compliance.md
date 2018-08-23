@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f2283125aff705aae87b6260b48deee01aa12f0d
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: bd3eeb5ebb9b30ac315fee1597348f3bd34f3bb6
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343561"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057059"
 ---
 # <a name="getting-compliance-data"></a>Uyumluluk verilerini alma
 
@@ -26,6 +26,9 @@ Girişim atamaları ve ilke tarafından oluşturulan uyumluluk bilgileri erişme
 - Aracılığıyla [komut satırı](#command_line) betik oluşturma
 
 Uyumluluk üzerinde yöntemleri bakarak önce uyumluluk bilgilerini güncelleştirildiğinde ve sıklığı ve değerlendirme döngüsü tetikleyen olayları göz atalım.
+
+> [!WARNING]
+> Uyumluluk durumu olarak bildirildiğinden, **'#yok'**, doğrulayın **Microsoft.policyınsights** kaynak sağlayıcısı kaydedildikten ve kullanıcının uygun rol tabanlı erişim denetimi (RBAC) sahip izinler açıklandığı [burada](azure-policy-introduction.md#rbac-permissions-in-azure-policy).
 
 ## <a name="evaluation-triggers"></a>Değerlendirme Tetikleyicileri
 

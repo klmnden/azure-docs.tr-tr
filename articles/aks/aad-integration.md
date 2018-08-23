@@ -1,36 +1,36 @@
 ---
 title: Azure Kubernetes hizmeti ile Azure Active Directory Tümleştirme
-description: Azure Active Directory özellikli Azure Kubernetes Service kümeleri oluşturma
+description: Azure Active Directory özellikli Azure Kubernetes Service (AKS) kümeleri oluşturma
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 6/17/2018
+ms.date: 8/9/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2c4e0f8c31299644c912a70fc91bbdfa6da6795b
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9bbf7ad201a70a315b75ed5e1f35671e4a5604fc
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579036"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42061739"
 ---
-# <a name="integrate-azure-active-directory-with-aks---preview"></a>Azure Active Directory Tümleştirme ile AKS - Önizleme
+# <a name="integrate-azure-active-directory-with-aks"></a>AKS ile Azure Active Directory Tümleştirme
 
-Azure Kubernetes Service (AKS), Azure Active Directory kullanıcı kimlik doğrulaması için kullanmak üzere yapılandırılabilir. Bu yapılandırmada, Azure Active Directory kimlik doğrulama belirtecinizi kullanarak bir Azure Kubernetes hizmeti kümesine oturum açabilirsiniz. Ayrıca, küme yöneticileri bir kullanıcı kimliği veya dizin grubu üyeliğine göre Kubernetes rol tabanlı erişim denetimini yapılandırmak kullanabilirsiniz.
+Azure Kubernetes Service (AKS), Azure Active Directory (AD) kullanıcı kimlik doğrulaması için kullanmak üzere yapılandırılabilir. Bu yapılandırmada, Azure Active Directory kimlik doğrulama belirtecinizi kullanarak bir AKS kümesine oturum açabilirsiniz. Ayrıca, küme yöneticileri, bir kullanıcı kimliği veya dizin grubu üyeliğine göre Kubernetes rol tabanlı erişim denetimi (RBAC) yapılandırabilirsiniz.
 
-Bu belge, AKS ve Azure AD için tüm gerekli Önkoşullar oluşturma, Azure AD etkin küme dağıtma ve AKS kümesinde basit bir RBAC rolü oluşturma ayrıntıları. RBAC kullanmak için mevcut olmayan-RBAC AKS kümeleri etkin Not şu anda güncelleştirilemiyor.
+Bu makalede, AKS ve Azure AD için önkoşulları dağıtma ve Azure AD etkin kümesi dağıtma ve AKS kümesinde basit bir RBAC rolü oluşturmak nasıl gösterir.
 
-> [!IMPORTANT]
-> Azure Kubernetes Service (AKS) RBAC ve Azure AD tümleştirmesi, şu anda **Önizleme**. Önizlemeler, [ek kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
->
+Aşağıdaki sınırlamalar geçerlidir:
+
+- RBAC kullanmak için mevcut olmayan-etkin RBAC AKS kümeleri şu anda güncelleştirilemiyor.
+- *Konuk* kullanıcıların Azure AD'de gibi farklı bir dizin Federasyon oturum açma kullanıyorsanız olarak desteklenmez.
 
 ## <a name="authentication-details"></a>Kimlik doğrulama ayrıntıları
 
-Azure AD kimlik doğrulaması, Openıd Connect ile Azure Kubernetes kümeleri için sağlanır. Openıd Connect, OAuth 2.0 protokolünü üzerinde yerleşik bir kimlik katmanı olan. Openıd Connect hakkında daha fazla bilgi bulunabilir [Open ID connect belgeleri][open-id-connect].
+Azure AD kimlik doğrulaması, AKS kümelerine Openıd Connect ile sağlanır. Openıd Connect, OAuth 2.0 protokolünü üzerinde yerleşik bir kimlik katmanı olan. Openıd Connect hakkında daha fazla bilgi için bkz: [Open ID connect belgeleri][open-id-connect].
 
-Gelen bir Kubernetes kümesi içinde Web kancası belirteci kimlik doğrulaması kimlik doğrulama belirteçleri doğrulamak için kullanılır. Web kancası belirteci kimlik doğrulaması yapılandırılır ve AKS kümesinin bir parçası yönetilir. Web kancası belirteci kimlik doğrulaması bulunabilir hakkında daha fazla bilgi [Web kancası authentication belgeleri][kubernetes-webhook].
+Gelen bir Kubernetes kümesi içinde Web kancası belirteci kimlik doğrulaması kimlik doğrulama belirteçleri doğrulamak için kullanılır. Web kancası belirteci kimlik doğrulaması yapılandırılır ve AKS kümesinin bir parçası yönetilir. Web kancası belirteci kimlik doğrulaması hakkında daha fazla bilgi için bkz. [Web kancası authentication belgeleri][kubernetes-webhook].
 
 > [!NOTE]
 > AKS kimlik doğrulaması için Azure AD yapılandırırken iki Azure AD uygulaması yapılandırılır. Bu işlem, bir Azure Kiracı Yöneticisi tarafından tamamlanması gerekir.
@@ -72,6 +72,10 @@ Gelen bir Kubernetes kümesi içinde Web kancası belirteci kimlik doğrulaması
 7. Seçin **Bitti**, seçin *Microsoft Graph* API'leri listesinden seçip **izinler**. Geçerli hesabın, bir kiracı Yöneticisi değilse, bu adımı başarısız olur
 
   ![Uygulama graph izinleri ayarlayın](media/aad-integration/grant-permissions.png)
+
+  İzinler başarıyla verildi, aşağıdaki bildirim portalda görüntülenir:
+
+  ![Bildirim başarıyla izin verildi](media/aad-integration/permissions-granted.png)
 
 8. Uygulamaya dönmek ve Not **uygulama kimliği**. Azure AD etkin AKS kümesi dağıtırken, bu değer olarak adlandırılır `Server application ID`.
 
@@ -131,7 +135,7 @@ az aks create --resource-group myAKSCluster --name myAKSCluster --generate-ssh-k
 
 ## <a name="create-rbac-binding"></a>RBAC bağlama oluşturma
 
-Bir Azure Active Directory hesabı kullanarak AKS kümesiyle kullanılmadan önce bir rol bağlama veya küme rolünü bağlaması oluşturulması gerekir.
+Bir Azure Active Directory hesabı kullanarak AKS kümesiyle kullanılmadan önce bir rol bağlama veya küme rolünü bağlaması oluşturulması gerekir. *Rolleri* vermek için izinleri tanımlamanıza ve *bağlamaları* bunları istediğiniz kullanıcılar için geçerlidir. Bu atamaları, tüm küme üzerinde veya belirtilen bir ad alanı için uygulanabilir. Daha fazla bilgi için [kullanarak RBAC yetkilendirme][rbac-authorization].
 
 İlk olarak, [az aks get-credentials] [ az-aks-get-credentials] komutunu `--admin` yönetici erişimi ile küme oturum açmak için bağımsız değişken.
 
@@ -139,7 +143,7 @@ Bir Azure Active Directory hesabı kullanarak AKS kümesiyle kullanılmadan önc
 az aks get-credentials --resource-group myAKSCluster --name myAKSCluster --admin
 ```
 
-Ardından, bir Azure AD hesabı için bir ClusterRoleBinding oluşturmak için aşağıdaki bildirimi kullanın. Azure AD kiracınızdan bir kullanıcı adını güncelleştirin. Bu örnekte, kümenin tüm ad alanları için hesap tam erişim sağlar.
+Ardından, bir Azure AD hesabı için bir ClusterRoleBinding oluşturmak için aşağıdaki bildirimi kullanın. Azure AD kiracınızdan bir kullanıcı adını güncelleştirin. Bu örnekte, kümenin tüm ad alanları için hesap tam erişim sağlar:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -156,7 +160,7 @@ subjects:
   name: "user@contoso.com"
 ```
 
-Bir rol bağlama için bir Azure AD grubunun tüm üyelerini de oluşturulabilir. Grubun nesne kimliğini kullanarak Azure AD grupları belirtilir
+Bir rol bağlama için bir Azure AD grubunun tüm üyelerini de oluşturulabilir. Azure AD grupları aşağıdaki örnekte gösterildiği gibi grup nesne kimliği kullanılarak belirtilir:
 
  ```yaml
 apiVersion: rbac.authorization.k8s.io/v1

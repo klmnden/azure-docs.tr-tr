@@ -6,12 +6,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 13a2b78b50b1b10975a90c1da38810f1a62a6bb5
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 4084a5bd8cb82442eb37844f88f2ff6dd166b5ee
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436918"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42446073"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>İş sürekliliği ve olağanüstü durum kurtarma (BCDR): eşleştirilmiş Azure bölgeleri
 
@@ -19,7 +19,7 @@ ms.locfileid: "37436918"
 
 Azure dünyanın dört bir yanındaki birden çok coğrafi çalışmaktadır. Her Azure coğrafyası dünyanın en az bir Azure bölgesi içeren tanımlanmış bir alandır. Bir Azure bölgesine bir veya daha fazla veri içeren bir coğrafyadaki alanıdır.
 
-Her Azure bölgesi aynı coğrafyadaki birlikte bölgesel çift yaparak başka bir bölgeyle eşleştirilir. Brezilya Güney, kendi Coğrafya dışında bir bölgeyle eşleştirilir istisnadır.
+Her Azure bölgesi aynı coğrafyadaki birlikte bölgesel çift yaparak başka bir bölgeyle eşleştirilir. Brezilya Güney, kendi Coğrafya dışında bir bölgeyle eşleştirilir istisnadır. Bu yalnızca bir eşleştirilmiş bölge aynı anda güncelleştirilir, böylece Azure serileştirmek bölge çiftleri arasında Platformu (Planlı bakım) güncelleştirir. Ayrıca, birden çok bölgeye en az bir bölge çiftindeki her kurtarma için öncelikli etkileyen bir kesinti olması durumunda.
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
@@ -57,7 +57,7 @@ Tablo 1 - Azure bölgesel çiftler eşleme
 - (4) ABD Devleti Virginia'nın ikincil bölgeye, ABD Devleti Texas olmakla birlikte US Gov Teksas ikincil bölgeye ABD Devleti Virginia değil.
 
 
-Azure'nın yalıtım ve kullanılabilirlik ilkelerinden yararlanmak için bölgesel çiftler arasında iş yüklerini çoğaltın öneririz. Örneğin, planlı Azure sistem güncelleştirmeleri sırayla dağıtılır (değil aynı zamanda) eşleştirilmiş bölgelerin arasında. Hatta ender olayda hatalı bir güncelleştirme, her iki bölgeleri aynı anda etkilenmez, anlamına gelir. Ayrıca, geniş kapsamlı bir kesinti olası durumunda her çiftte en az bir bölgenin kurtarılmasına öncelik verilir.
+İş sürekliliği, olağanüstü durum kurtarma (BCDR) yapılandırma Azure'un yalıtım ve kullanılabilirlik ilkelerinden yararlanmak için bölgesel çiftler arasında öneririz. Birden çok etkin bölgeler destekleyen uygulamalar için mümkün olduğu durumlarda bir bölge çiftindeki her iki bölgeleri kullanmanızı öneririz. Bu, en iyi uygulamalar ve olağanüstü bir simge durumuna küçültülmüş kurtarma zamanı kullanılabilirliği garanti eder. 
 
 ## <a name="an-example-of-paired-regions"></a>Eşleştirilmiş bölgeler örneği
 Şekil 2'in altında olağanüstü durum kurtarma için bölgesel çift kullanan kuramsal bir uygulamanın gösterir. Yeşil sayıları (Azure işlem, depolama ve veritabanı) üç Azure Hizmetleri ve bölgeler arasında çoğaltmak için nasıl yapılandırılacağı bölgeler arası etkinliklerini vurgulayın. Eşleştirilmiş bölgeler arasında dağıtma benzersiz avantajları turuncu sayılarla vurgulanır.

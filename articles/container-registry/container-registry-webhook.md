@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/02/2017
+ms.date: 08/20/2017
 ms.author: marsma
-ms.openlocfilehash: e85b69e452f4d76dfdf974698fa7d3b5cdbc0c30
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c424e81b13c3c60e975d3721693b1f80e00cfdd7
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426097"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42055937"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Azure Container Registry Web kancalarını kullanma
 
@@ -95,4 +95,14 @@ az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+### <a name="webhook-schema-reference"></a>Web kancası Şeması Başvurusu
+
+Web kancası Şeması Başvurusu biçimini ve Azure Container Registry tarafından yayılan JSON olay yükü özellikleri hakkında daha fazla bilgi için bkz:
+
 [Azure kapsayıcı kayıt defteri Web kancası Şeması Başvurusu](container-registry-webhook-reference.md)
+
+### <a name="event-grid-events"></a>Event Grid olaylarını
+
+Bu makalede ele alınan yerel kayıt defteri Web kancası olaylarını ek olarak, Azure Container Registry olayları Event grid'e gönderebilir:
+
+[Hızlı Başlangıç: kapsayıcı kayıt defteri olayları Event Grid'e göndermek.](container-registry-event-grid-quickstart.md)

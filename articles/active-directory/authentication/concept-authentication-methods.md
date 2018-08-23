@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 4a0fb5739812950f3a01a18acae1d797fa4f9158
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 7776ca63dd5c02e470ead35e3dad73c051731fd1
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622261"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056264"
 ---
 # <a name="what-are-authentication-methods"></a>Kimlik doğrulama yöntemleri nelerdir?
 
@@ -136,6 +136,8 @@ Microsoft Authenticator uygulaması hesaplara yetkisiz erişimi önlemek ve saht
 >
 > İki yöntem gerekli olduğunda kullanıcıların kullanarak sıfırlayabilir **EITHER** bildirim **veya** doğrulama kodu yanı sıra diğer yöntemleri etkinleştirildi.
 >
+
+Kullanımını etkinleştirirseniz, hem bildirim aracılığıyla mobil uygulama ve doğrulama kodu mobil uygulamasından bir bildirim kullanarak Microsoft Authenticator uygulamasını kaydetme kullanıcılar kimliklerini doğrulamak için hem bildirim hem de kodu kullanabilirsiniz.
 
 ### <a name="verification-code-from-mobile-app"></a>Mobil uygulamadan alınan doğrulama kodu
 

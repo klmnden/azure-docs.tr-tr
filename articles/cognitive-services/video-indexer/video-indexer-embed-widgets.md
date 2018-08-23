@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: juliako
-ms.openlocfilehash: 4ce1eedac69b06f491510be93fcfbdfbc879ff7e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ba81030c3d6384ca6b66d6a3b14e614d1626e3e0
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398141"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41988776"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Video Indexer pencere öğeleri uygulamalarınıza ekleyin
 
@@ -241,6 +241,4 @@ Otomatik Oynat – varsayılan olarak player videoyu oynatmaya başla. için se�
 
 Video dizinleyici öngörülerini görüntüleyip hakkında daha fazla bilgi için bkz. [bu](video-indexer-view-edit.md) makalesi.
 
-## <a name="see-also"></a>Ayrıca bkz.
-
-[Video Indexer genel bakış](video-indexer-overview.md)
+Ayrıca, kullanıma [Video Indexer codepen](https://codepen.io/videoindexer/pen/eGxebZ).

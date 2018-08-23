@@ -10,23 +10,30 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 06/06/2018
 ms.author: bahariri
-ms.openlocfilehash: ce1665c3cfd58d0d5aa8e253b5db317505b1959e
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: f0d581ade0b09015bca1c8aee58170ef7aee11eb
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284586"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42060990"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Apache Flink Azure Event Hubs ile Apache Kafka için kullanın.
+Bu öğreticide Protokolü istemcilerinize değiştirme veya kendi kümeleri çalıştıran Apache Flink Kafka özellikli event hubs'a bağlanma gösterilmektedir. Azure Event hubs'ı destekleyen [Apache Kafka sürüm 1.0.](https://kafka.apache.org/10/documentation.html).
 
 Apache Kafka kullanmanın önemli avantajları için bağlanabilir çerçeveleri ekosistemi biridir. Kafka ölçeklenebilirliği, tutarlılık ve Azure ekosistemi desteği ile Kafka'nın esneklik olay hub'ları birleştiren etkin.
 
-Bu öğreticide Protokolü istemcilerinize değiştirme veya kendi kümeleri çalıştıran Apache Flink Kafka özellikli event hubs'a bağlanma gösterilmektedir. Azure Event hubs'ı destekleyen [Apache Kafka sürüm 1.0.](https://kafka.apache.org/10/documentation.html)
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+> [!div class="checklist"]
+> * Event Hubs ad alanı oluşturma
+> * Örnek projesini kopyalama
+> * Flink üretici çalıştırın 
+> * Flink tüketici çalıştırın
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdaki önkoşulların karşılandığından emin olun:
 
+* Okumak [Apache Kafka için Event Hubs](event-hubs-for-kafka-ecosystem-overview.md) makalesi. 
 * Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
     * Ubuntu’da JDK’yi yüklemek için `apt-get install default-jdk` komutunu çalıştırın.
@@ -49,7 +56,7 @@ git clone https://github.com/Azure/azure-event-hubs.git
 cd azure-event-hubs/samples/kafka/flink
 ```
 
-## <a name="flink-producer"></a>Flink üretici
+## <a name="run-flink-producer"></a>Flink üretici çalıştırın
 
 Sağlanan Flink üretici örneği kullanarak Event Hubs hizmeti için iletiler gönderin.
 
@@ -80,7 +87,7 @@ mvn exec:java -Dexec.mainClass="FlinkTestProducer"
 
 Üretici artık başlayacak olayları göndermek için Kafka, olay hub'ı konusuna etkin `test` ve stdout olaylara yazdırma.
 
-## <a name="flink-consumer"></a>Flink tüketici
+## <a name="run-flink-consumer"></a>Flink tüketici çalıştırın
 
 Kuyruktan alma sağlanan tüketici örneği kullanarak Event Hubs Kafka etkin.
 
@@ -114,8 +121,15 @@ Kafka özellikli bir olay hub'ı olayları (örneğin, üretici da çalışıyor
 Kullanıma [Flink'ın Kafka bağlayıcı Kılavuzu](https://ci.apache.org/projects/flink/flink-docs-stable/dev/connectors/kafka.html) Flink Kafka'ya bağlanma hakkında daha ayrıntılı bilgi için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+Bu öğreticide, öğrenilmiş Protokolü istemcilerinize değiştirme veya kendi kümelerini çalıştırmak Flink Apache Kafka özellikli event hubs'a bağlama. Bu öğreticinin bir parçası olarak aşağıdaki adımları gerçekleştirdiğiniz: 
 
-* [Event Hubs hakkında bilgi edinin](event-hubs-what-is-event-hubs.md)
-* [Kafka için Event Hubs hakkında bilgi edinin](event-hubs-for-kafka-ecosystem-overview.md)
-* [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) kullanarak [olayları Kafka şirket içinden bulutta Kafka etkin Event Hubs’a akışla aktarın.](event-hubs-kafka-mirror-maker-tutorial.md)
-* Kafka akışı yapmayı öğrenin etkin Event Hubs kullanarak [yerel Kafka uygulamalar](event-hubs-quickstart-kafka-enabled-event-hubs.md) veya [Akka akışları](event-hubs-kafka-akka-streams-tutorial.md).
+> [!div class="checklist"]
+> * Event Hubs ad alanı oluşturma
+> * Örnek projesini kopyalama
+> * Flink üretici çalıştırın 
+> * Flink tüketici çalıştırın
+
+Apache Kafka için Event Hubs hakkında daha fazla bilgi edinmek için sonraki makaleye geçin:
+
+> [!div class="nextstepaction"]
+> [Akka akışları Azure Event Hubs ile Kafka için kullanın.](event-hubs-kafka-akka-streams-tutorial.md)

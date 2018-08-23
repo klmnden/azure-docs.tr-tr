@@ -1,19 +1,19 @@
 ---
-title: Azure Kubernetes Service için sık sorulan sorular
-description: Azure Kubernetes hizmeti hakkında genel soruların yanıtlarını sağlar.
+title: Sık sorulan sorular için Azure Kubernetes Service (AKS)
+description: Azure Kubernetes Service (AKS) hakkında genel soruların yanıtlarını sağlar.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 08/17/2018
 ms.author: iainfou
-ms.openlocfilehash: b64c770bca84fba8cbed98e420abf649897f7a17
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: b910b6cdf55ae7c2a220543bdb555d8e9bff59a0
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345863"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056469"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) hakkında sık sorulan sorular
 
@@ -21,73 +21,87 @@ Bu makalede adresleri sorular Azure Kubernetes Service (AKS) hakkında sık kull
 
 ## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>Hangi Azure bölgeleri, Azure Kubernetes Service (AKS) Bugün sağlar?
 
-Azure Kubernetes hizmeti bkz [bölgeler ve kullanılabilirlik] [ aks-regions] tam listesi için belgelere.
-
-## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Güvenlik güncelleştirmeleri için AKS aracı düğümleri uygulandı?
-
-Azure güvenlik yamaları düğümleri gecelik bir zamanlamaya göre otomatik olarak uygulanır. Ancak, düğümleri yeniden başlatılır sağlamaktan sorumlu olduğunuz gerektiğinde. Düğümü yeniden başlatma işlemlerini gerçekleştirmek için birkaç seçeneğiniz vardır:
-
-- El ile Azure portal veya Azure CLI ile.
-- AKS kümenizi yükseltme tarafından. Yükseltme otomatik olarak küme [kordon altına alma ve düğüm boşaltma](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), bunları en son bir Ubuntu görüntüsünü ile ardından çevrimiçine yedekleyin. Kubernetes sürümleri geçerli küme sürümünde belirterek değiştirmeden, düğümlerde işletim sistemi görüntüsü güncelleştirme `az aks upgrade`.
-- Kullanarak [Kured](https://github.com/weaveworks/kured), Kubernetes için bir açık kaynak önyükleme arka plan programı. Kured çalışırken bir [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) ve her düğüm için bir yeniden başlatma gerekli olduğunu belirten bir dosyanın varlığını izler. Ardından aynı cordon ve daha önce açıklanan boşaltma işlemi aşağıdaki küme genelinde işletim sistemi yeniden başlatma işlemlerini yönetir.
+Kullanılabilir bölgelerin tam listesi için bkz. [AKS bölgeler ve kullanılabilirlik][aks-regions].
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS düğümü otomatik ölçeklendirme destekliyor mu?
 
-Evet, otomatik ölçeklendirme aracılığıyla kullanılabilir [Kubernetes otomatik ölçeklendiricinin] [ auto-scaler] Kubernetes 1.10 itibaren.
+Evet, otomatik ölçeklendirme aracılığıyla kullanılabilir [Kubernetes otomatik ölçeklendiricinin] [ auto-scaler] Kubernetes 1.10 itibaren. Yapılandırma ve küme ölçeklendiriciyi kullanmak hakkında daha fazla bilgi için bkz. [AKS kümesi otomatik][aks-cluster-autoscale].
 
 ## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>AKS, Kubernetes rol tabanlı erişim denetimi (RBAC) destekliyor mu?
 
-Evet, RBAC olabilir etkin [Azure CLI veya Azure Resource Manager şablonundan bir AKS kümesi dağıtma](https://docs.microsoft.com/en-us/azure/aks/aad-integration). Bu işlev yakında Azure portalında gelir.
+Evet, Kubernetes RBAC, Azure CLI ile kümeleri oluşturduğunuzda varsayılan olarak etkindir. RBAC, şablonları ve Azure portalı kullanılarak oluşturulan kümeler için etkinleştirilebilir.
+
+## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>AKS my mevcut bir sanal ağa dağıtabilir miyim?
+
+Evet, var olan bir sanal ağ kullanarak bir AKS kümesi dağıtabilirsiniz [Gelişmiş ağ özelliği][aks-advanced-networking].
+
+## <a name="can-i-restrict-the-kubernetes-api-server-to-only-be-accessible-within-my-virtual-network"></a>Yalnızca benim sanal ağ içinde erişilebilir olmasını Kubernetes API sunucusu kısıtlarım?
+
+Şu anda değil. Genel bir tam etki alanı adı (FQDN) olarak Kubernetes API sunucusu kullanıma sunulur. Kullanarak, kümeye erişimi denetleyebilirsiniz [Kubernetes rol tabanlı erişim denetimi (RBAC) ve Azure Active Directory (AAD)][aks-rbac-aad]
+
+## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Güvenlik güncelleştirmeleri için AKS aracı düğümleri uygulandı?
+
+Evet, Azure otomatik olarak güvenlik yamaları düğümleri gecelik bir zamanlamaya göre uygulanır. Ancak, düğümleri yeniden başlatılır sağlamaktan sorumlu olduğunuz gerektiğinde. Düğümü yeniden başlatma işlemlerini gerçekleştirmek için birkaç seçeneğiniz vardır:
+
+- El ile Azure portal veya Azure CLI ile.
+- AKS kümenizi yükseltme tarafından. Yükseltme otomatik olarak küme [kordon altına alma ve düğüm boşaltma][cordon-drain], ardından her düğümü en son Ubuntu görüntüsünü ve yeni bir düzeltme eki sürümü veya ikincil bir Kubernetes sürümü ile çevrimiçine yedekleyin. Daha fazla bilgi için [AKS kümesini yükseltme][aks-upgrade].
+- Kullanarak [Kured](https://github.com/weaveworks/kured), Kubernetes için bir açık kaynak önyükleme arka plan programı. Kured çalışırken bir [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) ve her düğüm için bir yeniden başlatma gerekli olduğunu belirten bir dosyanın varlığını izler. İşletim sistemi yeniden başlatma, aynı kümede yönetilir [kordon altına alma ve boşaltma işlemi] [ cordon-drain] olarak bir küme yükseltmesi.
+
+## <a name="why-are-two-resource-groups-created-with-aks"></a>İki kaynak grubu, AKS ile neden oluşturulur?
+
+Her bir AKS dağıtımı iki kaynak grubu içinde barındırıyor:
+
+- İlk kaynak grubu tarafından oluşturulur ve yalnızca Kubernetes Hizmet kaynağı içeriyor. Gibi otomatik olarak oluşturur, dağıtım sırasında ikinci bir AKS kaynak sağlayıcısı *MC_myResourceGroup_myAKSCluster_eastus*.
+- Bu ikinci bir kaynak grubu, gibi *MC_myResourceGroup_myAKSCluster_eastus*, kümeyle ilişkili altyapı kaynaklarını içerir. Bu kaynaklar, Kubernetes düğüm Vm'leri, sanal ağ ve depolama alanı içerir. Bu ayrı kaynak grubu, kaynak temizleme işlemi basitleştirmek için oluşturulur.
+
+Depolama hesapları veya ayrılmış genel IP adresleri gibi bir AKS kümesi ile kullanılacak kaynaklar oluşturma, bunları otomatik olarak oluşturulan kaynak grubunda koyun.
+
+## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>Etiketleri ve diğer özellikleri AKS kaynakları MC_ * kaynak grubunda değişiklik yapabilirsiniz?
+
+Değiştirme ve silme etiketleri ve diğer özellikleri kaynakların *MC_** kaynak grubu ölçekleme ve yükseltme hataları gibi beklenmeyen sonuçlara yol açabilir. Kaynakları altındaki değiştirme *MC_** AKS kümesi SLO keser.
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Hangi Kubernetes giriş denetleyicileri AKS destekliyor mu? Giriş denetleyicileri eklendiğinde veya kaldırıldığında?
 
 AKS aşağıdakileri destekler [giriş denetleyicileri][admission-controllers]:
 
-* NamespaceLifecycle
-* LimitRanger
-* ServiceAccount
-* DefaultStorageClass
-* DefaultTolerationSeconds
-* MutatingAdmissionWebhook
-* ValidatingAdmissionWebhook
-* ResourceQuota
-* DenyEscalatingExec
-* AlwaysPullImages
+- *NamespaceLifecycle*
+- *LimitRanger*
+- *ServiceAccount*
+- *DefaultStorageClass*
+- *DefaultTolerationSeconds*
+- *MutatingAdmissionWebhook*
+- *ValidatingAdmissionWebhook*
+- *ResourceQuota*
+- *DenyEscalatingExec*
+- *AlwaysPullImages*
 
 AKS giriş denetleyicileri listesini değiştirmek şu anda mümkün değildir.
 
-## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>AKS my mevcut bir sanal ağa dağıtabilir miyim?
-
-Evet, var olan bir sanal ağ kullanarak bir AKS kümesi dağıtabilirsiniz [Gelişmiş ağ özelliği](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
-
-## <a name="can-i-restrict-the-kubernetes-api-server-to-only-be-accessible-within-my-virtual-network"></a>Yalnızca benim sanal ağ içinde erişilebilir olmasını Kubernetes API sunucusu kısıtlarım?
-
-Şu anda değil. Genel bir tam etki alanı adı (FQDN) olarak Kubernetes API sunucusu kullanıma sunulur. Kullanarak, kümeye erişimi denetlemesi gerekir [Kubernetes rol tabanlı erişim denetimi (RBAC) ve Azure Active Directory (AAD)](https://docs.microsoft.com/en-us/azure/aks/aad-integration).
-
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault, AKS ile tümleşiktir?
 
-AKS şu anda Azure anahtar kasası ile yerel olarak tümleşikleştirilmemiştir. Ancak, [KeyVault esnek toplu proje](https://github.com/Azure/kubernetes-keyvault-flexvol) doğrudan KeyVault gizli dizileri Kubernetes pod'ların entegrasyonunu sağlar.
+AKS şu anda yerel olarak Azure Key Vault ile tümleşik değil. Ancak, [Kubernetes projesi için Azure anahtar kasası FlexVolume] [ keyvault-flexvolume] doğrudan KeyVault gizli dizileri Kubernetes pod'ların entegrasyonunu sağlar.
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Windows Server kapsayıcıları AKS üzerinde çalıştırabilir mi?
 
 Windows Server kapsayıcıları çalıştırmak için Windows Server tabanlı düğümleri çalıştırmanız gerekir. Windows Server tabanlı düğümler şu anda AKS içinde kullanılamaz. Ancak, Azure Container Instances Windows kapsayıcıları zamanlayabilir ve AKS kümenizin bir parçası yönetmek için Virtual Kubelet kullanabilirsiniz. Daha fazla bilgi için [kullanım Virtual Kubelet ile AKS][virtual-kubelet].
 
-## <a name="why-are-two-resource-groups-created-with-aks"></a>İki kaynak grubu, AKS ile neden oluşturulur?
-
-Her bir AKS dağıtımı iki kaynak grubu kapsar. İlk oluşturulur ve yalnızca Kubernetes Hizmet kaynağı içeriyor. AKS kaynak sağlayıcısı gibi bir ada sahip ikinci bir dağıtımı sırasında otomatik olarak oluşturur. *MC_myResourceGroup_myAKSCluster_eastus*. İkinci kaynak grubunun tüm VM gibi kümesi ile ilişkili altyapı kaynaklarını içeren ağ ve depolama. Kaynak temizleme işlemi basitleştirmek için oluşturulur.
-
-Depolama hesapları veya ayrılmış genel IP adresleri gibi bir AKS kümesi ile kullanılacak kaynaklar oluşturuyorsanız otomatik olarak oluşturulan kaynak grubunda yerleştirmeniz gerekir.
-
 ## <a name="does-aks-offer-a-service-level-agreement"></a>AKS bir hizmet düzeyi sözleşmesi sunar?
 
-Bir hizmet düzeyi sözleşmesi (SLA), sağlayıcı, yayımlanan bir hizmet düzeyi değil karşılanması gereken müşteri için hizmeti maliyetini karşılamayı kabul eder. AKS kendi ücretsiz olduğundan, hiçbir ücret karşılamayı kullanılabilir ve bu nedenle biçimsel SLA yoktur. Ancak, Kubernetes API sunucusu için en az % 99,5 kullanılabilirliği sürdürmek AKS arar.
+Bir hizmet düzeyi sözleşmesi (SLA), sağlayıcı, yayımlanan bir hizmet düzeyi karşılanmazsa hizmet maliyetini müşteri karşılamayı kabul eder. AKS kendi ücretsiz olduğundan, hiçbir ücret karşılamayı kullanılabilir ve bu nedenle biçimsel SLA yoktur. Ancak, Kubernetes API sunucusu için en az % 99,5 kullanılabilirliği sürdürmek AKS arar.
 
 <!-- LINKS - internal -->
 
-[aks-regions]: ./container-service-quotas.md
+[aks-regions]: ./container-service-quotas.md#region-availability
+[aks-upgrade]: ./upgrade-cluster.md
+[aks-cluster-autoscale]: ./autoscaler.md
 [virtual-kubelet]: virtual-kubelet.md
+[aks-advanced-networking]: ./networking-overview.md#advanced-networking
+[aks-rbac-aad]: ./aad-integration.md
 
 <!-- LINKS - external -->
+
 [auto-scaler]: https://github.com/kubernetes/autoscaler
+[cordon-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
+[keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol

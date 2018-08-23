@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/21/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: c6c388bb98d189d91703c0ce82971b3ec4da4150
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 6c97d7c2f901110421f9fc5d0a1d4468d832c472
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505520"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42062140"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory’de yönetici rolü atama
 
@@ -59,7 +59,7 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
 
 * **[Dizin yazıcıları](#directory-writers)**: Bu desteklemeyen uygulamalar için atanacak olan, eski bir roldür [onay Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Herhangi bir kullanıcıya atanmamalıdır.
 
-* **[Dynamics 365 Hizmet Yöneticisi / CRM Hizmet Yöneticisi](#dynamics-365-service-administrator)**: Bu role sahip kullanıcılar, destek biletlerini yönetme olanağı yanı sıra Microsoft Dynamics 365 hizmet mevcut olduğunda Online içinde genel izinlere sahip ve Hizmet durumunu izleyebilir. Daha fazla bilgiye [kiracınızı yönetmek için Hizmet Yöneticisi rolü kullanmak](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
+* **[Dynamics 365 Hizmet Yöneticisi / CRM Hizmet Yöneticisi](#dynamics-365-service-administrator)**: Bu role sahip kullanıcılar, destek biletlerini yönetme olanağı yanı sıra Microsoft Dynamics 365 hizmet mevcut olduğunda Online içinde genel izinlere sahip ve Hizmet durumunu izleyebilir. Daha fazla bilgiye [kiracınızı yönetmek için Hizmet Yöneticisi rolü kullanmak](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
 * **[Exchange Hizmeti Yöneticisi](#exchange-service-administrator)**: Bu role sahip olan kullanıcılar hizmet olduğunda Microsoft Exchange Online içinde genel izinlere sahiptir. Daha fazla bilgiye [hakkında Office 365 Yönetici rolleri](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -74,7 +74,7 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
 
 * **[Bilgi Koruma Yöneticisi](#information-protection-administrator)**: Bu role sahip kullanıcılar Azure Information Protection hizmetinde tüm izinlere sahiptir. Bu rol, Azure Information Protection ilkesi için etiketleri yapılandırma, koruma şablonlarını yönetme ve koruma etkinleştirme sağlar. Bu rol, kimlik koruma Merkezi, Privileged Identity Management, Office 365 hizmet durumunu izleme, veya Office 365 güvenlik ve uyumluluk Merkezi'nde herhangi bir izni tanımaz.
 
-* **[Intune Hizmet Yöneticisi](#intune-service-administrator)**: Bu role sahip olan kullanıcılar hizmet olduğunda Microsoft Intune Online içinde genel izinlere sahiptir. Ayrıca, bu rol, ilke ilişkilendirmek yanı sıra grupları oluşturmak ve yönetmek için kullanıcıları ve cihazları yönetme olanağı içerir. Daha fazla bilgiye [Intune rol tabanlı yönetim denetimi (RBAC)](https://docs.microsoft.com/en-us/intune/role-based-access-control)
+* **[Intune Hizmet Yöneticisi](#intune-service-administrator)**: Bu role sahip olan kullanıcılar hizmet olduğunda Microsoft Intune Online içinde genel izinlere sahiptir. Ayrıca, bu rol, ilke ilişkilendirmek yanı sıra grupları oluşturmak ve yönetmek için kullanıcıları ve cihazları yönetme olanağı içerir. Daha fazla bilgiye [Intune rol tabanlı yönetim denetimi (RBAC)](https://docs.microsoft.com/intune/role-based-access-control)
 
 * **[İleti Merkezi okuyucu](#message-center-reader)**: Bu roldeki kullanıcılar, bildirimler ve danışmanlık sistem güncelleştirmeleri izleyebilirsiniz [Office 365 ileti Merkezi](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) kuruluşlarında Exchange, Intune gibi yapılandırılmış hizmetleri ve Microsoft Teams. İleti Merkezi okuyucular Haftalık e-posta özetler gönderilerin, güncelleştirmeleri almak ve Office 365 ileti merkezi gönderileri paylaşabilirsiniz. Azure AD'de bu role atanan kullanıcılar yalnızca salt okunur kullanıcılar ve gruplar gibi Azure AD Hizmetleri erişebilir. 
 
@@ -89,7 +89,7 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
   >
   >
   
-* **[Power BI Hizmet Yöneticisi](#power-bi-service-administrator)**: Bu role sahip olan kullanıcılar hizmet olduğunda Microsoft Power BI içinde genel izinlere yanı sıra destek biletlerini yönetebilir ve hizmet durumu izleme olanağı vardır. Daha fazla bilgiye [Power BI yönetici rolünü anlama](https://docs.microsoft.com/en-us/power-bi/service-admin-role).
+* **[Power BI Hizmet Yöneticisi](#power-bi-service-administrator)**: Bu role sahip olan kullanıcılar hizmet olduğunda Microsoft Power BI içinde genel izinlere yanı sıra destek biletlerini yönetebilir ve hizmet durumu izleme olanağı vardır. Daha fazla bilgiye [Power BI yönetici rolünü anlama](https://docs.microsoft.com/power-bi/service-admin-role).
 
 * **[Ayrıcalıklı Rol Yöneticisi](#privileged-role-administrator)**: Bu role sahip kullanıcılar, Azure Active Directory'de yanı sıra Azure AD Privileged Identity Management içinde rol atamalarını yönetebilir. Ayrıca, bu rol, Privileged Identity Management'ın tüm yönlerini yönetilmesine izin verir.
 
@@ -163,7 +163,7 @@ Aşağıdaki tablolarda her rol için belirtilen Azure Active Directory'de özel
 Tüm uygulama kayıtlarını ve kurumsal uygulamaları oluşturabilir ve bunların tüm özelliklerini yönetebilir.
 
   > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -198,7 +198,7 @@ Tüm uygulama kayıtlarını ve kurumsal uygulamaları oluşturabilir ve bunlar�
 Uygulama kayıtları bağımsız olarak oluşturabilirsiniz **kullanıcılar uygulamaları kaydedebilir** ayarı.
 
   > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -213,7 +213,7 @@ Uygulama kayıtları bağımsız olarak oluşturabilirsiniz **kullanıcılar uyg
 Ödeme bilgilerini güncelleştirme gibi sık kullanılan faturalandırma görevlerini gerçekleştirebilir.
 
   > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -235,7 +235,7 @@ Uygulama kayıtları bağımsız olarak oluşturabilirsiniz **kullanıcılar uyg
 Uygulama Ara Sunucusu hariç tüm uygulama kayıtlarını ve kurumsal uygulamaları oluşturabilir ve bunların tüm özelliklerini yönetebilir.
 
   > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -318,7 +318,7 @@ Azure AD'nin ve Azure AD kimliklerini kullanan Microsoft hizmetlerinin tüm öze
 Azure AD ve Office 365'te uyumluluk yapılandırmasını ve raporları okuyup yönetebilir.
 
   > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -341,7 +341,7 @@ Azure AD ve Office 365'te uyumluluk yapılandırmasını ve raporları okuyup y�
 Koşullu erişim özelliklerini yönetebilir.
 
   > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -360,7 +360,7 @@ Koşullu erişim özelliklerini yönetebilir.
 Bu role sahip kullanıcılar, Azure Active Directory'ye katılan tüm Windows 10 cihazları üzerinde yerel makine yöneticisi olur. Azure Active Directory'de cihaz nesnelerini yönetme olanağına sahip değildir.
 
   > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -472,7 +472,7 @@ Okuma ve yazma temel dizin bilgileri kullanabilirsiniz. Uygulamalara erişim ver
 Dynamics 365 ürününün tüm özelliklerini yönetebilir.
 
   > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -493,7 +493,7 @@ Dynamics 365 ürününün tüm özelliklerini yönetebilir.
 Exchange ürününün tüm özelliklerini yönetebilir.
 
   > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -536,7 +536,7 @@ Bağımsız olarak Konuk kullanıcıları davet etmeden **üyeler Konuk davet** 
 Yönetici olmayan kullanıcıların ve Yardım Masası Yöneticilerinin parolalarını sıfırlayabilir.
 
   > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -553,7 +553,7 @@ Yönetici olmayan kullanıcıların ve Yardım Masası Yöneticilerinin parolala
 Azure Information Protection ürününün tüm özelliklerini yönetebilir.
 
   > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -574,7 +574,7 @@ Azure Information Protection ürününün tüm özelliklerini yönetebilir.
 Intune ürününün tüm özelliklerini yönetebilir.
 
   > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -615,7 +615,7 @@ Intune ürününün tüm özelliklerini yönetebilir.
 Skype Kurumsal ürününün tüm özelliklerini yönetebilir.
 
   > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -654,7 +654,7 @@ Yalnızca Office 365 İleti Merkezi'nde kuruluşuna yönelik iletileri ve günce
 Kullanmayın - genel kullanım için tasarlanmamıştır.
 
   > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -690,7 +690,7 @@ Kullanmayın - genel kullanım için tasarlanmamıştır.
 Kullanmayın - genel kullanım için tasarlanmamıştır.
 
   > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -729,7 +729,7 @@ Kullanmayın - genel kullanım için tasarlanmamıştır.
 Power BI ürününün tüm özelliklerini yönetebilir.
 
   > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -750,7 +750,7 @@ Power BI ürününün tüm özelliklerini yönetebilir.
 Azure AD'de rol atamalarını yönetebilir
 
   > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -787,7 +787,7 @@ Oturum açma ve denetim raporlarını okuyabilir.
 Güvenlik bilgilerini ve raporları okuyabilir
 
   > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -836,7 +836,7 @@ Azure AD ve Office 365'te güvenlik bilgilerini ve raporları okuyabilir.
 Hizmet durumu bilgilerini okuyabilir ve destek biletlerini yönetebilir.
 
   > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -856,7 +856,7 @@ Hizmet durumu bilgilerini okuyabilir ve destek biletlerini yönetebilir.
 SharePoint hizmetinin tüm özelliklerini yönetebilir.
 
   > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -876,7 +876,7 @@ SharePoint hizmetinin tüm özelliklerini yönetebilir.
 Kullanıcıların ve grupların tüm özelliklerini yönetebilir
 
   > [!NOTE]
-  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Bu rol ek izinlerinden devralan [kullanıcı rolü](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 

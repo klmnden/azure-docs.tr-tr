@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 4bcb6734c33d70e4045860a2c0f0acfedfa06eff
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 06905a2f16a23e5a7c4612f4b567aaf86322924d
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215188"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42056449"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Büyük bir VMware ortamını bulma ve değerlendirme
 
@@ -75,7 +75,7 @@ Ortamınızda birden fazla vCenter sunucuları varsa ve sanal makinelerin toplam
 
 ### <a name="multiple-vcenter-servers-with-more-than-1500-vms"></a>Birden fazla vCenter sunucuları ile 1500'den fazla VM
 
-Tüm vCenter hizmet etmesi arasında birden fazla vCenter sunucuları ile 1500'den küçük sanal makine vCenter sunucusu sayısı, ancak 1500'den fazla VM varsa, (bir geçiş projesi yalnızca 1500 Vm'leri barındırmak) birden çok geçiş projeleri oluşturmanız gerekir. Bu vCenter Server her bir geçiş projesi oluşturma ve bulmaları bölerek elde edebilirsiniz. Tek bir Toplayıcı, her bir vCenter Server (birbiri ardına) bulmak için kullanabilirsiniz. Aynı anda başlatmak için bulmaları istiyorsanız, birden çok gereçlerini dağıtma ve bulmaları paralel olarak çalıştırmak.
+Tüm vCenter sunucuları arasında birden fazla vCenter sunucuları ile 1500'den küçük sanal makine vCenter sunucusu sayısı, ancak 1500'den fazla VM varsa, (bir geçiş projesi yalnızca 1500 Vm'leri barındırmak) birden çok geçiş projeleri oluşturmanız gerekir. Bu vCenter Server her bir geçiş projesi oluşturma ve bulmaları bölerek elde edebilirsiniz. Tek bir Toplayıcı, her bir vCenter Server (birbiri ardına) bulmak için kullanabilirsiniz. Aynı anda başlatmak için bulmaları istiyorsanız, birden çok gereçlerini dağıtma ve bulmaları paralel olarak çalıştırmak.
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Tek bir vcenter Server 1500'den fazla makineler
 
@@ -93,8 +93,8 @@ Planınızla hazır olduktan sonra şirket içi sanal makineleri bulma başlatab
 
 Gereksinimlerinize uygun olarak bir Azure geçişi projesi oluşturun:
 
-1. Azure portalında **kaynak Oluştur**.
-2. **Azure Geçişi** için arama yapın ve arama sonuçlarında **Azure Geçişi (önizleme)** seçeneğini belirleyin. Ardından **Oluştur**’u seçin.
+1. Azure portalda **Kaynak oluştur**’u seçin.
+2. **Azure Geçişi** araması yapın ve arana sonuçlarında **Azure Geçişi** hizmetini seçin. Ardından **Oluştur**’u seçin.
 3. Bir proje adı ve proje için Azure aboneliği belirtin.
 4. Yeni bir kaynak grubu oluşturun.
 5. Projeyi oluşturmak ve ardından istediğiniz konumu belirtin **Oluştur**. Sanal makineleriniz için farklı bir konuma hala değerlendirebilirsiniz unutmayın. Proje için belirtilen konum, şirket içi Vm'lerden toplanan meta verileri depolamak için kullanılır.

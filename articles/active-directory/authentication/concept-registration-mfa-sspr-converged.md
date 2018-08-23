@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: d6915ce659d96021d4185be3818919fcfb9d4371
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: af57faddcc1413747b4bb847e27287ba86562175
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492901"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056096"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Yakınsanmış kaydı için Self Servis parola sıfırlama ve Azure multi-Factor Authentication (genel Önizleme)
 
@@ -55,6 +55,9 @@ Oturum açma sırasında kaydetmek isteyip istemediğiniz sorulur kullanıcılar
 > Bu deneyim, yalnızca bir kullanıcı oturum açma sırasında kaydetmek için ne zaman istemde gösterilir. Bu makalenin sonraki bölümlerinde açıklanan deneyimi farklı bir sürümü aka.ms/setupsecurityinfo, yeni deneyimi doğrudan Git kullanıcıları görürsünüz.
 
 Gösterilen kimlik doğrulama yöntemleri, MFA veya SSPR ilkeleri etkin yöntemlere bağlı olarak değişir. Kullanıcı MFA ilkesini, SSPR İlkesi veya her ikisi ile uyumlu olması için gereken kimlik doğrulama yöntemleri en az sayıda kayıt istenir. Hangi kimlik doğrulama yöntemlerini kullanıcı kaydedebilir esneklik varsa, bunlar seçebilirsiniz **güvenlik bilgisi seçin** diğer kimlik doğrulama yöntemlerini seçmesine.  
+
+> [!NOTE]
+> Hem mobil uygulama bildirimi hem de mobil uygulama kodu kullanımını etkinleştirirseniz, bir bildirim kullanarak Microsoft Authenticator uygulamasını kaydetme kullanıcıların kimliklerini doğrulamak için hem bildirim hem de kodu kullanabilirsiniz.
 
 Önceki MFA kayıt deneyimi, kullanıcıların uygulama parolası yeni kayıt deneyimi geçerken kaydetmek için istenmez. Bunun yerine, uygulama parolaları yeni deneyiminde kaydetmek için uygulama parolaları öğreticimize listelenen adımları izlemelidir.  
 

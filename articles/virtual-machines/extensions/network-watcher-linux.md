@@ -1,6 +1,6 @@
 ---
 title: Linux için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı | Microsoft Docs
-description: Ağ İzleyicisi Aracısı'nı bir sanal makine uzantısını kullanarak Linux sanal makine dağıtın.
+description: Ağ İzleyicisi Aracısı bir sanal makine uzantısını kullanarak Linux sanal makinesine dağıtın.
 services: virtual-machines-linux
 documentationcenter: ''
 author: gurudennis
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: db508e2311602a66a2c252ffaa842f8bfb4f670b
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 22b18f77b3d997cdba7b60b53f1968b516701cc1
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076080"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42057729"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Linux için Ağ İzleyicisi Aracısı sanal makine uzantısı
 
 ## <a name="overview"></a>Genel Bakış
 
-[Azure Ağ İzleyicisi](/azure/network-watcher/) Azure ağları için izleme sağlayan bir ağ performans izleme, tanılama ve analiz hizmetidir. Ağ İzleyicisi Aracısı sanal makine (VM) uzantısı, isteğe bağlı ve diğer gelişmiş işlevler üzerindeki ağ trafiğini yakalama gibi Azure vm'lerinde Ağ İzleyicisi özelliklerinden bazıları için gerekli değildir.
+[Azure Ağ İzleyicisi](/azure/network-watcher/) Azure ağları için izleme sağlayan bir ağ performansı izleme, tanılama ve analiz hizmetidir. Ağ İzleyicisi Aracısı sanal makine (VM) uzantısını Azure Vm'leri üzerinde Ağ İzleyicisi özelliklerinden bazıları için isteğe bağlı ve diğer gelişmiş işlevler üzerindeki ağ trafiğini yakalama gibi zorunludur.
 
-Bu makalede desteklenen platformlar ve Linux için Ağ İzleyicisi Aracısı VM uzantısı için dağıtım seçeneklerini ayrıntıları. Aracı yüklemesini değil kesintiye veya VM, yeniden başlatma gerektirir.
+Bu makalede, Linux için Ağ İzleyicisi Aracısı VM uzantısı için dağıtım seçenekleri ve desteklenen platformlar ayrıntıları. Aracı yüklemesini değil kesintiye veya sanal makinenin yeniden başlatılmasını gerektirir. Dağıttığınız sanal makinelerine uzantısı dağıtabilirsiniz. Bir Azure hizmeti tarafından dağıtılan sanal makine, sanal makine uzantıları yükleme izin olup olmadığını belirlemek üzere hizmeti belgelerini denetleyin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -40,7 +40,7 @@ Ağ İzleyicisi Aracısı uzantısı aşağıdaki Linux dağıtımları için ya
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS ve 12.04 LTS |
 | Debian | 7 ve 8 |
-| RedHat | 6 ve 7 |
+| Red Hat | 6 ve 7 |
 | Oracle Linux | 6,8 + ve 7 |
 | SUSE Linux Enterprise Server | 11 ve 12 |
 | OpenSUSE artık | 42.3 + |
@@ -51,11 +51,11 @@ CoreOS desteklenmiyor.
 
 ### <a name="internet-connectivity"></a>İnternet bağlantısı
 
-Bazı Ağ İzleyicisi Aracısı işlevlerini VM Internet'e bağlı olduğunu gerektirir. Giden bağlantıları kurmak için, Ağ İzleyicisi Aracısı özelliklerden bazıları arıza veya yeteneği kullanılamaz duruma gelir. Aracı gerektirir Ağ İzleyicisi işlevleri hakkında daha fazla bilgi için bkz:[Ağ İzleyicisi belgeleri](/azure/network-watcher/).
+Bazı Ağ İzleyicisi Aracısı işlevlerini bir VM, Internet'e bağlı olduğundan emin gerektirir. Giden bağlantı özelliği, Ağ İzleyicisi Aracısı özelliklerinden bazıları düzgün veya kullanılamıyor. Aracı gerektiren Ağ İzleyicisi işlevleri hakkında daha fazla bilgi için bkz.[Ağ İzleyicisi belgeleri](/azure/network-watcher/).
 
 ## <a name="extension-schema"></a>Uzantı şeması
 
-Aşağıdaki JSON şeması Ağ İzleyicisi Aracısı uzantısı gösterir. Uzantı gerektiren veya destek, herhangi bir kullanıcı tarafından sağlanan ayarı değil. Uzantı üzerinde varsayılan yapılandırması kullanır.
+Ağ İzleyicisi Aracısı Uzantı Şeması aşağıdaki JSON'u göstermektedir. Uzantı gerektiren veya desteği, kullanıcı tarafından sağlanan herhangi bir ayarı değil. Uzantı varsayılan yapılandırmasıyla dayalıdır.
 
 ```json
 {
@@ -86,20 +86,20 @@ Aşağıdaki JSON şeması Ağ İzleyicisi Aracısı uzantısı gösterir. Uzant
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
 
-Bir Azure Resource Manager şablonu ile Azure VM uzantıları dağıtabilirsiniz. Ağ İzleyicisi Aracısı uzantısı dağıtmak için önceki json şeması şablonunuzda kullanın.
+Azure VM uzantıları Azure Resource Manager şablonu ile dağıtabilirsiniz. Ağ İzleyicisi Aracısı uzantısını dağıtmak için önceki json şeması şablonunuzda kullanın.
 
 ## <a name="azure-cli-10-deployment"></a>Azure CLI 1.0 dağıtımı
 
-Aşağıdaki örnek Ağ İzleyicisi Aracısı VM uzantısı Klasik dağıtım modeli aracılığıyla dağıtılan var olan bir VM dağıtır:
+Aşağıdaki örnek, Ağ İzleyicisi Aracısı VM uzantısını Klasik dağıtım modeliyle dağıtılan var olan bir sanal makineye dağıtır:
 
 ```azurecli
 azure config mode asm
 azure vm extension set myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
 ```
 
-## <a name="azure-cli-20-deployment"></a>Azure CLI 2.0 dağıtımı
+## <a name="azure-cli-20-deployment"></a>Azure CLI 2.0 dağıtım
 
-Aşağıdaki örnek Resource Manager aracılığıyla dağıtılan var olan bir VM Ağ İzleyicisi Aracısı VM uzantısı dağıtır:
+Aşağıdaki örnek Resource Manager üzerinden dağıtılan var olan bir sanal makineye bir Ağ İzleyicisi Aracısı VM uzantısı dağıtır:
 
 ```azurecli
 az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name NetworkWatcherAgentLinux --publisher Microsoft.Azure.NetworkWatcher --version 1.4
@@ -109,9 +109,9 @@ az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name Net
 
 ### <a name="troubleshooting"></a>Sorun giderme
 
-Azure portalında veya Azure CLI kullanarak uzantısı dağıtımları durumuyla ilgili verileri alabilir.
+Azure portal veya Azure CLI kullanarak uzantı dağıtımları durumuyla ilgili veri alabilir.
 
-Aşağıdaki örnek, Azure CLI 1.0 kullanarak Klasik dağıtım modeli aracılığıyla dağıtılan bir VM için uzantıları dağıtım durumunu gösterir:
+Aşağıdaki örnek, Azure CLI 1.0 kullanarak Klasik dağıtım modeliyle dağıtılan sanal makine için uzantıları dağıtım durumunu gösterir:
 
 ```azurecli
 azure config mode asm
@@ -123,7 +123,7 @@ Uzantı yürütme çıktısı aşağıdaki dizinde bulunan dosyalara kaydedilir:
 /var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
 `
 
-Aşağıdaki örnek Azure CLI 2.0 kullanan Resource Manager aracılığıyla dağıtılan bir VM için NetworkWatcherAgentLinux uzantısı dağıtım durumunu gösterir:
+Aşağıdaki örnek Azure CLI 2.0 kullanarak Resource Manager üzerinden dağıtılan bir sanal makine için NetworkWatcherAgentLinux uzantısı dağıtım durumunu gösterir:
 
 ```azurecli
 az vm extension show --name NetworkWatcherAgentLinux --resource-group myResourceGroup1 --vm-name myVM1
@@ -131,4 +131,4 @@ az vm extension show --name NetworkWatcherAgentLinux --resource-group myResource
 
 ### <a name="support"></a>Destek
 
-Bu makalede herhangi bir noktada daha fazla yardıma gereksinim duyarsanız, başvurabilirsiniz [Ağ İzleyicisi belgelerine](/azure/network-watcher/), veya üzerinde Azure uzmanlar başvurun [MSDN Azure ve yığın taşması forumları](https://azure.microsoft.com/support/forums/). Alternatif olarak, Azure destek olay dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/) seçip **alma desteği**. Azure desteği hakkında daha fazla bilgi için bkz: [Microsoft Azure desteği ile ilgili SSS](https://azure.microsoft.com/support/faq/).
+Bu makalede herhangi bir noktada daha fazla yardıma ihtiyacınız olursa başvurabilirsiniz [Ağ İzleyicisi belgeleri](/azure/network-watcher/), ya da Azure uzmanlarından ulaşın [Azure MSDN ve Stack Overflow forumları](https://azure.microsoft.com/support/forums/). Alternatif olarak, bir Azure destek olayına dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/) seçip **Destek**. Azure desteği hakkında daha fazla bilgi için bkz: [Microsoft Azure desteği SSS](https://azure.microsoft.com/support/faq/).

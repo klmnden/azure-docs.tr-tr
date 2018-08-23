@@ -1,9 +1,9 @@
 ---
-title: Azure yığın kullanıcının PowerShell ortamını yapılandırma | Microsoft Docs
-description: Azure yığın kullanıcının PowerShell ortamını yapılandırma
+title: Azure Stack kullanıcının PowerShell ortamını yapılandırma | Microsoft Docs
+description: Azure Stack kullanıcının PowerShell ortamını yapılandırma
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: F4ED2238-AAF2-4930-AA7F-7C140311E10F
@@ -12,99 +12,86 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/15/2018
-ms.author: mabrigg
+ms.date: 08/17/2018
+ms.author: sethm
 ms.reviewer: Balsu.G
-ms.openlocfilehash: bcd1c53221028a852550fa429abcb9f8e9523ed4
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: d8b245666989552208f8cbcf0dddfdfc310f65e0
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752430"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42061743"
 ---
-# <a name="configure-the-azure-stack-users-powershell-environment"></a>Azure yığın kullanıcının PowerShell ortamını yapılandırma
+# <a name="configure-the-azure-stack-users-powershell-environment"></a>Azure Stack kullanıcının PowerShell ortamını yapılandırma
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Bir Azure yığın kullanıcı için PowerShell ortamını yapılandırmak için bu makaledeki yönergeleri kullanın.
-Ortam yapılandırdıktan sonra Azure yığın kaynakları yönetmek için PowerShell'i kullanabilirsiniz. Örneğin, PowerShell tekliflerini abone, sanal makineler oluşturun ve Azure Resource Manager şablonları dağıtmak için kullanabilirsiniz.
+Bu makalede, Azure Stack Örneğinize bağlanmak için adımları sağlar. PowerShell ile Azure Stack kaynaklarını yönetmenizi bağlanmanız gerekir. Örneğin, tekliflere abone, sanal makineler oluşturmak ve Azure Resource Manager şablonlarını dağıtmak için PowerShell kullanabilirsiniz. PowerShell cmdlet'leri yürütmek için.
 
->[!NOTE]
->Bu makalede Azure yığın kullanıcı ortamlar için kapsamlıdır. PowerShell bulut işleci ortamı için ayarlamak istediğiniz oluştuysa, [Azure yığın işlecin PowerShell ortamını yapılandırma](../azure-stack-powershell-configure-admin.md) makalesi.
+Ayarlamak için:
+  - Gereksinimlerine sahip olduğunuzdan emin olun.
+  - Azure'la Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS). 
+  - Kaynak sağlayıcılarını kaydedin.
+  - Bağlantınızı test edin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu önkoşulları yapılandırabilirsiniz [Geliştirme Seti](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), veya kullanıyorsanız Windows tabanlı bir dış istemcinin [VPN üzerinden bağlı](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
+Bu önkoşulları yapılandırabileceğiniz [Geliştirme Seti](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), ya da Eğer bir Windows tabanlı dış istemciden [VPN üzerinden bağlı](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
-* Yükleme [Azure yığın uyumlu Azure PowerShell modülleri](azure-stack-powershell-install.md).
-* Karşıdan [Azure yığın ile çalışmak için gereken araçları](azure-stack-powershell-download.md).
+* Yükleme [Azure Stack ile uyumlu Azure PowerShell modüllerini](azure-stack-powershell-install.md).
+* İndirme [Azure Stack ile çalışması için gereken araçları](azure-stack-powershell-download.md).
 
-## <a name="configure-the-user-environment-and-sign-in-to-azure-stack"></a>Kullanıcı ortamını yapılandırmak ve Azure yığınına oturum açın
+Aşağıdaki komut dosyası değişkenleri, Azure Stack yapılandırmasından değerlerle değiştirin emin olun:
 
-PowerShell Azure yığını için yapılandırmak üzere aşağıdaki komut dosyaları birini çalıştırın Azure yığın dağıtımınızı (Azure AD veya AD FS) türüne göre.
+- **Azure AD Kiracı adı**  
+  Azure Stack, örneğin, yourdirectory.onmicrosoft.com yönetmek için kullanılan Azure AD kiracınızın adıdır.
+- **Azure Resource Manager uç noktası**  
+  Azure Stack Geliştirme Seti için bu değeri ayarlamak https://management.local.azurestack.external. Azure Stack tümleşik sistemleri için bu değeri almak için hizmet sağlayıcınıza başvurun.
 
-Aşağıdaki komut dosyası değişkenleri Azure yığın yapılandırmasından değerlerle değiştirin emin olun:
+## <a name="connect-with-azure-ad"></a>Azure AD'ye bağlanma
 
-* AAD tenantName
-* ArmEndpoint
+  ```PowerShell
+  $AADTenantName = "yourdirectory.onmicrosoft.com"
+  $ArmEndpoint = "https://management.local.azurestack.external"
 
-### <a name="azure-active-directory-aad-based-deployments"></a>Azure Active Directory (AAD) tabanlı dağıtımlar
-
-  ```powershell
-  # Navigate to the downloaded folder and import the **Connect** PowerShell module
-  Set-ExecutionPolicy RemoteSigned
-  Import-Module .\Connect\AzureStack.Connect.psm1
-
-  # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
-  $ArmEndpoint = "<Resource Manager endpoint for your environment>"
-
-  # Register an AzureRM environment that targets your Azure Stack instance
+  # Register an Azure Resource Manager environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
     -Name "AzureStackUser" `
     -ArmEndpoint $ArmEndpoint
 
-  # Get the Active Directory tenantId that is used to deploy Azure Stack
-  $TenantID = Get-AzsDirectoryTenantId `
-    -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
-    -EnvironmentName "AzureStackUser"
+  $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
+  $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
 
   # Sign in to your environment
   Login-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
-    -TenantId $TenantID
+    -TenantId $TenantId
    ```
 
-### <a name="active-directory-federation-services-ad-fs-based-deployments"></a>Active Directory Federasyon Hizmetleri (AD FS) tabanlı dağıtımlar
+## <a name="connect-with-ad-fs"></a>AD FS ile bağlanma
 
-  ```powershell
-  # Navigate to the downloaded folder and import the **Connect** PowerShell module
-  Set-ExecutionPolicy RemoteSigned
-  Import-Module .\Connect\AzureStack.Connect.psm1
+  ```PowerShell  
+  $ArmEndpoint = "https://management.local.azurestack.external"
 
-  # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
-  $ArmEndpoint = "<Resource Manager endpoint for your environment>"
-
-  # Register an AzureRM environment that targets your Azure Stack instance
+  # Register an Azure Resource Manager environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
     -Name "AzureStackUser" `
     -ArmEndpoint $ArmEndpoint
 
-  # Get the Active Directory tenantId that is used to deploy Azure Stack
-  $TenantID = Get-AzsDirectoryTenantId `
-    -ADFS `
-    -EnvironmentName "AzureStackUser"
+  $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
+  $tenantId = (invoke-restmethod "$($AuthEndpoint)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
 
   # Sign in to your environment
   Login-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
-    -TenantId $TenantID
+    -TenantId $tenantId
   ```
 
-## <a name="register-resource-providers"></a>Kayıt kaynak sağlayıcıları
+## <a name="register-resource-providers"></a>Kaynak sağlayıcılarını kaydetme
 
-Kaynak sağlayıcıları otomatik olarak Portalı aracılığıyla dağıtılan herhangi bir kaynağa sahip olmayan yeni kullanıcı abonelik için kayıtlı değil. Aşağıdaki komut dosyasını çalıştırarak, bir kaynak sağlayıcısı açıkça kaydedebilirsiniz:
+Kaynak sağlayıcıları için portal üzerinden dağıtılan herhangi bir kaynağa sahip olmayan yeni kullanıcı aboneliklerini otomatik olarak kayıtlı değil. Aşağıdaki betiği çalıştırarak, bir kaynak sağlayıcısı açıkça kaydedebilirsiniz:
 
-```powershell
+```PowerShell  
 foreach($s in (Get-AzureRmSubscription)) {
         Select-AzureRmSubscription -SubscriptionId $s.SubscriptionId | Out-Null
         Write-Progress $($s.SubscriptionId + " : " + $s.SubscriptionName)
@@ -114,13 +101,14 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider -F
 
 ## <a name="test-the-connectivity"></a>Bağlantısını test etme
 
-Her şeyi ayarlanmış olduğuna, Azure yığınında kaynak oluşturmak için PowerShell kullanarak bağlanabilirliği test edin. Bir test olarak bir uygulama için bir kaynak grubu oluşturun ve bir sanal makine ekleyin. "Contoso.com" adlı bir kaynak grubu oluşturmak için aşağıdaki komutu çalıştırın:
+Her şeyi kendinizi, Azure Stack'te kaynakları oluşturmak için PowerShell kullanarak bağlantıyı test edin. Bir test olarak bir uygulama için bir kaynak grubu oluşturun ve bir sanal makine ekleyin. "MyResourceGroup" adlı bir kaynak grubu oluşturmak için aşağıdaki komutu çalıştırın:
 
-```powershell
+```PowerShell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Şablonları geliştirmek için Azure yığını](azure-stack-develop-templates.md)
-* [Şablonları PowerShell ile dağıtma](azure-stack-deploy-template-powershell.md)
+- [Şablonları Azure Stack için geliştirme](azure-stack-develop-templates.md)
+- [Şablonları PowerShell ile dağıtma](azure-stack-deploy-template-powershell.md)
+- PowerShell'i bulut işleci ortamı ayarlamak istiyorsanız, başvurmak [Azure Stack işlecin PowerShell ortamını yapılandırma](../azure-stack-powershell-configure-admin.md) makalesi.

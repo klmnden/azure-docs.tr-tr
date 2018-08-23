@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: 2d5bc3d0167c08c41b38bb324d55c239041f1fba
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: c94b5d4800f5776b51247c6ec2f6662a6ab26abc
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "34630434"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42057048"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Azure’da Cihaz Sağlama Hizmeti İstemci SDK'sı ile farklı kanıtlama mekanizmaları kullanma
 
@@ -147,7 +147,7 @@ TPM kullanıyorsanız [“IoT Hub Cihazı Sağlama Hizmetini kullanarak simülas
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
-2. Azure portalında, sol taraftaki menüden **Tüm kaynaklar**’a tıklayın ve DPS hizmetinizi açın.
+2. Azure portalında oturum açın, sol taraftaki menüden **Tüm kaynaklar** düğmesine tıklayın ve Cihaz Sağlama hizmetinizi açın.
    - X **.** 509 Tek Kayıt: Sağlama hizmeti özeti dikey penceresinde **Kayıtları yönet**'i seçin. **Tek Tek Kayıtlar** sekmesini seçin ve üstteki **Ekle** düğmesine tıklayın. Kimlik kanıtlama *Mekanizması* olarak **X**.**509** seçeneğini belirleyin ve dikey pencerede istenen yaprak sertifikayı karşıya yükleyin. Tamamlandığında **Kaydet** düğmesine tıklayın. 
    - X **.** 509 Grup Kaydı: Sağlama hizmeti özeti dikey penceresinde **Kayıtları yönet**'i seçin. **Grup Kayıtları** sekmesini seçin ve üstteki **Ekle** düğmesine tıklayın. Kimlik kanıtlama *Mekanizması* olarak **X**.**509** seçeneğini belirleyin, bir grup adı ve sertifika adı girip dikey pencerede istenen CA sertifikasını/ara sertifikayı karşıya yükleyin. Tamamlandığında **Kaydet** düğmesine tıklayın. 
 

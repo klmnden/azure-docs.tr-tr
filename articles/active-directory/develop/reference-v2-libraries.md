@@ -17,12 +17,12 @@ ms.date: 04/13/2018
 ms.author: celested
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 1450cffca7a4cfa57856c75cdcc9e106958ea043
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: f3ac6050ca73f96facd621823dc4bad413b139c7
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39601678"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42058308"
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory v2.0 kimlik doğrulama kitaplıkları
 
@@ -44,7 +44,7 @@ Azure AD v2.0 uç noktası, iki tür kitaplıkları ile çalışır:
 
 ## <a name="library-support"></a>Kitaplık desteği
 
-V2.0 uç noktası kullandığınızda, herhangi bir standartlara uygun kitaplığı seçebilirsiniz çünkü desteği için nereye bilmeniz önemlidir. Sorunları ve özellik isteklerini kitaplık kodu için kitaplık sahibine başvurun. Sorunları ve özellik isteklerini Hizmet tarafı protokol uygulaması için Microsoft ile iletişime geçin. [Bir özellik isteği](https://feedback.azure.com/forums/169401-azure-active-directory) protokolünde görmek istediğiniz ek özellikler. [Bir destek isteği oluşturma](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request) bir sorun bulursanız burada Azure AD v2.0 uç noktası OAuth 2.0 veya Openıd Connect 1.0 ile uyumlu değildir.
+V2.0 uç noktası kullandığınızda, herhangi bir standartlara uygun kitaplığı seçebilirsiniz çünkü desteği için nereye bilmeniz önemlidir. Sorunları ve özellik isteklerini kitaplık kodu için kitaplık sahibine başvurun. Sorunları ve özellik isteklerini Hizmet tarafı protokol uygulaması için Microsoft ile iletişime geçin. [Bir özellik isteği](https://feedback.azure.com/forums/169401-azure-active-directory) protokolünde görmek istediğiniz ek özellikler. [Bir destek isteği oluşturma](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) bir sorun bulursanız burada Azure AD v2.0 uç noktası OAuth 2.0 veya Openıd Connect 1.0 ile uyumlu değildir.
 
 Kitaplıkları iki destek kategoriye ayrılır:
 

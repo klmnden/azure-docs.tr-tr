@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 87721428e1cd8a5360dcecc5f29225f813705a4f
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2ea120ed1c43db5cf843bdd64c32a6c8d9c02bb1
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344765"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42057071"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Mac OS X’te geliştirme ortamınızı ayarlama
 > [!div class="op_single_selector"]
@@ -118,7 +118,7 @@ Yerel bir Docker kapsayıcısı ayarlamak ve üzerinde bir Service Fabric kümes
 
 
 
-6. İşiniz bittiğinde, durup şu komutla kapsayıcıyı temizleyebilirsiniz:
+6. İşiniz bittiğinde, durdurun ve şu komutla kapsayıcıyı temizleme:
 
     ```bash 
     docker rm -f sftestcluster

@@ -1,114 +1,120 @@
 ---
-title: Kullanım ve Azure İzleyicisi'nde tahmini maliyetleri izleme
-description: Azure monitör kullanımı ve tahmini maliyetleri sayfa kullanmanın işlemine genel bakış
+title: Kullanım ve Tahmini maliyetler Azure İzleyici'de izleme
+description: Azure İzleyici kullanım ve Tahmini maliyetler sayfasında kullanma işlemine genel bakış
 author: dalekoetke
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/31/2018
+ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.component: ''
-ms.openlocfilehash: edfcc244105403ae33251777c560d4cc21dfe5cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 35e7d36043defd236252f86facf4b9e2ed945d67
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264291"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42057043"
 ---
-# <a name="monitoring-usage-and-estimated-costs"></a>Kullanım ve tahmini maliyetleri izleme
-
-Azure portal'ın İzleyici hub **kullanım ve tahmini maliyetleri** sayfa çekirdek özellikler gibi izleme kullanımını açıklar [bildirimleri ölçümleri, uyarı](https://azure.microsoft.com/pricing/details/monitor/), [Azure günlük analizi ](https://azure.microsoft.com/pricing/details/log-analytics/), ve [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). Nisan 2018 önce kullanılabilir fiyatlandırma planları müşteriler için Analytics sunar ve bu da Öngörüler satın alınan günlük analizi kullanım içerir.
-
-Bu sayfada, kullanıcılar kendi kaynak kullanımı son 31 gün için abonelik başına toplanan görüntüleyebilir. Detaylandırma bileşenler 31 gün süresi içinde kullanım eğilimlerini gösterir. Çok miktarda veri birlikte bu tahmin, bu nedenle alınması gerekip sayfa yüklerken lütfen bekleyin.
-
-Bu örnek, izleme kullanımı ve sonuçta elde edilen maliyet tahmini gösterir:
-
-![Kullanım ve tahmini maliyetleri portalı ekran görüntüsü](./media/monitoring-usage-and-estimated-costs/001.png)
-
-Son 31 gün süresi içinde kullanım eğilimleri gösteren bir grafik açmak için aylık kullanım sütununda bağlantıyı seçin:
-
-![Çubuk grafik ekran düğüm başına dahil](./media/monitoring-usage-and-estimated-costs/002.png)
-
-Başka bir benzer kullanım işte ve maliyet özeti. Bu örnek, bir abonelik yeni Nisan 2018 tüketim tabanlı fiyatlandırma modelde gösterir. Tüm düğüm tabanlı faturalama eksikliği unutmayın. Şimdi yeni bir ortak ölçerde veri alımı ve günlük analizi ve Application Insights için bekletme raporlanır.
-
-![Kullanım ve tahmini maliyetleri portalı ekran görüntüsü - Nisan 2018 fiyatlandırma](./media/monitoring-usage-and-estimated-costs/003.png)
-
-## <a name="new-pricing-model"></a>Yeni bir fiyatlandırma modeli
-
-Nisan 2018 içinde bir [fiyatlandırma modeli yeni izleme yayımlanan](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/).  Bu, bulut kolay, tüketim tabanlı fiyatlandırma özellikleri. Yalnızca ne, düğüm tabanlı taahhüt kullandığınız için ödeme yaparsınız. Yeni fiyatlandırma modeli ayrıntılarını kullanılabilir [bildirimleri ölçümleri, uyarı](https://azure.microsoft.com/pricing/details/monitor/), [günlük analizi](https://azure.microsoft.com/pricing/details/log-analytics/) ve [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
-
-Günlük analizi veya Application Insights 2 Nisan 2018 sonra müşteriler eklenmesi için yeni bir fiyatlandırma modelini tek seçenektir. Bu hizmetler zaten kullanan müşteriler için yeni fiyatlandırma modeli taşıma isteğe bağlıdır.
-
-## <a name="assessing-the-impact-of-the-new-pricing-model"></a>Yeni fiyatlandırma modeli etkisini değerlendirme
-Yeni fiyatlandırma modeli, kendi izleme kullanım düzenlerini esas alarak her müşteri farklı etkileri sahip olur. Günlük analizi veya Application Insights 2 Nisan 2018 önce kullanmakta olduğunuz müşteriler **kullanım ve tahmini maliyet** sayfa Azure İzleyicisi'nde yeni fiyatlandırma modeli taşırsanız maliyetleri herhangi bir değişikliği tahmin eder. Bir abonelik yeni modeline taşıma olanağı sağlar. Çoğu müşteri için yeni fiyatlandırma modeli yararlı olacaktır. Özellikle yüksek veri kullanım desenlerini veya daha yüksek maliyet bölgelerdeki müşteriler için bu durumda geçerli olmayabilir.
-
-Üzerinde seçtiğiniz maliyetleriniz abonelikler için tahmini görmek için **kullanım ve tahmini maliyetleri** sayfasında, sayfanın üstüne yakın mavi başlığını seçin. En yeni fiyatlandırma modeli benimsenmesi düzeyi olduğu için her seferinde bir Bu abonelik yapmak en iyisidir.
-
-![Kullanımını izleme ve tahmini maliyetleri yeni fiyatlandırma modeli ekran görüntüsü](./media/monitoring-usage-and-estimated-costs/004.png)
-
-Yeni sayfa, önceki sayfanın yeşil bir başlık ile benzer bir sürümünü gösterir:
-
-![Kullanımını izleme ve tahmini maliyetleri geçerli fiyatlandırma modeli ekran görüntüsü](./media/monitoring-usage-and-estimated-costs/005.png)
-
-Sayfa ayrıca yeni fiyatlandırma modeli karşılık ölçümler farklı bir kümesini gösterir. Bu liste bir örnek verilmiştir:
-
-- Insight ve düğüm başına Analytics\Overage
-- Insight ve düğüm başına Analytics\Included
-- Uygulama Insights\Basic fazla kullanım verileri
-- Uygulama Insights\Included verileri
-
-Yeni fiyatlandırma modeli düğümü tabanlı dahil edilen veri ayırma sahip değil. Bu nedenle, bu veri alım ölçümler adlı bir yeni ortak veri alım ölçer birleştirilir **paylaşılan Services\Data alım**. 
-
-Günlük analizi ya da daha yüksek maliyetleri bölgelerdeki Application Insights alınan verileri başka bir değişiklik yoktur. Bu yüksek maliyetli bölgeler için veri Yeni bölgesel ölçümler ile gösterilir. Örnek **veri alımı (BİZE Batı Merkezi)**.
+# <a name="monitoring-usage-and-estimated-costs"></a>Kullanım ve Tahmini maliyetler izleme
 
 > [!NOTE]
-> Abonelik başına maliyetleri değil düğümü yetkilendirmeler Operations Management Suite (OMS) abonelik başına hesap düzeyinde içine faktörü tahmini. Hesabı temsilcinize için daha ayrıntılı bir tartışma yeni fiyatlandırma modeli Bu durumda başvurun.
+> Bu makalede, kullanım ve Tahmini maliyetler arasında farklı fiyatlandırma modelleri için birden çok Azure İzleme özelliklerini görüntülemek açıklar.  İlgili bilgiler için aşağıdaki makalelere göz atın.
+> - [Veri hacmi ve saklama Log analytics'te kontrol ederek maliyet yönetme](../log-analytics/log-analytics-manage-cost-storage.md) veri saklama döneminizin değiştirerek maliyetlerinizi denetlemek nasıl açıklar.
+> - [Log analytics'te veri kullanımını çözümleme](../log-analytics/log-analytics-usage.md) analiz ve veri kullanımınızı uyarı açıklar.
+> - [Application ınsights fiyatlandırma ve veri hacmini yönetme](../application-insights/app-insights-pricing.md) Application ınsights'ta veri kullanımını çözümleme açıklar.
 
-## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Yeni fiyatlandırma modeli ve Operations Management Suite aboneliği yetkilendirmeler
+Azure portal'ın İzleyici hub'ında **kullanım ve Tahmini maliyetler** sayfası izleme özellikleri gibi Çekirdek kullanımını açıklar [bildirimleri ölçümleri, uyarılar](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics ](https://azure.microsoft.com/pricing/details/log-analytics/), ve [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). Nisan 2018 tarihinden önce kullanılabilir fiyatlandırma planları müşteriler, bu öngörüleri satın alınan Log Analytics kullanımı da içerir ve analizi sunar.
 
-Microsoft Operations Management Suite E1 ve E2 satın alan müşteriler için düğüm başına veri alım yetkilendirmeleri uygun [günlük analizi](https://www.microsoft.com/cloud-platform/operations-management-suite) ve [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans). Bu yetkilendirmeler günlük analizi çalışma alanları veya Application Insights kaynaklar için belirli bir aboneliğe almak için: 
+Bu sayfada, kullanıcılar kendi kaynak kullanımı son 31 gün için abonelik başına toplanan görüntüleyebilir. Bağlantılı bileşenler 31 günlük dönem boyunca kullanım eğilimlerini gösterir. Çok fazla veri için bu tahmin, bu nedenle birlikte gelen gerektiğinde sayfa yüklenirken lütfen sabırlı olun.
 
-- Aboneliğin fiyatlandırma modeli öncesi Nisan 2018 modelinde kalmalıdır.
-- Günlük analizi çalışma alanları "fiyatlandırma katmanı düğüm başına (OMS)" kullanmanız gerekir.
-- Application Insights kaynakları "planı fiyatlandırma Kurumsal" kullanmalısınız.
+Bu örnek, izleme kullanımını ve elde edilen maliyet tahmini gösterir:
 
-Kuruluşunuzun satın aldığı, paketi düğümlerinin sayısına bağlı olarak bazı taşımayı abonelikleri yeni fiyatlandırma modeli için yararlı olabilir, ancak bu dikkat gerektirir. Genel olarak, yalnızca yukarıda açıklandığı gibi öncesi Nisan 2018 modelinde kalmak için önerilir.
+![Kullanım ve Tahmini maliyetler portalı ekran görüntüsü](./media/monitoring-usage-and-estimated-costs/001.png)
+
+Son 31 gün dönem boyunca kullanım eğilimlerini gösteren bir grafiği'ni açmak için aylık kullanım sütunundaki bağlantıyı seçin:
+
+![Çubuk grafik ekran düğüm başına dahil edilen](./media/monitoring-usage-and-estimated-costs/002.png)
+
+İşte başka bir benzer kullanım ve maliyet özeti. Bu örnekte, yeni Nisan 2018 tüketim tabanlı fiyatlandırma modeliyle bir abonelik gösterilmektedir. Tüm düğüm kullanıma dayalı faturalandırma eksikliği unutmayın. Veri alımı ve Log Analytics ve Application Insights için bekletme artık yeni bir ortak ölçüm olarak raporlanır.
+
+![Kullanım ve Tahmini maliyetler portalı ekran görüntüsü - Nisan 2018 fiyatlandırma](./media/monitoring-usage-and-estimated-costs/003.png)
+
+## <a name="new-pricing-model"></a>Yeni fiyatlandırma modeli
+
+Nisan 2018'de bir [yeni fiyatlandırma modeli izleme bırakıldığını](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/).  Bu, bulut kullanımı kolay, tüketim tabanlı fiyatlandırma sunar. Yalnızca, düğüm tabanlı taahhüt kullandıklarınız için ödeme yaparsınız. Yeni fiyatlandırma modeline ayrıntılarını kullanılabilir [bildirimleri ölçümleri, uyarılar](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) ve [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
+
+Log Analytics veya Application ınsights'ı 2 Nisan 2018 tarihinden sonra müşterilerin eklenmesi için yeni fiyatlandırma modeline tek seçenektir. Bu hizmetler kullanan müşteriler için yeni fiyatlandırma modeline taşıma isteğe bağlıdır.
+
+## <a name="assessing-the-impact-of-the-new-pricing-model"></a>Yeni fiyatlandırma modeline etkisini değerlendirme
+Yeni fiyatlandırma modeli, kendi izleme kullanım düzenlerini esas alarak her müşteri farklı etkiler olacaktır. Log Analytics veya Application ınsights'ı 2 Nisan 2018'den önce kullanan müşteriler için **kullanım ve tahmini maliyet** Azure İzleyicisi'nde sayfa bunlar yeni fiyatlandırma modeline geçmeniz durumunda herhangi bir değişiklik maliyetleri tahmin eder. Yeni modele bir aboneliği taşımak için bir yol sunar. Çoğu müşteri için yeni fiyatlandırma modeline yararlı olacaktır. Özellikle yüksek veri kullanım düzenlerine sahip ya da daha yüksek maliyetli bölgelerindeki müşteriler için bu durumda olmayabilir.
+
+Tahmini maliyetlerinizi abonelik üzerinde seçtiğiniz görmek için **kullanım ve Tahmini maliyetler** sayfasında, sayfanın üst kısmındaki mavi renkli bir başlık seçin. Yeni fiyatlandırma modeline önemsenmeksizin devralınabilir düzeyi, çünkü bu bir aboneliği bir zaman yapmanız önerilir.
+
+![Kullanım ve Tahmini maliyetler yeni fiyatlandırma modeli ekran izleme](./media/monitoring-usage-and-estimated-costs/004.png)
+
+Yeni sayfa, önceki sayfanın yeşil başlığı ile benzer bir sürümü göstermektedir:
+
+![Kullanım ve Tahmini maliyetler geçerli fiyatlandırma modeli ekran izleme](./media/monitoring-usage-and-estimated-costs/005.png)
+
+Sayfa, yeni fiyatlandırma modeline karşılık gelen ölçümleri farklı bir kümesini de gösterir. Bu liste örneği verilmiştir:
+
+- İçgörü ve düğüm başına Analytics\Overage
+- İçgörü ve düğüm başına Analytics\Included
+- Uygulama Insights\Basic fazlalık veri
+- Uygulama Insights\Included verileri
+
+Yeni fiyatlandırma modelinin düğüm tabanlı dahil edilen veri ayırma yok. Bu nedenle, bu veri alımı ölçümlerine adlı yeni ortak veri alımı bir ölçüm birleştirilir **paylaşılan Services\Data alımı**. 
+
+Log Analytics veya Application ınsights'ı daha yüksek maliyetleri bölgelerde alınan verileri başka bir değişiklik yoktur. Bu yüksek maliyetli bölgelere verilerini yeni bölgesel ölçümlere ile gösterilir. Bir örnek **veri alımı (ABD Orta Batı)**.
+
+> [!NOTE]
+> Abonelik başına maliyetleri değil hesap düzeyinde düğüm yetkilendirmelerini Operations Management Suite (OMS) abonelik başına içine faktörü tahmini. Hesap temsilcinizle için daha ayrıntılı bir tartışma yeni fiyatlandırma modeli, bu durumda başvurun.
+
+## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Yeni fiyatlandırma modeli ve Operations Management Suite aboneliği destek hakları
+
+Microsoft Operations Management Suite E1 ve E2 satın alan müşteriler için düğüm başına veri alımı yetkilendirmeler için uygun [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) ve [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans). Belirli bir abonelikte Bu destek haklarını Log Analytics çalışma alanları veya Application Insights kaynakları almak için: 
+
+- Aboneliğin fiyatlandırma modeli, Nisan 2018 öncesi modele kalmalıdır.
+- Log Analytics çalışma alanları "fiyatlandırma katmanında düğüm başına (OMS)" kullanmanız gerekir.
+- Application Insights kaynakları "Kurumsal" fiyatlandırma planını kullanmanız gerekir.
+
+Kuruluşunuzun satın aldığı, paketin düğüm sayısına bağlı olarak bazı taşıma, yeni fiyatlandırma modeline abonelikleri yararlı olabilir ancak bunu dikkatli gerektirir. Genel olarak, yalnızca yukarıda açıklanan şekilde pre-Nisan 2018 modelinde kalmak için tavsiye edilir.
 
 > [!WARNING]
-> Kuruluşunuz Microsoft Operations Management Suite E1 ve E2 satın aldıysa, aboneliklerinizi öncesi Nisan 2018 fiyatlandırma modeli korumak en iyisidir. 
+> Kuruluşunuz Microsoft Operations Management Suite E1 ve E2 satın aldıysa aboneliklerinizi pre-Nisan 2018 fiyatlandırma modelinde tutmak en iyisidir. 
 >
 
-## <a name="changes-when-youre-moving-to-the-new-pricing-model"></a>Yeni fiyatlandırma modeli taşırken değişiklikleri
+## <a name="changes-when-youre-moving-to-the-new-pricing-model"></a>Yeni fiyatlandırma modeline geçerken değişiklikleri
 
-Yeni fiyatlandırma modeli günlük analizi ve Application Insights seçenekleri yalnızca tek bir katman (veya plan) fiyatlandırma basitleştirir. Bir abonelik yeni fiyatlandırma modeli taşıma:
+Log Analytics ve Application Insights fiyatlandırma seçenekleri yalnızca tek bir katman (veya planı) için yeni fiyatlandırma modeline basitleştirir. Bir aboneliği yeni fiyatlandırma modeli taşıma:
 
-- (Azure Kaynak Yöneticisi'nde "pergb2018" olarak adlandırılır) yeni bir GB başına katmanına her günlük analizi için fiyatlandırma katmanını değiştirin
-- Tüm kurumsal planı Application Insights kaynaklarında temel plana değiştirilir.
+- (Azure Resource Manager'da "pergb2018" olarak adlandırılır) yeni GB başına katmanı her bir Log Analytics için fiyatlandırma katmanını değiştirme
+- Kurumsal plandaki tüm Application Insights kaynakları temel plana değiştirilir.
 
-Maliyet tahmini bu değişikliklerin etkisini gösterir.
+Maliyet tahmini, bu değişikliklerin etkisini gösterir.
 
 > [!WARNING]
-> Burada dağıtmak için Azure Resource Manager veya PowerShell kullanırsanız, önemli bir Not [günlük analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) veya [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) yeni taşınmış bir abonelikte fiyatlandırma modeli. Bir fiyatlandırma katmanı/planı "pergb2018" dışında için günlük analizi veya "Temel" için Application Insights belirtirseniz, yerine fiyatlandırma katmanı/plan, geçersiz bir belirtme nedeniyle dağıtım başarısız olan bu başarılı olur **ancak yalnızca geçerli kullanın Fiyatlandırma katmanı/plan** (Bu, geçersiz bir fiyatlandırma katmanı iletisi oluşturulur günlük analizi ücretsiz katmanı geçerli değildir).
+> Buradan dağıtmak için Azure Resource Manager'ı veya PowerShell'i kullanıyorsanız, önemli bir Not [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) veya [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) fiyatlandırma modeli yeni taşınmış bir abonelik. Bir fiyatlandırma katmanı/planı "pergb2018" dışında için Log Analytics veya "Temel" için Application ınsights'ı belirtirseniz, yerine geçersiz bir fiyatlandırma katmanı/planını belirten nedeniyle dağıtım başarısız başarılı **ancak yalnızca geçerli kullanın Fiyatlandırma katmanı/planını** (Bu geçersiz bir fiyatlandırma katmanı iletisi burada oluşturulur Log Analytics'i ücretsiz katmanı için geçerli değildir).
 >
 
 ## <a name="moving-to-the-new-pricing-model"></a>Yeni fiyatlandırma modeline taşıma
 
-Bir abonelik için yeni fiyatlandırma modeli benimsemeye karar verdiyseniz, seçin **model seçimi fiyatlandırma** seçeneği en üstündeki **kullanım ve tahmini maliyetleri** sayfa:
+Bir aboneliği yeni fiyatlandırma modeline benimsemeye karar verdiyseniz, seçin **fiyatlandırma modeli seçimi** en üstündeki seçeneği **kullanım ve Tahmini maliyetler** sayfası:
 
-![Kullanımını izleme ve tahmini maliyetleri yeni fiyatlandırma modeli ekran görüntüsü](./media/monitoring-usage-and-estimated-costs/006.png)
+![Kullanım ve Tahmini maliyetler yeni fiyatlandırma modeli ekran izleme](./media/monitoring-usage-and-estimated-costs/006.png)
 
-**Model seçimi fiyatlandırma** sayfası açılır. Her önceki sayfada görüntülenen Aboneliklerin listesini gösterir:
+**Fiyatlandırma modeli seçimi** sayfası açılır. Bu, her önceki sayfada görüntülenen Aboneliklerin listesini gösterir:
 
 ![Fiyatlandırma modeli seçimi ekran görüntüsü](./media/monitoring-usage-and-estimated-costs/007.png)
 
-Yeni fiyatlandırma modeli bir aboneliği taşımak için yalnızca kutusunu seçin ve ardından **kaydetmek**. Bu gibi durumlarda, eski fiyatlandırma modeli geri aynı şekilde taşıyabilirsiniz. Bu abonelik sahibi göz önünde bulundurun veya katkıda bulunan izinleri fiyatlandırma modeli değiştirmek için gereklidir.
+Bir aboneliği yeni fiyatlandırma modeline taşımak için yalnızca kutusunu işaretleyin ve ardından **Kaydet**. Bu gibi durumlarda, eski fiyatlandırma modeline geri aynı şekilde taşıyabilirsiniz. Göz önünde bulundurun, abonelik sahibi veya katkıda bulunan izinleri fiyatlandırma modeli değiştirmek için gereklidir.
 
-## <a name="automate-moving-to-the-new-pricing-model"></a>Yeni fiyatlandırma modeli taşıma otomatikleştirme
+## <a name="automate-moving-to-the-new-pricing-model"></a>Yeni fiyatlandırma modeline taşıma otomatikleştirin
 
-Aşağıdaki komut, Azure PowerShell modülü gerektirir. Bkz. en son sürümü olup olmadığını denetlemek için [yükleme Azure PowerShell Modülü](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.1.0).
+Aşağıdaki komut, Azure PowerShell modülünü gerektirir. Bkz. en son sürümü olup olmadığını denetlemek için [Azure PowerShell modülü yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.1.0).
 
-Azure PowerShell'in en son sürümünü oluşturduktan sonra ilk çalışması gerekebilir ``Connect-AzureRmAccount``.
+Azure PowerShell'in en son sürümünü oluşturduktan sonra ilk kez çalıştırmanız gerekir ``Connect-AzureRmAccount``.
 
 ``` PowerShell
 # To check if your subscription is eligible to adjust pricing models.
@@ -120,7 +126,7 @@ Invoke-AzureRmResourceAction `
  -Force
 ```
 
-Bu aboneliğin fiyatlandırma modeli fiyatlandırma modelleriyle arasında taşınabilmesi sonucunda isGrandFatherableSubscription True gösterir. Bu abonelik şu anda eski fiyatlandırma modelidir optedInDate altında bir değer olmaması anlamına gelir.
+Bu aboneliğin fiyatlandırma modeli fiyatlandırma modelleri arasında taşınabilir isGrandFatherableSubscription altında True sonucunu gösterir. OptedInDate altında bir değer olmaması, bu aboneliği eski fiyatlandırma modeline ayarlanmış olduğu anlamına gelir.
 
 ```
 isGrandFatherableSubscription optedInDate
@@ -128,7 +134,7 @@ isGrandFatherableSubscription optedInDate
                          True            
 ```
 
-Geçirmek için bu aboneliği yeni fiyatlandırma modeli için çalıştırın:
+Geçirmek için bu aboneliği yeni fiyatlandırma modeline çalıştırın:
 
 ```PowerShell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
@@ -139,7 +145,7 @@ Invoke-AzureRmResourceAction `
  -Force
 ```
 
-Değiştirme başarılı yeniden çalıştır olduğunu onaylamak için:
+Değişikliği yeniden başarılı olduğunu doğrulamak için:
 
 ```PowerShell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
@@ -150,7 +156,7 @@ Invoke-AzureRmResourceAction `
  -Force
 ```
 
-Geçiş başarılı olursa, Sonuç kümenizi gibi görünmelidir:
+Geçiş başarılı olduysa, sonuç gibi görünmelidir:
 
 ```
 isGrandFatherableSubscription optedInDate                      
@@ -158,9 +164,9 @@ isGrandFatherableSubscription optedInDate
                          True 2018-05-31T13:52:43.3592081+00:00
 ```
 
-OptInDate şimdi ne zaman bu abonelik, yeni fiyatlandırma modeli seçti, zaman damgası içeriyor.
+OptInDate artık zaman bu aboneliği yeni fiyatlandırma modeline kabul, bir zaman damgası içerir.
 
-Eski fiyatlandırma modeline geri dönmek gerekiyorsa, çalıştırın:
+Eski fiyatlandırma modeline geri dönmek gerekiyorsa çalıştırırsınız:
 
 ```PowerShell
  $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
@@ -171,9 +177,9 @@ Invoke-AzureRmResourceAction `
  -Force
 ```
 
-Ardından sahip önceki komut dosyasını yeniden, ``-Action listmigrationdate``, aboneliğinizi döndürdü fiyatlandırma modeli eski belirten bir boş optedInDate değer görmelisiniz.
+Sahip önceki betiği yeniden varsa ``-Action listmigrationdate``, aboneliğiniz, eski fiyatlandırma modeline iade edilmiş belirten bir boş optedInDate değeri görmelisiniz.
 
-Aynı Kiracı altında barındırılan, geçirmek istediğiniz birden fazla aboneliğiniz varsa, aşağıdaki betikler parçalarını kullanarak kendi değişken oluşturabilirsiniz:
+Aynı kiracısı altında barındırılan, geçirmek istediğiniz birden fazla aboneliğiniz varsa aşağıdaki betikler parçaları kullanarak kendi değişken oluşturabilirsiniz:
 
 ```PowerShell
 #Query tenant and create an array comprised of all of your tenants subscription ids
@@ -182,7 +188,7 @@ $Tenant =Get-AzureRMSubscription -TenantId $TenantId
 $Subscriptions = $Tenant.Id
 ```
 
-Kiracınızda bulunan tüm abonelikleri yeni fiyatlandırma modeli için uygun olup olmadığını denetlemek için çalıştırabilirsiniz:
+Kiracınızdaki tüm abonelikleri için yeni fiyatlandırma modeline uygun olup olmadığını denetlemek için çalıştırabilirsiniz:
 
 ```PowerShell
 Foreach ($id in $Subscriptions)
@@ -196,7 +202,7 @@ Invoke-AzureRmResourceAction `
 }
 ```
 
-Komut dosyası Gelişmiş üç dizi oluşturan kod oluşturma tarafından daha fazla. Bir dizi olan tüm abonelik kimliği oluşur ```isGrandFatherableSubscription``` True olarak ayarlayın ve optedInDate şu anda bir değeri yok. Yeni fiyatlandırma modeli üzerinde şu anda herhangi bir aboneliği ikinci bir dizi. Ve yeni fiyatlandırma modeli için uygun olmayan abonelik kimlikleri kiracınızda doldurulmuş üçüncü bir dizi:
+Betik daraltılmış üç diziden oluşturan kod oluşturma tarafından daha fazla. Bir dizi olan tüm abonelik kimliği oluşur ```isGrandFatherableSubscription``` True olarak ayarlayın ve optedInDate şu anda bir değeri yok. Tüm abonelikler şu anda yeni fiyatlandırma modeli, ikinci bir dizisi. Ve yeni fiyatlandırma modeline uygun olmayan abonelik kimlikleri kiracınızdaki doldurulmuş üçüncü bir dizi:
 
 ```PowerShell
 [System.Collections.ArrayList]$Eligible= @{}
@@ -230,9 +236,9 @@ $Result= Invoke-AzureRmResourceAction `
 ```
 
 > [!NOTE]
-> Abonelik sayısına bağlı olarak yukarıdaki komut dosyasını çalıştırmak için biraz zaman alabilir. Öğeleri her dizisine eklendikçe .add() yönteminin kullanılması nedeniyle PowerShell penceresinde artacak değerleri echo.
+> Abonelik sayısına bağlı olarak yukarıdaki komut dosyasını çalıştırmak için biraz zaman alabilir. Öğeler için her bir dizi eklendikçe .add() yöntemi kullanımı nedeniyle PowerShell penceresi artan değerleri echo.
 
-Üç diziye bölünmüş aboneliklerinizi sahip olduğunuza göre sonuçlarınızı dikkatle gözden geçirmelidir. Böylece gelecekte için ihtiyacınız olursa kolayca yaptığınız değişiklikleri geri almak bir yedek diziler içeriğini kopyasını isteyebilirsiniz. Siz karar verdiyseniz, şu anda yeni eski fiyatlandırma modeli Bu görev artık ile gerçekleştirilmesi fiyatlandırma modeli tüm uygun abonelikleri Dönüştür istedi:
+Artık üç diziye bölünmüş aboneliklerinizi sahip olduğunuza göre sonuçlarınızı dikkatli bir şekilde gözden geçirmelisiniz. Değişikliklerinizi gelecekte ihtiyacınız olursa kolayca geri dönebilirsiniz diziler içeriğini yedek kopyasını yapmak isteyebilirsiniz. Verdiyseniz, şu anda yeni eski fiyatlandırma modelinde bu görev artık ile gerçekleştirilmesi fiyatlandırma modeli tüm uygun abonelikleri dönüştürmek istedi:
 
 ```PowerShell
 Foreach ($id in $Eligible)

@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/02/2018
+ms.date: 08/16/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d55139a6b0c4da4869c65f0a19eb3f6f3bf31066
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: a497ceab45bb3ace4e3f1ea063ef9c3e33818426
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39481041"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42062117"
 ---
 # <a name="create-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory'de Azure-SSIS tümleştirme çalışma zamanı oluşturma
 Bu makalede, Azure Data factory'de bir Azure-SSIS tümleştirme çalışma zamanı sağlama adımlarını sunar. Daha sonra, SQL Server Veri Araçları (SSDT) veya SQL Server Management Studio'yu (SSMS) kullanarak Azure'da bu çalışma zamanında SQL Server Integration Services (SSIS) paketleri dağıtabilir ve çalıştırabilirsiniz. 
@@ -68,7 +68,7 @@ SSIR Azure IR ilgili olarak aşağıdaki tabloda, SQL veritabanı yönetilen ör
 | **Kimlik doğrulaması** | Herhangi bir Azure Active Directory kullanıcı temsil eden bir kapsanan veritabanı kullanıcı hesabı ile bir veritabanı oluşturabilirsiniz **dbmanager** rol.<br/><br/>Bkz: [etkinleştirin, Azure SQL veritabanı'nda Azure AD](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Azure AD yönetici dışında herhangi bir Azure Active Directory kullanıcı temsil eden bir kapsanan veritabanı kullanıcı hesabı ile bir veritabanı oluşturulamıyor <br/><br/>Bkz: [etkinleştirin, Azure SQL veritabanı yönetilen örneği Azure AD](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
 | **Hizmet katmanı** | SQL veritabanı'nda Azure-SSIS IR oluşturduğunuzda, hizmet katmanı için SSISDB seçebilirsiniz. Birden çok hizmet katmanlarını vardır. | Azure-SSIS IR yönetilen örneği'nde oluşturduğunuzda, hizmet katmanı için SSISDB seçemezsiniz. Tüm veritabanları aynı yönetilen örneği, örneğe ayrılan aynı kaynak paylaşır. |
 | **Sanal ağ** | Hem Azure Resource Manager ve klasik sanal ağlar'ı destekler. | Yalnızca Azure Resource Manager sanal ağı destekler. Sanal ağ gereklidir.<br/><br/>Yönetilen örneği aynı sanal ağ için Azure-SSIS IR katılırsanız, Azure-SSIS IR yönetilen örneği'den farklı bir alt ağda olduğundan emin olun. Azure-SSIS IR, yönetilen örneğe farklı bir sanal ağa katılırsanız, (Bu aynı bölgeye sınırlıdır) sanal ağ eşlemesi veya sanal ağ için sanal ağ bağlantısı öneririz. Bkz: [uygulamanızı Azure SQL veritabanı yönetilen örneği bağlamak](../sql-database/sql-database-managed-instance-connect-app.md). |
-| **Dağıtılmış işlemler** | Elastik işlemler ve özel kod aracılığıyla desteklenir. Microsoft Dağıtılmış İşlem Düzenleyicisi (MSDTC) işlemler desteklenmez. Paketlerinizi dağıtılmış işlemleri düzenlemesine olanak MSDTC kullanıyorsanız, SQL veritabanı için esnek işlem geçiş göz önünde bulundurun. Elastik işlemler için yerleşik destek SSIS olmadığı için elastik işlemler SSIS paketinizdeki kullanmak için betik göreve özel kod yazmak olması. Daha fazla bilgi için bkz. [bulut veritabanlarında dağıtılmış işlemler](../sql-database/sql-database-elastic-transactions-overview.md). | Desteklenmiyor. |
+| **Dağıtılmış işlemler** | Microsoft Dağıtılmış İşlem Düzenleyicisi (MSDTC) işlemler desteklenmez. Paketlerinizi dağıtılmış işlemleri düzenlemesine olanak MSDTC kullanıyorsanız, SQL veritabanı için esnek işlemleri'ni kullanarak geçici bir çözüm uygulamak mümkün olabilir. Şu anda SSIS elastik işlemler için yerleşik destek yok. Elastik işlemler SSIS paketinizdeki kullanmak için bir betik görevde özel ADO.NET kod yazmak zorunda. Bu betik görevi başlangıcını ve bitişini işlemi ve işlemin gerçekleşmesi gereken tüm eylemleri içermelidir.<br/><br/>Elastik işlemler kodlama hakkında daha fazla bilgi için bkz. [ile Azure SQL veritabanı elastik veritabanı işlemleri](https://azure.microsoft.com/en-us/blog/elastic-database-transactions-with-azure-sql-database/). Genel olarak, elastik işlemler hakkında daha fazla bilgi için bkz [bulut veritabanlarında dağıtılmış işlemler](../sql-database/sql-database-elastic-transactions-overview.md). | Desteklenmiyor. |
 | | | |
 
 ## <a name="azure-portal"></a>Azure portal

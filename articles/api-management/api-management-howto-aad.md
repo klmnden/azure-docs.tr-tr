@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 6c288e4492ac56436d40d1e3db98af8eb7b173c8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d4eb8f3e805d96a276851052b74cac90465d1185
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436327"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42056352"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure Active Directory kullanarak Azure API Management'ta Geliştirici hesaplarını yetkilendirme
 
@@ -63,7 +63,7 @@ Bu makalede Azure Active Directory'den (Azure AD) kullanıcıları için gelişt
     **Oluştur** bölmesi sağ tarafta görüntülenir. Azure AD uygulaması ilgili bilgileri girebileceğiniz olmasıdır.
 1. Uygulama için bir ad girin.
 1. Uygulama türü için **Web uygulaması/API'si**.
-1. Oturum açma URL'si, geliştirici portalınızın oturum açma URL'sini girin. Bu örnekte oturum açma URL'si: https://apimwithaad.portal.azure-api.net/signin.
+1. Oturum açma URL'si, geliştirici portalınızın oturum açma URL'sini girin. Bu örnekte oturum açma URL'si: `https://apimwithaad.portal.azure-api.net/signin`.
 1. Seçin **Oluştur** uygulama oluşturmak için.
 1. Uygulamanızı bulmak için seçin **uygulama kayıtları** ve ada göre arama.
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 77bb891dd8e7d6a3cb6363b06eaf361d09db594c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6ad3b4c1f59f5c46fd31aa24d6d2ceb4d7411abd
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422427"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42060996"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory ve Batch kullanarak işlem büyük ölçekli veri kümeleri
 > [!NOTE]
@@ -91,10 +91,10 @@ Aşağıdaki listede işleminin temel adımları sağlar. Çözüm, kod ve uçta
 Azure aboneliğiniz yoksa, ücretsiz bir deneme hesabı hızlıca oluşturabilirsiniz. Daha fazla bilgi için [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
 
 #### <a name="azure-storage-account"></a>Azure depolama hesabı
-Bu öğreticide verileri depolamak için bir depolama hesabı kullanın. Bir depolama hesabına sahip değilseniz, bkz. [depolama hesabı oluşturma](../../storage/common/storage-create-storage-account.md#create-a-storage-account). Örnek çözüm, blob depolama kullanır.
+Bu öğreticide verileri depolamak için bir depolama hesabı kullanın. Bir depolama hesabına sahip değilseniz, bkz. [depolama hesabı oluşturma](../../storage/common/storage-quickstart-create-account.md). Örnek çözüm, blob depolama kullanır.
 
 #### <a name="azure-batch-account"></a>Azure Batch hesabı
-Kullanarak bir Batch hesabı oluşturma [Azure portalında](http://portal.azure.com/). Daha fazla bilgi için [oluşturun ve bir Batch hesabı yönetme](../../batch/batch-account-create-portal.md). Batch hesabı adı ve hesap anahtarını not edin. Ayrıca [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) bir Batch hesabı oluşturmak için cmdlet'i. Bu cmdlet'in nasıl kullanılacağı hakkında yönergeler için bkz [Batch PowerShell cmdlet'leri ile başlama](../../batch/batch-powershell-cmdlets-get-started.md).
+Kullanarak bir Batch hesabı oluşturma [Azure portalında](http://portal.azure.com/). Daha fazla bilgi için [oluşturun ve bir Batch hesabı yönetme](../../batch/batch-account-create-portal.md). Batch hesabı adı ve hesap anahtarını not edin. Ayrıca [New-AzureRmBatchAccount](https://docs.microsoft.com/powershell/module/azurerm.batch/new-azurermbatchaccount) bir Batch hesabı oluşturmak için cmdlet'i. Bu cmdlet'in nasıl kullanılacağı hakkında yönergeler için bkz [Batch PowerShell cmdlet'leri ile başlama](../../batch/batch-powershell-cmdlets-get-started.md).
 
 Örnek çözüm (üzerinden dolaylı olarak bir veri fabrikası işlem hattı) Batch havuzunda işlem düğümleri (sanal makineleri yönetilen koleksiyonu) paralel bir şekilde verileri işlemek için kullanır.
 

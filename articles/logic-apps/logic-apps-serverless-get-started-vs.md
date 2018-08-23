@@ -1,95 +1,144 @@
 ---
-title: Visual Studio'da sunucusuz bir uygulama oluşturun | Microsoft Docs
-description: İlk sunucusuz uygulamanızı oluşturma, dağıtma ve Visual Studio uygulamasında yönetme bu kılavuzu ile başlayın.
-keywords: ''
+title: Visual Studio ile sunucusuz uygulamalar oluşturun | Microsoft Docs
+description: Derleme, dağıtma ve Azure Logic Apps ve Azure işlevleri'nde Visual Studio ile ilk sunucusuz uygulamanızı yönetme
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.reviewer: jehollan, LADocs
+ms.suite: integration
+ms.custom: vs-azure
 ms.topic: article
-ms.date: 03/30/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 75f2be44aa8cc239257d6d2a7dad448e9dbab4b4
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 08/01/2018
+ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
+ms.openlocfilehash: ed56e5f2a4a0d9e3a5e8d8c80e0fd20dbfb098bb
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300465"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444795"
 ---
-# <a name="build-a-serverless-app-in-visual-studio-with-logic-apps-and-functions"></a>Visual Studio'da Logic Apps ve işlevleri ile sunucusuz bir uygulama oluşturun
+# <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Azure Logic Apps ve Azure işlevleri - Visual Studio ile ilk sunucusuz uygulamanızı oluşturun
 
-Sunucusuz araçları ve Azure işlevleri hızlı geliştirme ve bulut uygulamalarının dağıtımını için izin verir.  Visual Studio sunucusuz bir uygulama oluşturmaya başlamak bu belgenin odaklanır.  Azure içinde sunucusuz bir genel bakış [bu makalede bulunabilir](logic-apps-serverless-overview.md).
+Hızlı bir şekilde geliştirin ve sunucusuz araçları ve özellikleri Azure'da gibi kullanarak bulut uygulamaları dağıtın [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ve [Azure işlevleri](../azure-functions/functions-overview.md). Bu makalede, Visual Studio'da bir Azure işlevi çağıran bir mantıksal uygulama kullanan sunucusuz bir uygulama oluşturmaya başlamak gösterilmektedir. Azure sunucusuz çözümler hakkında daha fazla bilgi edinmek için [sunucusuz Azure işlevleri ve Logic Apps ile](../logic-apps/logic-apps-serverless-overview.md).
 
-## <a name="getting-everything-ready"></a>Her şeyi hazırlığı
+## <a name="prerequisites"></a>Önkoşullar
 
-Visual Studio'dan sunucusuz bir uygulama oluşturmak için gereken önkoşullar şunlardır:
+Visual Studio'da sunucusuz bir uygulama oluşturmak için bu öğeler gerekir:
+
+* Azure aboneliği. Azure aboneliğiniz yoksa [ücretsiz bir Azure hesabı için kaydolun](https://azure.microsoft.com/free/).
 
 * [Visual Studio 2017](https://www.visualstudio.com/vs/) veya Visual Studio 2015 - Community, Professional veya Enterprise
-* [Visual Studio için Logic Apps araçları](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551)
-* [En son Azure SDK'sı](https://azure.microsoft.com/downloads/) (2.9.1 veya üzeri)
+
+* [Microsoft Azure SDK'sı](https://azure.microsoft.com/downloads/) (2.9.1 veya sonrası)
+
 * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
-* [Azure işlevleri çekirdek Araçları](https://www.npmjs.com/package/azure-functions-core-tools) hata ayıklamak için işlevleri yerel olarak
-* Ekli mantıksal Uygulama Tasarımcısı'nı kullanırken web erişimi
 
-## <a name="getting-started-with-a-deployment-template"></a>Bir dağıtım şablonu ile çalışmaya başlama
+* [Visual Studio 2017 için Azure Logic Apps Araçları](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551) veya [Visual Studio 2015 sürümü](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio)
 
-Azure kaynakları yöneten bir kaynak grubu içindeki yapılır.  Bir kaynak grubu kaynakları mantıksal bir gruplandırmasıdır.  Kaynak grupları, dağıtım ve kaynak yönetimi sağlar.  Azure içinde sunucusuz bir uygulama için hem Azure mantıksal uygulamaları hem de Azure işlevleri bizim kaynak grubunu içerir.  Visual Studio içinde kaynak grubu projesi kullanarak, biz geliştirmek, yönetmek ve uygulamanın tümünü tek bir varlık olarak dağıtabilir.
+  İndirebilir ve Azure Logic Apps araçlarını doğrudan Visual Studio Market'ten, yükleme veya [bu uzantıyı yüklemeniz öğrenin Visual Studio içinde](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
+  Yükleme işlemini tamamladıktan sonra Visual Studio'yu yeniden başlatmanız emin olun. 
 
-### <a name="create-a-resource-group-project-in-visual-studio"></a>Visual Studio'da bir kaynak grubu projesi oluşturma
+* [Azure işlevleri temel araçları](https://www.npmjs.com/package/azure-functions-core-tools) işlevleri yerel olarak hata ayıklama
 
-1. Visual Studio'da eklemek için tıklatın bir **yeni proje**
-1. İçinde **bulut** kategorisi, Azure oluşturmak üzere seçin **kaynak grubu** proje  
- * Kategori veya listelenen proje görmüyorsanız, Visual Studio için Azure SDK yüklü olduğundan emin olun
-1. Bir ad ve konum proje verin ve seçin **Tamam** Visual Studio oluşturmak için bir şablon seçin isteyip istemediğinizi sorar.  Boş iken başlatmak için bir mantıksal uygulama ya da diğer kaynak Başlat seçebilirsiniz.  Ancak, bu durumda Azure Hızlı Başlangıç şablonu bize sunucusuz bir uygulamayı başlatmak almak için kullanırız.
-1. Şablonlardan göstermeyi seçin **Azure Hızlı Başlangıç** ![seçerek Azure hızlı başlangıç şablonları][1]
-1. Sunucusuz Hızlı Başlangıç şablonu seçin: **101-logic-app-and-function-app** tıklatıp **Tamam**
+* Visual Studio'da Logic Apps Tasarımcısı kullanılırken web erişimi katıştırılmış
 
-Hızlı Başlangıç şablonu kaynak grubu projenizi bir dağıtım şablonu oluşturur.  Bu şablon, Azure işlevlerini çağırır ve sonucu döndürür basit bir mantıksal uygulama içerir.  Açarsanız `azuredeploy.json` dosya Çözüm Gezgini'nde sunucusuz uygulama kaynaklarını görebilirsiniz.
+  Tasarımcının Azure'da kaynak oluşturması ve mantıksal uygulamanızdaki bağlayıcılardan özellik ve verileri okuması için İnternet bağlantısı gerekir. 
+  Örneğin, Dynamics CRM Online bağlayıcısını kullanıyorsanız, tasarımcı CRM örneğinizdeki varsayılan ve özel kullanılabilir özellikleri denetler.
 
-## <a name="deploying-the-serverless-application"></a>Sunucusuz bir uygulama dağıtma
+## <a name="create-resource-group-project"></a>Kaynak grubu projesi oluşturma
 
-Visual Studio'da mantıksal uygulama görsel tasarımcı açmadan önce var. önceden dağıtılan Azure kaynak grubu olması gerekir.  Bu oluşturmak ve mantıksal uygulama kaynaklarını ve Hizmetleri bağlantıları kullanmaları tasarımcı sağlar.  Başlamak için biz oluşturulan çözümü dağıtmak yeterlidir.
+Başlamak için oluşturun bir [Azure kaynak grubu projesi](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) sunucusuz uygulamanız için. Azure'da, tek bir varlık düzenleme, yönetmek için kullandığınız bir mantıksal koleksiyondur bir kaynak grubu içindeki kaynaklar ve tüm bir uygulamayı dağıtma kaynakları oluşturun. Azure'da sunucusuz bir uygulama için Azure Logic Apps ve Azure işlevleri için kaynak grubunuzun kaynakları içerir. [Azure kaynak grupları ve kaynakları](../azure-resource-manager/resource-group-overview.md) hakkında daha fazla bilgi edinin.
 
-1. Visual Studio, Seç'nde projeye sağ **dağıtma**ve oluşturma bir **yeni** dağıtım ![yeni kaynak dağıtım seçme][2]
-1. Geçerli bir Azure abonelik ve kaynak grubu seçin
-1. İçin Select **dağıtma** çözümü
-1. Mantıksal uygulama ve Azure işlev uygulaması adını girin.  Azure işlev adı genel olarak benzersiz olması gerekir
+1. Visual Studio'yu başlatın ve Azure hesabınızla oturum açın. 
 
-Belirtilen kaynak grubuna sunucusuz çözümü dağıtır.  Bakarsanız **çıkış** Visual Studio'da dağıtım durumunu görebilirsiniz.
+1. **Dosya** menüsünde **Yeni** > **Proje**’yi seçin. 
 
-## <a name="editing-the-logic-app-in-visual-studio"></a>Visual Studio'da mantıksal uygulama düzenleme
+   ![Visual Studio'da yeni proje oluşturma](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
 
-Çözüm herhangi bir kaynak grubu dağıtıldıktan sonra görsel tasarımcı düzenlemek ve mantıksal Uygulama'ya değişiklik yapmak için kullanılabilir.
+1. **Yüklü** altında **Visual C#** veya **Visual Basic**’i seçin. **Bulut** > **Azure Kaynak Grubu**’nu seçin.
 
-1. Sağ `azuredeploy.json` dosya Çözüm Gezgini'nde ve seçin **ile Logic Apps tasarımcıyı Aç**
-1. Seçin **kaynak grubu** ve **konumu** çözümü için dağıtılan ve select **Tamam**
+   Varsa **bulut** kategori veya **Azure kaynak grubu** proje mevcut değil, Visual Studio için Azure SDK'sı yüklü olduğundan emin olun.
 
-Mantıksal uygulama görsel tasarımcı artık Visual Studio ile görünür olması gerekir.  Adımları eklemek, iş akışını değiştirme ve değişiklikleri kaydetmek devam edebilirsiniz.  Visual Studio'dan mantıksal uygulamalar da oluşturabilirsiniz.  Sağ tıklattığınızda, **kaynakları** eklemek için seçebileceğiniz şablon Gezgini'nde bir **mantıksal uygulama** projeye.  Boş mantıksal uygulamalar yük visual Tasarımcısı'nda bir kaynak grubuna ön dağıtımını yap.
+1. Projenize bir ad ve konum verin ve ardından **Tamam**. 
 
-### <a name="managing-and-viewing-run-history-for-a-deployed-logic-app"></a>Yönetme ve çalıştırma geçmişi dağıtılan mantıksal uygulama için görüntüleme
+   Visual Studio şablon seçmenizi ister. 
+   Boş mantıksal uygulama veya diğer şablon ile başlayın, ancak bu örnek, bir mantıksal uygulama ve bir Azure işlevine bir çağrı içeren sunucusuz bir uygulama oluşturmak için bir Azure Hızlı Başlangıç şablonu kullanır.
 
-Ayrıca, yönetmek ve Azure'da dağıtılan mantığı uygulamalar çalıştırma geçmişi görüntüleyebilirsiniz.  Açarsanız **Cloud Explorer** aracı Visual Studio'da, tüm mantıksal uygulama sağ tıklayın ve düzenlemek, devre dışı bırakmak, özelliklerini görüntülemek veya çalıştırma geçmişi görüntülemek seçin.  Düzen'i tıklatarak, Visual Studio kaynak grubu projesine yayımlanan mantıksal uygulama indirmek de sağlar.  Bu, Azure portalda mantıksal uygulamanızı oluşturmaya başladı olsa bile, yine, içeri aktarabilir ve Visual Studio'dan yönetmek, anlamına gelir.
+   Visual Studio'da yalnızca bir mantıksal uygulama oluşturmak için seçin **mantıksal uygulama** şablonu. Bu şablon, bir Azure kaynak grubuna çözümünüzü predeploy gerek kalmadan Logic App Tasarımcısı'nda açılır bir boş mantıksal uygulama oluşturur.
 
-## <a name="developing-an-azure-function-in-visual-studio"></a>Visual Studio'da bir Azure işlevinizi geliştirme
+1. Altında **bu konumdan şablonlar Göster**seçin **Azure Hızlı Başlangıç (github/Azure/azure-quickstart-templates)**. 
 
-Dağıtım şablonu belirtilen git deposu için çözümde bulunan tüm Azure işlevleri dağıtır `azuredeploy.json` değişkenleri.  Kaynak denetimi (GitHub, Visual Studio Team Services, vb.) ve güncelleştirme işlevi proje çözümünde yazarsanız, kutuyu `repo` değişken, şablonu Azure işlevi dağıtmak.
+1. Arama kutusuna filtreniz olarak "logic-app" girin ve bu sunucusuz Hızlı Başlangıç şablonu seçip **Tamam**: **101-logic-app-and-function-app**
 
-### <a name="creating-an-azure-function-project"></a>Bir Azure işlevi projesi oluşturma
+   ![Azure Hızlı Başlangıç şablonu seçin](./media/logic-apps-serverless-get-started-vs/select-template.png)
 
-JavaScript, Python, F #, Bash, toplu veya PowerShell kullanarak, izleyin [işlevleri CLI adımları](../azure-functions/functions-run-local.md) bir proje oluşturmak için.  Bir işlev C# geliştirme, kullanabileceğiniz bir [C# sınıf kitaplığı](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/) Azure işlevi için geçerli çözümde.
+   Visual Studio oluşturur ve kaynak grubu projenizi bir çözümü açar. 
+   Seçtiğiniz Hızlı Başlangıç şablonu adlı bir dağıtım şablonu oluşturur `azuredeploy.json` , kaynak grubu projesi içinde. 
+   Bu dağıtım şablonu, bir HTTP isteği tetikler, bir Azure işlevi çağırır ve sonucu olarak bir HTTP yanıtı döndüren basit bir mantıksal uygulama tanımını içerir. 
+   
+   ![Yeni sunucusuz çözüm](./media/logic-apps-serverless-get-started-vs/create-serverless-solution.png)
+
+1. Ardından, dağıtım şablonunu açın ve kaynakları gözden geçirin, sunucusuz uygulamanız için önce çözümünüzü Azure'a dağıtmanız gerekir. 
+
+## <a name="deploy-your-solution"></a>Çözümünüzü dağıtın
+
+Visual Studio'da Logic Apps Tasarımcısı ile mantıksal uygulamanızı açabilmek için önce zaten Azure'da dağıtılan bir Azure kaynak grubu olması gerekir. Tasarımcı, sonra mantıksal uygulamanızın kaynaklarını ve Hizmetleri için bağlantı oluşturabilirsiniz. Bu görev için çözümünüzü Visual Studio'dan Azure portalına dağıtın.
+
+1. Çözüm Gezgini'nde, kaynak projenin kısayol menüsünü açın ve ardından **Dağıt** > **yeni**.
+
+   ![Kaynak grubu için yeni bir dağıtımını oluşturun](./media/logic-apps-serverless-get-started-vs/deploy.png)
+
+1. Zaten seçili değilse, Azure aboneliğinizi ve dağıtmak istediğiniz kaynak grubunu seçin. Seçin **dağıtma**.
+
+   ![Dağıtım ayarları](./media/logic-apps-serverless-get-started-vs/deploy-to-resource-group.png)
+
+1. Varsa **parametreleri Düzenle** kutusu görüntülenirse, mantıksal uygulamanızı ve dağıtım sırasında Azure işlev uygulaması için kullanılacak kaynak adı girin ve ardından ayarlarınızı kaydedin. İşlev uygulamanız için genel olarak benzersiz bir ad kullandığınızdan emin olun.
+
+   ![Mantıksal uygulamanızı ve işlev uygulaması için adlar sağlayın](./media/logic-apps-serverless-get-started-vs/logic-function-app-name-parameters.png)
+
+   Visual Studio, belirtilen kaynak grubuna dağıtım başladığında Visual Studio çözümünüzün dağıtım durumu görünür **çıkış** penceresi. 
+   Dağıtım tamamlandıktan sonra mantıksal uygulamanızı Azure portalında zaten çalışıyor.
+
+## <a name="edit-logic-app-in-visual-studio"></a>Mantıksal uygulamayı Visual Studio'da düzenleme
+
+Çözümünüzü kaynak grubunuzun dağıtıldığına göre mantıksal uygulamanızı düzenlemek ve mantıksal uygulamanızı değiştirmek için mantıksal Uygulama Tasarımcısı ile açın.
+
+1. Çözüm Gezgini'nde açın `azuredeploy.json` dosyanın kısayol menüsünü ve ardından **mantıksal Uygulama Tasarımcısı ile Aç**.
+
+   ![Logic Apps Tasarımcısı'nda "azuredeploy.json" açın](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
+
+1. Sonra **mantıksal uygulama özellikleri** kutusu görünür ve zaten altında seçili değilse **abonelik**, Azure aboneliğinizi seçin. Altında **kaynak grubu**, çözümünüzün dağıtıldığı konum ve kaynak grubu seçin ve ardından **Tamam**.
+
+   ![Mantıksal uygulama özellikleri](./media/logic-apps-serverless-get-started-vs/logic-app-properties.png)
+
+   Logic Apps Tasarımcısı açılır sonra adımları eklemeye devam etmek veya iş akışını değiştirme ve güncelleştirmelerinizi kaydedin.
+
+   ![Mantıksal Uygulama Tasarımcısı'nda açılan mantıksal uygulama](./media/logic-apps-serverless-get-started-vs/opened-logic-app.png)
+
+## <a name="create-azure-functions-project"></a>Azure işlevleri projesi oluşturma
+
+JavaScript, Python, F #, PowerShell, toplu veya Bash ile işlevi ve işlev projesi oluşturmak için makaledeki adımları [iş ile Azure işlevleri çekirdek Araçları](../azure-functions/functions-run-local.md). C# ile Azure işlevinizin içine çözümünüzü geliştirmek için bir C# sınıf kitaplığı makalesindeki adımları izleyerek kullanabileceğiniz [.NET sınıf kitaplığı bir işlev uygulaması olarak Yayımla](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/).
+
+## <a name="deploy-functions-from-visual-studio"></a>İşlevleri Visual Studio'dan dağıtma
+
+Sahip olduğunuz değişken tarafından belirtilen Git deposundan çözümünüzdeki tüm Azure işlevleri, dağıtım şablonu dağıtır `azuredeploy.json` dosya. Oluşturursanız ve İşlevler projeniz çözümünüzde yazar, Git kaynak denetimi, örneğin, GitHub veya Visual Studio Team Services içinde bu proje denetleyin ve ardından güncelleştirme `repo` değişken böylece şablonu, Azure işleviniz dağıtır.
+
+## <a name="manage-logic-apps-and-view-run-history"></a>Logic apps ve çalıştırma geçmişi görünümü yönetme
+
+Yine de zaten Azure'da dağıtılan mantıksal uygulamalar için düzenleme, yönetme, çalıştırma geçmişini görüntülemek ve söz konusu uygulamaları Visual Studio'dan devre dışı bırakmak. 
+
+1. Gelen **görünümü** Visual Studio'da Aç menüsünde **Cloud Explorer**. 
+
+1. Altında **tüm abonelikleri**, istediğiniz yönetmek ve logic apps ile ilişkili Azure aboneliği seçin **Uygula**.
+
+1. Altında **Logic Apps**, mantıksal uygulamanızı seçin. Bu uygulamanın kısayol menüsünden seçin **Logic App Düzenleyicisi ile açın**. 
+
+Kaynak grubu projenize zaten yayımlanan bir mantıksal uygulama şimdi yükleyebilirsiniz. Bu nedenle Azure portalında bir mantıksal uygulama başlatıldı olsa da, yine de içeri aktarabilir ve bu uygulamayı Visual Studio'da yönetme. Daha fazla bilgi için [Visual Studio ile mantıksal uygulamaları yönetme](../logic-apps/manage-logic-apps-with-visual-studio.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Sunucusuz bir sosyal Pano oluşturmayı öğrenin](logic-apps-scenario-social-serverless.md)
-* [Visual Studio bulut Gezgini'nden bir mantıksal uygulama yönetme](manage-logic-apps-with-visual-studio.md)
-* [Mantıksal uygulama iş akışı tanımlama dili](logic-apps-workflow-definition-language.md)
-
-<!-- Image references -->
-[1]: ./media/logic-apps-serverless-get-started-vs/select-template.png
-[2]: ./media/logic-apps-serverless-get-started-vs/deploy.png
+* [Sunucusuz bir Sosyal Panosu derleme](logic-apps-scenario-social-serverless.md)
+* [Visual Studio ile mantıksal uygulamaları yönetme](manage-logic-apps-with-visual-studio.md)
+* [Mantıksal uygulama iş akışı tanımı dili](logic-apps-workflow-definition-language.md)

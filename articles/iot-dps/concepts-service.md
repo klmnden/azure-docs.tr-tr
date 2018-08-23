@@ -1,6 +1,6 @@
 ---
-title: Hizmet Azure IOT Hub cihaz sağlama hizmeti kavramları | Microsoft Docs
-description: Hizmet dağıtım noktaları ve IOT Hub ile cihazları özgü bir sağlama kavramlarını açıklar
+title: Hizmet, Azure IOT Hub cihazı sağlama hizmeti kavramları | Microsoft Docs
+description: Hizmeti özgü cihaz sağlama hizmeti ve IOT Hub ile cihaz sağlama kavramları açıklar.
 author: nberdy
 ms.author: nberdy
 ms.date: 03/30/2018
@@ -8,44 +8,47 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 2908e08e36f41ebb8a154e7c490e5c6719d911be
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ca2ea3c000e811223ded3022021c2516f547ae66
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628309"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42056175"
 ---
-# <a name="iot-hub-device-provisioning-service-concepts"></a>IOT Hub cihaz sağlama hizmeti kavramları
+# <a name="iot-hub-device-provisioning-service-concepts"></a>IOT Hub cihazı sağlama hizmeti kavramları
 
-IOT Hub cihaz hizmeti sağlama, IOT Hub'de belirtilen bir IOT hub'ına sağlama zero touch Cihazınızı yapılandırmak üzere kullanmak için bir yardımcı hizmetidir. Cihaz sağlama hizmeti ile yapabilecekleriniz [otomatik sağlama](concepts-auto-provisioning.md) milyonlarca cihaza güvenli ve ölçeklenebilir bir şekilde.
+IOT Hub cihazı sağlama hizmeti, sıfır dokunma cihaz sağlama belirtilen bir IOT hub'ı yapılandırmak için kullandığınız bir IOT Hub için bir yardımcı hizmettir. Cihaz sağlama hizmeti ile yapabilecekleriniz [otomatik sağlama](concepts-auto-provisioning.md) milyonlarca cihazı güvenli ve ölçeklenebilir bir şekilde.
 
-Cihaz sağlama iki bölümden oluşan bir işlemdir. İlk bölümü cihaz IOT çözümü tarafından arasındaki ilk bağlantı kurma *kaydetme* aygıt. İkinci bölümü uygun uygulama *yapılandırma* çözümü belirli gereksinimlerine bağlı olarak aygıta. Her iki adımları tamamladıktan sonra aygıtın tam olarak sağlandıktan *sağlanan*. Cihaz Sağlama Hizmeti, bu adımların ikisini de otomatikleştirerek cihaz için sorunsuz bir sağlama deneyimi sağlar.
+Cihaz sağlama iki bölümlü bir işlemdir. İlk bölümü, cihaz ile IOT çözümü tarafından arasında ilk bağlantı kurma *kaydetme* cihaz. İkinci bölümü, uygun uygulama *yapılandırma* çözümünün belirli gereksinimlerine göre cihaza. Her iki adım tamamladıktan sonra cihazın tamamen kaldırıldı *sağlanan*. Cihaz Sağlama Hizmeti, bu adımların ikisini de otomatikleştirerek cihaz için sorunsuz bir sağlama deneyimi sağlar.
 
-Bu makalede yönetmek için en uygun sağlama kavramlarına genel bir fikir veren *hizmet*. Bu makalede kişiler dahil edilen en uygun [bulut Kurulum adım](about-iot-dps.md#cloud-setup-step) bir aygıtı dağıtıma hazır alamazsınız.
+Bu makalede sağlama kavramları yönetmek için en uygun genel bir fikir veren *hizmet*. Bu makalede katılan kişilikler için en uygun [bulut Kurulum adımı](about-iot-dps.md#cloud-setup-step) dağıtım için hazır bir aygıt alma.
 
 ## <a name="service-operations-endpoint"></a>Hizmet işlemleri uç noktası
 
-Hizmet işlemleri uç hizmet ayarlarını yönetme ve kayıt listesi korumaya yönelik uç noktadır. Bu uç noktayı yalnızca Hizmet Yöneticisi tarafından kullanılır; cihazlar tarafından kullanılmaz.
+Hizmet işlemleri uç noktası için hizmet ayarlarını yönetme ve koruma kayıt listesi uç noktadır. Bu uç noktaya, yalnızca Hizmet Yöneticisi tarafından kullanılır; cihazlar tarafından kullanılmaz.
 
 ## <a name="device-provisioning-endpoint"></a>Cihaz sağlama uç noktası
 
-Cihaz sağlama uç nokta tüm aygıtlar için otomatik olarak sağlama kullanmak tek uç noktadır. Yeni bağlantı bilgilerini aygıtlarla tedarik zinciri senaryolarda reflash gereğini ortadan kaldırmak için tüm sağlama hizmet örnekleri, URL aynıdır. [Kimliği kapsam](#id-scope) Kiracı yalıtımı sağlar.
+Cihaz sağlama uç noktası, tüm cihazlar için otomatik sağlamayı kullanın. uç noktasıdır. Tedarik zinciri senaryolarda cihazlar yeni bağlantı bilgileriyle reflash gereksinimini ortadan kaldırmak için tüm sağlama hizmeti örneklerini, URL aynıdır. Kimlik kapsamı Kiracı yalıtımı sağlar.
 
 ## <a name="linked-iot-hubs"></a>IoT hub'larına bağlanıldı
 
-Cihaz sağlama hizmeti yalnızca ona bağlı IOT hub'ları cihazlara sağlayabilirsiniz. Bir IOT hub cihaz sağlama hizmetine bağlama IOT hub'ın cihaz kayıt hizmeti okuma/yazma izni verir; Aygıt hizmeti sağlama bağlantısıyla bir cihaz kimliği kayıt ve cihaz çiftine başlangıç yapılandırmasını ayarlayın. Bağlantılı IOT hub'ları Azure herhangi bir bölgede olabilir. Sağlama hizmetinize diğer abonelikler hub bağlantı.
+Cihaz sağlama hizmeti, yalnızca kendisine bağlanmış olan IOT hub'ları cihazlarına sağlayabilirsiniz. Bir IOT hub cihaz sağlama hizmeti örneğine bağlanma, IOT hub'ınızın cihaz kayıt hizmeti okuma/yazma izni verir; bağlantı ile bir cihaz sağlama hizmeti cihaz kimliği kayıt ve cihaz ikizinde başlangıç yapılandırmasını ayarlayın. Bağlı IOT hub'ları dilediğiniz Azure bölgesinde olabilir. Diğer Aboneliklerdeki hub'ları sağlama hizmetinize bağlanabilir.
 
 ## <a name="allocation-policy"></a>Ayırma İlkesi
 
-Hizmet ayarı düzeyi aygıt hizmeti sağlama aygıtları bir IOT hub'ına nasıl atar belirler. Desteklenen üç ayırma ilkesi vardır:
-* **Dağıtım'eşit ağırlıklı**: bağlantılı IOT hub'ları için sağlaması yapılan aygıtlar eşit şekilde etkileyebilir. Varsayılan ayar. Yalnızca bir IoT hub'a aygıtları sağlıyorsanız bu ayarı değiştirmeyebilirsiniz.
-* **En düşük gecikme süresine**: cihazları sağlanan bir IOT hub'ına cihaz için en düşük gecikme süresine sahip. Birden çok bağlantılı IOT hub'ları aynı en düşük gecikme sağlar, sağlama hizmeti aygıtlar bu hubs arasında karıştırır.
-* **Kayıt listesi aracılığıyla statik Yapılandırması**: İstenen IOT hub'ı kayıt listesinde belirtimi hizmet düzeyi ayırma ilkesine göre öncelik alır.
+Cihaz sağlama hizmeti cihazların bir IOT hub'ına nasıl atar ayarı hizmet düzeyi belirler. Desteklenen üç ayırma ilkesi vardır:
+
+* **Eşit ağırlıklı dağılım**: bağlı IOT hub'lara cihaz sağlanma olasılığı. Varsayılan ayar. Yalnızca bir IoT hub'a aygıtları sağlıyorsanız bu ayarı değiştirmeyebilirsiniz.
+
+* **En düşük gecikme**: cihazlar sağlanabilir bir IOT hub'ına cihaz için en düşük gecikme ile. Sağlama hizmeti birden çok IOT hub'larına bağlanıldı aynı düşük gecikme sağlar, cihazlar arasında bu hubs'a karıştırır.
+
+* **Kayıt listesi aracılığıyla statik yapılandırma**: kayıt listesindeki istenen IOT hub'ın belirtimi, hizmet düzeyi ayırma ilkesinden önceliklidir öncelik alır.
 
 ## <a name="enrollment"></a>Kayıt
 
-Bir kayıt aygıtları veya aracılığıyla otomatik olarak sağlama kaydedebilir aygıt gruplarına kaydıdır. Kaydı cihaz veya cihaz grubunu dahil olmak üzere, ilgili bilgileri içerir:
-- [kanıtlama mekanizması](concepts-security.md#attestation-mechanism) aygıt tarafından kullanılan
+Bir kayıt veya cihaz üzerinden otomatik olarak sağlama kaydedebilir cihaz gruplarının kaydıdır. Kayıt, cihaz veya cihaz grubunuz, dahil olmak üzere ilgili bilgileri içerir:
+- [kanıtlama mekanizması](concepts-security.md#attestation-mechanism) cihaz tarafından kullanılan
 - İsteğe bağlı ilk istenen yapılandırma
 - İstenen IOT hub'ı
 - İstenen cihaz kimliği
@@ -54,22 +57,22 @@ Cihaz sağlama hizmeti tarafından desteklenen kayıtları iki tür vardır:
 
 ### <a name="enrollment-group"></a>Kayıt grubu
 
-Bir kayıt grubu belirli kanıtlama mekanizması paylaşan aygıtları grubudur. Kayıt gruptaki tüm cihazlar aynı kök veya ara CA tarafından imzalanmış X.509 sertifikalarını sunar. Kayıt grupları yalnızca X.509 kanıtlama mekanizması kullanabilirsiniz. Kayıt grup adı ve sertifika adı alfasayısal, küçük harf olmalıdır ve kısa çizgi içerebilir.
+Kayıt grubu, belirli bir kanıtlama mekanizmasını paylaşan cihazlar grubudur. Kayıt gruptaki tüm cihazlar aynı kök tarafından imzalanan X.509 sertifikaları veya ara sertifika yetkilisi (CA) sunar. Kayıt grupları yalnızca X.509 kanıtlama mekanizması olarak kullanabilirsiniz. Kayıt grubu adı ve sertifika adı alfasayısal, küçük harf olmalıdır ve kısa çizgi içerebilir.
 
 > [!TIP]
-> Çok sayıda istenen ilk yapılandırma paylaşan aygıtları veya cihazları bir kayıt grubunu kullanarak aynı Kiracı tüm gitmeyi öneririz.
+> Aynı kiracıya giden tüm cihazlar veya çok sayıda istenen bir ilk yapılandırmayı paylaşan cihazlar için kayıt grubu kullanılması önerilir.
 
-### <a name="individual-enrollment"></a>Tek tek kayıt
+### <a name="individual-enrollment"></a>Bireysel kayıt
 
-Tek bir kayıt kaydedebilir tek bir cihaz için bir giriştir. Tek tek kayıtları kanıtlama mekanizmaları X.509 yaprak sertifikalar veya SAS belirteçlerinden (fiziksel veya sanal TPM) kullanabilir. Tek bir kayıt kayıt Kimliğini alfasayısal, küçük harf ve kısa çizgi içerebilir. Bireysel kayıtlar için istenen IoT hub cihazı kimliği belirtilmiş olabilir.
+Bireysel kayıt kaydedebilir, tek bir cihaz için bir girdidir. Bireysel kayıtlar, kanıtlama mekanizması olarak X.509 yaprak sertifikalarını veya SAS belirteçlerini (Başlangıç, fiziksel ya da sanal TPM'de) kullanabilir. Bireysel kayıt kayıt Kimliğini alfasayısal, küçük harf ve kısa çizgi içerebilir. Bireysel kayıtlar için istenen IoT hub cihazı kimliği belirtilmiş olabilir.
 
 > [!TIP]
-> Benzersiz ilk yapılandırmaları gerektirir cihazlar için veya yalnızca TPM kanıtlama aracılığıyla SAS belirteci kullanarak kimlik doğrulayabilir cihazlar için tek tek kayıtları kullanmanızı öneririz.
+> Benzersiz ilk yapılandırma gerektiren cihazlar için veya yalnızca TPM kanıtlama aracılığıyla SAS belirteçleri kullanarak kimlik doğrulaması cihazlar için bireysel kayıtların kullanılmasını öneririz.
 
 ## <a name="registration"></a>Kayıt
 
-Bir kaydı bir cihaz kaydetme/sağlamayı başarıyla cihaz sağlama hizmeti üzerinden bir IOT Hub'ına kaydıdır. Kayıt kayıtları otomatik olarak oluşturulur; silinebilmesi için ancak bunlar güncelleştirilemiyor.
+Bir kaydı, bir cihazın başarıyla kaydetme ve sağlama bir IOT hub cihaz sağlama hizmeti aracılığıyla kaydıdır. Kayıt kayıtları otomatik olarak oluşturulur; silinebilir, ancak bunlar güncelleştirilemiyor.
 
 ## <a name="operations"></a>İşlemler
 
-Aygıt hizmeti sağlama fatura birimi işlemleridir. Bir yönerge hizmetine başarılı tamamlanması bir işlemdir. Cihaz kayıtları ve yeniden kayıtları işlemlere dahildir. Ayrıca kayıt liste girdilerini ekleme ve güncelleştirme gibi hizmet tarafı değişiklikleri de işlemlere dahildir.
+Cihaz sağlama hizmeti faturalandırma birimi işlemlerdir. Bir yönerge hizmetine başarılı olarak tamamlanmasına bir işlemdir. Cihaz kayıtları ve yeniden kayıtları işlemlere dahildir. Ayrıca kayıt liste girdilerini ekleme ve güncelleştirme gibi hizmet tarafı değişiklikleri de işlemlere dahildir.

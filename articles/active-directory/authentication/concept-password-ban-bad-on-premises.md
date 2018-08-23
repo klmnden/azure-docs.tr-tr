@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: fa6048800aad04b45b72c4da61ad9e8b94541502
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: ff349c480ca14b4242fb7597751b4eb6acb0ee78
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308485"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057738"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Önizleme: Azure AD parola koruması için Windows Server Active Directory zorla
 
@@ -37,7 +37,7 @@ Azure AD parola koruması üç yazılım bileşenleri şunlardır:
 ## <a name="requirements"></a>Gereksinimler
 
 * Etki alanı denetleyicileri de dahil olmak üzere Azure AD parola koruması bileşenlerinin yüklendiği tüm makinelerde Windows Server 2012 veya sonraki sürümünü çalıştırmalıdır.
-* Etki alanı denetleyicileri de dahil olmak üzere Azure AD parola koruması bileşenlerinin yüklendiği tüm makinelerde yüklü olan evrensel C çalışma zamanı olması gerekir. Bu tercihen Windows Update aracılığıyla makine tam olarak düzeltme eki uygulama tarafından gerçekleştirilir. Aksi takdirde uygun işletim sistemine özgü güncelleştirme paketi olabilir yüklü - [Windows Evrensel C çalışma zamanı güncelleştirmesi](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)
+* Etki alanı denetleyicileri de dahil olmak üzere Azure AD parola koruması bileşenlerinin yüklendiği tüm makinelerde yüklü olan evrensel C çalışma zamanı olması gerekir. Bu tercihen Windows Update aracılığıyla makine tam olarak düzeltme eki uygulama tarafından gerçekleştirilir. Aksi takdirde uygun işletim sistemine özgü güncelleştirme paketi olabilir yüklü - [Windows Evrensel C çalışma zamanı güncelleştirmesi](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
 * En az bir sunucu Azure AD parola koruması proxy hizmetini barındıran her etki alanında en az bir etki alanı denetleyicisi arasında ağ bağlantısı olmalıdır.
 * DC çalıştıran herhangi bir Active Directory etki alanı Aracı hizmeti yazılımı DFSR sysvol çoğaltma için kullanmanız gerekir.
 * Azure AD ile Azure AD parola koruması proxy hizmeti kaydetmek için bir genel yönetici hesabı.

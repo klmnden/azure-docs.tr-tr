@@ -1,35 +1,33 @@
 ---
-title: Azure veritabanı geçiş hizmetine genel bakış | Microsoft Docs
-description: Azure veri platformlar için birçok veritabanı kaynaktan sorunsuz geçişler sağlayan Azure veritabanı geçiş hizmeti, genel bakış.
+title: Azure veritabanı geçiş Hizmeti'ne genel bakış | Microsoft Docs
+description: Birçok veritabanı kaynaklarından sorunsuz geçişler için Azure veri platformu sağlayan Azure veritabanı geçiş hizmeti, genel bakış.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
 manager: ''
-ms.reviewer: ''
+ms.reviewer: douglasl
 ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
-ms.date: 05/08/2018
-ms.openlocfilehash: f771e70cf4991479f70dff84fd85029bdc936520
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.date: 08/20/2018
+ms.openlocfilehash: 4bfa6ef778f51446146de4c10575ac7a287c68dc
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33884924"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42057064"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti nedir?
-Azure veritabanı geçiş hizmeti, Azure veri platformları en az kapalı kalma süresi ile birden çok veritabanı kaynakları sorunsuz kümesinden sağlamak için tasarlanmış tam olarak yönetilen bir hizmettir.
+Azure veritabanı geçiş hizmeti, birden çok veritabanı kaynağını sorunsuz geçiş için en düşük kapalı kalma süresi ile Azure Data platformlarına sağlamak için tasarlanmış tam olarak yönetilen bir hizmettir.
 
-## <a name="use-familiar-tools"></a>Tanıdık araçları kullanın
-Azure veritabanı geçiş hizmeti mevcut araçlar ve hizmetlerimizi işlevselliğini bazıları tümleştirir. Bu, müşteri ile kapsamlı ve yüksek oranda kullanılabilir bir çözüm sağlar. Hizmet kullandığı [veri geçiş Yardımcısı](http://aka.ms/dma) bir geçiş işlemi gerçekleştirmeden önce gerekli değişiklikler kılavuzluk için öneri sağlama değerlendirme raporları oluşturmak için. Bu, gerekli herhangi bir düzeltme gerçekleştirmek için hazır. Geçiş işlemine başlamak hazır olduğunuzda, Azure veritabanı geçiş hizmeti ilişkili tüm adımları gerçekleştirir. Yangın ve geçiş projelerinizi içiniz rahat, işlem yararlanan Microsoft tarafından belirlendiği şekilde en iyi yöntemlere bilerek unutmayın.
+## <a name="migrate-databases-to-azure-with-familiar-tools"></a>Veritabanları, alışık olduğunuz araçları ile Azure'a geçirme
+Azure veritabanı geçiş hizmeti mevcut araç ve Hizmetleri işlevlerinden bazıları tümleştirir. Bu müşteriler ile kapsamlı, yüksek oranda kullanılabilir bir çözüm sağlar. Hizmeti kullandığı [Data Migration Yardımcısı](http://aka.ms/dma) geçiş işlemi gerçekleştirmeden önce gerekli değişiklikler size yol gösterecek öneriler sağlayan değerlendirme raporları oluşturmak için. Bu gerekli herhangi bir düzeltme gerçekleştirmek için size aittir. Azure veritabanı geçiş hizmeti, geçiş işlemine başlamak hazır olduğunuzda, gerekli tüm adımları gerçekleştirir. Harekete ve işlem yararlanır Microsoft tarafından belirlenen şekilde en iyi yöntemler bilerek rahat, geçiş projelerinizi unutmayın.
 
 ## <a name="regional-availability"></a>Bölgesel kullanılabilirlik
-Azure veritabanı geçiş hizmeti aşağıdaki bölgelerde şu anda kullanılabilir:
-
-![GA bölgesel kullanılabilirliği](media/overview/service_availability_by_region.png)
+Veritabanı geçiş hizmeti kullanılabildiği bölgeler hakkında güncel bilgiler için bkz: [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Azure portalı kullanarak Azure veritabanı geçiş hizmeti örneğini oluşturmak](quickstart-create-data-migration-service-portal.md).
-- [SQL Server Azure SQL veritabanına geçirme](tutorial-sql-server-to-azure-sql.md).
-- [Azure veritabanı geçiş hizmeti kullanma önkoşulları genel bakış](pre-reqs.md).
+- [Azure portalını kullanarak Azure veritabanı geçiş hizmeti örneği oluşturma](quickstart-create-data-migration-service-portal.md).
+- [SQL Server'ı Azure SQL veritabanı'na geçirme](tutorial-sql-server-to-azure-sql.md).
+- [Azure veritabanı geçiş hizmeti kullanma önkoşulları bakış](pre-reqs.md).
 - [Azure veritabanı geçiş hizmeti ile ilgili SSS](faq.md).

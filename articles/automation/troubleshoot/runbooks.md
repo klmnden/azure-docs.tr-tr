@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 53b35fbdc469639b1fdc09293e05247bcc5d8c31
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 78f9ba817008a28e63ec167c4e2ccc7f3859be16
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714494"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056467"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook'ları ile hatalarını giderme
 
@@ -38,7 +38,7 @@ Kimlik bilgisi varlığı adı geçerli değil veya kullanıcı adı ve Otomasyo
 
 Neyin yanlış olduğunu belirlemek için aşağıdaki adımları uygulayın:  
 
-1. Dahil olmak üzere herhangi bir özel karakter içermediğinden emin olun ** @ ** Azure'a bağlanmak için kullandığınız Otomasyon kimlik bilgisi varlığı ad karakteri.  
+1. Dahil olmak üzere herhangi bir özel karakter içermediğinden emin olun **@** Azure'a bağlanmak için kullandığınız Otomasyon kimlik bilgisi varlığı ad karakteri.  
 2. Azure Otomasyonu kimlik bilgisi, yerel PowerShell ISE Düzenleyici içinde depolanan parola ve kullanıcı adı kullanıp kullanmadığını denetleyin. PowerShell ISE'de aşağıdaki cmdlet'leri çalıştırarak bunu yapabilirsiniz:  
 
    ```powershell
@@ -137,7 +137,43 @@ Bu hata eski Azure modüllerini kullanarak neden olabilir.
 
 Bu hata, Azure modüllerini en son sürüme güncelleştirerek çözülebilir.
 
-Otomasyon hesabınızda tıklayın **modülleri**, tıklatıp **güncelleştirme Azure modüllerini**. Güncelleştirme yaklaşık 15 başarısız runbook yeniden çalıştırın dakika, tam bir kez sürer.
+Otomasyon hesabınızda tıklayın **modülleri**, tıklatıp **güncelleştirme Azure modüllerini**. Güncelleştirme yaklaşık 15 başarısız runbook yeniden çalıştırın dakika, tam bir kez sürer. Modüllerinizi güncelleştirme hakkında daha fazla bilgi edinmek için [Azure Otomasyonu'nda güncelleştirme Azure modüllerini](../automation-update-azure-modules.md).
+
+### <a name="child-runbook-auth-failure"></a>Senaryo: Birden çok aboneliği ile ilgilenirken alt runbook başarısız
+
+#### <a name="issue"></a>Sorun
+
+Alt runbook'ları yürütürken `Start-AzureRmRunbook`, alt runbook'un Azure kaynaklarını yönetmek başarısız olur.
+
+#### <a name="cause"></a>Nedeni
+
+Alt runbook'un doğru bağlamı çalıştırırken kullanmıyor.
+
+#### <a name="resolution"></a>Çözüm
+
+Birden çok aboneliği ile çalışırken, abonelik bağlamına alt runbook'ları çağrılırken kaybolmuş olabilir. Abonelik bağlamına alt runbook'larına geçirilir emin olmak için ekleme `DefaultProfile` cmdlet'i ve ona geçiş bağlam parametresi.
+
+```azurepowershell-interactive
+# Connect to Azure with RunAs account
+$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+
+Add-AzureRmAccount `
+    -ServicePrincipal `
+    -TenantId $ServicePrincipalConnection.TenantId `
+    -ApplicationId $ServicePrincipalConnection.ApplicationId `
+    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+
+$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+
+$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
+
+Start-AzureRmAutomationRunbook `
+    –AutomationAccountName 'MyAutomationAccount' `
+    –Name 'Test-ChildRunbook' `
+    -ResourceGroupName 'LabRG' `
+    -DefaultProfile $AzureContext `
+    –Parameters $params –wait
+```
 
 ### <a name="not-recognized-as-cmdlet"></a>Senaryo: Runbook nedeniyle eksik bir cmdlet başarısız olur.
 
@@ -189,6 +225,8 @@ Aşağıdaki çözümlerden birini sorunu düzeltin:
 * Bellek sınırı içinde çalışmak için önerilen yöntemler bellekteki gereksiz çıkış, runbook'lardan yazamazlar kadar verileri işlemek veya PowerShell akışınıza yazma kaç kontrol noktaları göz önünde bulundurun değil iş yükünü birden çok runbook arasında bölmek üzeresiniz runbook'ları.  
 
 * Azure modüllerini adımları izleyerek [Azure automation'da Azure PowerShell modüllerini güncelleştirme](../automation-update-azure-modules.md).  
+
+* Runbook'u çalıştırmak için başka bir çözüm olan bir [karma Runbook çalışanı](../automation-hrw-run-runbooks.md). Karma çalışanları tarafından sınırı yoktur [adil paylaşımı](../automation-runbook-execution.md#fair-share) Azure sanal olduğunu sınırlar.
 
 ### <a name="fails-deserialized-object"></a>Senaryo: Runbook seri durumdan çıkarılmış nesne nedeniyle başarısız olur.
 
@@ -309,7 +347,7 @@ Bir modül başarıyla Azure Otomasyonu'na ekleme alabilir olmayan bazı yaygın
 
 Aşağıdaki çözümlerden birini sorunu düzeltin:
 
-* Modül aşağıdaki biçimde uyduğundan emin olun: ModuleName.Zip ** -> ** ModuleName veya sürüm numarası ** -> ** (ModuleName.psm1, ModuleName.psd1)
+* Modül aşağıdaki biçimde uyduğundan emin olun: ModuleName.Zip **->** ModuleName veya sürüm numarası **->** (ModuleName.psm1, ModuleName.psd1)
 * .Psd1 dosyasını açın ve modülü herhangi bir bağımlılığın olup olmadığına bakın. Aksi halde bu modüller Otomasyon hesabına yükleyin.
 * Başvurulan tüm .dll Modülü klasörde mevcut olduğundan emin olun.
 

@@ -2,18 +2,18 @@
 title: En iyi uygulamalar için Azure SQL Data Sync | Microsoft Docs
 description: Yapılandırma ve Azure SQL Data Sync çalıştırmak için en iyi uygulamalar hakkında bilgi edinin.
 services: sql-database
-ms.date: 07/03/2018
+ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: allenwux
 ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: 2b23f9f2edbec468ecbd1395bd138e1be801c6e5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 96fff35b95a63e4f806258eff59d08afb2db0ffd
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620809"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42061748"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL Data Sync için en iyi deneyimler 
 
@@ -75,17 +75,16 @@ Bu bölüm SQL Data Sync sağlanıyor kısıtlamaları açıklar.
 
 #### <a name="autoprovisioning-limitations"></a>Autoprovisioning sınırlamaları
 
-SQL Data Sync autoprovisioning üzerinde aşağıdaki sınırlamalara sahiptir:
+SQL Data Sync için autoprovisioning aşağıdaki sınırlamalara sahiptir:
 
--   Hedef tabloda oluşturulan sütunları seçin.  
-    Eşitleme grubunun parçası olmayan tüm sütunları hedef tabloda sağlanan değildir.
--   Yalnızca Seçili sütunları için dizin oluşturulur.  
-    Kaynak tablo dizin eşitleme grubunun parçası olmayan sütunları varsa, bu dizinler hedef tabloda sağlanan değildir.  
+-   Hedef tabloda oluşturulan sütunları seçin. Eşitleme grubunun parçası olmayan tüm sütunları hedef tabloda sağlanan değildir.
+-   Yalnızca Seçili sütunları için dizin oluşturulur. Kaynak tablo dizin eşitleme grubunun parçası olmayan sütunları varsa, bu dizinler hedef tabloda sağlanan değildir.  
 -   XML türü sütunlarındaki dizinler sağlanan değildir.  
 -   Denetim kısıtlamalarında sağlanan değildir.  
 -   Kaynak tablolarda varolan tetikleyicilerinizi sağlanan değildir.  
 -   Görünüm ve saklı yordam hedef veritabanında oluşturulmaz.
 -   UPDATE CASCADE ve ON DELETE CASCADE eylemleri yabancı anahtar kısıtlamaları hedef tabloda yeniden değildir.
+-   Kesinliği 28'den büyük olan ondalık veya sayısal sütununuz varsa, SQL Data Sync eşitleme sırasında bir dönüştürme taşma sorunla karşılaşabilirsiniz. 28 veya daha az ondalık veya sayısal sütun duyarlığını sınırlamanızı öneririz.
 
 #### <a name="recommendations"></a>Öneriler
 

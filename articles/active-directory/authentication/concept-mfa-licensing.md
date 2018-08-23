@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 92be187a1c593742feb90409f2b8cc305bf9a6c8
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 8ecb2008b85bb6a7ac35b5f95deaf0fb321ce155
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161660"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055890"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication'ı edinme
 
@@ -63,7 +63,7 @@ Aşağıdaki tabloda, çeşitli Azure multi-Factor Authentication sürümlerinde
 
 ## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>Azure AD yöneticileri için Azure multi-Factor Authentication devre dışı bırakma
 
-Azure AD kiracıları içinde genel Yönetici rolüne atanan kullanıcılar hiçbir ek ücret ödemeden Azure AD genel yönetici hesapları için iki aşamalı doğrulamayı etkinleştirebilirsiniz. Bir Microsoft Account kullanıyorsanız, çok faktörlü kimlik doğrulaması Microsoft hesabı destek makalesinde yönergelerle kaydedebilirsiniz [iki basamaklı doğrulama hakkında](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification). Microsoft Account kullanmıyorsanız, genel makalede bulunan yönergeleri kullanarak yöneticiler için multi-Factor authentication açma [bir kullanıcı veya grup için iki aşamalı doğrulama gerektirme](howto-mfa-userstates.md).
+Azure AD kiracıları içinde genel Yönetici rolüne atanan kullanıcılar hiçbir ek ücret ödemeden Azure AD genel yönetici hesapları için iki aşamalı doğrulamayı etkinleştirebilirsiniz. Bir Microsoft Account kullanıyorsanız, çok faktörlü kimlik doğrulaması Microsoft hesabı destek makalesinde yönergelerle kaydedebilirsiniz [iki basamaklı doğrulama hakkında](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification). Microsoft Account kullanmıyorsanız, genel makalede bulunan yönergeleri kullanarak yöneticiler için multi-Factor authentication açma [bir kullanıcı veya grup için iki aşamalı doğrulama gerektirme](howto-mfa-userstates.md).
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication'ı edinme
 

@@ -1,6 +1,6 @@
 ---
-title: Azure-SSIS tümleştirme çalışma zamanı iş sürekliliği ve olağanüstü durum kurtarma (BCDR) önerileri | Microsoft Docs
-description: Bu makalede, Azure-SSIS tümleştirme çalışma zamanı iş sürekliliği ve olağanüstü durum kurtarma önerileri özetler.
+title: SQL veritabanı yük devretme için Azure-SSIS Integration Runtime'ı yapılandırma | Microsoft Docs
+description: Bu makalede Azure SQL veritabanı coğrafi çoğaltma ve yük devretme için SSISDB veritabanının ile Azure-SSIS tümleştirme çalışma zamanını yapılandırma
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -8,23 +8,69 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 08/14/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 37347df2d543116085f52fed76c692b60fac2ad6
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 2012ccf4d9fd3e62ba248f29f922f868077e4061
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285861"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42056559"
 ---
-# <a name="business-continuity-and-disaster-recovery-bcdr-recommendations-for-azure-ssis-integration-runtime"></a>Azure-SSIS tümleştirme çalışma zamanı iş sürekliliği ve olağanüstü durum kurtarma (BCDR) önerileri
+# <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Azure SQL veritabanı coğrafi çoğaltma ve yük devretme ile Azure-SSIS tümleştirme çalışma zamanını yapılandırma
 
-Olağanüstü durum kurtarma amacıyla, şu anda çalışıyor bölgedeki Azure-SSIS Integration runtime'ı durdurun ve yeniden başlatmak için başka bir bölgeye geçiş yapabilirsiniz. Kullanmanızı öneririz [Azure eşleştirilmiş bölgeleri](../best-practices-availability-paired-regions.md) bu amaç için.
+Bu makalede, Azure SQL veritabanı SSISDB veritabanı için coğrafi çoğaltma ile Azure-SSIS tümleştirme çalışma zamanı yapılandırma açıklanır. Bir yük devretme işlemi gerçekleştiğinde, Azure-SSIS IR ikincil veritabanı ile çalışmaya devam eder emin olabilirsiniz.
 
-## <a name="prerequisites"></a>Önkoşullar
+Coğrafi çoğaltma ve yük devretme için SQL veritabanı hakkında daha fazla bilgi için bkz. [genel bakış: etkin coğrafi çoğaltma ve otomatik yük devretme grupları](../sql-database/sql-database-geo-replication-overview.md).
+
+## <a name="scenario-1---azure-ssis-ir-is-pointing-to-read-write-listener-endpoint"></a>Senaryo 1 - Azure-SSIS IR işaret okuma-yazma dinleyici uç noktası
+
+### <a name="conditions"></a>Koşullar
+
+Bu bölüm, aşağıdaki koşullar doğru olduğunda geçerlidir:
+
+- Azure-SSIS IR, yük devretme grubunun okuma / yazma dinleyici uç noktaya işaret ediyor.
+
+  VE
+
+- SQL veritabanı sunucusu *değil* sanal ağ hizmet uç noktası kuralı ile yapılandırılmış.
+
+### <a name="solution"></a>Çözüm
+
+Yük devretme gerçekleştiğinde Azure-SSIS IR için saydam Azure-SSIS IR, otomatik olarak yük devretme grubuna yeni birincil siteye bağlanır.
+
+## <a name="scenario-2---azure-ssis-ir-is-pointing-to-primary-server-endpoint"></a>Senaryo 2 - Azure-SSIS IR birincil sunucu uç noktaya işaret
+
+### <a name="conditions"></a>Koşullar
+
+Bu bölüm, aşağıdaki koşullardan biri doğru olduğunda geçerlidir:
+
+- Azure-SSIS IR, yük devretme grubunun birincil sunucu uç noktası işaret ediyor. Bu uç nokta yük devretme gerçekleştiğinde değiştirir.
+
+  OR
+
+- Azure SQL veritabanı sunucusu, sanal ağ hizmet uç noktası kuralı ile yapılandırılır.
+
+  OR
+
+- Veritabanı, SQL veritabanı yönetilen bir sanal ağ ile yapılandırılan örneği sunucusudur.
+
+### <a name="solution"></a>Çözüm
+
+Yük devretme işlemi gerçekleştiğinde, şunları yapmanız gerekir:
+
+1. Azure-SSIS IR'yi durdurma
+
+2. IR yeni bölgedeki bir sanal ağ ve yeni birincil uç noktaya işaret edecek şekilde yeniden yapılandırın.
+
+3. IR yeniden başlatın
+
+Aşağıdaki bölümlerde daha ayrıntılı adımları açıklanmaktadır.
+
+### <a name="prerequisites"></a>Önkoşullar
 
 - Sunucunun aynı anda bir kesinti olması durumunda, olağanüstü durum kurtarma için Azure SQL veritabanı sunucunuzun etkinleştirdiğinizden emin olun. Daha fazla bilgi için bkz. [Azure SQL veritabanı ile iş sürekliliğine genel bakış](../sql-database/sql-database-business-continuity.md).
 
@@ -32,13 +78,13 @@ Olağanüstü durum kurtarma amacıyla, şu anda çalışıyor bölgedeki Azure-
 
 - Özel kurulum kullanıyorsanız, bir kesinti sırasında erişilebilir olmaya devam eder, böylece özel kurulum betiğini ve ilişkili dosyalarını depolayan blob kapsayıcısı için başka bir SAS URI'si hazırlama gerekebilir. Daha fazla bilgi için bkz. [özel kurulum bir Azure-SSIS tümleştirme çalışma zamanını yapılandırma](how-to-configure-azure-ssis-ir-custom-setup.md).
 
-## <a name="steps"></a>Adımlar
+### <a name="steps"></a>Adımlar
 
 Azure-SSIS IR durdurmak, IR için yeni bir bölgeye geçiş ve yeniden başlatmak için aşağıdaki adımları izleyin.
 
 1. Özgün bölgede IR durdurun.
 
-2. IR güncelleştirmek için PowerShell'de şu komuta çağrı yapın
+2. IR yeni ayarlarla güncelleştirmek için PowerShell'de şu komuta çağrı yapın.
 
     ```powershell
     Set-AzureRmDataFactoryV2IntegrationRuntime -Location "new region" `

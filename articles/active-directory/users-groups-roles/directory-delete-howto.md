@@ -13,12 +13,12 @@ ms.date: 06/13/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 44781c976afa94ebe3c8df8c7fd70c3e16956916
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: b1d3439412e324c71687c43aa9e47c520cb72262
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37872696"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42062125"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Azure Active Directory kiracısı Sil
 Bir kiracı silindiğinde, kiracıda bulunan tüm kaynaklar da silinir. Kiracı, silmeden önce ilişkili kaynakları en aza indirerek hazırlamanız gerekir. Yalnızca Azure Active Directory (Azure AD) genel yönetici portalından Azure AD kiracısı silebilirsiniz.
@@ -63,7 +63,7 @@ Sağlaması (30 gün sonra devre dışı) | Silinen verileri (otomatik olarak si
 
 Bir aboneliğe koyabilirsiniz bir **Deprovisoned** durumu iş Yönetim Merkezi için Microsoft Store kullanarak 3 gün içinde silinecek. Bu özellik, Office 365 Yönetim merkezine yakında kullanıma sunulacaktır.
 
-1. Oturum [iş Yönetim Merkezi için Microsoft Store](https://businessstore.microsoft.com/en-us/manage/) kiracısında genel yönetici olan bir hesapla. İlk varsayılan etki alanı contoso.onmicrosoft.com olan "Contoso" kiracısını silmeye çalışıyorsanız, bir UPN ile aşağıdaki gibi oturum admin@contoso.onmicrosoft.com.
+1. Oturum [iş Yönetim Merkezi için Microsoft Store](https://businessstore.microsoft.com/manage/) kiracısında genel yönetici olan bir hesapla. İlk varsayılan etki alanı contoso.onmicrosoft.com olan "Contoso" kiracısını silmeye çalışıyorsanız, bir UPN ile aşağıdaki gibi oturum admin@contoso.onmicrosoft.com.
 
 2. Git **Yönet** sekmenize **ürünleri ve Hizmetleri**, iptal etmek istediğiniz aboneliği seçin. Tıkladıktan sonra **iptal**, sayfayı yenileyin.
   

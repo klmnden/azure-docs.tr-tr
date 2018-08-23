@@ -8,16 +8,16 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: b4776ef3589d994fff692e450d252c491c20f7b2
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4751a76c39060f48d3b816ecee0de5b58e29bdaa
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522875"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42056357"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Azure IOT Hub cihaz sağlama Hizmeti'ne erişimi denetleme
 
-Bu makalede, IOT cihaz sağlama hizmeti güvenli hale getirmek için seçenekler açıklanmaktadır. Sağlama hizmeti kullandığı *izinleri* her uç noktasına erişim vermek için. İşlevselliğine dayalı bir hizmet örneği için erişim izinleri sınırlayabilir.
+Bu makalede, IOT cihaz sağlama hizmetinize güvenliğini sağlamak için seçenekleri açıklar. Sağlama hizmeti kullandığı *izinleri* her uç noktasına erişim vermek için. İşlevselliğine dayalı bir hizmet örneği için erişim izinleri sınırlayabilir.
 
 Bu makalede açıklanır:
 
@@ -34,7 +34,7 @@ Size verebilir [izinleri](#device-provisioning-service-permissions) aşağıdaki
 
 * **Paylaşılan erişim Yetkilendirme İlkeleri**. Paylaşılan erişim ilkeleri, herhangi bir birleşimini vermek [izinleri](#device-provisioning-service-permissions). İlkeleri tanımlayabilirsiniz [Azure portalında][lnk-management-portal], kullanarak programlama yoluyla veya [cihaz sağlama hizmeti REST API'lerine][lnk-resource-provider-apis]. Yeni oluşturulan bir sağlama hizmeti, aşağıdaki varsayılan ilkesi vardır:
 
-  * **provisioningserviceowner**: ilke tüm izinlere sahip.
+   **provisioningserviceowner**: ilke tüm izinlere sahip.
 
 > [!NOTE]
 > Bkz: [izinleri](#device-provisioning-service-permissions) ayrıntılı bilgi için.
@@ -51,12 +51,16 @@ Oluşturun ve güvenlik belirteçleri kullanma hakkında daha fazla bilgi için 
 Yalnızca desteklenen protokol HTTP'dir ve geçerli bir belirteç içine dahil ederek kimlik doğrulaması uygulayan **yetkilendirme** isteği üstbilgisi.
 
 #### <a name="example"></a>Örnek
-`SharedAccessSignature sr=mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`
+```csharp
+SharedAccessSignature sr = 
+   mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`\
+```
 
 > [!NOTE]
 > [Azure IOT cihaz sağlama hizmeti SDK'ları] [ lnk-sdks] belirteçleri hizmetine olduğunda otomatik olarak oluşturur.
 
 ## <a name="security-tokens"></a>Güvenlik belirteçleri
+
 Cihaz sağlama hizmeti, kablo anahtarları göndermekten kaçınmanız Hizmetleri kimlik doğrulaması için güvenlik belirteçlerini kullanır. Ayrıca, güvenlik belirteçleri geçerlilik tarihi ve kapsam bakımından sınırlıdır. [Azure IOT cihaz sağlama hizmeti SDK'ları] [ lnk-sdks] otomatik olarak özel bir yapılandırma gerektirmeden belirteçleri oluşturun. Bazı senaryolar oluşturur ve güvenlik belirteçlerini doğrudan kullanmanızı gerektirir. Bu senaryolara HTTP yüzey doğrudan kullanımını içerir.
 
 ### <a name="security-token-structure"></a>Güvenlik belirteci yapısı
@@ -131,7 +135,6 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 > [!NOTE]
 > IOT cihaz sağlama hizmeti makinelerde belirteç süre geçerliliği doğrulanır olduğundan, belirteci oluşturan makinenin saatindeki kayması en az olmalıdır.
 
-
 ### <a name="use-security-tokens-from-service-components"></a>Hizmet bileşenleri güvenlik belirteçleri kullanma
 
 Hizmet bileşenleri, yalnızca güvenlik belirteçleri kullanarak daha önce açıklandığı gibi uygun izinleri verip paylaşılan erişim ilkeleri oluşturabilirsiniz.
@@ -150,9 +153,9 @@ Bitiş noktası kullanıma sunulan hizmet işlevleri şunlardır:
 * Kaynak URI: `{mydps}.azure-devices-provisioning.net`,
 * imzalama anahtarı: anahtarlarından `enrollmentread` İlkesi
 * İlke adı: `enrollmentread`,
-* herhangi bir sona erme saati.
+* herhangi bir sona erme time.backn
 
-![Portalda DPS Örneğiniz için bir paylaşılan erişim ilkesi oluşturma][img-add-shared-access-policy]
+![Portalda bir cihaz sağlama hizmeti örneğinizi için paylaşılan erişim ilkesi oluşturma][img-add-shared-access-policy]
 
 ```nodejs
 var endpoint ="mydps.azure-devices-provisioning.net";
@@ -170,7 +173,7 @@ Tüm kayıt kayıtları okuma erişimi vermeniz, sonuç şu şekilde olur:
 
 Aşağıdaki başvuru konuları, IOT cihaz sağlama Hizmeti'ne erişimi denetleme hakkında daha fazla bilgi sağlar.
 
-## <a name="device-provisioning-service-permissions"></a>Cihaz sağlama hizmeti izinleri
+### <a name="device-provisioning-service-permissions"></a>Cihaz sağlama hizmeti izinleri
 
 Aşağıdaki tabloda, IOT cihaz sağlama Hizmeti'ne erişimi denetlemek için kullanabileceğiniz izinleri listeler.
 

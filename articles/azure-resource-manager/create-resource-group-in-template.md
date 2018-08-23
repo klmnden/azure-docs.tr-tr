@@ -9,20 +9,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 90d21ac817f6fd4730ff4a7e98500a80af10ac70
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 003f5d114a233738783d265a18ee7d2ccbfaba10
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623294"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617275"
 ---
 # <a name="create-resource-groups-in-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarında kaynak grupları oluşturun
 
-Bir Azure Resource Manager şablonunda bir kaynak grubu oluşturmak için tanımladığınız bir **Microsoft.Resources/resourceGroups** kaynak adı ve kaynak grubu için konum. Şablonu Azure aboneliğinize dağıtın. Ayrıca, kaynakları bu kaynak grubunda aynı şablonu dağıtabilirsiniz.
+Bir Azure Resource Manager şablonunda bir kaynak grubu oluşturmak için tanımladığınız bir **Microsoft.Resources/resourceGroups** kaynak adı ve kaynak grubu için konum. Şablonu Azure aboneliğinize dağıtın. Abonelik düzeyi dağıtımları hakkında daha fazla bilgi için bkz. [bir Azure aboneliğine kaynakları dağıtma](deploy-to-subscription.md).
 
-Bu makalede, şablonları dağıtmak için Azure CLI kullanılmaktadır. Şu anda PowerShell bir abonelik için bir şablonu dağıtmayı desteklemiyor.
+Ayrıca, kaynakları bu kaynak grubunda aynı şablonu dağıtabilirsiniz.
+
+Bu makalede, şablonları dağıtmak için Azure CLI ve PowerShell kullanır.
 
 ## <a name="create-empty-resource-group"></a>Boş bir kaynak grubu oluşturun
 
@@ -62,6 +64,17 @@ az deployment create \
   -l southcentralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
   --parameters rgName=demoRG rgLocation=northcentralus
+```
+
+PowerShell ile bu şablonu dağıtmak için şunu kullanın:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoEmptyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
+  -rgName demogroup `
+  -rgLocation northcentralus
 ```
 
 ## <a name="create-several-resource-groups"></a>Çeşitli kaynak grupları oluşturun
@@ -109,6 +122,18 @@ az deployment create \
   -l southcentralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json \
   --parameters rgNamePrefix=demoRG rgLocation=northcentralus instanceCount=3
+```
+
+PowerShell ile bu şablonu dağıtmak için şunu kullanın:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoCopyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json `
+  -rgName demogroup `
+  -rgLocation northcentralus `
+  -instanceCount 3
 ```
 
 ## <a name="create-resource-group-and-deploy-resource"></a>Kaynak grubu oluşturun ve kaynak dağıtma
@@ -190,7 +215,20 @@ az deployment create \
   --parameters rgName=rgStorage rgLocation=northcentralus storagePrefix=storage
 ```
 
+PowerShell ile bu şablonu dağıtmak için şunu kullanın:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoRGStorage `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json `
+  -rgName rgStorage `
+  -rgLocation northcentralus `
+  -storagePrefix storage
+```
+
 ## <a name="next-steps"></a>Sonraki adımlar
+* Abonelik düzeyi dağıtımları hakkında bilgi edinmek için [bir Azure aboneliğine kaynakları dağıtma](deploy-to-subscription.md).
 * Bağımlılıkları dağıtımı sırasında sorun giderme hakkında bilgi edinmek için [Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme](resource-manager-common-deployment-errors.md).
 * Azure Resource Manager şablonları oluşturma hakkında bilgi edinmek için [şablonları yazma](resource-group-authoring-templates.md). 
 * Bir şablonda kullanabileceğiniz işlevler listesi için bkz. [şablon işlevleri](resource-group-template-functions.md).

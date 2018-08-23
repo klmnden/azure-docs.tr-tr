@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 5039399ac875add02319e1a745d99344956c7bee
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: ec0fc11ac2caf421f331a8fe72f1dacdf6b8a702
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860223"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42312172"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri gelen ve Oracle'a kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,6 +64,12 @@ Aşağıdaki özellikler Oracle bağlı hizmeti için desteklenir.
 
 >[!TIP]
 >Hata bildiren ulaşırsanız "ORA-01025: UPI parametre aralık dışında" ve Oracle Sürüm 8i, ekleme `WireProtocolMode=1` bağlantı dizesi ve yeniden deneyin.
+
+Oracle bağlantı şifrelemesini etkinleştirmek için iki seçeneğiniz vardır:
+
+1.  Oracle sunucu tarafında, Oracle Gelişmiş Güvenlik (OAS) için Git ve destekleyen Üçlü DES şifrelemesi (3DES) ve Gelişmiş Şifreleme Standardı (AES), ayrıntılara bakın şifreleme ayarlarını yapılandırın [burada](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). ADF Oracle Bağlayıcısı otomatik olarak Oracle bağlantı kurulurken OAS yapılandırma birini kullanmak için şifreleme yöntemini görüşür.
+
+2.  İstemci tarafında, eklediğiniz `EncryptionMethod=1` bağlantı dizesindeki. Bu şifreleme yöntemi olarak SSL/TLS kullanır. Bunu kullanmak için şifreleme çakışmayı önlemek için SSL olmayan şifreleme ayarlarını OAS Oracle sunucu tarafında devre dışı bırakmak gerekir.
 
 **Örnek:**
 

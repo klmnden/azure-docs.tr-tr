@@ -17,12 +17,12 @@ ms.date: 07/26/2018
 ms.author: celested
 ms.reviewer: jmprieur, andret, nacanuma, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dda0d8e9496eb310f6d2a2791977e9de0eea6503
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: fc6c97906525b2f575a18ce5357eb3e10bfb4887
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578533"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057054"
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Azure AD için kimlik doğrulama senaryoları
 
@@ -52,7 +52,7 @@ Yukarıdaki diyagramda ile unutmayın, işte çeşitli bileşenleri hakkında bi
 * Azure AD kimlik, kullanıcı ve kuruluşun dizininde mevcut uygulamaların kimlik doğrulama ve sonuçta bu kullanıcılar ve uygulamalar, başarılı kimlik doğrulamadan sonra güvenlik belirteçleri verme sorumlu sağlayıcıdır.
 * Azure AD kimlik dış isteyen uygulamaya kaydeder ve uygulamayı dizininde benzersiz olarak tanıtan Azure AD'de kayıtlı olması gerekir.
 * Geliştiriciler, kimlik doğrulama protokolü ayrıntıları işleyerek kolaylaştıran açık kaynaklı Azure AD kimlik doğrulama kitaplıkları kullanabilirsiniz. Daha fazla bilgi için [Azure Active Directory kimlik doğrulama kitaplıkları](active-directory-authentication-libraries.md).
-* Uygulama, bir kullanıcının kimliği doğrulandıktan sonra söz konusu kimlik doğrulamasını başarılı olmak için kullanıcının güvenlik belirteci doğrulamanız gerekir. Uygulama çeşitli diller ve çerçeveler yapmalısınız örneklerin sahibiz [GitHub](https://github.com/Azure-Samples?q=active-directory). Bir ASP.NET web uygulaması derliyorsanız bkz [oturum açmak için bir ASP.NET web uygulaması Kılavuzu ekleme](https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp). Bir web API'si kaynağına ASP.NET'te oluşturuyorsanız, bkz. [web API'si ile çalışmaya başlama Kılavuzu](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
+* Uygulama, bir kullanıcının kimliği doğrulandıktan sonra söz konusu kimlik doğrulamasını başarılı olmak için kullanıcının güvenlik belirteci doğrulamanız gerekir. Uygulama çeşitli diller ve çerçeveler yapmalısınız örneklerin sahibiz [GitHub](https://github.com/Azure-Samples?q=active-directory). Bir ASP.NET web uygulaması derliyorsanız bkz [oturum açmak için bir ASP.NET web uygulaması Kılavuzu ekleme](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp). Bir web API'si kaynağına ASP.NET'te oluşturuyorsanız, bkz. [web API'si ile çalışmaya başlama Kılavuzu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
 * İsteklerin ve yanıtların kimlik doğrulama sürecine akışı, OAuth 2.0 gibi Openıd Connect, kullanılan kimlik doğrulama protokolü belirlenir SAML 2.0 veya WS-Federation. Bu protokollerin daha ayrıntılı olarak ele alınmıştır [Azure Active Directory kimlik doğrulama protokolleri](active-directory-authentication-protocols.md) makale ve aşağıdaki bölümler.
 
 > [!NOTE]

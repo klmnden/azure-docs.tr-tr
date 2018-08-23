@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 675316b97e821a81ca4946d57a76d7bce978361b
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 0e1c049596b5231ad72590fc17a73cd5aa457e4d
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714555"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056029"
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Azure Marketi için bir çözüm şablonu oluşturmak için kılavuz
 1. adım tamamlandıktan sonra [hesap oluşturma ve kayıt][link-acct-creation], biz Azure ile uyumlu çözüm şablonunun oluşturma destekli [oluşturmaya yönelik teknik Önkoşullar bir Çözüm şablonu](marketplace-publishing-solution-template-creation-prerequisites.md). Birden çok VM için bir çözüm şablonu oluşturma adımlarında size yol gösterir artık [yayımlama portalı] [ link-pubportal] Azure Marketi için.
@@ -60,7 +60,7 @@ Bu belirli sürümü topolojinin sağlamak için tüm gerekli dosyaları içeren
 Ayrıca bu ilgili makaleler ilginizi çekebilir:
 
 * VM görüntüleri: [azure'da sanal makine görüntüleri hakkında](https://msdn.microsoft.com/library/azure/dn790290.aspx)
-* VM uzantıları: [VM aracısı ve VM uzantılarına genel bakış](https://msdn.microsoft.com/library/azure/dn832621.aspx) ve [Azure VM uzantıları ve özellikleri](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+* VM uzantıları: [Azure VM uzantıları ve özellikleri](../virtual-machines/extensions/features-windows.md)
 * Azure Resource Manager: [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md) ve [basit şablon örnekleri](https://github.com/rjmax/ArmExamples)
 * Depolama hesabı kısıtlar: [izleme depolama hesabı azaltma için](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) ve [Premium depolama](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)
 

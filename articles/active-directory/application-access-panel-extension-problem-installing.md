@@ -1,6 +1,6 @@
 ---
-title: Uygulama erişim paneli tarayıcı uzantısı - Azure yükleme | Microsoft Docs
-description: Erişim paneli tarayıcı uzantısı yüklediğinizde karşılaşılan yaygın hataları düzeltin.
+title: Uygulama erişim paneli tarayıcı uzantısını - Azure'ı yükleme | Microsoft Docs
+description: Erişim paneli tarayıcı uzantısını yükleme sırasında karşılaşılan yaygın hataları düzeltin.
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -15,115 +15,115 @@ ms.topic: article
 ms.date: 5/4/18
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 00dade0926f9f2601757ac637e21737027f24c45
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 642f07be0eb58e4d10630bc4482d26bd00e08a94
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332618"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056091"
 ---
-# <a name="install-the-access-panel-browser-extension"></a>Erişim paneli tarayıcı uzantısı yükleyin
+# <a name="install-the-access-panel-browser-extension"></a>Erişim paneli tarayıcı uzantısını yükleme
 
-Erişim paneli web tabanlı bir portalıdır. Bir iş veya Okul hesabı Azure Active Directory'de (Azure AD), görüntülemek ve bir Azure AD Yöneticisi için erişim izni bulut tabanlı uygulamalar başlatmak için erişim paneli kullanabilirsiniz. 
+Erişim paneli web tabanlı bir portaldır. Bir iş veya Okul hesabı Azure Active Directory'de (Azure AD), görüntülemek ve bir Azure AD Yöneticisi erişim izni vermiştir, bulut tabanlı uygulamalarda başlatmak için erişim paneli kullanabilirsiniz. 
 
-Azure AD sürümleri kullanıyorsanız, Self Servis grup ve erişim paneli aracılığıyla uygulama yönetim özelliklerini kullanabilirsiniz. 
+Azure AD sürümleri kullanıyorsanız, Self Servis grup ve uygulama yönetimi özelliklerinin erişim paneli ile kullanabilirsiniz. 
 
-Erişim paneli Azure Portalı'ndan ayrıdır. Bir Azure aboneliğinizin olmasını gerektirmez.
+Erişim paneli, Azure Portalı'ndan ayrıdır. Azure aboneliğinin olmasını gerektirmez.
 
 ## <a name="web-browser-requirements"></a>Web tarayıcısı gereksinimleri
 
-En azından, CSS etkin olduğundan ve erişim paneli JavaScript destekleyen bir tarayıcı gerektirir. Parola tabanlı SSO erişim panelinde aracılığıyla uygulamaları için oturum açmanız erişim paneli uzantı tarayıcınızda yüklü olmalıdır. Uzantı, parola tabanlı SSO için yapılandırılmış bir uygulama seçtiğinizde otomatik olarak yüklenir.
+En azından CSS etkin olduğundan ve erişim paneli JavaScript destekleyen bir tarayıcı gerektirir. Uygulamalara erişim panelinde parola tabanlı SSO ile oturum açmanız, erişim paneli uzantısını tarayıcınızda yüklü olmalıdır. Uzantı, parola tabanlı SSO için yapılandırılmış bir uygulama seçtiğinizde otomatik olarak indirilir.
 
-Parola tabanlı, SSO için aşağıdaki tarayıcılardan birini kullanabilirsiniz:
+Parola tabanlı SSO için aşağıdaki tarayıcılardan herhangi birini kullanabilirsiniz:
 
-- **Kenar**: Windows 10 Anniversary Edition veya sonraki sürümlerde. 
-- **Chrome**: Windows 7 veya daha sonra ve MacOS x veya sonraki sürümlerde.
-- **Firefox 26,0 veya üzeri**: Windows XP SP2 veya daha sonra ve Mac OS X 10.6 veya sonraki sürümlerde.
+- **Edge**: Windows 10 Anniversary Edition veya sonrası. 
+- **Chrome**: Windows 7 ve daha sonra ve MacOS x veya sonrası.
+- **26,0 veya üzeri Firefox**: Windows XP SP2 veya sonraki sürümlerde ve Mac OS X 10.6 veya daha sonra.
 
-## <a name="install-the-access-panel-browser-extension"></a>Erişim paneli tarayıcı uzantısı yükleyin
+## <a name="install-the-access-panel-browser-extension"></a>Erişim paneli tarayıcı uzantısını yükleme
 
-Erişim paneli tarayıcı uzantısı yüklemek için aşağıdakileri yapın:
+Erişim paneli tarayıcı uzantısını yüklemek için aşağıdakileri yapın:
 
-1.  Desteklenen tarayıcılar her birinde açmak [erişim paneli](https://myapps.microsoft.com)ve Azure AD hesabınızda bir kullanıcı olarak oturum açın.
+1.  Desteklenen tarayıcılar her birinde açın [erişim paneli](https://myapps.microsoft.com)ve Azure AD hesabı bir kullanıcı olarak oturum açın.
 
 2.  Bir parola tabanlı SSO uygulaması'nı seçin.
 
 3.  İstendiğinde, seçin **Şimdi Yükle**.  
-    İçin karşıdan yükleme bağlantısı için seçilen tarayıcınızın yönlendirilir. 
+    İndirme bağlantısını için seçilen tarayıcınızın yönlendirilir. 
     
 4.  **Add (Ekle)** seçeneğini belirleyin.
 
-5.  Ya da istenirse **etkinleştirmek** veya **izin** uzantısı.
+5.  Ya da istendiğinde **etkinleştirme** veya **izin** uzantısı.
 
 6.  Yükleme tamamlandıktan sonra tarayıcınızı yeniden başlatın.
 
-7.  Erişim paneli ve onay için parola tabanlı SSO uygulamalarınızın Başlat olup olmadığını görmek için oturum açın.
+7.  Erişim paneli ve onay için parola tabanlı SSO uygulamalarınızı başlayıp başlamayacağını görmek için oturum açın.
 
-Chrome ve aşağıdaki siteleri doğrudan kenarından uzantısı da yükleyebilirsiniz:
+Uzantı, Chrome ve Edge'dir aşağıdaki sitelerden doğrudan için de indirebilirsiniz:
 
 - [Chrome uzantısı](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 - [Edge uzantısı](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Kullanım uygulamalarım güvenli oturum açma uzantısı
-* My uygulamaları URL dışında kullanıyorsanız `https://myapps.microsoft.com`, aşağıdakileri yaparak, varsayılan URL yapılandırın:
-   1. Siz *değil* uzantısı açtığınız uzantısı simgesine sağ tıklayın.
-   2. Menüsünde seçin **My uygulamaları URL**.
-   3. Varsayılan URL seçin.
-   4. Uzantı simgesini seçin.
-   5. Uzantı oturum açmak için seçin **başlamak oturum**.
+* My Apps URL dışında kullanıyorsanız `https://myapps.microsoft.com`, aşağıdakileri yaparak, varsayılan URL yapılandırın:
+   1. Siz *değil* uzantı açtığınız uzantı simgesine sağ tıklayın.
+   2. Menüsünde **My Apps URL**.
+   3. Varsayılan URL'yi seçin.
+   4. Genişletme simgesini seçin.
+   5. Uzantı oturum açmak için seçin **kullanmaya başlamak oturum**.
 
-* Doğrudan bir uygulama tarayıcıdan oturum açmak için aşağıdakileri yapın:
-   1. Uzantıyı yükledikten sonra kendisine seçerek oturum **başlamak oturum**.
+* Bir uygulamaya doğrudan bir tarayıcıdan oturum açmak için aşağıdakileri yapın:
+   1. Uzantıyı yükledikten sonra ona seçerek oturum **kullanmaya başlamak oturum**.
    2. Uygulama oturum açma URL'si ile oturum açın.  
-       Oturum açma genellikle oturum açma formu görüntüler uygulamanın URL'dir.
-      Uzantı durumunu değiştirme ve bir parola kullanılabilir olduğunu biliyor sağlar.
-   3. Oturum açmak için uzantı simgesini seçin.
+       Oturum açma URL'si genellikle oturum açma formunu görüntüleyen bir uygulama URL'dir.
+      Uzantı, durumunu değiştirin ve parola kullanılabilir olduğunu bilmesini sağlar.
+   3. Oturum açmak için genişletme simgesini seçin.
 
-* Bir uygulama uzantı başlatmak için aşağıdakileri yapın:
-   1. Uzantıyı yükledikten sonra kendisine seçerek oturum **başlamak oturum**.
-   2. Kendi menüsünü açmak için uzantı simgesini seçin.
-   3. My uygulamaları Portalı'nda kullanılabilir olan bir uygulamayı arayın.
+* Uzantı bir uygulamayı başlatmak için aşağıdakileri yapın:
+   1. Uzantıyı yükledikten sonra ona seçerek oturum **kullanmaya başlamak oturum**.
+   2. Alt menüsünü açmak için genişletme simgesini seçin.
+   3. Uygulamalarım portalında kullanılabilir olan uygulama arayın.
    4. Arama sonuçları listesinde uygulamayı seçin.  
-       Kullandığınız son üç uygulamaları görüntülenen **kısa süre önce kullanılan** kısayol listesi.
+       Son üç uygulamaları kullandığınız görüntülenen **kısa süre önce kullanılan** kısayol listesi.
        
-* Şirket içi URL'leri uzaktan sırasında kullanmak için aşağıdakileri yapın:
-    1. [Uygulama proxy'si yapılandırma](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) kiracınız hakkında
-    2. [Uygulamayı yayımlamak](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) ve uygulama proxy'si aracılığıyla URL'si
-    3. Uzantıyı yüklemek ve için oturum açma seçerek başlamak için oturum açın
-    4. Şirket içi URL'ye uzaktan sırasında bile gözatabilirsiniz
+* Şirket içi URL'leri uzaktayken kullanmak için aşağıdakileri yapın:
+    1. [Uygulama Ara sunucusu yapılandırma](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) kiracınıza
+    2. [Uygulama yayımlama](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) ve uygulama proxy'si aracılığıyla uygulama URL'si
+    3. Uzantıyı yüklemek ve ona oturum açma'yı seçerek kullanmaya başlamak için oturum açın
+    4. Artık uzaktan çalışırken bile şirket içi URL'sine göz atabilirsiniz
 
 > [!NOTE]
-> Yukarıdaki seçeneklerden yalnızca kenar, Chrome ve Firefox için kullanılabilir.
+> Yukarıdaki seçeneklerden yalnızca Edge, Chrome ve Firefox için kullanılabilir.
 
 ## <a name="set-up-a-group-policy-for-internet-explorer"></a>Internet Explorer için bir Grup İlkesi ayarlama
 
-Uzaktan erişim paneli uzantısı Internet Explorer için kullanıcılarınızın makinelerde yüklenmesine izin veren bir Grup İlkesi ayarlayabilirsiniz.
+Uzaktan erişim paneli uzantısını Internet Explorer için kullanıcılarınızın makineler yüklemenize olanak sağlayan bir Grup İlkesi ayarlayabilirsiniz.
 
-Bir Grup İlkesi ayarlamadan önce emin olun:
+Bir Grup İlkesi ayarlama önce şunlardan emin olun:
 
--   Ayarlamış olduğunuz [Active Directory etki alanı Hizmetleri](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), ve kullanıcılarınızın makineler, etki alanına.
+-   Ayarlamış olduğunuz [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), ve kullanıcılarınızın makineleri etki alanınıza katılmış.
 
--   Grup İlkesi nesnesi (GPO) düzenlemek için bilmeniz gereken *ayarlarını düzenleme* izinleri. Varsayılan olarak, aşağıdaki güvenlik gruplarının üyeleri için bu izin verilir: etki alanı yöneticileri, kuruluş yöneticileri ve Grup İlkesi Oluşturucu Sahipleri.
+-   Grup İlkesi nesnesi (GPO) düzenleyin için olmalıdır *ayarlarını Düzenle* izinleri. Varsayılan olarak, aşağıdaki güvenlik gruplarının bir üyesi için bu izin verilir: etki alanı yöneticileri, kuruluş yöneticileri ve Grup İlkesi Oluşturucu Sahipleri.
 
-Grup İlkesi yapılandırma ve kullanıcılara dağıtma hakkında adım adım yönergeler için bkz: [Grup İlkesi'ni kullanarak Internet Explorer için erişim paneli uzantısı dağıtmak](active-directory-saas-ie-group-policy.md).
+Grup İlkesi yapılandırma ve kullanıcılara dağıtma hakkında adım adım yönergeler için bkz: [Grup İlkesi'ni kullanarak Internet Explorer için erişim paneli uzantısını dağıtma](active-directory-saas-ie-group-policy.md).
 
-## <a name="troubleshoot-the-access-panel-extension-in-internet-explorer"></a>Internet Explorer erişim paneli uzantı sorunlarını giderme
+## <a name="troubleshoot-the-access-panel-extension-in-internet-explorer"></a>Erişim paneli uzantısını Internet Explorer'da sorunlarını giderme
 
-Bir tanılama aracı ve Internet Explorer uzantısı yapılandırma hakkında bilgi erişmek için bkz: [erişim paneli uzantısı Internet Explorer için sorun giderme](active-directory-saas-ie-troubleshooting.md).
+Bir tanılama aracı ve Internet Explorer uzantısı yapılandırma hakkında bilgi erişmek için bkz: [erişim paneli uzantısını Internet Explorer için sorun giderme](active-directory-saas-ie-troubleshooting.md).
 
 > [!NOTE]
-> Internet Explorer üzerinde sınırlı destek ve artık yeni yazılım güncelleştirmeleri alır. Edge önerilen tarayıcısıdır.
+> Internet Explorer üzerinde sınırlı desteği ve yeni yazılım güncelleştirmeleri artık almaz. Edge önerilen tarayıcısıdır.
 
 ## <a name="if-the-preceding-steps-do-not-resolve-the-issue"></a>Yukarıdaki adımlar sorunu çözmezse
 
-Varsa aşağıdaki bilgileri içeren bir destek bileti açın:
+Varsa aşağıdaki bilgileri ile bir destek bileti açın:
 
 -   Bağıntı hata kimliği
 -   UPN (kullanıcı e-posta adresi)
--   Tenantıd
+-   Kiracı kimliği
 -   Tarayıcı türü
--   Saat dilimi ve saat veya hata oluştuğu sırada zaman çerçevesi
+-   Saat dilimi ve saat veya hatanın oluştuğu andaki zaman çerçevesi
 -   Fiddler izlemeleri
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
+[Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](manage-apps/what-is-single-sign-on.md)

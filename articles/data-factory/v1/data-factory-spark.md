@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: eb46347e82063d2e990b319ab108cf257c7e6b88
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4c7dddcb5e39eb1f72fb59af753ab167bc44d3e3
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440635"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42062138"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory işlem hatlarını Spark programlarını çağırma
 
@@ -56,7 +56,7 @@ Spark etkinliği ile bir veri fabrikası işlem hattı oluşturmak için tipik a
 * Oluşturduğunuz HDInsight bağlı hizmetini ifade eder Spark etkinliği ile işlem hattı oluşturma. Etkinlik, bir çıktı veri kümesi olarak önceki adımda oluşturduğunuz veri kümesi ile yapılandırılır. Çıktı veri kümesi (saatlik, günlük) zamanlamayı yönetendir; ' dir. Bu nedenle, etkinlik, gerçekten bir çıktı oluşturmasa olsa da, çıktı veri kümesi belirtmeniz gerekir.
 
 ### <a name="prerequisites"></a>Önkoşullar
-1. Genel amaçlı depolama hesabı'ndaki yönergeleri takip ederek oluşturma [depolama hesabı oluşturma](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+1. Genel amaçlı depolama hesabı'ndaki yönergeleri takip ederek oluşturma [depolama hesabı oluşturma](../../storage/common/storage-quickstart-create-account.md).
 
 1. Öğreticide yönergeleri takip ederek HDInsight Spark kümesi oluşturma [HDInsight Spark kümesi oluşturma](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Bu küme ile 1. adımda oluşturduğunuz depolama hesabını ilişkilendirebilirsiniz.
 

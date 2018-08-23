@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: dafa25504990ffc64cac6e98a311db9dc8d85b0f
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 259d876a958a348aeef70554390e48251b31a63d
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579723"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057451"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma
 > [!div class="op_single_selector"]
@@ -432,13 +432,13 @@ Service Fabric çalışma zaman, kapsayıcı görüntülerinin indirilip ayıkla
 
 ```json
 {
-"name": "Hosting",
+        "name": "Hosting",
         "parameters": [
           {
-              "name": " ContainerImageDownloadTimeout ",
+              "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
-]
+        ]
 }
 ```
 
@@ -460,7 +460,7 @@ Service Fabric çalışma zamanı 6.2 sürümü ve üzeriyle, Docker cinini öze
 
 ```json
 { 
-   "name": "Hosting", 
+        "name": "Hosting", 
         "parameters": [ 
           { 
             "name": "ContainerServiceArguments", 

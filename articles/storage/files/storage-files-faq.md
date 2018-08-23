@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 07/19/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 51b54de39e24cfd69b7823c17dc5f7c9d7e885a9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 31f5b2792aa83d15a1478cf201ca674995816430
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524082"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056579"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular (SSS)
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilen bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlarda eşzamanlı olarak bağlayabilir. Ayrıca verilerin kullanıldığı yakın, hızlı erişim için Azure dosya eşitleme'ı kullanarak Azure dosya paylaşımları Windows Server makinelerinde önbelleğe alabilir.
@@ -191,6 +191,10 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
 * <a id="afs-do-not-delete-server-endpoint"></a>
 **My server (eşitleme, bulut katmanlama, vb.) Azure dosya eşitleme ile ilgili bir sorun yaşıyorum. Kaldırın ve paylaşabilirim my server uç noktası yeniden?**  
     [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
+    
+* <a id="afs-resource-move"></a>
+**Depolama eşitleme hizmeti ve/veya depolama hesabını bir farklı kaynak grubuna veya aboneliğe taşıyabilirim?**  
+   Evet, depolama eşitleme hizmeti ve/veya depolama hesabını bir farklı kaynak grubuna veya aboneliğe taşınabilir. Depolama hesabı taşınırsa, depolama hesabına karma dosya eşitleme hizmeti erişmesini gerekir (bkz [olun Azure dosya eşitleme depolama hesabına erişebilir](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
 ## <a name="security-authentication-and-access-control"></a>Güvenlik, kimlik ve erişim denetimi
 * <a id="ad-support"></a>
@@ -221,7 +225,7 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
 
 * <a id="data-compliance-policies"></a>
 **Hangi veri uyumluluk ilkeleri, Azure dosyaları destekliyor mu?**  
-   Azure dosyaları Azure depolama alanındaki diğer depolama hizmetlerindeki kullanılan aynı depolama mimarisi üzerinde çalışır. Azure dosyaları, diğer Azure depolama hizmetleri içinde kullanılan aynı veri uyumluluk ilkelerini uygular. Azure depolama veri uyumluluğu hakkında daha fazla bilgi için indirme ve başvurmak [Microsoft Azure veri koruma belge](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409)ve Git [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
+   Azure dosyaları Azure depolama alanındaki diğer depolama hizmetlerindeki kullanılan aynı depolama mimarisi üzerinde çalışır. Azure dosyaları, diğer Azure depolama hizmetleri içinde kullanılan aynı veri uyumluluk ilkelerini uygular. Azure depolama veri uyumluluğu hakkında daha fazla bilgi için başvurabilirsiniz [Azure depolama uyumluluk teklifi](https://docs.microsoft.com/en-us/azure/storage/common/storage-compliance-offerings)ve Git [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Şirket içi erişim
 * <a id="expressroute-not-required"></a>

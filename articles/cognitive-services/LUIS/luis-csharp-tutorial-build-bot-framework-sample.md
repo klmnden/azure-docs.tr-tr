@@ -1,24 +1,24 @@
 ---
-title: LUIS ile Bot Builder SDK'sı için C# Azure kullanan bir robotun tümleştirme | Microsoft Docs
-description: Bot Framework kullanarak bir LUIS uygulaması ile tümleşik bir bot oluşturun.
+title: Bot Builder SDK - Azure Bilişsel hizmetler kullanarak bir bot ile tümleştirme LUIS kullanarak C# | Microsoft Docs
+description: C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet Robotu oluşturun. Bu sohbet Robotu, hızlı bir şekilde bir bot çözümü uygulamak için önceden oluşturulmuş HomeAutomation etki alanını kullanır.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 08/13/2018
 ms.author: diberry
-ms.openlocfilehash: ca893dadfed04c90a4d89087299bf1cc2bf55eb9
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: d0010ccf51fc688fa66e1be82c735ae38455509b
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225967"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41987461"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>LUIS şablonu için C# kullanarak Web App Botu
 
-Tümleşik dil anlama sahip bir sohbet Robotu oluşturun.
+C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet Robotu oluşturun. Bu sohbet Robotu, hızlı bir şekilde bir bot çözümü uygulamak için önceden oluşturulmuş HomeAutomation etki alanını kullanır. 
 
 ## <a name="prerequisite"></a>Önkoşul
 
@@ -148,7 +148,7 @@ Azure portalında tıklayarak **Test Web sohbeti içinde** bot test etmek için.
 > LUIS uygulamanızı, botun kod değişiklik olmadan yeniden eğitebilir. Bkz: [örnek Konuşma ekleme](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) ve [eğitme ve LUIS uygulamanızı test etme](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test). 
 
 ## <a name="download-the-bot-to-debug"></a>Hata ayıklamak için robot indirin
-Botunuzun çalışmıyorsa, projeyi yerel makinenize indirmek ve devam et [hata ayıklama](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-an-azure-app-service-web-app-c-bot). 
+Botunuzun çalışmıyorsa, projeyi yerel makinenize indirmek ve devam et [hata ayıklama](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-a-c-bot). 
 
 ## <a name="learn-more-about-bot-framework"></a>Bot Framework hakkında daha fazla bilgi edinin
 Daha fazla bilgi edinin [Bot Framework](https://dev.botframework.com/) ve [3.x](https://github.com/Microsoft/BotBuilder) ve [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK'ları.

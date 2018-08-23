@@ -1,121 +1,104 @@
 ---
-title: Azure mantıksal uygulamaları sertifikalarla B2B iletileri güvenli | Microsoft Docs
-description: B2B iletileri Kurumsal tümleştirme paketi ile güvenli hale getirmek için sertifikaları Ekle
+title: Sertifikalar - Azure Logic Apps B2B iletileri güvenli hale getirme | Microsoft Docs
+description: Azure Logic Apps Enterprise Integration Pack ile B2B iletileri güvenli hale getirmek için sertifikalar ekleme
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: estfan, LADocs
+manager: jeconnoc
+ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
+ms.suite: integration
 ms.topic: article
-ms.date: 02/03/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 7ba76a15792fe40b2a628b030f06930641d197a3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 08/17/2018
+ms.openlocfilehash: 5ae69d365a183f7d2a219d853241e73c1e27212b
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299343"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42061106"
 ---
-# <a name="secure-b2b-messages-with-certificates"></a>Sertifikalar ile güvenli B2B iletiler
+# <a name="secure-b2b-messages-with-certificates"></a>Sertifikaları güvenli B2B iletileri
 
-Bazen B2B iletişimi gizli tutmanız gerekir. Tümleştirme uygulamalarını, özellikle mantıksal uygulamalar, kuruluşunuz için B2B iletişimi korumanıza yardımcı olması için tümleştirme hesabınıza sertifikalar ekleyebilirsiniz. Sertifikalar elektronik iletişimin katılımcıları kimliğini doğrulayan dijital belgelerdir.
-Sertifikaları güvenli iletişim aşağıdaki şekillerde yardımcı:
+B2B iletişim gizli tutmak gerektiğinde, B2B iletişim, kuruluşunuz için tümleştirme uygulamaları, özellikle logic apps, tümleştirme hesabınıza sertifikaları ekleyerek güvenliğini sağlayabilirsiniz. Sertifikalar elektronik iletişimleri katılımcılar kimlikleri denetlemek ve bu şekilde iletişimi güvenli hale getirmeye yardımcı dijital belgelerdir:
 
-* İleti içeriği şifrele
-* İletileri dijital olarak imzala  
+* İleti içeriğini şifreleyin.
+* İletileri imzala. 
 
-Bu sertifikalar Kurumsal tümleştirme uygulamalarınızda kullanabilirsiniz:
+Bu sertifikalar, Kurumsal tümleştirme uygulamalarınızda kullanabilirsiniz:
 
-* Ortak Sertifikalar, sertifika yetkilisinden (CA) satın alınması gerekir.
-* Özel sertifikaları kendiniz uygulayabilirsiniz. Bu sertifikaları otomatik olarak imzalanan sertifikalar da adlandırılır.
+* [Ortak Sertifikalar](https://en.wikipedia.org/wiki/Public_key_certificate), hangi bir genel internet'ten satın almalısınız [sertifika yetkilisi (CA)](https://en.wikipedia.org/wiki/Certificate_authority) ancak herhangi bir anahtarı gerektirmez. 
 
-## <a name="upload-a-public-certificate"></a>Ortak sertifikasını karşıya yükle
+* Özel sertifikaları veya [ *otomatik olarak imzalanan sertifikalar*](https://en.wikipedia.org/wiki/Self-signed_certificate), oluşturma ve kendiniz sorun ancak de özel anahtarlar gerektirir. 
 
-Kullanılacak bir *ortak sertifika* B2B özelliklerine sahip logic apps içinde ilk sertifikayı tümleştirme hesabınıza yüklemeniz gerekir. Özelliklerinde tanımladıktan sonra [anlaşmaları](logic-apps-enterprise-integration-agreements.md) oluşturduğunuz, sertifika B2B iletilerinizi korumanıza yardımcı olması kullanılabilir.
+## <a name="upload-a-public-certificate"></a>Bir ortak sertifika karşıya yükleme
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
+Kullanılacak bir *ortak sertifika* B2B özelliklerine sahip logic apps'te, önce sertifika tümleştirme hesabınıza yüklemeniz gerekir. Özelliklerinde tanımladıktan sonra [sözleşmeleri](logic-apps-enterprise-integration-agreements.md) oluşturduğunuz, B2B iletilerinizi güvenli hale getirmeye yardımcı olmak sertifika kullanılabilir.
 
-2. Azure ana menüde seçin **tüm hizmetleri**. Arama kutusuna "tümleştirme" girin ve ardından **tümleştirme hesapları**.
+1. [Azure Portal](https://portal.azure.com) oturum açın. Ana Azure menüsünde **tüm kaynakları**. Arama kutusuna tümleştirme hesap adınızı girin ve ardından istediğiniz tümleştirme hesabı seçin.
 
-   ![Tümleştirme hesabınızı Bul](media/logic-apps-enterprise-integration-certificates/overview-1.png)  
+   ![Bul ve tümleştirme hesabınızı seçin](media/logic-apps-enterprise-integration-certificates/select-integration-account.png)  
 
-3. Altında **tümleştirme hesapları**, sertifikanın eklemek istediğiniz tümleştirme hesabı seçin.
+2. Altında **bileşenleri**, seçin **sertifikaları** Döşe.
 
-   ![Sertifika eklemek istediğiniz tümleştirme hesabı seçin](media/logic-apps-enterprise-integration-certificates/overview-3.png)  
+   !["Sertifikalar" seçin](media/logic-apps-enterprise-integration-certificates/add-certificates.png)
 
-4. Seçin **sertifikaları** döşeme.  
+3. Altında **sertifikaları**, seçin **Ekle**. Altında **sertifika Ekle**, sertifikanız için bu ayrıntıları sağlayın. İşiniz bittiğinde seçin **Tamam**.
 
-   !["Sertifikalar" seçin](media/logic-apps-enterprise-integration-certificates/certificate-1.png)
+   | Özellik | Değer | Açıklama | 
+   |----------|-------|-------------|
+   | **Ad** | <*Sertifika adı*> | Bu örnekte "publicCert" Sertifikanızın adı | 
+   | **Sertifika türü** | Genel | Sertifikanızın türü |
+   | **Sertifika** | <*Sertifika dosya adı*> | Bulmak ve yüklemek istediğiniz sertifika dosyasını seçmek için klasör simgesine yanındaki seçin **sertifika** kutusu. |
+   ||||
 
-5. Altında **sertifikaları**, seçin **Ekle**.
+   !["Ekle" öğesini seçin, sertifika ayrıntılarını sağlayın](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
 
-   !["Ekle" yi seçin](media/logic-apps-enterprise-integration-certificates/certificate-2.png)
+   Azure, Azure seçiminizi doğruladıktan sonra sertifikanız karşıya yüklenir.
 
-6. Altında **sertifika Ekle**, sertifikanızı için ayrıntıları sağlayın.
-   
-   1. Sertifikanızı girin **adı**. Sertifika türü için **ortak**.
+   ![Yeni sertifika Azure görüntüler](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png) 
 
-   2. Sağ tarafında **sertifika** kutusunda, klasör simgesini seçin. 
-   Bulun ve karşıya yüklemek istediğiniz sertifika dosyası seçin. 
-   İşiniz bittiğinde seçin **Tamam**.
+## <a name="upload-a-private-certificate"></a>Özel bir sertifika yükleyin
 
-      ![Ortak sertifikasını karşıya yükle](media/logic-apps-enterprise-integration-certificates/certificate-3.png)
+Kullanılacak bir *özel sertifika* B2B özelliklerine sahip logic apps'te, önce sertifika tümleştirme hesabınıza yüklemeniz gerekir. Ayrıca ilk eklediğiniz bir özel anahtara sahip gerekir [Azure anahtar kasası](../key-vault/key-vault-get-started.md). 
 
-   Azure, seçiminizi doğrulandıktan sonra sertifikanızı karşıya yükleme.
-
-   ![Yeni sertifika bakın](media/logic-apps-enterprise-integration-certificates/certificate-4.png) 
-
-## <a name="upload-a-private-certificate"></a>Özel bir sertifika karşıya yükle
-
-Kullanılacak bir *özel sertifika* B2B özelliklerine sahip logic apps içinde ilk sertifikayı tümleştirme hesabınıza yüklemeniz gerekir. Ayrıca önce eklemeniz bir özel anahtara sahip olmanız gerekir [Azure anahtar kasası](../key-vault/key-vault-get-started.md). 
-
-Özelliklerinde tanımladıktan sonra [anlaşmaları](logic-apps-enterprise-integration-agreements.md) oluşturduğunuz, sertifika B2B iletilerinizi korumanıza yardımcı olması kullanılabilir.
+Özelliklerinde tanımladıktan sonra [sözleşmeleri](logic-apps-enterprise-integration-agreements.md) oluşturduğunuz, B2B iletilerinizi güvenli hale getirmeye yardımcı olmak sertifika kullanılabilir.
 
 > [!NOTE]
-> Özel sertifikaları için görünmesi karşılık gelen bir ortak sertifika eklediğinizden emin olun [AS2 sözleşmesi](logic-apps-enterprise-integration-as2.md) gönderip ayarları imzalama ve iletileri şifrelemek için.
+> Özel sertifikaları için görünür karşılık gelen bir ortak sertifika eklediğinizden emin olun [AS2 anlaşması](logic-apps-enterprise-integration-as2.md) **gönderip** imzalama ve iletileri şifrelemek için ayarlar.
 
-1. [Özel anahtarınızı Azure anahtar Kasası'na eklemek](../key-vault/key-vault-get-started.md#add) ve sağlayan bir **anahtar adı**.
+1. [Özel anahtarınızı Azure anahtar Kasası'na ekleme](../key-vault/key-vault-get-started.md#add) ve sağlayan bir **anahtar adı**.
    
-2. Azure anahtar kasası işlemleri gerçekleştirmek için Azure Logic Apps yetkilendirin. Logic Apps hizmet sorumlusuna erişim vermek için PowerShell komutunu kullanın [kümesi AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy), örneğin:
+2. Azure Logic Apps, Azure anahtar kasası işlemleri gerçekleştirmek için yetkilendirin. Mantıksal uygulamalar hizmet sorumlusu için erişim vermek için PowerShell komutunu kullanın. [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy), örneğin:
 
    `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
  
-3. [Azure Portal](https://portal.azure.com) oturum açın.
+3. [Azure Portal](https://portal.azure.com) oturum açın. Ana Azure menüsünde **tüm kaynakları**. Arama kutusuna tümleştirme hesap adınızı girin ve ardından istediğiniz tümleştirme hesabı seçin.
 
-4. Azure ana menüde seçin **tüm hizmetleri**. Arama kutusuna "tümleştirme" girin ve ardından **tümleştirme hesapları**.
+   ![Tümleştirme hesabı bulunamadı](media/logic-apps-enterprise-integration-certificates/select-integration-account.png) 
 
-   ![Tümleştirme hesabınızı Bul](media/logic-apps-enterprise-integration-certificates/overview-1.png) 
+4. Altında **bileşenleri**, seçin **sertifikaları** Döşe.  
 
-5. Altında **tümleştirme hesapları**, sertifikanın eklemek istediğiniz tümleştirme hesabı seçin.
+   ![Sertifikaları kutucuğu seçin](media/logic-apps-enterprise-integration-certificates/add-certificates.png)
 
-6. Seçin **sertifikaları** döşeme.  
+5. Altında **sertifikaları**, seçin **Ekle**. Altında **sertifika Ekle**, sertifikanız için bu ayrıntıları sağlayın. İşiniz bittiğinde seçin **Tamam**.
 
-   ![Sertifikaları döşeme seçin](media/logic-apps-enterprise-integration-certificates/certificate-1.png)
+   | Özellik | Değer | Açıklama | 
+   |----------|-------|-------------|
+   | **Ad** | <*Sertifika adı*> | Bu örnekte "privateCert" Sertifikanızın adı | 
+   | **Sertifika türü** | Özel | Sertifikanızın türü |
+   | **Sertifika** | <*Sertifika dosya adı*> | Bulmak ve yüklemek istediğiniz sertifika dosyasını seçmek için klasör simgesine yanındaki seçin **sertifika** kutusu. | 
+   | **Kaynak Grubu** | <*Tümleştirme hesabının kaynak grubu*> | Bu örnekte, "MyResourceGroup" olan tümleştirme hesabının kaynak grubu | 
+   | **Anahtar Kasası** | <*Key vault adı*> | Azure anahtar kasasının adı |
+   | **Anahtar adı** | <*anahtar adı*> | Anahtarınızı kişinin adı |
+   ||||
 
-7. Altında **sertifikaları**, seçin **Ekle**.   
+   !["Ekle" öğesini seçin, sertifika ayrıntılarını sağlayın](media/logic-apps-enterprise-integration-certificates/private-certificate-details.png)
 
-   ![Ekle düğmesini seçin](media/logic-apps-enterprise-integration-certificates/certificate-2.png)
+   Azure, Azure seçiminizi doğruladıktan sonra sertifikanız karşıya yüklenir.
 
-8. Altında **sertifika Ekle**, sertifikanızı için ayrıntıları sağlayın.
-   
-   1. Sertifikanızı girin **adı**. Sertifika türü için **özel**.
-
-   2. Sağ tarafında **sertifika** kutusunda, klasör simgesini seçin. 
-   Bulun ve karşıya yüklemek istediğiniz sertifika dosyası seçin. 
-   Ayrıca, seçin **kaynak grubu**, **anahtar kasası**, ve **anahtar adı**. 
-   İşiniz bittiğinde seçin **Tamam**.
-
-      ![Sertifika ekleme](media/logic-apps-enterprise-integration-certificates/privatecertificate-1.png)
-
-   Azure, seçiminizi doğrulandıktan sonra sertifikanızı karşıya yükleme.
-
-   ![Yeni sertifika bakın](media/logic-apps-enterprise-integration-certificates/privatecertificate-2.png)
+   ![Yeni sertifika Azure görüntüler](media/logic-apps-enterprise-integration-certificates/new-private-certificate.png) 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

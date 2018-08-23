@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 08/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 0fea91fb067a6d78ef25cb0ff8014b65a8b6a916
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: f634167f24c221e702696174ea86a212c535695b
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258109"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42061753"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği için bir sanal ağ yapılandırma
 
@@ -29,7 +29,7 @@ Azure SQL veritabanı yönetilen örneği (Önizleme) içinde bir Azure dağıt�
 Bir yönetilen örneği'nde aşağıdaki sorulara verdiğiniz yanıtlar kullanarak sanal ağ dağıtımı planlama: 
 - Tek veya birden çok yönetilen örnekler dağıtmayı planlıyor musunuz? 
 
-  Yönetilen örnek sayısı minimum yönetilen örnekleriniz için ayrılacak alt ağ boyutunu belirler. Daha fazla bilgi için [yönetilen örneği için alt ağ boyutunu belirlemek](#create-a-new-virtual-network-for-managed-instances). 
+  Yönetilen örnek sayısı minimum yönetilen örnekleriniz için ayrılacak alt ağ boyutunu belirler. Daha fazla bilgi için [yönetilen örneği için alt ağ boyutunu belirlemek](#determine-the-size-of-subnet-for-managed-instances). 
 - Yönetilen örneğiniz mevcut bir sanal ağa dağıtmak ihtiyacınız veya yeni bir ağ oluşturuyorsunuz? 
 
    Mevcut bir sanal ağı kullanmayı planlıyorsanız, yönetilen Örneğinize uyum sağlamak için bu ağ yapılandırmasını değiştirmeniz gerekir. Daha fazla bilgi için [yönetilen örneği için var olan sanal ağı değiştirme](#modify-an-existing-virtual-network-for-managed-instances). 
@@ -38,7 +38,7 @@ Bir yönetilen örneği'nde aşağıdaki sorulara verdiğiniz yanıtlar kullanar
 
 ## <a name="requirements"></a>Gereksinimler
 
-Yönetilen örnek oluşturmak için aşağıdaki gereksinimlere uygun sanal ağ içindeki alt ağ ayırmanız:
+Yönetilen örnek oluşturmak için aşağıdaki gereksinimlere uygun sanal ağ içindeki bir alt ağı ayırmanız gerekir:
 - **Boş olması**: alt ağ ile ilişkili diğer bulut hizmeti içermemelidir ve ağ geçidi alt ağı olmamalıdır. Yönetilen örnek dışındaki kaynaklar içeren bir alt ağa yönetilen örneği oluşturma veya diğer kaynakları daha sonra alt ağ içinde eklemek mümkün olmayacaktır.
 - **Hiçbir NSG**: alt ağ ile ilişkilendirilmiş bir ağ güvenlik grubu olmaması gerekir.
 - **Belirli bir yol tablonuz**: alt ağı olarak atanmış tek yolu 0.0.0.0/0 sonraki atlama Internet ile kullanıcı rota tablosu (UDR) olması gerekir. Daha fazla bilgi için [gerekli yol tablosu oluşturun ve ilişkilendirin](#create-the-required-route-table-and-associate-it)
@@ -63,7 +63,28 @@ Birden çok yönetilen örnek alt ağ içinde dağıtın ve alt ağı boyutuna g
 
 **Örnek**: üç genel amaçlı ve iki iş açısından kritik yönetilen örneği planlama. 5 + 3 * 2 + 2 * 4 = 19 ihtiyacınız anlamına gelir IP adreslerini. IP aralıklarını 2'in gücünü tanımlanan 32 IP aralığı gerekir (2 ^ 5) IP adresi. Bu nedenle, / 27 alt ağ maskesine sahip bir alt ağı ayırmanız gerekir. 
 
-## <a name="create-a-new-virtual-network-for-managed-instances"></a>Yönetilen örnek için yeni bir sanal ağ oluşturma 
+## <a name="create-a-new-virtual-network-for-managed-instance-using-azure-resource-manager-deployment"></a>Azure Resource Manager dağıtımını kullanarak yönetilen örneğe'için yeni bir sanal ağ oluşturma
+
+Oluşturma ve sanal ağ yapılandırma en kolay yolu, Azure Resource Manager dağıtım şablonu kullanmaktır.
+
+1. Azure Portal’da oturum açın.
+
+2. Kullanım **azure'a Dağıt** düğmesi sanal ağı Azure bulutunda dağıtmak için:
+
+  <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="http://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
+
+  Bu düğme, yönetilen örneği dağıtabileceğiniz ağ ortamını yapılandırmak için kullanabileceğiniz bir form açılır.
+
+  > [!Note]
+  > Bu Azure Resource Manager şablonu, sanal ağı iki alt ağ ile dağıtır. Adlı bir alt ağ **ManagedInstances** yönetilen örnekler için ayrılmıştır ve diğer alt ağı adlı sırada yol tablosu, önceden yapılandırılmış **varsayılan** yönetilen erişmeli diğer kaynaklar için kullanılır Örneği (örneğin, Azure sanal makineler). Kaldırabilirsiniz **varsayılan** ihtiyacınız yoksa alt ağ.
+
+3. Ağ ortamı yapılandırın. Aşağıdaki formda ağ ortamınızın parametreleri yapılandırabilirsiniz:
+
+![Azure ağı yapılandırma](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
+
+VNet ve alt ağlar adlarını değiştirme ve ağ kaynaklarınıza ilişkili IP aralıklarını ayarlama. "Satın Al" düğmesine basın, sonra bu form oluşturma ve ortamınızı yapılandırın. İki alt ağa ihtiyacınız yoksa, varsayılan silebilirsiniz. 
+
+## <a name="create-a-new-virtual-network-for-managed-instances-using-portal"></a>Portalı kullanarak yönetilen örnekleri'için yeni bir sanal ağ oluşturma
 
 Bir Azure sanal ağı oluşturma, bir yönetilen örnek oluşturmak için bir önkoşuldur. Azure portalını kullanabilir [PowerShell](../virtual-network/quick-create-powershell.md), veya [Azure CLI](../virtual-network/quick-create-cli.md). Aşağıdaki bölümde, Azure portalını kullanarak adımları gösterilmektedir. Burada tartışılan ayrıntıları bu yöntemlerin her biri için geçerlidir.
 
@@ -92,7 +113,7 @@ Bir Azure sanal ağı oluşturma, bir yönetilen örnek oluşturmak için bir ö
 
    ![sanal ağ oluşturma formu](./media/sql-database-managed-instance-tutorial/service-endpoint-disabled.png)
 
-## <a name="create-the-required-route-table-and-associate-it"></a>Gerekli bir yol tablosu oluşturun ve ilişkilendirin
+### <a name="create-the-required-route-table-and-associate-it"></a>Gerekli bir yol tablosu oluşturun ve ilişkilendirin
 
 1. Azure portalında oturum açın  
 2. **Yol tablosu**’nu bulup tıklayın ve ardından Yol tablosu sayfasında **Oluştur**’a tıklayın.

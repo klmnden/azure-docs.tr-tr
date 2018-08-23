@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 08/21/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 69cd7774c92cf1c213f8522dffeb02be6c024acb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3cd178333ee0d8d92db08fb08cbd02b05112f58b
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525146"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42445031"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure dosya eşitleme Aracısı sürüm notları
 Azure Dosya Eşitleme aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Windows Server yüklemeleriniz, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürülür. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilirsiniz. Dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
@@ -25,7 +25,8 @@ Azure Dosya Eşitleme aracısı aşağıdaki sürümleri destekler:
 
 | Kilometre Taşı | Aracı sürüm numarası | Sürüm tarihi | Durum |
 |----|----------------------|--------------|------------------|
-| Genel kullanılabilirlik | 3.1 | 19 Temmuz 2018 | Desteklenen (önerilen sürüm) |
+| Ağustos güncelleştirme paketi | 3.2.0.0 | 15 Ağustos 2018 | Desteklenen (önerilen sürüm) |
+| Genel kullanılabilirlik | 3.1.0.0 | 19 Temmuz 2018 | Desteklenen |
 | Haziran güncelleştirme paketi | 3.0.13.0 | 29 Haziran 2018'e | Aracı sürümü 4 Eylül 2018'de sona erecek |
 | 2 Yenile | 3.0.12.0 | 22 Mayıs 2018 | Aracı sürümü 4 Eylül 2018'de sona erecek |
 | Nisan güncelleştirme paketi | 2.3.0.0 | 8 Mayıs 2018 | Aracı sürümü 4 Eylül 2018'de sona erecek |
@@ -39,6 +40,12 @@ Azure Dosya Eşitleme aracısı aşağıdaki sürümleri destekler:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure Dosya Eşitleme aracısı güncelleştirme ilkesi
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-3200"></a>Aracı sürüm 3.2.0.0
+Aşağıdaki sürüm notları, 15 Ağustos 2018'de yayınlanan Azure dosya eşitleme aracısının sürümü için 3.2.0.0 geçerlidir. Bu Notlar 3.1.0.0 sürümü için listelenen sürüm notlarına ek olarak var.
+
+Bu sürüm aşağıdaki düzeltmeyi içerir:
+- Yetersiz bellek hatasını (0x8007000e) nedeniyle bellek sızıntısı ile eşitleme başarısız
 
 ## <a name="agent-version-3100"></a>Aracı sürümü 3.1.0.0
 Aşağıdaki sürüm notları (19 Temmuz 2018'den yayımlanan) Azure dosya eşitleme aracısının sürümü için 3.1.0.0 ' dir.
@@ -84,6 +91,7 @@ Aşağıdaki öğeler eşitlenmez ancak sistem normal şekilde çalışmaya deva
 
 ### <a name="cloud-endpoint"></a>Bulut uç noktası
 - Azure dosya eşitleme değişiklikleri Azure dosya paylaşımına doğrudan destekler. Ancak, Azure dosya paylaşımı üzerindeki değişiklikleri öncelikle bir Azure dosya eşitleme değişiklik algılama iş tarafından bulunmaları gerekir. Bir değişiklik algılama iş her 24 saatte bir bulut uç noktası için başlatılır. Ayrıca, REST protokolü üzerinden bir Azure dosya paylaşımı için yapılan değişiklikler son değiştirilme zamanı SMB güncelleştirmez ve bir değişiklik eşitleme tarafından görülmez.
+- Depolama eşitleme hizmeti ve/veya depolama hesabını bir farklı kaynak grubuna veya aboneliğe taşınabilir. Depolama hesabı taşınırsa, depolama hesabına karma dosya eşitleme hizmeti erişmesini gerekir (bkz [olun Azure dosya eşitleme depolama hesabına erişebilir](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
 ### <a name="cloud-tiering"></a>Bulut katmanlaması
 - Katmanlanmış bir dosya Robocopy kullanılarak başka bir konuma kopyalanırsa, elde edilen dosya katmanlanmaz. Robocopy bu özniteliği kopyalama işlemlerine yanlışlıkla dahil ettiği için çevrimdışı özniteliği ayarlanmış olabilir.

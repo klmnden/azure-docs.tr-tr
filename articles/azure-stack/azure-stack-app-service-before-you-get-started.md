@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 08/20/2018
 ms.author: anwestg
-ms.openlocfilehash: 22901374988f6654bc1fb282315db81bb17c815f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e5fc6b5d396a45d15548cfdd8f445158147ad12f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857874"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056272"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure Stack üzerinde App Service ile çalışmaya başlamadan önce
 
@@ -28,7 +28,7 @@ ms.locfileid: "37857874"
 Azure Stack'te Azure App Service'ı dağıtmadan önce bu makalede bölümündeki önkoşul adımlarını tamamlamanız gerekir.
 
 > [!IMPORTANT]
-> 1804 güncelleştirme, Azure Stack tümleşik sistemi için geçerli veya Azure App Service 1.2 dağıtmadan önce en son Azure Stack geliştirme Seti'ni (ASDK) dağıtın.
+> Azure Stack tümleşik sisteminize 1807 güncelleştirmeyi veya Azure App Service 1.3 dağıtmadan önce en son Azure Stack geliştirme Seti'ni (ASDK) dağıtın.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Yükleyici ve yardımcı betikleri indirin
 
@@ -241,27 +241,6 @@ net share %WEBSITES_SHARE% /delete
 net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
 ```
 
-### <a name="add-the-fileshareowners-group-to-the-local-administrators-group"></a>FileShareOwners grubunu yerel Administrators grubuna ekleyin.
-
-Windows Uzaktan düzgün çalışması Yönetim için yerel Administrators grubuna FileShareOwners grubunu eklemeniz gerekir.
-
-#### <a name="active-directory"></a>Active Directory
-
-Aşağıdaki komutları yükseltilmiş komut isteminde, dosya sunucusunda veya yük devretme kümesi düğümü davranan her dosya sunucusunda çalıştırın. Değeri Değiştir `<DOMAIN>` kullanmak istediğiniz etki alanı adına sahip.
-
-```DOS
-set DOMAIN=<DOMAIN>
-net localgroup Administrators %DOMAIN%\FileShareOwners /add
-```
-
-#### <a name="workgroup"></a>Çalışma grubu
-
-Aşağıdaki komutu yükseltilmiş bir komut isteminde dosya sunucusunda çalıştırın:
-
-```DOS
-net localgroup Administrators FileShareOwners /add
-```
-
 ### <a name="configure-access-control-to-the-shares"></a>Paylaşımlara erişim denetimini yapılandırın
 
 Dosya sunucusunda veya geçerli küme kaynak sahibi yük devretme kümesi düğümünde, aşağıdaki komutları yükseltilmiş komut isteminde çalıştırın. İtalik değerleri ortamınıza özgü değerlerle değiştirin.
@@ -353,6 +332,7 @@ Yöneticiler, SSO için yapılandırmanız gerekir:
 | AzureStackAdminCredential | Gerekli | Null | Azure AD Hizmet Yöneticisi kimlik bilgisi. |
 | CertificateFilePath | Gerekli | Null | **Tam yol** daha önce oluşturulan Identity application sertifika dosyası için. |
 | CertificatePassword | Gerekli | Null | Parola, sertifika özel anahtarını korunmasına yardımcı olur. |
+| Ortam | İsteğe bağlı | AzureCloud | Azure Active Directory Graph hizmeti hedef kullanılabilir desteklenen bulut ortamı adı.  İzin verilen değerler: 'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment', 'AzureGermanCloud'.|
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Active Directory Federasyon Hizmetleri uygulama oluşturma
 

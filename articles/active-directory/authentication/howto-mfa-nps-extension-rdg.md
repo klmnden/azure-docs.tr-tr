@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e22fedda4861e68f2318aff89bc3fe5a15cb6ede
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6348a6d003aa3efcd1b9c45e61438e0ac4b4c8d5
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160112"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42061757"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Ağ İlkesi Sunucusu (NPS) uzantısı ve Azure AD kullanarak Uzak Masaüstü Ağ Geçidi altyapınızı tümleştirin
 
@@ -175,7 +175,7 @@ Uzak Masaüstü Bağlantısı Yetkilendirme İlkeleri (RD Cap'leri) bir Uzak Mas
 
   ![Uzak Masaüstü Hizmetleri](./media/howto-mfa-nps-extension-rdg/image8.png)
 
-3. RD Ağ Geçidi Yöneticisi ' sağ  **\[sunucu adı\] (yerel)**, tıklatıp **özellikleri**.
+3. RD Ağ Geçidi Yöneticisi'nde sağ  **\[sunucu adı\] (yerel)**, tıklatıp **özellikleri**.
 
   ![Sunucu Adı](./media/howto-mfa-nps-extension-rdg/image9.png)
 
@@ -226,7 +226,7 @@ Kullanıcıların kimlik bilgilerini doğrulamak için zaman olduğundan emin ol
 RD Ağ Geçidi bağlantısı Yetkilendirme İlkeleri için bir merkezi ilke deposunu kullanmak üzere yapılandırdığınızda, varsayılan olarak, RD Ağ Geçidi UÇ istekleri NPS sunucusuna iletmek için yapılandırılır. NPS sunucusu ile Azure mfa'yı uzantısı yüklü, RADIUS erişim isteğini işler. Aşağıdaki adımlar varsayılan bağlantı isteği ilkesi nasıl gösterir. 
 
 1. NPS (yerel) konsolunda, RD Ağ Geçidi üzerinde genişletin **ilkeleri**seçip **bağlantı isteği ilkeleri**.
-2. Sağ **bağlanma isteği ilkeleri**ve çift **TS Ağ Geçidi kimlik doğrulama İlkesi**.
+2. Çift **TS Ağ Geçidi kimlik doğrulama İlkesi**.
 3. İçinde **TS Ağ Geçidi kimlik doğrulama İlkesi Özellikleri** iletişim kutusu, tıklayın **ayarları** sekmesi.
 4. Üzerinde **ayarları** iletme, bağlantı isteği altında sekmesini **kimlik doğrulaması**. RADIUS istemcisi, kimlik doğrulama istekleri iletmek için yapılandırılır.
 
@@ -266,7 +266,7 @@ Uzak Masaüstü Ağ Geçidi NPS sunucusunun RADIUS istemcisi olarak yapılandır
 ### <a name="configure-network-policy"></a>Ağ İlkesi yapılandırma
 NPS sunucusu ile Azure mfa'yı uzantısı atanmış merkezi ilke deposu bağlantı yetkilendirme ilkesi (CAP) için olduğunu hatırlayın. Bu nedenle, bir büyük harf geçerli bağlantı isteklerini yetkilendirmek için NPS sunucusuna uygulamak gerekir.  
 
-1. NPS (yerel) konsolda **ilkeleri**, tıklatıp **ağ ilkeleri**.
+1. NPS sunucusunda, NPS (yerel) konsolunu açın, **ilkeleri**, tıklatıp **ağ ilkeleri**.
 2. Sağ **diğer erişim sunucularına bağlantı**, tıklatıp **yinelenen ilke**. 
 
  ![Yinelenen ilke](./media/howto-mfa-nps-extension-rdg/image19.png)
@@ -287,7 +287,7 @@ NPS sunucusu ile Azure mfa'yı uzantısı atanmış merkezi ilke deposu bağlant
 
  ![Koşullar](./media/howto-mfa-nps-extension-rdg/image23.png)
 
-7. **Tamam**’a tıklayın. İlgili Yardım konusunu görüntülemek için sorulduğunda **Hayır**.
+7. **Tamam** düğmesine tıklayın. İlgili Yardım konusunu görüntülemek için sorulduğunda **Hayır**.
 8. Erişim verir ve yeni ilkeniz ilkenin etkinleştirildiğini listenin başında olduğundan emin olun.
 
  ![Ağ ilkeleri](./media/howto-mfa-nps-extension-rdg/image24.png)

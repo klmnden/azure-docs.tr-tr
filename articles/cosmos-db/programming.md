@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 6374fcf1477d56b9803b63476f3fef38fc12def1
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 6296eb423f24762ed32a21ef40852dc1a9dd8f36
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618905"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42058316"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB sunucu tarafı programlama: saklı yordamlar, veritabanı tetikleyiciler ve UDF'ler
 
@@ -98,7 +98,7 @@ client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld'
     });
 ```
 
-Bağlam nesnesi, Cosmos DB depolama üzerinde gerçekleştirilen tüm işlemler erişimin yanı sıra, istek ve yanıt nesnelere erişimi sağlar. Bu durumda, istemciye gönderilen yanıt gövdesinin ayarlamak için yanıt nesnesini kullanın. Daha fazla bilgi için [Azure Cosmos DB JavaScript server SDK Belgeleri](http://azure.github.io/azure-documentdb-js-server/).  
+Bağlam nesnesi, Cosmos DB depolama üzerinde gerçekleştirilen tüm işlemler erişimin yanı sıra, istek ve yanıt nesnelere erişimi sağlar. Bu durumda, istemciye gönderilen yanıt gövdesinin ayarlamak için yanıt nesnesini kullanın. Daha fazla bilgi için [Azure Cosmos DB JavaScript server SDK Belgeleri](https://azure.github.io/azure-cosmosdb-js-server/).  
 
 Bize bu örneğe göre genişletin ve veritabanı ile ilgili daha fazla işlevsellik saklı yordamı ekleyin. Saklı yordamlar oluşturabilir, güncelleştirme, okuma, sorgulama ve belgeleri ve koleksiyon içinde ekleri silin.    
 
@@ -591,7 +591,7 @@ Aşağıdaki JavaScript yapıları için Azure Cosmos DB dizinleri en iyi duruma
 * Denetim akışı (örneğin, varsa, ancak)
 * İşlev çağrıları
 
-Daha fazla bilgi için [sunucu tarafı JSDocs](http://azure.github.io/azure-documentdb-js-server/).
+Daha fazla bilgi için [sunucu tarafı JSDocs](https://azure.github.io/azure-cosmosdb-js-server/).
 
 ### <a name="example-write-a-stored-procedure-using-the-javascript-query-api"></a>Örnek: JavaScript sorgu API'si kullanarak bir saklı yordam yazma
 Aşağıdaki kod örneği bir saklı yordam bağlamında JavaScript sorgu API'si nasıl kullanılabileceğini bir örnektir. Saklı yordamı bir giriş parametresi tarafından belirtilen bir belge, ekler ve bir meta veri güncelleştirmeleri kullanarak belge `__.filter()` minSize, Maxsıze ve giriş belgenin boyut özelliğinin üzerinde temel totalSize yöntemi.
@@ -674,7 +674,7 @@ Yukarıdaki tabloda her bir sorguda aşağıdaki açıklamaları açıklanmaktad
 
 
 ## <a name="runtime-support"></a>Çalışma zamanı desteği
-Azure Cosmos DB [JavaScript sunucu tarafı API'si](http://azure.github.io/azure-documentdb-js-server/) en temel JavaScript dil özellikleri tarafından standart olarak iyi destek sağlayan [ECMA 262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+Azure Cosmos DB [JavaScript sunucu tarafı API'si](https://azure.github.io/azure-cosmosdb-js-server/) en temel JavaScript dil özellikleri tarafından standart olarak iyi destek sağlayan [ECMA 262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### <a name="security"></a>Güvenlik
 JavaScript saklı yordamları ve Tetikleyicileri korumalı, böylece bir betik etkilerini diğer veritabanı düzeyinde snapshot işlem yalıtım olmadan sızıntı değil. Çalışma zamanı ortamlarını havuza ancak her sonrasında çalıştırma bağlamında temizlendi. Bu nedenle bunlar birbirinden istenmeyen yan etkileri güvenli olmasını garanti edilir.
@@ -683,7 +683,7 @@ JavaScript saklı yordamları ve Tetikleyicileri korumalı, böylece bir betik e
 Saklı yordamlar, tetikleyiciler ve UDF'ler her betik çağırmayı zamanında derleme maliyet önlemek için bayt kod biçimine örtülü olarak önceden derlenmiş. Saklı yordam çağırma hızlı ve düşük bir ayak izine sahip önceden derleme sağlar.
 
 ## <a name="client-sdk-support"></a>İstemci SDK desteği
-Azure Cosmos DB yanı sıra [Node.js](sql-api-sdk-node.md) API, Azure Cosmos DB sahip [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), ve [Python SDK'ları](sql-api-sdk-python.md) de SQL API'si için. Saklı yordamlar, tetikleyiciler ve UDF'ler oluşturulabilir ve bu SDK'ları da birini kullanarak. Aşağıdaki örnek, oluşturma ve .NET istemcisini kullanarak bir saklı yordam yürütme gösterilmektedir. .NET türleri JSON olarak saklı yordamı yöntemlere geçirilen ve geri nasıl unutmayın.
+Azure Cosmos DB yanı sıra [Node.js](sql-api-sdk-node.md) API, Azure Cosmos DB sahip [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript ](sql-api-sdk-node.md), ve [Python SDK'ları](sql-api-sdk-python.md) de SQL API'si için. Saklı yordamlar, tetikleyiciler ve UDF'ler oluşturulabilir ve bu SDK'ları da birini kullanarak. Aşağıdaki örnek, oluşturma ve .NET istemcisini kullanarak bir saklı yordam yürütme gösterilmektedir. .NET türleri JSON olarak saklı yordamı yöntemlere geçirilen ve geri nasıl unutmayın.
 
 ```javascript
 var markAntiquesSproc = new StoredProcedure
@@ -828,7 +828,7 @@ Tetikleyicileri, saklı yordamlar, aksine, doğrudan yürütülemez. Bunun yerin
 Burada istekle çalıştırılacak öncesi tetikleyici x-ms-documentdb-pre-trigger-include üstbilgisinde belirtilir. Gelenlere, hiçbir sonrası tetikleyici x-ms-documentdb-post-trigger-include üst bilgi verilir. Her ikisi de öncesi ve sonrası tetikleyicileri, belirli bir istek için belirtilebilir.
 
 ## <a name="sample-code"></a>Örnek kod
-Daha fazla sunucu tarafındaki kod örnekleri bulabilirsiniz (dahil olmak üzere [toplu silme](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js), ve [güncelleştirme](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) içinde [GitHub deposu](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
+Daha fazla sunucu tarafındaki kod örnekleri bulabilirsiniz (dahil olmak üzere [toplu silme](https://github.com/Azure/azure-cosmosdb-js-server/blob/master/samples/stored-procedures/bulkDelete.js), ve [güncelleştirme](https://github.com/Azure/azure-cosmosdb-js-server/blob/master/samples/stored-procedures/update.js)) içinde [GitHub deposu](https://github.com/Azure/azure-cosmosdb-js-server/tree/master/samples).
 
 Harika, saklı yordam paylaşmak istiyorsunuz? depoya katkıda bulunmak ve bir çekme isteği oluşturun! 
 

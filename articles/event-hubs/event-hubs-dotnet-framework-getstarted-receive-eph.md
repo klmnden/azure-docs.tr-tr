@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shvija
-ms.openlocfilehash: 8fbce92c8c703b86d86367f83329cfa853bc5e4d
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 15c2ec0aa8b795a826eae29026b7039491dbb64f
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003510"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42061741"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>.NET Framework kullanarak Azure Event Hubs’dan olay alma
 
@@ -164,7 +164,7 @@ Tebrikler! Olay İşleyicisi Ana Bilgisayarı’nı kullanarak bir olay hub’ı
 
 
 > [!NOTE]
-> Bu öğretici, [EventProcessorHost][EventProcessorHost]'un tek bir örneğini kullanır. Aktarım hızını artırmak için, birden çok [EventProcessorHost][EventProcessorHost] örneğinin [Ölçeği genişletilmiş olay işleme][Ölçeği genişletilmiş olay işleme] örneğinde gösterildiği gibi çalıştırmanız önerilir. Bu gibi durumlarda, alınan olayların yükünü dengelemek üzere çeşitli örnekler otomatik olarak birbiriyle koordine olur. Birden çok alıcının her birinin *tüm* olayları işlemesini istiyorsanız **ConsumerGroup** kavramını kullanmalısınız. Olaylar farklı makinelerden alındığında, dağıtıldıkları makineleri (veya rolleri) temel alan [EventProcessorHost][EventProcessorHost] örnekleri için ad belirtmek yararlı olabilir. Bu konu başlıkları hakkında daha fazla bilgi için [Event Hubs'a genel bakış][Event Hubs overview] ve [Event Hubs programlama kılavuzu][Event Hubs Programming Guide] konu başlıklarına bakın.
+> Bu öğretici, [EventProcessorHost][EventProcessorHost]'un tek bir örneğini kullanır. Verimliliği artırmak için birden çok örneğini çalıştırmanız önerilir [EventProcessorHost][EventProcessorHost]gösterildiği [ölçeği genişletilmiş olay işleme](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) örnek. Bu gibi durumlarda, alınan olayların yükünü dengelemek üzere çeşitli örnekler otomatik olarak birbiriyle koordine olur. Birden çok alıcının her birinin *tüm* olayları işlemesini istiyorsanız **ConsumerGroup** kavramını kullanmalısınız. Olaylar farklı makinelerden alındığında, dağıtıldıkları makineleri (veya rolleri) temel alan [EventProcessorHost][EventProcessorHost] örnekleri için ad belirtmek yararlı olabilir. Bu konu başlıkları hakkında daha fazla bilgi için [Event Hubs'a genel bakış][Event Hubs overview] ve [Event Hubs programlama kılavuzu][Event Hubs Programming Guide] konu başlıklarına bakın.
 > 
 > 
 

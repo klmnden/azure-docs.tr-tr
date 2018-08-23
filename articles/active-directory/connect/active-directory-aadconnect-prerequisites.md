@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 22751d7ab38717fefdebe107e7a7d6fc10dda4c4
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 39ae4573b4c447253c4c90a3845a087434dcd77a
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39326199"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056464"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect önkoşulları
 Bu konu ön koşullar ve Azure AD Connect için donanım gereksinimlerini açıklar.
@@ -33,7 +33,7 @@ Azure AD Connect'i yüklemeden önce gereken birkaç şey vardır.
   * Ayrıca [Azure portalında](https://portal.azure.com). Bu portalı bir Azure AD lisansı gerektirmez.
 * [Ekleme ve etki alanı doğrulama](../active-directory-domains-add-azure-portal.md) Azure AD'de kullanmayı planlayın. Örneğin, contoso.com kullanıcılarınız için kullanın. ardından emin planlıyorsanız, bu etki alanı doğrulandı ve contoso.onmicrosoft.com varsayılan etki alanı yalnızca kullanmıyorsanız.
 * Azure AD kiracısı tarafından varsayılan 50 k nesneleri sağlar. Etki alanınızı doğrulayın, sınır 300 k nesnelere artar. Azure AD'de daha da fazla nesneleri ihtiyacınız varsa daha da artırılmış sınırda olacak şekilde bir destek talebi açmanız gerekir. 500'den fazla k nesneleri gerekiyorsa, Office 365, Azure AD temel, Azure AD Premium veya Enterprise Mobility ve güvenlik gibi bir lisans gerekir.
-* ADSyncPrep Azure AD Connect için Active Directory ortamınızı hazırlamak için kullanılan işlevleri sağlayan bir PowerShell Betiği modüldür.  ADSyncPrep gerektirir [Azure AD Microsoft çevrimiçi v1.1 PowerShell Modülü](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).  Sürüm 2 işe yaramaz.  Modülünü kullanarak yükleyebilirsiniz `Install-Module` cmdlet'i.  Daha fazla bilgi için sağlanan bağlantıya bakın.
+* ADSyncPrep Azure AD Connect için Active Directory ortamınızı hazırlamak için kullanılan işlevleri sağlayan bir PowerShell Betiği modüldür.  ADSyncPrep gerektirir [Azure AD Microsoft çevrimiçi v1.1 PowerShell Modülü](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).  Sürüm 2 işe yaramaz. Modülünü kullanarak yükleyebileceğiniz `Install-Module` cmdlet'i.  Daha fazla bilgi için sağlanan bağlantıya bakın.
 
 ### <a name="prepare-your-on-premises-data"></a>Şirket içi verilerinizi hazırlayın
 * Kullanım [Idfix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) Azure AD'ye eşitlemeden önce yinelemeleri ve dizininizdeki biçimlendirme sorunları gibi hataları belirlemek için ve Office 365.

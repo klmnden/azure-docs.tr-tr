@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/03/2018
+ms.date: 08/20/2018
 ms.author: roiyz
-ms.openlocfilehash: d95a1b510411f913a05762494dd48d6a5b6f84fd
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 307bdb5fa7a5d14a77c71d0ea40634a55d8507b6
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413680"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42058315"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Linux için NVIDIA GPU sürücüsünün uzantısı
 
@@ -63,7 +63,8 @@ Aşağıdaki JSON şema uzantısı gösterir.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.1",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -77,7 +78,7 @@ Aşağıdaki JSON şema uzantısı gösterir.
 | apiVersion | 2015-06-15 | tarih |
 | Yayımcı | Microsoft.HpcCompute | dize |
 | type | NvidiaGpuDriverLinux | dize |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1.1 | int |
 
 
 ## <a name="deployment"></a>Dağıtım
@@ -103,7 +104,8 @@ Aşağıdaki örnek, uzantıyı sanal makine kaynağı içinde iç içe varsayar
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.1",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -120,7 +122,7 @@ Set-AzureRmVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverLinux" `
     -ExtensionType "NvidiaGpuDriverLinux" `
-    -TypeHandlerVersion 1.0 `
+    -TypeHandlerVersion 1.1 `
     -SettingString '{ `
     }'
 ```
@@ -133,7 +135,7 @@ az vm extension set `
   --vm-name myVM `
   --name NvidiaGpuDriverLinux `
   --publisher Microsoft.HpcCompute `
-  --version 1.0 `
+  --version 1.1 `
   --settings '{ `
   }'
 ```
@@ -166,6 +168,8 @@ Uzantı yürütme çıkış aşağıdaki dosyasına kaydedilir:
 | 1 | Uzantı yanlış kullanımı. | Yürütme çıkış günlüğü ile desteğe başvurun. |
 | 10 | Linux Tümleştirme hizmetleri Hyper-V ve Azure kullanılabilir veya yüklü değil. | Lspci çıkışı denetleyin. |
 | 11 | NVIDIA GPU üzerinde bu VM boyutu bulunamadı. | Kullanım bir [VM boyutu ve işletim sistemi desteklenen](../linux/n-series-driver-setup.md). |
+| 12 | Görüntü teklifi desteklenmiyor |
+| 13 | VM boyutu desteklenmiyor | N serisi VM dağıtmak için kullanın |
 | 14 | İşlem başarısız | |
 | 21 | Ubuntu'da güncelleştirilemedi | "Sudo apt-get güncelleştir" onay çıktısı |
 

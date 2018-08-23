@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: f0a6e164ed6b2269ec223a18f37d3475316d3e77
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 38d024de0fd2490d33f7c06498d3ff8d0d06e503
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629081"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42059666"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Azure Active Directory cihaz kaydı'nı kullanarak şirket içi koşullu erişimi ayarlama
 Azure Active Directory (Azure AD) cihaz kayıt hizmeti için kişisel cihazlarını çalışma alanına katılma kullanıcılara ihtiyaç duyduğunuzda, cihazlarını kuruluşunuza bilinen olarak işaretlenebilir. Aşağıda, Windows Server 2012 R2'de Active Directory Federasyon Hizmetleri (AD FS) kullanarak şirket içi uygulamalara koşullu erişimi etkinleştirmek için adım adım yönergeler verilmektedir.
@@ -48,7 +48,7 @@ Bu özellikler bir Azure Active Directory Premium lisansı satın almış olan m
 * Azure Active Directory Premium lisansı
 * Windows Server 2012 R2 Federasyon Azure ad SSO için yapılandırılmış hizmetleri,
 * Windows Server 2012 R2 Web uygulaması Ara sunucusu 
-* Microsoft Azure Active Directory Connect (Azure AD Connect) [(Azure AD Connect'i indirme)](http://www.microsoft.com/en-us/download/details.aspx?id=47594)
+* Microsoft Azure Active Directory Connect (Azure AD Connect) [(Azure AD Connect'i indirme)](http://www.microsoft.com/download/details.aspx?id=47594)
 * Doğrulanmış etki alanı
 
 ## <a name="known-issues-in-this-release"></a>Bu sürümdeki bilinen sorunlar
@@ -158,7 +158,7 @@ Bu URL'yi, kullanıcılarınıza iletmenin birçok farklı yolu vardır. Örneğ
 
 ### <a name="join-a-windows-81-device-by-using-azure-active-directory-device-registration"></a>Azure Active Directory cihaz kaydı'nı kullanarak Windows 8.1 cihaz ekleme
 1. Windows 8.1 Cihazınızı seçin **PC Ayarları** > **ağ** > **çalışma alanına**.
-2. Kullanıcı adı UPN biçiminde girin; Örneğin, ** dan@contoso.com **.
+2. Kullanıcı adı UPN biçiminde girin; Örneğin, **dan@contoso.com**.
 3. Seçin **katılın**.
 4. İstendiğinde, kimlik bilgilerinizle oturum açın. Cihaz artık katıldı.
 

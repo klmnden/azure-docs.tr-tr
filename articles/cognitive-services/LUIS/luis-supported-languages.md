@@ -1,24 +1,24 @@
 ---
-title: Azure'da LUIS uygulamaları kullanmaya yerelleştirmeyi destekleme | Microsoft Docs
-description: LUIS destekleyen diller hakkında bilgi edinin.
+title: Destek yerelleştirme - Language Understanding (LUIS) - Azure Bilişsel hizmetler | Microsoft Docs
+description: LUIS, çeşitli hizmetinde özellikleri vardır. Aynı dil eşliğine tüm özellikleridir. İlgilendiğiniz özellikleri hedeflediğiniz dil kültürünü desteklendiğinden emin olun. Bir LUIS uygulaması kültüre özgü olan ve ayarlandıktan sonra değiştirilemez.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/04/2017
+ms.date: 08/17/2017
 ms.author: diberry
-ms.openlocfilehash: d2c479445aabe05013470724c623978402abeb9d
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 4fa58843f7e888a8fc1cfbbf76a8131bba6c488a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248426"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41987993"
 ---
 # <a name="culture-specific-understanding-in-luis-apps"></a>LUIS uygulamalarında kültüre özgü anlama
 
-Bir LUIS uygulaması kültüre özgü olan ve ayarlandıktan sonra değiştirilemez. 
+LUIS, çeşitli hizmetinde özellikleri vardır. Aynı dil eşliğine tüm özellikleridir. İlgilendiğiniz özellikleri hedeflediğiniz dil kültürünü desteklendiğinden emin olun. Bir LUIS uygulaması kültüre özgü olan ve ayarlandıktan sonra değiştirilemez. 
 
 ## <a name="multi-language-luis-apps"></a>Çok dilli LUIS uygulamaları
 Çok dilli LUIS istemci uygulama bir sohbet Robotu gibi gerekiyorsa, birkaç seçeneğiniz vardır. LUIS, tüm diller destekliyorsa, her dil için bir LUIS uygulaması geliştirin. Her LUIS uygulamanın benzersiz uygulama kimliği ve uç nokta günlük vardır. Language Understanding LUIS desteklemez, bir dil için kullanabileceğiniz sağlamak gerekiyorsa [Microsoft Translator API'si](../Translator/translator-info-overview.md) utterance desteklenen bir dile çevirmek için utterance LUIS uç noktasına gönderme ve alma Sonuçta elde edilen puanları.
@@ -27,14 +27,14 @@ Bir LUIS uygulaması kültüre özgü olan ve ayarlandıktan sonra değiştirile
 LUIS, konuşma şu dillerde anlar:
 
 
-| Dil |Yerel ayar  |  Önceden oluşturulmuş etki alanı | Önceden oluşturulmuş varlık | Tümcecik önerileri | **[Metin analizi](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) | 
+| Dil |Yerel ayar  |  Önceden oluşturulmuş etki alanı | Önceden oluşturulmuş varlık | Tümcecik önerileri | **[Metin analizi](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Duygu ve<br>Anahtar sözcükleri)| 
 |--|--|:--:|:--:|:--:|:--:|
 | Amerikan İngilizcesi |`en-US` | ✔ | ✔  |✔|✔|
 | Kanada Fransızcası |`fr-CA` |-|   -   |-|✔|
 | *[Çince](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| Felemenkçe |`nl-NL` |-|  -   |-|✔|
+| Hollanda dili |`nl-NL` |-|  -   |-|✔|
 | Fransızca (Fransa) |`fr-FR` |-| ✔ |✔ |✔|
-| Almanca  |`de-DE` |-| ✔ |✔ |✔|
+| Almanca |`de-DE` |-| ✔ |✔ |✔|
 | İtalyanca |`it-IT` |-| ✔ |✔|✔|
 | *[Japonca](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Yalnızca anahtar ifade|
 | Kore dili |`ko-KR` |-|   -   |-|Yalnızca anahtar ifade|
@@ -79,11 +79,11 @@ Makine öğrenimi için LUIS bir utterance keser [belirteçleri](luis-glossary.m
 |Dil|  her alanı ya da özel karakter | karakter düzeyi|Bileşik sözcüklerin|[parçalanmış varlık döndürdü](luis-concept-data-extraction.md#tokenized-entity-returned)
 |--|:--:|:--:|:--:|:--:|
 |Çince||✔||✔|
-|Felemenkçe|||✔|✔|
+|Hollanda dili|||✔|✔|
 |İngilizce (en-us)|✔ ||||
 |Fransızca (fr-FR)|✔||||
 |Fransızca (fr-CA)|✔||||
-|Almanca |||✔|✔|
+|Almanca|||✔|✔|
 |İtalyanca|✔||||
 |Japonca||||✔|
 |Kore dili||✔||✔|

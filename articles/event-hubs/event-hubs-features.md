@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/08/2018
+ms.date: 09/08/2018
 ms.author: shvija
-ms.openlocfilehash: abc85c322f7b8ee63c06639ae8845a5f07266b50
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: c41612b46102dc8fef67887c164ff6e48a8cf6c6
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40006832"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056265"
 ---
 # <a name="event-hubs-features-overview"></a>Event Hubs özelliklerine genel bakış
 
@@ -94,7 +94,10 @@ Bir olay hub'ından olay verilerini okuyan herhangi bir varlık *olay tüketicis
 
 Event Hubs yayımlama/abonelik mekanizması *tüketici grupları* aracılığıyla etkinleştirilir. Tüketici grubu tüm olay hub'ının bir görünümüdür (durum, konum veya uzaklık). Tüketici grupları birden çok tüketen uygulamayı her biri olay akışının ayrı bir görünümüne sahip olacak ve akışı kendi hızlarında ve kendi sapmalarıyla bağımsız bir şekilde okuyacak şekilde etkinleştirir.
 
-Bir akış işleme mimarisinde her bir aşağı akış uygulaması bir tüketici grubuna karşılık gelir. Olay verilerini uzun süreli depolama alanına yazmak isterseniz bu depolama yazma uygulaması bir tüketici grubudur. Bundan sonra karmaşık olay işlemesi başka ve ayrı bir tüketici grubu tarafından gerçekleştirilebilir. Bölümlere yalnızca bir tüketici grubu üzerinden erişebilirsiniz. Olabilir en fazla 5 eşzamanlı okuyucu tüketici grubu başına bir bölüme; ancak **olduğunu yalnızca bir etkin alıcı tüketici grubu başına bir bölüme önerilir**. Bir olay hub'ında her zaman varsayılan bir tüketici grubu vardır ve Standart katmanlı bir olay hub'ı için en fazla 20 tüketici grubu oluşturabilirsiniz.
+Bir akış işleme mimarisinde her bir aşağı akış uygulaması bir tüketici grubuna karşılık gelir. Olay verilerini uzun süreli depolama alanına yazmak isterseniz bu depolama yazma uygulaması bir tüketici grubudur. Bundan sonra karmaşık olay işlemesi başka ve ayrı bir tüketici grubu tarafından gerçekleştirilebilir. Bölümlere yalnızca bir tüketici grubu üzerinden erişebilirsiniz. Bir olay hub'ında her zaman varsayılan bir tüketici grubu vardır ve Standart katmanlı bir olay hub'ı için en fazla 20 tüketici grubu oluşturabilirsiniz.
+
+Olabilir en fazla 5 eşzamanlı okuyucu tüketici grubu başına bir bölüme; ancak **olduğunu yalnızca bir etkin alıcı tüketici grubu başına bir bölüme önerilir**. Tek bir bölüm içinde her Okuyucu tüm iletileri alır. Ardından aynı bölüme birden fazla okuyucuyu kapsayacak varsa, yinelenen iletileri işler. Bu Önemsiz olmayabilir, kodunuzda ele almanız gerekir. Ancak, bazı senaryolarda geçerli bir yaklaşım değildir.
+
 
 Tüketici grubu URI kuralının örnekleri aşağıda verilmiştir:
 

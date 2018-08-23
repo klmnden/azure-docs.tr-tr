@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 9c26a85a50bf4e7272b229bac8a8b9aa8c1ae364
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 93b9075831db356607438288a7c153dde2f8b210
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238531"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42059764"
 ---
 # <a name="http-application-routing"></a>HTTP uygulaması yönlendirme
 
@@ -33,13 +33,19 @@ Eklenti iki bileşenlerini dağıtır: bir [Kubernetes giriş denetleyicisine] [
 HTTP uygulama yönlendirme eklentisi, Azure CLI ile bir AKS kümesi dağıtırken etkinleştirilebilir. Bunu yapmak için [az aks oluşturma] [ az-aks-create] komutunu `--enable-addons` bağımsız değişken.
 
 ```azurecli
-az aks create --resource-group myAKSCluster --name myAKSCluster --enable-addons http_application_routing
+az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
 ```
 
-Küme dağıtıldıktan sonra kullanın [az aks show] [ az-aks-show] DNS bölge adını almak için komutu. Bu ad, AKS kümesi uygulama dağıtmak için gereklidir.
+HTTP kullanarak varolan bir AKS kümesi üzerinde yönlendirme de etkinleştirebilirsiniz [az aks enable-addons] [ az-aks-enable-addons] komutu. Var olan bir kümede HTTP yönlendirme etkinleştirmek için eklemeniz `--addons` parametresi belirtin *http_application_routing* aşağıdaki örnekte gösterildiği gibi:
 
 ```azurecli
-$ az aks show --resource-group myAKSCluster --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
+az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
+```
+
+Kümeye dağıtılan veya güncelleştirildikten sonra kullanın [az aks show] [ az-aks-show] DNS bölge adını almak için komutu. Bu ad, AKS kümesi uygulama dağıtmak için gereklidir.
+
+```azurecli
+$ az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
 
 Result
 -----------------------------------------------------
@@ -155,7 +161,7 @@ $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 HTTP yönlendirme çözümü Azure CLI kullanarak kaldırabilirsiniz. Bunu yapmak için aşağıdaki komutu çalıştırın, değiştirme, AKS kümesi ve kaynak grubu adı.
 
 ```azurecli
-az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myAKSCluster --no-wait
+az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
 ## <a name="troubleshoot"></a>Sorun giderme
@@ -232,6 +238,7 @@ AKS içinde bir HTTPS güvenli giriş denetleyicisine yükleme hakkında daha fa
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
 [ingress-https]: ./ingress.md
+[az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
 
 
 <!-- LINKS - external -->

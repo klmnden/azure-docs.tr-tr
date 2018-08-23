@@ -1,6 +1,6 @@
 ---
-title: Service Fabric Hizmetleri bölümleme | Microsoft Docs
-description: Service Fabric durum bilgisi olan hizmetler bölüm açıklar. Bölümler, veri ve işlem birlikte Genişletilebilir şekilde yerel makinede veri depolama sağlar.
+title: Service Fabric hizmetlerini bölümleme | Microsoft Docs
+description: Partition Service Fabric durum bilgisi olan hizmetler açıklar. Bölümler, veri ve işlem birlikte ölçeklendirilebilir için yerel makine üzerinde veri depolama sağlar.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -14,133 +14,133 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: bc6f25c7a8a779d949fbd09f9a9a9a37ec83f56a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9072a25b55bf461ad7dcc8393b98a66d87866d48
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206542"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057053"
 ---
-# <a name="partition-service-fabric-reliable-services"></a>Bölüm Service Fabric güvenilir hizmetler
-Bu makalede Azure Service Fabric güvenilir hizmetler bölümlendirme, temel kavramlar tanıtılmaktadır. Makalede kullanılan kaynak kodunu da kullanılabilir [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+# <a name="partition-service-fabric-reliable-services"></a>Partition Service Fabric güvenilir Hizmetleri
+Bu makalede, Azure Service Fabric güvenilir Hizmetleri bölümleme temel kavramlar tanıtılmaktadır. Makalesinde kullanılan kaynak kodu de kullanılabilir [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## <a name="partitioning"></a>Bölümleme
-Bölümleme için Service Fabric benzersiz değil. Aslında, ölçeklenebilir hizmetler oluşturmaya bir çekirdek desenini değil. Daha geniş anlamda, biz durumu (veri) ayırma kavram olarak bölümlendirme hakkında düşünün ve ölçeklenebilirliği ve performansı artırmak için daha küçük erişilebilir birimlerine işlem. Bölümlendirme, iyi bilinen bir form [veri bölümlendirme][wikipartition], parçalama olarak da bilinir.
+Bölümleme için Service Fabric benzersiz değil. Aslında, ölçeklenebilir hizmetler oluşturmaya çekirdek deseni olduğu. Daha geniş bir anlamda, biz durumu (veriler) ayırma kavram olarak bölümlendirme hakkında düşünmek ve ölçeklenebilirlik ve performansı artırmak için daha küçük erişilebilir birimler halinde işlem. Bölümleme iyi bilinen bir form [verileri bölümleme][wikipartition], parçalama olarak da bilinir.
 
-### <a name="partition-service-fabric-stateless-services"></a>Bölüm Service Fabric durum bilgisi olmayan hizmetler
-Durum bilgisi olmayan hizmetler için bir hizmet bir veya daha fazla örneklerini içeren bir birimi olan bir bölüm hakkında düşünebilirsiniz. Şekil 1 bir durum bilgisi olmayan hizmetin bir bölüm kullanarak bir kümede dağıtılmış beş örneğiyle gösterir.
+### <a name="partition-service-fabric-stateless-services"></a>Partition Service Fabric durum bilgisi olmayan hizmetler
+Durum bilgisi olmayan hizmetler için bir hizmet bir veya daha fazla örneğini içeren bir mantıksal birimi olan bir bölüm hakkında değerlendirme yapabilirsiniz. Şekil 1 beş örnek bir bölümü kullanarak bir küme genelinde dağıtılan durum bilgisi olmayan hizmet gösterir.
 
-![Durum bilgisiz hizmeti](./media/service-fabric-concepts-partitioning/statelessinstances.png)
+![Durum bilgisi olmayan hizmet](./media/service-fabric-concepts-partitioning/statelessinstances.png)
 
-Gerçekten durum bilgisiz hizmet çözümlerine iki tür vardır. İlk durumuna harici olarak örneğin (gibi verilere ve oturum bilgilerini depolayan bir Web sitesi) bir Azure SQL veritabanında kalıcı bir hizmettir. İkinci herhangi kalıcı durumunu yönetme değil yalnızca Hesaplama Hizmetleri (örneğin, bir hesap makinesi veya görüntü küçük resim oluşturma) olur.
+Aslında iki tür durum bilgisi olmayan hizmet çözümler vardır. İlk durumuna dışarıdan, örneğin (oturum bilgilerini ve veri depolayan bir Web sitesi için gibi) bir Azure SQL veritabanı'nda kalıcı bir hizmettir. İkinci herhangi bir kalıcı durum yönetmeyin yalnızca Hesaplama Hizmetleri (gibi bir hesaplayıcı veya görüntüyü küçük resim oluşturma) olur.
 
-İçinde bir durum bilgisi olmayan hizmetin bölümlendirme, çok nadir bir senaryo--ölçeklenebilirlik bir durumdur ve kullanılabilirlik normalde elde fazla örneğe ekleyerek. Özel yönlendirme isteklerini karşılamak ihtiyacınız olduğunda, durum bilgisiz hizmet örnekleri için birden çok bölüm isteyip istemediğinize karar yalnızca bir kez gösterilecektir.
+İçinde çalışması, durum bilgisi olmayan hizmet bölümleme, çok nadir bir senaryodur--ölçeklenebilirlik ve kullanılabilirlik normal olarak elde edilen daha fazla örnek ekleyerek. Durum bilgisi olmayan hizmet örneklerine yönelik birden çok bölüm kullanmayı yalnızca bir kez, özel yönlendirme isteklerini karşılamak için ihtiyacınız andır.
 
-Örnek olarak, burada belirli bir aralıkla kimlikleri kullanıcılar yalnızca belirli bir hizmet örneği tarafından sunulması bir durum düşünün. Gerçekten bölümlenmiş arka uç (ör parçalı SQL veritabanı) sahip olduğunuzda ve hangi hizmet örneği için veritabanı parça--yazma veya arka kullanılan aynı bölümleme bilgi gerektirir durum bilgisiz hizmeti içindeki diğer hazırlık işlemleri gerçekleştirmesi denetlemek istediğinizde bir durum bilgisi olmayan hizmetin ne zaman bölüm, başka bir örnek verilmiştir. Bu senaryo türlerini farklı şekillerde çözülebilir ve hizmet bölümleme gerektirmeyebilecek.
+Örneğin, burada kimliklerine sahip kullanıcılar belirli bir aralıktaki belirli hizmet örneği tarafından yalnızca hizmet verilen bir durum düşünün. Gerçekten bölümlenmiş bir arka uç (ör parçalı SQL veritabanı) sahip ve hangi hizmet örneğine veritabanı parçaya--yazma veya diğer hazırlık çalışması içinde gerçekleştirmek denetim istediğinizde ne zaman bir durum bilgisi olmayan hizmet bölümleme, başka bir örnek verilmiştir aynı bölümleme bilgileri gerektiren durum bilgisi olmayan hizmeti, arka uçtaki kullanılır. Bu tür senaryolar farklı şekillerde çözülebilir ve hizmet bölümleme mutlaka gerektirmez.
 
-Bu kılavuzda kalan durum bilgisi olan hizmetler odaklanır.
+Bu kılavuzda kalan durum bilgisi olan hizmetler üzerinde odaklanır.
 
-### <a name="partition-service-fabric-stateful-services"></a>Bölüm Service Fabric durum bilgisi olan hizmetler
-Service Fabric bölümü durumu (veri) için birinci sınıf bir yol sunarak ölçeklenebilir durum bilgisi olan hizmetler geliştirmek kolaylaştırır. Üzerinden yüksek oranda güvenilir bir ölçek birimi olarak bir durum bilgisi olan hizmet bölüm hakkında kavramsal olarak, düşünebilirsiniz [çoğaltmaları](service-fabric-availability-services.md) , dağıtılmış ve bir kümedeki düğümleri arasında dengeli.
+### <a name="partition-service-fabric-stateful-services"></a>Partition Service Fabric durum bilgisi olan hizmetler
+Service Fabric, ölçeklenebilir bir durum bilgisi olan hizmetler bölüm durumu (veriler) için birinci sınıf bir yolunu sunarak geliştirme kolaylaştırır. Kavramsal olarak, son derece güvenilirdir aracılığıyla, bir ölçek birimi olarak hakkında bir durum bilgisi olan hizmet ilişkin bir bölüm düşünebilirsiniz [çoğaltmaları](service-fabric-availability-services.md) , dağıtılmış ve bir küme içindeki düğümler arasında dengeli.
 
-Service Fabric durum bilgisi olan hizmetleri bağlamında bölümleme belirli bir hizmet bölümü hizmetinin tam durumunu bir kısmı için sorumlu olduğunu belirleme işlemi ifade eder. (Önce belirtildiği gibi bir bölüm kümesidir [çoğaltmaları](service-fabric-availability-services.md)). Service Fabric hakkında önemli bir şey, bu bölümler farklı düğümlerde yerleştirir ' dir. Bu düğümün kaynak sınırına ulaşması sağlar. Veri büyüme gereksinimlerine göre bölümleri büyümesine ve Service Fabric bölümleri düğümleri arasında yeniden dengeler. Bu donanım kaynaklarının sürekli verimli kullanılmasını sağlar.
+Service Fabric durum bilgisi olan hizmetler bağlamında bölümleme belirli hizmet bölüm tam hizmet durumunu değerinin bir bölümü için sorumlu olduğunu belirleme işlemi ifade eder. (Daha önce belirtildiği gibi bir dizi bölümdür [çoğaltmaları](service-fabric-availability-services.md)). Service Fabric hakkında harika bir şey, bunu bölümleri farklı düğümlere yerleştirir olabilir. Bu düğümün kaynak sınırı büyümesine sağlar. Veri büyümesi gerektiğinde gibi bölümlerini büyütmenize ve Service Fabric bölümler düğümleri arasında yeniden dengeler. Bu, donanım kaynakları verimli kullanmaya devam sağlar.
 
-Bir örnek vermek için 5 düğümlü bir küme ve 10 bölümler ve üç çoğaltmaları hedefi olacak biçimde yapılandırılmış bir hizmet başlayın söyleyin. Bu durumda, Service Fabric dengelemek ve çoğaltmalar, küme üzerinde--dağıtır ve iki birincil ile bitecek [çoğaltmaları](service-fabric-availability-services.md) düğüm başına.
-Şimdi 10 düğümler kümeye ölçeğini gerekiyorsa, Service Fabric birincil yeniden dengelemeniz [çoğaltmaları](service-fabric-availability-services.md) tüm 10 düğümleri arasında. 5 düğümlerine ölçeği, benzer şekilde, Service Fabric tüm çoğaltmalar 5 düğümleri arasında yeniden dengelemeniz.  
+Bir örnek vermek için 5 düğümlü bir küme ve 10 bölümleri ve üç kopyaya hedefi olacak şekilde yapılandırılmış bir hizmet başlayın varsayalım. Bu durumda, Service Fabric dengelemek ve çoğaltmaları--kümede dağıtma ve iki birincil ile bitecek [çoğaltmaları](service-fabric-availability-services.md) düğüm başına.
+Artık 10 düğümü kümeye ölçeğini genişletmek gerekiyorsa, Service Fabric birincil yeniden dengelemeniz [çoğaltmaları](service-fabric-availability-services.md) 10 tüm düğümlerde. 5 düğümlerine ölçeği, benzer şekilde, Service Fabric tüm çoğaltmalar 5 düğümler arasında yeniden dengelemeniz.  
 
-Şekil 2 önce ve sonra küme ölçeklendirme 10 bölümleri dağılımını gösterir.
+Şekil 2 önce ve sonra kümeyi ölçeklendirme 10 bölümler dağılımını gösterir.
 
 ![Durum bilgisi olan hizmet](./media/service-fabric-concepts-partitioning/partitions.png)
 
-Sonuç olarak, genişleme istemcilerinden gelen istekleri bilgisayarlar arasında dağıtılır, uygulamanın genel performansı geliştirildi ve veri öbekleri erişim Çekişme sınırlı olduğundan elde edilir.
+Sonuç olarak, ölçeği genişletme, istemcilerden gelen istekleri bilgisayara dağıtılır, uygulamanın genel performansını geliştirdik ve öbeklere veri erişim çekişmesini sınırlı olduğundan elde edilir.
 
-## <a name="plan-for-partitioning"></a>Bölümleme planlama
-Bir hizmet uygulamadan önce her zaman genişletmek için gereken bölümleme stratejisine düşünmelisiniz. Farklı yolu vardır, ancak bunların tümünün uygulama elde etmek gerekenler üzerinde odaklanın. Bu makalede bağlam için şimdi daha önemli yönlerinden bazıları göz önünde bulundurun.
+## <a name="plan-for-partitioning"></a>Bölümleme planı
+Bir hizmet uygulamadan önce her zaman ölçeğini genişletmek için gerekli olan bölümleme stratejisi düşünmelisiniz. Farklı yolu vardır, ancak bunların tümünde uygulama elde etmek için gerekenler üzerinde odaklanın. Bu makalede bağlam için bazı önemli yönlerinden düşünelim.
 
-İlk adım olarak bölümlenmiş gerekiyor durumu yapısı hakkındaki görüşlerinizi iyi bir yaklaşımdır.
+İlk adım olarak bölümlenmiş gereken durumu yapısını düşünün iyi bir yaklaşımdır.
 
-Basit bir örnek atalım. Countywide yoklama için bir hizmet oluşturmak için olsaydı, her şehir için bir bölüm ilçe oluşturabilirsiniz. Ardından, bu Şehir karşılık gelen bir bölüme şehirde her kişi için oy saklayabilirsiniz. Şekil 3, kişiler ve bunlar bulunduğu şehir kümesi gösterilmektedir.
+Basit bir örneği ele alalım. Countywide yoklama için bir hizmet oluşturmak için olsaydı, her şehir için bir bölüm içinde ilçe oluşturabilirsiniz. Ardından, bu şehir için karşılık gelen bir bölüme şehirde her kişi için oy saklayabilirsiniz. Şekil 3'te kişiler ve bunların bulunduğu şehir kümesi gösterilmektedir.
 
 ![Basit bölüm](./media/service-fabric-concepts-partitioning/cities.png)
 
-Şehir popülasyonunu yaygın değiştikçe, çok miktarda veri (örneğin, Seattle) içeren bazı bölümleri ve çok az durumu (örneğin Kirkland) ile diğer bölümleri ile bitirebilirsiniz. Bu nedenle durumu eşit miktarda bölümlemeye sahip olmak etkisi nedir?
+Şehirlerin nüfuslarıyla yaygın değiştikçe, çok miktarda veri (örneğin, Seattle) içeren bazı bölümleri ve çok az durumu (örn: Kirkland) ile diğer bölümler bitirebilirsiniz. Bu nedenle durumu eşit miktarda bölümlemeye sahip olmak etkisi nedir?
 
-Örnek hakkında yeniden düşünüyorsanız, Seattle için oy tutan bölüm Kirkland'den daha fazla trafik alırsınız kolayca görebilirsiniz. Varsayılan olarak, Service Fabric olduğunu birincil ve ikincil çoğaltmaları her düğümde aynı sayıda hakkında emin olur. Bu nedenle, daha az trafik hizmet daha fazla trafik ve diğerleri hizmet çoğaltmaları tutun düğümleriyle bitirebilirsiniz. Tercihen şöyle sıcak ve soğuk noktalar bir kümede önlemek isteyebilirsiniz.
+Örnek yeniden düşünüyorsanız, Seattle için oy tutan bölüm Kirkland değerinden daha fazla trafik alırsınız kolayca görebilirsiniz. Varsayılan olarak, Service Fabric olduğundan her düğüme birincil ve ikincil çoğaltmalarda aynı sayıda hakkında emin sağlar. Bu nedenle, daha az trafik hizmet daha fazla trafik ve diğer hizmet çoğaltmaları barındıran düğümleri bitirebilirsiniz. Tercihen, bir kümedeki böyle sıcak ve soğuk noktalardan kaçınacak şekilde istersiniz.
 
-Bu durumu önlemek için bir bölümleme açısından iki işlem yapmanız gerekir:
+Bunu önlemek için bir bölümleme açısından bakıldığında iki işlem yapmanız gerekir:
 
-* Böylece tüm bölümleri arasında eşit olarak dağıtılır durumu bölümlemek deneyin.
-* Her bir çoğaltma hizmeti için yükü raporlamak. (Bu makalede hakkında daha fazla bilgi için kontrol [ölçümleri ve yük](service-fabric-cluster-resource-manager-metrics.md)). Service Fabric bellek miktarı veya kayıt sayısı gibi hizmetleri tarafından tüketilen rapor yükleme yeteneği sağlar. Bildirilen ölçülerine bağlı olarak, Service Fabric bazı bölümleri diğerlerinden daha yüksek yüklerini hizmet veren ve böylece hiçbir düğümü genel aşırı daha uygun düğümlerine çoğaltmaları taşıyarak küme yeniden dengeler algılar.
+* Böylece tüm bölümler arasında eşit olarak dağıtılmış, durum bölümlemek deneyin.
+* Her bir çoğaltma hizmeti için yükü raporlamak. (Bu makalede atın hakkında daha fazla bilgi için [ölçümleri ve yük](service-fabric-cluster-resource-manager-metrics.md)). Service Fabric, bellek veya kayıt sayısı gibi hizmetleri tarafından kullanılan rapor yükleme yeteneği sağlar. Service Fabric, bildirilen ölçümlere göre bazı bölümleri diğerlerinden daha yüksek yüklerini sunan ve böylece hiçbir düğüm genel aşırı daha uygun düğümlerine çoğaltmaları taşıyarak küme yeniden dengeler algılar.
 
-Bazı durumlarda, ne kadar veri belli bir bölüm olacak bilemezsiniz. Her ikisi de--yapmak için genel bir öneri olacak şekilde ilk olarak, bölümleme stratejisine kabul ederek, veri eşit bölümleri ve saniye raporlama yük tarafından yayar.  İlk yöntem oylama örnekte, zaman içinde erişim ya da yük geçici farklılıkları düzgünleştirme ikinci yardımcı sırasında açıklanan durumlarda engeller.
+Bazen, belirli bir bölümünde ne kadar veri olacaktır bilemezsiniz. Genel bir öneri her ikisi de--yapmak için bu nedenle ilk olarak, bölümleme stratejisi benimseyerek, verileri eşit olarak bölümleri ve saniye raporlama yük tarafından yayılan.  İlk yöntem, zaman içinde geçici erişim veya yük farklılıkları düzgünleştirme ikinci yardımcı olmanın oylama örnekte açıklanan durumlarda engeller.
 
-Bölüm planlama başka bir boyut doğru bölüm sayısı başından itibaren seçmektir.
-Service Fabric açısından bakıldığında, hiçbir şey yoktur senaryonuz için beklenenden daha yüksek bir bölüm sayısı ile başlıyor engeller.
-Aslında, en çok bölüm sayısı varsayarak bir geçerli bir yaklaşımdır.
+Doğru bölüm sayısı ile başlaması için bölüm planlamanın bir diğer unsuru seçmektir.
+Service Fabric açısından bakıldığında, hiçbir şey yoktur, senaryonuz için beklenenden daha yüksek bir bölüm sayısı ile başlıyor engeller.
+Aslında, en yüksek bölüm sayısı varsayılarak bir geçerli bir yaklaşımdır.
 
-Nadir durumlarda, ilk başta seçtiğiniz olandan daha fazla bölüm gerek yukarı bitebilir. Olaydan sonra bölüm sayısı değiştirilemez olarak aynı hizmet türüne ilişkin yeni bir hizmet örneği oluşturma gibi bazı gelişmiş bölüm yaklaşımlar uygulamak gerekir. İstekleri, istemci kodunuzun korumalıdır istemci-tarafı bilgisini temel alarak doğru hizmet örneği yönlendirir bazı istemci-tarafı mantığı uygulamanız gerekir.
+Nadir durumlarda, ilk başta seçtiğiniz çok daha fazla bölüm yapmanızın sonlandırabiliriz. Olaydan sonra bölüm sayısı değiştirilemez gibi aynı hizmet türünün yeni bir hizmet örneği oluşturma gibi bazı gelişmiş bölüm yaklaşımları uygulamak gerekir. İstemci kodunuz korumalıdır istemci-tarafı bilgisini temel alarak doğru hizmet örneğine istekleri yönlendiren bazı istemci tarafı mantığını uygulamak gerekir.
 
-Planlama bölümleme için başka bir mevcut bilgisayar kaynaklarına noktadır. Erişilen ve depolanacak durumu gereksinimleriniz değiştikçe izleyin bağlıdır:
+Planlama bölümleme için başka bir mevcut bilgisayar kaynaklarına noktadır. Durumu depolanır ve gerektiğinde, izlemek için bağlıdır:
 
-* Ağ bant genişliği sınırları
+* Ağ bant genişliği sınırlarını
 * Sistem bellek sınırları
 * Disk depolama sınırları
 
-Bu nedenle çalıştıran bir kümedeki kaynak kısıtlamaları içine çalıştırırsanız ne olur? Yeni gereksinimleri karşılamak için Küme yalnızca ölçeklendirebilirsiniz cevaptır.
+Bu nedenle çalıştıran bir kümedeki kaynak kısıtlamaları yaşarsanız ne olur? Yeni gereksinimleri karşılamak için kümedeki yalnızca ölçeklendirebilirsiniz cevaptır.
 
-[Kapasite Planlama Kılavuzu](service-fabric-capacity-planning.md) kümenizi gereken kaç düğümleri belirleme için yönergeler sunar.
+[Kapasite Planlama Kılavuzu](service-fabric-capacity-planning.md) kümeniz için gerekli kaç düğümleri öğrenmek için yönergeler sunar.
 
 ## <a name="get-started-with-partitioning"></a>Bölümlendirme ile çalışmaya başlama
-Bu bölümde, hizmetiniz bölümlendirme ile çalışmaya başlama açıklar.
+Bu bölümde, hizmetiniz bölümleme ile çalışmaya başlama açıklar.
 
-Service Fabric üç bölümleme şeması seçeneği sunar:
+Service Fabric üç bölüm şemaları seçeneği sunar:
 
-* (Uniformınt64partition da bilinir) bölümleme aralıklı.
-* Bölümleme adı. Bu model genelde kullanan uygulamalar, sınırlı kümesinde bucketed veri içeriyor. Adlandırılmış bölüm anahtarları olarak kullanılan veri alanlarının sık karşılaşılan örnekleri, bölge, posta kodları, müşteri grupları veya diğer iş sınırları olacaktır.
-* Tek bölümleme. Hizmeti herhangi bir ek yönlendirme gerekmediğinde singleton bölümler genellikle kullanılır. Örneğin, durum bilgisi olmayan hizmetler varsayılan olarak bu bölümleme düzenini kullanın.
+* Aralıklı (UniformInt64Partition da bilinir) bölümleme.
+* Bölümleme adı. Genellikle bu modeli kullanan uygulamalar, sınırlanmış kümesinde bucketed veri var. Veri alanlarının adlandırılmış bölüm anahtarlarının kullanılması sık karşılaşılan örneklerden bazıları, bölge, posta kodları, müşteri gruplarına veya diğer iş sınırları olacaktır.
+* Singleton bölümleme. Singleton bölümler genellikle hizmet herhangi bir ek yönlendirme gerektirmez kullanılır. Örneğin, durum bilgisi olmayan hizmetler, varsayılan olarak bu bölümleme düzeni kullanın.
 
-Adlandırılmış ve özel formları aralıklı bölümlerinin tek bölümleme şemaları geçerlidir. En yaygın ve kullanışlı bir olduğu gibi varsayılan olarak, bölümleme, Service Fabric kullanmak için Visual Studio şablonları aralıklı. Bu makalenin sonraki bölümlerinde ranged bölümleme düzenini temel odaklanır.
+Adlandırılmış ve tek bölümleme düzenleri aralıklı bölümlerinin özel biçimler. En yaygın ve kullanışlı bir olduğu gibi varsayılan olarak, bölümleme, Service Fabric kullanmak için Visual Studio şablonları aralıklı. Bu makalenin geri kalanında ranged bölümleme düzeni üzerinde odaklanır.
 
-### <a name="ranged-partitioning-scheme"></a>Bölümleme düzeni aralıklı
-Bu, (düşük anahtarı ve yüksek anahtar tarafından tanımlanır) bir tamsayı aralığı ve bölümler (n) sayısını belirtmek için kullanılır. N bölümler, her bir çakışmayan alt aralığı genel bölüm anahtarı aralığının için sorumlu oluşturur. Örneğin, ranged bölümleme düzeni düşük anahtar 0 ile 99 yüksek anahtarı ve 4 sayısını dört bölüm, aşağıda gösterildiği gibi oluşturursunuz.
+### <a name="ranged-partitioning-scheme"></a>Aralıklı bölümleme düzeni
+Bu, bir tamsayı aralığı (düşük anahtarı ve yüksek anahtar tarafından tanımlanır) ve bölümleri (n) sayısını belirtmek için kullanılır. N bölümler, çakışmayan dizinin alt genel bölüm anahtar aralığı için her sorumlu oluşturur. Örneğin, bir ranged bölümleme düzeni düşük anahtar 0 ile 99 yüksek anahtarına ve sayı 4'ün dört bölüm aşağıda gösterildiği gibi oluşturursunuz.
 
-![Bölümleme aralığı](./media/service-fabric-concepts-partitioning/range-partitioning.png)
+![Aralık bölümleme](./media/service-fabric-concepts-partitioning/range-partitioning.png)
 
-Veri kümesi içinde benzersiz bir anahtar göre bir karma oluşturma ortak bir yaklaşımdır. Bazı ortak anahtarları örnekleri bir araç kimlik numarası (Toplamıdır), bir çalışan kimliği veya benzersiz bir dize olabilir. Bu benzersiz anahtarı'nı kullanarak, bir karma kod mod, anahtar olarak kullanılacak anahtar aralığı karşılaşırsınız. İzin verilen anahtar aralığının üst ve alt sınırları belirtebilirsiniz.
+Veri kümesi içinde benzersiz bir anahtara göre bir karma değer oluşturmak yaygın bir yaklaşımdır. Bazı genel örnekleri anahtarların bir araç kimlik numarası (Toplamıdır), çalışan kimliği veya benzersiz bir dize olacaktır. Bu benzersiz bir anahtar kullanarak, bir karma kod mod, anahtar olarak kullanılacak anahtar aralığı karşılaşırsınız. İzin verilen anahtar aralığın alt ve üst sınırları belirtebilirsiniz.
 
-### <a name="select-a-hash-algorithm"></a>Bir karma algoritması seçin
-Karma önemli bir bölümü, karma algoritma seçme. Hedef birbirine yakın (yere göre hassas karma)--benzer anahtarları grubunda olup bir husustur veya etkinlik kapsamlı tüm bölümler (dağıtım karma) dağıtılması, daha yaygın olduğu.
+### <a name="select-a-hash-algorithm"></a>Karma algoritması seçin
+Karma önemli bir bölümü, karma algoritması seçmektir. Hedef birbirine yakın (yerleşim yeri hassas karma)--benzer anahtarları grubunda olup bir husustur veya etkinlik problem (karma dağıtım) tüm bölümler arasında dağıtılması gerektiğini, daha yaygın olduğu.
 
-İyi dağıtım karma algoritması özelliklerini şunlardır: işlem kolaydır, birkaç çakışmaları sahiptir ve anahtarları eşit dağıtır. Verimli karma algoritması iyi bir örnektir [FNV-1](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function) karma algoritması.
+İyi dağıtım karma algoritma özelliklerini şunlardır: işlem kolaydır, birkaç çakışmaları olan ve anahtarları eşit olarak dağıtır. Verimli bir karma algoritması iyi bir örnektir [FNV 1](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function) karma algoritması.
 
-Genel karma kodu algoritması seçenekleri için iyi bir kaynaktır [karma işlevlerini Wikipedia sayfasında](http://en.wikipedia.org/wiki/Hash_function).
+Genel karma kod algoritması seçenekleri için iyi bir kaynaktır [karma işlevlerini Wikipedia sayfasında](http://en.wikipedia.org/wiki/Hash_function).
 
-## <a name="build-a-stateful-service-with-multiple-partitions"></a>Durum bilgisi olan bir hizmet birden çok bölüm ile derleme
-İlk güvenilir durum bilgisi olan hizmet birden çok bölüm oluşturalım. Bu örnekte, aynı bölüm aynı harfiyle başlayan tüm soyadlarını saklamak istediğiniz çok basit bir uygulama oluşturacaksınız.
+## <a name="build-a-stateful-service-with-multiple-partitions"></a>Birden çok bölüm ile durum bilgisi olan hizmet oluşturma
+Bir ilk durum bilgisi olan güvenilir hizmet ile birden çok bölüm oluşturalım. Bu örnekte, aynı bölüm içindeki aynı harfi ile başlayan tüm adların saklamak istediğiniz çok basit bir uygulama oluşturacaksınız.
 
-Kod yazmadan önce bölümler ve bölüm anahtarlarını hakkında düşünmek gerekir. 26 bölümleri (bir her harf alfabedeki için), düşük ve yüksek anahtarlar hakkında gerekenler?
-Tam anlamıyla harf başına bir bölüm olmasını istiyoruz gibi kendi anahtarını her harfi olduğu gibi biz 0 düşük anahtar ve 25 yüksek anahtar kullanabilirsiniz.
+Herhangi bir kod yazmadan önce bölümler ve bölüm anahtarları hakkında düşünmeniz gerekir. 26 bölümleri (için bir tane alfabedeki her harfe), düşük ve yüksek anahtarlar hakkında gerekenler?
+Tam anlamıyla harfi her bir bölüm olmasını istiyoruz gibi kendi anahtarını her harf olduğundan 0 düşük anahtarı ve 25 yüksek anahtar kullanabiliriz.
 
 > [!NOTE]
-> Gerçekte dağıtım eşit olacak şekilde basitleştirilmiş bir senaryo budur. Harfler "S" veya "M" ile başlayan son adları "X" ile başlayan olanları daha yaygın veya "Y".
+> Gerçekte dağılımı düzensiz olduğu gibi basit bir senaryo budur. "S" veya "M" harflerle başlayan son adları "X" ile başlayan yapılandırılanlardan daha yaygın veya "Y".
 > 
 > 
 
 1. Açık **Visual Studio** > **dosya** > **yeni** > **proje**.
-2. İçinde **yeni proje** iletişim kutusunda, Service Fabric uygulaması seçin.
+2. İçinde **yeni proje** iletişim kutusunda, Service Fabric uygulamasını seçin.
 3. Proje "AlphabetPartitions" çağırın.
-4. İçinde **bir hizmet oluşturma** iletişim kutusunda, seçin **durum bilgisi olan** hizmet ve aşağıdaki görüntüde gösterildiği gibi "Alphabet.Processing" çağırın.
+4. İçinde **bir hizmet oluşturma** iletişim kutusunda **durum bilgisi olan** hizmet ve aşağıdaki resimde gösterildiği gibi "Alphabet.Processing" çağırın.
        ![Visual Studio'da yeni hizmet iletişim kutusu][1]
 
   <!--  ![Stateful service screenshot](./media/service-fabric-concepts-partitioning/createstateful.png)-->
 
-5. Bölüm sayısı ayarlayın. AlphabetPartitions proje ApplicationPackageRoot klasöründe bulunan Applicationmanifest.xml dosyasını açın ve parametre Processing_PartitionCount 26 için aşağıda gösterildiği gibi güncelleştirin.
+5. Bölüm sayısını ayarlayın. ApplicationPackageRoot AlphabetPartitions proje klasöründe bulunan Applicationmanifest.xml dosyasını açın ve aşağıda gösterildiği gibi 26'parametresi Processing_PartitionCount güncelleştirin.
    
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
     ```
    
-    Ayrıca aşağıda gösterildiği gibi ApplicationManifest.xml StatefulService öğesinde LowKey ve HighKey özelliklerini güncelleştirmeniz gerekir.
+    Ayrıca aşağıda gösterildiği gibi ApplicationManifest.xml StatefulService öğesinde LowKey ve HighKey özelliklerini güncelleştirmek gerekir.
    
     ```xml
     <Service Name="Processing">
@@ -149,25 +149,25 @@ Tam anlamıyla harf başına bir bölüm olmasını istiyoruz gibi kendi anahtar
       </StatefulService>
     </Service>
     ```
-6. Hizmet tarafından erişilebilir olması bir uç nokta bağlantı noktası yukarı ServiceManifest.xml (PackageRoot klasöründe bulunur) uç noktası öğesinin ekleyerek aşağıda gösterildiği gibi Alphabet.Processing hizmeti açın:
+6. Hizmet tarafından erişilebilir olması bir uç nokta bağlantı noktası (PackageRoot klasöründe bulunur) ServiceManifest.xml bitiş öğesi ekleyerek aşağıda gösterildiği gibi Alphabet.Processing hizmeti için açmak:
    
     ```xml
     <Endpoint Name="ProcessingServiceEndpoint" Port="8089" Protocol="http" Type="Internal" />
     ```
    
-    Hizmet 26 bölümlerle iç uç nokta dinlemek için yapılandırılmıştır.
-7. Ardından, geçersiz kılmanız gerekir `CreateServiceReplicaListeners()` işleme sınıfının yöntemi.
+    Artık hizmeti, 26 bölümleri olan bir iç uç nokta için dinleyecek şekilde yapılandırılmıştır.
+7. Ardından, geçersiz kılmak ihtiyacınız `CreateServiceReplicaListeners()` işleme sınıfının yöntemi.
    
    > [!NOTE]
-   > Bu örnek için basit bir HttpCommunicationListener kullandığınızı varsayar. Güvenilir hizmet iletişimi hakkında daha fazla bilgi için bkz: [güvenilir hizmet iletişim modelini](service-fabric-reliable-services-communication.md).
+   > Bu örnek, bir basit HttpCommunicationListener kullandığınız varsayılır. Güvenilir hizmet iletişimi hakkında daha fazla bilgi için bkz. [güvenilir hizmet iletişim modelini](service-fabric-reliable-services-communication.md).
    > 
    > 
-8. Bir çoğaltma dinlediği URL için önerilen bir desen aşağıdaki biçimdir: `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`.
-    Bu nedenle doğru uç noktaları ve bu deseni dinlemek için iletişim dinleyicisini yapılandırmak istiyorsunuz.
+8. Bir çoğaltma dinlediği URL için önerilen Düzen şu biçimdir: `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`.
+    Bu nedenle doğru uç noktaları ve bu düzendeki dinlemek, iletişim dinleyicisini yapılandırmak istiyorsunuz.
    
-    Bu adres için çoğaltma benzersiz olması gerekir böylece bu hizmetin birden fazla çoğaltma aynı bilgisayarda barındırılan. Bölüm kimliği + çoğaltma kimliği URL'de olan nedeni budur. URL öneki benzersiz olduğu sürece HttpListener birden çok adresi aynı bağlantı noktasında dinler.
+    Bu adres çoğaltmaya benzersiz olması gerekir, bu hizmetin birden fazla çoğaltma aynı bilgisayarda barındırılabileceği. Bölüm kimliği + çoğaltma kimliği URL'de olan nedeni budur. URL öneki benzersiz olduğu sürece, aynı bağlantı noktasında birden çok adresi üzerinde HttpListener dinleyebilirsiniz.
    
-    Ek GUID burada ikincil çoğaltmaların salt okunur istekleri için de dinlemek Gelişmiş bir olay yok. Bu durumda, yeni bir benzersiz adresi birincil ikincil geçiş sırasında yeniden adresini çözümlemek için istemcileri zorlamak için kullanılmadığından emin olmak istersiniz. '+' böylece kullanılabilir tüm konakları üzerinde (IP, FQDM, localhost, vb.) çoğaltma dinler burada adresi olarak kullanılır Aşağıdaki kod örneği gösterir.
+    Ek GUID ikincil çoğaltmaları da salt okunur isteklerini dinlemek burada Gelişmiş bir servis talebi için yoktur. Bu durumda, yeni bir benzersiz adresi birincil ikincil siteden geçiş yaparken adresini yeniden çözümlemek için istemcileri zorlamak için kullanılmadığından emin olmanız gerekir. '+', böylece kullanılabilir tüm konakları üzerinde (IP, FQDM localhost, vb.) çoğaltma dinler burada adresi olarak kullanılır Aşağıdaki kod örneği gösterilmektedir.
    
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -193,9 +193,9 @@ Tam anlamıyla harf başına bir bölüm olmasını istiyoruz gibi kendi anahtar
     }
     ```
    
-    Ayrıca, yayımlanan URL dinleme URL önekten biraz farklıdır dikkate değerdir.
-    Dinleme URL HttpListener için verilir. Yayımlanan Service Fabric adlandırma hizmet bulma için kullanılan hizmetine yayımlanan URL'dir. İstemciler, bu bulma hizmeti aracılığıyla bu adres için sorar. İstemcilerinin aldığından adresi gerçek IP veya FQDN düğümün bağlanmak için olmalıdır. Değiştirmeniz gereken şekilde '+' düğümün IP veya yukarıda gösterildiği gibi FQDN ile.
-9. Aşağıda gösterildiği gibi hizmet işleme mantığı eklemek için son adım olacaktır.
+    Ayrıca, yayımlanmış URL'sini dinleme URL ön ekini biraz farklıdır hatalarının ayıklanabileceğini belirtmekte yarar.
+    Dinleme URL'si için HttpListener verilir. Yayımlanmış URL'sini, Service Fabric adlandırma hizmeti bulma için kullanılan hizmet, yayımlanan URL'dir. İstemciler, bulma hizmeti ile bu adresi ister. İstemciler alma adresi gerçek IP veya FQDN düğümünün bağlanmak için olmalıdır. Değerini değiştirmeniz için '+' düğümün IP veya FQDN, yukarıda gösterildiği gibi.
+9. Son adım, aşağıda gösterildiği gibi hizmete işleme mantığının eklemektir.
    
     ```CSharp
     private async Task ProcessInternalRequest(HttpListenerContext context, CancellationToken cancelRequest)
@@ -239,19 +239,19 @@ Tam anlamıyla harf başına bir bölüm olmasını istiyoruz gibi kendi anahtar
     }
     ```
    
-    `ProcessInternalRequest` bölüm ve çağrıları çağırmak için kullanılan sorgu dizesi parametresi değerleri okur `AddUserAsync` lastname güvenilir sözlüğe eklemek için `dictionary`.
-10. Durum bilgisi olmayan bir hizmeti belirli bir bölüm nasıl çağırabilirsiniz görmek için projeye ekleyelim.
+    `ProcessInternalRequest` bölüm ve çağrılarını çağırmak için kullanılan sorgu dizesi parametresi değerlerini okur `AddUserAsync` lastname güvenilir sözlüğüne eklenecek `dictionary`.
+10. Durum bilgisi olmayan hizmet belirli bir bölüme nasıl çağırabilirsiniz görmek için projeye ekleyelim.
     
-    Bu hizmet, lastname bir sorgu dizesi parametresi olarak kabul eder, bölüm anahtarı belirler ve işleme Alphabet.Processing hizmetine gönderir bir basit bir web arabirimi olarak görev yapar.
-11. İçinde **bir hizmet oluşturma** iletişim kutusunda, seçin **Stateless** hizmet ve aşağıda gösterildiği gibi "Alphabet.Web" çağırın.
+    Bu hizmet, lastname bir sorgu dizesi parametresi olarak kabul eder, bölüm anahtarı belirler ve işleme için Alphabet.Processing hizmetine gönderir basit bir web arabirimi olarak görev yapar.
+11. İçinde **bir hizmet oluşturma** iletişim kutusunda **durum bilgisi olmayan** hizmet ve aşağıda gösterildiği gibi "Alphabet.Web" çağırın.
     
-    ![Durum bilgisiz hizmet ekran görüntüsü](./media/service-fabric-concepts-partitioning/createnewstateless.png):
-12. ServiceManifest.xml aşağıda gösterildiği gibi bir bağlantı noktası açmak amacıyla Alphabet.WebApi hizmet uç noktası bilgileri güncelleştirin.
+    ![Durum bilgisi olmayan hizmet ekran görüntüsü](./media/service-fabric-concepts-partitioning/createnewstateless.png).
+12. ServiceManifest.xml aşağıda gösterildiği gibi bir bağlantı noktası açmanız Alphabet.WebApi hizmetinin uç noktası bilgileri güncelleştirin.
     
     ```xml
     <Endpoint Name="WebApiServiceEndpoint" Protocol="http" Port="8081"/>
     ```
-13. Web sınıfında ServiceInstanceListeners koleksiyonu döndürülecek gerekir. Yeniden basit HttpCommunicationListener uygulamak seçebilirsiniz.
+13. Web sınıfında ServiceInstanceListeners koleksiyonunu döndürülecek gerekir. Basit bir HttpCommunicationListener uygulamak isteyebilirsiniz.
     
     ```CSharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -267,7 +267,7 @@ Tam anlamıyla harf başına bir bölüm olmasını istiyoruz gibi kendi anahtar
         return new HttpCommunicationListener(uriPrefix, uriPublished, this.ProcessInputRequest);
     }
     ```
-14. Şimdi işleme mantığı uygulamanız gerekir. HttpCommunicationListener çağrıları `ProcessInputRequest` bir isteği ne zaman devreye girer. Bu nedenle devam edelim ve aşağıdaki kodu ekleyin.
+14. Artık işleme mantığı uygulamanız gerekir. HttpCommunicationListener çağrıları `ProcessInputRequest` ne zaman bir istek halinde sunulur. Bu nedenle devam edelim ve aşağıdaki kodu ekleyin.
     
     ```CSharp
     private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
@@ -313,7 +313,7 @@ Tam anlamıyla harf başına bir bölüm olmasını istiyoruz gibi kendi anahtar
     }
     ```
     
-    Şimdi arkasını adım adım yol gösterir. Sorgu dizesi parametresi ilk harfini kodu okur `lastname` bir char içine. Ardından, on altılık değeri çıkararak bu harfi için bölüm anahtarı belirler `A` son adları ilk harfi onaltılık değeri.
+    Şimdi arkasını adım adım yol gösterir. Sorgu dizesi parametresi ilk harfini kodu okur `lastname` içine bir karakter. Ardından, onaltılık değerini çıkararak bu harfi için bölüm anahtarı belirler `A` onaltılık değerinin son adlarının ilk harflerini.
     
     ```CSharp
     string lastname = context.Request.QueryString["lastname"];
@@ -321,20 +321,20 @@ Tam anlamıyla harf başına bir bölüm olmasını istiyoruz gibi kendi anahtar
     ServicePartitionKey partitionKey = new ServicePartitionKey(Char.ToUpper(firstLetterOfLastName) - 'A');
     ```
     
-    Bu örnekte, 26 bölümler bölüm başına tek bölüm anahtarına sahip kullanıyoruz unutmayın.
-    Ardından, biz hizmeti bölüm elde `partition` kullanarak bu anahtar için `ResolveAsync` yöntemi `servicePartitionResolver` nesnesi. `servicePartitionResolver` olarak tanımlanır
+    Bu örnekte, 26 bölümler bölüm başına tek bir bölüm anahtarı ile kullanıyoruz unutmayın.
+    Ardından, biz hizmeti bölümü elde `partition` kullanarak bu anahtar için `ResolveAsync` metodunda `servicePartitionResolver` nesne. `servicePartitionResolver` olarak tanımlanır
     
     ```CSharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
     ```
     
-    `ResolveAsync` Hizmet URI'si, bölüm anahtarı ve bir iptal belirteci parametre olarak yöntemi alır. İşleme hizmeti için URI hizmetidir `fabric:/AlphabetPartitions/Processing`. Ardından, bölümün bitiş noktası alın.
+    `ResolveAsync` Hizmet URI'si, bölüm anahtarı ve bir iptal belirteci parametreleri olarak yöntemi alır. İşleme hizmeti için URI hizmetidir `fabric:/AlphabetPartitions/Processing`. Ardından, uç nokta bölümünün alın.
     
     ```CSharp
     ResolvedServiceEndpoint ep = partition.GetEndpoint()
     ```
     
-    Son olarak, şu uç nokta URL'si artı querystring yapı ve işleme hizmeti çağırın.
+    Son olarak, uç nokta URL'si artı querystring oluşturmamızı ve işleme hizmeti çağırın.
     
     ```CSharp
     JObject addresses = JObject.Parse(ep.Address);
@@ -346,8 +346,8 @@ Tam anlamıyla harf başına bir bölüm olmasını istiyoruz gibi kendi anahtar
     string result = await this.httpClient.GetStringAsync(primaryReplicaUriBuilder.Uri);
     ```
     
-    İşlem tamamlandığında, biz çıkış geri yazma.
-15. Son adım hizmetin test etmektir. Visual Studio kullanan uygulama parametreleri, yerel ve bulut dağıtımı. Yerel olarak 26 bölümleri hizmetiyle sınamak için güncelleştirmeniz gerekir `Local.xml` dosya AlphabetPartitions proje ApplicationParameters klasöründe aşağıda gösterildiği gibi:
+    İşleme tamamlandığında, biz çıkış geri yazma.
+15. Son adım, hizmeti test etmektir. Visual Studio kullanan uygulama parametreleri, yerel ve bulut dağıtımı. Yerel olarak 26 bölümleri olan hizmeti test etmek için güncelleştirmeye gerek duyduğunuz `Local.xml` aşağıda gösterildiği gibi AlphabetPartitions proje ApplicationParameters klasöründe dosya:
     
     ```xml
     <Parameters>
@@ -355,21 +355,24 @@ Tam anlamıyla harf başına bir bölüm olmasını istiyoruz gibi kendi anahtar
       <Parameter Name="WebApi_InstanceCount" Value="1" />
     </Parameters>
     ```
-16. Dağıtımını tamamladıktan sonra hizmet ve tüm bölümleri Service Fabric Explorer'da kontrol edebilirsiniz.
+16. Dağıtımını tamamladıktan sonra hizmeti ve tüm bölümleri Service Fabric Explorer'da kontrol edebilirsiniz.
     
     ![Service Fabric Explorer ekran görüntüsü](./media/service-fabric-concepts-partitioning/sfxpartitions.png)
-17. Bir tarayıcıda girerek bölümleme mantığı sınayabilirsiniz `http://localhost:8081/?lastname=somename`. Aynı harfle başlayan her Soyadı aynı bölümde depolandığını görürsünüz.
+17. Bir tarayıcıda girerek bölümleme mantığı sınayabilirsiniz `http://localhost:8081/?lastname=somename`. Aynı harfi ile başlayan her Soyadı aynı bölümde depolandığını görürsünüz.
     
     ![Tarayıcı ekran görüntüsü](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
 Tüm kaynak kodu örnek [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
-## <a name="next-steps"></a>Sonraki adımlar
-Service Fabric kavramları hakkında daha fazla bilgi için aşağıdakilere bakın:
+## <a name="reliable-services-and-actor-forking-subprocesses"></a>Reliable Services ve alt işlemden çatal aktör
+Service Fabric güvenilir Hizmetleri ve daha sonra reliable actors alt işlemden çatal desteklemiyor. Neden olmadığını desteklenen bir örnektir [CodePackageActivationContext](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) desteklenmeyen bir alt kaydetmek için kullanılamaz ve iptal belirteçlerini yalnızca registred işlemleri; gönderilen sorunların, her tür gibi kaynaklanan üst işleme iptal belirteci aldıktan sonra alt işlemden kapatmayın, hatalar'ı yükseltin. 
 
-* [Service Fabric hizmetlerin kullanılabilirliğini](service-fabric-availability-services.md)
-* [Service Fabric Hizmetleri ölçeklenebilirliği](service-fabric-concepts-scalability.md)
-* [Kapasite planlama için Service Fabric uygulamaları](service-fabric-capacity-planning.md)
+## <a name="next-steps"></a>Sonraki adımlar
+Service Fabric kavramlarla ilgili daha fazla bilgi için aşağıdakilere bakın:
+
+* [Service Fabric hizmetlerinin kullanılabilirliği](service-fabric-availability-services.md)
+* [Service Fabric hizmetlerinin ölçeklenebilirliği](service-fabric-concepts-scalability.md)
+* [Kapasite planlaması için Service Fabric uygulamaları](service-fabric-capacity-planning.md)
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 41513f89838aca2dfabbc19072e973aa12cd0010
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 155aa8ac1ee01ba46297e66763e0c0501ead32e2
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436395"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42056451"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workfront"></a>Öğretici: Azure Active Directory Workfront ile tümleştirme
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Workfront yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir Workfront çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD'de Workfront tümleştirmesini yapılandırmak için Workfront Galeride
 
 **Galeriden Workfront eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -117,7 +117,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve W
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://<companyname>.attasksandbox.com/SAML2`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [Workfront istemci Destek ekibine](https://www.workfront.com/contact-us/) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [Workfront istemci Destek ekibine](https://www.workfront.com/services-and-support) bu değerleri almak için. 
  
 1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 

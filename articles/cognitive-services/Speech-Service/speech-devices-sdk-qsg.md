@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 266315a731eec8a2c0ab0a880ce9e1db58331184
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 463a015b7c01dafc5b30de56b95fa0510ffb98e4
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283145"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42424378"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Konuşma cihaz SDK'sı ile çalışmaya başlama
 
@@ -44,20 +44,20 @@ Geliştirme konuşma cihaz SDK'sını kullanmaya başlamadan önce ihtiyacınız
 
 ## <a name="set-up-the-development-kit"></a>Geliştirme Seti ' ayarlayın
 
-1. Geliştirme Seti'nın power bağdaştırıcısı takın. Yeşil power göstergesi üst Pano vurgulamasında.
+1. Güç bir mini USB kablosu kullanarak dev Seti açık bir PC veya güç adptor bağlı. Yeşil power göstergesi üst Pano vurgulamasında.
 
-1. Geliştirme Seti mini bir USB kablosu kullanarak bir bilgisayara bağlanın.
+1. Geliştirme Seti, ikinci bir mini USB kablosu kullanarak bir bilgisayara bağlanın.
 
-    ![dev Seti bağlanma](media/speech-devices-sdk/qsg-1.jpg)
+    ![dev Seti bağlanma](media/speech-devices-sdk/qsg-1.png)
 
 1. Uygulamanızı Geliştirme Seti uygun şekilde yönlendirmek.
 
-    |Geliştirme Seti yapılandırma|Hizalama|
+    |Geliştirme Seti yapılandırma|Yönlendirme|
     |-----------------------------|------------|
     |Döngüsel|Şekilde, tavan mikrofonlar ile yan yana|
     |Doğrusal|(Aşağıda gösterilen) alt tarafında, mikrofon ile karşılaşmış|
 
-    ![Doğrusal dev Seti yönü](media/speech-devices-sdk/qsg-2.jpg)
+    ![Doğrusal dev Seti yönü](media/speech-devices-sdk/qsg-2.png)
 
 1. Sertifikaları ve Uyandırma sözcüğünü (anahtar) tablo dosyası yükleyin ve ses cihazı izinlerini ayarlayın. Bir komut penceresinde aşağıdaki komutları yazın.
 
@@ -82,9 +82,22 @@ Geliştirme konuşma cihaz SDK'sını kullanmaya başlamadan önce ihtiyacınız
 
 1.  Cihazınızı altında "bir cihaz seçin" listelenmelidir. Tıklayın **görünümü** yanında düğmesi. 
  
-1.  Tıklayarak, kablosuz ağa bağlamak **ayarları**, ardından **WLAN**.
+1.  Ardından klasör simgesine tıklayarak, kablosuz ağa bağlamak **ayarları**, ardından **WLAN**.
 
     ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
+ 
+ > [!NOTE]
+ > Şirketinizin ilkeleri varsa bağlanan cihazların ilgili wifi sisteme bağlanmak için BT Departmanınızla iletişime geçin ve Mac adresini almak için ihtiyacınız wifi sisteme. Dev Seti Mac adresini bulmak için dosya klasörü simgesine masaüstünde dev Seti, ardından **ayarları**, arama "İçin Mac adresi" a tıklayın **Mac adresi** almak istediğiniz **Gelişmiş WLAN** , doğru alt bulunan Mac adresi yazın. Ayrıca, bazı şirketler, bir cihazın ne kadar süre sınırı wifi sistemlerine bağlı olarak bir zaman olabilir. Belirli sayıda gün sonra dev Seti'nın kayıt wifi sisteminizle genişletmek gerekebilir.  
+ 
+ 
+   ![Vysor dosya klasörü](media/speech-devices-sdk/qsg-10.png)
+   
+   ![Vysor Mac adresi](media/speech-devices-sdk/qsg-11.png)
+   
+   
+ > Konuşmacı geliştirme setine eklemek istiyorsanız, ses satırına bağlanabilirsiniz. Ayrıca, kaliteli 3,5 mm Konuşmacı seçmeniz gerekir.
+ 
+   ![Vysor ses](media/speech-devices-sdk/qsg-14.png)
  
 ## <a name="run-a-sample-application"></a>Örnek uygulamayı çalıştırma
 
@@ -126,7 +139,7 @@ Roobo testleri çalıştırmak ve Geliştirme Seti kurulumunuzu doğrulamak içi
         exit
         ```
 
-    * Dosyaları kopyalama `kws.table`, `kws_g.fst`, `kws_k.fst`, ve `words_kw.txt`) cihazın \data\keyword\ klasörüne. O komut penceresinde aşağıdaki komutları çalıştırın.
+    * Dosyaları kopyalama `kws.table`, `kws_g.fst`, `kws_k.fst`, ve `words_kw.txt`) cihazın \data\keyword\ klasörüne. O komut penceresinde aşağıdaki komutları çalıştırın. Oluşturduysanız bir [özel Uyandırma word](speech-devices-sdk-create-kws.md), Web'den oluşturulan kws.table dosyası aynı dizinde olacağı `kws.table`, `kws_g.fst`, `kws_k.fst`, ve `words_kw.txt` dosyalarıdır. Lütfen adb anında iletme C:\SDSDK\Android-Sample-Release\keyword kullanın\[wake_word_name]\kws.table/data/anahtar sözcüğü komutu yerine geliştirme setine kws.table dosya göndermek.
 
         ```
         adb push C:\SDSDK\Android-Sample-Release\keyword\kws.table /data/keyword
@@ -179,7 +192,11 @@ Roobo testleri çalıştırmak ve Geliştirme Seti kurulumunuzu doğrulamak içi
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Konuşma hizmeti kullanılırken sertifika hataları alırsanız, doğru tarih ve saat cihaz sahip olduğundan emin olun.
+Konuşma hizmeti kullanılırken sertifika hataları alırsanız, doğru tarih ve saat cihaz sahip olduğundan emin olun. Git **ayarları**, tıklayın **tarih ve saat** sistemi altında ve **saat dilimi seçin** geçerli saat diliminizde olacak. Tutun **otomatik tarih ve saat** açık. Bilgisayarınızın saat dev Seti'nın kez eşleşir ve ardından dev Seti öğrenmiş olacaksınız gördüğünüzde, internet'e bağlı. 
+
+ ![Vysor dosya klasörü](media/speech-devices-sdk/qsg-12.png)
+ 
+ ![Vysor dosya klasörü](media/speech-devices-sdk/qsg-13.png)
 
 Daha fazla geliştirme için Roobo'nın bilgi [geliştirme Kılavuzu](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
 

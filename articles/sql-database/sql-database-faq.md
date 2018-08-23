@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 08/21/2018
 ms.author: carlrab
-ms.openlocfilehash: 6c43a52309a6f41d73ead19fc5f5b7df2f06d6f6
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 03e24679ea01dabb78a0d7028d49b624b2e3bf64
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308822"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42059683"
 ---
 # <a name="sql-database-faq"></a>SQL Veritabanı SSS
 
@@ -46,7 +46,6 @@ Veritabanı İşlem Birimi (DTU); CPU, bellek, okuma ve yazma eylemlerinin karma
 
 ## <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>SQL Server için Azure hibrit avantajı ile çift kullanımlı hakları var mı?
 Geçişleri sorunsuz bir şekilde çalıştığından emin olmak için ikili kullanım hakları lisans 180 günü var. Bu 180 günlük süre sonra SQL Server Lisansı yalnızca SQL veritabanı bulutta kullanılabilir ve ikili kullanım hakları şirket içi yok ve bulut.
-
 
 ## <a name="how-does-azure-hybrid-benefit-for-sql-server-differ-from-license-mobility"></a>Azure hibrit avantajı, SQL Server için lisans taşınabilirliği ' farkı nedir?
 Bugün, lisans taşınabilirliği avantajlarından paylaşılan üçüncü taraf sunucular için lisanslarını yeniden atanmasına imkan tanır Yazılım Güvencesi içeren SQL Server müşterileri için sunuyoruz. Bu avantajı, Azure Iaas ve AWS EC2 üzerinde kullanılabilir.
@@ -168,7 +167,10 @@ Denetim içinde oluşturulan hiçbir ek SQL veritabanı hizmetinin maliyeti ve t
 İçinde [Azure portalında](https://portal.azure.com), tıklayın **SQL sunucuları**listeden sunucuyu seçin ve ardından **parola sıfırlama**.
 
 ## <a name="how-do-i-manage-databases-and-logins"></a>Veritabanlarını ve oturum açma bilgileri nasıl yönetebilirim?
-Bkz: [veritabanlarını ve oturum açma bilgilerini yönetme](sql-database-manage-logins.md).
+Bkz: [veritabanlarını ve oturum açma bilgilerini yönetme](sql-database-manage-logins.md). 
+
+> [!NOTE]
+> Oluşturulduktan sonra sunucu yönetici hesabı adını değiştiremezsiniz.
 
 ## <a name="how-do-i-make-sure-only-authorized-ip-addresses-are-allowed-to-access-a-server"></a>Yalnızca yetkili IP adreslerini bir sunucuya erişim izni nasıl emin olabilirim?
 Bkz: [nasıl yapılır: SQL veritabanı'nda Güvenlik Duvarı ayarlarını yapılandırma](sql-database-configure-firewall-settings.md).

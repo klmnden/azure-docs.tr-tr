@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 07f739243b80230fbf4914535ea65183c3590937
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 61b804b876c91b5fcd12ce15bd7e2438f5d897a0
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020450"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617426"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Linux üzerinde ilk Java Service Fabric Reliable Actors uygulamanızı oluşturma
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Başlamadan önce, Service Fabric SDK, Service Fabric CLI ve Yeoman’ı yükley
 Service Fabric, Yeoman şablon oluşturucu kullanarak terminalden Service Fabric Java uygulaması oluşturmanıza yardımcı olacak yapı iskelesi araçları sağlar.  Yeoman zaten yüklü değilse, Yeoman’ı ayarlama hakkında yönergeler için bkz. [Linux ile Service Fabric’i kullanmaya başlama](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables). Java için Service Fabric Yeoman şablon oluşturucusunu yüklemek için şu komutu çalıştırın.
 
   ```bash
-  sudo npm install -g generator-azuresfjava
+  npm install -g generator-azuresfjava
   ```
 
 ## <a name="basic-concepts"></a>Temel kavramlar
@@ -220,18 +220,18 @@ Uygulama dağıtıldığında bir tarayıcı açın ve [http://localhost:19080/E
 Ardından, **Uygulamalar** düğümünü genişletin ve geçerli olarak uygulamanızın türü için bir giriş ve bu türün ilk örneği için başka bir giriş olduğuna dikkat edin.
 
 > [!IMPORTANT]
-> Uygulamayı azure'da güvenli bir Linux kümesi dağıtmak için Service Fabric çalışma zamanı ile uygulamanızı doğrulamak için bir sertifika yapılandırmanız gerekir. Bunun yapılması, temel alınan Service Fabric çalışma API'leri ile iletişim kurmak Reliable Actors hizmetlerinizi sağlar. Daha fazla bilgi için bkz: [Linux kümeleri üzerinde çalıştırmak için güvenilir hizmetler uygulamasını yapılandırma](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Uygulamayı azure'da güvenli bir Linux kümesi dağıtmak için Service Fabric çalışma zamanı uygulamanızla doğrulamak için bir sertifika yapılandırmanız gerekir. Bunun yapılması, temel alınan Service Fabric çalışma API'leri ile iletişim kurmak Reliable Actors hizmetlerinizi sağlar. Daha fazla bilgi için bkz. [Linux kümelerinde çalıştırmak için bir Reliable Services uygulaması yapılandırırsınız](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
 >
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Test istemcisini başlatma ve yük devre gerçekleştirme
 Aktörler kendi başına hiçbir şey yapmaz; başka bir hizmet veya istemcinin aktörlere ileti göndermesini gerektirir. Actor şablonu, actor hizmetiyle etkileşim kurmak üzere kullanabileceğiniz basit bir test betiği içerir.
 
 > [!Note]
-> Test istemcisi ActorProxy sınıfı aktör hizmeti olarak aynı küme içinde çalışır gerekir veya aynı IP adresi alanı paylaşmak aktörler ile iletişim kurmak için kullanır.  Test istemcisi yerel geliştirme kümesi ile aynı bilgisayarda çalıştırabilirsiniz.  Ancak, uzak bir kümede aktörler ile iletişim kurmak için bir ağ geçidi aktörler ile dış iletişim işler küme üzerinde dağıtmanız gerekir.
+> Test istemcisinin ActorProxy sınıfı, actor hizmetinin gibi aynı küme içinde çalıştırmaları veya aynı IP adresi alanını paylaşan aktörler ile iletişim kurmak için kullanır.  Yerel geliştirme kümesi ile aynı bilgisayarda test İstemcisi'ni çalıştırabilirsiniz.  Ancak, uzak bir kümeye düzenindeki aktörler ile iletişim kurmak için aktörleri ile dış iletişimi gerçekleştirir küme üzerinde bir ağ geçidi dağıtmanız gerekir.
 
 1. Actor hizmetinin çıktısını görmek için izleme yardımcı programını kullanarak betiği çalıştırın.  Test betiği bir sayacın değerini yükseltmek için aktörde `setCountAsync()` yöntemine; yeni sayaç değerini edinmek içinse aktörde `getCountAsync()` yöntemine çağrı yapar ve bu değeri konsolda görüntüler.
 
-   MAC OS X durumunda aşağıdaki ek komutları çalıştırarak HelloWorldTestClient klasörü kapsayıcı içindeki bazı konuma kopyalamanız gerekir.    
+   MAC OS X, aşağıdaki ek komutları çalıştırarak HelloWorldTestClient klasörü kapsayıcı içinde bazı konuma kopyalamanız gerekir.    
     
     ```bash
      docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home

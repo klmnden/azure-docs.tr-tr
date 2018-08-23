@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/18/2018
+ms.date: 08/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 800ec83b3599dba716e7a4a015b9b8c1745a0975
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 91d1be062dbf05f4c7c9c5c4a1eb3dfcfdb001af
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144576"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42441703"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Güvenlik Merkezi, Kiracı genelinde görünürlük elde edin
 Bu makale Azure Güvenlik Merkezi sağladığı en üst düzeye çeşitli eylemler yaparak başlamanıza yardımcı olur. Bu eylemler gerçekleştirme birden çok güvenlik ilkeleri uygulayarak, kuruluşunuzun güvenlik duruşunu uygun ölçekte tüm Azure Active Directory kiracınız ve etkili bir şekilde bağlanan Azure aboneliklerini yönetme hakkında daha fazla görünürlük elde etmenizi sağlar Abonelikler aggregative bir biçimde.
@@ -85,21 +85,26 @@ Bir Azure Active Directory Kiracı Yöneticisi, Azure abonelikleri doğrudan eri
 
 5. Yükseltilmiş erişim sağlamak için gereken görevleri yapın. İşiniz bittiğinde, anahtar kümesi geri **Hayır**.
 
-### <a name="open-or-refresh-security-center"></a>Açın veya Güvenlik Merkezi yenileyin
-Erişim yükseltilmiş sonra açın veya Azure AD kiracınıza tüm abonelikler görünürlük olduğunu doğrulamak için Azure Güvenlik Merkezi yenileyin. 
-
-1. [Azure Portal](https://portal.azure.com) oturum açın. 
-2. Güvenlik Merkezi'nde görüntülemek istediğiniz abonelik Seçici içinde tüm abonelikleri seçtiğinizden emin olun.
-    ![Abonelik Seçici ekran görüntüsü](./media/security-center-management-groups/subscription-selector.png)
-1. Seçin **tüm hizmetleri** Azure ana menüsünde seçip **Güvenlik Merkezi**.
-2. İçinde **genel bakış**, bir abonelik kapsamı grafik yok. 
-    ![Abonelik kapsamı grafiği ekran görüntüsü](./media/security-center-management-groups/security-center-subscription-coverage.png)
-3. Tıklayarak **kapsamı** kapsamdaki Aboneliklerin listesini görmek için. 
-    ![Abonelik kapsamı listesi ekran görüntüsü](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="assign-rbac-roles-to-users"></a>RBAC rolleri, kullanıcılara ata
-Kiracı Yöneticisi erişim yükselten sonra kök yönetim grubu düzeyinde ilgili kullanıcılar için RBAC rolü atayabilirsiniz. Önerilen rol atamak için [ **okuyucu**](../role-based-access-control/built-in-roles.md#reader). Bu rol, Kiracı düzeyi görünürlük sağlamak için gereklidir. Atanan rolü, tüm Yönetim gruplarını ve kök yönetim grubundaki abonelikleri otomatik olarak yayılır. RBAC rolleri hakkında daha fazla bilgi için bkz. [kullanılabilir roller](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles). 
+Tüm abonelikler için görünürlük kazanmak için Kiracı yöneticileri kök yönetim grubu düzeyinde kendilerine dahil, Kiracı genelinde görünürlük vermek istediğiniz tüm kullanıcılara uygun RBAC rolü atamanız gerekir. Önerilen rol atamak için kullanılan **Güvenlik Yöneticisi** veya **güvenlik okuyucusu**. Genellikle, güvenlik yöneticisi rolü güvenlik okuyucusu Kiracı düzeyinde görünürlük sağlamak için yeterli olacaktır ancak kök düzeyi, ilkeleri uygulamak için gereklidir. Bu rolleri tarafından verilen izinler hakkında daha fazla bilgi için bkz: [Güvenlik Yöneticisi yerleşik rol açıklamasını](../role-based-access-control/built-in-roles.md#security-admin) veya [güvenlik okuyucusu yerleşik rol açıklamasını](../role-based-access-control/built-in-roles.md#security-reader).
 
+
+#### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Azure portalı üzerinden kullanıcılara RBAC rollerini atayın: 
+
+1. [Azure Portal](https://portal.azure.com) oturum açın. 
+2. Yönetim gruplarını görüntülemek için seçin **tüm hizmetleri** Azure ana menüsünde seçip **Yönetim grupları**.
+3.  Bir yönetim grubu seçip tıklayın **ayrıntıları**.
+
+    ![Yönetim grupları ayrıntıları ekran görüntüsü](./media/security-center-management-groups/management-group-details.PNG)
+ 
+4. Tıklayın **erişim denetimi (IAM)** ardından **Ekle**.
+5. Atamak için rol ve kullanıcı seçin ve ardından tıklayın **Kaydet**.  
+   
+   ![Güvenlik okuyucusu rolü ekran görüntüsü Ekle](./media/security-center-management-groups/asc-security-reader.png)
+
+
+#### <a name="assign-rbac-roles-to-users-with-powershell"></a>Kullanıcılara PowerShell ile RBAC rollerini atayın: 
 1. [Azure PowerShell](/powershell/azure/install-azurerm-ps)'i yükleyin.
 2. Aşağıdaki komutları çalıştırın: 
 
@@ -128,19 +133,17 @@ Kiracı Yöneticisi erişim yükselten sonra kök yönetim grubu düzeyinde ilgi
     Remove-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
     ```
 
-<!-- Currently, PowerShell method only 6/26/18
+### <a name="open-or-refresh-security-center"></a>Açın veya Güvenlik Merkezi yenileyin
+Erişim yükseltilmiş sonra açın veya Azure AD kiracınıza tüm abonelikler görünürlük olduğunu doğrulamak için Azure Güvenlik Merkezi yenileyin. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
-2. To view management groups, select **All services** under the Azure main menu then select **Management Groups**.
-3.  Select a management group and click **details**.
-
-    ![Management Groups details screenshot](./media/security-center-management-groups/management-group-details.PNG)
- 
-4. Click **Access control (IAM)** then **Add**.
-5. Select the role to assign and the user, then click **Save**.  
-   
-   ![Add Security Reader role screenshot](./media/security-center-management-groups/asc-security-reader.png)
--->
+1. [Azure Portal](https://portal.azure.com) oturum açın. 
+2. Güvenlik Merkezi'nde görüntülemek istediğiniz abonelik Seçici içinde tüm abonelikleri seçtiğinizden emin olun.
+    ![Abonelik Seçici ekran görüntüsü](./media/security-center-management-groups/subscription-selector.png)
+1. Seçin **tüm hizmetleri** Azure ana menüsünde seçip **Güvenlik Merkezi**.
+2. İçinde **genel bakış**, bir abonelik kapsamı grafik yok. 
+    ![Abonelik kapsamı grafiği ekran görüntüsü](./media/security-center-management-groups/security-center-subscription-coverage.png)
+3. Tıklayarak **kapsamı** kapsamdaki Aboneliklerin listesini görmek için. 
+    ![Abonelik kapsamı listesi ekran görüntüsü](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>Yükseltilmiş erişimi Kaldır 
 Kullanıcılar için RBAC rollerini kendilerine atandıktan sonra Kiracı Yöneticisi kendi kullanıcı erişimi yöneticisi rolü ' kaldırmanız gerekir.

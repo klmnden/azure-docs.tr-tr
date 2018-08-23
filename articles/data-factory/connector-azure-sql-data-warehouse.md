@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 7a9adc8e9b7bcf69cce6b8ecf00e44477c1b0da3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3c447a37b1dfbdac2c6e2a4eaa61d0e0e08a2176
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430748"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442248"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure SQL veri ambarı veri kopyalayın 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -71,6 +71,9 @@ Farklı kimlik doğrulama türleri için sırasıyla önkoşulları ve JSON örn
 - [SQL kimlik doğrulaması](#sql-authentication)
 - Azure AD uygulama belirteci kimlik doğrulamasını: [hizmet sorumlusu](#service-principal-authentication)
 - Azure AD uygulama belirteci kimlik doğrulamasını: [yönetilen hizmet kimliği](#managed-service-identity-authentication)
+
+>[!TIP]
+>Hata olarak "UserErrorFailedToConnectToSqlServer" hata koduyla isabet ve gibi ileti "veritabanı için oturum sınırı xxx ve üst sınırına ulaşıldı.", ekleme `Pooling=false` bağlantı dizesi ve yeniden deneyin.
 
 ### <a name="sql-authentication"></a>SQL kimlik doğrulaması
 
@@ -397,7 +400,7 @@ SQL veri ambarı PolyBase, Azure Blob ve Azure Data Lake Store doğrudan destekl
 
 Gereksinimleri karşılanmadığı takdirde, Azure Data Factory ayarları denetler ve veri taşıma BULKINSERT mekanizması için otomatik olarak geri döner.
 
-1. **Kaynak bağlı hizmet** türü **AzureStorage** veya **birlikte AzureDataLakeStore** ile hizmet sorumlusu kimlik doğrulaması.
+1. **Kaynak bağlı hizmet** türü, Azure Blob Depolama (**AzureBLobStorage**/**AzureStorage**) hesap anahtarı kimlik doğrulaması veya Azure Data Lake ile Depolama Gen1 (**birlikte AzureDataLakeStore**) ile hizmet sorumlusu kimlik doğrulaması.
 1. **Girdi veri kümesi** türü **AzureBlob** veya **AzureDataLakeStoreFile**. Biçim türü altında `type` özellikleri **OrcFormat**, **ParquetFormat**, veya **TextFormat**, aşağıdaki yapılandırmaları ile:
 
    1. `rowDelimiter` olmalıdır **\n**.

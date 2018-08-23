@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 366b89d3db0db634e239ac2d99188c7ea0444c13
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: accc2e994e7ea361315d5dfb33b257e58410490c
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365201"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057052"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Kullanıcı Azure Active Directory'de SaaS uygulamaları için öznitelik eşlemelerini sağlama özelleştirme
 Microsoft Azure AD, Salesforce ve Google Apps gibi üçüncü taraf SaaS uygulamalarına kullanıcı hazırlama için destek sağlar. Etkin bir üçüncü taraf SaaS uygulaması için kullanıcı sağlamayı varsa, Azure portalı, öznitelik değerleri öznitelik eşlemeleri formunda denetler.
@@ -121,7 +121,7 @@ Desteklenen öznitelikler listesinde düzenlerken, aşağıdaki özellikler sunu
 * **Birden çok değerli?** -Öznitelik birden çok değer destekleyip desteklemediğini.
 * **Tam çalışması?** -Olsun veya olmasın öznitelikleri değerler büyük küçük harfe duyarlı bir şekilde değerlendirilir.
 * **API ifadesi** -, belirli bir sağlama bağlayıcı (örneğin, Workday) belgelerine bunu belirtilmedikçe kullanmayın.
-* **Başvurulan nesne özniteliği** - bu menü tablo ve öznitelik öznitelikle ilişkili değeri içerir hedef uygulamada seçmenize olanak sağlar. Bu bir başvuru türü özniteliği ise. Örneğin, "nesne ayrı bir"Bölümler"tablosunda depolanan değeri başvuruyor departmanı" adlı bir öznitelik varsa, "Departments.Name" seçin. Başvuru tabloları ve belirli bir uygulama için desteklenen birincil kimlik alanları önceden yapılandırılmış ve şu anda Azure portalını kullanarak düzenlenemez, ancak kullanılarak düzenlenebilir unutmayın [Graph API'si](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+* **Başvurulan nesne özniteliği** - bu menü tablo ve öznitelik öznitelikle ilişkili değeri içerir hedef uygulamada seçmenize olanak sağlar. Bu bir başvuru türü özniteliği ise. Örneğin, "nesne ayrı bir"Bölümler"tablosunda depolanan değeri başvuruyor departmanı" adlı bir öznitelik varsa, "Departments.Name" seçin. Başvuru tabloları ve belirli bir uygulama için desteklenen birincil kimlik alanları önceden yapılandırılmış ve şu anda Azure portalını kullanarak düzenlenemez, ancak kullanılarak düzenlenebilir unutmayın [Graph API'si](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
 Yeni bir öznitelik eklemek için desteklenen öznitelik listesini sonuna kaydırın, yukarıda sağlanan girişleri kullanarak alanları doldurun ve seçin **öznitelik Ekle**. Seçin **Kaydet** öznitelikleri eklemeyi bitirdiğinizde. Daha sonra yeniden yüklemeniz gerekir **sağlama** öznitelik eşlemesi Düzenleyicisi'nde kullanılabilir olana kadar yeni öznitelikler için sekmesinde.
 

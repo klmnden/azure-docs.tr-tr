@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/06/2018
+ms.date: 08/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 2ae61d672083508d49e72afd5a015191082c23e9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8027149f3e5ace163bf380bc5362fcb101397986
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521940"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42059246"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Azure Kubernetes Service (AKS) kapsayıcı durumu (Önizleme) izleme
 
 Bu makalede, ayarlama ve Kubernetes ortamlara dağıtılır ve Azure Kubernetes Service (AKS) üzerinde barındırılan iş yüklerinin performansını izlemek için Azure İzleyici kapsayıcısı durumuna kullanma açıklar. Özellikle birden çok uygulama ile ölçekli olarak bir üretim kümesi çalıştırırken Kubernetes kümenizin ve kapsayıcılarınızın izlenmesi kritik önem taşır.
 
-Kapsayıcı durumunun performans toplama bellek ve işlemci ölçümleri denetleyicileri, düğümleri ve Kubernetes ölçümler API aracılığıyla kullanılabilir olan kapsayıcıları yeteneği sağlar. Kapsayıcı durumunun etkinleştirdikten sonra Bu ölçümler otomatik olarak sizin için Linux için Operations Management Suite (OMS) aracısını kapsayıcıya alınmış bir sürümü aracılığıyla toplanan ve depolanan, [Log Analytics](../log-analytics/log-analytics-overview.md) çalışma. Dahil edilen önceden tanımlanmış görünümleri kaynaklarınızda bulunan kapsayıcı iş yüklerinin ve destesinin ne Kubernetes kümesi performans durumunun etkiler görüntüle:  
+Kapsayıcı durumunun performans toplama bellek ve işlemci ölçümleri denetleyicileri, düğümleri ve Kubernetes ölçümler API aracılığıyla kullanılabilir olan kapsayıcıları yeteneği sağlar. Kapsayıcı durumunun etkinleştirdikten sonra Bu ölçümler otomatik olarak sizin için Linux için Log Analytics aracısını kapsayıcı bir sürümü aracılığıyla toplanan ve depolanan, [Log Analytics](../log-analytics/log-analytics-overview.md) çalışma. Dahil edilen önceden tanımlanmış görünümleri kaynaklarınızda bulunan kapsayıcı iş yüklerinin ve destesinin ne Kubernetes kümesi performans durumunun etkiler görüntüle:  
 
 * Düğüm ve bunların ortalama işlemci ve bellek kullanımı çalışan kapsayıcılar belirleyin. Bu bilgi, kaynak darboğazları belirlemenize yardımcı olabilir.
 * Kapsayıcı bir denetleyici veya bir pod içinde bulunduğu belirleyin. Bu bilgi, denetleyicinin ya da pod'ın genel performansını görüntülemenize yardımcı olabilir. 
@@ -38,13 +38,15 @@ Docker ve Windows yönetme ve izleme de ilgileniyorsanız kapsayıcı konakları
 Başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun:
 
 - Bir yeni veya mevcut AKS kümesi.
-- Bir Linux sürümü için OMS Aracısı gerektirmeksizin microsoft / oms:ciprod04202018 veya üzeri. Sürüm numarası, aşağıdaki biçimde bir tarih tarafından temsil edilen: *mmddyyyy*. Aracı, kapsayıcı durumu ekleme sırasında otomatik olarak yüklenir. 
+- Linux sürümü için kapsayıcı bir Log Analytics aracısını microsoft / oms:ciprod04202018 veya üzeri. Sürüm numarası, aşağıdaki biçimde bir tarih tarafından temsil edilen: *mmddyyyy*. Aracı, kapsayıcı durumu ekleme sırasında otomatik olarak yüklenir. 
 - Log Analytics çalışma alanı. Yeni AKS kümesini izlemeyi etkinleştirin veya AKS kümesi aboneliğin varsayılan kaynak grubunda bir varsayılan çalışma alanı oluşturma ekleme deneyimi sağlar, oluşturabilirsiniz. Kendiniz oluşturmayı seçerseniz, üzerinden oluşturabilirsiniz [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md)temellidir [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), veya [Azure portalında](../log-analytics/log-analytics-quick-create-workspace.md).
 - Kapsayıcı izlemeyi etkinleştirmek için Log Analytics katkıda bulunan rolü. Log Analytics çalışma alanına erişimi denetleme hakkında daha fazla bilgi için bkz. [çalışma alanlarını yönetme](../log-analytics/log-analytics-manage-access.md).
 
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+
 ## <a name="components"></a>Bileşenler 
 
-Performans izleme olanağı kapsayıcılı bir OMS aracısını kümedeki tüm düğümlerin performans ve olay verilerini toplar, Linux için kullanır. Aracı otomatik olarak dağıtılan ve kapsayıcı izleme etkinleştirdikten sonra belirtilen Log Analytics çalışma alanı ile kayıtlı. 
+Performans izleme olanağı, kümedeki tüm düğümlerin performans ve olay verilerini toplar ve Linux için kapsayıcı bir Log Analytics aracısını kullanır. Aracı otomatik olarak dağıtılan ve kapsayıcı izleme etkinleştirdikten sonra belirtilen Log Analytics çalışma alanı ile kayıtlı. 
 
 >[!NOTE] 
 >Bir AKS kümesi zaten dağıttıysanız, bu makalenin sonraki bölümlerinde gösterildiği gibi Azure CLI'yı veya sağlanan bir Azure Resource Manager şablonu kullanarak izlemeyi etkinleştirin. Kullanamazsınız `kubectl` yükseltmek için silmek, yeniden dağıtın veya aracıyı dağıtın. 
@@ -59,7 +61,7 @@ Dağıtım sırasında Azure portalında veya Azure CLI ile yeni bir AKS kümesi
 Azure CLI ile oluşturulan yeni bir AKS kümesi izlemeyi etkinleştirmek için hızlı başlangıç makalesinde bölümünde adım izleyin [oluşturma AKS kümesi](../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
->Azure CLI'yı kullanmayı seçerseniz, ilk CLI'yi yerel olarak yükleyip kullanmayı gerekir. Azure CLI Sürüm 2.0.27 çalıştırıyor olmanız gerekir veya üzeri. Sürümünüzü belirlemek için çalıştırma `az --version`. Gerekirse yükleyin veya Azure CLI'yı yükseltmek için bkz: [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+>Azure CLI'yı kullanmayı seçerseniz, ilk CLI'yi yerel olarak yükleyip kullanmayı gerekir. Azure CLI Sürüm 2.0.43 çalıştırıyor olmanız gerekir veya üzeri. Sürümünüzü belirlemek için çalıştırma `az --version`. Gerekirse yükleyin veya Azure CLI'yı yükseltmek için bkz: [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 >
 
 İzleme etkin ve tüm yapılandırma görevleri başarıyla tamamlandıktan sonra iki yöntemden biriyle kümenizin performansı izleyebilirsiniz:
@@ -303,7 +305,7 @@ omsagent   1         1         1            1            3h
 
 ### <a name="agent-version-earlier-than-06072018"></a>Aracı sürümü 06072018 öncesi
 
-OMS Aracısı sürümü önce kullanıma sunduğunu doğrulamak için *06072018* düzgün bir şekilde aşağıdaki komutu çalıştırarak dağıtılır:  
+Log Analytics aracı sürümü önce kullanıma sunduğunu doğrulamak için *06072018* düzgün bir şekilde aşağıdaki komutu çalıştırarak dağıtılır:  
 
 ```
 kubectl get ds omsagent --namespace=kube-system

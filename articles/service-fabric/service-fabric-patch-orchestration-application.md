@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: a74eab546eefd765b89aae6f12fcff554d9937c4
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: bc9fbf56b37cb8c6690bd036db704532cb8b0437
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036947"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42061755"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Windows işletim sistemi düzeltme eki
 
@@ -67,7 +67,7 @@ Düzeltme eki düzenleme uygulama küme üzerinde etkinleştirilmesini onarım Y
 
 Azure silver dayanıklılık katmanı kümelerde varsayılan olarak etkin onarım Yöneticisi hizmetiniz varsa. Azure gold dayanıklılık katmanı kümelerde olabilir veya onarım Yöneticisi hizmeti bu kümeler yaptığınızda oluşturulan bağlı olarak, etkin olmayabilir. Onarım Yöneticisi hizmetinin etkinleştirilmiş Azure kümelerde varsayılan olarak, Bronz dayanıklılık katmanı yok. Hizmet zaten etkin değilse, Service Fabric Explorer'da Sistem Hizmetleri bölümündeki çalışmasını görebilirsiniz.
 
-##### <a name="azure-portal"></a>Azure portalına
+##### <a name="azure-portal"></a>Azure portal
 Onarım Yöneticisi Azure Portalı'ndan kümesini ayarlama sırasında etkinleştirebilirsiniz. Seçin **onarım Yöneticisi dahil** altındaki **eklenti özellikleri** küme yapılandırmasının zaman.
 ![Azure portalından etkinleştirme onarım Yöneticisi'nin resmi](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
@@ -282,7 +282,7 @@ Onarım Yöneticisi hizmeti kümede bulunamazsa bir uyarı düzeyi sistem durumu
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
-SORU. **Düzeltme eki düzenleme uygulama çalışırken hata durumunda kümem neden görüyorum?**
+S. **Düzeltme eki düzenleme uygulama çalışırken hata durumunda kümem neden görüyorum?**
 
 A. Yükleme işlemi sırasında orchestration düzeltme eki uygulamayı devre dışı bırakır veya geçici olarak giderek kümesinin sistem sonuçlanabilir düğümü yeniden başlatır.
 
@@ -296,15 +296,15 @@ Geçici bir hata durumu aşağıdaki örnekte, küme oluştu çünkü iki düğ�
 
 Sorun devam ederse, sorun giderme bölümüne bakın.
 
-SORU. **Uyarı durumunda düzeltme eki düzenleme uygulama**
+S. **Uyarı durumunda düzeltme eki düzenleme uygulama**
 
 A. Uygulamaya karşı gönderilen bir sistem durumu raporu, kök neden olup olmadığını denetleyin. Genellikle, uyarı sorunun ayrıntılarını içerir. Geçici bir sorundur, uygulamayı bu durumdan otomatik olarak kurtarmak için bekleniyor.
 
-SORU. **Kümem sağlıksız olduğunu ve Acil işletim sistemi güncelleştirme yapmanız durumunda neler yapabilirim?**
+S. **Kümem sağlıksız olduğunu ve Acil işletim sistemi güncelleştirme yapmanız durumunda neler yapabilirim?**
 
 A. Küme sağlıksız durumdayken düzeltme eki düzenleme uygulama güncelleştirmelerini yüklemez. Kümenizi düzenleme düzeltme eki uygulama iş akışı engelini kaldırmak için sağlıklı bir duruma getirmek deneyin.
 
-SORU. **İ kümem için TaskApprovalPolicy 'NodeWise' veya 'UpgradeDomainWise' olarak ayarlamalı mıyım?**
+S. **İ kümem için TaskApprovalPolicy 'NodeWise' veya 'UpgradeDomainWise' olarak ayarlamalı mıyım?**
 
 A. 'UpgradeDomainWise' genel küme daha hızlı bir şekilde paralel bir yükseltme etki alanına ait olan tüm düğümleri düzeltme eki uygulama düzeltme eki uygulama sağlar. Bu tüm bir yükseltme etki alanına ait düğümleri kullanılabilir olacağı anlamına gelir (içinde [devre dışı](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) durumu) düzeltme eki uygulama işlemi sırasında.
 
@@ -312,7 +312,7 @@ Buna 'NodeWise' İlkesi aynı anda yalnızca tek bir düğüme yamaları, bu kü
 
 Kümenizi yükseltme etki alanları N-1 sayısı daha sonra ilkeyi 'UpgradeDomainWise' olarak ayarlayabilir (N kümenizdeki yükseltme etki alanlarının sayısı olduğu) döngüsü, düzeltme eki uygulama sırasında çalışan toleransına sahipse, aksi takdirde 'NodeWise için' ayarlayın.
 
-SORU. **Ne kadar zaman mevcut bir düğüm düzeltme eki uygulama Al?**
+S. **Ne kadar zaman mevcut bir düğüm düzeltme eki uygulama Al?**
 
 A. Bir düğüm düzeltme eki uygulama dakika sürebilir (örneğin: [Windows Defender tanım güncelleştirmeleri](https://www.microsoft.com/wdsi/definitions)) saat için (örneğin: [Windows toplu güncelleştirmeleri](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Bir düğüm düzeltme eki için gereken süre, çoğunlukla bağlıdır 
  - Güncelleştirmeleri boyutu
@@ -320,7 +320,7 @@ A. Bir düğüm düzeltme eki uygulama dakika sürebilir (örneğin: [Windows De
  - Bu güncelleştirmeleri yüklemek, (gerekirse) düğümü yeniden başlatma ve yeniden başlatma sonrası yükleme adımlarını tamamlamak için geçen süre.
  - VM/makine ve ağ koşullarını performans.
 
-SORU. **Ne kadar bir kümenin tamamını düzeltme eki sürer?**
+S. **Ne kadar bir kümenin tamamını düzeltme eki sürer?**
 
 A. Bir kümenin tamamını düzeltme eki için gereken süre aşağıdaki etkenlere bağlıdır:
 
@@ -331,11 +331,11 @@ A. Bir kümenin tamamını düzeltme eki için gereken süre aşağıdaki etkenl
 - Küme yükleme - düzeltme eki uygulama işlemi her müşterinin iş yükü için kullanılabilir diğer küme düğümleri yeniden konumlandırma gerektirir. Düzeltme eki aşamasında düğüm olacak [devre dışı bırakılması](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) bu süre boyunca durum. Küme yoğun yük çalışıyorsa, devre dışı bırakma işlemi uzun sürecektir. Bu nedenle genel düzeltme eki uygulama işlemini vurgulu böylesi yavaş görünebilir.
 - Sistem durumu hataları düzeltme sırasında - her küme [performans düşüşü](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) içinde [küme durumunu](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction) düzeltme eki uygulama işlemini kesersiniz. Bu, tüm küme düzeltme eki için gereken toplam süreyi eklersiniz.
 
-SORU. **Bazı güncelleştirmeler Windows Update sonuçlarında REST API aracılığıyla ancak makinedeki Windows güncelleştirme geçmişini altında elde neden görüyorum?**
+S. **Bazı güncelleştirmeler Windows Update sonuçlarında REST API aracılığıyla ancak makinedeki Windows güncelleştirme geçmişini altında elde neden görüyorum?**
 
 A. Bazı ürün güncelleştirmeleri, yalnızca ilgili güncelleştirme/düzeltme eki geçmişlerini görünür. Örneğin, Windows Defender'ın güncelleştirmeleri olabilir veya Windows Server 2016, Windows Update geçmişinde görünmeyebilir.
 
-SORU. **Düzeltme ekini düzenlemeyi uygulama geliştirme kümem (tek düğümlü kümenize) düzeltme eki için kullanılabilir mi?**
+S. **Düzeltme ekini düzenlemeyi uygulama geliştirme kümem (tek düğümlü kümenize) düzeltme eki için kullanılabilir mi?**
 
 A. Hayır, düzeltme eki düzenleme uygulama düzeltme eki tek düğümlü küme için kullanılamaz. Bu tasarım gereği, olarak sınırlamasıdır [service fabric sistem hizmetlerinin](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) veya herhangi bir müşteri uygulama kapalı kalma süresi karşılaşır ve bu nedenle düzeltme eki uygulama için herhangi bir onarım işi hiçbir zaman onarım Yöneticisi tarafından onaylanan.
 
@@ -391,6 +391,10 @@ Bir yönetici, müdahale ve uygulama veya küme neden Windows güncelleştirmesi
 - Hata düzeltmesi hangi sistem durumu nedeniyle onarım görevlerin hazırlanması sırasında onay beklendiği gibi olduğunu değildi RM görevler oluşturma.
 - Windows POANodeSvc otomatik otomatik Gecikmeli hizmetinin başlatma modu değiştirildi.
 
-### <a name="version-121-latest"></a>1.2.1 sürümü (son sürüm)
+### <a name="version-121"></a>1.2.1 sürümü
 
 - Küme ölçek azaltma iş akışında hata düzeltmesi. Çöp toplama mantıksal var olmayan düğümlerine ait POA onarım görevler için kullanıma sunuldu.
+
+### <a name="version-122-latest"></a>Sürüm 1.2.2 (son sürüm)
+
+- Çeşitli hata düzeltmeleri.

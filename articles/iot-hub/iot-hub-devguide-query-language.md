@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 321d70a04e3c524e578a01e8531d63733d088c3f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7704e08246798108aa251c19a4ab0c3baaaad570
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444193"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42056353"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Cihaz ve modül ikizleri, işler ve ileti yönlendirme için IOT Hub sorgu dili
 
@@ -309,7 +309,7 @@ WHERE devices.jobs.jobId = 'myJobId'
 
 Kullanarak [CİHAZDAN buluta yollar][lnk-devguide-messaging-routes], IOT Hub'ı CİHAZDAN buluta iletilerini farklı uç noktalarına dağıtmak için yapılandırabilirsiniz. Gönderme iletilere karşı değerlendirilen ifade temel alır.
 
-Rota [koşul] [ lnk-query-expressions] ikizi ve iş sorguları koşullarında olarak aynı IOT Hub sorgu dili kullanır. Yol koşulları ileti üstbilgileri ve gövde değerlendirilir. Yönlendirme, sorgu ifadesi yalnızca ileti üstbilgilerini gerektirebilir yalnızca ileti gövdesinin veya her ikisi de. IOT Hub iletilerini yönlendirmek için üst bilgiler ve ileti gövdesi için belirli bir şemaya varsayar. IOT Hub'ın düzgün bir şekilde yönlendirmek gerekli olan aşağıdaki bölümlerde açıklanmaktadır.
+Rota [koşul] [ lnk-query-expressions] koşullar ikizi ve iş sorguları, ancak yalnızca bir alt işlevlerin kullanılabilir olarak IOT Hub sorgu dili sözdizimini kullanır. Yol koşulları ileti üstbilgileri ve gövde değerlendirilir. Yönlendirme, sorgu ifadesi yalnızca ileti gövdesi, yalnızca ileti üstbilgilerini içerebilir veya her ikisi de üst bilgileri iletisi ve ileti gövdesi. IOT hub'ı iletileri yönlendirmek için başlık ve ileti gövdesi için belirli bir şemaya varsayar ve aşağıdaki bölümlerde IOT Hub'ın düzgün bir şekilde yönlendirmek gereklidir.
 
 ### <a name="routing-on-message-headers"></a>İleti üstbilgilerini yönlendirme
 

@@ -3,7 +3,7 @@ title: Yedekleme ve geri yükleme, Azure API Yönetimi'nde uygulama olağanüst�
 description: Yedekleme ve olağanüstü durum kurtarma, Azure API Yönetimi'nde gerçekleştirmek için geri yükleme hakkında bilgi edinin.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: erikre
 editor: ''
 ms.service: api-management
@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 4135bd66e839037d7db694cb3c6df8f3905222e6
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ce3208fed119452ef9383fcb5b5eefb1aac6e224
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283113"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056463"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Olağanüstü durum kurtarma hizmeti Yedekleme kullanarak uygulayın ve Azure API Yönetimi'nde geri yükleme
 
@@ -39,8 +39,6 @@ Bu kılavuz, Azure Resource Manager istek kimlik doğrulaması yapmayı ve yedek
 
 > [!IMPORTANT]
 > Yedekleme ve geri yükleme için REST API, Azure Resource Manager kullanır ve API Management varlıklarınızı yönetmek için farklı kimlik doğrulama mekanizması REST API'lerini daha vardır. Bu bölümdeki adımları, Azure Resource Manager istek doğrulamanın nasıl gerçekleştirileceğini açıklar. Daha fazla bilgi için [Azure Resource Manager kimlik doğrulama istekleri](http://msdn.microsoft.com/library/azure/dn790557.aspx).
->
->
 
 Kaynakları Azure Resource Manager kullanarak bunu görevlerin tümü, Azure aşağıdaki adımları kullanarak Active Directory ile kimlik doğrulaması yapılması gerekir:
 
@@ -63,7 +61,7 @@ Kaynakları Azure Resource Manager kullanarak bunu görevlerin tümü, Azure aş
 6. Bir yer tutucu URL'yi girin `http://resources` için **yeniden yönlendirme URI'si**, gerekli bir alandır, ancak değeri daha sonra kullanılmaz. Uygulamayı kaydetmek için onay kutusuna tıklayın.
 7. **Oluştur**’a tıklayın.
 
-### <a name="add-an-application"></a>Uygulama ekle
+### <a name="add-an-application"></a>Uygulama ekleme
 
 1. Uygulama oluşturulduktan sonra tıklayın **ayarları**.
 2. Tıklayın **gerekli izinler**.
@@ -209,15 +207,16 @@ Geri yükleme tamamlamak için en az 30 dakika sürebileceğini uzun süren bir 
 > Yedekleme ve geri yükleme işlemleri de Powershell ile gerçekleştirilmesi *yedekleme-AzureRmApiManagement* ve *geri yükleme-AzureRmApiManagement* komutları sırasıyla.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Yedekleme/geri yükleme işleminin iki farklı izlenecek yollar için aşağıdaki Microsoft blogları göz atın.
+
+Yedekleme/geri yükleme işleminin farklı izlenecek yollar için aşağıdaki kaynaklara göz atın.
 
 * [Azure API Management hesaplarını çoğaltın](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
-* [Azure API Yönetimi: Yedekleme ve geri yükleme yapılandırması](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
-  * Fatih tarafından ayrıntılı bir yaklaşım resmi rehberlik eşleşmiyor ancak ilginç.
+* [Otomatikleştirerek API Management yedekleme ve geri yükleme Logic Apps ile](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
+* [Azure API Yönetimi: Yedekleme ve geri yükleme Yapılandırması](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
+  *Fatih tarafından ayrıntılı bir yaklaşım resmi rehberlik eşleşmiyor ancak ilgi çekici değil.*
 
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
-
 
 [Azure API Management REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
 

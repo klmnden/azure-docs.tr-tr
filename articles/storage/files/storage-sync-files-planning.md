@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: d00a6d3c476e10b13d00ff1738cb54c2eeea104c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a98c8ac65de930eabcedea2a009769ed6d245216
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521831"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617201"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -151,7 +151,7 @@ Bilinen kötü amaçlı kod için dosyaları tarama tarafından virüsten koruma
 Çevrimdışı dosyalar atlanıyor desteklemek için aşağıdaki çözümleri bilinmektedir:
 
 - [Windows Defender'ı](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
-    - Windows Defender, bu tür dosyaları okuma otomatik olarak atlar. Biz Defender test ve küçük bir sorun belirledik: var olan bir eşitleme grubuna bir sunucu eklediğinizde, 800 bayt (yeni sunucuda indirilen) çekilir küçük dosyaları. Bu dosyalar yeni sunucuda kalır ve katmanlama boyut gereksinimini karşılamayan beri katmanlanmış olmaz değil (> 64kb).
+    - Windows Defender Çevrimdışı özniteliği ayarlanmış okuma dosyaları otomatik olarak atlar. Biz Defender test ve küçük bir sorun belirledik: var olan bir eşitleme grubuna bir sunucu eklediğinizde, 800 bayt (yeni sunucuda indirilen) çekilir küçük dosyaları. Bu dosyalar yeni sunucuda kalır ve katmanlama boyut gereksinimini karşılamayan beri katmanlanmış olmaz değil (> 64kb).
 - [System Center Endpoint Protection (SCEP)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
     - SCEP Defender çalışır; yukarıya bakın
 - [Symantec uç nokta koruması](https://support.symantec.com/en_US/article.tech173752.html)
@@ -192,11 +192,13 @@ Azure dosya eşitleme yalnızca şu bölgelerde kullanılabilir:
 | Avustralya Güneydoğu | Victoria |
 | Orta Kanada | Toronto |
 | Doğu Kanada | Quebec City |
+| Orta Hindistan | Pune |
 | Orta ABD | Iowa |
 | Doğu Asya | Hong Kong |
 | Doğu ABD | Virginia |
 | Doğu ABD 2 | Virginia |
 | Kuzey Avrupa | İrlanda |
+| Güney Hindistan | Chennai |
 | Güneydoğu Asya | Singapur |
 | Birleşik Krallık Güney | Londra |
 | Birleşik Krallık Batı | Cardiff |
@@ -212,15 +214,17 @@ Coğrafi olarak yedekli depolama ve Azure dosya eşitleme arasında yük devretm
 
 | Birincil bölge      | Eşleştirilmiş bölge      |
 |---------------------|--------------------|
-| Avustralya Doğu      | Avustralya Southest |
+| Avustralya Doğu      | Avustralya Güneydoğu |
 | Avustralya Güneydoğu | Avustralya Doğu     |
 | Orta Kanada      | Doğu Kanada        |
 | Doğu Kanada         | Orta Kanada     |
+| Orta Hindistan       | Güney Hindistan        |
 | Orta ABD          | Doğu ABD 2          |
 | Doğu Asya           | Güneydoğu Asya     |
 | Doğu ABD             | Batı ABD            |
 | Doğu ABD 2           | Orta ABD         |
 | Kuzey Avrupa        | Batı Avrupa        |
+| Güney Hindistan         | Orta Hindistan      |
 | Güneydoğu Asya      | Doğu Asya          |
 | Birleşik Krallık Güney            | Birleşik Krallık Batı            |
 | Birleşik Krallık Batı             | Birleşik Krallık Güney           |

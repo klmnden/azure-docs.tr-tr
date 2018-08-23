@@ -1,6 +1,6 @@
 ---
 title: Azure abonelikleri için fatura ile ödeme | Microsoft Docs
-description: Azure abonelikleri için fatura ile ödeme açıklar
+description: Azure abonelikleri için fatura ile ödemeyi açıklar
 services: ''
 documentationcenter: ''
 author: genlin
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: ac8262da05837dcdb4ebddd5029f9b5ece3dbc6f
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: cc174822af436e7c31eb5ad4bfa419e1fa022f44
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067956"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617378"
 ---
-# <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Azure aboneliği fatura ile ödeme yapmak için bir isteme
+# <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Azure aboneliği faturayla ödeme talebinizi
 
-Azure aboneliğinizi Azure destek için bir istek göndererek fatura için ödeme yöntemini değiştirebilirsiniz. İsteğiniz onaylandıktan sonra aboneliğiniz için fatura ödeme yöntemini ayarlama konusunda yönergeler sağlanır.
+Bir Azure destek isteği göndererek faturalamak Azure aboneliğinizin ödeme yöntemini değiştirebilirsiniz. İsteğiniz onaylandıktan sonra faturalı ödeme yöntemi için aboneliğinizi ayarlama konusunda yönergeler sağlanır.
 
 > [!IMPORTANT]
-> * Fatura ödeme yalnızca iş hesapları için kullanılabilir.
-> * [Üçüncü taraf ve dış Hizmetler](billing-understand-your-azure-marketplace-charges.md) satın alınan veya fatura ödeme kullanmak için ücretli. Aboneliğinizi ClearDB veya SendGrid gibi dış hizmetler kaynaklardan içeriyorsa, bunlar ödeme Fatura olarak değiştirmeden önce silinmesi. Ödeme Fatura olarak değiştirdikten sonra dış hizmetler satın almak için ayrı bir abonelik kredi veya ATM kartı ile gerekir.
-> * Ödeme fatura geçiş yaptıktan sonra geri kredi veya ATM kartı ödeme geçemezsiniz.
+> * Fatura ödeme, yalnızca iş hesapları için kullanılabilir.
+> * [Üçüncü taraf veya dış hizmetlere](billing-understand-your-azure-marketplace-charges.md) satın aldığı veya fatura ödeme kullanmak için ücretli. Aboneliğinizi SendGrid gibi dış hizmetlerden kaynaklar içeriyorsa, bunların fatura ödeme değiştirmeden önce silinmesi. Fatura ödeme değiştirdikten sonra dış hizmetler satın almak için bir kredi kartı veya banka kartıyla ayrı bir abonelik gerekir.
+> * Fatura ödeme geçiş yaptıktan sonra geri kredi kartı veya banka kartıyla ödeme geçiş yapamazsınız.
 
-## <a name="request-pay-by-invoice"></a>Fatura ile ödeme isteği
+## <a name="request-pay-by-invoice"></a>Faturayla ödeme talep
 
 1. [Azure portal](https://portal.azure.com/) oturum açın. Seçin **Yardım + Destek** > **yeni destek isteği**.
 
     ![Yardım ve Destek düğmesi](./media/billing-how-to-pay-by-invoice/helpandsupport.png)
 
-1. Seçin **faturalama** sorun türü olarak fatura ile ödeme, bir destek planı seçin ve ardından istediğiniz aboneliği seçin **sonraki**.
+1. Sorun türü olarak **Faturalandırma**'yı seçin, fatura ile ödeme yapmak istediğiniz aboneliği ve bir destek planı seçip **İleri**'ye tıklayın.
 
-1. Seçin **fatura ile ödeme** içinde **sorun türü** kutusu.
+1. **Sorun Türü** kutusunda **Fatura ile ödeme**'yi seçin.
 
 1. Aşağıdaki bilgileri girin **ayrıntıları** kutusuna ve ardından **sonraki**.
 
@@ -46,10 +46,10 @@ Azure aboneliğinizi Azure destek için bir istek göndererek fatura için ödem
     * Faturalandırma adresi
     * [Hesap yöneticisinin e-posta adresi](billing-add-change-azure-subscription-administrator.md#check-the-account-administrator-of-the-subscription)
 
-1. Kişi bilgileri ve tercih edilen iletişim yöntemi doğrulayın ve ardından **oluşturma**.
+1. İletişim bilgilerinizi ve tercih edilen iletişim yöntemini seçip **Oluştur**'a tıklayın.
 
-Biz ihtiyacınız kredi miktarı nedeniyle bir kredi denetimi çalıştırmanız gerekiyorsa, bir kredi uygulama denetimi gönderin. Uygulama gönderdikten sonra kredi uygulama işlemek için 5-7 gün sürebilir.
+Size gereken kredi miktarı nedeniyle bir kredi kontrolü çalıştırmanız gerekiyorsa, kredi application should check gönderin. Uygulamayı gönderdikten sonra kredi başvurusunun işlenmesi 5-7 günü sürebilir.
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
 
-Hala yardıma gereksiniminiz varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.
+Hala yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.

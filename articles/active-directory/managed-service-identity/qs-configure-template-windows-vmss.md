@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: bee75bcefb370382825c6867ea504e14102aa107
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 68304b3e5eea50aba28f46344abcbd7ad060c5c8
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628292"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42056252"
 ---
 # <a name="configure-managed-service-identity-on-virtual-machine-scale-using-a-template"></a>Şablon kullanarak sanal makine ölçek üzerinde yönetilen hizmet kimliği yapılandırma
 
@@ -55,18 +55,16 @@ Belirlediğiniz seçeneğe bakılmaksızın, şablon söz dizimi ilk dağıtım�
 
 Bu bölümde, etkinleştirin ve sistem tarafından atanan bir Azure Resource Manager şablonu kullanarak kimlik devre dışı bırakın.
 
-### <a name="enable-system-assigned-identity-during-creation-the-creation-of-or-an-existing-azure-virtual-machine-scale-set"></a>Etkin sistem oluşturmayı veya mevcut bir Azure sanal makine ölçek kümesi oluşturma sırasında kimlik atanan
+### <a name="enable-system-assigned-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-a-existing-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesi ya da mevcut bir sanal makine ölçek kümesi oluşturma oluşturma sırasında sistem tarafından atanan kimlik etkinleştir
 
-1. Bir düzenleyiciye şablon yüklenemedi, bulun `Microsoft.Compute/virtualMachineScaleSets` içinde ilgi kaynak `resources` bölümü. Sizin kullandığınız Düzenleyici bağlı olarak, aşağıdaki ekran görüntüsünde biraz farklı görünebilir ve düzenlediğiniz var olan bir ya da yeni bir dağıtım için bir şablon.
+1. Azure'da yerel olarak veya Azure portalında oturum açın, sanal makine ölçek kümesi içeren Azure aboneliği ile ilişkili olan bir hesap kullanın.
    
-   ![VM şablonu - ekran görüntüsü bulun](../managed-service-identity/media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-before-vmss.png) 
-
-2. Sistem tarafından atanan kimliği etkinleştirmek için eklemeniz `"identity"` özelliği aynı düzeyde `"type": "Microsoft.Compute/virtualMachineScaleSets"` özelliği. Aşağıdaki sözdizimini kullanın:
+2. Sistem tarafından atanan kimliği etkinleştirmek için şablon bir Düzenleyicisi'ne yüklemek, bulun `Microsoft.Compute/virtualMachinesScaleSets` kaynaklar içinde ilgi kaynak bölümü ve ekleme `identity` özelliği aynı düzeyde `"type": "Microsoft.Compute/virtualMachines"` özelliği. Aşağıdaki sözdizimini kullanın:
 
    ```JSON
    "identity": { 
-       "type": "systemAssigned"
-   },
+       "type": "SystemAssigned"
+   }
    ```
 
 3. (İsteğe bağlı) Sanal makine ölçek kümesi uzantısı olarak yönetilen hizmet kimliği eklemek bir `extensionsProfile` öğesi. Azure örnek meta veri hizmeti (IMDS) kimliğini de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır.  Aşağıdaki sözdizimini kullanın:
@@ -75,7 +73,7 @@ Bu bölümde, etkinleştirin ve sistem tarafından atanan bir Azure Resource Man
    > Aşağıdaki örnekte, bir Windows sanal makine ölçek kümesi uzantısı varsayılır (`ManagedIdentityExtensionForWindows`) dağıtılıyor. Kullanarak Linux için yapılandırabilirsiniz `ManagedIdentityExtensionForLinux` için bunun yerine, `"name"` ve `"type"` öğeleri.
    >
 
-   ```JSON
+   ```json
    "extensionProfile": {
         "extensions": [
             {
@@ -93,9 +91,44 @@ Bu bölümde, etkinleştirin ve sistem tarafından atanan bir Azure Resource Man
             }
    ```
 
-4. İşiniz bittiğinde, şablonunuzu aşağıdakine benzer görünmelidir:
+4. İşiniz bittiğinde, aşağıdaki bölümlerde şablonunuzun kaynak bölümüne eklenen ve aşağıdakine benzemelidir:
 
-   ![Güncelleştirmeden sonra şablon görüntüsü](../managed-service-identity/media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-after-vmss.png) 
+   ```json
+    "resources": [
+        {
+            //other resource provider properties...
+            "apiVersion": "2018-06-01",
+            "type": "Microsoft.Compute/virtualMachineScaleSets",
+            "name": "[variables('vmssName')]",
+            "location": "[resourceGroup().location]",
+            "identity": {
+                "type": "SystemAssigned",
+            },
+           "properties": {
+                //other resource provider properties...
+                "virtualMachineProfile": {
+                    //other virtual machine profile properties...
+                    "extensionProfile": {
+                        "extensions": [
+                            {
+                                "name": "ManagedIdentityWindowsExtension",
+                                "properties": {
+                                  "publisher": "Microsoft.ManagedIdentity",
+                                  "type": "ManagedIdentityExtensionForWindows",
+                                  "typeHandlerVersion": "1.0",
+                                  "autoUpgradeMinorVersion": true,
+                                  "settings": {
+                                      "port": 50342
+                                  }
+                                }
+                            } 
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+   ``` 
 
 ### <a name="disable-a-system-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Bir Azure sanal makine ölçek kümesinden bir sistem tarafından atanan kimliği devre dışı
 
@@ -103,12 +136,24 @@ Bir sanal makine ölçek kümesi artık varsa bir yönetilen hizmet kimliği ger
 
 1. Azure'da yerel olarak veya Azure portalında oturum açın, sanal makine ölçek kümesi içeren Azure aboneliği ile ilişkili olan bir hesap kullanın.
 
-2. Şablona yük bir [Düzenleyicisi](#azure-resource-manager-templates) bulun `Microsoft.Compute/virtualMachineScaleSets` içinde ilgi kaynak `resources` bölümü. Yalnızca sistem tarafından atanan kimlik olan bir sanal makine ölçek kümesi varsa, bunu değiştirerek devre dışı bırakabilirsiniz kimlik türü için `None`.  Sanal makine ölçek kümeniz, sistem ve kullanıcı tarafından atanan kimliklerle varsa, Kaldır `SystemAssigned` kimlik türü ve canlı `UserAssigned` ile birlikte `identityIds` kullanıcı tarafından atanan kimlikleri dizisi.  Aşağıdaki örnek, sanal makine ölçek kümesi tarafından atanan kimliklerle hiçbir kullanıcıyla gelen kimlik atanmış bir sistemde nasıl kaldırmak gösterir:
+2. Şablona yük bir [Düzenleyicisi](#azure-resource-manager-templates) bulun `Microsoft.Compute/virtualMachineScaleSets` içinde ilgi kaynak `resources` bölümü. Yalnızca sistem tarafından atanan kimliği sahip bir VM varsa, bu kimlik türü için değiştirerek devre dışı bırakabilirsiniz `None`.
+
+   **Microsoft.Compute/virtualMachineScaleSets API sürümü 2018-06-01**
+
+   ApiVersion ise `2018-06-01` ve Makinenizin sistem ve kullanıcı tarafından atanan kimliklerle sahip, Kaldır `SystemAssigned` kimlik türü ve canlı `UserAssigned` Userassignedıdentities sözlük değerlerin yanı sıra.
+
+   **Microsoft.Compute/virtualMachineScaleSets API sürümü 2018-06-01 ve önceki sürümleri**
+
+   Varsa, apiVersion `2017-12-01` ve sistem ve kullanıcı tarafından atanan kimliklerle, sanal makine ölçek kümesine sahiptir, Kaldır `SystemAssigned` kimlik türü ve canlı `UserAssigned` ile birlikte `identityIds` kullanıcı tarafından atanan kimlikleri dizisi. 
+   
+    
+
+   Aşağıdaki örnek, sanal makine ölçek kümesi tarafından atanan kimliklerle hiçbir kullanıcıyla gelen kimlik atanmış bir sistemde nasıl kaldırmak gösterir:
    
    ```json
    {
        "name": "[variables('vmssName')]",
-       "apiVersion": "2017-03-30",
+       "apiVersion": "2018-06-01",
        "location": "[parameters(Location')]",
        "identity": {
            "type": "None"
@@ -119,32 +164,52 @@ Bir sanal makine ölçek kümesi artık varsa bir yönetilen hizmet kimliği ger
 
 ## <a name="user-assigned-identity"></a>Kullanıcı tarafından atanan kimliği
 
-Bu bölümde, Azure Resource Manager şablonu kullanarak bir Azure VMSS için bir kullanıcı tarafından atanan kimliği atayın.
+Bu bölümde, bir kullanıcı tarafından atanan kimliği Azure Resource Manager şablonu kullanarak bir sanal makine ölçek kümesine atayın.
 
 > [!Note]
 > Bir Azure Resource Manager şablonu kullanarak bir kullanıcı tarafından atanan kimliği oluşturma için bkz: [bir kullanıcı tarafından atanan kimliği oluşturma](how-to-manage-ua-identity-arm.md#create-a-user-assigned-identity).
 
 ### <a name="assign-a-user-assigned-identity-to-an-azure-vmss"></a>Bir kullanıcı tarafından atanan kimliği için bir Azure VMSS atayın
 
-1. Altında `resources` öğesi, bir kullanıcı tarafından atanan kimliği, VMSS'ye atamak için şu girişi ekleyin.  Değiştirdiğinizden emin olun `<USERASSIGNEDIDENTITY>` oluşturduğunuz kullanıcı tarafından atanan kimlik adı ile.
+1. Altında `resources` öğesi, bir kullanıcı tarafından atanan kimliği, sanal makine ölçek kümesine atamak için şu girişi ekleyin.  Değiştirdiğinizden emin olun `<USERASSIGNEDIDENTITY>` oluşturduğunuz kullanıcı tarafından atanan kimlik adı ile.
+   
+   **Microsoft.Compute/virtualMachineScaleSets API sürümü 2018-06-01**
 
-   > [!Important]
-   > `<USERASSIGNEDIDENTITYNAME>` Aşağıdaki örnekte gösterilen değer bir değişkende depolanmalıdır.  Ayrıca, şu anda desteklenen uygulama için bir Resource Manager şablonu bir sanal makinede kullanıcı tarafından atanan kimlikleri atama API sürümü aşağıdaki örnekte sürümle aynı olmalıdır. 
+   ApiVersion ise `2018-06-01`, atanan kullanıcı kimliklerinizi depolanan `userAssignedIdentities` sözlük biçimi ve `<USERASSIGNEDIDENTITYNAME>` değeri depolanan, tanımlı bir değişkende `variables` şablonunuzun bölümü.
 
-    ```json
-    {
-        "name": "[variables('vmssName')]",
-        "apiVersion": "2017-03-30",
-        "location": "[parameters(Location')]",
-        "identity": {
-            "type": "userAssigned",
-            "identityIds": [
-                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITY>'))]"
-            ]
-        }
+   ```json
+   {
+       "name": "[variables('vmssName')]",
+       "apiVersion": "2018-06-01",
+       "location": "[parameters(Location')]",
+       "identity": {
+           "type": "userAssigned",
+           "userAssignedIdentities": {
+               "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
+           }
+       }
+    
+   }
+   ```   
 
-    }
-    ```
+   **Microsoft.Compute/virtualMachineScaleSets API Sürüm 2017-12-01**
+    
+   Varsa, `apiVersion` olduğu `2017-12-01` veya atanan kullanıcı kimliklerinizi daha önce depolanan `identityIds` dizi ve `<USERASSIGNEDIDENTITYNAME>` değeri depolanan, şablonunuzun değişkenler bölümünde tanımlanmış bir değişkende.
+
+   ```json
+   {
+       "name": "[variables('vmssName')]",
+       "apiVersion": "2017-03-30",
+       "location": "[parameters(Location')]",
+       "identity": {
+           "type": "userAssigned",
+           "identityIds": [
+               "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITY>'))]"
+           ]
+       }
+
+   }
+   ``` 
 
 2. (İsteğe bağlı) Altında şu girişi ekleyin `extensionProfile` yönetilen kimlik uzantısı, VMSS'ye atamak için öğesi. Azure örnek meta veri hizmeti (IMDS) kimlik endpoint de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır. Aşağıdaki sözdizimini kullanın:
    
@@ -166,34 +231,124 @@ Bu bölümde, Azure Resource Manager şablonu kullanarak bir Azure VMSS için bi
                 }
     ```
 
-3.  İşiniz bittiğinde, şablonunuzu aşağıdakine benzer görünmelidir:
+3. İşiniz bittiğinde, şablonunuzu aşağıdakine benzer görünmelidir:
    
-      ![Kullanıcı tarafından atanan kimlik ekran görüntüsü](./media/qs-configure-template-windows-vmss/qs-configure-template-windows-final.PNG)
+   **Microsoft.Compute/virtualMachineScaleSets API sürümü 2018-06-01**   
 
+   ```json
+   "resources": [
+        {
+            //other resource provider properties...
+            "apiVersion": "2018-06-01",
+            "type": "Microsoft.Compute/virtualMachineScaleSets",
+            "name": "[variables('vmssName')]",
+            "location": "[resourceGroup().location]",
+            "identity": {
+                "type": "UserAssigned",
+                "userAssignedIdentities": {
+                    "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
+                }
+            },
+           "properties": {
+                //other virtual machine properties...
+                "virtualMachineProfile": {
+                    //other virtual machine profile properties...
+                    "extensionProfile": {
+                        "extensions": [
+                            {
+                                "name": "ManagedIdentityWindowsExtension",
+                                "properties": {
+                                  "publisher": "Microsoft.ManagedIdentity",
+                                  "type": "ManagedIdentityExtensionForWindows",
+                                  "typeHandlerVersion": "1.0",
+                                  "autoUpgradeMinorVersion": true,
+                                  "settings": {
+                                      "port": 50342
+                                  }
+                                }
+                            } 
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+   ```
+
+   **Daha önce Microsoft.Compute/virtualMachines API Sürüm 2017-12-01 eand**
+
+   ```json
+   "resources": [
+        {
+            //other resource provider properties...
+            "apiVersion": "2017-12-01",
+            "type": "Microsoft.Compute/virtualMachineScaleSets",
+            "name": "[variables('vmssName')]",
+            "location": "[resourceGroup().location]",
+            "identity": {
+                "type": "UserAssigned",
+                "identityIds": [
+                    "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]"
+                ]
+            },
+           "properties": {
+                //other virtual machine properties...
+                "virtualMachineProfile": {
+                    //other virtual machine profile properties...
+                    "extensionProfile": {
+                        "extensions": [
+                            {
+                                "name": "ManagedIdentityWindowsExtension",
+                                "properties": {
+                                  "publisher": "Microsoft.ManagedIdentity",
+                                  "type": "ManagedIdentityExtensionForWindows",
+                                  "typeHandlerVersion": "1.0",
+                                  "autoUpgradeMinorVersion": true,
+                                  "settings": {
+                                      "port": 50342
+                                  }
+                                }
+                            } 
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+   ```
 ### <a name="remove-user-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Atanan kullanıcı kimliğini bir Azure sanal makine ölçek kümesinden kaldırın.
 
 Bir sanal makine ölçek kümesi artık varsa bir yönetilen hizmet kimliği gerekir:
 
 1. Azure'da yerel olarak veya Azure portalında oturum açın, sanal makine ölçek kümesi içeren Azure aboneliği ile ilişkili olan bir hesap kullanın.
 
-2. Şablona yük bir [Düzenleyicisi](#azure-resource-manager-templates) bulun `Microsoft.Compute/virtualMachineScaleSets` içinde ilgi kaynak `resources` bölümü. Yalnızca kullanıcı tarafından atanan kimlik olan bir sanal makine ölçek kümesi varsa, bunu değiştirerek devre dışı bırakabilirsiniz kimlik türü için `None`.  Sistem ve kullanıcı tarafından atanan kimliklerle sanal makine ölçek kümeniz varsa ve sistem tarafından atanan kimlik tutmak için kaldırmak istediğiniz `UserAssigned` ile birlikte kimlik türünden `identityIds` kullanıcı tarafından atanan kimlikleri dizisi.
-    
-   Kaldırmak için bir sanal makine ölçek kümesi, bir tek kullanıcı tarafından atanan kimlik öğesinden kaldırın `identityIds` dizisi.
-   
-   Aşağıdaki örnek, sanal makine ölçek kümesi tarafından atanan kimliklerle hiçbir sistemiyle gelen tarafından atanan kimliklerle tüm kullanıcı kaldırma gösterir:
-   
+2. Şablona yük bir [Düzenleyicisi](#azure-resource-manager-templates) bulun `Microsoft.Compute/virtualMachineScaleSets` içinde ilgi kaynak `resources` bölümü. Yalnızca kullanıcı tarafından atanan kimlik olan bir sanal makine ölçek kümesi varsa, bunu değiştirerek devre dışı bırakabilirsiniz kimlik türü için `None`.
+
+   Aşağıdaki örnek, tüm kullanıcı kimlikleri sistemi tarafından atanan kimliklerle bulunmayan bir VM'den atanan nasıl kaldırmak gösterir:
+
    ```json
    {
        "name": "[variables('vmssName')]",
-       "apiVersion": "2017-03-30",
+       "apiVersion": "2018-06-01",
        "location": "[parameters(Location')]",
        "identity": {
            "type": "None"
         }
-
    }
    ```
+   
+   **Microsoft.Compute/virtualMachineScaleSets API sürümü 2018-06-01**
+    
+   Kaldırmak için bir sanal makine ölçek kümesi, bir tek kullanıcı tarafından atanan kimlik öğesinden kaldırın `userAssignedIdentities` sözlüğü.
 
+   Bir sistem tarafından atanan kimliği varsa, bunu tutmak içinde `type` altındaki `identity` değeri.
+
+   **Microsoft.Compute/virtualMachineScaleSets API Sürüm 2017-12-01**
+
+   Bir tek kullanıcı tarafından atanan kimliği bir sanal makine ölçek kümesinden kaldırmak için oradan kaldırın `identityIds` dizisi.
+
+   Bir sistem tarafından atanan kimliği varsa, bunu tutmak içinde `type` altındaki `identity` değeri.
+   
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - İçin daha geniş bir perspektif yönetilen hizmet kimliği hakkında okuyun [yönetilen hizmet Kimliği'ne genel bakış](overview.md).

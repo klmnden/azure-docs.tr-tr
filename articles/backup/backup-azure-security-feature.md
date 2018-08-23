@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: trinadhk
-ms.openlocfilehash: 714c8fde28be63e5173f89f92d186445f0990214
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 32eba23202eca1c71c4f3b01dcb364281cb2eb60
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447389"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056105"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Azure Backup kullanan karma yedeklemeler korumaya yardımcı olmak için güvenlik özellikleri
 Yetkisiz erişim, kötü amaçlı yazılım ve fidye yazılımı gibi güvenlik konularıyla ilgili endişelerini artmaktadır. Bu güvenlik sorunları para ve veri açısından pahalı olabilir. Bu tür saldırılara karşı korunmak için Azure Backup artık karma yedeklemeler korumaya yardımcı olmak için güvenlik özellikleri sağlar. Bu makalede bir Azure kurtarma Hizmetleri aracısını ve Azure Backup sunucusu kullanarak bu özelliklerin nasıl etkinleştirileceği anlatılmaktadır. Bu özellikler şunları içerir:
@@ -81,6 +81,10 @@ Denetimleri yalnızca geçerli kullanıcı çeşitli işlemler gerçekleştirebi
 ### <a name="authentication-to-perform-critical-operations"></a>Kritik işlemler gerçekleştirmek için kimlik doğrulaması
 Kritik işlemler için kimlik doğrulaması ek bir koruma katmanı ekleme bir parçası olarak, gerçekleştirdiğinizde güvenlik PIN'i girmeleri istenir **silme verilerle korumayı Durdur** ve **değişiklik parola** operations.
 
+> [!NOTE]
+
+> Şu anda güvenlik PIN'i için desteklenmiyor **silme verilerle korumayı Durdur** DPM ve MABS için. 
+
 Bu PIN'i almak için:
 
 1. Azure Portal’da oturum açın.
@@ -102,7 +106,7 @@ Genellikle, kritik bir işlemin gerçekleştirildiğinde, abonelik yöneticisini
 Bu makalede bahsedilen güvenlik özellikleri hedeflenmiş saldırılara karşı savunma mekanizmaları sağlar. Daha da önemlisi, saldırının olursa, bu özellikler, veri kurtarma olanağı sağlar.
 
 ## <a name="troubleshooting-errors"></a>Hatalarda sorun giderme
-| İşlem | Hata ayrıntıları | Çözüm |
+| İşlem | Hata Ayrıntıları | Çözüm |
 | --- | --- | --- |
 | İlke değişikliği |Yedekleme İlkesi değiştirilemedi. Hata: Geçerli işlemi [0x29834] iç hizmet hatası nedeniyle başarısız oldu. Lütfen bir süre sonra işlemi yeniden deneyin. Sorun devam ederse lütfen Microsoft desteğine başvurun. |**Neden:**<br/>Bu hata güvenlik ayarı etkinleştirilirse, desteklenmeyen sürümü kullandığınızdan ve, yukarıda belirtilen minimum değerleri aşağıda bekletme aralığını azaltabilir çalıştığınızda gelir (desteklenen sürümleri, bu makalenin ilk Not belirtilir). <br/>**Önerilen eylem:**<br/> Bu durumda, yukarıda belirtilen en düşük bekletme (günlük, haftalık, üç hafta aylık veya yıllık yedekleme için bir yıl için dört hafta için yedi gün) Bekletme dönemi ayarlamalısınız ilgili güncelleştirmeleri İlkesi ile devam edin. İsteğe bağlı olarak, Azure Backup sunucusu ve/veya DPM UR tüm güvenlik güncelleştirmelerini yararlanmak için yedekleme aracısını güncelleştirmek için tercih edilen yaklaşım olacaktır. |
 | Parola değiştirme |Girilen güvenlik PIN'i hatalı. (KİMLİK: 100130) Bu işlemi tamamlamak için doğru güvenlik PIN'ini girin. |**Neden:**<br/> (Parola değişikliği gibi) kritik işlem gerçekleştirilirken güvenlik PIN'ini geçersiz veya süresi dolmuş girdiğinizde bu hatayı gelir. <br/>**Önerilen eylem:**<br/> İşlemi tamamlamak için geçerli güvenlik PIN'i girmeniz gerekir. PIN almak için Azure Portal'da oturum açın ve kurtarma Hizmetleri kasası > Ayarlar > Özellikler > Güvenlik PIN'i oluştur. Bu PIN, parolayı değiştirmek için kullanın. |

@@ -1,86 +1,102 @@
 ---
 title: Oluşturma ve Azure IOT Central uygulamanızdaki olay kuralları yönetme | Microsoft Docs
 description: Azure IOT Central olay kuralları cihazlarınızı neredeyse gerçek zamanlı izleme ve otomatik olarak kural tetiklendiğinde, bir e-posta gönderme gibi eylemleri çağırmak için etkinleştirin.
-services: iot-central
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 04/29/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: c5697f6d4ca2c9d9948b7cdd005a6a75bdabb246
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.date: 08/14/2018
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 40c7b2865795f8c6a5cfbabe4d59aea1715d4a57
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222574"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42057066"
 ---
-# <a name="create-an-event-rule-and-set-up-an-action-in-your-azure-iot-central-application"></a>Bir olay kuralı oluşturma ve Azure IOT Central, uygulamanızda bir eylem ayarlama
+# <a name="create-an-eevent-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Bir eEvent kuralı oluşturma ve Azure IOT Central uygulamanızdaki bildirimleri ayarlama
 
-Bağlı cihazlarınızın uzaktan izlemek için Microsoft Azure IOT Central kullanabilirsiniz. Azure IOT Central kuralları cihazlarınızı neredeyse gerçek zamanlı izleme ve otomatik olarak bir e-posta gönderme veya kural koşulları karşılandığında, Microsoft Flow, iş akışı tetikleyen gibi eylemleri çağırmak için etkinleştirin. Yalnızca birkaç tıklamayla, cihaz verilerinizi izleyin ve çağrılacak eylem yapılandırmak için koşul tanımlayabilirsiniz. Bu makalede, olay izleme kuralı ayrıntılı açıklanmaktadır.
+Bağlı cihazlarınızın uzaktan izlemek için Azure IOT Central kullanabilirsiniz. Azure IOT Central kuralları cihazlarınızı neredeyse gerçek zamanlı izleme ve otomatik eylemleri bir e-posta veya gibi Microsoft Flow tetiklemek etkinleştirin. Yalnızca birkaç tıklamayla, cihaz verilerinizi izleyin ve ilgili eylemi yapılandırmak istediğiniz koşulu tanımlayabilirsiniz. Bu makalede, cihaz tarafından gönderilen olayları izlemek için kurallar oluşturma açıklanmaktadır.
 
-Azure IOT Central'ı kullanan [olay ölçümü](howto-set-up-template.md) cihaz verilerini yakalamak için. Her ölçüm türü ölçüm tanımlayan anahtar özniteliklere sahip. Her cihaz ölçüm türü izlemek ve kural tetiklendiğinde uyarılar oluşturmak için kurallar oluşturabilirsiniz. Seçili cihaz olayı, cihaz tarafından bildirilen bir olayı kuralı tetikler.
+Cihazlar, cihaz önemli veya bilgi olayları göndermek için olay ölçümü kullanabilirsiniz. Seçili cihaz olayı, cihaz tarafından bildirilen bir olayı kuralı tetikler.
 
 ## <a name="create-an-event-rule"></a>Olay kuralı oluşturma
 
-Bu bölüm bir olay kuralının nasıl oluşturulacağını gösterir. Bu örnek, bir refrigerated satış makine cihaz raporları fan motor hata olayı kullanır. Kural, cihaz tarafından bildirilen olay izler ve olay bildirilen her bir e-posta gönderir.
+Olay kuralı oluşturmak için cihaz şablonu en az bir olay ölçümü tanımlanmış olmalıdır. Bu örnekte, fan motor hata olayı raporları bir refrigerated satış makine cihaz kullanır. Kural, cihaz tarafından bildirilen olay izler ve olay bildirilen her bir e-posta gönderir.
 
-1. Kurala eklemekte olduğunuz cihaz için cihaz ayrıntıları sayfasına gidin.
+1. Device Explorer ' ı kullanarak, cihaz şablon kural ekleme gidin.
+
+1. Seçilen şablonun altında var olan bir cihaza tıklayın. 
+
+    >[!TIP] 
+    >Bir şablon yoksa, herhangi bir cihaza daha sonra yeni bir cihaz ilk ekleyin.
 
 1. Herhangi bir kural henüz oluşturmadıysanız, aşağıdaki ekranı görürsünüz:
 
-    ![Henüz hiçbir kural](media/howto-create-event-rules/image1.png)
+    ![Henüz hiçbir kural](media\howto-create-event-rules\Rules_Landing_Page.png)
 
-1. Üzerinde **kuralları** sekmesini, **+ yeni kural** kuralları oluşturmak için kullanabileceğiniz türlerini görmek için.
 
-    ![Kural türü](media/howto-create-event-rules/image2.png)
+1. Üzerinde **kuralları** sekmesinde **+ yeni kural** kuralları oluşturmak için kullanabileceğiniz türlerini görmek için.
 
-1. Tıklayarak **olay** kuralı oluşturmak için formu açın.
 
-    ![Olayı kuralı](media/howto-create-event-rules/image3.png)
+1. Tıklayarak **olay** kutucuğuna bir kural oluşturun.
 
-1. Bu cihaz şablonu kuralında tanımlamanıza yardımcı olacak bir ad seçin.
+    ![Kural türü](media\howto-create-event-rules\Rule_Types.png)
 
-1. Kural bu şablondan oluşturulan tüm cihazlar için hemen etkinleştirmek için geçiş **etkinleştirme kuralı**.
+    
+1. Bu cihaz şablonu kuralında tanımlamanıza yardımcı olacak bir ad girin.
 
-### <a name="configure-the-rule-condition"></a>Kural koşulu yapılandırma
+1. Kural bu şablondan oluşturulan tüm cihazlar için hemen etkinleştirmek için geçiş **Bu şablon için tüm cihazlar için etkinleştirme kuralı**.
 
-Bu bölümde, Fan motor hata olay ölçümü izlemek için bir koşul ekleme işlemini göstermektedir.
+    ![Kural Ayrıntıları](media\howto-create-event-rules\Rule_Detail.png)
 
-1. Seçin **+** yanındaki **koşul**.
+    Kural cihaz şablonu altındaki tüm cihazlara otomatik olarak uygulanır.
 
-1. Olay ölçümü izlemek istiyorsanız açılan listeden seçin. Bu örnekte **Fan Motor hata** olay seçildi.
+### <a name="configure-the-rule-conditions"></a>Kural koşulları yapılandırın
 
-1. İsteğe bağlı olarak belirli bir cihaz tarafından bildirilen olay değerini izlemek istediğiniz durumunda bir değer de sağlayabilirsiniz. Cihaz ardından kuralın koşuluyla değer olarak hata kodu sağlayan farklı hata kodlarıyla aynı olay bildirirse yalnızca cihaz olay yükü bu özel değer gönderdiğinde örneği için kural tetiklendiğinde emin olur. Bu alanı boş bırakın, CİHAZDAN gönderilen olay Olay değerinden bağımsız olarak her kural tetikleyecek anlamına gelir.
+Koşul, kural tarafından izlenen ölçütleri tanımlar.
 
-    ![Olay koşulu Ekle](media/howto-create-event-rules/image4.png)
+1. Seçin **+** yanındaki **koşullar** yeni bir koşul ekleme.
 
-    > [!NOTE]
-    > Bir olay Kural koşulu tanımlarken en az bir olay ölçümü seçmeniz gerekir.
+1. Ölçüm açılan listeden izlemek istediğiniz olayı seçin. Bu örnekte, **Fan Motor hata** olay seçildi.
 
-1. Tıklayın **Kaydet** , kuralını kaydetmek için. Kural, birkaç dakika içinde etkin hale gelir ve uygulamanıza gönderilen olaylar izlemeye başlar.
+   ![Koşul](media\howto-create-event-rules\Condition_Filled_Out.png) 
 
-### <a name="add-an-action"></a>Eylem ekleme
 
-Bu örnek bir kural için bir eylem ekleme gösterir. Bu e-posta eylemi ekleme işlemi gösterilmektedir, ancak diğer eylemler de ekleyebilirsiniz:
--  [Microsoft Flow eylem](howto-add-microsoft-flow.md) için Microsoft Flow bir iş akışında bir kuralı tetiklendiğinde kazandırın
-- [Web kancası eylemi](howto-create-webhooks.md) bir kuralı tetiklendiğinde diğer hizmetleri bildirmek için
+1. İsteğe bağlı olarak da ayarlayabilirsiniz **sayısı** olarak **toplama** ve karşılık gelen eşiği sağlayın.
 
-> [!NOTE]
-> Yalnızca 1 eylem şu anda tek bir kural için ilişkili olabilir.
+    - Toplama, koşulu karşılayan her bir olay veri noktası için kural tetiklenir. Örneğin, bir 'Fan Motor Error' olayı gerçekleştiğinde tetiklemek için kuralın koşuluyla yapılandırırsanız cihaz bu olay raporları ne zaman hemen hemen kural tetikler.
+    - Bir toplama işlevi kullanılan sayısı sonra sağlamanız gereken bir **eşiği** ve **toplama zaman penceresi** üzerinden hangi koşulun değerlendirilmesi gerekir. Bu durumda, olay sayısı toplanır ve yalnızca, toplanan olay sayısı eşiği eşleşiyorsa kural tetikler.
+ 
+    Örneğin, 5 dakika içinde üçten fazla cihaz olayları olduğunda uyar isterseniz, olay'ı seçin ve "count" olarak toplama işlevi, işleci olarak "büyüktür" ve "eşik" 3 olarak ayarlayın. "5 dakika" olarak "toplama süre" olarak ayarlayın. Kural üçten fazla olayları 5 dakika içinde cihaz tarafından gönderildiğinde tetiklenir. Kuralı değerlendirme sıklığı aynıdır **toplama zaman penceresi**, yani, bu örnekte, kural her 5 dakikada bir kez değerlendirilir. 
 
-1. Seçin **+** yanındaki **eylemleri**. Burada, kullanılabilir eylemler listesini görürsünüz.
+    ![Olay koşulu Ekle](media\howto-create-event-rules\Aggregate_Condition_Filled_Out.png)
 
-    ![Eylem Ekle](media/howto-create-event-rules/image5.png)
+    >[!NOTE] 
+    >Birden fazla olay ölçümü altında eklenebilir **koşul**. Birden çok koşulu belirtildiğinde, kural tetiklemek tüm koşulların karşılanması gerekir. Her koşulu, bir 'Ve' yan tümcesi tarafından örtük olarak katıldı. Her ölçü, toplam kullanırken toplanmalıdır.
+
+### <a name="configure-actions"></a>Eylemleri Yapılandır
+
+Bu bölümde, kural tetiklendiğinde gerçekleştirilecek eylemleri ayarlamak işlemini göstermektedir. Eylemler kuralda belirtilen tüm koşulların doğru olarak değerlendirilebilmesi çağrılan.
+
+1. Seçin **+** yanındaki **eylemleri**. Burada, kullanılabilir eylemler listesini görürsünüz. 
+
+    ![Eylem Ekle](media\howto-create-event-rules\Add_Action.png)
 
 1. Seçin **e-posta** eylemi, bir geçerli e-posta adresi girerek **için** alan ve kural tetiklendiğinde e-postanın gövdesinde görüntülenen bir not girin.
 
     > [!NOTE]
     > E-postaları, yalnızca uygulamaya eklenen ve en az bir kez oturum kullanıcılara gönderilir. Daha fazla bilgi edinin [kullanıcı yönetimi](howto-administer.md) Azure IOT Central içinde.
 
-   ![Eylem yapılandırma](media/howto-create-event-rules/image6.png)
+   ![Eylem yapılandırma](media\howto-create-event-rules\Configure_Action.png)
 
-1. **Kaydet**’e tıklayın. Kural, birkaç dakika içinde etkin hale gelir ve uygulamanıza gönderilen olaylar izlemeye başlar. Kuralda belirtilen koşul eşleştiğinde kural yapılandırılan e-posta eylemi tetikler.
+1. Kuralı kaydetmek için seçin **Kaydet**. Kural, birkaç dakika içinde etkin hale gelir ve uygulamanıza gönderilen olaylar izlemeye başlar. Kuralda belirtilen koşul eşleştiğinde kural yapılandırılan e-posta eylemi tetikler.
+
+Diğer Eylemler gibi Microsoft Flow ve Web kancaları kuralı ekleyebilirsiniz. Kural başına en fazla 5 eylem ekleyebilirsiniz.
+
+- [Microsoft Flow eylem](howto-add-microsoft-flow.md) için Microsoft Flow bir iş akışında bir kuralı tetiklendiğinde kazandırın 
+- [Web kancası eylemi](howto-create-webhooks.md) bir kuralı tetiklendiğinde diğer hizmetleri bildirmek için
 
 ## <a name="parameterize-the-rule"></a>Kural Parametreleştirme
 
@@ -92,7 +108,7 @@ Bir kural artık ihtiyacınız kalmadığında, kural açarak ve silmek **Sil**.
 
 ## <a name="enable-or-disable-a-rule-for-a-device-template"></a>Etkinleştirmek veya devre dışı bir cihaz şablonu için bir kural
 
-Cihaza gidin ve etkinleştirme veya devre dışı bırakmak istediğiniz kuralı seçin. Geçiş **Bu şablon, tüm cihazlar için etkinleştirme kuralı** kural düğmesini etkinleştirir veya cihaz şablonuyla ilişkili tüm cihazlar için kuralı devre dışı bırakır.
+Cihaza gidin ve etkinleştirme veya devre dışı bırakmak istediğiniz kuralı seçin. İki durumlu **Bu şablon, tüm cihazlar için etkinleştirme kuralı** düğmesini etkinleştirin veya cihaz şablonu ile ilişkili olan tüm cihazlar için kuralı devre dışı bırak.
 
 ## <a name="enable-or-disable-a-rule-for-a-device"></a>Etkinleştirmek veya devre dışı bir cihaz için bir kural
 
@@ -100,8 +116,8 @@ Cihaza gidin ve etkinleştirme veya devre dışı bırakmak istediğiniz kuralı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure IOT Central uygulamanızda kuralları oluşturulacağını öğrendiniz, önerilen sonraki adım aşağıda verilmiştir:
+Azure IOT Central uygulamanızda kuralları oluşturulacağını öğrendiniz, bazı İleri Adım şunlardır:
 
-> [!div class="nextstepaction"]
-> [Bir kural için bir Microsoft Flow eylemi ekleme](howto-add-microsoft-flow.md)
-> [cihazlarınızı yönetmek nasıl](howto-manage-devices.md).
+- [Microsoft Flow eylem kurallarında Ekle](howto-add-microsoft-flow.md)
+- [Web kancası eylem kurallarında Ekle](howto-create-webhooks.md)
+- [Cihazlarınızı yönetme](howto-manage-devices.md)

@@ -2,7 +2,7 @@
 title: Azure Active Directory koşullu erişim koşulları nelerdir? | Microsoft Docs
 description: Koşul bir ilkeyi tetiklemek için Azure Active Directory koşullu erişim nasıl kullanıldığı hakkında bilgi edinin.
 services: active-directory
-keywords: uygulamalar, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
+keywords: uygulamalara koşullu erişim, Azure AD ile koşullu erişim, şirket kaynaklarına güvenli erişim, koşullu erişim ilkeleri
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -17,16 +17,16 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5f5e2051f9c67fa4e37ce0e1213e14e197222f05
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 9feb6ef5b708813c2f73a70a930cabfd69dff114
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627551"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056575"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim koşulları nelerdir? 
 
-Kullanarak, bulut uygulamalarınızı nasıl yetkili kullanıcılara erişimi denetleyebilirsiniz [Azure Active Directory (Azure AD) koşullu erişim](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal). Bir koşullu erişim ilkesinde ilkenizi tetikleme nedeni yanıtı tanımlayın. Örnek yanıt **Bunu yapmak**. Bir örnek nedeni **bu durumda**.
+Kullanarak, bulut uygulamalarınızı nasıl yetkili kullanıcılara erişimi denetleyebilirsiniz [Azure Active Directory (Azure AD) koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Bir koşullu erişim ilkesinde yanıtı tanımlayın ("ardından ("Bu durumda") ilkeniz tetikleme nedeni için bunun"). 
 
 ![Neden ve yanıt](./media/conditions/10.png)
 
@@ -64,15 +64,17 @@ Kullanıcılar belirli kümelerini hedefleyen yeni bir ilke dağıtımı için k
 
 ## <a name="cloud-apps"></a>Bulut uygulamaları 
 
-Bulut uygulaması, bir Web sitesi veya hizmet örneğidir. Azure AD uygulama ara sunucusu tarafından korunan Web siteleri, bulut uygulamaları da taşır. Desteklenen bulut uygulamalarının ayrıntılı bir açıklaması için bkz. [bulut uygulamaları atamaları](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments). 
+Bulut uygulaması, bir Web sitesi veya hizmet örneğidir. Azure AD uygulama ara sunucusu tarafından korunan Web siteleri, bulut uygulamaları da taşır. Desteklenen bulut uygulamalarının ayrıntılı bir açıklaması için bkz. [bulut uygulamaları atamaları](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments). 
 
 **Bulut uygulamaları** koşulu bir koşullu erişim ilkesinde zorunludur. İlkenizde, yi yapabilecekleriniz **tüm bulut uygulamaları** veya belirli uygulamalar seçin.
 
 ![Bulut uygulamaları içerir](./media/conditions/03.png)
 
-- Seçin **tüm bulut uygulamaları** kuruluş genelinde uygulamak için temel ilkeleri. Oturum açma riski algılandığında herhangi bir bulut uygulamasında için çok faktörlü kimlik doğrulaması gerektiren ilkeleri için bu seçimi kullanın. Uygulanan bir ilke **tüm bulut uygulamaları** erişim için geçerli tüm Web siteleri ve Hizmetleri. Bu ayar görünen bulut uygulamalarına sınırlı değildir **uygulamaları Seç** listesi. 
+Seçin:
 
-- İlke tarafından hedef belirli hizmetler için tek bulut uygulamaları seçin. Örneğin, kullanıcıların gerektirebilir bir [uyumlu cihaz](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) SharePoint Online'a erişmek için. SharePoint içeriği eriştiklerinde Bu ilke, diğer hizmetlere de uygulanır. Microsoft Teams buna bir örnektir. 
+- **Tüm bulut uygulamaları** kuruluş genelinde uygulamak için temel ilkeleri. Oturum açma riski algılandığında herhangi bir bulut uygulamasında için çok faktörlü kimlik doğrulaması gerektiren ilkeleri için bu seçimi kullanın. Uygulanan bir ilke **tüm bulut uygulamaları** erişim için geçerli tüm Web siteleri ve Hizmetleri. Bu ayar görünen bulut uygulamalarına sınırlı değildir **uygulamaları Seç** listesi. 
+
+- İlkesi tarafından hedef belirli hizmetler için tek bulut uygulamaları. Örneğin, kullanıcıların gerektirebilir bir [uyumlu cihaz](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) SharePoint Online'a erişmek için. SharePoint içeriği eriştiklerinde Bu ilke, diğer hizmetlere de uygulanır. Microsoft Teams buna bir örnektir. 
 
 Bir ilkenin belirli uygulamaları hariç tutabilirsiniz. Ancak, bu uygulamalar yine de erişim hizmetleri için uygulanan ilkelerle tabidir. 
 
@@ -80,18 +82,18 @@ Bir ilkenin belirli uygulamaları hariç tutabilirsiniz. Ancak, bu uygulamalar y
 
 ## <a name="sign-in-risk"></a>Oturum açma riski
 
-Oturum açma riski yüksek, Orta veya düşük bir oturum açma girişimi bir kullanıcı hesabının meşru sahibi tarafından yapılan değildi olasılığını bir göstergesidir. Azure AD oturum açma sırasında bir kullanıcı oturum açma risk düzeyini hesaplar. Hesaplanan oturum açma risk düzeyini bir koşullu Erişim İlkesi'nde bir koşul olabilir. 
+Oturum açma riski bir oturum açma girişimi bir kullanıcı hesabının meşru sahibi tarafından yapılan değildi olasılığını (yüksek, Orta veya düşük) bir göstergesidir. Azure AD oturum açma sırasında bir kullanıcı oturum açma risk düzeyini hesaplar. Koşullu erişim ilkesi koşulu olarak hesaplanan oturum açma risk düzeyini kullanabilirsiniz.
 
 ![Oturum açma risk düzeyleri](./media/conditions/22.png)
 
-Bu koşulu kullanmak için ihtiyacınız [Azure Active Directory kimlik koruması](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection-enable) etkin.
+Bu koşulu kullanmak için ihtiyacınız [Azure Active Directory kimlik koruması](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-enable) etkin.
  
 Bu koşul için yaygın kullanım örnekleri aşağıdaki korumalar ilkelerdir: 
 
 - Bir yüksek oturum açma riski kullanıcılarla engelleyin. Bu koruma potansiyel olarak yasal olmayan kullanıcılar, bulut uygulamalarınıza erişmesini engeller. 
 - Orta ölçekli bir oturum açma riski olan kullanıcılar için çok faktörlü kimlik doğrulaması gerektirir. Çok faktörlü kimlik doğrulamasını zorunlu tutarak, oturum açmanın meşru bir hesap sahibi tarafından yapılan ek güvence sağlayabilir.
 
-Daha fazla bilgi için bkz. [Riskli oturum açma işlemleri](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-security-risky-sign-ins).  
+Daha fazla bilgi için bkz. [Riskli oturum açma işlemleri](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-security-risky-sign-ins).  
 
 ## <a name="device-platforms"></a>Cihaz platformları
 
@@ -114,7 +116,7 @@ Cihaz durumu koşulunu ve koşullu erişim ilkesi uyumsuz olarak işaretlenmiş 
 
 ![Cihaz durumlarını yapılandırın](./media/conditions/112.png)
 
-Yönetilmeyen cihazların erişimini engellemek istiyorsanız, uygulama [cihaz tabanlı koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
+Yönetilmeyen cihazların erişimini engellemek istiyorsanız, uygulama [cihaz tabanlı koşullu erişim](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
 
 
 ## <a name="locations"></a>Konumlar
@@ -148,7 +150,7 @@ Koşullu erişim ilkenizi kullanabileceğiniz istemci uygulamalar listesi için 
 
 Bu koşul için yaygın kullanım örnekleri aşağıdaki koruma ilkeleriyle şunlardır: 
 
-- Gerekli bir [uyumlu cihaz](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) büyük miktarlarda verinin cihaza indirilmesine mobil ve Masaüstü uygulamaları için. Aynı zamanda, tüm cihazlardan tarayıcı erişimi izin verin.
+- Gerekli bir [uyumlu cihaz](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) büyük miktarlarda verinin cihaza indirilmesine mobil ve Masaüstü uygulamaları için. Aynı zamanda, tüm cihazlardan tarayıcı erişimi izin verin.
 
 - Web uygulamalarından erişimi engellemek, ancak Mobil ve Masaüstü uygulamalardan erişime izin ver
 
@@ -163,7 +165,7 @@ Seçme **Exchange ActiveSync** yalnızca bir ilkede yapılandırılabilecek diğ
  
 ![İlkeyi yalnızca desteklenen platformlara uygula](./media/conditions/33.png)
 
-Bu koşul yalnızca desteklenen platformlara uygulayarak tüm cihaz platformlarını eşit bir [cihaz platformu koşul](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
+Bu koşul yalnızca desteklenen platformlara uygulayarak tüm cihaz platformlarını eşit bir [cihaz platformu koşul](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
 
 ![Cihaz platformlarını yapılandırın](./media/conditions/34.png)
 
@@ -172,7 +174,7 @@ Bu koşul yalnızca desteklenen platformlara uygulayarak tüm cihaz platformlar�
 
 - [SharePoint Online ve Exchange Online için Azure Active Directory koşullu erişim ayarlama](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
  
-- [Azure Active Directory uygulama tabanlı koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam). 
+- [Azure Active Directory uygulama tabanlı koşullu erişim](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). 
 
 
 ### <a name="legacy-authentication"></a>Eski bir kimlik doğrulama  

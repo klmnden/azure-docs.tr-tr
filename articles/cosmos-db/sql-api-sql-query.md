@@ -10,44 +10,39 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 08/10/2018
 ms.author: laviswa
-ms.openlocfilehash: f6829d497c85ef1b4e74e26befe42d5d6fa87e36
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 26928e36b09ef0dfe5576a8a8039ffac2dd3fb4a
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205978"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42059950"
 ---
-# <a name="sql-queries-for-azure-cosmos-db"></a>Azure Cosmos DB için SQL sorguları
+# <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Azure Cosmos DB verileri içeren SQL sorguları sorgulama
 
-Microsoft Azure Cosmos DB SQL API hesabı bir JSON sorgu dili olarak SQL (yapılandırılmış sorgu dili) kullanarak belgelerin sorgulanmasını destekler. Azure Cosmos DB, gerçek anlamda şemasız ' dir. JSON veri modeli doğrudan veritabanı altyapısının içinden taahhüdü sayesinde, otomatik JSON belgelerinin dizin gerektirmeden bir açık şema veya ikincil dizinlerin oluşturulmasını sağlar.
+Microsoft Azure Cosmos DB SQL API hesabı bir JSON sorgu dili olarak SQL (yapılandırılmış sorgu dili) kullanarak belgelerin sorgulanmasını destekler. Azure Cosmos DB için sorgu dili tasarlarken aşağıdaki iki hedefleri olarak kabul edilir:
 
-Cosmos DB için sorgu dili tasarlarken, iki hedefleri düşünerek vardı:
+* Yeni bir sorgu dili inventing yerine en bilinen ve en popüler sorgu dillerden biri SQL desteklemek için Azure Cosmos DB yaptık. Azure Cosmos DB SQL, JSON belgeleri için zengin sorguların biçimsel bir programlama modeli sağlar.  
 
-* Yeni bir JSON sorgu dili inventing yerine SQL desteklemek istedik. SQL sorgu en bilinen ve en popüler diller biridir. Cosmos DB SQL, JSON belgeleri için zengin sorguların biçimsel bir programlama modeli sağlar.
-* Bir JSON belge veritabanı olarak doğrudan veritabanı altyapısının içinde JavaScript yürütebileceği JavaScript'in programlama modeli için sorgu dili temel olarak kullanmak istedik. SQL API'si, JavaScript'in tür sistemi, ifade değerlendirmesi ve işlev çağrısını kökü belirtilmemiş. Bu, dönüş JSON belgelerini, kendinden birleştirmeler, uzamsal sorgular ve tamamen yanı sıra başka özellikler, JavaScript dilinde yazılmış kullanıcı tanımlı işlevler (UDF'ler) çağrılmasını projeksiyonlar ilişkisel, hiyerarşik gezinme için doğal bir programlama modeli sağlar. 
+* Azure Cosmos DB, temel olarak JavaScript'in programlama modeli için sorgu dili kullanır. SQL API'si, JavaScript'in tür sistemi, ifade değerlendirmesi ve işlev çağrısını kökü belirtilmemiş. Bu, dönüş JSON belgelerini, kendinden birleştirmeler, uzamsal sorgular ve tamamen yanı sıra başka özellikler, JavaScript dilinde yazılmış kullanıcı tanımlı işlevler (UDF'ler) çağrılmasını projeksiyonlar ilişkisel, hiyerarşik gezinme için doğal bir programlama modeli sağlar. 
 
-Bu özellikler için uygulama ve veritabanı arasındaki uyuşmazlığı azaltarak önemli olduğu ve geliştirici üretkenliğini için çok önemlidir inanıyoruz.
-
-Biz burada Azure Cosmos DB Program Yöneticisi Manager Andrew Liu Azure Cosmos DB'nin sorgulama özellikleri gösterir ve çevrimiçi gösteren aşağıdaki videoyu izleyerek çalışmaya başlamanızı öneririz [sorgu oyun alanı](http://www.documentdb.com/sql/demo)Azure burada deneyebilirsiniz Cosmos DB ve videoda gösterildiği gibi veri kümemizdeki SQL sorgularını çalıştırın.
+Bu makalede basit JSON belgelerini kullanarak SQL sorguları bazı örnekler gösterilmektedir. Azure Cosmos DB SQL dili sözdizimi hakkında bilgi edinmek için [SQL söz dizimi başvurusu](sql-api-sql-query-reference.md) makalesi. Ayrıca sorgulama özellikleri Azure Cosmos DB gösteren aşağıdaki videoları izleyerek kullanmaya başlayabilir ve çevrimiçi gösterir [sorgu oyun alanı](http://www.documentdb.com/sql/demo).
 
 > [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
 >
 >
 
-Daha fazla gelişmiş sorgulama teknikler bu videoyu izleme gösterilmiştir:
+Daha fazla gelişmiş sorgulama teknikler aşağıdaki videoda gösterilmiştir:
 
 > [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
 >
 >
 
-Ardından, bu makalede, biz size bazı basit JSON belgeleri ve SQL komutları SQL sorgu öğreticisiyle başladığı dönün.
+## <a id="GettingStarted"></a>SQL komutları ile çalışmaya başlama
+İki basit JSON belgelerinin ve bu verilere karşı sorgu oluşturalım. İki JSON belgelerini aileleri hakkında göz önünde bulundurun, bu JSON belgelerini bir koleksiyona ekleyin ve ardından verileri sorgulamak. Burada basit JSON sahibiz belge Andersen ve Wakefield ailesi, üst, alt öğelerini (ve bunların Evcil Hayvanlar), adresi ve kayıt bilgileri. Belge dizeleri, sayı, Boole, diziler ve iç içe özellikler vardır. 
 
-## <a id="GettingStarted"></a>Cosmos DB'de SQL komutlarını kullanmaya başlama
-Cosmos DB SQL iş görmek için şimdi birkaç basit JSON belgeleri ile başlar ve bazı basit sorgular yol. Bu iki JSON belgeleri iki ailesi hakkında göz önünde bulundurun. Cosmos DB ile biz herhangi bir şema veya ikincil dizinler açıkça oluşturmanız gerekmez. Yalnızca bir Cosmos DB koleksiyonu için JSON belgelerini ekleyin ve ardından sorgu ihtiyacımız var. Burada basit JSON sahibiz belge Andersen ailesi, üst, alt öğelerini (ve bunların Evcil Hayvanlar), adresi ve kayıt bilgileri. Belge dizeleri, sayı, Boole, diziler ve iç içe özellikler vardır. 
-
-**Belge**  
+**Document1**  
 
 ```JSON
 {
@@ -73,7 +68,7 @@ Cosmos DB SQL iş görmek için şimdi birkaç basit JSON belgeleri ile başlar 
 
 Bir fark – ikinci bir belgesiyle işte `givenName` ve `familyName` yerine kullanılan `firstName` ve `lastName`.
 
-**Belge**  
+**Document2**  
 
 ```json
 {
@@ -104,16 +99,19 @@ Bir fark – ikinci bir belgesiyle işte `givenName` ve `familyName` yerine kull
 }
 ```
 
-Artık Azure Cosmos DB SQL sorgu dili önemli yönlerini bazıları anlamak için bu verilere karşı birkaç sorgu deneyelim. Örneğin, aşağıdaki sorgu Kimliği alanı eşleştiği belgeleri döndürür `AndersenFamily`. Olduğundan bir `SELECT *`, sorgunun çıkışı eksiksiz JSON belgesidir olan:
+Artık Azure Cosmos DB SQL sorgu dili önemli yönlerini bazıları anlamak için bu verilere karşı birkaç sorgu deneyelim. 
 
-**Sorgu**
+**Sorgu1**: Örneğin, aşağıdaki sorgu Kimliği alanı eşleştiği belgeleri döndürür `AndersenFamily`. Olduğundan bir `SELECT *`sorgunun çıkışı eksiksiz JSON belgesidir, söz dizimi hakkında bilgi edinmek için [SELECT deyimi](sql-api-sql-query-reference.md#select-query):
 
+```sql
     SELECT * 
     FROM Families f 
     WHERE f.id = "AndersenFamily"
+```
 
 **Sonuçlar**
 
+```json
     [{
         "id": "AndersenFamily",
         "lastName": "Andersen",
@@ -131,94 +129,173 @@ Artık Azure Cosmos DB SQL sorgu dili önemli yönlerini bazıları anlamak içi
         "creationDate": 1431620472,
         "isRegistered": true
     }]
+```
 
+**Sorgu2** : artık burada ihtiyacımız farklı JSON çıkışını yeniden biçimlendirmek için bir durum düşünün. Adresi Şehir durumu olarak aynı ada sahip olduğunda bu sorgu adı ve şehir olmak üzere iki seçili alanları içeren yeni bir JSON nesnesi projelere. Bu durumda, "NY, NY" ile eşleşir.   
 
-Şimdi, burada JSON çıkışını farklı yeniden biçimlendirmek için ihtiyacımız durumu göz önünde bulundurun. Adresi Şehir durumu olarak aynı ada sahip olduğunda bu sorgu adı ve şehir olmak üzere iki seçili alanları içeren yeni bir JSON nesnesi projelere. Bu durumda, "NY, NY" ile eşleşir.
-
-**Sorgu**    
-
+```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family 
     FROM Families f 
     WHERE f.address.city = f.address.state
+```
 
 **Sonuçlar**
 
+```json
     [{
         "Family": {
             "Name": "WakefieldFamily", 
             "City": "NY"
         }
     }]
+```
 
+**Query3**: kimliği eşleşir ailedeki çocukların tüm adlarını Children bu sorgunun döndürdüğü `WakefieldFamily` ikametgahınızda şehirlere göre sıralanmış.
 
-Sonraki sorgu, kimliği eşleşir ailedeki çocukların tüm adlarını, çocukların döndürür `WakefieldFamily` ikametgahınızda şehirlere göre sıralanmış.
-
-**Sorgu**
-
+```sql
     SELECT c.givenName 
     FROM Families f 
     JOIN c IN f.children 
     WHERE f.id = 'WakefieldFamily'
     ORDER BY f.address.city ASC
+```
 
 **Sonuçlar**
 
+```json
     [
       { "givenName": "Jesse" }, 
       { "givenName": "Lisa"}
     ]
+```
 
-
-Dikkat çekmek için Cosmos sorgu dili şimdiye gördük örnekleri birkaç önemli yönlerini istiyoruz:  
+Şu ana kadar gördüğünüz örnekleri Cosmos sorgu dili bazı yönleri şunlardır:  
 
 * SQL API'si, JSON değerleri üzerinde çalışır olduğundan, satır ve sütun yerine varlıklar şeklinde ağaç ile ilgilidir. Bu nedenle, dil, rastgele herhangi derinliği ağaç düğümleri gibi başvurmak sağlar `Node1.Node2.Node3…..Nodem`benzer şekilde iki bölümlü başvuru başvuran ilişkisel SQL `<table>.<column>`.   
+
 * Yapılandırılmış sorgu dili, şemasız verileri ile çalışır. Bu nedenle, tür sisteminde dinamik olarak bağlanması gerekir. Aynı ifadeye farklı belgelere farklı türlerde üretebilir. Bir sorgunun sonucu, geçerli bir JSON değer, ancak bir sabit şemasına olması garanti edilmez.  
-* Cosmos DB, JSON belgelerini katı yalnızca destekler. Bu tür sistemi ve ifadeleri yalnızca JSON türleri ile dağıtılacak sınırlı olduğu anlamına gelir. Başvurmak [JSON belirtimi](http://www.json.org/) daha fazla ayrıntı için.  
+
+* Azure Cosmos DB, yalnızca Katı JSON belgelerini destekler. Bu tür sistemi ve ifadeleri yalnızca JSON türleri ile dağıtılacak sınırlı olduğu anlamına gelir. Başvurmak [JSON belirtimi](http://www.json.org/) daha fazla ayrıntı için.  
+
 * Bir Cosmos DB koleksiyonu JSON belgelerinin şemasız bir kapsayıcıdır. Veri varlıkları içinde ve bir koleksiyondaki belgeler arasında ilişkiler, kapsama ve birincil anahtar ve yabancı anahtar ilişkileri tarafından örtük olarak yakalanır. Belirtmemiz bu makalenin sonraki bölümlerinde ele alınan içi belge birleştirmeler sonra önemli bir yönüdür.
 
-## <a id="Indexing"></a> Cosmos DB'yi dizine ekleme
-SQL sözdizimine aldığımız önce bu Azure Cosmos DB'de dizinleme tasarım incelenmesi yararlı olur. 
+## <a id="SelectClause"></a>select tümcesi
 
-İyi bir aktarım hızı ve düşük gecikme süresi sunarken en düşük kaynak tüketimi (CPU ve giriş/çıkış gibi) çeşitli formlar ve şekiller sorgular sunmak için veritabanı dizinleri amacı budur. Genellikle, bir veritabanı'nı sorgulamak için doğru dizin seçimi kadar planlama ve deneme gerektirir. Bu yaklaşım verilerin katı bir şemaya uygun değil ve geliştikçe hızlı bir şekilde şemasız veritabanları için bir sınama oluşturur. 
+Her sorgu bir SELECT yan tümcesi ve isteğe bağlı FROM oluşur ve WHERE yan tümcelerini başına ANSI SQL standartları. Genellikle, her sorgu için kaynak FROM yan tümcesindeki numaralandırılmış alan şeklinde. Ardından filtre WHERE yan tümcesinde bir alt kümesi JSON belgelerini almak için kaynak uygulanır. Son olarak, SELECT yan tümcesi, select listesindeki istenen JSON değerleri proje için kullanılır. Söz dizimi hakkında bilgi edinmek için [SELECT söz dizimi](sql-api-sql-query-reference.md#bk_select_query).
 
-Bu nedenle, Cosmos DB dizinleme alt tasarladığımız, biz aşağıdaki hedefleri ayarlayın:
+Aşağıdaki örnek, tipik bir SELECT sorgusu gösterir. 
 
-* Dizin belgeleri şema gerek kalmadan: dizin oluşturma alt sistemi tüm şema bilgileri gerektirmez veya şeması hakkında varsayımlar belgeleri. 
-* Verimli, zengin hiyerarşik ve ilişkisel sorguları için destek: hiyerarşik ve ilişkisel projeksiyonlar desteği dahil olmak üzere verimli bir şekilde dizini Cosmos sorgu dili destekler.
-* Sürekli bir yazma işlemleri hacmini in face of tutarlı sorgu desteği: yüksek yazma işleme iş yükleri için tutarlı sorgularla dizini artımlı olarak, verimli ve çevrimiçi sürekli bir yazma işlemleri hacmini karşılaşıldığında güncelleştirilir. Tutarlı dizin güncelleştirme kullanıcı belge hizmeti yapılandırılmış tutarlılık düzeyinde sorgular sunmak çok önemlidir.
-* Çok kiracılı desteği: ayırmaya dayalı modeli için kaynak İdaresi kiracılar genelinde göz önünde bulundurulduğunda, dizin güncelleştirmelerini çoğaltma ayrılan sistem kaynaklarının (CPU, bellek ve saniye başına giriş/çıkış işlemi) bir bütçe içinde gerçekleştirilir. 
-* Depolama verimliliği: sınırlanmış ve tahmin edilebilir maliyet verimliliği için dizini disk üzerinde depolama yükü. Cosmos DB sorgu performansı ile ilgili olarak dizin yükü arasındaki dengeleri maliyet tabanlı hale getirmek Geliştirici izin verdiği için önemlidir.  
+**Sorgu**
 
-Başvurmak [Azure Cosmos DB örnekleri](https://github.com/Azure/azure-documentdb-net) bir koleksiyon için dizin oluşturma ilkesini yapılandırmayı gösteren örnekler için MSDN'de. Artık Azure Cosmos DB SQL söz dizimi ayrıntılarına geçelim.
+```sql
+    SELECT f.address
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
+```
 
-## <a id="Basics"></a>Bir Azure Cosmos DB SQL sorgusu temelleri
-Her sorgu bir SELECT yan tümcesi ve isteğe bağlı FROM oluşur ve WHERE yan tümcelerini başına ANSI SQL standartları. Genellikle, her sorgu için kaynak FROM yan tümcesindeki numaralandırılmış alan şeklinde. Ardından filtre WHERE yan tümcesinde bir alt kümesi JSON belgelerini almak için kaynak uygulanır. Son olarak, SELECT yan tümcesi, select listesindeki istenen JSON değerleri proje için kullanılır.
+**Sonuçlar**
 
-    SELECT <select_list> 
-    [FROM <from_specification>] 
-    [WHERE <filter_condition>]
-    [ORDER BY <sort_specification]    
+```json
+    [{
+      "address": {
+        "state": "WA", 
+        "county": "King", 
+        "city": "seattle"
+      }
+    }]
+```
 
+### <a name="nested-properties"></a>İç içe Özellikler
+Aşağıdaki örnekte, biz iki iç içe özellikler yansıtma `f.address.state` ve `f.address.city`.
+
+**Sorgu**
+
+```sql
+    SELECT f.address.state, f.address.city
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
+```
+
+**Sonuçlar**
+
+```json
+    [{
+      "state": "WA", 
+      "city": "seattle"
+    }]
+```
+
+Projeksiyon, aşağıdaki örnekte gösterildiği gibi JSON ifadeleri de destekler:
+
+**Sorgu**
+
+```sql
+    SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
+```
+
+**Sonuçlar**
+
+```json
+    [{
+      "$1": {
+        "state": "WA", 
+        "city": "seattle", 
+        "name": "AndersenFamily"
+      }
+    }]
+```
+
+Rolü, bakalım `$1` burada. `SELECT` Yan tümcesi bir JSON nesnesi oluşturmak için gereksinim duyduğu ve anahtar sağlanan örtük bağımsız değişken adları ile başlayan kullanıyoruz `$1`. Örneğin, iki örtük bağımsız değişkenlerini etiketlenmiş, bu sorgunun döndürdüğü `$1` ve `$2`.
+
+**Sorgu**
+
+```sql
+    SELECT { "state": f.address.state, "city": f.address.city }, 
+           { "name": f.id }
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
+```
+
+**Sonuçlar**
+
+```json
+    [{
+      "$1": {
+        "state": "WA", 
+        "city": "seattle"
+      }, 
+      "$2": {
+        "name": "AndersenFamily"
+      }
+    }]
+```
 
 ## <a id="FromClause"></a>FROM yan tümcesi
-`FROM <from_specification>` Kaynak filtre veya sorguyu daha sonra öngörülen sürece yan tümcesinin isteğe bağlı. Bu yan tümce amacı, veri kaynağına bağlı sorgu çalışmalıdır belirtmektir. Yaygın olarak tüm kaynak koleksiyonudur, ancak bunun yerine koleksiyonunun bir alt kümesi belirtebilirsiniz. 
 
-Bir sorgu ister `SELECT * FROM Families` tüm aileleri koleksiyona kaynak üzerinden numaralandırmak olduğunu gösterir. Özel bir tanımlayıcısı kök, koleksiyon adını kullanmak yerine bir koleksiyonu temsil etmek için kullanılabilir. Aşağıdaki listede, sorgu uygulanan kurallar içerir:
+Kaynak filtre veya sorguyu daha sonra öngörülen sürece < from_specification > yan tümcesinin isteğe bağlıdır. Söz dizimi hakkında bilgi edinmek için [SÖZDİZİMİNDEN](sql-api-sql-query-reference.md#bk_from_clause). Bir sorgu ister `SELECT * FROM Families` tüm aileleri koleksiyona kaynak üzerinden numaralandırmak olduğunu gösterir. Özel bir tanımlayıcısı kök, koleksiyon adını kullanmak yerine bir koleksiyonu temsil etmek için kullanılabilir. Aşağıdaki listede, sorgu uygulanan kurallar içerir:
 
-* Koleksiyon gibi diğer adı, olabilir `SELECT f.id FROM Families AS f` ya da yalnızca `SELECT f.id FROM Families f`. Burada `f` eşdeğerdir `Families`. `AS` diğer isteğe bağlı bir anahtar sözcük tanımlayıcısıdır.
-* Diğer adlı bir kez özgün kaynağına bağımlı olamaz. Örneğin, `SELECT Families.id FROM Families f` artık "Aileleri" tanımlayıcısı çözümlenemiyor beri sözdizimsel olarak geçersiz.
+* Koleksiyon gibi diğer adı, olabilir `SELECT f.id FROM Families AS f` ya da yalnızca `SELECT f.id FROM Families f`. Burada `f` eşdeğerdir `Families`. `AS` diğer isteğe bağlı bir anahtar sözcük tanımlayıcısıdır.  
+
+* Diğer adlı bir kez özgün kaynağına bağımlı olamaz. Örneğin, `SELECT Families.id FROM Families f` artık "Aileleri" tanımlayıcısı çözümlenemiyor beri sözdizimsel olarak geçersiz.  
+
 * Başvurulabilmesi için gereken tüm özellikleri tam olarak nitelenmiş olmalıdır. Katı şema bağlılığı olmaması durumunda, belirsiz bağlamaları önlemek için bu zorunlu kılınır. Bu nedenle, `SELECT id FROM Families f` beri özellik sözdizimsel olarak geçersiz `id` bağlı değil.
 
-### <a name="subdocuments"></a>Belgeler
+### <a name="get-subdocuments-using-from-clause"></a>FROM yan tümcesi kullanarak alt Al
+
 Kaynak, ayrıca daha küçük bir alt kümesine azaltılabilir. Örneğin, yalnızca bir alt ağacı her belgede numaralandırma için subroot sonra kaynak aşağıdaki örnekte gösterildiği gibi hale gelebilir:
 
 **Sorgu**
 
+```sql
     SELECT * 
     FROM Families.children
+```
 
 **Sonuçlar**  
 
+```json
     [
       [
         {
@@ -247,35 +324,42 @@ Kaynak, ayrıca daha küçük bir alt kümesine azaltılabilir. Örneğin, yaln�
         }
       ]
     ]
+```
 
 Yukarıdaki örnekte, bir dizi kaynak olarak kullanılabilir. ancak, bir nesne de, aşağıdaki örnekte gösterilene kaynağı olarak kullanılabilir: sorgu sonucunu eklenmesi için kaynak bulunabilir (tanımsız değil) tüm geçerli JSON değeri olarak kabul edilir. Bazı aileleri yoksa bir `address.state` değeri sorgu sonucu hariç tutulur.
 
 **Sorgu**
 
+```sql
     SELECT * 
     FROM Families.address.state
+```
 
 **Sonuçlar**
 
+```json
     [
       "WA", 
       "NY"
     ]
-
+```
 
 ## <a id="WhereClause"></a>WHERE yan tümcesi
-WHERE yan tümcesi (**`WHERE <filter_condition>`**) isteğe bağlıdır. Bu, JSON belgelerini kaynak tarafından sağlanan koşulları sonucunu bir parçası olarak dahil edilmesi için karşılaması gereken belirtir. Herhangi bir JSON belgesi, "için sonuç olarak kabul edilmesi için true olarak" belirli koşullar değerlendirmelidir. WHERE yan tümcesi, sonuç bir parçası olabilir kaynak belgeleri mutlak en küçük kümesini belirlemek için dizin katmanı tarafından kullanılır. 
+WHERE yan tümcesi (**`WHERE <filter_condition>`**) isteğe bağlıdır. Bu, JSON belgelerini kaynak tarafından sağlanan koşulları sonucunu bir parçası olarak dahil edilmesi için karşılaması gereken belirtir. Herhangi bir JSON belgesi, "için sonuç olarak kabul edilmesi için true olarak" belirli koşullar değerlendirmelidir. WHERE yan tümcesi, sonuç bir parçası olabilir kaynak belgeleri mutlak en küçük kümesini belirlemek için dizin katmanı tarafından kullanılır. Söz dizimi hakkında bilgi edinmek için [nerede söz dizimi](sql-api-sql-query-reference.md#bk_where_clause).
 
 Aşağıdaki sorgu, değeri olan bir ad özelliği içeren belgeleri istekleri `AndersenFamily`. Bir name özelliğine sahip olmayan başka bir belgeye veya burada değeri eşleşmiyor `AndersenFamily` çıkarılır. 
 
 **Sorgu**
 
+```sql
     SELECT f.address
     FROM Families f 
     WHERE f.id = "AndersenFamily"
+```
 
 **Sonuçlar**
 
+```json
     [{
       "address": {
         "state": "WA", 
@@ -283,38 +367,23 @@ Aşağıdaki sorgu, değeri olan bir ad özelliği içeren belgeleri istekleri `
         "city": "seattle"
       }
     }]
-
+```
 
 Önceki örnekte, bir basit eşitlik sorgu gösterdi. SQL API'si, skaler ifadelerin çeşitli de destekler. En sık kullanılan ikili ve birli ifadelerdir. Kaynak JSON nesne özelliği başvurularından da geçerli ifadelerdir. 
 
 Aşağıdaki ikili işleçleri, şu anda desteklenen ve sorgularda aşağıdaki örneklerde gösterildiği gibi kullanılabilir:  
 
-<table>
-<tr>
-<td>Aritmetik</td>    
-<td>+,-,*,/,%</td>
-</tr>
-<tr>
-<td>bit düzeyinde</td>    
-<td>|, &, ^, <<>>,, >>> (sıfır dolgu sağa kaydırma)</td>
-</tr>
-<tr>
-<td>Mantıksal</td>
-<td>VE, VEYA DEĞİL</td>
-</tr>
-<tr>
-<td>Karşılaştırma</td>    
-<td>=, !=, &lt;, &gt;, &lt;=, &gt;=, <></td>
-</tr>
-<tr>
-<td>Dize</td>    
-<td>|| (birleştirme)</td>
-</tr>
-</table>  
-
+|**İşleç türü**  |**Değerler**  |
+|---------|---------|
+|Aritmetik    |   +,-,*,/,%   |
+|bit düzeyinde  |   |, &, ^, <<>>,, >>> (sıfır dolgu sağa kaydırma)      |
+|Mantıksal   |   VE, VEYA DEĞİL      |
+|Karşılaştırma   |    =, !=, &lt;, &gt;, &lt;=, &gt;=, <>     |
+|Dize  |  || (birleştirme)       |
 
 İkili işleçler kullanarak bazı sorguları bir göz atalım.
 
+```sql
     SELECT * 
     FROM Families.children[0] c
     WHERE c.grade % 2 = 1     -- matching grades == 5, 1
@@ -326,10 +395,11 @@ Aşağıdaki ikili işleçleri, şu anda desteklenen ve sorgularda aşağıdaki 
     SELECT *
     FROM Families.children[0] c
     WHERE c.grade >= 5     -- matching grades == 5
+```
 
+Birli işleçler +,-, ~, değil de desteklenir ve aşağıdaki örneklerde gösterildiği gibi sorguları içinde kullanılabilir:
 
-Birli işleçler +,-, ~ değil de desteklenir ve sorguları içinde aşağıdaki örnekte gösterildiği gibi kullanılabilir:
-
+```sql
     SELECT *
     FROM Families.children[0] c
     WHERE NOT(c.grade = 5)  -- matching grades == 1
@@ -337,8 +407,7 @@ Birli işleçler +,-, ~ değil de desteklenir ve sorguları içinde aşağıdaki
     SELECT *
     FROM Families.children[0] c
     WHERE (-c.grade = -5)  -- matching grades == 5
-
-
+```
 
 İkili ve birli işleçler ek olarak başvuran bir özelliğe de izin verilir. Örneğin, `SELECT * FROM Families f WHERE f.isRegistered` özelliği içeren JSON belgesini döndürür `isRegistered` özelliğinin değeri olduğu JSON eşit `true` değeri. Herhangi bir değer (false, null, Undefined `<number>`, `<string>`, `<object>`, `<array>`, vs.) sonuçtan dışlanan kaynak belge için yol açar. 
 
@@ -515,9 +584,9 @@ Tanımlanmadı </td>
    </tbody>
 </table>
 
-Gibi diğer Karşılaştırma işleçleri için >, > =,! =, < ve < =, aşağıdaki kurallar geçerlidir:   
+Gibi diğer Karşılaştırma işleçleri için >, > =,! =, <, ve < =, aşağıdaki kurallar geçerlidir:   
 
-* Karşılaştırma türlerinde içinde tanımsız olur.
+* Karşılaştırma türlerinde içinde tanımsız olur.  
 * İki nesne ya da iki arasında karşılaştırma sonuçlarında tanımlanmamış dizi.   
 
 Filtredeki bir skaler ifade sonucu olup olmadığını tanımlanmamış mantıksal olarak "true" günleriyle değil olduğundan tanımlanmamışsa, ilgili belge sonucunda dahil.
@@ -527,21 +596,28 @@ BETWEEN anahtar sözcüğü, ANSI SQL gibi değer sorguları express için de ku
 
 Örneğin, bu sorgu ilk alt öğenin sınıf 1-5 arasında (her ikisi de dahil) olduğu tüm ailesi belgeleri döndürür. 
 
+```sql
     SELECT *
     FROM Families.children[0] c
     WHERE c.grade BETWEEN 1 AND 5
+```
 
 Farklı ANSI-SQL'de BETWEEN yan tümcesi aşağıdaki örnekteki gibi FROM yan tümcesinde kullanabilirsiniz.
 
+```sql
     SELECT (c.grade BETWEEN 0 AND 10)
     FROM Families.children[0] c
-
-Daha hızlı sorgu yürütme süreleri için tüm sayısal özellikleri/BETWEEN yan tümcesinde göre filtrelenmiş olan yollar karşı bir aralık dizin türü kullanan bir dizin oluşturma ilkesi oluşturmak unutmayın. 
+```
 
 SQL API ve ANSI SQL BETWEEN arasındaki temel fark, bazı belgelerde ve diğerleri ("grade4") dizelerde karma türlerin özelliklerine karşı aralık sorguları ifade edebilirsiniz: Örneğin, "sınıf bir sayı (5)" olabilir olduğu. Bu gibi durumlarda gibi JavaScript'te "Tanımlanmamış" içindeki iki farklı sonuçlar ve belge arasında bir karşılaştırma atlanacak.
 
+> [!NOTE]
+> Daha hızlı sorgu yürütme süreleri için tüm sayısal özellikleri/BETWEEN yan tümcesinde göre filtrelenmiş olan yollar karşı bir aralık dizin türü kullanan bir dizin oluşturma ilkesi oluşturmak unutmayın. 
+
 ### <a name="logical-and-or-and-not-operators"></a>Mantıksal (AND, OR ve NOT) işleçleri
 Mantıksal işleçler Boole değerleri üzerinde çalışır. Bu işleçler için mantıksal gerçekte tabloları aşağıdaki tabloda gösterilmektedir.
+
+**OR işleci**
 
 | OR | True | False | Tanımlanmadı |
 | --- | --- | --- | --- |
@@ -549,11 +625,15 @@ Mantıksal işleçler Boole değerleri üzerinde çalışır. Bu işleçler içi
 | False |True |False |Tanımlanmadı |
 | Tanımlanmadı |True |Tanımlanmadı |Tanımlanmadı |
 
+**AND işleci**
+
 | VE | True | False | Tanımlanmadı |
 | --- | --- | --- | --- |
 | True |True |False |Tanımlanmadı |
 | False |False |False |False |
 | Tanımlanmadı |Tanımlanmadı |False |Tanımlanmadı |
+
+**NOT işleci**
 
 | DEĞİL |  |
 | --- | --- |
@@ -562,141 +642,75 @@ Mantıksal işleçler Boole değerleri üzerinde çalışır. Bu işleçler içi
 | Tanımlanmadı |Tanımlanmadı |
 
 ## <a name="in-keyword"></a>Anahtar SÖZCÜĞÜ
+
 IN anahtar sözcüğü, bir listedeki herhangi bir değer belirtilen bir değerle eşleşip eşleşmediğini kontrol etmek için kullanılabilir. Örneğin, bu sorgu kimliği "WakefieldFamily" veya "AndersenFamily" biri olduğu tüm ailesi belgeleri döndürür. 
 
+```sql
     SELECT *
     FROM Families 
     WHERE Families.id IN ('AndersenFamily', 'WakefieldFamily')
+```
 
 Bu örnek, durum belirtilen değerlerden herhangi birini olduğu tüm belgeleri döndürür.
 
+```sql
     SELECT *
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
+```
 
 ## <a name="ternary--and-coalesce--operators"></a>Ternary (?) ve (?) birleşim işleçleri
-Üçlü ve birleşim işleçleri, C# ve JavaScript gibi popüler programlama dillerini benzer olarak, koşullu ifadeleri oluşturmak için kullanılabilir. 
 
-Ternary (?) işleci hareket halindeyken yeni JSON özellikleri oluştururken çok kullanışlı olabilir. Örneğin, artık başlangıç/Orta/aşağıda gösterildiği gibi gelişmiş gibi bir insan tarafından okunabilir formda uygulamasına sınıfı düzeyleri sınıflandırmak için sorgular yazarsınız.
+Üçlü ve birleşim işleçleri, C# ve JavaScript gibi popüler programlama dillerini benzer olarak, koşullu ifadeleri oluşturmak için kullanılabilir. Ternary (?) işleci hareket halindeyken yeni JSON özellikleri oluştururken çok kullanışlı olabilir. Örneğin, artık başlangıç/Orta/aşağıda gösterildiği gibi gelişmiş gibi bir insan tarafından okunabilir formda uygulamasına sınıfı düzeyleri sınıflandırmak için sorgular yazarsınız.
 
+```sql
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel 
      FROM Families.children[0] c
+```
 
 Like işleci aşağıdaki sorgu çağrıları iç içe yerleştirebilirsiniz.
 
+```sql
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel 
     FROM Families.children[0] c
+```
 
 Olarak diğer sorgu işleçleri ile herhangi bir belgede başvurulan özelliklerini koşullu ifadede eksikse veya karşılaştırılan türleri farklıysa, ardından bu belgeleri sorgu sonuçlarını hariç tutulur.
 
 Coalesce (?) işleci, verimli bir şekilde bir özellik için (diğer adıyla) olup olmadığını denetlemek için kullanılabilir tanımlanır) bir belgedeki. Yarı yapılandırılmış karşı sorgularken bu kullanışlıdır veya karma türlerde verileri. Örneğin, mevcut değilse, bu sorgu "lastName" belirlenirse ya da "Soyadı" döndürür.
 
+```sql
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
+```
 
 ## <a id="EscapingReservedKeywords"></a>Tırnak işaretli bir özellik erişimcisi
 Tırnak işaretli bir özellik işleci kullanarak özelliklerini de erişebilirsiniz `[]`. Örneğin, `SELECT c.grade` ve `SELECT c["grade"]` eşdeğerdir. Bu sözdizimi, boşluk, özel karakterler içeriyor veya bir SQL anahtar sözcüğü ya da ayrılmış sözcük olarak aynı adı paylaşmasını olur bir özelliği kaçış gerektiğinde faydalıdır.
 
+```sql
     SELECT f["lastName"]
     FROM Families f
     WHERE f["id"] = "AndersenFamily"
-
-
-## <a id="SelectClause"></a>SELECT yan tümcesi
-SELECT yan tümcesi (**`SELECT <select_list>`**) zorunludur ve hangi değerleri sorgudan tıpkı ANSI-SQL'de alınır belirtir. Kaynak belgeleri üzerinde filtrelenmiştir alt burada belirtilen JSON değerlerinin alınır ve yeni bir JSON nesnesi oluşturulur, projeksiyon aşaması, sürüklediğinizde geçirilen her bir giriş için üzerine geçirilir. 
-
-Aşağıdaki örnek, tipik bir SELECT sorgusu gösterir. 
-
-**Sorgu**
-
-    SELECT f.address
-    FROM Families f 
-    WHERE f.id = "AndersenFamily"
-
-**Sonuçlar**
-
-    [{
-      "address": {
-        "state": "WA", 
-        "county": "King", 
-        "city": "seattle"
-      }
-    }]
-
-
-### <a name="nested-properties"></a>İç içe Özellikler
-Aşağıdaki örnekte, biz iki iç içe özellikler yansıtma `f.address.state` ve `f.address.city`.
-
-**Sorgu**
-
-    SELECT f.address.state, f.address.city
-    FROM Families f 
-    WHERE f.id = "AndersenFamily"
-
-**Sonuçlar**
-
-    [{
-      "state": "WA", 
-      "city": "seattle"
-    }]
-
-
-Projeksiyon, aşağıdaki örnekte gösterildiği gibi JSON ifadeleri de destekler:
-
-**Sorgu**
-
-    SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
-    FROM Families f 
-    WHERE f.id = "AndersenFamily"
-
-**Sonuçlar**
-
-    [{
-      "$1": {
-        "state": "WA", 
-        "city": "seattle", 
-        "name": "AndersenFamily"
-      }
-    }]
-
-
-Rolü, bakalım `$1` burada. `SELECT` Yan tümcesi bir JSON nesnesi oluşturmak için gereksinim duyduğu ve anahtar sağlanan örtük bağımsız değişken adları ile başlayan kullanıyoruz `$1`. Örneğin, iki örtük bağımsız değişkenlerini etiketlenmiş, bu sorgunun döndürdüğü `$1` ve `$2`.
-
-**Sorgu**
-
-    SELECT { "state": f.address.state, "city": f.address.city }, 
-           { "name": f.id }
-    FROM Families f 
-    WHERE f.id = "AndersenFamily"
-
-**Sonuçlar**
-
-    [{
-      "$1": {
-        "state": "WA", 
-        "city": "seattle"
-      }, 
-      "$2": {
-        "name": "AndersenFamily"
-      }
-    }]
-
+```
 
 ## <a name="aliasing"></a>Diğer ad kullanımı
+
 Şimdi şimdi yukarıdaki değerleri örnek açık bir diğer ad kullanımı ile genişletin. Olduğu gibi bir diğer ad kullanımı için kullanılan anahtar sözcüğü. İkinci değer olarak yansıtma sırasında gösterildiği gibi isteğe bağlı `NameInfo`. 
 
 Sorguda iki özellik aynı ada sahip olması durumunda, diğer ad kullanımı, böylece bunlar öngörülen sonucunda disambiguated birini veya her ikisini özelliklerini yeniden adlandırmak için kullanılmalıdır.
 
 **Sorgu**
-
+```sql
     SELECT 
            { "state": f.address.state, "city": f.address.city } AS AddressInfo, 
            { "name": f.id } NameInfo
     FROM Families f 
     WHERE f.id = "AndersenFamily"
+```
 
 **Sonuçlar**
 
+```json
     [{
       "AddressInfo": {
         "state": "WA", 
@@ -706,44 +720,53 @@ Sorguda iki özellik aynı ada sahip olması durumunda, diğer ad kullanımı, b
         "name": "AndersenFamily"
       }
     }]
-
+```
 
 ## <a name="scalar-expressions"></a>Skaler ifade
 Özellik başvurularını yanı sıra, SELECT yan tümcesi skaler ifadeler sabitler, aritmetik ifadeler, mantıksal ifadeleri, vb. gibi de destekler. Örneğin, basit bir "Merhaba Dünya" sorgu aşağıdadır.
 
 **Sorgu**
 
+```sql
     SELECT "Hello World"
+```
 
 **Sonuçlar**
 
+```json
     [{
       "$1": "Hello World"
     }]
-
+```
 
 Skaler bir ifade kullanan daha karmaşık bir örnek aşağıda verilmiştir.
 
 **Sorgu**
 
+```sql
     SELECT ((2 + 11 % 7)-2)/3    
+```
 
 **Sonuçlar**
 
+```json
     [{
       "$1": 1.33333
     }]
-
+```
 
 Aşağıdaki örnekte, bir Boolean skaler ifade sonucudur.
 
 **Sorgu**
 
+```sql
     SELECT f.address.city = f.address.state AS AreFromSameCityState
     FROM Families f    
+```
 
 **Sonuçlar**
 
+```json
     [
       {
         "AreFromSameCityState": false
@@ -752,18 +775,21 @@ Aşağıdaki örnekte, bir Boolean skaler ifade sonucudur.
         "AreFromSameCityState": true
       }
     ]
-
+```
 
 ## <a name="object-and-array-creation"></a>Nesne ve dizi oluşturma
 Başka bir anahtar SQL API'si dizi/nesne oluşturma özelliğidir. Önceki örnekte, oluşturduğumuz yeni bir JSON nesnesi unutmayın. Benzer şekilde, bir de diziler aşağıdaki örneklerde gösterildiği gibi oluşturabilirsiniz:
 
 **Sorgu**
 
+```sql
     SELECT [f.address.city, f.address.state] AS CityState 
     FROM Families f    
+```
 
 **Sonuçlar**  
 
+```json
     [
       {
         "CityState": [
@@ -778,30 +804,37 @@ Başka bir anahtar SQL API'si dizi/nesne oluşturma özelliğidir. Önceki örne
         ]
       }
     ]
+```
 
 ## <a id="ValueKeyword"></a>VALUE anahtar sözcüğü
 **Değer** anahtar sözcüğü, JSON değeri döndürmek için bir yol sağlar. Örneğin, aşağıda gösterilen sorguyu skaler döndürür `"Hello World"` yerine `{$1: "Hello World"}`.
 
 **Sorgu**
 
+```sql
     SELECT VALUE "Hello World"
+```
 
 **Sonuçlar**
 
+```json
     [
       "Hello World"
     ]
-
+```
 
 Aşağıdaki sorgu olmayan JSON değerini döndürür `"address"` sonuçlarında etiketi.
 
 **Sorgu**
 
+```sql
     SELECT VALUE f.address
     FROM Families f    
+```
 
 **Sonuçlar**  
 
+```json
     [
       {
         "state": "WA", 
@@ -814,33 +847,40 @@ Aşağıdaki sorgu olmayan JSON değerini döndürür `"address"` sonuçlarında
         "city": "NY"
       }
     ]
+```
 
 Aşağıdaki örnek JSON basit değerlerin (yaprak düzey JSON ağacı) iade işlemini göstermek için bu genişletir. 
 
 **Sorgu**
 
+```sql
     SELECT VALUE f.address.state
     FROM Families f    
+```
 
 **Sonuçlar**
 
+```json
     [
       "WA",
       "NY"
     ]
-
+```
 
 ## <a name="-operator"></a>* İşleci
 Özel işleci (*) belgesi olarak projeye desteklenen-olduğu. Kullanıldığında yansıtılan tek alan olması gerekir. While gibi bir sorguda `SELECT * FROM Families f` geçerli `SELECT VALUE * FROM Families f ` ve `SELECT *, f.id FROM Families f ` geçerli değildir.
 
 **Sorgu**
 
+```sql
     SELECT * 
     FROM Families f 
     WHERE f.id = "AndersenFamily"
+```
 
 **Sonuçlar**
 
+```json
     [{
         "id": "AndersenFamily",
         "lastName": "Andersen",
@@ -858,17 +898,21 @@ Aşağıdaki örnek JSON basit değerlerin (yaprak düzey JSON ağacı) iade iş
         "creationDate": 1431620472,
         "isRegistered": true
     }]
+```
 
 ## <a id="TopKeyword"></a>TOP işleci
 Üst anahtar sözcüğü, değerleri sorgudan sayısını sınırlamak için kullanılabilir. ÜST ORDER BY yan tümcesi ile birlikte kullanıldığında, sonuç kümesinin sıralı değerleri ilk N sayıya sınırlıdır; Aksi takdirde, tanımlanmamış bir sırada ilk N sonuç sayısını döndürür. En iyi uygulama, bir SELECT deyimi bir ORDER BY yan tümcesi her zaman ile TOP yan tümcesini kullanın. Hangi satır üst tarafından etkilenen tahmin edilebilir bir biçimde belirtmek için tek yolu budur. 
 
 **Sorgu**
 
+```sql
     SELECT TOP 1 * 
     FROM Families f 
+```
 
 **Sonuçlar**
 
+```json
     [{
         "id": "AndersenFamily",
         "lastName": "Andersen",
@@ -886,6 +930,7 @@ Aşağıdaki örnek JSON basit değerlerin (yaprak düzey JSON ağacı) iade iş
         "creationDate": 1431620472,
         "isRegistered": true
     }]
+```
 
 ÜST veya bir değişken değeri parametreli sorgular kullanma (yukarıda gösterildiği gibi) bir sabit değer ile kullanılabilir. Daha fazla ayrıntı için lütfen aşağıdaki parametreli sorgular bakın.
 
@@ -894,43 +939,55 @@ Toplamaları de gerçekleştirebilirsiniz `SELECT` yan tümcesi. Toplama işlevl
 
 **Sorgu**
 
+```sql
     SELECT COUNT(1) 
     FROM Families f 
+```
 
 **Sonuçlar**
 
+```json
     [{
         "$1": 2
     }]
+```
 
 Kullanarak ayrıca toplamanın skaler değer döndürebilir `VALUE` anahtar sözcüğü. Örneğin, aşağıdaki sorgu, tek bir sayı değerlerin sayısını döndürür:
 
 **Sorgu**
 
+```sql
     SELECT VALUE COUNT(1) 
     FROM Families f 
+```
 
 **Sonuçlar**
 
+```json
     [ 2 ]
+```
 
 Filtrelerle birlikte toplamalar de gerçekleştirebilirsiniz. Örneğin, aşağıdaki sorgu Washington eyaleti adresiyle belgelerin sayısını döndürür.
 
 **Sorgu**
 
+```sql
     SELECT VALUE COUNT(1) 
     FROM Families f
     WHERE f.address.state = "WA" 
+```
 
 **Sonuçlar**
 
+```json
     [ 1 ]
+```
 
 Aşağıdaki tabloda, SQL API'SİNDE desteklenen toplama işlevleri listesini gösterir. `SUM` ve `AVG` ise sayısal değer üzerinde gerçekleştirilen `COUNT`, `MIN`, ve `MAX` sayılar, dizeler, Boole değerleri ve null değerlere gerçekleştirilebilir. 
 
 | Kullanım | Açıklama |
 |-------|-------------|
-| SAYISI | İfade öğe sayısını döndürür. |
+| SAYI | İfade öğe sayısını döndürür. |
 | TOPLA   | İfadedeki tüm değerlerin toplamını döndürür. |
 | EN DÜŞÜK   | İfadedeki en küçük değeri döndürür. |
 | EN YÜKSEK   | İfadedeki en büyük değeri döndürür. |
@@ -951,12 +1008,15 @@ ANSI-SQL'de sorgulanırken isteğe bağlı bir Order By yan tümcesi ekleyebilir
 
 **Sorgu**
 
+```sql
     SELECT f.id, f.address.city
     FROM Families f 
     ORDER BY f.address.city
+```
 
 **Sonuçlar**
 
+```json
     [
       {
         "id": "WakefieldFamily",
@@ -967,17 +1027,21 @@ ANSI-SQL'de sorgulanırken isteğe bağlı bir Order By yan tümcesi ekleyebilir
         "city": "Seattle"    
       }
     ]
+```
 
 Ve ailelerinde dönem temsil eden bir sayı olarak depolanan oluşturulma tarihi sırasını alır. bir sorgu süresi, yani, 1 Ocak 1970 bu yana geçen süreyi saniye aşağıda verilmiştir.
 
 **Sorgu**
 
+```sql
     SELECT f.id, f.creationDate
     FROM Families f 
     ORDER BY f.creationDate DESC
+```
 
 **Sonuçlar**
 
+```json
     [
       {
         "id": "WakefieldFamily",
@@ -988,6 +1052,7 @@ Ve ailelerinde dönem temsil eden bir sayı olarak depolanan oluşturulma tarihi
         "creationDate": 1431620472    
       }
     ]
+```
 
 ## <a id="Advanced"></a>Gelişmiş veritabanı kavramlarını ve SQL sorguları
 
@@ -996,11 +1061,14 @@ Aracılığıyla eklenen yeni bir yapısı **IN** SQL API'si, JSON diziler yinel
 
 **Sorgu**
 
+```sql
     SELECT * 
     FROM Families.children
+```
 
 **Sonuçlar**  
 
+```json
     [
       [
         {
@@ -1025,16 +1093,20 @@ Aracılığıyla eklenen yeni bir yapısı **IN** SQL API'si, JSON diziler yinel
         }
       ]
     ]
+```
 
 Şimdi, koleksiyondaki alt öğeleri üzerinde yineleme gerçekleştiren başka bir sorgu göz atalım. Çıkış dizisinde farka dikkat edin. Bu örnekte böler `children` ve tek bir dizide sonuçları düzleştirir.  
 
 **Sorgu**
 
+```sql
     SELECT * 
     FROM c IN Families.children
+```
 
 **Sonuçlar**  
 
+```json
     [
       {
           "firstName": "Henriette Thaulow",
@@ -1055,35 +1127,44 @@ Aracılığıyla eklenen yeni bir yapısı **IN** SQL API'si, JSON diziler yinel
           "grade": 8
       }
     ]
+```
 
 Bu ek aşağıdaki örnekte gösterildiği gibi dizi her bir giriş filtrelemek için kullanılabilir:
 
 **Sorgu**
 
+```sql
     SELECT c.givenName
     FROM c IN Families.children
     WHERE c.grade = 8
+```
 
 **Sonuçlar**  
 
+```json
     [{
       "givenName": "Lisa"
     }]
+```
 
 Ayrıca, bir dizi yineleme sonucun üzerine toplama gerçekleştirebilirsiniz. Örneğin, aşağıdaki sorgu tüm aileleri arasında alt öğeyi sayar.
 
 **Sorgu**
 
+```sql
     SELECT COUNT(child) 
     FROM child IN Families.children
+```
 
 **Sonuçlar**  
 
+```json
     [
       { 
         "$1": 3
       }
     ]
+```
 
 ### <a id="Joins"></a>Birleşimler
 İlişkisel bir veritabanında tabloları arasında birleştirme için gereken büyük/küçük harf önemlidir. Bu, normalleştirilmiş şemaları tasarlamaya mantıksal corollary olur. Bunun aksine, SQL API'si şemasız belgelerin normalleştirilmişlikten çıkarılmış veri modeli ile ilgilidir. Bu mantıksal eşdeğeri olan bir "kendi kendine birleşme".
@@ -1094,26 +1175,32 @@ Aşağıdaki örnekler, JOIN yan tümcesi nasıl çalıştığını gösterir. A
 
 **Sorgu**
 
+```sql
     SELECT f.id
     FROM Families f
     JOIN f.NonExistent
+```
 
 **Sonuçlar**  
 
+```json
     [{
     }]
-
+```
 
 Aşağıdaki örnekte, birleştirme arasında belge kökü olan ve `children` subroot. Bu, iki JSON nesnesi arasında çapraz bir üründür. Biz alt dizi için tek bir kök çalışıyorsanız bu yana alt dizi hale birleştirme işleminde etkili değildir. Bu nedenle tam olarak tek bir belge her dizi belgeyle çapraz çarpımını üretir beri sonucu yalnızca iki sonuçlarını içerir.
 
 **Sorgu**
 
+```sql
     SELECT f.id
     FROM Families f
     JOIN f.children
+```
 
 **Sonuçlar**
 
+```json
     [
       {
         "id": "AndersenFamily"
@@ -1122,18 +1209,21 @@ Aşağıdaki örnekte, birleştirme arasında belge kökü olan ve `children` su
         "id": "WakefieldFamily"
       }
     ]
-
+```
 
 Aşağıdaki örnek, daha geleneksel bir birleştirme gösterir:
 
 **Sorgu**
 
+```sql
     SELECT f.id
     FROM Families f
     JOIN c IN f.children 
+```
 
 **Sonuçlar**
 
+```json
     [
       {
         "id": "AndersenFamily"
@@ -1145,8 +1235,7 @@ Aşağıdaki örnek, daha geleneksel bir birleştirme gösterir:
         "id": "WakefieldFamily"
       }
     ]
-
-
+```
 
 Dikkat edilecek ilk şey olan `from_source` , **katılın** yan tümcesi ise bir yineleyici. Bu nedenle, akışı bu durumda şu şekildedir:  
 
@@ -1160,6 +1249,7 @@ Birleştirme gerçek faydası, aksi takdirde projeye zor olan şekle çapraz ür
 
 **Sorgu**
 
+```sql
     SELECT 
         f.id AS familyName,
         c.givenName AS childGivenName,
@@ -1168,9 +1258,11 @@ Birleştirme gerçek faydası, aksi takdirde projeye zor olan şekle çapraz ür
     FROM Families f 
     JOIN c IN f.children 
     JOIN p IN c.pets
+```
 
 **Sonuçlar**
 
+```json
     [
       {
         "familyName": "AndersenFamily", 
@@ -1188,11 +1280,11 @@ Birleştirme gerçek faydası, aksi takdirde projeye zor olan şekle çapraz ür
        "petName": "Shadow"
       }
     ]
-
-
+```
 
 Bu örnek, önceki örnekte doğal bir uzantısıdır ve double JOIN gerçekleştirir. Bu nedenle, aşağıdaki sözde kod olarak çapraz görüntülenebilir:
 
+```
     for-each(Family f in Families)
     {    
         for-each(Child c in f.children)
@@ -1206,6 +1298,7 @@ Bu örnek, önceki örnekte doğal bir uzantısıdır ve double JOIN gerçekleş
             }
         }
     }
+```
 
 `AndersenFamily` bir evcil hayvan olan bir alt öğesi var. Bu nedenle, çapraz bir satır üretir (1\*1\*1) bu aile öğesinden. WakefieldFamily ancak iki alt öğe, ancak yalnızca bir alt "Jesse" Evcil Hayvanlar içeriyor. Jesse iki Evcil Hayvanlar yine de vardır. Bu nedenle çapraz 1 verir\*1\*2 = 2, bu ailesinden satırlar.
 
@@ -1213,6 +1306,7 @@ Sonraki örnekte olduğundan bir ek filtre `pet`. Bu, evcil hayvan adı "Gölge"
 
 **Sorgu**
 
+```sql
     SELECT 
         f.id AS familyName,
         c.givenName AS childGivenName,
@@ -1222,9 +1316,11 @@ Sonraki örnekte olduğundan bir ek filtre `pet`. Bu, evcil hayvan adı "Gölge"
     JOIN c IN f.children 
     JOIN p IN c.pets
     WHERE p.givenName = "Shadow"
+```
 
 **Sonuçlar**
 
+```json
     [
       {
        "familyName": "WakefieldFamily", 
@@ -1232,7 +1328,7 @@ Sonraki örnekte olduğundan bir ek filtre `pet`. Bu, evcil hayvan adı "Gölge"
        "petName": "Shadow"
       }
     ]
-
+```
 
 ## <a id="JavaScriptIntegration"></a>JavaScript tümleştirme
 Azure Cosmos DB, JavaScript tabanlı uygulama mantığını saklı yordamlar ve tetikleyicilerle açısından koleksiyonlar üzerinde doğrudan yürütmek için bir programlama modeli sağlar. Bu, hem sağlar:
@@ -1247,6 +1343,7 @@ SQL söz dizimini kullanarak bu kullanıcı tanımlı işlevler özel uygulama m
 
 Cosmos DB veritabanını, özellikle bir belge koleksiyonu, bir UDF nasıl kaydedilebilir bir örnek aşağıdadır.
 
+```javascript
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
        {
            Id = "REGEX_MATCH",
@@ -1258,6 +1355,7 @@ Cosmos DB veritabanını, özellikle bir belge koleksiyonu, bir UDF nasıl kayde
        UserDefinedFunction createdUdf = client.CreateUserDefinedFunctionAsync(
            UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
            regexMatchUdf).Result;  
+```
 
 Yukarıdaki örnekte, adı olan bir UDF oluşturur `REGEX_MATCH`. İki JSON dizesi değerini kabul `input` ve `pattern` ve ilk eşleşme ikinci desen belirtilmişse denetimleri kullanarak JavaScript'in string.match() işlevi.
 
@@ -1270,11 +1368,14 @@ Artık bu UDF sorguda projeksiyon kullanabiliriz. UDF büyük/küçük harfe "ud
 
 **Sorgu**
 
+```sql
     SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
     FROM Families
+```
 
 **Sonuçlar**
 
+```json
     [
       {
         "$1": true
@@ -1283,27 +1384,32 @@ Artık bu UDF sorguda projeksiyon kullanabiliriz. UDF büyük/küçük harfe "ud
         "$1": false
       }
     ]
+```
 
 UDF de bir filtre içinde de "udf ile." nitelenmiş aşağıdaki örnekte gösterildiği gibi kullanılabilir ön eki:
 
 **Sorgu**
 
+```sql
     SELECT Families.id, Families.address.city
     FROM Families
     WHERE udf.REGEX_MATCH(Families.address.city, ".*eattle")
+```
 
 **Sonuçlar**
 
+```json
     [{
         "id": "AndersenFamily",
         "city": "Seattle"
     }]
-
+```
 
 Esas olarak, UDF'ler geçerli skaler ifadeler ve izdüşümler ve filtreler kullanılabilir. 
 
 UDF gücüyle genişletmek için başka bir örneğe koşullu mantığı ile bakalım:
 
+```javascript
        UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
        {
            Id = "SEALEVEL",
@@ -1323,17 +1429,20 @@ UDF gücüyle genişletmek için başka bir örneğe koşullu mantığı ile bak
             UserDefinedFunction createdUdf = await client.CreateUserDefinedFunctionAsync(
                 UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
                 seaLevelUdf);
-
+```
 
 UDF sınayan bir örnek aşağıda verilmiştir.
 
 **Sorgu**
 
+```sql
     SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
     FROM Families f    
+```
 
 **Sonuçlar**
 
+```json
      [
       {
         "city": "seattle", 
@@ -1344,7 +1453,7 @@ UDF sınayan bir örnek aşağıda verilmiştir.
         "seaLevel": 410
       }
     ]
-
+```
 
 Önceki örneklerde göstermek gibi UDF'ler JavaScript dilinin gücünü yerleşik JavaScript çalışma zamanı özelliklerinden yardımıyla karmaşık yordam, koşullu mantık yapmak için zengin bir programlanabilir arabirim sağlamak üzere SQL API'si ile tümleştirin.
 
@@ -1364,12 +1473,15 @@ Cosmos DB ile tanıdık ifade parametrelerle sorguları destekler \@ gösterimi.
 
 Örneğin, son adı ve adresi durum parametreleri alan bir sorgu yazma ve çeşitli değerleri son adı ve kullanıcı girişini temel alarak adresi durumunun yürütün.
 
+```sql
     SELECT * 
     FROM Families f
     WHERE f.lastName = @lastName AND f.address.state = @addressState
+```
 
 Bu istek ardından Cosmos DB gibi bir JSON sorgusu olarak aşağıda gösterilen gönderilebilir.
 
+```sql
     {      
         "query": "SELECT * FROM Families f WHERE f.lastName = @lastName AND f.address.state = @addressState",     
         "parameters": [          
@@ -1377,15 +1489,18 @@ Bu istek ardından Cosmos DB gibi bir JSON sorgusu olarak aşağıda gösterilen
             {"name": "@addressState", "value": "NY"},           
         ] 
     }
+```
 
 İLK bağımsız değişkeni parametreli sorgular gibi kullanarak aşağıda gösterilen ayarlanabilir.
 
+```sql
     {      
         "query": "SELECT TOP @n * FROM Families",     
         "parameters": [          
             {"name": "@n", "value": 10},         
         ] 
     }
+```
 
 Parametre değerleri geçerli bir JSON olabilir (dizeler, sayılar ve Boole değerlerini, null, hatta diziler veya JSON iç içe geçmiş). Ayrıca parametreleri Cosmos DB, şemasız olduğundan, karşı herhangi bir tür doğrulanmaz.
 
@@ -1436,12 +1551,15 @@ Matematiksel işlevler her bağımsız değişken olarak sağlanan ve sayısal b
 
 **Sorgu**
 
+```sql
     SELECT VALUE ABS(-4)
+```
 
 **Sonuçlar**
 
+```json
     [4]
-
+```
 Cosmos DB'nin işlevler ANSI SQL'e kıyasla arasındaki temel fark, bunlar şemasız ve karışık şema verilerle iyi çalışacak şekilde tasarlanmıştır ' dir. Örneğin, burada Size özelliği eksik veya sahip bir belge varsa, "Bilinmeyen" gibi bir sayısal olmayan değer sonra belge üzerinde bir hata döndürmek yerine atlanır.
 
 ### <a name="type-checking-functions"></a>Tür denetimini işlevleri
@@ -1491,11 +1609,15 @@ Bu işlevleri kullanarak, artık aşağıdakiler gibi sorguları çalıştırabi
 
 **Sorgu**
 
+```sql
     SELECT VALUE IS_NUMBER(-4)
+```
 
 **Sonuçlar**
 
+```json
     [true]
+```
 
 ### <a name="string-functions"></a>Dize işlevleri
 Aşağıdaki skaler İşlevler, bir dize giriş değeri bir işlem gerçekleştirmek ve bir dize, sayısal veya Boolean değeri döndürür. Yerleşik dize işlevleri tablosu şu şekildedir:
@@ -1523,25 +1645,32 @@ Bu işlevlerin kullanılması, artık aşağıdakiler gibi sorguları çalışt�
 
 **Sorgu**
 
+```sql
     SELECT VALUE UPPER(Families.id)
     FROM Families
+```
 
 **Sonuçlar**
 
+```json
     [
         "WAKEFIELDFAMILY", 
         "ANDERSENFAMILY"
     ]
+```
 
 Veya bu örnekteki gibi dizeyi art arda ekler:
 
 **Sorgu**
 
+```sql
     SELECT Families.id, CONCAT(Families.address.city, ",", Families.address.state) AS location
     FROM Families
+```
 
 **Sonuçlar**
 
+```json
     [{
       "id": "WakefieldFamily",
       "location": "NY,NY"
@@ -1550,22 +1679,26 @@ Veya bu örnekteki gibi dizeyi art arda ekler:
       "id": "AndersenFamily",
       "location": "seattle,WA"
     }]
-
+```
 
 Dize işlevleri, aşağıdaki örnekte gibi sonuçları filtrelemek için WHERE yan tümcesinde de kullanılabilir:
 
 **Sorgu**
 
+```sql
     SELECT Families.id, Families.address.city
     FROM Families
     WHERE STARTSWITH(Families.id, "Wakefield")
+```
 
 **Sonuçlar**
 
+```json
     [{
       "id": "WakefieldFamily",
       "city": "NY"
     }]
+```
 
 ### <a name="array-functions"></a>Dizi işlevleri
 Aşağıdaki skaler işlevler bir dizi giriş değeri ve dönüş sayısal, Boole veya dizi değeri üzerinde bir işlem gerçekleştirin. Yerleşik bir dizi işlev bir tablo şu şekildedir:
@@ -1581,40 +1714,50 @@ Dizi işlevleri dizileri JSON içinde işlemek için kullanılabilir. Örneğin,
 
 **Sorgu**
 
+```sql
     SELECT Families.id 
     FROM Families 
     WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin", familyName: "Wakefield" })
+```
 
 **Sonuçlar**
 
+```json
     [{
       "id": "WakefieldFamily"
     }]
+```
 
 Diziden öğeleri eşleştirmek için kısmi bir parçası olarak belirtebilirsiniz. Aşağıdaki sorgu tüm üst bulur `givenName` , `Robin`.
 
 **Sorgu**
 
+```sql
     SELECT Families.id 
     FROM Families 
     WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin" }, true)
+```
 
 **Sonuçlar**
 
+```json
     [{
       "id": "WakefieldFamily"
     }]
-
+```
 
 Alt öğe sayısı ailesi başına almak için ARRAY_LENGTH kullanan başka bir örnek aşağıda verilmiştir.
 
 **Sorgu**
 
+```sql
     SELECT Families.id, ARRAY_LENGTH(Families.children) AS numberOfChildren
     FROM Families 
+```
 
 **Sonuçlar**
 
+```json
     [{
       "id": "WakefieldFamily",
       "numberOfChildren": 2
@@ -1623,6 +1766,7 @@ Alt öğe sayısı ailesi başına almak için ARRAY_LENGTH kullanan başka bir 
       "id": "AndersenFamily",
       "numberOfChildren": 1
     }]
+```
 
 ### <a name="spatial-functions"></a>Uzamsal İşlevler
 Cosmos DB, Jeo-uzamsal sorgulamak için aşağıdaki açık Jeo-uzamsal Consortium (OGC) yerleşik işlevleri destekler. 
@@ -1658,15 +1802,19 @@ Uzamsal İşlevler, uzamsal veri yakınlık sorguları gerçekleştirmek için k
 
 **Sorgu**
 
+```sql
     SELECT f.id 
     FROM Families f 
     WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
+```
 
 **Sonuçlar**
 
+```json
     [{
       "id": "WakefieldFamily"
     }]
+```
 
 Cosmos DB'de Jeo-uzamsal destek hakkında daha fazla ayrıntı için lütfen bkz [Azure Cosmos DB Jeo-uzamsal verilerle çalışmaya](geospatial.md). Cosmos DB için uzamsal işlevler ve SQL söz dizimi sonuna geldik. Şimdi nasıl çalıştığını ve söz dizimi ile nasıl etkileşime gireceğini sorgulama LINQ şimdiye gördük göz atalım.
 
@@ -1682,6 +1830,7 @@ Aşağıdaki resimde, Cosmos DB kullanarak LINQ sorgularını destekleyen mimari
 
 **C# sınıfı**
 
+```csharp
     public class Family
     {
         [JsonProperty(PropertyName="id")]
@@ -1725,10 +1874,11 @@ Aşağıdaki resimde, Cosmos DB kullanarak LINQ sorgularını destekleyen mimari
     Pet pet = new Pet { givenName = "Fluffy" };
     Address address = new Address { state = "NY", county = "Manhattan", city = "NY" };
     Family family = new Family { Id = "WakefieldFamily", parents = new Parent [] { mother, father}, children = new Child[] { child }, isRegistered = false };
-
+```
 
 **JSON**  
 
+```json
     {
         "id": "WakefieldFamily",
         "parents": [
@@ -1756,7 +1906,7 @@ Aşağıdaki resimde, Cosmos DB kullanarak LINQ sorgularını destekleyen mimari
         "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
         "isRegistered": false
     };
-
+```
 
 
 ### <a name="linq-to-sql-translation"></a>LINQ to SQL çeviri
@@ -1808,10 +1958,10 @@ Söz dizimi `input.Select(x => f(x))`burada `f` skaler bir ifade.
 
 **SQL** 
 
+```sql
     SELECT VALUE f.parents[0].familyName
     FROM Families f
-
-
+```
 
 **LINQ lambda ifadesi**
 
@@ -1820,9 +1970,10 @@ Söz dizimi `input.Select(x => f(x))`burada `f` skaler bir ifade.
 
 **SQL** 
 
+```sql
     SELECT VALUE f.children[0].grade + c
     FROM Families f 
-
+```
 
 
 **LINQ lambda ifadesi**
@@ -1836,10 +1987,11 @@ Söz dizimi `input.Select(x => f(x))`burada `f` skaler bir ifade.
 
 **SQL** 
 
+```sql
     SELECT VALUE {"name":f.children[0].familyName, 
                   "grade": f.children[0].grade + 3 }
     FROM Families f
-
+```
 
 
 #### <a name="selectmany-operator"></a>SelectMany işleci
@@ -1851,10 +2003,10 @@ Söz dizimi `input.SelectMany(x => f(x))`burada `f` koleksiyon türü döndüren
 
 **SQL** 
 
+```sql
     SELECT VALUE child
     FROM child IN Families.children
-
-
+```
 
 #### <a name="where-operator"></a>Burada işleci
 Söz dizimi `input.Where(x => f(x))`burada `f` bir Boole değeri döndüren bir skaler ifade.
@@ -1865,11 +2017,11 @@ Söz dizimi `input.Where(x => f(x))`burada `f` bir Boole değeri döndüren bir 
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     WHERE f.parents[0].familyName = "Smith" 
-
-
+```
 
 **LINQ lambda ifadesi**
 
@@ -1879,11 +2031,12 @@ Söz dizimi `input.Where(x => f(x))`burada `f` bir Boole değeri döndüren bir 
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     WHERE f.parents[0].familyName = "Smith"
     AND f.children[0].grade < 3
-
+```
 
 ### <a name="composite-sql-queries"></a>Bileşik SQL sorguları
 Daha güçlü sorgular oluşturmak için yukarıdaki işleçleri oluşabilir. Cosmos DB, iç içe geçmiş koleksiyonlar desteklediğinden, birleştirme ya da art arda eklenmiş iç içe geçmiş veya.
@@ -1898,11 +2051,11 @@ Söz dizimi `input(.|.SelectMany())(.Select()|.Where())*`. Birleştirilmiş bir 
 
 **SQL**
 
+```sql
     SELECT *
     FROM Families f
     WHERE f.parents[0].familyName = "Smith"
-
-
+```
 
 **LINQ lambda ifadesi**
 
@@ -1911,10 +2064,11 @@ Söz dizimi `input(.|.SelectMany())(.Select()|.Where())*`. Birleştirilmiş bir 
 
 **SQL** 
 
+```sql
     SELECT VALUE f.parents[0].familyName
     FROM Families f
     WHERE f.children[0].grade > 3
-
+```
 
 
 **LINQ lambda ifadesi**
@@ -1924,11 +2078,11 @@ Söz dizimi `input(.|.SelectMany())(.Select()|.Where())*`. Birleştirilmiş bir 
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     WHERE ({grade: f.children[0].grade}.grade > 3)
-
-
+```
 
 **LINQ lambda ifadesi**
 
@@ -1937,10 +2091,11 @@ Söz dizimi `input(.|.SelectMany())(.Select()|.Where())*`. Birleştirilmiş bir 
 
 **SQL** 
 
+```sql
     SELECT *
     FROM p IN Families.parents
     WHERE p.familyName = "Smith"
-
+```
 
 
 #### <a name="nesting"></a>İç içe geçirme
@@ -1955,10 +2110,11 @@ Söz dizimi `input.SelectMany(x=>x.Q())` Q olduğu bir `Select`, `SelectMany`, v
 
 **SQL** 
 
+```sql
     SELECT VALUE p.familyName
     FROM Families f
     JOIN p IN f.parents
-
+```
 
 **LINQ lambda ifadesi**
 
@@ -1967,11 +2123,12 @@ Söz dizimi `input.SelectMany(x=>x.Q())` Q olduğu bir `Select`, `SelectMany`, v
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     JOIN c IN f.children
     WHERE c.familyName = "Jeff"
-
+```
 
 
 **LINQ lambda ifadesi**
@@ -1981,11 +2138,12 @@ Söz dizimi `input.SelectMany(x=>x.Q())` Q olduğu bir `Select`, `SelectMany`, v
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     JOIN c IN f.children
     WHERE c.familyName = f.parents[0].familyName
-
+```
 
 ## <a id="ExecutingSqlQueries"></a>SQL sorguları yürütme
 Cosmos DB, HTTP/HTTPS istekleri yapabilen bir dille çağrılabilen REST API'si aracılığıyla kaynaklarını kullanıma sunar. Ayrıca, Cosmos DB .NET, Node.js, JavaScript ve Python gibi birçok popüler dilde programlama kitaplıkları sunar. REST API ve çeşitli kitaplıklara tüm SQL ile sorgulama desteği. .NET SDK'sı ek olarak SQL sorgulama LINQ destekler.
@@ -2016,6 +2174,7 @@ Aşağıdaki örnekler, biz şu ana kadar gözden geçirdiğimize göre iki örn
 
 **Sonuçlar**
 
+```
     HTTP/1.1 200 Ok
     x-ms-activity-id: 8b4678fa-a947-47d3-8dd3-549a40da6eed
     x-ms-item-count: 1
@@ -2063,7 +2222,7 @@ Aşağıdaki örnekler, biz şu ana kadar gözden geçirdiğimize göre iki örn
        ],
        "count":1
     }
-
+```
 
 İkinci örnek, birleştirme sonucu birden çok sonuç döndüren daha karmaşık bir sorguyu gösterir.
 
@@ -2089,6 +2248,7 @@ Aşağıdaki örnekler, biz şu ana kadar gözden geçirdiğimize göre iki örn
 
 **Sonuçlar**
 
+```
     HTTP/1.1 200 Ok
     x-ms-activity-id: 568f34e3-5695-44d3-9b7d-62f8b83e509d
     x-ms-item-count: 1
@@ -2117,7 +2277,7 @@ Aşağıdaki örnekler, biz şu ana kadar gözden geçirdiğimize göre iki örn
        ],
        "count":3
     }
-
+```
 
 Bir sorgunun sonuçlarını tek bir sonuç sayfasını içinde sığamıyorsa sonra REST API aracılığıyla bir devamlılık belirteci döndürür `x-ms-continuation-token` yanıtı üstbilgisi. İstemcileri, sonraki sonuçları üst bilgisi dahil olmak üzere sonuçlarını sayfalandırma. Sayfa başına sonuç sayısı üzerinden de denetlenebilir `x-ms-max-item-count` sayı başlığı. Belirtilen sorgu gibi bir toplama işlevi varsa `COUNT`, ardından sorgu sayfası sonuçları sayfanın kısmen toplanan bir değer döndürebilir. İstemciler, örneğin son sonuçlar, her bir sayfayı toplam sayısını döndürmek için döndürülen sayıları üzerinden toplamak için bu sonuçlar ikinci düzey toplama gerçekleştirmeniz gerekir.
 

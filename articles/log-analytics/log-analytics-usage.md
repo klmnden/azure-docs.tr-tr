@@ -12,17 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: d02c3ad3e1ca2812049608cad2eacced3686dad3
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 1bb96821b61647f5dfad54c8b0cb6248eb0db4af
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128573"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42061093"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics'te veri kullanımını çözümleme
+
+> [!NOTE]
+> Bu makale, Log analytics'te veri kullanımını çözümleme açıklar.  İlgili bilgiler için aşağıdaki makalelere göz atın.
+> - [Veri hacmi ve saklama Log analytics'te kontrol ederek maliyet yönetme](log-analytics-manage-cost-storage.md) veri saklama döneminizin değiştirerek maliyetlerinizi denetlemek nasıl açıklar.
+> - [Kullanım ve Tahmini maliyetler izleme](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) çoklu Azure İzleme özelliklerini farklı fiyatlandırma modelleri için tahmini maliyetleri ve kullanım görüntülemeyi açıklar. Ayrıca, uygulamanızın fiyatlandırma modelinin değiştirilmesi nasıl açıklar.
+
 Log Analytics, toplanan veri miktarı, verileri hangi kaynakların gönderdiği ve gönderilen farklı veri türleri hakkındaki bilgileri içerir.  Veri kullanımını gözden geçirmek ve analiz etmek için **Log Analytics Kullanımı** panosunu kullanın. Panoda her çözüm tarafından ne kadar veri toplandığı ve bilgisayarlarınızın ne kadar veri gönderdiği gösterilir.
 
 ## <a name="understand-the-usage-dashboard"></a>Kullanım panosunu anlama

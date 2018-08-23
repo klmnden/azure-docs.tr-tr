@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: 0f6a0e2fe3aa632137392efe806aaab265eedf10
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f461a9a7cc900ce5f8fdba7b255417b1790d3f4d
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435551"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42056254"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service için Yerel Git Dağıtımı
 
@@ -124,7 +124,7 @@ Tıklayın **VSTS sürekli teslim** > **devam**.
 
 İçinde **Test** sayfasında, yük testleri etkinleştirin ve ardından yüklememeyi **devam**.
 
-Yapılandırmanıza bağlı olarak [fiyatlandırma katmanı](/pricing/details/app-service/plans/) de görebilirsiniz, App Service planı, bir **hazırlama Dağıt** sayfası. Dağıtım yuvalarını etkinleştirin ve ardından yüklememeyi **devam**.
+Yapılandırmanıza bağlı olarak [fiyatlandırma katmanı](https://azure.microsoft.com/pricing/details/app-service/plans/) de görebilirsiniz, App Service planı, bir **hazırlama Dağıt** sayfası. Dağıtım yuvalarını etkinleştirin ve ardından yüklememeyi **devam**.
 
 İçinde **özeti** sayfasında, seçeneklerinizi doğrulayın ve tıklayın **son**.
 
@@ -138,7 +138,7 @@ _Yerel terminal penceresine_ dönüp yerel Git deponuza bir Azure uzak deposu ek
 git remote add vsts <url>
 ```
 
-Aşağıdaki komutla uygulamanızı dağıtmak için Azure uzak deposuna gönderin. Git kimlik bilgileri Yöneticisi tarafından istendiğinde, visualstudio.com kullanıcı bilgilerinizle oturum açın. Ek kimlik doğrulama yöntemleri için bkz. [VSTS Challenge genel bakış](/vsts/git/auth-overview?view=vsts).
+Aşağıdaki komutla uygulamanızı dağıtmak için Azure uzak deposuna gönderin. Git kimlik bilgileri Yöneticisi tarafından istendiğinde, visualstudio.com kullanıcı bilgilerinizle oturum açın. Ek kimlik doğrulama yöntemleri için bkz. [VSTS kimlik doğrulamasına genel bakış](/vsts/git/auth-overview?view=vsts).
 
 ```bash
 git push vsts master
