@@ -1,6 +1,6 @@
 ---
-title: Yüksek kullanılabilirlik için NFS SUSE Linux Enterprise Server üzerinde Azure vm'lerinde | Microsoft Docs
-description: SUSE Linux Enterprise Server üzerinde Azure vm'lerinde NFS yüksek kullanılabilirlik
+title: SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde NFS için yüksek kullanılabilirlik | Microsoft Docs
+description: SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde NFS için yüksek kullanılabilirlik
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
@@ -13,16 +13,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 004baee6f3b1ed016ee0336a86d5ea3909d8f255
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1b1e6d3e5a0a1eb789b6a31ca66232ea6beb5b89
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656236"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42057141"
 ---
-# <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server üzerinde Azure vm'lerinde NFS yüksek kullanılabilirlik
+# <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde NFS için yüksek kullanılabilirlik
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -41,8 +41,8 @@ ms.locfileid: "34656236"
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
-[suse-hana-ha-guide]:https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
-[suse-drbd-guide]:https://www.suse.com/documentation/sle-ha-12/singlehtml/book_sleha_techguides/book_sleha_techguides.html
+[sles-hae-guides]:https://www.suse.com/documentation/sle-ha-12/
+[sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
 
 [template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 [template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
@@ -50,186 +50,176 @@ ms.locfileid: "34656236"
 
 [sap-hana-ha]:sap-hana-high-availability.md
 
-Bu makalede, sanal makineler dağıtmak, sanal makineleri yapılandırma, küme Framework'ü yüklemek ve yüksek oranda kullanılabilir bir SAP sisteminin paylaşılan veri depolamak için kullanılan yüksek oranda kullanılabilir bir NFS sunucusu yüklemek açıklar.
-Bu kılavuz, iki SAP sistemleri tarafından NW1 ve NW2 kullanılan yüksek oranda kullanılabilir bir NFS sunucusunu ayarlama açıklar. Örnekte kaynakların (örneğin, sanal makineler, sanal ağlar) adları, kullandığınız varsayılmıştır [SAP dosya sunucusu şablonu] [ template-file-server] kaynak önekiyle **Üretim**.
+Bu makalede, sanal makineleri dağıtmak, sanal makineleri yapılandırma, küme Framework'ü yüklemek ve yüksek oranda kullanılabilir bir SAP sistemine paylaşılan verilerini depolamak için kullanılan yüksek oranda kullanılabilir bir NFS sunucusu yükleme açıklar.
+Bu kılavuz iki SAP sistemlerinin NW1 ve NW2 kullanılan yüksek oranda kullanılabilir bir NFS sunucusunu ayarlama işlemi açıklanmaktadır. Örnekte (örneğin, sanal makineler, sanal ağlar) kaynakların adları, kullandığınız varsayılmıştır [SAP dosya sunucusu şablonu] [ template-file-server] kaynak önekiyle **prod**.
 
-Aşağıdaki SAP notlar ve raporları ilk okuma
+Önce aşağıdaki SAP notları ve raporları okuma
 
-* SAP Not [1928533], sahip olduğu:
-  * SAP yazılım dağıtımı için desteklenen Azure VM boyutlarını listesi
-  * Azure VM boyutlarını önemli kapasite bilgilerini
-  * Desteklenen bir SAP yazılım ve işletim sistemi (OS) ve veritabanı birleşimler
-  * Windows ve Microsoft Azure Linux için gerekli SAP çekirdek sürümü
+* SAP notu [1928533], sahip olduğu:
+  * SAP yazılım dağıtımı için desteklenen bir Azure VM boyutlarının listesini
+  * Azure VM boyutları için önemli kapasite bilgileri
+  * Desteklenen bir SAP yazılım ve işletim sistemi (OS) ve veritabanı birleşimleri
+  * Windows ve Linux'ta Microsoft Azure için gerekli SAP çekirdek sürümü
 
-* SAP Not [2015553] azure'da SAP desteklenen SAP yazılım dağıtımları için önkoşulları listeler.
-* SAP Not [2205917] SUSE Linux Enterprise Server işletim sistemi ayarlarını SAP uygulamaları için önerilir
-* SAP Not [1944799] SAP HANA yönergeleri SUSE Linux Enterprise Server için SAP uygulamaları için vardır.
-* SAP Not [2178632] ayrıntılı Azure SAP için bildirilen tüm izleme ölçümleri hakkında bilgi sağlanmıştır.
-* SAP Not [2191498] Azure Linux için gerekli SAP konak Aracısı sürümü vardır.
-* SAP Not [2243692] Linux Azure üzerinde SAP lisanslama hakkında bilgi vardır.
-* SAP Not [1984787] SUSE Linux Enterprise Server 12 hakkında genel bilgi yer almaktadır.
-* SAP Not [1999351] Azure Gelişmiş izleme uzantısı SAP için ek sorun giderme bilgileri içeriyor.
-* [SAP topluluk WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) SAP notları Linux için gerekli tüm sahiptir.
-* [Azure sanal makineleri planlama ve uygulama Linux üzerinde SAP için][planning-guide]
-* [(Bu makalede) Linux'ta SAP için Azure sanal makineler dağıtımı][deployment-guide]
-* [Linux üzerinde SAP için Azure sanal makineleri DBMS dağıtımı][dbms-guide]
-* [Senaryo SAP HANA SR performansı en iyi duruma getirilmiş][suse-hana-ha-guide]  
-  Kılavuz SAP HANA sistem çoğaltma şirket içi yedekleme ayarlamak için gereken tüm bilgileri içerir. Bu kılavuz, bir taban çizgisi olarak kullanın.
-* [Yüksek oranda kullanılabilir NFS depolama DRBD ve Pacemaker] [ suse-drbd-guide] kılavuz yüksek oranda kullanılabilir bir NFS sunucusu kurmak için gerekli tüm bilgileri içerir. Bu kılavuz, bir taban çizgisi olarak kullanın.
-
+* SAP notu [2015553] azure'da SAP tarafından desteklenen SAP yazılım dağıtımları için önkoşulları listeler.
+* SAP notu [2205917] SUSE Linux Enterprise Server işletim sistemi ayarlarını SAP uygulamaları için önerilir
+* SAP notu [1944799] SAP HANA kılavuzu için SUSE Linux Enterprise Server SAP uygulamaları için vardır.
+* SAP notu [2178632] ayrıntılı azure'da SAP için bildirilen tüm izlenen ölçümler hakkında bilgi içerir.
+* SAP notu [2191498] azure'da Linux için gerekli SAP konak Aracısı sürümü vardır.
+* SAP notu [2243692] Linux Azure üzerinde SAP lisanslama hakkında bilgi içeriyor.
+* SAP notu [1984787] SUSE Linux Enterprise Server 12 ilgili genel bilgiler bulunur.
+* SAP notu [1999351] Azure Gelişmiş izleme uzantısı için SAP için ek bilgiler.
+* [SAP topluluk WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tüm SAP notları Linux için zorunludur.
+* [Azure sanal makineleri planlama ve uygulama için Linux üzerinde SAP][planning-guide]
+* [(Bu makale) Linux'ta SAP için Azure sanal makineler dağıtımı][deployment-guide]
+* [Linux'ta SAP için Azure sanal makineleri DBMS dağıtım][dbms-guide]
+* [SUSE Linux Enterprise yüksek kullanılabilirlik uzantısı 12 SP3 en iyi uygulamalar kılavuzları][sles-hae-guides]
+  * Yüksek oranda kullanılabilir bir NFS depolamada DRBD ve Pacemaker
+* [SUSE Linux Enterprise Server SAP uygulamaları 12 SP3 en iyi uygulamalar kılavuzları][sles-for-sap-bp]
 
 ## <a name="overview"></a>Genel Bakış
 
-Yüksek kullanılabilirlik elde etmek için bir NFS sunucusunun SAP NetWeaver gerektirir. NFS sunucusu ayrı bir kümede yapılandırılmış ve birden çok SAP sistemleri tarafından kullanılabilir.
+Yüksek kullanılabilirlik elde etmek için bir NFS sunucusunun SAP NetWeaver'ı gerektirir. NFS sunucusu ayrı bir kümede yapılandırılmış ve birden çok SAP sistemleri tarafından kullanılabilir.
 
-![SAP NetWeaver yüksek kullanılabilirlik genel bakış](./media/high-availability-guide-nfs/ha-suse-nfs.png)
+![SAP NetWeaver-yüksek kullanılabilirlik genel bakış](./media/high-availability-guide-nfs/ha-suse-nfs.png)
 
-NFS sunucusu bu NFS sunucusu kullanan her SAP sistemi için ayrılmış bir sanal ana bilgisayar adı ve sanal IP adreslerini kullanır. Azure üzerinde bir yük dengeleyici sanal IP adresi kullanmak için gereklidir. Aşağıdaki listede, yük dengeleyici yapılandırması gösterilmektedir.        
+NFS sunucusu bu NFS sunucusu kullanan her SAP sistemi için ayrılmış bir sanal ana bilgisayar adı ve sanal IP adreslerini kullanır. Azure üzerinde bir yük dengeleyici sanal IP adresi kullanmak için gereklidir. Aşağıdaki liste, yük dengeleyici yapılandırmasını gösterir.        
 
-* Ön uç yapılandırma
-  * IP adresi 10.0.0.4 NW1 için
-  * IP adresi 10.0.0.5 NW2 için
+* Ön uç yapılandırması
+  * IP adresi 10.0.0.4 NW1
+  * IP adresi 10.0.0.5 NW2
 * Arka uç yapılandırması
-  * NFS Küme parçası olması gereken tüm sanal makinelerin birincil ağ arabirimlerine bağlı
-* Sonda bağlantı noktası
-  * Bağlantı noktası 61000 NW1 için
+  * NFS kümesinin parçası olacak tüm sanal makineleri, birincil ağ arabirimlerine bağlı
+* Araştırma bağlantı noktası
+  * 61000 NW1 için bağlantı noktası
   * 61001 NW2 için bağlantı noktası
-* Loadbalancing kuralları
+* Yük Dengeleme kuralları
   * NW1 2049 TCP
-  * NW1 için 2049 UDP
+  * 2049 UDP NW1 için
   * NW2 2049 TCP
-  * NW2 için 2049 UDP
+  * 2049 UDP NW2 için
 
 ## <a name="set-up-a-highly-available-nfs-server"></a>Yüksek oranda kullanılabilir bir NFS sunucusunu ayarlama
 
-Sanal makineler de dahil olmak üzere tüm gerekli Azure kaynaklarını dağıtmak için bir Azure şablonu github'dan kullanabilirsiniz, kullanılabilirlik kümesi ve yük dengeleyici veya kaynakları el ile dağıtabilirsiniz.
+Sanal makineler de dahil olmak üzere gerekli tüm Azure kaynakları dağıtmak için bir Azure şablonu github'dan kullanabilirsiniz, kullanılabilirlik kümesi ve yük dengeleyici veya kaynakları el ile dağıtabilirsiniz.
 
-### <a name="deploy-linux-via-azure-template"></a>Linux Azure şablonu aracılığıyla dağıtma
+### <a name="deploy-linux-via-azure-template"></a>Azure şablonu aracılığıyla Linux dağıtın
 
-Azure Market SAP uygulamaları 12 için yeni sanal makineleri dağıtmak için kullanabileceğiniz SUSE Linux Enterprise Server için bir görüntü içerir.
-Tüm gerekli kaynakları dağıtmak için github'da hızlı başlangıç şablonlarından birini kullanabilirsiniz. Şablonun sanal makineler, yük dengeleyici, kullanılabilirlik vb. kümesi dağıtır. Şablonu dağıtmak için aşağıdaki adımları izleyin:
+Azure Market görüntü için SUSE Linux Enterprise Server SAP uygulamaları 12 için yeni sanal makineleri dağıtmak için kullanabileceğiniz içerir.
+Tüm gerekli kaynakları dağıtmak için Github'da hızlı başlangıç şablonlarından birini kullanabilirsiniz. Şablonu, sanal makineler, yük dengeleyici, kullanılabilirlik vb. kümesi dağıtır. Şablonu dağıtmak için aşağıdaki adımları izleyin:
 
 1. Açık [SAP dosya sunucusu şablonu] [ template-file-server] Azure portalında   
 1. Aşağıdaki parametreleri girin
-   1. Kaynak öneki  
-      Kullanmak istediğiniz ön eki girin. Değer, dağıtılan kaynaklar için önek olarak kullanılır.
-   2. SAP sistem sayısı bu dosya Sunucusu'nu kullanacak SAP sistemleri sayısını girin. Bu gerekli boyutta dağıtacağınız ön uç yapılandırmaları, Yük Dengeleme kuralları, araştırma bağlantı noktaları, disk vb.
+   1. Kaynak ön eki  
+      Kullanmak istediğiniz ön eki girin. Değeri, dağıtılan kaynaklar için önek olarak kullanılır.
+   2. SAP sistemi sayısı  
+      Bu dosya sunucusu kullanan SAP sistemlerini sayısını girin. Bu gerekli boyutta dağıtır ön uç yapılandırmaları, Yük Dengeleme kuralları, araştırma bağlantı noktaları, disk vb.
    3. İşletim sistemi türü  
       Linux dağıtımları birini seçin. Bu örnekte, SLES 12 seçin
    4. Yönetici kullanıcı adı ve yönetici parolası  
-      Yeni bir kullanıcı oluşturulur makineye oturum açmak için kullanılabilir.
+      Yeni bir kullanıcı oluşturulur makinesinde oturum açma için kullanılabilir.
    5. Alt ağ kimliği  
-      Sanal makineler için bağlanması alt ağ kimliği. Yeni bir sanal ağ oluşturmak veya şirket içi ağınıza sanal makineye bağlanmak için VPN veya hızlı rota sanal ağınızın alt seçmek istiyorsanız boş bırakın. Kimliği genellikle /subscriptions/ gibi görünüyor**&lt;abonelik kimliği&gt;**/resourceGroups/**&lt;kaynak grubu adı&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;sanal ağ adı&gt;**/subnets/**&lt;alt ağ adı&gt;**
+      Sanal makineler için bağlanması alt ağ kimliği. Sanal makine şirket içi ağınıza bağlanmak için VPN veya Expressroute sanal ağ alt ağı seçin veya yeni bir sanal ağ oluşturmak istiyorsanız boş bırakın. Kimliği genellikle /subscriptions/ gibi görünüyor**&lt;abonelik kimliği&gt;**/resourceGroups/**&lt;kaynak grubu adı&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;sanal ağ adı&gt;**/subnets/**&lt;alt ağ adı&gt;**
 
-### <a name="deploy-linux-manually-via-azure-portal"></a>Linux Azure portalı üzerinden el ile dağıtma
+### <a name="deploy-linux-manually-via-azure-portal"></a>Linux Azure Portalı aracılığıyla el ile dağıtma
 
-Önce bu NFS küme için sanal makineleri oluşturmanız gerekir. Daha sonra bir yük dengeleyicisi oluşturun ve sanal makineleri arka uç havuzlarını kullanın.
+Önce bu NFS küme için sanal makineler oluşturmak gerekir. Ardından, yük dengeleyici oluşturma ve arka uç havuzlarında sanal makinelerini kullanın.
 
 1. Kaynak Grubu oluşturma
 1. Sanal Ağ Oluştur
-1. Kullanılabilirlik kümesi oluştur  
-   Set max güncelleştirme etki alanı
-1. Sanal makine 1 oluşturun   
-   En azından SLES4SAP 12 SP3 SLES4SAP 12 SP3 BYOS görüntü SLES için SAP uygulamaları 12 SP3 (BYOS) Bu örnekte kullanılır  
+1. Kullanılabilirlik kümesi oluşturma  
+   Kümesi en çok güncelleştirme etki alanı
+1. Sanal makine 1 kullanmak en az oluşturma SLES4SAP 12 SP3 SLES4SAP 12 SP3 BYOS görüntü SLES için SAP uygulamaları 12 SP3 (BYOS) Bu örnekte kullanılır  
    Daha önce oluşturduğunuz kullanılabilirlik kümesi seçin  
-1. Sanal makine 2 oluşturun   
-   En azından bu örnekte SLES4SAP 12 SP3 BYOS görüntü SLES4SAP 12 SP3  
+1. Sanal makine 2 kullanmak en az oluşturma, bu örnekte SLES4SAP 12 SP3 BYOS görüntü SLES4SAP 12 SP3  
    SLES için SAP uygulamaları 12 SP3 (BYOS) kullanılır  
    Daha önce oluşturduğunuz kullanılabilirlik kümesi seçin  
-1. Her SAP sistem için bir veri diski hem sanal makineleri ekleyin.
+1. Her iki sanal makinelere her SAP sistemi için bir veri diski ekleyin.
 1. Bir yük dengeleyiciye (dahili) oluşturma  
-   1. Ön uç IP adreslerini oluşturun
-      1. IP adresi 10.0.0.4 NW1 için
-         1. Yük Dengeleyici açın, ön uç IP havuzu seçin ve Ekle'yi tıklatın
+   1. Ön uç IP adresi oluşturma
+      1. IP adresi 10.0.0.4 NW1
+         1. Yük Dengeleyici açın, ön uç IP havuzu seçin ve Ekle'ye tıklayın
          1. Yeni ön uç IP havuzunun adını girin (örneğin **nw1 ön uç**)
          1. Atama statik olarak ayarlamanız ve IP adresini girin (örneğin **10.0.0.4**)
-         1. Tamam'ı tıklatın         
-      1. IP adresi 10.0.0.5 NW2 için
+         1. Tamam'a tıklayın
+      1. IP adresi 10.0.0.5 NW2
          * NW2 için yukarıdaki adımları yineleyin
    1. Arka uç havuzları oluşturma
-      1. Birincil Ağ arabirimleri NW1 NFS kümenin parçası olması gereken tüm sanal makinelerin bağlı
-         1. Yük Dengeleyici açın, arka uç havuzlarını seçin ve Ekle'yi tıklatın
+      1. Birincil ağ arabirimine NW1 NFS kümenin parçası olması gereken tüm sanal makinelerin bağlı
+         1. Yük Dengeleyici açın, arka uç havuzlarını seçin ve Ekle'ye tıklayın
          1. Yeni arka uç havuzunun adını girin (örneğin **nw1 arka uç**)
          1. Bir sanal makine Ekle
          1. Daha önce oluşturduğunuz kullanılabilirlik kümesi seçin
          1. NFS küme sanal makineleri seçin
-         1. Tamam'ı tıklatın
-      1. Birincil Ağ arabirimleri NW2 NFS kümenin parçası olması gereken tüm sanal makinelerin bağlı
-         * NW2 için bir arka uç havuzu oluşturmak için yukarıdaki adımları yineleyin
-   1. Sistem durumu araştırmalarının oluşturma
-      1. Bağlantı noktası 61000 NW1 için
-         1. Yük Dengeleyici açın, sistem durumu araştırmalarının seçin ve Ekle'yi tıklatın
-         1. Yeni durum araştırması adını girin (örneğin **nw1 hp**)
-         1. TCP bağlantı noktası 610 protokolü olarak seçin**00**, aralığı 5 ile sağlıksız durum eşiği 2 tutun
-         1. Tamam'ı tıklatın
+         1. Tamam'a tıklayın
+      1. Birincil ağ arabirimine NW2 NFS kümenin parçası olması gereken tüm sanal makinelerin bağlı
+         * Arka uç havuzu için NW2 oluşturmak için yukarıdaki adımları yineleyin.
+   1. Sistem durumu araştırmaları oluşturma
+      1. 61000 NW1 için bağlantı noktası
+         1. Yük Dengeleyici açın, sistem durumu araştırmaları seçin ve Ekle'ye tıklayın
+         1. Yeni bir sistem durumu araştırma adını girin (örneğin **nw1 hp**)
+         1. TCP bağlantı noktası 610 protokolü olarak seçin**00**, aralığı 5 ve sağlıksız durum eşiği 2 tutun
+         1. Tamam'a tıklayın
       1. 61001 NW2 için bağlantı noktası
-         * Bir sistem durumu araştırması için NW2 oluşturmak için yukarıdaki adımları yineleyin
-   1. Loadbalancing kuralları
+         * NW2 için durum araştırması oluşturmak için yukarıdaki adımları yineleyin.
+   1. Yük Dengeleme kuralları
       1. NW1 2049 TCP
-         1. Yük Dengeleyici açın, Yük Dengeleme kuralları seçin ve Ekle'yi tıklatın
+         1. Açık yük dengeleyici, Yük Dengeleme kuralları'nı seçin ve Ekle'ye tıklayın
          1. Yeni Yük Dengeleyici kuralı adını girin (örneğin **nw1 lb 2049**)
-         1. Ön uç IP adresi, arka uç havuzu ve daha önce oluşturduğunuz durumu araştırması seçin (örneğin **nw1 ön uç**)
-         1. Protokol tutmak **TCP**, bağlantı noktası girin **2049**
-         1. -30 dakika boşta kalma zaman aşımı süresini artırın
+         1. Ön uç IP adresi, arka uç havuzu ve durum yoklaması, daha önce oluşturduğunuz seçin (örneğin **nw1 ön uç**)
+         1. Protokol tutmak **TCP**, bağlantı noktasını girin **2049**
+         1. 30 dakika boşta kalma zaman aşımı süresini artırın
          1. **Kayan IP etkinleştirdiğinizden emin olun**
-         1. Tamam'ı tıklatın    
-      1. NW1 için 2049 UDP
-         * Yukarıdaki adımları NW1 için bağlantı noktası 2049 ve UDP için yineleyin
+         1. Tamam'a tıklayın
+      1. 2049 UDP NW1 için
+         * Bağlantı noktası 2049 ve UDP NW1 için yukarıdaki adımları yineleyin
       1. NW2 2049 TCP
-         * Yukarıdaki adımları NW2 için bağlantı noktası 2049 ve TCP için yineleyin
-      1. NW2 için 2049 UDP
-         * Yukarıdaki adımları NW2 için bağlantı noktası 2049 ve UDP için yineleyin
+         * Bağlantı noktası 2049 ve TCP NW2 için yukarıdaki adımları yineleyin
+      1. 2049 UDP NW2 için
+         * Bağlantı noktası 2049 ve UDP NW2 için yukarıdaki adımları yineleyin
 
 ### <a name="create-pacemaker-cluster"></a>Pacemaker kümesi oluşturma
 
-Adımları [Pacemaker SUSE Linux Enterprise Server Azure üzerinde ayarlama](high-availability-guide-suse-pacemaker.md) bu NFS sunucusu için temel Pacemaker küme oluşturmak için.
+Bağlantısındaki [SLES azure'daki SUSE Linux Enterprise Server üzerinde Pacemaker ayarlama](high-availability-guide-suse-pacemaker.md) bu NFS sunucusu için bir temel Pacemaker kümesi oluşturmak için.
 
-### <a name="configure-nfs-server"></a>NFS sunucusunu yapılandırın
+### <a name="configure-nfs-server"></a>NFS sunucusunu yapılandırma
 
-Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli **[1]** - 1 düğümü yalnızca uygulanabilir veya **[2]** - yalnızca düğüm 2 için geçerlidir.
+Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]** - düğüm 1 yalnızca uygulanabilir veya **[2]** - yalnızca düğüm 2 için geçerlidir.
 
-1. **[A]**  Kurulum ana bilgisayar adı çözümlemesi   
+1. **[A]**  Kurulum ana bilgisayar adı çözümlemesi
 
-   Bir DNS sunucusu kullanın veya tüm düğümlerde/etc/hosts değiştirin. Bu örnek/Etc/Hosts dosyasının nasıl kullanılacağını gösterir.
-   IP adresi ve aşağıdaki komutlarda ana bilgisayar adını değiştirin
+   Bir DNS sunucusu kullanabilir veya/etc/hosts tüm düğümlerde değiştirin. Bu örnek/Etc/Hosts dosyasının nasıl kullanılacağını gösterir.
+   IP adresi ve aşağıdaki komutlarda bulunan ana bilgisayar adını değiştirin
 
-   <pre><code>
-   sudo vi /etc/hosts
+   <pre><code>sudo vi /etc/hosts
    </code></pre>
    
-   / Etc/hosts aşağıdaki satırları ekleyin. Ortamınıza uyum sağlaması için ana bilgisayar adı ve IP adresini değiştirme   
+   / Etc/hosts aşağıdaki satırları ekleyin. IP adresi ve ana bilgisayar adını, ortamınızla eşleşecek şekilde değiştirin.
    
-   <pre><code>
-   # IP address of the load balancer frontend configuration for NFS
+   <pre><code># IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
    <b>10.0.0.5 nw2-nfs</b>
    </code></pre>
 
-1. **[A]**  Etkinleştirmek NFS sunucusu
+1. **[A]**  Etkinleştirme NFS sunucusu
 
-   Kök dışa aktarma girişi oluşturmak, NFS Server başlatıldığında ve AutoStart'ı etkinleştirmek
+   ' % S'kök NFS dışarı aktarma girişi oluşturma
 
-   <pre><code>
-   sudo sh -c 'echo /srv/nfs/ *\(rw,no_root_squash,fsid=0\)>/etc/exports'
+   <pre><code>sudo sh -c 'echo /srv/nfs/ *\(rw,no_root_squash,fsid=0\)>/etc/exports'
    
    sudo mkdir /srv/nfs/
-
-   sudo systemctl enable nfsserver
-   sudo service nfsserver restart
    </code></pre>
 
-1. **[A]**  Drbd bileşenlerini yükleme
+1. **[A]**  Drbd bileşenlerini yükler
 
-   <pre><code>
-   sudo zypper install drbd drbd-kmp-default drbd-utils
+   <pre><code>sudo zypper install drbd drbd-kmp-default drbd-utils
    </code></pre>
 
 1. **[A]**  Drbd cihazlar için bir bölüm oluşturun
 
    Tüm kullanılabilir veri diskleri Listele
 
-   <pre><code>
-   sudo ls /dev/disk/azure/scsi1/
+   <pre><code>sudo ls /dev/disk/azure/scsi1/
    </code></pre>
 
    Örnek çıktı
@@ -238,19 +228,17 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    lun0  lun1
    ```
 
-   Her veri diski bölümleri oluşturma
+   Her veri diski için bölüm oluşturma
 
-   <pre><code>
-   sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun0'
+   <pre><code>sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun0'
    sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun1'
    </code></pre>
 
 1. **[A]**  LVM oluşturma yapılandırmaları
 
-   Tüm kullanılabilir bölümler listesi
+   Kullanılabilir tüm bölümleri listesi
 
-   <pre><code>
-   ls /dev/disk/azure/scsi1/lun*-part*
+   <pre><code>ls /dev/disk/azure/scsi1/lun*-part*
    </code></pre>
 
    Örnek çıktı
@@ -259,10 +247,9 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    /dev/disk/azure/scsi1/lun0-part1  /dev/disk/azure/scsi1/lun1-part1
    ```
 
-   Her bölüm için LVM birim oluşturun
+   Her bölüm için LVM birimler oluşturun
 
-   <pre><code>
-   sudo pvcreate /dev/disk/azure/scsi1/lun0-part1  
+   <pre><code>sudo pvcreate /dev/disk/azure/scsi1/lun0-part1  
    sudo vgcreate vg-<b>NW1</b>-NFS /dev/disk/azure/scsi1/lun0-part1
    sudo lvcreate -l 100%FREE -n <b>NW1</b> vg-<b>NW1</b>-NFS
 
@@ -273,27 +260,23 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
 
 1. **[A]**  Drbd yapılandırın
 
-   <pre><code>
-   sudo vi /etc/drbd.conf
+   <pre><code>sudo vi /etc/drbd.conf
    </code></pre>
 
    Drbd.conf dosyası aşağıdaki iki satırı içerdiğinden emin olun
 
-   <pre><code>
-   include "drbd.d/global_common.conf";
+   <pre><code>include "drbd.d/global_common.conf";
    include "drbd.d/*.res";
    </code></pre>
 
    Genel drbd yapılandırmasını değiştirme
 
-   <pre><code>
-   sudo vi /etc/drbd.d/global_common.conf
+   <pre><code>sudo vi /etc/drbd.d/global_common.conf
    </code></pre>
 
-   Aşağıdaki girişleri işleyici ve ağ bölümü ekleyin.
+   İşleyici ve net bölümünde aşağıdaki girişleri ekleyin.
 
-   <pre><code>
-   global {
+   <pre><code>global {
         usage-count no;
    }
    common {
@@ -309,26 +292,35 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
         options {
         }
         disk {
-             resync-rate 50M;
+             md-flushes yes;
+             disk-flushes yes;
+             c-plan-ahead 1;
+             c-min-rate 100M;
+             c-fill-target 20M;
+             c-max-rate 4G;
         }
         net {
              after-sb-0pri discard-younger-primary;
              after-sb-1pri discard-secondary;
              after-sb-2pri call-pri-lost-after-sb;
+             protocol     C;
+             tcp-cork yes;
+             max-buffers 20000;
+             max-epoch-size 20000;
+             sndbuf-size 0;
+             rcvbuf-size 0;
         }
    }
    </code></pre>
 
-1. **[A]**  NFS drbd aygıtları oluşturun
+1. **[A]**  NFS drbd cihazları oluşturun
 
-   <pre><code>
-   sudo vi /etc/drbd.d/<b>NW1</b>-nfs.res
+   <pre><code>sudo vi /etc/drbd.d/<b>NW1</b>-nfs.res
    </code></pre>
 
-   Çıkış ve yeni drbd Aygıt Yapılandırması Ekle
+   Çıkış ve yeni drbd cihaz yapılandırması ekleme
 
-   <pre><code>
-   resource <b>NW1</b>-nfs {
+   <pre><code>resource <b>NW1</b>-nfs {
         protocol     C;
         disk {
              on-io-error       detach;
@@ -348,14 +340,12 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    }
    </code></pre>
 
-   <pre><code>
-   sudo vi /etc/drbd.d/<b>NW2</b>-nfs.res
+   <pre><code>sudo vi /etc/drbd.d/<b>NW2</b>-nfs.res
    </code></pre>
 
-   Çıkış ve yeni drbd Aygıt Yapılandırması Ekle
+   Çıkış ve yeni drbd cihaz yapılandırması ekleme
 
-   <pre><code>
-   resource <b>NW2</b>-nfs {
+   <pre><code>resource <b>NW2</b>-nfs {
         protocol     C;
         disk {
              on-io-error       detach;
@@ -375,43 +365,39 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    }
    </code></pre>
 
-   Drbd aygıtı oluşturun ve başlatın
+   Drbd cihaz oluşturun ve başlatın
 
-   <pre><code>
-   sudo drbdadm create-md <b>NW1</b>-nfs
+   <pre><code>sudo drbdadm create-md <b>NW1</b>-nfs
    sudo drbdadm create-md <b>NW2</b>-nfs
    sudo drbdadm up <b>NW1</b>-nfs
    sudo drbdadm up <b>NW2</b>-nfs
    </code></pre>
 
-1. **[1]**  Atla ilk eşitleme
+1. **[1]**  İlk eşitlemeyi atla
 
-   <pre><code>
-   sudo drbdadm new-current-uuid --clear-bitmap <b>NW1</b>-nfs
+   <pre><code>sudo drbdadm new-current-uuid --clear-bitmap <b>NW1</b>-nfs
    sudo drbdadm new-current-uuid --clear-bitmap <b>NW2</b>-nfs
    </code></pre>
 
 1. **[1]**  Birincil düğüm kümesi
 
-   <pre><code>
-   sudo drbdadm primary --force <b>NW1</b>-nfs
+   <pre><code>sudo drbdadm primary --force <b>NW1</b>-nfs
    sudo drbdadm primary --force <b>NW2</b>-nfs
    </code></pre>
 
-1. **[1]**  Yeni drbd aygıtları eşitlenir kadar bekleyin
+1. **[1]**  Yeni drbd cihazları eşitlenir kadar bekleyin
 
-   <pre><code>
-   sudo drbdsetup wait-sync-resource NW1-nfs
+   <pre><code>sudo drbdsetup wait-sync-resource NW1-nfs
    sudo drbdsetup wait-sync-resource NW2-nfs
    </code></pre>
 
-1. **[1]**  Drbd cihazlarda dosya sistemleri oluşturma
+1. **[1]**  Drbd cihazlarda dosya sistemleri oluşturun
 
-   <pre><code>
-   sudo mkfs.xfs /dev/drbd0
+   <pre><code>sudo mkfs.xfs /dev/drbd0
    sudo mkdir /srv/nfs/NW1
    sudo chattr +i /srv/nfs/NW1
    sudo mount -t xfs /dev/drbd0 /srv/nfs/NW1
+   sudo mkdir /srv/nfs/NW1
    sudo mkdir /srv/nfs/NW1/sidsys
    sudo mkdir /srv/nfs/NW1/sapmntsid
    sudo mkdir /srv/nfs/NW1/trans
@@ -437,17 +423,18 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
 
 1. **[A]**  Kurulum drbd ayrık beyinli algılama
 
-   Bir ana bilgisayardan diğerine verileri eşitlemek için drbd kullanarak, böylece çağrılan beyinli oluşabilir. Bölme beyin burada her iki küme düğümünün drbd cihazın birincil olmasını yükseltilir ve eşitlenmemiş gittiğini bir senaryodur. Çok nadir bir durum olabilir, ancak yine işlemek ve kadar hızlı bir bölme beyin çözmek istiyor. Bu nedenle, bir bölme beyin meydana geldiğinde bildirim almak önemlidir.
+   Bir konaktan diğerine verileri eşitlemek için drbd kullanırken, böylece çağrılan bir bölme beyin ortaya çıkabilir. Bölme beyin burada her iki küme düğümünün drbd cihazın birincil olmasını yükseltilmiş ve eşitlenmemiş gittiği bir senaryodur. Nadir bir durum olabilir, ancak yine de işlemek ve mümkün olduğunca hızlı bir bölme beyin çözmek istiyor. Bu nedenle, bir bölme beyin gerçekleştiğinde bildirim almak önemlidir.
 
-   Okuma [resmi drbd belgelerine](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) bir bölme beyin bildirimini ayarlama konusunda.
+   Okuma [resmi drbd belgeleri](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) bölme beyin bildirimini ayarlama konusunda.
 
    Bölme beyin senaryodan otomatik olarak kurtarmaya mümkündür. Daha fazla bilgi için okuma [otomatik bölme beyin kurtarma ilkeleri](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration)
    
 ### <a name="configure-cluster-framework"></a>Küme çerçeve Yapılandır
 
-1. **[1]**  Küme yapılandırmasında SAP sistemi NW1 için NFS drbd aygıtı Ekle
+1. **[1]**  SAP sistemine NW1 için NFS drbd cihazlar için Küme Yapılandırması Ekle
 
-   <pre><code>
+   <pre><code>sudo crm configure rsc_defaults resource-stickiness="200"
+
    # Enable maintenance mode
    sudo crm configure property maintenance-mode=true
    
@@ -468,45 +455,14 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
      fstype=xfs \
      op monitor interval="10s"
    
+   sudo crm configure primitive nfsserver systemd:nfs-server \
+     op monitor interval="30s"
+   sudo crm configure clone cl-nfsserver nfsserver
+
    sudo crm configure primitive exportfs_<b>NW1</b> \
      ocf:heartbeat:exportfs \
      params directory="/srv/nfs/<b>NW1</b>" \
-     options="rw,no_root_squash" clientspec="*" fsid=1 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW1</b>_sidsys \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW1</b>/sidsys" \
-     options="rw,no_root_squash" clientspec="*" fsid=2 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW1</b>_sapmntsid \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW1</b>/sapmntsid" \
-     options="rw,no_root_squash" clientspec="*" fsid=3 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW1</b>_trans \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW1</b>/trans" \
-     options="rw,no_root_squash" clientspec="*" fsid=4 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW1</b>_ASCS \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW1</b>/ASCS" \
-     options="rw,no_root_squash" clientspec="*" fsid=5 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW1</b>_ASCSERS \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW1</b>/ASCSERS" \
-     options="rw,no_root_squash" clientspec="*" fsid=6 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW1</b>_SCS \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW1</b>/SCS" \
-     options="rw,no_root_squash" clientspec="*" fsid=7 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW1</b>_SCSERS \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW1</b>/SCSERS" \
-     options="rw,no_root_squash" clientspec="*" fsid=8 wait_for_leasetime_on_stop=true op monitor interval="30s"
+     options="rw,no_root_squash,crossmnt" clientspec="*" fsid=1 wait_for_leasetime_on_stop=true op monitor interval="30s"
    
    sudo crm configure primitive vip_<b>NW1</b>_nfs \
      IPaddr2 \
@@ -517,10 +473,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
      params binfile="/usr/bin/nc" cmdline_options="-l -k <b>61000</b>" op monitor timeout=20s interval=10 depth=0
    
    sudo crm configure group g-<b>NW1</b>_nfs \
-     fs_<b>NW1</b>_sapmnt exportfs_<b>NW1</b> exportfs_<b>NW1</b>_sidsys \
-     exportfs_<b>NW1</b>_sapmntsid exportfs_<b>NW1</b>_trans exportfs_<b>NW1</b>_ASCS \
-     exportfs_<b>NW1</b>_ASCSERS exportfs_<b>NW1</b>_SCS exportfs_<b>NW1</b>_SCSERS \
-     nc_<b>NW1</b>_nfs vip_<b>NW1</b>_nfs
+     fs_<b>NW1</b>_sapmnt exportfs_<b>NW1</b> nc_<b>NW1</b>_nfs vip_<b>NW1</b>_nfs
    
    sudo crm configure order o-<b>NW1</b>_drbd_before_nfs inf: \
      ms-drbd_<b>NW1</b>_nfs:promote g-<b>NW1</b>_nfs:start
@@ -529,11 +482,10 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
      g-<b>NW1</b>_nfs ms-drbd_<b>NW1</b>_nfs:Master
    </code></pre>
 
-1. **[1]**  Küme yapılandırmasında SAP sistemi NW2 için NFS drbd aygıtı Ekle
+1. **[1]**  SAP sistemine NW2 için NFS drbd cihazlar için Küme Yapılandırması Ekle
 
-   <pre><code>
-   # Enable maintenance mode
-   sudo crm configure property maintenance-mode=true   
+   <pre><code># Enable maintenance mode
+   sudo crm configure property maintenance-mode=true
    
    sudo crm configure primitive drbd_<b>NW2</b>_nfs \
      ocf:linbit:drbd \
@@ -555,42 +507,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    sudo crm configure primitive exportfs_<b>NW2</b> \
      ocf:heartbeat:exportfs \
      params directory="/srv/nfs/<b>NW2</b>" \
-     options="rw,no_root_squash" clientspec="*" fsid=9 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW2</b>_sidsys \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW2</b>/sidsys" \
-     options="rw,no_root_squash" clientspec="*" fsid=10 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW2</b>_sapmntsid \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW2</b>/sapmntsid" \
-     options="rw,no_root_squash" clientspec="*" fsid=11 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW2</b>_trans \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW2</b>/trans" \
-     options="rw,no_root_squash" clientspec="*" fsid=12 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW2</b>_ASCS \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW2</b>/ASCS" \
-     options="rw,no_root_squash" clientspec="*" fsid=13 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW2</b>_ASCSERS \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW2</b>/ASCSERS" \
-     options="rw,no_root_squash" clientspec="*" fsid=14 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW2</b>_SCS \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW2</b>/SCS" \
-     options="rw,no_root_squash" clientspec="*" fsid=15 wait_for_leasetime_on_stop=true op monitor interval="30s"
-   
-   sudo crm configure primitive exportfs_<b>NW2</b>_SCSERS \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NW2</b>/SCSERS" \
-     options="rw,no_root_squash" clientspec="*" fsid=16 wait_for_leasetime_on_stop=true op monitor interval="30s"
+     options="rw,no_root_squash" clientspec="*" fsid=2 wait_for_leasetime_on_stop=true op monitor interval="30s"
    
    sudo crm configure primitive vip_<b>NW2</b>_nfs \
      IPaddr2 \
@@ -601,10 +518,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
      params binfile="/usr/bin/nc" cmdline_options="-l -k <b>61001</b>" op monitor timeout=20s interval=10 depth=0
    
    sudo crm configure group g-<b>NW2</b>_nfs \
-     fs_<b>NW2</b>_sapmnt exportfs_<b>NW2</b> exportfs_<b>NW2</b>_sidsys \
-     exportfs_<b>NW2</b>_sapmntsid exportfs_<b>NW2</b>_trans exportfs_<b>NW2</b>_ASCS \
-     exportfs_<b>NW2</b>_ASCSERS exportfs_<b>NW2</b>_SCS exportfs_<b>NW2</b>_SCSERS \
-     nc_<b>NW2</b>_nfs vip_<b>NW2</b>_nfs
+     fs_<b>NW2</b>_sapmnt exportfs_<b>NW2</b> nc_<b>NW2</b>_nfs vip_<b>NW2</b>_nfs
    
    sudo crm configure order o-<b>NW2</b>_drbd_before_nfs inf: \
      ms-drbd_<b>NW2</b>_nfs:promote g-<b>NW2</b>_nfs:start
@@ -613,16 +527,16 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
      g-<b>NW2</b>_nfs ms-drbd_<b>NW2</b>_nfs:Master
    </code></pre>
 
-1. **[1]**  Devre dışı bırak Bakım modu
+1. **[1]**  Bakım modunu devre dışı bırak
    
-   <pre><code>
-   sudo crm configure property maintenance-mode=false
+   <pre><code>sudo crm configure property maintenance-mode=false
    </code></pre>
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [SAP ASCS ve veritabanını yükleme](high-availability-guide-suse.md)
-* [Azure sanal makineleri planlama ve uygulama SAP için][planning-guide]
+
+* [SAP ASCS ve veritabanı yükleme](high-availability-guide-suse.md)
+* [Azure sanal makineleri planlama ve uygulama için SAP][planning-guide]
 * [SAP için Azure sanal makineler dağıtımı][deployment-guide]
-* [SAP için Azure sanal makineleri DBMS dağıtımı][dbms-guide]
-* Yüksek kullanılabilirlik ve olağanüstü durum kurtarma SAP HANA planlama azure'da (büyük örnekler) oluşturmayı öğrenmek için bkz: [SAP HANA (büyük örnekler) Azure üzerinde yüksek kullanılabilirlik ve olağanüstü durum kurtarma](hana-overview-high-availability-disaster-recovery.md).
-* Yüksek kullanılabilirlik ve Azure vm'lerinde SAP HANA olağanüstü durum kurtarma planı oluşturmak öğrenmek için bkz: [SAP HANA, yüksek kullanılabilirlik Azure Virtual Machines'de (VM'ler)][sap-hana-ha]
+* [SAP için Azure sanal makineleri DBMS dağıtım][dbms-guide]
+* Yüksek kullanılabilirlik ve olağanüstü durum kurtarma SAP hana (büyük örnekler) azure'da planlama oluşturma hakkında bilgi almak için bkz: [SAP HANA (büyük örnekler) azure'da yüksek kullanılabilirlik ve olağanüstü durum kurtarma](hana-overview-high-availability-disaster-recovery.md).
+* Yüksek kullanılabilirlik ve Azure Vm'leri üzerinde SAP hana olağanüstü durum kurtarma planı oluşturma hakkında bilgi almak için bkz: [SAP HANA, yüksek kullanılabilirlik Azure Virtual Machines'de (VM'ler)][sap-hana-ha]

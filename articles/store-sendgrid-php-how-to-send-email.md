@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.openlocfilehash: bceec3e85a54eb0e8b542d40ab20536ab41a50f0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 846002264d5f709f7cef6bba67927fc8959a9ccb
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38718949"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42057129"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Php'den SendGrid e-posta hizmetini kullanma
 Bu kılavuzda, Azure üzerinde SendGrid e-posta hizmeti ile genel programlama görevlerini gerçekleştirmek gösterilmiştir. Örnekler, PHP'de yazılır.
@@ -387,7 +387,7 @@ SendGrid e-posta hizmeti ile ilgili temel bilgileri öğrendiniz, daha fazla bil
 * SendGrid PHP kitaplığı: <https://github.com/sendgrid/sendgrid-php>
 * Azure müşterileri için SendGrid özel tekliftir: <https://sendgrid.com/windowsazure.html>
 
-Daha fazla bilgi için Ayrıca bkz: [PHP Geliştirici Merkezi](/develop/php/).
+Daha fazla bilgi için Ayrıca bkz: [PHP Geliştirici Merkezi](https://azure.microsoft.com/develop/php/).
 
 [https://sendgrid.com]: https://sendgrid.com
 [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing

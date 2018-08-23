@@ -1,6 +1,6 @@
 ---
-title: Bildirim hub'ları Python ile kullanma
-description: Bir Python arka ucunu Azure bildirim hub'ları kullanmayı öğrenin.
+title: Notification Hubs ile Python kullanma
+description: Bir Python arka ucunuzdan Azure Notification hubs'ı kullanmayı öğrenin.
 services: notification-hubs
 documentationcenter: ''
 author: dimazaid
@@ -14,57 +14,57 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 32953bacb8fdb135d5f3e0e9324218d2a71b0818
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 339029f14c4fd9a0158f2b7a4fb80bf03bd83cf3
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777028"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42055594"
 ---
-# <a name="how-to-use-notification-hubs-from-python"></a>Python'dan bildirim hub'ları kullanma
+# <a name="how-to-use-notification-hubs-from-python"></a>Python'dan Notification hubs'ı kullanma
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Bir Java/PHP/Python/Ruby MSDN konusunda açıklandığı gibi bildirim hub'ı REST arabirimini kullanarak uç tüm bildirim hub'ları özellikleri erişebileceğiniz [bildirim hub'ları REST API'leri](http://msdn.microsoft.com/library/dn223264.aspx).
+Bir Java/PHP/Python/Ruby MSDN makalesinde açıklandığı gibi bildirim hub'ı REST arabirimini kullanarak uç tüm Notification Hubs özellikleri erişebileceğiniz [Notification Hubs REST API'leri](http://msdn.microsoft.com/library/dn223264.aspx).
 
 > [!NOTE]
-> Bu bildirim gönderir Python içinde uygulamak için bir örnek başvuru uygulamasıdır ve resmi olarak desteklenen bildirim hub'ı Python SDK'sı değil.
+> Bu bildirim gönderen Python uygulamak için bir örnek başvuru uygulaması ve resmi olarak desteklenen bildirim hub'ı Python SDK'sını değil.
 > 
-> Bu örnek, Python 3.4 kullanılarak yazılır.
+> Bu örnek Python 3.4 kullanarak yazılır.
 > 
 > 
 
-Bu makale size gösterir nasıl için:
+Bu makalede gösterilmektedir için:
 
-* REST istemcisi Python Notification Hubs özellikleri için oluşturun.
-* Bildirim hub'ı REST API'lerine Python arabirimi kullanarak bildirimleri gönderin. 
+* Python'da Notification Hubs özellikleri için bir REST istemcisi oluşturun.
+* Bildirim hub'ı REST API'lerine Python arabirimini kullanarak bildirimleri gönderin. 
 * Bir HTTP REST istek/yanıt dökümü için hata ayıklama/eğitim amaçlı alın. 
 
-İzleyebileceğiniz [Get öğreticisinde](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) seçim için mobil platformda, arka uç bölümü Python içinde uygulama.
+İzleyebileceğiniz [başlangıç Öğreticisi](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) için seçtiğiniz mobil platformda, arka uç bölümü Python'da uygulama.
 
 > [!NOTE]
-> Örnek kapsamını yalnızca bildirimleri göndermek için sınırlı ve herhangi bir kayıt yönetim yapmaz.
+> Bildirimleri göndermek için örnek kapsamını yalnızca sınırlı ve herhangi bir kayıt yönetim yapmaz.
 > 
 > 
 
 ## <a name="client-interface"></a>İstemci arabirimi
-Ana istemci arabirimi bulunan aynı yöntemleri sağlayabilir [.NET Notification Hubs SDK'sı](http://msdn.microsoft.com/library/jj933431.aspx). Bu arabirim öğreticiler ve bu site şu anda kullanılabilir örnekleri doğrudan çevirmenizi sağlar ve Internet üzerindeki topluluk tarafından katkısı.
+Ana istemci arabirimi kullanılabilir yöntemleri aynı sağlayabilir [.NET Notification Hubs SDK'sı](http://msdn.microsoft.com/library/jj933431.aspx). Bu arabirim, öğreticileri ve örnekleri şu anda bu sitedeki tüm doğrudan çevrilecek sağlar ve internet'teki topluluk tarafından katkıda bulunulan.
 
-Kullanılabilir tüm kod Bul [Python REST sarmalayıcı örnek].
+Kullanılabilir tüm kod bulabilirsiniz [Python REST sarmalayıcı örneği].
 
 Örneğin, bir istemci oluşturmak için şunu yazın:
 
     isDebug = True
     hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 
-Windows bildirim göndermek için:
+Bir Windows bildirim göndermek için:
 
     wns_payload = """<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello world!</text></binding></visual></toast>"""
     hub.send_windows_notification(wns_payload)
 
 ## <a name="implementation"></a>Uygulama
-Henüz kaldırdıysanız, izleyin [Get öğreticisinde] son uç uygulamak için sahip olduğu bölüm yukarı.
+Henüz oluşturmadıysanız, izleyin [Başlangıç eğitmeni] arka ucunuzu uygulamak için sahip olduğu bölümü en son yukarı.
 
-Tam bir REST sarmalayıcı uygulamak için tüm ayrıntıları bulunabilir [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Bu bölümde Python uygulaması bildirim hub'ları REST uç noktalarını erişmek ve bildirimleri göndermek için gerekli ana adımlar açıklanmaktadır
+Tam bir REST sarmalayıcı uygulamak için tüm ayrıntıları bulunabilir [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Bu bölümde bildirim hub'ları REST uç noktalarına erişmesi ve bildirim göndermek için gereken ana adımlar Python uygulamasını açıklar.
 
 1. Bağlantı dizesini ayrıştırma
 2. Yetkilendirme belirteci oluştur
@@ -97,7 +97,7 @@ Oluşturucusu bağlantı dizesini ayrıştırmak için bir istemci uygulama ana 
 
 ### <a name="create-security-token"></a>Güvenlik belirteci oluşturma
 Güvenlik belirteci oluşturma ayrıntılarını kullanılabilir [burada](http://msdn.microsoft.com/library/dn495627.aspx).
-Aşağıdaki yöntemleri ekleyin **NotificationHub** geçerli istek ve kimlik bilgileri bağlantı dizesinden ayıklanan URI'sini temel belirteç oluşturmak için sınıfı.
+Aşağıdaki yöntemleri ekleyin **NotificationHub** geçerli istek ve kimlik bilgileri bağlantı dizesinden ayıklanan URI'sini temel belirteci oluşturmak için sınıf.
 
     @staticmethod
     def get_expiry():
@@ -127,7 +127,7 @@ Aşağıdaki yöntemleri ekleyin **NotificationHub** geçerli istek ve kimlik bi
         return sas_token
 
 ### <a name="send-a-notification-using-http-rest-api"></a>HTTP REST API kullanarak bildirim gönderme
-Birincisi, let tanımlamak bir bildirim temsil eden sınıf.
+İlk, let tanımlamak bir bildirim temsil eden sınıf.
 
     class Notification:
         def __init__(self, notification_format=None, payload=None, debug=0):
@@ -146,11 +146,11 @@ Birincisi, let tanımlamak bir bildirim temsil eden sınıf.
             # in W3C DTF, YYYY-MM-DDThh:mmTZD (for example, 1997-07-16T19:20+01:00).
             self.headers = None
 
-Bu sınıf, bir yerel bildirim gövdesi veya biçimi (yerel platform veya şablon) ve platforma özgü özellikleri (örneğin, Apple sona erme özelliği ve WNS üstbilgileri) içeren bir dizi üstbilgileri, bir şablon bildirim özelliklerini kümesi için bir kapsayıcıdır.
+Bu sınıf, bir yerel bildirimi gövdesinde veya bir dizi biçim (yerel platform veya şablonu) ve (Apple sona erme özelliğini ve WNS üst bilgiler gibi) platforma özgü özellikleri içeren bir dizi üstbilgileri, bir şablon bildirim özelliklerini ilişkin bir kapsayıcıdır.
 
-Başvurmak [bildirim hub'ları REST API belgelerine](http://msdn.microsoft.com/library/dn495827.aspx) ve kullanabileceğiniz tüm seçenekler için belirli bildirim platformları biçimleri.
+Başvurmak [Notification Hubs REST API belgeleri](http://msdn.microsoft.com/library/dn495827.aspx) ve tüm seçenekler için belirli bildirim platformları biçimleri.
 
-Bu sınıf ile gönderme içinde bildirim yöntemleri şimdi yazma **NotificationHub** sınıfı.
+Bu sınıf ile gönderme içinde bildirim yöntemleri artık yazma **NotificationHub** sınıfı.
 
     def make_http_request(self, url, payload, headers):
         parsed_url = urllib.parse.urlparse(url)
@@ -258,25 +258,25 @@ Bu sınıf ile gönderme içinde bildirim yöntemleri şimdi yazma **Notificatio
         nh = Notification("template", properties)
         self.send_notification(nh, tags)
 
-Bu yöntemler, bildirim hub ' ınızı doğru gövde ve bildirim göndermek için üstbilgiler /messages uç noktası bir HTTP POST isteği gönderin.
+Bu yöntemler, bildirim hub'ınıza, bildirim göndermek üzere üst bilgileri ve doğru gövdesi /messages uç noktasına bir HTTP POST isteği gönderin.
 
-### <a name="using-debug-property-to-enable-detailed-logging"></a>Ayrıntılı günlük kaydını etkinleştirmek için hata ayıklama özelliğini kullanma
-HTTP isteğiyle ilgili ayrıntılı günlük kaydı bilgileri bildirim hub'ı başlatılırken etkinleştirme hata ayıklama özelliği yazar ve ayrıntılı bir bildirim iletisi yanı sıra yanıt döküm sonucunu gönderin. [Bildirim hub'ları TestSend özelliği](http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx) bildirim gönderme sonucunu hakkında ayrıntılı bilgi verir. Bunu kullanın - aşağıdaki kodu kullanarak başlatmak için:
+### <a name="using-debug-property-to-enable-detailed-logging"></a>Ayrıntılı günlük kaydını etkinleştirmek için hata ayıklama özelliğini kullanarak
+HTTP isteğiyle ilgili ayrıntılı günlük kaydı bilgileri bildirim hub'ı başlatılırken hata ayıklama özelliği etkinleştirme yazar ve sonucu yanıt döküm yanı sıra ayrıntılı bir bildirim iletisi gönderin. [Bildirim hub'ları TestSend özelliği](https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn495827(v=azure.100)) bildirim gönderme sonucunu hakkında ayrıntılı bilgi verir. Bunu kullanın - aşağıdaki kodu kullanarak başlatmak için:
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 
-Bildirim hub'ı İsteği Gönder HTTP URL'si, "test" sorgu dizesi ile sonuç olarak eklenmiş. 
+Bildirim hub'ı gönderme isteği HTTP URL'si ile bir "test" sorgu dizesi sonucunda eklenmiş. 
 
 ## <a name="complete-tutorial"></a>Öğreticiyi Tamamla
-Şimdi bir Python arka ucunu bildirim göndererek Başlarken Öğreticisi tamamlayabilirsiniz.
+Şimdi bir Python arka ucunuzdan bildirim göndererek Başlarken Öğreticisi tamamlayabilirsiniz.
 
-Bildirim hub'ları istemciniz başlatılamıyor (belirtildiği gibi bağlantı dizenizi ve hub adı yerine [Get öğreticisinde]):
+Bildirim hub'ları istemcinizi başlatır (bağlantı dizenizi ve hub adı belirtildiği gibi alternatif [Başlangıç eğitmeni]):
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName")
 
-Ardından, hedef mobil platforma bağlı olarak gönderme kodu ekleyin. Bu örnek ayrıca platform, örneğin, windows için send_windows_notification göre gönderen bildirimlerini etkinleştirmek için üst düzey yöntemleri ekler; (için apple) send_apple_notification vs. 
+Ardından, hedef mobil platforma bağlı olarak gönderme kodu ekleyin. Bu örnek, platform, örneğin, windows için send_windows_notification göre gönderen bildirimlerini etkinleştirmek için üst düzey yöntemleri de ekler; send_apple_notification (için apple) vs. 
 
-### <a name="windows-store-and-windows-phone-81-non-silverlight"></a>Windows mağazası ve Windows Phone 8.1 (Silverlight olmayan)
+### <a name="windows-store-and-windows-phone-81-non-silverlight"></a>Windows Store ve Windows Phone 8.1 (Silverlight olmayan)
     wns_payload = """<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Test</text></binding></visual></toast>"""
     hub.send_windows_notification(wns_payload)
 
@@ -319,45 +319,45 @@ Ardından, hedef mobil platforma bağlı olarak gönderme kodu ekleyin. Bu örne
     }
     hub.send_baidu_notification(baidu_payload)
 
-Python kodunuzu çalıştıran hedef aygıtınızda görünen bir bildirim üretir.
+Python kodunuzu çalıştıran hedef Cihazınızda görünen bir bildirim üretir.
 
 ## <a name="examples"></a>Örnekler:
 ### <a name="enabling-debug-property"></a>Hata ayıklama özelliğini etkinleştirme
-NotificationHub başlatılırken hata ayıklama bayrağı etkinleştirdiğinizde, NotificationOutcome yanı sıra ayrıntılı HTTP isteği ve yanıt döküm aşağıdaki gibi burada hangi HTTP üstbilgileri istekte geçirilir ve hangi HTTP yanıt anlayabileceği görürsünüz Bildirim Hub'ından alınan: ![][1]
+NotificationHub başlatılırken hata ayıklama bayrağı etkinleştirmek NotificationOutcome yanı sıra ayrıntılı HTTP istek ve yanıt döküm aşağıdaki gibi burada hangi HTTP üstbilgileri istek geçirilir ve hangi HTTP yanıtı anlayabilir görürsünüz Bildirim Hub'ından alınan: ![][1]
 
 Gördüğünüz gibi ayrıntılı bildirim hub'ı sonucu. 
 
-* ileti başarıyla için anında iletilen bildirim servisi gönderildiğinde. 
+* ne zaman ileti başarıyla anında iletilen bildirim servisi için gönderilir. 
   
         <Outcome>The Notification was successfully sent to the Push Notification System</Outcome>
-* Herhangi bir anında bildirim bulunan hiçbir hedef olsaydı, sonra büyük olasılıkla aşağıdaki çıkış (gösteren bazı kayıtları eşleşmeyen olduğundan bildirim büyük olasılıkla teslim etmek için bulunan herhangi bir kayıt olan yanıt olarak görmek için olmaz etiketleri)
+* Hedef için herhangi bir anında iletme bildirimi bulunamadı varsa, daha sonra büyük olasılıkla (gösteren bazı kayıtları eşleşmeyen olduğundan bildirim muhtemelen sunmak için bulunan herhangi bir kayıt olan yanıt aşağıdaki çıktıyı görmek için oluşturacağınız Etiketler)
   
         '<NotificationOutcome xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Success>0</Success><Failure>0</Failure><Results i:nil="true"/></NotificationOutcome>'
 
-### <a name="broadcast-toast-notification-to-windows"></a>Windows bildirim yayını
-Windows İstemcisi için yayın bildirim gönderirken gönderilen üstbilgileri dikkat edin. 
+### <a name="broadcast-toast-notification-to-windows"></a>Windows için bildirimi yayınlayın
+Windows İstemcisi için bir yayın bildirimi gönderirken gönderilen üstbilgileri dikkat edin. 
 
     hub.send_windows_notification(wns_payload)
 
 ![][2]
 
-### <a name="send-notification-specifying-a-tag-or-tag-expression"></a>Bir etiketi (veya etiket ifadesi) belirterek bildirim gönder
-HTTP isteği eklenen etiketleri HTTP üstbilgisi dikkat edin (aşağıdaki örnekte, bildirim yalnızca 'Spor' yükü kayıtlarla gönderilir)
+### <a name="send-notification-specifying-a-tag-or-tag-expression"></a>Bir etiketi (veya etiket ifadesi) belirten bir bildirim gönderin
+HTTP isteğine eklenen etiketler HTTP üstbilgisini dikkat edin (aşağıdaki örnekte, bildirim yalnızca 'Spor' yüküyle kayıtları gönderilir)
 
     hub.send_windows_notification(wns_payload, "sports")
 
 ![][3]
 
 ### <a name="send-notification-specifying-multiple-tags"></a>Birden çok etiket belirtme bildirim gönder
-Birden çok etiket gönderildiğinde etiketleri HTTP üstbilgisi nasıl değiştiğine dikkat edin. 
+Birden çok etiket gönderildiğinde etiketleri HTTP üst bilgisi nasıl değiştiğine dikkat edin. 
 
     tags = {'sports', 'politics'}
     hub.send_windows_notification(wns_payload, tags)
 
 ![][4]
 
-### <a name="templated-notification"></a>Şablonlu bildirim
-Biçim HTTP üstbilgisi değişiklikleri dikkat edin ve yük gövde HTTP isteği gövdesinin bir parçası olarak gönderilir:
+### <a name="templated-notification"></a>Şablonlu bildirimi
+Biçim HTTP üst bilgisi değiştiğine dikkat edin ve yükü gövdesi HTTP isteği gövdesinin bir parçası olarak gönderilir:
 
 **İstemci tarafı - kayıtlı şablonu**
 
@@ -372,17 +372,17 @@ Biçim HTTP üstbilgisi değişiklikleri dikkat edin ve yük gövde HTTP isteği
 ![][5]
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Bu makalede, Python REST istemci bildirim hub'ları için nasıl oluşturulacağını gösterir. Buradan şunları yapabilirsiniz:
+Bu makalede Python REST istemci bildirim hub'ları için nasıl oluşturulacağını gösterir. Buradan şunları yapabilirsiniz:
 
-* Tam karşıdan [Python REST sarmalayıcı örnek], bu makaledeki tüm kodunu içerir.
-* Bildirim hub'ları özelliği etiketleme hakkında bilgi almaya devam etmek [çiğnemekten haber Öğreticisi]
-* Bildirim hub'ları şablonları özelliği hakkında bilgi almaya devam etmek [yerelleştirme haber Öğreticisi]
+* Tam indirme [Python REST sarmalayıcı örneği], bu makaledeki tüm kodunu içerir.
+* Bildirim hub'ları etiketleme özelliğini hakkında daha fazla bilgi [Yeni haber Öğreticisi]
+* Bildirim hub'ları şablonları özelliği hakkında daha fazla bilgi [Haber öğretici yerelleştirme]
 
 <!-- URLs -->
-[Python REST sarmalayıcı örnek]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
-[Get öğreticisinde]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[çiğnemekten haber Öğreticisi]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[yerelleştirme haber Öğreticisi]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+[Python REST sarmalayıcı örneği]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python
+[Başlangıç eğitmeni]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Yeni haber Öğreticisi]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
+[Haber öğretici yerelleştirme]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-python-backend-how-to/DetailedLoggingInfo.png

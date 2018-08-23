@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 6e7de0a7b580c0028982895487117ab98d0cd612
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 028a8f35b6ffc4b429725e91045e70112f2bdabd
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503460"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42057428"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Azure App Service Web uygulamalarında PHP yapılandırma
 
@@ -189,7 +189,7 @@ PHP projenizi varsa varsayılan olarak, App Service ile composer.json, hiçbir �
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla bilgi için [PHP Geliştirici Merkezi](/develop/php/).
+Daha fazla bilgi için [PHP Geliştirici Merkezi](https://azure.microsoft.com/develop/php/).
 
 > [!NOTE]
 > Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.

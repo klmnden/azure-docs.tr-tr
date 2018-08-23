@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b38d90251ab59e537e7d637f45f04c4db87a94ae
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 6d3847f547646ae7c62f98b4cee716af5c6ba5e9
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581999"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42055879"
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Kapsamlar, izinler ve onay Azure Active Directory v2.0 uç noktası
 Azure Active Directory (Azure AD) ile tümleştiren uygulamalar, uygulama verilerini nasıl erişebileceğiniz bir denetime kullanıcılara bir yetkilendirme modelini izler. Yetkilendirme modeli v2.0 uygulamasını güncelleştirildi ve bir uygulamayı Azure AD ile nasıl etkileşimde olması değiştirir. Bu makale, kapsamlar, izinler ve onay dahil olmak üzere bu yetkilendirme modeli temel kavramları kapsar.
@@ -73,6 +73,19 @@ Uygulama oturum açma kullanarak gerçekleştiriyorsa [Openıd Connect](active-d
 Uygulamanızı değil istemiyorsa `offline_access` kapsamı, yenileme belirteçleri almazsınız. Bunun anlamı bir yetkilendirme kodunda şifrenizi kullandığınızda [OAuth 2.0 yetkilendirme kod akışı](active-directory-v2-protocols.md), yalnızca bir erişim belirteci alırsınız `/token` uç noktası. Erişim belirteci, kısa bir süre için geçerlidir. Erişim belirteci, genellikle bir saat içinde süresi dolar. Noktası, kullanıcı yeniden yönlendirmek uygulamanız gereken en başa `/authorize` yeni bir yetkilendirme kodunu almak için uç nokta. Uygulama türünü bağlı olarak bu yeniden yönlendirme sırasında kullanıcı kimlik bilgilerini yeniden girin veya izinleri yeniden onay gerekebilir.
 
 Alma ve yenileme belirteçleri kullanma hakkında daha fazla bilgi için bkz. [v2.0 protokol başvurusu](active-directory-v2-protocols.md).
+
+## <a name="accessing-v10-resources"></a>V1.0 kaynaklara erişme
+v2.0 uygulama belirteçlerini istemek ve onay v1.0 uygulamalar için (Power BI API gibi `https://analysis.windows.net/powerbi/api` veya Sharepoint API `https://{tenant}.sharepoint.com`).  Bunu yapmak için uygulama URI ve kapsam dizesinde başvurabilirsiniz `scope` parametresi.  Örneğin, `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All` Powerbı istek `View all Datasets` uygulamanız için izni. 
+
+Birden fazla izin istemek için tüm URI ile bir alanı eklemek veya `+`, örneğin `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://analysis.windows.net/powerbi/api/Report.Read.All`.  Bu hem istekleri `View all Datasets` ve `View all Reports` izinleri.  Tüm Azure AD kapsamları ve izinleri gibi uygulamaları yalnızca bir istek için bir kaynak aynı anda - yapabileceğini lütfen unutmayın böylece istek `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://api.skypeforbusiness.com/Conversations.Initiate`, hem Power BI istekleri `View all Datasets` izne hem de Skype Kurumsal'a `Initiate conversations` izni izinler isteyen iki farklı kaynaklardaki nedeniyle reddedilir.  
+
+### <a name="v10-resources-and-tenancy"></a>V1.0 kaynakları ve kiralama
+V1.0 hem v2.0 Azure AD'ye protokolleri kullanan bir `{tenant}` parametresi katıştırılmış URI'de (`https://login.microsoftonline.com/{tenant}/oauth2/`).  V2.0 uç noktası v1.0 Kurumsal kaynağa erişim için kullanırken `common` ve `consumers` kiracılar kullanılamaz, bu kaynakları yalnızca kuruluş (Azure AD) ile erişilebilir olarak hesaplar.  Bu nedenle, yalnızca Kiracı GUID bu kaynaklara erişirken veya `organizations` olarak kullanılabilir `{tenant}` parametresi.  
+
+Bir uygulama, yanlış bir kiracıyı kullanarak bir kuruluş v1.0 kaynağa erişmeye çalışırsa, aşağıdakine benzer bir hata döndürülür. 
+
+`AADSTS90124: Resource 'https://analysis.windows.net/powerbi/api' (Microsoft.Azure.AnalysisServices) is not supported over the /common or /consumers endpoints. Please use the /organizations or tenant-specific endpoint.`
+
 
 ## <a name="requesting-individual-user-consent"></a>Bireysel kullanıcı onay isteme
 İçinde bir [Openıd Connect veya OAuth 2.0](active-directory-v2-protocols.md) yetkilendirme isteği, bir uygulamayı, ihtiyaç duyduğu kullanarak izinler isteyebilir `scope` sorgu parametresi. Örneğin, bir kullanıcı bir uygulama, uygulama gönderen oturum açtığında bir istek aşağıdaki örnekteki gibi (ile Okunaklılık için eklenen satır sonları):

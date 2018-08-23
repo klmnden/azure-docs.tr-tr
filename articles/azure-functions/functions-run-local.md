@@ -4,7 +4,7 @@ description: Kod ve Azure işlevleri üzerinde çalıştırmadan önce komut ist
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: functions
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 08/14/2018
 ms.author: glenga
-ms.openlocfilehash: 57011e1f7633688e00a4639ba36fd4442073161d
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: cb336d6742aab10e1fd8305fd52f1376bb4f2598
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618623"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056372"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -131,13 +131,13 @@ Terminal penceresinde ya da bir komut isteminden proje ve yerel Git deposu oluş
 func init MyFunctionProj
 ```
 
+Bir proje adı sağladığınızda, bu ada sahip yeni bir klasör oluşturulur ve başlatılır. Aksi takdirde, geçerli klasörde başlatılır.  
 Sürüm 2.x komutu çalıştırdığınızda, bir çalışma zamanı projeniz için seçmeniz gerekir. JavaScript işlevleri geliştirmeyi planlıyorsanız, seçin **düğüm**:
 
 ```output
 Select a worker runtime:
 dotnet
 node
-java
 ```
 
 Yukarı/bir dil seçmek için aşağı ok tuşlarını, Enter tuşuna basın. Çıkış için JavaScript proje aşağıdaki örnekteki gibi görünür:
@@ -298,19 +298,24 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 ```bash
 func host start
 ```
+`host` Komut sürümünde yalnızca gerekli 1.x.
 
 `func host start` Aşağıdaki seçeneklerini destekler:
 
 | Seçenek     | Açıklama                            |
 | ------------ | -------------------------------------- |
-|**`--port -p`** | Dinlemenin yapılacağı yerel bağlantı noktası. Varsayılan değer: 7071. |
-| **`--debug <type>`** | Başlatır hata ayıklama bağlantı konakla açın, böylece ekleyebileceğiniz **func.exe** gelen işlem [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) veya [Visual Studio 2017](functions-dotnet-class-library.md). *\<Türü\>* Seçenekler `VSCode` ve `VS`.  |
 | **`--cors`** | CORS çıkış noktaları, boşluk virgülle ayrılmış listesi. |
-| **`--nodeDebugPort -n`** | Kullanmak düğüm hata ayıklayıcısı bağlantı noktası. Varsayılan: Launch.json veya 5858 arasında bir değer. |
-| **`--debugLevel -d`** | Konsolunun izleme düzeyini (kapalı, ayrıntı, Info, WARNING veya error). Varsayılan: bilgi.|
+| **`--debug <type>`** | Başlatır hata ayıklama bağlantı konakla açın, böylece ekleyebileceğiniz **func.exe** gelen işlem [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) veya [Visual Studio 2017](functions-dotnet-class-library.md). *\<Türü\>* Seçenekler `VSCode` ve `VS`.  |
+| **`--port -p`** | Dinlemenin yapılacağı yerel bağlantı noktası. Varsayılan değer: 7071. |
 | **`--timeout -t`** | Saniyeler içinde başlatılacak işlevleri konak için zaman aşımı. Varsayılan: 20 saniye.|
 | **`--useHttps`** | Bağlama `https://localhost:{port}` yerine çok `http://localhost:{port}`. Varsayılan olarak, bu seçenek bilgisayarınızda güvenilen bir sertifika oluşturur.|
-| **`--pause-on-error`** | Duraklatma işlemi çıkmadan önce ek giriş. Visual Studio veya VS Code Core Araçları'nı başlatma sırasında kullanılır.|
+| **`--build`** | Çalıştırmadan önce geçerli projeyi derleyin. Sürüm 2.x ve C# projeleri yalnızca. |
+| **`--cert`** | Özel anahtarı içeren bir .pfx dosyası yolu. Yalnızca kullanılan `--useHttps`. Sürüm 2.x yalnızca. | 
+| **`--password`** | Parola veya bir .pfx dosyası için parolayı içeren dosya. Yalnızca kullanılan `--cert`. Sürüm 2.x yalnızca. |
+| **`--language-worker`** | Dil çalışan yapılandırmak için bağımsız değişkenler. Sürüm 2.x yalnızca. |
+| **`--nodeDebugPort -n`** | Kullanmak düğüm hata ayıklayıcısı bağlantı noktası. Varsayılan: Launch.json veya 5858 arasında bir değer. Sürümü yalnızca 1.x. |
+
+Bir C# sınıf kitaplığı projesi için (.csproj) eklemeniz gerekir `--build` kitaplığı .dll uzantısını oluşturmak için seçeneği.
 
 İşlevleri ana bilgisayar başladığında, URL HTTP tetiklemeli işlevleri çıkarır:
 

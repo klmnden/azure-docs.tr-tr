@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c2297f072786bdc1e80255dee278d640b0c0d26d
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 5a134e14768e0576c501232b6aedb1f836bc05b1
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629523"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42056090"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>PowerShell kullanarak Notification Hubs’ı Dağıtma ve Yönetme
 ## <a name="overview"></a>Genel Bakış
-Bu makale oluşturma ve yönetme Azure PowerShell kullanarak Notification Hubs nasıl kullanılacağını gösterir. Bu konuda aşağıdaki genel otomasyon görevleri gösterilmektedir.
+Bu makale oluşturma ve yönetme Azure PowerShell kullanarak Notification Hubs nasıl kullanılacağını gösterir. Bu makalede aşağıdaki genel otomasyon görevleri gösterilmektedir.
 
 * Bildirim hub'ı oluşturma
 * Kimlik Bilgilerini Ayarla
@@ -34,8 +34,8 @@ Bildirim hub'ları yönetme, doğrudan Azure PowerShell ile dahil edilen cmdlet'
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Azure aboneliği. Azure abonelik tabanlı bir platformdur. Bir aboneliği edinme hakkında daha fazla bilgi için bkz. [satın alma seçenekleri], [üye Tekliflerimizi], veya [ücretsiz deneme].
-* Azure PowerShell ile bir bilgisayar. Yönergeler için [yüklemek ve Azure PowerShell yapılandırma].
+* Azure aboneliği. Azure abonelik tabanlı bir platformdur. Bir aboneliği edinme hakkında daha fazla bilgi için bkz. [satın alma seçenekleri], [Üye teklifleri], veya [ücretsiz deneme].
+* Azure PowerShell ile bir bilgisayar. Yönergeler için [için Notification Hubs .NET API].
 * PowerShell betikleri, NuGet paketlerini ve .NET Framework genel yaklaşım.
 
 ## <a name="including-a-reference-to-the-net-assembly-for-service-bus"></a>Service Bus için .NET derlemesine bir başvuru da dahil olmak üzere
@@ -85,19 +85,19 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 
 
 ## <a name="provisioning-a-new-notification-hub"></a>Yeni bir bildirim hub'ı sağlama
-Yeni bir bildirim hub'ı sağlamak için kullanın [için Notification Hubs .NET API].
+Yeni bir bildirim hub'ı sağlamak için kullanın [Bildirim hub'ları için .NET API'si].
 
 Bu betik kısmında dört yerel değişkenleri ayarlayın. 
 
-1. `$Namespace` : Bu ad alanı için bir bildirim hub'ı oluşturmak istediğiniz kümesinin adı.
-2. `$Path` : Bu yolu, yeni bildirim hub'ı adına ayarlayın.  Örneğin, "MyHub".    
-3. `$WnsPackageSid` : Bu paket SID'si Windows uygulamanız için koymak gelen [Windows Dev Center](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
-4. `$WnsSecretkey`: Gizli anahtarına Windows uygulamanız için bunu [Windows Dev Center](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
+1. `$Namespace`: Bu ad alanı için bir bildirim hub'ı oluşturmak istediğiniz kümesinin adı.
+2. `$Path`: Bu yolu, yeni bildirim hub'ı adına ayarlayın.  Örneğin, "MyHub".    
+3. `$WnsPackageSid`: Bu paket SID'si Windows uygulamanız için koymak gelen [Windows Dev Center](https://developer.microsoft.com/en-us/windows).
+4. `$WnsSecretkey`: Gizli anahtarına Windows uygulamanız için bunu [Windows Dev Center](https://developer.microsoft.com/en-us/windows).
 
 Bu değişkenler, ad alanınıza bağlanın ve bir Windows uygulaması için WNS kimlik bilgileriyle Windows Bildirim Hizmetleri (WNS) bildirimleri işlemek için yapılandırılan yeni bir Notification Hub'ı oluşturmak için kullanılır. Paket edinme hakkında bilgi için SID ve gizli anahtar bakın [Notification Hubs ile çalışmaya başlama](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) öğretici. 
 
 * Kod parçacığını kullanır `NamespaceManager` bildirim hub'ı tarafından tanımlanan, kontrol etmek için nesne `$Path` bulunmaktadır.
-* Yoksa, betik oluşturur `NotificationHubDescription` WNS ile kimlik bilgileri ve geçirebilirsiniz `NamespaceManager` sınıfı `CreateNotificationHub` yöntemi.
+* Yoksa, betik oluşturur `NotificationHubDescription` WNS ile kimlik bilgileri ve buna ileten `NamespaceManager` sınıfı `CreateNotificationHub` yöntemi.
 
 ``` powershell
 

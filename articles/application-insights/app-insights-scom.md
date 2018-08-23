@@ -1,8 +1,8 @@
 ---
-title: "Application Insights ile SCOM tümleştirme | Microsoft Docs"
-description: "SCOM kullanıcı değilseniz, Application Insights ile sorunlarını tanılamak ve performansını izleyebilir. Kapsamlı panoları, akıllı uyarıları, güçlü tanılama araçları ve analiz sorguları."
+title: SCOM tümleştirmesiyle Application Insights | Microsoft Docs
+description: SCOM kullanıcısıysanız, performansı izleyebilir ve Application Insights ile ilgili sorunları tanılayın. Kapsamlı panolar, uyarılar akıllı, güçlü tanılama araçları ve analiz sorguları.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 606e9d03-c0e6-4a77-80e8-61b75efacde0
@@ -10,92 +10,96 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 08/12/2016
+ms.topic: conceptual
+ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 35ea37b751909e14e616a965462b832e4e51bae0
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 8880fbeaad85bc2615292820527c6a9e87000d66
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42057156"
 ---
 # <a name="application-performance-monitoring-using-application-insights-for-scom"></a>SCOM için Application Insights kullanarak uygulama performansı izleme
-Sunucularınızı yönetmek için System Center Operations Manager (SCOM) kullanıyorsanız, performansı izleyerek ve yardımıyla performans sorunlarını tanılamanıza [Azure Application Insights](app-insights-asp-net.md). Application Insights REST ve SQL çağrıları, özel durumlar ve günlük izlemelerini giden web uygulamanızın gelen istekleri izler. Panolar ölçüm grafikler ve akıllı uyarıları yanı sıra güçlü tanılama arama ve analitik sorguları ile bu telemetri sağlar. 
+Sunucularınızı yönetmek için System Center Operations Manager (SCOM) kullanırsanız, performans izleme ve Yardım performans sorunlarını tanılayın [Azure Application Insights](app-insights-asp-net.md). Application Insights, web uygulamanızın gelen istekler, REST ve SQL çağrıları, özel durumlar ve günlük izlemelerini giden izler. Bu panolar ölçüm grafikleri ve akıllı uyarılar yanı sıra güçlü tanılama araması ve analitik sorguları bu telemetrisi üzerinde sağlar. 
 
-SCOM Yönetim Paketi kullanarak Application Insights izleme geçiş yapabilirsiniz.
+Application Insights izleme temel bir SCOM Yönetim paketini kullanarak geçiş yapabilirsiniz.
+
+> [!IMPORTANT]
+> Bu System Center Operations Manager Yönetim Paketi sunulmuştur **kullanım dışı**. Bu, en son Application Insights SDK'ları desteklemez ve artık önerilir.
 
 ## <a name="before-you-start"></a>Başlamadan önce
-Biz varsayın:
+Varsayılır:
 
-* Web sunucuları ile SCOM tanıdık ve IIS yönetmek için SCOM 2012 R2 veya 2016 kullanın.
+* Web sunucuları SCOM ile ilgili bilgi sahibi olduğunuz ve IIS yönetmek için SCOM 2012 R2 veya 2016 kullanın.
 * Application Insights ile izlemek istediğiniz bir web uygulaması sunucularınıza zaten yüklediniz.
-* Uygulama framework .NET 4.5 veya üzeri sürümüdür.
-* Bir abonelikte erişimi [Microsoft Azure](https://azure.com) ve oturum açarak [Azure portal](https://portal.azure.com). Kuruluşunuz bir aboneliğe sahip ve Microsoft hesabınızı ekleyebilirsiniz.
+* Uygulama framework sürümü, .NET 4.5 veya sonrası.
+* Bir abonelikte erişiminiz [Microsoft Azure](https://azure.com) ve oturum açarak [Azure portalında](https://portal.azure.com). Kuruluşunuz bir aboneliğe sahip ve Microsoft hesabınızı ekleyebilirsiniz.
 
-(Geliştirme ekibi oluşturabilir [Application Insights SDK'sı](app-insights-asp-net.md) web uygulamada. Bu derleme araçları bunları özel telemetri yazma büyük esneklik sağlar. Ancak, önemli değildir: ile ya da SDK'sı yerleşiktir olmadan burada açıklanan adımları izleyebilirsiniz.)
+(Geliştirme ekibi oluşturabilir [Application Insights SDK'sı](app-insights-asp-net.md) web uygulamasına. Bu derleme araçları, bunları özel telemetri yazma daha fazla esneklik sağlar. Ancak, önemli değildir: veya SDK'sı yerleşiktir belirtmeden burada açıklanan adımları takip edebilirsiniz.)
 
-## <a name="one-time-install-application-insights-management-pack"></a>(Bir saat) Application Insights Yönetimi paketini yükleyin
-Operations Manager çalıştırdığı makinede:
+## <a name="one-time-install-application-insights-management-pack"></a>(Bir kez) Application Insights Yönetimi paketini yükleyin
+Operations Manager çalıştırıldığı makinede:
 
-1. Yönetim Paketi herhangi bir eski sürümü kaldırın:
-   1. Operations Manager'da yönetim, yönetim paketleri açın. 
-   2. Eski sürümünü silin.
-2. Karşıdan yükleme ve Yönetim Paketi Kataloğu'ndan yükleyin.
+1. Yönetim paketinin herhangi bir eski sürümü kaldırın:
+   1. Operations Manager'da, yönetim, yönetim paketleri açın. 
+   2. Eski sürümü silin.
+2. İndirin ve Yönetim Paketi Kataloğu'ndan yükleyin.
 3. Operations Manager'ı yeniden başlatın.
 
-## <a name="create-a-management-pack"></a>Bir yönetim paketi oluşturun
-1. Operations Manager'da açmak **yazma**, **.NET Application Insights ile...**, **izleme Ekleme Sihirbazı'nı**, yeniden seçin **.NET Application Insights ile...**.
+## <a name="create-a-management-pack"></a>Bir yönetim paketi oluşturma
+1. Operations Manager'da açın **yazma**, **.NET Application Insights ile...**, **izleme Ekleme Sihirbazı'nı**, yeniden seçin **.NET uygulaması ile... Insights**.
    
     ![](./media/app-insights-scom/020.png)
-2. Yapılandırmadan sonra uygulamanızı adlandırın. (Bir kerede bir uygulamayı izlemek vardır.)
+2. Yapılandırmadan sonra uygulamanızı adlandırın. (Bir kerede tek bir uygulama izleme gerekir.)
    
     ![](./media/app-insights-scom/030.png)
-3. Aynı sihirbaz sayfasında, yeni bir yönetim paketi oluşturun veya Application Insights için daha önce oluşturduğunuz bir paketi seçin.
+3. Aynı sihirbaz sayfasında, yeni bir Yönetim Paketi oluşturabilir veya daha önce oluşturduğunuz Application Insights için bir paket seçin.
    
-     (Application Insights [Yönetim Paketi](https://technet.microsoft.com/library/cc974491.aspx) örneği oluşturduğunuz bir şablonu. Aynı örnek daha sonra yeniden kullanabilirsiniz.)
+     (Application Insights [Yönetim Paketi](https://technet.microsoft.com/library/cc974491.aspx) kendisinden oluşturduğunuz bir örneği bir şablonudur. Aynı örnek daha sonra yeniden kullanabilirsiniz.)
 
-    ![Genel Özellikler sekmesinde, uygulama adını yazın. Yeni'yi tıklatın ve bir Yönetim Paketi için bir ad yazın. Tamam'ı tıklatın, sonra İleri'yi tıklatın.](./media/app-insights-scom/040.png)
+    ![Genel Özellikler sekmesinde, bir uygulama adı yazın. Yeni'ye tıklayın ve bir Yönetim Paketi için bir ad yazın. Tamam'a tıklayın ve ardından İleri'ye tıklayın.](./media/app-insights-scom/040.png)
 
 1. İzlemek istediğiniz bir uygulama seçin. Sunucularınızda yüklü uygulamalar arasında arama özelliğini arar.
    
-    ![İzlenecekler sekmesinde üzerinde Ekle'yi tıklatın, uygulama adı kısmını yazın, Ara'yı tıklatın, uygulama ve ardından Ekle, Tamam'ı seçin.](./media/app-insights-scom/050.png)
+    ![Hangi İzleyici sekmesi için Ekle'yi tıklatın, uygulama adının bir bölümünü yazın, Ara'yı tıklatın, uygulama ve ardından Ekle, Tamam'ı seçin.](./media/app-insights-scom/050.png)
    
-    Tüm sunucularda uygulamayı izlemek istemiyorsanız, isteğe bağlı bir izleme kapsamı alan, sunucularınızın bir alt belirtmek için kullanılabilir.
-2. Sonraki sihirbaz sayfasında ilk Microsoft Azure'da oturum açmak için kimlik bilgilerinizi sağlamanız gerekir.
+    Tüm sunucularda uygulamayı izlemek istemiyorsanız, isteğe bağlı izleme kapsamı alan sunucularınızın bir alt kümesi belirtmek için kullanılabilir.
+2. Sonraki sihirbaz sayfasında ilk oturum açmak için Microsoft Azure için kimlik bilgilerinizi sağlamanız gerekir.
    
-    Bu sayfada telemetri verileri analiz ve görüntülenmesini istediğiniz Application Insights kaynağı seçin. 
+    Bu sayfada görüntülenir ve analiz edilmesi telemetri verilerini istediğiniz Application Insights kaynağını seçin. 
    
-   * Uygulama geliştirme sırasında Application Insights için yapılandırıldıysa, var olan kaynağı seçin.
-   * Aksi takdirde, uygulama için adlı yeni bir kaynak oluşturun. Aynı sistem bileşenlerinin başka uygulamalar varsa, bunları erişim telemetri yönetmeyi kolaylaştırmak için aynı kaynak grubunda yerleştirin.
+   * Uygulama geliştirme sırasında Application Insights için yapılandırıldıysa, mevcut kaynağı seçin.
+   * Aksi takdirde, uygulama için adlandırılan yeni bir kaynak oluşturun. Aynı sistem bileşenlerinin diğer uygulamalarını varsa, bunları telemetriyi yönetilmesi daha kolay erişim sağlamak için aynı kaynak grubunda yerleştirin.
      
      Bu ayarları daha sonra değiştirebilirsiniz.
      
-     ![Application Insights Ayarlar sekmesinde, 'oturum aç' tıklayın ve Azure için Microsoft hesabı kimlik bilgilerinizi sağlayın. Ardından bir abonelik, kaynak grubu ve kaynak seçin.](./media/app-insights-scom/060.png)
+     ![Application Insights Ayarlar sekmesinde, 'oturum' tıklayın ve Azure için Microsoft hesabı kimlik bilgilerinizi sağlayın. Abonelik, kaynak grubu ve kaynak seçin.](./media/app-insights-scom/060.png)
 3. Sihirbazı tamamlayın.
    
     ![Oluştur’a tıklayın](./media/app-insights-scom/070.png)
 
 İzlemek istediğiniz her uygulama için bu yordamı yineleyin.
 
-Ayarları daha sonra değiştirmeniz gerekirse, yeniden yazma penceresinden İzleyici özelliklerini açın.
+Ayarları daha sonra değiştirmeniz gerekiyorsa, İzleyici yazma penceresinden özelliklerini yeniden açın.
 
-![Yazma, .NET uygulama performansı izleme Application Insights ile seçin, sizin İzleyicisi'ni seçin ve Özellikler'i tıklatın.](./media/app-insights-scom/080.png)
+![Yazma, .NET uygulama performansı izleme ile Application Insights'ı seçin, İzleyicisi'ni seçin ve Özellikler'e tıklayın.](./media/app-insights-scom/080.png)
 
 ## <a name="verify-monitoring"></a>İzleme doğrulayın
-İzleyici her sunucuda yüklü uygulamanızı arar. Burada, app bulur uygulamayı izlemek için Application Insights Durum İzleyicisi yapılandırır. Gerekiyorsa, sunucuda ilk Durum İzleyicisi'ni yükler.
+İzleyici her sunucuda yüklü uygulamanızı arar. Uygulamayı nerede bulduğu uygulamayı izlemek için Application Insights Durum İzleyicisi yapılandırır. Gerekirse, sunucuya ilk Durum İzleyicisi'ni yükler.
 
-Uygulamayı hangi örneklerini bulduğu doğrulayabilirsiniz:
+Uygulamanın hangi örneklerinin bulduğu doğrulayabilirsiniz:
 
-![İzleme, Application Insights açın](./media/app-insights-scom/100.png)
+![İzleme, Application ınsights'ı açın](./media/app-insights-scom/100.png)
 
-## <a name="view-telemetry-in-application-insights"></a>Application Insights telemetrisi görünümü
-İçinde [Azure portal](https://portal.azure.com), uygulamanız için kaynak konumuna göz atın. [Telemetri gösteren grafikleri görmek](app-insights-dashboards.md) uygulamanızdan. (Ana sayfasında henüz gösterilen kurmadı, Canlı ölçümleri akış'ı tıklatın.)
+## <a name="view-telemetry-in-application-insights"></a>Application ınsights telemetrisini görüntüleme
+İçinde [Azure portalında](https://portal.azure.com), uygulamanız için kaynak göz atın. [Telemetri gösteren grafikleri görmek](app-insights-dashboards.md) uygulamanızdan. (Ana sayfasında göze henüz gösterilen taşınmadığından, Canlı ölçümleri Stream'ı tıklatın.)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Bir Pano ayarlamak](app-insights-dashboards.md) bu ve diğer uygulamalar izleme en önemli grafikleri araya getirmek için.
+* [Bir Pano Ayarla](app-insights-dashboards.md) bu ve diğer uygulamaları izleme en önemli grafikleri bir araya getirmek için.
 * [Ölçümler hakkında bilgi edinin](app-insights-metrics-explorer.md)
-* [Uyarıları ayarlayın](app-insights-alerts.md)
+* [Uyarılar ayarlayın](app-insights-alerts.md)
 * [Performans sorunlarını tanılama](app-insights-detect-triage-diagnose.md)
-* [Güçlü Analytics sorgular](app-insights-analytics.md)
+* [Güçlü analiz sorguları](app-insights-analytics.md)
 * [Kullanılabilirlik web testleri](app-insights-monitor-web-app-availability.md)
 

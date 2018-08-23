@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: deguhath
-ms.openlocfilehash: dae8549cb951a463688869454e2f4c71103c1363
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 6e58429567e447002b1c9191bb8e50a4351649a9
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226402"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42059956"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process'in çalışması: SQL Server'ı kullanma
 Bu öğreticide, oluşturma ve SQL Server ve genel kullanıma açık bir veri kümesini kullanarak makine öğrenme modeli dağıtma sürecinde size yol-- [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) veri kümesi. Standart veri bilimi iş akışı yordamdan sonraki: alma ve verileri, mühendislik işlevlerini, öğrenme süreçlerini kolaylaştırmasına sonra yapı ve model dağıtma keşfedin.
@@ -70,7 +70,7 @@ Bu öğreticide verileri bir veri keşfi, özellik, bir SQL Server paralel toplu
 
 Azure veri bilimi ortamı oluşturmanız için:
 
-1. [Depolama hesabı oluşturma](../../storage/common/storage-create-storage-account.md)
+1. [Depolama hesabı oluşturma](../../storage/common/storage-quickstart-create-account.md)
 2. [Bir Azure Machine Learning çalışma alanı oluşturma](../studio/create-workspace.md)
 3. [Bir veri bilimi sanal makine sağlama](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), bir SQL sunucusu ve bir IPython dizüstü sunucusu sağlar.
    

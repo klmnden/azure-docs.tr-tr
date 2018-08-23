@@ -1,6 +1,6 @@
 ---
-title: Web API kullanarak anında iletme bildirimleri için geçerli kullanıcı kaydı | Microsoft Docs
-description: Kayda ASP.NET Web API tarafından gerçekleştirildiğinde bir iOS uygulaması Azure Notification Hubs ile anında iletme bildirimi kaydı isteği öğrenin.
+title: Web API'sini kullanarak anında iletme bildirimleri için geçerli kullanıcıyı kaydetme | Microsoft Docs
+description: Azure Notification Hubs ile bir iOS uygulaması anında iletme bildirimi kaydı kayda ASP.NET Web API'si tarafından gerçekleştirildiğinde istek öğrenin.
 services: notification-hubs
 documentationcenter: ios
 author: dimazaid
@@ -14,37 +14,37 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c43c15131afb5fbf346b0137dac566f5331c65a2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f89c97f1220c0e949912a3002021eca20f91441d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776381"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42061087"
 ---
-# <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>ASP.NET kullanarak anında iletme bildirimleri için geçerli kullanıcı kaydı
+# <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>ASP.NET kullanarak anında iletme bildirimleri için geçerli kullanıcıyı kaydetme
 > [!div class="op_single_selector"]
 > * [iOS](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 > 
 > 
 
 ## <a name="overview"></a>Genel Bakış
-Bu konu kayıt ASP.NET Web API tarafından gerçekleştirildiğinde Azure Notification Hubs ile anında iletme bildirimi kaydı isteği gösterilmiştir. Bu konuda öğretici genişletir [Notification Hubs kullanıcılara bildirme]. Zaten gerekli adımları kimliği doğrulanmış bir mobil hizmet oluşturmak için Bu öğreticide tamamlamış olmanız gerekir. Bildirim kullanıcılar senaryo hakkında daha fazla bilgi için bkz: [Notification Hubs kullanıcılara bildirme].
+Bu konu kayıt ASP.NET Web API'si tarafından gerçekleştirildiğinde, Azure Notification Hubs ile anında iletme bildirimi kaydı isteği gösterilmektedir. Bu konu, öğretici genişletir [Bildirim hub'larıyla kullanıcılara bildirim gönderme]. Zaten gerekli adımları kimliği doğrulanmış bir mobil hizmet oluşturmak için Bu öğreticide tamamlamış olmanız gerekir. Bildirim kullanıcılar senaryo hakkında daha fazla bilgi için bkz. [Bildirim hub'larıyla kullanıcılara bildirim gönderme].
 
-## <a name="update-your-app"></a>Uygulamanızı güncelleştirme
+## <a name="update-your-app"></a>Uygulamanızı güncelleştirin
 1. MainStoryboard_iPhone.storyboard içinde nesne kitaplığından aşağıdaki bileşenleri ekleyin:
    
    * **Etiket**: "Push Notification Hubs ile kullanıcıya"
    * **Etiket**: "InstallationId"
    * **Etiket**: "Kullanıcı"
    * **Metin alanı**: "Kullanıcı"
-   * **Etiket**: "Parola"
-   * **Metin alanı**: "Parola"
-   * **Düğme**: "Oturum Aç"
+   * **Etiket**: "Password"
+   * **Metin alanı**: "Password"
+   * **Düğme**: "Login"
      
-     Bu noktada, şeridinizin aşağıdaki gibi görünür:
+     Bu noktada, film şeridini aşağıdaki gibi görünür:
      
       ![][0]
-2. Yardımcısı düzenleyicisinde çıkışlar anahtarlı tüm denetimler için oluşturma ve bunları çağrısı, metin alanları View Controller (temsilci) bağlanmak ve oluşturma bir **eylem** için **oturum açma** düğmesi.
+2. Yardımcısı düzenleyicisinde, çıkışlar anahtarlı tüm denetimler için oluşturma ve bunları çağırın, metin alanları ile görünüm denetleyicisi (temsilci) bağlanmak ve oluşturma bir **eylem** için **oturum açma** düğmesi.
    
        ![][1]
    
@@ -55,11 +55,11 @@ Bu konu kayıt ASP.NET Web API tarafından gerçekleştirildiğinde Azure Notifi
         @property (weak, nonatomic) IBOutlet UITextField *Password;
    
         - (IBAction)login:(id)sender;
-3. Adlı bir sınıf oluşturun **Deviceınfo**ve aşağıdaki kodu dosyanın DeviceInfo.h arabirimi bölüme kopyalayın:
+3. Adlı bir sınıf oluşturun **Deviceınfo**ve ' % s'dosyasının DeviceInfo.h arabirimi bölüme aşağıdaki kodu kopyalayın:
    
         @property (readonly, nonatomic) NSString* installationId;
         @property (nonatomic) NSData* deviceToken;
-4. Aşağıdaki kodu DeviceInfo.m dosya uygulama bölümünde kopyalayın:
+4. DeviceInfo.m dosyasının uygulama bölümünde aşağıdaki kodu kopyalayın:
    
             @synthesize installationId = _installationId;
    
@@ -90,7 +90,7 @@ Bu konu kayıt ASP.NET Web API tarafından gerçekleştirildiğinde Azure Notifi
                                       ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
                 return hexToken;
             }
-5. PushToUserAppDelegate.h içinde aşağıdaki özellik singleton ekleyin:
+5. Aşağıdaki özellik tekli PushToUserAppDelegate.h içinde ekleyin:
    
         @property (strong, nonatomic) DeviceInfo* deviceInfo;
 6. İçinde **didFinishLaunchingWithOptions** PushToUserAppDelegate.m, yöntemine aşağıdaki kodu ekleyin:
@@ -99,23 +99,23 @@ Bu konu kayıt ASP.NET Web API tarafından gerçekleştirildiğinde Azure Notifi
    
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
    
-    İlk satırı başlatır **Deviceınfo** singleton. İkinci satır, zaten tamamladıysanız zaten kayıt anında iletme bildirimleri için başlar [Notification Hubs ile çalışmaya başlama] Öğreticisi.
-7. PushToUserAppDelegate.m içinde yöntemi uygulaması **didRegisterForRemoteNotificationsWithDeviceToken** AppDelegate içinde ve aşağıdaki kodu ekleyin:
+    İlk satırı başlatır **Deviceınfo** tekil. İkinci satır zaten tamamladıysanız, var olan anında iletme bildirimleri kaydı başlar [Notification Hubs ile çalışmaya başlama] öğretici.
+7. PushToUserAppDelegate.m içinde yöntemi uygulamak **didRegisterForRemoteNotificationsWithDeviceToken** AppDelegate içinde ve aşağıdaki kodu ekleyin:
    
         self.deviceInfo.deviceToken = deviceToken;
    
     Bu istek için cihaz belirteci ayarlar.
    
    > [!NOTE]
-   > Bu noktada, olmamalıdır başka bir kodu bu yöntem. Çağrı zaten varsa **registerNativeWithDeviceToken** tamamlandığında, eklediğiniz yöntemi [Notification Hubs ile çalışmaya başlama](/manage/services/notification-hubs/get-started-notification-hubs-ios/) eğitmen, yorum genişletme veya o çağrının kaldırmanız gerekir.
+   > Bu noktada, olmamalıdır herhangi bir kodu bu yöntemi. Bir çağrı zaten varsa **registerNativeWithDeviceToken** tamamlandığında, eklediğiniz yöntemi [Notification Hubs ile çalışmaya başlama](notification-hubs-ios-apple-push-notification-apns-get-started.md) öğretici açıklama veya bu çağrı kaldırmanız gerekir.
    > 
    > 
-8. PushToUserAppDelegate.m dosyasında aşağıdaki işleyici yöntemi ekleyin:
+8. PushToUserAppDelegate.m dosyasında aşağıdaki işleyicisi yöntemi ekleyin:
    
-   * (void) uygulama:(UIApplication *) uygulama didReceiveRemoteNotification:(NSDictionary *) kullanıcı bilgisi {NSLog (@"% @", kullanıcı bilgisi);   UIAlertView * uyarı = [[UIAlertView ayırma] initWithTitle:@"Notification" ileti: [kullanıcı bilgisi objectForKey:@"inAppMessage"] temsilci: nil cancelButtonTitle: @"OK" otherButtonTitles:nil, nil];   [uyarı göster]; }
+   * (void) uygulama:(UIApplication *) uygulama didReceiveRemoteNotification:(NSDictionary *) UserInfo {NSLog (@"% @", UserInfo);   UIAlertView * uyarı = [[UIAlertView ayırma] initWithTitle:@"Notification" iletisi: [UserInfo objectForKey:@"inAppMessage"] temsilci: nil cancelButtonTitle: @"OK" otherButtonTitles:nil, nil];   [uyarı göster]; }
    
-   Uygulamanızı çalışırken bildirimi aldığında bu yöntem kullanıcı Arabiriminde bir uyarı görüntüler.
-9. PushToUserViewController.m dosyasını açın ve aşağıdaki uygulama klavye döndürür:
+   Uygulamanız çalışırken bildirimleri aldığında bu yöntem kullanıcı Arabiriminde bir uyarı görüntüler.
+9. PushToUserViewController.m dosyasını açın ve aşağıdaki uygulamasında klavye döndürür:
    
         - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
             if (theTextField == self.User || theTextField == self.Password) {
@@ -123,11 +123,11 @@ Bu konu kayıt ASP.NET Web API tarafından gerçekleştirildiğinde Azure Notifi
             }
             return YES;
         }
-10. İçinde **viewDidLoad** InstallationID etiketini aşağıdaki gibi Initialize yöntemi PushToUserViewController.m dosyasında:
+10. İçinde **viewDidLoad** InstallationID etiket gibi Initialize yöntemi PushToUserViewController.m dosyasında:
     
          DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
          Self.installationId.text = deviceInfo.installationId;
-11. Aşağıdaki özellikler PushToUserViewController.m arabiriminde ekleyin:
+11. PushToUserViewController.m arabirimi aşağıdaki özellikleri ekleyin:
     
         @property (readonly) NSOperationQueue* downloadQueue;
         - (NSString*)base64forData:(NSData*)theData;
@@ -174,7 +174,7 @@ Bu konu kayıt ASP.NET Web API tarafından gerçekleştirildiğinde Azure Notifi
     
                 return [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
             }
-13. Aşağıdaki kodu kopyalayın **oturum açma** XCode tarafından oluşturulan işleyici yöntemi:
+13. Aşağıdaki kodu kopyalayın **oturum açma** XCode tarafından oluşturulan işleyicisi yöntemi:
     
             DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
     
@@ -207,9 +207,9 @@ Bu konu kayıt ASP.NET Web API tarafından gerçekleştirildiğinde Azure Notifi
                 }
             }];
     
-    Bu yöntem anında iletme bildirimleri için bir yükleme kimliği ve kanal alır ve bunu, Notification Hubs ' bir kayıt oluşturur kimliği doğrulanmış Web API yöntemine cihaz türü ile birlikte gönderir. Bu Web API tanımlanan [Notification Hubs kullanıcılara bildirme].
+    Bu yöntem, bir yükleme kimliği ve kanal için anında iletme bildirimleri alır ve, cihaz türü ile birlikte bir kayıt Notification hubs'ı oluşturan kimliği doğrulanmış Web API yöntemine gönderir. Bu Web API tanımlandığı [Bildirim hub'larıyla kullanıcılara bildirim gönderme].
 
-İstemci uygulaması güncelleştirildi, geri dönüp [Notification Hubs kullanıcılara bildirme] ve bildirim hub'ları kullanarak bildirim göndermek için mobil hizmeti güncelleştirin.
+İstemci uygulaması güncelleştirildi, dönmek [Bildirim hub'larıyla kullanıcılara bildirim gönderme] ve bildirim hub'ları kullanarak bildirim göndermek için mobil hizmeti güncelleştirin.
 
 <!-- Anchors. -->
 
@@ -218,6 +218,6 @@ Bu konu kayıt ASP.NET Web API tarafından gerçekleştirildiğinde Azure Notifi
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[Notification Hubs kullanıcılara bildirme]: /manage/services/notification-hubs/notify-users-aspnet
+[Bildirim hub'larıyla kullanıcılara bildirim gönderme]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 
-[Notification Hubs ile çalışmaya başlama]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+[Notification Hubs ile çalışmaya başlama]: notification-hubs-ios-apple-push-notification-apns-get-started.md

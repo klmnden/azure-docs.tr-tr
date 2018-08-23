@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: juliako
-ms.openlocfilehash: 220ff194ab5f8fa49ba7603ecd91122459d4dc1e
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: cdfd19f2dfd599eacaa0759b63c94767e760a874
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249232"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056180"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services sürüm notları
 Bu sürüm notlarını Azure Media Services önceki sürümleri ve bilinen sorunlar değişiklikleri özetlemek için.
@@ -35,7 +35,7 @@ Bu sürüm notlarını Azure Media Services önceki sürümleri ve bilinen sorun
 | Sorun | Açıklama |
 | --- | --- |
 | Birçok ortak HTTP üst bilgilerini REST API'SİNDE sağlanmayan. |REST API kullanarak Media Services uygulamalar geliştiriyorsanız, bazı ortak HTTP üst bilgi alanları bulabilirsiniz (dahil CLIENT-REQUEST-ID REQUEST-ID yanı sıra, RETURN-CLIENT-REQUEST-ID) desteklenmez. Üst bilgiler, gelecek güncelleştirmelerden birinde eklenecektir. |
-| Yüzde kodlama izin verilmiyor. |Media Services akış içeriği için (örneğin, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters) URL'ler oluşturulurken IAssetFile.Name özelliğinin değeri kullanır. Bu nedenle, yüzde kodlama izin verilmiyor. Name özelliği değeri aşağıdakilerden herhangi birini olamaz [yüzde kodlama-ayrılmış karakterleri](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Ayrıca, yalnızca bir olabilir "." dosya adı uzantısı için. |
+| Yüzde kodlama izin verilmiyor. |Media Services akış içeriğini URL'ler oluşturulurken IAssetFile.Name özelliğinin değeri kullanır (örneğin, `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). Bu nedenle, yüzde kodlama izin verilmiyor. Name özelliği değeri aşağıdakilerden herhangi birini olamaz [yüzde kodlama-ayrılmış karakterleri](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Ayrıca, yalnızca bir olabilir "." dosya adı uzantısı için. |
 | Azure depolama SDK'sı sürüm 3.x başarısız parçasıdır ListBlobs yöntem. |Media Services oluşturur göre tüm SAS URL'lerini [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) sürümü. Bir blob kapsayıcı içindeki blobları listeleme için depolama SDK'sını kullanmak istiyorsanız, kullanın [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) depolama SDK'sı sürüm parçası olan yöntemin 2.x. |
 | Azaltma mekanizması Media Services, hizmete aşırı isteklerde uygulamalar için kaynak kullanımını kısıtlıyor. Hizmet, "Hizmet kullanılamıyor" 503 HTTP durum kodunu döndürebilir. |Daha fazla bilgi için bkz: 503 HTTP durum kodu açıklamasını [Media Services hata kodları](media-services-encoding-error-codes.md). |
 | Varlıkları sorgulama yaptığında, sürüm 2 genel REST sorgu sonuçlarını 1.000 sonuçları sınırladığı için 1000 varlıkların bir sınır aynı anda döndürülür. |Atla ve Al (.NET) / açıklandığı (REST) üst [bu .NET örnek](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) ve [bu REST API örnek](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
