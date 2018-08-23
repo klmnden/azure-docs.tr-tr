@@ -1,3 +1,20 @@
+---
+title: include dosyası
+description: include dosyası
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 08/20/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: f60c23e34962396d4ea6e030912d1ca3f3e4571b
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40258102"
+---
 İki tür depolama hesabı vardır:
 
 ### <a name="general-purpose-storage-accounts"></a>Genel Amaçlı Depolama Hesapları
@@ -25,5 +42,5 @@ Blob Storage hesapları hakkında daha fazla ayrıntı için bkz. [Azure Blob St
 
 Depolama hesabı oluşturabilmeniz için, öncelikle çeşitli Azure hizmetlerine erişim sağlayan bir plan olan Azure aboneliğiniz olması gerekir. [Ücretsiz hesapla](https://azure.microsoft.com/pricing/free-trial/) Azure’a başlayabilirsiniz. Bir abonelik planı satın almaya karar verdiğinizde bir dizi [satın alma seçeneği](https://azure.microsoft.com/pricing/purchase-options/) arasından seçim yapabilirsiniz. [MSDN abonesiyseniz](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure Storage da dahil, Azure hizmetlerinde kullanabileceğiniz aylık ücretsiz krediler alırsınız. Birim fiyatlandırma hakkında bilgi için bkz. [Azure Storage Fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/).
 
-Depolama hesabı oluşturmayı öğrenmek amacıyla daha fazla bilgi için bkz. [Depolama hesabı oluşturma](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account). Tek bir abonelik ile benzersiz olarak adlandırılmış 200'e kadar depolama hesabı oluşturabilirsiniz. Depolama hesabı limitleri hakkında ayrıntılı bilgi için bkz. [Azure Storage Ölçeklenebilirlik ve Performans Hedefleri](../articles/storage/common/storage-scalability-targets.md).
+Depolama hesabı oluşturmayı öğrenmek amacıyla daha fazla bilgi için bkz. [Depolama hesabı oluşturma](../articles/storage/common/storage-quickstart-create-account.md). Tek bir abonelik ile benzersiz olarak adlandırılmış 200'e kadar depolama hesabı oluşturabilirsiniz. Depolama hesabı limitleri hakkında ayrıntılı bilgi için bkz. [Azure Storage Ölçeklenebilirlik ve Performans Hedefleri](../articles/storage/common/storage-scalability-targets.md).
 

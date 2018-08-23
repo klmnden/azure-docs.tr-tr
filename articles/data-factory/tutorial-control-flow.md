@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 3b69556c45709629e73aced374db276844e41120
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 7f555c727db88efd54aeae57da0b8ac626672ced
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618385"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41918989"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory işlem hattında dallanma ve zincirleme etkinlikleri
 Bu öğreticide, bazı denetim akışı özelliklerini gösteren bir Data Factory işlem hattı oluşturacaksınız. Bu işlem hattı, Azure Blob Depolama içindeki kapsayıcıdan aynı depolama hesabındaki başka bir kapsayıcıya basit bir kopyalama işlemi yapar. Kopyalama etkinliği başarılı olursa, başarılı kopyalama işleminin ayrıntılarını (örneğin, yazılan veri miktarı) bir başarı e-postası ile göndermek istersiniz. Kopyalama etkinliği başarısız olursa, kopyalama hatasının ayrıntılarını (örneğin, hata iletisi) bir hata e-postası ile göndermek istersiniz. Öğretici boyunca parametreleri nasıl geçireceğinizi göreceksiniz.
@@ -43,7 +43,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* **Azure Depolama hesabı**. Blob depolama alanını **kaynak** veri deposu olarak kullanabilirsiniz. Azure depolama hesabınız yoksa, oluşturma adımları için [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) makalesine bakın.
+* **Azure Depolama hesabı**. Blob depolama alanını **kaynak** veri deposu olarak kullanabilirsiniz. Azure depolama hesabınız yoksa, oluşturma adımları için [Depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md) makalesine bakın.
 * **Azure SQL Veritabanı**. Veritabanını **havuz** veri deposu olarak kullanabilirsiniz. Azure SQL Veritabanınız yoksa, oluşturma adımları için [Azure SQL veritabanı oluşturma](../sql-database/sql-database-get-started-portal.md) makalesine bakın.
 * **Visual Studio** 2013, 2015 veya 2017. Bu makaledeki kılavuzda Visual Studio 2017 kullanılır.
 * **[Azure .NET SDK](http://azure.microsoft.com/downloads/)** indirip yükleyin.

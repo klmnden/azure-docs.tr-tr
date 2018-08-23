@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 5c80abcfa4fe14bc211bf829f24d190790d80353
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f028f59a03614d0d746819ff8f68e832250190b0
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430813"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918562"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Öğretici: Verileri şirket içi SQL Server veritabanından Azure Blob depolamaya kopyalama
 Bu öğreticide, Azure PowerShell kullanarak verileri şirket içi SQL Server veritabanından bir Azure Blob depolama alanına kopyalayan bir veri fabrikası işlem hattı oluşturacaksınız. Verileri şirket içi ile bulut veri depoları arasında taşıyan, şirket içinde barındırılan bir tümleştirme çalışma zamanı oluşturup kullanabilirsiniz. 
@@ -68,7 +68,7 @@ Bu öğreticide, şirket içi SQL Server veritabanını bir *kaynak* veri deposu
 1. Ağaç görünümünde, oluşturduğunuz veritabanına sağ tıklayın ve **Yeni Sorgu**'yu seçin.
 
 ### <a name="azure-storage-account"></a>Azure Storage hesabı
-Bu öğreticide, genel amaçlı bir Azure depolama hesabını (özel olarak Blob depolamayı) hedef/havuz veri deposu olarak kullanırsınız. Genel amaçlı bir Azure depolama hesabınız yoksa bkz. [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account). Bu öğreticide oluşturduğunuz veri fabrikasındaki işlem hattı, verileri şirket içi SQL Server veritabanından (kaynak) bu Azure Blob depolama alanına (havuz) kopyalar. 
+Bu öğreticide, genel amaçlı bir Azure depolama hesabını (özel olarak Blob depolamayı) hedef/havuz veri deposu olarak kullanırsınız. Genel amaçlı bir Azure depolama hesabınız yoksa bkz. [Depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md). Bu öğreticide oluşturduğunuz veri fabrikasındaki işlem hattı, verileri şirket içi SQL Server veritabanından (kaynak) bu Azure Blob depolama alanına (havuz) kopyalar. 
 
 #### <a name="get-storage-account-name-and-account-key"></a>Depolama hesabı adını ve hesap anahtarını alma
 Bu öğreticide, Azure depolama hesabınızın adını ve anahtarını kullanırsınız. Aşağıdakileri yaparak depolama hesabınızın adını ve anahtarını alın: 

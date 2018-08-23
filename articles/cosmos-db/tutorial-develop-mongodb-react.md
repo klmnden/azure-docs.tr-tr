@@ -2,7 +2,7 @@
 title: Azure için MongoDB, React ve Node.js öğreticisi | Microsoft Belgeleri
 description: Video temelli bu öğretici serisiyle Azure Cosmos DB üzerinde React ve Node ile MongoDB için kullandığınız aynı API'leri kullanarak bir MongoDB uygulaması oluşturmayı öğrenirsiniz.
 services: cosmos-db
-author: SnehaGunda
+author: johnpapa
 manager: kfile
 editor: ''
 ms.service: cosmos-db
@@ -10,14 +10,14 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: sngun
+ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: cfd6138d02038d812b3857202ef8d8232e861a72
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: eac537c5b068b795fee7fb845eb7a98fb11316d3
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763502"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41919464"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>React ve Azure Cosmos DB ile bir MongoDB uygulaması oluşturma  
 

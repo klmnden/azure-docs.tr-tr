@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 27754395e0be5bffab3c63b42fff9ddbf93cf338
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: ecdebad7217e27e4439562a6b3002cb203f803e2
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084618"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920388"
 ---
 # <a name="create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>REST API kullanarak Azure veri fabrikası ve işlem hattı oluşturma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 ## <a name="prerequisites"></a>Ön koşullar
 
 * **Azure aboneliği**. Bir aboneliğiniz yoksa, bir [ücretsiz deneme](http://azure.microsoft.com/pricing/free-trial/) hesabı oluşturabilirsiniz.
-* **Azure Depolama hesabı**. Blob depolama alanını **kaynak** ve **havuz** veri deposu olarak kullanabilirsiniz. Azure depolama hesabınız yoksa, oluşturma adımları için [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) makalesine bakın.
+* **Azure Depolama hesabı**. Blob depolama alanını **kaynak** ve **havuz** veri deposu olarak kullanabilirsiniz. Azure depolama hesabınız yoksa, oluşturma adımları için [Depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md) makalesine bakın.
 * Blob Depolama içinde bir **blob kapsayıcısı** oluşturun, kapsayıcıda bir giriş **klasörü** oluşturun ve bazı dosyaları klasöre yükleyin. [Azure Depolama gezgini](https://azure.microsoft.com/features/storage-explorer/) gibi araçları kullanarak Azure Blob depolama hesabına bağlanabilir, bir blob kapsayıcısı oluşturabilir, giriş dosyasını karşıya yükleyebilir ve çıktı dosyasını doğrulayabilirsiniz.
 * **Azure PowerShell**'i yükleyin. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps) bölümündeki yönergeleri izleyin. Bu hızlı başlangıçta RES API çağrılarını çağırmak için PowerShell kullanılır.
 * **Azure Active Directory’de** [bu yönergeyi](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) izleyerek bir uygulama oluşturun. Sonraki adımlarda kullandığınız şu değerleri not edin: **uygulama kimliği**, **kimlik doğrulama anahtarı** ve **kiracı kimliği**. Uygulamayı "**Katkıda Bulunan**" rolüne atayın.

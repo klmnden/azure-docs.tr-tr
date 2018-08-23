@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 6d63a443da0fd331d02039ed3a3715dbc59f273b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f1803dd051b380743b56f4f026ee5c5fb684ce69
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051476"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918859"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Azure SQL veritabanından Azure Blob depolama alanına verileri artımlı olarak yükleme
 Bu öğreticide, Azure SQL veritabanındaki bir tablodan Azure Blob depolama alanına delta veri yükleyen işlem hattına sahip bir Azure veri fabrikası oluşturacaksınız. 
@@ -65,7 +65,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 ## <a name="prerequisites"></a>Ön koşullar
 * **Azure SQL Veritabanı**. Veritabanını kaynak veri deposu olarak kullanabilirsiniz. SQL veritabanınız yoksa, oluşturma adımları için bkz. [Azure SQL veritabanı oluşturma](../sql-database/sql-database-get-started-portal.md).
-* **Azure Depolama**. Blob depolamayı havuz veri deposu olarak kullanabilirsiniz. Depolama hesabınız yoksa, oluşturma adımları için bkz. [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account). adftutorial adlı bir kapsayıcı oluşturun. 
+* **Azure Depolama**. Blob depolamayı havuz veri deposu olarak kullanabilirsiniz. Depolama hesabınız yoksa, oluşturma adımları için bkz. [Depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md). adftutorial adlı bir kapsayıcı oluşturun. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>SQL veritabanınızda bir veri kaynağı tablosu oluşturma
 1. SQL Server Management Studio’yu açın. **Sunucu Gezgini**’nde veritabanına sağ tıklayın ve **Yeni Sorgu**’yu seçin.

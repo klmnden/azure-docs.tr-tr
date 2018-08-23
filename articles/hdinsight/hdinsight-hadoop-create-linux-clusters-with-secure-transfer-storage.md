@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: hero-article
 ms.date: 07/24/2018
-ms.openlocfilehash: e6d84229af459d18df8d9dfd7f048f6075ea47f3
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: fd7f9095d7ac00de3ad031f08db49785863176a1
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594615"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918293"
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Azure HDInsight’ta güvenli aktarım depolama hesapları ile Hadoop kümesi oluşturma
 
@@ -24,7 +24,7 @@ ms.locfileid: "39594615"
 Bu öğreticiye başlamadan önce
 
 * **Azure aboneliği** gereklidir. Bir aylık ücretsiz deneme hesabı oluşturmak için [azure.microsoft.com/free](https://azure.microsoft.com/free) adresine gidin.
-* **Güvenli aktarım özellikli bir Azure depolama hesabı**. Yönergeler için bkz. [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) ve [Güvenli aktarım isteme](../storage/common/storage-require-secure-transfer.md).
+* **Güvenli aktarım özellikli bir Azure depolama hesabı**. Yönergeler için bkz. [Depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md) ve [Güvenli aktarım isteme](../storage/common/storage-require-secure-transfer.md).
 * **Depolama hesabındaki bir Blob kapsayıcı**. 
 
 ## <a name="create-cluster"></a>Küme oluşturma

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 1b7ce6078fcaedee3d9ed4151063816df937ac0f
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1bb7a73213589b09d591e1c8297d9deaec7e075a
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055192"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41918707"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory işlem hattında dallanma ve zincirleme etkinlikleri
 Bu öğreticide, bazı denetim akışı özelliklerini gösteren bir Data Factory işlem hattı oluşturacaksınız. Bu işlem hattı, Azure Blob Depolama içindeki kapsayıcıdan aynı depolama hesabındaki başka bir kapsayıcıya basit bir kopyalama işlemi yapar. Kopyalama etkinliği başarılı olursa, işlem hattı başarılı kopyalama işleminin ayrıntılarını (örneğin, yazılan veri miktarı) bir başarı e-postası ile gönderir. Kopyalama etkinliği başarısız olursa, işlem hattı kopyalama hatasının ayrıntılarını (örneğin, hata iletisi) bir hata e-postası ile gönderir. Öğretici boyunca parametreleri nasıl geçireceğinizi göreceksiniz.
@@ -42,7 +42,7 @@ Bu öğreticide Azure Portal kullanılır. Azure Data Factory ile etkileşim kur
 ## <a name="prerequisites"></a>Ön koşullar
 
 * **Azure aboneliği**. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
-* **Azure Depolama hesabı**. Blob depolama alanını **kaynak** veri deposu olarak kullanabilirsiniz. Azure depolama hesabınız yoksa, oluşturma adımları için [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) makalesine bakın.
+* **Azure Depolama hesabı**. Blob depolama alanını **kaynak** veri deposu olarak kullanabilirsiniz. Azure depolama hesabınız yoksa, oluşturma adımları için [Depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md) makalesine bakın.
 * **Azure SQL Veritabanı**. Veritabanını **havuz** veri deposu olarak kullanabilirsiniz. Azure SQL Veritabanınız yoksa, oluşturma adımları için [Azure SQL veritabanı oluşturma](../sql-database/sql-database-get-started-portal.md) makalesine bakın.
 
 ### <a name="create-blob-table"></a>Blob tablosu oluşturma

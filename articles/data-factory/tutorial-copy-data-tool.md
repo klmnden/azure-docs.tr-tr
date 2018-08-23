@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: f7dd560a40eda2439e88d66771e2e22c90442bfd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6e63973f2545abefc030edc4c6bb6b35c28729f7
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421524"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918858"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Veri Kopyalama aracını kullanarak Azure Blob depolama alanında SQL veritabanına veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -38,7 +38,7 @@ Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 ## <a name="prerequisites"></a>Ön koşullar
 
 * **Azure aboneliği**: Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
-* **Azure depolama hesabı**: Blob depolama alanını _kaynak_ veri deposu olarak kullanın. Azure depolama hesabınız yoksa [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) bölümündeki yönergelere bakın.
+* **Azure depolama hesabı**: Blob depolama alanını _kaynak_ veri deposu olarak kullanın. Azure depolama hesabınız yoksa [Depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md) bölümündeki yönergelere bakın.
 * **Azure SQL Veritabanı**: Bir SQL veritabanını _havuz_ veri deposu olarak kullanın. SQL veritabanınız yoksa [SQL veritabanı oluşturma](../sql-database/sql-database-get-started-portal.md) konusundaki yönergelere bakın.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Bir blob ve SQL tablosu oluşturma

@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 7d348bf2372ff3bc48590b6c5e97e8eee8a4136b
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 80046bf39bd3973322b799f588fb9ee149d95950
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084952"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41919840"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>Python kullanarak veri fabrikası ve işlem hattı oluşturma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* **Azure Depolama hesabı**. Blob depolama alanını **kaynak** ve **havuz** veri deposu olarak kullanabilirsiniz. Azure depolama hesabınız yoksa, oluşturma adımları için [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) makalesine bakın.
+* **Azure Depolama hesabı**. Blob depolama alanını **kaynak** ve **havuz** veri deposu olarak kullanabilirsiniz. Azure depolama hesabınız yoksa, oluşturma adımları için [Depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md) makalesine bakın.
 * **Azure Active Directory’de** [bu yönergeyi](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) izleyerek bir uygulama oluşturun. Sonraki adımlarda kullandığınız şu değerleri not edin: **uygulama kimliği**, **kimlik doğrulama anahtarı** ve **kiracı kimliği**. Aynı makalede bulunan yönergeleri izleyerek uygulamayı "**Katkıda bulunan**" rolüne atayın.
 
 ### <a name="create-and-upload-an-input-file"></a>Giriş dosyası oluşturma ve yükleme
