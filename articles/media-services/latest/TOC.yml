@@ -1,140 +1,149 @@
+items:
 - name: Media Services Belgeleri
   href: ./index.yml
 - name: Genel Bakış
   items:
-    - name: Media Services hakkında
-      href: media-services-overview.md
+  - name: Media Services hakkında
+    href: media-services-overview.md
 - name: Hızlı Başlangıçlar
-  expanded: true
   items:
-    - name: .NET ile video dosyalarını akışla aktarma
-      href: stream-files-dotnet-quickstart.md
+  - name: .NET ile video dosyalarını akışla aktarma
+    href: stream-files-dotnet-quickstart.md
+  expanded: true
 - name: Öğreticiler
   items:
-    - name: 'Karşıya yükleme, kodlama ve akışla aktarma'
-      items:
-        - name: .NET ile
-          href: stream-files-tutorial-with-api.md
-        - name: REST ile
-          href: stream-files-tutorial-with-rest.md
-    - name: Canlı akış
-      items:
-        - name: .NET Core ile
-          href: stream-live-tutorial-with-api.md
-    - name: Videonuzu analiz etme
-      items:
-        - name: .NET ile
-          href: analyze-videos-tutorial-with-api.md
+  - name: Karşıya yükleme, kodlama ve akışla aktarma
+    items:
+    - name: .NET ile
+      href: stream-files-tutorial-with-api.md
+    - name: REST ile
+      href: stream-files-tutorial-with-rest.md
+  - name: Canlı akış
+    items:
+    - name: .NET Core ile
+      href: stream-live-tutorial-with-api.md
+  - name: Videonuzu analiz etme
+    items:
+    - name: .NET ile
+      href: analyze-videos-tutorial-with-api.md
 - name: Örnekler
   items:
-    - name: Azure kod örnekleri
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3'
-    - name: Azure CLI
-      href: cli-samples.md
+  - name: Azure kod örnekleri
+    href: https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3
+  - name: Azure CLI
+    href: cli-samples.md
 - name: Kavramlar
   items:
-    - name: Varlıklar
-      href: assets-concept.md
-    - name: İçerik koruma
-      items:
-        - name: Genel Bakış
-          href: content-protection-overview.md
-        - name: Erişim denetimiyle çoklu DRM sistemi
-          href: design-multi-drm-system-with-access-control.md
-    - name: Encoding
-      items:
-        - name: Genel Bakış
-          href: encoding-concept.md
-        - name: Autogen uyarlamalı bit hızı merdiveni
-          href: autogen-bitrate-ladder.md
-    - name: Canlı akış
-      href: live-streaming-overview.md
-    - name: Medya zekası
-      href: intelligence-concept.md
-    - name: Olaylara tepki verme
-      href: reacting-to-media-services-events.md
-    - name: Depolama hesapları
-      href: storage-account-concept.md
-    - name: Dönüşümler ve işler
-      href: transform-concept.md
+  - name: Varlıklar
+    href: assets-concept.md
+  - name: İçerik koruma
+    items:
+    - name: Genel Bakış
+      href: content-protection-overview.md
+    - name: Erişim denetimiyle çoklu DRM sistemi
+      href: design-multi-drm-system-with-access-control.md
+  - name: Encoding
+    items:
+    - name: Genel Bakış
+      href: encoding-concept.md
+    - name: Autogen uyarlamalı bit hızı merdiveni
+      href: autogen-bitrate-ladder.md
+  - name: Canlı akış
+    href: live-streaming-overview.md
+  - name: Medya zekası
+    href: intelligence-concept.md
+  - name: Olaylara tepki verme
+    href: reacting-to-media-services-events.md
+  - name: Depolama hesapları
+    href: storage-account-concept.md
+  - name: Dönüşümler ve işler
+    href: transform-concept.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: v2'den v3'e geçiş
-      href: migrate-from-v2-to-v3.md
-    - name: Hesap oluşturma - CLI
-      href: create-account-cli-how-to.md
-    - name: API'lere erişim - CLI
-      href: access-api-cli-how-to.md
-    - name: İş durumu olaylarını izleme - CLI
-      href: job-state-events-cli-how-to.md
-    - name: Dönüştürme ön ayarlarını özelleştirme - .NET Core
-      href: customize-encoder-presets-how-to.md
-    - name: İçerik yükleme
-      items:
-        - name: HTTP(s)’den - .NET
-          href: job-input-from-http-how-to.md
-        - name: Yerel bir dosyadan - .NET
-          href: job-input-from-local-file-how-to.md
-    - name: İçerik koruma
-      items:
-        - name: AES-128 - .NET ile
-          href: protect-with-aes128.md
-        - name: DRM - .NET ile
-          href: protect-with-drm.md
+  - name: v2'den v3'e geçiş
+    href: migrate-from-v2-to-v3.md
+  - name: Hesap oluşturma - CLI
+    href: create-account-cli-how-to.md
+  - name: API'lere erişim - CLI
+    href: access-api-cli-how-to.md
+  - name: İş durumu olaylarını izleme - CLI
+    href: job-state-events-cli-how-to.md
+  - name: Dönüştürme ön ayarlarını özelleştirme - .NET Core
+    href: customize-encoder-presets-how-to.md
+  - name: İçerik yükleme
+    items:
+    - name: HTTP(s)’den - .NET
+      href: job-input-from-http-how-to.md
+    - name: Yerel bir dosyadan - .NET
+      href: job-input-from-local-file-how-to.md
+  - name: İçerik koruma
+    items:
+    - name: AES-128 - .NET ile
+      href: protect-with-aes128.md
+    - name: DRM - .NET ile
+      href: protect-with-drm.md
 - name: Başvuru
   items:
-    - name: OpenAPI Belirtimi (Swagger)
-      href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview'
-    - name: Azure CLI
-      href: 'https://aka.ms/ams-v3-cli-ref'
-    - name: REST
-      href: 'https://aka.ms/ams-v3-rest-ref'
-    - name: .NET
-      href: 'https://aka.ms/ams-v3-dotnet-ref'
-    - name: Java
-      href: 'https://aka.ms/ams-v3-java-ref'
-    - name: Python
-      href: 'https://aka.ms/ams-v3-python-ref'
-    - name: Node .js
-      href: 'https://aka.ms/ams-v3-nodejs-ref'
-    - name: Olay şemaları
-      href: media-services-event-schemas.md
-    - name: DRM lisansları
-      items:
-        - name: PlayReady lisans şablonu
-          href: playready-license-template-overview.md
-        - name: Widevine lisans şablonu
-          href: widevine-license-template-overview.md
-        - name: FairPlay lisans gereksinimleri
-          href: fairplay-license-overview.md
+  - name: OpenAPI Belirtimi (Swagger)
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview
+  - name: Azure CLI
+    href: https://aka.ms/ams-v3-cli-ref
+  - name: REST
+    href: https://aka.ms/ams-v3-rest-ref
+  - name: .NET
+    href: https://aka.ms/ams-v3-dotnet-ref
+  - name: Java
+    href: https://aka.ms/ams-v3-java-ref
+  - name: Python
+    href: https://aka.ms/ams-v3-python-ref
+  - name: Node .js
+    href: https://aka.ms/ams-v3-nodejs-ref
+  - name: Başlayın
+    href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/mediaservices/mgmt/2018-06-01-preview/media
+  - name: Olay şemaları
+    href: media-services-event-schemas.md
+  - name: DRM lisansları
+    items:
+    - name: PlayReady lisans şablonu
+      href: playready-license-template-overview.md
+    - name: Widevine lisans şablonu
+      href: widevine-license-template-overview.md
+    - name: FairPlay lisans gereksinimleri
+      href: fairplay-license-overview.md
 - name: Kaynaklar
   items:
-    - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
-    - name: Fiyatlandırma
-      href: 'https://azure.microsoft.com/pricing/details/media-services/'
-    - name: Bölgesel kullanılabilirlik
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Videolar
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=media-services'
-    - name: SDK’lar
-      items:
-        - name: Azure CLI
-          href: 'https://aka.ms/ams-v3-cli'
-        - name: REST
-          href: 'https://aka.ms/ams-v3-rest-sdk'
-        - name: .NET
-          href: 'https://aka.ms/ams-v3-dotnet-sdk'
-        - name: Java
-          href: 'https://aka.ms/ams-v3-java-sdk'
-        - name: Python
-          href: 'https://aka.ms/ams-v3-python-sdk'
-        - name: Node .js
-          href: 'https://aka.ms/ams-v3-nodejs-sdk'
-    - name: Sürüm notları
-    - name: Sürüm notları
-      href: release-notes.md
-    - name: Kotalar ve sınırlamalar
-      href: limits-quotas-constraints.md
-    - name: SSS
-      href: frequently-asked-questions.md
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/?category=web-mobile
+  - name: Fiyatlandırma
+    href: https://azure.microsoft.com/pricing/details/media-services/
+  - name: Bölgesel kullanılabilirlik
+    href: https://azure.microsoft.com/regions/services/
+  - name: Videolar
+    href: https://azure.microsoft.com/resources/videos/index/?services=media-services
+  - name: SDK’lar
+    items:
+    - name: Azure CLI
+      href: https://aka.ms/ams-v3-cli
+    - name: REST
+      href: https://aka.ms/ams-v3-rest-sdk
+    - name: .NET
+      href: https://aka.ms/ams-v3-dotnet-sdk
+    - name: Java
+      href: https://aka.ms/ams-v3-java-sdk
+    - name: Python
+      href: https://aka.ms/ams-v3-python-sdk
+    - name: Node .js
+      href: https://aka.ms/ams-v3-nodejs-sdk
+  - name: Sürüm notları
+  - name: Sürüm notları
+    href: release-notes.md
+  - name: Kotalar ve sınırlamalar
+    href: limits-quotas-constraints.md
+  - name: SSS
+    href: frequently-asked-questions.md
+ms.openlocfilehash: f68492799ce9066e2e70bb1c3056deef20805413
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41927698"

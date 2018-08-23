@@ -8,12 +8,12 @@ ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 8e52c9268af5268ec29d2bee24ad75c8b3107e43
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 2e2fad49d0ca88f422721bdf759ab84c524a07c5
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263455"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42022724"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-azure-cli"></a>Azure CLI ile Blob depolama olaylarını bir özel web uç noktasına yönlendirme
 
@@ -49,9 +49,6 @@ az group create --name <resource_group_name> --location westcentralus
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
 Blob depolama olaylarını kullanmak için [Blob depolama hesabına](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) veya [Genel Amaçlı v2 depolama hesabına](../common/storage-account-options.md#general-purpose-v2-accounts) sahip olmanız gerekir. **Genel Amaçlı v2 (GPv2)** hesapları Bloblar, Dosyalar, Kuyruklar ve Tablolar dahil olmak üzere depolama hizmetlerinin tamamına yönelik tüm özellikleri destekleyen depolama hesaplarıdır. **Blob depolama hesabı**, yapılandırılmamış verilerinizi bloblar (nesneler) olarak Azure Storage’da depolamanıza yönelik özel depolama hesabıdır. Blob Storage hesapları, genel amaçlı depolama hesaplarınıza benzer ve blok blobları ve ilave blobları için %100 API tutarlığı dahil günümüzde kullandığınız tüm harika dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve performans özelliklerini paylaşır. Yalnızca blok veya engelleme blobunun gerektiği uygulamalar için Blob Storage hesaplarının kullanılmasını öneririz. 
-
-> [!NOTE]
-> Depolama olaylarının kullanılabilirliği Event Grid'in [kullanılabilirliğine](../../event-grid/overview.md) bağlıdır ve Event Grid gibi diğer bölgelerde kullanıma sunulacaktır.
 
 `<storage_account_name>` değerini depolama hesabınız için benzersiz bir ad ile ve `<resource_group_name>` değerini daha önce oluşturduğunuz kaynak grubu ile değiştirin.
 

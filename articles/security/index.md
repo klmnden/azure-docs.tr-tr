@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/30/2018
 ms.author: angrobe
-ms.openlocfilehash: 4c08fb5e731275c6f02edd93794f60e9af83e10d
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 7a457512b9fcaa8d0e895cdec6f973cd6614f82d
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630146"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41928026"
 ---
 # <a name="azure-security-documentation"></a>Azure Güvenlik Belgeleri
 
@@ -178,7 +178,7 @@ Güvenlik, Azure’un her yönüne tümleştirilmiştir. Azure, genel güvenlik 
                                 <a class="barLink" href="/azure/security/azure-threat-detection">Azure gelişmiş tehdit algılama</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-network-security">Azure ağ güvenliği</a>
+                                <a class="barLink" href="/azure/security/abstract-azure-network-security">Azure ağ güvenliği</a>
                             </li>
                         </ul>
                     </div>

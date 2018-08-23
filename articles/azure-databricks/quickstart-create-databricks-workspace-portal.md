@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: a302c0c6c4ecbaff2d11d852caf9e1e1500931b8
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cd6a3b768077880d47462d1db559a4884cceb84a
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225355"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42023473"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Databricks üzerinde bir Spark işi çalıştırma
 
@@ -95,7 +95,7 @@ Küme oluşturma hakkında daha fazla bilgi için bkz. [Azure Databricks üzerin
    - **Hesap Türü**: **Blob Depolama**'yı seçin
    - **Kaynak Grubu** adı belirleyin. Databricks çalışma alanını oluşturduğunuz aynı kaynak grubunu kullanın.
    
-   Daha fazla bilgi için bkz. [Azure Blob depolama hesabını oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+   Daha fazla bilgi için bkz. [Azure Blob depolama hesabını oluşturma](../storage/common/storage-quickstart-create-account.md). 
 
 3. Blob Depolama hesabında bir depolama Kapsayıcısı oluşturun ve örnek json dosyasını kapsayıcıya yükleyin. Dosyayı yüklemek için Azure portalı veya [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md)'ni kullanabilirsiniz.
 

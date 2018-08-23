@@ -78,7 +78,7 @@
 ### [Azure Dosya depolamayı Linux ile kullanma](../../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Tablo Depolama ile çalışmaya başlama](../../cosmos-db/table-storage-how-to-use-dotnet.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Kuyruk Depolama ile çalışmaya başlama](../../storage/queues/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Depolama hesabı oluşturma](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
+### [Depolama hesabı oluşturma](../../storage/common/storage-quickstart-create-account.md)
 ### [Azure Depolama ile Azure PowerShell’i kullanma](../../storage/common/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Depolama ile Azure CLI kullanma.](../../storage/common/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Depolama İstemci Araçları](../../storage/common/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

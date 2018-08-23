@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ccc0836a296bb392e60dd0c973516a7087ff6ea5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c2c1ef83ade7040e16f54b87f63f6eb27714bf2a
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429335"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42023249"
 ---
 # <a name="deploy-a-dcos-cluster"></a>DC/OS kümesi dağıtma
 
@@ -78,7 +78,7 @@ SSH tüneli başarıyla oluşturulursa DC/OS portalı döndürülür.
 
 ## <a name="install-dcos-cli"></a>DC/OS CLI’yı yükleyin
 
-DC/OS komut satırı arabirimi, bir DC/OS kümesini komut satırından yönetmek için kullanılır. [az acs dcos install-cli](/azure/acs/dcos#install-cli) komutunu kullanarak DC/OS CLI’yı yükleyin. Azure CloudShell kullanıyorsanız DC/OS CLI zaten yüklüdür. 
+DC/OS komut satırı arabirimi, bir DC/OS kümesini komut satırından yönetmek için kullanılır. [az acs dcos install-cli](/cli/azure/acs/dcos#az-acs-dcos-install-cli) komutunu kullanarak DC/OS CLI’yı yükleyin. Azure CloudShell kullanıyorsanız DC/OS CLI zaten yüklüdür. 
 
 Azure CLI’yı macOS ya da Linux’ta çalıştırıyorsanız komutu sudo ile çalıştırmanız gerekebilir.
 

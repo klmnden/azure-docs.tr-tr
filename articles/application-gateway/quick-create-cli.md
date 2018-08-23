@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 282f6d965ea85b25f1eada1a63897734c6c7b298
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 23ab97918d7def744f9ac3427faa3743b15124eb
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435273"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42023153"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Hızlı Başlangıç: Azure Application Gateway ile web trafiğini yönlendirme - Azure CLI
 
@@ -46,7 +46,7 @@ az group create --name myResourceGroupAG --location eastus
 
 Diğer kaynaklarla iletişim kurmak için uygulama ağ geçidine yönelik bir sanal makine oluşturmanız gerekir. Uygulama ağ geçidini oluştururken aynı zamanda bir sanal makine oluşturabilirsiniz. Bu örnekte iki alt ağ oluşturulmuştur: biri uygulama ağ geçidi ve diğeri de sanal makineler içindir. 
 
-[az network vnet create](/cli/azure/vnet#az-vnet-create) komutunu kullanarak sanal ağı ve alt ağı oluşturun. [az network public-ip create](/cli/azure/public-ip#az-public-ip-create) komutunu kullanarak bir genel IP adresi oluşturun.
+[az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) komutunu kullanarak sanal ağı ve alt ağı oluşturun. [az network public-ip create](/cli/azure/network/public-ip#az-public-ip-create) komutunu kullanarak bir genel IP adresi oluşturun.
 
 ```azurecli-interactive
 az network vnet create \
@@ -140,7 +140,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
-[az network application-gateway create](/cli/azure/application-gateway#az-application-gateway-create) komutunu kullanarak bir uygulama ağ geçidi oluşturun. Azure CLI kullanarak bir uygulama ağ geçidi oluşturduğunuzda, kapasite, sku ve HTTP ayarları gibi yapılandırma bilgilerini belirtirsiniz. Ağ arabirimlerinin özel IP adresleri, uygulama ağ geçidinin arka uç havuzunda sunucu olarak eklenir.
+[az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create) komutunu kullanarak bir uygulama ağ geçidi oluşturun. Azure CLI kullanarak bir uygulama ağ geçidi oluşturduğunuzda, kapasite, sku ve HTTP ayarları gibi yapılandırma bilgilerini belirtirsiniz. Ağ arabirimlerinin özel IP adresleri, uygulama ağ geçidinin arka uç havuzunda sunucu olarak eklenir.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')

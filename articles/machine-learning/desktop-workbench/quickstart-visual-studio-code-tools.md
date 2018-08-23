@@ -2,22 +2,20 @@
 title: Azure’da Machine Learning için Visual Studio Code Araçları için hızlı başlangıç makalesi | Microsoft Docs
 description: Bu makalede, deneme oluşturma, modeli deneme ve web hizmetini faaliyete geçirmeye gibi işlemlerle birlikte Machine Learning için Visual Studio Code Araçlarını kullanmaya nasıl başlayacağınız açıklanmaktadır.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+author: chris-lauren
+ms.author: chris.lauren
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.openlocfilehash: 16379b94a751ccd61a76ce1d3dda6a3ff1515751
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a215c562ad15b69dcec20c1951fe8bc3fe80c6ff
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38767077"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42024283"
 ---
 # <a name="visual-studio-code-tools-for-ai"></a>AI için Visual Studio Code Araçları
 AI için Visual Studio Code Araçları, Derin Öğrenme / AI çözümlerinin derlenmesini, test edilmesini ve dağıtılmasını sağlayan bir geliştirme uzantısıdır. Başta bir çalıştırma geçmişi görünümü olmak üzere önceki eğitimlerin performans ve özel ölçüm ayrıntılarını vererek, Azure Machine Learning ile sorunsuz bir tümleştirme sağlar. [Microsoft Bilişsel Araç Seti (önceki adıyla CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) ve diğer derin öğrenme çerçeveleriyle yeni projeye göz atma ve projeyi önyükleme olanağı tanıyan bir örnek gezgini görünümü sağlar. Son olarak, Azure Sanal Makineler veya GPU ile Linux sunucuları gibi uzak ortamlarda modelleri denemek üzere işleri göndermenizi sağlayan işlem hedeflerine yönelik bir gezgin sağlar. 

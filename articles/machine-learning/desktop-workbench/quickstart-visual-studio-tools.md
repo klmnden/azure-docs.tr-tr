@@ -2,22 +2,20 @@
 title: Azure’da Machine Learning için Visual Studio Araçları hızlı başlangıç makalesi | Microsoft Docs
 description: Bu makalede, deneme oluşturma, modeli deneme ve web hizmetini faaliyete geçirmeye gibi işlemlerle birlikte Machine Learning için Visual Studio Araçlarını kullanmaya nasıl başlayacağınız açıklanmaktadır.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.workload: data-services
+author: chris-lauren
+ms.author: chris.lauren
 ms.service: machine-learning
 ms.component: core
-ms.workload: data-services
-ms.custom: mvc
+ms.custom: mvc, vs-azure
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.openlocfilehash: 735bfd911a738d4e71974f5cdcd94afa50acc502
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 94bca4d7670b1ec6fba5057b8295f7a3caac2968
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932991"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42024377"
 ---
 # <a name="visual-studio-tools-for-ai"></a>AI için Visual Studio Araçları
 AI için Visual Studio Araçları, Derin Öğrenme / AI çözümlerinin derlenmesini, test edilmesini ve dağıtılmasını sağlayan bir geliştirme uzantısıdır. Başta bir çalıştırma geçmişi görünümü olmak üzere önceki eğitimlerin performans ve özel ölçüm ayrıntılarını vererek, Azure Machine Learning ile sorunsuz bir tümleştirme sağlar. [Microsoft Bilişsel Araç Seti (önceki adıyla CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) ve diğer derin öğrenme çerçeveleriyle yeni projeye göz atma ve projeyi önyükleme olanağı tanıyan bir örnek gezgini görünümü sağlar. Son olarak, Azure Sanal Makineler veya GPU ile Linux sunucuları gibi uzak ortamlarda modelleri denemek üzere işleri göndermenizi sağlayan işlem hedeflerine yönelik bir gezgin sağlar. Ayrıca [Azure Batch AI (Önizleme)](https://docs.microsoft.com/azure/batch-ai/) için kolaylaştırılmış erişim sağlar.

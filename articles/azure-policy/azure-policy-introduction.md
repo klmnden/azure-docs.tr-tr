@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: e00af59c39219cf6efd14a1c6b2d831fc8addf5a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 405f69ae1c37e478758d984ddf7dc0e267910fef
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364437"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023549"
 ---
 # <a name="what-is-azure-policy"></a>Azure İlkesi nedir?
 
@@ -119,19 +119,7 @@ Bu senaryoda **initiativeC** için girişim parametreleri tanımlanırken üç s
 
 ## <a name="maximum-count-of-policy-objects"></a>İlke nesnelerinin maksimum sayısı
 
-Azure İlkesi'nde her nesne türü için bir maksimum sayı vardır. _Kapsam_, aboneliği veya yönetim grubunu ifade eder.
-
-| Konum | Nesne | Maksimum sayı |
-|---|---|---|
-| Kapsam | İlke Tanımları | 250 |
-| Kapsam | Girişim Tanımları | 100 |
-| Kiracı | Girişim Tanımları | 1000 |
-| Kapsam | İlke/Girişim Atamaları | 100 |
-| İlke Tanımı | Parametreler | 20 |
-| Girişim Tanımı | İlkeler | 100 |
-| Girişim Tanımı | Parametreler | 100 |
-| İlke/Girişim Atamaları | Özel durumlar (notScopes) | 100 |
-| İlke Kuralı | İç İçe Geçmiş Koşullar | 512 |
+[!INCLUDE [policy-limits](../../includes/azure-policy-limits.md)]
 
 ## <a name="recommendations-for-managing-policies"></a>İlkeleri yönetme ile ilgili öneriler
 

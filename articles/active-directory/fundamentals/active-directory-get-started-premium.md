@@ -13,12 +13,12 @@ ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro;
-ms.openlocfilehash: c15cbb632410eb0b6867677d7802960033dfdd44
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: a5ede142b7f3dd314d1a6b3eb8f100ec55a4ea4e
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268391"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42024009"
 ---
 # <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>Hızlı Başlangıç: Azure Active Directory Premium'a kaydolma
 Azure Active Directory (Azure AD) Premium ile çalışmaya başlamak için lisans satın alabilir ve aldığınız lisansları Azure aboneliğinizle ilişkilendirebilirsiniz. Yeni bir Azure aboneliği oluşturursanız, lisans planınızı ve aşağıdaki bölümlerde açıklandığı gibi Azure AD hizmeti erişimini etkinleştirmeniz gerekir. 
@@ -46,7 +46,7 @@ Aşağıdaki lisans seçeneklerinden birini kullanarak EMS lisanslarını aracı
 ### <a name="microsoft-volume-licensing"></a>Microsoft toplu lisanslama
 Azure Active Directory Premium, bir [Microsoft Kurumsal Anlaşma](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 veya daha fazla lisans) aracılığıyla veya [Açık Toplu Lisans](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5 - 250 lisans) programı ile sunulmaktadır.
 
-Toplu lisans satın alma seçenekleri hakkında daha fazla bilgiyi [Toplu Lisanslama ile satın alma](https://www.microsoft.com/en-us/Licensing/how-to-buy/how-to-buy.aspx) sayfasında bulabilirsiniz.
+Toplu lisans satın alma seçenekleri hakkında daha fazla bilgiyi [Toplu Lisanslama ile satın alma](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx) sayfasında bulabilirsiniz.
 
 > [!NOTE]
 > Azure Active Directory Premium ve Basic sürümleri, Azure Active Directory'nin dünya çapındaki örneğini kullanan Çin'deki müşterilerin kullanımına sunulmuştur. Azure Active Directory Premium ve Basic sürümleri, şu anda Çin'de 21Vianet tarafından işletilen Microsoft Azure hizmeti kapsamında desteklenmemektedir. Daha fazla bilgi için [Azure Active Directory Forumu](https://feedback.azure.com/forums/169401-azure-active-directory/)'nda bizimle iletişime geçin.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: d017c0d9940288cb5eeaa45694b324f93b9bb144
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 6bb757fe072f0fc3ecbda5ae125aa2bf928479fb
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736257"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41920937"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Güvenlik duvarının ardındayken Azure Anahtar Kasası’na erişme
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>S: Anahtar kasası istemci uygulamamın güvenlik duvarının ardında olması gerekiyor. Anahtar kasasına erişebilmek için hangi bağlantı noktaları, konaklar veya IP adreslerini açmam gerekiyor?
@@ -43,7 +43,7 @@ Anahtar kasası istemci uygulamasının, kimlik doğrulaması için Azure Active
 | Azure AD ile iş veya okul hesabı kullanan kullanıcı veya hizmet sorumlusu (örneğin, user@contoso.com) |**Genel:**<br> login.microsoftonline.com:443<br><br> **Azure Çin:**<br> login.chinacloudapi.cn:443<br><br>**Azure ABD:**<br> login.microsoftonline.us:443<br><br>**Azure Almanya:**<br> login.microsoftonline.de:443 |
 | İş veya okul hesabı ve Active Directory Federasyon Hizmetleri (AD FS) veya başka bir federasyon uç noktası kullanan kullanıcı veya hizmet sorumlusu (örneğin, user@contoso.com) |İş veya okul hesabı için tüm uç noktalar ve AD FS veya diğer federasyon uç noktaları |
 
-Farklı olası karmaşık senaryolar da mevcuttur. Daha fazla bilgi için bkz. [Azure Active Directory Kimlik Doğrulaması Akışı](/documentation/articles/active-directory-authentication-scenarios/), [Uygulamaları Azure Active Directory ile Tümleştirme](/documentation/articles/active-directory-integrating-applications/) ve [Active Directory Kimlik Doğrulaması Protokolleri](https://msdn.microsoft.com/library/azure/dn151124.aspx).  
+Farklı olası karmaşık senaryolar da mevcuttur. Daha fazla bilgi için bkz. [Azure Active Directory Kimlik Doğrulaması Akışı](../active-directory/develop/authentication-scenarios.md), [Uygulamaları Azure Active Directory ile Tümleştirme](../active-directory/develop/active-directory-how-to-integrate.md) ve [Active Directory Kimlik Doğrulaması Protokolleri](https://msdn.microsoft.com/library/azure/dn151124.aspx).  
 
 ## <a name="key-vault-management"></a>Anahtar Kasası yönetimi
 Anahtar Kasası yönetimi için (CRUD ve erişim ilkesi ayarı), anahtar kasası istemci uygulamasının Azure Resource Manager uç noktasına erişmesi gerekir.  

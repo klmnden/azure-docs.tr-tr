@@ -2,7 +2,7 @@
 title: "Azure Cosmos DB: Node.js ve SQL API'si ile bir uygulama derleme | Microsoft Docs"
 description: Azure Cosmos DB SQL API'sine bağlanmak ve sorgu göndermek için kullanabileceğiniz bir Node.js kodu örneği sunar
 services: cosmos-db
-author: SnehaGunda
+author: deborahc
 manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
@@ -10,13 +10,13 @@ ms.custom: quick start connect, mvc
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 04/10/2018
-ms.author: sngun
-ms.openlocfilehash: 78aaba91851d118c45d6796a99b704de8e8a3e04
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: dech
+ms.openlocfilehash: fb54d0acba3f0ad2e633f1f32732ef3180e866a2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38667820"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42022576"
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-nodejs-and-the-azure-portal"></a>Azure Cosmos DB: Node.js ve Azure portalı ile bir SQL API'si uygulaması derleme
 

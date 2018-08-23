@@ -3,9 +3,8 @@ title: Azure App Service, Sanal Makineler, Service Fabric ve Cloud Services kar�
 description: Web uygulamalarını barındırmak için Azure App Service, Sanal Makineler, Service Fabric ve Cloud Services’dan hangisini seçeceğinizi öğrenin.
 services: app-service\web, virtual-machines, cloud-services
 documentationcenter: ''
-author: ggailey777
-manager: erikre
-editor: jimbe
+author: cephalin
+manager: jeconnoc
 ms.assetid: 7d346a23-532a-42a9-98a8-23b7286d32a8
 ms.service: app-service-web
 ms.workload: web
@@ -13,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 07/07/2016
-ms.author: glenga
+ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 016427e6cfbb8bbb4910e5deffb3ab68d423fb90
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3b1fb14fbb21876d0b3f7d98327353d54bb1cfb2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224964"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42022357"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, Sanal Makineler, Service Fabric ve Cloud Services karşılaştırması
-## <a name="overview"></a>Genel Bakış
+
 Azure, Web sitelerini barındırmak için çeşitli yollar sunar: [Azure App Service][Azure App Service], [Sanal Makineler][Virtual Machines], [Service Fabric][Service Fabric] ve [Cloud Services][Cloud Services]. Bu makale, Web uygulamanız için seçenekleri anlamanıza ve doğru seçim yapmanıza yardımcı olur.
 
 Azure App Service, çoğu Web uygulaması için en iyi seçenektir. Dağıtım ve yönetim süreçleri platform ile tümleştirilmiştir, siteler hızla yüksek trafik yüklerinin altından kalkacak şekilde ölçeklendirilebilir ve yerleşik yük dengeleme ve trafik yöneticisi yüksek kullanılabilirlik sağlar. Mevcut siteleri [çevrimiçi geçiş aracı][migrate-tool] ile kolayca Azure App Service’a taşıyabilir, Web Uygulaması Galerisi'nden açık kaynaklı bir uygulamayı kullanabilir veya istediğiniz çerçeve ve araçları kullanarak yeni bir site oluşturabilirsiniz. [WebJobs][WebJobs] özelliği, App Service Web uygulamanıza arka plan iş işlemleri eklemeyi kolaylaştırır.

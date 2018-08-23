@@ -14,12 +14,12 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 797c35bad03c063203e3616740af633b71835a9c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 327cecd129befb56c33d7fcf2d59ee5b58a18549
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39640284"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42023183"
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Azure kimlik yönetimi ile ilgili temel bilgiler
 
@@ -27,7 +27,7 @@ Bulutta ve cihazlarda olmak üzere şirket ağının dışında bulunan dijital 
 
 Microsoft, on yılı aşkın süredir bulut tabanlı kimliklerin güvenliğini sağlamakta ve şimdi [Azure Active Directory (AD)](active-directory-whatis.md) ile bu koruma sistemlerini sizin kullanımınıza sunmaktadır. Azure AD ile kuruluş yöneticileri her zamankinden daha iyi güvenli ve yönetim özellikleriyle kullanıcı ve yönetici sorumluluğunu kolayca mümkün kılabilir.
 
-Azure AD Premium tüm uygulamalar için tek bir güvenli kimlik, kimlik koruması ([Microsoft akıllı güvenlik grafiği](https://www.microsoft.com/en-us/security/intelligence) destekli) ve Privileged Identity Management kullanımını mümkün kılan gelişmiş koruma özelliklerine sahip bulut tabanlı kimlik ve erişim yönetimi çözümüdür. Diğer izleme veya raporlama araçlarından farklı olan Azure AD Premium, kullanıcılarınızın kimliklerini gerçek zamanlı olarak korumanızı ve kuruluş verilerini korumak için risk tabanlı, uyarlanabilir erişim ilkeleri oluşturmanızı sağlayabilir.
+Azure AD Premium tüm uygulamalar için tek bir güvenli kimlik, kimlik koruması ([Microsoft akıllı güvenlik grafiği](https://www.microsoft.com/security/intelligence) destekli) ve Privileged Identity Management kullanımını mümkün kılan gelişmiş koruma özelliklerine sahip bulut tabanlı kimlik ve erişim yönetimi çözümüdür. Diğer izleme veya raporlama araçlarından farklı olan Azure AD Premium, kullanıcılarınızın kimliklerini gerçek zamanlı olarak korumanızı ve kuruluş verilerini korumak için risk tabanlı, uyarlanabilir erişim ilkeleri oluşturmanızı sağlayabilir.
 
 Azure AD kimlik yönetimi ve koruma özelliklerini anlatan bu kısa videoyu izleyin:
 >[!VIDEO https://www.youtube.com/embed/9LGIJ2-FKIM]
