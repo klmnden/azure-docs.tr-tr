@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: f954e726aabb34f74d81580e3afc08f2b0b9914b
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 0056364883d5a4a350e5b35374e1fc3abd0c7bea
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619415"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42056951"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Sorun giderme & sınırlamaları Azure Cloud Shell
 
@@ -31,6 +31,11 @@ Azure Cloud shell'de sorunları gidermek için bilinen çözümleri şunlardır:
 
 - **Ayrıntılar**: Cloud Shell, giriş/çıkış tarayıcınıza geçirmek için açık bir websocket kullanır. FireFox beklenenden önce Cloud Shell'de erken zaman aşımları neden websocket kapatabilirsiniz hazır ilkeleri vardır.
 - **Çözüm**: açık FireFox gidin "hakkında: yapılandırma" URL kutusuna. "Network.websocket.timeout.ping.request" için arama yapın ve değeri 0 ile 10'a değiştirin.
+
+### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Cloud Shell kilitli bir ağda devre dışı ortam
+
+- **Ayrıntılar**: Yöneticiler kullanıcıları için Cloud Shell erişimi devre dışı bırakmak istediğiniz. Cloud shell'e erişim için yararlanan `ux.console.azure.com` etki alanı durdurma portal.azure.com, shell.azure.com, Visual Studio Code Azure hesabı uzantısı ve docs.microsoft.com dahil olmak üzere Cloud Shell'inizin giriş noktaları için herhangi bir erişim engellenebilir.
+- **Çözüm**: erişimi kısıtlamak `ux.console.azure.com` ortamınızdaki ağ ayarları aracılığıyla. Cloud Shell simgesi portal.azure.com içinde var olmaya devam edecek, ancak başarıyla hizmetine bağlanamaz.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Depolama iletişim - hata: 403 RequestDisallowedByPolicy
 

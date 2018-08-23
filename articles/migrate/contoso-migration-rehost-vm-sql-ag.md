@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/13/2018
 ms.author: raynew
-ms.openlocfilehash: 0cfb583f9d16039249aaffe18f71039e91dc3705
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: cd7a5832faf0fbb15349edee8ed504c1f94d1aa9
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359215"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42057425"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso taşıma: Azure VM ve SQL Server AlwaysOn Kullanılabilirlik grubu üzerinde şirket içi uygulama yeniden barındırma
 
@@ -76,8 +76,8 @@ Bu senaryoda:
 
 **Hizmet** | **Açıklama** | **Maliyet**
 --- | --- | ---
-[Veritabanı yönetim hizmeti](https://docs.microsoft.com/azure/dms/dms-overview) | Contoso DMS kullanarak uygulamayı veri katmanının geçirir. DMS bir siteden siteye VPN üzerinden şirket içi SQLVM makineye bağlanın ve DMS etkinleştirir sorunsuz geçişler en düşük kapalı kalma süresi ile Azure veri platformları için birden fazla veritabanı kaynaktan geçirme. | Hakkında bilgi edinin [desteklenen bölgeler](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) DMS ve get için [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/database-migration/).
-[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | Contoso Site Recovery, uygulama ön uç sanal makine için lift-and-shift ile taşıma geçişini kullanır. Site kurtarma hizmetini düzenler ve geçiş ve olağanüstü durum kurtarma Azure Vm'leri için yönetir ve şirket içi Vm'leri ve fiziksel sunucuları.  | Azure'a çoğaltma sırasında Azure depolama ücretleri uygulanır.  Azure Vm'leri oluşturulur ve yük devretme işlemi gerçekleştiğinde, ücret. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/site-recovery/) ücretleri ve fiyatlandırma hakkında.
+[Veritabanı geçiş hizmeti](https://docs.microsoft.com/azure/dms/dms-overview) | DMS, birden çok veritabanı kaynağını sorunsuz geçiş için en düşük kapalı kalma süresi ile Azure veri platformu sağlar. | Hakkında bilgi edinin [desteklenen bölgeler](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) DMS ve get için [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/database-migration/).
+[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | Site kurtarma hizmetini düzenler ve geçiş ve olağanüstü durum kurtarma Azure Vm'leri için yönetir ve şirket içi Vm'leri ve fiziksel sunucuları.  | Azure'a çoğaltma sırasında Azure depolama ücretleri uygulanır.  Azure Vm'leri oluşturulur ve yük devretme işlemi gerçekleştiğinde, ücret. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/site-recovery/) ücretleri ve fiyatlandırma hakkında.
 
  
 
@@ -114,7 +114,7 @@ Contoso geçişi nasıl çalışacağını aşağıda verilmiştir:
 > [!div class="checklist"]
 > * **1. adım: Azure'da SQL Server Vm'leri oluşturma**: yüksek kullanılabilirlik için Contoso kümelenmiş bir veritabanı azure'da dağıtmak istediğiniz. Bunlar, iki SQL Server Vm'leri ve Azure iç yük dengeleyici dağıtın.
 > * **2. adım: kümeyi dağıtmak**: SQL Server Vm'leri dağıttıktan sonra bir Azure SQL Server kümesi hazırlayın.  Bunlar, veritabanını önceden oluşturulmuş bu kümesine geçirme.
-> * **3. adım: DMS hazırlama**: açtıklarında kaydolmayı DMS yolculuğunuzu sağlayıcıyı hazırlamak için DMS örneği ve bir proje oluşturun. Bunlar bir paylaşılan erişim imzası (SAS) Tekdüzen Kaynak Tanımlayıcısı (URI) ayarlayın. DMS hizmeti SQL Server Yedekleme dosyalarını karşıya yüklemeleri depolama hesabı kapsayıcısına erişmek için SA URI kullanır.
+> * **3. adım: DMS hazırlama**: açtıklarında kaydolmayı DMS yolculuğunuzu sağlayıcıyı hazırlamak için DMS örneği ve bir proje oluşturun. Bunlar bir paylaşılan erişim imzası (SAS) Tekdüzen Kaynak Tanımlayıcısı (URI) ayarlayın. DMS hizmeti SQL Server Yedekleme dosyalarını karşıya yüklemeleri depolama hesabı kapsayıcısına erişmek için SAS URI'sini kullanır.
 > * **4. adım: Azure Site Recovery için hazırlama**: Bunlar bir kurtarma Hizmetleri kasası ve çoğaltılan verileri tutmak için bir Azure depolama hesabı oluşturun.
 > * **5. adım: Site Recovery için şirket içi Vmware'leri hazırlama**: VM bulma ve aracı yükleme hesabı hazırlayın ve yük devretme sonrasında Azure Vm'lerinin bağlanabilmesi için şirket içi Vm'leri hazırlama.
 > * **6. adım: Çoğaltma Vm'leri**: çoğaltma ayarlarını yapılandırma ve VM çoğaltmayı etkinleştirin.

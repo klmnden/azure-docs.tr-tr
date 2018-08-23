@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-ms.openlocfilehash: 73ad78fc73a7605f8feaf114ebdfac5023cc91b6
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 9032a0b68c4c8789010b0304b64a63d4924521fb
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342442"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42056013"
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Azure’daki bir Linux RDMA kümesinde Microsoft HPC Pack ile OpenFoam çalıştırma
 Bu makalede, Azure sanal makineler'de OpenFoam çalıştırma yollarından biri gösterilmektedir. Bir Microsoft HPC Pack kümesinde Linux işlem düğümleri Azure ve çalıştırın, burada dağıttığınız bir [OpenFoam](http://openfoam.com/) Intel MPI işle. İşlem düğümlerinin Azure RDMA ağ üzerinden iletişim kurmak için işlem düğümleri için RDMA özellikli bir Azure sanal makinelerini kullanabilirsiniz. Azure'da OpenFoam çalıştırma için diğer seçenekler UberCloud'ın gibi Market kullanılabilir tam olarak yapılandırılmış ticari görüntüleri dahil [OpenFoam 2.3 CentOS 6](https://azuremarketplace.microsoft.com/marketplace/apps/cfd-direct.cfd-direct-from-the-cloud)ve çalıştırarak [Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 
@@ -46,7 +46,7 @@ Microsoft HPC Pack, büyük ölçekli HPC ve Microsoft Azure sanal makinelerini 
   * Linux düğümleri dağıttıktan sonra ek yönetim görevleri gerçekleştirmek için SSH ile bağlanın. SSH bağlantı ayrıntılarını, her bir Linux VM için Azure portalında bulun.  
 * **Intel MPI** - azure'da SLES 12 HPC işlem düğümleri üzerinde OpenFOAM çalıştırma için Intel MPI kitaplığı 5 çalışma zamanını şuradan yüklemeniz gerekir [Intel.com site](https://software.intel.com/en-us/intel-mpi-library/). (Intel MPI 5 CentOS tabanlı HPC görüntülerinde önceden yüklenir.)  Daha sonraki bir adımda gerekirse, Intel MPI kullanarak Linux işlem düğümlerinde yükleyin. Bu adım için Intel ile kaydettikten sonra hazırlamak için ilgili web sayfasında onayı e-postadaki bağlantıya izleyin. Ardından, Intel MPI'ün uygun sürümüne .tgz dosyasının indirme bağlantısı kopyalayın. Bu makalede, Intel MPI sürüm 5.0.3.048 üzerinde temel alır.
 * **OpenFOAM kaynak paketi** -Linux'taki OpenFOAM kaynak paketi yazılım indir [OpenFOAM Foundation site](http://openfoam.org/download/2-3-1-source/). Bu makalede OpenFOAM 2.3.1.tgz kaynak paketi sürümü indirilebilir 2.3.1 dayanır. Paketten ve Linux işlem düğümlerinde OpenFOAM derlemek için bu makalenin sonraki bölümlerinde'ndaki yönergeleri izleyin.
-* **EnSight** (isteğe bağlı) - OpenFOAM benzetimi, indirme ve yükleme sonuçları görmek için [EnSight](https://www.ceisoftware.com/download/) Görselleştirme ve analiz programı. Lisans ve yükleme bilgileri EnSight sitesinde var.
+* **EnSight** (isteğe bağlı) - OpenFOAM benzetimi, indirme ve yükleme sonuçları görmek için [EnSight](https://ensighttransfe.wpengine.com/direct-access-downloads/) Görselleştirme ve analiz programı. Lisans ve yükleme bilgileri EnSight sitesinde var.
 
 ## <a name="set-up-mutual-trust-between-compute-nodes"></a>İşlem düğümleri arasında karşılıklı güven ayarlama
 Çapraz düğüm iş birden çok Linux düğümlerinde çalışan düğümlerinin birbirine güvenen gerektirir (tarafından **rsh** veya **ssh**). HPC Pack kümesinde Microsoft HPC Pack Iaas dağıtım betiği içeren oluşturduğunuzda, kodun kalıcı karşılıklı güven belirttiğiniz yönetici hesabı için otomatik olarak ayarlar. Yönetici olmayan kullanıcılar, kümenin etki alanında oluşturmak için bir iş için ayrılmış düğümler arasında geçici karşılıklı güven ayarlamanız gerekir ve iş tamamlandıktan sonra ilişkisi yok. Her kullanıcı için güven oluşturmak için bir güven ilişkisi için HPC Pack kullanan kümeye RSA anahtar çifti belirtin.
@@ -362,7 +362,7 @@ Artık bir iş HPC Kümesi Yöneticisi'nde gönderebilirsiniz. Komut satırları
 10. İş tamamlandığında iş sonuçlarını klasörleri C:\OpenFoam\sloshingTank3D ve günlük dosyalarının C:\OpenFoam en altında bulabilirsiniz.
 
 ## <a name="view-results-in-ensight"></a>EnSight içinde sonuçlarını görüntüle
-İsteğe bağlı olarak [EnSight](https://www.ceisoftware.com/) görselleştirip OpenFOAM işin sonuçları analiz edin. Görselleştirme ve EnSight animasyonda hakkında daha fazla bilgi için bkz. Bu [video Kılavuzu](http://www.ceisoftware.com/wp-content/uploads/screencasts/vof_visualization/vof_visualization.html).
+İsteğe bağlı olarak [EnSight](http://www.ensight.com/) görselleştirip OpenFOAM işin sonuçları analiz edin. Görselleştirme ve EnSight animasyonda hakkında daha fazla bilgi için bkz. Bu [video Kılavuzu](http://www.ensight.com/ensight.com/envideo/).
 
 1. Baş düğümde EnSight yükledikten sonra başlatın.
 2. Open C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case.

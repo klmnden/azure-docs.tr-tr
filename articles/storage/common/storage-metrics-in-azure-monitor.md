@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 880632a39332f7d9ad24b0f7aa2301660eb2f9b8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 849253dd4a2e66acc6a509a0515a22309c90e081
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528582"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42059192"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure İzleyici’de Azure Depolama ölçümleri
 
@@ -332,14 +332,14 @@ Azure depolama, Azure İzleyici'de aşağıdaki kapasite ölçümleri sağlar.
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-| UsedCapacity | Depolama hesabı tarafından kullanılan depolama miktarı. Standart depolama hesapları için blob, tablo, dosya ve kuyruk tarafından kullanılan kapasitesi toplamıdır. Premium depolama hesapları ve Blob Depolama hesapları için BlobCapacity ile aynı olur. <br/><br/> Birim: bayt <br/> Toplama türü: ortalama <br/> Değeri örneği: 1024 |
+| UsedCapacity | Depolama hesabı tarafından kullanılan depolama miktarı. Standart depolama hesapları için blob, tablo, dosya ve kuyruk tarafından kullanılan kapasitesi toplamıdır. Premium depolama hesapları ve Blob Depolama hesapları için BlobCapacity ile aynı olur. <br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Değeri örneği: 1024 |
 
 ### <a name="blob-storage"></a>Blob depolama
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-| BlobCapacity | Blob Depolama depolama hesabında kullanılan toplamı. <br/><br/> Birim: bayt <br/> Toplama türü: ortalama <br/> Değeri örneği: 1024 <br/> Boyut: BlobType ([tanımı](#metrics-dimensions)) |
-| BLOB sayısı    | Depolama hesabında blob nesne sayısı. <br/><br/> Birim: sayısı <br/> Toplama türü: ortalama <br/> Değeri örneği: 1024 <br/> Boyut: BlobType ([tanımı](#metrics-dimensions)) |
+| BlobCapacity | Blob Depolama depolama hesabında kullanılan toplamı. <br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Değeri örneği: 1024 <br/> Boyut: BlobType ([tanımı](#metrics-dimensions)) |
+| BLOB sayısı    | Depolama hesabında blob nesne sayısı. <br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Değeri örneği: 1024 <br/> Boyut: BlobType ([tanımı](#metrics-dimensions)) |
 | ContainerCount    | Depolama hesabındaki kapsayıcıları sayısı. <br/><br/> Birim: sayısı <br/> Toplama türü: ortalama <br/> Değeri örneği: 1024 |
 
 ### <a name="table-storage"></a>Table Storage

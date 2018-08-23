@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 5b9ef9691d3d9b9aaced3ad2aaa54e6cfc03fa14
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 254c68c45a06022588ade6ab6f005989205ff405
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857455"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42059749"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Güvenlik çerçevesi: Yapılandırma yönetimi | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
@@ -200,7 +200,7 @@ veya uygulama düzeyinde
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | <p>JQuery kullanmalısınız gibi standart JavaScript kitaplıkları kullanan geliştiriciler bilinen güvenlik açıkları içermeyen ortak JavaScript kitaplıkları sürümlerini onaylandı. Bunlar eski sürümlerine bilinen güvenlik açıkları için güvenlik düzeltmelerini içeren bu yana kitaplıklarının en son sürümünü kullanmak iyi bir uygulamadır.</p><p>En son sürüme uyumluluk nedenlerle kullandıysanız en düşük sürümlerle kullanılmalıdır.</p><p>Kabul edilebilir en düşük sürüm:</p><ul><li>**JQuery**<ul><li>JQuery 1.7.1</li><li>JQueryUI 1.10.0</li><li>JQuery doğrulama 1.9</li><li>JQuery Mobile 1.0.1</li><li>JQuery döngüsü 2.99</li><li>JQuery DataTable 1.9.0</li></ul></li><li>**AJAX Denetim Araç Seti**<ul><li>AJAX Denetim Araç Seti 40412</li></ul></li><li>**ASP.NET Web Forms ve Ajax**<ul><li>ASP.NET Web Forms ve Ajax 4</li><li>ASP.NET Ajax 3.5</li></ul></li><li>**ASP.NET MVC**<ul><li>ASP.NET MVC 3.0</li></ul></li></ul><p>Genel CDN'ler gibi dış sitelerden hiçbir zaman herhangi bir JavaScript Kitaplığı yükleyin.</p>|
+| **Adımları** | <p>JQuery kullanmalısınız gibi standart JavaScript kitaplıkları kullanan geliştiriciler bilinen güvenlik açıkları içermeyen ortak JavaScript kitaplıkları sürümlerini onaylandı. Bunlar eski sürümlerine bilinen güvenlik açıkları için güvenlik düzeltmelerini içeren bu yana kitaplıklarının en son sürümünü kullanmak iyi bir uygulamadır.</p><p>En son sürüme uyumluluk nedenlerle kullandıysanız en düşük sürümlerle kullanılmalıdır.</p><p>Kabul edilebilir en düşük sürüm:</p><ul><li>**JQuery**<ul><li>JQuery 1.7.1</li><li>JQueryUI 1.10.0</li><li>JQuery doğrulama 1.9</li><li>JQuery Mobile 1.0.1</li><li>jQuery döngüsü 2.99</li><li>jQuery DataTable 1.9.0</li></ul></li><li>**AJAX Denetim Araç Seti**<ul><li>AJAX Denetim Araç Seti 40412</li></ul></li><li>**ASP.NET Web Forms ve Ajax**<ul><li>ASP.NET Web Forms ve Ajax 4</li><li>ASP.NET Ajax 3.5</li></ul></li><li>**ASP.NET MVC**<ul><li>ASP.NET MVC 3.0</li></ul></li></ul><p>Genel CDN'ler gibi dış sitelerden hiçbir zaman herhangi bir JavaScript Kitaplığı yükleyin.</p>|
 
 ## <a id="mime-sniff"></a>MIME otomatik olarak algılaması devre dışı bırak
 
@@ -606,7 +606,7 @@ Bir denetleyici veya eylem için CORS devre dışı bırakmak için [DisableCors
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | .NET framework 3 |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com) |
 | **Adımları** | <p>Bir sınır üzerinde sistem kaynaklarının kullanımını yerleştirme değil, Kaynak Tükenmesi ve sonuç olarak hizmet reddine neden olabilir.</p><ul><li>**Açıklama:** Windows Communication Foundation (WCF) hizmet istekleri azaltma olanağı sunar. Çok sayıda istemci isteklerine izin verme, bir sistem doldurmak ve kaynaklarını tüketebilir. Öte yandan, yalnızca az sayıda hizmet isteklerine izin verme kullanıcıların hizmet kullanılmasını önleyebilir. Her hizmet ayrı ayrı şekilde ve uygun kaynakların miktarına izin verecek şekilde yapılandırılmış gerekir.</li><li>**Öneriler** etkinleştirme WCF'ın Hizmeti azaltma özelliğini ve kümesi sınırları, uygulamanız için uygun.</li></ul>|
 
 ### <a name="example"></a>Örnek
@@ -629,7 +629,7 @@ Azaltma etkinleştirildi ile örnek bir yapılandırma verilmiştir:
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | .NET framework 3 |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com) |
 | **Adımları** | Meta veri, sistem hakkında bilgi edinin ve saldırı biçiminin planı saldırganlar yardımcı olabilir. WCF hizmetleri meta verileri kullanıma sunmak için yapılandırılabilir. Meta verileri ayrıntılı hizmet açıklaması bilgilerini sağlar ve üretim ortamlarında yayınlamamak. `HttpGetEnabled`  /  `HttpsGetEnabled` ServiceMetaData sınıf özelliklerini tanımlayan hizmet meta verileri açığa çıkarır | 
 
 ### <a name="example"></a>Örnek

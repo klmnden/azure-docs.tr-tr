@@ -1,23 +1,23 @@
 ---
-title: Azure Maps yönlendirme kapsamı | Microsoft Docs
-description: Azure Maps yönlendirme kapsamı hakkında bilgi edinin
-author: jinzh-azureiot
+title: Yönlendirme kapsamı içinde Azure haritalar | Microsoft Docs
+description: Yönlendirme kapsamı içinde Azure haritalar hakkında bilgi edinin
+author: jingjing-z
 ms.author: jinzh
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: aa611b1cc406cd16ffdecb244c3010a7e0318519
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 80d98fd8108d0b64f9c25b82d6d79f60fcdd771e
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599958"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42060881"
 ---
-# <a name="azure-maps-routing-coverage"></a>Kapsamı yönlendirme azure eşlemeleri
+# <a name="azure-maps-routing-coverage"></a>Azure haritalar yönlendirme kapsamı
 
-Bu makalede Azure eşlemeleri yönlendirme kapsamı bilgi sağlar. 
+Bu makalede Azure haritalar yönlendirme kapsamı bilgileri sağlar. 
 
 Kapsamı için kullanıma [ **coğrafi kodlama**](geocoding-coverage.md).       
 Kapsamı için kullanıma [ **trafiği**](traffic-coverage.md).  
@@ -25,15 +25,15 @@ Kapsamı için kullanıma [ **işleme**](render-coverage.md).
 <br>  
 **Gösterge**
 
-| Simgesi             | Anlamı                                |
+| Sembol             | Anlamı                                |
 |--------------------|----------------------------------------|
-| ✓                  | Ayrıntılı verilerle sağlanan ülke.   |
-| Ø                  | Basitleştirilmiş verilerle sağlanan ülke. |
-| Ülke eksik. | Ülke verileri belirtilmedi.          |
+| ✓                  | Ayrıntılı verileri ile sağlanan ülke.   |
+| Ø                  | Basitleştirilmiş veri ile sağlanan ülke. |
+| Ülke eksik | Ülke verileri belirtilmedi.          |
 
 <br>  
 
-Aşağıdaki tabloda Azure eşlemeleri yönlendirme kapsamı bilgi sağlar.
+Aşağıdaki tabloda Azure haritalar yönlendirme kapsamı bilgileri sağlar.
 <br>  
 
 | Bölge                         | Yönlendirme |
@@ -56,7 +56,7 @@ Aşağıdaki tabloda Azure eşlemeleri yönlendirme kapsamı bilgi sağlar.
 | Malavi                         |        ✓       |
 | Mali                           |        ✓       |
 | Moritanya                     |        ✓       |
-| Mauritius, Mayotte ve Réunion |        ✓       |
+| Mauritius ve Mayotte Reunion |        ✓       |
 | Fas                        |        ✓       |
 | Mozambik                     |        ✓       |
 | Namibya                        |        ✓       |
@@ -80,7 +80,7 @@ Aşağıdaki tabloda Azure eşlemeleri yönlendirme kapsamı bilgi sağlar.
 | Kanada                         |        ✓       |
 | Şili                          |        ✓       |
 | Kolombiya                       |        ✓       |
-| Fransız Ginesi                  |        ✓       |
+| Fransız Guyanası                  |        ✓       |
 | Lesser Antilleri                |        ✓       |
 | Meksika                         |        ✓       |
 | Peru                           |        ✓       |
@@ -94,7 +94,7 @@ Aşağıdaki tabloda Azure eşlemeleri yönlendirme kapsamı bilgi sağlar.
 | Guam                           |        ✓       |
 | Hong Kong                      |        ✓       |
 | Endonezya                      |        ✓       |
-| Makau                          |        ✓       |
+| Makao                          |        ✓       |
 | Malezya                       |        ✓       |
 | Yeni Zelanda                    |        ✓       |
 | Filipinler                    |        ✓       |
@@ -110,7 +110,7 @@ Aşağıdaki tabloda Azure eşlemeleri yönlendirme kapsamı bilgi sağlar.
 | Avusturya                        |        ✓       |
 | Belarus                        |        ✓       |
 | Belçika                        |        ✓       |
-| Bosna Hersek             |        ✓       |
+| Bosna-Hersek             |        ✓       |
 | Bulgaristan                       |        ✓       |
 | Hırvatistan                        |        ✓       |
 | Kıbrıs                         |        ✓       |

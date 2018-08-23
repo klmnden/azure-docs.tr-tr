@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f8ee8a2a4aae61e2edc275527d80a162c9bb4dc0
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 241fd1f9168ce6bfb8a4dfe97bbb1ef45ddf3f74
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345728"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42056442"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Bir Web kancası ile bir Azure Otomasyonu runbook'u başlatma
 
@@ -31,7 +31,7 @@ Aşağıdaki tabloda, bir Web kancası için yapılandırmanız gereken özellik
 |:--- |:--- |
 | Ad |İstemciye gösterilmez bu yana bir Web kancası için istediğiniz herhangi bir ad sağlayabilirsiniz. Yalnızca sizin için Azure Otomasyonu'nda runbook tanımlamak için kullanılır. <br> En iyi uygulama, Web kancası kullanan istemcisiyle ilgili bir ad vermesi gerekir. |
 | URL'si |Web kancası URL'si, Web kancası'na bağlı bir runbook başlatmak için bir HTTP POST ile bir istemci çağrıları benzersiz adresidir. Web kancasını oluşturduğunuzda otomatik olarak oluşturulur. Özel bir URL belirtemezsiniz. <br> <br> URL, başka bir kimlik doğrulaması ile üçüncü taraf sistemleri tarafından çağrılacak runbook izin veren bir güvenlik belirteci içeriyor. Bu nedenle, bir parola gibi düşünülmelidir. Güvenlik nedeniyle, Web kancası oluşturulduğunda Azure portalında yalnızca URL'yi görüntüleyebilirsiniz. Gelecekte kullanım için güvenli bir konumda URL'yi not alın. |
-| Son kullanma tarihi |Bir sertifikanın gibi her Web kancası aynı zamanda artık kullanılabilir bir sona erme tarihi vardır. Web kancası oluşturulduktan sonra bu sona erme tarihi değiştirilebilir. |
+| Sona erme tarihi |Bir sertifikanın gibi her Web kancası aynı zamanda artık kullanılabilir bir sona erme tarihi vardır. Web kancası oluşturulduktan sonra bu sona erme tarihi değiştirilebilir. |
 | Etkin |Bir Web kancası, oluşturulduğunda varsayılan olarak etkindir. Devre dışı olarak ayarlarsanız, hiçbir istemci kullanabilmek için. Ayarlayabileceğiniz **etkin** özelliği, Web kancası veya dilediğiniz zaman bir kez oluşturduğunuzda oluşturulur. |
 
 ### <a name="parameters"></a>Parametreler
@@ -110,7 +110,7 @@ http://<Webhook Server>/token?=<Token Value>
 | Kod | Metin | Açıklama |
 |:--- |:--- |:--- |
 | 202 |Kabul Edildi |İstek kabul edildi ve runbook başarıyla kuyruğa alındı. |
-| 400 |Hatalı İstek |İstek aşağıdaki nedenlerden biri için kabul edilmedi: <ul> <li>Web kancasının süresi doldu.</li> <li>Web kancası devre dışı bırakıldı.</li> <li>URL'deki belirteci geçersiz.</li>  </ul> |
+| 400 |Bozuk İstek |İstek aşağıdaki nedenlerden biri için kabul edilmedi: <ul> <li>Web kancasının süresi doldu.</li> <li>Web kancası devre dışı bırakıldı.</li> <li>URL'deki belirteci geçersiz.</li>  </ul> |
 | 404 |Bulunamadı |İstek aşağıdaki nedenlerden biri için kabul edilmedi: <ul> <li>Web kancası bulunamadı.</li> <li>Runbook bulunamadı.</li> <li>Hesap bulunamadı.</li>  </ul> |
 | 500 |İç Sunucu Hatası |URL geçerli, ancak bir hata oluştu. Lütfen isteği yeniden gönderin. |
 
@@ -120,11 +120,11 @@ http://<Webhook Server>/token?=<Token Value>
 {"JobIds":["<JobId>"]}
 ```
 
-İstemci, runbook işi tamamlandığında veya Web kancası'nden tamamlanma durumunu belirleyemiyor. İş kimliği gibi başka bir yöntemle kullanarak bu bilgileri belirleyebilirsiniz [Windows PowerShell](http://msdn.microsoft.com/library/azure/dn690263.aspx) veya [Azure Automation API](/rest/api/automation/job).
+İstemci, runbook işi tamamlandığında veya Web kancası'nden tamamlanma durumunu belirleyemiyor. İş kimliği gibi başka bir yöntemle kullanarak bu bilgileri belirleyebilirsiniz [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) veya [Azure Automation API](/rest/api/automation/job).
 
 ## <a name="sample-runbook"></a>Örnek runbook
 
-Aşağıdaki örnek runbook'u kabul webhook verilerini kabul eder ve istek gövdesinde belirtilen sanal makineleri başlatır. Bu runbook Otomasyon hesabınız kapsamında test **runbook'ları**, tıklayın **+ runbook Ekle**. Bir runbook oluşturmak nasıl bilmiyorsanız bkz [runbook oluşturma](automation-quickstart-create-runbook.md).
+Aşağıdaki örnek runbook'u webhook verilerini kabul eder ve istek gövdesinde belirtilen sanal makineleri başlatır. Bu runbook Otomasyon hesabınız kapsamında test **runbook'ları**, tıklayın **+ runbook Ekle**. Bir runbook oluşturmak nasıl bilmiyorsanız bkz [runbook oluşturma](automation-quickstart-create-runbook.md).
 
 ```powershell
 param

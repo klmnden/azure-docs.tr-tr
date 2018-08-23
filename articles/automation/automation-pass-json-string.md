@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: PowerShell, runbook, json, azure Otomasyonu
-ms.openlocfilehash: 9fa60a56ecbff802e69e01e038bb45c7a6639873
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 1bdeef02621924bbb7af1e676d2b275229761081
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435776"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42061482"
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Azure Otomasyonu runbook’una bir JSON nesnesi geçirme
 
@@ -23,7 +23,7 @@ Bir runbook'ta bir JSON dosyası betiğine geçirmek istediğiniz verileri depol
 Örneğin, tüm bir runbook'a geçirmek istediğiniz parametreler içeren bir JSON dosyası oluşturabilirsiniz.
 Bunu yapmak için JSON bir dizeye Dönüştür ve içeriğini runbook'a geçirmeden önce bu dize bir PowerShell nesnesine dönüştürmek sahip.
 
-Bu örnekte, çağıran bir PowerShell komut dosyası oluşturacağız [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) JSON içeriği runbook'a geçirerek bir PowerShell runbook'u başlatın.
+Bu örnekte, çağıran bir PowerShell komut dosyası oluşturacağız [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) JSON içeriği runbook'a geçirerek bir PowerShell runbook'u başlatın.
 PowerShell runbook parametreleri geçirilen JSON VM için almaya bir Azure VM'yi yeniden başlatır.
 
 ## <a name="prerequisites"></a>Önkoşullar

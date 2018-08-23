@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 9eb58f41ec89d084cc388eeadb335046fb587bc3
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: e62d2ff1fdd6bc94244511a2de95c4268a58d6f9
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581896"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42057124"
 ---
 # <a name="how-to-view-the-azure-maps-api-usage"></a>Azure haritalar API kullanımı görüntüleme
 Bu makalede Azure haritalar hesabınız için API kullanım ölçümleri görüntülemek gösterilmektedir [portalı](https://portal.azure.com). Ölçümler, özelleştirilebilir bir süre boyunca uygun grafik biçiminde gösterilir. 
@@ -59,10 +59,6 @@ Belirli çözümleme için bu grafikleri özelleştirmek istiyorsanız sonraki b
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure haritalar kullanımınızı izleyin gerçekleştirmeyi öğrendiniz, daha gelişmiş özelliklerinden gibi öğrenmek için ilerleyebilirsiniz:
+Azure haritalar kullanımınızı izleyin gerçekleştirmeyi öğrendiniz, daha fazla bilgi için ilerleyebilirsiniz ile kullandığınız API'leri hakkında:
 
-* [Araç tüketim](consumption-model.md), veya
-* [GeoJSON genişletme](extend-geojson.md)
-
-Son olarak, daha fazla bilgi ile kullandığınız API'leri hakkında:
 * [Azure haritalar REST API'si belgeleri](https://docs.microsoft.com/rest/api/maps)

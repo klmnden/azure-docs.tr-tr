@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 6ed8265a0b1a014ad15a6bb42fabb6003fb6a775
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 12b5c013a0704eb2d3f7df58011571b902955c75
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343032"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42056340"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Örnekler (Azure işlevleri) ve dayanıklı işlevler uzantısını yükleme
 
@@ -27,7 +27,7 @@ ms.locfileid: "37343032"
 
 * Visual Studio 2017 (C# için önerilir) 
 * Visual Studio kod (JavaScript için önerilir)
-* Azure portalına
+* Azure portal
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017
 
@@ -144,16 +144,16 @@ Visual Studio Code, başlıca platformların tümüne - Windows, macOS ve Linux 
     func host start
     ```
 
-## <a name="azure-portal"></a>Azure portalına
+## <a name="azure-portal"></a>Azure portal
 
-Tercih ederseniz, dayanıklı işlevler geliştirme için Azure portalını kullanabilirsiniz.
+Tercih ederseniz kullanabilirsiniz [Azure portalında](https://portal.azure.com) dayanıklı işlevler geliştirme için.
 
    > [!NOTE]
    > JavaScript içinde dayanıklı işlevler henüz portalda kullanılabilir değildir.
 
 ### <a name="create-an-orchestrator-function"></a>Bir düzenleyici işlevi oluşturma
 
-1. En yeni işlev uygulaması oluşturma [functions.azure.com](https://functions.azure.com/signin).
+1. Gösterildiği gibi Portalı'nda yeni bir işlev uygulaması oluşturma [işlevleri hızlı başlangıç makalesi](functions-create-first-azure-function.md#create-a-function-app).
 
 2. İşlev uygulaması için yapılandırma [2.0 çalışma zamanı sürümünü kullanan](set-runtime-version.md).
 

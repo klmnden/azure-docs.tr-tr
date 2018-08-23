@@ -11,12 +11,12 @@ ms.topic: article
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
 manager: douge
-ms.openlocfilehash: b2ef450a429b26843cf770a6243c6f4de932de43
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 001d58aa22d4fc52acebfc88ba07d2467c1be08e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247339"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42060906"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
@@ -63,6 +63,27 @@ Visual Studio'da:
 2. Ayarlarını değiştirmek için **MSBuild proje oluşturması çıkış ayrıntısı** için **ayrıntılı** veya **tanılama**.
 
     ![Ekran Araçlar, Seçenekler iletişim kutusu](media/common/VerbositySetting.PNG)
+    
+## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Geliştirme alanları hizmeti ile ilişkilendirilen genel bir URL için DNS adı çözümlemesi başarısız olur
+
+Bu durumda, görebileceğiniz bir "Sayfası görüntülenemiyor" veya "Bu site erişilemiyor" hatası web tarayıcınızda genel URL'ye bağlanmaya geliştirme alanları hizmeti ile ilişkili olduğunda.
+
+### <a name="try"></a>Deneyin:
+
+Geliştirme alanları hizmetlerinizle ilişkili tüm URL'lerin listesini aşağıdaki komutu kullanabilirsiniz:
+
+```cmd
+azds list-uris
+```
+
+Bir URL ise *bekleyen* geliştirme alanları tamamlamak için DNS kaydı için hala bekliyor anlamına gelen durumu. Bazı durumlarda, bunun gerçekleşmesi için birkaç dakika sürer. Geliştirme alanları localhost tünel DNS kaydında beklenirken kullanabileceğiniz her hizmet için de açılır.
+
+Bir URL kalırsa *bekleyen* durum 5 dakikadan fazla, dış DNS pod'u genel bir uç nokta oluşturan ve/veya genel bir uç nokta edinme ngınx giriş denetleyicisine pod ile ilgili bir sorun olduğunu gösteriyor. Bu pod'ları silmek için aşağıdaki komutları kullanabilirsiniz. Bunlar otomatik olarak yeniden oluşturulur.
+
+```cmd
+kubectl delete pod -n kube-system -l app=addon-http-application-routing-external-dns
+kubectl delete pod -n kube-system -l app=addon-http-application-routing-nginx-ingress
+```
 
 ## <a name="error-required-tools-and-configurations-are-missing"></a>'Araçlar ve yapılandırmaları eksik gerekli' hatası
 
@@ -119,6 +140,14 @@ VS Code hata ayıklayıcı başlatılıyor, bazen bu hataya neden olabilir. Bu b
 1. VS Code kapatıp yeniden açın.
 2. F5'e yeniden'e basın.
 
+## <a name="debugging-error-failed-to-find-debugger-extension-for-typecoreclr"></a>'Hata ayıklama uzantısı türü: coreclr bulmak için başarısız' hata ayıklama
+VS Code hata ayıklayıcısı çalıştırma, hata raporları: `Failed to find debugger extension for type:coreclr.`
+
+### <a name="reason"></a>Neden
+C# hata ayıklama için.Net Core desteği içeren, geliştirme makinenizde yüklü VS Code uzantısı olmayan (CoreCLR).
+
+### <a name="try"></a>Deneyin:
+Yükleme [C# için VS Code uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
 ## <a name="debugging-error-configured-debug-type-coreclr-is-not-supported"></a>'Yapılandırıldı hata ayıklama türü 'coreclr' desteklenmeyen' hata ayıklama
 VS Code hata ayıklayıcısı çalıştırma, hata raporları: `Configured debug type 'coreclr' is not supported.`

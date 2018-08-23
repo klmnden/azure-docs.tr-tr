@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 49f6d6ee65ffae71cba8c73301355bfe2bdcd1d6
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 020f9c8753b2b91b3336b304a1c92590f62be003
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480565"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42056349"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Yaşam süresi otomatik olarak ile Azure Cosmos DB koleksiyonlarındaki verileri süresi dolacak
 Uygulamalar oluşturmak ve çok büyük miktarda veri depolayın. Bu verilerin bazılarını bilgiler yalnızca sınırlı bir süre için yararlıdır oluşturulan makine olay verileri, günlükler ve kullanıcı oturumu ister. Veri ile sunulduktan sonra Fazlalık için uygulamanızın gereksinimlerine, bu verileri temizlemek ve bir uygulamanın depolama gereksinimlerini azaltmak güvenli.
@@ -41,11 +41,11 @@ Belge doldu hemen sonra (`ttl`  +  `_ts` < geçerli sunucu saatinden =), belge "
 
 Yukarıdaki mantıksal aşağıdaki matriste gösterilebilir:
 
-|  | DefaultTTL eksik / koleksiyonunda belirlenen değil | DefaultTTL = -1 koleksiyonu | DefaultTTL = "n" koleksiyonu |
+|  | DefaultTTL eksik / koleksiyonunda belirlenen değil | DefaultTTL = -1 koleksiyonu | DefaultTTL = n' koleksiyonu |
 | --- |:--- |:--- |:--- |
-| Belge TTL eksik |TTL kavramı belge ve koleksiyonu olduğundan, belge düzeyinde geçersiz kılmak için bir şey yok. |Bu koleksiyonda belge sona erecek. |Aralığı n sona erdiğinde, bu koleksiyondaki belgeleri sona erecek. |
-| TTL belgesinde -1 = |Toplama işleminden itibaren belge düzeyinde geçersiz kılmak için hiçbir şey bir belge kılabileceğiniz DefaultTTL özelliği tanımlamıyor. Sistem tarafından bir belge TTL yorumlanmayan. |Bu koleksiyonda belge sona erecek. |Belge TTL =-1'de bu koleksiyonu ile hiçbir zaman sona erecek. Diğer tüm belgeler "n" aralığından sonra sona erecek. |
-| TTL belgesinde n = |Belge düzeyinde geçersiz kılmak için bir şey yok. Sistem tarafından bir belge TTL yorumlanmayan. |Belge TTL ile = n saniye cinsinden aralık n sonra sona erecek. Diğer belgeler,-1 Aralık devralır ve süresi dolmayacak. |Belge TTL ile = n saniye cinsinden aralık n sonra sona erecek. Diğer belgeler, koleksiyondan "n" aralığı devralır. |
+| Belge TTL eksik |TTL kavramı belge ve koleksiyonu olduğundan, belge düzeyinde geçersiz kılmak için bir şey yok. |Bu koleksiyonda belge sona erecek. |Bu koleksiyondaki belgeleri dolacak zaman aralığı n' geçen. |
+| TTL belgesinde -1 = |Toplama işleminden itibaren belge düzeyinde geçersiz kılmak için hiçbir şey bir belge kılabileceğiniz DefaultTTL özelliği tanımlamıyor. Sistem tarafından bir belge TTL yorumlanmayan. |Bu koleksiyonda belge sona erecek. |Belge TTL =-1'de bu koleksiyonu ile hiçbir zaman sona erecek. Diğer tüm belgeler n sonra sona erecek ' aralığı. |
+| TTL belgesinde n = |Belge düzeyinde geçersiz kılmak için bir şey yok. Sistem tarafından bir belge TTL yorumlanmayan. |Belge TTL ile = n saniye cinsinden aralık n sonra sona erecek. Diğer belgeler,-1 Aralık devralır ve süresi dolmayacak. |Belge TTL ile = n saniye cinsinden aralık n sonra sona erecek. Diğer belgeler, n devralır ' koleksiyondan aralığı. |
 
 ## <a name="configuring-ttl"></a>TTL yapılandırma
 Varsayılan olarak, yaşam süresi tüm Cosmos DB koleksiyonları ve tüm belgeler üzerinde varsayılan olarak devre dışıdır. TTL program aracılığıyla veya Azure portalını kullanarak ayarlayabilirsiniz. Azure Portalı'ndan TTL yapılandırmak için aşağıdaki adımları kullanın:

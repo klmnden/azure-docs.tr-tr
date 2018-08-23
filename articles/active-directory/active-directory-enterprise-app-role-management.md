@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 08/10/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 8bf7f18f8051f1647a86bbe9c0be638045781a72
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: cb4c9f91c7a116e6171a8e94030b6bb40fdb38ea
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989920"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42060361"
 ---
 # <a name="configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Azure Active Directory'de kurumsal uygulamalar için SAML belirtecinde verilen rol talep yapılandırma
 
@@ -67,6 +67,9 @@ Uygulamanız SAML yanıt olarak geçirilecek özel roller görüyorsa, bu özell
     c. (Bunlar önceden yüklü değilse) listesi ve seçin, aşağıdaki izinleri seçin **değiştirme izinlerini**.
 
       ![İzinler ve "İzinleri değiştir" düğmesine listesi](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
+
+    > [!Note]
+    > Dizin okuma ve yazma için genel yönetici izinlerine gerek duyduğunuz bulut uygulaması Yöneticisi ve uygulama yöneticisi rolü Bu senaryoda çalışmaz.
 
     d. Onay kabul edin. Sisteme tekrar oturum açtınız.
 
@@ -165,7 +168,7 @@ Uygulamanız SAML yanıt olarak geçirilecek özel roller görüyorsa, bu özell
 
     d. Bırakın **Namespace** kutusunu boş.
 
-    e. Seçin **Tamam**.
+    e. **Tamam**’ı seçin.
 
 10. Bir tek bir kimlik sağlayıcısı tarafından başlatılan oturum, uygulamanızı test etmek için oturum açın [erişim paneli](https://myapps.microsoft.com) ve, uygulama kutucuğunu seçin. SAML belirtecinde talep adıyla verdiğiniz kullanıcı için tüm atanan roller görmeniz gerekir.
 

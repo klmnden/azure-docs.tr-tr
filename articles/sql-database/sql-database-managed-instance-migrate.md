@@ -11,20 +11,18 @@ ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: bonova
-ms.openlocfilehash: a9a02f9007c174024028305746682f9ac07dab22
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e152fa4bb439f1881dc9974bfdf1b3e8c77c434a
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247219"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42055599"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği SQL Server örneği geçirme
 
-Bu makalede, Azure SQL veritabanı yönetilen örneği için (Önizleme) bir SQL Server 2005 veya üzeri bir sürüm örneği geçirmek için yöntemler hakkında bilgi edinin. 
+Bu makalede, bir SQL Server 2005 veya üzeri sürümü örneğine geçirmek için yöntemler hakkında bilgi [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md) (Önizleme).
 
-SQL Veritabanı Yönetilen Örneği, mevcut SQL Veritabanı hizmetinin genişletilmiş halidir ve tek veritabanları ile esnek havuzlara ek olarak üçüncü bir dağıtım seçeneği sağlar.  Veritabanı lift-and-shift ile taşıma tam olarak yönetilen bir PaaS için uygulamayı yeniden tasarlamaya gerek kalmadan etkinleştirmek için tasarlanmıştır. SQL Veritabanı Yönetilen Örneği, şirket içi SQL Server programlama modeli için yüksek düzeyde uyumluluk sağlamasının yanı sıra SQL Server özelliklerinin büyük bir çoğunluğu ile bunlara eşlik eden araç ve hizmetleri destekleyecek şekilde sunulur.
-
-Yüksek düzeyde, uygulama geçiş işlemi aşağıdaki gibi görünür:
+Yüksek düzeyde, veritabanı geçiş işlemi aşağıdaki gibi görünür:
 
 ![Geçiş işlemi](./media/sql-database-managed-instance-migration/migration-process.png)
 
@@ -41,9 +39,9 @@ Yüksek düzeyde, uygulama geçiş işlemi aşağıdaki gibi görünür:
 
 İlk olarak, yönetilen örneği, uygulamanızın veritabanı gereksinimleriyle uyumlu olup olmadığını belirler. Yönetilen örnek kolay lift and shift ile geçiş için çoğu şirket içi SQL Server kullanan mevcut uygulamaları ya da sanal makineler sağlamak için tasarlanmıştır. Ancak, bazen özellikleri gerektirebilir veya henüz desteklenmeyen bazı özellikler ve geçici bir çözüm uygulama maliyeti çok yüksek. 
 
-Kullanım [Data Migration Yardımcısı (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) olası algılamak için veritabanı işlevselliğini etkileyen Azure SQL veritabanı uyumluluk sorunları. DMA yönetilen örneğe geçiş hedef olarak henüz desteklemiyor, ancak değerlendirme Azure SQL veritabanınızda çalıştırın ve dikkatli bir şekilde bildirilen özellik eşliği ve uyumluluk sorunlarına karşı ürün belgelerinin listesini incelemek için önerilir. Yönetilen örneği ile bir Azure SQL veritabanına geçiş önleme engelleme sorunlarını çoğu kaldırıldı. Örnek veritabanları arası sorgular gibi özellikler, aynı örneği, diğer SQL kaynakları, CLR, genel geçici tablolar, bağlantılı sunucuya içinde veritabanları arası işlemler için örnek düzeyi görünümleri, hizmet aracısı ve benzeri yönetilen örnekleri'nde kullanılabilir. 
+Kullanım [Data Migration Yardımcısı (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) olası algılamak için veritabanı işlevselliğini etkileyen Azure SQL veritabanı uyumluluk sorunları. DMA yönetilen örneğe geçiş hedef olarak henüz desteklemiyor, ancak değerlendirme Azure SQL veritabanınızda çalıştırın ve dikkatli bir şekilde bildirilen özellik eşliği ve uyumluluk sorunlarına karşı ürün belgelerinin listesini incelemek için önerilir. Bkz [yönetilen örneği ile Azure SQL veritabanı tek arasındaki farklar](sql-database-features.md) denetlemek için sorunları bazı bildirilen engelleme vardır yönetilen örneğinde engelleyicilerin ortadan çoğu engelleme sorunları nedeniyle geçiş önleme Azure SQL veritabanı yönetilen örneği ile kaldırıldı. Örnek veritabanları arası sorgular gibi özellikler, aynı örneği, diğer SQL kaynakları, CLR, genel geçici tablolar, bağlantılı sunucuya içinde veritabanları arası işlemler için örnek düzeyi görünümleri, hizmet aracısı ve benzeri yönetilen örnekleri'nde kullanılabilir. 
 
-Ancak, bazı durumlar vardır, alternatif bir seçenek gibi düşünün gerektiğinde [azure'daki sanal makinelerde SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/). İşte bazı örnekler:
+Varsa bazı bildirilen Azure SQL yönetilen örneği'nde kaldırılmaz engelleme sorunları, alternatif bir seçenek gibi düşünün gerekebilir [azure'daki sanal makinelerde SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/). İşte bazı örnekler:
 
 - İşletim sistemi veya dosya sistemi, yükleme üçüncü taraf veya özel aracıları aynı sanal makinede SQL Server örneği için doğrudan erişim gerekiyorsa.
 - Yine, FILESTREAM gibi desteklenmeyen özelliklerle ilgili katı bağımlılığı varsa / FileTable, PolyBase ve çapraz örnek işlemleri.
@@ -52,13 +50,13 @@ Ancak, bazı durumlar vardır, alternatif bir seçenek gibi düşünün gerekti�
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>En iyi şekilde boyutlandırılmış yönetilen örneğine dağıtma
 
-Yönetilen örnek buluta taşımak için planlama şirket içi iş yükleri için uygun hale getirilir. Bu kaynakları iş yükleriniz için doğru düzeyde seçerek daha fazla esneklik sunan yeni bir satın alma modeli sunar. Şirket içi dünyasında, bu iş yükleri için boyutlandırma fiziksel çekirdek kullanarak büyük olasılıkla alışkın olduğunuz. Yeni satın alma modeli yönetilen örneği için temel sanal çekirdek ya da "Şununla," ek depolama alanı ve kullanılabilir GÇ ayrı olarak temel alır. VCore modeli bir basittir ve kullandığınız bulut işlem gereksinimlerinizi anlamak için şirket içi bugün. Bu yeni modeli, hedef ortamınızda bulut için doğru boyutu sağlar.
+Yönetilen örnek buluta taşımak için planlama şirket içi iş yükleri için uygun hale getirilir. Tanıttığı bir [yeni satın alma modeli](sql-database-service-tiers-vcore.md) seçerken doğru düzeyde kaynakları iş yükleriniz için büyük esneklik sağlar. Şirket içi dünyasında, fiziksel çekirdek ve g/ç bant genişliği'ni kullanarak bu iş yükleri boyutlandırma için büyük olasılıkla alışkın olduğunuz. Yeni satın alma modeli yönetilen örneği için temel sanal çekirdek ya da "Şununla," ek depolama alanı ve kullanılabilir GÇ ayrı olarak temel alır. VCore modeli bir basittir ve kullandığınız bulut işlem gereksinimlerinizi anlamak için şirket içi bugün. Bu yeni modeli, hedef ortamınızda bulut için doğru boyutu sağlar.
 
-İşlem seçebilirsiniz ve dağıtım sırasında depolama kaynaklarını süresi ve daha sonra uygulamanız için kesintiye neden oluşturmaksızın değiştirin.
+İşlem seçebilirsiniz ve depolama kaynakları dağıtım süresi ve daha sonra Tanıtımı kullanarak uygulamanızı için kapalı kalma süresi olmadan değiştirin [Azure portalında](sql-database-scale-resources.md):
 
 ![Yönetilen örnek boyutlandırma](./media/sql-database-managed-instance-migration/managed-instance-sizing.png)
 
-Sanal ağ altyapısı ve yönetilen örneğe nasıl oluşturulacağını öğrenmek için bkz: [bir yönetilen örnek oluşturma](sql-database-managed-instance-create-tutorial-portal.md).
+Sanal ağ altyapısı ve yönetilen örneğe nasıl oluşturulacağını öğrenmek için bkz: [bir yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md).
 
 > [!IMPORTANT]
 > Hedef sanal ağ ve alt ağ her zaman içinde belge tutmak önemlidir [yönetilen örnek sanal ağ gereksinimleri](sql-database-managed-instance-vnet-configuration.md#requirements). Hiçbir uyumsuzluk yeni kopyalarını oluşturmak veya önceden oluşturulmuş bu kullanarak engelleyebilirsiniz.
@@ -77,7 +75,7 @@ Yönetilen örnek, yerleşik olarak gibi platforma normal DBA etkinliklerin baz�
 Yönetilen örnek (şu anda bunlar yalnızca desteklenen geçiş yöntemleridir) aşağıdaki veritabanı geçiş seçeneklerini destekler:
 
 - Azure veritabanı geçiş hizmeti - sıfıra yakın kapalı kalma süresiyle geçiş
-- Adresa URL – yerel YEDEKTEN geri yükleyin, SQL Server'dan yerel yedeklemeleri kullanır ve miktar biraz kesinti süresine
+- Yerel `RESTORE DATABASE FROM URL` - yerel SQL Server yedeklemeleri kullanır ve bazı kapalı kalma süresi gerektirir.
 
 ### <a name="azure-database-migration-service"></a>Azure Veritabanı Geçiş Hizmeti
 
@@ -105,7 +103,7 @@ Aşağıdaki tabloda, kaynak SQL Server sürümüne bağlı olarak kullanabilece
 |Azure depolama biriminden yönetilen örneğine geri yükleyin.|[Geri yükleme kaynak URL ile SAS kimlik bilgisi](sql-database-managed-instance-restore-from-backup-tutorial.md)|
 
 > [!IMPORTANT]
-> - [Saydam Veri Şifrelemesi](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) ile korunan veritabanı yerel geri yükleme seçeneği kullanılarak Azure SQL Yönetilen Örneği’ne geçirildiğinde, veritabanı geri yüklenmeden önce ilgili sertifikanın şirket içinden veya IaaS SQL Server’dan geçirilmesi gerekir. Ayrıntılı adımlar için bkz. [yönetilen örneğe geçirme TDE cert](sql-database-managed-instance-migrate-tde-certificate.md)
+> - [Saydam Veri Şifrelemesi](transparent-data-encryption-azure-sql.md) ile korunan veritabanı yerel geri yükleme seçeneği kullanılarak Azure SQL Yönetilen Örneği’ne geçirildiğinde, veritabanı geri yüklenmeden önce ilgili sertifikanın şirket içinden veya IaaS SQL Server’dan geçirilmesi gerekir. Ayrıntılı adımlar için bkz. [yönetilen örneğe geçirme TDE cert](sql-database-managed-instance-migrate-tde-certificate.md)
 > - Sistem veritabanlarının geri yükleme desteklenmiyor. Örnek düzeyi nesneler (ana veya msdb veritabanlarında depolanan) geçirmek için bunları komut dosyası ve hedef örneğinde T-SQL betiklerini çalıştırma öneririz.
 
 Bir SAS kimlik bilgisi kullanarak yönetilen örneği için bir veritabanı yedeğini geri içeren tam bir öğretici için bkz [yedekten bir yönetilen örneğe geri](sql-database-managed-instance-restore-from-backup-tutorial.md).
@@ -121,11 +119,10 @@ Ayrıca, yüksek oranda kullanılabilir ayarlama endişelenmeniz gerekmez [yüks
 
 Güvenliği güçlendirmek için kullanılabilir olan özelliklerin bazılarını kullanarak göz önünde bulundurun:
 - Azure Active Directory kimlik doğrulaması ve veritabanı düzeyinde
-- Denetim ve tehdit algılama, etkinlikleri izlemek için
-- Hassas ve ayrıcalıklı verilere erişimi denetleme ([satır düzeyi güvenlik](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) ve [dinamik veri maskeleme](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)).
+- Kullanım [Gelişmiş güvenlik özellikleri](sql-database-security-overview.md) gibi [denetim](sql-database-managed-instance-auditing.md), [tehdit algılama](sql-advanced-threat-protection.md), [satır düzeyi güvenlik](https://docs.microsoft.com/sql/relational-databases/security/row-level-security), ve [dinamik Veri maskeleme](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) ) örneğinizin güvenliğini sağlamak için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Yönetilen örnekleri hakkında daha fazla bilgi için bkz: [yönetilen örnek nedir?](sql-database-managed-instance.md).
-- Bir yedekten içeren bir öğretici için bkz. [bir yönetilen örnek oluşturma](sql-database-managed-instance-create-tutorial-portal.md).
+- Bir yedekten içeren bir öğretici için bkz. [bir yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md).
 - DMS kullanarak öğretici gösteren geçiş için bkz: [şirket içi veritabanı DMS kullanarak yönetilen örneği'ne geçiş](../dms/tutorial-sql-server-to-managed-instance.md).  

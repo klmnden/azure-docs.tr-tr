@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/20/2018
+ms.date: 08/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9ed918a7402abcbe79e302421f3b2ac725857464
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: d18a6718e4c29f3d04639644dc752b0733f15ba8
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188788"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42060695"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Kapsayıcı kayıt defteri için Azure Event Grid olay şeması
 
@@ -114,11 +114,9 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 | -------- | ---- | ----------- |
 | id | dize | Olay Kimliği |
 | timestamp | dize | Olayın gerçekleştiği zaman. |
-| action | dize | Belirtilen olayın kapsayan eylem. |
+| eylem | dize | Belirtilen olayın kapsayan eylem. |
 | hedef | object | Olay hedefi. |
 | istek | object | Olayı oluşturan istek. |
-| Aktör | object | Olayı başlatan aracı. Çoğu durumda için bu değeri isteğin yetkilendirme bağlamdan olabilir. |
-| source | object | Olayı oluşturan kayıt defteri düğümü. Aktör olayı başlatan sırada farklı şekilde, put, kaynak da oluşturur. |
 
 Hedef nesne, aşağıdaki özelliklere sahiptir:
 
@@ -129,7 +127,6 @@ Hedef nesne, aşağıdaki özelliklere sahiptir:
 | Özet | dize | Kayıt defteri V2 HTTP API belirtimi tarafından tanımlanan içeriği, Özet. |
 | Uzunluğu | integer | İçeriğin bayt sayısı. Boyut alanına ile aynıdır. |
 | Depo | dize | Depo adı. |
-| url | dize | İçeriğe doğrudan URL. |
 | etiket | dize | Etiket adı. |
 
 İstek nesnesi, aşağıdaki özelliklere sahiptir:
@@ -141,19 +138,6 @@ Hedef nesne, aşağıdaki özelliklere sahiptir:
 | konak | dize | Harici olarak erişilebilen ana bilgisayar adını http ana bilgisayar üstbilgisi gelen isteklerde tarafından belirtilen kayıt defteri örneği. |
 | method | dize | Olayı oluşturan istek yöntemi. |
 | UserAgent | dize | İsteğin kullanıcı aracısını üstbilgisi. |
-
-Aktör nesnesi, aşağıdaki özelliklere sahiptir:
-
-| Özellik | Tür | Açıklama |
-| -------- | ---- | ----------- |
-| ad | dize | Olayı oluşturan istek bağlamı ile ilişkili kullanıcı adı veya konu. |
-
-Kaynak nesne, aşağıdaki özelliklere sahiptir:
-
-| Özellik | Tür | Açıklama |
-| -------- | ---- | ----------- |
-| addr | dize | IP veya ana bilgisayar adı ve bağlantı noktası olayı oluşturan kayıt defteri düğümü. Genellikle, bu değeri, işletim sistemi tarafından çözümlenir. Çalışan bağlantı noktalarının yanı sıra hostname(). |
-| InstanceId | dize | Çalışan bir uygulama örneği. Her yeniden başlatma işleminden sonra değişir. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

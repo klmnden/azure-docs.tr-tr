@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: 7b7f9c079a1fc9d74fed4cc4d94d37f336ca5dc7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: aed804a257376308c668ce0c2f3e8ce652ee9b3f
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916749"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42055559"
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Farklı Azure bölgelerindeki sanal ağları eşleme
 
@@ -88,16 +88,36 @@ Kaynak sanal makinenin ağ arabiriminde DHCP kullanıyorsa, hedef sanal makineni
 ### <a name="static-ip-address"></a>Statik IP adresi
 Kaynak sanal makinenin ağ arabiriminde bir statik IP adresi kullanıyorsa, hedef sanal makinenin ağ arabiriminde de statik bir IP adresi kullanacak şekilde ayarlanır. Statik bir IP adresi nasıl belirlendiğini aşağıdaki bölümlerde açıklanmaktadır.
 
-#### <a name="same-address-space"></a>Aynı adres alanı
+### <a name="ip-assignment-behavior-during-failover"></a>Yük devretme sırasında IP ataması davranışı
+#### <a name="1-same-address-space"></a>1. Aynı adres alanı
 
 Kaynak alt ağ ve hedef alt ağ aynı adres alanı varsa, kaynak sanal makinenin Ağ arabiriminin IP adresini hedef IP adresi olarak ayarlanır. Aynı IP adresi kullanılabilir değilse, bir sonraki kullanılabilir IP adresi hedef IP adresi olarak ayarlanır.
 
-#### <a name="different-address-spaces"></a>Farklı bir adres alanları
+#### <a name="2-different-address-spaces"></a>2. Farklı bir adres alanları
 
 Kaynak alt ağ ve hedef alt ağ farklı adres alanları varsa, hedef alt ağdaki bir sonraki kullanılabilir IP adresi hedef IP adresi olarak ayarlanır.
 
-Her ağ arabirimi hedef IP değiştirmek için Git **işlem ve ağ** sanal makine için ayarları.
 
+### <a name="ip-assignment-behavior-during-test-failover"></a>Yük devretme testi sırasında IP ataması davranışı
+#### <a name="1-if-the-target-network-chosen-is-the-production-vnet"></a>1. Seçilen hedef ağ üretim vnet'se
+- Kurtarma IP (hedef IP), ancak statik IP olacaktır **aynı IP adresini olmayacaktır** yük devretme için ayrılmış.
+- Atanan IP adresi alt ağ adres aralığı sonundaki bir sonraki kullanılabilir IP'yi olacaktır.
+- İçin örneğin, kaynak VM statik IP olarak yapılandırılmışsa: 10.0.0.19 ve yük devretme testi ile yapılandırılmış bir üretim ağı denendi: ***dr PROD KB***, 10.0.0.0/24 alt ağ aralığında ile. </br>
+-İle bir sonraki kullanılabilir IP'yi olan alt ağ adres aralığı sonundan devredilen VM'nin atanır: 10.0.0.254 </br>
+
+**Not:** terminoloji **üretim vNet** 'olağanüstü durum kurtarma yapılandırması sırasında eşlenmiş hedef ağ' denir.
+####<a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Seçilen hedef ağ üretim vNet değil ancak üretim ağı ile aynı alt ağ aralığında varsa 
+
+- Kurtarma IP (hedef IP) statik bir IP ile olacaktır **aynı IP adresini** (yani, statik IP adresi yapılandırılmış) yük devretme için ayrılmış. Aynı IP adresi kullanılabilir sağlanır.
+- Ardından yapılandırılmış statik IP, bazı diğer VM/cihaza zaten atanmışsa, Kurtarma IP alt ağ adres aralığı sonundaki bir sonraki kullanılabilir IP'yi olacaktır.
+- İçin örneğin, kaynak VM statik IP olarak yapılandırılmışsa: 10.0.0.19 ve yük devretme testi ile bir test ağı denendi: ***dr-olmayan-PROD-KB***, üretim ağ - olarak aynı alt ağ aralığı ile 10.0.0.0/24. </br>
+  Aşağıdaki statik IP adresiyle devredilen VM'ye atanmış olur </br>
+    - statik IP yapılandırılmış: IP varsa 10.0.0.19.
+    - Bir sonraki kullanılabilir IP'yi: IP adresi 10.0.0.19 zaten varsa 10.0.0.254 kullanın.
+
+
+Her ağ arabirimi hedef IP değiştirmek için Git **işlem ve ağ** sanal makine için ayarları.</br>
+En iyi uygulama sınama Yük Devretmesini gerçekleştirmek için bir test ağı seçmek için her zaman önerilir.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Gözden geçirme [Ağ Kılavuzu, Azure sanal makineleri çoğaltma](site-recovery-azure-to-azure-networking-guidance.md).

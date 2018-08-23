@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/30/2018
 ms.author: mstewart
-ms.openlocfilehash: 19fe03a6d06b0f058a90e8bdc40d862601db4f7e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 5421858fd7f31f18c2e6a1e3693b67b3c47a6945
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399907"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42061493"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure Disk şifrelemesi önkoşulları 
  Bu makalede, Azure Disk şifrelemesi önkoşulları, Azure Disk şifrelemesi kullanabilmeniz için önce karşılanması gereken öğeleri açıklar. Genel Önkoşullar yanı sıra, Azure Disk şifrelemesi ile tümleşiktir [Azure anahtar kasası](https://docs.microsoft.com/azure/key-vault/) ve şifreleme anahtarları key vault'ta yönetmek için kimlik doğrulaması sağlamak için bir Azure AD uygulaması kullanır. Ayrıca kullanmak isteyebileceğiniz [Azure PowerShell](/powershell/azure/overview) veya [Azure CLI](/cli/azure/) ayarlamak veya Key Vault ve Azure AD uygulaması'nı yapılandırmak için.
@@ -109,7 +109,7 @@ Veri diskleri bağlayın ve gerekli/etc/fstab girişleri oluşturmak için kulla
 
 ## <a name="bkmk_CLI"></a> Azure CLI
 
-[Azure CLI 2.0](/cli/azure) Azure kaynaklarını yönetmek için bir komut satırı aracıdır. CLI, esnek bir şekilde verileri sorgulamak, engelleyici olmayan süreçler olarak uzun süreli işlemleri desteklemek ve kolay bir komut dosyası yapmak için tasarlanmıştır. [Azure Cloud Shell](/cloud-shell/overview.md) ile tarayıcınızda kullanabilir veya yerel makinenize yükleyip herhangi bir PowerShell oturumunda kullanabilirsiniz.
+[Azure CLI 2.0](/cli/azure) Azure kaynaklarını yönetmek için bir komut satırı aracıdır. CLI, esnek bir şekilde verileri sorgulamak, engelleyici olmayan süreçler olarak uzun süreli işlemleri desteklemek ve kolay bir komut dosyası yapmak için tasarlanmıştır. [Azure Cloud Shell](../cloud-shell/overview.md) ile tarayıcınızda kullanabilir veya yerel makinenize yükleyip herhangi bir PowerShell oturumunda kullanabilirsiniz.
 
 1. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli) kullanılmak üzere yerel makinenize (isteğe bağlı):
 
@@ -174,7 +174,7 @@ Azure PowerShell kullanarak bir anahtar kasası oluşturabilirsiniz [New-AzureRm
 Azure CLI kullanarak anahtar kasanıza yönetebileceğiniz [az keyvault](/cli/azure/keyvault#commands) komutları. Bir anahtar kasası oluşturmak için kullanın [az keyvault oluşturma](/cli/azure/keyvault#az-keyvault-create).
 
 1. Gerekirse, [Azure aboneliğinize bağlanma](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI).
-2. Gerekirse, yeni bir kaynak grubu oluşturma ile [az grubu oluşturma](/cli/azure/groupt#az-group-create). Konumlar listesinde, kullanmak için [az hesabı konumları-Listele](/cli/azure/account#az-account-list) 
+2. Gerekirse, yeni bir kaynak grubu oluşturma ile [az grubu oluşturma](/cli/azure/group#az-group-create). Konumlar listesinde, kullanmak için [az hesabı konumları-Listele](/cli/azure/account#az-account-list) 
      
      ```azurecli-interactive
      # To list locations: az account list-locations --output table
@@ -260,7 +260,7 @@ Azure AD uygulamanızın ihtiyaç duyduğu kasadaki gizli dizileri ve anahtarlar
      ```
 
 ### <a name="bkmk_KVAPCLI"></a> Azure CLI ile Azure AD uygulaması için anahtar kasası erişim ilkesini ayarlama
-Kullanım [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault.md#az-keyvault-set-policy) erişim ilkesini ayarlama. Daha fazla bilgi için [yönetme CLI 2.0 kullanarak Key Vault](../key-vault/key-vault-manage-with-cli2.md#authorize-the-application-to-use-the-key-or-secret).
+Kullanım [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-set-policy) erişim ilkesini ayarlama. Daha fazla bilgi için [yönetme CLI 2.0 kullanarak Key Vault](../key-vault/key-vault-manage-with-cli2.md#authorize-the-application-to-use-the-key-or-secret).
 
 1. Gerekirse, [Azure aboneliğinize bağlanma](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI).
 2. Aşağıdaki komutla gizli dizileri ve kaydırma almak için Azure CLI erişim oluşturulan hizmet sorumlusu anahtarları verin:

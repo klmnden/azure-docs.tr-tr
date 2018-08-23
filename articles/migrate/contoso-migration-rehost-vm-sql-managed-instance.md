@@ -1,20 +1,8 @@
+---Veri başlık: Azure Vm'leri ve Azure SQL veritabanı yönetilen örneği için geçiş yaparak Contoso şirket içi uygulama barındırma | Microsoft Docs açıklaması: Contoso Azure sanal makinelerinde ve Azure SQL veritabanı yönetilen örneği'ni kullanarak şirket içi uygulama nasıl rehosts öğrenin.
+Hizmetler: site recovery Yazar: rayne wiselman manager: carmonm ms.service: site recovery ms.topic: kavramsal ms.date: 08/13/2018 ms.author: raynew
+
 ---
-title: Azure Vm'leri ve Azure SQL veritabanı yönetilen örneği için geçiş yaparak Contoso şirket içi uygulama barındırma | Microsoft Docs
-description: Contoso şirket içi uygulama Azure sanal makinelerinde ve Azure SQL veritabanı yönetilen örneği'ni kullanarak nasıl rehosts öğrenin.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 07/12/2018
-ms.author: raynew
-ms.openlocfilehash: 3e3f8dffbaa7109423aacdbfbaa658bada8bb84a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215348"
----
+
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Contoso geçiş: şirket içi uygulama bir Azure VM ve SQL veritabanı yönetilen örneği yeniden barındırma
 
 Bu makalede, Contoso kendi SmartHotel uygulama geçirir. Azure Site Recovery hizmetini kullanarak bir Azure VM için ön uç VM'si. Contoso, uygulama veritabanını Azure SQL veritabanı yönetilen örneği için ayrıca geçirir.
@@ -94,7 +82,7 @@ Bu senaryoda:
 
 Hizmet | Açıklama | Maliyet
 --- | --- | ---
-[Veritabanı yönetim hizmeti](https://docs.microsoft.com/azure/dms/dms-overview) | Veritabanı yönetim hizmeti, birden çok veritabanı kaynağını sorunsuz geçiş için en düşük kapalı kalma süresi ile Azure veri platformu sağlar. | Hakkında bilgi edinin [desteklenen bölgeler](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) ve [veritabanı yönetim hizmeti fiyatlandırma](https://azure.microsoft.com/pricing/details/database-migration/).
+[Veritabanı geçiş hizmeti](https://docs.microsoft.com/azure/dms/dms-overview) | Veritabanı geçiş hizmeti, birden çok veritabanı kaynağını sorunsuz geçiş için en düşük kapalı kalma süresi ile Azure veri platformu sağlar. | Hakkında bilgi edinin [desteklenen bölgeler](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) ve [veritabanı geçiş hizmeti fiyatlandırma](https://azure.microsoft.com/pricing/details/database-migration/).
 [Azure SQL veritabanı yönetilen örneği](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) | Yönetilen örnek Azure bulutunda tam olarak yönetilen bir SQL Server örneğini temsil eden bir yönetilen veritabanı hizmetidir. SQL Server Veritabanı Altyapısı'nın en son sürümü olarak aynı kodu kullanır ve en son özellikleri, performans iyileştirmeleri ve güvenlik yamaları vardır. | SQL veritabanı yönetilen Azure'da çalışan örneği kullanarak kapasiteye bağlı ücreti alınmaz. Daha fazla bilgi edinin [yönetilen örnek fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-database/managed/). 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | Site kurtarma hizmetini düzenler ve geçiş ve olağanüstü durum kurtarma Azure Vm'leri için yönetir ve şirket içi Vm'leri ve fiziksel sunucuları.  | Azure'a çoğaltma sırasında Azure depolama ücretleri uygulanır.  Azure Vm'leri oluşturulur ve yük devretme gerçekleştiğinde ücreti. Daha fazla bilgi edinin [Site Recovery ücreti ve fiyatlandırma](https://azure.microsoft.com/pricing/details/site-recovery/).
 
@@ -117,7 +105,7 @@ Gereksinimler | Ayrıntılar
 **Yönetilen örnek önizleme kaydetme** | SQL veritabanı yönetilen örneği sınırlı genel Önizleme sürümünde kaydedilmesi gerekir. Bir Azure aboneliğine ihtiyacınız [kaydolun](https://portal.azure.com#create/Microsoft.SQLManagedInstance). Kaydolmayı tamamlamak için bu nedenle, bu senaryoyu dağıtmaya başlamadan önce kaydolmanız emin olun, birkaç gün sürebilir.
 **Azure aboneliği** | Bu serideki ilk makaledeki değerlendirme gerçekleştirdiğinizde aboneliği oluşturmuş olmanız. Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) oluşturun.<br/><br/> Ücretsiz bir hesap oluşturursanız, aboneliğinizin yöneticisi siz olur ve tüm eylemleri gerçekleştirebilirsiniz.<br/><br/> Mevcut bir abonelik kullanıyorsanız ve abonelik yöneticisi değilseniz, sahibi veya katkıda bulunan izinleri atamak için yöneticiyle birlikte çalışmanız gerekiyor.<br/><br/> Daha ayrıntılı izinlerine ihtiyaç duyarsanız bkz [Site Recovery erişimi yönetmek için rol tabanlı erişim denetimi kullanın](../site-recovery/site-recovery-role-based-linked-access-control.md). 
 **Site Recovery (şirket içi)** | Şirket içi vCenter Server örneğinizi 5.5, 6.0 veya 6.5 sürümünü çalıştırmalıdır<br/><br/> 5.5, 6.0 veya 6.5 sürümünü çalıştıran bir ESXi ana bilgisayarı<br/><br/> Bir veya daha fazla VMware ESXi ana bilgisayarında çalışan VM'ler.<br/><br/> Vm'leri karşılamalıdır [Azure gereksinimleri](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements).<br/><br/> Desteklenen [ağ](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) ve [depolama](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) yapılandırma.
-**Veritabanı yönetim hizmeti** | Veritabanı yönetim hizmeti için gereksinim duyduğunuz bir [uyumlu şirket içi VPN cihazı](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).<br/><br/> Şirket içi VPN cihazının yapılandırmanız gerekir. Bunu dönük genel IPv4 adresi olmalıdır. Adresi bir NAT cihazının arkasında yer almamalıdır.<br/><br/> Şirket içi SQL Server veritabanınıza erişimi olduğundan emin olun.<br/><br/> Windows Güvenlik Duvarı, kaynak veritabanı altyapısını erişebilir olmalıdır. Bilgi edinmek için nasıl [veritabanı altyapısı erişimi için Windows Güvenlik Duvarı Yapılandırma](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).<br/><br/> Veritabanını makinenize önünde bir güvenlik duvarı varsa, veritabanını ve dosyaları SMB 445 bağlantı noktası aracılığıyla erişmesine izin vermek için kuralları ekleyin.<br/><br/> Kaynak SQL Server örneğine bağlanmak için kullanılan ve yönetilen örneği hangi hedefin kimlik bilgileri sysadmin sunucu rolünün üyesi olması gerekir.<br/><br/> Bir ağ ihtiyacınız paylaşmak şirket içi veritabanınızda kaynak veritabanını yedeklemek için veritabanı yönetim hizmetini kullanabilirsiniz.<br/><br/> Kaynak SQL Server örneğini çalıştıran hizmet hesabının ağ paylaşımında yazma izinlerine sahip olduğundan emin olun.<br/><br/> Bir Windows kullanıcı ve ağ paylaşımı üzerinde Tam Denetim izinlerine sahip parolayı not edin. Veritabanı Yönetim hizmetinin yedekleme dosyalarını Azure depolama kapsayıcısına karşıya yüklemek için bu kullanıcı kimlik bilgilerini temsil eder.<br/><br/> TCP/IP Protokolü SQL Server Express yükleme işlemi ayarlar **devre dışı bırakılmış** varsayılan olarak. Etkin olduğundan emin olun.
+**Veritabanı geçiş hizmeti** | Veritabanı geçiş hizmeti için gereksinim duyduğunuz bir [uyumlu şirket içi VPN cihazı](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).<br/><br/> Şirket içi VPN cihazının yapılandırmanız gerekir. Bunu dönük genel IPv4 adresi olmalıdır. Adresi bir NAT cihazının arkasında yer almamalıdır.<br/><br/> Şirket içi SQL Server veritabanınıza erişimi olduğundan emin olun.<br/><br/> Windows Güvenlik Duvarı, kaynak veritabanı altyapısını erişebilir olmalıdır. Bilgi edinmek için nasıl [veritabanı altyapısı erişimi için Windows Güvenlik Duvarı Yapılandırma](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).<br/><br/> Veritabanını makinenize önünde bir güvenlik duvarı varsa, veritabanını ve dosyaları SMB 445 bağlantı noktası aracılığıyla erişmesine izin vermek için kuralları ekleyin.<br/><br/> Kaynak SQL Server örneğine bağlanmak için kullanılan ve yönetilen örneği hangi hedefin kimlik bilgileri sysadmin sunucu rolünün üyesi olması gerekir.<br/><br/> Bir ağ ihtiyacınız paylaşmak şirket içi veritabanınızda kaynak veritabanını yedeklemek için veritabanı geçiş hizmetini kullanabilirsiniz.<br/><br/> Kaynak SQL Server örneğini çalıştıran hizmet hesabının ağ paylaşımında yazma izinlerine sahip olduğundan emin olun.<br/><br/> Bir Windows kullanıcı ve ağ paylaşımı üzerinde Tam Denetim izinlerine sahip parolayı not edin. Veritabanı geçiş hizmetinin yedekleme dosyalarını Azure depolama kapsayıcısına karşıya yüklemek için bu kullanıcı kimlik bilgilerini temsil eder.<br/><br/> TCP/IP Protokolü SQL Server Express yükleme işlemi ayarlar **devre dışı bırakılmış** varsayılan olarak. Etkin olduğundan emin olun.
 
 ## <a name="scenario-steps"></a>Senaryo adımları
 
@@ -125,11 +113,11 @@ Nasıl dağıtımı ayarlamak üzere Contoso planlar aşağıda verilmiştir:
 
 > [!div class="checklist"]
 > * **1. adım: bir SQL veritabanı yönetilen örneği oluşturan ayarlama**: Contoso bir önceden oluşturulmuş yönetilen, şirket içi SQL Server veritabanını geçirme örneği gerekir.
-> * **2. adım: veritabanı yönetim hizmeti hazırlama**: Contoso veritabanı geçiş sağlayıcısını kaydetmeniz gerekir, örneği oluşturun ve sonra bir yönetim hizmeti veritabanı projesi oluşturun. Contoso de bir paylaşılan erişim imzası (SAS) Tekdüzen Kaynak Tanımlayıcısı (URI) için veritabanı yönetim hizmeti ayarlamanız gerekir. Bir SAS URI Contoso'nun depolama hesabınızdaki kaynaklara temsilci erişimi sağlar. böylece contoso depolama nesnelere sınırlı izinler verebilirsiniz. Veritabanı yönetim hizmeti, depolama hesabı kapsayıcı hizmeti SQL Server Yedekleme dosyalarını karşıya yüklemeleri erişebilmesi için bir SAS URI Contoso ayarlar.
+> * **2. adım: veritabanı geçiş hizmeti hazırlama**: Contoso veritabanı geçiş sağlayıcısını kaydetmeniz gerekir, örneği oluşturun ve sonra bir veritabanı geçişi hizmeti projesi oluşturun. Contoso de bir paylaşılan erişim imzası (SAS) Tekdüzen Kaynak Tanımlayıcısı (URI) için veritabanı geçiş hizmeti ayarlamanız gerekir. Bir SAS URI Contoso'nun depolama hesabınızdaki kaynaklara temsilci erişimi sağlar. böylece contoso depolama nesnelere sınırlı izinler verebilirsiniz. Veritabanı geçiş hizmeti, depolama hesabı kapsayıcı hizmeti SQL Server Yedekleme dosyalarını karşıya yüklemeleri erişebilmesi için bir SAS URI Contoso ayarlar.
 > * **3. adım: Azure Site Recovery için hazırlama**: Contoso için Site Recovery çoğaltılan verileri tutmak için bir depolama hesabı oluşturmanız gerekir. Ayrıca Azure kurtarma Hizmetleri kasası oluşturmanız gerekir.
 > * **4. adım: Site Recovery için şirket içi Vmware'leri hazırlama**: Contoso hesapları yük devretmeden sonra Azure Vm'lerine bağlanmak VM bulma ve aracı yükleme için hazırlar.
 > * **5. adım: Çoğaltma Vm'leri**: çoğaltmayı ayarlama, Contoso Site Recovery kaynak ve hedef ortamları yapılandırmak, bir çoğaltma ilkesi ayarlar ve VM'ler için Azure Storage çoğaltmaya başlar.
-> * **6. adım: veritabanı veritabanı yönetim hizmetini kullanarak geçirme**: Contoso veritabanı geçirir.
+> * **6. adım: veritabanı veritabanı geçiş hizmetini kullanarak geçirme**: Contoso veritabanı geçirir.
 > * **7. adım: Site Recovery kullanarak sanal makineleri geçirme**: Contoso çalıştıran bir yük devretme testi, her şeyi emin olmak için çalışmaktadır. Ardından, Contoso sanal makineleri Azure'a geçirmek için bir tam yük devretme çalıştırır.
 
 ## <a name="step-1-prepare-a-sql-database-managed-instance"></a>1. adım: bir SQL veritabanı yönetilen örneği hazırlama
@@ -195,7 +183,7 @@ Contoso aşağıdaki faktörleri göz önünde bulundurur:
 
 1. Contoso bir UDR tablo oluşturur. Contoso oluşturur rota tablosunda **ContosoNetworkingRG** kaynak grubu.
 
-    ![Yol tablosu](media/contoso-migration-rehost-vm-sql-managed-instance/mi-route-table.png)
+    ![Rota tablosu](media/contoso-migration-rehost-vm-sql-managed-instance/mi-route-table.png)
 
 2. Sonra yol tablosunu yönetilen örnek gereksinimlerine uymak için (**MIRouteTable**) olan dağıtılmış, Contoso bir adres ön eki 0.0.0.0/0 olan bir rota ekler. **Sonraki atlama türü** seçeneği **Internet**.
 
@@ -229,36 +217,36 @@ Artık, Contoso bir SQL veritabanı yönetilen örneği sağlayabilirsiniz:
 
 Bilgi edinmek için nasıl [bir yönetilen örneğini sağlama](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal).
 
-## <a name="step-2-prepare-the-database-management-service"></a>2. adım: veritabanı yönetim hizmeti hazırlama
+## <a name="step-2-prepare-the-database-migration-service"></a>2. adım: veritabanı geçiş hizmeti hazırlama
 
-Veritabanı yönetim hizmeti hazırlamak için Contoso birkaç şey yapması gerekir:
+Veritabanı geçiş hizmeti hazırlamak için Contoso birkaç şey yapması gerekir:
 
-- Veritabanı yönetim hizmet sağlayıcısı, Azure'da kaydedin.
-- Veritabanı yönetim hizmeti, veritabanını geçirmek için kullanılan yedekleme dosyalarını yüklemek için Azure depolama ile erişim sağlar. Azure depolama alanına erişim sağlamak için Azure Blob Depolama kapsayıcısına Contoso oluşturur. Contoso, bir Blob Depolama kapsayıcısının SAS URI'sini oluşturur. 
-- Bir yönetim hizmeti veritabanı projesi oluşturun.
+- Veritabanı geçiş hizmeti sağlayıcı Azure'da kaydedin.
+- Veritabanı geçiş hizmeti, veritabanını geçirmek için kullanılan yedekleme dosyalarını yüklemek için Azure depolama ile erişim sağlar. Azure depolama alanına erişim sağlamak için Azure Blob Depolama kapsayıcısına Contoso oluşturur. Contoso, bir Blob Depolama kapsayıcısının SAS URI'sini oluşturur. 
+- Veritabanı geçiş hizmeti projesi oluşturun.
 
 Ardından, Contoso, aşağıdaki adımları gerçekleştirir:
 
 1. Contoso aboneliği altında veritabanı geçiş sağlayıcısını kaydeder.
-    ![Veritabanı yönetim hizmeti - kayıt](media/contoso-migration-rehost-vm-sql-managed-instance/dms-subscription.png)
+    ![Veritabanı geçiş hizmeti - kayıt](media/contoso-migration-rehost-vm-sql-managed-instance/dms-subscription.png)
 
-2. Contoso, bir Blob Depolama kapsayıcısı oluşturur. Veritabanı yönetim hizmeti erişebilmesi Contoso SAS URI'sini oluşturur.
+2. Contoso, bir Blob Depolama kapsayıcısı oluşturur. Veritabanı geçiş hizmeti erişebilmesi Contoso SAS URI'sini oluşturur.
 
-    ![Yönetim Hizmeti veritabanı - bir SAS URI'si oluşturma](media/contoso-migration-rehost-vm-sql-managed-instance/dms-sas.png)
+    ![Veritabanı geçiş hizmeti - bir SAS URI'si oluşturma](media/contoso-migration-rehost-vm-sql-managed-instance/dms-sas.png)
 
-3. Contoso bir veritabanı yönetim hizmeti örneği oluşturur. 
+3. Contoso bir veritabanı geçiş hizmeti örneği oluşturur. 
 
-    ![Yönetim Hizmeti veritabanı - örneği oluşturma](media/contoso-migration-rehost-vm-sql-managed-instance/dms-instance.png)
+    ![Veritabanı geçiş hizmeti - örneği oluşturma](media/contoso-migration-rehost-vm-sql-managed-instance/dms-instance.png)
 
-4. Contoso yerleştirir veritabanı yönetim hizmeti örneğinde **PROD DC EUS2** alt **VNET-PROD-DC-EUS2** sanal ağ.
-    - Hizmet bir VPN ağ geçidi üzerinden şirket içi SQL Server VM erişimi olan bir sanal ağda olması gerektiğinden, Contoso veritabanı yönetim hizmeti var. yerleştirir.
-    - **VNET PROD EUS2** için eşlenmiş **VNET HUB EUS2** ve uzak ağ geçitlerini kullanmasına izin verilir. **Uzak ağ geçitlerini kullan** seçeneği, veritabanı yönetim hizmeti gereken şekilde iletişim kurabildiğini sağlar.
+4. Veritabanı geçiş hizmeti örneği, contoso yerleştirir **PROD DC EUS2** alt **VNET-PROD-DC-EUS2** sanal ağ.
+    - Hizmet bir VPN ağ geçidi üzerinden şirket içi SQL Server VM erişimi olan bir sanal ağda olması gerektiğinden, Contoso veritabanı geçiş hizmeti var. yerleştirir.
+    - **VNET PROD EUS2** için eşlenmiş **VNET HUB EUS2** ve uzak ağ geçitlerini kullanmasına izin verilir. **Uzak ağ geçitlerini kullan** seçeneği, veritabanı geçiş hizmeti gereken şekilde iletişim kurabildiğini sağlar.
 
-        ![Yönetim Hizmeti veritabanı - ağı yapılandırma](media/contoso-migration-rehost-vm-sql-managed-instance/dms-network.png)
+        ![Veritabanı geçiş hizmeti - ağ yapılandırma](media/contoso-migration-rehost-vm-sql-managed-instance/dms-network.png)
 
 *Daha fazla yardıma mı ihtiyacınız var?*
 
-- Bilgi edinmek için nasıl [veritabanı yönetimi hizmeti ayarlama](https://docs.microsoft.com/azure/dms/quickstart-create-data-migration-service-portal).
+- Bilgi edinmek için nasıl [veritabanı geçiş hizmeti'kurmak](https://docs.microsoft.com/azure/dms/quickstart-create-data-migration-service-portal).
 - Bilgi edinmek için nasıl [SAS oluşturup](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
 
@@ -451,15 +439,15 @@ Artık, Contoso WebVM çoğaltma başlayabilirsiniz.
 
 Bu adımlarda eksiksiz izlenecek edinebilirsiniz [çoğaltmayı etkinleştir](https://docs.microsoft.com/azure/site-recovery/vmware-azure-enable-replication).
 
-## <a name="step-6-migrate-the-database-by-using-the-database-management-service"></a>6. adım: veritabanı veritabanı yönetim hizmetini kullanarak geçirme
+## <a name="step-6-migrate-the-database-by-using-the-database-migration-service"></a>6. adım: veritabanı veritabanı geçiş hizmetini kullanarak geçirme
 
-Contoso, bir veritabanı yönetim hizmeti projesi oluşturun ve ardından veritabanını geçirme gerekiyor.
+Veritabanı geçiş hizmeti projesi oluşturun ve ardından veritabanını geçirme contoso gerekir.
 
-### <a name="create-a-database-management-service-project"></a>Bir veritabanı yönetim hizmeti projesi oluşturma
+### <a name="create-a-database-migration-service-project"></a>Veritabanı geçiş hizmeti projesi oluşturma
 
-1. Contoso bir veritabanı yönetim hizmeti projesi oluşturur. Contoso seçer **SQL Server** kaynak sunucu türü. Contoso seçer **Azure SQL veritabanı yönetilen örneği** hedefi olarak.
+1. Contoso bir veritabanı geçişi hizmeti projesi oluşturur. Contoso seçer **SQL Server** kaynak sunucu türü. Contoso seçer **Azure SQL veritabanı yönetilen örneği** hedefi olarak.
 
-     ![Veritabanı yönetim hizmeti - yeni geçiş projesi](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-project.png)
+     ![Veritabanı geçiş hizmeti - yeni geçiş projesi](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-project.png)
 
 2. Geçiş Sihirbazı'nı açar.
 
@@ -467,34 +455,34 @@ Contoso, bir veritabanı yönetim hizmeti projesi oluşturun ve ardından verita
 
 1. Geçiş Sihirbazı'nda, şirket içi veritabanının bulunduğu kaynak VM Contoso belirtir. Contoso ve veritabanına erişmek için kimlik bilgilerini girer.
 
-    ![Veritabanı yönetim hizmeti - kaynak ayrıntıları](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-source.png)
+    ![Veritabanı geçiş hizmeti - kaynak ayrıntıları](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-source.png)
 
 2. Contoso geçirmek üzere veritabanı seçer (**SmartHotel.Registration**):
 
-    ![Veritabanı yönetim hizmeti - veritabanlarını kaynak seçin](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-sourcedb.png)
+    ![Veritabanı geçiş hizmeti - veritabanlarını kaynak seçin](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-sourcedb.png)
 
 3. Hedef için Contoso Azure'da yönetilen örnek adını girer. Contoso yönetilen örneği için erişim kimlik bilgilerini girer.
 
-    ![Veritabanı yönetim hizmeti - hedef ayrıntıları](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-target-details.png)
+    ![Veritabanı geçiş hizmeti - hedef ayrıntıları](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-target-details.png)
 
 4. İçinde **yeni etkinlik** > **geçiş çalıştırmak**, Contoso geçişi çalıştırma ayarlarını belirtir:
     - Kaynak ve hedef kimlik bilgileri.
     - Geçiş için veritabanı.
-    - Ağ, şirket içi VM üzerinde oluşturulan, Contoso paylaşın. Veritabanı yönetim hizmeti, bu paylaşıma kaynak yedeklemeler alır. 
+    - Ağ, şirket içi VM üzerinde oluşturulan, Contoso paylaşın. Veritabanı geçiş hizmeti, bu paylaşıma kaynak yedeklemeler alır. 
         - Kaynak SQL Server örneğini çalıştıran hizmet hesabının bu paylaşımında yazma izinlerine sahip olmalıdır.
         - Paylaşım FQDN yolu kullanılmalıdır.
-    - Depolama hesabı kapsayıcı hizmeti geçiş için yedekleme dosyalarının karşıya yüklemeleri erişimi olan veritabanı yönetim hizmeti sağlayan SAS URI'si.
+    - Veritabanı geçiş hizmeti hizmet geçiş için yedekleme dosyalarının karşıya yükler depolama hesabının kapsayıcıya erişimi sağlayan SAS URI'si.
 
-        ![Yönetim Hizmeti veritabanı - geçiş ayarlarını yapılandırma](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
+        ![Veritabanı geçiş hizmeti - geçiş ayarlarını yapılandırma](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
 
 5. Contoso geçiş kaydeder ve sonra çalışır.
 6. İçinde **genel bakış**, Contoso geçiş durumunu izler.
 
-    ![Veritabanı Yönetim Hizmeti - izleme](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
+    ![Veritabanı geçiş hizmeti - izleme](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
 
 7. Geçiş tamamlandığında, Contoso hedef veritabanı yönetilen örneği'nde mevcut olduğunu doğrular.
 
-    ![Yönetim Hizmeti veritabanı - veritabanı geçişi doğrulama](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor2.png)
+    ![Veritabanı geçiş hizmeti - veritabanı geçişi doğrulama](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor2.png)
 
 ## <a name="step-7-migrate-the-vm-by-using-site-recovery"></a>7. adım: Site Recovery kullanarak VM'yi geçirme
 
@@ -592,7 +580,7 @@ Contoso, Azure Backup hizmetini kullanarak, üzerinde WEBVM verileri yedekler. D
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu makalede, Contoso uygulama geçiş yaparak Azure SmartHotel uygulamada rehosts Site Recovery hizmetini kullanarak azure'a ön uç VM'si. Contoso, şirket içi veritabanının Azure SQL veritabanı yönetilen örneği için Azure veritabanı yönetim hizmetini kullanarak geçirir.
+Bu makalede, Contoso uygulama geçiş yaparak Azure SmartHotel uygulamada rehosts Site Recovery hizmetini kullanarak azure'a ön uç VM'si. Contoso, şirket içi veritabanının Azure SQL veritabanı yönetilen örneği için Azure veritabanı geçiş hizmeti kullanarak geçirir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

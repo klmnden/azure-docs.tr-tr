@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 51f38cf7ade01b58ad5ce7925af5546d1a4f1a0c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 072573b16fbeebac1ec942b0be508cf901b5cd27
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525391"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42060862"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake depolama Gen2 Önizleme giriş
 
@@ -33,6 +33,8 @@ Geçmişte, bulut tabanlı analiz performansı, yönetim ve güvenlik alanların
 
 - **Yönetim** düzenleyebilir ve dizinler ile alt dizinleri aracılığıyla dosyaları yönetmek için daha kolaydır.
 
+- **Güvenlik** klasörler veya kişiler dosyaları üzerinde POSIX izinler tanımlayabilirsiniz uygulanabilir olmasıdır.
+
 - **Maliyet uygunluğu** Data Lake depolama Gen2'ye üzerine düşük maliyetli şekilde gerçekleştirilir [Azure Blob Depolama](../blobs/storage-blobs-introduction.md). Ek özellikleri daha düşük maliyetli sahipliği büyük veri analizini Azure'da çalıştırmaya yönelik daha fazla.
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Data Lake depolama Gen2 temel özellikleri
@@ -43,9 +45,7 @@ Geçmişte, bulut tabanlı analiz performansı, yönetim ve güvenlik alanların
 
 - **Hadoop uyumlu erişim**: Data Lake depolama Gen2'ye yönetmenizi ve sahip olduğu gibi veri erişim sağlayan bir [Hadoop dağıtılmış dosya sistemi (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Yeni [ABFS sürücü](./abfs-driver.md) dahil olmak üzere tüm Apache Hadoop ortamlar içinde kullanılabilir [Azure HDInsight](../../hdinsight/index.yml) ve [Azure Databricks](../../azure-databricks/index.yml) Data Lake Store içinde depolanan verilere erişmek için 2. nesil.
 
-- **Çok protokollü ve çok modlu veri erişimi**: Data Lake depolama Gen2 sayılır bir **birden çok kalıcı** depolama hizmeti, hem nesne deposu hem de dosya sistemi arabirimleri aynı verilere sağlar **aynı zaman**. Bu, aynı veriye erişebilir birden çok protokol uç noktalarını sağlayarak gerçekleştirilir. 
-
-    Diğer analiz çözümleri, Data Lake depolama 2. nesil'deki depolanan verileri taşımak ya da analiz araçları çeşitli çalıştırmadan önce dönüştürülmesi gerekmez. Geleneksel aracılığıyla verilere erişebilir [Blob Depolama API'leri](../blobs/storage-blobs-introduction.md) (örneğin: aracılığıyla veri alma [Event Hubs yakalama](../../event-hubs/event-hubs-capture-enable-through-portal.md)) ve aynı anda HDInsight veya Azure Databricks kullanarak bu verileri işleyebilirsiniz. 
+- **POSIX izinleri kümesi**: Data Lake Gen2 için güvenlik modeli ACL ve POSIX izinleri için Data Lake depolama Gen2'ye özel bazı ek ayrıntı birlikte tam olarak destekler. Ayarları, Yönetim Araçları veya Hive ve Spark gibi çerçeveleri aracılığıyla yapılandırılabilir.
 
 - **Uygun maliyetli**: Data Lake depolama Gen2, düşük maliyetli depolama kapasitesi ve işlem özellikleri. Tam yaşam döngüsü aracılığıyla veri geçişi faturalandırma ücretleri tutma maliyetleri minimum yerleşik özellikleri aracılığıyla geçin; örneğin [Azure Blob Depolama yaşam döngüsü](../common/storage-lifecycle-managment-concepts.md).
 

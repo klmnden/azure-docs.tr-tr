@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 6/20/2018
+ms.date: 8/10/2018
 ms.author: victorh
-ms.openlocfilehash: b8b5b1da902a854dacea7e3019e3fa1116f04212
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 858427bfd2a9b4c40ddf7054e09d98bcf5c1a992
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399156"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42055570"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway için sık sorulan sorular
 
@@ -122,6 +122,12 @@ Ağ güvenlik grupları, uygulama ağ geçidi alt ağı aşağıdaki kısıtlama
 * Giden internet bağlantısı engellenemez.
 
 * AzureLoadBalancer etiketini gelen trafiğe izin verilmesi gerekir.
+
+**SORU. Kullanıcı tanımlı yollara uygulama ağ geçidi alt ağı üzerinde destekleniyor mu?**
+
+Uçtan uca istek/yanıt iletişim değiştirmeyin sürece, kullanıcı tanımlı yollar (Udr) uygulama ağ geçidi alt ağı üzerinde desteklenir.
+
+Örneğin, uygulama ağ geçidi alt ağındaki UDR paket incelemesi için bir güvenlik duvarı Gereci işaret edecek şekilde ayarlayabilirsiniz ancak paket, istenen hedef posta İnceleme ulaşabildiğimizden emin olmanız gerekir. Bunun yapılmaması, yanlış sistem durumu araştırma ya da trafiği yönlendirme davranışını neden olabilir. Bu öğrenilen rotalar veya sanal ağ, ExpressRoute veya VPN ağ geçitleri tarafından yayılan varsayılan 0.0.0.0/0 yolları içerir.
 
 **SORU. Application Gateway'de sınırları nelerdir? Bu limitler artırabilirim?**
 

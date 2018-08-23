@@ -3,20 +3,20 @@ title: Azure Cosmos DB'deki tutarlılık düzeyleri | Microsoft Docs
 description: Azure Cosmos DB Bakiye nihai tutarlılık, kullanılabilirlik ve gecikme süresi dengelemeler yardımcı olmak üzere beş tutarlılık düzeyi vardır.
 keywords: Nihai tutarlılık, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
-ms.author: sngun
+ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 20edcd5e8e3ec3a9d3d294f7a81a2e97b4958f50
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 8d95790dc09f6d26c6ae749ed0cd386053c5cb35
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857193"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42060694"
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB'de veri ayarlanabilir tutarlılık düzeyleri
 Azure Cosmos DB baştan yukarı genel dağıtım aklınızda her veri modeli için tasarlanmıştır. Öngörülebilir düşük gecikme süresi garantileri ve birden fazla gevşek iyi tanımlanmış tutarlılık modeli sunmak üzere tasarlanmıştır. Şu anda, Azure Cosmos DB, beş tutarlılık düzeyi sunar: güçlü, bağımlı eskime, oturum, tutarlı ön ek ve nihai. Kullanılabilen en son derece tutarlı modeli olan daha az tutarlılık daha güçlü, sağladıkları gibi sınırlanmış eskime, oturum, tutarlı ön ek ve nihai olan "tutarlılıkla modelleri olarak" gösteriyor. 
@@ -132,7 +132,7 @@ Tutarlılık düzeyleri ve seçenekleri hakkında daha fazla okuma yapmak istiyo
 * [Doug Terry tarafından Beyzbol (video) üzerinden çoğaltılan verilerin tutarlılık açıklaması](https://www.youtube.com/watch?v=gluIh8zd26I)
 * [Doug Terry tarafından Beyzbol (Teknik İnceleme) üzerinden çoğaltılan verilerin tutarlılık açıklaması](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 * [Zayıf sahipli tutarlı çoğaltılan veriler için oturumu garanti eder](http://dl.acm.org/citation.cfm?id=383631)
-* [Modern dağıtılmış veritabanı sistemleri tasarım tutarlılık seçenekleri: UÇ hikayeyi yalnızca bir parçası değildir](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* [Modern dağıtılmış veritabanı sistemleri tasarım tutarlılık seçenekleri: UÇ hikayeyi yalnızca bir parçası değildir](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
 * [Olasılığa dayalı sınırlanmış eskime durumu (PBS) için pratik kısmi çekirdekleri](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 * [Nihai tutarlı - Revisited](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 * [Yük, kapasite ve çekirdek sistemleri, bilgi işlem üzerinde SIAM günlük kullanılabilirliği](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)

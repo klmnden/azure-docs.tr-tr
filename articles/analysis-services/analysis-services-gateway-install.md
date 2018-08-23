@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/13/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 59dc2dad103de60cb7d4b6a44a6d6f7271368391
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 10bcf54da9660da1edcc8358f10289e9678be5cb
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444948"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42061082"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Yükleme ve bir şirket içi veri ağ geçidi yapılandırma
 Aynı bölgede bir veya daha fazla Azure Analysis Services sunucusu şirket içi veri kaynaklarına bağlanmak için bir şirket içi veri ağ geçidi gereklidir. Ağ geçidi hakkında daha fazla bilgi için bkz. [şirket içi veri ağ geçidi](analysis-services-gateway.md).
@@ -38,6 +38,7 @@ Aynı bölgede bir veya daha fazla Azure Analysis Services sunucusu şirket içi
 * Ağ geçidi üzerinde kalır ve uyku moduna geçmeyecek bir bilgisayara yükleyin.
 * Ağ geçidi, kablosuz ağa bağlı bir bilgisayarda yüklemeyin. Performans yayınladıklarını.
 * Azure'da oturum aç sahip bir hesap için aynı Azure AD'de [Kiracı](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) aboneliğinde ağ geçidi kaydettirmekte olduğunuz. Azure B2B yüklerken ve bir ağ geçidi kaydediliyor (konuk) hesapları desteklenmez.
+* Veri kaynakları, bir Azure sanal ağ (VNet) varsa, yapılandırmalısınız [AlwaysUseGateway](analysis-services-vnet-gateway.md) sunucu özelliği.
 * Burada açıklanan (Birleşik) ağ geçidi, Azure kamu, Azure Almanya ve Çin Azure bağımsız bölgeler desteklenmiyor. Kullanım **Azure Analysis Services için ayrılmış şirket içi ağ geçidi**, sunucunuzun yüklü **Hızlı Başlangıç** portalında. 
 
 
@@ -114,4 +115,5 @@ Bu kadar. Bağlantı noktalarını açmak veya sorun giderme yapmak istiyorsanı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Analysis Services'ı yönetme](analysis-services-manage.md)   
-* [Azure Analysis Services veri alma](analysis-services-connect.md)
+* [Azure Analysis Services veri alma](analysis-services-connect.md)   
+* [Bir Azure sanal ağ üzerindeki veri kaynakları için ağ geçidi kullanma](analysis-services-vnet-gateway.md)

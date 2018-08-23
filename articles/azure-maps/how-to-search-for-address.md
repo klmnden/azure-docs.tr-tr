@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 8b7d2119e1eef8532c30b0a45ae2684493462277
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: fe3bb3a778a42696cd15f9e4265448479bf043a1
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990022"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42056929"
 ---
 # <a name="how-to-find-an-address-using-the-azure-maps-search-service"></a>Azure haritalar arama hizmetini kullanarak bir adres bulma
 
@@ -164,19 +164,11 @@ API arama adresine tam veya kısmi bir adres geçirin ve enlem ve boylam belediy
 
     | Anahtar | Değer |
     |-----|------------|
-    | spatialKeys | true |
-
-    Zaman [spatialKeys](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi olarak ayarlanmışsa, yanıtta belirtilen bir konuma için özel Jeo-uzamsal anahtar bilgilerini içerir.
-
-6. Aşağıdaki anahtar eklemek / değer çiftine **Params** 'ye tıklayın **Gönder**:
-
-    | Anahtar | Değer |
-    |-----|------------|
     | returnSpeedLimit | true |
     
     Zaman [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) yanıtı döndürür gönderilen Hız sınırını sorgu parametresi ayarlanır.
 
-7. Aşağıdaki anahtar eklemek / değer çiftine **Params** 'ye tıklayın **Gönder**:
+6. Aşağıdaki anahtar eklemek / değer çiftine **Params** 'ye tıklayın **Gönder**:
 
     | Anahtar | Değer |
     |-----|------------|
@@ -184,7 +176,7 @@ API arama adresine tam veya kısmi bir adres geçirin ve enlem ve boylam belediy
 
     Zaman [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi olarak ayarlanmışsa, yol kullanmak dizi reversegeocodes Sokak düzeyinde için yanıtı döndürür.
 
-8. Aşağıdaki anahtar eklemek / değer çiftine **Params** 'ye tıklayın **Gönder**:
+7. Aşağıdaki anahtar eklemek / değer çiftine **Params** 'ye tıklayın **Gönder**:
 
     | Anahtar | Değer |
     |-----|------------|

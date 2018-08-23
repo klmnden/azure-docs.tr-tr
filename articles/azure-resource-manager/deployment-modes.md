@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 00800cb233776878e1fa330ce72cb067b8c698f3
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: c8c6c5499e1cea04bc5bdffbb5c07b53b96182e2
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39635127"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42060886"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager dağıtım modları
 Kaynaklarınızı dağıtırken dağıtım Artımlı güncelleştirme ya da tam güncelleştirme olduğunu belirtin.  Bu iki mod arasındaki başlıca fark, Resource Manager şablonunda olmayan mevcut kaynaklar kaynak grubunda nasıl işlediğini ' dir.
@@ -82,7 +82,7 @@ az group deployment create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-Dağıtım modu ayarlamak için bir [bağlantılı veya iç içe geçmiş şablon](resource-group-linked-templates.md), kullanın `mode` özelliği.
+Kullanırken bir [bağlantılı veya iç içe geçmiş şablon](resource-group-linked-templates.md), ayarlamalısınız `mode` özelliğini `Incremental`. Yalnızca kök düzeyinde şablonu tam dağıtım modunu destekler.
 
 ```json
 "resources": [

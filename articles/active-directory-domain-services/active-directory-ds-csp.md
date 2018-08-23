@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: maheshu
-ms.openlocfilehash: 63244a8f767f71d0f9be80aad09f06f14c4d3acf
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 8d87312591f44bac5fd9a4ff63eccc19333a870c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503980"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42056009"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure bulut çözüm sağlayıcıları (CSP) için Azure Active Directory (AD) etki alanı Hizmetleri
 Bu makalede, Azure AD Etki Alanı Hizmetleri'ni bir Azure CSP aboneliği içinde nasıl kullanabileceğiniz açıklanmaktadır.
@@ -87,7 +87,7 @@ Yönetilen etki alanını Azure CSP aboneliği'ndeki yönetirken aşağıdaki ö
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure CSP programı'na kayıt](https://partnercenter.microsoft.com/partner/programs) ve Azure CSP aracılığıyla işinizi oluşturmaya başlayın.
+* [Azure CSP programı'na kayıt](https://docs.microsoft.com/partner-center/enrolling-in-the-csp-program) ve Azure CSP aracılığıyla işinizi oluşturmaya başlayın.
 * Listesini gözden geçirin [Azure CSP'de kullanılabilen Azure Hizmetleri](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services).
 * [PowerShell kullanarak Azure AD Domain Services'ı etkinleştirme](active-directory-ds-enable-using-powershell.md)
 * [Azure AD Domain Services ile çalışmaya başlama](active-directory-ds-getting-started.md)

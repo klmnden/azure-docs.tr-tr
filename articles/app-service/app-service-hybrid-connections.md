@@ -1,6 +1,6 @@
 ---
-title: Azure uygulama hizmeti karma bağlantılar | Microsoft Docs
-description: Oluşturma ve farklı ağlarda kaynaklara erişmek için karma bağlantılar kullanın
+title: Azure App Service karma bağlantılar | Microsoft Docs
+description: Oluşturma ve birbirinden tamamen farklı ağlarda bulunan kaynaklara erişmek için karma bağlantıları kullanın
 services: app-service
 documentationcenter: ''
 author: ccompy
@@ -12,186 +12,226 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 07/26/2018
 ms.author: ccompy
-ms.openlocfilehash: 677642e4e97523ed71ff5857ae27263743dca535
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 69897e288a90a731d95db82d0ff978d776c12580
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
-ms.locfileid: "25990828"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42060360"
 ---
-# <a name="azure-app-service-hybrid-connections"></a>Azure uygulama hizmeti karma bağlantılar #
+# <a name="azure-app-service-hybrid-connections"></a>Azure App Service karma bağlantılar #
 
-Karma bağlantılar Azure hizmetinde ve Azure App Service'te bir özellik değil. Bir hizmet olarak kullanır ve App Service içinde kullanılan ötesinde özellikler vardır. Karma bağlantılar ve uygulama hizmeti dışında kullanımı hakkında daha fazla bilgi için bkz: [Azure geçişi karma bağlantılar][HCService].
+Karma bağlantılar hem bir Azure hizmeti hem de Azure App service'taki bir özelliği olan. Bir hizmet olarak kullanır ve App Service'te kullanılan ötesinde yetenekler vardır. Karma bağlantılar ve App Service dışında kullanımları hakkında daha fazla bilgi için bkz: [Azure geçiş karma bağlantıları][HCService].
 
-App Service içinde karma bağlantılar diğer ağlara uygulama kaynaklara erişim için kullanılabilir. Bir uygulama uç nokta uygulamanızdan erişmenizi sağlar. Uygulamanızı erişmek bir alternatif özelliği sağlamaz. App Service içinde kullanılan gibi her bir karma bağlantı tek bir TCP ana bilgisayarı ve bağlantı noktası bileşimi hatalarla ilintilidir. Bu karma bağlantı uç noktasının herhangi bir işletim sisteminde olabilir ve belirttiğiniz herhangi bir uygulama bir TCP dinleme bağlantı noktası erişme anlamına gelir. Karma bağlantılar özelliği bilmiyorsanız veya uygulama protokolü nedir veya erişmeye çalıştığınız dikkat edin. Ayrıca, ağ erişimi yalnızca sağlamaktır.  
+App Service içinde karma bağlantılar, diğer alt ağlardaki uygulama kaynaklarına erişmek için kullanılabilir. Bir uygulama uç noktası uygulamanızdan erişim sağlar. Uygulamanıza erişmek alternatif bir özelliği sağlamaz. App Service içinde kullanılan tek bir TCP konak ve bağlantı noktası bileşimi her karma bağlantı ilişkilendirir. Bu karma bağlantı uç noktasını tüm işletim sistemlerinde olabilir ve size sağlanan herhangi bir uygulama, TCP dinleme bağlantı noktası eriştiğiniz anlamına gelir. Karma bağlantılar özelliği, bilmiyorsanız veya uygulama protokolü nedir ve ne eriştiğiniz dikkat edin. Ayrıca, ağ erişimini yalnızca sağlamaktır.  
 
 
 ## <a name="how-it-works"></a>Nasıl çalışır? ##
-Karma bağlantılar Özelliği Azure Service Bus geçişi iki giden çağrıları oluşur. Uygulamanızı App Service içinde çalıştığı bir kitaplıktan ana bilgisayardaki bir bağlantı yok. Service Bus geçişi karma Bağlantı Yöneticisi'nden (HCM) bağlantısı yoktur. HCM, erişmeye çalıştığınız kaynak barındırma ağ içinde dağıttığınız bir geçiş hizmetidir. 
+Karma bağlantılar özelliği, Azure Service Bus geçişi iki giden çağrıları oluşur. Uygulamanızı App Service içinde çalıştığı bir kitaplıktan konak üzerindeki bir bağlantı yoktur. Service Bus geçişi karma Bağlantı Yöneticisi'nden (HCM) bağlantısı yoktur. HCM, erişmeye çalıştığınız kaynak barındırma ağ içinde dağıttığınız bir geçiş hizmetidir. 
 
-İki birleştirilmiş bağlantıları uygulamanızı HCM diğer tarafta bir sabit ana: bağlantı noktası bileşimi için bir TCP tünel vardır. Bağlantı TLS 1.2 güvenlik ve kimlik doğrulama ve yetkilendirme için paylaşılan erişim imzası (SAS) anahtarları kullanır.    
+İki birleştirilmiş bağlantılarında uygulamanızın HCM diğer tarafında bir sabit konak: bağlantı noktası bileşimi için bir TCP tünel vardır. Bağlantı, güvenlik ve kimlik doğrulama ve yetkilendirme için paylaşılan erişim imzası (SAS) anahtarları için TLS 1.2 kullanır.    
 
-![Karma bağlantısının üst düzey Akış Diyagramı][1]
+![Karma bağlantı üst düzey Akış Diyagramı][1]
 
-Uygulamanızı yapılandırılmış bir karma bağlantı uç noktayla eşleşen bir DNS isteğinde bulunduğunda, giden TCP trafiği karma bağlantı üzerinden yönlendirilir.  
+Uygulamanızı yapılandırılmış bir karma bağlantı uç noktası ile eşleşen bir DNS istekte bulunduğunda giden TCP trafiğine karma bağlantı üzerinden yönlendirilir.  
 
 > [!NOTE]
-> Başka bir deyişle, her zaman karma bağlantınız için bir DNS adı kullanmayı denemeniz gerekir. Uç nokta bir IP adresi yerine kullanıyorsa, bazı istemci yazılımı bir DNS araması yapmaz.
+> Başka bir deyişle, her zaman, karma bağlantı için bir DNS adı kullanmayı denemeniz gerekir. Bir IP adresi uç nokta kullanıyorsa, bunun yerine, bazı istemci yazılımını bir DNS arama yapmaz.
 >
->
 
-Karma bağlantılar özelliği iki tür vardır: Service Bus geçişi kapsamında bir hizmeti ve eski Azure BizTalk Services karma bağlantılar sunulan karma bağlantılar. İkinci olan Klasik karma bağlantılar portalda gösteriyor. Bu makalenin sonraki bölümlerinde bunlarla ilgili daha fazla bilgi bulunmaktadır.
 
-### <a name="app-service-hybrid-connection-benefits"></a>Uygulama hizmeti karma bağlantısı avantajları ###
+### <a name="app-service-hybrid-connection-benefits"></a>App Service karma bağlantı avantajları ###
 
-Karma bağlantılar özelliği için avantajları vardır dahil olmak üzere:
+Karma bağlantılar özelliği avantajlar birçok dahil olmak üzere:
 
-- Şirket içi sistemlerde ve hizmetlerde güvenli bir şekilde erişebilir.
-- Bu özellik, internet'ten erişilebilen bir uç nokta gerektirmez.
-- Hızlı ve kolay ayarlayın. 
-- Her karma bağlantı için güvenlik yararlı, tek konak: bağlantı noktası birleşimi ile eşleşir.
-- Güvenlik Duvarı delik normalde gerektirmez. Standart web bağlantı noktaları üzerinden giden tüm bağlantılardır.
-- Bu özellik ağ düzeyi olduğundan, uygulamanız tarafından kullanılan dil ve bitiş noktası tarafından kullanılan teknoloji bağımsızdır.
+- Şirket içi sistemleri ve Hizmetleri güvenli bir şekilde erişebilir.
+- Bu özellik, İnternet'ten erişilebilen bir uç nokta gerektirmez.
+- Bu hızlı ve kolay ayarlama olur. 
+- Her karma bağlantı, güvenlik için yararlı bir tek ana bilgisayar: bağlantı noktası bileşimi ile eşleşir.
+- Güvenlik Duvarı boşluklarını normalde gerektirmez. Standart web bağlantı noktaları üzerinden giden tüm bağlantılardır.
+- Özelliği, ağ düzeyinde olduğundan, uygulamanız tarafından kullanılan dil ve bitiş noktası tarafından kullanılan teknoloji bağımsızdır.
 - Tek bir uygulama birden çok ağ erişim sağlamak için kullanılabilir. 
 
-### <a name="things-you-cannot-do-with-hybrid-connections"></a>Karma bağlantılar ile yapamayacağı noktalar ###
+### <a name="things-you-cannot-do-with-hybrid-connections"></a>Karma bağlantıları ile yapamayacağınız şeyler ###
 
-Karma bağlantılar dahil olmak üzere, yapamayacağınız birkaç şey vardır:
+Karma bağlantıları ile yapamayacağınız noktalar şunlardır:
 
-- Bir sürücü bağlama.
-- UDP kullanma.
-- FTP Pasif modu veya genişletilmiş Pasif modu gibi dinamik bağlantı noktaları kullanan TCP tabanlı hizmetler erişme.
-- Bazen UDP gerektirdiğinden LDAP, destekleme.
-- Active Directory destekleme.
+- Bir sürücü bağlayın.
+- UDP kullanın.
+- Dinamik bağlantı noktaları, FTP Pasif modu veya genişletilmiş Pasif modu gibi kullanan erişim TCP tabanlı hizmetler.
+- UDP gerektirebilir olduğundan, LDAP, destekler.
+- Active Directory etki alanına katılmış bir App Service çalışanı yapamazsınız çünkü destekler.
 
-## <a name="add-and-create-hybrid-connections-in-your-app"></a>Ekleme ve uygulamanızda karma bağlantıları oluşturma ##
+## <a name="add-and-create-hybrid-connections-in-your-app"></a>Ekleyin ve karma bağlantılar kullanarak uygulamanızı oluşturun ##
 
-Uygulama hizmeti uygulamanızı Azure portalında veya Azure geçiş Azure portalında aracılığıyla karma bağlantılar oluşturabilirsiniz. Karma bağlantı ile kullanmak istediğiniz uygulama hizmeti uygulaması aracılığıyla karma bağlantılar oluşturmanızı öneririz. Karma bir bağlantı oluşturmak için şu adrese gidin [Azure portal] [ portal] ve uygulamanızı seçin. Seçin **ağ** > **karma bağlantı uç noktalarınızı yapılandırın**. Buradan, uygulamanız için yapılandırılmış karma bağlantılar görebilirsiniz.  
+Karma bağlantı oluşturmak için Git [Azure portalında] [ portal] ve uygulamanızı seçin. Seçin **ağ** > **karma bağlantı uç noktalarınızı yapılandırın**. Uygulamanız için yapılandırılan karma bağlantıları burada görebilirsiniz.  
 
 ![Karma bağlantı ekran listesi][2]
 
-Yeni bir karma bağlantı eklemek için seçin **karma Bağlantı Ekle**.  Önceden oluşturduğunuz karma bağlantılar listesini görürsünüz. Bir veya daha fazlası uygulamanıza eklemek için ve ardından olanları seçin **Ekle seçili karma bağlantı**.  
+Yeni Karma bağlantı eklemek için seçin **[+] karma bağlantıyı**.  Zaten oluşturduğunuz karma bağlantılar listesini görürsünüz. Bir veya daha fazlası uygulamanıza eklemek için ve ardından istediklerinizi seçin **seçili karma bağlantıyı Ekle**.  
 
-![Karma bağlantının ekran portalı][3]
+![Karma bağlantı ekran portalı][3]
 
-Yeni bir karma bağlantı oluşturmak isteyip istemediğinizi seçin **yeni karma bağlantı oluşturmak**. Belirtin: 
+Yeni Karma bağlantı oluşturma isteyip istemediğinizi seçin **yeni karma bağlantı oluşturma**. Belirtin: 
 
-- Uç nokta adı.
-- Uç noktası ana bilgisayar adı.
+- Karma bağlantı adı.
+- Uç nokta konak adı.
 - Uç nokta bağlantı noktası.
-- Kullanmak istediğiniz hizmet veri yolu ad alanı.
+- Service Bus ad alanı kullanmak istiyorsunuz.
 
-![Yeni Karma bağlantı iletişim kutusu, ekran oluşturma][4]
+![Yeni Karma bağlantı iletişim kutusu oluştur ekran görüntüsü][4]
 
-Her karma bağlantı için bir hizmet veri yolu ad alanı bağlıdır ve bir Azure bölgesinde her hizmet veri yolu ad alanıdır. Kopyaladığınızda ağ gecikmesi önlemek için uygulamanız ile aynı bölgede bir hizmet veri yolu ad alanı kullanmaya çalıştığınızda önemlidir.
+Her karma bağlantı, bir Service Bus ad alanına bağlıdır ve bir Azure bölgesinde her Service Bus ad alanı. Bir Service Bus ad alanı, uygulama ile aynı bölgede kaynaklanan ağ gecikmesini önlemek denemek önemlidir.
 
-Karma bağlantınız uygulamanızdan kaldırmak istiyorsanız, sağ tıklatın ve seçin **Bağlantıyı Kes**.  
+Uygulamanızdan karma bağlantınızı kaldırmak istiyorsanız, bunu sağ tıklayıp **Bağlantıyı Kes**.  
 
-Karma bağlantı, uygulamanızın eklendiğinde, ayrıntıları üzerinde yalnızca seçerek görebilirsiniz. 
+Karma bağlantı uygulamanıza eklediğinizde, Ayrıntılar üzerinde yalnızca seçerek görebilirsiniz. 
 
-![Ekran görüntüsü, karma bağlantıları ayrıntıları][5]
+![Ekran görüntüsü, karma bağlantı ayrıntıları][5]
 
-### <a name="create-a-hybrid-connection-in-the-azure-relay-portal"></a>Karma bağlantı Azure geçişi Portalı'nda oluşturma ###
+### <a name="create-a-hybrid-connection-in-the-azure-relay-portal"></a>Azure geçişi Portalı'nda bir karma bağlantı oluşturma ###
 
-Portal deneyimlerden ek olarak, uygulamanızın içinde Azure geçişi Portalı'ndan gelen karma bağlantıları oluşturabilirsiniz. Karma bir App Service tarafından kullanılacak bağlantı için aşağıdakileri yapmalıdır:
+Portal deneyimi açısından ek olarak uygulamanız içinde karma bağlantılar'dan Azure geçişi portalında oluşturabilirsiniz. Karma uygulama hizmeti tarafından kullanılacak bağlantı için bu gerekir:
 
-* İstemci kimlik doğrulaması gerektirir.
-* Bir ana bilgisayar: bağlantı noktası birleşimi değer olarak içeren uç nokta adlı bir meta veri öğesi var.
+* İstemci yetkilendirme gerektirir.
+* Bir ana bilgisayar: bağlantı noktası bileşimi değeri içeren uç noktası adlı bir meta veri öğesi var.
 
-## <a name="hybrid-connections-and-app-service-plans"></a>Karma bağlantılar ve uygulama hizmeti planları ##
+## <a name="hybrid-connections-and-app-service-plans"></a>Karma bağlantılar ve App Service planları ##
 
-Karma bağlantılar özellik, yalnızca temel, standart, Premium ve SKU'ları fiyatlandırması Isolated kullanılabilir. Fiyatlandırma plana bağlı sınırları vardır.  
+App Service karma bağlantılar, yalnızca temel, standart, Premium ve yalıtılmış fiyatlandırma SKU'ları kullanılabilir. Fiyatlandırma planına bağlı sınırı yoktur.  
 
-> [!NOTE] 
-> Yeni Karma bağlantıları Azure geçişte göre yalnızca oluşturabilirsiniz. Yeni BizTalk karma bağlantılar oluşturulamıyor.
->
-
-| plan fiyatlandırması | Karma bağlantılar planda kullanılabilir sayısı |
+| Fiyatlandırma planı | Plana kullanılabilir karma bağlantılar sayısı |
 |----|----|
 | Temel | 5 |
 | Standart | 25 |
 | Premium | 200 |
 | Yalıtılmış | 200 |
 
-Uygulama hizmeti planı, kaç tane karma bağlantılar kullanılan gösterdiğine dikkat edin ve hangi uygulamaların tarafından.  
+App Service planı kullanıcı Arabirimi kaç karma bağlantılar kullanıldığını gösterir ve hangi uygulamaların tarafından.  
 
-![Uygulama hizmeti ekran plan özellikleri][6]
+![Ekran görüntüsü, App Service planı özellikleri][6]
 
-Ayrıntıları görmek için karma bağlantıyı seçin. Uygulama Sergi gördüğünüz tüm bilgileri görebilirsiniz. Aynı planında kaç diğer uygulamalar bu karma bağlantıyı kullanarak da görebilirsiniz.
+Karma bağlantı ayrıntıları görmek için seçin. Uygulama görünümünde gördüğünüz tüm bilgileri görebilirsiniz. Ayrıca, kaç aynı planı uygulamalarında bu karma bağlantıyı kullanan görebilirsiniz.
 
-Bir uygulama hizmeti planında kullanılabilir karma bağlantı uç sayısına bir sınır yoktur. Kullanıldığında, her karma bağlantı ancak, bu planında uygulamaları herhangi bir sayıda kullanılabilir. Örneğin, bir uygulama hizmeti planında beş ayrı uygulamalarında kullanılan tek bir karma bağlantı bir karma bağlantı olarak sayılır.
+Bir App Service planında kullanılan karma bağlantı uç noktası sayısına bir sınır yoktur. Kullanılan her karma bağlantı ve bu planı ancak uygulamaları herhangi bir sayıda arasında kullanılabilir. Örneğin, bir App Service planında beş ayrı uygulamalarında kullanılan tek bir karma bağlantı bir karma bağlantı sayılır.
 
-Karma bağlantılar kullanarak ek bir maliyet yoktur. Ayrıntılar için bkz [Service Bus fiyatlandırma][sbpricing].
+### <a name="pricing"></a>Fiyatlandırma ###
+
+Bir App Service planı SKU'su gereksinimi olan orada yanı sıra, karma bağlantıları kullanarak ek bir maliyeti yoktur. Karma bağlantı tarafından kullanılan her dinleyici için bir ücret yoktur. Dinleyici karma Bağlantı Yöneticisi ' dir. İki karma bağlantı yöneticileri tarafından desteklenen beş karma bağlantılar olsaydı, 10 dinleyicileri olacaktır. Daha fazla bilgi için [Service Bus fiyatlandırma][sbpricing].
 
 ## <a name="hybrid-connection-manager"></a>Karma Bağlantı Yöneticisi ##
 
-Karma bağlantılar özellik geçiş aracısı, karma bağlantı uç noktasını barındıran ağdaki gerektirir. Bu geçiş aracısı karma Bağlantı Yöneticisi (HCM) adı verilir. HCM, uygulamanızda indirebilir [Azure portal][portal]seçin **ağ** > **karmabağlantıuçnoktalarınızıyapılandırın**.  
+Karma bağlantılar özelliği, karma bağlantı uç noktasını barındıran ağdaki bir geçiş aracısı gerektirir. Geçiş Aracı, karma Bağlantı Yöneticisi (HCM) olarak adlandırılır. HCM, uygulamanızda indirmesine izin [Azure portalında][portal]seçin **ağ** > **karmabağlantıuçnoktalarınızıyapılandırın**.  
 
-Bu araç, Windows Server 2012 ve daha sonra çalışır. Yüklendiğinde, HCM yapılandırılmış uç noktalarda temel Service Bus geçişi bağlandığı bir hizmet olarak çalışır. HCM bağlantılarından bağlantı noktası 443 üzerinden Azure'a giden.    
+Bu araç, Windows Server 2012 ve daha sonra çalışır. HCM, bir hizmet olarak çalışır ve Azure geçişi bağlantı noktası 443 üzerinden giden bağlar.  
 
-HCM yükledikten sonra kullanıcı Arabirimi aracını kullanmak için HybridConnectionManagerUi.exe çalıştırabilirsiniz. Karma Bağlantı Yöneticisi'ni yükleme dizininde dosyasıdır. Windows 10'da yalnızca arayabilirsiniz *karma Bağlantı Yöneticisi kullanıcı Arabirimi* , arama kutusuna.  
+HCM yükledikten sonra aracı için kullanıcı arabirimini kullanmak için HybridConnectionManagerUi.exe çalıştırabilirsiniz. Bu dosya karma Bağlantı Yöneticisi'ni yükleme dizinindedir. Windows 10'da yalnızca arayabilirsiniz *karma Bağlantı Yöneticisi kullanıcı Arabirimi* , arama kutusuna.  
 
 ![Karma Bağlantı Yöneticisi'nin ekran görüntüsü][7]
 
-HCM UI başlattığınızda gördüğünüz ilk HCM'ın bu örneğinin yapılandırılmış olan tüm karma bağlantılar listeleyen bir tablo şeydir. Herhangi bir değişiklik yapmak istiyorsanız, ilk Azure kimlik doğrulaması. 
+HCM UI başlattığınızda gördüğünüz ilk şey bu HCM örneği ile yapılandırılmış olan tüm karma bağlantıları listeleyen bir tablodur. İlk değişiklik yapmak istiyorsanız, Azure ile kimlik doğrulaması. 
 
-Bir veya daha fazla karma bağlantılar, HCM eklemek için:
+Bir veya daha fazla karma bağlantılar için HCM eklemek için:
 
-1. HCM UI başlatın.
-1. Seçin **başka bir karma bağlantıyı yapılandırma**.
-![Yeni karma bağlantılar yapılandırma ekran görüntüsü][8]
+1. HCM kullanıcı arabirimini Başlat.
+1. Seçin **başka bir karma bağlantı yapılandırma**.
+![Ekran görüntüsü yeni karma bağlantılar yapılandırma][8]
 
 1. Azure hesabınızla oturum açın.
 1. Bir abonelik seçin.
-1. Geçiş için HCM istediğiniz karma bağlantılar'ı seçin.
-![Karma bağlantılar ekran görüntüsü][9]
+1. HCM geçiş karma bağlantıları seçin.
+![Karma bağlantılar'ın ekran görüntüsü][9]
 
 1. **Kaydet**’i seçin.
 
-Eklediğiniz karma bağlantılar artık görebilirsiniz. Ayrıntıları görmek için yapılandırılmış karma bağlantı öğesini de seçebilirsiniz.
+Şimdi eklediğiniz karma bağlantılar da görebilirsiniz. Ayrıntıları görmek için yapılandırılmış karma bağlantı de seçebilirsiniz.
 
-![Karma bağlantı ayrıntılarının ekran görüntüsü][10]
+![Karma bağlantı ayrıntıları ekran görüntüsü][10]
 
-Karma ile yapılandırılmış bağlantılarını desteklemek için HCM gerektirir:
+Karma bağlantıları ile yapılandırılmış desteklemek için HCM gerektirir:
 
-- 80 ve 443 numaralı bağlantı noktaları üzerinden TCP erişim Azure.
-- Karma bağlantı uç noktasının TCP erişim.
-- Uç noktası ana bilgisayar ve hizmet veri yolu ad DNS göz atmayı yeteneği.
-
-Yeni karma bağlantılar ve BizTalk karma bağlantılar HCM destekler.
+- Azure erişiminiz TCP bağlantı noktası 443 üzerinden.
+- Karma bağlantı uç noktası TCP erişim.
+- Uç nokta ana bilgisayarı ve Service Bus ad alanı DNS göz atmayı yeteneği.
 
 > [!NOTE]
-> Azure geçiş bağlantısı Web yuvalarını kullanır. Bu özellik yalnızca Windows Server 2012 veya sonraki kullanılabilir. Bu nedenle HCM hiçbir şey Windows Server 2012'den önceki desteklenmiyor.
+> Azure geçişi için bağlantı üzerinde Web yuvalarını kullanır. Bu özellik yalnızca Windows Server 2012 veya sonraki kullanılabilir. Bu nedenle HCM üzerindeki herhangi bir şey Windows Server 2012'den önceki desteklenmiyor.
 >
 
 ### <a name="redundancy"></a>Yedeklilik ###
 
-Her HCM, birden çok karma bağlantılar destekleyebilir. Ayrıca, birden çok HCMs tarafından verilen tüm karma bağlantı desteklenebilir. Verilen herhangi bir uç nokta için yapılandırılmış HCMs arasında trafiği yönlendirmek için varsayılan davranıştır. Yüksek kullanılabilirlik, karma bağlantılar ağınızdan istiyorsanız, birden çok HCMs ayrı makinelerde çalıştırın. 
+Birden çok karma bağlantılar her HCM destekler. Ayrıca, verilen herhangi bir karma bağlantı, birden çok HCMs tarafından desteklenebilir. Verilen herhangi bir uç noktası için yapılandırılan HCMs arasında trafiği yönlendirmek için varsayılan davranıştır. Yüksek kullanılabilirlik, karma bağlantılarda ağınızdan istiyorsanız, birden çok HCMs ayrı makineler üzerinde çalıştırın. Geçiş hizmeti tarafından HCMs trafiği dağıtmak için kullanılan yük dağıtım algoritmasını rastgele atamadır. 
 
-### <a name="manually-add-a-hybrid-connection"></a>El ile karma Bağlantı Ekle ###
+### <a name="manually-add-a-hybrid-connection"></a>El ile bir karma Bağlantı Ekle ###
 
-Birisi dışında HCM örneği belirli bir karma bağlantı için ana bilgisayar için aboneliğinizi etkinleştirmek için bunları ile karma bağlantı için ağ geçidi bağlantı dizesi paylaşır. Bu özellikler karma bir bağlantı için gördüğünüz [Azure portal][portal]. Bu dizeyi kullanmak için **el ile girin** HCM ve ağ geçidi bağlantı dizesini yapıştırın.
+Dışında bir HCM örneği belirli bir karma bağlantı için ana bilgisayar için aboneliğinizi etkinleştirmek için bunları ile karma bağlantı için ağ geçidi bağlantı dizesi paylaşın. Ağ geçidi bağlantı dizesi karma bağlantı özelliklerinde gördüğünüz [Azure portalında][portal]. Bu dize kullanmayı tercih **el ile girin** HCM ve ağ geçidi bağlantı dizesini yapıştırın.
 
+![El ile bir karma Bağlantı Ekle][11]
+
+### <a name="upgrade"></a>Yükseltme ###
+
+Düzenli güncelleştirmeler sorunları düzeltin ya da geliştirmeleri sağlamak için karma Bağlantı Yöneticisi için vardır. Yükseltmeler yayınlandığı zaman, popup HCM Arabiriminde gösterilir. Uygulama yükseltme değişiklikleri uygulamak ve HCM yeniden başlatın. 
+
+## <a name="adding-a-hybrid-connection-to-your-app-programmatically"></a>Karma bağlantı programlı olarak uygulamanıza ekleme ##
+
+Aşağıda belirtildiği API'leri, doğrudan web apps hizmetinize bağlı karma bağlantılar'ı yönetmek için kullanılabilir. 
+
+    /subscriptions/[subscription name]/resourceGroups/[resource group name]/providers/Microsoft.Web/sites/[app name]/hybridConnectionNamespaces/[relay namespace name]/relays/[hybrid connection name]?api-version=2016-08-01
+
+Karma bağlantı ile ilişkili bir JSON nesnesi şu şekilde görünür:
+
+    {
+      "name": "[hybrid connection name]",
+      "type": "Microsoft.Relay/Namespaces/HybridConnections",
+      "location": "[location]",
+      "properties": {
+        "serviceBusNamespace": "[namespace name]",
+        "relayName": "[hybrid connection name]",
+        "relayArmUri": "/subscriptions/[subscription id]/resourceGroups/[resource group name]/providers/Microsoft.Relay/namespaces/[namespace name]/hybridconnections/[hybrid connection name]",
+        "hostName": "[endpoint host name]",
+        "port": [port],
+        "sendKeyName": "defaultSender",
+        "sendKeyValue": "[send key]"
+      }
+    }
+
+Bu bilgileri yollarından biri olan sayfasından edinebilirsiniz armclient [ARMClient] [ armclient] github projesi. Önceden var olan bir karma bağlantı web uygulamanıza iliştirilirken bir örnek aşağıdadır. Yukarıdaki şemayı gibi her bir JSON dosyası oluşturun:
+
+    {
+      "name": "relay-demo-hc",
+      "type": "Microsoft.Relay/Namespaces/HybridConnections",
+      "location": "North Central US",
+      "properties": {
+        "serviceBusNamespace": "demo-relay",
+        "relayName": "relay-demo-hc",
+        "relayArmUri": "/subscriptions/ebcidic-asci-anna-nath-rak1111111/resourceGroups/myrelay-rg/providers/Microsoft.Relay/namespaces/demo-relay/hybridconnections/relay-demo-hc",
+        "hostName": "my-wkstn.home",
+        "port": 1433,
+        "sendKeyName": "defaultSender",
+        "sendKeyValue": "Th9is3is8a82lot93of3774stu887ff122235="
+      }
+    }
+
+Bu API'yi kullanmak için gönderme anahtar ve geçiş kaynak kimliği gerekir. Filename hctest.json ile bilgilerinizi kaydettiyseniz, karma bağlantıyı uygulamanıza eklemek için şu komutu yürütün: 
+
+    armclient login
+    armclient put /subscriptions/ebcidic-asci-anna-nath-rak1111111/resourceGroups/myapp-rg/providers/Microsoft.Web/sites/myhcdemoapp/hybridConnectionNamespaces/demo-relay/relays/relay-demo-hc?api-version=2016-08-01 @hctest.json
 
 ## <a name="troubleshooting"></a>Sorun giderme ##
 
-"Bağlı" durumunu en az bir HCM Bu karma bağlantı ile yapılandırılmış ve Azure ulaşamadığını anlamına gelir. Karma bağlantı durumunun söyleyin değil **bağlı**, karma bağlantınız Azure erişimi HCM yapılandırılmamış.
+Durumu "Bağlandı", en az bir HCM, karma bağlantısı ile yapılandırıldığında ve Azure ulaşabildiğinden anlamına gelir. Karma bağlantı durumunun söyleyin değil **bağlı**, karma bağlantınız Azure erişimi olan herhangi bir HCM yapılandırılmadı.
 
-Uç nokta bir DNS adı yerine bir IP adresi kullanarak belirtilmediğinden, istemciler kendi uç noktasına bağlanamıyor birincil nedenidir. Uygulamanızı istenen endpoint ulaşamıyor ve bir IP adresi kullandıysanız HCM'ın çalıştırıldığı konak üzerinde geçerli bir DNS adı kullanmaya geçiş yapın. Ayrıca DNS adını düzgün HCM çalıştığı ana bilgisayarda çözer denetleyin. HCM karma bağlantı uç noktasına çalıştığı konaktan bağlantısı olduğunu doğrulayın.  
+Uç nokta DNS adı yerine IP adresi kullanarak belirtildiğinden, istemciler kendi uç noktama bağlanamıyorum birincil nedenidir. Uygulamanızı istenen uç noktası ulaşamıyor ve bir IP adresi kullandıysanız HCM çalıştığı konak üzerinde geçerli bir DNS adı kullanmaya geçiş yapın. Ayrıca DNS adını düzgün HCM çalıştığı konakta çözümler denetleyin. HCM karma bağlantı uç noktasını çalıştığı konak bağlantısı olduğunu doğrulayın.  
 
-App Service içinde tcpping Aracı'nı Gelişmiş araçlar (Kudu) konsolundan çağrılabilir. Bu araç TCP uç noktası erişimi ancak bunu, karma bağlantı uç noktasının erişiminiz varsa söylemez anlayabilirsiniz. Karma bağlantı uç noktasının karşı konsolunda Aracı'nı kullandığınızda, yalnızca bir ana bilgisayar: bağlantı noktası bileşimini kullanır onaylayan.  
+App Service'te tcpping Aracı'nı Gelişmiş araçlar (Kudu) konsolundan çağrılabilir. Bu araç, bir TCP uç noktasına erişebilir ancak bu, bir karma bağlantı uç noktası erişiminiz varsa söylemez söyleyebilirsiniz. Konsolunda bir karma bağlantı uç noktası karşı aracını kullandığınızda, yalnızca bir ana bilgisayar: bağlantı noktası birleşimini kullanan demektir.  
 
 ## <a name="biztalk-hybrid-connections"></a>BizTalk Karma Bağlantıları ##
 
-Eski BizTalk karma bağlantılar özelliği için yeni BizTalk karma bağlantı kapatıldı. Mevcut BizTalk karma bağlantılarınızı uygulamalarınızı ile kullanmaya devam edebilirsiniz, ancak Azure geçişi kullanan yeni karma bağlantılar için geçirmeniz gerekir. Yeni hizmet BizTalk sürüm üzerinden avantajları arasında şunlardır:
+Bu özelliğin erken form BizTalk karma bağlantılar çağrıldı. Bu özellik, 31 Mayıs 2018'de, son yaşam oluştu ve işlem ceased. BizTalk karma bağlantıları tüm web uygulamalarından kaldırıldı ve portalı veya API erişilebilir değildir. Ardından bu eski bağlantılar karma Bağlantı Yöneticisi'nde yapılandırılan hala varsa, artık Üretilmiyor durumunu görmek ve son, yaşam deyimi altında görüntüler.
 
-- Hiçbir ek BizTalk hesabı gereklidir.
-- TLS sürüm 1.2 sürümü 1.0 yerine hazır.
-- İletişim 80 ve 443 numaralı bağlantı noktaları üzerinden ve IP adreslerini yerine Azure ve ek bağlantı noktası aralığını ulaşmak için bir DNS adı kullanır.  
-
-Mevcut bir BizTalk karma bağlantıyı uygulamanıza eklemek için uygulamanızı gidin [Azure portal][portal]seçip **ağ** > **Yapılandır Karma bağlantı uç noktalarınızı**. Klasik karma bağlantılar tablosunu seçin **Klasik karma Bağlantı Ekle**. Ardından, BizTalk karma bağlantılar listesini görebilirsiniz.  
+![HCM BizTalk karma bağlantıları][12]
 
 
 <!--Image references-->
@@ -205,9 +245,12 @@ Mevcut bir BizTalk karma bağlantıyı uygulamanıza eklemek için uygulamanız�
 [8]: ./media/app-service-hybrid-connections/hybridconn-hcmadd.png
 [9]: ./media/app-service-hybrid-connections/hybridconn-hcmadded.png
 [10]: ./media/app-service-hybrid-connections/hybridconn-hcmdetails.png
+[11]: ./media/app-service-hybrid-connections/hybridconn-manual.png
+[12]: ./media/app-service-hybrid-connections/hybridconn-bt.png
 
 <!--Links-->
 [HCService]: http://docs.microsoft.com/azure/service-bus-relay/relay-hybrid-connections-protocol/
 [portal]: http://portal.azure.com/
 [oldhc]: http://docs.microsoft.com/azure/biztalk-services/integration-hybrid-connection-overview/
 [sbpricing]: http://azure.microsoft.com/pricing/details/service-bus/
+[armclient]: https://github.com/projectkudu/ARMClient/

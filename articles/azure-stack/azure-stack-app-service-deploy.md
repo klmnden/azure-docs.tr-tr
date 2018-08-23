@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 08/15/2018
 ms.author: anwestg
-ms.openlocfilehash: 22593fc470325fbfb74cfb432207abeea7d96ac2
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 9173dfcbb5f73c2292bce7d28c2dae5dbece79cd
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342793"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42060705"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure Stack'e bir App Service kaynak sağlayıcısı ekleme
 
@@ -28,7 +28,7 @@ ms.locfileid: "37342793"
 Azure Stack'te App Service'e dağıtım yapmak, bu makaledeki yönergeleri kullanın.
 
 >[!IMPORTANT]  
->1804 güncelleştirme, Azure Stack tümleşik sistemi için geçerli veya Azure App Service 1.2 dağıtmadan önce en son Azure Stack geliştirme Seti'ni (ASDK) dağıtın.
+>Azure Stack tümleşik sisteminize 1807 güncelleştirmeyi veya Azure App Service 1.3 dağıtmadan önce en son Azure Stack geliştirme Seti'ni (ASDK) dağıtın.
 
 Kullanıcılarınız, web ve API uygulamaları oluşturma olanağı verebilirsiniz. Kullanıcıların bu uygulamaları oluşturmak için gerekir:
 
@@ -131,6 +131,18 @@ App Service kaynak sağlayıcısı dağıtmak için aşağıdaki adımları izle
 
     > [!NOTE]
     > Yükleyici, devam etmeden önce SQL Server bağlantısını test etmek çalışır. Ancak, bir sanal ağınız dağıtıyorsanız, bu bağlantı testi dosyası. Size bir uyarı ve bir komut istemi devam etmek için verilir. SQL Server bilgilerin doğru olduğundan, dağıtımın devam edin.
+    >
+    > Azure App Service'ten Azure Stack 1.3 ve üzeri üzerinde yükleyici SQL Server veritabanı kapsama SQL sunucu düzeyinde etkin olduğunu denetler.  Yüklü değilse, şu özel durumla istenir:
+    > ```sql
+    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
+    >    ***********************************************************
+    >    sp_configure 'contained database authentication', 1;  
+    >    GO  
+    >    RECONFIGURE;  
+    >    GO
+    >    ***********************************************************
+    > ```
+    > Başvurmak [Azure Stack 1.3 üzerinde Azure App Service için sürüm notları](azure-stack-app-service-release-notes-update-three.md) daha fazla ayrıntı için.
 
     ![Uygulama hizmeti yükleyicisi][11]
 

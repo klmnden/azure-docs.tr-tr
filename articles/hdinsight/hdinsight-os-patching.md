@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 5d8fae7412bece631e6961fb92b7d87e308cc857
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 8bde1e8846dbaee957e2498ea4fae0c5cf79a913
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599223"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42056246"
 ---
 # <a name="os-patching-for-hdinsight"></a>HDInsight için düzeltme eki uygulama işletim sistemi 
 Yönetilen bir Hadoop hizmeti olan HDInsight HDInsight kümeleri tarafından kullanılan temel alınan sanal makinelerin işletim sistemi düzeltme eki uygulama üstlenir. 1 Ağustos 2016'dan itibaren (sürüm 3.4) Linux tabanlı HDInsight kümeleri için konuk işletim sistemi düzeltme eki uygulama ilkesi değiştirdik. Yeni ilke hedefi düzeltme eki uygulama nedeniyle yeniden başlatma sayısını önemli ölçüde azaltmaktır. Yeni ilke, her Pazartesi ya da herhangi bir küme içindeki düğümler arasında aşamalı bir şekilde 12: 00 UTC başlayarak Perşembe Linux kümelerinde düzeltme eki sanal makinelerine (VM'ler) devam eder. Ancak, belirli bir VM'nin yalnızca en fazla 30 konuk işletim sistemi düzeltme eki uygulama nedeniyle günde bir kez yeniden başlatılır. Ayrıca, ilk başlatma işlemi yeni oluşturulan bir küme için küme oluşturma tarihinden itibaren 30 gün daha erken olmaması. Düzeltme ekleri, Vm'leri yeniden sonra geçerli olacaktır.
@@ -59,7 +59,7 @@ Küme oluşturma işlemi kapsamında betiği uygularsanız, otomatik olarak kal�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Betik eylemi kullanarak belirli adımları görmek için aşağıdaki bölümlerdeki [özelleştirme Linuz tabanlı HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md):
+Betik eylemi kullanarak belirli adımları görmek için aşağıdaki bölümlerdeki [özelleştirme Linux tabanlı HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md):
 
 * [Küme oluşturma sırasında bir betik eylemi kullanın](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
 * [Betik eylemi çalıştıran bir kümeye uygulama](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)

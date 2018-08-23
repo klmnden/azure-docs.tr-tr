@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 8546b1228c8d8f213cb87692144e8d1d31a949d8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a660b36f383eaf1fd0e868200ad7f59aba0f8225
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001812"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42055173"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Azure API Management, Azure Application Insights ile tümleştirme
 
@@ -111,9 +111,15 @@ Bir istek, başarısız bir istek olduğunu da:
 
 İstek hızı, saniye başına 1000 istek aşıldığında iç yük testleri bağlı olarak, bu özelliğin etkinleştirilmesi % 40-%50 azaltma verim neden oldu. Azure Application Insights, uygulama performanslarını değerlendirmek için istatistiksel analiz kullanması için tasarlanmıştır. Bir denetim sistemi olacak şekilde tasarlanmamıştır ve yüksek hacimli API'leri için tek tek her isteği günlüğe kaydetme için uygun değildir.
 
-Ayarlayarak günlüğe kaydedilmesini isteklerinin sayısı işleyebileceğiniz **örnekleme** ayarlama (yukarıdaki adımlara bakın). % 100 anlamına gelir hiçbir hiç oturum %0 yansıtır sırada tüm istekleri günlüğe kaydedilen değeri. **Örnekleme** etkili bir şekilde hala günlük avantajlarını taşıma sırasında önemli performans düşüşleri ' engelleyen, telemetri hacminin azaltılmasına yardımcı olur.
+Ayarlayarak günlüğe kaydedilmesini isteklerinin sayısı işleyebileceğiniz **örnekleme** ayarlama (yukarıdaki adımlara bakın). % 100 anlamına gelir hiçbir hiç oturum %0 yansıtır sırada tüm istekleri günlüğe kaydedilen değeri. **Örnekleme** hala günlük avantajlarını taşıma sırasında önemli bir performans düşüşüne, etkili bir şekilde engelleyen, telemetri hacmini azaltmak için yardımcı olur.
 
 Üstbilgi ve gövde isteklerin ve yanıtların günlüğe atlanıyor performans sorunlarını ortadan kaldırılmasına üzerinde olumlu bir etkisi olacaktır.
+
+## <a name="video"></a>Video
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2pkXv]
+>
+>
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

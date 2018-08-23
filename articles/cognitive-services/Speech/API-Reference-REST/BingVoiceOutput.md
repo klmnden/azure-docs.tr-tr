@@ -1,6 +1,6 @@
 ---
-title: Metin okuma API Microsoft konuşma hizmetinin | Microsoft Docs
-description: Gerçek zamanlı metin okuma dönüştürme sesleri ve dilleri çeşitli sağlamak için metin okuma API kullanın
+title: Metin okuma API'si, Microsoft konuşma hizmeti | Microsoft Docs
+description: Seslerle ve dilleri çeşitli gerçek zamanlı metinden konuşmaya dönüştürme sağlamak için metin okuma API'si kullanma
 services: cognitive-services
 author: priyaravi20
 manager: yanbo
@@ -9,72 +9,72 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: priyar
-ms.openlocfilehash: 4b633cefa37c11511a8171d5a7f61b03dfaa4466
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6236bf1c4d9ac7ba672939543c16b8d02a79892e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352517"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41988151"
 ---
-# <a name="bing-text-to-speech-api"></a>Bing metin okuma API
+# <a name="bing-text-to-speech-api"></a>Bing metin okuma API'si
 
 ## <a name="Introduction"></a>Giriş
 
-Bing metin okuma ile API, uygulamanızın burada metin anında İnsan sesli konuşma içinde oluşturulan ve bir ses dosyası olarak döndürülen bulut sunucusu, HTTP istekleri gönderebilirsiniz. Bu API, çeşitli farklı sesler ve dilleri gerçek zamanlı metin okuma dönüştürmede sağlamak için birçok farklı bağlamlarında kullanılabilir.
+Bing ile metin okuma API'si, uygulamanızın nerede metin anında İnsan görünen konuşmaya oluşturulan ve bir ses dosyası olarak döndürülen bulut sunucusu, HTTP istekleri gönderebilirsiniz. Bu API, gerçek zamanlı metinden konuşmaya dönüştürme farklı sesler ve dilleri çeşitli sağlamak için birçok farklı bağlamda kullanılabilir.
 
-## <a name="VoiceSynReq"></a>Sesli Birleştirici isteği
+## <a name="VoiceSynReq"></a>Sesli sentezi isteği
 
 ### <a name="Subscription"></a>Yetkilendirme belirteci
 
-Her ses Birleştirici isteği bir JSON Web Token (JWT) erişim belirteci gerektirir. JWT erişim belirteci konuşma istek üstbilgisinde geçirilir. Belirtecin 10 dakikalık bir sona erme saati vardır. Abone olma ve geçerli JWT erişim belirteçleri almak için kullanılan API anahtarlarını alma hakkında daha fazla bilgi için bkz: [Bilişsel hizmetler abonelik](https://azure.microsoft.com/try/cognitive-services/).
+Her ses sentezi isteği bir JSON Web Token (JWT) erişim belirteci gerektirir. JWT erişim belirteci aracılığıyla konuşma istek üst bilgisinde geçirilir. Belirteç, 10 dakikalık bir sona erme süresi vardır. Abone olma ve geçerli JWT erişim belirteçlerini almak için kullanılan API anahtarlarını alma hakkında daha fazla bilgi için bkz. [Bilişsel hizmetler abonelik](https://azure.microsoft.com/try/cognitive-services/).
 
-API anahtarını belirteç hizmetine geçirilir. Örneğin:
+API anahtarı belirteç hizmetine geçirilir. Örneğin:
 
 ```HTTP
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
 Content-Length: 0
 ```
 
-Belirteç erişimi için gerekli üst bilgileri aşağıdaki gibidir.
+Belirteç erişimi için gereken üst bilgi bilgileri aşağıdaki gibidir.
 
 Ad| Biçimlendir | Açıklama
 ----|----|----
-Ocp Apim abonelik anahtarı | ASCII | Abonelik anahtarınız
+Ocp-Apim-Subscription-Key | ASCII | Abonelik anahtarınız
 
-JWT erişim belirteci olarak belirteç hizmetine döndürür `text/plain`. JWT olarak geçirilen sonra bir `Base64 access_token` konuşma uç noktası dizesiyle önekli bir authorization üstbilgisi olarak `Bearer`. Örneğin:
+JWT belirteci belirteç hizmetine döndürür `text/plain`. Daha sonra JWT olarak geçirilen bir `Base64 access_token` dizesiyle önekli bir yetkilendirme üst bilgisi olarak konuşma tanıma uç noktasına `Bearer`. Örneğin:
 
 `Authorization: Bearer [Base64 access_token]`
 
-İstemciler, metin okuma hizmete erişmek için aşağıdaki bitiş noktasını kullanmanız gerekir:
+İstemciler aşağıdaki uç noktayı metin okuma hizmetine erişmek için kullanmanız gerekir:
 
 `https://speech.platform.bing.com/synthesize`
 
 >[!NOTE]
->Bir erişim belirteci daha önce açıklandığı gibi abonelik anahtarınızla edindiğiniz kadar bu bağlantıyı oluşturan bir `403 Forbidden` yanıt hata.
+>Bir erişim belirteci daha önce açıklandığı gibi abonelik anahtarınızla edindiğiniz kadar bu bağlantı oluşturur. bir `403 Forbidden` yanıtı hatası.
 
 ### <a name="Http"></a>HTTP üstbilgileri
 
-Aşağıdaki tabloda sesli Birleştirici istekleri için kullanılan HTTP üst bilgilerini gösterir.
+Aşağıdaki tablo, sesli sentezi istekleri için kullanılan HTTP üst bilgilerini gösterir.
 
 Üst bilgi |Değer |Yorumlar
 ----|----|----
-Content-Type | Uygulama/ssml + xml | Giriş içerik türü.
-X Microsoft OutputFormat | **1.** ssml-16 khz-16 bit-mono-tts <br> **2.** ham-16 khz-16 bit-mono-pcm <br>**3.** ses-16 khz-16 KB/sn-mono-siren <br> **4.** RIFF-16 khz-16 KB/sn-mono-siren <br> **5.** RIFF-16 khz-16 bit-mono-pcm <br> **6.** ses-16 khz-128kbitrate-mono-mp3 <br> **7.** ses-16 khz-64kbitrate-mono-mp3 <br> **8.** ses-16 khz-32kbitrate-mono-mp3 | Çıktı ses biçimi.
-X arama AppID | Bir GUID (onaltılık yalnızca, tirelere) | İstemci uygulaması benzersiz olarak tanımlayan bir kimliği. Bu uygulamalar için depolama kimliği olabilir. Bir kullanılabilir durumda değilse, bir uygulama için oluşturulan kullanıcı kimliği olabilir.
-X arama ClientID | Bir GUID (onaltılık yalnızca, tirelere) | Her yükleme için uygulama örneğini benzersiz olarak tanımlayan bir kimliği.
+Content-Type | Uygulama/ssml'yi + xml şeklindedir | Giriş içerik türü.
+X Microsoft OutputFormat | **1.** ssml'yi-16 khz-16 bit-mono-tts <br> **2.** ham-16 khz-16 bit-mono-pcm <br>**3.** ses-16 khz-16 KB/sn-mono-siren <br> **4.** RIFF-16 khz-16 KB/sn-mono-siren <br> **5.** RIFF-16 khz-16 bit-mono-pcm <br> **6.** ses-16 khz-128kbitrate-mono-mp3 <br> **7.** ses-16 khz-64kbitrate-mono-mp3 <br> **8.** ses-16 khz-32kbitrate-mono-mp3 | Çıkış ses biçimi.
+X arama AppID | Bir GUID (onaltılık yalnızca, çizgi içermeyen) | İstemci uygulaması benzersiz olarak tanımlayan bir kimliği. Bu uygulamalar için depolama kimliği olabilir. Bir kullanılabilir durumda değilse, bir uygulama için oluşturulan kullanıcı kimliği olabilir.
+X arama ClientID | Bir GUID (onaltılık yalnızca, çizgi içermeyen) | Her yükleme için uygulama örneğini benzersiz şekilde tanımlayan bir kimliği.
 Kullanıcı Aracısı | Uygulama adı | Uygulama adı gereklidir ve 255'den az karakter olmalıdır.
-Yetkilendirme | Yetkilendirme belirteci |  Bkz: <a href="#Subscription">yetkilendirme belirtecini</a> bölümü.
+Yetkilendirme | Yetkilendirme belirteci |  Bkz: <a href="#Subscription">yetkilendirme belirteci</a> bölümü.
 
 ### <a name="InputParam"></a>Giriş parametreleri
 
-Bing metin okuma API isteklerini HTTP POST çağrıları kullanılarak yapılır. Üstbilgiler önceki bölümde belirtilir. Gövde oluşturulan için metni temsil eden konuşma Birleştirici işaretleme dili (SSML) giriş içeriyor. Konuşma dili gibi yönlerini ve Konuşmacı cinsiyetiniz denetlemek için kullanılan biçimlendirme bir açıklaması için bkz: [SSML W3C belirtimi](http://www.w3.org/TR/speech-synthesis/).
+Bing metin okuma API'si isteklerini HTTP POST çağrıları kullanılarak yapılır. Üstbilgileri, önceki bölümde belirtilir. Gövde sentezlenecek metni temsil eden konuşma sentezi işaretleme dili (SSML'yi) giriş içerir. Konuşma gibi dil özelliklerini ve cinsiyet konuşmacının denetlemek için kullanılan biçimlendirme açıklaması için bkz: [SSML'yi W3C belirtimi](http://www.w3.org/TR/speech-synthesis/).
 
 >[!NOTE]
->Desteklenen SSML giriş en büyük boyutu, tüm etiketleri de dahil olmak üzere, 1.024 karakterdir.
+>SSML'yi giriş, desteklenen en büyük boyutunu, tüm etiketleri dahil olmak üzere, 1024 karakterdir.
 
-###  <a name="SampleVoiceOR"></a>Örnek: ses çıkış isteği
+###  <a name="SampleVoiceOR"></a>Örnek: ses çıkışı isteği
 
-Ses çıkış isteği örneği aşağıdaki gibidir:
+Ses çıkış isteğinin bir örneği aşağıdaki gibidir:
 
 ```HTTP
 POST /synthesize
@@ -92,11 +92,11 @@ Authorization: Bearer [Base64 access_token]
 
 ## <a name="VoiceOutResponse"></a>Ses çıkış yanıt
 
-Bing metin okuma API istemciye ses göndermek için HTTP POST kullanır. Ses akışı ve codec API yanıtını içerir ve istenen çıkış biçimi eşleşir. Belirtilen istek için döndürülen ses 15 saniye aşmamalıdır.
+Bing metin okuma API'si, HTTP POST ses istemciye geri göndermek için kullanır. API yanıtı ses akışı ve codec bileşeni içerir ve istenen çıktı biçimi eşleşir. Belirli bir istek için döndürülen ses 15 saniyeyi aşmamalıdır.
 
-### <a name="SuccessfulRecResponse"></a>Örnek: başarılı Birleştirici yanıt
+### <a name="SuccessfulRecResponse"></a>Örnek: başarılı sentezi yanıt
 
-Aşağıdaki kod, bir JSON isteğine yanıt olarak bir başarılı sesli Birleştirici örneğidir. Açıklamaları ve kodunu biçimlendirme yalnızca bu örnek amaçlıdır ve gerçek yanıttan göz ardı edilir.
+Aşağıdaki kod, bir JSON yanıtı başarılı ses sentezi isteğine örneğidir. Açıklamalar ve kodun biçimi yalnızca bu örnek amaçlıdır ve gerçek yanıttan göz ardı edilir.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -108,7 +108,7 @@ Response audio payload
 
 ### <a name="RecFailure"></a>Örnek: Birleştirici hatası
 
-Aşağıdaki örnek kod bir ses birleştirme sorgu hatası için bir JSON yanıtı gösterir:
+Aşağıdaki kod örneği bir ses birleştirme sorgu hatası için bir JSON yanıtı gösterilir:
 
 ```HTTP
 HTTP/1.1 400 XML parser error
@@ -120,10 +120,10 @@ Content-Length: 0
 
 Hata | Açıklama
 ----|----
-HTTP 400 Hatalı istek | Gerekli bir parametre eksik, boş veya null veya ya da geçirilen değeri gerekli veya isteğe bağlı bir parametre geçersiz. "Geçersiz" yanıt almak için bir neden, izin verilen uzunluktan daha uzun bir dize değeri geçiyor. Sorunlu parametre kısa bir açıklamasını dahil edilir.
+HTTP/400 Hatalı istek | Gerekli parametre eksik, boş veya null olduğu veya gerekli veya isteğe bağlı parametresi için geçirilen değer geçersiz. "Geçersiz" yanıt almak için bir neden, izin verilen uzunluktan daha uzun bir dize değeri geçiyor. Sorunlu parametresi kısa bir açıklamasını dahil edilir.
 HTTP/401 Yetkisiz | İstek yetkili değil.
-HTTP/413 RequestEntityTooLarge  | SSML giriş, nelerin desteklendiği daha büyüktür.
-HTTP/502 BadGateway | Ağ ile ilgili bir sorun veya sunucu tarafı sorun yoktur.
+HTTP/413 RequestEntityTooLarge  | SSML'yi giriş, nelerin desteklendiği daha büyüktür.
+HTTP/502 BadGateway | Ağ ile ilgili bir sorun veya bir sunucu tarafı sorun yoktur.
 
 Bir hata yanıtı örneği aşağıdaki gibidir:
 
@@ -135,29 +135,29 @@ Content-Type: text/plain; charset=UTF-8
 Voice name not supported
 ```
 
-## <a name="ChangeSSML"></a>Ses çıkış SSML aracılığıyla değiştirme
+## <a name="ChangeSSML"></a>Ses çıkış SSML'yi aracılığıyla değiştirme
 
-Microsoft metin okuma API destekleyen SSML 1.0 W3C içinde tanımlanan [konuşma Birleştirici işaretleme dili (SSML) sürüm 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/). Bu bölüm değiştirme örnekleri konuşarak gibi oluşturulan ses çıkış özelliklerini oranı, telaffuz SSML etiketleri kullanarak vb. belirli gösterir.
+Microsoft metin okuma API'si destekler SSML'yi 1.0 W3C tanımlandığı şekilde [konuşma sentezi işaretleme dili (SSML'yi) sürüm 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/). Bu bölüm değiştirme örnekleri oluşturulan ses çıkış konuşma gibi özelliklerini oranı, Söyleniş SSML'yi etiketleri kullanarak vb. belirli gösterir.
 
-1. BREAK ekleme
+1. Kesme ekleme
 
   ```
   <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)'> Welcome to use Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.</voice> </speak>
   ```
 
-2. Konuşma hızını değiştirmek
+2. Konuşma hızını değiştirme
 
   ```
   <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody rate="+30.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
   ```
 
-3. Söyleniş
+3. Söylenişi
 
   ```
   <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'> <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme></voice> </speak>
   ```
 
-4. Toplu değiştirme
+4. Birimi Değiştir
 
   ```
   <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody volume="+20.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
@@ -176,105 +176,105 @@ Microsoft metin okuma API destekleyen SSML 1.0 W3C içinde tanımlanan [konuşma
   ```
 
 > [!NOTE]
-> Ses verileri içeren 8 k veya 16 k wav olmasını Not Dosyalanan şu biçimde: **CRC kodu** (CRC-32): 4 bayt (DWORD), geçerli aralık 0x00000000 ~ 0xFFFFFFFF; **Ses biçimi bayrağı**: 4 bayt (DWORD), geçerli aralık 0x00000000 ~ 0xFFFFFFFF; **Örnek sayısı**: 4 bayt (DWORD), geçerli aralık 0x00000000 ~ 0x7FFFFFFF; **İkili Gövde boyutu**: 4 bayt (DWORD), geçerli aralık 0x00000000 ~ 0x7FFFFFFF; **İkili gövde**: n bayt sayısı.
+> Ses verilere sahip olması 8 k ya da 16 k wav Not Dosyalanan şu biçimde: **CRC kod** (CRC-32): 4 bayt (DWORD), geçerli aralık 0x00000000 ~ 0xFFFFFFFF; **Ses biçimi bayrağı**: 4 bayt (DWORD), geçerli aralık 0x00000000 ~ 0xFFFFFFFF; **Örnek sayısı**: 4 bayt (DWORD), geçerli aralık 0x00000000 ~ 0x7FFFFFFF; **İkili Gövde boyutu**: 4 bayt (DWORD), geçerli aralık 0x00000000 ~ 0x7FFFFFFF; **İkili gövde**: n baytı.
 
 ## <a name="SampleApp"></a>Örnek uygulama
 
-Uygulama ayrıntıları için bkz: [Visual C# .NET metin okuma örnek uygulama](https://github.com/Microsoft/Cognitive-Speech-TTS/blob/master/Samples-Http/CSharp/TTSProgram.cs).
+Uygulama ayrıntıları için bkz. [Visual C# .NET metin okuma örnek uygulaması](https://github.com/Microsoft/Cognitive-Speech-TTS/blob/master/Samples-Http/CSharp/TTSProgram.cs).
 
-## <a name="SupLocales"></a>Desteklenen yerel ayarlar ve ses yazı tipleri
+## <a name="SupLocales"></a>Desteklenen yerel ayarlar ve ses tipleri
 
-Aşağıdaki tabloda bazı ilgili sesli yazı tipleri ve desteklenen yerel tanımlar.
+Aşağıdaki tabloda bazı desteklenen yerel ayarlar ve ilgili ses tipi olarak tanımlar.
 
 Yerel ayar | Cinsiyet | Hizmet adı eşleme
 ---------|--------|------------
-ar-ÖRN * | Kadın | "Microsoft Server Konuşma metin okuma okuma (ar-Örneğin, Hoda)"
-ar-SA'sı | Erkek | "Microsoft Server Konuşma metin okuma ses (ar-SA, Naayf)"
+ar-Örneğin * | Kadın | "Microsoft sunucu konuşma Sesli konuşmayı metne (ar-Örneğin, Hoda)"
+ar-SA | Erkek | "Microsoft Server Konuşma metin konuşma ses (ar-SA, Naayf)"
 BG-BG | Erkek | "Microsoft Server Konuşma metin okuma ses (bg-BG, çalışan Ivan)"
 CA-ES | Kadın | "Microsoft Server Konuşma metin okuma ses (ca-ES, HerenaRUS)"
-cs-CZ | Erkek | "Microsoft Server Konuşma metin okuma okuma (cs-CZ, Jakub)"
-da DK | Kadın | "Microsoft Server Konuşma metin okuma ses (da-DK, HelleRUS)"
-de AT | Erkek | "Microsoft Server Konuşma metin okuma ses (de-AT, Michael)"
-de CH | Erkek | "Microsoft Server Konuşma metin okuma ses (de-CH, Karsten)"
-de-DE | Kadın | "Microsoft Server Konuşma metin okuma ses (de-DE, Hedda)"
-de-DE | Kadın | "Microsoft Server Konuşma metin okuma ses (de-DE, HeddaRUS)"
-de-DE | Erkek | "Microsoft Server Konuşma metin okuma ses (de-DE, Stefan, Apollo)"
-el-GR | Erkek | "Microsoft Server Konuşma metin okuma ses (el-GR, Stefanos)"
-tr AU | Kadın | "Microsoft Server Konuşma metin okuma ses (tr-AU, Catherine)"
-tr AU | Kadın | "Microsoft Server Konuşma metin okuma ses (tr-AU, HayleyRUS)"
-tr-CA | Kadın | "Microsoft Server Konuşma metin okuma ses (tr-CA, Gamze)"
-tr-CA | Kadın | "Microsoft Server Konuşma metin okuma ses (tr-CA, HeatherRUS)"
-tr GB | Kadın | "Microsoft Server Konuşma metin okuma ses (tr-GB, Çiğdem, Apollo)"
-tr GB | Kadın | "Microsoft Server Konuşma metin okuma ses (tr-GB, HazelRUS)"
-tr GB | Erkek | "Microsoft Server Konuşma metin okuma ses (tr-GB, George, Apollo)"
-tr-IE | Erkek | "Microsoft Server Konuşma metin okuma ses (tr-IE, Gamze)"
-tr-IN | Kadın | "Microsoft Server Konuşma metin okuma ses (tr-ın, Heera, Apollo)"
-tr-IN | Kadın | "Microsoft Server Konuşma metin okuma ses (tr-IN, PriyaRUS)"
-tr-IN | Erkek | "Microsoft Server Konuşma metin okuma ses (tr-ın, Ravi, Apollo)"
-tr-TR | Kadın | "Microsoft Server Konuşma metin okuma ses (en-US, ZiraRUS)"
-tr-TR | Kadın | "Microsoft Server Konuşma metin okuma ses (en-US, JessaRUS)"
-tr-TR | Erkek | "Microsoft Server Konuşma metin okuma ses (en-US, BenjaminRUS)"
+cs-CZ | Erkek | "Microsoft sunucu konuşma Sesli konuşmayı metne (cs-CZ, Jakub)"
+v-DK | Kadın | "Microsoft Server Konuşma metin konuşma ses (v-DK, HelleRUS)"
+de-AT | Erkek | "Microsoft Server Konuşma metin konuşma ses (de-AT, Michael)"
+de-CH | Erkek | "Microsoft Server Konuşma metin konuşma ses (de-CH, Karsten)"
+de-DE | Kadın | "Microsoft Server Konuşma metin konuşma ses (de-DE, Hedda)"
+de-DE | Kadın | "Microsoft Server Konuşma metin konuşma ses (de-DE, HeddaRUS)"
+de-DE | Erkek | "Microsoft Server Konuşma metin konuşma ses (de-DE, Stefan, Apollo)"
+el-GR | Erkek | "Microsoft Server Konuşma metin konuşma ses (el-GR, Stefanos)"
+tr-AU | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-AU, Catherine)"
+tr-AU | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-AU, HayleyRUS)"
+CA tr | Kadın | "Microsoft Server Konuşma metin konuşma ses (tr-CA, Gamze)"
+CA tr | Kadın | "Microsoft Server Konuşma metin konuşma ses (tr-CA, HeatherRUS)"
+en-GB | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-GB, Susan, Apollo)"
+en-GB | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-GB, HazelRUS)"
+en-GB | Erkek | "Microsoft Server Konuşma metin konuşma ses (en-GB, George, Apollo)"
+IE tr | Erkek | "Microsoft Server Konuşma metin konuşma ses (tr-IE, Sean)"
+tr-giriş | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-IN Heera, Apollo)"
+tr-giriş | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-IN, PriyaRUS)"
+tr-giriş | Erkek | "Microsoft Server Konuşma metin konuşma ses (en-IN Ravi, Apollo)"
+tr-TR | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, ZiraRUS)"
+tr-TR | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, JessaRUS)"
+tr-TR | Erkek | "Microsoft Server Konuşma metin konuşma ses (en-US, BenjaminRUS)"
 es-ES | Kadın | "Microsoft Server Konuşma metin okuma ses (es-ES, Gamze, Apollo)"
 es-ES | Kadın | "Microsoft Server Konuşma metin okuma ses (es-ES, HelenaRUS)"
 es-ES | Erkek | "Microsoft Server Konuşma metin okuma ses (es-ES, Pablo, Apollo)"
 es-MX | Kadın | "Microsoft Server Konuşma metin okuma ses (es-MX, HildaRUS)"
-es-MX | Erkek | "Microsoft Server Konuşma metin okuma ses (es-MX, Raul, Apollo)"
-Fi-FI | Kadın | "Microsoft Server Konuşma metin okuma ses (fi-FI, HeidiRUS)"
+es-MX | Erkek | "Microsoft Server Konuşma metin okuma ses (es-MX, Raul Apollo)"
+FI-FI | Kadın | "Microsoft Server Konuşma metin konuşma ses (fi-FI, HeidiRUS)"
 fr-CA | Kadın | "Microsoft Server Konuşma metin okuma ses (fr-CA, Caroline)"
 fr-CA | Kadın | "Microsoft Server Konuşma metin okuma ses (fr-CA, HarmonieRUS)"
-FR CH | Erkek | "Microsoft Server Konuşma metin okuma ses (fr-CH, Guillaume)"
+FR-CH | Erkek | "Microsoft Server Konuşma metin okuma ses (fr-CH, Guillaume)"
 fr-FR | Kadın | "Microsoft Server Konuşma metin okuma ses (fr-FR, Julie, Apollo)"
 fr-FR | Kadın | "Microsoft Server Konuşma metin okuma ses (fr-FR, HortenseRUS)"
 fr-FR | Erkek | "Microsoft Server Konuşma metin okuma ses (fr-FR, Paul, Apollo)"
-He-IL| Erkek| "Microsoft Server Konuşma metin okuma ses (he-IL, Asaf)"
-yüksek giriş | Kadın | "Microsoft Server Konuşma metin okuma ses (hi-ın, Kalpana, Apollo)"
-yüksek giriş | Kadın | "Microsoft Server Konuşma metin okuma ses (hi-ın, Kalpana)"
-yüksek giriş | Erkek | "Microsoft Server Konuşma metin okuma ses (hi-ın, Hemant)"
+He IL| Erkek| "Microsoft Server Konuşma metin konuşma ses (he-IL, Asaf)"
+yüksek giriş | Kadın | "Microsoft Server Konuşma metin konuşma ses (Merhaba açma, Kalpana, Apollo)"
+yüksek giriş | Kadın | "Microsoft Server Konuşma metin konuşma ses (Merhaba-IN, Kalpana)"
+yüksek giriş | Erkek | "Microsoft Server Konuşma metin konuşma ses (Merhaba-IN, Hemant)"
 hr-HR | Erkek | "Microsoft Server Konuşma metin okuma ses (hr-HR, Matej)"
-hu-HU | Erkek | "Microsoft Server Konuşma metin okuma ses (hu-HU, Szabolcs)"
-Kimliği kimliği | Erkek | "Microsoft Server Konuşma metin okuma ses (-ID, Andika)"
-it-IT | Erkek | "Microsoft Server Konuşma metin okuma ses (it-IT, Cosimo, Apollo)"
+hu-HU | Erkek | "Microsoft Server Konuşma metin konuşma ses (hu-HU, Szabolcs)"
+ID | Erkek | "Microsoft Server Konuşma metin konuşma ses (-ID, Andika)"
+İt-IT | Erkek | "Microsoft Server Konuşma metin konuşma ses (Cosimo, it-IT, Apollo)"
+İt-IT | Kadın | "Microsoft Server Konuşma metin konuşma ses (it-IT, LuciaRUS)"
 ja-JP | Kadın | "Microsoft Server Konuşma metin okuma ses (ja-JP, Ayumi, Apollo)"
 ja-JP | Erkek | "Microsoft Server Konuşma metin okuma ses (ja-JP, Ichiro, Apollo)"
 ja-JP | Kadın | "Microsoft Server Konuşma metin okuma ses (ja-JP, HarukaRUS)"
-ja-JP | Kadın | "Microsoft Server Konuşma metin okuma ses (ja-JP, LuciaRUS)"
-ja-JP | Erkek | "Microsoft Server Konuşma metin okuma ses (ja-JP, EkaterinaRUS)"
-ko-KR | Kadın | "Microsoft Server Konuşma metin okuma ses (ko-KR, HeamiRUS)"
+ko-KR | Kadın | "Microsoft Server Konuşma metin konuşma ses (ko-KR, HeamiRUS)"
 ms-MY | Erkek | "Microsoft Server Konuşma metin okuma ses (ms MY, Rizwan)"
-nb-NO | Kadın | "Microsoft Server Konuşma metin okuma ses (nb-Hayır, HuldaRUS)"
+NB-yok | Kadın | "Microsoft Server Konuşma metin okuma ses (nb-yok, HuldaRUS)"
 NL-NL | Kadın | "Microsoft Server Konuşma metin okuma ses (nl-NL, HannaRUS)"
 pl-PL | Kadın | "Microsoft Server Konuşma metin okuma ses (pl-PL, PaulinaRUS)"
 pt-BR | Kadın | "Microsoft Server Konuşma metin okuma ses (pt-BR, HeloisaRUS)"
 pt-BR | Erkek | "Microsoft Server Konuşma metin okuma ses (pt-BR, Daniel, Apollo)"
 pt-PT | Kadın | "Microsoft Server Konuşma metin okuma ses (pt-PT, HeliaRUS)"
-Ro-RO | Erkek | "Microsoft Server Konuşma metin okuma ses (ro-RO, Andrei)"
+Ro-RO | Erkek | "Microsoft Server Konuşma metin konuşma ses (ro-RO, Andrei)"
 ru-RU | Kadın | "Microsoft Server Konuşma metin okuma ses (ru-RU, Irina, Apollo)"
 ru-RU | Erkek | "Microsoft Server Konuşma metin okuma ses (ru-RU, Pavel, Apollo)"
-SK SK | Erkek | "Microsoft Server Konuşma metin okuma ses (sk-SK, Filip)"
+ru-RU | Kadın | "Microsoft Server Konuşma metin okuma ses (ru-RU, EkaterinaRUS)"
+SK-SK | Erkek | "Microsoft Server Konuşma metin okuma ses (sk-SK, Filip)"
 SL SI | Erkek | "Microsoft Server Konuşma metin okuma ses (sl-sı, Lado)"
-sv-SE | Kadın | "Microsoft Server Konuşma metin okuma ses (sv-SE, HedvigRUS)"
-eri IN | Erkek | "Microsoft Server Konuşma metin okuma ses (eri-IN, Valluvar)"
-TH-TH | Erkek | "Microsoft Server Konuşma metin okuma ses (th-TH, Pattara)"
+sv-SE | Kadın | "Microsoft Server Konuşma metin konuşma ses (sv-SE, HedvigRUS)"
+Veri-ın | Erkek | "Microsoft Server Konuşma metin konuşma ses (veri-ın, Valluvar)"
+TH TH | Erkek | "Microsoft Server Konuşma metin okuma ses (th-TH, Pattara)"
 tr-TR | Kadın | "Microsoft Server Konuşma metin okuma ses (tr-TR, SedaRUS)"
-VI VN | Erkek | "Microsoft Server Konuşma metin okuma ses (VI-VN, bir)"
-zh-CN | Kadın | "Microsoft Server Konuşma metin okuma ses (zh-CN, HuihuiRUS)"
-zh-CN | Kadın | "Microsoft Server Konuşma metin okuma ses (zh-CN, Yaoyao, Apollo)"
-zh-CN | Erkek | "Microsoft Server Konuşma metin okuma ses (zh-CN, Kangkang, Apollo)"
-zh-HK | Kadın | "Microsoft Server Konuşma metin okuma ses (zh-HK Tracy, Apollo)"
-zh-HK | Kadın | "Microsoft Server Konuşma metin okuma ses (zh-HK TracyRUS)"
-zh-HK | Erkek | "Microsoft Server Konuşma metin okuma ses (zh-HK Danny, Apollo)"
-zh-TW | Kadın | "Microsoft Server Konuşma metin okuma ses (zh-TW, Yating, Apollo)"
-zh-TW | Kadın | "Microsoft Server Konuşma metin okuma ses (zh-TW, HanHanRUS)"
-zh-TW | Erkek | "Microsoft Server Konuşma metin okuma ses (zh-TW, Zhiwei, Apollo)"
+VI VN | Erkek | "Microsoft Server Konuşma metin okuma ses (vi-VN bir)"
+zh-CN | Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-CN, HuihuiRUS)"
+zh-CN | Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-CN, Yaoyao, Apollo)"
+zh-CN | Erkek | "Microsoft Server Konuşma metin konuşma ses (zh-CN, Kangkang, Apollo)"
+zh-HK | Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-HK Tracy, Apollo)"
+zh-HK | Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-HK TracyRUS)"
+zh-HK | Erkek | "Microsoft Server Konuşma metin konuşma ses (zh-HK Danny, Apollo)"
+zh-TW | Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-TW Yating, Apollo)"
+zh-TW | Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-TW, HanHanRUS)"
+zh-TW | Erkek | "Microsoft Server Konuşma metin konuşma ses (zh-TW Zhiwei, Apollo)"
  * ar-ÖRN Modern standart Arapça (MSA) destekler.
 
 > [!NOTE]
-> Unutmayın önceki hizmet adlarını **Microsoft Server Konuşma metin okuma okuma (cs-CZ, Vit)** ve **konuşma sesli (tr-IE Shaun) için Microsoft Server Konuşma metin** 3/31/2018 sonra içinde kullanım Bing konuşma API'nin özellikleri en iyi duruma getirme sırası. Lütfen güncelleştirilmiş adlarıyla kodunuzu güncelleştirin.
+> Unutmayın önceki hizmet adları **Microsoft sunucu konuşma Sesli konuşmayı metne (cs-CZ, Vit)** ve **konuşma ses (tr-IE, Shaun) için Microsoft sunucu konuşma metin** 3/31/2018 de kullanımdan Bing konuşma API'SİNİN özellikleri en iyi duruma getirme sırası. Lütfen kodunuzu güncelleştirilmiş adları ile güncelleştirin.
 
-## <a name="TrouNSupport"></a>Sorun giderme ve desteği
+## <a name="TrouNSupport"></a>Sorun giderme ve Destek
 
-Tüm sorular ve sorunlar için post [Bing konuşma hizmet](https://social.msdn.microsoft.com/Forums/en-US/home?forum=SpeechService) MSDN Forumu. Tüm ayrıntılar gibi şunları içerir:
+Tüm soruları ve sorunları gidermek üzere [Bing konuşma hizmeti](https://social.msdn.microsoft.com/Forums/en-US/home?forum=SpeechService) MSDN Forumu. Tüm ayrıntılar gibi şunlardır:
 
-* Bir dize örneği şöyledir tam istek.
-* Uygunsa, içeren bir başarısız istek tam çıktısı kimlikleri oturum açın.
+* Tam istek dize örneği.
+* Uygunsa, tam çıktısını içeren bir başarısız istek kimliklerini oturum açın.
 * Başarısız olan istek yüzdesi.

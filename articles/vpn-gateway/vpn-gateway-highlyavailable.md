@@ -1,5 +1,5 @@
 ---
-title: Azure VPN ağ geçitleri ile yüksek oranda kullanılabilir yapılandırmaları genel bakış | Microsoft Docs
+title: Azure VPN Gateways ile yüksek oranda kullanılabilir yapılandırmalara genel bakış | Microsoft Docs
 description: Bu makalede Azure VPN Gateways kullanan yüksek oranda kullanılabilir yapılandırma seçeneklerine genel bakış sunulmaktadır.
 services: vpn-gateway
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
-ms.openlocfilehash: 3708a2f7c445a161f02416cf8427b1707e1db8f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c510bb060d5c0dc866c3802fab751c1cbeff3745
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23928947"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42057419"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Yüksek Oranda Kullanılabilir Şirket İçi ve Dışı ile Sanal Ağdan Sanal Ağa Bağlantı
 Bu makalede Azure VPN gateways kullanan şirket içi ve dışı ile Sanal Ağdan Sanal Ağa bağlantınız için Yüksek Oranda Kullanılabilir yapılandırma seçeneklerine genel bakış sunulmaktadır.
 
-## <a name = "activestandby"></a>Azure VPN ağ geçidi artıklık hakkında
+## <a name = "activestandby"></a>Azure VPN gateway yedekliliği hakkında
 Her Azure VPN gateway, etkin bir bekleme yapılandırmasında iki örnekten oluşur. Etkin örnekte gerçekleşen herhangi bir planlı bakım veya plansız kesintide, beklemedeki örnek otomatik olarak yükü devralıp S2S VPN veya Sanal Ağdan Sanal Ağa bağlantıları sürdürür. Bu geçiş kısa bir kesintiye neden olur. Planlı bakım için bağlantı 10 ila 15 saniye içinde geri yüklenmelidir. Planlanmamış sorunlar için bağlantı kurtarma süresi yaklaşık 1 dakika ile en kötü durumda 1 buçuk dakika arasında değişir. Ağ geçidiyle P2S VPN istemci bağlantıları için P2S bağlantıları kesilir ve kullanıcıların istemci makinelerden yeniden bağlantı kurması gerekir.
 
 ![Etkin Bekleme](./media/vpn-gateway-highlyavailable/active-standby.png)
@@ -44,7 +44,7 @@ Her Azure VPN gateway, etkin bir bekleme yapılandırmasında iki örnekten olu�
 
 Bu yapılandırma aynı Azure VPN ağ geçidinden aynı konumdaki şirket içi cihazlarınıza birden fazla etkin tünel sağlar. Bazı gereksinimler ve kısıtlamalar vardır:
 
-1. VPN cihazlarınız ile Azure arasında birden fazla S2S VPN bağlantısı oluşturmanız gerekir. Aynı şirket içi ağdan Azure’a birden fazla VPN cihazı bağladığınızda her VPN cihazı için bir yerel ağ geçidi ve Azure VPN ağ geçidinizden yerel ağ geçidine bir bağlantı oluşturmanız gerekir.
+1. VPN cihazlarınız ile Azure arasında birden fazla S2S VPN bağlantısı oluşturmanız gerekir. Aynı şirket içi ağdan Azure'a birden fazla VPN cihazı bağlandığınızda, her yerel ağ geçidi, Azure VPN ağ geçidi'ndeki her VPN cihazı için bir yerel ağ geçidi ve bir bağlantı oluşturmanız gerekir.
 2. VPN cihazlarınıza karşılık gelen yerel ağ geçitleri "GatewayIpAddress" özelliğinde benzersiz genel IP adreslerine sahip olmalıdır.
 3. Bu yapılandırma için BGP gereklidir. Bir VPN cihazını temsil eden her yerel ağ geçidinin "BgpPeerIpAddress" özelliğinde belirtilen benzersiz bir BGP eşleme IP adresi olmalıdır.
 4. Her yerel ağ geçidindeki AddressPrefix özellik alanı birbiriyle örtüşmemelidir. AddressPrefix alanında “BgpPeerIpAddress” özelliğini /32 CIDR biçiminde belirtmeniz gerekir; örneğin, 10.200.200.254/32.

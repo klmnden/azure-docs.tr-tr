@@ -1,6 +1,6 @@
 ---
 title: Azure Machine learning'de ALM | Microsoft Docs
-description: Azure Machine Learning Studio uygulama yaşam döngüsü yönetimi en iyi yöntemleri uygulayın
+description: Azure Machine Learning Studio'da en iyi uygulama yaşam döngüsü yönetimi uygulama
 keywords: ALM, AML, Azure ML, uygulama yaşam döngüsü yönetimi, sürüm denetimi
 services: machine-learning
 documentationcenter: ''
@@ -16,89 +16,89 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
-ms.openlocfilehash: 49d1a228132cc220b30091481bb542623b1e222d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: ff30afdcfebe51d914d2f7504ab3bf530309c222
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835874"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42055606"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da uygulama yaşam döngüsü yönetimi
-Azure Machine Learning Studio, Azure bulut platform kullanıma hazır hale getirilmiş, machine learning denemelerini geliştirmek için kullanılan bir araçtır. Tek bir platformuna Visual Studio IDE ve ölçeklenebilir bulut hizmeti gibi birleştirilir. Sürüm oluşturma standart uygulama yaşam döngüsü yönetimi (ALM) uygulamaları otomatik yürütme ve dağıtım için çeşitli varlıklar Azure Machine Learning Studio'ya dahil edebilirsiniz. Bu makalede seçenekleri ve yaklaşımlar bazıları açıklanmaktadır.
+Azure Machine Learning Studio, Azure bulut platformunda Çalıştır duruma getirdiniz makine öğrenimi denemeleri geliştirmek için kullanılan bir araçtır. Tek bir platformda Visual Studio IDE ve ölçeklenebilir bir bulut hizmeti gibi birleştirilir. Azure Machine Learning Studio'ya çeşitli varlıklar otomatik yürütme ve dağıtım, sürüm oluşturma standart uygulama yaşam döngüsü yönetimi (ALM) yöntemleri birleştirebilirsiniz. Bu makalede bazı seçenekleri ve yaklaşımları açıklanmaktadır.
 
-## <a name="versioning-experiment"></a>Sürüm oluşturma deneme
-Denemelerinizi sürüm için önerilen iki yolu vardır. Yerleşik çalıştırma geçmişi kullanır veya deneme dışarıdan yönetmek amacıyla bir JSON biçiminde dışarı aktarma. Her iki yaklaşımın kendi Artıları ve eksileri ile gelir.
+## <a name="versioning-experiment"></a>Deneme sürümü oluşturma
+Denemelerinizi sürümü için önerilen iki yol vardır. Yerleşik çalıştırma geçmişi kullanır veya denemeyi harici olarak yönetmek için bir JSON biçiminde dışarı aktarın. Her yaklaşımın kendi Artıları ve eksileri ile birlikte gelir.
 
-### <a name="experiment-snapshots-using-run-history"></a>Çalıştırma geçmişi kullanarak deneme anlık görüntüler
-Tıkladığınızda Azure Machine Learning öğrenimi denemesinin Studio'da yürütme modelinde İş Zamanlayıcısı değişmez bir anlık görüntüsünü deneme gönderilen **çalıştırmak** deneme düzenleyicisinde. Bu anlık görüntülerin listesini görüntülemek için tıklatın **çalıştırma geçmişi** deneme Düzenleyicisi görünümündeki komut çubuğunda.
+### <a name="experiment-snapshots-using-run-history"></a>Çalıştırma Geçmişi'ni kullanarak deneme anlık görüntüleri
+Tıkladığınızda Azure Machine Learning deneme öğrenme Studio yürütme modelinde iş Zamanlayıcı deneme değişmez bir anlık görüntüsünü gönderilen **çalıştırma** deneme Düzenleyicisi. Bu anlık görüntülerin listesini görüntülemek için tıklayın **çalıştırma geçmişi** deneme Düzenleyicisi görünümündeki komut çubuğunda.
 
 ![Çalıştırma geçmişi düğmesi](./media/version-control/runhistory.png)
 
-Açık denemeyi çalıştırma ve anlık görüntü gönderilen zaman deneme adını tıklatarak kilitli modunda anlık görüntü alındıktan sonra kullanabilirsiniz. Yalnızca geçerli deneme temsil eden, listedeki ilk öğeyi düzenlenebilir bir durumda olduğuna dikkat edin. Ayrıca her anlık görüntü çeşitli durumunda olabilir bildirim de dahil olmak üzere tamamlandı (kısmi) çalıştırın, başarısız, başarısız (kısmi) çalıştırmak, durumları ya da taslak.
+Anlık görüntü tıklayarak denemeyi çalıştırın ve anlık görüntü gönderildiği zaman deneme adını kilitli modda açık alındığı sonra kullanabilirsiniz. Yalnızca geçerli denemeyi gösterir, listedeki ilk öğeyi düzenlenebilir bir durumda olduğuna dikkat edin. Ayrıca her anlık görüntü çeşitli durumu olabilir bildirimi de dahil olmak üzere tamamlandı (kısmi) çalıştırın, başarısız oldu, başarısız (kısmi) çalıştırın, durumları veya taslak.
 
-![Geçmiş listesini çalıştırın.](./media/version-control/runhistorylist.png)
+![Çalıştırma geçmişi liste](./media/version-control/runhistorylist.png)
 
-Açıldıktan sonra anlık görüntü deney yeni bir deneme kaydedin ve sonra değiştirebilirsiniz. Deneme anlık görüntünüz eğitilmiş modeller, Dönüşümlerin veya güncelleştirilmiş sürümlerini veri kümeleri gibi varlıklar içeriyorsa, anlık görüntü alındıktan olduğunda anlık görüntüyü özgün sürümü başvuruları korur. Kilitli anlık görüntü yeni bir deneme kaydederseniz, Azure Machine Learning Studio'da bir sürümü bu varlıkları varlığını algılar ve bunları yeni bir deneme otomatik olarak güncelleştirir.
+Açıldıktan sonra anlık görüntü deney yeni bir deneme kaydedebilir ve sonra değiştirebilirsiniz. Deneme anlık eğitilen modeller, dönüşümler veya güncelleştirilmiş sürümlerini veri kümeleri gibi varlıklar içeriyorsa, anlık görüntünün anlık görüntü alındığında özgün sürümle başvuruları korur. Kilitli anlık görüntü yeni bir deneme kaydederseniz, Azure Machine Learning Studio bu varlıkları daha yeni bir sürümü var olup olmadığını algılar ve bunları yeni bir deneme otomatik olarak güncelleştirir.
 
-Denemeyi silerseniz, bu deneme tüm anlık görüntüleri silinir.
+Denemeyi silerseniz, bu deneyde tüm anlık görüntüleri silinir.
 
-### <a name="exportimport-experiment-in-json-format"></a>JSON biçiminde içeri/dışarı aktarma deneme
-Çalıştırmak için gönderilen her zaman çalıştırma geçmişi anlık görüntüleri Azure Machine Learning Studio'da deneme değişmez bir sürümünü tutun. Ayrıca deneme yerel bir kopyasını kaydedin ve Team Foundation Server gibi sık kullanılan kaynak denetim sistemi iade ve daha sonra bu yerel dosyadan bir denemeyi yeniden oluşturun. Kullanabileceğiniz [Azure Machine Learning PowerShell](http://aka.ms/amlps) cmdlet'leri [ *verme AmlExperimentGraph* ](https://github.com/hning86/azuremlps#export-amlexperimentgraph) ve [ *alma AmlExperimentGraph* ](https://github.com/hning86/azuremlps#import-amlexperimentgraph) bunu yapmaya yönelik.
+### <a name="exportimport-experiment-in-json-format"></a>JSON biçiminde içeri/dışarı aktarma denemesi
+Çalıştırılacak gönderilen her zaman çalıştırma geçmişi anlık görüntüleri Azure Machine Learning Studio'da deneme değişmez bir sürümünü tutun. Ayrıca denemenin yerel bir kopyasını kaydedin ve Team Foundation Server gibi sık kullandığınız kaynak denetimi sistemine iade ve daha sonra yeniden deneme oluşturma, yerel dosya oluşturun. Kullanabileceğiniz [Azure Machine Learning PowerShell](http://aka.ms/amlps) commandlet'ler [ *Export-AmlExperimentGraph* ](https://github.com/hning86/azuremlps#export-amlexperimentgraph) ve [  *Import-AmlExperimentGraph* ](https://github.com/hning86/azuremlps#import-amlexperimentgraph) bunları gerçekleştirebilirsiniz.
 
-Bir veri kümesi veya bir modeli gibi çalışma alanındaki varlıklar için bir başvuru içerebilir deneme grafiği metinsel gösterimini JSON dosyasıdır. Varlığın seri hale getirilmiş bir sürüm içermiyor. Çalışma alanına JSON belgesini içeri aktarmaya çalışırsanız, başvurulan varlıklar denemesinde başvurulan kimlikleri aynı varlık ile zaten mevcut olmalıdır. Aksi takdirde içeri aktarılan deneme erişemiyor.
+JSON değerinin metinsel bir gösterimini varlıkları için başvuru veri kümesi veya eğitilen bir modelin gibi çalışma alanında içerebilir deneme grafiğini dosyasıdır. Bu seri hale getirilmiş bir varlık sürümü içermiyor. JSON belgesini çalışma alanınıza içeri aktarmaya çalışırsanız, başvurulan varlıkları aynı varlık deneme başvurulan kimlikleri ile önceden var olmalıdır. Aksi takdirde içeri aktarılan denemeyi erişemez.
 
-## <a name="versioning-trained-model"></a>Sürüm oluşturma eğitilen modeli
-Bir Azure Machine Learning eğitilen model iLearner dosya olarak bilinen bir biçime serileştirilmiş (`.iLearner`) ve çalışma alanıyla ilişkilendirilmiş Azure Blob Depolama hesabında depolanır. İLearner dosyasının bir kopyasını almak için bir yeniden eğitme API aracılığıyla yoludur. [Bu makalede](retrain-models-programmatically.md) yeniden eğitme API nasıl çalıştığını açıklar. Üst düzey adımları şunlardır:
+## <a name="versioning-trained-model"></a>Eğitilen modelin sürümü oluşturma
+Azure Machine Learning eğitilen bir modelin bir iLearner dosya bilinen bir biçime serileştirilmiş (`.iLearner`) ve çalışma alanı ile ilişkili Azure Blob Depolama hesabında depolanır. Olan iLearner dosyasını bir kopyasını almak için bir API aracılığıyla yeniden eğitme yoludur. [Bu makalede](retrain-models-programmatically.md) yeniden eğitme API nasıl çalıştığı açıklanmaktadır. Üst düzey adımları şunlardır:
 
 1. Eğitim denemenizi ayarlayın.
-2. Train Model modülü veya Model Hyperparameter ayarlamak veya R modeli oluşturma gibi eğitilen model üreten modülü için web hizmeti çıkış bağlantı noktasına ekleyin.
-3. Eğitim denemenizi çalıştırın ve ardından bir model eğitim web hizmeti olarak dağıtabilirsiniz.
-4. Eğitim web hizmetinin BES uç noktasını çağırmak ve istenen iLearner dosya adı ve Blob Depolama hesabı konumu depolanacağı yeri belirtin.
-5. BES çağrısı bittikten sonra üretilen iLearner dosya elde etme.
+2. Model eğitme modülünü veya üreten modeli hiper parametre ayarlamak veya R modeli oluşturma gibi eğitilen model modülü için bir web hizmeti çıkış bağlantı noktasını ekleyin.
+3. Eğitim denemenizi çalıştırın ve ardından bir model eğitim web hizmeti olarak dağıtın.
+4. BES eğitim web hizmeti uç noktasını çağırmak ve istenen iLearner dosya adını ve Blob Depolama hesabı konumu depolanacağı yeri belirtin.
+5. BES çağrı bittikten sonra üretilen iLearner dosyasını toplar.
 
-İLearner dosyasını almak için başka bir PowerShell komutunu yoludur [ *indirme AmlExperimentNodeOutput*](https://github.com/hning86/azuremlps#download-amlexperimentnodeoutput). Bu model program aracılığıyla yeniden eğitme gerek kalmadan iLearner dosyasının bir kopyasını almak istiyorsanız, daha kolay olabilir.
+PowerShell komutu olan iLearner dosyasını almak için başka bir yolu ise [ *indirme AmlExperimentNodeOutput*](https://github.com/hning86/azuremlps#download-amlexperimentnodeoutput). Bu model programlama yoluyla yeniden eğitme gerek kalmadan iLearner dosyasını bir kopyasını almak istiyorsanız, daha kolay olabilir.
 
-Eğitim modeli içeren iLearner dosyasını oluşturduktan sonra daha sonra kendi sürüm oluşturma stratejisini tercih edebilirsiniz. Stratejisi öncesi/sonek bir adlandırma kuralı olarak uygulama ve yalnızca Blob depolama alanındaki iLearner dosya bırakarak ya da kopyalama/sürüm denetimi sisteminize almadan olarak kadar basit olabilir.
+Eğitim modeli içeren iLearner dosyasını oluşturduktan sonra ardından kendi sürüm oluşturma stratejisi tercih edebilirsiniz. Stratejisi öncesi/sonek olarak bir adlandırma kuralı uygulamak ve yalnızca Blob depolama alanındaki iLearner dosyasını bırakarak veya kopyalama/sürüm denetimi sisteminiz almadan olarak basit olabilir.
 
-Kaydedilen iLearner dosya sonra dağıtılmış web Hizmetleri aracılığıyla Puanlama için kullanılabilir.
+Kaydedilmiş iLearner dosyasını ardından Puanlama dağıtılan web hizmetleri için de kullanılabilir.
 
-## <a name="versioning-web-service"></a>Sürüm oluşturma web hizmeti
-Bir Azure Machine Learning deneme web hizmetlerinden iki tür dağıtabilirsiniz. Klasik web hizmeti çalışma yanı sıra deneme ile sıkı şekilde bağlı. Artık özgün deneme veya çalışma ile bağlı ve yeni web hizmeti Azure Resource Manager framework kullanır.
+## <a name="versioning-web-service"></a>Web hizmeti sürümü oluşturma
+Bir Azure Machine Learning denemesi web hizmetlerinden iki tür dağıtabilirsiniz. Klasik web hizmeti, çalışma alanının yanı sıra deneme ile sıkı şekilde bağlı. Artık özgün denemeyi veya çalışma alanı ile bağlı ve Azure Resource Manager framework yeni bir web hizmeti kullanır.
 
 ### <a name="classic-web-service"></a>Klasik web hizmeti
-Klasik web hizmeti sürümü için web hizmeti uç noktası yapının avantajından yararlanabilirsiniz. Tipik bir akışı şöyledir:
+Sürüme bir Klasik web hizmeti, web hizmeti uç noktası yapısının yararlanabilirsiniz. Tipik bir akışı şu şekildedir:
 
-1. Tahmine dayalı denemenizi varsayılan bir uç içeren yeni bir Klasik web hizmeti dağıtın.
-2. Deneme ve eğitilmiş model geçerli sürümü kullanıma sunan ep2 adlı yeni bir uç noktası oluşturun.
-3. Geri dönün ve Tahmine dayalı denemeye ve eğitilen model güncelleştirin.
-4. Varsayılan uç sonra güncelleştirecektir Tahmine dayalı denemeye yeniden dağıtın. Ancak bu ep2 değiştirmez.
-5. Yeni sürümünü deneme ve eğitilen modelini gösterir ep3 adlı başka bir uç nokta oluşturun.
+1. Tahmine dayalı bir deneyden varsayılan uç nokta içeren yeni bir Klasik web hizmeti dağıtın.
+2. Deneme ve eğitilen model geçerli sürümü sunan ep2 adlı yeni bir uç noktası oluşturun.
+3. Geri dönün ve Tahmine dayalı denemeye ve eğitilen modeli güncelleştirin.
+4. Ardından varsayılan uç nokta güncelleştirecektir Tahmine dayalı denemeye yeniden dağıtın. Ancak bu ep2 değiştirmez.
+5. Deneme ve eğitilen modelin yeni sürümünü sunan ep3 adlı ek bir uç nokta oluşturursunuz.
 6. Gerekirse 3. adıma geri dönün.
 
-Zaman içinde çok sayıda uç nokta aynı web hizmetinde oluşturuldu olabilir. Her uç nokta eğitilen model zaman içinde nokta sürümünü içeren deneme zaman noktası kopyasını temsil eder. Daha sonra yani etkili bir şekilde eğitilen modeli Puanlama çalıştırma için bir sürümünü seçerek çağırmak için hangi uç noktaya belirlemek için dış mantığı kullanabilirsiniz.
+Zaman içinde aynı web hizmetinde oluşturulan fazla uç nokta olabilir. Her uç nokta, eğitilen model zaman içinde nokta sürümünü içeren denemeyi zaman içinde nokta kopyasını temsil eder. Ardından, eğitilen model Puanlama çalışma için bir sürümünü seçerek etkili bir şekilde anlamına çağırmak için hangi uç noktaya belirlemek için dış mantıksal kullanabilirsiniz.
 
-Birçok aynı web hizmeti uç noktalarını da oluşturabilir ve farklı sürümlerini benzer efekti elde etmek için uç nokta iLearner dosyasına düzeltme eki. [Bu makalede](create-models-and-endpoints-with-powershell.md) bunu yapmaya yönelik daha ayrıntılı olarak açıklanmaktadır.
+Birçok aynı web hizmeti uç noktalarını oluşturabilir ve farklı sürümleri olan iLearner dosyasını benzer etkiyi elde etmek için uç nokta için düzeltme eki uygulama. [Bu makalede](create-models-and-endpoints-with-powershell.md) bunu yapmaya yönelik daha ayrıntılı olarak açıklanmaktadır.
 
 ### <a name="new-web-service"></a>Yeni web hizmeti
-Yeni Azure Resource Manager tabanlı web hizmeti oluşturursanız, uç nokta yapı artık mevcut değil. Bunun yerine, web hizmeti tanımının (WSD) dosyaları, JSON biçiminde kullanarak Tahmine dayalı denemenizi oluşturabilirsiniz [verme AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell komutunu kullanarak veya [ *verme AzureRmMlWebservice* ](https://msdn.microsoft.com/library/azure/mt767935.aspx) PowerShell komutunu dağıtılmış Resource Manager tabanlı web hizmeti.
+Yeni bir Azure Resource Manager tabanlı web hizmeti oluşturursanız, uç nokta yapısı artık kullanılamıyor. Bunun yerine, web hizmeti tanımının (WSD) dosyaları, JSON biçiminde kullanarak Tahmine dayalı denemenizi gelen oluşturabileceğiniz [dışarı aktarma AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell komutunu kullanarak veya [ *Dışarı aktarma AzureRmMlWebservice* ](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice?view=azurermps-6.6.0) dağıtılan Resource Manager tabanlı web hizmetinden PowerShell komutu.
 
-Dışarı aktarılan WSD dosya ve denetlemesine sürüm oluşturduktan sonra da WSD yeni bir web hizmeti olarak farklı bir Azure bölgesindeki farklı bir web hizmeti planındaki dağıtabilirsiniz. Yalnızca doğru depolama hesabı yapılandırmanın yanı sıra yeni web hizmeti planı kimliği sağladığınız emin olun Farklı iLearner dosyalarında düzeltme eki için WSD dosyasını değiştirmek ve konum başvurusu eğitilen modeli güncelleştirmek ve yeni bir web hizmeti olarak dağıtabilir.
+Dışarı aktarılan WSD dosya ve sürüm denetlemesine oluşturduktan sonra ayrıca WSD yeni bir web hizmeti olarak farklı bir web hizmeti planı farklı bir Azure bölgesinde dağıtabilirsiniz. Yeni web hizmeti planı kimliği yanı sıra, uygun bir depolama hesabı yapılandırması sağladığınız emin olmanız yeterlidir Farklı iLearner dosyalarında yama yapma WSD dosyasını değiştirin ve eğitilen modelin konumu başvuru güncelleştirme ve yeni web hizmeti olarak dağıtın.
 
-## <a name="automate-experiment-execution-and-deployment"></a>Deneme yürütme ve dağıtımı otomatik hale getirme
-Bir önemli ALM yürütme ve uygulamanın dağıtım işlemini otomatikleştirmek için yönüdür. Azure Machine Learning ile bunu kullanarak gerçekleştirebilirsiniz [PowerShell Modülü](http://aka.ms/amlps). İşte standart ALM için uygun olan uçtan uca adımları örneği kullanarak yürütme/dağıtım işlemi otomatik [Azure Machine Learning Studio PowerShell Modülü](http://aka.ms/amlps). Her adım, bu adımı gerçekleştirmek için kullanabileceğiniz bir veya daha fazla PowerShell cmdlet'leri bağlanır.
+## <a name="automate-experiment-execution-and-deployment"></a>Deneme yürütme ve dağıtımını otomatikleştirin
+ALM önemli bir yönüdür yürütme ve uygulamanın dağıtım işlemini otomatik hale getirebilmek sağlamaktır. Azure Machine Learning'de bunu kullanarak gerçekleştirebilirsiniz [PowerShell Modülü](http://aka.ms/amlps). İşte bir örnek için standart bir ALM ilgili uçtan uca adımları kullanarak yürütme/dağıtım işlemi otomatik [Azure Machine Learning Studio PowerShell Modülü](http://aka.ms/amlps). Her adım, bu adımı tamamlamak için kullanabileceğiniz bir veya daha fazla PowerShell commandlet'lerini bağlıdır.
 
 1. [Bir veri kümesi karşıya](https://github.com/hning86/azuremlps#upload-amldataset).
-2. Çalışma alanından bir eğitim denemenizi kopyalayın bir [çalışma](https://github.com/hning86/azuremlps#copy-amlexperiment) veya [galeri](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery), veya [alma](https://github.com/hning86/azuremlps#import-amlexperimentgraph) bir [dışarı](https://github.com/hning86/azuremlps#export-amlexperimentgraph) yerel diskten deneyin.
-3. [Veri kümesi güncelleştirmesi](https://github.com/hning86/azuremlps#update-amlexperimentuserasset) eğitim denemede.
-4. [Eğitim denemeyi çalıştırın](https://github.com/hning86/azuremlps#start-amlexperiment).
+2. Çalışma alanından bir eğitim denemesini kopyalayarak bir [çalışma](https://github.com/hning86/azuremlps#copy-amlexperiment) veya [galeri](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery), veya [alma](https://github.com/hning86/azuremlps#import-amlexperimentgraph) bir [dışarı](https://github.com/hning86/azuremlps#export-amlexperimentgraph) yerel denemeden disk.
+3. [DataSet'i güncellemek](https://github.com/hning86/azuremlps#update-amlexperimentuserasset) eğitim denemesini içinde.
+4. [Eğitim denemesini çalıştırma](https://github.com/hning86/azuremlps#start-amlexperiment).
 5. [Eğitim modeli yükseltmek](https://github.com/hning86/azuremlps#promote-amltrainedmodel).
 6. [Tahmine dayalı denemeye kopyalama](https://github.com/hning86/azuremlps#copy-amlexperiment) çalışma alanına.
-7. [Eğitim modeli güncelleştirmek](https://github.com/hning86/azuremlps#update-amlexperimentuserasset) Tahmine dayalı denemede.
-8. [Tahmine dayalı denemeyi çalıştırın](https://github.com/hning86/azuremlps#start-amlexperiment).
-9. [Bir web hizmetini dağıtma](https://github.com/hning86/azuremlps#new-amlwebservice) Tahmine dayalı denemeye gelen.
-10. Web hizmetini sınama [RRS](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) veya [BES](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint) uç noktası.
+7. [Eğitilen bir modeli güncelleştirme](https://github.com/hning86/azuremlps#update-amlexperimentuserasset) Tahmine dayalı denemeye içinde.
+8. [Tahmine dayalı denemeyi çalıştırma](https://github.com/hning86/azuremlps#start-amlexperiment).
+9. [Bir web hizmetini dağıtma](https://github.com/hning86/azuremlps#new-amlwebservice) Tahmine dayalı denemeye öğesinden.
+10. Web hizmetini test [RRS](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) veya [BES](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint) uç noktası.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Karşıdan [Azure Machine Learning Studio PowerShell](http://aka.ms/amlps) modülü ve ALM görevleri otomatikleştirmek için Başlat.
-* Bilgi nasıl [oluşturmak ve yalnızca tek bir deneme kullanarak ML modelleri çok sayıda yönetmek](create-models-and-endpoints-with-powershell.md) PowerShell ve API yeniden eğitme aracılığıyla.
-* Daha fazla bilgi edinmek [Azure Machine Learning web hizmetlerini dağıtma](publish-a-machine-learning-web-service.md).
+* İndirme [Azure Machine Learning Studio PowerShell](http://aka.ms/amlps) modülü ve baştan ALM görevlerinizi otomatikleştirin.
+* Bilgi nasıl [oluşturma ve yalnızca tek bir denemede kullanarak ML modelleri çok sayıda yönetme](create-models-and-endpoints-with-powershell.md) PowerShell ve API yeniden eğitme aracılığıyla.
+* Daha fazla bilgi edinin [Azure Machine Learning web hizmetleri dağıtma](publish-a-machine-learning-web-service.md).

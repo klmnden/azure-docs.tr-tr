@@ -11,22 +11,24 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/04/2017
+ms.date: 08/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: d891cd92e70d3491ee0c7a58f1409823301b299c
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: cfcdf13f8aa4dfab9b361ccbb82ea4b2c3e2ca0d
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989774"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42057728"
 ---
 # <a name="import-data-into-analytics"></a>Analiz verilerini içeri aktarma
 
 Herhangi bir tablo verileri içine aktarmak [Analytics](app-insights-analytics.md), ile katılmak için ya da [Application Insights](app-insights-overview.md) , uygulamanızdan alınan telemetri veya ayrı bir akış olarak analiz etmek. Analytics telemetri akışlarını yüksek hacimli zaman damgalı çözümleme için uygun bir güçlü sorgu dilidir.
-
 Kendi şemanızı kullanarak Analytics'e verileri içeri aktarabilirsiniz. İstek veya izleme gibi standart Application Insights şemaları kullanın gerekmez.
 
 JSON veya DSV (sınırlayıcı sekmeyle ayrılmış değerler - virgül, noktalı virgül veya sekme) içe aktarabilirsiniz dosyaları.
+
+> [!IMPORTANT]
+> Bu makalede olmuştur **kullanım dışı**. Log Analytics'e veri almaya ilişkin önerilen aracılığıyla yöntemdir [Log Analytics Veri Toplayıcı API'si.](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
 
 Analiz için içeri aktarma kullanışlı olduğu üç durumlar vardır:
 

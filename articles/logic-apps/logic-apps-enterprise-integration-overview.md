@@ -1,6 +1,6 @@
 ---
-title: B2B - Azure mantıksal uygulamaları için Kurumsal tümleştirme | Microsoft Docs
-description: B2B iş akışları oluşturmak ve logic apps Enterprise tümleştirme paketi ile Kurumsal tümleştirme senaryolarına desteği
+title: B2B - Azure Logic Apps için Kurumsal tümleştirme | Microsoft Docs
+description: B2B iş akışları oluşturabilir ve logic apps Enterprise Integration Pack ile Kurumsal tümleştirme senaryoları desteği
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -14,65 +14,65 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 25349d48d88b64568fef0f5a6bac5950da15196b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c4f83d2bf082b5f1358b4eee6468d470b5cb8088
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298646"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42055608"
 ---
-# <a name="overview-b2b-scenarios-and-communication-with-the-enterprise-integration-pack"></a>Genel Bakış: B2B senaryolarını ve kurumsal tümleştirme paketi ile iletişim
+# <a name="overview-b2b-scenarios-and-communication-with-the-enterprise-integration-pack"></a>Genel Bakış: B2B senaryoları ve Enterprise Integration Pack ile iletişim
 
-İşletmeden işletmeye (B2B) iş akışları ve Azure Logic Apps ile sorunsuz iletişimi için Kurumsal tümleştirme senaryolarına Microsoft'un bulut tabanlı çözümü, Kurumsal tümleştirme paketi ile etkinleştirebilirsiniz. Farklı protokollere ve biçimleri kullandıkları olsa bile kuruluşlar iletileri elektronik olarak değiştirebilir. Paketi farklı biçimlerde kurumların sistemleri yorumlanacağı ve işlem bir biçime dönüştürür. Kuruluşların dahil, endüstri standardı protokoller üzerinden ileti alışverişi [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), ve [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md). Ayrıca, şifreleme ve dijital imzalar iletilerle güvenliğini sağlayabilirsiniz.
+İşletmeden işletmeye (B2B) iş akışları ve Azure Logic Apps ile sorunsuz iletişim için Microsoft'un bulut tabanlı çözüm, Enterprise Integration Pack ile Kurumsal tümleştirme senaryoları etkinleştirebilirsiniz. Kuruluşların farklı protokollerini ve biçimlerini kullanıyor olsanız bile iletileri elektronik olarak değiştirebilir. Paketi farklı biçimler kurumlarının sistemleri yorumlayıp işleyebileceği bir biçime dönüştürür. Kuruluşların dahil endüstri standardı protokoller üzerinden ileti alışverişi [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), ve [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md). Şifreleme ve dijital imzalar hem iletileri güvenli hale getirebilirsiniz.
 
-BizTalk Server veya Microsoft Azure BizTalk Services ile bilginiz varsa, çoğu kavramları benzer olduğundan, Kurumsal tümleştirme özelliklerine kullanımı kolay. Temel farklardan biri Kurumsal tümleştirme tümleştirme hesapları depolama ve B2B iletişimde kullanılan yapılarının yönetimini basitleştirmek için kullanmasıdır. 
+BizTalk Server veya Microsoft Azure BizTalk Hizmetleri ile ilgili bilgi sahibi olduğunuz, çoğu kavramları benzer olduğundan, Kurumsal tümleştirme özellikleri kullanımı kolaydır. Temel farklardan biri, Kurumsal tümleştirme, depolama ve B2B iletişimde kullanılan yapıtları yönetimi basitleştirmek için tümleştirme hesapları kullandığı ' dir. 
 
-Mimari, Kurumsal tümleştirme paketi "tümleştirme hesapları" temel alınır. Bu hesapları şemaları, iş ortakları, sertifikaları, maps ve anlaşmaları gibi tüm, yapıları, depolama, bulut tabanlı kapsayıcı görevi görür. Bu yapıtların tasarlamak, dağıtmak ve B2B uygulamalarınızı korumak için ve ayrıca logic apps B2B iş akışları oluşturmak için kullanabilirsiniz. Ancak bu yapıtların kullanmadan önce mantıksal uygulamanızı tümleştirme hesabınızı bağlamanız gerekir. Bundan sonra mantıksal uygulamanızı tümleştirme hesabınızın yapılarına erişebilir.
+Bu mimari, Enterprise Integration Pack "tümleştirme hesapları" temel alınır. Bu hesaplar depolama tüm yapıtları, şemalar, iş ortakları, sertifikaları, haritalar ve anlaşmalar gibi bulut tabanlı kapsayıcılardır. Bu yapılar, tasarlayın, dağıtın ve B2B uygulamalarınızı korumak için ve logic apps B2B iş akışları oluşturmak için de kullanabilirsiniz. Ancak bu yapıların kullanabilmeniz için mantıksal uygulamanıza tümleştirme hesabınızı bağlamanız gerekir. Bundan sonra mantıksal uygulamanızı tümleştirme hesabınızın yapıtları erişebilirsiniz.
 
-## <a name="why-should-you-use-enterprise-integration"></a>Neden Kurumsal tümleştirme kullanmalısınız?
+## <a name="why-should-you-use-enterprise-integration"></a>Kurumsal tümleştirme neden kullanmalısınız?
 
-* Kurumsal tümleştirme ile tek bir yerde--tümleştirme hesabınızı tüm yapıtları depolayabilirsiniz.
-* B2B iş akışları oluşturmak ve Azure Logic Apps altyapısı ve tüm bağlayıcılar kullanarak üçüncü taraf hizmet olarak yazılım (SaaS) uygulamaları, şirket içi uygulamalar ve özel uygulamalar ile tümleştirebilirsiniz.
-* Logic apps ile Azure işlevleri için özel kod oluşturabilirsiniz.
+* Kurumsal tümleştirme sayesinde, tek bir yerde--tümleştirme hesabınızı tüm yapıtlar depolayabilirsiniz.
+* B2B iş akışları oluşturun ve Azure Logic Apps altyapısı ve tüm bağlayıcıları kullanarak, üçüncü taraf hizmet olarak yazılım (SaaS) uygulamaları, şirket içi uygulamalar ve özel uygulamaları ile tümleştirin.
+* Azure işlevleri ile logic apps için özel kod oluşturabilirsiniz.
 
-## <a name="how-to-get-started-with-enterprise-integration"></a>Kurumsal tümleştirme ile çalışmaya başlamak nasıl?
+## <a name="how-to-get-started-with-enterprise-integration"></a>Enterprise Integration'ı kullanmaya nasıl?
 
-Derleme ve Enterprise Integration Pack mantığı Uygulama Tasarımcısı'nda aracılığıyla B2B uygulamalarla yönetmek **Azure portal**. Logic apps ile yönetebilmeniz için [PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "Logic apps PowerShell konularına").
+Derleme ve mantıksal Uygulama Tasarımcısı'nda ile Enterprise Integration Pack ile B2B uygulamaları yönetme **Azure portalında**. Logic apps ile de yönetebilirsiniz [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp "Logic apps PowerShell").
 
 Azure portalında uygulamaları oluşturabilmeniz için önce gerçekleştirmeniz gereken üst düzey adımlar şunlardır:
 
 ![Genel Bakış görüntüsü](media/logic-apps-enterprise-integration-overview/overview-0.png)  
 
-## <a name="what-are-some-common-scenarios"></a>Bazı genel senaryolar nelerdir?
+## <a name="what-are-some-common-scenarios"></a>Bazı yaygın senaryolar nelerdir?
 
-Kurumsal tümleştirme bu endüstri standartları destekler:
+Enterprise Integration bu endüstri standartları destekler:
 
 * EDI - elektronik veri değişimi
-* EAI - Kurumsal uygulama tümleştirmesi
+* EAI - kuruluş uygulaması tümleştirme
 
-## <a name="heres-what-you-need-to-get-started"></a>İşte başlamak için ihtiyacınız olanlar
+## <a name="heres-what-you-need-to-get-started"></a>Başlamak gerekenler
 
-* Bir Azure aboneliği bir tümleştirme Hesapla
-* Maps ve şemaları oluşturmak için Visual Studio 2015
-* [Visual Studio 2015 2.0 için Microsoft Azure Logic Apps Enterprise tümleştirme araçları](https://aka.ms/vsmapsandschemas)  
+* Tümleştirme hesabı ile bir Azure aboneliği
+* Harita ve şema oluşturmak için Visual Studio 2015
+* [Microsoft Azure Logic Apps Kurumsal tümleştirme 2.0 Visual Studio 2015 için Araçlar](https://aka.ms/vsmapsandschemas)  
 
 ## <a name="try-it-now"></a>Hemen deneyin
 
-[Tam olarak işlevsel örnek AS2 gönderme dağıtma ve mantıksal uygulama alma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) , B2B özelliklerini Azure Logic Apps için kullanır.
+[Tam olarak işlevsel örnek AS2 gönderme dağıtma ve mantıksal uygulama alma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) için Azure Logic Apps B2B özellikleri kullanan.
 
 ## <a name="learn-more"></a>Daha fazla bilgi edinin
-* [Anlaşmaları](../logic-apps/logic-apps-enterprise-integration-agreements.md "Kurumsal tümleştirme anlaşmaları hakkında bilgi edinin")
-* [İşletmeler için (B2B) senaryolarını](../logic-apps/logic-apps-enterprise-integration-b2b.md "B2B özelliklerle mantıksal uygulamaları oluşturmayı öğrenin ")  
-* [Sertifikaları](logic-apps-enterprise-integration-certificates.md "kuruluş tümleştirme sertifikaları hakkında bilgi edinin")
-* [Düz dosya kodlama/kod çözme](logic-apps-enterprise-integration-flatfile.md "kodlamak ve düz dosya içeriğini kod çözme hakkında bilgi edinin")  
-* [Tümleştirme hesapları](../logic-apps/logic-apps-enterprise-integration-accounts.md "tümleştirme hesapları hakkında daha fazla bilgi edinin")
-* [Eşlemeleri](../logic-apps/logic-apps-enterprise-integration-maps.md "Kurumsal tümleştirme eşlemeleri hakkında bilgi edinin")
-* [İş ortakları](logic-apps-enterprise-integration-partners.md "Kurumsal tümleştirme ortakları hakkında bilgi edinin")
-* [Şemalar](logic-apps-enterprise-integration-schemas.md "Kurumsal tümleştirme şemaları hakkında bilgi edinin")
-* [XML ileti doğrulama](logic-apps-enterprise-integration-xml.md "XML iletileri Logic apps ile doğrulama öğrenin")
+* [Anlaşmaları](../logic-apps/logic-apps-enterprise-integration-agreements.md "Kurumsal tümleştirme anlaşmalar hakkında bilgi edinin")
+* [İşletmeler arası (B2B) senaryolarını](../logic-apps/logic-apps-enterprise-integration-b2b.md "B2B özellikleri ile Logic apps oluşturmayı öğrenin ")  
+* [Sertifikaları](logic-apps-enterprise-integration-certificates.md "Kurumsal tümleştirme sertifikaları hakkında bilgi edinin")
+* [Düz dosya kodlama/kod çözme](logic-apps-enterprise-integration-flatfile.md "kodlama ve kodunu çözme düz dosya içeriği hakkında bilgi edinin")  
+* [Tümleştirme hesapları](../logic-apps/logic-apps-enterprise-integration-accounts.md "tümleştirme hesapları hakkında bilgi edinin")
+* [Haritalar](../logic-apps/logic-apps-enterprise-integration-maps.md "Kurumsal tümleştirme eşlemeleri hakkında bilgi edinin")
+* [İş ortakları](logic-apps-enterprise-integration-partners.md "Kurumsal tümleştirme iş ortakları hakkında bilgi edinin")
+* [Şemaları](logic-apps-enterprise-integration-schemas.md "Kurumsal tümleştirme şemaları hakkında bilgi edinin")
+* [XML ileti doğrulama](logic-apps-enterprise-integration-xml.md "doğrulamak XML iletileri Logic apps ile öğrenin")
 * [XML dönüştürme](logic-apps-enterprise-integration-transform.md "Kurumsal tümleştirme eşlemeleri hakkında bilgi edinin")
 * [Enterprise Integration bağlayıcıları](../connectors/apis-list.md "enterprise Integration pack bağlayıcıları hakkında bilgi edinin")
-* [Tümleştirme hesap meta veri](../logic-apps/logic-apps-enterprise-integration-metadata.md "tümleştirme hesap meta veriler hakkında bilgi edinin")
-* [B2B iletileri izlemeniz](logic-apps-monitor-b2b-message.md "B2B iletileri izleme hakkında daha fazla bilgi edinin")
-* [B2B iletileri OMS portalında izleme](logic-apps-track-b2b-messages-omsportal.md "B2B iletileri OMS portalında izleme hakkında daha fazla bilgi edinin")
+* [Tümleştirme hesabı meta verileri](../logic-apps/logic-apps-enterprise-integration-metadata.md "tümleştirme hesabı meta veriler hakkında bilgi edinin")
+* [B2B iletilerini izleme](logic-apps-monitor-b2b-message.md "B2B iletilerini izleme hakkında daha fazla bilgi edinin")
+* [OMS portalında B2B iletilerini izleme](logic-apps-track-b2b-messages-omsportal.md "OMS portalında B2B iletilerini izleme hakkında daha fazla bilgi edinin")
 

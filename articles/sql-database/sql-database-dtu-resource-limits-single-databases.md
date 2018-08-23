@@ -7,18 +7,18 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/03/2018
 ms.author: carlrab
-ms.openlocfilehash: effb09cfc68961065ad0b4e4be52255bcd1fe4e0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: b8c1a0a0c4f2b3b33338f1f76245fd4bcb66ad61
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414176"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42059235"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>DTU tabanlı satın alma modeli kullanarak tek veritabanı kaynak sınırları 
 
-Bu makalede ayrıntılı kaynak sınırları DTU tabanlı satın alma modelini kullanarak Azure SQL veritabanı elastik havuzları için sağlanır.
+Bu makalede, Azure SQL veritabanı tek veritabanı DTU tabanlı satın alma modeli kullanarak için ayrıntılı kaynak sınırları sağlar.
 
 DTU tabanlı satın alma modeli kaynak sınırları için elastik havuzlar için bkz: [DTU tabanlı kaynak sınırları - elastik havuzlar](sql-database-vcore-resource-limits-elastic-pools.md). Sanal çekirdek tabanlı kaynak sınırları için bkz: [sanal çekirdek tabanlı kaynak sınırları - tek veritabanları](sql-database-vcore-resource-limits-single-databases.md) ve [sanal çekirdek tabanlı kaynak sınırları - elastik havuzlar](sql-database-vcore-resource-limits-elastic-pools.md).
 
@@ -42,7 +42,7 @@ Tek veritabanları için aşağıdaki tablolarda her hizmet katmanı ve performa
 
 ### <a name="standard-service-tier"></a>Standart hizmet katmanı
 | **Performans düzeyi** | **S0** | **S1** | **S2** | **S3** |
-| :--- |---:| ---:|---:|---:|---:|
+| :--- |---:| ---:|---:|---:|
 | Maks. DTU | 10 | 20 | 50 | 100 |
 | Dahil edilen depolama alanı (GB) | 250 | 250 | 250 | 250 |
 | En fazla depolama seçenekleri (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
@@ -53,7 +53,7 @@ Tek veritabanları için aşağıdaki tablolarda her hizmet katmanı ve performa
 
 ### <a name="standard-service-tier-continued"></a>Standart hizmet katmanında (devam)
 | **Performans düzeyi** | **S4** | **S6** | **S7** | **S9** | **S12** |
-| :--- |---:| ---:|---:|---:|---:|---:|
+| :--- |---:| ---:|---:|---:|---:|
 | Maks. DTU | 200 | 400 | 800 | 1600 | 3000 |
 | Dahil edilen depolama alanı (GB) | 250 | 250 | 250 | 250 | 250 |
 | En fazla depolama seçenekleri (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
@@ -124,6 +124,7 @@ Boyut sınırı için P11 ve P15 veritabanı aşağıdaki bölgelerde destekleni
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Bkz: [SQL veritabanı SSS](sql-database-faq.md) sık sorulan soruların yanıtları için.
+- Bkz: [genel bakış Azure SQL veritabanı kaynak limitleri](sql-database-resource-limits.md) sunucu ve abonelik düzeyinde sınırları hakkında daha fazla bilgi için.
 - Genel Azure sınırları hakkında daha fazla bilgi için bkz. [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md).
 - Dtu'lar ve Edtu'lar hakkında daha fazla bilgi için bkz: [Dtu'lar ve Edtu'lar](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
 - Tempdb boyutu sınırları hakkında daha fazla bilgi için bkz: https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

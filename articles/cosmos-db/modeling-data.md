@@ -3,19 +3,19 @@ title: Bir NoSQL veritabanı için belge verilerini modelleme | Microsoft Docs
 description: NoSQL veritabanlarında veri modelleme hakkında bilgi edinin
 keywords: Veri modelleme
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2016
-ms.author: sngun
-ms.openlocfilehash: acd3fa3367f68d5cc98a4ace82508f028d5fdbf8
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.author: andrl
+ms.openlocfilehash: c577c9734490e3aacc148153f550162371ae482e
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214754"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42056724"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>NoSQL veritabanları için belge verilerini modelleme
 Gibi Azure Cosmos DB, şemasız veritabanları yaparken Süper kolay veri modelinizi değişiklikler benimsemek yine de bazı zaman düşünmeye verilerinizle ilgili harcadığınız. 

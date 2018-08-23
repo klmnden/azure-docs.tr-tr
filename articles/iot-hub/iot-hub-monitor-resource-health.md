@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/09/2017
+ms.date: 08/09/2018
 ms.author: kgremban
-ms.openlocfilehash: 39171f7d7a7b27ec54f67b592e184e90134a1a52
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c7d8631a8e7b99cca8f84ea1011c361db01e399e
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611380"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42060892"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IOT Hub durumunu izleyin ve sorunları hızla tanılayın
 
@@ -58,7 +58,7 @@ Bağlantı kategorisi parçaları cihaz bağlayın ve hataları yanı sıra IOT 
 }
 ```
 
-#### <a name="cloud-to-device-commands"></a>Bulut-cihaz komutları
+#### <a name="cloud-to-device-commands"></a>Buluttan cihaza komutlar
 
 Bulut-cihaz komutlarını kategorisi, IOT hub ve bulut-cihaz ileti işlem hattına ilgili hataları izler. Bu kategori, (örneğin, yetkisiz gönderen) bulut buluttan cihaza iletileri gönderme (örneğin, teslimat sayısı aşıldı) bulut-cihaz iletilerini alma ve (geri bildirim süresi gibi) bulut-cihaz ileti geri bildirim alan olduğunda oluşan hataları içerir. Bu kategori, bulut buluttan cihaza iletinin başarıyla teslim edildi, yanlış bir bulut-cihaz iletiyi işleyen bir CİHAZDAN hataları yakalamaz.
 
@@ -155,7 +155,7 @@ Bu kategori, cihazın depolama için bir dosya yüklenirken doğrudan ortaya ç�
 
 #### <a name="cloud-to-device-twin-operations"></a>Bulut-cihaz ikizi işlemleri
 
-Bulut-cihaz ikizi işlem kategorisi üzerinde cihaz ikizlerini hizmet tarafından başlatılan olayları izler. Bu işlemler get ikizi dahil, bildirilen özellikleri güncelleştirmek ve istenen özellikler abone
+Bulut-cihaz ikizi işlem kategorisi üzerinde cihaz ikizlerini hizmet tarafından başlatılan olayları izler. Bu işlemler get ikizi dahil edebilir, güncelleştirme veya etiketleri, değiştirmek ve güncelleştirme veya istenen özellikleri değiştirin. 
 
 ```json
 {
@@ -172,7 +172,7 @@ Bulut-cihaz ikizi işlem kategorisi üzerinde cihaz ikizlerini hizmet tarafında
 
 #### <a name="device-to-cloud-twin-operations"></a>CİHAZDAN buluta ikizi işlemleri
 
-Buluta cihaz ikizi işlem kategorisi üzerinde cihaz çiftlerini cihaz tarafından başlatılan olayları izler. Bu işlemler get ikizi dahil edebilir, güncelleştirme veya etiketleri, değiştirmek ve güncelleştirme veya istenen özellikleri değiştirin. 
+Buluta cihaz ikizi işlem kategorisi üzerinde cihaz çiftlerini cihaz tarafından başlatılan olayları izler. Bu işlemler get ikizi dahil, bildirilen özellikleri güncelleştirmek ve istenen özellikler abone olun.
 
 ```json
 {

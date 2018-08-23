@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: jasonh
-ms.openlocfilehash: 2e5cddc03b522471cf7eea1f1e45b15c6f73f81d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 0837029cbe22ba7f659efefb113ed47ae1cf2dfe
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595707"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42056162"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Betik eylemlerini kullanarak Linux tabanlı HDInsight kümeleri özelleştirme
 
@@ -224,7 +224,7 @@ Bu örnekte, aşağıdaki kodu kullanarak betik eylemi eklenir:
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Azure PowerShell üzerinden küme oluşturma sırasında bir betik eylemi kullanın
 
-Bu bölümde, kullandığınız [Ekle AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) cmdlet'ini küme özelleştirme betikleri çağırma. Devam etmeden önce Azure PowerShell yükleyip yapılandırdığınızdan emin olun. HDInsight PowerShell cmdlet'lerini çalıştırmak için bir iş istasyonu yapılandırma hakkında daha fazla bilgi için bkz: [yüklemek ve Azure PowerShell yapılandırma](/powershell/azure/overview).
+Bu bölümde, kullandığınız [Ekle AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) cmdlet'ini küme özelleştirme betikleri çağırma. Devam etmeden önce Azure PowerShell yükleyip yapılandırdığınızdan emin olun. HDInsight PowerShell cmdlet'lerini çalıştırmak için bir iş istasyonu yapılandırma hakkında daha fazla bilgi için bkz: [yüklemek ve Azure PowerShell yapılandırma](/powershell/azure/overview).
 
 Aşağıdaki betik, PowerShell kullanarak küme oluşturma sırasında bir betik eylemi uygulamak gösterilmektedir:
 

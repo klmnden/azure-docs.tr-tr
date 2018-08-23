@@ -8,19 +8,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: f2a95ac879dd2d6b1af3d50e1be53efac26331c4
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 11cec9621ad72cfeaee45e4cd466430e64b9b836
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525561"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42056007"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Başvuru - IOT Hub kotaları ve azaltma
 
 ## <a name="quotas-and-throttling"></a>Kotalar ve azaltma
 Her Azure aboneliği, en fazla 50 IOT hub ve en fazla 1 ücretsiz hub sahip olabilir.
 
-Her IOT hub'ı, belirli sayıda birimleri belirli bir katman içinde sağlanır. Daha fazla bilgi için [Azure IOT Hub fiyatlandırması][lnk-pricing]. Katman ve birim sayısı en fazla günlük kota gönderebileceğiniz iletilerinin belirleyin.
+Her IOT hub'ı, belirli sayıda birimleri belirli bir katman içinde sağlanır. Katman ve birim sayısı en fazla günlük kota gönderebileceğiniz iletilerinin belirleyin. İleti boyutu 0,5 KB'lık ücretsiz katmanı hub için ve diğer katmanlar için 4 KB Günlük kotayı hesaplamak için kullanılır. Daha fazla bilgi için [Azure IOT Hub fiyatlandırması][lnk-pricing].
 
 Katman da üzerindeki tüm işlemler IOT hub'ı uygulayan azaltma sınırları belirler.
 

@@ -1,6 +1,6 @@
 ---
 title: Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı | Microsoft Docs
-description: Ağ İzleyicisi Aracısı'nı kullanarak bir sanal makine uzantısı Windows sanal makine dağıtın.
+description: Ağ İzleyicisi Aracısı üzerinde bir sanal makine uzantısı'nı kullanarak Windows sanal makine dağıtın.
 services: virtual-machines-windows
 documentationcenter: ''
 author: gurudennis
@@ -15,35 +15,35 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 29f346b2a42f8d12e26bd59fbab86d763d3f29f0
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2f07107ad63ddd04e67528bf4f409dabf4a4d0c0
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942637"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42060909"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Windows için Ağ İzleyicisi Aracısı sanal makine uzantısı
 
 ## <a name="overview"></a>Genel Bakış
 
-[Azure Ağ İzleyicisi](../../network-watcher/network-watcher-monitoring-overview.md) Azure ağlarını izleme izin veren bir ağ performans izleme, tanılama ve analiz hizmetidir. Ağ İzleyicisi Aracısı sanal makine uzantısı isteğe bağlı ağ trafiği ve diğer gelişmiş işlevselliği Azure sanal makinelerde yakalamak için gerekli değildir.
+[Azure Ağ İzleyicisi](../../network-watcher/network-watcher-monitoring-overview.md) Azure ağlarını izleme izin veren bir ağ performansı izleme, tanılama ve analiz hizmetidir. Ağ İzleyicisi Aracısı sanal makine uzantısı, isteğe bağlı ağ trafiğini ve diğer gelişmiş işlevleri Azure sanal makinelerinde yakalamak için bir gereksinimdir.
 
 
-Bu belge, Windows için Ağ İzleyicisi Aracısı sanal makine uzantısı için dağıtım seçenekleri ve desteklenen platformlar ayrıntıları. Aracı yüklemesini değil kesintiye veya sanal makinenin yeniden başlatılması gerekir.
+Bu belge, Windows için Ağ İzleyicisi Aracısı sanal makine uzantısı için dağıtım seçenekleri ve desteklenen platformlar ayrıntıları. Aracı yüklemesini değil kesintiye veya sanal makinenin yeniden başlatılmasını gerektirir. Dağıttığınız sanal makinelerine uzantısı dağıtabilirsiniz. Bir Azure hizmeti tarafından dağıtılan sanal makine, sanal makine uzantıları yükleme izin olup olmadığını belirlemek üzere hizmeti belgelerini denetleyin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="operating-system"></a>İşletim sistemi
 
-Windows, Windows Server 2008 R2 karşı çalıştırılabilir için Ağ İzleyicisi Aracısı uzantısı 2012, 2012 R2 ve 2016 serbest bırakır. Nano Server şu anda desteklenmiyor.
+Windows, Windows Server 2008 R2 karşı çalıştırılabilir için Ağ İzleyicisi Aracısı uzantısı 2012, 2012 R2 ve 2016 serbest bırakır. Nano sunucu şu anda desteklenmiyor.
 
 ### <a name="internet-connectivity"></a>İnternet bağlantısı
 
-Bazı Ağ İzleyicisi Aracısı işlevlerini hedef sanal makine Internet'e bağlı olması gerekir. Giden bağlantıları kurmak özelliği, Ağ İzleyicisi Aracısı depolama hesabınıza paket yakalamaları yükleyebildiğini olmaz. Daha fazla ayrıntı için lütfen bkz. [Ağ İzleyicisi belgeleri](../../network-watcher/network-watcher-monitoring-overview.md).
+Ağ İzleyicisi Aracısı işlevlerinden bazıları hedef sanal makineyi Internet'e bağlı gerekir. Giden bağlantı özelliği, Ağ İzleyicisi Aracısı paket yakalamaları depolama hesabınıza yükleme olanağınız olmayacaktır. Daha fazla ayrıntı için lütfen bkz [Ağ İzleyicisi belgeleri](../../network-watcher/network-watcher-monitoring-overview.md).
 
 ## <a name="extension-schema"></a>Uzantı şeması
 
-Aşağıdaki JSON şeması Ağ İzleyicisi Aracısı uzantısı gösterir. Uzantı ne gerektirir, ya da, tüm kullanıcı tarafından sağlanan ayarları destekler ve varsayılan yapılandırmasına dayanır.
+Ağ İzleyicisi Aracısı Uzantı Şeması aşağıdaki JSON'u göstermektedir. Uzantı ne gerektiren ya da, kullanıcı tarafından sağlanan ayarları destekler ve varsayılan yapılandırmasına dayanır.
 
 ```json
 {
@@ -75,11 +75,11 @@ Aşağıdaki JSON şeması Ağ İzleyicisi Aracısı uzantısı gösterir. Uzant
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
 
-Azure VM uzantıları Azure Resource Manager şablonları ile dağıtabilirsiniz. Bir Azure Resource Manager şablon dağıtımı sırasında Ağ İzleyicisi Aracısı uzantısı çalıştırmak için bir Azure Resource Manager şablonu önceki bölümde ayrıntılı JSON şeması kullanabilirsiniz.
+Azure VM uzantıları Azure Resource Manager şablonları ile dağıtabilirsiniz. Bir Azure Resource Manager şablon dağıtımı sırasında Ağ İzleyicisi Aracısı uzantısı çalıştırmak için bir Azure Resource Manager şablonu önceki bölümde ayrıntılı JSON Şeması'nı kullanabilirsiniz.
 
 ## <a name="powershell-deployment"></a>PowerShell dağıtım
 
-Kullanım `Set-AzureRmVMExtension` Ağ İzleyicisi Aracısı sanal makine uzantısı olan bir sanal makineyi dağıtmak için komutu:
+Kullanım `Set-AzureRmVMExtension` mevcut bir sanal makine için Ağ İzleyicisi Aracısı sanal makine uzantısını dağıtmak için komutu:
 
 ```powershell
 Set-AzureRmVMExtension `
@@ -96,7 +96,7 @@ Set-AzureRmVMExtension `
 
 ### <a name="troubleshooting"></a>Sorun giderme
 
-Azure portalı ve PowerShell uzantısı dağıtımları durumuyla ilgili verileri alabilir. İçin belirli bir VM uzantıları dağıtım durumunu görmek için Azure PowerShell modülünü kullanarak şu komutu çalıştırın:
+Azure portalı ve PowerShell'de uzantısı dağıtımları durumuyla ilgili veri alabilir. Belirli bir VM'nin için uzantıları dağıtım durumunu görmek için Azure PowerShell modülü kullanarak şu komutu çalıştırın:
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent
@@ -110,4 +110,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentW
 
 ### <a name="support"></a>Destek
 
-Bu makalede herhangi bir noktada daha fazla yardıma gereksinim duyarsanız, Ağ İzleyicisi Kullanıcı Kılavuzu belgelere bakın veya üzerinde Azure uzmanlar başvurun [MSDN Azure ve yığın taşması forumları](https://azure.microsoft.com/support/forums/). Alternatif olarak, Azure destek olay dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/) ve Get destek seçin. Azure desteği hakkında daha fazla bilgi için okuma [Microsoft Azure desteği ile ilgili SSS](https://azure.microsoft.com/support/faq/).
+Bu makalede herhangi bir noktada daha fazla yardıma ihtiyacınız olursa, Ağ İzleyicisi Kullanıcı Kılavuzu belgelere başvurun veya Azure uzmanlarından ulaşın [Azure MSDN ve Stack Overflow forumları](https://azure.microsoft.com/support/forums/). Alternatif olarak, bir Azure destek olayına dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/) ve Destek Al'ı seçin. Azure desteği hakkında daha fazla bilgi için okuma [Microsoft Azure desteği SSS](https://azure.microsoft.com/support/faq/).

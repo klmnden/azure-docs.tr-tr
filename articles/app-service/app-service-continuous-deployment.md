@@ -1,5 +1,5 @@
 ---
-title: Azure App Service için sürekli dağıtım | Microsoft Docs
+title: Azure uygulama Hizmeti'ne sürekli dağıtım | Microsoft Docs
 description: Azure Uygulama Hizmeti’ne sürekli dağıtımı etkinleştirme hakkında bilgi edinin.
 services: app-service
 documentationcenter: ''
@@ -13,125 +13,125 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: d83d1ad74d04356f73f18a744c2d1509b5efc280
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 4d3f1c66c6403720bf02c80af1d6833dc3cee3f1
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233853"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42055597"
 ---
-# <a name="continuous-deployment-to-azure-app-service"></a>Azure App Service için sürekli dağıtım
-Bu makalede için sürekli dağıtımının nasıl yapılandırılacağı gösterilmektedir [Azure App Service](app-service-web-overview.md). Uygulama hizmeti, BitBucket, GitHub, sürekli dağıtımını sağlar ve [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) varolan havuzunuzdan Bu hizmetlerden biri de en son güncelleştirmeleri çekme tarafından.
+# <a name="continuous-deployment-to-azure-app-service"></a>Azure uygulama Hizmeti'ne sürekli dağıtım
+Bu makale için sürekli dağıtım yapılandırma işlemi gösterilmektedir [Azure App Service](app-service-web-overview.md). App Service; BitBucket, GitHub, sürekli dağıtımı sağlar ve [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) Bu hizmetlerden biri olarak mevcut deponuzdaki en son güncelleştirmeleri çekerek.
 
-El ile Azure portal tarafından listelenmeyen bir bulut deposu sürekli dağıtımını yapılandırmak nasıl öğrenmek için (gibi [GitLab](https://gitlab.com/)), bkz: [el ile adımları kullanarak sürekli dağıtım ayarı](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
+El ile Azure portal tarafından listelenmeyen bir bulut deposunda sürekli dağıtımını yapılandırmak nasıl kaydolacağınızı (gibi [GitLab](https://gitlab.com/)), bkz: [el ile adımları kullanarak sürekli dağıtım ayarlama](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
-Hazırlanan deponuz desteklenen hizmetlerden biri için yayımlayın. Projenizi bu hizmetlerde yayımlama hakkında daha fazla bilgi için bkz. [Depo oluşturma (GitHub)], [Depo oluşturma (BitBucket)] ve [VSTS kullanmaya başlama].
+Hazırlanan deponuzu desteklenen hizmetlerden biri için yayımlayın. Projenizi bu hizmetlerde yayımlama hakkında daha fazla bilgi için bkz. [Depo oluşturma (GitHub)], [Depo oluşturma (BitBucket)] ve [VSTS kullanmaya başlama].
 
-## <a name="deploy-continuously-from-github"></a>Sürekli olarak Github'dan dağıtma
+## <a name="deploy-continuously-from-github"></a>Github'dan sürekli dağıtım
 
-Uygulama hizmeti uygulaması sayfanıza gitmek GitHub ile sürekli dağıtımını etkinleştirmek için [Azure portal](https://portal.azure.com).
+GitHub ile sürekli dağıtımı etkinleştirmek için App Service uygulama sayfasına gidebilirsiniz [Azure portalında](https://portal.azure.com).
 
-Soldaki menüde tıklatın **Dağıtım Merkezi** > **GitHub** > **Authorize**. Yetkilendirme istemleri izleyin. 
+Sol menüde **Dağıtım Merkezi** > **GitHub** > **Authorize**. Yetkilendirme yönergeleri izleyin. 
 
 ![](media/app-service-continuous-deployment/github-choose-source.png)
 
-Yalnızca bir kez GitHub ile yetkilendirmek gerekir. Yetki tıklatmanız **devam**. Yetkili GitHub hesabı tıklatarak değiştirebilirsiniz **hesabını değiştir**.
+GitHub ile bir kez yetkilendirmek yeterlidir. Zaten sahip olduğunuz, tıklamanız **devam**. Yetkili bir GitHub hesabı tıklayarak değiştirebilirsiniz **hesabını değiştir**.
 
 ![](media/app-service-continuous-deployment/github-continue.png)
 
-İçinde **derleme sağlayıcısı** sayfasında, yapı sağlayıcısını seçin ve tıklayın > **devam**.
+İçinde **oluşturma sağlayıcısını** sayfasında derleme sağlayıcıyı seçin ve tıklayın > **devam**.
 
-### <a name="option-1-use-app-service-kudu-build-server"></a>Seçenek 1: App Service Kudu yapı sunucusu kullan
+### <a name="option-1-use-app-service-kudu-build-server"></a>1. seçenek: App Service Kudu derleme sunucusu kullanma
 
-İçinde **yapılandırma** sayfasında, istediğiniz sürekli olarak dağıtmak kuruluş, depo ve şube seçin. Tamamlandığında tıklatarak **devam**.
+İçinde **yapılandırma** sayfasında, sürekli olarak dağıtmak istediğiniz kuruluş, depoyu ve dalı seçin. İşiniz bittiğinde tıklayın **devam**.
 
-### <a name="option-2-use-vsts-continuous-delivery"></a>Seçenek 2: VSTS kesintisiz teslim kullanın
+### <a name="option-2-use-vsts-continuous-delivery"></a>2. seçenek: VSTS sürekli teslim kullanma
 
 > [!NOTE]
-> App Service'nın gerekli yapı oluşturmak ve tanımları VSTS hesabınızda yayın rolü, Azure hesabınızın olması gerekir **sahibi** Azure aboneliğinizde.
+> App Service'nın gerekli derleme ve yayın tanımları VSTS hesabınızdaki rolü Azure hesabınızın olması gerekir **sahibi** Azure aboneliğinizdeki.
 >
 
-İçinde **yapılandırma** sayfasında **kod** bölümünde, istediğiniz sürekli olarak dağıtmak kuruluş, depo ve şube seçin. Tamamlandığında tıklatarak **devam**.
+İçinde **yapılandırma** sayfasında **kod** bölümünde, sürekli olarak dağıtmak istediğiniz kuruluş, depoyu ve dalı seçin. İşiniz bittiğinde tıklayın **devam**.
 
-İçinde **yapılandırma** sayfasında **yapı** bölümünde, yeni bir VSTS hesabı yapılandırın veya var olan bir hesap belirtin. Tamamlandığında tıklatarak **devam**.
+İçinde **yapılandırma** sayfasında **derleme** bölümünde, yeni bir VSTS hesabı yapılandırın veya mevcut bir hesabı belirtin. İşiniz bittiğinde tıklayın **devam**.
 
 > [!NOTE]
-> Listede olmayan VSTS hesabınız kullanmak istiyorsanız, gerek [Azure aboneliğinize VSTS hesabı bağlamak](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Listede olmayan mevcut bir VSTS hesabı kullanmak istiyorsanız, yapmanız [VSTS hesabı Azure aboneliğinize bağlayın](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
-İçinde **Test** sayfasında, yük testleri etkinleştirin ve ardından isteyip istemediğinizi seçin **devam**.
+İçinde **Test** sayfasında, yük testleri etkinleştirin ve ardından yüklememeyi **devam**.
 
-Bağlı olarak [fiyatlandırma katmanı](/pricing/details/app-service/plans/) de görebilirsiniz, uygulama hizmeti planını bir **hazırlama Dağıt** sayfası. Seçin kullanılıp kullanılmayacağını [dağıtım yuvasını etkinleştirmeniz](web-sites-staged-publishing.md), ardından **devam**.
+Yapılandırmanıza bağlı olarak [fiyatlandırma katmanı](https://azure.microsoft.com/pricing/details/app-service/plans/) de görebilirsiniz, App Service planı, bir **hazırlama Dağıt** sayfası. Seçin kullanılıp kullanılmayacağını [dağıtım yuvasını etkinleştirmeniz](web-sites-staged-publishing.md), ardından **devam**.
 
-### <a name="finish-configuration"></a>Yapılandırmayı Bitir
+### <a name="finish-configuration"></a>Son yapılandırma
 
-İçinde **Özet** sayfasında, seçeneklerinizi doğrulayın ve tıklayın **son**.
+İçinde **özeti** sayfasında, seçeneklerinizi doğrulayın ve tıklayın **son**.
 
-Yapılandırma tamamlandıktan sonra yeni işlemeleri seçili deposunda uygulama hizmeti uygulamanızı sürekli olarak dağıtılır.
+Yapılandırma tamamlandığında, seçili depo yeni işlemeler App Service uygulamanızı sürekli olarak dağıtılır.
 
 ![](media/app-service-continuous-deployment/github-finished.png)
 
-## <a name="deploy-continuously-from-bitbucket"></a>Bitbucket'tan sürekli olarak dağıtma
+## <a name="deploy-continuously-from-bitbucket"></a>Bitbucket'tan sürekli dağıtım
 
-Uygulama hizmeti uygulaması sayfanıza gitmek BitBucket ile sürekli dağıtımını etkinleştirmek için [Azure portal](https://portal.azure.com).
+BitBucket ile sürekli dağıtımı etkinleştirmek için App Service uygulama sayfasına gidebilirsiniz [Azure portalında](https://portal.azure.com).
 
-Soldaki menüde tıklatın **Dağıtım Merkezi** > **BitBucket** > **Authorize**. Yetkilendirme istemleri izleyin. 
+Sol menüde **Dağıtım Merkezi** > **BitBucket** > **Authorize**. Yetkilendirme yönergeleri izleyin. 
 
 ![](media/app-service-continuous-deployment/bitbucket-choose-source.png)
 
-Yalnızca bir kez BitBucket ile yetkilendirmek gerekir. Yetki tıklatmanız **devam**. Yetkili BitBucket hesap tıklatarak değiştirebilirsiniz **hesabını değiştir**.
+BitBucket ile bir kez yetkilendirmek yeterlidir. Zaten sahip olduğunuz, tıklamanız **devam**. BitBucket Anlaşmazlık tıklayarak değiştirebilirsiniz **hesabını değiştir**.
 
 ![](media/app-service-continuous-deployment/bitbucket-continue.png)
 
-İçinde **yapılandırma** sayfasında, istediğiniz sürekli olarak dağıtmak depo ve dalı seçin. Tamamlandığında tıklatarak **devam**.
+İçinde **yapılandırma** sayfasında, sürekli olarak dağıtmak istediğiniz depoyu ve dalı seçin. İşiniz bittiğinde tıklayın **devam**.
 
-İçinde **Özet** sayfasında, seçeneklerinizi doğrulayın ve tıklayın **son**.
+İçinde **özeti** sayfasında, seçeneklerinizi doğrulayın ve tıklayın **son**.
 
-Yapılandırma tamamlandıktan sonra yeni işlemeleri seçili deposunda uygulama hizmeti uygulamanızı sürekli olarak dağıtılır.
+Yapılandırma tamamlandığında, seçili depo yeni işlemeler App Service uygulamanızı sürekli olarak dağıtılır.
 
-## <a name="deploy-continuously-from-vsts"></a>VSTS sürekli olarak dağıtma
+## <a name="deploy-continuously-from-vsts"></a>VSTS ile sürekli dağıtım
 
-VSTS ile sürekli dağıtımını etkinleştirmek için uygulama hizmeti uygulaması sayfanıza gidin [Azure portal](https://portal.azure.com).
+VSTS ile sürekli dağıtımı etkinleştirmek için App Service uygulama sayfasına gidebilirsiniz [Azure portalında](https://portal.azure.com).
 
-Soldaki menüde tıklatın **Dağıtım Merkezi** > **VSTS** > **devam**. 
+Sol menüde **Dağıtım Merkezi** > **VSTS** > **devam**. 
 
 ![](media/app-service-continuous-deployment/vsts-choose-source.png)
 
-İçinde **derleme sağlayıcısı** sayfasında, yapı sağlayıcısını seçin ve tıklayın > **devam**.
+İçinde **oluşturma sağlayıcısını** sayfasında derleme sağlayıcıyı seçin ve tıklayın > **devam**.
 
-### <a name="option-1-use-app-service-kudu-build-server"></a>Seçenek 1: App Service Kudu yapı sunucusu kullan
+### <a name="option-1-use-app-service-kudu-build-server"></a>1. seçenek: App Service Kudu derleme sunucusu kullanma
 
-İçinde **yapılandırma** sayfasında, VSTS hesap, proje, depo ve kendisinden sürekli olarak dağıtmak istediğiniz şube seçin. Tamamlandığında tıklatarak **devam**.
+İçinde **yapılandırma** sayfasında, VSTS hesabı, proje, depo ve sürekli dağıtım istediğiniz dalı seçin. İşiniz bittiğinde tıklayın **devam**.
 
-### <a name="option-2-use-vsts-continuous-delivery"></a>Seçenek 2: VSTS kesintisiz teslim kullanın
+### <a name="option-2-use-vsts-continuous-delivery"></a>2. seçenek: VSTS sürekli teslim kullanma
 
 > [!NOTE]
-> App Service'nın gerekli yapı oluşturmak ve tanımları VSTS hesabınızda yayın rolü, Azure hesabınızın olması gerekir **sahibi** Azure aboneliğinizde.
+> App Service'nın gerekli derleme ve yayın tanımları VSTS hesabınızdaki rolü Azure hesabınızın olması gerekir **sahibi** Azure aboneliğinizdeki.
 >
 
-İçinde **yapılandırma** sayfasında **kod** bölümünde, VSTS hesap, proje, depo ve kendisinden sürekli olarak dağıtmak istediğiniz şube seçin. Tamamlandığında tıklatarak **devam**.
+İçinde **yapılandırma** sayfasında **kod** bölümünde, VSTS hesabı, proje, depo ve sürekli dağıtım istediğiniz dalı seçin. İşiniz bittiğinde tıklayın **devam**.
 
 > [!NOTE]
-> Listede olmayan VSTS hesabınız kullanmak istiyorsanız, gerek [Azure aboneliğinize VSTS hesabı bağlamak](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Listede olmayan mevcut bir VSTS hesabı kullanmak istiyorsanız, yapmanız [VSTS hesabı Azure aboneliğinize bağlayın](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
-İçinde **yapılandırma** sayfasında **yapı** bölümünde, VSTS seçili deponuz derleme görevleri çalıştırmak için kullanması gereken dili çerçevesini belirtin. Tamamlandığında tıklatarak **devam**.
+İçinde **yapılandırma** sayfasında **derleme** bölümünde, VSTS, seçili depo için derleme görevleri çalıştırmak için kullanacağı dil çerçevesi belirtin. İşiniz bittiğinde tıklayın **devam**.
 
-İçinde **Test** sayfasında, yük testleri etkinleştirin ve ardından isteyip istemediğinizi seçin **devam**.
+İçinde **Test** sayfasında, yük testleri etkinleştirin ve ardından yüklememeyi **devam**.
 
-Bağlı olarak [fiyatlandırma katmanı](/pricing/details/app-service/plans/) de görebilirsiniz, uygulama hizmeti planını bir **hazırlama Dağıt** sayfası. Seçin kullanılıp kullanılmayacağını [dağıtım yuvasını etkinleştirmeniz](web-sites-staged-publishing.md), ardından **devam**. 
+Yapılandırmanıza bağlı olarak [fiyatlandırma katmanı](https://azure.microsoft.com/pricing/details/app-service/plans/) de görebilirsiniz, App Service planı, bir **hazırlama Dağıt** sayfası. Seçin kullanılıp kullanılmayacağını [dağıtım yuvasını etkinleştirmeniz](web-sites-staged-publishing.md), ardından **devam**. 
 
-### <a name="finish-configuration"></a>Yapılandırmayı Bitir
+### <a name="finish-configuration"></a>Son yapılandırma
 
-İçinde **Özet** sayfasında, seçeneklerinizi doğrulayın ve tıklayın **son**.
+İçinde **özeti** sayfasında, seçeneklerinizi doğrulayın ve tıklayın **son**.
 
-Yapılandırma tamamlandıktan sonra yeni işlemeleri seçili deposunda uygulama hizmeti uygulamanızı sürekli olarak dağıtılır.
+Yapılandırma tamamlandığında, seçili depo yeni işlemeler App Service uygulamanızı sürekli olarak dağıtılır.
 
-## <a name="disable-continuous-deployment"></a>Sürekli dağıtım devre dışı bırak
+## <a name="disable-continuous-deployment"></a>Sürekli dağıtımı devre dışı bırakma
 
-Uygulama hizmeti uygulaması sayfanıza gitmek sürekli dağıtımı devre dışı bırakmak için [Azure portal](https://portal.azure.com).
+Sürekli dağıtımı devre dışı bırakmak için App Service uygulama sayfasına gidebilirsiniz [Azure portalında](https://portal.azure.com).
 
-Soldaki menüde tıklatın **Dağıtım Merkezi** > **GitHub** veya **VSTS** veya **BitBucket**  >  **Bağlantısını**.
+Sol menüde **Dağıtım Merkezi** > **GitHub** veya **VSTS** veya **BitBucket**  >  **Kesin**.
 
 ![](media/app-service-continuous-deployment/disable.png)
 
@@ -143,7 +143,7 @@ Soldaki menüde tıklatın **Dağıtım Merkezi** > **GitHub** veya **VSTS** vey
 * [Azure için PowerShell'i kullanma]
 * [Git belgeleri]
 * [Kudu Projesi](https://github.com/projectkudu/kudu/wiki)
-* [Otomatik olarak ASP.NET 4 uygulama dağıtmak için bir CI/CD ardışık düzen oluşturmak için Azure kullanın](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)
+* [Otomatik olarak bir ASP.NET 4 uygulamasını dağıtmak için bir CI/CD işlem hattı oluşturmak için Azure'u kullanın](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)
 
 [Azure portal]: https://portal.azure.com
 [VSTS Portal]: https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx

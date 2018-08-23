@@ -4,16 +4,15 @@ description: MySQL için Azure veritabanı destekleyen çözümler ile üçünc�
 services: mysql
 author: HJToland3
 ms.author: jtoland
-manager: craigg
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 4fba09c7d655fa835fffc324826e5dba93e647b0
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e50cd285d904830bd7332f39d51aaa149f38b82a
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631036"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42055159"
 ---
 # <a name="azure-database-for-mysql-migration-partners"></a>MySQL geçiş iş ortakları için Azure veritabanı
 Azure veritabanınızı MySQL çözüm problem desteklemek için çok çeşitli sektör lideri iş ortakları ve araçları seçebilirsiniz. Bu makalede, MySQL için Azure veritabanı desteği geçiş çözümleri ile Microsoft iş ortaklarının vurgulanır.

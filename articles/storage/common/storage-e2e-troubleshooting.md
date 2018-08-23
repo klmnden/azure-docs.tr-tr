@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 7a011bf55f70f3fca9e105613f7e359a2b6071c1
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 41e7f5b4c36ad0bfed0ef5a9a31565474cf4d823
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526145"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42055565"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure depolama ölçümlerini ve günlüğe kaydetme, AzCopy ve ileti Çözümleyicisi kullanarak uçtan uca sorun giderme
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -96,7 +96,7 @@ Yapılandırmak için günlüğe kaydetme ve depolama için ölçümleri kullana
 
 Azure PowerShell ile çalışmaya başlamak için bkz. [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview).
 
-1. Kullanım [Add-AzureAccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet'i PowerShell penceresine Azure kullanıcı hesabınızı eklemek için:
+1. Kullanım [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet'i PowerShell penceresine Azure kullanıcı hesabınızı eklemek için:
    
     ```powershell
     Add-AzureAccount

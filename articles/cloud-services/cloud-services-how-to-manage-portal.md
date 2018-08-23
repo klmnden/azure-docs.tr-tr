@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 3e4520df5c1ca8477abf5a9c4b4e7e124bb38282
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e9f4153c68f0a2a4ce83f900ff63152311163ff6
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005766"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42056430"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Azure portalında bulut hizmetlerini yönetme
 İçinde **Cloud Services** alanında Azure portal'ın, şunları yapabilirsiniz:
@@ -83,7 +83,7 @@ Başarılı dağıtım Takas için iki anahtar Önkoşullar vardır:
 
 - Statik bir IP adresi için üretim yuvası kullanmak istiyorsanız, bir hazırlama yuvasına de ayırmanız gerekir. Aksi takdirde değiştirme başarısız olur.
 
-- Değiştirmeyi gerçekleştirmek için önce tüm rol örneklerini çalışıyor olması gerekir. Örneklerinizin durumunu kontrol edebilirsiniz **genel bakış** Azure portal'ın dikey penceresi. Alternatif olarak, [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) Windows PowerShell komutu.
+- Değiştirmeyi gerçekleştirmek için önce tüm rol örneklerini çalışıyor olması gerekir. Örneklerinizin durumunu kontrol edebilirsiniz **genel bakış** Azure portal'ın dikey penceresi. Alternatif olarak, [Get-AzureRole](/powershell/module/servicemanagement/azure/get-azurerole?view=azuresmps-3.7.0) Windows PowerShell komutu.
 
 Konuk işletim sistemi güncelleştirmeleri ve hizmet işlemleri de Düzeltme Dağıtım takasları başarısız olmasına neden olabileceğini unutmayın. Daha fazla bilgi için [cloud service dağıtım sorunlarını giderme](cloud-services-troubleshoot-deployment-problems.md).
 

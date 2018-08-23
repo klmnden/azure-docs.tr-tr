@@ -6,14 +6,14 @@ keywords: ansible'ı, azure, devops, bash, cloudshell, dinamik stok
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/14/2018
+ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 35033f7a6a0340be4dff5fa0051fd3c5ddb3c0eb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5f4793759bfba68c8a01d682b6b13de5cb96a8f6
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449426"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42056429"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Azure, dinamik envanterleri yönetmek için Ansible'ı kullanın
 Ansible'ı (Azure gibi bulut kaynakları dahil) çeşitli kaynaklardan Envanter bilgilerini çekme için kullanılabilir içine bir *dinamik stok*. Bu makalede, kullandığınız [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) Ansible Azure dinamik iki sanal makine oluşturma envanterini yapılandırmak için bu sanal makinelerden birini etiketi ve Ngınx etiketli sanal makineye yükleyin.
@@ -31,6 +31,9 @@ Ansible'ı (Azure gibi bulut kaynakları dahil) çeşitli kaynaklardan Envanter 
 1. Açık [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 1. Bu öğretici için sanal makinelerin tutmak için bir Azure kaynak grubu oluşturun.
+
+    > [!IMPORTANT]  
+    > Bu adımda oluşturduğunuz Azure kaynak grubu adı tamamen küçük harf olması gerekir. Aksi takdirde dinamik stok nesil başarısız olur.
 
     ```azurecli-interactive
     az group create --resource-group ansible-inventory-test-rg --location eastus
@@ -183,7 +186,7 @@ Bu bölümde, Ngınx sanal makinenizde yüklü olduğunu test etmek için bir y�
     --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress -o tsv`
     ```
 
-1. [Nginx - v](https://nginx.org/en/docs/switches.html) komutu genellikle Ngınx sürümünü yazdırmak için kullanılır. Ancak, bu da Ngınx yüklenmiş olup olmadığını belirlemek için kullanılabilir. Bağlıyken girin `ansible-inventory-test-vm1` sanal makine.
+1. Bağlıyken `ansible-inventory-test-vm1` sanal makineyi çalıştırın, [nginx - v](https://nginx.org/en/docs/switches.html) Ngınx yüklenmiş olup olmadığını belirlemek için komutu.
 
     ```azurecli-interactive
     nginx -v

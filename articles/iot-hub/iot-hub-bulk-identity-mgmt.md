@@ -1,6 +1,6 @@
 ---
-title: Dışarı aktarma Azure IOT Hub cihaz kimlikleri alma | Microsoft Docs
-description: İçeri ve dışarı cihaz kimliklerini kimlik kayıt defteri karşı toplu işlemleri gerçekleştirmek için Azure IOT hizmeti SDK'sını kullanma İçeri aktarma işlemleri oluşturma, güncelleştirme ve cihaz kimliklerini toplu silme olanak sağlar.
+title: İçeri aktarma, dışarı aktarma Azure IOT Hub cihaz kimliklerinin | Microsoft Docs
+description: İçeri ve dışarı cihaz kimliklerini bir kimlik kayıt defteri üzerinde toplu işlemler gerçekleştirmek için Azure IOT hizmeti SDK'sını kullanma İçeri aktarma işlemleri oluşturma, güncelleştirme ve cihaz kimliklerinin toplu silme olanak sağlar.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,59 +8,65 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 63e7fd5807f0cf6d05d81af138d649b75024d9bb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: aedf2d0012f5af8ea2eb8e944f06b20c7f1a6bb8
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634031"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42061081"
 ---
-# <a name="manage-your-iot-hub-device-identities-in-bulk"></a>IOT Hub cihaz kimliklerinizi toplu yönetme
+# <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Toplu, IOT Hub cihaz kimliklerini yönetme
 
-Her IOT hub kimlik kayıt defteri hizmeti aygıt başına kaynakları oluşturmak için kullanabilirsiniz sahiptir. Kimlik kayıt defteri aygıt'e yönelik uç noktalar için erişim denetim sağlar. Bu makalede, alabilir ve toplu cihaz kimliklerini bir kimlik kayıt defterinden verin açıklar.
+Her IOT hub cihaz başına kaynak hizmeti oluşturmak için kullanabileceğiniz bir kimlik kayıt defteri sahiptir. Kimlik kayıt defteri, cihaz'e yönelik uç noktalarına erişimi denetlemenize olanak sağlar. Bu makalede, alma ve cihaz kimliklerinin toplu gelen bir kimlik kayıt defteri ve dışarı aktarma açıklanır.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-İçeri ve dışarı aktarma işlemleri sürer bağlamında yerinde *işleri* IOT hub'ı karşı toplu hizmet işlemlerini yürütmek etkinleştirin.
+İçeri ve dışarı aktarma işlemlerinin bağlamında yer alıyor *işleri* toplu karşı bir IOT hub'ı hizmet işlemleri yürütmek etkinleştirin.
 
-**RegistryManager** sınıfı içerir **ExportDevicesAsync** ve **ImportDevicesAsync** kullanan yöntemleri **iş** framework. Bu yöntemler, verme, almak ve bir IOT hub kimlik kayıt defteri tamamen eşitlemek etkinleştirin.
+**RegistryManager** sınıfı içeren **ExportDevicesAsync** ve **ImportDevicesAsync** kullanan yöntemleri **iş** framework. Bu yöntemler, dışarı aktarma, alma ve bir IOT hub kimlik kayıt defteri tamamen eşitleme sağlar.
 
-Bu konuda ele alınmıştır kullanarak **RegistryManager** sınıfı ve **iş** toplu içeri ve dışarı aktarmalar için ve bir IOT hub'ın kimlik kayıt defterinden aygıtların gerçekleştirmek için sistem. Azure IOT Hub cihaz sağlama hizmeti, sıfır-touch, yalnızca insan etkileşimi olmadan bir veya daha fazla IOT hub'ları için sağlama zaman etkinleştirmek için de kullanabilirsiniz. Daha fazla bilgi için bkz: [hizmet belgeleri sağlama][lnk-dps].
+Bu konuda kullanımını açıklar **RegistryManager** sınıfı ve **işi** toplu içeri ve dışarı aktarmalar cihazların bir IOT hub'ının kimlik kayıt defteri gelen ve giden gerçekleştirmek için sistemi. Azure IOT Hub cihazı sağlama hizmeti, sıfır dokunma, yalnızca bir veya daha fazla IOT hub'lara kullanıcı müdahalesine gerek kalmadan sağlama zamanında etkinleştirmek için de kullanabilirsiniz. Daha fazla bilgi için bkz. [sağlama hizmeti belgeleri](/azure/iot-dps).
 
 
-## <a name="what-are-jobs"></a>İşlerini nelerdir?
+## <a name="what-are-jobs"></a>İşleri nelerdir?
 
 Kimlik kayıt defteri işlemlerini kullanmak **iş** sistem olduğunda işlemi:
 
-* Potansiyel olarak uzun yürütme zaman standart çalışma zamanı işlemleri karşılaştırıldığında.
-* Büyük miktarda veri kullanıcıya döndürür.
+* Bir uzun yürütme süresi için standart çalışma zamanı operations karşılaştırıldığında.
 
-İşlemi bekliyor veya işlem sonucu üzerinde engelleme tek bir API çağrısı yerine, zaman uyumsuz olarak oluşturur bir **iş** bu IOT hub'ın. İşlemi sonra hemen döndürür bir **JobProperties** nesnesi.
+* Kullanıcıya büyük miktarda veri döndürür.
 
-Aşağıdaki C# kod parçacığını bir dışarı aktarma işinin oluşturulacağını gösterir:
+Bekliyor veya işlem sonucu üzerinde engelleme tek bir API çağrısı yerine, işlemi zaman uyumsuz olarak oluşturur bir **iş** IOT hub'ı. İşlem sonra hemen döndürür bir **JobProperties** nesne.
+
+Aşağıdaki C# kod parçacığı, dışarı aktarma işi oluşturma işlemi gösterilmektedir:
 
 ```csharp
 // Call an export job on the IoT Hub to retrieve all devices
-JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasUri, false);
+JobProperties exportJob = await 
+  registryManager.ExportDevicesAsync(containerSasUri, false);
 ```
 
 > [!NOTE]
-> Kullanılacak **RegistryManager** sınıfı, C# kodunda, ekleme **Microsoft.Azure.Devices** NuGet paketini projenize. **RegistryManager** sınıfı olan **Microsoft.Azure.Devices** ad alanı.
+> Kullanılacak **RegistryManager** sınıfı, C# kodunuzda, ekleme **Microsoft.Azure.Devices** NuGet paketini projenize. **RegistryManager** sınıfı **Microsoft.Azure.Devices** ad alanı.
 
-Kullanabileceğiniz **RegistryManager** durumunu sorgulamak için sınıf **iş** döndürülen kullanarak **JobProperties** meta verileri. Örneği oluşturmak için **RegistryManager** sınıfı, kullanın **CreateFromConnectionString** yöntemi:
+Kullanabileceğiniz **RegistryManager** durumunu sorgulamak için sınıf **iş** döndürülen kullanarak **JobProperties** meta verileri. Bir örneğini oluşturmak için **RegistryManager** sınıfı, kullanın **CreateFromConnectionString** yöntemi.
 
 ```csharp
-RegistryManager registryManager = RegistryManager.CreateFromConnectionString("{your IoT Hub connection string}");
+RegistryManager registryManager =
+  RegistryManager.CreateFromConnectionString("{your IoT Hub connection string}");
 ```
 
-Bağlantı dizesi, IOT hub ' ınızı Azure Portalı'nda bulmak için:
+IOT hub'ınız için Azure portalında bağlantı dizesi bulmak için:
 
 - IoT Hub'ınıza gidin.
-- Seçin **paylaşılan erişim ilkeleri**.
-- Gereksinim duyduğunuz izinleri dikkate alarak, bir ilke seçin.
-- Ekranın sağ taraftaki panelinden connectionstring kopyalayın.
 
-Aşağıdaki C# kod parçacığını işin yürütülmesi tamamlandı görmek için beş saniyede yoklamak gösterilmektedir:
+- Seçin **paylaşılan erişim ilkeleri**.
+
+- İhtiyaç duyduğunuz izinleri dikkate alarak, bir ilke seçin.
+
+- Ekranın sağ taraftaki panelden connectionstring kopyalayın.
+
+Aşağıdaki C# kod parçacığı, her beş saniyede bir işin yürütülmesi tamamlandı görmek için yoklama işlemi gösterilmektedir:
 
 ```csharp
 // Wait until job is finished
@@ -79,27 +85,29 @@ while(true)
 }
 ```
 
-## <a name="export-devices"></a>Dışarı aktarma cihazları
+## <a name="export-devices"></a>Cihazlar dışarı aktarma
 
-Kullanım **ExportDevicesAsync** yöntemi bir IOT hub kimlik kayıt defterine tamamen dışarı aktarmak için bir [Azure Storage](../storage/index.yml) blob kapsayıcısı kullanarak bir [paylaşılan erişim imzası](../storage/common/storage-security-guide.md#data-plane-security).
+Kullanım **ExportDevicesAsync** yöntemi, IOT hub kimlik kayıt defterine tamamen dışarı aktarmak için bir [Azure depolama](../storage/index.yml) blob kapsayıcısını kullanan bir [paylaşılan erişim imzası](../storage/common/storage-security-guide.md#data-plane-security).
 
-Bu yöntem, sizin denetlediğiniz bir blob kapsayıcısında cihaz bilgilerinizi güvenilir yedeklerini oluşturmanıza olanak sağlar.
+Bu yöntem, cihaz bilgilerinizi güvenilir yedeklerini, sizin denetlediğiniz bir blob kapsayıcısını oluşturmak sağlar.
 
-**ExportDevicesAsync** yöntemi iki parametre gerektirir:
+**ExportDevicesAsync** yöntem iki parametre gerektirir:
 
-* A *dize* blob kapsayıcısının bir URI içeriyor. Bu URI, kapsayıcıya yazma erişimi veren bir SAS belirteci içermesi gerekir. İş bir blok blobu serileştirilmiş verme aygıt verilerini depolamak için bu kapsayıcıda oluşturur. SAS belirteci bu izinleri şunları içermelidir:
+* A *dize* , bir blob kapsayıcısının bir URI içeriyor. Bu URI, kapsayıcıya yazma erişimi veren bir SAS belirteci içermelidir. İş, seri hale getirilmiş dışarı aktarma cihaz verilerini depolamak için bu kapsayıcıda bir blok blobu oluşturur. SAS belirteci, bu izinleri bulunmalıdır:
 
    ```csharp
-   SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
+   SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
+     | SharedAccessBlobPermissions.Delete
    ```
 
-* A *boolean* kimlik doğrulaması anahtarları, dışa aktarma verilerinin dışında tutmak isteyip istemediğinizi belirtir. Varsa **yanlış**, kimlik doğrulama anahtarları dışa aktarma çıktısında dahil edilir. Aksi takdirde, olarak anahtarları dışarı **null**.
+* A *Boole* kimlik doğrulama anahtarlarını dışarı aktarma verilerinizden hariç tutmak isteyip istemediğinizi belirtir. Varsa **false**, kimlik doğrulama anahtarlarını dışarı aktarma çıktısında dahil edilir. Aksi takdirde, anahtarlar olarak dışarı aktarılır **null**.
 
-Aşağıdaki C# kod parçacığını verme verilerde cihaz kimlik doğrulaması anahtarları içeren bir dışarı aktarma işini başlatmak nasıl gösterir ve tamamlanması için yoklama:
+Aşağıdaki C# kod parçacığı sonra tamamlanması için yoklama ve cihaz kimlik doğrulaması anahtarlarını dışarı aktarma veriler içeren dışarı aktarma işi başlatmak gösterir:
 
 ```csharp
 // Call an export job on the IoT Hub to retrieve all devices
-JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasUri, false);
+JobProperties exportJob = 
+  await registryManager.ExportDevicesAsync(containerSasUri, false);
 
 // Wait until job is finished
 while(true)
@@ -117,7 +125,7 @@ while(true)
 }
 ```
 
-İş çıktısı ada sahip bir blok blobu olarak sağlanan blob kapsayıcısında depolar **devices.txt**. Çıktı verileri JSON seri hale getirilmiş aygıt verileri, satır başına bir aygıtla oluşur.
+İş çıktısını ada sahip bir blok blobu olarak belirtilen blob kapsayıcısında yer depolar **devices.txt**. Çıktı verilerini, her satırda bir cihaz ile JSON seri hale getirilmiş cihaz verilerinin oluşur.
 
 Aşağıdaki örnek, çıktı verilerini gösterir:
 
@@ -129,7 +137,7 @@ Aşağıdaki örnek, çıktı verilerini gösterir:
 {"id":"Device5","eTag":"MA==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
 ```
 
-Bir cihaz çifti veri varsa, twin verileri de aygıt verilerini birlikte verilir. Aşağıdaki örnekte bu biçimi gösterir. "TwinETag" satırın sonuna kadar tüm veriler twin verilerdir.
+Bir cihaz ikizi veri varsa ikizi verileri ayrıca cihaz verilerle birlikte verilir. Aşağıdaki örnek, bu biçimi gösterir. "TwinETag" satırın sonuna ikizi veri olana kadar tüm veriler.
 
 ```json
 {
@@ -176,7 +184,7 @@ Bir cihaz çifti veri varsa, twin verileri de aygıt verilerini birlikte verilir
 }
 ```
 
-Kodda bu verilere erişmesi gerekiyorsa, kolayca kullanarak bu verileri seri durumdan çıkarabiliyorsa **ExportImportDevice** sınıfı. Aşağıdaki C# kod parçacığında, daha önce bir blok blobuna aktarılmış aygıt bilgileri okumak gösterilmektedir:
+Bu verilere kod erişmeniz gerekiyorsa, kolayca kullanarak bu verileri seri durumdan çıkarabiliyorsa **ExportImportDevice** sınıfı. Aşağıdaki C# kod parçacığı daha önce bir blok blobuna aktarılmış cihaz bilgilerini okuma işlemini gösterir:
 
 ```csharp
 var exportedDevices = new List<ExportImportDevice>();
@@ -192,38 +200,41 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
 }
 ```
 
-## <a name="import-devices"></a>Cihazları içeri aktarma
+## <a name="import-devices"></a>Cihazları İçeri Aktar
 
-**ImportDevicesAsync** yönteminde **RegistryManager** sınıfı bir IOT hub kimlik kayıt defterinde toplu içeri aktarma ve eşitleme işlemleri gerçekleştirmenizi sağlar. Gibi **ExportDevicesAsync** yöntemi, **ImportDevicesAsync** yöntemi kullanan **iş** framework.
+**ImportDevicesAsync** yönteminde **RegistryManager** sınıfı bir IOT hub kimlik kayıt defterinde toplu içeri aktarma ve eşitleme işlemleri gerçekleştirmenize olanak sağlar. Gibi **ExportDevicesAsync** yöntemi **ImportDevicesAsync** yöntemi kullanan **iş** framework.
 
-Kullanarak ilgilenebilmek **ImportDevicesAsync** yöntemi kimlik kayıt defterinizde yeni cihazları sağlamaya ek olarak, ayrıca güncelleştirme ve var olan cihazları silmek için.
+Kullanarak ilgileniriz **ImportDevicesAsync** yöntemi olduğundan, kimlik kayıt defterinde yeni cihazları sağlamaya ek olarak, ayrıca güncelleştirin ve var olan cihazları silin.
 
 > [!WARNING]
-> İçeri aktarma işlemi geri alınamaz. Her zaman kullanarak var olan verileri yedekleme **ExportDevicesAsync** yöntemi toplu yapmadan önce başka bir blob kapsayıcısını, kimlik kayıt defterine değiştirir.
+> İçeri aktarma işlemi geri alınamaz. Her zaman kullanarak mevcut verilerinizi yedekleyin **ExportDevicesAsync** yöntemi toplu hale getirmeden önce başka bir blob kapsayıcısını, kimlik kayıt defterine değiştirir.
 
-**ImportDevicesAsync** yöntemi iki parametre alır:
+**ImportDevicesAsync** yöntem iki parametre alır:
 
-* A *dize* bir URI'sini içeren bir [Azure Storage](../storage/index.yml) olarak kullanılacak blob kapsayıcısı *giriş* işi. Bu URI, kapsayıcı için okuma erişimi veren bir SAS belirteci içermesi gerekir. Bu kapsayıcı ada sahip bir blob içermelidir **devices.txt** kimlik kayıt defterine alın serileştirilmiş cihaz verileri içerir. İçeri aktarma verileri aynı aygıt bilgileri içermelidir JSON biçiminde **ExportImportDevice** iş kullanır oluştururken bir **devices.txt** blob. SAS belirteci bu izinleri şunları içermelidir:
+* A *dize* URI değerini içeren bir [Azure depolama](../storage/index.yml) olarak kullanılacak blob kapsayıcısı *giriş* işe. Bu URI, kapsayıcı okuma erişimi veren bir SAS belirteci içermelidir. Bu kapsayıcı adı ile bir blob içermelidir **devices.txt** , kimlik kayıt defterine içeri aktarmak için seri hale getirilmiş cihaz verilerini içerir. İçeri aktarma verileri aynı cihaz bilgileri içermelidir JSON biçimi **ExportImportDevice** proje oluştururken kullandığı bir **devices.txt** blob. SAS belirteci, bu izinleri bulunmalıdır:
 
    ```csharp
    SharedAccessBlobPermissions.Read
    ```
-* A *dize* bir URI'sini içeren bir [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) olarak kullanılacak blob kapsayıcısı *çıkış* işten. Bu kapsayıcıdaki tüm Tamamlanan alma işlemi hata bilgileri depolamak için bir blok blobu işi oluşturur **iş**. SAS belirteci bu izinleri şunları içermelidir:
+
+* A *dize* URI değerini içeren bir [Azure depolama](https://azure.microsoft.com/documentation/services/storage/) olarak kullanılacak blob kapsayıcısı *çıkış* projeden. Tamamlanan alma işlemi hata bilgileri depolamak için bu kapsayıcıdaki blok blobu işi oluşturur **iş**. SAS belirteci, bu izinleri bulunmalıdır:
 
    ```csharp
-   SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
+   SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
+     | SharedAccessBlobPermissions.Delete
    ```
 
 > [!NOTE]
-> İki parametre blob kapsayıcıya işaret edebilir. Ayrı parametreleri yalnızca verilerinizi üzerinde çıkış kapsayıcı ek izinler gerektirdiğinden daha fazla denetim sağlar.
+> İki parametre için aynı blob kapsayıcısını işaret edebilir. Ayrı parametreleri verilerinizi çıkış kapsayıcısı gerektirdiği ek izinleri hakkında daha fazla denetime etkinleştirmeniz yeterlidir.
 
-Aşağıdaki C# kod parçacığında, bir içeri aktarma işlemini başlatmak gösterilmektedir:
+Aşağıdaki C# kod parçacığı, içeri aktarma işi başlatmak gösterilmektedir:
 
 ```csharp
-JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
+JobProperties importJob = 
+   await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 ```
 
-Bu yöntem, cihaz çiftinin veri almak için de kullanılabilir. Giriş veri biçimi gösterilen biçim aynıdır **ExportDevicesAsync** bölümü. Bu şekilde, dışarı aktarılan verileri yeniden alın. **$Metadata** isteğe bağlıdır.
+Bu yöntem, cihaz çiftinin veri almak için de kullanılabilir. Giriş veri biçimini gösterilen biçimi aynıdır **ExportDevicesAsync** bölümü. Bu şekilde, dışarı aktarılan verileri içeri aktarabilirsiniz. **$Metadata** isteğe bağlıdır.
 
 ## <a name="import-behavior"></a>Alma davranışı
 
@@ -231,37 +242,37 @@ Kullanabileceğiniz **ImportDevicesAsync** yöntemi, kimlik kayıt defterinde a�
 
 * Yeni cihazların toplu kayıt
 * Var olan cihazların toplu silme
-* Toplu durum değişikliklerini (etkinleştirmek veya aygıtları devre dışı)
-* Yeni cihaz kimlik doğrulama anahtarlarının toplu atama
-* Otomatik yeniden üretme cihaz kimlik doğrulama anahtarlarının toplu
-* Toplu güncelleştirme twin veri
+* Yığın durumu değiştiğinde (etkinleştirmek veya cihazları devre dışı)
+* Yeni cihaz kimlik doğrulaması anahtarlarını toplu atama
+* Toplu cihaz kimlik doğrulaması anahtarları, otomatik yeniden oluşturma
+* İkiz verilerin toplu güncelleştirme
 
-Tek bir önceki işlemleri herhangi bir birleşimini gerçekleştirebilir **ImportDevicesAsync** çağırın. Örneğin, yeni cihazları kaydetmek ve silebilir veya aynı anda var olan cihazları güncelleştirin. İle birlikte kullanıldığında **ExportDevicesAsync** yöntemi, tamamen tüm aygıtlar bir IOT hub'ından diğerine geçirebilirsiniz.
+Tek bir önceki işlemleri herhangi bir birleşimini gerçekleştirebilir **ImportDevicesAsync** çağırın. Örneğin, yeni cihazları kaydetme ve silebilir veya aynı anda var olan cihazları güncelleştirin. İle birlikte kullanıldığında **ExportDevicesAsync** yöntemi, tamamen tüm cihazlarınızı bir IOT hub'ından diğerine geçişini yapabilirsiniz.
 
-İçeri aktarma dosyası twin meta veri içeriyorsa, bu meta veriler varolan twin meta verileri üzerine yazar. İçeri aktarma dosyası twin meta veriler, ardından yalnızca içermez varsa `lastUpdateTime` meta veriler, geçerli saati kullanılarak güncelleştirilir.
+İçeri aktarma dosyası çifti meta veri içeriyorsa, bu meta veriler mevcut ikizi meta verileri geçersiz kılar. İçeri aktarma dosyası çifti meta verileri, ardından yalnızca içermez, `lastUpdateTime` geçerli zamanı kullanarak meta verileri güncelleştirilir.
 
-İsteğe bağlı kullanmak **importMode** içeri aktarma işlemi cihaz başına denetlemek için her cihaz için seri hale getirme veri içeri aktar özelliği. **İmportMode** özelliği aşağıdaki seçenekler vardır:
+İsteğe bağlı **importMode** içeri aktarma işlemi cihaz başına denetlemek her bir cihaz için seri hale getirme verileri içeri aktar özelliği. **İmportMode** özelliği şu seçeneklere sahiptir:
 
 | importMode | Açıklama |
 | --- | --- |
-| **createOrUpdate** |Bir aygıt ile belirtilen yoksa **kimliği**, yeni kayıtlı. <br/>Cihaz zaten varsa, varolan bilgileri olmadan regard için sağlanan giriş verilerle üzerine yazılır **ETag** değeri. <br> Kullanıcı, cihaz verileri birlikte twin verileri isteğe bağlı olarak belirtebilirsiniz. Twin'ın etag belirtilmişse, cihazın etag'den bağımsız olarak işlenir. Varolan twin'ın etag ile uyumsuzluğa ise, bir hata günlük dosyasına yazılır. |
-| **oluşturmaya** |Bir aygıt ile belirtilen yoksa **kimliği**, yeni kayıtlı. <br/>Cihaz zaten varsa, bir hata günlük dosyasına yazılır. <br> Kullanıcı, cihaz verileri birlikte twin verileri isteğe bağlı olarak belirtebilirsiniz. Twin'ın etag belirtilmişse, cihazın etag'den bağımsız olarak işlenir. Varolan twin'ın etag ile uyumsuzluğa ise, bir hata günlük dosyasına yazılır. |
-| **Güncelleştirme** |Bir aygıt belirtilen ile zaten varsa **kimliği**, varolan bilgileri olmadan regard için sağlanan giriş verisi olarak üzerine **ETag** değeri. <br/>Cihaz yok, hata günlük dosyasına yazılır. |
-| **updateIfMatchETag** |Bir aygıt belirtilen ile zaten varsa **kimliği**, varolan bilgileri yalnızca varsa sağlanan girdi verileriyle üzerine bir **ETag** eşleşmesi. <br/>Cihaz yok, hata günlük dosyasına yazılır. <br/>Varsa bir **ETag** uyuşmazlığı, hata günlük dosyasına yazılır. |
-| **createOrUpdateIfMatchETag** |Bir aygıt ile belirtilen yoksa **kimliği**, yeni kayıtlı. <br/>Cihaz zaten varsa, yalnızca varsa mevcut bilgileri sağlanan girdi verileriyle yazılır bir **ETag** eşleşmesi. <br/>Varsa bir **ETag** uyuşmazlığı, hata günlük dosyasına yazılır. <br> Kullanıcı, cihaz verileri birlikte twin verileri isteğe bağlı olarak belirtebilirsiniz. Twin'ın etag belirtilmişse, cihazın etag'den bağımsız olarak işlenir. Varolan twin'ın etag ile uyumsuzluğa ise, bir hata günlük dosyasına yazılır. |
-| **sil** |Bir aygıt belirtilen ile zaten varsa **kimliği**, olmadan regard için silinmiş **ETag** değeri. <br/>Cihaz yok, hata günlük dosyasına yazılır. |
-| **deleteIfMatchETag** |Bir aygıt belirtilen ile zaten varsa **kimliği**, yalnızca varsa silinmiş bir **ETag** eşleşmesi. Cihaz yok, hata günlük dosyasına yazılır. <br/>Bir ETag uyuşmazlığı ise, bir hata günlük dosyasına yazılır. |
+| **createOrUpdate** |Bir cihaz belirtilen mevcut değilse **kimliği**, yeni kaydedilir. <br/>Cihaz zaten varsa var olan bir bilgi olmadan regard için sağlanan giriş verileriyle yazılır **ETag** değeri. <br> Kullanıcı, cihaz verileriyle birlikte ikizi veri isteğe bağlı olarak belirtebilirsiniz. İkizinin etag, belirtilmişse, cihazın etag'den bağımsız olarak işlenir. Bir mevcut ikizinin etag uyuşmazlığı varsa, hata günlük dosyasına yazılır. |
+| **oluşturmaya** |Bir cihaz belirtilen mevcut değilse **kimliği**, yeni kaydedilir. <br/>Cihaz zaten varsa, hata günlük dosyasına yazılır. <br> Kullanıcı, cihaz verileriyle birlikte ikizi veri isteğe bağlı olarak belirtebilirsiniz. İkizinin etag, belirtilmişse, cihazın etag'den bağımsız olarak işlenir. Bir mevcut ikizinin etag uyuşmazlığı varsa, hata günlük dosyasına yazılır. |
+| **Güncelleştirme** |Bir cihaz zaten belirtilen varsa **kimliği**, var olan bir bilgi olmadan regard için sağlanan giriş verileriyle yazılır **ETag** değeri. <br/>Cihaz mevcut değilse bir hata için günlük dosyasına yazılır. |
+| **updateIfMatchETag** |Bir cihaz zaten belirtilen varsa **kimliği**, mevcut bilgi ancak varsa sağlanan giriş verileriyle üzerine bir **ETag** eşleşmesi. <br/>Cihaz mevcut değilse bir hata için günlük dosyasına yazılır. <br/>Varsa bir **ETag** uyuşmazlığı, bir hata için günlük dosyasına yazılır. |
+| **createOrUpdateIfMatchETag** |Bir cihaz belirtilen mevcut değilse **kimliği**, yeni kaydedilir. <br/>Cihaz zaten varsa, varsa var olan bilgi ile sağlanan giriş veri yazılır bir **ETag** eşleşmesi. <br/>Varsa bir **ETag** uyuşmazlığı, bir hata için günlük dosyasına yazılır. <br> Kullanıcı, cihaz verileriyle birlikte ikizi veri isteğe bağlı olarak belirtebilirsiniz. İkizinin etag, belirtilmişse, cihazın etag'den bağımsız olarak işlenir. Bir mevcut ikizinin etag uyuşmazlığı varsa, hata günlük dosyasına yazılır. |
+| **sil** |Bir cihaz zaten belirtilen varsa **kimliği**, olmadan regard için silinmiş **ETag** değeri. <br/>Cihaz mevcut değilse bir hata için günlük dosyasına yazılır. |
+| **deleteIfMatchETag** |Bir cihaz zaten belirtilen varsa **kimliği**, yalnızca silinmiş bir **ETag** eşleşmesi. Cihaz mevcut değilse bir hata için günlük dosyasına yazılır. <br/>ETag uyumsuzluğu varsa, hata günlük dosyasına yazılır. |
 
 > [!NOTE]
-> Serileştirme verileri açıkça tanımlamaz varsa bir **importMode** bayrağı için varsayılan bir aygıt için **createOrUpdate** içeri aktarma işlemi sırasında.
+> Serileştirme verileri açıkça tanımlamazsa bir **importMode** bayrağı için varsayılan bir cihaz için **createOrUpdate** içeri aktarma işlemi sırasında.
 
-## <a name="import-devices-example--bulk-device-provisioning"></a>Aygıtları örnek alma – cihaz sağlamayı toplu
+## <a name="import-devices-example--bulk-device-provisioning"></a>Cihazları örnek alma – toplu cihaz sağlama
 
-Aşağıdaki C# kod örneği birden çok aygıt kimlikleri oluşturmak nasıl gösterir:
+Aşağıdaki C# kod örneği birden çok cihaz kimliği oluşturma gösterilmektedir:
 
 * Kimlik doğrulama anahtarlarını içerir.
-* Bu cihaz bilgileri bir blok blobuna yazma.
-* Cihaz kimlik kayıt defterine alın.
+* Bu cihaz bilgileri, bir blok blobuna yazma.
+* Cihazları kimlik kayıt defterine alın.
 
 ```csharp
 // Provision 1,000 more devices
@@ -308,7 +319,8 @@ using (CloudBlobStream stream = await blob.OpenWriteAsync())
 // Call import using the blob to add new devices
 // Log information related to the job is written to the same container
 // This normally takes 1 minute per 100 devices
-JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
+JobProperties importJob =
+   await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 
 // Wait until job is finished
 while(true)
@@ -326,9 +338,9 @@ while(true)
 }
 ```
 
-## <a name="import-devices-example--bulk-deletion"></a>İçeri aktarma aygıtları örnek – toplu silme
+## <a name="import-devices-example--bulk-deletion"></a>İçeri aktarma cihazları örnek – toplu silme
 
-Aşağıdaki kod örneği, yukarıdaki örnek kod kullanarak eklediğiniz cihazları silmek nasıl gösterir:
+Aşağıdaki kod örneği, yukarıdaki örnek kod kullanarak eklediğiniz cihazları silme işlemini göstermektedir:
 
 ```csharp
 // Step 1: Update each device's ImportMode to be Delete
@@ -376,9 +388,9 @@ while(true)
 }
 ```
 
-## <a name="get-the-container-sas-uri"></a>Kapsayıcı SAS URI'sini Al
+## <a name="get-the-container-sas-uri"></a>' % S'kapsayıcı SAS URI'sini Al
 
-Aşağıdaki kod örneği, nasıl oluşturulacağını gösterir bir [SAS URI'sini](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md) okuma, yazma ve blob kapsayıcısı için izinleri Sil:
+Aşağıdaki kod örneği, nasıl oluşturulacağını gösterir bir [SAS URI'sini](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md) okuma, yazma ve silme izinleri bir blob kapsayıcısı için:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -405,24 +417,16 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, bir IOT hub kimlik kayıt defteri karşı toplu işlemler gerçekleştirme öğrendiniz. Azure IOT hub'ı yönetme hakkında daha fazla bilgi için bu bağlantıları izleyin:
+Bu makalede, bir IOT hub kimlik kayıt defteri üzerinde toplu işlemler gerçekleştirmek öğrendiniz. Azure IOT hub'ı yönetme hakkında daha fazla bilgi için bu bağlantıları izleyin:
 
-* [IOT hub'ı ölçümleri][lnk-metrics]
-* [İzleme işlemleri][lnk-monitor]
+* [IOT hub'ı ölçümleri](iot-hub-metrics.md)
+* [İşlemleri izleme](iot-hub-operations-monitoring.md)
 
-Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
+Daha fazla IOT Hub'ın özelliklerini keşfetmek için bkz:
 
-* [IOT Hub Geliştirici Kılavuzu][lnk-devguide]
-* [Azure IOT Edge ile sınır cihazlarına Al dağıtma][lnk-iotedge]
+* [IOT Hub Geliştirici Kılavuzu](iot-hub-devguide.md)
+* [Yapay ZEKA, Azure IOT Edge ile uç cihazlarına dağıtma](../iot-edge/tutorial-simulate-device-linux.md)
 
-IOT Hub cihaz sağlama hizmeti kullanarak zero touch, yalnızca zaman sağlama etkinleştirmek için bkz: keşfetmek için: 
+IOT Hub cihazı sağlama hizmeti kullanarak müdahalesi gerektirmeyen, tam zamanında sağlama etkinleştireceğinizi öğrenmek için keşfetmek için: 
 
-* [Azure IOT Hub cihaz hizmet sağlama][lnk-dps]
-
-
-[lnk-metrics]: iot-hub-metrics.md
-[lnk-monitor]: iot-hub-operations-monitoring.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
+* [Azure IoT Hub Cihazı Sağlama Hizmeti](/azure/iot-dps)

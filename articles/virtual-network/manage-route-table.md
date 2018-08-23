@@ -1,5 +1,5 @@
 ---
-title: Oluşturma, değiştirme veya bir Azure yol tablosu silme | Microsoft Docs
+title: Oluşturma, değiştirme veya bir Azure rota tablosunu sil | Microsoft Docs
 description: Oluşturma, değiştirme veya bir yol tablosu silme öğrenin.
 services: virtual-network
 documentationcenter: na
@@ -15,240 +15,240 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: cd97b00a522ff41a74f46195da5d8b1a0d92d344
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 04db7655f3f4b63edffcb731d0e92db25f1847b9
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960017"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42056445"
 ---
-# <a name="create-change-or-delete-a-route-table"></a>Oluşturma, değiştirme veya bir yol tablosu silme
+# <a name="create-change-or-delete-a-route-table"></a>Oluşturma, değiştirme veya bir rota tablosunu sil
 
-Azure otomatik olarak Azure alt ağlar, sanal ağlar arasında trafiği yönlendirir ve şirket içi ağlar. Azure'nın varsayılan yönlendirme değiştirmek istiyorsanız, bir yol tablosu oluşturarak bunu. Sanal ağlarda yönlendirme için yeniyseniz, içinde hakkında daha fazla bilgiyi [yönlendirmeye genel bakış](virtual-networks-udr-overview.md) veya tamamlayarak bir [Öğreticisi](tutorial-create-route-table-portal.md).
+Azure otomatik olarak Azure alt ağlar, sanal ağlar arasındaki trafiği yönlendirir ve şirket içi ağlara. Azure'nın varsayılan yönlendirmesini değiştirmek istiyorsanız, bir yol tablosu oluşturarak bunu. Sanal ağlarda yönlendirmeyle yeniyseniz, içinde hakkında daha fazla bilgi edinebilirsiniz [yönlendirmeye genel bakış](virtual-networks-udr-overview.md) veya tamamlayarak bir [öğretici](tutorial-create-route-table-portal.md).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşağıdaki görevleri tamamlayın:
+Bu makalenin bir bölümündeki adımları tamamlamadan önce aşağıdaki görevleri tamamlayın:
 
-- Zaten bir Azure hesabınız yoksa, kaydolun bir [ücretsiz deneme sürümü hesabı](https://azure.microsoft.com/free).
+- Azure hesabınız yoksa, kaydolmaya bir [ücretsiz deneme hesabınızı](https://azure.microsoft.com/free).
 - Portalı kullanarak, açık https://portal.azure.comve Azure hesabınızda oturum.
-- Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğretici, Azure PowerShell modülü 5.7.0 veya sonraki bir sürümü gerektirir. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
-- Bu makalede görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici Azure CLI Sürüm 2.0.31 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `az login` Azure ile bir bağlantı oluşturmak için.
+- Bu makaledeki görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğretici, Azure PowerShell modülü 5.7.0 veya sonraki bir sürümü gerektirir. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+- Bu makaledeki görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici, Azure CLI Sürüm 2.0.31 gerektirir veya üzeri. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI'yi yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `az login` Azure ile bir bağlantı oluşturmak için.
 
-Hesap oturum açın veya ile azure'a bağlanmak için atanmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolü veya bir [özel rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) içinde listelenen uygun eylemleri atanan [izinleri ](#permissions).
+Oturum açın ya da Azure ile bağlandığınız hesabı atanmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolü veya bir [özel rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) içinde listelenen uygun eylemleri atanan [izinleri ](#permissions).
 
 ## <a name="create-a-route-table"></a>Yönlendirme tablosu oluşturma
 
-Kaç tane yönlendirme tabloları Azure konumu ve abonelik oluşturmak için bir sınır yoktur. Ayrıntılar için [Azure limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) makalesini inceleyin.
+Kaç yönlendirme tablolarını Azure konumu ve abonelik oluşturmak için bir sınır yoktur. Ayrıntılar için [Azure limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) makalesini inceleyin.
 
-1. Portalın sol üst köşede seçin **+ kaynak oluşturma**.
-2. Seçin **ağ**seçeneğini belirleyip **yol tablosu**.
-3. Girin bir **adı** için yol tablosu seçin, **abonelik**, yeni bir **kaynak grubu**, veya var olan bir kaynak grubunu seçin, bir **konumu** seçeneğini belirleyip **oluşturma**. **Devre dışı BGP rota yayma** seçenek, şirket içi yollar BGP aracılığıyla ağ arabirimleri için yol tablosu ilişkili herhangi bir alt ağ için yayılmasını engeller. Sanal ağ (VPN ya da ExpressRoute) bir Azure ağ geçidine bağlı değilse seçeneği bırakın *devre dışı*.
+1. Portalın sol üst köşedeki seçin **+ kaynak Oluştur**.
+2. Seçin **ağ**, ardından **yol tablosu**.
+3. Girin bir **adı** için rota tablosu seçin, **abonelik**, yeni bir **kaynak grubu**, veya mevcut bir kaynak grubunu seçin, bir **konumu** , ardından **Oluştur**. Bir VPN ağ geçidi üzerinden şirket içi ağınıza bağlı sanal ağ içindeki alt ağ yönlendirme tablosunu ilişkilendirme planlıyorsanız ve devre dışı bırakırsanız **BGP yol yaymayı**, şirket içi yollarınızı için yayılmaz alt ağ arabirimleri.
 
 **Komutları**
 
-- Azure CLI: [az ağ rota tablosu oluştur](/cli/azure/network/route-table/route#az_network_route_table_create)
+- Azure CLI: [az ağ yönlendirme tablosu oluşturma](/cli/azure/network/route-table/route#az_network_route_table_create)
 - PowerShell: [AzureRmRouteTable yeni](/powershell/module/azurerm.network/new-azurermroutetable)
 
-## <a name="view-route-tables"></a>Görünüm yönlendirme tabloları
+## <a name="view-route-tables"></a>Görünüm rota tabloları
 
-Portal üstündeki arama kutusuna girin *yol tablosu* arama kutusuna. Zaman **yol tablosu** arama sonuçlarında görünecek, onu seçin. Aboneliğinizde var yönlendirme tabloları listelenir.
+Portalın üst kısmındaki arama kutusuna girin *rota tabloları* arama kutusuna. Zaman **rota tabloları** arama sonuçlarında görünmesini, onu seçin. Aboneliğinizde mevcut rota tabloları listelenir.
 
 **Komutları**
 
-- Azure CLI: [az ağ yol tablosu listesi](/cli/azure/network/route-table/route#az_network_route_table_list)
+- Azure CLI: [az ağ route-table listesi](/cli/azure/network/route-table/route#az_network_route_table_list)
 - PowerShell: [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable)
 
-## <a name="view-details-of-a-route-table"></a>Bir yol tablosu ayrıntılarını görüntüleme
+## <a name="view-details-of-a-route-table"></a>Bir yol tablosu ayrıntılarını görüntüle
 
-1. Portal üstündeki arama kutusuna girin *yol tablosu* arama kutusuna. Zaman **yol tablosu** arama sonuçlarında görünecek, onu seçin.
-2. Yol tablosu ayrıntılarını görüntülemek istediğiniz listeyi seçin. Altında **ayarları**, görüntüleyebileceğiniz **yollar** rota tablosunda ve **alt ağlar** için yol tablosu ilişkilidir.
-3. Ortak Azure ayarları hakkında daha fazla bilgi için aşağıdaki bilgileri bakın:
+1. Portalın üst kısmındaki arama kutusuna girin *rota tabloları* arama kutusuna. Zaman **rota tabloları** arama sonuçlarında görünmesini, onu seçin.
+2. Rota tablosunu ayrıntılarını görüntülemek istediğiniz listeyi seçin. Altında **ayarları**, görüntüleyebileceğiniz **yollar** yol tablosundaki ve **alt ağlar** için rota tablosunu ilişkilidir.
+3. Azure ortak ayarları hakkında daha fazla bilgi için aşağıdaki bilgileri bakın:
     *   [Etkinlik Günlüğü](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
     *   [Erişim denetimi (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
     *   [Etiketler](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Kilitler](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-    *   [Otomasyon komut dosyası](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
+    *   [Otomasyon betiği](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
 **Komutları**
 
-- Azure CLI: [az ağ yönlendirme tablosunu göster](/cli/azure/network/route-table/route#az_network_route_table_show)
+- Azure CLI: [az ağ route-table show](/cli/azure/network/route-table/route#az_network_route_table_show)
 - PowerShell: [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable)
 
 ## <a name="change-a-route-table"></a>Bir yol tablosu değiştirme
 
-1. Portal üstündeki arama kutusuna girin *yol tablosu* arama kutusuna. Zaman **yol tablosu** arama sonuçlarında görünecek, onu seçin.
-2. Değiştirmek istediğiniz yol tablosu seçin. En yaygın değişiklikler [ekleme](#create-a-route) veya [kaldırma](#delete-a-route) yollar ve [ilişkilendirme](#associate-a-route-table-to-a-subnet) yol tablosu için veya [kaldırdıktan](#dissociate-a-route-table-from-a-subnet) yönlendirme tabloları alt ağı.
+1. Portalın üst kısmındaki arama kutusuna girin *rota tabloları* arama kutusuna. Zaman **rota tabloları** arama sonuçlarında görünmesini, onu seçin.
+2. Değiştirmek istediğiniz rota tablosunu seçin. En yaygın değişiklikler [ekleme](#create-a-route) veya [kaldırma](#delete-a-route) yolları ve [ilişkilendirme](#associate-a-route-table-to-a-subnet) rota tabloları için veya [kaldırdıktan](#dissociate-a-route-table-from-a-subnet) rota tabloları alt ağ.
 
 **Komutları**
 
-- Azure CLI: [az ağ yol tablosu güncelleştirme](/cli/azure/network/route-table/route#az_network_route_table_update)
-- PowerShell: [kümesi AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable)
+- Azure CLI: [az ağ route-table update](/cli/azure/network/route-table/route#az_network_route_table_update)
+- PowerShell: [AzureRmRouteTable Ayarla](/powershell/module/azurerm.network/set-azurermroutetable)
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Yönlendirme tablosunu bir alt ağ ile ilişkilendirme
 
-Bir alt ağ için ilişkili sıfır veya bir yol tablosu olabilir. Bir yol tablosu sıfır veya birden çok alt ağlara ilişkili olabilir. Yönlendirme tabloları sanal ağlara ilişkili olmadığından bir yol tablosu ile ilişkili yol tablosu istediğiniz her alt ağa ilişkilendirmeniz gerekir. Alt ağdan çıkan tüm trafik yönlendirme tabloları içinde oluşturduğunuz yollar göre yönlendirilir [varsayılan yollar](virtual-networks-udr-overview.md#default), sanal ağ bağlıysa, bir Azure sanal ağı ağ geçidi (yollar yayıldığı bir şirket içi ağ üzerinden ExpressRoute, veya bir VPN ağ geçidi ile BGP kullanıyorsanız, VPN). Yalnızca bir yol tablosu rota tablosu olarak abonelik ve aynı Azure konumunda bulunan sanal ağlardaki alt ağlara ilişkilendirebilirsiniz.
+Bir alt ağ ile ilişkili sıfır veya bir yol tablosu olabilir. Sıfır veya birden çok alt ağa bir yol tablosu ilişkilendirilebilir. Rota tabloları sanal ağlara ilişkili olmadığından bir yol tablosu ile ilişkili yol tablosuna istediğiniz her bir alt ağa ilişkilendirmeniz gerekir. Alt ağdan çıkan tüm trafiği rota tabloları içinde oluşturulmuş rotalar göre yönlendirilir [varsayılan yolları](virtual-networks-udr-overview.md#default), ve yollar yayılan bir şirket içi ağdan sanal ağa bağlı olması durumunda bir Azure sanal ağ geçidi (için ExpressRoute veya VPN ağ geçidi ile BGP kullanıyorsanız, VPN). Yalnızca bir yol tablosu aynı Azure konumunda ve aboneliğinde yol tablosu olarak mevcut olan sanal ağlardaki alt ağlara ilişkilendirebilirsiniz.
 
-1. Portal üstündeki arama kutusuna girin *sanal ağlar* arama kutusuna. Zaman **sanal ağlar** arama sonuçlarında görünecek, onu seçin.
+1. Portalın üst kısmındaki arama kutusuna girin *sanal ağlar* arama kutusuna. Zaman **sanal ağlar** arama sonuçlarında görünmesini, onu seçin.
 2. Sanal ağ için bir yol tablosu ilişkilendirmek istediğiniz alt ağ içeren listeyi seçin.
 3. Seçin **alt ağlar** altında **ayarları**.
-4. Yol tablosu ilişkilendirmek istediğiniz alt ağ seçin.
-5. Seçin **yol tablosu**, istediğiniz alt ağa ilişkilendirin ve ardından seçmek için yol tablosu seçin **kaydetmek**.
+4. Rota tablosunu ilişkilendirmek istediğiniz alt ağ seçin.
+5. Seçin **yol tablosu**, istediğiniz alt ağ ile ilişkilendirin ve ardından seçmek için rota tablosu seçin **Kaydet**.
 
-Sanal ağınız bir Azure VPN ağ geçidine bağlıysa, rota tablosunu 0.0.0.0/0 hedefine sahip bir rota içeren [ağ geçidi alt ağına](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) ilişkilendirmeyin. Bunun yapılması, ağ geçidinin düzgün çalışmasını engelleyebilir. Bir rota 0.0.0.0/0 kullanma hakkında daha fazla bilgi için bkz: [sanal ağ trafiği yönlendirmesini](virtual-networks-udr-overview.md#default-route).
+Sanal ağınız bir Azure VPN ağ geçidine bağlıysa, rota tablosunu 0.0.0.0/0 hedefine sahip bir rota içeren [ağ geçidi alt ağına](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) ilişkilendirmeyin. Bunun yapılması, ağ geçidinin düzgün çalışmasını engelleyebilir. Bir yolda 0.0.0.0/0 kullanma hakkında daha fazla bilgi için bkz. [sanal ağ trafiği yönlendirme](virtual-networks-udr-overview.md#default-route).
 
 **Komutları**
 
 - Azure CLI: [az ağ sanal ağ alt ağı güncelleştirme](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update)
-- PowerShell: [kümesi AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
+- PowerShell: [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
 
 ## <a name="dissociate-a-route-table-from-a-subnet"></a>Bir yol tablosu bir alt ağdan ilişkilendirmesini Kaldır
 
-Bir yol tablosu bir alt ağdan ilişkilendirmesini kaldırmanız, Azure temel trafiğini yönlendiren kendi [varsayılan yollar](virtual-networks-udr-overview.md#default).
+Bir alt ağdan bir yol tablosu ile ilişkisini kaldırma, Azure temel trafiği yönlendirir, [varsayılan yolları](virtual-networks-udr-overview.md#default).
 
-1. Portal üstündeki arama kutusuna girin *sanal ağlar* arama kutusuna. Zaman **sanal ağlar** arama sonuçlarında görünecek, onu seçin.
+1. Portalın üst kısmındaki arama kutusuna girin *sanal ağlar* arama kutusuna. Zaman **sanal ağlar** arama sonuçlarında görünmesini, onu seçin.
 2. Bir rota tablosundan ilişkilendirmesini kaldırmak istediğiniz alt ağ içeren sanal ağı seçin.
 3. Seçin **alt ağlar** altında **ayarları**.
 4. Rota tablosundan ilişkilendirmesini kaldırmak istediğiniz alt ağ seçin.
-5. Seçin **yol tablosu**seçin **hiçbiri**seçeneğini belirleyip **kaydetmek**.
+5. Seçin **yol tablosu**seçin **hiçbiri**, ardından **Kaydet**.
 
 **Komutları**
 
 - Azure CLI: [az ağ sanal ağ alt ağı güncelleştirme](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update)
-- PowerShell: [kümesi AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) 
+- PowerShell: [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) 
 
-## <a name="delete-a-route-table"></a>Bir yol tablosu Sil
+## <a name="delete-a-route-table"></a>Rota tablosunu sil
 
-Hiçbir alt ağ için bir yol tablosu ilişkiliyse, silinemez. [İlişkilendirmesini](#dissociate-a-route-table-from-a-subnet) silmeye çalışmadan önce tüm alt rota tablosundan.
+Hiçbir alt ağ için bir yol tablosu ilişkiliyse, bu komut dosyası silinemiyor. [İlişkisini](#dissociate-a-route-table-from-a-subnet) silmeye çalışmadan önce tüm alt ağların yol tablosundan.
 
-1. Portal üstündeki arama kutusuna girin *yol tablosu* arama kutusuna. Zaman **yol tablosu** arama sonuçlarında görünecek, onu seçin.
-2. Seçin **...**  silmek için rota tablosunu sağ tarafında.
-3. Seçin **silmek**ve ardından **Evet**.
+1. Portalın üst kısmındaki arama kutusuna girin *rota tabloları* arama kutusuna. Zaman **rota tabloları** arama sonuçlarında görünmesini, onu seçin.
+2. Seçin **...**  silmek istediğiniz yol tablosuna sağ tarafında.
+3. Seçin **Sil**ve ardından **Evet**.
 
 **Komutları**
 
-- Azure CLI: [az ağ rota-tablo silme](/cli/azure/network/route-table/route#az_network_route_table_delete)
+- Azure CLI: [az ağ route-table delete](/cli/azure/network/route-table/route#az_network_route_table_delete)
 - PowerShell: [AzureRmRouteTable Sil](/powershell/module/azurerm.network/delete-azurermroutetable) 
 
 ## <a name="create-a-route"></a>Yönlendirme oluşturma
 
-Yol tablosu başına kaç tane rota Azure konumu ve abonelik oluşturabilmeniz için bir sınır yoktur. Ayrıntılar için [Azure limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) makalesini inceleyin.
+Yol tablosu başına kaç rota Azure konumu ve abonelik oluşturabilmeniz için bir sınır yoktur. Ayrıntılar için [Azure limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) makalesini inceleyin.
 
-1. Portal üstündeki arama kutusuna girin *yol tablosu* arama kutusuna. Zaman **yol tablosu** arama sonuçlarında görünecek, onu seçin.
-2. Yol tablosu bir rotaya eklemek istediğiniz listeyi seçin.
+1. Portalın üst kısmındaki arama kutusuna girin *rota tabloları* arama kutusuna. Zaman **rota tabloları** arama sonuçlarında görünmesini, onu seçin.
+2. Yol tablosu bir yol eklemek istediğiniz listeyi seçin.
 3. Seçin **yollar**altında **ayarları**.
 4. **+ Ekle** öğesini seçin.
-5. Benzersiz bir girin **adı** rota tablosu içindeki rota için.
-6. Girin **adres ön eki**, trafiğini yönlendirmek istediğiniz CIDR gösteriminde. Önek içinde başka bir önek olabilir ancak önek rota tablosu içindeki birden fazla yol çoğaltılamaz. Örneğin, bir rota öneki olarak 10.0.0.0/16 tanımlanmışsa 10.0.0.0/24 adres ön ekine sahip başka bir yol tanımlayabilirsiniz. Azure üzerinde en uzun ön ek eşleşmesi göre trafiği için bir rota seçer. Azure yollar nasıl seçtiği hakkında daha fazla bilgi için bkz: [yönlendirmeye genel bakış](virtual-networks-udr-overview.md#how-azure-selects-a-route).
-7. Seçin bir **sonraki atlama türü**. Tüm sonraki atlama türlerini ayrıntılı bir açıklaması için bkz: [yönlendirmeye genel bakış](virtual-networks-udr-overview.md).
-8. İçin bir IP adresi girin **sonraki atlama adresi**. Seçtiyseniz, yalnızca bir adres girebilirsiniz *sanal Gereci* için **sonraki atlama türü**.
+5. Benzersiz bir girin **adı** için rota tablosu içindeki rota.
+6. Girin **adres ön eki**, trafiği yönlendirmek için istediğiniz CIDR gösteriminde. Önek içinde başka bir önek olabilir ancak rota tablosu içindeki birden fazla yol ön eki çoğaltılamaz. Örneğin, tek bir yol ön eki olarak 10.0.0.0/16 tanımlı değilse, başka bir yol 10.0.0.0/24 adres ön eki ile tanımlayabilirsiniz. Azure en uzun ön ek eşleşmesini alarak trafiği için bir yol seçer. Azure yolların nasıl seçtiği hakkında daha fazla bilgi için bkz: [yönlendirmeye genel bakış](virtual-networks-udr-overview.md#how-azure-selects-a-route).
+7. Seçin bir **sonraki atlama türü**. Tüm sonraki atlama türleri ayrıntılı bir açıklaması için bkz. [yönlendirmeye genel bakış](virtual-networks-udr-overview.md).
+8. İçin bir IP adresi girin **sonraki atlama adresi**. Seçtiyseniz, yalnızca bir adresi girebilirsiniz *sanal gereç* için **sonraki atlama türü**.
 9. **Tamam**’ı seçin.
 
 **Komutları**
 
-- Azure CLI: [az ağ yol tablosu yol oluşturma](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_create)
+- Azure CLI: [az ağ route-table route oluşturma](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_create)
 - PowerShell: [AzureRmRouteConfig yeni](/powershell/module/azurerm.network/new-azurermrouteconfig)
 
 ## <a name="view-routes"></a>Görünüm yolları
 
-Bir rota tablosu sıfır veya birden çok yolları içerir. Yollar görüntülerken listelenen bilgileri hakkında daha fazla bilgi için bkz: [yönlendirmeye genel bakış](virtual-networks-udr-overview.md).
+Bir yol tablosu, sıfır veya birden çok yol içerir. Yollar görüntülerken listelenen bilgiler hakkında daha fazla bilgi için bkz. [yönlendirmeye genel bakış](virtual-networks-udr-overview.md).
 
-1. Portal üstündeki arama kutusuna girin *yol tablosu* arama kutusuna. Zaman **yol tablosu** arama sonuçlarında görünecek, onu seçin.
-2. Yol tablosu yollar için görüntülemek istediğiniz listeyi seçin.
+1. Portalın üst kısmındaki arama kutusuna girin *rota tabloları* arama kutusuna. Zaman **rota tabloları** arama sonuçlarında görünmesini, onu seçin.
+2. Yol tablosu yolları için görüntülemek istediğiniz listeyi seçin.
 3. Seçin **yollar** altında **ayarları**.
 
 **Komutları**
 
-- Azure CLI: [az ağ yol tablosu rota listesi](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_list)
+- Azure CLI: [az ağ route-table route listesi](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_list)
 - PowerShell: [Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
 
 ## <a name="view-details-of-a-route"></a>Bir yolun ayrıntılarını görüntüleme
 
-1. Portal üstündeki arama kutusuna girin *yol tablosu* arama kutusuna. Zaman **yol tablosu** arama sonuçlarında görünecek, onu seçin.
-2. İçin bir rota ayrıntılarını görüntülemek istediğiniz yol tablosu seçin.
+1. Portalın üst kısmındaki arama kutusuna girin *rota tabloları* arama kutusuna. Zaman **rota tabloları** arama sonuçlarında görünmesini, onu seçin.
+2. İçin bir yol ayrıntılarını görüntülemek istediğiniz rota tablosunu seçin.
 3. Seçin **yollar**.
 4. Ayrıntılarını görüntülemek istediğiniz yolu seçin.
 
 **Komutları**
 
-- Azure CLI: [az ağ yol tablosu rota Göster](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_show)
+- Azure CLI: [az ağ route-table route show](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_show)
 - PowerShell: [Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
 
 ## <a name="change-a-route"></a>Bir rota değiştirme
 
-1. Portal üstündeki arama kutusuna girin *yol tablosu* arama kutusuna. Zaman **yol tablosu** arama sonuçlarında görünecek, onu seçin.
-2. Bir rota için değiştirmek istediğiniz yol tablosu seçin.
+1. Portalın üst kısmındaki arama kutusuna girin *rota tabloları* arama kutusuna. Zaman **rota tabloları** arama sonuçlarında görünmesini, onu seçin.
+2. Bir rota için değiştirmek istediğiniz rota tablosunu seçin.
 3. Seçin **yollar**.
 4. Değiştirmek istediğiniz yolu seçin.
-5. Yeni ayarlarına varolan ayarlarını değiştirin ve ardından **kaydetmek**.
+5. Yeni ayarlarına varolan ayarları değiştirin ve ardından **Kaydet**.
 
 **Komutları**
 
-- Azure CLI: [az ağ yol tablosu rota güncelleştirme](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_update)
+- Azure CLI: [az ağ route-table route update](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_update)
 - PowerShell: [Set-AzureRmRouteConfig](/powershell/module/azurerm.network/set-azurermrouteconfig)
 
 ## <a name="delete-a-route"></a>Bir rota Sil
 
-1. Portal üstündeki arama kutusuna girin *yol tablosu* arama kutusuna. Zaman **yol tablosu** arama sonuçlarında görünecek, onu seçin.
-2. Bir rota için silmek istediğiniz yol tablosu seçin.
+1. Portalın üst kısmındaki arama kutusuna girin *rota tabloları* arama kutusuna. Zaman **rota tabloları** arama sonuçlarında görünmesini, onu seçin.
+2. Bir rota için silmek istediğiniz rota tablosunu seçin.
 3. Seçin **yollar**.
-4. Yollar listesinden seçin **...**  silmek istediğiniz yolun sağ taraftaki.
-5. Seçin **silmek**seçeneğini belirleyip **Evet**.
+4. Rota listesinden **...**  chcete odstranit yolun sağ taraftaki.
+5. Seçin **Sil**, ardından **Evet**.
 
 **Komutları**
 
-- Azure CLI: [az ağ yol tablosu rota Sil](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_delete)
+- Azure CLI: [az ağ route-table route delete](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_delete)
 - PowerShell: [Remove-AzureRmRouteConfig](/powershell/module/azurerm.network/remove-azurermrouteconfig)
 
-## <a name="view-effective-routes"></a>Görünüm etkili yolları
+## <a name="view-effective-routes"></a>Geçerli yollar bölümünü inceleyin
 
-Etkin bir sanal makineye bağlı her ağ arabirimi için oluşturduğunuz yol tablolarını birleşimi, Azure'nın varsayılan yolların ve ağlardan şirket içi BGP aracılığıyla bir Azure sanal ağı ağ geçidi üzerinden yayılan yollar yollardır. Bir ağ arabirimi için etkili rotaları anlama yönlendirme sorunlarını gidermede yardımcı olur. Çalışan bir sanal makineye bağlı herhangi bir ağ arabirimi için etkili rotaları görüntüleyebilirsiniz.
+Bir sanal makineye bağlı her ağ arabirimi için geçerli rotalar oluşturduğunuz rota tabloları birleşimi, Azure'nın varsayılan yollarını ve ağlardan şirket içi BGP üzerinden bir Azure sanal ağ geçidinden yayılan her yol ' dir. Bir ağ arabirimi için geçerli rotalar anlama yönlendirme sorunları giderirken yararlıdır. Çalışan bir sanal makineye bağlı her ağ arabirimi için geçerli rotalar görüntüleyebilirsiniz.
 
-1. Portal üstündeki arama kutusuna, etkili yollar için görüntülemek istediğiniz bir sanal makine adını girin. Bir sanal makinenin adını bilmiyorsanız, girin *sanal makineleri* arama kutusuna. Zaman **sanal makineleri** arama sonuçlarında görünecek, onu seçin ve listeden bir sanal makineyi seçin.
+1. Portalın üst kısmındaki arama kutusuna, geçerli rotalar için görüntülemek istediğiniz bir sanal makine adını girin. Bir sanal makinenin adını bilmiyorsanız, girin *sanal makineler* arama kutusuna. Zaman **sanal makineler** arama sonuçlarında görünmesini, onu seçin ve listeden bir sanal makine seçin.
 2. Seçin **ağ** altında **ayarları**.
-3. Bir ağ arabirimi adı seçin.
-4. Seçin **etkili yolları** altında **destek + sorun giderme**.
-5. Doğru yol trafiği yönlendirmek istediğiniz için olup olmadığını belirlemek için etkili yolların listesini gözden geçirin. Bu listede gördüğünüz sonraki atlama türlerini hakkında daha fazla bilgi [yönlendirmeye genel bakış](virtual-networks-udr-overview.md).
+3. Bir ağ arabirimi adını seçin.
+4. Seçin **geçerli rotalar** altında **destek + sorun giderme**.
+5. Doğru yol, trafiği yönlendirmek istediğiniz için olup olmadığını belirlemek için geçerli rotalar listesini gözden geçirin. Bu listede görmek sonraki atlama türleri hakkında daha fazla bilgi [yönlendirmeye genel bakış](virtual-networks-udr-overview.md).
 
 **Komutları**
 
-- Azure CLI: [az ağ NIC Göster-etkin-yol-tablosu](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_show_effective_route_table)
+- Azure CLI: [az network nic show-etkin-yönlendirme-tablosunu](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_show_effective_route_table)
 - PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
 
-## <a name="validate-routing-between-two-endpoints"></a>İki uç noktaları arasında yönlendirme doğrula
+## <a name="validate-routing-between-two-endpoints"></a>İki uç nokta arasında yönlendirme doğrula
 
-Bir sanal makine ve başka bir Azure kaynak, bir şirket içi kaynağa ya da Internet üzerindeki bir kaynak IP adresi arasındaki sonraki atlama türü belirleyebilirsiniz. Belirleme Azure'nın yönlendirme yönlendirme sorunlarını gidermede yardımcı olur. Bu görevi tamamlamak için var olan bir Ağ İzleyicisi olması gerekir. Varolan bir Ağ İzleyicisi yoksa, içindeki adımları tamamlayarak oluşturmak [bir Ağ İzleyicisi örneği oluşturmayı](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Sonraki atlama türü arasında bir sanal makine ve başka bir Azure kaynak, bir şirket içi kaynağa ya da Internet üzerindeki bir kaynağa IP adresini saptayabilirsiniz. Belirleme Azure'nın yönlendirme yönlendirme sorunları giderirken yararlıdır. Bu görevi tamamlamak için var olan bir Ağ İzleyicisi olması gerekir. Var olan bir Ağ İzleyicisi yoksa, oluşturmak adımları tamamlayarak [Ağ İzleyicisi örneği oluşturma](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-1. Portal üstündeki arama kutusuna girin *Ağ İzleyicisi* arama kutusuna. **Ağ İzleyicisi**, arama sonuçlarında görüntülendiğinde seçin.
+1. Portalın üst kısmındaki arama kutusuna girin *Ağ İzleyicisi* arama kutusuna. **Ağ İzleyicisi**, arama sonuçlarında görüntülendiğinde seçin.
 2. Seçin **sonraki atlama** altında **Ağ Tanılama Araçları**.
-3. Seçin, **abonelik** ve **kaynak grubu** gelen yönlendirme doğrulamak istediğiniz kaynak sanal makinesini.
-4. Seçin **sanal makine**, **ağ arabirimi** sanal makineye bağlı ve **kaynak IP adresi** doğrulamak istediğiniz ağ arabirimine atanmış gelen yönlendirme.
+3. Seçin, **abonelik** ve **kaynak grubu** gelen yönlendirme doğrulamak istediğiniz kaynak sanal makinenin.
+4. Seçin **sanal makine**, **ağ arabirimi** sanal makineye bağlı ve **kaynak IP adresi** doğrulamak istediğiniz ağ arabirimine atanan gelen yönlendirme.
 5. Girin **hedef IP adresi** yönlendirme doğrulamak istediğiniz.
 6. Seçin **sonraki atlama**.
-7. Kısa bir bekleme, sonraki atlama türü ve trafiği yönlendirilmiş yol Kimliğini belirten bilgi döndürülür. Döndürülen gördüğünüz sonraki atlama türleri hakkında daha fazla bilgi [yönlendirmeye genel bakış](virtual-networks-udr-overview.md).
+7. Kısa bir beklemeden sonra başarılı olduğunu, sonraki atlama türü ve trafik yönlendirilmiş yol kimliği anlatan bilgi döndürülür. Döndürülen gördüğünüz sonraki atlama türleri hakkında daha fazla bilgi [yönlendirmeye genel bakış](virtual-networks-udr-overview.md).
 
 **Komutları**
 
-- Azure CLI: [az Ağ İzleyicisi Göster sonraki atlama](/cli/azure/network/watcher?view=azure-cli-latest#az_network_watcher_show_next_hop)
+- Azure CLI: [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest#az_network_watcher_show_next_hop)
 - PowerShell: [Get-AzureRmNetworkWatcherNextHop](/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) 
 
 ## <a name="permissions"></a>İzinler
 
-Yönlendirme tabloları ve yollar görevleri gerçekleştirmek için hesabınızı atanmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolü veya bir [özel](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) uygun eylemleri atanan rolü aşağıdaki tabloda listelenen:
+Rota tabloları ve yollar görevleri gerçekleştirmek için hesabınızı atanmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolü veya bir [özel](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) uygun eylemleri atanan rolü aşağıdaki tabloda listelenen:
 
 | Eylem                                                          |   Ad                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
-| Microsoft.Network/routeTables/read                              |   Bir yol tablosu okuma                                    |
+| Microsoft.Network/routeTables/read                              |   Bir yol tablosu okuyun                                    |
 | Microsoft.Network/routeTables/write                             |   Bir yol tablosu güncelle                        |
-| Microsoft.Network/routeTables/delete                            |   Bir yol tablosu Sil                                  |
+| Microsoft.Network/routeTables/delete                            |   Rota tablosunu sil                                  |
 | Microsoft.Network/routeTables/join/action                       |   Yönlendirme tablosunu bir alt ağ ile ilişkilendirme                   |
-| Microsoft.Network/routeTables/routes/read                       |   Bir rota Okuma                                          |
-| Microsoft.Network/routeTables/routes/write                      |   Bir yol oluştur veya güncelleştir                              |
+| Microsoft.Network/routeTables/routes/read                       |   Bir rota okuyun                                          |
+| Microsoft.Network/routeTables/routes/write                      |   Bir rota güncelle                              |
 | Microsoft.Network/routeTables/routes/delete                     |   Bir rota Sil                                        |
-| Microsoft.Network/networkInterfaces/effectiveRouteTable/action  |   Ağ arabirimi için etkin yönlendirme tablosu alma |
-| Microsoft.Network/networkWatchers/nextHop/action                |   Bir sanal makineden sonraki atlama alır                           |
+| Microsoft.Network/networkInterfaces/effectiveRouteTable/action  |   Bir ağ arabirimi için geçerli bir rota tablosunu alın |
+| Microsoft.Network/networkWatchers/nextHop/action                |   Sonraki atlama bir VM'den alır                           |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Kullanarak bir rota tablosu oluşturmak [PowerShell](powershell-samples.md) veya [Azure CLI](cli-samples.md) örnek komut dosyaları veya Azure kullanarak [Resource Manager şablonları](template-samples.md)
-- Oluşturma ve uygulama [Azure ilke](policy-samples.md) sanal ağlar için
+- Kullanarak bir yönlendirme tablosu oluşturma [PowerShell](powershell-samples.md) veya [Azure CLI](cli-samples.md) örnek komut dosyaları veya Azure kullanarak [Resource Manager şablonları](template-samples.md)
+- Oluşturma ve uygulama [Azure İlkesi](policy-samples.md) sanal ağlar için

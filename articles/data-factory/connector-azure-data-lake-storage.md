@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 172747032990bb16d19ecf9d53adbd3da2f5887c
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 65495209714c37e5e166545ed7ed029e36c258c0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592066"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42056728"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-preview-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Azure Data Lake depolama Gen2 önizlemesi için veya veri kopyalama
 
@@ -33,7 +33,7 @@ Data Lake depolama 2. nesil için herhangi bir desteklenen kaynak veri deposunda
 - Dosyaları olarak kopyalama-ayrıştırma veya ile dosya oluşturma [desteklenen dosya biçimleri ve codec sıkıştırma](supported-file-formats-and-compression-codecs.md).
 
 >[!TIP]
->Hiyerarşik ad alanı etkinleştirirseniz, şu anda yoktur arasında Blob ve ADLS Gen2 API işlemlerinin hiçbir birlikte çalışabilirlik. Hatayı isabet durumunda "hata kodu FilesystemNotFound =" ayrıntılı bir ileti ile "Belirtilen dosya yok.", belirtilen havuz kaynaklanır dosya sistemi oluşturulduğu ADLS Gen2 API yerine Blob API aracılığıyla başka bir yerde. Bu sorunu düzeltmek için lütfen varolmayan dosya sistemi adı kullanın ve ADF veri düzgün kopyalayacak.
+>Hiyerarşik ad alanı etkinleştirirseniz, şu anda yoktur arasında Blob ve ADLS Gen2 API işlemlerinin hiçbir birlikte çalışabilirlik. Hatayı isabet durumunda "hata kodu FilesystemNotFound =" ayrıntılı bir ileti ile "Belirtilen dosya yok.", belirtilen havuz kaynaklanır dosya sistemi oluşturulduğu ADLS Gen2 API yerine Blob API aracılığıyla başka bir yerde. Bu sorunu düzeltmek için lütfen bir Blob kapsayıcısı adı olarak var olmayan bir ada sahip yeni bir dosya sistemi belirtin ve ADF otomatik olarak veri kopyalama sırasında o dosya sistemi oluşturur.
 
 ## <a name="get-started"></a>başlarken
 

@@ -1,6 +1,6 @@
 ---
-title: Bing yükseltme Video API v5'e v7 | Microsoft Docs
-description: Sürüm 7 kullanacak şekilde güncelleştirmeniz gerekir uygulamanızın parçalarını tanımlar.
+title: Bing yükseltme v7 için Video API'si v5 | Microsoft Docs
+description: Sürüm 7 kullanılacak güncelleştirmeye gerek duyduğunuz uygulamanızın parçalarını tanıtır.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
@@ -10,43 +10,43 @@ ms.component: bing-video-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 62646d026e141d0549c68e18f9318fa32d3e00df
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: db1bc07c06f3d073b6cc0f206620e50a5f048e2a
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351640"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41987588"
 ---
-# <a name="video-search-api-upgrade-guide"></a>Video arama API Yükseltme Kılavuzu
+# <a name="video-search-api-upgrade-guide"></a>Video arama API'si Yükseltme Kılavuzu
 
-Bu Yükseltme Kılavuzu sürüm 5 ve sürüm 7 Bing Video arama API arasındaki değişiklikleri tanımlar. Sürüm 7 kullanacak şekilde güncelleştirmeniz gerekir uygulamanızın parçalarını tanımlamanıza yardımcı olması için bu kılavuzu kullanın.
+Bu Yükseltme Kılavuzu, sürüm 5 ve Bing Video arama API'si 7 sürümü arasındaki değişiklikleri tanımlar. Sürüm 7 kullanılacak güncelleştirmeye gerek duyduğunuz uygulamanızın parçalarını tanımlamanıza yardımcı olması için bu kılavuzu kullanın.
 
 ## <a name="breaking-changes"></a>Hataya neden olan değişiklikler
 
 ### <a name="endpoints"></a>Uç Noktalar
 
-- Uç noktanın sürüm numarası v5 v7 için değişir. Örneğin, https://api.cognitive.microsoft.com/bing/\ * \*v7.0**/videos/search.
+- Uç noktanın sürüm numarası için v7 v5 değiştirildi. Örneğin, `https://api.cognitive.microsoft.com/bing/v7.0/videos/search`.
 
 ### <a name="error-response-objects-and-error-codes"></a>Hata yanıtı nesneleri ve hata kodları
 
-- Başarısız olan tüm istekleri artık içermelidir bir `ErrorResponse` yanıt gövdesi nesne.
+- Tüm başarısız istekler şimdi içermelidir bir `ErrorResponse` yanıt gövdesinde bir nesne.
 
-- Aşağıdaki alanları eklenen `Error` nesnesi.  
-  - `subCode`&mdash;Hata kodu ayrık demet mümkünse bölümleri
-  - `moreDetails`&mdash;Açıklanan hatayla ilgili ek bilgileri `message` alan
+- Aşağıdaki alanları eklenen `Error` nesne.  
+  - `subCode`&mdash;Hata kodu ayrık demetlerin içine mümkünse bölümleri
+  - `moreDetails`&mdash;İçinde açıklanan hata hakkında ek bilgi `message` alan
    
 
-- Aşağıdaki olası ile v5 hata kodları yerini `code` ve `subCode` değerleri.
+- V5 hata kodları ile aşağıdaki olası yerine `code` ve `subCode` değerleri.
 
-|Kod|Alt kod|Açıklama
+|Kod|Alt|Açıklama
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>Uygulanmadı|Alt kod koşullardan herhangi biri gerçekleştiğinde Bing ServerError döndürür. HTTP durum kodu 500 ise yanıt bu hataları içeriyor.
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Engellendi|İstek, herhangi bir bölümünü geçersiz olduğunda Bing InvalidRequest döndürür. Örneğin, gerekli bir parametre eksik veya bir parametre değeri geçerli değil.<br/><br/>Hata ParameterMissing veya ParameterInvalidValue ise, HTTP durum kodu 400 ' dir.<br/><br/>Hata HttpNotAllowed ise, HTTP durum 410 kodu.
-|RateLimitExceeded||Sorgular (QPS) saniyede veya sorguları her ay (QPM) kota aştıklarında Bing RateLimitExceeded döndürür.<br/><br/>QPM aşılırsa QPS ve 403 aşılırsa Bing HTTP durum kodu 429 döndürür.
-|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing çağıran doğrulayamadığında Bing InvalidAuthorization döndürür. Örneğin, `Ocp-Apim-Subscription-Key` üstbilgisi eksik veya abonelik anahtarı geçerli değil.<br/><br/>Birden fazla kimlik doğrulama yöntemini belirtirseniz, artıklık oluşur.<br/><br/>Hata InvalidAuthorization, HTTP durum kodunu 401 ise.
-|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Arayan kaynağa erişim izni olmadığında Bing InsufficientAuthorization döndürür. Abonelik anahtarı devre dışı bırakılmış veya süresi dolmuş bu durum ortaya çıkabilir. <br/><br/>Hata InsufficientAuthorization, HTTP durum kodu 403 ise.
+|ServerError|UnexpectedError<br/>ResourceError<br/>Uygulanmadı|Alt kod koşullardan herhangi biri gerçekleştiğinde Bing ServerError döndürür. HTTP durum kodunu 500 ise yanıt bu hataları içeriyor.
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Engellendi|Her isteğin herhangi bir bölümü geçerli değil Bing InvalidRequest döndürür. Örneğin, bir gerekli parametre eksik veya bir parametre değeri geçerli değil.<br/><br/>Hata ParameterMissing veya ParameterInvalidValue ise, HTTP durum kodu 400 ' dir.<br/><br/>Hata HttpNotAllowed ise, HTTP durumu 410 kod.
+|RateLimitExceeded||/ Saniye (QPS) sorguları veya sorgu başına aylık (QPM) kota aştığında Bing RateLimitExceeded döndürür.<br/><br/>Bing QPM aşılırsa QPS ve 403 aşıldı HTTP durum kodu 429 döndürür.
+|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing çağıran doğrulandığında Bing InvalidAuthorization döndürür. Örneğin, `Ocp-Apim-Subscription-Key` üstbilgisi eksik veya abonelik anahtarı geçerli değil.<br/><br/>Birden fazla kimlik doğrulama yöntemi belirtmek, yedeklilik meydana gelir.<br/><br/>Hata InvalidAuthorization ise, HTTP durum kodunu 401 ' dir.
+|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Çağıran kaynağa erişmek için izinlere sahip olmadığı durumlarda Bing InsufficientAuthorization döndürür. Bu abonelik anahtarını devre dışı bırakıldı veya süresi ortaya çıkabilir. <br/><br/>Hata InsufficientAuthorization, HTTP durum kodu 403 ise.
 
-- Aşağıdaki önceki hata kodları yeni kodları eşler. Bir bağımlılık v5 hata kodlarını ayırdıktan, kodunuzu gerektiği gibi güncelleştirin.
+- Aşağıdaki yeni kodları için önceki hata kodlarını eşler. Bir bağımlılık v5 hata kodlarıyla ilgili zamandaki, kodunuzu buna göre güncelleştirin.
 
 |Sürüm 5 kodu|Sürüm 7 code.subCode
 |-|-
@@ -71,11 +71,11 @@ Engellendi|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>Sorgu parametreleri
 
-- Yeniden adlandırılmış `modulesRequested` sorgu parametresi için [modülleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested).  
+- Yeniden adlandırılan `modulesRequested` sorgu parametresi için [modülleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested).  
 
 ### <a name="object-changes"></a>Nesnesi değişiklikleri
 
-- Yeniden adlandırılmış `nextOffsetAddCount` alanını [videolar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) için `nextOffset`. Uzaklık kullanımınızı de değişti. Daha önce ayarlamalısınız [uzaklık](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#offset) sorgu parametresi için `nextOffset` değeri artı önceki uzaklık değeri artı videolar sonuç sayısı. Şimdi, yalnızca ayarladığınız `offset` sorgu parametresi için `nextOffset` değeri.  
+- Yeniden adlandırılan `nextOffsetAddCount` alanını [videoları](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) için `nextOffset`. Uzaklık kullanma biçimini de değişti. Daha önce ayarlarsınız [uzaklığı](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#offset) sorgu parametresi için `nextOffset` değeri artı önceki uzaklık değeri artı video sonuç sayısı. Artık, yalnızca ayarladığınız `offset` sorgu parametresi için `nextOffset` değeri.  
   
-- Veri türü değiştirildi `relatedVideos` alanının `Video[]` için [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videosmodule) (bkz [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails)).
+- Veri türü değiştirildi `relatedVideos` alanını `Video[]` için [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videosmodule) (bkz [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails)).
 

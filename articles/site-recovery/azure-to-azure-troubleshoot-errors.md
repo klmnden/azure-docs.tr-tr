@@ -7,14 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: a41cd658060ef92efb0fc21a98ca616276378c5e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 86d6c77dab817cf755c34bdd699ee1158e852f37
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113863"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42056717"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure'dan Azure'a VM çoğaltmayla sorunları giderme
 
@@ -148,12 +148,44 @@ SuSE Linux sertifika listesini korumak için çözümlemeyin kullandığından, 
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Site Recovery hizmeti URL'lerine veya IP aralıkları (hata kodu 151037 veya 151072) için giden bağlantı
 
-Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP aralıkları VM'den gerekli. Sanal makinenize bir güvenlik duvarının arkasındaysa ya da giden bağlantıyı denetlemek için ağ güvenlik grubu (NSG) kuralları kullanıyorsa, aşağıdaki hata iletilerinden birini görebilirsiniz:
+Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP aralıkları VM'den gerekli. Sanal makinenize bir güvenlik duvarının arkasındaysa ya da giden bağlantıyı denetlemek için ağ güvenlik grubu (NSG) kuralları kullanıyorsa bu sorunlardan biri karşılaşıyor.
 
-**Hata kodları** | **Olası nedenler** | **Öneriler**
---- | --- | ---
-151037<br></br>**İleti**: Azure sanal makinesi Site Recovery'ye kaydetmek için başarısız oldu. | -NSG giden erişimi denetlemek için kullanmakta olduğunuz VM ve gerekli IP aralıkları giden erişim için izin verilenler listesinde değil.</br></br>-Üçüncü taraf güvenlik duvarı araçları kullanıyorsanız ve gerekli IP aralıkları/URL'ler izin verilenler listesinde değil.</br>| -VM üzerinde giden ağ bağlantısını denetlemek için güvenlik duvarı proxy'si kullanıyorsanız, önkoşul URL'leri veya veri merkezi IP aralıkları'nın izin verilenler listesinde olduğundan emin olun. Bilgi için [güvenlik duvarı proxy Kılavuzu](https://aka.ms/a2a-firewall-proxy-guidance).</br></br>-VM üzerinde giden ağ bağlantısını denetlemek için NSG kuralları'nı kullanıyorsanız, önkoşul veri merkezi IP aralıklarının Güvenilenler listesinde olduğundan emin olun. Bilgi için [ağ güvenlik grubu Kılavuzu](https://aka.ms/a2a-nsg-guidance).
-151072<br></br>**İleti**: Site Recovery yapılandırması başarısız oldu. | Site Recovery Hizmeti uç noktalarına bağlantı kurulamıyor. | -VM üzerinde giden ağ bağlantısını denetlemek için güvenlik duvarı proxy'si kullanıyorsanız, önkoşul URL'leri veya veri merkezi IP aralıkları'nın izin verilenler listesinde olduğundan emin olun. Bilgi için [güvenlik duvarı proxy Kılavuzu](https://aka.ms/a2a-firewall-proxy-guidance).</br></br>-VM üzerinde giden ağ bağlantısını denetlemek için NSG kuralları'nı kullanıyorsanız, önkoşul veri merkezi IP aralıklarının Güvenilenler listesinde olduğundan emin olun. Bilgi için [ağ güvenlik grubu Kılavuzu](https://aka.ms/a2a-nsg-guidance).
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151037-br"></a>1 sorunu: Azure sanal makinesi (151037) Site Recovery ile kayıt olamadı </br>
+- **Olası nedeni** </br>
+  - Giden erişimi denetlemek için NSG kullanmakta olduğunuz VM ve gerekli IP aralıkları giden erişim için izin verilenler listesinde değil.
+  - Üçüncü taraf güvenlik duvarı araçları kullanıyorsanız ve gerekli IP aralıkları/URL'ler izin verilenler listesinde değil.
+
+
+- **Çözümleme**
+   - VM üzerinde giden ağ bağlantısını denetlemek için güvenlik duvarı proxy'si kullanıyorsanız önkoşul URL'leri veya veri merkezi IP aralıkları'nın izin verilenler listesinde olduğundan emin olun. Bilgi için [güvenlik duvarı proxy Kılavuzu](https://aka.ms/a2a-firewall-proxy-guidance).
+   - VM üzerinde giden ağ bağlantısını denetlemek için NSG kurallarını kullanıyorsanız önkoşul veri merkezi IP aralıklarının Güvenilenler listesinde olduğundan emin olun. Bilgi için [ağ güvenlik grubu Kılavuzu](https://aka.ms/a2a-nsg-guidance).
+   - Güvenilir listeye eklenecek [gerekli URL'leri](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) veya [gerekli IP aralıkları](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), adımları [ağ rehberi belgesi](site-recovery-azure-to-azure-networking-guidance.md).
+
+### <a name="issue-2-site-recovery-configuration-failed-151072"></a>Sorun 2: (151072) Site Recovery yapılandırması başarısız oldu
+- **Olası nedeni** </br>
+  - Site Recovery Hizmeti uç noktalarına bağlantı kurulamıyor
+
+
+- **Çözümleme**
+   - VM üzerinde giden ağ bağlantısını denetlemek için güvenlik duvarı proxy'si kullanıyorsanız önkoşul URL'leri veya veri merkezi IP aralıkları'nın izin verilenler listesinde olduğundan emin olun. Bilgi için [güvenlik duvarı proxy Kılavuzu](https://aka.ms/a2a-firewall-proxy-guidance).
+   - VM üzerinde giden ağ bağlantısını denetlemek için NSG kurallarını kullanıyorsanız önkoşul veri merkezi IP aralıklarının Güvenilenler listesinde olduğundan emin olun. Bilgi için [ağ güvenlik grubu Kılavuzu](https://aka.ms/a2a-nsg-guidance).
+   - Güvenilir listeye eklenecek [gerekli URL'leri](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) veya [gerekli IP aralıkları](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), adımları [ağ rehberi belgesi](site-recovery-azure-to-azure-networking-guidance.md).
+
+### <a name="issue-3-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>3. sorun: ağ trafiği (151072) şirket içi proxy sunucusu üzerinden geçtiğinde A2A çoğaltması başarısız oldu
+ - **Olası nedeni** </br>
+   - Özel ara sunucu ayarlarını geçersiz ve ASR Mobility Hizmeti Aracısı otomatik-IE proxy ayarları algılamadı
+
+
+ - **Çözümleme**
+  1.    Mobility hizmeti aracısı için proxy ayarlarını Windows üzerinde IE ve Linux'ta /etc/environment algılar.
+  2.  Ardından yalnızca ASR Mobility hizmeti için proxy ayarlamak isterseniz, konumundaki ProxyInfo.conf proxy ayrıntıları sağlayabilirsiniz:</br>
+      - ``/usr/local/InMage/config/`` üzerinde ***Linux***
+      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` üzerinde ***Windows***
+  3.    ProxyInfo.conf proxy ayarlarını aşağıdaki INI biçiminde olmalıdır. </br>
+                   *[proxy]*</br>
+                   *Adres =http://1.2.3.4*</br>
+                   *Bağlantı noktası 567 =*</br>
+  4. ASR Mobility Hizmeti Aracısı destekler yalnızca ***kimliği doğrulanmamış proxy***.
 
 ### <a name="fix-the-problem"></a>Sorunu
 Güvenilir listeye eklenecek [gerekli URL'leri](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) veya [gerekli IP aralıkları](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), adımları [ağ rehberi belgesi](site-recovery-azure-to-azure-networking-guidance.md).
@@ -213,6 +245,20 @@ VM üzerinde çoğaltmayı etkinleştirmek için sağlama durumu olmalıdır **b
 - Varsa **provisioningState** olduğu **başarısız**, sorun giderme ayrıntıları ile Destek ekibiyle iletişime geçin.
 - Varsa **provisioningState** olduğu **güncelleştirme**, başka bir uzantı dağıtılabilecek. Bekleme başarısız Site kurtarma işlemini yeniden deneyin ve bunlar için VM üzerinde devam eden herhangi bir işlem olup olmadığını kontrol **çoğaltmayı etkinleştir** işi.
 
+## <a name="unable-to-select-target-virtual-network---network-selection-tab-is-grayed-out"></a>Sanal ağ - ağ seçimi sekmesi gri renkte hedefi seçmek yüklenemiyor.
+
+**1. neden: sanal makinenizin 'hedef ağ' için zaten eşlenmiş bir ağa bağlıysa.**
+- Kaynak VM sanal ağ bir parçasıdır ve hedef kaynak grubunda bir ağ ile aynı sanal ağdaki başka bir VM'den zaten eşlenmiş, ardından tarafından varsayılan ağ seçimi açılan menüsü devre dışı bırakılır.
+
+![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
+
+**2. neden: daha önce Azure Site Recovery kullanarak VM'yi korumalı ve çoğaltma devre dışı.**
+ - Sanal Makinenin çoğaltmasını devre dışı bırakma ağ eşlemesi silmez. Burada VM korunan kurtarma Hizmetleri kasası silinmesi gerekir. </br>
+ Kurtarma hizmeti Kasası'na gidin > Site Recovery altyapısı > Ağ eşlemesi. </br>
+ ![Delete_NW_Mapping](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
+ - Olağanüstü durum kurtarma kurulumu sırasında yapılandırılan hedef ağı, VM korunmaya başladıktan sonra ilk sonra değiştirilebilir. </br>
+ ![Modify_NW_mapping](./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png)
+ - Bu belirli ağ eşlemesi kullanan VM'ler korumalı ağ eşlemesini değiştirmek tüm etkilediğini unutmayın.
 
 
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM +/ Birim Gölge Kopyası Hizmeti hatası (hata kodu 151025)

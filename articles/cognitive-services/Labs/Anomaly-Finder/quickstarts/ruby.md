@@ -1,6 +1,6 @@
 ---
-title: Ruby - Microsoft Bilişsel hizmetler Anomali Bulucu API kullanma | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get Ruby ve Anomali Bulucu API Bilişsel Hizmetleri'nde kullanmaya başlayın.
+title: Anomali Bulucu API Ruby - Microsoft Bilişsel hizmetler ile kullanma | Microsoft Docs
+description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get, Ruby ve Anomali Bulucu API Bilişsel hizmetler kullanarak başlayın.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,36 +9,38 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: ca4754514ba5012f7e9e28981d0869d174561fb3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6eb559f8971583afe9619fb41fe331bd3013bb69
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353326"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41987992"
 ---
-# <a name="use-the-anomaly-finder-api-with-ruby"></a>Anomali Bulucu API ile Söyleniş kullanın
+# <a name="use-the-anomaly-finder-api-with-ruby"></a>Anomali Bulucu API ile Ruby kullanma
 
-Bu makalede bilgiler sağlanmaktadır ve hızlı bir şekilde yardımcı olmak için kod örnekleri Anomali Bulucu API ile Söyleniş anomali algılama sonucu zaman serisi veri alma görevi gerçekleştirmek için kullanmaya başlayın.
+Bu makalede bilgiler sağlanmaktadır ve kod örnekleri, hızlı bir şekilde yardımcı olması için anomali algılama sonucu zaman serisi verilerini alma görevi ile Ruby Anomali Bulucu API'sini kullanarak kullanmaya başlayın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-anomaly-finder-api-using-ruby"></a>Anomali noktaları Ruby kullanarak Anomali Bulucu API'si ile Başlarken 
+## <a name="getting-anomaly-points-with-anomaly-finder-api-using-ruby"></a>Anomali noktaları Ruby kullanarak Anomali Bulucu API'sini kullanmaya başlama 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
-### <a name="example-of-time-series-data"></a>Zaman serisi veri örneği
-Zaman serisi veri noktaları örneği aşağıdaki gibidir, [!INCLUDE [Request](../includes/request.md)]
+### <a name="example-of-time-series-data"></a>Zaman serisi verilerini örneği
+Zaman serisi veri noktaları örneği aşağıdaki gibidir,
 
-### <a name="analyze-data-and-get-anomaly-points-ruby-example"></a>Verileri çözümlemek ve anomali noktaları Söyleniş örnek alma
+[!INCLUDE [Request](../includes/request.md)]
+
+### <a name="analyze-data-and-get-anomaly-points-ruby-example"></a>Verileri analiz etmek ve Ruby örnek anomali puan Al
 
 Örneği kullanarak adımlar aşağıdaki gibidir.
 
-1. Yükleme [rest istemcisi](https://github.com/rest-client/rest-client) 'yükleme rest-istemci gem' çalıştırarak.
-2. Kod .rb dosyası olarak kaydedin.
-3. Değiştir `[YOUR_SUBSCRIPTION_KEY]` değeri geçerli bir abonelik anahtarınızı ile.
-4. Değiştir `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` örnek veya kendi veri noktaları.
-5. Yürütme ve yanıt denetleyin.
+1. Yükleme [rest istemcisi](https://github.com/rest-client/rest-client) 'rest-istemci yükleme gem' çalıştırarak.
+2. Aşağıdaki kod .rb dosya olarak kaydedin.
+3. Değiştirin `[YOUR_SUBSCRIPTION_KEY]` değeri geçerli bir abonelik.
+4. Değiştirin `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` örnek veya kendi veri noktaları.
+5. Yürütme ve yanıtı kontrol edin.
 
 ```ruby
 # https://github.com/rest-client/rest-client
@@ -74,7 +76,7 @@ puts response.body
 
 ### <a name="example-response"></a>Örnek yanıt
 
-Başarılı yanıt JSON döndürülür. Örnek yanıt aşağıdaki gibidir.
+Başarılı bir yanıt JSON biçiminde döndürülür. Örnek yanıt aşağıdaki gibidir.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar

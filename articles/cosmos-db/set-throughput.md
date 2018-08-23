@@ -2,19 +2,19 @@
 title: Azure Cosmos DB için sağlama aktarım hızı | Microsoft Docs
 description: Azure Cosmos DB containsers, koleksiyonlar, grafikler ve tablolar için sağlanan aktarım hızı ayarlama konusunda bilgi edinin.
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
-ms.author: sngun
-ms.openlocfilehash: a454bfc06cf119d43e545a5a911a2f6686fb755b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.author: andrl
+ms.openlocfilehash: 2c3e4806aef506ef9016699b46eadd5f8a187224
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600168"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42061469"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Azure Cosmos DB kapsayıcıları ve veritabanı için aktarım hızı alma ve ayarlama
 
@@ -262,20 +262,6 @@ Uygulamanız tarafından kullanılan temsili bir ögeye tipik işlemlerin çalı
 > Her ilişkilendirilmiş geçerli işlemi istek birimi ücreti, boyutu ve dizini oluşturulmuş özellik sayısı bakımından önemli ölçüde farklılık gösterir öğesi türleriniz varsa, ardından kayıt *türü* tipik öğesi.
 > 
 > 
-
-## <a id="RequestchargeGraphAPI"></a>İstek yükü Gremlin API hesaplarını Al 
-
-İstek yükü Gremlin.Net kitaplığını kullanarak Gremlin API hesaplarını almak nasıl bir örnek aşağıdadır. 
-
-```csharp
-
-var response = await gremlinClient.SubmitAsync<int>(requestMsg, bindings);
-                var resultSet = response.AsResultSet();
-                var statusAttributes= resultSet.StatusAttributes;
-```
-
-Yukarıdaki yöntemin yanı sıra, "x-ms-toplam-isteği-ücreti" üstbilgi istek birimleri hesaplamalar için de kullanabilirsiniz.
-
 
 ## <a name="throughput-faq"></a>Aktarım hızı ile ilgili SSS
 

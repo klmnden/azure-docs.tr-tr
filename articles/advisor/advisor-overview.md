@@ -1,11 +1,10 @@
 ---
 title: Azure Danışmanı giriş | Microsoft Docs
-description: Azure dağıtımlarınızı iyileştirmek için Azure Danışmanı'nı kullanın.
+description: Azure Danışmanı, Azure dağıtımlarınızın iyileştirilmesine yönelik kullanın.
 services: advisor
 documentationcenter: NA
-author: KumudD
-manager: carmonm
-editor: ''
+author: manbeenkohli
+manager: ''
 ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
@@ -13,70 +12,70 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: kumud
-ms.openlocfilehash: 0aa97a7557706f0b704d4e31a84e9d356d1ad087
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: makohli
+ms.openlocfilehash: e1d7edef304dc91829066f19b6974f0bcf0be0a5
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30230682"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42056534"
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure Danışmanı giriş
 
-Azure Danışmanı anahtar özellikleri hakkında bilgi edinmek ve sık sorulan soruların yanıtlarını alın.
+Azure Danışmanı özellikleri hakkında bilgi edinin ve sık sorulan soruların yanıtlarını alın.
 
-## <a name="what-is-advisor"></a>Advisor nedir?
-Advisor Azure dağıtımlarınızı iyileştirmek için en iyi uygulamaları izleyerek yardımcı olan kişiselleştirilmiş bulut Danışman ' dir. Danışman, kaynak yapılandırmanızı ve kullanım telemetrinizi analiz ederek Azure kaynaklarınızın maliyet verimliliğini, performansını, yüksek kullanılabilirliğini ve güvenliğini geliştirmenize yardımcı olabilecek çözümler önerir.
+## <a name="what-is-advisor"></a>Danışman nedir?
+Advisor, Azure dağıtımlarınızın iyileştirilmesine yönelik en iyi uygulamaları izlemenize yardımcı olan kişiselleştirilmiş bir bulut danışmanıdır. Danışman, kaynak yapılandırmanızı ve kullanım telemetrinizi analiz ederek Azure kaynaklarınızın maliyet verimliliğini, performansını, yüksek kullanılabilirliğini ve güvenliğini geliştirmenize yardımcı olabilecek çözümler önerir.
 
-Advisor ile şunları yapabilirsiniz:
-* Get öngörülü, işlem yapılabilir ve öneriler kişiselleştirilmiş en iyi yöntemler. 
-* Genel Azure azaltmak için fırsatlarını tanımlayabilmeniz gibi performans, güvenlik ve kaynaklarınızın yüksek kullanılabilirliğini artırmak ayırın.
-* Önerilen eylemleri satır içi ile ilgili öneriler alın.
+Danışman ile şunları yapabilirsiniz:
+* Get proaktif, eyleme dönüştürülebilir ve kişiselleştirilmiş en iyi uygulama önerileri. 
+* Genel Azure azaltacak fırsatlar belirleme gibi performans, güvenlik ve kaynaklarınızın yüksek kullanılabilirliğini artırmak ayırın.
+* Önerilen eylemleri satır içi ile öneriler alın.
 
-Advisor aracılığıyla erişebilirsiniz [Azure portal](https://aka.ms/azureadvisordashboard). Oturum [portal](https://portal.azure.com), bulun **Danışmanı** Gezinti Menüsü veya içinde arama **tüm hizmetleri** menüsü.
+Danışman aracılığıyla erişebileceğiniz [Azure portalında](https://aka.ms/azureadvisordashboard). Oturum [portalı](https://portal.azure.com), bulun **Advisor** Gezinti Menüsü veya içinde arayın **tüm hizmetleri** menüsü.
 
-Advisor Pano kişiselleştirilmiş önerileri için tüm aboneliklerinizi görüntüler.  Belirli Abonelikleriniz ve kaynak türleri için öneriler görüntülemek için filtre uygulayabilirsiniz.  Öneriler dört kategoriye ayrılır: 
+Danışman Panosu, tüm Abonelikleriniz için kişiselleştirilmiş önerileri görüntüler.  Belirli bir abonelik ve kaynak türleri için öneriler görüntülemek için filtre uygulayabilirsiniz.  Öneriler, dört kategoriye ayrılır: 
 
-* **Yüksek kullanılabilirlik**: emin olun ve iş açısından kritik uygulamalarınızı sürekliliği geliştirin. Daha fazla bilgi için bkz: [Danışmanı yüksek kullanılabilirlik önerileri](advisor-high-availability-recommendations.md).
-* **Güvenlik**: Tehditler ve güvenlik ihlallerini yol açabilecek güvenlik açıkları algılamak için. Daha fazla bilgi için bkz: [Danışmanı güvenlik önerileri](advisor-security-recommendations.md).
-* **Performans**: uygulamalarınızın hızını artırmak için. Daha fazla bilgi için bkz: [Danışmanı performans önerileri](advisor-performance-recommendations.md).
-* **Maliyet**: en iyi duruma getirme ve genel Azure harcama azaltmak için. Daha fazla bilgi için bkz: [Danışmanı maliyet önerileri](advisor-cost-recommendations.md).
+* **Yüksek kullanılabilirlik**: İş açısından kritik uygulamalarınızın sürekliliğini ve emin olmak. Daha fazla bilgi için [Advisor yüksek kullanılabilirlik önerisi](advisor-high-availability-recommendations.md).
+* **Güvenlik**: tehditleri ve güvenlik ihlallerini yol açabilecek güvenlik açıklarını algılamak üzere. Daha fazla bilgi için [Danışmanı önerilerini](advisor-security-recommendations.md).
+* **Performans**: uygulamalarınızın hızını artırmak için. Daha fazla bilgi için [Danışmanı performans önerilerini](advisor-performance-recommendations.md).
+* **Maliyet**: en iyi duruma getirmek ve genel Azure harcamalarınızı azaltmak için. Daha fazla bilgi için [Advisor maliyet önerileri](advisor-cost-recommendations.md).
 
   ![Advisor öneri türleri](./media/advisor-overview/advisor-dashboard.png)
 
-Bu kategoride öneriler listesini görüntülemek için bir kategoriye tıklayın ve bir öneri hakkında daha fazla bilgi edinmek için seçin.  Ayrıca bir fırsat yararlanmak veya bir sorunu gidermek üzere gerçekleştirebileceğiniz eylemler hakkında bilgi edinebilirsiniz.
+O kategorideki öneriler listesini görüntülemek için bir kategoriye tıklayın ve hakkında daha fazla bilgi edinmek için bir öneri seçin.  Bir fırsattan yararlanın ya da bir sorunu çözmek için gerçekleştirebileceğiniz eylemleri hakkında da bilgi edinebilirsiniz.
 
 ![Advisor öneri kategorisi](./media/advisor-overview/advisor-ha-category-example.png) 
 
-Öneri uygulamak bir öneri için önerilen eylemi seçin.  Basit bir arabirim öneriyi uygulamayı veya uygulama ile yönetmenize yardımcı olan belgelerine başvurun olanak tanıyan açılır.  Bir öneri uygulamaya başladıktan sonra bunu, tanımak Advisor için bir güne kadar sürebilir.
+Öneriyi uygulamak bir öneri için önerilen eylemi seçin.  Basit bir arabirim, öneri uygulamak ya da yapıyı yönetmenize yardımcı olan belgeler başvurmak sağlayan açılır.  Bir öneri uygulamak sonra bunu, tanımak Advisor için bir güne kadar sürebilir.
 
-Bir öneriye derhal eylemde istiyorsanız değil, belirli bir süre için erteleyin veya onu yok sayın.  Belirli abonelik veya kaynak grubu için öneriler almak istemiyorsanız, yalnızca belirtilen Abonelikleriniz ve kaynak gruplarınız için öneri oluşturmak amacıyla Danışmanı'nı yapılandırabilirsiniz.
+Bir öneriye derhal eylemde düşünmüyorsanız, belirli bir süre için erteleme ya da reddedebilir.  Belirli bir abonelik veya kaynak grubu için öneriler almak istemiyorsanız, yalnızca belirtilen Abonelikleriniz ve kaynak gruplarınız için öneriler oluşturmak için Advisor yapılandırabilirsiniz.
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
-### <a name="how-do-i-access-advisor"></a>Advisor nasıl erişirim?
-Advisor aracılığıyla erişebilirsiniz [Azure portal](https://aka.ms/azureadvisordashboard). Oturum [portal](https://portal.azure.com), bulun **Danışmanı** Gezinti Menüsü veya içinde arama **tüm hizmetleri** menüsü.
+### <a name="how-do-i-access-advisor"></a>Advisor'ı nasıl erişebilirim?
+Danışman aracılığıyla erişebileceğiniz [Azure portalında](https://aka.ms/azureadvisordashboard). Oturum [portalı](https://portal.azure.com), bulun **Advisor** Gezinti Menüsü veya içinde arayın **tüm hizmetleri** menüsü.
 
-Sanal makine kaynak arabirimi aracılığıyla Advisor önerileri de görüntüleyebilirsiniz. Bir sanal makine seçin ve ardından menüde Danışmanı önerileri için gidin. 
+Sanal makine kaynak arabirimi aracılığıyla Danışmanı önerilerini de görüntüleyebilirsiniz. Bir sanal makine seçin ve Danışmanı önerilerini menüsünde'na kaydırın. 
 
-### <a name="what-permissions-do-i-need-to-access-advisor"></a>Advisor erişmek hangi izinlerin gerekiyor mu?
+### <a name="what-permissions-do-i-need-to-access-advisor"></a>Advisor'a erişmek hangi izinlerin gerekiyor?
  
-Advisor önerileri olarak erişebilir *sahibi*, *katkıda bulunan*, veya *okuyucu* bir abonelik.
+Danışman önerileri olarak erişebilir *sahibi*, *katkıda bulunan*, veya *okuyucu* bir abonelik.
 
-### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Hangi kaynaklara Danışmanı önerileri için sağlar?
+### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Hangi kaynakların Advisor için öneriler sağlar mı?
 
-Advisor sanal makineler, kullanılabilirlik kümeleri, uygulama ağ geçitleri, uygulama hizmetleri, SQL sunucuları ve Redis önbelleği için öneriler sağlar.
+Advisor, sanal makineler, kullanılabilirlik kümeleri, uygulama ağ geçitleri, uygulama hizmetleri, SQL Server'lar ve Redis Cache için öneriler sağlar.
 
-### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Erteleyin veya miyim öneri yok sayın?
+### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Erteleme veya miyim bir öneri Kapat?
 
-Erteleyin veya bir öneri kapatmak için **Ertele'yi** bağlantı. Bir Ertele'yi dönem veya select belirtebilirsiniz **hiçbir zaman** öneri kapatılamadı.
+Erteleyebilir veya bir öneri kapatmak için tıklayın **Ertele'yi** bağlantı. Bir Ertele'yi dönem veya select belirtebilirsiniz **hiçbir zaman** öneri kapatılamadı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Advisor önerileri hakkında daha fazla bilgi için bkz:
+Danışman önerileri hakkında daha fazla bilgi için bkz:
 
 * [Danışman’ı kullanmaya başlama](advisor-get-started.md)
-* [Advisor yüksek kullanılabilirlik önerileri](advisor-high-availability-recommendations.md)
+* [Advisor yüksek kullanılabilirlik önerisi](advisor-high-availability-recommendations.md)
 * [Advisor güvenlik önerileri](advisor-security-recommendations.md)
-* [Advisor performans önerileri](advisor-performance-recommendations.md)
+* [Danışmanı performans önerileri](advisor-performance-recommendations.md)
 * [Advisor maliyet önerileri](advisor-cost-recommendations.md)

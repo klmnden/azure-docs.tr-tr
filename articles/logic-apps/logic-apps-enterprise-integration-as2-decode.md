@@ -1,6 +1,6 @@
 ---
-title: AS2 iletileri - Azure Logic Apps kod çözme | Microsoft Docs
-description: Azure mantıksal uygulamaları için Kurumsal tümleştirme paketinde AS2 kod çözücü kullanma
+title: AS2 iletilerini - Azure Logic Apps kod çözme | Microsoft Docs
+description: AS2 kod çözücü için Azure Logic Apps Enterprise Integration Pack içinde kullanma
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -12,80 +12,89 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2016
+ms.date: 08/08/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: a5ca615d984d07513b12399b6f7e7901490f2e41
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a1b2d68a4a9433dc5c68d65552bf6bd509463958
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298840"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42054740"
 ---
-# <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>AS2 iletileri Kurumsal tümleştirme paketi ile Azure mantıksal uygulamaları için kod çözme 
+# <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>AS2 iletilerini Azure Logic Apps Enterprise Integration Pack ile için kod çözme 
 
-Güvenlik ve güvenilirlik aktaran iletileri sırasında kurmak için kod çözme AS2 ileti Bağlayıcısı'nı kullanın. Bu bağlayıcı, dijital imza, şifre çözme ve onayları ileti Disposition bildirimler (MDN) aracılığıyla sağlar.
+Güvenlik ve güvenilirlik sırasında aktaran iletileri oluşturmak için AS2 kod çözme ileti Bağlayıcısı'nı kullanın. Bu bağlayıcı, dijital imza, şifre çözme ve onayları ileti değerlendirme bildirimleri (MDN) aracılığıyla sağlar.
 
 ## <a name="before-you-start"></a>Başlamadan önce
 
-Gereksinim duyduğunuz öğeleri şöyledir:
+Gereksinim duyduğunuz öğeleri şu şekildedir:
 
-* Bir Azure hesabı; oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free)
-* Bir [tümleştirme hesabını](logic-apps-enterprise-integration-create-integration-account.md) , daha önce tanımlanan ve Azure aboneliğinizle ilişkili. Kod çözme AS2 ileti bağlayıcıyı kullanmak üzere bir tümleştirme hesabınızın olması gerekir.
-* En az iki [ortakları](logic-apps-enterprise-integration-partners.md) tümleştirme hesabınızda zaten tanımlanmış
-* Bir [AS2 sözleşmesi](logic-apps-enterprise-integration-as2.md) tümleştirme hesabınızda tanımlanan zaten
+* Bir Azure hesabı; oluşturabileceğiniz bir [ücretsiz hesap](https://azure.microsoft.com/free)
+* Bir [tümleştirme hesabı](logic-apps-enterprise-integration-create-integration-account.md) zaten tanımlanmış ve Azure aboneliğinizle ilişkili. AS2 kod çözme ileti bağlayıcıyı kullanmak üzere bir tümleştirme hesabı olması gerekir.
+* En az iki [iş ortakları](logic-apps-enterprise-integration-partners.md) , tümleştirme hesabında zaten tanımlanmış
+* Bir [AS2 sözleşmesi](logic-apps-enterprise-integration-as2.md) , tümleştirme hesabında zaten tanımlı
 
-## <a name="decode-as2-messages"></a>AS2 iletileri kod çözme
+## <a name="decode-as2-messages"></a>AS2 iletilerini kodunu çözme
 
 1. [Mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2. Bir istek tetikleyici gibi mantıksal uygulamanızı başlatmak için bir tetikleyici eklemelisiniz kod çözme AS2 ileti bağlayıcı tetikleyiciler, sahip değil. Mantıksal Uygulama Tasarımcısı'nda bir tetikleyici ekleyin ve ardından bir eylem mantıksal uygulamanızı ekleyin.
+2. AS2 kod çözme ileti bağlayıcı tetikleyicileri, sahip değil. istek tetikleyicisi gibi mantıksal uygulamanızı başlatmak için bir tetikleyici eklemelisiniz. Mantıksal Uygulama Tasarımcısı'nda bir tetikleyici ekleme ve ardından mantıksal uygulamanız için bir eylem ekleyin.
 
-3.  Arama kutusuna "AS2" filtreniz için girin. Seçin **AS2 - kod çözme AS2 ileti**.
+3.  Arama kutusuna filtreniz için "AS2" girin. Seçin **AS2 - AS2 kod çözme ileti**.
    
     !["AS2" için arama](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage1.png)
 
-4. Tümleştirme hesabınıza daha önce herhangi bir bağlantısı oluşturmadıysanız, bu bağlantı artık oluşturmanız istenir. Bağlantınızı adlandırın ve bağlamak istediğiniz tümleştirme hesabı seçin.
+4. Daha önce tümleştirme hesabı için herhangi bir bağlantı oluşturmadıysanız, artık bu bağlantıyı oluşturmak için istenir. Bağlantınızı adlandırın ve bağlanmak istediğiniz tümleştirme hesabı seçin.
    
-    ![Tümleştirme bağlantısı oluşturma](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage2.png)
+    ![Tümleştirme bağlantı oluşturma](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage2.png)
 
-    Bir yıldız işareti özelliklerle gereklidir.
+    Bir yıldız işareti ile özellikleri gereklidir.
 
     | Özellik | Ayrıntılar |
     | --- | --- |
     | Bağlantı adı * |Bağlantınız için herhangi bir ad girin. |
-    | Tümleştirme hesabını * |Tümleştirme hesabınız için bir ad girin. Tümleştirme hesabı ve mantığı uygulamanız aynı Azure konumuna olduğundan emin olun. |
+    | Tümleştirme hesabı * |Tümleştirme hesabı için bir ad girin. Tümleştirme hesabı ve mantıksal uygulamanızı aynı Azure konumda olduklarından emin olun. |
 
-5.  İşiniz bittiğinde, bağlantı bilgilerinizi bu örneğe benzemelidir. Bağlantınızı oluşturmayı tamamlamak için tercih **oluşturma**.
+5.  İşiniz bittiğinde, bağlantı ayrıntılarınızı şu örneğe benzemelidir. Bağlantınızı oluşturmayı tamamlamak için seçin **Oluştur**.
 
     ![Tümleştirme bağlantı ayrıntıları](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage3.png)
 
-6. Bu örnekte gösterildiği gibi bağlantınızı oluşturulduktan sonra Seç **gövde** ve **üstbilgileri** isteği çıkışları gelen.
+6. Bu örnekte gösterildiği gibi bağlantınızı oluşturulduktan sonra seçin **gövdesi** ve **üstbilgileri** isteği çıkışları öğesinden.
    
     ![oluşturulan tümleştirme bağlantı](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage4.png) 
 
     Örneğin:
 
-    ![Gövde ve üstbilgileri isteği çıkışlarından seçin](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
+    ![Gövde ve üstbilgileri, istek çıkışları seçin](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
 
-## <a name="as2-decoder-details"></a>AS2 decoder ayrıntıları
 
-Kod çözme AS2 Bağlayıcısı'nı bu görevleri gerçekleştirir: 
+## <a name="as2-decoder-details"></a>AS2 kod çözücü ayrıntıları
 
-* AS2/HTTP üstbilgileri işler
-* (Yapılandırılmışsa) imzayı doğrular
-* İletilerin şifresini çözer (yapılandırıldıysa)
-* İletisi (yapılandırılmışsa) açar
-* Alınan MDN özgün giden iletiyle çözümler
-* Güncelleştirmeleri ve takası veritabanındaki kayıtları karşılık gelen
-* AS2 durumu raporlama için kayıtları Yazar
-* Base64 kodlu çıkış yükü dosyalarla
-* Bir MDN gereklidir ve olup MDN zaman uyumlu veya zaman uyumsuz yapılandırmaya AS2 sözleşmesi göre belirler
-* (Sözleşmesi yapılandırmalarını temel alan) zaman uyumlu veya zaman uyumsuz bir MDN oluşturur
-* Bağıntı belirteçleri ve özellikler üzerinde MDN ayarlar
+AS2 kod çözme bağlayıcı, bu görevleri gerçekleştirir: 
+
+* AS2/HTTP üst bilgilerini işleme
+* (Yapılandırılmışsa) imzayı doğrular.
+* İletiler (yapılandırılmışsa) şifresini çözer.
+* İletisi (yapılandırılmışsa) açar.
+* Denetleyin ve (yapılandırılmışsa) ileti kimliği yinelenmesine izin verme
+* Alınan bir MDN özgün giden ileti ile mutabık kılar
+* Güncelleştirmeleri ve takası veritabanında kayıt ilişkilendirir
+* AS2 durum raporlama için kayıtları Yazar
+* Çıktı yükü içeriği base64 olarak kodlanmış olan
+* Bir MDN gereklidir ve olup MDN zaman uyumlu veya zaman uyumsuz AS2 anlaşması'nda yapılandırmasına göre belirler
+* (Sözleşmesi yapılandırmalarına göre) zaman uyumlu veya zaman uyumsuz bir MDN oluşturur
+* MDN üzerinde korelasyon belirteçleri ve özelliklerini ayarlar
+
+
+  > [!NOTE]
+  > Sertifika yönetimi için Azure anahtar kasası kullanıyorsanız, izin vermek için anahtarları yapılandırdığınızdan emin olun. **şifresini** işlemi.
+  > Aksi takdirde, AS2 kod çözme başarısız olur.
+  >
+  > ![Keyvault şifresini çözer.](media/logic-apps-enterprise-integration-as2-decode/keyvault1.png)
 
 ## <a name="try-this-sample"></a>Bu örnek deneyin
 
-Bir tam olarak işlevsel mantığı uygulamasını ve örnek AS2 senaryoyu dağıtmaya denemek için bkz: [AS2 mantıksal uygulama şablonu ve senaryo](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
+Bir tam olarak işlevsel bir mantıksal uygulama ve örnek AS2 senaryo dağıtmak denemek için bkz [AS2 mantıksal uygulama şablonunu ve senaryo](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
 
 ## <a name="view-the-swagger"></a>Swagger görüntüleyin
 Bkz: [ayrıntıları swagger](/connectors/as2/). 

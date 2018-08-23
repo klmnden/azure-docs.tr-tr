@@ -1,9 +1,9 @@
 ---
-title: İzleme ve yönetme sertifika oluşturma
-description: Bir dizi oluşturmak için seçenekler gösteren senaryoları, anahtar kasası ile izleme ve sertifika oluşturma ile etkileşim işleyin.
+title: Sertifika oluşturmayı izleme ve yönetme
+description: Çeşitli oluşturmaya yönelik seçenekleri gösteren senaryoları, Key Vault ile izleme ve sertifika oluşturma ile etkileşim kurma işlemi.
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 0d0995aa-b60d-4811-be12-ba0a45390197
@@ -13,40 +13,40 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: e1ea77304fa59b67e0e28a4c7e0b13633eeeff6f
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: bryanla
+ms.openlocfilehash: 80f350b9b83438ee04540527cce0ea6821d148ca
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012215"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42056437"
 ---
-# <a name="monitor-and-manage-certificate-creation"></a>İzleme ve yönetme sertifika oluşturma
-Uygulandığı öğe: Azure  
+# <a name="monitor-and-manage-certificate-creation"></a>Sertifika oluşturmayı izleme ve yönetme
+İçin geçerlidir: Azure  
 
 Aşağıdaki 
 
-Senaryo / bu makalede açıklanan işlemleri:
+Senaryo / şu makalede açıklanan işlemleri:
 
-- Desteklenen bir veren KV sertifika isteme
-- Bekleyen isteği Al - istek durumunu "devam ediyor"
-- Bekleyen isteği Al - istek durumu "tamamlandı"
+- Desteklenen bir veren ile KV sertifika isteme
+- İstek Al - istek durumu "Sürüyor"
+- İstek Al - istek durumu "tamamlandı"
 - Bekleyen isteği - durum "İptal" veya "başarısız" Bekleyen isteği alma
 - Bekleyen isteği - durumu "silinmiş" veya "üzerine" Bekleyen isteği alma
-- Oluşturun (veya içeri aktarın) zaman bekleyen istek yok - durum "devam ediyor"
-- Birleştirme bekleyen istek olduğunda oluşturulan bir veren (örneğin, DigiCert) ile
-- Bekleyen isteği durumu "devam ediyor" iken iptal isteği
+- Oluşturun (veya içeri aktarın) zaman bekleyen istek yok - durumu "Sürüyor"
+- Birleştirme isteği olduğunda oluşturulan bir veren (örneğin, DigiCert) ile
+- Bekleyen istek durumu "Sürüyor" olsa da, bir iptal isteğinde
 - Bekleyen istek nesnesini silme
 - KV sertifikayı el ile oluşturma
-- Bekleyen isteği oluşturulduktan sonra - el ile sertifika oluşturma birleştirme
+- Bekleyen istek oluşturulduktan sonra - el ile sertifika oluşturma Birleştir
 
-## <a name="request-a-kv-certificate-with-a-supported-issuer"></a>Desteklenen bir veren KV sertifika isteme 
+## <a name="request-a-kv-certificate-with-a-supported-issuer"></a>Desteklenen bir veren ile KV sertifika isteme 
 
 |Yöntem|İstek URI'si|  
 |------------|-----------------|  
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|  
 
-Aşağıdaki örnekler zaten DigiCert veren sağlayıcı anahtar kasasıyla kullanılabilir olması için "mydigicert" adlı bir nesne gerektirir. Verenler ile çalışma hakkında daha fazla bilgi için bkz: [sertifika verenler](/rest/api/keyvault/certificate-issuers.md).  
+Aşağıdaki örnekler, zaten DigiCert olarak veren sağlayıcısı ile anahtar kasanızın kullanılabilir olması için "mydigicert" adlı bir nesne gerektirir. Sertifikayı veren süresi kaynak olarak Azure anahtar kasası (KV) olarak temsil edilen bir varlıktır. KV sertifikanın kaynağı hakkında bilgi sağlamak için kullanılır; Verenin adı, sağlayıcı, kimlik bilgilerini ve diğer yönetimsel ayrıntıları.  
 
 ### <a name="request"></a>İstek  
 
@@ -84,7 +84,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```  
 
-## <a name="get-pending-request---request-status-is-inprogress"></a>Bekleyen isteği Al - istek durumunu "devam ediyor"
+## <a name="get-pending-request---request-status-is-inprogress"></a>İstek Al - istek durumu "Sürüyor"
 
 |Yöntem|İstek URI'si|  
 |------------|-----------------|  
@@ -98,7 +98,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
  AL `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`  
 
 > [!NOTE]
->  Varsa *request_id* belirtilen sorguda bir filtre gibi davranır. Varsa *request_id* sorgu ve bekleyen nesne farklı bir http durum kodu 404 döndürülür.  
+>  Varsa *request_id* belirtilirse sorgu, filtre gibi davranır. Varsa *request_id* sorgu ve bekleyen nesnesindeki farklıdır, 404 bir http durum kodu döndürülür.  
 
 ### <a name="response"></a>Yanıt  
 
@@ -118,7 +118,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ```  
 
-## <a name="get-pending-request---request-status-is-complete"></a>Bekleyen isteği Al - istek durumu "tamamlandı"
+## <a name="get-pending-request---request-status-is-complete"></a>İstek Al - istek durumu "tamamlandı"
 
 ### <a name="request"></a>İstek  
 
@@ -188,10 +188,10 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ```  
 
 > [!NOTE]
-> Değeri *errorcode* veren ya da kullanıcı hataya sırasıyla göre "İsteği reddetti" veya "Sertifika veren hatası" olabilir.  
+> Değerini *errorcode* veren ya da kullanıcı hataya sırasıyla göre "İstek reddedildi" veya "Sertifika veren hatası" olabilir.  
 
 ## <a name="get-pending-request---pending-request-status-is-deleted-or-overwritten"></a>Bekleyen isteği - durumu "silinmiş" veya "üzerine" Bekleyen isteği alma  
- Bekleyen bir nesne silinmiş ya da durumunu "devam ediyor." olmadığında Oluştur/içe aktarma işlemi tarafından üzerine
+ Bekleyen bir nesne silinmiş ya da durumu "Sürüyor" olmadığında bir Oluştur/içeri aktarma işlemiyle üzerine
 
 |Yöntem|İstek URI'si|  
 |------------|-----------------|  
@@ -218,19 +218,19 @@ StatusCode: 404, ReasonPhrase: 'Not Found'
 
 ```  
 
-## <a name="create-or-import-when-pending-request-exists---status-is-inprogress"></a>Oluşturun (veya içeri aktarın) zaman bekleyen istek yok - durum "devam ediyor"
- Bekleyen bir nesne dört durumda olabilir; "" İptal"devam ediyor", "başarısız" veya "tamamlandı."
+## <a name="create-or-import-when-pending-request-exists---status-is-inprogress"></a>Oluşturun (veya içeri aktarın) zaman bekleyen istek yok - durumu "Sürüyor"
+ Bekleyen bir nesne dört durumda olabilir; "Sürüyor"İptal",", "başarısız" veya "tamamlandı"
 
- Bekleyen bir isteğin durumu "devam ediyor" olduğunda, oluşturma (ve içeri aktarma) işlemleri 409 (Çakışma) bir http durum kodu ile başarısız olur.  
+ Bekleyen bir isteğin durumu "Sürüyor" olduğunda oluşturmak (ve içeri aktarma) işlemleri, 409 (Çakışma) bir http durum kodu ile başarısız olacaktır.  
 
- Bir çakışmayı gidermek için:  
+ Bir çakışmayı düzeltmeniz istenir:  
 
- - Sertifikayı el ile oluşturulduysa, bir birleştirme yaparak KV sertifika tamamlamak veya bekleyen bir nesne üzerinde silin.  
+ - Sertifikayı el ile oluşturuluyorsa, bir birleştirme yaparak KV sertifika tamamlamak veya bekleyen nesneye silin.  
 
- - Sertifikayı veren ile oluşturulduysa, sertifikayı tamamlar, başarısız veya iptal edilene kadar bekleyebilirsiniz. Alternatif olarak, bekleyen nesne silebilirsiniz.
+ - Sertifika bir veren ile oluşturuluyorsa, sertifika tamamlandıktan, başarısız veya iptal edilene kadar bekleyebilirsiniz. Alternatif olarak, bekleyen nesne silebilirsiniz.
 
 > [!NOTE]
-> Bekleyen bir nesne silme olabilir veya x509 iptal edemez sağlayıcısı ile sertifika isteği.  
+> Bekleyen bir nesneyi silme olabilir veya x509 iptal edemez sağlayıcısı ile sertifika isteği.  
 
 |Yöntem|İstek URI'si|  
 |------------|-----------------|  
@@ -266,10 +266,10 @@ StatusCode: 409, ReasonPhrase: 'Conflict'
 
 ```  
 
-## <a name="merge-when-pending-request-is-created-with-an-issuer"></a>Bekleyen isteği ile bir veren oluşturulduğunda birleştirme
- Bekleyen bir nesne ile bir veren oluşturulur ancak durumu "devam ediyor." olduğunda izin birleştirme izin verilmiyor 
+## <a name="merge-when-pending-request-is-created-with-an-issuer"></a>Bekleyen isteği ile bir veren oluşturulduğunda Birleştir
+ Birleştirme bekleyen bir nesne ile bir veren oluşturulur, ancak "devam ediyor" durumuna olduğunda izin verilmez 
 
- Varsa x509 oluşturma isteği sertifika başarısız olduğunda veya herhangi bir nedenden dolayı iptal eder ve KV sertifika tamamlamak için sertifika bant dışı yollarla alınabilir x509, bir birleştirme işlemi gerçekleştirilebilir.  
+ Varsa x509 oluşturma isteği sertifika başarısız olursa veya herhangi bir nedenle iptal eder ve KV sertifika tamamlamak için sertifika, bant dışı yollarla alınabilir x x509, bir birleştirme işlemi gerçekleştirilebilir.  
 
 |Yöntem|İstek URI'si|  
 |------------|-----------------|  
@@ -299,8 +299,8 @@ StatusCode: 403, ReasonPhrase: 'Forbidden'
 
 ```  
 
-## <a name="request-a-cancellation-while-the-pending-request-status-is-inprogress"></a>Bekleyen isteği durumu "devam ediyor" iken iptal isteği  
- İptal yalnızca istenebilir.  Bir istek olabilir veya iptal. Bir istek "devam ediyor" değilse, http durum 400 (Hatalı istek) döndürülür.  
+## <a name="request-a-cancellation-while-the-pending-request-status-is-inprogress"></a>Bekleyen istek durumu "Sürüyor" olsa da, bir iptal isteğinde  
+ İptal durumunda yalnızca istenebilir.  Bir isteğin olabilir ya da iptal. Bir istek "Sürüyor" değil, bir http durumu 400 (Hatalı istek) döndürülür.  
 
 |Yöntem|İstek URI'si|  
 |------------|-----------------|  
@@ -341,18 +341,18 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ## <a name="delete-a-pending-request-object"></a>Bekleyen istek nesnesini silme  
 
 > [!NOTE]
-> Bekleyen nesne silme olabilir veya x509 iptal edemez sağlayıcısı ile sertifika isteği.  
+> Bekleyen nesne silinirken olabilir veya x509 iptal edemez sağlayıcısı ile sertifika isteği.  
 
 |Yöntem|İstek URI'si|  
 |------------|-----------------|  
 |DELETE|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|  
 
 ### <a name="request"></a>İstek  
- SİL `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`  
+ DELETE `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`  
 
  OR  
 
- SİL `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`  
+ DELETE `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`  
 
 ### <a name="response"></a>Yanıt  
 
@@ -371,7 +371,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ```  
 
 ## <a name="create-a-kv-certificate-manually"></a>KV sertifikayı el ile oluşturma  
- El ile oluşturma işlemiyle tercih ettiğiniz bir CA ile verilen bir sertifika oluşturabilirsiniz. Verenin adı "Bilinmeyen" olarak ayarlayın veya veren alanı belirtmeyin.  
+ El ile oluşturma sürecinde, tercih ettiğiniz bir CA bir sertifika oluşturabilirsiniz. Verenin adı "Bilinmeyen" olarak ayarlayın veya veren alanıyla belirtmeyin.  
 
 |Yöntem|İstek URI'si|  
 |------------|-----------------|  
@@ -411,7 +411,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```  
 
-## <a name="merge-when-a-pending-request-is-created---manual-certificate-creation"></a>Bekleyen isteği oluşturulduktan sonra - el ile sertifika oluşturma birleştirme  
+## <a name="merge-when-a-pending-request-is-created---manual-certificate-creation"></a>Bekleyen istek oluşturulduktan sonra - el ile sertifika oluşturma Birleştir  
 
 |Yöntem|İstek URI'si|  
 |------------|-----------------|  
@@ -429,7 +429,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 |Öğe adı|Gerekli|Tür|Sürüm|Açıklama|  
 |------------------|--------------|----------|-------------|-----------------|  
-|x5c|Evet|array|\<Sürüm Giriş >|X509 temel 64 dize dizisi olarak sertifika zinciri.|  
+|x5c|Evet|array|\<Karşınızda sürüm >|X509 taban 64 dize dizisi olarak sertifika zinciri.|  
 
 ### <a name="response"></a>Yanıt  
 

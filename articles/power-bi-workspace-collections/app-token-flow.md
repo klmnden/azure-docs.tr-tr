@@ -1,6 +1,6 @@
 ---
-title: Kimlik doğrulama ve yetkilendirme Power BI çalışma koleksiyonlarla | Microsoft Docs
-description: Kimlik doğrulaması ve yetkilendirme Power BI çalışma koleksiyonlarla.
+title: Kimlik doğrulama ve yetkilendirme ile Power BI çalışma alanı koleksiyonları | Microsoft Docs
+description: Kimlik doğrulaması ve Power BI çalışma alanı koleksiyonları ile yetkilendirme.
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
@@ -16,56 +16,56 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 74d34e708fb74daa295642d50643b78af8f6cb7a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4bf92638e15767ea254b33e5804977f0d6ab5476
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412194"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42060365"
 ---
-# <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Kimlik doğrulaması ve Power BI çalışma koleksiyonlarla yetkisi verme
+# <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Kimlik doğrulama ve yetkilendirme ile Power BI çalışma alanı koleksiyonları
 
-Power BI çalışma koleksiyonları kullanım **anahtarları** ve **uygulama belirteçleri** kimlik doğrulaması ve yetkilendirme açık son kullanıcı kimlik doğrulaması yerine. Bu modelde, kimlik doğrulama ve yetkilendirme, son kullanıcılarınız için uygulamanızı yönetir. Gerekli olduğunda, uygulamanızın oluşturur ve istenen rapor oluşturmak üzere hizmete söyleyin uygulama belirteçleri gönderir. Hala; ancak bu tasarımı uygulamanız Azure Active Directory kullanıcı kimlik doğrulaması ve yetkilendirme için kullanılacak gerektirmez.
+Power BI çalışma alanı koleksiyonları kullanım **anahtarları** ve **uygulama belirteçlerini** kimlik doğrulaması ve yetkilendirme, açık son kullanıcı kimlik doğrulaması yerine. Bu modelde, uygulamanız kimlik doğrulaması ve yetkilendirme son kullanıcılarınız için yönetir. Gerektiğinde uygulamanızı oluşturur ve istenen rapor oluşturulacak hizmetimiz söyleyin uygulama belirteçlerini gönderir. Bu tasarım, hala ancak kullanıcı kimlik doğrulaması ve yetkilendirme için Azure Active Directory kullanmak için uygulamanızı gerektirmez.
 
 > [!IMPORTANT]
 > Power BI Çalışma Alanı Koleksiyonları kullanım dışı bırakılmıştır ve Haziran 2018'e kadar veya anlaşmanızda belirtilen süre boyunca kullanılabilecektir. Uygulamanızda kesinti yaşanmaması için Power BI Embedded'a geçirmeyi planlamanız önerilir. Verilerinizi Power BI Embedded'a nasıl taşıyacağınızı öğrenmek için bkz. [Power BI Çalışma Alanı Koleksiyonları'nı Power BI Embedded'a geçirme](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-## <a name="two-ways-to-authenticate"></a>Kimlik doğrulaması için iki yol
+## <a name="two-ways-to-authenticate"></a>Kimlik doğrulaması yapmak için iki yol
 
-**Anahtar** -tüm Power BI çalışma koleksiyonları REST API çağrıları için tuşlarını kullanabilirsiniz. Anahtarları bulunabilir **Microsoft Azure portal** seçerek **tüm ayarları** ve ardından **erişim anahtarları**. Her zaman bir parola varsa gibi anahtarınızı kabul eder. Bu anahtarlar üzerinde belirli çalışma alanı koleksiyonu çağrı herhangi bir REST API'nin yapma izinlerine sahiptir.
+**Anahtar** -tüm Power BI çalışma alanı koleksiyonları REST API çağrıları için tuşlarını kullanabilirsiniz. Anahtarları bulunabilir **Microsoft Azure Portal'da** seçerek **tüm ayarlar** ardından **erişim anahtarları**. Eğer bir parola olarak ise anahtarınızı her zaman değerlendirin. Bu anahtarları bir REST API üzerinde belirli bir çalışma alanı koleksiyonu çağrısı yapmak için izinlere sahip.
 
-Bir anahtar REST çağrısı kullanmak için aşağıdaki authorization üstbilgisi ekleyin:
+Bir anahtar REST çağrısı kullanmak için aşağıdaki yetkilendirme üst bilgisi ekleyin:
 
     Authorization: AppKey {your key}
 
-**Uygulama belirteci** -uygulama belirteçleri katıştırma tüm istekler için kullanılır. İstemci-tarafı çalıştırılmak üzere tasarlanmışlardır. Belirtecin tek bir rapor ve bir sona erme süresini ayarlamak için en iyi uygulama sınırlıdır.
+**Uygulama belirteci** -uygulama belirteçlerini katıştırma tüm istekler için kullanılır. İstemci tarafı çalıştırılmak üzere tasarlanmışlardır. Belirteç sona erme süresini ayarlamak için en iyi yöntem ve tek bir rapor ile sınırlıdır.
 
-Uygulama belirteçleri anahtarlarınızı biri tarafından imzalanan JWT (JSON Web belirteci) var.
+Uygulama, JWT (JSON Web belirteci) anahtarlarınızdan birini tarafından imzalanmış belirteçleridir.
 
-Uygulama belirteci aşağıdaki talep içerebilir:
+Uygulama belirtecinizi aşağıdaki talep içerebilir:
 
-| İste | Açıklama |
+| İste | Açıklama |    
 | --- | --- |
-| **ver** |Uygulama belirteci sürümü. 0.2.0 geçerli sürümdür. |
-| **aud** |Belirtecin hedeflenen alıcı. Power BI çalışma koleksiyonları kullanın: "https://analysis.windows.net/powerbi/api." |
-| **ISS** |Belirtecin uygulama gösteren bir dize. |
-| **type** |Oluşturulan uygulama Belirtecin türü. Geçerli tek desteklenen türüdür **katıştırmak**. |
-| **WCN** |Çalışma alanı koleksiyonu adı belirteci için yayımlanmaktadır. |
-| **WID** |Çalışma alanı kimliği belirteci için yayımlanmaktadır. |
-| **RID** |Rapor Kimliği belirteci için yayımlanmaktadır. |
-| **Kullanıcı adı** (isteğe bağlı) |RLS ile kullanıldığında, kullanıcı adı, kullanıcı RLS kuralları uygularken belirlemenize yardımcı olabilecek bir dizedir. |
-| **rolleri** (isteğe bağlı) |Satır düzeyi güvenlik kuralları uygularken seçmek için rolleri içeren bir dize. Birden fazla rol geçirilirse, dizesi dizisi olarak aktarılmalıdır. |
-| **SCP** (isteğe bağlı) |İzinleri kapsamları içeren bir dize. Birden fazla rol geçirilirse, dizesi dizisi olarak aktarılmalıdır. |
-| **exp** (isteğe bağlı) |Hangi belirtecin süresi sona erdiği saati belirtir. Değer UNIX zaman damgaları geçirilmesi. |
-| **NBF** (isteğe bağlı) |İçinde belirtecin geçerli olan başladığı saati belirtir. Değer UNIX zaman damgaları geçirilmesi. |
+| **ver** |Uygulama belirteci sürümü. 0.2.0 geçerli sürümüdür. |
+| **aud** |Amaçladığınız alıcının belirtecin. Power BI çalışma alanı koleksiyonları'nı kullanın: *https:\//analysis.windows.net/powerbi/api*. |
+| **ISS** |Belirteci veren uygulamayı gösteren bir dize. |
+| **type** |Oluşturulan uygulama Belirtecin türü. Geçerli olan tek desteklenen tür **ekleme**. |
+| **WCN** |Çalışma alanı koleksiyon adı belirteci için yayımlanmaktadır. |
+| **WID** |Çalışma alanı kimliği belirteç için yayımlanmaktadır. |
+| **RID** |Belirteç kodu veren bildirin. |
+| **Kullanıcı adı** (isteğe bağlı) |RLS ile birlikte kullanıldığında, kullanıcı adı, ve RLS kurallarını uygularken kullanıcının belirlemeye yardımcı olabilecek bir dizedir. |
+| **rolleri** (isteğe bağlı) |Satır düzeyi güvenlik kurallarını uygularken seçilecek rolleri içeren bir dize. Birden fazla rol geçirilirse, bir barındırma dizisi olarak geçirilmelidir. |
+| **SCP** (isteğe bağlı) |İzin kapsamları içeren bir dize. Birden fazla rol geçirilirse, bir barındırma dizisi olarak geçirilmelidir. |
+| **exp** (isteğe bağlı) |Hangi belirteç süre sonu zamanı gösterir. Değer Unix zaman damgası geçirilmelidir. |
+| **NBF** (isteğe bağlı) |Geçerli belirteç içinde başladığı saati belirtir. Değer Unix zaman damgası geçirilmelidir. |
 
-Örnek bir uygulama belirtecini şuna benzer:
+Örnek uygulama belirteci şuna benzer:
 
 ```
 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2ZXIiOiIwLjIuMCIsInR5cGUiOiJlbWJlZCIsIndjbiI6Ikd1eUluQUN1YmUiLCJ3aWQiOiJkNGZlMWViMS0yNzEwLTRhNDctODQ3Yy0xNzZhOTU0NWRhZDgiLCJyaWQiOiIyNWMwZDQwYi1kZTY1LTQxZDItOTMyYy0wZjE2ODc2ZTNiOWQiLCJzY3AiOiJSZXBvcnQuUmVhZCIsImlzcyI6IlBvd2VyQklTREsiLCJhdWQiOiJodHRwczovL2FuYWx5c2lzLndpbmRvd3MubmV0L3Bvd2VyYmkvYXBpIiwiZXhwIjoxNDg4NTAyNDM2LCJuYmYiOjE0ODg0OTg4MzZ9.v1znUaXMrD1AdMz6YjywhJQGY7MWjdCR3SmUSwWwIiI
 ```
 
-Kodunu çözdü, şöyle görünür:
+Kodu çözülen, şunun gibi görünür:
 
 ```
 Header
@@ -90,27 +90,27 @@ Body
 
 ```
 
-Uygulama belirteçleri oluşturulmasını kolaylaştırmak SDK içinde kullanılabilir yöntem vardır. Örneğin, .NET için bakabilirsiniz [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) sınıfı ve [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) yöntemleri.
+Uygulama belirteçleri oluşturulmasını kolaylaştırmak SDK'lar içinde kullanılabilen yöntemler vardır. Örneğin, .NET için bakabilirsiniz [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) sınıfı ve [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) yöntemleri.
 
 .NET SDK için başvurabilirsiniz [kapsamları](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.scopes).
 
 ## <a name="scopes"></a>Kapsamlar
 
-Embed belirteçleri kullanırken, erişim hakkı vermek kaynak kullanımını kısıtlamak istediğinizi düşünelim. Bu nedenle, kapsamlı izinlere sahip bir belirteç oluşturabilirsiniz.
+Ekleme belirteçlerinin kullanırken, erişim izni verdiğiniz kaynak kullanımını kısıtlamak isteyebilirsiniz. Bu nedenle, kapsamlı izinlere sahip bir belirteç oluşturabilirsiniz.
 
-Power BI çalışma alanı koleksiyonu için kullanılabilir kapsamı verilmiştir.
+Power BI çalışma alanı koleksiyonları için kullanılabilir kapsamları aşağıda verilmiştir.
 
 |Kapsam|Açıklama|
 |---|---|
 |Dataset.Read|Belirtilen veri okuma izni sağlar.|
 |Dataset.Write|Belirtilen veri kümesi için yazma izni sağlar.|
-|Dataset.ReadWrite|Belirtilen veri kümesi için okumasına ve yazmasına izin sağlar.|
+|Dataset.ReadWrite|Okuma ve yazma için belirtilen veri kümesi izni sağlar.|
 |Report.Read|Belirtilen rapor görüntüleme izni sağlar.|
-|Report.ReadWrite|Görüntülemek ve belirtilen rapor düzenleme izni sağlar.|
+|Report.ReadWrite|Görüntüleme ve belirtilen rapor düzenleme izni sağlar.|
 |Workspace.Report.Create|Belirtilen çalışma alanı içinde yeni bir rapor oluşturma izni sağlar.|
-|Workspace.Report.Copy|Var olan bir raporu belirtilen çalışma alanı içindeki kopyalamaya izin sağlar.|
+|Workspace.Report.Copy|Belirtilen çalışma alanı içinde var olan bir raporu kopyalama izni sağlar.|
 
-Aşağıdaki gibi kapsamları arasında bir boşluk kullanarak birden çok kapsam sağlayabilir.
+Aşağıdaki gibi kapsamlar arasında bir boşluk kullanarak birden çok kapsam sağlayabilirsiniz.
 
 ```
 string scopes = "Dataset.Read Workspace.Report.Create";
@@ -118,9 +118,9 @@ string scopes = "Dataset.Read Workspace.Report.Create";
 
 **Gerekli talep - kapsamları**
 
-SCP: {scopesClaim} scopesClaim bir dize veya bir çalışma alanı kaynaklarına (rapor, veri kümesi, vb.) izin verilen izinleri belirterek bir dizeler dizisi olabilir
+SCP: {scopesClaim} scopesClaim bir dize veya bir çalışma alanı kaynakları (rapor, veri kümesi, vb.) için verilen izinler belirterek bir dize dizisi olabilir
 
-Kodu çözülmüş bir belirteç tanımlanan kapsamlarla benzer şekilde görünür:
+Kodu çözülen bir belirteç tanımlanan kapsamlar ile benzer şekilde görünür:
 
 ```
 Header
@@ -146,46 +146,46 @@ Body
 
 ```
 
-### <a name="operations-and-scopes"></a>İşlemler ve kapsamlar
+### <a name="operations-and-scopes"></a>İşlemler ve kapsamları
 
 |İşlem|Hedef kaynak|Belirteç izinleri|
 |---|---|---|
-|(Bellek içi) dayalı bir veri kümesine yeni bir rapor oluşturun.|Veri kümesi|Dataset.Read|
-|(Bellek içi) dayalı bir veri kümesine yeni bir rapor oluşturun ve raporu kaydedin.|Veri kümesi|* Dataset.Read<br>* Workspace.Report.Create|
-|Görüntüleyin ve (bellek içi) var olan bir raporu keşfedin/düzenleyin. Report.Read Dataset.Read anlamına gelir. Report.Read izin vermez düzenlemeler kaydediliyor.|Rapor|Report.Read|
+|Bir veri kümesini temel alan yeni bir rapor (bellek içi) oluşturun.|Veri kümesi|Dataset.Read|
+|(Bellek içi) bir veri kümesini temel alan yeni bir rapor oluşturun ve raporu kaydedin.|Veri kümesi|* Dataset.Read<br>* Workspace.Report.Create|
+|Görüntüleyin ve (bellek içi) var olan bir raporu keşfedin/düzenleyin. Report.Read Dataset.Read anlamına gelir. Report.Read izin vermez düzenlemeleri kaydediliyor.|Rapor|Report.Read|
 |Düzenle ve var olan bir raporu kaydedin.|Rapor|Report.ReadWrite|
 |(Farklı Kaydet) bir raporun bir kopyasını kaydedin.|Rapor|* Report.Read<br>* Workspace.Report.Copy|
 
 ## <a name="heres-how-the-flow-works"></a>İşte akışı nasıl çalışır?
-1. API anahtarları uygulamanıza kopyalayın. Anahtarları alabileceğiniz **Azure portal**.
+1. API anahtarları, uygulamaya kopyalayın. Anahtarlarını alabilirsiniz **Azure portalında**.
    
-    ![Azure portalında API anahtarları nerede bulacağını](media/get-started-sample/azure-portal.png)
-1. Belirteç talep onaylar ve sona erme süresi vardır.
+    ![Azure portalında API anahtarlarını bulmak nereye](media/get-started-sample/azure-portal.png)
+1. Belirteç talep onaylar ve sona erme zamanına sahip.
    
     ![Uygulama belirteci akışı - belirteç talep onaylar.](media/get-started-sample/token-2.png)
-1. Belirteci bir API erişim anahtarlarla imzalanması.
+1. Bir API erişim anahtarı belirteci imzalayan.
    
-    ![Uygulama belirteci akışı - token imzalı](media/get-started-sample/token-3.png)
-1. Bir raporu görüntülemek için kullanıcı istekleri.
+    ![Uygulama belirteci akışı - belirteci imzalı](media/get-started-sample/token-3.png)
+1. Bir raporu görüntülemek için kullanıcı istekleri'ni kullanın.
    
     ![Uygulama belirteci akışı - bir raporu görüntülemek için kullanıcı istekleri](media/get-started-sample/token-4.png)
-1. Belirteç API'si erişim tuşları ile doğrulanır.
+1. Belirteç, bir API erişim anahtarı doğrulanır.
    
-   ![Uygulama belirteci akışı - token doğrulandı](media/get-started-sample/token-5.png)
-1. Power BI çalışma koleksiyonları, kullanıcıya bir rapor gönderir.
+   ![Uygulama belirteci akışı - belirteç doğrulandı](media/get-started-sample/token-5.png)
+1. Power BI çalışma alanı koleksiyonları, kullanıcıya bir rapor gönderir.
    
    ![Uygulama belirteci akışı - hizmet gönderme raporu kullanıcıya](media/get-started-sample/token-6.png)
 
-Sonra **Power BI çalışma koleksiyonları** rapor kullanıcı, kullanıcı için bir özel uygulamanızda raporunu görüntüleyebilirsiniz. Örneğin, içeri aktardığınız [çözümleme satış verileri PBIX örnek](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), örnek web uygulaması aşağıdaki gibidir:
+Sonra **Power BI çalışma alanı koleksiyonları** rapor kullanıcı, kullanıcı için bir özel uygulamanızda raporu görüntüleyebilirsiniz. Örneğin, içeri aktardığınız [çözümleme satış verileri PBIX örnek](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), örnek web uygulamasını şöyle görünmelidir:
 
-![Uygulamada ekli raporu örneği](media/get-started-sample/sample-web-app.png)
+![Uygulamaya bir rapor örneği](media/get-started-sample/sample-web-app.png)
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
-[Microsoft Power BI çalışma koleksiyonları örneği kullanmaya başlama](get-started-sample.md)  
-[Microsoft Power BI çalışma koleksiyonları senaryoları](scenarios.md)  
-[Microsoft Power BI çalışma koleksiyonları ile çalışmaya başlama](get-started.md)  
-[Powerbı CSharp Git deposu](https://github.com/Microsoft/PowerBI-CSharp)
+[Microsoft Power BI çalışma alanı koleksiyonları örnek ile kullanmaya başlama](get-started-sample.md)  
+[Microsoft Power BI çalışma alanı koleksiyonları senaryoları](scenarios.md)  
+[Microsoft Power BI çalışma alanı koleksiyonları ile çalışmaya başlama](get-started.md)  
+[Power BI-CSharp Git deposu](https://github.com/Microsoft/PowerBI-CSharp)
 
 Başka sorunuz mu var? [Power BI Topluluğu'nu deneyin](http://community.powerbi.com/)

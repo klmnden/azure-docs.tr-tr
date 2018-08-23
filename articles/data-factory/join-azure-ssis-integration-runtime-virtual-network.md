@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: aa723fb765d4432d9bcdd56e4b520bf00660f84c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d89abfd0ec2ae5de8366a12bb38d9358aa8ab76d
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444858"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42062115"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Bir Azure-SSIS tümleştirme çalışma zamanını bir sanal ağa katılın
 Bir Azure sanal ağına aşağıdaki senaryolarda, Azure-SSIS Integration runtime (IR) katılın: 
@@ -86,11 +86,11 @@ Aşağıdaki adımları önerilir:
 Daha fazla bilgi için bkz. [ad çözümlemesi kendi DNS sunucunuzu kullanan](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server). 
 
 ### <a name="nsg"></a> Ağ güvenlik grubu
-Gelen/giden trafik bir ağ güvenlik grubu (NSG) uygulamak Azure-SSIS tümleştirme çalışma zamanı tarafından birleştirilmiş bir sanal ağda ihtiyacınız varsa, aşağıdaki bağlantı noktaları izin ver: 
+Gelen/giden trafik bir ağ güvenlik grubu (NSG), Azure-SSIS tümleştirme çalışma zamanı tarafından kullanılan alt ağ uygulamanız gerekiyorsa, aşağıdaki bağlantı noktaları izin ver: 
 
 | Yön | Aktarım Protokolü | Kaynak | Kaynak bağlantı noktası aralığı | Hedef | Hedef bağlantı noktası aralığı | Yorumlar |
 |---|---|---|---|---|---|---|
-| Gelen | TCP | Internet | * | VirtualNetwork | 29876, 29877'numaralı (bir Azure Resource Manager sanal ağı'de IR katılırsanız) <br/><br/>10100, 20100, 30100'numaralı (klasik bir sanal ağ'de IR katılırsanız)| Data Factory hizmetinin bu bağlantı noktaları sanal ağ, Azure-SSIS tümleştirme çalışma zamanı düğümleri ile iletişim kurmak için kullanır. <br/><br/> Bir NSG veya belirttiğiniz olsun, Data Factory her zaman bir NSG Azure-SSIS IR'yi barındıran sanal makinelere bağlı ağ arabirim kartı (NIC) düzeyinde yapılandırır Yalnızca veri fabrikası IP adreslerinden gelen trafiğe izin verilir. Internet trafiği için bu bağlantı noktaları açmanız bile, Data Factory IP adresleri olan IP adreslerinden gelen trafiğin NIC düzeyinde engellenir. |
+| Gelen | TCP | Internet | * | VirtualNetwork | 29876, 29877'numaralı (bir Azure Resource Manager sanal ağı'de IR katılırsanız) <br/><br/>10100, 20100, 30100'numaralı (klasik bir sanal ağ'de IR katılırsanız)| Data Factory hizmetinin bu bağlantı noktaları sanal ağ, Azure-SSIS tümleştirme çalışma zamanı düğümleri ile iletişim kurmak için kullanır. <br/><br/> Veya bir alt ağ düzeyinde NSG oluşturmak ister, Data Factory her zaman bir NSG Azure-SSIS IR'yi barındıran sanal makinelere bağlı ağ arabirim kartı (NIC) düzeyinde yapılandırır Bu NIC düzeyinde NSG tarafından yalnızca belirtilen bağlantı noktalarında veri fabrikası IP adreslerinden gelen trafiğe izin verilir. Alt ağ düzeyinde Internet trafiği için bu bağlantı noktalarını açmanız bile NIC düzeyinde Data Factory IP adresleri olan IP adreslerinden gelen trafik engellenir. |
 | Giden | TCP | VirtualNetwork | * | Internet | 443 | Sanal ağ, Azure-SSIS tümleştirme çalışma zamanı düğümleri, Azure depolama ve Azure Event Hubs gibi Azure hizmetlerine erişmek için bu bağlantı noktasını kullanın. |
 | Giden | TCP | VirtualNetwork | * | Internet veya Sql | 11000 11999, 14000 14999 1433 | SSISDB erişmek için bu bağlantı noktaları - Azure SQL veritabanı sunucunuz tarafından barındırılan sanal ağ kullanma, Azure-SSIS tümleştirme çalışma zamanı düğümleri bu amaç yönetilen örneği (Önizleme) tarafından barındırılan SSISDB için geçerli değildir. |
 ||||||||

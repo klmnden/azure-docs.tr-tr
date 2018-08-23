@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3dfe16cc09f0453aef8adf8bf87a00aebd2054bc
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: eb6516400d362fe60adc05590353ec003c70e059
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214644"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42057615"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure automation'da Runbook yürütme
 
@@ -88,7 +88,7 @@ Bir runbook işlerini görüntülemek için aşağıdaki adımları kullanabilir
 
 ## <a name="retrieving-job-status-using-windows-powershell"></a>Windows PowerShell kullanarak iş durumunu alma
 
-Kullanabileceğiniz [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx) işi oluşturulan bir runbook'u ve belirli bir işin ayrıntılarını alabilirsiniz. Windows PowerShell ile bir runbook başlatırsanız [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx), sonuçtaki işi verir. Kullanım [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx)bir işi almak için çıkış çıkış.
+Kullanabileceğiniz [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) işi oluşturulan bir runbook'u ve belirli bir işin ayrıntılarını alabilirsiniz. Windows PowerShell ile bir runbook başlatırsanız [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook), sonuçtaki işi verir. Kullanım [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) işin çıktısını bir işi almak için.
 
 Aşağıdaki örnek komutlar örnek bir runbook'un son işini alıp, runbook parametreleri ve iş çıktısını için sağlanan değerler durumunu görüntüleyin.
 
@@ -145,7 +145,7 @@ Bunlar yeniden bulgudaki olmadan sonraki kontrol noktasına yapmak mümkün olma
 
 Ardından runbook hiç kontrol noktası varsa veya iş ilk kontrol noktası kaldırılıyor önce tamamladı değil baştan başlatılır.
 
-Uzun çalıştırmak için görevler önerilir kullanmak için bir [karma Runbook çalışanı](automation-hrw-run-runbooks.md#job-behavior). Karma Runbook çalışanları tarafından adil paylaşımı sınırlı değildir ve bir sınırlama yoktur üzerinde ne kadar bir runbook çalıştırabilirsiniz.
+Uzun süreli çalışan görevler için [Karma Runbook Çalışanı](automation-hrw-run-runbooks.md#job-behavior) kullanmanız önerilir. Karma Runbook Çalışanları, dengeli dağıtım sınırlarına tabi değildir ve runbook yürütme uzunluğu konusunda geçerli bir sınırları yoktur.
 
 Azure üzerinde PowerShell iş akışı runbook kullanıyorsanız, bir runbook oluştururken iki denetim noktaları arasından herhangi bir etkinlik çalışma süresi üç saat aşmadığından emin olun. Runbook'unuzda bu üç saatlik sınırına ulaşmadığınız veya desteklemez uzun süre sonu emin emin olmak için kontrol noktaları eklemek gerekebilir süreli işlemler. Örneğin, runbook'unuz bir reindex büyük bir SQL veritabanı'nda gerçekleştirebilir. Bu tek işlem adil paylaşım sınırı içinde tamamlanmazsa, ardından iş kaldırıldı ve baştan yeniden. Bu durumda bir kerede bir tablo ölçeklemek gibi birden çok adımlarını reindex işlemi bölmeniz ve işi tamamlamak için son işlemi sonra devam edilemiyor, böylece her işlemden sonra bir denetim noktası ekleyin.
 

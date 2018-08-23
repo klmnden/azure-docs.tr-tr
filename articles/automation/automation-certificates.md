@@ -1,6 +1,6 @@
 ---
 title: Azure Otomasyonu sertifika varlıkları
-description: Runbook'ları veya Azure ve üçüncü taraf kaynaklarına karşı kimlik doğrulaması için DSC yapılandırması tarafından erişilebilecek şekilde sertifikaları güvenli bir şekilde Azure Otomasyonu'nda depolanabilir.  Bu makalede, sertifikalar ve bunlarla metinsel ve grafik yazma çalışma ayrıntılarını açıklanmaktadır.
+description: Runbook'ları veya Azure ve üçüncü taraf kaynaklarına karşı kimlik doğrulaması için DSC yapılandırmaları tarafından erişilebilen için Azure Otomasyonu'nda sertifikaları güvenli bir şekilde depolanabilir.  Bu makalede, sertifikalar ve hem metin hem de grafik yazma ile çalışma ayrıntılarını açıklar.
 services: automation
 ms.service: automation
 ms.component: shared-capabilities
@@ -9,68 +9,68 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 70d5c777f98a1e09125c7ef42ba597009bde084b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c13da6ff7c864ffa365dbad33d6eb0cf2e35fa42
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194350"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42056012"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Azure Otomasyonu sertifika varlıkları
 
-Sertifikaları depolanabilir güvenli bir şekilde Azure Otomasyonu'nda runbook'lar veya kullanarak DSC yapılandırması tarafından erişilebilmeleri adına **Get-AzureRmAutomationCertificate** etkinlik Azure Resource Manager kaynakları için. Bu özellik, runbook'ları ve kimlik doğrulaması için sertifikalar kullanmak DSC yapılandırmaları oluşturmanıza olanak sağlar veya Azure veya üçüncü taraf kaynakları ekler.
+Sertifikaları depolanabilir güvenli bir şekilde Azure Otomasyonu'nda runbook veya DSC yapılandırmaları tarafından erişilebilen şekilde **Get-AzureRmAutomationCertificate** Azure Resource Manager kaynaklarını için etkinlik. Bu özellik, runbook'ları ve kimlik doğrulaması için sertifikalar kullanmak DSC yapılandırmaları oluşturmanıza olanak tanır veya bunları Azure veya üçüncü taraf kaynaklar ekler.
 
 >[!NOTE]
->Azure Automation güvenli varlıkların kimlik bilgileri, sertifikalar, bağlantıları ve şifrelenmiş değişkenler içerir. Bu varlıklar şifrelenir ve her Otomasyon hesabı için oluşturulan benzersiz bir anahtar kullanarak Azure automation'da depolanır. Bu anahtar, anahtar kasasında depolanır. Güvenli bir varlık depolamadan önce anahtarı anahtar Kasası'nı yüklenir ve varlık şifrelemek için kullanılır.
+>Azure automation'da güvenli varlıkların kimlik bilgileri, sertifikalar, bağlantılar ve şifrelenmiş değişkenler içerir. Bu varlıklar şifrelenir ve her Otomasyon hesabı için oluşturulan benzersiz bir anahtar kullanarak Azure automation'da depolanır. Bu anahtar, anahtar Kasası'nda depolanır. Güvenli bir varlık depolamadan önce anahtarı Key Vault'tan yüklenir ve sonra varlık şifrelemek için kullanılır.
 
 ## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell cmdlet'leri
-AzureRM için aşağıdaki tablodaki cmdlet'ler oluşturmak ve Windows PowerShell ile automation kimlik bilgisi varlıkları yönetmek için kullanılır. Bir parçası olarak sevk [AzureRM.Automation Modülü](/powershell/azure/overview) olduğu Automation runbook'ları ve DSC yapılandırmaları için kullanılabilir.
+AzureRM için aşağıdaki tabloda yer alan cmdlet'ler Windows PowerShell ile Otomasyon kimlik bilgisi varlıkları oluşturmak ve yönetmek için kullanılır. Bunlar parçası olarak gönderilen [AzureRM.Automation Modülü](/powershell/azure/overview) olduğu Automation runbook'ları ve DSC yapılandırmaları için kullanılabilir.
 
 |Cmdlet'leri|Açıklama|
 |:---|:---|
-|[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate)|Bir runbook veya DSC yapılandırması kullanmak için bir sertifikayla ilgili bilgileri alır. Bu gibi durumlarda, sertifika yalnızca Get-AutomationCertificate etkinliğinden alabilirsiniz.|
-|[AzureRmAutomationCertificate yeni](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Yeni bir sertifika Azure Automation'a oluşturur.|
-[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Bir sertifika Azure Otomasyon kaldırır.|Yeni bir sertifika Azure Automation'a oluşturur.
-|[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate)|Sertifika dosyası karşıya yükleme ve bir .pfx için parolayı ayarlama da dahil olmak üzere var olan bir sertifikayı özelliklerini ayarlar.|
+|[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate)|Runbook'tan veya DSC yapılandırmasından içinde kullanmak üzere bir sertifika hakkındaki bilgileri alır. Bu gibi durumlarda, sertifika yalnızca Get-AutomationCertificate etkinliğinden alabilirsiniz.|
+|[Yeni AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Azure Automation'a yeni bir sertifika oluşturur.|
+[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Azure Otomasyonu sertifika kaldırır.|Azure Automation'a yeni bir sertifika oluşturur.
+|[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate)|Sertifikayı karşıya yükleme ve bir .pfx için parolayı ayarlama da dahil olmak üzere mevcut bir sertifikayı özelliklerini ayarlar.|
 |[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Belirtilen bulut hizmeti için hizmet sertifikası yükler.|
 
 ## <a name="activities"></a>Etkinlikler
-Aşağıdaki tablodaki etkinlikler bir runbook ve DSC yapılandırmaları sertifikalarda erişmek için kullanılır.
+Aşağıdaki tablodaki etkinlikler bir runbook ve DSC yapılandırmaları sertifikaları erişmek için kullanılır.
 
 | Etkinlikler | Açıklama |
 |:---|:---|
-|Get-AutomationCertificate|Bir runbook veya DSC yapılandırması kullanmak üzere bir sertifika alır. Döndürür bir [System.Security.Cryptography.X509Certificates.X509Certificate2](https://msdn.microsoft.com/library/system.security.cryptography.x509certificates.x509certificate2.aspx) nesnesi.|
+|Get-AutomationCertificate|Runbook'tan veya DSC yapılandırmasından içinde kullanmak üzere bir sertifika alır. Döndürür bir [System.Security.Cryptography.X509Certificates.X509Certificate2](https://msdn.microsoft.com/library/system.security.cryptography.x509certificates.x509certificate2.aspx) nesne.|
 
 > [!NOTE] 
-> Yapmaktan kaçınmalısınız – Name parametresinde **Get-AutomationCertificate** bir runbook ya da DSC yapılandırması runbook'lar veya DSC yapılandırması ve Otomasyon değişkenleri arasındaki bağımlılıkları karmaşıklaştırır Tasarım zamanında.
+> Değişkenleri kullanmaktan kaçınmanız gerekir – Name parametresinde **Get-AutomationCertificate** runbook veya DSC yapılandırması runbook veya DSC yapılandırma ve Otomasyon değişkenleri arasındaki bağımlılıkları karmaşık hale getirir. Tasarım zamanında.
 
 ## <a name="python2-functions"></a>Python2 işlevleri
 
-Aşağıdaki tabloda işlevinde Python2 runbook sertifikalarda erişmek için kullanılır.
+Aşağıdaki tabloda işlevi Python2 runbook Sertifikalar'da erişmek için kullanılır.
 
 | İşlev | Açıklama |
 |:---|:---|
-| automationassets.get_automation_certificate | Bir sertifika varlığı ilgili bilgileri alır. |
+| automationassets.get_automation_certificate | Sertifika varlığı hakkındaki bilgileri alır. |
 
 > [!NOTE]
-> İçeri aktarmanız gerekir **automationassets** varlık işlevleri erişmek için Python runbook'unuz başlangıcını modülünde.
+> İçeri aktarmalısınız **automationassets** başına varlık işlevleri erişmek için Python runbook, modül.
 
 ## <a name="creating-a-new-certificate"></a>Yeni bir sertifika oluşturma
 
-Yeni bir sertifika oluşturduğunuzda, Azure Automation .cer veya .pfx dosyasını karşıya yükleyin. Ardından sertifikası dışarı aktarılabilir olarak işaretlerseniz, bunu Azure Otomasyonu sertifika deposunu dışında aktarabilirsiniz. Dışarı aktarılabilir değilse, ardından bu yalnızca runbook veya DSC yapılandırması içinde imzalamak için kullanılabilir. Azure Otomasyonu sağlayıcı sağlamak için sertifika gerektirir: **Microsoft Gelişmiş RSA ve AES şifreleme sağlayıcısı**.
+Yeni bir sertifika oluşturduğunuzda, Azure Otomasyonu'na ekleme bir .cer veya .pfx dosyasını karşıya yükleyin. Sonra sertifikanın dışarı aktarılabilir olarak işaretlerseniz, dışında Azure Otomasyonu sertifika deposuna aktarabilirsiniz. Dışarı aktarılabilir olmadığı, ardından bunu yalnızca runbook veya DSC yapılandırması içinde imzalamak için kullanılabilir. Azure Otomasyonu sağlayıcısı için sertifika gerektirir: **Microsoft Gelişmiş RSA ve AES şifreleme sağlayıcısı**.
 
 ### <a name="to-create-a-new-certificate-with-the-azure-portal"></a>Azure portalı ile yeni bir sertifika oluşturmak için
 
-1. Otomasyon hesabınızdan tıklatın **varlıklar** açmak için kutucuğa **varlıklar** dikey.
-1. Tıklatın **sertifikaları** açmak için kutucuğa **sertifikaları** dikey.
-1. Tıklatın **bir sertifika eklemek** dikey pencerenin üstündeki.
+1. Otomasyon hesabınızdan tıklayın **varlıklar** açmak için kutucuğa **varlıklar** dikey penceresi.
+1. Tıklayın **sertifikaları** açmak için kutucuğa **sertifikaları** dikey penceresi.
+1. Tıklayın **sertifika ekleme** dikey penceresinin üstünde.
 1. Sertifika için bir ad yazın **adı** kutusu.
-1. Bir .cer veya .pfx dosyasını bulmak için tıklayın **bir dosya seçin** altında **bir sertifika dosyası karşıya**. Bir .pfx dosyası seçerseniz, bir parola ve onu dışarı aktarılmasına izin verilip verilmeyeceğini belirtin.
-1. Tıklatın **oluşturma** yeni sertifika varlığı kaydetmek için.
+1. Bir .cer veya .pfx dosyasına gözatmak için tıklayın **bir dosya seçin** altında **bir sertifika dosyası karşıya**. Bir .pfx dosyası seçerseniz, parola ve bunu dışarı aktarılmasına izin verilip verilmediğine belirtin.
+1. Tıklayın **Oluştur** yeni sertifika varlığı kaydetmek için.
 
 ### <a name="to-create-a-new-certificate-with-windows-powershell"></a>Windows PowerShell ile yeni bir sertifika oluşturmak için
 
-Aşağıdaki örnek, yeni bir Otomasyon sertifikası oluşturun ve dışarı aktarılabilir olarak işaretleyin gösterilmiştir. Bu, var olan bir .pfx dosyasını içeri aktarır.
+Aşağıdaki örnek yeni bir Otomasyon sertifikası oluşturma ve dışarı aktarılabilir olarak işaretle gösterir. Bu, varolan bir .pfx dosyasına aktarır.
 
 ```powershell-interactive
 $certName = 'MyCertificate'
@@ -81,13 +81,13 @@ $ResourceGroup = "ResourceGroup01"
 New-AzureRmAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certName -Path $certPath –Password $certPwd -Exportable -ResourceGroupName $ResourceGroup
 ```
 
-## <a name="using-a-certificate"></a>Bir sertifika kullanma
+## <a name="using-a-certificate"></a>Bir sertifika kullanıyor
 
-Bir sertifika kullanmak için **Get-AutomationCertificate** etkinlik. Kullanamazsınız [Get-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603765.aspx) sertifika varlığı ama sertifikanın kendisi hakkında bilgi döndürdüğünden cmdlet'i.
+Bir sertifika kullanmak için **Get-AutomationCertificate** etkinlik. Kullanamazsınız [Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate?view=azurermps-6.6.0) cmdlet'i bu yana sertifika varlığı ama sertifikanın kendisi değil, ilgili bilgileri döndürür.
 
-### <a name="textual-runbook-sample"></a>Metin biçiminde runbook örneği
+### <a name="textual-runbook-sample"></a>Metinsel runbook örneği
 
-Aşağıdaki örnek kod, bir runbook'ta bir bulut hizmeti için bir sertifika eklemek gösterilmiştir. Bu örnekte, parolayı bir şifrelenmiş Otomasyon değişkeninden alınır.
+Aşağıdaki örnek kod, bir runbook'ta bir bulut hizmeti için bir sertifika eklemek gösterilmektedir. Bu örnekte, parolayı bir şifrelenmiş Otomasyon değişkeninden alınmaktadır.
 
 ```powershell-interactive
 $serviceName = 'MyCloudService'
@@ -103,12 +103,12 @@ Eklediğiniz bir **Get-AutomationCertificate** sağ tıklayarak grafik düzenley
 
 ![Sertifika tuvale Ekle](media/automation-certificates/automation-certificate-add-to-canvas.png)
 
-Aşağıdaki resimde bir grafik runbook'ta bir sertifika kullanarak bir örnek gösterilmektedir. Bu sertifika bir metinsel runbook'tan bir bulut hizmetine eklemek için önceki örnekte aynıdır.
+Aşağıdaki görüntüde, grafik bir runbook'ta bir sertifika kullanarak bir örnek gösterilmektedir. Bu sertifika, metinsel bir runbook'tan bir bulut hizmetine eklemek için önceki örnekte aynıdır.
 
 ![Örnek grafik yazma ](media/automation-certificates/graphical-runbook-add-certificate.png)
 
 ### <a name="python2-sample"></a>Python2 örnek
-Aşağıdaki örnek, sertifikaları Python2 runbook'lardaki erişim gösterilmektedir.
+Aşağıdaki örnek Python2 runbook'ları sertifikaları nasıl gösterir.
 
 ```python
 # get a reference to the Azure Automation certificate
@@ -120,4 +120,4 @@ print cert
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Runbook'unuzda gerçekleştirmek üzere tasarlanmıştır etkinliklerin mantıksal akışını denetlemek için bağlantılar ile çalışma hakkında daha fazla bilgi için bkz: [grafik yazma içinde bağlantılar](automation-graphical-authoring-intro.md#links-and-workflow). 
+- Runbook'unuzu gerçekleştirmek üzere tasarlanan etkinliklerin mantıksal akışını denetlemek için bağlantılar ile çalışma hakkında daha fazla bilgi edinmek için [grafik yazma içinde bağlantıları](automation-graphical-authoring-intro.md#links-and-workflow). 

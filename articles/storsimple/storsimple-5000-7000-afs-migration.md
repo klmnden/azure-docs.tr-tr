@@ -11,16 +11,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/10/2018
+ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 4dc4ddb2d11cf792bfa6288eadce8eb03470ae1d
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 6a52db27491ef707b813a7645d275b371b11368c
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099967"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42060366"
 ---
-# <a name="migrate-data-from-storsimple-5000-7000-series"></a>5000-7000 Serisi Storsimple'dan verileri geçirme 
+# <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Azure dosya eşitleme için StorSimple 5000-7000 serisinden veri geçirme
 
 Veri geçişi veri depolama tek bir konumdan diğerine taşınmasını işlemidir. Bu verilerin bir kuruluşun geçerli bir CİHAZDAN başka bir cihaz için tam kopyalayarak gerektirir — tercihen kesintiye veya etkin uygulamalar devre dışı bırakma olmadan — ve ardından yeni cihaz için tüm giriş/çıkış (g/ç) etkinlikleri yeniden yönlendirme. 
 
@@ -67,17 +67,17 @@ Storsimple'dan verileri geçirmeyi 5000-7000 AFS için iki adımlı bir işlemdi
 
 Azure dosya eşitleme paylaşımına StorSimple birimlerde yapılandırılmış Windows dosya paylaşımına geçirmek için aşağıdaki adımları gerçekleştirin. 
 1.  Bu adımlar StorSimple birimlerini burada bağlanan veya farklı bir sistem kullanın aynı Windows Server ana bilgisayarında gerçekleştirin. 
-    - [Windows Server'ın Azure dosya eşitleme ile kullanmak üzere hazırlama](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal).
-    - [Azure dosya eşitleme Aracısı](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal).
-    - [Depolama eşitleme hizmetini dağıtma](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). 
-    - [Windows Server depolama eşitleme hizmeti ile kaydetme](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). 
-    - [Bir eşitleme grubuna ve bir bulut uç noktası oluşturma] (https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal. Eşitleme grubu konaktan geçirilmesi gerekiyor her Windows dosya paylaşımı için yapılması gerekir.
-    - [Sunucu uç noktası oluşturma](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). Dosya Paylaşımı verilerinizi içeren bir StorSimple biriminin yolunu yolunu belirtin. StorSimple birim sürücüdür. Örneğin, `J`, ve verilerinizi bulunan `J:/<myafsshare>`, ardından sunucu uç noktası bu yolu ekleyin. Bırakın **katmanlama** olarak **devre dışı bırakılmış**.
+    - [Windows Server'ın Azure dosya eşitleme ile kullanmak üzere hazırlama](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#prepare-windows-server-to-use-with-azure-file-sync).
+    - [Azure dosya eşitleme Aracısı](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#install-the-azure-file-sync-agent).
+    - [Depolama eşitleme hizmetini dağıtma](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#deploy-the-storage-sync-service). 
+    - [Windows Server depolama eşitleme hizmeti ile kaydetme](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#register-windows-server-with-storage-sync-service). 
+    - [Bir eşitleme grubuna ve bir bulut uç noktası oluşturma](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#create-a-sync-group-and-a-cloud-endpoint). Eşitleme grubu konaktan geçirilmesi gerekiyor her Windows dosya paylaşımı için yapılması gerekir.
+    - [Sunucu uç noktası oluşturma](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal#create-a-server-endpoint). Dosya Paylaşımı verilerinizi içeren bir StorSimple biriminin yolunu yolunu belirtin. StorSimple birim sürücüdür. Örneğin, `J`, ve verilerinizi bulunan `J:/<myafsshare>`, ardından sunucu uç noktası bu yolu ekleyin. Bırakın **katmanlama** olarak **devre dışı bırakılmış**.
 2.  Dosya sunucusu eşitleme işlemi tamamlanana kadar bekleyin. Verilen eşitleme grubundaki her sunucu için emin olun:
     - Denenen son eşitlemenin hem karşıya yükleme ve indirme için zaman damgası, son.
     - Karşıya yükleme ve indirme için yeşil durumudur.
-    - Eşitleme etkinliği çok az sayıda gösterir ya da eşitlemek için kalan dosya yok.
-    - Olmayan dosyalar eşitleniyor hem karşıya yükleme ve indirme 0 gerçekleşir.
+    - **Eşitleme etkinliği** çok az sayıda gösterir ya da eşitlemek için kalan dosya yok.
+    - **Dosyaları değil eşitleniyor** hem karşıya yükleme ve indirme 0'dır.
     Sunucu eşitleme tamamlandığında daha fazla bilgi için Git [Azure dosya eşitleme sorunlarını giderme](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#how-do-i-know-if-my-servers-are-in-sync-with-each-other). Eşitleme gün cinsinden veri boyutu ve bant genişliğine bağlı olarak birkaç saat sürebilir. Eşitleme tamamlandıktan sonra tüm verilerinizi güvenli bir şekilde Azure dosya paylaşımı olduğu. 
 3.  Paylaşımlara StorSimple birimlere gidin. Bir paylaşımı, sütuna sağ tıklayıp seçin **özellikleri**. Paylaşım izinleri altında Not **güvenlik**. Bu izinleri, sonraki adımda yeni bir paylaşım el ile uygulanması gerekecektir.
 4.  Aynı Windows Server konağının ya da farklı bir kullanmadığınıza bağlı olarak, sonraki adımlar farklı olacaktır.

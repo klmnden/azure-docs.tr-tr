@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: 252e4f9fe5ed6b4ff9997fc41c691636e6d002b3
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: bb9e30489aa8870fe1c71c8c9a8bd557a2dcf2b1
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413547"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42056538"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Sanal Makineler’de SQL Server ile Azure Premium Depolama kullanma
 ## <a name="overview"></a>Genel Bakış
@@ -645,7 +645,7 @@ Aşağıdaki kod, VNN ayarları dökümleri ve sizin için ayarlar. Bu değişik
 
 Sonraki bir adımda geçiş, her zaman açık dinleyici başvuran bir yük dengeleyici güncelleştirilmiş IP adresiyle güncelleştirmeniz gerekir, bu da bir IP adresi kaynak temizleme ve toplama içerir. IP Güncelleştirme tamamlandıktan sonra yeni IP adresini DNS bölgesinde güncelleştirildi ve istemcilerin kendi yerel DNS önbelleği güncelleştirdiğiniz emin olmalısınız.
 
-Müşterilerinizin farklı ağ Segmentte bulunan ve farklı bir DNS sunucusu başvuru, ne DNS bölge aktarım hakkında geçiş sırasında uygulama yeniden gibi süresi düşünmeniz gereken en az bölge aktarım süresini herhangi yeni bir IP ile kısıtlanıyor Dinleyici için adresleri. Burada zaman kısıtlamasından varsa, tartışın ve Windows takımlarınızı bir artımlı bölge aktarımı zorlama test ve ayrıca DNS ana bilgisayar kaydının bir alt yaşam süresi (TTL için) put, böylece istemciler güncelleştirin. Daha fazla bilgi için [artımlı bölge aktarımlarını](https://technet.microsoft.com/library/cc958973.aspx) ve [başlangıç DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
+Müşterilerinizin farklı ağ Segmentte bulunan ve farklı bir DNS sunucusu başvuru, ne DNS bölge aktarım hakkında geçiş sırasında uygulama yeniden gibi süresi düşünmeniz gereken en az bölge aktarım süresini herhangi yeni bir IP ile kısıtlanıyor Dinleyici için adresleri. Burada zaman kısıtlamasından varsa, tartışın ve Windows takımlarınızı bir artımlı bölge aktarımı zorlama test ve ayrıca DNS ana bilgisayar kaydının bir alt yaşam süresi (TTL için) put, böylece istemciler güncelleştirin. Daha fazla bilgi için [artımlı bölge aktarımlarını](https://technet.microsoft.com/library/cc958973.aspx) ve [başlangıç DnsServerZoneTransfer](https://docs.microsoft.com/powershell/module/dnsserver/start-dnsserverzonetransfer).
 
 Varsayılan TTL, azure'da her zaman açık dinleyici'ile ilişkili bir DNS kaydı için 1200 saniyedir. İstemcilerin emin olmak için geçişiniz sırasında kısıtlaması dinleyici için güncelleştirilmiş bir IP adresi ile kendi DNS güncelleştirme altında olduğunda bu azaltmak isteyebilirsiniz. Görebilir ve VNN yapılandırmasını dökme tarafından yapılandırmasını değiştirme:
 

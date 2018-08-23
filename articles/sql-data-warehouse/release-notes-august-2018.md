@@ -7,15 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 08/06/2018
+ms.date: 08/13/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 1f3b17f3163c29f9b9e1e47e14ccdbc1e37e1010
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 27030256b88f429d080c7a7ce69ed3c83eca337c
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39635587"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42055397"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Ağustos 2018
 Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Ağustos 2018'de sunulan değişiklikler ve yeni özellikleri açıklar.
@@ -26,6 +26,15 @@ Microsoft gelen [otomatik Intelligent ınsights](https://azure.microsoft.com/blo
 Önerileri Azure Danışmanı Portalı'nda görüntüleyebilirsiniz: ![Azure SQL veri ambarı için Azure Danışmanı portalı önerileri](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/4e205b6d-df04-48db-8eec-d591f2592cf4.png)
 
 Özel uyarı önerilerini görmek için her kategorinin ayrıntılarına ulaşabilirsiniz: ![Azure SQL veri ambarı için Azure Danışmanı portalı öneri ayrıntıları](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/3c42426e-6969-46e3-9025-c34c0755a302.png)
+
+
+## <a name="bug-fixes"></a>Hata düzeltmeleri
+
+| Unvan | Açıklama |
+|:---|:---|
+| **Bölme sayısı üst sınırı aşarsa olası sorgu hatası** |Üst sınır 1 milyon dosya bölme sınırı aşıldığında işlenmeyen bir özel durum dökümünü almak SQL altyapısı neden ve tüm sorguların başarısız oldu. Bu düzeltme addresse sorunu doğru özel durum işleme ve sorguların başarısız olmasına neden olmadan bir hata döndürüyor. |
+| **Yükleme performans iyileştirmek için daha fazla ExternalMoveReadersPerNode varsayılan değer** |Bu sorunu ExternalMoveReadersPerNode özelliğini ayarlayarak ayarı service fabric ile eşitlenmemiş olması nedeniyle oluştu. Bu regresyon bir Gen2 yük performansın düşmesine neden neden oldu. Düzeltme 2. nesil yükleme performansını en iyi duruma getirilmiş tasarım parametreleri içinde geri getirir.|
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 SQL veri ambarı hakkında biraz bilmek, bilgi nasıl hızlı bir şekilde [SQL veri ambarı oluşturma][create a SQL Data Warehouse]. Azure'da yeniyseniz yeni terimlerle karşılaşabileceğinizi için [Azure sözlüğünü][Azure glossary] yararlı bulabilirsiniz. Alternatif olarak, aşağıdaki diğer SQL Veri Ambarı Kaynakları’na göz atın.  

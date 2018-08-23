@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 05/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 1ddc74b1960095509a77d4b3072017847df42d90
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 359648a843375477ea56ab791533208c11af9c81
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38235542"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42056944"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault müşteri veri özellikleri
 
@@ -48,11 +48,11 @@ Geçici silme, silmeyi sonra 90 gün silinen verileri kurtarmak sağlar. Geçici
 
 ## <a name="exporting-customer-data"></a>Müşteri verilerini dışarı aktarma
 
-REST API'leri, portal deneyimi ve kasalar, anahtarları, parolaları, sertifikaları oluşturmak için kullanılan SDK'ları ve yönetilen depolama hesaplarıdır de görüntülemek ve bu nesneleri dışarı aktarmak sağlar.
+REST API'leri, portal deneyimi ve kasalar, anahtarları, parolaları, sertifikaları oluşturmak için kullanılan ve yönetilen depolama hesapları da SDK'ları görüntülemek ve bu nesneleri dışarı aktarmak sağlar.
 
 Azure anahtar kasası erişim günlüğü için açık isteğe bağlı bir özellik olan her REST API çağrısı için günlükler oluşturur. Bu günlükler, kuruluşunuzun gereksinimlerini karşılayan bekletme ilkenin uygulandığı Aboneliğinize bir depolama hesabına aktarılır.
 
-Kişisel verileri kapsayan, azure anahtar kasası tanılama günlükleri, kullanıcı gizlilik Portalı'nda bir dışarı aktarma isteği yaparak alınabilir. Bu istek Kiracı Yöneticisi tarafından yapılması gerekir.
+Kişisel verileri içeren azure anahtar kasası tanılama günlükleri, kullanıcı gizlilik Portalı'nda bir dışarı aktarma isteği yaparak alınabilir. Bu istek Kiracı Yöneticisi tarafından yapılması gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -60,14 +60,10 @@ Kişisel verileri kapsayan, azure anahtar kasası tanılama günlükleri, kullan
 
 - [Azure Key Vault geçici silmeyi genel bakış](key-vault-soft-delete-cli.md)
 
-- [Kasaları](https://docs.microsoft.com/rest/api/keyvault/vaults)
-
 - [Azure Key Vault anahtar işlemleri](https://docs.microsoft.com/rest/api/keyvault/key-operations)
 
 - [Azure Key Vault'a gizli dizi işlemleri](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
 
 - [Azure Key Vault, sertifikalar ve ilkeleri](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
-
-- [Sertifika verenler](https://docs.microsoft.com/rest/api/keyvault/certificate-issuers)
 
 - [Azure Key Vault depolama hesabı işlemleri](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)

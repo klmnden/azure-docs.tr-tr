@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9469a5827765a9b82469ac1eedc66666231d82d6
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: d0b380aa6046daa235098516a8c93d3ba72533a6
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117451"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42057130"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>OMS güncelleştirme dağıtımlarınızı Azure'a geçirme
 
@@ -61,10 +61,12 @@ Güncelleştirilecek makineler için mevcut bir OMS dağıtım tarafından kulla
 | --- | --- |
 |Adı |Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad. |
 |İşletim Sistemi| Seçin **Linux** veya **Windows**.|
-|Güncelleştirilecek makineler |Güncelleştirilecek makineler için mevcut bir OMS dağıtım tarafından kullanılan kayıtlı arama seçin. |
+|Güncelleştirilecek makineler |İçeri aktarılan grubu, kayıtlı bir aramayı seçin veya makine açılan listeden seçin ve tek bir makine seçin. Seçerseniz **makineler**, makinenin hazır olma gösterilen **güncelleştirme ARACISI hazırlığı** sütun.</br> Log Analytics'te bilgisayar grupları oluşturmak için farklı yöntemler hakkında bilgi edinmek için bkz: [Log analytics'te bilgisayar grupları](../log-analytics/log-analytics-computer-groups.md) |
 |Güncelleştirme sınıflandırmaları|Gereksinim duyduğunuz tüm güncelleştirme sınıflandırmalarını seçin. CentOS desteklemiyor bu kullanıma hazır.|
 |Hariç tutulacak güncelleştirmeler|Hariç tutulacak güncelleştirmeler girin. Windows için KB makalesi olmadan girin **KB** önek. Linux için paket adını girin veya bir joker karakterini kullanın.  |
 |Zamanlama ayarları|Başlangıç saati seçin ve ardından ya da **kez** veya **yinelenen** yinelenme.|| Bakım penceresi |Güncelleştirmeler için dakika sayısı. Değer, 30 dakika ve 6 saatten az olamaz. |
+| Bakım penceresi |Güncelleştirmeler için dakika sayısı. Değeri olması olamaz az 30 dakika ve en fazla 6 saat |
+| Denetim yeniden başlatma| Araçtaki nasıl yeniden başlatma yapılması gerekir.</br>Kullanılabilen seçenekler şunlardır:</br>(Varsayılan) gerekliyse yeniden başlatma</br>Her zaman yeniden Başlat</br>Hiçbir zaman yeniden başlatma</br>Yalnızca yeniden - güncelleştirmeleri yüklenmez|
 
 Tıklayın **zamanlanan güncelleştirme dağıtımları** yeni oluşturulan güncelleştirme dağıtım durumunu görüntülemek için.
 

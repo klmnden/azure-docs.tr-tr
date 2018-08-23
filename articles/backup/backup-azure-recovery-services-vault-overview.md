@@ -1,72 +1,78 @@
 ---
 title: Kurtarma Hizmetleri kasalarına genel bakış
-description: Genel bir bakış ve kurtarma Hizmetleri kasalarının ve Azure yedekleme kasaları karşılaştırması.
+description: Bir genel bakış ve kurtarma Hizmetleri kasaları ve Azure Backup kasaları karşılaştırması.
 services: backup
 author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/15/2017
+ms.date: 8/10/2018
 ms.author: markgal
-ms.openlocfilehash: b6195feb25a7206d7c453e31f0ac312e070b3113
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 04b755d7ca1ec72b075ecaa4b32a35f5009a938b
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606180"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42061080"
 ---
-# <a name="recovery-services-vaults-overview"></a>Kurtarma Hizmetleri kasaları genel bakış
+# <a name="recovery-services-vaults-overview"></a>Kurtarma Hizmetleri kasalarına genel bakış
 
-Bu makalede, bir kurtarma Hizmetleri kasası özelliklerini açıklar. Kurtarma Hizmetleri kasası veri barındırıldığı Azure depolama varlıktır. Genellikle veri ya da sanal makineleri (VM'ler), iş yükleri, sunucular veya iş istasyonları için yapılandırma bilgilerini kopyalarını veridir. Kurtarma Hizmetleri kasalarının Iaas VM'ler (Linux veya Windows) ve Azure SQL veritabanları gibi çeşitli Azure Hizmetleri için yedek verileri saklamak için kullanabilirsiniz. Kurtarma Hizmetleri kasaları destek System Center DPM, Windows Server, Azure yedekleme sunucusu ve daha fazlası. Kurtarma Hizmetleri kasaları, yedekleme verilerinizi düzenlemeyi kolaylaştırırken yönetim zorluklarını da en aza indirir. 
+Bu makalede, bir kurtarma Hizmetleri kasası özelliklerini açıklar. Kurtarma Hizmetleri kasası azure'da barındırıldığı veri depolama varlığıdır. Verileri veri ya da sanal makineleri (VM'ler), iş yükleri, sunucular veya iş istasyonları için yapılandırma bilgileri genellikle kopyalanır. Kurtarma Hizmetleri kasaları, Iaas VM'ler (Linux veya Windows) ve Azure SQL veritabanları gibi çeşitli Azure Hizmetleri için yedekleme verileri tutmak için kullanabilirsiniz. Kurtarma Hizmetleri kasaları destek System Center DPM, Windows Server, Azure Backup sunucusu ve daha fazlası. Kurtarma Hizmetleri kasaları, yedekleme verilerinizi düzenlemeyi kolaylaştırırken yönetim zorluklarını da en aza indirir. 
 
-Bir Azure aboneliği her bölge abonelik başına en fazla 500 kurtarma Hizmetleri kasalarının oluşturabilirsiniz.
+Bir Azure aboneliğinde bölge başına abonelik başına en çok 500 kurtarma Hizmetleri kasası oluşturabilirsiniz.
 
 ## <a name="comparing-recovery-services-vaults-and-backup-vaults"></a>Karşılaştırma kurtarma Hizmetleri kasaları ve yedekleme kasaları
 
-Yedekleme kasaları hala varsa, bunlar otomatik-kurtarma Hizmetleri kasalarının yükseltiliyor. Kasım 2017 tüm yedekleme kasaları kurtarma Hizmetleri kasalarının yükseltildi. 
+Backup kasaları hala varsa, Kurtarma Hizmetleri kasalarına otomatik olarak yükseltme yükleniyor. Kasım 2017'ye kadar tüm Backup kasaları kurtarma Hizmetleri kasalarına yükseltilmiş oldu. 
 
-Kurtarma Hizmetleri kasaları, yedekleme kasaları Azure Service Manager modeline bağlı olan ancak Azure, Azure Resource Manager modelini temel alır. Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltme yaparken, yedekleme verilerini sırasında ve yükseltme işlemi sonrasında değişmeden kalır. Kurtarma Hizmetleri kasaları gibi yedekleme kasaları için kullanılamayan özellikleri sağlar:
+Kurtarma Hizmetleri kasaları, yedekleme kasaları Azure Service Manager modele dayalı ise Azure, Azure Resource Manager modelinin temel alır. Bir Backup kasasının kurtarma Hizmetleri kasasına yükselttiğinizde, yedekleme verileri sırasında ve sonrasında yükseltme işlemi değişmeden kalır. Kurtarma Hizmetleri kasaları için yedekleme kasalarını, mevcut olmayan özellikler gibi sağlayın:
 
-- **Gelişmiş Güvenlik yedekleme verileri yardımcı olmak için özellikleri**: ile kurtarma Hizmetleri kasaları, Azure Backup bulut yedekleme korumak için güvenlik özellikleri sağlar. Üretim ve yedekleme sunucuları tehlikeye olsa bile güvenlik özellikleri Yedeklemelerinizin güvenli ve güvenli bir şekilde verileri kurtarmak emin olun. [Daha fazla bilgi](backup-azure-security-feature.md)
+- **Gelişmiş Özellikler yedek verilerin korunmasına yardımcı olun**: ile kurtarma Hizmetleri kasaları, Azure Backup bulut yedeklemelerini korumak için güvenlik özellikleri sağlar. Üretim ve yedekleme sunucuları tehlikede olsa bile güvenlik özelliklerine yedeklerinizi güvenli ve güvenli bir şekilde verileri kurtarmak emin olun. [Daha fazla bilgi](backup-azure-security-feature.md)
 
-- **Karma BT ortamında Merkezi İzleme**: ile kurtarma Hizmetleri kasaları, izleyebilirsiniz yalnızca, [Azure Iaas Vm'leri](backup-azure-manage-vms.md) aynı zamanda, [içi varlıklar](backup-azure-manage-windows-server.md#manage-backup-items) merkezi portalından. [Daha fazla bilgi](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
+- **Karma BT ortamındaki Merkezi İzleme**: ile kurtarma Hizmetleri kasaları, izleyebilmeniz için yalnızca, [Azure Iaas Vm'leri](backup-azure-manage-vms.md) aynı zamanda, [şirket varlıkları](backup-azure-manage-windows-server.md#manage-backup-items) merkezi bir portaldan. [Daha fazla bilgi](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
-- **Rol tabanlı erişim denetimi (RBAC)**: RBAC Azure ayrıntılı erişim yönetimi denetim sağlar. [Azure sağlayan çeşitli yerleşik roller](../role-based-access-control/built-in-roles.md), ve Azure Backup sahip üç [kurtarma noktaları yönetmek için yerleşik roller](backup-rbac-rs-vault.md). Kurtarma Hizmetleri kasaları yedekleme kısıtlayan RBAC ile uyumludur ve kullanıcı rolleri tanımlı kümesine erişim geri yükleyin. [Daha fazla bilgi](backup-rbac-rs-vault.md)
+- **Rol tabanlı erişim denetimi (RBAC)**: RBAC, azure'da ayrıntılı erişim yönetimi denetim sağlar. [Azure, çeşitli yerleşik rol sağlar](../role-based-access-control/built-in-roles.md), ve Azure Backup sahip üç [kurtarma noktaları yönetmek için yerleşik roller](backup-rbac-rs-vault.md). Kurtarma Hizmetleri kasaları, yedekleme kısıtlayan RBAC ile uyumludur ve tanımlanan kullanıcı rollerini kümesine erişimi geri yüklemek. [Daha fazla bilgi](backup-rbac-rs-vault.md)
 
-- **Tüm yapılandırmaları Azure sanal makinelerin korunmasına**: Kurtarma Hizmetleri kasaları şunları korur Resource Manager tabanlı VM'ler Premium diskler, yönetilen diskleri ve şifrelenmiş VM'ler dahil olmak üzere. Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltme Resource Manager tabanlı VM'ler için Service Manager tabanlı VM'ler yükseltme olanağı sağlar. Kasa yükseltirken, Service Manager tabanlı VM kurtarma noktalarını korumak ve yükseltilen (Resource Manager etkin) VM'ler için korumayı yapılandırın. [Daha fazla bilgi](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
+- **Tüm yapılandırmalar Azure sanal makinelerinin korunmasına**: Resource Manager tabanlı Vm'leri Premium diskler, yönetilen diskler ve şifrelenmiş VM'ler dahil olmak üzere Kurtarma Hizmetleri kasaları şunları korur. Bir Backup kasasının kurtarma Hizmetleri kasasına yükseltme, Resource Manager tabanlı sanal makinelere Service Manager tabanlı sanal makinelerinize yükseltme olanağı sunar. Kasa yükseltme yapılırken, Service Manager tabanlı VM kurtarma noktalarını Beklet ve yükseltilen (Resource Manager özellikli) VM'ler için korumayı yapılandırın. [Daha fazla bilgi](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 
-- **Iaas VM'ler için anlık geri**: kullanarak kurtarma Hizmetleri kasaları, dosya ve klasörlerin bir Iaas sanal makineden daha hızlı geri yükleme süreleri sağlar tüm VM geri yüklemeden geri yükleyebilirsiniz. Iaas VM'ler için anlık geri yükleme, Windows ve Linux VM'ler için kullanılabilir. [Daha fazla bilgi](http://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
+- **Iaas Vm'leri için anında geri yükleme**: kullanarak bir kurtarma Hizmetleri kasaları, dosya ve klasörleri bir Iaas VM'den daha hızlı geri yükleme süreleri sağlayan tüm VM'yi geri yüklemeden geri yükleyebilirsiniz. Iaas Vm'leri için anında geri yükleme, hem Windows hem de Linux Vm'leri için kullanılabilir. [Daha fazla bilgi](http://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Portalı'nda, Kurtarma Hizmetleri kasalarını yönetme
-Oluşturulmasını ve yönetimini kurtarma Hizmetleri kasalarını Azure portalındaki kolay Backup hizmeti Azure ayarları menüsüne tümleşik olduğundan. Bu tümleştirme oluşturmak veya bir kurtarma Hizmetleri kasası yönetmek anlamına gelir *hedef hizmet bağlamında*. Örneğin, bir VM için kurtarma noktalarını görüntülemek için onu seçin ve tıklatın **yedekleme** Ayarlar menüsünden. Bu VM özel yedekleme bilgileri görüntülenir. Aşağıdaki örnekte, **ContosoVM** sanal makinenin adıdır. **ContosoVM demovault** kurtarma Hizmetleri kasası adıdır. Kurtarma noktalarını depolayan kurtarma Hizmetleri kasası adını anımsamak gerekmez, bu bilgiler sanal makineden erişebilir.  
+Oluşturulmasını ve yönetimini Azure portalında kurtarma Hizmetleri kasaları olduğundan kolay yedekleme hizmeti diğer Azure Hizmetleri ile tümleşir. Bu tümleştirme oluşturabilir veya bir kurtarma Hizmetleri kasası yönetme anlamına gelir *hedef hizmet bağlamında*. Örneğin, bir VM için kurtarma noktalarını görüntülemek için VM'nizi seçin ve tıklayın **yedekleme** işlemler menüsünde. 
 
-![Kurtarma Hizmetleri kasası ayrıntıları VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context.png)
+![Kurtarma Hizmetleri kasasının ayrıntıları VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
 
-Birden çok sunucu, aynı kurtarma Hizmetleri kasası kullanarak koruduysanız kurtarma Hizmetleri kasası aramak için daha fazla mantıksal olabilir. Abonelikteki tüm kurtarma Hizmetleri kasalarının aramak ve listeden birini seçin.
+Ardından VM Yedekleme yapılandırıldı yoksa, bu, yedeklemeyi yapılandırmak için ister. Yedekleme yapılandırıldı, yedekleme geri yükleme noktaları listesi dahil olmak üzere, sanal makine bilgilerini görürsünüz.  
 
-Aşağıdaki bölümler, her etkinlik türü bir kurtarma Hizmetleri kasası kullanmayı açıklayan makalelerinin bağlantıları içerir.
+![Kurtarma Hizmetleri kasasının ayrıntıları VM](./media/backup-azure-recovery-services-vault-overview/vm-recovery-point-list.png)
+
+Önceki örnekte, **ContosoVM** sanal makinenin adıdır. **ContosoVM-demovault** kurtarma Hizmetleri kasası adıdır. Kurtarma noktalarını depolayan bir kurtarma Hizmetleri kasası adını anımsamak gerekmez, bu bilgileri sanal makineden erişebilirsiniz.  
+
+Bir kurtarma Hizmetleri kasası birden çok sunucu koruyorsa kurtarma Hizmetleri kasası aramak için daha mantıklı olabilir. Abonelikteki tüm kurtarma Hizmetleri kasaları için arama yapın ve listeden birini seçin.
+
+Aşağıdaki bölümler, her etkinlik türü bir kurtarma Hizmetleri kasası kullanmayı açıklayan makalelerin bağlantıları içerir.
 
 ### <a name="back-up-data"></a>Verileri yedekleyin
-- [Bir Azure VM'yi yedeklemek](backup-azure-vms-first-look-arm.md)
-- [Windows Server veya Windows iş istasyonu yedekleyin](backup-try-azure-backup-in-10-mins.md)
+- [Bir Azure VM'yi yedekleme](backup-azure-vms-first-look-arm.md)
+- [Windows Server veya Windows iş istasyonu yedekleme](backup-try-azure-backup-in-10-mins.md)
 - [DPM iş yüklerini Azure'a yedekleme](backup-azure-dpm-introduction.md)
-- [Azure yedekleme sunucusu kullanarak iş yüklerini Yedeklemeye hazırlanma](backup-azure-microsoft-azure-backup.md)
+- [Azure Backup sunucusu kullanarak iş yüklerini yedeklemek hazırlama](backup-azure-microsoft-azure-backup.md)
 
 ### <a name="manage-recovery-points"></a>Kurtarma noktalarını yönetin
-- [Azure VM yedeklemeleri yönetme](backup-azure-manage-vms.md)
+- [Azure VM yedeklemelerini yönetme](backup-azure-manage-vms.md)
 - [Dosyaları ve klasörleri yönetme](backup-azure-manage-windows-server.md)
 
-### <a name="restore-data-from-the-vault"></a>Kasadan veri geri yükleme
-- [Tek tek dosyaların bir Azure sanal makineden kurtarma](backup-azure-restore-files-from-vm.md)
-- [Bir Azure VM geri yükleme](backup-azure-arm-restore-vms.md)
+### <a name="restore-data-from-the-vault"></a>Verileri kasadan geri yükleme
+- [Bir Azure VM'den tek tek dosya kurtarma](backup-azure-restore-files-from-vm.md)
+- [Azure VM geri yükleme](backup-azure-arm-restore-vms.md)
 
-### <a name="secure-the-vault"></a>Kasa güvenli
-- [Kurtarma Hizmetleri kasalarının bulut yedekleme verileri güvenli hale getirme](backup-azure-security-feature.md)
+### <a name="secure-the-vault"></a>Kasa güvenliğini sağlama
+- [Bulut yedekleme verileri kurtarma Hizmetleri kasaları, güvenliğini sağlama](backup-azure-security-feature.md)
 
 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Aşağıdaki makaleler için kullanın:</br>
-[Bir Iaas VM'yi yedeklemek](backup-azure-arm-vms-prepare.md)</br>
-[Bir Azure yedekleme sunucuyu yedekleme](backup-azure-microsoft-azure-backup.md)</br>
-[Bir Windows Server'ı Yedekle](backup-configure-vault.md)
+İçin aşağıdaki makaleleri kullanın:</br>
+[Bir Iaas VM'yi yedekleme](backup-azure-arm-vms-prepare.md)</br>
+[Bir Azure Backup sunucusu yedekleme](backup-azure-microsoft-azure-backup.md)</br>
+[Bir Windows Server Yedekleme](backup-configure-vault.md)

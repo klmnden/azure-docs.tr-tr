@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: rogarana
 ms.component: queues
-ms.openlocfilehash: 7ab755972760d5f262e00ca4aaf284c8d2847460
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 70efdf1fb2c1b8411e922f16fdf401d1bf428d08
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528291"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42056168"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>PHP’den Kuyruk depolama kullanma
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -416,7 +416,7 @@ Azure kuyruk depolamanın temellerini öğrendiğinize göre daha karmaşık dep
 * Ziyaret [Azure depolama PHP istemci kitaplığı için API Başvurusu](http://azure.github.io/azure-storage-php/)
 * Bkz: [kuyruk Gelişmiş örnek](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
 
-Daha fazla bilgi için Ayrıca bkz: [PHP Geliştirici Merkezi](/develop/php/).
+Daha fazla bilgi için Ayrıca bkz: [PHP Geliştirici Merkezi](https://azure.microsoft.com/develop/php/).
 
 [download]: https://github.com/Azure/azure-storage-php
 [require_once]: http://www.php.net/manual/en/function.require-once.php

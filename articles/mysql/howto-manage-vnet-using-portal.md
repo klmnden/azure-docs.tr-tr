@@ -1,6 +1,6 @@
 ---
-title: Oluşturma ve MySQL VNet hizmet uç noktaları ve Azure portalını kullanarak kurallar için Azure veritabanı yönetme | Microsoft Docs
-description: Oluşturma ve Azure veritabanı MySQL VNet hizmet uç noktaları ve Azure portalını kullanarak kurallar için yönetme
+title: Oluşturma ve MySQL sanal ağ hizmet uç noktaları ve Azure portalını kullanarak kurallar için Azure veritabanı'nı yönetme | Microsoft Docs
+description: Oluşturma ve MySQL sanal ağ hizmet uç noktaları ve Azure portalını kullanarak kurallar için Azure veritabanı'nı yönetme
 services: mysql
 author: mbolz
 ms.author: mbolz
@@ -8,38 +8,38 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/01/2018
-ms.openlocfilehash: 7520868fd6bd349043ad2c53e62de5db978db8b1
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 08/15/2018
+ms.openlocfilehash: df703f30119e0cb421b21c524f779b4f43a42b3f
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267229"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42055602"
 ---
-# <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Oluşturma ve Azure portalını kullanarak Azure veritabanı MySQL VNet hizmet uç noktaları ve sanal ağ kuralları için yönetme
-Sanal ağ (VNet) Hizmetleri uç noktaları ve kuralları Azure veritabanınıza MySQL sunucusu için bir sanal ağ özel adres alanında genişletir. Azure veritabanı sınırlamalar da dahil olmak üzere MySQL VNet hizmet uç noktaları için bir genel bakış için bkz: [Azure veritabanı MySQL Server VNet hizmet uç noktaları için](concepts-data-access-and-security-vnet.md). VNet Hizmeti uç noktalarını genel Önizleme'de tüm desteklenen bölgeler Azure veritabanı için MySQL için kullanılabilir.
+# <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Oluşturma ve Azure portalını kullanarak MySQL sanal ağ hizmet uç noktaları ve sanal ağ kuralları için Azure veritabanı yönetme
+Sanal ağ (VNet) Hizmetleri uç noktaları ve kuralları MySQL için Azure veritabanı sunucunuza sanal ağ özel adres alanını genişletin. Sınırlamalar da dahil olmak üzere MySQL sanal ağ hizmet uç noktaları için Azure veritabanı'nın genel bir bakış için bkz. [MySQL Server sanal ağ hizmet uç noktaları için Azure veritabanı](concepts-data-access-and-security-vnet.md). Sanal ağ hizmet uç noktaları, MySQL için Azure veritabanı için desteklenen tüm bölgelerde kullanılabilir.
 
 > [!NOTE]
-> Yalnızca genel amaçlı ve bellek için iyileştirilmiş sunucuları için VNet hizmet uç noktaları desteğidir.
+> Yalnızca genel amaçlı ve bellek için iyileştirilmiş sunucuları için sanal ağ hizmet uç noktaları desteğidir.
 
-## <a name="create-a-vnet-rule-and-enable-service-endpoints-in-the-azure-portal"></a>Bir sanal ağ kuralı oluşturun ve Azure portalında hizmet uç noktaları etkinleştirin
+## <a name="create-a-vnet-rule-and-enable-service-endpoints-in-the-azure-portal"></a>Bir sanal ağ kuralı oluşturun ve Azure portalında hizmet uç noktalarını etkinleştirin
 
-1. MySQL sunucusu sayfasında, ayarları altında başlığını tıklatın **bağlantı güvenliği** bağlantı güvenliği bölmesinde Azure veritabanı için MySQL için açın. Ardından, tıklayın **+ varolan sanal ağ ekleyerek**. Var olan bir VNet yoksa tıklayabilirsiniz **+ yeni sanal ağ oluştur** oluşturmak için. Bkz: [hızlı başlangıç: Azure portalını kullanarak bir sanal ağ oluşturma](../virtual-network/quick-create-portal.md)
+1. MySQL sunucusu sayfasında, ayarları altındaki başlığı tıklayın **bağlantı güvenliği** için MySQL için Azure veritabanı bağlantı güvenliği bölmesinde açmak. Ardından, tıklayarak **+ var olan sanal ağı ekleme**. Mevcut bir Vnet'i yoksa tıklayabilirsiniz **+ yeni sanal ağ oluştur** oluşturmak için. Bkz: [hızlı başlangıç: Azure portalını kullanarak bir sanal ağ oluşturma](../virtual-network/quick-create-portal.md)
 
-   ![Azure portal - bağlantı güvenliği](./media/howto-manage-vnet-using-portal/1-connection-security.png)
+   ![Azure portalı - bağlantı güvenliği](./media/howto-manage-vnet-using-portal/1-connection-security.png)
 
-2. Bir sanal ağ kuralı adı girin, abonelik, sanal ağ ve alt ağ adı seçin ve ardından **etkinleştirmek**. Bu alt ağ kullanarak VNet Hizmeti uç noktalarını otomatik olarak etkinleştirir **Microsoft.SQL** hizmet etiketi.
+2. Bir sanal ağ kural adını girin, abonelik, sanal ağ ve alt ağ adı'nı seçin ve ardından **etkinleştirme**. Bu sanal ağ hizmet uç noktaları kullanarak alt ağ üzerinde otomatik olarak etkinleştirdiğini **Microsoft.SQL** hizmet etiketi.
 
-   ![Azure portal - VNet yapılandırın](./media/howto-manage-vnet-using-portal/2-configure-vnet.png)
+   ![Azure portalı - sanal ağ yapılandırma](./media/howto-manage-vnet-using-portal/2-configure-vnet.png)
 
    > [!IMPORTANT]
-   > Hizmet uç noktaları yapılandırmadan önce bu makalede hizmet uç noktası yapılandırması ve konuları hakkında okumak için önerilir. **Sanal Ağ Hizmeti uç noktası:** A [sanal ağ hizmeti uç noktası](../virtual-network/virtual-network-service-endpoints-overview.md) özellik değerleri içeren bir veya daha fazla resmi Azure hizmeti tür adları bir alt ağ. Sanal Ağ Hizmetleri uç noktaları kullanma hizmet türü adı **Microsoft.Sql**, adlandırılmış SQL Database, Azure hizmetine başvurduğu. Bu hizmet etiketi de Azure SQL Database, Azure veritabanı PostgreSQL ve MySQL Hizmetleri için geçerlidir. Uygularken dikkate almak önemlidir **Microsoft.Sql** hizmet etiketi VNet Hizmeti uç noktası için hizmet uç noktası trafiği Azure SQL Database, Azure veritabanı PostgreSQL için de dahil olmak üzere tüm Azure veritabanı hizmetleri için yapılandırır ve Azure veritabanı alt ağdaki MySQL sunucuları için. 
+   > Hizmet uç noktaları yapılandırmadan önce bu makalede hizmet uç noktası yapılandırması ve konuları hakkında okunacak önemle tavsiye edilir. **Sanal ağ hizmet uç noktası:** A [sanal ağ hizmet uç noktası](../virtual-network/virtual-network-service-endpoints-overview.md) özellik değerleri içeren bir veya daha fazla biçimsel Azure hizmet türü adları bir alt ağ. Sanal ağ hizmet uç noktalarını kullanan hizmet türü adı **Microsoft.Sql**, adlandırılmış SQL veritabanı, Azure hizmetini ifade eder. Bu hizmet etiketi, hizmetleri, PostgreSQL ve MySQL için Azure veritabanı Azure SQL veritabanı için de geçerlidir. Uygularken dikkate almak önemlidir **Microsoft.Sql** hizmet etiketi isteğe bağlı olarak bir sanal ağ hizmet uç noktası için Azure SQL veritabanı ve PostgreSQL için Azure veritabanı dahil olmak üzere tüm Azure veritabanı hizmetleri için hizmet uç noktası trafiğini yapılandırır ve Alt ağdaki MySQL Server için Azure veritabanı. 
    > 
 
-3. Bir kez etkinleştirildikten sonra tıklatın **Tamam** ve VNet hizmet uç noktaları ile birlikte bir sanal ağ kuralı etkin olduğunu görürsünüz.
+3. Etkinleştirildikten sonra tıklayın **Tamam** ve sanal ağ hizmet uç noktaları bir sanal ağ kuralı birlikte etkinleştirildiğini görürsünüz.
 
-   ![VNet Hizmeti uç noktaları etkin ve oluşturulan sanal ağ kuralı](./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png)
+   ![Sanal ağ hizmet uç noktaları etkinleştirilmiş ve oluşturulan sanal ağ kuralı](./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Benzer şekilde, yazabilirsiniz [etkinleştirmek VNet hizmet uç noktaları ve Azure CLI kullanarak MySQL için Azure veritabanı için bir sanal ağ kuralı oluşturma](howto-manage-vnet-using-cli.md).
-- MySQL sunucusu için bir Azure veritabanına bağlanmada daha fazla yardım için bkz: [Azure veritabanı için MySQL için bağlantı kitaplıkları](./concepts-connection-libraries.md)
+- Benzer şekilde, yazabilirsiniz [etkinleştirme sanal ağ hizmet uç noktalarını ve bir sanal ağ kuralı için Azure CLI kullanarak MySQL için Azure veritabanı oluşturma](howto-manage-vnet-using-cli.md).
+- MySQL sunucusu için Azure veritabanı bağlanma konusunda yardım için bkz [MySQL için Azure veritabanı için bağlantı kitaplıkları](./concepts-connection-libraries.md)

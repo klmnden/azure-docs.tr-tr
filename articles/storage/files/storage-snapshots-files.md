@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: f98817802478853e8d176223a9a9a3081531897f
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b261ec5fb0ad437202df1a8fd8683a095cb1bb96
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528383"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42058289"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure dosyaları için paylaşım anlık görüntülerine genel bakış 
 Azure dosyaları, dosya paylaşımları paylaşım anlık görüntüsünü olanağı sağlar. Anlık görüntüleri yakalama paylaşım durumu zamandaki o noktada paylaşın. Bu makalede, hangi özelliklerin paylaşım anlık görüntüleri sağlar ve bunları kendi özel kullanım örneğindeki özelliklerinden nasıl gerçekleştirebileceğiniz açıklanmaktadır.
@@ -86,4 +86,5 @@ Paylaşım anlık görüntüleri, yalnızca dosya düzeyinde koruma sağlar. Pay
     - [Portal](storage-how-to-use-files-portal.md#create-and-modify-share-snapshots)
     - [PowerShell](storage-how-to-use-files-powershell.md#create-and-modify-share-snapshots)
     - [CLI](storage-how-to-use-files-cli.md#create-and-modify-share-snapshots)
+    - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
 - [Anlık görüntü ile ilgili SSS](storage-files-faq.md#share-snapshots)

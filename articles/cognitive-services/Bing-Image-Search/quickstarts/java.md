@@ -1,6 +1,6 @@
 ---
-title: Çağrı ve yanıt - Azure Bilişsel Hizmetleri, Bing görüntü arama API'sı için Java hızlı başlangıç | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get Bing görüntü arama API Azure üzerinde Microsoft Bilişsel Hizmetleri'ndeki kullanmaya başlayın.
+title: "Hızlı Başlangıç: Java ve Bing resim arama API'si için REST API kullanarak gönderme arama sorguları"
+description: Bu hızlı başlangıçta, Java kullanarak ilgili görüntülerin listesini almak için Bing arama API'si arama sorguları gönderin.
 services: cognitive-services
 documentationcenter: ''
 author: v-jerkin
@@ -9,34 +9,34 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 658025e997f27a3974b473e5c556780733d68045
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3d779bae099bde5b015ee8316906ace77c0ad3bb
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354562"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41987646"
 ---
-# <a name="call-and-response-your-first-bing-image-search-query-in-java"></a>Çağrı ve yanıt: ilk Bing görüntü arama sorgunuzu Java
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-java"></a>Hızlı Başlangıç: Java ve REST API kullanarak gönderme arama sorguları
 
-Bing görüntü arama API geri ilgili görüntüleri listesini almak ve bir kullanıcı arama sorgusu için Bing göndermenize izin vererek Bing.com/Images için benzer bir deneyim sağlar.
+Bing resim arama API'si, Bing için bir kullanıcı arama sorgusu gönderin ve ilgili görüntülerin listesini dönmek vererek Bing.com/Images için benzer bir deneyim sağlar.
 
-Bu makalede bir Bing görüntü arama API sorgu gerçekleştirir ve JSON biçiminde döndürülen ham arama sonuçlarını görüntüleyen basit bir konsol uygulaması içerir. Bu uygulama, Java'da yazılmış olsa da, HTTP isteği yapmak ve JSON ayrıştırma programlama dili ile uyumlu bir RESTful Web hizmeti API'dir. 
+Bu makale, Bing resim arama API'si sorgu gerçekleştirir ve JSON biçiminde ham döndürülen arama sonuçlarını görüntüleyen basit bir konsol uygulaması içerir. Bu uygulama, Java dilinde yazılmış olsa da, HTTP istekleri ve JSON Ayrıştır programlama dili ile uyumlu bir RESTful Web hizmeti API'dir. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-İhtiyacınız olacak [JDK 7 veya 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) derlemek ve bu kodu çalıştırmak için. Sık kullanılan varsa, ancak bir metin düzenleyicisi yeterli bir Java IDE kullanabilir.
+İhtiyacınız olacak [JDK 7 veya 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) derlemek ve bu kodu çalıştırmak için. Sık kullanılan varsa, ancak bir metin düzenleyicisi ucun yetip Java IDE kullanabilirsiniz.
 
-Bilmeniz gereken bir [Bilişsel Hizmetleri API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Bing arama API'leri**. [Ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) Bu Hızlı Başlangıç için yeterlidir. Ücretsiz deneme sürümünüzü etkinleştirmek ya da Ücretli abonelik anahtarı Azure panonuza kullanabilir sağlanan erişim anahtarı gerekir.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="running-the-application"></a>Uygulamayı çalıştırma
 
 Bu uygulamayı çalıştırmak için aşağıdaki adımları izleyin.
 
-1. İndirme veya yükleme [gson Kitaplığı](https://github.com/google/gson). Ayrıca Maven alabilirsiniz.
-2. Sık kullanılan IDE veya Düzenleyicisi yeni bir Java projesi oluşturun.
-3. Sağlanan kod adındaki bir dosyada eklemek `BingImageSearch.java`.
-4. Değiştir `subscriptionKey` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-5. Programını çalıştırın.
+1. İndirmenize veya yüklemenize [gson Kitaplığı](https://github.com/google/gson). Ayrıca Maven alabilirsiniz.
+2. Yeni bir Java projesi, sık kullandığınız IDE veya düzenleyici oluşturun.
+3. Adlı bir dosyada sağlanan kod ekleme `BingImageSearch.java`.
+4. Değiştirin `subscriptionKey` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+5. Programı çalıştırın.
 
 ```java
 import java.net.*;
@@ -154,7 +154,7 @@ class SearchResults{
 
 ## <a name="json-response"></a>JSON yanıtı
 
-Örnek yanıt izler. JSON uzunluğunu sınırlamak için yalnızca tek bir sonuç gösterilir ve diğer bölümleri yanıtının kesildi. 
+Örnek yanıt izler. JSON uzunluğunu sınırlamak için yalnızca tek bir sonuç gösterilir ve diğer bölümlerini yanıt kesildi. 
 
 ```json
 {
@@ -243,11 +243,11 @@ class SearchResults{
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bing görüntü arama tek sayfa uygulaması Öğreticisi](../tutorial-bing-image-search-single-page-app.md)
+> [Bing resim arama tek sayfalı uygulama Öğreticisi](../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
-[Bing görüntü arama genel bakış](../overview.md)  
+[Bing resim arama genel bakış](../overview.md)  
 [Deneyin](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-[Ücretsiz deneme erişim anahtarı alma](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-[Bing görüntü arama API Başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+[Ücretsiz deneme erişim anahtarını alma](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+[Bing resim arama API'si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

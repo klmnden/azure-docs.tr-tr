@@ -1,6 +1,6 @@
 ---
-title: Çağrı ve yanıt - Azure Bilişsel Hizmetleri, Bing görüntü arama API'sı için Node.js hızlı başlangıç | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get Bing görüntü arama API Azure üzerinde Microsoft Bilişsel Hizmetleri'ndeki kullanmaya başlayın.
+title: "Hızlı Başlangıç: REST API kullanarak Bing resim arama kullanarak Node.js API'si için gönderme arama sorguları"
+description: Bu hızlı başlangıçta, Node.js kullanarak ilgili görüntülerin listesini almak için Bing arama API'si arama sorguları gönderin.
 services: cognitive-services
 documentationcenter: ''
 author: v-jerkin
@@ -9,33 +9,33 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 00408677d15a00d58720c142cabed96e310c69b2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 975275bea61a5903c06da394b762b1aceb18023f
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354514"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41988461"
 ---
-# <a name="call-and-response-your-first-bing-image-search-query-for-nodejs"></a>Çağrı ve yanıt: ilk Bing görüntü arama sorgunuzu Node.js için
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-nodejs"></a>Hızlı Başlangıç: Node.js ve REST API kullanarak gönderme arama sorguları
 
-Bing görüntü arama API geri ilgili görüntüleri listesini almak ve bir kullanıcı arama sorgusu için Bing göndermenize izin vererek Bing.com/Images için benzer bir deneyim sağlar.
+Bing resim arama API'si, Bing için bir kullanıcı arama sorgusu gönderin ve ilgili görüntülerin listesini dönmek vererek Bing.com/Images için benzer bir deneyim sağlar.
 
-Bu makalede bir Bing görüntü arama API sorgu gerçekleştirir ve JSON biçiminde döndürülen ham arama sonuçlarını görüntüleyen basit bir konsol uygulaması içerir. Bu uygulama JavaScript'te yazılmış ve Node.js altında çalışır durumdayken, HTTP isteklerini hale getirebilir ve JSON ayrıştırma programlama dili ile uyumlu bir RESTful Web hizmeti API'dir. 
+Bu makale, Bing resim arama API'si sorgu gerçekleştirir ve JSON biçiminde ham döndürülen arama sonuçlarını görüntüleyen basit bir konsol uygulaması içerir. Bu uygulamanın, JavaScript'te yazılmış ve Node.js altında çalışır durumdayken, HTTP istekleri ve JSON Ayrıştır programlama dili ile uyumlu bir RESTful Web hizmeti API'dir. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Gereksinim duyduğunuz [Node.js 6](https://nodejs.org/en/download/) bu kodu çalıştırmak için.
 
-Bilmeniz gereken bir [Bilişsel Hizmetleri API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Bing arama API'leri**. [Ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) Bu Hızlı Başlangıç için yeterlidir. Ücretsiz deneme sürümünüzü etkinleştirmek ya da Ücretli abonelik anahtarı Azure panonuza kullanabilir sağlanan erişim anahtarı gerekir.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="running-the-application"></a>Uygulamayı çalıştırma
 
 Bu uygulamayı çalıştırmak için aşağıdaki adımları izleyin.
 
-1. Sık kullanılan IDE veya Düzenleyicisi içinde yeni bir Node.js projesi oluşturun.
-2. Sağlanan kod ekleyin.
-3. Değiştir `subscriptionKey` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-4. Programını çalıştırın.
+1. Yeni bir Node.js projesi, sık kullandığınız IDE veya düzenleyici oluşturun.
+2. Sağlanan kodu ekleyin.
+3. Değiştirin `subscriptionKey` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+4. Programı çalıştırın.
 
 ```javascript
 'use strict';
@@ -103,7 +103,7 @@ if (subscriptionKey.length === 32) {
 
 ## <a name="json-response"></a>JSON yanıtı
 
-Örnek yanıt izler. JSON uzunluğunu sınırlamak için yalnızca tek bir sonuç gösterilir ve diğer bölümleri yanıtının kesildi. 
+Örnek yanıt izler. JSON uzunluğunu sınırlamak için yalnızca tek bir sonuç gösterilir ve diğer bölümlerini yanıt kesildi. 
 
 ```json
 {
@@ -192,11 +192,11 @@ if (subscriptionKey.length === 32) {
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bing görüntü arama tek sayfa uygulaması Öğreticisi](../tutorial-bing-image-search-single-page-app.md)
+> [Bing resim arama tek sayfalı uygulama Öğreticisi](../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
-[Bing görüntü arama genel bakış](../overview.md)  
+[Bing resim arama genel bakış](../overview.md)  
 [Deneyin](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-[Ücretsiz deneme erişim anahtarı alma](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-[Bing görüntü arama API Başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+[Ücretsiz deneme erişim anahtarını alma](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+[Bing resim arama API'si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

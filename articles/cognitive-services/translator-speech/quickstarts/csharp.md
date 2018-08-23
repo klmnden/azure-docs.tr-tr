@@ -9,12 +9,12 @@ ms.component: translator-speech
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 4f12d74aedbcadc311cd9c5ccd12dc1ad3501dbf
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 0a6d3775238512cacc21fb3e47f395e37c3fd29b
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205111"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41987627"
 ---
 # <a name="quickstart-for-microsoft-translator-speech-api-with-c"></a>Microsoft Translator konuşma tanıma API'si ile C# için hızlı başlangıç 
 <a name="HOLTop"></a>
@@ -23,7 +23,7 @@ Bu makalede, Microsoft Translator konuşma tanıma API'si .wav dosyasında konu�
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-İhtiyacınız olacak [Visual Studio 2017](https://www.visualstudio.com/downloads/) Windows üzerinde bu kodu çalıştırmak için. (Ücretsiz Community sürümü çalışır.)
+İhtiyacınız olacak [Visual Studio 2017](https://www.visualstudio.com/downloads/) Windows üzerinde bu kodu çalıştırmak için. (Ücretsiz Community Edition’ı kullanabilirsiniz.)
 
 Koddan derleme yürütülebilir dosya ile aynı klasörde yer alan "speak.wav" adlı bir .wav dosyası gerekir. Bu .wav dosya standart PCM 16 bit, 16 kHz, mono biçiminde olmalıdır. Böyle bir .wav dosyasından edinebilirsiniz [metin okuma API'si](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
@@ -156,4 +156,4 @@ Başarılı "speak2.wav" adlı bir dosya oluşturulmasını oluşur. Dosya çevi
 ## <a name="see-also"></a>Ayrıca bkz. 
 
 [Translator konuşma genel bakış](../overview.md)
-[API Başvurusu](http://docs.microsofttranslator.com/speech-translate.html)
+[API Başvurusu](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

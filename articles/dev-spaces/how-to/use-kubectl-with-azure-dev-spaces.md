@@ -1,5 +1,5 @@
 ---
-title: Kubectl Azure Dev alanları ile kullanma | Microsoft Docs
+title: Azure geliştirme alanları ile kubectl kullanma | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -11,21 +11,21 @@ ms.topic: article
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
 manager: douge
-ms.openlocfilehash: 3dc0dd4b571f716bcabb67c4cbef1ea6d762eb94
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 978274a6059a327c8596df6776eaa47a27ea4a34
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248667"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42056343"
 ---
-# <a name="use-kubectl-with-an-azure-dev-space"></a>Bir Azure Dev alanıyla kubectl kullanın
+# <a name="use-kubectl-with-an-azure-dev-space"></a>Bir Azure geliştirme boşluk ile kubectl kullanma
 
-Kubernetes küme Azure Dev alanı içinde erişim ve kullanım varolan Kubernetes Araçlar `kubectl`.
+Bir Azure geliştirme alanı içindeki bir Kubernetes kümesi erişebilir ve gibi mevcut Kubernetes Araçları `kubectl`.
 
-Çalışan `az aks use-dev-spaces` komutu otomatik olarak ekleyecek bir `kubectl` , kubectl Azure Dev alanları Kubernetes kümenize zaten bağlı şekilde yapılandırma bağlamı. Örnekler:
+Çalışan `az aks use-dev-spaces` komutu otomatik olarak ekleyecek bir `kubectl` , kubectl zaten Azure geliştirme alanları Kubernetes kümenize bağlanması gereken şekilde yapılandırma bağlamı. Örnekler:
 - Geçerli bağlam onaylayın: `kubectl config current-context`
 - Tüm kullanılabilir bağlamları listesinde: `kubectl config get-contexts`. 
-- Bağlam değiştirin: `kubectl config use-context <context-name>`
-- Kubernetes Panoyu görebilmek: çalıştırmak `kubectl proxy`, ardından bu komut yayar adresine tarayıcınızı açın (append `/ui` Kubernetes panoya gitmek için URL).
-- Çalışan hizmetleri adlı varsayılan Azure Dev alanları alanı listesi *varsayılan*: `kubectl get services --namespace=default`
+- Bağlam değiştirme: `kubectl config use-context <context-name>`
+- Kubernetes panosunu görüntüle: çalıştırma `kubectl proxy`, ardından bu komutu yayan adresine tarayıcınızı açın (ekleme `/ui` Kubernetes panosuna gitmek için URL'ye).
+- Çalışan hizmetleri adlı varsayılan Azure geliştirme alanları alanı listesi *varsayılan*: `kubectl get services --namespace=default`
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: d093aa6119b5ab316e5ffba77806e10cd067b032
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 3ae2e883e3e27adc167b7e831ca53d3cd1572257
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626820"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42056928"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook prova: yapı taşları
 
@@ -185,7 +185,7 @@ Yaklaşık tamamlama süresi: 15 dakika
 | --- | --- |
 | Tarayıcı uzantısı yükleme | [IE için erişim paneli uzantısı](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Erişim paneli uzantısını Chrome için](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Erişim paneli uzantısı için Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Uygulama galerisinden yapılandırma | [Azure Active Directory'de Kurumsal Uygulama Yönetimi'nde yenilikler: yeni ve geliştirilmiş uygulama Galerisi](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Parola SSO yapılandırma | [Yeni Azure portalında kurumsal uygulamalar için çoklu oturum açmayı yönetme: parola tabanlı oturum açma](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Parola SSO yapılandırma | [Yeni Azure portalında kurumsal uygulamalar için çoklu oturum açmayı yönetme: parola tabanlı oturum açma](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | Uygulama grubu Önkoşullarda atayın | [Kurumsal bir uygulamayı Azure Active Directory'de bir kullanıcı veya grup atama](manage-apps/assign-user-or-group-access-portal.md) |
 | Oturum https://myapps.microsoft.com/ erişimi olan bir test kullanıcısı olarak |  |
 | Az önce oluşturulan uygulama kutucuğuna tıklayın. | [Erişim paneli nedir?: parola tabanlı SSO kimlik sağlama olmadan](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
@@ -220,7 +220,7 @@ Yaklaşık tamamlama süresi: 30 dakika
 | --- | --- |
 | Tarayıcı uzantısı yükleme | [IE için erişim paneli uzantısı](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Erişim paneli uzantısını Chrome için](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Erişim paneli uzantısı için Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Uygulama galerisinden yapılandırma | [Azure Active Directory'de Kurumsal Uygulama Yönetimi'nde yenilikler: yeni ve geliştirilmiş uygulama Galerisi](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Parola SSO yapılandırma | [Yeni Azure portalında kurumsal uygulamalar için çoklu oturum açmayı yönetme: parola tabanlı oturum açma](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Parola SSO yapılandırma | [Yeni Azure portalında kurumsal uygulamalar için çoklu oturum açmayı yönetme: parola tabanlı oturum açma](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | Grubun kimlik bilgilerini atarken Önkoşullarda tanımlanan uygulama atama | [Kurumsal bir uygulamayı Azure Active Directory'de bir kullanıcı veya grup atama](manage-apps/assign-user-or-group-access-portal.md) |
 | Bu erişim uygulama olarak farklı kullanıcı olarak oturum **aynı hesabı paylaşılan.**  |  |
 | İsteğe bağlı olarak, uygulama kullanım raporlarını kontrol edebilirsiniz. Bu nedenle raporlarında trafiği görmek için bir süre beklemeniz gerekir biraz gecikme süresi olduğuna dikkat edin. | [Azure Active Directory portalındaki oturum açma etkinlik raporları: yönetilen uygulamaların kullanımı](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory rapor bekletme ilkeleri](reports-monitoring/reference-reports-data-retention.md) |

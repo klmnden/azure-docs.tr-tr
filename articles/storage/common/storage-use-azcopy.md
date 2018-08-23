@@ -5,15 +5,15 @@ services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 08/13/2018
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: aaae191baaa7b712c77d93303ded777afe97c249
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a0e2400163433ba5290525d0fe807ede624a31ed
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531908"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42057132"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Windows üzerinde AzCopy ile veri aktarma
 AzCopy, en iyi performans için tasarlanmış basit komut kullanarak Microsoft Azure Blob, dosya ve tablo depolama içine/dışına veri kopyalamak için tasarlanan bir komut satırı yardımcı programıdır. Bir dosya sistemi ile depolama hesabı arasında veya depolama hesapları arasında verileri kopyalayabilirsiniz.  
@@ -22,16 +22,16 @@ AzCopy, en iyi performans için tasarlanmış basit komut kullanarak Microsoft A
 
 ## <a name="download-and-install-azcopy-on-windows"></a>İndirme ve Windows üzerinde AzCopy yükleme
 
-### <a name="latest-preview-version-v800"></a>En son önizleme sürümünü (v8.0.0)
-İndirme [Windows üzerinde AzCopy en son önizleme sürümünü](https://aka.ms/downloadazcopypr). Bu önizleme sürümü, önemli performans geliştirmeleri ve .NET Core yükleme paketleri sunar.
+### <a name="latest-version-v81"></a>En son sürümünü (v8.1)
+İndirme [en son sürümünü Windows üzerinde AzCopy](https://aka.ms/downloadazcopy).
 
-#### <a name="azcopy-on-windows-80-preview-release-notes"></a>Windows 8.0 Preview sürüm notları üzerinde AzCopy
-- Tablo hizmeti, en son sürümü artık desteklenmiyor. Tabloyu dışarı aktarma özelliğini kullanırsanız, kararlı bir sürüm yükleyin.
+#### <a name="azcopy-on-windows-81-release-notes"></a>Windows 8.1 üzerinde AzCopy sürüm notları
+- Tablo hizmeti, en son sürümü artık desteklenmiyor. Tabloyu dışarı aktarma özelliğini kullanırsanız, AzCopy 7.3 sürümünü indirin.
 - .NET Core 2.1 ile oluşturulmuş ve tüm .NET Core bağımlılıklarını yüklemenin artık paketlenir.
-- Önemli performans geliştirmeleri için hem karşıya yükleme ve senaryoları indirme
+- OAuth kimlik doğrulaması desteği eklendi. Kullanım ```azcopy login``` Azure Active Directory kullanarak oturum.
 
-### <a name="latest-stable-version-v710"></a>En son kararlı sürüm (v7.1.0)
-İndirme [en son kararlı sürümünü Windows üzerinde AzCopy](https://aka.ms/downloadazcopy).
+### <a name="azcopy-with-table-support-v73"></a>Azcopy ile tablo desteği (v7.3)
+İndirme [tablo desteği ile AzCopy 7.3](https://aka.ms/downloadazcopynet).
 
 ### <a name="post-installation-step"></a>Yükleme sonrası adımı
 

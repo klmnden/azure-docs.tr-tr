@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: b2cdb88ba71b4a3d3005ec9d64b6e94cdb1d1c55
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 8c4ae9c7b8be8cf390ad4ad6d99cd1ec41cd3d08
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857540"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42056441"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Kaydet ve Git kullanarak API Management hizmet yapılandırmanızı yapılandırma
 
@@ -166,7 +166,7 @@ Her klasör, bir veya daha fazla dosya içerebilir ve bazı durumlarda bir veya 
 | xml |İlke deyimleri |
 | CSS |Geliştirici Portalı özelleştirme için stil sayfaları |
 
-Bu dosyalar oluşturulabilir, silindi, düzenlenebilir ve yerel dosya sisteminizde yönetilen ve dağıtılan değişiklikleri yeniden API Management hizmet örneğinizin.
+Bu dosyalar oluşturulabilir, silindi, düzenlenebilir ve yerel dosya sisteminize ve değişiklikleri geri, API Management hizmet örneği için Dağıtılmış yönetilen.
 
 > [!NOTE]
 > Aşağıdaki varlıkların Git deposunda yer almayan ve Git kullanılarak yapılandırılamaz.
@@ -177,7 +177,7 @@ Bu dosyalar oluşturulabilir, silindi, düzenlenebilir ve yerel dosya sisteminiz
 > * Geliştirici Portalı varlıkları dışında stilleri
 > 
 
-### <a name="root-api-management-folder"></a>Kök API Yönetimi klasörü
+### <a name="root-api-management-folder"></a>kök API Yönetimi klasörü
 Kök `api-management` klasörünü içeren bir `configuration.json` hizmet örneği şu biçimde hakkında üst düzey bilgileri içeren dosya.
 
 ```json
@@ -221,7 +221,7 @@ Son ayar `$ref-policy`, hizmet örneği için genel ilke deyimlerini dosyanın e
 
 * `apis\<api name>\configuration.json` -Bu API için yapılandırması ve arka uç hizmeti URL'sini ve işlemleri hakkındaki bilgileri içerir. Çağrılacak olsaydı döndürülecek olan aynı olan bilgileri budur [belirli bir API'yi alın](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) ile `export=true` içinde `application/json` biçimi.
 * `apis\<api name>\api.description.html` -Bu API açıklaması ve karşılık gelen `description` özelliği [API varlığı](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
-* `apis\<api name>\operations\` -Bu klasörde `<operation name>.description.html` API'sindeki işlemlerle eşlenir dosyaları. Her dosya tek bir işlemde eşleştiren API açıklamasını içerir `description` özelliği [işlemi varlık](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) REST API'de.
+* `apis\<api name>\operations\` -Bu klasörde `<operation name>.description.html` API'sindeki işlemlerle eşlenir dosyaları. Her dosya tek bir işlemle eşlenir API açıklamasını içerir `description` özelliği [işlemi varlık](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) REST API'de.
 
 ### <a name="groups-folder"></a>grupları klasörü
 `groups` Klasörü hizmet örneğinde tanımlanan her grup için bir klasör içerir.
@@ -259,8 +259,8 @@ Son ayar `$ref-policy`, hizmet örneği için genel ilke deyimlerini dosyanın e
 Hizmet örneğinizi yönetmek için diğer yöntemler hakkında daha fazla bilgi için bkz:
 
 * Hizmet örneğinizi aşağıdaki PowerShell cmdlet'lerini kullanarak yönetme
-  * [Hizmet dağıtımı PowerShell cmdlet başvurusu](https://msdn.microsoft.com/library/azure/mt619282.aspx)
-  * [Hizmet Yönetimi PowerShell cmdlet başvurusu](https://msdn.microsoft.com/library/azure/mt613507.aspx)
+  * [Hizmet dağıtımı PowerShell cmdlet başvurusu](https://docs.microsoft.com/powershell/module/wds)
+  * [Hizmet Yönetimi PowerShell cmdlet başvurusu](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * Hizmet örneğinizi REST API kullanarak yönetme
   * [API Management REST API Başvurusu](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 

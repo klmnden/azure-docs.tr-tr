@@ -1,6 +1,6 @@
 ---
-title: Python kullanarak Azure Data Lake Analytics yönetme
-description: Bu makalede, Python Data Lake Analytics hesaplarını, veri kaynakları, kullanıcılar ve işleri yönetmek için nasıl kullanılacağını açıklar.
+title: Python kullanarak Azure Data Lake Analytics'i yönetme
+description: Bu makale, Data Lake Analytics hesaplarını, veri kaynakları, kullanıcılar ve işlerini yönetmek için Python kullanmayı açıklar.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: matt1883
@@ -10,33 +10,33 @@ editor: jasonwhowell
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: 2f3912069b54b3ad761493f02336d8d58866f53a
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c6f97f7bad6eada962623e7efc5d7ed010dc9ebe
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261469"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42056947"
 ---
-# <a name="manage-azure-data-lake-analytics-using-python"></a>Python kullanarak Azure Data Lake Analytics yönetme
+# <a name="manage-azure-data-lake-analytics-using-python"></a>Python kullanarak Azure Data Lake Analytics'i yönetme
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Bu makalede, Python kullanarak Azure Data Lake Analytics hesaplarını, veri kaynakları, kullanıcılar ve işleri Yönet açıklar.
+Bu makalede, Python kullanarak Azure Data Lake Analytics hesaplarını, veri kaynakları, kullanıcılar ve işlerini yönetmek açıklar.
 
 ## <a name="supported-python-versions"></a>Desteklenen Python sürümleri
 
 * Python 64-bit sürümünü kullanın.
-* Python dağıtım bulundu, standart kullanabilirsiniz  **[Python.org indirmeleri](https://www.python.org/downloads/)**. 
-* Çoğu geliştiricinin kullanmak uygun Bul  **[Anaconda Python dağıtım](https://www.continuum.io/downloads)**.  
-* Bu makalede, Python standart Python dağıtım 3.6 sürümünden kullanılarak yazılmıştır
+* Python dağıtım bulunamadı, standart kullanabileceğiniz  **[Python.org indirir](https://www.python.org/downloads/)**. 
+* Birçok geliştiricinin kullanmak uygun bulma  **[Anaconda Python dağıtım](https://www.anaconda.com/download/)**.  
+* Bu makalede Python 3.6 sürümünü standart Python dağıtım kullanılarak yazılmıştır
 
 ## <a name="install-azure-python-sdk"></a>Azure Python SDK’yı yükleme
 
 Aşağıdaki modüller yükleyin:
 
-* **Azure mgmt kaynak** modülü, Active Directory, vb. için diğer Azure modüller içerir.
-* **Azure datalake depolama** modülü, Azure Data Lake Store dosya sistemi işlemleri içerir. 
-* **Mgmt datalake depolama azure** modülü, Azure Data Lake Store hesabı yönetim işlemlerini içerir.
-* **Azure-mgmt-datalake-Analytics'i** modülü, Azure Data Lake Analytics işlemlerini içerir. 
+* **Azure-mgmt-resource** modülü, Active Directory gibi şeyler için diğer Azure modüllerini içerir.
+* **Azure-datalake-store** modülü Azure Data Lake Store dosya sistemi işlemlerini içerir. 
+* **Azure-mgmt-datalake-store** modülü Azure Data Lake Store hesap yönetim işlemlerini içerir.
+* **Azure-mgmt-datalake-analytics** modülü Azure Data Lake Analytics işlemlerini içerir. 
 
 İlk olarak, en son olduğundan emin olun `pip` aşağıdaki komutu çalıştırarak:
 
@@ -46,7 +46,7 @@ python -m pip install --upgrade pip
 
 Bu belge kullanılarak yazılmıştır `pip version 9.0.1`.
 
-Aşağıdaki `pip` komutları komut satırı modüllerini yüklemek için:
+Aşağıdaki `pip` modülleri komut satırından yüklemek için komutları:
 
 ```
 pip install azure-mgmt-resource
@@ -55,9 +55,9 @@ pip install azure-mgmt-datalake-store
 pip install azure-mgmt-datalake-analytics
 ```
 
-## <a name="create-a-new-python-script"></a>Yeni bir Python komut dosyası oluşturma
+## <a name="create-a-new-python-script"></a>Yeni bir Python betiği oluşturma
 
-Komut dosyasına aşağıdaki kodu yapıştırın:
+Betiğe aşağıdaki kodu yapıştırın:
 
 ```python
 ## Use this only for Azure AD service-to-service authentication
@@ -92,15 +92,15 @@ from azure.mgmt.datalake.analytics.catalog import DataLakeAnalyticsCatalogManage
 import logging, getpass, pprint, uuid, time
 ```
 
-Modülleri içeri doğrulamak için bu komut dosyasını çalıştırın.
+Modülleri içeri doğrulamak için bu betiği çalıştırın.
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
 
-### <a name="interactive-user-authentication-with-a-pop-up"></a>Açılır pencere ile etkileşimli kullanıcı kimlik doğrulaması
+### <a name="interactive-user-authentication-with-a-pop-up"></a>Etkileşimli kullanıcı kimlik doğrulaması ile bir açılır pencere
 
 Bu yöntem desteklenmiyor.
 
-### <a name="interactive-user-authentication-with-a-device-code"></a>Bir aygıt koduyla etkileşimli kullanıcı kimlik doğrulaması
+### <a name="interactive-user-authentication-with-a-device-code"></a>Bir cihaz kodu ile etkileşimli kullanıcı kimlik doğrulaması
 
 ```python
 user = input('Enter the user to authenticate with that has permission to subscription: ')
@@ -108,7 +108,7 @@ password = getpass.getpass()
 credentials = UserPassCredentials(user, password)
 ```
 
-### <a name="noninteractive-authentication-with-spi-and-a-secret"></a>Etkileşimli olmayan kimlik doğrulamasıyla SPI ve gizlilik
+### <a name="noninteractive-authentication-with-spi-and-a-secret"></a>Etkileşimli olmayan kimlik doğrulaması ile SPI ve gizlilik
 
 ```python
 credentials = ServicePrincipalCredentials(client_id = 'FILL-IN-HERE', secret = 'FILL-IN-HERE', tenant = 'FILL-IN-HERE')
@@ -118,9 +118,9 @@ credentials = ServicePrincipalCredentials(client_id = 'FILL-IN-HERE', secret = '
 
 Bu yöntem desteklenmiyor.
 
-## <a name="common-script-variables"></a>Genel komut dosyası değişkenleri
+## <a name="common-script-variables"></a>Ortak komut dosyası değişkenleri
 
-Bu değişkenler örneklerinde kullanılır.
+Bu değişkenler örnekleri kullanılır.
 
 ```python
 subid= '<Azure Subscription ID>'
@@ -157,7 +157,7 @@ adlsAcctResult = adlsAcctClient.account.create(
     )
 ).wait()
 ```
-Ardından, bu depoyu kullanan bir ADLA hesabı oluşturun.
+Daha sonra bu depoyu kullanır bir ADLA hesabı oluşturun.
 
 ```python
 adlaAcctResult = adlaAcctClient.account.create(
@@ -171,7 +171,7 @@ adlaAcctResult = adlaAcctClient.account.create(
 ).wait()
 ```
 
-## <a name="submit-a-job"></a>Bir işi gönderin
+## <a name="submit-a-job"></a>Bir iş gönderdiniz
 
 ```python
 script = """
@@ -211,8 +211,8 @@ while(jobResult.state != JobState.ended):
 print ('Job finished with result: ' + jobResult.result.value)
 ```
 
-## <a name="list-pipelines-and-recurrences"></a>Liste ardışık düzen ve tekrarları
-İşleriniz bağlı ardışık düzen veya yineleme meta verileri sahip olup olmadığınızı bağlı olarak, ardışık düzen ve tekrarları listeleyebilirsiniz.
+## <a name="list-pipelines-and-recurrences"></a>Liste işlem hatları ve tekrarlar
+İşlerinizi bağlı ardışık düzen veya yineleme meta verilerine de sahip olup olmadığını bağlı olarak, işlem hatları ve tekrarlar listeleyebilirsiniz.
 
 ```python
 pipelines = adlaJobClient.pipeline.list(adla)
@@ -226,7 +226,7 @@ for r in recurrences:
 
 ## <a name="manage-compute-policies"></a>İşlem ilkelerini yönetme
 
-DataLakeAnalyticsAccountManagementClient nesnesi bir Data Lake Analytics hesabı için işlem ilkelerini yönetme için yöntemleri sağlar.
+DataLakeAnalyticsAccountManagementClient nesnesi, bir Data Lake Analytics hesabı için işlem ilkeleri yönetmek için yöntemler sağlar.
 
 ### <a name="list-compute-policies"></a>Liste işlem ilkeleri
 
@@ -238,9 +238,9 @@ for p in policies:
     print('Name: ' + p.name + 'Type: ' + p.objectType + 'Max AUs / job: ' + p.maxDegreeOfParallelismPerJob + 'Min priority / job: ' + p.minPriorityPerJob)
 ```
 
-### <a name="create-a-new-compute-policy"></a>Yeni bir işlem ilke oluşturun
+### <a name="create-a-new-compute-policy"></a>Yeni bir işlem ilkesi oluşturma
 
-Aşağıdaki kod kullanılabilir maksimum Avustralya 50 belirtilen kullanıcıya ve 250 en düşük iş önceliği ayarını bir Data Lake Analytics hesabı için yeni bir işlem ilkesi oluşturur.
+Aşağıdaki kod kullanılabilir maksimum AUS değerini belirtilen kullanıcı için 50 ve 250 en düşük iş önceliği ayarını bir Data Lake Analytics hesabı için yeni bir işlem ilkesi oluşturur.
 
 ```python
 userAadObjectId = "3b097601-4912-4d41-b9d2-78672fc2acde"

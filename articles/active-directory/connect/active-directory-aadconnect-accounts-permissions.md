@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cfb6fb512ecb7d57cf411a31b2e04726bfc4b743
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: a628e28e9e6bd603fb2a3789c3281bc2181c91fe
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263411"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42056338"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Hesaplar ve izinler
 
@@ -121,7 +121,7 @@ Ayrıca, gerekli izinler de olmalıdır. Yükleme Sihirbazı, izinleri ve herhan
 
 | Özellik | İzinler |
 | --- | --- |
-| msDS-Consistencyguid'i özelliği |Belirtilmiştir msDS-Consistencyguid'i özniteliği için yazma izinleri [tasarım kavramları - msDS-Consistencyguid'i sourceAnchor olarak kullanma](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
+| MS-DS-ConsistencyGuid özelliği |Belirtilmiştir ms-DS-ConsistencyGuid özniteliği için yazma izinleri [tasarım kavramları - ms-DS-Consistencyguid'i sourceAnchor olarak kullanma](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
 | Parola Karması eşitleme |<li>Dizin Değişikliklerini Çoğaltma</li>  <li>Çoğaltma Directory yapılan tüm değişiklikler |
 | Exchange karma dağıtımı |Özniteliklere açıklandığı yazma izinleri [Exchange karma geri yazma](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) kullanıcıları, grupları ve kişileri için. |
 | Exchange posta ortak klasör |İçinde belirtilen öznitelikler için Okuma izinleri [Exchange posta ortak klasör](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) ortak klasörleri için. | 

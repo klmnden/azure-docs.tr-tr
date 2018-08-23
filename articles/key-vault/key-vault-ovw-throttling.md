@@ -1,9 +1,9 @@
 ---
 title: Azure Key Vault azaltma kılavuzu
-description: Anahtar kasası azaltma kaynakların aşırı kullanımı önlemek için eş zamanlı çağrılarının sayısını sınırlar.
+description: Key Vault azaltma, kaynakların aşırı kullanımını önlemek için eş zamanlı çağrılar sayısını sınırlar.
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: ''
 ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
@@ -11,50 +11,50 @@ ms.service: key-vault
 ms.workload: identity
 ms.topic: article
 ms.date: 05/10/2018
-ms.author: alleonar
-ms.openlocfilehash: 59968f2bccbe2828ebe5fb33c57ed28d4f8509b6
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: bryanla
+ms.openlocfilehash: 28756cf28305927246d82f1f006f02b2e9b96469
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067699"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42057723"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault azaltma kılavuzu
 
-Azaltma kaynakların aşırı kullanımı önlemek için Azure hizmeti eşzamanlı çağrı sayısı sınırlayan başlatma bir işlemdir. Azure anahtar kasası (AKV), yüksek hacimli isteklerini işlemek için tasarlanmıştır. Bunaltıcı bir istek sayısı ortaya çıkarsa, istemcinin istek azaltma en iyi performans ve güvenilirlik AKV hizmetinin korumaya yardımcı olur.
+Azaltma, kaynakların aşırı kullanımını önlemek için bir Azure hizmetine eş zamanlı çağrı sayısını sınırlayan başlatma bir işlemdir. Azure Key Vault (AKV) büyük hacimde istekleri işlemek için tasarlanmıştır. Büyük bir istek sayısı ortaya çıkarsa, istemcinin istekleri azaltma en iyi performans ve güvenilirlik AKV hizmetinin korumasına yardımcı olur.
 
-Azaltma sınırları senaryo göre değişir. Örneğin, büyük hacimli yazma gerçekleştiriyorsanız azaltma olanağı yalnızca okuma gerçekleştirdiğiniz varsa daha yüksek olur.
+Azaltma sınırları senaryoya bağlı olarak değişiklik gösterir. Örneğin, büyük hacimli yazma gerçekleştiriyorsanız için azaltma olanağı, yalnızca okuma işlemi yapıyorsanız daha yüksek olur.
 
-## <a name="how-does-key-vault-handle-its-limits"></a>Anahtar kasası sınırlarına nasıl işler?
+## <a name="how-does-key-vault-handle-its-limits"></a>Key Vault, kendi sınırlarına nasıl işliyor?
 
-Kaynakların kötüye kullanımı önlemek ve tüm anahtar Kasası'nın istemcileri için hizmet kalitesi sağlamak için anahtar kasası hizmet sınırları vardır. Bir hizmeti eşiği aşıldığında, anahtar kasası herhangi başka bir istek Bu istemciden gelen bir süre için sınırlar. Bu gerçekleştiğinde, anahtar kasası HTTP durum kodu 429 döndürür (çok sayıda istek), ve istekleri başarısız olur. Ayrıca, anahtar kasası tarafından izlenen azaltma sınırları doğrultusunda 429 bir sayı döndürür isteği başarısız oldu. 
+Kaynakları kötüye kullanımı önlemesi ve Key Vault'un istemciler için hizmet kalitesi emin olmak için Key Vault hizmet sınırları vardır. Bir hizmeti eşiği aşıldığında, Key Vault istemciden gelen ek istekleri bir süre için sınırlar. Bu durumda, HTTP durum kodu 429 Key Vault döndürür (çok fazla istek), ve istekleri başarısız olur. Ayrıca, Key Vault tarafından izlenen azaltma sınırları doğrultusunda 429 bir sayı döndürür isteği başarısız oldu. 
 
-Daha yüksek azaltma sınırları için geçerli iş durum varsa, lütfen bizimle iletişime geçin.
+İşle ilgili geçerli durum azaltma sınırları için varsa, lütfen bizimle iletişime geçin.
 
 
-## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Hizmet sınırları yanıta uygulamanızda kısıtlama nasıl
+## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Nasıl kısıtlanacağını uygulamanızın yanıt olarak hizmet sınırları
 
-Aşağıdakiler **en iyi uygulamalar** uygulamanızı azaltma için:
-- İstek başına işlem sayısını azaltın.
+Aşağıdaki **en iyi uygulamalar** uygulamanızın azaltma için:
+- İstek başına işlemlerin sayısını azaltın.
 - İstekleri sıklığını azaltın.
 - Hemen yeniden deneme kaçının. 
-    - Tüm istekler, kullanım sınırları karşı tahakkuk eder.
+    - Tüm istekler, kullanım sınırlarını karşı tahakkuk eder.
 
-Uygulamanızın hata işleme uyguladığınızda, istemci-tarafı azaltma ihtiyacına algılamak için HTTP hata kodunu 429 kullanın. İsteği yeniden HTTP 429 hata koduyla başarısız olursa, bir Azure hizmeti sınırını hala karşılaşıyoruz. Önerilen yöntem azaltma, onu başarılı olana kadar istek yeniden deneniyor istemci kullanmaya devam edin.
+Uygulamanızın hata işleme uygularken, istemci tarafı azaltma ihtiyacına algılamak için HTTP hata kodu 429 kullanın. İstek yine bir HTTP 429 hata koduyla başarısız olursa, bir Azure hizmeti sınırını hala karşılaşıyoruz. Önerilen yöntem azaltma, başarılı olana kadar istek yeniden deneniyor taraflı kullanmaya devam edin.
 
 ### <a name="recommended-client-side-throttling-method"></a>Önerilen istemci-tarafı azaltma yöntemi
 
-HTTP hata kodunu 429, üstel geri alma yaklaşımı kullanarak, istemci azaltma başlayın:
+HTTP hata kodu 429 üzerinde bir üstel geri alma yaklaşımı kullanarak istemci azaltma başlayın:
 
-1. Yeniden deneme isteği 1 saniye bekleyin
-2. Hala 2 saniye bekleyin kısıtlanan, isteği yeniden deneyin
-3. Hala 4 saniye bekleyin kısıtlanan, isteği yeniden deneyin
-4. Hala 8 saniye bekleyin kısıtlanan, isteği yeniden deneyin
-5. Hala 16 saniye bekleyin kısıtlanan, isteği yeniden deneyin
+1. 1 saniye, yeniden deneme isteği bekleyin
+2. Yine de 2 saniye bekleyin kısıtlanan, isteği yeniden deneyin.
+3. Yine de 4 saniye bekleyin kısıtlanan, isteği yeniden deneyin.
+4. Yine de 8 saniye bekleyin kısıtlanan, isteği yeniden deneyin.
+5. Hala 16 saniye bekleyin kısıtlanan, isteği yeniden deneyin.
 
-Bu noktada, HTTP 429 yanıt kodları alamıyorsanız.
+Bu noktada, HTTP 429 yanıtı kodları alamıyorsanız.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-Microsoft Cloud azaltma daha derin yönlendirmesi için bkz: [azaltma düzeni](https://docs.microsoft.com/azure/architecture/patterns/throttling).
+Microsoft Cloud azaltma derin yönlendirmesi için bkz. [kısıtlama düzeni](https://docs.microsoft.com/azure/architecture/patterns/throttling).
 

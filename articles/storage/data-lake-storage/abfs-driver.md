@@ -9,12 +9,12 @@ ms.author: jamesbak
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 8be6df5f4098b8a97e41c73edc5664799fd3edbe
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: dedf398064dd0a49e5691e952ea7c9b6d16e34fd
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520828"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42059190"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob dosya sistemi sürücü (ABFS): Hadoop için adanmış bir Azure depolama sürücüsü
 
@@ -45,7 +45,11 @@ Dahili olarak ABFS sürücü dosyalara ve dizinlere URI belirtilen kaynaklar çe
 
 ### <a name="authentication"></a>Kimlik Doğrulaması
 
-Hadoop application Data Lake depolama Gen2'içinde yer alan kaynaklara güvenle erişin, böylece ABFS sürücü şu anda paylaşılan anahtar kimlik doğrulamasını destekler. Anahtar şifrelenir ve Hadoop yapılandırmasında depolanır.
+Hadoop application Data Lake depolama Gen2'ye yeteneğine sahip bir hesap içinde yer alan kaynaklara güvenle erişin, böylece iki tür kimlik doğrulaması ABFS sürücü destekler. Kullanılabilir kimlik doğrulama düzenleri tam ayrıntıları verilmiştir [Azure depolama Güvenlik Kılavuzu](../common/storage-security-guide.md). Bunlar:
+
+- **Paylaşılan anahtar:** bu kullanıcıların tüm kaynaklara erişim hesabında verir. Anahtar şifrelenir ve Hadoop yapılandırmasında depolanır.
+
+- **Azure Active Directory OAuth taşıyıcı belirteci:** Azure AD'ye taşıyıcı belirteçleri alınan ve son kullanıcı kimliğini veya yapılandırılmış bir hizmet sorumlusu kullanarak sürücü tarafından yenilenir. Bu kimlik doğrulama modeli kullanarak, çağrı başına temelinde atanan POSIX erişim denetimi listesi (ACL) karşı değerlendirilir ve sağlanan belirteçle ilişkili kimliği kullanarak tüm erişim yetkisi.
 
 ### <a name="configuration"></a>Yapılandırma
 

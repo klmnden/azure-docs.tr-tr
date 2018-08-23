@@ -1,6 +1,6 @@
 ---
-title: Azure günlük analizi veri kaynakları yapılandırma | Microsoft Docs
-description: Veri kaynakları günlük analizi toplar aracıları ve diğer kaynakları bağlı verileri tanımlayın.  Bu makalede kavramı nasıl günlük analizi veri kaynakları kullanır, bunların nasıl yapılandırılacağı ayrıntılarını açıklar ve kullanılabilen değişik veri kaynakları özetini sağlar.
+title: Azure Log Analytics'te veri kaynakları yapılandırma | Microsoft Docs
+description: Veri kaynakları, Log Analytics toplanan aracıları ve diğer kaynakları bağlı verileri tanımlar.  Bu makalede nasıl Log Analytics veri kaynaklarını kullanmaktadır, nasıl yapılandırılacakları ayrıntılarını açıklayan ve farklı veri kaynaklarının bir özetini sunar kavramını açıklar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,58 +15,58 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 9a43774a5327536ae4fa1346ae933739ea629771
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 4b7b1a9dc25b1bfaf72ab67dd0725a4518263ca5
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130093"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42057135"
 ---
-# <a name="data-sources-in-log-analytics"></a>Günlük analizi veri kaynaklarında
-Günlük analizi bağlı kaynaklarınızdan verilerini toplar ve günlük analizi çalışma alanınızda depolar.  Her birinden toplanan verileri yapılandırdığınız veri kaynakları tarafından tanımlanır.  Günlük analizi veri bir kayıt kümesi depolanır.  Her veri kaynağı kendi özellikler kümesini sahip her türüyle belirli bir türdeki kayıtları oluşturur.
+# <a name="data-sources-in-log-analytics"></a>Log analytics'te veri kaynakları
+Log Analytics bağlı kaynaklardan veri toplar ve Log Analytics çalışma alanınızda depolar.  Her birinden toplanan veriler, yapılandırdığınız veri kaynakları tarafından tanımlanır.  Log analytics'te verileri, bir kayıt kümesi depolanır.  Her veri kaynağı kendi özellikler kümesini sahip her türüyle belli bir türdeki kayıtları oluşturur.
 
-![Günlük analizi veri toplama](./media/log-analytics-data-sources/overview.png)
+![Analytics veri toplama oturum](./media/log-analytics-data-sources/overview.png)
 
-Veri kaynakları farklı [yönetim çözümleri](log-analytics-add-solutions.md), ayrıca bağlı kaynaklardan veri toplamak ve günlük analizi kayıtları oluşturun.  Veri toplama yanı sıra çözümler genellikle günlük arar ve belirli bir uygulama veya hizmet işlemi analiz etmenize yardımcı olacak görünümler içerir.
+Veri kaynakları farklı [yönetim çözümleri](log-analytics-add-solutions.md), ayrıca bağlı kaynaklardan gelen verileri toplamak ve Log Analytics'te kayıtları oluşturun.  Veri çözümleri genellikle toplamaya ek olarak, günlük aramaları ve belirli bir uygulama veya hizmet işlemi analiz etmenize yardımcı olacak görünümler içerir.
 
 
 ## <a name="summary-of-data-sources"></a>Veri kaynakları özeti
-Aşağıdaki tabloda günlük analizi şu anda kullanılabilir veri kaynaklarını listeler.  Her ayrıntı için bu veri kaynağı sağlayarak ayrı bir makale için bir bağlantı vardır.   Ayrıca, yöntemi ve günlük analizi veri koleksiyonuna sıklığını hakkında bilgiler sağlar.  Kullanılabilir farklı çözümler tanımlamak ve farklı yönetim çözümleri için veri akışı ve bağlantı gereksinimleri anlamak için bu makaledeki bilgileri kullanabilirsiniz. Sütunları açıklamalar için bkz [Azure yönetim çözümleri için veri toplama ayrıntılarına](../monitoring/monitoring-solutions-inventory.md).
+Aşağıdaki tabloda, Log Analytics'te şu anda kullanılabilir veri kaynaklarını listeler.  Bu veri kaynağı için ayrıntı sağlayan ayrı bir makale için bir bağlantı vardır.   Ayrıca kendi yöntemi ve Log Analytics ile veri toplama sıklığı hakkında bilgiler sağlar.  Farklı çözümlerin tanımlamak ve farklı yönetim çözümleri için veri akışı ve bağlantı gereksinimlerini anlamak için bu makaledeki bilgileri kullanabilirsiniz. Sütunların açıklamaları için bkz: [veri koleksiyonu ayrıntıları Azure yönetim çözümlerine için](../monitoring/monitoring-solutions-inventory.md).
 
 
-| Veri kaynağı | Platform | Microsoft İzleme Aracısı | Operations Manager Aracısı | Azure Storage | Operations Manager gerekli? | Operations Manager Aracısı verilerinin yönetim grubu gönderilen | Toplama sıklığı |
+| Veri kaynağı | Platform | Microsoft İzleme Aracısı | Operations Manager Aracısı | Azure Storage | Operations Manager gerekli? | Operations Manager aracısı veri yönetim grubu gönderilir. | Toplama sıklığı |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Özel günlükler](log-analytics-data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | geldiğinde |
 | [Özel günlükler](log-analytics-data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | geldiğinde |
 | [IIS günlükleri](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |Günlük dosyası aktarma ayarına bağlıdır |
 | [Performans sayaçları](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |zamanlandığı gibi en az 10 saniye |
 | [Performans sayaçları](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |zamanlandığı gibi en az 10 saniye |
-| [Syslog](log-analytics-data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |Azure depolama biriminden: 10 dakika; aracısından: işle |
+| [Syslog](log-analytics-data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |Azure depolama biriminden: 10 dakika; Aracısı'ndan: işle |
 | [Windows olay günlükleri](log-analytics-data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | geldiğinde |
 
 
 ## <a name="configuring-data-sources"></a>Veri kaynaklarını yapılandırma
-Veri kaynaklarından yapılandırma **veri** günlük analizi menüde **Gelişmiş ayarları**.  Herhangi bir yapılandırma çalışma alanınızdaki tüm bağlı kaynakları teslim edilir.  Şu anda bu yapılandırmasından tüm aracıları dışarıda bırakılamaz.
+Veri kaynaklarından yapılandırma **veri** Log Analytics menüde **Gelişmiş ayarlar**.  Herhangi bir yapılandırma çalışma alanınızdaki tüm bağlı kaynaklar teslim edilir.  Herhangi bir aracı şu anda bu yapılandırmayı dışarıda tutulamaz.
 
-![Windows olayları yapılandırın](./media/log-analytics-data-sources/configure-events.png)
+![Windows olayları Yapılandır](./media/log-analytics-data-sources/configure-events.png)
 
-1. Azure portalında seçin **günlük analizi** > çalışma alanınızı > **Gelişmiş ayarları**.
+1. Azure portalında **Log Analytics** > çalışma alanınızı > **Gelişmiş ayarlar**.
 2. Seçin **veri**.
-3. Yapılandırmak istediğiniz veri kaynağında'ı tıklatın.
-4. Yapılandırmalarını hakkında ayrıntılar için yukarıdaki tabloda her bir veri kaynağı için belgelerine bağlantıyı izleyin.
+3. Yapılandırmak istediğiniz veri kaynağında'a tıklayın.
+4. Kendi yapılandırma hakkında ayrıntılar için yukarıdaki tabloda her bir veri kaynağı için belgelere bağlantıyı izleyin.
 
 
 ## <a name="data-collection"></a>Veri toplama
-Veri kaynağı yapılandırmaları günlük analizi için birkaç dakika içinde doğrudan bağlı olan aracılara teslim edilir.  Belirtilen veri Aracıdan toplanır ve her bir veri kaynağı için belirli aralıklarla doğrudan günlük analizi için teslim.  Bu özellikleri için her bir veri kaynağı belgelerine bakın.
+Veri kaynağı yapılandırmalarını birkaç dakika içinde doğrudan Log Analytics'e bağlı aracılara teslim edilir.  Belirtilen verileri Aracıdan toplanan ve her bir veri kaynağı için belirli aralıklarla doğrudan Log Analytics'e teslim.  Bu özellikleri için her veri kaynağı için belgelere bakın.
 
-Bağlı Yönetim grubundaki System Center Operations Manager aracıları için veri kaynağı yapılandırmaları yönetim paketleri çevrilen ve yönetim grubuna varsayılan olarak 5 dakikada bir teslim.  Aracı gibi diğer yönetim paketi indirir ve belirtilen verileri toplar. Veri kaynağı bağlı olarak veri ya da günlük analizi veri ileten bir yönetim sunucusuna gönderilen olur veya aracı veri günlük analizi için yönetim sunucusu üzerinden geçmeden gönderir. Başvurmak [veri koleksiyonu ayrıntıları](log-analytics-add-solutions.md#data-collection-details) Ayrıntılar için.  Bu yapılandırma, Operations Manager'ı ve günlük analizi bağlanma ve sıklığını değiştirme ayrıntılarını okuyabilir, teslim [System Center Operations Manager tümleştirmesini yapılandırma](log-analytics-om-agents.md).
+System Center Operations Manager aracıları için bir bağlı yönetim grubu, veri kaynağı yapılandırmalarını yönetim paketleri çevrilen ve yönetim grubuna varsayılan olarak 5 dakikada bir teslim.  Aracı gibi diğer yönetim paketi indirir ve belirtilen verileri toplar. Veri kaynağına bağlı olarak ya da Log Analytics'e veri ileten bir yönetim sunucusuna gönderilen veriler olacaktır ya da aracı verileri Log Analytics için yönetim sunucusu üzerinden geçmeden gönderir. Bkz: [veri koleksiyonu ayrıntıları Azure yönetim çözümlerine için](../monitoring/monitoring-solutions-inventory.md) Ayrıntılar için.  Operations Manager ve Log Analytics'e bağlama ve sıklığını değiştirme hakkında ayrıntılar bu yapılandırma okuyabilir, teslim [System Center Operations Manager tümleştirmesini yapılandırma](log-analytics-om-agents.md).
 
-Aracı günlük analizi veya Operations Manager bağlanamıyor ise, bağlantı kurduğunda teslim eder veri toplamaya devam eder.  Veriler veri miktarı istemci için en büyük önbellek boyutu ulaşırsa veya aracı 24 saat içinde bir bağlantı kurup kuramadığını değilse kaybolmuş olabilir.
+Aracının Log Analytics ya da Operations Manager bağlanamıyor ise, bağlantı kurduğunda teslim eder veri toplamaya devam eder.  Veri miktarı istemci için en yüksek önbellek boyutunu ulaşırsa veya aracıyı 24 saat içinde bir bağlantı kurmak mümkün değilse, verileri kaybolabilir.
 
 ## <a name="log-analytics-records"></a>Log Analytics kayıtları
-Günlük analizi tarafından toplanan tüm veriler, çalışma alanında kayıt olarak depolanır.  Farklı veri kaynakları tarafından toplanan kayıtları kendi özellikler kümesini sahip olur ve tarafından tanımlanan kendi **türü** özelliği.  Her veri kaynağı için belgelere ve çözüm ayrıntıları için her bir kayıt türü bakın.
+Log Analytics tarafından toplanan tüm veriler, çalışma alanında kayıt olarak depolanır.  Farklı veri kaynağı tarafından toplanan kayıtlarını kendi özellikler kümeniz ve tarafından tanımlanan kendi **türü** özelliği.  Her bir kayıt türü, her veri kaynağı için belgeler ve Ayrıntılar için çözüm bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [çözümleri](log-analytics-add-solutions.md) işlevselliği için günlük analizi eklemek ve ayrıca çalışma alanına verilerini topla.
-* Hakkında bilgi edinin [oturum aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümleri toplanan verileri çözümlemek için.  
-* Yapılandırma [uyarıları](log-analytics-alerts.md) proaktif olarak, toplanan veri kaynakları ve çözümlerinin kritik verilerin bildirmek için.
+* Hakkında bilgi edinin [çözümleri](../monitoring/monitoring-solutions.md) Log Analytics'e işlev eklemek ve ayrıca çalışma alanına veri toplayın.
+* Hakkında bilgi edinin [günlük aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.  
+* Yapılandırma [uyarılar](log-analytics-alerts.md) proaktif olarak size, veri kaynakları ve çözümlerinden toplanan kritik veri bildirmek için.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: f9d962b96df760d1382439abcd80eb21fef62128
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 6cf7f35e60502d0e21ffa2b777f1700a57add965
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531656"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42055157"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure Storage ile Azure PowerShell’i kullanma
 
@@ -215,7 +215,6 @@ PowerShell ile depolama hesabınızı yönetme anladığınıza göre veri nesne
 Azure Cosmos DB tablo API'si, tablo depolama gibi anahtar teslim küresel dağıtım, düşük gecikme süreli okuma ve yazma işlemleri, otomatik ikincil dizin oluşturma ve adanmış aktarım hızı için premium özellikleri sağlar. 
 
 * Daha fazla bilgi için [Azure Cosmos DB tablo API'si](../../cosmos-db/table-introduction.md). 
-* Azure Cosmos DB tablo API'si işlemleri gerçekleştirmek için PowerShell'i kullanma konusunda bilgi almak için bkz: [PowerShell ile Azure Cosmos DB tablo API'si gerçekleştirmek işlemlerini](../../cosmos-db/table-powershell.md).
 
 ## <a name="independent-cloud-deployments-of-azure"></a>Azure'nın bağımsız bulut dağıtımları
 

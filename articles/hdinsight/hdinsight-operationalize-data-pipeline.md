@@ -2,20 +2,19 @@
 title: Veri analizi işlem hattı - Azure'ı kullanıma hazır hale getirme
 description: Ayarlama ve yeni verilerle tetiklenir ve kısa sonuçları üreten bir örnek veri işlem hattı çalıştırma.
 services: hdinsight
-author: ashishthaps
-editor: jasonwhowell
-ms.assetid: ''
 ms.service: hdinsight
+author: ashishthaps
+ms.author: ashishth
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.author: ashishth
-ms.openlocfilehash: 6f6a70a7364ead5ff2171383529febb0a2fce6ff
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 68329ec01548a986ff4e41c23ab2298bda522eef
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595187"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42060668"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Veri analizi işlem hattını kullanıma hazır hale getirme
 

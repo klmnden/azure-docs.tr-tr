@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9a45f8269e0ca2bc4188016af0ace06831c762b6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 025e447995d302c24ab2a7d1c8668857cb47ffdd
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521287"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42057426"
 ---
 # <a name="auto-provisioning-concepts"></a>Otomatik sağlama kavramları
 
@@ -62,7 +62,7 @@ Aşağıdaki diyagramda, roller ve işlemleri sıralama sırasında cihaz otomat
 [![Bir cihaz için otomatik sağlama dizisi](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
 
 > [!NOTE]
-> İsteğe bağlı olarak, üretici "cihaz kimlik kayıt" işlemi cihaz sağlama hizmeti API'lerini kullanarak da gerçekleştirebilirsiniz (yerine işleci aracılığıyla). Bu sıralama ve daha ayrıntılı bir açıklaması için [sıfır dokunma cihaz kaydı ile Azure IOT video](https://myignite.microsoft.com/sessions/55087) (işaret 41:00 başlayarak)
+> İsteğe bağlı olarak, üretici "cihaz kimlik kayıt" işlemi cihaz sağlama hizmeti API'lerini kullanarak da gerçekleştirebilirsiniz (yerine işleci aracılığıyla). Bu sıralama ve daha ayrıntılı bir açıklaması için [sıfır dokunma cihaz kaydı ile Azure IOT video](https://youtu.be/cSbDRNg72cU?t=2460) (işaret 41:00 başlayarak)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

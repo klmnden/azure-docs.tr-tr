@@ -1,68 +1,68 @@
 ---
-title: Studio 3T kullanın (MongoChef) Azure Cosmos DB ile | Microsoft Docs
-description: Bir Azure Cosmos DB MongoDB API hesabıyla Studio 3T kullanmayı öğrenin
+title: Studio 3T kullanma (MongoChef) ile Azure Cosmos DB | Microsoft Docs
+description: Studio 3T ile bir Azure Cosmos DB MongoDB API hesabı kullanmayı öğrenin
 keywords: mongochef, studio 3T
 services: cosmos-db
-author: SnehaGunda
+author: slyons
 manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: sngun
-ms.openlocfilehash: 9d00f260252e31ab9186c8aab8f07db848d1af29
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.author: sclyon
+ms.openlocfilehash: af66f413055c01d9a4c3e94c7d3b9c5f1d5917b0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34794779"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42059649"
 ---
-# <a name="azure-cosmos-db-use-studio-3t-with-a-mongodb-api-account"></a>Azure Cosmos DB: Studio'yu kullanın 3T MongoDB API Hesapla
+# <a name="azure-cosmos-db-use-studio-3t-with-a-mongodb-api-account"></a>Azure Cosmos DB: Kullanım Studio 3T ile bir MongoDB API hesabı
 
-Bir Azure Cosmos DB MongoDB API hesabınıza bağlanmak için yapmanız gerekir:
+Bir Azure Cosmos DB MongoDB API hesabına bağlanmak için şunları yapmalısınız:
 
-* İndirme ve yükleme [Studio 3T](https://studio3t.com/) (önceki adıyla MongoChef da bilinir)
-* Azure Cosmos DB sahip [bağlantı dizesi](connect-mongodb-account.md) MongoDB hesabınızın bilgileri
+* İndirme ve yükleme [Studio 3T](https://studio3t.com/) (eski adıyla MongoChef da bilinir)
+* Azure Cosmos DB sahip [bağlantı dizesi](connect-mongodb-account.md) MongoDB hesabı için bilgiler
 
-## <a name="create-the-connection-in-studio-3t"></a>Studio 3T bağlantı oluşturma
-Studio 3T Bağlantı Yöneticisi Azure Cosmos DB hesabınızı eklemek için aşağıdaki adımları gerçekleştirin:
+## <a name="create-the-connection-in-studio-3t"></a>Studio 3t'yi bağlantı oluşturma
+Studio 3T Bağlantı Yöneticisi için Azure Cosmos DB hesabınıza eklemek için aşağıdaki adımları gerçekleştirin:
 
-1. ' Ndaki yönergeleri kullanarak MongoDB API hesabınıza Azure Cosmos DB bağlantısı bilgilerini almak [Azure Cosmos DB MongoDB uygulamaya bağlama](connect-mongodb-account.md) makalesi.
+1. İçindeki yönergeleri kullanarak MongoDB API hesabı için Azure Cosmos DB bağlantı bilgilerini almak [bir MongoDB uygulamasını Azure Cosmos DB'ye bağlanmak](connect-mongodb-account.md) makalesi.
 
-    ![Bağlantı dizesi sayfasının ekran görüntüsü](./media/mongodb-mongochef/ConnectionStringBlade.png)
-2. Tıklatın **Bağlan** Bağlantı Yöneticisi'ni açmak için ardından **yeni bağlantı**
+    ![Bağlantı dizesi sayfası ekran görüntüsü](./media/mongodb-mongochef/ConnectionStringBlade.png)
+2. Tıklayın **Connect** Bağlantı Yöneticisi'ni açmak için ardından **yeni bağlantı**
 
     ![Studio 3T Bağlantı Yöneticisi ekran görüntüsü](./media/mongodb-mongochef/ConnectionManager.png)
-3. İçinde **yeni bağlantı** penceresi, **Server** sekmesinde, Azure Cosmos DB hesap ana bilgisayar (FQDN) ve bağlantı NOKTASINI girin.
+3. İçinde **yeni bağlantı** penceresi, **sunucu** sekmesinde, Azure Cosmos DB hesabı ana bilgisayar (FQDN) ve bağlantı NOKTASINI girin.
 
-    ![Studio 3T Bağlantı Yöneticisi'ni sunucu sekmesinin Ekran görüntüsü](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
-4. İçinde **yeni bağlantı** penceresi, **kimlik doğrulaması** sekmesinde, kimlik doğrulama modu seçin **Basic (CR MONGODB veya SCARM-SHA-1)** ve kullanıcı adı ve parola girin.  Varsayılan kimlik doğrulama db (Yönetici) kabul edin veya kendi değer sağlayın.
+    ![Studio 3T Bağlantı Yöneticisi server sekmesinin Ekran görüntüsü](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
+4. İçinde **yeni bağlantı** penceresi, **kimlik doğrulaması** sekmesinde, kimlik doğrulama modu seçme **temel (MONGODB CR veya SCARM-SHA-1)** kullanıcı adı ve parola girin.  Varsayılan kimlik doğrulaması db (Yönetici) kabul edin veya kendi değer sağlayın.
 
     ![Studio 3T Bağlantı Yöneticisi kimlik doğrulaması sekmesinin Ekran görüntüsü](./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
-5. İçinde **yeni bağlantı** penceresi, **SSL** sekmesi, onay **bağlanmak için SSL kullan Protokolü** onay kutusunu ve **sunucu otomatik olarak imzalanan SSL sertifikalarını kabul et**  radyo düğmesi.
+5. İçinde **yeni bağlantı** penceresi, **SSL** sekmesinde, onay **bağlanmak için SSL kullan Protokolü** onay kutusunu ve **sunucu otomatik olarak imzalanan SSL sertifikalarını kabul et**  radyo düğmesi.
 
     ![Studio 3T Bağlantı Yöneticisi SSL sekmesinin Ekran görüntüsü](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
-6. Tıklatın **Bağlantıyı Sına** bağlantı bilgilerini doğrulamak için düğmesi **Tamam** yeni bağlantı penceresine geri dönün ve ardından **kaydetmek**.
+6. Tıklayın **Test Bağlantısı** bağlantı bilgilerini doğrulamak için düğmeyi **Tamam** yeni bağlantı penceresine dönün ve ardından **Kaydet**.
 
     ![Studio 3T test bağlantısı penceresinin ekran görüntüsü](./media/mongodb-mongochef/TestConnectionResults.png)
 
-## <a name="use-studio-3t-to-create-a-database-collection-and-documents"></a>Bir veritabanı, koleksiyon ve belge oluşturmak için Studio 3T kullanın
-Bir veritabanı, koleksiyon ve Studio 3T kullanarak belgeleri oluşturmak için aşağıdaki adımları gerçekleştirin:
+## <a name="use-studio-3t-to-create-a-database-collection-and-documents"></a>Bir veritabanı, koleksiyon ve belgelerin oluşturmak için Studio 3t'yi kullanma
+Veritabanı, koleksiyon ve belgelerin Studio 3T kullanma oluşturmak için aşağıdaki adımları gerçekleştirin:
 
-1. İçinde **Bağlantı Yöneticisi**, bağlantı vurgulayıp **Bağlan**.
+1. İçinde **Bağlantı Yöneticisi**, bağlantı vurgulayıp **Connect**.
 
     ![Studio 3T Bağlantı Yöneticisi ekran görüntüsü](./media/mongodb-mongochef/ConnectToAccount.png)
-2. Ana bilgisayarı sağ tıklatın ve seçin **veritabanı ekleme**.  Bir veritabanı adı girin ve tıklayın **Tamam**.
+2. Konağa sağ tıklayın ve seçin **veritabanı ekleme**.  Bir veritabanı adı girin ve tıklatın **Tamam**.
 
-    ![Studio 3T veritabanı ekleme seçeneği ekran görüntüsü](./media/mongodb-mongochef/AddDatabase1.png)
-3. Bir veritabanını sağ tıklatın ve seçin **topluluk Ekle**.  Koleksiyon adı sağlayın ve tıklatın **oluşturma**.
+    ![Studio 3T veritabanı ekle seçeneğinin ekran görüntüsü](./media/mongodb-mongochef/AddDatabase1.png)
+3. Veritabanına sağ tıklayın ve seçin **koleksiyon Ekle**.  Bir koleksiyon adı girin ve tıklatın **Oluştur**.
 
-    ![Studio 3T topluluk Ekle seçeneği ekran görüntüsü](./media/mongodb-mongochef/AddCollection.png)
-4. Tıklatın **koleksiyonu** menü öğesi, ardından **Belge Ekle**.
+    ![Studio 3T koleksiyon ekle seçeneğinin ekran görüntüsü](./media/mongodb-mongochef/AddCollection.png)
+4. Tıklayın **koleksiyon** menü öğesi, ardından **Belge Ekle**.
 
-    ![Studio 3T Belge Ekle menü öğesi ekran görüntüsü](./media/mongodb-mongochef/AddDocument1.png)
-5. Belge Ekle iletişim kutusunda, aşağıdaki yapıştırın ve ardından **Belge Ekle**.
+    ![Studio 3T Belge Ekle menü öğesinin ekran görüntüsü](./media/mongodb-mongochef/AddDocument1.png)
+5. Belge Ekle iletişim kutusunda, aşağıdakini yapıştırın ve ardından **Belge Ekle**.
 
         {
         "_id": "AndersenFamily",
@@ -80,7 +80,7 @@ Bir veritabanı, koleksiyon ve Studio 3T kullanarak belgeleri oluşturmak için 
         "address": { "state": "WA", "county": "King", "city": "seattle" },
         "isRegistered": true
         }
-6. Başka bir belge, bu süre aşağıdaki içeriğe sahip ekleyin:
+6. Bu süre aşağıdaki içeriğe sahip başka bir belge ekleyin:
 
         {
         "_id": "WakefieldFamily",
@@ -107,9 +107,9 @@ Bir veritabanı, koleksiyon ve Studio 3T kullanarak belgeleri oluşturmak için 
         "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
         "isRegistered": false
         }
-7. Bir örnek sorgu yürütün. Örneğin, ailesi Soyadı 'Andersen' ile arayın ve üst ve durum alanları döndürür.
+7. Örnek sorgu yürütün. Örneğin, Soyadı 'Andersen' aileleriyle arayabilir ve durumu alanları ve üst öğeleri döndürür.
 
     ![Mongo Chef sorgu sonuçları ekran görüntüsü](./media/mongodb-mongochef/QueryDocument1.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Azure Cosmos DB MongoDB API'sini keşfedin [örnekleri](mongodb-samples.md).
+* Azure Cosmos DB MongoDB API keşfedin [örnekleri](mongodb-samples.md).

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d5b31529c9ccfdc5d7871ec860a97d964ece69f8
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 5c865ff5c83626f13bb4fb9df7c1533371733540
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435706"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42056337"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure automation'da bağlantı varlıkları
 
@@ -42,7 +42,7 @@ Aşağıdaki tablodaki etkinlikler bir runbook'tan veya DSC yapılandırmasında
 
 |Etkinlikler|Açıklama|
 |---|---|
-|[Get-AutomationConnection](/powershell/module/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Kullanmak için bir bağlantı alır. Bağlantı özelliklerini içeren bir karma tablo döndürür.|
+|[Get-AutomationConnection](/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Kullanmak için bir bağlantı alır. Bağlantı özelliklerini içeren bir karma tablo döndürür.|
 
 >[!NOTE] 
 >Değişkenleri kullanmaktan kaçınmanız gerekir Name parametresinde ile **Get - AutomationConnection** bu tasarım zamanında runbook veya DSC yapılandırmaları ve bağlantı varlıkları arasındaki bağımlılıkları getirebileceğinden.

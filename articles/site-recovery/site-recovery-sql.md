@@ -2,16 +2,17 @@
 title: SQL Server ve Azure Site Recovery ile uygulamaları çoğaltmak | Microsoft Docs
 description: Bu makalede, Azure Site Recovery için SQL Server olağanüstü durum özellikleri kullanarak SQL Server çoğaltma açıklar.
 services: site-recovery
+author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/22/2018
 ms.author: raynew
-ms.openlocfilehash: fecf7366417a8a592578a425d8b028249c2681d7
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 23cf9430f82be860cb9acbfac42163f9243b2d0f
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216368"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42056243"
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>SQL Server'ın SQL Server olağanüstü durum kurtarma ve Azure Site Recovery kullanarak koruma
 

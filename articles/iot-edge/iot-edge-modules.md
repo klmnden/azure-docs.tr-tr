@@ -8,12 +8,12 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 261c26290a4a7c4b8bb22ada7f97470a6efa7a91
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9064e0da6dde6c4b30235adf771f06a4f25d709a
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576330"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42059743"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Azure IOT Edge modüllerini anlama
 
@@ -33,7 +33,11 @@ Bir modül görüntüsü bir cihaza dağıtılan ve IOT Edge çalışma zamanı 
 
 ![Modül görüntüleri - bulutta cihazlarda modülü örnekleri][1]
 
-Uygulamada, modülleri görüntü deposundaki kapsayıcı görüntüleri olarak mevcut ve cihazlarda modülü örnekleri kapsayıcılardır. Azure IOT Edge için kullanım örnekleri büyüdükçe, yeni türleri modül görüntüleri ve örnekleri oluşturulur. Örneğin, kısıtlı kaynak cihazları dinamik bağlantı kitaplıkları ve yürütülebilir dosyalar olan örnekleri mevcut modül görüntüleri gerektirecek şekilde kapsayıcı çalıştırılamıyor. 
+Uygulamada, modülleri görüntü deposundaki kapsayıcı görüntüleri olarak mevcut ve cihazlarda modülü örnekleri kapsayıcılardır. 
+
+<!--
+As use cases for Azure IoT Edge grow, new types of module images and instances will be created. For example, resource constrained devices cannot run containers so may require module images that exist as dynamic link libraries and instances that are executables. 
+-->
 
 ## <a name="module-identities"></a>Modül kimlikleri
 

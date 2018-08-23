@@ -1,6 +1,6 @@
 ---
-title: Bir Azure SQL veri ambarı (PowerShell) geri | Microsoft Docs
-description: Azure SQL Data Warehouse geri yüklemek için PowerShell görevler.
+title: Bir Azure SQL veri ambarı'nı (PowerShell) geri yükleme | Microsoft Docs
+description: Bir Azure SQL veri ambarını geri yüklemek için PowerShell görevleri
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
@@ -10,14 +10,14 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 332b80d5c6dbe0b46a6fb793d3c0c04574744b19
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: dbf86bfc82706586dfb438b167d13b32b6a4b968
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600045"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42059547"
 ---
-# <a name="restore-an-azure-sql-data-warehouse-powershell"></a>Bir Azure SQL veri ambarı (PowerShell) geri yükleme
+# <a name="restore-an-azure-sql-data-warehouse-powershell"></a>Bir Azure SQL veri ambarı'nı (PowerShell) geri yükleme
 > [!div class="op_single_selector"]
 > * [Genel bakış][Overview]
 > * [Portal][Portal]
@@ -26,22 +26,22 @@ ms.locfileid: "31600045"
 > 
 > 
 
-Bu makalede PowerShell kullanarak Azure SQL Data Warehouse geri yükleme öğreneceksiniz.
+Bu makalede, PowerShell kullanarak bir Azure SQL veri ambarı geri yükleme öğreneceksiniz.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-**DTU kapasitenizi doğrulayın.** Her SQL veri ambarı varsayılan DTU kota olan bir SQL server tarafından (örneğin myserver.database.windows.net) barındırılıyor.  SQL Data Warehouse geri yükleyebilmeniz için önce doğrulayın yeterli kalan DTU kota geri yüklenen veritabanı için SQL server'ınızdaki sahiptir. Gerekli DTU hesaplamak için ya da daha fazla DTU istemek için öğrenmek için bkz: [DTU kota değişiklik isteği][Request a DTU quota change].
+**DTU kapasitenizi doğrulayın.** Her SQL veri ambarı varsayılan DTU kotası olan bir SQL server tarafından (örn. myserver.database.windows.net) barındırılır.  SQL veri ambarı geri yüklemeden önce olduğunu doğrulayın. SQL server'ınızı geri yüklenen veritabanı için yeterli kalan DTU kotası vardır. Gerekli DTU'yu hesaplama veya daha fazla DTU istemek için öğrenmek için bkz: [DTU kota değişiklik isteği][Request a DTU quota change].
 
 ### <a name="install-powershell"></a>PowerShell yükleme
-SQL Data Warehouse ile Azure PowerShell kullanmak için Azure PowerShell 1.0 veya büyük bir sürümü yüklemeniz gerekir.  Çalıştırarak sürümünüzü kontrol edebilirsiniz **Get-Module - listavailable birlikte-adı AzureRM**.  En son sürümünü yüklenebilir [Microsoft Web Platformu yükleyicisi][Microsoft Web Platform Installer].  En son sürümü yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma][How to install and configure Azure PowerShell].
+SQL veri ambarı ile Azure PowerShell'i kullanmak için Azure PowerShell 1.0 veya üzeri bir sürümü yüklemeniz gerekir.  Çalıştırarak sürümünüzü kontrol edebilirsiniz **Get-Module - ListAvailable-Name AzureRM**.  En son sürümü yüklenebilir [Microsoft Web Platformu yükleyicisi][Microsoft Web Platform Installer].  En son sürümü yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma][How to install and configure Azure PowerShell].
 
-## <a name="restore-an-active-or-paused-database"></a>Etkin ya da duraklatılmış bir veritabanını geri yükle
-Anlık görüntü kullanılmakta olan bir veritabanını geri yüklemek için [geri yükleme-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] PowerShell cmdlet'i.
+## <a name="restore-an-active-or-paused-database"></a>Etkin ya da duraklatılmış bir veritabanını geri yükleme
+Anlık görüntü kullanılmakta olan bir veritabanını geri yüklemek için [Restore-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] PowerShell cmdlet'i.
 
 1. Windows PowerShell'i açın.
-2. Azure hesabınıza bağlanın ve hesabınızla ilişkili tüm abonelikleri listeler.
+2. Azure hesabınıza bağlanın ve hesabınızla ilişkili tüm abonelikleri listeleyin.
 3. Geri yüklenecek veritabanını içeren aboneliği seçin.
-4. Veritabanını geri yükleme noktaları listesi.
-5. RestorePointCreationDate kullanarak istenen geri yükleme noktası seçin.
+4. Veritabanı için geri yükleme noktalarını listeleyin.
+5. RestorePointCreationDate kullanarak istenen bir geri yükleme noktası seçin.
 6. Veritabanını geri yüklemek için istenen geri yükleme noktası.
 7. Geri yüklenen veritabanının çevrimiçi olduğunu doğrulayın.
 
@@ -78,18 +78,18 @@ $RestoredDatabase.status
 ```
 
 > [!NOTE]
-> Geri yükleme tamamlandıktan sonra izleyerek, kurtarılan veritabanının yapılandırabilirsiniz [kurtarma işleminden sonra veritabanını yapılandırma][Configure your database after recovery].
+> Geri yükleme tamamlandıktan sonra takip ederek, kurtarılan veritabanı yapılandırabilirsiniz [kurtarma işleminden sonra veritabanını yapılandırma][Configure your database after recovery].
 > 
 > 
 
 ## <a name="restore-a-deleted-database"></a>Silinen veritabanını geri yükleme
-Silinen bir veritabanını geri yüklemek için kullanmak [geri yükleme-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] cmdlet'i.
+Silinen bir veritabanını geri yüklemek için kullanın [Restore-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] cmdlet'i.
 
 1. Windows PowerShell'i açın.
-2. Azure hesabınıza bağlanın ve hesabınızla ilişkili tüm abonelikleri listeler.
-3. Geri yüklenecek silinmiş veritabanını içeren aboneliği seçin.
-4. Belirli silinen bu veritabanını alın.
-5. Silinen bir veritabanını geri yükleyin.
+2. Azure hesabınıza bağlanın ve hesabınızla ilişkili tüm abonelikleri listeleyin.
+3. Silinen veritabanını geri içeren aboneliği seçin.
+4. Belirli silinen veritabanını alır.
+5. Silinen veritabanını geri yükleyin.
 6. Geri yüklenen veritabanının çevrimiçi olduğunu doğrulayın.
 
 ```Powershell
@@ -114,22 +114,22 @@ $RestoredDatabase.status
 ```
 
 > [!NOTE]
-> Geri yükleme tamamlandıktan sonra izleyerek, kurtarılan veritabanının yapılandırabilirsiniz [kurtarma işleminden sonra veritabanını yapılandırma][Configure your database after recovery].
+> Geri yükleme tamamlandıktan sonra takip ederek, kurtarılan veritabanı yapılandırabilirsiniz [kurtarma işleminden sonra veritabanını yapılandırma][Configure your database after recovery].
 > 
 > 
 
-## <a name="restore-from-an-azure-geographical-region"></a>Bir Azure coğrafi bölgesinden geri yükleme
-Bir veritabanını kurtarmak için kullanmak [geri yükleme-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] cmdlet'i.
+## <a name="restore-from-an-azure-geographical-region"></a>Azure bir coğrafi bölgesinden geri yükleme
+Bir veritabanını kurtarmak için kullanmak [Restore-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] cmdlet'i.
 
 > [!NOTE]
-> İşlem performans katmanı için iyileştirilmiş kurtarmayı coğrafi gerçekleştirebileceğiniz! Bunu yapmak için bir iyileştirilmiş işlem ServiceObjectiveName için isteğe bağlı bir parametre belirtin. 
+> İşlem performans katmanı için en iyi duruma getirilmiş için coğrafi geri yükleme bir gerçekleştirebileceğiniz! Bunu yapmak için bir en iyi duruma getirilmiş işlem ServiceObjectiveName için isteğe bağlı bir parametre olarak belirtin. 
 >
 > 
 
 1. Windows PowerShell'i açın.
-2. Azure hesabınıza bağlanın ve hesabınızla ilişkili tüm abonelikleri listeler.
+2. Azure hesabınıza bağlanın ve hesabınızla ilişkili tüm abonelikleri listeleyin.
 3. Geri yüklenecek veritabanını içeren aboneliği seçin.
-4. Kurtarmak istediğiniz veritabanı alın.
+4. Kurtarmak istediğiniz veritabanını alır.
 5. Veritabanı için kurtarma isteği oluşturun.
 6. Coğrafi geri veritabanının durumunu doğrulayın.
 
@@ -172,7 +172,7 @@ Azure SQL veritabanı sürümlerini iş sürekliliği özellikleri hakkında bil
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 
 <!--MSDN references-->
-[Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
+[Restore-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase
 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/

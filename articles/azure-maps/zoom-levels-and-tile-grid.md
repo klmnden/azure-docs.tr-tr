@@ -1,19 +1,19 @@
 ---
 title: Yakınlaştırma düzeyleri ve döşeme kılavuzunda Azure haritalar | Microsoft Docs
 description: Azure haritalar, döşeme ve yakınlaştırma düzeyleri hakkında bilgi edinin
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 8eae5f258eaa899dc60e1e1cc066241bcff54970
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: c6d38dbb7ee292172fe081c2b77a49db61856d5c
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494097"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42056433"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Yakınlaştırma düzeyleri ve kutucuk kılavuzu
 Azure haritalar küresel Mercator projeksiyon koordinat sistemini kullanın (EPSG: 3857).

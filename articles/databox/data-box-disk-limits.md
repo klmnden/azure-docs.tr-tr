@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 07/12/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 4db70fa93914ba0544d9beb8e523241513a2e5ce
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 358f81498d8caad7c0a67519bbb776efa153249f
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009304"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42060682"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Azure Data Box Disk sınırları (Önizleme)
 
@@ -38,7 +38,7 @@ Limitler, dağıtmanıza ve Microsoft Azure Data Box Disk çözümünüz olarak 
 
 ## <a name="data-box-disk-performance"></a>Veri kutusu Disk performansı
 
-USB 3.0 üzerinden bağlı disklere sahip test edildiğinde, disk performansını kadar 430 MB/sn oluştu. Gerçek sayıları, kullanılan dosya boyutuna bağlı olarak değişir. Daha küçük dosyalar için daha düşük performans görebilirsiniz.
+USB 3.0 bağlantısıyla yapılan testlerde disk performansının 430 MB/sn seviyesine çıkabildiği görülmüştür. Gerçek performans kullanılan dosya boyutuna göre değişiklik gösterecektir. Daha küçük dosyalarda performans daha düşük olabilir.
 
 ## <a name="azure-storage-limits"></a>Azure depolama sınırları
 
@@ -64,7 +64,7 @@ Azure depolama hizmet sınırları ve adlandırma paylaşımları, kapsayıcıla
 
 ## <a name="azure-storage-account-size-limits"></a>Azure depolama hesabı boyut sınırları
 
-Depolama hesabına kopyalanır veri boyutu sınırları şunlardır. Karşıya yüklediğiniz veriler için limitler uyduğundan emin olun. Bu sınırlar en güncel bilgiler için Git [Azure blob depolama ölçek hedefleri](https://docs.microsoft.com/en-us/azure/storage/cstorage-scalability-targets#azure-blob-storage-scale-targets) ve [Azure dosyaları ölçeklendirme hedeflerini](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
+Depolama hesabına kopyalanır veri boyutu sınırları şunlardır. Karşıya yüklediğiniz veriler için limitler uyduğundan emin olun. Bu sınırlar en güncel bilgiler için Git [Azure blob depolama ölçek hedefleri](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) ve [Azure dosyaları ölçeklendirme hedeflerini](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
 
 | Azure depolama hesabına kopyalanan verileri boyutu                      | Varsayılan Sınır          |
 |---------------------------------------------------------------------|------------------------|
@@ -83,7 +83,7 @@ Azure nesnelerin yazılabilir boyutları aşağıda verilmiştir. Yüklenen tüm
 
 ## <a name="azure-block-blob-and-page-blob-naming-conventions"></a>Azure blok blobu ve sayfa blob'u adlandırma kuralları
 
-| Varlık                                       | Kuralları                                                                                                                                                                                                                                                                                                               |
+| Varlık                                       | Kurallar                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Kapsayıcı adları için blok blobu ve sayfa blobu | 3-63 karakter uzunluğunda olan geçerli bir DNS adı olmalıdır. <br>  Bir harf veya sayı ile başlamalıdır. <br> Yalnızca küçük harf, sayı ve tire (-) içerebilir. <br> Her tire (-) hemen önce ve bir harf veya rakam olmalıdır. <br> Art arda kısa çizgi adlarında izin verilmez. |
-| Blok blobu ve sayfa blobu için BLOB adları      | BLOB adları büyük küçük harfe duyarlıdır ve herhangi bir karakter birleşimini içerebilir. <br> Blob adı 1-1024 karakter uzunluğunda olmalıdır. <br> Ayrılmış URL karakterleri için doğru kaçış gerekir. <br>Blob adı kapsayan yol bölümlerinin sayısını 254 aşamaz. Bir yol kesimi dizedir arka arkaya sınırlayıcı karakter arasında (örneğin, eğik '/') bir sanal dizin adına karşılık gelir. |
+| Kapsayıcı adları için blok blobu ve sayfa blobu | 3-63 karakter uzunluğunda olan geçerli bir DNS adı olmalıdır. <br>  Bir harf veya sayı ile başlamalıdır. <br> Yalnızca küçük harf, sayı ve tire (-) içerebilir. <br> Kısa çizgiden (-) hemen önce ve sonra bir harf veya rakam gelmelidir. <br> Adlarda kısa çizgiler art arda kullanılamaz. |
+| Blok blobu ve sayfa blobu için blob adları      | Blob adları büyük/küçük harfe duyarlıdır ve karakterler herhangi bir düzende sıralanabilir. <br> Blob adı 1 ila 1024 karakter uzunluğunda olmalıdır. <br> Ayrılmış URL karakterleri doğru şekilde atlanmalıdır. <br>Blob adını oluşturan yolun bölümleri 254 karakterden uzun olamaz. Yol bölümü, arka arkaya gelen sınırlayıcı karakterlerinin (örneğin eğik çizgi "/") arasında yer alan ve bir sanal dizinin adına karşılık gelen dizedir. |

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: e8a8edd22fe66df12e9e7327a25e82aa5f07bd1b
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 443cb2786c12bddd87535a7267d66c0332473b1b
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627636"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42056544"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET değişiklik akışı işlemci SDK: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -42,6 +42,9 @@ ms.locfileid: "39627636"
 ## <a name="release-notes"></a>Sürüm notları
 
 ### <a name="v2-builds"></a>v2 oluşturur.
+
+### <a name="a-name206206"></a><a name="2.0.6"/>2.0.6
+* Eklenen ChangeFeedEventHost.HostName ortak özelliği için compativility v1 ile.
 
 ### <a name="a-name205205"></a><a name="2.0.5"/>2.0.5
 * Bölümü Böl sırasında oluşan bir yarış durumu düzeltildi. Yarış durumu kira alınıyor ve hemen sırasında bölüm bölünmüş kaybetme ve Çekişme neden neden olabilir. Bu sürümle birlikte yarış durumu sorun çözüldüğünde.

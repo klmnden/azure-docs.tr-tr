@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 08/14/2018
 ms.author: shlo
-ms.openlocfilehash: 7f186a819e2142bef6e736c7f7b5d0c733413fd5
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: b457d1ae01e523ac99c6171fa8d2123023ebcd2c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716340"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42056551"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory'de görsel yazma
 Görsel olarak yazma ve herhangi bir kod yazmak zorunda kalmadan, veri fabrikanızın kaynakları dağıtma Azure Data Factory kullanıcı arabirimi deneyimi (UX) sağlar. Etkinlikler bir işlem hattı tuvaline sürükleyin, test çalıştırmaları yapın, yinelemeli olarak, hata ayıklama ve dağıtabilir ve işlem hattı çalıştırmalarınızı izleyin. Görsel yazma gerçekleştirmek için kullanıcı Deneyimini kullanarak iki yaklaşım vardır:
@@ -42,10 +42,10 @@ UX kullandığınızda **yazma tuvalinde** doğrudan Data Factory hizmetine, yal
 VSTS Git tümleştirmesiyle görsel yazma data factory işlem hatlarınızı çalışma için kaynak denetimi ve işbirliği destekler. Veri fabrikası, bir kaynak denetimi, işbirliği, sürüm oluşturma ve benzeri için VSTS Gıt hesap deposu ile ilişkilendirebilirsiniz. Tek bir VSTS Gıt hesapta birden çok deposu olabilir, ancak VSTS Gıt deponuzda yalnızca bir data factory ile ilişkili olabilir. Bir VSTS hesabı veya depo yoksa izleyin [bu yönergeleri](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) kaynaklarınızı oluşturmak için.
 
 > [!NOTE]
-> VSTS GIT deposunda betiğini ve veri dosyaları depolayabilir. Ancak, dosyaları Azure depolama alanına el ile karşıya yüklemeniz gerekir. Data Factory işlem hattı, Azure Depolama'ya bir VSTS GIT deponuzda saklanan kod veya veri dosyaları otomatik olarak yüklenmez.
+> VSTS Git deposunda betiğini ve veri dosyaları depolayabilir. Ancak, dosyaları Azure depolama alanına el ile karşıya yüklemeniz gerekir. Data Factory işlem hattı, Azure Depolama'ya bir VSTS Gıt deponuzda saklanan kod veya veri dosyaları otomatik olarak yüklenmez.
 
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Azure Data Factory ile VSTS Gıt deponuzda yapılandırın
-VSTS GIT deponuzda iki yöntem bir data factory ile yapılandırabilirsiniz.
+VSTS Gıt deponuzda iki yöntem bir data factory ile yapılandırabilirsiniz.
 
 #### <a name="method1"></a> Yapılandırma yöntemine (VSTS Gıt deposu) 1: başlayalım sayfası
 
@@ -77,13 +77,17 @@ Bir yapılandırma bölmesi görüntülenir. Yapılandırma ayarları hakkında 
 
 ![UX yazmak için kod deposu ayarlarını yapılandırma](media/author-visually/configure-repo-2.png)
 
+## <a name="use-a-different-azure-active-directory-tenant"></a>Farklı bir Azure Active Directory kiracısı kullanma
+
+VSTS Gıt deposu içinde farklı bir Azure Active Directory kiracısı oluşturabilirsiniz. Farklı bir belirtmek için Azure AD kiracısına sahip kullanmakta olduğunuz Azure aboneliği için yönetici izinlerine sahip olması.
+
 ## <a name="switch-to-a-different-git-repo"></a>Farklı bir Git deposuna geçin
 
 Farklı bir Git deposuna geçiş yapmak için aşağıdaki ekran görüntüsünde gösterildiği gibi Data Factory'ye genel bakış sayfasında, sağ üst köşesindeki simgeyi bulun. Simge göremiyorsanız, yerel tarayıcınızın önbelleğini temizleyin. Geçerli depo ilişkilendirmesini kaldırmak için simgeyi seçin.
 
 Geçerli depo ilişkilendirmesini kaldırdıktan sonra farklı bir depoyu kullanmanız için Git ayarlarınızı yapılandırabilirsiniz. Daha sonra mevcut Data Factory kaynaklarını depoya yeni içeri aktarabilirsiniz.
 
-![Geçerli bir Git deposu ile ilişkisini kaldırın.](media/author-visually/remove-repo.png)
+![Geçerli bir Git deposu ile ilişkilendirmesini Kaldır](media/author-visually/remove-repo.png)
 
 ## <a name="use-version-control"></a>Sürüm denetimi kullanın
 Sürüm denetimi sistemlerinden (olarak da bilinen _kaynak denetimi_) kod için temel yapılan kod ve değişiklikleri izleyin üzerinde işbirliği geliştiricilerin olanak sağlar. Kaynak denetimi çok geliştirme projeleri için önemli bir araçtır.
@@ -92,7 +96,7 @@ Data factory ile ilişkili her VSTS Gıt deponuzda bir işbirliği dalı yok. (`
 
 ![Eşitleniyor veya yayımlama kodu değiştirin](media/author-visually/sync-publish.png)
 
-Özellik dalınızda özellik geliştirmeye hazır olduğunuzda tıklayabilirsiniz **çekme isteği oluştur**. Bu eylem, VSTS GIT çekme istekleri, burada yükseltebilirsiniz kod incelemeleri ve işbirliği dalınızdaki değişiklikleri birleştirmek alır. (`master` varsayılandır). Yalnızca, işbirliği dalından Data Factory hizmetinde yayımlamak için izin verilir. 
+Özellik dalınızda özellik geliştirmeye hazır olduğunuzda tıklayabilirsiniz **çekme isteği oluştur**. Bu eylem, VSTS Git çekme istekleri, burada yükseltebilirsiniz kod incelemeleri ve işbirliği dalınızdaki değişiklikleri birleştirmek alır. (`master` varsayılandır). Yalnızca, işbirliği dalından Data Factory hizmetinde yayımlamak için izin verilir. 
 
 ![Yeni çekme isteği oluştur](media/author-visually/create-pull-request.png)
 
@@ -106,10 +110,21 @@ Data factory ile ilişkili her VSTS Gıt deponuzda bir işbirliği dalı yok. (`
 
 ## <a name="author-with-github-integration"></a>GitHub Tümleştirmesi ile içerik oluşturma
 
-GitHub Tümleştirmesi ile görsel yazma data factory işlem hatlarınızı çalışma için kaynak denetimi ve işbirliği destekler. Veri fabrikası, bir GitHub hesabı deposu için kaynak denetimi, işbirliği ve sürüm oluşturma ile ilişkilendirebilirsiniz. Tek bir GitHub hesabı birden çok deposu olabilir, ancak bir GitHub deposuna tek bir data factory ile ilişkili olabilir. AGitHub hesabı ya da depo yoksa izleyin [bu yönergeleri](https://github.com/join) kaynaklarınızı oluşturmak için. Data Factory ile GitHub tümleştirmesini hem genel GitHub yanı sıra GitHub Enterprise'ı destekler.
+GitHub Tümleştirmesi ile görsel yazma data factory işlem hatlarınızı çalışma için kaynak denetimi ve işbirliği destekler. Veri fabrikası, bir GitHub hesabı deposu için kaynak denetimi, işbirliği ve sürüm oluşturma ile ilişkilendirebilirsiniz. Tek bir GitHub hesabı birden çok deposu olabilir, ancak bir GitHub deposuna tek bir data factory ile ilişkili olabilir. Bir GitHub hesabı ya da depo yoksa izleyin [bu yönergeleri](https://github.com/join) kaynaklarınızı oluşturmak için. Data Factory ile GitHub tümleştirmesini hem genel GitHub yanı sıra GitHub Enterprise'ı destekler.
 
-> [!NOTE]
-> Bir GitHub deposunda betiğini ve veri dosyaları depolayabilir. Ancak, dosyaları Azure depolama alanına el ile karşıya yüklemeniz gerekir. Data Factory işlem hattı, Azure Depolama'ya bir GitHub deposu içinde depolanan kod veya veri dosyaları otomatik olarak yüklenmez.
+GitHub deposunu yapılandırmak için kullandığınız Azure aboneliği için yönetici izinlerine sahip olmanız.
+
+Dokuz dakikalık bir giriş ve bu özelliği için şu videoyu izleyin:
+
+> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Azure-Data-Factory-visual-tools-now-integrated-with-GitHub/player]
+
+### <a name="limitations"></a>Sınırlamalar
+
+- Bir GitHub deposunda betiğini ve veri dosyaları depolayabilir. Ancak, dosyaları Azure depolama alanına el ile karşıya yüklemeniz gerekir. Data Factory işlem hattı, Azure Depolama'ya bir GitHub deposu içinde depolanan kod veya veri dosyaları otomatik olarak yüklenmez.
+
+- Microsoft Edge tarayıcısında GitHub Enterprise 2.14.0 eski bir sürümü ile çalışmaz.
+
+- Veri faktörü visual geliştirme araçları ile GitHub tümleştirmesini yalnızca veri fabrikası genel kullanıma sunulan sürümünde çalışır.
 
 ### <a name="configure-a-public-github-repository-with-azure-data-factory"></a>Azure Data Factory ile bir ortak GitHub deposu yapılandırma
 

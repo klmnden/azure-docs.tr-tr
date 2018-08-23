@@ -6,31 +6,32 @@ documentationcenter: ''
 author: brenduns
 manager: femila
 editor: ''
-ms.assetid: 157f0207-bddc-42e5-8351-197ec23f9d46
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 08/07/2018
 ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 161a17f2360767dacc4f418a078c695d7cb8daa7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 112586d3ee5f49eab9adb72d41a210e2dd9828d8
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449753"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42056431"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Azure Stack’te teklifleri yetkilendirme
 
 *İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Azure Stack operatör olarak, genellikle diğer kişilerin sorumlu teklifleri oluşturma ve kullanıcıları imzalama yerleştirmek istediğiniz. Örneğin, bir hizmet sağlayıcı barındırıyorsanız, müşterileri oturum ve sizin adınıza yönetmek için Satıcılar isteyebilirsiniz. Veya merkezi bir BT grubu, bir kuruluşta bir parçası kullanıyorsanız, kullanıcı oturum kadar temsilci isteyebileceğiniz diğer BT personeli.
+Azure Stack operatör olarak, genellikle diğer kişilerin sorumlu kullanıcılar imzalama ve abonelik oluşturma yerleştirmek istediğiniz. Örneğin, bir hizmet sağlayıcı barındırıyorsanız, müşterileri oturum ve sizin adınıza yönetmek için Satıcılar isteyebilirsiniz. Veya merkezi bir BT grubu, bir kuruluşta bir parçası kullanıyorsanız, kullanıcı oturum kadar temsilci isteyebileceğiniz diğer BT personeli.
 
-Temsilci erişmek ve kendi kendinize yapabileceğiniz daha fazla kullanıcı yönetmek kolaylaştırır. Temsilci tek düzey aşağıdaki çizimde, ancak Azure Stack birden fazla düzeyde destekler. Sağlayıcı temsilcisi (yu DPs), beş düzeyleri kadar diğer sağlayıcılar için yetkilendirme yapabilirsiniz.
+Temsilci erişmek ve aşağıdaki çizimde gösterildiği gibi kendiniz ile yapabileceğiniz daha fazla kullanıcı yönetmek daha kolay hale getirir. 
 
 ![Temsilci düzeyleri](media/azure-stack-delegated-provider/image1.png)
+
+Temsilci seçme, bir teklif (teklif temsilcisi) sağlayıcı temsilcisi yönetir ve son müşterilere abonelikleri katılımı olmadan bu teklif altındaki Sistem Yöneticisi'nden alın. 
 
 ## <a name="understand-delegation-roles-and-steps"></a>Temsilci rolleri ve adımlarını anlamak
 
@@ -38,9 +39,9 @@ Temsilci erişmek ve kendi kendinize yapabileceğiniz daha fazla kullanıcı yö
 
 Aşağıdaki roller temsilci bir parçasıdır:
 
-* *Azure Stack operatörü* Azure Stack altyapısının yönetir ve bir teklif şablon oluşturur. İşleci, diğerleri kendi kullanıcılara teklifler sunmak için atar.
+* *Azure Stack operatörü* Azure Stack altyapısının yönetir ve bir teklif şablon oluşturur. İşleci, diğerleri kendi Kiracı tekliflerini sağlamak atar.
 
-* Temsil edilen Azure Stack operatörlerinin adlı *sağlayıcıları temsilci*. Bunlar, diğer Azure Active Directory (Azure AD) kullanıcıları gibi diğer kuruluşlara ait olabilir.
+* Kullanıcılardır ile temsil edilen Azure Stack operatörlerinin *sahibi* veya *katkıda bulunan* Aboneliklerde hakları adlı *sağlayıcıları temsilci*. Bunlar gibi diğer Azure Active Directory (Azure AD) kiracıların diğer kuruluşlara ait olabilir.
 
 * *Kullanıcılar* teklifleri için kaydolun ve benzeri verileri depolamak, Vm'leri oluşturma, iş yüklerini yönetmek için kullanın.
 
@@ -48,9 +49,9 @@ Aşağıdaki roller temsilci bir parçasıdır:
 
 Temsilci seçmeyi ayarlama ayarlamak için iki temel adım vardır:
 
-1. *Bir sağlayıcı temsilcisi oluşturmak* tarafından bir kullanıcı yalnızca abonelikleri hizmetine sahip olan bir planına dayanarak bir teklife abone olma. Kullanıcılar bu teklife abone teklifler genişletmek ve teklifler için kullanıcı.
+1. *Temsilci bir sağlayıcı aboneliği oluşturma* yalnızca abonelikleri hizmeti içeren bir teklif için bir kullanıcı abone tarafından. Bu teklife abone kullanıcılar ardından teklif temsilcisi diğer kullanıcılara teklifler için açarak genişletebilirsiniz.
 
-1. *Sağlayıcı temsilcisi için bir teklifi yetkilendirme*. Bu teklif, ne sağlayıcı temsilcisi sunmak için bir şablondur. Sağlayıcı temsilcisi artık teklif almak ve diğer kullanıcılara sunma.
+2. *Sağlayıcı temsilcisi için bir teklifi yetkilendirme*. Bu teklif abonelikleri oluşturma veya kullanıcıları için teklif genişletmek için sağlayıcı temsilcisi sağlar. Sağlayıcı temsilcisi artık teklif almak ve diğer kullanıcılara sunma.
 
 Sonraki grafikte, temsilci seçmeyi ayarlama adımları gösterir.
 
@@ -58,7 +59,7 @@ Sonraki grafikte, temsilci seçmeyi ayarlama adımları gösterir.
 
 **Sağlayıcı temsilcisi gereksinimleri**
 
-Sağlayıcı temsilcisi çalışmak için bir abonelik oluşturarak ana sağlayıcısı ile bir ilişki kurmak bir kullanıcının gerekir. Bu abonelik sağındaki mevcut teklifleri ana Sağlayıcı adına sahip sağlayıcı temsilcisi tanımlar.
+Sağlayıcı temsilcisi çalışmak için bir abonelik oluşturarak ana sağlayıcısı ile bir ilişki kurmak bir kullanıcının gerekir. Bu abonelikte teklif temsilcisi ana Sağlayıcı adına sunmak hakkı sahip sağlayıcı temsilcisi tanımlar.
 
 Bu ilişki kurulduktan sonra Azure Stack operatörü bir teklif sağlayıcı temsilcisi için yetkilendirme yapabilirsiniz. Sağlayıcı temsilcisi teklif alır, yeniden adlandırın (ancak özünü değiştirilmemesi), müşterilerine sunar.
 
@@ -121,13 +122,13 @@ Sağlayıcı temsilcisi olarak kullanıcı portalında oturum açın ve ardında
    ![Bir ad atayın](media/azure-stack-delegated-provider/image6.png)
 
    >[!IMPORTANT]
-   >Azure Stack operatörü, bir temel plan ve eklenti planları tekliften bir sağlayıcı temsilcisi oluşturmak değil anlamak önemlidir. Sağlayıcı temsilcisi yalnızca onlara yetki verilen teklifleri seçin, teklifler için değişiklik yapamaz.
+   >Sağlayıcı temsilcisi onlara yetki verilen teklifler yalnızca seçebilirsiniz anlamak önemlidir. Bunlar, bu tekliflerin içerdiği değişiklik yapamazsınız. Yalnızca Azure Stack operatörü Bu teklif, örneğin, kendi planları ve kotaları değiştirme değiştirebilirsiniz. Bir sağlayıcı temsilcisi, bir temel plan ve eklenti planları tekliften oluşturmak değildir. 
 
-1. Teklife genel işaretleyerek **Gözat**, ardından **sunar**. Teklif seçin ve ardından **durumunu değiştir**.
+3. Sağlayıcı temsilcisi bu teklifleri kendi portal aracılığıyla genel erişime açmadan URL'si. Teklife genel hale getirmek üzere seçin **Gözat**, ardından **sunar**. Teklif seçin ve ardından **durumunu değiştir**.
 
-1. Sağlayıcı temsilcisi kendi portal üzerinden bu teklifler sunan URL'si. Bu teklifler yalnızca yetkilendirilmiş portal üzerinden görülebilir. Bulmak ve bu URL'yi değiştirmek için:
+4. Teklif temsilcisi genel artık yalnızca yetkilendirilmiş portal üzerinden görülebilir. Bulmak ve bu URL'yi değiştirmek için:
 
-    a.  Seçin **Gözat** > **diğer hizmetler** > **abonelikleri**. Ardından, sağlayıcı temsilcisi aboneliğini seçin. Örneğin, **DPSubscription** > **özellikleri**.
+    a.  Seçin **Gözat** > **diğer hizmetler** > **abonelikleri**. Ardından, temsilci sağlayıcı aboneliği seçin. Örneğin, **DPSubscription** > **özellikleri**.
 
     b.  Portaldaki kopyalayın, Not Defteri gibi ayrı bir konuma URL.
 
@@ -148,14 +149,14 @@ Sağlayıcı temsilcisi olarak kullanıcı portalında oturum açın ve ardında
 
 Bir teklif için temsilci seçme işlemi tamamlandı. Artık bir kullanıcı bu teklif için bir abonelik alarak kaydolabilirsiniz.
 
-## <a name="multiple-tier-delegation"></a>Çok katmanlı temsilci seçme
+## <a name="move-subscriptions-between-delegated-providers"></a>Sağlayıcı temsilcisi arasında taşıma abonelikler
 
-Çok katmanlı temsilci diğer varlıklara teklif temsilci olarak yetkilendirilmiş bir sağlayıcı sağlar. Örneğin, daha derin satıcı oluşturmak için nereye kanallar:
+Gerekirse, bir abonelik aynı dizine kiracısına ait sağlayıcı temsilcisi, yeni veya mevcut abonelikler arasında taşınabilir. Bu PowerShell cmdlet'ini kullanarak, [taşıma AzsSubscription](https://docs.microsoft.com/powershell/module/azs.subscriptions.admin).
 
-* Azure Stack yöneten sağlayıcı bir dağıtıcı için bir teklif atar.
-* Bir satıcı dağıtıcı temsilcileri.
+Bu durumlarda yararlı olur:
+- Yerleşik sağlayıcı temsilcisi rolü ve, yeni bir takım üyesi bu takım üyesi kullanıcı-varsayılan sağlayıcı abonelikte önceden oluşturulmuş abonelikler atamak istediğiniz.
+- Aynı dizin-kiracıda (Azure Active Directory) birden çok sağlayıcı temsilcisi aboneliğiniz varsa ve bunlar arasında kullanıcı aboneliklerini taşımanız gerekir. Bu durum burada bir takım üyesi takımlar arasında taşır ve yeni ekibine ayrılmasını aboneliğini gerekiyor olabilir.
 
-Sağlayıcı temsilcisi birden fazla katman teklif temsilci oluşturmak için sonraki sağlayıcıya teklif atar. Azure Stack işlecin olduğu gibi aynı sağlayıcı temsilcisi için işlemidir. Daha fazla bilgi için [Azure Stack operatörü oluşturur teklif temsilcisi](#cloud-operator-creates-the-delegated-offer).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

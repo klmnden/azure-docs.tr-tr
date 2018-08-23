@@ -2,19 +2,19 @@
 title: Linux tabanlı HDInsight üzerinde - Azure Hadoop kullanmaya yönelik ipuçları
 description: Tanıdık bir Linux ortamı Azure bulutunda çalışan Linux tabanlı HDInsight (Hadoop) kümeleri kullanarak uygulama ipuçları alın.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: 5a896edd87b2e7741ade2f9d475049086fb86833
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.date: 08/09/2018
+ms.openlocfilehash: 85741e91ab074ca45fef79e7e946a74824a1734f
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598526"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42057608"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux’ta HDInsight kullanma ile ilgili bilgiler
 
@@ -98,18 +98,21 @@ Hadoop dağıtılmış dosya sistemi üzerinde örnek verileri ve JAR dosyaları
 
 ## <a name="hdfs-azure-storage-and-data-lake-store"></a>HDFS, Azure depolama ve Data Lake Store
 
-Çoğu Hadoop dağıtımları HDFS, kümedeki makinelerde yerel depolaması tarafından desteklenir. Yerel depolama ile burada saat veya dakika işlem kaynakları için ücretlendirilirsiniz bulut tabanlı bir çözüm için pahalı olabilir.
+Çoğu Hadoop dağıtımları, kümedeki makinelerde yerel depolama tarafından yedeklenen HDFS, veriler depolanır. Yerel depolama ile burada saat veya dakika işlem kaynakları için ücretlendirilirsiniz bulut tabanlı bir çözüm için pahalı olabilir.
 
-HDInsight, Azure Depolama'daki blobları veya Azure Data Lake Store varsayılan deposu olarak kullanır. Bu hizmetler, aşağıdaki avantajları sağlar:
+HDInsight'ı kullanırken, veri dosyalarını Azure Blob Depolama ve isteğe bağlı olarak Azure Data Lake Store kullanarak bulutta dayanıklı ve ölçeklenebilir bir şekilde depolanır. Bu hizmetler, aşağıdaki avantajları sağlar:
 
 * Ucuz uzun süreli depolama
 * Web siteleri, dosya karşıya yükleme/indirme yardımcı programlar, çeşitli dil SDK'ları ve web tarayıcıları gibi dış hizmetlerden erişilebilirlik
+* Büyük dosya kapasite ve büyük ölçeklenebilir depolama
 
-Tek tek bloblar (veya bir HDInsight açısından dosyaları) yalnızca 195 GB gidebilirsiniz rağmen 4,75 TB'a kadar bir Azure depolama hesabı tutabilir. Azure Data Lake Store, tek tek dosyaları Petabayt büyük dosyalarla trilyonlarca tutmak için dinamik olarak büyüyebilir. Daha fazla bilgi için [anlama blobları](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) ve [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
+Daha fazla bilgi için [anlama blobları](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) ve [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
 
 Azure Storage'ı veya Data Lake Store, verilere erişmek için HDInsight özel bir şey yapmanız gerekmez. Örneğin, aşağıdaki komut dosyalarında listeler `/example/data` olup Azure Depolama'da veya Data Lake Store üzerinde depolandığından bağımsız olarak klasörü:
 
     hdfs dfs -ls /example/data
+
+HDInsight veri depolama kaynaklarını (Azure Blob Depolama ve Azure Data Lake Store) işlem kaynakları birbirinden ayrılmıştır. Bu nedenle, gereksinim ve iş tamamlandığında, daha sonra kümeyi silmek hesaplama yapmak için HDInsight kümeleri oluşturabilir, ihtiyacınız olduğu sürece bu arada, veri dosyalarını tutmak güvenli bir şekilde bulut depolamada kalıcı olan.
 
 ### <a name="uri-and-scheme"></a>URI ve düzeni
 

@@ -1,96 +1,304 @@
 ---
-title: Azure Stack veri merkezi tümleştirmesi - güvenlik
-description: Azure Stack güvenliği ile Veri Merkezi güvenlik tümleştirmeyi öğrenin
+title: Azure Stack syslog iletme
+description: Azure Stack syslog iletme kullanarak izleme çözümleri ile tümleştirmeyi öğrenin
 services: azure-stack
-author: jeffgilb
+author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/28/2018
-ms.author: jeffgilb
-ms.reviewer: wfayed
+ms.date: 08/14/2018
+ms.author: patricka
+ms.reviewer: fiseraci
 keywords: ''
-ms.openlocfilehash: 9f356b814ac1ac6ca8b6d6efe7cb9f5d9ed66270
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8e59f2e7e2fceda7f30e12571cd9e2a552f76231
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442484"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42056166"
 ---
-# <a name="azure-stack-datacenter-integration---security"></a>Azure Stack veri merkezi tümleştirmesi - güvenlik
-Azure Stack tasarlanmış ve güvenlikten ödün üretilmiştir. Azure Stack kilitlenmiş sistem olduğundan yazılım güvenlik aracı yüklemesi desteklenmiyor.
+# <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Azure Stack veri merkezi tümleştirmesi - syslog iletme
 
-Bu makale, Azure yığını'nın güvenlik özellikleri ile veri merkezinizde zaten dağıtılmış güvenlik çözümlerini tümleştirmenize yardımcı olur.
+Bu makalede, Azure Stack altyapısının veri merkezinizde zaten dağıtılmış bir dış güvenlik çözümleri ile tümleştirmek için syslog kullanmayı gösterir. Örneğin, bir güvenlik bilgileri olay Yönetimi (SIEM) sistemine. Denetimler, uyarılar ve Azure Stack altyapısının tüm bileşenlerin güvenlik günlükleri syslog kanalı sunar. Güvenlik İzleme çözümleri ile tümleştirmek için Syslog iletmeyi kullanın ve/veya tüm denetimler, uyarılar ve güvenlik almak için bekletme için depolamaya kaydeder. 
 
-## <a name="security-logs"></a>Güvenlik günlükleri
+1805 güncelleştirmesinden itibaren Azure Stack, yapılandırıldıktan sonra Yük Common Event Format (CEF), syslog iletileri yayar bir tümleşik syslog istemcisi vardır. 
 
-Azure Stack, iki dakikada bir işletim sistemi ve altyapı rollerini ve ölçek birimi düğümleri için güvenlik olaylarını toplar. Günlükler, depolama hesabının blob kapsayıcılarda depolanır.
+> [!IMPORTANT]
+> Syslog iletmeyi Önizleme aşamasındadır. Bu bağlı üretim ortamlarında kullanılmamalıdır. 
 
-Altyapı rol başına bir depolama hesabı ve tüm genel işletim sistemi olaylar için bir genel depolama hesabı yok.
+Aşağıdaki diyagramda, syslog tümleştirmesi katılan ana bileşenleri gösterilmektedir.
 
-Sistem kaynak sağlayıcısı, blob kapsayıcısına URL'sini almak için REST protokolü aracılığıyla çağrılabilir. Üçüncü taraf güvenlik çözümleri API ve depolama hesapları, olayları işleme almak için kullanabilirsiniz.
+![Syslog iletmeyi diyagramı](media/azure-stack-integrate-security/syslog-forwarding.png)
 
-### <a name="use-azure-storage-explorer-to-view-events"></a>Olayları görüntülemek için Azure Depolama Gezgini'ni kullanma
+## <a name="configuring-syslog-forwarding"></a>Syslog iletmeyi yapılandırma
 
-Azure Stack kullanarak Azure Depolama Gezgini adında bir araç tarafından toplanan olayları alabilirsiniz. Azure Depolama Gezgini'nden indirebileceğiniz [ http://storageexplorer.com ](http://storageexplorer.com).
+Azure stack'teki syslog istemci aşağıdaki yapılandırmaları destekler:
 
-Aşağıdaki yordam, Azure Depolama Gezgini'ni Azure Stack için yapılandırmak için kullanabileceğiniz bir örnektir:
+1. **Syslog ile karşılıklı kimlik doğrulaması (istemci ve sunucu) ve TLS 1.2 şifrelemeyi, TCP üzerinden:** bu yapılandırmada, syslog sunucusuna hem syslog istemci sertifikaları aracılığıyla birbirine kimliğini doğrulayabilirsiniz. İletileri, TLS 1.2 şifrelenmiş bir kanal üzerinden gönderilir.
 
-1. Operatör Azure Stack Yönetici portalında oturum açın.
-1. Gözat **depolama hesapları** ve Ara **frphealthaccount**. **Frphealthaccount** hesabı, tüm işletim sistemi olayları depolamak için kullanılan genel depolama hesabıdır.
+2. **Syslog sunucu kimlik doğrulaması ve TLS 1.2 şifrelemeyi ile TCP üzerinden:** bu yapılandırmada, syslog istemci sertifika aracılığıyla syslog sunucusunun kimliğini doğrulayabilirsiniz. İletileri, TLS 1.2 şifrelenmiş bir kanal üzerinden gönderilir.
 
-   ![Depolama hesapları](media/azure-stack-integrate-security/storage-accounts.png)
+3. **Syslog ile şifreleme, TCP üzerinden:** bu yapılandırmada, syslog istemci ne syslog sunucusuna birbiriyle kimliğini doğrular. İletileri, TCP üzerinden açık metin olarak gönderilir.
 
-1. Seçin **frphealthaccount**, ardından **erişim anahtarlarını**.
+4. **Şifreleme ile UDP üzerinden Syslog:** bu yapılandırmada, syslog istemci ne syslog sunucusuna birbiriyle kimliğini doğrular. İletileri UDP üzerinden açık metin olarak gönderilir.
 
-   ![Erişim tuşları](media/azure-stack-integrate-security/access-keys.png)
+> [!IMPORTANT]
+> Microsoft kimlik doğrulama ve şifreleme kullanarak TCP kullanmak için kesinlikle önerir (yapılandırma #1 veya çok az # 2) iletilerin gizlice ve ADAM-de-adam saldırılarına karşı korumak, üretim ortamları için.
 
-1. Erişim anahtarı panonuza kopyalayın.
-1. Azure Depolama Gezgini'ni açın.
-1. Üzerinde **Düzenle** menüsünde **hedef Azure Stack**.
-1. Seçin **hesabı Ekle**ve ardından **bir depolama hesabı adı ve anahtarı kullan**.
+### <a name="cmdlets-to-configure-syslog-forwarding"></a>Syslog iletmeyi yapılandırma cmdlet'leri
+Syslog iletmeyi yapılandırma uç noktası (CESARETLENDİRİCİ) ayrıcalıklı erişim gerektirir. Syslog iletmeyi yapılandırma CESARETLENDİRİCİ iki PowerShell cmdlet'leri eklenmiştir:
 
-   ![Depolama birimini bağlayın](media/azure-stack-integrate-security/connect-storage.png)
 
-1. **İleri**’ye tıklayın.
-1. Üzerinde **dış depolama Ekle** sayfası:
+```powershell
+### cmdlet to pass the syslog server information to the client and to configure the transport protocol, the encryption and the authentication between the client and the server
 
-   a. Hesap adını yazın **frphealthaccount**.
+Set-SyslogServer [-ServerName <String>] [-NoEncryption] [-SkipCertificateCheck] [-SkipCNCheck] [-UseUDP] [-Remove]
 
-   b. Depolama hesabı erişim anahtarını yapıştırın.
+### cmdlet to configure the certificate for the syslog client to authenticate with the server
 
-   c. Altında **depolama uç noktaları etki alanı**seçin **diğer**ve depolama uç noktasını belirtin **[Bölge]. [ DomainName]**.
+Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCertificate] 
+```
+#### <a name="cmdlets-parameters"></a>Cmdlet parametreleri
 
-   d. Seçin **HTTP kullan** onay kutusu.
+Parametreler için *kümesi SyslogServer* cmdlet:
 
-   ![Dış depolama Ekle](media/azure-stack-integrate-security/attach-storage.png)
+| Parametre | Açıklama | Tür |
+|---------|---------| ---------|
+| *SunucuAdı* | Syslog sunucusunun FQDN veya IP adresi | Dize |
+|*Şifreleme yok*| Düz metin olarak Syslog iletilerini göndermek için istemci zorla | Bayrağı | 
+|*SkipCertificateCheck*| İlk TLS anlaşması sırasında syslog sunucusu tarafından sağlanan sertifika doğrulamasını atla | Bayrağı |
+|*SkipCNCheck*| Ortak ad değeri ilk TLS anlaşması sırasında syslog sunucusu tarafından sağlanan sertifika doğrulamasını atlayın | Bayrağı |
+|*UseUDP*| Syslog ile UDP taşıma protokol olarak kullanın. |Bayrağı |
+|*Kaldır*| İstemciden sunucusunun yapılandırmasını kaldırın ve syslog iletmeyi Durdur| Bayrağı |
 
-1. Tıklayın **sonraki**, özeti gözden geçirin ve **son** Sihirbazı.
-1. Artık tek tek blob kapsayıcıları göz atabilir ve olayları indirin.
+Parametreler için *kümesi SyslogClient* cmdlet:
+| Parametre | Açıklama | Tür |
+|---------|---------| ---------|
+| *pfxBinary* | İstemci tarafından kimliği olarak syslog sunucusuna göre kimlik doğrulaması için kullanılacak sertifikayı içeren pfx dosyasını  | Bayt] |
+| *CertPassword* |  Pfx dosyası ile ilişkili özel anahtarı içeri aktarmak için parola | SecureString |
+|*RemoveCertificate* | İstemciden sertifikayı Kaldır | Bayrağı|
 
-   ![Blob'lara göz at](media/azure-stack-integrate-security/browse-blob.png)
+### <a name="configuring-syslog-forwarding-with-tcp-mutual-authentication-and-tls-12-encryption"></a>TCP, karşılıklı kimlik doğrulaması ve TLS 1.2 şifrelemeyi Syslog iletmeyi yapılandırma
 
-### <a name="use-programming-languages-to-access-events"></a>Programlama dili için erişim olaylarını kullanın
+Bu yapılandırmada, Azure Stack syslog istemcisinde syslog sunucunuza iletileri TCP üzerinden TLS 1.2 şifrelemeyle iletir. İlk anlaşması sırasında istemci, sunucu geçerli ve güvenilen bir sertifika sağlar doğrular; benzer şekilde, istemci kimlik kanıtı da sunucuya bir sertifika sağlar. Bu en güvenli şekilde tam bir istemci ve sunucu kimliğini doğrulamasını sağlar ve şifreli bir kanal iletiler gönderen bir yapılandırmadır. 
 
-Çeşitli programlama dilleri, bir depolama hesabına erişmek için kullanabilirsiniz. Dilinizi eşleşen örnek seçmek için aşağıdaki belgeleri kullanın:
+> [!IMPORTANT]
+> Microsoft, bu yapılandırmayı üretim ortamları için kullanmak için kesinlikle önerir. 
 
-[https://azure.microsoft.com/resources/samples/?term=storage+account](https://azure.microsoft.com/resources/samples/?term=storage+account)
+TCP, karşılıklı kimlik doğrulaması ve TLS 1.2 şifrelemeyi Syslog iletmeyi yapılandırmak için bu iki cmdlet'leri çalıştırın:
+```powershell
+# Configure the server
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server>
 
-## <a name="device-access-auditing"></a>Cihaz erişimini denetleme
+# Provide certificate to the client to authenticate against the server
+Set-SyslogClient -pfxBinary <Byte[] of pfx file> -CertPassword <SecureString, password for accessing the pfx file>
+```
+İstemci sertifikası aynı kök Azure Stack dağıtımı sırasında sağlanan fazla olması gerekir. Ayrıca özel anahtar içermesi gerekir.
 
-Azure stack'teki tüm fiziksel cihazlar TACACS veya RADIUS kullanımını destekler. Bu, ağ anahtarlarını ve temel kart yönetim denetleyicisine (BMC) erişim içerir.
+```powershell
+##Example on how to set your syslog client with the ceritificate for mutual authentication. 
+##Run these cmdlets from your hardware lifecycle host or privileged access workstation.
 
-Azure Stack çözümleri, RADIUS veya TACACS yerleşik olarak bulunmaz. Ancak, çözümler piyasadaki mevcut RADIUS veya TACACS çözüm kullanımını desteklemek üzere doğrulandı.
+$ErcsNodeName = "<yourPEP>"
+$password = ConvertTo-SecureString -String "<your cloudAdmin account password" -AsPlainText -Force
+ 
+$cloudAdmin = "<your cloudAdmin account name>"
+$CloudAdminCred = New-Object System.Management.Automation.PSCredential ($cloudAdmin, $password)
+ 
+$certPassword = $password
+$certContent = Get-Content -Path C:\cert\<yourClientCertificate>.pfx -Encoding Byte
+ 
+$params = @{ 
+    ComputerName = $ErcsNodeName 
+    Credential = $CloudAdminCred 
+    ConfigurationName = "PrivilegedEndpoint" 
+}
 
-RADIUS için yalnızca MSCHAPv2 doğrulandı. Bu, RADIUS kullanan en güvenli uygulamasını temsil eder.
-Azure Stack çözümünüzle birlikte dahil edilen cihazlar TACAS veya RADIUS etkinleştirmek için OEM donanım satıcınıza başvurun.
+$session = New-PSSession @params
+ 
+$params = @{ 
+    Session = $session 
+    ArgumentList = @($certContent, $certPassword) 
+}
+Write-Verbose "Invoking cmdlet to set syslog client certificate..." -Verbose 
+Invoke-Command @params -ScriptBlock { 
+    param($CertContent, $CertPassword) 
+    Set-SyslogClient -PfxBinary $CertContent -CertPassword $CertPassword 
+```
 
-## <a name="syslog"></a>Syslog
+### <a name="configuring-syslog-forwarding-with-tcp-server-authentication-and-tls-12-encryption"></a>Syslog iletmeyi yapılandırma TCP ile sunucu kimlik doğrulaması ve TLS 1.2 şifrelemeyi
 
-Azure stack'teki tüm fiziksel cihazlar, Syslog iletileri gönderebilir. Syslog sunucusu ile Azure Stack çözümleri bulunmaz. Ancak, çözümler piyasadaki mevcut Syslog çözümleri iletileri gönderme desteklemek üzere doğrulandı.
+Bu yapılandırmada, Azure Stack syslog istemcisinde syslog sunucunuza iletileri TCP üzerinden TLS 1.2 şifrelemeyle iletir. İlk anlaşması sırasında istemci, sunucu geçerli ve güvenilen bir sertifika sağlar de doğrular. Bu, güvenilmeyen hedeflere ileti göndermek için istemci engeller.
+Kimlik doğrulama ve şifreleme kullanarak TCP varsayılan yapılandırma ve bir üretim ortamı için Microsoft'un önerdiği güvenlik en düşük düzeyi temsil eder. 
 
-İsteğe bağlı parametresi dağıtım için toplanan Syslog hedef adresidir ancak dağıtım sonrası da eklenebilir.
+```powershell
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server>
+```
 
+Syslog sunucunuzun Azure Stack istemci ile tümleştirme, otomatik olarak imzalanan ve/veya güvenilmeyen bir sertifika kullanarak test etmek istediğiniz durumda ilk anlaşması sırasında istemci tarafından gerçekleştirilen sunucu doğrulamasını atlamak için bu bayraklar kullanabilirsiniz.
+
+```powershell
+ #Skip validation of the Common Name value in the server certificate. Use this flag if you provide an IP address for your syslog server
+ Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -SkipCNCheck
+ 
+ #Skip entirely the server certificate validation
+ Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -SkipCertificateCheck
+```
+> [!IMPORTANT]
+> Microsoft, üretim ortamları için - SkipCertificateCheck bayrağı kullanımına karşı önerir. 
+
+
+### <a name="configuring-syslog-forwarding-with-tcp-and-no-encryption"></a>TCP ve şifreleme ile Syslog iletmeyi yapılandırma
+
+Bu yapılandırmada, Azure Stack syslog istemcisinde şifreleme ile TCP üzerinden iletileri syslog sunucunuza iletir. İstemci, sunucunun kimliğini doğrulamaz ve bu sunucuya kendi kimlik doğrulama için sağlamaz. 
+
+```powershell
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -NoEncryption
+```
+> [!IMPORTANT]
+> Microsoft, bu yapılandırmayı üretim ortamları için kullanılmamasını önerir. 
+
+
+### <a name="configuring-syslog-forwarding-with-udp-and-no-encryption"></a>UDP ve şifreleme ile Syslog iletmeyi yapılandırma
+
+Bu yapılandırmada, Azure Stack syslog istemcisinde şifreleme ile UDP üzerinden iletileri syslog sunucunuza iletir. İstemci, sunucunun kimliğini doğrulamaz ve bu sunucuya kendi kimlik doğrulama için sağlamaz. 
+
+```powershell
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -UseUDP
+```
+Şifreleme ile UDP yapılandırmak en kolay olsa da, ADAM-de-adam saldırılarına ve iletilerin gizlice karşı bir koruma sağlamaz. 
+
+> [!IMPORTANT]
+> Microsoft, bu yapılandırmayı üretim ortamları için kullanılmamasını önerir. 
+
+
+## <a name="removing-syslog-forwarding-configuration"></a>Syslog iletmeyi yapılandırma kaldırılıyor
+
+Syslog sunucu yapılandırmasını tamamen kaldırın ve syslog iletmeyi durdurmak için:
+
+**Syslog sunucu yapılandırması istemciden Kaldır**
+
+```PowerShell  
+Set-SyslogServer -Remove
+```
+
+**İstemci sertifikası istemciyi kaldırın**
+
+```PowerShell  
+Set-SyslogClient -RemoveCertificate
+```
+
+## <a name="verifying-the-syslog-setup"></a>Syslog Kurulum doğrulanıyor
+
+Syslog istemci başarıyla syslog sunucunuza bağladıysanız, yakında olayları alma başlamanız gerekir. Herhangi bir olay görmüyorsanız, aşağıdaki cmdlet'leri çalıştırarak, syslog istemci yapılandırmasını doğrulayın:
+
+**Syslog istemci sunucu yapılandırmasını doğrulayın**
+
+```PowerShell  
+Get-SyslogServer
+```
+
+**Syslog istemci sertifika kurulumunu doğrulama**
+
+```PowerShell  
+Get-SyslogClient
+```
+
+## <a name="syslog-message-schema"></a>Syslog ileti şeması
+
+Azure Stack altyapısının syslog iletmeyi Common Event Format (CEF) biçimli iletileri gönderir.
+Her syslog iletisi bu şemasını temel alan yapılandırılır: 
+
+```Syslog
+<Time> <Host> <CEF payload>
+```
+
+CEF yükü yapısına bağlıdır, ancak her bir alan için eşleme ileti türüne bağlı olarak değişir (Windows olay uyarısı oluşturulan uyarı kapalı).
+
+```CEF
+# Common Event Format schema
+CEF: <Version>|<Device Vendor>|<Device Product>|<Device Version>|<Signature ID>|<Name>|<Severity>|<Extensions>
+* Version: 0.0 
+* Device Vendor: Microsoft
+* Device Product: Microsoft Azure Stack
+* Device Version: 1.0
+```
+
+### <a name="cef-mapping-for-windows-events"></a>Windows olayları CEF eşleme
+```
+* Signature ID: ProviderName:EventID
+* Name: TaskName
+* Severity: Level (for details, see the severity table below)
+* Extension: Custom Extension Name (for details, see the Custom Extension table below)
+```
+
+Windows olayları için tablo önem derecesi: 
+| CEF önem derecesi değeri | Windows olay düzeyi | Sayısal değer |
+|--------------------|---------------------| ----------------|
+|0|Tanımlanmadı|Değer: 0. Tüm düzeylerde günlükleri gösterir|
+|10|Kritik|Değer: 1. Kritik Uyarı için günlükleri gösterir|
+|8|Hata| Değer: 2. Hata günlüklerini gösterir|
+|5|Uyarı|Değer: 3. Günlükleri için bir uyarı gösterir|
+|2|Bilgi|Değer: 4. Bir bilgi iletisidir günlüklerini gösterir|
+|0|Ayrıntılı|Değer: 5. Tüm düzeylerde günlükleri gösterir|
+
+Azure stack'teki Windows olayları için özel uzantı tablosu:
+| Özel uzantı adı | Windows olay örneği | 
+|-----------------------|---------|
+|MasChannel | Sistem|
+|MasComputer | Test.azurestack.contoso.com|
+|MasCorrelationActivityID| C8F40D7C-3764-423B-A4FA-C994442238AF|
+|MasCorrelationRelatedActivityID| C8F40D7C-3764-423B-A4FA-C994442238AF|
+|MasEventData| Svchost!! 4132, G, 0!!! EseDiskFlushConsistency!! ESENT!! 0x800000|
+|MasEventDescription| Kullanıcı için Grup İlkesi ayarları başarıyla işlendi. Değişiklik algılanmadı beri son başarılı işleme, Grup İlkesi vardı.|
+|MasEventID|1501|
+|MasEventRecordID|26637|
+|MasExecutionProcessID | 29380|
+|MasExecutionThreadID |25480|
+|MasKeywords |0x8000000000000000|
+|MasKeywordName |Denetim başarılı|
+|MasLevel |4|
+|MasOpcode |1|
+|MasOpcodeName |bilgi|
+|MasProviderEventSourceName ||
+|MasProviderGuid |AEA1B4FA-97D1-45F2-A64C-4D69FFFD92C9|
+|MasProviderName |Microsoft-Windows-Grup İlkesi|
+|MasSecurityUserId |\<Windows SID\> |
+|MasTask |0|
+|MasTaskCategory| İşlem oluşturma|
+|MasUserData|KB4093112!! 5112!! Yüklü!! 0x0!! WindowsUpdateAgent Xpath: /Event/UserData / *|
+|MasVersion|0|
+
+### <a name="cef-mapping-for-alerts-created"></a>Oluşturulan uyarılar için CEF eşleme
+```
+* Signature ID: Microsoft Azure Stack Alert Creation : FaultTypeId
+* Name: FaultTypeId : AlertId
+* Severity: Alert Severity (for details, see alerts severity table below)
+* Extension: Custom Extension Name (for details, see the Custom Extension table below)
+```
+Uyarı önem derecesi tablosu:
+| Severity | Düzey |
+|----------|-------|
+|0|Tanımlanmadı|
+|10|Kritik|
+|5|Uyarı|
+
+Azure Stack'te oluşturulan uyarılar için özel uzantı tablosu:
+| Özel uzantı adı | Örnek | 
+|-----------------------|---------|
+|MasEventDescription|Açıklama: Bir kullanıcı hesabı \<TestUser\> oluşturulduğu \<TestDomain\>. Bu, olası bir güvenlik riski oluşturur. --Düzeltme: Destek ekibiyle iletişime geçin. Bu sorunu çözmek için müşteri desteği gereklidir. Kendi yardımı olmadan bu sorunu çözmek çalışmayın. Bir destek talebi açmadan önce kılavuzdan kullanarak günlük dosya toplama işlemi Başlat https://aka.ms/azurestacklogfiles |
+
+### <a name="cef-mapping-for-alerts-closed"></a>Uyarılar için CEF eşleme kapalı
+```
+* Signature ID: Microsoft Azure Stack Alert Creation : FaultTypeId
+* Name: FaultTypeId : AlertId
+* Severity: Information
+```
+
+Aşağıdaki örnek, bir syslog iletisi CEF yüküyle gösterir:
+```
+2018:05:17:-23:59:28 -07:00 TestHost CEF:0.0|Microsoft|Microsoft Azure Stack|1.0|3|TITLE: User Account Created -- DESCRIPTION: A user account \<TestUser\> was created for \<TestDomain\>. It's a potential security risk. -- REMEDIATION: Please contact Support. Customer Assistance is required to resolve this issue. Do not try to resolve this issue without their assistance. Before you open a support request, start the log file collection process using the guidance from https://aka.ms/azurestacklogfiles|10
+```
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Hizmet İlkesi](azure-stack-servicing-policy.md)

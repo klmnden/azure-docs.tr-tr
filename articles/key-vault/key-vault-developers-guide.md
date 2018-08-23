@@ -2,19 +2,19 @@
 title: Azure anahtar kasası Geliştirici Kılavuzu
 description: Geliştiriciler, Azure anahtar kasası, Microsoft Azure ortamında şifreleme anahtarlarını yönetmek için kullanabilirsiniz.
 services: key-vault
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 10/12/2017
-ms.author: alleonar
-ms.openlocfilehash: 3a2ab6bbe2470fa12113ca4367316cf7a21190b8
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.author: bryanla
+ms.openlocfilehash: d8554d235fdfeb5b192ddf1268e60b7bc32aabe7
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626737"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42056438"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure anahtar kasası Geliştirici Kılavuzu
 
@@ -23,7 +23,7 @@ Key Vault, uygulamalarınızın içinden hassas bilgilere güvenli bir şekilde 
 - Kodu kendiniz yazmak zorunda kalmadan anahtarları ve gizli dizileri korunur ve bunları uygulamalarınızdan kolayca kullanabilirsiniz.
 - Çekirdek yazılım özelliklerini sağlamaya hakkında yoğunlaşabilirsiniz. böylece kendi anahtarlarınızı yönetme ve müşterilerinize kendi sahip olursunuz. Bu şekilde, uygulamalarınızı müşterilerinizin Kiracı anahtarları ve gizli anahtarları olası bir yükümlülük ve Sorumluluk sahibi değil.
 - Uygulamanızı imzalamak için anahtar kullanabilirsiniz ve henüz şifreleme anahtar yönetimi çözümünüz, coğrafi olarak dağıtılmış bir uygulama olarak uygun olmasını sağlar, uygulamanızın dış tutar.
-- Key Vault Eylül 2016 sürümü itibarıyla, uygulamalarınızın artık anahtar kasası kullanabilirsiniz [sertifikaları](https://docs.microsoft.com/rest/api/keyvault/certificate-operations). Daha fazla bilgi için [anahtarlara, parolalara ve sertifikalara hakkında](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates).
+- Key Vault Eylül 2016 sürümü itibarıyla, uygulamalarınızın artık sertifikaları Key Vault yönetebilirsiniz. Daha fazla bilgi için [anahtarlara, parolalara ve sertifikalara hakkında](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates).
 
 Azure Key Vault hakkında daha fazla genel bilgi için bkz. [Key Vault nedir](key-vault-whatis.md).
 

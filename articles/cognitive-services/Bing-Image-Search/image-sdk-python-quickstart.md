@@ -1,6 +1,6 @@
 ---
-title: Görüntü arama SDK Python hızlı başlangıç | Microsoft Docs
-description: Görüntü arama SDK konsol uygulaması kurulumu.
+title: "Hızlı Başlangıç: İstek ve Python SDK'sını kullanarak görüntüleri Filtrele"
+description: Bu hızlı başlangıçta, istek ve Python kullanarak Bing resim arama tarafından döndürülen görüntüleri Filtrele.
 titleSuffix: Azure Image Search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
@@ -10,33 +10,33 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: v-gedod
-ms.openlocfilehash: e30852439ad8ec2d5ddc667b75167e8b5d35be33
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4729f103bb9b50d4ff039907db8eb677f3dc290a
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355247"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41987486"
 ---
-# <a name="image-search-sdk-python-quickstart"></a>Görüntü arama SDK Python hızlı başlangıç
+ # <a name="quickstart-request-and-filter-images-using-the-sdk-and-python"></a>Hızlı Başlangıç: Python ve SDK'sı kullanarak istek ve filtre görüntüleri
 
-Bing görüntü arama SDK web sorguları ve ayrıştırma sonuçları için REST API işlevselliğini içerir. 
+Bing görüntü arama SDK'sı web sorgular ve ayrıştırma sonuçları için REST API işlevlerini içerir. 
 
-[Kaynak kodu Python Bing görüntü arama SDK örnekleri için](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image_search_samples.py) Git hub'da kullanılabilir.
+[Kaynak kodu Python Bing resim arama SDK örnekleri için](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image_search_samples.py) Git hub'da kullanılabilir.
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
-Zaten sahip değilseniz, Python yükleyin. SDK 3.3, 3.4, 3.5 ve 3.6 gibi Python 2.7 ile uyumludur.
+Zaten sahip değilseniz, Python'ı yükleyin. SDK, 3.3, 3.4, 3.5 ve 3.6 gibi Python 2.7 ile uyumludur.
 
 Python geliştirme için genel öneri kullanmaktır bir [sanal ortam](https://docs.python.org/3/tutorial/venv.html). Yükleme ve sanal ortamıyla başlatma [venv Modülü](https://pypi.python.org/pypi/virtualenv). Python 2.7 için virtualenv yüklemeniz gerekir.
 ```
 python -m venv mytestenv
 ```
-Bing görüntü arama SDK bağımlılıkları yükler:
+Bing görüntü arama SDK bağımlılıklarını yükleyin:
 ```
 cd mytestenv
 python -m pip install azure-cognitiveservices-search-imagesearch
 ```
 ## <a name="image-search-client"></a>Görüntü arama istemci
-Alma bir [Bilişsel hizmetler erişim tuşu](https://azure.microsoft.com/try/cognitive-services/) altında *arama*. İçeri aktarmaları ekleyin:
+Alma bir [Bilişsel hizmetler erişim anahtarını](https://azure.microsoft.com/try/cognitive-services/) altında *arama*. İçeri aktarmaları ekleyin:
 ```
 from azure.cognitiveservices.search.imagesearch import ImageSearchAPI
 from azure.cognitiveservices.search.imagesearch.models import ImageType, ImageAspect, ImageInsightModule
@@ -48,7 +48,7 @@ Bir örneğini oluşturmak `CognitiveServicesCredentials`ve istemci örneği:
 ```
 client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
-Sorgu (Yosemite) animasyonlu GIF ve geniş en boy için filtre görüntülerinde arayın. Sonuç sayısı doğrulayın ve yazdırma insightsToken, küçük resim URL'si ve web ilk sonuç URL'si.
+Animasyonlu GIF'ler ve geniş bir boyut için filtrelenmiş sorgu (Yosemite) görüntülerinde arayın. Sonuç sayısı doğrulayın ve yazdırma insightsToken, küçük resim URL'si ve web ilk sonucunun URL'si.
 ```
 image_results = client.images.search(
         query="Yosemite",
@@ -67,7 +67,7 @@ image_results = client.images.search(
         print("Couldn't find image results!")
 
 ```
-Animasyonlu GIF ve geniş en boy için filtre görüntüleri (Yosemite) için arama yapın.  Sonuç sayısını doğrulayın.  Out yazdırma `insightsToken`, `thumbnail url` ve `web url` ilk sonuç.
+Animasyonlu GIF'ler ve geniş bir boyut için filtrelenmiş resimler (Yosemite) için arama yapın.  Sonuç sayısı doğrulayın.  Çıkış yazdırma `insightsToken`, `thumbnail url` ve `web url` ilk sonuç.
 ```
 image_results = client.images.search(
     query="Yosemite",
@@ -87,7 +87,7 @@ else:
 
 ```
 
-Oluşturan eğilim sonuçları elde edersiniz:
+Popüler sonuçları alın:
 ```
 trending_result = client.images.trending()
 print("\r\nSearch trending images")
@@ -111,6 +111,6 @@ if trending_result.categories:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel hizmetler Python SDK'sı örneği](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Bilişsel hizmetler Python SDK'sı örnekleri](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 

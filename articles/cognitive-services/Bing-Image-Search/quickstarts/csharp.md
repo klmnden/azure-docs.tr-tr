@@ -1,43 +1,43 @@
 ---
-title: Çağrı ve yanıt - Azure Bilişsel Hizmetleri, Bing görüntü arama API'sı için C# hızlı başlangıç | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get Bing görüntü arama API Azure üzerinde Microsoft Bilişsel Hizmetleri'ndeki kullanmaya başlayın.
+title: "Hızlı Başlangıç: REST API kullanarak Bing resim arama kullanarak C# API'si için gönderme arama sorguları"
+description: Bu hızlı başlangıçta, C# kullanarak ilgili görüntülerin listesini almak için Bing arama API'si arama sorguları gönderin.
 services: cognitive-services
 documentationcenter: ''
-author: v-jerkin
+author: aahill
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
-ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: e5a506b9a25e94c827815323d209bf7c175bac4e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 8/9/2018
+ms.author: aahi
+ms.openlocfilehash: 7a5ef36f02d82ee17698af9c647f043792280fbc
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354581"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41987550"
 ---
-# <a name="call-and-response-your-first-bing-image-search-query-in-c"></a>Çağrı ve yanıt: ilk Bing görüntü arama sorgunuzu C#
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-c"></a>Hızlı Başlangıç: REST API ve C# kullanarak gönderme arama sorguları
 
-Bing görüntü arama API geri ilgili görüntüleri listesini almak ve bir kullanıcı arama sorgusu için Bing göndermenize izin vererek Bing.com/Images için benzer bir deneyim sağlar.
+Bing resim arama API'si, Bing için bir kullanıcı arama sorgusu gönderin ve ilgili görüntülerin listesini dönmek vererek Bing.com/Images için benzer bir deneyim sağlar.
 
-Bu makalede bir Bing görüntü arama API sorgu gerçekleştirir ve JSON biçiminde döndürülen ham arama sonuçlarını görüntüleyen basit bir konsol uygulaması içerir. Bu uygulama C# dilinde yazıldığını karşın, HTTP isteklerini hale getirebilir ve JSON ayrıştırma programlama dili ile uyumlu bir RESTful Web hizmeti API'dir. 
+Bu makale, Bing resim arama API'si sorgu gerçekleştirir ve JSON biçiminde ham döndürülen arama sonuçlarını görüntüleyen basit bir konsol uygulaması içerir. Bu uygulama C# dilinde yazılmıştır, ancak HTTP istekleri ve JSON Ayrıştır programlama dili ile uyumlu bir RESTful Web hizmeti API'dir. 
 
-Örnek program yalnızca .NET çekirdeği sınıflarını kullanır ve .NET CLR kullanarak Windows veya Linux veya macOS kullanarak çalıştırır [Mono](http://www.mono-project.com/).
+Örnek program, yalnızca .NET Core sınıfları kullanır ve .NET CLR kullanarak Windows veya Linux veya macOS kullanarak çalışan [Mono](http://www.mono-project.com/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-İhtiyacınız olacak [Visual Studio 2017](https://www.visualstudio.com/downloads/) Windows üzerinde çalışan bu kodu alın. (Ücretsiz Community sürümü çalışır.)
+İhtiyacınız olacak [Visual Studio 2017](https://www.visualstudio.com/downloads/) Windows üzerinde çalışan bu kod alınamıyor. (Ücretsiz Community Edition’ı kullanabilirsiniz.)
 
-Bilmeniz gereken bir [Bilişsel Hizmetleri API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Bing arama API'leri**. [Ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) Bu Hızlı Başlangıç için yeterlidir. Ücretsiz deneme sürümünüzü etkinleştirmek ya da Ücretli abonelik anahtarı Azure panonuza kullanabilir sağlanan erişim anahtarı gerekir.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="running-the-application"></a>Uygulamayı çalıştırma
 
 Bu uygulamayı çalıştırmak için aşağıdaki adımları izleyin.
 
 1. Visual Studio'da yeni bir konsol çözümü oluşturun.
-1. Değiştir `Program.cs` sağlanan koduna sahip.
-2. Değiştir `accessKey` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-3. Programını çalıştırın.
+2. Değiştirin `Program.cs` sağlanan kod ile.
+3. Değiştirin `accessKey` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+4. Programı çalıştırın.
 
 ```csharp
 using System;
@@ -208,7 +208,7 @@ namespace BingSearchApisQuickstart
 
 ## <a name="json-response"></a>JSON yanıtı
 
-Örnek yanıt izler. JSON uzunluğunu sınırlamak için yalnızca tek bir sonuç gösterilir ve diğer bölümleri yanıtının kesildi. 
+Örnek yanıt izler. JSON uzunluğunu sınırlamak için yalnızca tek bir sonuç gösterilir ve diğer bölümlerini yanıt kesildi. 
 
 ```json
 {
@@ -297,11 +297,11 @@ namespace BingSearchApisQuickstart
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bing görüntü arama tek sayfa uygulaması Öğreticisi](../tutorial-bing-image-search-single-page-app.md)
+> [Bing resim arama tek sayfalı uygulama Öğreticisi](../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
-[Bing görüntü arama genel bakış](../overview.md)  
+[Bing resim arama genel bakış](../overview.md)  
 [Deneyin](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-[Ücretsiz deneme erişim anahtarı alma](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-[Bing görüntü arama API Başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+[Ücretsiz deneme erişim anahtarını alma](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+[Bing resim arama API'si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

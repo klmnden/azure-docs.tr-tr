@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 05/30/2018
+ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d8d911acf3e3eff2cf3340972b9b77a10be0a5f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 79bdab4c7a867117f6473864f1654f77603f7b26
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "35651045"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42058287"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Tasarım kavramları
 Bu belgenin amacı, Azure AD Connect uygulama tasarım sırasında düşündüğünüz alanlarını açıklayan sağlamaktır. Bu belge belirli alanları ayrıntılı bir bakış ve diğer belgelerde Bu kavramlar kısaca açıklanmaktadır.
@@ -72,20 +72,20 @@ Bu nedenle, Azure AD Connect'e aşağıdaki kısıtlamalar uygulanır:
 * Başka bir Azure AD Connect sunucusu yüklerseniz, daha önce kullanılan aynı sourceAnchor özniteliği seçmeniz gerekir. Daha önce DirSync kullanarak ve Azure AD Connect'e taşıma durumunda kullanmanız gerekir **objectGUID** , DirSync tarafından kullanılan öznitelik olduğundan.
 * Azure ad, ardından Azure AD Connect'i eşitleme bir hata oluşturur ve başka herhangi bir değişiklik üzerinde sorun düzeltilmiştir önce nesne ve sourceAnchor değiştirildiğinde, Kaynak Yöneticisi yeniden izin vermiyor sourceAnchor değeri sonra değiştirilirse nesnesi verildi y.
 
-## <a name="using-msds-consistencyguid-as-sourceanchor"></a>MsDS-Consistencyguid'i sourceAnchor olarak kullanma
-Varsayılan olarak, Azure AD Connect (sürüm 1.1.486.0 yaşındaki) sourceAnchor özniteliği olarak objectGUID kullanır. Sistem tarafından oluşturulan objectguıd'dir. Değerini oluştururken şirket AD nesnelerini belirtemezsiniz. Bölümünde açıklandığı gibi [sourceAnchor](#sourceanchor), sourceAnchor belirtmeniz gereken senaryolar da vardır. Senaryoları için geçerli ise sourceAnchor özniteliği olarak yapılandırılabilir bir AD özniteliği (örneğin, msDS-Consistencyguid'i) kullanmanız gerekir.
+## <a name="using-ms-ds-consistencyguid-as-sourceanchor"></a>MS-DS-Consistencyguid'i sourceAnchor olarak kullanma
+Varsayılan olarak, Azure AD Connect (sürüm 1.1.486.0 yaşındaki) sourceAnchor özniteliği olarak objectGUID kullanır. Sistem tarafından oluşturulan objectguıd'dir. Değerini oluştururken şirket AD nesnelerini belirtemezsiniz. Bölümünde açıklandığı gibi [sourceAnchor](#sourceanchor), sourceAnchor belirtmeniz gereken senaryolar da vardır. Senaryoları için geçerli olan yapılandırılabilir bir AD özniteliğini kullanmanız gerekir (örneğin, ms-DS-ConsistencyGuid) sourceAnchor özniteliği olarak.
 
-Azure AD Connect'i (sürüm 1.1.524.0 ve sonra) artık msDS-Consistencyguid'i sourceAnchor özniteliği olarak kullanımını kolaylaştırır. Bu özelliği kullanırken, Azure AD Connect eşitleme kuralları otomatik olarak yapılandırır:
+Azure AD Connect'i (sürüm 1.1.524.0 ve sonra) artık sourceAnchor özniteliği olarak ms-DS-ConsistencyGuid kullanımını kolaylaştırır. Bu özelliği kullanırken, Azure AD Connect eşitleme kuralları otomatik olarak yapılandırır:
 
-1. MsDS-Consistencyguid'i sourceAnchor özniteliği olarak kullanıcı nesneleri için kullanın. ObjectGUID diğer nesne türleri için kullanılır.
+1. MS-DS-ConsistencyGuid sourceAnchor özniteliği olarak kullanıcı nesneleri için kullanın. ObjectGUID diğer nesne türleri için kullanılır.
 
-2. Verilen herhangi için şirket içi AD kullanıcı nesnesi, msDS-Consistencyguid'i özniteliği msDS-Consistencyguid'i öznitelik şirket içi Active Directory'de objectGUID değerini geri doldurulmuş, Azure AD Connect yazma değildir. MsDS-Consistencyguid'i öznitelik doldurulduktan sonra Azure AD Connect nesneyi ardından Azure AD'ye verir.
+2. Verilen herhangi için şirket içi AD kullanıcı nesnesi, ms-DS-ConsistencyGuid özniteliği değil doldurulmuş, Azure AD Connect yazma ms-DS-ConsistencyGuid özniteliği şirket içi Active Directory'de, objectGUID değere döner. Ms-DS-ConsistencyGuid özniteliği doldurulduktan sonra Azure AD Connect nesneyi ardından Azure AD'ye verir.
 
 >[!NOTE]
-> Bir kez bir şirket içi AD nesnesi (yani AD bağlayıcı alanına içeri aktarılıp, meta veri deposuna öngörülen) Azure AD Connect içine alınır, artık sourceAnchor değerine değiştirilemiyor. SourceAnchor değeri belirtmek için bir şirket içi verilen AD nesne, Azure AD Connect içeri aktarılmadan önce msDS-Consistencyguid'i özniteliği yapılandırabilirsiniz.
+> Bir kez bir şirket içi AD nesnesi (yani AD bağlayıcı alanına içeri aktarılıp, meta veri deposuna öngörülen) Azure AD Connect içine alınır, artık sourceAnchor değerine değiştirilemiyor. SourceAnchor değeri belirtmek için bir şirket içi verilen AD nesne, Azure AD Connect içeri aktarılmadan önce ms-DS-ConsistencyGuid özniteliği yapılandırın.
 
 ### <a name="permission-required"></a>İzin gerekiyor
-Bu özelliğin çalışması için şirket içi Active Directory ile eşitlemek için kullanılan AD DS hesabı şirket içi Active Directory'de msDS-Consistencyguid'i öznitelik yazma izni verilmesi gerekir.
+Bu özelliğin çalışması için şirket içi Active Directory ile eşitlemek için kullanılan AD DS hesabı şirket içi Active Directory'de ms-DS-ConsistencyGuid özniteliği yazma izni verilmesi gerekir.
 
 ### <a name="how-to-enable-the-consistencyguid-feature---new-installation"></a>Yeni yükleme - consistencyguid içinde özellik etkinleştirme
 Yeni yükleme sırasında consistencyguid içinde kullanımını sourceAnchor olarak etkinleştirebilirsiniz. Bu bölüm, Express hem de özel yükleme ayrıntıları kapsar.
@@ -104,7 +104,7 @@ Azure AD Connect ile hızlı mod yüklerken, Azure AD Connect Sihirbazı otomati
   >[!NOTE]
   > Azure AD Connect yalnızca yeni sürümlerini (1.1.524.0 ve sonra) sourceAnchor özniteliği hakkında bilgileri Azure AD kiracınızda depolar, yükleme sırasında kullanılır. Azure AD Connect'in eski sürümlerinde yoktur.
 
-* Kullanılan sourceAnchor özniteliği hakkında bilgi kullanılabilir değilse, sihirbazın şirket içi Active directory'nizde msDS-Consistencyguid'i öznitelik durumunu denetler. Öznitelik dizinindeki herhangi bir nesne üzerinde yapılandırılmazsa sihirbaz msDS-Consistencyguid'i sourceAnchor özniteliği olarak kullanır. Öznitelik, dizinde veya daha fazla nesne yapılandırılmışsa, sihirbaz öznitelik diğer uygulamalar tarafından kullanılıyor ve sourceAnchor özniteliği olarak uygun değil sonucuna...
+* Sihirbaz, kullanılan sourceAnchor özniteliği hakkında bilgi kullanılabilir değilse, şirket içi Active directory'nizde ms-DS-ConsistencyGuid özniteliği durumunu denetler. Öznitelik dizinindeki herhangi bir nesne üzerinde yapılandırılmazsa sihirbaz ms-DS-ConsistencyGuid sourceAnchor özniteliği olarak kullanır. Öznitelik, dizinde veya daha fazla nesne yapılandırılmışsa, sihirbaz öznitelik diğer uygulamalar tarafından kullanılıyor ve sourceAnchor özniteliği olarak uygun değil sonucuna...
 
 * Bu durumda, sihirbaz geri sourceAnchor özniteliği olarak objectGUID kullanmaya döner.
 
@@ -140,7 +140,7 @@ ObjectGUID consistencyguid içinde için kaynak bağlantısı özniteliği olara
 
 3. Azure AD yönetici kimlik bilgilerinizi girin ve tıklayın **sonraki**.
 
-4. Azure AD Connect Sihirbazı, şirket içi Active directory'nizde msDS-Consistencyguid'i öznitelik durumunu analiz eder. Öznitelik dizinindeki herhangi bir nesne üzerinde yapılandırılmamışsa, Azure AD Connect'i başka bir uygulama özniteliğini kullanıyor ve kaynak bağlayıcı özniteliği olarak kullanmak üzere güvenli olup burada sona eriyor. Tıklayın **sonraki** devam etmek için.
+4. Azure AD Connect Sihirbazı, şirket içi Active directory'nizde ms-DS-ConsistencyGuid özniteliği durumunu analiz eder. Öznitelik dizinindeki herhangi bir nesne üzerinde yapılandırılmamışsa, Azure AD Connect'i başka bir uygulama özniteliğini kullanıyor ve kaynak bağlayıcı özniteliği olarak kullanmak üzere güvenli olup burada sona eriyor. Tıklayın **sonraki** devam etmek için.
 
    ![Var olan dağıtım - 4. adım consistencyguid içinde etkinleştir](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment02.png)
 
@@ -148,7 +148,7 @@ ObjectGUID consistencyguid içinde için kaynak bağlantısı özniteliği olara
 
    ![Var olan dağıtım - 5. adım consistencyguid içinde etkinleştir](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment03.png)
 
-6. Yapılandırma tamamlandıktan sonra sihirbazın msDS-Consistencyguid'i artık kaynak bağlayıcı özniteliği olarak kullanılan gösterir.
+6. Yapılandırma tamamlandıktan sonra ms-DS-ConsistencyGuid artık kaynak bağlayıcı özniteliği olarak kullanılan sihirbaz gösterir.
 
    ![Var olan dağıtım - 6. adım consistencyguid içinde etkinleştir](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment04.png)
 
@@ -170,7 +170,7 @@ AD FS'yi Azure AD Connect dışında yönetiyorsanız veya üçüncü taraf fede
 ![Üçüncü taraf Federasyon yapılandırması](./media/active-directory-aadconnect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>Yeni dizinler için mevcut dağıtım ekleme
-Azure AD Connect consistencyguid içinde özelliği etkin dağıttığınız ve artık dağıtıma başka bir dizin eklemek istediğiniz varsayalım. Dizine eklemeyi denediğinizde, Azure AD Connect Sihirbazı dizinde mSDS-Consistencyguid'i öznitelik durumunu denetler. Öznitelik, dizinde veya daha fazla nesne yapılandırılmışsa, sihirbaz öznitelik diğer uygulamalar tarafından kullanılır ve aşağıdaki diyagramda gösterildiği gibi bir hata döndürür sona eriyor. Öznitelik mevcut uygulamalar tarafından kullanılmadığından eminseniz, hata gösterme hakkında bilgi için desteğe gerekir.
+Azure AD Connect consistencyguid içinde özelliği etkin dağıttığınız ve artık dağıtıma başka bir dizin eklemek istediğiniz varsayalım. Azure AD Connect Sihirbazı, dizine eklemeyi denediğinizde, ms-DS-ConsistencyGuid özniteliği dizinde durumunu denetler. Öznitelik, dizinde veya daha fazla nesne yapılandırılmışsa, sihirbaz öznitelik diğer uygulamalar tarafından kullanılır ve aşağıdaki diyagramda gösterildiği gibi bir hata döndürür sona eriyor. Öznitelik mevcut uygulamalar tarafından kullanılmadığından eminseniz, hata gösterme hakkında bilgi için desteğe gerekir.
 
 ![Yeni dizinler için mevcut dağıtım ekleme](./media/active-directory-aadconnect-design-concepts/consistencyGuid-04.png)
 

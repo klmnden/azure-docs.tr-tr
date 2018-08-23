@@ -1,84 +1,84 @@
 ---
 ms.assetid: ''
-title: Azure anahtar kasası geçici silme | Microsoft Docs
+title: Azure Key Vault geçici silmeyi | Microsoft Docs
 ms.service: key-vault
-author: lleonard-msft
-ms.author: alleonar
+author: bryanla
+ms.author: bryanla
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: 6a3573cf31418309a31126b2a0c6a43ea2e0c745
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: ccdefc83642285194635ffe7b561e9e322360533
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30262696"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42057427"
 ---
-# <a name="azure-key-vault-soft-delete-overview"></a>Azure anahtar kasası soft-delete genel bakış
+# <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault geçici silmeyi genel bakış
 
-Anahtar Kasası'nın geçici silme özelliği soft-Sil olarak bilinen kasası nesneleri ve Silinen kasalarını kurtarılmasını sağlar. Özellikle, aşağıdaki senaryolarda adresi:
+Key Vault'un geçici silme özelliği silinen kasa ve geçici silme bilinen kasası nesne kurtarılmasını sağlar. Özellikle aşağıdaki senaryolar adresi:
 
-- Bir anahtar kasası kurtarılabilir silinmesini desteği
-- Anahtar kasası nesnelerin (örneğin kurtarılabilir silinmesi için destek anahtarları, gizli, Sertifikalar)
+- Bir anahtar kasası kurtarılabilir silinmesi için destek
+- Anahtar kasası nesne (ör kurtarılabilir silme desteği. anahtarları, parolaları, sertifikaları)
 
 ## <a name="supporting-interfaces"></a>Arabirimleri destekleme
 
-Soft-delete özellik .NET KULLANILMADIKLARI başlangıçta kullanılabilir / C# ' ta, PowerShell ve, CLI arabirimleri.
+Geçici silme özelliği .NET REST üzerinden başlangıçta kullanılabilir / C# ' ta, PowerShell ve CLI arabirimleri.
 
-Daha fazla ayrıntı için bu başvurular genel bilgi için bkz [anahtar kasası başvurusu](https://docs.microsoft.com/azure/key-vault/).
+Daha fazla ayrıntı için bu başvuruları genel bilgi için bkz [anahtar kasası başvurusu](https://docs.microsoft.com/azure/key-vault/).
 
 ## <a name="scenarios"></a>Senaryolar
 
-Azure anahtar kasası, Azure Resource Manager tarafından yönetilen, izlenen kaynaklardır. Azure Resource Manager, aynı zamanda başarılı bir silme işlemi artık erişilebilir olmaması, kaynak neden gerekir gerektirir silme işlemi için iyi tanımlanmış bir davranış belirtir. Silme yanlışlıkla veya kasıtlı olup soft-delete özelliği silinen nesnenin kurtarma giderir.
+Azure Key Vault, Azure Resource Manager tarafından yönetilen, izlenen kaynaklardır. Azure Resource Manager, başarılı bir silme işlemi artık erişilememesinden Bu kaynakta sonuçlanmalıdır gerektiren silme işlemi için iyi tanımlanmış bir davranışı da belirtir. Geçici silme özelliği, yanlışlıkla veya kasıtlı silme işlemi olup olmadığını silinen nesnenin kurtarma yöneliktir.
 
-1. Tipik senaryo, bir kullanıcı yanlışlıkla bir anahtar kasası ya da bir anahtar kasası nesnesi silmiş; Kasa veya anahtar kasası nesne anahtarı, önceden belirlenmiş bir süre boyunca kurtarılabilir olacak şekilde, kullanıcı silme işlemi geri almak ve verilerini kurtarma.
+1. Tipik bir senaryoda, bir kullanıcı yanlışlıkla bir anahtar kasası veya bir anahtar kasasını silmiş olabilirsiniz; vault veya key vault nesne anahtarı, önceden belirlenmiş bir süre için kurtarılabilir olacak şekilde, kullanıcı silme işlemini geri al ve kendi veri kurtarma.
 
-2. Farklı bir senaryoda dolandırıcı bir kullanıcı bir anahtar kasası veya iş kesintiye neden bir kasa içinde bir anahtarı gibi bir anahtar kasası nesnesi silme girişiminde bulunabilir. Temel alınan veri gerçek silinmeye karşı anahtar kasası ya da anahtar kasası nesnesinin silinmesini ayıran bir güvenlik önlemi olarak, örneğin, farklı, veri silme izinlerini kısıtlayarak rolü güvenilir olarak kullanılabilir. Bu yaklaşım, aksi takdirde bir hemen veri kaybına neden bir işlem için etkili bir şekilde çekirdek gerektirir.
+2. Farklı bir senaryoda, dolandırıcı bir kullanıcı bir anahtar kasası veya iş kesintisi neden bir kasa içinde bir anahtar gibi bir anahtar kasası nesne silme girişiminde bulunabilir. Anahtar kasası ya da anahtar kasası nesne silme işlemi temel alınan verileri gerçek silinmeye karşı ayıran bir güvenlik önlemi olarak, örneğin, farklı, verileri silme izinlerini kısıtlayarak rolü güvenilir olarak kullanılabilir. Bu yaklaşım, aksi takdirde bir anında veri kaybına neden bir işlem için etkili bir şekilde çekirdek gerektirir.
 
-### <a name="soft-delete-behavior"></a>Soft-delete behavior
+### <a name="soft-delete-behavior"></a>Geçici silme davranışı
 
-Bu özellik ile bir anahtar kasası veya anahtar kasası nesne silme işlemini bir yumuşak etkili bir şekilde nesne silinir görünüm vermiş sırasında ek olarak, belirli Bekletme dönemi için kaynakları bulunduran silme, ' dir. Daha fazla hizmet temelde silme işlemi geri alma Silinmiş nesne kurtarmak için bir mekanizma sağlar. 
+Bu özellik, geçici etkili bir şekilde nesne silindikten görüntüsü verme sırasında ek olarak, belirtilen saklama süresi için kaynakları barındıran silme, anahtar kasası veya anahtar kasası nesne silme işlemi var. Daha fazla hizmet aslında silme işlemini geri alma silinen nesnesini kurtarmak için bir mekanizma sağlar. 
 
-Soft-delete isteğe bağlı bir anahtar kasası davranışı ve **varsayılan olarak etkin değildir** bu sürümde. 
+Geçici silme isteğe bağlı bir Key Vault davranışı ve **varsayılan olarak etkin değildir** bu sürümde. 
 
 ### <a name="key-vault-recovery"></a>Anahtar kasası kurtarma
 
-Bir anahtar kasasını silme bağlı hizmet kurtarma için yeterli meta veri ekleme, abonelik altında bir proxy kaynak oluşturur. Proxy kaynak, silinen anahtar kasası ile aynı konumda kullanılabilir saklanan bir nesne değil. 
+Bir anahtar kasası siliniyor bağlı hizmet kurtarma için yeterli meta verilerin eklenmesi, abonelik kapsamında bir proxy kaynağı oluşturur. Proxy, mevcut silinen anahtar kasası ile aynı konumda depolanan bir nesne kaynaktır. 
 
 ### <a name="key-vault-object-recovery"></a>Anahtar kasası nesne kurtarma
 
-Bir anahtarı gibi bir anahtar kasası nesnesi silme bağlı hizmet nesne silinmiş durumda, böylece alma işlemleri için erişilemez hale yerleştirir. Bu durumundayken, anahtar kasası nesne yalnızca, kurtarılan veya zorla/kalıcı olarak silinmiş listelenebilir. 
+Bir anahtar gibi bir anahtar kasası nesne silme bağlı hizmet nesne silinmiş bir durumda, bu nedenle herhangi bir alma işlemi için erişilemez hale yerleştirmeniz gerekir. Bu durumdayken, anahtar kasası nesne yalnızca, kurtarılan veya zorla/kalıcı olarak silinmiş listelenebilir. 
 
-Aynı anda anahtar kasası silinen anahtar kasası veya önceden belirlenmiş bekletme aralığından sonra yürütme için anahtar kasası nesnesinin karşılık gelen temel alınan verilerin silinmesini zamanlar. Kasası'na karşılık gelen DNS kaydı da bekletme aralığı boyunca tutulur.
+Aynı anda Key Vault silinen anahtar kasasını veya önceden belirlenmiş bekletme aralığından sonra yürütme için anahtar kasası nesne karşılık gelen temel alınan verileri silme zamanlar. Kasaya karşılık gelen DNS kaydını da saklama aralığı süresince korunur.
 
-### <a name="soft-delete-retention-period"></a>Saklama dönemi Soft-Sil
+### <a name="soft-delete-retention-period"></a>Geçici silme saklama süresi
 
-Geçici silinen kaynaklar ayarlanmış saat, 90 gün boyunca saklanır. Soft-delete bekletme aralığı boyunca aşağıdaki Uygula:
+Geçici silinen kaynaklar süre 90 gün boyunca belirli bir süre için korunur. Geçici silme bekletme aralığı boyunca aşağıdaki Uygula:
 
-- Tüm anahtar kasalarını ve bunlarla ilgili erişim silme ve kurtarma bilgileri yanı sıra, abonelik için geçici silme durumunda anahtar kasası nesneleri listeleyebilir.
-    - Yalnızca özel izinlere sahip kullanıcılar, silinen kasalarını listeleyebilirsiniz. Kullanıcılarımızın silinmiş işleme kasaları için bu özel izinlere sahip olan özel bir rol oluşturmanızı öneririz.
-- Aynı ada sahip bir anahtar kasası aynı konumda oluşturulamıyor; Bu anahtar kasası ile aynı ada ve silinmiş durumda olduğu bir nesne içeriyorsa, buna bağlı olarak, bir anahtar kasası nesne belirli bir kasada oluşturulamıyor 
-- Özellikle ayrıcalıklı bir kullanıcı bir anahtar kasası veya anahtar kasası nesne, karşılık gelen proxy kaynak Kurtar komutunda vererek geri yükleyebilirsiniz.
-    - Kullanıcı, kaynak grubu altında bir anahtar kasası oluşturmak için ayrıcalığına sahip olduğunuz özel rol üyesi kasa geri yükleyebilirsiniz.
-- Yalnızca özellikle ayrıcalıklı kullanıcı zorla bir anahtar kasası veya anahtar kasası nesne silme komutunu karşılık gelen proxy kaynakta yayımlayarak silebilir.
+- Tüm anahtar kasalarını ve bunlarla ilgili erişim silme ve kurtarma bilgilerin yanı sıra, abonelik için geçici silme durumu anahtar kasası nesnelerindeki listeleyebilir.
+    - Yalnızca özel izinlere sahip kullanıcılar, silinen kasa listeleyebilirsiniz. Kullanıcılarımızın silinmiş işleme kasaları için bu özel izinler ile özel bir rol oluşturmanız önerilir.
+- Aynı ada sahip bir anahtar kasası aynı konumda oluşturulamıyor; Bu anahtar kasası ile aynı ada ve silinmiş bir durumda olduğu bir nesne içeriyorsa, karşılık olarak, bir anahtar kasası nesne belirli bir kasada oluşturulamıyor 
+- Yalnızca özel ayrıcalıklı bir kullanıcısı bir anahtar kasası veya anahtar kasası nesne, karşılık gelen proxy kaynak kurtarma komutu göndererek geri yükleyebilirsiniz.
+    - Kullanıcı kasa ayrıcalığı kaynak grubunda bir key vault oluşturma için olan özel rolünün üyesi geri yükleyebilirsiniz.
+- Yalnızca özel ayrıcalıklı bir kullanıcısı zorla bir anahtar kasası veya anahtar kasası nesne karşılık gelen proxy kaynak üzerinde bir silme komutu göndererek silebilir.
 
-Bir anahtar kasası veya anahtar kasası nesne kurtarılan sürece, bekletme aralığı sona erdiğinde hizmeti geçici olarak silinen anahtar kasası veya anahtar kasası nesne ve içeriğini temizleme gerçekleştirir. Kaynak silme yeniden değil.
+Bir anahtar kasası veya anahtar kasası nesne, kurtarılır sürece, bekletme aralığın sonunda bir temizleme işlemini geçici silinen anahtar kasasını veya anahtar kasası nesne ve içeriğini hizmet gerçekleştirir. Kaynak silme işlemini yeniden değil.
 
 ### <a name="permitted-purge"></a>İzin verilen temizleme
 
-Kalıcı olarak silmek, temizleme, bir anahtar kasası proxy kaynak üzerinde bir POST işlemi aracılığıyla mümkündür ve özel ayrıcalıklar gerektirir. Genellikle, yalnızca abonelik sahibi bir anahtar kasası temizleme mümkün olacaktır. Bu kasaya hemen ve kurtarılamaz silinmesini gönderme işlemini tetikler. 
+Kalıcı olarak siliniyor, temizleme, anahtar kasası proxy kaynak üzerinde bir POST işlemi aracılığıyla mümkündür ve özel ayrıcalıklar gerektirir. Genellikle, yalnızca abonelik sahibi, bir anahtar kasasını Temizle mümkün olacaktır. GÖNDERME işlemi, kasa anında ve kurtarılamaz silme işlemi tetikler. 
 
-Azure aboneliği olarak işaretlendiği takdirde bu konuda bir özel durumdur *silinemez*. Bu durumda, yalnızca hizmet gerçek silme sonra gerçekleştirebilir ve zamanlanmış bir işlem olarak bunu yapar. 
+Azure aboneliği olarak işaretlenmiş olan bu konuda bir özel durumdur *silinemez*. Bu durumda, yalnızca hizmet ardından gerçek silme işlemini gerçekleştirebilir ve zamanlanmış bir işlem olarak bunu yapar. 
 
-### <a name="billing-implications"></a>Faturalama etkileri
+### <a name="billing-implications"></a>Faturalandırma etkileri
 
-Genel olarak, bir nesne (bir anahtar kasası veya bir anahtar veya gizli) silinmiş durumda olduğunda, yalnızca iki işlem olmadığından olası: 'temizleme' ve 'Kurtar'. Diğer tüm işlemler başarısız olur. Bu nedenle, nesne mevcut olsa bile, hiçbir işlemleri gerçekleştirilebilir ve bu nedenle hiçbir kullanım oluşur, böylece hiçbir fatura. Özel durumlar vardır ancak takip:
+Genel olarak, bir nesne (bir anahtar kasası veya bir anahtar veya gizli anahtarı) silinmiş durumda olduğunda yalnızca iki işlem olası: 'Temizle' ve 'Kurtar'. Diğer tüm işlemler başarısız olur. Bu nedenle, nesne mevcut olsa da, hiçbir işlemleri gerçekleştirilebilir ve bu nedenle hiçbir kullanım gerçekleşir, bu nedenle hiçbir fatura. Ancak, özel durumlar takip ettiğiniz:
 
-- 'temizleme' ve 'Kurtar' eylemleri normal anahtar kasası işlemleri sayılacaktır ve Fatura edilecek.
-- Nesne bir HSM anahtar ise, bir anahtar sürüm son 30 gün içinde kullandıysanız her ay ücretsiz olarak başına anahtar sürümü 'HSM korumalı anahtara' ücret uygulanır. Nesne, hiçbir işlem gerçekleştirilebilir silinmiş durumda olduğundan bundan sonra bu nedenle ücretsiz olarak uygulanır.
+- 'Temizle' ve 'geri' eylemleri normal anahtar kasası işlemleri hesaplanır ve faturalandırılır.
+- Nesne bir HSM anahtarı ise son 30 gün içinde bir anahtar sürümü kullandıysanız 'HSM korumalı anahtara' ücretsiz olarak aylık ücreti anahtar sürümü başına uygulanır. Nesne hiçbir işlem, karşı gerçekleştirilebilir silinmiş durumda olduğundan bundan sonra bu nedenle ücret uygulanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aşağıdaki iki kılavuzları soft-delete kullanmak için birincil kullanım senaryoları sunar.
+Geçici silmeyi kullanma için birincil kullanım senaryoları aşağıdaki iki kılavuzları sunar.
 
 - [Key Vault geçici silmeyi PowerShell ile kullanma](key-vault-soft-delete-powershell.md) 
 - [Key Vault geçici silmeyi CLI ile kullanma](key-vault-soft-delete-cli.md)

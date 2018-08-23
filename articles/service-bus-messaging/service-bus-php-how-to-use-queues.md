@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: 3514812f7f087582035dad5d9a4d620652aa4da9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b2bf67ac6943c80e5bf6ae94eca346fe964f95e6
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531631"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42056444"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>PHP ile Service Bus kuyruklarını kullanma
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -162,13 +162,13 @@ Service Bus kuyrukları, [Standart katmanda](service-bus-premium-messaging.md) m
 
 ## <a name="receive-messages-from-a-queue"></a>Bir kuyruktan ileti alma
 
-En iyi yolu, bir kuyruktan ileti almak için kullanılacak olan bir `ServiceBusRestProxy->receiveQueueMessage` yöntemi. İletileri iki farklı modda alınan: [ *ReceiveAndDelete* ](/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) ve [ *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode.peeklock). **PeekLock** varsayılan değerdir.
+En iyi yolu, bir kuyruktan ileti almak için kullanılacak olan bir `ServiceBusRestProxy->receiveQueueMessage` yöntemi. İletileri iki farklı modda alınan: [ *ReceiveAndDelete* ](/dotnet/api/microsoft.servicebus.messaging.receivemode) ve [ *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock). **PeekLock** varsayılan değerdir.
 
-Kullanırken [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) modunda almak bir tek işlem; diğer bir deyişle, Service Bus kuyruk iletiye yönelik Okuma isteği aldığında, iletiyi kullanılıyor olarak işaretler ve uygulamaya döndürür. [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) modu, en basit modeldir ve uygulamanın hata oluştuğunda bir iletinin işlenmemesine izin verebileceği senaryolarda en iyi şekilde çalışır. Bu durumu daha iyi anlamak için müşterinin bir alma isteği bildirdiğini ve bu isteğin işlenmeden çöktüğünü varsayın. Service Bus iletiyi kullanılıyor olarak işaretleyeceğinden, uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında ardından onu çökmenin öncesinde kullanılan iletiyi atlamış olur.
+Kullanırken [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) modunda almak bir tek işlem; diğer bir deyişle, Service Bus kuyruk iletiye yönelik Okuma isteği aldığında, iletiyi kullanılıyor olarak işaretler ve uygulamaya döndürür. [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) modu, en basit modeldir ve uygulamanın hata oluştuğunda bir iletinin işlenmemesine izin verebileceği senaryolarda en iyi şekilde çalışır. Bu durumu daha iyi anlamak için müşterinin bir alma isteği bildirdiğini ve bu isteğin işlenmeden çöktüğünü varsayın. Service Bus iletiyi kullanılıyor olarak işaretleyeceğinden, uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında ardından onu çökmenin öncesinde kullanılan iletiyi atlamış olur.
 
-Varsayılan [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode.peeklock) bir mesaj modu, atlanan iletilere veremeyen uygulamaları desteklemenin mümkün hale getiren bir iki aşamalı işlemi haline gelir. Service Bus bir istek aldığında, kullanılacak sonraki iletiyi bulur, diğer tüketicilerin iletiyi almasını engellemek için kilitler ve ardından uygulamaya döndürür. Uygulama iletiyi işlemeyi tamamladıktan sonra (veya güvenilir bir şekilde işlemek üzere depolar sonra) alınan iletinin geçirerek alma işleminin ikinci aşamasını tamamlar `ServiceBusRestProxy->deleteMessage`. Service Bus gördüğünde `deleteMessage` çağrı, bu iletiyi kullanılıyor olarak işaretler ve kuyruktan kaldırın.
+Varsayılan [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) bir mesaj modu, atlanan iletilere veremeyen uygulamaları desteklemenin mümkün hale getiren bir iki aşamalı işlemi haline gelir. Service Bus bir istek aldığında, kullanılacak sonraki iletiyi bulur, diğer tüketicilerin iletiyi almasını engellemek için kilitler ve ardından uygulamaya döndürür. Uygulama iletiyi işlemeyi tamamladıktan sonra (veya güvenilir bir şekilde işlemek üzere depolar sonra) alınan iletinin geçirerek alma işleminin ikinci aşamasını tamamlar `ServiceBusRestProxy->deleteMessage`. Service Bus gördüğünde `deleteMessage` çağrı, bu iletiyi kullanılıyor olarak işaretler ve kuyruktan kaldırın.
 
-Aşağıdaki örnek almak ve bir iletiyi kullanarak işlemek nasıl gösterir [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode.peeklock) modu (varsayılan mod).
+Aşağıdaki örnek almak ve bir iletiyi kullanarak işlemek nasıl gösterir [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) modu (varsayılan mod).
 
 ```php
 require_once 'vendor/autoload.php';

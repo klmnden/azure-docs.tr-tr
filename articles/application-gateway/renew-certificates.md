@@ -1,37 +1,37 @@
 ---
-title: Bir Azure uygulama ağ geçidi Sertifikayı Yenile
+title: Azure Application Gateway sertifikasını yenileme
 description: Bir uygulama ağ geçidi dinleyicisi ile ilişkili bir sertifikayı yenilemek öğrenin.
 services: application-gateway
 author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 8/15/2018
 ms.author: victorh
-ms.openlocfilehash: b44a57fe8ebcc985d3ab66ea04936a1558d00863
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 48bd548ec977d2dc4dd3b5b2f34df04562a6e918
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598275"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42056977"
 ---
-# <a name="renew-application-gateway-certificates"></a>Uygulama ağ geçidi sertifikaları yenile
+# <a name="renew-application-gateway-certificates"></a>Application Gateway sertifikaları yenile
 
-Belirli bir noktada, uygulama ağ geçidi SSL şifrelemesi için yapılandırılmışsa, sertifikaları yenilemek gerekir.
+Belirli bir noktada, application gateway SSL şifrelemesi için yapılandırılmışsa, sertifikalarını yenilemesi gerekir.
 
-Ya da Azure portal, Azure PowerShell veya Azure CLI kullanarak bir dinleyici ile ilişkili bir sertifikayı yenilemek:
+Ya da Azure portalı, Azure PowerShell veya Azure CLI kullanarak bir dinleyici ile ilişkili bir sertifika yenileme yapabilir:
 
-## <a name="azure-portal"></a>Azure portalına
+## <a name="azure-portal"></a>Azure portal
 
-Portaldan bir dinleyici sertifikayı yenilemek için uygulama ağ geçidi dinleyicileri gidin. Yenilenmesi ve ardından gereken bir sertifikası var olan dinleyiciyi tıklatın **yenileme veya düzenleme Seçili sertifika**.
+Portaldan bir dinleyici sertifikayı yenilemek için uygulama ağ geçidi dinleyicilere gidin. Yenilenmesi ve ardından gereken bir sertifikaya sahip bir dinleyici tıklayın **Yenile veya Düzenle seçilen sertifika**.
 
-![Sertifikayı Yenile](media/renew-certificate/ssl-cert.png)
+![Sertifikayı yenile](media/renew-certificate/ssl-cert.png)
 
-Yeni PFX sertifikanızı karşıya yükleme, bir ad verin, parolayı yazın ve ardından **kaydetmek**.
+Yeni bir PFX sertifikasını karşıya yükleyin, bir ad verin, parolayı yazın ve ardından **Kaydet**.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell kullanarak sertifikanızı yenilemek için aşağıdaki cmdlet'i kullanın:
+Azure PowerShell kullanarak sertifikanızı yenilemek için aşağıdaki betiği kullanın:
 
 ```azurepowershell-interactive
 $appgw = Get-AzureRmApplicationGateway `
@@ -45,6 +45,8 @@ $password = ConvertTo-SecureString `
 
 set-azureRmApplicationGatewaySSLCertificate -Name <oldcertname> `
 -ApplicationGateway $appgw -CertificateFile <newcertPath> -Password $password
+
+Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -59,4 +61,4 @@ az network application-gateway ssl-cert update \
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-SSL boşaltma Azure uygulama ağ geçidi ile yapılandırma hakkında bilgi edinmek için [SSL boşaltma yapılandırın](application-gateway-ssl-portal.md)
+SSL boşaltma Azure Application Gateway ile yapılandırma konusunda bilgi için bkz: [SSL yük boşaltma yapılandırın](application-gateway-ssl-portal.md)

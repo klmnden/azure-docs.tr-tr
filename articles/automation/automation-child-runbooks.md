@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/04/2018
+ms.date: 08/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 582513e7e556859e70c1af9c4f6179e1d60e0139
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 2060239b27ef05c34ea6f5b388b4c4086a44a826
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216550"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42057128"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure automation'da alt runbook'lar
 
@@ -24,7 +24,7 @@ Diğer runbook'lar tarafından kullanılabilen ayrı işleve sahip yeniden kulla
 
 Başka bir runbook'tan bir runbook'u satır içi çağrılacak runbook adını kullanın ve tam olarak, bir etkinlik veya cmdlet'i kullanırken yaptığınız gibi parametreleri için değerler sağlayın.  Aynı Otomasyon hesaptaki tüm runbook'lar tarafından bu şekilde kullanılacak. Üst runbook bir sonraki satıra geçmeden önce alt runbook'un bekler ve herhangi bir çıkış doğrudan üst öğeye döndürülür.
 
-Bir runbook'u satır içi çağırdığınızda üst runbook ile aynı işi çalıştırır. Çalıştırdığı alt runbook'un iş geçmişinde hiçbir belirti olmaz. Tüm özel durumlar ve akış çıkışları alt runbook'tan üst öğesi ile ilişkilendirilecektir. Bu daha az iş çalıştırılır ve bunları izlemek ve alt runbook'un ve akış çıkışı birinin tarafından oluşturulan özel durumlar üst işleriyle ilişkili olduğundan sorun giderme için daha kolay hale getirir.
+Bir runbook'u satır içi çağırdığınızda üst runbook ile aynı işi çalıştırır. Çalıştırdığı alt runbook'un iş geçmişinde hiçbir belirti olmaz. Tüm özel durumlar ve akış çıkışları alt runbook'tan üst öğesi ile ilişkilendirilecektir. Bu daha az iş çalıştırılır ve bunları izlemek ve alt runbook tarafından karşılaşılan özel durumlar bu yana sorun giderme için daha kolay hale getirir ve kendi akış çıkışları üst işle ilişkili olan.
 
 Bir runbook yayımlandığında, çağıran alt runbook'ları zaten yayımlanması gerekir. Bu durum, bir runbook derlendiğinde, Azure Otomasyonu alt runbook'larla bir ilişkilendirme oluşturur çünkü. Değilseniz, üst runbook doğru şekilde yayımlamak için görünür ancak başlatıldığında bir özel durum oluşturur. Böyle bir durumda, üst runbook alt runbook'ları doğru bir şekilde başvurmak için yayımlayabilirsiniz. İlişki zaten oluşturulmuş olduğundan tüm alt runbook'lardan biri değiştirilirse üst runbook'u yeniden yayımlamanız gerekmez.
 
@@ -42,7 +42,7 @@ Zaman sipariş sağlasa da yayımlama:
 
 * Runbook'ları Yayımla sırasını yalnızca PowerShell iş akışı ve grafik PowerShell iş akışı runbook'ları için önemlidir.
 
-Satır içi yürütme kullanarak bir grafik veya PowerShell iş akışı alt runbook'u çağırmanın, yalnızca runbook'un adını kullanın.  Bir PowerShell alt runbook'u çağırmanın, size gereken öncesinde adıyla *.\\*  betiği yerel dizinde bulunduğunu belirtmek için. 
+Satır içi yürütme kullanarak bir grafik veya PowerShell iş akışı alt runbook'u çağırmanın, yalnızca runbook'un adını kullanın.  Bir PowerShell alt runbook'u çağırmanın, adıyla başlamalıdır *.\\*  betiği yerel dizinde bulunduğunu belirtmek için.
 
 ### <a name="example"></a>Örnek
 
@@ -72,28 +72,39 @@ Alt runbook'ları çıktısını alınmadı güvenilir bir şekilde zamanlama ne
 
 Cmdlet ile başlatılan bir alt runbook için parametreler açıklandığı gibi karma tablosu olarak sağlanır [Runbook parametreleri](automation-starting-a-runbook.md#runbook-parameters). Yalnızca basit veri türleri kullanılabilir. Ardından runbook karmaşık veri türüne sahip bir parametreye sahipse, satır içi çağrılmalıdır.
 
+Birden çok aboneliği ile çalışıyorsanız, abonelik bağlamına alt runbook'ları çağrılırken kaybolmuş olabilir. Abonelik bağlamına alt runbook'larına geçirilir emin olmak için ekleme `DefaultProfile` cmdlet'i ve ona geçiş bağlam parametresi.
+
 ### <a name="example"></a>Örnek
 
-Aşağıdaki örnek, parametrelerle bir alt runbook başlatır ve Start-AzureRmAutomationRunbook kullanarak tamamlanmasını bekler-parametre bekleyin. Tamamlandığında, alt runbook'un çıktısını toplanır. Kullanılacak `Start-AzureRmAutomationRunbook` Azure aboneliğinize kimliğini doğrulaması gerekir.
+Aşağıdaki örnek, parametrelerle bir alt runbook başlatır ve Start-AzureRmAutomationRunbook kullanarak tamamlanmasını bekler-parametre bekleyin. Tamamlandığında, alt runbook'un çıktısını toplanır. Kullanılacak `Start-AzureRmAutomationRunbook`, Azure aboneliğiniz için kimlik doğrulaması gerekir.
 
 ```azurepowershell-interactive
 # Connect to Azure with RunAs account
-$conn = Get-AutomationConnection -Name "AzureRunAsConnection"
+$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
-$null = Add-AzureRmAccount `
-  -ServicePrincipal `
-  -TenantId $conn.TenantId `
-  -ApplicationId $conn.ApplicationId `
-  -CertificateThumbprint $conn.CertificateThumbprint
+Add-AzureRmAccount `
+    -ServicePrincipal `
+    -TenantId $ServicePrincipalConnection.TenantId `
+    -ApplicationId $ServicePrincipalConnection.ApplicationId `
+    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+
+$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
 
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
-$joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResourceGroupName "LabRG" –Parameters $params –wait
+
+Start-AzureRmAutomationRunbook `
+    –AutomationAccountName 'MyAutomationAccount' `
+    –Name 'Test-ChildRunbook' `
+    -ResourceGroupName 'LabRG' `
+    -DefaultProfile $AzureContext `
+    –Parameters $params –wait
 ```
 
 ## <a name="comparison-of-methods-for-calling-a-child-runbook"></a>Bir alt runbook çağırma yöntemlerinin karşılaştırılması
+
 Aşağıdaki tabloda, başka bir runbook'tan bir runbook'u çağırmak için iki yöntem arasındaki farklar özetlenmektedir.
 
-|  | Satır içi | Cmdlet |
+|  | Satır İçi | Cmdlet |
 |:--- |:--- |:--- |
 | İş |Alt runbook'lar üst ile aynı işi çalıştırın. |Alt runbook için ayrı bir iş oluşturulur. |
 | Yürütme |Üst runbook alt runbook devam etmeden önce tamamlanmasını bekler. |Üst runbook alt runbook başlatıldıktan hemen devam *veya* üst runbook alt işi tamamlamak bekler. |

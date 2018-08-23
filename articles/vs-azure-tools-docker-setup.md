@@ -1,6 +1,6 @@
 ---
-title: Docker ana bilgisayar ile VirtualBox yapılandırma | Microsoft Docs
-description: Docker makine ve VirtualBox kullanarak varsayılan Docker örneği yapılandırmak için adım adım yönergeler
+title: Bir Docker konağı yapılandırmak VirtualBox ile | Microsoft Docs
+description: Docker makinesi ve VirtualBox kullanarak varsayılan Docker örneği yapılandırmak için adım adım yönergeler
 services: azure-container-service
 documentationcenter: na
 author: mlearned
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
-ms.openlocfilehash: 11e238fa901a164df1dfd896e38df828601e650b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7c78f27fa948c15202e83df4ed42a805a414a72e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30190407"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42061089"
 ---
-# <a name="configure-a-docker-host-with-virtualbox"></a>Docker ana bilgisayar ile VirtualBox yapılandırma
+# <a name="configure-a-docker-host-with-virtualbox"></a>Bir Docker konağı VirtualBox ile yapılandırma
 ## <a name="overview"></a>Genel Bakış
-Bu makalede, Docker makine ve VirtualBox kullanarak varsayılan Docker örneği yapılandırırken size rehberlik eder. Kullanıyorsanız, [Windows için Docker beta](http://beta.docker.com/), bu yapılandırma gerekli değildir.
+Bu makalede, Docker Machine ve VirtualBox kullanarak varsayılan Docker örneği yapılandırırken size kılavuzluk eder. Kullanıyorsanız [için Docker Windows](https://www.docker.com/products/docker-desktop), bu yapılandırma gerekli değildir.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Aşağıdaki araçları yüklü olması gerekir.
+Aşağıdaki araçlar yüklü olması gerekir.
 
-* [Docker Toolbox](https://github.com/docker/toolbox/releases)
+* [Docker araç kutusu](https://github.com/docker/toolbox/releases)
 
-## <a name="configuring-the-docker-client-with-windows-powershell"></a>Windows PowerShell ile Docker istemci yapılandırma
+## <a name="configuring-the-docker-client-with-windows-powershell"></a>Windows PowerShell ile Docker İstemcisi'ni yapılandırma
 Docker istemciyi yapılandırmak için yalnızca Windows PowerShell'i açın ve aşağıdaki adımları gerçekleştirin:
 
 1. Bir varsayılan docker ana bilgisayar örneği oluşturun.
@@ -38,29 +38,29 @@ Docker istemciyi yapılandırmak için yalnızca Windows PowerShell'i açın ve 
     ```PowerShell
     docker-machine create --driver virtualbox default
     ```
-2. Varsayılan örnek yapılandırılmış ve çalışıyor olduğunu doğrulayın. (Çalışan'default ' adlı bir örneği görmeniz gerekir.
+2. Varsayılan örnek yapılandırılmış ve çalışıyor olduğunu doğrulayın. (Çalışan'default ' adlı bir örnek görmeniz gerekir.
    
     ```PowerShell
     docker-machine ls 
     ```
    
-    ![docker makine ls çıktı][0]
-3. Varsayılan geçerli konağı ayarlayın ve kabuğunuzu yapılandırın.
+    ![docker-machine ls çıkış][0]
+3. Varsayılan geçerli konak ve kabuğunuz yapılandırma.
    
     ```PowerShell
     docker-machine env default | Invoke-Expression
     ```
-4. Etkin Docker kapsayıcıları görüntüleyin. Liste boş olmalıdır.
+4. Etkin Docker kapsayıcılarını görüntüler. Liste boş olmalıdır.
    
     ```PowerShell
     docker ps
     ```
    
-    ![docker ps çıktı][1]
+    ![docker ps çıkış][1]
 
 > [!NOTE]
-> Geliştirme makinenizi yeniden başlatmanız her zaman yerel docker ana bilgisayarınız yeniden başlatmanız gerekir.
-> Bunu yapmak için bir komut isteminde aşağıdaki komutu sorun: `docker-machine start default`.
+> Geliştirme makinenizi yeniden başlatmanız her zaman, yerel bir docker konağı yeniden başlatmanız gerekir.
+> Bunu yapmak için bir komut isteminde aşağıdaki komutu yürütün.: `docker-machine start default`.
 > 
 > 
 

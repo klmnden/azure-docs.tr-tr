@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 6777842f3ca336eb4ae0d134cbc7ffd062bc6f29
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1a4be7b5caba751f0f90e865d8ef23e5e9c899d6
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37889672"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42056003"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure Load Balancer sorunlarını giderme
 
@@ -87,7 +87,7 @@ Arka uç havuzuna VM sağlıklı olarak listelenir ve sistem durumu araştırmal
 * Yük Dengeleyici arka havuzu sanal makine veri bağlantı noktasında dinleme yapmıyor 
 * Ağ güvenlik grubu bağlantı noktası yük dengeleyici arka havuzu sanal makinesi üzerinde engelliyor  
 * Yük Dengeleyici aynı sanal makine veya NIC'den erişme 
-* Internet yük dengeleyici VIP katılımcı yük dengeleyici arka uç havuzundan VM erişme 
+* Internet yük dengeleyici ön uç katılan yük dengeleyici arka uç havuzundan VM erişme 
 
 ### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>1. neden: Yük dengeleyici arka havuzu sanal makinesi veri bağlantı noktasında dinleme yapmıyor 
 VM veri trafiğe yanıt vermezse, ya da, hedef bağlantı noktası üzerinde katılan bir VM'nin, açık değil. Bunun nedeni olabilir veya VM Bu bağlantı noktasında dinleme yapmıyor. 
@@ -119,10 +119,11 @@ VM yük dengeleyicinin arka uçtaki barındırılan uygulamanız aynı ağ arabi
 * Uygulama başına ayrı bir arka uç havuzu Vm'leri yapılandırın. 
 * Her uygulama kendi ağ arabirimi ve IP adresi kullanarak şekilde uygulamayı çift NIC VM yapılandırın. 
 
-### <a name="cause-4-accessing-the-internal-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>4. neden: iç yük dengeleyici VIP'sine katılımcı yük dengeleyici arka uç havuzundan VM erişme
+### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>4. neden: iç yük dengeleyici ön uç katılan yük dengeleyici arka uç havuzundan VM erişme
 
-Bir ILB VIP bir sanal ağ içinde yapılandırılır ve bir katılımcı arka uç sanal makinelerinin iç yük dengeleyici VIP'sine erişmeyi çalışıyor, bu hatasına neden olur. Bu senaryo desteklenmez.
-**Çözüm** Application Gateway değerlendirmek veya diğer proxy'ler (örneğin, ngınx veya haproxy), bu tür bir senaryoyu desteklemek için. Application Gateway hakkında daha fazla bilgi için bkz. [Application Gateway genel bakış](../application-gateway/application-gateway-introduction.md)
+Flow kaynak VM eşlendiğinde bir iç Load Balancer bir sanal ağ içinde yapılandırılır ve bir katılımcı arka uç sanal makinelerinin iç yük dengeleyici ön ucuna erişmeye çalışıyor, hataları oluşabilir. Bu senaryo desteklenmez. Gözden geçirme [sınırlamaları](load-balancer-overview.md#limitations) hakkında ayrıntılı bilgi için.
+
+**Çözüm** proxy kullanma dahil olmak üzere bu senaryo, engellemesini kaldırmak için birkaç yolu vardır. Uygulama ağ geçidi veya 3 diğer taraf proxy'ler (örneğin, ngınx veya haproxy) değerlendirin. Application Gateway hakkında daha fazla bilgi için bkz. [Application Gateway genel bakış](../application-gateway/application-gateway-introduction.md)
 
 ## <a name="additional-network-captures"></a>Ek ağ yakalama
 Bir destek olayı açmaya karar verirseniz, daha hızlı bir çözüm için aşağıdaki bilgileri toplayın. Tek bir arka uç VM'den aşağıdaki testleri gerçekleştirmek için seçin:

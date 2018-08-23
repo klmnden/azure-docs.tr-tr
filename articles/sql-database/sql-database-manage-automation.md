@@ -1,6 +1,6 @@
 ---
-title: Azure otomasyonu kullanarak Azure SQL veritabanlarını yönetme | Microsoft Docs
-description: Nasıl Azure Otomasyon hizmetine ölçekte Azure SQL veritabanını yönetmek için kullanılabilir hakkında bilgi edinin.
+title: Azure Automation'ı kullanarak Azure SQL Database'leri yönetme | Microsoft Docs
+description: Nasıl Azure Otomasyonu uygun ölçekte Azure SQL veritabanlarını yönetmek için kullanılabilir hakkında bilgi edinin.
 services: sql-database, automation
 author: CarlRabeler
 manager: craigg
@@ -9,40 +9,40 @@ ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: a45a3e7e8c4381aa7df15628bfc57f5ad4f94100
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c68a493f439b5bc54cb04162de88ef31058d25f3
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647610"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42054545"
 ---
-# <a name="managing-azure-sql-databases-using-azure-automation"></a>Azure otomasyonu kullanarak Azure SQL veritabanlarını yönetme
-Bu kılavuz Azure Otomasyon hizmetine ve nasıl Azure SQL veritabanlarınızın yönetimini basitleştirmek için kullanılabilmesi için tanıtılacaktır.
+# <a name="managing-azure-sql-databases-using-azure-automation"></a>Azure Otomasyonu'nu kullanarak Azure SQL Database'leri yönetme
+Bu kılavuzda Azure Otomasyonu ve nasıl, Azure SQL veritabanlarınızı yönetimini basitleştirmek için kullanılabileceğini başlatacaktır.
 
 ## <a name="what-is-azure-automation"></a>Azure Otomasyonu Nedir?
-[Azure Otomasyonu](https://azure.microsoft.com/services/automation/) işlem Otomasyonu aracılığıyla bulut yönetimi basitleştirmek için bir Azure hizmetidir. Azure otomasyonu kullanarak, uzun süre çalışan, el ile hatasız ve sık tekrarlanan görevleri güvenilirlik, verimliliği ve kuruluşunuz için değer süre artırmak için otomatik olarak yapılabilir.
+[Azure Otomasyonu](https://azure.microsoft.com/services/automation/) bulut yönetimini işlem Otomasyonu ile basitleştirmeyi için bir Azure hizmetidir. Azure otomasyonu kullanarak, güvenilirlik, verimlilik ve kuruluşunuz için değer süresini artırmak için uzun süre çalışan, el ile hata yapmaya açık ve sık sık tekrarlanan görevleri otomatikleştirilebilir.
 
-Azure Otomasyonu, kuruluşunuz büyüdükçe gereksinimlerinizi karşılayacak şekilde ölçekler bir yüksek oranda güvenilir ve yüksek oranda kullanılabilir iş akışı yürütme altyapısı sağlar. Tam olarak gerekli görevleri ortaya böylece Azure Otomasyonu'nda işlemleri el ile 3. taraf sistemleri tarafından veya zamanlanan aralıklarla artırılabilir devre dışı.
+Azure Otomasyonu, kuruluşunuz büyüdükçe, gereksinimlerinizi karşılayacak şekilde ölçeklendirilen bir yüksek oranda güvenilir ve yüksek oranda kullanılabilir iş akışı yürütme altyapısı sağlar. Görevleri tam olarak gerekli olduğunda gerçekleşir. böylece Azure Automation'da işlemleri el ile 3. taraf sistemleri tarafından veya zamanlanan aralıklarla çalıştırmasının.
 
-İşletimsel ek yükü azaltmak ve boşaltmak BT / iş ekler çalışmaları odaklanmaya DevOps personel değer Azure Automation'ın otomatik olarak çalıştırılmak üzere bulut yönetim görevlerinizi taşıyarak.
+Alt işlemsel yük ve boş BT / iş kazandıran işe odaklanmak için DevOps personeli, Azure Otomasyonu tarafından otomatik olarak çalıştırılmak için bulut Yönetimi görevlerinizi taşıyarak değer.
 
-## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>Azure Otomasyonu Azure SQL veritabanlarını yönetme nasıl yardımcı olabilir?
-Azure SQL veritabanı yönetilebilir Azure Otomasyonu'nda kullanarak [Azure SQL Database PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/servicemanagement/azure.sqldatabase/v1.6.1/azure.sqldatabase/) kullanılabilir olan [Azure PowerShell Araçları](/powershell/azure/overview). Tüm SQL DB yönetim görevlerinizi hizmet içinde gerçekleştirebilmeniz azure Otomasyonu kutudan çıktığında, bu Azure SQL Database PowerShell cmdlet'leri vardır. Ayrıca Azure Automation bu cmdlet'leri Azure hizmeti ve 3. taraf sistemi arasında karmaşık görevleri otomatikleştirmek için diğer Azure Hizmetleri için cmdlet'leri ile eşleştirin.
+## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>Azure Otomasyonu Azure SQL veritabanlarına yönetmenize nasıl yardımcı olabilir?
+Azure SQL veritabanı yönetilen Azure Automation'da kullanarak [Azure SQL Database PowerShell cmdlet'leri](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#sql) kullanılabilir olan [Azure PowerShell Araçları](/powershell/azure/overview). Azure Otomasyonu bu Azure SQL Database PowerShell cmdlet'leri kullanılabilir yepyeni sahiptir; böylece tüm hizmet içinde SQL DB yönetim görevlerini gerçekleştirebilirsiniz. Ayrıca, Azure automation'da bu cmdlet'ler Azure Hizmetleri ve 3. taraf sistemleri arasında karmaşık görevleri otomatikleştirmek için diğer Azure Hizmetleri için cmdlet'leri eşleşebileceğini denetleyebilmesi.
 
-Azure Otomasyonu, ayrıca PowerShell kullanarak SQL komutları vererek SQL sunucuları ile doğrudan iletişim kurmak için özelliğine sahiptir.
+Azure Otomasyonu, PowerShell kullanarak SQL komutları vererek SQL sunucuları ile doğrudan iletişim kurabilir de vardır.
 
-[Azure Otomasyonu runbook Galerisi](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) Azure SQL veritabanları, diğer Azure Hizmetleri ve 3. taraf sistemi yönetimi otomatikleştirme başlamak için ürün ekibi ve topluluk runbook'lar çeşitli içerir. Galeri runbook'ları şunları içerir:
+[Azure Otomasyonu runbook Galerisi](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) Azure SQL veritabanları, diğer Azure Hizmetleri ve 3. taraf sistemleri yönetimini otomatik hale getirmeye başlamanın ürün ekibi ve topluluk runbook'lar çeşitli içerir. Galerideki runbook'ları şunları içerir:
 
-* [Bir SQL Server veritabanında SQL sorguları çalıştırma](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
-* [(Yukarı veya aşağı) dikey olarak ölçeklendirmek bir zamanlamaya göre bir Azure SQL veritabanı](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
-* [Veritabanı boyut üst sınırına yaklaşıyor varsa bir SQL tablosunu kesme](https://gallery.technet.microsoft.com/scriptcenter/Azure-Automation-Your-SQL-30f8736b)
-* [Yüksek oranda parçalanmış varsa bir Azure SQL veritabanı tablolarında dizin](https://gallery.technet.microsoft.com/scriptcenter/Indexes-tables-in-an-Azure-73a2a8ea)
+* [SQL Server veritabanına karşı SQL sorguları çalıştırma](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
+* [(Yukarı veya aşağı) dikey olarak ölçeklendirme bir zamanlamaya göre bir Azure SQL veritabanı](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
+* [Veritabanını en büyük boyutuna yaklaştığında, bir SQL tablosunu Kes](https://gallery.technet.microsoft.com/scriptcenter/Azure-Automation-Your-SQL-30f8736b)
+* [Yüksek oranda parçalanmış, Azure SQL veritabanı tablolarında dizin](https://gallery.technet.microsoft.com/scriptcenter/Indexes-tables-in-an-Azure-73a2a8ea)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Otomasyonu ve nasıl Azure SQL veritabanlarını yönetmek için kullanılmadan öğrendiğinize göre Azure Otomasyonu hakkında daha fazla bilgi için aşağıdaki bağlantıları izleyin.
+Azure Otomasyonu ve nasıl Azure SQL veritabanlarını yönetmek için kullanılmadan ilişkin temel bilgileri öğrendiğinize göre Azure Otomasyonu hakkında daha fazla bilgi edinmek için bu bağlantıları izleyin.
 
-* [Azure Otomasyonu genel bakış](../automation/automation-intro.md)
+* [Azure Otomasyonu'na genel bakış](../automation/automation-intro.md)
 * [İlk runbook’um](../automation/automation-first-runbook-graphical.md)
 * [Azure Otomasyonu öğrenme Haritası](https://azure.microsoft.com/documentation/learning-paths/automation/)
-* [Azure Otomasyonu: SQL aracınızı bulutta](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 
+* [Azure Otomasyonu: Bulutta SQL Aracısı](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 
 

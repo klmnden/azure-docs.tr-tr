@@ -1,9 +1,9 @@
 ---
-title: Sertifika Oluşturma yöntemleri
-description: Anahtar kasasına bir sertifika oluşturmak için yol.
+title: Sertifika oluşturma yöntemleri
+description: Anahtar Kasası'nda bir sertifika oluşturma yolları.
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
@@ -13,57 +13,57 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: 7b71c6a8daa97300ecf3b37ec6ab47207fece98e
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.author: bryanla
+ms.openlocfilehash: a2314eaac26688881dcf60f264f039081439db6a
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34058338"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42056165"
 ---
-# <a name="certificate-creation-methods"></a>Sertifika Oluşturma yöntemleri
+# <a name="certificate-creation-methods"></a>Sertifika oluşturma yöntemleri
 
- Bir anahtar kasası (KV) sertifika ya da oluşturulmuş ya bir anahtar kasası alınmış. KV sertifika oluşturulduğunda, özel anahtarı anahtar kasası içinde oluşturulur ve sertifika sahibinin hiçbir zaman kullanıma. Anahtar kasasına bir sertifika oluşturmak için yöntemler şunlardır:  
+ Bir anahtar Kasası'nı (KV) sertifika oluşturulabilir veya veya bir anahtar kasasının içine aktarılır. KV sertifika oluşturulduğunda özel anahtarı içinde anahtar kasası oluşturulur ve hiç sertifika sahibinin kullanıma sunulan. Anahtar Kasası'nda bir sertifika oluşturmak için yollar şunlardır:  
 
--   **Kendinden imzalı bir sertifika oluşturun:** bu genel-özel anahtar çifti oluşturur ve bir sertifika ile ilişkilendirin. Sertifika kendi anahtar tarafından imzalanması.  
+-   **Otomatik olarak imzalanan bir sertifika oluşturun:** bu ortak-özel anahtar çifti oluşturma ve bir sertifika ile ilişkilendirin. Sertifika kendi anahtarla imzalanacak.  
 
--    **El ile yeni bir sertifika oluşturun:** bu genel-özel anahtar çifti oluşturur ve bir X.509 sertifika imzalama isteği oluşturun. İmzalama isteği, kayıt yetkilisi ya da sertifika yetkilisi tarafından imzalanmış. Anahtar kasası KV sertifikada tamamlamak için sertifika Beklemede anahtar ile birleştirilebilir imzalı x509 eşleştirin. Bu yöntem daha fazla adım gerektirse de, özel anahtarı içinde oluşturulan ve anahtar Kasası'na kısıtlanmış çünkü bu, büyük güvenlik sağlar. Aşağıdaki diyagramda bu açıklanmıştır.  
+-    **El ile yeni bir sertifika oluşturun:** bu ortak-özel anahtar çifti oluşturma ve bir X.509 sertifika imzalama isteği oluşturun. İmzalama isteği, kayıt yetkilisi ya da sertifika yetkilisi tarafından imzalanması. Anahtar Kasası'nda KV sertifika tamamlamak için sertifika bekleyen anahtar ile birleştirilebilir imzalı x509 eşleştirin. Bu yöntem daha fazla adım gerektirse de, özel anahtarı içinde oluşturulur ve anahtar Kasası'na sınırlı olduğundan, daha fazla güvenlik sağlayan verin. Bu, aşağıdaki diyagramda açıklanmıştır.  
 
 ![Kendi sertifika yetkilisi ile bir sertifika oluşturun](media/certificate-authority-1.png)  
 
-Aşağıdaki açıklamaları önceki diyagramda yeşil harflerin adımlarda karşılık gelir.
+Aşağıdaki açıklamalar önceki şemada yeşil yitirmiş adımları karşılık gelir.
 
-1. Yukarıdaki diyagramda uygulamanızı dahili olarak, anahtar kasasına bir anahtar oluşturarak başlayan bir sertifika oluşturuyor.
-2. Anahtar kasası uygulamanız için bir sertifika imzalama isteği (CSR) döndürür.
-3. Uygulamanız, seçilen CA CSR geçirir.
-4. İle seçilen CA yanıt bir bir X509 sertifika.
-5. Yeni sertifika oluşturulmasını bir birleşme ile X509 uygulamanızı tamamlar, CA'ın sertifikadan.
+1. Yukarıdaki diyagramda, uygulamanız dahili olarak, anahtar kasasına bir anahtar oluşturarak başlatan bir sertifika oluşturur.
+2. Key Vault, uygulamanız için bir sertifika imzalama isteği (CSR) döndürür.
+3. Uygulamanızı seçtiğiniz CA CSR'yi geçirir.
+4. Seçtiğiniz CA ile yanıt veren bir x X509 sertifika.
+5. Uygulamanızı yeni sertifika oluşturulmasını birleşmesi ile X509 tamamlandıktan Sertifika yetkilinizden sertifikası.
 
--   **Bir bilinen veren sağlayıcıyla bir sertifika oluşturun:** veren nesne oluşturma işleminin tek seferlik bir görevi gerçekleştirmek bu yöntem gerektirir. Bir veren nesne oluşturulduktan sonra size kasa anahtarı, adı KV sertifika ilkesinde başvurulabilir. Bu tür bir KV sertifika oluşturma isteği kasaya bir anahtar çifti oluşturur ve bir x509 almak için başvurulan veren nesnesinde bilgileri kullanarak veren sağlayıcısı hizmeti ile iletişim sertifika. Sertifika veren hizmetinden alınan ve KV tamamlamak için anahtar çifti ile birleştirilmiş x509 oluşturma sertifika.  
+-   **Bir bilinen veren sağlayıcısı ile bir sertifika oluşturun:** bu yöntem, bir veren nesne oluşturma tek seferlik bir görev gerektirir. Veren nesne oluşturulduktan sonra size key vault, adını KV sertifika ilkesinde başvurulabilir. Böyle bir KV sertifikası oluşturma isteği kasaya bir anahtar çifti oluşturur ve x x509 almak için başvurulan veren nesnesinde bilgileri kullanarak veren sağlayıcısı hizmeti ile iletişim sertifika. Sertifika veren hizmetinden alınır ve KV tamamlamak için anahtar çifti ile birleştirilmiş x509 oluşturma sertifika.  
 
-![Bir anahtar kasası ortaklık sertifika yetkilisi ile bir sertifika oluşturun](media/certificate-authority-2.png)  
+![Key Vault iş Birliği yaparak sertifika yetkilisi ile bir sertifika oluşturma](media/certificate-authority-2.png)  
 
-Aşağıdaki açıklamaları önceki diyagramda yeşil harflerin adımlarda karşılık gelir.
+Aşağıdaki açıklamalar önceki şemada yeşil yitirmiş adımları karşılık gelir.
 
-1. Yukarıdaki diyagramda uygulamanızı dahili olarak, anahtar kasasına bir anahtar oluşturarak başlayan bir sertifika oluşturuyor.
-2. Anahtar kasası gönderir ve CA SSL sertifika isteği.
-3. Uygulamanız, döngü ve bekleme işleminde sertifika tamamlanması için anahtar kasanız için yoklar. Anahtar kasası x509 ile CA'ın yanıtı aldığında sertifika oluşturma işlemi tamamlandıktan sertifika.
-4. CA anahtar Kasası'nın SSL sertifika isteği bir X509 ile yanıtlaması SSL sertifikası.
-5. X509 birleşme ile yeni sertifika oluşturmayı tamamlar CA sertifikası.
+1. Yukarıdaki diyagramda, uygulamanız dahili olarak, anahtar kasasına bir anahtar oluşturarak başlatan bir sertifika oluşturur.
+2. Key Vault gönderir ve SSL sertifikası istemek için CA.
+3. Uygulamanız, döngü ve bekleme işleminde anahtar kasanız için sertifika tamamlama için yoklar. Key Vault ile x509 CA'ın yanıtı aldığında sertifika oluşturma tamamlandığında, sertifika.
+4. CA ile x X509 SSL sertifika isteği Key Vault'un yanıtlaması SSL sertifikası.
+5. X509 bir birleşme ile yeni bir sertifika oluşturma işleminiz tamamlandıktan CA sertifikası.
 
 ## <a name="asynchronous-process"></a>Zaman uyumsuz işlem
-KV sertifika oluşturma zaman uyumsuz bir işlemdir. Bu işlem bir KV sertifika isteği oluşturmak ve 202 (kabul edilen) bir http durum kodunu döndürür. İsteğin durumunu, bu işlemi tarafından oluşturulan bekleyen nesne yoklayarak izlenebilir. Bekleyen nesnesinin tam URI konumu üstbilgisinde döndürülür.  
+Sertifika oluşturma KV zaman uyumsuz bir işlemdir. Bu işlem bir KV sertifika isteği oluşturmak ve bir 202 (kabul edildi) http durum kodu döndürür. Bu işlemi tarafından oluşturulan bekleyen nesne yoklayarak isteğinin durumu izlenebilir. Bekleyen nesnenin tam URI konum üst bilgisinde döndürülür.  
 
-KV sertifika oluşturma isteği tamamlandığında, bekleyen bir nesnenin durumu "" devam ediyor"tamamlandı" olarak değiştirir ve KV sertifika yeni bir sürümü oluşturulacak. Bu, geçerli sürümü olur.  
+KV sertifikası oluşturma isteği tamamlandığında, bekleyen bir nesnenin durumu "" devam ediyor"tamamlandı" olarak değiştirir ve KV sertifikanın yeni bir sürüm oluşturulur. Bu, geçerli sürümü olur.  
 
 ## <a name="first-creation"></a>İlk oluşturma
- KV sertifikayı ilk kez oluşturulduğunda, bir adreslenebilir anahtarı ve gizli da oluşturulduğunda, sertifikanın aynı ada sahip. Ad zaten kullanımda olduğundan, işlem 409 (Çakışma) bir http durum kodu ile başarısız olur.
-Adreslenebilir anahtarı ve gizli öznitelikleriyle KV sertifika öznitelikleri alın. Adreslenebilir anahtarı ve gizli bu yolla oluşturulan yönetilen anahtarlar ve, yaşam süresi anahtar kasası tarafından yönetilen gizli olarak işaretlenmiş. Yönetilen anahtarları ve gizli anahtarları salt okunurdur. Not: KV sertifikanın süresi dolmadan devre dışı bırakılırsa, karşılık gelen anahtarı ve gizli çalışamaz olur.  
+ KV sertifikayı ilk kez oluşturulduğunda bir adreslenebilir anahtar ve gizli dizi da oluşturulduğunda, sertifikanın aynı ada sahip. Adı zaten kullanımda, işlem 409 (Çakışma) bir http durum kodu ile başarısız olur.
+Adreslenebilir anahtar ve gizli dizi öznitelikleri KV sertifika öznitelikleri alın. Adreslenebilir anahtar ve gizli anahtarı bu şekilde oluşturulan yönetilen anahtarları ve gizli anahtarları, ömürlerinin Key Vault tarafından yönetildiğinden olarak işaretlenir. Yönetilen anahtarları ve gizli anahtarları salt okunurdur. Not: KV sertifika süresi dolana veya sözleşme devre dışı bırakıldı, karşılık gelen anahtar ve gizli dizi çalışamaz olur.  
 
- Bu bir KV sertifika oluşturmak için ilk işlemi ise bir ilke gereklidir.  Bir ilke da ile art arda sağlanabilir ilke kaynağı değiştirmek için işlemleri oluşturun. Bir ilke sağlanmazsa, hizmet ilkesi kaynakta KV sertifika sonraki bir sürümünü oluşturmak için kullanılır. İlerleme durumu, geçerli KV sertifikası ve karşılık gelen adreslenebilir anahtarı ve gizli anahtarı, sonraki bir sürümünü oluşturmak için bir istek iken kalır Not değişmedi.  
+ Bu bir KV sertifika oluşturmak için ilk işlemi ise bir ilke gereklidir.  Bir ilke ayrıca birbirini izleyen ile sağlanabilir oluşturma işlemleri ilke kaynağı değiştirmek için. Bir ilke sağlanmazsa, hizmet ilkesi kaynakta KV sertifika sonraki bir sürümünü oluşturmak için kullanılır. İlerlemeyi, geçerli KV sertifika ve ilgili adreslenebilir anahtar ve gizli dizi, sonraki bir sürümünü oluşturmak için bir istek olmakla birlikte kalan Not değişmedi.  
 
-## <a name="self-issued-certificate"></a>Kendi kendine sertifikayı
- Kendi kendine verilen bir sertifika oluşturmak için verenin adı olarak Ayarla "Kendi kendine" Sertifika İlkesi Sertifika İlkesi'nden aşağıdaki kod parçacığında gösterildiği gibi.  
+## <a name="self-issued-certificate"></a>Kendi kendine verilen sertifika
+ Kendi kendine verilen bir sertifika oluşturmak için verenin adı olarak ayarlayın "Kendi kendine" Sertifika İlkesi sertifika ilkesinden aşağıdaki kod parçacığında gösterildiği gibi.  
 
 ```  
 "issuer": {  
@@ -72,7 +72,7 @@ Adreslenebilir anahtarı ve gizli öznitelikleriyle KV sertifika öznitelikleri 
 
 ```  
 
- Verenin adı belirtilmezse, verenin adı "Bilinmeyen" olarak ayarlanır. Veren "Bilinmiyor" olduğunda, sertifika sahibinin el ile bir x509 almak gerekir güncelleştirmesini tercih veren sertifika ve sertifika oluşturma işlemini tamamlamak için nesne bekleyen anahtar kasası sertifikayla birleştirme ortak x509 sertifika.
+ Veren adı belirtilmezse, verenin adı "Bilinmeyen" olarak ayarlayın. Veren "Bilinmeyen" olduğunda, sertifika sahibinin el ile bir x509 istemeniz gerekir kendi tercih ettiğiniz bir verenden sertifika ve sertifika oluşturmayı tamamlamak için nesne bekleyen anahtar kasası sertifikası ile birleştirme ortak x509 sertifika.
 
 ```  
 "issuer": {  
@@ -81,20 +81,20 @@ Adreslenebilir anahtarı ve gizli öznitelikleriyle KV sertifika öznitelikleri 
 
 ```  
 
-## <a name="partnered-ca-providers"></a>CA ortaklık sağlayıcıları
-Sertifika oluşturma el ile tamamlanan veya kullanarak bir "Self" veren olabilir. Anahtar kasası ayrıca sertifikaları oluşturma işlemini basitleştirmek için belirli veren sağlayıcılarıyla ortakları. Aşağıdaki türde sertifikalar için anahtar kasasını bu iş ortağı veren sağlayıcılarıyla sıralanabilir.  
+## <a name="partnered-ca-providers"></a>İş ortaklığı yaptı CA sağlayıcıları
+Sertifika oluşturma el ile tamamlanan veya kullanarak bir "Self" veren olabilir. Key Vault ayrıca sertifikaları oluşturulmasını kolaylaştırmak için belirli veren sağlayıcıları ile iş Birliği yapıyor. Aşağıdaki sertifika türlerini, bu iş ortağı veren sağlayıcıları ile key vault için sıralanabilir.  
 
 |Sağlayıcı|Sertifika türü|  
 |--------------|----------------------|  
-|DigiCert|Anahtar kasası DigiCert OV veya EV SSL sertifikalarıyla sunar|
-|GlobalCert|Anahtar kasası GlobalSign OV veya EV SSL sertifikalarıyla sunar|
+|DigiCert|Key Vault, DigiCert OV ya da EV SSL sertifikalarıyla sunar.|
+|GlobalCert|Key Vault, GlobalSign OV ya da EV SSL sertifikalarıyla sunar.|
 
- Bu sertifikayı verenin sağlayıcıların coğrafi kullanılabilirlik dahil olmak üzere daha fazla bilgi için bkz: [sertifika verenler](/rest/api/keyvault/certificate-issuers.md).
+ Sertifikayı veren süresi kaynak olarak Azure anahtar kasası (KV) olarak temsil edilen bir varlıktır. KV sertifikanın kaynağı hakkında bilgi sağlamak için kullanılır; Verenin adı, sağlayıcı, kimlik bilgilerini ve diğer yönetimsel ayrıntıları.
 
-Bir sipariş veren sağlayıcı ile yerleştirildiğinde, uygun veya geçersiz kılma x509 sertifika uzantıları ve sertifika geçerlilik süresi sertifika türüne göre unutmayın.  
+Bir sipariş veren sağlayıcıyla yerleştirildiğinde, dikkate veya geçersiz kılma x509 sertifika uzantılarını ve sertifika geçerlilik süresi, sertifika türüne göre dikkat edin.  
 
  Yetkilendirme: sertifikaları ve oluşturma izni gerektirir.
 
  ## <a name="see-also"></a>Ayrıca Bkz.
- - [Anahtarları, gizli ve sertifikaları hakkında](about-keys-secrets-and-certificates.md)
- - [İzleme ve yönetme sertifika oluşturma](create-certificate-scenarios.md)
+ - [Anahtarlara, parolalara ve sertifikalara hakkında](about-keys-secrets-and-certificates.md)
+ - [Sertifika oluşturmayı izleme ve yönetme](create-certificate-scenarios.md)

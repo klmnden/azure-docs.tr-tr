@@ -1,7 +1,7 @@
 ---
-title: Çevirici Konuşma Öğreticisi (C#) | Microsoft Docs
+title: Translator Konuşma Öğreticisi (C#) | Microsoft Docs
 titleSuffix: Cognitive Services
-description: Gerçek zamanlı metin çevirmek için Çeviricisi konuşma hizmetini kullanmayı öğrenin.
+description: Translator konuşma tanıma hizmeti gerçek zamanlı metni çevirmek için kullanmayı öğrenin.
 services: cognitive-services
 author: v-jerkin
 manager: chriswendt1
@@ -11,68 +11,68 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e82c5c5ccfa6b7de8a9ec111140dad1a40ad44f6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 010ad8b5ceeaf046c8d361ff352e6058154a482d
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352288"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41987564"
 ---
 # <a name="tutorial-microsoft-translator-wpf-application-in-c"></a>Öğreticisi: C# Microsoft Translator WPF uygulaması
 
-Bu öğretici Microsoft Çeviricisi konuşma çeviri hizmeti, Microsoft Azure Bilişsel Hizmetleri'nde parçası kullanan bir etkileşimli konuşma çeviri araç turu ' dir. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Microsoft Translator konuşma çevirisi hizmeti olan Microsoft Azure Bilişsel Hizmetler'in bir parçası kullanan bir etkileşimli konuşma çevirisi araç turu öğreticidir. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
 > * İstek hizmeti tarafından desteklenen dillerin listesi
-> * Ses yakalamak ve hizmete iletme
-> * Alma ve çevirileri konuşma metin olarak görüntüleme
-> * İsteğe bağlı olarak bir konuşma (metin okuma) sürüm çeviri Yürüt
+> * Hizmetine aktarmanıza ve ses yakalama
+> * Alma ve konuşma çevirisi, metin olarak görüntüleme
+> * İsteğe bağlı olarak bir çeviri (metin okuma) sürümünü konuşulan Yürüt
 
-Bu uygulama için bir Visual Studio çözümü dosya [github'da](https://github.com/MicrosoftTranslator/SpeechTranslator).
+Bu uygulama için bir Visual Studio çözüm dosyası [github'da](https://github.com/MicrosoftTranslator/SpeechTranslator).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğretici için Visual Studio 2017 Community Edition dahil olmak üzere, herhangi bir sürümünü gerekir. 
+Bu öğreticide, Visual Studio 2017 Community Edition dahil olmak üzere, herhangi bir sürümü gerekir. 
 
-Visual Studio çözümü, ayrıca uygulama için bir yükleyici oluşturur. Gereksinim duyduğunuz [WiX Toolset](http://wixtoolset.org/) ve [WiX Toolset Visual Studio Uzantısı](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) bu işlevleri desteklemek için.
+Visual Studio çözümünü uygulama için bir yükleyici de oluşturur. Gereksinim duyduğunuz [WiX Toolset](http://wixtoolset.org/) ve [WiX Toolset Visual Studio Uzantısı](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) bu işlevselliği desteklemek için.
 
-Ayrıca Microsoft Azure panodan edinebilirsiniz Çeviricisi konuşma hizmeti için bir abonelik anahtarı gerekir. Ücretsiz fiyatlandırma katmanını kullanılabilir en fazla 10 saat başına ücret ödemeden aylık konuşma Çevir izin verir. Bu katman, Bu öğretici için yeterlidir.
+Ayrıca, Microsoft Azure panodan edinebilirsiniz Translator konuşma çevirisi hizmeti için bir abonelik anahtarı gerekir. Ücretsiz fiyatlandırma katmanı kullanılabilir 10 saate kadar her ay ücretsiz olarak konuşma Çevir olanak tanır. Bu katman, Bu öğretici için yeterlidir.
 
-Üçüncü taraf [JSON.Net Kitaplığı](https://www.newtonsoft.com/json) (Newtonsoft) de gereklidir. Her iki paketi geri yüklemesi onay kutularını Visual Studio Seçenekleri'nde etkinleştirilmişse, bu derleme NuGet tarafından otomatik olarak yüklenir.
+Üçüncü taraf [JSON.Net Kitaplığı](https://www.newtonsoft.com/json) (Newtonsoft) de gereklidir. Visual Studio seçenekleri iki paketi geri yükle onay etkinse bu derleme tarafından NuGet otomatik olarak yüklenir.
 
-## <a name="trying-the-translation-app"></a>Çeviri uygulaması çalışıyor
+## <a name="trying-the-translation-app"></a>Çeviri App'i denediğiniz
 
-Microsoft konuşma Çeviricisi çözüm açılıyor sonra (`SpeechTranslator.sln`) Visual Studio'da derleme ve uygulamayı başlatmak için F5 tuşuna basın.  Programın ana penceresi görüntülenir.
+Microsoft konuşma çevirmeni çözüm açılırken sonra (`SpeechTranslator.sln`) Visual Studio'da oluşturmak ve uygulamayı başlatmak için F5 tuşuna basın.  Programın ana penceresi görüntülenir.
 
-![[Konuşma Çeviricisi ana penceresi]](media/speech-translator-main-window.png)
+![[Konuşma çevirmeni ana pencere]](media/speech-translator-main-window.png)
 
-İlk çalıştırılmasında seçin **hesap ayarlarını** gelen **ayarları** menü burada gösterilen penceresini açın.
+İlk çalıştırılmasında seçin **hesap ayarları** gelen **ayarları** burada gösterilen penceresini açmak için menü.
 
-![[Konuşma Çeviricisi ana penceresi]](media/speech-translator-settings-window.png)
+![[Konuşma çevirmeni ana pencere]](media/speech-translator-settings-window.png)
 
-Microsoft Çeviricisi konuşma abonelik anahtarınızı bu penceresine yapıştırın ve ardından **kaydedin.** Anahtarınızı çalışmaları arasında kaydedilir.
+Bu pencerede, Microsoft Translator konuşma çevirisi abonelik anahtarınızı yapıştırın ve ardından tıklayın **kaydedin.** Anahtarınızı çalışmaları arasında kaydedilir.
 
-Tekrar ana penceresinde ses giriş ve çıkış aygıtları kullanın ve Kimden ve dilleri seçin. Çeviri ses duymak istiyorsanız emin olun **TTS** (metin okuma) seçeneği denetlenir. Seslendir, etkinleştirme kurgusal kısmi çevirileri yazarken görmek istiyorsanız **kısmi sonuçlar** seçeneği.
+Ses giriş ve çıkış cihazları ve Kimden ve dilleri istediğiniz tekrar ana penceresinde, seçin. Çeviri yalnızca sesi duymak istiyorsanız emin **TTS** (metin okuma) seçeneği denetlenir. Konuşurken, etkinleştirme kurgusal kısmi çevirileri yazarken görmek istiyorsanız **kısmi sonuçlar** seçeneği.
 
-Son olarak, tıklatın **Başlat** çeviri başlamak için. Çevrilen ve tanınan metni ve penceresinde görünür çevirisi izlemek istediğiniz bir şeyler söyleyin. TTS seçeneği etkinleştirilirse, ayrıca çeviri duyarsınız.
+Son olarak, tıklayın **Başlat** çeviri başlatmak için. Çevrilmiş ve tanınan metin ile penceresinde görünür çeviri izlemek istediğiniz bir şey varsayalım. TTS seçeneği etkinleştirilirse, ayrıca çeviri dinleyin.
 
-## <a name="obtaining-supported-languages"></a>Desteklenen diller alma
+## <a name="obtaining-supported-languages"></a>Desteklenen diller edinme
 
-Bu yazma sırasında Microsoft Translator hizmeti metin çevirisi için birden fazla beş düzine dilleri destekler. Küçük sayıda dildeki konuşma çevirisi için desteklenir. Bu tür diller hem transcription (konuşma tanıma) için ve metin okuma çıktı, birleştirici desteği gerektirir.
+Bu yazma sırasında Microsoft Translator hizmeti, metin çevirisi için birden fazla beş düzine dilleri destekler. Daha az sayıda dil, konuşma çevirisi için desteklenir. Gibi diller için her iki döküm (konuşma tanıma) ve metin okuma çıkışı, sentezi için desteği gerektirir.
 
-Diğer bir deyişle, konuşma çevirisi için kaynak dili bir transcription için desteklenen olması gerekir. Çıktı dil herhangi bir metin sonuç istediğiniz varsayılarak metin çevirisi için desteklenen dilleri olabilir. Konuşma çıktı istiyorsanız, yalnızca okuma için desteklenen bir dil içine çevirebilir.
+Diğer bir deyişle, konuşma çevirisi için kaynak dili döküm için desteklenen olmalıdır. Çıkış dil herhangi bir metin sonucu istediğiniz varsayılarak, metin çevirisi için desteklenen dilleri olabilir. Konuşma çıkışındaki istiyorsanız, yalnızca metin okuma için desteklenen bir dile çevirebilir.
 
-Microsoft zaman zaman yeni diller için destek ekleyebilir. Bu nedenle, sabit gerekir, uygulamanızda desteklenen diller bilgisi. Bunun yerine, çalışma zamanında desteklenen diller almanıza olanak tanır dilleri uç nokta Çeviricisi konuşma API sağlar. Bir veya daha fazla dilleri listesini almayı tercih edebilirsiniz: 
+Microsoft zaman zaman yeni diller için destek ekleyebilirsiniz. Bu nedenle, sabit gereken bilgisine sahip, uygulamanızda desteklenen diller. Bunun yerine, Translator konuşma tanıma API'si, desteklenen diller, çalışma zamanında almanızı sağlayan bir dilleri uç noktası sağlar. Bir veya daha fazla dil listesini almayı tercih edebilirsiniz: 
 
 | | |
 |-|-|
-|`speech`|Konuşma transcription için desteklenen diller. Konuşma çeviri için kaynak dilleri olabilir.|
-|`text`|Metni metin çevirisi için desteklenen diller. Metin çıktısı kullanıldığında konuşma Çeviri hedef dillerini olabilir.|
-|`tts`|Konuşma Birleştirici için desteklenen sesi, her biri belirli bir dil ile ilişkilendirilmiş. Metin okuma kullanıldığında konuşma Çeviri hedef dillerini olabilir. Belirli bir dile göre birden fazla ses desteklenmiyor olabilir.|
+|`speech`|Konuşma transkripsiyonu için desteklenen diller. Konuşma çevirisi için kaynak dilleri olabilir.|
+|`text`|Metni metin çevirisi için desteklenen diller. Metin çıktısı kullanıldığında, hedef diller konuşma çevirisi için olabilir.|
+|`tts`|Konuşma sentezi için desteklenen sesi, her biri belirli bir dil ile ilişkilendirilmiş. Metin okuma kullanıldığında, hedef diller konuşma çevirisi için olabilir. Belirli bir dile göre birden fazla ses desteklenmiyor olabilir.|
 
-Dilleri uç noktası bir abonelik anahtarı gerektirmez ve kullanım kotanız karşı sayılmaz. Kendi URI `https://dev.microsofttranslator.com/languages` ve sonuçları JSON biçiminde döndürür.
+Dilleri uç nokta bir abonelik anahtarı gerektirmez ve kullanımı kotanız sayılmaz. Kendi URI `https://dev.microsofttranslator.com/languages` ve sonuçları JSON biçiminde döndürür.
 
-Yöntem `UpdateLanguageSettingsAsync()` içinde `MainWindow.xaml.cs`gösterilen Burada, desteklenen dillerin listesini almak için dilleri endpoint çağırır. 
+Yöntem `UpdateLanguageSettingsAsync()` içinde `MainWindow.xaml.cs`gösterilen burada dilleri uç nokta desteklenen dillerin listesini almak için çağırır. 
 
 ```csharp
 private async Task UpdateLanguageSettingsAsync()
@@ -188,54 +188,54 @@ private async Task UpdateLanguageSettingsAsync()
 }
 ```
 
-Bu yöntem ilk üç tüm dilleri listesini isteyen dilleri uç noktasına bir HTTP isteği oluşturur (`text`, `speech`, ve `tts`).
+Bu yöntem ilk üç tüm diller listesini isteyen dilleri uç noktasına bir HTTP isteği oluşturur (`text`, `speech`, ve `tts`).
 
-İsteğin dilleri uç nokta kullanır `Accept-Languages` dilleri adlarını temsil dilini belirlemek için üstbilgi. Örneğin, "Almanca" "Deutsch" Almanca ve İspanyolca "Alemán" ve dillerin listesini şeklinde adlandırılır İngilizce konuşmacılar bilinen dil Bu farklılıklar yansıtır. Sistemin varsayılan dil bu başlığı için kullanılır.
+İsteğin dilleri uç noktası kullanan `Accept-Languages` dilleri adlarını temsil dil belirlemek için başlığı. Örneğin, "Almanca" "Deutsch" Almanca ve İspanyolca "Alemán" ve dillerin listesi şeklinde adlandırılır için İngilizce konuşmacıları bilinen dil bu farklılıkları yansıtır. Bu başlığı için sistemin varsayılan dil kullanılır.
 
-Sonra istek gönderildi ve alındı, JSON yanıtı yanıtı iç veri yapılarını ayrıştırılır. Bu yapıları, daha sonra gelen dil ve dil menüleri oluşturmak için kullanılır. 
+Sonra istek gönderildi ve alındı, JSON yanıtı, yanıt iç veri yapılarını ayrıştırılır. Bu yapılar, daha sonra gelen, dil ve dil menüleri oluşturmak için kullanılır. 
 
-Kullanıcı tarafından seçilen dil kullanılabilir sesi bağımlı olduğundan, henüz sesli menüsü Ayarla mümkün değildir. Bunun yerine, her dil için kullanılabilir seslerini daha sonra kullanılmak üzere depolanır. `ToLanguage_SelectionChanged` İşleyicisinde (aynı kaynak dosyası) çağırarak sesli menü daha sonra güncelleştirmeleri `UpdateVoiceComboBox()` zaman kullanıcının seçtiği bir dili. 
+Kullanıcı tarafından seçilen dil kullanılabilir sesi bağımlı olduğundan, henüz ses menüsünü ayarlamak mümkün değildir. Bunun yerine, her dil için kullanılabilir seslerini daha sonra kullanmak üzere depolanır. `ToLanguage_SelectionChanged` İşleyici (aynı kaynak dosyasındaki) çağırarak ses menü daha sonra güncelleştirmeleri `UpdateVoiceComboBox()` olduğunda kullanıcı için bir dil seçer. 
 
-Kullanıcı önce uygulamayı çalıştırılmamışsa yalnızca eğlenceli için bir dil rastgele seçilir. (Menü ayarlarını oturumlar arasında depolanır.)
+Kullanıcı önce uygulamayı çalıştırılmamışsa eğlencelik için bir dil için rastgele seçilir. (Menü ayarlarını oturumları arasında depolanır.)
 
 ## <a name="authenticating-requests"></a>İsteklerin kimliğini doğrulama
 
-Azure abonelik anahtarınızı değeri üst bilgi göndermesine gereken Microsoft Çeviricisi konuşma hizmete yönelik kimlik doğrulama için `Ocp-Apim-Subscription-Key` bağlantı isteği.
+Azure abonelik anahtarınızı değeri olarak üst bilgisinde göndermek için gereken Microsoft Translator konuşma çevirisi hizmeti için kimlik doğrulaması `Ocp-Apim-Subscription-Key` bağlantı isteği.
 
 ## <a name="translation-overview"></a>Çeviri genel bakış
 
-Çevir API (WebSockets endpoint `wss://dev.microsofttranslator.com/speech/translate`) kabul çevrilecek ses monophonic, 16 kHz, 16 bit dalga biçimi imzalı. Hizmet, hem tanınan ve çevrilmiş metin içeren bir veya daha fazla JSON yanıtlarını döndürür. Metin okuma istenirse bir ses dosyası gönderilir.
+Çevirme API (WebSockets uç nokta `wss://dev.microsofttranslator.com/speech/translate`) kabul çevrilemeyen ses monophonic, 16 kHz, 16 bit WAVE biçiminde imzalı. Hizmet, hem tanınan ve çevrilmiş metni içeren bir veya daha fazla JSON yanıtlarını döndürür. Ses dosyası metin okuma istenmişse gönderilir.
 
-Kullanıcı mikrofon/dosya giriş menüsünü kullanarak ses kaynağı seçer. Ses (örneğin, bir mikrofon) ses bir aygıttan veya gelebilir bir `.WAV` dosyası.
+Kullanıcı girişi mikrofon/Dosya menüsünü kullanarak ses kaynağından seçer. Ses (örneğin, bir mikrofon) ses cihazından veya gelen bir `.WAV` dosya.
 
-Yöntem `StartListening_Click` kullanıcı Başlat düğmesine tıkladığında çağrılır. Bu olay işleyicisi sırayla çağırır `Connect()` ses hizmeti API uç noktasına gönderme işlemini başlatmak için. `Connect()` Yöntemi aşağıdaki görevleri gerçekleştirir:
+Yöntem `StartListening_Click` kullanıcı Başlat düğmesine tıkladığında çağrılır. Bu olay işleyicisi, çağıran `Connect()` ses hizmeti API uç noktaya gönderme işlemi başlatmak için. `Connect()` Yöntemi aşağıdaki görevleri gerçekleştirir:
 
 
 > [!div class="checklist"]
-> * Onları doğrulamak ve ana penceresinden kullanıcı ayarlarını alma
-> * Ses giriş başlatma ve çıkış akışları
+> * Kullanıcı ayarları ana pencereden almak ve bunları doğrulayabilirsiniz
+> * Başlatma ses giriş ve çıkış akışları
 > * Çağırma `ConnectAsync()` gerisini işlemek için
 
-`ConnectAsync()`, aşağıdaki işlerinden sırayla işler:
+`ConnectAsync()`, aşağıdaki işlerini sırayla işler:
 
 > [!div class="checklist"]
-> * Azure abonelik anahtarı üstbilgisinde ile kimlik doğrulaması `Ocp-Apim-Subscription-Key`
+> * Üst bilgisindeki Azure abonelik anahtarı ile kimlik doğrulaması `Ocp-Apim-Subscription-Key`
 > * Oluşturma bir `SpeechClient` örneği (bulunan `SpeechClient.cs`) hizmetiyle iletişim kurmak için
-> * Başlatma `TextMessageDecoder` ve `BinaryMessageDecoder` örnekleri (bkz: `SpeechResponseDecoder.cs`) yanıtları işlemek için
-> * Ses aracılığıyla gönderme `SpeechClient` Çeviricisi konuşma hizmet örneği
+> * Başlatma `TextMessageDecoder` ve `BinaryMessageDecoder` örnekleri (bkz `SpeechResponseDecoder.cs`) yanıtlarını işlemek için
+> * Ses aracılığıyla gönderme `SpeechClient` Translator konuşma çevirisi hizmeti örneği
 > * Alma ve çeviri sonuçlarını işleme
 
-Sorumluluklarını `SpeechClient` daha az şunlardır:
+Sorumluluk `SpeechClient` daha az olan:
 
 > [!div class="checklist"]
-> * Çevirici konuşma hizmetine WebSocket bağlantı kuruluyor
-> * Ses veri göndermek ve yanıtları yuva aracılığıyla alma
+> * Translator konuşma çevirisi hizmeti bir WebSocket bağlantısı kurma
+> * Ses verisi gönderip yuva aracılığıyla yanıtlar
 
-## <a name="a-closer-look"></a>Daha ayrıntılı bir bakış
+## <a name="a-closer-look"></a>Daha yakından bakın
 
-Bunu şimdi nasıl uygulama bölümlerinin çeviri isteği gerçekleştirmek için birlikte çalışan daha anlaşılır olması gerekir. İlgili bölümleri odaklanan biraz kod bir göz atalım.
+Bunu şimdi uygulamanın parçaları birlikte çeviri isteği gerçekleştirmek için nasıl daha anlaşılır olması gerekir. İlgili bölümlerin üzerinde odaklanarak, bazı kod bir göz atalım.
 
-Kısmi bir sürümünü işte `Connect()` ses akışları ayarı gösterir:
+Kısmi bir hali aşağıdadır `Connect()` ses akışları ayarı gösterilmektedir:
 
 ```csharp
 private void Connect()
@@ -357,11 +357,11 @@ private void Connect()
 }
 ```
 
-Önemli bir bölümü `Connect()` oluşturulmasını içerir bir `SpeechClientOptions` örneği (bkz: `SpeechClientOptions.cs`) çeviri için seçenekleri tutmak için. Seçenekler (örneğin, kimlik doğrulama anahtarı ve ana bilgisayar adı) hizmetine bağlanmak için gereken bilgiler ve çevirisi kullanılan özellikler içerir. Üstbilgi alanları ve HTTP parametreleri tarafından sunulan alanları buraya Eşle [Çeviricisi konuşma API](http://docs.microsofttranslator.com/speech-translate.html).
+Önemli bir kısmı `Connect()` oluşturulmasını içeren bir `SpeechClientOptions` örneği (bkz `SpeechClientOptions.cs`) çeviri seçeneklerini tutmak için. Seçenekler (örneğin, kimlik doğrulama anahtarı ve ana bilgisayar adı) hizmetine bağlanmak için gereken bilgileri ve çeviri için kullanılan özellikler içerir. HTTP parametreleri tarafından kullanıma sunulan ve üstbilgi alanlarını buraya alanları eşleyin [Translator konuşma çevirisi API'sine](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference).
 
-`Connect()` Ayrıca, oluşturur ve ses giriş cihazlarını başlatır (değişken `sampleProvider`) çevrilecek konuşma kaynağı olarak görev yapar. Bu cihaz bir giriş donanım mikrofon gibi ya da WAVE ses verilerini içeren bir dosya değil.
+`Connect()` Ayrıca, oluşturur ve ses giriş cihazını başlatır (değişken `sampleProvider`) çevrilemeyen konuşma kaynağı olarak görev yapar. Bu, bir mikrofon gibi Giriş bir donanım cihazı veya WAVE ses veriler içeren bir dosya cihazdır.
 
-Burada `ConnectAsync()` başlatır yöntemi `speechClient` sınıfı ve metin ve ikili yanıtları hizmetinden işlemek için anonim işlevleri kancaları.
+İşte `ConnectAsync()` başlatan yöntem `speechClient` sınıfı ve metin ve ikili yanıtları hizmetinden işlemek için anonim işlevler bağlar.
 
 ```csharp
 private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAudioDuringTTS)
@@ -422,13 +422,13 @@ private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAu
 }
 ```
 
-Kimlik doğrulandıktan sonra yöntem oluşturur `SpeechClient` örneği. `SpeechClient` Sınıfı (içinde `SpeechClient.cs`) olay işleyicileri giriş ikili ve metin veri üzerine çağırır. Bağlantı hata verdiğinde veya keser ek işleyicileri çağrılır.
+Kimlik doğrulandıktan sonra yöntemi oluşturur `SpeechClient` örneği. `SpeechClient` Sınıfı (içinde `SpeechClient.cs`) giriş ikili ve metin verilerini sonra olay işleyicilerini çağırır. Ek işleyicileri bağlantısı hata verdiğinde veya bağlantısı kesildiğinde çağrılır.
 
-İkili veri TTS etkinleştirildiğinde hizmeti tarafından gönderilen ses (metin okuma çıktı) var. Metin kısmi veya tam bir çeviri konuşma metin verilerdir. Yöntemi bu iletileri işlemek için işlevlerini kancalarını başlatmasını sonra şekilde: penceresinde görüntüleyerek sonraki kayıttan yürütme ve metin depolayarak ses.
+Ses TTS etkin olduğunda hizmet tarafından gönderilen (metin okuma çıkış) ikili verilerdir. Metin kısmi veya tam bir çeviri konuşulan metnin verilerdir. Yöntemi bu iletileri işlemek için işlevlerini kancaları başlatıldıktan sonra bu nedenle: penceresinde görüntüleyerek daha sonra kayıttan yürütmek ve metin depolayarak ses.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu kod örneği, Çevirici konuşma API kullanımını gösteren zengin bir uygulamadır. Bu nedenle, Orta birkaç anlamak için taşıma bölümleri vardır. En önemli BITS ile gitti. Kalan için Visual Studio birkaç kesme noktalarını ayarlayın ve çeviri işleminde size kılavuzluk için eğitici olabilir. Örnek uygulama anladığınızda, kendi uygulamalarında Çeviricisi konuşma hizmetini kullanmak için donatılmış.
+Bu kod örneği, Translator konuşma tanıma API'si kullanımı gösteren zengin bir uygulamadır. Bu nedenle, anlamak için hareketli parçadan adil bir dizi vardır. En önemli bitleri öğrendiniz. Geri kalan için Visual Studio'da birkaç kesme noktaları ayarlamak ve çeviri işleminde size kılavuzluk için eğitici olabilir. Örnek uygulamayı anladığınızda, Translator konuşma çevirisi hizmeti uygulamalarınızda kullanmaya donatılmış.
 
 > [!div class="nextstepaction"]
-> [Microsoft Çeviricisi konuşma API Başvurusu](http://docs.microsofttranslator.com/speech-translate.html)
+> [Microsoft Translator konuşma tanıma API'si başvurusu](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

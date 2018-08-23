@@ -11,29 +11,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 08/09/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 1fb7716ff1b5ce661dff55c3a8dac90a062fad53
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: f6a2b3f242e5989d0c72083eef4faad9c4798cfe
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630791"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42056335"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Azure Stack için bir Kubernetes kümesi dağıtma
 
 *İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 > [!Note]  
-> Azure Stack'te Azure kapsayıcı Hizmetleri (ACS) Kubernetes özel Önizleme aşamasındadır. Bu makaledeki yönergeleri gerçekleştirmek için gereken Kubernetes Market öğesi erişim istemek, Azure Stack operatörü gerekir.
-<!-- Should "Azure Container Services" be replaced globally with Azure Kubernetes Services? It seems the Azure container page is now redirectin to Azure Kubernetes https://azure.microsoft.com/en-us/services/container-service -->
+> Azure Stack'te Azure Kubernetes Hizmetleri (AKS) Kubernetes özel Önizleme aşamasındadır. Bu makaledeki yönergeleri gerçekleştirmek için gereken Kubernetes Market öğesi erişim istemek, Azure Stack operatörü gerekir.
 
 Aşağıdaki makalede dağıtıp tek ve eşgüdümlü bir işlemle Kubernetes için kaynakları sağlamak için bir Azure Resource Manager çözüm şablonu kullanarak arar. , Azure Stack yüklemesi hakkında gerekli bilgileri toplamak için şablonu oluşturun ve ardından, buluta dağıtın.
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes ve kapsayıcılar
 
-Kubernetes Azure Stack'te Azure kapsayıcı Hizmetleri (ACS) altyapısı tarafından oluşturulan Azure Resource Manager şablonlarını kullanarak yükleyebilirsiniz. [Kubernetes](https://kubernetes.io) dağıtımı otomatik hale getirmek için bir açık kaynak sistemi ölçeklendirme ve uygulamaların kapsayıcıları yönetme. A [kapsayıcı](https://www.docker.com/what-container) görüntü, bir VM ile benzerlik bulunur. Bir VM, kapsayıcı görüntüsü yalnızca bir uygulama, kod, kod, belirli kitaplıkları ve ayarları yürütmek için çalışma zamanı gibi çalışması için gereken kaynakları içerir.
+Kubernetes Azure Stack'te Azure Kubernetes Hizmetleri (AKS) altyapısı tarafından oluşturulan Azure Resource Manager şablonlarını kullanarak yükleyebilirsiniz. [Kubernetes](https://kubernetes.io) dağıtımı otomatik hale getirmek için bir açık kaynak sistemi ölçeklendirme ve uygulamaların kapsayıcıları yönetme. A [kapsayıcı](https://www.docker.com/what-container) görüntü, bir VM ile benzerlik bulunur. Bir VM, kapsayıcı görüntüsü yalnızca bir uygulama, kod, kod, belirli kitaplıkları ve ayarları yürütmek için çalışma zamanı gibi çalışması için gereken kaynakları içerir.
 
 Kubernetes için kullanabilirsiniz:
 
@@ -73,7 +72,7 @@ Başlamak için doğru izinlere sahip ve Azure Stack hazır olduğundan emin olu
 
     c. **Oluştur**’a tıklayın.
 
-1. Not **uygulama kimliği**. Kümeyi oluştururken kimliği gerekir. Kimliği olarak başvurulan **hizmet sorumlusu istemci kimliği**.
+1. **Uygulama Kimliği**’ni not alın. Kümeyi oluştururken kimliği gerekir. Kimliği olarak başvurulan **hizmet sorumlusu istemci kimliği**.
 
 1. Seçin **ayarları** > **anahtarları**.
 

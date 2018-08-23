@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 08/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: b55bc7f6aab522a6313498b6fdccc88870796224
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: a6ccfa439b58d36ee44d5f8441c2058622965653
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213036"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42056924"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>İndirin ve Azure Stack geliştirme Seti'ni (ASDK) ayıklayın
 Geliştirme Seti ana bilgisayarınız ASDK yüklemeye yönelik temel gereksinimleri karşıladığından emin olduktan sonra indirmeyi ve ayıklamayı ASDK dağıtım paketi Cloudbuilder.vhdx almak için sonraki adım olacaktır.
@@ -43,7 +43,7 @@ Geliştirme Seti ana bilgisayarınız ASDK yüklemeye yönelik temel gereksiniml
 2. Gözden geçirin ve görüntülenen Lisans Sözleşmesi'nden kabul **Lisans Sözleşmesi** ayıklayıcısı Sihirbazı'nı ve ardından sayfanın **sonraki**.
 3. Görüntülenen gizlilik bildirimi bilgileri gözden geçirin **önemli bildirim** ayıklayıcısı Sihirbazı'nı ve ardından sayfanın **sonraki**.
 4. Açık olarak ayıklanacak Azure Stack kurulum dosyalarının konumunu seçin **hedef konum seçin** ayıklayıcısı Sihirbazı'nı ve ardından sayfanın **sonraki**. Varsayılan konum *geçerli klasör*\Azure Stack Geliştirme Seti. 
-5. Hedef konumun özetini inceleyin **ayıklamaya hazır** ayıklayıcısı Sihirbazı'nı ve ardından sayfanın **ayıklamak** (yaklaşık 25 GB) CloudBuilder.vhdx ayıklanacak ve ThirdPartyLicenses.rtf dosyaları. Bu işlemin tamamlanması biraz zaman alabilir.
+5. Hedef konumun özetini inceleyin **ayıklamaya hazır** ayıklayıcısı Sihirbazı'nı ve ardından sayfanın **ayıklamak** (yaklaşık, 28 GB) CloudBuilder.vhdx ayıklanacak ve ThirdPartyLicenses.rtf dosyaları. Bu işlemin tamamlanması biraz zaman alabilir.
 6. Kopyalayın veya CloudBuilder.vhdx dosya ASDK ana bilgisayarda C:\ sürücüsüne (C:\CloudBuilder.vhdx) kök dizinine taşıyın.
 
 > [!NOTE]

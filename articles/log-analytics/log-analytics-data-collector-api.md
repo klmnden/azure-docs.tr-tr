@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: a2aab89bcd550cc2b1dcc4f980f09b5c1e0e9464
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 3c4c2d8f49fbddc4875d7a4abf5d7629bc8f942e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436388"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42060367"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>HTTP veri toplayıcı API'sini (genel Önizleme) ile Log Analytics veri Gönder
 Bu makalede REST API istemcisinden Log Analytics'e veri göndermek için HTTP veri toplayıcı API'sini kullanmayı gösterir.  Bu betik ya da uygulama tarafından toplanan verileri biçimlendirme, bir isteğe ekleyin ve bu istek Log Analytics tarafından yetkilendirilmiş olması açıklar.  PowerShell, C# ve Python için örnek verilmiştir.
@@ -38,7 +38,7 @@ Log Analytics deposunda tüm verileri, belirli bir kayıt türü içeren bir kay
 
 
 
-## <a name="create-a-request"></a>Bir isteği oluştur
+## <a name="create-a-request"></a>İstek oluştur
 HTTP veri toplayıcı API'sini kullanmak için JavaScript nesne gösterimi (JSON) gönderilecek verileri içeren bir POST isteği oluşturun.  Sonraki üç tablolarda her istek için gerekli olan öznitelikler listelenir. Her bir öznitelik makalenin ilerleyen bölümlerinde daha ayrıntılı olarak açıklanmaktadır.
 
 ### <a name="request-uri"></a>İstek URI'si
@@ -471,3 +471,5 @@ post_data(customer_id, shared_key, body, log_type)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Kullanım [günlük arama API'si](log-analytics-log-search-api.md) Log Analytics depodan veri alınamadı.
+
+- Hakkında daha fazla bilgi [veri işlem hattı ile veri toplayıcı API'sini oluşturma](log-analytics-create-pipeline-datacollector-api.md) Log analytics'e Logic Apps iş akışı kullanarak.

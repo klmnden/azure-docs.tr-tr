@@ -1,38 +1,38 @@
 ---
-title: Azure Maps kapsamı oluşturma | Microsoft Docs
-description: Azure Maps işleme kapsamı hakkında bilgi edinin
-author: jinzh-azureiot
+title: İşleme kapsamı içinde Azure haritalar | Microsoft Docs
+description: İşleme kapsamı içinde Azure haritalar hakkında bilgi edinin
+author: jingjing-z
 ms.author: jinzh
 ms.date: 03/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: c973897015df978f31d267ec6f2a20812d9d541c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6e4ebd5bfd7225537046d34dd885d04e8a94878f
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600587"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42059652"
 ---
-# <a name="azure-maps-render-coverage"></a>Azure eşlemeleri kapsamı oluşturma
+# <a name="azure-maps-render-coverage"></a>Azure haritalar işleme kapsamı
 
-Azure eşlemeleri ızgara kutucukları ve vektör döşeme eşlemeleri oluşturmak için kullanır. En düşük çözünürlükte dünyaya tek bir döşeme sığar. En yüksek çözünürlükte tek bir döşeme 38 metre kare temsil eder. Bu nedenle, bir haritada yakınlaştırma gibi Kıtalar, bölgeler, şehirler ve tek tek streets hakkında giderek daha fazla ayrıntı görebilirsiniz. Daha fazla bilgi için bkz: [yakınlaştırma düzeyleri ve döşeme kılavuz](zoom-levels-and-tile-grid.md).
+Azure haritalar ızgara kutucukları hem de vektör bölmelerini eşlemeleri oluşturmak için kullanır. En düşük, çözünürlükte, tek bir döşeme üzerinde dünyaya uyar. En yüksek çözünürlüğünü, tek bir kutucuk 38 metrekare temsil eder. Bu nedenle, bir harita üzerinde yakınlaştırma gibi kıtadaki, bölgeleri, şehir ve tek tek sokaklar hakkında giderek daha fazla ayrıntı görebilirsiniz. Daha fazla bilgi için [yakınlaştırma düzeyleri ve döşeme Kılavuzu](zoom-levels-and-tile-grid.md).
 
-Ancak, Maps yok aynı düzeyde bilgi ve doğruluk tüm bölgeler için. Aşağıdaki tablolarda her bölgesinden beklediğiniz işlenmiş ayrıntı düzeyini hakkında bilgi sağlar.
+Ancak, Maps yok bilgi ve doğruluk tüm bölgeler için aynı düzeyde. Aşağıdaki tablolarda her bölgede beklediğiniz işlenmiş ayrıntı düzeyini hakkında bilgi sağlar.
 
 ## <a name="legend"></a>Gösterge
 
-| Simgesi | Anlamı |
+| Sembol | Anlamı |
 |--------|---------|
-| ✓ | Bölge ayrıntılı veri ile temsil edilir.   |
-| Ø | Bölge Basitleştirilmiş veri ile temsil edilir. |
+| ✓ | Bölge, ayrıntılı veri ile temsil edilir.   |
+| Ø | Bölge, Basitleştirilmiş veri ile temsil edilir. |
 
 
 ## <a name="africa"></a>Afrika 
 
 
-| Bölge | Birleşik ızgara döşeme | Birleşik vektör döşeme |
+| Bölge | Birleşik ızgara kutucukları | Vektör bölmelerini birleşik |
 | ------ | :------------------: | :------------------: |
 | Cezayir                          | ✓ | ✓ |
 | Angola                           | ✓ | ✓ |
@@ -54,10 +54,10 @@ Ancak, Maps yok aynı düzeyde bilgi ve doğruluk tüm bölgeler için. Aşağı
 | Eritre                          |   | Ø |
 | Etiyopya                         |   | Ø |
 | Gabon                            | ✓ | ✓ |
-| Zambia                           |   | Ø |
+| Gambiya                           |   | Ø |
 | Gana                            | ✓ | ✓ |
 | Gine                           |   | Ø |
-| Gine Bissau                    |   | Ø |
+| Gine-Bissau                    |   | Ø |
 | Kenya                            | ✓ | ✓ |
 | Lesotho                          | ✓ | ✓ |
 | Liberya                          |   | Ø |
@@ -93,7 +93,7 @@ Ancak, Maps yok aynı düzeyde bilgi ve doğruluk tüm bölgeler için. Aşağı
 
 ## <a name="americas"></a>Kuzey ve Güney Amerika
 
-| Bölge | Birleşik ızgara döşeme | Birleşik vektör döşeme |
+| Bölge | Birleşik ızgara kutucukları | Vektör bölmelerini birleşik |
 | ------ | :------------------: | :------------------: |
 | Anguilla                  | ✓ | ✓ |
 | Antigua ve Barbuda       | ✓ | ✓ |
@@ -103,7 +103,7 @@ Ancak, Maps yok aynı düzeyde bilgi ve doğruluk tüm bölgeler için. Aşağı
 | Barbados                  | ✓ | ✓ |
 | Belize                    | ✓ | ✓ |
 | Bermuda                   |   | ✓ |
-| Plurinational durumu Bolivya |   | ✓ |
+| ' In Devleti durumu Bolivya |   | ✓ |
 | Bonaire, Sint Eustatius ve Saba |   | ✓ |
 | Brezilya                    | ✓ | ✓ |
 | Kanada                    | ✓ | ✓ |
@@ -118,7 +118,7 @@ Ancak, Maps yok aynı düzeyde bilgi ve doğruluk tüm bölgeler için. Aşağı
 | Dominik Cumhuriyeti        | ✓ | ✓ |
 | Ekvador                   |   | ✓ |
 | Falkland Adaları (Malvinas) |   | ✓ |
-| Fransız Ginesi             | ✓ | ✓ |
+| Fransız Guyanası             | ✓ | ✓ |
 | Grönland                 |   | Ø |
 | Grenada                   | ✓ | ✓ |
 | Guadalupe                | ✓ | ✓ |
@@ -140,7 +140,7 @@ Ancak, Maps yok aynı düzeyde bilgi ve doğruluk tüm bölgeler için. Aşağı
 | Saint Barthélemy          | ✓ | ✓ |
 | Saint Kitts ve Nevis     | ✓ | ✓ |
 | Saint Lucia               | ✓ | ✓ |
-| Saint Martin (Fransızca)     | ✓ | ✓ |
+| Saint Martin (Fransız)     | ✓ | ✓ |
 | Saint Pierre ve Miquelon |   | ✓ |
 | Saint Vincent ve Grenadinler | ✓ | ✓ |
 | Sint Maarten (Hollanda dili)      | ✓ | ✓ |
@@ -152,11 +152,11 @@ Ancak, Maps yok aynı düzeyde bilgi ve doğruluk tüm bölgeler için. Aşağı
 | Uruguay                   | ✓ | ✓ |
 | Venezuela                 | ✓ | ✓ |
 | Virgin Adaları, İngiliz   | ✓ | ✓ |
-| Virgin Adaları, ABD      | ✓ | ✓ |
+| ABD Virgin Adaları      | ✓ | ✓ |
 
 ## <a name="asia"></a>Asya 
 
-| Bölge | Birleşik ızgara döşeme | Birleşik vektör döşeme |
+| Bölge | Birleşik ızgara kutucukları | Vektör bölmelerini birleşik |
 | ------ | :------------------: | :------------------: |
 | Afganistan               |   | Ø |
 | Bahreyn                   | ✓ | ✓ |
@@ -208,9 +208,9 @@ Ancak, Maps yok aynı düzeyde bilgi ve doğruluk tüm bölgeler için. Aşağı
 | Vietnam                   | ✓ | ✓ |
 | Yemen                     | ✓ | ✓ |
 
-## <a name="oceania"></a>Oceania
+## <a name="oceania"></a>Okyanusya
 
-| Bölge | Birleşik ızgara döşeme | Birleşik vektör döşeme |
+| Bölge | Birleşik ızgara kutucukları | Vektör bölmelerini birleşik |
 | ------ | :------------------: | :------------------: |
 | Amerikan Samoası            |   | ✓ |
 | Avustralya                 | ✓ | ✓ |
@@ -240,7 +240,7 @@ Ancak, Maps yok aynı düzeyde bilgi ve doğruluk tüm bölgeler için. Aşağı
 
 ## <a name="europe"></a>Avrupa
 
-| Bölge | Birleşik ızgara döşeme | Birleşik vektör döşeme |
+| Bölge | Birleşik ızgara kutucukları | Vektör bölmelerini birleşik |
 | ------ | :------------------: | :------------------: |
 | Arnavutluk                   | ✓ | ✓ |
 | Andorra                   | ✓ | ✓ |
@@ -249,7 +249,7 @@ Ancak, Maps yok aynı düzeyde bilgi ve doğruluk tüm bölgeler için. Aşağı
 | Azerbaycan                |   | Ø |
 | Belarus                   | Ø | ✓ |
 | Belçika                   | ✓ | ✓ |
-| Bosna Hersek        | ✓ | ✓ |
+| Bosna-Hersek        | ✓ | ✓ |
 | Bulgaristan                  | ✓ | ✓ |
 | Hırvatistan                   | ✓ | ✓ |
 | Kıbrıs                    | ✓ | ✓ |
@@ -263,7 +263,7 @@ Ancak, Maps yok aynı düzeyde bilgi ve doğruluk tüm bölgeler için. Aşağı
 | Almanya                   | ✓ |✓ |
 | Cebelitarık                 | ✓ |   |
 | Yunanistan                    | ✓ | ✓ |
-| Guernsay                  |   | ✓ |
+| Guernsey                  |   | ✓ |
 | Macaristan                   | ✓ | ✓ |
 | İzlanda                   | ✓ | ✓ |
 | İrlanda (Cumhuriyeti)     | ✓ | ✓ |
@@ -302,6 +302,6 @@ Ancak, Maps yok aynı düzeyde bilgi ve doğruluk tüm bölgeler için. Aşağı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure eşlemeleri oluşturma hakkında daha fazla bilgi için bkz: [yakınlaştırma düzeyleri ve döşeme kılavuz](zoom-levels-and-tile-grid.md).
+Azure haritalar işleme hakkında daha fazla bilgi için bkz. [yakınlaştırma düzeyleri ve döşeme Kılavuzu](zoom-levels-and-tile-grid.md).
 
-Hakkında bilgi edinin [hizmeti Yönlendirme eşlemeleri için kapsamı alanlar](routing-coverage.md). 
+Hakkında bilgi edinin [hizmeti Yönlendirme eşlemeleri için kapsamı alanları](routing-coverage.md). 

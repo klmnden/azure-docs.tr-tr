@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: 2764d8a17d50f1589d413c2343badfded6adb66e
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: db3cc8bb546758402e4f0b3fe91449e597e754fa
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216351"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42056967"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Öğretici: Azure portal ile DevOps
 Azure platformu esnek DevOps iş akışları ile doludur. Bu öğreticide, geliştirme, test, dağıtma, sorun giderme, izleme ve çalışan uygulamaları yönetmek için Azure portalında özelliklerini kullanmayı öğrenin. Bu öğretici aşağıdakilere odaklanır:
@@ -125,7 +125,7 @@ Ardından, kod temelinde bazı değişiklikler yapın ve bu değişiklikleri hı
 12. Araçlar dikey penceresine geri gidin ve Geliştirme kategorisi altında Performans Testi’ne tıklayın.
     
     ![image28][image28]
-13. Bir Team Services hesabı ayarlamanız gerekir. Daha fazla ayrıntı için buraya bakın: [Team Services Hesabı Oluşturma](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
+13. Bir Team Services hesabı ayarlamanız gerekir. Daha fazla ayrıntı için buraya bakın: [Team Services hesabı oluşturma](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
 14. Performans testi oluşturmak için Yeni’ye tıklayın.
     
     ![image29][image29]

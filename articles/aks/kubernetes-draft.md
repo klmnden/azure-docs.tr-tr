@@ -1,234 +1,225 @@
 ---
-title: Taslak AKS ve Azure kapsayıcı kayıt defteri ile kullanma
-description: Taslak AKS ve Azure kapsayıcı kayıt defteri ile kullanma
+title: AKS ve Azure Container Registry ile taslak kullanma
+description: AKS ve Azure Container Registry ile taslak kullanma
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 08/15/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: 8f273a5a2c47b25dc339fd63df127d141fe2f8e2
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: a64ada61b2edd0a5c5d2314125b7e2a23444a398
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130252"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42055183"
 ---
-# <a name="use-draft-with-azure-kubernetes-service-aks"></a>Taslak Azure Kubernetes hizmeti (AKS) kullanın
+# <a name="use-draft-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Service'i (AKS) ile taslak kullanma
 
-Taslak içerir ve bir Kubernetes kümedeki geliştirme döngüsü--"İç döngü" konsantre geliştirme yoğunlaşmak boş bırakarak bu kapsayıcıları dağıtın yardımcı olan bir açık kaynak aracıdır. Taslak kodu geliştirilen gibi ancak sürüm Denetimi'ne gerçekleştirmeden önce çalışır. Kod değişiklikleri ortaya çıktığında taslak ile hızlı bir şekilde Kubernetes uygulamaya yeniden dağıtabilirsiniz. Taslak hakkında daha fazla bilgi için bkz: [taslak belgeler Github üzerinde][draft-documentation].
+Taslak, paket yardımcı olur ve geliştirme döngüsü--konsantre geliştirme "İç döngü" odaklanmak boş bırakın, bir Kubernetes kümesinde uygulama kapsayıcıları dağıtma bir açık kaynak araçtır. Taslak, kod geliştirilen gibi ancak sürüm denetimine gerçekleştirmeden önce çalışır. Kod değişiklikleri ortaya çıktıkları taslak ile hızlı bir şekilde Kubernetes uygulamaya yeniden dağıtabilirsiniz. Taslak hakkında daha fazla bilgi için bkz. [taslak belgeleri github'da][draft-documentation].
 
-Bu belge ayrıntıları AKS Kubernetes kümede taslak kullanarak.
+Bu makalede bir Kubernetes kümesinde AKS ile taslak kullanma gösterilmektedir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu belgedeki adımlarda bir AKS kümesi oluşturduğunuz ve kümeyle bir kubectl bağlantısı kurduğunuz kabul edilmektedir. Bu öğeler gerekirse bkz [AKS quickstart][aks-quickstart].
+Bu makalede ayrıntılı adımlarda bir AKS kümesi oluşturduğunuz ve belirledik varsayılır bir `kubectl` kümeyle bağlantı. Bu öğelere gereksiniminiz varsa bkz [AKS hızlı başlangıçları][aks-quickstart].
 
-Ayrıca özel Docker kayıt defteri Azure kapsayıcı kayıt defteri (ACR) gerekir. ACR örneğini dağıtma ile ilgili yönergeler için bkz: [Azure kapsayıcı kayıt defteri Quickstart][acr-quickstart].
+Özel Docker kayıt defteri Azure Container Registry (ACR) ihtiyacınız vardır. ACR örneği oluşturma adımları için bkz: [Azure Container Registry hızlı][acr-quickstart].
 
-Helm AKS kümenizdeki ayrıca yüklenmesi gerekir. Helm yükleme hakkında daha fazla bilgi için bkz: [kullanım Helm Azure Kubernetes hizmet (AKS) ile][aks-helm].
+Helm, AKS kümenizin ayrıca yüklenmesi gerekir. Yükleme ve Helm yapılandırma hakkında daha fazla bilgi için bkz. [Azure Kubernetes Service (AKS) ile kullanım Helm][aks-helm].
 
 Son olarak, yüklemeniz gereken [Docker](https://www.docker.com).
 
-## <a name="install-draft"></a>Taslak yükleyin
+## <a name="install-draft"></a>Draft'ı yükleme
 
-Taslak CLI geliştirme sisteminizde çalıştıran ve quicky için kod Kubernetes kümesine dağıttığınız sağlayan bir istemci olur.
+Taslak CLI geliştirme sisteminizde çalışır ve kod bir Kubernetes kümesine dağıtmak için izin veren bir istemcidir. Mac bilgisayarlarda taslak CLI'yı yüklemek için kullanın `brew`. Ek yükleme seçenekleri için bkz [taslak Yükleme Kılavuzu][draft-documentation].
 
 > [!NOTE]
-> Taslak sürümü 0.12 önce yüklediyseniz, Taslak, küme kullanımından silmeniz `helm delete --purge draft` ve yerel yapılandırmanızı çalıştırarak kaldırın `rm -rf ~/.draft`. MacOS üzerinde varsa, çalıştırmak `brew upgrade draft`.
-
-Bir Mac üzerinde taslak CLI yüklemek için `brew`. Ek yükleme seçenekleri için bkz, [taslak Yükleme Kılavuzu][draft-documentation].
+> Taslak sürümü 0,12 önce yüklü değilse, taslağı, küme kullanarak silin `helm delete --purge draft` ve ardından çalıştırarak yerel yapılandırmanızı kaldırın `rm -rf ~/.draft`. Macos'ta ise çalıştırın, ardından `brew upgrade draft`.
 
 ```console
 brew tap azure/draft
 brew install draft
 ```
 
-Şimdi taslak ile başlatma `draft init` komutu.
+Artık taslak ile başlatma `draft init` komutu:
 
 ```console
 draft init
 ```
 
-## <a name="configure-draft"></a>Taslak yapılandırın
+## <a name="configure-draft"></a>Draft'ı yapılandırma
 
-Taslak kapsayıcı görüntü yerel olarak oluşturur ve ardından ya da bunları (durumunda Minikube) yerel kayıt defterinden dağıtır veya görüntü kayıt defterini belirtmeniz gerekir. Bu örnek, Azure kapsayıcı kayıt defteri (ACR) kullanır, bu nedenle AKS kümenizi ve ACR kayıt defteri arasında bir güven ilişkisi kurmak ve kapsayıcı için ACR göndermeyi taslak yapılandırmanız gerekir.
+Taslak, yerel olarak kapsayıcı görüntüleri oluşturur ve sonra da dağıtır bunları yerel kayıt defterinden (gibi Minikube ile), veya belirttiğiniz bir görüntü kayıt defteri kullanır. Bu makalede, Azure Container Registry (ACR) kullanılmıştır, bu yüzden, bir AKS kümesi ve ACR kayıt defteri arasında bir güven ilişkisi oluşturmanız gerekir kapsayıcı görüntülerinizi ACR'ye gönderin taslak ardından yapılandırın.
 
-### <a name="create-trust-between-aks-cluster-and-acr"></a>AKS küme ve ACR arasında güven oluşturma
+### <a name="create-trust-between-aks-cluster-and-acr"></a>AKS kümesi ve ACR arasında güven oluşturma
 
-AKS küme ve ACR kayıt defteri arasında güven oluşturmak için Azure Active Directory Hizmeti katkıda bulunan rolü ACR kayıt defteri kapsamıyla ekleyerek AKS ile kullanılan asıl değiştirin. Bunu yapmak için değiştirme aşağıdaki komutları çalıştırın _&lt;aks rg adı&gt;_ ve _&lt;aks küme adı&gt;_ adını ve kaynak grubu ile AKS küme ve _&lt;acr rg adı&gt;_ ve _&lt;acr kayıt defteri adı&gt;_ , ACR kaynak grubu ve kayıt defteri adı güven oluşturmak istediğiniz kayıt defteri.
+Bir AKS kümesi ve ACR kayıt arasında güven oluşturmak için ACR kayıt defterine erişim için AKS kümesi tarafından kullanılan Azure Active Directory Hizmet sorumlusu için izinler verir. Aşağıdaki komutlar, kendi sağlamak `<resourceGroupName>`, değiştirin `<aksName>` adıyla değiştirin ve AKS kümesi `<acrName>` ACR kayıt defterinizin adıyla:
 
-```console
-export AKS_SP_ID=$(az aks show -g <aks-rg-name> -n <aks-cluster-name> --query "servicePrincipalProfile.clientId" -o tsv)
-export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-registry-name> --query "id" -o tsv)
+```azurecli
+# Get the service principal ID of your AKS cluster
+AKS_SP_ID=$(az aks show --resource-group <resourceGroupName> --name <aksName> --query "servicePrincipalProfile.clientId" -o tsv)
+
+# Get the resource ID of your ACR instance
+ACR_RESOURCE_ID=$(az acr show --resource-group <resourceGroupName> --name <acrName> --query "id" -o tsv)
+
+# Create a role assignment for your AKS cluster to access the ACR instance
 az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role contributor
 ```
 
-(Bu adımları ve ACR erişmek için diğer kimlik doğrulama mekanizmaları altındadır [ACR ile kimlik doğrulaması](../container-registry/container-registry-auth-aks.md).)
+ACR erişmek için bu adımları hakkında daha fazla bilgi için bkz. [ACR ile kimlik doğrulaması](../container-registry/container-registry-auth-aks.md).
 
-### <a name="configure-draft-to-push-to-and-deploy-from-acr"></a>Taslak iletin ve ACR dağıtmak için yapılandırma
+### <a name="configure-draft-to-push-to-and-deploy-from-acr"></a>Taslak gönderin ve ACR'den dağıtmak için yapılandırma
 
-Yoktur göre AKS ACR arasında bir güven ilişkisi, aşağıdaki adımları AKS kümenizi ACR kullanımdan etkinleştirin.
-1. Taslak yapılandırma kümesi `registry` çalıştırarak değeri `draft config set registry <registry name>.azurecr.io`, burada _&lt;kayıt defteri adı&lt;_ ACR kaydınız adıdır.
-2. Oturum çalıştırarak ACR kayıt defterini açın `az acr login -n <registry name>`.
+AKS kümenizi ACR kullanımdan yoktur, ACR ile AKS arasında bir güven ilişkisi etkinleştirin.
 
-Şimdi yerel olarak ACR için oturum açmış ve AKS ve ACR ile bir güven ilişkisi oluşturan olduğundan, hiçbir parolaları veya gizli iletin veya ACR AKS çekmek için gereklidir. Kimlik doğrulaması Azure Active Directory'yi kullanarak Azure Resource Manager düzeyinde gerçekleşir.
+1. Taslak yapılandırma kümesi *kayıt defteri* değeri. Aşağıdaki komutlar, değiştirin `<acrName>` ACR kayıt defterinizin adıyla:
+
+    ```console
+    draft config set registry <acrName>.azurecr.io
+    ```
+
+1. ACR kayıt defteri ile oturum [az acr oturum açma][az-acr-login]:
+
+    ```azurecli
+    az acr login --name <acrName>
+    ```
+
+AKS ile ACR arasında bir güven oluşturulduğu gibi herhangi bir parola veya gizli dizileri gönderin veya ACR kayıt defterinden çekmek için gerekli değildir. Kimlik doğrulaması, Azure Active Directory'yi kullanarak Azure Resource Manager düzeyinde gerçekleşir.
 
 ## <a name="run-an-application"></a>Bir uygulamayı çalıştırma
 
-Taslak depo taslak gösteri için kullanılabilecek birkaç örnek uygulamaları içerir. Depodaki kopyalanan bir kopyasını oluşturun.
+Taslak nasıl çalıştığını görmek için bir örnek uygulamadan dağıtalım [Draft deposunda][draft-repo]. İlk olarak, depoyu kopyalama:
 
 ```console
 git clone https://github.com/Azure/draft
 ```
 
-Java örnekler dizine geçin.
+Java örnekleri dizine değiştirin:
 
 ```console
 cd draft/examples/example-java/
 ```
 
-Kullanım `draft create` işlemini başlatmak için komutu. Bu komut, bir Kubernetes kümede uygulamayı çalıştırmak için kullanılan yapılar oluşturur. Bu öğeler, bir Dockerfile Helm grafik içerir ve bir `draft.toml` taslak yapılandırma dosyası dosya.
+Kullanım `draft create` işlemini başlatmak için komutu. Bu komut, bir Kubernetes kümesinde uygulama çalıştırmak için kullanılan yapıtları oluşturur. Bu öğeler bir Dockerfile, Helm grafiği içerir ve bir *draft.toml* taslak yapılandırma dosyası olan bir dosya.
 
-```console
-draft create
 ```
+$ draft create
 
-Çıktı:
-
-```console
---> Draft detected the primary language as Java with 92.205567% certainty.
+--> Draft detected Java (92.205567%)
 --> Ready to sail
 ```
 
-Uygulama Kubernetes kümede çalıştırmak için kullandığınız `draft up` komutu. Bu komut bir kapsayıcı görüntüsü oluşturmak için Dockerfile oluşturur, görüntü için ACR iter ve son olarak AKS uygulamayı başlatmak için Helm grafik yükler.
+AKS kümenizde örnek uygulamayı çalıştırmak için kullanın `draft up` komutu. Bu komut bir kapsayıcı görüntüsü oluşturmak için bir Dockerfile oluşturur, görüntüyü ACR'ye gönderir ve son olarak uygulamayı AKS başlatmak için Helm grafiği yükler.
 
-Bu, ilk çalıştırıldığında, iletme ve kapsayıcı görüntü çekme biraz zaman alabilir; Temel katman önbelleğe alınan sonra geçen süre önemli ölçüde azalır.
+Bu komut bir ilk çalıştırıldığında, gönderme ve kapsayıcı görüntüsünü çekme biraz zaman alabilir. Temel katman önbelleğe sonra uygulamayı dağıtmak için geçen süreyi önemli ölçüde azaltılır.
 
-```console
-draft up
+```
+$ draft up
+
+Draft Up Started: 'example-java': 01CMZAR1F4T1TJZ8SWJQ70HCNH
+example-java: Building Docker Image: SUCCESS ⚓  (73.0720s)
+example-java: Pushing Docker Image: SUCCESS ⚓  (19.5727s)
+example-java: Releasing Application: SUCCESS ⚓  (4.6979s)
+Inspect the logs with `draft logs 01CMZAR1F4T1TJZ8SWJQ70HCNH`
 ```
 
-Çıktı:
+Docker görüntüsü gönderiliyor sorunlarla karşılaşırsanız, başarıyla ACR kayıt defterinize ile açtıktan emin olun [az acr oturum açma][az-acr-login], daha sonra deneyin `draft up` yeniden komutu.
 
-```console
-Draft Up Started: 'example-java'
-example-java: Building Docker Image: SUCCESS ⚓  (1.0003s)
-example-java: Pushing Docker Image: SUCCESS ⚓  (3.0007s)
-example-java: Releasing Application: SUCCESS ⚓  (0.9322s)
-example-java: Build ID: 01C9NPDYQQH2CZENDMZW7ESJAM
-Inspect the logs with `draft logs 01C9NPDYQQH2CZENDMZW7ESJAM`
-```
+## <a name="test-the-application-locally"></a>Uygulamayı yerel olarak test etme
 
-## <a name="test-the-application"></a>Uygulamayı test etme
-
-Uygulamayı test etmek için kullanmak `draft connect` komutu. Bu komut proxy'leri Kubernetes bağlantı pod güvenli bir yerel bağlantı izin verme. Tamamlandığında, uygulama üzerinde sağlanan URL erişilebilir.
-
-Bazı durumlarda, yüklenmek üzere kapsayıcı görüntü için bir kaç dakika ve uygulamayı başlatmak için alabilir. Uygulama erişirken bir hata alırsanız, bağlantı yeniden deneyin.
-
-```console
-draft connect
-```
-
-Çıktı:
-
-```console
-Connecting to your app...SUCCESS...Connect to your app on localhost:46143
-Starting log streaming...
-SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-== Spark has ignited ...
->> Listening on 0.0.0.0:4567
-```
-
-Artık uygulamanızı test etmek için göz atarak http://localhost:46143 (önceki örneğin; bağlantı noktası farklı olabilir). Uygulama kullanımı test bittiğinde `Control+C` proxy bağlantı durdurmak için.
+Uygulamayı test etmek için `draft connect` komutu. Bu Kubernetes pod'u güvenli bir bağlantı proxy'leri komutu. Tamamlandığında, uygulama üzerinde sağlanan URL erişilebilir.
 
 > [!NOTE]
-> Aynı zamanda `draft up --auto-connect` oluşturmak ve uygulamanızı dağıtmak ve hemen yineleme yapmak için ilk çalışan kapsayıcıya bağlanmak için komut daha hızlı geçiş.
+> Kapsayıcı görüntüsünün indirilmesi birkaç dakika ve uygulamayı başlatmak için beklemeniz gerekebilir. Uygulamaya erişirken bir hata alırsanız, bağlantı yeniden deneyin.
 
-## <a name="expose-application"></a>Uygulama kullanıma sunma
+```
+$ draft connect
 
-Bir uygulama içinde Kubernetes sınarken, uygulamayı İnternette kullanılabilir yapmak isteyebilirsiniz. Bu yapılabilir bir türüyle Kubernetes hizmetini kullanarak [LoadBalancer] [ kubernetes-service-loadbalancer] veya bir [giriş denetleyicisi][kubernetes-ingress]. Bu belge ayrıntıları Kubernetes hizmetini kullanarak.
+Connect to java:4567 on localhost:49804
+[java]: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+[java]: SLF4J: Defaulting to no-operation (NOP) logger implementation
+[java]: SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[java]: == Spark has ignited ...
+[java]: >> Listening on 0.0.0.0:4567
+```
 
+Uygulamanıza erişmek için belirtilen bağlantı noktası ve adresi için bir web tarayıcısı açın `draft connect` çıkış, gibi *http://localhost:49804*. 
 
-İlk olarak, Taslak paketi belirtmek için güncellenmelidir türüne sahip bir hizmet `LoadBalancer` oluşturulmalıdır. Bunu yapmak için hizmet türü güncelleştirme `values.yaml` dosya.
+![Draft ile çalışan örnek Java uygulama](media/kubernetes-draft/sample-app.png)
+
+Kullanım `Control+C` Ara sunucu bağlantısı durdurmak için.
+
+> [!NOTE]
+> Ayrıca `draft up --auto-connect` oluşturup uygulamanızı dağıtmak ardından hemen ilk çalışan kapsayıcıya bağlanmak için komutu.
+
+## <a name="access-the-application-on-the-internet"></a>İnternet üzerindeki bir uygulamaya erişim
+
+Önceki adımda AKS kümenizde uygulama podunun Ara sunucu bağlantısı oluşturuldu. Geliştirir ve uygulamanızı test ederken, uygulamayı İnternette kullanılabilir yapmak isteyebilirsiniz. Bir türü ile bir Kubernetes hizmeti oluşturduğunuz internet üzerindeki bir uygulamayı kullanıma sunmak için [LoadBalancer][kubernetes-service-loadbalancer], veya bir [giriş denetleyicisine] [ kubernetes-ingress]. Oluşturalım bir *LoadBalancer* hizmeti.
+
+İlk olarak, güncelleştirme *values.yaml* paketi belirtmek için bir türle bir hizmet taslak *LoadBalancer* oluşturulmalıdır:
 
 ```console
 vi charts/java/values.yaml
 ```
 
-Bulun `service.type` özelliği ve değerini güncelleştirme `ClusterIP` için `LoadBalancer`.
+Bulun *service.type* özelliği ve değerini güncelleştirme *ClusterIP* için *LoadBalancer*sıkıştırılmış aşağıdaki örnekte gösterildiği gibi:
 
 ```yaml
-replicaCount: 2
-image:
-  repository: openjdk
-  tag: 8-jdk-alpine
-  pullPolicy: IfNotPresent
+[...]
 service:
   name: java
   type: LoadBalancer
   externalPort: 80
   internalPort: 4567
-resources:
-  limits:
-    cpu: 100m
-    memory: 128Mi
-  requests:
-    cpu: 100m
-    memory: 128Mi
-  ```
+[...]
+```
 
-Çalıştırma `draft up` uygulamayı yeniden çalıştırın.
+Kaydedin ve dosyayı kapatın ve ardından kullanmak `draft up` uygulamayı yeniden çalıştırmak için:
 
 ```console
 draft up
 ```
 
-Hizmetinin genel bir IP adresi dönmek birkaç dakika sürebilir. İlerleme kullanımı izlemek için `kubectl get service` bir izleme ile komutu.
+Hizmetin genel bir IP adresini döndürmek birkaç dakika sürer. İlerleme durumunu izlemek için kullanabilirsiniz `kubectl get service` komutunu *watch* parametresi:
 
 ```console
-kubectl get service -w
+kubectl get service --watch
 ```
 
-Başlangıçta, *dış IP* olarak hizmet görünür `pending`.
+Başlangıçta *EXTERNAL-IP* hizmet olarak görünür *bekleyen*:
 
 ```
-example-java-java   10.0.141.72   <pending>     80:32150/TCP   14m
+NAME                TYPE          CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
+example-java-java   LoadBalancer  10.0.141.72   <pending>     80:32150/TCP   2m
 ```
 
-EXTERNAL-IP adresi `pending` durumundan `IP address` değerine değiştiğinde kubectl izleme işlemini durdurmak için `Control+C` komutunu kullanın.
+EXTERNAL-IP adresi değiştiğinde *bekleyen* için IP adresi, `Control+C` durdurmak için `kubectl` işlem izleyin:
 
 ```
-example-java-java   10.0.141.72   52.175.224.118   80:32150/TCP   17m
+NAME                TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
+example-java-java   LoadBalancer   10.0.141.72   52.175.224.118  80:32150/TCP   7m
 ```
 
-Uygulamayı görmek için dış IP adresine gözatın.
-
-```console
-curl 52.175.224.118
-```
-
-Çıktı:
+Uygulamayı görmek için dış IP adresi ile yük dengeleyicinizin gözatın `curl`:
 
 ```
+$ curl 52.175.224.118
+
 Hello World, I'm Java
 ```
 
-## <a name="iterate-on-the-application"></a>Uygulaması üzerinde yineleme
+## <a name="iterate-on-the-application"></a>Uygulama üzerinde yineleme
 
-Taslak yapılandırılmış ve uygulama Kubernetes içinde çalışan göre kod yineleme için ayarlanır. Her zaman gibi test etmek için güncelleştirilmiş kod, çalıştırmak `draft up` çalışan uygulama güncelleştirmesi için komutu.
+Taslak yapılandırıldı ve uygulamayı Kubernetes'te çalışan göre kod yinelemesi için ayarlanır. Her zaman, istediğiniz test etmek için güncelleştirilmiş kod, çalıştırma `draft up` çalışan uygulamayı güncelleştirmek için komutu.
 
-Bu örnekte, Java hello world uygulamasının güncelleştirin.
+Bu örnekte, görünen metni değiştirmek için Java örnek uygulamayı güncelleştirin. Açık *Hello.java* dosyası:
 
 ```console
 vi src/main/java/helloworld/Hello.java
 ```
 
-Hello World metin güncelleştirin.
+Çıkış metnini görüntülemek için güncelleştirme *Hello World ben aks'deki Java!*:
 
 ```java
 package helloworld;
@@ -242,57 +233,41 @@ public class Hello {
 }
 ```
 
-Çalıştırma `draft up --auto-connect` bir pod yanıt hazır gittiği hemen sonra uygulamayı yeniden dağıtmak için komutu.
+Çalıştırma `draft up` uygulamayı yeniden dağıtmak için komut:
 
 ```console
-draft up --auto-connect
+$ draft up
+
+Draft Up Started: 'example-java': 01CMZC9RF0TZT7XPWGFCJE15X4
+example-java: Building Docker Image: SUCCESS ⚓  (25.0202s)
+example-java: Pushing Docker Image: SUCCESS ⚓  (7.1457s)
+example-java: Releasing Application: SUCCESS ⚓  (3.5773s)
+Inspect the logs with `draft logs 01CMZC9RF0TZT7XPWGFCJE15X4`
 ```
 
-Çıktı
+Güncelleştirilmiş uygulamayı görüntülemek için IP adresini yük dengeleyicinizin curl:
 
 ```
-Draft Up Started: 'example-java'
-example-java: Building Docker Image: SUCCESS ⚓  (1.0003s)
-example-java: Pushing Docker Image: SUCCESS ⚓  (4.0010s)
-example-java: Releasing Application: SUCCESS ⚓  (1.1336s)
-example-java: Build ID: 01C9NPMJP6YM985GHKDR2J64KC
-Inspect the logs with `draft logs 01C9NPMJP6YM985GHKDR2J64KC`
-Connect to java:4567 on localhost:39249
-Your connection is still active.
-Connect to java:4567 on localhost:39249
-[java]: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
-[java]: SLF4J: Defaulting to no-operation (NOP) logger implementation
-[java]: SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-[java]: == Spark has ignited ...
-[java]: >> Listening on 0.0.0.0:4567
+$ curl 52.175.224.118
 
-```
-
-Son olarak, güncelleştirmeleri görmek için uygulamayı görüntüle.
-
-```console
-curl 52.175.224.118
-```
-
-Çıktı:
-
-```
 Hello World, I'm Java in AKS!
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Taslak kullanma hakkında daha fazla bilgi için Github'da taslak belgelerine bakın.
+Draft'ı kullanma hakkında daha fazla bilgi için Github'da taslak belgelerine bakın.
 
 > [!div class="nextstepaction"]
 > [Taslak belgeleri][draft-documentation]
 
 <!-- LINKS - external -->
 [draft-documentation]: https://github.com/Azure/draft/tree/master/docs
-[kubernetes-ingress]: ./ingress.md
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
+[draft-repo]: https://github.com/Azure/draft
 
 <!-- LINKS - internal -->
 [acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
 [aks-helm]: ./kubernetes-helm.md
+[kubernetes-ingress]: ./ingress.md
 [aks-quickstart]: ./kubernetes-walkthrough.md
+[az-acr-login]: /cli/azure/acr#az-acr-login

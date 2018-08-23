@@ -1,5 +1,5 @@
 ---
-title: Bir Azure Dev alanıyla çalışırken parolaları yönetme | Microsoft Docs
+title: Bir Azure geliştirme boşluk ile çalışırken, gizli anahtarları yönetme | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -9,25 +9,25 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: article
 ms.technology: azds-kubernetes
-description: Kapsayıcılar ve Azure üzerinde mikro ile hızlı Kubernetes geliştirme
-keywords: Docker, Kubernetes, Azure, AKS, Azure kapsayıcı hizmeti, kapsayıcıları
+description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
+keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kapsayıcılar
 manager: douge
-ms.openlocfilehash: b77d862f578ddc374dbb58117b4ea58eb973e5fe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 352e43633ea1464eb7e28fa698d1ae77d5ac52bd
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198322"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42056345"
 ---
-# <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Bir Azure Dev alanıyla çalışırken parolaları yönetme
+# <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Bir Azure geliştirme boşluk ile çalışırken, gizli anahtarları yönetme
 
-Hizmetlerinizin belirli parolalar, bağlantı dizeleri ve diğer parolaları gibi veritabanları veya güvenli diğer Azure Hizmetleri için gerektirebilir. Yapılandırma dosyalarında bu Sırları değerlerini ayarlayarak, bunları kodunuzu bulunan ortam değişkenleri olarak yapabilirsiniz.  Bu gizli anahtarları güvenliği tehlikeye önlemek için dikkatle ele alınması gerekir.
+Hizmetlerinizin belirli parolalar, bağlantı dizelerini ve diğer gizli dizileri gibi veritabanları veya güvenli diğer Azure Hizmetleri için gerektirebilir. Yapılandırma dosyalarında bu gizli dizileri değerleri ayarlayarak, bunları kodunuzu bulunan ortam değişkenleri olarak yapabilirsiniz.  Bu gizli dizileri güvenliğini tehlikeye kaçınmak için dikkatli işlenmelidir.
 
-Azure Dev alanları sağlayan iki önerilen parolaları depolamak için seçenekleri: values.dev.yaml dosya ve satır doğrudan azds.yaml içinde. Bu values.yaml parolaları depolamak için önerilmez.
+Azure geliştirme alanları, iki önerilen gizli dizileri depolamak için seçenekleri sağlar: values.dev.yaml dosya ve satır içi doğrudan azds.yaml. Values.yaml gizli dizileri depolamak için önermedi.
  
 ## <a name="method-1-valuesdevyaml"></a>Yöntem 1: values.dev.yaml
-1. Azure Dev alanları için etkinleştirilen projeniz ile VS Code'da açın.
-2. Adlı bir dosya eklemek _values.dev.yaml_ aynı klasörde mevcut olarak _values.yaml_ ve gizli anahtarı ve değerleri, aşağıdaki örnekteki gibi tanımlayın:
+1. VS Code için Azure geliştirme alanları etkin projenizle açın.
+2. Adlı bir dosya ekleyin _values.dev.yaml_ aynı klasörde mevcut olarak _values.yaml_ ve gizli anahtarı ve değerleri, aşağıdaki örnekte gösterildiği gibi tanımlayın:
 
     ```yaml
     secrets:
@@ -37,7 +37,7 @@ Azure Dev alanları sağlayan iki önerilen parolaları depolamak için seçenek
         key: "secretkeyhere"
     ```
      
-3. Güncelleştirme _azds.yaml_ yeni kullanmak için Azure Dev alanları bildirmek için _values.dev.yaml_ dosya. Bunu yapmak için bu yapılandırma configurations.develop.container bölümünde ekleyin:
+3. Güncelleştirme _azds.yaml_ yeni kullanmak için Azure geliştirme alanları bildirmek için _values.dev.yaml_ dosya. Bunu yapmak için bu yapılandırma configurations.develop.container bölümünde ekleyin:
 
     ```yaml
            container:
@@ -45,7 +45,7 @@ Azure Dev alanları sağlayan iki önerilen parolaları depolamak için seçenek
              - "charts/webfrontend/values.dev.yaml"
     ```
  
-4. Aşağıdaki örnekte olduğu gibi ortam değişkenleri olarak bu Sırları başvurmak için hizmet kodunuzun değiştirin:
+4. Bu gizli dizileri için aşağıdaki örnekte olduğu gibi ortam değişkenleri olarak başvurmak için hizmet kodunuzu değiştirin:
 
     ```
     var redisPort = process.env.REDIS_PORT
@@ -53,23 +53,23 @@ Azure Dev alanları sağlayan iki önerilen parolaları depolamak için seçenek
     var theKey = process.env.REDIS_KEY
     ```
     
-5. Bu değişiklikler kümenizde çalışan hizmetleri güncelleştirin. Komut satırında komutu çalıştırın:
+5. Bu değişikliklerle kümenizde çalışan hizmetleri güncelleştirin. Komut satırında komutu çalıştırın:
 
     ```
     azds up
     ```
  
-6. (İsteğe bağlı) Komut satırından bu gizli anahtarları oluşturulup oluşturulmadığını denetleyin:
+6. (İsteğe bağlı) Komut satırından bu gizli dizileri oluşturulmuş olduğunu kontrol edin:
 
       ```
       kubectl get secret --namespace default -o yaml 
       ```
 
-7. Eklediğiniz emin olun _values.dev.yaml_ için _.gitignore_ gizli kaynak denetiminde yürüten önlemek için dosya.
+7. Eklediğiniz emin _values.dev.yaml_ için _.gitignore_ gizli dizileri kaynak denetiminde yürüten önlemek için.
  
  
-## <a name="method-2-inline-directly-in-azdsyaml"></a>Yöntem 2: Satır doğrudan azds.yaml içinde
-1.  İçinde _azds.yaml_, gizli yaml bölüm yapılandırmaları/geliştirme/yükleme ayarlayın. Girdiğiniz olsa da, çünkü Önerilmemesine doğrudan gizli değerleri _azds.yaml_ kaynak denetimine iade. Bunun yerine, "$PLACEHOLDER" sözdizimini kullanarak yer tutucuları ekleyin.
+## <a name="method-2-inline-directly-in-azdsyaml"></a>2. yöntem: Satır doğrudan azds.yaml içinde
+1.  İçinde _azds.yaml_, gizli dizileri yaml bölüm yapılandırmaları/geliştirme/yükleme ayarlayın. Kolaylıkla olsa da, çünkü önerilmez doğrudan gizli değerleri _azds.yaml_ kaynak denetimine iade edildi. Bunun yerine "$PLACEHOLDER" sözdizimini kullanarak yer tutucu ekleyin.
 
     ```yaml
     configurations:
@@ -84,14 +84,14 @@ Azure Dev alanları sağlayan iki önerilen parolaları depolamak için seçenek
                 key: "$REDIS_KEY_DEV"
     ```
      
-2.  Oluşturma bir _.env_ aynı klasöre dosyasında _azds.yaml_. Standart anahtar kullanılarak parolaları girin = değer gösterimi. Yürütme yok _.env_ dosya kaynak denetimine. (Kaynak denetiminden git tabanlı sürüm denetim sistemleri atlamak için eklemeniz _.gitignore_ dosyası.) Aşağıdaki örnekte gösterildiği bir _.env_ dosyası:
+2.  Oluşturma bir _.env_ dosya aynı klasörde _azds.yaml_. Standart bir anahtar kullanarak parolaları girin = değer gösterimi. İşleme yok _.env_ dosya kaynak denetimine. (Kaynak denetiminden git tabanlı sürüm denetim sistemleri atlamak için eklemeniz _.gitignore_ dosyası.) Aşağıdaki örnekte gösterildiği bir _.env_ dosyası:
 
     ```
     REDIS_PORT_DEV=3333
     REDIS_HOST_DEV=myredishost
     REDIS_KEY_DEV=myrediskey
     ```
-2.  Kodda, aşağıdaki örnekte olduğu gibi bu Sırları başvurmak için hizmet kaynak kodu değiştirin:
+2.  Bu kod, aşağıdaki örnekte olduğu gibi gizli başvurmak için hizmet kaynak kodunuzu değiştirin:
 
     ```
     var redisPort = process.env.REDIS_PORT
@@ -99,13 +99,13 @@ Azure Dev alanları sağlayan iki önerilen parolaları depolamak için seçenek
     var theKey = process.env.REDIS_KEY
     ```
  
-3.  Bu değişiklikler kümenizde çalışan hizmetleri güncelleştirin. Komut satırında komutu çalıştırın:
+3.  Bu değişikliklerle kümenizde çalışan hizmetleri güncelleştirin. Komut satırında komutu çalıştırın:
 
     ```
     azds up
     ```
 
-4.  (isteğe bağlı) Görünüm gizli kubectl gelen:
+4.  (isteğe bağlı) Kubectl görünümü gizli diziler:
 
     ```
     kubectl get secret --namespace default -o yaml
@@ -113,5 +113,5 @@ Azure Dev alanları sağlayan iki önerilen parolaları depolamak için seçenek
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu yöntemlerle şimdi güvenli bir şekilde bir veritabanı, Redis önbelleği veya erişim güvenli Azure Hizmetleri bağlayabilirsiniz.
+Bu yöntemlerle artık güvenli bir şekilde bir veritabanı, Redis cache'e veya Azure hizmetlerine güvenli erişim bağlanabilirsiniz.
  

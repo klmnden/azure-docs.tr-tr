@@ -1,9 +1,9 @@
 ---
-title: Ortak parametrelerini ve üstbilgileri
-description: Parametreleri ve ortak anahtar kasası kaynaklarla ilgili, yapabilecek tüm işlemler için üstbilgiler.
+title: Ortak parametreler ve üst bilgiler
+description: Key Vault kaynaklarla ilgili bunu tüm işlemler için ortak üst bilgileri ve parametreleri.
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: a715d13ca9-d6e8-4e54-ac5e-0ed9400fb15b15d13ca9-d6e8-4e54-ac5e-0ed9400fb15b
@@ -13,39 +13,39 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: ead1ac550c9b7c489edefd35d5672a9955e78255
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: bryanla
+ms.openlocfilehash: a319dc670b5b1dab163b2d3aa623fc4fb9ce1c3a
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012195"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42060689"
 ---
-# <a name="common-parameters-and-headers"></a>Ortak parametrelerini ve üstbilgileri
+# <a name="common-parameters-and-headers"></a>Ortak parametreler ve üst bilgiler
 
-Aşağıdaki bilgiler, anahtar kasası kaynaklarla ilgili, yapabilecek tüm işlemler için ortaktır:
+Aşağıdaki bilgiler, Key Vault kaynaklarla ilgili bunu tüm işlemler için ortaktır:
 
-- Değiştir `{api-version}` URI API sürümüyle.
-- Değiştir `{subscription-id}` URI, abonelik tanımlayıcısı ile
-- Değiştir `{resource-group-name}` kaynak grubu ile. Daha fazla bilgi için Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma konusuna bakın.
-- Değiştir `{vault-name}` anahtar kasası adıyla URI.
-- Content-Type üstbilgisi application/json değerine ayarlayın.
-- Yetkilendirme üst bilgisi bir JSON Web Azure Active Directory (AAD gelen) elde belirteci ayarlayın. Daha fazla bilgi için bkz: [kimlik doğrulaması Azure Resource Manager](authentication-requests-and-responses.md) istekleri.
+- Değiştirin `{api-version}` URI'si, api-version ile.
+- Değiştirin `{subscription-id}` URI, abonelik tanımlayıcısı ile
+- Değiştirin `{resource-group-name}` kaynak grubu ile. Daha fazla bilgi için Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma konusuna bakın.
+- Değiştirin `{vault-name}` ile anahtar kasanızın adının URI.
+- Content-Type üst bilgisi, application/json değerine ayarlayın.
+- Yetkilendirme üst bilgisi bir JSON Web Azure Active Directory (AAD gelen) edindiğiniz belirteci ayarlayın. Daha fazla bilgi için [kimlik doğrulaması Azure Resource Manager](authentication-requests-and-responses.md) istekleri.
 
-## <a name="common-error-response"></a>Sık karşılaşılan hata yanıtı
-Hizmeti, başarı veya hata durumunu göstermek için HTTP durum kodları kullanır. Ayrıca, aşağıdaki biçimde bir yanıt hataları içerir:
+## <a name="common-error-response"></a>Genel hata yanıtı
+Hizmet, başarıyı veya başarısızlığı göstermek için HTTP durum kodları kullanır. Ayrıca, aşağıdaki biçimde bir yanıt hatalar içerir:
 
    {  
      "error": {  
      "code": "BadRequest"  
-     "iletisi": "anahtar kasası sku geçersiz."  
+     "message": "anahtar kasası SKU'su geçersiz."  
      }  
    }  
 
 |Öğe adı | Tür | Açıklama |
 |---|---|---|
-| Kod | dize | Oluştu hata türü.|
-| message | dize | Hataya neyin neden olduğunu açıklaması. |
+| Kod | dize | Konusu hatanın türü.|
+| message | dize | Hataya neden olan durum açıklaması. |
 
 
 

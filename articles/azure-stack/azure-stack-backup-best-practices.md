@@ -3,7 +3,7 @@ title: Azure Stack için altyapı Backup hizmeti en iyi yöntemler | Microsoft D
 description: Dağıtıp geri dönülemez bir hata varsa, veri kaybını önlemeye yardımcı olmak için veri merkezinizde Azure Stack yönettiğinizde, en iyi yöntem kümesi takip edebilirsiniz.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 221FDE40-3EF8-4F54-A075-0C4D66EECE1A
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/20/2017
-ms.author: mabrigg
+ms.date: 08/01/2018
+ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 4a0166856cf4d3f91c6cadf3e71f93000fbf158d
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: 08d8822410545fb0ae3a2a99de00b38566c9834c
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242980"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42058283"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Altyapı Backup hizmeti en iyi uygulamalar
 
@@ -34,7 +34,7 @@ En iyi uygulamalar, değişiklikler için işlem akışı yapıldığında yükl
 
 ### <a name="deployment"></a>Dağıtım
 
-Her Azure Stack Bulutu dağıtıldıktan sonra altyapı yedeklemeyi etkinleştirin. Tüm istemci/sunucu erişimi olan bir yedeklerden işleci yönetim API uç noktasına zamanlayabilirsiniz AzureStack araçlarını kullanma.
+Her Azure Stack Bulutu dağıtıldıktan sonra altyapı yedeklemeyi etkinleştirin. Azure Stack PowerShell kullanarak bir istemci/sunucu erişimi olan bir yedeklerden işleci yönetim API uç noktasına zamanlayabilirsiniz.
 
 ### <a name="networking"></a>Ağ
 

@@ -1,6 +1,6 @@
 ---
-title: Azure bulut Kabuk ekleme | Microsoft Docs
-description: Azure bulut Kabuk katıştırmak öğrenin.
+title: Azure Cloud Shell'i ekleme | Microsoft Docs
+description: Azure Cloud Shell'i ekleme hakkında bilgi alın.
 services: cloud-shell
 documentationcenter: ''
 author: jluk
@@ -14,47 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: juluk
-ms.openlocfilehash: 3ceddb94336fc2703e6f916f05ab1ec3676cb50d
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 0bd5382e5ea37f7c3c52d119e9d39fe7e0bfdc7c
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
-ms.locfileid: "27864893"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42058152"
 ---
-# <a name="embed-azure-cloud-shell"></a>Azure bulut Kabuk katıştırma
+# <a name="embed-azure-cloud-shell"></a>Azure Cloud Shell'i ekleme
 
-Bulut Kabuk katıştırma sağlayan geliştiriciler ve içerik yazarları doğrudan adanmış bir URL'den bulut Kabuğu'nu açmak [shell.azure.com](https://shell.azure.com). Bu bulut kabuğun kimlik doğrulama, araç, tam güç hemen getirir ve kullanıcılarınız için güncel Azure CLI/Azure PowerShell araçları.
+Cloud Shell'i ekleme sağlayan doğrudan adanmış bir URL'den Cloud Shell'i açmak, geliştiriciler ve içerik yazarları [shell.azure.com](https://shell.azure.com). Bu araç, Cloud Shell'inizin kimlik doğrulaması'nın tüm gücünden hemen getirir ve kullanıcılarınız için Azure CLI/Azure PowerShell güncel araçlar.
 
 Normal boyutlu düğmesi
 
-[![](https://shell.azure.com/images/launchcloudshell.png "Azure bulut Kabuğu'nu başlatın")](https://shell.azure.com)
+[![](https://shell.azure.com/images/launchcloudshell.png "Azure Cloud Shell'i Başlat")](https://shell.azure.com)
 
 Büyük ölçekli düğmesi
 
-[![](https://shell.azure.com/images/launchcloudshell@2x.png "Azure bulut Kabuğu'nu başlatın")](https://shell.azure.com)
+[![](https://shell.azure.com/images/launchcloudshell@2x.png "Azure Cloud Shell'i Başlat")](https://shell.azure.com)
 
 ## <a name="how-to"></a>Nasıl yapılır
 
-Bulut kabuğun Başlat düğmesi aşağıdaki kopyalayarak markdown dosyalarıyla tümleştirmek:
+Cloud Shell'inizin başlatma düğmesi, aşağıdaki kopyalayarak markdown dosyalarına tümleştirin:
 
 ```markdown
 [![Launch Cloud Shell](https://shell.azure.com/images/launchcloudshell.png "Launch Cloud Shell")](https://shell.azure.com)
 ```
 
-Açılır bir bulut Kabuk katıştırmak için HTML aşağıdadır:
+Bir açılır Cloud Shell'i ekleme için HTML aşağıda verilmiştir:
 ```html
-<a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" /></a>
+<a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><img alt="Launch Azure Cloud Shell" src="https://shell.azure.com/images/launchcloudshell.png" /></a>
 ```
 
-## <a name="customize-experience"></a>Deneyimini özelleştirme
+## <a name="customize-experience"></a>Deneyiminizi özelleştirin
 
-Belirli Kabuğu deneyiminin URL'nizi program.cs'ye olarak ayarlayın.
-|Deneyimi   |URL   |
+Belirli bir kabuk deneyimi URL'nizi geliştirerek ayarlayın.
+|Deneyimi   |URL'si   |
 |---|---|
-|Son kullanılan Kabuğu   |shell.azure.com           |
-|Bash                       |shell.azure.com/bash       |
-|PowerShell                 |shell.azure.com/powershell |
+|Son kullanılan Kabuğu   |[shell.azure.com](https://shell.azure.com)           |
+|Bash                       |[Shell.Azure.com/bash](https://shell.azure.com/bash)       |
+|PowerShell                 |[Shell.Azure.com/PowerShell](https://shell.azure.com/powershell) |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Bulut Kabuk hızlı başlangıcı bash](quickstart.md)<br>
-[PowerShell içinde bulut Kabuk hızlı başlangıç](quickstart-powershell.md)
+[Bash cloud Shell hızlı başlangıçta](quickstart.md)<br>
+[PowerShell Cloud Shell hızlı](quickstart-powershell.md)

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/14/2018
 ms.author: raynew
-ms.openlocfilehash: 3fdaaf4bc671996350b8138fb0f7fc3d7adaf567
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e363885afb77a60bfc0229a872fdb4e519d5979d
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442777"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42056008"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Hyper-V'den azure'a çoğaltma için destek matrisi
 
@@ -25,7 +25,7 @@ Bu makalede kullanarak desteklenen bileşenler ve şirket içi Hyper-V Vm'lerini
 
 **Senaryo** | **Ayrıntılar**
 --- | ---
-Hyper-V ile Virtual Machine Manager | System Center Virtual Machine Manager dokusunda yönetilen Hyper-V konakları üzerinde çalışan VM'ler için Azure'da olağanüstü durum kurtarma gerçekleştirebilirsiniz.<br/><br/> Bu senaryo Azure portalında veya PowerShell kullanarak dağıtabilirsiniz.<br/><br/> Virtual Machine Manager tarafından yönetilen Hyper-V konağına, aynı zamanda bir ikincil şirket içi siteye olağanüstü durum kurtarma gerçekleştirebilirsiniz. Bu senaryo hakkında daha fazla bilgi edinmek için [Bu öğreticide](tutorial-vmm-to-vmm.md).
+Hyper-V ile Virtual Machine Manager | System Center Virtual Machine Manager dokusunda yönetilen Hyper-V konakları üzerinde çalışan VM'ler için Azure'da olağanüstü durum kurtarma gerçekleştirebilirsiniz.<br/><br/> Bu senaryo Azure portalında veya PowerShell kullanarak dağıtabilirsiniz.<br/><br/> Virtual Machine Manager tarafından yönetilen Hyper-V konağına, aynı zamanda bir ikincil şirket içi siteye olağanüstü durum kurtarma gerçekleştirebilirsiniz. Bu senaryo hakkında daha fazla bilgi edinmek için [Bu öğreticide](hyper-v-vmm-disaster-recovery.md).
 Hyper-V olmadan Virtual Machine Manager | Virtual Machine Manager tarafından yönetilmeyen Hyper-V konaklarında çalışan VM'ler için Azure'da olağanüstü durum kurtarma gerçekleştirebilirsiniz.<br/><br/> Bu senaryo Azure portalında veya PowerShell kullanarak dağıtabilirsiniz.
 
 
@@ -44,8 +44,8 @@ Aşağıdaki tabloda, VM desteği özetler. Site Recovery, desteklenen bir işle
 
  **Bileşen** | **Ayrıntılar**
 --- | ---
-VM yapılandırması | Azure'a çoğaltma Vm'leri karşılamalıdır [Azure gereksinimleri](#failed-over-azure-vm-requirements).
-Konuk işletim sistemi | Tüm konuk işletim sistemi Azure tarafından desteklenir.<br/><br/> Windows Server 2016 Nano Server desteklenmez.
+VM yapılandırması | Azure'a çoğaltma Vm'leri karşılamalıdır [Azure gereksinimleri](#azure-vm-requirements).
+Konuk işletim sistemi | Tüm konuk işletim sistemi [Azure için desteklenen](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases)...<br/><br/> Windows Server 2016 Nano Server desteklenmez.
 
 
 ## <a name="vmdisk-management"></a>VM/Disk Yönetimi

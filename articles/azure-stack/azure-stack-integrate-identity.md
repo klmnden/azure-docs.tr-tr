@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/07/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: c22831ae781239f2474720ee9cd1b58f6e14fe41
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 9bbe55e08d7a005d38c5608df39f9285d79eb203
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412874"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42056540"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack veri merkezi tümleştirmesi - kimlik
 Kimlik sağlayıcısı Azure Stack, Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanarak dağıtabilirsiniz. Azure Stack dağıtmadan önce seçim yapmanız gerekir. AD FS dağıtımı da bağlantı kesik moddayken Azure Stack dağıtımı olarak adlandırılır.
@@ -151,7 +151,7 @@ Bu yordam için Azure Stack'te ayrıcalıklı uç noktası ile iletişim kurabil
 
 ## <a name="setting-up-ad-fs-integration-by-providing-federation-metadata-file"></a>Federasyon meta veri dosyası sağlayarak AD FS tümleştirmesini ayarlama
 
-Aşağıdaki koşullardan biri doğru olduğunda, bu yöntemi kullanın:
+Aşağıdaki koşullardan biri doğru olduğunda 1807 sürümünden başlayarak, bu yöntemi kullanın:
 
 - Sertifika zinciri, tüm diğer uç noktalardan Azure Stack ile karşılaştırıldığında, AD FS için farklıdır.
 - Azure yığını'nın AD FS örneğinden var olan AD FS sunucusuna hiçbir ağ bağlantısı yoktur.
@@ -163,6 +163,8 @@ Aşağıdaki bilgiler gereklidir Otomasyon parametreler için giriş olarak:
 |---------|---------|---------|
 |CustomAdfsName|Talep sağlayıcı adı. AD FS giriş sayfasında bu şekilde görünür.|Contoso|
 |CustomADFSFederationMetadataFileContent|Meta veri içeriği|$using: federationMetadataFileContent|
+
+
 
 ### <a name="create-federation-metadata-file"></a>Federasyon meta veri dosyası oluşturma
 

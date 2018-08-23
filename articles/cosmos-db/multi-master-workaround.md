@@ -1,44 +1,44 @@
 ---
-title: Bölümlendirme anahtarı sağ seçerek bölgeli yazma ve okuma gerçekleştirmek | Microsoft Docs
-description: Bölüm anahtarı seçerek Azure Cosmos DB ile birden çok coğrafi bölgeler arasında yerel okuma ve yazma işlemleri ile uygulama Mimari Tasarım hakkında bilgi edinin.
+title: Çok bölgeli yazma ve okuma anahtar bölümleme sağ seçerek gerçekleştirmek | Microsoft Docs
+description: Bir bölüm anahtarı seçerek birden çok coğrafi bölgede Azure Cosmos DB ile uygulama mimarileri yerel okuma ve yazma işlemleri ile tasarlama hakkında bilgi edinin.
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 06/6/2018
-ms.author: sngun
+ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18f036a259bbec98382927ad1d9e8f654b56850b
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 3d38b7cd7d1f28f706e94782602926abc8fc11e3
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850370"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42056427"
 ---
-# <a name="perform-multi-region-writes-and-reads-by-choosing-the-right-partitioning-key"></a>Bölümlendirme anahtarı sağ seçerek bölgeli yazma ve okuma gerçekleştirin
+# <a name="perform-multi-region-writes-and-reads-by-choosing-the-right-partitioning-key"></a>Çok bölgeli yazma ve okuma anahtar bölümleme sağ seçerek gerçekleştirin
 
-Azure Cosmos DB destekleyen anahtar teslimi [genel çoğaltma](distribute-data-globally.md), iş yükünü başka bir yerindeki düşük gecikme süresi erişimi olan birden çok bölgeye verilerini dağıtmak sağlar. Bu model yayımcı/tüketici iş yükleri için yaygın olarak kullanılan bir yazıcı tek bir coğrafi bölge içinde ve genel olarak dağıtılmış okuyucuları (okuma) diğer bölgelerdeki olduğu. 
+Azure Cosmos DB destekler hazır [küresel çoğaltma](distribute-data-globally.md), verileri iş yüküne herhangi bir yerinden düşük gecikme süreli erişim ile birden çok bölgeye dağıtma sağlar. Bu model yayımcı/tüketici iş yükleri için yaygın olarak kullanılan tek bir coğrafi bölgede bir yazıcı ve de (okuma) başka bölgelerde küresel olarak dağıtılan okuyucular olduğu. 
 
-İçinde yazarlar ve okuyucular genel olarak dağıtılan uygulamaları geliştirmek için Azure Cosmos DB'ın genel çoğaltma desteği de kullanabilirsiniz. Bu belgede Azure Cosmos DB kullanarak dağıtılmış yazarların yerel yazma ve yerel okuma erişimi elde sağlayan bir deseni açıklar.
+Azure Cosmos DB'nin genel çoğaltma desteği, Yazıcılar ve okuyucular küresel olarak dağıtılan uygulamalar oluşturmak için de kullanabilirsiniz. Bu belge, Azure Cosmos DB kullanarak dağıtılmış yazarlar için yerel yazma ve yerel okuma erişimi elde sağlayan bir desen özetlenmektedir.
 
 ## <a id="ExampleScenario"></a>İçerik Yayımlama - örnek bir senaryo
-Genel olarak dağıtılmış çok-region/çok-ana okuma yazma desenleri Azure Cosmos DB ile nasıl kullanabileceğiniz açıklamak için gerçek dünya senaryosu bakalım. Azure Cosmos DB'de yerleşik bir içerik yayımlama platform göz önünde bulundurun. Bu platform için harika kullanıcı deneyimi Yayımcılar ve tüketicileri için uyması gereken bazı gereksinimler şunlardır.
+Azure Cosmos DB ile küresel olarak dağıtılan çok-region/çok-ana okuma yazma desenleri nasıl kullanacağınızı açıklayan bir gerçek dünya senaryosu bakalım. Azure Cosmos DB üzerinde oluşturulmuş bir içerik yayımlama platform göz önünde bulundurun. Bu platform, Yayımcılar ve tüketiciler için harika bir deneyim için karşılaması gereken bazı gereksinimler aşağıda verilmiştir.
 
-* Yazarlar ve abonelerin world yayılır 
-* Yazarlar kendi yerel (en yakın) bölgesine (yazma) makaleleri yayımlamanız gerekir
-* Yazarları okuyucular/dünya çapında dağıtılan aboneleri kendi makalelerin vardır. 
-* Yeni makaleler yayımlandığında aboneleri bir bildirim almanız gerekir.
-* Aboneler kendi yerel bölgesinden makaleleri okuyabilir olması gerekir. Bunlar ayrıca bu makaleler incelemeler eklemeniz mümkün olması gerekir. 
-* Herkes makaleleri yazarı dahil olmak üzere tüm değerlendirmeleri makaleler için yerel bir bölgesinden bağlı mümkün görünümü olmalıdır. 
+* Yazarlar hem de aboneler dünyayı yayılır 
+* Yazarlar kendi yerel (yakın) bölgeye (yazma) makaleleri yayımlamanız gerekir
+* Yazarlar okuyucular/dünya çapında dağıtılan aboneleri, makale sahip. 
+* Aboneler, yeni bir makale yayımlandığında bir bildirim almanız gerekir.
+* Aboneleri yerel bölgelerinden makaleleri okuyabilirsiniz olması gerekir. Ayrıca bu makaleler için gözden geçirmeleri eklemek çözebilmeleri. 
+* Herhangi bir makale yazarı dahil olmak üzere mümkün görünümü tüm incelemeleri makaleler için yerel bir bölgeden bağlı olmalıdır. 
 
-Kullanıcıları ve yayımcılarına makaleler, milyarlarca ile milyonlarca varsayılarak yakında biz yere göre erişim güvence altına almak birlikte ölçeği sorunları üstesinden gelir gerekir. Çoğu ölçeklenebilirlik sorunları olduğu gibi ile iyi bölümleme stratejisine içinde çözüm arasındadır. Ardından, makaleler, gözden geçirme ve bildirimleri belgeleri olarak model, Azure Cosmos DB hesaplarını yapılandırın ve veri erişim katmanı uygulama ne bakalım. 
+Kullanıcıları ve yayımcılarına makaleler, milyarlarca ile milyonlarca varsayılarak yakında yerleşim yeri erişim güvence altına almak birlikte, Ölçek sorunları üstesinden gelir sunuyoruz. Çoğu ölçeklenebilirlik sorunları gibi ile iyi bir bölümleme stratejisinde çözüm arasındadır. Ardından, makaleler, gözden geçirme ve bildirimleri belgeleri olarak model, Azure Cosmos DB hesap yapılandırın ve bir veri erişim katmanı nasıl göz atalım. 
 
-Bölümlendirme ve bölüm anahtarları hakkında daha fazla bilgi edinmek istiyorsanız, bkz: [bölümlendirme ve Azure Cosmos DB'de ölçeklendirme](partition-data.md).
+Bölümleme ve bölüm anahtarları hakkında daha fazla bilgi edinmek istiyorsanız, bkz. [bölümleme ve ölçeklendirme Azure Cosmos DB'de](partition-data.md).
 
 ## <a id="ModelingNotifications"></a>Modelleme bildirimleri
-Bildirimler, bir kullanıcı için belirli veri akışları ' dir. Bu nedenle, bildirimler belgeler için erişim düzenlerini her zaman tek bir kullanıcı bağlamında olur. Örneğin, "bir kullanıcıya bir bildirim post" veya "belirli bir kullanıcı için tüm bildirimleri fetch". Bu nedenle, bu türü için anahtar bölümlendirme, en iyi seçenek olacaktır `UserId`.
+Belirli bir kullanıcıya veri akışları bildirimlerdir. Bu nedenle, bildirimleri belgeleri için erişim desenleri, her zaman tek bir kullanıcı bağlamında alır. Örneğin, "bir kullanıcıya bir bildirim post" veya "belirli bir kullanıcı için tüm bildirimler fetch". Bu nedenle, bu türü için anahtar bölümlemenin en uygun seçenek olacaktır `UserId`.
 
     class Notification 
     { 
@@ -64,8 +64,8 @@ Bildirimler, bir kullanıcı için belirli veri akışları ' dir. Bu nedenle, b
         public string ArticleId { get; set; } 
     }
 
-## <a id="ModelingSubscriptions"></a>Modelleme abonelikleri
-Abonelikler, makalelerin ilgi alanı veya belirli bir yayımcı belirli bir kategorideki gibi çeşitli ölçütlerine oluşturulabilir. Bu nedenle `SubscriptionFilter` bölüm anahtarı için iyi bir seçimdir.
+## <a id="ModelingSubscriptions"></a>Abonelikleri modelleme
+Faiz ya da belirli bir yayıncı makaleler belirli bir kategorisi gibi çeşitli ölçütleri için abonelik oluşturulamaz. Bu nedenle `SubscriptionFilter` bölüm anahtarı için iyi bir seçimdir.
 
     class Subscriptions 
     { 
@@ -88,7 +88,7 @@ Abonelikler, makalelerin ilgi alanı veya belirli bir yayımcı belirli bir kate
     }
 
 ## <a id="ModelingArticles"></a>Modelleme makaleleri
-Bir makale aracılığıyla bildirimleri tanımlandıktan sonra sonraki sorguları genellikle temel alan `Article.Id`. Seçme `Article.Id` bölümü olarak anahtar nedenle makaleleri bir Azure Cosmos DB koleksiyonu içinde depolamak için en iyi dağıtım sağlar. 
+Bir makale bildirimleri belirlendiğinde, sonraki sorgular genellikle dayalı `Article.Id`. Seçme `Article.Id` bölümü olarak anahtar bu nedenle makale bir Azure Cosmos DB koleksiyonu içinde depolamak için en iyi dağıtım sağlar. 
 
     class Article 
     { 
@@ -119,7 +119,7 @@ Bir makale aracılığıyla bildirimleri tanımlandıktan sonra sonraki sorgular
     }
 
 ## <a id="ModelingReviews"></a>Modelleme incelemeleri
-Makaleler gibi incelemeler çoğunlukla yazılmış ve makale bağlamında okuyun. Seçme `ArticleId` bir bölümü olarak anahtar en iyi dağıtım ve makalesiyle ilişkilendirilen incelemeleri, etkili erişim sağlar. 
+Makaleleri gibi incelemeleri çoğunlukla yazılır ve makale bağlamında okuyun. Seçme `ArticleId` en iyi dağıtım ve verimli erişim gözden geçirmeleri makalesiyle ilişkilendirilen anahtar bölümü olarak sağlar. 
 
     class Review 
     { 
@@ -144,8 +144,8 @@ Makaleler gibi incelemeler çoğunlukla yazılmış ve makale bağlamında okuyu
         public int Rating { get; set; } }
     }
 
-## <a id="DataAccessMethods"></a>Veri erişim katmanı yöntemleri
-Şimdi ana veri erişim yöntemleri uygulamak için ihtiyacımız bakalım. Yöntemlerin listesi İşte, `ContentPublishDatabase` gerekir:
+## <a id="DataAccessMethods"></a>Veri erişim katmanı yöntemi
+Artık ana veri erişim yöntemlerine ihtiyacımız uygulamak için göz atalım. Yöntemleri listesi aşağıda verilmiştir, `ContentPublishDatabase` gerekir:
 
     class ContentPublishDatabase 
     { 
@@ -161,18 +161,18 @@ Makaleler gibi incelemeler çoğunlukla yazılmış ve makale bağlamında okuyu
     }
 
 ## <a id="Architecture"></a>Azure Cosmos DB hesabı yapılandırması
-Yerel okuma ve yazma, bölüm gerekir güvence altına almak için veri bölüme anahtar, ancak ayrıca temel alınarak coğrafi erişim desenini bölgeleri tam değil. Model bir coğrafi olarak çoğaltılmış Azure Cosmos DB veritabanı hesabı her bölge için sahip kullanır. Örneğin, iki bölgede ile İşte bir kurulum bölgeli yazmalar için:
+Yerel okuma ve yazma işlemleri, biz bölüm güvence altına almak için veri bölüme anahtar, ancak ayrıca göre coğrafi erişim modelini bölgeleri tam değil. Bir coğrafi olarak çoğaltılmış Azure Cosmos DB veritabanı hesabını her bölge için açık olması modeli kullanır. Örneğin, iki bölgeleri ile İşte bir kurulum için çok bölgeli yazma:
 
 | Hesap Adı | Yazma Bölgesi | Okuma Bölgesi |
 | --- | --- | --- |
 | `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |
 
-Aşağıdaki diyagramda, okuma ve yazma işlemleri bu kurulum ile tipik bir uygulamada nasıl gerçekleştirilir gösterilmektedir:
+Okuma ve yazma işlemleri bu kurulum ile tipik bir uygulamada nasıl gerçekleştirilir, aşağıdaki diyagramda gösterilmiştir:
 
-![Azure Cosmos DB birden çok yöneticili mimarisi](./media/multi-master-workaround/multi-master.png)
+![Azure Cosmos DB çok yöneticili mimarisi](./media/multi-master-workaround/multi-master.png)
 
-Nasıl çalışır durumda bir DAL istemcilere başlatılacağını gösteren bir kod parçacığı aşağıda verilmiştir `West US` bölge.
+İşte nasıl başlatılacağını çalışan bir DAL istemcilere gösteren bir kod parçacığı `West US` bölge.
     
     ConnectionPolicy writeClientPolicy = new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp };
     writeClientPolicy.PreferredLocations.Add(LocationNames.WestUS);
@@ -192,21 +192,21 @@ Nasıl çalışır durumda bir DAL istemcilere başlatılacağını gösteren bi
         readRegionAuthKey,
         readClientPolicy);
 
-Önceki kurulum ile veri erişim katmanı dağıtıldığı üzerinde dayalı yerel hesap tüm yazma işlemlerini iletebilirsiniz. Okuma okunurken verilerin genel görünümünü almak için her iki hesap tarafından gerçekleştirilir. Bu yaklaşım, gerektiği kadar bölgeler için genişletilebilir. Örneğin, üç coğrafi bölgeler Kurulum'a şöyledir:
+Önceki kurulum ile veri erişim katmanı, dağıtıldığı üzerinde temel yerel hesap için tüm yazma işlemlerini iletebilir. Okuma, verileri genel görünümünü elde etmek için her iki hesap okunurken tarafından gerçekleştirilir. Bu yaklaşım çok bölgesini gerektiği şekilde genişletilebilir. Örneğin, üç farklı coğrafi bölgesine bir kurulumla şu şekildedir:
 
-| Hesap Adı | Yazma Bölgesi | Bölge 1 okuma | Bölge 2 okuma |
+| Hesap Adı | Yazma Bölgesi | Okuma bölgesi 1 | Okuma bölgesi 2 |
 | --- | --- | --- | --- |
 | `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |`Southeast Asia` |
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |`Southeast Asia` |
 | `contentpubdatabase-asia.documents.azure.com` | `Southeast Asia` |`North Europe` |`West US` |
 
 ## <a id="DataAccessImplementation"></a>Veri erişim katmanı uygulaması
-Şimdi iki yazılabilir bölgeleri ile bir uygulama için veri erişim katmanı (DAL) uyarlamasını bakalım. DAL, aşağıdaki adımları uygulamanız gerekir:
+Şimdi iki yazılabilir bölge ile bir uygulama için veri erişim katmanı (DAL) uygulamasını göz atalım. DAL, aşağıdaki adımları uygulamanız gerekir:
 
-* Birden çok örneğini oluşturma `DocumentClient` her hesap için. İki bölgede ile her DAL örneği varsa `writeClient` ve bir `readClient`. 
-* Uygulama dağıtılan bölgeyi temel alan, uç noktaları için yapılandırma `writeclient` ve `readClient`. DAL Örneğin, dağıtılmış `West US` kullanan `contentpubdatabase-usa.documents.azure.com` yazma işlemlerini gerçekleştirme. DAL dağıtılmış `NorthEurope` kullanan `contentpubdatabase-europ.documents.azure.com` yazmalar için.
+* Birden çok örneğini oluşturma `DocumentClient` her hesap için. İki bölgeleri ile her DAL örneği varsa `writeClient` diğeri `readClient`. 
+* Uygulamanın dağıtılan bölgeye göre yapılandırma uç noktaları `writeclient` ve `readClient`. DAL gibi dağıtılmış `West US` kullanan `contentpubdatabase-usa.documents.azure.com` yazma işlemleri gerçekleştirmek için. DAL dağıtılmış `NorthEurope` kullanan `contentpubdatabase-europ.documents.azure.com` yazma için.
 
-Önceki Kurulum'a veri erişimi yöntemleri uygulanabilir. Karşılık gelen yazma işlemleri iletmek yazma `writeClient`.
+Önceki kurulum ile veri erişim yöntemlerine uygulanabilir. Yazma işlemleri, karşılık gelen yazma iletmek `writeClient`.
 
     public async Task CreateSubscriptionAsync(string userId, string category)
     {
@@ -228,7 +228,7 @@ Nasıl çalışır durumda bir DAL istemcilere başlatılacağını gösteren bi
         });
     }
 
-Bildirimler ve incelemeler okumak için bölgeler hem UNION sonuçları aşağıdaki kod parçacığında gösterildiği gibi okumanız gerekir:
+Bildirimler ve gözden geçirmeler okumak için hem bölge hem de birleşim sonuçları aşağıdaki kod parçacığında gösterildiği gibi okuması gerekir:
 
     public async Task<IEnumerable<Notification>> ReadNotificationFeedAsync(string userId)
     {
@@ -307,14 +307,14 @@ Bildirimler ve incelemeler okumak için bölgeler hem UNION sonuçları aşağı
         return reviews;
     }
 
-Bu nedenle, bir iyi bölümleme anahtar ve hesap tabanlı statik bölümleme seçerek, bölgeli yerel yazma ve okuma Azure Cosmos DB kullanarak elde edebilirsiniz.
+Bu nedenle, iyi bir bölümleme anahtarı ve hesap tabanlı statik bölümleme seçerek, çok bölgeli yerel yazma ve okuma Azure Cosmos DB kullanarak elde edebilirsiniz.
 
 ## <a id="NextSteps"></a>Sonraki adımlar
-Bu makalede, Azure Cosmos Örnek senaryo olarak içerik yayımlama kullanarak DB ile genel dağıtılmış bölgeli okuma yazma desenleri nasıl kullanabileceğiniz açıklanmaktadır.
+Bu makalede, bir örnek senaryo içerik yayımlama kullanarak Azure Cosmos DB ile küresel olarak dağıtılan çok bölgeli okuma yazma desenleri nasıl kullanabileceğiniz açıklanmaktadır.
 
 * Azure Cosmos DB nasıl desteklediği hakkında bilgi edinin [genel dağıtım](distribute-data-globally.md)
-* Hakkında bilgi edinin [Azure Cosmos veritabanı otomatik ve el ile yük devretme](regional-failover.md)
+* Hakkında bilgi edinin [Azure Cosmos DB'de otomatik ve el ile yük devretme](regional-failover.md)
 * Hakkında bilgi edinin [Azure Cosmos DB ile genel tutarlılık](consistency-levels.md)
-* Kullanarak birden fazla bölge ile geliştirme [Azure Cosmos DB - SQL API](tutorial-global-distribution-sql-api.md)
-* Kullanarak birden fazla bölge ile geliştirme [Azure Cosmos DB - MongoDB API](tutorial-global-distribution-MongoDB.md)
-* Kullanarak birden fazla bölge ile geliştirme [Azure Cosmos DB - tablo API](tutorial-global-distribution-table.md)
+* Birden fazla bölgeye kullanarak geliştirme [Azure Cosmos DB - SQL API'si](tutorial-global-distribution-sql-api.md)
+* Birden fazla bölgeye kullanarak geliştirme [Azure Cosmos DB - MongoDB API'si](tutorial-global-distribution-MongoDB.md)
+* Birden fazla bölgeye kullanarak geliştirme [Azure Cosmos DB - tablo API'si](tutorial-global-distribution-table.md)

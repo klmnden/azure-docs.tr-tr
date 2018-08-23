@@ -1,6 +1,6 @@
 ---
-title: Bing görüntü arama SDK Java hızlı başlangıç | Microsoft Docs
-description: Bing görüntü arama SDK konsol uygulama ayarlama öğrenin.
+title: "Hızlı Başlangıç: Java SDK'yı kullanarak istek ve filtre görüntüleri"
+description: Bu hızlı başlangıçta, istek ve Java kullanarak Bing resim arama tarafından döndürülen görüntüleri Filtrele.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
@@ -10,21 +10,21 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 0c44bb313328081167a419f3b7d5ce17e49d2c99
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 280a4b67d81b0734ea983c1d7fe1389e59651ccd
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355259"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41987523"
 ---
-# <a name="bing-image-search-sdk-java-quickstart"></a>Bing görüntü arama SDK Java hızlı başlangıç
+# <a name="quickstart-request-and-filter-images-using-the-sdk-and-java"></a>Hızlı Başlangıç: Java ve SDK'sı kullanarak istek ve filtre görüntüleri
 
-Bing görüntü arama SDK görüntü sorgular ve ayrıştırma sonuçları için REST API işlevsellik sağlar. 
+Bing görüntü arama SDK'sı, görüntü sorgular ve ayrıştırma sonuçları için REST API işlevlerini sağlar. 
 
-[Kaynak kodu Java Bing görüntü arama SDK örnekleri için](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch) Git hub'da kullanılabilir. 
+[Kaynak kodu için Java Bing resim arama SDK'sı örnekleri](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch) Git hub'da kullanılabilir. 
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
-Alma bir [Bilişsel hizmetler erişim tuşu](https://azure.microsoft.com/try/cognitive-services/) altında **arama**. Bing görüntü arama SDK bağımlılığı Maven, Gradle veya başka bir bağımlılık yönetimi sistemi kullanarak yükleyin. Maven POM dosya bildirimi gerektirir:
+Alma bir [Bilişsel hizmetler erişim anahtarını](https://azure.microsoft.com/try/cognitive-services/) altında **arama**. Bing görüntü arama SDK bağımlılıklarını, Maven, Gradle veya başka bir bağımlılık yönetim sistemi kullanarak yükleyin. Maven POM dosyası bildirimi gerektirir:
 ```
  <dependencies>
     <dependency>
@@ -35,7 +35,7 @@ Alma bir [Bilişsel hizmetler erişim tuşu](https://azure.microsoft.com/try/cog
  </dependencies> 
 ```
 ## <a name="image-search-client"></a>Görüntü arama istemci
-İçeri aktarmalar için sınıf uygulamasını ekleyin.
+Sınıf uygulamasına içeri aktarmaları ekleyin.
 ```
 import com.microsoft.azure.cognitiveservices.imagesearch.*;
 import com.microsoft.azure.cognitiveservices.imagesearch.ImageObject;
@@ -54,7 +54,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 ```
-Uygulama **ImageSearchAPIImpl** bir örneğini gerektirir istemci **ServiceClientCredentials** sınıfı.
+Uygulama **ImageSearchAPIImpl** örneği gerektiren bir istemci **ServiceClientCredentials** sınıfı.
 ```
 public static ImageSearchAPIImpl getClient(final String subscriptionKey) {
     return new ImageSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
@@ -79,7 +79,7 @@ public static ImageSearchAPIImpl getClient(final String subscriptionKey) {
 }
 
 ```
-Görüntüler hakkında "Kanada Rockies." için arama yapın Sonuç sayısını doğrulayın. Değerlerini yazdırma **firstImageResult**, **pivotSuggestions**, ve **queryExpansions** parametreleri.
+Görüntüler hakkında "Kanada Rockies." için arama yapın Sonuç sayısı doğrulayın. Değerlerini yazdırma **firstImageResult**, **pivotSuggestions**, ve **queryExpansions** parametreleri.
 ```
 public static void imageSearch(String subscriptionKey)
 {
@@ -164,7 +164,7 @@ public static void imageSearch(String subscriptionKey)
 }
 
 ```
-Görüntüler hakkında "Cebelitarık" için arama ve filtreleme animasyonlu GIF için ve bir geniş en boy oranı. Sonuç sayısını doğrulayın. Değerlerini yazdırma **insightsToken**, **thumbnailUrl**, ve **webUrl** ilk sonucu için parametreler.
+Görüntüler hakkında "Cebelitarık" için arama ve filtreleme için Animasyonlu GIF'ler ve geniş bir en boy oranı. Sonuç sayısı doğrulayın. Değerlerini yazdırma **insightsToken**, **thumbnailUrl**, ve **webUrl** ilk sonuç için parametreleri.
 ```
 public static void imageSearchWithFilters(String subscriptionKey)
 {
@@ -208,7 +208,7 @@ public static void imageSearchWithFilters(String subscriptionKey)
 }
 
 ```
-Oluşturan eğilim görüntüleri arayın. Doğrulama **kategorileri** ve **kutucukları** parametreleri.
+Popüler resimler için arama yapın. Doğrulama **kategorileri** ve **kutucukları** parametreleri.
 ```
 public static void imageTrending(String subscriptionKey)
 {
@@ -260,7 +260,7 @@ public static void imageTrending(String subscriptionKey)
 }
 
 ```
-"Degas" sorgu görüntülerle arayın ve ilk resim sonucu ile ilgili ayrıntılar için arama yapın. 
+"Degas" sorgu görüntülerle arayın ve ilk görüntü sonuçla ilgili ayrıntıları bulun. 
 ```
 public static void imageDetail(String subscriptionKey)
 {
@@ -396,7 +396,7 @@ public static void imageDetail(String subscriptionKey)
     }
 }
 ```
-Bir sınıfa kod yürütmek için ana işleviyle bu makalede açıklanan yöntemleri ekleyin.
+Kod yürütme için ana işlevi içeren bir sınıf için bu makalede açıklanan yöntemlerden ekleyin.
 ```
 package ImageSDK;
 import com.microsoft.azure.cognitiveservices.imagesearch.*;
@@ -416,4 +416,4 @@ public class ImageSrchSDK {
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel hizmetler Java SDK'sı örneği](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Bilişsel hizmetler Java SDK'sı örnekleri](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)

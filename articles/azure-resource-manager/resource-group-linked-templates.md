@@ -1,6 +1,6 @@
 ---
-title: Bağlantı Azure dağıtımının şablonları | Microsoft Docs
-description: Modüler şablonu çözümü oluşturmak için bir Azure Resource Manager şablonu bağlı şablonları kullanmayı açıklar. Parametre değerleri geçirmek için bir parametre dosyası ve dinamik olarak oluşturulan URL'leri belirtin gösterilmiştir.
+title: Bağlantı için Azure dağıtım şablonları | Microsoft Docs
+description: Modüler şablon çözüm oluşturmak için bir Azure Resource Manager şablonunda bağlı şablonların kullanmayı açıklar. Parametre değerlerini geçirmek için bir parametre dosyası ve dinamik olarak oluşturulan URL'leri belirtin gösterilmektedir.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 08/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 17f40790343181c592eca7bf6337b0f37d3ec20c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8cac3c8d3a1877ad7c93efc0954c2f07ecaa0a29
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602824"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42059745"
 ---
-# <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Bağlantılı ve şablonları Azure kaynaklarını dağıtırken iç içe geçmiş kullanma
+# <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Bağlı, şablonları Azure kaynakları dağıtılırken iç içe kullanma
 
-Çözümünüzü dağıtmak için tek bir şablon ya da ana şablon birçok ilgili şablonları ile kullanabilirsiniz. İlgili şablon ana şablondan bağlantılı ayrı bir dosya ya da ana şablonu içinde iç içe bir şablon olabilir.
+Çözümünüzü dağıtmak için tek bir şablondan ya da bir ana şablon ile ilgili birçok şablonu kullanabilirsiniz. İlgili şablon ana şablon için bağlantılı ayrı bir dosya veya ana şablonu içinde iç içe bir şablon olabilir.
 
-Orta çözümlerine küçük için tek bir şablon anlamak ve sürdürmek daha kolay olur. Tüm kaynaklara ve tek bir dosyada değerleri görebilirsiniz. Gelişmiş senaryolar için bağlı şablonları hedeflenen bileşenlere çözüm bölmek etkinleştirmeniz ve şablonlarını yeniden kullanabilirsiniz.
+Küçük ila orta çözümleri, tek bir şablon anlamak ve sürdürmek daha kolay olur. Tüm kaynaklar ve tek bir dosyada değerleri görebilirsiniz. Gelişmiş senaryolar için bağlı şablonların hedeflenen bileşenlere çözüm bölümlere ayırmak etkinleştirmeniz ve şablonları yeniden.
 
-Bağlantılı şablon kullanırken, dağıtım sırasında parametre değerlerini alır bir ana şablon oluşturun. Ana Şablon bağlı tüm şablonları içerir ve gerektiğinde bu şablonları değerleri geçirir.
+Bağlantılı şablon kullanırken, dağıtım sırasında parametre değerleri alan bir ana şablon oluşturun. Ana Şablon bağlantılı tüm şablonları içerir ve gerektiğinde bu şablonlara değerleri geçirir.
 
 ## <a name="link-or-nest-a-template"></a>Bir şablonu içe veya bağlantı
 
-Farklı bir şablona bağlamak için ekleme bir **dağıtımları** ana şablonunuz için kaynak.
+Başka bir şablona bağlamak için ekleme bir **dağıtımları** ana şablon kaynağı.
 
 ```json
 "resources": [
@@ -47,11 +47,13 @@ Farklı bir şablona bağlamak için ekleme bir **dağıtımları** ana şablonu
 ]
 ```
 
-Dağıtım kaynağı için sağladığınız özelliklerini bir dış şablonu bağlama veya bir satır içi şablon ana şablonundaki iç içe geçme göre farklılık gösterir.
+Dağıtım kaynağı için sağladığınız özellikleri dış bir şablona bağlama veya iç içe bir ana şablon satır içi şablonunda göre değişir.
 
-### <a name="nested-template"></a>İç içe geçmiş şablonu
+Hem bağlantılı hem de iç içe şablonlar için yalnızca kullanabilirsiniz [artımlı](deployment-modes.md) dağıtım modu.
 
-Ana Şablon şablonda yerleştirmek için kullanmak **şablonu** özelliği ve şablon söz dizimi belirtin.
+### <a name="nested-template"></a>İç içe geçmiş şablon
+
+Ana şablon içinde şablonun içine yerleştirmek için kullanmanız **şablon** özelliği ve şablon söz dizimi belirtin.
 
 ```json
 "resources": [
@@ -82,15 +84,15 @@ Ana Şablon şablonda yerleştirmek için kullanmak **şablonu** özelliği ve �
 ```
 
 > [!NOTE]
-> İç içe geçmiş şablonları için parametreleri veya iç içe geçmiş şablonda tanımlanan değişkenler kullanamazsınız. Parametreler ve değişkenler ana şablondan kullanabilirsiniz. Önceki örnekte `[variables('storageName')]` iç içe geçmiş şablonunu değil ana şablonundan bir değer alır. Dış şablonlar bu kısıtlama geçerli değildir.
+> İç içe geçmiş şablonlar için parametreleri veya iç içe geçmiş şablon içinde tanımlanan değişkenler kullanamazsınız. Parametreler ve değişkenler ana kullanabilirsiniz. Önceki örnekte `[variables('storageName')]` ana şablonu, iç içe geçmiş şablon değil bir değer alır. Bu kısıtlama, dış şablonları için geçerli değildir.
 >
-> Kullanamazsınız `reference` iç içe geçmiş şablonunun çıktıları bölümdeki işlevi. Bir iç içe geçmiş şablonunda dağıtılmış bir kaynak için değer döndürmek için iç içe geçmiş şablonunuzu bağlantılı şablona dönüştürebilirsiniz.
+> Kullanamazsınız `reference` çıktılar bölümünü iç içe geçmiş şablon işlevinde. Dönüş değerleri dağıtılan kaynağın içinde iç içe geçmiş bir şablon için iç içe geçmiş şablon bağlantılı şablona dönüştürebilirsiniz.
 
-İç içe geçmiş şablonu gerektirir [aynı özellikleri](resource-group-authoring-templates.md) standart şablon olarak.
+İç içe geçmiş şablon için gerekli [aynı özellikleri](resource-group-authoring-templates.md) standart şablon olarak.
 
-### <a name="external-template-and-external-parameters"></a>Dış şablon ve dış parametreleri
+### <a name="external-template-and-external-parameters"></a>Dış şablon ve dış Parametreler
 
-Bir dış şablonu ve parametre dosyası bağlanmak için kullanmak **templateLink** ve **parametersLink**. Bir şablona bağlanırken Resource Manager hizmeti buna erişebilir olması gerekir. Yerel bir dosya veya yalnızca yerel ağınızda kullanılabilir bir dosya belirtemezsiniz. İçerir ya da bir URI değeri yalnızca sağlayabilir **http** veya **https**. Tek bir depolama hesabında bağlantılı şablonunuzu yerleştirin ve bu öğe için URI kullanmak için bir seçenektir.
+Bir dış şablonu ve parametre dosyası bağlanmak için kullanmak **templateLink** ve **parametersLink**. Bir şablona bağlarken, Resource Manager hizmetine erişebilmesi için olmalıdır. Yerel bir dosya ya da yalnızca yerel ağınızda kullanılabilir olan dosya belirtemezsiniz. Ya da içeren bir URI değeri yalnızca sağlayabilir **http** veya **https**. Bir seçenek bağlı şablonunuzu bir depolama hesabında yerleştirin ve bu öğe için bir URI kullanın oluşturmaktır.
 
 ```json
 "resources": [
@@ -113,11 +115,11 @@ Bir dış şablonu ve parametre dosyası bağlanmak için kullanmak **templateLi
 ]
 ```
 
-Sağlamak zorunda değilsiniz `contentVersion` şablonu veya parametreleri için özelliği. Bir içerik sürümü değer sağlamazsanız, şablonun geçerli sürümünü dağıtılır. İçerik sürümü için bir değer sağlarsanız, bağlantılı şablon sürümü eşleşmelidir; Aksi takdirde, dağıtım bir hata ile başarısız olur.
+Sağlamaları gerekmez `contentVersion` şablonu veya parametreler özellik. Bir içerik sürümü değeri sağlamıyorsa şablonunun geçerli sürümünü dağıtılır. İçerik sürümü için bir değer belirtirseniz, bağlı şablonun sürümünde eşleşmelidir; Aksi takdirde, dağıtım, bir hata ile başarısız olur.
 
 ### <a name="external-template-and-inline-parameters"></a>Dış şablon ve satır içi parametreleri
 
-Ya da parametre satır içi sağlayabilir. Ana şablondan bağlantılı şablonu için bir değer geçirmek için kullanın **parametreleri**.
+Veya, parametre satır içi sağlayabilirsiniz. Bir değer, bağlı şablonun ana şablonu geçirmek için kullanın **parametreleri**.
 
 ```json
 "resources": [
@@ -141,9 +143,9 @@ Ya da parametre satır içi sağlayabilir. Ana şablondan bağlantılı şablonu
 
 ## <a name="using-variables-to-link-templates"></a>Şablonları bağlamak için değişkenleri kullanma
 
-Önceki örneklerde şablon bağlantılar için sabit kodlanmış URL değerleri gösterilmiştir. Bu yaklaşım basit bir şablon için çalışabilir, ancak iyi çok sayıda modüler şablonları ile çalışırken çalışmıyor. Bunun yerine, ana şablon için bir temel URL'yi saklayan statik bir değişken oluşturun ve ardından dinamik olarak URL'ler için temel bu URL'den bağlı şablonları oluşturun. Bu yaklaşımın avantajı, kolayca taşımak veya yalnızca ana şablon statik değişkende değiştirmek gerektiğinden şablon çatallaştırma değil. Ana Şablon ayrıştırılmış şablon boyunca doğru URI'ler geçirir.
+Önceki örneklerde şablon bağlantılara sabit kodlanmış URL'si değerleri gösterdi. Bu yaklaşım için basit bir şablon çalışabilir ancak büyük bir dizi modüler şablonu ile çalışırken de çalışmıyor. Bunun yerine, ana şablon için temel URL saklayan statik bir değişken oluşturun ve ardından dinamik olarak URL'ler için bu temel URL bağlı şablonlardan oluşturma. Bu yaklaşımın avantajı, kolayca taşıyabilir veya yalnızca ana şablondaki statik değişkeni değiştirmeniz gerekir çünkü şablon çatal içindir. Ana Şablon doğru bir URI'leri ayrıştırılmış şablon boyunca geçirir.
 
-Aşağıdaki örnek bir temel URL'yi bağlı şablonları için iki URL'ler oluşturmak için nasıl kullanılacağını gösterir (**sharedTemplateUrl** ve **vmTemplate**).
+Aşağıdaki örnek, bağlı şablonların iki URL'lerini oluşturmak için temel URL kullanmayı gösterir (**sharedTemplateUrl** ve **vmTemplate**).
 
 ```json
 "variables": {
@@ -153,7 +155,7 @@ Aşağıdaki örnek bir temel URL'yi bağlı şablonları için iki URL'ler olu�
 }
 ```
 
-Aynı zamanda [deployment()](resource-group-template-functions-deployment.md#deployment) temel URL için geçerli şablon almak ve, URL'yi diğer şablonlar için aynı konumda almak için kullanın. Bu yaklaşım, şablon konumu değişikliklerinizi veya şablon dosyası URL'lerinde sabit kodlama önlemek istiyorsanız kullanışlıdır. TemplateLink özelliği yalnızca bir URL ile uzak bir şablona bağlarken döndürülür. Yerel bir şablon kullanıyorsanız, bu özellik kullanılamıyor.
+Ayrıca [deployment()](resource-group-template-functions-deployment.md#deployment) temel URL için geçerli şablonu alıp, URL'yi diğer şablonlar için aynı konumda almak için kullanın. Bu yaklaşım, şablonu konumu değişikliklerinizi veya şablon dosyasında URL'leri Sabit kodlama kaçınmak istiyorsanız kullanışlıdır. TemplateLink özelliğindeki yalnızca bir URL ile bir uzak şablonuna bağlarken döndürülür. Yerel bir şablonu kullanıyorsanız, bu özellik kullanılabilir değil.
 
 ```json
 "variables": {
@@ -163,9 +165,9 @@ Aynı zamanda [deployment()](resource-group-template-functions-deployment.md#dep
 
 ## <a name="get-values-from-linked-template"></a>Bağlantılı şablondan değerlerini alma
 
-Bağlantılı bir şablondan bir çıkış değerini almak için özellik değeri gibi bir sözdizimiyle almak: `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
+Bağlantılı bir şablondan bir çıkış değeri almak için özellik değeri gibi bir söz dizimi ile Al: `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
 
-Aşağıdaki örnekler, bağlantılı bir şablon başvurusu ve bir çıkış değerini almak nasıl ekleyebileceğiniz gösterilmektedir. Bağlantılı şablon basit bir ileti döndürür.
+Aşağıdaki örnekler, bağlı bir şablona başvurmak ve bir çıkış değeri almak nasıl ekleyebileceğiniz gösterilmektedir. Bağlantılı şablon, basit bir ileti döndürür.
 
 ```json
 {
@@ -183,7 +185,7 @@ Aşağıdaki örnekler, bağlantılı bir şablon başvurusu ve bir çıkış de
 }
 ```
 
-Ana Şablon bağlantılı şablon dağıtır ve döndürülen değeri alır. Dağıtım kaynağı adıyla başvurduğu ve bağlantılı şablonu tarafından döndürülen özellik adını kullanan dikkat edin.
+Ana Şablon dağıtır bağlı şablonun ve döndürülen değer alır. Ada göre dağıtım kaynağına başvurduğundan ve bağlantılı şablon tarafından döndürülen özelliğin adını kullanan dikkat edin.
 
 ```json
 {
@@ -214,9 +216,9 @@ Ana Şablon bağlantılı şablon dağıtır ve döndürülen değeri alır. Da�
 }
 ```
 
-Diğer kaynak türleri gibi bağlantılı şablonu ve kaynaklar arasındaki bağımlılıkları ayarlayabilirsiniz. Bu nedenle, diğer kaynakları bir çıkış değerini bağlantılı şablondan gerektirdiğinde, bağlantılı şablonu daha önce dağıtılan emin olun. Veya diğer kaynaklara bağlı şablonunu kullanır, diğer kaynakları önce bağlantılı şablon dağıtılan emin olun.
+Gibi diğer kaynak türlerini, bağlı şablonun ve diğer kaynaklar arasındaki bağımlılıkları da ayarlayabilirsiniz. Bu nedenle, bir çıkış değeri bağlı şablondan diğer kaynaklara ihtiyaç duyduğunuzda, bağlı şablonun daha önce dağıtıldığından emin olun. Ya da diğer kaynaklara bağlı şablonun kullanır, bağlı şablonun önce dağıtılan diğer kaynakları emin olun.
 
-Aşağıdaki örnek, bir ortak IP adresi dağıtır ve kaynak kimliği döndüren bir şablon gösterir:
+Aşağıdaki örnek, bir genel IP adresi dağıtır ve kaynak Kimliğini döndüren bir şablon gösterir:
 
 ```json
 {
@@ -251,7 +253,7 @@ Aşağıdaki örnek, bir ortak IP adresi dağıtır ve kaynak kimliği döndüre
 }
 ```
 
-Bir yük dengeleyici dağıtırken önceki şablondan genel IP adresi kullanmak için şablona bağlantı ve bir bağımlılık dağıtım kaynağı ekleyin. Genel IP adresini yük dengeleyici üzerinde bağlantılı şablondan çıktı değerine ayarlanır.
+Önceki şablondan genel IP adresini yük dengeleyici dağıtırken kullanmak için şablona bağladığınız ve bağımlılık dağıtım kaynağı ekleyin. Genel IP adresini yük dengeleyici üzerindeki bağlantılı şablondan çıkış değerine ayarlanır.
 
 ```json
 {
@@ -316,13 +318,13 @@ Bir yük dengeleyici dağıtırken önceki şablondan genel IP adresi kullanmak 
 }
 ```
 
-## <a name="linked-and-nested-templates-in-deployment-history"></a>Dağıtım geçmişi bağlantılı ve iç içe geçmiş şablonlarında
+## <a name="linked-and-nested-templates-in-deployment-history"></a>Dağıtım geçmişi bağlantılı ve iç içe şablonlar
 
-Kaynak Yöneticisi'ni her bir şablon dağıtım geçmişini ayrı bir dağıtımda olarak işler. Bu nedenle, bir ana şablon üç bağlantılı veya iç içe geçmiş şablonları ile dağıtım geçmişi görünür:
+Kaynak Yöneticisi her şablon dağıtım geçmişini de ayrı bir dağıtım olarak işler. Bu nedenle, ana şablon bağlantılı veya iç içe üç şablon ile dağıtım geçmişini görünür:
 
 ![Dağıtım geçmişi](./media/resource-group-linked-templates/deployment-history.png)
 
-Dağıtım sonrasında çıktı değerleri almak için geçmişinde bu ayrı girişleri kullanabilirsiniz. Aşağıdaki şablonu bir ortak IP adresi oluşturur ve IP adresi çıkarır:
+Dağıtımdan sonra çıkış değerleri almak için bu ayrı girişleri geçmişinde kullanabilirsiniz. Aşağıdaki şablonu bir ortak IP adresi oluşturur ve IP adresini verir:
 
 ```json
 {
@@ -360,7 +362,7 @@ Dağıtım sonrasında çıktı değerleri almak için geçmişinde bu ayrı gir
 }
 ```
 
-Yukarıdaki şablonu aşağıdaki şablonu bağlantılar. Üç genel IP adresleri oluşturur.
+Önceki şablonda aşağıdaki şablon bağlantılar. Üç genel IP adresi oluşturur.
 
 ```json
 {
@@ -393,7 +395,7 @@ Yukarıdaki şablonu aşağıdaki şablonu bağlantılar. Üç genel IP adresler
 }
 ```
 
-Dağıtımdan sonra aşağıdaki PowerShell betiğini çıkış değerlerle alabilirsiniz:
+Dağıtımdan sonra aşağıdaki PowerShell betiğini çıkış değerleri alabilir:
 
 ```powershell
 $loopCount = 3
@@ -405,7 +407,7 @@ for ($i = 0; $i -lt $loopCount; $i++)
 }
 ```
 
-Veya Azure CLI komut dosyası:
+Veya Azure CLI betiği:
 
 ```azurecli
 for i in 0 1 2;
@@ -419,11 +421,11 @@ done
 
 ## <a name="securing-an-external-template"></a>Bir dış şablonu güvenliğini sağlama
 
-Bağlantılı şablon dışarıdan kullanılabilir olması gerekse de, ortak genel olarak kullanılabilir olması gerekmez. Yalnızca depolama hesabı sahibi erişilebilir olan bir özel depolama hesabını şablonunuzu ekleyebilirsiniz. Ardından, dağıtım sırasında erişimi etkinleştirmek için bir paylaşılan erişim imzası (SAS) belirteci oluşturun. Bağlantılı şablonu için URI, SAS belirteci ekleyin. Belirteç güvenli bir dize geçirilen olsa bile, SAS belirteci gibi bağlantılı şablon URI'si dağıtım işlemlerini günlüğe kaydedilir. Etkilenme sınırlamak için bir sona erme belirteç için ayarlayın.
+Bağlı şablonun dışarıdan kullanılabilir olsa da, genel kullanıma sunuldu olması gerekmez. Yalnızca depolama hesabı sahibi tarafından erişilebilir bir özel depolama hesabına şablonunuza ekleyebilirsiniz. Ardından, dağıtım sırasında erişim sağlamak için paylaşılan erişim imzası (SAS) belirteci oluşturun. URI için bağlı şablonun SAS belirtecini ekleyin. SAS belirteci dahil olmak üzere bağlı şablon URI'si, belirteci güvenli bir dize olarak geçirilen olsa bile, dağıtım işlemleri günlüğe kaydedilir. Etkilenme sınırlamak için bir belirteç sona erme tarihi ayarlayın.
 
-Parametre dosyası da bir SAS belirteci üzerinden erişim sınırlı olabilir.
+Parametre dosyasını bir SAS belirteci üzerinden erişim için sınırlı olabilir.
 
-Aşağıdaki örnek, bir şablona bağlanırken bir SAS belirteci geçirmek gösterilmektedir:
+Aşağıdaki örnek, bir şablona bağlanırken bir SAS belirteci geçirilecek gösterilmektedir:
 
 ```json
 {
@@ -451,7 +453,7 @@ Aşağıdaki örnek, bir şablona bağlanırken bir SAS belirteci geçirmek gös
 }
 ```
 
-PowerShell'de, kapsayıcı için bir belirteç almak ve aşağıdaki komutları şablonlarıyla dağıtın. Dikkat **containerSasToken** parametresi şablonda tanımlanan. İçindeki bir parametre değil **New-AzureRmResourceGroupDeployment** komutu.
+PowerShell'de, bir belirteç almak için kapsayıcı ve aşağıdaki komutları kullanarak şablonları dağıtabilirsiniz. Dikkat **containerSasToken** parametre şablonunda tanımlanır. Bir parametre değil **New-AzureRmResourceGroupDeployment** komutu.
 
 ```powershell
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
@@ -460,7 +462,7 @@ $url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.
 New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
-Azure CLI, kapsayıcı için bir belirteç almak ve şablonları aşağıdaki kod ile dağıtabilirsiniz:
+Azure CLI için kapsayıcı bir belirteç almak ve şablonları aşağıdaki kodla dağıtın:
 
 ```azurecli
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
@@ -485,16 +487,16 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 
 ## <a name="example-templates"></a>Örnek şablonları
 
-Aşağıdaki örnekler bağlı Şablonları'nın yaygın kullanımları gösterir.
+Aşağıdaki örnekler, bağlı şablonların'ın yaygın kullanımları gösterir.
 
-|Ana şablon  |Bağlantılı şablonu |Açıklama  |
+|Ana şablon  |Bağlantılı şablon |Açıklama  |
 |---------|---------| ---------|
-|[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[Bağlantılı şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Bağlantılı şablondan dize verir. |
-|[Genel IP adresine sahip yük dengeleyici](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[Bağlantılı şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Genel IP adresi bağlantılı şablondan döndürür ve yük dengeleyici bu değeri ayarlar. |
-|[Birden çok IP adresi](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [Bağlantılı şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Birkaç genel IP adresleri bağlantılı şablonunda oluşturur.  |
+|[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[bağlantılı şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Bağlantılı şablondan dizeyi döndürür. |
+|[Genel IP adresine sahip yük dengeleyici](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[bağlantılı şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Bağlantılı şablondan genel IP adresini getirir ve yük dengeleyici bu değeri ayarlar. |
+|[Birden çok IP adresi](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [bağlantılı şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Bağlantılı şablonunda birden fazla genel IP adresi oluşturur.  |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Kaynaklarınız için bir dağıtım sırasıyla tanımlama hakkında bilgi edinmek için [Azure Resource Manager'da bağımlılıkları tanımlama](resource-group-define-dependencies.md).
-* Bir kaynak tanımladığınız ancak birçok örnekleri oluşturma konusunda bilgi almak için bkz: [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md).
-* Bir şablonda bir depolama hesabı ayarlama ve bir SAS belirteci oluşturma adımları için bkz [Resource Manager şablonları ve Azure PowerShell ile kaynakları dağıtmak](resource-group-template-deploy.md) veya [Resource Manager şablonları ve Azure CLI kaynaklarla dağıtmak](resource-group-template-deploy-cli.md).
+* Kaynaklarınız için dağıtım sırasını tanımlamaya hakkında bilgi edinmek için [Azure Resource Manager şablonlarında bağımlılık tanımlama](resource-group-define-dependencies.md).
+* Bir kaynak tanımladığınız ancak pek çok örneğini oluşturma konusunda bilgi almak için bkz: [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md).
+* Bir depolama hesabında bir şablon oluşturma ve bir SAS belirteci oluşturma adımları için bkz [kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma](resource-group-template-deploy.md) veya [kaynakları Resource Manager şablonları ile dağıtma ve Azure CLI](resource-group-template-deploy-cli.md).

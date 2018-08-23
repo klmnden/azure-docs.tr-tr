@@ -9,16 +9,16 @@ ms.author: xshi
 ms.date: 06/26/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a5ab49beed79a8ea3a7ded0848c09acad27a5fb1
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 78e952b5b1eedc1757cfe636eb13e411044dce54
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390546"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42056244"
 ---
 # <a name="develop-and-debug-nodejs-modules-with-azure-iot-edge-for-visual-studio-code"></a>Geliştirme ve Node.js modüllerini Visual Studio Code için Azure IOT Edge ile hata ayıklama
 
-İş mantığınızı için Azure IOT Edge modülleri açarak ucuna çalışılacak gönderebilirsiniz. Bu makalede, C# modülleri geliştirmek için ana geliştirme aracı olarak Visual Studio Code (VS Code) kullanmaya yönelik ayrıntılı yönergeler sağlar.
+İş mantığınızı için Azure IOT Edge modülleri açarak ucuna çalışılacak gönderebilirsiniz. Bu makalede, Node.js modülleri geliştirmek için ana geliştirme aracı olarak Visual Studio Code (VS Code) kullanmaya yönelik ayrıntılı yönergeler sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makalede, bir bilgisayarı veya geliştirme makinenize Windows veya Linux çalıştıran sanal makine kullandığınızı varsayar. Geliştirme makinenizde, IOT Edge cihazının simülasyonunu gerçekleştirme veya başka bir fiziksel cihaz IOT Edge Cihazınızı olabilir.
@@ -43,7 +43,7 @@ Modülünüzün bir cihazda test etmek için etkin bir IOT hub ile en az bir IOT
 
 ## <a name="create-a-new-solution-template"></a>Yeni bir çözüm şablonu oluşturma
 
-Aşağıdaki adımlar Visual Studio Code ve Azure IOT Edge uzantısını kullanarak .NET Core 2.0 üzerinde dayalı bir IOT Edge modülü oluşturma işlemini gösterir. Bir çözüm oluşturup sonra bu çözümde ilk modülü oluşturma başlatın. Her çözüm, birden çok modül içerebilir. 
+Aşağıdaki adımlar Visual Studio Code ve Azure IOT Edge uzantısını kullanarak Node.js dosyasını temel bir IOT Edge modülü oluşturma işlemini gösterir. Bir çözüm oluşturup sonra bu çözümde ilk modülü oluşturma başlatın. Her çözüm, birden çok modül içerebilir. 
 
 1. Visual Studio Code'da seçin **görünümü** > **tümleşik Terminalini**.
 2. Tümleşik terminalde, Node.js için Azure IOT Edge modülü şablonunun en son sürümünü yüklemek (veya güncelleştirmek için) aşağıdaki komutu girin:
@@ -67,22 +67,22 @@ VS Code, sağlanan bir IOT Edge çözümü oluşturur, ardından yeni bir pencer
 Çözüm içinde üç öğe vardır: 
 * A **.vscode** klasörü, hata ayıklama yapılandırmaları içerir.
 * A **modülleri** her bir modül için alt klasör içerir. Yalnızca biri varsa, ancak daha komutuyla komut Paleti'nde ekleyebilirsiniz hemen **Azure IOT Edge: IOT Edge Modülü Ekle**. 
-* A **.env** dosyası, ortam değişkenleri listeler. ACR kullanıcı adı ve parola içinde elde edeceksiniz, kayıt defteri gibi doğru ACR varsa. 
+* A **.env** dosyası, ortam değişkenleri listeler. Azure Container Registry kaydınız varsa, bir Azure kapsayıcı kayıt defteri kullanıcı adı ve parola bulunması.
 
    >[!NOTE]
    >Modül için bir görüntü deposuna sağlarsanız, ortam dosyası yalnızca oluşturulur. Test ve yerel olarak hata ayıklama için localhost Varsayılanları kabul ortam değişkenleri gerekmez. 
 
 * A **deployment.template.json** dosyası listeler, yeni bir örnek modülüyle **tempSensor** test etmek için kullanabileceğiniz veri benzetimi gerçekleştiren modülü. Nasıl iş dağıtım bildirimleri hakkında daha fazla bilgi için bkz. [nasıl IOT Edge modülleri, yapılandırılmış, yeniden kaldırılabilir ve anlamak](module-composition.md).
 
-## <a name="devlop-your-module"></a>Devlop modülünüzde
+## <a name="develop-your-module"></a>Modülü geliştirme
 
-Çözümünüzle birlikte gelen varsayılan Azure işlevi kodu şu konumdadır **modülleri** > **\<, modül adı\>**   >   **app.js**. Çözümü derleyin, kapsayıcı kayıt defterinize itme ve herhangi bir kod dokunmadan testi başlatmak için bir aygıta dağıtmak modülü ve deployment.template.json dosya ayarlanır. Modül, yalnızca bir kaynak (Bu durumda, veri benzetimi gerçekleştiren tempSensor Modülü) gelenlerin ve IOT Hub'ına kanal için oluşturulmuştur. 
+Çözümünüzle birlikte gelen varsayılan Node.js kodu şu konumdadır **modülleri** > **\<, modül adı\>** > **app.js** . Çözümü derleyin, kapsayıcı kayıt defterinize itme ve herhangi bir kod dokunmadan testi başlatmak için bir aygıta dağıtmak modülü ve deployment.template.json dosya ayarlanır. Modül, yalnızca bir kaynak (Bu durumda, veri benzetimi gerçekleştiren tempSensor Modülü) gelenlerin ve IOT Hub'ına kanal için oluşturulmuştur. 
 
 Kendi kodunuzu ile Node.js şablonu özelleştirmek hazır olduğunuzda kullanın [Azure IOT Hub SDK'ları](../iot-hub/iot-hub-devguide-sdks.md) anahtar gereken güvenlik, cihaz yönetimi ve güvenilirlik gibi IOT çözümleri için bu adrese modüller oluşturmak için. 
 
 ## <a name="build-and-deploy-your-module-for-debugging"></a>Derleme ve hata ayıklama için modülünüzde dağıtma
 
-Her modül klasöründe, farklı bir kapsayıcı türü için birden çok Docker dosyası vardır. Uzantısıyla biten bu dosyalardan herhangi biri kullanabileceğiniz **.debug** test etmek için modülü. Şu anda C# Modüller yalnızca linux-amd64-kapsayıcılarında hata ayıklama destekler.
+Her modül klasöründe, farklı bir kapsayıcı türü için birden çok Docker dosyası vardır. Uzantısıyla biten bu dosyalardan herhangi biri kullanabileceğiniz **.debug** test etmek için modülü. Şu anda Node.js modüllerini yalnızca linux-amd64, amd64 windows ve linux arm32v7 kapsayıcılarında hata ayıklamayı destekler.
 
 1. VS Code'da gidin `deployment.template.json` dosya. Modül görüntü URL'nizi ekleyerek güncelleştirme **.debug** sonuna.
 2. Node.js modülü createOptions içinde değiştirin **deployment.template.json** ile içerik aşağıda ve bu dosya: 
@@ -99,7 +99,7 @@ Dağıtım başarıyla kimliği VS Code tümleşik bir dağıtım ile terminal o
 
 VS Code Docker Gezgini veya çalıştırma, kapsayıcı durumu kontrol edebilirsiniz `docker ps` terminalde komutu.
 
-## <a name="start-debugging-nodejs-module-in-vs-code"></a>VS code'da Node.Js modülü hata ayıklamayı Başlat
+## <a name="start-debugging-nodejs-module-in-vs-code"></a>VS code'da node.js modülü hata ayıklamayı Başlat
 
 VS Code tutar hata ayıklama yapılandırma bilgilerini bir `launch.json` dosya bulunan bir `.vscode` çalışma alanınızda bir klasör. Bu `launch.json` dosya yeni bir IOT Edge çözümü oluşturduğunuz zaman oluşturulduğu. Bu, her seferinde hata ayıklama destekleyen yeni Modül Ekle güncelleştirir. 
 

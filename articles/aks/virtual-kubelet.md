@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: 2730ab1d909ead0431f0dd7fd0061d3080834296
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 305a6c805f14e8d3ef9f77fcd90a78a50e0f770c
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443741"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42055410"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Service'i (AKS) ile sanal Kubelet kullanın
 
@@ -36,31 +36,41 @@ Virtual Kubelet yüklemek için [Helm](https://docs.helm.sh/using_helm/#installi
 
 ### <a name="for-rbac-enabled-clusters"></a>Kümeler için RBAC etkin
 
-AKS kümenizi RBAC etkinse, hizmet hesabını ve kullanmak için rol bağlama Tiller ile oluşturmanız gerekir. Daha fazla bilgi için [Helm rol tabanlı erişim denetimi][helm-rbac].
-
-A *ClusterRoleBinding* için Virtual Kubelet oluşturulmalıdır. Bir bağlamayı oluşturmak için adlı bir dosya oluşturun. *rbac virtualkubelet.yaml* aşağıdaki tanımını yapıştırın:
+AKS kümenizi RBAC etkinse, hizmet hesabını ve kullanmak için rol bağlama Tiller ile oluşturmanız gerekir. Daha fazla bilgi için [Helm rol tabanlı erişim denetimi][helm-rbac]. Hizmet hesabını ve rol bağlama oluşturmak için adlı bir dosya oluşturun. *rbac virtualkubelet.yaml* aşağıdaki tanımını yapıştırın:
 
 ```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tiller
+  namespace: kube-system
+---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
-  name: virtual-kubelet
+  name: tiller
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: cluster-admin
 subjects:
-- kind: ServiceAccount
-  name: default
-  namespace: default
+  - kind: ServiceAccount
+    name: tiller
+    namespace: kube-system
 ```
 
-Bağlama ile uygulama [kubectl uygulamak] [ kubectl-apply] ve belirtin, *rbac virtualkubelet.yaml* aşağıdaki örnekte gösterildiği gibi dosya:
+Hizmet hesabını uygular ve ile bağlama [kubectl uygulamak] [ kubectl-apply] ve belirtin, *rbac virtualkubelet.yaml* aşağıdaki örnekte gösterildiği gibi dosya:
 
 ```
 $ kubectl apply -f rbac-virtual-kubelet.yaml
 
-clusterrolebinding.rbac.authorization.k8s.io/virtual-kubelet created
+clusterrolebinding.rbac.authorization.k8s.io/tiller created
+```
+
+Helm tiller hizmet hesabı kullanacak şekilde yapılandırın:
+
+```console
+helm init --service-account tiller
 ```
 
 Şimdi, AKS kümenizi Virtual Kubelet yüklemeye devam edebilirsiniz.
@@ -164,7 +174,7 @@ spec:
     spec:
       containers:
       - name: nanoserver-iis
-        image: nanoserver/iis
+        image: microsoft/iis:nanoserver
         ports:
         - containerPort: 80
       nodeSelector:
@@ -199,7 +209,9 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Virtual Kubelet hakkında daha fazla bilgiyi [sanal Kubelet Github projet][vk-github].
+Virtual Kubelet olası sorunlar için bkz: [bilinen quirks ve geçici çözümler][vk-troubleshooting]. Virtual Kubelet ile yaşayabileceğiniz sorunları [açık bir GitHub sorunu][vk-issues].
+
+Virtual Kubelet hakkında daha fazla bilgiyi [sanal Kubelet Github projesini][vk-github].
 
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md
@@ -215,3 +227,5 @@ Virtual Kubelet hakkında daha fazla bilgiyi [sanal Kubelet Github projet][vk-gi
 [vk-github]: https://github.com/virtual-kubelet/virtual-kubelet
 [helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[vk-troubleshooting]: https://github.com/virtual-kubelet/virtual-kubelet#known-quirks-and-workarounds
+[vk-issues]: https://github.com/virtual-kubelet/virtual-kubelet/issues

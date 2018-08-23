@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bda1c4074db123294ffde39e5c4cd5494474ca38
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 2daa624dd7912d09f01e5bab5dc6de9cc14a771c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076550"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42056960"
 ---
 # <a name="oracle-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP iş yükü için Oracle Azure sanal makineleri DBMS dağıtım
 
@@ -311,7 +311,7 @@ ms.locfileid: "39076550"
 
 
 ## <a name="specifics-to-oracle-database"></a>Oracle veritabanı özellikleri
-Oracle yazılımlarını Microsoft Azure üzerinde çalıştırmak için Oracle tarafından desteklenir. Windows Hyper-V ve Azure genel desteği hakkında daha fazla ayrıntı için denetleyin: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle yazılımlarını Microsoft Azure üzerinde çalıştırmak için Oracle tarafından desteklenir. Windows Hyper-V ve Azure genel desteği hakkında daha fazla ayrıntı için denetleyin: <http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html> 
 
 Genel destek, Oracle veritabanları yararlanarak SAP uygulama belirli bir senaryoyu de desteklenir. Ayrıntılar, belgede adlandırılır. Bir çekme isteği-okundu olarak bu belge, belge okuma [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md) diğer yönergelerinde yanı sıra [SAP iş yükü Azure Belgeleri'nde](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
 
@@ -384,7 +384,7 @@ Windows üzerinde Oracle dağıtımları için belgesinde açıklandığı gibi 
 Azure kullanılabilirlik kümeleri veya SAP izleme gibi diğer tüm genel alanlar belgesinde açıklandığı gibi uygulamak [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](dbms_guide_general.md) Oracle veritabanı ile VM dağıtımları iyi.
 
 ## <a name="specifics-to-oracle-database-on-oracle-linux"></a>Oracle Linux'ta Oracle veritabanı özellikleri
-Oracle yazılımları, Microsoft azure'da Oracle Linux konuk işletim sistemi çalıştırmak için Oracle tarafından desteklenir. Windows Hyper-V ve Azure genel desteği hakkında daha fazla ayrıntı için denetleyin: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle yazılımları, Microsoft azure'da Oracle Linux konuk işletim sistemi çalıştırmak için Oracle tarafından desteklenir. Windows Hyper-V ve Azure genel desteği hakkında daha fazla ayrıntı için denetleyin: <http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html> 
 
 Genel destek, Oracle veritabanları yararlanarak SAP uygulama belirli bir senaryoyu de desteklenir. Belgenin bu bölümünde ayrıntıları adlandırılır.
 

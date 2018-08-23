@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: 91e435c60a342768093b3bc869a78fa61df8782f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5bd66e3cb3902665aab9245a524a2bec6f57dc8c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446573"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42056010"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Algılama ve giderme Azure IOT Hub ile bağlantısını keser
 
@@ -77,7 +77,7 @@ Tanılama günlükleri ve uyarılar bağlı cihazlar için etkinleştirildiğind
     | 404104 DeviceConnectionClosedRemotely | Cihaz tarafından bağlantı kapatıldı ancak IOT Hub neden bilmez. Yaygın nedenler MQTT/AMQP zaman aşımı ve internet bağlantısı kaybı. | Cihaz IOT hub'ına bağlanabilir olduğundan emin olun [bağlantı test ediliyor](tutorial-connectivity.md). Bağlantı bir sakınca yoktur ancak cihaz aralıklı olarak kesiliyor Protokolü (MQTT/AMPQ) tercih ettiğiniz için uygun canlı tutma cihaz mantığını emin olun. |
     | 401003 IoTHubUnauthorized | IOT Hub bağlantı doğrulanamıyor. | SAS ya da kullandığınız diğer güvenlik belirteci süresi olmadığından emin olun. [Azure IOT SDK'ları](iot-hub-devguide-sdks.md) otomatik olarak özel bir yapılandırma gerektirmeden belirteçleri oluşturun. |
     | 409002 LinkCreationConflict | Aynı cihazda birden fazla bağlantılarında vardır. Yeni bir bağlantı isteği için bir cihaz söz konusu olduğunda, bu hata önceki bir IOT hub'ı kapatır. | En yaygın durumda, bir cihaz bir bağlantıyı kes algılar ve bağlantıyı yeniden kurmak çalışır, ancak önceki bağlantıyı kapatır ve bu hata günlükleri henüz bağlı IOT hub'ı kabul edilmemiş. Bu hata genellikle bir yan etkisi olarak farklı geçici bir sorun ortaya çıkar kadar başka hatalar da daha fazla sorun giderme için günlüklere bakın. Aksi takdirde, yeni bir bağlantı isteği bağlantı düşerse verdiğinizden emin olun. |
-    | 500001 ServerError | IOT hub'ı bir sunucu tarafı sorunla karşılaşıldı. Büyük olasılıkla sorun geçici olmasıdır. IOT hub'ı takımınızın çalıştığı bakımını yapmayı while [SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/), IOT hub'ı düğümler küçük kümelerine bazen geçici hataların karşılaşırsınız. Cihazınızı sorunları bir düğüme bağlanmaya çalışırken bu hatayı alırsınız. | Geçici hata gidermek için bir yeniden deneme CİHAZDAN sorun. İçin [otomatik olarak yeniden denemeleri yönetmek](iot-hub-reliability-features-in-sdks.md#connection-and-retry), en son sürümünü kullandığınızdan emin olun [Azure IOT SDK'ları](iot-hub-devguide-sdks.md).<br><br>Geçici hata işleme ve yeniden denemeler en iyi uygulama için bkz: [geçici hata işleme](/azure/architecture/best-practices/transient-faults.md).  <br><br>Yeniden denemelerden sonra sorun devam ederse, kontrol [kaynak durumu](iot-hub-monitor-resource-health.md#use-azure-resource-health) ve [Azure durumu](https://azure.microsoft.com/status/history/) IOT Hub bir bilinen sorun olup olmadığını belirlemek için. Varsa herhangi bir bilinen sorun ve sorun devam ederse, [desteğe](https://azure.microsoft.com/support/options/) araştırılması için. |
+    | 500001 ServerError | IOT hub'ı bir sunucu tarafı sorunla karşılaşıldı. Büyük olasılıkla sorun geçici olmasıdır. IOT hub'ı takımınızın çalıştığı bakımını yapmayı while [SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/), IOT hub'ı düğümler küçük kümelerine bazen geçici hataların karşılaşırsınız. Cihazınızı sorunları bir düğüme bağlanmaya çalışırken bu hatayı alırsınız. | Geçici hata gidermek için bir yeniden deneme CİHAZDAN sorun. İçin [otomatik olarak yeniden denemeleri yönetmek](iot-hub-reliability-features-in-sdks.md#connection-and-retry), en son sürümünü kullandığınızdan emin olun [Azure IOT SDK'ları](iot-hub-devguide-sdks.md).<br><br>Geçici hata işleme ve yeniden denemeler en iyi uygulama için bkz: [geçici hata işleme](/azure/architecture/best-practices/transient-faults).  <br><br>Yeniden denemelerden sonra sorun devam ederse, kontrol [kaynak durumu](iot-hub-monitor-resource-health.md#use-azure-resource-health) ve [Azure durumu](https://azure.microsoft.com/status/history/) IOT Hub bir bilinen sorun olup olmadığını belirlemek için. Varsa herhangi bir bilinen sorun ve sorun devam ederse, [desteğe](https://azure.microsoft.com/support/options/) araştırılması için. |
     | 500008 GenericTimeout | IOT Hub bağlantı isteği zaman aşımına uğramadan önce tamamlanamadı. 500001 ServerError gibi bu hata geçici olabilir değil. | Kök neden ve bu hatayı gidermek 500001 ServerError için sorun giderme adımlarını izleyin.|
 
 ## <a name="other-steps-to-try"></a>Diğer adımları deneyin
@@ -92,7 +92,7 @@ Bu kılavuzda işe yaramazsa herkesin belgelerini geliştirmeye yardımcı olmak
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Geçici bir sorun giderme hakkında daha fazla bilgi için bkz. [geçici hata işleme](/azure/architecture/best-practices/transient-faults.md).
+* Geçici bir sorun giderme hakkında daha fazla bilgi için bkz. [geçici hata işleme](/azure/architecture/best-practices/transient-faults).
 * Azure IOT SDK'sı hakkında daha fazla bilgi edinin ve deneme için bkz. [bağlantı ve Azure IOT Hub cihazı SDK'larını kullanarak güvenilir Mesajlaşma yönetme](iot-hub-reliability-features-in-sdks.md#connection-and-retry).
 
 <!-- Images -->

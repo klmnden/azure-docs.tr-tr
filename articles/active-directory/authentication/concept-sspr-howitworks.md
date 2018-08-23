@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8c0810c4a1b92f14e510d005eaf1b6945a058dd7
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 54e6b4f5804e7390b7574aa60b4d3a76df15da11
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413112"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42055377"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Nasıl çalıştığını: Azure AD Self Servis parola sıfırlama
 
@@ -94,6 +94,9 @@ Microsoft Authenticator uygulaması gibi bir mobil uygulama olarak parola sıfı
 | Kullanılabilir mobil uygulama özellikleri | Kod | Kod veya bildirim |
 
 Kullanıcılar, gelen Self Servis parola sıfırlama için kaydolurken mobil uygulamasını kaydetme seçeneği yoktur [ https://aka.ms/ssprsetup ](https://aka.ms/ssprsetup). Kullanıcılar kendi mobil uygulamamız üzerinden kaydedebilir [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup), veya yeni güvenlik bilgileri kayıt Önizleme [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo).
+
+> [!WARNING]
+> Etkinleştirmelisiniz [Self Servis parola sıfırlama ve Azure multi-Factor Authentication (genel Önizleme) için kayıt yakınsanmış](concept-registration-mfa-sspr-converged.md) kullanıcılar, yeni deneyimi erişebilir önce [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo).
 
 ### <a name="change-authentication-methods"></a>Kimlik doğrulama yöntemleri değiştirme
 

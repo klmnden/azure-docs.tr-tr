@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Data Warehouse için PowerShell cmdlet'leri
-description: Üst PowerShell cmdlet'leri için Azure SQL veri duraklatma ve sürdürme bir veritabanı da dahil olmak üzere ambarı bulun.
+title: Azure SQL veri ambarı için PowerShell cmdlet'leri
+description: Üst PowerShell cmdlet'leri, Azure SQL veri duraklatma ve sürdürme bir veritabanı dahil olmak üzere ambarı için bulun.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
@@ -10,24 +10,24 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 43bf1bcb1ccbb82fc15cddde85e06cac0abfd9c7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 82e635f58ab559480b55df6cee8e966c8d32bf01
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599715"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42060878"
 ---
-# <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>PowerShell cmdlet'leri ve SQL Data Warehouse için REST API'leri
-Birçok SQL veri ambarı yönetim görevleri, Azure PowerShell cmdlet'lerini veya REST API'leri kullanılarak yönetilebilir.  Aşağıda, SQL veri ambarı ortak görevleri otomatikleştirmek için PowerShell komutlarını kullanmak nasıl bazı örnekler verilmiştir.  Makale iyi bazı diğer örnekler için bkz [ölçeklenebilirlik REST ile yönetme][Manage scalability with REST].
+# <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>PowerShell cmdlet'leri ve REST API'leri için SQL veri ambarı
+Birçok SQL veri ambarı yönetim görevleri, Azure PowerShell cmdlet'lerini veya REST API'leri kullanılarak yönetilebilir.  SQL veri ambarı ortak görevleri otomatikleştirmek için PowerShell komutlarını kullanmayı bazı örnekler aşağıdadır.  Bazı iyi diğer örnekler için bkz [REST ölçeklenebilirliğiyle yönetme][Manage scalability with REST].
 
 > [!NOTE]
-> SQL Data Warehouse ile Azure PowerShell kullanmak için Azure PowerShell 1.0.3 sürümü gerekir veya daha büyük.  Çalıştırarak sürümünüzü kontrol edebilirsiniz **Get-Module - listavailable birlikte-Name Azure**.  En son sürümünü yüklenebilir [Microsoft Web Platformu yükleyicisi][Microsoft Web Platform Installer].  En son sürümü yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma][How to install and configure Azure PowerShell].
+> SQL veri ambarı ile Azure PowerShell'i kullanmak için Azure PowerShell 1.0.3 sürümü olması gerekir. veya daha büyük.  Çalıştırarak sürümünüzü kontrol edebilirsiniz **Get-Module - ListAvailable-Name Azure**.  En son sürümü yüklenebilir [Microsoft Web Platformu yükleyicisi][Microsoft Web Platform Installer].  En son sürümü yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma][How to install and configure Azure PowerShell].
 > 
 > 
 
-## <a name="get-started-with-azure-powershell-cmdlets"></a>Azure PowerShell cmdlet'leri kullanmaya başlama
+## <a name="get-started-with-azure-powershell-cmdlets"></a>Azure PowerShell cmdlet'lerini kullanmaya başlama
 1. Windows PowerShell'i açın.
-2. PowerShell komut isteminde, Azure Resource Manager için oturum açın ve aboneliğinizi seçmek için şu komutları çalıştırın.
+2. PowerShell komut isteminde, Azure Resource Manager'a oturum açıp aboneliğinizi seçmek için şu komutları çalıştırın.
    
     ```PowerShell
     Connect-AzureRmAccount
@@ -36,12 +36,12 @@ Birçok SQL veri ambarı yönetim görevleri, Azure PowerShell cmdlet'lerini vey
     ```
 
 ## <a name="pause-sql-data-warehouse-example"></a>Duraklatma SQL veri ambarı örneği
-"" Server01."adlı bir sunucuda barındırılan Database02" adlı bir veritabanı duraklatma  Sunucu "ResourceGroup1." adlı bir Azure kaynak grubunda yer alıyor
+"" Server01."adlı bir sunucuda barındırılan Database02" adlı bir veritabanı duraklatılamadı  "ResourceGroup1." adlı bir Azure kaynak grubunda sunucusudur
 
 ```Powershell
 Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
-Bir değişim Bu örnek alınan nesneyi kanallar [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase].  Sonuç olarak, veritabanı duraklatıldı. Son komutun sonuçlarını gösterir.
+Bir değişim Bu örnek alınan nesneyi kanallar [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase].  Sonuç olarak, veritabanı duraklatıldı. Son komut sonuçları gösterilmektedir.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -49,14 +49,14 @@ $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase
 ```
 
-## <a name="start-sql-data-warehouse-example"></a>SQL veri ambarı örneği Başlat
-"" Server01."adlı bir sunucuda barındırılan Database02" adlı bir veritabanı işlemi sürdürme Sunucu "ResourceGroup1." adlı bir kaynak grubunda yer alan
+## <a name="start-sql-data-warehouse-example"></a>SQL veri ambarı örneği başlatın
+"" Server01."adlı bir sunucuda barındırılan Database02" adlı bir veritabanı işlemi sürdürme Sunucu "ResourceGroup1." adlı bir kaynak grubunda yer alır
 
 ```Powershell
 Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
 ```
 
-Bir değişim Bu örnekte "" ResourceGroup1."adlı bir kaynak grubunda yer alan Server01" adlı bir sunucudan "Database02" adlı bir veritabanı alır. Alınan nesnesine kanallar [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase].
+Bir değişim Bu örnek "" ResourceGroup1."adlı bir kaynak grubunda yer alan Server01" adlı bir sunucudan "Database02" adlı bir veritabanı alır. Alınan nesnenin kanallar [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase].
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -64,31 +64,31 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 ```
 
 > [!NOTE]
-> Sunucunuz foo.database.windows.net, ise "foo" PowerShell cmdlet'leri - ServerName kullanmak unutmayın.
+> Sunucunuz foo.database.windows.net, ise "foo" PowerShell cmdlet'leri - ServerName kullanın unutmayın.
 > 
 > 
 
-## <a name="other-supported-powershell-cmdlets"></a>Diğer desteklenen PowerShell cmdlet'leri
-Bu PowerShell cmdlet'leri, Azure SQL Data Warehouse ile desteklenir.
+## <a name="other-supported-powershell-cmdlets"></a>Desteklenen diğer PowerShell cmdlet'leri
+Bu PowerShell cmdlet'lerini, Azure SQL veri ambarı ile desteklenir.
 
 * [Get-AzureRmSqlDatabase][Get-AzureRmSqlDatabase]
 * [Get-AzureRmSqlDeletedDatabaseBackup][Get-AzureRmSqlDeletedDatabaseBackup]
 * [Get-AzureRmSqlDatabaseRestorePoints][Get-AzureRmSqlDatabaseRestorePoints]
-* [AzureRmSqlDatabase yeni][New-AzureRmSqlDatabase]
+* [Yeni-AzureRmSqlDatabase][New-AzureRmSqlDatabase]
 * [Remove-AzureRmSqlDatabase][Remove-AzureRmSqlDatabase]
-* [Geri yükleme-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase]
+* [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase]
 * [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase]
 * [Select-AzureRmSubscription][Select-AzureRmSubscription]
 * [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase]
-* [Askıya alma AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase]
+* [Askıya Al-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla PowerShell örnekler için bkz:
+Daha fazla PowerShell örnekleri için bkz:
 
 * [PowerShell kullanarak SQL Data Warehouse oluşturma][Create a SQL Data Warehouse using PowerShell]
 * [Veritabanı geri yükleme][Database restore]
 
-PowerShell ile otomatik olarak diğer görevler için bkz: [Azure SQL veritabanı cmdlet'leri][Azure SQL Database Cmdlets]. Tüm Azure SQL veritabanı cmdlet'leri Azure SQL Data Warehouse için desteklendiğini unutmayın.  Hangi BİLGİSAYARLARLA otomatik görevlerin listesi için bkz: [işlemleri Azure SQL veritabanları için][Operations for Azure SQL Databases].
+PowerShell ile otomatik olarak diğer görevleri görmek [Azure SQL veritabanı cmdlet'leri][Azure SQL Database Cmdlets]. Tüm Azure SQL veritabanı cmdlet'leri Azure SQL veri ambarı için desteklendiğini unutmayın.  REST ile otomatik olarak yapılabilir görevleri bir listesi için bkz. [Azure SQL veritabanları için işlem][Operations for Azure SQL Databases].
 
 <!--Image references-->
 
@@ -99,19 +99,19 @@ PowerShell ile otomatik olarak diğer görevler için bkz: [Azure SQL veritaban�
 [Manage scalability with REST]: ./sql-data-warehouse-manage-compute-rest-api.md
 
 <!--MSDN references-->
-[Azure SQL Database Cmdlets]: https://msdn.microsoft.com/library/mt574084.aspx
+[Azure SQL Database Cmdlets]: https://docs.microsoft.com/powershell/module/azurerm.sql
 [Operations for Azure SQL Databases]: https://msdn.microsoft.com/library/azure/dn505719.aspx
-[Get-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt603648.aspx
-[Get-AzureRmSqlDeletedDatabaseBackup]: https://msdn.microsoft.com/library/mt693387.aspx
-[Get-AzureRmSqlDatabaseRestorePoints]: https://msdn.microsoft.com/library/mt603642.aspx
-[New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
-[Remove-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619368.aspx
-[Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
-[Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
+[Get-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase
+[Get-AzureRmSqlDeletedDatabaseBackup]: https://docs.microsoft.com/powershell/module/azurerm.sql/get-AzureRmSqlDeletedDatabaseBackup
+[Get-AzureRmSqlDatabaseRestorePoints]: https://docs.microsoft.com/powershell/module/azurerm.sql/get-AzureRmSqlDatabaseRestorePoints
+[New-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/New-AzureRmSqlDatabase
+[Remove-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/Remove-AzureRmSqlDatabase
+[Restore-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/Restore-AzureRmSqlDatabase
+[Resume-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/Resume-AzureRmSqlDatabase
 <!-- It appears that Select-AzureRmSubscription isn't documented, so this points to Select-AzureSubscription -->
 [Select-AzureRmSubscription]: https://msdn.microsoft.com/library/dn722499.aspx
-[Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
-[Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619337.aspx
+[Set-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRmSqlDatabase
+[Suspend-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/Suspend-AzureRmSqlDatabase
 
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps

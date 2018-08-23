@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 0eefb8ecb7c9641b3e025054f54e2b7cf97b94bd
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 37b11eea5c37103c0bc296a5f466658fbc77ed24
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206012"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42057133"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Azure App Service'te web apps için tanılama günlüğünü etkinleştirme
 ## <a name="overview"></a>Genel Bakış
@@ -171,7 +171,7 @@ HTTP gibi belirli günlük türlerini filtreleyecek şekilde kullanmak **-yolu**
 Kullanılabilir yollarının listesini görmek için - ListPath parametresini kullanın.
 
 > [!NOTE]
-> Azure PowerShell yüklü değil veya Azure Aboneliğinizdeki kullanacak şekilde yapılandırmadıysanız, bkz. [Azure PowerShell kullanmak için nasıl](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Azure PowerShell yüklü değil veya Azure Aboneliğinizdeki kullanacak şekilde yapılandırmadıysanız, bkz. [Azure PowerShell kullanmak için nasıl](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 >
 >
 

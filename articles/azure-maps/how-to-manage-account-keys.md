@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 38926cc42b44e61bd83f6b1e33946a9026cda06d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: f5596f4c9bc827852c730d18856753e87de3c59c
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989410"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42057125"
 ---
 # <a name="how-to-manage-your-azure-maps-account-and-keys"></a>Azure haritalar hesabı ve anahtarları yönetme
 
@@ -51,4 +51,5 @@ Azure portalından bir hesap silebilirsiniz. Hesap genel bakış sayfasına gidi
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Nasıl kullanacağınızı öğrenin [eşler yönetim API'si](https://docs.microsoft.com/rest/api/maps-management/accounts) oluşturmak için güncelleştirme ve haritalar hesaplarını silme. 
+* Azure haritalar'ı kullanmayı öğrenin arama API'leri, [adres arama](./how-to-search-for-address.md).
+* Azure haritalar'ı kullanmayı öğrenin [JavaScript harita denetimi](./how-to-use-map-control.md).

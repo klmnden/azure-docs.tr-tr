@@ -1,6 +1,6 @@
 ---
-title: Görüntü arama SDK C# hızlı başlangıç | Microsoft Docs
-description: C# konsol uygulaması SDK aramada görüntü ayarlayın.
+title: "Hızlı Başlangıç: İstek ve C# kullanarak SDK'sını kullanarak görüntüleri Filtrele"
+description: Bu hızlı başlangıçta, istek ve C# kullanarak Bing resim arama tarafından döndürülen görüntüleri Filtrele.
 titleSuffix: Azure cognitive services setup Image search SDK C# console application
 services: cognitive-services
 author: mikedodaro
@@ -10,30 +10,30 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: v-gedod
-ms.openlocfilehash: f58556f13bb25c3ea2ed9378c0669d649554a8c0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 81375019e53b49b531fde1f81fbcb9a061cc5562
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355258"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41987587"
 ---
-# <a name="image-search-sdk-c-quickstart"></a>Görüntü arama SDK C# hızlı başlangıç
+# <a name="quickstart-request-and-filter-images-using-the-sdk-and-c"></a>Hızlı Başlangıç: İstek ve SDK'sı ve C# kullanarak görüntüleri Filtrele
 
-Bing görüntü arama SDK'sı görüntü istekleri ve ayrıştırma sonuçları için REST API işlevselliğini içerir. 
+Bing görüntü arama SDK'sı, görüntü istekleri ve ayrıştırma sonuçları için REST API işlevselliğini içerir. 
 
-[Kaynak kodu C# Bing görüntü arama SDK örnekleri için](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) Git hub'da kullanılabilir.
+[Kaynak kodu için C# Bing resim arama SDK örnekleri](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) Git hub'da kullanılabilir.
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
 
-Bing görüntü arama SDK'yı kullanarak bir konsol uygulaması ayarlamak için Gözat `Manage NuGet Packages` Visual Studio'daki Çözüm Gezgini'nden seçeneği.  Ekleme `Microsoft.Azure.CognitiveServices.Search.ImageSearch` paket.
+Bing görüntü arama SDK'sını kullanarak bir konsol uygulaması oluşturma için göz atın `Manage NuGet Packages` Visual Studio'daki Çözüm Gezgini'nden seçeneği.  Ekleme `Microsoft.Azure.CognitiveServices.Search.ImageSearch` paket.
 
-Yükleme [NuGet görüntü arama paket](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0) de dahil olmak üzere bağımlılıkları yükler:
+Yükleme [resim arama NuGet paketi](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0) de dahil olmak üzere, bağımlılıkları yükler:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
 ## <a name="image-search-client"></a>Görüntü arama istemci
-Örneği oluşturmak için `ImageSearchAPI` istemci, yönergeleri kullanarak ekleyin:
+Bir örneğini oluşturmak için `ImageSearchAPI` istemci, using yönergelerini ekleyin:
 ```
 using Microsoft.Azure.CognitiveServices.Search.ImageSearch;
 using Microsoft.Azure.CognitiveServices.Search.ImageSearch.Models;
@@ -73,9 +73,9 @@ Console.WriteLine($"\r\nImage result total estimated matches: {imageResults.Tota
 
 ```
 
-## <a name="complete-console-application"></a>Tam konsol uygulaması
+## <a name="complete-console-application"></a>Eksiksiz bir konsol uygulaması
 
-Aşağıdaki konsol uygulaması önceden tanımlanmış sorgu "Rockies Kanada arama sonuçları için daha sonra yazdırma ilk resim Öngörüler belirteci, küçük resim URL'si ve resim içerik URL'si" çalıştırır:
+Aşağıdaki konsol uygulamasında arama sonuçları için daha sonra yazdırma ilk resim öngörüleri belirteci, küçük resim URL'si ve resim içerik URL'si "Kanada Rockies" önceden tanımlanmış sorgu yürütür:
 
 ```
 using System;
@@ -186,11 +186,11 @@ namespace ImageSrchSDK
 
 ## <a name="search-options"></a>Arama seçenekleri
 
-Bing arama örnekleri SDK çeşitli özellikleri gösterir.  Aşağıdaki işlevleri için önceden tanımlanmış eklemek `ImageSrchSDK` sınıfı.
+Bing arama örnekleri SDK'ın çeşitli özelliklerini gösterir.  Önceden tanımlanmış aşağıdaki işlevleri ekleyin `ImageSrchSDK` sınıfı.
 
 ### <a name="search-using-a-filter"></a>Bir filtre kullanarak arama
 
-Görüntüleri "animasyonlu GIF ve geniş boyut için filtre studio ghibli" için arama sonra sonuç sayısı doğrulayın ve yazdırma insightsToken, küçük resim URL'si ve ilk sonuç URL'sini.
+Resimler "Animasyonlu GIF'ler ve geniş boyut için filtrelenmiş studio ghibli" için arama yapın, ardından sonuç sayısı doğrulayın ve insightsToken, küçük resim URL'si ve ilk sonuç URL'sini yazdırın.
 
 ```
         public static void ImageSearchWithFilters(ImageSearchAPI client)
@@ -234,7 +234,7 @@ Görüntüleri "animasyonlu GIF ve geniş boyut için filtre studio ghibli" içi
 
 ### <a name="trending-images"></a>Popüler resimler
 
-Oluşturan eğilim görüntüler için arama yapın ve ardından kategorileri ve döşeme doğrulayın.
+Popüler resimler için arama yapın ve ardından kategorileri ve kutucukları doğrulayın.
 
 ```
         public static void ImageTrending(ImageSearchAPI client)
@@ -288,7 +288,7 @@ Oluşturan eğilim görüntüler için arama yapın ve ardından kategorileri ve
 
 ### <a name="image-details"></a>Görüntü ayrıntıları
 
-Görüntüleri "Degas" için arama yapın ve sonra ilk görüntünün görüntü ayrıntılarını arayın.
+Resimler "Degas" için arama yapın ve ardından ilk görüntünün görüntü ayrıntı arayın.
 ```
         public static void ImageDetail(ImageSearchAPI client)
         {
@@ -406,4 +406,4 @@ Görüntüleri "Degas" için arama yapın ve sonra ilk görüntünün görüntü
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel hizmetler .NET SDK'sı örneği](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+[Bilişsel hizmetler .NET SDK örnekleri](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

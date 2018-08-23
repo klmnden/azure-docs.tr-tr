@@ -1,9 +1,9 @@
 ---
-title: Anahtar kasası sertifikalar ile çalışmaya başlama
-description: Aşağıdaki senaryolarda anahtar Kasası'nın sertifika yönetim hizmeti, ilk sertifikanızı anahtar kasanızı oluşturmak için gereken ek adımlar da dahil olmak üzere birincil kullanımlarını bazıları ana hatlarıyla gösterilir.
+title: Key Vault sertifikalar ile çalışmaya başlama
+description: Aşağıdaki senaryolardan birkaç Key Vault'un sertifika yönetim hizmeti, ilk sertifikayı anahtar kasanızı oluşturmak için gereken ek adımları dahil olmak üzere birincil kullanımlarını özetler.
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: a788b958-3acb-4bb6-9c94-4776852aeea1
@@ -13,113 +13,113 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: f1a1a2fa083dd1bf02132e08981d736a17a2c58f
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.author: bryanla
+ms.openlocfilehash: f2becc5d746c3079e8f686748f33f10cd4a8d8c8
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109493"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42055171"
 ---
-# <a name="get-started-with-key-vault-certificates"></a>Anahtar kasası sertifikalar ile çalışmaya başlama
-Aşağıdaki senaryolarda anahtar Kasası'nın sertifika yönetim hizmeti, ilk sertifikanızı anahtar kasanızı oluşturmak için gereken ek adımlar da dahil olmak üzere birincil kullanımlarını bazıları ana hatlarıyla gösterilir.
+# <a name="get-started-with-key-vault-certificates"></a>Key Vault sertifikalar ile çalışmaya başlama
+Aşağıdaki senaryolardan birkaç Key Vault'un sertifika yönetim hizmeti, ilk sertifikayı anahtar kasanızı oluşturmak için gereken ek adımları dahil olmak üzere birincil kullanımlarını özetler.
 
 Aşağıda özetlenmiştir:
-- İlk anahtar kasası sertifikanızı oluşturma
-- Anahtar kasası ile ortaklık bir sertifika yetkilisi ile bir sertifika oluşturma
-- Anahtar kasası ile bir sertifika yetkilisi ile bir sertifika oluşturma ortaklık değil
+- İlk, anahtar kasası sertifikası oluşturma
+- Key Vault ile ortaklık ile bir sertifika yetkilisinden bir sertifika oluşturma
+- Key Vault ile bir sertifika yetkilisinden bir sertifika oluşturma ortaklık değil
 - Sertifika alma
 
-## <a name="certificates-are-complex-objects"></a>Karmaşık nesneler sertifikalar
-Sertifika bir anahtar kasası sertifika olarak birbirine bağlı üç birbiriyle ilişkili kaynakları oluşur; Meta veriler, bir anahtarı ve gizlilik sertifika.
+## <a name="certificates-are-complex-objects"></a>Karmaşık nesneler sertifikalardır
+Sertifikalar, anahtar kasası sertifikası olarak birbirine bağlı üç birbiriyle ilişkili kaynakların oluşur; Sertifika meta verileri, bir anahtar ve gizli dizi.
 
 
 ![Sertifikaları karmaşıktır](media/azure-key-vault.png)
 
 
-## <a name="creating-your-first-key-vault-certificate"></a>İlk anahtar kasası sertifikanızı oluşturma  
- Bir sertifika bir anahtar kasası (KV) içinde oluşturulmadan önce önkoşul adım 1 ve 2 gerekir başarılı bir şekilde gerçekleştirilir ve bu kullanıcı için bir anahtar kasası bulunmalıdır / kuruluş.  
+## <a name="creating-your-first-key-vault-certificate"></a>İlk, anahtar kasası sertifikası oluşturma  
+ Bir sertifika bir anahtar kasası (KV) içinde oluşturulmadan önce önkoşul adımlarını 1 ve 2 gerekir başarıyla elde edilebilir ve bu kullanıcı için bir anahtar kasası mevcut olmalıdır / kuruluş.  
 
 **1. adım** -sertifika yetkilisi (CA) sağlayıcıları  
--   Devreye alma BT yöneticisi, PKI yönetim veya herkesin belirli bir şirket için (örneğin, CA'ları ile hesaplarını yönetme Contoso), anahtar kasası sertifikaların kullanılması için bir önkoşuldur.  
-    Aşağıdaki CA anahtar kasası ile geçerli partnered sağlayıcıları şunlardır:  
-    -   DigiCert - anahtar kasası OV SSL DigiCert sertifikalarla sunar.  
-    -   GlobalSign - anahtar kasası OV SSL GlobalSign sertifikalarla sunar.  
-    -   WoSign - anahtar kasası teklifleri OV SSL veya WoSign EV SSL sertifikalarıyla WoSign portalındaki WoSign hesabındaki müşteri tarafından yapılandırılan ayar temel.  
+-   Kolaylaşmasına BT yöneticisi, PKI yönetim veya herkesin belirli bir şirket için (ör. CA ' ları ile hesapları yönetme Contoso) anahtar kasası sertifikaların kullanılması için önkoşuldur.  
+    Aşağıdaki CA'lar anahtar kasası ile iş ortaklığı yaptı geçerli sağlayıcıları şunlardır:  
+    -   DigiCert - Key Vault OV-SSL sertifikalarıyla DigiCert sunar.  
+    -   GlobalSign - Key Vault OV-SSL sertifikalarıyla GlobalSign sunar.  
+    -   WoSign - Key Vault teklifler OV-SSL veya EV SSL sertifikalarıyla WoSign WoSign hesabında WoSign Portalı'nda müşteri tarafından yapılandırılan ayar temel alınarak.  
 
-**2. adım** -Hesap Yöneticisi kaydetmek için anahtar kasası tarafından kullanılacak kimlik bilgileri bir CA sağlayıcısı oluşturur için yenileyin ve anahtar kasası aracılığıyla SSL sertifikaları kullanır.
+**2. adım** -Hesap Yöneticisi kimlik bilgilerini kaydetmek için Key Vault tarafından kullanılacak bir CA sağlayıcısı oluşturur için yenileyin ve SSL sertifikaları Key Vault aracılığıyla kullanır.
 
-**3. adım** -CA hesabıyla yönetici ya da doğrudan bağlı olarak CA sertifikaları sahibi Contoso çalışan (anahtar kasası kullanıcı) ile birlikte bir Contoso yönetici bir sertifika alabilirsiniz.  
+**3. adım** -Yöneticisi veya CA ile doğrudan hesabından bir Contoso Yöneticisi, sertifikalar, CA'ın bağlı olarak sahip bir Contoso çalışanı (Key Vault kullanıcı) ile birlikte bir sertifika edinebilirsiniz.  
 
--   Bir anahtar kasası için bir ekleme kimlik bilgisi işlemi oluşturarak başlayın bir [veren sertifika](https://docs.microsoft.com/rest/api/keyvault/certificate-issuers) kaynak. 
-    -   Örn MyDigiCertIssuer  
+-   Bir anahtar kasası tarafından bir Ekle kimlik bilgisi işleme başlamak [sertifikayı veren ayarlama](/rest/api/keyvault/setcertificateissuer) kaynak. Sertifikayı veren süresi kaynak olarak Azure anahtar kasası (KV) olarak temsil edilen bir varlıktır. KV sertifikanın kaynağı hakkında bilgi sağlamak için kullanılır; Verenin adı, sağlayıcı, kimlik bilgilerini ve diğer yönetimsel ayrıntıları.
+    -   Örn. MyDigiCertIssuer  
         -   Sağlayıcı  
-        -   Kimlik bilgileri – CA hesabı kimlik bilgileri. Her CA'ın kendi belirli veri yok.  
+        -   Kimlik bilgileri – CA hesabı kimlik bilgileri. Her CA'ın kendi belirli veri vardır.  
 
-     CA sağlayıcılarıyla hesapları oluşturma hakkında daha fazla bilgi için ilgili post bakın [anahtar kasası blog](http://aka.ms/kvcertsblog).  
+     CA sağlayıcılarıyla hesapları oluşturma hakkında daha fazla bilgi için ilgili gönderiye bakın [Key Vault blog](http://aka.ms/kvcertsblog).  
 
-**Adım 3.1** - ayarlayın [sertifika kişiler](https://docs.microsoft.com/rest/api/keyvault/certificate-contacts) bildirimler için. Anahtar kasası kullanıcı sorumlu budur. Anahtar kasası, bu adımı uygulamaz.  
+**Adım 3.1** - ayarlayın [sertifika kişileri](/rest/api/keyvault/setcertificatecontacts) bildirimleri. Key Vault kullanıcı sorumlu budur. Key Vault, bu adımı uygulamaz.  
 
-Not - Bu süreçte adım 3.1, bir kez bir işlemdir.  
+Not - Bu süreçte adım 3.1, tek seferlik bir işlemdir.  
 
-## <a name="creating-a-certificate-with-a-ca-partnered-with-key-vault"></a>Anahtar kasası ile ortaklık bir CA ile sertifika oluşturma
+## <a name="creating-a-certificate-with-a-ca-partnered-with-key-vault"></a>Key Vault ile iş Birliği yaparak bir CA ile bir sertifika oluşturma
 
-![Bir anahtar kasası ortaklık sertifika yetkilisi ile bir sertifika oluşturun](media/certificate-authority-2.png)
+![Key Vault iş Birliği yaparak sertifika yetkilisi ile bir sertifika oluşturma](media/certificate-authority-2.png)
 
-**Adım 4** -aşağıdaki açıklamaları önceki diyagramda yeşil numaralı adımları karşılık gelir.  
-  (1) - Yukarıdaki diyagramda uygulamanızı dahili olarak, anahtar kasasına bir anahtar oluşturarak başlayan bir sertifika oluşturma.  
-  (2) - anahtar kasası gönderir bir SSL sertifikası istemek için CA.  
-  (3) - uygulamanızı yoklar, döngü ve bekleme işleminde sertifika tamamlanması için anahtar kasanız için. Anahtar kasası x509 ile CA'ın yanıtı aldığında sertifika oluşturma işlemi tamamlandıktan sertifika.  
-  (4) - CA anahtar Kasası'nın SSL sertifika isteği bir X509 ile yanıtlaması SSL sertifikası.  
-  (5) - X509 birleşme ile yeni sertifika oluşturmayı tamamlar CA sertifikası.  
+**4. adım** -aşağıdaki açıklamalar önceki şemada yeşil numaralı adımları karşılık gelir.  
+  (1) - Yukarıdaki diyagramda, dahili olarak, anahtar kasasına bir anahtar oluşturarak başlatan bir sertifika uygulama oluşturuyor.  
+  (2) - Key Vault gönderen bir SSL sertifikası istemek için CA.  
+  (3) - uygulamanızı yoklar, döngü ve bekleme işleminde anahtar kasanız için sertifika tamamlama için. Key Vault ile x509 CA'ın yanıtı aldığında sertifika oluşturma tamamlandığında, sertifika.  
+  (4) - Key Vault'un SSL sertifika isteği x X509 ile CA yanıtlar SSL sertifikası.  
+  (5) - X509 bir birleşme ile yeni bir sertifika oluşturma işleminiz tamamlandıktan CA sertifikası.  
 
-  Anahtar kasası kullanıcı – ilke belirterek bir sertifika oluşturur
+  Key Vault kullanıcı – ilke belirterek bir sertifika oluşturur
 
-  -   Gerektiği şekilde tekrarlayın  
+  -   Gerektiği şekilde yineleyin  
   -   İlke kısıtlamaları  
       -   X509 özellikleri  
       -   Anahtar özellikleri  
       -   Sağlayıcı başvuru - > örn. MyDigiCertIssure  
-      -   Yenileme bilgilerinizi - > örn. süre sonu önce 90 gün  
+      -   Yenileme bilgilerinizi - > örn. 90 gün kaldığında  
 
-  - Sertifika oluşturma işlemi genellikle zaman uyumsuz bir işlemdir ve anahtar kasanızı oluşturma sertifika işlemi durumu için yoklama içerir.  
-[Alma sertifika işlemi](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)  
-      -   Durumu: hata bilgileri ile başarısız oldu veya iptal edilen tamamlandı  
+  - Bir sertifika oluşturma işlemi, genellikle zaman uyumsuz bir işlemdir ve anahtar kasanız oluşturma sertifika işlemi durumu için yoklama içerir.  
+[Sertifika işlemi Al](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)  
+      -   Durum: hata bilgileri ile başarısız oldu veya iptal edildi tamamlandı  
       -   Oluşturmak için gecikme nedeniyle iptal etme işlemi başlatılabilir. İptal edebilir veya etkili olmayabilir.  
 
 ## <a name="import-a-certificate"></a>Sertifika alma  
- Alternatif olarak – bir sertifika anahtar kasasını – PFX veya PEM içeri aktarılabilir.  
+ Alternatif olarak – bir sertifika Key Vault'a – PFX veya PEM içeri aktarılabilir.  
 
- PEM biçimi hakkında daha fazla bilgi için sertifikalar bölümüne bakın [anahtarları, gizli ve sertifikaları hakkında](about-keys-secrets-and-certificates.md).  
+ Sertifikaları bölümünü PEM biçimi hakkında daha fazla bilgi için bkz. [anahtarlara, parolalara ve sertifikalara hakkında](about-keys-secrets-and-certificates.md).  
 
- Sertifika içeri aktarma – bir PEM veya PFX diskte olması ve bir özel anahtara sahip gerektirir. 
+ Sertifika içeri aktarma – PEM veya PFX diskte ve bir özel anahtara sahip gerektirir. 
 -   Belirtmeniz gerekir: kasa adı ve sertifika adı (ilke isteğe bağlı)
 
--   PEM / PFX dosyalarını KV ayrıştırma ve sertifika ilkesi doldurmak için kullanabileceğiniz öznitelikleri içerir. Bir sertifika ilkesi zaten belirtilmişse KV PFX verileri eşleştirmek deneyecek / PEM dosyası.  
+-   PEM / PFX dosyalarını içeren öznitelikleri KV ayrıştırabilir ve sertifika ilkesi doldurmak için kullanın. Bir sertifika ilkesi zaten belirtilmişse KV PFX verilerden eşleşecek şekilde çalışacaktır / PEM dosyası.  
 
--   İçeri aktarma son olduktan sonra sonraki işlemleri yeni kullanacağı İlkesi (yeni sürümler).  
+-   İçeri aktarma son eklendiğinde, sonraki işlemleri yeni kullanacağı İlkesi (yeni sürümler).  
 
--   Başka bir işlem olduğunda bir sona erme bildirimi gönder anahtar kasası yapacağı ilk şey olur. 
+-   Başka işlem olduğunda, Key Vault yapacağı ilk şey bir süre sonu bildirimi gönderme olur. 
 
--   Ayrıca, kullanıcı içeri aktarma sırasındaki işlev, ancak hiçbir bilgi alma: Burada belirtilen Varsayılanları içeriyor İlkesi düzenleyebilirsiniz. Örn veren bilgisi yok  
+-   Ayrıca, kullanıcı içeri aktarma sırasında işlevsel olan ancak hiçbir bilgi alma: Burada belirtilen varsayılan değerleri içerir ilkeyi düzenleyebilir. Örn. veren bilgisi yok  
 
-## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Anahtar kasası ile ortaklık olmayan bir CA ile sertifika oluşturma  
- Bu yöntem, kuruluşunuz kendi seçtiğiniz bir CA ile çalışabilirsiniz anlamı anahtar Kasası'nın ortaklık sağlayıcıları daha diğer CA'ları ile çalışma sağlar.  
+## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Key Vault ile iş Birliği yaparak değil bir CA ile bir sertifika oluşturma  
+ Bu yöntem, Key Vault'un iş ortaklığı yaptı sağlayıcıları, kuruluşunuz kendi tercih ettiğiniz bir CA ile çalışabilir, yani daha diğer CA'ları ile çalışma sağlar.  
 
 ![Kendi sertifika yetkilisi ile bir sertifika oluşturun](media/certificate-authority-1.png)  
 
- Aşağıdaki adım açıklamaları önceki diyagramda yeşil harflerin adımlarda karşılık gelir.  
+ Aşağıdaki adım açıklamalar önceki şemada yeşil yitirmiş adımları karşılık gelir.  
 
-  (1) - Yukarıdaki diyagramda uygulamanızı dahili olarak, anahtar kasasına bir anahtar oluşturarak başlar bir sertifika oluşturma.  
+  (1) - Yukarıdaki diyagramda, dahili olarak, anahtar kasasına bir anahtar oluşturarak başlar bir sertifika uygulama oluşturuyor.  
 
-  (2) - anahtar kasası uygulamanız için bir sertifika imzalama isteği (CSR) döndürür.  
+  (2) - Key Vault, uygulamanız için bir sertifika imzalama isteği (CSR) döndürür.  
 
-  (3) - uygulamanız, seçilen CA CSR geçirir.  
+  (3) - uygulamanızı seçtiğiniz CA CSR'yi geçirir.  
 
-  (4) - bir X509 ile seçilen CA yanıt sertifika.  
+  (4) - seçtiğiniz CA x X509 ile yanıt veren sertifika.  
 
-  (5) - bir birleşme ile yeni sertifika oluşturma X509, uygulamanızın tamamlandıktan, CA'ın sertifikadan.
+  (5) - yeni sertifika oluşturulmasını birleşmesi ile X509 uygulamanızı tamamlandıktan Sertifika yetkilinizden sertifikası.
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-- [Sertifika işlemleri](/rest/api/keyvault/certificate-operations)
+
 - [Anahtarlar, gizli diziler ve sertifikalar hakkında](about-keys-secrets-and-certificates.md)

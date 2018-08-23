@@ -1,6 +1,6 @@
 ---
-title: PowerShell komut dosyası - Azure-SSIS tümleştirmesi çalışma zamanı dağıtma | Microsoft Docs
-description: Bu PowerShell Betiği bulutta SSIS paketleri çalıştırılan bir Azure SSIS tümleştirmesi çalışma zamanı oluşturur.
+title: PowerShell Betiği - Azure-SSIS Integration runtime'ı dağıtma | Microsoft Docs
+description: Bu PowerShell Betiği, bulutta SSIS paketleri çalıştıran bir Azure-SSIS tümleştirme çalışma zamanı oluşturur.
 services: data-factory
 author: douglaslMS
 manager: craigg
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: douglasl
-ms.openlocfilehash: 6b1ef4ab14cbcb4e91ad023f9fdda5c2c2e71260
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9684258fde0504cfa5b10ddb4f0df736ff0e1e70
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30165000"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42057422"
 ---
-# <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>PowerShell komut dosyası - Azure-SSIS tümleştirmesi çalışma zamanı dağıtma
+# <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>PowerShell Betiği - Azure-SSIS Integration runtime'ı dağıtma
 
-Bu örnek PowerShell Betiği Azure'da SSIS paketleri çalıştırılan bir Azure SSIS tümleştirmesi çalışma zamanı oluşturur.  
+Bu örnek PowerShell Betiği, SSIS paketlerini Azure'da çalıştırmak üzere bir Azure-SSIS tümleştirme çalışma zamanı oluşturur.  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -31,12 +31,12 @@ Bu örnek PowerShell Betiği Azure'da SSIS paketleri çalıştırılan bir Azure
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
-Örnek betiği çalıştırma sonra aşağıdaki komutu kaynak grubu ve onunla ilişkili tüm kaynakları kaldırmak için kullanabilirsiniz:
+Örnek betiği çalıştırdıktan sonra aşağıdaki komutu kaynak grubunu ve onunla ilişkili tüm kaynakları kaldırmak için kullanabilirsiniz:
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName $resourceGroupName
 ```
-Veri Fabrikası kaynak grubundan kaldırmak için aşağıdaki komutu çalıştırın: 
+Data factory kaynak grubundan kaldırmak için aşağıdaki komutu çalıştırın: 
 
 ```powershell
 Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
@@ -48,17 +48,17 @@ Bu betik şu komutları kullanır:
 
 | Komut | Notlar |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2) | Veri fabrikası oluşturma. |
-| [Set-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2integrationruntime) | Bulutta SSIS paketleri çalıştırılan bir Azure SSIS tümleştirmesi çalışma zamanı oluşturur |
-| [Start-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/start-azurermdatafactoryv2integrationruntime) | Azure SSIS tümleştirmesi çalışma zamanı başlatır. |
-| [Get-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2integrationruntime) | Azure SSIS tümleştirmesi çalışma zamanı hakkında bilgi alır. |
-| [Get-AzureRmDataFactoryV2IntegrationRuntimeStatus](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2integrationruntimestatus) | Azure SSIS Integration zamanının durumu hakkındaki bilgileri alır. |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
+| [Set-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2integrationruntime) | Bulutta SSIS paketleri çalıştıran bir Azure-SSIS tümleştirme çalışma zamanı oluşturur |
+| [Başlangıç AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/start-azurermdatafactoryv2integrationruntime) | Azure-SSIS Integration runtime'ı başlatır. |
+| [Get-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2integrationruntime) | Azure-SSIS tümleştirme çalışma zamanı hakkında bilgi alır. |
+| [Get-AzureRmDataFactoryV2IntegrationRuntimeStatus](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2integrationruntimestatus) | Azure-SSIS tümleştirme çalışma zamanı durumu hakkındaki bilgileri alır. |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 |||
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Azure PowerShell hakkında daha fazla bilgi için bkz. [Azure PowerShell belgeleri](https://docs.microsoft.com/powershell/).
 
-Ek Azure veri fabrikası PowerShell komut dosyası örnekleri bulunabilir [Azure veri fabrikası PowerShell örnekleri](../samples-powershell.md).
+Ek Azure Data Factory PowerShell Betiği örnekleri, içinde bulunabilir [Azure Data Factory PowerShell örnekleri](../samples-powershell.md).

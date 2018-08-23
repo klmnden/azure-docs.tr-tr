@@ -1,49 +1,47 @@
 ---
-title: Azure IOT Hub modülü kimlik ve modül çifti ile (C) kullanmaya başlama | Microsoft Docs
-description: Modül kimliği oluşturma ve C. IOT SDK'ları kullanarak modülü twin güncelleştirmek hakkında bilgi edinin
+title: Azure IOT hub'ı modül kimlik ve modül ikizi ile (C) kullanmaya başlayın | Microsoft Docs
+description: Modül kimliği oluşturma ve c için IOT SDK'ları kullanarak modül ikizi güncelleştirme hakkında bilgi edinin
 author: chrissie926
-manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: 5a9e3fb741563d2804c916dc3db3e02a79147b6c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 94c7bd50b9c331370aaac802e0a453c5cdd8b7c1
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036461"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42056342"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-c-back-end-and-c-device"></a>C arka ucu ile C cihaz IOT hub'ı modülü kimlik ve modül çifti ile çalışmaya başlama
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-c-backend-and-c-device"></a>C arka ucu kullanıp C cihaz IOT hub'ı modül kimlik ve modül ikizi ile çalışmaya başlama
 
 > [!NOTE]
 > [Modül kimlikleri ve modül ikizleri](iot-hub-devguide-module-twins.md), Azure IoT Hub cihaz kimliğine ve cihaz ikizine benzer, ancak daha hassas ayrıntı düzeyi sağlar. Azure IoT Hub cihaz kimliği ve cihaz ikizi, arka uç uygulamasının bir cihaz yapılandırmasına imkan tanıyıp cihazın koşullarına yönelik görünürlük sağlarken, modül kimliği ve modül ikizi de bir cihazın tek tek bileşenleri için bu özellikleri sağlar. İşletim sistemi tabanlı cihazlar veya üretici yazılımı cihazları gibi, birden fazla bileşen içeren ve bu özelliklere sahip cihazlarda her bir bileşen için yalıtılmış yapılandırma ve koşullara olanak sağlar.
 
-Bu öğreticinin sonunda iki C uygulamaları vardır:
+Bu öğreticinin sonunda iki C uygulamanız olacak:
 
 * Cihaz ve modül istemcilerinizi bağlamak için bir cihaz kimliği, bir modül kimliği ve ilişkili güvenlik anahtarı oluşturan **CreateIdentities**.
+
 * Güncelleştirilmiş modül ikizi tarafından raporlanan özelliklerini IoT Hub’ınıza gönderen **UpdateModuleTwinReportedProperties**.
 
 > [!NOTE]
-> Hem cihazlarınızda hem de çözüm arka ucunuzda çalıştırılacak uygulamalar oluşturmak için kullanabileceğiniz Azure IoT SDK'ları hakkında bilgi için bkz. [Azure IoT SDK'ları][lnk-hub-sdks].
+> Cihazlar ve çözüm arka ucunuza çalıştırılacak hem uygulamalar oluşturmak için kullanabileceğiniz Azure IOT SDK'ları hakkında daha fazla bilgi için bkz. [Azure IOT SDK'ları](iot-hub-devguide-sdks.md).
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-* Etkin bir Azure hesabı. (Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.)
+* Etkin bir Azure hesabı. (Hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz Azure hesabı](http://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.)
 * IOT hub'ı.
-* En son yükleme [C SDK](https://github.com/Azure/azure-iot-sdk-c).
-
+* En son [Azure IOT C SDK'sı](https://github.com/Azure/azure-iot-sdk-c).
 
 IoT hub'ınızı oluşturdunuz ve bu öğreticinin geri kalanını tamamlamak için gereken ana bilgisayar adı ve IoT Hub bağlantı dizesine sahipsiniz.
 
-<a id="DeviceIdentity_csharp"></a>
-## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Bir cihaz kimliği ve bir modül kimliği IOT Hub oluşturma
+## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Bir cihaz kimliği ve bir modül kimliği, IOT hub'ı oluşturma
 
-Bu bölümde IOT hub'ınızdaki kimlik kayıt defterinde bir cihaz kimliği ve bir modül kimliği oluşturan bir C uygulaması oluşturursunuz. Kimlik kayıt defterinde girişi olmayan bir cihaz veya modül, IoT hub'ına bağlanamaz. Daha fazla bilgi için [IoT Hub geliştirici kılavuzunun][lnk-devguide-identity] "Kimlik kayıt defteri" bölümüne bakın. Bu konsol uygulamasını çalıştırdığınızda, hem cihaz hem de modül için benzersiz bir kimlik ve anahtar oluşturur. Cihazınız ve modülünüz, IoT Hub’ına cihazdan buluta iletileri gönderdiğinde kendisini tanımlamak için bu değerleri kullanır. Kimlikler büyük/küçük harfe duyarlıdır.
+Bu bölümde, IOT hub'ınızdaki kimlik kayıt defterinde bir cihaz kimliği ve bir modül kimliği oluşturan bir C uygulaması oluşturun. Kimlik kayıt defterinde girişi olmayan bir cihaz veya modül, IoT hub'ına bağlanamaz. Daha fazla bilgi için **kimlik kayıt defteri** bölümünü [IOT Hub Geliştirici kılavuzunun](iot-hub-devguide-identity-registry.md). Bu konsol uygulamasını çalıştırdığınızda, hem cihaz hem de modül için benzersiz bir kimlik ve anahtar oluşturur. Cihazınız ve modülünüz, IoT Hub’ına cihazdan buluta iletileri gönderdiğinde kendisini tanımlamak için bu değerleri kullanır. Kimlikler büyük/küçük harfe duyarlıdır.
 
-Aşağıdaki kod C dosyanıza ekleyin:
+C dosyanıza aşağıdaki kodu ekleyin:
 
 ```C
 #include <stdio.h>
@@ -58,7 +56,8 @@ Aşağıdaki kod C dosyanıza ekleyin:
 
 static const char* hubConnectionString ="[your hub's connection string]"; // modify
 
-static void createDevice(IOTHUB_REGISTRYMANAGER_HANDLE iotHubRegistryManagerHandle, const char* deviceId)
+static void createDevice(IOTHUB_REGISTRYMANAGER_HANDLE 
+  iotHubRegistryManagerHandle, const char* deviceId)
 {
     IOTHUB_REGISTRY_DEVICE_CREATE_EX deviceCreateInfo;
     IOTHUB_REGISTRYMANAGER_RESULT result;
@@ -75,7 +74,8 @@ static void createDevice(IOTHUB_REGISTRYMANAGER_HANDLE iotHubRegistryManagerHand
     deviceInfoEx.version = 1;
     
     // Create device
-    result = IoTHubRegistryManager_CreateDevice_Ex(iotHubRegistryManagerHandle, &deviceCreateInfo, &deviceInfoEx);
+    result = IoTHubRegistryManager_CreateDevice_Ex(iotHubRegistryManagerHandle, 
+      &deviceCreateInfo, &deviceInfoEx);
     if (result == IOTHUB_REGISTRYMANAGER_OK)
     {
         (void)printf("IoTHubRegistryManager_CreateDevice: Device has been created successfully: deviceId=%s, primaryKey=%s\n", deviceInfoEx.deviceId, deviceInfoEx.primaryKey);
@@ -167,22 +167,20 @@ int main(void)
 }
 ```
 
-Bu uygulama Kimliğine sahip bir cihaz kimliği oluşturan **myFirstDevice** ve Kimliğine sahip bir modül kimliği **myFirstModule** aygıt altında **myFirstDevice**. (Bu modül kimliği, kimlik kayıt defterinde zaten varsa, kod yalnızca mevcut modül bilgilerini alır.) Bu durumda uygulama, bu kimliğin birincil anahtarını görüntüler. IoT hub'ınıza bağlanmak için sanal modül uygulamasında bu anahtarı kullanırsınız.
+Bu uygulama Kimliğine sahip bir cihaz kimliği oluşturan **myFirstDevice** ve Kimliğe sahip bir modül kimliği **myFirstModule** cihaz altında **myFirstDevice**. (Bu modül kimliği, kimlik kayıt defterinde zaten varsa, kod yalnızca mevcut modül bilgilerini alır.) Bu durumda uygulama, bu kimliğin birincil anahtarını görüntüler. IoT hub'ınıza bağlanmak için sanal modül uygulamasında bu anahtarı kullanırsınız.
 
 > [!NOTE]
-> IoT Hub kimlik kayıt defteri yalnızca IoT hub'ına güvenli erişim sağlamak amacıyla cihaz ve modül kimliklerini depolar. Kimlik kayıt defteri, cihaz kimliklerini ve anahtarlarını güvenlik kimlik bilgileri olarak kullanmak için depolar. Kimlik kayıt defterinin her cihaz için depoladığı etkin/devre dışı bayrağını kullanarak, ilgili cihaza erişimi devre dışı bırakabilirsiniz. Uygulamanızın cihaza özgü diğer meta verileri depolaması gerekiyorsa uygulamaya özgü bir depo kullanması gerekir. Modül kimlikleri için etkin/devre dışı bayrağı yoktur. Daha fazla bilgi için bkz. [IoT Hub geliştirici kılavuzu][lnk-devguide-identity].
+> IoT Hub kimlik kayıt defteri yalnızca IoT hub'ına güvenli erişim sağlamak amacıyla cihaz ve modül kimliklerini depolar. Kimlik kayıt defteri, cihaz kimliklerini ve anahtarlarını güvenlik kimlik bilgileri olarak kullanmak için depolar. Kimlik kayıt defterinin her cihaz için depoladığı etkin/devre dışı bayrağını kullanarak, ilgili cihaza erişimi devre dışı bırakabilirsiniz. Uygulamanızın cihaza özgü diğer meta verileri depolaması gerekiyorsa uygulamaya özgü bir depo kullanması gerekir. Modül kimlikleri için etkin/devre dışı bayrağı yoktur. Daha fazla bilgi için [IOT Hub Geliştirici kılavuzunun](iot-hub-devguide-identity-registry.md).
 
+## <a name="update-the-module-twin-using-c-device-sdk"></a>C cihaz SDK'sını kullanarak modül ikizi güncelleştir
 
-<a id="D2C_csharp"></a>
-## <a name="update-the-module-twin-using-c-device-sdk"></a>C cihaz SDK'sını kullanarak modülü twin güncelleştir
+Bu bölümde, bir C uygulaması, benzetimli oluşturduğunuz modül ikizi güncelleştirmeleri cihaz, bildirilen özellikleri.
 
-Bu bölümde, bir C uygulaması, benzetimli üzerinde oluşturduğunuz modül twin güncelleştirmeleri cihaz özellikleri bildirdi.
+1. **Modülü bağlantı dizenizi alma** --için oturum açıldığında şimdi [Azure portalında](https://portal.azure.com). IoT Hub’ınıza gidin ve IoT Cihazları’na tıklayın. myFirstDevice öğesini bulup açın, böylece myFirstModule öğesinin başarıyla oluşturulduğunu görürsünüz. Modül bağlantı dizesini kopyalayın. Sonraki adımda gerekecektir.
 
-1. **Modül bağlantı dizenizi alma** -- [Azure portalında][lnk-portal] oturum açarsanız bunu yapabilirsiniz. IoT Hub’ınıza gidin ve IoT Cihazları’na tıklayın. myFirstDevice öğesini bulup açın, böylece myFirstModule öğesinin başarıyla oluşturulduğunu görürsünüz. Modül bağlantı dizesini kopyalayın. Sonraki adımda gerekecektir.
+    ![Azure portalı modül ayrıntısı](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG)
 
-    ![Azure portalı modül ayrıntısı][15]
-
-2. **UpdateModuleTwinReportedProperties uygulaması oluşturma** aşağıdakileri ekleyin `using` deyimleri en üstündeki **Program.cs** dosyası:
+2. **UpdateModuleTwinReportedProperties uygulaması oluşturma** aşağıdaki `using` deyimleri en üstündeki **Program.cs** dosyası:
 
     ```C
     #include <stdio.h>
@@ -238,10 +236,11 @@ Bu bölümde, bir C uygulaması, benzetimli üzerinde oluşturduğunuz modül tw
     }
     ```
 
-Bu kod örneği modülü twin almak ve bildirilen özellikleri güncelleştirmek gösterilmektedir. 
+Bu kod örneği, modül ikizi almak ve rapor edilen özellikleri güncelleştirmek nasıl gösterir. 
 
-## <a name="get-updates-on-the-device-side"></a>Cihaz tarafında güncelleştirmeleri al
-Yukarıdaki kod yanı sıra twin güncelleştirme almak için kod bloğu ekleyebilirsiniz, Cihazınızda ileti.
+## <a name="get-updates-on-the-device-side"></a>Güncelleştirmeleri cihaz tarafında Al
+
+İkiz güncelleştirmesi almak için kod bloğu ekleyebileceğiniz ek olarak Yukarıdaki kod, Cihazınızda ileti.
 
 ```C
 #include <stdio.h>
@@ -300,7 +299,6 @@ static void reportedStateCallback(int status_code, void* userContextCallback)
 
     g_continueRunning = false;
 }
-
 
 void iothub_module_client_sample_device_twin_run(void)
 {
@@ -373,23 +371,9 @@ int main(void)
 }
 ```
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 IoT Hub’ı kullanmaya başlamak ve diğer IoT senaryolarını keşfetmek için bkz:
 
-* [Cihaz yönetimini kullanmaya başlama][lnk-device-management]
-* [IoT Edge ile çalışmaya başlama][lnk-iot-edge]
-
-
-<!-- Images. -->
-[15]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
-<!-- Links -->
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-portal]: https://portal.azure.com/
-
-[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
-[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+* [Cihaz yönetimi ile çalışmaya başlama](iot-hub-node-node-device-management-get-started.md)
+* [IOT Edge'i kullanmaya başlama](../iot-edge/tutorial-simulate-device-linux.md)

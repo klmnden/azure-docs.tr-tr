@@ -9,12 +9,12 @@ ms.author: dacoulte
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8f3c008ad58ed7e274ffe0e9f670b4303d057182
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: dc0e49f2857468338f6e1f16462ed814893ea6e7
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003996"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42061476"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Kullanım örneği: Sanal makinelere Otomasyon durum yapılandırması ve Chocolatey kullanarak sürekli dağıtım
 
@@ -194,6 +194,11 @@ Bu tekniği Vm'leriniz ile kullanmak için Resource Manager şablonu ve sanal ma
 Elbette, üretimde olan bir VM üzerindeki bir paket güncelleştirmesi, güncelleştirme yüklenirken bu VM'ye rotasyon dışında olması gerekir. Bunu nasıl yapacağınız büyük farklılık gösterir. Örneğin, bir Azure yük dengeleyici arkasındaki bir VM ile bir özel araştırma ekleyebilirsiniz. Sanal makine güncelleştirilirken bir 400 dönüş araştırma uç noktası vardır. İnce bu değişikliğe neden gerekli Güncelleştirme tamamlandıktan sonra geri 200 döndürmek için geçiş yapmak için ince gibi içinde bir yapılandırma olabilir.
 
 Bu kullanım örneği için tam kaynak konusu [bu Visual Studio projesi](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) GitHub üzerinde.
+
+## <a name="related-articles"></a>İlgili makaleler
+* [Azure Automation DSC genel bakış](automation-dsc-overview.md)
+* [Azure Otomasyonu DSC cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.automation#automation)
+* [Makineleri Azure Automation DSC tarafından Yönetim için hazırlama](automation-dsc-onboarding.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

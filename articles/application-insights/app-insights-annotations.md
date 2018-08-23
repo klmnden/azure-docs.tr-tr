@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 056716e243980f0a8aadc1ff7e9b8776809ad88e
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 660080a629e00884dd61a49bc0950ebe25b6a0c5
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036406"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42057727"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application ınsights ölçüm grafikleri ek açıklamalar
 Ek açıklamalar [ölçüm Gezgini](app-insights-metrics-explorer.md) grafikleri, yeni bir derleme veya diğer önemli olay dağıtıldığı gösterir. Bunlar, değişikliklerinizi uygulamanızın performansını herhangi bir etkisi sahip olup olmadığını görmek kolaylaştırır. Tarafından otomatik olarak oluşturulabilir [Visual Studio Team Services derleme sistemi](https://docs.microsoft.com/vsts/pipelines/tasks/). Bayrak olarak istediğiniz herhangi bir olay için ek açıklamaları da oluşturabilirsiniz [Powershell'den oluşturarak](#create-annotations-from-powershell).
@@ -34,7 +34,7 @@ Sürüm ek açıklamaları, bulut tabanlı derleme özelliğidir ve Visual Studi
 ### <a name="install-the-annotations-extension-one-time"></a>Ek Açıklamalar (bir kez) uzantıyı yükleme
 Sürüm ek açıklamalarını oluşturabilmek için birçok Team Service uzantılara Visual Studio Market'te yüklemeniz gerekir.
 
-1. Oturum açın, [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online) proje.
+1. Oturum açın, [Visual Studio Team Services](https://visualstudio.microsoft.com/vso/) proje.
 2. Visual Studio Market'te [sürüm ek açıklamalarını uzantısını Al](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations), Team Services hesabınıza ekleyin.
 
 ![AT sağ üst köşesinde Team Services web sayfası, açık Market. Visual Team Services'ı seçin ve ardından derleme ve yayın altında daha fazla seçin.](./media/app-insights-annotations/10.png)

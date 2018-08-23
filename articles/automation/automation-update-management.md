@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d12ce7b3416fac5de5cba9543f3bed5bcedf2012
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: ea96898e36080096c91285f3ff7621f84bf81edf
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115682"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42056443"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -184,7 +184,7 @@ Makine, güncelleştirme veya dağıtım hakkında bilgi döndüren bir günlük
 
 ![Güncelleştirme yönetimi varsayılan görünümü](media/automation-update-management/update-management-view.png)
 
-## <a name="install-updates"></a>Güncelleştirmeleri yükleme
+## <a name="install-updates"></a>Güncelleştirmeleri yükle
 
 Çalışma alanınızdaki tüm Linux ve Windows bilgisayarlar için güncelleştirmeleri değerlendirdikten sonra oluşturarak gerekli güncelleştirmeleri yükleyebilirsiniz bir *güncelleştirme dağıtım*. Güncelleştirme dağıtımı bir veya daha fazla bilgisayar için gerekli güncelleştirmelerin zamanlanmış yüklemesidir. Tarih ve saat için dağıtım ve bilgisayar veya bilgisayar grubundaki bir dağıtım kapsamında içerecek şekilde belirt Bilgisayar grupları hakkında daha fazla bilgi edinmek için bkz. [Log Analytics’te bilgisayar grupları](../log-analytics/log-analytics-computer-groups.md).
 
@@ -213,12 +213,14 @@ Yeni bir güncelleştirme dağıtımı oluşturmak için Seç **güncelleştirme
 
 | Özellik | Açıklama |
 | --- | --- |
-|Adı |Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad. |
-|İşletim Sistemi| Seçin **Linux** veya **Windows**.|
-|Güncelleştirilecek makineler |Kayıtlı bir aramayı seçin ya da seçin **makine** aşağı açılan liste ve makineleri tek tek seçin. |
-|Güncelleştirme sınıflandırmaları|Gereksinim duyduğunuz tüm güncelleştirme sınıflandırmalarını seçin. CentOS desteklemiyor bu kullanıma hazır.|
-|Hariç tutulacak güncelleştirmeler|Hariç tutulacak güncelleştirmeler girin. Windows için KB makalesi olmadan girin **KB** önek. Linux için paket adını girin veya bir joker karakterini kullanın.  |
-|Zamanlama ayarları|Başlangıç saati seçin ve ardından ya da **kez** veya **yinelenen** yinelenme.|| Bakım penceresi |Güncelleştirmeler için dakika sayısı. Değer, 30 dakika ve 6 saatten az olamaz. |
+| Adı |Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad. |
+|İşletim Sistemi| Linux veya Windows|
+| Güncelleştirilecek makineler |İçeri aktarılan grubu, kayıtlı bir aramayı seçin veya makine açılan listeden seçin ve tek bir makine seçin. Seçerseniz **makineler**, makinenin hazır olma gösterilen **güncelleştirme ARACISI hazırlığı** sütun.</br> Log Analytics'te bilgisayar grupları oluşturmak için farklı yöntemler hakkında bilgi edinmek için bkz: [Log analytics'te bilgisayar grupları](../log-analytics/log-analytics-computer-groups.md) |
+|Güncelleştirme sınıflandırmaları|Gereksinim duyduğunuz tüm güncelleştirme sınıflandırmalarını seçin|
+|Hariç tutulacak güncelleştirmeler|Hariç tutulacak güncelleştirmeler girin. Windows için KB 'KB' öneki olmadan girin. Linux için paket adını girin veya bir joker karakter kullanın.  |
+|Zamanlama ayarları|Her iki kez başlatın ve saati seçin veya yineleme için yineleme|
+| Bakım penceresi |Güncelleştirmeler için dakika sayısı. Değeri olması olamaz az 30 dakika ve en fazla 6 saat |
+| Denetim yeniden başlatma| Araçtaki nasıl yeniden başlatma yapılması gerekir.</br>Kullanılabilen seçenekler şunlardır:</br>(Varsayılan) gerekliyse yeniden başlatma</br>Her zaman yeniden Başlat</br>Hiçbir zaman yeniden başlatma</br>Yalnızca yeniden - güncelleştirmeleri yüklenmez|
 
 ## <a name="update-classifications"></a>Güncelleştirme sınıflandırmaları
 
