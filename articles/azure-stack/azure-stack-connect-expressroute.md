@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/14/2018
+ms.date: 08/14/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 9322c364832a12e711ee7e1b6ad9722ec82d8468
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 878b7952938c7ec534bc09e27ee8b859c1aaeefb
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449975"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139622"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure Stack, Azure ExpressRoute kullanarak Azure'a bağlanma
 
@@ -180,7 +180,7 @@ Sanal ağ geçidi oluşturduktan sonra ağ geçidinin genel IP adresini alabilir
 
 1. Azure Stack Kullanıcı Portalı'nda seçin **tüm kaynakları**.
 1. Altında **tüm kaynakları**, olan sanal ağ geçidi seçin **GW1** örnekte.
-1. Altında **sanal ağ geçidi**seçin **genel bakış**. kaynak listesinden. Alternatif olarak, seçebileceğiniz **özellikleri**.
+1. Altında **sanal ağ geçidi**seçin **genel bakış** kaynakları listesinden. Alternatif olarak, seçebileceğiniz **özellikleri**.
 1. Not istediğiniz IP adresi altında listelenen **genel IP adresi**. Örnek yapılandırma için bu 192.68.102.1 adresidir.
 
 #### <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
@@ -360,7 +360,7 @@ Herhangi bir ek Kiracı ilgili kendi ExpressRoute bağlantı hatları Azure'da b
 
 ## <a name="configure-the-router"></a>Yönlendirici yapılandırma
 
-Aşağıdaki kullanabileceğiniz *ExpressRoute yönlendirici yapılandırması* ExpressRoute yönlendiriciniz yapılandırmak için bir kılavuz olarak diyagramı. Bu diyagram, karşılık gelen Expressroute bağlantı hatları ile iki Kiracı (1 Kiracı ve Kiracı 2) gösterir. Her kiracının kendi VRF (sanal Yönlendirme ve iletme) ExpressRoute yönlendirici LAN ve WAN yan bağlanır. Bu yapılandırma, iki Kiracı arasında uçtan uca yalıtımı sağlar. Yapılandırma örneği takip yönlendirici arabirimlerde kullanılan IP adreslerini not alın.
+Aşağıdaki kullanabileceğiniz *ExpressRoute yönlendirici yapılandırması* ExpressRoute yönlendiriciniz yapılandırmak için bir kılavuz olarak diyagramı. Bu diyagram, karşılık gelen ExpressRoute bağlantı hatları ile iki Kiracı (1 Kiracı ve Kiracı 2) gösterir. Her kiracının kendi VRF (sanal Yönlendirme ve iletme) ExpressRoute yönlendirici LAN ve WAN yan bağlanır. Bu yapılandırma, iki Kiracı arasında uçtan uca yalıtımı sağlar. Yapılandırma örneği takip yönlendirici arabirimlerde kullanılan IP adreslerini not alın.
 
 *Şekil 4. ExpressRoute için yönlendirici yapılandırma*
 
@@ -368,7 +368,7 @@ Aşağıdaki kullanabileceğiniz *ExpressRoute yönlendirici yapılandırması* 
 
 Azure Stack siteden siteye VPN bağlantısı sonlandırmak için Ikev2 VPN ve BGP destekleyen herhangi bir yönlendirici kullanabilirsiniz. Aynı yönlendirici, bir ExpressRoute bağlantı hattı kullanılarak Azure'a bağlanmak için kullanılır.
 
-Cisco Azure Site Recovery 1000 yapılandırması aşağıda gösterilen ağ altyapısını destekler *ExpressRoute yönlendirici yapılandırması* diyagramı.
+Cisco ASR 1000 Series toplama Hizmetleri yönlendirici yapılandırması aşağıda gösterilen ağ altyapısını destekler *ExpressRoute yönlendirici yapılandırması* diyagramı.
 
 **Cisco ASR 1000 yapılandırma örneği**
 
@@ -457,7 +457,7 @@ description S2S VPN Tunnel for Tenant 2
  tunnel protection ipsec profile V4-PROFILE
 !
 interface GigabitEthernet0/0/1
- description PRIMARY Express Route Link to AZURE over Equinix
+ description PRIMARY ExpressRoute Link to AZURE over Equinix
  no ip address
  negotiation auto
 !
@@ -476,7 +476,7 @@ description Primary WAN interface of Tenant 2
  ip address 192.168.1.17 255.255.255.252
 !
 interface GigabitEthernet0/0/2
- description BACKUP Express Route Link to AZURE over Equinix
+ description BACKUP ExpressRoute Link to AZURE over Equinix
  no ip address
  negotiation auto
 !
