@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ace7f11eeea081077855a409824272b4b55f3c33
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: ca920a93d754254390a5c5c5a066be3144b47fc7
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247236"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41919453"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-sql"></a>Öğretici: Azure SQL'e erişmek için Windows VM Yönetilen Hizmet Kimliği kullanma
 
@@ -147,8 +147,8 @@ Artık grubu oluşturduğunuza ve VM Yönetilen Hizmet Kimliği'ni üyeliğe ekl
 
 Bu sonraki adım için, [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)'ya (SSMS) ihtiyacınız vardır. Başlamadan önce, Azure Ad tümleştirmesiyle ilgili arka plan bilgileri için aşağıdaki makaleleri gözden geçirmeniz yararlı olabilir:
 
-- [SQL Veritabanı ve SQL Veri Ambarı ile Evrensel Kimlik Doğrulaması (MFA için SSMS desteği)](/azure/sql-database/sql-database-ssms-mfa-authentication.md)
-- [SQL Veritabanı veya SQL Veri Ambarı ile Azure Active Directory kimlik doğrulamasını yapılandırma ve yönetme](/azure/sql-database/sql-database-aad-authentication-configure.md)
+- [SQL Veritabanı ve SQL Veri Ambarı ile Evrensel Kimlik Doğrulaması (MFA için SSMS desteği)](/azure/sql-database/sql-database-ssms-mfa-authentication)
+- [SQL Veritabanı veya SQL Veri Ambarı ile Azure Active Directory kimlik doğrulamasını yapılandırma ve yönetme](/azure/sql-database/sql-database-aad-authentication-configure)
 
 1.  SQL Server Management Studio’yu başlatın.
 2.  **Sunucuya Bağlan** iletişim kutusunda, **Sunucu adı** alanına SQL sunucu adınızı girin.

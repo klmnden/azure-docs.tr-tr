@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 0f64bcecadf5979e9983028354c41457771020bd
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: aeb4ff26b05a5542fd77ac32589c8f8efb622798
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40129349"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40166550"
 ---
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Azure Dev Spaces için bir Kubernetes kümesi oluşturma
 
@@ -28,7 +28,7 @@ ms.locfileid: "40129349"
     - **KÜME AYRINTILARI**: AKS kümesi için ad, bölge (şu an için EastUS, Central US, WestEurope, WestUS2, CanadaCentral veya CanadaEast seçmeniz gerekir), sürüm ve DNS adı ön eki girin.
     - **ÖLÇEK**: AKS aracısı düğümleri için bir VM boyutu ve düğüm sayısı seçin. Azure Dev Spaces kullanmaya yeni başlıyorsanız tüm özellikleri keşfetmek için bir düğüm yeterli olacaktır. Küme dağıtıldıktan sonra da dilediğiniz zaman düğüm sayısını kolayca ayarlayabilirsiniz. AKS kümesi oluşturulduktan sonra VM boyutunu değiştiremeyeceğinizi unutmayın. Ancak ölçeklendirmeniz gerekirse AKS kümesi dağıtıldıktan sonra kolayca daha büyük VM'lere sahip yeni bir AKS kümesi oluşturabilir ve Dev Spaces özelliğini kullanarak bu büyük kümeye yeniden dağıtabilirsiniz.
 
-   Kubernetes sürüm 1.10.3 veya üzerini seçtiğinizden emin olun.
+   Kubernetes sürüm 1.9.6 veya üzerini seçtiğinizden emin olun.
 
    ![Kubernetes yapılandırma ayarları](../media/common/Kubernetes-Create-Cluster-2.PNG)
 

@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 7/10/2018
-ms.openlocfilehash: 303c1cfaf2b91712f706c5b78e027bb02739c770
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d4f1e188a1a145ba3be5fb45d2b0ea4d0bfd57a7
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39074603"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41918020"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-vsts"></a>Öğretici: VSTS kullanarak CI/CD ile Azure Stream Analytics işi dağıtma
 Bu öğreticide, Visual Studio Team Services kullanarak bir Azure Stream Analytics işi için sürekli tümleştirme ve dağıtımın nasıl ayarlanacağı açıklanır. 
@@ -32,8 +32,8 @@ Başlamadan önce şunlara sahip olduğunuzdan emin olun:
 
 * Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 * [Visual Studio](stream-analytics-tools-for-visual-studio-install.md)’yu ve **Azure geliştirme** veya **Veri Depolama ve İşleme** iş yüklerini yükleyin.
-* [Visual Studio’da Stream Analytics projesi](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-vs) oluşturun.
-* [Visual Studio Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) hesabı oluşturun.
+* [Visual Studio’da Stream Analytics projesi](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs) oluşturun.
+* [Visual Studio Team Services](https://visualstudio.microsoft.com/team-services/) hesabı oluşturun.
 
 ## <a name="configure-nuget-package-dependency"></a>NuGet paketi bağımlılığını yapılandırma
 Rastgele bir makinede otomatik derleme ve otomatik dağıtım yapmak için `Microsoft.Azure.StreamAnalytics.CICD` NuGet paketini kullanmanız gerekir. Bu, Stream Analytics Visual Studio projelerinin sürekli tümleştirme ve dağıtım işlemini destekleyen MSBuild, yerel çalıştırma ve dağıtım araçlarını sağlar. Daha fazla bilgi için bkz. [Stream Analytics CI/CD araçları](stream-analytics-tools-for-visual-studio-cicd.md).

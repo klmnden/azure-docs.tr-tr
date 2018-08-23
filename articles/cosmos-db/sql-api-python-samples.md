@@ -11,12 +11,12 @@ ms.devlang: python
 ms.topic: sample
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 5effc20f421e448d6d27841d2d3f02c0220af8c8
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 87d1e9a988de30d217058ee17cdba876d24ff3e9
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751035"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41919224"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python örnekleri
 
@@ -46,7 +46,7 @@ Azure Cosmos DB kaynaklarında CRUD işlemlerini ve diğer yaygın işlemleri ge
 Ayrıca [Python SDK](sql-api-sdk-python.md)'ya da ihtiyacınız vardır. 
    
    > [!NOTE]
-   > Örnekler birbirinden bağımsızdır; kendi kendine ayarlanır ve sonra kendini temizler. Örneklerde [document_client.CreateCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html)'a birden çok çağrı yapılır. Bu her yapıldığında, aboneliğiniz bir saatlik kullanım için faturalandırılır. Azure Cosmos DB faturalandırması hakkında bilgi için bkz. [Azure Cosmos DB Fiyatlandırması](https://azure.microsoft.com/pricing/details/cosmos-db/).
+   > Örnekler birbirinden bağımsızdır; kendi kendine ayarlanır ve sonra kendini temizler. Örneklerde [document_client.CreateCollection](https://docs.microsoft.com/python/api/pydocumentdb.document_client.documentclient#createcollection)'a birden çok çağrı yapılır. Bu her yapıldığında, aboneliğiniz bir saatlik kullanım için faturalandırılır. Azure Cosmos DB faturalandırması hakkında bilgi için bkz. [Azure Cosmos DB Fiyatlandırması](https://azure.microsoft.com/pricing/details/cosmos-db/).
    > 
    > 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: sngun
-ms.openlocfilehash: e446ab35535a90e00eb06023d8a3c0b521686848
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: f661e513e6c1906661808a40052839bbefa2d85d
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796494"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41918102"
 ---
 # <a name="create-an-azure-cosmos-db-failover-policy-for-high-availability-using-powershell"></a>PowerShell kullanarak yüksek kullanılabilirlik için Azure Cosmos DB yük devretme ilkesi oluşturma
 
@@ -45,10 +45,10 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 
 | Komut | Notlar |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [New-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | Bir veritabanı veya elastik havuz barındıran bir mantıksal sunucu oluşturur. |
 | [Invoke-AzureRmResourceAction](https://docs.microsoft.com/powershell/module/azurerm.resources/invoke-azurermresourceaction?view=azurermps-3.8.0) | Azure CosmosDB hesabında bir eylem çağırır. |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 |||
 
 ## <a name="next-steps"></a>Sonraki adımlar

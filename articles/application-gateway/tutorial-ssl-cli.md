@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8a75736dc574c591f3f59c3ecf6ef7a2435e8111
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 57ef2bc1adbd65525c1801e67459a7d1832f79df
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447865"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41918698"
 ---
 # <a name="tutorial-create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Öğretici: Azure CLI kullanarak SSL sonlandırma ile bir uygulama ağ geçidi oluşturma
 
@@ -65,7 +65,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Ağ kaynakları oluşturma
 
-[az network vnet create](/cli/azure/network/vnet#az-net) komutunu kullanarak *myVNet* adlı sanal ağı ve *myAGSubnet* adlı alt ağı oluşturun. Daha sonra [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create) kullanan arka uç sunucularının gerek duyduğu *myBackendSubnet* adlı alt ağı ekleyebilirsiniz. [az network public-ip create](/cli/azure/public-ip#az-network_public_ip_create) komutunu kullanarak *myAGPublicIPAddress* adlı genel IP adresini oluşturun.
+[az network vnet create](/cli/azure/network/vnet#az-net) komutunu kullanarak *myVNet* adlı sanal ağı ve *myAGSubnet* adlı alt ağı oluşturun. Daha sonra [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create) kullanan arka uç sunucularının gerek duyduğu *myBackendSubnet* adlı alt ağı ekleyebilirsiniz. [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create) komutunu kullanarak *myAGPublicIPAddress* adlı genel IP adresini oluşturun.
 
 ```azurecli-interactive
 az network vnet create \
@@ -89,7 +89,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
-Uygulama ağ geçidini oluşturmak için [az network application-gateway create](/cli/azure/application-gateway#create) komutunu kullanabilirsiniz. Azure CLI kullanarak bir uygulama ağ geçidi oluşturduğunuzda, kapasite, sku ve HTTP ayarları gibi yapılandırma bilgilerini belirtirsiniz. 
+Uygulama ağ geçidini oluşturmak için [az network application-gateway create](/cli/azure/network/application-gateway#create) komutunu kullanabilirsiniz. Azure CLI kullanarak bir uygulama ağ geçidi oluşturduğunuzda, kapasite, sku ve HTTP ayarları gibi yapılandırma bilgilerini belirtirsiniz. 
 
 Uygulama ağ geçidi, *myAGSubnet*’e ve daha önce oluşturduğunuz *myAGPublicIPAddress*’e atanır. Bu örnekte olluşturduğunuz sertifika ve uygulama ağ geçidini oluşturduğunuz zamanki parolasını ilişkilendiirirsiniz. 
 

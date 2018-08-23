@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: jdial
-ms.openlocfilehash: d0d410fd59574fe2884ae941ef3fd64600930f31
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 381cd913df41a0bbe03b6c12c44c62ec5654d639
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30840811"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41920639"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance-script-sample"></a>Ağ sanal gereci aracılığıyla trafiği yönlendirme betiği örneği
 
@@ -57,8 +57,8 @@ Bu betik, bir kaynak grubu, sanal ağ ve ağ güvenliği grupları oluşturmak i
 | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Ağ güvenlik grubu (NSG) oluşturur. |
 | [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | Sanal makineye gelen HTTP ve HTTPS bağlantı noktalarına izin veren NSG kuralları oluşturur. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)| NSG’leri ve rota tablolarını alt ağlarla ilişkilendirir. |
-| [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create)| Tüm rotalar için bir rota tablosu oluşturur. |
-| [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create)| Sanal makine aracılığıyla alt ağlar ile İnternet arasında trafiği yönlendirmek için rotalar oluşturur. |
+| [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)| Tüm rotalar için bir rota tablosu oluşturur. |
+| [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)| Sanal makine aracılığıyla alt ağlar ile İnternet arasında trafiği yönlendirmek için rotalar oluşturur. |
 | [az vm create](/cli/azure/vm#az_vm_create) | Bir sanal makine oluşturur ve ona NIC’yi ekler. Bu komut ayrıca kullanılacak sanal makine görüntüsünü ve yönetici kimlik bilgilerini belirtir. |
 | [az group delete](/cli/azure/group#az_group_delete) | Bir kaynak grubunu ve içerdiği tüm kaynakları siler. |
 

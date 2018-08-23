@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 4c537b06c4ff50d90d9fd5a847b378038f252790
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 94e8e813b537d304e62854b81979d433d0645115
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972283"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41920376"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>Öğretici: Azure Notification Hubs kullanarak Xamarin.Android uygulamalarına anında iletme bildirimleri gönderme
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -100,8 +100,8 @@ Bildirim hub'ınız FCM ile birlikte çalışmak üzere yapılandırıldı. Ayr�
 
 1. Android uygulamanız ve bildirim hub'ınız için aşağıdaki bilgileri toplayın:
    
-   * **Dinleme bağlantı dizesi**: [Azure Portal] panoda **Bağlantı dizelerini görüntüle**'yi seçin. Bu değer için *DefaultListenSharedAccessSignature* bağlantı dizesini kopyalayın.
-   * **Hub adı**: [Azure Portal] hub’ınızın adı. Örneğin, *mynotificationhub2*.
+   * **Dinleme bağlantı dizesi**: [Azure portalındaki] panoda **Bağlantı dizelerini görüntüle**'yi seçin. Bu değer için *DefaultListenSharedAccessSignature* bağlantı dizesini kopyalayın.
+   * **Hub adı**: [Azure portalındaki] hub’ınızın adı. Örneğin, *mynotificationhub2*.
      
 2. **Çözüm Gezgini** penceresinde **projenize** sağ tıklayın, **Ekle**’nin üzerine gelip **Sınıf**’ı seçin. 
 4. Xamarin projeniz için bir **Constants.cs** sınıfı oluşturun ve bu sınıfta aşağıdaki sabit değerleri tanımlayın. Yer tutucuları değerleriniz ile değiştirin.
@@ -239,7 +239,7 @@ Bildirim hub'ınız FCM ile birlikte çalışmak üzere yapılandırıldı. Ayr�
 16. Uygulamayı cihazınızda veya yüklü öykünücüde **çalıştırma**
 
 ## <a name="send-test-notification-from-the-azure-portal"></a>Azure portalından test bildirimi gönderme
-[Azure Portal] *Test Gönderimi* seçeneğini kullanarak uygulamanızda bildirim alma testi gerçekleştirebilirsiniz. Bu, cihazınıza test amaçlı anında iletme bildirimi gönderir.
+[Azure portalındaki] *Test Gönderimi* seçeneğini kullanarak uygulamanızda bildirim alma testi gerçekleştirebilirsiniz. Bu, cihazınıza test amaçlı anında iletme bildirimi gönderir.
 
 ![Azure portalı - Test Gönderimi](media/partner-xamarin-notification-hubs-android-get-started/send-test-notification.png)
 
@@ -289,11 +289,11 @@ Bu öğreticide, arka uca kayıtlı olan tüm Android cihazlarınıza yayın bil
 [Xamarin ile Visual Studio]: https://docs.microsoft.com/visualstudio/install/install-visual-studio
 [Mac için Visual Studio]: https://www.visualstudio.com/vs/visual-studio-mac/
 
-[Azure Portal]: https://portal.azure.com/
+[Azure portalındaki]: https://portal.azure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Android]: http://msdn.microsoft.com/library/dn282661.aspx
 
-[Use Notification Hubs to push notifications to users]: /manage/services/notification-hubs/notify-users-aspnet
-[Use Notification Hubs to send breaking news]: /manage/services/notification-hubs/breaking-news-dotnet
+[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [GitHub]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/Xamarin/GetStartedXamarinAndroid

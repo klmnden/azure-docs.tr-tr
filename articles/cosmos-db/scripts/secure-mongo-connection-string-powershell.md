@@ -15,12 +15,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: sngun
-ms.openlocfilehash: 5c801f66c496f1d667dea18bd8fa6d06d6da81fa
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 149d9d4c8d66c139f8ee8b100b67ac23c7da9aa4
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795039"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41920635"
 ---
 # <a name="get-an-azure-cosmos-db-connection-string-for-mongodb-apps-using-powershell"></a>PowerShell kullanarak MongoDB uygulamaları için bir Azure Cosmos DB bağlantı dizesi alma
 
@@ -46,10 +46,10 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 
 | Komut | Notlar |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [New-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | Bir veritabanı veya elastik havuz barındıran bir mantıksal sunucu oluşturur. |
 | [Invoke-AzureRmResourceAction](https://docs.microsoft.com/powershell/module/azurerm.resources/invoke-azurermresourceaction?view=azurermps-3.8.0) | Azure CosmosDB hesabında bir eylem çağırır. |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 |||
 
 ## <a name="next-steps"></a>Sonraki adımlar

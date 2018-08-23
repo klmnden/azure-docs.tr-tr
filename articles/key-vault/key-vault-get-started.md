@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 2d959eb9c4f55624d0d0915dd5dea4c62ba1f8e5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: fcf3c7d47e43adc94d2de933430f16d64ec987a2
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505722"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41918841"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Azure Anahtar Kasası kullanmaya başlama 
 Bu makale PowerShell kullanarak Azure Key Vault kullanmaya başlamanıza yardımcı olur ve aşağıdaki etkinliklerde size kılavuzluk eder:
@@ -28,9 +28,6 @@ Bu makale PowerShell kullanarak Azure Key Vault kullanmaya başlamanıza yardım
 - Bu anahtarı veya parolayı bir uygulamanın kullanması.
 
 Azure Anahtar Kasası çoğu bölgede kullanılabilir. Daha fazla bilgi için bkz. [Anahtar Kasası fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/key-vault/).
-
-> [!NOTE]
-> Bu makalede Azure uygulaması yazma yönergeleri bulunmaz. Bu adımlar için [Azure Key Vault örnek uygulamasını](https://www.microsoft.com/download/details.aspx?id=45343) kullanabilirsiniz.
 
 Platformlar Arası Komut Satırı Arabirimi yönergeleri için [bu eşdeğer öğreticiye](key-vault-manage-with-cli2.md) bakın.
 
@@ -269,7 +266,7 @@ Bir uygulamanın anahtarları veya gizli dizileri kullanma yetkisini değiştirm
 ## <a id="HSM"></a>Donanım güvenlik modülü (HSM) ile çalışma
 Ek güvence için HSM sınırını asla terk etmeyen donanım güvenlik modüllerinde (HSM'ler) anahtarları içeri aktarabilir veya oluşturabilirsiniz. HSM'ler, FIPS 140-2 Düzey 2 doğrulanmasına sahiptir. Bu gereksinim sizin için geçerli değilse bu bölümü atlayın ve [Anahtar kasasını ve ilişkili anahtarları ve gizli anahtarları silme](#delete)'ye gidin.
 
-Bu HSM korumalı anahtarları oluşturmak için [HSM korumalı anahtarları desteklemek için Azure Anahtar Kasası Premium hizmet katmanını](https://azure.microsoft.com/pricing/free-trial/) kullanmanız gerekir. Ek olarak, bu işlevin Azure Çin'de kullanılamadığını unutmayın.
+Bu HSM korumalı anahtarları oluşturmak için [HSM korumalı anahtarları desteklemek için Azure Anahtar Kasası Premium hizmet katmanını](https://azure.microsoft.com/pricing/details/key-vault/) kullanmanız gerekir. Ek olarak, bu işlevin Azure Çin'de kullanılamadığını unutmayın.
 
 Anahtar kasasını oluşturduğunuzda **-SKU** parametresini ekleyin:
 

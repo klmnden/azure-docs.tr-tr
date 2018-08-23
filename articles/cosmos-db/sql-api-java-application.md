@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: 55b6799960efbed413e24cab1556b1c980e5a695
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 87654132a6ad01ad5e100da09ca6426af46f94b3
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600437"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41918254"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Azure Cosmos DB ve SQL API’sini kullanarak bir Java web uygulaması oluşturma
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Bu uygulama geliştirme öğreticisine başlamadan önce aşağıdakilere sahip 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Java Geliştirme Seti (JDK) 7 +](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
-* [Java EE Geliştiricileri için Eclipse IDE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
+* [Java EE Geliştiricileri için Eclipse IDE.](http://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Java çalışma zamanı ortamı (ör. Tomcat veya Jetty) etkin bir Azure Web Sitesi.](../app-service/app-service-web-get-started-java.md)
 
 Bu araçları ilk kez yüklüyorsanız coreservlets.com adresindeki [Öğretici: TomCat7'yi yükleme ve Eclipse ile kullanma](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) makalesinin Hızlı Başlangıç bölümünde yükleme işlem için bir adım adım kılavuz mevcuttur.

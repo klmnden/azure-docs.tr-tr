@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 77cd4c1d5333f7f10e6caccee5011200bdb4ccca
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5e1d7a88e5a1a8ab60a01aea6ca42e850ac6e0e3
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424397"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41918113"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Öğretici: Azure’da Java ve MySQL web uygulaması derleme
 
@@ -243,7 +243,7 @@ Plan hazır olduğunda, Azure CLI aşağıdaki örnekte gösterilene benzer bir 
 
 ### <a name="create-an-azure-web-app"></a>Azure Web uygulaması oluşturma
 
-Cloud Shell'de, [`az webapp create`](/cli/azure/appservice/web#az-appservice-web-create) CLI komutunu kullanarak `myAppServicePlan` App Service planında bir web uygulaması tanımı oluşturun. Web uygulaması tanımı, uygulamanıza erişebilmek için bir URL sağlar ve çeşitli seçenekleri yapılandırarak kodunuzu Azure'a dağıtır. 
+Cloud Shell'de, [`az webapp create`](/cli/azure/webapp#az-webapp-create) CLI komutunu kullanarak `myAppServicePlan` App Service planında bir web uygulaması tanımı oluşturun. Web uygulaması tanımı, uygulamanıza erişebilmek için bir URL sağlar ve çeşitli seçenekleri yapılandırarak kodunuzu Azure'a dağıtır. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
@@ -282,7 +282,7 @@ az webapp config set --name <app_name> --resource-group myResourceGroup --java-v
 
 Örnek uygulamayı çalıştırmadan önce, web uygulamasında uygulama ayarlarını Azure'da oluşturduğunuz Azure MySQL veritabanını kullanacak şekilde belirleyin. Bu özellikler web uygulamasına ortam değişkenleri olarak gösterilir ve paketli web uygulamasının içindeki application.properties'de ayarlanan değerleri geçersiz kılar. 
 
-Cloud Shell'de, CLI'de [`az webapp config appsettings`](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings) komutunu kullanarak uygulama ayarlarını belirleyin:
+Cloud Shell'de, CLI'de [`az webapp config appsettings`](https://docs.microsoft.com/cli/azure/webapp/config/appsettings) komutunu kullanarak uygulama ayarlarını belirleyin:
 
 ```azurecli-interactive
 az webapp config appsettings set --settings SPRING_DATASOURCE_URL="jdbc:mysql://<mysql_server_name>.mysql.database.azure.com:3306/tododb?verifyServerCertificate=true&useSSL=true&requireSSL=false" --resource-group myResourceGroup --name <app_name>
@@ -299,7 +299,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_p
 ### <a name="get-ftp-deployment-credentials"></a>FTP dağıtım kimlik bilgilerini alma 
 Uygulamanızı FTP, yerel Git, GitHub, Visual Studio Team Services ve Bitbucket gibi çeşitli yollarla Azure uygulama hizmetine dağıtabilirsiniz. Bu örnekte, daha önce yerel makinenizde oluşturulan .WAR dosyasını Azure App Service'e dağıtmak için FTP kullanılır.
 
-Ftp komutunda Web App'e hangi kimlik bilgilerinin geçirileceğini saptamak için, Cloud Shell'de [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az-appservice-web-deployment-list-publishing-profiles) komutunu kullanın: 
+Ftp komutunda Web App'e hangi kimlik bilgilerinin geçirileceğini saptamak için, Cloud Shell'de [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/webapp/deployment#az-appservice-web-deployment-list-publishing-profiles) komutunu kullanın: 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --output json

@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c1122ab403eb7192d7acbd493c46d478d0382a6b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e12b8153494eaefb1f7e2d27fc667ef0070c68d0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932206"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41918549"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure’da Windows sanal makinelere genel bakış
 
@@ -60,7 +60,7 @@ Bu tabloda, kullanılabilen konumların listesini edinme yöntemlerinden bazıla
 
 | Yöntem | Açıklama |
 | --- | --- |
-| Azure portalına |VM oluştururken listeden konum seçin. |
+| Azure portal |VM oluştururken listeden konum seçin. |
 | Azure PowerShell |[Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) komutunu kullanın. |
 | REST API |[List locations](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations) işlemini kullanın. |
 | Azure CLI |[az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_list_locations) işlemini kullanın. |
@@ -82,8 +82,8 @@ Bu tabloda bir görüntünün bilgilerine nasıl erişebileceğiniz gösterilmi�
 
 | Yöntem | Açıklama |
 | --- | --- |
-| Azure portalına |Bir görüntüyü kullanmak istediğinizde değerler otomatik olarak belirtilir. |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "konum"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "konum" -Publisher "yayımcıAdı"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "konum" -Publisher "yayımcıAdı" -Offer "teklifAdı" |
+| Azure portal |Bir görüntüyü kullanmak istediğinizde değerler otomatik olarak belirtilir. |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) -Location "konum"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) -Location "konum" -Publisher "yayımcıAdı"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "konum" -Publisher "yayımcıAdı" -Offer "teklifAdı" |
 | REST API'leri |[Görüntü yayımcılarını listeleme](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Görüntü tekliflerini listeleme](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Görüntü sku’larını listeleme](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 | Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --konum "location"<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --konum "location" --yayımcı "publisherName"<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --konum "location" --yayımcı "publisherName" --teklif "offerName"|
 
@@ -117,7 +117,7 @@ Bu tabloda VM’nizi oluşturmak için ihtiyaç duyacağınız giriş bilgileri 
 
 | Yöntem | Makale |
 | --- | --- |
-| Azure portalına |[Portalı kullanarak Windows çalıştıran sanal makine oluşturma](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Azure portal |[Portalı kullanarak Windows çalıştıran sanal makine oluşturma](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Şablonlar |[Resource Manager şablonu kullanarak Windows sanal makine oluşturma](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure PowerShell |[PowerShell kullanarak Windows VM oluşturma](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | İstemci SDK'ları |[C# kullanarak Azure Kaynaklarını dağıtma](csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
@@ -134,7 +134,7 @@ Bu tabloda VM hakkında bilgi almak için kullanabileceğiniz yöntemlerden baz�
 
 | Yöntem | Açıklama |
 | --- | --- |
-| Azure portalına |Hub menüsünde **Sanal Makineler**’e tıklayıp açılan listeden VM’yi seçin. VM’nin dikey penceresinden özet bilgilere, ayar değerlerine ve izleme ölçümlerine erişebilirsiniz. |
+| Azure portal |Hub menüsünde **Sanal Makineler**’e tıklayıp açılan listeden VM’yi seçin. VM’nin dikey penceresinden özet bilgilere, ayar değerlerine ve izleme ölçümlerine erişebilirsiniz. |
 | Azure PowerShell |VM'leri yönetmek üzere PowerShell'i kullanma hakkında daha fazla bilgi için bkz. [Azure PowerShell modülü ile Windows VM'leri oluşturma ve yönetme](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 | REST API |Bir VM hakkında bilgi almak için [VM bilgilerini alma](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) işlemini kullanın. |
 | İstemci SDK'ları |VM yönetimi için C# kullanımı hakkında bilgi almak için bkz. [Azure Sanal Makinelerini Azure Resource Manager ve C# ile yönetme](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |

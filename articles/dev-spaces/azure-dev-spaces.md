@@ -10,12 +10,12 @@ ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
 manager: douge
-ms.openlocfilehash: 93440b8a1c9fd1b386931e5998c70133071a079e
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 14b51cc2ad2e8e0f294e5e73e542001e30d21c9d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823053"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41918845"
 ---
 # <a name="azure-dev-spaces"></a>Azure Dev Spaces
 Azure Dev Spaces, ekiplere yönelik hızlı ve yinelemeli bir Kubernetes geliştirme deneyimi sunar. Minimum geliştirme makinesi kurulumu ile, doğrudan Azure Kubernetes Service (AKS) içinde yinelemeli olarak kapsayıcıları çalıştırabilir ve kapsayıcıların hatasını ayıklayabilirsiniz. Windows, Mac veya Linux’ta, Visual Studio, Visual Studio Code veya komut satırı gibi bilindik araçları kullanarak geliştirme gerçekleştirin.

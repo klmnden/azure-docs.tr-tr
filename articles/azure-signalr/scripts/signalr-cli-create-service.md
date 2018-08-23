@@ -15,12 +15,12 @@ ms.workload: signalr
 ms.date: 04/20/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: a8df62fe229a627b2e551ab04528ad601c5d5d2a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9000531384e7aa14cb412863f99d2271cee9fb39
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766436"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41919227"
 ---
 # <a name="create-a-signalr-service"></a>SignalR Hizmeti oluşturma 
 
@@ -56,7 +56,7 @@ Tablodaki her komut, komuta özgü belgelere yönlendirir. Bu betik şu komutlar
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [az signalr create](/cli/azure/group#az-group-create) | Bir Azure SignalR Hizmeti kaynağı oluşturur. |
-| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | SignalR ile gerçek zamanlı içerik güncelleştirmeleri gönderilirken uygulamanız tarafından kullanılacak anahtarları listeler. |
+| [az signalr key list](/cli/azure/ext/signalr/signalr/key#ext-signalr-az-signalr-key-list) | SignalR ile gerçek zamanlı içerik güncelleştirmeleri gönderilirken uygulamanız tarafından kullanılacak anahtarları listeler. |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

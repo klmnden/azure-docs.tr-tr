@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 1d8db471a3f8ebf9dbcce77b101a2688f2570fd6
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 5dd8b1f662f1ae6d6502743c6d976db4b58e962f
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37949893"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41918555"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Veritabanı yedeklemesini Azure SQL Veritabanı Yönetilen Örneğine geri yükleme
 
@@ -29,7 +29,7 @@ Bu öğreticide, Wide World Importers - Standart yedekleme dosyasını kullanara
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticide, [Azure SQL Veritabanı Yönetilen Örneği Oluşturma](sql-database-managed-instance-create-tutorial-portal.md) öğreticisinde oluşturulan kaynaklar başlangıç noktası olarak kullanılmaktadır.
+Bu öğreticide, [Azure SQL Veritabanı Yönetilen Örneği Oluşturma](sql-database-managed-instance-get-started.md) öğreticisinde oluşturulan kaynaklar başlangıç noktası olarak kullanılmaktadır.
 
 ## <a name="download-the-wide-world-importers---standard-backup-file"></a>Wide World Importers - Standart yedekleme dosyasını indirme
 
@@ -93,7 +93,7 @@ Internet Explorer’ı kullanarak URL adres kutusuna https://github.com/Microsof
 
     ![kapsayıcı ayrıntısı](./media/sql-database-managed-instance-tutorial/container-detail.png)
 
-13. **Tamam**’a tıklayın.
+13. **Tamam** düğmesine tıklayın.
 14. Kapsayıcı oluşturulduktan sonra kapsayıcıyı açın.
 
     ![kapsayıcı](./media/sql-database-managed-instance-tutorial/container.png)

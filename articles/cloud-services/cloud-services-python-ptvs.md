@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 10ade991b77b90f31309dbe6a105744dbc02df40
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d9871b399ff06fb08d817c0d892b667b4ef0242d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003651"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41917729"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Visual Studio için Python web ve çalışan rolleri içeren Python Araçları
 
@@ -42,7 +42,7 @@ Daha fazla bilgi için bkz. [Bulut Hizmeti nedir?].
 
 > [!NOTE]
 > *Basit bir web sitesi mi oluşturmak istiyorsunuz?*
-> Senaryonuz yalnızca basit bir web sitesi ön ucu içeriyorsa, Azure Uygulama Hizmeti’ndeki basit Web Apps özelliğini kullanmayı düşünün. Web siteniz büyüdükçe ve gereksinimleriniz değiştikçe kolayca Bulut Hizmetleri’ne yükseltebilirsiniz. Azure App Service’teki Web Apps özelliğini geliştirme hakkındaki makaleler için <a href="/develop/python/">Python Geliştirici Merkezi</a>’ne bakın.
+> Senaryonuz yalnızca basit bir web sitesi ön ucu içeriyorsa, Azure Uygulama Hizmeti’ndeki basit Web Apps özelliğini kullanmayı düşünün. Web siteniz büyüdükçe ve gereksinimleriniz değiştikçe kolayca Bulut Hizmetleri’ne yükseltebilirsiniz. Azure App Service’teki Web Apps özelliğini geliştirme hakkındaki makaleler için [Python Geliştirici Merkezi](https://azure.microsoft.com/develop/python/)’ne bakın.
 > <br />
 > 
 > 

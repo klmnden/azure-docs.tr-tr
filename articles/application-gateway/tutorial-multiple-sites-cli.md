@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f84b9555343d0f902e887160845099cbc49e8ef2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 13f37f1b0efaa8169d272220362290bac9b3aac1
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441400"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41918372"
 ---
 # <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Öğretici: Azure CLI kullanarak, birden çok web sitesi barındıran bir uygulama ağ geçidi oluşturma
 
@@ -54,7 +54,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Ağ kaynakları oluşturma 
 
-[az network vnet create](/cli/azure/network/vnet#az-net) komutunu kullanarak adlı sanal ağı ve *myAGSubnet* adlı alt ağı oluşturun. Daha sonra [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create) kullanan arka uç sunucularının gerek duyduğu alt ağı ekleyebilirsiniz. [az network public-ip create](/cli/azure/public-ip#az-network_public_ip_create) komutunu kullanarak *myAGPublicIPAddress* adlı genel IP adresini oluşturun.
+[az network vnet create](/cli/azure/network/vnet#az-net) komutunu kullanarak adlı sanal ağı ve *myAGSubnet* adlı alt ağı oluşturun. Daha sonra [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create) kullanan arka uç sunucularının gerek duyduğu alt ağı ekleyebilirsiniz. [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create) komutunu kullanarak *myAGPublicIPAddress* adlı genel IP adresini oluşturun.
 
 ```azurecli-interactive
 az network vnet create \
@@ -78,7 +78,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
-Uygulama ağ geçidini oluşturmak için [az network application-gateway create](/cli/azure/application-gateway#create) komutunu kullanabilirsiniz. Azure CLI kullanarak bir uygulama ağ geçidi oluşturduğunuzda, kapasite, sku ve HTTP ayarları gibi yapılandırma bilgilerini belirtirsiniz. Uygulama ağ geçidi, *myAGSubnet*’e ve daha önce oluşturduğunuz *myAGPublicIPAddress*’e atanır. 
+Uygulama ağ geçidini oluşturmak için [az network application-gateway create](/cli/azure/network/application-gateway#create) komutunu kullanabilirsiniz. Azure CLI kullanarak bir uygulama ağ geçidi oluşturduğunuzda, kapasite, sku ve HTTP ayarları gibi yapılandırma bilgilerini belirtirsiniz. Uygulama ağ geçidi, *myAGSubnet*’e ve daha önce oluşturduğunuz *myAGPublicIPAddress*’e atanır. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -106,7 +106,7 @@ Uygulama ağ geçidinin oluşturulması birkaç dakika sürebilir. Uygulama ağ 
 
 ### <a name="add-the-backend-pools"></a>Arka uç havuzlarını ekleme
 
-[az network application-gateway address-pool create](/cli/azure/application-gateway#az-network_application_gateway_address_pool_create) kullanarak, arka uç sunucularını içermesi için gereken arka uç havuzlarını oluşturun.
+[az network application-gateway address-pool create](/cli/azure/network/application-gateway#az-network_application_gateway_address_pool_create) kullanarak, arka uç sunucularını içermesi için gereken arka uç havuzlarını oluşturun.
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -122,7 +122,7 @@ az network application-gateway address-pool create \
 
 ### <a name="add-backend-listeners"></a>Arka uç dinleyicileri ekleme
 
-[az network application-gateway http-listener create](/cli/azure/application-gateway#az-network_application_gateway_http_listener_create) kullanarak gereken arka uç dinleyicilerini ekleyin.
+[az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create) kullanarak gereken arka uç dinleyicilerini ekleyin.
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -146,7 +146,7 @@ az network application-gateway http-listener create \
 
 Kurallar listelendikleri sırayla işlenir ve trafik belirginlikten bağımsız olarak eşleşen ilk kural kullanarak yönlendirilir. Örneğin, aynı bağlantı noktasında temel bir dinleyici kullanan bir kuralınız ve çok siteli dinleyici kullanan bir kuralınız varsa çok siteli kuralın beklendiği gibi çalışması için çok siteli dinleyicinin kuralı temel dinleyici kuralından önce listelenmelidir. 
 
-Bu örnekte, iki yeni kural oluşturursunuz ve uygulama ağ geçidini oluştururken oluşturduğunuz varsayılan kuralı silersiniz. Kuralı [az network application-gateway rule create](/cli/azure/application-gateway#az-network_application_gateway_rule_create) komutunu kullanarak ekleyebilirsiniz.
+Bu örnekte, iki yeni kural oluşturursunuz ve uygulama ağ geçidini oluştururken oluşturduğunuz varsayılan kuralı silersiniz. Kuralı [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create) komutunu kullanarak ekleyebilirsiniz.
 
 ```azurecli-interactive
 az network application-gateway rule create \

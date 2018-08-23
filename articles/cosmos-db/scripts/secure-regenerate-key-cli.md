@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: sngun
-ms.openlocfilehash: 519da5373b834c56e6cd94d925d55a56df5d7c9c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 601130dc07613d42b8ec55f670d8b9c050136143
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432608"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41918379"
 ---
 # <a name="regenerate-an-azure-cosmos-db-account-key-using-the-azure-cli"></a>Azure CLI’yı kullanarak Azure Cosmos DB hesap anahtarını yeniden oluşturma
 
@@ -49,7 +49,7 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az-cosmosdb-create) | Azure Cosmos DB hesabını güncelleştirir. |
-| [az cosmosdb regenerate-key](/cli/azure/cosmosdb/regenerate-key) | Azure Cosmos DB hesap anahtarlarını yeniden oluşturur. |
+| [az cosmosdb regenerate-key](/cli/azure/cosmosdb#az-cosmosdb-regenerate-key) | Azure Cosmos DB hesap anahtarlarını yeniden oluşturur. |
 | [az group delete](https://docs.microsoft.com/cli/azure/group#az-group-delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar

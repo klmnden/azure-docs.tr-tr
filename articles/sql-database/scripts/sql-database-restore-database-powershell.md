@@ -16,12 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 789f5df60024651731b7ba34e1c6fdc53a4b9f2b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e93ef3f837d29204c6710684d4dfc6f359f572cd
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366673"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41918692"
 ---
 # <a name="use-powershell-to-restore-an-azure-sql-database-from-backups"></a>PowerShell kullanarak yedeklemelerden Azure SQL veritabanını geri yükleme
 
@@ -47,7 +47,7 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 
 | Komut | Notlar |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Bir veritabanı veya elastik havuz barındıran bir mantıksal sunucu oluşturur. | 
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Bir veritabanı veya elastik havuz barındıran bir mantıksal sunucu oluşturur. | 
 | [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | Bir mantıksal sunucuda tek veya havuza alınmış bir veritabanı olarak veritabanı oluşturur. |
 [Get-AzureRmSqlDatabaseGeoBackup](/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) | Bir veritabanının coğrafi olarak yedekli bir yedeklemesini alır. |
 | [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) | SQL veritabanını geri yükler. |

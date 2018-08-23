@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: eefb07136215d79b7c351dd4498bfeb79b6833de
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 27f271a20af2bb9910f1cf7d63e6033d78e67b83
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413775"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41919812"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Öğretici: Oturum açma ekranından Azure AD parola sıfırlama
 
@@ -86,8 +86,6 @@ Oturum açma ekranından parola sıfırlama yapılmasını sağlayan yapılandı
 Artık Intune kullanarak Parolayı sıfırla bağlantısını etkinleştirmek için bir cihaz yapılandırma ilkesi oluşturduğunuz ve atadınız.
 
 ## <a name="configure-reset-password-link-using-the-registry"></a>Kayıt defterini kullanarak Parolayı sıfırla bağlantısını yapılandırma
-
-Bu yöntemi yalnızca ayar değişikliğini test etmek için kullanmanızı öneririz.
 
 1. Yönetici kimlik bilgilerini kullanarak Windows bilgisayarda oturum açın
 2. Yönetici olarak **regedit** komutunu çalıştırın
