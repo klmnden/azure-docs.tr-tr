@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/15/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: ba8778bad9ed1b8ec095da084ffcec79658bdea8
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: db60aaacfb2ba60dbe73663cb415e2a3baea5400
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42057437"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745808"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Azure stack'teki API sürümü profillerini yönetme
 
@@ -67,7 +67,7 @@ Bunun yerine her kaynak sağlayıcısı ve Azure Stack tarafından desteklenen b
 
 Azure Resource Manager, PowerShell, Azure CLI, SDK'sı ve Microsoft Visual Studio code gibi araçlar API profillerini çalışın. Araçlar ve SDK'lar profillerini modülleri ve bir uygulama oluştururken eklenecek kitaplıklar hangi sürümünü okumak için kullanabilirsiniz.
 
-Örneğin, bir depolama alanı oluşturmak için PowerShell kullanma kullanarak hesap **Microsoft.Storage** api sürümü 2016-03-30 ve api-version = 2015-12-01 ile Microsoft.Compute kaynak sağlayıcısına kullanarak VM destekleyen kaynak sağlayıcısı , 2016-03-30 PowerShell modülünü destekleyen depolama için aranacak gerekir ve hangi modülü için işlem 2015-02-01 destekler ve bunları yükleyin. Bunun yerine, bir profil kullanabilirsiniz. Cmdlet'i kullanmak ** yükle profili * profilename *** ve PowerShell modülleri doğru sürümünü yükler.
+Örneğin, PowerShell kullanarak bir depolama hesabı oluşturmak için kullandığınız **Microsoft.Storage** api sürümü 2016-03-30 ve api-version ile Microsoft.Compute kaynak sağlayıcısına kullanarak VM destekleyen kaynak sağlayıcısı 2015-12-01, 2016-03-30 PowerShell modülünü destekleyen depolama için aranacak gerekir ve hangi modülü için işlem 2015-02-01 destekler ve bunları yükleyin. Bunun yerine, bir profil kullanabilirsiniz. Cmdlet'i kullanmak ** yükle profili * profilename *** ve PowerShell modülleri doğru sürümünü yükler.
 
 Benzer şekilde, Python tabanlı bir uygulama oluşturmak için Python SDK'sı kullanırken, profil belirtebilirsiniz. SDK'sı, betikte belirttiğiniz kaynak sağlayıcıları için doğru modülleri yükler.
 

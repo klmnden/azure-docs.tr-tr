@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 00e5f5a73973a34a8611143719c91a2b1ad0c8eb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0aadb5964b5fe08b02397588dd9b2695fb4db4ce
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971275"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746726"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Linux işletim sistemi düzeltme eki
 
@@ -74,7 +74,7 @@ Düzeltme eki düzenleme uygulama küme üzerinde etkinleştirilmesini onarım Y
 
 Azure linux kümeleri silver ve gold dayanıklılık katmanı varsayılan olarak etkin onarım Yöneticisi hizmeti sahiptir. Onarım Yöneticisi hizmetinin etkinleştirilmiş Azure kümelerde varsayılan olarak, Bronz dayanıklılık katmanı yok. Hizmet zaten etkin değilse, Service Fabric Explorer'da Sistem Hizmetleri bölümündeki çalışmasını görebilirsiniz.
 
-##### <a name="azure-portal"></a>Azure portalına
+##### <a name="azure-portal"></a>Azure portal
 Onarım Yöneticisi Azure Portalı'ndan kümesini ayarlama sırasında etkinleştirebilirsiniz. Seçin **onarım Yöneticisi dahil** altındaki **eklenti özellikleri** küme yapılandırmasının zaman.
 ![Azure portalından etkinleştirme onarım Yöneticisi'nin resmi](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
@@ -121,7 +121,7 @@ Ubuntu için [yükseltmeleri katılımsız](https://help.ubuntu.com/community/Au
 
 Uygulamayı yükleme betikleri ile birlikte gelen indirilebilir [arşiv bağlantı](https://go.microsoft.com/fwlink/?linkid=867984).
 
-Uygulama sfpkg biçimde nden indirilebilir [sfpkg bağlantı](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg). Bu için kullanışlı gelir [Azure Resource Manager tabanlı uygulama dağıtımı](service-fabric-application-arm-resource.md).
+Uygulama sfpkg biçimde nden indirilebilir [sfpkg bağlantı](https://aka.ms/POA/POA_v2.0.2.sfpkg). Bu için kullanışlı gelir [Azure Resource Manager tabanlı uygulama dağıtımı](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Uygulamayı yapılandırma
 
@@ -271,7 +271,7 @@ Onarım Yöneticisi hizmeti kümede bulunamazsa bir uyarı düzeyi sistem durumu
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
-SORU. **Düzeltme eki düzenleme uygulama çalışırken hata durumunda kümem neden görüyorum?**
+S. **Düzeltme eki düzenleme uygulama çalışırken hata durumunda kümem neden görüyorum?**
 
 A. Yükleme işlemi sırasında orchestration düzeltme eki uygulamayı devre dışı bırakır veya düğümleri yeniden başlatılır. Bu işlem geçici olarak giderek kümesinin sistem sonuçlanabilir.
 
@@ -285,15 +285,15 @@ Geçici bir hata durumu aşağıdaki örnekte, küme oluştu çünkü iki düğ�
 
 Sorun devam ederse, sorun giderme bölümüne bakın.
 
-SORU. **Uyarı durumunda düzeltme eki düzenleme uygulama**
+S. **Uyarı durumunda düzeltme eki düzenleme uygulama**
 
 A. Uygulamaya karşı gönderilen bir sistem durumu raporu, kök neden olup olmadığını denetleyin. Genellikle, uyarı sorunun ayrıntılarını içerir. Geçici bir sorundur, uygulamayı bu durumdan otomatik olarak kurtarmak için bekleniyor.
 
-SORU. **Kümem sağlıksız olduğunu ve Acil işletim sistemi güncelleştirme yapmanız durumunda neler yapabilirim?**
+S. **Kümem sağlıksız olduğunu ve Acil işletim sistemi güncelleştirme yapmanız durumunda neler yapabilirim?**
 
 A. Küme sağlıksız durumdayken düzeltme eki düzenleme uygulama güncelleştirmelerini yüklemez. Düzeltme eki düzenleme uygulama iş akışı engelini kaldırmak için kümenizin sağlıklı bir duruma getirin.
 
-SORU. **Neden kümelerinde düzeltme eki uygulama kadar çalıştırmak için sürüyor?**
+S. **Neden kümelerinde düzeltme eki uygulama kadar çalıştırmak için sürüyor?**
 
 A. Düzeltme eki düzenleme uygulama tarafından gereken süre, genellikle aşağıdaki etkenlere bağlıdır:
 
@@ -303,26 +303,26 @@ A. Düzeltme eki düzenleme uygulama tarafından gereken süre, genellikle aşa�
 - İndirmek ve bir güncelleştirmeyi yüklemek için gereken ortalama süre, birkaç saat aşmamalıdır.
 - VM ve ağ bant genişliği performansını.
 
-SORU. **Güvenlik güncelleştirmeleri olan mu düzeltme eki düzenleme uygulama hangi güncelleştirmelerin nasıl karar verir.**
+S. **Güvenlik güncelleştirmeleri olan mu düzeltme eki düzenleme uygulama hangi güncelleştirmelerin nasıl karar verir.**
 
 A. Düzeltme eki düzenleme uygulama distro özgü mantığı, hangi güncelleştirmelerin güvenlik güncelleştirmeleri kullanılabilir güncelleştirmeler arasında belirlemek için kullanır. Örneğin: uygulama arşivleri $RELEASE güncelleştirmeleri arar ubuntu içinde-güvenlik, $RELEASE-güncelleştirmeleri ($RELEASE xenial = ya da linux standart temel yayın sürümü). 
 
  
-SORU. **Belirli bir paket sürümünü açın nasıl kilitlemek üzere?**
+S. **Belirli bir paket sürümünü açın nasıl kilitlemek üzere?**
 
 A. Belirli bir sürüme paketlerinizi kilitlemek için ApprovedPatches ayarları kullanın. 
 
 
-SORU. **Ubuntu otomatik güncelleştirmeleri ne olur?**
+S. **Ubuntu otomatik güncelleştirmeleri ne olur?**
 
 A. Kümenizde düzeltme eki düzenleme uygulama yüklemeden hemen sonra yükseltme, küme düğümünde katılımsız devre dışı. Tüm düzenli güncelleştirme iş akışını düzeltme eki düzenleme uygulama tarafından yönlendirilen.
 Küme genelinde ortam tutarlılığını sağlamak için düzeltme düzenlemesi yalnızca uygulama aracılığıyla güncelleştirmeleri yüklemeniz önerilir. 
  
-SORU. **Yükseltme, orchestration uygulama kullanılmayan paketlerin temizleme sonrası düzeltme?**
+S. **Yükseltme, orchestration uygulama kullanılmayan paketlerin temizleme sonrası düzeltme?**
 
 A. Evet, yükleme sonrası adımları bir parçası olarak temizleme gerçekleşir. 
 
-SORU. **Düzeltme ekini düzenlemeyi uygulama geliştirme kümem (tek düğümlü kümenize) düzeltme eki için kullanılabilir mi?**
+S. **Düzeltme ekini düzenlemeyi uygulama geliştirme kümem (tek düğümlü kümenize) düzeltme eki için kullanılabilir mi?**
 
 A. Hayır, düzeltme eki düzenleme uygulama düzeltme eki tek düğümlü küme için kullanılamaz. Bu tasarım gereği, olarak sınırlamasıdır [service fabric sistem hizmetlerinin](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) veya herhangi bir müşteri uygulama kapalı kalma süresi karşılaşır ve bu nedenle düzeltme eki uygulama için herhangi bir onarım işi hiçbir zaman onarım Yöneticisi tarafından onaylanan.
 
@@ -370,5 +370,8 @@ Düzeltme eki düzenleme uygulama kullanımını ve performansını izlemek içi
 ### <a name="version-200"></a>Sürüm 2.0.0
 - Genel sürüm
 
-### <a name="version-201-latest"></a>Sürüm 2.0.1 (son sürüm)
+### <a name="version-201"></a>Sürüm 2.0.1
 - Son Service Fabric SDK'sını kullanarak uygulamayı yeniden derlenen
+
+### <a name="version-202-latest"></a>Sürüm 2.0.2 (son sürüm)
+- Sistem durumu uyarı yeniden başlatma sırasında geride bir sorun düzeltildi.

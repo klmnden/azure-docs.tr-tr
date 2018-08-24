@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: 610771e659a80e330fbb1c9d6fd97c15ff832386
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 3ff4c23c0538adcc3a064503431cb18016db04cd
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056363"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747053"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure işlevleri için Azure Event Hubs bağlamaları
 
@@ -52,24 +52,24 @@ Bir olay hub'ları tetikleyici işlevi tetiklendiğinde tetikleyen iletinin dize
 
 ## <a name="trigger---scaling"></a>Tetikleme - ölçeklendirme
 
-Her bir örneğini Event Hub-Triggered işlevi yalnızca 1 EventProcessorHost (EPH) örneği tarafından desteklenir. Olay hub'ları sağlar yalnızca 1 EPH belli bir bölüm üzerinde bir kira elde edebilirsiniz.
+Her bir olay hub'ı ile tetiklenen bir işlev örneği yalnızca biri tarafından desteklenen [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) örneği. Olay hub'ları yalnızca bir sağlar [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) örneği, belirli bir bölüme bir kira alabilirsiniz.
 
-Örneğin, aşağıdaki Kurulum ve bir olay hub'ına yönelik varsayımlarda başlamadan varsayalım:
+Örneğin, bir olay hub'ı aşağıdaki gibi düşünün:
 
-1. 10 bölümler.
-1. 1000 olayları eşit olarak dağıtılmış = > 100 iletileri her bölümde tüm bölümler.
+* 10 bölümler.
+* Her bölümde 100 iletileri olan tüm bölümler arasında eşit olarak dağıtılmış 1000 olay.
 
-İlk işlevinizi etkin olduğunda da yalnızca 1 örneğinin işlevi yoktur. Bu işlev örneği Function_0 adlandıralım. Tüm 10 bölümleri üzerinde bir kira almak için yöneten 1 EPH Function_0 olacaktır. 0-9 bölümlerden olayları okumaya başlar. Bu noktadan itibaren aşağıdakilerden biri gerçekleşir:
+İlk işlevinizi etkinleştirildiğinde, yalnızca bir örneğini işlevi yoktur. Bu işlev örneği adlandıralım `Function_0`. `Function_0` tek bir sahip [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) tüm on bölümleri üzerinde bir kira var örneği. Bu örnek, 0-9 bölümlerden olayları okunuyor. Bu noktadan itibaren aşağıdakilerden biri gerçekleşir:
 
-* **Yalnızca 1 işlevi örneği gereklidir** -Function_0 Azure işlevlerini ölçeklendirme mantıksal devreye girer önce tüm 1000 işleyebilir. Bu nedenle, tüm 1000 iletileri Function_0 tarafından işlenir.
+* **Yeni işlev örnekleri gerekmeyen**: `Function_0` ölçeklendirme mantıksal devreye girer işlevleri önce tüm 1000 olayları işleyebilir. Bu durumda, tüm 1000 iletileri tarafından işlenen `Function_0`.
 
-* **1 daha fazla işlev örneği ekleme** -Azure işlevlerini ölçeklendirme mantıksal Function_1, yeni bir örneği oluşmasını Function_0, işleyebileceğinden daha fazla ileti olduğunu belirler. Olay hub'ları algılar iletileri okumak yeni EPH örneği çalışıyor. Event hubs'ı bölümleri EPH örneği arasında Yük Dengeleme başlar, örneğin, bölümlerin 0-4 Function_0 için atanan ve bölüm 5-9 Function_1 için atanır. 
+* **Ek işlev örneği eklenen**: mantıksal ölçeklendirme işlevleri belirler `Function_0` , işleyebileceğinden daha fazla ileti yok. Bu durumda, yeni bir işlev uygulaması örneğinde (`Function_1`), yanı sıra yeni oluşturulan [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) örneği. Olay hub'ları algılar iletileri okumak yeni bir ana bilgisayar örneği çalışıyor. Olay hub'ları yük dengeleyen bölümler arasında kendi ana bilgisayar örneği. Örneğin, 0-4 bölüm için atanabilir `Function_0` ve 5-9 bölümleri `Function_1`. 
 
-* **Ekle N fazla işlev örnekleri** -Azure işlevlerini ölçeklendirme mantıksal Function_0 hem Function_1 bunlar işleyebileceğinden daha fazla ileti olduğunu belirler. Function_2... N, N olay hub'ı bölümleri büyük olduğu için yeniden ölçeklendirilir. Event hubs'ı yükler bölümler arasında Function_0 bakiye... 9 örnekleri.
+* **Daha fazla işlev örneği eklenir N**: mantıksal ölçeklendirme işlevleri belirler hem `Function_0` ve `Function_1` bunlar işleyebileceğinden daha fazla ileti sahip. Yeni işlev uygulaması örnekleri `Function_2`... `Functions_N` nerede oluşturulduğunu, `N` olay hub'ı bölümleri sayısından büyüktür. Yük dengeleyen bölümleri, bu durumda örneklerinde Örneğimizde, Event Hubs yeniden `Function_0`... `Functions_9`. 
 
-Azure işlevleri geçerli mantıksal ölçeklendirme N bölüm sayısından daha büyük hale benzersizdir. Bu, her zaman diğer örneklerden kullanılabilir oldukça bölümleri üzerinde hızlı bir şekilde bir kilidi almak hazır EPH örneklerini emin olmak için gerçekleştirilir. Kullanıcılar yalnızca işlev örneği yürütüldüğünde, kullanılan kaynaklar için ücret alınır ve bu fazladan sağlama için ücretlendirilmez.
+Dikkat edin işlevleri ölçeklenir `N` olay hub'ı bölümleri sayısından daha büyük bir sayı olan örnekleri. Bu her zaman emin olmak için gerçekleştirilir [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) örneği diğer örneklerin kullanılabilir oldukça bölümler kilitler elde etmek kullanılabilir. Yalnızca işlev örneği yürütüldüğünde kullanılan kaynaklar için ücret ödersiniz; Bu hızlı sağlama için ücretlendirilmez.
 
-Tüm işlev yürütmelerinin hata olmadan başarılı olursa, kontrol noktaları ilişkili depolama hesabına eklenir. Onay işaret eden başarılı olduğunda, tüm 1000 iletileri hiçbir zaman yeniden alınmalıdır.
+Tüm işlev yürütme (ile veya hata olmadan) tamamlandığında denetim noktaları ilişkili depolama hesabına eklenir. Onay işaret eden başarılı olduğunda, tüm 1000 iletileri hiçbir zaman yeniden alınır.
 
 ## <a name="trigger---example"></a>Tetikleyici - örnek
 

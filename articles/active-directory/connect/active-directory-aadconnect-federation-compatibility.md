@@ -1,6 +1,6 @@
 ---
 title: Azure AD federasyonu uyumluluk listesi
-description: Bu sayfayı çoklu oturum açmayı uygulamak için kullanılan Microsoft olmayan kimlik sağlayıcıları vardır.
+description: Bu sayfada, çoklu oturum açmayı uygulamak için kullanılan Microsoft olmayan kimlik sağlayıcılarını alır.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -12,24 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 08/23/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f5e85a551181a3dd4618db2611a99675329cfabd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3b2313b79c57a95af40d29bca3d7522c83e10e4c
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592029"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818723"
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Azure AD federasyonu uyumluluk listesi
-Azure Active Directory çoklu oturum sağlar ve herhangi bir üçüncü taraf çözümü gerek kalmadan Office 365 ve diğer Microsoft Online Hizmetleri için karma ve yalnızca bulut uygulamaları için uygulama erişimi güvenliğini Gelişmiş. Office 365, Microsoft Online services, çoğu gibi dizin hizmetleri, kimlik doğrulama ve yetkilendirme için Azure Active Directory ile tümleşiktir. Şirket içi web uygulamaları ve Azure Active Directory de binlerce SaaS uygulamasına çoklu oturum açma sağlar. Azure Active Directory bkz [uygulama Galerisi](https://azuremarketplace.microsoft.com/marketplace/apps) desteklenen SaaS uygulamaları için. 
+Azure Active Directory çoklu oturum sağlar ve herhangi bir üçüncü taraf çözümü gerek kalmadan Office 365 ve diğer Microsoft Online Hizmetleri için karma ve yalnızca bulutta yer alan uygulamalar için uygulama erişimi güvenliği artırılmış. Office 365 gibi Microsoft Çevrimiçi Hizmetleri, çoğu Dizin Hizmetleri, kimlik doğrulama ve yetkilendirme için Azure Active Directory ile tümleştirilmiştir. Azure Active Directory çoklu oturum açma için binlerce SaaS uygulamasına da sağlar ve şirket içi web uygulamaları. Azure Active Directory bkz [uygulama Galerisi](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) desteklenen SaaS uygulamaları için. 
 
 ## <a name="idp-validation"></a>IDP doğrulama
-Kuruluşunuz bir üçüncü taraf Federasyon çözümü kullanıyorsa, üçüncü taraf Federasyon çözüm Azure ile uyumlu olması koşuluyla, çoklu oturum açma için Office 365 gibi Microsoft Online services ile şirket içi Active Directory kullanıcılarınızı yapılandırabilirsiniz Active Directory.  Uyumluluğu ile ilgili sorular için lütfen kimlik sağlayıcınıza başvurun.  Microsoft, Azure AD ile uyumluluk tıklatın kimin önceden sınanmış kimlik sağlayıcıları listesini görmek isterseniz [burada](https://www.microsoft.com/download/details.aspx?id=56843). 
+Kuruluşunuz bir üçüncü taraf Federasyon çözümü kullanıyorsa, üçüncü taraf Federasyon çözümü Azure ile uyumlu olması şartıyla, çoklu oturum açma, Office 365 gibi Microsoft Online services ile şirket içi Active Directory kullanıcılarınız için yapılandırabilirsiniz Active Directory.  Uyumluluk ile ilgili sorularınız için lütfen kimlik sağlayıcınıza başvurun.  Microsoft, Azure AD ile uyumluluk tıklatın önceden sınanmış kimlik sağlayıcıları listesini görmek isterseniz [burada](https://www.microsoft.com/download/details.aspx?id=56843). 
 
 >[!NOTE]
->Microsoft, artık bağımsız kimlik sağlayıcıları Azure Active Directory ile uyumluluk için test doğrulama sağlar. Lütfen ürününüz birlikte çalışabilirlik için test etmek isterseniz bunları başvurun [yönergeleri](https://www.microsoft.com/download/details.aspx?id=56843). 
+>Microsoft artık Azure Active Directory ile uyumluluk için bağımsız kimlik sağlayıcıları için doğrulama sınaması sağlar. Ürününüzü birlikte çalışabilirlik için test etmek istiyorsanız, lütfen başvurun [yönergeleri](https://www.microsoft.com/download/details.aspx?id=56843). 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

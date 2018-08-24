@@ -1,21 +1,21 @@
 ---
-title: Language Understanding (LUIS) bölgeleri | Microsoft Docs
+title: Language Understanding (LUIS) bölgeler ve uç noktaları - Azure - Bilişsel hizmetler LUIS | Microsoft Docs
 titleSuffix: Azure
-description: Bu makale, LUIS Web sitesi, Azure abonelikleri ve dünya bölgeleri için LUIS bölgelerin listesini içerir.
+description: LUIS uygulamanızı yayımladığınız bölge, bölge veya Azure portalında bir Azure LUIS uç noktası anahtarı oluştururken belirttiğiniz konuma karşılık gelir. LUIS, otomatik olarak bir uygulama yayımladığınızda, bir anahtar ile ilişkili bölge için uç nokta URL'si oluşturur. Birden fazla bölgeye LUIS uygulaması yayımlamak için bölge başına en az bir anahtar gerekir.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 08/23/2018
 ms.author: diberry
-ms.openlocfilehash: 1f6090bf1ac588585a16f93d2ac091e8950ca45f
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 7812ce37cb22c8774c785f5f645b8fef90b02a3e
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238939"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42815512"
 ---
 # <a name="regions-and-keys"></a>Bölgeler ve anahtarlar
 
@@ -59,6 +59,24 @@ Uygulamaları LUIS oluşturduğunuz Avrupa bölgelerine yayımlamak için https:
 ## <a name="publishing-to-australia"></a>Avustralya yayımlama
 
 Avustralya bölgeleri için yayımlamak için LUIS uygulamaları oluşturmanız https://au.luis.ai yalnızca. LUIS, herhangi bir başka Avustralya bölgesinde bir anahtar kullanarak yayımlamak çalışırsanız, bir uyarı iletisi görüntüler. Bunun yerine, https://au.luis.ai. LUIS uygulama oluşturulma [ https://au.luis.ai ] [ au.luis.ai] diğer bölgelere otomatik olarak geçirilmez. Dışarı aktarma ve ardından geçirmek için LUIS uygulaması alın.
+
+## <a name="endpoints"></a>Uç Noktalar
+
+LUIS, şu anda 2 uç noktalar vardır: biri geliştirme ve metin analizi için bir tane.
+
+|Amaç|URL'si|
+|--|--|
+|Yazma|`https://{region}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appID}/`|
+|Metin analizi (sorgu tahmin)|`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]`|
+
+Küme ayracı ile belirtilen parametreler, aşağıdaki tabloda açıklanmaktadır `{}`, önceki tabloda.
+
+|Parametre|Amaç|
+|--|--|
+|bölge|Farklı bölgelerdeki Azure bölgesi - yazma ve yayımlama sahip|
+|Uygulama Kimliği|URL rotasına kullanılan ve uygulama panosunda bulunan LUIS uygulama kimliği|
+|q|Sohbet Robotu gibi istemci uygulamasından gönderilen utterance metin|
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

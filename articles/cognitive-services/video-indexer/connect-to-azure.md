@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 08/05/2018
 ms.author: juliako
-ms.openlocfilehash: 66ba79926a949371cb2280de408835862dd1a099
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 64a38ba617a1cc5fe1fdb3473e3cb88a49d89bb0
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41987556"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42744759"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure'a bağlı bir Video Indexer hesabı oluşturun
 
@@ -46,7 +46,7 @@ Bu makalede bir Azure aboneliğine bağlı bir Video Indexer hesabınız ve Azur
 
 * Azure portalını kullanarak EventGrid kaynak sağlayıcısını kaydedin.
 
-    Azure portalında Git **abonelikleri** > [. abonelik] > **ResourceProviders** > **Microsoft.EventGrid**. Durumda değil "Kaydedildi" ise, tıklayın **kaydetme**. Bu işlem birkaç dakika kaydedilecek götürür. 
+    İçinde [Azure portalında](https://portal.azure.com/)Git **abonelikleri** > [. abonelik] > **ResourceProviders** > **Microsoft.EventGrid**. Durumda değil "Kaydedildi" ise, tıklayın **kaydetme**. Bu işlem birkaç dakika kaydedilecek götürür. 
 
     ![EventGrid](./media/create-account/event-grid.png)
 
@@ -96,19 +96,16 @@ Aşağıdaki Azure Media Services ilgili önemli noktalar geçerlidir:
 
     Medya sayısını ve türünü ayarlamak ihtiyacınız olabilecek **ayrılmış birim**, planlanan yük göre. Yük yüksektir ve yeterli birimleri veya hızı yoksa, video işleme zaman aşımı hataları neden göz önünde bulundurun.
 
-* Yeni bir Media Services hesabına bağladıysanız, Video Indexer otomatik olarak başlatan bir **akış uç noktası** da:
+* Yeni bir Media Services hesabına bağlı değilse, Video Indexer varsayılan otomatik olarak başlatır. **akış uç noktası** da:
 
     ![Media Services akış uç noktası](./media/create-account/ams-streaming-endpoint.png)
 
-* Video Indexer, var olan bir Media Services hesabına bağladıysanız, akış uç noktaları yapılandırma değiştirmez. Hiçbir çalışan varsa **akış uç noktası**, bu Media Services hesabı veya Video Indexer videoları mümkün olmayacaktır.
+* Video Indexer, var olan bir Media Services hesabına bağladıysanız, varsayılan akış uç noktası yapılandırmasını değiştirmez. Hiçbir çalışan varsa **akış uç noktası**, bu Media Services hesabı veya Video Indexer videoları mümkün olmayacaktır.
 
-## <a name="use-video-indexer-apis-v2"></a>Video Indexer API v2
+## <a name="next-steps"></a>Sonraki adımlar
 
 Deneme hesabınız ile ve/veya'ndaki yönergeleri takip ederek azure'a bağlı Video Indexer hesaplarınızı ile program aracılığıyla etkileşim kurabilir: [kullanım API'leri](video-indexer-use-apis.md).
 
 Azure'a bağlanırken kullandığınız aynı Azure AD kullanıcı kullanmanız gerekir.
 
-## <a name="next-steps"></a>Sonraki adımlar
-
-[Çıkış JSON ayrıntılarını incelemek](video-indexer-output-json-v2.md).
 

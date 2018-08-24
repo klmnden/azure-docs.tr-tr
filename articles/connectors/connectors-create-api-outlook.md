@@ -1,47 +1,58 @@
 ---
-title: Azure mantıksal uygulamaları Outlook.com Bağlayıcısı | Microsoft Docs
-description: Logic apps ile Azure uygulama hizmeti oluşturun. Outlook.com bağlayıcı posta, Takvim ve kişi yönetmenize olanak sağlar. Posta gönderme gibi çeşitli eylemleri, toplantı zamanlamak, kişiler, vb. ekleyin.
+title: Outlook.com - Azure Logic Apps'i bağlama | Microsoft Docs
+description: E-posta, Takvim ve kişiler Outlook.com REST API'leri ve Azure Logic Apps ile yönetme
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 87113c85-d158-4dd5-9ed5-5748130003d6
 ms.service: logic-apps
-ms.devlang: multiple
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.assetid: 87113c85-d158-4dd5-9ed5-5748130003d6
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
 ms.date: 08/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 1338b7ce8f72a57cb65f9389e630fd7ebd0417b1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 8030ab9d317c1deefaf441008b9022c4a26bb17c
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295593"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746171"
 ---
-# <a name="get-started-with-the-outlookcom-connector"></a>Outlook.com Bağlayıcısı ile çalışmaya başlama
-Outlook.com bağlayıcı posta, Takvim ve kişi yönetmenize olanak sağlar. Posta gönderme gibi çeşitli eylemleri, toplantı zamanlamak, kişiler, vb. ekleyin.
+# <a name="manage-email-calendars-and-contacts-in-outlookcom-with-azure-logic-apps"></a>E-posta, takvimler ve Azure Logic Apps ile Outlook.com kişileri Yönet
 
-Bir mantıksal uygulama'yi şimdi oluşturmaya başlamak, bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Bu makalede nasıl oluşturabileceğinizi ve Outlook.com hesabınızda kutusu Bağlayıcısı ile bir mantıksal uygulama içinde yönetme gösterilmektedir. Böylece, örneğin görevleri ve Outlook.com hesabınız için iş akışlarını otomatik hale getiren mantıksal uygulamaları oluşturabilirsiniz:
 
-## <a name="create-a-connection-to-outlookcom"></a>Outlook.com bağlantı oluşturun.
-Logic apps ile Outlook.com oluşturmak için önce oluşturmanız gerekir bir **bağlantı** ardından ayrıntılar için aşağıdaki özellikleri sağlar:
+* E-posta gönderin. 
+* Toplantı zamanlama.
+* Kişileri ekleyin. 
 
-| Özellik | Gerekli | Açıklama |
-| --- | --- | --- |
-| Belirteç |Evet |Outlook.com Kimlik Bilgilerini Belirtin |
+Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md).
 
-Bağlantı oluşturduktan sonra Eylemler yürütür ve bu makalede açıklanan Tetikleyicileri dinlemek için kullanabilirsiniz.
+## <a name="prerequisites"></a>Önkoşullar
 
-> [!INCLUDE [Steps to create a connection to Outlook.com](../../includes/connectors-create-api-outlook.md)]
->
+* Bir [Outlook.com hesabınız](https://outlook.live.com/owa/)
 
-## <a name="connector-specific-details"></a>Bağlayıcı özgü ayrıntıları
+* Azure aboneliği. Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
 
-Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/outlook/).
+* Outlook.com hesabınız için istediğiniz mantıksal uygulaması. Bir Outlook tetikleyicisi ile mantıksal uygulamanızı başlatmak için gereken bir [boş mantıksal uygulama](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
-## <a name="more-connectors"></a>Daha fazla bağlayıcılar
-Geri dönerek [API'leri listesi](apis-list.md).
+* Hakkında temel bilgilere [mantıksal uygulamalar oluşturmak nasıl](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+## <a name="connect-to-outlookcom"></a>Outlook.com'da bağlanma
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+[!INCLUDE [Connect to Outlook.com](../../includes/connectors-create-api-outlook.md)]
+
+## <a name="connector-reference"></a>Bağlayıcı başvurusu
+
+Bağlayıcının Swagger dosyası tarafından açıklandığı gibi sınırları, tetikleyiciler ve Eylemler gibi teknik ayrıntılar için bkz [bağlayıcının başvuru sayfası](/connectors/outlook/). 
+
+## <a name="get-support"></a>Destek alın
+
+* Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
+* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](http://aka.ms/logicapps-wish) ziyaret edin.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+* Diğer hakkında bilgi edinin [Logic Apps bağlayıcıları](../connectors/apis-list.md)

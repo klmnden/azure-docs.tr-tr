@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 85a2f0c13d483df40b6de2a158cf5fa43c45b5eb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b4905c8bcf3c14c7f1dfa752a930f57ccbfd8fd7
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531718"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818495"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Dosyaları dağıtımı planlama
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı SMB protokolünü erişilebilen bulutta sunar. Azure dosyaları tam olarak yönetildiğinden, üretim senaryolarında dağıtma dağıtılması ve dosya sunucusu veya NAS cihazınızın yönetilmesi daha kolaydır. Bu makalede, kuruluşunuzdaki üretim kullanımı için Azure dosya paylaşımını dağıtırken göz önünde bulundurmanız konularını ele alır.
@@ -81,7 +81,7 @@ Azure dosyaları, üç veri yedekliliği seçenekleri destekler: yerel olarak ye
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="data-growth-pattern"></a>Veri büyümesi deseni
-Bugün, bir Azure dosya paylaşımı için boyut üst sınırı paylaşım anlık görüntüleri tamamlanmıyorsa 5 TiB ' dir. Şu anki bu sınırlama nedeniyle, bir Azure dosya paylaşımı dağıtırken beklenen veri artışına düşünmelisiniz. Bir Azure depolama hesabı 500 TiB tüm paylaşımlarında depolanan toplam birden çok paylaşımlarıyla depolayabilir unutmayın.
+Bugün, bir Azure dosya paylaşımı için boyut üst sınırı 5 TiB ' dir. Şu anki bu sınırlama nedeniyle, bir Azure dosya paylaşımı dağıtırken beklenen veri artışına düşünmelisiniz. Bir Azure depolama hesabı 500 TiB tüm paylaşımlarında depolanan toplam birden çok paylaşımlarıyla depolayabilir unutmayın.
 
 Azure dosya eşitleme ile tek bir Windows dosya sunucusu için birden çok Azure dosya paylaşımları eşitlenecek mümkündür. Bu, şirket içi olabilir eski, çok büyük dosya paylaşımlarını Azure dosya eşitleme sağlanabildiğinden emin olmak sağlar. Lütfen [bir Azure dosya eşitleme dağıtımı planlama](storage-files-planning.md) daha fazla bilgi için.
 

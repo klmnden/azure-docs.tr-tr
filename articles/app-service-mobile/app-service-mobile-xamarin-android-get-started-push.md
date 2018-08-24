@@ -14,56 +14,68 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: a6cdff68d63859c6a6612b606664d3e1fbaae375
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e2388c887f4a96883aa64a0a6fec3a5a9df5b8cc
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306863"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818203"
 ---
 # <a name="add-push-notifications-to-your-xamarinandroid-app"></a>Xamarin.Android uygulamanıza anında iletme bildirimleri ekleme
+
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Genel Bakış
+
 Bu öğreticide, anında iletme bildirimleri ekleme [Xamarin.Android hızlı](app-service-mobile-windows-store-dotnet-get-started.md) anında iletme bildirimi kayıt eklenen her zaman cihaza gönderilir, böylece proje.
 
 İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, anında iletme bildirimi uzantı paketi gerekir. Daha fazla bilgi için [Azure Mobile Apps için .NET arka uç sunucu SDK'sı ile çalışma](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) Kılavuzu.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 Bu öğretici, Kurulum gerektirir:
 
 * Etkin bir Google hesabı. Bir Google hesabı için kaydolabilirsiniz [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 * [Google Cloud Messaging istemci bileşeni](http://components.xamarin.com/view/GCMClient/).
 
 ## <a name="configure-hub"></a>Bildirim hub'ı yapılandırma
+
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a id="register"></a>Etkinleştirme Firebase Cloud Messaging
+
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
 ## <a name="configure-azure-to-send-push-requests"></a>Anında iletme istekleri göndermek için Azure'ı yapılandırma
+
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
 
 ## <a id="update-server"></a>Anında iletme bildirimleri göndermek için sunucu projesi güncelleştirme
+
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
 ## <a id="configure-app"></a>Anında iletme bildirimleri için istemci projesi yapılandırma
+
 [!INCLUDE [mobile-services-xamarin-android-push-configure-project](../../includes/mobile-services-xamarin-android-push-configure-project.md)]
 
 ## <a id="add-push"></a>Uygulamanıza anında iletme bildirimleri kod ekleme
+
 [!INCLUDE [app-service-mobile-xamarin-android-push-add-to-app](../../includes/app-service-mobile-xamarin-android-push-add-to-app.md)]
 
 ## <a name="test"></a>Uygulamanıza anında iletme bildirimleri test
+
 Öykünücüde sanal cihazı kullanarak uygulamayı test edebilirsiniz. Öykünücüde çalıştırırken gereken ek yapılandırma adımları vardır.
 
 1. Sanal cihaz bir Android sanal cihazı (AVD) Yöneticisi'ni hedef olarak Google API'leri olması gerekir.
-   
+
     ![](./media/app-service-mobile-xamarin-android-get-started-push/google-apis-avd-settings.png)
+
 2. Tıklayarak Android cihaza bir Google hesabı ekleyin **uygulamaları** > **ayarları** > **Hesap Ekle**, ardından istemleri uygulayın.
-   
+
     ![](./media/app-service-mobile-xamarin-android-get-started-push/add-google-account.png)
+
 3. Önce Yapılacaklar listesi uygulaması olarak çalıştırmak ve yeni bir todo öğesini ekleyin. Bu kez, bildirim alanında bir bildirim simgesi görüntülenir. Bildirimin tam metin görüntülemek için bildirim çekmecesini açabilirsiniz.
-   
+
     ![](./media/app-service-mobile-xamarin-android-get-started-push/android-notifications.png)
 
 <!-- URLs. -->

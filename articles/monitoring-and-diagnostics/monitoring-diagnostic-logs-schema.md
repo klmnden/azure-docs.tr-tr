@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 69ff295e434f199f3a15e96f134f92098b1b8b79
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 06d9fda01a89340eb019b4900c02e321e0b73cf5
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057159"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818973"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Desteklenen hizmetler, şemalar ve Azure tanılama günlükleri için kategorileri
 
@@ -29,7 +29,7 @@ Kaynak türü bileşimi (kullanılabilir `resourceId` özelliği) ve `category` 
 | resourceId | Gerekli | Olay yayılan kaynağının kaynak kimliği. Kiracı Hizmetleri için form /tenants/tenant-id/providers/provider-name budur. |
 | Kiracı kimliği | Kiracı günlükleri için gerekli | Bu olay bağlıdır Active Directory kiracısı Kiracı kimliği. Bu özellik, yalnızca kaynak düzeyi günlüklerde görünmüyor Kiracı düzeyinde günlükleri için kullanılır. |
 | operationName | Gerekli | Bu olay tarafından temsil edilen işlemin adı. Bir RBAC işlem olayı temsil ediyorsa, bu RBAC işlemi (örn. addır Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Gerçek belgelenmiş Resource Manager işlemlerini olmasa bile genellikle bir Resource Manager işlem biçiminde modellenmiş (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
-| operationVersion | İsteğe bağlı | OperationName (örn. bir API kullanarak gerçekleştirdiyseniz, işlemle ilişkili api-version http://myservice.windowsazure.net/object?api-version=2016-06-01). Bu işlem için karşılık gelen hiçbir API varsa, sürüm sürümü bu işlem, işlemle ilişkili özellikler gelecekte değiştirilmesini durumunda temsil eder. |
+| operationVersion | İsteğe bağlı | OperationName (örn. bir API kullanarak gerçekleştirdiyseniz, işlemle ilişkili api-version `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Bu işlem için karşılık gelen hiçbir API varsa, sürüm sürümü bu işlem, işlemle ilişkili özellikler gelecekte değiştirilmesini durumunda temsil eder. |
 | category | Gerekli | Olay günlüğü kategorisi. Ayrıntı düzeyi, etkinleştirme veya devre dışı belirli bir kaynağa açtığında kategorisidir. Bir olayın özellikleri blob içinde görünen özellikleri belirli günlük kategorisi ve kaynak türü içinde aynıdır. Tipik günlük kategorileri "Denetleme" "işlemsel" "Yürütme" ve "İstek" olan |
 | resultType | İsteğe bağlı | Olay durumu. Başlarken, sürüyor, başarılı, başarısız, etkin ve Çözümlenmiş tipik değerler içerir. |
 | resultSignature | İsteğe bağlı | Olay alt durumu. Bu işlem için bir REST API çağrısı karşılık geliyorsa, karşılık gelen REST çağrısı HTTP durum kodunu budur. |

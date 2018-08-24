@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 9f37a7665521b69634329078258b00cb9f53c407
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 644089cea4dccc79e67b9117187b553eb4616d9f
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358727"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818223"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Bu nedenle, Service Fabric hakkında öğrenmek ister misiniz?
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur.  Ancak, Service Fabric, büyük bir yüzey alanı vardır ve öğreneceğiniz çok şey yoktur.  Bu makale, Service fabric'in bir özeti sağlar ve programlama modellerini, uygulama yaşam döngüsü, test, kümeler ve sistem durumu izleme temel kavramları açıklar. Okuma [genel bakış](service-fabric-overview.md) ve [mikro hizmetler nedir?](service-fabric-overview-microservices.md) giriş ve Service Fabric mikro hizmetler oluşturmak için nasıl kullanılabilir. Bu makalede, kapsamlı bir içerik listesi içermiyor, ancak genel bakış ve Service Fabric için her bir alanı Başlarken makaleleri bağlantı. 
@@ -146,7 +146,7 @@ Windows üzerinde desteklenip Linux'ta desteklenmeyen bazı özellikler mevcuttu
 ### <a name="standalone-clusters"></a>Tek başına kümeler
 Service Fabric, tek başına Service Fabric kümeleri şirket içi oluşturmak için veya tüm bulut sağlayıcılarından bir yükleme paketi sağlar. Tek başına kümeler, küme, istediğiniz yerde barındırın özgürlüğü sağlar. Verilerinizi uyumluluğu veya yasal kısıtlamalar tabi olan veya verilerinizi yerel tutmak isterseniz kendi kümeyi ve uygulamalarını barındırabilir. Uygulamaları oluşturma bilginiz barındırma bir ortamdan diğerine yaşamanız için Service Fabric uygulamaları birden çok barındırma ortamları değişikliğine gerek olmadan çalıştırabilirsiniz. 
 
-[İlk Service Fabric tek başına kümenizi oluşturma](service-fabric-get-started-standalone-cluster.md)
+[İlk Service Fabric tek başına kümenizi oluşturma](service-fabric-cluster-creation-for-windows-server.md)
 
 Linux tek başına kümeler henüz desteklenmemektedir.
 

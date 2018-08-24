@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bd3eeb5ebb9b30ac315fee1597348f3bd34f3bb6
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 6b310daec67f41ba589ce279e4a2dad427adb734
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057059"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818901"
 ---
 # <a name="getting-compliance-data"></a>Uyumluluk verilerini alma
 
@@ -23,7 +23,7 @@ Azure İlkesi'nin en büyük avantajlarından biri olan içgörü ve denetimler 
 Girişim atamaları ve ilke tarafından oluşturulan uyumluluk bilgileri erişmek için çeşitli yollar vardır:
 
 - Kullanarak [Azure portalı](#portal)
-- Aracılığıyla [komut satırı](#command_line) betik oluşturma
+- Aracılığıyla [komut satırı](#command-line) betik oluşturma
 
 Uyumluluk üzerinde yöntemleri bakarak önce uyumluluk bilgilerini güncelleştirildiğinde ve sıklığı ve değerlendirme döngüsü tetikleyen olayları göz atalım.
 

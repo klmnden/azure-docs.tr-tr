@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 07/19/2018
 ms.author: bsiva
-ms.openlocfilehash: 96f4ecb433277c747ddb1d1dc977bd609f93d5ff
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 89270a0bd1914a2486c8cc634563bdded743adaa
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578594"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746482"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>İzleme ve Site Recovery sorun giderme
 
@@ -153,13 +153,14 @@ Ayrıca Panoda sanal makineler sayfasındaki makineler izleyebilirsiniz.
 3.  Tıklayın **sütunları** RPO, gösterilecek örneğin ek sorgunuzun göstermek için yapılandırma sorunlarını ve çoğaltma hataları hedefleyin.
 4. Tıklayın **filtre** çoğaltma durumu veya belirli bir çoğaltma ilkesi gibi belirli parametreleri temel alan bilgiler görüntülemek için.
 5. Bir makine için yük devretme testi gibi işlemleri başlatmak için ya da onunla ilişkili özel hata ayrıntılarını görüntülemek için sağ tıklayın.
-6. Daha fazla için detaylarına gitmek için bir makineye tıklayın. Ayrıntıları ekleyin:- **çoğaltma bilgileri**: geçerli durumu ve makinenin sistem durumu.
-        - **RPO** (kurtarma noktası hedefi): sanal makine ve hangi RPO son Hesaplandı saat için geçerli RPO.
-        - **Kurtarma noktaları**: makine için en son kullanılabilir kurtarma noktaları.
-        - **Yük devretmeye hazırlık**: yük devretme testi (makineler) Mobility hizmetini çalıştıran makine ve yapılandırma sorunlarını çalışan Aracısı sürümü makinenin çalıştırılıp çalıştırılmadığını gösterir.
-        - **Hataları**: şu anda makine ve olası nedenleri/eylemleri gözlemlenen çoğaltma hatası belirtileri listesi.
-        - **Olayları**: Makine etkileyen en son olayların kronolojik bir listesi. Hata ayrıntılarını şu anda gözlemlenebilir hatası belirtileri olayları bir geçmiş kaydını makine etkilemiş sorunlarını üzerindeyken gösterir.
-        - **Altyapı görünümü**: makineleri Azure'a çoğaltırken senaryosu için altyapı durumunu gösterir.
+6. Daha fazla için detaylarına gitmek için bir makineye tıklayın. Ayrıntıları içerir:
+      - **Çoğaltma bilgileri**: geçerli durumu ve makinenin sistem durumu.
+      - **RPO** (kurtarma noktası hedefi): sanal makine ve hangi RPO son Hesaplandı saat için geçerli RPO.
+      - **Kurtarma noktaları**: makine için en son kullanılabilir kurtarma noktaları.
+      - **Yük devretmeye hazırlık**: yük devretme testi (makineler) Mobility hizmetini çalıştıran makine ve yapılandırma sorunlarını çalışan Aracısı sürümü makinenin çalıştırılıp çalıştırılmadığını gösterir.
+      - **Hataları**: şu anda makine ve olası nedenleri/eylemleri gözlemlenen çoğaltma hatası belirtileri listesi.
+      - **Olayları**: Makine etkileyen en son olayların kronolojik bir listesi. Hata ayrıntılarını şu anda gözlemlenebilir hatası belirtileri olayları bir geçmiş kaydını makine etkilemiş sorunlarını üzerindeyken gösterir.
+      - **Altyapı görünümü**: makineleri Azure'a çoğaltırken senaryosu için altyapı durumunu gösterir.
 
     ![Site Recovery çoğaltılan öğe ayrıntıları/genel bakış](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 

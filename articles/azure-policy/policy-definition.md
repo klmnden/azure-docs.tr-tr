@@ -4,16 +4,16 @@ description: Kaynak ilke tanımı hangi etkili olması için zaman ilkelerin hi�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/03/2018
+ms.date: 08/16/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ced8ebad0122973595cdede4497cd200e3090043
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ac561be75306cab6b73b457a7d450bd640aac067
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524116"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818706"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -107,7 +107,7 @@ Meta veri özelliği içinde kullanabileceğiniz **strongType** çoklu seçim li
 - `"existingResourceGroups"`
 - `"omsWorkspace"`
 
-İlke kuralında aşağıdaki söz dizimini parametrelerle başvuru:
+Aşağıdaki parametrelerle ilke kuralında başvuru `parameters` dağıtım değer işlev sözdizimi:
 
 ```json
 {
@@ -245,6 +245,53 @@ Değer bir dize veya bir JSON biçimi nesnesi olabilir.
 Sanal makine uzantısı olmayan dağıtıldığında denetim örneği için bkz: [uzantı mevcut değilse denetim](scripts/audit-ext-not-exist.md).
 
 Değerlendirme, özellikler ve örnekler de sırasını her etkisi hakkında tüm ayrıntılar için bkz. [anlama ilke etkileri](policy-effects.md).
+
+### <a name="policy-functions"></a>İlke işlevleri
+
+Bir alt kümesini [Resource Manager şablonu işlevleri](../azure-resource-manager/resource-group-template-functions.md) bir ilke kuralı içinde kullanılabilir. Şu anda desteklenen işlevler şunlardır:
+
+- [parametreler](../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
+- [concat](../azure-resource-manager/resource-group-template-functions-array.md#concat)
+- [resourceGroup](../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
+- [aboneliği](../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+
+Ayrıca, `field` işlevi ilke kuralları için kullanılabilir. İle kullanmak için öncelikle bu işlev, **AuditIfNotExists** ve **Deployıfnotexists** değerlendirilen kaynağı başvurusu alanları. Buna örnek olarak görülebilir [Deployıfnotexists örnek](policy-effects.md#deployifnotexists-example).
+
+#### <a name="policy-function-examples"></a>İlke işlevi örnekleri
+
+Bu ilke kuralı örnekte `resourceGroup` almak için kaynak işlevi **adı** özelliği bir araya geldiğinde, `concat` oluşturmak için dizi ve nesne işlevi bir `like` başlatmak için kaynak adı zorlar durumu kaynak grubu adı ile.
+
+```json
+{
+    "if": {
+        "not": {
+            "field": "name",
+            "like": "[concat(resourceGroup().name,'*')]"
+        }
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+Bu ilke kuralı örnekte `resourceGroup` almak için kaynak işlevi **etiketleri** özelliği dizi değerinin **CostCenter** bir kaynak grubuna etiket ve eklenecek **CostCenter**  yeni kaynak etiketi.
+
+```json
+{
+    "if": {
+        "field": "tags.CostCenter",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "tags.CostCenter",
+            "value": "[resourceGroup().tags.CostCenter]"
+        }]
+    }
+}
+```
 
 ## <a name="aliases"></a>Diğer adlar
 

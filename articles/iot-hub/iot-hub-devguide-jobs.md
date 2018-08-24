@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 460c7d24b2810de41e20ea803ded2ea988613f10
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e2beec1308b9664d35ccd9d355403b7076567f2f
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223805"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745853"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Birden fazla cihazda işleri zamanlama
 
-Azure IOT hub'ı etkinleştirir yapı taşları gibi bir dizi [cihaz ikizi özelliklerini ve etiketlerini] [ lnk-twin-devguide] ve [doğrudan yöntemler][lnk-dev-methods].  Genellikle, arka uç uygulamaları güncelleştirme ve IOT cihazlarını toplu ve zamanlanan tarihte ile etkileşim kurmak cihaz yöneticilerin ve operatörlerin olanak tanır.  İşleri zamanlanan saatte cihaz ikizi güncelleştirmeleri ve bir dizi cihazda karşı doğrudan metotları yürütme.  Örneğin, operatör başlatır ve bir grup için yapı işlemlerini kesintiye uğratan olmazdı birer 43 ve 3 kat oluşturmadaki cihazı yeniden başlatmak için bir iş izleyen bir arka uç uygulaması kullanmanız gerekir.
+Azure IOT hub'ı etkinleştirir yapı taşları gibi bir dizi [cihaz ikizi özelliklerini ve etiketlerini] [ lnk-twin-devguide] ve [doğrudan yöntemler][lnk-dev-methods]. Genellikle, arka uç uygulamaları güncelleştirme ve IOT cihazlarını toplu ve zamanlanan tarihte ile etkileşim kurmak cihaz yöneticilerin ve operatörlerin olanak tanır.  İşleri zamanlanan saatte cihaz ikizi güncelleştirmeleri ve bir dizi cihazda karşı doğrudan metotları yürütme.  Örneğin, operatör başlatır ve bir grup için yapı işlemlerini kesintiye uğratan olmazdı birer 43 ve 3 kat oluşturmadaki cihazı yeniden başlatmak için bir iş izleyen bir arka uç uygulaması kullanmanız gerekir.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

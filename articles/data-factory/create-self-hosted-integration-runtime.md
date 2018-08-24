@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 705f2ce674a31d7dda4d87d893078a2ade26e327
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 863cda349ca951bee1c43f09eefd364645de9dbd
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443399"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746810"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration Runtime (IR) Azure Data Factory tarafından farklı ağ ortamları veri tümleştirme özellikleri sağlamak için kullanılan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -182,6 +182,8 @@ Paylaşılacak şirket içinde barındırılan IR,
 5. ADF .net SDK, bu özelliği destekleyen sürümüdür > 1.1.0 =
 
 6. Bu özelliği destekleyen Azure PowerShell sürümüdür > 6.6.0 = (AzureRM.DataFactoryV2 > 0.5.7 =)
+
+7. İzin vermek için kullanıcıyı "Sahip" rolü veya paylaşılan IR bulunduğu Data factory'de devralınan "sahip" rolü gerektirir. 
 
   > [!NOTE]
   > Bu özellik yalnızca Azure Data Factory sürüm 2 kullanılabilir 

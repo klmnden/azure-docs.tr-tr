@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: glenga
-ms.openlocfilehash: c2e066ddf444cb81d7f0033641a300d18b266f62
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ce520c5972bf27c30ecb175d58b6b6071bf804db
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397856"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818301"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure işlevleri'nde IP adresleri
 
@@ -39,7 +39,7 @@ Her işlev uygulaması, tek bir gelen IP adresi vardır. Bu IP adresini bulmak i
 3. Seçin **Platform özellikleri**.
 4. Seçin **özellikleri**, gelen IP adresi altında görünür **sanal IP adresi**.
 
-## <a name="function-app-outbound-ip-addresses"></a>İşlev uygulaması giden IP adresleri
+## <a name="find-outbound-ip-addresses"></a>İşlev uygulaması giden IP adresleri
 
 Her işlev uygulaması, kullanılabilir giden IP adresleri kümesi vardır. Herhangi bir giden bağlantı bir işlevden gibi bir arka uç veritabanı kaynak IP adresi kullanılabilir giden IP adreslerinden birini kullanır. Hangi IP adresini belirli bir bağlantı önceden kullanacak bilemezsiniz. Bu nedenle, arka uç hizmetinize tüm işlevi uygulamanın giden IP adresleri için güvenlik duvarı açmanız gerekir.
 

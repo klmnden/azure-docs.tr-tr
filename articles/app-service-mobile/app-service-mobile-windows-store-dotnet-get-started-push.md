@@ -14,25 +14,29 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: 9e3ed6d19b0f830923745ad0263c5c4f920c0f51
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: bfbb72d6fd101932f00e12ad18ab079ec30a0d3a
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38473529"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818829"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>Windows uygulamanızı anında iletme bildirimleri ekleme
+
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Genel Bakış
+
 Bu öğreticide, anında iletme bildirimleri ekleme [Windows Hızlı Başlangıç](app-service-mobile-windows-store-dotnet-get-started.md) anında iletme bildirimi kayıt eklenen her zaman cihaza gönderilir, böylece proje.
 
 İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, anında iletme bildirimi uzantı paketi gerekir. Bkz: [Azure Mobile Apps için .NET arka uç sunucu SDK'sı ile çalışma](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) daha fazla bilgi için.
 
 ## <a name="configure-hub"></a>Bildirim hub'ı yapılandırma
+
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="register-your-app-for-push-notifications"></a>Anında iletme bildirimleri için uygulamanızı kaydetme
+
 Microsoft Store için uygulamanızı gönderin, sonra Windows Bildirim Hizmetleri (anında iletme göndermek için WNS ile) tümleştirmek için sunucu projenizi yapılandırmak gerekir.
 
 1. UWP uygulaması projesini Visual Studio Çözüm Gezgini'nde sağ tıklayın, **Store** > **uygulamayı Store ile ilişkilendir...** .
@@ -48,104 +52,114 @@ Microsoft Store için uygulamanızı gönderin, sonra Windows Bildirim Hizmetler
 
    > [!IMPORTANT]
    > Gizli anahtar ve paket SID'si önemli güvenlik kimlik bilgileridir. Bu değerleri kimseyle paylaşmayın veya uygulamanızla birlikte dağıtmayın. **Uygulama kimliği** sahip gizli dizi Microsoft Account kimlik doğrulamasını yapılandırmak için kullanılır.
-   >
-   >
 
 ## <a name="configure-the-backend-to-send-push-notifications"></a>Anında iletme bildirimleri göndermek için arka uç yapılandırın
+
 [!INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
 ## <a id="update-service"></a>Anında iletme bildirimleri göndermek sunucuyı güncelleştir
+
 Arka uç projesi eşleşeni aşağıdaki yordamı kullanın&mdash;ya da [.NET arka ucu](#dotnet) veya [Node.js arka ucu](#nodejs).
 
 ### <a name="dotnet"></a>.NET arka uç projesi
+
 1. Visual Studio'da sunucu projeye sağ tıklayın ve **NuGet paketlerini Yönet**, Microsoft.Azure.NotificationHubs için arama yapın ve ardından tıklayın **yükleme**. Bu, bildirim hub'ları istemci kitaplığı yükler.
 2. Genişletin **denetleyicileri**TodoItemController.cs açın ve aşağıdaki using deyimlerini:
 
-        using System.Collections.Generic;
-        using Microsoft.Azure.NotificationHubs;
-        using Microsoft.Azure.Mobile.Server.Config;
+    ```csharp
+    using System.Collections.Generic;
+    using Microsoft.Azure.NotificationHubs;
+    using Microsoft.Azure.Mobile.Server.Config;
+    ```
+
 3. İçinde **PostTodoItem** yöntem çağrısından sonra aşağıdaki kodu ekleyin **InsertAsync**:
 
-        // Get the settings for the server project.
-        HttpConfiguration config = this.Configuration;
-        MobileAppSettingsDictionary settings =
-            this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+    ```csharp
+    // Get the settings for the server project.
+    HttpConfiguration config = this.Configuration;
+    MobileAppSettingsDictionary settings =
+        this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
-        // Get the Notification Hubs credentials for the Mobile App.
-        string notificationHubName = settings.NotificationHubName;
-        string notificationHubConnection = settings
-            .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
+    // Get the Notification Hubs credentials for the Mobile App.
+    string notificationHubName = settings.NotificationHubName;
+    string notificationHubConnection = settings
+        .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
-        // Create the notification hub client.
-        NotificationHubClient hub = NotificationHubClient
-            .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
+    // Create the notification hub client.
+    NotificationHubClient hub = NotificationHubClient
+        .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-        // Define a WNS payload
-        var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">"
-                                + item.Text + @"</text></binding></visual></toast>";
-        try
-        {
-            // Send the push notification.
-            var result = await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
+    // Define a WNS payload
+    var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">"
+                            + item.Text + @"</text></binding></visual></toast>";
+    try
+    {
+        // Send the push notification.
+        var result = await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
 
-            // Write the success result to the logs.
-            config.Services.GetTraceWriter().Info(result.State.ToString());
-        }
-        catch (System.Exception ex)
-        {
-            // Write the failure result to the logs.
-            config.Services.GetTraceWriter()
-                .Error(ex.Message, null, "Push.SendAsync Error");
-        }
+        // Write the success result to the logs.
+        config.Services.GetTraceWriter().Info(result.State.ToString());
+    }
+    catch (System.Exception ex)
+    {
+        // Write the failure result to the logs.
+        config.Services.GetTraceWriter()
+            .Error(ex.Message, null, "Push.SendAsync Error");
+    }
+    ```
 
     Bu kod, yeni bir öğe ekleme sonra bir anında iletme bildirimi göndermek için bildirim hub'ı söyler.
+
 4. Sunucu projesini yeniden yayımlayın.
 
 ### <a name="nodejs"></a>Node.js arka uç projesi
 1. Bunu zaten bunu yapmadıysanız [hızlı başlangıç projesi indirme](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) veya başka kullanım [Azure portalında çevrimiçi düzenleyicisini](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 2. Todoitem.js dosyasındaki mevcut kodu aşağıdakiyle değiştirin:
 
-        var azureMobileApps = require('azure-mobile-apps'),
-        promises = require('azure-mobile-apps/src/utilities/promises'),
-        logger = require('azure-mobile-apps/src/logger');
+    ```javascript
+    var azureMobileApps = require('azure-mobile-apps'),
+    promises = require('azure-mobile-apps/src/utilities/promises'),
+    logger = require('azure-mobile-apps/src/logger');
 
-        var table = azureMobileApps.table();
+    var table = azureMobileApps.table();
 
-        table.insert(function (context) {
-        // For more information about the Notification Hubs JavaScript SDK,
-        // see http://aka.ms/nodejshubs
-        logger.info('Running TodoItem.insert');
+    table.insert(function (context) {
+    // For more information about the Notification Hubs JavaScript SDK,
+    // see http://aka.ms/nodejshubs
+    logger.info('Running TodoItem.insert');
 
-        // Define the WNS payload that contains the new item Text.
-        var payload = "<toast><visual><binding template=\ToastText01\><text id=\"1\">"
-                                    + context.item.text + "</text></binding></visual></toast>";
+    // Define the WNS payload that contains the new item Text.
+    var payload = "<toast><visual><binding template=\ToastText01\><text id=\"1\">"
+                                + context.item.text + "</text></binding></visual></toast>";
 
-        // Execute the insert.  The insert returns the results as a Promise,
-        // Do the push as a post-execute action within the promise flow.
-        return context.execute()
-            .then(function (results) {
-                // Only do the push if configured
-                if (context.push) {
-                    // Send a WNS native toast notification.
-                    context.push.wns.sendToast(null, payload, function (error) {
-                        if (error) {
-                            logger.error('Error while sending push notification: ', error);
-                        } else {
-                            logger.info('Push notification sent successfully!');
-                        }
-                    });
-                }
-                // Don't forget to return the results from the context.execute()
-                return results;
-            })
-            .catch(function (error) {
-                logger.error('Error while running context.execute: ', error);
-            });
+    // Execute the insert.  The insert returns the results as a Promise,
+    // Do the push as a post-execute action within the promise flow.
+    return context.execute()
+        .then(function (results) {
+            // Only do the push if configured
+            if (context.push) {
+                // Send a WNS native toast notification.
+                context.push.wns.sendToast(null, payload, function (error) {
+                    if (error) {
+                        logger.error('Error while sending push notification: ', error);
+                    } else {
+                        logger.info('Push notification sent successfully!');
+                    }
+                });
+            }
+            // Don't forget to return the results from the context.execute()
+            return results;
+        })
+        .catch(function (error) {
+            logger.error('Error while running context.execute: ', error);
         });
+    });
 
-        module.exports = table;
+    module.exports = table;
+    ```
 
     Bu, yeni bir todo öğesi eklendiğinde item.text içeren bir WNS bildirim gönderir.
+
 3. Yerel bilgisayarınızda dosyası düzenlenirken, sunucu projesi yeniden yayımlayın.
 
 ## <a id="update-app"></a>Uygulamanıza anında iletme bildirimleri ekleme
@@ -153,37 +167,48 @@ Ardından, uygulamanızı anında iletme bildirimlerinin başlangıç kaydolmas�
 
 1. Açık **App.xaml.cs** proje dosyası ve aşağıdakileri ekleyin `using` ifadeleri:
 
-        using System.Threading.Tasks;
-        using Windows.Networking.PushNotifications;
+    ```csharp
+    using System.Threading.Tasks;
+    using Windows.Networking.PushNotifications;
+    ```
+
 2. Aynı dosyada, aşağıdaki ekleyin **Initnotificationsasync** yöntem tanımını **uygulama** sınıfı:
 
-        private async Task InitNotificationsAsync()
-        {
-            // Get a channel URI from WNS.
-            var channel = await PushNotificationChannelManager
-                .CreatePushNotificationChannelForApplicationAsync();
+    ```csharp
+    private async Task InitNotificationsAsync()
+    {
+        // Get a channel URI from WNS.
+        var channel = await PushNotificationChannelManager
+            .CreatePushNotificationChannelForApplicationAsync();
 
-            // Register the channel URI with Notification Hubs.
-            await App.MobileService.GetPush().RegisterAsync(channel.Uri);
-        }
+        // Register the channel URI with Notification Hubs.
+        await App.MobileService.GetPush().RegisterAsync(channel.Uri);
+    }
+    ```
 
     Bu kod, WNS'den uygulamanın Channelurı alır ve ardından bu Channelurı, App Service mobil uygulama ile kaydeder.
+
 3. Üst kısmındaki **OnLaunched** olay işleyicisinde **App.xaml.cs**, ekleme **zaman uyumsuz** değiştirici yöntem tanımına ve yeni aşağıdaki çağrıyı ekleyin  **Initnotificationsasync** yöntemi, aşağıdaki örnekte olduğu gibi:
 
-        protected async override void OnLaunched(LaunchActivatedEventArgs e)
-        {
-            await InitNotificationsAsync();
+    ```csharp
+    protected async override void OnLaunched(LaunchActivatedEventArgs e)
+    {
+        await InitNotificationsAsync();
 
-            // ...
-        }
+        // ...
+    }
+    ```
 
     Bu, uygulama her başlatıldığında kısa süreli Channelurı kayıtlı olduğunu garanti eder.
+
 4. UWP uygulaması projenizi yeniden derleyin. Uygulamanız şimdi bildirim almaya hazırdır.
 
 ## <a id="test"></a>Uygulamanıza anında iletme bildirimleri test
+
 [!INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
 ## <a id="more"></a>Sonraki adımlar
+
 Anında iletme bildirimleri hakkında daha fazla bilgi edinin:
 
 * [Azure Mobile Apps için yönetilen istemciyi kullanma](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications) şablonları platformlar arası bildirimler ve yerelleştirilmiş bildirimler gönderme esnekliği sağlar. Şablonları kaydetme hakkında bilgi edinin.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: e562b694b2d3f226d0b4f5bc03b54d6562e52244
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 1237d6a35d279a1036bb8139dd0b0ceaa34edb7b
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42058312"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746851"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>Azure işlevleri için Azure Cosmos DB bağlamaları 2.x (Önizleme)
 
@@ -1092,7 +1092,7 @@ Aşağıdaki örnekte gösterildiği bir [JavaScript işlevi](functions-referenc
 
 JavaScript kod aşağıdaki gibidir:
 
-```cs
+```javascript
 module.exports = function (context, req, toDoItem) {
     context.log('JavaScript queue trigger function processed work item');
     if (!toDoItem)

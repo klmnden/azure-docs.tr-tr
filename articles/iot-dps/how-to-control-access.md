@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: 4751a76c39060f48d3b816ecee0de5b58e29bdaa
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e476ca498e4dc1b36d18927beddc812d6d803120
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056357"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818519"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Azure IOT Hub cihaz sağlama Hizmeti'ne erişimi denetleme
 
@@ -34,7 +34,7 @@ Size verebilir [izinleri](#device-provisioning-service-permissions) aşağıdaki
 
 * **Paylaşılan erişim Yetkilendirme İlkeleri**. Paylaşılan erişim ilkeleri, herhangi bir birleşimini vermek [izinleri](#device-provisioning-service-permissions). İlkeleri tanımlayabilirsiniz [Azure portalında][lnk-management-portal], kullanarak programlama yoluyla veya [cihaz sağlama hizmeti REST API'lerine][lnk-resource-provider-apis]. Yeni oluşturulan bir sağlama hizmeti, aşağıdaki varsayılan ilkesi vardır:
 
-   **provisioningserviceowner**: ilke tüm izinlere sahip.
+* **provisioningserviceowner**: ilke tüm izinlere sahip.
 
 > [!NOTE]
 > Bkz: [izinleri](#device-provisioning-service-permissions) ayrıntılı bilgi için.

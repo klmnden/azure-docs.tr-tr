@@ -1,30 +1,30 @@
 ---
-title: Azure SQL Data Warehouse yeni nesil yükseltin | Microsoft Docs
-description: Azure SQL Data Warehouse Azure donanım ve depolama mimarisi yeni nesil yükseltin.
+title: En yeni nesil Azure SQL veri ambarı için yükseltme | Microsoft Docs
+description: Azure SQL veri ambarı, yeni nesil Azure donanım ve depolama mimarisi için yükseltin.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 08/22/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 58d65ef05ed872bb357070de9866253baea5dc70
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1e2993e1f4d28fd5d281ea510121686d3bc37a8c
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777816"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746971"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>SQL Veri Ambarı’nı yükselterek performansı iyileştirme
-Azure SQL Data Warehouse Azure donanım ve depolama mimarisi yeni nesil yükseltin.
+Azure SQL veri ambarı, yeni nesil Azure donanım ve depolama mimarisi için yükseltin.
 
-## <a name="why-upgrade"></a>Neden yükseltme?
-Şimdi sorunsuz bir şekilde SQL veri ambarı Gen2 Azure portalında yükseltme yapabilirsiniz. Gen1 veri ambarı varsa, yükseltme önerilir. Yükselterek, Azure donanım yeni nesil kullanabilirsiniz ve depolama mimarisi geliştirilmiştir. Daha hızlı performans, daha yüksek ölçeklenebilirlik ve sınırsız sütunlu depolama avantajından yararlanabilirsiniz. 
+## <a name="why-upgrade"></a>Neden yükseltilsin mi?
+Artık sorunsuz bir şekilde Azure portalında SQL veri ambarı işlem için iyileştirilmiş 2. nesil katmana yükseltebilirsiniz. Bir işlem için iyileştirilmiş Gen1 katmanı veri ambarı varsa, yükseltme önerilir. Yükselterek, depolama mimarisi Gelişmiş olmak ve son nesli olan Azure donanım kullanabilirsiniz. Daha hızlı performans, daha yüksek ölçeklenebilirlik ve sınırsız sütunlu depolamayı yararlanabilirsiniz. 
 
-## <a name="applies-to"></a>Uygulandığı öğe:
-Bu yükseltme Gen1 veri ambarlarında için geçerlidir.
+## <a name="applies-to"></a>Uygulandığı öğe
+Bu yükseltme en iyi duruma getirilmiş Gen1 işlem katmanı veri ambarları için geçerlidir.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 
@@ -32,52 +32,45 @@ Bu yükseltme Gen1 veri ambarlarında için geçerlidir.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 > [!NOTE]
-> Varolan Gen1 veri ambarınız Gen2 olduğu kullanılabilir bir bölgede değilse, yapabilecekleriniz [coğrafi geri yükleme Gen2 için](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) desteklenen bir bölge için PowerShell aracılığıyla.
+> Var olan işlem için iyileştirilmiş Gen1 katmanı veri ambarınızın işlem için iyileştirilmiş Gen2 katmanı kullanılabildiği bir bölgede değil ise, yapabilecekleriniz [coğrafi geri yükleme](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) desteklenen bir bölge için PowerShell aracılığıyla.
 > 
 >
 
-1. Yükseltilecek Gen1 veri ambarı duraklatıldığında [veri ambarı sürdürmek](pause-and-resume-compute-portal.md).
-2. Kapalı kalma süresi birkaç dakika için hazır olun. 
+1. Yükseltilecek en iyi duruma getirilmiş Gen1 işlem katmanı veri ambarı duraklatıldığında [veri ambarı sürdürme](pause-and-resume-compute-portal.md).
+2. Birkaç dakika kapalı kalma süresi için hazırlıklı olmalıdır. 
 
 
 
-## <a name="start-the-upgrade"></a>Yükseltme işlemini başlatmak
+## <a name="start-the-upgrade"></a>Yükseltmeyi başlatın
 
-1. Veri ambarı Azure portalında ve tıklayın, Gen1 gidin **yükseltmek için Gen2**: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+1. Git, işlem için iyileştirilmiş katmanı veri ambarı Azure Portalı'nda ve tıklayarak Gen1 **yükseltmek için 2. nesil**: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
 
-2. Varsayılan olarak, **önerilen performans düzeyi seçin** veri ambarı için temel alarak, geçerli Gen1 performans düzeyini eşleme kullanarak:
+2. Varsayılan olarak, **önerilen performans düzeyi seçin** veri ambarı için temel alarak en iyi duruma getirilmiş Gen1 işlem katmanında geçerli performans düzeyiniz aşağıdaki eşlemeyi kullanarak:
     
-| Gen1 | Gen2 |
-| :----------------------: | :-------------------: |
-|      DW100 – DW1000      |        DW1000c        |
-|          DW1200          |        DW1500c        |
-|          DW1500          |        DW1500c        |
-|          DW2000          |        DW2000c        |
-|          DW3000          |        DW3000c        |
-|          DW6000          |        DW6000c        |
+   | İşlem için iyileştirilmiş Gen1 katmanı | İşlem için iyileştirilmiş 2. nesil katmanı |
+   | :----------------------: | :-------------------: |
+   |      DEĞERİ DW100 – DW1000      |        DW1000c        |
+   |          DW1200          |        DW1500c        |
+   |          DW1500          |        DW1500c        |
+   |          DW2000          |        DW2000c        |
+   |          DW3000          |        DW3000c        |
+   |          DW6000          |        DW6000c        |
 
-
-3. İş yükünüzün çalıştığından ve sessiz modda yükseltmeden önce tamamlandı emin olun. Veri ambarınız Gen2 veri ambarı yeniden çevrimiçi olduktan birkaç dakika için kapalı kalma yaşayacaktır. **Yükselt'i tıklatın**. Gen2 performans katmanı bedelinin Önizleme dönemi boyunca şu anda yarı-kapalıdır:
+3. İş yükünüz çalışıyor ve sessiz modda yükseltmeden önce tamamlandı emin olun. Veri ambarınızın işlem için iyileştirilmiş Gen2 katmanı veri ambarı olarak yeniden çevrimiçi önce birkaç dakika kapalı kalma süresi yaşar. **Yükseltme**. En iyi duruma getirilmiş Gen2 işlem katmanı performans katmanı fiyatına Önizleme dönemi boyunca şu anda yarı-kapalıdır:
     
-    ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
+   ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
 
-4. **Yükseltme izlemek** Azure portalında durumunu denetleyerek:
+4. **Yükseltme işlemini izleme** tarafından Azure portalında durumu denetleniyor:
 
    ![Upgrade3](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_3.png)
    
-   Yükseltme işleminin ilk adımı, burada tüm oturumları sonlandırılacak ve bağlantıları bırakılacak ölçeklendirme işlemi ("Yükseltme - çevrimdışı") gider. 
+   İlk adım yükseltme işlemini burada tüm oturumları sonlandırılacak ve bağlantıları bırakılacak ölçeklendirme işlemi ("Yükseltme - çevrimdışı") gider. 
    
-   İkinci adım yükseltme işlemini veri geçiş ("Yükseltme - çevrimiçi") olur. Veri geçişi yavaş sütunlu verileri yerel bir SSD önbellek yararlanarak yeni depolama mimarisi için eski depolama mimarisinden taşır bir çevrimiçi akışla arka plan işlemidir. Bu süre boyunca, veri Ambarınızı sorgulama ve yükleme için çevrimiçi olacaktır. Tüm verilerinizi olup olmadığını geçirildikten bağımsız olarak sorgulamak kullanılabilir. Veri boyutu, performans düzeyi ve, columnstore Segment sayısına bağlı olarak değişen bir hızda veri geçişi yapılır. 
+   Yükseltme işleminin ikinci adım, veri taşıma ("Yükseltme - Online") ' dir. Veri geçişi yavaş sütunlu veri bir yerel SSD önbellek yararlanan yeni depolama mimarisi için eski depolama mimariden taşır bir çevrimiçi akışla arka plan işlemidir. Bu süre boyunca, veri Ambarınızı sorgulamak ve yüklemek için çevrimiçi olacak. Tüm verilerinizi olup olmadığını geçirildikten bağımsız olarak sorgulamak kullanılabilir. Veri geçişi, columnstore segmentleri sayısı veri boyutu ve performans düzeyinize bağlı olarak değişen bir hızda olur. 
 
-5. **Gen2 veri ambarınız Bul** SQL veritabanı Gözat dikey kullanarak. 
+5. **İsteğe bağlı öneri:** veri geçiş arka plan işlemi hızlandırmak için hemen veri taşıma çalıştırarak zorlayabilirsiniz [Alter Index yeniden](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) , sorgulama sırasında daha büyük bir SLO tüm birincil columnstore tabloları ve kaynak sınıfı. Bu işlem **çevrimdışı** sayısını ve boyutları tablolarınızı bağlı olarak saat sürebilir akışla arka plan işlemi karşılaştırıldığında; ancak, veri geçişi burada daha sonra tam anlamıyla alabilir çok daha hızlı olacaktır Yeni depolama mimarisi tamamlandıktan sonra yüksek kaliteli satır grupları ile geliştirilmiştir. 
 
-> [!NOTE]
-> Var. şu anda bir sorun nerede dikey Gen2 veri ambarları SQL veri ambarında görünmez göz atın. Lütfen yeni yükseltilen Gen2 veri ambarınız bulmak için SQL veritabanı Gözat dikey kullanın. Bu düzeltme etkin bir şekilde çalışıyoruz.
-> 
-
-6. **İsteğe bağlı öneri:** veri geçiş arka plan işlemi hızlandırmak için hemen çalıştırarak veri taşıma zorlamak için önerilir [Alter Index yeniden](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) daha büyük bir SLO ve kaynak tüm columnstore tabloları sınıf. Bu akışla arka plan işleme karşılaştırıldığında çevrimdışı bir işlemdir; Ancak, veri geçişi burada daha sonra yeni gelişmiş depolama mimarisi ile yüksek kaliteli rowgroups kez tamamlandı tam anlamıyla alabilir çok daha hızlı olacaktır. 
-
-Bu aşağıdaki sorguyu veri geçiş işlemi hızlandırmak için gerekli olan Alter Index REBUILD komutları oluşturur:
+Aşağıdaki sorgu, veri geçiş sürecini hızlandırmak için gerekli olan Alter Index REBUILD komutları oluşturur:
 
 ```sql
 SELECT 'ALTER INDEX [' + idx.NAME + '] ON [' 
@@ -125,5 +118,5 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Yükseltilen veri ambarınız çevrimiçidir. Gelişmiş mimari yararlanmak için bkz: [iş yükü yönetimi için kaynak sınıfları](resource-classes-for-workload-management.md).
+Yükseltilen veri Ambarınızı çevrimiçidir. Gelişmiş mimari yararlanmak için bkz: [iş yükü yönetimi için kaynak sınıfları](resource-classes-for-workload-management.md).
  

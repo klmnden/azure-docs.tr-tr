@@ -1,6 +1,6 @@
 ---
-title: Box - Azure mantıksal uygulamaları bağlama | Microsoft Docs
-description: Dosyaları kutusunu REST API'leri ve Azure Logic Apps oluşturmak ve yönetmek
+title: Box - Azure Logic Apps'ı bağlama | Microsoft Docs
+description: Oluşturun ve dosyalarını kutusu REST API'leri ve Azure Logic Apps ile yönetme
 author: ecfan
 manager: jeconnoc
 ms.author: estfan
@@ -11,26 +11,46 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: a8756e168a8d75cbe705ce2408b6d363f7435b5c
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b5c8c18c6d02710646560f29d4bc7b5784f730a2
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295083"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746886"
 ---
-# <a name="get-started-with-the-box-connector"></a>Kutusunu Bağlayıcısı ile çalışmaya başlama
-Kutusuna bağlanın ve dosyaları, dosyaları silin ve daha fazlasını oluşturun. Kutusu, şunları yapabilirsiniz:
+# <a name="create-and-manage-files-in-box-with-azure-logic-apps"></a>Azure Logic Apps ile kutusundaki dosyaları oluşturmak ve yönetmek
 
-* İş akışınız kutusundan alma verileri temel alan oluşturun. 
-* Bir dosya oluşturulduğunda veya güncelleştirilmiş Tetikleyicileri kullanın.
-* Dosya kopyalama, dosya ve daha fazlasını silme eylemlerini kullanın. Bu eylemler bir yanıt ve çıkış diğer eylemler için kullanılabilir yapın. Örneğin, bir dosya kutusunu değiştirildiğinde, bu dosyayı alıp Office 365 kullanarak e-posta.
+Bu makalede nasıl oluşturabileceğinizi ve kutusu Bağlayıcısı ile bir mantıksal uygulama içinde kutusunda dosyalarınızı yönetin gösterilmektedir. Böylece, görevler ve dosyalarınızı ve diğer Eylemler, örneğin yönetmek için iş akışlarını otomatik hale getiren mantıksal uygulamaları oluşturabilirsiniz:
 
-Bir mantıksal uygulama'yi şimdi oluşturmaya başlamak, bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Box'tan alma verileri temel alan, iş akışınızı oluşturun. 
 
-## <a name="connector-specific-details"></a>Bağlayıcı özgü ayrıntıları
+* Bir dosya oluşturulduğunda veya otomatik görevler ve iş akışı tetikler.
 
-Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/box/).
+* Bir dosyayı kopyalar ve bir dosya siler eylemleri çalıştırın. 
 
-## <a name="more-connectors"></a>Daha fazla bağlayıcılar
-Geri dönerek [API'leri listesi](apis-list.md).
+  Bu eylemlerden yanıt aldığınızda bunlar çıkış diğer eylemler için kullanılabilir olun. 
+  Örneğin, çubuğundaki bir dosya değiştirildiğinde, e-postayla Office 365'i kullanarak bu dosyayı gönderebilirsiniz.
 
+## <a name="prerequisites"></a>Önkoşullar
+
+* A [kutusunda hesabı](https://www.box.com/home)
+
+* Azure aboneliği. Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
+
+* Box hesabınıza erişmek için istediğiniz mantıksal uygulaması. Mantıksal uygulamanızı bir kutusu tetikleyici ile başlayın, gerek bir [boş mantıksal uygulama](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+
+* Hakkında temel bilgilere [mantıksal uygulamalar oluşturmak nasıl](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md).
+
+## <a name="connector-reference"></a>Bağlayıcı başvurusu
+
+Bağlayıcının Swagger dosyası tarafından açıklandığı gibi sınırları, tetikleyiciler ve Eylemler gibi teknik ayrıntılar için bkz [bağlayıcının başvuru sayfası](/connectors/box/). 
+
+## <a name="get-support"></a>Destek alın
+
+* Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
+* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](http://aka.ms/logicapps-wish) ziyaret edin.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+* Diğer hakkında bilgi edinin [Logic Apps bağlayıcıları](../connectors/apis-list.md)

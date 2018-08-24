@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 08/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 944f1b7ecc3fdc9f063d764a6deae49a68a24d77
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 934520764749b5abce9aefe22b8eb9a5d8e490f2
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433536"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746500"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Öğretici: Azure Active Directory tümleştirmesiyle Dome9 yay
 
@@ -38,7 +38,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi Dome9 yay yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik Dome9 yay çoklu oturum açma etkin
 
 > [!NOTE]
@@ -50,29 +50,32 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 - Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
+
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.
+Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden Dome9 yay ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-dome9-arc-from-the-gallery"></a>Galeriden Dome9 yay ekleme
+
 Azure AD'de Dome9 yay tümleştirmesini yapılandırmak için Dome9 yay Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Dome9 yay eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi][1]
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
-    
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
-1. Arama kutusuna **Dome9 yay**seçin **Dome9 yay** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+4. Arama kutusuna **Dome9 yay**seçin **Dome9 yay** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Sonuç listesinde Dome9 yay](./media/dome9arc-tutorial/tutorial_dome9arc_addfromgallery.png)
 
@@ -82,15 +85,13 @@ Bu bölümde, yapılandırın ve Dome9 yay "Britta Simon" adlı bir test kullan�
 
 Tek iş için oturum açma için Azure AD ne Dome9 Yayı karşılık gelen kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Dome9 yay ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Dome9 yay içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
-
 Yapılandırma ve Azure AD çoklu oturum açma Dome9 yay ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Dome9 yay test kullanıcısı oluşturma](#create-a-dome9-arc-test-user)**  - kullanıcı Azure AD gösterimini bağlı Dome9 yay Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Dome9 yay test kullanıcısı oluşturma](#create-a-dome9-arc-test-user)**  - kullanıcı Azure AD gösterimini bağlı Dome9 yay Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -102,11 +103,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve D
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açma iletişim kutusu](./media/dome9arc-tutorial/tutorial_dome9arc_samlbase.png)
 
-1. Üzerinde **Dome9 yay etki alanı ve URL'ler** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** başlatılan modu:
+3. Üzerinde **Dome9 yay etki alanı ve URL'ler** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** başlatılan modu:
 
     ![Dome9 yay etki alanı ve URL'ler tek oturum açma bilgileri](./media/dome9arc-tutorial/tutorial_dome9arc_url.png)
 
@@ -117,24 +118,24 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve D
     > [!NOTE]
     > Öğreticinin ilerleyen bölümlerinde açıklanan dome9 Yönetim Portalı'nda, şirket adı değeri seçer.
 
-1. Denetleme **Gelişmiş URL ayarlarını göster** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
+4. Denetleme **Gelişmiş URL ayarlarını göster** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
     ![Dome9 yay etki alanı ve URL'ler tek oturum açma bilgileri](./media/dome9arc-tutorial/tutorial_dome9arc_url1.png)
 
     İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://secure.dome9.com/sso/saml/<yourcompanyname>`
-     
+ 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [Dome9 yay istemci Destek ekibine](https://dome9.com/about/contact-us/) bu değerleri almak için. 
 
-1. Dome9 yay yazılım uygulama belirli bir biçimde SAML onaylamalarını bekliyor. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirme sayfasında bölümü. Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir.
+5. Dome9 yay yazılım uygulama belirli bir biçimde SAML onaylamalarını bekliyor. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirme sayfasında bölümü. Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir.
 
     ![Çoklu oturum açma attb yapılandırın](./media/dome9arc-tutorial/tutorial_dome9arc_attribute.png)
 
-1. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
+6. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
     | Öznitelik Adı  | Öznitelik Değeri | 
     | --------------- | --------------- | 
-    | İz | User.assignedroles | 
+    | İz | User.assignedroles |
     
     a. Tıklayın **eklemek agentconfigutil** açmak için **öznitelik Ekle** iletişim.
 
@@ -145,32 +146,35 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve D
     b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
 
     c. Gelen **değer** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
-    
-    d. **Tamam**’a tıklayın.
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+    d. **Tamam**’a tıklayın.
+    
+    > [!NOTE]
+    > Lütfen şuna bakın [bağlantı](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) üzerinde uygulama rollerini Kurulum ve yapılandırma.
+
+7. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/dome9arc-tutorial/tutorial_dome9arc_certificate.png) 
 
-1. Tıklayın **Kaydet** düğmesi.
+8. Tıklayın **Kaydet** düğmesi.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/dome9arc-tutorial/tutorial_general_400.png)
-    
-1. Üzerinde **Dome9 yay yapılandırma** bölümünde **yapılandırma Dome9 yay** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+
+9. Üzerinde **Dome9 yay yapılandırma** bölümünde **yapılandırma Dome9 yay** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Dome9 yay yapılandırma](./media/dome9arc-tutorial/tutorial_dome9arc_configure.png) 
 
-1. Farklı bir web tarayıcı penceresinde Dome9 yay şirket sitenize yönetici olarak oturum.
+10. Farklı bir web tarayıcı penceresinde Dome9 yay şirket sitenize yönetici olarak oturum.
 
-1. Tıklayarak **profil ayarları** 'a tıklayın ve sağ üst köşedeki **hesap ayarları**. 
+11. Tıklayarak **profil ayarları** 'a tıklayın ve sağ üst köşedeki **hesap ayarları**. 
 
     ![Dome9 yay yapılandırma](./media/dome9arc-tutorial/configure1.png)
 
-1. Gidin **SSO** ve ardından **etkinleştirme**.
+12. Gidin **SSO** ve ardından **etkinleştirme**.
 
     ![Dome9 yay yapılandırma](./media/dome9arc-tutorial/configure2.png)
 
-1. SSO Yapılandırması bölümünde aşağıdaki adımları gerçekleştirin:
+13. SSO Yapılandırması bölümünde aşağıdaki adımları gerçekleştirin:
 
     ![Dome9 yay yapılandırma](./media/dome9arc-tutorial/configure3.png)
 
@@ -184,9 +188,6 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve D
 
     e. **Kaydet**’e tıklayın.
 
-> [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
-
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
@@ -199,15 +200,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     ![Azure Active Directory düğmesi](./media/dome9arc-tutorial/create_aaduser_01.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
     !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/dome9arc-tutorial/create_aaduser_02.png)
 
-1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
     ![Ekle düğmesi](./media/dome9arc-tutorial/create_aaduser_03.png)
 
-1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![Kullanıcı iletişim kutusu](./media/dome9arc-tutorial/create_aaduser_04.png)
 
@@ -218,28 +219,28 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
 
     d. **Oluştur**’a tıklayın.
- 
+
 ### <a name="create-a-dome9-arc-test-user"></a>Dome9 yay test kullanıcısı oluşturma
 
 Dome9 Yaya oturum açmak Azure AD kullanıcılarının etkinleştirmek için kullanıcılar uygulamaya sağlanması gerekir. Dome9 yay, just-ın-time sağlamayı destekler ancak kullanıcı sahip belirli seçmek olan düzgün çalışması **rol** ve aynı kullanıcıya atayın.
 
-   >[!Note] 
+   >[!Note]
    >İçin **rol** oluşturma ve diğer kişi ayrıntıları [Dome9 yay istemci Destek ekibine](https://dome9.com/about/contact-us/).
 
 **Bir kullanıcı hesabını el ile sağlamak için aşağıdaki adımları gerçekleştirin:**
 
 1. Dome9 yay şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-1. Tıklayarak **kullanıcıları ve rolleri** ve ardından **kullanıcılar**.
+2. Tıklayarak **kullanıcıları ve rolleri** ve ardından **kullanıcılar**.
 
     ![Çalışan Ekle](./media/dome9arc-tutorial/user1.png)
 
-1. Tıklayın **Kullanıcı Ekle**.
+3. Tıklayın **Kullanıcı Ekle**.
 
     ![Çalışan Ekle](./media/dome9arc-tutorial/user2.png)
 
-1. İçinde **Create User** bölümünde, aşağıdaki adımları gerçekleştirin:
-    
+4. İçinde **Create User** bölümünde, aşağıdaki adımları gerçekleştirin:
+
     ![Çalışan Ekle](./media/dome9arc-tutorial/user3.png)
 
     a. İçinde **e-posta** metin kutusuna kullanıcı e-posta türünü ister Brittasimon@contoso.com.
@@ -264,24 +265,24 @@ Bu bölümde, Azure çoklu oturum açma Dome9 Yaya erişim vererek kullanmak Bri
 
     ![Kullanıcı Ata][201] 
 
-1. Uygulamalar listesinde **Dome9 yay**.
+2. Uygulamalar listesinde **Dome9 yay**.
 
     ![Uygulamalar listesinde Dome9 yay bağlantı](./media/dome9arc-tutorial/tutorial_dome9arc_app.png)  
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Atama Ekle bölmesi][203]
 
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
+7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
@@ -293,8 +294,6 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
 * [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 

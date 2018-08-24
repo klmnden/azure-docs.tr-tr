@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: b05eef79e94cff74b1e02243cd7c8d94e5acbb3c
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: c9cebd16d34758550144a50b6ff26da84924a964
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493979"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745677"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data factory'de veri taşımayı için güvenlik konuları
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,6 +58,11 @@ Bulut veri deposu, HTTPS veya TLS destekliyorsa, Data factory'deki veri taşıma
 
 > [!NOTE]
 > Veri aktarım için ve veritabanından durumdayken Azure SQL veritabanı ve Azure SQL veri ambarı yönelik tüm bağlantılar şifreleme (SSL/TLS) gerektirir. Bir işlem hattı JSON'ı kullanarak geliştirme, şifreleme özelliği ekleyin ve değerini **true** bağlantı dizesindeki. Azure depolama için kullanabileceğiniz **HTTPS** bağlantı dizesindeki.
+
+> [!NOTE]
+> Etkinleştirmek için Oracle veri taşırken aktarım sırasında şifreleme izleyin birini seçenekleri aşağıda:
+> 1. Oracle server, Oracle Gelişmiş Güvenlik (OAS) için gidin ve başvuru Üçlü DES şifrelemesi (3DES) ve Gelişmiş Şifreleme Standardı (AES), destekleyen şifreleme ayarlarını yapılandır [burada](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759) Ayrıntılar için. ADF içinde OAS Oracle bağlantı kurarken yapılandırma bir kullanılacak şifreleme yöntemini otomatik olarak belirler.
+> 2. ADF içinde EncryptionMethod ekleyebilirsiniz = 1 bağlantı dizesinde (bağlantılı hizmetteki). Bu şifreleme yöntemi olarak SSL/TLS kullanır. Bunu kullanmak için şifreleme çakışmayı önlemek için SSL olmayan şifreleme ayarlarını OAS Oracle sunucu tarafında devre dışı bırakmak gerekir.
 
 > [!NOTE]
 > Kullanılan TLS 1.2 sürümüdür.

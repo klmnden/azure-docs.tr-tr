@@ -9,21 +9,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/10/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2c313538e297c5781b48fcfe9d0d5390f94c97f5
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: c88bdce64e88f8639da2c4ebb01f4594fccff8a0
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043969"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747097"
 ---
 # <a name="test-azure-portal-interface-for-your-managed-application"></a>Yönetilen uygulamanız için Azure portal arabirimi testi
 Sonra [createUiDefinition.json dosyası oluşturma](create-uidefinition-overview.md) Azure yönetilen uygulama için kullanıcı deneyimini test gerekir. Test etmeyi kolaylaştırmak için portal dosyanızda yükleyen bir betik kullanın. Aslında, yönetilen uygulamayı dağıtmak gerekmez.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* A **createUiDefinition.json** dosya. Bu dosya yoksa, kopyalama [örnek dosyası](https://github.com/Azure/azure-quickstart-templates/blob/master/test/template-validation-tests/sample-template/createUIDefinition.json) ve yerel olarak kaydedin.
+* A **createUiDefinition.json** dosya. Bu dosya yoksa, kopyalama [örnek dosyası](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json) ve yerel olarak kaydedin.
 
 * Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
@@ -36,16 +36,16 @@ Portalda Arabiriminizin Test etmek için aşağıdaki komut dosyalarından birin
 
 ## <a name="run-script"></a>Betiği çalıştırın
 
-Portal arabirimi dosyanızda görmek için indirdiğiniz betiğin çalıştırın. Betik, Azure Aboneliğinize bir depolama hesabı oluşturur ve createUiDefinition.json dosyanızı depolama hesabına yükler. Ardından, portal açar ve depolama hesabından dosyanızı yükler.
+Portal arabirimi dosyanızda görmek için indirdiğiniz betiğin çalıştırın. Betik, Azure Aboneliğinize bir depolama hesabı oluşturur ve createUiDefinition.json dosyanızı depolama hesabına yükler. Depolama hesabı tarafından silindiği veya depolama hesabı, ilk kez çalıştırdığınızda, komut dosyası oluşturulur. Depolama hesabı, Azure aboneliğinizde zaten varsa bu betiği kullanır. Betik portalı açılır ve depolama hesabından dosyanızı yükler.
 
-Depolama hesabı için bir konum sağlayın ve createUiDefinition.json dosyanızı içeren klasörü belirtin. Depolama hesabı konumu ilk zaman betiği çalıştırın veya depolama hesabı silindiyse sağlamak yeterlidir.
+Depolama hesabı için bir konum sağlayın ve createUiDefinition.json dosyanızı içeren klasörü belirtin.
 
 PowerShell için şunu kullanın:
 
 ```powershell
 .\SideLoad-CreateUIDefinition.ps1 `
   -StorageResourceGroupLocation southcentralus `
-  -ArtifactsStagingDirectory <path-to-folder-with-createuidefinition>
+  -ArtifactsStagingDirectory .\100-Marketplace-Sample
 ```
 
 Azure CLI için şunu kullanın:
@@ -53,7 +53,21 @@ Azure CLI için şunu kullanın:
 ```azurecli
 ./sideload-createuidef.sh \
   -l southcentralus \
-  -a <path-to-folder-with-createuidefinition>
+  -a .\100-Marketplace-Sample
+```
+
+Komut dosyasını aynı klasöre, createUiDefinition.json dosyasıdır ve depolama hesabı zaten oluşturdunuz, bu parametreleri belirtmeniz gerekmez.
+
+PowerShell için şunu kullanın:
+
+```powershell
+.\SideLoad-CreateUIDefinition.ps1
+```
+
+Azure CLI için şunu kullanın:
+
+```azurecli
+./sideload-createuidef.sh
 ```
 
 ## <a name="test-your-interface"></a>Test, arabirimi
@@ -73,6 +87,18 @@ Arabirim tanımı, bir hata varsa, konsolu açıklamaya bakın.
 Alanlar için değerler sağlayın. İşiniz bittiğinde şablona geçirilen değerlerin bakın.
 
 ![Değerleri göster](./media/test-createuidefinition/show-json.png)
+
+Bu değerler, dağıtım şablonu test parametre dosyası olarak kullanabilirsiniz.
+
+## <a name="troubleshooting-the-interface"></a>Arabirimi sorunlarını giderme
+
+Görebileceğiniz bazı yaygın hatalar şunlardır:
+
+* Portal Arabiriminizin yüklenmiyor. Bunun yerine bir etiket bırakma bulutla simgesi gösterir. Genellikle, dosyanızda bir sözdizimi hatası olduğunda bu simgeye bakın. VS Code (veya şema doğrulaması sahip başka bir JSON Düzenleyici) dosyasını açın ve söz dizimi hataları için bakın.
+
+* Özet ekranında portal kilitleniyor. Genellikle, çıktı bölümünde bir hata olduğunda bu gerçekleşir. Örneğin, mevcut olmayan bir denetim başvurulan.
+
+* Çıktıda bir parametre boştur. Parametre, mevcut olmayan bir özelliğe başvurma. Örneğin, Denetim başvurusu geçerli, ancak özellik başvurusu geçerli değil.
 
 ## <a name="test-your-solution-files"></a>Çözüm dosyalarınızı test
 

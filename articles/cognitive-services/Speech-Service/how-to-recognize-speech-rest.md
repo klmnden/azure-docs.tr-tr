@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 15db2d9b872c76d70fd531af07fb55c701e86494
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 24fa3882a65bf6605444a139ad5d4ee42800a8ef
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39331481"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42744938"
 ---
 # <a name="recognize-speech-by-using-the-rest-api"></a>REST API kullanarak konuşma tanıma
 
@@ -22,9 +22,8 @@ ms.locfileid: "39331481"
 
 REST API kullanarak bir HTTP POST isteği kısa konuşma tanıma için kullanılabilir.
 
-REST API, SDK tarafından desteklenen bir dil kullanıyorsanız, konuşma tanıma en basit yoludur.
-Hizmet uç noktası için bir HTTP POST isteği isteğin gövdesindeki tüm utterance geçirme olun.
-Tanınan metni içeren bir yanıt alırsınız.
+REST API'si tarafından desteklenen bir dil kullanıyorsanız, konuşma tanıma en basit yolu, [SDK](speech-sdk.md).
+Bir HTTP POST isteği için hizmet uç noktasını, isteğin gövdesindeki tüm utterance geçirin yapabilirsiniz; ve tanınan metin içeren bir yanıt almanız.
 
 > [!NOTE]
 > REST API kullanırken, konuşma 15 saniye veya daha az sınırlı olmalıdır.

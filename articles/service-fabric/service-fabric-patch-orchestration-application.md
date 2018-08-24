@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: bc9fbf56b37cb8c6690bd036db704532cb8b0437
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: f43715b9c419aab1f5b95e140eac72642ef74198
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061755"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746906"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Windows işletim sistemi düzeltme eki
 
@@ -139,7 +139,7 @@ Aynı anda birden çok küme düğümüne yeniden başlatabilirsiniz çünkü Wi
 
 Uygulamayı yükleme betikleri ile birlikte gelen indirilebilir [arşiv bağlantı](https://go.microsoft.com/fwlink/?linkid=869566).
 
-Uygulama sfpkg biçimde nden indirilebilir [sfpkg bağlantı](https://go.microsoft.com/fwlink/?linkid=869567). Bu için kullanışlı gelir [Azure Resource Manager tabanlı uygulama dağıtımı](service-fabric-application-arm-resource.md).
+Uygulama sfpkg biçimde nden indirilebilir [sfpkg bağlantı](https://aka.ms/POA/POA_v1.2.2.sfpkg). Bu için kullanışlı gelir [Azure Resource Manager tabanlı uygulama dağıtımı](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Uygulamayı yapılandırma
 
@@ -398,3 +398,5 @@ Bir yönetici, müdahale ve uygulama veya küme neden Windows güncelleştirmesi
 ### <a name="version-122-latest"></a>Sürüm 1.2.2 (son sürüm)
 
 - Çeşitli hata düzeltmeleri.
+- İkili dosyaları artık imzalanmıştır.
+- sfpkg indirme bağlantısı artık belirli bir sürüme işaret eder.

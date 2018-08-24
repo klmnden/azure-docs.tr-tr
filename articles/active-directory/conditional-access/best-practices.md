@@ -2,7 +2,7 @@
 title: Azure Active Directory'de koşullu erişim için en iyi yöntemler | Microsoft Docs
 description: Bunun yapılması, koşullu erişim ilkeleri yapılandırırken kaçınmalısınız nedir ve bilmeniz gerekenler hakkında bilgi edinin.
 services: active-directory
-keywords: uygulamalar, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
+keywords: uygulamalara koşullu erişim, Azure AD ile koşullu erişim, şirket kaynaklarına güvenli erişim, koşullu erişim ilkeleri
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 08/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: d21a6dc7a460e07fe7530b58bef887241a694b25
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4e9f5a9318db813b1a0f16d3599f74fd98e53ffc
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628095"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818066"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişim için en iyi uygulamalar
 
@@ -85,7 +85,7 @@ Azure Active Directory tarafından her iki ilke uygulanır ve yalnızca tüm ger
 
 ### <a name="what-happens-if-i-have-multiple-policies-for-the-same-user-configured"></a>Yapılandırılan aynı kullanıcı için birden çok ilke varsa ne olur?  
 
-Her oturum açma, Azure Active Directory, tüm ilkeleri değerlendirir ve kullanıcıya erişim izni verilsin önce tüm gereksinimlerin karşılandığını sağlar.
+Her oturum açma, Azure Active Directory, tüm ilkeleri değerlendirir ve kullanıcıya erişim izni verilsin önce tüm gereksinimlerin karşılandığını sağlar. Erişimi engelle, diğer tüm yapılandırma ayarlarını trumps. 
 
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>Koşullu erişim, Exchange ActiveSync ile çalışır mı?

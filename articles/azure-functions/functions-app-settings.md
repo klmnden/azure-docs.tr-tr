@@ -3,7 +3,7 @@ title: Azure işlevleri için uygulama ayarları başvurusu
 description: Azure işlevleri uygulama ayarları veya ortam değişkenleri için başvuru belgeleri.
 services: functions
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: ''
@@ -12,18 +12,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 08/22/2018
 ms.author: glenga
-ms.openlocfilehash: b5f4ce786371608b276e41f6881dcb1e0a91e303
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 46c1cb0a0cb3104e3705e4a7d4ef0dd894a7c2d7
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345064"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42819055"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure işlevleri için uygulama ayarları başvurusu
 
 Uygulama ayarlarında, bir işlev uygulaması, işlev uygulaması için tüm işlevleri etkiler genel yapılandırma seçenekleri içerir. Yerel olarak çalıştırdığınızda, bu ortam değişkenleri ayarlardır. Bu makalede, işlev uygulamalarında kullanılabilir uygulama ayarlarını listeler.
+
+[! Dahil etme [işlev uygulaması ayarları] (.. /.. /includes/Functions-App-Settings.MD]
 
 Diğer genel yapılandırma seçeneği yoktur [host.json](functions-host-json.md) dosya ve [local.settings.json](functions-run-local.md#local-settings-file) dosya.
 
@@ -127,7 +129,7 @@ Yalnızca tüketim planları için. İşlevi uygulama kodu ve yapılandırması 
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol = https; AccountName = [name]; AccountKey = [anahtar]|
 
-## <a name="websitecontentshare"></a>WEBSITE_CONTENTSHARE
+## <a name="websitecontentshare"></a>WEB SİTESİ\_CONTENTSHARE
 
 Yalnızca tüketim planları için. İşlev uygulaması kod ve yapılandırma dosyası yolu. WEBSITE_CONTENTAZUREFILECONNECTIONSTRING ile kullanılır. Varsayılan işlev uygulamasının adı ile başlayan benzersiz bir dizedir. Bkz: [bir işlev uygulaması oluşturma](functions-infrastructure-as-code.md#create-a-function-app).
 
@@ -153,6 +155,19 @@ Yalnızca tüketim planları için. İşlev uygulaması kod ve yapılandırma do
 |Anahtar|Örnek değer|
 |---|------------|
 |WEB SİTESİ\_DÜĞÜM\_DEFAULT_VERSION|6.5.0|
+
+## <a name="websiterunfromzip"></a>WEB SİTESİ\_ÇALIŞTIRMA\_FROM\_ZIP
+
+Takılı paket dosyasından çalıştırılacak işlev uygulamanızı sağlar.
+
+> [!NOTE]
+> Bu ayar için bir önizleme özelliğidir.
+
+|Anahtar|Örnek değer|
+|---|------------|
+|WEB SİTESİ\_ÇALIŞTIRMA\_FROM\_ZIP|1|
+
+Geçerli değerler için bir dağıtım paket dosyası konumunu çözümleyen ya da bir URL veya `1`. Ayarlandığında `1`, paket olmalıdır `d:\home\data\SitePackages` klasör. Zip dağıtımı Bu ayar ile kullanıldığında, paketi bu konuma otomatik olarak yüklenir.  Daha fazla bilgi için [paket dosyasından işlevlerinizin çalıştığı](run-functions-from-deployment-package.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

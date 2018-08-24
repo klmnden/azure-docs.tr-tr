@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 93c532cf2864db28b580303ecefec8b6dbed65f6
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: bfd63262a1d5568223b4e4077e2f8c987b7ec0d4
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257768"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746745"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-using-the-azure-portal"></a>Sanal Makine Yapılandırma Yönetilen hizmet kimliği Azure portalını kullanarak ölçek kümesi
 
@@ -27,10 +27,7 @@ ms.locfileid: "39257768"
 
 Yönetilen hizmet kimliği Azure Active Directory'de otomatik olarak yönetilen bir kimlikle Azure hizmetleri sağlar. Bu kimlik, Azure AD kimlik doğrulaması, kimlik bilgilerini kodunuzda zorunda kalmadan destekleyen herhangi bir hizmeti kimlik doğrulaması için kullanabilirsiniz. 
 
-Bu makalede, Azure portalını kullanarak nasıl etkinleştirileceği ve sistem tarafından atanan kimlik için bir sanal makine ölçek kümesi devre dışı öğreneceksiniz. Şu anda Azure portalı üzerinden atama ve kullanıcı tarafından atanan kimlikleri bir Azure sanal makine ölçek kümesinden kaldırılması desteklenmiyor.
-
-> [!NOTE]
-> Şu anda, kullanıcı tarafından atanan kimlik işlemleri desteklenmez Azure Portal aracılığıyla. Güncelleştirmeler için sonra yeniden denetleyin.
+Bu makalede, sistem ve kullanıcı tarafından atanan kimliği için Azure portalını kullanarak bir sanal makine ölçek kümesi devre öğrenin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -39,17 +36,19 @@ Bu makalede, Azure portalını kullanarak nasıl etkinleştirileceği ve sistem 
 - Bu makalede yönetim işlemlerini gerçekleştirmek için aşağıdaki rol ataması hesabınızın gerekir:
     - [Sanal makine Katılımcısı](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) etkinleştirmek ve sistem tarafından yönetilen kimlik atanan bir sanal makine ölçek kümesinden kaldırmak için.
 
-## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Bir Azure sanal makine ölçek kümesi oluşturulması sırasında yönetilen hizmet kimliği
+## <a name="system-assigned-identity"></a>Sistem tarafından atanan kimlik 
 
-Şu anda, VM oluşturma Azure portal aracılığıyla yönetilen hizmet kimliği işlemlerini desteklemiyor. Bunun yerine, lütfen öncelikle bir Azure sanal makine ölçek kümesi oluşturmak için aşağıdaki Azure sanal makine ölçek kümesi oluşturma Hızlı başlangıcı makaleye başvurun:
+Bu bölümde, etkinleştirme ve devre dışı sistem tarafından atanan kimliği Azure portalını kullanarak bir sanal makine ölçek kümesi üzerinde öğreneceksiniz.
+
+### <a name="enable-system-assigned-identity-during-creation-of-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesi oluşturma sırasında sistem tarafından atanan kimlik etkinleştir
+
+Şu anda Azure portalında sanal makine ölçek kümesi oluşturma sırasında atanan kimliği etkinleştirme sistem desteklemez. Bunun yerine, önce bir sanal makine ölçek kümesi oluşturun ve sistem tarafından atanan bir sanal makine ölçek kümesi kimliğini etkinleştirme hakkında daha fazla ayrıntı için sonraki bölüme devam etmek için aşağıdaki sanal makine ölçek kümesi oluşturma Hızlı Başlangıç makalesi bakın:
 
 - [Azure portalını kullanarak bir sanal makine ölçek kümesi oluşturma](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
-Ardından sanal makine ölçek kümesinde yönetilen hizmet kimliği etkinleştirme hakkında daha fazla ayrıntı için sonraki bölüme devam edin.
+### <a name="enable-system-assigned-identity-on-an-existing-virtual-machine-scale-set"></a>Sistem tarafından atanan kimliği var olan bir sanal makine ölçek kümesi üzerinde etkinleştir
 
-## <a name="enable-managed-service-identity-on-an-existing-azure-vmms"></a>Mevcut bir Azure VMMS üzerinde yönetilen hizmet kimliğini etkinleştirme
-
-Sistem tarafından atanan kimliği olmadan ilk olarak sağlanan bir VM üzerinde etkinleştirmek için:
+Sistem tarafından atanan kimliği olmadan ilk olarak sağlanan bir sanal makine ölçek kümesi üzerinde etkinleştirmek için:
 
 1. Oturum [Azure portalında](https://portal.azure.com) sanal makine ölçek kümesi içeren Azure aboneliği ile ilişkili bir hesap kullanarak.
 
@@ -59,9 +58,9 @@ Sistem tarafından atanan kimliği olmadan ilk olarak sağlanan bir VM üzerinde
 
    [![Yapılandırma sayfasında ekran görüntüsü](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
-## <a name="remove-managed-service-identity-from-an-azure-virtual-machine-scale-set"></a>Yönetilen hizmet kimliği bir Azure sanal makine ölçek kümesinden Kaldır
+### <a name="remove-system-assigned-identity-from-a-virtual-machine-scale-set"></a>Sistem tarafından atanan kimlik bir sanal makine ölçek kümesinden Kaldır
 
-Bir yönetilen hizmet kimliği artık gerektiren bir sanal makine ölçek kümesi varsa:
+Bir sanal makine ölçek kümesi artık varsa bir sistem tarafından atanan kimlik gerekir:
 
 1. Oturum [Azure portalında](https://portal.azure.com) sanal makine ölçek kümesi içeren Azure aboneliği ile ilişkili bir hesap kullanarak. Ayrıca hesabınız sunan bir role ait olduğundan emin olun sanal makine ölçek kümesi üzerinde yazma izinleri.
 
@@ -69,7 +68,36 @@ Bir yönetilen hizmet kimliği artık gerektiren bir sanal makine ölçek kümes
 
 3. "Yönetilen hizmet kimliği" altında "Hayır" seçerek atanan sanal makine kimliği sistemi devre dışı bırakın, sonra Kaydet'e tıklayın. Bu işlemi tamamlamak için 60 saniye veya daha fazlasını gerçekleştirebilirsiniz:
 
-   ![Yapılandırma sayfasında ekran görüntüsü](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
+   ![Yapılandırma sayfasında ekran görüntüsü](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)
+
+## <a name="user-assigned-identity"></a>Kullanıcı tarafından atanan kimliği
+
+Bu bölümde, bir kullanıcı tarafından atanan kimliği Azure portalını kullanarak bir sanal makine ölçek kümesinden ekleyip öğrenin.
+
+### <a name="assign-a-user-assigned-identity-during-the-creation-of-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesi oluşturma sırasında bir kullanıcıya atanan kimlik atama
+
+Şu anda Azure portalında bir kullanıcı tarafından atanan kimliği bir sanal makine ölçek kümesi oluşturma sırasında atama desteklemez. Bunun yerine, önce bir sanal makine ölçek kümesi oluşturun ve bir kullanıcı tarafından atanan kimliği atama ile ilgili ayrıntılar için sonraki bölüme geçmek için aşağıdaki sanal makine ölçek kümesi oluşturma Hızlı Başlangıç makalesi bakın:
+
+- [Azure portalını kullanarak bir sanal makine ölçek kümesi oluşturma](../../virtual-machine-scale-sets/quick-create-portal.md)
+
+### <a name="assign-a-user-assigned-identity-to-an-existing-virtual-machine-scale-set"></a>Bir kullanıcı tarafından atanan kimliği mevcut bir sanal makine ölçek kümesine atama
+
+1. Oturum [Azure portalında](https://portal.azure.com) sanal makine ölçek kümesi içeren Azure aboneliği ile ilişkili bir hesap kullanarak.
+2. İstenen sanal makine ölçek kümesine gelin ve tıklayın **kimlik**, **kullanıcıya atanan** ardından  **\+Ekle**.
+
+   ![VMSS için kullanıcı tarafından atanan kimliği Ekle](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
+
+3. Sanal makine ölçek kümesine ekleyin ve ardından istediğiniz kullanıcı tarafından atanan kimliği tıklatın **Ekle**.
+   
+   ![VMSS için kullanıcı tarafından atanan kimliği Ekle](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot2.png)
+
+### <a name="remove-a-user-assigned-identity-from-a-virtual-machine-scale-set"></a>Bir kullanıcı tarafından atanan kimliği bir sanal makine ölçek kümesinden Kaldır
+
+1. Oturum [Azure portalında](https://portal.azure.com) VM içeren Azure aboneliği ile ilişkili bir hesap kullanarak.
+2. İstenen sanal makine ölçek kümesine gelin ve tıklayın **kimlik**, **kullanıcıya atanan**, silin ve ardından istediğiniz kullanıcı tarafından atanan kimlik adı **Kaldır** () tıklayın **Evet** onay bölmesinde).
+
+   ![Kullanıcı tarafından atanan kimliği bir VMSS kaldırın](./media/msi-qs-configure-portal-windows-vm/remove-user-assigned-identity-vmss-screenshot.png)
+
 
 ## <a name="related-content"></a>İlgili İçerik
 

@@ -1,141 +1,171 @@
-
+---
+author: conceptdev
+ms.author: crdun
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.openlocfilehash: 87514a139c097ebec3804c8c5ff82a1a21ccdd8c
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42811572"
+---
 **Objective-C**:
 
-1. İçinde **QSAppDelegate.m**, iOS SDK'sı Al ve **QSTodoService.h**:
-   
-        #import <MicrosoftAzureMobile/MicrosoftAzureMobile.h>
-        #import "QSTodoService.h"
-2. İçinde `didFinishLaunchingWithOptions` içinde **QSAppDelegate.m**, aşağıdaki satırları önceki INSERT `return YES;`:
-   
-        UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
-        [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
-        [[UIApplication sharedApplication] registerForRemoteNotifications];
-3. İçinde **QSAppDelegate.m**, aşağıdaki işleyici yöntemleri ekleyin. Uygulamanıza anında iletme bildirimlerini desteklemek üzere güncelleştirilmiştir. 
-   
-        // Registration with APNs is successful
-        - (void)application:(UIApplication *)application
-        didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-   
-            QSTodoService *todoService = [QSTodoService defaultService];
-            MSClient *client = todoService.client;
-   
-            [client.push registerDeviceToken:deviceToken completion:^(NSError *error) {
-                if (error != nil) {
-                    NSLog(@"Error registering for notifications: %@", error);
-                }
-            }];
-        }
-   
-        // Handle any failure to register
-        - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:
-        (NSError *)error {
-            NSLog(@"Failed to register for remote notifications: %@", error);
-        }
-   
-        // Use userInfo in the payload to display an alert.
-        - (void)application:(UIApplication *)application
-              didReceiveRemoteNotification:(NSDictionary *)userInfo {
-            NSLog(@"%@", userInfo);
-   
-            NSDictionary *apsPayload = userInfo[@"aps"];
-            NSString *alertString = apsPayload[@"alert"];
-   
-            // Create alert with notification content.
-            UIAlertController *alertController = [UIAlertController
-                                          alertControllerWithTitle:@"Notification"
-                                          message:alertString
-                                          preferredStyle:UIAlertControllerStyleAlert];
-   
-            UIAlertAction *cancelAction = [UIAlertAction
-                                           actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel")
-                                           style:UIAlertActionStyleCancel
-                                           handler:^(UIAlertAction *action)
-                                           {
-                                               NSLog(@"Cancel");
-                                           }];
-   
-            UIAlertAction *okAction = [UIAlertAction
-                                       actionWithTitle:NSLocalizedString(@"OK", @"OK")
-                                       style:UIAlertActionStyleDefault
-                                       handler:^(UIAlertAction *action)
-                                       {
-                                           NSLog(@"OK");
-                                       }];
-   
-            [alertController addAction:cancelAction];
-            [alertController addAction:okAction];
-   
-            // Get current view controller.
-            UIViewController *currentViewController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
-            while (currentViewController.presentedViewController)
-            {
-                currentViewController = currentViewController.presentedViewController;
+1. İçinde **QSAppDelegate.m**, iOS SDK'sını alın ve **QSTodoService.h**:
+
+    ```objc
+    #import <MicrosoftAzureMobile/MicrosoftAzureMobile.h>
+    #import "QSTodoService.h"
+    ```
+
+2. İçinde `didFinishLaunchingWithOptions` içinde **QSAppDelegate.m**, aşağıdaki satırları hemen önce INSERT `return YES;`:
+
+    ```objc
+    UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+    ```
+
+3. İçinde **QSAppDelegate.m**, aşağıdaki işleyici yöntemleri ekleyin. Uygulamanızı anında iletme bildirimlerini desteklemek için güncelleştirilmiştir. 
+
+    ```objc
+    // Registration with APNs is successful
+    - (void)application:(UIApplication *)application
+    didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+
+        QSTodoService *todoService = [QSTodoService defaultService];
+        MSClient *client = todoService.client;
+
+        [client.push registerDeviceToken:deviceToken completion:^(NSError *error) {
+            if (error != nil) {
+                NSLog(@"Error registering for notifications: %@", error);
             }
-   
-            // Display alert.
-            [currentViewController presentViewController:alertController animated:YES completion:nil];
-   
+        }];
+    }
+
+    // Handle any failure to register
+    - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:
+    (NSError *)error {
+        NSLog(@"Failed to register for remote notifications: %@", error);
+    }
+
+    // Use userInfo in the payload to display an alert.
+    - (void)application:(UIApplication *)application
+            didReceiveRemoteNotification:(NSDictionary *)userInfo {
+        NSLog(@"%@", userInfo);
+
+        NSDictionary *apsPayload = userInfo[@"aps"];
+        NSString *alertString = apsPayload[@"alert"];
+
+        // Create alert with notification content.
+        UIAlertController *alertController = [UIAlertController
+                                        alertControllerWithTitle:@"Notification"
+                                        message:alertString
+                                        preferredStyle:UIAlertControllerStyleAlert];
+
+        UIAlertAction *cancelAction = [UIAlertAction
+                                        actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel")
+                                        style:UIAlertActionStyleCancel
+                                        handler:^(UIAlertAction *action)
+                                        {
+                                            NSLog(@"Cancel");
+                                        }];
+
+        UIAlertAction *okAction = [UIAlertAction
+                                    actionWithTitle:NSLocalizedString(@"OK", @"OK")
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction *action)
+                                    {
+                                        NSLog(@"OK");
+                                    }];
+
+        [alertController addAction:cancelAction];
+        [alertController addAction:okAction];
+
+        // Get current view controller.
+        UIViewController *currentViewController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+        while (currentViewController.presentedViewController)
+        {
+            currentViewController = currentViewController.presentedViewController;
         }
 
-**SWIFT**:
+        // Display alert.
+        [currentViewController presentViewController:alertController animated:YES completion:nil];
 
-1. Dosya ekleme **ClientManager.swift** aşağıdaki içeriğe sahip. Değiştir *AppUrl %* Azure mobil uygulama arka uç URL'si ile.
-   
-        class ClientManager {
-            static let sharedClient = MSClient(applicationURLString: "%AppUrl%")
+    }
+    ```
+
+**Swift**:
+
+1. Dosya ekleme **ClientManager.swift** aşağıdaki içeriğe sahip. Değiştirin *AppUrl %* Azure mobil uygulaması arka uç URL'si ile.
+
+    ```swift
+    class ClientManager {
+        static let sharedClient = MSClient(applicationURLString: "%AppUrl%")
+    }
+    ```
+
+2. İçinde **ToDoTableViewController.swift**, değiştirin `let client` başlatır satırı bir `MSClient` bu satırı ile:
+
+    ```swift
+    let client = ClientManager.sharedClient
+    ```
+
+3. İçinde **AppDelegate.swift**, gövdesinin yerini `func application` gibi:
+
+    ```swift
+    func application(application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        application.registerUserNotificationSettings(
+            UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound],
+                categories: nil))
+        application.registerForRemoteNotifications()
+        return true
+    }
+    ```
+
+4. İçinde **AppDelegate.swift**, aşağıdaki işleyici yöntemleri ekleyin. Uygulamanızı anında iletme bildirimlerini desteklemek için güncelleştirilmiştir.
+
+    ```swift
+    func application(application: UIApplication,
+        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        ClientManager.sharedClient.push?.registerDeviceToken(deviceToken) { error in
+            print("Error registering for notifications: ", error?.description)
         }
-2. İçinde **ToDoTableViewController.swift**, yerine `let client` başlatır satır bir `MSClient` bu satırı ile:
-   
-        let client = ClientManager.sharedClient
-3. İçinde **AppDelegate.swift**, gövdesini değiştirin `func application` gibi:
-   
-        func application(application: UIApplication,
-          didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-           application.registerUserNotificationSettings(
-               UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound],
-                   categories: nil))
-           application.registerForRemoteNotifications()
-           return true
+    }
+
+    func application(application: UIApplication,
+        didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        print("Failed to register for remote notifications: ", error.description)
+    }
+
+    func application(application: UIApplication,
+        didReceiveRemoteNotification userInfo: [NSObject: AnyObject]) {
+
+        print(userInfo)
+
+        let apsNotification = userInfo["aps"] as? NSDictionary
+        let apsString       = apsNotification?["alert"] as? String
+
+        let alert = UIAlertController(title: "Alert", message: apsString, preferredStyle: .Alert)
+        let okAction = UIAlertAction(title: "OK", style: .Default) { _ in
+            print("OK")
         }
-4. İçinde **AppDelegate.swift**, aşağıdaki işleyici yöntemleri ekleyin. Uygulamanıza anında iletme bildirimlerini desteklemek üzere güncelleştirilmiştir.
-   
-        func application(application: UIApplication,
-           didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-            ClientManager.sharedClient.push?.registerDeviceToken(deviceToken) { error in
-                print("Error registering for notifications: ", error?.description)
-            }
-        }
-   
-        func application(application: UIApplication,
-           didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-            print("Failed to register for remote notifications: ", error.description)
-        }
-   
-        func application(application: UIApplication,
-           didReceiveRemoteNotification userInfo: [NSObject: AnyObject]) {
-   
-            print(userInfo)
-   
-            let apsNotification = userInfo["aps"] as? NSDictionary
-            let apsString       = apsNotification?["alert"] as? String
-   
-            let alert = UIAlertController(title: "Alert", message: apsString, preferredStyle: .Alert)
-            let okAction = UIAlertAction(title: "OK", style: .Default) { _ in
-                print("OK")
-            }
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { _ in
-                print("Cancel")
-            }
-   
-            alert.addAction(okAction)
-            alert.addAction(cancelAction)
-   
-            var currentViewController = self.window?.rootViewController
-            while currentViewController?.presentedViewController != nil {
-                currentViewController = currentViewController?.presentedViewController
-            }
-   
-            currentViewController?.presentViewController(alert, animated: true) {}
-   
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { _ in
+            print("Cancel")
         }
 
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+
+        var currentViewController = self.window?.rootViewController
+        while currentViewController?.presentedViewController != nil {
+            currentViewController = currentViewController?.presentedViewController
+        }
+
+        currentViewController?.presentViewController(alert, animated: true) {}
+
+    }
+    ```

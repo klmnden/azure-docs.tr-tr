@@ -1,6 +1,6 @@
 ---
-title: Azure Linux VM'ler için olayları zamanlanmış | Microsoft Docs
-description: Olaylar, Linux sanal makineleriniz için Azure meta veri hizmeti kullanarak zamanlayabilirsiniz.
+title: Azure'da Linux VM'ler için zamanlanmış olayları | Microsoft Docs
+description: Linux sanal makinelerinizi Azure meta veri hizmeti kullanarak olayları zamanlayın.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
@@ -15,97 +15,97 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: db4a0d1f288394276cd400e7a060cfb3662b34f0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f18892d32a385b41f3325623e21da1dd25af7253
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30912007"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42744716"
 ---
-# <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure meta veri hizmeti: Linux VM'ler için zamanlanmış olaylar
+# <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure meta veri hizmetine: Linux VM'ler zamanlanmış olaylar
 
-Zamanlanmış olaylar hizmettir bir Azure meta verileri, sanal makine (VM) bakımı için hazırlamak için uygulama zaman verir. Yaklaşan Bakımı olaylar hakkında bilgi sağlar (örneğin, yeniden başlatma) böylece uygulamanız için hazırlamak ve sınırlamak kesintisi. PaaS ve hem Windows hem de Linux Iaas dahil olmak üzere tüm Azure sanal makineleri türleri kullanılabilir. 
+Zamanlanmış olaylar, sanal makine (VM) bakım için hazırlamak için uygulama süresi sunan Azure meta veri hizmetidir. Yaklaşan bakımın olaylar hakkında bilgi sağlar (örneğin, yeniden başlatma) böylece uygulamanız için hazırlama ve sınırlamak kesilme. PaaS ve Iaas hem Windows hem de Linux da dahil olmak üzere tüm Azure sanal makine türleri için kullanılabilir. 
 
-Windows zamanlanan olaylar hakkında daha fazla bilgi için bkz: [zamanlanmış olaylar için Windows Vm'lerini](../windows/scheduled-events.md).
+Windows üzerinde zamanlanmış olaylar hakkında daha fazla bilgi için bkz. [zamanlanmış olayları için Windows Vm'leri](../windows/scheduled-events.md).
 
 > [!Note] 
-> Zamanlanmış olaylar tüm Azure bölgelerde genel olarak kullanılabilir. Bkz: [sürümü ve bölge kullanılabilirliği](#version-and-region-availability) en son sürüm bilgileri için.
+> Zamanlanmış olaylar tüm Azure bölgelerinde genel kullanıma sunuldu. Bkz: [sürümü ve bölge kullanılabilirliği](#version-and-region-availability) en son sürüm bilgileri için.
 
-## <a name="why-use-scheduled-events"></a>Zamanlanmış olayları neden kullanılır?
+## <a name="why-use-scheduled-events"></a>Zamanlanmış olaylar neden kullanmalısınız?
 
-Birçok uygulama, VM bakım için hazırlama zamandan yararlı olabilir. Zamanı kullanılabilirliği, güvenilirlik ve Bakım yapılabilirliğini, geliştirmek uygulamaya özgü görevleri gerçekleştirmek için kullanılabilir dahil olmak üzere: 
+Birçok uygulama, sanal makine bakım için hazırlanmanıza zamandan yararlı olabilir. Zaman kullanılabilirliği, güvenilirlik ve Bakım yapılabilirliğini, geliştirmek, uygulamaya özgü görevleri gerçekleştirmek için kullanılabilir dahil olmak üzere: 
 
 - Denetim noktası ve geri yükleme.
 - Bağlantı boşaltma.
-- Birincil çoğaltma yük devri.
+- Birincil çoğaltma yük devretme.
 - Bir yük dengeleyici havuzu kaldırma.
 - Olay günlüğü.
 - Normal şekilde kapatılmasını.
 
-Zamanlanmış olaylarla uygulamanızı bakım zaman ve ortaya etkisini sınırlamak için görevlerini tetikleyin bulabilir.  
+Zamanlanmış olaylar ile uygulamanız, bakım zaman ve ortaya etkisini sınırlamak için görevlerini tetikleyin bulabilir.  
 
-Zamanlanmış olayları aşağıdaki kullanım durumlarda olayları sağlar:
+Zamanlanmış olaylar, olayları aşağıdaki kullanım örnekleri sağlar:
 
-- Platform tarafından başlatılan Bakım (örneğin, bir ana bilgisayar işletim sistemi güncelleştirmesi)
-- Kullanıcı tarafından başlatılan Bakım (örneğin, bir kullanıcının yeniden başlatır veya bir VM'yi yeniden dağıtır)
+- Platform tarafından başlatılan Bakım (örneğin, bir konak işletim sistemi güncelleştirmesi)
+- Kullanıcı tarafından başlatılan Bakım (örneğin, bir kullanıcı yeniden başlatır veya bir sanal makine yeniden dağıtır)
 
-## <a name="the-basics"></a>Temel kavramları  
+## <a name="the-basics"></a>Temel bilgileri  
 
-  Meta veri hizmeti VM içinden erişilebilir bir REST uç noktasını kullanarak sanal makineleri çalıştırma hakkında bilgi gösterir. Böylece dışında VM gösterilmeyen bilgileri nonroutable IP kullanılabilir.
+  Meta veri hizmeti VM içinden erişilebilir bir REST uç noktasını kullanarak Vm'leri çalıştırma hakkında bilgi gösterir. Böylece VM dışında gösterilmez, bilgileri bir nonroutable IP kullanılabilir.
 
 ### <a name="scope"></a>Kapsam
-Zamanlanmış olayları teslim edilir:
+Zamanlanmış olaylar teslim edilir:
 
-- Tüm sanal makineleri bir bulut hizmetinde.
-- Tüm sanal makineleri bir kullanılabilirlik kümesinde.
-- Tüm sanal makineleri bir ölçek kümesi yerleştirme grubunda. 
+- Tüm VM'lerin bir bulut hizmetinde.
+- Tüm VM'lerin bir kullanılabilirlik kümesinde.
+- Tüm VM'lerin bir ölçek kümesi yerleştirme grubu. 
 
-Sonuç olarak, denetleme `Resources` hangi VM'ler etkilenir tanımlamak için olay alanındaki.
+Sonuç olarak, kontrol `Resources` hangi sanal makinelerin etkilendiğini belirlemek için olay alan.
 
 ### <a name="endpoint-discovery"></a>Uç nokta bulma
-VNET VM'ler etkin için meta veri hizmeti statik nonroutable IP'den kullanılabilir `169.254.169.254`. Zamanlanmış olayları en son sürümü için tam uç noktadır: 
+VNET özellikli VM'ler için bir statik nonroutable IP'den meta veri hizmeti kullanılabilir `169.254.169.254`. Zamanlanmış olaylar en son sürümü için tam uç noktadır: 
 
  > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
 
-Bulut Hizmetleri ve klasik sanal makineleri için varsayılan durumlar bir sanal ağ içinde VM oluşturulmamışsa ek mantık kullanılacak IP adresini bulmak için gereklidir. Bilgi edinmek için nasıl [konak uç noktası bulunamadı](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm), bu örnek bakın.
+Bir sanal ağdaki bulut Hizmetleri ve klasik VM'ler, varsayılan durumlarda VM oluşturulmamışsa ek mantık kullanılacak IP adresini bulmak için gereklidir. Bilgi edinmek için nasıl [konak son noktasını Bul](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm), bu örneğe bakın.
 
 ### <a name="version-and-region-availability"></a>Sürümü ve bölge kullanılabilirliği
-Zamanlanmış olayları sürümlü bir hizmettir. Sürümleri zorunludur; Geçerli sürüm `2017-08-01`.
+Zamanlanmış olaylar olarak tutulan hizmetidir. Sürümleri zorunludur; geçerli sürümü `2017-08-01`.
 
 | Sürüm | Yayın türü | Bölgeler | Sürüm Notları | 
 | - | - | - | - | 
-| 2017-08-01 | Genel Erişilebilirlik | Tümü | <li> Iaas VM'ler için kaynak adları alt çizgi $a kaldırıldı<br><li>Tüm istekler için zorlanan meta verileri üstbilgi gereksinimi | 
+| 2017-08-01 | Genel Erişilebilirlik | Tümü | <li> Iaas Vm'leri için kaynak adları alt çizgi başına kaldırıldı<br><li>Tüm istekler için zorlanan meta veri üst bilgisi gereksinimi | 
 | 2017-03-01 | Önizleme | Tümü | <li>İlk yayın
 
 
 > [!NOTE] 
-> Önceki Önizleme sürümleri zamanlanmış {son} API sürümü desteklenen olaylar. Bu biçim artık desteklenmemektedir ve gelecekte kullanım dışı kalacaktır.
+> Önceki Önizleme sürümlerinde zamanlanmış api-version {son} desteklenen olaylar. Bu biçim, artık desteklenmemektedir ve gelecekte kullanım dışı bırakılacaktır.
 
-### <a name="enabling-and-disabling-scheduled-events"></a>Olayları zamanlanmış etkinleştirme ve devre dışı bırakma
-Zamanlanmış olaylar olayları istekte hizmet ilk zaman için etkindir. Gecikmeli yanıt iki dakika içinde ilk çağrıda beklemelisiniz.
+### <a name="enabling-and-disabling-scheduled-events"></a>Zamanlanmış olaylar etkinleştirme ve devre dışı bırakma
+Zamanlanmış olaylar, olaylar için bir istekte hizmeti ilk zaman için etkindir. İlk iki dakikaya kadar çağrınızda Gecikmeli yanıt beklemelisiniz.
 
 Zamanlanmış olaylar 24 saat için bir istek yapmadığında hizmetiniz için dışıdır.
 
 ### <a name="user-initiated-maintenance"></a>Kullanıcı tarafından başlatılan bakım
-Azure portal, API, CLI veya PowerShell aracılığıyla kullanıcı tarafından başlatılan VM bakım zamanlanmış bir olayı sonuçlanır. Uygulamanızda bakım hazırlık mantığı sınayabilir ve uygulamanız için kullanıcı tarafından başlatılan bakım hazırlayabilirsiniz.
+Azure portalı, API, CLI veya PowerShell aracılığıyla kullanıcı tarafından başlatılan VM bakımını zamanlanmış bir olayı oluşur. Bakım hazırlık mantıksal uygulamanızı sınayabilir ve uygulamanız için kullanıcı tarafından başlatılan bakım hazırlayabilirsiniz.
 
-Bir olay türüne sahip bir VM yeniden başlatma durumunda `Reboot` zamanlandı. Bir VM türüne sahip bir olay dağıtmanız durumunda `Redeploy` zamanlandı.
+Bir olay türüne sahip bir VM'yi yeniden başlatın, `Reboot` zamanlandı. Bir olay türüne sahip bir VM varsa yeniden `Redeploy` zamanlandı.
 
 ## <a name="use-the-api"></a>API kullanın
 
 ### <a name="headers"></a>Üst bilgiler
-Meta veri hizmeti sorguladığınızda başlık sağlamalısınız `Metadata:true` istek değildi kasıtsız olarak yeniden yönlendirilen emin olmak için. `Metadata:true` Üstbilgisi tüm zamanlanmış olaylar istekler için gereklidir. Hata istek üstbilgisini meta veri hizmetinden "Hatalı istek" yanıt sonuçlanır.
+Meta veri hizmetini sorgulama, başlık sağlamalısınız `Metadata:true` istek değildi yanlışlıkla yeniden yönlendirilen emin olmak için. `Metadata:true` Üstbilgi tüm zamanlanmış olaylar istekler için gereklidir. Meta veri hizmetinden "Hatalı istek" yanıt üstbilgisini istekte hatası sonuçlanır.
 
-### <a name="query-for-events"></a>Olaylar için sorgu
-Aşağıdaki çağrıyı yaparak zamanlanmış olaylar için sorgulama yapabilirsiniz:
+### <a name="query-for-events"></a>Sorgu olayları
+Zamanlanmış olaylar için aşağıdaki çağrıyı yaparak sorgulayabilirsiniz:
 
 #### <a name="bash"></a>Bash
 ```
 curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
-Bir yanıt zamanlanmış olaylar dizisini içerir. Boş bir dizi şu anda hiçbir olay zamanlandığını anlamına gelir.
-Durumda Zamanlanmış olaylar olduğu yanıtı olaylar dizisini içerir. 
+Yanıt, zamanlanmış olaylar dizisini içerir. Boş bir dizi, şu anda hiçbir olay zamanlandığını anlamına gelir.
+Bu durumda Zamanlanmış olaylar olduğunda, bir dizi olay yanıtı içerir. 
 ```
 {
     "DocumentIncarnation": {IncarnationID},
@@ -125,17 +125,17 @@ Durumda Zamanlanmış olaylar olduğu yanıtı olaylar dizisini içerir.
 ### <a name="event-properties"></a>Olay Özellikleri
 |Özellik  |  Açıklama |
 | - | - |
-| EventId | Bu olay için genel benzersiz tanımlayıcı. <br><br> Örnek: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| Olay türü | Bu olaya neden olan etkisi. <br><br> Değerler: <br><ul><li> `Freeze`: VM birkaç saniye duraklatmak için zamanlandı. CPU askıya alındı, ancak bellek, açık dosyalar ya da ağ bağlantıları üzerinde hiçbir etkisi yoktur. <li>`Reboot`: VM yeniden başlatma için zamanlanır. (Kalıcı olmayan bellek kaybolur.) <li>`Redeploy`: VM başka bir düğüme taşımak üzere zamanlandı. (Kısa ömürlü diskleri kaybolur.) |
-| ResourceType | Bu olay etkiler kaynak türü. <br><br> Değerler: <ul><li>`VirtualMachine`|
-| Kaynaklar| Bu olay etkiler kaynakların listesi. Listenin en fazla bir makinelerden içeren garanti [güncelleştirme etki alanı](manage-availability.md), ancak tüm makinelerde UD içermeyebilir. <br><br> Örnek: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
-| EventStatus | Bu olay durumu. <br><br> Değerler: <ul><li>`Scheduled`: Bu olay belirtilen süre sonra başlayacak şekilde zamanlanırsa `NotBefore` özelliği.<li>`Started`: Bu olay başlatıldı.</ul> Hayır `Completed` veya benzer durumu hiç sağlanır. Olayın sona erdiğinde olay artık döndürülür.
-| NotBefore| Daha sonra bu olay başlangıç saati. <br><br> Örnek: <br><ul><li> Mon, 19 Sep 2016 18:29:47 GMT  |
+| EventID | Bu olay için genel benzersiz tanımlayıcı. <br><br> Örnek: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
+| EventType | Bu olaya neden olan etkisi. <br><br> Değerler: <br><ul><li> `Freeze`: Birkaç saniye için duraklatır VM planlanmaktadır. CPU askıya alındı, ancak bellek, açık dosyalar ve ağ bağlantıları üzerinde hiçbir etkisi yoktur. <li>`Reboot`: Sanal makine için yeniden başlatma zamanlanır. (Kalıcı bellek kaybolur.) <li>`Redeploy`: VM, başka bir düğüme taşımak için zamanlandı. (Kısa ömürlü diskleri kaybolur.) |
+| ResourceType | Bu olayın etkileyen kaynak türü. <br><br> Değerler: <ul><li>`VirtualMachine`|
+| Kaynaklar| Bu olayın etkileyen kaynakların listesi. Listenin en fazla bir makinelerden içeren garanti [güncelleme etki alanı](manage-availability.md), ancak tüm makinelerde UD içermeyebilir. <br><br> Örnek: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| EventStatus | Bu olay durumu. <br><br> Değerler: <ul><li>`Scheduled`: Bu olay, belirtilen süre geçtikten sonra başlatmak için zamanlanmış `NotBefore` özelliği.<li>`Started`: Bu olayı başlatıldı.</ul> Hayır `Completed` veya benzer durum hiç olmadığı kadar sağlanır. Olay, olay sona erdiğinde artık döndürülür.
+| notBefore| Saat sonra bu olay başlayabilirsiniz. <br><br> Örnek: <br><ul><li> Pzt, 19 Eylül 2016 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>Olay planlama
-Her olay zamanlanmış bir minimum süre gelecekte olay türüne bağlı. Bu süre bir olayın içinde yansıtılır `NotBefore` özelliği. 
+Her olay zamanlanmış bir minimum süre gelecekte olay türüne dayalı. Bu süre, bir olayın içinde yansıtılır `NotBefore` özelliği. 
 
-|Olay türü  | Minimum dikkat edin |
+|EventType  | En düşük bildirimi |
 | - | - |
 | Dondurma| 15 dakika |
 | Yeniden başlatma | 15 dakika |
@@ -143,9 +143,9 @@ Her olay zamanlanmış bir minimum süre gelecekte olay türüne bağlı. Bu sü
 
 ### <a name="start-an-event"></a>Bir olayı Başlat 
 
-Yaklaşan olay öğrenin ve mantığınızı normal olarak kapatmak için Son'u sonra yaparak bekleyen olay onaylayabilirsiniz bir `POST` çağrısı ile meta veri hizmetine `EventId`. Bu çağrı için Azure minimum bildirim kısaltabilir gösterir (uygunsa) süresi. 
+Yaklaşan bir etkinlik öğrenin ve mantığınızı kapatılmasını için son sonra yaparak bekleyen olay onaylayabilirsiniz bir `POST` ile meta veri hizmetine çağrı `EventId`. En düşük bildirim kısaltabilir Azure'a bu çağrıyı gösterir (uygun olduğunda) saat. 
 
-Aşağıdaki JSON örneği bekleniyor `POST` iste gövde. İstek listesi içermelidir `StartRequests`. Her `StartRequest` içeren `EventId` hızlandırmak istediğiniz olayı için:
+Aşağıdaki JSON örneği bekleniyor `POST` istek gövdesi. İstek bir listesini içermelidir `StartRequests`. Her `StartRequest` içeren `EventId` hızlandırmak istediğiniz olayı için:
 ```
 {
     "StartRequests" : [
@@ -156,17 +156,17 @@ Aşağıdaki JSON örneği bekleniyor `POST` iste gövde. İstek listesi içerme
 }
 ```
 
-#### <a name="bash-sample"></a>Bash örnek
+#### <a name="bash-sample"></a>Örnek bash
 ```
-curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
+curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 > [!NOTE] 
-> Bir olay aktarımının sağlayan tüm devam etmek olay `Resources` olay bildirir yalnızca VM durumunda. Bu nedenle, ilk makine olarak kadar basit olabilir bildirim koordine etmek için bir kılavuz seçmediğiniz seçebileceğiniz `Resources` alan.
+> Bir olay sıkan sağlar tüm devam etmek olay `Resources` değil yalnızca sanal Makinenin, olay edilemeyeceğini durumunda. Bu nedenle, ilk makine olarak basit olabilir bildirim koordine etmek için bir öncü seçmesi seçebilirsiniz `Resources` alan.
 
 ## <a name="python-sample"></a>Python örneği 
 
-Aşağıdaki örnek, zamanlanmış olaylar için meta veri hizmeti sorgular ve her bekleyen olay onaylar:
+Aşağıdaki örnek, zamanlanmış olaylar için meta veri hizmeti sorguları ve her bir bekleyen olay onaylar:
 
 ```python
 #!/usr/bin/python
@@ -210,7 +210,7 @@ if __name__ == '__main__':
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar 
-- Gözcü [zamanlanmış olayları Cuma azure'da](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) bir demo görmek için. 
-- Zamanlanmış olayları kod örnekleri gözden [Azure örneği meta verileri zamanlanmış olayları Github deposunu](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
-- Daha fazla kullanılabilir olan API hakkında bilgi edinin [örneği meta veri hizmeti](instance-metadata-service.md).
-- Hakkında bilgi edinin [planlı bakım için Linux sanal makineleri azure'da](planned-maintenance.md).
+- İzleme [zamanlanmış olaylar Azure Friday'de](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) tanıtımını görmek için. 
+- Zamanlanmış olaylar kod örnekleri gözden [Azure örnek meta veri zamanlanmış olayları Github deposu](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
+- Daha fazla kullanılabilir API'leri hakkında bilgi edinin [örnek meta veri hizmeti](instance-metadata-service.md).
+- Hakkında bilgi edinin [azure'da Linux sanal makineleri için planlı Bakımı](planned-maintenance.md).

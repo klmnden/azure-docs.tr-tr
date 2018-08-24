@@ -4,25 +4,26 @@ description: Bir genel bakış ve önkoşullar geçiş özelliği sağlar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: jeconnoc
+manager: twooley
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/11/2017
+ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 378eaea4c0cf19c48f47067e4f548f2d7f530377
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 23fde5fab8f223ff1d958a8fac6a31818f1fdd7c
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856697"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818925"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>8000 serisi cihaz için StorSimple 5000-7000 serisinden veri geçirme
 
 > [!IMPORTANT]
+> - 31 Temmuz 2019, StorSimple 5000/7000 Serisi (EOS) destek durumu sonuna ulaşacak. StorSimple 5000/7000 Serisi müşteriler belgede açıklanan alternatifleri birine geçiş öneririz.
 > - Geçişi şu anda destekli bir işlemdir. StorSimple 5000-7000 Serisi cihazınızın 8000 serisi cihazına veri geçirmeyi düşünüyorsanız, Microsoft Support geçiş zamanlamak gerekir. Microsoft Support sonra aboneliğiniz geçiş için etkinleştirir. Daha fazla bilgi için bkz. nasıl [bir destek bileti açın](storsimple-8000-contact-microsoft-support.md).
 > - Hizmet isteği dosya sonra birkaç hafta Geçiş Planı yürütmek ve gerçekten geçişi başlatmak için beklemeniz gerekebilir.
 > - Microsoft Support başvurmadan önce aws'de emin ve eksiksiz olması [geçiş önkoşulları](#migration-prerequisites) makalesinde gösterilir.

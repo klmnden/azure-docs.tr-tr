@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 08/22/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: e0c9708107139ec899cd5902a68ff90b57b741f7
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 4434b67393d34c3418e44e82681a586c268a37e5
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005928"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747005"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -438,14 +438,15 @@ Bu hata genellikle sunucu saatinin yanlış veya kimlik doğrulaması için kull
 1. Sertifikalar MMC ek bileşenini açın, bilgisayar hesabını seçin ve sonra da için sertifikalar (yerel bilgisayar) \Personal\Certificates gidin.
 2. İstemci kimlik doğrulama sertifikası süresinin dolması silin ve sertifikalar MMC ek bileşenini kapatın.
 3. Regedit açın ve kayıt defteri ServerSetting anahtarı silin: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync\ServerSetting
-4. Sunucuda aşağıdaki PowerShell komutlarını çalıştırın:
+4. Azure portalında depolama eşitleme hizmeti kayıtlı sunucuların bölümüne gidin. Süresi dolan sertifikanın sunucuya sağ tıklayın ve "Unregister sunucuya" tıklayın
+5. Sunucuda aşağıdaki PowerShell komutlarını çalıştırın:
 
     ```PowerShell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Reset-StorageSyncServer
     ```
 
-5. Sunucu (varsayılan konum C:\Program Files\Azure\StorageSyncAgent olduğu) ServerRegistration.exe çalıştırarak yeniden kaydettirin.
+6. Sunucu (varsayılan konum C:\Program Files\Azure\StorageSyncAgent olduğu) ServerRegistration.exe çalıştırarak yeniden kaydettirin.
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**Sunucu uç noktasını bulunduğu birim üzerinde disk alanı düşüktür.**  
 | | |
