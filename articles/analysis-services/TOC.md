@@ -34,6 +34,7 @@
 ### [Sunucu diğer adı yapılandırma](analysis-services-server-alias.md)
 ### [Ölçek genişletmeyi yapılandırma](analysis-services-scale-out.md)
 ### [Şirket içi veri ağ geçidini yükleme ve yapılandırma](analysis-services-gateway-install.md)
+### [Azure Sanal Ağı üzerindeki veri kaynakları için ağ geçidi kullanma](analysis-services-vnet-gateway.md)
 ### [Sunucu yönetme](analysis-services-manage.md)
 ### [Sunucu ölçümlerini izleme](analysis-services-monitor.md)
 ### [Tanılama günlüğüne kaydetmeyi ayarlama](analysis-services-logging.md)
