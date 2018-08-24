@@ -14,22 +14,25 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: crdun
-ms.openlocfilehash: 9e9f7aba49c53a1a6fcc611ed771f266eb49c883
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 557f6f6a6d4925ec167760455dfc67449582c05c
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38547184"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42811679"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Android uygulamanıza anında iletme bildirimleri ekleme
+
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Genel Bakış
+
 Bu öğreticide, anında iletme bildirimleri ekleme [Android Hızlı Başlangıç] anında iletme bildirimi kayıt eklenen her zaman cihaza gönderilir, böylece proje.
 
 İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, anında iletme bildirimi uzantı paketi gerekir. Daha fazla bilgi için [Azure Mobile Apps için .NET arka uç sunucu SDK'sı ile çalışma](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 Aşağıdakiler gerekir:
 
 * Projenizin arka uç bağlı olarak bir IDE:
@@ -40,37 +43,47 @@ Aşağıdakiler gerekir:
 * Tamamlamak [Android Hızlı Başlangıç].
 
 ## <a name="create-a-project-that-supports-firebase-cloud-messaging"></a>Firebase Cloud Messaging'i destekleyen bir proje oluşturma
+
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
 ## <a name="configure-a-notification-hub"></a>Bildirim hub’ını yapılandırma
+
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="configure-azure-to-send-push-notifications"></a>Anında iletme bildirimleri göndermek için Azure'ı yapılandırma
+
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
 
 ## <a name="enable-push-notifications-for-the-server-project"></a>Sunucu projesi için anında iletme bildirimlerini etkinleştirme
+
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
 ## <a name="add-push-notifications-to-your-app"></a>Uygulamanıza anında iletme bildirimleri ekleme
+
 Bu bölümde, istemci Android uygulamanızı anında iletme bildirimleri işlemek için güncelleştirin.
 
 ### <a name="verify-android-sdk-version"></a>Android SDK sürümünü doğrula
+
 [!INCLUDE [app-service-mobile-verify-android-sdk-version](../../includes/app-service-mobile-verify-android-sdk-version.md)]
 
 Sonraki adımınız, Google Play Hizmetleri yüklemektir. Firebase Cloud Messaging olan bazı en düşük API düzeyi gereksinimlerini geliştirme ve test amacıyla, hangi **minSdkVersion** özellik bildiriminde uygun olması gerekir.
 
-Eski bir cihazla sınıyorsanız başvurun [Firebase'i Android projenize ekleyin.] nasıl düşük, bu değer ayarlayabilir ve uygun şekilde ayarlanmış belirlemek için.
+Eski bir cihazla sınıyorsanız başvurun [Firebase'i Android projenize ekleyin] nasıl düşük, bu değer ayarlayabilir ve uygun şekilde ayarlanmış belirlemek için.
 
 ### <a name="add-firebase-cloud-messaging-to-the-project"></a>Firebase Cloud Messaging projeye Ekle
+
 [!INCLUDE [Add Firebase Cloud Messaging](../../includes/app-service-mobile-add-firebase-cloud-messaging.md)]
 
 ### <a name="add-code"></a>Kod ekleme
+
 [!INCLUDE [app-service-mobile-android-getting-started-with-push](../../includes/app-service-mobile-android-getting-started-with-push.md)]
 
 ## <a name="test-the-app-against-the-published-mobile-service"></a>Uygulamayı yayımlanan mobil hizmete karşı test etme
+
 Bir Android telefonla bir USB kablosuyla doğrudan ekleyerek veya öykünücüde sanal cihazı kullanarak uygulamayı test edebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Bu öğreticiyi tamamladığınıza göre aşağıdaki öğreticilerden birine açın etmeden göz önünde bulundurun:
 
 * [Android uygulamanıza kimlik doğrulaması ekleme](app-service-mobile-android-get-started-users.md).
@@ -80,4 +93,4 @@ Bu öğreticiyi tamamladığınıza göre aşağıdaki öğreticilerden birine a
 
 <!-- URLs -->
 [Android hızlı başlangıç]: app-service-mobile-android-get-started.md
-[Firebase'i Android projenize ekleyin.]:https://firebase.google.com/docs/android/setup
+[Firebase'i Android projenize ekleyin]:https://firebase.google.com/docs/android/setup

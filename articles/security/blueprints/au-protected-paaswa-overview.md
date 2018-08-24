@@ -6,14 +6,14 @@ author: meladie
 ms.assetid: 708aa129-b226-4e02-85c6-1f86e54564e4
 ms.service: security
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: a8d2eca785ad166aa4cff26bce876e41770a3427
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 7d200cfa6a529c33555a18cd6598183fedbfd2fc
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246164"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818282"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Azure güvenlik ve uyumluluk planı - PaaS Web uygulaması için Avustralya korumalı
 
@@ -36,7 +36,7 @@ Azure Active Directory ile Federasyon, kullanıcıların şirket içi kimlik bil
 
 Çözüm, müşterilerin bekleyen verilerin gizliliğini depolama hizmeti Şifrelemesi'ni kullanmak için yapılandırabilirsiniz Azure depolama hesapları kullanır. Azure dayanıklılık için Müşteri'nin seçili bölgede verilerin üç kopyasını depolar. Azure bölgeleri dayanıklı bölge çiftlerinde dağıtılır ve veriler üç kopya ile ikinci bölgeye çoğaltılır, coğrafi olarak yedekli depolama sağlar. Bu, müşterinin birincil veri konumda veri kaybıyla sonuçlanan olumsuz bir olay engeller.
 
-Gelişmiş güvenlik için bu çözümdeki tüm Azure kaynaklarını bir kaynak grubuyla Azure Resource Manager aracılığıyla yönetilir. Azure Active Directory rol tabanlı erişim denetimi erişimi denetlemek için kullanılan dağıtılan kaynakları ve Azure Key vault'taki anahtarları. Sistem durumu, Azure Güvenlik Merkezi ve Azure İzleyici izlenir. Müşteriler, günlükleri tutmak ve sistem durumu bir kolayca gezinebilir, tek bir Panoda görüntülemek için her iki izleme hizmetleri yapılandırın. Azure Application Gateway önleme modunda bir güvenlik duvarı olarak yapılandırılır ve TLSv1.2 olmayan trafiği izin vermiyor veya üzeri. Çözüm, Azure uygulama hizmeti ortamı v2, çok müşterili bir ortamda web katmanı yalıtmak için kullanır.
+Gelişmiş güvenlik için bu çözümdeki tüm Azure kaynaklarını bir kaynak grubuyla Azure Resource Manager aracılığıyla yönetilir. Azure Active Directory rol tabanlı erişim denetimi erişimi denetlemek için kullanılan dağıtılan kaynakları ve Azure Key vault'taki anahtarları. Sistem durumu, Azure Güvenlik Merkezi ve Azure İzleyici izlenir. Müşteriler, günlükleri tutmak ve sistem durumu bir kolayca gezinebilir, tek bir Panoda görüntülemek için her iki izleme hizmetleri yapılandırın. Azure Application Gateway önleme modunda bir güvenlik duvarı olarak yapılandırılır ve TLS 1.2 sürümü olmayan trafiği izin vermiyor veya üzeri. Çözüm, Azure uygulama hizmeti ortamı v2, çok müşterili bir ortamda web katmanı yalıtmak için kullanır.
 
 ![PaaS Web uygulaması AU korumalı başvuru mimarisi için](images/au-protected-paaswa-architecture.png?raw=true "PaaS Web uygulaması için başvuru AU korumalı mimarisi diyagramı")
 
@@ -95,7 +95,7 @@ Bu mimari için App Service ortamları kullanımını aşağıdaki denetimleri/y
 - Güvenli bir Azure sanal ağ içinde ana bilgisayar ve ağ güvenlik kuralları
 - App Service ortamları HTTPS iletişimi için otomatik olarak imzalanan bir iç yük dengeleyici sertifikayla yapılandırılmış. En iyi uygulama, Microsoft, Gelişmiş güvenlikten yararlanmaya başlamak için güvenilir bir sertifika yetkilisi kullanımını önerir.
 - [İç Yük Dengeleme modu](https://docs.microsoft.com/azure/app-service-web/app-service-environment-with-internal-load-balancer) (mod 3)
-- Devre dışı [TLS 1.0](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
+- Devre dışı [TLS sürüm 1.0 ve v1.1](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
 - Değişiklik [TLS şifreleme](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
 - Denetim [gelen trafiği N/W bağlantı noktaları](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic)
 - [Web uygulaması güvenlik duvarı – veri kısıtlama](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
@@ -128,11 +128,9 @@ Azure, Azure veri merkezlerine gelen ve giden tüm iletişimi varsayılan olarak
 
 Ağları ait müşteriden Aktarımdaki korunan veriler için Mimari Azure ExpressRoute ve Internet IPSec ile yapılandırılmış bir VPN ağ geçidi ile kullanır.
 
-Ayrıca, Azure Yönetim Portalı aracılığıyla azure'a tüm işlemleri TLS 1.2 kullanan HTTPS gerçekleştirilir.
-Bekleyen veriler
+Ayrıca, Azure Yönetim Portalı aracılığıyla azure'a tüm işlemleri HTTPS kullanan TLS 1.2 gerçekleştirilir.
 
 ### <a name="data-at-rest"></a>Bekleyen veriler
-
 Mimarisi, bekleyen veri şifrelemesi, Denetim veritabanı ve diğer ölçüler verilerinizi korumanızı sağlar.
 
 **Azure depolama**: şifrelenmiş verileri rest gereksinimleri karşılamak için tüm [Azure depolama](https://azure.microsoft.com/services/storage/) kullanan [depolama hizmeti şifrelemesi](https://docs.microsoft.com/azure/storage/storage-service-encryption). Bu, kuruluş güvenlik taahhütlerine ve Avustralya hükümeti ISM tarafından tanımlanan uyumluluk gereksinimlerini desteklemek üzere verileri koruyarak yardımcı olur.
