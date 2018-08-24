@@ -1,30 +1,34 @@
-# Azure’u kullanmaya başlama
-## [Bulut bilgi işleme genel bakış](azure-operations-guide.md#cloud-computing-overview)
-### [Azure bölgeleri](https://azure.microsoft.com/regions/)
-## [Hizmetler](azure-operations-guide.md#azure-services)
-### [Azure hizmet belgeleri](https://docs.microsoft.com/azure)
-## [Önemli kavramlar](azure-operations-guide.md#azure-key-concepts)
-### [Microsoft Azure portalına genel bakış](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) 
-### [Azure kaynaklarını portal üzerinden yönetme](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)
-### [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps)
-### [Azure CLI'yı yükleme](/cli/azure/install-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Azure REST SDK Başvurusu](https://docs.microsoft.com/rest/api/index)
+# BT Operatörleri için Azure
+## [Azure’ı kullanmaya başlama](azure-operations-guide.md) 
+## Hızlı Başlangıçlar
+### Virtual Machines
+#### [Windows Sanal Makineleri](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Linux Sanal Makineleri](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+### Sanal Ağlar
+#### [Azure portalını kullanarak bir sanal ağ oluşturma](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Depolama](https://docs.microsoft.com/azure/storage/)
+### Güvenlik
+#### [Kaynakları yönetmek için rol atamalarını kullanma](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
-## [Abonelikler](azure-operations-guide.md#azure-subscriptions)
+## Öğreticiler
+### Virtual Machines
+#### [Windows VM oluşturma ve yönetme](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Linux VM oluşturma ve yönetme](../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Jenkins CI/CD İşlem Hattı](../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [VM'ler için yük dengeleme](../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure Resource Manager şablonları yazma](../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+## Nasıl Yapılır Kılavuzları
 ### [Azure faturanızı ve günlük kullanım verilerinizi indirme](../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Kaynak kullanımınızla ilgili ayrıntılı bilgi edinme](../../billing/billing-usage-rate-card-overview.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Çevrimiçi fiyatlandırma hesaplayıcı](http://azure.microsoft.com/pricing/calculator)
-### [Fatura uyarılarını ayarlama](../../billing/billing-set-up-alerts.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Azure Resource Manager](azure-operations-guide.md#azure-resource-manager)
 
 ### [Azure Resource Manager şablonları yazma](../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[Şablonları Azure portalını kullanarak dağıtma](../../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[Şablonları Azure PowerShell kullanarak dağıtma](../../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[Şablonları Azure CLI kullanarak dağıtma](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Şablonları Azure portalını kullanarak dağıtma](../../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Şablonları Azure PowerShell kullanarak dağıtma](../../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Şablonları Azure CLI kullanarak dağıtma](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Güvenlik (RBAC)](azure-operations-guide.md#security-of-azure-resource)
-###[Kaynakları yönetmek için rol atamalarını kullanma](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Kaynakları yönetmek için rol atamalarını kullanma](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Sanal makineler](azure-operations-guide.md#azure-virtual-machines)
 ### [Windows için VM boyutları](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
@@ -38,7 +42,7 @@
 ### Windows için sanal makine öğreticileri
 #### [VM oluşturma/yönetme](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Disk oluşturma/yönetme](../../virtual-machines/windows/tutorial-manage-data-disk.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Yapılandırmayı otomatikleştirme](../../virtual-machines/windows/tutorial-automate-vm-deployment.md
+#### [Yapılandırmayı otomatikleştirme](../../virtual-machines/windows/tutorial-automate-vm-deployment.md)
 #### [VM görüntüleri oluşturma](../../virtual-machines/windows/tutorial-custom-images.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Yüksek oranda kullanılabilir VM’ler](../../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [VM ölçek kümesi oluşturma](../../virtual-machines/windows/tutorial-create-vmss.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
