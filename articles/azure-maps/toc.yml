@@ -1,150 +1,159 @@
+items:
 - name: Azure IoT Temel Konuları
   href: ../iot-fundamentals/index.yml
 - name: Azure Haritalar Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-    - name: Azure Haritalar nedir?
-      href: about-azure-maps.md
+  - name: Azure Haritalar nedir?
+    href: about-azure-maps.md
 - name: Hızlı Başlangıçlar
   items:
-    - name: Harita uygulaması oluşturma
-      href: quick-demo-map-app.md
+  - name: Harita uygulaması oluşturma
+    href: quick-demo-map-app.md
 - name: Öğreticiler
   items:
-    - name: 1 - İlgi noktası arama
-      href: tutorial-search-location.md
-    - name: 2 - Bir hedefe yönlendirme
-      href: tutorial-route-location.md
-    - name: 3 - Seyahat moduyla birden fazla rota
-      href: tutorial-prioritized-routes.md
+  - name: 1 - İlgi noktası arama
+    href: tutorial-search-location.md
+  - name: 2 - Bir hedefe yönlendirme
+    href: tutorial-route-location.md
+  - name: 3 - Seyahat moduyla birden fazla rota
+    href: tutorial-prioritized-routes.md
 - name: Kavramlar
   items:
-    - name: Yakınlaştırma düzeyleri ve kutucuk kılavuzu
-      href: zoom-levels-and-tile-grid.md
-    - name: Hizmet kapsamı
-      items:
-        - name: Coğrafi kodlama
-          href: geocoding-coverage.md
-        - name: Trafik
-          href: traffic-coverage.md
-        - name: İşleme
-          href: render-coverage.md
-        - name: Yönlendirme
-          href: routing-coverage.md
-    - name: Desteklenen diller
-      href: supported-languages.md
+  - name: Yakınlaştırma düzeyleri ve kutucuk kılavuzu
+    href: zoom-levels-and-tile-grid.md
+  - name: Hizmet kapsamı
+    items:
+    - name: Coğrafi kodlama
+      href: geocoding-coverage.md
+    - name: Trafik
+      href: traffic-coverage.md
+    - name: İşleme
+      href: render-coverage.md
+    - name: Yönlendirme
+      href: routing-coverage.md
+  - name: Desteklenen diller
+    href: supported-languages.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Haritalar hesaplarını yönetme
-      items:
-        - name: Hesapları ve anahtarları yönetme
-          href: how-to-manage-account-keys.md
-        - name: Kullanım ölçümlerini görüntüleme
-          href: how-to-view-api-usage.md
-    - name: REST API'lerinden harita verilerini alma
-      items:
-        - name: Adres arama
-          href: how-to-search-for-address.md
-    - name: JavaScript haritaları oluşturma
-      items:
-        - name: Harita denetimini kullanma
-          href: how-to-use-map-control.md
-        - name: Harita oluşturma
-          href: map-create.md
-        - name: Pin ekleme
-          href: map-add-pin.md
-        - name: Açılır pencere ekleme
-          href: map-add-popup.md
-        - name: Şekil ekleme
-          href: map-add-shape.md
-        - name: Özel HTML ekleme
-          href: map-add-custom-html.md
-        - name: Arama sonuçlarını gösterme
-          href: map-search-location.md
-        - name: Bir koordinattan bilgi alma
-          href: map-get-information-from-coordinate.md
-        - name: A'dan B'ye yönleri gösterme
-          href: map-route.md
-        - name: Trafiği gösterme
-          href: map-show-traffic.md
-        - name: Fare olayları ile etkileşim kurma
-          href: map-events.md
-        - name: Erişilebilir harita uygulamaları
-          href: map-accessibility.md
+  - name: Haritalar hesaplarını yönetme
+    items:
+    - name: Hesapları ve anahtarları yönetme
+      href: how-to-manage-account-keys.md
+    - name: Kullanım ölçümlerini görüntüleme
+      href: how-to-view-api-usage.md
+  - name: REST API'lerinden harita verilerini alma
+    items:
+    - name: Adres arama
+      href: how-to-search-for-address.md
+  - name: JavaScript haritaları oluşturma
+    items:
+    - name: Harita denetimini kullanma
+      href: how-to-use-map-control.md
+    - name: Harita oluşturma
+      href: map-create.md
+    - name: Pin ekleme
+      href: map-add-pin.md
+    - name: Açılır pencere ekleme
+      href: map-add-popup.md
+    - name: Şekil ekleme
+      href: map-add-shape.md
+    - name: Özel HTML ekleme
+      href: map-add-custom-html.md
+    - name: Arama sonuçlarını gösterme
+      href: map-search-location.md
+    - name: Bir koordinattan bilgi alma
+      href: map-get-information-from-coordinate.md
+    - name: A'dan B'ye yönleri gösterme
+      href: map-route.md
+    - name: Trafiği gösterme
+      href: map-show-traffic.md
+    - name: Fare olayları ile etkileşim kurma
+      href: map-events.md
+    - name: Erişilebilir harita uygulamaları
+      href: map-accessibility.md
 - name: Başvuru
   items:
-    - name: API ve parametre uzantıları
-      items:
-        - name: Araç kullanım modeli
-          href: consumption-model.md
-        - name: GeoJSON biçimini genişletme
-          href: extend-geojson.md
-        - name: Desteklenen arama kategorileri
-          href: supported-search-categories.md
-    - name: REST
-      items:
-        - name: Coğrafi Konum hizmeti
-          href: 'https://docs.microsoft.com/rest/api/maps/geolocation'
-        - name: İşleme hizmeti
-          href: 'https://docs.microsoft.com/rest/api/maps/render'
-        - name: Yönlendirme hizmeti
-          href: 'https://docs.microsoft.com/rest/api/maps/route'
-        - name: Arama hizmeti
-          href: 'https://docs.microsoft.com/rest/api/maps/search'
-        - name: Saat dilimi hizmeti
-          href: 'https://docs.microsoft.com/rest/api/maps/timezone'
-        - name: Trafik hizmeti
-          href: 'https://docs.microsoft.com/rest/api/maps/traffic'
-        - name: Haritalar hesabı yönetimi
-          href: 'https://docs.microsoft.com/rest/api/maps-management'
-    - name: JavaScript
-      items:
-        - name: Harita denetimi
-          href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+  - name: API ve parametre uzantıları
+    items:
+    - name: Araç kullanım modeli
+      href: consumption-model.md
+    - name: GeoJSON biçimini genişletme
+      href: extend-geojson.md
+    - name: Desteklenen arama kategorileri
+      href: supported-search-categories.md
+  - name: REST
+    items:
+    - name: Coğrafi Konum hizmeti
+      href: https://docs.microsoft.com/rest/api/maps/geolocation
+    - name: İşleme hizmeti
+      href: https://docs.microsoft.com/rest/api/maps/render
+    - name: Yönlendirme hizmeti
+      href: https://docs.microsoft.com/rest/api/maps/route
+    - name: Arama hizmeti
+      href: https://docs.microsoft.com/rest/api/maps/search
+    - name: Saat dilimi hizmeti
+      href: https://docs.microsoft.com/rest/api/maps/timezone
+    - name: Trafik hizmeti
+      href: https://docs.microsoft.com/rest/api/maps/traffic
+    - name: Haritalar hesabı yönetimi
+      href: https://docs.microsoft.com/rest/api/maps-management
+  - name: JavaScript
+    items:
+    - name: Harita denetimi
+      href: https://docs.microsoft.com/javascript/api/azure-maps-javascript/
+    - name: Hizmet modülü
+      href: https://docs.microsoft.com/javascript/api/azure-maps-rest/
 - name: İlgili
   items:
-    - name: Çözümler
-      items:
-        - name: IoT çözüm hızlandırıcıları
-          href: /azure/iot-suite
-        - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
-    - name: Platform hizmetleri
-      items:
-        - name: IoT Hub
-          href: /azure/iot-hub
-        - name: IoT Hub Cihazı Sağlama Hizmeti
-          href: /azure/iot-dps
-        - name: Haritalar
-          href: /azure/azure-maps
-        - name: Hizmet SDK'ları
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: Edge
-      items:
-        - name: IoT Edge
-          href: /azure/iot-edge
-        - name: IoT Cihaz SDK'ları
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+  - name: Çözümler
+    items:
+    - name: IoT çözüm hızlandırıcıları
+      href: /azure/iot-suite
+    - name: IoT Central
+      href: https://docs.microsoft.com/microsoft-iot-central/
+  - name: Platform hizmetleri
+    items:
+    - name: IoT Hub
+      href: /azure/iot-hub
+    - name: IoT Hub Cihazı Sağlama Hizmeti
+      href: /azure/iot-dps
+    - name: Haritalar
+      href: /azure/azure-maps
+    - name: Hizmet SDK'ları
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+    - name: Time Series Insights
+      href: /azure/time-series-insights
+  - name: Edge
+    items:
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: IoT Cihaz SDK'ları
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Kaynaklar
   items:
-    - name: Azure IoT Geliştirici Merkezi
-      href: 'https://azure.microsoft.com/develop/iot/'
-    - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/?category=iot'
-    - name: MSDN forumu
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
-    - name: Fiyatlandırma
-      href: 'https://azure.microsoft.com/pricing/details/azure-maps'
-    - name: Fiyatlandırma hesaplayıcı
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Hizmet güncelleştirmeleri
-      href: 'https://azure.microsoft.com/updates'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-maps'
-    - name: Teknik örnek olay incelemeleri
-      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
-    - name: Videolar
-      href: 'https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo'
+  - name: Azure IoT Geliştirici Merkezi
+    href: https://azure.microsoft.com/develop/iot/
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/?category=iot
+  - name: MSDN forumu
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
+  - name: Fiyatlandırma
+    href: https://azure.microsoft.com/pricing/details/azure-maps
+  - name: Fiyatlandırma hesaplayıcı
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Hizmet güncelleştirmeleri
+    href: https://azure.microsoft.com/updates
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-maps
+  - name: Teknik örnek olay incelemeleri
+    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
+  - name: Videolar
+    href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
+ms.openlocfilehash: 7099709193e3680d9f177ead4e6b663ed34dee4c
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616229"

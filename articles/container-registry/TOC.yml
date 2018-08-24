@@ -1,107 +1,121 @@
+items:
 - name: Azure Container Registry
   href: ./index.yml
 - name: Genel Bakış
   items:
-    - name: Container Registry hakkında
-      href: container-registry-intro.md
+  - name: Container Registry hakkında
+    href: container-registry-intro.md
 - name: Hızlı Başlangıçlar
-  expanded: true
   items:
-    - name: Container Registry - CLI
-      href: container-registry-get-started-azure-cli.md
-    - name: Container Registry - Portal
-      href: container-registry-get-started-portal.md
-    - name: Container Registry - PowerShell
-      href: container-registry-get-started-powershell.md
+  - name: Container Registry - CLI
+    href: container-registry-get-started-azure-cli.md
+  - name: Container Registry - Portal
+    href: container-registry-get-started-portal.md
+  - name: Container Registry - PowerShell
+    href: container-registry-get-started-powershell.md
+  - name: Event Grid olayları - CLI
+    href: container-registry-event-grid-quickstart.md
+  expanded: true
 - name: Öğreticiler
   items:
-    - name: Azure Container Instances
-      href: ../container-instances/container-instances-tutorial-prepare-app.md
-    - name: Azure Kubernetes Hizmeti (AKS)
-      href: ../aks/tutorial-kubernetes-prepare-app.md
-    - name: Service Fabric
-      href: ../service-fabric/service-fabric-tutorial-create-container-images.md
-    - name: Kapsayıcı görüntüleri oluşturma (önizleme)
-      items:
-        - name: 1 - Azure’da görüntü oluşturma
-          href: container-registry-tutorial-quick-build.md
-        - name: 2 - Görüntü oluşturmayı otomatikleştirme
-          href: container-registry-tutorial-build-task.md
-        - name: 3 - Temel görüntü güncelleştirme derlemeleri
-          href: container-registry-tutorial-base-image-update.md
-    - name: Coğrafi çoğaltma
-      items:
-        - name: 1 - Kapsayıcı kayıt defterini hazırlama
-          href: container-registry-tutorial-prepare-registry.md
-        - name: 2- Web uygulamasını dağıtma
-          href: container-registry-tutorial-deploy-app.md
-        - name: 3- Web uygulamasını güncelleştirme
-          href: container-registry-tutorial-deploy-update.md
+  - name: Azure Container Instances
+    href: ../container-instances/container-instances-tutorial-prepare-app.md
+  - name: Azure Kubernetes Hizmeti (AKS)
+    href: ../aks/tutorial-kubernetes-prepare-app.md
+  - name: Service Fabric
+    href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+  - name: Kapsayıcı görüntüleri oluşturma (önizleme)
+    items:
+    - name: 1 - Azure’da görüntü oluşturma
+      href: container-registry-tutorial-quick-build.md
+    - name: 2 - Görüntü oluşturmayı otomatikleştirme
+      href: container-registry-tutorial-build-task.md
+    - name: 3 - Temel görüntü güncelleştirme derlemeleri
+      href: container-registry-tutorial-base-image-update.md
+  - name: Coğrafi çoğaltma
+    items:
+    - name: 1 - Kapsayıcı kayıt defterini hazırlama
+      href: container-registry-tutorial-prepare-registry.md
+    - name: 2- Web uygulamasını dağıtma
+      href: container-registry-tutorial-deploy-app.md
+    - name: 3- Web uygulamasını güncelleştirme
+      href: container-registry-tutorial-deploy-update.md
 - name: Kavramlar
   items:
-    - name: Container Registry SKU’ları
-      href: container-registry-skus.md
-    - name: Resim depolama
-      href: container-registry-storage.md
-    - name: ACR Derlemesi ile derleme ve yama yapma
-      href: container-registry-build-overview.md
-    - name: Coğrafi çoğaltma
-      href: container-registry-geo-replication.md
-    - name: En iyi kayıt defteri uygulamalar
-      href: container-registry-best-practices.md
+  - name: Container Registry SKU’ları
+    href: container-registry-skus.md
+  - name: Resim depolama
+    href: container-registry-storage.md
+  - name: ACR Derlemesi ile derleme ve yama yapma
+    href: container-registry-build-overview.md
+  - name: Coğrafi çoğaltma
+    href: container-registry-geo-replication.md
+  - name: En iyi kayıt defteri uygulamalar
+    href: container-registry-best-practices.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Görüntü gönderme ve çekme
-      href: container-registry-get-started-docker-cli.md
-    - name: Depoları görüntüleme
-      href: container-registry-repositories.md
-    - name: Kapsayıcı görüntülerini silme
-      href: container-registry-delete.md
-    - name: Klasik kayıt defterini yükseltme
-      href: container-registry-upgrade.md
-    - name: ACR web kancalarını kullanma
-      href: container-registry-webhook.md
-    - name: Kimlik Doğrulaması
-      items:
-        - name: Kimlik Doğrulamasına genel bakış
-          href: container-registry-authentication.md
-        - name: Hizmet sorumlusu kimlik doğrulaması
-          href: container-registry-auth-service-principal.md
-        - name: Azure Container Instances
-          href: container-registry-auth-aci.md
-        - name: Azure Kubernetes Hizmeti (AKS)
-          href: container-registry-auth-aks.md
+  - name: Görüntü gönderme ve çekme
+    href: container-registry-get-started-docker-cli.md
+  - name: Depoları görüntüleme
+    href: container-registry-repositories.md
+  - name: Kapsayıcı görüntülerini silme
+    href: container-registry-delete.md
+  - name: İçerik güveni (önizleme)
+    href: container-registry-content-trust.md
+  - name: Klasik kayıt defterini yükseltme
+    href: container-registry-upgrade.md
+  - name: ACR web kancalarını kullanma
+    href: container-registry-webhook.md
+  - name: Kimlik Doğrulaması
+    items:
+    - name: Kimlik Doğrulamasına genel bakış
+      href: container-registry-authentication.md
+    - name: Hizmet sorumlusu kimlik doğrulaması
+      href: container-registry-auth-service-principal.md
+    - name: Azure Container Instances
+      href: container-registry-auth-aci.md
+    - name: Azure Kubernetes Hizmeti (AKS)
+      href: container-registry-auth-aks.md
 - name: Başvuru
   items:
-    - name: Azure CLI
-      href: /cli/azure/acr
-    - name: REST
-      href: /rest/api/containerregistry
-    - name: PowerShell
-      href: '/powershell/module/azurerm.containerregistry#container_registry'
-    - name: .NET
-      href: /dotnet/api/overview/azure/containerregistry
-    - name: Python
-      href: /python/api/overview/azure/container-registry
-    - name: Java
-      href: /java/api/overview/azure/containerregistry
-    - name: Node.js
-      href: /javascript/api/overview/azure/container-registry
-    - name: Resource Manager şablonu
-      href: /azure/templates/microsoft.containerregistry/registries
-    - name: Web kancası şeması
-      href: container-registry-webhook-reference.md
+  - name: Azure CLI
+    href: /cli/azure/acr
+  - name: REST
+    href: /rest/api/containerregistry
+  - name: PowerShell
+    href: /powershell/module/azurerm.containerregistry#container_registry
+  - name: .NET
+    href: /dotnet/api/overview/azure/containerregistry
+  - name: Python
+    href: /python/api/overview/azure/container-registry
+  - name: Java
+    href: /java/api/overview/azure/containerregistry
+  - name: Node.js
+    href: /javascript/api/overview/azure/container-registry
+  - name: Resource Manager şablonu
+    href: /azure/templates/microsoft.containerregistry/registries
+  - name: Web kancası şeması
+    href: container-registry-webhook-reference.md
+  - name: Olay Kılavuz şeması
+    href: ../event-grid/event-schema-container-registry.md
+    maintainContext: true
 - name: Kaynaklar
   items:
-    - name: Bölge kullanılabilirliği
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Fiyatlandırma
-      href: 'https://azure.microsoft.com/pricing/details/container-registry/'
-    - name: Yol Haritası
-      href: 'https://aka.ms/acr/roadmap'
-    - name: Ürün geri bildirimi sağlama
-      href: 'https://feedback.azure.com/forums/903958-azure-container-registry'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-container-registry'
-    - name: Videolar
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest'
+  - name: Bölge kullanılabilirliği
+    href: https://azure.microsoft.com/regions/services/
+  - name: Fiyatlandırma
+    href: https://azure.microsoft.com/pricing/details/container-registry/
+  - name: Yol Haritası
+    href: https://aka.ms/acr/roadmap
+  - name: Ürün geri bildirimi sağlama
+    href: https://feedback.azure.com/forums/903958-azure-container-registry
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-container-registry
+  - name: Videolar
+    href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
+ms.openlocfilehash: 67ff62865eb6a14dc619d7ba37310acff0527787
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41929414"

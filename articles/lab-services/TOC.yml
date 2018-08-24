@@ -1,189 +1,200 @@
+items:
 - name: Lab Services Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-    - name: Lab Services Hakkında
-      href: lab-services-overview.md
-    - name: Laboratuvar türlerini karşılaştırma
-      href: compare-lab-types.md
+  - name: Lab Services Hakkında
+    href: lab-services-overview.md
+  - name: Laboratuvar türlerini karşılaştırma
+    href: compare-lab-types.md
 - name: Öğreticiler
   items:
-    - name: DevTest Labs
-      items:
-        - name: 1. Laboratuvar ayarlama
-          href: tutorial-create-custom-lab.md
-        - name: 2. Laboratuvara erişme
-          href: tutorial-use-custom-lab.md
-    - name: Sınıf laboratuvarları
-      items:
-        - name: 1. Bir laboratuvar hesabı ayarlama
-          href: classroom-labs/tutorial-setup-lab-account.md
-        - name: 2. Bir sınıf laboratuvarı ayarlama
-          href: classroom-labs/tutorial-setup-classroom-lab.md
-        - name: 3. Bir sınıf laboratuvarına erişim
-          href: classroom-labs/tutorial-connect-virtual-machine-classroom-lab.md
+  - name: DevTest Labs
+    items:
+    - name: 1. Laboratuvar ayarlama
+      href: tutorial-create-custom-lab.md
+    - name: 2. Laboratuvara erişme
+      href: tutorial-use-custom-lab.md
+  - name: Sınıf laboratuvarları
+    items:
+    - name: 1. Bir laboratuvar hesabı ayarlama
+      href: classroom-labs/tutorial-setup-lab-account.md
+    - name: 2. Bir sınıf laboratuvarı ayarlama
+      href: classroom-labs/tutorial-setup-classroom-lab.md
+    - name: 3. Bir sınıf laboratuvarına erişim
+      href: classroom-labs/tutorial-connect-virtual-machine-classroom-lab.md
+    - name: 4. Sınıf laboratuvarının kullanımını izleme
+      href: classroom-labs/tutorial-track-usage.md
 - name: Örnekler
   items:
-    - name: DevTest Labs
-      items:
-        - name: Resource Manager şablonları
-          href: 'https://github.com/Azure/azure-devtestlab/tree/master/Samples'
-        - name: Azure PowerShell
-          href: samples-powershell.md
-        - name: Azure CLI
-          href: samples-cli.md
+  - name: DevTest Labs
+    items:
+    - name: Resource Manager şablonları
+      href: https://github.com/Azure/azure-devtestlab/tree/master/Samples
+    - name: Azure PowerShell
+      href: samples-powershell.md
+    - name: Azure CLI
+      href: samples-cli.md
 - name: Kavramlar
   items:
+  - name: DevTest Labs
+    href: devtest-lab-concepts.md
+    items:
+    - name: Geliştiriciler için laboratuvar kullanma
+      href: devtest-lab-developer-lab.md
+    - name: Test ortamları için laboratuvar kullanma
+      href: devtest-lab-test-env.md
+    - name: Eğitim için laboratuvar kullanma
+      href: devtest-lab-training-lab.md
     - name: DevTest Labs
-      href: devtest-lab-concepts.md
-      items:
-        - name: Geliştiriciler için laboratuvar kullanma
-          href: devtest-lab-developer-lab.md
-        - name: Test ortamları için laboratuvar kullanma
-          href: devtest-lab-test-env.md
-        - name: Eğitim için laboratuvar kullanma
-          href: devtest-lab-training-lab.md
-        - name: DevTest Labs
-          href: devtest-lab-overview.md
+      href: devtest-lab-overview.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Sınıf laboratuvarları
+  - name: Sınıf laboratuvarları
+    items:
+    - name: Laboratuvar hesaplarını yönetme
+      href: classroom-labs/how-to-manage-lab-accounts.md
+    - name: Sınıf laboratuvarlarını yönetme
+      href: classroom-labs/how-to-manage-classroom-labs.md
+    - name: Sınıf laboratuvarlarına erişim
+      href: classroom-labs/how-to-use-classroom-lab.md
+  - name: DevTest laboratuvarları
+    items:
+    - name: Laboratuvar oluşturma
+      href: devtest-lab-create-lab.md
+    - name: Laboratuvarda VM oluşturma
+      href: devtest-lab-create-first-vm.md
+    - name: Bir laboratuvarı veya laboratuvardaki VM’yi silme
+      href: devtest-lab-delete-lab-vm.md
+    - name: Laboratuvar ilkelerini ayarlama
+      href: devtest-lab-get-started-with-lab-policies.md
+    - name: Azure Key Vault'ta gizli dizileri depolama
+      href: devtest-lab-store-secrets-in-key-vault.md
+    - name: Sanal makineleri bir laboratuar ortamında kullanma
       items:
-        - name: Laboratuvar hesaplarını yönetme
-          href: classroom-labs/how-to-manage-lab-accounts.md
-        - name: Sınıf laboratuvarlarını yönetme
-          href: classroom-labs/how-to-manage-classroom-labs.md
-        - name: Sınıf laboratuvarlarına erişim
-          href: classroom-labs/how-to-use-classroom-lab.md
-    - name: DevTest laboratuvarları
+      - name: VM oluşturma
+        href: devtest-lab-add-vm.md
+      - name: Talep edilebilir VM’ler oluşturma ve yönetme
+        href: devtest-lab-add-claimable-vm.md
+      - name: Azure CLI ile VM oluşturma ve yönetme
+        href: devtest-lab-vmcli.md
+      - name: Resource Manager şablonundan VM oluşturma
+        href: devtest-lab-use-resource-manager-template.md
+      - name: Bir VM’yi yeniden başlatma
+        href: devtest-lab-restart-vm.md
+      - name: VM’yi yeniden boyutlandırma
+        href: devtest-lab-resize-vm.md
+      - name: Bir VM’yi yeniden dağıtma
+        href: devtest-lab-redeploy-vm.md
+      - name: VM’yi içeri aktarma
+        href: devtest-lab-import-vm.md
+    - name: Ortamları laboratuvarda kullanma
       items:
-        - name: Laboratuvar oluşturma
-          href: devtest-lab-create-lab.md
-        - name: Laboratuvarda VM oluşturma
-          href: devtest-lab-create-first-vm.md
-        - name: Bir laboratuvarı veya laboratuvardaki VM’yi silme
-          href: devtest-lab-delete-lab-vm.md
-        - name: Laboratuvar ilkelerini ayarlama
-          href: devtest-lab-get-started-with-lab-policies.md
-        - name: Azure Key Vault'ta gizli dizileri depolama
-          href: devtest-lab-store-secrets-in-key-vault.md
-        - name: Sanal makineleri bir laboratuar ortamında kullanma
-          items:
-            - name: VM oluşturma
-              href: devtest-lab-add-vm.md
-            - name: Talep edilebilir VM’ler oluşturma ve yönetme
-              href: devtest-lab-add-claimable-vm.md
-            - name: Azure CLI ile VM oluşturma ve yönetme
-              href: devtest-lab-vmcli.md
-            - name: Resource Manager şablonundan VM oluşturma
-              href: devtest-lab-use-resource-manager-template.md
-            - name: Bir VM’yi yeniden başlatma
-              href: devtest-lab-restart-vm.md
-            - name: VM’yi yeniden boyutlandırma
-              href: devtest-lab-resize-vm.md
-            - name: Bir VM’yi yeniden dağıtma
-              href: devtest-lab-redeploy-vm.md
-            - name: VM’yi içeri aktarma
-              href: devtest-lab-import-vm.md
-        - name: Ortamları laboratuvarda kullanma
-          items:
-            - name: Ortam oluşturma
-              href: devtest-lab-create-environment-from-arm.md
-        - name: Laboratuvarlara güvenli erişim
-          items:
-            - name: Laboratuvar sahibi ve kullanıcıları ekleme
-              href: devtest-lab-add-devtest-user.md
-            - name: Özel rollerle izinleri özelleştirme
-              href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
-        - name: Laboratuvar yapılandırma
-          items:
-            - name: İlke ve zamanlamalar ayarlama
-              href: devtest-lab-set-lab-policy.md
-            - name: Maliyet yönetimini yapılandırma
-              href: devtest-lab-configure-cost-management.md
-            - name: Azure Market görüntülerini yapılandırma
-              href: devtest-lab-configure-marketplace-images.md
-            - name: Lisanslı görüntü etkinleştirme
-              href: devtest-lab-enable-licensed-images.md
-            - name: Laboratuvara etiket ekleme
-              href: devtest-lab-add-tag.md
-            - name: Laboratuvarda duyuru yayınlama
-              href: devtest-lab-announcements.md
-            - name: Laboratuvara destek bilgisi ekleme
-              href: devtest-lab-internal-support-message.md
-        - name: Özel görüntü veya formül seçme
-          href: devtest-lab-comparing-vm-base-image-types.md
-        - name: Özel görüntüleri yönetme
-          items:
-            - name: VM’den özel görüntü oluşturma
-              href: devtest-lab-create-custom-image-from-vm-using-portal.md
-            - name: Azure portalını kullanarak VHD'den özel görüntü oluşturma
-              href: devtest-lab-create-template.md
-            - name: PowerShell kullanarak VHD'den özel görüntü oluşturma
-              href: devtest-lab-create-custom-image-from-vhd-using-powershell.md
-            - name: AzCopy kullanarak karşıya VHD dosyası yükleme
-              href: devtest-lab-upload-vhd-using-azcopy.md
-            - name: PowerShell kullanarak karşıya VHD dosyası yükleme
-              href: devtest-lab-upload-vhd-using-powershell.md
-            - name: Depolama Gezgini'ni kullanarak karşıya VHD dosyası yükleme
-              href: devtest-lab-upload-vhd-using-storage-explorer.md
-        - name: Yeniden kullanılabilir şablonları yönetme
-          items:
-            - name: Yapıtlar ve şablonlar için Git deposu ekleme
-              href: devtest-lab-add-artifact-repo.md
-            - name: Formülleri yönetme
-              href: devtest-lab-manage-formulas.md
-        - name: Yapıtları yönetme
-          items:
-            - name: Zorunlu yapıtları belirtme
-              href: devtest-lab-mandatory-artifacts.md
-            - name: Özel yapıtlar oluşturma
-              href: devtest-lab-artifact-author.md
-            - name: Yapıt hatalarını tanılama
-              href: devtest-lab-troubleshoot-artifact-failure.md
-        - name: Sanal ağları yönetme
-          items:
-            - name: Sanal ağları yapılandırma
-              href: devtest-lab-configure-vnet.md
-            - name: IP yapılandırma seçeneği belirleme
-              href: devtest-lab-shared-ip.md
-        - name: Veri disklerini yönetme
-          items:
-            - name: Veri diski ekleme ve çıkarma
-              href: devtest-lab-attach-detach-data-disk.md
-        - name: Laboratuvarınızı ölçeklendirme
-          href: devtest-lab-scale-lab.md
-        - name: CI/CD ile tümleştirme
-          items:
-            - name: VSTS CI/CD ardışık düzeninizi laboratuvarlarla tümleştirme
-              href: devtest-lab-integrate-ci-cd-vsts.md
-        - name: Resource Manager şablonu kullanarak laboratuvar oluşturma veya değiştirme
-          href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
+      - name: Ortam oluşturma
+        href: devtest-lab-create-environment-from-arm.md
+      - name: Genel ortamları yapılandırma ve kullanma
+        href: devtest-lab-configure-use-public-environments.md
+    - name: Laboratuvarlara güvenli erişim
+      items:
+      - name: Laboratuvar sahibi ve kullanıcıları ekleme
+        href: devtest-lab-add-devtest-user.md
+      - name: Özel rollerle izinleri özelleştirme
+        href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
+    - name: Laboratuvar yapılandırma
+      items:
+      - name: İlke ve zamanlamalar ayarlama
+        href: devtest-lab-set-lab-policy.md
+      - name: Maliyet yönetimini yapılandırma
+        href: devtest-lab-configure-cost-management.md
+      - name: Azure Market görüntülerini yapılandırma
+        href: devtest-lab-configure-marketplace-images.md
+      - name: Lisanslı görüntü etkinleştirme
+        href: devtest-lab-enable-licensed-images.md
+      - name: Laboratuvara etiket ekleme
+        href: devtest-lab-add-tag.md
+      - name: Laboratuvarda duyuru yayınlama
+        href: devtest-lab-announcements.md
+      - name: Laboratuvara destek bilgisi ekleme
+        href: devtest-lab-internal-support-message.md
+    - name: Özel görüntü veya formül seçme
+      href: devtest-lab-comparing-vm-base-image-types.md
+    - name: Özel görüntüleri yönetme
+      items:
+      - name: VM’den özel görüntü oluşturma
+        href: devtest-lab-create-custom-image-from-vm-using-portal.md
+      - name: Azure portalını kullanarak VHD'den özel görüntü oluşturma
+        href: devtest-lab-create-template.md
+      - name: PowerShell kullanarak VHD'den özel görüntü oluşturma
+        href: devtest-lab-create-custom-image-from-vhd-using-powershell.md
+      - name: AzCopy kullanarak karşıya VHD dosyası yükleme
+        href: devtest-lab-upload-vhd-using-azcopy.md
+      - name: PowerShell kullanarak karşıya VHD dosyası yükleme
+        href: devtest-lab-upload-vhd-using-powershell.md
+      - name: Depolama Gezgini'ni kullanarak karşıya VHD dosyası yükleme
+        href: devtest-lab-upload-vhd-using-storage-explorer.md
+    - name: Yeniden kullanılabilir şablonları yönetme
+      items:
+      - name: Yapıtlar ve şablonlar için Git deposu ekleme
+        href: devtest-lab-add-artifact-repo.md
+      - name: Formülleri yönetme
+        href: devtest-lab-manage-formulas.md
+    - name: Yapıtları yönetme
+      items:
+      - name: Zorunlu yapıtları belirtme
+        href: devtest-lab-mandatory-artifacts.md
+      - name: Özel yapıtlar oluşturma
+        href: devtest-lab-artifact-author.md
+      - name: Yapıt hatalarını tanılama
+        href: devtest-lab-troubleshoot-artifact-failure.md
+    - name: Sanal ağları yönetme
+      items:
+      - name: Sanal ağları yapılandırma
+        href: devtest-lab-configure-vnet.md
+      - name: IP yapılandırma seçeneği belirleme
+        href: devtest-lab-shared-ip.md
+    - name: Veri disklerini yönetme
+      items:
+      - name: Veri diski ekleme ve çıkarma
+        href: devtest-lab-attach-detach-data-disk.md
+    - name: Laboratuvarınızı ölçeklendirme
+      href: devtest-lab-scale-lab.md
+    - name: CI/CD ile tümleştirme
+      items:
+      - name: VSTS CI/CD ardışık düzeninizi laboratuvarlarla tümleştirme
+        href: devtest-lab-integrate-ci-cd-vsts.md
+    - name: Resource Manager şablonu kullanarak laboratuvar oluşturma veya değiştirme
+      href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
 - name: Başvuru
   items:
-    - name: CLI 2.0
-      href: /cli/azure/lab
-    - name: PowerShell
-      href: '/powershell/module/azurerm.devtestlabs/#devtest_labs'
-    - name: REST API
-      href: 'https://docs.microsoft.com/rest/api/dtl/'
+  - name: CLI 2.0
+    href: /cli/azure/lab
+  - name: PowerShell
+    href: /powershell/module/azurerm.devtestlabs/#devtest_labs
+  - name: REST API
+    href: https://docs.microsoft.com/rest/api/dtl/
 - name: Kaynaklar
   items:
-    - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/?category=developer-tools'
-    - name: Fiyatlandırma hesaplayıcı
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: DevTest Labs - SSS
-      href: devtest-lab-faq.md
-    - name: Hizmet güncelleştirmeleri
-      href: 'https://azure.microsoft.com/updates/?product=devtest-lab'
-    - name: MSDN Forumu
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDevTestLabs'
-    - name: Ekip Blogu
-      href: 'https://blogs.msdn.microsoft.com/devtestlab/'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-devtest-labs'
-    - name: Videolar
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab'
-    - name: Fiyatlandırma
-      href: 'https://azure.microsoft.com/pricing/details/devtest-lab/'
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/?category=developer-tools
+  - name: Fiyatlandırma hesaplayıcı
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: DevTest Labs - SSS
+    href: devtest-lab-faq.md
+  - name: Hizmet güncelleştirmeleri
+    href: https://azure.microsoft.com/updates/?product=devtest-lab
+  - name: MSDN Forumu
+    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureDevTestLabs
+  - name: Ekip Blogu
+    href: https://blogs.msdn.microsoft.com/devtestlab/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-devtest-labs
+  - name: Videolar
+    href: https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab
+  - name: Fiyatlandırma
+    href: https://azure.microsoft.com/pricing/details/devtest-lab/
+ms.openlocfilehash: f6a260970e176c9ac4871da716162dca29aebaa8
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41929080"

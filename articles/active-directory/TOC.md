@@ -82,34 +82,9 @@
 #### [B2B desteği alma](b2b/get-support.md)
 
 ## [Grupları ve üyeleri yönetme](fundamentals/active-directory-manage-groups.md)
-### Grupları yönetme
-#### [Azure portalında](fundamentals/active-directory-groups-create-azure-portal.md)
-#### [Graph için Azure AD PowerShell (v2)](users-groups-roles/groups-settings-v2-cmdlets.md)
-#### [Azure AD PowerShell MSOnline](users-groups-roles/groups-settings-cmdlets.md)
-### [Grup üyelerini yönetme](fundamentals/active-directory-groups-members-azure-portal.md)
-### [Grup sahiplerini yönetme](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
-### [Grup üyeliğini yönetme](fundamentals/active-directory-groups-membership-azure-portal.md)
-### [Grupları kullanarak lisansları atama](fundamentals/active-directory-licensing-whatis-azure-portal.md)
-#### [Bir gruba lisans atama](users-groups-roles/licensing-groups-assign.md)
-#### [Bir gruptaki lisans sorunlarını tanımlama ve çözme](users-groups-roles/licensing-groups-resolve-problems.md)
-#### [Tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](users-groups-roles/licensing-groups-migrate-users.md)
-#### [Kullanıcıları ürün lisansları arasında geçirme](users-groups-roles/licensing-groups-change-licenses.md)
-#### [Grup tabanlı lisanslama için ek senaryolar](users-groups-roles/licensing-group-advanced.md)
-#### [Grup tabanlı lisanslama için Azure PowerShell örnekleri](users-groups-roles/licensing-ps-examples.md)
-#### [Azure AD’de ürünler ve hizmet planları için başvurular](users-groups-roles/licensing-service-plan-reference.md)
-### [Office 365 gruplarının süre sonlarını ayarlama](users-groups-roles/groups-lifecycle.md)
-### [Gruplar için bir adlandırma ilkesini zorlama](users-groups-roles/groups-naming-policy.md)
-### [Tüm grupları görüntüleme](fundamentals/active-directory-groups-view-azure-portal.md)
-### [SaaS uygulamalarına grup erişimi ekleme](users-groups-roles/groups-saasapps.md)
+### [Grupları yönetme](fundamentals/active-directory-groups-create-azure-portal.md)
 ### [Silinen bir Office 365 grubunu geri yükleme](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Grup ayarlarını yönetme](fundamentals/active-directory-groups-settings-azure-portal.md)
-### [Self servis gruplarını kurma](users-groups-roles/groups-self-service-management.md)
-### Dinamik gruplar
-#### [Dinamik grup oluşturma](users-groups-roles/groups-create-rule.md)
-#### [Kural söz dizimi ve özellikleri](users-groups-roles/groups-dynamic-membership.md)
-#### [Grup üyeliği türünü değiştirme](users-groups-roles/groups-change-type.md)
-#### [Sorun giderme](users-groups-roles/groups-troubleshooting.md)
-
 ## [Raporları yönetme](reports-monitoring/overview-reports.md)
 ### [Oturum açma etkinliği](reports-monitoring/concept-sign-ins.md)
 ### [Denetim etkinliği](reports-monitoring/concept-audit-logs.md)
@@ -137,15 +112,13 @@
 #### [Azure İzleyici’de oturum açma günlüğü şemasını yorumlama](reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md)
 
 ### Sorun giderme
-#### [Eksik denetim verileri](reports-monitoring/troubleshoot-missing-audit-data.md)
+#### [Azure AD etkinlik günlüklerinde eksik veriler](reports-monitoring/troubleshoot-missing-audit-data.md)
 #### [İndirmelerde eksik veriler](reports-monitoring/troubleshoot-missing-data-download.md)
-#### [Azure AD Etkinlik günlükleri içerik paketi hataları](reports-monitoring/troubleshoot-content-pack.md)
+#### [Azure AD etkinlik günlükleri içerik paketi hataları](reports-monitoring/troubleshoot-content-pack.md)
 #### [Azure AD Raporlama API’sindeki hatalar](reports-monitoring/troubleshoot-graph-api.md)
 
 ### [Programlı Erişim](reports-monitoring/concept-reporting-api.md)
 #### [Önkoşullar](reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
-#### [Denetim örnekleri](reports-monitoring/sample-audit-api.md)
-#### [Oturum açma örnekleri](reports-monitoring/sample-sign-in-api.md)
 #### [Sertifikaları kullanma](reports-monitoring/tutorial-access-api-with-certificates.md)
 
 ## [Parolaları yönetme](authentication/concept-sspr-howitworks.md)
@@ -235,13 +208,14 @@
 ### Kurumsal uygulamaları yönetme
 #### [Uygulama ekleme](manage-apps/add-application-portal.md)
 #### [Kiracı uygulamalarını görüntüleme](manage-apps/view-applications-portal.md)
+#### [Çoklu oturum açmayı yapılandırma](manage-apps/configure-single-sign-on-portal.md)
 #### [Kullanıcıları atama](manage-apps/assign-user-or-group-access-portal.md)
 #### [Markalamayı özelleştirme](manage-apps/change-name-or-logo-portal.md)
 #### [Kullanıcılar için oturum açmayı devre dışı bırakma](manage-apps/disable-user-sign-in-portal.md)
 #### [Kullanıcıları kaldırma](manage-apps/remove-user-or-group-access-portal.md)
 
 #### [Kullanıcı hesabı hazırlamayı yönetme](manage-apps/configure-automatic-user-provisioning-portal.md)
-#### [Kurumsal uygulamalar için çoklu oturum açmayı yönetme](manage-apps/configure-single-sign-on-portal.md)
+
 #### [SAML uygulamaları için gelişmiş sertifika imzalama](manage-apps/certificate-signing-options.md)
 #### [Uygulamayı kullanıcı deneyiminden gizleme](manage-apps/hide-application-from-user-portal.md)
 ### [HRD İlkesi'ni kullanarak Oturum Açma için Otomatik Hızlandırmayı Yapılandırma](manage-apps/configure-authentication-for-federated-users-portal.md)
@@ -363,12 +337,7 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Özel etki alanı adları
 #### [Hızlı Başlangıç](fundamentals/add-custom-domain.md)
-#### [Özel etki alanı adı ekleme](users-groups-roles/domains-manage.md)
 ### [Dizininizi yönetme](fundamentals/active-directory-administer.md)
-### [Bir dizini silme](users-groups-roles/directory-delete-howto.md)
-### [Birden fazla dizin](users-groups-roles/licensing-directory-independence.md)
-### [Self servise kaydolma](users-groups-roles/directory-self-service-signup.md)
-### [Yönetilmeyen bir dizini devralma](users-groups-roles/domains-admin-takeover.md)
 ### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Etkinleştirme](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [Grup ilkesi ayarları](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
@@ -379,14 +348,6 @@
 
 ### [Azure AD Connect kullanarak şirket içi kimlikleri tümleştirme](./connect/active-directory-aadconnect.md)
 
-## Kaynaklara temsilci erişimi
-### [Yönetici rolleri](users-groups-roles/directory-assign-admin-roles.md)
-#### [Yönetici rolü üyelerini görüntüleme](users-groups-roles//directory-manage-roles-portal.md)
-#### [Kullanıcıya yönetici rolü atama](fundamentals/active-directory-users-assign-role-azure-portal.md)
-#### [Üye ve konuk kullanıcı izinlerini karşılaştırma](fundamentals/users-default-permissions.md)
-### [Yönetici rolü güvenliği](users-groups-roles/directory-admin-roles-secure.md)  
-#### [Acil durum erişimi yönetici hesapları oluşturma](users-groups-roles/directory-emergency-access.md)
-### [Yönetim birimleri](users-groups-roles/directory-administrative-units.md)
 ### [Belirteç ömrünü yapılandırma](active-directory-configurable-token-lifetimes.md)
 
 ## Erişim gözden geçirmeleri
@@ -401,35 +362,6 @@
 ### [Erişim gözden geçirmesi sonuçlarını alma](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Kimliklerinizi güvenli hale getirme
-### Koşullu erişim
-#### [Genel Bakış](conditional-access/overview.md)
-#### Hızlı Başlangıçlar
-##### [Belirli uygulamalar için MFA gerektirme](conditional-access/app-based-mfa.md)
-##### [Kullanım koşullarının kabul edilmesini gerektirme](conditional-access/require-tou.md)
-##### [Oturum riski algılandığında erişimi engelleme](conditional-access/app-sign-in-risk.md)
-#### Öğreticiler
-##### [Klasik MFA ilkesini geçirme](conditional-access/policy-migration-mfa.md)
-#### Kavramlar
-##### [Anahat Koruma](conditional-access/baseline-protection.md)
-##### [Koşullar](conditional-access/conditions.md)
-##### [Konum koşulları](conditional-access/location-condition.md)
-##### [Denetimler](conditional-access/controls.md)
-##### [Durum aracı](conditional-access/what-if-tool.md)
-##### [Office 365 hizmetleri için cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)
-#### Nasıl yapılır kılavuzları
-##### [En iyi uygulamalar](conditional-access/best-practices.md)
-##### [Güvenilmeyen ağlardan gelen erişim denemeleri için MFA gerektirme](conditional-access/untrusted-networks.md)
-##### [Yönetilen cihazları gerektirme](conditional-access/require-managed-devices.md)
-##### [Onaylı istemci uygulamaları gerektirme](conditional-access/app-based-conditional-access.md)
-##### [Kullanıcılar ve uygulamalar için kullanım koşulları gerektirme](active-directory-tou.md)
-##### [Klasik ilkeleri geçirme](conditional-access/policy-migration.md)
-##### [VPN bağlantısı ayarlama](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
-##### [SharePoint ve Exchange Online ayarlama](active-directory-conditional-access-no-modern-authentication.md)
-##### [Düzeltme](active-directory-conditional-access-device-remediation.md)
-#### [Başvuru](conditional-access/technical-reference.md)
-##### [Teknik başvuru](conditional-access/technical-reference.md)
-#### [SSS](conditional-access/faqs.md)
-
 ### Sertifika Tabanlı Kimlik Doğrulaması
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
@@ -449,9 +381,6 @@
 #### [Microsoft Graph](identity-protection/graph-get-started.md)
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
-## Diğer hizmetleri Azure AD ile tümleştirme 
-### [LinkedIn’i Azure AD ile tümleştirme](users-groups-roles/linkedin-integration.md)
-
 ## [Azure’a AD FS dağıtma](active-directory-aadconnect-azure-adfs.md)
 ### [Yüksek kullanılabilirlik](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Değişiklik imzası karma algoritması](active-directory-federation-sha256-guidance.md)
@@ -464,13 +393,11 @@
 ### [PoC El Kitabı: Uygulama](active-directory-playbook-implementation.md)
 ### [PoC El Kitabı: Yapı Taşları](active-directory-playbook-building-blocks.md)
 
-
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure PowerShell cmdlet'leri](/powershell/azure/overview)
 ## [Java API Başvurusu](/java/api)
 ## [.NET API’si](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
-## [Hizmet sınırlamaları ve kısıtlamalar](users-groups-roles/directory-service-limits-restrictions.md)
 
 # İlgili
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)

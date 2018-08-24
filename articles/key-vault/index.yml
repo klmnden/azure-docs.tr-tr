@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: cfa1c2358926970f33827706480a53f42bed8339
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: b797090b98d7ab552c3c342eeea341fd86c331c3
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39411667"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41928011"
 documentType: LandingData
 title: Anahtar Kasası Belgeleri
 metadata:
@@ -22,8 +22,19 @@ metadata:
   ms.date: 01/23/2017
   ms.author: carolz
 abstract:
-  description: Anahtar Kasası’nı kullanarak bulut uygulamaları ve hizmetleri tarafından kullanılan şifreleme anahtarlarını ve gizli anahtarları koruma ve yönetme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, bulut uygulamaları ve hizmetleri tarafından kullanılan şifreleme anahtarlarını ve gizli anahtarları oluşturma ve koruma ile ilgili bilgiler içerir.
+  description: Anahtar Kasası’nı kullanarak bulut uygulamaları ve hizmetleri tarafından kullanılan şifreleme anahtarlarını ve gizli anahtarları koruma ve yönetme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, bulut uygulamaları ve hizmetleri tarafından kullanılan şifreleme anahtarlarını ve gizli dizileri oluşturma ve koruma ile ilgili bilgiler içerir.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/key-vault/key-vault-whatis
+      html: <p>Azure Key Vault ile ilgili temel kavramları öğrenin.</p>
+      image:
+        src: https://docs.microsoft.com/en-us/media/common/i_article.svg
+      title: Kavramlar
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
@@ -62,11 +73,6 @@ sections:
       image:
         src: media/index/get-started.svg
         href: /azure/key-vault/key-vault-use-from-web-application
-    - title: Azure Anahtar Kasası’nı uçtan uca döndürme ve denetleme ile ayarlama
-      href: /azure/key-vault/key-vault-key-rotation-log-monitoring
-      image:
-        src: media/index/tutorial.svg
-        href: /azure/key-vault/key-vault-key-rotation-log-monitoring
 - title: Başvuru
   items:
   - type: list

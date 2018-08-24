@@ -9,7 +9,8 @@
 ## [SQL Server’ı Azure SQL DB Yönetilen Örneğine geçirme](tutorial-sql-server-to-managed-instance.md)
 
 # Nasıl yapılır kılavuzları
-## [SQL Server’ı geçirmek için PowerShell kullanma](howto-sql-server-to-azure-sql-powershell.md)
+## [SQL Server’ı Azure SQL DB'ye geçirmek için PowerShell kullanma](howto-sql-server-to-azure-sql-powershell.md)
+## [SQL Server’ı Azure SQL MI'ya geçirmek için PowerShell kullanma](howto-sql-server-to-azure-sql-mi-powershell.md)
 
 # Kaynaklar
 ## [UserVoice Geri Bildirimi](https://feedback.azure.com/forums/906100-azure-database-migration-service)

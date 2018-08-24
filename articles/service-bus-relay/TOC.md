@@ -5,14 +5,12 @@
 ## [SSS](relay-faq.md)
 
 # Hızlı Başlangıçlar
-## [Ad alanı oluşturma](relay-create-namespace-portal.md)
 ## [Karma şirket içi/bulut uygulaması oluşturma](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## Karma Bağlantılar
 ### [.NET Websockets](relay-hybrid-connections-dotnet-get-started.md)
 ### [.NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 ### [Node Websockets](relay-hybrid-connections-node-get-started.md)
 ### [Node HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
-## [WCF Geçişi](relay-wcf-dotnet-get-started.md)
 ## [WCF Geçişi öğreticisi](service-bus-relay-tutorial.md)
 ## [WCF Geçişi REST öğreticisi](service-bus-relay-rest-tutorial.md)
 
@@ -22,6 +20,8 @@
 #### [ACS’den SAS’ye geçiş](relay-migrate-acs-sas.md)
 ### [Karma Bağlantılar protokolü](relay-hybrid-connections-protocol.md)
 ## Geliştirme
+### [Ad alanı oluşturma](relay-create-namespace-portal.md)
+### [WCF hizmetlerini dış istemcilere sunmak için WCF Geçişini kullanma](relay-wcf-dotnet-get-started.md)
 ### [Kullanılabilir API’ler](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)

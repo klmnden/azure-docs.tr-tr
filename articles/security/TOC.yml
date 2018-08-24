@@ -1,251 +1,258 @@
+items:
 - name: Azure Güvenlik Belgeleri
   href: index.md
 - name: Mimari ve tasarım
   href: azure-security.md
-  expanded: false
   items:
-    - name: Gelişmiş tehdit algılama
-      href: azure-threat-detection.md
-    - name: Azure günlük kaydı ve denetim
-      href: azure-log-audit.md
-    - name: Azure ağ güvenliği
-      href: abstract-azure-network-security.md
-    - name: Azure sunucusuz platform güvenliği
-      href: abstract-serverless-platform-security.md
-    - name: İşletimsel güvenliği etkinleştirme
-      href: azure-operational-security.md
-    - name: Azure’da idare
-      href: governance-in-azure.md
-    - name: Azure bulutta yalıtım
-      href: azure-isolation.md
-    - name: Güvenli karma ağ mimarisi
-      href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
-    - name: Güvenliğe yönelik teknik özellikler
-      href: azure-security-technical-capabilities.md
+  - name: Gelişmiş tehdit algılama
+    href: azure-threat-detection.md
+  - name: Azure günlük kaydı ve denetim
+    href: azure-log-audit.md
+  - name: Azure ağ güvenliği
+    href: abstract-azure-network-security.md
+  - name: Azure sunucusuz platform güvenliği
+    href: abstract-serverless-platform-security.md
+  - name: İşletimsel güvenliği etkinleştirme
+    href: azure-operational-security.md
+  - name: Azure’da idare
+    href: governance-in-azure.md
+  - name: Azure bulutta yalıtım
+    href: azure-isolation.md
+  - name: Güvenli karma ağ mimarisi
+    href: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Güvenliğe yönelik teknik özellikler
+    href: azure-security-technical-capabilities.md
+  expanded: false
 - name: Veri güvenliği ve şifreleme
   href: security-azure-encryption-overview.md
   items:
-    - name: Veritabanı güvenliği
-      href: azure-database-security-overview.md
+  - name: Veritabanı güvenliği
+    href: azure-database-security-overview.md
+    items:
+    - name: En iyi uygulamalar
+      href: azure-database-security-best-practices.md
+    - name: Güvenlik denetim listesi
+      href: azure-database-security-checklist.md
+  - name: Disk şifrelemesi
+    items:
+    - name: En iyi uygulamalar
+      href: azure-security-data-encryption-best-practices.md
+    - name: Bekleyen veri şifreleme
+      href: azure-security-encryption-atrest.md
+    - name: IaaS VM’leri için disk şifreleme
+      href: azure-security-disk-encryption-overview.md
       items:
-        - name: En iyi uygulamalar
-          href: azure-database-security-best-practices.md
-        - name: Güvenlik denetim listesi
-          href: azure-database-security-checklist.md
-    - name: Disk şifrelemesi
-      items:
-        - name: En iyi uygulamalar
-          href: azure-security-data-encryption-best-practices.md
-        - name: Bekleyen veri şifreleme
-          href: azure-security-encryption-atrest.md
-        - name: IaaS VM’leri için disk şifreleme
-          href: azure-security-disk-encryption-overview.md
-          items:
-            - name: Disk şifreleme önkoşulları
-              href: azure-security-disk-encryption-prerequisites.md
-            - name: Windows VM’leri için disk şifreleme
-              href: azure-security-disk-encryption-windows.md
-            - name: Linux VM’leri için disk şifreleme
-              href: azure-security-disk-encryption-linux.md
-            - name: Disk şifreleme için ek
-              href: azure-security-disk-encryption-appendix.md
-            - name: Disk şifrelemesi hakkında SSS
-              href: azure-security-disk-encryption-faq.md
-            - name: Sorun giderme
-              href: azure-security-disk-encryption-tsg.md
-        - name: Azure VM’lerini şifreleme
-          href: ../security-center/security-center-disk-encryption.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
-    - name: Azure Depolama güvenliği
-      href: security-storage-overview.md
-    - name: Depolama güvenliği kılavuzu
-      href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+      - name: Disk şifreleme önkoşulları
+        href: azure-security-disk-encryption-prerequisites.md
+      - name: Windows VM’leri için disk şifreleme
+        href: azure-security-disk-encryption-windows.md
+      - name: Linux VM’leri için disk şifreleme
+        href: azure-security-disk-encryption-linux.md
+      - name: Disk şifreleme için ek
+        href: azure-security-disk-encryption-appendix.md
+      - name: Disk şifrelemesi hakkında SSS
+        href: azure-security-disk-encryption-faq.md
+      - name: Sorun giderme
+        href: azure-security-disk-encryption-tsg.md
+    - name: Azure VM’lerini şifreleme
+      href: ../security-center/security-center-disk-encryption.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Azure Depolama güvenliği
+    href: security-storage-overview.md
+  - name: Depolama güvenliği kılavuzu
+    href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Platform ve altyapı
   items:
-    - name: Altyapı güvenliği
-      href: azure-security-infrastructure.md
-      items:
-        - name: Fiziksel güvenlik
-          href: azure-physical-security.md
-        - name: Kullanılabilirlik
-          href: azure-infrastructure-availability.md
-        - name: Bileşenler ve sınırlar
-          href: azure-infrastructure-components.md
-        - name: Ağ mimarisi
-          href: azure-infrastructure-network.md
-        - name: Üretim ağı
-          href: azure-production-network.md
-        - name: SQL Veritabanı
-          href: azure-infrastructure-sql.md
-        - name: İşlemler
-          href: azure-infrastructure-operations.md
-        - name: İzleme
-          href: azure-infrastructure-monitoring.md
-        - name: Bütünlük
-          href: azure-infrastructure-integrity.md
-        - name: Veri koruma
-          href: azure-protection-of-customer-data.md
-    - name: Microsoft Kötü Amaçlı Yazılımdan Korunma
-      href: azure-security-antimalware.md
-    - name: IaaS güvenliği
-      href: security-virtual-machines-overview.md
-      items:
-        - name: En iyi uygulamalar - IaaS iş yükleri
-          href: azure-security-iaas.md
-        - name: Azure Market görüntüleri
-          href: security-recommendations-azure-marketplace-images.md
-    - name: Kimlik yönetimi
-      href: security-identity-management-overview.md
-      items:
-        - name: Azure AD kimlik doğrulamasını seçme
-          href: azure-ad-choose-authn.md
-        - name: Güvenlik denetim listesi
-          href: azure-ad-secure-steps.md
-        - name: En iyi uygulamalar
-          href: azure-security-identity-management-best-practices.md
-        - name: Abonelik yöneticilerine MFA’yı zorunlu kılma
-          href: azure-security-global-admin.md
-    - name: Ağ güvenliği
-      href: security-network-overview.md
-      items:
-        - name: En iyi uygulamalar
-          href: azure-security-network-security-best-practices.md
-        - name: DDOS Koruması
-          href: azure-ddos-best-practices.md
-        - name: Sınır güvenliği
-          href: ../best-practices-network-security.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Altyapı güvenliği
+    href: azure-security-infrastructure.md
+    items:
+    - name: Fiziksel güvenlik
+      href: azure-physical-security.md
+    - name: Kullanılabilirlik
+      href: azure-infrastructure-availability.md
+    - name: Bileşenler ve sınırlar
+      href: azure-infrastructure-components.md
+    - name: Ağ mimarisi
+      href: azure-infrastructure-network.md
+    - name: Üretim ağı
+      href: azure-production-network.md
+    - name: SQL Veritabanı
+      href: azure-infrastructure-sql.md
+    - name: İşlemler
+      href: azure-infrastructure-operations.md
+    - name: İzleme
+      href: azure-infrastructure-monitoring.md
+    - name: Bütünlük
+      href: azure-infrastructure-integrity.md
+    - name: Veri koruma
+      href: azure-protection-of-customer-data.md
+  - name: Microsoft Kötü Amaçlı Yazılımdan Korunma
+    href: azure-security-antimalware.md
+  - name: IaaS güvenliği
+    href: security-virtual-machines-overview.md
+    items:
+    - name: En iyi uygulamalar - IaaS iş yükleri
+      href: azure-security-iaas.md
+    - name: Azure Market görüntüleri
+      href: security-recommendations-azure-marketplace-images.md
+  - name: Kimlik yönetimi
+    href: security-identity-management-overview.md
+    items:
+    - name: Azure AD kimlik doğrulamasını seçme
+      href: azure-ad-choose-authn.md
+    - name: Güvenlik denetim listesi
+      href: azure-ad-secure-steps.md
+    - name: En iyi uygulamalar
+      href: azure-security-identity-management-best-practices.md
+    - name: Abonelik yöneticilerine MFA’yı zorunlu kılma
+      href: azure-security-global-admin.md
+  - name: Ağ güvenliği
+    href: security-network-overview.md
+    items:
+    - name: En iyi uygulamalar
+      href: azure-security-network-security-best-practices.md
+    - name: DDOS Koruması
+      href: azure-ddos-best-practices.md
+    - name: Sınır güvenliği
+      href: ../best-practices-network-security.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Uygulama
   items:
-    - name: PaaS
-      href: security-paas-deployments.md
-      items:
-        - name: PaaS için Azure App Service
-          href: security-paas-applications-using-app-services.md
-        - name: PaaS için Azure Depolama
-          href: security-paas-applications-using-storage.md
-        - name: PaaS için en iyi DB yöntemleri
-          href: security-paas-applications-using-sql.md
-    - name: IoT
-      href: security-internet-of-things-overview.md
-      items:
-        - name: IoT güvenliği için en iyi uygulamalar
-          href: ../iot-accelerators/iot-security-best-practices.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
-        - name: IoT güvenliği
-          href: '../iot-accelerators/iot-security-architecture.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json#security-in-iot'
-        - name: IoT dağıtımınızın güvenliğini sağlama
-          href: ../iot-accelerators/iot-accelerators-security-deployment.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
-    - name: Azure Service Fabric güvenliği
-      href: azure-service-fabric-security-overview.md
-      items:
-        - name: En iyi uygulamalar
-          href: azure-service-fabric-security-best-practices.md
-        - name: Güvenlik denetim listesi
-          href: azure-service-fabric-security-checklist.md
-- name: 'İzleme, denetim ve işlemler'
+  - name: PaaS
+    href: security-paas-deployments.md
+    items:
+    - name: PaaS için Azure App Service
+      href: security-paas-applications-using-app-services.md
+    - name: PaaS için Azure Depolama
+      href: security-paas-applications-using-storage.md
+    - name: PaaS için en iyi DB yöntemleri
+      href: security-paas-applications-using-sql.md
+  - name: IoT
+    href: security-internet-of-things-overview.md
+    items:
+    - name: IoT güvenliği için en iyi uygulamalar
+      href: ../iot-accelerators/iot-security-best-practices.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: IoT güvenliği
+      href: ../iot-accelerators/iot-security-architecture.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json#security-in-iot
+    - name: IoT dağıtımınızın güvenliğini sağlama
+      href: ../iot-accelerators/iot-accelerators-security-deployment.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Azure Service Fabric güvenliği
+    href: azure-service-fabric-security-overview.md
+    items:
+    - name: En iyi uygulamalar
+      href: azure-service-fabric-security-best-practices.md
+    - name: Güvenlik denetim listesi
+      href: azure-service-fabric-security-checklist.md
+- name: İzleme, denetim ve işlemler
   href: security-management-and-monitoring-overview.md
   items:
-    - name: Denetim ve günlüğe kaydetme
+  - name: Denetim ve günlüğe kaydetme
+    items:
+    - name: Güvenlik yönetimi
+      href: ../security-center/security-center-intro.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Uzaktan yönetim güvenliği
+      href: azure-security-management.md
+    - name: Azure günlük tümleştirmesi
       items:
-        - name: Güvenlik yönetimi
-          href: ../security-center/security-center-intro.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
-        - name: Uzaktan yönetim güvenliği
-          href: azure-security-management.md
-        - name: Azure günlük tümleştirmesi
-          items:
-            - name: Giriş
-              href: security-azure-log-integration-overview.md
-            - name: başlarken
-              href: security-azure-log-integration-get-started.md
-            - name: Azure AD denetim günlüklerini tümleştirme
-              href: security-azure-log-integration-ad.md
-            - name: Güvenlik Merkezi uyarılarını tümleştirme
-              href: security-azure-log-integration-security-center.md
-            - name: Key Vault’tan günlükleri tümleştirme
-              href: security-azure-log-integration-keyvault-eventhub.md
-            - name: SSS
-              href: security-azure-log-integration-faq.md
-    - name: İşletimsel güvenlik
-      href: azure-operational-security-overview.md
-      items:
-        - name: En iyi uygulamalar
-          href: azure-operational-security-best-practices.md
-        - name: Güvenlik denetim listesi
-          href: azure-operational-security-checklist.md
+      - name: Giriş
+        href: security-azure-log-integration-overview.md
+      - name: başlarken
+        href: security-azure-log-integration-get-started.md
+      - name: Azure AD denetim günlüklerini tümleştirme
+        href: security-azure-log-integration-ad.md
+      - name: Güvenlik Merkezi uyarılarını tümleştirme
+        href: security-azure-log-integration-security-center.md
+      - name: Key Vault’tan günlükleri tümleştirme
+        href: security-azure-log-integration-keyvault-eventhub.md
+      - name: SSS
+        href: security-azure-log-integration-faq.md
+  - name: İşletimsel güvenlik
+    href: azure-operational-security-overview.md
+    items:
+    - name: En iyi uygulamalar
+      href: azure-operational-security-best-practices.md
+    - name: Güvenlik denetim listesi
+      href: azure-operational-security-checklist.md
 - name: İdare ve uyum
   items:
-    - name: FedRAMP
-      items:
-        - name: Veri analizi
-          href: ./blueprints/fedramp-analytics-overview.md
-        - name: Veri ambarı
-          href: ./blueprints/fedramp-datawarehouse-overview.md
-        - name: IaaS web uygulaması
-          href: ./blueprints/fedramp-iaaswa-overview.md
-        - name: PaaS web uygulaması
-          href: ./blueprints/fedramp-paaswa-overview.md
-    - name: FFIEC
-      items:
-        - name: Veri analizi
-          href: ./blueprints/ffiec-analytics-overview.md
-        - name: Veri ambarı
-          href: ./blueprints/ffiec-dw-overview.md
-        - name: IaaS web uygulaması
-          href: ./blueprints/ffiec-iaaswa-overview.md
-        - name: PaaS web uygulaması
-          href: ./blueprints/ffiec-paaswa-overview.md
-    - name: GDPR
-      items:
-        - name: Veri analizi
-          href: ./blueprints/gdpr-analytics-overview.md
-        - name: Veri ambarı
-          href: ./blueprints/gdpr-datawarehouse-overview.md
-        - name: IaaS web uygulaması
-          href: ./blueprints/gdpr-iaaswa-overview.md
-        - name: PaaS web uygulaması
-          href: ./blueprints/gdpr-paaswa-overview.md
-    - name: HIPAA/HITRUST
-      items:
-        - name: Sistem Durumu Verileri ve Yapay Zeka
-          href: ./blueprints/azure-health.md
-    - name: NIST SP 800-171
-      items:
-        - name: Veri analizi
-          href: ./blueprints/nist171-analytics-overview.md
-        - name: Veri ambarı
-          href: ./blueprints/nist171-datawarehouse-overview.md
-        - name: IaaS web uygulaması
-          href: ./blueprints/nist171-iaaswa-overview.md
-        - name: PaaS web uygulaması
-          href: ./blueprints/nist171-paaswa-overview.md
-    - name: PCI DSS
-      items:
-        - name: Veri analizi
-          href: ./blueprints/pcidss-analytics-overview.md
-        - name: Veri ambarı
-          href: ./blueprints/pcidss-dw-overview.md
-        - name: IaaS web uygulaması
-          href: ./blueprints/pcidss-iaaswa-overview.md
-        - name: PaaS web uygulaması
-          href: ./blueprints/pcidss-paaswa-overview.md
-    - name: TIC
-      items:
-        - name: Azure ile Trusted Internet Connection
-          href: ./compliance/compliance-tic.md
-    - name: UK NHS
-      items:
-        - name: Veri analizi
-          href: ./blueprints/uknhs-analytics-overview.md
-        - name: Veri ambarı
-          href: ./blueprints/uknhs-datawarehouse-overview.md
-        - name: IaaS web uygulaması
-          href: ./blueprints/uknhs-iaaswa-overview.md
-        - name: PaaS web uygulaması
-          href: ./blueprints/uknhs-paaswa-overview.md
-    - name: UK OFFICIAL
-      items:
-        - name: IaaS web uygulaması
-          href: ./blueprints/ukofficial-iaaswa-overview.md
-        - name: PaaS web uygulaması
-          href: ./blueprints/ukofficial-paaswa-overview.md
+  - name: AU PROTECTED
+    items:
+    - name: IaaS web uygulaması
+      href: ./blueprints/au-protected-iaaswa-overview.md
+    - name: PaaS web uygulaması
+      href: ./blueprints/au-protected-paaswa-overview.md
+  - name: FedRAMP
+    items:
+    - name: Veri analizi
+      href: ./blueprints/fedramp-analytics-overview.md
+    - name: Veri ambarı
+      href: ./blueprints/fedramp-datawarehouse-overview.md
+    - name: IaaS web uygulaması
+      href: ./blueprints/fedramp-iaaswa-overview.md
+    - name: PaaS web uygulaması
+      href: ./blueprints/fedramp-paaswa-overview.md
+  - name: FFIEC
+    items:
+    - name: Veri analizi
+      href: ./blueprints/ffiec-analytics-overview.md
+    - name: Veri ambarı
+      href: ./blueprints/ffiec-dw-overview.md
+    - name: IaaS web uygulaması
+      href: ./blueprints/ffiec-iaaswa-overview.md
+    - name: PaaS web uygulaması
+      href: ./blueprints/ffiec-paaswa-overview.md
+  - name: GDPR
+    items:
+    - name: Veri analizi
+      href: ./blueprints/gdpr-analytics-overview.md
+    - name: Veri ambarı
+      href: ./blueprints/gdpr-datawarehouse-overview.md
+    - name: IaaS web uygulaması
+      href: ./blueprints/gdpr-iaaswa-overview.md
+    - name: PaaS web uygulaması
+      href: ./blueprints/gdpr-paaswa-overview.md
+  - name: HIPAA/HITRUST
+    items:
+    - name: Sistem Durumu Verileri ve Yapay Zeka
+      href: ./blueprints/azure-health.md
+  - name: NIST SP 800-171
+    items:
+    - name: Veri analizi
+      href: ./blueprints/nist171-analytics-overview.md
+    - name: Veri ambarı
+      href: ./blueprints/nist171-datawarehouse-overview.md
+    - name: IaaS web uygulaması
+      href: ./blueprints/nist171-iaaswa-overview.md
+    - name: PaaS web uygulaması
+      href: ./blueprints/nist171-paaswa-overview.md
+  - name: PCI DSS
+    items:
+    - name: Veri analizi
+      href: ./blueprints/pcidss-analytics-overview.md
+    - name: Veri ambarı
+      href: ./blueprints/pcidss-dw-overview.md
+    - name: IaaS web uygulaması
+      href: ./blueprints/pcidss-iaaswa-overview.md
+    - name: PaaS web uygulaması
+      href: ./blueprints/pcidss-paaswa-overview.md
+  - name: TIC
+    items:
+    - name: Azure ile Trusted Internet Connection
+      href: ./compliance/compliance-tic.md
+  - name: UK NHS
+    items:
+    - name: Veri analizi
+      href: ./blueprints/uknhs-analytics-overview.md
+    - name: Veri ambarı
+      href: ./blueprints/uknhs-datawarehouse-overview.md
+    - name: IaaS web uygulaması
+      href: ./blueprints/uknhs-iaaswa-overview.md
+    - name: PaaS web uygulaması
+      href: ./blueprints/uknhs-paaswa-overview.md
+  - name: UK OFFICIAL
+    items:
+    - name: IaaS web uygulaması
+      href: ./blueprints/ukofficial-iaaswa-overview.md
+    - name: PaaS web uygulaması
+      href: ./blueprints/ukofficial-paaswa-overview.md
 - name: Teknik incelemeler
   href: security-white-papers.md
 - name: Azure güvenlik hizmetleri
@@ -256,43 +263,49 @@
   href: security-best-practices-and-patterns.md
 - name: Kaynaklar
   items:
-    - name: Azure güvenlik MVP programı
-      href: azure-security-mvp.md
-    - name: Siber güvenlik danışmanlığı
-      href: azure-security-cyber-services.md
-    - name: Güvenlik olayı destek biletini günlüğe kaydetme
-      href: azure-security-event-support-ticket.md
-    - name: Sızma testi
-      href: azure-security-pen-testing.md
-    - name: Microsoft Tehdit Modelleme aracı
-      href: azure-security-threat-modeling-tool.md
+  - name: Azure güvenlik MVP programı
+    href: azure-security-mvp.md
+  - name: Siber güvenlik danışmanlığı
+    href: azure-security-cyber-services.md
+  - name: Güvenlik olayı destek biletini günlüğe kaydetme
+    href: azure-security-event-support-ticket.md
+  - name: Sızma testi
+    href: azure-security-pen-testing.md
+  - name: Microsoft Tehdit Modelleme aracı
+    href: azure-security-threat-modeling-tool.md
+    items:
+    - name: Başlarken
+      href: azure-security-threat-modeling-tool-getting-started.md
+    - name: Özelliklere genel bakış
+      href: azure-security-threat-modeling-tool-feature-overview.md
+    - name: Tehditler
+      href: azure-security-threat-modeling-tool-threats.md
+    - name: Risk Azaltıcı Etkenler
+      href: azure-security-threat-modeling-tool-mitigations.md
       items:
-        - name: Başlarken
-          href: azure-security-threat-modeling-tool-getting-started.md
-        - name: Özelliklere genel bakış
-          href: azure-security-threat-modeling-tool-feature-overview.md
-        - name: Tehditler
-          href: azure-security-threat-modeling-tool-threats.md
-        - name: Risk Azaltıcı Etkenler
-          href: azure-security-threat-modeling-tool-mitigations.md
-          items:
-            - name: Denetim ve günlüğe kaydetme
-              href: azure-security-threat-modeling-tool-auditing-and-logging.md
-            - name: Kimlik Doğrulaması
-              href: azure-security-threat-modeling-tool-authentication.md
-            - name: Yetkilendirme
-              href: azure-security-threat-modeling-tool-authorization.md
-            - name: İletişim güvenliği
-              href: azure-security-threat-modeling-tool-communication-security.md
-            - name: Yapılandırma yönetimi
-              href: azure-security-threat-modeling-tool-configuration-management.md
-            - name: Şifreleme
-              href: azure-security-threat-modeling-tool-cryptography.md
-            - name: Özel durum yönetimi
-              href: azure-security-threat-modeling-tool-exception-management.md
-            - name: Giriş doğrulaması
-              href: azure-security-threat-modeling-tool-input-validation.md
-            - name: Hassas veriler
-              href: azure-security-threat-modeling-tool-sensitive-data.md
-            - name: Oturum yönetimi
-              href: azure-security-threat-modeling-tool-session-management.md
+      - name: Denetim ve günlüğe kaydetme
+        href: azure-security-threat-modeling-tool-auditing-and-logging.md
+      - name: Kimlik Doğrulaması
+        href: azure-security-threat-modeling-tool-authentication.md
+      - name: Yetkilendirme
+        href: azure-security-threat-modeling-tool-authorization.md
+      - name: İletişim güvenliği
+        href: azure-security-threat-modeling-tool-communication-security.md
+      - name: Yapılandırma yönetimi
+        href: azure-security-threat-modeling-tool-configuration-management.md
+      - name: Şifreleme
+        href: azure-security-threat-modeling-tool-cryptography.md
+      - name: Özel durum yönetimi
+        href: azure-security-threat-modeling-tool-exception-management.md
+      - name: Giriş doğrulaması
+        href: azure-security-threat-modeling-tool-input-validation.md
+      - name: Hassas veriler
+        href: azure-security-threat-modeling-tool-sensitive-data.md
+      - name: Oturum yönetimi
+        href: azure-security-threat-modeling-tool-session-management.md
+ms.openlocfilehash: 0ec99adbb53dda738eeaa3edb5bd181b8a91c0e7
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41927286"

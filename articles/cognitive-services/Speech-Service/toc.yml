@@ -1,183 +1,186 @@
-# displayName: additional text for filtering down the ToC in meaningful way.
-- name: Konuşma Tanıma Hizmeti ve SDK Belgeleri
+items:
+- name: Konuşma Tanıma Hizmeti ve SDK'sı
   href: index.yml
 - name: Genel Bakış
   items:
-    - name: Konuşma Senaryoları
-      href: speech-scenarios.md
-      expanded: true
-    - name: Konuşma Hizmeti
-      href: overview.md
-    - name: Konuşma SDK'sı
-      href: speech-sdk.md
-      displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample'
-    - name: Konuşma Cihazları SDK’sı
-      href: speech-devices-sdk.md
-      displayName: 'roobo, speech devices sdk'
+  - name: Konuşma tanıma hizmeti nedir?
+    href: overview.md
+  expanded: true
 - name: Hızlı Başlangıçlar
   items:
-    - name: Konuşma tanıma hizmetini ücretsiz olarak deneyin
-      href: get-started.md
-      displayName: 'get started, subscription key'
-    - name: 'C#'
-      items:
-        - name: 'C# dilinde konuşmayı tanıma (Windows üzerinde .NET)'
-          href: quickstart-csharp-dotnet-windows.md
-          displayName: 'recognize speech, speech recognition, speech to text, stt'
-        - name: 'C# dilinde konuşmayı tanıma (Windows üzerinde .NET Core)'
-          href: quickstart-csharp-dotnetcore-windows.md
-          displayName: 'recognize speech, speech recognition, speech to text, stt'
-        - name: UWP uygulamasında konuşmayı tanıma
-          href: quickstart-csharp-uwp.md
-          displayName: 'recognize speech, speech recognition, speech to text, stt, C#'
-    - name: C++
-      items:
-        - name: Windows için C++ dilinde konuşmayı algılama
-          href: quickstart-cpp-windows.md
-          displayName: 'recognize speech, speech recognition, speech to text, stt'
-        - name: Linux için C++ dilinde konuşmayı algılama
-          href: quickstart-cpp-linux.md
-          displayName: 'recognize speech, speech recognition, speech to text, stt'
-    - name: Java
-      items:
-        - name: Android için Java dilinde konuşmayı tanıma
-          href: quickstart-java-android.md
-          displayName: 'recognize speech, speech recognition, speech to text, stt'
-    - name: Konuşma Cihazları SDK’sı ile çalışmaya başlama
-      href: speech-devices-sdk-qsg.md
-      displayName: 'roobo, speech devices sdk'
+  - name: Konuşma tanıma hizmetini ücretsiz olarak deneyin
+    displayName: get started, subscription key
+    href: get-started.md
+  - name: Konuşma tanıma
+    items:
+    - name: C# kullanma (Windows üzerinde .NET)
+      displayName: recognize speech, speech recognition, speech to text, stt
+      href: quickstart-csharp-dotnet-windows.md
+    - name: C# kullanma (Windows üzerinde .NET Core)
+      displayName: recognize speech, speech recognition, speech to text, stt
+      href: quickstart-csharp-dotnetcore-windows.md
+    - name: C# kullanma (Evrensel Windows Platformu)
+      displayName: recognize speech, speech recognition, speech to text, stt, C#
+      href: quickstart-csharp-uwp.md
+    - name: C++ kullanma (Windows)
+      displayName: recognize speech, speech recognition, speech to text, stt
+      href: quickstart-cpp-windows.md
+    - name: C++ kullanma (Linux)
+      displayName: recognize speech, speech recognition, speech to text, stt
+      href: quickstart-cpp-linux.md
+    - name: Java kullanma (Android)
+      displayName: recognize speech, speech recognition, speech to text, stt
+      href: quickstart-java-android.md
+    - name: Java kullanma (Windows ve Linux)
+      displayName: recognize speech, speech recognition, speech to text, stt, jre, jvm
+      href: quickstart-java-jre.md
+  - name: Konuşma Cihazları SDK’sı ile çalışmaya başlama
+    displayName: roobo, speech devices sdk
+    href: speech-devices-sdk-qsg.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Konuşma tanıma
-      displayName: 'recognize speech, speech recognition, speech to text, stt'
-      items:
-        - name: 'C#'
-          href: how-to-recognize-speech-csharp.md
-        - name: C++
-          href: how-to-recognize-speech-cpp.md
-        - name: Java
-          href: how-to-recognize-speech-java.md
-        - name: REST
-          href: how-to-recognize-speech-rest.md
-    - name: Konuşmayı birleştirme (REST)
-      href: how-to-text-to-speech.md
-      displayName: 'synthesize speech, speech synthesis, text to speech, tts'
-    - name: Konuşmadan amaçları tanıma
-      displayName: 'recognize intent, intent recognition, language understanding service, luis'
-      items:
-        - name: 'C#'
-          href: how-to-recognize-intents-from-speech-csharp.md
-        - name: C++
-          href: how-to-recognize-intents-from-speech-cpp.md
-        - name: Java
-          href: how-to-recognize-intents-from-speech-java.md
-    - name: Konuşmayı çevirme
-      displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
-      items:
-        - name: 'C#'
-          href: how-to-translate-speech-csharp.md
-        - name: C++
-          href: how-to-translate-speech-cpp.md
-        - name: Java
-          href: how-to-translate-speech-java.md
-    - name: Toplu iş transkripsiyonu (REST)
-      href: batch-transcription.md
-      displayName: 'recognize speech, speech recognition, speech to text, stt'
-    - name: Konuşma Cihazları SDK’sını edinme
-      href: get-speech-devices-sdk.md
-      displayName: 'roobo, speech devices sdk, download'
-- name: Özelleştirme
-  items:
-    - name: Akustik modelleri özelleştirme
-      href: how-to-customize-acoustic-models.md
-    - name: Dil modellerini özelleştirme
-      href: how-to-customize-language-model.md
-    - name: Söyleniş özelleştirme
-      href: how-to-customize-pronunciation.md
-    - name: Ses tiplerini özelleştirme (bot marka sesi)
-      href: how-to-customize-voice-font.md
-    - name: Ses örnekleri kaydetme
-      href: record-custom-voice-samples.md
-    - name: Transkript hazırlama
-      href: prepare-transcription.md
-    - name: Özel ses akışları kullanma
-      href: how-to-use-audio-input-streams.md
-    - name: Cihaz uyandırma sözcüğünü özelleştirme (Cihazlar SDK’sı)
-      href: speech-devices-sdk-create-kws.md
-      displayName: 'roobo, speech devices sdk, wake word, keyword spotting, kws'
+  - name: Konuşma tanıma
+    displayName: recognize speech, speech recognition, speech to text, stt
+    items:
+    - name: C#
+      href: how-to-recognize-speech-csharp.md
+    - name: C++
+      href: how-to-recognize-speech-cpp.md
+    - name: Java
+      href: how-to-recognize-speech-java.md
+    - name: REST
+      href: how-to-recognize-speech-rest.md
+  - name: Konuşmayı birleştirme (REST)
+    displayName: synthesize speech, speech synthesis, text to speech, tts
+    href: how-to-text-to-speech.md
+  - name: Konuşmadan amaçları tanıma
+    displayName: recognize intent, intent recognition, language understanding service, luis
+    items:
+    - name: C#
+      href: how-to-recognize-intents-from-speech-csharp.md
+    - name: C++
+      href: how-to-recognize-intents-from-speech-cpp.md
+    - name: Java
+      href: how-to-recognize-intents-from-speech-java.md
+  - name: Konuşmayı çevirme
+    displayName: translate speech, speech translation, translator, s2s, speech to speech
+    items:
+    - name: C#
+      href: how-to-translate-speech-csharp.md
+    - name: C++
+      href: how-to-translate-speech-cpp.md
+    - name: Java
+      href: how-to-translate-speech-java.md
+  - name: Toplu iş transkripsiyonu (REST)
+    displayName: recognize speech, speech recognition, speech to text, stt
+    href: batch-transcription.md
+  - name: Konuşma Cihazları SDK’sını edinme
+    displayName: roobo, speech devices sdk, download
+    href: get-speech-devices-sdk.md
+  - name: Akustik modelleri özelleştirme
+    href: how-to-customize-acoustic-models.md
+  - name: Dil modellerini özelleştirme
+    href: how-to-customize-language-model.md
+  - name: Söyleniş özelleştirme
+    href: how-to-customize-pronunciation.md
+  - name: Ses tiplerini özelleştirme (bot marka sesi)
+    href: how-to-customize-voice-font.md
+  - name: Ses örnekleri kaydetme
+    href: record-custom-voice-samples.md
+  - name: Transkript hazırlama
+    href: prepare-transcription.md
+  - name: Özel ses akışları kullanma
+    href: how-to-use-audio-input-streams.md
+  - name: Cihaz uyandırma sözcüğünü özelleştirme (Cihazlar SDK’sı)
+    displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
+    href: speech-devices-sdk-create-kws.md
 - name: Kavramlar
   items:
-    - name: Konuşmayı Metne Dönüştürme
-      href: speech-to-text.md
-      displayName: 'recognize speech, speech recognition, speech to text, stt'
-    - name: Metin Okuma
-      href: text-to-speech.md
-      displayName: 'synthesize speech, speech synthesis, text to speech, tts'
-    - name: Konuşma Çevirisi
-      href: speech-translation.md
-      displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
+  - name: Konuşmayı Metne Dönüştürme
+    displayName: recognize speech, speech recognition, speech to text, stt
+    href: speech-to-text.md
+  - name: Metin Okuma
+    displayName: synthesize speech, speech synthesis, text to speech, tts
+    href: text-to-speech.md
+  - name: Konuşma Çevirisi
+    displayName: translate speech, speech translation, translator, s2s, speech to speech
+    href: speech-translation.md
 - name: Başvuru
   items:
-    - name: Desteklenen diller
-      href: supported-languages.md
-    - name: Bölgeler
-      href: regions.md
-    - name: REST API'leri
-      href: rest-apis.md
-    - name: Konuşma SDK'sı API’si
-      href: speech-sdk-reference.md
-      displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
-    - name: Konuşma birleştirme işaretleme
-      href: speech-synthesis-markup.md
-      displayName: 'synthesize speech, speech synthesis, text to speech, tts'
+  - name: PowerShell
+    href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: Azure CLI
+    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+  - name: Desteklenen diller
+    href: supported-languages.md
+  - name: Bölgeler
+    href: regions.md
+  - name: REST API'leri
+    href: rest-apis.md
+  - name: Konuşma SDK'sı API’si
+    displayName: C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows
+    href: speech-sdk-reference.md
+  - name: Konuşma birleştirme işaretleme
+    displayName: synthesize speech, speech synthesis, text to speech, tts
+    href: speech-synthesis-markup.md
 - name: Kaynaklar
   items:
-    - name: SSS
-      items:
-        - name: Konuşmayı Metne Dönüştürme SSS
-          href: faq-stt.md
-          displayName: 'recognize speech, speech recognition, speech to text, stt'
-        - name: Metin Okuma Hakkında SSS
-          href: faq-text-to-speech.md
-          displayName: 'synthesize speech, speech synthesis, text to speech, tts'
-        - name: Translator Hakkında SSS
-          href: 'https://www.microsoft.com/translator/faq.aspx'
-          displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
-    - name: Konuşma SDK'sı
-      items:
-        - name: İndirme
-          href: 'speech-sdk.md#get-the-sdk'
-        - name: Örnekler
-          href: 'speech-sdk.md#get-the-samples'
-        - name: Uygulamanızı gönderme
-          href: ship-application.md
-        - name: Sürüm notları
-          href: releasenotes.md
-        - name: Lisans
-          href: license.md
-        - name: Üçüncü taraf bildirimleri
-          href: third-party-notices.md
-    - name: Konuşma Cihazları SDK’sı
-      items:
-        - name: İndirme
-          href: 'get-speech-devices-sdk.md#download-the-speech-devices-sdk'
-        - name: Örnekler
-          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
-        - name: Sürüm notları
-          href: devices-sdk-release-notes.md
-        - name: Lisans
-          href: speech-devices-sdk-license.md
-          displayName: 'roobo, speech devices sdk'
-        - name: Üçüncü taraf bildirimleri
-          href: devices-sdk-third-party-notices.md
-          displayName: 'roobo, speech devices sdk'
-    - name: Sorun giderme
-      href: troubleshooting.md
-    - name: Destek
-      href: support.md
-    - name: Fiyatlandırma
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
-    - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
-    - name: Gizlilik ve tanımlama bilgileri
-      href: 'https://privacy.microsoft.com/privacystatement'
+  - name: SSS
+    items:
+    - name: Konuşmayı Metne Dönüştürme SSS
+      displayName: recognize speech, speech recognition, speech to text, stt
+      href: faq-stt.md
+    - name: Metin Okuma Hakkında SSS
+      displayName: synthesize speech, speech synthesis, text to speech, tts
+      href: faq-text-to-speech.md
+    - name: Translator Hakkında SSS
+      displayName: translate speech, speech translation, translator, s2s, speech to speech
+      href: https://www.microsoft.com/translator/faq.aspx
+  - name: Konuşma SDK'sı
+    displayName: C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample
+    href: speech-sdk.md
+    items:
+    - name: İndirme
+      href: speech-sdk.md#get-the-sdk
+    - name: Örnekler
+      href: speech-sdk.md#get-the-samples
+    - name: Uygulamanızı gönderme
+      href: ship-application.md
+    - name: Sürüm notları
+      href: releasenotes.md
+    - name: Lisans
+      href: license.md
+    - name: Üçüncü taraf bildirimleri
+      href: third-party-notices.md
+  - name: Konuşma Cihazları SDK’sı
+    displayName: roobo, speech devices sdk
+    href: speech-devices-sdk.md
+    items:
+    - name: İndirme
+      href: get-speech-devices-sdk.md#download-the-speech-devices-sdk
+    - name: Örnekler
+      href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
+    - name: Sürüm notları
+      href: devices-sdk-release-notes.md
+    - name: Lisans
+      displayName: roobo, speech devices sdk
+      href: speech-devices-sdk-license.md
+    - name: Üçüncü taraf bildirimleri
+      displayName: roobo, speech devices sdk
+      href: devices-sdk-third-party-notices.md
+  - name: Sorun giderme
+    href: troubleshooting.md
+  - name: Destek
+    href: support.md
+  - name: Fiyatlandırma
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+  - name: Gizlilik ve tanımlama bilgileri
+    href: https://privacy.microsoft.com/privacystatement
+ms.openlocfilehash: db76ca0221ae2d4b2bb3f966f7fecaba8b1ed733
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42440138"

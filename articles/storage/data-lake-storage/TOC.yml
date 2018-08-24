@@ -1,76 +1,83 @@
+items:
 - name: Azure Storage Belgeleri
   href: /azure/storage/
 - name: Data Lake Storage Gen1 belgelerine geçiş
   href: /azure/data-lake-store/
 - name: Genel Bakış
   items:
-    - name: Giriş
-      href: introduction.md
+  - name: Giriş
+    href: introduction.md
 - name: Hızlı Başlangıçlar
   items:
-    - name: Data Lake Storage Gen2 uyumlu Depolama hesabı oluşturma
-      href: quickstart-create-account.md
-    - name: Databricks hesabı oluşturma/bağlama
-      href: quickstart-create-databricks-account.md
-    - name: HDInsight kümesi oluşturma
-      href: quickstart-create-connect-hdi-cluster.md
+  - name: Data Lake Storage Gen2 uyumlu Depolama hesabı oluşturma
+    href: quickstart-create-account.md
+  - name: Databricks hesabı oluşturma/bağlama
+    href: quickstart-create-databricks-account.md
+  - name: HDInsight kümesi oluşturma
+    href: quickstart-create-connect-hdi-cluster.md
 - name: Öğreticiler
   items:
-    - name: 'Azure Databricks kullanarak verileri ayıklama, dönüştürme ve yükleme'
-      href: handle-data-using-databricks.md
-    - name: Spark kullanarak DataBricks ile Data Lake Storage verilerine erişme
-      href: using-databricks-spark.md
-    - name: 'Azure HDInsight üzerinde Apache Hive kullanarak verileri ayıklama, dönüştürme ve yükleme'
-      href: tutorial-extract-transform-load-hive.md
+  - name: Azure Databricks kullanarak verileri ayıklama, dönüştürme ve yükleme
+    href: handle-data-using-databricks.md
+  - name: Spark kullanarak Databricks ile Data Lake Storage verilerine erişme
+    href: using-databricks-spark.md
+  - name: Azure HDInsight üzerinde Apache Hive kullanarak verileri ayıklama, dönüştürme ve yükleme
+    href: tutorial-extract-transform-load-hive.md
 - name: Kavramlar
   items:
-    - name: Hadoop için Azure Blob Dosya Sistemi sürücüsü
-      href: abfs-driver.md
-    - name: Azure Blob Dosya Sistemi URI'sine giriş
-      href: introduction-abfs-uri.md
-    - name: Hiyerarşik Ad Alanı Hizmeti
-      href: namespace.md
-    - name: Güvenlik
-      items:
-        - name: Bekleyen verilerin şifrelenmesi
-          href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
-        - name: Müşteri anahtarlarıyla bekleyen verileri şifreleme
-          href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
-    - name: Data Lake Storage Gen2 değerlendirmesi
-      href: evaluation.md
+  - name: Hadoop için Azure Blob Dosya Sistemi sürücüsü
+    href: abfs-driver.md
+  - name: Azure Blob Dosya Sistemi URI'sine giriş
+    href: introduction-abfs-uri.md
+  - name: Hiyerarşik Ad Alanı Hizmeti
+    href: namespace.md
+  - name: Güvenlik
+    items:
+    - name: Bekleyen verilerin şifrelenmesi
+      href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+    - name: Müşteri anahtarlarıyla bekleyen verileri şifreleme
+      href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+  - name: Data Lake Storage Gen2 değerlendirmesi
+    href: evaluation.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Data Lake Storage Gen2'yi Azure HDInsight kümeleriyle kullanma
-      href: use-hdi-cluster.md
-    - name: Data Lake Storage Gen2 ile Hadoop Dosya Sistemi CLI'sini kullanma
-      href: use-hdfs-data-lake-storage.md
-    - name: Veriyi çekme
-      items:
-        - name: Distcp kullanarak Data Lake Storage Gen2'ye veri kopyalama
-          href: use-distcp.md
-        - name: Azure Data Factory kullanarak Data Lake Storage Gen2'ye veri kopyalama
-          href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
-    - name: Azure DataBricks’e bağlanma
-      href: 'https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html'
+  - name: Data Lake Storage Gen2'yi Azure HDInsight kümeleriyle kullanma
+    href: use-hdi-cluster.md
+  - name: Data Lake Storage Gen2 ile Hadoop Dosya Sistemi CLI'sini kullanma
+    href: use-hdfs-data-lake-storage.md
+  - name: Veriyi çekme
+    items:
+    - name: Distcp kullanarak Data Lake Storage Gen2'ye veri kopyalama
+      href: use-distcp.md
+    - name: Azure Data Factory kullanarak Data Lake Storage Gen2'ye veri kopyalama
+      href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+  - name: Azure DataBricks’e bağlanma
+    href: https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html
 - name: Başvuru
   items:
-    - name: REST
-      href: 'https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2'
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2
 - name: Kaynaklar
   items:
-    - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/?category=storage'
-    - name: Azure Depolama istemci araçları
-      href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
-    - name: Forum
-      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
-    - name: Fiyatlandırma
-      href: 'https://azure.microsoft.com/pricing/details/storage/data-lake/'
-    - name: Fiyatlandırma hesaplayıcı
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Hizmet güncelleştirmeleri
-      href: 'https://azure.microsoft.com/updates/?product=storage'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
-    - name: Videolar
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/?category=storage
+  - name: Azure Depolama istemci araçları
+    href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+  - name: Forum
+    href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
+  - name: Fiyatlandırma
+    href: https://azure.microsoft.com/pricing/details/storage/data-lake/
+  - name: Fiyatlandırma hesaplayıcı
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Hizmet güncelleştirmeleri
+    href: https://azure.microsoft.com/updates/?product=storage
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/windows-azure-storage
+  - name: Videolar
+    href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+ms.openlocfilehash: 2e640bee7739169b65352d7da6aedf2185c2aa99
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41929670"

@@ -1,11 +1,3 @@
-### YamlMime:OriginYaml
-ms.openlocfilehash: a3d1862f3604c53af106bf90040d2380421a004d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595873"
-metadata: {}
 items:
 - name: Azure Cosmos DB Belgeleri
   href: index.yml
@@ -14,7 +6,6 @@ items:
   - name: Azure Cosmos DB hakkında
     href: introduction.md
 - name: Hızlı Başlangıçlar
-  expanded: true
   items:
   - name: SQL
     items:
@@ -78,6 +69,7 @@ items:
       href: create-cassandra-dotnet.md
     - name: Python
       href: create-cassandra-python.md
+  expanded: true
 - name: Kavramlar
   items:
   - name: Genel dağıtım
@@ -107,7 +99,6 @@ items:
     - name: Sosyal medya uygulamaları
       href: social-media-apps.md
 - name: Çoklu model
-  expanded: true
   items:
   - name: SQL API Belgeleri
     items:
@@ -247,6 +238,10 @@ items:
           href: odbc-driver.md
         - name: Spring Boot Başlatıcı’yı SQL API’leriyle kullanma
           href: https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json
+      - name: Çözüm oluşturma
+        items:
+        - name: Perakende veri analizi
+          href: changefeed-ecommerce-solution.md
     - name: Başvuru
       items:
       - name: Async Java
@@ -335,6 +330,8 @@ items:
         href: mongodb-readpreference.md
       - name: Dizinleme
         href: mongodb-indexing.md
+      - name: Yaşam süresi - MongoDB
+        href: mongodb-time-to-live.md
       - name: Power BI ile verilerinizi görselleştirme
         href: powerbi-visualize.md
     - name: Kaynaklar
@@ -357,6 +354,8 @@ items:
       items:
       - name: Grafik bölümleme
         href: graph-partitioning.md
+      - name: BulkExecutor ile grafik verilerini içeri aktarma
+        href: bulk-executor-graph-dotnet.md
     - name: Kaynaklar
       items:
       - name: Visual Studio Code uzantısı
@@ -427,6 +426,7 @@ items:
         href: tutorial-develop-cassandra-java.md
       - name: 2 - İçeri Aktarma
         href: cassandra-import-data.md
+  expanded: true
 - name: Nasıl Yapılır Kılavuzları
   items:
   - name: Yönetme
@@ -441,7 +441,7 @@ items:
       href: manage-account.md
     - name: Aktarım hızı
       href: set-throughput.md
-    - name: Verilerin süresini otomatik olarak sonlandırma
+    - name: Yaşam süresi
       href: time-to-live.md
     - name: Tanılama günlüğüne kaydetme
       href: logging.md
@@ -493,3 +493,9 @@ items:
     href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
   - name: Teknik incelemeler
     href: whitepapers.md
+ms.openlocfilehash: 431962982c9480fddd1b5450a9505a0052158980
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41929689"

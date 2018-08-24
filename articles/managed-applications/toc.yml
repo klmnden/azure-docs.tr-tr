@@ -1,98 +1,107 @@
+items:
 - name: Azure Tarafından Yönetilen Uygulamalarla İlgili Belgeler
   href: index.yml
 - name: Genel Bakış
   items:
-    - name: Yönetilen uygulamalar hakkında
-      href: overview.md
+  - name: Yönetilen uygulamalar hakkında
+    href: overview.md
 - name: Hızlı Başlangıçlar
-  expanded: true
   items:
-    - name: Yönetilen uygulama oluşturma
-      href: managed-apps-quickstart-cli.md
+  - name: Yönetilen uygulama oluşturma
+    href: managed-apps-quickstart-cli.md
+  expanded: true
 - name: Öğreticiler
   items:
-    - name: Yönetilen uygulama dosyaları oluşturma
-      href: publish-service-catalog-app.md
-    - name: Market uygulaması oluşturma
-      href: publish-marketplace-app.md
+  - name: Yönetilen uygulama dosyaları oluşturma
+    href: publish-service-catalog-app.md
+  - name: Market uygulaması oluşturma
+    href: publish-marketplace-app.md
 - name: Örnekler
   items:
-    - name: Azure CLI
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
-    - name: Yönetilen uygulama çözümleri
-      href: sample-projects.md
+  - name: Azure CLI
+    href: cli-samples.md
+  - name: Azure PowerShell
+    href: powershell-samples.md
+  - name: Yönetilen uygulama çözümleri
+    href: sample-projects.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Kullanıcı arabirimi tanımlama
-      href: create-uidefinition-overview.md
-    - name: Yönetilen kaynakları güncelleştirme
-      href: update-managed-resources.md
-    - name: Yayımlamak için portalı kullanma
-      href: publish-portal.md
-    - name: Key Vault’tan bir gizli anahtarı kullanma
-      href: key-vault-access.md
+  - name: Portal arabirimi oluşturma
+    href: create-uidefinition-overview.md
+  - name: Portal arabirimini test etme
+    href: test-createuidefinition.md
+  - name: Yönetilen kaynakları güncelleştirme
+    href: update-managed-resources.md
+  - name: Yayımlamak için portalı kullanma
+    href: publish-portal.md
+  - name: Key Vault’tan bir gizli anahtarı kullanma
+    href: key-vault-access.md
 - name: Başvuru
   items:
-    - name: Azure CLI
-      href: /cli/azure/managedapp
-    - name: PowerShell
-      href: /powershell/module/azurerm.resources
-    - name: REST
-      href: /rest/api/resources/
-    - name: Kullanıcı arabirimi işlevleri
-      href: create-uidefinition-functions.md
-    - name: Kullanıcı arabirimi öğeleri
-      href: create-uidefinition-elements.md
+  - name: Azure CLI
+    href: /cli/azure/managedapp
+  - name: PowerShell
+    href: /powershell/module/azurerm.resources
+  - name: REST
+    href: /rest/api/resources/
+  - name: Kullanıcı arabirimi işlevleri
+    href: create-uidefinition-functions.md
+  - name: Kullanıcı arabirimi öğeleri
+    href: create-uidefinition-elements.md
+    items:
+    - name: Common
       items:
-        - name: Common
-          items:
-            - name: DropDown
-              href: microsoft-common-dropdown.md
-            - name: FileUpload
-              href: microsoft-common-fileupload.md
-            - name: InfoBox
-              href: microsoft-common-infobox.md
-            - name: OptionsGroup
-              href: microsoft-common-optionsgroup.md
-            - name: PasswordBox
-              href: microsoft-common-passwordbox.md
-            - name: Section
-              href: microsoft-common-section.md
-            - name: TextBlock
-              href: microsoft-common-textblock.md
-            - name: TextBox
-              href: microsoft-common-textbox.md
-        - name: İşlem
-          items:
-            - name: CredentialsCombo
-              href: microsoft-compute-credentialscombo.md
-            - name: SizeSelector
-              href: microsoft-compute-sizeselector.md
-            - name: UserNameTextBox
-              href: microsoft-compute-usernametextbox.md
-        - name: Ağ
-          items:
-            - name: AvailabilityZoneDropDown
-              href: microsoft-network-availabilityzonedropdown.md
-            - name: PublicIPAddressCombo
-              href: microsoft-network-publicipaddresscombo.md
-            - name: VirtualNetworkCombo
-              href: microsoft-network-virtualnetworkcombo.md
-        - name: Depolama
-          items:
-            - name: MultiStorageAccountCombo
-              href: microsoft-storage-multistorageaccountcombo.md
-            - name: StorageAccountSelector
-              href: microsoft-storage-storageaccountselector.md
+      - name: DropDown
+        href: microsoft-common-dropdown.md
+      - name: FileUpload
+        href: microsoft-common-fileupload.md
+      - name: InfoBox
+        href: microsoft-common-infobox.md
+      - name: OptionsGroup
+        href: microsoft-common-optionsgroup.md
+      - name: PasswordBox
+        href: microsoft-common-passwordbox.md
+      - name: Section
+        href: microsoft-common-section.md
+      - name: TextBlock
+        href: microsoft-common-textblock.md
+      - name: TextBox
+        href: microsoft-common-textbox.md
+    - name: İşlem
+      items:
+      - name: CredentialsCombo
+        href: microsoft-compute-credentialscombo.md
+      - name: SizeSelector
+        href: microsoft-compute-sizeselector.md
+      - name: UserNameTextBox
+        href: microsoft-compute-usernametextbox.md
+    - name: Ağ
+      items:
+      - name: AvailabilityZoneDropDown
+        href: microsoft-network-availabilityzonedropdown.md
+      - name: PublicIPAddressCombo
+        href: microsoft-network-publicipaddresscombo.md
+      - name: VirtualNetworkCombo
+        href: microsoft-network-virtualnetworkcombo.md
+    - name: Depolama
+      items:
+      - name: MultiStorageAccountCombo
+        href: microsoft-storage-multistorageaccountcombo.md
+      - name: StorageAccountSelector
+        href: microsoft-storage-storageaccountselector.md
 - name: Kaynaklar
   items:
-    - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Fiyatlandırma
-      href: 'https://azure.microsoft.com/pricing/details/managed-applications/'
-    - name: Fiyatlandırma hesaplayıcı
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-managedapps'
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/
+  - name: Fiyatlandırma
+    href: https://azure.microsoft.com/pricing/details/managed-applications/
+  - name: Fiyatlandırma hesaplayıcı
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-managedapps
+ms.openlocfilehash: c468b30361163d39b94af999c9767cbc491a06ac
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41927103"

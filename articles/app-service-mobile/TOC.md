@@ -74,9 +74,9 @@
 #### [İstemci ve sunucu sürümü oluşturma](app-service-mobile-client-and-server-versioning.md)
 
 ### App Service Ortamı
-#### [App Service Ortamında bir web uygulaması oluşturma](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Azure Resource Manager Şablonlarını Kullanarak ILB ASE Oluşturma](../app-service/environment/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [İç Yük Dengeleyici kullanma](../app-service/environment/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [App Service Ortamında bir web uygulaması oluşturma](../app-service/environment/intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [İç yük dengeleyici oluşturma ve kullanma](../app-service/environment/create-ilb-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Şablon kullanarak ASE oluşturma](../app-service/environment/create-from-template.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Dağıtma
 ### [Bulut eşitleme dağıtımı](../app-service/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
