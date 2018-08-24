@@ -15,9 +15,10 @@ ms.date: 08/24/2016
 ms.author: mbullwin
 ms.openlocfilehash: 56e30ff4ee7765cd0950293999d93a9cf1fe5d36
 ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32152427"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: Application Insights Linux performans ölçümlerini
 

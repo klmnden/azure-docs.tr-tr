@@ -17,9 +17,10 @@ ms.date: 01/18/2018
 ms.author: maroche
 ms.openlocfilehash: b4dfc7a900e42b348c416d2d8c05b73fb15847ae
 ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32164841"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Veri kaynaklarına bağlanma
 ## <a name="introduction"></a>Giriş

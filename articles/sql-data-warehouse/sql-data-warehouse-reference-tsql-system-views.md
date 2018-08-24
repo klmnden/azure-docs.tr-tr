@@ -12,9 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: a0e75bc9b7cfa6827794f8d4256bddc3807f17d1
 ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195388"
 ---
 # <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse'da desteklenen sistem görünümleri
 Azure SQL Data Warehouse'da desteklenen T-SQL deyimleri için belgelere bağlantılar.
