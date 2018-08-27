@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 9eef382ea264bcf9e59dcc408d14a59355b0369b
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: ffa61ebfaa58425cd2bf70d9bf78a2e71b672369
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445686"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918492"
 ---
 # <a name="reference-architecture-enterprise-integration-with-queues-and-events"></a>Başvuru mimarisi: sıralar ve olaylar ile Kurumsal tümleştirme
 
@@ -28,6 +28,7 @@ Aşağıdaki başvuru mimarisi, bir Azure tümleştirme hizmetleri kullanan bir 
 ![Mimari diyagramı - sıralar ve olaylar ile Kurumsal tümleştirme](media/logic-apps-architectures-enterprise-integration-with-queues-events/integr_queues_events_arch_diagram.png)
 
 *Tümleştirme teknolojileri için birçok olası uygulama vardır. Azure Service Bus uygulaması tam kuruluş basit noktadan noktaya uygulamasından aralığı. Mimari serisi Genel tümleştirme uygulaması oluşturmak için geçerli olabilecek yeniden kullanılabilir bileşen parçalarına açıklar. Mimarları, kendi uygulama ve altyapı için uygulamak için ihtiyaç duydukları hangi bileşenlerin göz önünde bulundurmanız gerekir.*
+<!-- Should previous line be in Italic or asterisks must be escaped? -->
 
 ## <a name="architecture"></a>Mimari
 

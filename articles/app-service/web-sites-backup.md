@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: fd1e10239d63417a21eb6f76017539ec0d447258
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 44b4da7c293da0643fb88cc2de21433c6ea72c5c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224811"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886413"
 ---
 # <a name="back-up-your-app-in-azure"></a>Uygulamanızı Azure’a yedekleme
 Yedekleme ve geri yükleme özelliği [Azure App Service](app-service-web-overview.md) uygulama yedeklerini el ile veya bir zamanlamaya göre kolayca oluşturmanıza olanak sağlar. Uygulama mevcut uygulamanın üzerine yazarak veya başka bir uygulamaya geri önceki bir durumun anlık görüntüye geri yükleyebilirsiniz. 
@@ -55,6 +55,7 @@ Aşağıdaki veritabanı çözümleri ile yedekleme özelliği desteklenir:
 * Yedekleme, uygulama ve veritabanı içeriğinin 10 GB'a kadar olabilir. Yedekleme boyutu bu sınırı aşarsa, bir hata alırsınız.
 * MySQL desteklenmiyor için Azure veritabanı yedeklerini SSL etkin. Bir yedekleme yapılandırılmışsa, başarısız olmuş yedeklemeler alırsınız.
 * PostgreSQL desteklenmiyor için Azure veritabanı yedeklerini SSL etkin. Bir yedekleme yapılandırılmışsa, başarısız olmuş yedeklemeler alırsınız.
+* Uygulama içi MySQL veritabanları herhangi bir yapılandırma otomatik olarak yedeklenir. Uygulama içi MySQL veritabanları için bağlantı dizelerini ekleme gibi ayarları el ile yaptığınız yedeklemeleri düzgün çalışmayabilir.
 * Hedef yedeklemeleriniz için desteklenmediğinden, bir Güvenlik Duvarı'nı kullanarak depolama hesabı etkin. Bir yedekleme yapılandırılmışsa, başarısız olmuş yedeklemeler alırsınız.
 
 
@@ -85,7 +86,9 @@ Aşağıdaki veritabanı çözümleri ile yedekleme özelliği desteklenir:
     ![Depolama hesabı seç](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
-   > Bu listede görünmesi için bir veritabanı için bağlantı dizesini içinde bulunmalıdır **bağlantı dizeleri** bölümünü **uygulama ayarları** uygulamanız için sayfa.
+   > Bu listede görünmesi için bir veritabanı için bağlantı dizesini içinde bulunmalıdır **bağlantı dizeleri** bölümünü **uygulama ayarları** uygulamanız için sayfa. 
+   >
+   > Uygulama içi MySQL veritabanları herhangi bir yapılandırma otomatik olarak yedeklenir. Uygulama içi MySQL veritabanları için bağlantı dizelerini ekleme gibi ayarları el ile yaptığınız yedeklemeleri düzgün çalışmayabilir.
    > 
    > 
 6. İçinde **yedekleme yapılandırması** sayfasında **Kaydet**.    

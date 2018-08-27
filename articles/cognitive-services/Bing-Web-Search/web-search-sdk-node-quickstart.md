@@ -1,6 +1,6 @@
 ---
-title: Web araması SDK düğümü hızlı başlangıç | Microsoft Docs
-description: Web ara SDK konsol uygulaması ayarlayın.
+title: "Hızlı Başlangıç: Bing Web araması SDK'sı için Node.js kullanma"
+description: Web araması için SDK konsol uygulaması ayarlayın.
 titleSuffix: Azure cognitive services
 services: cognitive-services
 author: mikedodaro
@@ -8,27 +8,27 @@ manager: rosh
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 02/12/2018
-ms.author: v-gedod
-ms.openlocfilehash: 44f7f97f6c442df3fbb1e5e08189b8db7d4b9db0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 08/16/2018
+ms.author: v-gedod, erhopf
+ms.openlocfilehash: e25c295fc0fc144110325d3c494a513ea35aeb05
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355300"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888599"
 ---
-# <a name="web-search-sdk-node-quickstart"></a>Web arama SDK düğümü hızlı başlangıç
+# <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Hızlı Başlangıç: Bing Web araması SDK'sı için Node.js kullanma
 
-Bing Web arama SDK'sı web sorguları ve ayrıştırma sonuçları için REST API işlevselliğini içerir.
+Bing Web araması SDK'sı web sorgular ve ayrıştırma sonuçları için REST API işlevlerini içerir.
 
-[Kaynak kodu düğümü Bing Web arama SDK örnekleri için](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/webSearch.js) Git hub'da kullanılabilir.
+[Kaynak düğüm Bing Web araması SDK'sı örnekleri için kodu](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/webSearch.js) Github'da kullanılabilir.
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
 
-Bing Web arama SDK'yı kullanarak bir konsol uygulaması ayarlamak için çalıştırın `npm install azure-cognitiveservices-websearch` geliştirme ortamınızda.
+Bing Web araması SDK'sını kullanarak bir konsol uygulaması ayarlamak için çalıştırın `npm install azure-cognitiveservices-websearch` geliştirme ortamınızda.
 
-## <a name="web-search-client"></a>Web ara istemcisi
-Alma bir [Bilişsel hizmetler erişim tuşu](https://azure.microsoft.com/try/cognitive-services/) altında *arama*. Bir örneğini oluşturmak `CognitiveServicesCredentials`:
+## <a name="web-search-client"></a>Web araması istemcisi
+Alma bir [Bilişsel hizmetler abonelik anahtarı](https://azure.microsoft.com/try/cognitive-services/) altında *arama*. Bir örneğini oluşturmak `CognitiveServicesCredentials`:
 ```
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
 let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
@@ -38,7 +38,7 @@ Ardından, istemci örneği:
 const WebSearchAPIClient = require('azure-cognitiveservices-websearch');
 let webSearchApiClient = new WebSearchAPIClient(credentials);
 ```
-Arama sonuçları için:
+Sonuçları Ara:
 ```
 webSearchApiClient.web.search('seahawks').then((result) => {
     let properties = ["images", "webPages", "news", "videos"];
@@ -54,11 +54,11 @@ webSearchApiClient.web.search('seahawks').then((result) => {
 })
 
 ```
-Kod yazdırır `result.value` herhangi bir metin ayrıştırma olmadan konsola öğeler.  Varsa her kategori, sonuçları içerir:
-- _ad: 'ImageObject'
-- _ad: 'NewsArticle'
-- _ad: 'Web sayfası'
-- _ad: 'VideoObjectElementType'
+Kod yazdırır `result.value` herhangi bir metni ayrıştırma olmadan konsola öğeleri.  Varsa, kategori başına sonuçlar şunları içerir:
+- _türü: 'ImageObject'
+- _türü: 'NewsArticle'
+- _türü: 'Web'
+- _türü: 'VideoObjectElementType'
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![Video results](media/web-search-sdk-node-results.png)
@@ -66,4 +66,4 @@ Kod yazdırır `result.value` herhangi bir metin ayrıştırma olmadan konsola �
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel hizmetler Node.js SDK'sı örneği](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+[Bilişsel hizmetler Node.js SDK örnekleri](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)

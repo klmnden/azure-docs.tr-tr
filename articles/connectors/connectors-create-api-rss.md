@@ -1,39 +1,67 @@
 ---
-title: RSS Bağlayıcısı Azure Logic Apps içinde | Microsoft Docs
-description: Logic apps ile Azure uygulama hizmeti oluşturun. RSS Bağlayıcısı kullanıcıların yayımlama ve akış öğelerini almak olanak sağlar. Ayrıca, kullanıcıların akışa yeni bir öğe yayımlandığında işlemleri tetiklemesini olanak sağlar.
+title: Azure Logic Apps'ten RSS akışlarına bağlanmak | Microsoft Docs
+description: Görevler ve izleme ve Azure Logic Apps kullanarak RSS akışları yönetme iş akışlarını otomatikleştirin
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
 ms.service: logic-apps
-ms.devlang: multiple
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 08/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 268fa6d260f1107659208ea07ce3e43c27eca2d3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
+tags: connectors
+ms.date: 08/24/2018
+ms.openlocfilehash: c8d1122572764dda1fc550a06ae254109e3bf033
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295736"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885807"
 ---
-# <a name="get-started-with-the-rss-connector"></a>RSS Bağlayıcısı ile çalışmaya başlama
-RSS – blog girdileri ve haber başlıklarına gibi sık güncelleştirilen içerik yayımlamak için kullanılan bir popüler web dağıtım biçimidir.  Birçok içerik yayımcılarının bir RSS akışına abone yapmalarına izin vermek için sağlar.  Yeni öğeler bir RSS akışı yayımlandığında akış bilgileri ve tetikleyici akışlarını almak için RSS Bağlayıcısı'nı kullanın.
+# <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Azure Logic Apps kullanarak RSS akışlarını yönetme
 
-Bir mantıksal uygulama'yi şimdi oluşturmaya başlamak, bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Azure Logic Apps ve RSS Bağlayıcısı ile otomatik görevler oluşturabilir ve iş akışları için herhangi bir RSS akışı, örneğin:
 
-## <a name="create-a-connection-to-rss"></a>RSS bağlantı oluşturun.
-> [!INCLUDE [Steps to create a connection to an RSS feed](../../includes/connectors-create-api-rss.md)]
-> 
+* RSS Akış öğelerini yayımlandığında izleyin.
+* Tüm RSS akışı öğelerini listele.
 
-## <a name="connector-specific-details"></a>Bağlayıcı özgü ayrıntıları
+Gerçekten Basit Dağıtım olarak da adlandırılan RSS (zengin Site Özeti), web dağıtımı için popüler bir biçimidir ve blog gönderileri ve haber başlıklarını gibi sık güncelleştirilen içerikler yayımlamak için kullanılır. Birçok içerik yayımcılarının, kullanıcıların bu içeriğe abone, böylece bir RSS akışı sağlar. 
 
-Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/rss/).
+Bir RSS akışından yanıtları alır ve çıktıyı diğer eylemler için kullanılabilir hale getirir, bir RSS tetikleyicisi kullanabilirsiniz. Logic apps RSS eylem, bir RSS akışı bir görevi gerçekleştirmek için kullanabilirsiniz. Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](../logic-apps/logic-apps-overview.md)
 
-## <a name="more-connectors"></a>Daha fazla bağlayıcılar
-Geri dönerek [API'leri listesi](apis-list.md).
+## <a name="prerequisites"></a>Önkoşullar
+
+* Azure aboneliği. Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
+
+* Bir RSS akışı URL'si
+
+* Hakkında temel bilgilere [mantıksal uygulamalar oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* Bir RSS erişmek istediğiniz mantıksal uygulama akışı. Bir RSS tetikleyicisi ile başlatmak için [boş mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). RSS eylem kullanmak için mantıksal uygulamanızı başka bir tetikleyici ile başlar, **yinelenme** tetikleyici.
+
+## <a name="connect-to-an-rss-feed"></a>Bir RSS akışına bağlanma
+
+1. Oturum [Azure portalında](https://portal.azure.com)ve Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın, açık değilse.
+
+1. Bir yolu seçin: 
+
+   * Boş mantıksal uygulama için arama kutusuna filtreniz olarak "rss" yazın. Tetikleyiciler listesinde istediğiniz tetikleyicisini seçin. 
+
+     -veya-
+
+   * Var olan mantıksal uygulamalar, bir eylem eklemek istediğiniz adımı altında seçin için **yeni adım**. Arama kutusuna "rss" girin. Eylemler listesinde, istediğiniz eylemi seçin.
+
+1. Seçili tetikleyici veya eylem için gerekli bilgileri sağlayın ve mantıksal uygulamanızın iş akışı oluşturmaya devam edin.
+
+## <a name="connector-reference"></a>Bağlayıcı başvurusu
+
+Tetikleyiciler ve Eylemler sınırları hakkında teknik ayrıntılar için bağlayıcının Openapı'nin açıklanmıştır (önceki adıyla Swagger) açıklama, bağlayıcının gözden [başvuru sayfası](/connectors/rss/).
+
+## <a name="get-support"></a>Destek alın
+
+* Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
+* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](http://aka.ms/logicapps-wish) ziyaret edin.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+* Diğer hakkında bilgi edinin [Logic Apps bağlayıcıları](../connectors/apis-list.md)

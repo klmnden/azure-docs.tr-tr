@@ -54,6 +54,7 @@
 #### [B2B kullanıcıları ekleyen yöneticiler](b2b/add-users-administrator.md)
 #### [B2B kullanıcıları ekleyen bilgi çalışanları](b2b/add-users-information-worker.md)
 #### [API ve özelleştirme](b2b/customize-invitation-api.md)
+#### [Google federasyonu](b2b/google-federation.md)
 #### [Kod ve Azure PowerShell örnekleri](b2b/code-samples.md)
 #### [Self servis kaydolma portal örneği](b2b/self-service-portal.md)
 #### [Davet e-postası](b2b/invitation-email-elements.md)

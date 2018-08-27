@@ -1,17 +1,17 @@
-### <a name="prerequisites"></a>Ön koşullar
-* Bir Wunderlist hesabı  
+### <a name="prerequisites"></a>Önkoşullar
+* Wunderlist hesabı  
 
-Bir mantıksal uygulama Wunderlist hesabınızı kullanabilmeniz için önce Wunderlist hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz. 
+Wunderlist hesabınıza bağlanmak için mantıksal uygulama, bir mantıksal uygulama çalıştırmasında Wunderlist hesabınızı kullanabilmeniz için önce yetkilendirmeniz gerekir. Neyse ki, Azure Portalı'nda mantıksal uygulama içinde bunu kolayca yapabilirsiniz. 
 
 Mantıksal uygulamanızı Wunderlist hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:
 
-1. Mantıksal Uygulama Tasarımcısı'nda Wunderlist, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *Wunderlist* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
+1. Mantıksal Uygulama Tasarımcısı'nda Wunderlist, bağlantı oluşturmak için seçin **yönetilen API'leri Göster Microsoft** açılan liste enter *Wunderlist* arama kutusuna. Tetikleyici veya eylemi kullanmak ister seçin:  
    ![](./media/connectors-create-api-wunderlist/wunderlist-0.png)
-2. Önce Wunderlist bağlantılarına oluşturmadıysanız, Wunderlist kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve Wunderlist hesabınızın veri erişim:   
+2. Wunderlist'e önce herhangi bir bağlantı oluşturmadıysanız, Wunderlist kimlik bilgilerinizi sağlamanız girmem isteniyor. Bu kimlik bilgileri, mantıksal uygulamanızı bağlanmak için yetki vermek için kullanılan ve Wunderlist hesabınızın veri erişimi:   
    ![](./media/connectors-create-api-wunderlist/wunderlist-1.png)  
-3. Kimlik bilgilerinizi sağlayın ve sonra oturum açmak için düğmesini seçin  
+3. Kimlik bilgilerinizi sağlayın ve sonra oturum açmak için düğmeyi seçin  
    ![](./media/connectors-create-api-wunderlist/wunderlist-2.png)  
-4. Size sonra ne mantıksal uygulama Wunderlist hesabınızla yapmak için izinleri olur söylediyse. Kabul ediyorsanız, sözleşmenizi belirtmek için düğmesini seçin. 
+4. Ardından ne mantıksal uygulama Wunderlist hesabınızla yapmak için izinlerine sahip olduğunu. Kabul ederseniz sözleşmenize belirtmek için düğmeyi seçin. 
    ![](./media/connectors-create-api-wunderlist/wunderlist-4.png)  
 5. Son olarak, seçin **Authorize** düğmesi  
    ![](./media/connectors-create-api-wunderlist/wunderlist-5.png)  

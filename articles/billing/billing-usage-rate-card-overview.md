@@ -1,6 +1,6 @@
 ---
-title: Azure faturalama API'leri | Microsoft Docs
-description: Azure kaynak tüketimini ve eğilimleri sağlamak için kullanılan Azure faturalama kullanım ve RateCard API'ları hakkında bilgi edinin.
+title: Azure faturalandırma API'leri | Microsoft Docs
+description: Azure kaynak tüketimine ve eğilimleri hakkında Öngörüler sağlamak için kullanılan Azure faturalama kullanım ve RateCard API'leri hakkında bilgi edinin.
 services: ''
 documentationcenter: ''
 author: tonguyen
@@ -15,64 +15,67 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 5/10/2018
 ms.author: mobandyo
-ms.openlocfilehash: e26d8ad1f08eb711dc22b45d48f8dc326d8c17c7
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 650fac6208adf8f904384454b2e66e26e45893f1
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164984"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918861"
 ---
-# <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Program aracılığıyla Azure kullanımınızı bir anlayış almak için Azure faturalama API'lerini kullanın
-Azure faturalama API'leri kullanımı ve kaynak veri çekmek için tercih edilen veri analizi araçlarınızı kullanın. Azure kaynak kullanımı ve RateCard API'leri doğru şekilde tahmin etmek ve maliyetlerinizi yönetmenize yardımcı olabilir. API'ler bir kaynak sağlayıcısı ve Azure Resource Manager tarafından kullanıma sunulan API ailesinin bir parçası olarak uygulanır.  
+# <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Azure faturalandırma API'lerini program aracılığıyla Azure kullanımınızı öngörü almak için kullanın
+Azure faturalandırma API'lerini kullanımı ve kaynak veri çekmek üzere, tercih edilen veri analizi araçları kullanın. Azure kaynak kullanım ve RateCard API'leri, doğru şekilde tahmin edip, maliyetleri yönetmenize yardımcı olabilir. API'ler, bir kaynak sağlayıcısı ve Azure Resource Manager tarafından kullanıma sunulan API'ler ailesinin bir parçası olarak uygulanır.  
 
-## <a name="azure-invoice-download-api-preview"></a>Azure fatura indirme API (Önizleme)
-Bir kez [katılımı tam](billing-manage-access.md#opt-in), önizleme sürümünü kullanarak indirme faturaları [fatura API](/rest/api/billing). Özellikleri içerir:
+> [!div class="nextstepaction"]
+> [Azure faturalama belgeleri geliştirilmesine yardımcı olun](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
-* **Azure rol tabanlı erişim denetimi** -yapılandırma erişim ilkeleri [Azure portal](https://portal.azure.com) aracılığıyla veya [Azure PowerShell cmdlet'lerini](/powershell/azure/overview) hangi kullanıcılar veya uygulamalar için erişim sağlayabilmek için belirtmek için Aboneliğin kullanım verileri. Arayanlar, kimlik doğrulaması için standart Azure Active Directory belirteçleri kullanmanız gerekir. Çağıran, belirli bir Azure aboneliği kullanım verileri erişmek için faturalama Okuyucu, okuyucu, sahibi veya katkıda bulunan rolü ekleyin.
-* **Tarih filtreleme** -kullanım `$filter` tüm faturalar ters sırasına göre fatura dönem bitiş tarihi almak için parametre. 
+## <a name="azure-invoice-download-api-preview"></a>Azure fatura indirme API'si (Önizleme)
+Bir kez [katılımı tam](billing-manage-access.md#opt-in), önizleme sürümünü kullanarak indirme faturalar [fatura API](/rest/api/billing). Özellikler şunlardır:
+
+* **Azure rol tabanlı erişim denetimi** -yapılandırma erişim ilkeleri [Azure portalında](https://portal.azure.com) aracılığıyla veya [Azure PowerShell cmdlet'lerini](/powershell/azure/overview) hangi kullanıcılar ve uygulamalar erişebilir belirtmek için Aboneliğin kullanım verileri. Çağıranlar, kimlik doğrulaması için standart Azure Active Directory belirteçleri kullanmanız gerekir. Arayanın belirli bir Azure aboneliği için kullanım verilerine erişim elde etmek için faturalandırma okuyucusu, okuyucu, sahibi veya katkıda bulunan rolüne ekleyin.
+* **Tarih filtreleme** -kullanım `$filter` tüm faturalara ters sırasına göre fatura dönemi bitiş tarihi almak için parametre. 
 
 > [!NOTE]
-> Bu özellik ilk önizleme sürümünde olduğu ve uyumsuz geriye dönük değişiklikler tabi olabilir. Şu anda kullanılabilir belirli abonelik teklifler (Kurumsal Sözleşme, CSP, desteklenmeyen AIO) ve Azure Almanya değil.
+> Bu özellik, ilk önizleme sürümünde olan ve geriye dönük uyumsuz değişiklikler tabi olabilir. Şu anda, kullanılabilir belirli abonelik teklif (Kurumsal Anlaşma, CSP, desteklenmeyen AIO) ve Azure Almanya değildir.
 
 ## <a name="azure-resource-usage-api-preview"></a>Azure kaynak kullanım API'si (Önizleme)
-Azure kullanmak [kaynak kullanım API'si](https://msdn.microsoft.com/library/azure/mt219003) tahmini Azure tüketim verilerinizi almak için. API içerir:
+Azure kullanan [kaynak kullanım API'si](https://msdn.microsoft.com/library/azure/mt219003) tahmini Azure kullanım verilerinizi almak için. API içerir:
 
-* **Azure rol tabanlı erişim denetimi** -yapılandırma erişim ilkeleri [Azure portal](https://portal.azure.com) aracılığıyla veya [Azure PowerShell cmdlet'lerini](/powershell/azure/overview) hangi kullanıcılar veya uygulamalar için erişim sağlayabilmek için belirtmek için Aboneliğin kullanım verileri. Arayanlar, kimlik doğrulaması için standart Azure Active Directory belirteçleri kullanmanız gerekir. Çağıran, belirli bir Azure aboneliği kullanım verileri erişmek için faturalama Okuyucu, okuyucu, sahibi veya katkıda bulunan rolü ekleyin.
-* **Saatlik veya günlük toplamalar** - arayanlar olup Azure kullanım verilerini saatlik istedikleri aralıkları belirtebilirsiniz veya günlük aralıkları. Varsayılan günlük.
-* **(Kaynak etiketleri içerir) örneği meta veri** – alma tam Kaynak URI gibi örnek düzeyi ayrıntısı (/subscriptions/ {subscrıptıon-ID} /..), kaynak grubu bilgileri ve kaynak etiketleri. Çapraz ücretlendirme kullanım örnekleri ister için bu meta veriler, belirleyici biçimde ve program aracılığıyla kullanım etiketlere göre ayırmak yardımcı olur.
-* **Kaynak meta verilerini** -kaynak ayrıntılarını ölçüm adı, ölçer kategori, ölçüm alt kategorisi, birim ve bölge gibi daha iyi ne tüketilen anlamak çağıran verin. Ayrıca Azure portalı kaynak meta verileri terminolojisi hizalamak için çalışıyoruz Azure kullanım CSV, CSV ve diğer genel kullanıma yönelik deneyimleri deneyimleri arasında verilerin bağıntısını olanak faturalama EA.
-* **Farklı bir teklif türleri için kullanım** – kullanım verileri, Kullandıkça Öde, MSDN, parasal taahhüt, kredi ve EA, gibi teklif türleri için kullanılabilir dışında [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-invoice#retrieve-usage-data-for-a-specific-subscription).
+* **Azure rol tabanlı erişim denetimi** -yapılandırma erişim ilkeleri [Azure portalında](https://portal.azure.com) aracılığıyla veya [Azure PowerShell cmdlet'lerini](/powershell/azure/overview) hangi kullanıcılar ve uygulamalar erişebilir belirtmek için Aboneliğin kullanım verileri. Çağıranlar, kimlik doğrulaması için standart Azure Active Directory belirteçleri kullanmanız gerekir. Arayanın belirli bir Azure aboneliği için kullanım verilerine erişim elde etmek için faturalandırma okuyucusu, okuyucu, sahibi veya katkıda bulunan rolüne ekleyin.
+* **Saatlik veya günlük toplamalar** - çağıranlar olup Azure kullanım verilerini saatlik istedikleri demetlerine belirtebilirsiniz veya günlük demetlerine. Varsayılan günlük.
+* **Örnek meta veri (kaynak etiketleri içerir)** – alma tam Kaynak URI gibi örnek düzeyi ayrıntısı (/subscriptions/ {abonelik-kimliği} /..), kaynak grubu bilgileri ve kaynak etiketleri. Çapraz ücretlendirme, kullanım örnekleri ister için bu meta veriler belirleyici ve program aracılığıyla etiketlere göre kullanım ayırmanıza yardımcı olur.
+* **Kaynak meta verileri** -kaynak ayrıntıları ölçüm adı, ölçüm kategorisi, ölçüm alt kategorisi, birim ve bölge gibi daha iyi bir ne tüketildiğinin'ın anlayış çağıran verin. Ayrıca Azure portalı kaynak meta verileri terminolojisi hizalama çalışıyoruz Azure kullanım CSV, CSV ve diğer genel kullanıma yönelik deneyimler deneyimler verilerin bağıntısını izin vermek için faturalama EA.
+* **Farklı bir teklif türleri için kullanım** – kullanım verilerini, teklif türleri gibi Kullandıkça Öde, MSDN, parasal taahhüt, parasal kredi ve EA, kullanılabilir dışında [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-invoice#retrieve-usage-data-for-a-specific-subscription).
 
-## <a name="azure-resource-ratecard-api-preview"></a>Azure kaynak RateCard API (Önizleme)
-Kullanım [Azure kaynak RateCard API](https://msdn.microsoft.com/library/azure/mt219005) mevcut Azure kaynakları ve her biri için tahmini fiyatlandırma bilgileri listesini almak için. API içerir:
+## <a name="azure-resource-ratecard-api-preview"></a>Azure kaynak RateCard API'si (Önizleme)
+Kullanım [Azure kaynak RateCard API'si](https://msdn.microsoft.com/library/azure/mt219005) kullanılabilir Azure kaynaklarını ve tahmini fiyatlandırma bilgileri için her bir listesini almak için. API içerir:
 
-* **Azure rol tabanlı erişim denetimi** -erişim ilkelerinizi yapılandırmasına [Azure portal](https://portal.azure.com) aracılığıyla veya [Azure PowerShell cmdlet'lerini](/powershell/azure/overview) hangi kullanıcılar veya uygulamalar için erişim sağlayabilmek için belirtmek için RateCard verileri. Arayanlar, kimlik doğrulaması için standart Azure Active Directory belirteçleri kullanmanız gerekir. Çağıran, belirli bir Azure aboneliği kullanım verileri erişmek için okuyucu, sahibi veya katkıda bulunan rolü ekleyin.
-* **Kullandıkça Öde, MSDN, parasal taahhüt ve kredi teklifleri için destek (EA ve [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) desteklenmiyor)** -bu API Azure teklifi düzeyi oranı bilgi sağlar.  Bu API'yi çağıran kaynak ayrıntılarını ve ücretlerin almak için teklif bilgileri geçmesi gerekir. EA teklifleri kayıt göre oranları özelleştirdikten çünkü EA oranları sağlamak şu anda kaydedemiyoruz. 
+* **Azure rol tabanlı erişim denetimi** -erişim ilkelerinizi yapılandırın [Azure portalında](https://portal.azure.com) aracılığıyla veya [Azure PowerShell cmdlet'lerini](/powershell/azure/overview) hangi kullanıcılar ve uygulamalar erişebilir belirtmek için RateCard verileri. Çağıranlar, kimlik doğrulaması için standart Azure Active Directory belirteçleri kullanmanız gerekir. Arayanın belirli bir Azure aboneliği için kullanım verilerine erişim elde etmek için okuyucu, sahibi veya katkıda bulunan rolüne ekleyin.
+* **Kullandıkça Öde, MSDN, parasal taahhüt ve parasal kredi teklifleri için destek (EA ve [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) desteklenmiyor)** -bu API, Azure teklifi düzeyinde fiyat bilgileri sağlar.  Bu API'yi çağıran kaynak ayrıntıları ve fiyatları almak için teklif bilgilerini geçmesi gerekir. EA teklifler kayıt tarifelerine özelleştirdiğiniz çünkü EA fiyatlandırması sağlamak şu anda kaydedemiyoruz. 
 
 ## <a name="scenarios"></a>Senaryolar
-Kullanım ve RateCard API'leri birleşimiyle olası hale getirilen senaryolardan bazıları şunlardır:
+Kullanım ve RateCard API'leri ile birlikte olası yapılan senaryolardan bazıları şunlardır:
 
-* **Azure ay sırasında harcadığı** - kullanım birleşimini kullanın ve RateCard API'ları, bulut daha iyi fikir almak için bir ay sırasında harcadığı. Kullanım ve Ücret tahminleri saatlik ve günlük demet analiz edebilirsiniz.
-* **Uyarıları ayarlamak** – tahmini bulut kullanımı ve ücretleri almak ve kaynak veya parasal tabanlı uyarıları ayarlamak için kullanım ve RateCard API'lerini kullanın.
-* **Fatura tahmin** – tahmini tüketim ve bulut harcamanız ve fatura fatura döneminin sonunda ne olacağını tahmin etmek için makine öğrenimi algoritmalarını uygulamak alın.
-* **Analiz maliyetiyle öncesi tüketim** –, iş yükleri için Azure taşıdığınızda ne kadar faturanızı beklenen kullanımınız için olacaktır tahmin etmek için RateCard API'sini kullanın. Ayrıca var olan iş yükleri diğer Bulut veya özel bulutlara varsa, Azure ile kullanımınızı eşleştirebilirsiniz oranları Azure daha iyi kestirmek için harcadıkları. Bu tahmin teklif ve karşılaştırma ve parasal taahhüt ve kredi gibi Kullandıkça Öde ötesinde farklı teklif türleri arasında karşıtlığı Özet olanağı sağlar. API da bölgeye göre maliyet farklılıkları görme olanağı verir ve dağıtım kararları vermenize yardımcı olmak için durum maliyet çözümlemesi yapmanıza izin verir.
-* **Çözümlemeleri** -
+* **Azure harcamalarınızı ay boyunca** - kullanım bileşimini kullanın ve bulutunuzu daha iyi fikir almak için RateCard API'leri ay boyunca ayırın. Kullanım ve Ücret tahminleri saatlik ve günlük demetler çözümleyebilirsiniz.
+* **Uyarıları Ayarlama** – kullanım ve RateCard API'leri kullanın tahmini bulut tüketimi ve ücretleri alın ve kaynak veya parasal tabanlı uyarılar ayarlayın.
+* **Fatura tahmin** – Get tahmini tüketim ve bulut harcamalarını ve fatura bir faturalama döneminin sonunda ne olacağını tahmin etmek için makine öğrenimi algoritmaları uygulayın.
+* **Maliyet analizi ön tüketim** – RateCard API'si iş yüklerinizi Azure'a taşıyarak ne kadar faturanız için beklenen kullanım olacaktır tahmin etmek için kullanın. Ayrıca, diğer bulut ya da özel Bulutlar mevcut iş yüklerini varsa, Azure ile kullanım eşleyebilirsiniz ücretler Azure daha iyi bir tahminini almak için harcadığınız. Bu tahmin, teklif, karşılaştırma ve parasal taahhüt ve para kredisi gibi Kullandıkça Öde, ötesinde farklı bir teklif türleri arasındaki kontrastı Özet olanağı sağlar. API, bölgeye göre maliyet farklılıkları görme olanağı sunar ve dağıtım kararları vermenize yardımcı olmak için bir durum maliyet analizi yapmanıza izin verir.
+* **Benzetim analizi** -
   
-  * Başka bir bölgede ya da başka bir Azure kaynak yapılandırması iş yüklerini çalıştırmak için daha uygun maliyetli olup olmadığını belirleyebilirsiniz. Azure kaynak maliyetleri kullanmakta olduğunuz Azure bölgesinde değişebilir.
-  * Başka bir Azure Teklif türü bir Azure kaynağı üzerinde daha iyi oranı sağlar, ayrıca belirleyebilirsiniz.
+  * Başka bir bölgede veya başka bir Azure kaynak yapılandırması iş yüklerini çalıştırmak için daha uygun maliyetli olup olmadığını belirleyebilirsiniz. Azure kaynak maliyetleri kullanmakta olduğunuz Azure bölgesine göre değişebilir.
+  * Başka bir Azure Teklif türü bir Azure kaynağında daha iyi bir fiyat sağlar, ayrıca belirleyebilirsiniz.
   
 ## <a name="partner-solutions"></a>İş ortağı çözümleri
-[Cruiser ve Microsoft Azure fatura API tümleştirme bulut](billing-usage-rate-card-partner-solution-cloudcruiser.md) açıklar nasıl [Azure Pack için bulut Cruiser'ın Express](http://www.cloudcruiser.com/partners/microsoft/) doğrudan Microsoft Azure Pack (WAP) portalından çalışır. Bu gibi durumlarda, Microsoft Azure özel veya barındırılan genel bulut işletimsel ve finansal yönleri sorunsuz bir şekilde bir tek kullanıcı arabiriminden yönetebilirsiniz.   
+[Cloud Cruiser ve Microsoft Azure faturalama API tümleştirmesi](billing-usage-rate-card-partner-solution-cloudcruiser.md) açıklar nasıl [Azure Pack için Cloud Cruiser'ın Express](http://www.cloudcruiser.com/partners/microsoft/) doğrudan Windows Azure Pack (WAP) portaldan çalışır. Bu gibi durumlarda, Microsoft Azure özel veya barındırılan genel bulutta işletimsel ve finansal yönleri sorunsuz bir şekilde tek bir kullanıcı arabiriminden yönetebilirsiniz.   
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Github'daki kod örnekleri gözden geçirin:
-  * [Fatura API kod örneği](https://go.microsoft.com/fwlink/?linkid=845124)
+* Github'daki kod örneklerine bakın:
+  * [Fatura API’si kod örneği](https://go.microsoft.com/fwlink/?linkid=845124)
 
-  * [Kullanım API'si kod örneği](https://github.com/Azure-Samples/billing-dotnet-usage-api)
+  * [Kullanım API’si kod örneği](https://github.com/Azure-Samples/billing-dotnet-usage-api)
 
-  * [RateCard API kod örneği](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
+  * [RateCard API’si kod örneği](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
-* Azure Kaynak Yöneticisi hakkında daha fazla bilgi edinmek için [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md). 
+* Azure Resource Manager hakkında daha fazla bilgi için bkz. [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md). 
 
 
 

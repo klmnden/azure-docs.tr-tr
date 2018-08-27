@@ -1,6 +1,6 @@
 ---
-title: Web ara SDK Java hızlı başlangıç | Microsoft Docs
-description: Web ara SDK konsol uygulaması kurulumu.
+title: "Hızlı Başlangıç: Java için Bing Web araması SDK'sını kullanma"
+description: Kurulum Web Search SDK'sını konsol uygulaması için.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
@@ -8,23 +8,24 @@ manager: rosh
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 02/16/2018
-ms.author: v-gedod
-ms.openlocfilehash: 73af92ca0d6ed1a270eaea26e79c7341680dce17
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 08/16/2018
+ms.author: v-gedod, erhopf
+ms.openlocfilehash: 1cad3c6ea3e670d214c05e9e61acd566c85c2eb7
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355343"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888500"
 ---
-# <a name="web-search-sdk-java-quickstart"></a>Web ara SDK Java hızlı başlangıç
+# <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Hızlı Başlangıç: Java için Bing Web araması SDK'sını kullanma
 
-Bing Web arama SDK'sı web sorguları ve ayrıştırma sonuçları için REST API işlevselliğini içerir. 
+Bing Web araması SDK'sı web sorgular ve ayrıştırma sonuçları için REST API işlevlerini içerir.
 
-[Kaynak kodu Java Bing Web arama SDK örnekleri için](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch) Git hub'da kullanılabilir.
+[Kaynak kodu için Java Bing Web araması SDK'sı örnekleri](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch) Github'da kullanılabilir.
 
-## <a name="application-dependencies"></a>Uygulama bağımlılıkları
-Alma bir [Bilişsel hizmetler erişim tuşu](https://azure.microsoft.com/try/cognitive-services/) altında *arama*. Maven, Gradle veya başka bir bağımlılık yönetimi sistemi kullanarak Bing Web arama SDK bağımlılıkları yükler. Maven POM dosyası gerektirir:
+## <a name="prerequisites"></a>Önkoşullar
+
+* Maven, Gradle ve sık kullanılan bağımlılık Yönetimi sisteminizde'ı kullanarak Bing Web araması SDK bağımlılıkları yükleyin. Maven POM dosyası gerektirir:
 ```
   <dependencies>
     <dependency>
@@ -34,8 +35,10 @@ Alma bir [Bilişsel hizmetler erişim tuşu](https://azure.microsoft.com/try/cog
     </dependency>
   </dependencies>
 ```
-## <a name="web-search-client"></a>Web ara istemcisi
-Sınıf uygulamasını içeri aktarmaları ekleyin:
+
+## <a name="web-search-client"></a>Web araması istemcisi
+
+Sınıf uygulamasına içeri aktarmaları ekleyin:
 ```
 import com.microsoft.azure.cognitiveservices.websearch.*;
 import com.microsoft.azure.cognitiveservices.websearch.implementation.SearchResponseInner;
@@ -50,7 +53,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 ```
-Uygulama `WebSearchAPIImpl` bir örneğini gerektirir istemci `ServiceClientCredentials`:
+Uygulama `WebSearchAPIImpl` örneği gerektiren bir istemci `ServiceClientCredentials`:
 ```
 public static WebSearchAPIImpl getClient(final String subscriptionKey) {
     return new WebSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
@@ -75,7 +78,7 @@ public static WebSearchAPIImpl getClient(final String subscriptionKey) {
 }
 
 ```
-Arama sonuçları için.  Aşağıdaki yöntem "Xbox" tek bir sorgu kullanarak arar ve yazdırır `name`, ve `URL` ilk web, görüntü, Haberler ve video sonuçlar için.
+Arama sonuçları için.  Aşağıdaki yöntem "Xbox", tek bir sorgu kullanarak arar ve yazdırır `name`, ve `URL` ilk web, görüntü, Haberler ve video sonuçları için.
 ```
 public static void WebSearchResultTypesLookup(String subscriptionKey)
 {
@@ -183,7 +186,7 @@ public static void WebSearchResultTypesLookup(String subscriptionKey)
 }
 
 ```
-"Seattle en iyi Restoran" için arama, sonuç sayısı doğrulayın ve yazdırmanız `name` ve `URL` ilk sonucunun:
+"Seattle en iyi restoranlar" için arama, sonuç sayısı doğrulayın ve yazdırabilirsiniz `name` ve `URL` ilk sonucu:
 ```
 public static void WebResultsWithCountAndOffset(String subscriptionKey)
 {
@@ -224,7 +227,7 @@ public static void WebResultsWithCountAndOffset(String subscriptionKey)
 }
 
 ```
-"Microsoft" için arama atanan yanıt filtreleri ile `news`. İlk haber öğesi ayrıntılarını yazdırın.
+Atanan yanıt filtreleri ile "Microsoft" için arama `news`. İlk haber öğenin ayrıntılarını yazdırın.
 ```
 public static void WebSearchWithResponseFilter(String subscriptionKey)
 {
@@ -270,7 +273,7 @@ public static void WebSearchWithResponseFilter(String subscriptionKey)
 }
 
 ```
-Arama sorgusu "Niagra döner ile", kullanarak `answerCount` ve `promote` parametreleri. Sonuçları ayrıntılarını yazdırın.
+Arama sorgusu "Niagra denk", kullanarak `answerCount` ve `promote` parametreleri. Sonuçları yazdırma ayrıntıları.
 ```
 public static void WebSearchWithAnswerCountPromoteAndSafeSearch(String subscriptionKey)
 {
@@ -312,25 +315,23 @@ public static void WebSearchWithAnswerCountPromoteAndSafeSearch(String subscript
 }
 
 ```
-Önceki yöntemler kodu çalıştırmak için ana işlevi ile bir sınıf ekleyin:
+Önceki yöntemler bir sınıf kodu çalıştırmak için ana işlevi ekleyin:
 ```
 package javaWebSDK;
 import com.microsoft.azure.cognitiveservices.websearch.*;
 public class webSDK{
-    
+
     public static void main(String [ ] args) {
-        
+
         WebSearchResultTypesLookup("YOUR-SUBSCRIPTION-KEY");
         WebResultsWithCountAndOffset("YOUR-SUBSCRIPTION-KEY");
         WebSearchWithResponseFilter("YOUR-SUBSCRIPTION-KEY");
         WebSearchWithAnswerCountPromoteAndSafeSearch("YOUR-SUBSCRIPTION-KEY");
-        
+
     }
     // Add methods previoiusly documented.
 }
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel hizmetler Java SDK'sı örneği](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
-
-
+[Bilişsel hizmetler Java SDK'sı örnekleri](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)

@@ -1,45 +1,74 @@
 ---
-title: Azure mantıksal uygulamaları ProjectOnline Bağlayıcısı | Microsoft Docs
-description: Logic apps ile Azure uygulama hizmeti oluşturun. Proje çevrimiçi proje Portföy Yönetimi (PPM) ve Microsoft tarafından her gün çalışma için esnek bir çevrimiçi çözümüdür. Office 365 yoluyla teslim, Project Online ile güçlü proje yönetim özelliklerini planlamak, öncelik ve proje ve proje Portföy Yatırımlar yönetmek için hızlı bir şekilde başlamak kuruluşların — neredeyse her yerden neredeyse tüm cihazlardan.
+title: Azure Logic Apps'ten Project Online'a bağlanma | Microsoft Docs
+description: İzleme, oluşturma ve Azure Logic Apps kullanarak Project Online projeleri, görevler ve kaynakların yönetme iş akışlarını otomatikleştirin
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
 ms.service: logic-apps
-ms.devlang: multiple
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 08/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: aaf357b1fe2c0b9b5874ee296c9141cf757e2300
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
+tags: connectors
+ms.date: 08/24/2018
+ms.openlocfilehash: cfcb53b6e95250a1ccbebfdfcfbff5ec8479504b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295365"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886962"
 ---
-# <a name="get-started-with-the-projectonline-connector"></a>ProjectOnline Bağlayıcısı ile çalışmaya başlama
-Proje çevrimiçi proje Portföy Yönetimi (PPM) ve Microsoft tarafından her gün çalışma için esnek bir çevrimiçi çözümüdür. Office 365 yoluyla teslim, Project Online ile güçlü proje yönetim özelliklerini planlamak, öncelik ve proje ve proje Portföy Yatırımlar yönetmek için hızlı bir şekilde başlamak kuruluşların — neredeyse her yerden neredeyse tüm cihazlardan.
+# <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Azure Logic Apps kullanarak Project Online projeleri, görevleri ve kaynakları yönetme
 
-Bir mantıksal uygulama'yi şimdi oluşturmaya başlamak, bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Azure Logic Apps ile Project Online Bağlayıcısı, Office 365 aracılığıyla Project Online otomatik görevler ve projeleri, görevleri ve kaynaklar için iş akışları oluşturabilirsiniz. İş akışlarınızı bu eylemleri ve diğer, örneğin gerçekleştirebilirsiniz:
 
-## <a name="create-a-connection-to-projectonline"></a>ProjectOnline bağlantı oluşturun.
-Logic apps ile ProjectOnline oluşturmak için önce oluşturmanız gerekir bir **bağlantı** ardından ayrıntılar için aşağıdaki özellikleri sağlar: 
+* Yeni projeler, görevler veya kaynakları oluşturulan zamana yönelik İzleyici. Veya yeni projeler yayımlanan zamana yönelik İzleyici.
+* Yeni projeler, görevleri ve kaynakları oluşturun.
+* Var olan projeleri veya görevleri listeleyin.
+* Gözden geçirin, iade ve projelerini yayımlayamazsınız.
 
-| Özellik | Gerekli | Açıklama |
-| --- | --- | --- |
-| Belirteç |Evet |ProjectOnline Kimlik Bilgilerini Sağlayın |
+Project Online, planlamak, önceliklendirmek ve projeleri ve proje portföyü yatırımlarını gelen neredeyse her yerden hemen her CİHAZDAN güçlü proje yönetimi özellikleri sunarak değişiklikleri yönetmenize yardımcı olur. Project Online Tetikleyiciler Project Online'dan yanıtlar almak ve çıkış diğer eylemler için kullanılabilir hale getirmek için kullanabilirsiniz. Logic apps eylemleri, Project Online'da çeşitli görevleri gerçekleştirmek için kullanabilirsiniz. Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](../logic-apps/logic-apps-overview.md)
 
-> [!INCLUDE [Steps to create a connection to ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
-> 
+## <a name="prerequisites"></a>Önkoşullar
 
-## <a name="connector-specific-details"></a>Bağlayıcı özgü ayrıntıları
+* Azure aboneliği. Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
 
-Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/projectonline/).
+* Project Online aracılığıyla bir [Office 365 hesabı](https://www.office.com/), 
 
-## <a name="more-connectors"></a>Daha fazla bağlayıcılar
-Geri dönerek [API'leri listesi](apis-list.md).
+* Hakkında temel bilgilere [mantıksal uygulamalar oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* Project Online verilerinize erişmek için istediğiniz mantıksal uygulaması. Project Online bir tetikleyici ile başlayın için [boş mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). Project Online eylemlerini kullanmak için mantıksal uygulamanız başka bir tetikleyici ile başlar, **yinelenme** tetikleyici.
+
+## <a name="connect-to-project-online"></a>Project Online'a bağlanma
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. Oturum [Azure portalında](https://portal.azure.com)ve Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın, açık değilse.
+
+1. Bir yolu seçin: 
+
+   * Boş mantıksal uygulama için arama kutusuna filtreniz olarak "Project Online" yazın. 
+   Tetikleyiciler listesinde istediğiniz tetikleyicisini seçin. 
+
+     -veya-
+
+   * Var olan mantıksal uygulamalar, bir eylem eklemek istediğiniz adımı altında seçin için **yeni adım**. Arama kutusuna filtreniz olarak "Project Online" girin. Eylemler listesinde, istediğiniz eylemi seçin.
+
+1. Project Online için oturum açmanız istenirse, şimdi oturum açın.
+
+   Mantıksal uygulamanızı Project Online bağlantı oluşturun ve verilerinize erişmek için kimlik bilgilerinizi yetkilendirin.
+
+1. Seçili tetikleyici veya eylem için gerekli bilgileri sağlayın ve mantıksal uygulamanızın iş akışı oluşturmaya devam edin.
+
+## <a name="connector-reference"></a>Bağlayıcı başvurusu
+
+Tetikleyiciler ve Eylemler sınırları hakkında teknik ayrıntılar için bağlayıcının Openapı'nin açıklanmıştır (önceki adıyla Swagger) açıklama, bağlayıcının gözden [başvuru sayfası](/connectors/projectonline/).
+
+## <a name="get-support"></a>Destek alın
+
+* Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
+* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](http://aka.ms/logicapps-wish) ziyaret edin.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+* Diğer hakkında bilgi edinin [Logic Apps bağlayıcıları](../connectors/apis-list.md)

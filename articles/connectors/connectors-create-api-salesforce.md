@@ -1,63 +1,72 @@
 ---
-title: Logic apps Salesforce Bağlayıcısı'nı kullanmayı öğrenin | Microsoft Docs
-description: Logic apps, Azure App service ile oluşturun. Salesforce Bağlayıcısı bir API'nin Salesforce nesneleriyle birlikte çalışmasını sağlar.
+title: Azure Logic Apps'ten Salesforce'a Bağlan | Microsoft Docs
+description: Görevler ve izleme, oluşturma ve Azure Logic Apps kullanarak Salesforce kayıtları ve işlerini yönetmek, iş akışlarını otomatikleştirin
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 54fe5af8-7d2a-4da8-94e7-15d029e029bf
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: 54fe5af8-7d2a-4da8-94e7-15d029e029bf
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 10/05/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 4278837bb5653b66223374aa728bdc81b279fff7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+tags: connectors
+ms.date: 08/24/2018
+ms.openlocfilehash: 03c250f153402c68889c2e3ac187ccab3e2d858b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38237310"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887494"
 ---
-# <a name="get-started-with-the-salesforce-connector"></a>Salesforce Bağlayıcısı ile çalışmaya başlama
-Salesforce Bağlayıcısı bir API'nin Salesforce nesneleriyle birlikte çalışmasını sağlar.
+# <a name="monitor-create-and-manage-salesforce-resources-by-using-azure-logic-apps"></a>İzleme, oluşturma ve Azure Logic Apps'ı kullanarak Salesforce kaynaklarını yönetme
 
-Kullanılacak [bağlayıcıyı](apis-list.md), ilk mantıksal uygulamanızı oluşturmak gerekir. Tarafından oluşturabileceğinize dair [artık bir mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Azure Logic Apps ve Salesforce Bağlayıcısı ile otomatik görevler ve iş akışları, Salesforce gibi kaynaklar için kayıt, işler ve nesneler, örneğin oluşturabilirsiniz:
 
-## <a name="connect-to-salesforce-connector"></a>Salesforce Bağlayıcısı bağlanma
-Mantıksal uygulamanızı herhangi bir hizmete erişebilmeniz için önce ilk oluşturmak için ihtiyacınız bir *bağlantı* hizmeti. A [bağlantı](connectors-overview.md) bir mantıksal uygulama ile başka bir hizmet arasında bağlantı sağlar.  
+* Kayıt oluşturulduğunda veya değiştirildiğinde zamana yönelik İzleyici. 
+* Oluşturma, get ve işler ve kayıt dahil olmak üzere INSERT, update yönetme ve silme eylemlerini.
 
-### <a name="create-a-connection-to-salesforce-connector"></a>Salesforce Bağlayıcısı bir bağlantı oluşturun
-> [!INCLUDE [Steps to create a connection to Salesforce Connector](../../includes/connectors-create-api-salesforce.md)]
-> 
-> 
+Salesforce'tan yanıtlar almak ve çıkış diğer eylemler için kullanılabilir hale getirmek Salesforce Tetikleyicileri kullanabilirsiniz. Logic apps eylemleri, Salesforce kaynaklarla görevleri gerçekleştirmek için kullanabilirsiniz. Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](../logic-apps/logic-apps-overview.md)
 
-## <a name="use-a-salesforce-connector-trigger"></a>Salesforce Bağlayıcısı tetikleyicisini kullanma
-Bir tetikleyici bir mantıksal uygulamada tanımlanan iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+## <a name="prerequisites"></a>Önkoşullar
 
-> [!INCLUDE [Steps to create a Salesforce trigger](../../includes/connectors-create-api-salesforce-trigger.md)]
-> 
-> 
+* Azure aboneliği. Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
 
-## <a name="add-a-condition"></a>Koşul ekle
-> [!INCLUDE [Steps to create a Salesforce condition](../../includes/connectors-create-api-salesforce-condition.md)]
-> 
-> 
+* A [Salesforce hesabı](https://salesforce.com/)
 
-## <a name="use-a-salesforce-connector-action"></a>Salesforce Bağlayıcısı eylemini kullanma
-Bir eylem, bir mantıksal uygulamada tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+* Hakkında temel bilgilere [mantıksal uygulamalar oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-> [!INCLUDE [Steps to create a Salesforce action](../../includes/connectors-create-api-salesforce-action.md)]
-> 
-> 
+* Salesforce hesabınıza erişmek için istediğiniz mantıksal uygulaması. Bir Salesforce tetikleyici ile başlayın için [boş mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). Salesforce eylem kullanmak için mantıksal uygulamanız başka bir tetikleyici ile örneğin başlayın, **yinelenme** tetikleyici.
 
-## <a name="connector-specific-details"></a>Özel bağlayıcı ayrıntıları
+## <a name="connect-to-salesforce"></a>Salesforce'a Bağlan
 
-Tetikleyiciler ve eylemlerin swagger'da tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınırlama Bkz [bağlayıcı ayrıntıları](/connectors/salesforce/). 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. Oturum [Azure portalında](https://portal.azure.com)ve Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın, açık değilse.
+
+1. Bir yolu seçin: 
+
+   * Boş mantıksal uygulama için arama kutusuna filtreniz olarak "salesforce" girin. 
+   Tetikleyiciler listesinde istediğiniz tetikleyicisini seçin. 
+
+     -veya-
+
+   * Var olan mantıksal uygulamalar, bir eylem eklemek istediğiniz adımı altında seçin için **yeni adım**. Arama kutusuna filtreniz olarak "salesforce" girin. Eylemler listesinde, istediğiniz eylemi seçin.
+
+1. Salesforce oturum açmanız istenirse, şimdi oturum açın ve erişim izni.
+
+   Mantıksal uygulamanızı Salesforce bağlantı oluşturun ve verilerinize erişmek için kimlik bilgilerinizi yetkilendirin.
+
+1. Seçili tetikleyici veya eylem için gerekli bilgileri sağlayın ve mantıksal uygulamanızın iş akışı oluşturmaya devam edin.
+
+## <a name="connector-reference"></a>Bağlayıcı başvurusu
+
+Tetikleyiciler ve Eylemler sınırları hakkında teknik ayrıntılar için bağlayıcının Openapı'nin açıklanmıştır (önceki adıyla Swagger) açıklama, bağlayıcının gözden [başvuru sayfası](/connectors/salesforce/).
+
+## <a name="get-support"></a>Destek alın
+
+* Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
+* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](http://aka.ms/logicapps-wish) ziyaret edin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Mantıksal uygulama oluşturun.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
+* Diğer hakkında bilgi edinin [Logic Apps bağlayıcıları](../connectors/apis-list.md)

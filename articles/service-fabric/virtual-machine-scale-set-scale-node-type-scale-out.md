@@ -12,19 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/21/2018
+ms.date: 08/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: cad3723f3109fa2fa7e6a1a7ab61d5c7eaca2674
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 8e1c194ea2ebc0e06918c8389c9ee6f72afb3e86
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623280"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887797"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesi ekleyerek çıkış bir Service Fabric kümesini ölçekleme
 Bu makalede yeni bir sanal makine ölçek kümesi mevcut bir kümeye ekleyerek bir Azure Service Fabric kümesini ölçekleme açıklar. Service Fabric kümesi bir ağa bağlı, mikro hizmetlerin dağıtıldığı ve yönetildiği sanal veya fiziksel makine kümesidir. Bir makine ya da bir kümenin parçası olan sanal makine bir düğüm denir. Sanal makine ölçek kümeleri dağıtmak ve sanal makine koleksiyonunu bir küme olarak yönetmek için kullandığınız bir Azure işlem kaynağıdır. Bir Azure kümesinde tanımlanan her düğüm türü [ayrı ölçek kümesi olarak ayarlanan](service-fabric-cluster-nodetypes.md). Ardından her düğüm türü ayrı olarak yönetilebilir. Service Fabric kümesi oluşturduktan sonra bir küme düğümü türü dikey olarak ölçeklendirebilirsiniz (düğümlerin kaynakları değişikliği), düğüm türündeki VM'lerin işletim sistemini yükseltin veya yeni bir sanal makine ölçek kümesi mevcut bir kümeye ekleyin.  Kümedeki herhangi bir zamanda iş yükleri küme üzerinde çalışırken bile ölçeklendirebilirsiniz.  Küme ölçekler gibi uygulamalarınızı otomatik olarak da ölçeklendirin.
 
 > [!WARNING]
+> Birincil nodetype VM SKU değiştirmek küme sistem durumu iyi olmayan sistem ise başlatmayın. Küme sistem durumu kötü durumda, sanal makine SKU'su değiştirmeye çalışırsanız küme Ayrıca, yalnızca kararlılığını.
+>
 > Adresindeki çalışmadığı sürece bir ölçek kümesi/düğüm türündeki sanal makine SKU'su değiştirmeyin öneririz [dayanıklılık Gümüş veya daha büyük](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). VM SKU boyutunu değiştirerek verileri yıkıcı yerinde altyapı bir işlemdir. Gecikme veya bu değişikliği izlemek için bazı kabiliyeti olmadan işlem durum bilgisi olan hizmetler için veri kaybına neden veya durum bilgisiz iş yükleri için bile diğer öngörülemeyen operasyonel sorunlara neden olabilir. Bu durum bilgisi olan service fabric sistem hizmetlerinin çalıştığından, birincil düğüm türünüz anlamına gelir veya durum bilgisi olan uygulama iş çalışmakta olan herhangi bir düğüm türü yükler.
 >
 

@@ -1,7 +1,7 @@
 # Genel Bakış
 ## [Azure ağı hakkında](networking-overview.md)
 ## Mimari
-### [Sanal Veri Merkezleri](networking-virtual-datacenter.md)
+### [Sanal Veri Merkezleri](/azure/architecture/vdc/networking-virtual-datacenter)
 ### [Birden çok ağ yoluyla Asimetrik yönlendirme](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Ağ tasarımlarının güvenliğini sağlama](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Merkez-uç topolojisi](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 88a4bcf018387ac83b485ec9e2efac11f85ba97c
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: f825a2a343d9b5ad8f9802042b7aca2ba1544dfb
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42432298"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917411"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>Güncelleştirme 3 sürüm notları Azure Stack üzerinde App Service'e
 
@@ -178,6 +178,21 @@ Doğrulama
     ```sql
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
+
+### <a name="known-issues-post-installation"></a>Bilinen sorunlar (yükleme sonrası)
+
+- Çalışanları App Service, var olan bir sanal ağda dağıtılır ve dosya sunucusu yalnızca özel ağda kullanılabilir dosya sunucusuna erişemiyor.  Bu da Azure Stack dağıtım belgeleri üzerinde Azure App Service'te çağırılır.
+
+Mevcut bir sanal ağ ve dosya sunucunuza bağlanmak için bir dahili IP adresine dağıtmayı seçerseniz, çalışan alt ağ ve dosya sunucusu arasında SMB trafiği etkinleştirme bir giden güvenlik kuralı eklemeniz gerekir. Bunu yapmak için Yönetim Portalı'nda WorkersNsg gidin ve aşağıdaki özelliklere sahip bir giden güvenlik kuralı ekleyin:
+ * Kaynak: tüm
+ * Kaynak bağlantı noktası aralığı: *
+ * Hedef: IP adresleri
+ * Hedef IP adresi aralığı: dosya sunucusu için IP aralığı
+ * Hedef bağlantı noktası aralığı: 445
+ * Protokol: TCP
+ * Eylem: izin ver
+ * Öncelik: 700
+ * Ad: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Azure Stack üzerinde Azure App Service'te çalışan bulut yöneticileri için bilinen sorunlar
 

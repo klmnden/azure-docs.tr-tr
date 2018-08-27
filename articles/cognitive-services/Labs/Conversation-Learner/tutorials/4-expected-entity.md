@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9e013e237a996d722d958920a1310e3aaea36c52
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: fb9193066c9501341efb779b9f9e2ccace02cccf
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170917"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888213"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Eylemler "varlık bekleniyor" özelliğini kullanma
 
@@ -59,13 +59,13 @@ Bir eylemin "varlık bekleniyor" alanı $entity ve ardından İleri kullanıcı 
 
 ### <a name="create-two-actions"></a>İki eylem oluşturma
 
-1. Eylemler ve ardından yeni bir eylem tıklayın
+1. Eylemler ve ardından yeni bir eylem tıklayın.
 2. Yanıtta 'Adınız ne?' yazın.
 3. Beklenen varlıklarda $name girin. Kaydet’e tıklayın.
     - Bu değer, bu soruyu sormak ve kullanıcı yanıtı algılanan herhangi bir varlık yok, robot kullanıcının yanıtın tamamını varlıktır varsayacaktır anlamına gelir.
 2. Eylemler ve ardından yeni bir eylem ikinci bir eylem oluşturmak için tıklayın.
 3. Yanıtta 'Hello $name' yazın.
-    - Varlık disqualifying bir varlık olarak otomatik olarak eklenir. 
+    - Varlık, gerekli bir varlık olarak otomatik olarak eklenir. 
 4. Kaydet’e tıklayın.
 
 Artık iki eylem var.

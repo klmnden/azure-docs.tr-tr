@@ -1,1 +1,1 @@
-Yönetilen Hizmet Kimliği özelliği hakkında bilgi sahibi değilseniz bu [genel bakışı](../articles/active-directory/msi-overview.md) inceleyin. Azure hesabınız yoksa, devam etmeden önce [ücretsiz bir hesaba kaydolun](https://azure.microsoft.com/free/).
+- Yönetilen Hizmet Kimliği özelliği hakkında bilgi sahibi değilseniz bu [genel bakışı](../articles/active-directory/msi-overview.md) inceleyin. Azure hesabınız yoksa, devam etmeden önce [ücretsiz bir hesaba kaydolun](https://azure.microsoft.com/free/).

@@ -1,105 +1,96 @@
 ---
-title: Logic apps içinde Twitter Bağlayıcısı'nı kullanmayı öğrenin | Microsoft Docs
-description: Twitter Bağlayıcısı REST API parametrelerle genel bakış
-services: ''
-documentationcenter: ''
+title: Azure Logic Apps'ten Twitter'a bağlanın | Microsoft Docs
+description: Görevler ve izleme ve yönetme tweetleri yanı sıra Azure Logic Apps hakkında takipçi, izlenen kullanıcılarınıza, diğer kullanıcılar, zaman çizelgeleri ve Twitter hesabınızdan daha fazla veri almak, iş akışlarını otomatikleştirin
+services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
 author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
-ms.service: multiple
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: b44a973a94043f71f2fd9803abca47652363d8a1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: eea70d979a69a4855b6eeb892d1705ecadaa8434
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296552"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918654"
 ---
-# <a name="get-started-with-the-twitter-connector"></a>Twitter Bağlayıcısı ile çalışmaya başlama
-Twitter Bağlayıcısı ile şunları yapabilirsiniz:
+# <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>İzleme ve Azure Logic Apps kullanarak Twitter'ı yönetme
 
-* Tweetler ve get tweet'leri
-* Erişim zaman çizelgeleri, arkadaşlarınıza ve followers
-* Diğer Eylemler ve bu makalede açıklanan Tetikleyicileri gerçekleştirin
+Azure Logic Apps ve Twitter Bağlayıcısı ile otomatik görevler oluşturabilir ve tweet, takipçi, kullanıcılar ve kullanıcıların, zaman çizelgeleri ve diğer eylemlerin yanı sıra diğer örneğin ardından izleme ve yönetme veri Twitter gibi verdiğiniz iş akışları:
 
-Kullanılacak [tüm bağlayıcıların](apis-list.md), ilk mantıksal uygulama oluşturmanız gerekir. Tarafından başlayabiliriz [şimdi mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).  
+* İzleme, gönderin ve tweetleri arayın.
+* Takipçi, takip edilen kullanıcıları, zaman çizelgeleri ve diğer verileri elde edersiniz.
+
+Çıkış diğer eylemler için kullanılabilir hale getirmek ve yanıtları Twitter hesabınızdan alma Tetikleyicileri kullanabilirsiniz. Twitter hesabınızla görevleri gerçekleştiren eylemlerini kullanabilirsiniz. Ayrıca, diğer eylemlerin çıktısı bir Twitter eylemler olabilir. Örneğin, belirli bir diyez etiketi ile yeni bir tweet gönderildiğinde, Slack bağlayıcısıyla iletileri gönderebilir. Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](../logic-apps/logic-apps-overview.md)
+
+## <a name="prerequisites"></a>Önkoşullar
+
+* Azure aboneliği. Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
+
+* Twitter hesabı ve kullanıcı kimlik
+
+   Mantıksal uygulamanızı bir bağlantı oluşturun ve Twitter hesabınıza erişmek için kimlik bilgilerinizi yetkilendirin.
+
+* Hakkında temel bilgilere [mantıksal uygulamalar oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* Twitter hesabınıza erişmek için istediğiniz mantıksal uygulaması. Bir Twitter tetikleyicisi ile başlatmak için [boş mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). Bir Twitter eylemi kullanmak için mantıksal uygulamanız başka bir tetikleyici ile örneğin başlatın, **yinelenme** tetikleyici.
 
 ## <a name="connect-to-twitter"></a>Twitter’a Bağlanma
-Mantıksal uygulamanızı herhangi bir hizmet erişebilmeniz için önce ilk önce oluşturmanız gerekir bir *bağlantı* hizmet. A [bağlantı](connectors-overview.md) bir mantıksal uygulama ile başka bir hizmet arasında bağlantı sağlar.  
 
-### <a name="create-a-connection-to-twitter"></a>Twitter bağlantı oluşturun.
-> [!INCLUDE [Steps to create a connection to Twitter](../../includes/connectors-create-api-twitter.md)]
-> 
-> 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-## <a name="use-a-twitter-trigger"></a>Bir Twitter tetikleyici kullanın
-Bir tetikleyici bir mantıksal uygulama tanımlı iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+1. Oturum [Azure portalında](https://portal.azure.com)ve Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın, açık değilse.
 
-Bu örnekte, kullandığınız **yeni tweet zaman nakledilir** için #Seattle aramak için tetikleyici. Ve #Seattle bulunursa, Dropbox dosyasında tweet metinden ile güncelleştirin. Bir kurumsal örnekte, şirketinizin adı aramak ve tweet metinden ile bir SQL veritabanı güncelleştirmesi.
+1. Bir yolu seçin: 
 
-1. Girin *twitter* arama kutusuna logic apps tasarımcısında seçip **yeni tweet gönderildiğinde Twitter -** tetikleyici   
-   ![Twitter tetikleyici görüntü 1](./media/connectors-create-api-twitter/trigger-1.png)  
-2. Girin *#Seattle* içinde **arama metni** denetimi  
-   ![Twitter tetikleyici görüntü 2](./media/connectors-create-api-twitter/trigger-2.png) 
+   * Boş mantıksal uygulamaları, arama kutusuna filtreniz olarak "twitter" girin. 
+   Tetikleyiciler listesinde istediğiniz tetikleyicisini seçin. 
 
-Bu noktada, mantıksal uygulamanızı diğer tetikleyiciler ve Eylemler iş akışı bir farklı çalıştır başlayacak bir tetikleyici ile yapılandırıldı. 
+     -veya-
 
-> [!NOTE]
-> Bir mantıksal uygulama işlevsel olması en az bir tetikleyici ve bir eylem içermelidir. Bir eylem eklemek için sonraki bölümde adımları kullanın.
+   * Var olan mantıksal uygulamalar için: 
+   
+     * Son adım, bir eylem eklemek istediğiniz altında seçin **yeni adım**. 
 
-## <a name="add-a-condition"></a>Koşul ekle
-Biz yalnızca 50'den fazla kullanıcısı olan kullanıcılardan tweet'leri ilgilendiğiniz. Bu nedenle, followers sayısı onaylar bir koşulu, mantıksal uygulama ilk eklenir.  
+       -veya-
 
-1. Seçin **+ yeni adım** #Seattle içinde yeni bir tweet bulunduğunda almak istediğiniz eylem eklemek için  
-   ![Twitter eylem görüntü 1](../../includes/media/connectors-create-api-twitter/action-1.png)  
-2. Seçin **bir koşul eklemek** bağlantı.  
-   ![Twitter koşul görüntü 1](../../includes/media/connectors-create-api-twitter/condition-1.png)   
-   Açılır **koşulu** burada kontrol edebilirsiniz koşulları gibi denetim *eşittir*, *olan değerinden*, *değerinden daha büyük*, *içeren*, vb.  
-   ![Twitter koşul görüntü 2](../../includes/media/connectors-create-api-twitter/condition-2.png)   
-3. Seçin **bir değer seçin** denetim. Bu denetimde herhangi bir önceki eylem veya Tetikleyiciler bir veya daha fazla özellik seçebilirsiniz. Bu özellik değeri koşul doğru veya yanlış olarak değerlendirilir.
-   ![Twitter koşul görüntü 3](../../includes/media/connectors-create-api-twitter/condition-3.png)   
-4. Seçin **...** kullanılabilir olan tüm özellikler görebilmeniz için özellikler listesini genişletin.        
-   ![Twitter koşul görüntü 4](../../includes/media/connectors-create-api-twitter/condition-4.png)   
-5. Seçin **Followers sayısı** özelliği.    
-   ![Twitter koşul görüntü 5](../../includes/media/connectors-create-api-twitter/condition-5.png)   
-6. Followers sayısı özelliği şimdi değer denetiminde olduğuna dikkat edin.    
-   ![Twitter koşul görüntü 6](../../includes/media/connectors-create-api-twitter/condition-6.png)   
-7. Seçin **değerinden daha büyük** işleçleri listesinden.    
-   ![Twitter koşul görüntü 7](../../includes/media/connectors-create-api-twitter/condition-7.png)   
-8. İşleneni olarak 50 girin *değerinden daha büyük* işleci.  
-   Koşul artık eklenir. İş kullanarak Kaydet **kaydetmek** menüsündeki bağlantısı.    
-   ![Twitter koşul görüntü 8](../../includes/media/connectors-create-api-twitter/condition-8.png)   
+     * Bir eylem eklemek istediğiniz adımları arasında işaretçinizi adımlar arasındaki okun üzerine getirin. 
+     Artı işaretini seçin (**+**), görünür ve ardından **Eylem Ekle**.
+     
+       Arama kutusuna filtreniz olarak "twitter" girin. 
+       Eylemler listesinde, istediğiniz eylemi seçin.
 
-## <a name="use-a-twitter-action"></a>Bir Twitter eylemi kullanın
-Bir eylem, bir mantıksal uygulama içinde tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+1. Twitter'da oturum açmanız istenirse, mantıksal uygulamanız için erişim yetki verebilir böylece şimdi oturum açın.
 
-Yoktur göre bir tetikleyici, tetikleyici tarafından bulunan tweet'leri içeriğini yeni bir tweet yazılarını bir eylem ekleyin. Bu kılavuz için yalnızca 50'den fazla followers sahip kullanıcılardan tweet'leri nakledilir.  
+1. Seçili tetikleyici veya eylem için gerekli bilgileri sağlayın ve mantıksal uygulamanızın iş akışı oluşturmaya devam edin.
 
-Sonraki adımda, 50'den fazla followers sahip bir kullanıcı tarafından gönderilen her tweet özelliklerini kullanarak tweet yazılarını bir Twitter eylem ekleyin.  
+## <a name="examples"></a>Örnekler
 
-1. Seçin **Eylem Ekle**. Bu adım, diğer eylemler ve Tetikleyiciler için arayabileceğiniz arama denetimini açar.  
-   ![Twitter koşul görüntü 9](../../includes/media/connectors-create-api-twitter/condition-9.png)   
-2. Girin *twitter* arama kutusuna seçip **Twitter - tweet sonrası** eylem. Bu adımı açılır **tweet sonrası** gönderilmesini tweet için tüm ayrıntıları gireceğiniz denetim.      
-   ![Eylem görüntü 1-5 twitter](../../includes/media/connectors-create-api-twitter/action-1-5.png)   
-3. Seçin **Tweet metin** denetim. Tüm çıktıları önceki Eylemler ve mantıksal uygulama Tetikleyicileri görünür. Bu çıktılar birini seçin ve yeni tweet tweet metninin bir parçası olarak kullanın.     
-   ![Twitter eylem görüntü 2](../../includes/media/connectors-create-api-twitter/action-2.png)   
-4. Seçin **kullanıcı adı**   
-5. Kullanıcı adı sonra hemen girin *diyor:* tweet metin denetimi.
-6. Seçin *Tweet metin*.       
-   ![Twitter eylem görüntüsü 3](../../includes/media/connectors-create-api-twitter/action-3.png)   
-7. İş akışınızı etkinleştirmek için çalışmanızı kaydedin ve #Seattle diyez ile tweet gönderecek.
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Twitter tetikleyicisi: yeni bir tweet gönderildiğinde
 
+Tetikleyici yeni bir tweet diyez etiketi, #Seattle gibi algıladığında, bu tetikleyiciyi bir mantıksal uygulama iş akışı başlatır. Örneğin, bu tweetleri bulunmadığında, Dropbox Bağlayıcısı'nı kullanarak bir Dropbox hesabı gibi depolama ortamlarına tweetleri içeriğe sahip bir dosya ekleyebilirsiniz. 
 
-## <a name="connector-specific-details"></a>Bağlayıcı özgü ayrıntıları
+İsteğe bağlı olarak, uygun tweetleri belirtilen en az bir takipçilerin sayısı kullanıcılarla gelmelidir bir koşul ekleyebilirsiniz.
 
-Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/twitterconnector/). 
+**Kuruluş örnek**: Bu tetikleyici, şirketiniz tweetleri izleyin ve bir SQL veritabanı'na tweetleri içeriği yüklemek için kullanabilirsiniz.
+
+### <a name="twitter-action-post-a-tweet"></a>Eylem twitter: bir tweet gönderin
+
+Bu eylem bir tweet gönderir, ancak daha önce açıklandığı gibi bir tetikleyici tarafından bulunan bir tweet içeriği tweeti içeren eylem ayarlayabilirsiniz. 
+
+## <a name="connector-reference"></a>Bağlayıcı başvurusu
+
+Tetikleyiciler ve Eylemler sınırları hakkında teknik ayrıntılar için bağlayıcının Openapı'nin açıklanmıştır (önceki adıyla Swagger) açıklama, bağlayıcının gözden [başvuru sayfası](/connectors/twitterconnector/).
+
+## <a name="get-support"></a>Destek alın
+
+* Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
+* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](http://aka.ms/logicapps-wish) ziyaret edin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Mantıksal uygulama oluşturun.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* Diğer hakkında bilgi edinin [Logic Apps bağlayıcıları](../connectors/apis-list.md)

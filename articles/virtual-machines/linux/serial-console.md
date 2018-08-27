@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 20bd2d61671d89a5c2a13525ea119595cf0b7c93
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 0951b0ee8a1b92f94dd06bfad831b3dd9a9e967c
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42062136"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918226"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Sanal makinenin seri konsol (Önizleme) 
 
@@ -35,9 +35,10 @@ Windows Vm'leri için seri konsol belgeleri [Buraya](../windows/serial-console.m
 ## <a name="prerequisites"></a>Önkoşullar 
 
 * Kaynak Yönetimi dağıtım modeline kullanıyor olmanız gerekir. Klasik dağıtımlar desteklenmez. 
-* Sanal makinesinin olmalıdır [önyükleme tanılaması](boot-diagnostics.md) etkin 
+* Sanal makinesinin olmalıdır [önyükleme tanılaması](boot-diagnostics.md) etkin   ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 * Seri konsol kullanarak hesabı olmalıdır [katkıda bulunan rolü](../../role-based-access-control/built-in-roles.md) VM için ve [önyükleme tanılaması](boot-diagnostics.md) depolama hesabı. 
 * Linux dağıtımları için özel ayarları için bkz: [seri konsoluna erişmek için Linux](#access-serial-console-for-linux)
+
 
 
 ## <a name="open-the-serial-console"></a>Seri Konsolu
@@ -65,7 +66,7 @@ Seri konsol devre dışı bırakılabilir bir tüm abonelik tarafından için [d
 Alternatif olarak, Cloud Shell'de (bash komutları gösterilen) aşağıdaki komutları kümesini kullanabilir. devre dışı bırakmak için etkinleştirme ve devre dışı bırakılmış bir aboneliği için seri konsol durumunu görüntüleyin. 
 
 * Bir abonelik için seri konsol devre dışı durumunu almak için:
-    ```
+    ```azurecli-interactive
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
@@ -73,7 +74,7 @@ Alternatif olarak, Cloud Shell'de (bash komutları gösterilen) aşağıdaki kom
     $ curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s | jq .properties
     ```
 * Seri konsol bir abonelik için devre dışı bırakmak için:
-    ```
+    ```azurecli-interactive
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
@@ -81,7 +82,7 @@ Alternatif olarak, Cloud Shell'de (bash komutları gösterilen) aşağıdaki kom
     $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/disableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
     ```
 * Seri konsol bir abonelik için etkinleştirmek için:
-    ```
+    ```azurecli-interactive
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
@@ -139,7 +140,7 @@ Oracle Linux        | Azure'da Oracle Linux görüntüleri, varsayılan olarak e
 Özel Linux görüntüleri     | Seri konsol özel Linux VM görüntünüz için etkinleştirmek üzere bir terminal ttyS0 üzerinde çalıştırılacak /etc/inittab konsol erişimi etkinleştirin. Bu inittab dosyasına eklemek için bir örnek aşağıda verilmiştir: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Düzgün bir şekilde özel görüntü oluşturma hakkında daha fazla bilgi için bkz. [azure'da bir Linux VHD'si oluşturup yükleme](https://aka.ms/createuploadvhd).
 
 ## <a name="errors"></a>Hatalar
-Doğası gereği geçici hataların çoğu ve adresleri bunlar genellikle seri konsol bağlantısı yeniden deneniyor. Aşağıdaki tabloda, hataları ve risk azaltma listesini gösterir 
+Doğası gereği geçici hataların çoğu ve adresleri bunlar genellikle seri konsol bağlantısı yeniden deneniyor. Aşağıdaki tabloda, hataları ve risk azaltma işlemleri listesini gösterir
 
 Hata                            |   Risk azaltma 
 :---------------------------------|:--------------------------------------------|
@@ -154,7 +155,7 @@ Hala Önizleme aşamaları seri konsol erişimi için de bizim yaptığımız gi
 Sorun                           |   Risk azaltma 
 :---------------------------------|:--------------------------------------------|
 Sanal makine ölçek kümesi örneği seri konsolu ile seçeneği yoktur |  Önizleme sırasında sanal makine ölçek kümesi örneklerine ait seri konsoluna erişimi desteklenmiyor.
-Ulaşmaktan bağlantı başlık satırında bir günlük göstermez sonra girin | [Ulaşmaktan girin hiçbir şey yapılmaz](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
+Ulaşmaktan bağlantı başlık satırında bir günlük göstermez sonra girin | Lütfen şu sayfaya bakın: [Hitting girin hiçbir şey yapmaz](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Özel VM, sağlamlaştırılmış gereç veya Linux düzgün bir şekilde seri bağlantı noktasına bağlanmak başarısız olmasına neden olan GRUB yapılandırma çalıştırıyorsanız, bu durum oluşabilir.
 Bu sanal makinenin önyükleme tanılaması depolama hesabı erişirken 'Yasak' yanıt karşılaşıldı. | Bu önyükleme tanılama hesabı bir güvenlik duvarı bulunmadığından emin olun. İşleve seri konsol için bir erişilebilir önyükleme tanılaması depolama hesabı gereklidir.
 
 

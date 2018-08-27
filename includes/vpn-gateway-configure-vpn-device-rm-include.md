@@ -9,15 +9,15 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b5aea9d7fe54402693be095350f7c095334fd4b5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/24/2018
 ms.locfileid: "30198120"
 ---
-**VPN cihazı yapılandırma komut dosyaları indirmek için:**
+**VPN cihazı yapılandırma betiklerini indirmek için**
 
-Sahip olduğunuz VPN cihaza bağlı olarak, bir VPN cihazı yapılandırma betiğini indir mümkün olabilir. Daha fazla bilgi için bkz: [karşıdan VPN cihazı yapılandırma komut](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md).
+Sahip olduğunuz VPN cihazına bağlı olarak, bir VPN cihazı yapılandırma betiğini indirebilirsiniz. Daha fazla bilgi için bkz. [VPN cihazı yapılandırma betiklerini indirme](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md).
 
 **Ek yapılandırma bilgileri için aşağıdaki bağlantılara bakın:**
 
@@ -25,7 +25,7 @@ Sahip olduğunuz VPN cihaza bağlı olarak, bir VPN cihazı yapılandırma beti�
 
 - VPN cihazınızı yapılandırmadan önce, kullanmak istediğiniz VPN cihazının [Bilinen cihaz uyumluluğu sorunları](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) olup olmadığını denetleyin.
 
-- Cihaz yapılandırma ayarlarının bağlantıları için bkz. [Doğrulanan VPN Cihazları](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). Mümkün olan en iyi cihaz yapılandırma bağlantıları verilmiştir. En son yapılandırma bilgileri için her zaman cihaz üreticinize başvurmanız en iyi yöntemdir. Liste, Test ettiğimiz sürümleri gösterir. İşletim sistemi listede yoksa sürümü uyumludur hala mümkündür. VPN cihazınız için işletim sistemi sürümü uyumlu olduğunu doğrulamak için cihaz üreticinize başvurun.
+- Cihaz yapılandırma ayarlarının bağlantıları için bkz. [Doğrulanan VPN Cihazları](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). Mümkün olan en iyi cihaz yapılandırma bağlantıları verilmiştir. En son yapılandırma bilgileri için her zaman cihaz üreticinize başvurmanız en iyi yöntemdir. Listede, test ettiğimiz sürümler gösterilmektedir. İşletim sisteminiz bu listede yoksa, sürüm halen uyumlu olabilir. VPN cihazınız için işletim sistemi sürümünün uyumlu olduğunu doğrulamak için cihaz üreticinize başvurun.
 
 - VPN cihazı yapılandırmasına genel bakış için bkz. [3. taraf VPN cihazı yapılandırmaları](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md).
 
@@ -33,7 +33,7 @@ Sahip olduğunuz VPN cihaza bağlı olarak, bir VPN cihazı yapılandırma beti�
 
 - Şifrelemeyle ilgili gereksinimler için bkz. [Şifrelemeyle ilgili gereksinimler ve Azure VPN ağ geçitleri hakkında](../articles/vpn-gateway/vpn-gateway-about-compliance-crypto.md).
 
-- IPsec/IKE parametreleri hakkında bilgi için bkz. [Siteden Siteye VPN ağ geçidi bağlantıları için VPN cihazları ve IPsec/IKE parametreleri hakkında](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec). Bu bağlantıyı IKE hakkında bilgi, sürüm, Diffie-Hellman grubu, kimlik doğrulama yöntemi, şifreleme ve karma algoritmalar, SA yaşam süresi, PFS ve DPD, yapılandırmayı tamamlamak için gereken diğer parametre bilgilerini ek olarak gösterir.
+- IPsec/IKE parametreleri hakkında bilgi için bkz. [Siteden Siteye VPN ağ geçidi bağlantıları için VPN cihazları ve IPsec/IKE parametreleri hakkında](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec). Bu bağlantı, yapılandırmanızı tamamlamak için ihtiyaç duyduğunuz diğer parametre bilgilerine ek olarak IKE sürümü, Diffie-Hellman Group, Kimlik doğrulaması yöntemi, şifreleme ve karma algoritmaları, SA yaşam süresi, PFS ve DPD hakkında bilgileri gösterir.
 
 - IPsec/IKE ilke yapılandırma adımları için bkz. [S2S VPN veya VNet-VNet bağlantıları için IPsec/IKE ilkesi yapılandırma](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md).
 

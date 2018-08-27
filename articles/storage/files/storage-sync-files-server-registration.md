@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 468bd70682b1b36e906d32cd7bde58c78bdbb376
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 1aa1bd085a312e379dc996a860c7f97b2e0dfe73
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522008"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918885"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Azure dosya eşitleme ile kayıtlı sunucuları yönetme
 Azure Dosya Eşitleme aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Bunu Windows sunucularınızı Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürerek yapar. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilir ve dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
@@ -26,7 +26,7 @@ Azure dosya eşitleme ile bir sunucu kaydetme, Windows Server ve Azure arasında
 ### <a name="prerequisites"></a>Önkoşullar
 Depolama eşitleme hizmeti ile bir sunucuyu kaydetmek için önce gerekli önkoşulları sunucunuzla hazırlamanız gerekir:
 
-* Sunucunuz Windows Server'ın desteklenen bir sürümünü çalıştırmalıdır. Daha fazla bilgi için [desteklenen Windows Server sürümlerinde](storage-sync-files-planning.md#supported-versions-of-windows-server).
+* Sunucunuz Windows Server'ın desteklenen bir sürümünü çalıştırmalıdır. Daha fazla bilgi için [Azure dosya eşitleme sistem gereksinimleri ve birlikte çalışabilirlik](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
 * Depolama eşitleme hizmeti dağıtıldığını emin olun. Depolama eşitleme hizmeti dağıtma hakkında daha fazla bilgi için bkz. [Azure dosya eşitleme dağıtmayı](storage-sync-files-deployment-guide.md).
 * Sunucu internet'e bağlı olduğundan ve Azure erişilebilir olduğundan emin olun.
 * Sunucu Yöneticisi kullanıcı Arabirimi ile Yöneticiler için IE Artırılmış Güvenlik Yapılandırması devre dışı bırakın.

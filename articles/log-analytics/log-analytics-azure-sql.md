@@ -3,9 +3,9 @@ title: Log analytics'te Azure SQL Analytics çözümünü | Microsoft Docs
 description: Azure SQL Analytics çözümünü, Azure SQL veritabanlarınızı yönetmenize yardımcı olur.
 services: log-analytics
 documentationcenter: ''
-author: mgoedtel
+author: danimir
 manager: carmonm
-editor: ''
+ms.reviewer: carlrab
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
 ms.service: log-analytics
 ms.workload: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
-ms.author: magoedte
+ms.author: v-daljep
 ms.component: na
-ms.openlocfilehash: 440e16416b8567178c61c3d6ce2155e0e331521c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 47069f0af7409d87cb2d4fbbbce9dda0b1c2056e
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216334"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886569"
 ---
 # <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Azure SQL Analytics (Önizleme) kullanarak Azure SQL veritabanlarını izleme
 
@@ -39,7 +39,7 @@ Azure SQL Analytics çözümünü kullanma uygulamalı bir genel bakış ve tipi
 
 ## <a name="connected-sources"></a>Bağlı kaynaklar
 
-Azure SQL Analytics çözümünü destekleyen tanılama telemetrisi Azure SQL veritabanları ve elastik havuzlar için akış izleme bir buluttur. Aracıların Log Analytics hizmetine bağlanmak için kullanmayabilirsiniz gibi çözüm Windows, Linux ile bağlantısını desteklememesi veya SCOM kaynakları, aşağıdaki uyumluluk tabloya bakın.
+Azure SQL Analytics çözümünü destekleyen tanılama telemetrisi Azure SQL veritabanları ve elastik havuzlar için akış izleme bir buluttur. Log Analytics hizmetine bağlanmak için aracıları kullanmaz gibi çözüm Windows, Linux ile bağlantı desteklemiyor veya SCOM kaynakları, aşağıdaki uyumluluk tabloya bakın.
 
 | Bağlı Kaynak | Destek | Açıklama |
 | --- | --- | --- |
@@ -105,8 +105,8 @@ Her bir perspektif, abonelik, sunucu, elastik havuz ve veritabanı düzeyi özet
 | Kaynak türüne göre | Bu perspektif izlenen tüm kaynakları sayar. Detaya gitme DTU ve GB ölçümleri özetini sağlar. |
 | Insights | Hiyerarşik detaya gitme akıllı Öngörüler sağlar. Akıllı içgörüler hakkında daha fazla bilgi edinin. |
 | Hatalar | Hiyerarşik detaya gitme veritabanlarında meydana gelen hatalara SQL sağlar. |
-| Zaman aşımı | Hiyerarşik detaya gitme veritabanlarında gerçekleşen SQL zaman aşımları sağlar. |
-| Blockings | Hiyerarşik detaya gitme veritabanlarında gerçekleşen SQL blockings sağlar. |
+| Zaman Aşımları | Hiyerarşik detaya gitme veritabanlarında gerçekleşen SQL zaman aşımları sağlar. |
+| Durdurmalar | Hiyerarşik detaya gitme veritabanlarında gerçekleşen SQL blockings sağlar. |
 | Veritabanı beklemeleri | Hiyerarşik detaya gitme SQL bekleme istatistikleri veritabanı düzeyi sağlar. Toplam bekleme süresi ve bekleme türü başına bekleme süresi bir özetini içerir. |
 | Sorgu süresi | Sorgu yürütme istatistikleri sorgu süresi, CPU kullanımı, veri GÇ kullanımını, günlük GÇ kullanımını gibi hiyerarşik detaya gitme sağlar. |
 | Sorgu beklemeleri | Hiyerarşik detaya gitme sorgu bekleme istatistikleri bekleme kategoriye göre sağlar. |
@@ -119,7 +119,7 @@ Azure SQL veritabanı [Intelligent Insights](../sql-database/sql-database-intell
 
 ### <a name="elastic-pool-and-database-reports"></a>Elastik havuz ve veritabanı raporları
 
-Elastik havuzlar ve veritabanları hem kaynak için belirtilen süre içinde toplanan tüm verileri, belirli kendi raporlarını vardır.
+Elastik havuzlar ve veritabanları hem kaynak için belirtilen süre içinde toplanan tüm veriler gösteren kendi özel raporlar vardır.
 
 ![Azure SQL Analytics veritabanı](./media/log-analytics-azure-sql/azure-sql-sol-database.png)
 
@@ -135,27 +135,77 @@ Sorgu süresi ve sorgu bekler Perspektifler sorgu raporu aracılığıyla herhan
 
 Kolayca [uyarıları oluşturma](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) ile Azure SQL veritabanı kaynaklardan gelen verileri. İşte bazı yararlı [günlük araması](log-analytics-log-searches.md) ile günlük uyarısı kullanabileceğiniz sorgular:
 
-
-
-*Azure SQL veritabanı yüksek DTU*
+*Azure SQL veritabanı yüksek CPU*
 
 ```
 AzureMetrics 
-| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" 
+| where ResourceProvider=="MICROSOFT.SQL"
+| where ResourceId contains "/DATABASES/"
+| where MetricName=="cpu_percent" 
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
 
-*Azure SQL veritabanı elastik havuzda yüksek DTU*
+> [!NOTE]
+> - Bu uyarıyı ayarlama ön gereksinim, izlenen veritabanları akışı tanılama ölçümleri ("Tüm ölçümler" seçeneği) çözüme olmasıdır.
+> - MetricName değer cpu_percent dtu_consumption_percent yüksek DTU sonuçları yerine elde etmek için'ile değiştirin.
+
+*Azure SQL veritabanı elastik havuzlar yüksek CPU*
 
 ```
 AzureMetrics 
-| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" 
+| where ResourceProvider=="MICROSOFT.SQL"
+| where ResourceId contains "/ELASTICPOOLS/"
+| where MetricName=="cpu_percent" 
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
 
+> [!NOTE]
+> - Bu uyarıyı ayarlama ön gereksinim, izlenen veritabanları akışı tanılama ölçümleri ("Tüm ölçümler" seçeneği) çözüme olmasıdır.
+> - MetricName değer cpu_percent dtu_consumption_percent yüksek DTU sonuçları yerine elde etmek için'ile değiştirin.
 
+*Ortalamanın üstünde %95 son 1 saat içinde Azure SQL veritabanı depolama*
+
+```
+let time_range = 1h;
+let storage_threshold = 95;
+AzureMetrics
+| where ResourceId contains "/DATABASES/"
+| where MetricName == "storage_percent"
+| summarize max_storage = max(Average) by ResourceId, bin(TimeGenerated, time_range)
+| where max_storage > storage_threshold
+| distinct ResourceId
+```
+
+> [!NOTE]
+> - Bu uyarıyı ayarlama ön gereksinim, izlenen veritabanları akışı tanılama ölçümleri ("Tüm ölçümler" seçeneği) çözüme olmasıdır.
+> - Bu sorgu bir uyarı kuralı sorgudan koşul bazı veritabanlarında bulunduğunu belirten bir uyarı sonuçlar (> 0 sonuç) varken ateşlenmesine kurulu olmasını gerektirir. Çıktı, yukarıda tanımlanan time_range içinde storage_threshold olan veritabanı kaynakların listesidir.
+> - Çıktı, yukarıda tanımlanan time_range içinde storage_threshold olan veritabanı kaynakların listesidir.
+
+*Akıllı Öngörüler uyar*
+
+```
+let alert_run_interval = 1h;
+let insights_string = "hitting its CPU limits";
+AzureDiagnostics
+| where Category == "SQLInsights" and status_s == "Active" 
+| where TimeGenerated > ago(alert_run_interval)
+| where rootCauseAnalysis_s contains insights_string
+| distinct ResourceId
+```
+
+> [!NOTE]
+> - Bu uyarıyı ayarlama ön gereksinim, izlenen veritabanları SQLInsights tanılama günlüğünün akışını çözümü olmasıdır.
+> - Bu sorgu, yinelenen sonuçlar önlemek için aynı sıklıkta alert_run_interval olarak çalıştırılmak üzere ayarlanması için bir uyarı kuralı gerektirir. Sonuçlar (> 0 sonuç) bulunduğunda uyarıyı sorgudan ateşlenmesine kural ayarlanmış olması.
+> - Koşul, çözüm SQLInsights günlüğünün akışını için yapılandırılmış veritabanları üzerinde oluşup olmadığını denetlemek için zaman aralığını belirtmek için alert_run_interval özelleştirin.
+> - Insights kök neden analizi metin çıktısını yakalamak için insights_string özelleştirin. Mevcut ınsights'tan kullanabileceğiniz çözüm kullanıcı arabiriminde görüntülenen metnin budur. Alternatif olarak, tüm öngörü aboneliğinizde oluşturulan metin görmek için aşağıdaki sorguyu kullanabilirsiniz. Insights uyarıları ayarlamak için ayrı dizeleri Hasat için sorgunun çıkışı kullanın.
+
+```
+AzureDiagnostics
+| where Category == "SQLInsights" and status_s == "Active" 
+| distinct rootCauseAnalysis_s
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

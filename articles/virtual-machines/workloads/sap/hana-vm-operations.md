@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 98c7bd5daf3b84499e8e31c0a7a2da612834b83e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e2ff826f21adf12d48b21acefe4b704866e02c04
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521991"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917967"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>SAP HANA altyapısı yapılandırmaları ve işlemleri Azure üzerinde
 Bu belge, Azure altyapı yapılandırma ve işletim dağıtılan Azure yerel sanal makinelerinde (VM'ler) SAP HANA sistemleri için yönergeler sağlar. Belge ayrıca SAP HANA ölçeklendirme M128s VM SKU için yapılandırma bilgilerini içerir. Bu belge aşağıdaki içeriği için standart bir SAP belgelerindeki değiştirin yönelik değildir:
@@ -215,7 +215,7 @@ SAP HANA çalıştırmayı Vm'leri yüklediğinizde, VM'lerin gerekir:
 
 Ancak, enduring dağıtımları için Azure'da bir sanal veri merkezi ağ mimarisi oluşturmanız gerekir. Bu mimari, şirket içi ayrı bir Azure Vnet'e bağlanır Azure VNet ağ geçidinin ayrılması önerir. Bu ayrı sanal ağ ya da şirket içi bırakır tüm trafiği barındırmamalısınız veya İnternet'e. Bu yaklaşım, yazılım denetleme ve sanal veri merkezi, Azure'da bu ayrı hub sanal ağında girdiği günlük trafiği dağıtmanıza olanak tanır. Bu nedenle içinde - ve giden trafiği Azure dağıtımınıza ilişkili tüm yazılım ve yapılandırmalar barındıran bir VNet gerekir.
 
-Makaleleri [Azure sanal veri merkezi: ağ perspektifi A](https://docs.microsoft.com/azure/networking/networking-virtual-datacenter) ve [Azure sanal veri merkezi ve kurumsal denetim düzlemi](https://docs.microsoft.com/azure/architecture/vdc/) sanal veri merkezi yaklaşımı hakkında daha fazla bilgi verin ve ilgili Azure sanal ağ tasarımı.
+Makaleleri [Azure sanal veri merkezi: ağ perspektifi A](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) ve [Azure sanal veri merkezi ve kurumsal denetim düzlemi](https://docs.microsoft.com/azure/architecture/vdc/) sanal veri merkezi yaklaşımı hakkında daha fazla bilgi verin ve ilgili Azure sanal ağ tasarımı.
 
 
 >[!NOTE]

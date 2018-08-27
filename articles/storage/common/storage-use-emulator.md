@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 543f581659d54bd14ccb2a818fd74e379bcc8cfe
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: af2a3da788fd26387ccdcc36422ffa5b11893212
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42059237"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888092"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Geliştirme ve test için Azure depolama öykünücüsü kullanma
 
@@ -26,9 +26,8 @@ Depolama öykünücüsü şu anda yalnızca Windows üzerinde çalışır. Bunla
 
 > [!NOTE]
 > Depolama öykünücüsü bir sürümünde oluşturulan veriler farklı bir sürümünü kullanırken erişilebilir olması garanti edilmez. Uzun süreli verilerinizin kalıcı hale getirilmesi gerekiyorsa, bu verileri Azure depolama hesabınız yerine depolama öykünücüsü'nü depolamak önerilir.
-> <p/>
+> 
 > Depolama öykünücüsü OData kitaplıkları belirli sürümlerinde bağlıdır. Diğer sürümleriyle birlikte depolama öykünücüsü tarafından kullanılan OData DLL'leri değiştirilmesi desteklenmez ve beklenmeyen davranışlara neden olabilir. Ancak, herhangi bir depolama hizmeti tarafından desteklenen OData sürümü öykünücüye istekleri göndermek için kullanılabilir.
->
 
 ## <a name="how-the-storage-emulator-works"></a>Depolama öykünücüsü nasıl çalışır?
 Depolama öykünücüsü, Azure depolama hizmetleri benzetmek için yerel dosya sistemi ve yerel bir Microsoft SQL Server örneği'ni kullanır. Varsayılan olarak, depolama öykünücüsü, Microsoft SQL Server 2012 Express LocalDB içinde bir veritabanı kullanır. Depolama öykünücüsü LocalDB örneğini yerine yerel bir SQL Server örneğini erişmek için yapılandırmayı seçebilirsiniz. Daha fazla bilgi için [başlangıç ve depolama öykünücüsü başlatma](#start-and-initialize-the-storage-emulator) bu makalenin devamındaki bölümüne.
@@ -187,6 +186,7 @@ Depolama öykünücüsü yerel bir SQL örneğinde çalışan benzetilmiş bir o
 Blob Depolama öykünücüsünde kıyasla aşağıdaki farklılıklar geçerlidir:
 
 * Depolama öykünücüsü yalnızca destekler blob 2 GB'ye kadar boyutları.
+* Azure Depolama'daki bir blob adı uzunluğu en fazla 1024 karakter olduğu sürece depolama öykünücüsünde bir blob adı uzunluğu en fazla 256 karakter var.
 * Hizmette hata döndürmesi artımlı kopya, kopyalanacak üzerine BLOB anlık görüntüleri sağlar.
 * Fark alma sayfası aralıkları artımlı kopya blob'u kullanarak kopyalanan anlık görüntüler arasında çalışmaz.
 * Kira kimliği istekte belirtilmemiş olsa bile bir Blob Put işlemi, depolama öykünücüsü ile etkin bir kiralama var olan bir bloba karşı başarılı olabilir.

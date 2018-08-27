@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 08/24/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: dba43f0823282bd385dca30402a9b16fa3b99de6
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 5e5ebac221060058a44f7605f77d33a133f5e72c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42060998"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887232"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 güncelleştirme
 
@@ -245,7 +245,9 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 - <!-- 1662991 IS ASDK --> Linux VM tanılama Azure Stack'te desteklenmiyor. VM tanılaması etkin bir Linux sanal makinesi dağıttığınızda, dağıtım başarısız olur. Tanılama ayarları aracılığıyla Linux VM temel ölçümleri etkinleştirirseniz, ayrıca dağıtım başarısız olur.  
 
-- <!-- 2724961- IS ASDK --> Kaydettiğinizde **Microsoft.Insight** abonelik ayarlarında, kaynak sağlayıcısı ve bir Windows VM konuk işletim sistemi etkin Tanılama ile oluşturma, VM genel bakış sayfasında CPU yüzdesi grafik, ölçüm verilerini göstermek mümkün olmayacaktır. Sanal makine için CPU yüzdesi grafik bulmak için Git **ölçümleri** dikey penceresinde ve desteklenen tüm Windows VM show Konuk ölçümleri.
+- <!-- 2724961- IS ASDK --> Kaydettiğinizde **Microsoft.Insight** abonelik ayarlarını, kaynak sağlayıcısındaki bir Windows VM oluşturma ve konuk işletim sistemi etkin Tanılama ile VM genel bakış sayfasında ölçüm verilerini da göstermez. 
+
+   Sanal makine için CPU yüzdesi grafik gibi ölçüm verileri bulmak için Git **ölçümleri** dikey penceresinde ve desteklenen tüm Windows VM show Konuk ölçümleri.
 
 ### <a name="networking"></a>Ağ  
 

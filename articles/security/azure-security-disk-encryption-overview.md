@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
+ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: 0e81a48c1215e8590f90c42aee0861e6fda3db8e
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 88500be4bae83049e8a7060719f4f85e7622c645
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391854"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887000"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Iaas VM'ler için Azure Disk şifrelemesi 
 Microsoft Azure sağlamak için veri gizliliği, veri egemenliği taahhüt eder ve denetlemek için etkinleştirme verileri şifrelemek için Denetim ve şifreleme anahtarlarını yönetmek için Gelişmiş teknolojilerden bir dizi aracılığıyla Azure'da barındırılan ve denetim ve denetim veri erişim. Bu denetim, Azure müşterilerine iş gereksinimlerini en iyi karşılayan çözümü seçme esnekliği sağlar. Bu makalede "Azure Disk şifrelemesi için Windows ve Linux Iaas korumak ve kurumsal güvenlik ve uyumluluk taahhütlerinizi yerine verilerinizi korumak için VM'ler", bir teknoloji çözümü tanıtılmaktadır. 
@@ -34,6 +34,10 @@ Windows ve Linux Iaas sanal makineleri için Azure disk şifrelemesi olan **gene
 * Iaas Vm'leri, Kurumsal güvenlik ve uyumluluk gereksinimlerini için endüstri standardı şifreleme teknolojisi kullanılarak, bekleme sırasında korunur.
 * Müşteri tarafından denetlenen anahtarları ve ilkeleri ve altında Iaas Vm'leri önyükleme kullanımlarını anahtar kasanızdaki denetleyebilirsiniz.
 
+
+Azure Güvenlik Merkezi kullanırsanız, şifrelenmemiş sanal makineleriniz varsa, sizi uyarır. Bu uyarılar Yüksek Önem Derecesine Sahip olarak gösterilir ve bu sanal makineleri şifrelemeniz önerilir.
+![Azure Güvenlik Merkezi disk Şifreleme Uyarısı](media/azure-security-disk-encryption/security-center-disk-encryption-fig1.png)
+
 > [!NOTE]
 > Bazı öneriler, veri, ağ veya ek lisans ya da abonelik maliyetlerinizi kaynaklanan işlem kaynak kullanımını artırabilir.
 
@@ -44,20 +48,24 @@ Azure Disk şifrelemesi çözümü, aşağıdaki müşteri senaryoları destekle
 * Önceden şifrelenmiş VHD ve şifreleme anahtarlarından oluşturulan yeni Windows Iaas Vm'leri şifrelemeyi etkinleştirin 
 * Desteklenen Azure galeri görüntüleri kullanılarak oluşturulan yeni Iaas Vm'leri şifrelemeyi etkinleştirin
 * Azure'da çalıştırılan Iaas Vm'leri mevcut şifrelemeyi etkinleştirin
+* Windows sanal makine ölçek kümeleri şifrelemeyi etkinleştirin
+* Veri sürücüleri Linux sanal makine ölçek kümeleri için şifrelemeyi etkinleştirin
 * Windows Iaas Vm'leri üzerinde şifrelemeyi devre dışı bırak
 * Linux Iaas sanal makineler için veri sürücülerinde şifrelemeyi devre dışı bırakma
+* Windows sanal makine ölçek kümeleri üzerinde şifrelemeyi devre dışı bırak
+* Linux sanal makine ölçek kümeleri için veri sürücülerini şifreleme devre dışı bırak
 * Yönetilen disk Vm'lerinin şifrelenmesini etkinleştirmek
 * Mevcut şifrelenmiş premium ve premium olmayan depolama VM'nin şifreleme ayarlarını güncelleştirme
 * Yedekleme ve şifrelenmiş Vm'leri geri yükleme
 
-Microsoft Azure'da etkinleştirildiğinde çözüm Iaas Vm'leri için aşağıdaki senaryoları destekler:
+Microsoft Azure'da etkin çözüm Iaas Vm'leri için aşağıdaki senaryoları destekler:
 
 * Azure Key Vault ile tümleştirme
 * Standart katmanı Vm'lerini: [A, D, DS, G, GS, F ve benzeri serisi Iaas Vm'leri](https://azure.microsoft.com/pricing/details/virtual-machines/)
     * [Linux Vm'leri](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) içinde bu katman 7 GB bellek alt sınırı gereksinimi karşılamalıdır
-* Windows ve Linux Iaas Vm'leri ve yönetilen disk sanal makinelerini desteklenen Azure Galerisi görüntülerinden şifrelemeyi etkinleştirin
-* Windows Iaas Vm'leri ve yönetilen disk sanal makinelerini için işletim sistemi ve veri sürücülerini şifreleme devre dışı bırak
-* Linux Iaas Vm'leri ve yönetilen disk sanal makinelerini için veri sürücülerinde şifrelemeyi devre dışı bırakma
+* Windows ve Linux Iaas Vm'leri ve yönetilen disk ölçek üzerinde şifrelemeyi etkinleştirme Vm'leri desteklenen Azure Galerisi'ndeki görüntüleri ayarlama
+* Windows Iaas Vm'leri, Ölçek için işletim sistemi ve veri sürücülerinde devre dışı bırakma şifreleme vm'leri ve yönetilen disk sanal makinelerini
+* Linux Iaas sanal makineler, Ölçek için devre dışı bırakma şifreleme veri sürücülerinde vm'leri ve yönetilen disk sanal makinelerini
 * Windows istemci işletim sistemi çalıştıran Iaas Vm'leri şifrelemeyi etkinleştirin
 * Bağlama yolu birimlerle şifrelemeyi etkinleştirin
 * Disk ile yapılandırılmış Linux vm'lerinde şifrelemeyi etkinleştirme mdadm kullanarak şeritleme (RAID)
@@ -74,7 +82,7 @@ Microsoft Azure'da etkinleştirildiğinde çözüm Iaas Vm'leri için aşağıda
 * Linux Iaas Vm'leri için şifreleme bir işletim sistemi sürücüsünde devre dışı bırakma
 * Linux Iaas sanal makineleri için işletim sistemi sürücüsünü şifrelendiyse veri sürücüsü üzerinde şifrelemeyi devre dışı bırakma
 * Iaas VM'ler, Klasik VM oluşturma yöntemini kullanarak oluşturulur
-* Müşteri özel görüntüleri desteklenmeyen Linux Iaas Vm'leri şifrelemeyi etkinleştirin.
+* Linux Iaas sanal makineleri müşteri özel görüntüleri şifrelemesini etkinleştirme
 * Şirket içi anahtar yönetimi hizmeti ile tümleştirme
 * Azure dosyaları (paylaşılan dosya sistemi), ağ dosya sistemi (NFS), dinamik birimler ve yazılım tabanlı RAID sistemler ile yapılandırılan Windows Vm'leri
 
@@ -84,7 +92,7 @@ Etkinleştirme ve Azure Disk şifrelemesi için Azure Iaas Vm'lerini dağıtmak,
 * Önyükleme birimi depolama alanınızda bekleyen korumak için işletim sistemi birimi şifrelemesi
 * Veri birimleri, depolama alanınızı bölgesinde, bekleyen veri birimlerini korumak için şifreleme
 * Windows Iaas Vm'leri için işletim sistemi ve veri sürücülerini şifreleme devre dışı bırakma
-* (Yalnızca işletim sistemi şifreli değil sürücü varsa) Linux Iaas sanal makineleri için veri şifrelemeyi devre dışı sürücüler
+* Linux Iaas sanal makineler için veri sürücülerini şifreleme (yalnızca işletim sistemi sürücüsünü şifreli değil ise) devre dışı bırakma
 * Şifreleme anahtarlarını ve gizli anahtar kasası aboneliğinizdeki koruma
 * Şifrelenmiş Iaas VM şifreleme durumunu raporlama
 * Iaas sanal makine disk şifreleme yapılandırma ayarlarını, temizleme
@@ -103,8 +111,40 @@ Azure Disk şifrelemesi çözümü, Windows veya Linux işletim sistemi çalış
 > [!NOTE]
 > Azure Disk şifrelemesi ile VM disklerini şifrelemek için ek ücret yoktur. Standart [anahtar kasası fiyatlandırma](https://azure.microsoft.com/pricing/details/key-vault/) şifreleme anahtarları depolamak için kullanılan anahtar kasası için geçerlidir. 
 
+
 ## <a name="encryption-workflow"></a>Şifreleme iş akışı
-Windows ve Linux Vm'leri için disk şifrelemeyi etkinleştirmek için aşağıdaki adımları uygulayın:
+
+ Windows ve Linux Vm'leri için disk şifrelemeyi etkinleştirmek için aşağıdaki adımları uygulayın:
+
+1. Bir şifreleme senaryosu önceki şifreleme senaryolarının arasından seçin.
+2. Etkinleştirme için iyileştirilmiş disk şifrelemesi Azure Disk şifrelemesi Resource Manager şablonu, PowerShell cmdlet'leri veya CLI komutu aracılığıyla ve şifreleme yapılandırması belirtin.
+
+   * Müşteri şifrelenmiş VHD senaryosu için depolama hesabınızı ve şifreleme anahtar malzemesi anahtar kasanıza şifrelenmiş VHD yükleyin. Ardından, yeni bir Iaas VM üzerinde şifrelemeyi etkinleştirmek için şifreleme yapılandırmasını sağlar.
+   * Marketten oluşturulan yeni VM'ler ve Azure'da çalışmakta olan var olan VM'ler için Iaas VM üzerinde şifrelemeyi etkinleştirmek için şifreleme yapılandırması sağlar.
+
+3. Şifreleme anahtarı malzeme (BitLocker şifreleme anahtarlarını Windows sistemleri için) ve parolayı Linux Iaas VM üzerinde şifrelemeyi etkinleştirmek için anahtar kasanıza okuma için Azure platformunda erişim izni verin.
+
+4. Azure VM hizmet modeli şifrelemesi ile key vault yapılandırması güncelleştirir ve, şifrelenmiş sanal Makineyi ayarlar.
+
+ ![Azure’da Microsoft Kötü Amaçlı Yazılımdan Koruma](./media/azure-security-disk-encryption/disk-encryption-fig1.png)
+
+## <a name="decryption-workflow"></a>Şifre çözme iş akışı
+Iaas Vm'leri için disk şifreleme devre dışı bırakmak için aşağıdaki üst düzey adımları tamamlayın:
+
+1. Azure'da çalışan bir Iaas sanal makinesi üzerinde şifreleme (şifre çözme) devre dışı bırakmak seçin ve şifre çözme yapılandırmayı belirtin. Azure Disk şifrelemesi Resource Manager şablonu, PowerShell cmdlet'leri veya Azure CLI devre dışı bırakabilirsiniz.
+
+ Bu adım işletim sistemi veya veri hacmi ya da hem de çalışan Windows Iaas VM şifreleme devre dışı bırakır. Ancak, önceki bölümde belirtildiği gibi Linux işletim sistemi disk şifreleme devre dışı bırakma desteklenmiyor. İşletim sistemi diski şifreli değil sürece şifre çözme adım yalnızca Linux vm'lerinde veri sürücülerine izin verilir.
+2. Azure VM hizmet modelini güncelleştirir ve Iaas VM şifresi çözülmüş olarak işaretlenir. VM içeriğini artık bekleme durumundayken şifrelenir.
+
+> [!NOTE]
+> Şifreleme devre dışı bırakma işlemi, anahtar kasanıza ve şifreleme anahtar malzemesi (BitLocker şifreleme anahtarlarını Windows sistemleri için) veya Linux için parola silmez.
+ > Linux için işletim sistemi disk şifreleme devre dışı bırakma desteklenmiyor. Şifre çözme adım, yalnızca Linux vm'lerinde veri sürücüleri için izin verilir.
+İşletim sistemi sürücüsünü şifrelendiyse Linux için disk şifrelemeyi devre dışı bırakma desteklenmiyor.
+
+
+## <a name="encryption-workflow-previous-release"></a>Şifreleme iş akışı (önceki sürüm)
+
+Azure disk şifrelemesi'nın yeni sürümüne VM disk şifrelemeyi etkinleştirmek için bir Azure AD uygulama parametresi sağlama gereksinimini ortadan kaldırır. Yeni sürümle birlikte, bir Azure AD kimlik bilgisi etkin şifreleme adımı sırasında sağlamak için artık gerekli değildir. Tüm yeni Vm'lere yeni sürümünü kullanarak Azure AD uygulama parametresiz şifrelenmelidir. Zaten Azure AD uygulama parametreleri ile şifrelenmiş VM'ler hala desteklenmektedir ve AAD sözdizimiyle korunmasını devam etmelidir. Windows ve Linux Vm'leri (önceki sürüm) için disk şifrelemeyi etkinleştirmek için aşağıdaki adımları uygulayın:
 
 1. Bir şifreleme senaryosu önceki şifreleme senaryolarının arasından seçin.
 2. Etkinleştirme için iyileştirilmiş disk şifrelemesi Azure Disk şifrelemesi Resource Manager şablonu, PowerShell cmdlet'leri veya CLI komutu aracılığıyla ve şifreleme yapılandırması belirtin.
@@ -118,20 +158,6 @@ Windows ve Linux Vm'leri için disk şifrelemeyi etkinleştirmek için aşağıd
 
 5. Azure VM hizmet modeli şifrelemesi ile key vault yapılandırması güncelleştirir ve, şifrelenmiş sanal Makineyi ayarlar.
 
- ![Azure’da Microsoft Kötü Amaçlı Yazılımdan Koruma](./media/azure-security-disk-encryption/disk-encryption-fig1.png)
-
-## <a name="decryption-workflow"></a>Şifre çözme iş akışı
-Iaas Vm'leri için disk şifreleme devre dışı bırakmak için aşağıdaki üst düzey adımları tamamlayın:
-
-1. Azure'da çalışan bir Iaas sanal makinesi üzerinde şifreleme (şifre çözme) devre dışı bırakmak seçin ve şifre çözme yapılandırmayı belirtin. Azure Disk şifrelemesi Resource Manager şablonu, PowerShell cmdlet'leri veya Azure CLI devre dışı bırakabilirsiniz.
-
- Bu adım işletim sistemi veya veri hacmi ya da hem de çalışan Windows Iaas VM şifreleme devre dışı bırakır. Ancak, önceki bölümde belirtildiği gibi Linux işletim sistemi disk şifreleme devre dışı bırakma desteklenmiyor. İşletim sistemi diski şifreli sürece şifre çözme adım yalnızca Linux vm'lerinde veri sürücülerine izin verilir.
-2. Azure VM hizmet modelini güncelleştirir ve Iaas VM şifresi çözülmüş olarak işaretlenir. VM içeriğini artık bekleme durumundayken şifrelenir.
-
-> [!NOTE]
-> Şifreleme devre dışı bırakma işlemi, anahtar kasanıza ve şifreleme anahtar malzemesi (BitLocker şifreleme anahtarlarını Windows sistemleri için) veya Linux için parola silmez.
- > Linux için işletim sistemi disk şifreleme devre dışı bırakma desteklenmiyor. Şifre çözme adım, yalnızca Linux vm'lerinde veri sürücüleri için izin verilir.
-İşletim sistemi sürücüsünü şifrelendiyse Linux için disk şifrelemeyi devre dışı bırakma desteklenmiyor.
 
 ## <a name="terminology"></a>Terminoloji
 Bu teknoloji tarafından kullanılan ortak terimlerden bazılarının anlamak için aşağıdaki terimleri tabloyu kullanın:

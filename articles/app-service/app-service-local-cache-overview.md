@@ -16,17 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
-ms.openlocfilehash: 59fe70e4d2a710160751ab8e7a83c9f86310dc24
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 4959e4e3a0692837a7775eaf813a8fcff925312d
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597739"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918025"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure App Service yerel önbelleğe genel bakış
 
 > [!NOTE]
-> Yerel önbellek desteklenmez kapsayıcı App Service uygulamaları gibi [Linux üzerinde App Service'te](containers/app-service-linux-intro.md).
+> Yerel önbellek desteklenmez işlev uygulamaları veya kapsayıcı App Service uygulamaları gibi [Linux üzerinde App Service'te](containers/app-service-linux-intro.md).
+
 
 Azure web uygulaması içeriğini Azure depolama alanında depolanır ve yukarı dayanıklı bir şekilde içerik paylaşımı olarak kullanıma sunulur. Bu tasarım, çeşitli uygulamaları ile kullanılmak üzere tasarlanmış ve öznitelikleri şunlardır:  
 

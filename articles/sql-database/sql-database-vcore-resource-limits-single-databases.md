@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 603a6e2f3ce744d792ad9c9be20622c65a37dda3
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 8e7af24133b7e034bb7bc1898609cebbb860b738
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414615"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919087"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL veritabanı sanal çekirdek tabanlı model sınırları tek bir veritabanı için satın alma
 
@@ -43,7 +43,7 @@ Tek veritabanları için aşağıdaki tablolarda her hizmet katmanı ve performa
 |Depolama türü|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|
 |GÇ gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|
 |En yüksek veri boyutu (GB)|1024|1024|1536|3072|4096|4096|
-|Maksimum günlük boyutu|307|307|461|922|1229|1229|
+|Maksimum günlük boyutu (GB)|307|307|461|922|1229|1229|
 |TempDB boyutu (GB)|32|64|128|256|384|384|
 |Hedef IOPS (64 KB)|500|1000|2000|4000|7000|7000|
 |Maks. eş zamanlı çalışan (istek)|200|400|800|1600|3200|4800|
@@ -65,7 +65,7 @@ Tek veritabanları için aşağıdaki tablolarda her hizmet katmanı ve performa
 |Depolama türü|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|
 |GÇ gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|
 |En yüksek veri boyutu (GB)|1024|1024|1536|3072|4096|4096|4096|4096|
-|Maksimum günlük boyutu|307|307|461|614|1229|1229|1229|1229|
+|Maksimum günlük boyutu (GB)|307|307|461|614|1229|1229|1229|1229|
 |TempDB boyutu (GB)|64|128|256|384|384|384|384|384|
 |Hedef IOPS (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
 |Maks. eş zamanlı çalışan (istek)|200|400|800|1600|2400|3200|4000|8000|
@@ -88,7 +88,7 @@ Tek veritabanları için aşağıdaki tablolarda her hizmet katmanı ve performa
 |Bellek içi OLTP depolama alanı (GB)|1|2|4|8|20|36|
 |Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
 |En yüksek veri boyutu (GB)|1024|1024|1024|1024|1024|1024|
-|Maksimum günlük boyutu|307|307|307|307|307|307|
+|Maksimum günlük boyutu (GB)|307|307|307|307|307|307|
 |TempDB boyutu (GB)|32|64|128|256|384|384|
 |Hedef IOPS (64 KB)|5000|10000|20000|40000|80000|120000|
 |GÇ gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|
@@ -111,7 +111,7 @@ Tek veritabanları için aşağıdaki tablolarda her hizmet katmanı ve performa
 |Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
 |GÇ gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|
 |En yüksek veri boyutu (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
-|Maksimum günlük boyutu|307|307|307|307|614|1229|1229|1229|
+|Maksimum günlük boyutu (GB)|307|307|307|307|614|1229|1229|1229|
 |TempDB boyutu (GB)|64|128|256|384|384|384|384|384|
 |Hedef IOPS (64 KB)|5000|10000|20000|40000|60000|80000|100000|200000
 |Maks. eş zamanlı çalışan (istek)|200|400|800|1600|2400|3200|4000|8000|

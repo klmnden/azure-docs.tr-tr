@@ -1,6 +1,6 @@
 ---
-title: Web ara SDK Python hızlı başlangıç | Microsoft Docs
-description: Web ara SDK konsol uygulaması kurulumu.
+title: "Hızlı Başlangıç: Python için Bing Web araması SDK'sını kullanın."
+description: Kurulum Web Search SDK'sını konsol uygulaması için.
 titleSuffix: Azure Cognitive Services Web search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
@@ -8,35 +8,37 @@ manager: rosh
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 02/14/2018
-ms.author: v-gedod
-ms.openlocfilehash: 2a5fed58be863b882b827dbed73862bc690bab1e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 08/16/2018
+ms.author: v-gedod, erhopf
+ms.openlocfilehash: faf43d84724cdbf799219c120f87dfc333c5026f
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355295"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888535"
 ---
-# <a name="web-search-sdk-python-quickstart"></a>Web ara SDK Python hızlı başlangıç
+# <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Hızlı Başlangıç: Python için Bing Web araması SDK'sını kullanın.
 
-Bing Web arama SDK'sı web sorguları ve ayrıştırma sonuçları için REST API işlevselliğini içerir. 
+Bing Web araması SDK'sı web sorgular ve ayrıştırma sonuçları için REST API işlevlerini içerir.
 
-[Kaynak kodu Python Bing Web arama SDK örnekleri için](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/web_search_samples.py) Git hub'da kullanılabilir.
+[Kaynak kodu Python Bing Web araması SDK'sı örnekleri için](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/web_search_samples.py) Github'da kullanılabilir.
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
-Zaten sahip değilseniz, Python yükleyin. SDK 3.3, 3.4, 3.5 ve 3.6 gibi Python 2.7 ile uyumludur.
+Zaten sahip değilseniz, Python'ı yükleyin. SDK, 3.3, 3.4, 3.5 ve 3.6 gibi Python 2.7 ile uyumludur.
 
-Python geliştirme için genel öneri kullanmaktır bir [sanal ortam](https://docs.python.org/3/tutorial/venv.html). Yükleme ve sanal ortamıyla başlatma [venv Modülü](https://pypi.python.org/pypi/virtualenv). Python 2.7 için virtualenv yüklemeniz gerekir.
+Python geliştirme için genel öneri kullanmaktır bir [sanal ortam](https://docs.python.org/3/tutorial/venv.html).
+Yükleme ve sanal ortamıyla başlatma [venv Modülü](https://pypi.python.org/pypi/virtualenv). Python 2.7 için virtualenv yüklemeniz gerekir.
 ```
 python -m venv mytestenv
 ```
-Bing Web arama SDK bağımlılıkları yükler:
+Bing Web araması SDK bağımlılıklarını yükleyin:
 ```
 cd mytestenv
 python -m pip install azure-cognitiveservices-search-websearch
 ```
-## <a name="web-search-client"></a>Web ara istemcisi
-Alma bir [Bilişsel hizmetler erişim tuşu](https://azure.microsoft.com/try/cognitive-services/) altında *arama*. İçeri aktarmaları ekleyin ve bir örneğini oluşturmak `CognitiveServicesCredentials`:
+## <a name="web-search-client"></a>Web araması istemcisi
+Alma bir [Bilişsel hizmetler abonelik anahtarı](https://azure.microsoft.com/try/cognitive-services/) altında *arama*.
+İçeri aktarmaları ekleyin ve bir örneğini oluşturmak `CognitiveServicesCredentials`:
 ```
 from azure.cognitiveservices.search.websearch import WebSearchAPI
 from azure.cognitiveservices.search.websearch.models import SafeSearch
@@ -48,7 +50,7 @@ Ardından, istemci örneği:
 ```
 client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
-Arama sonuçları için ve ilk Web sayfası sonucu yazdırma:
+Arama sonuçları için ve ilk Web sayfası sonucu yazdırın:
 ```
 web_data = client.web.search(query="Yosemite")
 print("\r\nSearched for Query# \" Yosemite \"")
@@ -65,7 +67,7 @@ if web_data.web_pages.value:
 else:
     print("Didn't see any Web data..")
 ```
-Resimleri, Haberler ve videolar dahil olmak üzere diğer sonuç türleri Yazdır:
+Resimler, Haberler ve video da dahil olmak üzere diğer sonuç türleri yazdırın:
 ```
 # Images
 if web_data.images.value:
@@ -78,7 +80,7 @@ if web_data.images.value:
 
 else:
     print("Didn't see any Image..")
-        
+
 # News
 if web_data.news.value:
 
@@ -90,7 +92,7 @@ if web_data.news.value:
 
 else:
     print("Didn't see any News..")
-            
+
 # Videos
 if web_data.videos.value:
 
@@ -104,7 +106,7 @@ else:
     print("Didn't see any Videos..")
 
 ```
-Arama (Seattle en iyi Restoran) için sonuç sayısı doğrulayın ve yazdırmanız `name` ve `URL` ilk sonuç.
+(En iyi restoranlar Seattle'da) arayın, sonuç sayısı doğrulayın ve yazdırabilirsiniz `name` ve `URL` ilk sonuç.
 ```
 def web_results_with_count_and_offset(subscription_key):
 
@@ -155,7 +157,7 @@ def web_search_with_response_filter(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Arama sorgusu "Niagra döner ile", kullanarak `answerCount` ve `promote` parametreleri. Sonuçları ayrıntılarını yazdırın.
+Arama sorgusu "Niagra denk", kullanarak `answerCount` ve `promote` parametreleri. Sonuçları yazdırma ayrıntıları.
 ```
 def web_search_with_answer_count_promote_and_safe_search(subscription_key):
 
@@ -187,6 +189,4 @@ def web_search_with_answer_count_promote_and_safe_search(subscription_key):
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel hizmetler Python SDK'sı örneği](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
-
-
+[Bilişsel hizmetler Python SDK'sı örnekleri](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)

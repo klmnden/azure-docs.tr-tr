@@ -1,6 +1,6 @@
 ---
-title: Web araması SDK C# hızlı başlangıç | Microsoft Docs
-description: Web araması SDK C# konsol uygulaması kurulumu.
+title: 'Hızlı Başlangıç: Bing Web araması SDK için C# kullanın'
+description: Web araması SDK C# konsol uygulaması için kurulumu.
 titleSuffix: Azure cognitive services Web search SDK C# quickstart
 services: cognitive-services
 author: mikedodaro
@@ -8,32 +8,32 @@ manager: rosh
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 01/29/2018
-ms.author: v-gedod
-ms.openlocfilehash: 6d87b292475edff04e930ec4aa2f8e077a0fb82c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 08/16/2018
+ms.author: v-gedod, erhopf
+ms.openlocfilehash: ef54487a1df7303fa92a78e4f3219f40f558da2b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355301"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887328"
 ---
-# <a name="web-search-sdk-c-quickstart"></a>Web ara SDK C# hızlı başlangıç
+# <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Hızlı Başlangıç: Bing Web araması SDK için C# kullanın
 
-Bing Web arama SDK'sı web isteklerini ve ayrıştırma sonuçları için REST API işlevselliğini içerir.
+Bing Web araması SDK'sı, web isteklerini ve ayrıştırma sonuçları için REST API işlevselliğini içerir.
 
-[Kaynak kodu C# Bing Web arama SDK örnekleri için](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/BingSearchv7/BingWebSearch/WebSearchSamples.cs) Git hub'da kullanılabilir.
+[Kaynak kodu için C# Bing Web araması SDK örnekleri](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/BingSearchv7/BingWebSearch/WebSearchSamples.cs) Github'da kullanılabilir.
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
 
-Bing Web arama SDK'yı kullanarak bir konsol uygulaması ayarlamak için Gözat `Manage NuGet Packages` Visual Studio'daki Çözüm Gezgini'nden seçeneği.  Ekleme `Microsoft.Azure.CognitiveServices.Search.WebSearch` paket.
+Bing Web araması SDK'sını kullanarak bir konsol uygulaması oluşturma için göz atın `Manage NuGet Packages` Visual Studio'daki Çözüm Gezgini'nden seçeneği.  Ekleme `Microsoft.Azure.CognitiveServices.Search.WebSearch` paket.
 
-Yükleme [NuGet Web arama SDK paketi](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) de dahil olmak üzere bağımlılıkları yükler:
+Yükleme [Web Search SDK'sı NuGet paketi](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) de dahil olmak üzere, bağımlılıkları yükler:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-## <a name="web-search-client"></a>Web ara istemcisi
-Örneği oluşturmak için `WebSearchAPI` istemci, yönergeleri kullanarak ekleyin:
+## <a name="web-search-client"></a>Web araması istemcisi
+Bir örneğini oluşturmak için `WebSearchAPI` istemci, using yönergelerini ekleyin:
 ```
 using Microsoft.Azure.CognitiveServices.Search.WebSearch;
 using Microsoft.Azure.CognitiveServices.Search.WebSearch.Models;
@@ -52,7 +52,7 @@ var webData = client.Web.Search(query: "Yosemite National Park");
 Console.WriteLine("Searched for Query# \" Yosemite National Park \"");
 
 ```
-Önceki sorgu sonuçlarında döndürülen web sayfaları ayrıştırılamıyor:
+Önceki sorgu sonuçlarında çıkmadıysa web sayfaları ayrıştırılamıyor:
 ```
 //WebPages
 if (webData?.WebPages?.Value?.Count > 0)
@@ -77,9 +77,9 @@ else
 }
 
 ```
-## <a name="complete-console-application"></a>Tam konsol uygulaması
+## <a name="complete-console-application"></a>Eksiksiz bir konsol uygulaması
 
-Aşağıdaki konsol uygulaması önceden tanımlanmış sorgu yürütür ve web sayfaları, görüntüler, haber ve videolar sonuçlarda bulunan ayrıştırır:
+Aşağıdaki konsol uygulamasında önceden tanımlanmış sorgu yürütülür ve web sayfaları, görüntüler, haber ve sonuçlarda yer alan videoları ayrıştırır:
 ```
 using System;
 using System.Collections.Generic;
@@ -213,11 +213,11 @@ namespace WebSrchSDK
 
 ```
 
-Bing arama örnekleri SDK çeşitli özellikleri gösterir.  Aşağıdaki işlevleri için önceden tanımlanmış eklemek `WebSrchSDK` sınıfı.
+Bing arama örnekleri SDK'ın çeşitli özelliklerini gösterir.  Önceden tanımlanmış aşağıdaki işlevleri ekleyin `WebSrchSDK` sınıfı.
 
-## <a name="count-and-offset-parameters"></a>Sayı ve uzaklık parametreleri
+## <a name="count-and-offset-parameters"></a>Parametre sayısı ve uzaklık
 
-Aşağıdaki kod "Seattle en iyi Restoran" arar, sonuç sayısı doğrular ve adını ve ilk sonucu URL'sini yazdırır.
+Aşağıdaki kod, "İstanbul'da en iyi restoranlar" arar, sonuç sayısı doğrular ve adını ve URL'sini ilk sonuç yazdırır.
 
 ```
        public static void WebResultsWithCountAndOffset(WebSearchAPI client)
@@ -257,7 +257,7 @@ Aşağıdaki kod "Seattle en iyi Restoran" arar, sonuç sayısı doğrular ve ad
 ```
 ## <a name="response-filter"></a>Yanıt filtresi
 
-Aşağıdaki sorgu arar "ayarlamak bir yanıt filtresi kullanarak Microsoft" terimini `news` ve sonuçları ayrıntılarını yazdırır.
+Aşağıdaki sorguda arar ayarlamak bir yanıt filtresi kullanarak "Microsoft" terimi `news` ve ardından sonuçlarının ayrıntılarını yazdırır.
 ```
         public static void WebSearchWithResponseFilter(WebSearchAPI client)
         {
@@ -299,9 +299,9 @@ Aşağıdaki sorgu arar "ayarlamak bir yanıt filtresi kullanarak Microsoft" ter
         }
 
 ```
-## <a name="query-parameters---count-promotion-safe-search"></a>Sorgu parametreleri - sayısı, yükseltme, güvenli Ara
+## <a name="query-parameters---count-promotion-safe-search"></a>Sorgu parametreleri - sayısı, yükseltme, güvenli arama
 
-Bu sorgu, "Gaga", çalışanı kullanarak arar `answerCount` ve `promote` parametreleri ardından sonuçları ayrıntılarını yazdırır.
+Bu sorgu "Gaga", çalışanı kullanarak arar `answerCount` ve `promote` parametreleri ardından sonuçlarının ayrıntılarını yazdırır.
 
 ```
         public static void WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchAPI client)

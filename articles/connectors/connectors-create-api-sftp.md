@@ -1,66 +1,97 @@
 ---
-title: Logic apps içinde SFTP Bağlayıcısı'nı kullanmayı öğrenin | Microsoft Docs
-description: Logic apps ile Azure uygulama hizmeti oluşturun. Dosya gönderme ve alma için SFTP API'sine bağlayın. Gibi oluştururken, güncelleştirme, almak veya dosyaları silme çeşitli işlemler gerçekleştirebilirsiniz.
+title: Azure Logic Apps'ten SFTP hesabınıza bağlanın | Microsoft Docs
+description: Görevler ve izleme, oluşturma, yönetme, göndermek ve Azure Logic Apps kullanarak dosya bir SFTP sunucusu için almak iş akışlarını otomatikleştirin
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 07/20/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 28ea02082903f71f619a52672ba41ce65557b0c7
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/24/2018
+ms.openlocfilehash: 9714a00d070caab9d3a3338329295192e1eb9997
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296011"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887596"
 ---
-# <a name="get-started-with-the-sftp-connector"></a>SFTP Bağlayıcısı ile çalışmaya başlama
-Dosya gönderme ve alma için bir SFTP hesaba erişmek için SFTP Bağlayıcısı'nı kullanın. Gibi oluştururken, güncelleştirme, almak veya dosyaları silme çeşitli işlemler gerçekleştirebilirsiniz.  
+# <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>İzleme, oluşturma ve Azure Logic Apps kullanarak SFTP dosyalarını yönetme
 
-Kullanılacak [tüm bağlayıcıların](apis-list.md), ilk mantıksal uygulama oluşturmanız gerekir. Tarafından başlayabiliriz [şimdi mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Azure Logic Apps ve SFTP Bağlayıcısı ile otomatik görevler ve iş akışlarını izlemek, oluşturun, gönderin ve hesabınız üzerinden dosyaları alma oluşturabilirsiniz bir [SFTP](https://www.ssh.com/ssh/sftp/) örneğin diğer eylemlerin yanı sıra sunucu:
 
-## <a name="connect-to-sftp"></a>SFTP için Bağlan
-Mantıksal uygulamanızı herhangi bir hizmet erişebilmeniz için önce ilk önce oluşturmanız gerekir bir *bağlantı* hizmet. A [bağlantı](connectors-overview.md) bir mantıksal uygulama ile başka bir hizmet arasında bağlantı sağlar.  
+* Dosyaları eklenen veya değiştirilen zamana yönelik İzleyici.
+* Al, oluştur, kopyalayın, listesinde güncelleştirmek ve dosyaları silin.
+* Dosya içeriğini ve meta verileri alın.
+* Arşivi klasöre ayıklayın.
 
-### <a name="create-a-connection-to-sftp"></a>SFTP bağlantı oluşturun.
-> [!INCLUDE [Steps to create a connection to SFTP](../../includes/connectors-create-api-sftp.md)]
-> 
-> 
+SFTP sunucunuzdan yanıtlar almak ve çıkış diğer eylemler için kullanılabilir Tetikleyicileri kullanabilirsiniz. Logic apps eylemleri, dosyaları SFTP sunucunuzdaki görevleri gerçekleştirmek için kullanabilirsiniz. Ayrıca SFTP eylemleri çıktısını kullanan diğer eylemler olabilir. Örneğin, düzenli olarak dosyaları SFTP sunucunuzdan almak, Office 365 Outlook Bağlayıcısı veya Outlook.com Bağlayıcısı'nı kullanarak bu dosyaları ve bunların içeriğini hakkında e-posta gönderebilirsiniz.
+Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](../logic-apps/logic-apps-overview.md)
 
-## <a name="use-an-sftp-trigger"></a>SFTP tetikleyici kullanın
-Bir tetikleyici bir mantıksal uygulama tanımlı iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+## <a name="prerequisites"></a>Önkoşullar
 
-Bu örnekte, **bir dosya eklendiğinde veya SFTP -** tetikleyici için bir dosya eklendiğinde mantığı uygulama iş akışını başlatmak için kullanılan veya bir SFTP sunucusunda, değiştirilemiyor. Ayrıca, yeni veya değiştirilmiş dosyasının içeriğini denetler ve içeriğini, içeriği kullanmadan önce ayıklanması gereken olduğunu gösteriyorsa dosyasını ayıklamak için bir karar verir bir koşul de ekleyin. Son olarak, bir dosyanın içeriğini ayıklamak için bir eylem ekleyin ve ayıklanan içeriğin SFTP sunucu üzerindeki bir klasöre yerleştirin. 
+* Azure aboneliği. Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
 
-Bir kurumsal örnekte, bu tetikleyici müşteri siparişleri temsil eden yeni dosyalar için bir SFTP klasörü izlemek için kullanabilirsiniz.  Ardından bir SFTP bağlayıcı eylem gibi kullanabilir **alma dosya içeriğini**, siparişler veritabanında daha fazla işleme ve depolama sipariş içeriğini almak için.
+* SFTP konak sunucu adresi ve hesap kimlik bilgilerinizi
 
-> [!INCLUDE [Steps to create an SFTP trigger](../../includes/connectors-create-api-sftp-trigger.md)]
-> 
-> 
+   Mantıksal uygulamanızı bir bağlantı oluşturun ve SFTP hesabınıza erişmek için kimlik bilgilerinizi yetkilendirin.
 
-## <a name="add-a-condition"></a>Koşul ekle
-> [!INCLUDE [Steps to add a condition](../../includes/connectors-create-api-sftp-condition.md)]
-> 
-> 
+* Hakkında temel bilgilere [mantıksal uygulamalar oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-## <a name="use-an-sftp-action"></a>SFTP eylemini kullanın
-Bir eylem, bir mantıksal uygulama içinde tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+* SFTP hesabınıza erişmek için istediğiniz mantıksal uygulaması. Bir SFTP tetikleyicisi ile başlatmak için [boş mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). SFTP eylem kullanmak için mantıksal uygulamanız başka bir tetikleyici ile örneğin başlayın, **yinelenme** tetikleyici.
 
-> [!INCLUDE [Steps to create an SFTP action](../../includes/connectors-create-api-sftp-action.md)]
-> 
-> 
+## <a name="connect-to-sftp"></a>SFTP'ye bağlanma
 
-## <a name="connector-specific-details"></a>Bağlayıcı özgü ayrıntıları
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/sftpconnector/).
+1. Oturum [Azure portalında](https://portal.azure.com)ve Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın, açık değilse.
 
-## <a name="more-connectors"></a>Daha fazla bağlayıcılar
-Geri dönerek [API'leri listesi](apis-list.md).
+1. Bir yolu seçin: 
+
+   * Boş mantıksal uygulama için arama kutusuna filtreniz olarak "salesforce" girin. 
+   Tetikleyiciler listesinde istediğiniz tetikleyicisini seçin. 
+
+     -veya-
+
+   * Var olan mantıksal uygulamalar için: 
+   
+     * Son adım, bir eylem eklemek istediğiniz altında seçin **yeni adım**. 
+
+       -veya-
+
+     * Bir eylem eklemek istediğiniz adımları arasında işaretçinizi adımlar arasındaki okun üzerine getirin. 
+     Artı işaretini seçin (**+**), görünür ve ardından **Eylem Ekle**.
+     
+        Arama kutusuna filtreniz olarak "sftp" girin. 
+        Eylemler listesinde, istediğiniz eylemi seçin.
+
+1. Bağlantınız için gerekli bilgileri sağlayın ve ardından **Oluştur**.
+
+1. Seçili tetikleyici veya eylem için gerekli bilgileri sağlayın ve mantıksal uygulamanızın iş akışı oluşturmaya devam edin.
+
+## <a name="examples"></a>Örnekler
+
+### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>SFTP tetikleyici: ne zaman bir dosya eklendiğinde veya değiştirildiğinde
+
+Bir dosya eklendiğinde veya bir SFTP sunucu üzerinde değiştirilmiş tetikleyici algıladığında, bu tetikleyiciyi bir mantıksal uygulama iş akışı başlatır. Örneğin, dosyanın içeriğini denetler ve söz konusu içeriği almak etkinleştirilip etkinleştirilmeyeceğini karar bir koşul ekleyebilirsiniz içeriğin belirtilen bir koşulu karşılayıp temel. Son olarak, dosyanın içeriğini alır bir eylem ekleme ve içeriği SFTP sunucusunda bir klasöre yerleştirin. 
+
+**Kuruluş örnek**: Bu tetikleyici, müşteri siparişleri temsil eden yeni dosyalar için bir SFTP klasörü izlemek için kullanabilirsiniz. Ardından bir SFTP eylemi gibi kullanabilir **dosya içeriğini Al**, böylece daha ayrıntılı işleme için sipariş içeriklerini almak ve o sırada bir sipariş veritabanında depolayın.
+
+### <a name="sftp-action-get-content"></a>SFTP eylemi: içerik alma
+
+Bu işlem bir SFTP sunucusuna dosya içeriği alır. Örneğin, önceki örnekte ve dosyanın içeriğini karşılaması gereken bir koşul tetikleyici ekleyebilirsiniz. Koşul true ise, içeriği alır eylemi çalıştırabilirsiniz. 
+
+## <a name="connector-reference"></a>Bağlayıcı başvurusu
+
+Tetikleyiciler ve Eylemler sınırları hakkında teknik ayrıntılar için bağlayıcının Openapı'nin açıklanmıştır (önceki adıyla Swagger) açıklama, bağlayıcının gözden [başvuru sayfası](/connectors/sftpconnector/).
+
+## <a name="get-support"></a>Destek alın
+
+* Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
+* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](http://aka.ms/logicapps-wish) ziyaret edin.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+* Diğer hakkında bilgi edinin [Logic Apps bağlayıcıları](../connectors/apis-list.md)

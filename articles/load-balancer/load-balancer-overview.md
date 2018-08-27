@@ -1,6 +1,6 @@
 ---
 title: Azure Load Balancer'a genel bakış | Microsoft Docs
-description: Azure Load Balancer özellikleri, mimari ve uygulama genel bakış. Yük dengeleyicinin nasıl çalıştığını öğrenin ve bulutta yararlanın.
+description: Azure Load Balancer özellikleri, mimari ve uygulama genel bakış. Load Balancer'ın nasıl çalıştığını öğrenin ve bulutta yararlanın.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 47509cd0a9208f41a52bf1a07c460bcdda2cb479
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 618b00906a799e1b8cfcfac5ee6bcc3a714c2f87
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056271"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918751"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer nedir?
 
 Azure Load Balancer ile uygulamalarınızı ölçeklendirmenize ve yüksek kullanılabilirlik için hizmetlerinizi oluşturun. Yük Dengeleyici, gelen ve giden senaryoları destekler, düşük gecikme süresi ve yüksek aktarım hızı sağlar ve kadar akışlar tüm TCP ve UDP uygulamaları için milyonlarca ölçeklendirir.  
 
-Yük Dengeleyici kuralları ve sistem durumu araştırmaları göre arka uç havuzu örnekleri için load balancer'ın ön uç üzerinde geldiğinde yeni gelen akışlar dağıtır. 
+Yük Dengeleyici kuralları ve sistem durumu araştırmaları göre arka uç havuzu örnekleri için Load Balancer'ın ön uç üzerinde geldiğinde yeni gelen akışlar dağıtır. 
 
-Ayrıca, herkese açık yük dengeleyici genel IP adresleri için özel IP adreslerini çevirerek giden bağlantıları sanal makineler (VM) için sanal ağınızda sağlayabilir.
+Ayrıca, bir genel yük dengeleyici genel IP adresleri için özel IP adreslerini çevirerek sanal makineler (VM) giden bağlantılar sanal ağınızda sağlayabilir.
 
 Azure Load Balancer iki SKU ile sunulur: temel ve standart. Ölçek, özellikleri ve fiyatlandırmayı farklılıklar vardır. Yaklaşımları biraz farklı olabilir temel yük dengeleyici ile mümkün olan her senaryoya standart Load Balancer ile de oluşturulabilir. Load Balancer hakkında bilgi edindiğiniz gibi temelleri ve SKU'ya özgü farklılıkları ile kendinizi alıştırın önemlidir.
 
@@ -37,10 +37,10 @@ Azure Load Balancer iki SKU ile sunulur: temel ve standart. Ölçek, özellikler
 
 Azure Load Balancer için kullanabilirsiniz:
 
-* Yük Dengeleme gelen internet trafiğini sanal makineleriniz için. Bu yapılandırma olarak bilinen bir [herkese açık yük dengeleyici](#publicloadbalancer).
-* Bir sanal ağ içindeki VM'ler arasında Yük Dengeleme trafiği. Ayrıca, karma bir senaryoda, bir şirket içi ağdan bir yük dengeleyici ön ucuna ulaşabilirsiniz. Her iki senaryo olarak bilinen bir yapılandırma kullanmak bir [iç yük dengeleyici](#internalloadbalancer).
+* Yük Dengeleme gelen internet trafiğini sanal makineleriniz için. Bu yapılandırma olarak bilinen bir [genel Load Balancer](#publicloadbalancer).
+* Bir sanal ağ içindeki VM'ler arasında Yük Dengeleme trafiği. Ayrıca, bir yük dengeleyici ön ucuna karma bir senaryoda, bir şirket içi ağdan ulaşabilirsiniz. Her iki senaryo olarak bilinen bir yapılandırma kullanmak bir [iç Load Balancer](#internalloadbalancer).
 * Belirli bir bağlantı noktasına gelen ağ adresi çevirisi (NAT) kuralları özel Vm'leriyle bağlantı noktası iletme trafiği.
-* Sağlamak [giden bağlantı](load-balancer-outbound-connections.md) herkese açık yük dengeleyici kullanarak sanal ağınızdaki VM'ler için.
+* Sağlamak [giden bağlantı](load-balancer-outbound-connections.md) genel Load Balancer'ı kullanarak sanal ağınızdaki VM'ler için.
 
 
 >[!NOTE]
@@ -48,7 +48,7 @@ Azure Load Balancer için kullanabilirsiniz:
 
 ## <a name="what-are-load-balancer-resources"></a>Yük Dengeleyici kaynakları nelerdir?
 
-Bir yük dengeleyici kaynağını bir genel yük dengeleyiciye veya iç yük dengeleyici olarak bulunabilir. Yük Dengeleyici kaynak işlevleri, bir ön uç, bir kural, bir durum araştırması ve arka uç havuzu tanımı ifade edilir. Arka uç havuzu VM'den belirterek arka uç havuzuna VM yerleştirin.
+Bir yük dengeleyici kaynağını bir genel yük dengeleyici veya bir iç yük dengeleyici olarak bulunabilir. Yük Dengeleyici kaynak işlevleri, bir ön uç, bir kural, bir durum araştırması ve arka uç havuzu tanımı ifade edilir. Arka uç havuzu VM'den belirterek arka uç havuzuna VM yerleştirin.
 
 Yük Dengeleyici kaynaklarının içinde Azure oluşturmak istediğiniz senaryoyu elde etmek için çok kiracılı altyapısını nasıl program ifade edebilirsiniz nesneleridir. Yük Dengeleyici kaynakları ve gerçek altyapınız arasında doğrudan bir ilişki yoktur. Bir yük dengeleyici oluşturmaya örneğini oluşturmaz ve kapasite her zaman kullanılabilir. 
 
@@ -62,7 +62,7 @@ Yük Dengeleyici için TCP ve UDP uygulamaları aşağıdaki temel özellikleri 
     
     Varsayılan olarak, kullanılabilir olan sunucular için akışlar eşlemek için kaynak IP adresi, kaynak bağlantı noktası, hedef IP adresi, hedef bağlantı noktası ve IP protokol numarası oluşan bir 5 bölütlü karma yük dengeleyici kullanır. Belirli bir kaynak IP benzeşimi için belirli bir kural 2 veya 3 demet karma çıkarak oluşturmayı seçebilirsiniz. Yük dengeli bir ön uç arkasındaki aynı örneğinde aynı paket akışın tüm paketlerini ulaşır. Ne zaman istemci aynı kaynak IP, kaynak bağlantı noktası değişiklikleri yeni bir akış başlatır. Sonuç olarak, 5 demet farklı arka uç noktasına gitmek trafiği neden olabilir.
 
-    Daha fazla bilgi için [yük dengeleyici dağıtım modu](load-balancer-distribution-mode.md). Aşağıdaki görüntüde, karma tabanlı dağıtım görüntüler:
+    Daha fazla bilgi için [yük dengeleyici dağıtım modunu](load-balancer-distribution-mode.md). Aşağıdaki görüntüde, karma tabanlı dağıtım görüntüler:
 
     ![Karma tabanlı dağıtım](./media/load-balancer-overview/load-balancer-distribution.png)
 
@@ -131,19 +131,19 @@ Genel yük dengeleyici genel IP adresi ve bağlantı noktası numarasını, gele
 
 Yük dengeli uç nokta genel ve TCP bağlantı noktası 80 için üç VM'ler arasında paylaşılan web trafiği için aşağıdaki şekilde gösterilmiştir. Bu üç Vm'leri bir yük dengeli küme içindedir.
 
-![Herkese açık yük dengeleyici örneği](./media/load-balancer-overview/IC727496.png)
+![Genel yük dengeleyici örneği](./media/load-balancer-overview/IC727496.png)
 
-*Şekil: karşı web trafiği bir genel yük dengeleyici kullanarak yükleme*
+*Şekil: Genel Load Balancer'ı kullanarak web trafiğini Dengeleme yükleme*
 
 İnternet istemcileri genel IP adresine TCP bağlantı noktası 80 üzerinde bir web uygulaması Web sayfası istekleri gönderirken, Azure Load Balancer istekleri yük dengeli küme üç vm'lere dağıtır. Yük Dengeleyici algoritmalar hakkında daha fazla bilgi için bkz. [yük dengeleyici özellikleri](load-balancer-overview.md##fundamental-load-balancer-features) bu makalenin.
 
-Varsayılan olarak, Azure yük dengeleyici ağ trafiği birden çok sanal makine örnekleri arasında eşit olarak dağıtır. Oturum benzeşimini de yapılandırabilirsiniz. Daha fazla bilgi için [yük dengeleyici dağıtım modu](load-balancer-distribution-mode.md).
+Varsayılan olarak, Azure yük dengeleyici ağ trafiği birden çok sanal makine örnekleri arasında eşit olarak dağıtır. Oturum benzeşimini de yapılandırabilirsiniz. Daha fazla bilgi için [yük dengeleyici dağıtım modunu](load-balancer-distribution-mode.md).
 
-### <a name = "internalloadbalancer"></a> İç yük dengeleyici
+### <a name = "internalloadbalancer"></a> İç Load Balancer
 
-İç yük dengeleyici trafiği sanal ağ içinde olmayan veya Azure altyapı erişmek için bir VPN kullanan kaynaklara yönlendirir. Bu bakımdan, iç yük dengeleyici genel yük dengeleyiciden farklıdır. Azure altyapısı, bir sanal ağın ön uç yük dengeli IP adresleri için erişimi kısıtlar. ön uç IP adresleri ve sanal ağlar, bir internet uç noktasına hiçbir zaman doğrudan kullanıma sunulur. İç satır iş kolu uygulamalarını Azure'da çalışır ve azure'da veya şirket içi kaynaklardan gelen sonuna erişilir.
+Bir iç Load Balancer, trafiği sanal ağ içinde olmayan veya Azure altyapı erişmek için bir VPN kullanan kaynaklara yönlendirir. Bu bakımdan, bir iç Load Balancer bir genel yük Dengeleyiciden farklıdır. Azure altyapısı, bir sanal ağın ön uç yük dengeli IP adresleri için erişimi kısıtlar. ön uç IP adresleri ve sanal ağlar, bir internet uç noktasına hiçbir zaman doğrudan kullanıma sunulur. İç satır iş kolu uygulamalarını Azure'da çalışır ve azure'da veya şirket içi kaynaklardan gelen sonuna erişilir.
 
-İç yük dengeleyici, Yük Dengeleme aşağıdaki türleri sağlar:
+İç Load Balancer, Yük Dengeleme aşağıdaki türleri sağlar:
 
 * **Bir sanal ağ içindeki**: yük Vm'lerden sanal ağ, aynı sanal ağda bulunan VM'ler bir dizi Dengeleme.
 * **Şirketler arası sanal ağ için**: yük, aynı sanal ağda bulunan VM'ler bir dizi şirket içi bilgisayarlardan Dengeleme. 
@@ -152,7 +152,7 @@ Varsayılan olarak, Azure yük dengeleyici ağ trafiği birden çok sanal makine
 
 ![İç yük dengeleyici örneği](./media/load-balancer-overview/IC744147.png)
 
-*Şekil: hem genel hem de iç load balancer'ları kullanarak çok katmanlı uygulamalar Dengeleme yükleme*
+*Şekil: çok katmanlı uygulamalar hem genel hem de iç Yük Dengeleyiciyi kullanarak yük dengelemenin*
 
 ## <a name="pricing"></a>Fiyatlandırma
 Standart Load Balancer kullanımı yapılandırılmış Yük Dengeleme kuralları ve işlenen gelen ve giden veri miktarına bağlı olarak ücretlendirilir. Fiyatlandırma bilgileri, standart yük dengeleyici için Git [Load Balancer fiyatlandırması](https://azure.microsoft.com/pricing/details/load-balancer/) sayfası.
@@ -170,4 +170,4 @@ Standart yük dengeleyici SLA'sı hakkında daha fazla bilgi için Git [yük den
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Artık Azure Load Balancer genel bir bakış var. Bir yük dengeleyici kullanmaya başlamak için oluşturun, Vm'leri bir özel IIS uzantısı yüklendikten ve Yük Dengeleme ile sanal makineler arasında web uygulaması oluşturun. Bilgi edinmek için bkz [temel yük dengeleyici oluşturma](quickstart-create-basic-load-balancer-portal.md) hızlı başlangıç.
+Artık Azure Load Balancer genel bir bakış var. Bir Load Balancer'ı kullanmaya başlamak için oluşturun, Vm'leri bir özel IIS uzantısı yüklendikten ve Yük Dengeleme ile sanal makineler arasında web uygulaması oluşturun. Bilgi edinmek için bkz [temel yük dengeleyici oluşturma](quickstart-create-basic-load-balancer-portal.md) hızlı başlangıç.

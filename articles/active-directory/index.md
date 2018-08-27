@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 08/16/2018
 ms.author: mtillman
-ms.openlocfilehash: 9496896e3d841e4857ea17987fb230adb4f0edb1
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: fa7b7430377def58f20daabc15e501321954befe
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41927013"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887559"
 ---
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory Belgeleri
 
@@ -116,8 +116,8 @@ Azure Active Directory (Azure AD), çok kiracılı ve bulut tabanlı bir dizin v
                         <h3>Cihazlar</h3>
                         <p>
                         <a href="/azure/active-directory/device-management-introduction">Cihaz yönetimi</a><br/>
-                        <a href="/azure/active-directory/device-management-azuread-registered-devices-windows10-setup">Windows 10 cihazları</a><br/>
-                        <a href="/azure/active-directory/device-management-azuread-joined-devices-setup">Katılan cihazlar</a>
+                        <a href="/azure/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup">Windows 10 cihazları</a><br/>
+                        <a href="/azure/active-directory/user-help/device-management-azuread-joined-devices-setup">Katılan cihazlar</a>
                         </p>
                     </div>
                 </div>

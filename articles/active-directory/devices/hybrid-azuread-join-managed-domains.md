@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 55818bf3c6997925fbac32f913d573d630bc20f4
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 36537aacce0180f9b37fb8b49f301fb1f5954d1c
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004387"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918438"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Öğretici: yönetilen etki alanları için hibrit Azure Active Directory join yapılandırın
 
@@ -54,7 +54,8 @@ Bu öğretici, aşina olduğunuzu varsayar:
   
 
 Bu makaledeki senaryoda yapılandırmak için ihtiyacınız [Azure AD Connect'in en son sürümünü](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 veya üzeri) yüklenecek. 
- 
+
+Azure AD Connect cihazların hibrit Azure AD'ye Azure AD'ye katılmış olmasını istediğiniz bilgisayar nesnelerinin eşitlendiğini doğrulayın. Bilgisayar nesnelerinin belirli kuruluş birimine (OU) aitse bu OU'ları Azure AD'de eşitleme için yapılandırılması gereken sonra da bağlanın.
 
 1.1.819.0 sürümünden başlayarak, Azure AD Connect ile hibrit Azure AD'ye katılım'ı yapılandırmak için bir sihirbaz sağlar. Sihirbaz, önemli ölçüde yapılandırma işlemini basitleştirmenize olanak sağlar. İlgili sihirbaz, cihaz kaydı için hizmet bağlantı noktaları (SCP) yapılandırır.
 
@@ -165,7 +166,7 @@ Ayrıca, etkinleştirmek gereken **izin vermek için durum çubuğu komut dosyas
 
 ## <a name="verify-the-registration"></a>Kayıt doğrulayın
 
-Cihaz kayıt durumu, Azure kiracınızdaki doğrulamak için kullanabileceğiniz ** [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) ** cmdlet'inde ** [Azure Active Directory PowerShell Modülü](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
+Cihaz kayıt durumu, Azure kiracınızdaki doğrulamak için kullanabileceğiniz **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** cmdlet'inde  **[Azure Active Directory PowerShell Modülü](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
 
 Kullanırken **Get-MSolDevice** cmdlet'ini hizmet ayrıntılarını kontrol edin:
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5c865ff5c83626f13bb4fb9df7c1533371733540
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 4ead83dc449f2b32461b0585f276c9f3bfd3f847
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42056337"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919111"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure automation'da bağlantı varlıkları
 
@@ -84,7 +84,7 @@ Bağlantı varlığı, Otomasyon hesabı oluşturduğunuzda, bunu otomatik olara
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Bir runbook'tan veya DSC yapılandırmasından bağlantı kullanma
 
-Bir runbook'tan veya DSC yapılandırmasından ile bağlantıda almak **Get-AutomationConnection** cmdlet'i.  Kullanamazsınız [Get-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/Get-AzureRmAutomationConnection?redirectedfrom=msdn) etkinlik.  Bu etkinlik bağlantıdaki farklı alanların değerlerini alır ve bunları olarak döndüren bir [karma tablo](http://go.microsoft.com/fwlink/?LinkID=324844) sonra kullanılabilen runbook'tan veya DSC yapılandırmasından uygun komutları ile.
+Bir runbook'tan veya DSC yapılandırmasından ile bağlantıda almak **Get-AutomationConnection** cmdlet'i.  Kullanamazsınız [Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection) etkinlik.  Bu etkinlik bağlantıdaki farklı alanların değerlerini alır ve bunları olarak döndüren bir [karma tablo](http://go.microsoft.com/fwlink/?LinkID=324844) sonra kullanılabilen runbook'tan veya DSC yapılandırmasından uygun komutları ile.
 
 ### <a name="textual-runbook-sample"></a>Metinsel runbook örneği
 

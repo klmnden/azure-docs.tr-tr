@@ -1,6 +1,6 @@
 ---
-title: Microsoft Bilişsel hizmetler, proje yanıt arama için C# hızlı başlangıç | Microsoft Docs
-description: Microsoft Azure'da Bilişsel hizmetler proje yanıt arama kullanmaya başlamak için kod örneği.
+title: Microsoft Bilişsel hizmetler, Project yanıt arama için C# hızlı başlangıç | Microsoft Docs
+description: Proje yanıt arama, Azure üzerinde Microsoft Bilişsel hizmetler ile çalışmaya başlamak için kod örneği.
 services: cognitive-services
 author: mikedodaro
 ms.service: cognitive-services
@@ -8,34 +8,34 @@ ms.technology: project-answer-search
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: b05b7745bdb5020a4a0912635e040256415b2626
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c8e2a6a7fc3609932a7a1139d7b34553e5f9c291
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353944"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888332"
 ---
 # <a name="project-answer-search-query-in-c"></a>C# proje yanıt arama sorgusu
 
-Aşağıdaki C# örnek oluşturur ve hesaplama üçüncü yasal hakkında bilgi için bir sorgu gönderir.
+Aşağıdaki C# örneği oluşturur ve bir sorgu hesaplama üçüncü yasaları hakkında bilgi gönderir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-İhtiyacınız olacak [Visual Studio 2017](https://www.visualstudio.com/downloads/) Windows bu kodu çalıştırmak için. (Ücretsiz Community sürümü çalışır.)
+İhtiyacınız olacak [Visual Studio 2017](https://www.visualstudio.com/downloads/) Windows üzerinde bu kodu çalıştırmak için. (Ücretsiz Community Edition’ı kullanabilirsiniz.)
 
 Ücretsiz deneme sürümü için bir erişim anahtarı alma [Bilişsel hizmetler Laboratuvarları](https://aka.ms/answersearchsubscription)
 
 ## <a name="code-scenario"></a>Kod senaryosu
 
-Aşağıdaki C# kod oluşturur ve sorgusu gönderir. 
+Aşağıdaki C# kodunu oluşturur ve sorguyu gönderir. 
 
-Aşağıdaki adımlarda uygulanır:
-1. Uç nokta ve önizleme için bir sorgu URL'sini belirtmek için değişkenleri bildirin.  
+Bunu aşağıdaki adımlarda uygulanır:
+1. Uç nokta ve önizleme için bir sorgu URL belirtmek için değişkenleri bildirin.  
 2. İsteği oluşturun.
-3. Ekleme *Apim abonelik anahtar Ocp* üstbilgi. 
-4. Web isteği zaman uyumsuz olarak çalıştırın. 
-5. Yanıt okuyun.
-6. Üstbilgiler ve JSON sonuçlarını konsola yazdırır.
+3. Ekleme *Ocp-Apim-Subscription-Key* başlığı. 
+4. Web isteğini zaman uyumsuz olarak çalışır. 
+5. Yanıtı okuyun.
+6. Üst bilgiler ve JSON sonuçlarını konsola yazdırır.
 
 **Kaynak kodu**
 
@@ -53,7 +53,7 @@ namespace Answers_csharp
         // Replace the accessKey string value with your valid access key.
         const string accessKey = "YOUR-SUBSCRIPTION-KEY";
 
-        const string uriBase = "https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search "; 
+        const string uriBase = "https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search"; 
 
         const string searchTerm = "third law of calculus"; 
 
@@ -188,9 +188,9 @@ namespace Answers_csharp
 Uygulamayı çalıştırmak için:
 
 1. Visual Studio'da yeni bir konsol çözümü oluşturun.
-2. Değiştir `Program.cs` sağlanan koduna sahip.
-3. Değiştir `YOUR-ACCESS-KEY` aboneliğiniz için geçerli erişim anahtarı ile değer.
-4. Programını çalıştırın.
+2. Değiştirin `Program.cs` sağlanan kod ile.
+3. Değiştirin `YOUR-ACCESS-KEY` aboneliğiniz için geçerli erişim anahtar ile değeri.
+4. Programı çalıştırın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Java hızlı başlangıç](java-quickstart.md)

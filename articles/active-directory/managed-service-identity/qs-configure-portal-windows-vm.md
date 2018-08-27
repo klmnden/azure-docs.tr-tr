@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 7ac4dd41c8a1adb422539e0832715d59ec385694
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 552fce2ffd8b6bd786010da82e702ee98c3f8647
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745568"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888565"
 ---
 # <a name="configure-a-vm-managed-service-identity-using-the-azure-portal"></a>Azure portalını kullanarak VM yönetilen hizmet kimliği yapılandırma
 
@@ -53,9 +53,9 @@ Sistem tarafından atanan kimliği olmadan ilk olarak sağlanan bir VM üzerinde
 
 1. Oturum [Azure portalında](https://portal.azure.com) VM içeren Azure aboneliği ile ilişkili bir hesap kullanarak.
 
-2. İstenen sanal makineye gidin ve "Yapılandırma" sayfasını seçin.
+2. İstenen sanal makineye gidin ve seçin **kimlik**.
 
-3. VM üzerindeki sistem tarafından atanan kimliği "Yönetilen hizmet kimliği altında" etkinleştir "Evet"'i seçerek ve ardından **Kaydet**. Bu işlemi tamamlamak için 60 saniye veya daha fazlasını gerçekleştirebilirsiniz:
+3. Altında **sistem tarafından atanan**, **durumu**seçin **üzerinde** ve ardından **Kaydet**:
 
    ![Yapılandırma sayfasında ekran görüntüsü](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
@@ -65,9 +65,9 @@ Bir sanal makine varsa, artık sistem tarafından atanan kimlik gerekir:
 
 1. Oturum [Azure portalında](https://portal.azure.com) VM içeren Azure aboneliği ile ilişkili bir hesap kullanarak. 
 
-2. İstenen sanal makineye gidin ve "Yapılandırma" sayfasını seçin.
+2. İstenen sanal makineye gidin ve seçin **kimlik**.
 
-3. "Yönetilen hizmet kimliği" altında "Hayır" seçerek atanan sanal makine kimliği sistemi devre dışı bırakın, sonra Kaydet'e tıklayın. Bu işlemi tamamlamak için 60 saniye veya daha fazlasını gerçekleştirebilirsiniz:
+3. Altında **sistem tarafından atanan**, **durumu**seçin **kapalı** ve ardından **Kaydet**:
 
    ![Yapılandırma sayfasında ekran görüntüsü](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)
 

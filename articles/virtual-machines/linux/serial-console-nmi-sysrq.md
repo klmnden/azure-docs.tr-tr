@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 14bf68355550d756bd3f4da1a367133d83ddbf07
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 110bdcacf7433c1e0ab0cb31e1a04734137f9596
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42059898"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885248"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Seri konsol SysRq ve NMI çağrıları için kullanın.
 
@@ -84,13 +84,17 @@ SysRq Yönetici Kılavuzu yukarıdaki:
 
 ### <a name="distribution-specific-documentation"></a>Dağıtım özgü belgelere yönlendirir ###
 SysRq ve kilitlenme bilgi dökümü bir SysRq "Kilitlenme" komutunu aldığında oluşturmak için adımları Linux yapılandırmak için ilgili dağıtım özel belgeler için aşağıdaki bağlantılara bakın:
+
 #### <a name="ubuntu"></a>Ubuntu ####
  - [Çekirdek kilitlenme dökümü](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
+
 #### <a name="red-hat"></a>Red Hat ####
 - [SysRq tesis nedir ve nasıl kullanılır?](https://access.redhat.com/articles/231663)
 - [RHEL sunucudan bilgi toplamak için SysRq özelliğini kullanma](https://access.redhat.com/solutions/2023)
+
 #### <a name="suse"></a>SUSE ####
 - [Çekirdek çekirdek döküm yakalama yapılandırın](https://www.suse.com/support/kb/doc/?id=3374462)
+
 #### <a name="coreos"></a>CoreOS ####
 - [Kilitlenme günlüklerini toplama](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
@@ -109,16 +113,17 @@ Seri konsol, aşağıda gösterilen komut çubuğunda klavye simgesini kullanara
 
 Dahil olmak üzere Linux Çekirdek yapılandırmaları hakkında daha fazla bilgi için `unknown_nmi_panic`, `panic_on_io_nmi`, ve `panic_on_unrecovered_nmi`, bkz: [belgeleri için/proc/sys/çekirdek / *](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). NMI ve kilitlenme bilgi dökümü bir NMI aldığında oluşturmak için adımları Linux yapılandırmak için ilgili dağıtım özel belgeler için aşağıdaki bağlantılara bakın:
  
- ### <a name="ubuntu"></a>Ubuntu 
+### <a name="ubuntu"></a>Ubuntu 
  - [Çekirdek kilitlenme dökümü](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
 
- ### <a name="red-hat"></a>Red Hat 
+### <a name="red-hat"></a>Red Hat 
  - [Bir NMI nedir ve ne için kullanılır?](https://access.redhat.com/solutions/4127)
  - [Sistemimin NMI anahtar gönderildiğinde çökmesine neden nasıl yapılandırabilirim?](https://access.redhat.com/solutions/125103)
  - [Yönetici Kılavuzu kilitlenme dökümü](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/pdf/kernel_crash_dump_guide/kernel-crash-dump-guide.pdf)
 
 ### <a name="suse"></a>SUSE 
 - [Çekirdek çekirdek döküm yakalama yapılandırın](https://www.suse.com/support/kb/doc/?id=3374462)
+
 ### <a name="coreos"></a>CoreOS 
 - [Kilitlenme günlüklerini toplama](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 

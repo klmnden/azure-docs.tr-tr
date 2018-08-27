@@ -14,24 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 983cecdcdb95dca398f728dbdbe5feac69075d6a
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 7f6049e874f329c1e3a4f72417dd9a7eebc42628
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248379"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887072"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Öğretici: Azure depolama bir SAS kimlik bilgisi erişmek için bir Windows VM yönetilen hizmet kimliği kullanın.
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Bu öğreticide bir Windows sanal makinesi için Yönetilen hizmet kimliği etkinleştirmek ve ardından depolama paylaşılan erişim imzası (SAS) kimlik bilgisi almak için Yönetilen hizmet kimliğini kullanma gösterilmektedir. Özellikle, bir [Hizmet SAS kimlik bilgileri](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+Bu öğreticide bir sistem tarafından atanan kimlik bir Windows sanal makine (VM) için depolama paylaşılan erişim imzası (SAS) kimlik bilgisi edinmek için nasıl kullanılacağını gösterir. Özellikle, bir [Hizmet SAS kimlik bilgileri](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 Hizmet SAS, bir hesap erişim anahtarına sokmadan sınırlı süre için bir depolama hesabındaki nesnelere ve belirli bir hizmete (Bu örnekte, blob hizmeti), sınırlı erişim olanağı sağlar. Depolama işlemleri yaparken, örneğin Depolama SDK'sını kullanırken SAS kimlik bilgilerini olağan şekilde kullanabilirsiniz. Bu öğreticide, yükleme ve Azure Storage PowerShell kullanarak bir blob indirme gösterir. Şunları öğrenirsiniz:
 
-
 > [!div class="checklist"]
-> * Windows Sanal Makinesinde Yönetilen Hizmet Kimliği'ni etkinleştirme 
+> * Depolama hesabı oluşturma
 > * VM'nize Resource Manager'da yer alan depolama hesabı SAS için erişim verme 
 > * VM'nizin kimliğini kullanarak erişim belirteci alma ve Resource Manager'dan SAS almak için bu belirteci kullanma 
 
@@ -41,33 +40,12 @@ Hizmet SAS, bir hesap erişim anahtarına sokmadan sınırlı süre için bir de
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+- [Azure portalında oturum açın](https://portal.azure.com)
 
-[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
+- [Bir Windows sanal makinesi oluşturun](/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda Windows sanal makinesi oluşturma
+- [Atanan kimliği sanal makinenizde Sistemi'ni etkinleştir](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
-Bu öğretici için, yeni bir Windows VM oluşturuyoruz. Mevcut VM'yi yönetilen hizmet kimliği de etkinleştirebilirsiniz.
-
-1.  Azure portalın sol üst köşesinde bulunan **+/Yeni hizmet oluştur** düğmesine tıklayın.
-2.  **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin. 
-3.  Sanal makine bilgilerini girin. Burada oluşturulan **Kullanıcı adı** ve **Parola**, sanal makinede oturum açmak için kullandığınız kimlik bilgileridir.
-4.  Açılan listede sanal makine için uygun **Aboneliği** seçin.
-5.  İçinde sanal makinenin oluşturulmasını istediğiniz yeni bir **Kaynak Grubu** seçmek için, **Yeni Oluştur**'u seçin. İşlem tamamlandığında **Tamam**’a tıklayın.
-6.  VM'nin boyutunu seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. Ayarlar dikey penceresinde varsayılan değerleri koruyun ve **Tamam**'a tıklayın.
-
-    ![Alternatif resim metni](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Vm'nizde yönetilen hizmet kimliğini etkinleştirme
-
-Bir sanal makine yönetilen hizmet kimliği, kimlik bilgilerini kodunuza koyma gereksinimi olmadan Azure AD'den erişim belirteci alma olanak tanır. Arka planda, yönetilen hizmet kimliği etkinleştiriliyor iki şeyi yapar: yazmaçlar VM'nizi ve yönetilen kimliğini oluşturmak için Azure Active Directory ile kimlik VM'de yapılandırır.
-
-1. Yeni sanal makinenizin kaynak grubuna gidin ve önceki adımda oluşturduğunuz sanal makineyi seçin.
-2. VM Sol paneldeki "ayarlar" altında tıklayın **yapılandırma**.
-3. Kaydolun ve yönetilen hizmet kimliği etkinleştirmek için işaretleyin **Evet**, devre dışı bırakmak istiyorsanız seçin No
-4. Yapılandırmayı kaydetmek için **Kaydet**’e tıkladığınızdan emin olun.
-
-    ![Alternatif resim metni](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma 
 
@@ -93,9 +71,9 @@ Daha sonra yeni depolama hesabına dosya yükleyecek ve indireceğiz. Dosyalar i
 
     ![Depolama kapsayıcısı oluşturma](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-managed-service-identity-access-to-use-a-storage-sas"></a>Bir SAS depolama kullanmak için sanal makinenin yönetilen hizmet kimliği erişim 
+## <a name="grant-your-vms-managed-service-identity-access-to-use-a-storage-sas"></a>Depolama SAS kullanmak için VM'nize Yönetilen Hizmet Kimliği erişimi verme 
 
-Azure Depolama Azure AD kimlik doğrulamayı yerel olarak desteklemez.  Ancak, Kaynak Yöneticisi'nden depolama SAS almak için bir yönetilen hizmet Kimliği'ni kullanın sonra depolamaya erişmek için SAS'ı kullanın.  Bu adımda, depolama hesabınıza SAS, VM yönetilen hizmet kimliği erişim verin.   
+Azure Depolama Azure AD kimlik doğrulamayı yerel olarak desteklemez.  Ancak, Kaynak Yöneticisi'nden depolama SAS almak için bir yönetilen hizmet Kimliği'ni kullanın sonra depolamaya erişmek için SAS'ı kullanın.  Bu adımda, VM Yönetilen Hizmet Kimliğinize depolama hesabının SAS bilgileri için erişim verirsiniz.   
 
 1. Yeni oluşturulan depolama hesabınıza geri gidin.   
 2. Sol bölmedeki **Erişim denetimi (IAM)** bağlantısına tıklayın.  
@@ -116,7 +94,7 @@ Bu bölümde Azure Resource Manager PowerShell cmdlet’lerini kullanmanız gere
 1. Azure portalında **Sanal Makineler**'e gidin, Windows sanal makinenize gidin ve ardından **Genel Bakış** sayfasında üst kısımdaki **Bağlan**'a tıklayın.
 2. Windows VM'sini oluştururken eklendiğiniz hesabın **Kullanıcı adı** ve **Parola** değerlerini girin. 
 3. Artık sanal makineyle **Uzak Masaüstü Bağlantısı**'nı oluşturduğunuza göre, uzak oturumda PowerShell'i açın. 
-4. PowerShell'in Invoke-WebRequest kullanarak, Azure Resource Manager için bir erişim belirteci almak için yerel yönetilen hizmet kimliği uç noktasına bir istek olun.
+4. PowerShell’in Invoke-WebRequest komutunu kullanarak, yerel Yönetilen Hizmet Kimliği uç noktasına Azure Resource Manager için erişim belirteci alma isteğinde bulunun.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

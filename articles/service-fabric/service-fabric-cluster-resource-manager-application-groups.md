@@ -1,6 +1,6 @@
 ---
-title: Service Fabric kümesi Kaynak Yöneticisi - uygulama grupları | Microsoft Docs
-description: Service Fabric kümesi Kaynak Yöneticisi'nde uygulama grubu işlevlerine genel bakış
+title: Service Fabric Küme Kaynak Yöneticisi - uygulama grupları | Microsoft Docs
+description: Service Fabric Küme Kaynak Yöneticisi'nde uygulama grubu işlevlerine genel bakış
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 215efc1f0597f5199dd37baf4b109d7e76040aae
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2c641703547c391618d75fabfa181dff0b98f74f
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213002"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918779"
 ---
-# <a name="introduction-to-application-groups"></a>Uygulama grupları giriş
-Service Fabric'ın Küme Kaynağı Yöneticisi genellikle yük dengelemesini yaparak küme kaynaklarını yönetir (aracılığıyla temsil [ölçümleri](service-fabric-cluster-resource-manager-metrics.md)) kümesi boyunca eşit. Service Fabric yönetir ve kümesindeki düğümlerin kapasite bir bütün olarak [kapasite](service-fabric-cluster-resource-manager-cluster-description.md). Ölçümleri ve kapasite birçok iş yükü, ancak bazen ek gereksinimleri Getir yoğun olarak kullanılır farklı hizmet doku uygulama örnekleri desenleri harika çalışır. Örneğin, isteyebilirsiniz:
+# <a name="introduction-to-application-groups"></a>Uygulama gruplarına giriş
+Service Fabric'in Küme Kaynak Yöneticisi genellikle yük yayarak küme kaynaklarını yöneten (aracılığıyla temsil [ölçümleri](service-fabric-cluster-resource-manager-metrics.md)) kümesi boyunca eşit. Service Fabric kümesi ve kümedeki düğümlerin kapasitesini bir bütün olarak yöneten [kapasite](service-fabric-cluster-resource-manager-cluster-description.md). Ölçümler ve kapasite çok sayıda iş yükü, ancak bazen ek gereksinimleri Getir ağır kullanan farklı Service Fabric uygulama örneklerine desenleri için çok iyi çalışır. Örneğin, isteyebilirsiniz:
 
-- Yedek kümedeki düğümlere bazı kapasite bazı Adlandırılmış uygulama örneği içindeki hizmetler için
+- Bazı adlandırılmış uygulama örneği içindeki hizmetler için kümedeki düğümlere bazı kapasite rezervasyonu
 - (Bunları tüm küme yaymak) yerine adlandırılmış uygulama örneği içindeki hizmetler üzerinde çalışan düğümleri toplam sayısını sınırla
-- Örneğindeki adlandırılmış uygulama kendisini hizmetlerin veya Hizmetleri içindeki toplam kaynak tüketimini sınırlamak için kapasiteleri tanımlayın
+- Adlandırılmış uygulama örneğinde kendi Hizmetleri veya hizmetlerin içindeki toplam kaynak tüketimi sayısını sınırlamak için kapasiteler tanımlayın
 
-Bu gereksinimleri karşılamak için Service Fabric kümesi Kaynak Yöneticisi uygulama grupları adlı bir özelliği destekler.
+Bu gereksinimleri karşılamak için Service Fabric Küme Kaynak Yöneticisi uygulama grupları denilen bir özelliği destekler.
 
 ## <a name="limiting-the-maximum-number-of-nodes"></a>En fazla düğüm sayısını sınırlandırma
-Uygulama örneğini bir belirli en fazla düğüm sayısını için sınırlı olması gereken basit kullanım uygulama kapasite durumdur. Bu uygulama örneği makine kümesi sayısı üzerine içindeki tüm hizmetler birleştirir. Birleştirme, tahmin etmek ya da bu adlandırılmış uygulama örneği içindeki hizmetler tarafından fiziksel kaynak kullanımını cap çalıştığınız yararlıdır. 
+Uygulama kapasitesi için basit kullanım örneği, bir uygulama örneği, belirli bir maksimum sayıda düğüm için sınırlı olması gerekiyor andır. Bu, tüm hizmetleri, uygulama örneğinde makine bir küme sayısı üzerine birleştirir. Birleştirme, tahmin veya fiziksel kaynak kullanımı, adlandırılmış uygulama örneği içindeki hizmetler tarafından cap çalıştığınız yararlıdır. 
 
-Aşağıdaki resimde bir uygulama örneği ile ve tanımlanan düğüm sayısı üst sınırı olmadan gösterilmektedir:
+Aşağıdaki görüntüde, bir uygulama örneği olan ve olmayan en fazla bir tanımlanan düğüm sayısını gösterir:
 
 <center>
-![Uygulama örneği en fazla düğüm sayısını tanımlama][Image1]
+![En fazla düğüm sayısını tanımlayan bir uygulama örneği][Image1]
 </center>
 
-Sol örnekte, uygulama tanımlı düğüm sayısı üst sınırı yok ve üç hizmeti vardır. Küme Kaynak Yöneticisi'ni tüm çoğaltmaları (varsayılan davranış) kümedeki en iyi dengeyi elde etmek için altı kullanılabilir düğümleri arasında yayılır. Şu örnekte, üç düğümlerine sınırlı aynı uygulama bakın.
+Sol örnekte tanımlanan düğümleri en fazla sayıda uygulama yok ve üç hizmet yok. Küme Kaynak Yöneticisi (varsayılan davranış) kümesindeki en iyi dengeyi elde etmek için altı kullanılabilir düğüm tüm çoğaltmaları yayılmış. Şu örnekte, aynı uygulama için üç düğüm sınırlı görüyoruz.
 
-Bu davranışı denetler parametre en fazla düğüm adı verilir. Bu parametre uygulama oluşturma sırasında ayarlayın veya zaten çalışan bir uygulama örneği için güncelleştirilmiştir.
+Bu davranışın denetleyen parametresi MaximumNodes çağrılır. Bu parametre uygulama oluşturma sırasında ayarlayın veya zaten çalışan bir uygulama örneği için güncelleştirilmiştir.
 
-Powershell
+PowerShell
 
 ``` posh
 New-ServiceFabricApplication -ApplicationName fabric:/AppName -ApplicationTypeName AppType1 -ApplicationTypeVersion 1.0.0.0 -MaximumNodes 3
@@ -66,15 +66,15 @@ await fc.ApplicationManager.UpdateApplicationAsync(adUpdate);
 
 ```
 
-Düğümleri kümesi içinde Küme Kaynak Yöneticisi'ni hangi hizmet nesnelerin araya yerleştirilen veya hangi düğümlerin alışmanız garanti etmez.
+Düğüm kümesi içinde Küme Kaynak Yöneticisi, hangi hizmet nesneleri birlikte yerleştirilen veya hangi düğümleri alışmanız garanti etmez.
 
 ## <a name="application-metrics-load-and-capacity"></a>Uygulama ölçümleri, yükü ve kapasite
-Uygulama grupları verilen adlandırılmış uygulama örneği ve bu ölçümleri için o uygulama örneğinin kapasitesi ile ilişkili ölçümleri tanımlamanızı sağlar. Uygulama ölçümleri, izlemek, ayırmak ve Hizmetleri, uygulama örneği içinde kaynak tüketimini sınırlamak izin verir.
+Uygulama grupları belirtilen adlandırılmış uygulama örneği ve bu uygulama örneğinin kapasitesi Bu ölçümler için ilişkili ölçümleri tanımlamanızı sağlar. Uygulama ölçümlerini izlemek, ayırabilir ve hizmetlerin, Uygulama örneğinin içinde kaynak tüketimini sınırlamak sağlar.
 
 Her uygulama ölçümü için ayarlanabilir iki değer vardır:
 
-- **Toplam uygulama kapasitesinin** – Bu ayar uygulama için belirli bir ölçüm toplam kapasitesini temsil eder. Küme Kaynak Yöneticisi'ni yeni hizmetlerin bu değeri aşacak toplam yük neden olacağından bu uygulama örneği içinde oluşturulmasına izin vermez. Örneğin, uygulama örneği 10 kapasitesine sahip ve beş yükünü zaten varsayalım. Bir hizmet oluşturma 10 toplam varsayılan yükü ile izin verilmeyen.
-- **En fazla düğüm kapasitesi** – Bu ayar, tek bir düğümünde uygulama için en fazla toplam yükleme belirtir. Yük bu kapasite kalırsa, yükü azaldıktan Küme Kaynak Yöneticisi'ni çoğaltmaları diğer düğümlere taşır.
+- **Toplam uygulama kapasite** – Bu ayar uygulamanın belirli bir ölçüm için toplam kapasite temsil eder. Küme Kaynak Yöneticisi, toplam yük bu değerini aşmasına neden olan bu uygulama örneği içinde yeni hizmetler oluşturulmasını izin vermiyor. Örneğin, Uygulama örneğinin 10 kapasitesine sahipti ve beş yük zaten varsayalım. 10 toplam varsayılan yükü ile hizmet oluşturma izni.
+- **En fazla düğüm kapasitesi** – Bu ayar, tek bir düğümde en fazla toplam yükleme uygulaması için belirtir. Bu kapasite aşımı yük aşması durumunda, Küme Kaynak Yöneticisi diğer düğümlere çoğaltmaları yükü azaltır. böylece taşır.
 
 
 PowerShell:
@@ -83,7 +83,7 @@ PowerShell:
 New-ServiceFabricApplication -ApplicationName fabric:/AppName -ApplicationTypeName AppType1 -ApplicationTypeVersion 1.0.0.0 -Metrics @("MetricName:Metric1,MaximumNodeCapacity:100,MaximumApplicationCapacity:1000")
 ```
 
-C# ' TA:
+C# İÇİN:
 
 ``` csharp
 ApplicationDescription ad = new ApplicationDescription();
@@ -100,35 +100,35 @@ await fc.ApplicationManager.CreateApplicationAsync(ad);
 ```
 
 ## <a name="reserving-capacity"></a>Kapasite ayırma
-Uygulama grupları için başka bir yaygın kullanım kümedeki kaynaklar için belirli uygulama örneği ayrıldığından emin olmaktır. Uygulama örneği oluşturulduğunda, alan her zaman ayrılır.
+Uygulama grubu için bir diğer yaygın kullanımı, küme içindeki kaynakların belirli bir uygulama örneği için ayrılmıştır sağlamaktır. Uygulama örneği oluşturulduğunda alan her zaman ayrılır.
 
 Bile uygulama hemen gerçekleştiğinden için kümedeki alanı ayırma:
 - Uygulama örneği oluşturulur ancak hizmetlerin içindeki henüz yok
-- Uygulama örneği değişiklikleri her zaman içindeki Hizmetler sayısı 
-- Hizmetler var, ancak kaynak tüketmeye değil 
+- Uygulama örneği değişiklikleri her zaman içinde hizmet sayısı 
+- Hizmetleri var, ancak kaynakları kullanan değil 
 
-İki ek parametreler belirtmek uygulama örneğini gerektirir kaynaklarını ayırma: *düğüm* ve *NodeReservationCapacity*
+Bir uygulama örneği, iki ek parametreler belirterek gerektirir kaynaklarını ayırma: *MinimumNodes* ve *NodeReservationCapacity*
 
-- **En az düğüm** -Uygulama örneğinin çalışması gereken düğüm sayısı alt sınırı tanımlar.  
-- **NodeReservationCapacity** -bu uygulama için ölçüm başına ayardır. Değer herhangi bir düğümde uygulama için ayrılmış, ölçüm miktarıdır. Burada, o uygulama hizmetlerini çalıştırmak.
+- **MinimumNodes** -Uygulama örneğinin çalışması gereken düğüm sayısı alt sınırı tanımlar.  
+- **NodeReservationCapacity** -Bu ölçüm uygulamanın ayarıdır. Değer uygulamanın herhangi bir düğümde ayrılmış bu ölçümü miktarıdır. burada uygulama Hizmetleri'nde çalıştırılan.
 
-Birleştirme **düğüm** ve **NodeReservationCapacity** küme içindeki uygulama için en düşük yük ayırma güvence altına alır. Kalan kapasite kümedeki toplam ayırma daha az var. gerekli uygulamanın oluşturma başarısız olur. 
+Birleştirme **MinimumNodes** ve **NodeReservationCapacity** küme içindeki uygulama için minimum yük ayırma garanti eder. Kalan kapasite kümedeki toplam ayırma daha az var. gereken uygulama oluşturma başarısız olur. 
 
-Kapasite ayırma bir örneğe bakalım:
+Kapasite ayırma, bir örneğe göz atalım:
 
 <center>
 ![Uygulama örnekleri ayrılmış Kapasite tanımlama][Image2]
 </center>
 
-Sol örnekte, uygulamaları herhangi uygulama tanımlı kapasiteye sahip değil. Küme Kaynak Yöneticisi'ni normal kurallarına göre her şeyi dengeler.
+Sol örnekte, uygulama tanımlı herhangi bir uygulama kapasite yok. Küme Kaynak Yöneticisi, normal kurallara göre her şeyi dengeler.
 
-Sağdaki örnekte Application1 aşağıdaki ayarlarla oluşturuldu varsayalım:
+Sağ taraftaki örnekte Application1 aşağıdaki ayarlarla oluşturulmuş varsayalım:
 
-- İki düğüm ayarlama
-- Bir uygulama ile tanımlanmış ölçümü
+- İki MinimumNodes ayarlayın
+- Bir uygulama ile tanımlanmış bir metrik
   - 20 NodeReservationCapacity
 
-Powershell
+PowerShell
 
  ``` posh
  New-ServiceFabricApplication -ApplicationName fabric:/AppName -ApplicationTypeName AppType1 -ApplicationTypeVersion 1.0.0.0 -MinimumNodes 2 -Metrics @("MetricName:Metric1,NodeReservationCapacity:20")
@@ -152,15 +152,15 @@ ad.Metrics.Add(appMetric);
 await fc.ApplicationManager.CreateApplicationAsync(ad);
 ```
 
-Service Fabric Application1 için iki düğüm üzerinde kapasite ayırır ve Hizmetleri Uygulama2 dizinlerini olsa bile herhangi bir yük tarafından Application1 içinde Hizmetleri zaman mı tüketiliyor kapasiteyi kullanmasına izin vermez. Bu ayrılmış uygulama kapasite tüketilen ve o düğümde ve kümedeki kalan kapasite karşı sayılarını değerlendirilir.  Ancak, yalnızca en az bir hizmet nesnesi üzerinde yerleştirildiğinde ayrılmış tüketim belirli bir düğümün kapasiteden çıkarılır ayırma kalan küme kapasiteden hemen çıkarılır. Kaynaklar yalnızca gerekli olduğunda düğümlerinde ayrılmış bu daha sonra bu ayırma esneklik ve daha iyi kaynak kullanımı için sağlar.
+Service Fabric için Application1 iki düğüm üzerinde kapasite ayırır ve Hizmetleri olsa bile yükü Application1 içindeki Hizmetleri tarafından zaman Tüketilmekte olan bu kapasiteye tüketmeye Uygulama2 dizinlerini izin vermez. Bu uygulama ayrılmış kapasite kullanılacak ve bu düğümde ve küme içindeki sayılır kalan kapasite karşı değerlendirilir.  Ancak, yalnızca en az bir hizmet nesnesi üzerinde yerleştirildiğinde ayrılmış tüketim belirli bir düğümün kapasiteden çıkarılır ayırma kalan küme kapasiteden hemen çıkarılır. Daha sonra bu ayırma, esneklik ve daha iyi kaynak kullanımı için kaynakları yalnızca gerektiğinde düğümlerinde ayrılmış bu sağlar.
 
-## <a name="obtaining-the-application-load-information"></a>Uygulama yükleme bilgilerini alma
-Her uygulama için bir veya daha fazla ölçümleri hizmetlerinin çoğaltmaları tarafından bildirilen toplam yükleme hakkında bilgi edinmek için tanımlanan bir uygulama kapasitesine sahiptir.
+## <a name="obtaining-the-application-load-information"></a>Uygulama yük bilgilerini alma
+Her uygulama için bir uygulama çoğaltmaları Hizmetleri tarafından bildirilen toplam yükü hakkında bilgi edinebilirsiniz bir veya daha fazla ölçüm için tanımlanan kapasitesi sahip.
 
 PowerShell:
 
 ``` posh
-Get-ServiceFabricApplicationLoad –ApplicationName fabric:/MyApplication1
+Get-ServiceFabricApplicationLoadInformation –ApplicationName fabric:/MyApplication1
 ```
 
 C#
@@ -176,44 +176,44 @@ foreach (ApplicationLoadMetricInformation metric in metrics)
 }
 ```
 
-ApplicationLoad sorgu uygulama için belirtilen uygulama kapasite hakkındaki temel bilgileri döndürür. Bu bilgiler, Minimum düğümleri ve en fazla düğüm bilgileri ve uygulama şu anda kullandığı numarasını içerir. Ayrıca her uygulamayı yük ölçüm hakkında bilgi içerir dahil olmak üzere:
+Uygulamayı belirtilen uygulama kapasitesi hakkında temel bilgileri ApplicationLoad sorguyu döndürür. Bu bilgiler, en az düğümler ve en fazla düğüm bilgileri ve uygulamanın şu anda kaplamıyordur sayısını içerir. Ayrıca her uygulama yükü ölçümü hakkında bilgi içerir dahil olmak üzere:
 
 * Ölçüm adı: Ölçüm adı.
-* Ayırma kapasitesi: kümede bu uygulama için ayrılmış küme kapasitesi.
-* Uygulama yük: Bu uygulamanın alt çoğaltmalarının toplam yük.
-* Uygulama kapasitesi: İzin verilen en yüksek uygulama yük değeri.
+* Kapasite ayırma: Bu uygulama için ayrılmış kümedeki küme kapasitesi.
+* Uygulama yük: Bu uygulamanın alt yinelemenin toplam yükü.
+* Uygulama kapasitesi: İzin verilen en yüksek değeri uygulama yükü.
 
-## <a name="removing-application-capacity"></a>Uygulama kapasite kaldırma
-Bir uygulama için uygulama kapasite parametreleri ayarlandıktan sonra güncelleştirme uygulama API'leri veya PowerShell cmdlet'leri kullanılarak kaldırılabilir. Örneğin:
+## <a name="removing-application-capacity"></a>Uygulama kapasitesi kaldırılıyor
+Uygulama kapasitesi parametreleri için bir uygulama ayarlandıktan sonra güncelleştirme uygulama API'ler veya PowerShell cmdlet'leri kullanılarak kaldırılabilir. Örneğin:
 
 ``` posh
 Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicationCapacity
 
 ```
 
-Bu komut tüm uygulama kapasite yönetim parametreleri uygulama örneğinden kaldırır. Bu düğüm, en fazla düğüm ve uygulamanın ölçümleri varsa içerir. Komutun etkisini hemen uygulanır. Bu komut tamamlandıktan sonra Küme Kaynak Yöneticisi'ni varsayılan davranışı uygulamaları yönetmek için kullanır. Uygulama kapasite parametreleri belirtilebilir yeniden aracılığıyla `Update-ServiceFabricApplication` / `System.Fabric.FabricClient.ApplicationManagementClient.UpdateApplicationAsync()`.
+Bu komut tüm uygulama kapasite yönetimi parametreleri uygulama örneğinden kaldırır. Bu MinimumNodes MaximumNodes ve uygulama ölçümleri varsa içerir. Komut etkisini hemen geçerli olur. Bu komut tamamlandıktan sonra Küme Kaynak Yöneticisi uygulamaları yönetmek için varsayılan davranışı kullanır. Uygulama kapasitesi parametreleri belirtilebilir yeniden aracılığıyla `Update-ServiceFabricApplication` / `System.Fabric.FabricClient.ApplicationManagementClient.UpdateApplicationAsync()`.
 
-### <a name="restrictions-on-application-capacity"></a>Uygulama kapasite kısıtlamalar
-Dikkate alınması gereken uygulama kapasite parametreleri bazı kısıtlamalar vardır. Doğrulama hatası varsa herhangi bir değişiklik gerçekleşir.
+### <a name="restrictions-on-application-capacity"></a>Uygulama kapasitesi kısıtlamaları
+Uygulama kapasitesi parametrelerindeki dikkate alınması gereken birkaç kısıtlama vardır. Hiçbir değişiklik doğrulama hatalar varsa gerçekleşir.
 
-- Tüm tamsayı parametreleri negatif olmayan sayı olması gerekir.
-- En az düğüm asla en fazla düğüm büyük olmalıdır.
-- Ardından bir yük ölçümü için kapasiteler tanımlanmışsa, bu kurallara uymalıdır:
-  - Düğüm ayırma kapasitesi en fazla düğüm kapasitesi büyük olmamalıdır. Örneğin, iki birimlerine düğümde "CPU" ölçüm için kapasite sınırlamak ve üç birimleri her düğümde ayrılacak deneyin.
-  - En fazla düğüm belirtilirse, en fazla düğüm ve en fazla düğüm kapasitesi çarpımı toplam uygulama kapasiteden büyük olmamalıdır. Örneğin, "CPU" sekiz için ayarlanmış yük ölçümü için en fazla düğüm kapasitesi varsayalım. Ayrıca en fazla düğüm sayısı 10'a ayarladığınızı varsayalım. Bu durumda, toplam uygulama kapasitesinin Bu yük ölçüm için 80'den büyük olmalıdır.
+- Tüm tamsayı parametre negatif olmayan sayı olması gerekir.
+- MinimumNodes hiçbir zaman MaximumNodes büyük olmalıdır.
+- Bir yük ölçüm için kapasiteler tanımlanmışsa, bunlar şu kurallara uymalıdır:
+  - Düğüm ayırma kapasitesi en fazla düğüm kapasitesinden büyük olmamalıdır. Örneğin, iki birim için düğümde "CPU" ölçüm için kapasite sınırlandırmak ve üç birimleri her bir düğümde ayrılacak deneyin.
+  - MaximumNodes belirtilirse, ürün MaximumNodes ve en fazla düğüm kapasitesi toplam uygulama kapasiteden büyük olmamalıdır. Örneğin, "CPU" sekiz için ayarlanmış yük ölçüm için en fazla düğüm kapasitesi varsayalım. Ayrıca en fazla düğüme 10 olarak ayarladığınızı varsayalım. Bu durumda, toplam uygulama kapasite bu yük ölçüm için 80'den büyük olmalıdır.
 
-Kısıtlamaları, hem uygulama oluşturma ve güncelleştirme sırasında zorlanır.
+Kısıtlamaları, hem uygulama oluşturma ve güncelleştirme sırasında uygulanır.
 
-## <a name="how-not-to-use-application-capacity"></a>Uygulama kapasite kullanma değil
-- Uygulamaya sınırlamak için uygulama grubu özelliklerini kullanmaya çalışmayın bir _belirli_ alt düğümleri kümesi. Diğer bir deyişle, uygulamanın en fazla beş düğümlerinde çalıştığını belirtebilirsiniz, ancak küme içindeki belirli hangi beş düğümü. Belirli düğümler uygulamaya kısıtlamadır yerleşim kısıtlaması Hizmetleri kullanarak elde edilebilir.
-- İki Hizmetleri'nden aynı uygulama aynı düğümlerinde yerleştirilir emin olmak için uygulama kapasite kullanmaya çalışmayın. Bunun yerine kullanın [benzeşim](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md) veya [kısıtlamalarından](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints).
+## <a name="how-not-to-use-application-capacity"></a>Uygulama kapasitesi kullanma değil
+- Uygulamaya sınırlamak için uygulama grubu özelliklerini kullanmaya çalışmayın bir _belirli_ düğümlerinin alt kümesi. Diğer bir deyişle, uygulamanın en fazla beş düğüm üzerinde çalıştığını belirtebilirsiniz, ancak küme içindeki belirli hangi beş düğüm. Bir uygulama belirli düğümlere sınırlama, hizmetler için yerleştirme kısıtlamaları kullanılarak gerçekleştirilebilir.
+- Aynı uygulamadaki iki hizmet aynı düğümlere yerleştirildiğinden emin olmak için uygulama kapasitesi kullanmaya çalışmayın. Bunun yerine kullanın [benzeşim](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md) veya [yerleştirme kısıtlamaları](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Hizmetleri yapılandırma hakkında daha fazla bilgi için [hizmetleri yapılandırma hakkında bilgi edinin](service-fabric-cluster-resource-manager-configure-services.md)
-- Küme Kaynak Yöneticisi'ni yönetir ve yük devretme kümesinde dengeleyen hakkında bilgi almak için makalesine kontrol [Yük Dengeleme](service-fabric-cluster-resource-manager-balancing.md)
-- En baştan başlatın ve [bir giriş için Service Fabric kümesi Resource Manager Al](service-fabric-cluster-resource-manager-introduction.md)
-- Ölçümleri genellikle nasıl çalıştığı hakkında daha fazla bilgi için okumaya devam [Service Fabric yük ölçümleri](service-fabric-cluster-resource-manager-metrics.md)
-- Küme Kaynak Yöneticisi'ni küme açıklamak için birçok seçeneğiniz vardır. Bunları hakkında daha fazla bilgi için bu makalede kontrol [açıklayan bir Service Fabric kümesi](service-fabric-cluster-resource-manager-cluster-description.md)
+- Küme Kaynak Yöneticisi yönetir ve kümedeki yük dengeleyen hakkında bilgi almak için makalesine göz atın [Yük Dengeleme](service-fabric-cluster-resource-manager-balancing.md)
+- En baştan başlatmak ve [için Service Fabric Küme Kaynak Yöneticisi giriş yapın](service-fabric-cluster-resource-manager-introduction.md)
+- Ölçümler genellikle nasıl çalıştığı hakkında daha fazla bilgi için okumaya [Service Fabric yük ölçümleri](service-fabric-cluster-resource-manager-metrics.md)
+- Küme Kaynak Yöneticisi kümesi tanımlamak için birçok seçenek vardır. Bunlar hakkında daha fazla bilgi için bu makalede atın [açıklayan bir Service Fabric kümesi](service-fabric-cluster-resource-manager-cluster-description.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-max-nodes.png
 [Image2]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-reserved-capacity.png

@@ -1,42 +1,42 @@
-Bir koşul eklediğiniz, bir şeyler için kendi zamanı tetik tarafından oluşturulan verilerle ilginç. Eklemek için aşağıdaki adımları izleyin **Salesforce - Get nesne** eylem. Bu eylem verileri yeni bir sağlama oluşturulan her zaman alır. Ayrıca, Salesforce - Office 365 Bağlayıcısı'nı kullanarak bir e-posta göndermek için bir nesne eylemi Get verilerden kullanır ikinci bir eylem ekleyeceksiniz.  
+Eklediğiniz bir koşul, bir şey yapmak için kendi zamanı Tetikleyici tarafından oluşturulan verilerle ilginç. Eklemek için bu adımları **Salesforce - Nesne Al** eylem. Bu eylem, her yeni müşteri adayı oluşturulduğunda verileri alırsınız. Ayrıca, Salesforce - Office 365 Bağlayıcısı'nı kullanarak bir e-posta göndermek için bir nesne eylem Get verileri kullanacak olan ikinci bir eylem ekleyeceksiniz.  
 
-Bu eylem, aşağıdaki bilgileri sağlamanız gerekir. Yeni dosya özelliklerinden bazıları için giriş olarak tetik tarafından oluşturulan kullanımı kolay veri olduğunu fark edersiniz:
+Bunu yapılandırmak için eylem, aşağıdaki bilgileri sağlamanız gerekir. Bazı yeni dosya için özellikler için giriş olarak Tetikleyici tarafından oluşturulan kullanımı kolay veri olduğunu fark edeceksiniz:
 
 | Dosya özelliği oluşturma | Açıklama |
 | --- | --- |
-| Nesne türü |İlgilendiğiniz Salesforce nesnesinin türü budur. Örnekler sağlama, hesap, vs. |
-| Nesne Kimliği |Bu nesne için bir tanımlayıcıyı temsil eder. |
+| Nesne türü |İlgilendiğiniz Salesforce nesnesi türü budur. Örnek müşteri adayı, hesap, vs. verilebilir. |
+| Nesne kimliği |Bu nesne için bir tanımlayıcı temsil eder. |
 
-1. Seçin **Eylem Ekle** bağlantı. Bu açılır, herhangi bir işlem arayabileceğiniz arama kutusu yapmak istiyorsunuz. Bu örnekte, Salesforce ilgi eylemlerdir.      
+1. Seçin **Eylem Ekle** bağlantı. Bu açılır, herhangi bir işlem arayabileceğiniz arama kutusuna yapmak istiyorsunuz. Bu örnekte, Salesforce ilgi eylemlerdir.      
    ![Salesforce eylem görüntü 1](./media/connectors-create-api-salesforce/action-1.png)  
-2. Girin *salesforce* salesforce ilgili eylemler için aranacak.
-3. Seçin **Salesforce - Get nesne** yapılacak eylem olarak.   **Not**: mantıksal uygulamanızı, bunu daha önceden yapmadıysanız, Salesforce hesabınıza erişmeniz için yetkilendirmek istenir.    
-   ![Salesforce eylem görüntü 2](./media/connectors-create-api-salesforce/action-2.png)    
-4. **Get nesne** kontrol açar.  
-5. Seçin *neden* nesne türü.
-6. Seçin **nesne kimliği** denetim.
-7. Seçin **...**  giriş olarak Eylemler için kullanılabilir belirteçleri listesini genişletin.       
+2. Girin *salesforce* salesforce'a ilgili eylemler için aranacak.
+3. Seçin **Salesforce - Nesne Al** gerçekleştirilecek eylemi olarak.   **Not**: mantıksal uygulamanızı, daha önce yapmadıysanız, Salesforce hesabınıza erişmesine yetki istenecektir.    
+   ![Salesforce eyleminin resmi 2](./media/connectors-create-api-salesforce/action-2.png)    
+4. **Nesne Al** denetim açar.  
+5. Seçin *sağlama* nesne türü.
+6. Seçin **nesne kimliği** denetimi.
+7. Seçin **...**  eylemleri için giriş olarak kullanılabilecek belirteçler listesinde genişletin.       
    ![Salesforce eylem görüntüsü 3](./media/connectors-create-api-salesforce/action-3.png)    
-8. Seçin **neden kimliği** kontrol açar.   
-   ![Salesforce eylem görüntüsü 4](./media/connectors-create-api-salesforce/action-4.png)     
-9. Sağlama kimliği belirteci şimdi bu mantıksal uygulama tetiklenen sağlama sağlama Kimliğine eşit olan bir Kimliğe sahip bir sağlama Get nesne eylemi arar gösteren nesne kimliği denetiminde olduğuna dikkat edin.  
-   ![Salesforce eylem görüntüsü 5](./media/connectors-create-api-salesforce/action-5.png)  
-10. Çalışmanızı kaydedin. İşte bu kadar mantıksal uygulamanızı Get nesne eylemi eklendi. Get nesne denetimi aşağıdaki gibi görünmelidir:    
-    ![Salesforce eylem görüntüsü 6](./media/connectors-create-api-salesforce/action-6.png)  
+8. Seçin **müşteri adayı kimliği** denetim açar.   
+   ![Salesforce eyleminin resmi 4](./media/connectors-create-api-salesforce/action-4.png)     
+9. Neden kimlik belirteci artık bu mantıksal uygulama tetiklenir sağlama için müşteri adayı kimliği eşit olan bir Kimliğe sahip bir müşteri adayı Get nesne eylem arar gösteren nesne kimliği denetiminde olduğuna dikkat edin.  
+   ![Salesforce eyleminin resmi 5](./media/connectors-create-api-salesforce/action-5.png)  
+10. Çalışmanızı kaydedin. İşte bu kadar mantıksal uygulamanızı Get nesne eylemi ekledik. Get-nesne denetiminiz şu şekilde görünmelidir:    
+    ![Salesforce eyleminin resmi 6](./media/connectors-create-api-salesforce/action-6.png)  
 
-Bir sağlama almak için bir eylem eklediğiniz, yeni oluşturulan sağlama ile ilgi çekici bir şey yapmak isteyebilirsiniz. Kuruluş, yeni sağlama oluşturulduğunu belirten bir dağıtım listesi bildiren bir e-posta göndermek isteyebilirsiniz. Şimdi Salesforce içindeki yeni sağlama nesnesinden bazı ilgili bilgiler içeren bir e-posta göndermek için Office 365 Bağlayıcısı'nı kullanın.  
+Bir müşteri adayı almak için bir eylem ekledikten sonra yeni oluşturulan müşteri adayı ile ilgi çekici bir şey yapmak isteyebilirsiniz. Bir kuruluşta yeni bir müşteri adayı oluşturulduğunu belirten bir dağıtım listesi bildiren bir e-posta göndermek isteyebilirsiniz. Salesforce'taki yeni müşteri adayı nesnesinden bazı ilgili bilgileri içeren bir e-posta göndermek için Office 365 Bağlayıcısı kullanalım.  
 
-1. Seçin **Eylem Ekle** enter *e-posta* arama denetiminde. Bu, e-posta gönderip için ilgili eylemleri filtreler.  
-2. Seçin **Office 365 Outlook - bir e-posta Gönder** liste öğesi. Zaten oluşturmadıysanız bir *bağlantı* Office 365 hesabınıza bunu şimdi oluşturmak için Office 365 kimlik bilgilerinizi girmeniz istenir. Tamamlandıktan sonra **bir e-posta Gönder** kontrol açar.        
-   ![Salesforce eylem görüntüsü 7](./media/connectors-create-api-salesforce/action-7.png)  
-3. E-posta içeri göndermek istediğiniz e-posta adresi girin **için** denetim.
-4. İçinde **konu** denetlemek, girin *yeni oluşturulan neden* - seçip *şirket* belirteci. Bu görüntüler *şirket* alanının Salesforce içinde oluşturulan yeni sağlama.  
-5. İçinde **gövde** denetim, yeni sağlama nesnesinden belirteçleri seçebilirsiniz ve e-posta gövdesinde görüntülemek istediğiniz herhangi bir metin de girebilirsiniz. Örnek aşağıda verilmiştir:  
-   ![Salesforce eylem görüntüsü 8](./media/connectors-create-api-salesforce/action-8.png)   
-6. İş akışınızı kaydedin.  
+1. Seçin **Eylem Ekle** enter *e-posta* arama denetimi. Bu, e-posta gönderip için ilgili eylemleri filtreler.  
+2. Seçin **Office 365 Outlook - e-posta Gönder** liste öğesi. Henüz oluşturmadıysanız bir *bağlantı* Office 365 hesabınıza, şimdi oluşturmak için Office 365 kimlik bilgilerinizi girmeniz istenir. Bitirdikten sonra **bir e-posta** denetim açar.        
+   ![Salesforce eyleminin resmi 7](./media/connectors-create-api-salesforce/action-7.png)  
+3. İçin e-posta göndermesini istediğiniz e-posta adresi girin **için** denetimi.
+4. İçinde **konu** denetlemek, girin *oluşturulan yeni müşteri adayı* - seçip *şirket* belirteci. Bu görüntüler *şirket* Salesforce'ta oluşturulan yeni müşteri adayı alanını.  
+5. İçinde **gövdesi** denetimi, herhangi bir belirteçler yeni müşteri adayı nesneyi seçin ve e-postanın gövdesinde görüntülemek istediğiniz herhangi bir metin de girebilirsiniz. Bir örneği aşağıda verilmiştir:  
+   ![Salesforce eyleminin resmi 8](./media/connectors-create-api-salesforce/action-8.png)   
+6. Akışınızı kaydedin.  
 
-Bu kadar. Mantıksal uygulamanızı tamamlanmıştır.  
+Bu kadar. Mantıksal uygulamanız artık tamamlanmıştır.  
 
-Artık, mantıksal uygulamanızı test edebilirsiniz: Salesforce içinde oluşturduğunuz koşulunu sağlayan yeni bir sağlama oluşturun.  Bu kılavuz tam olarak izlediyseniz, müşteri adayı içeren bir e-posta adresiyle yalnızca oluşturma *amazon.com* da. Birkaç saniye sonra mantıksal uygulamanızı tetiklenmesi ve sonuçlar aşağıdakine benzer görünür:  
-![Salesforce eylem görüntü 9](./media/connectors-create-api-salesforce/action-9.png)  
+Şimdi mantıksal uygulamanızı test edebilirsiniz: Salesforce'ta oluşturduğunuz koşulu karşılayan yeni bir müşteri adayı oluşturun.  Bu kılavuz tamamen izlediyseniz, içeren bir e-posta adresiyle yalnızca bir müşteri adayı oluşturma *amazon.com* da. Birkaç saniye sonra mantıksal uygulamanızı tetikleyecek ve sonuçları şuna benzer şekilde görünebilir:  
+![Salesforce eyleminin resmi 9](./media/connectors-create-api-salesforce/action-9.png)  
 

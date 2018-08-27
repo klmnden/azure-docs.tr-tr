@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 83b3aa1efdde367577a563b477403c313a51d4fe
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: a6f8984086771fea4df4851b2a878d480b2050ea
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177656"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918526"
 ---
-# <a name="windows-commands---cmd"></a>Windows komutları - CMD 
+# <a name="windows-commands---cmd-and-powershell"></a>Windows komutları - CMD ve PowerShell
 
 Bu bölümde, örnek komutlar burada SAC RDP bağlantı sorunlarını giderme gerektiğinde gibi Windows VM erişmek için kullanmanız gerekebilir senaryolarda ortak görevleri gerçekleştirmek için içerir.
 
@@ -91,6 +91,8 @@ or
 `netsh interface set interface name="<interface name>" admin=enabled`
 ### <a name="set-nic-to-use-dhcp"></a>NIC DHCP kullanacak şekilde ayarlama
 `netsh interface ip set address name="<interface name>" source=dhcp`
+
+Hakkında daha fazla bilgi için `netsh`, [Buraya](https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts).
 
 Azure sanal makineler, her zaman konuk işletim sistemi, bir IP adresini almak için DHCP kullanmak üzere yapılandırılmalıdır. Azure statik IP ayarı yine de statik IP VM vermek için DHCP kullanır.
 ### <a name="ping"></a>Ping

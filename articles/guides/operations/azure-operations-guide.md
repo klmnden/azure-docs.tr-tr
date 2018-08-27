@@ -13,14 +13,14 @@ ms.devlang: ''
 ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 08/21/2018
+ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 286b9b133bfbe633ad1fe69f66aa11b9e4c4fc1d
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 8c799ad90057c53d648ba1e103c251a0e6d6cf88
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056283"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918728"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure BT operatörleri için Başlarken
 
@@ -467,44 +467,29 @@ Kullanıcıların depolama kaynaklarınıza erişim denetimine izin vermeniz ger
 
 ## <a name="azure-virtual-network"></a>Azure Sanal Ağ
 
-
-Sanal ağlar, sanal makineler arasındaki iletişimi desteklemek gereklidir. Alt ağlar, özel IP adresi, DNS ayarlarını, güvenlik filtresini tanımlayın ve Yük Dengeleme. Bir VPN ağ geçidi veya ExpressRoute bağlantı hattı'ı kullanarak Azure sanal ağları, şirket içi ağlara bağlanabilirsiniz.
-
-### <a name="use-cases"></a>Uygulama alanları
-
-Azure ağ iletişimi için farklı kullanım örnekleri vardır.
+Sanal ağlar, sanal makineler arasındaki iletişimi desteklemek gereklidir. Alt ağlar, özel IP adresi, DNS ayarlarını, güvenlik filtresini tanımlayın ve Yük Dengeleme. Azure, farklı kullanım durumlarını destekler: sadece bulutta yer alan ağları veya karma sanal ağları. 
 
 **Yalnızca bulutta yer alan sanal ağlar**
 
 Varsayılan olarak, bir Azure sanal ağı, yalnızca Azure'da depolanan kaynakları erişilebilir. Aynı sanal ağa bağlı kaynakların birbiriyle iletişim kurabilir. Yük Dengeleyiciler ile sanal makineye Internet üzerinden erişilebilir hale getirmek için genel bir IP adresi ve sanal makine ağ arabirimleri ilişkilendirin. Bir ağ güvenlik grubu kullanarak herkese kaynaklarına güvenli erişim yardımcı olabilir.
 
-**Şirket içi sanal ağlar**
+![2 katmanlı Web uygulaması için Azure sanal ağı](https://docs.microsoft.com/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
+
+**Karma sanal ağlar**
 
 ExpressRoute veya siteden siteye VPN bağlantısı kullanarak bir Azure sanal ağı şirket içi ağa bağlanabilir. Bu yapılandırmada, Azure sanal ağı aslında bir bulut tabanlı, şirket içi ağınızın uzantısıdır.
+![VPN kullanarak karma sanal ağ](https://docs.microsoft.com/azure/architecture/reference-architectures/_images/blueprints/hybrid-network-vpn.png)
 
 Azure sanal ağı şirket içi ağınıza bağlı olduğundan, sanal ağlar benzersiz bir bölümü kuruluşunuzda kullanılan adres alanının kullanmalısınız şirketler arası. Ağınızı genişletmek gibi belirli bir IP alt ağı farklı Kurumsal konumda atanan aynı şekilde, Azure başka bir konum haline gelir.
-
-### <a name="deploying-a-virtual-network"></a>Bir sanal ağ dağıtma
-
 Bir sanal ağı dağıtmak için birkaç seçenek vardır.
+- [Portal](../..//virtual-network/quick-create-portal.md)
+- [PowerShell](../../virtual-network/quick-create-powershell.md)
+- [Komut satırı arabirimi (CLI)](../../virtual-network/quick-create-cli.md)
+- Azure Resource Manager şablonları
 
-**Portal**
+>**Ne zaman kullanılacağı**: azure'da sanal makineler çalışırken kullandığınız zaman, sanal ağlarla çalışır. Bu, genel kullanıma yönelik ve özel alt ağlar benzer şirket içi veri merkezleri içinde Vm'lerinizi kesimlere için sağlar. 
 
-Azure portalını kullanarak bir Azure sanal ağı dağıtmak için yalnızca bir etkin Azure aboneliği ve bir web tarayıcısına erişimi gerektirir. Yeni veya mevcut bir kaynak grubuna yeni bir sanal ağa dağıtabilirsiniz. Portaldan yeni bir sanal makine oluştururken, mevcut bir sanal ağ seçin veya yeni bir tane oluşturun. Daha fazla bilgi için [Azure portalını kullanarak bir sanal ağ oluşturma](../../virtual-network/quick-create-portal.md).
-
-Azure portalında bir Azure sanal ağı dağıtımına ek olarak, portalda bir Azure Resource Manager şablonu dağıtabilirsiniz. Bu, dağıtmak ve tüm kaynakların herhangi bir sanal ağ kaynakları dahil olmak üzere şablonda tanımlanan şekilde yapılandırın. Daha fazla bilgi için [kaynakları Resource Manager şablonları ve Azure portalı ile dağıtma](../../azure-resource-manager/resource-group-template-deploy-portal.md).
-
-**PowerShell**
-
-PowerShell kullanarak bir Azure sanal ağı dağıtmak için depolama hesabının Tam dağıtım otomasyonunu sağlar. Daha fazla bilgi için [PowerShell kullanarak bir sanal ağ oluşturma](../../virtual-network/quick-create-powershell.md).
-
-Azure kaynaklarını tek tek dağıtmanın yanı sıra Azure Resource Manager şablonu dağıtmak için Azure PowerShell modülünü kullanabilirsiniz. Daha fazla bilgi için [kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma](../../azure-resource-manager/resource-group-template-deploy.md).
-
-**Komut satırı arabirimi (CLI)**
-
-PowerShell modülüyle olduğu gibi Azure komut satırı arabirimi dağıtım otomasyonunu sağlar ve Windows, OS X veya Linux sistemlerinde kullanılabilir. Azure CLI'yı kullanabilirsiniz **ağ sanal ağ oluşturma** bir sanal ağ oluşturmak için komutu. Daha fazla bilgi için [Azure CLI kullanarak bir sanal ağ oluşturma](../../virtual-network/quick-create-cli.md).
-
-Benzer şekilde, bir Azure Resource Manager şablonu dağıtmak için Azure CLI'yı kullanabilirsiniz. Daha fazla bilgi için [kaynakları Resource Manager şablonları ve Azure CLI ile dağıtma](../../azure-resource-manager/resource-group-template-deploy-cli.md).
+>**Başlama**: Azure portalını kullanarak bir Azure sanal ağı dağıtmak yalnızca bir etkin Azure aboneliği ve bir web tarayıcısına erişimi gerektirir. Yeni veya mevcut bir kaynak grubuna yeni bir sanal ağa dağıtabilirsiniz. Portaldan yeni bir sanal makine oluştururken, mevcut bir sanal ağ seçin veya yeni bir tane oluşturun. Kullanmaya başlayın ve [Azure portalını kullanarak bir sanal ağ oluşturma](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Erişim ve sanal ağlar için güvenlik
 

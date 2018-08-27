@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 08/23/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: a1ff4364e394b3807cf767722ee934ae024399b0
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: bac728f286c90550107b27da76a070623577ed82
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114353"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918909"
 ---
 # <a name="configure-virtual-wan-automation---for-virtual-wan-partners-preview"></a>Sanal WAN Otomasyonu - sanal WAN iş ortakları (Önizleme) için yapılandırma
 
@@ -23,7 +23,7 @@ Yazılım tanımlı bir bağlantı çözümleri genellikle bir denetleyici veya 
 
 ##  <a name="access"></a>Erişim denetimi
 
-Müşteriler, uygun erişim denetimini cihazda kullanıcı Arabirimi için sanal WAN Ayarla mümkün olması gerekir. Bu işlem, bir Azure hizmet sorumlusu kullanılması önerilir. Hizmet sorumlusu tabanlı erişim dal bilgilerini karşıya yüklemek için cihaz denetleyicisi uygun kimlik doğrulaması sağlar.
+Müşteriler, uygun erişim denetimini cihazda kullanıcı Arabirimi için sanal WAN Ayarla mümkün olması gerekir. Bu işlem, bir Azure hizmet sorumlusu kullanılması önerilir. Hizmet sorumlusu tabanlı erişim dal bilgilerini karşıya yüklemek için cihaz denetleyicisi uygun kimlik doğrulaması sağlar. Daha fazla bilgi için [hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).
 
 ##  <a name="site"></a>Dal bilgilerini karşıya yüklemek
 
@@ -44,10 +44,10 @@ Bu adımda, bir sağlayıcı kullanmayan bir müşteri el ile Azure yapılandır
 
 ### <a name="understanding-the-device-configuration-file"></a>Cihaz yapılandırma dosyasını anlama
 
-Cihaz yapılandırma dosyası, şirket içi VPN Cihazınızı yapılandırırken kullanılacak ayarları içerir. Bu dosya görüntülediğinizde, aşağıdaki bilgileri dikkat edin:
+Cihaz yapılandırma dosyasında şirket içi VPN cihazınızı yapılandırırken kullanacağınız ayarlar bulunur. Bu dosyayı görüntülediğinizde aşağıdaki bilgilere dikkat edin:
 
-* **vpnSiteConfiguration -** Bu bölümde sanal WAN'bağlanan bir site olarak ayarlanmış cihaz ayrıntılarını gösterir. Bu dal cihazın genel IP adresi ve adını içerir.
-* **vpnSiteConnections -** Bu bölüm aşağıdakiler hakkında bilgi sağlar:
+* **vpnSiteConfiguration -** Bu bölümde sanal WAN'a bağlanan bir site olarak ayarlanmış cihazın ayrıntıları yer alır. Dal cihazının adını ve genel IP adresini içerir.
+* **vpnSiteConnections -** Bu bölümde aşağıdakilerle ilgili bilgiler yer alır:
 
     * **Adres alanı** sanal hub(ları) VNet biri.<br>Örnek:
  
@@ -59,13 +59,13 @@ Cihaz yapılandırma dosyası, şirket içi VPN Cihazınızı yapılandırırken
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
          ```
-    * **IP adresleri** sanal hub vpngateway biri. Vpngateway 2 Tünel etkin-etkin yapılandırmada her bağlantı kapsayan olduğundan, bu dosyada listelenen iki IP adresini görürsünüz. Bu örnekte, her site için "Instance0" ve "Örnek1" bakın.<br>Örnek:
+    * vpngateway sanal hub'ının **IP adresleri**. vpngateway, etkin-etkin yapılandırmada 2 tünel içeren bağlantılara sahip olduğundan bu dosyada iki taraftaki IP adreslerinin de listelendiğini göreceksiniz. Bu örnekte her site için "Instance0" ve "Instance1" örneklerini göreceksiniz.<br>Örnek:
 
         ``` 
         "Instance0":"104.45.18.186"
         "Instance1":"104.45.13.195"
         ```
-    * **Vpngateway bağlantısı yapılandırma ayrıntılarını** BGP gibi anahtar vb. önceden paylaşılan. PSK sizin için otomatik olarak oluşturulan önceden paylaşılan bir anahtardır. Genel bakış sayfasında bağlantı özel PSK için her zaman düzenleyebilirsiniz.
+    * BGP, önceden paylaşılan anahtar gibi **vpngateway bağlantısı yapılandırma ayrıntıları**. PSK, sizin için otomatik olarak oluşturulan önceden paylaşılan anahtardır. Dilediğiniz zaman genel bakış sayfasındaki bağlantıyı düzenleyerek özel bir PSK ekleyebilirsiniz.
   
 ### <a name="example-device-configuration-file"></a>Örnek cihaz yapılandırma dosyası
 
@@ -250,9 +250,9 @@ Azure için tünel Yanıtlayıcı olduğunda aşağıdaki bölümlerde desteklen
 * IPsec bütünlük algoritması
 * PFS Grubu
 
-## <a name="feedback"></a>Önizleme geri bildirim
+## <a name="feedback"></a>Önizleme geri bildirimi
 
-Görüşleriniz bizim için önemlidir. Lütfen bir e-posta gönderin <azurevirtualwan@microsoft.com> sorunları bildirmek veya geri bildirim (pozitif veya negatif) için sanal WAN sağlamak için. "[]" Şirket adınızı konu satırında içerir. Bir sorun bildiriyorsanız de abonelik Kimliğinizi içerir.
+Geri bildirimleriniz bizim için önemlidir. Sanal WAN ile ilgili sorunları bildirmek veya geri bildirim (olumlu veya olumsuz) sağlamak için lütfen <azurevirtualwan@microsoft.com> adresine e-posta gönderin. Şirketinizin adını konu satırına “[ ]” içinde yazın. Sorun bildiriyorsanız abonelik kimliğinizi de eklemeyi unutmayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

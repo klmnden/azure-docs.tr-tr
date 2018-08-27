@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a98c8ac65de930eabcedea2a009769ed6d245216
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 1f75317882e803a40df065377ef75f8b6b753898
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617201"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918388"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -67,18 +67,25 @@ Bulut katmanlaması isteğe bağlı bir özelliktir Azure dosya eşitleme'nin, s
 > [!Important]  
 > Bulut katmanlaması desteklenmiyor Windows sistemi birimlerinde sunucu uç noktaları için.
 
-## <a name="azure-file-sync-interoperability"></a>Azure dosya eşitleme birlikte çalışabilirlik 
-Bu bölüm, Windows Server özelliklerini ve rollerini ve üçüncü taraf çözümlerle birlikte çalışabilirlik Azure dosya eşitleme kapsar.
+## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Azure dosya eşitleme sistem gereksinimleri ve birlikte çalışabilirlik 
+Bu bölümde, Azure dosya eşitleme Aracısı sistem gereksinimleri ve Windows Server özelliklerini ve rollerini ve üçüncü taraf çözümlerle birlikte çalışabilirlik kapsar.
 
-### <a name="supported-versions-of-windows-server"></a>Windows Server'ın desteklenen sürümleri
-Şu anda, Azure dosya eşitleme tarafından Windows Server'ın desteklenen sürümleri şunlardır:
+### <a name="system-requirements"></a>Sistem Gereksinimleri
+- Windows Server 2012 R2 veya Windows Server 2016 çalıştıran bir sunucu 
 
-| Sürüm | Desteklenen SKU'ları | Desteklenen dağıtım seçenekleri |
-|---------|----------------|------------------------------|
-| Windows Server 2016 | Datacenter ve Standard | Tam (bir kullanıcı Arabirimi ile sunucu) |
-| Windows Server 2012 R2 | Datacenter ve Standard | Tam (bir kullanıcı Arabirimi ile sunucu) |
+    | Sürüm | Desteklenen SKU'ları | Desteklenen dağıtım seçenekleri |
+    |---------|----------------|------------------------------|
+    | Windows Server 2016 | Datacenter ve Standard | Tam (bir kullanıcı Arabirimi ile sunucu) |
+    | Windows Server 2012 R2 | Datacenter ve Standard | Tam (bir kullanıcı Arabirimi ile sunucu) |
 
-Windows Server'ın gelecek sürümlerinden yayınlandıkça eklenir. Önceki Windows sürümlerinde, kullanıcı geri bildirimleri temelinde eklenebilir.
+    Windows Server'ın gelecek sürümlerinden yayınlandıkça eklenir. Önceki Windows sürümlerinde, kullanıcı geri bildirimleri temelinde eklenebilir.
+
+- Bir sunucuyla en az 2GB bellek
+
+    > [!Important]  
+    > Sunucu, dinamik belleği etkin bir sanal makinede çalışıyorsa, VM ile bir en az 2048 MB bellek yapılandırılması gerekir.
+    
+- NTFS dosya sistemiyle biçimlendirilmiş yerel olarak bağlı bir birim
 
 > [!Important]  
 > Windows Update'ten en son güncelleştirmeleri ile güncel Azure dosya eşitleme ile kullandığınız tüm sunucuları tutulması önerilir. 

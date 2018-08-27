@@ -15,16 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: genli
-ms.openlocfilehash: 97210c0d9dba9c4130b1da9ad17a257ff1d81b42
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b0e24e498acd823242b3613abb62df978466d56d
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450277"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918321"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Ekleme veya Azure aboneliği yöneticileri değiştirme
 
-Azure kaynaklarına erişimi yönetmek için uygun yönetici rolüne sahip olmalıdır. Bu makalede, ekleme veya değiştirme abonelik düzeyinde bir kullanıcı için yönetici rolünü açıklar.
+Azure kaynaklarına erişimi yönetmek için uygun yönetici rolüne sahip olmanız gerekir. Bu makalede, ekleme veya değiştirme abonelik düzeyinde bir kullanıcı için yönetici rolünü açıklar.
+
+> [!div class="nextstepaction"]
+> [Azure faturalama belgeleri geliştirilmesine yardımcı olun](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="what-administrator-role-do-i-use"></a>Yönetici rolü kullanabilirim?
 
@@ -34,16 +37,16 @@ Azure, birçok farklı rol yok. Kaynaklara erişimi yönetmek için Klasik Abone
 
 ## <a name="add-an-rbac-owner-for-a-subscription-in-azure-portal"></a>Azure portalında RBAC sahibi aboneliği ekleme 
 
-Birisi Azure aboneliğiniz için yönetici olarak eklemek için bunları atayın [sahibi](../role-based-access-control/built-in-roles.md#owner) abonelik kapsamında rol (RBAC rolü). Sahip rolüne atanan ve diğer aboneliklere erişimi ayrıcalığına sahip değil Bu Abonelikteki kaynakları yönetebilir.
+Bir kullanıcıyı Azure aboneliğine yönetici olarak eklemek için abonelik kapsamında [Sahip](../role-based-access-control/built-in-roles.md#owner) rolünü (RBAC rolü) atamanız gerekir. Sahip rolü, atadığınız abonelikteki kaynakları yönetebilir ve diğer aboneliklere erişim ayrıcalığına sahip değildir.
 
 1. Ziyaret [ **abonelikleri** Azure portalında](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 2. Erişim vermek istediğiniz aboneliği seçin.
 3. **Add (Ekle)** seçeneğini belirleyin.
-   (Ekle düğmesini eksikse, izinler eklemek için izniniz yok.)
-4. Seçin **erişim denetimi (IAM)** listesinde.
-5. İçinde **rol** kutusunda **sahibi**. 
-6. İçinde **erişim Ata** kutusunda **Azure AD kullanıcı, Grup veya uygulama**. 
-7. İçinde **seçin** sahip olarak eklemek istediğiniz kullanıcının e-posta adresini yazın. Kullanıcıyı seçin ve ardından **Kaydet**.
+   (Ekle düğmesinin görünmemesi, izin eklemek için gerekli izinlere sahip olmadığınız anlamına gelir.)
+4. Listeden **Erişim denetimi (IAM)** öğesini seçin.
+5. **Rol** kutusunda **Sahip**'i seçin. 
+6. **Erişim ata:** kutusunda **Azure AD kullanıcısı, grubu veya uygulaması**'nı seçin. 
+7. **Seç** kutusuna Sahip olarak eklemek istediğiniz kullanıcının e-posta adresini yazın. Kullanıcıyı ve ardından **Kaydet**'i seçin.
 
     ![Seçili sahip rolü gösteren ekran görüntüsü](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
@@ -51,7 +54,7 @@ Bu, tüm kaynaklara temsilci erişimi başkalarına hakkı dahil olmak üzere ku
 
 ## <a name="add-or-change-co-administrator"></a>Ekleme veya ortak yönetici değiştirme
 
-Yalnızca bir [sahibi](../role-based-access-control/built-in-roles.md#owner) ortak yönetici olarak eklenebilir. Rolleri gibi diğer kullanıcılarla [katkıda bulunan](../role-based-access-control/built-in-roles.md#contributor) ve [okuyucu](../role-based-access-control/built-in-roles.md#reader) ortak Yöneticiler olarak eklenemez.
+Yalnızca [Sahip](../role-based-access-control/built-in-roles.md#owner) rolündeki kullanıcılar Ortak yönetici olarak eklenebilir. [Katkıda bulunan](../role-based-access-control/built-in-roles.md#contributor) ve [Okuyucu](../role-based-access-control/built-in-roles.md#reader) gibi rollere sahip kullanıcılar Ortak yönetici olarak eklenemez.
 
 > [!TIP]
 > Yalnızca Azure Klasik dağıtımlarını yönetmek kullanıcının erişmesi gerekiyorsa sahibi ortak yönetici olarak eklemeniz gerekir. Diğer amaçlar için RBAC kullanmanızı öneririz.

@@ -8,25 +8,26 @@ ms.topic: include
 ms.date: 04/02/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 752feca30fdca663aaf8bd88e6686781b9065682
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 527567ee3f3a939c7358fb6a62271cbe38e16974
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33836690"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42915459"
 ---
-Şablon bildirimleri gönderdiğinizde, yalnızca bir özellikler kümesi sağlamanız gerekir. Bu senaryoda, özellikler kümesini güncel haberleri yerelleştirilmiş sürümünü içerir.
+Şablon bildirim gönderdiğinizde, yalnızca bir özellikler kümesini sağlamanız gerekir. Bu senaryoda, özellikler kümesini güncel haberleri yerelleştirilmiş sürümünü içerir.
 
-    {
-        "News_English": "World News in English!",
-        "News_French": "World News in French!",
-        "News_Mandarin": "World News in Mandarin!"
-    }
-
-
+```json
+{
+    "News_English": "World News in English!",
+    "News_French": "World News in French!",
+    "News_Mandarin": "World News in Mandarin!"
+}
+```
 
 ### <a name="send-notifications-using-a-c-console-app"></a>Bir C# konsol uygulaması kullanarak bildirim gönderme
-Bu bölümde, bir konsol uygulaması kullanarak bildirim göndermek gösterilmiştir. Kod Windows mağazası ve iOS cihazlar için bildirimler yayınlar. Değiştirme `SendTemplateNotificationAsync` aşağıdaki kod ile daha önce oluşturduğunuz konsol uygulaması yöntemi:
+
+Bu bölümde, bir konsol uygulaması kullanarak bildirim gönderme işlemi gösterilmektedir. Kod, hem Windows Store hem de iOS cihazlarına bildirimleri göndermek için yayınlar. Daha önce oluşturduğunuz konsol uygulamasındaki `SendTemplateNotificationAsync` yöntemini aşağıdaki kodla değiştirin:
 
 ```csharp
 private static async void SendTemplateNotificationAsync()
@@ -63,10 +64,11 @@ private static async void SendTemplateNotificationAsync()
 }
 ```
 
-Haberleri ile yerelleştirilmiş parçası SendTemplateNotificationAsync yöntemi sunar **tüm** platform yedeklemiş aygıtlarınızı. Bildirim hub'ınızı oluşturur ve belirli bir tag abone olan tüm cihazlar için doğru yerel yükü sunar.
+Haberler için yerelleştirilmiş parçasını SendTemplateNotificationAsync yöntemi sunar **tüm** platform fark etmeksizin, cihazlarınızın. Bildirim hub'ınıza oluşturur ve doğru yerel yük belirli bir etikete abone olan tüm cihazlara teslim eder.
 
-### <a name="sending-notification-with-mobile-services"></a>Mobile Services bildirim gönderme
-Mobile Services Zamanlayıcısı'nda aşağıdaki komut dosyasını kullanın:
+### <a name="sending-notification-with-mobile-services"></a>Mobil hizmetler ile bildirim göndererek
+
+Mobil hizmetler Zamanlayıcısı'nda aşağıdaki betiği kullanın:
 
 ```csharp
 var azure = require('azure');
@@ -82,4 +84,3 @@ notificationHubService.send('World', notification, function(error) {
     }
 });
 ```
-

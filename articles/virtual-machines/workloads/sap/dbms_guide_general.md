@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fdf5685ad8072175bdabf8938ef293bed6f5cc13
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: e7ad93cbfd096cacadaef8666b0ea5b31d7fd992
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076554"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918810"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -263,7 +263,7 @@ Azure kullanılabilirlik kümeleri yolu, bu konuda gösterilmiştir [öğretici]
 
 
 ## <a name="azure-network-considerations"></a>Azure ağ konuları 
-Şema, kullanmakta olduğunuz SAP dağıtımlarda büyük ölçekli, öneri olan [Azure sanal veri merkezi](https://docs.microsoft.com/azure/networking/networking-virtual-datacenter) VNet yapılandırma, izinleri ve rol atamalarını ve kuruluşun farklı bölümlerine için.
+Şema, kullanmakta olduğunuz SAP dağıtımlarda büyük ölçekli, öneri olan [Azure sanal veri merkezi](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) VNet yapılandırma, izinleri ve rol atamalarını ve kuruluşun farklı bölümlerine için.
 
 Müşteri dağıtımları yüzlerce dışında sonuçlandı birkaç en iyi uygulamalar şunlardır:
 
@@ -325,10 +325,10 @@ Ana verileri SAPOSCOL ve SAP konak Aracısı teslim bileşenlerin dağıtımına
 ## <a name="next-steps"></a>Sonraki Adımlar
 Belirli DBMS hakkında daha fazla bilgi için şu makalelere bakın:
 
-- [SAP iş yükü için SQL Server Azure sanal makineleri DBMS dağıtım](dbms_guide_sqlserver.md)
-- [SAP iş yükü için Oracle Azure sanal makineleri DBMS dağıtım](dbms_guide_oracle.md)
-- [SAP iş yükü için IBM DB2 Azure sanal makineleri DBMS dağıtım](dbms_guide_ibm.md)
-- [SAP iş yükü için SAP ASE Azure sanal makineleri DBMS dağıtım](dbms_guide_sapase.md)
+- [SAP iş yükü için SQL Server Azure Sanal Makineler DBMS dağıtımı](dbms_guide_sqlserver.md)
+- [SAP iş yükü için Oracle Azure Sanal Makineler DBMS dağıtımı](dbms_guide_oracle.md)
+- [SAP iş yükü için IBM DB2 Azure Sanal Makineler DBMS dağıtımı](dbms_guide_ibm.md)
+- [SAP iş yükü için SAP ASE Azure Sanal Makineler DBMS dağıtımı](dbms_guide_sapase.md)
 - [SAP maxDB, dinamik önbellek ve azure'da içerik sunucusu dağıtımı](dbms_guide_maxdb.md)
 - [Azure işlemlerinde SAP HANA kılavuzu](hana-vm-operations.md)
 - [Azure sanal makineler için SAP HANA yüksek kullanılabilirlik](sap-hana-availability-overview.md)
