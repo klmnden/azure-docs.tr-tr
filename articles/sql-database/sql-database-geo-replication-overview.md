@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 08/09/2018
+ms.date: 08/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 08179ae21465a57161cc6f18c12a3d9a21449359
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 71268c07f7e653e1f7cf545f373717fd2760fee9
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057750"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918244"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Genel Bakış: Etkin coğrafi çoğaltma ve otomatik yük devretme grupları
 
@@ -129,7 +129,7 @@ Veri katmanı için ağ erişimi belirli bir bileşeni ya da VM gibi bileşenler
 
 ### <a name="using-failover-groups-and-virtual-network-rules"></a>Yük devretme grupları ve sanal ağ kuralları kullanma
 
-Kullanıyorsanız [sanal ağ hizmet uç noktaları ve kuralları](sql-database-vnet-service-endpoint-rule-overview.md) SQL veritabanınıza erişimi kısıtlamak için her sanal ağ hizmet uç noktası geçerli tek bir Azure bölgesine olduğunu unutmayın. Uç nokta, alt ağından gelen iletişimi kabul etmek üzere diğer bölgeler etkinleştirmez. Bu nedenle, yalnızca aynı bölgede dağıtılan istemci uygulamaları birincil veritabanına bağlanabilirsiniz. Yük devretme (ikincil) farklı bölgedeki bir sunucuya yönlendirdi SQL istemci oturumlarını sonuçlanır olduğundan, bu oturumlar o bölgenin dışında bir istemciden geldiyse başarısız olur. Sanal ağ kuralları katılan sunucular eklenirse, bu nedenle, otomatik yük devretme İlkesi etkinleştirilemez. El ile yük devretme desteği için aşağıdaki adımları izleyin:
+Kullanıyorsanız [sanal ağ hizmet uç noktaları ve kuralları](sql-database-vnet-service-endpoint-rule-overview.md) SQL veritabanınıza erişimi kısıtlamak için her sanal ağ hizmet uç noktası geçerli tek bir Azure bölgesine olduğunu unutmayın. Uç nokta, alt ağından gelen iletişimi kabul etmek üzere diğer bölgeler etkinleştirmez. Bu nedenle, yalnızca aynı bölgede dağıtılan istemci uygulamaları birincil veritabanına bağlanabilirsiniz. Yük devretme, bir sunucu (ikincil) farklı bir bölgede yönlendirdi SQL istemci oturumlarını sonuçlanır olduğundan, bu oturumların, bölgesinin dışındaki bir istemcinin kaynaklandığı başarısız olur. Sanal ağ kuralları katılan sunucular eklenirse, bu nedenle, otomatik yük devretme İlkesi etkinleştirilemez. El ile yük devretme desteği için aşağıdaki adımları izleyin:
 
 1.  Ön uç bileşenleri, uygulamanızın (web hizmeti, sanal makineler vb.) ikincil bölgedeki yedekli kopyalarını sağlama
 2.  Yapılandırma [sanal ağ kuralları](sql-database-vnet-service-endpoint-rule-overview.md) birincil ve ikincil bir sunucu için ayrı ayrı

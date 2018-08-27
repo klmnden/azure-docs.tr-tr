@@ -14,17 +14,19 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 6db7862a115179552a2dd57c07af66b3b5aa10e3
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 18caf2b1b96052d93737c8a9815e2e6643a52a67
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42055402"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918071"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Öğretici: Azure Notification hubs'ı kullanarak belirli iOS cihazlarına anında iletme bildirimleri
+
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 ## <a name="overview"></a>Genel Bakış
+
 Bu öğreticide flaş haber bildirimlerini bir iOS uygulamasını yayınlamak için Azure Notification hubs'ı kullanmayı gösterir. Tamamlandığında, ilgilendiğiniz haber kategorileri önemli için kayıt olanağına sahip olursunuz ve sadece bu kategorileri için anında iletme bildirimleri alın. Bu senaryo, daha önce ilgisini belirtmiş kullanıcı gruplarına bildirim gönderilmesi gereken RSS okuyucu, müzik hayranlarına yönelik uygulamalar vb. birçok uygulama için ortak düzendir.
 
 Yayın senaryoları, bildirim hub’ında bir kayıt oluştururken bir veya daha fazla *etiket* dahil edilerek etkinleştirilir. Etiket bildirimleri gönderilirken, kayıtlı cihazları etiket için bildirimleri alır. Etiketler basitçe birer dize olduğundan, önceden hazırlanması gerekmez. Etiketler hakkında daha fazla bilgi için bkz. [Notification Hubs Yönlendirme ve Etiket İfadeleri](notification-hubs-tags-segment-push-message.md).
@@ -38,304 +40,315 @@ Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 > * Uygulamayı çalıştırma ve bildirimler oluşturma
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 Bu konu başlığı altında oluşturduğunuz uygulama geliştirir [Öğreticisi: anında iletme bildirimleri göndermek için Azure Notification hubs'ı kullanarak iOS uygulamaları][get-started]. Bu öğreticiye başlamadan önce zaten tamamlamış olmanız gerekir [Öğreticisi: anında iletme bildirimleri göndermek için Azure Notification hubs'ı kullanarak iOS uygulamaları][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Uygulamaya kategori seçimi ekleme
+
 İlk adım, kullanıcı Arabirimi öğeleri kaydetmek için kategorileri seçmesini etkinleştirmek var olan film şeridini eklemektir. Bir kullanıcı tarafından seçilen kategoriler cihazda depolanır. Uygulama başlatıldığında, etiketler olarak seçilen kategorilerle bildirim hub’ınızda bir cihaz kaydı oluşturulur.
 
-1. İçinde MainStoryboard_iPhone.storyboard nesne kitaplığından aşağıdaki bileşenleri ekleyin:
-   
-   * "Yeni haber" yazan etiket,
-   * Kategori metinlerle "World", "Siyaset", "İş", "Teknoloji", "Bilimsel", "Spor", etiketler
-   * Kategori başına altı anahtarlar her anahtar kümesi **durumu** olmasını **kapalı** varsayılan olarak.
-   * Bir düğme "Subscribe" olarak etiketlenmiş
-     
-     Film şeridini şu şekilde görünmelidir:
-     
-     ![][3]
+1. İçinde **MainStoryboard_iPhone.storyboard** nesne kitaplığından aşağıdaki bileşenlerini ekleyin:
+
+    * "Yeni haber" yazan etiket,
+    * Kategori metinlerle "World", "Siyaset", "İş", "Teknoloji", "Bilimsel", "Spor", etiketler
+    * Kategori başına altı anahtarlar her anahtar kümesi **durumu** olmasını **kapalı** varsayılan olarak.
+    * Bir düğme "Subscribe" olarak etiketlenmiş
+
+    Film şeridini şu şekilde görünmelidir:
+
+    ![Xcode arabirim Oluşturucu][3]
+
 2. Yardımcısı düzenleyicideki tüm anahtarlarda çıkışlar oluşturmak ve "WorldSwitch" çağırmaya "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
 3. Adlandırılan, bir düğme için eylem oluşturma **abone**. Aşağıdaki kod, ViewController.h içermesi gerekir:
-   
-    ```obj-c
-        @property (weak, nonatomic) IBOutlet UISwitch *WorldSwitch;
-        @property (weak, nonatomic) IBOutlet UISwitch *PoliticsSwitch;
-        @property (weak, nonatomic) IBOutlet UISwitch *BusinessSwitch;
-        @property (weak, nonatomic) IBOutlet UISwitch *TechnologySwitch;
-        @property (weak, nonatomic) IBOutlet UISwitch *ScienceSwitch;
-        @property (weak, nonatomic) IBOutlet UISwitch *SportsSwitch;
-   
-        - (IBAction)subscribe:(id)sender;
+
+    ```objc
+    @property (weak, nonatomic) IBOutlet UISwitch *WorldSwitch;
+    @property (weak, nonatomic) IBOutlet UISwitch *PoliticsSwitch;
+    @property (weak, nonatomic) IBOutlet UISwitch *BusinessSwitch;
+    @property (weak, nonatomic) IBOutlet UISwitch *TechnologySwitch;
+    @property (weak, nonatomic) IBOutlet UISwitch *ScienceSwitch;
+    @property (weak, nonatomic) IBOutlet UISwitch *SportsSwitch;
+
+    - (IBAction)subscribe:(id)sender;
     ```
+
 4. Yeni bir **Cocoa Touch sınıfı** adlı `Notifications`. ' % S'dosyasının Notifications.h arabirimi bölümünde aşağıdaki kodu kopyalayın:
-   
-    ```obj-c
-        @property NSData* deviceToken;
-   
-        - (id)initWithConnectionString:(NSString*)listenConnectionString HubName:(NSString*)hubName;
-   
-        - (void)storeCategoriesAndSubscribeWithCategories:(NSArray*)categories
-                    completion:(void (^)(NSError* error))completion;
-   
-        - (NSSet*)retrieveCategories;
-   
-        - (void)subscribeWithCategories:(NSSet*)categories completion:(void (^)(NSError *))completion;
+
+    ```objc
+    @property NSData* deviceToken;
+
+    - (id)initWithConnectionString:(NSString*)listenConnectionString HubName:(NSString*)hubName;
+
+    - (void)storeCategoriesAndSubscribeWithCategories:(NSArray*)categories
+                completion:(void (^)(NSError* error))completion;
+
+    - (NSSet*)retrieveCategories;
+
+    - (void)subscribeWithCategories:(NSSet*)categories completion:(void (^)(NSError *))completion;
     ```
+
 5. Aşağıdaki içeri aktarma yönergesi için Notifications.m ekleyin:
-   
-    ```obj-c
-        #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
+
+    ```objc
+    #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
     ```
+
 6. ' % S'dosyasının Notifications.m uygulama bölümünde aşağıdaki kodu kopyalayın.
-   
-    ```obj-c
-        SBNotificationHub* hub;
-   
-        - (id)initWithConnectionString:(NSString*)listenConnectionString HubName:(NSString*)hubName{
-   
-            hub = [[SBNotificationHub alloc] initWithConnectionString:listenConnectionString
-                                        notificationHubPath:hubName];
-   
-            return self;
-        }
-   
-        - (void)storeCategoriesAndSubscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion {
-            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setValue:[categories allObjects] forKey:@"BreakingNewsCategories"];
-   
-            [self subscribeWithCategories:categories completion:completion];
-        }
 
-        - (NSSet*)retrieveCategories {
-            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    ```objc
+    SBNotificationHub* hub;
 
-            NSArray* categories = [defaults stringArrayForKey:@"BreakingNewsCategories"];
+    - (id)initWithConnectionString:(NSString*)listenConnectionString HubName:(NSString*)hubName{
 
-            if (!categories) return [[NSSet alloc] init];
-            return [[NSSet alloc] initWithArray:categories];
-        }
+        hub = [[SBNotificationHub alloc] initWithConnectionString:listenConnectionString
+                                    notificationHubPath:hubName];
 
-        - (void)subscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion
-        {
-           //[hub registerNativeWithDeviceToken:self.deviceToken tags:categories completion: completion];
+        return self;
+    }
 
-            NSString* templateBodyAPNS = @"{\"aps\":{\"alert\":\"$(messageParam)\"}}";
+    - (void)storeCategoriesAndSubscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion {
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setValue:[categories allObjects] forKey:@"BreakingNewsCategories"];
 
-            [hub registerTemplateWithDeviceToken:self.deviceToken name:@"simpleAPNSTemplate" 
-                jsonBodyTemplate:templateBodyAPNS expiryTemplate:@"0" tags:categories completion:completion];
-        }
+        [self subscribeWithCategories:categories completion:completion];
+    }
+
+    - (NSSet*)retrieveCategories {
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+
+        NSArray* categories = [defaults stringArrayForKey:@"BreakingNewsCategories"];
+
+        if (!categories) return [[NSSet alloc] init];
+        return [[NSSet alloc] initWithArray:categories];
+    }
+
+    - (void)subscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion
+    {
+        //[hub registerNativeWithDeviceToken:self.deviceToken tags:categories completion: completion];
+
+        NSString* templateBodyAPNS = @"{\"aps\":{\"alert\":\"$(messageParam)\"}}";
+
+        [hub registerTemplateWithDeviceToken:self.deviceToken name:@"simpleAPNSTemplate" 
+            jsonBodyTemplate:templateBodyAPNS expiryTemplate:@"0" tags:categories completion:completion];
+    }
     ```
 
     Bu sınıf, depolamak ve bu cihazda alan haber kategorilerini almak için yerel depolama kullanır. Ayrıca, bir yöntem kullanarak bu kategoriler için kaydedilecek içerdiği bir [şablon](notification-hubs-templates-cross-platform-push-messages.md) kayıt.
 
-1. AppDelegate.h dosyasındaki Notifications.h için bir içeri aktarma deyimini ekleyin ve bildirimleri sınıfının bir örneği için bir özellik ekleyin:
-   
-    ```obj-c
-        #import "Notifications.h"
-   
-        @property (nonatomic) Notifications* notifications;
+7. AppDelegate.h dosyasındaki Notifications.h için bir içeri aktarma deyimini ekleyin ve bildirimleri sınıfının bir örneği için bir özellik ekleyin:
+
+    ```objc
+    #import "Notifications.h"
+
+    @property (nonatomic) Notifications* notifications;
     ```
-2. İçinde **didFinishLaunchingWithOptions** yöntemine AppDelegate.m, yöntemin başında bildirimleri örneği başlatmak için kodu ekleyin.  
-   
+
+8. İçinde **didFinishLaunchingWithOptions** yöntemine AppDelegate.m, yöntemin başında bildirimleri örneği başlatmak için kodu ekleyin.  
+
     `HUBNAME` ve `HUBLISTENACCESS` (hubınfo.h içinde tanımlanmıştır) zaten olmalıdır `<hub name>` ve `<connection string with listen access>` yer tutucular yerine, bildirim hub'ı adı ve bağlantı dizesini *DefaultListenSharedAccessSignature* daha önce edindiğiniz
-   
-    ```obj-c
-        self.notifications = [[Notifications alloc] initWithConnectionString:HUBLISTENACCESS HubName:HUBNAME];
+
+    ```objc
+    self.notifications = [[Notifications alloc] initWithConnectionString:HUBLISTENACCESS HubName:HUBNAME];
     ```
-   
-   > [!NOTE]
-   > Bir istemci uygulaması ile dağıtılmış kimlik bilgileri genellikle güvenli olmadığından yalnızca istemci uygulamanızla dinleme erişimi için anahtarı dağıtmanız gerekir. Dinleme erişimi, uygulamanızın bildirimlere kaydolmasını sağlar, ancak mevcut kayıtlar değiştirilemez ve bildirimler gönderilemez. Tam erişim anahtarı, güvenli bir arka uç hizmetinde bildirimler göndermek ve mevcut kayıtları değiştirmek için kullanılır.
-   > 
-   > 
-3. İçinde **didRegisterForRemoteNotificationsWithDeviceToken** AppDelegate.m, yöntem bildirimleri sınıfı için cihaz belirteci geçirmek için aşağıdaki kod ile yöntemindeki kodu değiştirin. Bildirimleri sınıf kategorileri ile bildirimleri için kaydediliyor gerçekleştirir. Kullanıcı kategori seçimlerinin değişirse, çağrı `subscribeWithCategories` yanıt olarak yöntemi **abone** düğmesini bunları güncelleştirin.
-   
-   > [!NOTE]
-   > Apple anında iletilen bildirim servisi (APNS) tarafından atanan cihaz belirteci dilediğiniz zaman fırsat çünkü sık bildirim hatalarını önlemek, bildirimlerini de kaydetmeniz. Bu örnek, uygulama her başlatıldığında bildirimlere kaydolur. Sık sık çalıştırılan uygulamalar için, önceki kayıttan bu yana bir günden az zaman geçtiyse bant genişliğini korumak için günde birkaç kere kaydı atlayabilirsiniz.
-   > 
-   > 
-   
-    ```obj-c
-        self.notifications.deviceToken = deviceToken;
-   
-        // Retrieves the categories from local storage and requests a registration for these categories
-        // each time the app starts and performs a registration.
-   
-        NSSet* categories = [self.notifications retrieveCategories];
-        [self.notifications subscribeWithCategories:categories completion:^(NSError* error) {
-            if (error != nil) {
-                NSLog(@"Error registering for notifications: %@", error);
-            }
-        }];
+
+    > [!NOTE]
+    > Bir istemci uygulaması ile dağıtılmış kimlik bilgileri genellikle güvenli olmadığından yalnızca istemci uygulamanızla dinleme erişimi için anahtarı dağıtmanız gerekir. Dinleme erişimi, uygulamanızın bildirimlere kaydolmasını sağlar, ancak mevcut kayıtlar değiştirilemez ve bildirimler gönderilemez. Tam erişim anahtarı, güvenli bir arka uç hizmetinde bildirimler göndermek ve mevcut kayıtları değiştirmek için kullanılır.
+
+9. İçinde **didRegisterForRemoteNotificationsWithDeviceToken** AppDelegate.m, yöntem bildirimleri sınıfı için cihaz belirteci geçirmek için aşağıdaki kod ile yöntemindeki kodu değiştirin. Bildirimleri sınıf kategorileri ile bildirimleri için kaydediliyor gerçekleştirir. Kullanıcı kategori seçimlerinin değişirse, çağrı `subscribeWithCategories` yanıt olarak yöntemi **abone** düğmesini bunları güncelleştirin.
+
+    > [!NOTE]
+    > Apple anında iletilen bildirim servisi (APNS) tarafından atanan cihaz belirteci dilediğiniz zaman fırsat çünkü sık bildirim hatalarını önlemek, bildirimlerini de kaydetmeniz. Bu örnek, uygulama her başlatıldığında bildirimlere kaydolur. Sık sık çalıştırılan uygulamalar için, önceki kayıttan bu yana bir günden az zaman geçtiyse bant genişliğini korumak için günde birkaç kere kaydı atlayabilirsiniz.
+
+    ```objc
+    self.notifications.deviceToken = deviceToken;
+
+    // Retrieves the categories from local storage and requests a registration for these categories
+    // each time the app starts and performs a registration.
+
+    NSSet* categories = [self.notifications retrieveCategories];
+    [self.notifications subscribeWithCategories:categories completion:^(NSError* error) {
+        if (error != nil) {
+            NSLog(@"Error registering for notifications: %@", error);
+        }
+    }];
     ```
 
     Bu noktada, bulunmamalıdır başka herhangi bir kod **didRegisterForRemoteNotificationsWithDeviceToken** yöntemi.
 
-1. Aşağıdaki yöntemlerden zaten tamamlamanızı AppDelegate.m içinde bulunması gereken [Notification Hubs ile çalışmaya başlama] [ get-started] öğretici. Aksi durumda, bunları ekleyebilirsiniz.
-   
-    ```obj-c    
+10. Aşağıdaki yöntemlerden zaten tamamlamanızı AppDelegate.m içinde bulunması gereken [Notification Hubs ile çalışmaya başlama] [ get-started] öğretici. Aksi durumda, bunları ekleyebilirsiniz.
+
+    ```objc
     -(void)MessageBox:(NSString *)title message:(NSString *)messageText
     {
-   
+
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
             cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
-   
-   * (void)application:(UIApplication *)application didReceiveRemoteNotification:
+
+    * (void)application:(UIApplication *)application didReceiveRemoteNotification:
        (NSDictionary *)userInfo {
        NSLog(@"%@", userInfo);
        [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
      }
     ```
-   
-   Bu yöntem uygulama basit bir görüntüleyerek çalışırken alınan bildirimleri işleme **Uıalert**.
-2. ViewController.m, AppDelegate.h için içeri aktarma deyimini ekleyin ve XCode tarafından oluşturulan aşağıdaki kodu kopyalayın **abone** yöntemi. Bu kod kullanıcı arabiriminin kullanıcının seçtiği yeni kategori etiketlerini kullanmak için bildirimi kaydı güncelleştirir.
-   
-    ```obj-c
-       #import "Notifications.h"
-   
-       NSMutableArray* categories = [[NSMutableArray alloc] init];
-   
-       if (self.WorldSwitch.isOn) [categories addObject:@"World"];
-       if (self.PoliticsSwitch.isOn) [categories addObject:@"Politics"];
-       if (self.BusinessSwitch.isOn) [categories addObject:@"Business"];
-       if (self.TechnologySwitch.isOn) [categories addObject:@"Technology"];
-       if (self.ScienceSwitch.isOn) [categories addObject:@"Science"];
-       if (self.SportsSwitch.isOn) [categories addObject:@"Sports"];
-   
-       Notifications* notifications = [(AppDelegate*)[[UIApplication sharedApplication]delegate] notifications];
-   
-       [notifications storeCategoriesAndSubscribeWithCategories:categories completion: ^(NSError* error) {
-           if (!error) {
-               [(AppDelegate*)[[UIApplication sharedApplication]delegate] MessageBox:@"Notification" message:@"Subscribed!"];
-           } else {
-               NSLog(@"Error subscribing: %@", error);
-           }
-       }];
+
+    Bu yöntem uygulama basit bir görüntüleyerek çalışırken alınan bildirimleri işleme **Uıalert**.
+
+11. ViewController.m, AppDelegate.h için içeri aktarma deyimini ekleyin ve XCode tarafından oluşturulan aşağıdaki kodu kopyalayın **abone** yöntemi. Bu kod kullanıcı arabiriminin kullanıcının seçtiği yeni kategori etiketlerini kullanmak için bildirimi kaydı güncelleştirir.
+
+    ```objc
+    #import "Notifications.h"
+
+    NSMutableArray* categories = [[NSMutableArray alloc] init];
+
+    if (self.WorldSwitch.isOn) [categories addObject:@"World"];
+    if (self.PoliticsSwitch.isOn) [categories addObject:@"Politics"];
+    if (self.BusinessSwitch.isOn) [categories addObject:@"Business"];
+    if (self.TechnologySwitch.isOn) [categories addObject:@"Technology"];
+    if (self.ScienceSwitch.isOn) [categories addObject:@"Science"];
+    if (self.SportsSwitch.isOn) [categories addObject:@"Sports"];
+
+    Notifications* notifications = [(AppDelegate*)[[UIApplication sharedApplication]delegate] notifications];
+
+    [notifications storeCategoriesAndSubscribeWithCategories:categories completion: ^(NSError* error) {
+        if (!error) {
+            [(AppDelegate*)[[UIApplication sharedApplication]delegate] MessageBox:@"Notification" message:@"Subscribed!"];
+        } else {
+            NSLog(@"Error subscribing: %@", error);
+        }
+    }];
     ```
 
-   Bu yöntem oluşturur bir **NSMutableArray** kategoriler kullanır ve **bildirimleri** listesinde karşılık gelen etiketleri bildirim hub'ınızla yerel depolama ve kayıtları depolamak için sınıf. Kategoriler değiştirildiğinde kayıt yeni kategorilerle yeniden oluşturulur.
+    Bu yöntem oluşturur bir **NSMutableArray** kategoriler kullanır ve **bildirimleri** listesinde karşılık gelen etiketleri bildirim hub'ınızla yerel depolama ve kayıtları depolamak için sınıf. Kategoriler değiştirildiğinde kayıt yeni kategorilerle yeniden oluşturulur.
+
 3. Aşağıdaki kodda ViewController.m içinde ekleyin **viewDidLoad** tabanlı kullanıcı arabirimi ayarlama yöntemini önceden kaydedilmiş kategorilere göre.
 
-    ```obj-c    
-        // This updates the UI on startup based on the status of previously saved categories.
+    ```objc
+    // This updates the UI on startup based on the status of previously saved categories.
 
-        Notifications* notifications = [(AppDelegate*)[[UIApplication sharedApplication]delegate] notifications];
+    Notifications* notifications = [(AppDelegate*)[[UIApplication sharedApplication]delegate] notifications];
 
-        NSSet* categories = [notifications retrieveCategories];
+    NSSet* categories = [notifications retrieveCategories];
 
-        if ([categories containsObject:@"World"]) self.WorldSwitch.on = true;
-        if ([categories containsObject:@"Politics"]) self.PoliticsSwitch.on = true;
-        if ([categories containsObject:@"Business"]) self.BusinessSwitch.on = true;
-        if ([categories containsObject:@"Technology"]) self.TechnologySwitch.on = true;
-        if ([categories containsObject:@"Science"]) self.ScienceSwitch.on = true;
-        if ([categories containsObject:@"Sports"]) self.SportsSwitch.on = true;
+    if ([categories containsObject:@"World"]) self.WorldSwitch.on = true;
+    if ([categories containsObject:@"Politics"]) self.PoliticsSwitch.on = true;
+    if ([categories containsObject:@"Business"]) self.BusinessSwitch.on = true;
+    if ([categories containsObject:@"Technology"]) self.TechnologySwitch.on = true;
+    if ([categories containsObject:@"Science"]) self.ScienceSwitch.on = true;
+    if ([categories containsObject:@"Sports"]) self.SportsSwitch.on = true;
     ```
-
 
 Uygulama, uygulama başlatıldığında, bildirim hub'ınızla kaydolmak için kullanılan cihazın yerel depolama alanına kategorileri kümesi artık depolayabilirsiniz. Kullanıcı kategorileri çalışma zamanı ve tıklatın seçimini değiştirebilir **abone** cihaz kaydı güncelleştirmek için yöntemi. Ardından, uygulamayı doğrudan uygulamanın içinde flaş haber bildirimlerini göndermek için güncelleştirin.
 
 ## <a name="optional-send-tagged-notifications"></a>(isteğe bağlı) Etiketli bildirimler gönderme
+
 Visual Studio için erişiminiz yoksa sonraki bölüme atlayın ve uygulamadan bildirimleri gönderin. Ayrıca, gelen uygun şablon bildirim gönderebilirsiniz [Azure portal] bildirim hub'ınız için hata ayıklama sekmesini kullanarak. 
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ## <a name="optional-send-notifications-from-the-device"></a>(isteğe bağlı) CİHAZDAN bildirimler gönderme
+
 Normalde bildirimleri bir arka uç hizmeti tarafından gönderilir ancak doğrudan uygulamadan flaş haber bildirimlerini gönderebilirsiniz. Bunu yapmak için güncelleştirme `SendNotificationRESTAPI` içinde tanımlanan yöntem [Notification Hubs ile çalışmaya başlama] [ get-started] öğretici.
 
 1. İçinde `ViewController.m`, güncelleştirme `SendNotificationRESTAPI` yöntemi olarak izler kategori etiket için bir parametreyi kabul eden ve uygun gönderir [şablon](notification-hubs-templates-cross-platform-push-messages.md) bildirim.
-   
-    ```obj-c
-        - (void)SendNotificationRESTAPI:(NSString*)categoryTag
-        {
-            NSURLSession* session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration
-                                     defaultSessionConfiguration] delegate:nil delegateQueue:nil];
-   
-            NSString *json;
-   
-            // Construct the messages REST endpoint
-            NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/messages/%@", HubEndpoint,
-                                               HUBNAME, API_VERSION]];
-   
-            // Generated the token to be used in the authorization header.
-            NSString* authorizationToken = [self generateSasToken:[url absoluteString]];
-   
-            //Create the request to add the template notification message to the hub
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-            [request setHTTPMethod:@"POST"];
-   
-            // Add the category as a tag
-            [request setValue:categoryTag forHTTPHeaderField:@"ServiceBusNotification-Tags"];
-   
-            // Template notification
-            json = [NSString stringWithFormat:@"{\"messageParam\":\"Breaking %@ News : %@\"}",
-                    categoryTag, self.notificationMessage.text];
-   
-            // Signify template notification format
-            [request setValue:@"template" forHTTPHeaderField:@"ServiceBusNotification-Format"];
-   
-            // JSON Content-Type
-            [request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-   
-            //Authenticate the notification message POST request with the SaS token
-            [request setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
-   
-            //Add the notification message body
-            [request setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
-   
-            // Send the REST request
-            NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request
-                       completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
-               {
-               NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
-                   if (error || httpResponse.statusCode != 200)
-                   {
-                       NSLog(@"\nError status: %d\nError: %@", httpResponse.statusCode, error);
-                   }
-                   if (data != NULL)
-                   {
-                       //xmlParser = [[NSXMLParser alloc] initWithData:data];
-                       //[xmlParser setDelegate:self];
-                       //[xmlParser parse];
-                   }
-               }];
-   
-            [dataTask resume];
-        }
+
+    ```objc
+    - (void)SendNotificationRESTAPI:(NSString*)categoryTag
+    {
+        NSURLSession* session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration
+                                    defaultSessionConfiguration] delegate:nil delegateQueue:nil];
+
+        NSString *json;
+
+        // Construct the messages REST endpoint
+        NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/messages/%@", HubEndpoint,
+                                            HUBNAME, API_VERSION]];
+
+        // Generated the token to be used in the authorization header.
+        NSString* authorizationToken = [self generateSasToken:[url absoluteString]];
+
+        //Create the request to add the template notification message to the hub
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+        [request setHTTPMethod:@"POST"];
+
+        // Add the category as a tag
+        [request setValue:categoryTag forHTTPHeaderField:@"ServiceBusNotification-Tags"];
+
+        // Template notification
+        json = [NSString stringWithFormat:@"{\"messageParam\":\"Breaking %@ News : %@\"}",
+                categoryTag, self.notificationMessage.text];
+
+        // Signify template notification format
+        [request setValue:@"template" forHTTPHeaderField:@"ServiceBusNotification-Format"];
+
+        // JSON Content-Type
+        [request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+
+        //Authenticate the notification message POST request with the SaS token
+        [request setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
+
+        //Add the notification message body
+        [request setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
+
+        // Send the REST request
+        NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request
+                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+            {
+            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
+                if (error || httpResponse.statusCode != 200)
+                {
+                    NSLog(@"\nError status: %d\nError: %@", httpResponse.statusCode, error);
+                }
+                if (data != NULL)
+                {
+                    //xmlParser = [[NSXMLParser alloc] initWithData:data];
+                    //[xmlParser setDelegate:self];
+                    //[xmlParser parse];
+                }
+            }];
+
+        [dataTask resume];
+    }
     ```
+
 2. İçinde `ViewController.m`, güncelleştirme **bildirim gönder** aşağıdaki kodda gösterildiği gibi bir eylem. Her etiket kullanarak tek tek bildirimleri gönderir ve birden çok platforma gönderir böylece.
 
-    ```obj-c
-        - (IBAction)SendNotificationMessage:(id)sender
+    ```objc
+    - (IBAction)SendNotificationMessage:(id)sender
+    {
+        self.sendResults.text = @"";
+
+        NSArray* categories = [NSArray arrayWithObjects: @"World", @"Politics", @"Business",
+                                @"Technology", @"Science", @"Sports", nil];
+
+        // Lets send the message as breaking news for each category to WNS, GCM, and APNS
+        // using a template.
+        for(NSString* category in categories)
         {
-            self.sendResults.text = @"";
-
-            NSArray* categories = [NSArray arrayWithObjects: @"World", @"Politics", @"Business",
-                                    @"Technology", @"Science", @"Sports", nil];
-
-            // Lets send the message as breaking news for each category to WNS, GCM, and APNS
-            // using a template.
-            for(NSString* category in categories)
-            {
-                [self SendNotificationRESTAPI:category];
-            }
+            [self SendNotificationRESTAPI:category];
         }
+    }
     ```
 
-
-1. Projenizi yeniden derleyin ve herhangi bir yapı hatası olduğundan emin olun.
+3. Projenizi yeniden derleyin ve herhangi bir yapı hatası olduğundan emin olun.
 
 ## <a name="run-the-app-and-generate-notifications"></a>Uygulamayı çalıştırma ve bildirimler oluşturma
+
 1. Projeyi oluşturmak ve uygulamayı başlatmak için Çalıştır düğmesine basın. Abone olmak ve ENTER tuşuna basın bazı flaş haber seçenekleri belirleyin **abone ol** düğmesi. Bildirimler için abone olunmuş belirten bir iletişim kutusu görmeniz gerekir.
-   
-    ![][1]
-   
+
+    ![İos'ta örnek bildirim][1]
+
     Seçeneğini belirlediğinizde **abone ol**, uygulama etiketi ekleyerek seçili kategorilerdeki dönüştürür ve bildirim hub'ından seçili etiketler için yeni bir cihaz kaydı ister.
+
 2. Son dakika haberleri tuşuna olarak gönderilecek bir ileti girin **bildirim gönder** düğmesi. Alternatif olarak, bildirimleri oluşturmak için .NET konsol uygulaması çalıştırın.
-   
-    ![][2]
+
+    ![İOS bildirim tercihlerinizi değiştirin][2]
+
 3. Son dakika haberleri abone her bir cihaz gönderdiğiniz flaş haber bildirimlerini alır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Bu öğreticide, kayıtlı belirli iOS cihazlara kategorileri için yayın bildirimleri gönderdiniz. Yerelleştirilmiş bildirimler gönderme öğrenmek için aşağıdaki öğreticiye geçin: 
 
 > [!div class="nextstepaction"]

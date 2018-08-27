@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: b84de7475c54d2bc35dcc10b0bbfb0c1839c5631
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 261f8dfe41ece0cd56a4a71972e3142ef8440afb
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522144"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918118"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure Dosya Eşitleme’yi dağıtma
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -25,7 +25,7 @@ Okumanızı öneririz [bir Azure dosyaları dağıtımını planlama](storage-fi
     - [Bölge kullanılabilirliği](storage-sync-files-planning.md#region-availability) Azure dosya eşitleme için.
     - [Depolama hesabı oluşturma](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) bir depolama hesabı oluşturma adım adım bir açıklaması.
     - [Dosya paylaşımı oluşturma](storage-how-to-create-file-share.md) bir dosya paylaşımı oluşturma adım adım bir açıklaması.
-* Azure dosya eşitleme ile eşitlenecek Windows Server veya Windows Server kümesinin desteklenen en az bir örnek. Windows Server'ın desteklenen sürümleri hakkında daha fazla bilgi için bkz. [Windows Server ile birlikte çalışabilirlik](storage-sync-files-planning.md#azure-file-sync-interoperability).
+* Azure dosya eşitleme ile eşitlenecek Windows Server veya Windows Server kümesinin desteklenen en az bir örnek. Windows Server'ın desteklenen sürümleri hakkında daha fazla bilgi için bkz. [Windows Server ile birlikte çalışabilirlik](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
 * PowerShell 5.1, Windows Server'da yüklü emin olun. Windows Server 2012 R2 kullanıyorsanız, en az çalıştırdığınızdan emin olun. PowerShell 5.1. \*. PowerShell 5.1 varsayılan sürümü kullanıma hazır olduğu gibi güvenli bir şekilde Windows Server 2016 üzerinde bu denetimi atlayabilirsiniz. Windows Server 2012 R2 üzerinde PowerShell 5.1 çalıştığını doğrulayabilirsiniz. \* değerinde bakarak **PSVersion** özelliği **$PSVersionTable** nesnesi:
 
     ```PowerShell

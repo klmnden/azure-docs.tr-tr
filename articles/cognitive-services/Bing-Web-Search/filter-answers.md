@@ -1,6 +1,6 @@
 ---
 title: Bing döndüren web yanıtları filtreleme | Microsoft Docs
-description: ResponseFilter Bing Web arama API döndürür yanıtlar filtrelemek için nasıl kullanılacağını gösterir.
+description: Bing Web araması API'si döndürdüğü yanıtları filtrelemek için responseFilter kullanmayı gösterir.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
@@ -10,16 +10,16 @@ ms.component: bing-web-search
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: scottwhi
-ms.openlocfilehash: a5ee6241630ee24a05c2c4b932453bd7946a7508
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 64095089e4c0841aa1f77165969221836c747738
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352900"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888582"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Arama yanıtı içeren yanıtlar filtreleme  
 
-Web sorguladığınızda, Bing, düşündüğü tüm içeriği aramayı ilgili döndürür. Örneğin, arama sorgusu "yelken açmaya ne dersiniz + dinghies" ise, yanıt aşağıdaki yanıtlar içerebilir:
+Web sorguladığınızda, Bing, gördüğü tüm içeriği aramayla ilgili döndürür. Örneğin, arama sorgusu "yelken açmaya ne dersiniz + dinghies" ise, yanıt aşağıdaki soruların yanıtlarını içerebilir:
 
 ```json
 {
@@ -44,7 +44,7 @@ Web sorguladığınızda, Bing, düşündüğü tüm içeriği aramayı ilgili d
 }    
 ```
 
-İçerik resim, video ve haber gibi belirli türlerdeki ilginizi çekiyorsa kullanarak yalnızca bu yanıtlar isteyebilir [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) sorgu parametresi. Bing belirtilen yanıtlar için ilgili içeriğin bulursa, onu Bing döndürür. Yanıt filtresi yanıtlar, virgülle ayrılmış bir listesidir. Aşağıdaki nasıl kullanılacağını gösterir `responseFilter` isteği resim, video ve Yelkenli dinghies haberler için. Sorgu dizesi kodlarken virgül %2 C'ye değiştirin.  
+Belirli türlerdeki içerik görüntü, video ve haber gibi ilginizi çekiyorsa kullanarak yalnızca bu yanıtlar isteyebilirsiniz [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) sorgu parametresi. Bing, Bing, ilgili içeriği için belirtilen yanıtları bulursa, onu döndürür. Yanıt filtresi yanıtların virgülle ayrılmış bir listedir. Aşağıdakileri nasıl kullanılacağını gösterir `responseFilter` isteği görüntüleri, videolar ve Haberler Yelkenli dinghies. Sorgu dizesini kodlayın, virgül, %2 C değiştirin.  
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&responseFilter=images%2Cvideos%2Cnews&mkt=en-us HTTP/1.1  
@@ -56,7 +56,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Önceki sorgu yanıtı gösterir. Gördüğünüz gibi yanıt bunları içermeyen şekilde Bing ilgili video ve haber sonuçları bulunamadı.
+Önceki sorguya yanıt aşağıda gösterilmiştir. Gördüğünüz gibi yanıt onları içermez. Bu nedenle Bing ilgili video ve haber sonuçları bulunamadı.
 
 ```json
 {
@@ -81,22 +81,28 @@ Host: api.cognitive.microsoft.com
 }
 ```
 
-Bing önceki yanıtta video ve haber sonuç döndürmedi rağmen video ve haber içerik yok gelmez. Bu, yalnızca sayfa bunları eklemediniz anlamına gelir. Ancak, varsa, [sayfa](./paging-webpages.md) daha fazla sonuç, sihirbazın sonraki sayfalarında olasılıkla bunları içerir. Ayrıca, çağırırsanız [Video arama API](../bing-video-search/search-the-web.md) ve [haber arama API](../bing-news-search/search-the-web.md) doğrudan uç noktaları yanıt sonuçları olasılıkla içerecektir. 
+Gelen yanıt içeriği, resimler gibi belirli türlerdeki dışlamak istiyorsanız, kısa çizgi (eksi) responseFilter değere ön eki ile hariç tutabilirsiniz. Virgül ile ayrı dışlanan türleri: 
 
-Kullanımından önerilmez `responseFilter` tek bir API öğesinden sonuçları elde etmek için. Tek bir Bing API'si içerikten istiyorsanız, bu API doğrudan çağırabilir. Örneğin, yalnızca görüntüleri almak için görüntü arama API uç noktası için bir istek göndermesini `https://api.cognitive.microsoft.com/bing/v7.0/images/search` veya başka biri [görüntüleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#endpoints) uç noktaları. Tek API çağırma yalnızca performans nedenleriyle önemli ancak içeriği özgü API'ları daha zengin sonuçlar sunar. Örneğin, Web arama sonuçlarını filtrelemek için API için kullanılabilir değil filtreleri kullanabilirsiniz.  
+```
+&responseFilter=-images,-videos
+```
+
+Bing video ve haber sonuçları önceki yanıtta döndürmedi olsa da, video ve haber içeriği yok gelmez. Yalnızca sayfanın bunları eklemediğiniz anlamına gelir. Ancak, varsa, [sayfa](./paging-webpages.md) daha fazla sonuç, sonraki sayfalarda büyük olasılıkla bunları verilebilir. Ayrıca, eğer [Video arama API'si](../bing-video-search/search-the-web.md) ve [haber arama API'si](../bing-news-search/search-the-web.md) doğrudan uç noktaları yanıt sonuçları büyük olasılıkla içerecektir. 
+
+Kullanarak önerilmez `responseFilter` tek bir API'den sonuçları elde etmek için. Tek bir Bing API içerikten istiyorsanız doğrudan bu API'ye çağrı. Örneğin, yalnızca görüntüleri almak için resim arama API'si uç noktaya bir istek gönderin `https://api.cognitive.microsoft.com/bing/v7.0/images/search` veya diğer [görüntüleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#endpoints) uç noktaları. Tek bir API çağırma yalnızca performansı artırmak için önemli olduğu ancak daha zengin sonuçları içerik özel API'ler sunar. Örneğin, sonuçları filtrelemek için Web araması API'si kullanılabilir değil filtreleri kullanabilirsiniz.  
   
-Arama Sonuçları belirli bir etki alanından almak için dahil `site:` sorgu dizesinde sorgu işleci.  
+Belirli bir etki alanına ait arama sonuçlarını almak için dahil `site:` sorgu dizesinde sorgu işleci.  
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us
 ```
 
 > [!NOTE] 
-> Sorgu kullanırsanız, bağlı olarak `site:` sorgu işleci yanıt bağımsız olarak, yetişkinlere yönelik içeriğe içerebilir fırsat yok [güvenli arama](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#safesearch) ayarı. Kullanmanız gereken `site:` yalnızca sitedeki içeriğin farkında ve senaryonuz yetişkinlere yönelik içeriğe olasılığını destekler. 
+> Kullanırsanız sorguya bağlı olarak `site:` sorgu işleci yok yanıt bağımsız olarak, yetişkinlere yönelik içerik içerebilir olasılığını [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#safesearch) ayarı. `site:` işlecini yalnızca sitenin içeriği hakkında bilgi sahibiyseniz ve senaryonuz, yetişkinlere yönelik içeriğin mevcut olma ihtimalini destekliyorsa kullanın. 
   
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>Yanıtlar yanıt sayısını sınırlandırma
 
-Bing yanıtlar üzerinde sıralamasına göre yanıtı içerir. Örneğin, sorgu, *yelken açmaya ne dersiniz + dinghies*, Bing döndürür `webpages`, `images`, `videos`, ve `relatedSearches`.
+Bing yanıtlarını derecelere dayanan yanıt içerir. Örneğin, sorgu, *yelken açmaya ne dersiniz + dinghies*, Bing döndürür `webpages`, `images`, `videos`, ve `relatedSearches`.
 
 ```json
 {
@@ -112,7 +118,7 @@ Bing yanıtlar üzerinde sıralamasına göre yanıtı içerir. Örneğin, sorgu
 }
 ```
 
-Bu Bing yanıtlar sayısını sınırlamak için kümesi (Web sayfalarını ve görüntüleri), üstteki iki yanıtlarını döndürür [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) sorgu parametresi 2. 
+Bu Bing yanıtlarını sayısını sınırlamak için kümesi (Web sayfalarını ve görüntüleri), ilk iki yanıtlarını döndürür [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) sorgu parametresi için 2. 
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&mkt=en-us HTTP/1.1  
@@ -138,7 +144,7 @@ Yanıt yalnızca içeriyor `webPages` ve `images`.
 }
 ```
 
-Eklerseniz `responseFilter` sorgu parametresi önceki sorgu ve Web sayfalarını ve haberler, yanıt içerdiği yalnızca Web sayfalarının haber değil derece çünkü kümesi.
+Eklerseniz `responseFilter` sorgu parametresi önceki sorgu ve Web sayfalarını ve haber, yanıtın içerdiği yalnızca Web sayfalarını haber önem derecesi değil çünkü kümesi.
 
 ```json
 {
@@ -151,9 +157,9 @@ Eklerseniz `responseFilter` sorgu parametresi önceki sorgu ve Web sayfalarını
 }
 ```
 
-## <a name="promoting-answers-that-are-not-ranked"></a>Değil sıralanır yanıtlar yükseltme
+## <a name="promoting-answers-that-are-not-ranked"></a>Değil sıralanır yanıtlar yükseltiliyor
 
-Bir sorgu için Bing döndürür yanıtlar derece üst Web sayfaları, resim, video ve relatedSearches varsa, yanıt Bu yanıtlar içerir. Ayarlarsanız [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) iki (2), Bing döndürür dereceli iki yanıtlar için: Web sayfalarını ve görüntüler. Bing görüntüler ve videolar yanıta dahil etmek istiyorsanız, belirtin [Yükselt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) sorgu parametresi ve görüntüleri ve videolar ayarlayın. 
+Bing döndüren bir sorgu için yanıtlar sıralanmış üst Web sayfaları, görüntü, video ve relatedSearches ise bu yanıtlar yanıt verilebilir. Ayarlarsanız [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) iki (2), Bing döndürür dereceli iki yanıtlar için: Web sayfaları ve görüntüler. Bing görüntü ve video yanıta dahil etmek istiyorsanız, belirtin [Yükselt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) sorgu parametresi ve resimler ve videolar için ayarlayın. 
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&promote=images%2Cvideos&mkt=en-us HTTP/1.1  
@@ -165,7 +171,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Yukarıdaki isteğinin yanıtı verilmiştir. Bing üst iki yanıtlar, Web sayfalarını ve görüntüleri döndürür ve videolar yanıt yükseltir.
+Yukarıdaki isteğin yanıtını verilmiştir. Bing üst iki yanıt birbiri, Web sayfaları ve görüntü döndürür ve videoları yanıt yükseltir.
 
 ```json
 {
@@ -180,8 +186,8 @@ Yukarıdaki isteğinin yanıtı verilmiştir. Bing üst iki yanıtlar, Web sayfa
 }
 ```
 
-Ayarlarsanız `promote` dereceli yanıt olmadığından haberleri ile haber yanıt yanıt içermeyen&mdash;yanıtlar derece yalnızca yükseltebilirsiniz.
+Ayarlarsanız `promote` kişilerinin sıralı bir yanıt olmadığından haberler için haber yanıt yanıt içermeyen&mdash;yanıtlar sıralanmış yalnızca yükseltebilirsiniz.
 
-Yükseltmek istediğiniz yanıtları karşı sayılmaz `answerCount` sınırı. Örneğin, dereceli yanıtlar Haberler, görüntüler ve videolar ve ayarladığınız `answerCount` 1 ve `promote` haberleri ile yanıtı, Haberler ve görüntüleri içeriyor. Veya dereceli yanıtlar videoları, görüntüler ve haber varsa, videoları ve haber yanıtı içerir.
+Yükseltmek istediğiniz yanıtları karşı sayılmaz `answerCount` sınırı. Örneğin, haber görüntüleri ve videoları dereceli yanıtları olan ve ayarlarsanız `answerCount` 1 ve `promote` haberler için yanıt haberleri ve görüntüleri içerir. Veya dereceli yanıtları videoları, resimleri ve haberler, videolar ve Haberler yanıtı içerir.
 
-Kullanabilirsiniz `promote` yalnızca belirtirseniz `answerCount` sorgu parametresi.
+Kullanmanızı `promote` yalnızca belirtirseniz `answerCount` sorgu parametresi.

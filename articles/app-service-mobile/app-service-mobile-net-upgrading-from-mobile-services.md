@@ -1,6 +1,6 @@
 ---
-title: Azure uygulama hizmeti için Mobile Services'den yükseltme
-description: Bir mobil uygulama hizmeti Mobile Services uygulamanıza kolayca yükseltmeyi öğrenin
+title: Azure App Service'e mobil hizmetler'den yükseltme
+description: Bir App Service Mobile Apps, Mobile Services uygulamanıza kolayca yükseltmeyi öğrenin
 services: app-service\mobile
 documentationcenter: ''
 author: conceptdev
@@ -14,72 +14,72 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 05041637aa5cbb044e6731208825f75edec83352
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 25eb5c732927dcfb18bfd92991391ff99d4e3629
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157053"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918267"
 ---
-# <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Var olan .NET Azure mobil hizmetinizi App Service'e yükseltme
-App Service Mobile, Microsoft Azure kullanarak mobil uygulamaları oluşturmak için yeni bir yoludur. Daha fazla bilgi için bkz: [Mobile Apps nedir?].
+# <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Mevcut .NET Azure Mobile Services'ı App Service'a yükseltme
+App Service Mobile, Microsoft Azure kullanarak mobil uygulamalar derlemek için yepyeni bir yoludur. Daha fazla bilgi için bkz. [Mobile Apps nedir?].
 
-Bu konuda, var olan .NET arka uç uygulama için yeni bir App Service Mobile Apps Azure Mobile Services yükseltme açıklar. Bu yükseltme gerçekleştirirken mevcut Mobile Services uygulamanız çalışmaya devam edebilirsiniz.   Bir Node.js arka uç uygulaması yükseltme yapmanız oluştuysa, [Node.js Mobile Services yükseltme](app-service-mobile-node-backend-upgrading-from-mobile-services.md).
+Bu konu, mevcut bir .NET arka uç uygulamasını yeni bir App Service Mobile Apps için Azure Mobile Services yükseltme açıklar. Bu yükseltme gerçekleştirirken, var olan mobil hizmetler uygulamanız çalışmaya devam edebilir.   Node.js arka uç uygulaması yükseltmeniz gerekiyorsa başvurmak [Node.js mobil hizmetlerinizi yükseltme](app-service-mobile-node-backend-upgrading-from-mobile-services.md).
 
-Azure App Service'e bir mobil arka uç yükseltildiğinde, tüm uygulama hizmeti özelliklerine erişebilir ve göre faturalandırılır [uygulama hizmeti fiyatlandırma], fiyatlandırma değil Mobile Services.
+Azure App Service'e bir mobil arka uç yükseltildiğinde, tüm App Service özellikleri erişebilir ve ayarına göre faturalandırılır [App Service fiyatlandırması], olmayan mobil hizmetler fiyatlandırma.
 
 ## <a name="migrate-vs-upgrade"></a>Yükseltme geçirme
 [!INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
 > [!TIP]
-> Önerilir Bu, [bir geçiş gerçekleştirmek](app-service-mobile-migrating-from-mobile-services.md) yükseltme geçmeden önce. Bu şekilde, aynı uygulama hizmeti planı üzerinde her iki sürümü, uygulamanızın koyun ve ek bir maliyet doğurur.
+> Bu önerilir, [geçiş gerçekleştirmek](app-service-mobile-migrating-from-mobile-services.md) yükseltme geçmeden önce. Bu şekilde uygulamanızı her iki sürümü de aynı App Service planı üzerinde yerleştirin ve hiçbir ek ücret uygulanır.
 >
 >
 
-### <a name="improvements-in-mobile-apps-net-server-sdk"></a>Mobile Apps .NET sunucusu SDK yenilikleri
+### <a name="improvements-in-mobile-apps-net-server-sdk"></a>Mobile Apps .NET sunucu SDK'sı yenilikleri
 Yeni yükseltme [Mobile Apps SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) aşağıdaki avantajları sağlar:
 
-* NuGet bağımlılıkları hakkında daha fazla esneklik sağlar. Artık barındırma ortamı NuGet paketleri, kendi sürümlerini sağlar, alternatif uyumlu sürümlerini kullanabilirsiniz. Ancak, yeni kritik bugfixes veya güvenlik güncelleştirmeleri mobil Server SDK veya bağımlılıkları varsa, hizmetinizi el ile güncelleştirmeniz gerekir.
-* Daha fazla esneklik mobil SDK. Yollar, kimlik doğrulama, tablo API'leri ve anında iletme kayıt uç noktasını gibi ayarlanır ve hangi özelliklerin açıkça denetleyebilirsiniz. Daha fazla bilgi için bkz: [Azure mobil uygulamalar için .NET sunucusu SDK kullanmayı](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
-* Diğer ASP.NET proje türleri ve yollar için destek. Şimdi, MVC ve Web API denetleyicilerinin mobil arka uç projeniz aynı projede barındırabilir.
-* Web ve mobil uygulamalar arasında ortak bir kimlik doğrulama yapılandırması kullanmanıza olanak sağlayan yeni uygulama hizmeti kimlik doğrulama özellikleri için destek.
+* NuGet bağımlılıkları hakkında daha fazla esneklik sağlar. Barındırma ortamı artık kendi NuGet paketleri sürümlerini sağlar. böylece alternatif uyumlu sürümlerini kullanabilirsiniz. Ancak, yeni kritik hata düzeltmeleri veya güvenlik güncelleştirmeleri Mobile Sunucu SDK'sı veya bağımlılıkları varsa, hizmetinizi el ile güncelleştirmeniz gerekir.
+* Daha fazla esneklik mobil SDK. Hangi özelliklerin açıkça denetleyebilirsiniz ve yollar, kimlik doğrulama, tablo API'leri ve anında iletme kayıt uç noktası gibi ayarlanır. Daha fazla bilgi için bkz. [nasıl Azure Mobile Apps için .NET sunucu SDK'sı kullanılacağını](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+* Diğer ASP.NET proje türleri ve yolları için destek. Artık mobil arka uç projeniz gibi aynı projede MVC ve Web API denetleyicisi barındırabilirsiniz.
+* Web ve mobil uygulamalarınız arasında ortak bir kimlik doğrulama yapılandırması kullanmanıza olanak tanıyan yeni App Service kimlik doğrulama özellikleri için destek.
 
 ## <a name="overview"></a>Temel yükseltmeye genel bakış
-Çoğu durumda, yükseltme yeni mobil uygulamalar sunucusu SDK değiştirme ve kodunuzu yeni bir mobil uygulama örneği üzerine yeniden yayımlanması olarak basit olacaktır. Vardır, ancak Gelişmiş kimlik doğrulama senaryoları ve çalışmak gibi bazı ek yapılandırma gerektiren bazı senaryolar zamanlanmış iş. Bunların her biri, sonraki bölümlerde ele alınmıştır.
+Çoğu durumda, yükseltme yeni Mobile Apps SDK'sı geçirilmesine ve kodunuzu yeni bir mobil uygulama örneği yeniden yayımlanması kadar basit olacaktır. Vardır, ancak Gelişmiş kimlik doğrulama senaryoları ve çalışmak gibi bazı ek yapılandırma gerektiren bazı senaryolar işleri zamanlanmış. Bunların her biri, sonraki bölümlerde ele alınmıştır.
 
 > [!TIP]
-> Okuma ve bu konunun geri kalanında tamamen bir yükseltme işlemine başlamadan önce anlamanız önerilir. Not alın, aşağıda belirtilir tüm özelliklerini kullanabilirsiniz.
+> Okuma ve bir yükseltmeye başlatmadan önce bu konunun geri kalanında tamamen anlamanız önerilir. Not herhangi bir özelliğe sahip, aşağıda belirtilir kullanın.
 >
 >
 
-Mobile Services istemci SDK'ları olan **değil** yeni mobil uygulamalar sunucusu SDK ile uyumlu. Uygulamanız için hizmetin sürekliliği sağlamak için değişiklikleri şu anda yayımlanan istemciler hizmet veren bir site yayınlamalıdır değil. Bunun yerine, yinelenen hizmet veren yeni bir mobil uygulama oluşturmanız gerekir. Bu uygulamayı ek finansal ücret oluşmasını önlemek için aynı uygulama hizmeti plan üzerinde koyabilirsiniz.
+Mobile Services istemci SDK'ları olan **değil** yeni Mobile Apps sunucu SDK'sı ile uyumludur. Uygulamanız için hizmet sürekliliği sağlamak için değişiklikleri şu anda yayımlanan istemcilere hizmet veren bir siteye yayımlamalısınız değil. Bunun yerine, bir yineleme hizmet veren yeni bir mobil uygulama oluşturmanız gerekir. Bu uygulama ek maliyet ücretlendirmeden kaçınmak için aynı App Service planı üzerinde koyabilirsiniz.
 
-Uygulamanın iki sürümlerini sonra gerekir: aynı kalır ve hizmet veren bir yayımlanan uygulamalar joker diğer, ardından yükseltin ve yeni bir istemci sürümü ile hedef. Taşıma ve kodunuzu test etmek, hızı, ancak yaptığınız tüm hata düzeltmeleri hem de uygulandığından emin olmanız gerekir. İstediğiniz istemci uygulamaları yazılımların en son sürüme güncelleştirilmemiş istenen sayısını, özgün geçirilen uygulama silebilirsiniz olduğunu düşündüğünüz sonra.
+Ardından uygulamanın iki sürümlerini olacaktır: biri, aynı kalır ve hizmet yayımlanan uygulamaları joker diğer, ardından Yükseltme yapabileceğiniz ve yeni bir istemci sürümü ile hedef. Taşıyabilir ve kendi hızınızda kodunuzu test etmek, ancak her ikisini de yaptığınız herhangi bir hata düzeltmeleri uygulandığından emin olmanız gerekir. Bir kez istediğiniz uygulamaları yazılımların en son sürüme güncelleştirilmiş istemci istenen sayısını, özgün geçirilen uygulamayı silebilirsiniz olduğunu düşünüyor.
 
-Yükseltme işlemi için tam anahattı aşağıdaki gibidir:
+Yükseltme işlemi için tam anahat aşağıdaki gibidir:
 
-1. Yeni bir mobil uygulaması oluşturma
-2. Yeni Sunucu SDK'ları kullanmak için projesini güncelleştirme
-3. İstemci uygulamanızı yeni bir sürümü kullanıma
-4. (İsteğe bağlı) Özgün geçirilen örneğinizi Sil
+1. Yeni bir mobil uygulama oluşturun
+2. Yeni Sunucu SDK'ları kullanmak için projeyi güncelleştir
+3. İstemci uygulamanızın yeni bir sürüm
+4. (İsteğe bağlı) Özgün geçirilen örneğinizin Sil
 
 ## <a name="mobile-app-version"></a>İkinci bir uygulama örneği oluşturma
-Yükseltme ilk adımı, uygulamanın yeni sürümü barındıracak mobil uygulama kaynağı oluşturmaktır. Varolan bir mobil hizmet zaten geçiş yaptıysanız, bu sürüm üzerinde aynı barındırma planı oluşturmak isteyeceksiniz. Açık [Azure portal] ve geçirilen uygulamanıza gidin. Uygulama hizmeti planı üzerinde çalıştırıldığı not edin.
+Yükseltme sırasında ilk adım, uygulamanızın yeni sürümünü barındıracak mobil uygulama kaynağı oluşturmaktır. Mevcut mobil hizmeti zaten yaptıysanız, bu sürüm üzerinde aynı barındırma planı oluşturmak isteyeceksiniz. Açık [Azure portal] ve geçirilen uygulamanıza gidin. App Service planı üzerinde çalıştırıldığı not edin.
 
-Ardından, ikinci uygulama örneğini izleyerek oluşturun [.NET arka ucu oluşturma yönergeleri](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app). Seçtiğiniz isteyip istemediğiniz sorulduğunda uygulama hizmeti planı ya da "barındırma planı" geçirilen uygulamanızın planı seçin.
+Ardından, ikinci uygulama örneğini oluşturma [.NET arka uç oluşturma yönergeleri](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app). Seçtiğiniz istendiğinde App Service planı ya da "barındırma planı" geçirilen uygulamanızın planı seçin.
 
-Büyük olasılıkla mobil hizmetlerinde olduğu gibi aynı veritabanını ve bildirim hub'ı kullanmak istersiniz. Bu değerleri açarak kopyalayabilirsiniz [Azure portal] ve özgün uygulamaya gezinme, ardından **ayarları** > **uygulama ayarları**. Altında **bağlantı dizeleri**, kopya `MS_NotificationHubConnectionString` ve `MS_TableConnectionString`. Yeni yükseltme sitenize gidin ve tüm var olan değerlerin üzerine yazar, yapıştırın. Başka bir uygulama ayarları için bu işlemi yineleyin uygulama gereksinimlerinizi. Geçirilen hizmet kullanılmıyorsa, bağlantı dizeleri ve uygulama ayarlarını okuyabilirsiniz **yapılandırma** Mobile Services bölümünde sekmesinde [Klasik Azure portalı].
+Büyük olasılıkla mobil Hizmetler'de yaptığınız gibi aynı veritabanını ve bildirim hub'ı kullanmak istersiniz. Bu değerleri açarak kopyalayabilirsiniz [Azure portal] ve özgün uygulamasına gidip, ardından **ayarları** > **uygulama ayarları**. Altında **bağlantı dizeleri**, kopyalama `MS_NotificationHubConnectionString` ve `MS_TableConnectionString`. Yeni yükseltme sitenize gidin ve tüm mevcut değerlerin üzerine yazar, yapıştırın. Herhangi bir uygulama ayarları için bu işlemi tekrarlamanız uygulama ihtiyaçlarınızı. Geçirilen hizmet kullanılmıyorsa, bağlantı dizeleri ve uygulama ayarlarını okuyabilirsiniz **yapılandırma** mobil hizmetler bölümünün sekmesinde [Klasik Azure portalı].
 
-ASP.NET projesi, uygulamanız için bir kopyasını alın ve yeni sitenizi yayımlayın. Yeni URL ile güncelleştirilmiş istemci uygulamanız bir kopyasını kullanarak, her şeyin beklendiği gibi çalıştığını doğrulayın.
+ASP.NET projesi uygulamanız için bir kopyasını oluşturun ve yeni sitenize yayımlayın. Yeni URL ile güncelleştirilmiş istemci uygulamasının bir kopyasını kullanarak, her şeyin beklendiği gibi çalıştığını doğrulayın.
 
 ## <a name="updating-the-server-project"></a>Sunucu projesi güncelleştiriliyor
-Mobile Apps sağlayan yeni bir [mobil uygulama sunucusu SDK'sı] çok Mobile Services çalışma zamanı ile aynı işlevselliği sağlar. İlk olarak, Mobile Services Paketlerine yönelik tüm başvuruları kaldırmalısınız. NuGet Paket Yöneticisi'nde arayın `WindowsAzure.MobileServices.Backend`. Çoğu uygulamalar dahil olmak üzere çeşitli paketler burada görürsünüz `WindowsAzure.MobileServices.Backend.Tables` ve `WindowsAzure.MobileServices.Backend.Entity`. Böyle bir durumda bağımlılığı ağacı düşük paketinde gibi başlatın `Entity`ve bunu kaldırın. İstendiğinde, tüm bağımlı paketler kaldırmayın. Kaldırdığınız kadar bu işlemi yineleyin `WindowsAzure.MobileServices.Backend` kendisi.
+Yeni bir Mobile Apps sağlar [Mobil uygulama sunucusu SDK] Mobile Services çalışma zamanı ile aynı işlevlere çoğunu sağlar. İlk olarak, mobil hizmetler paketleri tüm başvurularını kaldırmanız. NuGet Paket Yöneticisi'nde arayın `WindowsAzure.MobileServices.Backend`. Çoğu uygulama da dahil olmak üzere çeşitli paketler burada görürsünüz `WindowsAzure.MobileServices.Backend.Tables` ve `WindowsAzure.MobileServices.Backend.Entity`. Böyle bir durumda, en düşük paket bağımlılık ağacında gibi başlatın `Entity`ve bunu kaldırın. İstendiğinde, tüm bağımlı paketler kaldırmayın. Kaldırılan kadar bu işlemi yineleyin `WindowsAzure.MobileServices.Backend` kendisi.
 
-Bu noktada artık Mobile Services SDK'ları başvuruda bulunan bir proje sahip olur.
+Bu noktada, mobil hizmetler SDK'larını artık başvuran bir proje gerekir.
 
-Sonra başvuruları Mobile Apps SDK'sı ekleyeceksiniz. Bu yükseltme, çoğu Geliştirici indirmek ve yüklemek istediğiniz `Microsoft.Azure.Mobile.Server.Quickstart` paketini olarak bu tüm gerekli kümesinde çeker.
+Bundan sonra başvuruları Mobile Apps SDK'sı ekleyeceksiniz. Bu yükseltme için çoğu Geliştirici indirmek ve yüklemek istediğiniz `Microsoft.Azure.Mobile.Server.Quickstart` paketi olarak bu tüm gerekli kümesinde çeker.
 
-SDK'ları arasındaki farklar kaynaklanan oldukça birkaç derleyici hataları olacaktır, ancak bu adrese kolaydır ve bu bölümün geri kalanında ele alınmıştır.
+SDK'ları arasındaki farklar kaynaklanan oldukça derleyici hataları olacaktır, ancak bunlar da kolayca giderilebilir ve bu bölümün geri kalanında ele alınmaktadır.
 
 ### <a name="base-configuration"></a>Temel yapılandırma
 Ardından, WebApiConfig.cs içinde değiştirebilirsiniz:
@@ -98,74 +98,74 @@ with
         .ApplyTo(config);
 
 > [!NOTE]
-> Yeni .NET sunucusu SDK hakkında daha fazla bilgi ve özellikleri uygulamanızdan eklemek/kaldırmak nasıl bilgi edinmek istiyorsanız lütfen bkz [.NET sunucusu SDK kullanmayı] konu.
+> Nasıl özellikleri uygulamanızdan Ekle/Kaldır ve yeni .NET sunucu SDK'sı hakkında daha fazla bilgi edinmek istiyorsanız, lütfen bkz [.NET sunucu SDK'sını kullanma] konu.
 >
 >
 
-Uygulamanızı yaparsa kimlik doğrulama özelliklerini kullanmak, aynı zamanda bir OWIN ara yazılımını kaydetmeniz gerekir. Bu durumda, yukarıdaki yapılandırma kodu yeni bir OWIN başlangıç sınıfı taşımanız gerekir.
+Uygulamanızı yaparsa kimlik doğrulaması özelliklerini kullanabilirsiniz, ayrıca bir OWIN ara yazılımını kaydetmeniz gerekir. Bu durumda, yukarıdaki yapılandırma kodunu yeni bir OWIN başlangıç sınıfı taşımanız gerekir.
 
-1. NuGet paketini eklemeniz `Microsoft.Owin.Host.SystemWeb` , zaten projenizde dahil değilse.
+1. NuGet paketi ekleme `Microsoft.Owin.Host.SystemWeb` , projenizde zaten bulunmaz.
 2. Visual Studio'da, sağ, proje seçin tıklayın ve **Ekle** -> **yeni öğe**. Seçin **Web** -> **genel** -> **OWIN başlangıç sınıfı**.
-3. MobileAppConfiguration için yukarıdaki kod taşıma `WebApiConfig.Register()` için `Configuration()` yeni başlangıç sınıfınızın yöntemi.
+3. MobileAppConfiguration için yukarıdaki kodu Taşı `WebApiConfig.Register()` için `Configuration()` yeni başlangıç sınıfınızın yöntemi.
 
-Emin olun `Configuration()` yöntemi ile biter:
+Emin `Configuration()` yöntemi ile sona erecek:
 
         app.UseWebApi(config)
         app.UseAppServiceAuthentication(config);
 
-Tam kimlik doğrulaması bölümünde ele alınan kimlik doğrulaması ile ilgili ek değişiklik yoktur.
+Tam kimlik doğrulaması bölümünde ele alınan kimlik doğrulaması ile ilgili ek değişiklikler var.
 
 ### <a name="working-with-data"></a>Verilerle çalışma
-Mobile Services ' mobil uygulama adı Entity Framework kurulumunda varsayılan şema adı olarak sundu.
+Mobil Hizmetler'de mobil uygulama adı Entity Framework kurulumunda varsayılan şema adı olarak sunulur.
 
-Şema, uygulamanız için DbContext ayarlamak için kullanmadan önce gibi aşağıdaki başvurulan aynı şema olmasını sağlamak için:
+Şema, uygulamanızın DbContext ayarlamak için kullanmadan önce olarak aşağıdaki başvurulan aynı şemaya sahip olmasını sağlamak için:
 
         string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
 
-Lütfen yukarıdaki yaparsanız ayarlamak MS_MobileServiceName olduğundan emin olun. Uygulamanız bu önceden özelleştirdiyseniz, başka bir şema adı da sağlayabilirsiniz.
+Lütfen yukarıdaki Bunu verilirse MS_MobileServiceName olduğundan emin olun. Uygulamanız bu daha önce özelleştirdiyseniz, başka bir şema adı sağlayabilirsiniz.
 
 ### <a name="system-properties"></a>Sistem Özellikleri
 #### <a name="naming"></a>Adlandırma
-Azure Mobile Services sunucusu SDK'da, Sistem özellikleri her zaman bir çift alt çizgi içerebilir (`__`) özellikleri için öneki:
+Azure mobil hizmetler sunucu SDK'sı, Sistem özellikleri her zaman bir çift alt çizgi içermelidir (`__`) özellikleri için ön ek:
 
 * __createdAt
 * __updatedAt
 * __deleted
 * __version
 
-Mobile Services istemci SDK'ları bu biçimde Sistem özellikleri ayrıştırma için özel bir mantığı vardır.
+Mobil hizmetler istemci SDK'ları Sistem Özellikleri şu biçimde ayrıştırma özel mantığı vardır.
 
-Azure Mobile Apps, Sistem özellikleri artık özel bir biçime sahip ve aşağıdaki adlara sahip:
+Azure Mobile Apps, Sistem özellikleri artık özel bir biçime sahip ve aşağıdaki adlara sahiptir:
 
-* CreatedAt
+* createdAt
 * updatedAt
 * silindi
 * sürüm
 
-Mobile Apps istemci SDK'ları, herhangi bir değişiklik için istemci kodu gerekli; bu nedenle yeni Sistem özellikleri adları kullanın. REST çağrılarını hizmetinize doğrudan yapıyorsanız ancak, daha sonra sorgularınızı uygun şekilde değiştirmeniz gerekir.
+Mobile Apps istemci SDK'ları için istemci kodu için değişiklik gerekmez yeni sistem özellik adlarını kullanın. REST çağrılarını hizmetinize doğrudan yapıyorsanız ancak, ardından, sorgularınızı uygun şekilde değiştirmeniz gerekir.
 
-#### <a name="local-store"></a>Yerel depolama
-Sistem özellikleri adlarını yapılan değişiklikler, çevrimdışı eşitleme yerel veritabanı Mobile Services için Mobile Apps ile uyumlu değil anlamına gelir. Mümkünse, uygulamalardan Mobile Services sonra mobil uygulamalara kadar bekleyen değişiklikler sunucuya gönderilen istemci yükseltme kaçınmalısınız. Sonra yükseltilen uygulama yeni bir veritabanı dosya adı kullanmanız gerekir.
+#### <a name="local-store"></a>Yerel depo
+Sistem özellikleri adlarını yapılan değişiklikler, çevrimdışı eşitleme yerel veritabanı mobil hizmetler için Mobile Apps ile uyumlu değil anlamına gelir. Mümkünse, istemci uygulamaları mobil hizmetlerden sonra Mobile Apps'e kadar bekleyen değişiklikler sunucuya gönderildikten yükseltme kaçınmanız gerekir. Sonra yükseltilen uygulama yeni bir veritabanı dosya adı'nı kullanmanız gerekir.
 
-İşlemi sırasındaki çevrimdışı, bekleyen değişiklikler varken bir istemci uygulaması mobil uygulamaları için Mobile Services yükseltilmiş ise sistem veritabanı yeni sütun adları kullanmak üzere güncelleştirilmelidir. İos'ta, bu sütun adlarını değiştirmek için basit geçişleri kullanmaya elde edilebilir. Android ve .NET yönetilen istemci veri nesnesi tablolarınızı sütunları yeniden adlandırmak için özel SQL yazmanız gerekir.
+İşlem kuyrukta bekleyen çevrimdışı değişiklikler varken bir istemci uygulaması Mobile Apps için Mobile Services yükseltilmiş ise, sistem veritabanı yeni sütun adlarını kullanmak üzere güncelleştirilmelidir. İOS, bu sütun adlarını değiştirmek için basit migrations'ı kullanma elde. Android ve .NET yönetilen istemci üzerinde veri nesnesi tablolarınızı sütunlarını yeniden adlandırmak için özel SQL yazmanız.
 
-İos'ta, çekirdek veri şemanızı aşağıdaki eşleştirmek için veri varlıkları için değiştirmeniz gerekir. Unutmayın özellikleri `createdAt`, `updatedAt` ve `version` artık bir `ms_` öneki:
+İOS, temel veri şemanızı için veri varlıklarınızı aşağıdaki eşleşecek şekilde değiştirmeniz gerekir. Unutmayın özelliklerini `createdAt`, `updatedAt` ve `version` artık bir `ms_` öneki:
 
 | Öznitelik | Tür | Not |
 | --- | --- | --- |
-| id |Dize, gerekli olarak işaretlenmiş |Uzak Depolama birincil anahtar |
-| CreatedAt |Tarih |createdAt sistem özelliğine (isteğe bağlı) eşlemeleri |
-| updatedAt |Tarih |updatedAt sistem özelliğine (isteğe bağlı) eşlemeleri |
-| sürüm |Dize |(isteğe bağlı) çakışmaları, maps sürüme algılamak için kullanılan |
+| id |Dize, gerekli olarak işaretlenmiş |Uzak depoda birincil anahtar |
+| createdAt |Tarih |(isteğe bağlı) eşlenir createdAt sistem özelliği |
+| updatedAt |Tarih |(isteğe bağlı) eşlenir updatedAt sistem özelliği |
+| sürüm |Dize |(isteğe bağlı) eşlemeleri sürüm çakışmaları algılamak için kullanılan |
 
 #### <a name="querying-system-properties"></a>Sistem özellikleri sorgulama
-Azure Mobile Services ' Sistem özellikleri varsayılan olarak, ancak yalnızca sorgu dizesi kullanılarak istendiklerinde gönderilmez `__systemProperties`. Buna karşılık, Azure Mobile Apps sistemde özelliklerdir **her zaman seçili** server SDK nesne modeli parçası olduğundan.
+Azure mobil Hizmetleri'nde Sistem özellikleri varsayılan olarak, ancak yalnızca sorgu dizesi kullanarak istendiklerinde gönderilmez `__systemProperties`. Buna karşılık, Azure Mobile Apps sistemde özelliklerdir **her zaman seçili** sunucu SDK'sı nesne modelinin bir parçası olduğundan.
 
-Bu değişiklik çoğunlukla uzantılarını gibi etki alanı yöneticileri özel uygulamaları etkiler `MappedEntityDomainManager`. Bir istemci hiçbir zaman tüm sistem özelliklerini isterse Mobile Services'de kullanılacak mümkündür bir `MappedEntityDomainManager` gerçekten tüm özellikleri eşleşmiyor. Ancak, Azure Mobile Apps'de eşlenmemiş bu özellikleri GET sorgularda hataya neden olur.
+Bu değişiklik, etki alanı yöneticileri, uzantıları gibi özel uygulamalar çoğunlukla etkiler `MappedEntityDomainManager`. Bir istemci hiçbir zaman herhangi bir sistem özellikleri isterse mobil Hizmetler'de kullanmak mümkün olduğu bir `MappedEntityDomainManager` gerçekten tüm özellikleri eşleşmiyor. Ancak, Azure Mobile Apps'te eşlenmemiş bu özellikler GET sorgularda hataya neden olur.
 
-Böylece bunlar devralınmalıdır, DTOs değiştirmek için sorunu gidermek için en kolay yolu olan `ITableData` yerine `EntityData`. Ardından, ekleyin `[NotMapped]` özniteliği alınmamalıdır alanları.
+Böylece devralındığı, Dto'lar değiştirmek için bu sorunu çözmek için en kolay yolu olan `ITableData` yerine `EntityData`. Ardından ekleyin `[NotMapped]` alınmamalıdır alanları için özniteliği.
 
-Örneğin, aşağıdaki tanımlar `TodoItem` hiçbir sistem özelliklere sahip:
+Örneğin, aşağıdaki tanımlar `TodoItem` hiçbir sistem özellikleri ile:
 
     using System.ComponentModel.DataAnnotations.Schema;
 
@@ -190,71 +190,71 @@ Böylece bunlar devralınmalıdır, DTOs değiştirmek için sorunu gidermek iç
         public byte[] Version { get; set; }
     }
 
-Not: hataları alırsanız, `NotMapped`, derleme için bir başvuru ekleyin `System.ComponentModel.DataAnnotations`.
+Not: hataları alırsanız, `NotMapped`, derlemeye bir başvuruda bulunun `System.ComponentModel.DataAnnotations`.
 
 ### <a name="cors"></a>CORS
-Mobile Services, ASP.NET CORS çözüm kaydırma tarafından bazı CORS desteği dahil. Doğrudan yararlanabilirsiniz şekilde Geliştirici daha fazla denetim sağlamak için bu kaydırma katman kaldırıldı [ASP.NET CORS desteğini](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
+Mobile Services, ASP.NET CORS çözüm sarmalama tarafından bazı CORS desteği dahil. Doğrudan faydalanarak Geliştirici daha fazla denetim sağlamak için bu sarmalama katman kaldırıldı [ASP.NET CORS desteğini](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
 
-CORS kullanıyorsanız sorun ana alanlarını olan `eTag` ve `Location` üstbilgileri düzgün çalışması için İstemci SDK'ları için sırasıyla izin verilecektir.
+Ana CORS kullanıyorsanız sorunlu alanları olan `eTag` ve `Location` üstbilgileri düzgün çalışması için İstemci SDK'ları için sırada izin verilmelidir.
 
 ### <a name="push-notifications"></a>Anında İletme Bildirimleri 
-Alım için sunucu SDK'dan eksik bulabilirsiniz ana öğe PushRegistrationHandler sınıftır. Kayıtlar biraz farklı mobil uygulamalarda işlenir ve tagless kayıtlar varsayılan olarak etkinleştirilir. Etiketler yönetme özel API'lerini kullanarak bunu. Lütfen bakın [için etiketler kaydetme](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags) daha fazla bilgi için yönergeler.
+Gönderme için sunucu SDK'sından eksik bulabilirsiniz ana öğeyi PushRegistrationHandler sınıftır. Kayıtları Mobile Apps biraz farklı şekilde ele alınır ve tagless kayıtları varsayılan olarak etkindir. Etiketleri yönetme özel API'leri kullanarak gerçekleştirilmesi. Lütfen [etiketlerini kaydetme](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags) daha fazla bilgi için yönergeler.
 
 ### <a name="scheduled-jobs"></a>Zamanlanan İşler
-.NET arka ucuna sahip var olan tüm işleri ayrı ayrı yükseltilmesi gerekir zamanlanmış işler mobil uygulamasında yerleşiktir böylece değil. Bir seçenektir zamanlanmış bir oluşturmak için [Web işi] mobil uygulama kodu sitesinde. Ayrıca iş kodunuzu tutan kurma denetleyicisi ve yapılandırma [Azure Scheduler] Bu uç beklenen zamanlamada isabet.
+.NET arka ucunuzu sahip olduğunuz mevcut tüm işler ayrı ayrı yükseltilmesi gerekecek şekilde zamanlanmış işleri Mobil uygulamalarınızda yerleşik olarak bulunmaz. Zamanlanmış bir oluşturmak için bir seçenek olan [Web işi] mobil uygulama kodu sitesinde. Ayrıca, proje kodunuzun tutan bir denetleyicisi ayarlama ve yapılandırma [Azure Scheduler] uç noktanın beklenen zamanlamaya göre isabet.
 
 ### <a name="miscellaneous-changes"></a>Çeşitli değişiklikler
-Mobil istemci tarafından kullanılan tüm ApiControllers şimdi olmalıdır `[MobileAppController]` özniteliği. Bu artık değildir diğer ApiControllers mobil biçimlendiricileri tarafından etkilenmemesini gitmek için varsayılan olarak bulunur.
+Artık, bir mobil istemci tarafından kullanılan tüm ApiControllers olması gerekir `[MobileAppController]` özniteliği. Artık budur tarafından mobil biçimlendiricileri etkilenmeyen gitmek için diğer ApiControllers varsayılan olarak dahildir.
 
-`ApiServices` Nesnesidir artık SDK'ın bir parçası. Mobil uygulama ayarlarına erişmek için aşağıdakileri kullanabilirsiniz:
+`ApiServices` Nesnedir artık SDK'ın bir parçası. Mobil uygulama ayarlarına erişmek için aşağıdakileri kullanabilirsiniz:
 
     MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
-Benzer şekilde, günlük şimdi standart ASP.NET izleme yazma kullanılarak gerçekleştirilir:
+Benzer şekilde, günlüğe kaydetme artık standart ASP.NET izleme yazılmasını kullanılarak gerçekleştirilir:
 
     ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
     traceWriter.Info("Hello, World");  
 
 ## <a name="authentication"></a>Kimlik doğrulama konuları
-Mobile Services'ın kimlik doğrulaması bileşenleri şimdi App Service kimlik doğrulama/yetkilendirme özelliğini taşınmıştır. Bu, siteniz için okuyarak etkinleştirme hakkında bilgi edinebilirsiniz [mobil uygulamanıza kimlik doğrulaması ekleme](app-service-mobile-ios-get-started-users.md) konu.
+Mobil hizmetler kimlik doğrulaması bileşenleri artık App Service kimlik doğrulama/yetkilendirme özelliğini taşınmıştır. Bu, sitenizin okuyarak etkinleştirme hakkında bilgi edinebilirsiniz [mobil uygulamanıza kimlik doğrulaması ekleme](app-service-mobile-ios-get-started-users.md) konu.
 
-AAD, Facebook ve Google, gibi bazı sağlayıcılar için var olan kaydı kopyalama uygulamanızdan yararlanamaz olmalıdır. Kimlik sağlayıcısının Portalı'na gidin ve yeni bir yönlendirme URL'si için kayıt eklemek yeterlidir. Daha sonra App Service kimlik doğrulama/yetkilendirme, istemci kimliği ve parolası ile yapılandırın.
+AAD ve Facebook, Google gibi bazı sağlayıcılar için mevcut kaydı kopyalama uygulamanızdan yararlanabilmelidir olmalıdır. Kimlik sağlayıcısının portalına gidin ve kayıt için yeni bir yeniden yönlendirme URL'si ekleyin yeterlidir. Ardından App Service kimlik doğrulama/yetkilendirme, istemci kimliği ve parolası ile yapılandırın.
 
 ### <a name="controller-action-authorization"></a>Denetleyici eylem yetkilendirme
-Tüm örneklerini `[AuthorizeLevel(AuthorizationLevel.User)]` öznitelik şimdi değiştirilmelidir standart ASP.NET kullanmak için `[Authorize]` özniteliği. Ayrıca, denetleyicileri anonim diğer ASP.NET uygulamaları olduğu gibi varsayılan olarak sunulmuştur.
-Lütfen, yönetici veya uygulama gibi diğer AuthorizeLevel seçeneklerden birini kullanıyorsanız bu kaldırılmıştır olduğuna dikkat edin. Bunun yerine, AuthorizationFilters için paylaşılan gizli kod dizeleri ayarlayın veya hizmet-hizmet çağrıları güvenle sağlamak için bir AAD hizmet sorumlusu yapılandırın.
+Tüm örneklerini `[AuthorizeLevel(AuthorizationLevel.User)]` öznitelik şimdi değiştirilmesi gereken standart ASP.NET kullanılacak `[Authorize]` özniteliği. Ayrıca, artık anonim diğer ASP.NET uygulamalarını olduğu gibi varsayılan denetleyicileridir.
+Lütfen, yönetici veya uygulama gibi diğer AuthorizeLevel seçeneklerden birini kullandıysanız bu gitmiş olduğuna dikkat edin. Bunun yerine, AuthorizationFilters ' için paylaşılan gizlilikleri ayarlayın veya hizmetten hizmete çağrılar güvenli bir şekilde etkinleştirmek için bir AAD hizmet sorumlusu yapılandırın.
 
 ### <a name="getting-additional-user-information"></a>Ek kullanıcı bilgilerini alma
-Erişim belirteçleri aracılığıyla ek kullanıcı bilgilerini alabileceğiniz `GetAppServiceIdentityAsync()` yöntemi:
+Erişim belirteci aracılığıyla ek kullanıcı bilgilerini alabilirsiniz `GetAppServiceIdentityAsync()` yöntemi:
 
         FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
 
-Ayrıca, uygulamanızı bağımlılıkları kimlikleri, kullanıcı, bir veritabanında saklamak gibi alırsa, Mobile Services ve App Service Mobile Apps arasındaki kullanıcı kimlikleri farklı olduğuna dikkat edin önemlidir. Ancak Mobile Services kullanıcı kimliği, elde edebilirsiniz. Tüm ProviderCredentials alt sınıfların, bir kullanıcı kimliği özelliği vardır. Bu nedenle önce örneğindeki etmeden:
+Ayrıca, uygulamanızı bağımlılıkları kimlikleri, kullanıcı, bir veritabanında saklamak gibi alırsa, App Service Mobile Apps ile Mobile Services arasındaki kullanıcı kimliklerinin farklı olduğuna dikkat edin önemlidir. Ancak Mobile Services kullanıcı kimliği, elde edebilirsiniz. Tüm ProviderCredentials alt sınıfların, bir kullanıcı kimliği özelliği vardır. Bu nedenle önce örnekten devam etmesini:
 
         string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
 
-Uygulamanızı bağımlılıkları kullanıcı kimlikleri izlerseniz, aynı kayıt bir kimlik sağlayıcısı ile mümkünse yararlanan olduğunu önemlidir. Yeni bir kayıt giriş verilerini kullanıcılara eşleşen sorunları oluşturabilirsiniz için kullanıcı kimlikleri genellikle kullanılan, uygulama kaydı kapsamlıdır.
+Uygulamanızı herhangi bir bağımlılığın kullanıcı kimlikleri alırsa, aynı kayıt bir kimlik sağlayıcısı ile mümkünse yararlanın, önemlidir. Yeni bir kayıt ile tanışın eşleşen kullanıcılar verilerine sorunları oluşturabilirsiniz böylece kullanıcı kimlikleri genellikle kullanılan uygulama kaydı kapsamına alınır.
 
 ### <a name="custom-authentication"></a>Özel kimlik doğrulama
-Uygulamanızı bir özel kimlik doğrulama çözümü kullanıyorsanız, yükseltilen site sistemine erişimi olduğundan emin olun isteyeceksiniz. Özel kimlik doğrulama için yeni yönergeleri [.NET sunucusu SDK Genel Bakış] çözümünüzü tümleştirme. Özel kimlik doğrulama bileşenleri hala önizlemede olduğunu unutmayın.
+Uygulamanızı bir özel kimlik doğrulama çözümü kullanıyorsanız, yükseltilen site sistemine erişimi olduğundan emin olmak isteyeceksiniz. Özel kimlik doğrulaması için yeni yönergeleri [.NET sunucu SDK'sı genel bakış] çözümünüzü tümleştirmek için. Özel kimlik doğrulama bileşenleri hala Önizleme aşamasında olduğunu lütfen unutmayın.
 
 ## <a name="updating-clients"></a>İstemcileri güncelleştirme
-İşletimsel bir mobil uygulama arka ucu olduktan sonra hangi içereceği tükettiği istemci uygulamanızı yeni bir sürümünü çalışabilirsiniz. Mobile Apps istemci SDK ' yeni bir sürümünü de içerir ve benzer sunucu yükseltme için Mobile Apps sürümleri yüklemeden önce Mobile Services SDK'ları tüm başvurularını kaldırmanız gerekir.
+İşletimsel bir mobil uygulama arka ucu oluşturduktan sonra kullandığı istemci uygulamanızın yeni bir sürümü üzerinde çalışabilir. Mobile Apps istemci SDK'ları yeni bir sürümünü de içerir ve benzer sunucu yükseltme için Mobile Apps sürümlerini yüklemeden önce mobil hizmetler SDK'ları tüm başvurularını kaldırmanız gerekir.
 
-Sürümleri arasında ana değişikliklerden birini oluşturucular artık bir uygulama anahtarı gerekmesidir. Artık yalnızca mobil uygulamanızın URL'de geçirdiğiniz. Örneğin, .NET istemcilerde `MobileServiceClient` Oluşturucusu olan şimdi:
+Sürümleri arasında ana değişiklikleri oluşturucular artık bir uygulama anahtarı gerektirir biridir. Artık yalnızca mobil uygulamanızın URL'SİNDE geçirin. Örneğin, .NET istemcilerde `MobileServiceClient` Oluşturucusu sunuldu:
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
             "https://contoso.azurewebsites.net", // URL of the Mobile App
         );
 
-Yeni SDK'ye yükleme ve yeni yapısı aşağıdaki bağlantıları üzerinden kullanma hakkında bilgi edinebilirsiniz:
+Yeni SDK yükleme ve yeni yapıyı aracılığıyla aşağıdaki bağlantıları kullanarak ilgili bilgi edinebilirsiniz:
 
-* [iOS sürüm 3.0.0 veya daha yenisi](app-service-mobile-ios-how-to-use-client-library.md)
-* [.NET (Windows/Xamarin) sürüm 2.0.0 veya daha yenisi](app-service-mobile-dotnet-how-to-use-client-library.md)
+* [iOS sürüm 3.0.0 veya üzeri](app-service-mobile-ios-how-to-use-client-library.md)
+* [.NET (Windows/Xamarin) 2.0.0 sürümü veya üzeri](app-service-mobile-dotnet-how-to-use-client-library.md)
 
-Olmuştur gibi bazı değişiklikler vardır de uygulamanız anında iletme bildirimleri kullanın, her platform için belirli kayıt yönergeleri not yapıyorsa.
+Olmuştur gibi bazı değişiklikleri de uygulamanızı anında iletme bildirimleri kullanın, her platform için belirli kayıt yönergeleri not yaparsa.
 
-Yeni istemci sürümü hazır olduğunda, yükseltilen sunucu projenizi karşı deneyin. Çalışır durumda olduğunu doğrulandıktan sonra müşterilere, uygulamanızın yeni bir sürüm serbest bırakabilirsiniz. Sonuç olarak, müşterilerinizin bu güncelleştirmeleri almak için bir fırsat beklendiğinden sonra uygulamanızın Mobile Services sürüm silebilirsiniz. Bu noktada, bir mobil en son mobil uygulamalar sunucusu SDK kullanarak uygulama hizmeti için tamamen yükselttiniz.
+Yeni istemci sürümü hazır olduğunda, yükseltilen sunucu projenizi karşı deneyin. Çalışır durumda olduğunu doğruladıktan sonra müşterilerin uygulamanızı yeni bir sürümü serbest bırakabilirsiniz. Sonuç olarak, müşterilerinizin bu güncelleştirmeleri almak için bir fırsat çalıştırılmış sonra uygulamanızın Mobile Services sürümü silebilirsiniz. Bu noktada, bir App Service mobil en son mobil uygulamalar sunucusu SDK'sı kullanarak uygulama için tamamen yükselttiniz.
 
 <!-- URLs. -->
 
@@ -262,14 +262,14 @@ Yeni istemci sürümü hazır olduğunda, yükseltilen sunucu projenizi karşı 
 [Klasik Azure portalı]: https://manage.windowsazure.com/
 [Mobile Apps nedir?]: app-service-mobile-value-prop.md
 [I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
-[mobil uygulama sunucusu SDK'sı]: http://www.nuget.org/packages/microsoft.azure.mobile.server
+[Mobil uygulama sunucusu SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
 [Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
-[Azure Scheduler]: /en-us/documentation/services/scheduler/
+[Azure Scheduler]: /azure/scheduler/
 [Web işi]: https://github.com/Azure/azure-webjobs-sdk/wiki
-[.NET sunucusu SDK kullanmayı]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[.NET sunucu SDK'sını kullanma]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[uygulama hizmeti fiyatlandırma]: https://azure.microsoft.com/pricing/details/app-service/
-[.NET sunucusu SDK Genel Bakış]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[App Service fiyatlandırması]: https://azure.microsoft.com/pricing/details/app-service/
+[.NET sunucu SDK'sı genel bakış]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
