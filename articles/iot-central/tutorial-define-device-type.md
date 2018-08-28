@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: b085911f760693a774d443ca055944268b20f055
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 4c850cd98280940c53a07c70c9c478f9e20e2963
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869614"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41919230"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Öğretici: Azure IoT Central uygulamanızda yeni bir cihaz türü tanımlama
 
@@ -342,8 +342,8 @@ Operatörün doğrudan cihazda komut çalıştırabilmesi için _komutları_ kul
     | Görünen Ad         | Yankı Komutu    |
     | Alan Adı           | echo            |
     | Varsayılan Zaman Aşımı      | 30              |
-    | Görünen Ad         | Görüntü Metni    |
-    | Görüntüleme Türü         | metin            |  
+    | Görüntüleme Türü         | metin            |
+    | Açıklama          | Cihaz Komutu  |  
 
 Girişler için **+** öğesine tıklayarak komutunuza başka girişler ekleyebilirsiniz.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2018
 ms.author: yushwang
-ms.openlocfilehash: ba557fdae01df4a631c2acff49cc3350fb08ff59
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 9a97927bb3309fd3ea833cbc7ff0e1eb8a5141f0
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726246"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042544"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Siteden Siteye VPN Gateway bağlantıları için VPN cihazları ve IPsec/IKE parametreleri hakkında
 
@@ -73,7 +73,7 @@ VPN cihazınızı yapılandırma konusunda yardım almak için, uygun cihaz aile
 | ShareTech | Yeni Nesil UTM (NU serisi) | 9.0.1.3 | Uyumlu değil | [Yapılandırma kılavuzu](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |TZ Series, NSA Series<br>SuperMassive Series<br>E-Class NSA Series |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Uyumlu değil |[Yapılandırma kılavuzu](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | XG Yeni Nesil Güvenlik Duvarı | XG v17 | | [Yapılandırma kılavuzu](https://community.sophos.com/kb/127546) |
-| Ubiquiti | EdgeRouter | EdgeOS v1.10 |  | [Ikev2/IPSec üzerinden BGP](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fhelp.ubnt.com%2Fhc%2Fen-us%2Farticles%2F115012374708&data=02%7C01%7Cmaafiri%40microsoft.com%7C7580cdf59eb94528c0de08d4f9fd78bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636408314443168072&sdata=2EF5KFljZwtAGQDSm8%2FF2f6DqI2bkmA2qKG4u0rPgbQ%3D&reserved=0)<br><br>[Ikev2/IPSec üzerinden VTI](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fhelp.ubnt.com%2Fhc%2Fen-us%2Farticles%2F115012305347&data=02%7C01%7Cmaafiri%40microsoft.com%7C7580cdf59eb94528c0de08d4f9fd78bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636408314443168072&sdata=ycgiDJCOQYTPN7sAEBSigphzC6mBaADz%2FgdCOm7TsXA%3D&reserved=0)
+| Ubiquiti | EdgeRouter | EdgeOS v1.10 |  | [Ikev2/IPSec üzerinden BGP](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[Ikev2/IPSec üzerinden VTI](https://help.ubnt.com/hc/en-us/articles/115012305347)
 | WatchGuard |Tümü |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Yapılandırma kılavuzu](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Yapılandırma kılavuzu](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
 > [!NOTE]
@@ -82,11 +82,11 @@ VPN cihazınızı yapılandırma konusunda yardım almak için, uygun cihaz aile
 >
 > (**) ISR 7200 Serisi yönlendiriciler yalnızca PolicyBased VPN’leri destekler.
 
-## <a name="configscripts"></a>Azure VPN cihazı yapılandırma komut dosyaları indirme
+## <a name="configscripts"></a>Azure VPN cihazı yapılandırma betiklerini indirme
 
-Belirli cihazlar, doğrudan Azure'dan yapılandırma komut indirebilirsiniz. Daha fazla bilgi ve yükleme yönergeleri için bkz: [karşıdan VPN cihazı yapılandırma komut](vpn-gateway-download-vpndevicescript.md).
+Belirli cihazlara, yapılandırma betiklerini doğrudan Azure'dan indirebilirsiniz. Daha fazla bilgi ve yükleme yönergeleri için bkz. [indirme VPN cihazı yapılandırma betiklerini](vpn-gateway-download-vpndevicescript.md).
 
-### <a name="devices-with-available-configuration-scripts"></a>Kullanılabilen yapılandırma komut dosyaları ile cihazları
+### <a name="devices-with-available-configuration-scripts"></a>Kullanılabilir yapılandırma betiklerini içeren cihazlar
 
 [!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 

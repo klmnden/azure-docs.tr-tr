@@ -12,14 +12,14 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2018
+ms.date: 08/20/2018
 ms.author: terrylan
-ms.openlocfilehash: b0e674eb161af41a848f0456a033d615293a9947
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 117fc5cb6583c4e3eed0c9506bda470400941f61
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622798"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41918561"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki tümleşik güvenlik çözümleri
 Bu belge Azure Güvenlik Merkezi'ne bağlanmış olan güvenlik çözümlerini yönetmenize ve yenilerini eklemenize yardımcı olur.
@@ -38,7 +38,11 @@ Tümleşik güvenlik çözümleri şu anda aşağıdakileri içermektedir:
 - Yeni nesil güvenlik duvarı ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) ve [Palo Alto Networks](https://www.paloaltonetworks.com/products))
 - Güvenlik açığı değerlendirmesi ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) ve [Rapid7](https://www.rapid7.com/products/insightvm/))
 
-Uç nokta koruma tümleştirme deneyimi, çözüme göre farklılık gösterebilir. Aşağıdaki tabloda her bir çözümün deneyimi hakkında daha fazla bilgi verilmiştir:
+> [!NOTE]
+> Güvenlik cihazı satıcılarının çoğu dış aracıların cihazlarında çalışmasını engellediğinden Güvenlik Merkezi, Microsoft Monitoring Agent uygulamasını iş ortağı sanal cihazlarına yüklemez.
+>
+>
+
 
 | Uç Nokta Koruması               | Platformlar                             | Güvenlik Merkezi Yüklemesi | Güvenlik Merkezi Bulma |
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
@@ -68,9 +72,9 @@ Güvenlik Merkezinden dağıtılan Azure güvenlik çözümleri otomatik olarak 
 
 2. **Microsoft Azure** menüsünde **Güvenlik Merkezi**’ni seçin. **Güvenlik Merkezi - Genel Bakış** açılır.
 
-  ![Güvenlik Merkezine Genel Bakış](./media/security-center-partner-integration/overview.png)
+3. Güvenlik Merkezi menüsünde **Güvenlik çözümleri**’ni seçin.
 
-3. **Genel Bakış** altında **Güvenlik çözümleri**’ni seçin.
+  ![Güvenlik Merkezine Genel Bakış](./media/security-center-partner-integration/overview.png)
 
 **Güvenlik çözümleri** altında tümleşik Azure güvenlik çözümlerinin sistem durumu hakkındaki bilgileri görüntüleyebilir ve temel yönetim görevlerini gerçekleştirebilirsiniz. Ayrıca Common Event Format (CEF) biçimindeki Azure Active Directory Kimlik Koruması uyarılarını ve güvenlik duvarı günlükleri gibi diğer güvenlik veri kaynağı türlerini de bağlayabilirsiniz.
 

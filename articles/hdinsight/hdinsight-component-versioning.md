@@ -3,19 +3,19 @@ title: Hadoop bileşenleri ve sürümleri - Azure HDInsight
 description: Hadoop bileşenleri ve sürümleri HDInsight ve bu Hortonworks Data Platform bulut dağıtımlarında kullanılabilir hizmet düzeyleri öğrenin.
 keywords: hadoop sürümlerini, hadoop ekosistemi bileşenleri, hadoop bileşenleri, hadoop sürüm denetimi yapma
 services: hdinsight
-editor: jasonwhowell
+ms.reviewer: jasonh
 author: kkampf
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: 1dda09896bfe8db5fc78ea64cd20baa78666c593
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 120068cb9dcd92b2b18c2e175793d2072baa2724
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444334"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43112172"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Hadoop bileşenleri ve sürümleri HDInsight ile kullanılabilen nelerdir?
 

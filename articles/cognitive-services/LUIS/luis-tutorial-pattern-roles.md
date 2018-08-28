@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 2fd473226dca2576be79b90bc05d66599f759713
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 633bf16790437ba83e9a2a99f33a23fef9255364
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524153"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090535"
 ---
 # <a name="tutorial-improve-app-with-pattern-roles"></a>Öğretici: desen rolleri ile uygulama geliştirin
 
@@ -52,7 +52,7 @@ Bu öğreticide, İnsan Kaynakları uygulamasında yeni çalışanlar bir city t
 |[Hiyerarşik (Rol)](luis-quickstart-intent-and-hier-entity.md)|MV Jill Jones gelen **a-2349** için **b-1298**|a-2349 b-1298|
 |Bu öğreticiyle (roller)|Öğesinden Billy Patterson ve Konuğu taşıma **Yuma** için **Denver**.|Yuma, Denver|
 
-Yalnızca hiyerarşik üst içindeki kullanıldığından deseninde hiyerarşik varlık kullanamazsınız. Kullanım muse kaynak ve hedef adlandırılmış konumlar döndürmek için bir desen.
+Yalnızca hiyerarşik üst desenlerinde kullanılan olduğundan hiyerarşik varlık deseninde kullanamazsınız. Kullanım muse kaynak ve hedef adlandırılmış konumlar döndürmek için bir desen.
 
 ### <a name="simple-entity-for-new-employee-name"></a>Basit varlık için yeni çalışan adı
 Yeni bir çalışan, Billy Patterson ve Konuğu, adını liste varlığı bir parçası değil **çalışan** henüz. Yeni çalışan adı, ilk olarak, şirket kimlik bilgilerini oluşturmak için bir dış sistem adı göndermek için ayıklanır. Çalışan kimlik bilgilerini şirket kimlik bilgilerini oluşturulduktan sonra liste varlığı için eklenen **çalışan**.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: ce3208fed119452ef9383fcb5b5eefb1aac6e224
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: ed8c34a7e1e11d431d9a3b416067736da0d1612c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056463"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046388"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Olağanüstü durum kurtarma hizmeti Yedekleme kullanarak uygulayın ve Azure API Yönetimi'nde geri yükleme
 
@@ -179,7 +179,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 Burada:
 
 * `subscriptionId` -API Management hizmeti ile bir yedekleme geri yüklediğiniz içeren aboneliğin kimliği
-* `resourceGroupName` -'Api - Default-{region service}' biçiminde bir dize burada `service-region` API Management hizmeti ile bir yedekleme geri yüklediğiniz barındırıldığı, örneğin, bir Azure bölgesi tanımlar `North-Central-US`
+* `resourceGroupName` -içine bir yedekleme geri yüklediğiniz Azure API Management hizmeti içeren kaynak grubunun adı
 * `serviceName` -API Management hizmet uygulamasına geri yükleniyor, oluşturma sırasında belirtilen adı
 * `api-version` -değiştirin `2018-06-01-preview`
 

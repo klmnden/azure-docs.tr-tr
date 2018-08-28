@@ -3,18 +3,18 @@ title: Tez kullanıcı Arabirimi, Windows tabanlı HDInsight ile - Azure kullan�
 description: Tez kullanıcı Arabirimi, Windows tabanlı HDInsight HDInsight üzerinde Tez işlerinin hatalarını ayıklamak için kullanmayı öğrenin.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: f54cc60f9490b8a5ca1872a290c3895ea8b0c5e4
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: ff47d0a71e97ce4ec9fd04e1d0cb9e5592192d53
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590910"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43112196"
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Tez kullanıcı Arabirimi, Windows tabanlı HDInsight üzerinde Tez işlerinin hatalarını ayıklamak için kullanın
 Tez kullanıcı Arabirimi, yürütme altyapısı Tez kullanan Hive işlerinin hatalarını ayıklamak için kullanılabilir. Bir grafik bağlı öğelerin her öğenin ayrıntısına ve istatistikleri ve günlük kaydı bilgilerini alma Tez kullanıcı Arabirimi iş görselleştirir.

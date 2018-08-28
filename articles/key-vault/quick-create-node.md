@@ -1,6 +1,6 @@
 ---
-title: Anahtar Kasasından gizli dizi okumak için bir Azure web uygulaması yapılandırma öğreticisi | Microsoft Docs
-description: 'Öğretici: Anahtar kasasından gizli dizi okumak için bir Node.js uygulaması yapılandırma'
+title: "Hızlı başlangıç: Node Web Uygulaması kullanarak Azure Key Vault'tan gizli dizi ayarlama ve alma | Microsoft Docs"
+description: "Hızlı başlangıç: Node Web Uygulaması kullanarak Azure Key Vault'tan gizli dizi ayarlama ve alma"
 services: key-vault
 documentationcenter: ''
 author: prashanthyv
@@ -8,19 +8,19 @@ manager: sumedhb
 ms.service: key-vault
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 08/01/2018
+ms.date: 08/08/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: cc43081463667eba06af6538f3d78f16544ed2a5
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 4592b256dfda75e81a94034545cd54dbf0d71532
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412251"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42023025"
 ---
-# <a name="quickstart-how-to-set-and-read-a-secret-from-key-vault-in-a-node-web-app"></a>Hızlı başlangıç: Bir Node Web Uygulaması içindeki Anahtar Kasasında gizli dizi belirleme ve okuma 
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>Hızlı başlangıç: Node Web Uygulaması kullanarak Azure Key Vault'tan gizli dizi ayarlama ve alma 
 
-Bu hızlı başlangıçta Anahtar Kasasında gizli dizi depolama ve bunu Web uygulaması kullanarak alma adımları gösterilmektedir. Bu web uygulaması yerel ortamda veya Azure'da çalıştırılabilir. Bu hızlı başlangıçta Node.js ve Yönetilen Hizmet Kimlikleri (MSI) kullanılmaktadır.
+Bu hızlı başlangıçta Anahtar Kasasında gizli dizi depolama ve bunu Web uygulaması kullanarak alma adımları gösterilmektedir. Gizli dizi değerini görmek için bunu Azure'da çalıştırmanız gerekir. Bu hızlı başlangıçta Node.js ve Yönetilen Hizmet Kimlikleri (MSI) kullanılmaktadır.
 
 > [!div class="checklist"]
 > * Anahtar Kasası oluşturun.
@@ -31,6 +31,9 @@ Bu hızlı başlangıçta Anahtar Kasasında gizli dizi depolama ve bunu Web uyg
 > * Web uygulamasının Anahtar Kasasından verileri okuması için gereken izinleri verin.
 
 Devam etmeden önce [temel kavramlar](key-vault-whatis.md#basic-concepts) hakkında bilgi sahibi olduğunuzdan emin olun.
+
+>[!NOTE]
+Aşağıdaki öğreticinin neden en iyi yöntem olduğunu anlamak için bilmeniz gereken birkaç kavram vardır. Key Vault, gizli dizilerin program aracılığıyla depolandığı merkezi bir depodur. Bunu yapmak için uygulamaların/kullanıcıların gizli dizi sunarak Key Vault kimlik doğrulamasından geçmesi gerekir. Güvenlikle ilgili en iyi yöntemlerin uygulanması için bu ilk gizli dizinin de düzenli olarak döndürülmesi gerekir. Ancak [Yönetilen Hizmet Kimliği](../active-directory/managed-service-identity/overview.md) sayesinde Azure'da çalışan uygulamalara Azure tarafından otomatik olarak yönetilen bir kimlik verilir. Bu da **Gizli Dizi Belirleme Sorununu** çözerek kullanıcıların/uygulamaların en iyi yöntemleri uygulamasına ve ilk gizli diziyi döndürme konusunda endişelenmemesine yardımcı olur.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -49,7 +52,7 @@ az login
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
+[az group create](/cli/azure/group#az-group-create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
 Lütfen bir Kaynak Grubu adı seçin ve yer tutucunun yerine yazın.
 Aşağıdaki örnekte, *eastus* konumunda *<YourResourceGroupName>* adlı bir kaynak grubu oluşturulur.
@@ -123,8 +126,6 @@ Yapmanız gereken birkaç adım aşağıda gösterilmiştir
     ```
     # Bash
     az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9" --deployment-local-git
-    # PowerShell
-    az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
     ```
     Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan çıktıdaki gibi bilgiler gösterir:
     ```

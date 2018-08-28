@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: aaed3dd5a2a7b32d24aa8b19dab870c28e6f58ec
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 4638b697dcaa0d4c11bae1878a94f76f6237d4a4
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216191"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42154790"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Azure VM’leri için ikincil Azure bölgesine olağanüstü durum kurtarma ayarlama
 
@@ -114,8 +114,9 @@ Azure Site Recovery, Site Recovery yönetim işlemlerini denetlemek için üç y
 2. **Kaynak** bölümünde **Azure** seçeneğini belirleyin.
 3. **Kaynak konumu**’nda, VM’lerinizin çalışmakta olduğu kaynak Azure bölgesini seçin.
 4. VM’ler için **Azure sanal makine dağıtım modeli**’ni seçin: **Kaynak Yöneticisi** veya **Klasik**.
-5. Kaynak Yöneticisi VM’ler için **Kaynak grubu**’nu veya klasik VM’ler için **bulut hizmeti**’ni seçin.
-6. Ayarları kaydetmek için **Tamam**’a tıklayın.
+5. Sanal makinelerin çalıştığı **Kaynak aboneliği** seçin. Bu abonelik, kurtarma hizmetleri kasanızın bulunduğu Azure Active Directory kiracısında bulunan aboneliklerden biri olabilir.
+6. Kaynak Yöneticisi VM’leri için **Kaynak grubu**’nu veya klasik VM’ler için **bulut hizmeti**'ni seçin.
+7. Ayarları kaydetmek için **Tamam**’a tıklayın.
 
 ### <a name="select-the-vms"></a>VM’leri seçme
 
@@ -134,9 +135,11 @@ Site Recovery, hedef bölge için varsayılan ayarları ve çoğaltma ilkesini o
   ![Ayarları yapılandırma](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
+- **Hedef abonelik**: Olağanüstü durum kurtarma için kullanılan hedef abonelik. Hedef abonelik varsayılan olarak kaynak abonelikle aynı olur. Aynı Azure Active Directory kiracısındaki farklı bir hedef aboneliği seçmek için 'Özelleştir'e tıklayın.
+
 - **Hedef konum**: Olağanüstü durum kurtarma için kullanılan hedef bölge. Hedef konumun Site Recovery kasasının konumuyla eşleşmesini öneririz.
 
-- **Hedef kaynak grubu**: Yük devretme işleminden sonra VM’lerin tutulduğu hedef bölgedeki kaynak grup. Site Recovery, varsayılan olarak hedef bölgede "asr" sonekine sahip yeni bir kaynak grup oluşturur. hedef kaynak grubunun kaynak grubu konumu, sanal makinelerinizin barındırıldığı bölge dışındaki herhangi bir bölge olabilir. 
+- **Hedef kaynak grubu**: Yük devretme işleminden sonra VM’lerin tutulduğu hedef bölgedeki kaynak grup. Site Recovery, varsayılan olarak hedef bölgede "asr" sonekine sahip yeni bir kaynak grup oluşturur. hedef kaynak grubunun kaynak grubu konumu, sanal makinelerinizin barındırıldığı bölge dışındaki herhangi bir bölge olabilir.
 
 - **Hedef sanal ağ**: Yük devretme işleminden sonra VM’lerin bulunduğu hedef bölgedeki ağ.
   Site Recovery varsayılan olarak hedef bölgede "asr" sonekine sahip yeni bir sanal ağ (ve alt ağlarını) oluşturur.

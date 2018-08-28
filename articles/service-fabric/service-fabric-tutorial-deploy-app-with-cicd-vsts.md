@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: f3cc4f518278cca915e40bd691c6a7674219916e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 2122b6d9c385e1137d0fc6df5229975359fa20d5
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109401"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41919424"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Öğretici: Service Fabric kümesine CI/CD ile uygulama dağıtma
 
@@ -50,7 +50,7 @@ Bu öğreticiye başlamadan önce:
 * **Azure geliştirme** ve **ASP.NET ve web geliştirme** iş yükleriyle [Visual Studio 2017’yi yükleyin](https://www.visualstudio.com/).
 * [Service Fabric SDK'yı yükleyin](service-fabric-get-started.md)
 * Azure’da Windows Service Fabric kümesi oluşturun; örneğin, [bu öğreticiyi izleyin](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* [Team Services hesabı](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) oluşturun.
+* [Team Services hesabı](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student) oluşturun.
 
 ## <a name="download-the-voting-sample-application"></a>Voting örnek uygulamasını indirme
 
@@ -94,7 +94,13 @@ Team Services yayın tanımı, kümeye uygulama paketi dağıtan bir iş akış�
 
 Web tarayıcısını açın ve şu adresteki yeni takım projenize gidin: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
-**Derleme ve Yayın** sekmesini, ardından **Derlemeler**’i ve **+ Yeni tanım**’ı seçin.  **Şablon seç** alanında **Azure Service Fabric Uygulaması** şablonunu seçin ve **Uygula**'ya tıklayın.
+**Derleme ve yayın** sekmesini ve **Derlemeler**'i seçip **Yeni İşlem Hattı**'na tıklayın.
+
+![Yeni İşlem Hattı][new-pipeline]
+
+Kaynak olarak **VSTS Git**'i, **Voting** Takım projesini, **Voting** Deposunu ve **ana** Varsayılan dalını veya el ile ve zamanlanmış derlemeleri seçin.  Daha sonra **Devam**’a tıklayın.
+
+**Şablon seç** alanında **Azure Service Fabric uygulaması** şablonunu seçin ve **Uygula**'ya tıklayın.
 
 ![Derleme şablonu seçme][select-build-template]
 
@@ -102,7 +108,9 @@ Web tarayıcısını açın ve şu adresteki yeni takım projenize gidin: [https
 
 ![Görevleri seçme][save-and-queue]
 
-**Tetikleyiciler**’in altında **Tetikleyici durumu**’nu ayarlayarak sürekli tümleştirmeyi etkinleştirin.  Derlemeyi el ile başlatmak için **Kaydet ve kuyruğa al**’ı seçin.
+**Tetikleyiciler**’in altında **Sürekli tümleştirmeyi etkinleştir**'i işaretleyerek sürekli tümleştirmeyi etkinleştirin. **Dal filtreleri** bölümünde **+ Ekle**'ye tıklayın, **Dal belirtimi** **ana** varsayılan değerine döner. Derlemeyi el ile başlatmak için **Kaydet ve kuyruğa al**’ı seçin.
+
+**Derleme işlem hattını ve kuyruğu kaydet iletişim kutusunda** **Kaydet ve kuyruğa al**'a tıklayın.
 
 ![Tetikleyicileri seçme][save-and-queue2]
 
@@ -110,7 +118,7 @@ Derlemeler gönderme veya iade işlemleriyle de tetiklenir. Derlemenizin ilerlem
 
 ### <a name="create-a-release-definition"></a>Yayın tanımı oluşturma
 
-**Derleme ve Yayın** sekmesini, ardından **Yayınlar**’ı ve **+ Yeni tanım**’ı seçin.  **Şablon seç** alanında, listeden **Azure Service Fabric Dağıtımı** şablonunu ve sonra da **Uygula**'yı seçin.
+**Derleme ve Yayın** sekmesini, ardından **Yayınlar**’ı ve **+ Yeni işlem hattı**’nı seçin.  **Şablon seç** alanında, listeden **Azure Service Fabric Dağıtımı** şablonunu ve sonra da **Uygula**'yı seçin.
 
 ![Yayın şablonunu seçme][select-release-template]
 
@@ -134,7 +142,9 @@ Derleme tamamlandığında otomatik olarak bir yayın oluşturulması için sür
 
 ![Tetikleyici etkinleştirme][enable-trigger]
 
-Yayını el ile oluşturmak için **+Yayın** -> **Yayın Oluştur** -> **Oluştur**'u seçin.  Dağıtımın başarılı olduğunu ve uygulamanın kümede çalıştığını doğrulayın.  Bir web tarayıcısı açın ve [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/) sayfasına gidin.  Uygulama sürümünü not alın (bu örnekte "1.0.0.20170616.3").
+Yayını el ile oluşturmak için **+ Yayın** -> **Yayın Oluştur** -> **Oluştur**'u seçin. Yayının ilerleme durumunu **Yayınlar** sekmesinden takip edebilirsiniz.
+
+Dağıtımın başarılı olduğunu ve uygulamanın kümede çalıştığını doğrulayın.  Bir web tarayıcısı açın ve [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/) sayfasına gidin.  Uygulama sürümünü not alın (bu örnekte "1.0.0.20170616.3").
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Değişiklikleri işleme ve gönderme, yayını tetikleme
 
@@ -188,6 +198,7 @@ Sonraki öğreticiye ilerleyin:
 [publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
+[new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewPipeline.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
 [save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
 [save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png

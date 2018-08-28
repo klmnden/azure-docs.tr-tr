@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/20/2018
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: 892dd050829dce242035e2b875ea43ed13910d4a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 8aa4695ea1175fe9d558e02bae661c9610123299
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246083"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43087181"
 ---
 ## <a name="associate-an-azure-storage-account-to-iot-hub"></a>IOT hub'ı bir Azure depolama hesabına ilişkilendirin
 
@@ -21,4 +21,4 @@ Sanal cihaz uygulaması, bir dosyayı bloba yükler. çünkü olmalıdır bir [A
 
 Bölümündeki yönergeleri [yapılandırma dosyasını karşıya yükler Azure portalını kullanarak](../articles/iot-hub/iot-hub-configure-file-upload.md) IOT hub'ınıza bir Azure depolama hesabı ilişkilendirilecek. Bir blob kapsayıcısı, IOT hub'ı ile ilişkili olduğunu ve dosya bildirimlerini etkinleştirildiğinden emin olun.
 
-![Portalda dosya bildirimlerini etkinleştirme](media/iot-hub-associate-storage/enable-file-notifications.png)
+![Portalda dosya bildirimlerini etkinleştirme](./media/iot-hub-associate-storage/enable-file-notifications.png)

@@ -1,30 +1,24 @@
 ---
-title: "Azure veri Kataloğu'nda ilgili veri varlıklarını görüntülemek nasıl | Microsoft Docs"
-description: "Bu makalede, Azure veri Kataloğu'nda, seçilen veri varlığını ilgili veri varlıklarını görüntülemek açıklanmaktadır."
+title: Azure veri Kataloğu'nda ilgili veri varlıklarını görüntüleme
+description: Bu makalede, Azure veri Kataloğu'nda, seçilen veri varlığının ilgili veri varlıklarını görüntülemek açıklanmaktadır.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: NA
-editor: 
-tags: 
-ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
-ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 37d12209d28b73f0d7fc6d940ded344fbeae968d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.service: data-catalog
+ms.topic: conceptual
+ms.date: 01/18/2018
+ms.openlocfilehash: d680cc69d27681883014a414255ad0ea4d022cd4
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053587"
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Azure veri Kataloğu'nda ilgili veri varlıklarını görüntülemek nasıl?
 Azure veri Kataloğu, aralarında seçili veri varlığına ve görünümü ilişkiler ilgili veri varlıklarını görüntülemenizi sağlar. 
 
 ## <a name="supported-data-sources"></a>Desteklenen veri kaynakları 
-Aşağıdaki veri kaynaklarından veri varlıklarını kaydetme, Azure veri Kataloğu seçilen veri varlıklarının birleştirme ilişkilerini hakkındaki meta verileri otomatik olarak kaydeder. 
+Aşağıdaki veri kaynaklarından veri varlıklarını kaydetme, Azure veri Kataloğu, seçili veri varlıkları arasında birleştirme ilişkilerini hakkındaki meta verileri otomatik olarak kaydeder. 
 
 - SQL Server
 - Azure SQL Database
@@ -32,26 +26,26 @@ Aşağıdaki veri kaynaklarından veri varlıklarını kaydetme, Azure veri Kata
 - Oracle
 
 > [!NOTE]
-> Veri Kataloğu'nın iki veri varlıklar arasındaki ilişki içeri aktarmak aynı anda hem varlıkları kaydetmeniz gerekir. Bunlardan birini ayrı ayrı eklediyseniz, tekrar ve bunlar arasındaki ilişkinin almak için diğer veri varlığına ekleyin.
+> Veri Kataloğu'nın iki veri varlıkları arasındaki ilişkileri içeri aktarmak aynı anda hem varlıkları kaydetmeniz gerekir. Bunlardan biri ayrı olarak eklemeden yeniden ve aralarındaki ilişkiyi almak için diğer veri varlığı ekleyin.
 
-## <a name="view-related-data-assets"></a>İlgili veri varlıklarını görüntülemek
-Seçilen bir veri kümesine ilgili veri varlıklarını görüntülemek için kullanın **ilişkileri** sekmesinde aşağıdaki resimde gösterildiği gibi: 
+## <a name="view-related-data-assets"></a>İlgili veri varlıklarını görüntüleme
+Seçilen bir veri kümesi için ilgili veri varlıklarını görüntülemek için kullanın **ilişkileri** sekmesinde aşağıdaki görüntüde gösterildiği gibi: 
 
-![Azure veri Kataloğu - veri varlıklarını ilgili görüntüleyin](media\data-catalog-how-to-view-related-data-assets\relationships-tab.png)
+![Azure veri Kataloğu - veri varlıkları ile ilgili görüntüleyin](media\data-catalog-how-to-view-related-data-assets\relationships-tab.png)
 
 Bu örnekte, seçilen iki ilişkisi vardır **ProductSubcategory** veri varlığına: 
 
-- Ürün tablosunun ProductSubcategoryID sütunu seçili ProductSubcategory tablosunun ProductSubcategoryID sütunla yabancı anahtar ilişkisi vardır. 
-- ProductSubCategory tablosunun ProductCategoryID sütunu seçili ProductCategory tablosunun ProductCategoryID sütunla yabancı anahtar ilişkisi vardır.
+- Product tablosunda ProductSubcategoryID sütunu seçili ProductSubcategory tablosunun ProductSubcategoryID sütunla yabancı anahtar ilişkisi vardır. 
+- ProductSubCategory tablosunda ProductCategoryID sütun, seçili ProductCategory tablosunun ProductCategoryID sütunla yabancı anahtar ilişkisi vardır.
 
 > [!NOTE]
-> İlişkileri ağaç görünümünde ok yönünü dikkat edin.  
+> Yön okun ilişkileri ağaç görünümünde dikkat edin.  
 
-Sütun tam adı gibi daha fazla ayrıntı için fare üzerine getirin ve aşağıdaki görüntüye benzer popup bakın: 
+Sütunun tam adı gibi daha fazla ayrıntı görmek için fareyi üzerine getirin ve aşağıdaki görüntüye benzer bir açılır pencere görürsünüz: 
 
-![Azure veri Kataloğu - ilişki açılan](media\data-catalog-how-to-view-related-data-assets\relationship-popup.png)
+![Azure veri Kataloğu - ilişki açılan menüsü](media\data-catalog-how-to-view-related-data-assets\relationship-popup.png)
 
-Zaten kayıtlı varlıklar arasındaki ilişkiler eklemek için bu varlıkları yeniden kaydedin.
+Zaten kayıtlı varlıklar arasında ilişki eklemek için bu varlıkları yeniden kaydedin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Veri varlıklarını yönetme](data-catalog-how-to-manage.md)

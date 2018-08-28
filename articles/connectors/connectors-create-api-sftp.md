@@ -11,12 +11,12 @@ ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: 9714a00d070caab9d3a3338329295192e1eb9997
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 8f430477883543aa8f87eb3fb0fb49ab31e2d723
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887596"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042047"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>İzleme, oluşturma ve Azure Logic Apps kullanarak SFTP dosyalarını yönetme
 
@@ -48,24 +48,16 @@ Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](..
 
 1. Oturum [Azure portalında](https://portal.azure.com)ve Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın, açık değilse.
 
-1. Bir yolu seçin: 
+1. Boş mantıksal uygulama için arama kutusuna filtreniz olarak "sftp" girin. Tetikleyiciler listesinde istediğiniz tetikleyicisini seçin. 
 
-   * Boş mantıksal uygulama için arama kutusuna filtreniz olarak "salesforce" girin. 
-   Tetikleyiciler listesinde istediğiniz tetikleyicisini seçin. 
+   -veya-
 
-     -veya-
+   Var olan mantıksal uygulamalar, son adım, bir eylem eklemek istediğiniz altında seçin için **yeni adım**. 
+   Arama kutusuna filtreniz olarak "sftp" girin. 
+   Eylemler listesinde, istediğiniz eylemi seçin.
 
-   * Var olan mantıksal uygulamalar için: 
-   
-     * Son adım, bir eylem eklemek istediğiniz altında seçin **yeni adım**. 
-
-       -veya-
-
-     * Bir eylem eklemek istediğiniz adımları arasında işaretçinizi adımlar arasındaki okun üzerine getirin. 
-     Artı işaretini seçin (**+**), görünür ve ardından **Eylem Ekle**.
-     
-        Arama kutusuna filtreniz olarak "sftp" girin. 
-        Eylemler listesinde, istediğiniz eylemi seçin.
+   Adımlar arasında bir eylem eklemek için işaretçinizi adımlar arasındaki okun üzerine getirin. 
+   Artı işaretini seçin (**+**), görünür ve ardından **Eylem Ekle**.
 
 1. Bağlantınız için gerekli bilgileri sağlayın ve ardından **Oluştur**.
 

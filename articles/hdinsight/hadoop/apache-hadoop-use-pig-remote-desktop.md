@@ -3,18 +3,18 @@ title: HDInsight - Azure Uzak Masaüstü ile Hadoop Pig kullanma
 description: Bir Uzak Masaüstü Bağlantısı'ndan bir Windows tabanlı bir Hadoop kümesinde HDInsight Pig Latin açıklamaları çalıştırmak için Pig komut kullanmayı öğrenin.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5aec07a5ebbbb56abcbaebbddc5579cf4d076b4d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 224722c61a653eae55bc1351e91e6288bc793fb6
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590675"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049872"
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Bir Uzak Masaüstü Bağlantısı'ndan pig işleri çalıştırma
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
@@ -58,7 +58,7 @@ HDInsight kümesi için Uzak masaüstünü etkinleştirme, sonra yönergeleri iz
 
     <table>
     <tr>
-    <th>Deyim</th><th>Ne yapar?</th>
+    <th>Bildirim</th><th>Ne yapar?</th>
     </tr>
     <tr>
     <td>FILTEREDLEVELS = LOGLEVEL FİLTRE DÜZEYLERİNİN null; değil</td><td>Günlük düzeyi için bir null değer içeren satırları kaldırır ve sonuçları FILTEREDLEVELS depolar.</td>

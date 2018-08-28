@@ -6,14 +6,14 @@ author: vhorne
 ms.service: firewall
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 7/11/2018
+ms.date: 8/13/2018
 ms.author: victorh
-ms.openlocfilehash: daf847ea9a6b6310afbc8eca7f662065fe75ade6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: b65a5dec63bdc625dda64e101620f56cd6dd7308
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397191"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41920640"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Azure Güvenlik Duvarı test ortamı oluşturma
 
@@ -80,10 +80,10 @@ Bu betik, bir kaynak grubu, sanal ağ ve ağ güvenliği grupları oluşturmak i
 | [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) | Sanal makine yapılandırması oluşturur. Bu yapılandırma; sanal makine adı, işletim sistemi ve yönetici kimlik bilgileri gibi bilgileri içerir. Yapılandırma, sanal makine oluşturulurken kullanılır. |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Sanal makine oluşturur. |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Kaynak grubunu ve grubun içerdiği tüm kaynakları kaldırır. |
-|New-AzureRmFirewall| Yeni bir Azure Güvenlik Duvarı oluşturur.|
-|Get-AzureRmFirewall|Azure Güvenlik Duvarı nesnesini alır.|
-|New-AzureRmFirewallApplicationRule|Yeni bir Azure Güvenlik Duvarı uygulama kuralı oluşturur.|
-|Set-AzureRmFirewall|Değişiklikleri Azure Güvenlik Duvarı nesnesine işler.|
+|[New-AzureRmFirewall](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/New-AzureRmFirewall.md)| Yeni bir Azure Güvenlik Duvarı oluşturur.|
+|[Get-AzureRmFirewall](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/Get-AzureRmFirewall.md)|Azure Güvenlik Duvarı nesnesini alır.|
+|[New-AzureRmFirewallApplicationRule](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/New-AzureRmFirewallApplicationRule.md)|Yeni bir Azure Güvenlik Duvarı uygulama kuralı oluşturur.|
+|[Set-AzureRmFirewall](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/Set-AzureRmFirewall.md)|Değişiklikleri Azure Güvenlik Duvarı nesnesine işler.|
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

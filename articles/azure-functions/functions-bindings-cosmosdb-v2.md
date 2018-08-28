@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 1237d6a35d279a1036bb8139dd0b0ceaa34edb7b
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3fc00400590582d21590aadc9741cf0eaf048240
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746851"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047223"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>Azure işlevleri için Azure Cosmos DB bağlamaları 2.x (Önizleme)
 
@@ -36,6 +36,10 @@ Bu makalede ile nasıl çalışılacağı açıklanmaktadır [Azure Cosmos DB](.
 > Bu bağlama başlangıçta DocumentDB olarak adlandırılıyordu. İşlevleri sürüm 2.x, tetikleyici, bağlamalar ve paket tüm Cosmos DB adlandırılır.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="supported-apis"></a>Desteklenen API'ler
+
+[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="packages---functions-2x"></a>Paketler - 2.x işlevleri
 
@@ -254,10 +258,7 @@ Tetikleyici, bir belge güncelleştirildi veya eklenen belge yalnızca sağladı
 
 ## <a name="input"></a>Girdi
 
-Azure Cosmos DB giriş bağlama, bir veya daha fazla Azure Cosmos DB belgelerini alır ve bunları işlevin giriş parametresi geçirir. Belge kimliği veya sorgu parametreleri işlevi çağıran bir tetikleyiciye bağlı olarak belirlenebilir. 
-
->[!NOTE]
-> Azure Cosmos DB giriş veya çıktı bağlaması MongoDB API'si bir Cosmos DB hesabı kullanıyorsanız, kullanmayın. Veri bozulması olabilir.
+Azure Cosmos DB giriş bağlama, bir veya daha fazla Azure Cosmos DB belgesi alınacağını SQL API'sini kullanır ve bunları işlevin giriş parametresi geçirir. Belge kimliği veya sorgu parametreleri işlevi çağıran bir tetikleyiciye bağlı olarak belirlenebilir. 
 
 ## <a name="input---examples"></a>Giriş - örnekler
 
@@ -1253,10 +1254,7 @@ JavaScript işlevleri'nde güncelleştirmeleri otomatik olarak işlevi çıkış
 
 ## <a name="output"></a>Çıktı
 
-Azure Cosmos DB çıkış sağlar bağlaması yeni bir belge bir Azure Cosmos DB veritabanına yazın. 
-
->[!NOTE]
-> Azure Cosmos DB giriş veya çıktı bağlaması MongoDB API'si bir Cosmos DB hesabı kullanıyorsanız, kullanmayın. Veri bozulması olabilir.
+Azure Cosmos DB çıkış sağlar bağlaması SQL API'sini kullanarak bir Azure Cosmos DB veritabanına yeni bir belge yazma. 
 
 ## <a name="output---examples"></a>Çıkış - örnekler
 

@@ -1,220 +1,91 @@
 ---
-title: HTTP üzerinden - Azure Logic Apps ile herhangi bir uç nokta iletişim | Microsoft Docs
-description: İletişim kurabilir logic apps ile herhangi bir uç nokta HTTP üzerinden oluşturun.
+title: Azure Logic Apps ile herhangi bir HTTP uç noktasına bağlanma | Microsoft Docs
+description: Görevler ve herhangi bir HTTP uç noktası ile iletişim kuran Azure Logic Apps kullanarak iş akışlarını otomatikleştirin
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-tags: connectors
-ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/15/2016
-ms.author: jehollan; LADocs
-ms.openlocfilehash: 452af4facd03ce2b4f010a29acc0122241df63c1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: e1561e3be95847efccf487c96bd9c9a8104f161b
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296433"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106457"
 ---
-# <a name="get-started-with-the-http-action"></a>HTTP eylem ile çalışmaya başlama
+# <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Azure Logic Apps ile HTTP veya HTTPS uç noktalarına çağrı
 
-HTTP eylem ile kuruluşunuz için iş akışları genişletmek ve herhangi bir uç nokta için HTTP üzerinden iletişim kurar.
+Azure Logic Apps ve Köprü Metni Aktarım Protokolü (HTTP) Bağlayıcısı ile mantıksal uygulamalar oluşturarak herhangi bir HTTP veya HTTPS uç noktasıyla iletişim iş akışlarını otomatik hale getirebilirsiniz. Örneğin, Web siteniz için hizmet uç noktası izleyebilirsiniz. Aşağı doğru giden, Web sitesi gibi bu uç noktada bir olay meydana geldiğinde olay mantıksal uygulamanızın iş akışı tetikler ve belirtilen eylemleri çalıştırır. 
 
-Şunları yapabilirsiniz:
+HTTP tetikleyicisi ilk adım olarak, iş akışı içinde denetlemek için kullanabileceğiniz veya *yoklama* düzenli bir uç nokta. Her denetimi, bir çağrı tetikleyici gönderir veya *isteği* uç noktası. Uç noktanın yanıt, mantıksal uygulamanızın iş akışı çalıştırır olup olmadığını belirler. Tetikleyici, mantıksal uygulama eylemleri yanıta herhangi bir içerik geçirir. 
 
-* Yönettiğiniz bir Web sitesi azaldığında (tetikleyici) etkinleştirme uygulama iş akışları mantığı oluşturun.
-* Herhangi bir uç nokta, iş akışlarınızı diğer Hizmetleri içine genişletmek için HTTP üzerinden iletişim kurar.
+HTTP eylem istediğiniz zaman uç noktasını çağırmak için akışınızda herhangi bir adım olarak kullanabilirsiniz. Uç noktanın yanıt kalan iş akışının eylemlerini çalışma şeklini belirler.
 
-HTTP eylemi bir mantıksal uygulama kullanmaya başlamak için bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](../logic-apps/logic-apps-overview.md)
 
-## <a name="use-the-http-trigger"></a>HTTP tetikleyicisini kullanın
-Bir tetikleyici bir mantıksal uygulama tanımlı iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](connectors-overview.md).
+## <a name="prerequisites"></a>Önkoşullar
 
-Burada, örnek dizisi mantığı Uygulama Tasarımcısı'nda HTTP tetikleyicisi ayarlama konusunda verilmiştir.
+* Azure aboneliği. Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
 
-1. HTTP tetikleyicisini mantıksal uygulamanızı ekleyin.
-2. Sorgulamak istediğiniz HTTP uç noktası parametrelerini doldurun.
-3. Ne sıklıkta yoklanacağını üzerinde yinelenme aralığını değiştirin.
+* Aramak istediğiniz hedef uç nokta URL'si 
 
-   Mantıksal uygulama artık her denetimi sırasında döndürülen herhangi bir içerik ile ateşlenir.
+* Hakkında temel bilgilere [mantıksal uygulamalar oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-   ![HTTP tetikleyicisi](./media/connectors-native-http/using-trigger.png)
+* HTTP tetikleyicisi ile başlatmak için hedef uç noktasını çağırmak istediğiniz mantıksal uygulama [boş mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). HTTP eylem kullanmak için mantıksal uygulamanızın bir tetikleyici ile başlayın.
 
-### <a name="how-the-http-trigger-works"></a>HTTP tetikleyicisini nasıl çalışır?
+## <a name="add-http-trigger"></a>HTTP tetikleyicisi Ekle
 
-HTTP tetikleyicisini HTTP uç noktası için bir çağrı yinelenen bir aralıkta gönderir. Varsayılan olarak, 300'den düşük olduğu herhangi bir HTTP yanıt kodu çalıştırmak bir mantıksal uygulama neden olur. Mantıksal uygulama yangın olup olmadığını belirlemek için kod görünümünde mantıksal uygulama düzenleyebilir ve HTTP çağrısından sonra değerlendiren bir koşul ekleyin. Döndürülen durum kodu değerinden büyük veya eşit olduğunda tetiklenen bir HTTP tetikleyicisi bir örneği burada verilmiştir `400`.
+1. Oturum [Azure portalında](https://portal.azure.com)ve Logic Apps Tasarımcısı'nda boş mantıksal uygulamanızı açın, açık değilse.
 
-```javascript
-"Http":
-{
-    "conditions": [
-        {
-            "expression": "@greaterOrEquals(triggerOutputs()['statusCode'], 400)"
-        }
-    ],
-    "inputs": {
-        "method": "GET",
-        "uri": "https://blogs.msdn.microsoft.com/logicapps/",
-        "headers": {
-            "accept-language": "en"
-        }
-    },
-    "recurrence": {
-        "frequency": "Second",
-        "interval": 15
-    },
-    "type": "Http"
-}
-```
+1. Arama kutusuna filtreniz olarak "http" girin. Tetikleyiciler listesinde seçin **HTTP** tetikleyici. 
 
-HTTP trigger parametreleri ilgili tam ayrıntılar bulunur [MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx#HTTP-trigger).
+   ![HTTP tetikleyicisini seçin](./media/connectors-native-http/select-http-trigger.png)
 
-## <a name="use-the-http-action"></a>HTTP eylemi kullanın
+1. Sağlamak [HTTP tetikleyici parametrelerini ve değerlerini](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) hedef uç noktasına çağrıda dahil etmek istediğiniz. Hedef uç noktasını denetlemek için yineleme tetikleyicisi istediğiniz sıklığı için ayarlayın.
 
-Bir eylem, bir mantıksal uygulama içinde tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. 
-[Eylemler hakkında daha fazla bilgi](connectors-overview.md).
+   ![HTTP tetikleyicisi parametreleri girin](./media/connectors-native-http/http-trigger-parameters.png)
 
-1. Seçin **yeni adım** > **Eylem Ekle**.
-3. Eylem arama kutusuna yazın **http** HTTP eylemler listesi.
-   
-    ![HTTP eylemi seçin](./media/connectors-native-http/using-action-1.png)
+   HTTP tetikleyicisi, parametreler ve değerler hakkında daha fazla bilgi için bkz: [tetikleyici ve eylem türleri başvurusu](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger).
 
-4. HTTP çağrısı için gerekli parametreleri ekleyin.
-   
-    ![HTTP eylemi tamamlamak](./media/connectors-native-http/using-action-2.png)
+1. Mantıksal uygulamanızın Tetikleyici etkinleştirildiğinde çalıştırılan eylemleri iş akışı oluşturmaya devam edin.
 
-5. Tasarımcı araç çubuğunda tıklatın **kaydetmek**. Mantıksal uygulamanızı kaydedildi ve aynı anda (etkin) yayımlandı.
+## <a name="add-http-action"></a>HTTP Eylem Ekle
 
-## <a name="http-trigger"></a>HTTP tetikleyicisi
-Aşağıda, bu bağlayıcıyı destekler tetikleyici için Ayrıntılar verilmiştir. HTTP Bağlayıcısı bir tetikleyici vardır.
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-| Tetikleyici | Açıklama |
-| --- | --- |
-| HTTP |Bir HTTP çağrı yapar ve yanıt içeriği döndürür. |
+1. Oturum [Azure portalında](https://portal.azure.com)ve Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın, açık değilse.
 
-## <a name="http-action"></a>HTTP eylemi
-Aşağıda, bu bağlayıcıyı destekler eylemi için Ayrıntılar verilmiştir. HTTP Bağlayıcısı olası eylem vardır.
+1. HTTP eylem eklemek istediğiniz son adımı altında seçin **yeni adım**. 
 
-| Eylem | Açıklama |
-| --- | --- |
-| HTTP |Bir HTTP çağrı yapar ve yanıt içeriği döndürür. |
+   Bu örnekte, mantıksal uygulama ilk adım olarak HTTP tetikleyicisi ile başlatılır.
 
-## <a name="http-details"></a>HTTP ayrıntıları
-Aşağıdaki tablolar, eylem ve eylem kullanımıyla ilişkili karşılık gelen çıkış ayrıntıları için gerekli ve isteğe bağlı giriş alanlarının açıklamaktadır.
+1. Arama kutusuna filtreniz olarak "http" girin. Eylemler listesinde seçin **HTTP** eylem.
 
-#### <a name="http-request"></a>HTTP isteği
-HTTP giden isteğinde eylemi için girdi alanlarının verilmiştir.
-A * gerekli bir alan olduğu anlamına gelir.
+   ![HTTP eylemi seçin](./media/connectors-native-http/select-http-action.png)
 
-| Görünen ad | Özellik adı | Açıklama |
-| --- | --- | --- |
-| Yöntemi * |method |Kullanılacak HTTP fiili |
-| URI * |uri |HTTP isteği için URI |
-| Üst bilgiler |headers |HTTP üstbilgisi eklemek için bir JSON nesnesi |
-| Gövde |body |HTTP istek gövdesi |
-| Kimlik Doğrulaması |kimlik doğrulaması |İçinde ayrıntıları [kimlik doğrulaması](#authentication) bölümü |
+   Adımlar arasında bir eylem eklemek için işaretçinizi adımlar arasındaki okun üzerine getirin. 
+   Artı işaretini seçin (**+**), görünür ve ardından **Eylem Ekle**.
 
-<br>
+1. Sağlamak [HTTP eylem parametrelerini ve değerlerini](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) hedef uç noktasına çağrıda dahil etmek istediğiniz. 
 
-#### <a name="output-details"></a>Çıkış ayrıntıları
-HTTP yanıtı için çıkış ayrıntıları verilmiştir.
+   ![HTTP eylem parametrelerini girin](./media/connectors-native-http/http-action-parameters.png)
 
-| Özellik adı | Veri türü | Açıklama |
-| --- | --- | --- |
-| Üst bilgiler |object |Yanıt üst bilgileri |
-| Gövde |object |Yanıt nesnesi |
-| Durum Kodu |Int |HTTP durum kodu |
+1. İşiniz bittiğinde mantıksal uygulamanızı kaydettiğinizden emin olun. Tasarımcı araç çubuğunda **Kaydet**'i seçin. 
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
-Logic Apps özelliği, farklı türlerde HTTP uç noktaları karşı kimlik doğrulama kullanmanıza olanak sağlar. Bu kimlik doğrulaması ile kullanabileceğiniz **HTTP**,  **[HTTP + Swagger](connectors-native-http-swagger.md)**, ve **[HTTP Web kancası](connectors-native-webhook.md)** bağlayıcılar. Aşağıdaki kimlik doğrulama türlerini yapılandırılabilir:
 
-* [Temel kimlik doğrulaması](#basic-authentication)
-* [İstemci sertifikası kimlik doğrulaması](#client-certificate-authentication)
-* [Azure Active Directory (Azure AD) OAuth kimlik doğrulaması](#azure-active-directory-oauth-authentication)
+Kimlik doğrulaması koymak için **Gelişmiş Seçenekleri Göster** eylem veya tetikleyici içinde. HTTP Tetikleyicileri ve eylemleri için kullanılabilir kimlik doğrulama türleri hakkında daha fazla bilgi için bkz. [tetikleyici ve eylem türleri başvurusu](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
-#### <a name="basic-authentication"></a>Temel kimlik doğrulama
+## <a name="get-support"></a>Destek alın
 
-Aşağıdaki kimlik doğrulama nesnesini temel kimlik doğrulaması için gereklidir.
-A * gerekli bir alan olduğu anlamına gelir.
-
-| Özellik adı | Veri türü | Açıklama |
-| --- | --- | --- |
-| Türü * |type |Kimlik doğrulama türünü (olmalıdır `Basic` temel kimlik doğrulaması için) |
-| Kullanıcı adı * |kullanıcı adı |Kimlik doğrulaması için kullanıcı adı |
-| Parola * |password |Kimlik doğrulaması için parola |
-
-> [!TIP]
-> Kullanım tanımından geri alınamaz bir parola kullanmak istiyorsanız bir `securestring` parametre ve `@parameters()`  
->  [iş akışı tanımı işlevi](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow).
-
-Örneğin:
-
-```javascript
-{
-    "type": "Basic",
-    "username": "user",
-    "password": "test"
-}
-```
-
-#### <a name="client-certificate-authentication"></a>İstemci sertifikası kimlik doğrulaması
-
-Aşağıdaki kimlik doğrulama nesnesi için istemci sertifikası kimlik doğrulaması gereklidir. A * gerekli bir alan olduğu anlamına gelir.
-
-| Özellik adı | Veri türü | Açıklama |
-| --- | --- | --- |
-| Türü * |type |Kimlik doğrulaması türü (olmalıdır `ClientCertificate` SSL istemci sertifikaları için) |
-| PFX* |PFX |Kişisel bilgi değişimi (PFX) dosyası Base64 ile kodlanmış içeriği |
-| Parola * |password |PFX dosyası erişim için parola |
-
-> [!TIP]
-> Mantıksal uygulama kaydetme sonra tanımında okunamaz bir parametre kullanmak üzere kullanabileceğiniz bir `securestring` parametre ve `@parameters()`  
->  [iş akışı tanımı işlevi](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow).
-
-Örneğin:
-
-```javascript
-{
-    "type": "ClientCertificate",
-    "pfx": "aGVsbG8g...d29ybGQ=",
-    "password": "@parameters('myPassword')"
-}
-```
-
-#### <a name="azure-ad-oauth-authentication"></a>Azure AD OAuth kimlik doğrulaması
-Aşağıdaki kimlik doğrulama nesnesini Azure AD OAuth kimlik doğrulaması için gereklidir. A * gerekli bir alan olduğu anlamına gelir.
-
-| Özellik adı | Veri türü | Açıklama |
-| --- | --- | --- |
-| Türü * |type |Kimlik doğrulaması türü (olmalıdır `ActiveDirectoryOAuth` Azure AD OAuth için) |
-| Kiracı * |kiracı |Azure AD kiracısı için Kiracı tanımlayıcı |
-| Hedef kitle * |Hedef kitle |Kullanım yetkilendirmesi istediğiniz kaynak. Örneğin, `https://management.core.windows.net/` |
-| İstemci kimliği * |istemci kimliği |Azure AD uygulaması için istemci tanımlayıcısı |
-| Gizli * |gizli dizi |Belirteç isteme istemci gizli anahtarı |
-
-> [!TIP]
-> Kullanabileceğiniz bir `securestring` parametre ve `@parameters()` [iş akışı tanımı işlevi](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow) kaydettikten sonra tanımında okunamaz bir parametre kullanmak için.
-> 
-> 
-
-Örneğin:
-
-```javascript
-{
-    "type": "ActiveDirectoryOAuth",
-    "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-    "audience": "https://management.core.windows.net/",
-    "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
-    "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
-}
-```
+* Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
+* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](http://aka.ms/logicapps-wish) ziyaret edin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi, platform deneyin ve [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). Logic Apps diğer kullanılabilir bağlayıcılar bakarak keşfedebilirsiniz bizim [API'leri listesi](apis-list.md).
 
+* Diğer hakkında bilgi edinin [Logic Apps bağlayıcıları](../connectors/apis-list.md)

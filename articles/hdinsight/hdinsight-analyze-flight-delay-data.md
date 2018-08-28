@@ -3,18 +3,18 @@ title: HDInsight - Azure, Hadoop ile uçuş gecikme verilerini çözümleme
 description: Bir Windows PowerShell Betiği bir HDInsight kümesi oluşturma, bir Hive işi çalıştırma, Sqoop işi çalıştırın ve kümeyi silmek için kullanmayı öğrenin.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7d1ab85f3efeaa17abbe1cc93157e63bbca1a0b9
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 1d39fd1cf40834781375b2c7bd6cb801ccd3cb97
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592263"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091907"
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>HDInsight Hive kullanarak uçuş gecikme verilerini çözümleme
 Hive Hadoop MapReduce işlerini adlı bir SQL benzeri bir betik dilini çalışan bir yol sağlar  *[HiveQL][hadoop-hiveql]*, hangi uygulanabilir özetleme doğrultusunda sorgulama, ve büyük hacimli verileri analiz etme.

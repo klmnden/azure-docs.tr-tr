@@ -1,42 +1,36 @@
 ---
-title: "Veri Kataloğu geliştirici örnekleri | Microsoft Docs"
-description: "Bu makalede veri Kataloğu REST API'si için kullanılabilir geliştirici örnekleri genel bir bakış sağlar."
+title: Azure veri Kataloğu geliştirici örnekleri
+description: Bu makalede, veri Kataloğu REST API'si için kullanılabilir geliştirici örnekleri genel bir bakış sağlar.
 services: data-catalog
-documentationcenter: 
 author: spelluru
-manager: jhubbard
-editor: 
-tags: 
+ms.author: spelluru
 ms.assetid: 0dc23edd-04d8-49fc-841e-d132fb109ce7
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-ms.openlocfilehash: 9688cb7bf15aec4a3506939b165ac579377d3e9a
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 98d17e5fc8b2348887d6a9e361a455474d666db4
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053779"
 ---
 # <a name="data-catalog-developer-samples"></a>Veri Kataloğu geliştirici örnekleri
-Veri Kataloğu REST API'sini kullanarak veri Kataloğu uygulamaları geliştirmeye başlayın. Veri Kataloğu REST API'si, kaydetme, açıklama ve veri varlıklarını program aracılığıyla arama için veri Kataloğu kaynaklarına programlı erişim sağlayan bir REST tabanlı bir API'dir.
+Veri Kataloğu REST API'sini kullanarak veri Kataloğu uygulamaları geliştirmeye başlayın. Veri Kataloğu REST API'sini kaydetmeyi, aramayı ve veri varlıklarını program aracılığıyla arama için veri Kataloğu kaynaklarına programlı erişim sağlayan bir REST tabanlı bir API'dir.
 
-Github'da sahibiz örnekleri şunlardır:
+Github'da sahip olduğumuz örnekleri şunlardır:
 
 * [Azure Veri Kataloğu ile çalışmaya başlama](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-get-started/)
   
-  Bir örnek, kaydetme, arama ve veri Kataloğu REST API'sini kullanarak bir veri varlığına silmek için Azure AD ile kimlik doğrulaması yapmayı gösterir.
-* [Toplu kaydetmeniz ve açıklama ekleme](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-excel-register-data-assets/)
+  Bir örnek, kaydetme, arama ve veri Kataloğu REST API'sini kullanarak bir veri varlığı silmek için Azure AD ile kimlik doğrulaması yapmayı gösteren.
+* [Toplu kaydetmek ve Kısa Not Ekle](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-excel-register-data-assets/)
   
-  Toplu olarak nasıl oluşturulduğunu gösteren bir örnek veri Kataloğu REST API'sini ve açık XML kullanarak bir Excel çalışma kitabı veri varlıklarından kaydedin.
+  Toplu olarak gösteren bir örnek veri Kataloğu REST API'si ve Open XML kullanarak Excel çalışma kitabından veri varlıklarını kaydedin.
 * [İçeri/dışarı aktarma aracı](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-import-export/)
   
-  Veri Kataloğu REST API'si varlıklar Azure veri Kataloğu'ndan getirebilir ve bir dosyaya serileştirmek için nasıl kullanılacağını gösteren bir örnek. Ayrıca, JSON olarak serileştirilen varlık kümesiyle almak ve bunları kataloğuna gönderme nasıl gösterir. Bu, bir arama sorgusu kullanarak katalog kümesini dışarı aktarma destekler.
+  Azure veri Kataloğu'ndan varlıklar getirmek ve bunları bir dosyaya serileştirmek için veri Kataloğu REST API'sini kullanmayı gösteren bir örnek. Ayrıca, JSON olarak serileştirilen varlık kümesini alır ve bunları kataloğa anında iletme nasıl gösterir. Bu, bir alt kümesini bir arama sorgusu kullanarak Kataloğu verme destekler.
 
-* [Toplu içe aktarma terimler](https://azure.microsoft.com/resources/samples/data-catalog-bulk-import-glossary/)
+* [Toplu içeri aktarma sözlük terimleri](https://azure.microsoft.com/resources/samples/data-catalog-bulk-import-glossary/)
 
-    Bu örnek terimler ADC sözlüğü için CSV dosyalarından içeri aktarma gösterir.
+    Bu örnek sözlük terimleri ADC sözlüğü için CSV dosyalarından içeri aktarma gösterir.
 

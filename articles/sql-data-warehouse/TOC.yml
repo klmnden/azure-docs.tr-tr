@@ -5,8 +5,18 @@ items:
   items:
   - name: SQL Veri Ambarı Hakkında
     href: sql-data-warehouse-overview-what-is.md
+  - name: SQL Veri Ambarı mimarisi
+    href: massively-parallel-processing-mpp-architecture.md
+  - name: Veri ambarı birimleri
+    href: what-is-a-data-warehouse-unit-dwu-cdwu.md
   - name: Kopya kağıdı
     href: cheat-sheet.md
+  - name: En iyi uygulamalar
+    href: sql-data-warehouse-best-practices.md
+  - name: Kapasite sınırları
+    href: sql-data-warehouse-service-capacity-limits.md
+  - name: SSS
+    href: sql-data-warehouse-overview-faq.md
 - name: Sürüm Notları
   items:
   - name: Ağustos 2018
@@ -33,7 +43,7 @@ items:
       href: pause-and-resume-compute-portal.md
     - name: PowerShell
       href: pause-and-resume-compute-powershell.md
-  - name: Büyütme ve küçültme
+  - name: Ölçek
     items:
     - name: Portal
       href: quickstart-scale-compute-portal.md
@@ -78,18 +88,6 @@ items:
     items:
     - name: Genel Bakış
       href: sql-data-warehouse-overview-develop.md
-    - name: Veri ambarı bileşenleri
-      href: sql-data-warehouse-overview-workload.md
-    - name: En iyi uygulamalar
-      href: sql-data-warehouse-best-practices.md
-    - name: MPP mimarisi
-      href: massively-parallel-processing-mpp-architecture.md
-    - name: Veri ambarı birimleri
-      href: what-is-a-data-warehouse-unit-dwu-cdwu.md
-    - name: Kapasite sınırları
-      href: sql-data-warehouse-service-capacity-limits.md
-    - name: SSS
-      href: sql-data-warehouse-overview-faq.md
     - name: Tablolar
       items:
       - name: Genel Bakış
@@ -112,14 +110,6 @@ items:
         href: sql-data-warehouse-tables-statistics.md
       - name: Geçici
         href: sql-data-warehouse-tables-temporary.md
-    - name: Sorgular
-      items:
-      - name: Dinamik SQL
-        href: sql-data-warehouse-develop-dynamic-sql.md
-      - name: Seçeneklere göre gruplandırma
-        href: sql-data-warehouse-develop-group-by-options.md
-      - name: Etiketler
-        href: sql-data-warehouse-develop-label.md
     - name: T-SQL dil öğeleri
       items:
       - name: Döngüler
@@ -136,6 +126,14 @@ items:
         href: sql-data-warehouse-develop-variable-assignment.md
       - name: Görünümler
         href: sql-data-warehouse-develop-views.md
+  - name: Sorgulama
+    items:
+    - name: Dinamik SQL
+      href: sql-data-warehouse-develop-dynamic-sql.md
+    - name: Seçeneklere göre gruplandırma
+      href: sql-data-warehouse-develop-group-by-options.md
+    - name: Etiketler
+      href: sql-data-warehouse-develop-label.md
   - name: İş yükü yönetimi
     items:
     - name: Kaynak sınıfları ve iş yükü yönetimi
@@ -278,9 +276,9 @@ items:
       href: sql-data-warehouse-partner-data-integration.md
     - name: Veri yönetimi
       href: sql-data-warehouse-partner-data-management.md
-ms.openlocfilehash: e9148d92614cf0c383ab1e915cce3e16bb9ff7c0
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: bdda7231ea4703b33c8547e493cbd47b68cf9aab
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745223"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42915134"

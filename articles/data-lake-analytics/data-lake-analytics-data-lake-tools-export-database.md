@@ -1,87 +1,86 @@
 ---
 title: Visual Studio için Azure Data Lake Araçları'nı kullanarak U-SQL veritabanını dışarı aktarma
-description: U-SQL veritabanını dışarı aktarma ve otomatik olarak yerel bir hesap içeri aktarmak için Visual Studio için Azure Data Lake araçları kullanmayı öğrenin.
+description: U-SQL veritabanını dışarı aktarma ve otomatik olarak yerel bir hesap almak için Visual Studio için Azure Data Lake Araçları'nı kullanmayı öğrenin.
 services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: 1dbcf9b88af7777a1103876a429ccc26450e2f58
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e4eea3cb4b16460c7e17bb6575c4e6cf8dda5a0a
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623419"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047263"
 ---
 # <a name="export-a-u-sql-database"></a>U-SQL veritabanını dışarı aktarma
 
-Bu makalede, nasıl kullanılacağını öğrenirsiniz [Visual Studio için Azure Data Lake Araçları](http://aka.ms/adltoolsvs) U-SQL veritabanını tek bir U-SQL betiği ve indirilen kaynakları dışarı aktarma. Dışa aktarılan veritabanını aynı işlemde yerel bir hesap içeri aktarabilirsiniz.
+Bu makalede, kullanmayı öğrenin [Visual Studio için Azure Data Lake Araçları](http://aka.ms/adltoolsvs) bir U-SQL veritabanı tek bir U-SQL betiği ve indirilen kaynakları dışarı aktarmak için. Aynı işlemde yerel bir hesap için dışa aktarılan veritabanını içeri aktarabilirsiniz.
 
-Müşteriler genellikle birden çok ortamları geliştirme, test ve üretim için korur. Bu ortamlar, hem yerel bir hesap, bir geliştiricinin yerel bilgisayarda ve bir Azure Data Lake Analytics hesabı Azure üzerinde barındırılır. 
+Müşteriler, geliştirme, test ve üretim için birden çok ortamı genellikle korur. Bu ortamların, hem yerel bir hesapta, bir geliştiricinin yerel bilgisayarda ve azure'da bir Azure Data Lake Analytics hesabında barındırılır. 
 
-Geliştirmek ve U-SQL sorguları geliştirme ve test ortamları ayarlama geliştiriciler genellikle bir üretim veritabanında işlerini yeniden oluşturmanız gerekir. Veritabanı Dışarı Aktarma Sihirbazı'nı bu işlem artırmanıza yardımcı olur. Sihirbazı kullanarak, geliştiriciler var olan veritabanı ortamı ve diğer Data Lake Analytics hesaplarına örnek veri kopyalayabilirsiniz.
+Geliştirin ve U-SQL sorguları geliştirme ve test ortamları ayarlamak, geliştiriciler genellikle bir üretim veritabanında işlerini yeniden oluşturmanız gerekir. Veritabanı Dışarı Aktarma Sihirbazı'nı bu işlem artırmanıza yardımcı olur. Sihirbazı kullanarak, geliştiricilerin mevcut veritabanı ortam ve diğer Data Lake Analytics hesapları için örnek veri kopyalayabilirsiniz.
 
 ## <a name="export-steps"></a>Dışarı aktarma adımları
 
-### <a name="step-1-export-the-database-in-server-explorer"></a>1. adım: Sunucu Gezgininde veritabanını dışarı aktarma
+### <a name="step-1-export-the-database-in-server-explorer"></a>1. adım: Sunucu Gezgininde veritabanı dışarı aktarma
 
-Server Explorer'da izniniz tüm Data Lake Analytics hesapları listelenir. Veritabanı dışarı aktarmak için:
+Sunucu Gezgini'nde izinlerine sahip olduğunuz tüm Data Lake Analytics hesapları listelenir. Veritabanı dışarı aktarmak için:
 
-1. Sunucu Gezgini'nde, dışarı aktarmak istediğiniz veritabanını içeren hesabı'nı genişletin.
-2. Bir veritabanını sağ tıklatın ve ardından **verme**. 
+1. Sunucu Gezgini'nde, dışarı aktarmak istediğiniz veritabanını içeren hesabını genişletin.
+2. Veritabanına sağ tıklayın ve ardından **dışarı**. 
    
     ![Sunucu Gezgini - veritabanı bir dışarı aktarma](./media/data-lake-analytics-data-lake-tools-export-database/export-database.png)
 
-     Varsa **verme** menü seçeneği kullanılabilir değilse, yapmanız [en son sürümünü sürümüne güncelleştirme aracı](http://aka.ms/adltoolsvs).
+     Varsa **dışarı** menü seçeneği kullanılabilir değilse, yapmanız [en son sürümünü sürümüne güncelleştirme aracı](http://aka.ms/adltoolsvs).
 
-### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>2. adım: dışarı aktarmak istediğiniz nesneler yapılandırma
+### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>2. adım: dışarı aktarmak istediğiniz nesneleri yapılandırma
 
-Büyük bir veritabanı yalnızca küçük bir bölümünü gerekiyorsa, Dışarı Aktarma Sihirbazı'nda dışarı aktarmak istediğiniz nesneler kümesinin yapılandırabilirsiniz. 
+Büyük bir veritabanı yalnızca küçük bir bölümünü gerekiyorsa, Dışarı Aktarma Sihirbazı'nda dışarı aktarmak istediğiniz nesne kümesini yapılandırabilirsiniz. 
 
-Verme eylemi bir U-SQL işi tamamlandı. Bu nedenle, bir Azure hesabının dışarı aktarma bazı maliyetler doğurur.
+Verme eylemi bir U-SQL işi tamamlandı. Bu nedenle, bir Azure hesabından diğerine verme bazı maliyetler doğurur.
 
-![Veritabanı Dışarı Aktarma Sihirbazı - seçin nesneleri dışarı aktarma](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard.png)
+![Veritabanı Dışarı Aktarma Sihirbazı - seçim nesneleri dışarı aktarın.](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard.png)
 
-### <a name="step-3-check-the-objects-list-and-other-configurations"></a>3. adım: nesne listesi ve diğer yapılandırmalar denetleyin
+### <a name="step-3-check-the-objects-list-and-other-configurations"></a>3. adım: nesne listesi ve diğer yapılandırmaları kontrol edin.
 
-Bu adımda, seçilen nesneleri doğrulayabilirsiniz **verme nesne listesi** kutusu. Herhangi bir hata varsa, seçin **önceki** geri dönün ve doğru şekilde dışarı aktarmak istediğiniz nesneler yapılandırın.
+Bu adımda seçilen nesneleri doğrulayabilirsiniz **nesne listesini dışarı aktarma** kutusu. Herhangi bir hata varsa, seçin **önceki** geri dönün ve doğru şekilde dışarı aktarmak istediğiniz nesneleri yapılandırın.
 
 Dışarı aktarma hedefi için diğer ayarları da yapılandırabilirsiniz. Yapılandırma açıklamaları aşağıdaki tabloda listelenmiştir:
 
 |Yapılandırma|Açıklama|
 |-------------|-----------|
-|Hedef adı|Bu ad, dışarı aktarılan veritabanı kaynaklarını kaydetmek istediğiniz yeri gösterir. Derlemeler, ek dosyalar ve örnek verileri örnektir. Bu ada sahip bir klasör, yerel veri kök klasörünün altında oluşturulur.|
-|Proje dizini|Bu yol, dışarı aktarılan U-SQL komut dosyasını kaydetmek istediğiniz yeri tanımlar. Tüm veritabanı nesne tanımları bu konuma kaydedilir.|
-|Yalnızca Şema|Bu seçeneği seçerseniz, yalnızca veritabanı tanımlarını ve kaynaklar (örneğin, derlemeler ve ek dosyalar) dışarı aktarılır.|
-|Şema ve Veri|Bu seçeneği seçerseniz, veritabanı tanımları, kaynakları ve veri dışarı aktarılır. Tablolar üst N satırlarını dışarı aktarılır.|
-|Yerel Veritabanına Otomatik Olarak Aktar|Bu seçeneği belirlerseniz, dışa aktarılan veritabanını yerel veritabanınızı verilirken otomatik olarak içeri aktarılan tamamlanmış olmasıdır.|
+|Hedef adı|Bu ad, dışarı aktarılan Veritabanı kaynaklarından tasarruf etmek istediğiniz gösterir. Derlemeleri, ek dosyaları ve örnek verileri verilebilir. Bu ada sahip bir klasör yerel veri kökü klasörünüzün altında oluşturulur.|
+|Proje dizini|Bu yol, dışarı aktarılan U-SQL komut dosyasını kaydetmek istediğiniz tanımlar. Tüm veritabanı nesne tanımları, bu konuma kaydedilir.|
+|Yalnızca Şema|Bu seçeneği belirlerseniz, tek veritabanı tanımları ve kaynaklar (gibi derlemeleri ve ek dosyaları) dışarı aktarılır.|
+|Şema ve Veri|Bu seçeneği seçerseniz, veritabanı tanımları, kaynakları ve veri dışarı aktarılır. Tablo üst N satırlarını dışarı aktarılır.|
+|Yerel Veritabanına Otomatik Olarak Aktar|Bu seçeneği belirlerseniz, dışarı aktarılan veritabanıdır verirken yerel veritabanınızı otomatik olarak içeri aktarılan tamamlandı.|
 
-![Veritabanı Dışarı Aktarma Sihirbazı - verme nesne listesi ve diğer yapılandırmalar](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard-configuration.png)
+![Veritabanı Dışarı Aktarma Sihirbazı - nesne listesini dışarı aktarma ve diğer yapılandırmaları](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard-configuration.png)
 
 ### <a name="step-4-check-the-export-results"></a>4. adım: dışarı aktarma sonuçlarını denetleyin
 
-Dışarı aktarma tamamlandıktan sonra Sihirbazı'nda günlük penceresinde dışarı aktarılan sonuçları görüntüleyebilirsiniz. Aşağıdaki örnek, derlemeleri, ek dosyalar ve örnek verileri de dahil olmak üzere dışarı aktarılan U-SQL komut dosyası ve veritabanı kaynakları bulmak gösterilmektedir:
+Dışarı aktarma tamamlandığında, Sihirbazı günlük pencerede dışarı aktarılan sonuçları görüntüleyebilirsiniz. Aşağıdaki örnek, derlemeleri, ek dosyaları ve örnek veriler dahil olmak üzere dışarı aktarılan U-SQL betiği ve veritabanı kaynakları bulmak gösterilmektedir:
 
-![Veritabanı Dışarı Aktarma Sihirbazı - verme sonuçları](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard-completed.png)
+![Veritabanı Dışarı Aktarma Sihirbazı - dışarı aktarma sonuçları](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard-completed.png)
 
-## <a name="import-the-exported-database-to-a-local-account"></a>Dışa aktarılan veritabanını yerel bir hesap içeri aktarma
+## <a name="import-the-exported-database-to-a-local-account"></a>İçeri aktarma dışarı aktarılan veritabanına yerel bir hesap
 
-Dışa aktarılan veritabanını almak için en kolay yolu seçmektir **alma yerel veritabanı otomatik olarak için** adım 3'te dışa aktarma işlemi sırasında onay kutusu. İlk olarak, bu onay kutusunu alamadık, dışarı aktarılan U-SQL betiği verme günlüğünde bulun. Ardından, veritabanını yerel hesabınıza yerel olarak almak için U-SQL betiğini çalıştırın.
+Dışarı aktarılan veritabanını içeri aktarmak için en uygun yolu seçmektir **alma yerel veritabanı otomatik olarak için** adım 3'te dışa aktarma işlemi sırasında onay kutusu. İlk olarak, bu kutuyu işaretlerseniz alamadık, dışarı aktarılan U-SQL betiğini dışarı aktarma günlüğünde bulun. Ardından, U-SQL betiğini yerel olarak veritabanını yerel hesabınızda içeri aktarmak için çalıştırın.
 
-## <a name="import-the-exported-database-to-a-data-lake-analytics-account"></a>Dışa aktarılan veritabanını Data Lake Analytics hesabı için içeri aktarma
+## <a name="import-the-exported-database-to-a-data-lake-analytics-account"></a>İçeri aktarma dışarı aktarılan veritabanına bir Data Lake Analytics hesabı
 
 Veritabanı için farklı bir Data Lake Analytics hesap içeri aktarmak için:
 
-1. Derlemeler, ek dosyalar ve almak istediğiniz Data Lake Analytics hesabının varsayılan Azure Data Lake Store hesabına örnek verileri de dahil olmak üzere dışarı aktarılan kaynakların karşıya yükleyin. Dışa aktarılan kaynak klasörünü yerel veri kök klasörü altında bulabilirsiniz. Tüm klasörü varsayılan Data Lake Store hesabı köküne karşıya yükleyin.
-2. Karşıya yükleme tamamlandığında, dışarı aktarılan U-SQL betiği veritabanına içeri aktarmak istediğiniz Data Lake Analytics hesabı gönderin.
+1. Derlemeleri ve ek dosyaları almak istediğiniz Data Lake Analytics hesabı, varsayılan Azure Data Lake Store hesabına örnek veriler dahil olmak üzere dışarı aktarılan kaynakların karşıya yükleyin. Dışarı aktarılan kaynak klasörünü yerel veri kök klasörü altında bulabilirsiniz. Varsayılan Data Lake Store hesabının kök klasörün tamamını yükleyin.
+2. Karşıya yükleme tamamlandığında, dışarı aktarılan bir U-SQL betiği veritabanına içeri aktarmak istediğiniz Data Lake Analytics hesabına gönderin.
 
-## <a name="known-limitations"></a>Bilinen sınırlamaları
+## <a name="known-limitations"></a>Bilinen sınırlamalar
 
-Şu anda seçerseniz **şeması ve verisi** seçenek 3. adımında, aracı tablolarda depolanan verileri dışarı aktarmak için bir U-SQL işi çalıştırır. Bu nedenle, işlem dışarı aktarma veri yavaş olabilir ve ücrete neden. 
+Şu anda seçerseniz **şema ve veri** adım 3, araç seçeneği tablolarında depolanan verileri dışarı aktarmak için bir U-SQL işi çalıştırır. Bu nedenle, dışa aktarma işlemi verileri yavaş olabilir ve ücrete neden olabilir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

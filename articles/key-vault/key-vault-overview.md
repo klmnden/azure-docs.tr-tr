@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: 2cda30c85ce8a8dc9b7a6c0134b7cabc58b842a4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: a55c99764cf9d77ab3ee269e3f5b0c2a13ec1ac7
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115329"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42023467"
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Anahtar Kasası nedir?
 
@@ -29,13 +29,12 @@ Parolalarınız, bağlantı dizeleriniz ve uygulamanızı çalışır durumda tu
 
 Key Vault, kasa adlı birden fazla güvenli kapsayıcı oluşturmanıza imkan tanır. Bu kasalar, donanım güvenlik modülleri (HSM) tarafından desteklenir. Kasalar, uygulama gizli dizilerinin depolanmasını merkezi hale getirerek güvenlik bilgilerini kazayla kaybetme olasılığını azaltmaya yardımcı olur. Anahtar Kasaları ayrıca içlerinde depolanmış her şeye erişimi denetler ve günlüğe kaydeder. Azure Key Vault, sağlam bir sertifika yaşam döngüsü yönetim çözümü için gereken özellikleri sağlayarak Aktarım Katmanı Güvenliği (TLS) sertifikalarını isteme ve yenileme işlemlerini gerçekleştirebilir.
 
- Azure Key Vault, uygulama anahtarlarını ve gizli dizilerini desteklemek için tasarlanmıştır. Key Vault, kullanıcı parolaları için depo olarak kullanılmaya yönelik değildir.
-
+ Azure Key Vault, her türlü gizli diziyi desteklemek için tasarlanmıştır. Başka bir deyişle Key Vault parolaları, veritabanı kimlik bilgilerini, API anahtarlarını ve sertifikaları (yazılım korumalı veya HSM korumalı) depolamak için kullanılabilir
 ## <a name="why-use-azure-key-vault"></a>Neden Azure Key Vault kullanmalıyım?
 
 ### <a name="centralize-application-secrets"></a>Uygulama gizli dizilerini merkezi hale getirme
 
-Azure Key Vault’ta uygulama gizli dizilerinin depolanmasını merkezi hale getirerek dağılımlarını denetleyebilirsiniz. Bunun yapılması, gizli dizilerin yanlışlıkla sızdırılma olasılığını büyük oranda azaltır. Key Vault kullanırken, uygulama geliştiricilerinin güvenlik bilgilerini uygulamalarında depolaması artık gerekli değildir. Bunun yapılması, bu bilgileri kodun bir parçası yapma gereksinimini ortadan kaldırır. Örneğin, bir uygulamanın bir veritabanına bağlanması gerekebilir. Bağlantı dizesini uygulama kodlarında depolamak yerine Key Vault’ta güvenli bir şekilde depolayın.
+Azure Key Vault’ta uygulama gizli dizilerinin depolanmasını merkezi hale getirerek dağılımlarını denetleyebilirsiniz. Key Vault, gizli dizilerin yanlışlıkla sızdırılma olasılığını büyük oranda azaltır. Key Vault kullanırken, uygulama geliştiricilerinin güvenlik bilgilerini uygulamalarında depolaması artık gerekli değildir. Bunun yapılması, bu bilgileri kodun bir parçası yapma gereksinimini ortadan kaldırır. Örneğin, bir uygulamanın bir veritabanına bağlanması gerekebilir. Bağlantı dizesini uygulama kodlarında depolamak yerine Key Vault’ta güvenli bir şekilde depolayın.
 
 Uygulamalarınız, uygulamanın anahtarı veya gizli dizisi Azure Key Vault’ta depolandıktan sonra gizli dizinin belirli sürümlerini almanıza olanak tanıyan URI’ler kullanarak gerekli bilgilere güvenli bir şekilde erişebilirler. Bu, herhangi bir gizli bilgiyi korumak için özel kod yazmak zorunda kalmadan gerçekleşir.
 
@@ -65,9 +64,9 @@ Günlükleriniz üzerinde denetime sahip olursunuz ve erişimi kısıtlayarak g�
 
 Değerli verileri depolarken birkaç adım uygulamanız gerekir. Güvenlik bilgileri güvenli hale getirilmeli, bir yaşam döngüsüne uymalı ve yüksek oranda kullanılabilir olmalıdır. Azure Key Vault aşağıdakileri yaparak bunların büyük bölümünü basitleştirir:
 
-- Şirket içi HSM bilgisine yönelik gereksinimi ortadan kaldırma.
+- Şirket içi Donanım Güvenlik Modüllerine yönelik gereksinimi ortadan kaldırma
 - Kuruluşunuzun ani kullanım artışlarını karşılamak için kısa süre içinde ölçek artırma.
-- Bir bölge içindeki Anahtar Kasanızın içeriklerini ikincil bir bölgeye çoğaltma. Bunun yapılması yüksek kullanılabilirlik sağlar ve yük devretmeyi tetiklemek için yöneticinin herhangi bir işlem yapma gereksinimini ortadan kaldırır.
+- Bir bölge içindeki Anahtar Kasanızın içeriklerini ikincil bir bölgeye çoğaltma. Key Vault, yüksek kullanılabilirlik sağlar ve yük devretmeyi tetiklemek için yöneticinin herhangi bir işlem yapma gereksinimini ortadan kaldırır.
 - Portal, Azure CLI ve PowerShell aracılığıyla standart Azure yönetim seçeneklerini sağlama.
 - Genel CA’lardan satın aldığınız sertifikalarla ilgili kaydetme ve yenileme gibi belirli görevleri otomatikleştirme.
 

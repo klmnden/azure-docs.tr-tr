@@ -3,18 +3,18 @@ title: Paylaşılan erişim imzaları - Azure HDInsight'ı kullanarak erişimi k
 description: Azure storage bloblarında depolanan verilere HDInsight erişimi kısıtlamak için paylaşılan erişim imzaları'nı kullanmayı öğrenin.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: jasonh
-ms.openlocfilehash: c20bb5230ada24cf2363138a8678668abac89863
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 76e40f5178457f366ed386dba7a1817ddde3c8ac
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595768"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090237"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>HDInsight ile verilere erişimi kısıtlamak için Azure depolama paylaşılan erişim imzaları kullanma
 

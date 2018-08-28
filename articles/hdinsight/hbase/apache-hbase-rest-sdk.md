@@ -3,18 +3,18 @@ title: Azure HDInsight HBase .NET SDK'sı - kullanın
 description: Oluşturma ve tabloları, silme ve okuma ve yazma veri HBase .NET SDK'sını kullanın.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: 1a26b8623ab046d7076c67d37657f19cf8d9c261
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: af3b87fbe79624143b6c2b7e0a3c50852e532524
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600209"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042130"
 ---
 # <a name="use-the-hbase-net-sdk"></a>HBase .NET SDK'sını kullanma
 

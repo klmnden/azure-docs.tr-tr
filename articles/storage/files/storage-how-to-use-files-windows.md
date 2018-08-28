@@ -2,24 +2,18 @@
 title: Azure dosya paylaşımını Windows'da kullanma | Microsoft Docs
 description: Azure dosya paylaşımını Windows ve Windows Server ile kullanmayı öğrenin.
 services: storage
-documentationcenter: na
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
-ms.openlocfilehash: 54e084e6480c872ff6dd4625b8c87d5a60a181ba
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.component: files
+ms.openlocfilehash: 96ad812aff8f6ea4f47035188940730e5dc2992c
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39392276"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41919225"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Azure dosya paylaşımını Windows'da kullanma
 [Azure Dosyaları](storage-files-introduction.md), Microsoft’un kullanımı kolay bulut dosya sistemidir. Azure dosya paylaşımları, Windows ve Windows Server’da sorunsuz bir şekilde kullanılabilir. Bu makalede Azure dosya paylaşımını Windows ve Windows Server ile kullanma konusunda dikkat edilmesi gerekenler anlatılmaktadır.
@@ -52,20 +46,11 @@ Azure VM üzerinde veya şirket içinde çalışan bir Windows yüklemesinde Azu
 
 * **Depolama hesabı anahtarı**: Azure dosya paylaşımını bağlayabilmeniz için birincil (veya ikincil) depolama anahtarı gerekir. SAS anahtarları şu an bağlama için desteklenmemektedir.
 
-* **445 numaralı bağlantı noktasının açık olduğundan emin olun**: SMB protokolü için 445 numaralı TCP bağlantı noktasının açık olması gerekir. 445 numaralı bağlantı noktasının açık olmaması halinde bağlantı gerçekleştirilemez. `Test-NetConnection` cmdlet'ini kullanarak 445 numaralı bağlantı noktasının güvenlik duvarınız tarafından engellenip engellenmediğini görebilirsiniz. Aşağıdaki PowerShell kodunda AzureRM PowerShell modülünü yüklediğiniz varsayılır. Daha fazla bilgi için bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). `<your-storage-account-name>` ile `<your-resoure-group-name>` yerine depolama hesabınızla ilgili bilgileri yazmayı unutmayın.
+* **445 numaralı bağlantı noktasının açık olduğundan emin olun**: SMB protokolü için 445 numaralı TCP bağlantı noktasının açık olması gerekir. 445 numaralı bağlantı noktasının açık olmaması halinde bağlantı gerçekleştirilemez. `Test-NetConnection` cmdlet'ini kullanarak 445 numaralı bağlantı noktasının güvenlik duvarınız tarafından engellenip engellenmediğini görebilirsiniz. `your-storage-account-name` yerine depolama hesabınızla ilgili adı yazmayı unutmayın.
 
     ```PowerShell
-    $resourceGroupName = "<your-resource-group-name>"
-    $storageAccountName = "<your-storage-account-name>"
-
-    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
-    # already logged in.
-    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-
-    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
-    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as soverign clouds
-    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+    Test-NetConnection -ComputerName <your-storage-account-name>.core.windows.net -Port 445
+    
     ```
 
     Bağlantı başarılı olursa şu çıktıyı görmeniz gerekir:
@@ -208,6 +193,26 @@ Remove-PSDrive -Name <desired-drive-letter>
     ![Azure dosya paylaşımı artık bağlanmıştır](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
 7. Azure Dosya paylaşımını çıkarmaya hazır olduğunuzda, Dosya Gezgini’ndeki **Ağ konumları**'nın altında bulunan girdiye sağ tıklayıp **Bağlantıyı kes**'i seçerek bunu yapabilirsiniz.
+
+### <a name="accessing-share-snapshots-from-windows"></a>Windows'dan paylaşım anlık görüntülerine erişme
+El ile veya betik ya da Azure Backup gibi bir hizmet aracılığıyla otomatik olarak paylaşım anlık görüntüsü aldıysanız Windows'da dosya paylaşımından bir paylaşımın, dizinin veya belirli bir dosyanın önceki sürümlerini görüntüleyebilirsiniz. Anlık görüntüyü [Azure portal](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md) veya [Azure CLI](storage-how-to-use-files-cli.md) ile kaydedebilirsiniz.
+
+#### <a name="list-previous-versions"></a>Önceki sürümleri listeleme
+Geri yüklemek istediğiniz öğeye veya üst öğeye gidin. Çift tıklayarak istenen dizine gidin. Sağ tıklayın ve açılan menüden **Özellikler**'i seçin.
+
+![Seçilen dizin için sağ tıklama menüsü](./media/storage-how-to-use-files-windows/snapshot-windows-previous-versions.png)
+
+Bu dizine ait paylaşım anlık görüntülerinin listesini görmek için **Önceki Sürümler**'i seçin. Ağ hızına ve dizindeki paylaşım anlık görüntüsü sayısına bağlı olarak listenin yüklenmesi birkaç saniye sürebilir.
+
+![Önceki Sürümler sekmesi](./media/storage-how-to-use-files-windows/snapshot-windows-list.png)
+
+Belirli bir anlık görüntüyü açmak için **Aç**'ı seçebilirsiniz. 
+
+![Açılan anlık görüntü](./media/storage-how-to-use-files-windows/snapshot-browse-windows.png)
+
+#### <a name="restore-from-a-previous-version"></a>Önceki sürümü geri yükleme
+Anlık görüntü oluşturma zamanındaki dizin içeriğinin tamamını özgün konuma yinelemeli bir şekilde kopyalamak için **Geri yükle**'yi seçin.
+ ![Uyarı iletisindeki geri yükleme düğmesi](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
 ## <a name="securing-windowswindows-server"></a>Windows/Windows Server'ı güvenli hale getirme
 Windows'da Azure dosya paylaşımını bağlamak için 445 numaralı bağlantı noktasının erişilebilir olması gerekir. Çoğu kuruluş SMB 1 kaynaklı güvenlik riskleri nedeniyle 445 numaralı bağlantı noktasını engeller. CIFS (Ortak Internet Dosya Sistemi) olarak da bilinen SMB 1, Windows ve Windows Server'da bulunan eski bir dosya sistemi protokolüdür. SMB 1 eski, verimsiz ve hepsinden önemlisi güvenli olmayan bir protokoldür. Neyse ki Azure Dosyalar SMB 1 protokolünü desteklemez ve desteklenen tüm Windows ve Windows Server sürümlerinde SMB 1 protokolünü kaldırmak veya devre dışı bırakmak mümkündür. Azure dosya paylaşımlarını üretim ortamında kullanmaya başlamadan önce SMB 1 istemcisini ve sunucusunu mutlaka kaldırmanızı ve devre dışı bırakmanızı [öneririz](https://aka.ms/stopusingsmb1).

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Hızlı Başlangıç: Anahtar Kasasından gizli dizi ayarlamak ve almak için bir Azure web uygulaması yapılandırma | Microsoft Docs'
-description: Anahtar kasasından gizli dizi ayarlamak ve almak için bir ASP.NET Core uygulaması yapılandırma adımlarını gösteren hızlı başlangıç
+title: "Hızlı başlangıç: Node Web Uygulaması kullanarak Azure Key Vault'tan gizli dizi ayarlama ve alma | Microsoft Docs"
+description: "Hızlı başlangıç: Node Web Uygulaması kullanarak Azure Key Vault'tan gizli dizi ayarlama ve alma"
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 8b5624ae3083d92213b4ee919dc0860bf5ff4ab7
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 0188d06e5c58287e1040f6a15456d3ffe291b04a
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480211"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42023548"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-net-web-app"></a>Hızlı başlangıç: .NET Web Uygulaması kullanarak Azure Key Vault'tan gizli dizi ayarlama ve alma
 
@@ -28,7 +28,10 @@ Bu hızlı başlangıçta, Azure web uygulamasının yönetilen hizmet kimlikler
 > * [Yönetilen hizmet kimliklerini etkinleştirin](../active-directory/managed-service-identity/overview.md).
 > * Web uygulamasının Anahtar Kasasından verileri okuması için gereken izinleri verin.
 
-Devam etmeden önce [temel kavramlara](key-vault-whatis.md#basic-concepts) ve özellikle [Yönetilen Hizmet Kimliği](../active-directory/managed-service-identity/overview.md)'ne göz atmanız önerilir.
+İlerlemeden önce lütfen [temel kavramları](key-vault-whatis.md#basic-concepts) okuyun.
+
+>[!NOTE]
+Aşağıdaki öğreticinin neden en iyi yöntem olduğunu anlamak için bilmeniz gereken birkaç kavram vardır. Key Vault, gizli dizilerin program aracılığıyla depolandığı merkezi bir depodur. Bunu yapmak için uygulamaların/kullanıcıların gizli dizi sunarak Key Vault kimlik doğrulamasından geçmesi gerekir. Güvenlikle ilgili en iyi yöntemlerin uygulanması için bu ilk gizli dizinin de düzenli olarak döndürülmesi gerekir. Ancak [Yönetilen Hizmet Kimliği](../active-directory/managed-service-identity/overview.md) sayesinde Azure'da çalışan uygulamalara Azure tarafından otomatik olarak yönetilen bir kimlik verilir. Bu da **Gizli Dizi Belirleme Sorununu** çözerek kullanıcıların/uygulamaların en iyi yöntemleri uygulamasına ve ilk gizli diziyi döndürme konusunda endişelenmemesine yardımcı olur.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -165,6 +168,8 @@ Ardından Key Vault adını ve yukarıdan tamamladığınız PrincipalId değeri
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
 
 ```
+
+**Uygulamayı çalıştırdığınızda gizli dizi değerinin alındığını görmeniz gerekir**
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

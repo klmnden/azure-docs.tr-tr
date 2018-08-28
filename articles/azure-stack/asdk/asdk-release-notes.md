@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/27/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: ed1c47830cbc4a629d827853c7d440b9bbd80d64
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 6016d6fd4dcae699efba49667676373a6586e723
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888195"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43101654"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure Stack Geliştirme Seti sürüm notları  
 Bu sürüm notları geliştirmeleri ve düzeltmeleri Azure Stack geliştirme Seti'ni'de bilinen sorunlar hakkında bilgi sağlar. Hangi sürümü çalıştırdığınızdan emin değilseniz yapabilecekleriniz [denetlemek için portal'ı kullanmanızı](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -106,6 +106,8 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
 ### <a name="known-issues"></a>Bilinen sorunlar
 
 #### <a name="portal"></a>Portal  
+- <!-- 2931230 – IS  ASDK --> Kullanıcı aboneliği plan kaldırdığınızda bile, bir kullanıcı abonelikte eklenti planı eklendiği planları silinemiyor. Eklenti planı başvuru abonelikleri de silinene kadar plan kalır. 
+
 - <!--2760466 – IS  ASDK --> Bu sürümünü çalıştıran yeni bir Azure Stack ortamına yüklediğinizde, uyarıyı gösterir *etkinleştirme gerekli* görüntülenmeyebilir. [Etkinleştirme](.\.\azure-stack-registration.md) Market dağıtım kullanabilmeniz için gereklidir. 
 
 - <!-- TBD - IS ASDK --> İki Yönetim abonelik türlerini [1804 sürümü ile sunulan](.\.\azure-stack-update-1804.md#new-features) kullanılmamalıdır. Abonelik türleridir **abonelik ölçümü**, ve **tüketim abonelik**. Bu abonelik türleri **abonelik ölçümü**, ve **tüketim abonelik**. Bu abonelik türlerini 1804 sürümünden başlayarak yeni Azure Stack ortamlarında görülebilir ancak henüz kullanıma sunulmamıştır. Kullanmaya devam etmelidir **varsayılan sağlayıcı aboneliği** türü.
@@ -251,6 +253,8 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
 ### <a name="known-issues"></a>Bilinen sorunlar
 
 #### <a name="portal"></a>Portal
+- <!-- 2931230 – IS  ASDK --> Kullanıcı aboneliği plan kaldırdığınızda bile, bir kullanıcı abonelikte eklenti planı eklendiği planları silinemiyor. Eklenti planı başvuru abonelikleri de silinene kadar plan kalır. 
+
 - <!-- 2551834 - IS, ASDK --> Seçtiğinizde, **genel bakış** için yönetici veya Kullanıcı Portalı, bilgileri bir depolama hesabında *Essentials* bölmesinde görüntülemez.  Temel bileşenler bölmesine gibi hesabıyla ilgili bilgileri görüntüler, *kaynak grubu*, *konumu*, ve *abonelik kimliği*.  Diğer seçenekleri genel bakış için erişilebilir gibi *Hizmetleri* ve *izleme*, farklı seçenekleri için *Gezgini'nde Aç* veya *depolama hesabını Sil* .  
 
   Kullanılamayan bilgileri görüntülemek için kullanın [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0) PowerShell cmdlet'i.

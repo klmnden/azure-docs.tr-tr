@@ -1,53 +1,47 @@
 ---
-title: "Veri kaynaklarını belgeleme | Microsoft Docs"
-description: "Nasıl yapılır makalesi Azure veri Kataloğu veri varlıklarını belgeleme vurgulama."
+title: Azure veri Kataloğu'nda veri kaynaklarını belgeleme
+description: Nasıl yapılır makalesi Azure veri Kataloğu'nda veri varlıklarını belgeleme vurgulama.
 services: data-catalog
-documentationcenter: 
 author: spelluru
-manager: NA
-editor: 
-tags: 
+ms.author: spelluru
 ms.assetid: 053b1701-b848-4ada-b726-6f485caa9961
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-ms.openlocfilehash: 1901ac534c46e4de0446543de4a40de040b8d51e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 4d3dfac425caf36e9ca9a4d3593bba336b18b7a3
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053644"
 ---
 # <a name="document-data-sources"></a>Veri kaynaklarını belgelendirme
 ## <a name="introduction"></a>Giriş
-**Microsoft Azure veri Kataloğu** bir kayıt ve sistemi kurumsal veri kaynakları için bulma görevi gören bir tam olarak yönetilen bir bulut hizmetidir. Diğer bir deyişle, **Azure veri Kataloğu** tüm bulmak, kişilerin yardımcı olma hakkında olan *anlamak*, veri kaynaklarını kullanmak ve kuruluşların kendi var olan verilerden daha fazla değer almak için.
+**Microsoft Azure veri Kataloğu** kayıt ve kurumsal veri kaynakları için bulma sistemi olarak görev yapan tam yönetilen bir bulut hizmetidir. Diğer bir deyişle, **Azure veri Kataloğu** olan tüm kişileri keşfetme, yardımcı hakkında *anlamak*, veri kaynaklarını kullanın ve kuruluşların var olan verilerden daha fazla değer elde yardımcı olur.
 
-Ne zaman bir veri kaynağı kayıtlı ile **Azure veri Kataloğu**, meta verilerini kopyalanır ve hizmet tarafından dizine ancak Öykü yok sonlanmıyor. **Azure veri Kataloğu** kullanıcılara ayrıca kullanım ve veri kaynağı için genel senaryolar açıklayabilirsiniz kendi kapsamlı belgeler sağlar.
+Ne zaman bir veri kaynağı kayıtlı ile **Azure veri Kataloğu**, meta verileri kopyalanır ve hizmet tarafından ancak bir hikayesi vardır sonlanmıyor. **Azure veri Kataloğu** kullanıcılara ayrıca kullanım ve veri kaynağı için sık karşılaşılan senaryolar tanımlayabilirsiniz, kendi kapsamlı belgeler sağlar.
 
-İçinde [veri kaynaklarına açıklama ekleme](data-catalog-how-to-annotate.md), veri kaynağı bilen uzmanlar, etiketler ve bir açıklama açıklayabilirsiniz olduğunu öğrenin. **Azure veri Kataloğu** portal, böylece kullanıcılar tam veri varlıklarını ve kapsayıcıları belge bir zengin metin düzenleyicisi içerir. Düzenleyici, paragraf biçimlendirmesini başlıkları gibi metin biçimlendirmesini, madde işaretli listeler, numaralandırılmış listeler ve tabloları içerir.
+İçinde [veri kaynaklarına açıklama ekleme](data-catalog-how-to-annotate.md), veri kaynağı bilen uzmanlar, etiketler ve bir açıklama ile açıklama ekleyebilirsiniz olduğunu öğrenin. **Azure veri Kataloğu** portal, böylece kullanıcılar veri varlıklarını ve kapsayıcıların tam olarak belgelemeye zengin metin düzenleyicisi içerir. Düzenleyici, paragraf biçimlendirmesini başlıkları gibi metin biçimlendirme, madde işaretli listeler, numaralandırılmış liste ve tablo içerir.
 
-Etiketleri ve açıklamaları basit ek açıklamalar için mükemmeldir. Ancak, veri tüketicileri daha iyi bir veri kaynağı için bir veri kaynağı ve iş senaryolarını kullanımını anlamanıza yardımcı olmak için uzman tam, ayrıntılı belgelere sağlayabilir. Bir veri kaynağı belge kolaydır. Bir veri varlığına veya kapsayıcı seçin ve **belgelerine**.
+Etiketleri ve açıklamaları basit ek açıklamalar için mükemmel özellikler. Ancak, veri tüketicileri daha iyi bir veri kaynağı için bir veri kaynağı ve iş senaryolarına kullanımını anlamanıza yardımcı olmak için uzman tam, ayrıntılı belgeler sağlayabilirsiniz. Bir veri kaynağı belgelemek kolay bir işlemdir. Bir veri varlığına veya kapsayıcı seçip **belgeleri**.
 
 ![](media/data-catalog-documentation/data-catalog-documentation.png)
 
 ## <a name="documenting-data-assets"></a>Veri varlıklarını belgeleme
-Avantajı **Azure veri Kataloğu** belgelerine veri varlıklarınız varlıklarınızın tam bir açıklamasını oluşturmak için veri kataloğunuzu bir içerik deposu olarak kullanmanıza olanak sağlar. Kapsayıcılar ve tabloları açıklar ayrıntılı içerik keşfedebilirsiniz. SharePoint veya bir dosya paylaşımı gibi başka bir content deposundaki içerik zaten varsa bu var olan içerik başvurmak için varlık belgelere bağlantılar ekleyebilirsiniz. Bu özellik, varolan belgelerinizi daha bulunabilir hale getirir.
+Avantajı **Azure veri Kataloğu** belgeleri, veri Kataloğu, veri varlıklarınızın tam bir açıklamasını oluşturmak için bir içerik deposu olarak kullanmanızı sağlar. Kapsayıcıların ve tabloların açıklayan ayrıntılı içerik keşfedebilirsiniz. SharePoint veya bir dosya paylaşımı gibi başka bir içerik deposundaki içerik zaten varsa, bu var olan içeriğin başvurmak için varlık belgelerine bağlantılar ekleyebilirsiniz. Bu özellik, var olan belgelerinizi daha bulunabilir hale getirir.
 
 > [!NOTE]
-> Belge arama dizinine dahil edilmez.
+> Belgeleri arama dizinini dahil edilmez.
 >
 >
 
 ![](media/data-catalog-documentation/data-catalog-documentation2.png)
 
-Belge düzeyi değeri bir kapsayıcıdaki tablo şemasını ayrıntılı bir açıklaması için veri varlık kapsayıcısının ve özelliklerini açıklayan aralığında değişebilir. Sağlanan belge düzeyi, iş gereksinimlerinize göre güdümlü. Ancak genel olarak, işte birkaç Artıları ve eksileri veri varlıklarını belgeleme biri:
+Belge düzeyi, değeri veri varlık kapsayıcısı için bir kapsayıcı içindeki tablo şemasını ayrıntılı bir açıklaması ve özelliklerini açıklayan gelen değişebilir. Sağlanan belge düzeyi iş gereksinimlerinize göre dikkate alınmalıdır. Ancak genel olarak, işte birkaç Artıları ve eksileri veri varlıklarını belgeleme biri:
 
-* Yalnızca bir kapsayıcı belge: tüm içeriği tek bir yerde olsa da, kullanıcıların bilinçli bir karar gerekli bilgileri eksik.
-* Yalnızca tablolar belge: içeriği o nesneye özgü, ancak kullanıcılarınızın belgeler için birden fazla yerde sahip.
-* Belge kapsayıcıları ve tablolar: en kapsamlı bir yaklaşım, ancak daha fazla bakım belgelerin getirebilir.
+* Bir kapsayıcı belge: tüm içerikleri tek bir yerde olduğu, ancak kullanıcıların konusunda bilinçli bir karar gerekli bilgileri eksik.
+* Tabloları belge: içeriği o nesneye özeldir, ancak birden fazla yerde belgeler için kullanıcılarınızın sahip.
+* Belge kapsayıcıların ve tabloların: en kapsamlı bir yaklaşım, ancak daha fazla bakım belgelerin yapabilecek.
 
 ## <a name="summary"></a>Özet
-Veri kaynakları ile belgeleme **Azure veri Kataloğu** biçiminde anlatı veri varlıklarınız hakkında gerektiği kadar ayrıntılı olarak oluşturabilirsiniz.  Bağlantıları kullanarak, varolan belgeleri ve veri varlıkları bir araya getirir bir var olan içerik deposu depolanan içerik bağlayabilirsiniz. Kullanıcılarınıza uygun veri varlıklarını bulma sonra belgeleri eksiksiz bir kümesini sahip olabilir.
+Sahip olan veri kaynaklarını belgeleme **Azure veri Kataloğu** gerektiği kadar ayrıntılı bir anlatım hakkında veri varlıklarınızı oluşturabilirsiniz.  Bağlantıları kullanarak, varolan belgeleri ve veri varlıklarını bir araya getirir bir var olan içerik deposu içinde depolanan içerikleri bağlantı oluşturabilirsiniz. Kullanıcılarınıza uygun veri varlıklarını bulma sonra belgeleri eksiksiz bir kümesini sahip olabilir.

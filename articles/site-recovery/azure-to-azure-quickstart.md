@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: de30085ae5ff95e7067684ff3af9ccb0d45357de
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: abba75e731d2550b4719eec70d475884bd7f3c8e
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990872"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42022446"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>Bir Azure VM’yi başka bir Azure bölgesine çoğaltma
 
 [Azure Site Recovery](site-recovery-overview.md) hizmeti, planlı ve plansız kesintiler sırasında iş uygulamalarınızı çalışır durumda tutarak, iş sürekliliğinize ve olağanüstü durum kurtarma (BCDR) stratejinize katkıda bulunur. Site Recovery, şirket içi makinelerin ve Azure sanal makinelerinin çoğaltma, yük devretme ve kurtarma gibi olağanüstü durum kurtarma işlemlerini yönetir ve düzenler.
 
-Bu hızlı başlangıç, bir Azure VM’nin farklı bir Azure bölgesine nasıl çoğaltılacağını açıklar. 
+Bu hızlı başlangıç, bir Azure VM’nin farklı bir Azure bölgesine nasıl çoğaltılacağını açıklar.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -62,8 +62,7 @@ http://portal.azure.com adresinden Azure portalında oturum açın.
 Şu adımlara göre çoğaltmayı durdurun:
 
 1. VM’yi seçin.
-2. **Olağanüstü durum kurtarma** bölümünde, **Diğer** seçeneğine tıklayın.
-3. **Çoğaltmayı Devre Dışı Bırak** seçeneğine tıklayın.
+2. **Olağanüstü durum kurtarma** bölümünde **Çoğaltmayı devre dışı bırak**'a tıklayın.
 
    ![Çoğaltmayı devre dışı bırakma](media/azure-to-azure-quickstart/disable2-replication.png)
 

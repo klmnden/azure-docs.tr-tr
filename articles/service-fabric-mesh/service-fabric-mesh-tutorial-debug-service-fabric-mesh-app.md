@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ad6812f25ee33bf723ed86d4ec32ca6898d01774
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: c519d24a8401823039f3d6598276890ec6498bbc
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186747"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919821"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-web-application"></a>Öğretici: Service Fabric Mesh web uygulamasında hata ayıklama
 
@@ -74,9 +74,17 @@ Yerel dağıtım bittikten ve Visual Studio uygulamanızı çalıştırdıktan s
 
 **Hata ayıklama ipuçları**
 
-* **Service Fabric yerel kümesi çalışmıyor** hatasını alırsanız, Hizmet Yerel Küme Yöneticisi'nin (SLCM) çalıştığından emin olun, sonra görev çubuğunda SLCM simgesine tıklayın ve **Yerel Kümeyi Başlat**'a tıklayın. Başlatıldıktan sonra Visual Studio’ya dönün ve **F5** tuşuna basın.
-* Uygulama başlatıldığında **404** hatası alırsanız, **service.yaml** içindeki ortam değişkenleriniz yanlış olabilir. `ApiHostPort` ve `ServiceName` değerlerinin [Ortam değişkenlerini oluşturma](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables) yönergelerine uygun olarak doğru ayarlandığından emin olun.
-* **Service.yaml** içinde derleme hataları alırsanız, satırlarda girinti yapmak için sekme yerine boşlukların kullanıldığından emin olun. Ayrıca şu an için uygulamayı İngilizce yerel ayarı kullanarak derlemeniz gerekir.
+`using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` çağrısının hizmete bağlanamamasına neden olan bir sorun mevcuttur. Ana bilgisayarınızın IP adresi değiştiğinde bu durumda karşılaşabilirsiniz. Bunu çözmek için:
+
+1. Uygulamayı yerel kümeden kaldırın (Visual Studio'da, **Derleme** > **Çözümü Temizle**).
+2. Service Fabric Yerel Küme Yöneticisi'nde **Yerel Kümeyi Durdur**'u ve ardından **Yerel Kümeyi Başlat**'ı seçin.
+3. Uygulamayı yeniden dağıtın (Visual Studio'da, **F5**).
+
+**Service Fabric yerel kümesi çalışmıyor** hatasını alırsanız, Service Fabric Yerel Küme Yöneticisi'nin (LCM) çalıştığından emin olun, sonra görev çubuğunda LCM simgesine tıklayın ve **Yerel Kümeyi Başlat**'a tıklayın. Başlatıldıktan sonra Visual Studio’ya dönün ve **F5** tuşuna basın.
+
+Uygulama başlatıldığında **404** hatası alırsanız, **service.yaml** içindeki ortam değişkenleriniz yanlış olabilir. `ApiHostPort` ve `ToDoServiceName` değerlerinin [Ortam değişkenlerini oluşturma](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables) yönergelerine uygun olarak doğru ayarlandığından emin olun.
+
+**Service.yaml** içinde derleme hataları alırsanız, satırlarda girinti yapmak için sekme yerine boşlukların kullanıldığından emin olun. Ayrıca şu an için uygulamayı İngilizce yerel ayarı kullanarak derlemeniz gerekir.
 
 ### <a name="debug-in-visual-studio"></a>Visual Studio'da hata ayıklama
 

@@ -15,12 +15,12 @@ ms.date: 08/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 537777d2e379959d427c025036652a87ecc4a1fe
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: e03b2ab45edd57a124dcc960ff518ece4902d2fa
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617167"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048377"
 ---
 # <a name="built-in-roles-in-azure"></a>Azure'da yerleşik roller
 [Rol tabanlı erişim denetimi (RBAC)](overview.md) kullanıcılara, gruplara veya hizmet sorumluları için atayabileceğiniz birkaç yerleşik rol tanımlarına sahiptir. Rol atamaları, azure'daki kaynaklara erişimi denetlemek yoludur. Yerleşik roller kuruluşunuzun ihtiyaçlarını karşılamıyorsa kendi [özel rollerinizi](custom-roles.md) oluşturabilirsiniz.
@@ -43,7 +43,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 | [API Management hizmet operatörü rolü](#api-management-service-operator-role) | Hizmeti yönetebilir, ancak API'leri yönetemez |
 | [API Management hizmet okuyucusu rolü](#api-management-service-reader-role) | Hizmet ve API'lere salt okunur erişim |
 | [Application Insights bileşeni Katılımcısı](#application-insights-component-contributor) | Application Insights bileşenlerini yönetebilir |
-| [Application Insights Snapshot Debugger](#application-insights-snapshot-debugger) | Kullanıcıya Application Insights Snapshot Debugger özelliklerini kullanma izni verir |
+| [Application Insights Snapshot Debugger](#application-insights-snapshot-debugger) | Görüntülemenizi ve indirmenizi ile Application Insights Snapshot Debugger toplanan hata ayıklama anlık görüntülerini kullanıcı izin verilir. Bu rol hiçbiri eklendiğini unutmayın [sahibi](#owner) ya da [katkıda bulunan](#contributor) rolleri. |
 | [Otomasyon işi işleci](#automation-job-operator) | Otomasyon Runbook'larını kullanarak İş oluşturun ve yönetin. |
 | [Otomasyon operatörü](#automation-operator) | Otomasyon Operatörleri, işleri başlatabilir, durdurabilir, askıya alabilir ve sürdürebilir |
 | [Otomasyon Runbook'u işleci](#automation-runbook-operator) | Runbook'un İşlerini oluşturabilmek için Runbook özelliklerini okuyun. |

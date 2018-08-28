@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d48d7625221dfb96e0119ef0d42b3b0a8d04baba
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 59ff3434e7b984f4530ad4f8b03b27991d3a9c1c
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185678"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41918024"
 ---
 # <a name="tutorial-create-debug-and-deploy-a-multi-service-web-application-to-service-fabric-mesh"></a>Öğretici: Çok hizmet sunan bir web uygulaması oluşturup Service Fabric Mesh’e dağıtma ve bu uygulamada hata ayıklama
 
@@ -314,7 +314,8 @@ Dosyanın içeriğinin tamamını aşağıdaki yapılacak işler öğelerini gö
 </div>
 ```
 
-**Çözüm Gezgini**'nde **Index.cshtml** sayfasını ve ardından **Index.cshtml.cs** dosyasını açarak Index sayfasının kodunu açın. **Index.cshtml.cs** dosyasının en üstüne `using System.Net.Http;` ifadesini ekleyin.
+**Çözüm Gezgini**'nde **Index.cshtml** sayfasını ve ardından **Index.cshtml.cs** dosyasını açarak Index sayfasının kodunu açın.
+**Index.cshtml.cs** dosyasının en üstüne `using System.Net.Http;` ifadesini ekleyin.
 
 `public class IndexModel` içeriğini şununla değiştirin:
 
@@ -336,7 +337,7 @@ public class IndexModel : PageModel
         }
     }
 
-    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}";
+    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ToDoServiceName")}";
     private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 }
 ```
@@ -346,7 +347,7 @@ public class IndexModel : PageModel
 Arka uç hizmetiyle iletişim kurmak için URL'sini kullanmanız gerekir. Bu öğreticinin amaçları doğrultusunda aşağıdaki kod parçası (IndexModel öğesinin bir parçası olarak yukarıda tanımlanan) ortam değişkenlerini okuyarak URL'yi oluşturur:
 
 ```csharp
-private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}";
+private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ToDoServiceName")}";
 private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 ```
 

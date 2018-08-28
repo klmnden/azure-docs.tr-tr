@@ -3,20 +3,20 @@ title: Azure portalını kullanarak Azure Veritabanı Geçiş Hizmeti örneği o
 description: Azure Veritabanı Geçiş Hizmeti örneği oluşturmak için Azure portalını kullanma
 services: database-migration
 author: edmacauley
-ms.author: edmaca
+ms.author: jtoland
 manager: craigg
 ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 05/01/2018
-ms.openlocfilehash: 7669ee678f4049c938c6e249c26997d993fd7c6a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 08/13/2018
+ms.openlocfilehash: f4dcc659d72edff1d8c2523cce1de059f1cf3fdf
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32772203"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42024282"
 ---
 # <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Azure portalını kullanarak Azure Veritabanı Geçiş Hizmeti örneği oluşturma
 Bu Hızlı Başlangıç kılavuzunda Azure Veritabanı Geçiş Hizmeti’nin bir örneğini oluşturmak için Azure portalını kullanacaksınız.  Hizmeti oluşturduktan sonra, şirket içi SQL Server’daki verileri bir Azure SQL veritabanına geçirmek için bu hizmeti kullanabilirsiniz.
@@ -35,32 +35,39 @@ Varsayılan görünüm hizmet panonuzu içerir.
 
 2. Azure Veritabanı Geçiş Hizmeti örneğini oluşturmak istediğiniz aboneliği seçin ve sonra **Kaynak sağlayıcıları**’nı seçin.
 
-3. Geçiş öğesini arayın ve sonra Microsoft.DataMigration öğesinin sağ tarafındaki **Kaydet**’i seçin.
+3. "migration" araması yapın ve **Microsoft.DataMigration** öğesinin sağ tarafındaki **Kaydet**'i seçin.
 
-![Kaynak sağlayıcısını kaydetme](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
+    ![Kaynak sağlayıcısını kaydetme](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
 ## <a name="create-an-instance-of-the-service"></a>Hizmetin bir örneğini oluşturma
-1. Azure Veritabanı Geçiş Hizmeti’nin bir örneğini oluşturmak için **+ Kaynak oluştur**’a tıklayın.
+1. Azure Veritabanı Geçiş Hizmeti’nin bir örneğini oluşturmak için +**Kaynak oluştur**’u seçin.
 
-2. "Geçiş" için marketi arayın, **Azure Veritabanı Geçiş Hizmeti**’ni seçin ve **Azure Veritabanı Geçiş Hizmeti**  ekranında, **Oluştur**’a tıklayın.
+2. "Geçiş" için marketi arayın, **Azure Veritabanı Geçiş Hizmeti**’ni seçin ve **Azure Veritabanı Geçiş Hizmeti**  ekranında, **Oluştur**’u seçin.
 
-3. **Veritabanı Geçiş Hizmeti** ekranında: 
+3. **Geçiş Hizmeti Oluştur** ekranında: 
 
-    - Azure Veritabanı Geçiş Hizmeti örneğinizi tanımlamak için akılda kalıcı ve benzersiz bir **Hizmet adı** seçin.
+    - Azure Veritabanı Geçiş Hizmeti örneğinizi tanımlamak için akılda kalıcı ve benzersiz bir **Hizmet Adı** seçin.
     - Örneği oluşturmak istediğiniz Azure **Aboneliğini** seçin.
-    - Benzersiz bir ada sahip yeni bir **Ağ** oluşturun.
+    - Yeni bir **Kaynak Grubu** seçin ya da yeni bir tane oluşturun.
     - Kaynak veya hedef sunucunuza en yakın **Konum**’u seçin.
+    - Var olan bir **Sanal ağı** (VNET) seçin veya bir tane oluşturun.
+
+        Sanal ağ, Azure Veritabanı Geçiş Hizmeti'nin kaynak veritabanına ve hedef ortama erişmesini sağlar.
+
+        Azure portalda sanal ağ oluşturma hakkında daha fazla bilgi için [Azure portalı kullanarak sanal ağ oluşturma](https://aka.ms/vnet) makalesine bakın.
+
     - **Fiyatlandırma katmanı** için Temel: 1 Sanal Çekirdek seçeneğini belirleyin.
 
-    ![Geçiş hizmetini oluşturma](media/quickstart-create-data-migration-service-portal/dms-create-service.png)
+        ![Geçiş hizmetini oluşturma](media/quickstart-create-data-migration-service-portal/dms-create-service1.png)
+
 4. **Oluştur**’u seçin.
 
-Birkaç dakika sonra Azure Veritabanı Geçiş Hizmeti örneğiniz oluşturulur ve kullanıma hazır hale gelir. Veritabanı Geçiş Hizmeti aşağıdaki resimde gösterildiği gibi görüntülenir:
+    Birkaç dakika sonra Azure Veritabanı Geçiş Hizmeti örneğiniz oluşturulur ve kullanıma hazır hale gelir. Veritabanı Geçiş Hizmeti aşağıdaki resimde gösterildiği gibi görüntülenir:
 
-![Geçiş hizmeti oluşturuldu](media/quickstart-create-data-migration-service-portal/dms-service-created.png)
+    ![Geçiş hizmeti oluşturuldu](media/quickstart-create-data-migration-service-portal/dms-service-created.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-[Azure kaynak grubunu](../azure-resource-manager/resource-group-overview.md) silerek bu Hızlı Başlangıç kılavuzunda oluşturduğunuz kaynakları temizleyebilirsiniz.  Kaynak grubunu silmek için, oluşturduğunuz Azure Veritabanı Geçiş Hizmeti örneğine gidin. **Kaynak grubu** adını seçin ve **Kaynak grubunu sil** seçeneğini belirleyin.  Bu eylem kaynak grubundaki tüm varlıkları ve kaynak grubunu siler.
+[Azure kaynak grubunu](../azure-resource-manager/resource-group-overview.md) silerek bu Hızlı Başlangıç kılavuzunda oluşturduğunuz kaynakları temizleyebilirsiniz. Kaynak grubunu silmek için, oluşturduğunuz Azure Veritabanı Geçiş Hizmeti örneğine gidin. **Kaynak grubu** adını seçin ve **Kaynak grubunu sil** seçeneğini belirleyin. Bu eylem kaynak grubundaki tüm varlıkları ve kaynak grubunu siler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]

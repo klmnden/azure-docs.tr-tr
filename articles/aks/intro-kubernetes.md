@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/13/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cb38285a009d8dfba175de6e3037970e6111d929
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: e6f67c8900a7ee1728b474651b47d278cdfa51eb
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096136"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023180"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Hizmeti (AKS)
 
@@ -104,7 +104,7 @@ Azure Kubernetes Service (AKS) hizmetinin Kubernetes ile uyumlu olduğu CNCF tar
 
 ## <a name="regulatory-compliance"></a>Mevzuata uyumluluk
 
-Azure Kubernetes Service (AKS), SOC ve ISO/HIPAA/HITRUST ile uyumludur.
+Azure Kubernetes Service (AKS), SOC ve ISO ile uyumludur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -131,7 +131,7 @@ AKS hızlı başlangıçları ile AKS dağıtma ve yönetme hakkında daha fazla
 [aks-scale]: ./scale-cluster.md
 [aks-upgrade]: ./upgrade-cluster.md
 [azure-dev-spaces]: https://docs.microsoft.com/en-us/azure/dev-spaces/azure-dev-spaces
-[azure-devops]: https://docs.microsoft.com/en-us/vsts/pipelines/actions/azure-devops-project-aks?view=vsts
+[azure-devops]: https://docs.microsoft.com/en-us/azure/devops-project/overview
 [azure-disk]: ./azure-disks-dynamic-pv.md
 [azure-files]: ./azure-files-dynamic-pv.md
 [container-health]: ../monitoring/monitoring-container-health.md

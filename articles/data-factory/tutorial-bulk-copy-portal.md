@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 651f9ba71d08698c64f3e90de59b5f29a8afc77d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b6d7b926a414c95d4e05834bafc91a2aa9c047fe
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433519"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41919610"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Azure Data Factory kullanarak birden çok tabloyu toplu olarak kopyalama
 Bu öğreticide **Azure SQL Veritabanından Azure SQL Veri Ambarı'na birkaç tabloyu kopyalama** işlemi gösterilmektedir. Aynı düzeni diğer kopyalama senaryolarında da uygulayabilirsiniz. Örneğin, SQL Server/Oracle’dan Azure SQL Veritabanı/Veri Ambarı/Azure Blob’a tablo kopyalama, Blob’dan Azure SQL Veritabanı tablolarına farklı yollar kopyalama.
@@ -265,7 +265,7 @@ Bu öğreticide, iki işlem hattı oluşturursunuz: **IterateAndCopySQLTables** 
     1. DWTableName parametresinin değeri için giriş kutusuna tıklayın -> aşağıdaki **Dinamik içerik ekle**'yi seçin, betik olarak `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` ifadesini girin -> **Son**'u seçin.
     1. **Polybase Ayarları**'nı genişletin ve **Polybase'e izin ver**'i seçin. 
     1. **Tür varsayılanını kullan** seçeneğini temizleyin. 
-    1. **Temizleme Betiği** giriş kutusuna tıklayın -> aşağıdaki **Dinamik içerik ekle**'yi seçin -> betik için aşağıdaki ifadeyi girin -> **Son**'u seçin. 
+    1. **Betiği kopyala** giriş kutusuna tıklayın -> aşağıdaki **Dinamik içerik ekle**'yi seçin -> betik için aşağıdaki ifadeyi girin -> **Son**'u seçin. 
 
         ```sql
         TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]

@@ -2,7 +2,7 @@
 title: .NET ve HDInsight - Azure'ı kullanarak Sqoop işleri çalıştırma
 description: HDInsight .NET SDK'sı bir Hadoop kümesi ile bir Azure SQL veritabanı arasında Sqoop alma ve kullanacağınızı öğrenin.
 keywords: sqoop işi
-editor: jasonwhowell
+ms.reviewer: jasonh
 services: hdinsight
 author: jasonwhowell
 ms.service: hdinsight
@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jasonh
-ms.openlocfilehash: 19c275de80b872fe214e45a52de7d6fb283daf41
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: ffcc2bff17fbe07c58df032dbb8994edb04ae5d0
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595153"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046786"
 ---
 # <a name="run-sqoop-jobs-by-using-net-sdk-for-hadoop-in-hdinsight"></a>HDInsight, Hadoop için .NET SDK kullanarak Sqoop işleri çalıştırma
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]

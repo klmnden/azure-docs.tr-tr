@@ -3,18 +3,18 @@ title: Java kullanıcı tanımlı işlev (UDF ile HDInsight - Azure'da Hive)
 description: Hive ile çalışan bir Java tabanlı kullanıcı tanımlı işlev (UDF) oluşturmayı öğrenin. Bu örnek, bir küçük metin dizesi tablosunu UDF dönüştürür.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jasonh
-ms.openlocfilehash: eb98b5e4ef2251ad44cbb4b737141fea79adc743
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b2a4c7ce3ac91ade497ca59a8c2ca4fe642811a9
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590374"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047512"
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Bir Java kullanma HDInsight Hive ile UDF
 

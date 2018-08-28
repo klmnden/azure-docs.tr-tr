@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Genel Temel Yük Dengeleyici oluşturma - Azure portalı | Microsoft Docs'
+title: 'Öğretici: Genel Temel Yük Dengeleyici oluşturma - Azure portal | Microsoft Docs'
 description: Bu öğreticide Azure portalını kullanarak bir iç Temel Yük Dengeleyici oluşturma işlemi gösterilmektedir.
 services: load-balancer
 documentationcenter: na
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: c0d19c53a0bd217935a494dfb4affbaa85062247
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 7c1e56b7c94c51a00fabdac56dd2d8c3eb621ae0
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097487"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42139603"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak Temel Yük Dengeleyici ile VM’lere iç trafiğin yükünü dengeleme
 
@@ -69,7 +69,7 @@ Bu bölümde, Temel Yük Dengeleyicinizin arka uç havuzu için iki sanal makine
     - Sanal makinenin adı için *myVM1*.        
     - Yönetici kullanıcı adı için *azureuser*.   
     - *myResourceGroupILB* - **Kaynak grubu** için **Var olanı kullan**’ı seçin ve sonra *myResourceGroupILB* öğesini seçin.
-2. **Tamam**’a tıklayın.
+2. **Tamam** düğmesine tıklayın.
 3. Sanal makinenin boyutu için **DS1_V2** seçeneğini belirleyin ve **Seç**’e tıklayın.
 4. Sanal makine ayarları için şu değerleri girin:
     - Oluşturduğunuz yeni Kullanılabilirlik kümesinin adı için *myAvailabilitySet*.
@@ -116,7 +116,7 @@ Trafiği VM’lere dağıtmak için, bir arka uç adres havuzunda yük dengeleyi
     - **İlişkilendirildiği öğe** için, açılır menüden **Kullanılabilirlik kümesi**’ne tıklayın
     - **Kullanılabilirlik kümesi** için **myAvailabilitySet** seçeneğine tıklayın.
     - Arka uç havuzunda oluşturduğunuz tüm sanal makineleri (*myVM1* & *myVM2*) eklemek için **Hedef ağ IP yapılandırması ekle** seçeneğine tıklayın.
-    - **Tamam**’a tıklayın.
+    - **Tamam** düğmesine tıklayın.
 
         ![Arka uç adres havuzuna ekleme - ](./media/tutorial-load-balancer-basic-internal-portal/3-load-balancer-backend-02.png)
 
@@ -134,7 +134,7 @@ Temel Yük Dengeleyicinin uygulamanızın durumunu izlemesine izin vermek için 
     - Bağlantı noktası numarası için *80*.
     - Araştırma denemeleri arasındaki saniye cinsinden **Aralık** için *15*.
     - Bir sanal makinenin sağlıksız olduğu kanısına varılmadan önce gerçekleşmesi gereken ardışık araştırma hatası veya **Sağlıksız eşik** sayısı için *2*.
-4. **Tamam**’a tıklayın.
+4. **Tamam** düğmesine tıklayın.
 
    ![Araştırma ekleme](./media/tutorial-load-balancer-basic-internal-portal/4-load-balancer-probes.png)
 
@@ -151,7 +151,7 @@ Trafiğin sanal makinelere dağıtımını tanımlamak için bir Yük Dengeleyic
     - Arka uç bağlantı noktası için *80*.
     - Arka uç havuzunun adı için *myBackendPool*.
     - Durum araştırmasının adı için *myHealthProbe*.
-4. **Tamam**’a tıklayın.
+4. **Tamam** düğmesine tıklayın.
     
     ![Yük dengeleme kuralı ekleme](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)
 
@@ -160,7 +160,7 @@ Trafiğin sanal makinelere dağıtımını tanımlamak için bir Yük Dengeleyic
 1. Ekranın sol üst kısmında **Kaynak oluştur** > **İşlem** > **Windows Server 2016 Datacenter**'a tıklayın ve sanal makine için şu değerleri girin:
     - *myVMTest* - Sanal makinenin adı.        
     - *myResourceGroupILB* - **Kaynak grubu** için **Var olanı kullan**’ı seçin ve sonra *myResourceGroupILB* öğesini seçin.
-2. **Tamam**’a tıklayın.
+2. **Tamam** düğmesine tıklayın.
 3. Sanal makinenin boyutu için **DS1_V2** seçeneğini belirleyin ve **Seç**’e tıklayın.
 4. Sanal makine ayarları için şu değerleri girin:
     -  Sanal makine olarak *myVNet*'in seçildiğinden emin olun.

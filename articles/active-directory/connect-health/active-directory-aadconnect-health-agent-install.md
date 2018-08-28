@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 42910d616bdbf38c847b48a4a44e6ff9593fa17b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 30db5dc373dd0fae24760bdad669fd872cba4b4d
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952734"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918991"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Aracısı Yüklemesi
 Bu belge, Azure AD Connect Health Aracılarını yüklemenize ve yapılandırmanıza yardımcı olur. Aracıları [buradan](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent) indirebilirsiniz.
@@ -31,13 +31,13 @@ Aşağıdaki tabloda Azure AD Connect Health kullanımına ilişkin gereksinimle
 | --- | --- |
 | Azure AD Premium |Azure AD Connect Health, bir Azure AD Premium özelliği olup Azure AD Premium gerektirir. </br></br>Daha fazla bilgi için bkz. [Azure AD Premium ile Çalışmaya Başlama](../fundamentals/active-directory-get-started-premium.md) </br>30 günlük ücretsiz denemeyi başlatmak için bkz. [Denemeyi başlatma.](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Azure AD Connect Health ile çalışmaya başlamak için Azure AD'nizin genel yöneticisi olmanız gerekir. |Varsayılan olarak yalnızca genel yöneticiler; çalışmaya başlamak üzere durum aracılarını yükleyip yapılandırabilir, portala erişebilir ve Azure AD Connect Health'te işlem gerçekleştirebilir. Daha fazla bilgi için bkz. [Azure AD dizininizi yönetme](../fundamentals/active-directory-administer.md). <br><br> Rol Tabanlı Erişim Denetimini kullanarak kuruluşunuzdaki diğer kullanıcılara Azure AD Connect Health erişim izni verebilirsiniz. Daha fazla bilgi için bkz. [Azure AD Connect Health için Rol Tabanlı Erişim Denetimi.](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) </br></br>**Önemli:** Aracıları yüklerken kullanılan hesap bir iş veya okul hesabı olmalıdır. Bir Microsoft hesabı olamaz. Daha fazla bilgi için bkz. [Azure'a kuruluş olarak kaydolma](../fundamentals/sign-up-organization.md) |
-| Azure AD Connect Health Aracısı, hedeflenen tüm sunucularda yüklüdür | Azure AD Connect Health, veri almak ve İzleme ve Analiz özelliklerini sağlamak için hedeflenen sunucularda Sistem Durumu Aracılarının yüklü ve yapılandırılmış olmasını gerektirir </br></br>Örneğin, AD FS altyapınızdan veri alabilmek için AD FS sunucularında ve Web Uygulaması Proxy sunucularında aracının yüklü olması gerekir. Benzer şekilde, şirket içi AD DS altyapınızdaki verileri almak için aracının etki alanı denetleyicilerine yüklenmesi gerekir. </br></br> |
+| Azure AD Connect Health Aracısı, hedeflenen tüm sunucularda yüklüdür | Azure AD Connect Health, veri almak ve İzleme ve Analiz özelliklerini sağlamak için hedeflenen sunucularda Sistem Durumu Aracılarının yüklü ve yapılandırılmış olmasını gerektirir. </br></br>Örneğin, AD FS altyapınızdan veri alabilmek için AD FS sunucularında ve Web Uygulaması Proxy sunucularında aracının yüklü olması gerekir. Benzer şekilde, şirket içi AD DS altyapınızdaki verileri almak için aracının etki alanı denetleyicilerine yüklenmesi gerekir. </br></br> |
 | Azure hizmet uç noktalarına giden bağlantı | Yükleme ve çalışma zamanı sırasında, aracı ile Azure AD Connect Health hizmet uç noktaları arasında bağlantı kurulması gerekir. Giden bağlantı Güvenlik Duvarları kullanılarak engellenirse aşağıdaki uç noktaların izin verilenler listesine eklendiğinden emin olun. Bkz. [giden bağlantı uç noktaları](active-directory-aadconnect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) | 
-|IP Adreslerini temel alan giden bağlantı | Güvenlik duvarlarında IP adresine göre filtreleme için bkz. [Azure IP Aralıkları](https://www.microsoft.com/en-us/download/details.aspx?id=41653).|
+|IP Adreslerini temel alan giden bağlantı | Güvenlik duvarlarında IP adresine göre filtreleme için bkz. [Azure IP Aralıkları](https://www.microsoft.com/download/details.aspx?id=41653).|
 | Giden trafik için SSL İncelemesi filtrelenmiş ya da devre dışı | Ağ katmanında giden trafik için SSL incelemesi veya sonlandırması mevcutsa aracı kaydı adımı veya veri yükleme işlemleri başarısız olabilir. [SSL denetimi kurulumu](https://technet.microsoft.com/library/ee796230.aspx) hakkında daha fazla bilgi edinin |
 | Aracıyı çalıştıran sunucudaki güvenlik duvarı bağlantı noktaları |Aracının Azure AD Health hizmet uç noktaları ile iletişim kurabilmesi için aşağıdaki güvenlik duvarı bağlantı noktalarının açık olması gerekir.</br></br><li>TCP bağlantı noktası 443</li><li>TCP bağlantı noktası 5671</li> </br>[güvenlik duvarı bağlantı noktalarını etkinleştirme](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) hakkında daha fazla bilgi edinin |
 | IE Artırılmış Güvenlik etkinse aşağıdaki web sitelerine izin verin |IE Artırılmış Güvenlik etkinse aracının yükleneceği sunucuda aşağıdaki web sitelerine izin verilmesi gerekir.</br></br><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>Kuruluşunuz için Azure Active Directory tarafından güvenilen federasyon sunucusu. Örneğin: https:\//sts.contoso.com</li> [IE’yi yapılandırma](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) hakkında daha fazla bilgi edinin |
-| PowerShell v4.0 veya üzerinin yüklü olduğundan emin olun | <li>Windows Server 2008 R2, aracı için yeterli olmayan PowerShell v2.0 sürümüne sahiptir.  PowerShell'i [Windows Server 2008 R2 Sunucularında aracı yüklemesi](#agent-installation-on-windows-server-2008-r2-servers) belgesine göre güncelleştirin.</li><li>Windows Server 2012, aracı için yeterli olmayan PowerShell v3.0 sürümüne sahiptir.  Windows Management Framework'ü [güncelleştirin](http://www.microsoft.com/en-us/download/details.aspx?id=40855).</li><li>Windows Server 2012 R2 ve üzeri ile gelen PowerShell sürümü yeterli olacaktır.</li>|
+| PowerShell v4.0 veya üzerinin yüklü olduğundan emin olun | <li>Windows Server 2008 R2, aracı için yeterli olmayan PowerShell v2.0 sürümüne sahiptir.  PowerShell'i [Windows Server 2008 R2 Sunucularında aracı yüklemesi](#agent-installation-on-windows-server-2008-r2-servers) belgesine göre güncelleştirin.</li><li>Windows Server 2012, aracı için yeterli olmayan PowerShell v3.0 sürümüne sahiptir.  Windows Management Framework'ü [güncelleştirin](http://www.microsoft.com/download/details.aspx?id=40855).</li><li>Windows Server 2012 R2 ve üzeri ile gelen PowerShell sürümü yeterli olacaktır.</li>|
 |FIPS’yi devre dışı bırakma|FIPS, Azure AD Connect Health aracıları tarafından desteklenmez.|
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Azure hizmet uç noktalarına giden bağlantı
@@ -62,6 +62,11 @@ Aşağıdaki tabloda Azure AD Connect Health kullanımına ilişkin gereksinimle
     * [Yükleme talimatlarına bakın](#installing-the-azure-ad-connect-health-agent-for-ad-ds).
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>AD FS için Azure AD Connect Health Aracısını yükleme
+> [!NOTE]
+> AD FS sunucusunun Eşitleme sunucunuzdan farklı olması gerekir. AD FS aracısını Eşitleme sunucunuza yüklemeyin.
+>
+  
+Yükleme öncesinde AD FS sunucunuzun ana bilgisayar adının benzersiz olduğundan ve AD FS hizmetinde bulunmadığından emin olun.   
 Aracı yüklemesini başlatmak için indirdiğiniz .exe dosyasına çift tıklayın. İlk ekranda Yükle'ye tıklayın.
 
 ![Azure AD Connect Health'i doğrulama](./media/active-directory-aadconnect-health-requirements/install1.png)
@@ -166,6 +171,10 @@ Kullanım Analizi özelliğinin verileri toplaması ve analiz edebilmesi için, 
 
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-sync"></a>Eşitleme için Azure AD Connect Health aracısını yükleme
+> [!NOTE]
+> Eşitleme sunucusunun AD FS sunucunuzdan farklı olması gerekir. Eşitleme aracısını AD FS sunucunuza yüklemeyin.
+>
+
 Eşitleme için Azure AD Connect Health aracısı, Azure AD Connect'in en son derlemesinde otomatik olarak yüklenir. Azure AD Connect'i eşitleme için kullanmak üzere, Azure AD Connect'in en son sürümünü indirip yüklemeniz gerekir. En son sürümü [buradan](http://www.microsoft.com/download/details.aspx?id=47594) indirebilirsiniz.
 
 Aracının yüklü olduğunu doğrulamak için sunucuda aşağıdaki hizmetleri arayın. Yapılandırmayı tamamladıysanız bu hizmetlerin çalışır durumda olması gerekir. Aksi halde bu hizmetler yapılandırma tamamlanıncaya kadar durdurulur.

@@ -3,18 +3,18 @@ title: Kullanma Apache Phoenix ve SQLLine Azure HDInsight içinde HBase ile
 description: HDInsight Apache Phoenix kullanmayı öğrenin. Ayrıca, yükleme ve SQLLine HDInsight içinde HBase kümesi bağlanmak için bilgisayarınızda ayarlama konusunda bilgi edinin.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jasonh
-ms.openlocfilehash: 349f1680cf754a44e2e4217ebde9d0d60479ebcf
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 92e6dcf7bf467bac31798df994e7efa8da40f035
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597472"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045667"
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>HDInsight Linux tabanlı HBase kümeleriyle Apache Phoenix kullanma
 Nasıl kullanacağınızı öğrenin [Apache Phoenix](http://phoenix.apache.org/) Azure HDInsight ve SQLLine kullanma. Phoenix hakkında daha fazla bilgi için bkz: [Phoenix 15 dakika veya daha az](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Phoenix dilbilgisi için bkz: [Phoenix Dilbilgisi](http://phoenix.apache.org/language/index.html).

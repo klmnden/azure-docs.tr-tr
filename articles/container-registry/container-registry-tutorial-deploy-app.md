@@ -6,15 +6,15 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/30/2018
+ms.date: 08/20/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 6347c460ab88929152424d301445a219720b98e8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 25e3fdfe72fc2a6ffec1bcee23cd9f1edc783838
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582310"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41918990"
 ---
 # <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Öğretici: Azure Container Registry’den web uygulaması dağıtma
 
@@ -42,11 +42,13 @@ Bu adımda, *Batı ABD* bölgesinde bir Kapsayıcılar için Web App örneği ol
 
 [Azure portalında](https://portal.azure.com) oturum açın ve önceki öğreticide oluşturduğunuz kayıt defterine gidin.
 
-**Depolar** > **acr-helloworld** seçeneğini belirleyin, ardından **Etiketler** bölümünde **v1** etiketine tıklayın ve **Web uygulamasına dağıt**’ı seçin.
+**Depolar** > **acr-helloworld** seçeneğini belirleyin, ardından **Etiketler** bölümünde **v1** etiketine tıklayın ve **Web uygulamasına dağıt**’ı seçin:
 
 ![Azure portalında uygulama hizmetine dağıtma][deploy-app-portal-01]
 
-Görüntülenen **Kapsayıcılar için Web App** bölümünde, her bir ayar için aşağıdaki değerleri belirtin:
+"Web uygulamasına dağıt" seçeneği devre dışı bırakılırsa kayıt defteri yönetici kullanıcısını ilk öğreticinin [Kapsayıcı kayıt defteri oluşturma](container-registry-tutorial-prepare-registry.md#create-a-container-registry) bölümünde anlatılan şekilde etkinleştirememiş olabilirsiniz. Yönetici kullanıcısını Azure portalda **Ayarlar** > **Erişim anahtarları** sayfasından etkinleştirebilirsiniz.
+
+"Web uygulamasında dağıt"ı seçtikten sonra görüntülenen **Kapsayıcılar için Web App** bölümünde, her bir ayar için aşağıdaki değerleri belirtin:
 
 | Ayar | Değer |
 |---|---|

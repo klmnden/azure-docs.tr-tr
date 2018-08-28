@@ -4,17 +4,17 @@ description: Azure Otomasyonu hesabı oluşturmayı ve runbook çalıştırmayı
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 12/13/2017
+ms.date: 08/22/2018
 ms.topic: quickstart
 ms.service: automation
 ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 3accd62415cd7d3a8210b7a05aa1edfd7a380edc
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 81dbcb4f77708f9f679d146b1db83ddecc30629d
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34055163"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616605"
 ---
 # <a name="create-an-azure-automation-account"></a>Azure Otomasyonu hesabı oluşturma
 
@@ -22,21 +22,21 @@ Azure Otomasyonu hesaplarını Azure üzerinden oluşturabilirsiniz. Bu yöntem,
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-https://portal.azure.com adresinden Azure’da oturum açın
+https://portal.azure.com adresinden Azure'da oturum açın
 
 ## <a name="create-automation-account"></a>Otomasyon hesabı oluşturma
 
 1. Azure’ın sol üst köşesinde bulunan **Kaynak oluştur** düğmesine tıklayın.
 
-1. **İzleme + Yönetim**'i ve ardından **Otomasyon**'u seçin.
+1. **Yönetim Araçları**'nı ve ardından **Otomasyon**'u seçin.
 
-1. Hesap bilgilerini girin. **Azure Farklı Çalıştır hesabı oluştur** alanında **Evet**'i seçerek Azure kimlik doğrulamasını kolaylaştıran yapıtların otomatik olarak etkinleştirilmesini sağlayın. İşlemi tamamladığınızda Otomasyon hesabı dağıtımını başlatmak için **Oluştur**'a tıklayın.
+1. Hesap bilgilerini girin. **Azure Farklı Çalıştır hesabı oluştur** alanında **Evet**'i seçerek Azure kimlik doğrulamasını kolaylaştıran yapıtların otomatik olarak etkinleştirilmesini sağlayın. Otomasyon Hesabını oluştururken adın daha sonra değiştirilemeyeceğini unutmayın. İşlemi tamamladığınızda Otomasyon hesabı dağıtımını başlatmak için **Oluştur**'a tıklayın.
 
     ![Otomasyon hesabınız hakkındaki bilgileri sayfaya girin](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
-1. Otomasyon hesabı Azure panosuna sabitlenir. Dağıtım tamamlandığında Otomasyon hesabına genel bakış sayfası otomatik olarak açılır.
+1. Dağıtım tamamlandıktan sonra ** **Tüm Hizmetler**'e tıklayın **Otomasyon Hesapları**'nı seçin ve oluşturduğunuz Otomasyon Hesabını belirleyin.
 
     ![Otomasyon hesabına genel bakış](./media/automation-quickstart-create-account/automation-account-overview.png)
 

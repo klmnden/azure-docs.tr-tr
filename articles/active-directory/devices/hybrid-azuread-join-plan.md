@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: fbc40d0768a7cf1cb83a3e78dd524fac26254bea
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 808914dddcaefa4795264d3904e26ef6200f483e
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42060374"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43087319"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Hibrit Azure Active Directory join uygulamanızı planlama
 
@@ -131,6 +131,7 @@ Ortamınızı etki alanları yönettiği, hibrit Azure AD'ye katılım'ı destek
 1.1.819.0 sürümünden başlayarak, Azure AD Connect ile hibrit Azure AD'ye katılım'ı yapılandırmak için bir sihirbaz sağlar. Sihirbaz, önemli ölçüde yapılandırma işlemini basitleştirmenize olanak sağlar. Daha fazla bilgi için bkz.
 
 - [Federasyon etki alanları için hibrit Azure Active Directory'ye katılmayı yapılandırma](hybrid-azuread-join-federated-domains.md)
+
 
 - [Yönetilen etki alanları için hibrit Azure Active Directory'ye katılmayı yapılandırma](hybrid-azuread-join-managed-domains.md)
 

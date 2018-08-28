@@ -4,18 +4,18 @@ description: Hadoop bellek, veritabanı veya dosya kalıcı hale getirmek için 
 keywords: Avro, hadoop avro
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jasonh
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 59e6116d1c325e32b4bead0ab44e00fb8682a205
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: ca7b79e02f63875b95f84b8d1e92a2ed2180db24
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595605"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43043054"
 ---
 # <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Microsoft Avro library hadoop'ta verileri seri hale getirme
 

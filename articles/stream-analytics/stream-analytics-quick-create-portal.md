@@ -4,17 +4,17 @@ description: Bu hızlı başlangıçta bir Stream Analytic işi oluşturma, gird
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 05/11/2018
+ms.date: 08/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 830b3d4226440a68c7de62170d2ffc28082315c2
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 1e466b2945793f866aad4e6f0ace3d7379226830
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902913"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023637"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Hızlı başlangıç: Azure portalını kullanarak Stream Analytics işi oluşturma
 
@@ -34,7 +34,7 @@ Stream Analytics işini tanımlamadan önce işe girdi olarak yapılandırılan 
 
    ```json
    {
-     "time": "2018-01-26T21:18:52.0000000",
+     "time": "2018-08-19T21:18:52.0000000",
      "dspl": "sensorC",
      "temp": 87,
      "hmdt": 44
@@ -146,6 +146,16 @@ Bu bölümde blob depolama alanını Stream Analytics işinin girdisi olarak yap
 3. Bu örnekte sorgu, verileri blob’dan okur ve blob’daki yeni bir dosyaya kopyalar. **Kaydet**’i seçin.  
 
    ![İş dönüşümü yapılandırma](./media/stream-analytics-quick-create-portal/configure-job-transformation.png)
+
+## <a name="configure-late-arrival-policy"></a>Geç varış ilkesini yapılandırma
+
+1. Daha önce oluşturduğunuz Stream Analytics işine gidin.
+
+2. **Yapılandır** bölümünde **Olay sıralama**'yı seçin.
+
+3. **Geç gelen olaylar** ayarını 20 gün olarak değiştirin ve **Kaydet**'i seçin.
+
+   ![Geç varış ilkesini yapılandırma](./media/stream-analytics-quick-create-portal/configure-late-policy.png)
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Stream Analytics işini başlatıp çıktıyı denetleyin
 

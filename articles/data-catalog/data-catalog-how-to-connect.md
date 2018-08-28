@@ -1,72 +1,65 @@
 ---
-title: Veri kaynaklarına bağlanma | Microsoft Docs
-description: Nasıl yapılır makalesi Azure veri Kataloğu ile bulunan veri kaynaklarına bağlanmak nasıl vurgulama.
+title: Azure veri Kataloğu'nda veri kaynaklarına bağlanma
+description: Azure veri Kataloğu ile bulunan veri kaynaklarına bağlanmak nasıl yapılır makalesi.
 services: data-catalog
-documentationcenter: ''
 author: steelanddata
-manager: NA
-editor: ''
-tags: ''
+ms.author: maroche
 ms.assetid: 4e6b27a5-cf75-4012-b88c-333c1fe638e8
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: b4dfc7a900e42b348c416d2d8c05b73fb15847ae
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 759758c9f3d0f1dadf2048e8ef15eeab8a77ef07
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164841"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053766"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Veri kaynaklarına bağlanma
 ## <a name="introduction"></a>Giriş
-**Microsoft Azure veri Kataloğu** bir kayıt ve sistemi kurumsal veri kaynakları için bulma görevi gören bir tam olarak yönetilen bir bulut hizmetidir. Diğer bir deyişle, **Azure veri Kataloğu** tüm bulmak, anlamak ve veri kaynaklarını kullanan kişilerin ve bunların var olan verilerden daha fazla değer almak için kuruluşlar hakkındadır. Temel bir yönü bu senaryo, veri – kullanarak bir kullanıcı bir veri kaynağı bulur ve amacı anlar sonra kullanmak için verileri yerleştirmek için veri kaynağına bağlanmak için sonraki adım içerir.
+**Microsoft Azure veri Kataloğu** kayıt ve kurumsal veri kaynakları için bulma sistemi olarak görev yapan tam yönetilen bir bulut hizmetidir. Diğer bir deyişle, **Azure veri Kataloğu** keşfedin, anlamak ve veri kaynaklarını kullanan kişilerin yardımcı olur ve var olan verilerden daha fazla değer elde yardımcı İşte. Bu senaryonun temel bir yönü, verileri kullanarak bir kullanıcı bir veri kaynağını bulan ve amacı anlayan sonra kullanmak için kendi verilerini yerleştirmek için veri kaynağına bağlanmak için sonraki adım içerir.
 
 ## <a name="data-source-locations"></a>Veri kaynağı konumları
-Veri kaynağı kaydı sırasında **Azure veri Kataloğu** veri kaynağı ile ilgili meta verileri alır. Bu meta veriler veri kaynağının konumu ayrıntılarını içerir. Konumun ayrıntılarını veri kaynağından veri kaynağına farklılık gösterir, ancak bu her zaman bağlanmak için gereken bilgileri içerir. Örneğin, sunucu adını ve yolunu rapora bir SQL Server Reporting Services raporunun konumunu içerir ancak bir SQL Server tablosu için konum sunucu adı, veritabanı adı, şema adı ve tablo adı içerir. Diğer veri kaynağı türleri yapısı ve kaynak sistemi özelliklerini yansıtan konumları sahip olur.
+Veri kaynağı kaydı sırasında **Azure veri Kataloğu** veri kaynağıyla ilgili meta verilerini alır. Bu meta veriler veri kaynağının konumu ile ilgili ayrıntıları içerir. Konumun ayrıntılarını veri kaynağından veri kaynağına farklılık gösterir ancak bu her zaman bağlanmak için gereken bilgileri içerir. Örneğin, sunucu adını ve yolunu rapor için bir SQL Server Reporting Services raporunun konumu içerse de bir SQL Server tablo konumunu sunucu adı, veritabanı adı, şema adı ve tablo adı içerir. Diğer veri kaynağı türleri yapısı ve kaynak sistemi özelliklerini yansıtan konumları sahip olur.
 
 ## <a name="integrated-client-tools"></a>Tümleşik istemci araçlarında
-Bir veri kaynağına bağlanmak için en basit yolu kullanmaktır "içinde Aç..." menüde **Azure veri Kataloğu** portal. Bu menüsü seçili veri varlığına bağlanma seçeneklerin bir listesini görüntüler.
-Varsayılan döşeme görünümünü kullanırken, bu menü her bölme üzerinde kullanılabilir.
+En basit yolu, bir veri kaynağına bağlanmak için kullanılacak olan "içinde Aç. …" menüde **Azure veri Kataloğu** portalı. Bu menü, seçili veri varlığına bağlanma seçeneklerin bir listesini görüntüler.
+Varsayılan döşeme görünümünü kullanırken, her bir kutucuğundaki bu menüde kullanılabilir.
 
- ![Bir SQL Server tablo Excel'de veri varlık kutucuğunda açma](./media/data-catalog-how-to-connect/data-catalog-how-to-connect1.png)
+ ![Bir SQL Server tablo, veri varlığı kutucuğundan Excel'de açma](./media/data-catalog-how-to-connect/data-catalog-how-to-connect1.png)
 
-Liste görünümünü kullanırken arama çubuğunda portal pencerenin üstündeki menü kullanılabilir.
+Liste görünümünü kullanırken, menü portal penceresinin üst kısmındaki arama çubuğunda kullanılabilir.
 
- ![SQL Server Reporting Services raporunun Rapor Yöneticisi'nde arama çubuğunda açma](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
+ ![Bir SQL Server Reporting Services rapor arama Rapor Yöneticisi'nde açma](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
 
 ## <a name="supported-client-applications"></a>Desteklenen istemci uygulamaları
-Kullanırken, "içinde Aç..." Menü veri kaynakları Azure veri Kataloğu portalında doğru istemci uygulaması için istemci bilgisayara yüklenmesi gerekir.
+Kullanırken "içinde Aç. …" İstemci bilgisayarda doğru istemci uygulamasının Azure veri Kataloğu Portalı'nda veri kaynakları için menü yüklenmesi gerekir.
 
-| Uygulama Aç | Dosya uzantısı / Protokolü | Desteklenen uygulama sürümleri |
+| Uygulamada Aç | Dosya uzantısı / protokolünü | Desteklenen uygulama sürümleri |
 | --- | --- | --- |
 | Excel |.odc |Excel 2010 veya üzeri |
 | Excel (ilk 1000) |.odc |Excel 2010 veya üzeri |
 | Power Query |.xlsx |Excel 2016 veya Excel 2010 veya Excel eklentisi için Power Query ile Excel 2013 yüklü |
-| Power BI Desktop |.pbix |Power BI Desktop Temmuz 2016 veya sonraki |
-| SQL Server Veri Araçları |vsweb: / / |Visual Studio 2013 güncelleştirme 4 veya üstü yüklü SQL Server araçları ile |
+| Power BI Desktop |.pbix |Power BI Desktop Temmuz 2016 veya sonraki sürümleri |
+| SQL Server Veri Araçları |vsweb: / / |Visual Studio 2013 Update 4 veya üzeri yüklü olan SQL Server araçları ile |
 | Rapor Yöneticisi |http:// |Bkz: [SQL Server Reporting Services için tarayıcı gereksinimleri](https://technet.microsoft.com/library/ms156511.aspx) |
 
-## <a name="your-data-your-tools"></a>Araçlarınızı verilerinizi
-Menüsünde kullanılabilir seçenekleri şu anda seçili veri varlık türüne bağlıdır. Tüm olası araçları dahil edilecek doğal olarak, "içinde Aç..." Menü, ancak herhangi bir istemci araç kullanarak veri kaynağına bağlanmak hala kolay. İçinde bir veri varlığına seçildiğinde **Azure veri Kataloğu** portal, tam konum Özellikler bölmesinde da görüntülenir.
+## <a name="your-data-your-tools"></a>Verileriniz, sizin araçlarınız
+Menüsünde kullanılabilir seçenekleri, veri varlığı şu anda seçili türüne bağlıdır. Tüm olası araçları dahil edilecektir, "içinde Aç. …" Menü, ancak herhangi bir istemci aracı kullanarak veri kaynağına bağlanmak yine de kolay değildir. İçinde bir veri varlığına seçildiğinde **Azure veri Kataloğu** portal, tam yolunu Özellikler bölmesinde da görüntülenir.
 
  ![Bağlantı bilgilerini bir SQL Server tablosu](./media/data-catalog-how-to-connect/data-catalog-how-to-connect3.png)
 
-Veri kaynağı türü için bağlantı bilgileri ayrıntıları veri kaynağı türünden farklılık gösterir, ancak portalda eklenen bilgileri size herhangi bir istemci aracında veri kaynağına bağlanmak için gereken her şeyi sağlar. Kullanıcılar, kullanılarak bulunan veri kaynakları için bağlantı ayrıntıları kopyalayabilir **Azure veri Kataloğu**, bunları kendi aracıyla ilgili verilerle çalışmak etkinleştirme.
+Veri kaynağı türü için bağlantı bilgilerini ayrıntılarını veri kaynak türünden farklılık gösterir, ancak portalda bilgileri, herhangi bir istemci aracında veri kaynağına bağlanmak için gereken her şeyi size sunar. Kullanıcılar, kullanılarak bulunan veri kaynakları için bağlantı ayrıntıları kopyalayabilir **Azure veri Kataloğu**, bunları kendi aracıyla ilgili verilerle çalışacak şekilde etkinleştirme.
 
 ## <a name="connecting-and-data-source-permissions"></a>Bağlanma ve veri kaynağı izinleri
-Rağmen **Azure veri Kataloğu** bulunabilir, access veri kaynaklarını yapar veriler için kendi veri kaynağına sahip veya yönetici denetimi altında kalır. Bir veri kaynağı bulma **Azure veri Kataloğu** bir kullanıcının veri kaynağına erişmek için tüm izinleri vermez.
+Ancak **Azure veri Kataloğu** veri kaynakları bulunabilir, erişim sağlar verileri kendi veri kaynak sahibinin veya yöneticisinin denetimi altında kalır. Bir veri kaynağı bulma **Azure veri Kataloğu** bir kullanıcının veri kaynağına erişmek için herhangi bir izin vermez.
 
-Bir veri kaynağını Bul ancak kendi verilerine erişim izni yoksa kullanıcılar için kolaylaştırmak için kullanıcılar istek erişimi özelliği bir veri kaynağına açıklama durumlarda sağlayabilir. – Dahil olmak üzere işlem ya da veri kaynağına erişim kazanmak için iletişim noktası bağlantılar – burada sağlanan bilgiler, Portalı'nda veri kaynağı konumu bilgileri yanında sunulur.
+Bir veri kaynağı ancak kendi verilerine erişim izni olmayan kullanıcılar için kolaylaştırmak için kullanıcılar erişim isteği özelliği bir veri kaynağı yorumlama durumlarda sağlayabilir. Burada da dahil olmak üzere işlem ya da veri kaynağı erişim kazanmak için bir iletişim noktası bağlantılar – sağlanan bilgiler, Portalı'nda veri kaynağı konum bilgileri ile birlikte sunulur.
 
- ![Sağlanan istek erişim yönergeleri ile bağlantı bilgileri](./media/data-catalog-how-to-connect/data-catalog-how-to-connect4.png)
+ ![Bağlantı bilgilerini kullanarak sağlanan istek erişim yönergeleri](./media/data-catalog-how-to-connect/data-catalog-how-to-connect4.png)
 
 ## <a name="summary"></a>Özet
-Veri kaynağı ile kaydetme **Azure veri Kataloğu** yapısal ve açıklayıcı meta veri kaynağından Kataloğu hizmetine kopyalayarak verileri bulunabilir hale getirir. Bir veri kaynağı kaydedildi, bulunan ve sonra kullanıcılar veri kaynağından bağlanabilir **Azure veri Kataloğu** portalı "içinde Aç..." " menü veya tercih ettiğiniz kendi veri Araçları'nı kullanarak.
+Bir veri kaynağı ile kaydetme **Azure veri Kataloğu** yapısal ve açıklayıcı meta veri Kataloğu hizmetine veri kaynağından kopyalayarak bu verileri bulunabilir hale getirir. Bir veri kaynağı kaydedildi, bulunan ve sonra kullanıcılar veri kaynağından bağlanabilir **Azure veri Kataloğu** portalı "içinde Aç..." " menü veya tercih ettiğiniz veri araçlarını kullanarak.
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Azure veri Kataloğu ile çalışmaya başlama](data-catalog-get-started.md) veri kaynaklarına bağlanma hakkında adım adım ayrıntılar için Öğreticisi.
+* [Azure veri Kataloğu ile çalışmaya başlama](data-catalog-get-started.md) veri kaynaklarına bağlanmak nasıl hakkında bilgi için adım adım öğretici.

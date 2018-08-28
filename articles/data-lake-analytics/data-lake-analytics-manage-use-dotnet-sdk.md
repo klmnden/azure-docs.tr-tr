@@ -1,26 +1,25 @@
 ---
-title: Azure .NET SDK kullanarak Azure Data Lake Analytics yönetme
-description: Bu makalede, Data Lake Analytics işleri, veri kaynakları ve kullanıcıları yönettiğiniz uygulamalar yazmak için Azure .net SDK'sını kullanmayı açıklar.
+title: Azure .NET SDK kullanarak Azure Data Lake Analytics'i yönetme
+description: Bu makale, Data Lake Analytics işleri, veri kaynakları ve kullanıcıları yönettiğiniz uygulamaları yazmak için Azure .net SDK'sını kullanmayı açıklar.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: dc5482ab83eca34d24cf15b76e0a0076456ae069
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 96b449e372417298ee3517d6a45c245d440a01c2
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109309"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047400"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Azure Data Lake Analytics'i .NET uygulaması yönetme
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Bu makalede Azure Data Lake Analytics hesaplarını, veri kaynakları, kullanıcılar ve işleri Azure .NET SDK'sı kullanılarak yazılmış bir uygulama kullanarak nasıl yönetileceği açıklanmaktadır. 
+Bu makalede Azure Data Lake Analytics hesaplarını, veri kaynakları, kullanıcılar ve işleri Azure .NET SDK'sı kullanılarak yazılmış bir uygulamayı kullanarak yönetme konusunda açıklanır. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -38,7 +37,7 @@ Bu makalede Azure Data Lake Analytics hesaplarını, veri kaynakları, kullanıc
 |[Microsoft.Azure.Management.ResourceManager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager)|1.6.0-Preview|
 |[Microsoft.Azure.Graph.RBAC](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager)|3.4.0-Preview|
 
-NuGet komut satırı aracılığıyla bu paketleri aşağıdaki komutlarla yükleyebilirsiniz:
+NuGet komut satırı aracılığıyla bu paketler aşağıdaki komutlarla yükleyebilirsiniz:
 
 ```
 Install-Package -Id Microsoft.Rest.ClientRuntime.Azure.Authentication  -Version 2.3.1
@@ -59,7 +58,7 @@ string clientid = "1950a258-227b-4e31-a9cf-717495945fc2"; // Sample client ID (t
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
 
-Azure Data Lake Analytics oturum açmak için birçok seçeneğiniz vardır. Aşağıdaki kod parçacığını bir açılır pencere ile etkileşimli kullanıcı kimlik doğrulaması ile kimlik doğrulaması örneği gösterir.
+Azure Data Lake Analytics oturum açmak için birçok seçeneğiniz vardır. Aşağıdaki kod parçacığı bir açılır pencere ile etkileşimli kullanıcı kimlik doğrulaması ile kimlik doğrulaması örneği gösterir.
 
 ``` csharp
 using System;
@@ -97,10 +96,10 @@ public static Program
 }
 ```
 
-Kaynak kodu **GetCreds_User_Popup** ve kimlik doğrulama için diğer seçenekleri için kod ele alınmıştır [Data Lake Analytics .NET kimlik doğrulama seçenekleri](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options)
+Kaynak kodu **GetCreds_User_Popup** ve kimlik doğrulaması için diğer seçenekler için kod içinde ele alınmıştır [Data Lake Analytics .NET kimlik doğrulama seçenekleri](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options)
 
 
-## <a name="create-the-client-management-objects"></a>İstemci Yönetimi nesneleri oluşturma
+## <a name="create-the-client-management-objects"></a>İstemci yönetim nesneleri oluşturma
 
 ``` csharp
 var resourceManagementClient = new ResourceManagementClient(armCreds) { SubscriptionId = subid };
@@ -125,17 +124,17 @@ graphClient.TenantID = domain;
 
 ### <a name="create-an-azure-resource-group"></a>Azure Kaynak Grubu oluşturma
 
-Zaten bir oluşturmadıysanız, Data Lake Analytics bileşenlerinizi oluşturmak için Azure kaynak grubu olması gerekir. Kimlik doğrulama kimlik bilgilerinizi, abonelik kimliği ve bir konum gerekir. Aşağıdaki kod, bir kaynak grubu oluşturmak gösterilmektedir:
+Zaten bir oluşturmadıysanız, Data Lake Analytics bileşenlerinizi oluşturmak için bir Azure kaynak grubu olmalıdır. Kimlik doğrulama kimlik bilgilerinizi, abonelik kimliği ve konum gerekir. Aşağıdaki kod, bir kaynak grubu oluşturma işlemi gösterilmektedir:
 
 ``` csharp
 var resourceGroup = new ResourceGroup { Location = location };
 resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, rg);
 ```
-Daha fazla bilgi için bkz: [Azure kaynak grupları ve Data Lake Analytics](#Azure-Resource-Groups-and-Data-Lake-Analytics).
+Daha fazla bilgi için [Azure kaynak grupları ve Data Lake Analytics](#Azure-Resource-Groups-and-Data-Lake-Analytics).
 
 ### <a name="create-a-data-lake-store-account"></a>Data Lake Store hesabı oluşturma
 
-Şimdiye kadar ADLA hesap ADLS hesabına gerektirir. Zaten kullanmak üzere yoksa, aşağıdaki kod ile oluşturabilirsiniz:
+Şimdiye kadar ADLA hesabı ADLS hesabı gerektirir. Kullanacağıma zaten yoksa, aşağıdaki kodla oluşturabilirsiniz:
 
 ``` csharp
 var new_adls_params = new DataLakeStoreAccount(location: _location);
@@ -144,7 +143,7 @@ adlsAccountClient.Account.Create(rg, adls, new_adls_params);
 
 ### <a name="create-a-data-lake-analytics-account"></a>Data Lake Analytics hesabı oluşturma
 
-Aşağıdaki kod ADLS hesabına oluşturur
+Aşağıdaki kod, ADLS hesabı oluşturur.
 
 ``` csharp
 var new_adla_params = new DataLakeAnalyticsAccount()
@@ -177,7 +176,7 @@ for (var adla in AdlaAccounts)
 }
 ```
 
-### <a name="checking-if-an-account-exists"></a>Bir hesap var olup olmadığını denetleme
+### <a name="checking-if-an-account-exists"></a>Bir hesabının bulunup bulunmadığı denetleniyor
 
 ``` csharp
 bool exists = adlaClient.Account.Exists(rg, adla));
@@ -204,7 +203,7 @@ if (adlaClient.Account.Exists(rg, adla))
 
 ### <a name="get-the-default-data-lake-store-account"></a>Varsayılan Data Lake Store hesabı edinin
 
-Her Data Lake Analytics hesabı, bir varsayılan Data Lake Store hesabı gerektirir. Bu kod analizi hesabı için varsayılan depolama hesabı belirlemek için kullanın.
+Her Data Lake Analytics hesabı bir varsayılan Data Lake Store hesabı gerektirir. Analytics hesabı için varsayılan Store hesabını belirlemek için bu kodu kullanın.
 
 ``` csharp
 if (adlaClient.Account.Exists(rg, adla))
@@ -214,16 +213,16 @@ if (adlaClient.Account.Exists(rg, adla))
 }
 ```
 
-## <a name="manage-data-sources"></a>Veri kaynaklarını yönet
+## <a name="manage-data-sources"></a>Veri kaynaklarını yönetme
 
-Data Lake Analytics şu anda aşağıdaki veri kaynaklarını destekler:
+Data Lake Analytics, şu anda aşağıdaki veri kaynaklarını destekler:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
 * [Azure depolama hesabı](../storage/common/storage-introduction.md)
 
-### <a name="link-to-an-azure-storage-account"></a>Bir Azure depolama hesabı bağlantı
+### <a name="link-to-an-azure-storage-account"></a>Bir Azure depolama hesabına bağlama
 
-Azure depolama hesaplarına bağlantılar oluşturabilirsiniz.
+Azure depolama hesapları için bağlantılar oluşturabilirsiniz.
 
 ``` csharp
 string storage_key = "xxxxxxxxxxxxxxxxxxxx";
@@ -261,22 +260,22 @@ if (adls_accounts != null)
 ```
 
 ### <a name="upload-and-download-folders-and-files"></a>Karşıya yükleme ve klasörleri ve dosyaları indirme
-Data Lake Store dosya sistemi istemci Yönetim nesnesi karşıya yükleyin ve tek tek dosyalar veya klasörler Azure'dan yerel bilgisayarınıza aşağıdaki yöntemleri kullanarak yüklemek için kullanabilirsiniz:
+Data Lake Store dosya sistemi istemci Yönetim nesnesi, karşıya yükleme ve tek tek dosya veya klasörleri Azure'dan yerel bilgisayarınıza aşağıdaki yöntemleri kullanarak yüklemek için kullanabilirsiniz:
 
 - UploadFolder
 - UploadFile
 - DownloadFolder
 - DownloadFile
 
-İlk parametre bu yöntemleri için veri Gölü deposu kaynak yolu ve hedef yolu parametrelerini arkasından hesabı adıdır.
+Bu yöntemler için ilk parametre, Data Lake Store kaynak yolunu ve hedef yolu için parametreleri ardından hesabının adıdır.
 
-Aşağıdaki örnek, indirme klasörü Data Lake Store'da gösterilmektedir.
+Aşağıdaki örnek, bir Data Lake Store klasör indirmek gösterilmektedir.
 
 ``` csharp
 adlsFileSystemClient.FileSystem.DownloadFolder(adls, sourcePath, destinationPath);
 ```
 
-### <a name="create-a-file-in-a-data-lake-store-account"></a>Bir Data Lake Store hesabı oluşturma
+### <a name="create-a-file-in-a-data-lake-store-account"></a>Bir Data Lake Store hesabında bir dosya oluşturun
 
 ``` csharp
 using (var memstream = new MemoryStream())
@@ -294,7 +293,7 @@ using (var memstream = new MemoryStream())
 ```
 
 ### <a name="verify-azure-storage-account-paths"></a>Azure depolama hesabı yolları doğrulayın
-Aşağıdaki kod, bir Data Lake Analytics hesabı (analyticsAccountName) bir Azure Storage hesabı (storageAccntName) olup olmadığını ve Azure depolama hesabında bir kapsayıcı (containerName) olup olmadığını denetler.
+Aşağıdaki kod, bir Azure depolama hesabı (storageAccntName) bir Data Lake Analytics hesabı (analyticsAccountName) varsa ve Azure depolama hesabında bir kapsayıcı (containerName) varsa, denetler.
 
 ``` csharp
 string storage_account = "mystorageaccount";
@@ -304,10 +303,10 @@ bool containerExists = adlaClient.Account.StorageContainerExists(rg, adla, stora
 ```
 
 ## <a name="manage-catalog-and-jobs"></a>Katalog ve işleri Yönet
-DataLakeAnalyticsCatalogManagementClient nesne her Azure Data Lake Analytics hesabı için sağlanan SQL veritabanını yönetme için yöntemleri sağlar. U-SQL betikleri veritabanıyla göndermek ve işlerini yönetmek için yöntemleri çalıştırma DataLakeAnalyticsJobManagementClient sağlar.
+DataLakeAnalyticsCatalogManagementClient nesnenin her bir Azure Data Lake Analytics hesabı için sağlanan SQL veritabanı'nı yönetmek için yöntemler sağlar. U-SQL betikleri ile veritabanına göndermek ve işlerini yönetmek için yöntemleri çalıştırmak DataLakeAnalyticsJobManagementClient sağlar.
 
-### <a name="list-databases-and-schemas"></a>Liste veritabanları ve şemaları
-Listelemek birkaç nokta arasında en yaygın veritabanları ve bunların şema yer almaktadır. Aşağıdaki kod veritabanları koleksiyonunu alır ve her veritabanı için şema numaralandırır.
+### <a name="list-databases-and-schemas"></a>Veritabanlarını Listele ve şemalar
+Liste birkaç nokta arasında en yaygın veritabanları ve şema yer almaktadır. Aşağıdaki kod, veritabanları koleksiyonunu alır ve ardından her veritabanı için şema numaralandırır.
 
 ``` csharp
 var databases = adlaCatalogClient.Catalog.ListDatabases(adla);
@@ -324,7 +323,7 @@ foreach (var db in databases)
 ```
 
 ### <a name="list-table-columns"></a>Liste tablo sütunları
-Aşağıdaki kod, bir Data Lake Analytics Kataloğu yönetim istemcisi belirtilen bir tablodaki sütun listesi ile veritabanına erişmek gösterilmiştir.
+Aşağıdaki kod, belirtilen tablodaki sütunları listelemek için bir Data Lake Analytics Kataloğu Yönetimi istemcisiyle veritabanına erişmek nasıl gösterir.
 
 ``` csharp
 var tbl = adlaCatalogClient.Catalog.GetTable(adla, "master", "dbo", "MyTableName");
@@ -337,7 +336,7 @@ foreach (USqlTableColumn utc in columns)
 ```
 
 ### <a name="submit-a-u-sql-job"></a>U-SQL işi gönderme
-Aşağıdaki kod, bir Data Lake Analytics işi yönetim istemcisi bir işi göndermek için nasıl kullanılacağını gösterir.
+Aşağıdaki kod, bir işi göndermek için bir Data Lake Analytics işi yönetim istemcisi kullanmayı gösterir.
 ``` csharp
 string scriptPath = "/Samples/Scripts/SearchResults_Wikipedia_Script.txt";
 Stream scriptStrm = adlsFileSystemClient.FileSystem.Open(_adlsAccountName, scriptPath);
@@ -356,7 +355,7 @@ Console.WriteLine($"Job {jobName} submitted.");
 ```
 
 ### <a name="list-failed-jobs"></a>Başarısız olan işler listesi
-Aşağıdaki kod, başarısız olan işlerin hakkında bilgileri listeler.
+Aşağıdaki kod, başarısız olan işler hakkında bilgiler listeler.
 
 ``` csharp
 var odq = new ODataQuery<JobInformation> { Filter = "result eq 'Failed'" };
@@ -367,8 +366,8 @@ foreach (var j in jobs)
 }
 ```
 
-### <a name="list-pipelines"></a>Liste komut zincirleri
-Aşağıdaki kod hesabınıza gönderilen işler her ardışık düzeni hakkında bilgi listeler.
+### <a name="list-pipelines"></a>Ardışık düzenler
+Aşağıdaki kod, hesabınıza gönderilen bir iş, her işlem hattı hakkında bilgi listeler.
 
 ``` csharp
 var pipelines = adlaJobClient.Pipeline.List(adla);
@@ -378,8 +377,8 @@ foreach (var p in pipelines)
 }
 ```
 
-### <a name="list-recurrences"></a>Liste tekrarları
-Aşağıdaki kod hesabınıza gönderilen işler her yineleme hakkındaki bilgileri listeler.
+### <a name="list-recurrences"></a>Liste tekrarlar
+Aşağıdaki kod, hesabınıza gönderilen bir iş, her yineleme hakkında bilgi listeler.
 
 ``` csharp
 var recurrences = adlaJobClient.Recurrence.List(adla);
@@ -389,15 +388,15 @@ foreach (var r in recurrences)
 }
 ```
 
-## <a name="common-graph-scenarios"></a>Grafik senaryoları
+## <a name="common-graph-scenarios"></a>Graf senaryoları
 
-### <a name="look-up-user-in-the-aad-directory"></a>AAD dizinde bir kullanıcıyı arayın
+### <a name="look-up-user-in-the-aad-directory"></a>AAD kullanıcısı arayın
 
 ``` csharp
 var userinfo = graphClient.Users.Get( "bill@contoso.com" );
 ```
 
-### <a name="get-the-objectid-of-a-user-in-the-aad-directory"></a>Bir AAD dizini kullanıcı objectID alın
+### <a name="get-the-objectid-of-a-user-in-the-aad-directory"></a>AAD dizinde bir kullanıcının objectID alın
 
 ``` csharp
 var userinfo = graphClient.Users.Get( "bill@contoso.com" );
@@ -405,7 +404,7 @@ Console.WriteLine( userinfo.ObjectId )
 ```
 
 ## <a name="manage-compute-policies"></a>İşlem ilkelerini yönetme
-DataLakeAnalyticsAccountManagementClient nesnesi bir Data Lake Analytics hesabı için işlem ilkelerini yönetme için yöntemleri sağlar.
+DataLakeAnalyticsAccountManagementClient nesnesi, bir Data Lake Analytics hesabı için işlem ilkeleri yönetmek için yöntemler sağlar.
 
 ### <a name="list-compute-policies"></a>Liste işlem ilkeleri
 Aşağıdaki kod, bir Data Lake Analytics hesabı için işlem ilkelerinin bir listesini alır.
@@ -418,8 +417,8 @@ foreach (var p in policies)
 }
 ```
 
-### <a name="create-a-new-compute-policy"></a>Yeni bir işlem ilke oluşturun
-Aşağıdaki kod kullanılabilir maksimum Avustralya 50 belirtilen kullanıcıya ve 250 en düşük iş önceliği ayarını bir Data Lake Analytics hesabı için yeni bir işlem ilkesi oluşturur.
+### <a name="create-a-new-compute-policy"></a>Yeni bir işlem ilkesi oluşturma
+Aşağıdaki kod kullanılabilir maksimum AUS değerini belirtilen kullanıcı için 50 ve 250 en düşük iş önceliği ayarını bir Data Lake Analytics hesabı için yeni bir işlem ilkesi oluşturur.
 
 ``` csharp
 var userAadObjectId = "3b097601-4912-4d41-b9d2-78672fc2acde";

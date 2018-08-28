@@ -1,25 +1,21 @@
 ---
-title: Azure Data Lake Analytics kodunuzu test etme | Microsoft Docs
+title: Azure Data Lake Analytics kodunuzu test etme
 description: Test çalışmaları için Azure Data Lake Analytics U-SQL ve genişletilmiş C# kodu için eklemeyi öğrenin.
 services: data-lake-analytics
-documentationcenter: ''
 author: yanancai
-manager: ''
-editor: ''
+ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.author: yanacai
-ms.openlocfilehash: fa5c113541452a93c25adc7c14bdaa6994434c71
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ae34355485f7d5081cc11ce4dd36df5ba81ae320
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365869"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041237"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>Azure Data Lake Analytics kodunuzu test etme
 

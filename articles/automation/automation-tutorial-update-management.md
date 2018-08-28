@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 92258ce7ea39a06f2af85efd9174b1b200710566
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4d5222889d5e840bd03bf77a56584dac48bb740c
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216975"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920802"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Azure Otomasyonu'nu kullanarak Windows güncelleştirmelerini yönetme
 
@@ -126,9 +126,6 @@ Uyarı e-postasının konusunu özelleştirmek için **Eylemleri Özelleştirin*
 
 Şimdi güncelleştirmeleri yüklemek için yayın zamanlamanızı ve hizmet pencerenizi izleyen bir dağıtım zamanlayın. Dağıtıma hangi güncelleştirme türlerinin dahil edileceğini seçebilirsiniz. Örneğin, kritik güncelleştirmeleri veya güvenlik güncelleştirmelerini dahil edip güncelleştirme paketlerini dışlayabilirsiniz.
 
-> [!WARNING]
-> Güncelleştirmeler gerektirdiğinde VM otomatik olarak yeniden başlatılır.
-
 Yeni bir VM güncelleştirme dağıtımı zamanlamak için **Güncelleştirme yönetimi**'ne gidip **Güncelleştirme dağıtımı zamanla**'yı seçin.
 
 **Yeni güncelleştirme dağıtımı** bölümüne aşağıdaki bilgileri girin:
@@ -136,6 +133,8 @@ Yeni bir VM güncelleştirme dağıtımı zamanlamak için **Güncelleştirme y�
 * **Ad**: Güncelleştirme dağıtımı için benzersiz bir ad girin.
 
 * **İşletim sistemi**: Güncelleştirme dağıtımı için hedeflenecek işletim sistemini seçin.
+
+* **Güncelleştirilecek makineler**: Kayıtlı bir aramayı veya İçeri aktarılan grubu seçin veya açılan menüden Makine'yi seçerek belirli makineleri seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir. Log Analytics'te bilgisayar grubu oluşturmak için kullanılan farklı yöntemler hakkında bilgi edinmek için bkz. [Log Analytics'teki bilgisayar grupları](../log-analytics/log-analytics-computer-groups.md)
 
 * **Güncelleştirme sınıflandırması**: Güncelleştirme dağıtımının dağıtıma dahil olan yazılım türlerini seçin. Bu öğreticide tüm türleri seçili halde bırakın.
 
@@ -154,9 +153,17 @@ Yeni bir VM güncelleştirme dağıtımı zamanlamak için **Güncelleştirme y�
 
 * **Bakım penceresi (dakika)**: Varsayılan değeri bırakın. Güncelleştirme dağıtımının gerçekleşmesini istediğiniz zaman aralığını belirtebilirsiniz. Bu ayar, değişikliklerin sizin tanımladığınız hizmet pencereleri içinde gerçekleştirilmesini sağlar.
 
+* **Yeniden başlatma seçenekleri**: Bu ayar, yeniden başlatma işlemlerinin nasıl gerçekleştirileceğini belirler. Kullanılabilen seçenekler:
+  * Gerekirse yeniden başlat (Varsayılan)
+  * Her zaman yeniden başlat
+  * Hiçbir zaman yeniden başlatma
+  * Yalnızca yeniden başlatma - güncelleştirmeleri yüklemez
+
+Zamanlamayı yapılandırdıktan sonra **Oluştur**'u seçin.
+
 ![Güncelleştirme Zamanlama Ayarları bölmesi](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
-Zamanlamayı yapılandırdıktan sonra **Oluştur**'u seçin. Durum panosu açılır. Oluşturduğunuz dağıtım zamanlamasını göstermek için **Zamanlanan güncelleştirme dağıtımları**'nı seçin.
+Durum panosu açılır. Oluşturduğunuz dağıtım zamanlamasını göstermek için **Zamanlanan güncelleştirme dağıtımları**'nı seçin.
 
 ## <a name="view-results-of-an-update-deployment"></a>Güncelleştirme dağıtımının sonuçlarını görüntüleme
 

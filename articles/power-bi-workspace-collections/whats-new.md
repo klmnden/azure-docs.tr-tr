@@ -1,31 +1,25 @@
 ---
-title: Power BI çalışma koleksiyonlarda yenilikler nelerdir?
-description: Power BI çalışma koleksiyonlarda yenilikler hakkında en son bilgilerini al
+title: Power BI Çalışma Alanı Koleksiyonları’ndaki yenilikler nelerdir?
+description: Power BI çalışma alanı koleksiyonları'nda yenilikler hakkında en son bilgileri edinin
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 2794ae98-b9a7-45df-b6e1-962a395b91fa
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 647b571fc05dca12ab9d4db45236962e4794ef4b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0fe3116934ac4ab9b1e3fd3b5efcd6627df0ed3d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408260"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046938"
 ---
-# <a name="whats-new-in-power-bi-workspace-collections"></a>Power BI çalışma koleksiyonlarda yenilikler nelerdir?
+# <a name="whats-new-in-power-bi-workspace-collections"></a>Power BI Çalışma Alanı Koleksiyonları’ndaki yenilikler nelerdir?
 
-Güncelleştirmeleri **Power BI çalışma koleksiyonları** düzenli aralıklarla yayınlanır. Ancak, her sürüm, yeni kullanıcı yönelik özellikler içerir; Bazı sürümler arka uç hizmeti özelliklerine odaklanmıştır. Biz, yeni kullanıcı dönük yetenekleri burada vurgulayın.
+Güncelleştirmeleri **Power BI çalışma alanı koleksiyonları** düzenli aralıklarla yayınlanır. Ancak, her sürüm, yeni kullanıcıya yönelik özellikler içerir; Bazı sürümler arka uç hizmeti özelliklerine odaklanır. Biz burada yeni kullanıcıya yönelik özellikler vurgulayın.
 
 > [!IMPORTANT]
 > Power BI Çalışma Alanı Koleksiyonları kullanım dışı bırakılmıştır ve Haziran 2018'e kadar veya anlaşmanızda belirtilen süre boyunca kullanılabilecektir. Uygulamanızda kesinti yaşanmaması için Power BI Embedded'a geçirmeyi planlamanız önerilir. Verilerinizi Power BI Embedded'a nasıl taşıyacağınızı öğrenmek için bkz. [Power BI Çalışma Alanı Koleksiyonları'nı Power BI Embedded'a geçirme](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
@@ -35,48 +29,48 @@ Güncelleştirmeleri **Power BI çalışma koleksiyonları** düzenli aralıklar
 **Self Servis özellikleri**
 
 * [Yeni rapor oluşturma](create-report-from-dataset.md)
-* [Rapor Farklı Kaydet](save-reports.md)
-* Okuma/düzenleme/oluştur yeni modunda rapor ekleme 
+* [Raporu Farklı Kaydet](save-reports.md)
+* Okuma/düzenleme/oluşturma yeni modda rapor ekleme 
 * [Rapor düzenleme/okuma modlar arasında geçiş](toggle-mode.md)
 
-**REST API'leri ile veri bağlantısı**
+**Veri bağlantısı ile REST API'leri**
 
 * [Veri kümesi oluşturma](https://msdn.microsoft.com/library/azure/mt778875.aspx)
-* Verileri gönderme 
+* Veri gönderme 
 
 **Yönetim API'leri**
 
-* Kopya rapor ve veri kümesi
+* Rapor kopyalama ve veri kümesi
 * Raporu farklı bir veri kümesine bağlayın
 
 **Örnekler**
 
-* Güncelleştirilmiş [JavaScript rapor örnek ekleme](https://microsoft.github.io/PowerBI-JavaScript/demo)
+* Güncelleştirilmiş [JavaScript rapor ekleme örneği](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 ## <a name="december-2016"></a>Aralık 2016
 
-* [Yeni JavaScript örnek katıştırma](https://microsoft.github.io/PowerBI-JavaScript/demo/)
+* [Yeni JavaScript ekleme örneği](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
 ## <a name="october-2016"></a>Ekim 2016
 
-* [Power BI çalışma koleksiyonlar ve R ile Gelişmiş analizi](https://powerbi.microsoft.com/blog/r-in-pbie/)
+* [Power BI çalışma alanı koleksiyonları ve R ile Gelişmiş analizi](https://powerbi.microsoft.com/blog/r-in-pbie/)
 
 ## <a name="august-31-2016"></a>31 Ağustos 2016
 Bu sürüm şunları sunar:
 
-* Tüm yeni JavaScript destekleyen SDK'sı [Gelişmiş filtreleme ve sayfa gezinti](interact-with-reports.md).
-* Power BI çalışma koleksiyonları Kanada merkezi veri merkezine artık desteklenmektedir. Denetleme [datacenter durum](https://azure.microsoft.com/status/).
+* Destekleyen tüm yeni JavaScript SDK [Gelişmiş filtreleme ve sayfa gezintisini](interact-with-reports.md).
+* Power BI çalışma alanı koleksiyonları, Kanada Orta veri merkezinde artık desteklenmektedir. Denetleme [datacenter durumu](https://azure.microsoft.com/status/).
 
 ## <a name="july-11-2016"></a>11 Temmuz 2016
 Bu sürüm şunları sunar:
 
-* **İyi haber!** Power BI çalışma koleksiyonlar artık önizlemede - (genel olarak kullanılabilir), şimdi GA hizmetidir.  
-* Tüm REST API'leri taşınmış olması **/beta** için **/v1.0**.
-* İçin .NET ve JavaScript SDK'ları güncelleştirilmiştir **v1.0**.
-* Power BI API çağrıları artık doğrudan API anahtarları kullanılarak doğrulanabilir. Uygulama belirteçleri yalnızca katıştırmak için gereklidir. Parçası olarak bu, v1.0 API'leri sağlamak ve geliştirme belirteçleri kullanım dışı bırakıldı, ancak bir beta sürümünde 30 Aralık 2016'ya kadar çalışmaya devam edeceğiz. Daha fazla bilgi için bkz: [kimlik doğrulaması ve yetkilendirme Power BI çalışma koleksiyonlarla](app-token-flow.md).
-* Uygulama belirteçleri ve katıştırılmış raporları için satır düzeyi güvenlik (RLS) desteği. Daha fazla bilgi için bkz: [satır düzeyi güvenlik Power BI çalışma koleksiyonlarıyla](row-level-security.md).
-* Güncelleştirilen örnek bir uygulama için tüm **v1.0** API çağrıları.
-* Power BI çalışma koleksiyonları Azure SDK'sı, PowerShell ve CLI destekler.
-* Kullanıcıların görselleştirme verileri dışarı aktarma bir **.csv**.
-* Power BI çalışma koleksiyonlar tüm aynı diller/yerel olarak Microsoft Azure artık desteklenmektedir. Daha fazla bilgi için bkz: [Azure - dilleri](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
+* **Harika bir haberimiz var!** Power BI çalışma alanı koleksiyonları artık önizlemede - kendi şimdi GA (genel kullanıma sunuldu) hizmetidir.  
+* Tüm REST API'leri öğesinden taşındı **/beta** için **/v1.0**.
+* İçin .NET ve JavaScript SDK'ları güncelleştirildi **v1.0**.
+* Power BI API çağrıları artık doğrudan API anahtarları kullanılarak doğrulanabilir. Uygulama belirteçleri, yalnızca ekleme için gereklidir. Parçası olarak bu, sağlama ve geliştirme belirteçleri v1.0 API'leri kullanım dışı bırakıldı, ancak'in beta sürümünde 30 Aralık 2016'ya kadar çalışmaya devam edeceğiz. Daha fazla bilgi için bkz. [kimlik doğrulama ve yetkilendirme ile Power BI çalışma alanı koleksiyonları](app-token-flow.md).
+* Uygulama belirteçleri ve yerleşik raporlar için satır düzeyi güvenlik (RLS) desteği. Daha fazla bilgi için bkz. [satır düzeyi güvenlik ile Power BI çalışma alanı koleksiyonları](row-level-security.md).
+* Güncelleştirilen örnek uygulama için tüm **v1.0** API çağrıları.
+* Power BI çalışma alanı koleksiyonları Azure SDK'sı, PowerShell ve CLI için destek.
+* Kullanıcılar, görselleştirme verileri dışarı aktarabilir bir **.csv**.
+* Power BI çalışma alanı koleksiyonları, artık tüm bölgelerde aynı dilleri/Microsoft Azure olarak desteklenir. Daha fazla bilgi için bkz. [Azure - diller](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
 

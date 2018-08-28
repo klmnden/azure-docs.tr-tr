@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/31/2018
+ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 2990ba290dfdaf45d8a341138ea515bad16d5b30
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e4bbf86c6cb7e827672fe279e86c8d3fd76e8e8b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628180"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049133"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure harici bir aracı tarafından veri tüketimi için olay hub'ına izleme
 
@@ -48,26 +48,26 @@ Başlamadan önce yapmanız [Event Hubs ad alanı ve olay hub'ı oluşturma](../
 
 Ayrıca bkz [Azure Event Hubs SSS Sayfasındaki](../event-hubs/event-hubs-faq.md).
 
-## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>Olay hub'ına akışla için izleme verilerini Azure Kiracı nasıl kurarım?
+## <a name="azure-tenant-monitoring-data"></a>İzleme verileri bir azure kiracısı
 
 Azure Kiracı izleme verilerini şu anda yalnızca Azure Active Directory için kullanılabilir. Verilerden kullanabileceğiniz [Azure Active Directory raporlama](../active-directory/reports-monitoring/overview-reports.md), oturum açma etkinlik ve denetim izi belirli bir kiracıda yapılan değişikliklerin geçmişini içerir.
 
-### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>Azure Active Directory verilerini bir olay hub'ına Stream
+### <a name="azure-active-directory-data"></a>Azure Active Directory veri
 
 Bir Event Hubs ad alanına Azure Active Directory günlüğünden veri göndermek için bir kiracı tanılama ayarı AAD kiracınızda ayarlayın. [Bu kılavuzu izleyerek](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) Kiracı tanılama ayarı oluşturmanız için.
 
-## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>Olay hub'ına akışla için izleme verilerini Azure aboneliğini nasıl kurarım?
+## <a name="azure-subscription-monitoring-data"></a>İzleme verileri bir azure aboneliği
 
 İzleme verileri bir azure aboneliği kullanılabilir [Azure etkinlik günlüğü](./monitoring-overview-activity-logs.md). Bu oluşturma içerir, güncelleştirme ve silme işlemleri Kaynak Yöneticisi'nden yapılan değişiklikler [Azure hizmet durumu](../service-health/service-health-overview.md) , aboneliğinizdeki kaynaklar etkileyebilir [kaynak durumu](../service-health/resource-health-overview.md) durumu geçişleri ve diğer birçok abonelik düzeyindeki olayların türde. [Bu makalede, Azure etkinlik günlüğü'nde görüntülenen olaylar tüm kategorileri ayrıntılı](./monitoring-activity-log-schema.md).
 
-### <a name="stream-azure-activity-log-data-into-an-event-hub"></a>Stream Azure etkinlik günlüğü verileri bir event hub
+### <a name="activity-log-data"></a>Etkinlik günlüğü verileri
 
 Bir Event Hubs ad alanına Azure etkinlik günlüğünde veri göndermek için aboneliğinizde bir günlük profili ayarlayın. [Bu kılavuzu izleyerek](./monitoring-stream-activity-logs-event-hubs.md) aboneliğinizde bir günlük profili ayarlamak için. Bunu, izlemek istediğiniz abonelik başına bir kez yaparsınız.
 
 > [!TIP]
 > Günlük profilini şu anda yalnızca bir olay hub'ı adı 'insights-operational-logs.' oluşturulduğu bir Event Hubs ad alanı seçmenizi sağlar Henüz bir günlük profili kendi olay hub adı belirtmek mümkün değildir.
 
-## <a name="how-do-i-set-up-azure-resource-monitoring-data-to-be-streamed-to-an-event-hub"></a>Olay hub'ına akışla için izleme verilerini Azure kaynağını nasıl kurarım?
+## <a name="azure-resource-metrics-and-diagnostics-logs"></a>Azure kaynak ölçümleri ve tanılama günlükleri
 
 Azure kaynaklarını izleme verilerinin iki tür göstermiyor:
 1. [Kaynak tanılama günlükleri](./monitoring-overview-of-diagnostic-logs.md)
@@ -78,25 +78,25 @@ Her iki tür veri kaynak tanılama ayarı kullanarak bir olay hub'ına gönderil
 > [!TIP]
 > Azure İlkesi belirli bir kapsamdaki tüm kaynakların her zaman bir tanılama ayarı ile kurulduğundan emin olmak için kullanabileceğiniz [Deployıfnotexists etkisi ilke kuralında kullanarak](../azure-policy/policy-definition.md#policy-rule). Bugün Deployıfnotexists yalnızca yerleşik ilkeleri desteklenir.
 
-## <a name="how-do-i-set-up-guest-os-monitoring-data-to-be-streamed-to-an-event-hub"></a>Olay hub'ına akışla için konuk işletim sistemi izleme verileri nasıl kurarım?
+## <a name="guest-os-data"></a>Konuk işletim sistemi veri
 
 Konuk işletim sistemi izleme verileri bir olay hub'ına göndermek için bir aracı yüklemeniz gerekir. Windows veya Linux için olay hub'ı ve bunun yanı sıra veri yapılandırma dosyası gönderilmesini ve bu yapılandırma dosyası sanal makinede çalışan Aracısı geçirmek olay hub'ı gönderilmesini istediğiniz verileri belirtin.
 
-### <a name="stream-linux-data-to-an-event-hub"></a>Linux verileri olay hub'ına Stream
+### <a name="linux-data"></a>Linux veri
 
 [Linux Azure tanılama Aracısı](../virtual-machines/extensions/diagnostics-linux.md) göndermek için kullanılan bir Linux makine verileri olay hub'ına izleme. Bu, LAD bir havuz olarak olay hub'ı ekleyerek yapılandırma dosyası korunan ayarları JSON yapabilirsiniz. [Bu makalede, Linux Azure tanılama aracısı için olay hub'ı havuzu ekleme hakkında daha fazla bilgi için bkz](../virtual-machines/extensions/diagnostics-linux.md#protected-settings).
 
 > [!NOTE]
 > Konuk işletim sistemi izleme verileri portalda olay hub'ına akış ayarlanamaz. Bunun yerine, yapılandırma dosyasını el ile düzenlemeniz gerekir.
 
-### <a name="stream-windows-data-to-an-event-hub"></a>Windows veri bir olay hub'ına Stream
+### <a name="windows-data"></a>Windows veri
 
 [Windows Azure tanılama Aracısı](./azure-diagnostics.md) göndermek için kullanılan bir Windows makineden veri bir olay hub'ına izleme. Bunu, privateConfig bölümüne WAD yapılandırma dosyasının bir havuz olarak olay hub'ı ekleyerek yapabilirsiniz. [Bu makalede, Windows Azure tanılama aracısı için olay hub'ı havuzu ekleme hakkında daha fazla bilgi için bkz](./azure-diagnostics-streaming-event-hubs.md).
 
 > [!NOTE]
 > Konuk işletim sistemi izleme verileri portalda olay hub'ına akış ayarlanamaz. Bunun yerine, yapılandırma dosyasını el ile düzenlemeniz gerekir.
 
-## <a name="how-do-i-set-up-application-monitoring-data-to-be-streamed-to-event-hub"></a>Olay hub'ına akışla için uygulama izleme verilerini nasıl ayarlayabilirim?
+## <a name="application-monitoring-data"></a>Uygulama izleme verileri
 
 İzleme verileri uygulama kodunuzu bulunmadığı için yönlendirme uygulama izleme verileri bir Azure olay hub'ına genel amaçlı bir çözüme bir SDK ile işaretlenmiş gerekir. Ancak, [Azure Application Insights](../application-insights/app-insights-overview.md) Azure uygulama düzeyi verileri toplamak için kullanılan bir hizmettir. Application Insights kullanıyorsanız, aşağıdakileri yaparak izleme verilerini olay hub'ına akış:
 

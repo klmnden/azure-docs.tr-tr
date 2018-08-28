@@ -5,22 +5,22 @@ services: hdinsight
 ms.service: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 7965a91efe58102268f4d54275e7fa3fc4ff74d3
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
-ms.translationtype: HT
+ms.openlocfilehash: 7b3d2d47db733d1290bccca0e44958098451324e
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617794"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046421"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Azure HDInsight'ta ML Services ile çalışmaya başlama
 
 Azure HDInsight, ML Services kümesi oluşturmanızı sağlar. Bu seçenek, R betiklerinin dağıtılmış hesaplamaları çalıştırmak için Spark ve MapReduce kullanmasına olanak tanır. Bu makalede, HDInsight kümesi üzerinde bir ML Services kümesi oluşturma ve ardından dağıtılmış R hesaplamaları için Spark kullanmayı gösteren bir R betiği çalıştırma hakkında bilgi alacaksınız.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * **Bir Azure aboneliği**: Bu öğreticiye başlamadan önce bir Azure aboneliğinizin olması gerekir. Daha fazla bilgi için bkz. [Microsoft Azure ücretsiz denemesini alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Güvenli Kabuk (SSH) istemcisi**: HDInsight kümesine uzaktan bağlanmak ve komutları doğrudan küme üzerinde çalıştırmak için bir SSH istemcisi kullanılır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -178,7 +178,7 @@ Kümenize yönelik SSH komutunu bulmak için, Azure portalından küme adına t�
 
 ![Kenar düğümünün SSH Uç Noktası görüntüsü](./media/r-server-get-started/sshendpoint.png)
 
-SSH kullanıcı hesabınızın güvenliğini sağlamak için parola kullandıysanız parolayı girmeniz istenir. Bir ortak anahtar kullandıysanız eşleşen özel anahtarı belirtmek için `-i` parametresini kullanmanız gerekebilir. Örnek:
+SSH kullanıcı hesabınızın güvenliğini sağlamak için parola kullandıysanız parolayı girmeniz istenir. Bir ortak anahtar kullandıysanız eşleşen özel anahtarı belirtmek için `-i` parametresini kullanmanız gerekebilir. Örneğin:
 
     ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 

@@ -7,15 +7,15 @@ manager: shivamg
 keywords: windows server yedekleme; windows server’ı yedekleme; yedekleme ve olağanüstü durum kurtarma
 ms.service: backup
 ms.topic: tutorial
-ms.date: 2/14/2018
+ms.date: 8/22/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: d52866a4f441a74bbc4b63f6dc362989865151b3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9bf4c25b416edf86d29c27bcb19901bf43073bb4
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34609027"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616198"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Windows Server’ı Azure’da Yedekleme
 
@@ -29,7 +29,7 @@ Windows Server'ınızı bozulmalara, saldırılara ve olağanüstü durumlara ka
 > * Geçici yedekleme gerçekleştirme
 
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
 http://portal.azure.com adresinden Azure portalında oturum açın.
 
@@ -41,11 +41,11 @@ Windows Server’ı yedekleyebilmeniz için önce yedeklemelerin veya geri yükl
 
    ![Kurtarma Hizmetleri kasasını açma](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
-2.  **Kurtarma Hizmetleri kasaları** menüsünde **Ekle**'ye tıklayın.
+2. **Kurtarma Hizmetleri kasaları** menüsünde **Ekle**'ye tıklayın.
 
    ![kasa için bilgileri sağlama](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
 
-3.  **Kurtarma Hizmetleri kasası** menüsünde,
+3. **Kurtarma Hizmetleri kasası** menüsünde,
 
     - **Ad** alanına *myRecoveryServicesVault* yazın.
     - **Abonelik** bölümünde geçerli abonelik kimliği görüntülenir.
@@ -59,27 +59,28 @@ Kasanız oluşturulduktan sonra Kurtarma Hizmetleri kasaları listesinde görün
 
 Microsoft Azure Kurtarma Hizmetleri (MARS) aracısı, Windows Server ile Kurtarma Hizmetleri kasanız arasında bir ilişkilendirme oluşturur. Aşağıdaki yordamda, aracının sunucunuza nasıl indirileceği açıklanmaktadır.
 
-1.  Kurtarma Hizmetleri kasalarının listesinden **myRecoveryServicesVault** kasasını seçerek panosunu açın.
+1. Kurtarma Hizmetleri kasalarının listesinden **myRecoveryServicesVault** kasasını seçerek panosunu açın.
 
    ![kasa için bilgileri sağlama](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
 
-2.  Kasa panosu menüsünde **Yedekle**’ye tıklayın.
+2. Kasa panosu menüsünde **Yedekle**’ye tıklayın.
 
-3.  **Yedekleme Hedefi** menüsünde:
+3. **Yedekleme Hedefi** menüsünde:
 
-    - **İş yükünüz nerede çalışıyor?** için **Şirket içi**'ni seçin, 
-    - **Neleri yedeklemek istiyorsunuz?** için **Dosyalar ve klasörler**'i ve **Sistem Durumu**’nu seçin 
+   * **İş yükünüz nerede çalışıyor?** için **Şirket içi**'ni seçin, 
+   * **Neleri yedeklemek istiyorsunuz?** için **Dosyalar ve klasörler**'i ve **Sistem Durumu**’nu seçin
 
-    ![kasa için bilgileri sağlama](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
-    
-4.  **Altyapıyı hazırlama** menüsünü açmak için **Altyapıyı hazırlama**’ya tıklayın.
-5.  **Altyapıyı hazırlama** menüsünde **Windows Server veya Windows İstemcisi Aracısı'nı indirin**’e tıklayarak *MARSAgentInstaller.exe* dosyasını indirin. 
+   ![kasa için bilgileri sağlama](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
+
+4. **Altyapıyı hazırlama** menüsünü açmak için **Altyapıyı hazırlama**’ya tıklayın.
+
+5. **Altyapıyı hazırlama** menüsünde **Windows Server veya Windows İstemcisi Aracısı'nı indirin**’e tıklayarak *MARSAgentInstaller.exe* dosyasını indirin. 
 
     ![altyapıyı hazırlama](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
 
     Yükleyici ayrı bir tarayıcı açar ve **MARSAgentInstaller.exe** dosyasını indirir.
  
-6.  İndirilen dosyayı çalıştırmadan önce, Altyapıyı hazırlama dikey penceresindeki **İndir** düğmesine tıklayarak **Kasa Kimlik Bilgileri** dosyasını indirip kaydedin. MARS Aracısı ile Kurtarma Hizmetleri Kasasını bağlamak için bu dosya gerekir.
+6. İndirilen dosyayı çalıştırmadan önce, Altyapıyı hazırlama dikey penceresindeki **İndir** düğmesine tıklayın ve **Kasa Kimlik Bilgileri** dosyasını kaydedin. MARS Aracısı ile Kurtarma Hizmetleri kasası arasında bağlantı kurmak için kasa kimlik bilgileri gereklidir.
 
     ![altyapıyı hazırlama](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
  
@@ -115,13 +116,17 @@ Windows Server’da, Azure’daki yedeklemelerin ne zaman gerçekleşeceğini za
 
 5. **İleri**’ye tıklayın.
 
-6. **Yedekleme Zamanlamasını Belirtin (Sistem Durumu)** sayfasında, Sistem Durumu için yedeklemelerin tetiklenmesinin gerektiği günün saatini veya haftayı belirtin ve **İleri**’ye tıklayın 
+6. **Yedekleme Zamanlamasını Belirtin (Sistem Durumu)** sayfasında, Sistem Durumu için yedeklemelerin tetiklenmesinin gerektiği günün saatini veya haftayı belirtin ve **İleri**’ye tıklayın.
 
-7.  **Bekletme İlkesi Seçin (Sistem Durumu)** sayfasında, Sistem Durumu için yedekleme kopyasına yönelik Bekletme İlkesini seçin ve **İleri**’ye tıklayın
+7. **Bekletme İlkesi Seçin (Sistem Durumu)** sayfasında, Sistem Durumu için yedekleme kopyasına yönelik Bekletme İlkesini seçin ve **İleri**’ye tıklayın.
+
 8. Benzer şekilde, seçilen dosyalar ve klasörler için yedekleme zamanlamasını ve bekletme ilkesini seçin. 
-8.  **İlk Yedekleme Türünü Seçin** sayfasında **Ağ üzerinden otomatik olarak** seçeneğini işaretli bırakın ve ardından **İleri**'ye tıklayın.
-9.  **Onay** sayfasında bilgileri gözden geçirin ve ardından **Son**'a tıklayın.
-10. Sihirbaz yedekleme zamanlamasını oluşturduktan sonra **Kapat**'a tıklayın.
+
+9. **İlk Yedekleme Türünü Seçin** sayfasında **Ağ üzerinden otomatik olarak** seçeneğini belirleyin ve **İleri**'ye tıklayın.
+
+10. **Onay** sayfasında bilgileri gözden geçirin ve **Son**'a tıklayın.
+
+11. Sihirbaz yedekleme zamanlamasını oluşturduktan sonra **Kapat**'a tıklayın.
 
 ## <a name="perform-an-ad-hoc-back-up"></a>Geçici yedekleme gerçekleştirme
 
@@ -139,7 +144,7 @@ Yedekleme işlerinin çalıştırılması için zamanlamayı belirlediniz. Ancak
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Azure portalını kullanarak şu işlemleri gerçekleştirdiniz: 
+Bu öğreticide, Azure portalı kullanarak şu işlemleri gerçekleştirdiniz: 
  
 > [!div class="checklist"] 
 > * Kurtarma Hizmetleri kasası oluşturma 

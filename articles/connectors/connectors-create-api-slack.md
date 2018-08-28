@@ -1,67 +1,82 @@
 ---
-title: Azure logic apps içinde kayma Bağlayıcısı'nı kullanın | Microsoft Docs
-description: Logic apps içinde Slack'e bağlanın
+title: Azure Logic Apps'ten için Slack bağlayın | Microsoft Docs
+description: Görevler ve dosyaları izlemek ve Azure Logic Apps kullanarak kanalları, grupları ve iletileri Slack hesabınızı yönetmek, iş akışlarını otomatikleştirin
 services: logic-apps
-documentationcenter: ''
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 88b134a90ac385ad957d76f420fe85dc2dbbf751
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: 7af2db528866d687064e854e00e43e81d2601b2b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296232"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042334"
 ---
-# <a name="get-started-with-the-slack-connector"></a>Slack Bağlayıcısı ile çalışmaya başlama
-Slack, ekibinizin tüm yazışmalarını anında aranabilecek ve gittiğiniz her yerden ulaşılabilecek bir yerde toplayan bir ekip iletişim aracıdır. 
+# <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>İzleme ve Slack Azure Logic Apps ile yönetme
 
-Bir mantıksal uygulama artık oluşturarak başlama; bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Azure Logic Apps ve Slack Bağlayıcısı ile otomatik görevler ve Slack dosyalarınızı izleme ve Slack kanalı, iletileri, grupları ve benzeri, yönetme, örneğin iş akışları oluşturabilirsiniz:
 
-## <a name="create-a-connection-to-slack"></a>Kayma bağlantı oluşturun.
-Slack Bağlayıcısı'nı kullanmak için önce oluşturduğunuz bir **bağlantı** ardından ayrıntılar için bu özellikleri sağlar: 
+* Yeni dosyalar oluşturulur zamana yönelik İzleyici.
+* Oluşturun ve kanalları katılın 
+* İletiler yayınlayın.
+* Grupları oluşturma ve ayarlama rahatsız etmeyin.
 
-| Özellik | Gerekli | Açıklama |
-| --- | --- | --- |
-| Belirteç |Evet |Slack Kimlik Bilgilerini Sağlayın |
+Slack hesabınızdan yanıtlar almak ve çıkış diğer eylemler için kullanılabilir Tetikleyicileri kullanabilirsiniz. Slack hesabınızı kullanarak görevleri gerçekleştiren eylemlerini kullanabilirsiniz. Ayrıca, Slack eylemleri çıktısını kullanan diğer eylemler olabilir. Örneğin, yeni bir dosya oluşturulduğunda Office 365 Outlook Bağlayıcısı ile e-posta gönderebilirsiniz. Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](../logic-apps/logic-apps-overview.md)
 
-Slack'e aşağıdaki adımları kullanarak oturum açın ve kayma yapılandırmasını tamamlamak **bağlantı** mantığı uygulamanıza:
+## <a name="prerequisites"></a>Önkoşullar
 
-1. Seçin **yineleme**
-2. Seçin bir **sıklığı** ve girin bir **aralığı**
-3. Seçin **Eylem Ekle**  
-   ![Kayma yapılandırın][1]  
-4. Kayma arama kutusuna girin ve adlarında boşluk içeren tüm girişleri döndürmek arama bekleyin
-5. Seçin **Slack'e - posta iletisi**
-6. Seçin **Slack'e oturum**:  
-   ![Kayma yapılandırın][2]
-7. Uygulama yetkilendirmek oturum açmak için Slack kimlik bilgilerinizi sağlayın    
-   ![Kayma yapılandırın][3]  
-8. Kuruluşunuzun oturum açma sayfasına yeniden yönlendirilmesi. **Yetki** mantıksal uygulamanızı ile etkileşim kurmak için kayma:      
-   ![Kayma yapılandırın][5] 
-9. Yetkilendirme tamamlandıktan sonra mantıksal uygulamanızı yapılandırarak tamamlamak için yönlendirilirsiniz **Slack - tüm iletileri Al** bölümü. Diğer tetikleyiciler ve gereken eylemleri ekleyin.  
-   ![Kayma yapılandırın][6]
-10. Seçerek çalışmanızı kaydedin **kaydetmek** (üst doğru) menüsünde.
+* Azure aboneliği. Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
 
-## <a name="connector-specific-details"></a>Bağlayıcı özgü ayrıntıları
+* [Slack](https://slack.com/) hesabı ve kullanıcı kimlik bilgileri
 
-Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/slack/).
+  Mantıksal uygulamanızı bir bağlantı oluşturun ve Slack hesabınıza erişmek için kimlik bilgilerinizi yetkilendirin.
 
-## <a name="more-connectors"></a>Daha fazla bağlayıcılar
-Geri dönerek [API'leri listesi](apis-list.md).
+* Hakkında temel bilgilere [mantıksal uygulamalar oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-[1]: ./media/connectors-create-api-slack/connectionconfig1.png
-[2]: ./media/connectors-create-api-slack/connectionconfig2.png 
-[3]: ./media/connectors-create-api-slack/connectionconfig3.png
-[4]: ./media/connectors-create-api-slack/connectionconfig4.png
-[5]: ./media/connectors-create-api-slack/connectionconfig5.png
-[6]: ./media/connectors-create-api-slack/connectionconfig6.png
+* Slack hesabınıza erişmek için istediğiniz mantıksal uygulaması. Slack bir tetikleyici ile başlayın için [boş mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). Bir Slack eylemi kullanmak için mantıksal uygulamanızı Slack bir tetikleyici veya başka bir tetikleyici gibi bir tetikleyici ile gibi başlatın **yinelenme** tetikleyici.
+
+## <a name="connect-to-slack"></a>Slack için Bağlan
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. Oturum [Azure portalında](https://portal.azure.com)ve Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın, açık değilse.
+
+1. Boş mantıksal uygulama için arama kutusuna filtreniz olarak "slack" girin. Tetikleyiciler listesinde istediğiniz tetikleyicisini seçin. 
+
+   -veya-
+
+   Var olan mantıksal uygulamalar, son adım, bir eylem eklemek istediğiniz altında seçin için **yeni adım**. 
+   Arama kutusuna filtreniz olarak "slack" girin. 
+   Eylemler listesinde, istediğiniz eylemi seçin.
+
+   Adımlar arasında bir eylem eklemek için işaretçinizi adımlar arasındaki okun üzerine getirin. 
+   Artı işaretini seçin (**+**), görünür ve ardından **Eylem Ekle**.
+
+1. Slack için oturum açmanız istenirse, Slack, çalışma alanına oturum açın. 
+
+   ![Çalışma alanı Slack oturum açın](./media/connectors-create-api-slack/slack-sign-in-workspace.png)
+
+1. Mantıksal uygulamanız için erişimi yetkilendirin.
+
+   ![Slack erişim yetkisi verme](./media/connectors-create-api-slack/slack-authorize-access.png)
+
+1. Seçili tetikleyici veya eylem için gerekli bilgileri sağlayın. Mantıksal uygulamanızın iş akışı oluşturmaya devam etmek için daha fazla eylem ekleme.
+
+## <a name="connector-reference"></a>Bağlayıcı başvurusu
+
+Tetikleyiciler ve Eylemler sınırları hakkında teknik ayrıntılar için bağlayıcının Openapı'nin açıklanmıştır (önceki adıyla Swagger) açıklama, bağlayıcının gözden [başvuru sayfası](/connectors/slack/).
+
+## <a name="get-support"></a>Destek alın
+
+* Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
+* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](http://aka.ms/logicapps-wish) ziyaret edin.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+* Diğer hakkında bilgi edinin [Logic Apps bağlayıcıları](../connectors/apis-list.md)

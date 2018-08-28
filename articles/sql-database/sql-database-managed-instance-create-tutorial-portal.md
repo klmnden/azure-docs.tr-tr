@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: e337a5c7c203e2e1048149dfeff71436a4d2752f
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: a019b21c130bebfe27925e90d7f7843d92654e01
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850619"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41918556"
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Azure portalında Azure SQL Veritabanı Yönetilen Örneği oluşturma
 
@@ -33,13 +33,15 @@ Bu öğreticide, bir sanal ağın (VNet) ayrılmış alt ağında Azure portalı
 > * Sanal makineye bağlanma
 > * SSMS yükleme ve Yönetilen Sunucuya bağlama
 
+> [!Note]
+> Bu öğreticide ağ, alt ağ, örnek ve sanal makine yapılandırma işlemlerini Azure portalı kullanarak gerçekleştirme adımları açıklanmaktadır. Bu adımlar daha uzun sürebilir. Örneğe erişmek için kullanılan ağın ve sanal makinenin "Azure'a Dağıt" düğmesiyle tek seferde yapıldığı daha kısa bir öğreticiye ihtiyacınız varsa [Kullanmaya başlama öğreticisine](sql-database-managed-instance-get-started.md) göz atabilirsiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
 > [!IMPORTANT]
 > Yönetilen Örneğin şu anda kullanılabilir olduğu bölgelerin listesi için bkz. [Azure SQL Veritabanı Yönetilen Örneği ile tam yönetilen hizmete veritabanlarınızı geçirme](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
  
-## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
+## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 
 [Azure Portal](https://portal.azure.com/#create/Microsoft.SQLManagedInstance)’da oturum açın.
 
@@ -133,7 +135,7 @@ Aşağıdaki adımlarda 0.0.0.0/0 Sonraki Atlama İnternet yolu oluşturma işle
 
     ![yol](./media/sql-database-managed-instance-tutorial/route.png)
 
-8. **Tamam**’a tıklayın.
+8. **Tamam** düğmesine tıklayın.
 
 ## <a name="apply-the-route-table-to-the-managed-instance-subnet"></a>Rota tablosunu Yönetilen Örnek alt ağına uygulama
 
@@ -222,7 +224,7 @@ Aşağıdaki adımlarda, SQL Server Management Studio yükleyip Yönetilen Örne
 
    ![vm alt ağ ayrıntıları](./media/sql-database-managed-instance-tutorial/vm-subnet-details.png)
 
-4. **Tamam**’a tıklayın.
+4. **Tamam** düğmesine tıklayın.
 
 ## <a name="create-a-virtual-machine-in-the-new-subnet-in-the-vnet"></a>Sanal ağdaki yeni alt ağ içinde sanal makine oluşturma
 
@@ -249,7 +251,7 @@ Aşağıdaki adımlar, Yönetilen Örneği oluşturulduğu sanal ağın içinde 
 
    ![sanal makine oluşturma formu](./media/sql-database-managed-instance-tutorial/virtual-machine-create-form.png)
 
-4. **Tamam**’a tıklayın.
+4. **Tamam** düğmesine tıklayın.
 5. VM için bir boyut seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. Bu öğretici için yalnızca küçük bir sanal makine gerekir.
 
     ![VM boyutları](./media/sql-database-managed-instance-tutorial/virtual-machine-size.png)  
@@ -259,7 +261,7 @@ Aşağıdaki adımlar, Yönetilen Örneği oluşturulduğu sanal ağın içinde 
 
     ![VM ayarları](./media/sql-database-managed-instance-tutorial/virtual-machine-settings.png)  
 
-8. **Tamam**’a tıklayın.
+8. **Tamam** düğmesine tıklayın.
 9. Özet sayfasında teklif ayrıntılarını gözden geçirin ve sonra **Oluştur**’a tıklayarak sanal makine dağıtımını başlatın.
  
 ## <a name="connect-to-virtual-machine"></a>Sanal makineye bağlanma
@@ -302,7 +304,7 @@ Aşağıdaki adımlar, SSMS indirip yükleme ve sonra Yönetilen Örneğinize ba
 8. Sorulduğunda başlamak için **Yükle**’ye tıklayın.
 9. Yükleme tamamlandığında **Kapat**'a tıklayın.
 10. SSMS’i açın.
-11. **Sunucuya Bağlan** iletişim kutusunda, **Sunucu adı** kutusuna Yönetilen Örneğinizin **ana bilgisayar adını* girin, **SQL Server Kimlik Doğrulaması**’nı seçin, kullanıcı adı ve parolanızı sağlayın ve sonra **Bağlan**’a tıklayın.
+11. **Sunucuya Bağlan** iletişim kutusunda, **Sunucu adı** kutusuna Yönetilen Örneğinizin **ana bilgisayar adını** girin, **SQL Server Kimlik Doğrulaması**’nı seçin, kullanıcı adı ve parolanızı sağlayın ve sonra **Bağlan**’a tıklayın.
 
     ![ssms bağlanma](./media/sql-database-managed-instance-tutorial/ssms-connect.png)  
 

@@ -1,33 +1,32 @@
 ---
-title: U-SQL betikleri Azure Data Lake Analytics R ile genişletme
-description: R kodu kullanarak Azure Data Lake Analytics U-SQL komut dosyaları çalıştırmak öğrenin
+title: U-SQL betikleri Azure Data Lake Analytics, R ile genişletme
+description: R kodunu kullanarak Azure Data Lake Analytics U-SQL betiklerini çalıştırma hakkında bilgi edinin
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
-ms.openlocfilehash: 8b22b4238b20f56727d1c7858094328ab8817dad
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b7e6c4911081d3b83ed99ab7316cb6fd810a0d60
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624933"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048734"
 ---
-# <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>U-SQL betikleri Azure Data Lake Analytics R kodu ile genişletme
+# <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics R kodu ile U-SQL betikleri genişletin
 
-Aşağıdaki örnek R kodu dağıtmak için temel adımlar gösterilmektedir:
-* Kullanım `REFERENCE ASSEMBLY` R uzantıları için U-SQL betiği etkinleştirme bildirimi.
-* Kullanım` REDUCE` bir anahtar üzerindeki giriş verisi bölümlemek için işlemi.
-* U-SQL R uzantıları yerleşik reducer içerir (`Extension.R.Reducer`), R kodu üzerinde çalıştığı için reducer atanan her köşe. 
-* Ayrılmış kullanımını adlı adlı veri çerçevelerini `inputFromUSQL` ve `outputToUSQL `sırasıyla U-SQL ve r giriş arasında veri iletmek ve tanımlayıcı adları düzeltilen DataFrame çıkış (diğer bir deyişle, kullanıcılar bu önceden tanımlanmış adları giriş değiştirip edemezsiniz DataFrame tanımlayıcıları çıktı).
+Aşağıdaki örnek, R kodu dağıtmaya ilişkin temel adımları gösterir:
+* Kullanım `REFERENCE ASSEMBLY` R uzantıları için U-SQL betiği etkinleştirmek için bildirimi.
+* Kullanım` REDUCE` anahtarındaki giriş verileri bölümlere işlemi.
+* U-SQL R uzantıları yerleşik Azaltıcı içerir (`Extension.R.Reducer`), R kod üzerinde çalıştığı her köşe için Azaltıcı atanmış. 
+* Adanmış kullanımını adlı adlı veri çerçevelerini `inputFromUSQL` ve `outputToUSQL `sırasıyla U-SQL ve r giriş arasında veri iletmek ve tanımlayıcı adları düzeltilen DataFrame çıktı (diğer bir deyişle, kullanıcıların önceden tanımlanmış bu adlar giriş değiştirip edemezsiniz DataFrame çıkış tanımlayıcılar).
 
-## <a name="embedding-r-code-in-the-u-sql-script"></a>U-SQL betiği R kodu katıştırma
+## <a name="embedding-r-code-in-the-u-sql-script"></a>U-SQL betiği içinde R kod ekleme
 
-Satır içi R kodu, U-SQL betiği komut parametresini kullanarak yapabilirsiniz `Extension.R.Reducer`. Örneğin, bir dize değişkeni olarak R betiği bildirme ve Reducer için parametre olarak geçirin.
+Satır içi R komut parametresi'nı kullanarak U-SQL betiğinizi kod yapabilecekleriniz `Extension.R.Reducer`. Örneğin, R betiği bir dize değişkeni olarak bildirmek ve azaltıcı için bir parametre olarak geçirebilirsiniz.
 
 
     REFERENCE ASSEMBLY [ExtR];
@@ -43,16 +42,16 @@ Satır içi R kodu, U-SQL betiği komut parametresini kullanarak yapabilirsiniz 
     
     @RScriptOutput = REDUCE … USING new Extension.R.Reducer(command:@myRScript, rReturnType:"dataframe");
 
-## <a name="keep-the-r-code-in-a-separate-file-and-reference-it--the-u-sql-script"></a>R kodu ayrı bir dosyaya tutmak ve U-SQL betiği başvuru
+## <a name="keep-the-r-code-in-a-separate-file-and-reference-it--the-u-sql-script"></a>R kodu ayrı bir dosyada tutmak ve U-SQL komut dosyası başvurusu
 
-Aşağıdaki örnek, daha karmaşık bir kullanımı gösterilmektedir. Bu durumda, R kodu U-SQL komut dosyası bir kaynak olarak dağıtılır.
+Aşağıdaki örnek, daha karmaşık bir kullanımı gösterilmektedir. Bu durumda, R kodunun, U-SQL betiği bir kaynak dağıtılır.
 
 Bu R kodu ayrı bir dosya olarak kaydedin.
 
     load("my_model_LM_Iris.rda")
     outputToUSQL=data.frame(predict(lm.fit, inputFromUSQL, interval="confidence")) 
 
-U-SQL betiği bu R betiği dağıtmak kaynağı deyim ile dağıtmak için kullanın.
+U-SQL betiği ile kaynak dağıtma deyimi, R betiğini dağıtmak için kullanın.
 
     REFERENCE ASSEMBLY [ExtR];
 
@@ -89,23 +88,23 @@ U-SQL betiği bu R betiği dağıtmak kaynağı deyim ile dağıtmak için kulla
         USING new Extension.R.Reducer(scriptFile:"RinUSQL_PredictUsingLinearModelasDF.R", rReturnType:"dataframe", stringsAsFactors:false);
         OUTPUT @RScriptOutput TO @OutputFilePredictions USING Outputters.Tsv();
 
-## <a name="how-r-integrates-with-u-sql"></a>R U-SQL ile nasıl tümleşik çalıştığını
+## <a name="how-r-integrates-with-u-sql"></a>R U-SQL ile nasıl tümleştirildiğini
 
 ### <a name="datatypes"></a>Veri türleri
-* U-SQL dizesi ve sayısal sütunlarından olarak dönüştürülür-R DataFrame ve U-SQL arasında [desteklenen türleri: `double`, `string`, `bool`, `integer`, `byte`].
-* `Factor` U-SQL veri türü desteklenmiyor.
-* `byte[]` bir base64 ile kodlanmış serileştirilmesi gereken `string`.
-* U-SQL dizeleri faktörleri R kodda U-SQL oluşturduktan sonra R giriş dataframe veya reducer parametresini ayarlayarak dönüştürülebilir `stringsAsFactors: true`.
+* U-SQL dizesi ve sayısal sütunları olarak dönüştürülür-R DataFrame ve U-SQL [desteklenen türleri: `double`, `string`, `bool`, `integer`, `byte`].
+* `Factor` Veri türü, U-SQL'de desteklenmiyor.
+* `byte[]` bir base64 kodlamalı seri hale getirilmelidir `string`.
+* U-SQL dizeleri Etkenler R kodunu, U-SQL R giriş dataframe oluşturduğunuzda veya azaltıcı parametresini ayarlayarak dönüştürülebilir `stringsAsFactors: true`.
 
 ### <a name="schemas"></a>Şemalar
-* U-SQL veri kümeleri yinelenen sütun adlarına sahip olamaz.
-* U-SQL veri kümeleri sütun adlarının dize olması gerekir.
-* Sütun adları U-SQL ve R betiklerini aynı olması gerekir.
-* ReadOnly sütunu çıktı dataframe parçası olamaz. Çıktı şeması UDO parçasıysa, salt okunur sütunlar U-SQL tabloda otomatik olarak eklenmiş çünkü.
+* U-SQL veri kümeleri, yinelenen sütun adlarına sahip olamaz.
+* U-SQL veri kümeleri sütun adları dize olmalıdır.
+* Sütun adları, U-SQL ve R betikleri aynı olmalıdır.
+* Salt okunur sütun çıkış dataframe parçası olamaz. Çıkış şeması UDO'ın bir parçası ise salt okunur sütunlar U-SQL tabloda otomatik olarak eklenmiş olduğundan.
 
 ### <a name="functional-limitations"></a>İşlev sınırlamaları
-* R altyapısı iki kere aynı işlemde örneği oluşturulamıyor. 
-* Şu anda, U-SQL için tahmini Reducer Udo'lar kullanılarak oluşturulan bölümlenmiş modelleri kullanarak Birleştirici Udo'lar desteklemiyor. Kullanıcılar kaynak olarak bölümlenmiş modelleri bildirme ve bunların R betiği kullanın (örnek kodu görmek `ExtR_PredictUsingLMRawStringReducer.usql`)
+* R motoru, aynı işlem içinde iki kez başlatılamaz. 
+* Şu anda, U-SQL Birleştirici Udo'lar Azaltıcı Udo'lar kullanılarak oluşturulan bölümlenmiş modelleri kullanarak tahmin için desteklemez. Kullanıcıların kaynak olarak bölümlenmiş modelleri bildirebilir ve bunları kendi R betik kullanın (örnek kodu görmek `ExtR_PredictUsingLMRawStringReducer.usql`)
 
 ### <a name="r-versions"></a>R sürümleri
 Yalnızca R 3.2.2 desteklenir.
@@ -161,14 +160,14 @@ Yalnızca R 3.2.2 desteklenir.
     XML
 
 ### <a name="input-and-output-size-limitations"></a>Giriş ve çıkış boyutu sınırlamaları
-Her köşe atanmış bellek sınırlı miktarda sahiptir. Giriş ve çıkış DataFrames R kodu bellekte varolması gerektiğinden, giriş ve çıkış toplam boyutu 500 MB aşamaz.
+Her köşe sınırlı miktarda bellek atandığını sahiptir. Girdi ve çıktı veri çerçevelerini R kodunu bellekte varolması gerektiğinden, giriş ve çıkış toplam boyutu 500 MB'tan büyük olamaz.
 
 ### <a name="sample-code"></a>Örnek Kod
-U-SQL Advanced Analytics extensions yüklendikten sonra daha fazla örnek kod, Data Lake Store hesabınızdaki kullanılabilir. Daha fazla örnek kod yoludur: `<your_account_address>/usqlext/samples/R`. 
+U-SQL Gelişmiş Analiz uzantıları yükledikten sonra daha fazla örnek kod, Data Lake Store hesabınızdaki kullanılabilir. Daha fazla örnek kod yolu: `<your_account_address>/usqlext/samples/R`. 
 
 ## <a name="deploying-custom-r-modules-with-u-sql"></a>U-SQL ile özel R modülleri dağıtma
 
-İlk olarak, bir R özel modülü oluşturun ve onu zip ve ADL deponuza daraltılmış R özel modülü dosyayı karşıya yükleme. Örnekte, biz kullanıyoruz ADLA hesabı için varsayılan ADLS hesabı kökünde magittr_1.5.zip yükleyeceksiniz. ADL deposuna modül karşıya yükledikten sonra U-SQL komut dosyasını ve arama kullanabilmesi için dağıtmak kaynağı kullanmak gibi bildirme `install.packages` yükleyin.
+İlk olarak, özel bir R modülü oluşturmak ve onu zip ve ADL deponuza sıkıştırılmış R Özel Modül dosyası yükleyin. Bu örnekte biz varsayılan ADLS hesabını kullanıyoruz ADLA hesabı için kök magittr_1.5.zip yükleyeceksiniz. ADL deposuna modülü karşıya yükledikten sonra U-SQL betiği ve çağrı kullanabilmesi için kaynak dağıtma kullanma gibi bildirmek `install.packages` yükleyin.
 
     REFERENCE ASSEMBLY [ExtR];
     DEPLOY RESOURCE @"/magrittr_1.5.zip";
@@ -210,4 +209,4 @@ U-SQL Advanced Analytics extensions yüklendikten sonra daha fazla örnek kod, D
 ## <a name="next-steps"></a>Sonraki Adımlar
 * [Microsoft Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md)
 * [Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme](data-lake-analytics-data-lake-tools-get-started.md)
-* [Azure Data Lake Analytics işleri için U-SQL penceresi işlevlerini kullanma](data-lake-analytics-use-window-functions.md)
+* [Azure Data Lake Analytics işleri için U-SQL pencere işlevlerini kullanma](data-lake-analytics-use-window-functions.md)

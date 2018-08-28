@@ -4,23 +4,23 @@ description: Azure, dinamik envanterleri yönetmek için Ansible'ı kullanmayı 
 ms.service: ansible
 keywords: ansible'ı, azure, devops, bash, cloudshell, dinamik stok
 author: tomarcher
-manager: routlaw
+manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 5f4793759bfba68c8a01d682b6b13de5cb96a8f6
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 2757dea5e73f226efc13b7788ce1ab0702aa2e61
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42056429"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104706"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Azure, dinamik envanterleri yönetmek için Ansible'ı kullanın
 Ansible'ı (Azure gibi bulut kaynakları dahil) çeşitli kaynaklardan Envanter bilgilerini çekme için kullanılabilir içine bir *dinamik stok*. Bu makalede, kullandığınız [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) Ansible Azure dinamik iki sanal makine oluşturma envanterini yapılandırmak için bu sanal makinelerden birini etiketi ve Ngınx etiketli sanal makineye yükleyin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- **Azure aboneliği** - oluşturma, bir Azure aboneliği yoksa, bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) başlamadan önce.
+- **Azure aboneliği** - Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 
 - **Azure kimlik** - [oluşturma Azure kimlik bilgileri ve ansible'ı yapılandırma](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
@@ -28,7 +28,7 @@ Ansible'ı (Azure gibi bulut kaynakları dahil) çeşitli kaynaklardan Envanter 
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 
-1. Açık [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+1. [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)'i açın.
 
 1. Bu öğretici için sanal makinelerin tutmak için bir Azure kaynak grubu oluşturun.
 

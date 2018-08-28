@@ -9,12 +9,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 5d03ec7c5e0aaa68c1db34fedbd428f264e49e43
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5cf09753645d8238232e064af2ba1a301a2a7217
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830529"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41920126"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Güncelleştirme ve değişiklik izleme çözümlerini Azure Otomasyonu’na ekleme
 
@@ -37,7 +37,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
 ## <a name="onboard-an-azure-vm"></a>Bir Azure VM ekleme
 
-Makine eklemenin birden fazla yolu vardır. Çözümü [bir sanal makineden](automation-onboard-solutions-from-vm.md), [birden çok makineye gözatmadan](automation-onboard-solutions-from-browse.md), [Otomasyon hesabınızdan](automation-onboard-solutions-from-automation-account.md) veya runbook ile ekleyebilirsiniz. Bu öğretici bir runbook üzerinden Güncelleştirme Yönetimini etkinleştirme konusunda size yol gösterir. Uygun ölçekte Azure Sanal Makinelerin eklenmesi için mevcut bir VM’ye Değişiklik izleme veya Güncelleştirme yönetimi çözümünün eklenmesi gerekir. Bu adımda, bir sanal makineye Güncelleştirme yönetimi ve Değişiklik izleme özelliğini eklersiniz.
+Makine eklemenin birden fazla yolu vardır. Çözümü [bir sanal makineden](automation-onboard-solutions-from-vm.md), [birden çok makineye gözatmadan](automation-onboard-solutions-from-browse.md), [Otomasyon hesabınızdan](automation-onboard-solutions-from-automation-account.md) veya runbook ile ekleyebilirsiniz. Bu öğretici bir runbook üzerinden Güncelleştirme Yönetimi’ni etkinleştirme konusunda size yol gösterir. Uygun ölçekte Azure Sanal Makinelerin eklenmesi için mevcut bir VM’ye Değişiklik izleme veya Güncelleştirme yönetimi çözümünün eklenmesi gerekir. Bu adımda, bir sanal makineye Güncelleştirme yönetimi ve Değişiklik izleme özelliğini eklersiniz.
 
 ### <a name="enable-change-tracking-and-inventory"></a>Değişiklik İzlemeyi ve Sayımı Etkinleştirme
 

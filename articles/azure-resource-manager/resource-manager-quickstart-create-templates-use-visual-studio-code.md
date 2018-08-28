@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 07/17/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: bb0e3ee685d5a52a9f372e99d97f3608f67c17c0
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: d50b84ac61210fc89665341ae0c2de3fc4ce0c11
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185406"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42022499"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Hızlı başlangıç: Visual Studio Code kullanılarak Azure Resource Manager şablonları oluşturma
 
@@ -127,7 +127,7 @@ Visual Studio Code kullanarak şablon düzenlemeyi öğrenmek için, çıkış b
 
     Ekran görüntüsü çıkışında, depolama hesabı adı *3tqebj3slyfyestandardsa*’dır. 
 
-7. Yeni oluşturulan depolama hesabını listelemek için şu PowerShell komutunu çalıştırın:
+7. Yeni oluşturulan depolama hesabını listelemek için şu CLI komutunu çalıştırın:
 
     ```cli
     az storage account show --resource-group <ResourceGroupName> --name <StorageAccountName>

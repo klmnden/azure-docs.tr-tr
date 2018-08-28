@@ -3,18 +3,18 @@ title: HBase ve Phoenix yedekleme ve çoğaltma - Azure HDInsight'ı ayarlama
 description: HBase ve Phoenix için yedekleme ve çoğaltma ayarlayın.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: b9557dcd34ad59ae50240b76ae75df4ef3f39a5b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 0dfb1cf5ce16e9aa30bb7f9fcc43bd24ccb90d76
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592967"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042228"
 ---
 # <a name="set-up-backup-and-replication-for-hbase-and-phoenix-on-hdinsight"></a>HBase ve Phoenix HDInsight üzerinde için yedekleme ve çoğaltma ayarlama
 

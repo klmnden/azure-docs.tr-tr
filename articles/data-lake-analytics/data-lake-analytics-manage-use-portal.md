@@ -5,17 +5,16 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: dcf1a853f00f047a6d8beb8599a5b74c7f8f084d
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 1d49403ec04b2ec35291869385c316cb5ab3b0da
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969521"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43044918"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Azure portalını kullanarak Azure Data Lake Analytics'i yönetme
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -115,7 +114,7 @@ U-SQL geliştiricilerin Data Lake Analytics hizmeti kullanmak için Data Lake An
 2. Tıklayın **erişim denetimi (IAM)** > **Ekle**.
 3. Bir rol seçin.
 4. Bir kullanıcı ekleyin.
-5. **Tamam**’a tıklayın.
+5. **Tamam** düğmesine tıklayın.
 
 >[!NOTE]
 >İşleri göndermek bir kullanıcı veya güvenlik grubu gerekiyorsa, bunlar ayrıca depolama hesabındaki izni gerekir. Daha fazla bilgi için [Secure Data Lake Store içinde depolanan verileri](../data-lake-store/data-lake-store-secure-data.md).

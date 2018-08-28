@@ -1,46 +1,40 @@
 ---
-title: Power BI çalışma koleksiyonlarda kümesinden yeni rapor oluşturma | Microsoft Docs
-description: Power BI çalışma alanı koleksiyonu raporları, kendi uygulamanızda kümesinden şimdi oluşturulabilir.
+title: Power BI çalışma alanı koleksiyonları'nda bir veri kümesinden yeni rapor oluşturma | Microsoft Docs
+description: Power BI çalışma alanı koleksiyonu raporları artık kendi uygulamanızda bir veri kümesinden oluşturulabilir.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: ''
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 5c6a52edd708b6077820f2004e83ac7dee945610
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dbfe8c98dce1879a2e0956fafba32ab6e608bfdb
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409525"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046663"
 ---
-# <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Power BI çalışma koleksiyonlarda kümesinden yeni rapor oluşturma
+# <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Power BI çalışma alanı koleksiyonları'nda bir veri kümesinden yeni rapor oluşturma
 
-Power BI çalışma alanı koleksiyonu raporları, kendi uygulamanızda kümesinden şimdi oluşturulabilir.
+Power BI çalışma alanı koleksiyonu raporları artık kendi uygulamanızda bir veri kümesinden oluşturulabilir.
 
 > [!IMPORTANT]
 > Power BI Çalışma Alanı Koleksiyonları kullanım dışı bırakılmıştır ve Haziran 2018'e kadar veya anlaşmanızda belirtilen süre boyunca kullanılabilecektir. Uygulamanızda kesinti yaşanmaması için Power BI Embedded'a geçirmeyi planlamanız önerilir. Verilerinizi Power BI Embedded'a nasıl taşıyacağınızı öğrenmek için bkz. [Power BI Çalışma Alanı Koleksiyonları'nı Power BI Embedded'a geçirme](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-Kimlik doğrulama yöntemi, bir rapor katıştırma benzer. Belirli bir veri kümesine erişim belirteçleri dayanır. Belirteçleri PowerBI.com için kullanılan Azure Active Directory (AAD tarafından) verilir. Power BI çalışma alanı koleksiyonu belirteçleri, kendi uygulama tarafından verilir.
+Kimlik doğrulama yöntemi, bir raporu katıştırma benzerdir. Belirli bir veri kümesine erişim belirteçleri dayanır. PowerBI.com için kullanılan belirteçleri, Azure Active Directory (AAD) verilir. Power BI çalışma alanı koleksiyonu belirteçleri, kendi uygulama tarafından verilir.
 
-Katıştırılmış Rapor oluştururken, yayınlanan belirteçleri belirli bir veri kümesi için ' dir. Belirteçleri her benzersiz belirtece sahip olmak için embed URL ile aynı öğede ilişkili olmalıdır. Ekli raporu oluşturmak için *Dataset.Read ve Workspace.Report.Create* kapsamları erişim belirtecinde yer sağlanmalıdır.
+Katıştırılmış Rapor oluştururken, verilen belirteçler için belirli bir veri kümesi var. Belirteçleri her benzersiz belirtece sahip olmak için ekleme URL'si ile aynı öğede ilişkili olmalıdır. Bir katıştırılmış raporu oluşturmak için *Dataset.Read ve Workspace.Report.Create* kapsamları erişim belirtecinde sağlanmalıdır.
 
 ## <a name="create-access-token-needed-to-create-new-report"></a>Yeni bir rapor oluşturmak için gereken erişim belirteci oluşturma
 
-Power BI çalışma koleksiyonları kullanın bir ekleme belirteci, HMAC olduğu JSON Web belirteçlerini imzalanmış. Belirteçleri, Power BI çalışma alanı koleksiyonu erişim anahtarla imzalanmıştır. Varsayılan olarak belirteçleri, ekleme, bir uygulamaya eklemek için bir rapor salt okunur erişim sağlamak için kullanılır. Embed belirteçleri için belirli bir rapor verilir ve bir embed URL'si ile ilişkili olmalıdır.
+Power BI çalışma alanı koleksiyonları kullanan bir ekleme belirteci, HMAC olduğu JSON Web belirteçlerini imzalanmış. Belirteçler, Power BI çalışma alanı koleksiyonunuz erişim anahtarı ile imzalanmıştır. Ekleme belirteçleri, varsayılan olarak, bir uygulamaya ekleme için bir rapor salt okunur erişim sağlamak için kullanılır. Ekleme belirteçleri için belirli bir rapor verilir ve bir ekleme URL'si ile ilişkili olmalıdır.
 
-Erişim tuşları belirteçleri oturum/şifrelemek için kullanılan erişim belirteçleri sunucuda oluşturulması gerekir. Bir erişim belirteci oluşturma hakkında daha fazla bilgi için bkz: [Authenticating ve Power BI çalışma koleksiyonlarla yetkilendirme](app-token-flow.md). Ayrıca gözden geçirebilirsiniz [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) yöntemi. Burada, ne için Power BI .NET SDK kullanarak gibi görünür bir örnek verilmiştir.
+Erişim anahtarlarını belirteçleri oturum/şifrelemek için kullanılan erişim belirteçlerini sunucuda oluşturulması gerekir. Bir erişim belirteci oluşturma hakkında daha fazla bilgi için bkz: [kimlik doğrulama ve yetkilendirme ile Power BI çalışma alanı koleksiyonları](app-token-flow.md). Ayrıca inceleyebilirsiniz [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) yöntemi. Ne için Power BI .NET SDK kullanarak gibi görünür bir örnek aşağıda verilmiştir.
 
-Bu örnekte, yeni raporu oluşturmak için istiyoruz bizim veri kümesi Tanıtıcısı sahip. Biz de eklemeniz gerekir *Dataset.Read ve Workspace.Report.Create*.
+Bu örnekte, yeni bir rapor oluşturmak istediğimiz bizim veri kümesi kimliği sahibiz. Biz de kapsamları eklemenize gerek *Dataset.Read ve Workspace.Report.Create*.
 
 *PowerBIToken sınıfı* , yüklemenizi gerektirir [Power BI çekirdek NuGut paketi](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
 
@@ -64,10 +58,10 @@ var token = embedToken.Generate("{access key}");
 
 ## <a name="create-a-new-blank-report"></a>Yeni boş bir rapor oluşturun
 
-Yeni bir rapor oluşturmak için Oluştur yapılandırma sağlanmalıdır. Bu erişim belirteci, embedURL ve karşı raporu oluşturmak için istiyoruz Datasetıd içermelidir. Bu, nuget yüklemenizi gerektirir [Power BI JavaScript paket](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). EmbedUrl yalnızca olacaktır https://embedded.powerbi.com/appTokenReportEmbed.
+Yeni bir rapor oluşturmak için oluşturma yapılandırmasını sağlanmalıdır. Bu erişim belirteci, embedURL ve raporun, karşılarında oluşturmak istiyoruz Datasetıd içermelidir. Bu, nuget yüklemenizi gerektirir [Power BI JavaScript paket](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). EmbedUrl yalnızca olacaktır https://embedded.powerbi.com/appTokenReportEmbed.
 
 > [!NOTE]
-> Kullanabileceğiniz [JavaScript rapor katıştırmak örnek](https://microsoft.github.io/PowerBI-JavaScript/demo/) işlevselliğini test etmek için. Aynı zamanda kullanılabilir farklı işlemler için kod örnekleri sağlar.
+> Kullanabileceğiniz [JavaScript rapor ekleme örneği](https://microsoft.github.io/PowerBI-JavaScript/demo/) işlevselliğini test etmek için. Ayrıca kod örnekleri için kullanılabilen farklı işlemleri sağlar.
 
 **NuGet paketi yüklemesi**
 
@@ -93,13 +87,13 @@ var embedCreateConfiguration = {
     var report = powerbi.createReport(reportContainer, embedCreateConfiguration);
 ```
 
-Çağırma *powerbi.createReport()* içinde görünür boş bir tuval düzenleme modunda yapar *div* öğesi.
+Çağırma *powerbi.createReport()* içinde görünen boş bir tuval düzenleme modunda yapar *div* öğesi.
 
-![Yeni boş raporu](media/create-report-from-dataset/create-new-report.png)
+![Yeni bir boş rapor](media/create-report-from-dataset/create-new-report.png)
 
-## <a name="save-new-reports"></a>Yeni raporlar Kaydet
+## <a name="save-new-reports"></a>Yeni raporları kaydetme
 
-Çağırmanız kadar rapor oluşturulmaz **Farklı Kaydet** işlemi. Bu dosya menüsünden veya JavaScript yapılabilir.
+Rapor, çağırana kadar oluşturulmaz **Kaydet** işlemi. Bu dosya menüsünden veya JavaScript yapılabilir.
 
 ```
  // Get a reference to the embedded report.
@@ -114,13 +108,13 @@ var embedCreateConfiguration = {
 ```
 
 > [!IMPORTANT]
-> Yeni bir rapor yalnızca sonra oluşturulan **Farklı Kaydet** olarak adlandırılır. Kaydettikten sonra tuvale düzenleme modunu ve rapor hala veri kümesini gösterir. Herhangi bir raporu gibi yeni raporu yeniden yüklemeniz gerekir.
+> Yeni bir rapor yalnızca sonra oluşturulduğunda **Kaydet** çağrılır. Kaydettikten sonra tuval düzenleme modu ve rapor yine de veri kümesi gösterir. Yeni raporu diğer herhangi bir raporda olduğu gibi yeniden gerekir.
 
-![Dosya menüsü - Kaydet olarak](media/create-report-from-dataset/save-new-report.png)
+![Dosya menüsü - kaydetme olarak](media/create-report-from-dataset/save-new-report.png)
 
-## <a name="load-the-new-report"></a>Yeni rapor yükleyin
+## <a name="load-the-new-report"></a>Yeni rapor
 
-Yani normal bir rapor uygulama katıştırır aynı şekilde katıştırmak gerek yeni raporuyla etkileşim kurmak için yeni bir belirteç özellikle yeni rapor için verilmiş olması gerekir ve ardından ekleme yöntemini çağırın.
+Yani uygulama normal bir raporda katıştırır aynı şekilde ekleme gerek yeni raporla etkileşim kurmak için yeni bir belirteç özellikle yeni rapor için verilmiş olması gerekir ve ardından ekleme yöntemini çağırın.
 
 ```
 <div id="reportContainer"></div>
@@ -138,9 +132,9 @@ var embedConfiguration = {
     var report = powerbi.embed(reportContainer, embedConfiguration);
 ```
 
-## <a name="automate-save-and-load-of-a-new-report-using-the-saved-event"></a>Kaydetme otomatikleştirmek ve "kaydedildi" olayını kullanarak yeni bir rapor yükleme
+## <a name="automate-save-and-load-of-a-new-report-using-the-saved-event"></a>Kaydetme otomatikleştirin ve "kaydedildi" olayını kullanarak yeni bir rapor yükleme
 
-"Farklı Kaydet" sürecini otomatik hale getirmek için ve yeni rapor yüklenirken "kaydedildi" olayının kullanabilir. Bu olay zaman ateşlenir kaydetme işlemi tamamlandıktan ve yeni reportId, rapor adı, eski reportId (varsa) içeren bir Json nesnesi döndürür ve Farklı Kaydet işlemi ise veya kaydedin.
+"Farklı Kaydet" işlemini otomatik hale getirmek için ve ardından yeni bir rapor yüklenirken "kaydedildi" olayının kullanabilir. Bu olay, ne zaman tetiklenir kaydetme işlemi tamamlandığında ve yeni Reportıd, rapor adı, eski Reportıd (varsa) içeren bir Json nesnesi döndürür ve Farklı Kaydet işlemi varsa veya kaydedebilirsiniz.
 
 ```
 {
@@ -151,7 +145,7 @@ var embedConfiguration = {
 }
 ```
 
-"Kaydedildi" olay üzerinde dinleme işlemini otomatikleştirmek için yeni reportId Al, yeni bir belirteç oluşturmak ve yeni rapor ile ekleme.
+"Kaydedildi" olayı dinleyebilir işlemini otomatikleştirmek için yeni Reportıd almak, yeni belirteç oluştur ve ile yeni bir rapor ekleme.
 
 ```
 <div id="reportContainer"></div>
@@ -209,6 +203,6 @@ var embedCreateConfiguration = {
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript Örnek Ekleme](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 [Power BI çekirdek NuGut paketi](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  
-[Power BI JavaScript paketi](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
+[Power BI JavaScript paket](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
 
 Başka sorunuz mu var? [Power BI Topluluğu'nu deneyin](http://community.powerbi.com/)

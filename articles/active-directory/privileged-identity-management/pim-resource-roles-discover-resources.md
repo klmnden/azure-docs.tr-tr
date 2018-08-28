@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: c5b26c01028e2a5746132939a2058cacdcad859f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: f4b6fafe40fe00492bac7bd6c28268321d4516db
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622111"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104364"
 ---
 # <a name="discover-and-manage-azure-resources-by-using-privileged-identity-management"></a>Bulma ve Privileged Identity Management'ı kullanarak Azure kaynaklarını yönetme
 
@@ -27,7 +27,7 @@ Bulma ve Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 
 Azure kaynakları için PIM ayarlamanız, bulmak ve PIM ile korunacak kaynakların seçmek gerekir. PIM ile yönetebileceğiniz kaynakları sayısı sınırı yoktur. Ancak, en kritik (üretim) kaynaklarınız ile başlamanızı öneririz.
 
 > [!NOTE]
-> Yalnızca bulup PIM kullanarak yönetmek için abonelik kaynaklarını seçin. Bir abonelikte PIM yönetirken, abonelik alt kaynakları da yönetebilirsiniz.
+> Yalnızca bulup PIM kullanarak yönetmek için yönetim grubuna veya aboneliğe kaynakları seçin. Bir yönetim grubu veya abonelik PIM yönetme, ayrıca alt kaynakları yönetebilir.
 
 ## <a name="discover-resources"></a>Kaynakları bulma
 

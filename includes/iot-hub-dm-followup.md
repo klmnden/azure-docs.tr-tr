@@ -1,3 +1,20 @@
+---
+title: include dosyası
+description: include dosyası
+services: iot-hub
+ms.service: iot-hub
+author: dominicbetts
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 3cdfa74c5f124e57b125399e39b7981b1dfb6d09
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43096361"
+---
 ## <a name="customize-and-extend-the-device-management-actions"></a>Cihaz yönetim eylemleri genişletir ve özelleştirme
 
 IOT çözümlerinizi cihaz yönetim modellerini tanımlı bir dizi genişletebilir veya özel düzenleri cihaz ikizi ve bulut-cihaz yöntemi temelleri kullanarak etkinleştirin. Diğer cihaz yönetim eylemleri Fabrika sıfırlaması, üretici yazılımı güncelleştirmesi, yazılım güncelleştirmesi, güç yönetimi, ağ ve bağlantı yönetimi ve veri şifrelemesi örneklerindendir.
@@ -12,12 +29,8 @@ Bu öğreticide, bir doğrudan yöntem cihaz üzerinde Uzaktan yeniden başlatma
 
 IOT Hub ve cihaz yönetim modellerini uzaktan gibi hava üretici yazılımı güncelleştirme kullanmaya başlama devam etmek için bkz:
 
-[Öğretici: nasıl üretici yazılımlarını güncelleştirme][lnk-fwupdate]
+[Öğretici: nasıl üretici yazılımlarını güncelleştirme](../articles/iot-hub/tutorial-firmware-update.md)
 
-IOT çözümü ve zamanlama yöntemi çağıran birden çok cihazda genişletmek öğrenmek için bkz [işleri zamanlama ve yayınlama] [ lnk-tutorial-jobs] öğretici.
+IOT çözümü ve zamanlama yöntemi çağıran birden çok cihazda genişletmek öğrenmek için bkz [işleri zamanlama ve yayınlama](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md) öğretici.
 
-IOT Hub kullanmaya başlamaya devam etmek için bkz: [IOT Edge'i kullanmaya başlama][lnk-iot-edge].
-
-[lnk-fwupdate]: ../articles/iot-hub/tutorial-firmware-update.md
-[lnk-tutorial-jobs]: ../articles/iot-hub/iot-hub-node-node-schedule-jobs.md
-[lnk-iot-edge]: ../articles/iot-edge/tutorial-simulate-device-linux.md
+IOT Hub kullanmaya başlamaya devam etmek için bkz: [IOT Edge'i kullanmaya başlama](../articles/iot-edge/tutorial-simulate-device-linux.md).

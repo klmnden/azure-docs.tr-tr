@@ -1,63 +1,62 @@
 ---
-title: Etkinleştirme ve Azure Data Lake Analytics için tanılama günlükleri görüntüleme
-description: Ayarlama ve tanılama günlüklerine erişmek için Azure Data Lake Analytics anlayın
+title: Etkinleştirme ve Azure Data Lake Analytics için tanılama günlüklerini görüntüleme
+description: Ayarlama ve Azure Data Lake Analytics için tanılama günlüklerine erişmek nasıl anlama
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
-ms.openlocfilehash: e65c6396d859a128777c66cad6a44bb033b50d50
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0bade9f393d879123b7b1485052f70924d9c9b9c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623494"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045490"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics için tanılama günlüklerine erişme
 
-Tanılama günlük veri erişimi denetim izleri toplamanızı sağlar. Bu günlükler gibi bilgileri sağlayın:
+Tanılama günlüğüne kaydetme, veri erişimi denetim kayıtlarını toplamanıza olanak tanır. Bu günlükler, bilgileri gibi sağlayın:
 
-* Veri erişilen kullanıcıların listesi.
-* Verileri ne sıklıkla erişilebilir.
+* Verilere erişen kullanıcıların listesi.
+* Verilere ne sıklıkta erişildiğine.
 * Ne kadar veri hesabında depolanır.
 
 ## <a name="enable-logging"></a>Günlü kaydını etkinleştir
 
 1. [Azure portalı](https://portal.azure.com) üzerinde oturum açın.
 
-2. Data Lake Analytics hesabınızı açın ve seçin **tanılama günlükleri** gelen __İzleyici__ bölümü. Ardından, __tanılamayı açın__.
+2. Data Lake Analytics hesabınızı açın ve seçin **tanılama günlükleri** gelen __İzleyici__ bölümü. Ardından, __tanılamayı Aç__.
 
-    ![Denetim toplama ve günlükleri istemek için tanılamayı açın](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
+    ![Denetim toplama ve günlükleri istemek için tanılamayı Aç](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
-3. Gelen __tanılama ayarları__, girin bir __adı__ bu günlüğü yapılandırması ve ardından günlük seçenekleri.
+3. Gelen __tanılama ayarları__, girin bir __adı__ için bu günlük kaydı yapılandırması ve ardından oturum açma seçenekleri.
 
     ![Denetim toplama ve günlükleri istemek için tanılamayı açın](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "tanılama günlüklerini etkinleştirme")
 
    * Depolama/verileri üç farklı yolla işlemi seçebilirsiniz.
 
-     * Seçin __bir depolama hesabı arşive__ bir Azure depolama hesabında günlükleri depolamak için. Verileri arşivlemek istiyorsanız bu seçeneği kullanın. Bu seçeneği seçerseniz, günlüklere kaydetmek için bir Azure depolama hesabı sağlamanız gerekir.
+     * Seçin __bir depolama hesabında arşivle__ bir Azure depolama hesabında günlüklerini depolamak için. Verileri arşivlemek istiyorsanız bu seçeneği kullanın. Bu seçeneği belirlerseniz, günlüklere kaydetmek için bir Azure depolama hesabı sağlamanız gerekir.
 
-     * Seçin **bir olay Hub'ına akış** Azure olay Hub'ına günlük veri akışı için. Gerçek zamanlı gelen günlüklerini analiz bir aşağı akış işleme ardışık varsa bu seçeneği kullanın. Bu seçeneği belirlerseniz, kullanmak istediğiniz Azure olay Hub ayrıntılarını sağlamanız gerekir.
+     * Seçin **Stream olay Hub'ına** Azure olay Hub'ına günlük veri akışı. Gerçek zamanlı olarak gelen günlüklerini analiz bir aşağı akış işleme işlem hattı varsa bu seçeneği kullanın. Bu seçeneği belirlerseniz, Azure Event Hub kullanmak istediğiniz için ayrıntıları sağlamanız gerekir.
 
-     * Seçin __için günlük analizi Gönder__ için günlük analizi hizmeti veri göndermek için. Günlük analizi toplamak ve günlüklerini çözümlemek için kullanmak istiyorsanız bu seçeneği kullanın.
-   * Denetim günlükleri veya istek günlüklerini veya her ikisini de almak isteyip istemediğinizi belirtin.  İstek günlüğü her API isteği yakalar. Bir denetim günlüğü bu API isteğiyle tetiklenen tüm işlemleri kaydeder.
+     * Seçin __Log Analytics'e gönderme__ verileri Log Analytics hizmetine göndermek için. Bilgi toplamak ve günlükleri analiz etmek için Log Analytics kullanmak istiyorsanız bu seçeneği kullanın.
+   * Denetim günlükleri veya istek günlükleri veya her ikisi de almak isteyip istemediğinizi belirtin.  İstek günlüğü, her API isteği yakalar. Bu API isteğiyle tetiklenen tüm işlemler bir denetim günlüğüne kaydeder.
 
-   * İçin __bir depolama hesabı arşive__, verileri korumak için gün sayısını belirtin.
+   * İçin __bir depolama hesabında arşivle__, verileri saklanacağı gün sayısını belirtin.
 
    * __Kaydet__’e tıklayın.
 
         > [!NOTE]
-        > Ya da seçmelisiniz __Arşiv bir depolama hesabı__, __bir olay Hub'ına akış__ veya __için günlük analizi Gönder__ tıklatmadan önce __kaydetmek__ düğmesi.
+        > Ya da seçmelisiniz __bir depolama hesabında arşivle__, __Stream olay Hub'ına__ veya __Log Analytics'e gönderme__ tıklatmadan önce __Kaydet__ düğmesi.
 
 ### <a name="use-the-azure-storage-account-that-contains-log-data"></a>Günlük verilerini içeren Azure depolama hesabı kullan
 
-1. Günlük verilerini tutun blob kapsayıcıları görüntülemek için Data Lake Analytics için günlüğü için kullanılan Azure Storage hesabı açın ve ardından __BLOB'lar__.
+1. Günlük verileri tutmak blob kapsayıcıları görüntülemek için Data Lake Analytics için günlüğü için kullanılan Azure depolama hesabı'nı açın ve ardından __Blobları__.
 
-   * Kapsayıcı **Öngörüler günlükleri denetim** denetim günlüklerini içerir.
-   * Kapsayıcı **Öngörüler günlükleri istekleri** isteği günlükleri içerir.
+   * Kapsayıcı **ınsights günlükleri denetim** denetim günlükleri içeriyor.
+   * Kapsayıcı **ınsights günlükleri istekleri** istek günlükleri içerir.
 
 2. Kapsayıcılara günlükleri aşağıdaki dosya yapısı altında depolanır:
 
@@ -78,9 +77,9 @@ Tanılama günlük veri erişimi denetim izleri toplamanızı sağlar. Bu günl�
                                     PT1H.json
 
    > [!NOTE]
-   > `##` Yolundaki girişleri yıl, ay, gün ve günlük oluşturulduğu saat. Data Lake Analytics bir dosya kadar her saat oluşturur `m=` her zaman değerini içeren `00`.
+   > `##` Yolunda girişleri yıl, ay, gün ve günlük oluşturulduğu saat. Data Lake Analytics bir dosya şekilde her saat oluşturur `m=` her zaman değerini içeren `00`.
 
-    Örnek olarak, Denetim günlüğü tam yolunu olabilir:
+    Örneğin, bir denetim günlüğüne tam yolunu olabilir:
 
         https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=04/m=00/PT1H.json
 
@@ -90,11 +89,11 @@ Tanılama günlük veri erişimi denetim izleri toplamanızı sağlar. Bu günl�
 
 ## <a name="log-structure"></a>Günlük yapısı
 
-Denetim ve istek yapılandırılmış bir JSON biçiminde günlüklerin.
+Denetim ve istek günlükler, yapılandırılmış bir JSON biçiminde olur.
 
-### <a name="request-logs"></a>İstek günlükleri
+### <a name="request-logs"></a>Günlükleri iste
 
-Burada JSON biçimli istek günlüğüne örnek girişi verilmiştir. Her bir blob olarak adlandırılan bir kök nesnesi vardır **kayıtları** günlük nesnelerinin bir dizisi içerir.
+JSON biçimli istek günlüğünde örnek giriş aşağıdadır. Her blob olarak adlandırılan bir kök nesnesinin sahip **kayıtları** günlük nesnelerinin bir dizisi içeren.
 
     {
     "records":
@@ -128,30 +127,30 @@ Burada JSON biçimli istek günlüğüne örnek girişi verilmiştir. Her bir bl
 
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
-| time |Dize |Timestamp (UTC) günlük |
-| resourceId |Dize |İşlemi sürdü kaynak tanıtıcısı yerleştirin |
+| time |Dize |Zaman damgası (UTC) günlüğü |
+| resourceId |Dize |İşlem geçen kaynağının tanımlayıcısını yerleştireceğinize |
 | category |Dize |Günlük kategorisi. Örneğin, **istekleri**. |
 | operationName |Dize |Oturum açmış işlemin adı. Örneğin, GetAggregatedJobHistory. |
 | resultType |Dize |Örneğin, 200 işlem durumu. |
 | callerIpAddress |Dize |İsteği yapan istemcinin IP adresi |
-| correlationId |Dize |Oturum tanımlayıcısı. Bu değer, ilgili günlük girdileri kümesini gruplamak için kullanılabilir. |
-| identity |Nesne |Günlük oluşturulan kimliği |
-| properties |JSON |Ayrıntılar için (istek günlük özellikleri Şeması) sonraki bölümüne bakın |
+| correlationId |Dize |Oturum tanımlayıcısı. Bu değer, bir dizi ilgili günlük girişlerini gruplandırmak için kullanılabilir. |
+| identity |Nesne |Günlük oluşturulan kimlik |
+| properties |JSON |Ayrıntılar için sonraki bölüme (istek günlüğü özellikleri şema) bakın |
 
 #### <a name="request-log-properties-schema"></a>İstek günlüğü özellikleri şeması
 
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
-| HttpMethod |Dize |İşlem için kullanılan HTTP yöntem. Örneğin, alın. |
-| Yol |Dize |Yolun işlemi üzerinde gerçekleştirildi |
-| RequestContentLength |Int |HTTP isteğinin içerik uzunluğu |
-| ClientRequestId |Dize |Bu istek benzersiz olarak tanıtan bir tanımlayıcı |
+| HttpMethod |Dize |HTTP yöntemi, bir işlem için kullanılmaz. Örneğin, alın. |
+| Yol |Dize |İşlem yolu üzerinde gerçekleştirildi |
+| RequestContentLength |int |HTTP isteğinin içerik uzunluğu |
+| Clientrequestıd'ye |Dize |Bu istek benzersiz olarak tanımlayan tanımlayıcısı |
 | StartTime |Dize |Sunucu isteği aldığınız zaman |
-| EndTime |Dize |Sunucu yanıt gönderilme saati |
+| EndTime |Dize |Sunucu yanıt gönderme zamanı |
 
 ### <a name="audit-logs"></a>Denetim günlükleri
 
-Burada JSON biçimli Denetim günlüğüne örnek girişi verilmiştir. Her bir blob olarak adlandırılan bir kök nesnesi vardır **kayıtları** günlük nesnelerinin bir dizisi içerir.
+JSON biçimli bir denetim günlüğüne örnek girişini İşte. Her blob olarak adlandırılan bir kök nesnesinin sahip **kayıtları** günlük nesnelerinin bir dizisi içeren.
 
     {
     "records":
@@ -180,17 +179,17 @@ Burada JSON biçimli Denetim günlüğüne örnek girişi verilmiştir. Her bir 
 
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
-| time |Dize |Timestamp (UTC) günlük |
-| resourceId |Dize |İşlemi sürdü kaynak tanıtıcısı yerleştirin |
+| time |Dize |Zaman damgası (UTC) günlüğü |
+| resourceId |Dize |İşlem geçen kaynağının tanımlayıcısını yerleştireceğinize |
 | category |Dize |Günlük kategorisi. Örneğin, **denetim**. |
 | operationName |Dize |Oturum açmış işlemin adı. Örneğin, JobSubmitted. |
-| resultType |Dize |İş durumu (operationName) için bir alt durum. |
+| resultType |Dize |İş durumu (operationName) için alt. |
 | resultSignature |Dize |İş durumu (operationName) ilgili ek ayrıntılar. |
-| identity |Dize |İstenen işlemi kullanıcı. Örneğin, susan@contoso.com. |
-| properties |JSON |Ayrıntılar için (Denetim günlüğü özellikleri Şeması) sonraki bölümüne bakın |
+| identity |Dize |İstenen işlem kullanıcı. Örneğin, susan@contoso.com. |
+| properties |JSON |Ayrıntılar için sonraki bölüme (Denetim günlüğü özellikleri şema) bakın |
 
 > [!NOTE]
-> **resultType** ve **resultSignature** bir işlemin sonucunu bilgileri sağlayın ve bir işlemin tamamlanması, yalnızca bir değer içerebilir. Örneğin, yalnızca bir değer içerir, **operationName** değerini içeren **JobStarted** veya **JobEnded**.
+> **resulttype'ı** ve **resultSignature** bir işlemin sonucu hakkında bilgi sağlar ve bir işlemin tamamlanması yalnızca bir değer içerir. Örneğin, yalnızca bir değer içerdiği zaman **operationName** değerini içeren **JobStarted** veya **JobEnded**.
 >
 >
 
@@ -200,18 +199,18 @@ Burada JSON biçimli Denetim günlüğüne örnek girişi verilmiştir. Her bir 
 | --- | --- | --- |
 | JobId |Dize |Projeye atanan kimliği |
 | JobName |Dize |İş için sağlanan adı |
-| JobRunTime |Dize |İş işlemek için kullanılan çalışma zamanı |
-| SubmitTime |Dize |İş gönderilen süreyi (UTC) |
-| StartTime |Dize |İş gönderisine (UTC) sonra çalışmaya başladığı saat |
+| JobRunTime |Dize |İşi işlemek için kullanılan çalışma zamanı |
+| SubmitTime |Dize |İş gönderildi, saat (UTC) |
+| StartTime |Dize |Gönderisine (UTC) sonra çalışan işin başladığı saati |
 | EndTime |Dize |İşin bitiş saati |
-| Paralellik |Dize |Gönderme sırasında bu iş için istenen Data Lake Analytics birim sayısı |
+| Paralellik |Dize |Gönderim sırasında bu iş için istenen Data Lake Analytics birimi |
 
 > [!NOTE]
-> **SubmitTime**, **StartTime**, **EndTime**, ve **paralellik** üzerinde bir işlemi bilgileri sağlayın. Bu girişler yalnızca bir değer varsa, işlemi başlatıldı veya tamamlanmış olan içerir. Örneğin, **SubmitTime** yalnızca sonra bir değer içeriyor **operationName** değerine sahip **JobSubmitted**.
+> **SubmitTime**, **StartTime**, **EndTime**, ve **paralellik** işlem bilgileri sağlayın. Bu girişler yalnızca bir değer varsa işlemi başlatıldı veya tamamlandı içerir. Örneğin, **SubmitTime** yalnızca sonra bir değer içeren **operationName** değerine sahip **JobSubmitted**.
 
-## <a name="process-the-log-data"></a>İşlem günlük verileri
+## <a name="process-the-log-data"></a>Günlük verilerini işleme
 
-Azure Data Lake Analytics hakkında işlemek ve günlük verileri analiz etmek bir örnek sağlar. Örnek: bulabilirsiniz [ https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample ](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
+Azure Data Lake Analytics, günlük verilerini işlemek ve çözümlemek nasıl bir örnek sağlar. Örneğini şurada bulabilirsiniz [ https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample ](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md)

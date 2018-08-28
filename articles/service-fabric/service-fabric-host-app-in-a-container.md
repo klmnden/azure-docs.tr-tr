@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 6fe314125440096d21a1276defd082c4e1997b8e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 50ece1d1f74ace494e6bebb84f9f121c1fad7a6c
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642691"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41918249"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Öğretici: Azure Service Fabric’e Windows kapsayıcısındaki bir .NET uygulamasını dağıtma
 
@@ -223,6 +223,9 @@ Uygulama hazır olduğuna göre, doğrudan Visual Studio'dan Azure'daki bir küm
 Çıkış penceresinde dağıtımın ilerleme durumunu izleyin.  Uygulama dağıtıldığında, tarayıcıyı açın ve küme adresiyle uygulama bağlantı noktasını yazın. Örneğin, http://http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
 
 ![Fabrikam web örneği][fabrikam-web-page-deployed]
+
+## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Service Fabric kümesi ile Sürekli Tümleştirme ve Dağıtımı (CI/CD) ayarlama
+Service Fabric kümesinde CI/CD uygulama dağıtımını yapılandırmak için VSTS kullanma hakkında bilgi edinmek için bkz. [Öğretici: CI/CD ile Service Fabric kümesine uygulama dağıtma](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). Bu öğreticide anlatılan işlem, bu (FabrikamFiber) projesiyle aynıdır, tek yapmanız gereken Voting örneğini indirme adımını atlayıp depo adını Voting yerine FabrikamFiber olarak değiştirmektir.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 İşiniz bittiğinde, oluşturduğunuz tüm kaynakları kaldırmayı unutmayın.  Bunun en basit yolu Service Fabric kümesini, Azure SQL veritabanını ve Azure Container Registry'yi içeren kaynak gruplarını kaldırmaktır.

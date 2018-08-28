@@ -290,9 +290,9 @@ items:
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: SDK’lar
     items:
-    - name: .Net Yazma
+    - name: .NET Yazma
       href: https://aka.ms/luis-sdk-dotnet-authoring
-    - name: .Net Çalışma Zamanı
+    - name: .NET Çalışma Zamanı
       href: https://aka.ms/luis-sdk-dotnet-runtime
     - name: Android
       href: https://github.com/Microsoft/Cognitive-LUIS-Android
@@ -346,9 +346,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Bilgi Bankası
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: 0d7963a611ce37099cff82dc7d31f998b7db6c69
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 3499c5a00b5b4ea4758a7895e44beceeed09973d
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 08/24/2018
-ms.locfileid: "42815212"
+ms.locfileid: "42915873"

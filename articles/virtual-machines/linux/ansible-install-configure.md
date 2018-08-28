@@ -1,48 +1,35 @@
 ---
-title: Yükleme ve Azure sanal makineler ile kullanmak için Ansible'ı yapılandırma | Microsoft Docs
-description: Ubuntu, CentOS ve SLES üzerindeki Azure kaynaklarını yönetmek için ansible'ı yapılandırma ve yükleme hakkında bilgi edinin
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: cynthn
+title: Ansible'ı Azure sanal makinelerine yükleme
+description: Ubuntu, CentOS ve SLES üzerinde Azure kaynaklarını yönetmek için Ansible'ı yüklemeyi ve yapılandırmayı öğrenin
+ms.service: ansible
+keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
+author: tomarcher
 manager: jeconnoc
-editor: na
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 05/04/2018
-ms.author: cynthn
-ms.openlocfilehash: e7d57ead2caff87db07380582b9085b831844f1e
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
-ms.translationtype: MT
+ms.author: tarcher
+ms.topic: quickstart
+ms.date: 08/21/2018
+ms.openlocfilehash: fcb2da93a39bd4e1a81f7767dc40b3a24fd7d213
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930078"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40250687"
 ---
-# <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Yükleme ve Azure sanal makineleri yönetmek için ansible'ı yapılandırma
+# <a name="install-ansible-on-azure-virtual-machines"></a>Ansible'ı Azure sanal makinelerine yükleme
 
-Ansible, dağıtımını ve yapılandırmasını, ortamınızdaki kaynakları otomatikleştirmenize olanak tanır. Azure, aynı diğer herhangi bir kaynağa olduğu gibi sanal makinelerinizde (VM'ler) yönetmek için Ansible'ı kullanabilirsiniz. Bu makalede, Ansible ve gerekli Azure Python SDK'sı modülleri bazı yaygın Linux dağıtımları için yükleme işlemi açıklanmaktadır. Yüklü paketleri, belirli bir platform uyacak şekilde ayarlayarak, Ansible hakkında diğer dağıtım paketlerini yükleyebilirsiniz. Azure kaynaklarını güvenli bir şekilde oluşturmak için ayrıca oluşturmak ve kullanmak için ansible'ı için kimlik bilgilerini tanımlamak nasıl öğrenin.
+Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Ansible'ı kullanarak Azure'daki sanal makinelerinizi (VM) diğer kaynaklar gibi yönetebilirsiniz. Bu makalede en yaygın Linux dağıtımları için Ansible'ı ve gerekli Azure Python SDK'sı modüllerini yükleme adımları anlatılmaktadır. Ansible'ı diğer dağıtımlara yüklemek için yüklenen paketleri platformunuza uyacak şekilde ayarlamanız gerekir. Azure kaynaklarını güvenli bir şekilde oluşturmak için Ansible'da kimlik bilgisi oluşturma ve tanımlamayı da öğreneceksiniz. Cloud Shell'de bulunan ek araçların listesi için bkz. [Azure Cloud Shell'deki Bash özellikleri ve araçlar](../../cloud-shell/features.md#tools).
 
-Daha fazla yükleme seçenekleri ve ek platformlarına yönelik adımlar için bkz. [Ansible Yükleme Kılavuzu](https://docs.ansible.com/ansible/intro_installation.html).
+## <a name="prerequisites"></a>Ön koşullar
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+- **Azure aboneliği** - Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale, Azure CLI Sürüm 2.0.30 çalıştırdığınız gerekir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+- **Linux veya Linux sanal makinesine erişim** - Linux makineniz yoksa [Linux sanal makinesi](/virtual-machines/linux/quick-create-cli.md) oluşturun.
 
-## <a name="install-ansible"></a>Ansible'ı yükleme
+- **Azure hizmet sorumlusu**: [Azure CLI 2.0 ile Azure hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal) makalesinin **Hizmet sorumlusunu oluşturma** bölümündeki yönergeleri izleyin. **appId**, **displayName**, **password** ve **tenant** değerlerini not edin.
 
-Ansible'ı Azure ile kullanmak için en kolay yollarından biri, Azure Cloud Shell ile yönetmek ve Azure kaynaklarını geliştirmek için bir tarayıcı tabanlı kabuk deneyimi olan. Ansible'ı yükleyin ve Git konusunda yönergeleri atlayabilirsiniz Ansible Cloud Shell'de önceden yüklenmiş [oluşturma Azure kimlik bilgileri](#create-azure-credentials). Ek araçlar ayrıca Cloud Shell'de kullanılabilir bir listesi için bkz. [özellikler ve araçlar için Azure Cloud Shell'deki Bash hizmetinde](../../cloud-shell/features.md#tools).
+## <a name="install-ansible-on-an-azure-linux-virtual-machine"></a>Bir Azure Linux sanal makinesine Ansible yükleme
 
-Aşağıdaki yönergeler Ansible'ı yükleyin ve çeşitli işlemleri için bir Linux VM oluşturma işlemini göstermektedir. Bir Linux VM oluşturmanız gerekmez, bir Azure kaynak grubu oluşturmak için bu ilk adımı atlayın. Bir sanal makine oluşturmanız gerekiyorsa, önce bir kaynak grubu oluşturun [az grubu oluşturma](/cli/azure/group#az_group_create). Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
-
-```azurecli
-az group create --name myResourceGroup --location eastus
-```
-
-Şimdi gerekirse bir VM oluşturma adımları için aşağıdaki dağıtım paketlerini seçin ve ardından Ansible'ı yükleyin:
+Linux makinenizde oturum açın ve Ansible yükleme adımları için aşağıdaki dağıtımlardan birini seçin:
 
 - [CentOS 7.4](#centos-74)
 - [Ubuntu 16.04 LTS](#ubuntu1604-lts)
@@ -50,24 +37,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="centos-74"></a>CentOS 7.4
 
-Gerekirse, ile VM oluşturma [az vm oluşturma](/cli/azure/vm#az_vm_create). Aşağıdaki örnekte adlı bir VM oluşturur *myVMAnsible*:
-
-```azurecli
-az vm create \
-    --name myVMAnsible \
-    --resource-group myResourceGroup \
-    --image OpenLogic:CentOS:7.4:latest \
-    --admin-username azureuser \
-    --generate-ssh-keys
-```
-
-SSH kullanarak VM'ye `publicIpAddress` VM çıktısından not ettiğiniz oluşturma işlemi:
-
-```bash
-ssh azureuser@<publicIpAddress>
-```
-
-VM'NİZDE gibi Azure Python SDK'sı modüller ve Ansible için gerekli paketleri yükleyin:
+Aşağıdaki komutları terminal veya Bash penceresine girerek Azure Python SDK'sı modülleri ve Ansible için gerekli paketleri yükleyin:
 
 ```bash
 ## Install pre-requisite packages
@@ -78,28 +48,12 @@ sudo yum install -y python-pip python-wheel
 sudo pip install ansible[azure]
 ```
 
-Artık geçin [oluşturma Azure kimlik bilgileri](#create-azure-credentials).
+[Azure kimlik bilgilerini oluşturma](#create-azure-credentials) bölümündeki yönergeleri izleyin.
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 
-Gerekirse, ile VM oluşturma [az vm oluşturma](/cli/azure/vm#az_vm_create). Aşağıdaki örnekte adlı bir VM oluşturur *myVMAnsible*:
+Aşağıdaki komutları terminal veya Bash penceresine girerek Azure Python SDK'sı modülleri ve Ansible için gerekli paketleri yükleyin:
 
-```azurecli
-az vm create \
-    --name myVMAnsible \
-    --resource-group myResourceGroup \
-    --image Canonical:UbuntuServer:16.04-LTS:latest \
-    --admin-username azureuser \
-    --generate-ssh-keys
-```
-
-SSH kullanarak VM'ye `publicIpAddress` VM çıktısından not ettiğiniz oluşturma işlemi:
-
-```bash
-ssh azureuser@<publicIpAddress>
-```
-
-VM'NİZDE gibi Azure Python SDK'sı modüller ve Ansible için gerekli paketleri yükleyin:
 
 ```bash
 ## Install pre-requisite packages
@@ -109,28 +63,11 @@ sudo apt-get update && sudo apt-get install -y libssl-dev libffi-dev python-dev 
 sudo pip install ansible[azure]
 ```
 
-Artık geçin [oluşturma Azure kimlik bilgileri](#create-azure-credentials).
+[Azure kimlik bilgilerini oluşturma](#create-azure-credentials) bölümündeki yönergeleri izleyin.
 
 ### <a name="sles-12-sp2"></a>SLES 12 SP2
 
-Gerekirse, ile VM oluşturma [az vm oluşturma](/cli/azure/vm#az_vm_create). Aşağıdaki örnekte adlı bir VM oluşturur *myVMAnsible*:
-
-```azurecli
-az vm create \
-    --name myVMAnsible \
-    --resource-group myResourceGroup \
-    --image SUSE:SLES:12-SP2:latest \
-    --admin-username azureuser \
-    --generate-ssh-keys
-```
-
-SSH kullanarak VM'ye `publicIpAddress` VM çıktısından not ettiğiniz oluşturma işlemi:
-
-```bash
-ssh azureuser@<publicIpAddress>
-```
-
-VM'NİZDE gibi Azure Python SDK'sı modüller ve Ansible için gerekli paketleri yükleyin:
+Aşağıdaki komutları terminal veya Bash penceresine girerek Azure Python SDK'sı modülleri ve Ansible için gerekli paketleri yükleyin:
 
 ```bash
 ## Install pre-requisite packages
@@ -144,70 +81,59 @@ sudo pip install ansible[azure]
 sudo pip uninstall -y cryptography
 ```
 
-Artık geçin [oluşturma Azure kimlik bilgileri](#create-azure-credentials).
+[Azure kimlik bilgilerini oluşturma](#create-azure-credentials) bölümündeki yönergeleri izleyin.
 
-## <a name="create-azure-credentials"></a>Azure kimlik bilgileri oluşturma
+## <a name="create-azure-credentials"></a>Azure kimlik bilgilerini oluşturma
 
-Ansible, bir kullanıcı adı ve parola veya hizmet sorumlusu kullanarak Azure ile iletişim kurar. Bir Azure hizmet sorumlusu, uygulamaları, hizmetleri ve Ansible gibi Otomasyon araçları ile kullanabileceğiniz bir güvenlik kimliğidir. Denetim ve hizmet sorumlusu Azure'da gerçekleştirebilirsiniz ne gibi işlemler için izinler tanımlayın. Yalnızca bir kullanıcı adı ve parola sağlama üzerinden güvenliğini artırmak için bu örneği temel bir hizmet sorumlusu oluşturur.
+Ansible kimlik bilgilerini iki farklı şekilde yapılandırmak için abonelik kimliği ve hizmet sorumlusu oluşturma adımında döndürülen bilgiler kullanılır:
 
-Ana bilgisayarınızda veya Azure Cloud Shell'i kullanarak bir hizmet sorumlusu oluşturma [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). Ansible'ı gerekli kimlik bilgilerini çıkış ekranına şunlardır:
+- [Ansible kimlik bilgileri dosyası oluşturma](#file-credentials)
+- [Ansible ortam değişkenlerini kullanma](#env-credentials)
 
-```azurecli-interactive
-az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
-```
+Ansible Tower veya Jenkins gibi araçlar kullanacaksanız hizmet sorumlusu değerlerini ortam değişkeni olarak bildirme seçeneğini kullanmanız gerekir.
 
-Yukarıdaki komutlarda bir örnek çıktı aşağıdaki gibidir:
+### <a name="span-idfile-credentials-create-ansible-credentials-file"></a><span id="file-credentials"/> Ansible kimlik bilgileri dosyası oluşturma
 
-```json
-{
-  "client_id": "eec5624a-90f8-4386-8a87-02730b5410d5",
-  "secret": "531dcffa-3aff-4488-99bb-4816c395ea3f",
-  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-}
-```
+Bu bölümde kimlik bilgilerini Ansible'a iletmek için kullanılacak yerel kimlik bilgileri dosyasının nasıl oluşturulacağı açıklanmaktadır. Ansible kimlik bilgilerini tanımlama hakkında daha fazla bilgi için bkz. [Kimlik bilgilerini Azure modüllerine iletme](https://docs.ansible.com/ansible/guide_azure.html#providing-credentials-to-azure-modules).
 
-Azure'da kimlik doğrulamak için Azure abonelik kimliği kullanarak elde etmeniz [az hesabı show](/cli/azure/account#az-account-show):
-
-```azurecli-interactive
-az account show --query "{ subscription_id: id }"
-```
-
-Sonraki adımda bu iki komut çıktısı kullanırsınız.
-
-## <a name="create-ansible-credentials-file"></a>Ansible'ı kimlik bilgileri dosyası oluşturma
-
-Ansible'ı için kimlik bilgilerini sağlamak için ortam değişkenleri tanımlayın veya bir yerel kimlik bilgileri dosyası oluşturun. Ansible kimlik tanımlama hakkında daha fazla bilgi için bkz. [kimlik bilgilerini sağlayarak Azure modüllerine](https://docs.ansible.com/ansible/guide_azure.html#providing-credentials-to-azure-modules).
-
-Bir geliştirme ortamı için oluşturma bir *kimlik bilgilerini* konağınızdaki VM Ansible için dosya. Ansible'ı bir önceki adımda yüklediğiniz VM'de bir kimlik bilgileri dosyası oluşturun:
+Geliştirme ortamı kullanıyorsanız Ansible için ana sanal makinenizde aşağıdaki şekilde bir *kimlik bilgileri* dosyası oluşturun:
 
 ```bash
 mkdir ~/.azure
 vi ~/.azure/credentials
 ```
 
-*Kimlik bilgilerini* dosyasının kendisini abonelik kimliği bir hizmet sorumlusu oluşturma çıkış ile birleştirir. Çıktı önceki [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) komutu, aynı için gerektiği şekilde *client_id*, *gizli*, ve *Kiracı*. Aşağıdaki örnek *kimlik bilgilerini* dosyasını önceki çıkış eşleşen bu değerleri gösterir. Kendi değerlerinizi aşağıdaki gibi girin:
+Aşağıdaki satırlar *kimlik bilgileri* dosyasına ekleyin ve yer tutucuların yerine hizmet sorumlusu oluşturma sırasında verilen bilgileri yazın.
 
 ```bash
 [default]
-subscription_id=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-client_id=eec5624a-90f8-4386-8a87-02730b5410d5
-secret=531dcffa-3aff-4488-99bb-4816c395ea3f
-tenant=72f988bf-86f1-41af-91ab-2d7cd011db47
+subscription_id=<your-subscription_id>
+client_id=<security-principal-appid>
+secret=<security-principal-password>
+tenant=<security-principal-tenant>
 ```
 
 Dosyayı kaydedin ve kapatın.
 
-## <a name="use-ansible-environment-variables"></a>Ansible ortam değişkenlerini kullanma
+### <a name="span-idenv-credentialsuse-ansible-environment-variables"></a><span id="env-credentials"/>Ansible ortam değişkenlerini kullanma
 
-Ansible Tower veya Jenkins gibi araçlarla kullanacaksanız, ortam değişkenleri tanımlamak gerekir. Bu adım yalnızca Ansible istemcinin olacak ve önceki adımda Azure kimlik bilgileri dosyası oluşturduysanız atlanabilir. Ortam değişkenlerini Azure kimlik bilgileri dosyası olarak aynı bilgileri tanımlayın:
+Bu bölümde Ansible kimlik bilgilerinizi ortam değişkeni olarak dışarı aktarma ve yapılandırma adımları açıklanmaktadır.
+
+Bir terminal veya Bash penceresine aşağıdaki komutları girin:
 
 ```bash
-export AZURE_SUBSCRIPTION_ID=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-export AZURE_CLIENT_ID=eec5624a-90f8-4386-8a87-02730b5410d5
-export AZURE_SECRET=531dcffa-3aff-4488-99bb-4816c395ea3f
-export AZURE_TENANT=72f988bf-86f1-41af-91ab-2d7cd011db47
+export AZURE_SUBSCRIPTION_ID=<your-subscription_id>
+export AZURE_CLIENT_ID=<security-principal-appid>
+export AZURE_SECRET=<security-principal-password>
+export AZURE_TENANT=<security-principal-tenant>
 ```
+
+## <a name="verify-the-configuration"></a>Yapılandırmayı doğrulama
+Yapılandırmanın başarılı olduğunu doğrulamak için Ansible'ı kullanarak bir kaynak grubu oluşturabilirsiniz.
+
+[!INCLUDE [create-resource-group-with-ansible.md](../../../includes/ansible-create-resource-group.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ansible'ı ve gerekli Azure Python SDK'sı modülleri yüklü ve Ansible için tanımlanan kimlik bilgilerini kullanmak için artık sahipsiniz. Bilgi edinmek için nasıl [Ansible ile VM oluşturma](ansible-create-vm.md). Ayrıca edinebilirsiniz nasıl [tam bir Azure VM oluşturma ve destekleyen kaynaklar Ansible ile](ansible-create-complete-vm.md).
+> [!div class="nextstepaction"] 
+> [Ansible kullanarak Azure’da Linux sanal makine oluşturma](./ansible-create-vm.md)

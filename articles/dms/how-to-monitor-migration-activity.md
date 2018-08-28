@@ -10,18 +10,18 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/24/2018
-ms.openlocfilehash: e2ed45d9b87945247a3a4a4cfc58b4beb2353b10
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 08/27/2018
+ms.openlocfilehash: 78ad7a503cb2c99b9dac19a5500a01c8f7b7bfc3
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889733"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045407"
 ---
-# <a name="monitoring-migration-activity"></a>Geçiş etkinliğini izleme
+# <a name="monitor-migration-activity"></a>Geçiş etkinliğini izleme
 Bu makalede, bir veritabanı ve tablo düzeyindeki hem bir geçiş işleminin ilerleme durumunu izlemek nasıl öğrenin.
 
-## <a name="monitoring-activity-at-the-database-level"></a>Veritabanı düzeyinde izleme etkinliği
+## <a name="monitor-at-the-database-level"></a>Veritabanı düzeyinde izleme
 Veritabanı düzeyinde etkinliğini izlemek için veritabanı düzeyinde dikey penceresini görüntüleyin:
 
 ![Veritabanı düzeyinde dikey penceresi](media\how-to-monitor-migration-activity\dms-database-level-blade.png)
@@ -41,7 +41,7 @@ Aşağıdaki tablo, veritabanı düzeyinde dikey penceresindeki alanları listel
   </thead>
   <tbody>
     <tr>
-      <td rowspan="3" class="ActivityStatus">Etkinlik durumu</td>
+      <td rowspan="3" class="ActivityStatus"><strong>Etkinlik durumu</strong></td>
       <td>Çalışıyor</td>
       <td>Geçiş etkinliği çalışıyor.</td>
     </tr>
@@ -54,7 +54,7 @@ Aşağıdaki tablo, veritabanı düzeyinde dikey penceresindeki alanları listel
       <td>Geçiş başarısız oldu. Geçiş ayrıntıları için tam hata iletisinin altında 'hata ayrıntılarına bakın' bağlantıyı seçin.</td>
     </tr>
     <tr>
-      <td rowspan="4" class="Status">Durum</td>
+      <td rowspan="4" class="Status"><strong>Durum</strong></td>
       <td>Başlatılıyor</td>
       <td>DMS geçiş ardışık ayarlıyor.</td>
     </tr>
@@ -71,7 +71,7 @@ Aşağıdaki tablo, veritabanı düzeyinde dikey penceresindeki alanları listel
       <td>Geçiş başarısız oldu. Geçiş hataları görmek için geçiş ayrıntıları tıklayın.</td>
     </tr>
     <tr>
-      <td rowspan="5" class="migration-details">Geçiş ayrıntıları</td>
+      <td rowspan="5" class="migration-details"><strong>Geçiş ayrıntıları</strong></td>
       <td>Geçiş ardışık düzenini başlatmaktan</td>
       <td>DMS geçiş ardışık ayarlıyor.</td>
     </tr>
@@ -92,14 +92,14 @@ Aşağıdaki tablo, veritabanı düzeyinde dikey penceresindeki alanları listel
       <td>Hata ayrıntılarını görüntülemek için bağlantıya tıklayın.</td>
     </tr>
     <tr>
-      <td rowspan="1" class="duration">Süre</td>
+      <td rowspan="1" class="duration"><strong>Süresi</strong></td>
       <td>Yok</td>
       <td>Toplam süre geçiş başlatılmakta geçiş etkinlikten tamamlanması veya geçiş hatalı.</td>
     </tr>
      </tbody>
 </table>
 
-## <a name="monitoring-migration-activity-at-table-level--quick-summary"></a>Tablo düzeyinde – kısa özet geçiş etkinliğini izleme
+## <a name="monitor-at-table-level--quick-summary"></a>Tablo düzeyinde – kısa özet izleme
 Tablo düzeyinde etkinliğini izlemek için tablo düzeyi dikey penceresini görüntüleyin. Dikey pencerenin üst bölümünde yük tam ve artımlı güncelleştirmeleri ayrıntılı satır sayısı geçirilen gösterir. 
 
 Dikey pencerenin alt kısmındaki tabloları listeler ve hızlı geçiş ilerleme durumu özetini gösterir.
@@ -110,17 +110,17 @@ Aşağıdaki tabloda, tablo düzeyi ayrıntıları gösterilen alanlar açıklan
 
 | Alan adı        | Açıklama       |
 | ------------- | ------------- |
-| Tam yük tamamlandı      | Tablo sayısı tam veri yüklemesi tamamlandı. |
-| Tam yük sıraya alındı      | Tam Yük sıraya alınmasını izleyen tablo sayısı.      |
-| Tam yük yükleniyor | Tablo sayısı başarısız oldu.      |
-| Artımlı güncelleştirmeler      | Değişiklik verilerini sayısı (CDC) güncelleştirmeleri hedefe uygulanması satırlarda yakalayın. |
-| Artımlı eklemeler      | CDC sayısı hedefe uygulanması satır ekler.      |
-| Artımlı silmeler | CDC sayısı hedefe uygulanması satırlarını siler.      |
-| Bekleyen değişiklikler      | CDC uygulandığından hala bekleyen satır sayısını hedef. |
-| Uygulanan değişiklikler      | CDC toplamı, ekler, güncelleştirir ve hedefe uygulanması satırlarda siler.      |
-| Hata durumundaki tablolar | Geçiş sırasında 'error' durumda olan tablo sayısı. Hedef tanımlanan yinelemeler olduğunda tabloları hata durumuna gidebilirsiniz bazı örnekler ya da verileri hedef tabloda yüklenirken uyumlu değil.      |
+| **Tam Yük tamamlandı**      | Tablo sayısı tam veri yüklemesi tamamlandı. |
+| **Tam Yük sıraya alındı**      | Tam Yük sıraya alınmasını izleyen tablo sayısı.      |
+| **Tam Yük yükleme** | Tablo sayısı başarısız oldu.      |
+| **Artımlı güncelleştirmeler**      | Değişiklik verilerini sayısı (CDC) güncelleştirmeleri hedefe uygulanması satırlarda yakalayın. |
+| **Artımlı ekler**      | CDC sayısı hedefe uygulanması satır ekler.      |
+| **Artımlı siler** | CDC sayısı hedefe uygulanması satırlarını siler.      |
+| **Bekleyen değişiklikler**      | CDC uygulandığından hala bekleyen satır sayısını hedef. |
+| **Uygulanan değişiklikler**      | CDC toplamı, ekler, güncelleştirir ve hedefe uygulanması satırlarda siler.      |
+| **Hata durumundaki tabloları** | Geçiş sırasında 'error' durumda olan tablo sayısı. Hedef tanımlanan yinelemeler olduğunda tabloları hata durumuna gidebilirsiniz bazı örnekler ya da verileri hedef tabloda yüklenirken uyumlu değil.      |
 
-## <a name="monitoring-migration-activity-at-table-level--detailed-summary"></a>– Tablo düzeyinde ayrıntılı Özet geçiş etkinliğini izleme
+## <a name="monitor-at-table-level--detailed-summary"></a>Tablo düzeyinde – ayrıntılı Özet izleme
 Tam Yük ve artımlı veri eşitleme geçiş ilerleme durumunu gösteren iki sekme bulunur.
     
 ![Tam Yük sekmesi](media\how-to-monitor-migration-activity\dms-full-load-tab.png)
@@ -131,12 +131,12 @@ Aşağıdaki tabloda, tablo düzeyi geçiş sürüyor gösterilen alanlar açık
 
 | Alan adı        | Açıklama       |
 | ------------- | ------------- |
-| Durumu - eşitleniyor      | Sürekli eşitleme çalışıyor. |
-| Ekle      | CDC sayısı hedefe uygulanması satır ekler.      |
-| Güncelleştirme | CDC güncelleştirmeleri hedefe uygulanması satırların sayısı.      |
-| Sil      | CDC sayısı hedefe uygulanması satırlarını siler. |
-| Toplam uygulanan      | CDC toplamı, ekler, güncelleştirir ve hedefe uygulanması satırlarda siler. |
-| Veri hataları | Bu tabloda veri hatası oluştu. Bazı örnekler hataların *511: 8114 %d, izin verilen en büyük satır boyutundan büyük olan %d boyutunda bir satır oluşturulamaz: %ls için veri türü %ls dönüştürülürken hata oluştu.*  Hata ayrıntılarını görmek için Azure hedef attms_apply_exceptions tablosundan müşteri sorgu.    |
+| **Durumu - eşitleniyor**      | Sürekli eşitleme çalışıyor. |
+| **Ekle**      | CDC sayısı hedefe uygulanması satır ekler.      |
+| **Güncelleştirme** | CDC güncelleştirmeleri hedefe uygulanması satırların sayısı.      |
+| **Silme**      | CDC sayısı hedefe uygulanması satırlarını siler. |
+| **Toplam uygulanan**      | CDC toplamı, ekler, güncelleştirir ve hedefe uygulanması satırlarda siler. |
+| **Veri hataları** | Bu tabloda veri hatası oluştu. Bazı örnekler hataların *511: 8114 %d, izin verilen en büyük satır boyutundan büyük olan %d boyutunda bir satır oluşturulamaz: %ls için veri türü %ls dönüştürülürken hata oluştu.*  Hata ayrıntılarını görmek için Azure hedef attms_apply_exceptions tablosundan müşteri sorgu.    |
 
 > [!NOTE]
 > INSERT, Update ve Delete ve toplam uygulanan CDC değerlerini veritabanı tam geçişi veya geçiş yeniden düşebilir.

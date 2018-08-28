@@ -4,17 +4,17 @@ description: Analiz sonuçlarını kaydetmek üzere Azure depolama ve Azure Data
 services: hdinsight,storage
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: bccaf00537dd1455e1364ceb2b5ca152b12f218c
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
-ms.translationtype: HT
+ms.openlocfilehash: 027204065429a9eebd2e8121cbac8bc18b9d9ce6
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598240"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091444"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight kümeleri ile Azure Depolama'yı kullanma
 
@@ -60,7 +60,7 @@ HDInsight kümeleriyle Azure Depolama hesabını kullanırken dikkat etmeniz ger
 * **Bir kümeye bağlı OLMAYAN depolama hesaplarındaki genel kapsayıcılar veya genel blob’lar:** Kapsayıcılardaki blob’lara salt okunur iznine sahipsiniz.
   
   > [!NOTE]
-  > Genel kapsayıcılar, bu kapsayıcıda bulunan tüm blob’ların bir listesini ve kapsayıcı meta verilerini almanıza olanak tanır. Genel blob'lar, yalnızca tam URL'yi biliyorsanız blob erişiminize izin verir. Daha fazla bilgi için bkz. <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">Kapsayıcılara ve blob'lara erişimi kısıtlama</a>.
+  > Genel kapsayıcılar, bu kapsayıcıda bulunan tüm blob’ların bir listesini ve kapsayıcı meta verilerini almanıza olanak tanır. Genel blob'lar, yalnızca tam URL'yi biliyorsanız blob erişiminize izin verir. Daha fazla bilgi için <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-manage-access-to-resources">kapsayıcılara ve blob'lara erişimi yönetme</a>.
   > 
   > 
 * **Bir kümeye bağlı OLMAYAN depolama hesaplarındaki özel kapsayıcılar:** WebHCat işleri gönderdiğinizde, depolama hesabını tanımlamadığınız sürece kapsayıcılardaki blob’lara erişemezsiniz. Bu, bu makalenin sonraki bölümlerinde açıklanmıştır.

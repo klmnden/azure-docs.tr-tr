@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/11/2018
+ms.date: 08/27/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 3586804a8384273e5c0589bef9c586cee162939e
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 179d5c71a309fd79c23519544d1da6bcc07cda0c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42057732"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045009"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Veri hacmi ve saklama Log analytics'te kontrol ederek maliyet yönetme
 
@@ -29,7 +29,7 @@ ms.locfileid: "42057732"
 > - [Log analytics'te veri kullanımını çözümleme](log-analytics-manage-cost-storage.md) analiz ve veri kullanımınızı uyarı açıklar.
 > - [Kullanım ve Tahmini maliyetler izleme](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) çoklu Azure İzleme özelliklerini farklı fiyatlandırma modelleri için tahmini maliyetleri ve kullanım görüntülemeyi açıklar. Ayrıca, uygulamanızın fiyatlandırma modelinin değiştirilmesi nasıl açıklar.
 
-Log Analytics ölçek ve Destek toplama, dizin oluşturma ve kuruluşunuzda oldukça büyük miktardaki verileri günde herhangi bir kaynaktan depolamak üzere tasarlanmış veya Azure'da dağıtılır.  Bu, kuruluşunuz için birincil bir sürücü olabilir, ancak hesaplıdır sonuçta temel alınan sürücüsüdür. Önemli bir günlük Analytisc çalışma ücreti yalnızca, toplanan veri hacmine dayalı değilse anlamak bu amaçla için Ayrıca seçilen plan üzerinde bağımlı olduğu ve ne kadar süreyle, bağlı kaynaklardan oluşturulan verileri depolamak seçtiğiniz.  
+Log Analytics ölçek ve Destek toplama, dizin oluşturma ve kuruluşunuzda oldukça büyük miktardaki verileri günde herhangi bir kaynaktan depolamak üzere tasarlanmış veya Azure'da dağıtılır.  Bu, kuruluşunuz için birincil bir sürücü olabilir, ancak hesaplıdır sonuçta temel alınan sürücüsüdür. Önemli bir Log Analytics çalışma alanı maliyetini yalnızca, toplanan veri hacmine dayalı değilse anlamak bu amaçla için Ayrıca seçilen plan üzerinde bağımlı olduğu ve ne kadar süreyle, bağlı kaynaklardan oluşturulan verileri depolamak seçtiğiniz.  
 
 Bu makalede nasıl proaktif bir şekilde veri hacmi ve depolama büyüme izleyebilir ve bu ilişkili maliyetleri denetleyebilirsiniz sınırlarını tanımlamak inceleyin. 
 

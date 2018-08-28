@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08-07-2018
-ms.openlocfilehash: 19a153a5cdc9d5f878494984313baebd12dbcbb5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 764470bbf47c18a2ec66dc91d433f8dd14b99a8f
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631172"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43040355"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme
 
@@ -30,6 +30,9 @@ Kullanım verileri ölçüm alt kategorisi ve ürün alanlarını premium Depola
 
 Ayrılmış VM örnekleri, bazı özel durumlar ile çoğu VM boyutları için kullanılabilir:
 
+- Klasik VM'ler ve bulut Hizmetleri, ayırma indirimini alma yok.
+- Gizlenen çekirdek VM ayırma indirimler elde etmezsiniz.
+- Aşağıdaki VM serisi ayırma indirimleri seçimlerde: A serisi, Av2 serisi veya G serisi.
 - Vm'leri önizlemede: herhangi bir VM serisi veya Önizleme aşamasında olan boyutu rezervasyon satın alma için kullanılabilir değildir.
 - Bulut: Rezervasyon satın alma Azure ABD kamu, Almanya ve Çin bölgelerinde kullanılamaz.
 - Yetersiz kota: tek bir abonelik için kapsamlı bir ayırma vCPU kotası Abonelikteki yeni RI için kullanılabilir olmalıdır. Örneğin, hedef abonelik, kota sınırı 10 vcpu için D serisi varsa, 11 işler için standart_d1 örnekleri için bir ayırma satın alamazsınız. Ayırmalar için kota denetimi, abonelikte dağıtılmış Vm'leri içerir. Örneğin, abonelik için D serisi 10 Vcpu kotası varsa ve dağıtılan iki işler için standart_d1 örneği ise, bu Abonelikteki 10 işler için standart_d1 örnekleri için bir ayırma satın alabilirsiniz. 

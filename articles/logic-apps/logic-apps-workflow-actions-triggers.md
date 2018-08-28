@@ -5,17 +5,16 @@ services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: reference
-ms.date: 06/22/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 427964a6651dd4ab71d0029f89e40afdd34d162a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.topic: reference
+ms.date: 06/22/2018
+ms.openlocfilehash: 8adfd0b3d6d87834441ab87af194de141b77af34
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390713"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093627"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic apps'te iş akışı tanımlama dili tetikleyicisi ve eylem türleri başvurusu
 
@@ -158,6 +157,7 @@ Bu tetikleyiciyi denetler veya *yoklamalar* kullanarak bir uç nokta [Microsoft 
 |---------|------|-------------| 
 | headers | JSON nesnesi | Yanıt üst bilgiler | 
 | body | JSON nesnesi | Yanıt gövdesinden | 
+| Durum kodu | Tamsayı | Yanıt durum kodu | 
 |||| 
 
 *Örnek*
@@ -330,6 +330,7 @@ Bu tetikleyiciyi veya belirtilen yinelenme zamanlamasına göre belirtilen uç n
 |---------|------|-------------| 
 | headers | JSON nesnesi | Yanıt üst bilgiler | 
 | body | JSON nesnesi | Yanıt gövdesinden | 
+| Durum kodu | Tamsayı | Yanıt durum kodu | 
 |||| 
 
 *Gelen istekler için gereksinimler*
@@ -337,7 +338,7 @@ Bu tetikleyiciyi veya belirtilen yinelenme zamanlamasına göre belirtilen uç n
 Uç nokta da mantıksal uygulamanız ile çalışmak için belirli bir tetikleyici düzeni ya da sözleşme uygun ve bu özellikleri tanıması gerekir:  
   
 | Yanıt | Gerekli | Açıklama | 
-|----------|----------|-------------|  
+|----------|----------|-------------| 
 | Durum kodu | Evet | "200 Tamam" durum kodu çalıştırma başlatır. Diğer bir durum kodu çalıştırma başlamaz. | 
 | Retry-after üst bilgisi | Hayır | Mantıksal uygulama yeniden uç noktasını yoklayan kadar saniye sayısı | 
 | Konum üst bilgisi | Hayır | Sonraki yoklama zaman aralığını aramak için URL. Belirtilmezse, özgün URL'yi kullanılır. | 
@@ -424,6 +425,7 @@ Gibi bazı değerler <*yöntem türü*>, her ikisi için de kullanılabilir `"su
 |---------|------|-------------| 
 | headers | JSON nesnesi | Yanıt üst bilgiler | 
 | body | JSON nesnesi | Yanıt gövdesinden | 
+| Durum kodu | Tamsayı | Yanıt durum kodu | 
 |||| 
 
 *Örnek*
@@ -2552,6 +2554,159 @@ Tek bir mantıksal uygulama çalıştırmak için her 5 dakikada yürütülen ey
    "runAfter": {}
 }
 ```
+
+<a name="connector-authentication"></a>
+
+## <a name="authenticate-triggers-or-actions"></a>Tetikleyiciler veya Eylemler kimlik doğrulaması
+
+HTTP uç noktaları, farklı kimlik doğrulaması türlerini destekler. Kimlik doğrulama bu HTTP Tetikleyicileri ve eylemleri için ayarlayabilirsiniz:
+
+* [HTTP](../connectors/connectors-native-http.md)
+* [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)
+* [HTTP Web kancası](../connectors/connectors-native-webhook.md)
+
+Ayarlayabileceğiniz kimlik doğrulama türleri şunlardır:
+
+* [Temel kimlik doğrulaması](#basic-authentication)
+* [İstemci sertifikası kimlik doğrulaması](#client-certificate-authentication)
+* [Azure Active Directory (Azure AD) OAuth kimlik doğrulaması](#azure-active-directory-oauth-authentication)
+
+<a name="basic-authentication"></a>
+
+### <a name="basic-authentication"></a>Temel kimlik doğrulama
+
+Bu kimlik doğrulama türü için tetikleyici veya eylemi tanımınızı içerebilir bir `authentication` bu özelliklere sahip bir JSON nesnesi:
+
+| Özellik | Gerekli | Değer | Açıklama | 
+|----------|----------|-------|-------------| 
+| **type** | Evet | "Temel" | Burada "Temel" olan kullanmak için kimlik doğrulaması türü | 
+| **Kullanıcı adı** | Evet | "@parameters('userNameParam')" | Hedef hizmet uç noktası erişmek için kimlik doğrulaması için kullanıcı adı geçen bir parametre |
+| **Parola** | Evet | "@parameters('passwordParam')" | Hedef hizmet uç noktası erişmek için kimlik doğrulaması için parola geçen bir parametre |
+||||| 
+
+Örneğin, biçimi şöyledir `authentication` tetikleyici veya eylemi, tanımında nesne. Parametreleri güvenliğini sağlama hakkında daha fazla bilgi için bkz. [güvenli hassas bilgileri](#secure-info). 
+
+```javascript
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "Basic",
+         "username": "@parameters('userNameParam')",
+         "password": "@parameters('passwordParam')"
+      }
+  },
+  "runAfter": {}
+}
+```
+
+<a name="client-certificate-authentication"></a>
+
+### <a name="client-certificate-authentication"></a>İstemci sertifikası kimlik doğrulaması
+
+Bu kimlik doğrulama türü için tetikleyici veya eylemi tanımınızı içerebilir bir `authentication` bu özelliklere sahip bir JSON nesnesi:
+
+| Özellik | Gerekli | Değer | Açıklama | 
+|----------|----------|-------|-------------| 
+| **type** | Evet | "ClientCertificate" | Güvenli Yuva Katmanı (SSL) istemci sertifikaları için kullanılacak kimlik doğrulaması türü | 
+| **PFX** | Evet | <*Base64 kodlamalı pfx dosyası*> | Bir kişisel bilgi değişimi (PFX) dosyasından base64 ile kodlanmış içeriği |
+| **Parola** | Evet | "@parameters('passwordParam')" | Bir PFX dosyasına erişim için parola parametresi |
+||||| 
+
+Örneğin, biçimi şöyledir `authentication` tetikleyici veya eylemi, tanımında nesne. Parametreleri güvenliğini sağlama hakkında daha fazla bilgi için bkz. [güvenli hassas bilgileri](#secure-info). 
+
+```javascript
+"authentication": {
+   "password": "@parameters('passwordParam')",
+   "pfx": "aGVsbG8g...d29ybGQ=",
+   "type": "ClientCertificate"
+}
+```
+
+<a name="azure-active-directory-oauth-authentication"></a>
+
+### <a name="azure-active-directory-ad-oauth-authentication"></a>Azure Active Directory (AD) OAuth kimlik doğrulaması
+
+Bu kimlik doğrulama türü için tetikleyici veya eylemi tanımınızı içerebilir bir `authentication` bu özelliklere sahip bir JSON nesnesi:
+
+| Özellik | Gerekli | Değer | Açıklama | 
+|----------|----------|-------|-------------| 
+| **type** | Evet | `ActiveDirectoryOAuth` | Azure AD OAuth "ActiveDirectoryOAuth" olan kullanmak için kimlik doğrulaması türü | 
+| **Yetkilisi** | Hayır | <*URL-için-yetkilisi-token-yayımcısı*> | Kimlik Doğrulama belirtecini sağlar yetkilisi URL'si |  
+| **Kiracı** | Evet | <*Kiracı kimliği*> | Azure AD kiracısı için Kiracı kimliği | 
+| **Hedef kitle** | Evet | <*yetki kaynağı*> | Örneğin, kullanmak için yetkilendirme istediğiniz kaynağa, `https://management.core.windows.net/` | 
+| **ClientID** | Evet | <*istemci kimliği*> | Yetkilendirmesi uygulama istemci kimliği | 
+| **credentialType** | Evet | "Gizli dizisini" veya "Sertifika" | İstemci kimlik bilgisi türü yetkilendirmesi için kullanır. Bu özellik ve değer temel Tanımınızda görünmez, ancak kimlik bilgisi türü için gerekli parametreler belirler. | 
+| **Parola** | Evet, yalnızca "Sertifika" kimlik bilgisi türü | "@parameters('passwordParam')" | Bir PFX dosyasına erişim için parola parametresi | 
+| **PFX** | Evet, yalnızca "Sertifika" kimlik bilgisi türü | <*Base64 kodlamalı pfx dosyası*> | Bir kişisel bilgi değişimi (PFX) dosyasından base64 ile kodlanmış içeriği |
+| **Gizli anahtarı** | Evet, yalnızca "Gizli dizisini" kimlik bilgisi türü için | <*Gizli dizi için kimlik doğrulaması*> | İstekte bulunan yetkilendirme için istemcinin kullandığı base64 ile kodlanmış bir gizli anahtarı |
+||||| 
+
+Örneğin, biçimi şöyledir `authentication` nesne "Gizli dizisini" kimlik bilgisi türü, tetikleyici veya eylemi tanımınızı kullandığında: parametreleri güvenliğini sağlama hakkında daha fazla bilgi için bkz. [güvenli hassas bilgileri](#secure-info). 
+
+```javascript
+"authentication": {
+   "audience": "https://management.core.windows.net/",
+   "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
+   "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
+   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+   "type": "ActiveDirectoryOAuth"
+}
+```
+
+<a name="secure-info"></a>
+
+## <a name="secure-sensitive-information"></a>Hassas bilgilerin güvenliğini sağlama
+
+Tetikleyici ve eylem tanımlarında kullanıcı adları ve parolalar gibi kimlik doğrulaması için kullanmak, hassas bilgileri korumak için parametreleri kullanabilirsiniz ve `@parameters()` ifade böylelikle mantığınızda kaydettikten sonra bu bilgileri görünür olmayan uygulama. 
+
+Örneğin, tetikleyici veya eylemi, tanımında "Temel" kimlik doğrulaması kullanıyorsanız varsayalım. İşte bir örnek `authentication` nesnesini, bir kullanıcı adı ve parolası belirtir:
+
+```javascript
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "Basic",
+         "username": "@parameters('userNameParam')",
+         "password": "@parameters('passwordParam')"
+      }
+  },
+  "runAfter": {}
+}
+```
+
+İçinde `parameters` bölümünde mantıksal uygulama tanımınızı, tetikleyici veya eylemi Tanımınızda kullanılan parametreleri tanımlar:
+
+```javascript
+"definition": {
+   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+   "actions": {
+      "HTTP": {
+      }
+   },
+   "parameters": {
+      "passwordParam": {
+         "type": "securestring"
+      },
+      "userNameParam": {
+         "type": "securestring"
+      }
+   },
+   "triggers": {
+      "HTTP": {
+      }
+   },
+   "contentVersion": "1.0.0.0",
+   "outputs": {}
+},
+```
+
+Oluşturma ya da bir Azure Resource Manager dağıtım şablonu kullanarak, aynı zamanda bir dış eklemek zorunda `parameters` şablon tanımınız için bölüm. Parametreleri güvenliğini sağlama hakkında daha fazla bilgi için bkz. [güvenli erişim için logic apps](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

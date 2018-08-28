@@ -1,96 +1,90 @@
 ---
-title: Power BI çalışma alanı koleksiyonu nedir?
-description: Power BI Embedded, özel çözümler derleme gerek kalmaması Power BI raporları web veya mobil uygulamaları tümleştirmenize olanak sağlar.
+title: Power BI Çalışma Alanı Koleksiyonları nedir?
+description: Power BI Embedded, Power BI raporlarına özel çözümler oluşturmanız gerekmez, web veya mobil uygulamalarınızla tümleştirmenize olanak sağlar.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 03649b72-b7d7-40ca-b077-12356d72d4f3
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 0bd6ba74d176ed1db1e8f1f1b38646182da2c379
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 73b13dcea84ba322072217c3feacebdefb3bf1e6
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412586"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43052048"
 ---
-# <a name="what-are-power-bi-workspace-collections"></a>Power BI çalışma alanı koleksiyonu nedir?
+# <a name="what-are-power-bi-workspace-collections"></a>Power BI Çalışma Alanı Koleksiyonları nedir?
 
-İle **Power BI çalışma koleksiyonları**, Power BI raporları sağ web veya mobil uygulamaları tümleştirebilirsiniz.
+İle **Power BI çalışma alanı koleksiyonları**, Power BI raporlarını doğrudan, web veya mobil uygulamalarınızla tümleştirebilirsiniz.
 
 ![Uygulama diyagramı](media/what-are-power-bi-workspace-collections/what-is.png)
 
 > [!IMPORTANT]
 > Power BI Çalışma Alanı Koleksiyonları kullanım dışı bırakılmıştır ve Haziran 2018'e kadar veya anlaşmanızda belirtilen süre boyunca kullanılabilecektir. Uygulamanızda kesinti yaşanmaması için Power BI Embedded'a geçirmeyi planlamanız önerilir. Verilerinizi Power BI Embedded'a nasıl taşıyacağınızı öğrenmek için bkz. [Power BI Çalışma Alanı Koleksiyonları'nı Power BI Embedded'a geçirme](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-Power BI çalışma koleksiyonlarıdır bir **Azure hizmeti** ISV'ler ve uygulama geliştiriciler uygulamalarını içinde yüzey Power BI veri deneyimlerinde sağlar. Bir geliştirici olarak uygulamaları oluşturuncaya ve bu uygulamaları kendi kullanıcılar ve ayrı bir dizi özellik sahiptir. Bu uygulamalar ayrıca grafikleri ve şimdi göre Microsoft Power BI çalışma alanı koleksiyonu kapatılabilir raporları gibi bazı yerleşik veri öğeleri için ortaya çıkabilir. Uygulamanızın kullanmak üzere bir Power BI hesabı gerekmez. Önceden, olduğu gibi uygulamanıza oturum açma ve görüntülemek ve herhangi bir ek lisans gerek kalmadan deneyimi raporlama Power BI ile etkileşim devam edebilirsiniz.
+Power BI çalışma alanı koleksiyonları olan bir **Azure hizmeti** ISV ve uygulama geliştiricilerine uygulamalarıyla yüzey Power BI veri deneyimleri sağlar. Bir geliştirici olarak uygulamalar derlediyseniz ve söz konusu uygulamaların kendi kullanıcıları ve ayrı bir özellik kümesini sahip. Bu uygulamaları, grafikler ve artık Microsoft Power BI çalışma alanı koleksiyonları tarafından desteklenen raporlar gibi bazı yerleşik veri öğeleri için de oluşabilir. Uygulamanızı kullanmak için bir Power BI hesabı gerekmez. Uygulamanızı olduğu gibi önce oturum açın ve raporlama deneyimi ek bir lisans gerek kalmadan Power BI ile etkileşime girmeye yönelik devam edebilirsiniz.
 
-## <a name="licensing-for-microsoft-power-bi-workspace-collections"></a>Microsoft Power BI çalışma koleksiyonlar için lisanslama
+## <a name="licensing-for-microsoft-power-bi-workspace-collections"></a>Microsoft Power BI çalışma alanı koleksiyonları için lisanslama
 
-İçinde **Microsoft Power BI çalışma koleksiyonları** için Power BI sorumluluğu son kullanıcı lisans kullanım modeli.  Bunun yerine, **oturumları** görsel tüketen uygulama geliştiricisi tarafından satın ve bu kaynakları sahibi aboneliği için ücretlendirilirsiniz. 
+İçinde **Microsoft Power BI çalışma alanı koleksiyonları** için Power BI sorumluluğu son kullanıcı lisans, kullanım modeli.  Bunun yerine, **oturumları** görsellerin tüketiyor uygulama geliştiricisi tarafından satın alınır ve bu kaynaklara sahip abonelik için ücretlendirilir. 
 
-## <a name="microsoft-power-bi-workspace-collections-conceptual-model"></a>Microsoft Power BI çalışma koleksiyonları kavramsal model
+## <a name="microsoft-power-bi-workspace-collections-conceptual-model"></a>Microsoft Power BI çalışma alanı koleksiyonları'kavramsal model
 
-![Çalışma alanı koleksiyonlarıyla uygulama akışı](media/what-are-power-bi-workspace-collections/model.png)
+![Çalışma alanı koleksiyonları ile uygulama akışı](media/what-are-power-bi-workspace-collections/model.png)
 
-Herhangi diğer hizmetinde gibi Azure kaynakları için Power BI çalışma koleksiyonlar üzerinden sağlanan [Azure Resource Manager API'leri](https://msdn.microsoft.com/library/mt712306.aspx). Bu durumda, sağlama olan kaynaktır bir **Power BI çalışma alanı koleksiyonu**.
+Herhangi bir hizmeti gibi Azure, Power BI çalışma alanı koleksiyonları için kaynaklar üzerinden sağlanan [Azure Resource Manager API'leri](https://msdn.microsoft.com/library/mt712306.aspx). Bu durumda, sağlama kaynağı olan bir **Power BI çalışma alanı koleksiyonu**.
 
 ## <a name="workspace-collection"></a>Çalışma alanı koleksiyonu
 
-A **çalışma alanı koleksiyonu** 0 veya daha çok içeren üst düzey Azure kaynakları için kapsayıcıdır **çalışma alanları**.  A **çalışma** **koleksiyonu** tüm standart Azure özelliklerinin yanı sıra aşağıdakileri içerir:
+A **çalışma alanı koleksiyonu** 0 veya daha fazlasını içeren üst düzey Azure kaynakları için kapsayıcıdır **çalışma alanları**.  A **çalışma** **koleksiyon** tüm standart Azure özelliklerinin yanı sıra şunları içerir:
 
-* **Erişim tuşları** – güvenli bir şekilde Power BI (sonraki bölümde açıklanmıştır) API'ları çağrılırken kullanılan anahtarları.
-* **Kullanıcıların** – Azure Active Directory (AAD) kullanıcılar Power BI çalışma alanı koleksiyonu Azure portalı üzerinden veya Azure Kaynak Yöneticisi API'si yönetmek için yönetici haklarına sahip.
-* **Bölge** – sağlama bir parçası olarak bir **çalışma alanı koleksiyonu**, içinde sağlanacak bir bölge seçin. Daha fazla bilgi için bkz: [Azure bölgeleri](https://azure.microsoft.com/regions/).
+* **Erişim anahtarları** – anahtarları güvenli bir şekilde Power BI (bir sonraki bölümde açıklanmıştır) API'lerini çağırma kullanılır.
+* **Kullanıcılar** – Power BI çalışma alanı koleksiyonu Azure portalından veya Azure Resource Manager API'si yönetmek için yönetici haklarına sahip kullanıcılar Azure Active Directory (AAD).
+* **Bölge** – sağlama işleminin parçası olarak bir **çalışma alanı koleksiyonu**, içinde sağlanacak bir bölge seçebilirsiniz. Daha fazla bilgi için [Azure bölgeleri](https://azure.microsoft.com/regions/).
 
 ## <a name="workspace"></a>Çalışma alanı
 
-A **çalışma** , bir Power BI veri kümelerini ve raporları aşağıdakileri içeren içerik, kapsayıcısıdır. A **çalışma** ilk oluşturduğunuz sırada boştur. Power BI Desktop kullanarak içerik yazmak ve, çalışma alanı kullanarak PBIX'i program aracılığıyla dağıtacaksınız [Power BI içeri aktarma API'si](https://msdn.microsoft.com/library/mt711504.aspx). Program aracılığıyla da kümenizi oluşturun ve sonra Power BI Desktop kullanmak yerine, uygulamanızda raporlar oluşturun.
+A **çalışma** bir Power BI'ın aşağıdakileri içeren veri kümeleri ve raporlar içeriği kapsayıcıdır. A **çalışma** ilk oluşturduğunuzda boştur. Power BI Desktop kullanarak içerik yazma ve program aracılığıyla kullanarak çalışma alanınıza PBIX dağıtacaksınız [Power BI API'yi içeri aktar](https://msdn.microsoft.com/library/mt711504.aspx). Programlama yoluyla da Veri kümenizi oluşturabilir ve ardından Power BI Desktop'ı kullanmak yerine, uygulamanızın içinde raporlar oluşturun.
 
-## <a name="using-workspace-collections-and-workspaces"></a>Çalışma alanı koleksiyonu ve çalışma alanlarını kullanma
+## <a name="using-workspace-collections-and-workspaces"></a>Çalışma alanı koleksiyonları ve çalışma alanlarını kullanma
 
-**Çalışma alanı koleksiyonları** ve **çalışma alanları** kullanılan ve oluşturduğunuz uygulama tasarımını hangi şekilde en iyi sığacak düzenlenmiş içeriğinin kapsayıcılardır. Bunların içeriklerini düzenleme birçok farklı yolu olacaktır. Bir çalışma alanı tüm içeriği yerleştirin ve sonra daha sonra uygulama belirteçleri daha fazla içerik müşterilerinizin arasında ayırabilir seçebilirsiniz. Bunlar arasında bazı ayrımı olmasını sağlamak tüm müşterilerinizin ayrı çalışma alanlarında koymak seçebilirsiniz. Veya kullanıcılar bölge yerine müşteri göre düzenlemek seçebilirsiniz. Bu esnek tasarım içeriği düzenlemek için en iyi yolu seçmenize olanak sağlar.
+**Çalışma alanı koleksiyonları** ve **çalışma alanları** kullanılan ve oluşturuyor olduğunuz uygulama tasarımını hangi en iyi şekilde sığacak düzenlenmiş içeriğinin kapsayıcılardır. İçindeki içerik düzenleme birçok farklı yolu vardır. Bir çalışma alanı içinde paylaşılacak tüm içerikleri ve ardından daha sonra uygulama belirteçlerini daha fazla içerik müşterileriniz arasında alt bölümlere ayırmak için tercih edebilirsiniz. Böylece bunlar arasında bazı ayrımı tüm müşterilerinizin ayrı çalışma alanlarında koymak seçebilirsiniz. Veya kullanıcılar bölgelere göre yerine müşteriye göre düzenlemek tercih edebilirsiniz. Bu esnek tasarım içeriği düzenlemek için en iyi yolu seçmenize olanak sağlar.
 
 ## <a name="cached-datasets"></a>Önbelleğe alınmış veri kümeleri
 
-Önbelleğe alınan veri kümelerini kullanılabilir.  Ancak, içine yüklendikten sonra önbelleğe alınan veriler yenilenemiyor **Microsoft Power BI çalışma koleksiyonları**. Önbelleğe alınan bir veri kümesi, veri DirectQuery kullanmak yerine Power BI Desktop'a içe anlamına gelir.
+Önbelleğe alınmış veri kümeleri kullanılabilir.  Ancak, içine yüklendi sonra önbelleğe alınan verilerin yenilenemiyor **Microsoft Power BI çalışma alanı koleksiyonları**. Önbellekteki veri kümesini veri DirectQuery kullanmak yerine Power BI Desktop'a aktarılmaz anlamına gelir.
 
-## <a name="authentication-and-authorization-with-app-tokens"></a>Kimlik doğrulama ve yetkilendirme uygulama belirteçleri ile
+## <a name="authentication-and-authorization-with-app-tokens"></a>Kimlik doğrulaması ve yetkilendirme ile uygulama belirteçleri
 
-**Microsoft Power BI çalışma koleksiyonları** tüm gerekli kullanıcı kimlik doğrulaması ve yetkilendirme gerçekleştirmek için uygulamanıza erteler. Son kullanıcılarınızın Azure Active Directory (Azure AD) müşterileri olmasını açık gereksinimi yoktur.  Bunun yerine, uygulamanız için ifade eder **Microsoft Power BI çalışma koleksiyonları** kullanarak bir Power BI raporu oluşturmak için yetkilendirme **uygulama kimlik doğrulama belirteçleri (uygulama belirteçleri)**.  Bunlar **uygulama belirteçleri** bir rapor oluşturmak, uygulamanız istediğinde gerektiği şekilde oluşturulur.
+**Microsoft Power BI çalışma alanı koleksiyonları** gerçekleştirmek için gerekli kullanıcı kimlik doğrulaması ve yetkilendirme uygulamanıza erteler. Son kullanıcılarınızın Azure Active Directory (Azure AD) müşterileri olmasını açık gereksinimi yoktur.  Bunun yerine, uygulamanız için uygulamayı yoğunlaştıracaklardır **Microsoft Power BI çalışma alanı koleksiyonları** kullanarak Power BI raporu oluşturmak için yetkilendirme **uygulama kimlik doğrulama belirteçleri (uygulama belirteçlerini)**.  Bunlar **uygulama belirteçlerini** uygulamanıza bir rapor oluşturmak istediğinde gerektiğinde oluşturulur.
 
-![Uygulama belirteci kullanım diyagramı](media/what-are-power-bi-workspace-collections/app-tokens.png)
+![Uygulama belirteç kullanımı diyagramı](media/what-are-power-bi-workspace-collections/app-tokens.png)
 
-**Uygulama kimlik doğrulama belirteçleri (uygulama belirteçleri)** karşı kimlik doğrulaması için kullanılan **Microsoft Power BI çalışma koleksiyonları**.  Üç tür vardır **uygulama belirteçleri**:
+**Uygulama kimlik doğrulama belirteçleri (uygulama belirteçlerini)** karşı kimlik doğrulaması için kullanılan **Microsoft Power BI çalışma alanı koleksiyonları**.  Üç tür vardır **uygulama belirteçlerini**:
 
-1. Yeni bir sağlama sırasında kullanılan belirteçleri - sağlama **çalışma** içine bir **çalışma alanı koleksiyonu**
-2. Geliştirme belirteçleri - çağrıları doğrudan yapılırken kullanılan **Power BI REST API'leri**
-3. Katıştırılmış IFRAME içinde bir rapor oluşturmak için çağrıları yapılırken kullanılan belirteçleri - katıştırma
+1. Yeni bir sağlanırken kullanılan belirteçleri - sağlama **çalışma** içine bir **çalışma alanı koleksiyonu**
+2. Geliştirme belirteçleri - doğrudan çağrıları yapılırken kullanılan **Power BI REST API'leri**
+3. Ekleme belirteçleri - embedded iframe içindeki bir raporu işlemek için çağrıları yapılırken kullanılan
 
-Bu belirteçler etkileşimlerinizi çeşitli aşamaları için kullanılan **Microsoft Power BI çalışma koleksiyonları**.  Belirteçler için Power BI uygulamanızdan izinleri verebilirsiniz şekilde tasarlanmıştır. Daha fazla bilgi için bkz: [uygulama belirteci akışı](app-token-flow.md).
+Bu belirteçler etkileşimlerinizi çeşitli aşamaları için kullanılan **Microsoft Power BI çalışma alanı koleksiyonları**.  Belirteçler, Power BI için uygulamanızdan izinleri verebilirsiniz şekilde tasarlanmıştır. Daha fazla bilgi için [uygulama belirteci akışı](app-token-flow.md).
 
-## <a name="create-or-edit-reports-within-your-application"></a>Oluşturma veya düzenleme uygulamanızdaki raporları
+## <a name="create-or-edit-reports-within-your-application"></a>Uygulamanızda rapor oluşturabilmeniz veya düzenleyebilmeniz
 
-Şimdi, varolan raporları düzenleyin veya Power BI Desktop kullanmaya gerek kalmadan doğrudan uygulamanızda yeni raporlar oluşturun. Bu, bir veri kümesi içinde çalışma alanınızı bulunmasını gerektirir.
+Artık, mevcut raporları düzenlemek veya Power BI Desktop kullanmaya gerek kalmadan doğrudan uygulamanızda yeni raporlar oluşturabilirsiniz. Bu, bir veri kümesi, bir çalışma alanı içinde bulunmasını gerektirir.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-[Microsoft Power BI çalışma koleksiyonları senaryoları](scenarios.md)  
-[Microsoft Power BI çalışma koleksiyonları ile çalışmaya başlama](get-started.md)  
+[Microsoft Power BI çalışma alanı koleksiyonları senaryoları](scenarios.md)  
+[Microsoft Power BI çalışma alanı koleksiyonları ile çalışmaya başlama](get-started.md)  
 [Bir örnek ile kullanmaya başlama](get-started-sample.md)  
 [Rapor ekleme](embed-report.md)  
 [Power BI Çalışma Alanı Koleksiyonları ile kimlik doğrulaması ve yetkilendirme](app-token-flow.md)  
 [JavaScript Örnek Ekleme](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
-[Powerbı CSharp Git deposu](https://github.com/Microsoft/PowerBI-CSharp)  
-[Powerbı düğümlü Git deposu](https://github.com/Microsoft/PowerBI-Node)  
+[Power BI-CSharp Git deposu](https://github.com/Microsoft/PowerBI-CSharp)  
+[Power BI düğümlü Git deposu](https://github.com/Microsoft/PowerBI-Node)  
 
 Başka sorunuz mu var? [Power BI Topluluğu'nu deneyin](http://community.powerbi.com/)

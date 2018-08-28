@@ -1,35 +1,34 @@
 ---
-title: Azure Java SDK'sını kullanarak Azure Data Lake Analytics yönetme
-description: Bu makalede, Data Lake Analytics işleri, veri kaynakları ve kullanıcıları yönettiğiniz uygulamalar yazmak için Azure Java SDK'sını kullanmayı açıklar.
+title: Azure Java SDK'sını kullanarak Azure Data Lake Analytics'i yönetme
+description: Bu makale, Data Lake Analytics işleri, veri kaynakları ve kullanıcıları yönettiğiniz uygulamaları yazmak için Azure Java SDK'sını kullanmayı açıklar.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 4cf8390f55beeb65c1bd99594e885ed9db551d9e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 938b3776f320b7556394fff9aa070eee0c44ee88
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624242"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047095"
 ---
-# <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Bir Java uygulaması kullanarak Azure Data Lake Analytics yönetme
+# <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Bir Java uygulaması kullanarak Azure Data Lake Analytics'i yönetme
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Bu makalede Azure Data Lake Analytics hesaplarını, veri kaynakları, kullanıcılar ve işleri Azure Java SDK'sı kullanılarak yazılmış bir uygulama kullanarak nasıl yönetileceği açıklanmaktadır. 
+Bu makalede Azure Data Lake Analytics hesaplarını, veri kaynakları, kullanıcılar ve işleri Azure Java SDK'sı kullanılarak yazılmış bir uygulamayı kullanarak yönetme konusunda açıklanır. 
 
 ## <a name="prerequisites"></a>Önkoşullar
-* **Java Geliştirme Seti (JDK) 8** (Java Sürüm 1,8 kullanarak).
-* **Intellij** veya başka bir uygun Java geliştirme ortamı. Bu belgedeki yönergeleri Intellij kullanılmıştır.
-* Bir Azure Active Directory (AAD) uygulaması oluşturun ve **İstemci Kimliği**, **Kiracı Kimliği** ve **Anahtar** bilgilerini alın. AAD uygulamaları hakkında daha fazla bilgi ve istemci kimliği almaya ilişkin yönergeler için bkz. [Portal kullanarak Active Directory uygulaması ve hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md). Yanıt URI ve anahtarınızı kullanılabilir Portalı'ndan uygulama oluşturulur ve oluşturulan anahtarı sahip olduğunda.
+* **Java Development Kit (JDK) 8** (Java Sürüm 1.8 kullanarak).
+* **Intellij** veya başka bir uygun Java geliştirme ortamı. Bu belgedeki yönergelerde Intellij kullanılmıştır.
+* Bir Azure Active Directory (AAD) uygulaması oluşturun ve **İstemci Kimliği**, **Kiracı Kimliği** ve **Anahtar** bilgilerini alın. AAD uygulamaları hakkında daha fazla bilgi ve istemci kimliği almaya ilişkin yönergeler için bkz. [Portal kullanarak Active Directory uygulaması ve hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md). Yanıt URI'si ve anahtar kullanılabilir portaldan, oluşturulan uygulama ve anahtar oluşturulduktan sonra.
 
 ## <a name="authenticating-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak kimlik doğrulaması
 
-Aşağıdaki kod parçacığında sağlar kod için kod **etkileşimli olmayan** kimlik doğrulaması, burada uygulama kendi kimlik bilgilerini sağlar.
+Aşağıdaki kod parçacığı için kod sağlar kodu **etkileşimli olmayan** kimlik doğrulaması, burada uygulama kendi kimlik bilgilerini sağlar.
 
 ## <a name="create-a-java-application"></a>Java uygulaması oluşturma
 1. Intellij hizmetini açın ve kullanarak bir Java projesi oluşturma **komut satırı uygulaması** şablonu.
@@ -87,9 +86,9 @@ Aşağıdaki kod parçacığında sağlar kod için kod **etkileşimli olmayan**
 </dependencies>
 ```
 
-Git **Dosya > Ayarlar > Yapı > yürütme > Dağıtım**. Seçin **derleme araçlarını > Maven > içeri aktarma**. Ardından denetleyin **Import Maven projeleri otomatik olarak**.
+Git **Dosya > Ayarlar > derleme > yürütme > Dağıtım**. Seçin **derleme araçlarını > Maven > içeri aktarma**. Denetleyin ardından **Import Maven projelerinde otomatik olarak**.
 
-Açık `Main.java` ve var olan kod bloğunu aşağıdaki kod parçacığıyla değiştirin:
+Açık `Main.java` ve var olan kod bloğunu aşağıdaki kod parçacığı ile değiştirin:
 
 ```
 package com.company;
@@ -199,7 +198,7 @@ string script = "@input =  EXTRACT Data string FROM \"/input1.csv\" USING Extrac
 }
 ```
 
-Kod parçacığında çağrılan parametrelerin değerlerini belirtin:
+Kod parçacığında çağrılan parametrelerin değerlerini sağlayın:
 * `localFolderPath`
 * `_adlaAccountName`
 * `_adlsAccountName`
@@ -213,7 +212,7 @@ Yer tutucularını değiştirin:
 
 ## <a name="helper-functions"></a>Yardımcı işlevleri
 
-### <a name="setup-clients"></a>Kurulum istemcileri
+### <a name="setup-clients"></a>Kurulum istemciler
 
 ```
 public static void SetupClients(ServiceClientCredentials creds)
@@ -365,7 +364,7 @@ public static JobResult WaitForJob(UUID jobId) throws IOException, CloudExceptio
 }
 ```
 
-### <a name="retrieve-job-status"></a>İş durumunu alma
+### <a name="retrieve-job-status"></a>İş durumunu Al
 
 ```
 public static String GetJobStatus(UUID jobId) throws IOException, CloudException 

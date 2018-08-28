@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 1d82ccdf85b34416dc630b9fcad969d87cc53ff1
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 84072c7e5f7aa37e89fc1b93c1585167dd6d9f4b
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520675"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41920797"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Azure IoT Hub Cihazı Sağlama Hizmeti İstemcisi’ni kullanarak bir IoT hub’a cihaz kaydetme (.NET)
 
@@ -62,7 +62,7 @@ Cihaz Sağlama Hizmeti’ne cihazı kaydetmenin iki yolu vardır:
     
 1. Çözüm Gezgini'nde **DeviceProvisioning** projesine sağ tıklayın ve ardından **NuGet Paketlerini Yönet...** seçeneğine tıklayın.
 
-1. **NuGet Paket Yöneticisi** penceresinde **Göz At**’ı seçin ve **microsoft.azure.devices.provisioning.service** araması yapın. Girişi seçin ve **Yükle**’ye tıklayarak **Microsoft.Azure.Devices.Provisioning.Service** paketini yükleyin ve kullanım koşullarını kabul edin. Bu yordam ile [Azure IoT cihaz sağlama hizmeti SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet paketi ve bağımlılıkları indirilir, yüklenir ve bu pakete bir başvuru eklenir.
+1. **NuGet Paket Yöneticisi** penceresinde **Göz At**’ı seçin ve **microsoft.azure.devices.provisioning.service** araması yapın. Girişi seçin ve **Yükle**’ye tıklayarak **Microsoft.Azure.Devices.Provisioning.Service** paketini yükleyin ve kullanım koşullarını kabul edin. Bu yordam ile [Azure IoT Cihaz Sağlama Hizmeti SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet paketi ve bağımlılıkları indirilir, yüklenir ve bu pakete bir başvuru eklenir.
 
 1. Aşağıdaki `using` deyimlerini **Program.cs** dosyasının üst kısmına ekleyin:
    
@@ -70,10 +70,10 @@ Cihaz Sağlama Hizmeti’ne cihazı kaydetmenin iki yolu vardır:
     using Microsoft.Azure.Devices.Provisioning.Service;
     ```
 
-1. **Program** sınıfına aşağıdaki alanları ekleyin. Önceki bölümde not edilen yer tutucu değerini DPS bağlantı dizesiyle değiştirin.
+1. **Program** sınıfına aşağıdaki alanları ekleyin. Önceki bölümde not edilen yer tutucu değerini Cihaz Sağlama Hizmeti bağlantı dizesiyle değiştirin.
    
     ```csharp
-    static readonly string ServiceConnectionString = "{DPS connection string}";
+    static readonly string ServiceConnectionString = "{Device Provisioning Service connection string}";
 
     private const string SampleRegistrationId = "sample-individual-csharp";
     private const string SampleTpmEndorsementKey =
@@ -222,10 +222,10 @@ Cihaz başarıyla kaydedildiğinde cihazın portalda şu şekilde görüntülend
 
 Bu noktada, aşağıdaki kurulum cihaz kaydı için hazırdır:
 
-1. Cihazınız veya cihaz grubunuz, Cihaz Sağlama Hizmetinize kaydolur ve 
+1. Cihazınız veya cihaz grubunuz, Cihaz Sağlama hizmetinize kaydolur ve 
 2. Cihazınız, güvenliği yapılandırılmış olarak hazır olur ve Cihaz Sağlama Hizmeti istemci SDK’sı kullanılarak uygulamadan cihaza erişilebilir.
 
-İstemci uygulamanızın, Cihaz Sağlama Hizmetinize kaydı başlatmasını sağlamak için cihazı başlatın.  
+İstemci uygulamanızın, Cihaz Sağlama hizmetinize kaydı başlatmasını sağlamak için cihazı başlatın.  
 
 
 ## <a name="verify-the-device-is-registered"></a>Cihaz kayıtlı olduğunu doğrulayın

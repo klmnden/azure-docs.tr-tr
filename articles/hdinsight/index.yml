@@ -1,24 +1,21 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3d9fad10a11d3df29f81524eec0e4a03eb72c02f
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: c2530ef0570459f0be955e4eaaa1943b10c6b107
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264241"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43039809"
 documentType: LandingData
 title: Azure HDInsight Belgeleri
 metadata:
   title: Azure HDInsight Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
   description: HDInsight'ta Hadoop’u öğrenin. Belgelerde Hadoop, Spark, Kafka, HBase ve daha fazlasını kullanarak büyük verileri işleme, çözümleme ve verilerden öngörü edinme konularında bilgi sağlanmıştır.
   services: hdinsight
-  author: nitinme
-  manager: cgronlun
+  author: jasonwhowell
+  ms.author: jasonh
   ms.service: hdinsight
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 05/07/2018
-  ms.author: nitinme
 abstract:
   description: Azure HDInsight’ı kullanarak akışı veya geçmiş verileri nasıl çözümleyebileceğinizi öğrenin. Küme oluşturma, büyük verileri işleme ve çözümleme ile Hadoop, Spark, Hive, LLAP, Kafka, Storm ve Microsoft Machine Learning Server gibi birçok diğer popüler açık kaynak altyapılarını kullanarak çözüm geliştirme konularında bilgi edinmek için öğreticilere ve diğer belgelere başvurabilirsiniz.<p>Azure HDInsight kuruluşlara yönelik tam yönetilen, tam spektrumlu ve açık kaynaklı bir analiz hizmetidir. HDInsight, devasa miktarlardaki verileri işlemeyi kolay, hızlı ve uygun maliyetli hale getiren bir bulut hizmetidir. HDInsight ayıklama, dönüştürme ve yükleme (ETL), veri ambarı, makine öğrenmesi ve Nesnelerin İnterneti (IoT) gibi diğer senaryoları da destekler.</p>
   aside:

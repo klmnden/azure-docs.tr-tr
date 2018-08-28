@@ -1,3 +1,20 @@
+---
+title: include dosyası
+description: include dosyası
+services: data-factory
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 08/20/2018
+ms.author: jingwang
+ms.custom: include file
+ms.openlocfilehash: ac6b53926ca6c44c8ec1e71db67321366aacb00e
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617613"
+---
 ## <a name="prerequisites"></a>Ön koşullar
 
 ### <a name="azure-subscription"></a>Azure aboneliği
@@ -6,8 +23,10 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ### <a name="azure-roles"></a>Azure rolleri
 Data Factory örnekleri oluşturmak için, Azure’da oturum açarken kullandığınız kullanıcı hesabı, *katkıda bulunan*, *sahip* veya *yönetici* rollerinin üyesi ya da bir Azure aboneliğinin yöneticisi olmalıdır. Abonelikte sahip olduğunuz izinleri görüntülemek için Azure portalına gidin, sağ üst köşeden kullanıcı adınızı ve sonra **İzinler**’i seçin. Birden çok aboneliğe erişiminiz varsa uygun aboneliği seçin. Bir role kullanıcı eklemeye ilişkin örnek yönergeler için [Rol ekleme](../articles/billing/billing-add-change-azure-subscription-administrator.md) makalesine bakın.
 
+Azure portaldaki Yazar ve İzleyici arabirimi aracılığıyla Data Factory'niz için alt kaynakları (veri kümeleri, bağlantılı hizmetler, işlem hatları, tetikleyiciler ve tümleştirme çalışma zamanları gibi) oluşturmak ve yönetmek için **Data Factory Katılımcısı** rolüne ait olmanız gerekir. Alt kaynakları PowerShell veya SDK ile oluşturmak ve yönetmek için **katkıda bulunan** rolü yeterlidir.
+
 ### <a name="azure-storage-account"></a>Azure depolama hesabı
-Bu hızlı başlangıçta, genel amaçlı Azure depolama hesabını (özel olarak Blob depolama) hem *kaynak* hem de *hedef* veri deposu olarak kullanırsınız. Genel amaçlı bir Azure depolama hesabınız yoksa oluşturma bilgileri için bkz. [Depolama hesabı oluşturma](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account). 
+Bu hızlı başlangıçta, genel amaçlı Azure depolama hesabını (özel olarak Blob depolama) hem *kaynak* hem de *hedef* veri deposu olarak kullanırsınız. Genel amaçlı bir Azure depolama hesabınız yoksa oluşturma bilgileri için bkz. [Depolama hesabı oluşturma](../articles/storage/common/storage-quickstart-create-account.md). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Depolama hesabı adını ve hesap anahtarını alma
 Bu hızlı başlangıçta, Azure depolama hesabınızın adını ve anahtarını kullanırsınız. Aşağıdaki yordamda, depolama hesabınızın adını ve anahtarını alma adımlarını verilmiştir: 

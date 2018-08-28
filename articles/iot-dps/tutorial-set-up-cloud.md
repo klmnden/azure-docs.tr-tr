@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ccc699a500cbaf20c9b90d71e7c730e617bc572c
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: c2c80790fa3e7c20408346fbebf60c39879a94df
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145545"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919459"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>IoT Hub Cihazı Sağlama Hizmeti ile cihaz sağlama için bulut kaynaklarını yapılandırma
 
@@ -48,7 +48,7 @@ Yeni bir Cihaz Sağlama Hizmeti örneği oluşturmak için şu adımları izleyi
    | **Kaynak grubu** | myResourceGroup | Geçerli kaynak grubu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    | **Konum** | Geçerli bir konum | Bölgeler hakkında bilgi için bkz. [Azure Bölgeleri](https://azure.microsoft.com/regions/). |   
 
-   ![Portala DPS’niz ile ilgili temel bilgileri girin](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
+   ![Portalda Cihaz Sağlama hizmeti ile ilgili temel bilgileri girin](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
 5. **Oluştur**’a tıklayın. Birkaç dakika sonra Cihaz Sağlama Hizmeti örneği oluşturulur ve **Genel bakış** sayfası görüntülenir.
 6. Yeni hizmet örneğinin **Genel bakış** sayfasındaki **Kimlik kapsamı** değerini daha sonra kullanmak üzere kopyalayın. Bu değer, kayıt kimliklerini belirlemek için kullanılır ve kayıt kimliğinin benzersiz olduğuna dair bir garanti sağlar.
@@ -71,7 +71,7 @@ Sonraki adım, IoT Hub Cihazı Sağlama Hizmeti’nin cihazları söz konusu hub
     * **IoT hub:** Bu Cihaz Sağlama Hizmeti örneğine bağlamak istediğiniz IoT hub'ın adını seçin.
     * **Erişim İlkesi:** IoT hub'ı ile bağlantı oluşturmak için kullanılacak kimlik bilgileri olarak **iothubowner** öğesini seçin.
 
-   ![Hub adını portaldaki DPS’ye bağlama](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
+   ![Portalda Cihaz Sağlama Hizmeti'ne bağlanmak için hub adını bağlayın](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Cihaz Sağlama Hizmeti’nde ayırma ilkesini ayarlama
 

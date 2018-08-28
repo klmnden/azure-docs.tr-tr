@@ -1,64 +1,58 @@
 ---
 title: Bir örnek ile kullanmaya başlama
-description: Bu makalede, biz, Power BI çalışma koleksiyonları get başlatılan örnek eklemeniz.
+description: Bu makalede, sizi, Power BI çalışma alanı koleksiyonları get başlatılan örneğe tanıtacağız.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: d8a9ef78-ad4e-4bc7-9711-89172dc5c548
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: 4daa675092bed1788025e7e3f7e7e11d02ef1671
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cd7da8d2bbd684df29432bb924bdae3cd9ac7e64
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31414890"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43044446"
 ---
-# <a name="get-started-with-power-bi-workspace-collections-sample"></a>Power BI çalışma koleksiyonları örneği kullanmaya başlama
+# <a name="get-started-with-power-bi-workspace-collections-sample"></a>Power BI çalışma alanı koleksiyonları örnek ile kullanmaya başlama
 
-İle **Microsoft Power BI çalışma koleksiyonları**, Power BI raporları sağ web veya mobil uygulamaları tümleştirebilirsiniz. Bu makalede, biz size tanıtmak **Power BI çalışma koleksiyonları** get başlatılan örnek.
+İle **Microsoft Power BI çalışma alanı koleksiyonları**, Power BI raporlarını doğrudan, web veya mobil uygulamalarınızla tümleştirebilirsiniz. Bu makalede, biz size tanıtan **Power BI çalışma alanı koleksiyonları** get kullanmaya başlama örnek.
 
 > [!IMPORTANT]
 > Power BI Çalışma Alanı Koleksiyonları kullanım dışı bırakılmıştır ve Haziran 2018'e kadar veya anlaşmanızda belirtilen süre boyunca kullanılabilecektir. Uygulamanızda kesinti yaşanmaması için Power BI Embedded'a geçirmeyi planlamanız önerilir. Verilerinizi Power BI Embedded'a nasıl taşıyacağınızı öğrenmek için bkz. [Power BI Çalışma Alanı Koleksiyonları'nı Power BI Embedded'a geçirme](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-Biz daha ilerlemeden önce aşağıdaki kaynaklara kaydetmek istediğiniz: Power BI raporları örnek uygulaması ve kendi uygulamalarınızı halinde çok tümleştirdiğinizde yardımcı olurlar.
+Aşağıdaki kaynaklar kaydetmek istediğiniz tüm daha fazla ayrıntıya önce: örnek uygulama ve kendi uygulamalarınızı halinde Power BI raporlarını çok tümleştirmesi yardımcı olurlar.
 
 * [Örnek çalışma web uygulaması](http://go.microsoft.com/fwlink/?LinkId=761493)
-* [Power BI çalışma koleksiyonları API Başvurusu](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [Power BI .NET SDK'sı ](http://go.microsoft.com/fwlink/?LinkId=746472) (NuGet aracılığıyla kullanılabilir)
-* [JavaScript rapor örnek ekleme](https://microsoft.github.io/PowerBI-JavaScript/demo)
+* [Power BI çalışma alanı koleksiyonları API Başvurusu](https://msdn.microsoft.com/library/azure/mt711507.aspx)
+* [Power BI .NET SDK'sını ](http://go.microsoft.com/fwlink/?LinkId=746472) (NuGet aracılığıyla kullanılabilir)
+* [JavaScript rapor ekleme örneği](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
-> En az bir oluşturmanıza gerek yapılandırabilirsiniz ve Power BI çalışma koleksiyonları alma çalışma başlatıldı örnek önce **çalışma alanı koleksiyonu** Azure aboneliğinizde. Nasıl oluşturulacağını öğrenmek için bir **çalışma alanı koleksiyonu** Azure portalında görmelerini [Power BI çalışma koleksiyonları ile çalışmaya başlama](get-started.md).
+> Yapılandırabilirsiniz ve Power BI çalışma alanı koleksiyonları Al çalıştırma başlatıldı örnek önce en az bir tane oluşturmak ihtiyacınız **çalışma alanı koleksiyonu** Azure aboneliğinizdeki. Nasıl oluşturulacağını öğrenmek için bir **çalışma alanı koleksiyonu** Azure portalında [Power BI çalışma alanı koleksiyonları ile çalışmaya başlama](get-started.md).
 
 ## <a name="configure-the-sample-app"></a>Örnek uygulamayı yapılandırma
 
-Şimdi örnek uygulamayı çalıştırmak için gerekli bileşenleri erişmek için Visual Studio geliştirme ortamını ayarlama aracılığıyla yol.
+Şimdi Visual Studio geliştirme ortamınızı ayarlama örnek uygulama çalıştırmak için gerekli bileşenleri erişmek için nasıl ayarlanacağı gösterilmektedir.
 
-1. İndirip sıkıştırmasını [Power BI çalışma koleksiyonlar - bir web uygulamasına bir rapor tümleştirmek](http://go.microsoft.com/fwlink/?LinkId=761493) github'da örnek.
-2. Açık **Powerbı embedded.sln** Visual Studio. Yürütme gerekebilir **güncelleştirme paketini** bu çözümde kullanılan paketler güncelleştirmek için NuGet Paket Yöneticisi konsolunda komutu.
+1. İndirip sıkıştırmasını [Power BI çalışma alanı koleksiyonları - bir raporu web uygulamasıyla tümleştirmek](http://go.microsoft.com/fwlink/?LinkId=761493) GitHub üzerinde örnek.
+2. Açık **Powerbı embedded.sln** Visual Studio'da. Yürütme gerekebilir **Update-Package** bu çözümde kullanılan paketler güncelleştirmek için NuGet Paket Yöneticisi konsolunda komutu.
 3. Çözümü derleyin.
-4. Çalıştırma **ProvisionSample** konsol uygulaması. Örnek konsol uygulamasındaki bir çalışma alanı sağlamak ve PBIX dosyasını içeri aktarın.
-5. Yeni bir sağlamak için **çalışma**, 1 seçeneğini belirleyin **koleksiyonu Yönetimi**ve ardından seçeneğini 6, **yeni bir çalışma alanı sağlanamadı**
-6. Yeni bir almak için **rapor**, 2, seçeneğini belirleyin **rapor Yönetim**ve seçenek 3, ardından **PBIX Masaüstü içeri aktarma dosyası bir çalışma alanına**.
+4. Çalıştırma **ProvisionSample** konsol uygulaması. Örnek konsol uygulamasında, bir çalışma alanı sağlama ve PBIX dosyasını içeri aktarın.
+5. Yeni bir sağlama **çalışma**, 1 seçeneğini belirleyin **koleksiyonu Yönetimi**ve seçeneği 6'da, ardından **yeni bir çalışma alanı sağlanamadı**
+6. Yeni bir içeri aktarmak için **rapor**, seçin, 2. seçenek **rapor Yönetim**seçip 3 seçeneği **PBIX Desktop içeri aktarma dosyası bir çalışma alanına**.
 
-7. Girin, **çalışma alanı koleksiyonu** adı ve **erişim tuşu**. Bunlar alabileceğiniz **Azure portal**. Nasıl alınacağı hakkında daha fazla bilgi için **erişim tuşu**, bkz: [görünümü Power BI API'si erişim anahtarlarını](get-started.md#view-power-bi-api-access-keys) içinde Microsoft Power BI Embedded ile çalışmaya başlama.
+7. Girin, **çalışma alanı koleksiyonu** adı ve **erişim anahtarı**. Bunlar alabileceğiniz **Azure portalında**. Nasıl alınacağı hakkında daha fazla bilgi için **erişim anahtarı**, bkz: [Power BI API'si erişim anahtarlarını görüntüle](get-started.md#view-power-bi-api-access-keys) , Microsoft Power BI Embedded ile çalışmaya başlama.
 
-    ![Azure portalındaki erişim tuşları](media/get-started-sample/azure-portal.png)
-8. Kopyala ve yeni oluşturulan kaydedin **çalışma alanı kimliği** bu makalenin sonraki bölümlerinde kullanılacak. Sonra **çalışma alanı kimliği** olan oluşturulan, onu bulabilirsiniz **Azure portal**.
+    ![Azure portalı içindeki erişim anahtarları](media/get-started-sample/azure-portal.png)
+8. Kopyalayıp yeni oluşturulan kaydedin **çalışma alanı kimliği** bu makalenin sonraki bölümlerinde kullanılacak. Sonra **çalışma alanı kimliği** olan oluşturuldu, bunu bulabilirsiniz **Azure portalında**.
 
     ![Azure portalındaki çalışma alanı kimliği](media/get-started-sample/workspace-id.png)
-9. Bir PBIX aktarmak için **çalışma**, seçeneğini belirleyin **6. İçeri aktarma PBIX Masaüstü dosyası var olan bir çalışma alanına**. Kullanışlı dosya PBIX yoksa, indirebilirsiniz [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
-10. İstenirse, için kolay bir ad girin, **Dataset**.
+9. Bir PBIX dosyasına aktarmak için **çalışma**, seçenek belirleyin **6. Mevcut bir çalışma Import PBIX Desktop dosyasına**. Bir PBIX kullanışlı dosya yoksa, indirebileceğiniz [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
+10. İstenirse, için kolay bir ad girin, **veri kümesi**.
 
 Benzer bir yanıt görmeniz gerekir:
 
@@ -68,16 +62,16 @@ Checking import state... Succeeded
 ```
 
 > [!NOTE]
-> PBIX dosyanızın tüm doğrudan sorgu bağlantıları içeriyorsa, bağlantı dizelerini güncelleştirmek için 7 seçeneği çalıştırın.
+> PBIX dosyanızı doğrudan sorgu herhangi bir bağlantı içeriyorsa, bağlantı dizelerini güncelleştirmek üzere seçeneği 7'yi çalıştırın.
 
-Bu noktada, içeri aktarılan bir Power BI PBIX rapor vardır, **çalışma**. Şimdi çalıştırmak ne bakalım **Power BI çalışma koleksiyonları** başlatılan örnek web uygulamasını edinin.
+Bu noktada, içeri aktarılan bir Power BI PBIX rapor sahip, **çalışma**. Şimdi ne çalıştırılacak bakalım **Power BI çalışma alanı koleksiyonları** kullanmaya başlama örnek web uygulamasını edinin.
 
 ## <a name="run-the-sample-web-app"></a>Örnek web uygulamasını çalıştırma
 
-Web uygulaması örneği içeri aktarılan raporlar işleyen örnek bir uygulama olduğundan, **çalışma**. Web uygulaması örneği yapılandırma bırakılır.
+Web uygulaması örneği içeri aktarılan raporlar işleyen bir örnek uygulamadır, **çalışma**. Web uygulaması örneği yapılandırma aşağıda verilmiştir.
 
-1. İçinde **Powerbı katıştırılmış** Visual Studio çözümü sağ **EmbedSample** web uygulaması ve seçin **başlangıç projesi olarak ayarla**.
-2. İçinde **web.config**, **EmbedSample** web uygulaması, düzenleme **appSettings**: **AccessKey**, **WorkspaceCollection** adı ve **Workspaceıd**.
+1. İçinde **Power BI embedded** Visual Studio çözümünü sağ **EmbedSample** seçin ve web uygulaması **başlangıç projesi olarak ayarla**.
+2. İçinde **web.config**, **EmbedSample** web uygulaması, Düzen **appSettings**: **AccessKey**,  **WorkspaceCollection** adı ve **Workspaceıd**.
 
     ```
     <appSettings>
@@ -89,22 +83,22 @@ Web uygulaması örneği içeri aktarılan raporlar işleyen örnek bir uygulama
     ```
 3. Çalıştırma **EmbedSample** web uygulaması.
 
-Çalıştırdığınız sonra **EmbedSample** web uygulaması, sol gezinti bölmesinin içermelidir bir **raporları** menüsü. İçeri aktardığınız raporunu görüntülemek için Genişlet **raporları**ve bir rapora tıklayın. İçeri aktardığınız varsa [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), örnek web uygulaması şuna benzer:
+Bir kez çalıştırdığınız **EmbedSample** web uygulaması, sol gezinti bölmesinin içermelidir bir **raporları** menüsü. İçeri aktardığınız rapor görüntülemek için genişletin **raporları**ve bir raporu tıklatın. İçeri aktardığınız varsa [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), örnek web uygulamasını şu şekilde görünür:
 
 ![Örnek uygulama içinde örnek sol gezinti](media/get-started-sample/sample-left-nav.png)
 
-Bir raporu tıklattıktan sonra **EmbedSample** web uygulaması görünmelidir bir şey:
+Bir rapor tıkladıktan sonra **EmbedSample** web uygulaması görünmelidir bir şey:
 
-![Örnek rapor uygulama içinde görüntüleme](media/get-started-sample/sample-web-app.png)
+![Uygulama içinde görüntüleyen örnek rapor](media/get-started-sample/sample-web-app.png)
 
-## <a name="explore-the-sample-code"></a>Örnek kod keşfetme
+## <a name="explore-the-sample-code"></a>Örnek kodu inceleyin
 
-**Microsoft Power BI çalışma koleksiyonları** örnektir nasıl tümleştirileceği gösteren örnek bir web uygulaması **Power BI** uygulamanıza raporlar. Bir Model-View-Controller (MVC) tasarım deseni en iyi yöntemleri göstermek için kullanır. Bu bölüm içinde keşfedebilirsiniz örnek kod parçalarını vurgular **Powerbı katıştırılmış** web uygulaması çözümü. Etki alanı, sunu ve üç ayrı sınıfları kullanıcı girişine bağlı eylemleri modelleme Model-View-Controller (MVC) deseni ayırır: Model, Görünüm ve denetim. MVC hakkında daha fazla bilgi için bkz: [ASP.NET hakkında bilgi edinin](http://www.asp.net/mvc).
+**Microsoft Power BI çalışma alanı koleksiyonları** örnektir nasıl tümleştireceğinizi gösteren bir örnek web uygulaması **Power BI** uygulamanıza raporlar. En iyi yöntemleri göstermek için bir Model-View-Controller (MVC) tasarım deseni kullanır. Bu bölüm içinde keşfedebilirsiniz örnek kod bölümlerini vurgular **Power BI embedded** web uygulaması çözümü. Etki alanı, sunu ve kullanıcı girişi üç ayrı sınıf uygulamasına göre eylemleri modelleme Model-View-Controller (MVC) deseni ayırır: Model, Görünüm ve denetimi. MVC hakkında daha fazla bilgi için bkz: [ASP.NET hakkında bilgi edinin](http://www.asp.net/mvc).
 
-**Microsoft Power BI çalışma koleksiyonları** örnek kod gibi ayrılmış. Örnek kod kolayca bulabilmeniz için her bölüm Powerbı embedded.sln çözümde dosya adını içerir.
+**Microsoft Power BI çalışma alanı koleksiyonları** örnek kod gibi ayrılmış. Örnek kod kolayca bulabilmesi için her bölüm embedded.sln Powerbı çözüm dosya adını içerir.
 
 > [!NOTE]
-> Bu bölümde, kodu nasıl yazılmıştır gösteren örnek kod bir özetidir. Tam örnek görüntülemek için lütfen Visual Studio Powerbı embedded.sln çözümde yükleyin.
+> Bu bölümde, kodu nasıl yazılmıştır gösteren örnek kodu bir özetidir. Tam bir örnek görüntülemek için lütfen Power BI embedded.sln çözümünü Visual Studio'da yükleyin.
 
 ### <a name="model"></a>Model
 
@@ -117,7 +111,7 @@ Bir raporu tıklattıktan sonra **EmbedSample** web uygulaması görünmelidir b
         public List<Report> Reports { get; set; }
     }
 
-**ReportViewModel.cs**: Power BI raporu temsil eder.
+**ReportViewModel.cs**: Power BI raporuna temsil eder.
 
     public classReportViewModel
     {
@@ -134,18 +128,18 @@ Bağlantı dizesi şu biçimde olmalıdır:
 Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
 ```
 
-Ortak sunucu ve veritabanı kullanarak başarısız öznitelikleri. Örneğin: Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
+Genel sunucu ve veritabanı kullanarak başarısız öznitelikler. Örneğin: Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
 
 ### <a name="view"></a>Görünüm
 
-**Görünüm** Power BI görüntüsünü yönetir **raporları** ve Power BI **rapor**.
+**Görünümü** Power BI gösterimini yöneten **raporları** ve Power BI **rapor**.
 
-**Reports.cshtml**: üzerinden yineleme **Model.Reports** oluşturmak için bir **ActionLink**. **ActionLink** şu şekilde oluşur:
+**Reports.cshtml**: Gezinilen **Model.Reports** oluşturmak için bir **ActionLink**. **ActionLink** şu şekilde oluşur:
 
 | Bölümü | Açıklama |
 | --- | --- |
-| Başlık |Raporun adı. |
-| Sorgu dizesi |Rapor Kimliği Bağla |
+| Unvan |Raporun adı. |
+| Sorgu dizesi |Bir bağlantı Raporu Kimliği |
 
     <div id="reports-nav" class="panel-collapse collapse">
         <div class="panel-body">
@@ -161,7 +155,7 @@ Ortak sunucu ve veritabanı kullanarak başarısız öznitelikleri. Örneğin: S
         </div>
     </div>
 
-Report.cshtml: Ayarlamak **Model.AccessToken**ve Lambda ifadesi **PowerBIReportFor**.
+Report.cshtml: Ayarlayın **Model.AccessToken**ve Lambda ifadesi **PowerBIReportFor**.
 
     @model ReportViewModel
 
@@ -174,7 +168,7 @@ Report.cshtml: Ayarlamak **Model.AccessToken**ve Lambda ifadesi **PowerBIReportF
 
 ### <a name="controller"></a>Denetleyici
 
-**DashboardController.cs**: PowerBIClient geçirme oluşturur bir **uygulama belirteci**. Bir JSON Web Token (JWT) oluşturulur **imzalama anahtarı** almak için **kimlik bilgileri**. **Kimlik bilgileri** bir örneğini oluşturmak için kullanılan **PowerBIClient**. Örneği olduktan sonra **PowerBIClient**, GetReports() ve GetReportsAsync() çağırabilirsiniz.
+**DashboardController.cs**: PowerBIClient geçirme oluşturur bir **uygulama belirteci**. Bir JSON Web Token (JWT) oluşturulduğu **imzalama anahtarı** almak için **kimlik bilgilerini**. **Kimlik bilgilerini** bir örneğini oluşturmak için kullanılan **PowerBIClient**. Örneğini oluşturduktan sonra **PowerBIClient**, GetReports() ve GetReportsAsync() çağırabilirsiniz.
 
 CreatePowerBIClient()
 
@@ -207,7 +201,7 @@ ActionResult Reports()
     }
 
 
-Görev<ActionResult> rapor (dize reportId)
+Görev<ActionResult> rapor (dize Reportıd)
 
     public async Task<ActionResult> Report(string reportId)
     {
@@ -227,9 +221,9 @@ Görev<ActionResult> rapor (dize reportId)
         }
     }
 
-### <a name="integrate-a-report-into-your-app"></a>Uygulamanıza bir rapor tümleştirme
+### <a name="integrate-a-report-into-your-app"></a>Bir raporu uygulamanızla tümleştirmek
 
-Bulduktan sonra bir **rapor**, kullandığınız bir **IFRAME** Power BI katıştırmak için **rapor**. İçinde powerbi.js gelen kod parçacığı aşağıda verilmiştir **Microsoft Power BI çalışma koleksiyonları** örnek.
+Sonra bir **rapor**, kullandığınız bir **IFrame** Power BI katıştırmak için **rapor**. Bir kod parçacığı içinde powerbi.js gelen işte **Microsoft Power BI çalışma alanı koleksiyonları** örnek.
 
 ```
 init: function() {
@@ -244,7 +238,7 @@ init: function() {
 
 ## <a name="filter-reports-embedded-in-your-application"></a>Uygulamanıza filtre raporları
 
-Bir URL söz dizimini kullanarak eklenmiş bir raporu filtreleyebilirsiniz. Bunu yapmak için eklediğiniz bir **$filter** sorgu dizesi parametresi ile bir **eq** belirterek iFrame src URL'nize belirtilen filtre ile işleci. Filtre sorgu sözdizimi şöyledir:
+Bir URL söz dizimini kullanarak eklenmiş bir raporu filtreleyebilirsiniz. Bunu yapmak için eklediğiniz bir **$filter** sorgu dizesi parametresi ile bir **eq** iFrame src URL'nizle belirtilen filtre işleci. Filtre sorgu söz dizimi şu şekildedir:
 
 ```
 https://app.powerbi.com/reportEmbed

@@ -4,23 +4,23 @@ description: Güvenli aktarım özellikli Azure depolama hesapları ile HDInsigh
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 07/24/2018
-ms.openlocfilehash: fd7f9095d7ac00de3ad031f08db49785863176a1
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
-ms.translationtype: HT
+ms.openlocfilehash: 253455d892d38a6e8356b775306b238ebd566da4
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41918293"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104509"
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Azure HDInsight’ta güvenli aktarım depolama hesapları ile Hadoop kümesi oluşturma
 
 [Güvenli aktarım gereklidir](../storage/common/storage-require-secure-transfer.md) özelliği, güvenli bir bağlantı üzerinden tüm istekleri hesabınıza uygulayarak Azure Depolama hesabınızın güvenliğini artırır. Bu özellik ve wasbs şeması yalnızca HDInsight kümesi 3.6 veya sonraki sürümlerde desteklenir. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce
 
 * **Azure aboneliği** gereklidir. Bir aylık ücretsiz deneme hesabı oluşturmak için [azure.microsoft.com/free](https://azure.microsoft.com/free) adresine gidin.

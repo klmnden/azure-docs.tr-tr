@@ -2,19 +2,19 @@
 title: HDInsight için Azure Resource Manager araçlarına geçiş
 description: HDInsight kümeleri için Azure Resource Manager geliştirme araçlarına geçiş yapma
 services: hdinsight
-editor: jasonwhowell
+ms.reviewer: jasonh
 author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: jasonh
-ms.openlocfilehash: 92114dcdf7e86a83c43bfbfe07fdeebeef18234b
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 1988593fa7cb0d84baffc4264147d350962bb6bc
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42059241"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093076"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçiş
 

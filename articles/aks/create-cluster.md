@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 5c133c61c989bf19be3e84287cb76a7d110dccc8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6bfe6f9b76693ded79aa9b9d21ddcac4e1a0733e
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440482"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110313"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster"></a>Azure Kubernetes Service (AKS) kümesi oluşturma
 
@@ -48,7 +48,7 @@ Aşağıdaki seçenekler kullanılabilen `az aks create` komutu. Bkz: [Azure CLI
 | `--enable-rbac` `-r` | Kubernetes rol tabanlı erişim denetimini etkinleştirin. | hayır |
 | `--generate-ssh-keys` | SSH ortak ve özel anahtar dosyaları eksikse oluşturur. | hayır |
 | `--kubernetes-version` `-k` | '1.7.9' veya '1.9.6' gibi bir küme oluşturmak için kullanılacak Kubernetes sürümü. | hayır |
-| `--locaton` `-l` | Otomatik olarak oluşturulmuş bir kaynak grubu konumu | hayır |
+| `--location` `-l` | Otomatik olarak oluşturulmuş bir kaynak grubu konumu | hayır |
 | `--max-pods` `-m` | Pod'ların bir düğüme dağıtılabilir maksimum sayısı. | hayır |
 | `--network-plugin` | Kubernetes eklentisini kullanmak için ağ. | hayır |
 | `--no-ssh-key` `-x` | Kullanmayın veya yerel bir SSH anahtarı oluşturun. | hayır |

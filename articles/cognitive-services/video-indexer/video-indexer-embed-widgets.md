@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/25/2018
 ms.author: juliako
-ms.openlocfilehash: ba81030c3d6384ca6b66d6a3b14e614d1626e3e0
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: b8de9e8d73ba899fb7f3036d871c5d30daf101de
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41988776"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049364"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Video Indexer pencere öğeleri uygulamalarınıza ekleyin
 
@@ -95,7 +95,7 @@ Bir kullanıcı uygulamanızda Insight denetim tıkladığında bu bölüm iki V
 
 Artık bir kullanıcı uygulamanızda Insight denetimi tıklattığında, oyuncu için ilgili şu atlar.
 
-Daha fazla bilgi için [bu tanıtım](https://api-portal.videoindexer.ai/demo-all-widgets).
+Daha fazla bilgi için [bu tanıtım](https://codepen.io/videoindexer/pen/NzJeOb).
 
 ### <a name="embed-the-cognitive-insights-widget-and-use-azure-media-player-to-play-the-content"></a>Bilişsel İçgörüler pencere öğesi ekleme ve içeriği yürütmek için Azure Media Player'ı kullanın
 
@@ -153,7 +153,7 @@ Bu bölümde, arasındaki etkileşimi elde etmek gösterilmiştir bir **Bilişse
 
 Şimdi, Azure Media Player ile iletişim kurabilmesi.
 
-Daha fazla bilgi için [bu tanıtım](https://api-portal.videoindexer.ai/demo-your-amp).
+Daha fazla bilgi için [bu tanıtım](https://codepen.io/videoindexer/pen/rYONrO).
 
 ### <a name="embed-video-indexer-cognitive-insights-widget-and-use-your-own-player-could-be-any-player"></a>Video Indexer Bilişsel İçgörüler pencere öğesi ekleme ve (herhangi bir oynatıcı olabilir) kendi bir oynatıcı kullanın
 
@@ -201,7 +201,7 @@ Kendi player'ı kullanırsanız, oyuncu düzenleme halletmeniz sahip kendiniz il
         </script>
 
 
-Daha fazla bilgi için [bu tanıtım](https://api-portal.videoindexer.ai/demo-your-player).
+Daha fazla bilgi için [bu tanıtım](https://codepen.io/videoindexer/pen/YEyPLd).
 
 ## <a name="adding-subtitles"></a>Alt yazı ekleme
 

@@ -1,41 +1,34 @@
 ---
-title: Görünüm arasında geçiş yapmak ve düzenleme moduna raporlar Power BI çalışma koleksiyonlarda | Microsoft Docs
-description: Görünüm arasında geçiş yapmak ve düzenleme moduna raporlarınız Power BI çalışma alanı koleksiyonu içinde hakkında bilgi edinin.
+title: Görünüm arasında geçiş yapmak ve düzenleme modundan Power BI çalışma alanı koleksiyonları'ndaki raporlar için | Microsoft Docs
+description: Görünüm arasında geçiş yapmak ve raporlarınızı Power BI çalışma alanı koleksiyonları içinde modunu düzenleme hakkında bilgi edinin.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
-ms.assetid: ''
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 23a8c4f0dd626a623df56de9546258a23d549d1a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 19a576440742684849ffc74092162be7008621ba
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409960"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045027"
 ---
-# <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Görünüm arasında geçiş yapmak ve düzenleme moduna Power BI çalışma koleksiyonlarda raporlar için
+# <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Düzenleme modundan Power BI çalışma alanı koleksiyonları'raporların ve görünüm arasında geçiş
 
-Görünüm arasında geçiş yapmak ve düzenleme moduna raporlarınız Power BI çalışma alanı koleksiyonu içinde hakkında bilgi edinin.
+Görünüm arasında geçiş yapmak ve raporlarınızı Power BI çalışma alanı koleksiyonları içinde modunu düzenleme hakkında bilgi edinin.
 
 > [!IMPORTANT]
 > Power BI Çalışma Alanı Koleksiyonları kullanım dışı bırakılmıştır ve Haziran 2018'e kadar veya anlaşmanızda belirtilen süre boyunca kullanılabilecektir. Uygulamanızda kesinti yaşanmaması için Power BI Embedded'a geçirmeyi planlamanız önerilir. Verilerinizi Power BI Embedded'a nasıl taşıyacağınızı öğrenmek için bkz. [Power BI Çalışma Alanı Koleksiyonları'nı Power BI Embedded'a geçirme](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 ## <a name="creating-an-access-token"></a>Bir erişim belirteci oluşturma
 
-Hem görüntülemek ve bir rapor düzenleme olanağı sağlayan bir erişim belirteci oluşturmanız gerekir. Düzenle ve raporu kaydetmek için ihtiyacınız **Report.ReadWrite** belirteci izni. Daha fazla bilgi için bkz: [Authenticating ve Power BI çalışma koleksiyonlarda yetkilendirme](app-token-flow.md).
+Hem görüntüleme hem de rapor düzenleme olanağı sunan bir erişim belirteci oluşturmanız gerekir. Düzenle ve bir raporu kaydetmek için ihtiyacınız **Report.ReadWrite** belirteci izni. Daha fazla bilgi için [kimlik doğrulama ve yetkilendirme Power BI çalışma alanı koleksiyonları'nda](app-token-flow.md).
 
 > [!NOTE]
-> Bu, düzenlemek ve var olan bir raporu için değişiklikleri kaydetmek sağlar. Ayrıca destekleme işlevi isterseniz **Kaydet**, ek izinler sağlamanız gerekir. Daha fazla bilgi için bkz: [kapsamları](app-token-flow.md#scopes).
+> Bu, düzenlemek ve değişiklikler için var olan bir raporu kaydetmek sağlar. Ayrıca destekleme işlevi isterseniz **Kaydet**, ek izinler sağlamanız gerekir. Daha fazla bilgi için [kapsamları](app-token-flow.md#scopes).
 
 ```
 using Microsoft.PowerBI.Security;
@@ -47,9 +40,9 @@ PowerBIToken embedToken = PowerBIToken.CreateReportEmbedTokenForCreation(workspa
 var token = embedToken.Generate("{access key}");
 ```
 
-## <a name="embed-configuration"></a>Yapılandırma katıştırma
+## <a name="embed-configuration"></a>Yapılandırma ekleme
 
-İzinler ve bir viewMode kaydetme görmeniz için sağlamanız gereken düğmesini düzenleme modunda. Daha fazla bilgi için bkz: [yapılandırma ayrıntılarını katıştırmak](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details).
+İzinler ve bir viewMode kaydetme görmek için sağlamanız gereken düğmesi düzenleme modunda. Daha fazla bilgi için [yapılandırma ayrıntılarını ekleme](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details).
 
 Örneğin, JavaScript içinde:
 
@@ -83,11 +76,11 @@ var token = embedToken.Generate("{access key}");
     var report = powerbi.embed(reportContainer, config);
 ```
 
-Bu temel görünüm modunda rapor eklemek için gösterir **viewMode** ayarlamak **modeller. ViewMode.View**.
+Bu görünüm modunda göre Raporu eklemek için gösterir **viewMode** ayarlamak **modelleri. ViewMode.View**.
 
 ## <a name="view-mode"></a>Görünüm modu
 
-Görünüm moduna geçmek için içinde olup olmadığını düzenleme modu aşağıdaki JavaScript kullanabilirsiniz.
+Görünüm moduna geçiş, açıksa düzenleme modu için aşağıdaki JavaScript kullanabilirsiniz.
 
 ```
 // Get a reference to the embedded report HTML element
@@ -124,7 +117,7 @@ report.switchMode("edit");
 [Power BI Çalışma Alanı Koleksiyonları ile kimlik doğrulaması ve yetkilendirme](app-token-flow.md)  
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
 [JavaScript Örnek Ekleme](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
-[Powerbı CSharp Git deposu](https://github.com/Microsoft/PowerBI-CSharp)  
-[Powerbı düğümlü Git deposu](https://github.com/Microsoft/PowerBI-Node)  
+[Power BI-CSharp Git deposu](https://github.com/Microsoft/PowerBI-CSharp)  
+[Power BI düğümlü Git deposu](https://github.com/Microsoft/PowerBI-Node)  
 
 Başka sorunuz mu var? [Power BI Topluluğu'nu deneyin](http://community.powerbi.com/)

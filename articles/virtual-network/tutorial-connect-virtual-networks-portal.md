@@ -14,19 +14,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: d702253c7b58b0a29c03e6563238b56ae75fa0d1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8b1290c2030835af1435e9a21602d3d2334a6737
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841797"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41918704"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak sanal ağ eşlemesi ile sanal ağları bağlama
 
-Sanal ağ eşlemesi ile sanal ağları birbirine bağlayabilirsiniz. Sanal ağlar eşlendikten sonra, kaynaklar aynı sanal ağ üzerindeymiş gibi, aynı gecikme süresi ve bant genişliği ile her iki sanal ağdaki kaynaklar birbiriyle iletişim kurabilir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Sanal ağ eşlemesi ile sanal ağları birbirine bağlayabilirsiniz. Bu sanal ağlar aynı bölgede veya farklı bölgelerde (Genel Sanal Ağ Eşleme olarak da bilinir) olabilir. Sanal ağlar eşlendikten sonra, kaynaklar aynı sanal ağ üzerindeymiş gibi, aynı gecikme süresi ve bant genişliği ile her iki sanal ağdaki kaynaklar birbiriyle iletişim kurabilir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * İki sanal ağ oluşturma
@@ -82,7 +82,7 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
     |---|---|
     |Adı|myVirtualNetwork1-myVirtualNetwork2|
     |Abonelik| Aboneliğinizi seçin.|
-    |Sanal ağ|myVirtualNetwork2 - *myVirtualNetwork2* sanal ağını seçmek için **Sanal ağ**’ı seçin ve sonra **myVirtualNetwork2** seçeneğini belirleyin.|
+    |Sanal ağ|myVirtualNetwork2 - *myVirtualNetwork2* sanal ağını seçmek için **Sanal ağ**’ı seçin ve sonra **myVirtualNetwork2** seçeneğini belirleyin. Aynı bölgede veya farklı bir bölgede bulunan bir sanal ağı seçebilirsiniz.|
 
     ![Eşleme ayarları](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
 

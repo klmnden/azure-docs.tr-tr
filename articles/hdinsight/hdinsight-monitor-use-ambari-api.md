@@ -3,18 +3,18 @@ title: Ambari API - Azure kullanarak HDInsight Hadoop kümelerini izleme
 description: Oluşturma, yönetme ve Hadoop kümelerini izleme için Apache Ambari API'lerini kullanın. Sezgisel operatör araçlarına ve API'leri, Hadoop'un karmaşıklığını gizler.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: f55ee02ada5bb53d4634d119311fb9230ff15105
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 23da477fc24eaea4a6f987f13ad055022d2ba032
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592831"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108646"
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Ambari API'sini kullanarak HDInsight'ta Hadoop kümelerini izleme
 HDInsight kümeleri Ambari API'lerini kullanarak izlemeyi öğrenin.

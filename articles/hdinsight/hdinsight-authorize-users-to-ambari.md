@@ -3,18 +3,18 @@ title: Kullanıcıları Ambari Views - Azure HDInsight için yetkilendirme
 description: Etki alanına katılmış HDInsight kümeleri Ambari kullanıcı ve grup izinlerini yönetmek nasıl.
 services: hdinsight
 author: maxluk
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: a0f8cf062ed08f0dfa57107baf29724a8e58d0af
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 7734848035eeab3c38a57b9999f8cda77f6a4e24
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592134"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43107165"
 ---
 # <a name="authorize-users-for-ambari-views"></a>Kullanıcıları Ambari Views için yetkilendirme
 

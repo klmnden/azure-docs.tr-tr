@@ -3,18 +3,18 @@ title: Jupyter, Spark on Azure HDInsight ile özel Maven paketleri kullanma
 description: Özel Maven paketlerini kullanmak için adım adım yönergeler HDInsight Spark kümeleri ile Jupyter not defterleri kullanılabilir yapılandırma.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: jasonh
-ms.openlocfilehash: 51099f64546acc6f18269b2e7ec05106bb3baa2d
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: c6ef336e694bffec00ff239733fd7f07ba5fb09e
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622040"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43040378"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>HDInsight üzerinde Apache Spark kümeleri Jupyter not defterlerinde ile dış paketleri kullanma
 > [!div class="op_single_selector"]

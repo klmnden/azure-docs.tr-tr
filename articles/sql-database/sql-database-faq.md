@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 08/27/2018
 ms.author: carlrab
-ms.openlocfilehash: 03e24679ea01dabb78a0d7028d49b624b2e3bf64
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 7f784689e8437d92cf4fc4974983d3ae1455f11b
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42059683"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091833"
 ---
 # <a name="sql-database-faq"></a>SQL Veritabanı SSS
 
@@ -155,7 +155,7 @@ Sanal çekirdek tabanlı modelde hizmet Hizmet katmanını temel alan öngörül
 - Genel Amaçlı katmanında 8 sanal çekirdekli bir Yönetilen Örnek oluşturup bunu hemen 16 sanal çekirdekli yapılandırmaya yükseltirseniz, ilk saat için 16 sanal çekirdek fiyatı üzerinden ücretlendirilirsiniz.
 
 > [!NOTE]
-> 30 Haziran 2018'e kadar sınırlı bir süre için yedekleme ve GÇ ücreti ücretsizdir.
+> Bir süreliğine yedekleme ve GÇ ücreti ücretsizdir.
 
 ## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>Nasıl faturamı üzerinde bir elastik havuz gösteren etkin coğrafi çoğaltma kullanımı?
 Kullanarak, tek veritabanlarının aksine [etkin coğrafi çoğaltma](sql-database-geo-replication-overview.md) esnek veritabanları sayesinde doğrudan bir faturalama etkisi yoktur.  Yalnızca her biri (birincil havuzu ve ikincil havuzu) havuzları için sağlanmış olan kaynakları için ücretlendirilirsiniz

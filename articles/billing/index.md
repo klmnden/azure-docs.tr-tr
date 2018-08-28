@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: b04cb7ca3e8e7b292efaed66096c206b268a034a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: db2c6f9995356abc233e971a2fae5a1ee6233ed1
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626191"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42915705"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Azure faturalama ve maliyet yönetimi belgeleri
 
 Azure faturalandırmanızı anlamayı, kullanımı ve maliyetleri izlemeyi, ayrıca hesabınızla aboneliklerinizi yönetmeyi öğrenin.
+
+> [!div class="nextstepaction"]
+> [Azure faturalama belgelerinin iyileştirilmesine yardımcı olun](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 <ul class="panelContent cardsF">
     <li>

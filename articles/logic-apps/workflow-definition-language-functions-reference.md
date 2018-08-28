@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 6292ea4ccd3780e1da86252b7ec9c09c2eea3982
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 78e991fcac87d59ed7b84180192899ddbdf330f2
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057448"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105648"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps iş akışı tanımı dil işlevleri başvurusu
 
@@ -3536,6 +3536,8 @@ triggerFormDataValue('feedUrl')
 Bir örnek sonucu olarak bu dize döndürür: `"http://feeds.reuters.com/reuters/topNews"` 
 
 <a name="triggerMultipartBody"></a>
+
+### <a name="triggermultipartbody"></a>triggerMultipartBody
 
 Birden çok bölümden oluşur, bir tetikleyicinin çıktısında belirli bir parçanın gövdesini döndürür. 
 

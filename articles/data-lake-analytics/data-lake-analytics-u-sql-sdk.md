@@ -1,60 +1,59 @@
 ---
-title: Çalıştırma ve U-SQL işleri için Azure Data Lake U-SQL SDK'sını kullanarak yerel olarak test etme
-description: Çalıştırma ve test yerel olarak komut satırını kullanarak ve programlama arabirimleri, yerel iş istasyonunda U-SQL işleri hakkında bilgi edinin.
+title: Çalıştırma ve yerel olarak Azure Data Lake U-SQL SDK'sını kullanarak U-SQL işlerini test etme
+description: Çalıştırma ve komut satırını kullanarak yerel olarak ve programlama arabirimleri yerel iş istasyonunuzda U-SQL işlerini test etme hakkında bilgi edinin.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: yanacai
 ms.author: yanacai
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: 11a2bfdcda09a071667cc034ef1ff42794b73a33
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: ae5334dcb93e34569131ab51dca99c310831082d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737080"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43052096"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Çalıştırma ve U-SQL Azure Data Lake U-SQL SDK'sı ile test etme
 
-U-SQL betiği geliştirmeye çalıştırmak için yaygın bir sorundur ve yerel olarak test U-SQL betiği önce göndermek bulut için. Bu senaryo için Azure Data Lake U-SQL SDK adlı bir Nuget paketi Azure Data Lake sağlar, hangi, kolayca aracılığıyla U-SQL çalıştırma ve test ölçeklendirilebilir. Bu U-SQL test derleme otomatikleştirmek ve test etmek için CI (sürekli tümleştirme) sistemi ile tümleştirmek mümkündür.
+U-SQL betiği geliştirirken çalıştırmak için genel ve yerel olarak test U-SQL betiği önce göndermek, bulut. Azure Data Lake, Azure Data Lake U-SQL SDK'sı olarak adlandırılan bu senaryo için bir Nuget paketi sunar, U-SQL çalıştırın ve test, kolayca yapabilecekleriniz aracılığıyla ölçeklendirin. Bu U-SQL test derleme otomatikleştirin ve test etmek için CI (sürekli tümleştirme) sistemiyle tümleştirmek mümkündür.
 
-İlgilendiğiniz ise nasıl el ile yerel çalıştırın ve Azure Data Lake araçları için Visual Studio için kullanabileceğiniz sonra U-SQL betiği GUI araçları ile hata ayıklama. ' Dan daha fazla bilgi edinebilirsiniz [burada](data-lake-analytics-data-lake-tools-local-run.md).
+Verdiğiniz ise nasıl el ile yerel çalıştırın ve Azure Data Lake araçları Visual Studio için kullanabileceğiniz sonra U-SQL betiği GUI araçları ile hata ayıklama. Daha fazla bilgi [burada](data-lake-analytics-data-lake-tools-local-run.md).
 
 ## <a name="install-azure-data-lake-u-sql-sdk"></a>Yükleme Azure Data Lake U-SQL SDK'sı
 
-Azure Data Lake U-SQL SDK'sı Al [burada](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) Nuget.org üzerinde. Ve kullanmadan önce bağımlılıklar aşağıdaki gibi olduğundan emin olmak gerekir.
+Azure Data Lake U-SQL SDK'sı alabilirsiniz [burada](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) Nuget.org üzerinde. Ve kullanmadan önce aşağıdaki gibi bağımlılıkları olduğundan emin olmak gerekir.
 
 ### <a name="dependencies"></a>Bağımlılıklar
 
-Data Lake U-SQL SDK'sı aşağıdaki bağımlılıkları gerektirir:
+Data Lake U-SQL SDK'sı, aşağıdaki bağımlılıkları gerektirir:
 
 - [Microsoft .NET Framework 4.6 veya daha yeni](https://www.microsoft.com/download/details.aspx?id=17851).
-- Microsoft Visual C++ 14 ve Windows SDK 10.0.10240.0 ya da daha yeni (adlandırılan CppSDK bu makalede). CppSDK almanın iki yolu vardır:
+- Microsoft Visual C++ 14 ve Windows SDK'sı 10.0.10240.0 veya daha yeni (adlandırılan CppSDK bu makalede). CppSDK almanın iki yolu vardır:
 
-    - Yükleme [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). Program dosyaları klasörü altında--Örneğin, C:\Program Files (x86) \Windows Kits\10\ \Windows Kits\10 klasörü sahip olacaksınız. Ayrıca, Windows 10 SDK sürüm \Windows Kits\10\Lib altında bulabilirsiniz. Bu klasörler görmüyorsanız, Visual Studio'yu yeniden yükleyin ve yükleme sırasında Windows 10 SDK'yı seçtiğinizden emin olun. Bu Visual Studio ile yüklü varsa, U-SQL yerel derleyici onu otomatik olarak bulur.
+    - Yükleme [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). Program dosyaları klasörü altında--örneğin C:\Program Files (x86) \Windows Kits\10\ \Windows Kits\10 klasörüne sahip olacaksınız. Ayrıca Windows 10 SDK sürüm \Windows Kits\10\Lib altında bulabilirsiniz. Bu klasörleri görmüyorsanız, Visual Studio'yu yeniden yükleyin ve yükleme sırasında Windows 10 SDK'yı seçtiğinizden emin olun. Visual Studio ile yüklenir bu varsa, U-SQL yerel Derleyici bunu otomatik olarak bulur.
 
-    ![Visual Studio için Data Lake araçları yerel Windows 10 SDK çalıştırma](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
+    ![Visual Studio için Data Lake araçları yerel Windows 10 SDK'yı çalıştırma](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-    - Yükleme [Visual Studio için Data Lake Araçları](http://aka.ms/adltoolsvs). Paketlenmiş Visual C++ ve Windows SDK dosyaları C:\Program Files (x86) \Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK bulabilirsiniz. Bu durumda, U-SQL yerel derleyici bağımlılıkları otomatik olarak bulunamıyor. Bunun için CppSDK yolunu belirtmeniz gerekir. Dosyaları başka bir konuma kopyalayın veya olduğu gibi kullanın.
+    - Yükleme [Visual Studio için Data Lake Araçları](http://aka.ms/adltoolsvs). Önceden paketlenmiş Visual C++ ve Windows SDK'sı dosyaları C:\Program Files (x86) \Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK bulabilirsiniz. Bu durumda, U-SQL yerel derleyici bağımlılıkları otomatik olarak bulunamıyor. İçin CppSDK yolunu belirtmeniz gerekir. Dosyaları başka bir konuma kopyalayın veya olduğu gibi kullanabilirsiniz.
 
-## <a name="understand-basic-concepts"></a>Temel kavramları anlama
+## <a name="understand-basic-concepts"></a>Temel kavramlarını anlama
 
 ### <a name="data-root"></a>Veri kökü
 
-Veri kök klasörü "yerel depolama" yerel işlem hesabıdır. Bir Data Lake Analytics hesabı Azure Data Lake Store hesabına eşdeğerdir. Farklı bir veri kök klasörüne değiştirme yalnızca farklı depolama hesabına geçişi gibi olur. Farklı bir veri kök klasörlerle yaygın olarak Paylaşılan verilere erişmek istiyorsanız, komut dosyalarınızı mutlak yollar kullanmanız gerekir. Veya dosya sistemi sembolik bağlantılar oluşturun (örneğin, **mklink** NTFS) için paylaşılan veri noktası için veri kök klasörü altında.
+Veri kökü "yerel depolama" yerel işlem hesabı klasördür. Data Lake Analytics hesabı Azure Data Lake Store hesabına eşdeğerdir. Farklı veri kök klasörüne değiştirme gibi farklı depolama hesabına yalnızca geçiş olur. Farklı veri kök klasörleri genellikle Paylaşılan verilere erişmek istiyorsanız, komut dosyalarınızda mutlak yollar kullanmanız gerekir. Veya, dosya sistemi simgesel bağlantılar oluştur (örneğin, **mklink** NTFS) için paylaşılan bir veri noktası için verileri kök klasörü altında.
 
 Veri kök klasör için kullanılır:
 
-- Veritabanları, tablolar, tablo değerli işlevler (Tvf) ve derlemeleri de dahil olmak üzere, yerel meta verileri depolar.
-- U-SQL göreli yolda olarak tanımlanan giriş ve çıkış yol arayın. Göreli yollar kullanarak U-SQL projelerinizi Azure'a dağıtmak kolaylaştırır.
+- Veritabanı, tablolar, tablo değerli işlev (Tvf) ve derlemeleri de dahil olmak üzere, yerel meta verileri Store.
+- U-SQL göreli yollar olarak tanımlanan giriş ve çıkış yol arayın. Göreli yollar kullanarak U-SQL projelerinizi Azure'a dağıtmanızı kolaylaştırır.
 
-### <a name="file-path-in-u-sql"></a>U-SQL dosya yolu
+### <a name="file-path-in-u-sql"></a>U-SQL dosyası yolu
 
-U-SQL betikleri göreli bir yol ve yerel bir mutlak yolu kullanabilirsiniz. Göreli yolu göreli belirtilen veri kök klasör yoludur. Kullanmanızı öneririz "/" komut dosyalarınızı sunucu tarafı ile uyumlu hale getirmek için yol ayırıcısı olarak. Göreli yollar ve eşdeğer mutlak yollarına bazı örnekleri aşağıda verilmiştir. Bu örneklerde, C:\LocalRunDataRoot veri kök klasörüdür.
+U-SQL betiklerini, hem göreli bir yol hem de yerel bir mutlak yol kullanabilirsiniz. Belirtilen verileri kök klasörü yol göreli yoludur. Kullanmanızı öneririz "/" betiklerinizi sunucu tarafı ile uyumlu hale getirmek için yol ayırıcı olarak. Göreli yollar ve bunların eşdeğer mutlak yollar bazı örnekleri aşağıda verilmiştir. Bu örneklerde C:\LocalRunDataRoot veri kök klasördür.
 
-|Göreli yol|Mutlak yolu|
+|Göreli yol|Mutlak yol|
 |-------------|-------------|
 |/ABC/DEF/input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
 |ABC/DEF/input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
@@ -62,29 +61,29 @@ U-SQL betikleri göreli bir yol ve yerel bir mutlak yolu kullanabilirsiniz. Gör
 
 ### <a name="working-directory"></a>Çalışma dizini
 
-U-SQL betiği yerel olarak çalışırken, bir çalışma dizini geçerli çalışma dizini altında derleme sırasında oluşturulur. Derleme çıktı yanı sıra yerel yürütme için gerekli çalışma zamanı dosyalarını bu çalışma dizini gölge olacaktır. Çalışma dizini kök klasörü "ScopeWorkDir" adı verilir ve çalışma dizini altındaki dosyalar aşağıdaki gibidir:
+U-SQL betiğini yerel olarak çalışırken, bir çalışma dizini geçerli çalışan dizin altında derleme sırasında oluşturulur. Derleme çıktıları ek olarak, bu çalışma dizini için gölge yerel yürütme için gerekli çalışma zamanı dosyaları olacaktır. Çalışma dizini kök klasörü "ScopeWorkDir" olarak adlandırılır ve çalışma dizini altındaki dosyaları aşağıdaki gibidir:
 
 |Dizin/dosya|Dizin/dosya|Dizin/dosya|Tanım|Açıklama|
 |--------------|--------------|--------------|----------|-----------|
-|C6A101DDCB470506| | |Karma dize çalışma zamanı sürümü|Çalışma zamanı dosyalarını yerel yürütme için gerekli gölge kopyası|
-| |Script_66AE4909AA0ED06C| |Ad script + betik yolu dizesi karma|Derleme çıktı ve yürütme günlüğü adım|
-| | |\_komut dosyası\_.abr|Derleyici çıktısı|Cebiri dosyası|
-| | |\_ScopeCodeGen\_.*|Derleyici çıktısı|Oluşturulan yönetilen kod|
-| | |\_ScopeCodeGenEngine\_. *|Derleyici çıktısı|Oluşturulan yerel kod|
-| | |Başvurulan derlemeler|Derleme başvurusu|Başvurulan derleme dosyaları|
-| | |deployed_resources|Kaynak dağıtma|Kaynak dağıtım dosyaları|
+|C6A101DDCB470506| | |Karma dize çalışma zamanı sürümü|Gölge kopyasını yerel yürütme için gerekli çalışma zamanı dosyaları|
+| |Script_66AE4909AA0ED06C| |Betik adı + betik yolu dizenin karma|Derleme çıkışlarını ve yürütme günlüğü adım|
+| | |\_betik\_.abr|Derleyici çıkışı|Cebir dosyası|
+| | |\_ScopeCodeGen\_.*|Derleyici çıkışı|Oluşturulan yönetilen kod|
+| | |\_ScopeCodeGenEngine\_. *|Derleyici çıkışı|Üretilen yerel kod|
+| | |Başvurulan derlemeler|Bütünleştirilmiş kod başvurusu|Başvurulan bütünleştirilmiş kod dosyaları|
+| | |deployed_resources|Kaynak dağıtımı|Kaynak dağıtım dosyaları|
 | | |xxxxxxxx.xxx[1..n]\_\*. *|Yürütme günlüğü|Günlük yürütme adımları|
 
 
-## <a name="use-the-sdk-from-the-command-line"></a>Komut satırından SDK'yı kullanma
+## <a name="use-the-sdk-from-the-command-line"></a>Komut satırından SDK'sını kullanma
 
-### <a name="command-line-interface-of-the-helper-application"></a>Yardımcı uygulamasının komut satırı arabirimi
+### <a name="command-line-interface-of-the-helper-application"></a>Yardımcı uygulama komut satırı arabirimi
 
-SDK directory\build\runtime altında LocalRunHelper.exe en yaygın olarak kullanılan yerel çalıştırma işlevlerin arabirimlerine sağlayan komut satırı yardımcı uygulamasıdır. Komut ve değişken anahtarları büyük küçük harfe duyarlı olduğunu unutmayın. Bunu çağırmak için:
+SDK'sı directory\build\runtime altında LocalRunHelper.exe en yaygın olarak kullanılan yerel çalıştırma işlevlerin arabirimlerine sağlayan komut satırı yardımcı uygulamasıdır. Komut ve bağımsız değişken anahtarları hem büyük küçük harfe duyarlı olduğunu unutmayın. Onu çağırmak için:
 
     LocalRunHelper.exe <command> <Required-Command-Arguments> [Optional-Command-Arguments]
 
-Bağımsız değişkenler olmadan veya LocalRunHelper.exe çalıştırın **yardımcı** Yardım bilgilerini göstermek için anahtar:
+Bağımsız değişkenler olmadan veya LocalRunHelper.exe çalıştırmak **yardımcı** anahtar Yardım bilgilerini görüntülemek için:
 
     > LocalRunHelper.exe help
 
@@ -99,39 +98,39 @@ Bağımsız değişkenler olmadan veya LocalRunHelper.exe çalıştırın **yard
 
 Yardım bilgileri:
 
--  **Komut** komut adını verir.  
+-  **Komut** , komutun adını verir.  
 -  **Bağımsız değişkeni gerekli** sağlanmalıdır bağımsız değişkenleri listeler.  
--  **İsteğe bağlı bağımsız değişkeni** varsayılan değerlerle isteğe bağlı bağımsız değişkenler listelenmiştir.  Boole isteğe bağlı bağımsız değişkenler parametreleri yoktur ve, görünümlerini varsayılan değerlerine negatif anlamına gelir.
+-  **İsteğe bağlı bağımsız değişkeni** varsayılan değerlerle isteğe bağlı bağımsız değişkenleri listeler.  İsteğe bağlı Boolean bağımsız parametreleri olmayan ve, görünümlerini varsayılan değerlerine negatif anlamına gelir.
 
 ### <a name="return-value-and-logging"></a>Dönüş değeri ve günlüğe kaydetme
 
-Yardımcı uygulama döndürür **0** başarı için ve **-1** hatası. Varsayılan olarak, yardımcı geçerli konsola tüm iletileri gönderir. Ancak, komutları çoğunu destekler **- MessageOut path_to_log_file** çıkışları bir günlük dosyasına yönlendirir isteğe bağlı bağımsız değişkeni.
+Yardımcı uygulama döndürür **0** başarı için ve **-1** hatası. Varsayılan olarak, yardımcı geçerli konsola istediğiniz tüm iletileri gönderir. Ancak, komutların çoğu Destek **- MessageOut path_to_log_file** çıktı bir günlük dosyasına bağlama yeniden yönlendirmeleri isteğe bağlı bağımsız değişkeni.
 
 ### <a name="environment-variable-configuring"></a>Ortam değişkeni yapılandırma
 
-U-SQL yerel ihtiyaçlarını bağımlılıklar için belirtilen CppSDK yolu yanı sıra yerel depolama hesabı olarak belirtilen veri kök çalıştırın. Her ikisi de bağımsız değişkeni komut satırı veya ayarlanan ortam değişkeninde bunları için ayarlayabilirsiniz.
+U-SQL yerel ihtiyaçlarını bağımlılıklar için belirtilen CppSDK yolu yanı sıra yerel depolama hesabı olarak belirtilen veri kökü çalıştırma. Her ikisi de bağımsız komut satırı veya ayarlanan ortam değişkeninde kendileri için ayarlayabilirsiniz.
 
 - Ayarlama **SCOPE_CPP_SDK** ortam değişkeni.
 
-    Visual Studio için Data Lake araçları yükleyerek Microsoft Visual C++ ve Windows SDK'sı alırsanız aşağıdaki klasörü sahip olduğunu doğrulayın:
+    Visual Studio için Data Lake araçları yükleyerek Microsoft Visual C++ ile Windows SDK'sı alırsanız, şu klasörü olduğunu doğrulayın:
 
         C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Microsoft Azure Data Lake Tools for Visual Studio 2015\X.X.XXXX.X\CppSDK
 
-    Adlı yeni bir ortam değişkeni tanımlamak **SCOPE_CPP_SDK** bu dizinine yönlendirin. Veya klasör başka bir konuma kopyalayın ve belirtin **SCOPE_CPP_SDK** olarak.
+    Adlı yeni bir ortam değişkeni tanımlamak **SCOPE_CPP_SDK** bu dizine işaret edecek şekilde. Veya klasör için başka bir konuma kopyalayın ve belirtin **SCOPE_CPP_SDK** olarak.
 
-    Ortam değişkeni ayarlamaya ek olarak, belirtebilirsiniz **- CppSDK** komut satırı kullanırken bağımsız değişkeni. Bu bağımsız değişken varsayılan CppSDK ortam değişkeni üzerine yazar.
+    Ortam değişkeni ayarlamanın yanı sıra belirtebilmeniz için **- CppSDK** kullandığınızda, komut satırı bağımsız değişkeni. Bu bağımsız değişken varsayılan CppSDK ortam değişkeninize üzerine yazar.
 
 - Ayarlama **LOCALRUN_DATAROOT** ortam değişkeni.
 
     Adlı yeni bir ortam değişkeni tanımlamak **LOCALRUN_DATAROOT** veri kök dizinine işaret eder.
 
-    Ortam değişkeni ayarlamaya ek olarak, belirtebilirsiniz **- DataRoot** bağımsız değişkeni ile komut satırını kullanırken veri kök yolu. Bu bağımsız değişken varsayılan veri kök ortam değişkeni üzerine yazar. Böylece tüm işlemleri için varsayılan veri kök ortam değişkeni üzerine çalıştırdığınız her komut satırı bu bağımsız değişken eklemeniz gerekir.
+    Ortam değişkeni ayarlamanın yanı sıra belirtebilmeniz için **- DataRoot** bağımsız değişkenle bir komut satırı kullanırken veri kök yolu. Bu bağımsız değişken varsayılan veri kökü ortam değişkeninize üzerine yazar. Bu bağımsız değişken, tüm işlemler için varsayılan veri kökü ortam değişkenini üzerine böylece çalıştırdığınız her komut satırı eklemeniz gerekir.
 
 ### <a name="sdk-command-line-usage-samples"></a>SDK komut satırı kullanım örnekleri
 
 #### <a name="compile-and-run"></a>Derleyin ve çalıştırın
 
-**Çalıştırmak** komutu, komut dosyasını derleyin ve derlenmiş sonuçları yürütmek için kullanılır. Komut satırı bağımsız değişkenlerini olanlardan birleşimidir **derleme** ve **yürütme**.
+**Çalıştırma** komutu, kodu derlemek ve ardından derlenmiş sonuçları yürütmek için kullanılır. Bu, komut satırı bağımsız değişkenlerini birleşimidir **derleme** ve **yürütme**.
 
     LocalRunHelper run -Script path_to_usql_script.usql [optional_arguments]
 
@@ -140,30 +139,30 @@ U-SQL yerel ihtiyaçlarını bağımlılıklar için belirtilen CppSDK yolu yan�
 
 |Bağımsız değişken|Varsayılan değer|Açıklama|
 |--------|-------------|-----------|
-|-Arkasındaki koda|False|Arka plan .cs kod komut dosyası var|
+|-CodeBehind|False|Arka plan kod .cs betiği sahiptir|
 |-CppSDK| |CppSDK dizini|
-|-DataRoot| DataRoot ortam değişkeni|Yerel çalıştırma, 'LOCALRUN_DATAROOT' ortam değişkeni varsayılan DataRoot|
-|-MessageOut| |Bir dosya konsola iletilerde dökümü|
+|-DataRoot| DataRoot ortam değişkeni|DataRoot için yerel çalıştırma, varsayılan olarak 'LOCALRUN_DATAROOT' ortam değişkeni|
+|-MessageOut| |Konsolunda bir dosyaya ileti dökümü|
 |-Paralel|1|Plan ile belirtilen paralellik çalıştırın|
-|-Başvurular| |Ek başvuru derlemeleri veya arka plan, kod veri dosyaları için ayrılmış yollar listesi ';'|
+|-Başvurular| |Ek başvuru bütünleştirilmiş kodları veya kod arkasında, veri dosyaları tarafından ayrılmış yollar listesi ';'|
 |-UdoRedirect|False|Udo derleme yeniden yönlendirme yapılandırması oluşturma|
-|-UseDatabase|ana|Geçici derleme kaydı arka plan kod için kullanılacak veritabanı|
-|-Verbose|False|Çalışma zamanı ayrıntılı çıkışlarından Göster|
-|-WorkDir|Geçerli dizin|Derleyici kullanım ve çıktı dizini|
-|-RunScopeCEP|0|ScopeCEP modunu kullanmak için|
-|-ScopeCEPTempPath|Temp|Veri akış için kullanılacak geçici yol|
-|-OptFlags| |İyileştirici bayrakların virgülle ayrılmış listesi|
+|-UseDatabase|ana|Geçici bir bütünleştirilmiş kod kaydı arka plan kod için kullanılacak veritabanı|
+|-Verbose|False|Ayrıntılı çalışma zamanı çıkışları gösterme|
+|-Dockerfile'da kendisinden sonra gelen|Geçerli dizin|Derleyici kullanımı ve çıkış dizini|
+|-RunScopeCEP|0|Kullanılacak ScopeCEP modu|
+|-ScopeCEPTempPath|Temp|Akış verileri için kullanılacak geçici yol.|
+|-OptFlags| |İyileştirici bayrakları virgülle ayrılmış listesi|
 
 
 Bir örneği aşağıda verilmiştir:
 
     LocalRunHelper run -Script d:\test\test1.usql -WorkDir d:\test\bin -CodeBehind -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB –Parallel 5 -Verbose
 
-Birleştirme yanı sıra **derleme** ve **yürütme**, derleyip derlenmiş yürütülebilir dosyalar ayrı ayrı çalıştırın.
+Birleştirme yanı sıra **derleme** ve **yürütme**, derleyin ve ayrı olarak derlenen yürütülebilir yürütün.
 
-#### <a name="compile-a-u-sql-script"></a>U-SQL komut dosyası derleme
+#### <a name="compile-a-u-sql-script"></a>Derleme bir U-SQL betiği
 
-**Derleme** komutu yürütülebilir dosyalar için bir U-SQL betiği derlemek için kullanılır.
+**Derleme** komutu bir U-SQL betiği yürütülebilir dosyaları için derleme için kullanılır.
 
     LocalRunHelper compile -Script path_to_usql_script.usql [optional_arguments]
 
@@ -172,18 +171,18 @@ Birleştirme yanı sıra **derleme** ve **yürütme**, derleyip derlenmiş yür�
 
 |Bağımsız değişken|Açıklama|
 |--------|-----------|
-| -Arkasındaki koda [varsayılan değer 'False']|Arka plan .cs kod komut dosyası var|
+| -CodeBehind [varsayılan değer 'False']|Arka plan kod .cs betiği sahiptir|
 | -CppSDK [varsayılan değer '']|CppSDK dizini|
-| -DataRoot [varsayılan değer 'DataRoot ortam değişkeni']|Yerel çalıştırma, 'LOCALRUN_DATAROOT' ortam değişkeni varsayılan DataRoot|
-| -MessageOut [varsayılan değer '']|Bir dosya konsola iletilerde dökümü|
-| -Başvuran [varsayılan değer '']|Ek başvuru derlemeleri veya arka plan, kod veri dosyaları için ayrılmış yollar listesi ';'|
-| -Basit [varsayılan değer 'False']|Basit derleme|
+| -DataRoot [varsayılan değer 'DataRoot ortam değişkeni']|DataRoot için yerel çalıştırma, varsayılan olarak 'LOCALRUN_DATAROOT' ortam değişkeni|
+| -MessageOut [varsayılan değer '']|Konsolunda bir dosyaya ileti dökümü|
+| -Başvuran [varsayılan değer '']|Ek başvuru bütünleştirilmiş kodları veya kod arkasında, veri dosyaları tarafından ayrılmış yollar listesi ';'|
+| -Basit [varsayılan değer 'False']|Basit bir derleme|
 | -UdoRedirect [varsayılan değer 'False']|Udo derleme yeniden yönlendirme yapılandırması oluşturma|
-| -UseDatabase [varsayılan değer 'master']|Geçici derleme kaydı arka plan kod için kullanılacak veritabanı|
-| -WorkDir [varsayılan değer 'Geçerli dizin']|Derleyici kullanım ve çıktı dizini|
-| -RunScopeCEP [varsayılan değer '0']|ScopeCEP modunu kullanmak için|
-| -ScopeCEPTempPath [varsayılan değer 'temp']|Veri akış için kullanılacak geçici yol|
-| -OptFlags [varsayılan değer '']|İyileştirici bayrakların virgülle ayrılmış listesi|
+| -UseDatabase [varsayılan değer 'master']|Geçici bir bütünleştirilmiş kod kaydı arka plan kod için kullanılacak veritabanı|
+| -WorkDir [varsayılan değer: 'Geçerli dizin']|Derleyici kullanımı ve çıkış dizini|
+| -RunScopeCEP [varsayılan değer '0']|Kullanılacak ScopeCEP modu|
+| -ScopeCEPTempPath [varsayılan değer 'temp']|Akış verileri için kullanılacak geçici yol.|
+| -OptFlags [varsayılan değer '']|İyileştirici bayrakları virgülle ayrılmış listesi|
 
 
 Bazı kullanım örnekleri aşağıda verilmiştir.
@@ -192,15 +191,15 @@ U-SQL komut dosyası derleme:
 
     LocalRunHelper compile -Script d:\test\test1.usql
 
-U-SQL komut dosyasını derleyin ve veri kök klasörünü ayarlayın. Bu ayarla ortam değişkeni üzerine unutmayın.
+U-SQL betiği derleyin ve veri kök klasörünü ayarlayın. Bu ortam değişken Ayarla üzerine unutmayın.
 
     LocalRunHelper compile -Script d:\test\test1.usql –DataRoot c:\DataRoot
 
-U-SQL betiği derlemek ve bir çalışma dizini, referans derlemesini ve veritabanı ayarlayın:
+U-SQL betiği derlemek ve bir çalışma dizini, başvuru bütünleştirilmiş kodu ve veritabanı ayarlayın:
 
     LocalRunHelper compile -Script d:\test\test1.usql -WorkDir d:\test\bin -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB
 
-#### <a name="execute-compiled-results"></a>Derlenmiş sonuçları yürütme
+#### <a name="execute-compiled-results"></a>Derlenmiş sonuçları yürütün
 
 **Yürütme** komutu derlenmiş sonuçları yürütmek için kullanılır.   
 
@@ -210,40 +209,40 @@ U-SQL betiği derlemek ve bir çalışma dizini, referans derlemesini ve veritab
 
 |Bağımsız değişken|Varsayılan değer|Açıklama|
 |--------|-------------|-----------|
-|-DataRoot | '' |Meta veri yürütme için veri kökü. İçin varsayılan olarak **LOCALRUN_DATAROOT** ortam değişkeni.|
-|-MessageOut | '' |İletiler bir dosyaya konsolunda dökümü.|
-|-Paralel | '1' |Belirtilen paralellik düzeyi ile oluşturulan yerel çalıştırma adımlarını çalıştırmak için göstergesi.|
-|-Verbose | 'False' |Ayrıntılı göstermek için gösterge çalışma zamanını şuradan çıkarır.|
+|-DataRoot | '' |Meta veri yürütme için veri kökü. Varsayılan **LOCALRUN_DATAROOT** ortam değişkeni.|
+|-MessageOut | '' |Konsolunda bir dosyaya ileti dökümü.|
+|-Paralel | '1' |Belirtilen paralellik düzeyi ile oluşturulan yerel çalıştırma adımları çalışmasını göstergesi.|
+|-Verbose | 'False' |Ayrıntılı göstermek için göstergesinin çalışma zamanını şuradan çıkarır.|
 
-Kullanım örneği aşağıdadır:
+Kullanım örneği aşağıda verilmiştir:
 
     LocalRunHelper execute -Algebra d:\test\workdir\C6A101DDCB470506\Script_66AE4909AA0ED06C\__script__.abr –DataRoot c:\DataRoot –Parallel 5
 
 
-## <a name="use-the-sdk-with-programming-interfaces"></a>Programlama arabirimleri SDK'yi kullanın
+## <a name="use-the-sdk-with-programming-interfaces"></a>Programlama arabirimleri SDK'sını kullanma
 
-Programlama arabirimleri tüm LocalRunHelper.exe bulunur. U-SQL SDK'sı ve C# test çerçevesi, U-SQL komut dosyası yerel test ölçeklendirmek için işlevselliğini tümleştirmek için bunları kullanabilirsiniz. Bu makalede, bu arabirimleri, U-SQL betiğini sınamak için nasıl kullanılacağını göstermek için standart C# birim testi projesi kullanacağım.
+Programlama arabirimleri tüm LocalRunHelper.exe içinde yer alır. U-SQL betiğini yerel test ölçeklendirmek için U-SQL SDK'sı ve C# test çerçevesi işlevselliğini tümleştirmek için bunları kullanabilirsiniz. Bu makalede, bu arabirimler, U-SQL betiğini sınamak için nasıl kullanılacağını göstermek için standart C# birim testi projesi kullanacağım.
 
-### <a name="step-1-create-c-unit-test-project-and-configuration"></a>1. adım: C# birim testi projesi ve yapılandırma oluşturma
+### <a name="step-1-create-c-unit-test-project-and-configuration"></a>1. adım: C# birim testi projesi ve yapılandırması oluşturma
 
-- Dosyası aracılığıyla bir C# birim testi projesi oluşturma > Yeni > Proje > Visual C# > Test > birim testi projesi.
-- Proje için bir başvuru olarak LocalRunHelper.exe ekleyin. LocalRunHelper.exe \build\runtime\LocalRunHelper.exe Nuget paketi bulunur.
+- Bir C# birim testi projesi dosyası aracılığıyla oluşturma > Yeni > Proje > Visual C# > Test > birim testi projesi.
+- Proje için bir başvuru olarak LocalRunHelper.exe ekleyin. Nuget paketinde \build\runtime\LocalRunHelper.exe LocalRunHelper.exe bulunur.
 
     ![Azure Data Lake U-SQL SDK'sı başvurusu ekleme](./media/data-lake-analytics-u-sql-sdk/data-lake-analytics-u-sql-sdk-add-reference.png)
 
-- U-SQL SDK **yalnızca** destek x64 ortamı yapı platform hedefi x64 ayarladığınızdan emin olun. Bu proje özelliği üzerinden ayarlayabilirsiniz > Yapı > Platform hedefi.
+- U-SQL SDK'sı **yalnızca** destek x64 ortamı, yapı platform hedefi x64 ayarladığınızdan emin olun. Bu proje özelliği ayarlayabilirsiniz > derleme > Platform hedefi.
 
     ![Azure Data Lake U-SQL SDK'sını yapılandırmak x64 proje](./media/data-lake-analytics-u-sql-sdk/data-lake-analytics-u-sql-sdk-configure-x64.png)
 
-- Test ortamınızı x64 ayarladığınızdan emin olun. Visual Studio'da Test ayarlayabilirsiniz > Test Ayarları > Varsayılan İşlemci mimarisi > x64.
+- Test ortamınızı x64 ayarladığınızdan emin olun. Visual Studio'da Test içinde ayarlayabilirsiniz > Test Ayarları > Varsayılan İşlemci mimarisi > x64.
 
     ![Azure Data Lake U-SQL SDK'sını yapılandırmak x64 Test Ortamı](./media/data-lake-analytics-u-sql-sdk/data-lake-analytics-u-sql-sdk-configure-test-x64.png)
 
-- Çalışma dizini altında ProjectFolder\bin\x64\Debug genellikle olan projeye NugetPackage\build\runtime\ altındaki tüm bağımlılık dosyaları kopyaladığınızdan emin olun.
+- Çalışma dizini, genellikle ProjectFolder\bin\x64\Debug altında olan proje NugetPackage\build\runtime\ altındaki tüm bağımlılık dosyaları kopyalamak emin olun.
 
 ### <a name="step-2-create-u-sql-script-test-case"></a>2. adım: U-SQL betiği test çalışması oluşturma
 
-U-SQL betiği testi için örnek kod aşağıda verilmiştir. Test etmek için komut dosyaları, giriş dosyaları ve beklenen çıktı dosyalarını hazırlamanız gerekir.
+U-SQL betiği test için örnek kod aşağıda verilmiştir. Test etmek için betikleri, girdi dosyalarını ve beklenen Çıkış dosyalarını hazırlamanız gerekir.
 
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -327,67 +326,67 @@ U-SQL betiği testi için örnek kod aşağıda verilmiştir. Test etmek için k
 
 ### <a name="programming-interfaces-in-localrunhelperexe"></a>LocalRunHelper.exe programlama arabirimleri
 
-LocalRunHelper.exe programlama arabirimleri çalıştırmak U-SQL yerel derleme, vb. için sağlar. Arabirimler aşağıda listelenmiştir.
+LocalRunHelper.exe programlama arabirimleri U-SQL yerel derleme çalıştırın, vb. için sağlar. Arabirimler aşağıda listelenmiştir.
 
 **Oluşturucusu**
 
-Ortak LocalRunHelper ([System.IO.TextWriter messageOutput = null])
+Genel LocalRunHelper ([System.IO.TextWriter messageOutput = null])
 
 |Parametre|Tür|Açıklama|
 |---------|----|-----------|
-|messageOutput|System.IO.TextWriter|Çıktı iletileri için konsol kullanmak için sıfıra ayarlayın|
+|messageOutput|System.IO.TextWriter|Çıkış iletileri için konsolunu kullanmak için null olarak|
 
-**özellikleri**
+**Özellikleri**
 
 |Özellik|Tür|Açıklama|
 |--------|----|-----------|
-|AlgebraPath|dize|Cebiri dosyasının yolunu (cebiri dosya biridir derleme sonuçları)|
-|CodeBehindReferences|dize|Komut dosyası başvuruları arkasında ek kod varsa, ile ayrılmış yollar belirtin ';'|
+|AlgebraPath|dize|Cebir dosyası yolu (Cebir dosyası olan bir derleme sonuçları)|
+|CodeBehindReferences|dize|Komut dosyası başvuruları arkasında ek kodu varsa, ile ayrılmış yolları belirtin. ';'|
 |CppSdkDir|dize|CppSDK dizini|
 |CurrentDir|dize|Geçerli dizin|
 |DataRoot|dize|Veri kök yolu|
 |DebuggerMailPath|dize|Hata ayıklayıcı yuvası yolu|
-|GenerateUdoRedirect|bool|Biz yeniden yönlendirmeyi geçersiz kılma config yüklenirken derleme oluşturmak istiyorsanız|
-|HasCodeBehind|bool|Komut dosyası arka plan kodu varsa|
+|GenerateUdoRedirect|bool|Derleme yükleme oluşturmak isterseniz yeniden yönlendirme geçersiz yapılandırma|
+|HasCodeBehind|bool|Betik arkasındaki kodu varsa|
 |InputDir|dize|Giriş verileri için dizin|
-|MessagePath|dize|İleti döküm dosyası yolu|
+|MessagePath|dize|İleti döküm dosyasının yolu|
 |OutputDir|dize|Çıktı verileri için dizin|
-|Paralellik|Int|Paralellik cebiri çalıştırmak için|
-|ParentPid|Int|Hizmet çıkmak için izleyen üst PID 0 olarak ayarlayın veya yoksaymak için negatif|
+|Paralellik|int|Cebir çalıştırmak için paralellik|
+|ParentPid|int|Hizmet çıkmak için izleyen üst PID 0 olarak ayarlayın veya yok saymak için negatif|
 |ResultPath|dize|Sonuç döküm dosyası yolu|
-|RuntimeDir|dize|Çalışma zamanı dizini|
-|ScriptPath|dize|Komut dosyası nerede|
-|Basit|bool|Derleme veya basit|
-|TempDir|dize|Geçici dizin|
-|UseDataBase|dize|Geçici derleme kaydı, varsayılan olarak ana arka plan kod için kullanmak istediğiniz veritabanını belirtin|
-|WorkDir|dize|Tercih edilen çalışma dizini|
+|RuntimeDir|dize|Çalışma Zamanı Modülü dizini|
+|ScriptPath|dize|Betik nerede bulacağını|
+|Yüzeysel|bool|Derleme veya basit|
+|TempDir ayarını|dize|Geçici dizin|
+|UseDataBase|dize|Geçici bir bütünleştirilmiş kod kaydı, varsayılan olarak ana arka plan kod için kullanmak istediğiniz veritabanını belirtin|
+|Workdır|dize|Tercih edilen çalışma dizini|
 
 
 **Yöntemi**
 
 |Yöntem|Açıklama|Dönüş|Parametre|
 |------|-----------|------|---------|
-|Ortak bool DoCompile()|U-SQL komut dosyası derleme|Başarı true| |
-|Ortak bool DoExec()|Derlenmiş sonuç yürütme|Başarı true| |
-|Ortak bool DoRun()|U-SQL betiği (derleme + Execute) çalıştırın|Başarı true| |
-|Ortak bool IsValidRuntimeDir (dize yolu)|Belirtilen yolun geçerli çalışma zamanı yolu olup olmadığını denetleyin|TRUE olarak geçerli|Çalışma zamanı dizinin yolu|
+|Genel bool DoCompile()|U-SQL betiği derleme|Başarılı olma durumunda true| |
+|Genel bool DoExec()|Derlenen sonuçtaki yürütün|Başarılı olma durumunda true| |
+|Genel bool DoRun()|U-SQL betiği (derleme + yürütme) çalıştırın|Başarılı olma durumunda true| |
+|Genel bool IsValidRuntimeDir (dize yolu)|Belirtilen yol geçerli çalışma zamanı yolu olup olmadığını denetleyin|TRUE geçerli|Çalışma zamanı dizinin yolu|
 
 
 ## <a name="faq-about-common-issue"></a>Yaygın sorun hakkında SSS
 
 ### <a name="error-1"></a>1. hata:
-E_CSC_SYSTEM_INTERNAL: İç hata oluştu! Dosya veya derleme 'ScopeEngineManaged.dll' ya da bağımlılıklarından biri yüklenemedi. Belirtilen modül bulunamadı.
+E_CSC_SYSTEM_INTERNAL: İç hata! Dosya veya derleme 'ScopeEngineManaged.dll' veya bağımlılıklarından biri yüklenemedi. Belirtilen modül bulunamadı.
 
 Lütfen aşağıdakileri denetleyin:
 
-- X64 olduğundan emin olun ortamı. Derleme hedef platformu ve test ortamı x64 olması, başvurmak **1. adım: oluşturmak C# birim testi projesi ve yapılandırma** üstünde.
-- Çalışma dizini projeye NugetPackage\build\runtime\ altındaki tüm bağımlılık dosyaları kopyalandığından emin olun.
+- X64 sahip olduğunuzdan emin olun. ortam. Derleme hedef platform ve test ortamı x64 olması, sorun **1. adım: oluşturma C# birim testi projesi ve yapılandırma** yukarıda.
+- Çalışma dizini proje NugetPackage\build\runtime\ altındaki tüm bağımlılık dosyaları kopyaladığınızdan emin olun.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * U-SQL öğrenmek için bkz. [Azure Data Lake Analytics U-SQL dili ile çalışmaya başlama](data-lake-analytics-u-sql-get-started.md).
-* Tanılama bilgileri günlüğe kaydetmek için bkz: [Azure Data Lake Analytics için tanılama günlükleri erişme](data-lake-analytics-diagnostic-logs.md).
+* Tanılama bilgilerini günlüğe kaydetmek için bkz: [Azure Data Lake Analytics için tanılama günlüklerine erişme](data-lake-analytics-diagnostic-logs.md).
 * Daha karmaşık bir sorgu görmek için bkz: [Azure Data Lake Analytics'i kullanarak Web sitesi günlüklerini çözümleme](data-lake-analytics-analyze-weblogs.md).
-* İş ayrıntılarını görüntülemek için bkz: [kullanım iş tarayıcı ve Azure Data Lake Analytics işleri için iş görünümünde](data-lake-analytics-data-lake-tools-view-jobs.md).
-* Köşe yürütme görünümü kullanmak için bkz: [köşe yürütme görünümü Visual Studio için Data Lake araçları kullanmak](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
+* İş ayrıntılarını görüntülemek için bkz: [kullanımı iş tarayıcı ve Azure Data Lake Analytics işleri için iş görünümünü](data-lake-analytics-data-lake-tools-view-jobs.md).
+* Köşe yürütme görünümünü kullanma hakkında bilgi için bkz: [Visual Studio için Data Lake araçlarına köşe yürütme görünümünü kullanma](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).

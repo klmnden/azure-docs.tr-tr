@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: sajagtap
-ms.openlocfilehash: 4570b514bef33c8dfa6d220ee4cd88ad068ba4d0
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 66caea65c21bb1f8bb6efa9b50c917599bb71e2f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41987971"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093986"
 ---
 # <a name="facebook-content-moderation-with-content-moderator"></a>Content Moderator ile Facebook içerik denetleme
 
@@ -67,7 +67,7 @@ Oturum [Azure Yönetim Portalı](https://portal.azure.com/) , Azure işlevleri. 
 | Uygulama ayarı | Açıklama   | 
 | -------------------- |-------------|
 | cm:TeamId   | Content Moderator teamıd değeri  | 
-| cm:SubscriptionKey | Content Moderator abonelik anahtarınızı - bakın [kimlik bilgileri](/review-tool-user-guide/credentials.md) | 
+| cm:SubscriptionKey | Content Moderator abonelik anahtarınızı - bakın [kimlik bilgileri](review-tool-user-guide/credentials.md) | 
 | cm:Region | Content Moderator bölgesi adınız boşluk olmadan. Önceki nota bakın. |
 | cm:ImageWorkflow | İş akışının görüntülerde çalışmasını adı |
 | cm:TextWorkflow | Metin üzerinde çalıştırmak için iş akışının adı |

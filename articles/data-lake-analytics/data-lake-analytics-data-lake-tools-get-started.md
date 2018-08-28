@@ -9,13 +9,13 @@ manager: kfile
 editor: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: get-started-article
-ms.date: 05/02/2018
-ms.openlocfilehash: 0acaace474d62f18b9b6ca4aaae324405a2f43db
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.date: 08/13/2018
+ms.openlocfilehash: 852840fc29589292e7a74390026b78b15f81e721
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735802"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41919846"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -52,16 +52,20 @@ Bu öğretici, Visual Studio için Data Lake Araçları’nın yüklü olmasın�
 ## <a name="connect-to-an-azure-data-lake-analytics-account"></a>Azure Data Lake Analytics hesabına bağlanma
 
 1. Visual Studio'yu açın.
-2. **Görünüm** > **Sunucu Gezgini**’ni seçerek Sunucu Gezgini’ni açın.
-3. **Azure**’a sağ tıklayın. Ardından **Microsoft Azure Aboneliğine Bağlan**’ı seçin ve yönergeleri uygulayın.
-4. Sunucu Gezgini'nde **Azure** > **Data Lake Analytics**’i seçin. Data Lake Analytics hesaplarınızın listesini görürsünüz.
 
+2. **Görünüm** > **Sunucu Gezgini**’ni seçerek Sunucu Gezgini’ni açın.
+
+3. **Azure**’a sağ tıklayın. Ardından **Microsoft Azure Aboneliğine Bağlan**’ı seçin ve yönergeleri uygulayın.
+
+4. Sunucu Gezgini'nde **Azure** > **Data Lake Analytics**’i seçin. Data Lake Analytics hesaplarınızın listesini görürsünüz.
 
 ## <a name="write-your-first-u-sql-script"></a>İlk U-SQL betiğinizi yazma
 
 Aşağıda basit bir U-SQL betiği gösterilmiştir. Küçük bir veri kümesini tanımlar ve bu veri kümesini `/data.csv` adlı bir dosya olarak varsayılan Data Lake Store’a yazar.
 
 ```
+USE DATABASE master;
+USE SCHEMA dbo;
 @a  = 
     SELECT * FROM 
         (VALUES
@@ -74,7 +78,7 @@ OUTPUT @a
     USING Outputters.Csv();
 ```
 
-### <a name="submit-a-data-lake-analytics-job"></a>Data Lake Analytics işi gönderme
+## <a name="submit-a-data-lake-analytics-job"></a>Data Lake Analytics işi gönderme
 
 1. **Dosya** > **Yeni** > **Proje**’yi seçin.
 
@@ -87,31 +91,35 @@ OUTPUT @a
     ![U-SQL Visual Studio projesini gönderme](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
 
 5. **Script.usql** penceresinin sol üst köşesinde **Gönder**’i seçin.
-6. **Analytics Hesabı**’nı doğrulayın ve ardından **Gönder**’i seçin. Gönderim tamamlandıktan sonra, gönderme işleminin sonuçları Visual Studio için Data Lake Araçları Sonuçları içinde sunulur.
 
-    ![U-SQL Visual Studio projesini gönderme](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
-7. En son iş durumunu görmek ve ekranı yenilemek için **Yenile**’ye tıklayın. İş başarılı olduğunda **İş Grafiği**, **Meta Veri İşlemleri**, **Durum Geçmişi** ve **Tanılama**’yı gösterir:
+6. İş gönderildikten sonra açılan **İş görünümü** sekmesinde işin ilerleme durumu gösterilir. En son iş durumunu görmek ve ekranı yenilemek için **Yenile**’ye tıklayın.
 
     ![U-SQL Visual Studio Data Lake Analytics iş performans grafiği](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
    * **İş Özeti**, işin özetini gösterir.   
-   * **İş Ayrıntıları**, iş hakkında betik, kaynaklar ve köşeler gibi daha özel bilgiler gösterir.
    * **İş Grafı**, işin ilerleme durumunu görselleştirir.
    * **Meta Veri İşlemleri**, U-SQL kataloğunda yapılan tüm işlemleri gösterir.
    * **Veri** tüm girdileri ve çıktıları gösterir.
+   * **Durum Geçmişi** bölümünde zaman çizelgesi ve durum ayrıntıları gösterilir.
+   * **AU Analizi** bölümünde işte kullanılan AU sayısı gösterilir ve buradan farklı AU ayırma stratejisi simülasyonlarını keşfedebilirsiniz.
    * **Tanılama**, iş yürütme ve performans iyileştirme için gelişmiş bir analiz sağlar.
 
-### <a name="to-check-job-state"></a>İş durumu denetlemek için
+## <a name="check-job-status"></a>İş durumunu kontrol etme
 
-1. Sunucu Gezgini'nde **Azure** > **Data Lake Analytics**’i seçin. 
+1. Sunucu Gezgini'nde **Azure** > **Data Lake Analytics**’i seçin.
+
 2. Data Lake Analytics hesap adını genişletin.
+
 3. **İşler**’e çift tıklayın.
+
 4. Daha önce gönderdiğiniz işi seçin.
 
-### <a name="to-see-the-output-of-a-job"></a>Bir işin çıktısını görmek için
+## <a name="see-the-job-output"></a>İş çıktısını görme
 
 1. Sunucu Gezgini’nde gönderdiğiniz işe gidin.
+
 2. **Veri** sekmesine tıklayın.
+
 3. **İş Çıktıları** sekmesinde `"/data.csv"` dosyasını seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar

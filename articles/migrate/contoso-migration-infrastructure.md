@@ -5,60 +5,61 @@ services: azure-migrate
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/26/2018
 ms.author: raynew
-ms.openlocfilehash: 6f535d98ea9e1312e4d5f197d121c8d12c109449
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 43828155cce527e4c5b2b0bcc859dcfecadef89e
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002288"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43109081"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - geçiş altyapısı dağıtma
 
-Bu makalede, nasıl bir şirket içi Contoso ayarlar inceler ve hazırlık Azure'a geçiş için ve iş hibrit bir ortamda çalıştırmak için Azure altyapı.
+Bu makalede, Contoso, şirket içi altyapı geçiş için hazırlar ve hazırlık geçiş ve iş hibrit bir ortamda çalıştırmak için bir Azure altyapı ayarlar.
 
 - Contoso için belirli bir örnek mimaridir.
-- Makalede açıklanan tüm öğeleri gerekip gerekmediğini geçiş stratejinizi bağlıdır. Örneğin, yalnızca azure'daki bulutta yerel uygulamaları oluşturuyorsanız, daha az karmaşık bir ağ yapısı gerekebilir.
+- Bu makalede açıklanan tüm öğeleri gerekip gerekmediğini geçiş stratejinizi bağlıdır. Örneğin, yalnızca azure'daki bulutta yerel uygulamaları oluşturuyorsanız, daha az karmaşık bir ağ yapısı gerekebilir.
 
-Bu belge, belge nasıl geçirir Contoso adlı kurgusal şirketin Microsoft Azure bulut kaynaklarına şirket makaleler serisinin saniyedir. Serinin bilgileri içerir ve bir geçiş altyapısını kurma nasıl çalışılacağını dağıtım senaryoları geçiş için şirket içi kaynaklara uygunluğunu değerlendirmek ve devre dışı geçişleri farklı türde çalıştırın. Senaryoları, karmaşık hale gelmesi ve diğer makaleler zamanla ekleyeceğiz.
+Bu makalede, bir dizi Contoso adlı kurgusal şirketin şirket içi kaynaklarını Microsoft Azure bulutuna nasıl geçirdiğini belge makaleleri bir parçasıdır. Seri arka plan bilgileri içerir ve bir geçiş altyapısını kurma nasıl çalışılacağını dağıtım senaryolarında bir dizi geçiş için şirket içi kaynaklara uygunluğunu değerlendirmek ve farklı türde geçiş çalıştırın. Senaryoları, karmaşık hale gelmesi. Makaleler, zaman içinde serinin eklenir.
+
 
 **Makale** | **Ayrıntılar** | **Durum**
 --- | --- | ---
-[Makale 1: genel bakış](contoso-migration-overview.md) | Contoso'nun geçiş stratejisi, makale dizisini ve kullandığımız örnek uygulamaları genel bir bakış sağlar. | Kullanılabilir
-2. makale: bir Azure altyapısını dağıtma | Açıklayan nasıl kendi şirket içi ve Azure altyapı Contoso bu geçiş için hazırlar. Altyapıyı, tüm geçiş makaleleri için kullanılır. | Bu makalede.
-[3. makale: şirket içi kaynaklarınızı Azure'a geçiş için değerlendirme](contoso-migration-assessment.md)  | Contoso değerlendirme Wmware'de çalışan bir şirket içi iki katmanlı SmartHotel uygulamanın nasıl çalıştığını gösterir. Contoso uygulaması Vm'lerle değerlendirir [Azure geçişi](migrate-overview.md) hizmet ve uygulama SQL Server veritabanıyla [veritabanı geçiş Yardımcısı'nı](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Kullanılabilir
-[4. makale: Azure sanal makineler ve yönetilen bir SQL örneği üzerinde bir uygulamayı barındırma](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso lift-and-shift ile taşıma geçiş için Azure SmartHotel şirket içi uygulama için nasıl çalıştığını gösterir. Contoso VM ön uç uygulamasını kullanarak geçirir [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)ve SQL yönetilen örneği, uygulama veritabanını kullanarak [Azure veritabanı geçiş hizmeti](https://docs.microsoft.com/azure/dms/dms-overview). | Kullanılabilir
-[Makale 5: bir uygulamayı Azure vm'lerinde yeniden barındırma](contoso-migration-rehost-vm.md) | Nasıl Contoso geçirme SmartHotel uygulama sanal makinelerini Site Recovery hizmetini kullanarak Azure Vm'leri için gösterir. | Kullanılabilir
-[Makale 6: Azure sanal makineleri ve Always On kullanılabilirlik grubu SQL Server üzerinde bir uygulamayı barındırma](contoso-migration-rehost-vm-sql-ag.md) | Contoso SmartHotel uygulamayı nasıl geçirdiğini gösterir. Contoso, uygulama sanal makinelerini ve veritabanı geçiş hizmeti uygulama veritabanı AlwaysOn Kullanılabilirlik grubu tarafından korunan bir SQL Server kümesine geçirmek için geçirmek için Site Recovery kullanır. | Kullanılabilir
-[Makale 7: Azure sanal makineler'de Linux uygulaması barındırma](contoso-migration-rehost-linux-vm.md) | Nasıl Contoso Linux osTicket uygulamayı lift-and-shift ile taşıma geçişini Azure Vm'leri için Site RECOVERY'yi kullanarak yaptığını gösterir. | Kullanılabilir
-[Makale 8: Azure sanal makineler ve Azure MySQL üzerinde bir Linux uygulaması barındırma](contoso-migration-rehost-linux-vm-mysql.md) | Contoso Linux osTicket uygulaması için Azure Site RECOVERY'yi kullanarak VM'lerin nasıl geçirdiğini gösterir ve uygulama veritabanı, MySQL Workbench kullanarak Azure MySQL Server örneğine geçirir. | Kullanılabilir
-[Makale 9: bir uygulamayı Azure Web Apps ve Azure SQL veritabanında yeniden düzenleme](contoso-migration-refactor-web-app-sql.md) | Nasıl Contoso SmartHotel uygulamayı bir Azure Web uygulamasına geçirir ve uygulama veritabanının Azure SQL Server örneğine geçirir gösterir | Kullanılabilir
-[Makale 10: Azure Web Apps ve Azure MySQL üzerinde bir Linux uygulaması yeniden düzenleyin.](contoso-migration-refactor-linux-app-service-mysql.md) | Linux osTicket uygulaması Contoso birden çok sitede, GitHub ile sürekli teslim için tümleşik Azure Web Apps'e nasıl geçirdiğini gösterir. Bunlar, Azure MySQL örneğine uygulama veritabanına geçirin. | Kullanılabilir
-[Makale 11: TFS VSTS üzerinde yeniden düzenleyin.](contoso-migration-tfs-vsts.md) | Geçiş yaparak Contoso şirket içi Team Foundation Server (TFS) dağıtımının nasıl geçirdiğini gösterir. Bunun için Visual Studio Team Services (VSTS) azure'da. | Kullanılabilir
-[Makale 12: bir uygulamayı Azure kapsayıcıları ve Azure SQL veritabanı yeniden oluşturma](contoso-migration-rearchitect-container-sql.md) | Contoso geçirir ve Azure SmartHotel uygulamasının rearchitects nasıl gösterir. Bunlar, bir Windows kapsayıcısı ve bir Azure SQL veritabanı'nda uygulama veritabanı uygulama web katmanla yeniden oluşturma. | Kullanılabilir
-[Makale 13: uygulamanızı Azure'a yeniden oluşturun.](contoso-migration-rebuild.md) | Contoso Azure özellikleri ve Hizmetleri, uygulama hizmetleri, Azure Kubernetes, Azure işlevleri, Bilişsel hizmetler ve Cosmos DB dahil olmak üzere çeşitli kullanarak SmartHotel uygulamasının nasıl yeniden gösterir. | Kullanılabilir
+[Makale 1: genel bakış](contoso-migration-overview.md) | Makale serisi, Contoso'nun geçiş stratejisi ve dizisinde kullanılan örnek uygulamalar genel bakış. | Kullanılabilir
+2. makale: bir Azure altyapısını dağıtma | Contoso şirket içi altyapısını ve Azure altyapısını geçiş için hazırlar. Altyapıyı, serideki tüm geçiş makaleleri için kullanılır. | Bu makalede
+[3. makale: şirket içi kaynaklarınızı Azure'a geçiş için değerlendirme](contoso-migration-assessment.md)  | Vmware'de çalıştırılan şirket içi SmartHotel uygulamasının bir değerlendirme SContoso çalıştırır. Contoso Azure geçişi hizmeti ve veri geçiş Yardımcısı'nı kullanarak uygulama SQL Server veritabanı kullanarak uygulama Vm'leri değerlendirir. | Kullanılabilir
+[4. makale: bir uygulamayı bir Azure VM ve SQL veritabanı yönetilen örneği yeniden barındırma](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso, Azure'a lift-and-shift ile taşıma geçiş için kendi şirket içi SmartHotel uygulaması çalışır. Contoso geçirir uygulama ön uç VM kullanarak [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso geçirir uygulama veritabanını kullanarak bir Azure SQL veritabanı yönetilen örneği [Azure veritabanı geçiş hizmeti](https://docs.microsoft.com/azure/dms/dms-overview). | Kullanılabilir  
+[Makale 5: bir uygulamayı Azure vm'lerinde yeniden barındırma](contoso-migration-rehost-vm.md) | Contoso, SmartHotel uygulama sanal makinelerini Azure Site Recovery hizmetini kullanarak sanal makineleri geçirir. | Kullanılabilir
+[Makale 6: Azure sanal makinelerinde ve SQL Server AlwaysOn Kullanılabilirlik grubuna bir uygulamayı barındırma](contoso-migration-rehost-vm-sql-ag.md) | Contoso uygulaması Vm'leri ve veritabanı geçiş hizmeti uygulama veritabanı AlwaysOn Kullanılabilirlik grubu tarafından korunan bir SQL Server kümesine geçirmek için geçirmek için Site RECOVERY'yi kullanarak SmartHotel uygulama geçirir. | Kullanılabilir
+[Makale 7: Azure sanal makineler'de Linux uygulaması barındırma](contoso-migration-rehost-linux-vm.md) | Contoso Azure vm'lerine, Site Recovery hizmetini kullanarak kendi Linux osTicket uygulamasının lift-and-shift ile taşıma geçiş tamamlanır. | Kullanılabilir
+[Makale 8: MySQL için Azure sanal makineler ve Azure veritabanı üzerinde bir Linux uygulaması barındırma](contoso-migration-rehost-linux-vm-mysql.md) | Contoso, Linux osTicket uygulaması, Site Recovery kullanarak Azure Vm'lerine geçirir. Bu uygulama veritabanı için Azure veritabanı için MySQL MySQL Workbench kullanarak geçirir. | Kullanılabilir
+[Makale 9: bir uygulamayı bir Azure web uygulaması ve Azure SQL veritabanı yeniden düzenleme](contoso-migration-refactor-web-app-sql.md) | Contoso, bir Azure web uygulaması için kendi SmartHotel uygulama geçirir ve uygulama veritabanı için veritabanı geçiş Yardımcısı'nı kullanarak bir Azure SQL Server örneği geçirir. | Kullanılabilir   
+[Makale 10: MySQL için bir Azure web uygulaması ve Azure veritabanı'nda bir Linux uygulama yeniden düzenleyin](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso, Linux osTicket uygulaması birden çok siteye bir Azure web uygulamasında geçirir. Web uygulaması için sürekli teslimi GitHub ile tümleşiktir. Örnek MySQL için Azure veritabanı uygulama veritabanı geçirir. | Kullanılabilir
+[Makale 11: Team Foundation Server'ı Visual Studio Team Services ile yeniden düzenleyin.](contoso-migration-tfs-vsts.md) | Contoso, Visual Studio Team Services azure'da, şirket içi Team Foundation Server dağıtımı geçirir. | Kullanılabilir
+[Makale 12: bir uygulamayı Azure kapsayıcıları ve Azure SQL veritabanı yeniden oluşturma](contoso-migration-rearchitect-container-sql.md) | Contoso, SmartHotel uygulamayı Azure'a geçirir. Ardından, Azure Service Fabric ve Azure SQL veritabanı ile uygulama veritabanı çalıştıran bir Windows kapsayıcısı olarak app web katmanından rearchitects. | Kullanılabilir    
+[Makale 13: uygulamanızı Azure'a yeniden oluşturun.](contoso-migration-rebuild.md) | Contoso Azure özellikleri ve Hizmetleri, Azure App Service, Azure Kubernetes Service (AKS), Azure işlevleri, Azure Bilişsel hizmetler ve Azure Cosmos DB dahil olmak üzere çeşitli kullanarak kendi SmartHotel uygulaması oluşturur. | Kullanılabilir 
 
-Bu makaledeki tüm altyapı öğeleri Contoso ayarlar, tüm geçiş senaryolarını tamamlamak gerekir. 
+Contoso tüm altyapı öğeleri ayarlar bu makaledeki tüm geçiş senaryolarını tamamlamak gerekir. 
 
 
 ## <a name="overview"></a>Genel Bakış
 
-Bunlar Azure'a geçirmeden önce Contoso Azure altyapısının hazırlar önemlidir.  Genellikle, dikkat etmeniz gereken ihtiyaç duydukları beş geniş alan vardır:
+Contoso Azure'a geçirmeden önce Azure altyapısının hazırlamak için önemlidir.  Genellikle, Contoso dikkat etmeniz gereken beş geniş alanlar vardır:
 
-**1. adım: Azure abonelikleri**: nasıl bunlar Azure satın alma ve Azure platformu ve Hizmetleri ile etkileşim?  
-**2. adım: Karma kimlik**: nasıl bunlar yönetecek ve geçişten sonra şirket içi ve Azure kaynaklarına erişimi denetler? Nasıl bunlar genişletmek veya kimlik yönetimini buluta taşıyın?  
-**3. adım: Olağanüstü durum kurtarma ve dayanıklılık**: nasıl bunlar emin olmanızı kesintiler ve olağanüstü durumlar oluşursa kendi uygulamalarınızı ve altyapınızı dayanıklı olduğunu?  
-**4. adım: Ağ**: Bunlar, ağ altyapısını tasarlayın ve bunları nasıl kendi şirket içi veri merkeziniz ile Azure arasında bağlantı kurmak?  
-**5. adım: Güvenlik**: nasıl, Güvenli Karma/Azure dağıtımı?  
-**6. adım: İdare**: nasıl bunlar olmanızı güvenlik ve idare gereksinimleri ile hizalanan dağıtım?
+**1. adım: Azure abonelikleri**: nasıl Contoso Azure satın alma ve Azure platformu ve Hizmetleri ile etkileşim?  
+**2. adım: Karma kimlik**: nasıl onu yönetecek ve geçişten sonra şirket içi ve Azure kaynaklarına erişimi denetler? Nasıl Contoso genişletmek veya kimlik yönetimini buluta taşıyın?  
+**3. adım: Olağanüstü durum kurtarma ve dayanıklılık**: nasıl Contoso emin olmanızı kesintiler ve olağanüstü durumlar oluşursa kendi uygulamalarınızı ve altyapınızı dayanıklı olduğunu?  
+**4. adım: Ağ**: Contoso ağ altyapısını tasarlayın ve bunları nasıl kendi şirket içi veri merkeziniz ile Azure arasında bağlantı kurmak?  
+**5. adım: Güvenlik**: karma/Azure dağıtımı, güvenli'ne olur?  
+**6. adım: İdare**: nasıl Contoso olmanızı güvenlik ve idare gereksinimleri ile hizalanan dağıtım?
 
 ## <a name="before-you-start"></a>Başlamadan önce
 
 Altyapısını bakarak başlamadan önce bu makalede ele Azure özellikleri hakkında bazı bilgiler okumak isteyebilirsiniz:
 
 - Açık lisanslama satıcıları Microsoft veya Microsoft Partners bilmeniz bulut çözüm sağlayıcıları (CSP'ler) veya Kullandıkça Öde, Kurumsal Anlaşma (EA), dahil olmak üzere Azure erişim, satın aldığınız için kullanılabilir birçok seçenek vardır. Hakkında bilgi edinin [satın alma seçenekleri](https://azure.microsoft.com/pricing/purchase-options/)ve nasıl çalıştıracağınızı okuyun [Azure abonelikleri düzenlenir](https://azure.microsoft.com/blog/organizing-subscriptions-and-resource-groups-within-the-enterprise/).
-- Azure genel bakış [kimlik ve erişim yönetimi](https://www.microsoft.com/en-us/trustcenter/security/identity). Özellikle, hakkında bilgi edinin [Azure AD ve şirket içi genişletme AD buluta](https://docs.microsoft.com/azure/active-directory/identity-fundamentals). Hakkında yararlı indirilebilir e-kitap yoktur [kimlik ve erişim yönetimi (IAM) karma bir ortamda](https://azure.microsoft.com/resources/hybrid-cloud-identity/).
+- Azure genel bakış [kimlik ve erişim yönetimi](https://www.microsoft.com/trustcenter/security/identity). Özellikle, hakkında bilgi edinin [Azure AD ve şirket içi genişletme AD buluta](https://docs.microsoft.com/azure/active-directory/identity-fundamentals). Hakkında yararlı indirilebilir e-kitap yoktur [kimlik ve erişim yönetimi (IAM) karma bir ortamda](https://azure.microsoft.com/resources/hybrid-cloud-identity/).
 - Azure, karma bağlantı seçenekleriyle güçlü bir ağ altyapısı sağlar. Genel Bakış [ağ ve ağ erişim denetimi](https://docs.microsoft.com/azure/security/security-network-overview).
 - Giriş yapın [Azure güvenlik](https://docs.microsoft.com/azure/security/azure-security)ve için bir plan oluşturma hakkında bilgi [idare](https://docs.microsoft.com/azure/security/governance-in-azure).
 
@@ -70,10 +71,10 @@ Altyapısını bakarak başlamadan önce bu makalede ele Azure özellikleri hakk
  ![Contoso mimarisi](./media/contoso-migration-infrastructure/contoso-architecture.png)  
 
 - Contoso, şehir, New York'ta olarak Doğu ABD'de bulunan bir ana veri merkezinde sahiptir.
-- Amerika Birleşik Devletleri arasında üç ek yerel dalları sahiptirler.
+- Amerika Birleşik Devletleri arasında üç ek yerel dalları vardır.
 - Ana veri merkezinin fiber metro ethernet bağlantı (500 MB/sn) ile İnternet'e bağlı.
-- Her dal, yerel olarak IPSec VPN tünelleri ana merkezine iş sınıfı bağlantıları kullanarak İnternet'e bağlı. Böylece, kalıcı olarak bağlanması, tüm ağ ve internet bağlantısı en iyi duruma getirir.
-- Ana veri merkezinin VMware ile tam olarak sanallaştırılır. VCenter Server 6.5 tarafından yönetilen iki ESXi 6.5 sanallaştırma konaklarını sahiptirler.
+- Her dal, yerel olarak IPSec VPN tünelleri ana merkezine iş sınıfı bağlantıları kullanarak İnternet'e bağlı. Böylece, kalıcı olarak bağlanması tüm ağ ve internet bağlantısı en iyi duruma getirir.
+- Ana veri merkezinin VMware ile tam olarak sanallaştırılır. Contoso, vCenter Server 6.5 tarafından yönetilen iki ESXi 6.5 sanallaştırma konaklarını sahiptir.
 - Contoso, kimlik yönetimi ve iç ağdaki DNS sunucuları için Active Directory kullanır.
 - Etki alanı denetleyicileri veri merkezindeki VMware VM'ler üzerinde çalıştırın. Yerel dalları etki alanı denetleyicilerde fiziksel sunucularda çalıştırın.
 
@@ -84,36 +85,36 @@ Azure satın alma, nasıl abonelikleri Mimar ve hizmetlerinizi ve kaynaklarını
 
 ### <a name="buy-azure"></a>Azure satın alma
 
-Contoso çalışmaya bir [Kurumsal Anlaşma (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Bu harika avantajlar, esnek faturalandırma seçenekleri dahil olmak üzere kazanmak için bunları entitling ve fiyatlandırma için iyileştirilmiş Azure için önden parasal taahhütte kapsar.
+Contoso çalışmaya bir [Kurumsal Anlaşma (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Bu, Azure, harika avantajlar, esnek faturalandırma seçenekleri dahil olmak üzere kazanmak için entitling Contoso için önden parasal taahhütte kapsar ve fiyatlandırma en iyi duruma getirilmiş.
 
-- Contoso ne tahmini Azure harcamalarınızı, yıllık olacaktır. Bunlar sözleşmesi imzalandığında tam ilk yıl boyunca Ücretli.
-- Contoso yıldır üzerinden ya da bunlar bu ABD Doları değeri kaybedeceksiniz önce tüm taahhütleri kullanmanız gerekir.
-- Herhangi bir nedenle bunlar taahhütte uzun ve daha fazla harcama, Microsoft bunların fark için fatura.
-- Taahhüt sonucunda herhangi bir maliyet aynı ücretleri ve bunların Sözleşme'de olacaktır. Giden hiçbir yaptırımlara vardır.
+- Contoso ne tahmini Azure harcamalarınızı, yıllık olacaktır. Sözleşme imzalandığında Contoso tam ilk yıl boyunca Ücretli.
+- Contoso üzerinden yıl önce tüm taahhütleri kullanın veya bu ABD Doları değeri kaybetmek gerekir.
+- Herhangi bir nedenle Contoso taahhüdü aşıyor ve daha fazla geçirdiği, Microsoft bunların fark için fatura.
+- Taahhüt sonucunda herhangi bir maliyet aynı ücretleri ve bu Contoso sözleşmesindeki olacaktır. Giden hiçbir yaptırımlara vardır.
 
 ### <a name="manage-subscriptions"></a>Abonelikleri yönetme
 
-Azure için ödeme sonra Contoso Azure Aboneliklerini yönetmek nasıl gerekir. Bir EA sahiptirler ve dolayısıyla Azure abonelik sayısı sınırı bunlar ayarlayabilirsiniz.
+Azure için ödeme sonra Contoso Azure Aboneliklerini yönetmek nasıl gerekir. Contoso bir EA vardır ve bu nedenle Azure abonelik sayısı sınırı ayarlayabilirsiniz.
 
 - Bir Azure Kurumsal kayıt şirket şekli nasıl tanımlar ve Azure hizmetlerini kullanır ve bir çekirdek idare yapısını tanımlar.
-- İlk adım, Contoso (kendi Kurumsal kayıt için bir kurumsal iskelesi bilinir. bir yapı belirledi. Bunlar [bu makalede](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-governance) anlamak ve bir yapı iskelesi tasarlamanıza yardımcı olmak için.
+- İlk adım, Contoso (Kurumsal kayıt için bir kurumsal iskelesi bilinir. bir yapı belirledi. Contoso kullanılan [bu makalede](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-governance) anlamak ve bir yapı iskelesi tasarlamanıza yardımcı olacak.
 - Şimdilik, Contoso Aboneliklerini yönetmek için bir işlevsel yaklaşım kullanmaya karar verdi.
-    - Kuruluşun içinde Azure bütçe denetleyen tek bir BT departmanı sahip olacaksınız. Bu tek Grup aboneliklerine sahip olacaktır.
-    - Diğer Kurumsal gruplar olarak bölümlerde Kurumsal kayıt katılabilir, bu model gelecekte genişletmeniz.
+    - Kuruluş içinde Azure bütçe denetleyen tek bir BT departmanı kullanır. Bu tek Grup aboneliklerine sahip olacaktır.
+    - Kurumsal kayıt departmanlara olarak Kurumsal gruplara katılmasını Contoso bu modeli gelecekte genişletebilirsiniz.
     - BT departmanı iki Abonelikleri, üretim ve geliştirme Contoso yapısal.
-    - Contoso ek abonelikler gelecekte gerektiriyorsa, erişim, ilkeleri ve bu Aboneliklerdeki için uyumluluğu yönetmek gerekir. Sunarak bunu mümkün olacaktır [Azure Yönetim grupları](https://docs.microsoft.com/azure/azure-resource-manager/management-groups-overview), abonelik üzerinde bir ek katmanı olarak.
+    - Contoso ek abonelikler gelecekte gerektiriyorsa, bu erişim, ilkeleri ve bu Aboneliklerdeki uyumluluğunun yönetmesi gerekir. Contoso, sunarak konusunda yeterlidir [Azure Yönetim grupları](https://docs.microsoft.com/azure/azure-resource-manager/management-groups-overview), abonelik üzerinde bir ek katmanı olarak.
 
     ![Kuruluş yapısı](./media/contoso-migration-infrastructure/enterprise-structure.png) 
 
 ### <a name="examine-licensing"></a>Lisanslama inceleyin
 
-Yapılandırılmış abonelikler sayesinde, Microsoft Lisanslama Contoso bakabilirsiniz. Bunların lisans stratejisi, Azure ve nasıl Azure Vm'lerini ve hizmetlerini seçili dağıtılan ve geçirmek istediğiniz kaynakları bağlıdır. 
+Yapılandırılmış aboneliklerle Microsoft Lisans'ı Contoso bakabilirsiniz. Lisans stratejisi Contoso istediğiniz Azure ve Azure VM'ler ve hizmetler seçili dağıtılan ve geçirmek için kaynakları bağlıdır. 
 
 #### <a name="azure-hybrid-benefit"></a>Azure Hibrit Avantajı
 
 Azure'da sanal makineler dağıtırken, standart görüntüleri Contoso kullanılan yazılım dakikasına göre ücret bir lisans içerir. Ancak, Contoso uzun süreli bir Microsoft Müşteri olmuştur ve EAs tutulması ve lisansları Yazılım Güvencesi (SA) açın. 
 
-Azure hibrit avantajı, Azure Vm'leri ve SQL Server iş yüklerini dönüştürme veya Yazılım Güvencesi kapsamındaki Windows Server Datacenter ve Standard edition lisansları yeniden kaydetmek vererek Contoso geçiş için uygun maliyetli bir yöntem sunar. Bu durum, VM'ler ve SQL Server için daha düşük bir temel işlem ücretini ödemek Contoso olanak sağlar. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/hybrid-benefit/).
+Azure hibrit avantajı, Azure VM ve SQL Server iş yüklerini dönüştürerek kaydetmek için vererek Contoso geçiş için uygun maliyetli bir yöntem sunar veya Yazılım Güvencesi kapsamındaki Windows Server Datacenter ve Standard edition lisansları yeniden kullanılıyor. Bu durum, VM'ler ve SQL Server için daha düşük bir temel işlem ücretini ödemek Contoso olanak sağlar. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 
 #### <a name="license-mobility"></a>Lisans Taşınabilirliği
@@ -126,49 +127,49 @@ SA aracılığıyla lisans taşınabilirliği Contoso gibi Microsoft Toplu Lisan
 
 ![Ayrılmış örnek](./media/contoso-migration-infrastructure/reserved-instance.png) 
 
-Alışık oldukları süreyi büyük sürelerde saklanması gerekir belirli VM örnekleri için ayrılmış örnekler kullanarak lisanslarınıza konsolu bir indirim hem öncelikli kapasite elde edebilirsiniz. Kullanarak [Azure ayrılmış örnekleri](https://azure.microsoft.com/pricing/reserved-vm-instances/)birlikte Azure hibrit teklifi'nden Contoso kazandırabilir %82 varan normal Kullandıkça Öde fiyatlandırması (Nisan 2018).
+Belirli sanal makine için ayrılmış örnekler kullanarak lisanslarınıza örnekleri gerekir saklanabilir süreyi büyük sürelerini konsolu bir indirim hem öncelikli kapasite alabilirsiniz. Kullanarak [Azure ayrılmış örnekleri](https://azure.microsoft.com/pricing/reserved-vm-instances/)birlikte Azure hibrit teklifi'nden Contoso kazandırabilir %82 varan normal Kullandıkça Öde fiyatlandırması (Nisan 2018).
 
 
 ## <a name="step-2-manage-hybrid-identity"></a>2. adım: karma Kimlik Yönetimi
 
-Ayırabilir ve Azure kaynaklarıyla kimlik ve erişim yönetimi (IAM) kullanıcı erişimini denetleme birlikte Azure altyapınızın çekmeden içinde önemli bir adımdır.  
+Ayırabilir ve Azure kaynaklarıyla kimlik ve erişim yönetimi (IAM) kullanıcı erişimini denetleme Azure altyapısının bir araya getirmek, önemli bir adımdır.  
 
 - Contoso yerine kendi şirket içi Active Directory erişimini bulutla genişletmenin azure'da yeni bir ayrı sistemi yapı karar verir.
-- Bir Azure tabanlı Bunu yapmak için Active Directory oluştururlar.
-- Yeni bir Azure AD sağlamak ihtiyaç duydukları böylece Contoso yerine, Office 365 sahip değil.
-- Office 365 kullanıcı yönetimi için Azure AD kullanır. Contoso Office 365 kullanıyorsanız, bunlar zaten bir Azure AD uyarlamanız sahip ve bunların birincil AD kullanan.
+- Bir Azure tabanlı Bunu yapmak için Active Directory oluşturur.
+- Yeni bir Azure AD sağlamak gereken şekilde Contoso yerine, Office 365 sahip değil.
+- Office 365 kullanıcı yönetimi için Azure AD kullanır. Contoso Office 365 kullanıyorsanız, bu zaten bir Azure AD de aynen geçerli olması ve, birincil AD kullanın.
 - [Daha fazla bilgi edinin](https://support.office.com/article/understanding-office-365-identity-and-azure-active-directory-06a189e7-5ec6-4af2-94bf-a22ea225a7a9) Office 365, Azure AD hakkında ve bilgi [abonelik ekleme](https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory) mevcut bir Azure AD için.
 
 ### <a name="create-an-azure-ad"></a>Azure AD oluşturma
 
-Contoso, bir Azure aboneliği ile eklenmiştir. Bu Azure AD ücretsiz sürümü kullanıyor. Yeni bir AD dizini aşağıdaki şekilde ekleyin:
+Contoso, bir Azure aboneliği ile eklenmiştir. Bu Azure AD ücretsiz sürümü kullanıyor. Contoso yöneticileri bir AD dizinini aşağıdaki gibi ayarlayın:
 
-1. İçinde [Azure portalında](http://portal.azure.com/), Contoso gider **kaynak Oluştur** > **kimlik** > **Azure Active Directory**.
+1. İçinde [Azure portalında](http://portal.azure.com/), bunlar gidin **kaynak Oluştur** > **kimlik** > **Azure Active Directory**.
 2. İçinde **dizin oluştur**, dizin için bir ad, bir ilk etki alanı adı ve hangi Azure AD dizini oluşturulmalıdır bölge belirtin.
 
     ![Azure AD oluşturma](./media/contoso-migration-infrastructure/azure-ad-create.png) 
 
     > [!NOTE]
-    > Dizin oluşturduklarında form domainname.onmicrosoft.com içinde bir ilk etki alanı adı vardır. Adı değiştirilmiş veya silinmiş. Bunun yerine, kendi kayıtlı etki alanı adını Azure AD'ye eklemeniz gerekir.
+    > Oluşturulan dizini bir ilk etki alanı adı biçiminde olan **domainname.onmicrosoft.com**. Adı değiştirilmiş veya silinmiş. Bunun yerine, bunlar kaydedilmiş bir etki alanı adını Azure AD'ye eklemeniz gerekir.
 
 ### <a name="add-the-domain-name"></a>Etki alanı adı ekleme
 
-Standart bir etki alanı adı kullanmak için Azure AD'ye özel bir ad eklemek Contoso gerekir. Bu seçenek, yöneticilerin tanıdık kullanıcı adları atama olanak sağlar. Örneğin, bir kullanıcının e-posta adresiyle oturum oturum billg@contoso.com, gerek yerine billg@contosomigration.onmicrosoft.com. 
+Standart bir etki alanı adını kullanmak için Azure AD'ye özel bir ad eklemek Contoso yöneticilerinin gerekir. Bu seçenek hakkında bilgi sahibi kullanıcı adları atama sağlar. Örneğin, bir kullanıcının e-posta adresiyle oturum oturum billg@contoso.com, gerek yerine billg@contosomigration.microsoft.com. 
 
-Özel adı ayarlamak için bunlar dizine eklemek, bir DNS girişi ekleyin ve sonra Azure AD'de adını doğrulayın.
+Ayarlamak için bu dizine ekle özel bir adı bir DNS girişi ekleme ve sonra Azure AD'de adı doğrulayın.
 
 1. İçinde **özel etki alanı adları** > **özel etki alanı Ekle**, bunlar etki alanına ekleyin.
 2. Azure'da bir DNS girişi kullanmak, kendi etki alanı kayıt şirketi ile kaydetmeniz gerekir. 
 
-    - İçinde **özel etki alanı adları** listesinde, bunlar adı için DNS bilgilerini not edin. Contoso bir MX giriş kullanıyor.
-    - Bunlar, bunu yapmak için ad sunucusu erişiminin olması gerekir. Contoso, söz konusu olduğunda, Contoso.com etki alanına oturum ve Not ayrıntıları kullanarak Azure AD tarafından sağlanan DNS girişini için yeni bir MX kayıt oluşturdunuz.  
+    - İçinde **özel etki alanı adları** listesinde, bunlar adı için DNS bilgilerini not edin. Bir MX giriş kullanıyor.
+    - Bunlar, bunu yapmak için ad sunucusu erişiminin olması gerekir. Bunlar, Contoso.com etki alanına oturum ve Not ayrıntıları kullanarak Azure AD tarafından sağlanan DNS girişini için yeni bir MX kaydı oluşturun.  
 1. Ayrıntıları adı etki alanı için DNS kayıtlarının yayılması sonra'ı tıklatın **doğrulama** özel ad denetlemek için.
 
      ![Azure AD DNS](./media/contoso-migration-infrastructure/azure-ad-dns.png) 
 
 ### <a name="set-up-on-premises-and-azure-groups-and-users"></a>Şirket içi ve Azure grupları ve kullanıcıları ayarlama
 
-Kendi Azure AD çalışır duruma geldikten sonra çalışanlara eklemek için Contoso gereksinimlerini şirket içi AD grupları, Azure AD ile eşitler. Azure'daki kaynak grupları adları aynı şirket içi grup adlarını kullanmanızı öneririz. Bu, eşitleme amacıyla eşleşmeleri tanımlamak kolaylaştırır.
+Azure AD çalışır duruma geldikten sonra Yöneticiler çalışanlara eklemenize gerek Contoso Azure AD'ye eşitler AD grupları şirket içi. Bunlar, azure'daki kaynak grupları adları aynı şirket içi grup adlarını kullanmanız gerekir. Bu, eşitleme amacıyla eşleşmeleri tanımlamak kolaylaştırır.
 
 #### <a name="create-resource-groups-in-azure"></a>Azure'da kaynak grupları oluşturma
 
@@ -177,11 +178,11 @@ Azure kaynak grupları, Azure kaynaklarını birbirine toplayın. Bir kaynak gru
 - Birden fazla kaynak grubu bir Azure aboneliğine sahip olabilir, ancak bir kaynak grubu yalnızca tek bir abonelik içinde bulunabilir.
 - Ayrıca, birden çok kaynağı tek bir kaynak grubu olabilir, ancak bir kaynak yalnızca tek bir gruba ait olabilir.
 
-Contoso Azure kaynak gruplarını aşağıdaki tabloda özetlendiği gibi ayarlar.
+Contoso yöneticileri, aşağıdaki tabloda özetlendiği gibi Azure kaynak gruplarını ayarlayın.
 
 **Kaynak grubu** | **Ayrıntılar**
 --- | ---
-**ContosoCobRG** | Bu Grup (COB) iş sürekliliği için ilgili tüm kaynakları içerir.  Contoso Azure Site Recovery hizmeti ve Azure Backup hizmeti kullanırken oluşturduğunuz kasa içerir.<br/><br/> Ayrıca Azure geçişi ve veritabanı geçiş hizmetleri dahil olmak üzere geçiş işlemi için kullanılan kaynakları dahil edilir.
+**ContosoCobRG** | Bu Grup (COB) iş sürekliliği için ilgili tüm kaynakları içerir.  Contoso Azure Site Recovery hizmeti ve Azure Backup hizmeti için kullanacağınız kasa içerir.<br/><br/> Ayrıca Azure geçişi ve veritabanı geçiş hizmetleri dahil olmak üzere geçiş işlemi için kullanılan kaynakları dahil edilir.
 **ContosoDevRG** | Bu grup, geliştirme ve test kaynakları içerir.
 **ContosoFailoverRG** | Bu grup, kaynaklarınız üzerinden işlemi başarısız oldu bir giriş bölgesi işlevi görür.
 **ContosoNetworkingRG** | Bu grup, tüm ağ kaynakları içerir.
@@ -195,10 +196,13 @@ Bunlar gibi kaynak grupları oluşturun:
 
     ![Kaynak grupları](./media/contoso-migration-infrastructure/resource-groups.png) 
 
+##### <a name="scaling-resource-groups"></a>Kaynak grupları ölçeklendirme
+
+Gelecekte, Contoso ihtiyaçlarına göre diğer kaynak gruplarındaki ekler. Örneğin, yönetilebilir ve bağımsız olarak güvenli olacak şekilde her bir uygulama veya hizmet için bir kaynak grubu tanımlayabilirsiniz.
 
 #### <a name="create-matching-security-groups-on-premises"></a>Eşleşen güvenlik grupları şirket içi oluşturma
 
-1. Kendi şirket içi Active Directory'de güvenlik grupları ile Azure kaynak gruplarının adlarını eşleşen adlara Contoso ayarlar.
+1. Şirket içi Active Directory'de güvenlik grupları ile Azure kaynak gruplarının adlarını eşleşen adlara Contoso yöneticileri ayarlayın.
  
     ![Şirket içi AD güvenlik grupları](./media/contoso-migration-infrastructure/on-prem-ad.png) 
 
@@ -206,7 +210,7 @@ Bunlar gibi kaynak grupları oluşturun:
 
 ### <a name="synchronize-ad"></a>AD'yi eşitleme
 
-Contoso, bulutta ve şirket kaynaklarına erişmek için ortak bir kimlik sağlamak istiyor. Bunu yapmak için kendi şirket içi Active Directory Azure AD ile tümleştirin. Bu model ile:
+Contoso, bulutta ve şirket kaynaklarına erişmek için ortak bir kimlik sağlamak istiyor. Bunu yapmak için Azure AD ile şirket içi Active Directory Tümleştirme. Bu model ile:
 
 - Kullanıcılar ve kuruluşlar şirket içi uygulamalara ve bulut Hizmetleri Office 365 veya internet'teki başka siteler binlerce gibi tek bir kimlik yararlanabilirsiniz.
 - Yöneticiler uygulamak için AD'de grupları yararlanabilir [rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) azure'da.
@@ -215,7 +219,8 @@ Tümleştirme kolaylaştırmak için Contoso kullanan [Azure AD Connect aracın�
 
 ### <a name="download-the-tool"></a>Aracı'nı indirme
 
-1. Azure portalında Azure gider **Azure Active Directory** > **Azure AD Connect**ve eşitleme için kullandıkları sunucuyu aracın en son sürümünü indirir.
+
+1. Azure portalında Contoso Yöneticiler gitmek **Azure Active Directory** > **Azure AD Connect**ve sunucu eşitleme için kullandıkları için aracının en son sürümünü indirin.
 
     ![AD Connect indirin](./media/contoso-migration-infrastructure/download-ad-connect.png) 
 
@@ -245,9 +250,9 @@ Tümleştirme kolaylaştırmak için Contoso kullanan [Azure AD Connect aracın�
 
 ### <a name="set-up-rbac"></a>RBAC ayarlayın
 
-Azure [rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak, yalnızca kullanıcıların işlerini yapmak için gereksinim duyduğu erişim miktarını verebilirsiniz. Kullanıcılar, gruplara ve kapsam düzeyinde uygulamalara uygun RBAC rolü atayın. Rol atamasının kapsamı, bir abonelik, kaynak grubu veya tek bir kaynak olabilir. 
+Azure [rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak, kullanıcıların görevleri gerçekleştirmek gereken sadece erişim miktarını verebilirsiniz. Kullanıcılar, gruplara ve kapsam düzeyinde uygulamalara uygun RBAC rolü atayın. Rol atamasının kapsamı, bir abonelik, kaynak grubu veya tek bir kaynak olabilir. 
 
-Contoso, şirket içi ad'nizden eşitlenmiş AD grupları artık rollerini atar.
+Contoso yöneticileri artık, şirket içi ad'nizden eşitlenmiş AD grupları rollerini atar.
 
 1. İçinde **ControlCobRG** kaynak grubu, bunlar tıklayın **erişim denetimi (IAM)** > **Ekle**.
 2. İçinde **izni Ekle** > **rol**, seçtikleri **katkıda bulunan**seçip **ContosoCobRG** listeden AD grubu. Grup içinde görünür ardından **seçili üyeleri** listesi. 
@@ -259,37 +264,51 @@ Contoso, şirket içi ad'nizden eşitlenmiş AD grupları artık rollerini atar.
 
 ## <a name="step-3-design-for-resilience-and-disaster"></a>3. adım: esneklik ve olağanüstü durum için tasarlama
 
+### <a name="set-up-regions"></a>Bölgeleri ayarlayın
+
 Azure kaynakları, bölgeleri içinde dağıtılır.
+
 - Bölgeleri coğrafyalar halinde düzenlenir ve coğrafi sınırlar içinde veri yerleşikliği, özerkliği, uyumluluk ve dayanıklılık gereksinimleri dikkate alınır.
 - Bir bölge, veri merkezlerinden oluşan bir dizi oluşur. Bu veri merkezleri gecikme süresine göre tanımlanmış bir çember içinde dağıtılmış ve adanmış bir bölgesel düşük gecikmeli ağla birbirine bağlanmış.
 - Her Azure bölgesi, dayanıklılık için başka bir bölgeyle eşleştirilir.
 - Hakkında bilgi edinin [Azure bölgeleri](https://azure.microsoft.com/global-infrastructure/regions/)ve anlamak [nasıl eşleştirilmiş bölgeleri](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 
-Contoso, kendi ikincil bölgeye olarak orta ABD ve Doğu (Virginia içinde bulunur) ABD 2, birincil bölge olarak giderek karar vermiştir. Birkaç Bunun nedeni vardır:
+Contoso, ikincil bölge olarak orta ABD ve Doğu (Virginia içinde bulunur) ABD 2 birincil bölge olarak giderek karar vermiştir. Birkaç Bunun nedeni vardır:
 
-- Contoso veri merkezi New York'ta bulunur ve bunlar gecikme süresi en yakın veri merkezine dikkate.
-- Doğu ABD 2 bölgesinde, tüm hizmet ve ürünleri kullanmaya ihtiyaç duydukları sahiptir. Tüm Azure bölgeleri ürünlerini ve hizmetlerini kullanılabilir açısından aynıdır. Gözden geçirebilirsiniz [bölgelere göre Azure ürünleri](https://azure.microsoft.com/global-infrastructure/services/).
+- Contoso veri merkezi New York'ta bulunan ve gecikme süresi en yakın veri merkezine Contoso dikkate.
+- Doğu ABD 2 bölgesinde tüm Contoso kullanması gereken ürünler ve hizmet vardır. Tüm Azure bölgeleri ürünlerini ve hizmetlerini kullanılabilir açısından aynıdır. Gözden geçirebilirsiniz [bölgelere göre Azure ürünleri](https://azure.microsoft.com/global-infrastructure/services/).
 - Orta ABD Doğu ABD 2 için Azure eşleştirilmiş bölgedir.
 
-Kendi hibrit ortamı hakkında düşündüklerini gibi Contoso bölgesi tasarımlarına esnekliği ve bir olağanüstü durum kurtarma stratejisi oluşturmaya nasıl göz önünde bulundurun gerekir. Genel anlamıyla stratejileri aralığı hata etki alanları ve bölgesel dayanıklılık için tam bir aktif-aktif aracılığıyla eşleştirme hangi bulut Hizmetleri ve veritabanı modeli özellikleri, dağıtılan ve hizmet, Azure platformunda kullanan bir tek bölgeli dağıtım Kullanıcıların iki bölgeleri.
+Hibrit ortamı hakkında gördüğü gibi esnekliği ve bir olağanüstü durum kurtarma stratejisi bölge tasarım oluşturma dikkate alınması gereken Contoso gerekir. Genel anlamıyla stratejileri aralığı hata etki alanları ve bölgesel dayanıklılık için tam bir aktif-aktif aracılığıyla eşleştirme hangi bulut Hizmetleri ve veritabanı modeli özellikleri, dağıtılan ve hizmet, Azure platformunda kullanan bir tek bölgeli dağıtım Kullanıcıların iki bölgeleri.
 
-Contoso Orta yol almak karar vermiştir. Bunlar, uygulamalar ve birincil bölgedeki kaynakları dağıtmanıza ve tam yedekleme tam uygulama olağanüstü durum veya bölge hata durumunda olarak davranmak hazır olması ikincil bölgede tam bir altyapı tutun.
+Contoso Orta yol almak karar vermiştir. Uygulama ve kaynakları bir birincil bölgede dağıtma ve tam yedekleme tam uygulama olağanüstü durum veya bölge hata durumunda olarak davranmak üzere hazır olduğunda ikincil bölgede tam bir altyapı tutmak.
+
+### <a name="set-up-availability-zones"></a>Kullanılabilirlik alanları ayarlayın
+
+Kullanılabilirlik alanları, uygulamaları ve verileri, veri merkezi arızasına karşı korumak yardımcı olur.
+
+- Her kullanılabilirlik alanı bir Azure bölgesi içinde benzersiz bir fiziksel konumdur.
+- Her bölge, soğutma ve ağ bağımsız güç ile donatılmış bir veya daha fazla veri merkezlerinden oluşur. 
+- Üç ayrı bölge etkinleştirilmiş tüm bölgelerde en az yoktur.
+- Bölgeleri bir bölge içinde fiziksel olarak ayrılması, uygulamaları ve verileri veri merkezi arızasına karşı korur.
+
+Contoso dağıtacağınızı kullanılabilirlik bölgelerini uygulamaları olarak çağrı ölçeklenebilirlik, yüksek kullanılabilirlik ve dayanıklılık için. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/availability-zones/az-overview). 
 
 
 ## <a name="step-4-design-a-network-infrastructure"></a>4. adım: bir ağ altyapısını tasarlama
 
-Bölge tasarımlarına ile yerinde, bir ağ stratejisi kullanmayı Contoso hazırdır. Bunların nasıl kendi şirket içi veri merkeziniz ile Azure bağlanmak ve birbirleri ile iletişim kurmak ve azure'da ağ altyapınızı tasarlama konusunda dikkat etmeniz gerekir. Özellikle için gerekir:
+Yerinde bölgesel tasarım ile bir ağ stratejisi kullanmayı Contoso hazırdır. Bunun nasıl şirket içi veri merkeziniz ile Azure bağlanmak ve birbirleri ile iletişim kurmak ve azure'da ağ altyapınızı tasarlama konusunda dikkat etmeniz gerekir. Özellikle Contoso gerekir:
 
-**Hibrit ağ bağlantısını planlama**: nasıl ağları şirket içi ve Azure arasında bağlantı sağlamak ilerlediklerini şekil.
-**Azure ağ altyapısını tasarlayın**: Bunlar, bölgeler ağları nasıl dağıtacağınıza karar verin. Nasıl ağları, aynı bölge içinde ve bölgeler arasında iletişim kurar.
+**Hibrit ağ bağlantısını planlama**: nasıl, ağlar, şirket içi ve Azure arasında bağlantı kolaylaştıracağını şekil.
+**Azure ağ altyapısını tasarlayın**: Bu ağlar bölgeler nasıl dağıtacağınız karar verin. Nasıl ağları, aynı bölge içinde ve bölgeler arasında iletişim kurar?
 **Tasarım ve Azure ağları ayarlama**: Azure ağları ve alt ağlar ayarlayın ve bunları ne alacağını karar verin.
 
 ### <a name="plan-hybrid-network-connectivity"></a>Hibrit ağ bağlantısını planlama
 
-Contoso kabul bir [mimarileri sayısı](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) karma kendi şirket içi veri merkeziniz ile Azure arasında ağ için. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/considerations) seçeneklerini karşılaştırma hakkında.
+Contoso kabul bir [mimarileri sayısı](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) karma şirket içi veri merkeziniz ile Azure arasında ağ için. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/considerations) seçeneklerini karşılaştırma hakkında.
 
-Bir anımsatıcı olarak Contoso şirket içi ağ altyapısı şu anda, veri merkezi New York'ta oluşur ve Doğu ABD bölümünde yerel dal.  Tüm Konumlar internet iş sınıfı bağlantısı olmalıdır.  Her dal sonra veri merkezi bir IPSec VPN tüneli aracılığıyla Internet üzerinden bağlı.
+Bir anımsatıcı olarak Contoso şirket içi ağ altyapısı şu anda veri merkezi New York'ta oluşur ve Doğu ABD bölümünde yerel dal.  Tüm Konumlar internet iş sınıfı bağlantısı olmalıdır.  Her dal sonra veri merkezi bir IPSec VPN tüneli aracılığıyla Internet üzerinden bağlı.
 
 ![Contoso ağ](./media/contoso-migration-infrastructure/contoso-networking.png) 
 
@@ -297,7 +316,7 @@ Karma bağlantı uygulamak nasıl Contoso verdi. aşağıda verilmiştir:
 
 1. Contoso veri merkezi New York'ta ve Doğu ABD 2 ve orta ABD iki Azure bölgesi arasında yeni bir siteden siteye VPN bağlantısı ayarlayın.
 2. Azure sanal ağlarına bağlı dal office trafik, ana Contoso veri merkezi yönlendirilecek. 
-3. Bunlar, Azure dağıtımınızın ölçeğini gibi kendi veri merkeziniz ile Azure bölgeleri arasında bir ExpressRoute bağlantısı oluşturmak. Bu durumda, yalnızca yük devretme amacıyla VPN siteden siteye bağlantı korumanız.
+3. Contoso Azure dağıtımı olarak, bu veri merkezi ve Azure bölgeleri arasında bir ExpressRoute bağlantısı kurar. Bu durumda, Contoso VPN siteden siteye bağlantı için yalnızca yük devretme amacıyla korur.
     - [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/considerations) arasında bir VPN ve ExpressRoute hibrit çözüm seçme hakkında.
     - Doğrulama [ExpressRoute konumları ve Destek](https://docs.microsoft.com/azure/expressroute/expressroute-locations-providers).
 
@@ -314,9 +333,9 @@ Karma bağlantı uygulamak nasıl Contoso verdi. aşağıda verilmiştir:
 
 ### <a name="design-the-azure-network-infrastructure"></a>Azure ağ altyapısını tasarlama
 
-Contoso, karma dağıtım güvenli ve ölçeklenebilir bir şekilde yerinde ağları koyar önemlidir. Contoso, bunu yapmak için bir uzun vadeli yaklaşımı ve sanal ağlar (Vnet'ler) esneklik ve kurumsal kullanıma hazır olacak şekilde tasarlama. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) sanal ağları planlama hakkında daha fazla.
+Contoso karma dağıtım güvenli ve ölçeklenebilir bir şekilde yerinde ağları koyar önemlidir. Contoso, bunu yapmak için bir uzun vadeli yaklaşımı ve sanal ağlar (Vnet'ler) esneklik ve kurumsal kullanıma hazır olacak şekilde tasarlama. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) sanal ağları planlama hakkında daha fazla.
 
-Kendi iki bölgeleri bağlanmak için hub hub ağ modeli uygulamak Contoso verdi:
+İki bölgeleri bağlanmak için hub hub ağ modeli uygulamak Contoso verdi:
 
 - Her bölge içinde Contoso hub-and-spoke modelini kullanır.
 - Ağlara ve hub'ları bağlamak için Azure ağ eşlemesi, Contoso kullanır.
@@ -346,10 +365,10 @@ Her bölge içinde Contoso sanal ağlar farklı amaçlar için bileşen ağları
 
 #### <a name="design-the-hub-network"></a>Hub'ı ağ tasarımı
 
-Bunlar hakkında düşünmek zorunda Contoso seçtiği merkez ve ışınsal modelini içinde kendi veri merkezinden şirket içi ve İnternet'ten gelen trafiği, yönlendirilir. Contoso Doğu ABD 2 ve orta ABD hub'ları için yönlendirmeyi işler nasıl karar verdiği aşağıda verilmiştir:
+Contoso seçtiği merkez ve ışınsal modelini içinde bunun nasıl depolayacağınız üzerine düşünmeniz gerekir trafiği şirket içi veri merkezinden ve internet'ten, yönlendirilir. Contoso Doğu ABD 2 ve orta ABD hub'ları için yönlendirmeyi işler nasıl karar verdiği aşağıda verilmiştir:
 
-- Bu paketleri gelen giden ağ bağlantısını izleyin yol olduğundan "ters c", bilinen bir ağ tasarlama konusunda.
-- Ağ mimarisinin iki sınır, güvenilmeyen bir ön uç çevre bölge ve arka uç güvenilir bölgeye sahiptir.
+- Bu paketleri gelen giden ağ bağlantısını izleyin yol olduğundan Contoso "ters c", bilinen bir ağ tasarlama.
+- Ağ mimari iki sınır, güvenilmeyen bir ön uç çevre bölge ve arka uç güvenilir bölgeye sahiptir.
 - Bir güvenlik duvarı erişimi denetlemek için güvenilen her bölgede bir ağ bağdaştırıcısı gerekir.
 - İnternet'ten:
     - Internet trafiği bir yük dengeli genel IP adresi çevre ağında ulaşırsınız.
@@ -366,23 +385,23 @@ Bunlar hakkında düşünmek zorunda Contoso seçtiği merkez ve ışınsal mode
 
 ### <a name="design-and-set-up-azure-networks"></a>Tasarım ve Azure ağları ayarlama
 
-Bir ağ ve yerinde yönlendirme topolojisi ile Contoso kendi Azure ağları ve alt ağlar ayarlamak hazırdır.
+Bir ağ ve yerinde yönlendirme topolojisi ile Contoso Azure ağları ve alt ağlar ayarlamak hazırdır.
 
-- Contoso sınıfı özel ağ (0.0.0.0 için 127.255.255.255) Azure'da uygular. Bu çalışır, adres aralıkları arasında herhangi bir çakışma olmayacak emin olabilir şirket beri geçerli bir sınıf B özel adres alanı 172.160.0/16 sahiptirler.
-- Bunlar, birincil ve ikincil bölgelerdeki sanal ağlar dağıtacağız.
-- Bunlar ön ekini içeren bir adlandırma kuralı kullanacaksınız **VNET** ve bölge kısaltması **EUS2** veya **cu**. Bu standart'ı kullanarak, hub ağları adlandırılacağını **VNET HUB EUS2** (Doğu ABD 2), ve **VNET-HUB-cu** (Orta ABD).
-- Contoso yoksa bir [IPAM çözüm](https://docs.microsoft.com/windows-server/networking/technologies/ipam/ipam-top), NAT ağ yönlendirme için planlamak ihtiyaç duydukları
+- Contoso sınıfı özel ağ (0.0.0.0 için 127.255.255.255) Azure'da uygular. Bu çalışır, Contoso adres aralıkları arasında herhangi bir çakışma olmayacak emin olabilirsiniz. Bu nedenle şirket içi beri şu anda bir sınıf B özel adres alanı 172.160.0/16 yoktur.
+- Birincil ve ikincil bölgelerdeki sanal ağlar'ı dağıtmak için geçiyor.
+- Contoso ön ekiyle bir adlandırma kuralını kullanır **VNET** ve bölge kısaltması **EUS2** veya **cu**. Bu standart'ı kullanarak, hub ağları adlandırılacağını **VNET HUB EUS2** (Doğu ABD 2), ve **VNET-HUB-cu** (Orta ABD).
+- Contoso yoksa bir [IPAM çözüm](https://docs.microsoft.com/windows-server/networking/technologies/ipam/ipam-top)NAT ağ yönlendirme için planlama gerekir
 
 
 #### <a name="virtual-networks-in-east-us-2"></a>Doğu ABD 2, sanal ağlar
 
-Doğu ABD 2, Contoso kaynaklarını ve Hizmetleri dağıtmak için kullanacağı birincil bölgedir. Nasıl içindeki Mimarı ağlara bu. aşağıda verilmiştir:
+Doğu ABD 2, Contoso kaynaklarını ve Hizmetleri dağıtmak için kullanacağı birincil bölgedir. İşte Contoso ağlar içindeki nasıl mimari:
 
-- **Hub**: Doğu ABD 2, VNet hub merkezi kendi şirket içi veri merkezine birincil bağlantı noktasıdır.
+- **Hub**: Doğu ABD 2, VNet hub merkezi şirket içi veri merkezine birincil bağlantı noktasıdır.
 - **Sanal ağlar**: uç Vnet'ler Doğu ABD 2, gerekirse iş yüklerini yalıtmak için kullanılabilir. Yanı sıra Hub sanal ağ, iki uç Vnet'ler Doğu ABD 2, Contoso olacaktır:
     - **VNET GELİŞTİRME EUS2**. Bu sanal ağ geliştirme ve test takımı geliştirme projeleri için tam olarak işlevsel bir ağ olacak sağlar. Bir üretim pilot alanı olarak görev yapacak ve üretim altyapı işlevine güvenirsiniz.
     - **VNET-PROD-EUS2**: Azure Iaas üretim bileşenleri bu ağda oluşturulur. 
-    -  Her sanal ağ kendi benzersiz adres alanı ile bir çakışma sahip olur. NAT gerek kalmadan yönlendirmeyi yapılandırmak istediğiniz
+    -  Her sanal ağ kendi benzersiz adres alanı ile bir çakışma sahip olur. Contoso düşündüğünüz NAT gerek kalmadan yönlendirmeyi yapılandırma
 - **Alt ağlar**:
     - Her uygulama katmanı için her bir ağdaki bir alt ağ olacaktır
     - Üretim ağındaki her alt ağ, geliştirme VNet içinde eşleşen bir alt ağ gerekir.
@@ -438,14 +457,14 @@ Azure Iaas bileşenlerini üretim ağı içinde yer alır. Her uygulama katmanı
 
 #### <a name="virtual-networks-in-central-us-secondary-region"></a>Orta ABD (ikincil bölgeye) sanal ağlar
 
-Orta ABD, Contoso'nun ikincil bölge ' dir. Nasıl içindeki Mimarı ağlara bu. aşağıda verilmiştir:
+Orta ABD, Contoso'nun ikincil bölge ' dir. İşte Contoso ağlar içindeki nasıl mimari:
 
-- **Hub**: Doğu ABD 2, Vnet orta noktası kendi şirket içi veri merkezi ve sanal ağlar Doğu ABD 2, gerekli olursa, iş yüklerini yalıtmak için kullanılabilir uç bağlantısı olan bir hub'ı diğer uçlardan ayrı olarak yönetilir.
-- **Sanal ağlar**: Orta ABD içindeki iki sanal ağ sahip olur:
+- **Hub**: Doğu ABD 2, Vnet orta noktası şirket içi veri merkezi ve sanal ağlar Doğu ABD 2, gerekli olursa, iş yüklerini yalıtmak için kullanılabilir uç bağlantısı olan bir hub'ı diğer uçlardan ayrı olarak yönetilir.
+- **Sanal ağlar**: Contoso Orta ABD'de iki Vnet vardır:
     - VNET-PROD-CU. Bu sanal ağ için VNET-PROD_EUS2 benzer bir üretim ağı var. 
     - VNET-ASR-CU. Bu sanal ağ, Azure Vm'leri, birincil düğümden ikincil bölgeye yük devredildi için bir konum, sanal makineleri şirket içi yük devretme sonrasında oluşturulur veya bir konum olarak görür. Bu ağ benzer üretim ağlara, ancak tüm etki alanı denetleyicilerinde bu.
-    -  Her sanal ağ bölgesinde kendi adres alanı ile bir çakışma sahip olur. NAT gerek kalmadan yönlendirmeyi yapılandırmak istediğiniz
-- **Alt ağlar**: alt ağlar da bu Doğu ABD 2 için benzer bir şekilde tasarlanmış. Bunlar etki alanı denetleyicileri için bir alt ağ gerekmez istisnadır.
+    -  Her sanal ağ bölgesinde kendi adres alanı ile bir çakışma sahip olur. Contoso NAT yönlendirmeyi yapılandırma
+- **Alt ağlar**: alt ağlar da bu Doğu ABD 2 için benzer bir şekilde tasarlanmış. Contoso etki alanı denetleyicileri için bir alt ağ gerektirmeyeceği istisnadır.
 
 Orta ABD içindeki sanal ağlar aşağıdaki tabloda özetlenmiştir.
 
@@ -506,7 +525,7 @@ Tüm bağlantılara için uç sanal ağları hub'ı aracılığıyla şirket iç
 
 ##### <a name="domain-controller"></a>Etki alanı denetleyicisi
 
-VNET-PROD-EUS2 ağdaki etki alanı denetleyicilerinin, Contoso EUS2 hub/üretim ağı arasında hem şirket içi VPN bağlantısı üzerinden akışına istiyor. Bunu yapmak için aşağıdaki izin gerekir:
+VNET-PROD-EUS2 ağdaki etki alanı denetleyicilerinin, Contoso EUS2 hub/üretim ağı arasında hem şirket içi VPN bağlantısı üzerinden akışına istiyor. Bu yapmasını Contoso yöneticileri aşağıdaki izin vermeniz gerekir:
 
 1. **İletilen trafiğe izin ver** ve **ağ geçidi geçişi yapılandırmaları izin** eşlenmiş bağlantı. Bizim örneğimizde bunu VNET-HUB-EUS2 VNET PROD EUS2 bağlantısı olacaktır.
 
@@ -516,7 +535,7 @@ VNET-PROD-EUS2 ağdaki etki alanı denetleyicilerinin, Contoso EUS2 hub/üretim 
 
     ![Eşleme](./media/contoso-migration-infrastructure/peering2.png)
 
-3. Bunlar sanal ağ VPN tüneli üzerinden yönlendirmek için yerel trafiği yönlendiren bir statik rota ayarlayacaksınız şirket içi. Yapılandırma Contoso Azure'a VPN tüneli sağlayan ağ geçidinde tamamlanacaktır. Contoso, Windows Yönlendirme ve Uzaktan erişim için bunu kullanır.
+3. Bunlar sanal ağ VPN tüneli üzerinden yönlendirmek için yerel trafiği yönlendiren bir statik rota ayarlarsınız şirket içi. Yapılandırma Contoso Azure'a VPN tüneli sağlayan ağ geçidinde tamamlanacaktır. Windows Yönlendirme ve Uzaktan erişim için bunu kullanırlar.
 
     ![Eşleme](./media/contoso-migration-infrastructure/peering3.png)
 
@@ -524,7 +543,7 @@ VNET-PROD-EUS2 ağdaki etki alanı denetleyicilerinin, Contoso EUS2 hub/üretim 
 
 Hub'ı aracılığıyla başka bir bölgede spoked eş ağ spoked eş ağ göremez.
 
-Birbirine görmek için her iki bölgede de Contoso'nun üretim ağları için bunlar VNET PROD EUS2 ve HAVALANDIRMA PROD cu için doğrudan eşlenmiş bir bağlantı oluşturmanız gerekir. 
+Birbirine görmek için her iki bölgede de Contoso'nun üretim ağları için Contoso yöneticileri VNET PROD EUS2 ve HAVALANDIRMA PROD cu için doğrudan eşlenmiş bir bağlantı oluşturmanız gerekir. 
 
 ![Eşleme](./media/contoso-migration-infrastructure/peering4.png)
 
@@ -532,16 +551,16 @@ Birbirine görmek için her iki bölgede de Contoso'nun üretim ağları için b
 
 Sanal ağlarda bulunan kaynaklar dağıtırken, birkaç etki alanı adı çözümlemesi için seçenek vardır. Azure tarafından sağlanan ad çözümlemesini kullanmasına veya DNS sunucuları için çözüm sağlar. Kullandığınız ad çözümlemesi türünü nasıl kaynaklarınızı birbirleri ile iletişim kurmak gereken üzerinde bağlıdır. Alma [daha fazla bilgi](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#azure-provided-name-resolution) Azure DNS hizmeti hakkında.
 
-Contoso karar Azure DNS hizmeti, karma ortamda iyi bir seçim değildir. Bunun yerine, şirket içi DNS sunucularından yararlanmak için ilerlediklerini.
+Contoso yöneticileri, Azure DNS hizmeti karma ortamda iyi bir seçim değil karar verdik. Bunun yerine, şirket içi DNS sunucuları yararlanmak için ilerlediklerini.
 
 - Bu bir hibrit ağ tüm VM'ler şirket içinde olduğundan ve Azure düzgün çalışması için adları çözümleyebilmesi gerekir. Başka bir deyişle, özel DNS ayarları için tüm Vnet'lerin uygulanmalıdır.
-- Contoso şu anda Contoso veri merkezi ve şube ofislerindeki dağıtılan Dc'lerine sahiptir. Birincil DNS sunucularından CONTOSODC1(172.16.0.10) ve CONTOSODC2(172.16.0.1) olan
+- Contoso şu anda Contoso veri merkezi ve şube ofislerindeki dağıtılan Dc'lerine sahiptir. Birincil DNS sunucuları CONTOSODC1(172.16.0.10) ve CONTOSODC2(172.16.0.1) olan
 - Sanal ağlar dağıtıldığında, şirket içi etki alanı denetleyicileri ağlarında DNS sunucusu olarak kullanılmak üzere ayarlanır. 
 - Bu, özel DNS VNet üzerinde kullanırken yapılandırmak için Azure'nın yinelemeli Çözümleyicileri IP adresi (168.63.129.16 gibi) DNS listesine eklenmesi gerekir.  Bunu yapmak için her VNet üzerinde Contoso DNS sunucusu ayarlarını yapılandırır. Örneğin, bir VNET HUB EUS2 ağda özel DNS ayarlarını şu şekilde olacaktır:
     
     ![Özel DNS](./media/contoso-migration-infrastructure/custom-dns.png)
 
-Şirket içi etki alanı denetleyicilerini yanı sıra, Contoso seçeceğiz dört daha fazla Azure ağlarının, her bölge için iki destekleyecek şekilde uygulamak için. İşte bunların Azure'da ne dağıtacaksınız.
+Ek olarak şirket içi etki alanı denetleyicileri, Contoso seçeceğiz dört daha fazla Azure ağları, her bölge için iki destekleyecek şekilde uygulamak için. İşte ne Contoso Azure'da dağıtır.
 
 **Bölge** | **DC** | **Sanal ağ** | **Alt ağ** | **IP adresi**
 --- | --- | --- | --- | ---
@@ -550,13 +569,13 @@ EUS2 | CONTOSODC4 | VNET-PROD-EUS2 | ÜRÜN DC EUS2 | 10.245.42.5
 CU | CONTOSODC5 | VNET-PROD-CU | ÜRÜN DC CU | 10.255.42.4
 CU | CONTOSODC6 | VNET-PROD-CU | ÜRÜN DC CU | 10.255.42.4
 
-Şirket içi etki alanı denetleyicileri dağıttıktan sonra Contoso yeni etki alanı denetleyicileri, DNS sunucusu listesinde içerecek şekilde ağlardaki iki bölgesindeki DNS ayarlarının güncelleştirilmesi gerekiyor.
+Contoso, şirket içi etki alanı denetleyicileri dağıttıktan sonra yeni etki alanı denetleyicileri, DNS sunucusu listesinde dahil etmek için ya da bölgesindeki ağlarda DNS ayarlarını güncelleştirme gerekir.
 
 
 
 #### <a name="set-up-domain-controllers-in-azure"></a>Azure'daki etki alanı denetleyicileri ayarlama
 
-Ağ ayarlarını güncelleştirdikten sonra Contoso etki alanı denetleyicilerini azure'da oluşturmak hazır olur.
+Ağ ayarlarını güncelleştirdikten sonra Contoso admins etki alanı denetleyicileri azure'da oluşturmak için hazır olursunuz.
 
 1. Azure portalında bunlar uygun sanal ağa yeni bir Windows Server sanal makine dağıtın.
 2. Bunlar, sanal makine için her bir konumdaki kullanılabilirlik kümeleri oluşturun. Kullanılabilirlik kümeleri, aşağıdakileri yapın:
@@ -564,7 +583,7 @@ Ağ ayarlarını güncelleştirdikten sonra Contoso etki alanı denetleyicilerin
     -  Contoso, azure'da sanal makineler için % 99,95 oranında SLA'sı için uygun olmasını sağlar.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets).
 
     ![Kullanılabilirlik grubu](./media/contoso-migration-infrastructure/availability-group.png) 
-3. VM dağıtıldıktan sonra sanal makine için ağ arabirimi kalem. Burada, bunlar özel IP'si ayarlanan adresi statik olarak ve geçerli bir adres belirtin.
+3. VM dağıtıldıktan sonra VM ağ arabirimini açın. Bunlar, özel IP adresini statik olarak ayarlayın ve geçerli bir adres belirtin.
 
     ![VM NIC](./media/contoso-migration-infrastructure/vm-nic.png)
 
@@ -592,7 +611,7 @@ Ağ ayarlarını güncelleştirdikten sonra Contoso etki alanı denetleyicilerin
 
 ### <a name="set-up-active-directory"></a>Active Directory'yi ayarlama
 
-AD, bir kritik ağ hizmetidir ve doğru şekilde yapılandırılması gerekir. Contoso AD siteleri Contoso veri merkezi ve EUS2 ve cu bölgeleri için oluşturacaksınız.  
+AD, bir kritik ağ hizmetidir ve doğru şekilde yapılandırılması gerekir. AD siteleri Contoso veri merkezi ve EUS2 ve cu bölgeleri için contoso yöneticileri oluşturacaksınız.  
 
 1. Bunlar, iki yeni site (EUS2 AZURE ve AZURE CUS) veri merkezinde sitenin (ContosoDatacenter) birlikte oluşturur.
 2. Siteleri oluşturduktan sonra siteleri sanal ağlar ve veri merkezi eşleştirmek için alt ağlar oluşturun.
@@ -615,7 +634,7 @@ AD, bir kritik ağ hizmetidir ve doğru şekilde yapılandırılması gerekir. C
 
 Azure Hizmetleri ve Azure platformu üzerinde bir dizi idare denetimleri sağlar. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/security/governance-in-azure) seçenekleri hakkında bilgi için.
 
-Yapılandırma kimlik ve erişim denetimi gibi yönetim ve güvenlik bazı yönlerini bir yere koymak Contoso zaten başladı. Genel anlamıyla bunlar göz önünde bulundurmanız gereken üç alan vardır:
+Yapılandırma kimlik ve erişim denetimi gibi yönetim ve güvenlik bazı yönlerini bir yere koymak Contoso zaten başladı. Genel anlamıyla göz önünde bulundurmanız gereken üç alan vardır:
 
 - **İlke**: Azure'da İlkesi uygular ve kaynakları Kurumsal gereksinimleri ve SLA'lar ile uyumlu kalmasını sağlayın, kaynaklarınız üzerinden kuralları ve etkileri zorlar.
 - **Kilitler**: Azure sayesinde kilit abonelikler, kaynak grupları ve diğer kaynaklar, böylece bunu yapmak için yetkiye sahip olanları tarafından yalnızca değiştirilebilir.
@@ -629,8 +648,8 @@ Azure ilkeleri bir ilke tanımı ve ilke ataması, bir ilke uygulanması gereken
 
 Contoso istediğiniz ilkelerin birkaç ile kullanmaya başlamak:
 
-- Kaynakları yalnızca EUS2 ve cu bölgelerinde dağıtılabilir emin olmak için bir ilke isterler.
-- Bunlar yalnızca onaylanan SKU'lara VM SKU'ları sınırlamak istiyorsunuz. Amaç, pahalı VM SKU'ları kullanılmayan sağlamaktır.
+- Bu kaynaklar yalnızca EUS2 ve cu bölgelerinde dağıtılabilir emin olmak için bir ilke istiyor.
+- VM SKU'ları yalnızca onaylanan SKU'lara sınırlandırmak istemektedir. Amaç, pahalı VM SKU'ları kullanılmayan sağlamaktır.
 
 #### <a name="limit-resources-to-regions"></a>Bölgelere sınırı kaynakları
 
@@ -667,7 +686,7 @@ Contoso, yerleşik ilke tanımı kullanacağı **sanal makinelerin SKU'ları** a
 
 ### <a name="set-up-locks"></a>Kilitli ayarlayın
 
-Contoso sistemlerini yönetimi için uzun ITIL framework kullanıyor. Framework'ün en önemli yönlerinden denetim değiştirmektir ve Contoso denetimini Değiştir kendi Azure dağıtımında uygulandığından emin olmak ister.
+Contoso yönetimi, sistemleri için uzun ITIL framework kullanıyor. Framework'ün en önemli yönlerinden denetim değiştirmektir ve Contoso denetimini Değiştir Azure dağıtımında uygulandığından emin olmak istemektedir.
 
 Contoso, kilitler gibi uygulamak için geçiyor:
 
@@ -682,7 +701,7 @@ Eklenen kaynakları izlemek için kaynakları uygun departmanı, müşteri ve or
 
 Bilgi kaynakları ve sahipleri hakkında sağlamaya ek olarak, etiketleri Contoso toplama ve Grup kaynaklarına ve bu verileri geri ödeme amacıyla kullanılmak üzere etkinleştirir.
 
-Contoso kendi Azure varlıkları, iş için anlamlı bir şekilde görselleştirmeniz gerektiğinde. Örnek, ancak rol veya departman için. Kaynakların bir etiketi paylaşması için aynı kaynak grubunda bulunmaları gerekmez unutmayın. Bunu yapmak için Contoso böylece herkesin aynı etiketleri kullanarak basit etiket sınıflandırmanızı oluşturacaksınız.
+İş için anlamlı bir şekilde Azure varlıklarını görselleştirmek contoso gerekir. Örnek, ancak rol veya departman için. Kaynakların bir etiketi paylaşması için aynı kaynak grubunda bulunmaları gerekmez unutmayın. Bunu yapmak için Contoso böylece herkesin aynı etiketleri kullanarak basit etiket sınıflandırmanızı oluşturacaksınız.
 
 **Etiket adı** | **Değer**
 --- | ---
@@ -713,7 +732,7 @@ Orada contoso dikkate alınması gereken birkaç yönü:
 
 ### <a name="work-with-the-azure-security-center"></a>Azure Güvenlik Merkezi ile çalışma
 
-Contoso için yeni hibrit Bulut ve özel Azure iş yüklerini güvenlik durumunu hızlıca görüntülemenizi arıyor.  Sonuç olarak, Contoso Azure Güvenlik Merkezi'ni uygulamak aşağıdaki özelliklerle başlangıç verdi: 
+Contoso, yeni hibrit Bulut ve özel olarak, Azure iş yükleri güvenlik durumunu hızlıca görüntülemenizi için arıyor.  Sonuç olarak, Contoso Azure Güvenlik Merkezi'ni uygulamak aşağıdaki özelliklerle başlangıç verdi: 
 
 - Merkezi ilke yönetimi
 - Sürekli değerlendirme
@@ -721,7 +740,7 @@ Contoso için yeni hibrit Bulut ve özel Azure iş yüklerini güvenlik durumunu
 
 #### <a name="centralize-policy-management"></a>İlke yönetimini merkezden gerçekleştirin
 
-Merkezi ilke yönetimi ile tüm ortamları boyunca güvenlik ilkelerini merkezi olarak yöneterek güvenlik gereksinimleriyle uyumluluk Contoso sağlayacaktır. Bunlar basit ve hızlı tüm Azure kaynakları için geçerli bir ilke uygulayabilir.
+Merkezi ilke yönetimi ile Contoso tüm ortam genelinde güvenlik ilkelerini merkezi olarak yöneterek güvenlik gereksinimleriyle uyumluluk garanti eder. Tüm Azure kaynaklarını için geçerli bir ilke basit ve hızlı bir şekilde uygulayabilir.
 
 ![Güvenlik ilkesi](./media/contoso-migration-infrastructure/security-policy.png)
 
@@ -731,7 +750,7 @@ Contoso makineler, ağlar, depolama, veri ve uygulama güvenliğini izleyen sür
 
 - Güvenlik Merkezi, Contoso'nun işlem, altyapı ve veri kaynakları ve Azure uygulamaları ve Hizmetleri güvenlik durumunu analiz eder.
 - Sürekli değerlendirme veya ağ bağlantı noktalarını kullanıma sunulan güvenlik güncelleştirmeleri eksik olan sistemler gibi olası güvenlik sorunlarını keşfetmek için Contoso operasyon ekibinin'yardımcı olur. 
-- Özellikle Contoso tüm Vm'leri korumalı emin olmak ister. Güvenlik Merkezi bu ile VM sistem durumu doğrulama ve güvenlik açıklarını kötüye önce düzeltmek için önceliği belirlenmiş ve eyleme dönüştürülebilir öneriler yapmak yardımcı olur.
+- Özellikle Contoso tüm VM'lerin korumalı emin olmak ister. Güvenlik Merkezi bu ile VM sistem durumu doğrulama ve güvenlik açıklarını kötüye önce düzeltmek için önceliği belirlenmiş ve eyleme dönüştürülebilir öneriler yapmak yardımcı olur.
 
 ![İzleme](./media/contoso-migration-infrastructure/monitoring.png)
 
@@ -746,14 +765,13 @@ Contoso, ağ trafiğini ağ güvenlik gruplarını kullanarak bir sanal ağ içi
     - Bir uygulama güvenlik grubunu bir güvenlik kuralında kaynak ve hedef olarak belirtebilirsiniz. Güvenlik ilkeniz tanımlandıktan sonra sanal makineler oluşturmak ve VM NIC bir gruba atayın. 
 
 
-Contoso bir karışımını Nsg'leri ve Asg'leri uygular. Bunlar, NSG yönetimi konusunda endişe. Bunlar, Nsg'ler, operasyon personeli için gelebilir karmaşıklığı ve aşırı kullanımı hakkında endişeleniyoruz.  Bunu aklınızda, bunlar genel bir kural kullandıkları iki anahtar ilkeleri benimseyen:
-
+Contoso bir karışımını Nsg'leri ve Asg'leri uygular. Contoso NSG yönetimi konusunda endişe. Nsg'ler aşırı kullanımını ve operasyon personeli için eklenen karmaşıklık hakkında da endişeleniyor.
 - İçine ve dışına tüm alt ağlar (Kuzey-Güney), tüm trafik, Hub ağlardaki GatewaySubnets dışında bir NSG kuralı tabi olacaktır.
 - Herhangi bir güvenlik duvarı veya etki alanı denetleyicisi Nsg'leri alt ağ ve NIC Nsg'ler tarafından korunur.
 - Tüm üretim uygulamaları, uygulanan Asg'ler sahip olur.
 
 
-Contoso, bu müşterilerin uygulamaları için nasıl görüneceğini bir modeli sunmuştur.
+Contoso, bu uygulamaları için nasıl görüneceğini bir modeli sunmuştur.
 
 ![Güvenlik](./media/contoso-migration-infrastructure/asg.png)
 
@@ -772,16 +790,16 @@ Reddet | DenyAllInbound | Herhangi biri | Herhangi biri | Herhangi biri
 Azure Disk şifrelemesi, Denetim yardımcı olmak ve disk şifreleme anahtarlarını ve gizli bir key vault aboneliği yönetmek için Azure Key Vault ile tümleştirilir. Bu, sanal makine disklerindeki tüm veriler Azure depolama alanındaki bekleyen şifrelenmesini sağlar.  
 
 - Contoso, belirli sanal makineler şifrelemesi belirledi.
-- Müşteri, gizli, vm'lere şifrelemeyle veya PPI veri geçerli olacak.
+- Contoso, gizli, müşteri ile Vm'leri için şifreleme veya PPI veri uygulanır.
 
 
 ## <a name="conclusion"></a>Sonuç
 
 Bu makalede, bir Azure altyapısı ve Azure aboneliğinin İlkesi ayarlama Contoso karma tanımlayın, olağanüstü durum kurtarma, ağ, yönetim ve güvenlik. 
 
-Burada, Contoso tamamlanan adımların tümü, buluta geçiş için gerekli değildir. Kendi durumda, bunlar tüm türleri geçişleri için kullanılabilir bir ağ altyapısı planlama istiyordu ve güvenli, dayanıklı ve ölçeklenebilir. 
+Burada, Contoso tamamlanan adımların tümü, buluta geçiş için gerekli değildir. Bu durumda, tüm türleri geçişleri için kullanılabilir bir ağ altyapısı planlama istiyordu ve güvenli, dayanıklı ve ölçeklenebilir. 
 
-Bu altyapı yerinde bunlar ilerleyelim ve geçiş işlemini deneyin hazırsınız demektir.
+Bu altyapı yerinde Contoso ilerleyelim ve geçiş denemek hazırdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

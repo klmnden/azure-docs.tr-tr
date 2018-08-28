@@ -1,31 +1,25 @@
 ---
-title: Power BI çalışma koleksiyonlarında bir veri kaynağına bağlanma | Microsoft Docs
-description: Power BI çalışma alanı koleksiyonu içinde bir veri kaynağına bağlanmak öğrenin.
+title: Power BI çalışma alanı koleksiyonları bir veri kaynağına bağlanma | Microsoft Docs
+description: Power BI çalışma alanı koleksiyonları içinde veri kaynağına bağlanmayı öğreneceksiniz.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 2a4caeb3-255d-4215-9554-0ca8e3568c13
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 5a154c4899db974645bb7ade028d8bd8f267aad7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c626601d9eae7732779020b153c624f80605b56a
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409865"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051884"
 ---
 # <a name="connect-to-a-data-source"></a>Bir veri kaynağına bağlanma
 
-İle **Power BI çalışma koleksiyonları**, raporlar, kendi uygulamanıza eklenebilir. Uygulamanıza bir Power BI raporu, rapor tarafından temel alınan veri bağlanır **alma** yapılandırarak veya verilerin bir kopyasını **doğrudan bağlanma** kullanarak veri kaynağı için **DirectQuery**.
+İle **Power BI çalışma alanı koleksiyonları**, raporları kendi uygulamanıza ekleyebilirsiniz. Power BI raporunu uygulamanıza ekleme, temel alınan verileri raporun bağlandığı **alma** verilerin ya da bir kopyasını **doğrudan bağlanma** kullanarak veri kaynağına için **DirectQuery** .
 
 > [!IMPORTANT]
 > Power BI Çalışma Alanı Koleksiyonları kullanım dışı bırakılmıştır ve Haziran 2018'e kadar veya anlaşmanızda belirtilen süre boyunca kullanılabilecektir. Uygulamanızda kesinti yaşanmaması için Power BI Embedded'a geçirmeyi planlamanız önerilir. Verilerinizi Power BI Embedded'a nasıl taşıyacağınızı öğrenmek için bkz. [Power BI Çalışma Alanı Koleksiyonları'nı Power BI Embedded'a geçirme](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
@@ -34,12 +28,12 @@ ms.locfileid: "31409865"
 
 | İçeri Aktarma | DirectQuery |
 | --- | --- |
-| Tablolar, sütunlar *ve veri* içeri aktarılan veya raporun veri kümesine kopyalar. Temel alınan verilerde meydana değişiklikleri görmek için yenileme veya alma, bir tam, güncel veri kümesini yeniden gerekir. |Yalnızca *tablolar ve sütunlar* içeri aktarılan veya raporun veri kümesine kopyalar. Her zaman en güncel verileri görüntülediğiniz. |
+| Tablolar, sütunlar *ve veri* içeri aktarılan veya raporun veri kümesine kopyalar. Temel alınan verilerde gerçekleşen değişiklikleri görmek için yenileyin veya içeri aktarma, bir tam, güncel veri kümesini tekrar gerekir. |Yalnızca *tablolar ve sütunlar* içeri aktarılan veya raporun veri kümesine kopyalar. Her zaman en güncel verileri görüntülediğiniz. |
 
-Power BI çalışma koleksiyonlarıyla, DirectQuery bulut veri kaynaklarıyla kullanabilirsiniz, ancak veri kaynakları şu anda şirket içi değil.
+Power BI çalışma alanı koleksiyonları ile DirectQuery ile bulut veri kaynakları kullanabilirsiniz ancak şirket içi veri kaynakları şu anda değil.
 
 > [!NOTE]
-> Şirket içi veri ağ geçidi Power BI çalışma koleksiyonlarla şu anda desteklenmiyor. Bu, şirket içi veri kaynakları ile DirectQuery kullanamayacağınız anlamına gelir.
+> Şirket içi veri ağ geçidi, Power BI çalışma alanı koleksiyonları ile şu anda desteklenmiyor. Başka bir deyişle, şirket içi veri kaynakları ile DirectQuery kullanamazsınız.
 
 ## <a name="supported-data-sources"></a>Desteklenen veri kaynakları
 
@@ -49,33 +43,33 @@ Power BI çalışma koleksiyonlarıyla, DirectQuery bulut veri kaynaklarıyla ku
 
 **İçeri Aktarma**
 
-Tüm Power BI Desktop içinde kullanılabilir veri kaynakları kullanarak içeri aktarabilirsiniz. Şunları yapacaksınız **değil** Power BI çalışma alanı koleksiyonu içinde bu verileri yenileyemezsiniz. Değişiklikleri Power BI çalışma koleksiyonlara PBIX dosyanızı karşıya yüklemek zorunda. Ağ geçidi nedeni budur. 
+Tüm Power BI Desktop'ta kullanılabilir veri kaynakları kullanarak içeri aktarabilirsiniz. Şunları yapacaksınız **değil** Power BI çalışma alanı koleksiyonları içinde bu verileri yenileyemezsiniz. Değişiklikleri, Power BI çalışma alanı koleksiyonları, PBIX dosyanızı karşıya yüklemek sahip. Kullanılabilir hiçbir ağ geçidi nedeni budur. 
 
-## <a name="benefits-of-using-directquery"></a>DirectQuery kullanmanın yararları
+## <a name="benefits-of-using-directquery"></a>DirectQuery kullanmanın avantajları
 
-İki birincil avantajları vardır kullanırken **DirectQuery**:
+Kullanırken iki adet birincil avantaj olan **DirectQuery**:
 
-* **DirectQuery** tüm verileri büyük veri kümeleri, burada, aksi takdirde olacaktır ilk alınacak unfeasible üzerinden görselleştirmeleri oluşturmanıza olanak sağlar.
-* Veri değişikliklerini temel alınan veri yenileme gerektirebilir ve bazı raporlar için geçerli verileri görüntülemek için gereken büyük veri aktarımları, yeniden içe aktarılması veri unfeasible yapmadan gerektirebilir. Bunun aksine, **DirectQuery** raporları her zaman güncel verileri kullanın.
+* **DirectQuery** tüm verilerin burada Aksi durumda olacağını ilk içeri aktarma seçeneğinin büyük veri kümeleri üzerinde görselleştirmeler oluşturmanıza olanak sağlar.
+* Veri değişikliklerini temel alınan veri yenilenmesini gerektirir ve bazı raporlarda, mevcut verilerin görüntülenmesi için gereken büyük veri aktarımları, verileri yeniden içe aktarılması olanaksız hale gerektirebilir. Bunun aksine, **DirectQuery** raporlar her zaman mevcut verileri kullanır.
 
-## <a name="limitations-of-directquery"></a>DirectQuery sınırlamaları
+## <a name="limitations-of-directquery"></a>DirectQuery kullanımıyla ilgili sınırlamalar
 
-Kullanımıyla ilgili birkaç sınırlama vardır **DirectQuery**:
+Kullanmaya ilişkin birkaç sınırlama vardır **DirectQuery**:
 
-* Tüm tablolar tek bir veritabanından gelmelidir.
-* Sorgu fazla karmaşık olması durumunda bir hata oluşur. Hatayı gidermek için en az karmaşık olacak şekilde sorguyu yeniden düzenlemeniz gerekir. Sorgu karmaşık olması gerekiyorsa kullanmak yerine verileri içeri aktarmanız gerekir **DirectQuery**.
-* İlişki filtreleme, her iki yönde yerine tek bir yön sınırlıdır.
+* Tüm tabloları, tek bir veritabanına ait olması gerekir.
+* Fazla karmaşık bir sorgudur, bir hata meydana gelir. Hatayı düzeltmek için daha az karmaşık, bu nedenle sorguyu düzenlemelisiniz. Sorgu karmaşık kullanmak yerine, verileri içeri aktarmak gerekirse **DirectQuery**.
+* İlişki filtreleme, her iki yön yerine tek bir yönde sınırlıdır.
 * Bir sütunun veri türünü değiştiremezsiniz.
-* Varsayılan olarak, sınırlamalar ölçüler izin DAX ifadeleri yerleştirilir. Bkz: [DirectQuery ve ölçüleri](#measures).
+* Varsayılan olarak, ölçülerde izin verilen DAX ifadelerine sınırlamaları yerleştirilir. Bkz: [DirectQuery ve ölçüleri](#measures).
 
 <a name="measures"/>
 
-## <a name="directquery-and-measures"></a>DirectQuery ve ölçüleri
-Temel alınan veri kaynağına gönderilen sorguların kabul edilebilir performans sahip emin olmak için sınırlamalar ölçüler üzerinde kullanılan. Kullanırken **Power BI Desktop**, Gelişmiş kullanıcılar seçerek bu sınırlamaya atlamak seçebilirsiniz **Dosya > Seçenekler ve Ayarlar > Seçenekler**. İçinde **seçenekleri** iletişim kutusunda, seçin **DirectQuery**ve seçeneğini **DirectQuery modunda Kısıtlanmamış ölçümlere izin**. Bu seçenek belirlendiğinde, bir ölçü için geçerli olan herhangi bir DAX ifade kullanılabilir. Kullanıcıların farkında olması gerekir; Ancak, ne zaman veriler içeri iyi gerçekleştirmek bazı ifadeleri yavaş neden olabileceğini arka ucuna sorgular zaman içinde kaynak **DirectQuery** modu. 
+## <a name="directquery-and-measures"></a>DirectQuery ve ölçümler
+Temel alınan veri kaynağına gönderilen sorguların kabul edilebilir performansa sahip olmak için sınırlamalar işbirliğiyle uygulanmaktadır. Kullanırken **Power BI Desktop**, Gelişmiş kullanıcıların seçerek bu sınırlamayı atlamayı tercih edebilir **Dosya > Seçenekler ve Ayarlar > Seçenekler**. İçinde **seçenekleri** iletişim kutusunda seçin **DirectQuery**ve seçeneğini **DirectQuery modunda Kısıtlanmamış ölçümlere izin verin**. Bu seçenek belirlendiğinde, bir ölçü için geçerli olan tüm DAX ifadeleri kullanılabilir. Kullanıcılar bilmeniz gerekir; Ancak, veri aktarıldığında iyi performans göstermelerini bazı ifadelerin yavaş neden olabileceğini arka ucuna sorgular zaman içinde kaynak **DirectQuery** modu. 
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 
-* [Microsoft Power BI çalışma koleksiyonları ile çalışmaya başlama](get-started.md)
+* [Microsoft Power BI çalışma alanı koleksiyonları ile çalışmaya başlama](get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
 Başka sorunuz mu var? [Power BI Topluluğu'nu deneyin](http://community.powerbi.com/)

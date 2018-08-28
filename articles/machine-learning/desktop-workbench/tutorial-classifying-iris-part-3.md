@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: 2270080f8612c69a69955202ececab44136f335c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: de0c93ef5b907b56e6ad66a04bb728b5b9aabb9a
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445545"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41917776"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>Öğretici 3: Iris Sınıflandırma: Model dağıtma
 Azure Machine Learning (önizleme) uzman veri bilimcilerine yönelik tümleşik, uçtan uca ve gelişmiş bir analiz çözümüdür. Veri bilimcileri bu çözümü kullanarak veri hazırlayabilir, denemeler geliştirebilir ve bulut ölçeğinde modeller dağıtabilir.
@@ -247,7 +247,7 @@ Geliştirme ve test için _yerel modu_ kullanabilirsiniz. Modeli hazır hale get
    >[!IMPORTANT]
    >Hizmet adının (aynı zamanda yeni Docker görüntüsünün adıdır) tamamının küçük harf olması gerekir. Aksi takdirde bir hata alırsınız. 
 
-1. Komutu çalıştırdığınızda model ve puanlama dosyaları, ortam kurulumu sırasında oluşturduğunuz depolama hesabına yüklenir. Dağıtım işlemi; modeliniz, şemanız ve içindeki puanlama dosyasıyla bir Docker görüntüsünü derleyip Azure kapsayıcı kayıt defterine iletir: **\<ACR_name\>.azureacr.io/\<imagename\>:\<version\>**. 
+1. Komutu çalıştırdığınızda model ve puanlama dosyaları, ortam kurulumu sırasında oluşturduğunuz depolama hesabına yüklenir. Dağıtım işlemi; modeliniz, şemanız ve içindeki puanlama dosyasıyla bir Docker görüntüsünü derleyip Azure kapsayıcı kayıt defterine iletir: **\<ACR_adı\>.azurecr.io/\<görüntü adı\>:\<sürüm\>**. 
 
    Komut daha sonra bu görüntüyü yerel bilgisayarınıza çeker ve bu görüntüyle bir Docker kapsayıcısı başlatır. Ortamınız küme modunda yapılandırılmışsa Docker kapsayıcısı Azure Cloud Services Kubernetes kümesine dağıtılır.
 
@@ -313,7 +313,7 @@ Daha önce gösterilen **az ml service create realtime** komutunun bir alternati
 1. Hizmeti test etmek için döndürülen hizmet çalıştırma komutunu yürütün:
     
    ```azurecli
-   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d '{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}'
    ```
 
    Çıktı, tahmin edilen sınıf olan **"Iris-setosa"** şeklindedir. (Elde ettiğiniz sonuç farklı olabilir.) 

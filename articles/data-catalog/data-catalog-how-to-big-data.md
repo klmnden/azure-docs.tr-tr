@@ -1,36 +1,30 @@
 ---
-title: "'Büyük veri' veri kaynağı ile çalışma | Microsoft Docs"
-description: "Nasıl yapılır makalesi Azure Blob Storage, Azure Data Lake ve Hadoop HDFS dahil 'büyük veri' veri kaynaklarıyla Azure veri Kataloğu'nu kullanarak desenleri vurgulama."
+title: Azure veri Kataloğu'nda 'büyük veri' veri kaynaklarıyla çalışma
+description: Nasıl yapılır makalesi için Azure veri kataloğu kullanarak Azure Blob Depolama, Azure Data Lake ve Hadoop HDFS gibi 'büyük veri' veri kaynaklarıyla desenleri vurgulama.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: NA
-editor: 
-tags: 
+ms.author: maroche
 ms.assetid: 626d1568-0780-4726-bad1-9c5000c6b31a
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: 826676600094b956ff84cc88c61e667841043837
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: d59b637d1c5ad2335492883503e738a80071a8dd
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053645"
 ---
-# <a name="how-to-work-with-big-data-sources-in-azure-data-catalog"></a>Büyük veri kaynaklarında Azure veri Kataloğu ile çalışmaya nasıl
+# <a name="how-to-work-with-big-data-sources-in-azure-data-catalog"></a>Azure veri Kataloğu'nda büyük veri kaynaklarıyla çalışma
 ## <a name="introduction"></a>Giriş
-**Microsoft Azure veri Kataloğu** bir kayıt ve sistemi kurumsal veri kaynakları için bulma görevi gören bir tam olarak yönetilen bir bulut hizmetidir. Tüm yardımcı kişilerle ilgili bulmak, anlamak ve daha fazla değer büyük veri dahil olmak üzere kendi mevcut veri kaynaklarından veri almak için veri kaynakları ve yardımcı kuruluşlar kullanın içindir.
+**Microsoft Azure veri Kataloğu** kayıt ve kurumsal veri kaynakları için bulma sistemi olarak görev yapan tam yönetilen bir bulut hizmetidir. Bu yardımcı kişiler hakkında keşfedin, anlamak ve veri kaynakları ve yardımcı kuruluşların büyük veri dahil olmak üzere, mevcut veri kaynağından daha fazla değer elde kullanacağınızı olur.
 
-**Azure veri Kataloğu** Azure blogu depolama BLOB'ları ve dizinleri yanı sıra Hadoop HDFS dosyaları ve dizinleri kaydını destekler. Bu veri kaynaklarının yarı yapılandırılmış yapısını büyük esneklik sağlar. Ancak, bunları kaydetme en çok değer almak için **Azure veri Kataloğu**, kullanıcıların veri kaynaklarını nasıl düzenlendiği düşünmeniz gerekir.
+**Azure veri Kataloğu** Azure Blog depolama BLOB'ları ve dizinleri yanı sıra Hadoop HDFS dosya ve dizinleri kaydını destekler. Bu veri kaynaklarının yapısını yarı yapılandırılmış büyük esneklik sağlar. Ancak, bunları kaydetme en değerini almak için **Azure veri Kataloğu**, kullanıcıların veri kaynaklarını nasıl düzenlendiği düşünmeniz gerekir.
 
-## <a name="directories-as-logical-data-sets"></a>Mantıksal veri kümeleri olarak dizinler
-Büyük veri kaynakları düzenlemek için genel bir desen dizinleri mantıksal veri kümeleri davran sağlamaktır. Üst düzey dizinleri, bir veri kümesinin alt bölüm tanımlayın ve içerdikleri dosyalar verileri depolamak tanımlamak için kullanılır.
+## <a name="directories-as-logical-data-sets"></a>Mantıksal veri kümesi olarak dizinleri
+Büyük veri kaynakları düzenlemek için yaygın dizinleri mantıksal veri kümesi değerlendirilecek modelidir. Üst düzey dizinleri alt bölümleri tanımlayın ve veri içerdikleri depolamak bir veri kümesi tanımlamak için kullanılır.
 
-Bu desen örneği olabilir:
+Bu düzenin bir örnek olabilir:
 
     \vehicle_maintenance_events
         \2013
@@ -45,25 +39,25 @@ Bu desen örneği olabilir:
         \2013
         ...
 
-Bu örnekte, mantıksal veri kümeleri vehicle_maintenance_events ve location_tracking_events temsil eder. Bu klasörlerinin her biri, ay ve yıl alt klasörler halinde düzenlenmiştir veri dosyalarını içerir. Bu klasörlerinin her biri, yüzlerce veya binlerce dosya büyük olasılıkla içerebilir.
+Bu örnekte, mantıksal veri kümesi vehicle_maintenance_events ve location_tracking_events temsil eder. Bu klasörlerin her yıl ve aya göre alt klasörler halinde düzenlenmiş veri dosyalarını içerir. Bu klasörler, yüzlerce veya binlerce dosya potansiyel olarak içerebilir.
 
-Bu modelinde tek tek dosyalarıyla kaydetme **Azure veri Kataloğu** büyük olasılıkla mantıklı değildir. Bunun yerine, verileri ile çalışma kullanıcılara anlamlı veri kümeleri temsil dizinleri kaydedin.
+Bu düzende, tek tek dosyaları kaydetme **Azure veri Kataloğu** büyük olasılıkla mantıklı değildir. Bunun yerine, verilerle çalışan kullanıcılar için anlamlı veri kümelerini göstermek dizinleri kaydedin.
 
 ## <a name="reference-data-files"></a>Başvuru veri dosyaları
-Tek tek dosyalar olarak başvuru veri kümelerini depolamak için tamamlayıcı bir düzen yöneliktir. Bu veri kümeleri, büyük veri 'küçük' yan düşünülen ve genellikle bir analitik veri modelindeki boyutlara benzer olarak. Başvuru veri dosyaları için başka bir yerde büyük veri deposunda depolanan veri dosyaları toplu bağlamı sağlamak için kullanılan kayıtları içerir.
+Başvuru veri kümeleri, tek tek dosyalar olarak depolamak tamamlayıcı bir desendir. Bu veri kümesi 'küçük' tarafında büyük veri zorlayıcı olabilir ve genellikle bir analitik veri modeli boyutları benzer. Başvuru veri dosyaları, toplu başka bir yerde büyük veri deposunda saklanan veri dosyaları için bağlam sağlamak için kullanılan kayıtları içerir.
 
-Bu desen örneği olabilir:
+Bu düzenin bir örnek olabilir:
 
     \vehicles.csv
     \maintenance_facilities.csv
     \maintenance_types.csv
 
-Bir analisti ya da veri Bilimcisi büyük dizin yapıları içinde yer alan verilerle çalışırken, bu başvuru dosyalardaki veriler yalnızca ada veya Kimliğe göre daha büyük veri kümesinde başvurulan varlıklar için daha ayrıntılı bilgi sağlamak için kullanılabilir.
+Bir analist veya veri Bilimcisi daha büyük bir dizin yapıları, içerdiği veriler ile çalışırken, bu başvuru dosyalardaki veriler yalnızca ada veya Kimliğe göre daha büyük veri kümesinde başvurulan varlıklar için daha ayrıntılı bilgi sağlamak için kullanılabilir.
 
-Bu modelinde tek referans veri dosyalarıyla kaydetmek için mantıklıdır **Azure veri Kataloğu**. Her dosyanın bir veri kümesini temsil eder ve her bir açıklama ve tek tek bulunan.
+Bu düzende, tek başvuru veri dosyalarıyla birlikte kaydetmek için mantıklı **Azure veri Kataloğu**. Her dosya, bir veri kümesini temsil eder ve her bir ek açıklama ve ayrı ayrı bulunan.
 
 ## <a name="alternate-patterns"></a>Alternatif desenleri
-Büyük veri deposu düzenlenebilir yalnızca iki olası yolları önceki bölümde açıklanan desenleri alır, ancak her farklı bir uygulamasıdır. Nasıl veri kaynaklarınızı, büyük veri kaynaklarıyla kaydedilirken yapılandırılmıştır bağımsız olarak **Azure veri Kataloğu**, odak dosyaları ve diğerlerinin içinde değerinin olan veri kümeleri temsil dizinleri kaydetmede, Kuruluş. Tüm dosyaları ve dizinleri kaydetme ne ihtiyaç duydukları bulmak kullanıcılar için daha zor hale getirme katalog daraltabilir.
+Önceki bölümde açıklanan desenleri için büyük veri deposu düzenlenmiş olabilir yalnızca iki olası yolu olsa da, her farklı bir uygulamasıdır. Nasıl veri kaynaklarınızı, büyük veri kaynaklarıyla kaydederken yapılandırılmıştır bakılmaksızın **Azure veri Kataloğu**, dosyaları ve dizinleri temsil eden değer başkalarına içinde veri kümeleri kaydetmede odaklanmak, Kuruluş. Tüm dosyalar ve dizinler kaydetme, kullanıcıların ihtiyaç duydukları bulmak daha zor hale Kataloğu daraltabilir.
 
 ## <a name="summary"></a>Özet
-Veri kaynakları ile kaydetme **Azure veri Kataloğu** bulunmasını ve anlaşılmasını daha kolay hale getirir. Kaydetme ve büyük veri dosyaları ve mantıksal veri kümelerini temsil dizinleri yorumlama ihtiyaç duydukları büyük veri kaynaklarını bulabilir ve kullanıcıların yardımcı olur.
+İle veri kaynaklarını kaydederek **Azure veri Kataloğu** bulunmasını ve anlaşılmasını kolaylaştırır. Kaydetme ve büyük veri dosyaları ve dizinleri temsil eden mantıksal veri kümesi yorumlama, ihtiyaç duydukları büyük veri kaynaklarını bulabilir ve kullanıcılara yardımcı olabilir.

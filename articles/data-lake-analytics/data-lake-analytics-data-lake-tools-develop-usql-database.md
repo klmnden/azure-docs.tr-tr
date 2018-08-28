@@ -1,25 +1,21 @@
 ---
-title: Bir Azure Data Lake için U-SQL veritabanı geliştirme için U-SQL veritabanı projesi kullanın | Microsoft Docs
+title: Bir Azure Data Lake için U-SQL veritabanı geliştirme için U-SQL veritabanı projesi kullanın
 description: Visual Studio için Azure Data Lake Araçları'nı kullanarak U-SQL veritabanı geliştirmeyi öğrenin.
 services: data-lake-analytics
-documentationcenter: ''
 author: yanancai
-manager: ''
-editor: ''
+ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.author: yanacai
-ms.openlocfilehash: 1fee28ad185629b0cb26abb54cc2e196fca791e5
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 98dc33cc961c5c90fc3f6737a1cc470d4a753fd0
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364058"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048766"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Bir Azure Data Lake için U-SQL veritabanı geliştirme için U-SQL veritabanı projesi kullanın
 

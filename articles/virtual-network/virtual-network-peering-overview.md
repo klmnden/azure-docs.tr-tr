@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2018
+ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 63ea834401e5c6798b6f84b6f09a964005d14306
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c20375d42786b817f677be22dee8f4e71e710bc5
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257880"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919606"
 ---
 # <a name="virtual-network-peering"></a>Sanal ağ eşleme
 
@@ -77,7 +77,12 @@ Eşlenmiş sanal ağdaki bir sanal makinenin bağlantı durumuyla ilgili sorunla
 
 ## <a name="requirements-and-constraints"></a>Gereksinimler ve kısıtlamalar
 
-Gereksinimler ve kısıtlamalar hakkında bilgi edinmek için bkz. [Sanal ağ eşleme gereksinimleri ve kısıtlamaları](virtual-network-manage-peering.md#requirements-and-constraints). Bir sanal ağ için oluşturabileceğiniz eşleme sayısı sınırları hakkında bilgi edinmek için bkz. [Azure ağ sınırları](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
+Sanal ağlar genel olarak eşlendiğinde aşağıdaki kısıtlamalar uygulanır:
+- Sanal ağlar, Azure ulusal bulutları haricindeki herhangi bir Azure genel bulut bölgesinde bulunabilir.
+- Bir sanal ağ içindeki kaynaklar, genel olarak eşlenen sanal ağın Azure iç yük dengeleyicisinin ön uç IP adresiyle iletişim kuramaz. Yük dengeleyiciyle iletişim kuran kaynakların aynı bölgede olması gerekir.
+- Uzak ağ geçitlerini kullanamaz veya ağ geçidi geçişine izin veremezsiniz. Uzak ağ geçitlerini kullanmak veya ağ geçidi geçişine izin vermek için eşlenen sanal ağların aynı bölgede olması gerekir.
+
+Gereksinimler ve kısıtlamalar hakkında daha fazla bilgi edinmek için bkz. [Sanal ağ eşleme gereksinimleri ve kısıtlamaları](virtual-network-manage-peering.md#requirements-and-constraints). Bir sanal ağ için oluşturabileceğiniz eşleme sayısı sınırları hakkında bilgi edinmek için bkz. [Azure ağ sınırları](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 
 ## <a name="permissions"></a>İzinler
 
@@ -102,3 +107,4 @@ Ağ geçidi aktarımı, bir sanal ağın şirket içi ve dışı karışık bağ
 
 * [Hub ve bağlı bileşen ağ topolojisi](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json) oluşturmayı öğrenin.
 * Tüm [sanal ağ eşleme ayarları ve ayarların nasıl değiştirileceği](virtual-network-manage-peering.md) hakkında bilgi edinin.
+* Sık sorulan Sanal Ağ Eşleme ve Genel Sanal Ağ Eşleme sorularının yanıtları için bkz. [Sanal Ağ Eşleme Hakkında SSS](virtual-networks-faq.md#vnet-peering)

@@ -1,7 +1,7 @@
 ---
 title: PowerShell ve Azure HDInsight'ı kullanarak Sqoop işleri çalıştırma
 description: Bir Hadoop kümesi ile bir Azure SQL veritabanı arasında Sqoop alma ve için bir iş istasyonundan Azure PowerShell'i kullanma konusunda bilgi edinin.
-editor: jasonwhowell
+ms.reviewer: jasonh
 services: hdinsight
 author: jasonwhowell
 ms.service: hdinsight
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jasonh
-ms.openlocfilehash: 114b818b15d071e4aca2e64363aa3c5895820ece
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 71edb2fb9c3b02ac62670bbfd54adef096cb36e6
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593460"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041211"
 ---
 # <a name="run-sqoop-jobs-by-using-azure-powershell-for-hadoop-in-hdinsight"></a>HDInsight, Hadoop için Azure PowerShell kullanarak Sqoop işleri çalıştırma
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]

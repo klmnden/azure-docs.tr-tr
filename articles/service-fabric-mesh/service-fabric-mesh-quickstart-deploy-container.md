@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 5359920ab32fab65df0466474aec2d305bcf633c
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: a740672ea948bd86efce92c534e0f95f65563438
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091059"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42023155"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Hızlı başlangıç: Merhaba Dünya uygulamasını Service Fabric Mesh’e dağıtma
 
@@ -50,14 +50,14 @@ az group create --name myResourceGroup --location eastus
 ```azurecli-interactive
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}" 
 ```
-Önceki komut, [mesh_rp.linux.json şablonunu](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json) kullanarak bir Linux dağıtır. Windows uygulaması dağıtmak istiyorsanız [mesh_rp.windows.json şablonunu](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json) kullanın. Windows kapsayıcı görüntüleri Linux kapsayıcı görüntülerinden büyüktür ve dağıtılması daha uzun sürebilir.
+Önceki komut, [mesh_rp.linux.json şablonunu](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json) kullanarak bir Linux uygulamasını dağıtır. Windows uygulaması dağıtmak istiyorsanız [mesh_rp.windows.json şablonunu](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json) kullanın. Windows kapsayıcı görüntüleri Linux kapsayıcı görüntülerinden büyüktür ve dağıtılması daha uzun sürebilir.
 
 Birkaç dakika içinde komut şunu döndürür:
 
 `helloWorldApp has been deployed successfully on helloWorldNetwork with public ip address <IP Address>` 
 
 ## <a name="open-the-application"></a>Uygulamayı açma
-Uygulama başarıyla dağıtıldıktan sonra, CLI çıkışından hizmet uç noktası için genel IP adresini kopyalayın.  Web tarayıcısında IP adresini açın. Azure Service Fabric Mesh logosunun yer aldığı bir web sayfası görüntülenir.
+Uygulama başarıyla dağıtıldıktan sonra, CLI çıkışından hizmet uç noktası için genel IP adresini kopyalayın. Web tarayıcısında IP adresini açın. Azure Service Fabric Mesh logosunun yer aldığı bir web sayfası görüntülenir.
 
 ## <a name="check-the-application-details"></a>Uygulama ayrıntılarını denetleme
 `az mesh app show` komutunu kullanarak uygulamanın durumunu denetleyebilirsiniz. Bu komut, takip edebileceğiniz yararlı bilgiler sağlar.

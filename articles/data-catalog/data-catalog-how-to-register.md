@@ -1,89 +1,83 @@
 ---
-title: "Azure veri Kataloğu'nda veri kaynaklarını kaydetme | Microsoft Docs"
-description: "Bu makalede, Azure veri Kataloğu, kayıt sırasında ayıklanan meta veri alanları da dahil olmak üzere veri kaynaklarını kaydetme vurgular."
+title: Azure veri Kataloğu'nda veri kaynaklarını kaydetme
+description: Bu makalede, kayıt sırasında ayıklanan meta veri alanları dahil olmak üzere, Azure veri Kataloğu'nda veri kaynaklarını kaydetme vurgulanır.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: NA
-editor: 
-tags: 
+ms.author: maroche
 ms.assetid: bab89906-186f-4d35-9ffd-61b1d903905d
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: 48b13eef0960afb4aab68923fb97b5b9c14a3d9f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 4688b58b40df110a33f9310226db9a6412f43054
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053394"
 ---
 # <a name="register-data-sources-in-azure-data-catalog"></a>Azure veri Kataloğu'nda veri kaynaklarını kaydetme
 ## <a name="introduction"></a>Giriş
-Azure veri Kataloğu kayıt ve bulma kurumsal veri kaynakları için bir sistem görevi gören bir tam olarak yönetilen bir bulut hizmetidir. Diğer bir deyişle, Bul, anlamak ve veri kaynaklarını kullanan kişilerin veri Kataloğu yardımcı olur ve daha fazla değer, var olan verilerden alma kuruluşlar yardımcı olur. Bir veri kaynağına veri Kataloğu aracılığıyla bulunabilir olmasını ilk adım, bu veri kaynağına kaydetmek için olması önerilir.
+Azure veri Kataloğu, kayıt ve kurumsal veri kaynakları için bulma sistemi olarak görev yapan tam yönetilen bir bulut hizmetidir. Diğer bir deyişle, keşfedin, anlamak ve veri kaynaklarını kullanan kişiler veri Kataloğu yardımcı olur ve bu kuruluşların var olan verilerden daha fazla değer elde etmesine yardımcı olur. Bir veri kaynağı, veri Kataloğu aracılığıyla bulunabilir hale ilk adımı, bu veri kaynağını kaydetme sağlamaktır.
 
 ## <a name="register-data-sources"></a>Veri kaynaklarını kaydetme
-Kayıt veri kaynağından meta verilerin ayıklanması ve bu verileri veri Kataloğu hizmetine kopyalanması işlemidir. Veriler o anda bulunduğu yerde kalır ve geçerli sistemin yöneticilerinin ve ilkelerinin denetiminde olmaya devam eder.
+Kayıt, veri kaynağından meta verilerin ayıklanması ve bu verileri veri Kataloğu hizmetine kopyalanması işlemidir. Veriler o anda bulunduğu yerde kalır ve geçerli sistemin yöneticilerinin ve ilkelerinin denetiminde olmaya devam eder.
 
 Bir veri kaynağına kaydetmek için aşağıdakileri yapın:
-1. Azure veri Kataloğu portalında veri Kataloğu veri kaynağı kayıt aracını başlatın. 
-2. İş veya Okul hesabınızı portalında oturum açmak için kullandığınız aynı Azure Active Directory kimlik bilgileriyle oturum açın.
+1. Azure veri Kataloğu Portalı'nda, veri Kataloğu veri kaynağı kayıt aracını başlatın. 
+2. Portalda oturum açmak için kullandığınız aynı Azure Active Directory kimlik bilgileri, bir iş veya Okul hesabınızla oturum açın.
 3. Kaydetmek istediğiniz veri kaynağını seçin.
 
-Daha fazla adım adım ayrıntılar için bkz: [Azure veri Kataloğu ile çalışmaya başlama](data-catalog-get-started.md) Öğreticisi.
+Adım adım daha fazla ayrıntı için [Azure veri Kataloğu ile çalışmaya başlama](data-catalog-get-started.md) öğretici.
 
-Veri kaynağı kaydınız sonra katalog konumunu izler ve meta verilerini dizinler. Kullanıcıların arama, göz atın ve veri kaynağını Bul ve buna uygulama veya kendi seçtikleri aracını kullanarak bağlanmak için konumuna kullanın.
+Veri kaynağı kaydettikten sonra katalog konumunu izler ve meta verilerini dizinler. Kullanıcıların arama, göz atın ve veri kaynağı bulma ve sonra uygulama veya kendi seçtikleri aracını kullanarak bağlanmak için konumu kullanın.
 
 ## <a name="supported-data-sources"></a>Desteklenen veri kaynakları
-Şu anda desteklenen veri kaynaklarının listesi için bkz: [veri Kataloğu DSR](data-catalog-dsr.md).
+Şu anda desteklenen veri kaynakları listesi için bkz. [veri Kataloğu DSR](data-catalog-dsr.md).
 
 ## <a name="structural-metadata"></a>Yapısal meta verileri
-Bir veri kaynağını kaydettiğinizde, kayıt aracı seçtiğiniz nesnelerin yapısı hakkında bilgi ayıklar. Bu bilgiler yapısal meta verilerin adlandırılır.
+Bir veri kaynağını kaydettiğinizde, kayıt aracı, seçtiğiniz nesnelerin yapısı hakkında bilgi ayıklar. Bu bilgiler, yapısal meta verilerin adlandırılır.
 
-Tüm nesneler için bu yapısal meta verilerin nesnenin konumunu içerir verileri Bul kullanıcılar kendi seçtikleri istemci araçlarında nesnesine bağlamak için bu bilgileri kullanabilir. Nesne adı ve türü diğer yapısal meta verileri içerir ve öznitelik/sütun adı ve veri türü.
+Verileri bulma kullanıcılar istedikleri istemci araçlarını nesnesinde bağlanmak için bu bilgileri kullanabilir, böylece tüm nesneler için nesnenin konumu bu yapısal meta verileri içerir. Nesne adı ve türü diğer yapısal meta verileri içerir ve öznitelik/sütun adı ve veri türü.
 
 ## <a name="descriptive-metadata"></a>Açıklayıcı meta verileri
-Veri kaynağından ayıklanan çekirdek yapısal meta verilerin yanı sıra, veri kaynağı kayıt aracını açıklayıcı meta verileri ayıklar. SQL Server Analysis Services ve SQL Server Reporting Services için bu hizmetleri tarafından sunulan açıklama özellikleri bu meta veriler alınır. SQL Server, ms kullanarak sağlanan değerler için\_genişletilmiş özellik açıklama ayıklanır. Oracle veritabanı için veri kaynağı kayıt aracını açıklamalar sütununda tüm ayıklar\_sekmesini\_açıklamaları görünümü.
+Veri kaynağından ayıklanan çekirdek yapısal meta verilere ek olarak, veri kaynağı kayıt aracını açıklayıcı meta verileri ayıklar. SQL Server Analysis Services ve SQL Server Reporting Services için bu hizmetleri tarafından kullanıma sunulan açıklama özellikleri bu meta veriler alınır. SQL Server, ms tarafından sağlanan değerler için\_genişletilmiş özelliği Açıklama ayıklanır. Oracle veritabanı için veri kaynağı kayıt aracını COMMENTS sütunu tüm ayıklar\_sekmesini\_açıklamaları görüntüle.
 
-Veri kaynağından ayıklanan açıklayıcı meta verileri ek olarak, kullanıcılar veri kaynağı kayıt aracını kullanarak açıklayıcı meta verileri girebilirsiniz. Kullanıcılar etiketleri ekleyebilir ve Kaydedilmekte nesneler için uzmanlar tanımlayabilirsiniz. Bu tanımlayıcı meta veri Kataloğu hizmetinin yapısal meta verilerin yanı sıra kopyalanır.
+Veri kaynağından ayıklanan açıklama meta veriler yanı sıra, kullanıcıların açıklayıcı meta verileri veri kaynağı kayıt aracını kullanarak girebilirsiniz. Kullanıcılar etiketler ekleyebilir ve bunlar experts routesuffix nesneler için belirleyebilirsiniz. Bu tanımlayıcı meta veri Kataloğu hizmetine yapısal meta verilerin yanı sıra kopyalanır.
 
 ## <a name="include-previews"></a>Önizlemeler içerir
-Varsayılan olarak, yalnızca meta veri kaynaklarından ayıklanan ve veri Kataloğu hizmet ancak içerdiği verilerin bir örnek görüntülediğinizde, bir veri kaynağı genellikle kolaylaştırılır anlama kopyalanır.
+Varsayılan olarak, yalnızca meta veri kaynaklarından ayıklanıp ve veri Kataloğu hizmeti, ancak içerdiği verilerin bir örnek görüntülediğinizde bir veri kaynağı genellikle daha kolay anlama kopyalanır.
 
-Veri Kataloğu veri kaynağı kayıt aracını kullanarak, verilerin bir anlık görüntü önizlemesini her tablo ve kayıtlı görünüm içerebilir. Kayıt sırasında önizlemeleri eklemeyi seçerseniz, kayıt aracı her tablo ve görünüm en fazla 20 kayıt içerir. Bu anlık görüntü sonra yapısal ve açıklayıcı meta verileri birlikte kataloğa kopyalanır.
+Veri Kataloğu veri kaynağı kayıt aracını kullanarak, her bir tablo ve kayıtlı görünüm verilerin bir anlık görüntü önizlemesini içerebilir. Kayıt sırasında önizlemeleri eklemek isterseniz, kayıt aracı her bir tablo ve görünüm en fazla 20 kayıt içerir. Bu anlık görüntü, ardından birlikte yapısal ve açıklayıcı meta veri Kataloğu'na kopyalanır.
 
 > [!NOTE]
-> Çok sayıda sütun geniş tablolarla 20'den az kayıtları kendi Önizleme'de dahil olabilir.
+> Çok sayıda sütun içeren geniş tablolarda, 20'den az kayıt, preview sürümüne sahip olabilir.
 >
 >
 
-## <a name="include-data-profiles"></a>Veri profiller içerir
-Dahil olmak üzere önizlemeleri veri Kataloğu veri kaynaklarında arama kullanıcılar için değerli bağlamı yalnızca sağlayabilir gibi bir veri profili dahil olmak üzere, bulunan veri kaynaklarını anlamasına olanak kolaylaştırabilir.
+## <a name="include-data-profiles"></a>Veri profilleri içerir
+Önizlemeleri de dahil olmak üzere veri Kataloğu'nda veri kaynakları için arama kullanıcılar için değerli bağlam yalnızca sağlayabilir gibi bir veri profili dahil olmak üzere, bulunan veri kaynaklarını anlamasına olanak kolaylaştırabilir.
 
-Veri Kataloğu veri kaynağı kayıt aracını kullanarak, her bir tablo ve kayıtlı görünüm için bir veri profili içerebilir. Kayıt sırasında veri profili Ekle seçerseniz, kayıt aracı veri ilgili toplu istatistikler her tablo ve görünüm içeren dahil olmak üzere:
+Veri Kataloğu veri kaynağı kayıt aracını kullanarak, her bir tablo ya da kayıtlı görünüm için bir veri profili içerebilir. Veri profili kayıt sırasında içerecek şekilde seçerseniz, kayıt aracı verileri ilgili toplu istatistikler her bir tablo ve görünüm içerir dahil olmak üzere:
 
-* Satır ve nesnesindeki verilerin boyutunu sayısı.
-* Veri ve nesne şemasının en son güncelleştirme tarihi.
-* Boş kayıtlar ve sütunlar için farklı değerleri sayısı.
+* Satır ve nesne verilerin boyutunu sayısı.
+* Veri nesnesinin şema ve en son güncelleştirme tarihi.
+* Null kayıtları ve sütun için farklı değerler sayısı.
 * Sütunlar için minimum, maksimum, ortalama ve standart sapma değerleri.
 
-Bu istatistikler sonra yapısal ve açıklayıcı meta verileri birlikte kataloğa kopyalanır.
+Bu istatistikler, ardından birlikte yapısal ve açıklayıcı meta veri Kataloğu'na kopyalanır.
 
 > [!NOTE]
-> Metin ve tarih sütunlarını ortalama veya standart sapma istatistikleri kendi veri profili dahil etmeyin.
+> Metin ve tarih sütunlarını ortalama veya standart sapma istatistikleri veri profilinde dahil değildir.
 >
 >
 
 ## <a name="update-registrations"></a>Güncelleştirme kayıtları
-Meta veri ve isteğe bağlı Önizleme kayıt sırasında ayıklanan kullandığınızda bir veri kaynağı kaydetme veri Kataloğu'nda bulunabilir kolaylaştırır. Veri kaynağı (örneğin, bir nesne şema değişti, başlangıçta dışlanan tabloları dahil edilecek veya önizlemelerde dahil verileri güncelleştirmek istediğiniz varsa) katalogdaki güncelleştirilmesi gerekiyorsa, veri kaynağı kayıt aracını yeniden çalıştırabilirsiniz.
+Meta veriler ve isteğe bağlı Önizleme kayıt sırasında ayıklanan kullandığınızda bir veri kaynağı kaydetme, veri Kataloğu'nda bulunabilir kolaylaştırır. Veri kaynağı (örneğin, bir nesnenin şeması değişmiş, ilk olarak çıkarılan tabloları dahil edilmesi gereken veya önizlemelerinde dahil veri güncelleştirmek istediğiniz varsa) katalogdaki güncelleştirilmesi gerekiyorsa, veri kaynağı kayıt aracını yeniden çalıştırabilirsiniz.
 
-Zaten kayıtlı veri kaynağı yeniden kaydetme birleştirme "upsert" işlemi gerçekleştirir: var olan nesneleri güncelleştirilir ve yeni nesneler oluşturulur. Veri Kataloğu portalı yoluyla kullanıcılar tarafından sağlanan herhangi bir meta veri korunur.
+Zaten kayıtlı veri kaynağı'nı yeniden kaydederek bir birleştirme "upsert" işlemi gerçekleştirir: varolan nesneleri güncelleştirilir ve yeni nesneler oluşturulur. Veri Kataloğu portalı yoluyla kullanıcılar tarafından sağlanan herhangi bir meta veri korunur.
 
 ## <a name="summary"></a>Özet
-Bu yapısal ve açıklayıcı meta verileri veri kaynağından Kataloğu hizmetine kopyalar olduğundan, veri Kataloğu'nda veri kaynağı kaydetme veri bulunmasını ve anlaşılmasını kolaylaştırır. Veri kaynağı kaydettikten sonra açıklama, yönetmek ve veri Kataloğu portalını kullanarak keşfedin.
+Bu yapısal ve açıklayıcı meta verileri bir veri kaynağından için katalog hizmeti kopyaladığı için veri Kataloğu'nda veri kaynağı kaydetme verileri bulunmasını ve anlaşılmasını kolaylaştırır. Veri kaynağı kaydettikten sonra ek açıklama, yönetmek ve veri Kataloğu portalını kullanarak keşfedin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Veri kaynaklarını kaydetme hakkında daha fazla bilgi için bkz: [Azure veri Kataloğu ile çalışmaya başlama](data-catalog-get-started.md) Öğreticisi.
+Veri kaynaklarını kaydetme hakkında daha fazla bilgi için bkz. [Azure veri Kataloğu ile çalışmaya başlama](data-catalog-get-started.md) öğretici.

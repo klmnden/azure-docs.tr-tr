@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/23/2018
+ms.date: 8/8/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 851c8c1eb13497355038ef4a8d5f1f9326c8c3bc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 179db61777fe60ae53d7fee553c8124d7a9f7abf
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781189"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42022946"
 ---
 # <a name="what-is-azure-virtual-network"></a>Azure Sanal Ağı nedir?
 
@@ -37,7 +37,10 @@ Her Azure [aboneliğinde](../azure-glossary-cloud-terminology.md?toc=%2fazure%2f
 
 ## <a name="communicate-with-the-internet"></a>İnternet ile iletişim kurma
 
-Bir sanal ağdaki tüm kaynaklar varsayılan olarak İnternet’e giden yönde iletişim kurabilir. Bir kaynağa genel IP adresi atayarak o kaynağa gelen yönde iletişim kurabilirsiniz. Daha fazla bilgi için bkz. [Genel IP adresleri](virtual-network-public-ip-address.md).
+Bir sanal ağdaki tüm kaynaklar varsayılan olarak İnternet’e giden yönde iletişim kurabilir. Bir kaynağa genel IP adresi veya genel Load Balancer atayarak o kaynağa gelen yönde iletişim kurabilirsiniz. Giden bağlantılarınızı yönetmek için genel IP adresi veya genel Load Balancer da kullanabilirsiniz.  Azure'daki giden bağlantılar hakkında daha fazla bilgi edinmek için bkz. [Giden bağlantılar](../load-balancer/load-balancer-outbound-connections.md), [Genel IP adresleri](virtual-network-public-ip-address.md) ve [Load Balancer](../load-balancer/load-balancer-overview.md).
+
+>[!NOTE]
+>Yalnızca sistem içi [Standart Load Balancer](../load-balancer/load-balancer-standard-overview.md) kullanıldığında [giden bağlantıların](../load-balancer/load-balancer-outbound-connections.md) örnek düzeyinde genel IP veya genel Load Balancer ile nasıl çalışacağını tanımlamadığınız sürece giden bağlantı kullanılamaz.
 
 ## <a name="communicate-between-azure-resources"></a>Azure kaynakları arasında iletişim kurma
 

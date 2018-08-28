@@ -1,46 +1,45 @@
 ---
-title: Azure portalını kullanarak Azure Data Lake Analytics işlerini izleme
-description: Bu makalede, Azure Data Lake Analytics işlerini gidermek için Azure Portalı'nı kullanmayı açıklar.
+title: Azure portalını kullanarak Azure Data Lake Analytics işleri izleme
+description: Bu makalede, Azure Data Lake Analytics işlerinde sorun gidermek için Azure portalını kullanmayı açıklar.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 8c61b8736dfb13f0c2c2520f22979ac51646e05f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1e18addc43e53cb45e92966607ad5d1db2b42c3c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623664"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046728"
 ---
-# <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>Azure Portal kullanarak Azure Data Lake Analytics işlerini izleme
+# <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>Azure portalı kullanarak Azure Data Lake Analytics işleri izleme
 
 **Tüm işleri görmek için**
 
-1. Azure portalından tıklatın **Microsoft Azure** sol üst köşedeki.
-2. Data Lake Analytics hesap adınızı içeren kutucuğa tıklayın.  İş özeti gösterilir **iş yönetimi** döşeme.
+1. Azure portalından tıklayın **Microsoft Azure** sol üst köşedeki.
+2. Data Lake Analytics hesap adınızı içeren kutucuğa tıklayın.  İş özetinde gösterilir **iş yönetimi** Döşe.
 
     ![Azure Data Lake Analytics iş yönetimi](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-job-management.png)
 
-    Proje yönetimi, iş durumunu bir bakışta sağlar. Başarısız bir işi olduğuna dikkat edin.
-3. Tıklatın **iş yönetimi** işleri görmek için döşeme. İşlerini kategorilere ayrılır **çalıştıran**, **sıraya alınan**, ve **sona erdi**. Başarısız işinizde göreceksiniz **sona erdi** bölümü. Listedeki ilk bir olacaktır. İşlerini çok sahip olduğunuzda, tıklayabilirsiniz **filtre** işleri bulmanıza yardımcı olacak.
+    ' % S'proje yönetimi, iş durumunu bir bakışta sunar. Başarısız bir işi olduğuna dikkat edin.
+3. Tıklayın **iş yönetimi** işleri görmek için kutucuğu. İşleri kategorize edilir **çalıştıran**, **sıraya alınan**, ve **Bitti**. İçinde başarısız işi göreceksiniz **Bitti** bölümü. Bu listedeki ilk öğe olmalıdır. İşleri çok fazla olduğunda tıklayabilirsiniz **filtre** işleri bulmanıza yardımcı olacak.
 
-    ![Azure Data Lake Analytics işleri filtreleyin](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
+    ![Azure Data Lake Analytics işleri Filtrele](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
 4. İş ayrıntılarını açmak için listeden başarısız işi tıklayın:
 
     ![Azure Data Lake Analytics işi başarısız oldu](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job.png)
 
-    Bildirim **yeniden gönderin** düğmesi. Sorunu düzelttikten sonra işi yeniden gönderebilirsiniz.
-5. Hata ayrıntılarını açmak için önceki ekran görüntüsünde vurgulanan bölümünden'ı tıklatın.  Benzer bir şey göreceksiniz:
+    Bildirim **yeniden** düğmesi. Sorunu düzelttikten sonra işi yeniden gönderebilirsiniz.
+5. Hata ayrıntılarını açmak için önceki ekran görüntüsünde vurgulanan bölümünden tıklayın.  Benzer bir şey görmeniz gerekir:
 
     ![Azure Data Lake Analytics işi ayrıntıları ile başarısız oldu.](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job-details.png)
 
     Kaynak klasörü bulunamadı söyler.
-6. Tıklatın **yinelenen komut dosyası**.
+6. Tıklayın **yinelenen betik**.
 7. Güncelleştirme **FROM** yolu:
 
     "/ Samples/Data/SearchLog.tsv"

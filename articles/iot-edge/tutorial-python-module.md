@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5766f9708d2439f42f9ad77169fd1fe7f7dc451e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6cf3a721dfd601fc4d4beb122f56b4a4de5fe426
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439121"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41921078"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Öğretici: Python IoT Edge modülü geliştirme ve sanal cihazınıza dağıtma
 
@@ -37,7 +37,7 @@ Bu öğreticide oluşturacağınız IoT Edge modülü, cihazınız tarafından o
 Bir Azure IoT Edge cihazı:
 
 * [Linux](quickstart-linux.md) için hızlı başlangıç adımlarını izleyerek dağıtım makinenizi veya sanal makinenizi bir Edge cihazı olarak kullanabilirsiniz.
-* IoT Edge Python modülleri ARM işlemcileri veya Windows cihazları desteklemez.
+* IoT Edge Python modülleri Windows cihazları desteklemez.
 
 Bulut kaynakları:
 
@@ -51,6 +51,9 @@ Geliştirme kaynakları:
 * [Docker CE](https://docs.docker.com/engine/installation/). 
 * [Python](https://www.python.org/downloads/).
 * Python paketlerini (genellikle Python yüklemenize dahildir) yüklemek için [PIP](https://pip.pypa.io/en/stable/installing/#installation).
+
+>[!Note]
+>`bin` klasörünüzün platformunuzun yolunda olduğundan emin olun. Bu yol genelde UNIX ve macOS için `~/.local/`, Windows için `%APPDATA%\Python` olacaktır.
 
 ## <a name="create-a-container-registry"></a>Kapsayıcı kayıt defteri oluşturma
 Bu öğreticide modül hazırlamak ve dosyalardan bir **kapsayıcı görüntüsü** oluşturmak için VS Code için Azure IoT Edge uzantısını kullanırsınız. Ardından bu görüntüyü, görüntülerinizin depolandığı ve yönetildiği **kayıt defterine** gönderirsiniz. Son olarak, görüntünüzü IoT Edge cihazınızda çalıştırmak üzere kayıt defterinizden dağıtırsınız.  
@@ -78,6 +81,8 @@ Aşağıdaki adımlarda, Visual Studio Code'u ve Azure IoT Python modülünü ku
     ```cmd/sh
     pip install --upgrade --user cookiecutter
     ```
+   >[!Note]
+   >Komut isteminden çağrılabilmesi için cookiecutter paketinin yükleneceği dizinin ortamınızın `Path` yolunda olduğundan emin olun.
 
 3. VS Code komut paletini açmak için **View (Görünüm)** > **Command Palette (Komut Paleti)** öğesini seçin. 
 
@@ -91,7 +96,13 @@ Aşağıdaki adımlarda, Visual Studio Code'u ve Azure IoT Python modülünü ku
    4. Modülünüze **PythonModule** adını verin. 
    5. İlk modülünüz için görüntü deposu olarak önceki bölümde oluşturduğunuz Azure Container Registry bileşenini belirtin. **localhost:5000** yerine kopyaladığınız oturum açma sunucusu değerini yazın. Dizenin son hali \<kayıt adı\>.azurecr.io/pythonmodule ifadesine benzer olmalıdır.
  
-VS Code penceresi IoT Edge çözümü çalışma alanınızı yükler: modül klasörü, dağıtım bildirimi şablon dosyası ve \.env dosyası. 
+   ![Docker görüntü deposunu sağlama](./media/tutorial-python-module/repository.png)
+
+VS Code penceresi IoT Edge çözümü çalışma alanınızı yükler. Çözüm çalışma alanında beş üst düzey bileşen bulunur. Bu öğreticide **\.gitignore** dosyasını düzenlemeyeceksiniz. **modules** klasöründe modülünüzün Python kodunun yanı sıra modülünüzden kapsayıcı görüntüsü oluşturmak için kullanılacak Dockerfiles öğeleri bulunur. **\.env** dosyasında kapsayıcı kayıt defterinizin kimlik bilgileri yer alır. **deployment.template.json** dosyasında IoT Edge çalışma zamanının modülleri cihazlara dağıtmak için kullandığı bilgiler bulunur. 
+
+Çözümünüzü oluştururken kapsayıcı kayıt defteri belirtmediyseniz ve varsayılan localhost:5000 değerini kabul ettiyseniz \.env dosyanız olmaz. 
+
+   ![Python çözümü çalışma alanı](./media/tutorial-python-module/workspace.png)
 
 ### <a name="add-your-registry-credentials"></a>Kayıt defteri kimlik bilgilerinizi ekleme
 
@@ -200,7 +211,7 @@ Bir önceki bölümde bir IoT Edge çözümü oluşturdunuz ve **PythonModule** 
 
 4. Bu dosyayı kaydedin.
 
-5. VS Code gezgininde deployment.template.json dosyasına sağ tıklayıp **Build IoT Edge solution** (IoT Edge çözümü oluştur) öğesini seçin. 
+5. VS Code gezgininde deployment.template.json dosyasına sağ tıklayıp **Build and Push IoT Edge solution** (IoT Edge Çözümü Oluştur ve Gönder) öğesini seçin. 
 
 Visual Studio Code uygulamasına çözümünüzü derleme komutu verdiğinizde dağıtım şablonundaki bilgileri alır ve **config** adlı yeni bir klasörde deployment.json dosyası oluşturur. Ardından tümleşik terminalde `docker build` ve `docker push` komutlarını çalıştırır. Bu iki komut kodunuzu derler, Python koduyla kapsayıcı oluşturur ve kodu çözümü başlatırken belirttiğiniz kapsayıcı kayıt defterine gönderir. 
 
@@ -208,23 +219,21 @@ VS Code tümleşik terminalinde çalışan `docker build` komutunda tam kapsayı
 
 ## <a name="deploy-and-run-the-solution"></a>Çözümü dağıtma ve çalıştırma
 
-Hızlı başlangıçlarda yaptığınız gibi Python modülünüzü IoT Edge cihazına dağıtmak için Azure portalını kullanabilirsiniz. Ayrıca modülleri Visual Studio Code'un içinden de dağıtabilir ve izleyebilirsiniz. Aşağıdaki bölümlerde önkoşullarda listelenen VS Code için Azure IoT Edge uzantısı kullanılmaktadır. Uzantıyı henüz yüklemediyseniz, şimdi yükleyin. 
+IoT Edge cihazınızı ayarlamak için kullandığınız hızlı başlangıç makalesinde Azure portalı kullanarak bir modül dağıttınız. Modülleri dağıtmak için Visual Studio Code Azure IoT Araç Seti eklentisini de kullanabilirsiniz. Senaryonuz için hazırlanmış bir dağıtım bildirimi dosyasına (**deployment.json**) zaten sahipsiniz. Tek yapmanız gereken dağıtımı almak üzere bir cihaz seçmek.
 
-1. **View (Görünüm)** > **Command Palette (Komut Paleti)** öğesini seçerek VS Code komut paletini açın.
+1. VS Code komut paletinde **Azure IoT Hub: Select IoT Hub** komutunu çalıştırın. 
 
-2. **Azure: Sign in** komutunu arayıp çalıştırın. Azure hesabınızda oturum açmak için yönergeleri izleyin. 
+2. Yapılandırmak istediğiniz IoT Edge cihazını barındıran aboneliği ve IoT hub'ını seçin. 
 
-3. Komut paletinde **Azure IoT Hub: Select IoT Hub** komutunu arayıp çalıştırın. 
+3. VS Code gezgininde **Azure IoT Hub Devices** (Azure IoT Hub Cihazları) bölümünü seçin. 
 
-4. IoT hub'ınızı içeren aboneliği ve ardından erişmek istediğiniz IoT hub'ı seçin.
+4. IoT Edge cihazınızın adına sağ tıklayıp **Create Deployment for Single Device** (Tek bir cihaz için dağıtım oluştur) öğesini seçin. 
 
-5. VS Code gezgininde **Azure IoT Hub Devices** (Azure IoT Hub Cihazları) bölümünü seçin. 
+   ![Tek bir cihaz için dağıtım oluşturma](./media/tutorial-python-module/create-deployment.png)
 
-6. IoT Edge cihazınızın adına sağ tıklayın ve ardından **Create Deployment for IoT Edge device** (IoT Edge cihazı için dağıtım oluştur) öğesini seçin. 
+5. **config** klasöründeki **deployment.json** dosyasını seçin ve ardından **Select Edge Deployment Manifest** (Edge Dağıtım Bildirimini Seç) öğesine tıklayın. deployment.template.json dosyasını kullanmayın. 
 
-7. **PythonModule** modülünü içeren çözüm klasörüne göz atın. Config klasörünü açın, deployment.json dosyasını seçin ve ardından **Select Edge Deployment Manifest** (Edge Dağıtım Bildirimini Seç) öğesini seçin.
-
-8. **Azure IoT Hub Devices** (Azure IoT Hub Cihazları) bölümünü yenileyin. Yeni **PythonModule** ile **TempSensor** modülü ve **$edgeAgent** ile **$edgeHub** bileşenlerinin çalıştığını görmeniz gerekir. 
+6. Yenile düğmesine tıklayın. Yeni **PythonModule** ile **TempSensor** modülü ve **$edgeAgent** ile **$edgeHub** bileşenlerinin çalıştığını görmeniz gerekir. 
 
 ## <a name="view-generated-data"></a>Oluşturulan verileri görüntüleme
 
@@ -236,32 +245,42 @@ Hızlı başlangıçlarda yaptığınız gibi Python modülünüzü IoT Edge cih
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
-
-Bir sonraki önerilen makaleye geçmeyi planlıyorsanız, oluşturduğunuz kaynaklarla yapılandırmaları tutabilir ve yeniden kullanabilirsiniz.
+Bir sonraki önerilen makaleye geçmeyi planlıyorsanız, oluşturduğunuz kaynaklarla yapılandırmaları tutabilir ve yeniden kullanabilirsiniz. Aynı IoT Edge cihazını test cihazı olarak kullanmaya devam edebilirsiniz. 
 
 Geçmeyecekseniz ücret kesilmesini önlemek için yerel yapılandırmalarınızı ve bu makalede oluşturulan Azure kaynaklarını silebilirsiniz. 
 
-> [!IMPORTANT]
-> Azure kaynaklarını ve kaynak gruplarını silme işlemi geri alınamaz. Bu öğeler silindikten sonra kaynak grubu ve içindeki tüm kaynaklar kalıcı olarak silinir. Yanlış kaynak grubunu veya kaynakları yanlışlıkla silmediğinizden emin olun. IoT hub'ını tutmak istediğiniz kaynakların bulunduğu mevcut bir kaynak grubu içinde oluşturduysanız, kaynak grubunu silmek yerine IoT hub kaynağını silin.
->
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-Yalnızca IoT hub'ını silmek için hub adını ve kaynak grubu adını kullanarak aşağıdaki komutu çalıştırın:
+### <a name="delete-local-resources"></a>Yerel kaynakları silme
 
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
+Cihazınızdan IoT Edge çalışma zamanını ve ilgili kaynakları kaldırmak isterseniz aşağıdaki komutları kullanabilirsiniz. 
 
+IoT Edge çalışma zamanını kaldırın.
 
-Kaynak grubunun tamamını adıyla silmek için:
+   ```bash
+   sudo apt-get remove --purge iotedge
+   ```
 
-1. [Azure portalda](https://portal.azure.com) oturum açın ve **Kaynak grupları**’nı seçin.
+IoT Edge çalışma zamanı kaldırıldığında, oluşturduğu kapsayıcılar durdurulur, ancak cihazınızda yer almaya devam eder. Tüm kapsayıcıları görüntüleyin.
 
-2. **Ada göre filtrele** metin kutusuna IoT hub'ınızı içeren kaynak grubunun adını girin. 
+   ```bash
+   sudo docker ps -a
+   ```
 
-3. Sonuç listesindeki kaynak grubunuzun sağ tarafında yer alan üç noktayı (**...**) seçin ve sonra da **Kaynak grubunu sil**’i seçin.
+Cihazınızda oluşturulan çalışma zamanı kapsayıcılarını silin.
 
-4. Kaynak grubunun silinmesini onaylamanız istenir. Onaylamak için kaynak grubunuzun adını yeniden girin ve ardından **Sil**’i seçin. Birkaç dakika sonra kaynak grubu ve içerdiği kaynakların tümü silinir.
+   ```bash
+   docker rm -f edgeHub
+   docker rm -f edgeAgent
+   ```
+
+Kapsayıcı adlarına bakarak `docker ps` çıkışında listelenen ek kapsayıcıları silin. 
+
+Kapsayıcı çalışma zamanını kaldırın.
+
+   ```bash
+   sudo apt-get remove --purge moby
+   ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

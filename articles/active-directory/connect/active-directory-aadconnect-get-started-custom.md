@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: dcde63c4bce17993ec9e1a9d83889a001d7880e1
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 2d019f9600177f0ad300146733dfcba1a3fbb4a8
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264445"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41917719"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect özel yüklemesi
 Yükleme için daha fazla seçenek istediğinizde Azure AD Connect **Özel ayarları** kullanılır. Birden fazla ormanınız varsa veya hızlı yükleme kapsamında yer almayan isteğe bağlı özellikleri yapılandırmak istiyorsanız kullanılır. [**Hızlı yükleme**](active-directory-aadconnect-get-started-express.md) seçeneğinin dağıtımınız veya topolojiniz için uygun olmadığı tüm durumlarda kullanılır.
@@ -136,7 +136,7 @@ SourceAnchor özniteliği, kullanıcı nesnesinin yaşam süresi boyunca sabit o
 
 | Ayar | Açıklama |
 | --- | --- |
-| Kaynak bağlantısını benim için Azure yönetsin | Azure AD’nin sizin için özniteliği seçmesini istiyorsanız bu seçeneği belirleyin. Bu seçeneği belirlerseniz Azure AD Connect sihirbazı, [Azure AD Connect: Tasarım kavramları - msDS-ConsistencyGuid'i sourceAnchor olarak kullanma](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor) başlıklı makale bölümünde açıklanan sourceAnchor özniteliği seçim mantığını uygular. Özel yükleme tamamlandıktan sonra sihirbaz, Kaynak Bağlantısı özniteliği olarak hangi özniteliğin seçildiğini size bildirir. |
+| Kaynak bağlantısını benim için Azure yönetsin | Azure AD’nin sizin için özniteliği seçmesini istiyorsanız bu seçeneği belirleyin. Bu seçeneği belirlerseniz Azure AD Connect sihirbazı, [Azure AD Connect: Tasarım kavramları - ms-DS-ConsistencyGuid'i sourceAnchor olarak kullanma](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) başlıklı makale bölümünde açıklanan sourceAnchor özniteliği seçim mantığını uygular. Özel yükleme tamamlandıktan sonra sihirbaz, Kaynak Bağlantısı özniteliği olarak hangi özniteliğin seçildiğini size bildirir. |
 | Belirli bir öznitelik | SourceAnchor özniteliği olarak mevcut bir AD özniteliğini belirtmek istiyorsanız bu seçeneği belirleyin. |
 
 Öznitelik değiştirilemeyeceği için kullanmak üzere iyi bir öznitelik seçmeniz gerekir. ObjectGUID iyi bir seçenektir. Kullanıcı hesabı ormanlar/etki alanları arasında taşınmadığı sürece bu öznitelik değiştirilemez. Hesapları ormanlar arasında taşıdığınız çoklu orman ortamında başka bir öznitelik (örneğin, employeeID içeren bir öznitelik) kullanmanız gerekir. Bir kişi evlendiğinde değişecek olan veya atamaları değiştirecek olan öznitelikleri kullanmaktan kaçının. @-sign içeren nitelikleri kullanamazsınız. Bu nedenle e-posta ve userPrincipalName seçeneği kullanılamaz. Ayrıca öznitelikler büyük küçük harfe duyarlıdır. Bu nedenle bir nesneyi ormanlar arasında taşıdığınızda, büyük/küçük harfleri doğru yazdığınızdan emin olun. İkili öznitelikler base64 kodludur ancak diğer öznitelik türleri kodlanmamış durumda kalır. Federasyon senaryolarında ve bazı Azure AD arabirimlerinde, bu öznitelik immutableID özniteliği olarak da bilinir. Kaynak bağlantısı hakkında daha fazla bilgi için bkz. [tasarım kavramları](active-directory-aadconnect-design-concepts.md#sourceanchor).

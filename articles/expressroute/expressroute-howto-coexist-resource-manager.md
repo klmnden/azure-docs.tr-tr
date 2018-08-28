@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/05/2018
+ms.date: 08/17/2018
 ms.author: charwen,cherylmc,rambala
-ms.openlocfilehash: 80d2f65f516d7f1190f276fa9f2c62206bd31e67
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 0e69a85f320a0a8d77bd07fc0dedb77eb99efb36
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262881"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41924843"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Birlikte bulunan ExpressRoute bağlantıları ile Siteden Siteye bağlantıları yapılandırma
 > [!div class="op_single_selector"]
@@ -183,14 +183,7 @@ Bu yordamda, bir VNet oluşturma ve bir arada var olabilen Siteden Siteye ve Exp
   ```
 
 ## <a name="add"></a>Zaten mevcut bir VNet için bir arada var olabilen bağlantılar yapılandırma
-Zaten bir sanal ağınız varsa, ağ geçidi alt ağ boyutunu kontrol edin. Ağ geçidi alt ağı /28 veya /29 ise, önce sanal ağ geçidi silmeniz ve ağ geçidi alt ağı boyutunu artırmanız gerekir. Bu bölümdeki adımlar bunu nasıl yapacağınızı gösterir.
-
-Ağ geçidi alt ağı /27 veya daha büyükse ve sanal ağ ExpressRoute üzerinden bağlanıyorsa, aşağıdaki adımları atlayarak önceki bölümdeki ["4. Adım - Siteden Siteye VPN ağ geçidi oluşturma"](#vpngw) bölümüne geçebilirsiniz. 
-
-> [!NOTE]
-> Mevcut ağ geçidini sildiğinizde, bu yapılandırma üzerinde çalışırken, yerel şirket sanal ağ bağlantısını kaybeder. 
-> 
-> 
+Yalnızca bir sanal ağ geçidine (Siteden Siteye VPN ağ geçidi gibi) sahip olan bir sanal ağınız varsa ve farklı türde (ExpressRoute ağ geçidi gibi) bir ağ geçidi eklemek istiyorsanız ağ geçidi alt ağ boyutunu kontrol edin. Ağ geçidi alt ağı /27 veya üzerindeyse aşağıdaki adımları atlayıp bir sonraki bölümdeki adımları izleyerek Siteden Siteye VPN ağ geçidi veya ExpressRoute ağ geçidi ekleyebilirsiniz. Ağ geçidi alt ağı /28 veya /29 ise, önce sanal ağ geçidi silmeniz ve ağ geçidi alt ağı boyutunu artırmanız gerekir. Bu bölümdeki adımlar bunu nasıl yapacağınızı gösterir.
 
 1. Azure PowerShell cmdlet’lerinin en yeni sürümünü yüklemeniz gerekir. Cmdlet'leri yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview). Bu yapılandırma için kullanacağınız cmdlet'ler tanıdıklarınızdan biraz farklı olabilir. Bu yönergelerde belirtilen cmdlet'leri kullandığınızdan emin olun. 
 2. Mevcut ExpressRoute veya Siteden Siteye VPN ağ geçidini silin.
@@ -220,7 +213,7 @@ Ağ geçidi alt ağı /27 veya daha büyükse ve sanal ağ ExpressRoute üzerind
   ```powershell
   $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-5. Bu noktada, hiçbir ağ geçidi olmayan bir VNet’e sahip olursunuz. Yeni ağ geçitleri oluşturmak ve bağlantılarınızı tamamlamak için, önceki adım kümesinde bulabileceğiniz [4. Adım - Bir Siteden Siteye VPN ağ geçidi oluşturma](#vpngw) bölümüyle devam edebilirsiniz.
+5. Bu noktada, hiçbir ağ geçidi olmayan bir sanal ağa sahip olursunuz. Yeni ağ geçitleri oluşturmak ve bağlantıları ayarlamak için önceki bölümde belirtilen adımları izleyin.
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>VPN ağ geçidine noktadan siteye yapılandırması eklemek için
 Bir arada var olan kurulumda VPN ağ geçidinize Noktadan Siteye yapılandırması eklemek için aşağıdaki adımları izleyebilirsiniz.

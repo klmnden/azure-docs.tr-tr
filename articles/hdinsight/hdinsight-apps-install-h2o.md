@@ -3,18 +3,18 @@ title: Yayımlanan uygulama - H2O Sparkling Water - Azure HDInsight yükleme
 description: Yükleyip H2O Sparkling Water üçüncü taraf Hadoop uygulamasını kullanabilirsiniz.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: e1e43bc06b30959bc5e7e692d88bd0d053a03ad4
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: e5a9505c41c14016768a5da42f9ac1836240b98f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593562"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43095027"
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>Yayımlanan uygulama - H2O Sparkling Water yükleme
 

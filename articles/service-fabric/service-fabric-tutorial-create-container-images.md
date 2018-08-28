@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a2814ff299d1bfb003b6133e2b75b47a312f8728
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 15fcea6ca8f9c66ee4907018a11481b6c714b81a
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114049"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616292"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Öğretici: Linux Service Fabric kümesi üzerinde kapsayıcı görüntüleri oluşturma
 
@@ -68,6 +68,8 @@ cd service-fabric-containers/Linux/container-tutorial/
 ```bash
 docker build -t azure-vote-front .
 ```
+> [!Note]
+> Erişim reddediliyorsa Docker'da sudo ile çalışmayı anlatan [bu](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user) belgeyi izleyin.
 
 Gerekli tüm bağımlılıkların Docker Hub’dan çekilmesi gerektiğinden, bu komutun çalıştırılması uzun sürebilir. Tamamlandığında, oluşturulan görüntüleri görmek için [docker images](https://docs.docker.com/engine/reference/commandline/images/) komutunu kullanın.
 

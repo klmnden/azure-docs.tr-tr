@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: 77dcad0f3e49b601110f8700245aaf479bde1c4e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4f9b14762332bd11fd69a855d8fabdb206e34919
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722788"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41920382"
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>Öğretici 2: Iris Sınıflandırma: Model derleme
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik bir veri bilimi ve gelişmiş bir analiz çözümüdür.
@@ -442,7 +442,7 @@ Betiğinizi bir Linux uzak makinesinde bulunan Docker kapsayıcısında yürütm
    >IP adresi alanı `vm-name.southcentralus.cloudapp.azure.com` gibi genel olarak adreslenebilir tam etki alanı adı da (FQDN) olabilir. FQDN’yi DSVM’ye eklemek ve IP adresi yerine kullanmak iyi bir uygulamadır. VM’yi maliyet tasarrufu için bir noktada kapatma seçeneğine sahip olduğunuzdan bu uygulama faydalıdır. Ayrıca sanal makineyi yeniden başlattığınızda da IP adresi değişmiş olabilir.
 
    >[!NOTE]
-   >Kullanıcı adı ve parola kimlik doğrulamasına ek olarak `--private-key-file` ve (isteğe bağlı olarak) `--private-key-passphrase` seçeneklerini kullanarak bir özel anahtar ve karşılık gelen parolayı belirtebilirsiniz.
+   >Kullanıcı adı ve parola kimlik doğrulamasına ek olarak `--private-key-file` ve (isteğe bağlı olarak) `--private-key-passphrase` seçeneklerini kullanarak bir özel anahtar ve karşılık gelen parolayı belirtebilirsiniz. DSVM'yi oluşturduğunuzda kullandığınız özel anahtarı kullanmak istiyorsanız `--use-azureml-ssh-key` seçeneğini belirtmeniz gerekir.
 
    Ardından, bu komutu çalıştırarak **myvm** işlem hedefini hazırlayın.
    

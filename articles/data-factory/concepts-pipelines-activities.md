@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 4cf62e609505487961dbfbab3f46c37d54e8f50b
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
-ms.translationtype: HT
+ms.openlocfilehash: ca64c87a0211ae00218493fe7bfddcbbb81a032a
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259063"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43109448"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory’de işlem hatları ve etkinlikler
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -97,9 +97,9 @@ JSON biçiminde işlem hattı şöyle tanımlanır:
 
 Etiket | Açıklama | Tür | Gerekli
 --- | ----------- | ---- | --------
-ad | İşlem hattının adı. İşlem hattının gerçekleştirdiği eylemi temsil eden bir ad belirtin. <br/><ul><li>En fazla karakter sayısı: 140</li><li>Bir harf, sayı veya alt çizgi (_) ile başlamalıdır</li><li>Şu karakterler kullanılamaz: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | Dize | Yes
+ad | İşlem hattının adı. İşlem hattının gerçekleştirdiği eylemi temsil eden bir ad belirtin. <br/><ul><li>En fazla karakter sayısı: 140</li><li>Bir harf, sayı veya alt çizgi (_) ile başlamalıdır</li><li>Şu karakterler kullanılamaz: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | Dize | Evet
 açıklama | İşlem hattının ne için kullanıldığını açıklayan metni belirtin. | Dize | Hayır
-etkinlikler | **Etkinlikler** bölümünde tanımlanmış bir veya daha fazla etkinlik olabilir. Etkinliklerin JSON öğesi hakkında ayrıntılı bilgi için [Etkinlik JSON](#activity-json) bölümüne bakın. | Dizi | Yes
+etkinlikler | **Etkinlikler** bölümünde tanımlanmış bir veya daha fazla etkinlik olabilir. Etkinliklerin JSON öğesi hakkında ayrıntılı bilgi için [Etkinlik JSON](#activity-json) bölümüne bakın. | Dizi | Evet
 parametreler | **Parametreler** bölümü, işlem hattınızı yeniden kullanım için esnek hale getiren, işlem hattında tanımlanmış bir veya daha fazla parametreyi içerebilir. | Liste | Hayır
 
 ## <a name="activity-json"></a>Etkinlik JSON
@@ -130,9 +130,9 @@ Aşağıdaki tabloda, etkinlik JSON tanımındaki özellikler açıklamaktadır:
 
 Etiket | Açıklama | Gerekli
 --- | ----------- | ---------
-ad | Etkinliğin adı. Etkinliğin gerçekleştirdiği eylemi temsil eden bir ad belirtin. <br/><ul><li>En fazla karakter sayısı: 55</li><li>Bir harf, sayı veya alt çizgi (_) ile başlamalıdır</li><li>Şu karakterler kullanılamaz: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Yes</li></ul>
-açıklama | Etkinliğin ne olduğunu veya ne için kullanıldığını açıklayan metin | Yes
-type | Etkinliğin türü. Farklı etkinlik türleri için [Veri Taşıma Etkinlikleri](#data-movement-activities), [Veri Dönüştürme Etkinlikleri](#data-transformation-activities) ve [Denetim Etkinlikleri](#control-activities) bölümlerine bakın. | Yes
+ad | Etkinliğin adı. Etkinliğin gerçekleştirdiği eylemi temsil eden bir ad belirtin. <br/><ul><li>En fazla karakter sayısı: 55</li><li>Bir harf, sayı veya alt çizgi (_) ile başlamalıdır</li><li>Şu karakterler kullanılamaz: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Evet</li></ul>
+açıklama | Etkinliğin ne olduğunu veya ne için kullanıldığını açıklayan metin | Evet
+type | Etkinliğin türü. Farklı etkinlik türleri için [Veri Taşıma Etkinlikleri](#data-movement-activities), [Veri Dönüştürme Etkinlikleri](#data-transformation-activities) ve [Denetim Etkinlikleri](#control-activities) bölümlerine bakın. | Evet
 linkedServiceName | Etkinlik tarafından kullanılan bağlı hizmetin adı.<br/><br/>Bir etkinlik için gerekli işlem ortamına bağlanan bağlı hizmeti belirtmeniz gerekebilir. | HDInsight Etkinliği, Azure Machine Learning Toplu İşlem Puanlandırma Etkinliği, Saklı Yordam Etkinliği için evet. <br/><br/>Diğer tümü için hayır
 typeProperties | typeProperties bölümündeki özellikler her bir etkinlik türüne bağlıdır. Bir etkinliğin tür özelliklerini görmek için önceki bölümde verilen etkinlik bağlantılarına tıklayın. | Hayır
 ilke | Etkinliğin çalışma zamanı davranışını etkileyen ilkeler. Bu özellik zaman aşımı ve yeniden deneme davranışını içerir. Belirtilmemişse, varsayılan değerler kullanılır. Daha fazla bilgi için [Etkinlik İlkesi](#activity-policy) bölümüne bakın. | Hayır
@@ -194,9 +194,9 @@ Denetim etkinlikleri aşağıdaki üst düzey yapıya sahiptir:
 
 Etiket | Açıklama | Gerekli
 --- | ----------- | --------
-ad | Etkinliğin adı. Etkinliğin gerçekleştirdiği eylemi temsil eden bir ad belirtin.<br/><ul><li>En fazla karakter sayısı: 55</li><li>Bir harf, sayı veya alt çizgi (_) ile başlamalıdır</li><li>Şu karakterler kullanılamaz: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Yes</li><ul>
-açıklama | Etkinliğin ne olduğunu veya ne için kullanıldığını açıklayan metin | Yes
-type | Etkinliğin türü. Farklı etkinlik türleri için [veri taşıma etkinlikleri](#data-movement-activities), [veri dönüştürme etkinlikleri](#data-transformation-activities) ve [denetim etkinlikleri](#control-activities) bölümlerine bakın. | Yes
+ad | Etkinliğin adı. Etkinliğin gerçekleştirdiği eylemi temsil eden bir ad belirtin.<br/><ul><li>En fazla karakter sayısı: 55</li><li>Bir harf, sayı veya alt çizgi (_) ile başlamalıdır</li><li>Şu karakterler kullanılamaz: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Evet</li><ul>
+açıklama | Etkinliğin ne olduğunu veya ne için kullanıldığını açıklayan metin | Evet
+type | Etkinliğin türü. Farklı etkinlik türleri için [veri taşıma etkinlikleri](#data-movement-activities), [veri dönüştürme etkinlikleri](#data-transformation-activities) ve [denetim etkinlikleri](#control-activities) bölümlerine bakın. | Evet
 typeProperties | typeProperties bölümündeki özellikler her bir etkinlik türüne bağlıdır. Bir etkinliğin tür özelliklerini görmek için önceki bölümde verilen etkinlik bağlantılarına tıklayın. | Hayır
 dependsOn | Bu özellik Etkinlik Bağımlılığını ve sonraki etkinliklerin önceki etkinliklere ne kadar bağımlı olduğunu tanımlamak için kullanılır. Daha fazla bilgi için bkz. [etkinlik bağımlılığı](#activity-dependency). | Hayır
 

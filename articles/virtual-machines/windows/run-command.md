@@ -8,16 +8,16 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ad0366d333266af0b16a7acaaa4519f20a951a80
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: f42d3fb709807d77fb0f390b6da76efc4a60dced
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342717"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090579"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>PowerShell betiklerini Windows VM'nizi ile Çalıştır komutunu çalıştırın.
 
-Komutu kullanan bir Azure Windows VM Kabuk PowerShell betikleri çalıştırmak için VM Aracısı çalıştırın. Bu betikler genel bir makine ya da uygulama yönetimi için kullanılabilir ve hızlı bir şekilde tanılayın ve VM erişimi ve ağ sorunları çözmek ve VM'ye iyi bir duruma geri almak için kullanılabilir.
+Komutu kullanan bir Azure Windows VM PowerShell betikleri çalıştırmak için VM Aracısı çalıştırın. Bu betikler genel bir makine ya da uygulama yönetimi için kullanılabilir ve hızlı bir şekilde tanılayın ve VM erişimi ve ağ sorunları çözmek ve VM'ye iyi bir duruma geri almak için kullanılabilir.
 
 ## <a name="benefits"></a>Avantajlar
 

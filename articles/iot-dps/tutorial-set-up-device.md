@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6e90d20053a8ccfcafc7648d81c61e9313ec57ab
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 998bc7cb7e3289a85a9ffc315f7c1f5e568a75cb
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523368"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919830"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Cihazı Sağlama Hizmeti’ni kullanarak sağlanacak bir cihaz ayarlama
 
@@ -149,7 +149,7 @@ Son adım, cihazı IoT Hub hizmetine kaydetmek için Cihaz Sağlama Hizmeti iste
 
 1. Azure portalında, Cihaz Sağlama hizmetiniz için **Genel Bakış** dikey penceresini seçin ve **_Kimlik Kapsamı_** değerini kopyalayın. *Kimlik Kapsamı* genellikle hizmet tarafından oluşturulur ve benzersizliği garanti eder. Bu sabittir ve kayıt kimliklerini benzersiz şekilde tanımlamak için kullanılır.
 
-    ![Portal dikey penceresinden DPS uç nokta bilgilerini ayıklama](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
+    ![Portal dikey penceresinden Cihaz Sağlama Hizmeti uç noktası bilgilerini ayıklama](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
 
 1. Makinenizdeki Visual Studio *Çözüm Gezgini*'nde **Sağlama\_Örnekler** klasörüne gidin. **prov\_dev\_client\_sample** adlı örnek projeyi seçip **prov\_dev\_client\_sample.c** kaynak dosyasını açın.
 

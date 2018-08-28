@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 91c917687edbdfb49fc7a390187a860d9474623a
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 8d786a337710ed53d58c5fde8e40d5347cd6cfc8
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918933"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108387"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Sanal makinenin seri konsol (Önizleme) 
 
@@ -38,8 +38,10 @@ Linux VM'ler için seri konsol belgeleri [Buraya](../linux/serial-console.md).
 * Kaynak Yönetimi dağıtım modeline kullanıyor olmanız gerekir. Klasik dağıtımlar desteklenmez. 
 * Sanal makinesinin olmalıdır [önyükleme tanılaması](boot-diagnostics.md) etkin   ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 * Seri konsol kullanarak hesabı olmalıdır [katkıda bulunan rolü](../../role-based-access-control/built-in-roles.md) VM için ve [önyükleme tanılaması](boot-diagnostics.md) depolama hesabı. 
+* Seri konsol indirmesindeki olduğunuz sanal makine de parola tabanlı bir hesabı olmalıdır. İle bir tane oluşturabilirsiniz [parolayı Sıfırla](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) VM erişimi uzantısı - işlevselliğini aşağıdaki ekran görüntüsüne bakın.
+    ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
-## <a name="open-the-serial-console"></a>Seri Konsolu
+## <a name="get-started-with-serial-console"></a>Seri konsol ile çalışmaya başlama
 Sanal makineler için seri konsol üzerinden erişilebilir, yalnızca [Azure portalında](https://portal.azure.com). Portal aracılığıyla sanal makineler için seri konsoluna erişmek için adımları aşağıda verilmiştir 
 
   1. Azure portalını açın
@@ -49,7 +51,7 @@ Sanal makineler için seri konsol üzerinden erişilebilir, yalnızca [Azure por
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-## <a name="access-serial-console-for-windows"></a>Windows için seri konsol erişimi 
+## <a name="configure-serial-console-for-windows"></a>Seri konsol için Windows yapılandırma 
 Azure'da yeni Windows Server görüntülerini olacaktır [Özel Yönetim Konsolu](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) varsayılan olarak etkin. SAC Windows server sürümlerinde desteklenir, ancak istemci sürümleri (örneğin, Windows 10, Windows 8 veya Windows 7) kullanılamıyor. Seri konsol kullanarak oluşturulan Windows sanal makineler için etkinleştirmeyi Feb2018 veya alt görüntüleri Lütfen aşağıdaki adımları kullanın: 
 
 1. Windows sanal makinenize Uzak Masaüstü aracılığıyla bağlanma

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 884edbf56fbf67e4ee71e0832f8924a3747994c9
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 049f5211e800dace4b8968cd9e3db9ad968f8813
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42055386"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050755"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Sağlayın ve tahmin edilebilir bir biçimde azure'da mikro Hizmetleri dağıtın
 Bu öğreticide, sağlamak ve oluşan bir uygulamayı dağıtmak gösterilir [mikro Hizmetler](https://en.wikipedia.org/wiki/Microservices) içinde [Azure App Service](https://azure.microsoft.com/services/app-service/) tek bir birim olarak ve JSON kaynak grubu şablonları kullanarak tahmin edilebilir bir biçimde ve PowerShell komut dosyası. 
@@ -40,7 +40,7 @@ Sağlama ve yüksek oranda ayrılmış oluşur büyük ölçekli uygulamaları d
 Bu öğreticide, aşağıdaki araçları kullanın. Araçlar kapsamlı tartışma olmadığından, uçtan uca senaryo için devam edin ve yalnızca kısa bir giriş her biri için size tıklıyorum ve burada bulabilirsiniz, daha fazla bilgi. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Azure Resource Manager şablonları (JSON)
-Örneğin, Azure App Service'te bir web uygulaması oluşturduğunuzda her Azure Resource Manager kaynak grubunun tamamını sahip bileşen kaynakları oluşturmak için JSON şablonunu kullanır. Karmaşık bir şablondan [Azure Marketi](/marketplace) gibi [ölçeklenebilir WordPress](/marketplace/partners/wordpress/scalablewordpress/) MySQL veritabanı, depolama hesapları, App Service planı, web uygulamasının kendisini, uyarı kuralları, uygulama ayarları, uygulama içerir otomatik ölçeklendirme ayarları ve daha fazla ve tüm bu şablonları PowerShell üzerinden kullanılabilir. İndirin ve bu şablonları hakkında daha fazla bilgi için bkz: [Azure PowerShell kullanarak Azure Resource Manager ile](../powershell-azure-resource-manager.md).
+Örneğin, Azure App Service'te bir web uygulaması oluşturduğunuzda her Azure Resource Manager kaynak grubunun tamamını sahip bileşen kaynakları oluşturmak için JSON şablonunu kullanır. Karmaşık bir şablondan [Azure Marketi](/azure/marketplace) veritabanı, depolama hesapları, App Service planı, web uygulaması, uyarı kuralları, uygulama ayarları, otomatik ölçeklendirme ayarları ve daha fazlasını içerebilir ve bu şablonları için kullanılabilir PowerShell ile. İndirin ve bu şablonları hakkında daha fazla bilgi için bkz: [Azure PowerShell kullanarak Azure Resource Manager ile](../powershell-azure-resource-manager.md).
 
 Azure Resource Manager şablonları hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md)
 

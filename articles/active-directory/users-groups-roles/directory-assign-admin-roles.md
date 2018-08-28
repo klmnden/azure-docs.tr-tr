@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 08/27/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 6c97d7c2f901110421f9fc5d0a1d4468d832c472
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 813fb79bbdc09d0fb3baa9a66cfaeae74343b3f9
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42062140"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093644"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory’de yönetici rolü atama
 
@@ -75,6 +75,8 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
 * **[Bilgi Koruma Yöneticisi](#information-protection-administrator)**: Bu role sahip kullanıcılar Azure Information Protection hizmetinde tüm izinlere sahiptir. Bu rol, Azure Information Protection ilkesi için etiketleri yapılandırma, koruma şablonlarını yönetme ve koruma etkinleştirme sağlar. Bu rol, kimlik koruma Merkezi, Privileged Identity Management, Office 365 hizmet durumunu izleme, veya Office 365 güvenlik ve uyumluluk Merkezi'nde herhangi bir izni tanımaz.
 
 * **[Intune Hizmet Yöneticisi](#intune-service-administrator)**: Bu role sahip olan kullanıcılar hizmet olduğunda Microsoft Intune Online içinde genel izinlere sahiptir. Ayrıca, bu rol, ilke ilişkilendirmek yanı sıra grupları oluşturmak ve yönetmek için kullanıcıları ve cihazları yönetme olanağı içerir. Daha fazla bilgiye [Intune rol tabanlı yönetim denetimi (RBAC)](https://docs.microsoft.com/intune/role-based-access-control)
+
+* **[Lisans Yöneticisi](#license-administrator)**: Bu roldeki kullanıcılar eklemek, kaldırmak ve güncelleştirme lisans atamalarında kullanıcıları, grupları (Grup tabanlı lisanslama kullanarak) ve kullanıcılar üzerindeki kullanım konumu yönetmek. Rol, satın alma veya Aboneliklerini yönetmek, oluşturma veya grupları yönetme veya oluşturma veya ötesinde kullanım konumu yönetme olanağı tanımaz.
 
 * **[İleti Merkezi okuyucu](#message-center-reader)**: Bu roldeki kullanıcılar, bildirimler ve danışmanlık sistem güncelleştirmeleri izleyebilirsiniz [Office 365 ileti Merkezi](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) kuruluşlarında Exchange, Intune gibi yapılandırılmış hizmetleri ve Microsoft Teams. İleti Merkezi okuyucular Haftalık e-posta özetler gönderilerin, güncelleştirmeleri almak ve Office 365 ileti merkezi gönderileri paylaşabilirsiniz. Azure AD'de bu role atanan kullanıcılar yalnızca salt okunur kullanıcılar ve gruplar gibi Azure AD Hizmetleri erişebilir. 
 
@@ -610,6 +612,17 @@ Intune ürününün tüm özelliklerini yönetebilir.
 | microsoft.aad.directory/User/Update/Manager | Azure Active Directory'de Users.Manager özelliğini güncelleştirin. |
 | microsoft.aad.supporttickets/AllEntities/AllActions | Office 365 destek biletleri oluşturun ve yönetin. |
 | microsoft.intune/AllEntities/AllActions | Intune'un tüm özelliklerini yönetin. |
+
+### <a name="license-administrator"></a>Lisans Yöneticisi
+Lisansları kullanıcılara atayabilir.
+
+| **Eylemler** | **Açıklama** |
+| --- | --- |
+| microsoft.aad.directory/users/assignLicense        | &nbsp; |
+| microsoft.aad.directory/users/usageLocation/update | &nbsp; |
+| microsoft.azure.accessService/allEntities/allTasks | &nbsp; |
+| microsoft.azure.serviceHealth/allEntities/allTasks | &nbsp; |
+| Microsoft.Office365.serviceHealth/allEntities/allTasks | &nbsp; |
 
 ### <a name="lync-service-administrator"></a>Lync Hizmet Yöneticisi
 Skype Kurumsal ürününün tüm özelliklerini yönetebilir.

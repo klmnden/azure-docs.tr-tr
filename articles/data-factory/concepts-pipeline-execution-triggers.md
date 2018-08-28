@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 0af6ea05b663f0954785ce966440e3f698ad14a8
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
-ms.translationtype: HT
+ms.openlocfilehash: 4ac0f27480bbddf28b83af05e4b7b89ca6766871
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867095"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093787"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory'de işlem hattı çalıştırma ve tetikleyiciler
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -278,10 +278,10 @@ Aşağıdaki tabloda bir tetikleyicinin yinelenmesi ve zamanlanmasıyla ilgili a
 
 | JSON özelliği | Tür | Gerekli | Varsayılan değer | Geçerli değerler | Örnek |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | string | Yes | None | ISO 8601 tarih-saatleri | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | object | Yes | None | Yinelenme nesnesi | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | dize | Evet | None | ISO 8601 tarih-saatleri | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | object | Evet | None | Yinelenme nesnesi | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | number | Hayır | 1 | 1-1000 arası | `"interval":10` |
-| **endTime** | string | Yes | None | Gelecekteki bir zamanı temsil eden tarih-saat değeri | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | dize | Evet | None | Gelecekteki bir zamanı temsil eden tarih-saat değeri | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | object | Hayır | None | Zamanlama nesnesi | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>startTime özelliği

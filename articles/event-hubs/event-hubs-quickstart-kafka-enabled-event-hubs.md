@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2018
 ms.author: bahariri
-ms.openlocfilehash: ec6061cac7188f3f94fa1ec0bf138b9398387099
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 90d9f3620f954da42add08a0aebf779a95c7e7a3
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413629"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42022641"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Apache Kafka için Event Hubs’da akış yapma
 Bu hızlı başlangıçta, protokol istemcilerinizi değiştirmenize veya kendi kümelerinizi çalıştırmanıza gerek kalmadan Kafka etkin Event Hubs’a nasıl akış oluşturulacağı gösterilir. Yalnızca uygulamalarınızdaki bir yapılandırma değişikliğiyle Kafka etkin Event Hubs ile konuşmak için üreticilerinizi ve tüketicilerinizi nasıl kullanacağınızı öğrenirsiniz. Azure Event Hubs [Apache Kafka sürüm 1.0](https://kafka.apache.org/10/documentation.html)’ı destekler.
@@ -30,6 +30,7 @@ Bu hızlı başlangıçta, protokol istemcilerinizi değiştirmenize veya kendi 
 
 Bu hızlı başlangıcı tamamlamak için aşağıdaki önkoşulların karşılandığından emin olun:
 
+* [Apache Kafka için Event Hubs](event-hubs-for-kafka-ecosystem-overview.md) makalesini okuyun.
 * Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * Bir Maven ikili arşivini [indirin](http://maven.apache.org/download.cgi) ve [yükleyin](http://maven.apache.org/install.html).

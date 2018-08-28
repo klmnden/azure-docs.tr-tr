@@ -1,47 +1,41 @@
 ---
-title: "Azure veri kataloğu için klavye kısayolları | Microsoft Docs"
-description: "Bu makalede, Azure veri kataloğu için klavye kısayolları gösterilmektedir."
+title: Azure Veri Kataloğu için klavye kısayolları
+description: Bu makalede, Azure veri kataloğu için klavye kısayolları gösterilmektedir.
 services: data-catalog
-documentationcenter: 
 author: spelluru
-manager: NA
-editor: 
-tags: 
+ms.author: spelluru
 ms.assetid: 00b77c88-fbca-4e6f-a175-d40b5cbbf144
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-ms.openlocfilehash: 537ed3bccf7d3306628b7a64ba0866f0e51a03e5
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 06a93b23738aa7bc5899de8b8618d824fd24c1d1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053685"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Azure Veri Kataloğu için klavye kısayolları
-## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Kayıt Aracı veri Kataloğu verileri için klavye kısayolları kaynağı
+## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Klavye kısayolları, veri Kataloğu veri kaynağı kayıt aracı
 ### <a name="general-keyboard-shortcuts"></a>Genel klavye kısayolları
 | İşlem | Tuşuna basın |
 | --- | --- |
-| Bir sayfa üzerindeki her denetim için sekmesi |Sekme |
-| Bir seçenek belirtin |Girin veya Ara çubuğu |
-| Sayfanın en üst düzeye çıkarmak |WIN+UP |
-| Geri yükleme/en aza sayfası |WIN + AŞAĞI OK |
-| Açık sayfa menüsü |ALT+SPACEBAR |
+| Bir sayfadaki her denetim için sekmesinde |Sekme |
+| Bir seçenek belirtin |Girin veya Ara çubuğuna basın |
+| Sayfanın en üst düzeye çıkarın |WIN + YUKARI |
+| Geri yükleme/en aza sayfası |WIN + AŞAĞI |
+| Açık sayfa menüsü |ALT + ARA ÇUBUĞU |
 
 ### <a name="authentication-page"></a>Kimlik doğrulaması sayfası
 | İşlem | Tuşuna basın |
 | --- | --- |
-| Hizmette oturum açma |ALT+S |
+| Hizmette oturum |ALT+S |
 
 ### <a name="data-source-selection-page"></a>Veri kaynağı Seçimi sayfasında
 | İşlem | Tuşuna basın |
 | --- | --- |
-| Sonraki sayfaya gidin (etkinse) |ALT+N |
-| Bir kutucuğu odak olduğunda, seçili türünü değiştirme |Sol, sağ yukarı veya aşağı ok |
+| (Etkinse) sonraki sayfaya git |ALT+N |
+| Odağı bir kutucuk üzerinde olduğunda, seçili türünü değiştirme |Sol, sağ yukarı veya aşağı ok |
 
 ### <a name="data-source-connection-page"></a>Veri kaynağı bağlantı sayfası
 | İşlem | Tuşuna basın |
@@ -53,20 +47,20 @@ ms.lasthandoff: 01/19/2018
 | İşlem | Tuşuna basın |
 | --- | --- |
 | Kaydet düğmesi (etkinse) |ALT+R |
-| Önizleme kutusunu (varsa) içerir |ALT+P |
-| Veri profili onay kutusunu (varsa) içerir |ALT+D |
-| Her liste öğesine gidin |Yukarı veya aşağı ok |
-| Sunucusu hiyerarşisi ağacı görünümün düğümü genişletin |SAĞ OK |
-| Seçili öğeleri Taşı **kullanılabilir nesneler** veya **kaydedilecek nesneler** |BOŞLUK ÇUBUĞU |
+| Önizleme onay kutusunu (varsa) içerir. |ALT+P |
+| Veri profili onay kutusunu (varsa) içerir. |ALT+D |
+| Her liste öğesine gidin |Yukarı ve aşağı ok |
+| Sunucu hiyerarşisi bir ağaç görünümünün düğümü genişletin |SAĞ OK |
+| Seçili öğeleri Taşı **kullanılabilir nesneler** veya **kaydedilecek nesneler** |ARA ÇUBUĞU |
 
-### <a name="publish-progress-page"></a>Yayımlama ilerleme durumu sayfası
+### <a name="publish-progress-page"></a>Yayın ilerleme durumu sayfası
 | İşlem | Tuşuna basın |
 | --- | --- |
 | İptal düğmesi |ALT+C |
-| Daha fazla nesne düğmesine kaydetme |ALT+R |
-| Görünüm Portal düğmesi |ALT+V |
+| Kaydet düğmesi daha nesneleri |ALT+R |
+| Portal düğmesini görüntüleyin |ALT+V |
 
-### <a name="publish-progress-page"></a>Yayımlama ilerleme durumu sayfası
+### <a name="publish-progress-page"></a>Yayın ilerleme durumu sayfası
 | İşlem | Tuşuna basın |
 | --- | --- |
 | Kaydet düğmesi (etkinse) |ALT+S |
@@ -75,14 +69,14 @@ ms.lasthandoff: 01/19/2018
 ## <a name="keyboard-shortcuts-for-the-data-catalog-portal"></a>Veri Kataloğu portalı için klavye kısayolları
 | İşlem | Tuşuna basın |
 | --- | --- |
-| Gidin |SEKME ve üst karakter + sekme |
-| Bir öğeyi tıklatın |BOŞLUK veya girin |
-| Bir bölüme detaya gitme |BOŞLUK veya girin |
-| Bir bölümün dışında Çık |ESC |
-| Bir varlık PIN/kaldırın |ALT+P |
-| Bir varlık odağa sahip olduğunda, bulma sayfasında varlığı seçin. |BOŞLUK veya girin |
-| Çoklu seçim varlığından ekler/Kaldır |CTRL + Ara çubuğu veya ENTER |
-| Arama eşleşmeleri menü Değiştir |ALT+S |
-| İki durumlu **Aç** menüsü |ALT+O |
-| Kapsayıcı, varlık bir kapsayıcı ise keşfedin |ALT+L |
+| Gidin |SEKME ve SHIFT + SEKME |
+| Bir öğeye tıklayın |BOŞLUK veya ENTER |
+| Bir bölüme detaya gitme |BOŞLUK veya ENTER |
+| Bir bölümün dışına Çık |ESC |
+| Sabitlemek veya kaldırmak bir varlık |ALT+P |
+| Bir varlık odağa sahip olduğunda, bulma sayfasında, varlık seçin. |BOŞLUK veya ENTER |
+| Çoklu seçim varlığından ekler/Kaldır |CTRL + boşluk ya da ENTER |
+| Arama eşleşme menüsü Değiştir |ALT+S |
+| İki durumlu **açma** menüsü |ALT+O |
+| Varlık kapsayıcı ise kapsayıcı keşfedin |ALT+L |
 

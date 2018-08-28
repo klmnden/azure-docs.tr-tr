@@ -9,14 +9,14 @@ ms.component: cosmosdb-table
 ms.custom: quickstart connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/10/2018
+ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: e70501be61455e9707fcf57d1996729097a0641f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 020345f5f5de3235a0fb34f1efc27efd771a842d
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582392"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42024087"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Hızlı Başlangıç: .NET ve Azure Cosmos DB ile Tablo API’si uygulaması oluşturma 
 
@@ -117,7 +117,7 @@ Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken
 1. Visual Studio'nun **Çözüm Gezgini**’nde **TableStorage** projesine sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'e tıklayın. 
 
    ![NuGet Paketlerini yönetme](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
-2. NuGet **Gözat** kutusuna *Microsoft.Azure.CosmosDB.Table* yazın. Cosmos DB Table API istemci kitaplığı görüntülenir.
+2. NuGet **Gözat** kutusuna *Microsoft.Azure.CosmosDB.Table* yazın. Cosmos DB Table API istemci kitaplığı görüntülenir. Bu kitaplığın şu an için yalnızca .NET Standard ile kullanılabileceğini, henüz .NET Core için mevcut olmadığını unutmayın.
    
    ![NuGet Göz at sekmesi](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
 

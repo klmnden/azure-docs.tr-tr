@@ -2,7 +2,7 @@
 title: Hadoop - Azure HDInsight için yüksek kullanılabilirlik
 description: Nasıl HDInsight kümeleri güvenilirlik ve kullanılabilirlik ek bir baş düğüm tarafından öğrenin. Nasıl bu yanı sıra Ambari ve, Hive gibi Hadoop Hizmetleri tek tek her baş düğümüne SSH kullanarak bağlamak için etkiliyor öğrenin.
 services: hdinsight
-editor: jasonwhowell
+ms.reviewer: jasonh
 author: jasonwhowell
 keywords: hadoop yüksek kullanılabilirlik
 ms.service: hdinsight
@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: jasonh
-ms.openlocfilehash: ad42c1acd795d15bbbe951d90ec9b6b09695cd0a
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: c10ff022d54510c4fb81bf1f922aeaaf4e9036bb
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592592"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104863"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>HDInsight'ta Hadoop kümelerinin kullanılabilirliği ve güvenilirliği
 

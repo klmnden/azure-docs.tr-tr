@@ -1,25 +1,19 @@
 ---
-title: "Veri Kataloğu ile çalışmaya başlama | Microsoft Belgeleri"
-description: "Azure Veri Kataloğu'nun senaryolarını ve özelliklerini sunan kapsamlı öğretici"
-documentationcenter: 
+title: Azure Veri Kataloğu ile çalışmaya başlama
+description: Azure Veri Kataloğu'nun senaryolarını ve özelliklerini sunan kapsamlı öğretici
 services: data-catalog
 author: steelanddata
-manager: jhubbard
-editor: 
-tags: 
+ms.author: spelluru
 ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-ms.openlocfilehash: d67f8871bbdd87e8a67057e6e8c5d4d770e5cad6
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: HT
+ms.openlocfilehash: c65f5c2ca3f162c17d036198c4285f9c965bbd53
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053501"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Azure Veri Kataloğu ile çalışmaya başlama
 Azure Veri Kataloğu kurumsal veri varlıkları için bir kayıt sistemi ve bulma sistemi olarak görev yapan tam yönetilen bir bulut hizmetidir. Ayrıntılı bir genel bakış için bkz. [Azure Veri Kataloğu nedir](data-catalog-what-is-data-catalog.md).
@@ -40,14 +34,14 @@ Bu öğretici Azure Veri Kataloğu ile çalışmaya başlamanıza yardımcı olu
 ### <a name="azure-subscription"></a>Azure aboneliği
 Azure Veri Kataloğu’nu ayarlamak için bir Azure aboneliğinin sahibi veya ortak sahibi olmanız gerekir.
 
-Azure abonelikleri Azure Veri Kataloğu gibi bulut hizmeti kaynaklarına erişimi düzenlemenize yardımcı olur. Ayrıca kaynak kullanımının nasıl raporlandığını, faturalandırıldığını ve ödendiği denetlemenize yardımcı olur. Her abonelik farklı bir faturalandırma ve ödeme ayarına sahip olabilir, bu nedenle departmana, projeye, bölgesel ofise vb. göre farklı abonelikleriniz ve farklı planlarınız olabilir. Her bir bulut hizmeti bir aboneliği aittir ve Azure Veri Kataloğu’nu ayarlamadan önce bir aboneliğe sahip olmanız gerekir. Daha fazla bilgi için bkz. [Hesapları, abonelikleri ve yönetici rollerini yönetme](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+Azure abonelikleri Azure Veri Kataloğu gibi bulut hizmeti kaynaklarına erişimi düzenlemenize yardımcı olur. Ayrıca kaynak kullanımının nasıl raporlandığını, faturalandırıldığını ve ödendiği denetlemenize yardımcı olur. Her abonelik farklı bir faturalandırma ve ödeme ayarına sahip olabilir, bu nedenle departmana, projeye, bölgesel ofise vb. göre farklı abonelikleriniz ve farklı planlarınız olabilir. Her bir bulut hizmeti bir aboneliği aittir ve Azure Veri Kataloğu’nu ayarlamadan önce bir aboneliğe sahip olmanız gerekir. Daha fazla bilgi için bkz. [Hesapları, abonelikleri ve yönetici rollerini yönetme](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 Bir aboneliğiniz yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 Azure Veri Kataloğu’nu ayarlamak için bir Azure Active Directory (Azure AD) kullanıcı hesabıyla oturum açmanız gerekir. Bir Azure aboneliğinin sahibi veya ortak sahibi olmanız gerekir.  
 
-Azure AD işletmenizin kimlik ve erişimi hem bulutta hem de şirket içinde yönetmesi için kolay bir yöntem sağlar. Tek bir iş veya okul hesabı kullanarak herhangi bir bulut ya da şirket içi web uygulamasında oturum açabilirsiniz. Azure Veri Kataloğu, oturum açma kimliğini doğrulamak için Azure AD kullanır. Daha fazla bilgi için bkz. [Azure Active Directory Nedir](../active-directory/active-directory-whatis.md).
+Azure AD işletmenizin kimlik ve erişimi hem bulutta hem de şirket içinde yönetmesi için kolay bir yöntem sağlar. Tek bir iş veya okul hesabı kullanarak herhangi bir bulut ya da şirket içi web uygulamasında oturum açabilirsiniz. Azure Veri Kataloğu, oturum açma kimliğini doğrulamak için Azure AD kullanır. Daha fazla bilgi için bkz. [Azure Active Directory Nedir](../active-directory/fundamentals/active-directory-whatis.md).
 
 ### <a name="azure-active-directory-policy-configuration"></a>Azure Active Directory ilke yapılandırması
 Azure Veri Kataloğu portalında oturum açabildiğiniz, ancak veri kaynağı kayıt aracında oturum açmak istediğinizde oturum açmanızı engelleyen bir hata iletisiyle karşılaştığınız bir durum yaşayabilirsiniz. Bu hata şirket ağında olduğunuzda ya da şirket ağının dışından bağlantı kurduğunuzda gerçekleşebilir.

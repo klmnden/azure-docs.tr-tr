@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 9d60b85051ff6e24c64f074ccd4fad055ba47ae8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 18f4d2656ec7f027557d73959531b781be1d8d44
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523589"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42023019"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Hızlı Başlangıç: Azure Data Lake Storage Gen2 Önizleme depolama hesabı oluşturma
 
@@ -114,15 +114,6 @@ Azure portalını kullanarak kaynak grubunu kaldırmak için:
 2. Silinecek kaynak grubunu bulun ve listenin sağ tarafındaki **Daha fazla** düğmesine (**...**) sağ tıklayın.
 3. **Kaynak grubunu sil**'i seçip onaylayın.
 
-
-## <a name="upgrade-your-powershell-module"></a>PowerShell modülünüzü yükseltme
-
-PowerShell aracılığıyla Data Lake Storage Gen2 ile etkileşim kurmak istiyorsanız modülünüzü önizleme sürümüne yükseltmeniz gerekir.
-
-Bunu yapmak için yükseltilmiş PowerShell açın ve şu komutu girin: `Install-Module AzureRM.Storage –Repository PSGallery -RequiredVersion 5.0.4-preview –AllowPrerelease –AllowClobber –Force `
-
-Ardından PowerShell'i yeniden başlatın.
-
 ## <a name="create-an-account-using-powershell"></a>PowerShell kullanarak hesap oluşturma
 
 `Login-AzureRmAccount` komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyerek kimlik doğrulaması yapın.
@@ -130,6 +121,14 @@ Ardından PowerShell'i yeniden başlatın.
 ```powershell
 Login-AzureRmAccount
 ```
+
+### <a name="upgrade-your-powershell-module"></a>PowerShell modülünüzü yükseltme
+
+PowerShell aracılığıyla Data Lake Storage Gen2 ile etkileşim kurmak istiyorsanız modülünüzü önizleme sürümüne yükseltmeniz gerekir.
+
+Bunu yapmak için yükseltilmiş PowerShell açın ve şu komutu girin: `Install-Module AzureRM.Storage –Repository PSGallery -RequiredVersion 5.0.4-preview –AllowPrerelease –AllowClobber –Force `
+
+Ardından PowerShell'i yeniden başlatın.
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -170,13 +169,7 @@ Kaynak grubunu ve yeni depolama hesabı dahil olmak üzere ilişkili kaynakları
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="upgrade-your-cli-module"></a>CLI modülünüzü yükseltme
-
-CLI aracılığıyla Data Lake Storage Gen2 ile etkileşim kurmak için uzantıyı kabuğunuza eklemeniz gerekir.
-
-Bunu yapmak için Cloud Shell veya yerel kabuğu kullanarak şu komutu girin: `az extension add --name storage-preview`
-
-## <a name="create-an-account-using-azure-cli"></a>Azure CLI'yı kullanarak hesap oluşturma 
+## <a name="create-an-account-using-azure-cli"></a>Azure CLI'yı kullanarak hesap oluşturma
 
 Azure Cloud Shell’i başlatmak için [Azure portalında](https://portal.azure.com) oturum açın.
 
@@ -186,9 +179,15 @@ CLI yerel yüklemesinde oturum açmak için oturum açma komutunu çalıştırı
 az login
 ```
 
+### <a name="upgrade-your-cli-module"></a>CLI modülünüzü yükseltme
+
+CLI aracılığıyla Data Lake Storage Gen2 ile etkileşim kurmak için uzantıyı kabuğunuza eklemeniz gerekir.
+
+Bunu yapmak için Cloud Shell veya yerel kabuk ile şu komutu girin: `az extension add --name storage-preview`
+
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Azure CLI ile yeni bir kaynak grubu oluşturmak için [az group create](/cli/azure/group#az_group_create) komutunu kullanın. 
+Azure CLI ile yeni bir kaynak grubu oluşturmak için [az group create](/cli/azure/group#az_group_create) komutunu kullanın.
 
 ```azurecli-interactive
 az group create \

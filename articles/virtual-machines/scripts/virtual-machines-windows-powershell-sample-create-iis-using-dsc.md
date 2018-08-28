@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
-ms.openlocfilehash: d546af60b1e6a1c2c551c1824e0add0e83f806d5
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 7269165da046a688dd27aa9f5b325896ad3f65e7
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930231"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41962300"
 ---
 # <a name="create-an-iis-vm-with-powershell"></a>PowerShell ile IIS sanal makinesi oluşturma
 
@@ -50,7 +50,7 @@ Bu betik, dağıtımı oluşturmak için aşağıdaki komutları kullanır. Tabl
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Sanal makine oluşturur ve ağ kartına, sanal ağa, alt ağa ve ağ güvenlik grubuna bağlar. Bu komut ayrıca 80 numaralı bağlantı noktasını açar ve yönetici kimlik bilgilerini ayarlar. |
-| [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) | Sanal makineye bir VM uzantısı ekleyin. Bu örnekte IIS yüklemek için özel betik uzantısı kullanılır. |
+| [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) | Sanal makineye bir VM uzantısı ekleyin. Bu örnekte IIS yüklemek için DSC uzantısı kullanılır. |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Kaynak grubunu ve grubun içerdiği tüm kaynakları kaldırır. |
 
 ## <a name="next-steps"></a>Sonraki adımlar

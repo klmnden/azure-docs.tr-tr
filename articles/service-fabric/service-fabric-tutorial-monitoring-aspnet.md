@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 8a98b12a42dff186c9226df39ce02c71cbc40c7e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 30dd3f4a467f19efd2edc7ca26305ee2e7ff05a5
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113332"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920389"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Öğretici: Application Insights'ı kullanarak Service Fabric'te ASP.NET Core uygulamasını izleme ve tanılama
 
@@ -100,7 +100,7 @@ NuGet'i ayarlama adımları şunlardır:
 3. `Microsoft.ApplicationInsights.ServiceFabric.Native` için arama yapın ve uygun NuGet paketine tıklayın.
 
 >[!NOTE]
->Application Insights paketini yüklemeden önce, önceden yüklenmemişse Microsoft.ServiceFabric.Diagnistics.Internal paketini benzer şekilde yüklemeniz gerekebilir
+>Application Insights paketini yüklemeden önce, önceden yüklenmemişse Microsoft.ServiceFabric.Diagnostics.Internal paketini benzer şekilde yüklemeniz gerekebilir
 
 4. Sağ tarafta, uygulamadaki iki hizmetin (**VotingWeb** ve **VotingData**) yanında bulunan iki onay kutusuna tıklayın ve sonra da **Yükle**'ye tıklayın.
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
@@ -113,7 +113,8 @@ NuGet'i ayarlama adımları şunlardır:
     using Microsoft.ApplicationInsights.ServiceFabric;
     ```
 
-    2. Bildirilen iki tekil hizmetin arasında *ConfigureServices* > *services* altındaki *CreateServiceInstanceListeners()* veya *CreateServiceReplicaListeners()* iç içe *return* deyiminde şunu ekleyin: `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))` Bunun yapılması telemetrinize *Hizmet Bağlamı* ekler ve Application Insights’ta telemetrinizin kaynağını daha iyi anlamanıza olanak tanır. *VotingWeb.cs*'deki iç içe *return* deyiminiz şöyle görünmelidir:
+    2. *CreateServiceInstanceListeners()* ve *CreateServiceReplicaListeners()* öğelerinin iç içe *return* deyiminde, *ConfigureServices* > *services*'in altına ve bildirilen iki Singleton hizmetinin arasına şunu ekleyin: `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`
+    Bu, telemetrinize *Hizmet Bağlamı* ekleyerek Application Insights'da telemetrinizin kaynağını daha iyi anlamanızı sağlar. *VotingWeb.cs*'deki iç içe *return* deyiminiz şöyle görünmelidir:
 
     ```csharp
     return new WebHostBuilder()

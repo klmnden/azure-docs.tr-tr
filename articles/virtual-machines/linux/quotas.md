@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 56ee63e15c429c5a6212be36d420ae59afa48546
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 3e9a9e3f902439f0fc3f1fa4aa758d4fcd55f5bd
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629098"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048953"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Sanal makine vCPU kotaları
 
@@ -63,7 +63,7 @@ Premium Storage Managed Disks                  5    10000
 ```
 
 ## <a name="reserved-vm-instances"></a>Ayrılmış VM Örnekleri
-Tek bir aboneliği kapsamlıdır, ayrılmış VM örneklerini yeni bir boyut için vCPU kotaları ekler. Bu değerler, abonelikte dağıtılabilir belirtilen boyut örnek sayısını tanımlar. Bu kota Azure ayırmaları abonelikte dağıtılabilir emin olmak için ayrılmış emin olmak için kota sisteminde yer tutucu olarak çalışırlar. Örneğin, belirli bir aboneliğe 10 işler için standart_d1 ayırmaları sahipse işler için standart_d1 ayırmalar için kullanım sınırı 10 olacaktır. Bu, kullanılabilir her zaman en az 10 Vcpu işler için standart_d1 örnekleri için kullanılacak toplam bölgesel Vcpu kotası, ve en az 10 Vcpu işler için standart_d1 örnekleri için kullanılacak standart D Ailesi vCPU kotası kullanılabilir sağlamak için Azure'da neden olur.
+VM boyutu esneklik olmadan tek bir abonelik için kapsamlı ayrılmış VM örneklerini yeni bir boyut için vCPU kotaları ekler. Bu değerler, abonelikte dağıtılabilir belirtilen boyut örnek sayısını tanımlar. Bu kota Azure ayırmaları abonelikte dağıtılabilir emin olmak için ayrılmış emin olmak için kota sisteminde yer tutucu olarak çalışırlar. Örneğin, belirli bir aboneliğe 10 işler için standart_d1 ayırmaları sahipse işler için standart_d1 ayırmalar için kullanım sınırı 10 olacaktır. Bu, kullanılabilir her zaman en az 10 Vcpu işler için standart_d1 örnekleri için kullanılacak toplam bölgesel Vcpu kotası, ve en az 10 Vcpu işler için standart_d1 örnekleri için kullanılacak standart D Ailesi vCPU kotası kullanılabilir sağlamak için Azure'da neden olur.
 
 Kota artışı ya da tek bir abonelik RI satın almanız gerekiyorsa, şunları yapabilirsiniz [bir kota artırım talebinde](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) aboneliğinizde.
 

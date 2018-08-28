@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 9845476e23396eecc4149f3e856c40b0f80f13cb
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: f099eefbc6d196f25c2b09669cdc1c3cdec68a12
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004775"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050023"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>İşletim sistemi diskini bir kurtarma için Azure PowerShell kullanarak VM ekleyerek bir Windows sanal makinesinin sorunlarını giderme
 Azure'da Windows sanal makinesi (VM), önyükleme veya disk bir hatasıyla karşılaşırsa, diskin kendisinde sorun giderme adımları gerçekleştirmeniz gerekebilir. Yaygın olarak karşılaşılan örneklerden VM başarıyla önyükleme engelleyen bir uygulamanın güncelleştirme olacaktır. Bu makalede, diski başka bir Windows varsa hataları düzeltin ve ardından orijinal VM'yi onarın VM'ye bağlanmak için Azure PowerShell kullanma işlemi açıklanmaktadır. 
@@ -39,6 +39,8 @@ Sorun giderme işlemi aşağıdaki gibidir:
 5. Kurtarma sanal Makinesine bağlanın. Dosyaları düzenleyin veya kopyalanmış işletim sistemi diskinde sorunlarını düzeltmek için herhangi bir aracı çalıştırın.
 6. Çıkarın ve kurtarma sanal Makinesine disk ayırma.
 7. Etkilenen sanal makine için işletim sistemi diski değiştirin.
+
+VM kurtarma betikleri, 1, 2, 3, 4, 6 ve 7. adımları otomatikleştirmek için kullanabilirsiniz. Daha fazla belge ve yönergeler için bkz. [Resource Manager VM için VM kurtarma betikleri](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager).
 
 Sahip olduğunuzdan emin olun [en son Azure PowerShell](/powershell/azure/overview) yüklü ve aboneliğinize oturum:
 

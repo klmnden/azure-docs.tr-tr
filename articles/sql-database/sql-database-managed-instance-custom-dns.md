@@ -10,67 +10,28 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: d5bb2f2f4b79c4b03e631fc844a712f76fc69109
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: af9afcbf97df5f3d7fa82f6ea0163c714fa4f582
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258176"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051750"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Özel DNS yapılandırma için Azure SQL veritabanı yönetilen örneği
 
-Azure SQL veritabanı yönetilen örneği (Önizleme) içinde bir Azure dağıtılmalıdır [sanal ağ (VNet)](../virtual-network/virtual-networks-overview.md). Bazı senaryolarda, Bulut veya karma ortamınızdaki diğer SQL örneklerine bağlı sunucular vardır, yönetilen örneğinden çözülmesi özel ana bilgisayar adları gerektirir. Bu durumda, Azure içinde özel bir DNS yapılandırmanız gerekir. Yönetilen örneği için kendi iç işleyişini aynı DNS kullandığından, sanal ağ DNS yapılandırmasını yönetilen örneği ile uyumlu olması gerekir. 
+Azure SQL veritabanı yönetilen örneği (Önizleme) içinde bir Azure dağıtılmalıdır [sanal ağ (VNet)](../virtual-network/virtual-networks-overview.md). Yönetilen örnek çözülmesi özel konak adlarını gerektiren bazı senaryolar (yani, Bulut veya karma ortamınızdaki diğer SQL örneklerine bağlı sunucular) vardır. Bu durumda, Azure içinde özel bir DNS yapılandırmanız gerekir. Yönetilen örneği için kendi iç işleyişini aynı DNS kullandığından, sanal ağ DNS yapılandırmasını yönetilen örneği ile uyumlu olması gerekir. 
 
-Özel DNS yapılandırma yönetilen örneği ile uyumlu hale getirmek için aşağıdaki adımları tamamlamanız gerekir: 
-- Azure DNS istekleri iletmek için özel DNS yapılandırma 
-- VNet için özel DNS olarak birincil ve ikincil olarak Azure DNS ayarlayın 
-- Azure DNS ve özel DNS birincil olarak ikincil olarak kaydetme
-
-## <a name="configure-custom-dns-to-forward-requests-to-azure-dns"></a>Azure DNS istekleri iletmek için özel DNS yapılandırma 
-
-Windows Server 2016'da DNS iletme yapılandırmak için aşağıdaki adımları kullanın: 
-
-1. İçinde **Sunucu Yöneticisi'ni**, tıklayın **Araçları**ve ardından **DNS**. 
-
-   ![DNS](./media/sql-database-managed-instance-custom-dns/dns.png) 
-
-2. Çift **ileticileri**.
-
-   ![İleticileri](./media/sql-database-managed-instance-custom-dns/forwarders.png) 
-
-3. **Düzenle**’ye tıklayın. 
-
-   ![İleticiler listesi](./media/sql-database-managed-instance-custom-dns/forwarders-list.png) 
-
-4. Azure'nın yinelemeli Çözümleyicileri IP adresi gibi 168.63.129.16 girin.
-
-   ![Özyinelemeli Çözümleyicileri IP adresi](./media/sql-database-managed-instance-custom-dns/recursive-resolvers-ip-address.png) 
+Özel bir DNS yapılandırmasını yapmak için yönetilen örneği ile uyumludur, şunları yapmanız gerekir: 
+- Genel etki alanı adlarını çözümlemek için bu nedenle özel DNS sunucusunu yapılandırma 
+- Sanal ağ DNS listesinin sonuna 168.63.129.16 Azure özyinelemeli çözümleyici DNS IP adresi yerleştirin 
  
-## <a name="set-up-custom-dns-as-primary-and-azure-dns-as-secondary"></a>Özel DNS olarak birincil ve ikincil olarak Azure DNS ayarlama 
- 
-Bir Azure sanal ağı DNS yapılandırma, IP adreslerini girin, bu nedenle aşağıdaki sonraki adımlar kullanarak statik bir IP adresi ile DNS sunucusunu barındıran Azure VM'yi yapılandırmak gerektirir: 
-
-1. Azure portalında özel DNS VM ağ arabirimini açın.
-
-   ![Ağ arabirimi](./media/sql-database-managed-instance-custom-dns/network-interface.png) 
-
-2. IP yapılandırma bölümü. IP yapılandırması 
-
-   ![IP yapılandırması](./media/sql-database-managed-instance-custom-dns/ip-configuration.png) 
-
-
-3. Özel IP adresi, statik ayarlayın. IP adresi (Bu ekran üzerinde 10.0.1.5'i) azaltma 
-
-   ![statik](./media/sql-database-managed-instance-custom-dns/static.png) 
-
-
-## <a name="register-custom-dns-as-primary-and-azure-dns-as-secondary"></a>Birincil olarak özel DNS ve Azure DNS, ikincil olarak kaydetme 
+## <a name="setting-up-custom-dns-servers-configuration"></a>Özel DNS sunucuları yapılandırma ayarlama
 
 1. Azure portalında sanal ağınızdaki özel DNS seçeneği bulun.
 
    ![Özel dns seçeneği](./media/sql-database-managed-instance-custom-dns/custom-dns-option.png) 
 
-2. Özel anahtar ve özel DNS sunucusu IP adresinizi ve bunun yanı sıra Azure'nın yinelemeli Çözümleyicileri IP adresi gibi 168.63.129.16 girin. 
+2. Özel anahtar ve özel DNS sunucusu IP adresinizi ve bunun yanı sıra Azure'nın yinelemeli Çözümleyicileri IP adresi 168.63.129.16 girin. 
 
    ![Özel dns seçeneği](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
 

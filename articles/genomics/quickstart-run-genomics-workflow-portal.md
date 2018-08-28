@@ -10,12 +10,12 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 1436ad54eb13052aa87ccfd5adc371c8d7d5a100
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4387e1c935ada99e1f9c335fb7e1b67905c01188
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31403799"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42023543"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Hızlı Başlangıç: Microsoft Genomiks hizmeti üzerinden iş akışı çalıştırma
 
@@ -57,7 +57,9 @@ Kullanıcıların hem Python hem de Microsoft Genomiks Python istemcisini yerel 
 
 ### <a name="install-python"></a>Python'ı yükleme
 
-Microsoft Genomiks Python istemcisi Python 2.7 ile uyumludur. Sürüm 2.7.12 veya üzerini kullanmanızı öneririz, 2.7.14 sürümü tercih edilir. Dosyayı [buradan](https://www.python.org/downloads/) indirebilirsiniz. 
+Microsoft Genomiks Python istemcisi Python 2.7 ile uyumludur. 12 veya üzeri 2.7.xx sürümü; 2.7.15, bu makalenin yazıldığı sırada en yeni sürümdür; 2.7.14 önerilen sürümdür. Dosyayı [buradan](https://www.python.org/downloads/) indirebilirsiniz. 
+
+NOT: Python 3.x, Python 2.7.xx ile uyumlu değildir.  MSGen bir Python 2.7 uygulamasıdır. MSGen'i çalıştırırken etkin Python ortamınızda Python'un 2.7.xx sürümünün kullanıldığından emin olun. MSGen'i Python 3.x sürümüyle kullanmaya çalışırsanız hatalarla karşılaşabilirsiniz.
 
 
 ### <a name="install-the-microsoft-genomics-client"></a>Microsoft Genomiks istemcisini yükleme

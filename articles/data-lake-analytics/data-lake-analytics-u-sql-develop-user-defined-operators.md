@@ -1,32 +1,31 @@
 ---
 title: U-SQL kullanıcı tanımlı işleçler (Udo'lar) Azure Data Lake Analytics geliştirin
-description: Kullanıcı tanımlı işleçler kullanılan ve Azure Data Lake Analytics işleri yeniden için geliştirmeyi öğrenin.
+description: Kullanıcı tanımlı işleçler kullanılan ve Azure Data Lake Analytics işleri yeniden geliştirmeyi öğrenin.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 8d8937a6132f770e989d7595883b2c5cf804c44f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9751801449eebc5d07ca4bbb9b408d9679fef24e
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623864"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43040999"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>U-SQL kullanıcı tanımlı işleçler (Udo'lar) geliştirin
-Bu makalede, U-SQL iş verileri işlemek için kullanıcı tanımlı işleçleri geliştirme açıklar.
+Bu makalede, bir U-SQL işi verileri işlemek için kullanıcı tanımlı işleçleri geliştirme açıklar.
 
 ## <a name="define-and-use-a-user-defined-operator-in-u-sql"></a>Tanımlama ve U-SQL kullanıcı tanımlı bir işleç kullanma
-**Oluşturmak ve U-SQL işi göndermek için**
+**U-SQL işi oluşturma ve gönderme için**
 
-1. Visual Studio seçin gelen **Dosya > Yeni > Proje > U-SQL projesi**.
-2. **Tamam**’a tıklayın. Visual Studio Script.usql dosyası ile çözüm oluşturur.
-3. Gelen **Çözüm Gezgini**Script.usql genişletin ve ardından **Script.usql.cs**.
-4. Dosyasına aşağıdaki kodu yapıştırın:
+1. Visual Studio seçin **Dosya > Yeni > Proje > U-SQL projesi**.
+2. **Tamam** düğmesine tıklayın. Visual Studio Script.usql dosyasıyla bir çözüm oluşturur.
+3. Gelen **Çözüm Gezgini**Script.usql genişletin ve ardından çift **Script.usql.cs**.
+4. Dosyaya aşağıdaki kodu yapıştırın:
 
         using Microsoft.Analytics.Interfaces;
         using System.Collections.Generic;
@@ -116,14 +115,14 @@ Bu makalede, U-SQL iş verileri işlemek için kullanıcı tanımlı işleçleri
 8. **Çözüm Gezgini**'nden, **Script.usql** öğesine sağ tıklayın ve ardından **Betik Oluştur**'a tıklayın.
 9. **Çözüm Gezgini**'nden, **Script.usql** öğesine sağ tıklayın ve ardından **Betiği Gönder**'e tıklayın.
 10. Azure aboneliğinize bağlanmadıysanız, Azure hesabı kimlik bilgilerinizi girmeniz istenir.
-11. Tıklatın **gönderme**. Gönderim tamamlandığında Sonuçları penceresinde, gönderme işleminin sonuçları ve iş bağlantısı da kullanılabilir.
-12. Tıklatın **yenileme** en son iş durumu ve ekranı yenilemek görmek için düğmesi.
+11. Tıklayın **gönderme**. Gönderim tamamlandığında Sonuçları penceresinde, gönderme işleminin sonuçları ve iş bağlantısı da kullanılabilir.
+12. Tıklayın **Yenile** en son iş durumu ve ekranı yenilemek görmek için düğme.
 
-**Çıkışı görmek için**
+**Çıktıyı görmek için**
 
-1. Gelen **Sunucu Gezgini**, genişletin **Azure**, genişletin **Data Lake Analytics**, Data Lake Analytics hesabınızı genişletin, **depolama hesapları**, varsayılan depolama sağ tıklayın ve ardından **Explorer**.
-2. Örnekleri genişletin, çıkışları genişletin ve ardından **sürücüler.csv**.
+1. Gelen **Sunucu Gezgini**, genişletme **Azure**, genişletme **Data Lake Analytics**, Data Lake Analytics hesabınızı genişletin, **Depolamahesapları**, varsayılan depolama sağ tıklayın ve ardından **Gezgini**.
+2. Örnekleri'ni genişletin, çıkışlar genişletin ve ardından çift **sürücüler.csv**.
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [U-SQL kullanıcı kodu ifadelerle genişletme](https://msdn.microsoft.com/library/azure/mt621316.aspx)
-* [U-SQL uygulamalarını geliştirmek için Visual Studio için Data Lake araçları kullanın](data-lake-analytics-data-lake-tools-get-started.md)
+* [U-SQL deyimleri kullanıcı kodu ile genişletme](https://msdn.microsoft.com/library/azure/mt621316.aspx)
+* [U-SQL uygulamalarını geliştirmek için Visual Studio için Data Lake araçları kullanma](data-lake-analytics-data-lake-tools-get-started.md)

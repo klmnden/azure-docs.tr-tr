@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2e3852ffc01312f01843a90de5f5565784b1c0b5
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ed5da0afe67deaa7000c1bf3b8d75bdea14f2ecd
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114260"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616335"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Hızlı başlangıç: Service Fabric'e bir Java güvenilir hizmetler uygulaması dağıtma
 
@@ -66,8 +66,8 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ![Yerel küme sorunsuz çalışıyor](./media/service-fabric-quickstart-java/localclusterup.png)
 
 2. Eclipse’i açın.
-3. Dosya Sistemi’nde Dosya -> Proje Aç seçeneğine tıklayın...
-4. Dizin’e tıklayın ve GitHub’dan kopyaladığınız `service-fabric-java-quickstart` klasöründe yer alan `Voting` dizinini seçin. Son'a tıklayın.
+3. Dosya -> İçeri Aktar -> Gradle -> Var Olan Gradle Projesi'ne tıklayın ve sihirbazı izleyin.
+4. Dizin’e tıklayın ve GitHub’dan kopyaladığınız `service-fabric-java-quickstart` klasöründe yer alan `Voting` dizinini seçin. Son'a tıklayın. 
 
     ![Eclipse İçeri Aktarma İletişim Kutusu](./media/service-fabric-quickstart-java/eclipseimport.png)
 

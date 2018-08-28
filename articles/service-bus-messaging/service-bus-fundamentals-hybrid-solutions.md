@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: get-started-article
 ms.date: 05/23/2018
 ms.author: sethm
-ms.openlocfilehash: 994510b415e21288fd38a116f7e77a59ba79af59
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bef88f09f182b1bb450ee0e045985ed59d5b5648
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641331"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41917643"
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
 
@@ -36,7 +36,12 @@ Ad alanı içinde, üç farklı iletişim mekanizmasının bir veya birden fazla
 * *Abonelikleri* kullanarak tek yönlü iletişim sağlayan *konular*. Tek bir konunun birden fazla aboneliği olabilir. Kuyrukta olduğu gibi konu başlığı, aracı gibi davranır ancak her abonelik isteğe bağlı olarak yalnızca belirli kriterlerle eşleşen iletileri almak için filtre kullanabilir.
 * Çift yönlü iletişim sunan *geçişler*. Kuyruk ve konu başlıklarının aksine, bir geçiş yürütülen iletileri depolamaz; yani bir aracı değildir. Bunun yerine iletileri yalnızca hedef uygulamaya gönderir.
 
-Bir kuyruk, konu veya geçiş oluşturduğunuzda bunları adlandırırsınız. Ad alanınız ne olursa olsun, bu ad nesne için benzersiz bir tanıtıcı oluşturur. Uygulamalar bu adı Service Bus'a verebilir ve ardından birbirleriyle iletişim kurmak için bu kuyruğu, konuyu veya geçişi kullanabilir. 
+Bir kuyruk, konu veya geçiş oluşturduğunuzda bunları adlandırırsınız. Ad alanınız ne olursa olsun, bu ad nesne için benzersiz bir tanıtıcı oluşturur. Uygulamalar bu adı Service Bus'a verebilir ve ardından birbirleriyle iletişim kurmak için bu kuyruğu, konuyu veya geçişi kullanabilir.
+
+ >**Örnek:**   
+     *https://&lt;servicebus-ad-alanı-adı&gt;.servicebus.windows.net/&lt;kuyruk-adı&gt;*  
+     *https://&lt;servicebus-ad-alanı-adı&gt;.servicebus.windows.net/&lt;konu-adı&gt;*  
+     *https://&lt;servicebus-ad-alanı-adı&gt;.servicebus.windows.net/&lt;geçiş-adı&gt;*  
 
 Geçiş senaryosundaki bu nesnelerden herhangi birini kullanmak için Windows uygulamaları Windows Communication Foundation'ı (WCF) kullanabilir. Bu hizmet [WCF Geçişi](../service-bus-relay/relay-what-is-it.md) olarak bilinir. Windows uygulamaları kuyruklar ve konular için Service Bus tanımlı mesajlaşma API'lerini kullanabilir. Bu nesnelerin Windows uygulaması olmayan uygulamalar tarafından kullanımını kolaylaştırmak için Microsoft Java, Node.js ve diğer dillere yönelik SDK sunar. Kuyruklara ve konu başlıklarına HTTP(s) üzerinden [REST API'lerini](/rest/api/servicebus/) kullanarak da erişebilirsiniz. 
 

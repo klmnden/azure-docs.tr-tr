@@ -1,6 +1,6 @@
 ---
-title: Azure'da bir Service Fabric uygulamasına HTTPS uç noktası ekleme | Microsoft Docs
-description: Bu öğreticide bir ASP.NET Core ön uç web hizmetine HTTPS uç noktası ekleme ve uygulamayı bir kümeye dağıtma işlemi hakkında bilgi alacaksınız.
+title: Kestrel kullanarak Azure'da bir Service Fabric uygulamasına HTTPS uç noktası ekleme | Microsoft Docs
+description: Bu öğreticide Kestrel kullanarak bir ASP.NET Core ön uç web hizmetine HTTPS uç noktası ekleme ve uygulamayı bir kümeye dağıtma işlemi hakkında bilgi alacaksınız.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 309a43d3383658029f4fe7f90f869888bac67bb1
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 70bbeabe2c2b14e8e0dcccac9ffa63f2e19230a2
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130059"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41920936"
 ---
-# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service"></a>Öğretici: Bir ASP.NET Core Web API’si ön uç hizmetine HTTPS uç noktası ekleme
+# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Öğretici: Kestrel kullanarak bir ASP.NET Core Web API’si ön uç hizmetine HTTPS uç noktası ekleme
 
 Bu öğretici, bir serinin üçüncü bölümüdür.  Service Fabric üzerinde çalışan bir ASP.NET Core hizmetinde HTTPS’yi etkinleştirme hakkında bilgi edineceksiniz. İşlemi tamamladığınızda, 443 numaralı bağlantı noktasını dinleyen HTTPS özellikli bir ASP.NET Core web ön ucu içeren bir oylama uygulamasına sahip olursunuz. Oylama uygulamasını [.NET Service Fabric uygulaması derleme](service-fabric-tutorial-deploy-app-to-party-cluster.md) bölümünde el ile oluşturmak istemiyorsanız, tamamlanmış uygulamanın [kaynak kodunu indirebilirsiniz](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/).
 

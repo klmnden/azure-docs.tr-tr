@@ -6,18 +6,18 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 05/04/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 41cd2f1081cbe8d8fca9d6afa77b87f9aa1017d3
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 432436ee13519cf342313ad369c168ba764f9264
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302948"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616524"
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Büyük verileri bir veri ambarına akışla aktarma
 
-Azure [Event Grid](overview.md), uygulama ve hizmetlerden bildirimlere yanıt vermenize olanak tanıyan akıllı bir olay yönlendirme hizmetidir. [Event Hubs Capture ve Event Grid örneği](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo), verileri bir olay hub’ından SQL Veri Ambarına sorunsuzca geçirmek üzere Azure Event Hubs Capture’ı Azure Event Grid ile birlikte kullanmayı gösterir.
+Azure [Event Grid](overview.md), uygulama ve hizmetlerden bildirimlere yanıt vermenize olanak tanıyan akıllı bir olay yönlendirme hizmetidir. Örneğin bir Azure İşlevini tetikleyerek Azure Blob depolama alanına veya Data Lake Store'a alınan Event Hubs verilerinin işlenmesini ve verilerin farklı veri depolarına geçirilmesini sağlayabilir. [Event Hubs Capture ve Event Grid örneği](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo), blob depolama alanındaki Event Hubs verilerini SQL Veri Ambarına sorunsuzca geçirmek üzere Event Hubs Capture’ı Event Grid ile birlikte kullanmayı gösterir.
 
 ![Uygulamaya genel bakış](media/event-grid-event-hubs-integration/overview.png)
 
@@ -75,7 +75,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
 ## <a name="deploy-the-infrastructure"></a>Altyapıyı dağıtma
 
-Bu makaleyi basitleştirmek için gerekli altyapıyı bir Resource Manager şablonuna dağıtın. Dağıtılan kaynakları görmek için [şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json) görüntüleyin. Kaynak grubu konumu için [desteklenen bölgelerden](overview.md) birini kullanın.
+Bu makaleyi basitleştirmek için gerekli altyapıyı bir Resource Manager şablonuna dağıtın. Dağıtılan kaynakları görmek için [şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json) görüntüleyin.
 
 Azure CLI için şunu kullanın:
 

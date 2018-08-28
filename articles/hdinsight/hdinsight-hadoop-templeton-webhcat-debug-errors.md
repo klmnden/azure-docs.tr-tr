@@ -3,18 +3,18 @@ title: HDInsight - Azure üzerinde WebHCat hatalarını anlama ve çözme
 description: Nasıl üzere sık karşılaşılan WebHCat tarafından HDInsight üzerinde döndürdü ve bunların nasıl çözüleceğine öğrenin.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jasonh
-ms.openlocfilehash: 9cd3ed48e7c07378a972014c468735e4034b827f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 3c4ce93a12d0ecb86552e9f73d83f623e71385a0
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600406"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43103414"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>HDInsight üzerinde WebHCat alınan hatalarını anlama ve çözme
 

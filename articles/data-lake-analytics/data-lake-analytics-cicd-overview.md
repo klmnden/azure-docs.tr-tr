@@ -1,25 +1,21 @@
 ---
-title: Azure Data Lake Analytics için bir CI/CD işlem hattı ayarlama | Microsoft Docs
+title: Azure Data Lake Analytics için bir CI/CD işlem hattı ayarlama
 description: Sürekli tümleştirme ve sürekli dağıtım için Azure Data Lake Analytics ayarlama konusunda bilgi edinin.
 services: data-lake-analytics
-documentationcenter: ''
 author: yanancai
-manager: ''
-editor: ''
+ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.author: yanacai
-ms.openlocfilehash: c114f190ae05f5ea4788c3785a713a6365938ded
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 49ac9f9603a1b8043b19c327d5a66015959b9dd1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630713"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045883"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics için bir CI/CD işlem hattı ayarlama  
 
@@ -440,16 +436,16 @@ Visual Studio Team Services içinde bir veritabanı dağıtım görevi ayarlamak
         PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -AzureSDKPath <azure sdk path> -Interactive
         ```
 
-    * Kullanım **gizli** kimlik doğrulaması için bir Azure Data Lake Analytics hesabı bir U-SQL veritabanı dağıtmak için:
+    * Kullanım **secrete** kimlik doğrulaması için bir Azure Data Lake Analytics hesabı bir U-SQL veritabanı dağıtmak için:
 
         ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secret <secret>
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete>
         ```
 
     * Kullanım **certFile** kimlik doğrulaması için bir Azure Data Lake Analytics hesabı bir U-SQL veritabanı dağıtmak için:
 
         ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secret <secret> -CertFile <certFile>
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete> -CertFile <certFile>
         ```
 
 ### <a name="packagedeploymenttoolexe-parameter-descriptions"></a>PackageDeploymentTool.exe parametre açıklamaları
@@ -480,9 +476,9 @@ Visual Studio Team Services içinde bir veritabanı dağıtım görevi ayarlamak
 |AzureSDKPath|Azure SDK'sı bağımlı derlemelerin aranacağı yol.|Null|true|
 |Etkileşimli|Gerekmediğini etkileşimli mod kimlik doğrulaması için kullanılacak.|false|false|
 |ClientID|Azure AD uygulama kimliği etkileşimli olmayan kimlik doğrulaması için gereklidir.|Null|Etkileşimli olmayan kimlik doğrulaması için gereklidir.|
-|Gizli dizi|Gizli veya etkileşimli olmayan kimlik doğrulaması için parola. Yalnızca güvenilen ve güvenli ortamında kullanılmalıdır.|Null|Kullanım SecretFile yoksa etkileşimli olmayan kimlik doğrulaması için gereklidir.|
-|SecretFile|Dosya, gizli ya da etkileşimli olmayan kimlik doğrulaması için parola kaydeder. Yalnızca geçerli kullanıcı tarafından okunabilen sakladığınızdan emin olun.|Null|Gizli dizi kullanmak yoksa etkileşimli olmayan kimlik doğrulaması için gereklidir.|
-|CertFile|Dosya X.509 Sertifika etkileşimli olmayan kimlik doğrulama için kaydeder. Varsayılan istemci gizli kimlik doğrulaması kullanmaktır.|Null|false|
+|Secrete|Secrete veya etkileşimli olmayan kimlik doğrulaması için parola. Yalnızca güvenilen ve güvenli ortamında kullanılmalıdır.|Null|Kullanım SecreteFile yoksa etkileşimli olmayan kimlik doğrulaması için gereklidir.|
+|SecreteFile|Dosyayı secrete veya etkileşimli olmayan kimlik doğrulaması için parola kaydeder. Yalnızca geçerli kullanıcı tarafından okunabilen sakladığınızdan emin olun.|Null|Kullanım Secrete yoksa etkileşimli olmayan kimlik doğrulaması için gereklidir.|
+|CertFile|Dosya X.509 Sertifika etkileşimli olmayan kimlik doğrulama için kaydeder. Varsayılan istemci kullanmaktır secrete kimlik doğrulaması.|Null|false|
 | JobPrefix | U-SQL DDL işin veritabanı dağıtımı için önek. | Deploy_ + DateTime.Now | false |
 
 ## <a name="next-steps"></a>Sonraki adımlar

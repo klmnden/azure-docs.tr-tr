@@ -1,55 +1,65 @@
 ---
-title: Bir Azure Machine Learning modeli için bir Azure IOT sınır cihazı dağıtma | Microsoft Docs
-description: Bu belgede, Azure IOT sınır cihazları Azure Machine Learning modellerini nasıl dağıtılabilir açıklanmaktadır.
+title: Bir Azure Machine Learning modeli Azure IOT Edge cihazına dağıtma | Microsoft Docs
+description: Bu belgede, Azure Machine Learning modellerini Azure IOT Edge cihazlarına nasıl dağıtılabilir açıklanmaktadır.
 services: machine-learning
 author: tedway
 ms.author: tedway
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
-ms.date: 2/1/2018
-ms.openlocfilehash: 1dffdee032c5b079aa5b81284cebe8f6471efebd
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.date: 08/24/2018
+ms.openlocfilehash: 24d3cf0c4b1a1283e7a6a7f61f0bb23dae7143d5
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833647"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43113011"
 ---
-# <a name="deploy-an-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>Bir Azure IOT sınır cihazı bir Azure Machine Learning modeli dağıtma
+# <a name="deploy-an-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>Bir Azure Machine Learning modeli Azure IOT Edge cihazına dağıtma
 
-Docker tabanlı web Hizmetleri olarak kapsayıcılı tüm Azure Machine Learning modellerini Azure IOT sınır cihazları üzerinde de çalıştırabilirsiniz. Ek komut dosyaları ve yönergeleri bulunabilir [AI Araç Seti için Azure IOT kenar](http://aka.ms/AI-toolkit).
+Azure Machine Learning modeli Docker tabanlı web Hizmetleri olarak kapsayıcılı hale. Azure IOT Edge cihazları uzaktan kapsayıcılarının dağıtmanıza olanak sağlar. Bu hizmetler birlikte daha hızlı yanıt süreleri ve veri aktarımı daha az Modellerinizi ucuna çalıştırmak için kullanın. 
 
-## <a name="operationalize-the-model"></a>Model faaliyete
-Yönergeleri izleyerek modelinizi faaliyete [Azure Machine Learning modeli Yönetim Web hizmet dağıtımı](model-management-service-deploy.md) modelinizi Docker görüntüsü oluşturulamadı.
+Ek betikleri ve yönergeler bulunabilir [Azure IOT Edge için AI Toolkit](http://aka.ms/AI-toolkit).
 
-## <a name="deploy-to-azure-iot-edge"></a>Azure IOT kenarına dağıtma
-Azure IOT kenar bulut analizi ve özel iş mantığı cihazlara taşır. Tüm Machine Learning modellerini IOT kenar cihazlarda çalıştırabilirsiniz. Bir IOT kenar aygıtı kurma ve dağıtımı oluşturmak için belgeleri şu adreste bulunabilir: [aka.ms/azure-IOT-edge-doc](https://aka.ms/azure-iot-edge-doc).
+## <a name="operationalize-the-model"></a>Modeli kullanıma hazır hale getirme
 
-Dikkat edilecek ek noktalar şunlardır:
+Azure IOT Edge modülleri, kapsayıcı görüntüleri üzerinde temel alır. Makine öğrenimi modelinizi IOT Edge cihazına dağıtmak için bir Docker görüntüsü oluşturmanız gerekir.
 
-### <a name="add-registry-credentials-to-the-edge-runtime-on-your-edge-device"></a>Edge aygıtınızda kenar çalışma zamanı için kayıt defteri kimlik bilgilerini ekleyin
-Çalışma zamanı kapsayıcısı çekmesini erişebilir şekilde IOT kenar kullanmakta olduğunuz nerede makinede kaydınız kimlik bilgilerini ekleyin.
+' Ndaki yönergeleri takip ederek modelinizi kullanıma hazır hale getirme [Azure Machine Learning Model Yönetimi Web hizmeti dağıtımı](model-management-service-deploy.md) modelinizi bir Docker görüntüsü oluşturmak için.
 
-Windows için şu komutu çalıştırın:
-```cmd/sh
-iotedgectl login --address <docker-registry-address> --username <docker-username> --password <docker-password>
-```
-Linux için şu komutu çalıştırın:
-```cmd/sh
-sudo iotedgectl login --address <docker-registry-address> --username <docker-username> --password <docker-password>
-```
+## <a name="deploy-to-azure-iot-edge"></a>Azure IOT Edge için dağıtma
 
-### <a name="find-the-machine-learning-container-image-location"></a>Machine Learning kapsayıcı görüntü konumunu bulma
-Machine Learning kapsayıcı görüntüsünün konumu gerekir. Kapsayıcı görüntü konumu bulmak için:
+Modelinizi görüntüsünü oluşturduktan sonra tüm Azure IOT Edge cihazına dağıtabilirsiniz. Tüm makine öğrenimi modellerini IOT Edge cihazlarında çalıştırabilirsiniz. 
+
+### <a name="set-up-an-iot-edge-device"></a>Bir IOT Edge cihazı ayarlama
+
+Bir cihazı hazırlamak için Azure IOT Edge belgeleri kullanın. 
+
+1. [Azure IOT Hub ile cihaz kaydetme](../../iot-edge/how-to-register-device-portal.md). Bu işlemlerin çıkış fiziksel Cihazınızı yapılandırmak için kullanabileceğiniz bir bağlantı dizesidir. 
+2. IOT Edge çalışma zamanı fiziksel cihazınıza yüklemeniz ve bir bağlantı dizesiyle yapılandırın. Çalışma zamanı yükleyebileceğiniz [Windows](../../iot-edge/how-to-install-iot-edge-windows-with-windows.md) veya [Linux](../../iot-edge/how-to-install-iot-edge-linux.md) cihazlar.  
+
+
+### <a name="find-the-machine-learning-container-image-location"></a>Machine Learning kapsayıcı görüntüsü konumunu bulma
+Machine Learning kapsayıcı görüntünüzü konumunu ihtiyacınız vardır. Kapsayıcı görüntü konumu bulmak için:
 
 1. [Azure portalında](http://portal.azure.com/) oturum açın.
-2. İçinde **Azure kapsayıcı kayıt defteri**, incelemek istediğiniz kayıt defteri seçin.
-3. Kayıt defterinde tıklatın **depoları** tüm depoları ve resimlerinin listesini görmek için.
+2. İçinde **Azure Container Registry**, incelemek istediğiniz kayıt defteri seçin.
+3. Kayıt defterindeki tıklayın **depoları** tüm depolar ve resimlerinin listesini görmek için.
 
+Azure portalındaki kapsayıcı kayıt defterinizin adresindeki bakarken, kapsayıcı kayıt defteri kimlik bilgilerini alın. Bu kimlik bilgilerinin görüntünün özel kayıt defterinizdeki çekebilirsiniz böylece IOT Edge cihazına verilmesi gerekir. 
 
+1. Kapsayıcı kayıt defterinde tıklayın **erişim anahtarları**. 
+2. **Etkinleştirme** yönetici kullanıcı, zaten yoksa. 
+3. İçin değerleri kaydedin **oturum açma sunucusu**, **kullanıcıadı**, ve **parola**. 
+
+### <a name="deploy-the-container-image-to-your-device"></a>Cihazınız için kapsayıcı görüntüsü dağıtma
+
+Kapsayıcı görüntüsünü ve kapsayıcı kayıt defteri kimlik bilgileri ile makine öğrenimi modelinde IOT Edge cihazınıza dağıtmaya hazırsınız. 
+
+Bölümündeki yönergeleri [dağıtma IOT Edge modülleri Azure portalından](../../iot-edge/how-to-deploy-modules-portal.md) modelinizi IOT Edge Cihazınızda başlatmak için. 
 
 
 

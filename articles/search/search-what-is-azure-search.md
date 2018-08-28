@@ -6,17 +6,22 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 07/09/2018
+ms.date: 08/09/2018
 ms.author: heidist
-ms.openlocfilehash: 4874e42139e277400c866a7fc4c7094faeae136d
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e4d01fdb4c11277af68127e4671a36ad7e2c74d2
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002213"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42023544"
 ---
 # <a name="what-is-azure-search"></a>Azure Search nedir?
-Azure Search, geliştiricilere, web uygulamalarındaki, mobil uygulamalardaki ve kurumsal uygulamalardaki özel, heterojen içeriğe yönelik zengin arama deneyimi ekleme araçlarını ve API’lerini sunan, hizmet olarak arama bulut çözümüdür.
+Azure Search, geliştiricilere, web uygulamalarındaki, mobil uygulamalardaki ve kurumsal uygulamalardaki özel, heterojen içeriğe yönelik zengin arama deneyimi ekleme araçlarını ve API’lerini sunan, hizmet olarak arama bulut çözümüdür. Sorgu yürütme işlemi, kullanıcı tarafından tanımlanan bir dizine göre gerçekleştirilir.
+
++ Birden fazla içerik türünden ve platformdan oluşan ve yalnızca sizin verilerinizi içeren bir arama topluluğu oluşturun. 
++ Görüntü dosyalarından metin ve özellikleri, ham metinden varlıkları ve anahtar ifadeleri ayıklamak için yapay zeka destekli dizin oluşturma özelliğinden faydalanın.
++ Model gezintinin yanı sıra "şunu mu demek istediniz" otomatik düzeltilen arama terimleri için filtreler, eş anlamlılar, otomatik tamamlama ve metin analiz ile sezgisel arama deneyimleri oluşturun.
++ "Yakınımdakileri bul" için coğrafi arama, İngilizce olmayan tam metin araması için dil çözümleyicileri, arama sıralaması için de puanlama mantığı ekleyin.
 
 Bilgi alma sürecinin karmaşıklığını maskeleyen basit bir [REST API’si](/rest/api/searchservice/) veya [.NET SDK’sı](search-howto-dotnet-sdk.md) aracılığıyla bu işlev sunulur. Azure portalı, API’lere ek olarak dizinlerinizin prototipini oluşturma ve dizinlerinizi sorgulama araçlarıyla birlikte yönetim ve içerik yönetimi desteği sağlar. Hizmet bulutta çalıştığından, altyapı ve kullanılabilirlik Microsoft tarafından yönetilir.
 
@@ -51,7 +56,7 @@ Aranabilir içeriği karşıya yükleyebilmeniz için önce bir Azure Search diz
 
 Azure portalında veya [.NET SDK](search-howto-dotnet-sdk.md) ya da [REST API](/rest/api/searchservice/) kullanılarak programlama yoluyla bir şema oluşturulabilir.
 
-### <a name="step-3-index-data"></a>3. Adım: Verilerin dizinini oluşturma
+### <a name="step-3-load-data"></a>3. Adım: Verileri yükleme
 Bir dizin tanımladıktan sonra içeriği karşıya yüklemeye hazır olursunuz. Bir itme veya çekme modeli kullanabilirsiniz.
 
 Çekme modeli, dış veri kaynaklarından verileri alır. Verilere bağlanma, verileri okuma ve seri hale getirme gibi veri alımı işlemlerini kolaylaştıran ve otomatikleştiren *dizin oluşturucular* aracılığıyla desteklenir. [Dizin oluşturucular](/rest/api/searchservice/Indexer-operations), bir Azure sanal makinesinde barındırılan Azure Cosmos DB, Azure SQL Veritabanı, Azure Blob Depolama ve SQL Server için kullanılabilir. İsteğe bağlı veya zamanlanan veri yenileme için dizin oluşturucuyu yapılandırabilirsiniz.
@@ -61,7 +66,7 @@ Güncelleştirilmiş belgeleri dizine göndermek için kullanılan SDK veya REST
 ### <a name="step-4-search"></a>4. Adım: Arama
 Bir dizin doldurulduktan sonra, REST API’si veya .NET SDK’sı ile basit HTTP isteklerini kullanarak hizmet uç noktanıza [arama sorguları düzenleyebilirsiniz](/rest/api/searchservice/Search-Documents).
 
-## <a name="how-azure-search-compares"></a>Azure Search karşılaştırması
+## <a name="how-it-compares"></a>Karşılaştırma
 
 Müşteriler genellikle Azure Search’ün diğer aramayla ilgili çözümlerle karşılaştırmasını öğrenmek ister. Aşağıdaki tabloda temel farklılıklar özetlenmiştir.
 
@@ -104,13 +109,16 @@ Alternatif olarak [MSDN abone avantajlarını etkinleştirebilirsiniz](https://a
 
 ## <a name="how-to-get-started"></a>Nasıl kullanmaya başlarım
 
-1. [Ücretsiz katmanda](search-create-service-portal.md) bir hizmet oluşturun.
+1. [Ücretsiz hizmet](search-create-service-portal.md) oluşturun. Tüm hızlı başlangıçlar ve öğreticiler ücretsiz hizmetle tamamlanabilir.
 
-2. Aşağıdaki öğreticilerden biri veya daha fazlasında ilerleyin. 
+2. [Dizinleme ve sorgulama için yerleşik araçları kullanma öğreticisindeki](search-get-started-portal.md) adımları izleyin. Önemli kavramları öğrenin ve portalın sağladığı bilgileri inceleyin.
 
-  + [.NET SDK’sını kullanma](search-howto-dotnet-sdk.md), yönetilen kodda ana adımları gösterir.  
-  + [REST API'si ile çalışmaya başlama](https://github.com/Azure-Samples/search-rest-api-getting-started), REST API’sinin kullanımıyla aynı adımları gösterir.  
-  + Yerleşik dizin oluşturma ve prototip özelliklerini kullanarak [portalda ilk dizininizi oluşturun](search-get-started-portal.md).   
+3. .NET veya REST API'sini kullanarak kod yazmaya yönelin:
+
+  + [.NET SDK’sını kullanma](search-howto-dotnet-sdk.md), yönetilen kodda ana iş akışını gösterir.  
+  + [REST API'si ile çalışmaya başlama](https://github.com/Azure-Samples/search-rest-api-getting-started), REST API’sinin kullanımıyla aynı adımları gösterir. REST API'lerini Postman veya Fiddler'dan çağırmak için şu hızlı başlangıcı da kullanabilirsiniz: [Azure Search REST API'lerini keşfetme](search-fiddler.md).
+
+## <a name="watch-this-video"></a>Bu videoyu izleyin
 
 Arama motorları, mobil uygulamalarda, web’de ve kurumsal veri depolarında bilgi alımını sağlayan genel tetikleyicilerdir. Azure Search size büyük ticari web sitelerindekine benzer bir arama deneyimi oluşturma araçları sunar.
 
@@ -122,5 +130,3 @@ Program yöneticisi Liam Cavanagh’ın bu 9 dakikalık videosunda, arama motoru
 + 3.-4. dakikada, hizmet sağlama ele alınmaktadır. 
 + 4.-6. dakikada, yerleşik emlak veri kümesini kullanarak bir dizin oluşturmak için kullanılan Veri İçeri Aktarma sihirbazı ele alınmaktadır.
 + 6.-9. dakikada, Arama gezgini ve çeşitli sorgular ele alınmaktadır.
-
-

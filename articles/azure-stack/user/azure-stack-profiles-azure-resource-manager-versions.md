@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 08/24/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 9ba954db7003e062444e57bd56f87ff5d279b07f
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 9d33ccf9262d4432ac7255121e97f318d00b5145
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061118"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050658"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure Stack profilleri tarafından desteklenen kaynak sağlayıcısı API sürümleri
 
@@ -197,26 +197,26 @@ Azure Resource Manager dağıtma ve Azure çözümlerinizi için altyapıyı yö
 | Sağlayıcı temsilcisi | 2015-01-01 |
 | Sağlayıcıları/teklif temsilcisi | 2015-01-01 |
 | Teklifler/DelegatedProviders/estimatePrice | 2015-01-01 |
-| Dağıtımlar | 2016-0209-01 |
-| Dağıtımları/işlemleri | 2016-0209-01 |
+| Dağıtımlar | 2016-09-01 |
+| Dağıtımları/işlemleri | 2016-09-01 |
 | Uzantı meta verileri | 2015-01-01 |
 | Bağlantılar | 2016-09-01 |
 | Konumlar | 2015-01-01 |
 | Teklifler | 2015-01-01 |
 | İşlemler | 2015-01-01 |
-| Sağlayıcılar | 2015-012017-08-01 |
+| Sağlayıcılar | 2017-08-01 |
 | Kaynak Grupları | 2016-09-01 |
 | Kaynaklar | 2016-09-01 |
 | Abonelikler | 2016-09-01 |
 | Abonelikler/konum | 2016-09-01 |
 | Abonelik işlem sonuçları | 2016-09-01 |
-| Abonelikler/sağlayıcıları | 2015-012017-08-01 |
+| Abonelikler/sağlayıcıları | 2017-08-01 |
 | Abonelikler/kaynak grupları | 2016-09-01 |
 | Abonelikler/resourceGroups/kaynaklar | 2016-09-01 |
 | Abonelikler/kaynak | 2016-09-01 |
-| Abonelikler/tagNames | 2016 0609 01 |
-| Abonelikler/tagNames/tagValues | 2016 0609 01 |
-| Kiracılar | 2015-012017-08-01 |
+| Abonelikler/tagNames | 2016-09-01 |
+| Abonelikler/tagNames/tagValues | 2016-09-01 |
+| Kiracılar | 2017-08-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage 
 

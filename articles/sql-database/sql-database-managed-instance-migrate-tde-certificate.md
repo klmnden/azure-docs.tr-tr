@@ -8,15 +8,15 @@ ms.reviewer: carlrab, jovanpop
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: tutorial
-ms.date: 07/16/2018
+ms.date: 08/09/2018
 ms.author: mlandzic
 manager: craigg
-ms.openlocfilehash: 042d89017db898102deafc9156cf847a08c92227
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: afecd69cdf9832e1c6dc294ca01968ee50a3eabd
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39074708"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41918956"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-managed-instance"></a>TDE korumalı veritabanının sertifikasını Azure SQL Yönetilen Örneği’ne geçirme
 
@@ -38,8 +38,9 @@ Bu makaledeki adımları tamamlayabilmeniz için şu önkoşullar gereklidir:
 
 - Şirket içi sunucuya veya dosya olarak dışarı aktarılan sertifikaya erişimi olan başka bir bilgisayara yüklenmiş [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) komut satırı aracı. Pvk2Pfx aracı, tek başına kendi içinde bir komut satırı ortamı olan [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk)'in bir parçasıdır.
 - [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) sürüm 5.0 veya üstü yüklenmiş olmalıdır.
-- AzureRM PowerShell modülü [yüklenmiş ve güncelleştirilmiş](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) olmalıdır.\[AzureRM.Sql modülü](https://www.powershellgallery.com/packages/AzureRM.Sql) sürüm 4.10.0 veya üstü.
-- PowerShell modülünü yüklemek/güncelleştirmek için PowerShell’de şu komutları çalıştırın:
+- AzureRM PowerShell modülü [yüklenmiş ve güncelleştirilmiş](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) olmalıdır.
+- [AzureRM.Sql modülünün](https://www.powershellgallery.com/packages/AzureRM.Sql) sürümü 4.10.0 veya üzeri olmalıdır.
+  PowerShell modülünü yüklemek/güncelleştirmek için PowerShell’de şu komutları çalıştırın:
 
    ```powershell
    Install-Module -Name AzureRM.Sql
@@ -108,16 +109,6 @@ Sertifika SQL Server’ın yerel makine sertifika depolama alanında tutuluyorsa
 
 4. Sertifikayı ve özel anahtarı Kişisel Bilgi Değişimi biçiminde dışarı aktarmak için sihirbazı izleyin
 
-## <a name="extract-certificate-from-file-to-base-64-string"></a>Sertifikayı dosyadan base-64 dizesine ayıklama
-
-PowerShell’de şu betiği yürütün ve çıkış olarak base-64 kodlamalı sertifikayı alın:
-
-```powershell
-$fileContentBytes = Get-Content 'C:/full_path/TDE_Cert.pfx' -Encoding Byte
-$base64EncodedCert = [System.Convert]::ToBase64String($fileContentBytes)
-echo $base64EncodedCert
-```
-
 ## <a name="upload-certificate-to-azure-sql-managed-instance-using-azure-powershell-cmdlet"></a>Azure PowerShell cmdlet’ini kullanarak sertifikayı Azure SQL Yönetilen Örneği’ne yükleyin
 
 1. PowerShell’deki hazırlık adımlarını başlatın:
@@ -129,15 +120,16 @@ echo $base64EncodedCert
    Connect-AzureRmAccount
    # List subscriptions available and copy id of the subscription target Managed Instance belongs to
    Get-AzureRmSubscription
-   # Set subscription for the session
+   # Set subscription for the session (replace Guid_Subscription_Id with actual subscription id)
    Select-AzureRmSubscription Guid_Subscription_Id
    ```
 
 2. Tüm hazırlık adımları tamamladıktan sonra, base-64 kodlamalı sertifikayı hedef Yönetilen Örneğe yüklemek için şu komutları çalıştırın:
 
    ```powershell
-   $privateBlob = "<base-64-encoded-certificate-string>"
-   $securePrivateBlob = $privateBlob  | ConvertTo-SecureString -AsPlainText -Force
+   $fileContentBytes = Get-Content 'C:/full_path/TDE_Cert.pfx' -Encoding Byte
+   $base64EncodedCert = [System.Convert]::ToBase64String($fileContentBytes)
+   $securePrivateBlob = $base64EncodedCert  | ConvertTo-SecureString -AsPlainText -Force
    $password = "SomeStrongPassword"
    $securePassword = $password | ConvertTo-SecureString -AsPlainText -Force
    Add-AzureRmSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<ResourceGroupName>" -ManagedInstanceName "<ManagedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword

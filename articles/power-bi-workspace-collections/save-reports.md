@@ -1,55 +1,49 @@
 ---
-title: Power BI çalışma koleksiyonlarda raporları kaydetmek | Microsoft Docs
-description: Power BI çalışma alanı koleksiyonu içinde raporları kaydetmek öğrenin. Bu, başarılı bir şekilde çalışması için uygun izinleri gerektirir.
+title: Power BI çalışma alanı koleksiyonları'nda raporları kaydetme | Microsoft Docs
+description: Power BI çalışma alanı koleksiyonları içinde raporları kaydetme hakkında bilgi edinin. Bu, başarılı bir şekilde çalışması için uygun izinleri gerektirir.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: ''
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: c5512584531c9f5c8a13e9a50161eb6b5a1f8a7b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 277667bb3b4e39acbb935285e984660a3b44993d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411225"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047965"
 ---
-# <a name="save-reports-in-power-bi-workspace-collections"></a>Raporlar Power BI çalışma koleksiyonlarda Kaydet
+# <a name="save-reports-in-power-bi-workspace-collections"></a>Power BI çalışma alanı koleksiyonları'nda raporları kaydetme
 
-Power BI çalışma alanı koleksiyonu içinde raporları kaydetmek öğrenin. Raporları kaydetme başarılı bir şekilde çalışması için uygun izinleri gerektirir.
+Power BI çalışma alanı koleksiyonları içinde raporları kaydetme hakkında bilgi edinin. Raporları kaydetme başarıyla çalışması için uygun izinleri gerektirir.
 
 > [!IMPORTANT]
 > Power BI Çalışma Alanı Koleksiyonları kullanım dışı bırakılmıştır ve Haziran 2018'e kadar veya anlaşmanızda belirtilen süre boyunca kullanılabilecektir. Uygulamanızda kesinti yaşanmaması için Power BI Embedded'a geçirmeyi planlamanız önerilir. Verilerinizi Power BI Embedded'a nasıl taşıyacağınızı öğrenmek için bkz. [Power BI Çalışma Alanı Koleksiyonları'nı Power BI Embedded'a geçirme](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-Power BI çalışma alanı koleksiyonu içinde varolan raporları düzenleyebilir ve kaydedebilirsiniz. Ayrıca, yeni bir rapor oluşturmak ve oluşturmak için yeni bir rapor olarak kaydedin.
+Power BI çalışma alanı koleksiyonları içinde varolan raporları düzenleyin ve kaydedin. Ayrıca, yeni bir rapor oluşturmak ve oluşturmak için yeni bir rapor olarak kaydedin.
 
-Bir raporu kaydetmek için önce belirli bir rapor için bir belirteç sağ kapsamlarla oluşturmanız gerekir:
+Bir raporu kaydetmek için önce belirli bir rapor için bir belirteç doğru kapsamlar ile oluşturmanız gerekir:
 
 * Report.ReadWrite etkinleştirmek için kapsam gereklidir
-* Kaydetme etkinleştirmek için Report.Read ve Workspace.Report.Copy kapsamları gereklidir
-* Report.ReadWrite ve Workspace.Report.Copy gerektiği şekilde, kaydetme ve kaydetme etkinleştirmek için
+* Kaydetme etkinleştirmek için Report.Read ve Workspace.Report.Copy kapsamlar gereklidir
+* Kaydet ve kaydetme Report.ReadWrite ve Workspace.Report.Copy gerektiğinden etkinleştirmek için
 
-Sırasıyla sağ etkinleştirmek için raporun katıştırma Embed yapılandırmasında doğru iznin sağlamanız gereken dosya menüsü düğmeleri farklı kaydet/Kaydet:
+Sırasıyla sağ etkinleştirmek için rapor eklediğinizde ekleme yapılandırması doğru izin sağlamak için ihtiyacınız olan dosya menüsü düğmeleri olarak kaydetme/Kaydet:
 
 * modeller. Permissions.ReadWrite
 * modeller. Permissions.Copy
 * modeller. Permissions.All
 
 > [!NOTE]
-> Erişim belirteci uygun kapsamları da gerekir. Daha fazla bilgi için bkz: [kapsamları](app-token-flow.md#scopes).
+> Erişim belirtecinizi uygun kapsamları da gerekir. Daha fazla bilgi için [kapsamları](app-token-flow.md#scopes).
 
 ## <a name="embed-report-in-edit-mode"></a>Rapor düzenleme modunda ekleme
 
-Bu nedenle yalnızca Embed yapılandırmasında hakkı özellikleri geçirmek ve powerbi.embed() çağırmak için uygulamanızın içinde düzenleme modunda bir rapor eklemek istediğiniz varsayalım. İzinler ve kaydetme bakın ve düğmeleri düzenleme modunda olarak kaydetmek için bir viewMode sağlayın. Daha fazla bilgi için bkz: [yapılandırma ayrıntılarını katıştırmak](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details).
+Bu nedenle yalnızca doğru özellikleri ekleme yapılandırmasında geçirin ve powerbi.embed() çağırmak için uygulamanızın içinde düzenleme modunda bir rapor eklemek istediğiniz varsayalım. İzinler ve kaydetme bakın ve düzenleme modundayken düğmeleri olarak kaydetmek için bir viewMode sağlayın. Daha fazla bilgi için [yapılandırma ayrıntılarını ekleme](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details).
 
 Örneğin, JavaScript içinde:
 
@@ -83,11 +77,11 @@ Bu nedenle yalnızca Embed yapılandırmasında hakkı özellikleri geçirmek ve
     var report = powerbi.embed(reportContainer, config);
 ```
 
-Şimdi bir rapor düzenleme modunda, uygulamanızda katıştırılır.
+Artık bir raporu düzenleme modunda uygulamanıza eklenir.
 
-## <a name="save-report"></a>Raporu kaydetme
+## <a name="save-report"></a>Raporu kaydet
 
-Rapor düzenleme modunda izinleri ve doğru belirteci ile katıştırma sonra raporu Dosya menüsünden veya javascript kaydedebilirsiniz:
+Rapor düzenleme modunda izinleri ve doğru belirteci ile ekleme sonra raporu Dosya menüsünden veya javascript kaydedebilirsiniz:
 
 ```
  // Get a reference to the embedded report.
@@ -112,9 +106,9 @@ Rapor düzenleme modunda izinleri ve doğru belirteci ile katıştırma sonra ra
 ```
 
 > [!IMPORTANT]
-> Yalnızca sonra *Farklı Kaydet* oluşturulan yeni bir rapor. Kaydetme sonra tuvale hala eski rapor düzenleme modunu ve yeni rapor göstermez. Oluşturulan yeni rapor ekleme. Rapor oluşturuldukça yeni rapor katıştırma yeni bir erişim belirteci gerektirir.
+> Yalnızca sonra *Kaydet* oluşturulan yeni bir rapor. Kaydetme işleminden sonra tuval hala eski rapor düzenleme modu ve yeni rapor göstermez. Oluşturulan yeni raporu ekleyin. Yeni rapor ekleme, rapor oluşturuldukça yeni bir erişim belirteci gerektirir.
 
-Ardından yeni raporun sonra Yük gerekir bir *Farklı Kaydet*. Yeni rapor yüklenirken, herhangi bir raporu katıştırmak için benzer.
+Ardından sonra yeni rapor gerekir bir *Kaydet*. Yeni rapor yükleme, herhangi bir raporu katıştırma için benzerdir.
 
 ```
 <div id="reportContainer"></div>

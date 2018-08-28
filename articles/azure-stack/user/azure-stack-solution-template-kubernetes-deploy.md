@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 08/27/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: f6a2b3f242e5989d0c72083eef4faad9c4798cfe
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 67e82a4809253123e15305b5f2ecd8cc5f7ee4ed
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42056335"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046859"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Azure Stack için bir Kubernetes kümesi dağıtma
 
@@ -88,9 +88,9 @@ Başlamak için doğru izinlere sahip ve Azure Stack hazır olduğundan emin olu
 
 Asıl kaynakları oluşturabilmesi aboneliğinizde hizmet sorumlusu erişimi verin.
 
-1.  Oturum [Yönetim Portalı](https://adminportal.local.azurestack.external).
+1.  Oturum [Azure Stack portalı](https://portal.local.azurestack.external/).
 
-1. Seçin **diğer hizmetler** > **kullanıcı aboneliklerini** > **+ Ekle**.
+1. Seçin **diğer hizmetler** > **abonelikleri**.
 
 1. Oluşturduğunuz aboneliği seçin.
 

@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/17/2018
+ms.date: 08/22/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: d5bb5ed45363216bb1bcd39f85157a3eed68c2f9
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: fcae6d656f6e309b0fdcd60db743d3bebf3cd5a9
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126895"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617047"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Hızlı başlangıç: Azure portalı kullanarak Azure Resource Manager şablonu oluşturma ve dağıtma
 
@@ -78,7 +78,9 @@ Bu bölümde Azure portalı kullanarak bir depolama hesabı oluşturacaksınız.
 
 ## <a name="edit-and-deploy-the-template"></a>Şablonu düzenleme ve dağıtma
 
-Bu bölümde şablon kitaplığına kaydettiğiniz şablonu açacak, portalda düzenleyecek ve düzenlediğiniz şablonu dağıtacaksınız. Daha karmaşık bir şablonu düzenlemek için daha gelişmiş düzenleme işlevleri sunan Visual Studio Code uygulamasını kullanabilirsiniz.
+Bu bölümde şablon kitaplığına kaydettiğiniz şablonu açacak, portalda düzenleyecek ve düzenlediğiniz şablonu dağıtacaksınız. Daha karmaşık bir şablonu düzenlemek için daha gelişmiş düzenleme işlevleri sunan [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md) uygulamasını kullanabilirsiniz.
+
+Azure'daki her Azure hizmetinin adının benzersiz olması gerekir. Var olan bir depolama hesabı adını girerseniz dağıtım başarısız olur. Bu sorunu önlemek için benzersiz depolama hesabı adı oluşturan uniquestring() şablon işlevi çağrısını kullanabilirsiniz.
 
 1. Azure portalda sol taraftaki menüden **Tüm hizmetler**'i seçin, filtre kutusuna **şablon** yazın ve **Şablon (ÖNİZLEME)** girişini seçin.
 
@@ -177,6 +179,14 @@ Bu bölümde şablon kitaplığına kaydettiğiniz şablonu açacak, portalda d�
 
 10. **Satın al**'ı seçin.
 11. Dağıtım durumunu görmek için ekranın en üstündeki zil simgesini (bildirimler) seçin.
+
+    ![Azure Resource Manager şablonlarını dağıtma bildirimi](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)
+
+12. Bildirim bölmesinden **Kaynak grubuna git**'i seçin. Şuna benzer bir ekran görmeniz gerekir:
+
+    ![Azure Resource Manager şablonlarını dağıtma kaynak grubu](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png)
+
+    Dağıtım durumunun başarılı olduğunu ve kaynak grubunda yalnızca bir depolama hesabı olduğunu görebilirsiniz. Depolama hesabı adı, şablon tarafından oluşturulan benzersiz bir dizedir. Azure depolama hesaplarını kullanma hakkında daha fazla bilgi edinmek için bkz. [Hızlı başlangıç: Azure portalı kullanarak blobları yükleme, indirme ve listeleme](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

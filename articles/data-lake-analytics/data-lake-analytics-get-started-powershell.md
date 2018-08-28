@@ -5,24 +5,23 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/04/2017
-ms.openlocfilehash: 70534b050577e749310d81b50c300c7d98e416af
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 4b4fa05164db402122efc745302dffe8c130b97b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623096"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048077"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell'i kullanarak Azure Data Lake Analytics ile çalışmaya başlama
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Azure PowerShell kullanarak Azure Data Lake Analytics hesapları oluşturma ve sonra U-SQL işleri gönderip çalıştırma hakkında bilgi edinin. Data Lake Analytics hakkında daha fazla bilgi için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiye başlamadan önce aşağıdaki bilgilere sahip olmanız gerekir:
 

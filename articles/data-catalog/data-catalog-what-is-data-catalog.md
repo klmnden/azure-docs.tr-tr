@@ -1,25 +1,19 @@
 ---
-title: "Azure Veri Kataloğu'na giriş | Microsoft Docs"
-description: "Bu makalede, Microsoft Azure Veri Kataloğu özelliklerinin ve giderdiği sorunların yanı sıra bu hizmete genel bir bakış sunulmaktadır. Veri Kataloğu, herhangi bir kullanıcının veri kaynaklarına kaydolmasına; bunları bulmasına, anlamasına ve tüketmesine imkan sağlar."
+title: Azure veri Kataloğu'na giriş
+description: Bu makalede, Microsoft Azure Veri Kataloğu özelliklerinin ve giderdiği sorunların yanı sıra bu hizmete genel bir bakış sunulmaktadır. Veri Kataloğu, herhangi bir kullanıcının veri kaynaklarına kaydolmasına; bunları bulmasına, anlamasına ve tüketmesine imkan sağlar.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: NA
-editor: 
-tags: 
+ms.author: maroche
 ms.assetid: cc733907-17ec-4153-9f0c-5b3754b2db19
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: edf6e1d8b86d9773b54353bb70f000bcdf40e5ec
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: HT
+ms.openlocfilehash: ba9cce1c63145bea25e657cb690287e1cbf5a4e4
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053462"
 ---
 # <a name="what-is-azure-data-catalog"></a>Azure Veri Kataloğu nedir?
 Azure Veri Kataloğu, kullanıcılarının ihtiyaç duyduğu veri kaynaklarını bulabildiği ve bulduğu veri kaynaklarını anlayabildiği, tam olarak yönetilen bir bulut hizmetidir. Bunun yanı sıra, Veri Kataloğu kuruluşların mevcut yatırımlarından daha fazla değer elde etmesine yardımcı olur. 

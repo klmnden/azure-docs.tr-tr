@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6922262856d6fba97349377d5d1b18b75638d88f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6c47deebfe9617cdb21f473b282dd6ea2b912dc0
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436820"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41917603"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Öğretici: Node.js IoT Edge modülü geliştirme ve sanal cihazınıza dağıtma
 
@@ -36,7 +36,6 @@ Bu öğreticide oluşturacağınız IoT Edge modülü, cihazınız tarafından o
 Bir Azure IoT Edge cihazı:
 
 * [Linux](quickstart-linux.md) veya [Windows cihazları](quickstart.md) için hızlı başlangıç adımlarını izleyerek dağıtım makinenizi veya sanal makinenizi bir Edge cihazı olarak kullanabilirsiniz.
-* Azure Machine Learning modülü ARM işlemcilerini desteklemez.
 
 Bulut kaynakları:
 
@@ -87,8 +86,14 @@ Temel olarak kullanabileceğiniz bir Node.js çözüm şablonu oluşturmak için
    3. Modül şablonu olarak **Node.js Module** girişini seçin. 
    4. Modülünüze **NodeModule** adını verin. 
    5. İlk modülünüz için görüntü deposu olarak önceki bölümde oluşturduğunuz Azure Container Registry bileşenini belirtin. **localhost:5000** yerine kopyaladığınız oturum açma sunucusu değerini yazın. Dizenin son hali **\<kayıt adı\>.azurecr.io/nodemodule** ifadesine benzer olmalıdır.
- 
-VS Code penceresi IoT Edge çözümü çalışma alanınızı yükler. **.vscode** klasörü, **modules** klasörü, **.env** dosyası ve dağıtım bildirimi şablon dosyası bulunur
+
+   ![Docker görüntü deposunu sağlama](./media/tutorial-node-module/repository.png)
+
+VS Code penceresi IoT Edge çözümü çalışma alanınızı yükler. Çözüm çalışma alanında beş üst düzey bileşen bulunur. Bu öğreticide **\.vscode** klasörünü veya **\.gitignore** dosyasını düzenlemeyeceksiniz. **modules** klasöründe modülünüzün Node.js kodunun yanı sıra modülünüzden kapsayıcı görüntüsü oluşturmak için kullanılacak Dockerfiles öğeleri bulunur. **\.env** dosyasında kapsayıcı kayıt defterinizin kimlik bilgileri yer alır. **deployment.template.json** dosyasında IoT Edge çalışma zamanının modülleri cihazlara dağıtmak için kullandığı bilgiler bulunur. 
+
+Çözümünüzü oluştururken kapsayıcı kayıt defteri belirtmediyseniz ve varsayılan localhost:5000 değerini kabul ettiyseniz \.env dosyanız olmaz. 
+
+   ![Node.js çözüm çalışma alanı](./media/tutorial-node-module/workspace.png)
 
 ### <a name="add-your-registry-credentials"></a>Kayıt defteri kimlik bilgilerinizi ekleme
 
@@ -107,7 +112,7 @@ Her şablonda, **tempSensor** modülündeki sensör simülasyon verilerini alıp
 5. Gerekli düğüm modülleri altına bir sıcaklık eşik değeri girin. Sıcaklık eşiği, verilerin IoT Hub’a gönderilmesi için, ölçülen sıcaklığın aşması gereken değeri ayarlar.
 
     ```javascript
-    var temperatureThreshold = 30;
+    var temperatureThreshold = 25;
     ```
 
 6. `PipeMessage` işlevinin tamamını `FilterMessage` işleviyle değiştirin.
@@ -183,7 +188,7 @@ Bir önceki bölümde bir IoT Edge çözümü oluşturdunuz ve NodeModule modül
         }
     ```
 5. Bu dosyayı kaydedin.
-6. VS Code gezgininde **deployment.template.json** dosyasına sağ tıklayıp **Build IoT Edge solution** (IoT Edge çözümü oluştur) öğesini seçin. 
+6. VS Code gezgininde **deployment.template.json** dosyasına sağ tıklayıp **Build and Push IoT Edge solution** (IoT Edge Çözümü Oluştur ve Gönder) öğesini seçin. 
 
 Visual Studio Code uygulamasına çözümünüzü derleme komutu verdiğinizde dağıtım şablonundaki bilgileri alır ve yeni bir **config** klasöründe bir `deployment.json` dosyası oluşturur. Ardından tümleşik terminalde `docker build` ve `docker push` komutlarını çalıştırır. Bu iki komut kodunuzu derler, Node.js kodunuzla kapsayıcı oluşturur ve bunu çözümü başlatırken belirttiğiniz kapsayıcı kayıt defterine gönderir. 
 
@@ -191,23 +196,21 @@ VS Code tümleşik terminalinde çalışan `docker build` komutunda tam kapsayı
 
 ## <a name="deploy-and-run-the-solution"></a>Çözümü dağıtma ve çalıştırma
 
-Node.ms modülünüzü bir IoT Edge cihazına dağıtmak için hızlı başlangıçlarda yaptığınız gibi Azure portalını kullanabilirsiniz ancak dilerseniz modülleri Visual Studio Code içinden de dağıtıp izleyebilirsiniz. Aşağıdaki bölümlerde önkoşullarda listelenen VS Code için Azure IoT Edge uzantısı kullanılmaktadır. Uzantıyı önceden yüklemediyseniz bu adımda yükleyebilirsiniz. 
+IoT Edge cihazınızı ayarlamak için kullandığınız hızlı başlangıç makalesinde Azure portalı kullanarak bir modül dağıttınız. Modülleri dağıtmak için Visual Studio Code Azure IoT Araç Seti eklentisini de kullanabilirsiniz. Senaryonuz için hazırlanmış bir dağıtım bildirimi dosyasına (**deployment.json**) zaten sahipsiniz. Tek yapmanız gereken dağıtımı almak üzere bir cihaz seçmek.
 
-1. **View (Görünüm)** > **Command Palette (Komut Paleti)** öğesini seçerek VS Code komut paletini açın.
+1. VS Code komut paletinde **Azure IoT Hub: Select IoT Hub** komutunu çalıştırın. 
 
-2. **Azure: Sign in** komutunu arayıp çalıştırın. Azure hesabınızda oturum açmak için yönergeleri izleyin. 
+2. Yapılandırmak istediğiniz IoT Edge cihazını barındıran aboneliği ve IoT hub'ını seçin. 
 
-3. Komut paletinde **Azure IoT Hub: Select IoT Hub** komutunu arayıp çalıştırın. 
+3. VS Code gezgininde **Azure IoT Hub Devices** (Azure IoT Hub Cihazları) bölümünü seçin. 
 
-4. IoT hub'ınızı içeren aboneliği ve ardından erişmek istediğiniz IoT hub'ı seçin.
+4. IoT Edge cihazınızın adına sağ tıklayıp **Create Deployment for Single Device** (Tek bir cihaz için dağıtım oluştur) öğesini seçin. 
 
-5. VS Code gezgininde **Azure IoT Hub Devices** (Azure IoT Hub Cihazları) bölümünü seçin. 
+   ![Tek bir cihaz için dağıtım oluşturma](./media/tutorial-node-module/create-deployment.png)
 
-6. IoT Edge cihazınızın adına sağ tıklayıp **Create Deployment for IoT Edge device** (IoT Edge cihazı için dağıtım oluştur) öğesini seçin. 
+5. **config** klasöründeki **deployment.json** dosyasını seçin ve ardından **Select Edge Deployment Manifest** (Edge Dağıtım Bildirimini Seç) öğesine tıklayın. deployment.template.json dosyasını kullanmayın. 
 
-7. NodeModule modülünü içeren çözüm klasörüne gidin. **config** klasörünü açıp **deployment.json** dosyasını seçin. **Select Edge Deployment Manifest** (Edge Dağıtım Bildirimini Seç) öğesine tıklayın.
-
-8. **Azure IoT Hub Devices** (Azure IoT Hub Cihazları) bölümünü yenileyin. Yeni **NodeModule** ile **TempSensor** modülü ve **$edgeAgent** ile **$edgeHub** bileşenlerinin çalıştığını görmeniz gerekir. 
+6. Yenile düğmesine tıklayın. Yeni **NodeModule** ile **TempSensor** modülü ve **$edgeAgent** ile **$edgeHub** bileşenlerinin çalıştığını görmeniz gerekir. 
 
 
 ## <a name="view-generated-data"></a>Oluşturulan verileri görüntüleme
@@ -220,32 +223,14 @@ Node.ms modülünüzü bir IoT Edge cihazına dağıtmak için hızlı başlang�
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
-
-Bir sonraki önerilen makaleye geçecekseniz oluşturduğunuz kaynaklarla yapılandırmaları tutabilir ve yeniden kullanabilirsiniz.
+Bir sonraki önerilen makaleye geçmeyi planlıyorsanız, oluşturduğunuz kaynaklarla yapılandırmaları tutabilir ve yeniden kullanabilirsiniz. Aynı IoT Edge cihazını test cihazı olarak kullanmaya devam edebilirsiniz. 
 
 Geçmeyecekseniz ücret kesilmesini önlemek için yerel yapılandırmalarınızı ve bu makalede oluşturulan Azure kaynaklarını silebilirsiniz. 
 
-> [!IMPORTANT]
-> Azure kaynaklarını ve kaynak grubunu silme işlemi geri alınamaz. Silindikten sonra kaynak grubu ve içindeki tüm kaynaklar kalıcı olarak silinir. Yanlış kaynak grubunu veya kaynakları yanlışlıkla silmediğinizden emin olun. IoT Hub'ı tutmak istediğiniz kaynakların bulunduğu mevcut bir kaynak grubunda oluşturduysanız kaynak grubunu silmek yerine IoT Hub kaynağını silin.
->
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-Yalnızca IoT Hub'ı silmek için hub adını ve kaynak grubu adını kullanarak aşağıdaki komutu çalıştırın:
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
-
-
-Kaynak grubunun tamamını adıyla silmek için:
-
-1. [Azure portalında](https://portal.azure.com) oturum açın ve **Kaynak grupları**’na tıklayın.
-
-2. **Ada göre filtrele...** metin kutusuna IoT Hub'ınızın bulunduğu kaynak grubunun adını girin. 
-
-3. Sonuç listesinde kaynak grubunuzun sağ tarafında **...** ve sonra **Kaynak grubunu sil**'e tıklayın.
-
-4. Kaynak grubunun silinmesini onaylamanız istenir. Onaylamak için kaynak grubunuzun adını tekrar yazın ve **Sil**'e tıklayın. Birkaç dakika sonra kaynak grubu ve içerdiği kaynakların tümü silinir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -3,18 +3,18 @@ title: HDInsight - Azure üzerinde Hadoop Hizmetleri tarafından kullanılan ba�
 description: HDInsight üzerinde çalışan Hadoop Hizmetleri tarafından kullanılan bağlantı noktalarının listesi.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jasonh
-ms.openlocfilehash: 78aed9d74325dfae0a02a4b95082baf60f6af603
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 3dea97d674c2027307ac7eb7cae34b6664e40b0b
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599257"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108129"
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>HDInsight üzerindeki Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları
 
@@ -166,7 +166,7 @@ Belirli küme türlerinin için şunlar kullanılabilir:
 | --- | --- | --- | --- | --- | --- |
 | Spark Thrift sunucuları |Baş düğümler |10002 |Thrift | &nbsp; | Spark SQL (Thrift/JDBC) bağlamak için bir hizmet |
 | Livy sunucusu | Baş düğümler | 8998 | HTTP | &nbsp; | Deyimler, işleri ve uygulamaları çalıştırmak için hizmeti |
-| Jupyter not defteri | Baş düğümler | 8001 | HTTP | &nbsp; | Jupyter not defteri Web sitesi |
+| Jupyter notebook | Baş düğümler | 8001 | HTTP | &nbsp; | Jupyter not defteri Web sitesi |
 
 Örnekler:
 

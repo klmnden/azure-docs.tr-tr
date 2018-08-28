@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
 manager: douge
-ms.openlocfilehash: bf9b0262e52c4f956082b00faae1b6bb1c31d8d9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: bb8914b524846b1df5d8955bb4717873004ca4a5
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526258"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41918948"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Node.js ile Azure Dev Spaces'da Çalışmaya Başlama
 
@@ -34,7 +34,7 @@ Azure Dev Spaces, çok az yerel makine kurulumu gerektirir. Geliştirme ortamı 
 İlk olarak [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) indirip yükleyin. 
 
 > [!IMPORTANT]
-> Azure CLI zaten yüklüyse, 2.0.38 veya üzeri bir sürüm kullandığınızdan emin olun.
+> Azure CLI zaten yüklüyse, 2.0.43 veya üzeri bir sürüm kullandığınızdan emin olun.
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 

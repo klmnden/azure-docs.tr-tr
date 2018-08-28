@@ -4,18 +4,17 @@ description: Azure Data Lake Analytics U-SQL dili ile ilgili temel bilgileri ö�
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
-ms.openlocfilehash: 2d6688524e396a6e36f6d7f293f2930598afaad1
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 1822ac9b539aa196601c6c07ccc8d0544fd5f3dd
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867292"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042437"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics U-SQL ile çalışmaya başlama
 U-SQL sorgu dili gibi kesinlik temelli izin için C# ile birleştiren bir dil olan verileri dilediğiniz ölçekte işleyin. U-SQL'nin ölçeklenebilir, dağıtılmış sorgu özelliği, Azure SQL veritabanı gibi ilişkisel depoları arasında veri verimli bir şekilde çözümleyebilirsiniz. U-SQL ile yapılandırılmamış verileri okuma sırasında şema uygulama ve Özel mantık ve UDF'ler eklemeden işleyebilir. Ayrıca, U-SQL, uygun ölçekte yürütmek nasıl üzerinde ayrıntılı denetim sağlar genişletilebilirlik içerir. 

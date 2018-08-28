@@ -1,3 +1,20 @@
+---
+title: include dosyası
+description: include dosyası
+services: service-bus-relay
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 08/16/2018
+ms.author: clemensv
+ms.custom: include file
+ms.openlocfilehash: fbc5bbff62a13d9b4301271031105ecd7d17fa86
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40182701"
+---
 ### <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
 
 Visual Studio'da yeni bir **Konsol Uygulaması (.NET Framework)** projesi oluşturun.
@@ -5,8 +22,10 @@ Visual Studio'da yeni bir **Konsol Uygulaması (.NET Framework)** projesi oluşt
 ### <a name="add-the-relay-nuget-package"></a>Geçiş NuGet paketini ekleme
 
 1. Yeni oluşturulan projeye sağ tıklayıp **NuGet Paketlerini Yönet**'i seçin.
-2. **Göz at**'ı seçip **Microsoft.Azure.Relay** araması yapın. Arama sonuçlarında **Microsoft Azure Geçişi**'ni seçin. 
-3. Yüklemeyi tamamlamak için **Yükle**'yi seçin. İletişim kutusunu kapatın.
+2. **Ön sürümü dahil et** seçeneğini işaretleyin. 
+3. **Göz at**'ı seçip **Microsoft.Azure.Relay** araması yapın. Arama sonuçlarında **Microsoft Azure Geçişi**'ni seçin.
+4. Sürüm alanında **2.0.0-preview1-20180523** girişini seçin. 
+5. Yüklemeyi tamamlamak için **Yükle**'yi seçin. İletişim kutusunu kapatın.
 
 ### <a name="write-code-to-receive-messages"></a>İleti almak için kod yazma
 
@@ -17,6 +36,7 @@ Visual Studio'da yeni bir **Konsol Uygulaması (.NET Framework)** projesi oluşt
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
+    using System.Net;
     using Microsoft.Azure.Relay;
     ```
 2. Karma bağlantı ayrıntıları için sabitleri `Program` sınıfına ekleyin. Köşeli ayraçlar içindeki yer tutucuları, karma bağlantıyı oluştururken aldığınız değerlerle değiştirin. Tam ad alanı adını kullandığınızdan emin olun.

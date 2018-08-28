@@ -3,18 +3,18 @@ title: Yükleme ve HDInsight (Hadoop) - Azure Giraph kullanma
 description: Betik eylemlerini kullanarak Linux tabanlı HDInsight kümelerinde Giraph yüklemeyi öğrenin. Betik eylemleri, küme oluşturma sırasında küme yapılandırmasını değiştirme veya hizmetleri ve yardımcı programları'nı yükleme özelleştirmenize olanak sağlar.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: jasonh
-ms.openlocfilehash: a96bd4e55a82e4896da7ed38d29fa7c04f08696b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 5fbc325e0b0b0e3cdf0d9156ab115d3cbf77f6dd
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600736"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104814"
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>HDInsight Hadoop kümelerinde Giraph'ı yükleyin ve büyük ölçekli grafikleri işlemek için Giraph kullanma
 

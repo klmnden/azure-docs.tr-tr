@@ -10,22 +10,22 @@ ms.suite: integration
 tags: connectors
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 94960b95e6de30159ec34b3f97bb5119cac42c35
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ceef6c5f32372bb69f6ce789e755bc540cb12ba1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818108"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051958"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Azure Logic Apps ile Excel Online veri yönetme
 
-Azure Logic Apps ve Excel Online Bağlayıcısı ile otomatik görevler ve iş veya OneDrive için Excel Online'da verilerinizi temel iş akışları oluşturabilirsiniz. İş akışlarınızı bu eylemler ve diğerleri ile verilerinizi örneğin gerçekleştirebilirsiniz:
+Azure Logic Apps ve Excel Online Bağlayıcısı ile otomatik görevler ve iş veya OneDrive için Excel Online'da verilerinizi temel iş akışları oluşturabilirsiniz. Bu bağlayıcı yardımcı Eylemler sağlar, verileri ile çalışma ve elektronik tablolar, örneğin yönetebilirsiniz: 
 
 * Yeni çalışma sayfaları ve tabloları oluşturun.
 * Alma ve çalışma, tabloları ve satırları yönetin.
 * Tek satır ve anahtar sütunlarını ekleyin.
 
-Excel Online eylemleri çıktısını kullanan logic apps eylemleri dahil edebilirsiniz. Bu bağlayıcı, bu nedenle, mantıksal uygulamanızı başlatmak için yalnızca eylemleri kullanan ayrı bir tetikleyici gibi sağlar bir **yinelenme** tetikleyici. Örneğin, her hafta çalışma oluşturursanız, Office 365 Outlook Bağlayıcısı'nı kullanarak bu yeni çalışma sayfaları hakkında e-posta gönderebilirsiniz.
+Bu eylemler çıkışları diğer hizmetler için Eylemler ile kullanın. Örneğin, her hafta çalışma oluşturan bir eylem kullanın, onay e-posta, Office 365 Outlook bağlayıcısını kullanarak gönderir, başka bir eylem kullanın.
 
 Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](../logic-apps/logic-apps-overview.md)
 

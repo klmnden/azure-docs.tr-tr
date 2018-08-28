@@ -1,5 +1,5 @@
 ---
-title: Bu hızlı başlangıçta C kullanarak Azure IOT Hub'a bir simülasyon TPM cihazı sağlama işlemi gösterilir | Microsoft Docs
+title: C kullanarak Azure IOT Hub'a sanal bir TPM cihazı sağlama | Microsoft Docs
 description: Bu hızlı başlangıçta, Azure IoT Hub Cihazı Sağlama Hizmeti için C cihaz SDK'sını kullanarak bir simülasyon TPM cihazı oluşturur ve sağlarsınız
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 15c0ce5a545b0bd6b2d1f320b50e9990f8278296
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 4e03268db32b4be6900234abe58e7a308110520a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091474"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42024001"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Hızlı başlangıç: Azure IoT C SDK'sını kullanarak simülasyon TPM cihazı sağlama
 
@@ -28,7 +28,7 @@ Otomatik sağlama işlemini bilmiyorsanız, [Otomatik sağlama kavramlarını](c
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* ['C++ ile masaüstü geliştirme'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) iş yükünün etkinleştirildiği Visual Studio 2015 veya [Visual Studio 2017](https://www.visualstudio.com/vs/).
+* ["C++ ile masaüstü geliştirme"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) iş yükünün etkinleştirildiği Visual Studio 2015 veya [Visual Studio 2017](https://www.visualstudio.com/vs/).
 * [Git](https://git-scm.com/download/)'in en son sürümünün yüklemesi.
 
 
@@ -147,7 +147,7 @@ Bu bölümde, örnek kodu yapılandırarak cihazın önyükleme sırasını Ciha
 
 1. Azure portalda, Cihaz Sağlama hizmetiniz için **Genel Bakış** sekmesini seçin ve **_Kimlik Kapsamı_** değerini kopyalayın.
 
-    ![Portaldan DPS uç nokta bilgilerini ayıklama](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
+    ![Portaldan Cihaz Sağlama Hizmeti uç noktası bilgilerini ayıklama](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
 2. Visual Studio'nun *Çözüm Gezgini* penceresinde **Sağlama\_Örnekleri** klasörüne gidin. **prov\_dev\_client\_sample** adlı örnek projeyi genişletin. **Kaynak Dosyalar**'ı genişletin ve **prov\_dev\_client\_sample.c** dosyasını açın.
 

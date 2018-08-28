@@ -2,18 +2,18 @@
 title: Büyük miktarda veriyi Azure bulut depolama içine/dışına taşıma | Microsoft Docs
 description: Genel bakış için ve Azure Depolama'dan veri taşıma için farklı yöntemler.
 services: storage
-author: JarrettRenshaw
+author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/30/2017
-ms.author: jarrettr
+ms.date: 08/26/2018
+ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 81d7b5cf03e56ecc54db71b09af335d6cb794806
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 1df237a65a8b5312b20de19a99399b3a3dd075ff
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525544"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049619"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Azure Storage’a ve Azure Storage’da veri taşıma
 Şirket içi verilerinizi Azure Depolama'ya (veya tersi) taşımak istiyorsanız, bunu yapmak için yol çeşitli vardır. Sizin için en uygun yaklaşımı, senaryoya bağlıdır. Bu makalede farklı senaryolar ve her biri için uygun teklifleri hızlı bir genel bakış sağlar.
@@ -21,7 +21,7 @@ ms.locfileid: "39525544"
 ## <a name="building-applications"></a>Uygulamaları oluşturma
 Bir uygulama oluşturuyorsanız, REST API veya bizim birçok istemci kitaplıklarından birini karşı geliştirmek için ve Azure Depolama'dan veri taşımak için harika bir yoludur.
 
-Azure depolama, .NET, iOS, Java, Android, Evrensel Windows Platformu (UWP), Xamarin, C++, Node.JS, PHP, Ruby ve Python için zengin istemci kitaplıkları sağlar. İstemci kitaplıkları yeniden deneme mantığı, günlüğe kaydetme ve paralel karşıya yüklemeler gibi gelişmiş özellikler sunar. HTTP/HTTPS istekleri yapan herhangi bir dil tarafından çağrılabilen REST API’sine karşı doğrudan da geliştirebilirsiniz.
+Azure depolama, .NET, Java, Android, Go, Xamarin, C++, Node.JS, PHP, Ruby, Python ve iOS gibi birçok popüler diller için zengin istemci kitaplıkları sağlar. İstemci kitaplıkları yeniden deneme mantığı, günlüğe kaydetme ve paralel karşıya yüklemeler gibi gelişmiş özellikler sunar. HTTP/HTTPS istekleri yapan herhangi bir dil tarafından çağrılabilen REST API’sine karşı doğrudan da geliştirebilirsiniz.
 
 Bkz: [Azure Blob Depolama ile çalışmaya başlama](../blobs/storage-dotnet-how-to-use-blobs.md) daha fazla bilgi için.
 

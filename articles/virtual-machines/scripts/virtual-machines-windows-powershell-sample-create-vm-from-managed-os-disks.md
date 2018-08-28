@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Betiği örnek - yönetilen bir disk işletim sistemi diski olarak ekleyerek bir VM oluşturma | Microsoft Docs
-description: Azure PowerShell Betiği örnek - yönetilen bir disk işletim sistemi diski olarak ekleyerek bir VM oluşturma
+title: Azure PowerShell Betik Örneği - Yönetilen bir diski işletim sistemi diski olarak ekleyerek sanal makine oluşturma | Microsoft Docs
+description: Azure PowerShell Betik Örneği - Yönetilen bir diski işletim sistemi diski olarak ekleyerek sanal makine oluşturma
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: ramankum
@@ -16,52 +16,57 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: ec532811e94647c8a04b9faf9474f6749969f83e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 519eccdd1d1b4628f41e12616d3e82014a2d301b
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23928219"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41921091"
 ---
-# <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell"></a>PowerShell ile varolan yönetilen bir işletim sistemi diski kullanarak bir sanal makine oluşturun
+# <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell"></a>PowerShell ile yönetilen bir diski işletim sistemi diski olarak ekleyerek sanal makine oluşturma
 
-Bu komut dosyasını varolan yönetilen disk işletim sistemi diski olarak ekleyerek bir sanal makine oluşturur. Senaryolar önceki içinde bu komut dosyasını kullanın:
-* Yönetilen bir diskten farklı Abonelikteki kopyalanan var olan bir diskten yönetilen işletim sistemi bir VM oluşturma
-* Özel bir VHD dosyasından oluşturulmuş var olan bir diskten yönetilen bir VM oluşturma 
-* Bir anlık görüntüden oluşturulmuş var olan bir diskten yönetilen işletim sistemi bir VM oluşturma 
+Bu betik, mevcut bir yönetilen diski işletim sistemi diski olarak ekleyerek bir sanal makine oluşturur. Yukarıdaki senaryolarda bu betiği kullanın:
+* Farklı abonelikteki bir yönetilen diskten kopyalanmış mevcut bir yönetilen işletim sistemi diskinden VM oluşturma
+* Özelleştirilmiş bir VHD dosyasından oluşturulmuş mevcut bir yönetilen diskten VM oluşturma 
+* Anlık görüntüden oluşturulmuş mevcut bir yönetilen işletim sistemi diskinden VM oluşturma 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Örnek komut dosyası
+## <a name="sample-script"></a>Örnek betik
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-from-snapshot/create-vm-from-snapshot.ps1 "Create VM from snapshot")]
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme 
 
-Kaynak grubu, VM ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu çalıştırın.
+Kaynak grubunu, VM’yi ve ilgili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut, yönetilen disk özelliklerini alma, yönetilen bir diske yeni bir VM'e ve bir VM oluşturmak için aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her öğe.
+Bu betik yönetilen disk özelliklerini almak, yeni bir VM’ye yönetilen bir disk eklemek ve bir VM oluşturmak için aşağıdaki komutları kullanır. Tablodaki her öğe, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [Get-AzureRmDisk](/powershell/module/azurerm.compute/Get-AzureRmDisk) | Ad ve kaynak grubu bir disk, bağlı disk nesnesini alır. ID özelliği döndürülen disk nesnesinin yeni bir sanal makineye disk eklemek için kullanılır |
-| [AzureRmVMConfig yeni](/powershell/module/azurerm.compute/new-azurermvmconfig) | Bir VM yapılandırması oluşturur. Bu yapılandırma VM adı, işletim sistemi ve yönetici kimlik bilgileri gibi bilgileri içerir. Yapılandırma VM oluşturma sırasında kullanılır. |
-| [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk) | Yeni bir sanal makine için işletim sistemi diski olarak disk kimliği özelliğini kullanarak yönetilen bir disk ekler |
-| [AzureRmPublicIpAddress yeni](/powershell/module/azurerm.network/new-azurermpublicipaddress) | Bir ortak IP adresi oluşturur. |
-| [AzureRmNetworkInterface yeni](/powershell/module/azurerm.network/new-azurermnetworkinterface) | Bir ağ arabirimi oluşturur. |
-| [Yeni-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Bir sanal makine oluşturun. |
-|[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Bir kaynak grubu ve içerdiği tüm kaynaklar kaldırır. |
+| [Get-AzureRmDisk](/powershell/module/azurerm.compute/Get-AzureRmDisk) | Diskin adına ve kaynak grubuna göre disk nesnesini alır. Döndürülen disk nesnesinin Id özelliği, diski yeni VM'ye bağlamak için kullanılır |
+| [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) | Sanal makine yapılandırması oluşturur. Bu yapılandırma; sanal makine adı, işletim sistemi ve yönetici kimlik bilgileri gibi bilgileri içerir. Yapılandırma, sanal makine oluşturulurken kullanılır. |
+| [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk) | Diskin Id özelliğini kullanarak yönetilen diski yeni sanal makineye işletim sistemi diski olarak ekler |
+| [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | Genel bir IP adresi oluşturur. |
+| [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) | Ağ arabirimi oluşturur. |
+| [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Sanal makine oluşturur. |
+|[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Kaynak grubunu ve grubun içerdiği tüm kaynakları kaldırır. |
+
+Market görüntülerinde plan bilgilerini ayarlamak için [Set-AzureRmVMPlan](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/set-azurermvmplan?view=azurermps-6.7.0) komutunu kullanın
+```powershell
+Set-AzureRmVMPlan -VM $VirtualMachine -Publisher $Publisher -Product $Product -Name $Bame
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure PowerShell modülü hakkında daha fazla bilgi için bkz: [Azure PowerShell belgelerine](/powershell/azure/overview).
+Azure PowerShell modülü hakkında daha fazla bilgi için bkz. [Azure PowerShell belgeleri](/powershell/azure/overview).
 
-Ek sanal makine PowerShell komut dosyası örnekleri bulunabilir [Azure Windows VM belgelerine](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Ek sanal makine PowerShell betiği örnekleri, [Azure Windows VM belgeleri](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) içinde bulunabilir.

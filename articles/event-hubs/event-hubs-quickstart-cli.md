@@ -1,6 +1,6 @@
 ---
-title: "Azure Hızlı Başlangıç: Azure CLI'yı kullanarak olay akışlarını işleme | Microsoft Docs"
-description: Bu hızlı başlangıçta Azure CLI'yı kullanarak olay akışlarını işlemeyi öğreneceksiniz.
+title: "Azure Hızlı Başlangıç: Azure CLI'yi kullanarak olay hub'ı oluşturma | Microsoft Docs"
+description: Bu hızlı başlangıçta Azure CLI'yi kullanarak olay hub'ı oluşturma ve ardından Java kullanarak olayları gönderip alma adımları anlatılmaktadır.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
 ms.author: shvija
-ms.openlocfilehash: 7a15b252727589194da90af729a74e1baad7094f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 0607c9a65febdb5890eb49808a0fcef582deb37e
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004574"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42022955"
 ---
-# <a name="quickstart-process-event-streams-using-azure-cli-and-java"></a>Hızlı başlangıç: Azure CLI ve Java kullanarak olay akışlarını işleme
+# <a name="quickstart-create-an-event-hub-using-azure-cli"></a>Hızlı başlangıç: Azure CLI'yi kullanarak olay hub'ı oluşturma
 
 Azure Event Hubs saniyede milyonlarca olay alıp işleyebilen, ölçeklenebilirlik yüzeyi yüksek bir veri akışı platformu ve veri alma hizmetidir. Bu hızlı başlangıçta Azure CLI kullanarak Event Hubs kaynağı oluşturmayı ve Java kodu kullanarak olay hub'ı ile olay akışı alışverişi yapmayı öğreneceksiniz.
 

@@ -1,19 +1,19 @@
 
 
-Bağlanmak için **SharePoint Online**, kimliğinizi (kullanıcı adı ve parola, akıllı kart kimlik bilgileri, vb.) SharePoint Online'a sağlamanız gerekir. Kimlik doğruladınız sonra mantıksal uygulamanızı SharePoint çevrimiçi Bağlayıcısı'nı kullanmaya devam edebilirsiniz. 
+Bağlanmak için **SharePoint Online**, SharePoint Online (kullanıcı adı ve parola, akıllı kart kimlik bilgileri, vb.) kimliğinizi sağlamanız gerekir. Doğrulandı sonra mantıksal uygulamanızda SharePoint Online Bağlayıcısı'nı kullanmaya devam edebilirsiniz. 
 
-Tasarımcısı mantıksal uygulamanızı karşın, oluşturmak için SharePoint ile oturum açmak için şu adımları takip **bağlantı** mantıksal uygulamanızı kullanmak için:
+Sırada tasarımcısında mantıksal uygulamanızın, SharePoint'te oturum oluşturmak için aşağıdaki adımları izleyin. **bağlantı** mantıksal uygulamanızda kullanmak için:
 
-1. SharePoint arama kutusuna girin ve tüm tetikleyiciler ve SharePoint Online'a ilgili eylemler döndürmek arama bekleyin:   
+1. SharePoint arama kutusuna girin ve tüm tetikleyiciler ve eylemler SharePoint Online için ilgili döndürmek arama bekleyin:   
    ![SharePoint'i yapılandırma][1]  
-2. Seçin **SharePoint bir dosyayı oluştururken çevrimiçi -** tetikleyici  
-3. Seçin **oturum SharePoint'e çevrimiçi**:   
+2. Seçin **SharePoint bir dosya oluşturulduğunda Online -** tetikleyicisi  
+3. Seçin **SharePoint oturumu açma çevrimiçi**:   
    ![SharePoint'i yapılandırma][2]    
 4. SharePoint ile kimlik doğrulaması oturum açmak için SharePoint kimlik bilgilerinizi sağlayın   
    ![SharePoint'i yapılandırma][3]     
-5. Kimlik doğrulama tamamlandıktan sonra mantıksal uygulamanızı yeniden yönlendirilen. İşte bu kadar bağlantı oluşturuldu. İletinin SharePoint'e şimdi bağlandığını belirten altındaki dikkat edin.  
+5. Kimlik doğrulaması tamamlandıktan sonra mantıksal uygulamanıza yönlendirilirsiniz. İşte bu kadar bağlantı oluşturuldu. SharePoint için artık bağlısınız gösteren alttaki iletisini görürsünüz.  
    ![SharePoint'i yapılandırma][4]  
-6. Daha sonra diğer tetikleyiciler ve mantıksal uygulamanızı tamamlamanız gereken eylemler ekleyebilirsiniz.   
+6. Ardından, diğer tetikleyiciler ve mantıksal uygulamanızı tamamlamak için gereken eylemler ekleyebilirsiniz.   
 
 [1]: ./media/connectors-create-api-sharepointonline/connectionconfig1.png
 [2]: ./media/connectors-create-api-sharepointonline/connectionconfig2.png 

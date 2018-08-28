@@ -1,52 +1,81 @@
 ---
-title: Twilio Bağlayıcısı, Azure Logic apps'te ekleyin | Microsoft Docs
-description: REST API parametrelerle Twilio bağlayıcısına genel bakış
+title: Azure Logic Apps'ten Twilio'ya bağlanın | Microsoft Docs
+description: Görevler ve genel SMS, MMS ve IP iletileri Twilio hesabınız üzerinden Azure Logic Apps kullanarak yönetme iş akışlarını otomatikleştirin
 services: logic-apps
-documentationcenter: ''
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 43116187-4a2f-42e5-9852-a0d62f08c5fc
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: 43116187-4a2f-42e5-9852-a0d62f08c5fc
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 09/19/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 8bcf69a7c8e04cb45d795fd0d6f20d477c15865d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: db7677042737ea1377af54cc02ee1c82c05435c8
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652014"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047583"
 ---
-# <a name="get-started-with-the-twilio-connector"></a>Twilio Bağlayıcısı ile çalışmaya başlama
-Genel SMS, MMS ve IP iletileri gönderip Twilio'ya bağlanın. Twilio ile şunları yapabilirsiniz:
+# <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>Azure Logic Apps ile Twilio iletilerini yönetme
 
-* Twilio'dan alma verileri temel alan, iş akışınızı oluşturun. 
-* Bir ileti, iletileri Listele ve daha fazlasını edinin eylemlerini kullanın. Bu Eylemler, yanıt alın ve çıkış diğer eylemler için kullanılabilir yapın. Örneğin, bir yeni Twilio iletisini aldığınızda, bu iletiyi almak ve bir Service Bus iş akışını kullanın. 
+Azure Logic Apps ve Twilio Bağlayıcısı ile otomatik görevler ve almak, göndermek ve Twilio, genel SMS, MMS ve IP iletileri içeren iletileri Listele iş akışları oluşturabilirsiniz. Bu Eylemler, Twilio hesabınızla görevleri gerçekleştirmek için kullanabilirsiniz. Ayrıca, Twilio eylemleri çıktısını kullanan diğer eylemler olabilir. Yeni bir ileti geldiğinde, örneğin, Slack bağlayıcısıyla içerik gönderebilirsiniz. Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](../logic-apps/logic-apps-overview.md)
 
-Mantıksal uygulama oluşturarak başlayın; bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+## <a name="prerequisites"></a>Önkoşullar
 
-## <a name="create-a-connection-to-twilio"></a>Twilio bağlantı oluşturun
-Bu bağlayıcı için logic apps eklediğinizde, Twilio aşağıdaki değerleri girin:
+* Azure aboneliği. Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
 
-| Özellik | Gerekli | Açıklama |
-| --- | --- | --- |
-| Hesap Kimliği |Evet |Twilio hesap Kimliğinizi girin |
-| Erişim Belirteci |Evet |Twilio erişim belirtecinizi girin |
+* Gelen [Twilio](https://www.twilio.com/): 
 
-> [!INCLUDE [Steps to create a connection to Twilio](../../includes/connectors-create-api-twilio.md)]
-> 
-> 
+  * Twilio hesap Kimliğinizi ve [kimlik doğrulama belirteci](https://support.twilio.com/hc/en-us/articles/223136027-Auth-Tokens-and-How-to-Change-Them), Twilio panonuzu bulabilirsiniz
 
-Twilio erişim belirteci yoksa bkz [kullanıcı kimlik ve erişim belirteçleri](https://www.twilio.com/docs/api/chat/guides/identity).
+    Mantıksal uygulamanızı bağlantı kurun ve Twilio hesabınızın mantıksal uygulamanızdan erişmek için kimlik bilgilerinizi yetkilendirin. 
+    Bir Twilio deneme hesabı kullanıyorsanız, yalnızca SMS gönder *doğrulandı* telefon numaraları.
 
-## <a name="connector-specific-details"></a>Özel bağlayıcı ayrıntıları
+  * SMS gönderebilen doğrulanmış bir Twilio telefon numarası
 
-Tetikleyiciler ve eylemlerin swagger'da tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınırlama Bkz [bağlayıcı ayrıntıları](/connectors/twilio/).
+  * SMS alabilecek doğrulanmış bir Twilio telefon numarası
 
-## <a name="more-connectors"></a>Daha fazla bağlayıcı
-Geri Git [API listesi](apis-list.md).
+* Hakkında temel bilgilere [mantıksal uygulamalar oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* Twilio hesabınız için istediğiniz mantıksal uygulaması. Twilio eylem kullanmak için mantıksal uygulamanız başka bir tetikleyici ile örneğin başlayın, **yinelenme** tetikleyici.
+
+## <a name="connect-to-twilio"></a>Twilio'ya bağlanın
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. Oturum [Azure portalında](https://portal.azure.com)ve Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın, açık değilse.
+
+1. Bir yolu seçin: 
+
+     * Son adım, bir eylem eklemek istediğiniz altında seçin **yeni adım**. 
+
+       -veya-
+
+     * Bir eylem eklemek istediğiniz adımları arasında işaretçinizi adımlar arasındaki okun üzerine getirin. 
+     Artı işaretini seçin (**+**), görünür ve ardından **Eylem Ekle**.
+     
+       Arama kutusuna filtreniz olarak "twilio" girin. 
+       Eylemler listesinde, istediğiniz eylemi seçin.
+
+1. Bağlantınız için gerekli bilgileri sağlayın ve ardından **Oluştur**:
+
+   * Bağlantınız için kullanılacak adı
+   * Twilio hesap kimliği 
+   * Twilio (kimlik doğrulaması) erişim belirteci
+
+1. Seçili eyleminiz için gerekli bilgileri sağlayın ve mantıksal uygulamanızın iş akışı oluşturmaya devam edin.
+
+## <a name="connector-reference"></a>Bağlayıcı başvurusu
+
+Tetikleyiciler ve Eylemler sınırları hakkında teknik ayrıntılar için bağlayıcının Openapı'nin açıklanmıştır (önceki adıyla Swagger) açıklama, bağlayıcının gözden [başvuru sayfası](/connectors/twilio/).
+
+## <a name="get-support"></a>Destek alın
+
+* Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
+* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](http://aka.ms/logicapps-wish) ziyaret edin.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+* Diğer hakkında bilgi edinin [Logic Apps bağlayıcıları](../connectors/apis-list.md)

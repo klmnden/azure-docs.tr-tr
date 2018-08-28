@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/27/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 5e5ebac221060058a44f7605f77d33a133f5e72c
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: afbe3ff2e6be4e03f8de8ac2490922c3ec788733
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887232"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091389"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 güncelleştirme
 
@@ -168,6 +168,8 @@ Bu güvenlik açıkları hakkında daha fazla bilgi için yukarıdaki bağlantı
 Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 ### <a name="portal"></a>Portal
+- <!-- 2931230 – IS  ASDK --> Kullanıcı aboneliği plan kaldırdığınızda bile, bir kullanıcı abonelikte eklenti planı eklendiği planları silinemiyor. Eklenti planı başvuru abonelikleri de silinene kadar plan kalır. 
+
 - <!--2760466 – IS  ASDK --> Bu sürümünü çalıştıran yeni bir Azure Stack ortamına yüklediğinizde, uyarıyı gösterir *etkinleştirme gerekli* görüntülenmeyebilir. [Etkinleştirme](azure-stack-registration.md) Market dağıtım kullanabilmeniz için gereklidir.  
 
 - <!-- TBD - IS ASDK --> İki Yönetim abonelik türlerini [1804 sürümü ile sunulan](azure-stack-update-1804.md#new-features) kullanılmamalıdır. Abonelik türleridir **abonelik ölçümü**, ve **tüketim abonelik**. Bu abonelik türlerini 1804 sürümünden başlayarak yeni Azure Stack ortamlarında görülebilir ancak henüz kullanıma sunulmamıştır. Kullanmaya devam etmelidir **varsayılan sağlayıcı** abonelik türü.

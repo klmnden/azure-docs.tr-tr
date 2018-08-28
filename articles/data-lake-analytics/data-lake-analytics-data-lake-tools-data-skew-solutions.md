@@ -1,70 +1,69 @@
 ---
-title: Visual Studio için Azure Data Lake araçları kullanarak veri eğme sorunlarını gidermek
-description: Visual Studio için Azure Data Lake araçları kullanarak veri eğme sorunları için sorun giderme olası çözümleri.
+title: Visual Studio için Azure Data Lake araçları kullanarak veri dengesizliği sorunları çözün
+description: Visual Studio için Azure Data Lake araçları kullanarak veri dengesizliği sorunları için sorun giderme olası çözümleri.
 services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
-ms.openlocfilehash: 43a050251a6945d6886930a2a76fcb9f833b78f0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b3079a7f2e71e26164d96cf167b67f1a60f7a23b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623392"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046482"
 ---
-# <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Visual Studio için Azure Data Lake araçları kullanarak veri eğme sorunlarını gidermek
+# <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Visual Studio için Azure Data Lake araçları kullanarak veri dengesizliği sorunları çözün
 
-## <a name="what-is-data-skew"></a>Eğme veri nedir?
+## <a name="what-is-data-skew"></a>Eğriltme veri nedir?
 
-Kısaca belirtildiği gibi veri eğme bir aşırı gösterilen değeridir. Vergi döndürür, her ABD durumu için bir examiner denetlemek için 50 vergi examiners atadığınız düşünün. Popülasyonun var. küçük olduğu için Wyoming examiner az yapmak için vardır. İzmir'de, ancak examiner durumun büyük popülasyon nedeniyle çok meşgul tutulur.
-    ![Veri eğme sorun örneği](./media/data-lake-analytics-data-lake-tools-data-skew-solutions/data-skew-problem.png)
+Kısaca ifade etmek gerekirse veri dengesizliği bir aşırı gösterilen değerdir. Vergi döndürür, her ABD devlet için bir examiner denetlemek için 50 vergi examiners atamadığınızı düşünün. Popülasyonu yok küçük olduğu için Wyoming examiner az yapmak için vardır. California'da, ancak examiner durumun büyük doldurma nedeniyle çok meşgul tutulur.
+    ![Veri dengesizliği sorun örneği](./media/data-lake-analytics-data-lake-tools-data-skew-solutions/data-skew-problem.png)
 
-Senaryomuzda verileri düz olmayan şekilde tüm vergi examiners arasında bazı examiners diğerlerinden daha çalışmalıdır anlamı dağıtılır. Kendi işinde sık vergi examiner örnek gibi durumlarla karşılaşırsınız. Daha fazla teknik koşulları bir köşesinin eşlerine çok daha fazla veri alır, projenin tamamı sonunda diğerlerinden daha fazla ve bu iş köşe yapan bir durum yavaşlatır. Kötüsü, işi başarısız olabilir, köşe, örneğin, olabileceğinden 5 saatlik çalışma zamanı sınırlaması ve 6 GB bellek kısıtlaması.
+Senaryomuzdaki ise veriler eşit olmayan şekilde tüm vergi examiners arasında bazı examiners diğerlerinden daha fazla çalışma gerekir yani dağıtılır. Kendi işinde vergi examiner örnek gibi durumlar sık karşılaşırsınız. Daha fazla teknik terimlerle den eşlerine daha da fazla veriye bir köşe alır, projenin tamamı sonunda diğerlerinden daha fazla ve bu iş köşe yaptığı bir durum yavaşlatır. Kötüsü, işi başarısız olabilir, köşe, örneğin, gerekli olabileceğinden 5 saatlik çalışma zamanı ile ilgili bir sınırlama ve 6 GB bellek ile ilgili bir sınırlama.
 
-## <a name="resolving-data-skew-problems"></a>Veri eğme sorunlarını çözme
+## <a name="resolving-data-skew-problems"></a>Veri dengesizliği sorunları çözme
 
-Visual Studio için Azure Data Lake araçları, işinizi veri eğme sorunlu olup olmadığını belirlemenize yardımcı olabilir. Bir sorun varsa, bu bölümdeki çözümleri deneyerek çözülebilir.
+Visual Studio için Azure Data Lake araçları, işinizi veri dengesizliği ile ilgili bir sorun olup olmadığını belirlemenize yardımcı olabilir. Bir sorun varsa, bu bölümdeki çözümleri deneyerek çözebilirsiniz.
 
-## <a name="solution-1-improve-table-partitioning"></a>Çözüm 1: Tablo bölümleme geliştirmek
+## <a name="solution-1-improve-table-partitioning"></a>Çözüm 1: Tablo bölümleme geliştirin
 
-### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>Seçenek 1: asimetrik anahtar değeri önceden filtre
+### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>1. seçenek: çarpıtılmış anahtar değerini önceden Filtrele
 
-İş mantığınızın etkilemez varsa, yüksek sıklığı değerlerin önceden filtre uygulayabilirsiniz. Örneğin, çok sayıda 000 000 000 GUID sütununda varsa, bu değer bir araya istemeyebilirsiniz. Önce toplama, yazabileceğiniz "WHERE GUID!"000 000 000"=" yüksek sıklıkta değeri filtre uygulamak için.
+İş mantığınızı etkilemez, yüksek frekanslı değerleri önceden filtre uygulayabilirsiniz. Örneğin, 000-000-000 GUID sütunda çok fazla varsa, bu değeri toplamak istemeyebilirsiniz. Önce toplam, yazabileceğiniz "WHERE GUID! ="000-000-000"" yüksek frekanslı değeri filtrelemek için.
 
-### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Seçenek 2: farklı bir bölüm veya dağıtım anahtarı seçin
+### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>2. seçenek: farklı bir dağıtım ve bölüm anahtarı seçin
 
-Önceki örnekte, yalnızca vergi denetim iş yükü ülke'dünyanın dört bir yanındaki denetlemek istiyorsanız, anahtar olarak kimlik numarasını seçerek veri dağıtım artırabilir. Farklı bir bölüm veya dağıtım anahtarı çekme bazen verileri daha eşit olarak dağıtabilirsiniz, ancak bu seçenek, iş mantığınızı etkilemez emin olmanız gerekir. Örneğin, her durum için vergi toplam hesaplamak için belirtmek istediğiniz _durumu_ bölüm anahtarı olarak. Bu sorunu yaşamaya devam ederseniz, seçenek 3 kullanmayı deneyin.
+Önceki örnekte, yalnızca ülke karşısında denetim vergi iş yükü denetlemek istiyorsanız, anahtar olarak kimlik numarasını seçerek veri dağıtım artırabilir. Farklı bir bölüm veya dağıtım anahtarı çekme bazen verileri daha eşit dağıtabilirsiniz, ancak bu seçenek iş mantığınızı etkilemediğinden emin emin olmanız gerekir. Örneğin, her durum için vergi toplamı hesaplamak için belirtmek istediğiniz _durumu_ bölüm anahtarı olarak. Bu sorunla karşılaşmaya devam ederseniz seçeneği 3'ü kullanarak deneyin.
 
 ### <a name="option-3-add-more-partition-or-distribution-keys"></a>Seçenek 3: daha fazla bölüm veya dağıtım anahtarları Ekle
 
-Yalnızca kullanmak yerine _durumu_ bir bölüm anahtarı olarak bölümleme için birden fazla anahtar kullanabilirsiniz. Örneğin, eklemeyi göz önünde bulundurun _posta kodu_ veri bölüm boyutlarını küçültmek ve verileri daha eşit olarak dağıtmak için ek bölüm anahtarı olarak.
+Yalnızca kullanmak yerine _durumu_ bir bölüm anahtarı olarak bölümleme için birden fazla anahtar kullanabilirsiniz. Örneğin, eklemeyi düşünün _posta kodu_ veri bölüm boyutları azaltmaya ve verileri daha eşit dağıtmaya yönelik ek bir bölüm anahtarı.
 
-### <a name="option-4-use-round-robin-distribution"></a>Seçenek 4: hepsini dağıtım kullanın
+### <a name="option-4-use-round-robin-distribution"></a>Seçenek 4: Hepsini bir kez deneme dağıtım kullan
 
-Bölüm ve dağıtım için uygun bir anahtar bulamazsanız, hepsini dağıtım kullanmayı deneyebilirsiniz. Hepsini dağıtım tüm satırları eşit olarak değerlendirir ve rastgele bunları karşılık gelen demet yerleştirir. Veri dağılımla, ancak yere göre bilgi, aynı zamanda bazı işlemler için iş performansı düşürebilir bir dezavantajı kaybeder. Ayrıca, asimetrik anahtar için toplama yine de yapıyorsanız, veri eğme sorun korunur. Hepsini bir kez deneme dağıtımı hakkında daha fazla bilgi için U-SQL tablo dağıtımları bölümüne bakın. [CREATE TABLE (U-SQL): şemasıyla tablo oluşturma](https://msdn.microsoft.com/library/mt706196.aspx#dis_sch).
+Bölüm ve dağıtım için uygun bir anahtar bulamazsanız, hepsini bir kez deneme dağıtım kullanmayı deneyebilirsiniz. Hepsini bir kez deneme dağıtım, tüm satırları eşit olarak değerlendirir ve rastgele bunlara karşılık gelen demetlerin içine yerleştirir. Eşit olarak dağıtılmış verileri, ancak yerel konumu bilgileri, bazı işlemler için işlem performansı da azaltabilir bir dezavantajı kaybeder. Ayrıca, veri dengesizliği sorun toplama dengesiz anahtarı için yine de yapıyorsanız açık kalır. Hepsini bir kez deneme dağıtımı hakkında daha fazla bilgi için U-SQL tablo dağıtımlar bölümüne bakın. [CREATE TABLE (U-SQL): şema ile tablo oluşturma](https://msdn.microsoft.com/library/mt706196.aspx#dis_sch).
 
-## <a name="solution-2-improve-the-query-plan"></a>Çözüm 2: sorgu planı geliştirmek
+## <a name="solution-2-improve-the-query-plan"></a>Çözüm 2: sorgu planı geliştirin
 
-### <a name="option-1-use-the-create-statistics-statement"></a>Seçenek 1: CREATE STATISTICS deyimini kullanın
+### <a name="option-1-use-the-create-statistics-statement"></a>1. seçenek: CREATE STATISTICS deyimini kullanma
 
-U-SQL CREATE STATISTICS deyimi tablolarda sağlar. Bu bildirimi sorgu iyileştiricisi bir tabloda depolanan verileri, gibi özellikleri değer dağıtımı hakkında daha fazla bilgi sağlar. Sorguların çoğu için sorgu iyileştiricisi zaten bir yüksek kaliteli sorgu planı gerekli istatistikleri oluşturur. Bazen, CREATE STATISTICS ile ek istatistikler oluşturarak veya sorgu tasarım değiştirerek sorgu performansını artırmak gerekebilir. Daha fazla bilgi için bkz: [CREATE STATISTICS (U-SQL)](https://msdn.microsoft.com/library/azure/mt771898.aspx) sayfası.
+U-SQL tablolarında CREATE STATISTICS deyim sağlar. Bu ifade sorgu iyileştiricisi tablo içinde saklanan verileri gibi özellikleri değer dağılımı hakkında daha fazla bilgi sağlar. Sorguların çoğu, sorgu iyileştiricisi zaten gerekli istatistikleri yüksek kaliteli sorgu planı oluşturur. Bazen, CREATE STATISTICS ile ek istatistikleri oluşturmak veya sorgu tasarımını değiştirerek sorgu performansını artırmak gerekebilir. Daha fazla bilgi için [CREATE STATISTICS (U-SQL)](https://msdn.microsoft.com/library/azure/mt771898.aspx) sayfası.
 
 Kod örneği:
 
     CREATE STATISTICS IF NOT EXISTS stats_SampleTable_date ON SampleDB.dbo.SampleTable(date) WITH FULLSCAN;
 
 >[!NOTE]
->İstatistik bilgileri otomatik olarak güncelleştirilmez. Bir tablodaki verileri istatistikleri tekrar oluşturmak zorunda kalmadan güncelleştirirseniz, sorgu performansı reddet.
+>İstatistik bilgilerini otomatik olarak güncelleştirilmez. İstatistikleri tekrar oluşturmak zorunda kalmadan bir tablodaki verileri güncelleştirirseniz, sorgu performansı reddedebilir.
 
-### <a name="option-2-use-skewfactor"></a>Seçenek 2: SKEWFACTOR kullanın
+### <a name="option-2-use-skewfactor"></a>2. seçenek: SQL'da kullanma
 
-Her durum için vergi toplamak istiyorsanız, GROUP BY durumu, veri eğme kaçınmak olmayan bir yaklaşım kullanmanız gerekir. Ancak, böylece iyileştirici sizin için yürütme planı hazırlama veri eğme anahtarlarında tanımlamak için Sorgunuzdaki veri ipucu sağlar.
+Her durum için vergi toplamak istiyorsanız, GROUP BY durumu, veri dengesizliği kaçınmak olmayan bir yaklaşım kullanmanız gerekir. Ancak, sorgu iyileştiricisi yürütme planı sizin için hazırlanabilmeniz adına, veri dengesizliği anahtarları tanımlamak için bir veri ipucuyla sağlayabilirsiniz.
 
-Genellikle, parametre 0,5 ve konuya eğme ve 1 anlamı ağır eğme anlamı 0,5 ile 1 olarak ayarlayabilirsiniz. İpucu geçerli deyimi ve tüm aşağı akış deyimleri için yürütme planı iyileştirme etkilediğinden, olası key-wise toplama eğri önce ipucu eklediğinizden emin olun.
+Genellikle, parametre 0,5 ve 1, ölçüde eğriltme ve 1 anlamı ağır eğriltme anlamı 0,5 olarak ayarlayabilirsiniz. İpucu için geçerli deyim ve tüm aşağı akış deyimleri yürütme-planı iyileştirme etkilediğinden, olası tuşlarla ilgili toplama dengesiz önce ipucu eklemeyi unutmayın.
 
     SKEWFACTOR (columns) = x
 
@@ -99,7 +98,7 @@ Kod örneği:
         ;   
 
 ### <a name="option-3-use-rowcount"></a>Seçenek 3: ROWCOUNT kullanın  
-Diğer birleştirilmiş satır kümesini küçük olduğunu biliyorsanız, SKEWFACTOR ek olarak, belirli eğri anahtarı birleşim durumlarda, size iyileştirici birleştirme önce U-SQL deyiminde ROWCOUNT ipucu ekleyerek söyleyebilir. Bu şekilde, en iyi hale getirme performansını iyileştirmeye yardımcı olmak için bir yayın katılım stratejisi seçebilirsiniz. ROWCOUNT veri eğme sorunu çözmezse, ancak bazı ek Yardım sunabileceğiniz unutmayın.
+Birleştirilmiş satır kümesi küçük olduğunu biliyorsanız SQL'da yanı sıra belirli dengesiz anahtarı birleşim durumlarda, iyileştirici birleştirme önce U-SQL deyiminde ROWCOUNT ipucu ekleyerek söyleyebilirsiniz. Bu şekilde iyileştirici performansını artırmak için bir yayın birleştirme stratejisi seçebilirsiniz. Satır sayısı veri dengesizliği sorunu çözmez, ancak bazı ek Yardım sağlayabilir unutmayın.
 
     OPTION(ROWCOUNT = n)
 
@@ -123,19 +122,19 @@ Kod örneği:
                 INNER JOIN @Small ON Sessions.Client == @Small.Client
                 ;
 
-## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>Çözüm 3: kullanıcı tanımlı reducer ve birleştirici geliştirmek
+## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>3. çözüm: birleştirici ve kullanıcı tanımlı Azaltıcı geliştirin
 
-Karmaşık bir işlem mantığı ile mücadele etmek için bir kullanıcı tarafından tanımlanan işleci bazen yazabilir ve iyi yazılmış reducer ve birleştirici bir veri eğme sorun bazı durumlarda azaltmak.
+Bazen bir kullanıcı tanımlı işleç karmaşık bir işlem mantığı ile birlikte dağıtılacak yazabilirsiniz ve bazı durumlarda bir veri dengesizliği sorun iyi-yazılan Azaltıcı ve birleştirici azaltabileceğini.
 
-### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Seçenek 1: bir özyinelemeli reducer mümkünse kullanın
+### <a name="option-1-use-a-recursive-reducer-if-possible"></a>1. seçenek: mümkünse bir özyinelemeli Azaltıcı kullanın
 
-Varsayılan olarak, kullanıcı tanımlı bir reducer anahtarı için iş azaltan anlamına tek köşe dağıtılmış özyinelemeli olmayan modda çalışır. Ancak verilerinizi eğri, büyük veri kümeleri, tek bir köşe işlenmesi ve uzun bir süredir çalıştırın.
+Varsayılan olarak, bir kullanıcı tanımlı Azaltıcı anahtarı için iş miktarını azaltmaya anlamına tek bir köşe dağıtılır özyinelemeli olmayan modda çalışır. Ancak verilerinizin dengesiz, büyük veri kümelerini tek bir köşe işlenmesi ve uzun bir süredir çalıştırın.
 
-Performansı artırmak için kodunuzda özyinelemeli modunda çalışacak şekilde reducer tanımlamak için bir öznitelik ekleyebilirsiniz. Ardından, büyük veri kümeleri için birden çok köşeleri dağıtılabilen ve işinizi hızlandırır paralel olarak çalıştır.
+Performansı artırmak için Azaltıcı özyinelemeli modunda çalışacak şekilde tanımlamak için kodunuzda bir öznitelik ekleyebilirsiniz. Ardından, büyük veri kümeleri için birden fazla köşe dağıtılabilen ve hızlandırır, işi paralel olarak çalıştırmak.
 
-Özyinelemeli olmayan reducer için özyinelemeli değiştirmek için algoritma ilişkilendirilebilir olduğundan emin olmak gerekir. Örneğin, toplam ilişkilendirilebilir ve ORTANCA değil. Giriş ve çıkış reducer için aynı şema tutmak emin olmanız gerekir.
+İçin özyinelemeli olmayan özyinelemeli Azaltıcı değiştirmek için algoritmanız ilişkili olduğundan emin olmak gerekir. Örneğin, toplam ilişkilendirilebilir ve ORTANCA değil. Giriş ve çıkış için Azaltıcı aynı şemaya tutmak emin olmanız gerekir.
 
-Özyinelemeli reducer öznitelik:
+Özyinelemeli Azaltıcı özniteliği:
 
     [SqlUserDefinedReducer(IsRecursive = true)]
 
@@ -151,28 +150,28 @@ Kod örneği:
         }
     }
 
-### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>Seçenek 2: satır düzeyi Birleştirici modu, mümkünse kullanın
+### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>2. seçenek: mümkünse satır düzeyinde Birleştirici modu kullanın
 
-Benzer şekilde belirli eğri anahtarı birleşim durumlarda ROWCOUNT ipucu, böylece iş aynı anda çalıştırılabilecek birden çok köşe için çok büyük eğri anahtar değer kümeleri dağıtmak Birleştirici modu çalışır. Birleştirici modu veri eğme sorunları çözümlenemiyor ancak büyük eğri anahtar değer kümeleri için bazı ek Yardım sağlayabilir.
+Benzer şekilde belirli dengesiz anahtarı birleşim durumları için satır sayısı ipucu, çalışmayı aynı anda çalıştırılabilecek böylece birden fazla köşe için çok büyük dengesiz anahtar değer kümeleri dağıtmak Birleştirici modu çalışır. Birleştirici modu veri dengesizliği sorunları gideremezsiniz ancak büyük dengesiz anahtar değer kümeleri için bazı ek Yardım sağlayabilir.
 
-Varsayılan olarak, sol satır kümesi ve doğru satır kümesini ayırmanız edemiyor demektir tam Birleştirici modudur. Sol/sağ/iç modunu ayarlama satır düzeyi birleştirme sağlar. Sistem, ilgili satır kümeleri ayırır ve bunları paralel olarak çalışan birden çok köşeleri uygulamasına dağıtır. Ancak, birleştirici modu yapılandırmadan önce ilgili satır kümeleri birbirinden emin olmak dikkatli olun.
+Varsayılan olarak, sağ satır kümesi ve sol satır kümesini ayrılamayan anlamına gelen tam Birleştirici modudur. Sol/sağ/iç modunu ayarlama, satır düzeyi birleştirme sağlar. Sistem, karşılık gelen satır kümeleri ayırır ve bunları paralel olarak birden fazla köşe uygulamasına dağıtır. Birleştirici modu yapılandırmadan önce ancak karşılık gelen satır kümeleri ayrılabilir emin olmak dikkatli olun.
 
-Aşağıdaki örnek, ayrılmış sol satır kümesini gösterir. Tek bir giriş satır soldan her çıktı satır bağlıdır ve büyük olasılıkla tüm satırlardan aynı anahtar değeriyle sağ bağımlı. Birleştirici modu sol ayarlarsanız, sistem büyük sol-küçük parçalara satır kümesi ayırır ve birden çok köşeleri atar.
+Aşağıdaki örnek, bir ayrılmış sol satır kümesi gösterir. Tek bir giriş satır soldan her çıkış satır bağlıdır ve potansiyel olarak sağa aynı anahtar değerine sahip tüm satırlarda bağlıdır. Birleştirici modu sol ayarlarsanız, sistemin küçük parçalara ayarlamak büyük sol satır ayırır ve bunları birden çok köşeler için atar.
 
 ![Birleştirici modu çizim](./media/data-lake-analytics-data-lake-tools-data-skew-solutions/combiner-mode-illustration.png)
 
 >[!NOTE]
->Yanlış Birleştirici modu ayarlarsanız, daha az verimli bir bileşimidir ve sonuçları bir sorun olabilir.
+>Yanlış Birleştirici modu ayarlarsanız, birlikte daha az verimlidir ve sonuçlar hatalı olabilir.
 
 Birleştirici modu öznitelikleri:
 
 - [SqlUserDefinedCombiner(Mode=CombinerMode.Full)]: Every output row potentially depends on all the input rows from left and right with the same key value.
 
-- SqlUserDefinedCombiner(Mode=CombinerMode.Left): Soldan (ve büyük olasılıkla tüm satırların aynı anahtar değeriyle sağdan) tek bir giriş satır her çıktı satır bağlıdır.
+- SqlUserDefinedCombiner(Mode=CombinerMode.Left): Sol (ve büyük olasılıkla tüm satırların aynı anahtar değerine sahip sağa) tek bir giriş satır her çıkış satır bağlıdır.
 
-- qlUserDefinedCombiner(Mode=CombinerMode.Right): her çıktı satır sağa (ve büyük olasılıkla tüm satırların aynı anahtar değeriyle soldan) tek bir giriş satır bağlıdır.
+- qlUserDefinedCombiner(Mode=CombinerMode.Right): her çıkış satır, sağa (ve büyük olasılıkla tüm satırların aynı anahtar değerine sahip soldan) tek bir giriş satır bağlıdır.
 
-- SqlUserDefinedCombiner(Mode=CombinerMode.Inner): Sol ve sağda aynı değere sahip tek bir giriş satırdaki her çıktı satır bağlıdır.
+- SqlUserDefinedCombiner(Mode=CombinerMode.Inner): Sol ve sağda aynı değere sahip tek bir giriş satırı her çıkış satır bağlıdır.
 
 Kod örneği:
 

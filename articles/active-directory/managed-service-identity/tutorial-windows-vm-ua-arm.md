@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: 9cc7683b260a9afbe4aee006a22af9c4834c4eb1
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: db4d423a09b6b37fd0ba88d466319cb5da4fdedf
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248396"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41918029"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-service-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Öğretici: Azure Resource Manager’a erişmek için Windows VM üzerinde Kullanıcı Tarafından Atanmış Yönetilen Hizmet Kimliği kullanma
 
@@ -42,8 +42,12 @@ Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 - Yönetilen Hizmet Kimliği'ni bilmiyorsanız, [genel bakış](overview.md) bölümünü gözden geçirin. **[Sistem ve kullanıcı tarafından atanan kimlikler arasındaki farklılıkları](overview.md#how-does-it-work) gözden geçirmeyi unutmayın**.
 - Henüz bir Azure hesabınız yoksa, devam etmeden önce [ücretsiz bir hesaba kaydolun](https://azure.microsoft.com/free/).
 - Bu öğreticideki gerekli kaynak oluşturma ve rol yönetimini adımlarını gerçekleştirmek için hesabınız uygun kapsamda (aboneliğiniz veya kaynak grubunuz) "Sahip" izinlerini gerektiriyor. Rol atamayla ilgili yardıma ihtiyacınız varsa bkz. [Azure abonelik kaynaklarınıza erişimi yönetmek için Rol Tabanlı Erişim Denetimi kullanma](/azure/role-based-access-control/role-assignments-portal).
-
-PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 5.7 veya sonraki bir sürümünü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+- PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 5.7.0 veya sonraki bir sürümünü gerektirir. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). 
+- PowerShell'i yerel ortamda çalıştırıyorsanız şunları da yapmanız gerekir: 
+    - Azure ile bağlantı oluşturmak için `Login-AzureRmAccount` komutunu çalıştırın.
+    - [PowerShellGet'in en son sürümünü](/powershell/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget) yükleyin.
+    - `Install-Module -Name PowerShellGet -AllowPrerelease` komutunu çalıştırarak `PowerShellGet` modülünün yayın öncesi sürümünü alın (`AzureRM.ManagedServiceIdentity` modülünü yüklemek için bu komutu çalıştırdıktan sonra geçerli PowerShell oturumundan `Exit` ile çıkmanız gerekebilir).
+    - Bu makaledeki kullanıcı tarafından atanan kimlik işlemlerini gerçekleştirmek için `Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease` komutunu çalıştırarak `AzureRM.ManagedServiceIdentity` modülünün yayın öncesi sürümünü yükleyin.
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
@@ -83,10 +87,10 @@ Kullanıcı tarafından atanan kimlik tek başına bir Azure kaynağı olarak ol
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 ```azurepowershell-interactive
-Get-AzureRmUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1
+New-AzureRmUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1
 ```
 
-Yanıt, aşağıdaki örneğe benzer biçimde, oluşturulmuş kullanıcı tarafından atanan kimliğin ayrıntılarını içerir. Kullanıcı tarafından atanan kimliğinizin `Id` değerini not alın, çünkü bu değer sonraki adımda kullanılacaktır:
+Yanıt, aşağıdaki örneğe benzer biçimde, oluşturulmuş kullanıcı tarafından atanan kimliğin ayrıntılarını içerir. Sonraki adımlarda kullanılacağından kullanıcı tarafından atanan kimliğin `Id` ve `ClientId` değerlerini not edin:
 
 ```azurepowershell
 {
@@ -148,10 +152,10 @@ Bu öğreticinin kalan bölümünde, daha önce oluşturmuş olduğumuz VM'den �
 
 4. Artık sanal makineyle **Uzak Masaüstü Bağlantısı**'nı oluşturduğunuza göre, uzak oturumda **PowerShell**'i açın.
 
-5. PowerShell’in `Invoke-WebRequest` komutunu kullanarak, yerel Yönetilen Hizmet Kimliği uç noktasına Azure Resource Manager için erişim belirteci alma isteğinde bulunun.
+5. PowerShell’in `Invoke-WebRequest` komutunu kullanarak, yerel Yönetilen Hizmet Kimliği uç noktasına Azure Resource Manager için erişim belirteci alma isteğinde bulunun.  `client_id` değeri, [kullanıcı tarafından atanan yönetilen kimliği oluşturduğunuzda](#create-a-user-assigned-identity) döndürülen değerdir.
 
     ```azurepowershell
-    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=73444643-8088-4d70-9532-c3a0fdc190fz&resource=https://management.azure.com' -Method GET -Headers @{Metadata="true"}
+    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=af825a31-b0e0-471f-baea-96de555632f9&resource=https://management.azure.com/' -Method GET -Headers @{Metadata="true"}
     $content = $response.Content | ConvertFrom-Json
     $ArmToken = $content.access_token
     ```
@@ -166,7 +170,7 @@ Azure Resource Manager’a erişmek için önceki adımda alınan erişim belirt
 Yanıtta, aşağıdaki örneğe benzer belirli Kaynak Grubu bilgileri yer alır:
 
 ```json
-{"id":"/subscriptions/<SUBSCRIPTIONID>/resourceGroups/TestRG","name":"myResourceGroupVM","location":"eastus","properties":{"provisioningState":"Succeeded"}}
+{"id":"/subscriptions/<SUBSCRIPTIONID>/resourceGroups/myResourceGroupVM","name":"myResourceGroupVM","location":"eastus","properties":{"provisioningState":"Succeeded"}}
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

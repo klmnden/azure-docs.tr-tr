@@ -5,23 +5,22 @@ ms.service: data-lake-analytics
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
-ms.topic: get-started-article
+ms.reviewer: jasonwhowell
+ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 3095c3281e1797c8103e0c229c62aca1aae3444f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: db20188244ba12afa97c96400e095d06a0dffce5
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625110"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43043756"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Azure CLI 2.0 aracını kullanarak Azure Data Lake Analytics ile çalışmaya başlama
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Bu makale, Azure Data Lake Analytics hesapları oluşturmak ve USQL işleriyle katalogları göndermek için Azure CLI 2.0 komut satırı arabiriminin nasıl kullanılacağını açıklar. İş, sekmeyle ayrılmış değerler (TSV) dosyasını okur ve bu dosyayı virgülle ayrılmış değerler (CSV) dosyasına dönüştürür. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Başlamadan önce aşağıdaki öğelerin olması gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
@@ -130,7 +129,7 @@ Bu U-SQL betiği, **Extractors.Tsv()** öğesini kullanarak kaynak veri dosyası
 
 Kaynak dosyayı farklı bir konuma kopyalamadıkça bu iki yolu değiştirmeyin.  Data Lake Analytics, mevcut olmaması halinde çıkış klasörünü oluşturur.
 
-Varsayılan Data Lake Store hesaplarında depolanan dosyalar için göreli yolların kullanılması daha basittir. Mutlak yol da kullanabilirsiniz.  Örnek:
+Varsayılan Data Lake Store hesaplarında depolanan dosyalar için göreli yolların kullanılması daha basittir. Mutlak yol da kullanabilirsiniz.  Örneğin:
 
 ```
 adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
@@ -155,7 +154,7 @@ Bir işi göndermek için aşağıdaki söz dizimini kullanın.
 az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"
 ```
 
-Örnek:
+Örneğin:
 
 ```
 az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
@@ -186,7 +185,7 @@ az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/Sea
 az dls fs download --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "<Destination Path and File Name>"
 ```
 
-Örnek:
+Örneğin:
 
 ```
 az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "C:\DLA\myfile.csv"

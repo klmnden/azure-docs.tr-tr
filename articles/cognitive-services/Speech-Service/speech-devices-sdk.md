@@ -9,20 +9,22 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 4607c997f6c274f6b367fe3e99bf8d21deceef0d
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 97a5d00d43ac6a9d4b28ba23ca69d9b67e1bdf6f
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285502"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049808"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>SDK'sı (Önizleme) konuşma cihazları hakkında
 
-Kendi Microsoft Speech hizmeti çok çeşitli cihazları ve ses kaynakları ile çalışır. Artık eşleşen donanım ve yazılım ile bir sonraki düzeye konuşma uygulamalarınızın alabilir. Konuşma cihaz SDK'sı, belirli mikrofon özellikli donanım ile eşleştirilmiş önceden ayarlanmış bir kitaplıktır. SDK'sı, cihaz bulut tabanlı Microsoft Speech hizmetiyle tümleştirin ve müşterileriniz için bir olağanüstü bir kullanıcı deneyimi oluşturmak daha kolay hale getirir.
+[Microsoft Speech hizmet](overview.md) çok çeşitli cihazları ve ses kaynakları ile çalışır. Artık eşleşen donanım ve yazılım ile bir sonraki düzeye konuşma uygulamalarınızın alabilir. Konuşma cihaz SDK'sı amacı ile eşleştirilmiş önceden ayarlanmış bir kitaplık geliştirme setleri mikrofon dizisi oluşturulmuş olur. Hızlı bir şekilde yeni ses senaryoları test faaliyetlerine, konuşma cihaz SDK'sı, Microsoft bulut tabanlı konuşma hizmeti, cihazınızın içine tümleştirme ve müşterileriniz için bir olağanüstü bir kullanıcı deneyimi oluşturmak kolaylaştırır. 
 
-SDK'sı ortam kendi özelleştirilmiş Uyandırma word cihazlarla oluşturmanıza olanak tanır; bir kullanıcı etkileşimi başlatır işaret markanız için benzersiz olacak şekilde. Çok kanallı ses gürültü gizleme, echo iptal, alan uzak ses ve beamforming aracılığıyla daha doğru konuşma tanıma sağlamak için kullanır.
+Konuşma cihaz SDK'sını kullanan [Speech SDK'sı](speech-sdk.md)ve Speech SDK'sı için cihazın mikrofon diziden sunduğumuz Gelişmiş ses işleme algoritması tarafından işlenen ses göndermek için kullandığı [Microsoft konuşma hizmeti](overview.md).  Çok kanallı ses daha doğru alanı uzak sağlamak için kullandığı [konuşma tanıma](speech-to-text.md) gürültü gizleme, echo iptal beamforming ve devre dışı bırakma reverberation aracılığıyla.
 
-SDK çeşitli sesli özellikli sürücü izlenecek sıralama sistemleri, araç veya sunuyla yardımcıları ve akıllı konuşmacıları gibi senaryoları kolaylaştırır. Metin kullanıcılarla yanıt, bunları bir varsayılan veya özel sesli için geri konuşun, arama sonuçları sağlayabilir, diğer diller ve daha fazla bilgi için. 
+Konuşma cihaz SDK'sını da çevresel cihazları ile kendi oluşturmanıza olanak tanır [Uyandırma word özelleştirilmiş](speech-devices-sdk-create-kws.md)— bir kullanıcı etkileşimi başlatır işaret markanız için benzersiz olacak şekilde. 
+
+SDK çeşitli sesli özellikli sürücü izlenecek sıralama sistemleri, mağaza veya sunuyla yardımcıları ve akıllı konuşmacıları gibi senaryoları kolaylaştırır. Geri bunları varsayılan için metin, kullanıcılara yanıt verebilir konuşun veya [özel sesli](how-to-customize-voice-font.md), arama sonuçları sağlamak [çevir](speech-translation.md) diğer diller ve daha fazlası. Hangi derleme görmeye umuyoruz!
 
 
 

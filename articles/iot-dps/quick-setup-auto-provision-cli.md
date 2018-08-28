@@ -1,5 +1,5 @@
 ---
-title: Azure CLI kullanarak Cihaz Sağlamayı ayarlama | Microsoft Docs
+title: Azure CLI kullanarak Cihaz Sağlama Hizmeti'ni ayarlama | Microsoft Docs
 description: Azure Hızlı Başlangıç - Azure CLI kullanarak Azure IoT Hub Cihazı Sağlama Hizmeti’ni ayarlama
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cf2e108aa7cab6be2996cb535d27d597e462617c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: c9e3bbbc4fbe8a9aade3364d6cbe9e93b5798595
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626548"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42022631"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Azure CLI ile IoT Hub Cihazı Sağlama Hizmeti'ni ayarlama
 
@@ -72,7 +72,7 @@ az iot dps create --name my-sample-dps --resource-group my-sample-resource-group
 
 ## <a name="get-the-connection-string-for-the-iot-hub"></a>IoT hub için bağlantı dizesini alma
 
-Cihaz sağlama hizmetiyle arasında bağlantı kurmak için IoT hub'ınızın bağlantı dizesine ihtiyacınız vardır. Bağlantı dizesini almak için [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) komutunu kullanın ve komutunu çıkışını kullanarak iki kaynağı bağlarken kullanacağınız değişkeni ayarlayın. 
+Cihaz Sağlama Hizmeti ile arasında bağlantı kurmak için IoT hub'ınızın bağlantı dizesine ihtiyacınız vardır. Bağlantı dizesini almak için [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) komutunu kullanın ve komutunu çıkışını kullanarak iki kaynağı bağlarken kullanacağınız değişkeni ayarlayın. 
 
 Aşağıdaki örnekte *hubConnectionString* değişkeni, hub'ın *iothubowner* ilkesinin birincil anahtarına ilişkin bağlantı dizesinin değerine ayarlanır. `--policy-name` parametresiyle farklı bir ilke de belirtebilirsiniz. Komut, komut çıkışından bağlantı dizesini ayıklamak için Azure CLI [query](/cli/azure/query-azure-cli) ve [output](/cli/azure/format-output-azure-cli#tsv-output-format) seçeneklerini kullanır.
 
@@ -94,7 +94,7 @@ echo $hubConnectionString
 
 IoT hub ile sağlama hizmetinizi bağlamak için [az iot dps linked-hub create](/cli/azure/iot/dps/linked-hub#az-iot-dps-linked-hub-create) komutunu kullanın. 
 
-Aşağıdaki örnekte *wesus* konumundaki *my-sample-hub* adlı bir IoT hub ile *my-sample-dps* adlı cihaz sağlama hizmeti bağlanır. Önceki adımdan *hubConnectionString* değişkeninde depolanan *my-sample-hub* bağlantı dizesi kullanılır.
+Aşağıdaki örnekte *wesus* konumundaki *my-sample-hub* adlı bir IoT hub ile *my-sample-dps* adlı Cihaz Sağlama hizmeti bağlanır. Önceki adımdan *hubConnectionString* değişkeninde depolanan *my-sample-hub* bağlantı dizesi kullanılır.
 
 ```azurecli-interactive 
 az iot dps linked-hub create --dps-name my-sample-dps --resource-group my-sample-resource-group --connection-string $hubConnectionString --location westus

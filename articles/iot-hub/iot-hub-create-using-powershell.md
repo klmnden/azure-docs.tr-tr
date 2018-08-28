@@ -1,69 +1,46 @@
 ---
-title: PowerShell cmdlet'ini kullanarak Azure IOT Hub oluşturma | Microsoft Docs
-description: Nasıl bir IOT hub'ı oluşturmak için bir PowerShell cmdlet'ini kullanın.
-author: dominicbetts
+title: Bir PowerShell cmdlet'ini kullanarak Azure IOT Hub oluşturma | Microsoft Docs
+description: Nasıl bir IOT hub'ı oluşturmak için PowerShell cmdlet'ini kullanın.
+author: robinsh
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2017
-ms.author: dobett
-ms.openlocfilehash: 78cf7844223b660eef3dea0a32cd7c325e88e083
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 08/24/2018
+ms.author: robinsh
+ms.openlocfilehash: f9903781a998db8192e3958ae386b7420f56fd31
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634055"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045635"
 ---
-# <a name="create-an-iot-hub-using-the-new-azurermiothub-cmdlet"></a>Yeni AzureRmIotHub cmdlet'ini kullanarak IOT hub oluşturma
+# <a name="create-an-iot-hub-using-the-new-azurermiothub-cmdlet"></a>New-AzureRmIotHub cmdlet'ini kullanarak IOT hub oluşturma
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>Giriş
 
-Oluşturma ve Azure IOT hub'ları yönetmek için Azure PowerShell cmdlet'lerini kullanabilirsiniz. Bu öğreticide PowerShell ile bir IOT hub oluşturulacağını gösterir.
+Oluşturma ve Azure IOT hub'ları yönetmek için Azure PowerShell cmdlet'lerini kullanabilirsiniz. Bu öğretici, IOT hub'ı PowerShell ile oluşturma işlemini göstermektedir.
 
-> [!NOTE]
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Azure Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, Azure Resource Manager dağıtım modeli kullanılarak yer almaktadır.
+Bu nasıl yapılır tamamlamak için bir Azure aboneliği gerekir. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
-
-* Etkin bir Azure hesabı. <br/>Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.
-* [Azure PowerShell cmdlet'leri][lnk-powershell-install].
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="connect-to-your-azure-subscription"></a>Azure aboneliğinize bağlanma
-Bir PowerShell komut isteminde, Azure aboneliğinizde oturum açmak için aşağıdaki komutu girin:
+
+Cloud Shell kullanıyorsanız, zaten aboneliğinize oturum açtınız. PowerShell'i yerel olarak bunun yerine çalıştırıyorsanız, Azure aboneliğinizde oturum açmak için aşağıdaki komutu girin:
 
 ```powershell
-Connect-AzureRmAccount
+# Log into Azure account.
+Login-AzureRMAccount
 ```
 
-Birden çok Azure aboneliğiniz varsa, Azure'da oturum açma kimlik bilgileriyle ilişkili tüm Azure abonelikleri için size erişim verir. Azure aboneliklerini kullanabilmeniz için kullanılabilir listelemek için aşağıdaki komutu kullanın:
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-```powershell
-Get-AzureRMSubscription
-```
+Bir IOT hub'ı dağıtmak için bir kaynak grubu gerekir. Mevcut bir kaynak grubunu kullanın veya yeni bir tane oluşturun.
 
-IoT hub’ınızı oluşturmak için komutları çalıştırmak amacıyla kullanmak istediğiniz aboneliği seçmek üzere aşağıdaki komutu kullanın. Önceki komutun çıkışında yer alan abonelik adını veya kimliği kullanabilirsiniz:
-
-```powershell
-Select-AzureRMSubscription `
-    -SubscriptionName "{your subscription name}"
-```
-
-## <a name="create-resource-group"></a>Kaynak grubu oluşturma
-
-IOT hub'ı dağıtmak için bir kaynak grubu gerekir. Varolan bir kaynak grubunu kullanın veya yeni bir tane oluşturun.
-
-Burada, IOT hub'ı dağıtabilirsiniz konumları bulmak için aşağıdaki komutu kullanın:
-
-```powershell
-((Get-AzureRmResourceProvider `
-  -ProviderNamespace Microsoft.Devices).ResourceTypes `
-  | Where-Object ResourceTypeName -eq IoTHubs).Locations
-```
-
-IOT hub'ın desteklenen konumlardan birinde IOT hub'ınız için bir kaynak grubu oluşturmak için aşağıdaki komutu kullanın. Bu örnek adlı bir kaynak grubu oluşturur **MyIoTRG1** içinde **Doğu ABD** bölge:
+IOT hub'ınız için bir kaynak grubu oluşturmak için kullanın [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup) komutu. Bu örnek adlı bir kaynak grubu oluşturur **MyIoTRG1** içinde **Doğu ABD** bölgesi:
 
 ```powershell
 New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
@@ -71,7 +48,7 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
-IOT hub'ı önceki adımda oluşturduğunuz kaynak grubu oluşturmak için aşağıdaki komutu kullanın. Bu örnekte bir **S1** adlı hub **MyTestIoTHub** içinde **Doğu ABD** bölge:
+Önceki adımda oluşturduğunuz kaynak grubunda bir IOT hub'ı oluşturmak için kullanın [yeni AzureRmIotHub](https://docs.microsoft.com/powershell/module/AzureRM.IotHub/New-AzureRmIotHub) komutu. Bu örnekte bir **S1** adlı merkez **MyTestIoTHub** içinde **Doğu ABD** bölgesi:
 
 ```powershell
 New-AzureRmIotHub `
@@ -81,18 +58,19 @@ New-AzureRmIotHub `
     -Location "East US"
 ```
 
-IOT hub'ın adı benzersiz olmalıdır.
+IOT hub'ı adı genel olarak benzersiz olmalıdır.
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
-
-Tüm IOT hub'ları aşağıdaki komutu kullanarak, aboneliğinizde listeleyebilirsiniz:
+Tüm IOT hub'larını kullanarak abonelik listeleyebilirsiniz [Get-AzureRmIotHub](https://docs.microsoft.com/powershell/module/AzureRM.IotHub/Get-AzureRmIotHub) komutu:
 
 ```powershell
 Get-AzureRmIotHub
 ```
 
-Önceki örnekte S1 standart IOT için faturalandırılır hub'ı ekler. IOT hub'ı aşağıdaki komutu kullanarak silebilirsiniz:
+Bu örnek, önceki adımda oluşturduğunuz S1 standart IOT Hub gösterir. 
+
+IOT hub'ı kullanarak silebilirsiniz [Remove-AzureRmIotHub](https://docs.microsoft.com/powershell/module/azurerm.iothub/remove-azurermiothub) komutu:
 
 ```powershell
 Remove-AzureRmIotHub `
@@ -100,7 +78,7 @@ Remove-AzureRmIotHub `
     -Name MyTestIoTHub
 ```
 
-Alternatif olarak, bir kaynak grubu ve aşağıdaki komutu kullanarak içerdiği tüm kaynaklar kaldırabilirsiniz:
+Alternatif olarak, bir kaynak grubu kaldırabilirsiniz ve tüm kaynakları kullanarak içeren [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Remove-AzureRmResourceGroup) komutu:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name MyIoTRG1
@@ -108,27 +86,18 @@ Remove-AzureRmResourceGroup -Name MyIoTRG1
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-PowerShell cmdlet'ini kullanarak bir IOT hub dağıttığınız artık daha ayrıntılı incelemek isteyebilirsiniz:
+Şimdi daha fazlasını keşfetmek istiyorsanız aşağıdaki makaleye göz atın, bir PowerShell cmdlet'ini kullanarak bir IOT hub'a dağıtmış:
 
-* Diğer Bul [IOT hub ile çalışmak için PowerShell cmdlet'leri][lnk-iothub-cmdlets].
-* Özelliklerinin tamamı hakkında okuyun [IOT hub'ı kaynak sağlayıcısı REST API][lnk-rest-api].
+* [IOT hub ile çalışmaya yönelik PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.iothub/).
 
-IOT Hub için geliştirme hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
+* [IOT hub'ı kaynak sağlayıcısı REST API'si](https://docs.microsoft.com/rest/api/iothub/iothubresource).
 
-* [C SDK Giriş][lnk-c-sdk]
-* [Azure IOT SDK'ları][lnk-sdks]
+İçin IOT Hub ile geliştirme hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
+* [C SDK'ya giriş](iot-hub-device-sdk-c-intro.md)
 
-* [Azure IOT Edge ile sınır cihazlarına Al dağıtma][lnk-iotedge]
+* [Azure IoT SDK’ları](iot-hub-devguide-sdks.md)
 
-<!-- Links -->
-[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
-[lnk-iothub-cmdlets]: https://docs.microsoft.com/powershell/module/azurerm.iothub/
-[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
+Daha fazla IOT Hub'ın özelliklerini keşfetmek için bkz:
 
-[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+* [Yapay ZEKA, Azure IOT Edge ile uç cihazlarına dağıtma](../iot-edge/tutorial-simulate-device-linux.md)

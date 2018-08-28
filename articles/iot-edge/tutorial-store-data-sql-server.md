@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fa01d2d3f4ab3923129ab1690477d5a8af82d4df
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1bd6f048682b93e3dfa1e19f6b3c50bff2ed232e
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448926"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41918840"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Öğretici: SQL Server veritabanları ile uç cihazlarda veri depolama
 
@@ -36,8 +36,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bir Azure IoT Edge cihazı:
 
-* [Linux](quickstart-linux.md) için hızlı başlangıç adımlarını izleyerek dağıtım makinenizi veya sanal makinenizi bir Edge cihazı olarak kullanabilirsiniz.
-* IoT Edge Python modülleri ARM işlemcileri veya Windows cihazları desteklemez.
+* [Linux](quickstart-linux.md) veya [Windows cihazları](quickstart.md) için hızlı başlangıç adımlarını izleyerek dağıtım makinenizi veya sanal makinenizi bir Edge cihazı olarak kullanabilirsiniz.
 
 Bulut kaynakları:
 
@@ -341,45 +340,13 @@ SQL komut aracında biçimlendirilmiş tablo verilerinizi görüntülemek için 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)]
+Bir sonraki önerilen makaleye geçmeyi planlıyorsanız, oluşturduğunuz kaynaklarla yapılandırmaları tutabilir ve yeniden kullanabilirsiniz. Aynı IoT Edge cihazını test cihazı olarak kullanmaya devam edebilirsiniz. 
 
-IoT cihaz platformunuza (Linux veya Windows) göre IoT Edge hizmeti çalışma zamanını kaldırın.
+Geçmeyecekseniz ücret kesilmesini önlemek için yerel yapılandırmalarınızı ve bu makalede oluşturulan Azure kaynaklarını silebilirsiniz. 
 
-#### <a name="windows"></a>Windows
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-IoT Edge çalışma zamanını kaldırın.
-
-```Powershell
-stop-service iotedge -NoWait
-sleep 5
-sc.exe delete iotedge
-```
-
-Cihazınızda oluşturulan kapsayıcıları silin. 
-
-```Powershell
-docker rm -f $(docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor")
-```
-
-#### <a name="linux"></a>Linux
-
-IoT Edge çalışma zamanını kaldırın.
-
-```bash
-sudo apt-get remove --purge iotedge
-```
-
-Cihazınızda oluşturulan kapsayıcıları silin. 
-
-```bash
-sudo docker rm -f $(sudo docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor")
-```
-
-Kapsayıcı çalışma zamanını kaldırın.
-
-```bash
-sudo apt-get remove --purge moby
-```
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 

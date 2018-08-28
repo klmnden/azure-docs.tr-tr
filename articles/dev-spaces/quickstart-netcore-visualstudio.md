@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
 manager: douge
-ms.openlocfilehash: 91302f21f3b3f9db50dc0c930a4cdfc02749d151
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 600625f143041eaf983b7ec7e945c5a968b522f5
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951014"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42022867"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Hızlı Başlangıç: Azure Dev Spaces ile bir Kubernetes geliştirme alanı oluşturma (.NET Core ve Visual Studio)
 
@@ -31,7 +31,7 @@ Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-- EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral veya CanadaEast bölgesinde Kubernetes 1.10.3'yı çalıştıran, Http Application Routing etkinleştirilmiş bir Kubernetes kümesi.
+- EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral veya CanadaEast bölgesinde Kubernetes 1.9.6 veya üzerini çalıştıran, Http Application Routing etkinleştirilmiş bir Kubernetes kümesi.
 
   ![Http Uygulama Yönlendirmesi'nin etkinleştirildiğinden emin olun.](media/common/Kubernetes-Create-Cluster-3.PNG)
 

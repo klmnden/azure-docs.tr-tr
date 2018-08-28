@@ -1,6 +1,6 @@
 ---
-title: Azure’da ASP.NET Core web uygulaması oluşturma | Microsoft Docs
-description: Varsayılan ASP.NET web uygulamasını dağıtarak Azure App Service'te web uygulamalarını çalıştırma hakkında bilgi edinin.
+title: Azure’da C# ASP.NET Core web uygulaması oluşturma | Microsoft Docs
+description: Varsayılan C# ASP.NET web uygulamasını dağıtarak Azure App Service'te web uygulamalarını çalıştırma hakkında bilgi edinin.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -12,14 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/14/2017
+ms.date: 06/11/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 91f6fd077146e94833a5527f03ac710352e4fd9c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.custom: mvc, devcenter, vs-azure
+ms.openlocfilehash: 811f4df807292b9d539084a049cc643dbee07a7e
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42432064"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Azure’da ASP.NET Core web uygulaması oluşturma
 
@@ -39,13 +40,9 @@ ms.lasthandoff: 04/05/2018
 
 Bu öğreticiyi tamamlamak için:
 
-* <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>’yi aşağıdaki iş yükleri ile yükleyin:
-    - **ASP.NET ve web geliştirme**
-    - **Azure geliştirme**
+**ASP.NET ve web geliştirme** iş yüküyle <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>’yi yükleyin.
 
-    ![ASP.NET ve web geliştirme ile Azure geliştirme (Web ve Bulut altında)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
-
-Visual Studio’yu önceden yüklediyseniz, **Araçlar** > **Araçları ve Özellikleri Al** seçeneklerine tıklayarak Visual Studio’da iş yüklerini ekleyin.
+Visual Studio’yu önceden yüklediyseniz, **Araçlar** > **Araçları ve Özellikleri Al** seçeneklerine tıklayarak Visual Studio’da iş yükünü ekleyin.
 
 ## <a name="create-an-aspnet-core-web-app"></a>ASP.NET Core web uygulaması oluşturma
 
@@ -62,10 +59,6 @@ Azure’a herhangi bir türde ASP.NET Core web uygulaması dağıtabilirsiniz. B
 **Tamam**’ı seçin.
 
 ![Yeni ASP.NET Projesi iletişim kutusu](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
-
-ASP.NET Core projesi oluşturulduktan sonra, başlamanıza yardımcı olacak çeşitli kaynak bağlantıları sağlayan ASP.NET Core karşılama sayfası gösterilir. 
-
-![Karşılama Sayfası](./media/app-service-web-get-started-dotnet/aspnet-core-welcome-page.png)
 
 Menüden **Hata Ayıkla > Hata Ayıklamadan Başla**’yı seçerek web uygulamasını yerel olarak çalıştırın.
 
@@ -85,11 +78,10 @@ Bu işlem, ASP.NET Core web uygulamasını Azure’da çalıştırmak için gere
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-**App Service Oluştur** iletişim kutusunda **Hesap ekle**’yi seçin ve Azure aboneliğinizde oturum açın. Oturumunuz zaten açıksa, açılan menüden istediğiniz aboneliği içeren hesabı seçin.
+**App Service Oluştur** iletişim kutusunda **Hesap ekle**’ye tıklayın ve Azure aboneliğinizde oturum açın. Oturumunuz zaten açıksa, açılan menüden istediğiniz aboneliği içeren hesabı seçin.
 
 > [!NOTE]
 > Zaten oturum açtıysanız **Oluştur** öğesini henüz seçmeyin.
->
 >
    
 ![Azure'da oturum açma](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
@@ -151,7 +143,8 @@ Tebrikler, ASP.NET Core web uygulamanız Azure App Service’te çalışıyor.
 
 Azure’a yeniden dağıtmak için **Çözüm Gezgini**’nde **myFirstAzureWebApp** projesine sağ tıklayıp **Yayımla**’yı seçin.
 
-Yayımlama sayfasında **Yayımla**'yı seçin.
+Yayımlama özeti sayfasında **Yayımla**'yı seçin.
+![Visual Studio yayımlama özeti sayfası](./media/app-service-web-get-started-dotnet/publish-summary-page.png)
 
 Yayımlama tamamlandığında Visual Studio, web uygulamasının URL’si ile bir tarayıcı başlatır.
 

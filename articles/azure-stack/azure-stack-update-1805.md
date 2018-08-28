@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/27/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: abc96497c95397a6fab72672f1525462301c5cf9
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 4db0ce5e877f3054cc41e8940e8d9e672f7632c6
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414642"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110357"
 ---
 # <a name="azure-stack-1805-update"></a>Azure Stack 1805 güncelleştirme
 
@@ -91,6 +91,8 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir.
 Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 ### <a name="portal"></a>Portal  
+- <!-- 2931230 – IS  ASDK --> Kullanıcı aboneliği plan kaldırdığınızda bile, bir kullanıcı abonelikte eklenti planı eklendiği planları silinemiyor. Eklenti planı başvuru abonelikleri de silinene kadar plan kalır. 
+
 - <!-- TBD - IS ASDK --> OEM uzantı paketinin bu sürümü Azure Stack ile kullanarak, sürücü güncelleştirmelerini uygulayamazsınız.  Bu sorun için geçici çözüm yoktur.
 
 - <!-- 2551834 - IS, ASDK --> Seçtiğinizde, **genel bakış** için yönetici veya Kullanıcı Portalı, bilgileri bir depolama hesabında *Essentials* bölmesinde görüntülemez.  Temel bileşenler bölmesine gibi hesabıyla ilgili bilgileri görüntüler, *kaynak grubu*, *konumu*, ve *abonelik kimliği*.  Diğer seçenekleri genel bakış için erişilebilir gibi *Hizmetleri* ve *izleme*, farklı seçenekleri için *Gezgini'nde Aç* veya *depolama hesabını Sil* . 

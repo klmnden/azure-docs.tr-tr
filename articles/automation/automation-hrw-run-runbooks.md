@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 118f9d7865728177f323078c036aee1884a61431
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 8f21457a63470b88e93ead97454f996cea38073a
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390305"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43103777"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Bir karma Runbook çalışanı üzerinde runbook'ları çalıştırma
 
@@ -47,9 +47,9 @@ Varsayılan olarak, Windows ve özel bir kullanıcı hesabı için yerel sistem 
 
 Kullanabileceğiniz [kimlik bilgisi](automation-credentials.md) ve [sertifika](automation-certificates.md) varlıklar runbook'unuzda cmdlet'leriyle farklı kaynaklarda kimlik doğrulaması için kimlik bilgilerini belirtmenizi sağlar. Aşağıdaki örnek, bir bilgisayarı yeniden başlatan bir runbook bir bölümü gösterilmektedir. Bu kimlik bilgilerini bir kimlik bilgisi varlığı ve değişken varlığı bilgisayar adını alır ve ardından bu değerleri Restart-Computer cmdlet'ini kullanır.
 
-```azurepowershell-interactive
-$Cred = Get-AzureRmAutomationCredential -ResourceGroupName "ResourceGroup01" -Name "MyCredential"
-$Computer = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" -Name  "ComputerName"
+```powershell
+$Cred = Get-AutomationPSCredential -Name "MyCredential"
+$Computer = Get-AutomationVariable -Name "ComputerName"
 
 Restart-Computer -ComputerName $Computer -Credential $Cred
 ```

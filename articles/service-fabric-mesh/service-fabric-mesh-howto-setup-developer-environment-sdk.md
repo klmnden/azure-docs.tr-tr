@@ -1,24 +1,24 @@
 ---
-title: Service Fabric Mesh uygulamaları için Windows geliştirme ortamı ayarlama | Microsoft Docs
+title: Service Fabric Mesh uygulamalarını derlemek için Windows geliştirme ortamı ayarlama | Microsoft Docs
 description: Service Fabric Mesh uygulaması geliştirebilmek ve bunu Azure Service Fabric Mesh'e dağıtabilmek için Windows geliştirme ortamınızı ayarlayın.
 services: service-fabric-mesh
 keywords: ''
 author: tylermsft
 ms.author: twhitney
-ms.date: 07/20/2018
+ms.date: 08/08/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: 589bef1894a3bee1e6974a0ea2516200fae2891f
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+manager: jeconnoc
+ms.openlocfilehash: e95c0ad90503410601cc0764fdc559579a1dd13d
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185552"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41921070"
 ---
-# <a name="set-up-your-windows-development-environment-to-build-service-fabric-applications"></a>Service Fabric uygulamaları derlemek için Windows geliştirme ortamınızı ayarlayın
+# <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Service Fabric Mesh uygulamalarını derlemek için Windows geliştirme ortamınızı ayarlayın
 
-Windows geliştirme makinenizde Azure Service Fabric uygulamaları derlemek ve çalıştırmak için Service Fabric çalışma zamanını, SDK'yı ve araçları yükleyin.
+Windows geliştirme makinenizde Azure Service Fabric Mesh uygulamaları derlemek ve çalıştırmak için Service Fabric Mesh çalışma zamanını, SDK'yı ve araçları yükleyin.
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -31,28 +31,30 @@ Geliştirme için şu işletim sistemi sürümleri desteklenir:
 
 ## <a name="visual-studio"></a>Visual Studio
 
-Service Fabric uygulamaları dağıtmak için Visual Studio 2017 gereklidir. [Sürüm 15.6.0'ı][download-visual-studio] veya üstünü yükleyin ve aşağıdaki iş yüklerini etkinleştirin:
+Service Fabric Mesh uygulamalarını dağıtmak için Visual Studio 2017 gereklidir. [Sürüm 15.6.0'ı][download-visual-studio] veya üstünü yükleyin ve aşağıdaki iş yüklerini etkinleştirin:
 
-- ASP.NET ve web geliştirme
-- Azure Geliştirme
- 
-## <a name="windows-10---install-docker"></a>Windows 10 - Docker'ı yükleme
+* ASP.NET ve web geliştirme
+* Azure Geliştirme
+
+## <a name="install-docker"></a>Docker'ı yükleme
+
+#### <a name="windows-10"></a>Windows 10
 
 Service Fabric Mesh tarafından kullanılan kapsayıcılı Service Fabric uygulamalarını desteklemek için en yeni [Docker Community Edition for Windows][download-docker] sürümünü indirin ve yükleyin.
 
-Yükleme sırasında, istendiğinde **Linux kapsayıcıları yerine Windows kapsayıcılarını kullan**'ı seçin. Hyper-V makinenizde etkin değilse Docker yüklemesi sırasında etkinleştirebilirsiniz. Bu seçenek sunulursa **Tamam**'a tıklayın.
+Yükleme sırasında, istendiğinde **Linux kapsayıcıları yerine Windows kapsayıcılarını kullan**'ı seçin.
 
-## <a name="windows-server-2016---install-hyper-v-and-docker"></a>Windows Server 2016 - Hyper-V ve Docker'ı yükleme
+Hyper-V makinenizde etkin değilse Docker yükleyicisi ile etkinleştirebilirsiniz. Bu seçenek sunulursa **Tamam**'a tıklayın.
 
-**Hyper-V'yi yükleme**
+#### <a name="windows-server-2016"></a>Windows Server 2016
 
-İlk olarak PowerShell'i yönetici olarak açın ve aşağıdaki komutu çalıştırarak Hyper-V'yi yükledikten sonra bilgisayarınızı yeniden başlatın. Daha fazla bilgi için bkz. [Windows Server için Docker Enterprise Edition][download-docker-server].
+Hyper-V rolleri etkin değilse PowerShell'i yönetici olarak açın ve aşağıdaki komutu çalıştırarak Hyper-V'yi etkinleştirdikten sonra bilgisayarınızı yeniden başlatın. Daha fazla bilgi için bkz. [Windows Server için Docker Enterprise Edition][download-docker-server].
 
 ```powershell
 Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
 ```
 
-**Docker'ı yükleyin**
+Bilgisayarınızı yeniden başlatın.
 
 Docker'ı yüklemek için PowerShell'i yönetici olarak açın ve aşağıdaki komutu çalıştırın:
 
@@ -61,8 +63,6 @@ Install-Module DockerMsftProvider -Force
 Install-Package Docker -ProviderName DockerMsftProvider -Force
 Install-WindowsFeature Containers
 ```
-
-Bilgisayarınızı yeniden başlatın.
 
 ## <a name="sdk-and-tools"></a>SDK ve araçlar
 

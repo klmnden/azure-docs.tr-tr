@@ -3,18 +3,18 @@ title: Azure sanal ağları içinde HBase kümesi çoğaltma ayarlama
 description: HBase çoğaltmanın dışında bir HDInsight sürüm başka bir Yük Dengeleme, yüksek kullanılabilirlik, sıfır kapalı kalma süresiyle geçiş ve güncelleştirmeleri ve olağanüstü durum kurtarma ayarlama konusunda bilgi edinin.
 services: hdinsight,virtual-network
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: jasonh
-ms.openlocfilehash: 535b5dcc62020119cda3db36bfdbd707badfe549
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 624165f5ee1140ade9b9ce03c5249d297c8d83f1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600314"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047492"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure sanal ağları içinde HBase kümesi çoğaltma ayarlama
 

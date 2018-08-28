@@ -3,18 +3,18 @@ title: Solr Hadoop kümesi - Azure yüklemek üzere betik eylemi kullanın
 description: HDInsight kümesi ile betik eylemi kullanarak Solr özelleştirmeyi öğrenin.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: d9c2742081ec83a52f7029814acd7b04a2f0fdb7
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: e0c1f2ecbe86eda5161324bfe84c7cf8f7d31d60
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595673"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110763"
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Yükleme ve Windows tabanlı HDInsight kümelerinde Solr kullanma
 

@@ -4,60 +4,59 @@ description: Nasıl Contoso şirket içi Linux uygulaması geçirerek yeniden d�
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/27/2018
 ms.author: raynew
-ms.openlocfilehash: 5981c708abdaa12a662075cc5bf5aae14ccc35c2
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 9c43ce90603fd2bc812e5be00f438ee19054dc16
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002169"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43103639"
 ---
-# <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-the-azure-app-service-and-azure-mysql"></a>Contoso geçiş: Contoso Linux hizmet Masası uygulamayı Azure MySQL ve Azure App Service için yeniden düzenleme
+# <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Contoso geçiş: Contoso Linux hizmet Masası uygulamayı Azure App Service, Traffic Manager ve Azure MySQL ile birden çok bölgeye yeniden düzenleme
 
 Nasıl Contoso kendi şirket içi iki katmanlı Linux hizmet Masası uygulaması (osTicket) geçirerek yeniden düzenler Bu makale, Azure App Service ile GitHub tümleştirmesini ve Azure MySQL.
 
-Bu belge, Contoso adlı kurgusal şirketin şirket içi kaynaklarını Microsoft Azure bulutuna nasıl geçirdiğini gösteren makaleler serisinin onuncu değil. Seri arka plan bilgileri ve geçiş altyapısını kurma ve farklı türde geçiş çalıştırmak nasıl çalışılacağını senaryolar içerir. Senaryoları, karmaşık hale gelmesi ve zaman içinde ek makaleleri ekleyeceğiz.
+Bu belge, şirket içi kaynaklara Contoso adlı kurgusal şirketin Microsoft Azure bulutuna nasıl geçirdiğini gösteren makaleler serisinin biridir. Seri arka plan bilgileri ve geçiş altyapısını kurma ve farklı türde geçiş çalıştırmak nasıl çalışılacağını senaryolar içerir. Senaryoları, karmaşık hale gelmesi. Zaman içinde ek makaleleri ekleyeceğiz.
 
 **Makale** | **Ayrıntılar** | **Durum**
 --- | --- | ---
-[Makale 1: genel bakış](contoso-migration-overview.md) | Contoso'nun geçiş stratejisi, makale dizisini ve kullandığımız örnek uygulamaları genel bir bakış sağlar. | Kullanılabilir
-[2. makale: bir Azure altyapısını dağıtma](contoso-migration-infrastructure.md) | Açıklayan nasıl kendi şirket içi ve Azure altyapı Contoso bu geçiş için hazırlar. Aynı altyapı tüm Contoso geçiş senaryoları için kullanılır. | Kullanılabilir
-[3. makale: şirket içi kaynaklara değerlendirin](contoso-migration-assessment.md)  | Contoso Wmware'de çalışan kendi şirket içi iki katmanlı SmartHotel uygulamasının bir değerlendirme nasıl çalıştığını gösterir. Bunlar uygulama Vm'lerle değerlendirmek [Azure geçişi](migrate-overview.md) hizmet ve uygulama SQL Server veritabanıyla [Azure veritabanı geçiş Yardımcısı](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Kullanılabilir
-[4. makale: Rehost Azure sanal makineler ve yönetilen bir SQL örneği](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso SmartHotel uygulamayı Azure'a nasıl geçirdiğini gösterir. Uygulama web kullanarak VM'yi geçirme [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)ve veritabanı kullanarak uygulama [Azure veritabanı geçiş](https://docs.microsoft.com/azure/dms/dms-overview) SQL yönetilen örneğine geçirmek için hizmet. | Kullanılabilir
-[Makale 5: Azure sanal makinelerinde yeniden barındırma](contoso-migration-rehost-vm.md) | Nasıl Contoso geçirme kendi SmartHotel Site Recovery hizmetini kullanarak Azure Iaas Vm'leri için gösterir.
-[Makale 6: Azure sanal makineleri ve SQL Server kullanılabilirlik gruplarını yeniden barındırma](contoso-migration-rehost-vm-sql-ag.md) | Contoso SmartHotel uygulamayı nasıl geçirdiğini gösterir. Bunlar, uygulama sanal makinelerini ve veritabanı geçiş hizmeti uygulama veritabanı için SQL Server kullanılabilirlik grubu geçirmek için geçirmek için Site RECOVERY'yi kullanın. | Kullanılabilir
-[Makale 7: Azure sanal makineler'de Linux uygulaması barındırma](contoso-migration-rehost-linux-vm.md) | Contoso osTicket Linux uygulamalarını Azure Site Recovery kullanarak Azure Iaas Vm'leri için nasıl geçirdiğini gösterir.
-[Makale 8: Azure sanal makineler ve Azure MySQL sunucusu üzerinde bir Linux uygulaması barındırma](contoso-migration-rehost-linux-vm-mysql.md) | Contoso osTicket Linux uygulaması nasıl geçirdiğini gösterir. VM geçiş için Site Recovery ve MySQL Workbench'i Azure MySQL Server örneğine geçirmek için kullanırlar. | Kullanılabilir
-[Makale 9: bir uygulamayı Azure Web Apps ve Azure SQL veritabanı üzerinde yeniden düzenleme](contoso-migration-refactor-web-app-sql.md) | Nasıl Contoso SmartHotel uygulama için bir Azure kapsayıcı tabanlı web uygulaması geçirir ve uygulama veritabanı için Azure SQL Server geçirdiğini gösterir. | Kullanılabilir
-Makale 10: Azure Web Apps ve Azure MySQL sunucusu üzerinde bir Linux uygulaması yeniden düzenleyin. | Contoso osTicket Linux uygulaması Azure App Service'te PHP 7.0 Docker kapsayıcısı kullanarak nasıl geçirdiğini gösterir. Dağıtım için kod tabanının Github'a geçirilir. Uygulama veritabanı için Azure MySQL geçirilir. | Bu makalede.
-[Makale 11: TFS VSTS üzerinde yeniden düzenleyin.](contoso-migration-tfs-vsts.md) | Geçiş yaparak Contoso şirket içi Team Foundation Server (TFS) dağıtımının nasıl geçirdiğini gösterir. Bunun için Visual Studio Team Services (VSTS) azure'da. | Kullanılabilir
-[Makale 12: bir uygulamayı Azure kapsayıcıları ve Azure SQL veritabanı yeniden oluşturma](contoso-migration-rearchitect-container-sql.md) | Contoso geçirir ve Azure SmartHotel uygulamasının rearchitects nasıl gösterir. Bunlar, bir Windows kapsayıcısı ve bir Azure SQL veritabanı'nda uygulama veritabanı uygulama web katmanla yeniden oluşturma. | Kullanılabilir
-[Makale 13: uygulamanızı Azure'a yeniden oluşturun.](contoso-migration-rebuild.md) | Contoso Azure özellikleri ve Hizmetleri, uygulama hizmetleri, Azure Kubernetes, Azure işlevleri, Bilişsel hizmetler ve Cosmos DB dahil olmak üzere çeşitli kullanarak SmartHotel uygulamasının nasıl yeniden gösterir. | Kullanılabilir
+[Makale 1: genel bakış](contoso-migration-overview.md) | Makale serisi, Contoso'nun geçiş stratejisi ve dizisinde kullanılan örnek uygulamalar genel bakış. | Kullanılabilir
+[2. makale: Azure altyapısı dağıtma](contoso-migration-infrastructure.md) | Contoso şirket içi altyapısını ve Azure altyapısını geçiş için hazırlar. Altyapıyı, serideki tüm geçiş makaleleri için kullanılır. | Kullanılabilir
+[3. makale: şirket içi kaynaklarınızı Azure'a geçiş için değerlendirme](contoso-migration-assessment.md)  | Contoso, Vmware'de çalıştırılan şirket içi SmartHotel uygulamasının bir değerlendirme çalışır. Contoso Azure geçişi hizmeti ve veri geçiş Yardımcısı'nı kullanarak uygulama SQL Server veritabanı kullanarak uygulama Vm'leri değerlendirir. | Kullanılabilir
+[4. makale: bir uygulamayı bir Azure VM ve SQL veritabanı yönetilen örneği yeniden barındırma](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso, Azure'a lift-and-shift ile taşıma geçiş için kendi şirket içi SmartHotel uygulaması çalışır. Contoso geçirir uygulama ön uç VM kullanarak [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso geçirir uygulama veritabanını kullanarak bir Azure SQL veritabanı yönetilen örneği [Azure veritabanı geçiş hizmeti](https://docs.microsoft.com/azure/dms/dms-overview). | Kullanılabilir  
+[Makale 5: bir uygulamayı Azure vm'lerinde yeniden barındırma](contoso-migration-rehost-vm.md) | Contoso, SmartHotel uygulama sanal makinelerini Azure Site Recovery hizmetini kullanarak sanal makineleri geçirir. | Kullanılabilir
+[Makale 6: Azure sanal makinelerinde ve SQL Server AlwaysOn Kullanılabilirlik grubuna bir uygulamayı barındırma](contoso-migration-rehost-vm-sql-ag.md) | Contoso SmartHotel uygulamaya geçirir. Contoso, uygulama sanal makinelerini geçirmek için Site Recovery kullanır. Veritabanı geçiş hizmeti uygulama veritabanı AlwaysOn Kullanılabilirlik grubu tarafından korunan bir SQL Server kümesine geçirmek için kullanır. | Kullanılabilir    
+[Makale 7: Azure sanal makineler'de Linux uygulaması barındırma](contoso-migration-rehost-linux-vm.md) | Azure Site Recovery kullanarak Azure vm'lerine Linux osTicket uygulamayı lift-and-shift ile taşıma geçişini contoso tamamlar | Kullanılabilir
+[Makale 8: Azure sanal makineler ve Azure MySQL üzerinde bir Linux uygulaması barındırma](contoso-migration-rehost-linux-vm-mysql.md) | Contoso, Azure Site Recovery kullanarak Azure Vm'leri için Linux osTicket uygulaması geçirir ve uygulama veritabanı, MySQL Workbench kullanarak Azure MySQL Server örneğine geçirir. | Kullanılabilir
+[Makale 9: bir uygulamayı Azure Web Apps ve Azure SQL veritabanında yeniden düzenleme](contoso-migration-refactor-web-app-sql.md) | Contoso SmartHotel uygulamayı bir Azure Web uygulamasına geçirir ve uygulama veritabanı için veritabanı geçiş Yardımcısı'nı kullanarak bir Azure SQL Server örneği geçirir | Kullanılabilir
+Makale 10: Azure Web Apps ve Azure MySQL üzerinde bir Linux uygulaması yeniden düzenleyin. | Contoso, bir Azure web uygulamasına GitHub ile sürekli teslim için tümleşik Azure Traffic Manager'ı kullanarak birden fazla Azure bölgesini üzerinde kendi Linux osTicket uygulaması geçirir. Contoso uygulaması veritabanı örneği MySQL için Azure veritabanı geçirir. | Bu makalede
+[Makale 11: TFS VSTS üzerinde yeniden düzenleyin.](contoso-migration-tfs-vsts.md) | Contoso, Visual Studio Team Services azure'da, şirket içi Team Foundation Server dağıtımı geçirir. | Kullanılabilir
+[Makale 12: bir uygulamayı Azure kapsayıcıları ve Azure SQL veritabanı yeniden oluşturma](contoso-migration-rearchitect-container-sql.md) | Contoso, SmartHotel uygulamayı Azure'a geçirir. Ardından, Azure Service Fabric ve Azure SQL veritabanı ile veritabanı çalıştıran bir Windows kapsayıcısı olarak app web katmanından rearchitects. | Kullanılabilir
+[Makale 13: uygulamanızı Azure'a yeniden oluşturun.](contoso-migration-rebuild.md) | Contoso Azure özellikleri ve Hizmetleri, Azure App Service, Azure Kubernetes Service (AKS), Azure işlevleri, Azure Bilişsel hizmetler ve Azure Cosmos DB dahil olmak üzere çeşitli kullanarak kendi SmartHotel uygulaması oluşturur. | Kullanılabilir
 
 Bu makalede, Contoso bir iki katmanlı Linux Apache MySQL PHP (LAMP) servis Masası Uygulaması'nı (osTicket) Azure'a geçirir. Bu açık kaynaklı uygulamayı kullanmak istiyorsanız, buradan indirebilirsiniz [GitHub](https://github.com/osTicket/osTicket).
-
 
 
 ## <a name="business-drivers"></a>İş sürücüleri
 
 BT liderlik ekibindeki elde etmek istedikleri anlamak için iş ortaklarıyla yakından çalıştı:
 
-- **Adres büyütmeye**: Contoso büyürken ve yeni pazarlara taşıma. Gereksinim duydukları ek müşteri hizmeti aracıları. 
+- **Adres büyütmeye**: Contoso büyürken ve yeni pazarlara taşıma. Bu ek müşteri hizmeti aracıları gerekir. 
 - **Ölçek**: Contoso daha fazla müşteriye hizmet aracı iş ölçekler ekleyebilmeniz için derlenmesi gereken çözüm.
-- **Dayanıklılığı artırmak**: yalnızca iç kullanıcılar sistemle sorunlarla etkilenen. Yeni kendi iş modeli ile dış kullanıcılar etkilenir ve Contoso gerek uygulamayı çalıştırmaya her zaman.
+- **Dayanıklılığı artırmak**: yalnızca iç kullanıcılar sistemle sorunlarla etkilenen. Yeni iş modeli, dış kullanıcılar etkilenecek ve Contoso gerek uygulamayı çalıştırmaya her zaman.
 
 ## <a name="migration-goals"></a>Geçiş hedefleri
 
 Contoso bulut takım hedeflerini bu geçiş için aşağı en iyi geçiş yöntemini belirlemek üzere sabitlenmiş:
 
 - Uygulamanın geçerli şirket içi kapasite ve performans ölçeklendirmeniz gerekir.  Contoso Azure'nın üzerine ölçeklendirmesinden faydalanmak için uygulamanın taşınıyor.
-- Contoso, uygulama kod tabanını bir sürekli teslim işlem hattı için taşımak istediğiniz.  Uygulama değişiklikleri github'a gibi bu değişiklikleri operasyon personeli için görevleri olmadan dağıtmak isterler.
-- Uygulama büyüme ve yük devretme özellikleri içeren dayanıklı olması gerekir. İki farklı Azure bölgelerinde uygulama dağıtma ve otomatik olarak ölçeklendirmek için ayarlamak istersiniz.
+- Contoso, uygulama kod tabanını bir sürekli teslim işlem hattı için taşımak istediğiniz.  Uygulama değişiklikleri github'a gibi Contoso bu değişiklikleri operasyon personeli için görevleri olmadan dağıtmak istediğiniz.
+- Uygulama büyüme ve yük devretme özellikleri içeren dayanıklı olması gerekir. Contoso iki farklı Azure bölgelerinde uygulama dağıtma ve otomatik olarak ölçeklendirmek için ayarlamak istersiniz.
 - Uygulamayı buluta taşındıktan sonra veritabanı yönetim görevleri en aza indirmek contoso istiyor.
 
 ## <a name="solution-design"></a>Çözüm tasarımı
-Kendi hedefleri ve gereksinimleri sabitleme sonra Contoso tasarlar ve bir dağıtım çözümü gözden geçirin ve bunların geçiş için kullanacağınız Azure hizmetlerini de dahil olmak üzere geçiş işlemi tanımlayın.
+Sonra bunların hedefleri ve gereksinimleri sabitleme, Contoso tasarlar ve bir dağıtım çözümü inceler ve geçiş için kullanılacak Azure Hizmetleri dahil olmak üzere geçiş işlemi tanımlar.
 
 
 ## <a name="current-architecture"></a>Geçerli mimari
@@ -72,7 +71,7 @@ Kendi hedefleri ve gereksinimleri sabitleme sonra Contoso tasarlar ve bir dağı
 
 ## <a name="proposed-architecture"></a>Önerilen mimarisi
 
-Sonra geçerli mimari, hedefler ve Geçiş gereksinimleri sabitleme, Contoso bir dağıtım çözümü tasarlar ve bunların geçiş için kullanacağınız Azure hizmetlerini de dahil olmak üzere geçiş işlemi, belirler.
+Önerilen mimari aşağıda verilmiştir:
 
 - Bir Azure App Service'te iki Azure bölgesi oluşturarak OSTICKETWEB web katmanı uygulamasında geçirilecektir. PHP 7.0 Docker kapsayıcısı kullanarak Linux için Azure App Service uygulanacaktır.
 - Uygulama kodu Github'a taşınır ve Azure Web uygulamasına GitHub ile sürekli teslimat için yapılandırılmış.
@@ -94,9 +93,9 @@ Sonra geçerli mimari, hedefler ve Geçiş gereksinimleri sabitleme, Contoso bir
 
 Contoso geçiş işlemi aşağıdaki gibi tamamlayın:
 
-1. İlk adım, Azure uygulama hizmetleri sağlama, Traffic Manager'ı ayarlama ve Azure MySQL örneği sağlama dahil olmak üzere Azure altyapı Kurulumu Contoso ayarlar.
+1. İlk adım, Azure uygulama hizmetleri sağlama, Traffic Manager'ı ayarlama ve Azure MySQL örneği sağlama dahil olmak üzere Azure altyapı Kurulumu Contoso yöneticileri ayarlayın.
 2. Azure hazırlandıktan sonra bunlar MySQL Workbench kullanarak veritabanını geçirin. 
-3. Veritabanı Azure'da çalışmaya başladıktan sonra bunların Azure App Service ile sürekli teslimat için bir GitHub özel deposu ayarlama ve osTicket uygulamayla yük.
+3. Sonra veritabanı, GitHub ile sürekli teslim, Azure App Service için özel depo kurma azure'da çalışıyor ve osTicket uygulamayı yükleyin.
 4. Azure portalında, bunlar uygulama Github'dan Azure App Service çalışan Docker kapsayıcısına yükleyin. 
 5. Bunlar, DNS ayarlarını ince ve uygulama için otomatik ölçeklendirmeyi yapılandırma.
 
@@ -114,33 +113,33 @@ Contoso geçiş işlemi aşağıdaki gibi tamamlayın:
  
 ## <a name="prerequisites"></a>Önkoşullar
 
-Siz (ve Contoso) Bu senaryo çalıştırmak istiyorsanız, işte olması gerekir.
+Bu senaryo çalıştırmak için Contoso gerekenler aşağıda verilmiştir.
 
 **Gereksinimleri** | **Ayrıntılar**
 --- | ---
-**Azure aboneliği** | Erken makaleleri aboneliğinde bu dizide oluşturmuş olmanız. Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) oluşturun.<br/><br/> Ücretsiz bir hesap oluşturursanız, aboneliğinizin yöneticisi siz olur ve tüm eylemleri gerçekleştirebilirsiniz.<br/><br/> Mevcut bir abonelik kullanıyorsanız ve Yönetici değilseniz, sahibi veya katkıda bulunan izinleri atamak için yöneticiyle birlikte çalışmanız gerekiyor.<br/><br/> Daha ayrıntılı izinler gerekirse gözden [bu makalede](../site-recovery/site-recovery-role-based-linked-access-control.md). 
+**Azure aboneliği** | Contoso, daha önce bu makale serisinde abonelik oluşturuldu. Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) oluşturun.<br/><br/> Ücretsiz bir hesap oluşturursanız, aboneliğinizin yöneticisi siz olur ve tüm eylemleri gerçekleştirebilirsiniz.<br/><br/> Mevcut bir abonelik kullanıyorsanız ve Yönetici değilseniz, sahibi veya katkıda bulunan izinleri atamak için yöneticiyle birlikte çalışmanız gerekiyor. 
 **Azure altyapı** | Contoso bölümünde anlatıldığı gibi kendi Azure altyapısını ayarlamak [geçiş için Azure altyapı](contoso-migration-infrastructure.md).
 
 
 
 ## <a name="scenario-steps"></a>Senaryo adımları
 
-Azure geçişi nasıl tamamlanacağını garanti aşağıda verilmiştir:
+Contoso geçişi nasıl tamamlanacağını garanti aşağıda verilmiştir:
 
 > [!div class="checklist"]
-> * **1. adım: Sağlama Azure uygulama hizmetleri**: Contoso Web Apps birincil ve ikincil bölgede sağlama.
+> * **1. adım: Sağlama Azure uygulama hizmetleri**: Contoso yöneticileri birincil ve ikincil bölgede Web Apps sağlama.
 > * **2. adım: Traffic Manager'ı ayarlama**: Yönlendirme ve Yük Dengeleme trafiği için Web uygulamaları, önünde Traffic Manager'kurmak ayarlayın.
-> * **3. adım: Sağlama MySQL**: Azure'da Contoso Azure MySQL veritabanı örneği sağlar.
+> * **3. adım: Sağlama MySQL**: Azure, kullanıcılara, sağladıkları Azure MySQL veritabanı örneği.
 > * **4. adım: veritabanını geçirme**: Bunlar MySQL Workbench kullanarak veritabanını geçirme. 
-> * **5. adım: GitHub'ı ayarlama**: Contoso uygulaması web siteleri/kod için yerel bir GitHub deposu ayarlar.
-> * **6. adım: web uygulaması dağıtmanın**: Contoso web apps github'dan dağıtır.
+> * **5. adım: GitHub'ı ayarlama**: web siteleri/kod uygulaması için yerel bir GitHub deposu ayarlama.
+> * **6. adım: web uygulaması dağıtmanın**: Bunlar github'dan web uygulamaları dağıtın.
 
 
 
 
 ## <a name="step-1-provision-azure-app-services"></a>1. adım: Sağlama Azure uygulama hizmetleri
 
-Contoso sağlayan iki Web uygulaması (her bölgede bir tane) kullanarak Azure uygulama hizmetleri.
+Contoso yöneticileri sağlama iki Web uygulaması (her bölgede bir tane) kullanarak Azure uygulama hizmetleri.
 
 1. Bunlar birincil Doğu ABD 2 bölgesinde bir Web uygulaması kaynağı oluşturun (**osticket eus2**) Azure Market.
 2. Üretim kaynak grubunda kaynak koyarlar **ContosoRG**.
@@ -151,7 +150,7 @@ Contoso sağlayan iki Web uygulaması (her bölgede bir tane) kullanarak Azure u
 
      ![Azure uygulaması](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app2.png) 
     
-4. Contoso PHP 7.0 bir Docker kapsayıcı çalışma zamanı yığını ile bir Linux işletim sistemi seçer.
+4. Bunlar, bir Docker kapsayıcı PHP 7.0 çalışma zamanı yığını ile bir Linux işletim sistemi seçin.
 
     ![Azure uygulaması](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app3.png) 
 
@@ -168,13 +167,13 @@ Contoso sağlayan iki Web uygulaması (her bölgede bir tane) kullanarak Azure u
 
 ## <a name="step-2-set-up-traffic-manager"></a>2. adım: Traffic Manager'ı ayarlama
 
-Contoso osTicket web katmanı üzerinde çalışan Web uygulamaları için gelen web isteklerini yönlendirmek için Traffic Manager'ı ayarlar.
+Contoso yöneticileri osTicket web katmanı üzerinde çalışan Web uygulamaları için gelen web isteklerini yönlendirmek için trafik Yöneticisi'ni ayarlayın.
 
-1. Contoso bir Traffic Manager kaynak oluşturur (**osticket.trafficmanager.net**) Azure Market. Bunlar, Doğu ABD 2 birincil sitedir böylece öncelik yönlendirme kullanır. Bunlar, altyapı kaynak grubunda kaynak yerleştirin (**ContosoInfraRG**). Traffic Manager küreseldir ve belirli bir konuma bağlı olduğunu unutmayın
+1. Traffic Manager kaynak oluşturdukları (**osticket.trafficmanager.net**) Azure Market. Bunlar, Doğu ABD 2 birincil sitedir böylece öncelik yönlendirme kullanır. Bunlar, altyapı kaynak grubunda kaynak yerleştirin (**ContosoInfraRG**). Traffic Manager küreseldir ve belirli bir konuma bağlı olduğunu unutmayın
 
     ![Traffic Manager](./media/contoso-migration-refactor-linux-app-service-mysql/traffic-manager1.png) 
 
-2. Şimdi, Contoso yapılandırmanız Traffic Manager uç noktaları ile. Bunlar birincil site olarak Doğu ABD 2 Web uygulaması Ekle (**osticket eus2**) ve orta ABD uygulama ikincil olarak (**osticket cu**).
+2. Şimdi, Traffic Manager uç noktaları ile yapılandırın. Bunlar birincil site olarak Doğu ABD 2 Web uygulaması Ekle (**osticket eus2**) ve orta ABD uygulama ikincil olarak (**osticket cu**).
 
     ![Traffic Manager](./media/contoso-migration-refactor-linux-app-service-mysql/traffic-manager2.png) 
 
@@ -189,7 +188,7 @@ Contoso osTicket web katmanı üzerinde çalışan Web uygulamaları için gelen
  
 ## <a name="step-3-provision-azure-database-for-mysql"></a>3. adım: MySQL için Azure veritabanı sağlama
 
-Contoso hükümlerine bir MySQL örneği birincil Doğu ABD 2 bölgesinde veritabanı.
+Contoso yöneticileri birincil Doğu ABD 2 bölgesinde bir MySQL veritabanı örneğinde sağlayın.
 
 1. Azure portalında kaynak MySQL için Azure veritabanı oluştururlar. 
 
@@ -200,11 +199,11 @@ Contoso hükümlerine bir MySQL örneği birincil Doğu ABD 2 bölgesinde verita
 
      ![MySQL](./media/contoso-migration-refactor-linux-app-service-mysql/mysql-2.png)
 
-4. İçin **fazladan yedek seçenekleri**, Contoso seçer kullanılacak **coğrafi olarak yedekli**. Bu seçenek bir kesinti oluşursa, kendi ikincil Orta ABD bölgesinde veritabanını geri yükleme sağlar. Veritabanı'na sağladığınızda, bu seçenek yalnızca yapılandırabilirsiniz.
+4. İçin **fazladan yedek seçenekleri**, kullanmayı seçmeleri **coğrafi olarak yedekli**. Bu seçenek bir kesinti oluşursa, kendi ikincil Orta ABD bölgesinde veritabanını geri yükleme sağlar. Veritabanı'na sağladığınızda, bu seçenek yalnızca yapılandırabilirsiniz.
 
     ![Yedeklilik](./media/contoso-migration-refactor-linux-app-service-mysql/db-redundancy.png)
 
-4. Bağlantı Güvenliği'kurmak Contoso. Veritabanında > **bağlantı güvenliği**, bunlar veritabanı, Azure hizmetlerine erişmek izin vermek için güvenlik duvarı kurallarını ayarlayın.
+4. Bunlar, bağlantı güvenliği ayarlayın. Veritabanında > **bağlantı güvenliği**, bunlar veritabanı, Azure hizmetlerine erişmek izin vermek için güvenlik duvarı kurallarını ayarlayın.
 5. Bunlar yerel iş istasyonunda istemci IP adresi için başlangıç ve bitiş IP adreslerini ekleyin. Bu geçişi gerçekleştirme veritabanı istemci yanı sıra MySQL veritabanına erişmek Web apps sağlar.
 
     ![MySQL](./media/contoso-migration-refactor-linux-app-service-mysql/mysql-3.png)
@@ -213,11 +212,11 @@ Contoso hükümlerine bir MySQL örneği birincil Doğu ABD 2 bölgesinde verita
 
 ## <a name="step-4-migrate-the-database"></a>4. adım: veritabanını geçirme
 
-Contoso veritabanını yedekleme ve geri yükleme ile MySQL araçlarını kullanarak geçirir. Bunlar MySQL Workbench'i yükleyin, OSTICKETMYSQL veritabanını yedekleyin ve sonra MySQL sunucusu için Azure veritabanı'na geri.
+Contoso yöneticileri veritabanını yedekleme ve geri yükleme ile MySQL araçlarını kullanarak geçirin. Bunlar MySQL Workbench'i yükleyin, OSTICKETMYSQL veritabanını yedekleyin ve sonra MySQL sunucusu için Azure veritabanı'na geri.
 
 ### <a name="install-mysql-workbench"></a>MySQL Workbench’i yükleme
 
-1. Contoso denetimleri [önkoşulları ve indirmeler MySQL Workbench](https://dev.mysql.com/downloads/workbench/?utm_source=tuicool).
+1. Onlar iade [önkoşulları ve indirmeler MySQL Workbench](https://dev.mysql.com/downloads/workbench/?utm_source=tuicool).
 2. MySQL Workbench ile uyumlu olarak Windows için yükledikleri [yükleme yönergeleri](https://dev.mysql.com/doc/workbench/en/wb-installing.html). Makine üzerinde yükledikleri OSTICKETMYSQL VM ve Azure'a internet üzerinden erişilebilir olmalıdır.
 3. MySQL Workbench içinde bir MySQL bağlantı OSTICKETMYSQL oluştururlar. 
 
@@ -231,7 +230,7 @@ Contoso veritabanını yedekleme ve geri yükleme ile MySQL araçlarını kullan
 
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench3.png)
 
-6. Şimdi, Contoso (Kurtarma) Azure MySQL örneği, kendi içinde veritabanında dosyasını içeri aktarabilirsiniz. Yeni bir şema (osticket) için örneği oluşturulur.
+6. Şimdi, (Kurtarma) Azure MySQL örneği, kendi içinde veritabanında dosyasını içeri aktarabilirsiniz. Yeni bir şema (osticket) için örneği oluşturulur.
 
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench4.png)
 
@@ -241,7 +240,7 @@ Contoso veritabanını yedekleme ve geri yükleme ile MySQL araçlarını kullan
 
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench6.png)
 
-8. Son olarak, Contoso web apps üzerinde veritabanı bilgileri güncelleştirilmesi gerekiyor. MySQL örneğinde açtıklarında **bağlantı dizeleri**. 
+8. Son olarak, web apps üzerinde veritabanı bilgilerini güncelleştirmeniz gerekir. MySQL örneğinde açtıklarında **bağlantı dizeleri**. 
 
      ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench7.png)
 
@@ -253,14 +252,14 @@ Contoso veritabanını yedekleme ve geri yükleme ile MySQL araçlarını kullan
 
      ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench9.png)
 
-11. Sunucu adını ve oturum açma işlemi contoso kontrol edebilirsiniz **genel bakış** de Azure portalında MySQL örneği.
+11. Sunucu adını ve oturum açma işlemi Tney kontrol edebilirsiniz **genel bakış** de Azure portalında MySQL örneği.
 
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench10.png)
 
 
 ## <a name="step-5-set-up-github"></a>5. adım: GitHub'ı ayarlama
 
-Contoso, yeni bir özel GitHub deposu oluşturur ve Azure MySQL osTicket veritabanına bir bağlantı kurar. Ardından Azure Web uygulamasında uygulama yükleyebilirsiniz.  
+Contoso yöneticileri, Azure MySQL yeni bir özel GitHub deposu ve kümelerini osTicket veritabanına bir bağlantı oluşturun. Ardından Azure Web uygulamasında uygulama yükleyebilirsiniz.  
 
 1.  Bunlar OsTicket yazılım genel GitHub deposuna gidin ve Contoso GitHub hesabına çatal.
 
@@ -275,7 +274,7 @@ Contoso, yeni bir özel GitHub deposu oluşturur ve Azure MySQL osTicket veritab
 
     ![GitHub](./media/contoso-migration-refactor-linux-app-service-mysql/github3.png)
 
-4. Veritabanı ayrıntılarını, Contoso Düzenleyicisi'nde özellikle güncelleştirmeleri **DBHOST** ve **DBUSER**. 
+4. Düzenleyici'de bunlar veritabanı ayrıntılarını, özellikle güncelleştirme **DBHOST** ve **DBUSER**. 
 
     ![GitHub](./media/contoso-migration-refactor-linux-app-service-mysql/github4.png)
 
@@ -283,7 +282,7 @@ Contoso, yeni bir özel GitHub deposu oluşturur ve Azure MySQL osTicket veritab
 
     ![GitHub](./media/contoso-migration-refactor-linux-app-service-mysql/github5.png)
 
-6. Her web uygulaması için (**osticket eus2** ve **osticket cu**), Contoso değiştirme **uygulama ayarları** Azure portalında.
+6. Her web uygulaması için (**osticket eus2** ve **osticket cu**), bunlar değiştirme **uygulama ayarları** Azure portalında.
 
     ![GitHub](./media/contoso-migration-refactor-linux-app-service-mysql/github6.png)
 
@@ -293,11 +292,11 @@ Contoso, yeni bir özel GitHub deposu oluşturur ve Azure MySQL osTicket veritab
 
 ## <a name="step-6-configure-the-web-apps"></a>6. adım: Web uygulamalarını yapılandırma
 
-Geçiş sürecinin son adım olarak, Contoso, osTicket web siteleri ile web uygulamalarını yapılandırın.
+Geçiş işleminin son adımı Contoso yöneticileri osTicket web siteleri ile web uygulamalarını yapılandırın.
 
 
 
-1. Birincil web uygulamasında (**osticket eus2**) açılacağını **dağıtım seçeneği** ve kaynağı **GitHub**.
+1. Birincil web uygulamasında (**osticket eus2**) açtıklarında **dağıtım seçeneği** ve kaynağı **GitHub**.
 
     ![Uygulama yapılandırma](./media/contoso-migration-refactor-linux-app-service-mysql/configure-app1.png)
 
@@ -313,7 +312,7 @@ Geçiş sürecinin son adım olarak, Contoso, osTicket web siteleri ile web uygu
 
     ![Uygulama yapılandırma](./media/contoso-migration-refactor-linux-app-service-mysql/configure-app4.png)
 
-5. Contoso sonra ikincil bir web uygulaması için yukarıdaki adımları yinelenir (**osticket cu**).
+5. Bunlar ikincil web uygulaması için yukarıdaki adımları yineleyin (**osticket cu**).
 6. Site yapılandırdıktan sonra Traffic Manager profili erişilebilir. DNS adı osTicket uygulamanın yeni bir konumdur. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain#map-a-cname-record).
 
     ![Uygulama yapılandırma](./media/contoso-migration-refactor-linux-app-service-mysql/configure-app5.png)
@@ -330,7 +329,7 @@ Geçiş sürecinin son adım olarak, Contoso, osTicket web siteleri ile web uygu
 
 Son olarak, bunlar uygulama için otomatik ölçeklendirmeyi ayarlayın. Bu uygulama aracıları kullanma gibi uygulama örneği artırmak ve azaltmak iş gereksinimlerine göre sağlar. 
 
-1. App Service'te **uygulama SRV EUS2**, Contoso açık **ölçek birimi**.
+1. App Service'te **uygulama SRV EUS2**, açtıklarında **ölçek birimi**.
 2. Bunlar, 10 dakika geçerli örneği için CPU yüzdesi % 70'in olduğunda, bir örnek sayısını artırır ve tek bir kural ile yeni bir otomatik ölçeklendirme ayarı yapılandırın.
 
     ![Otomatik Ölçeklendirme](./media/contoso-migration-refactor-linux-app-service-mysql/autoscale1.png)
@@ -343,7 +342,7 @@ Son olarak, bunlar uygulama için otomatik ölçeklendirmeyi ayarlayın. Bu uygu
 
 Tam geçişi ile bir özel GitHub deposunu kullanarak sürekli teslim ile bir Azure Web uygulamasında çalışıyor osTicket uygulama bulunanad. Uygulamanın artan esneklik için iki bölgeleri çalışıyor. OsTicket veritabanı Azure veritabanı'nda MySQL için geçişten sonra PaaS platformuna çalışıyor.
 
-Şimdi, Contoso şunları yapmanız gerekir: 
+İçin Temizle, Contoso aşağıdakileri yapması gerekir: 
 - VMware sanal makineleri, vCenter stok kaldırın.
 - Şirket içi Vm'leri yerel yedekleme işlerden kaldırın.
 - Güncelleştirme iç belgeleri, yeni konumlar ve IP adreslerini gösterir. 

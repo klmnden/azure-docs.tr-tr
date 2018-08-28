@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4603131c31ab3792efc1df504eb95dfde2eccb17
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4fd82c110590c3aa5ede729b317fb722e58cc406
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452643"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41919231"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Yerel Azure sertifika doğrulaması kullanarak Noktadan Siteye sanal ağ bağlantısını yapılandırma: Azure portal
 
@@ -50,7 +50,7 @@ Aşağıdaki değerleri kullanarak bir test ortamı oluşturabilir veya bu makal
 * **Kaynak Grubu:** TestRG
 * **Konum:** Doğu ABD
 * **GatewaySubnet:** 192.168.200.0/24<br>
-* **DNS Sunucusu (İsteğe Bağlı):** Ad çözümlemesi için kullanmak istediğiniz DNS sunucusunun IP adresi.
+* **DNS Sunucusu** (İsteğe Bağlı): Ad çözümlemesi için kullanmak istediğiniz DNS sunucusunun IP adresi.
 * **Sanal ağ geçidi adı:** VNet1GW
 * **Ağ geçidi türü:** VPN
 * **VPN türü:** Rota tabanlı
@@ -178,6 +178,8 @@ VPN istemcisi yapılandırma dosyaları, P2S bağlantısı üzerinden bir sanal 
 ### <a name="to-connect-from-a-mac-vpn-client"></a>Mac VPN istemcisinden bağlanmak için
 
 Ağ iletişim kutusunda kullanmak istediğiniz istemci profilini bulun, [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac) dosyasından ayarları belirleyin ve **Bağlan**’a tıklayın.
+
+Ayrıntılı yönergeler için lütfen [Yükleme - Mac (OS X)](https://docs.microsoft.com/en-us/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) bölümüne bakın.
 
   ![Mac bağlantısı](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
