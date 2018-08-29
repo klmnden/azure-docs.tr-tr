@@ -1,6 +1,6 @@
 ---
 title: Azure SQL veritabanı yönetilen örneği denetim | Microsoft Docs
-description: Azure SQL veritabanı yönetilen örnek T-SQL kullanarak denetimi ile çalışmaya başlama öğrenin
+description: Azure SQL veritabanı yönetilen örnek T-SQL kullanarak denetimini kullanmaya başlama hakkında bilgi edinin
 services: sql-database
 author: giladm
 manager: craigg
@@ -8,83 +8,83 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 08/28/2018
 ms.author: giladm
-ms.openlocfilehash: 71929be456de4b798da48bb202969deb71e1c371
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a43ca95717c712c932d29a619b7f1a0671c500bf
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648862"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125450"
 ---
-# <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Azure SQL veritabanı yönetilen örneği denetimi ile çalışmaya başlama
+# <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Azure SQL veritabanı yönetilen örneği denetimini kullanmaya başlama
 
-[Yönetilen Azure SQL veritabanı örneği](sql-database-managed-instance.md) denetim parçaları veritabanı olayları ve Azure depolama hesabınızdaki bunları Denetim günlüğüne yazar. Ayrıca denetleme:
-- Yönetmeliklere uygunluğu korumanıza, veritabanı etkinliklerini anlamanıza ve ifade eden tutarsızlıklar ve iş endişeleri veya güvenlik ihlalleri hakkında daha fazla bilgi kavramanıza yardımcı olur.
-- Etkinleştirir ve uyumluluk garanti etmez ancak Uyumluluk standartlara uyulması kolaylaştırır. Bu destek standartları uyumluluğu Azure hakkında daha fazla bilgi programlar için bkz: [Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/compliance/).
+[Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md) denetimi veritabanı olaylarını izler ve bir denetim günlüğüne Azure depolama hesabınızdaki yazar. Ayrıca denetleme:
+- Mevzuatla uyumluluk, veritabanı etkinliğini anlama ve tutarsızlıklar ve işletme sorunlarını veya şüpheli güvenlik ihlallerini anomalileri kavramanıza yardımcı olur.
+- Etkinleştirir ve uyumluluk garanti etmez ancak uyumluluk standardını da kıldığı kolaylaştırır. Azure hakkında daha fazla bilgi bu standartlara uyumluluk programları için bkz: [Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/compliance/).
 
 
 ## <a name="set-up-auditing-for-your-server"></a>Sunucunuz için denetimi ayarlamanız
 
-Aşağıdaki bölümde yönetilen örneğinizi denetimi yapılandırmasını açıklar.
+Aşağıdaki bölümde, yönetilen Örneğinize denetim yapılandırma açıklanmaktadır.
 1. [Azure Portal](https://portal.azure.com) gidin.
-2. Aşağıdaki adımlar bir Azure Storage oluşturma **kapsayıcı** denetim günlüklerinin depolandığı.
+2. Aşağıdaki adımlar bir Azure depolama oluşturur **kapsayıcı** denetim günlükleri nerede depolanır.
 
-   - Burada, denetim günlüklerini depolamak istediğiniz Azure Storage gidin.
+   - Azure denetim günlüklerinizi depolamak için istediğiniz depoya gidin.
 
      > [!IMPORTANT]
-     > Çapraz bölge okuma/yazma önlemek için örnek yönetilen sunucu ile aynı bölgede bir depolama hesabı kullanın.
+     > Bölgeler arası okumayı/yazmayı önlemek için yönetilen örnek sunucusu ile aynı bölgede bir depolama hesabı kullanın.
 
-   - Depolama hesabı'nda Git **genel bakış** tıklatıp **BLOB'lar**.
+   - Depolama hesabında Git **genel bakış** tıklatıp **Blobları**.
 
      ![Gezinti bölmesi][1]
 
-   - Üst menüde tıklatın **+ kapsayıcı** yeni bir kapsayıcı oluşturmak için.
+   - Üst menüde **+ kapsayıcı** yeni bir kapsayıcı oluşturmak için.
 
      ![Gezinti bölmesi][2]
 
-   - Bir kapsayıcı sağlayan **adı**, genel erişim düzeyini ayarlamak **özel**ve ardından **Tamam**.
+   - Bir kapsayıcı **adı**, genel erişim düzeyini ayarlayın **özel**ve ardından **Tamam**.
 
      ![Gezinti bölmesi][3]
 
-   - Kapsayıcıları listesinde yeni oluşturulan kapsayıcısını tıklatın ve ardından **kapsayıcı özellikleri**.
+   - Kapsayıcılar listesinde yeni oluşturulan kapsayıcı tıklayın ve ardından **kapsayıcı özellikleri**.
 
      ![Gezinti bölmesi][4]
 
-   - Kopyala simgesine tıklayarak kapsayıcı URL'yi kopyalayın ve URL'de (örneğin, Not Defteri) gelecekte kullanım için kaydedin. Kapsayıcı URL biçiminde olmalıdır `https://<StorageName>.blob.core.windows.net/<ContainerName>`
+   - Kopyala simgesine tıklayarak kapsayıcı URL'sini kopyalayın ve kaydedin (örneğin, Not Defteri'nde) gelecekte kullanım için URL. Kapsayıcı URL biçiminde olmalıdır `https://<StorageName>.blob.core.windows.net/<ContainerName>`
 
      ![Gezinti bölmesi][5]
 
-3. Aşağıdaki adımlar bir Azure depolama oluşturulması **SAS belirteci** depolama hesabı örneği yönetilen denetim erişim hakkı vermek için kullanılır.
+3. Aşağıdaki adımlar bir Azure depolama oluşturmak **SAS belirteci** depolama hesabına yönetilen örnek Denetim erişim hakları vermek için kullanılır.
 
    - Kapsayıcı önceki adımda oluşturduğunuz Azure depolama hesabına gidin.
 
-   - Tıklayın **paylaşılan erişim imzası** depolama Ayarlar menüsünden.
+   - Tıklayarak **paylaşılan erişim imzası** depolama ayarları menüsünde.
 
      ![Gezinti bölmesi][6]
 
    - SAS aşağıdaki gibi yapılandırın:
-     - **Hizmetleri izin**: Blob
-     - **Başlangıç tarihi**: saat dilimi ilgili sorunlardan kaçınmak amacıyla, düne ait tarih kullanılması önerilir.
+     - **İzin verilen hizmetler**: Blob
+     - **Başlangıç tarihi**: saat dilimi ile ilgili sorunları önlemek için önceki günün tarihi kullanılması önerilir.
      - **Bitiş tarihi**: üzerinde bu SAS belirteci süre sonu tarihi seçin. 
 
        > [!NOTE]
-       > Denetim hatalarını önlemek için süre sonu bağlı belirtecini yenileyin.
+       > Denetim hatalarını önlemek için son kullanma tarihinden sonra belirteci yenileyin.
 
      - **SAS Oluştur**’a tıklayın.
 
        ![Gezinti bölmesi][7]
 
-   - SAS oluşturmak tıkladıktan sonra SAS belirteci en altında görüntülenir. Kopyala simgesine tıklayarak belirteci kopyalayın ve gelecekte kullanılmak üzere (örneğin, Not Defteri'nde) kaydedin.
+   - SAS Oluştur tıklandıktan sonra SAS belirteci altında görüntülenir. Kopyala simgesine tıklayarak belirteci kopyalayın ve gelecekte kullanım için (örneğin, Not Defteri'nde) kaydedin.
 
      > [!IMPORTANT]
-     > Soru işareti kaldırın ("?") belirteç başından itibaren karakter.
+     > Soru işareti kaldırın ("?") belirteci başından itibaren karakter.
 
      ![Gezinti bölmesi][8]
 
-4. Yönetilen örneğinizi SQL Server Management Studio'yu (SSMS) üzerinden bağlanır.
+4. SQL Server Management Studio'yu (SSMS) aracılığıyla yönetilen Örneğinize bağlanın.
 
-5. Aşağıdaki T-SQL deyimini yürütün **yeni bir kimlik bilgisi oluşturma** kapsayıcı URL'si ve SAS, önceki adımda oluşturduğunuz belirteç kullanma:
+5. Aşağıdaki T-SQL deyimi için yürütün **yeni kimlik bilgisi oluşturma** kapsayıcı URL'si ve SAS önceki adımlarda oluşturduğunuz belirteci kullanarak:
 
     ```SQL
     CREATE CREDENTIAL [<container_url>]
@@ -93,7 +93,7 @@ Aşağıdaki bölümde yönetilen örneğinizi denetimi yapılandırmasını aç
     GO
     ```
 
-6. Sunucu yeni bir denetim oluşturmak için aşağıdaki T-SQL deyimini yürütün (kendi denetim adı seçin, önceki adımlarda oluşturduğunuz kapsayıcı URL'sini kullanarak):
+6. Yeni bir sunucu denetim oluşturmak için aşağıdaki T-SQL deyimi yürütme (kendi denetim adınızı seçin, önceki adımlarda oluşturduğunuz kapsayıcı URL'yi kullanın):
 
     ```SQL
     CREATE SERVER AUDIT [<your_audit_name>]
@@ -101,18 +101,18 @@ Aşağıdaki bölümde yönetilen örneğinizi denetimi yapılandırmasını aç
     GO
     ```
 
-    Belirtilmezse, `RETENTION_DAYS` varsayılan değer 0 (sınırsız bekletme).
+    Belirtilmezse, `RETENTION_DAYS` 0 (sınırsız bekletme) varsayılandır.
 
     Ek bilgi için:
-    - [Yönetilen örneği, Azure SQL DB ve SQL Server arasındaki farklar denetleme](#subheading-3)
-    - [SUNUCU DENETİM OLUŞTURMA](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
+    - [Yönetilen örneği, Azure SQL veritabanı ve SQL Server arasındaki farklar denetleme](#subheading-3)
+    - [SUNUCU DENETİMİ OLUŞTURMA](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
     - [ALTER SERVER DENETİM](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
-7. SQL Server gibi sunucu denetim belirtimi veya veritabanı denetim belirtimine oluşturun:
-    - [Sunucu denetim belirtimi T-SQL kılavuzu oluşturma](https://docs.microsoft.com/ sql/t-sql/statements/create-server-audit-specification-transact-sql)
-    - [Veritabanı denetim belirtimine T-SQL kılavuzu oluşturma](https://docs.microsoft.com/ sql/t-sql/statements/create-database-audit-specification-transact-sql)
+7. SQL Server gibi sunucu denetimi belirtimi veya veritabanı denetim belirtimine oluşturun:
+    - [Sunucu denetimi belirtimi T-SQL kılavuzu oluşturma](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+    - [Veritabanı denetim belirtimine T-SQL kılavuzu oluşturma](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-8. 6. adımda oluşturduğunuz sunucu denetimi etkinleştirin:
+8. 6. adımda oluşturduğunuz sunucu denetimi etkinleştir:
 
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>]
@@ -120,37 +120,37 @@ Aşağıdaki bölümde yönetilen örneğinizi denetimi yapılandırmasını aç
     GO
     ```
 
-## <a name="analyze-audit-logs"></a>Denetim günlüklerini analiz edin
-Blob denetim günlüklerini görüntülemek için kullanabileceğiniz çeşitli yöntemler vardır.
+## <a name="analyze-audit-logs"></a>Denetim günlüklerini çözümleme
+Blob günlükleri denetleme görüntülemek için kullanabileceğiniz çeşitli yöntemler vardır.
 
-- Bir sistem işlevi kullanın `sys.fn_get_audit_file` (Denetim günlüğü verilerini tablo biçiminde döndürmek için T-SQL). Bu işlev kullanma hakkında daha fazla bilgi için bkz: [sys.fn_get_audit_file belgelerine](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
+- Sistem işlevi kullanın `sys.fn_get_audit_file` (Denetim günlüğü verileri tablo biçiminde döndürmek için T-SQL). Bu işlev kullanma hakkında daha fazla bilgi için bkz. [sys.fn_get_audit_file belgeleri](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
-- Denetim Günlüğü Tüketim yöntemi tam listesi için bkz [SQL veritabanı denetimi ile çalışmaya başlama](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing).
+- Denetim Günlüğü Tüketim yöntemi tam bir listesi için başvurmak [SQL veritabanı denetimini kullanmaya başlama](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing).
 
 > [!IMPORTANT]
-> Denetim kayıtlarının ('kayıtları denetim' bölme) Azure portalından görüntüleme yöntemi yönetilen örneği için şu anda kullanılamıyor.
+> Denetim kayıtları (bölme 'denetim kayıtları') Azure portalından yöntemi yönetilen örneği için şu anda kullanılamıyor.
 
-## <a name="auditing-differences-between-managed-instance-azure-sql-database-and-sql-server"></a>Yönetilen örneği, Azure SQL Database ve SQL Server arasındaki farklar denetleme
+## <a name="auditing-differences-between-managed-instance-azure-sql-database-and-sql-server"></a>Yönetilen örnek, Azure SQL veritabanı ve SQL Server arasındaki farklar denetleme
 
-Şirket içi yönetilen örneği, Azure SQL Database ve SQL Server SQL denetleme arasındaki temel farklılıklar şunlardır:
+SQL yönetilen örneği, Azure SQL veritabanı ve SQL Server şirket içi denetleme arasındaki temel farklılıklar şunlardır:
 
-- Sunucu düzeyinde ve depoları yönetilen örneğinde SQL denetim çalışır `.xel` günlük dosyaları Azure blob depolama hesabı üzerinde.
+- Yönetilen örneği'nde sunucu düzeyinde ve depoları SQL denetim çalışır `.xel` günlük dosyalarını Azure blob depolama hesabı.
 - Azure SQL veritabanı'nda SQL denetim veritabanı düzeyinde çalışır.
-- Şirket içi SQL Server / sanal makineler, sunucudaki SQL denetim works düzeyi, dosyaları sistem/windows olaylarına depolar ancak olay günlükleri.
+- Şirket içi SQL Server / sanal makineler, sunucuda SQL denetim çalışır düzeyi, dosya sistem/windows olaylarına depolar ancak olay günlükleri.
 
-Yönetilen örneğinde XEvent denetim Azure blob depolama hedefleri destekler. Dosya ve windows günlükleri **desteklenmiyor**.
+XEvent denetim yönetilen örneği'nde, Azure blob depolama hedeflerini destekler. Dosya ve windows günlükleri **desteklenmiyor**.
 
-Anahtar farkları `CREATE AUDIT` sözdizimi denetimi için Azure blob depolama için:
-- Yeni bir sözdizimi `TO URL` sağlanır ve Azure blob depolama kapsayıcısını URL'sini belirtmenize olanak tanıyan nerede `.xel` dosyaları yerleştirilir.
-- Sözdizimi `TO FILE` olan **desteklenmiyor** yönetilen örneği Windows dosya paylaşımlarında erişemediği için.
-- Kapatma seçenek **desteklenmiyor**.
-- `queue_delay` 0 **desteklenmiyor**.
+Anahtarının farklar içinde `CREATE AUDIT` denetleme için Azure blob depolama söz dizimi olan:
+- Yeni bir söz dizimi `TO URL` sağlanır ve Azure blob depolama kapsayıcısının URL'sini belirtmenize olanak tanıyan burada `.xel` dosyalar yerleştirilir.
+- Söz dizimi `TO FILE` olduğu **desteklenmiyor** çünkü yönetilen örneği, Windows dosya paylaşımlarına erişemez.
+- Kapatma seçeneği **desteklenmiyor**.
+- `queue_delay` 0'ın **desteklenmiyor**.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Denetim Günlüğü Tüketim yöntemi tam listesi için bkz [SQL veritabanı denetimi ile çalışmaya başlama](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing).
-- Bu destek standartları uyumluluğu Azure hakkında daha fazla bilgi programlar için bkz: [Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/compliance/).
+- Denetim Günlüğü Tüketim yöntemi tam bir listesi için başvurmak [SQL veritabanı denetimini kullanmaya başlama](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing).
+- Azure hakkında daha fazla bilgi bu standartlara uyumluluk programları için bkz: [Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/compliance/).
 
 
 <!--Anchors-->

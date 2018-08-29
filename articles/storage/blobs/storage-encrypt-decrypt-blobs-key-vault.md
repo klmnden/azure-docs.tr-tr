@@ -6,14 +6,14 @@ author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: adhurwit
+ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: f5382644af7e79234d6c3944cf354a3b2a70cc90
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 4d714d0c345f465fc4911d55f9c57cbfd99087df
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397630"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128075"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Öğretici: Şifrelemek ve şifresini Azure anahtar Kasası'nı kullanarak Microsoft Azure depolama BLOB'ları
 ## <a name="introduction"></a>Giriş
@@ -220,7 +220,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
     "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
     CancellationToken.None).GetAwaiter().GetResult();
 ```
-Bu kadar. Keyfini çıkarın!
+İşte bu kadar. Keyfini çıkarın!
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Microsoft Azure depolama C# ile kullanma hakkında daha fazla bilgi için bkz. [.NET için Microsoft Azure depolama istemci Kitaplığı](https://msdn.microsoft.com/library/azure/dn261237.aspx).

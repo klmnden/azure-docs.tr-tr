@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 5c5317a49f56bfefec7c509365008cba5ad26e1c
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 9ad36d37fef4c1ee05e31098b145b0264b6440ca
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106943"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126449"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL veritabanı'nda otomatik ayarlama
 
@@ -40,7 +40,7 @@ Azure SQL veritabanı otomatik ayarlama, kararlı ve üst düzey veritabanı iş
 
 Azure SQL veritabanları için uygulanan ayarlama işlemleri için en yoğun iş yüklerinizin performansını tam olarak güvenlidir. Sistem dikkatli kullanıcı yükleriyle karışmamasına için tasarlanmıştır. Otomatik ayarlama önerileri, yalnızca düşük kullanımı zamanlarda uygulanır. Sistem iş yükü performansını korumak için otomatik ayarlama işlemlerini de geçici olarak devre dışı bırakabilirsiniz. Böyle bir durumda, Azure portalında "Sistem tarafından devre dışı" iletisi gösterilir. Otomatik ayarlama, en yüksek kaynak önceliğe sahip iş yüklerini değerlendirir.
 
-Otomatik ayarlama mekanizmaları olgun ve Azure üzerinde çalışan birkaç milyon veritabanlarında perfected. Uygulanan otomatik ayarlama işlemleri, iş yükü performansına olumlu bir geliştirme olduğundan emin olmak için otomatik olarak doğrulanır. Azaltılmış performansa önerileri dinamik olarak algılandı ve en kısa sürede geri döndürüldü. Sıklıkla yürütülen değil önerilerinde tarafından etkilenen sorgular olması durumunda, en fazla 72 doğrulama aşamasını alabileceğine dikkat edin. Tasarım saat. Kaydedilen ayarlama geçmişi ile her bir Azure SQL veritabanı için yapılan geliştirmeleri ayarlama, düz bir izleme vardır. 
+Otomatik ayarlama mekanizmaları olgun ve Azure üzerinde çalışan birkaç milyon veritabanlarında perfected. Uygulanan otomatik ayarlama işlemleri, iş yükü performansına olumlu bir geliştirme olduğundan emin olmak için otomatik olarak doğrulanır. Azaltılmış performansa önerileri dinamik olarak algılandı ve en kısa sürede geri döndürüldü. Kaydedilen ayarlama geçmişi ile her bir Azure SQL veritabanı için yapılan geliştirmeleri ayarlama, düz bir izleme vardır. 
 
 ![Nasıl otomatik ayarlama çalışıyor mu](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
@@ -69,7 +69,7 @@ Azure SQL veritabanı'nda kullanılabilir otomatik ayarlama seçeneklerini şunl
 
 Otomatik ayarlama tanımlayan **CREATE INDEX**, **DROP INDEX**, ve **ZORLA son iyi planı** veritabanınızın performansı iyileştirebilir ve bunları gösterir önerileri [Azure portalında](sql-database-advisor-portal.md)ve bunları üzerinden kullanıma sunan [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) ve [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
 
-Ya da portalı kullanarak ayar önerileri el ile uygulayabilirsiniz veya otomatik olarak çalışabilen uygulamak için ayar önerileri ayarlama sağlayabilirsiniz. Sistem otonom olarak izin vererek avantajları olduğundan otomatik olarak doğrular böyle bir durumda olduğunu iş yükü performansına olumlu kazanç veya aksi halde bir gerileme, bunu otomatik olarak geri dönecek algılandığında ayar önerileri uygulayın öneri ayarlama. El ile ayarlama uyguladığınızı durumunda öneriler, otomatik performans doğrulama ve ters mekanizmaları kullanılamaz.
+Ya da portalı kullanarak ayar önerileri el ile uygulayabilirsiniz veya otomatik olarak çalışabilen uygulamak için ayar önerileri ayarlama sağlayabilirsiniz. Sistem otonom olarak izin vererek avantajları olduğundan otomatik olarak doğrular böyle bir durumda olduğunu iş yükü performansına olumlu kazanç veya aksi halde bir gerileme, bunu otomatik olarak geri dönecek algılandığında ayar önerileri uygulayın öneri ayarlama. Sıklıkla yürütülen değil önerilerinde tarafından etkilenen sorgular olması durumunda, en fazla 72 doğrulama aşamasını alabileceğine dikkat edin. Tasarım saat. El ile ayarlama uyguladığınızı durumunda öneriler, otomatik performans doğrulama ve ters mekanizmaları kullanılamaz.
 
 Otomatik ayarlama seçeneklerini bağımsız olarak etkinleştirilebilir veya veritabanı başına devre dışı veya bunlar mantıksal sunucularda yapılandırılabilir ve sunucudan ayarları devralıyor her bir veritabanına uygulanır. Mantıksal sunucu otomatik ayarlama ayarları için Azure Varsayılanları devralabilir. Şu anda Azure Varsayılanları ayarlandığında FORCE_LAST_GOOD_PLAN etkin CREATE_INDEX etkin ve DROP_INDEX devre dışı bırakıldı.
 

@@ -1,98 +1,93 @@
 ---
-title: Azure mantıksal uygulamaları için dağıtım şablonları oluşturma | Microsoft Docs
+title: Dağıtım şablonları oluşturmak için Azure Logic Apps | Microsoft Docs
 description: Mantıksal uygulamalar dağıtmak için Azure Resource Manager şablonları oluşturma
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.custom: H1Hack27Feb2017
+ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.author: LADocs; estfan
-ms.openlocfilehash: 647ffeb05542e12d19cefa3fa0dbf55e5585109a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 68e655490470db6aade53c6f3523d0c9d87c3fbd
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297922"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123474"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Mantıksal uygulamalar dağıtmak için Azure Resource Manager şablonları oluşturma
 
-Bir mantıksal uygulama oluşturulduktan sonra bir Azure Resource Manager şablonu oluşturmak isteyebilirsiniz.
-Bu şekilde, herhangi bir ortam veya kaynak grubu nerede gereksinim duyabileceğiniz mantıksal uygulama kolayca dağıtabilirsiniz.
-Resource Manager şablonları hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md) ve [dağıtma kaynakları Azure Resource Manager şablonları kullanarak](../azure-resource-manager/resource-group-template-deploy.md).
+Mantıksal uygulama oluşturulduktan sonra bir Azure Resource Manager şablonu oluşturmak isteyebilirsiniz.
+Böylece, herhangi bir ortam veya kaynak grubu burada gerekebilir mantıksal uygulamayı kolayca dağıtabilirsiniz.
+Resource Manager şablonları hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md) ve [Azure Resource Manager şablonları kullanarak kaynakları dağıtma](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="logic-app-deployment-template"></a>Mantıksal uygulama dağıtım şablonu
 
-Bir mantıksal uygulama üç temel bileşeni vardır:
+Bir mantıksal uygulama, üç temel bileşeni vardır:
 
-* **Mantıksal uygulama kaynağı**: fiyatlandırma planı, konum ve iş akışı tanımı gibi şeyler hakkında bilgiler içerir.
-* **İş akışı tanımı**: mantığı uygulamanızın iş akışı adımları ve Logic Apps altyapısı iş akışının nasıl yürütülecek açıklar.
-Bu tanım mantığı uygulamanızın içinde görüntüleyebilirsiniz **kod görünümü** penceresi.
-Mantıksal uygulama kaynağı bu tanımı'nda bulabilirsiniz `definition` özelliği.
-* **Bağlantıları**: güvenli bir bağlantı dizesi ve bir erişim belirteci gibi herhangi bir bağlayıcı bağlantısı ilgili meta verileri depolama kaynaklarını ayırmak için başvuruyor.
-Mantıksal uygulama kaynağı mantıksal uygulamanızı bu kaynaklara başvuran `parameters` bölümü.
+* **Mantıksal uygulama kaynağı**: fiyatlandırma planı, konum ve iş akışı tanımı gibi birçok şey hakkında bilgiler içerir.
+* **İş akışı tanımı**: mantıksal uygulamanızın iş akışı adımları ve Logic Apps altyapısı iş akışının nasıl yürütüleceğini açıklar.
+Bu tanım, mantıksal uygulamanızın içinde görüntüleyebilirsiniz **kod görünümü** penceresi.
+Mantıksal uygulama kaynağı içinde bu tanımında bulabilirsiniz `definition` özelliği.
+* **Bağlantıları**: ayrı bir bağlantı dizesi ve bir erişim belirteci gibi herhangi bir bağlayıcı bağlantısı hakkındaki meta verileri güvenli bir şekilde saklayın kaynaklarını ifade eder.
+Mantıksal uygulama kaynağı içinde mantıksal uygulamanız bu kaynaklara başvuran `parameters` bölümü.
 
-Mevcut mantıksal uygulamaları bu tüm parçaları gibi bir araç kullanarak görüntüleyebileceğiniz [Azure kaynak Gezgini](http://resources.azure.com).
+Var olan mantıksal uygulamalar'ın bu parçaların tamamı gibi bir araç kullanarak görüntüleyebileceğiniz [Azure kaynak Gezgini](http://resources.azure.com).
 
-Kaynak grubu dağıtımı ile kullanmak bir mantıksal uygulama için bir şablon yapmak için kaynakları tanımlamak ve gerektiğinde Parametreleştirme gerekir.
-Geliştirme, test ve üretim ortamı dağıtıyorsanız, örneğin, büyük olasılıkla bir SQL veritabanı için farklı bağlantı dizeleri her ortamda kullanmak istediğiniz.
-Ya da farklı Aboneliklerde veya kaynak grupları dağıtmak isteyebilirsiniz.  
+Kaynak grubu dağıtımı ile kullanılacak bir mantıksal uygulama için bir şablon yapmak, kaynakları tanımlayan ve gerektikçe parametreleştirin.
+Geliştirme, test ve üretim ortamı dağıtıyorsanız, örneğin, büyük olasılıkla bir SQL veritabanı'na farklı bağlantı dizeleri her ortamda kullanmak istediğiniz.
+Ya da farklı bir abonelik veya kaynak grupları dağıtmak isteyebilirsiniz.  
 
-## <a name="create-a-logic-app-deployment-template"></a>Bir mantıksal uygulama dağıtım şablonu oluşturma
+## <a name="create-a-logic-app-deployment-template"></a>Mantıksal uygulama dağıtım şablonu oluşturma
 
-Geçerli mantığı uygulama dağıtım şablonu için en kolay yolu kullanmaktır [mantıksal uygulamalar için Visual Studio Araçları](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites).
-Visual Studio Araçları herhangi bir abonelik veya konum arasında kullanılan bir geçerli dağıtım şablonu oluşturun.
+Geçerli mantıksal uygulama dağıtım şablonu için en kolay yolu kullanmaktır [Logic Apps için Visual Studio Araçları](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites).
+Visual Studio Araçları, herhangi bir abonelik veya konum kullanılabilecek geçerli bir dağıtım şablonu oluşturun.
 
-Bir mantıksal uygulama dağıtım şablonu oluşturma gibi diğer bazı araçları size yardımcı olabilir.
-El ile zaten gerektiğinde parametreleri oluşturmak için aşağıda ele alınan kaynaklar kullanarak diğer bir deyişle, yazabilirsiniz.
-Başka bir seçenek kullanmaktır bir [mantıksal uygulama şablonu oluşturan](https://github.com/jeffhollan/LogicAppTemplateCreator) PowerShell modülü. Bu açık kaynaklı modül önce mantıksal uygulama ve onu kullanıyor ve dağıtımı için gerekli parametreleri şablon kaynaklarla oluşturur herhangi bir bağlantısı değerlendirir.
-Örneğin, bir Azure hizmet veri yolu kuyruktan bir ileti alır ve bir Azure SQL veritabanına veri ekleyen bir mantıksal uygulama varsa, araç tüm orchestration mantığı korur ve dağıtımın ayarlamak için SQL ve hizmet veri yolu bağlantı dizeleri parameterizes.
+Mantıksal uygulama dağıtım şablonu oluşturma gibi diğer bazı araçları size yardımcı olabilir.
+El ile zaten gerektiğinde parametreleri oluşturmak için burada tartışılan kaynakları kullanarak diğer bir deyişle, yazabilirsiniz.
+Başka bir seçenek kullanmaktır bir [mantıksal uygulama şablonu Oluşturucu](https://github.com/jeffhollan/LogicAppTemplateCreator) PowerShell modülü. Bu açık kaynaklı modül ilk mantıksal uygulama ve bunu kullanıyor ve sonra dağıtım için gerekli parametrelerle şablon kaynakları oluşturur herhangi bir bağlantı değerlendirir.
+Örneğin, bir Azure Service Bus kuyruğuna bir ileti alır ve bir Azure SQL veritabanına veri ekleyen bir mantıksal uygulama varsa, araç tüm düzenleme mantığı korur ve böylece sırasında ayarlanabilir dizeleri dağıtma SQL ve Service Bus bağlantı parametreleştiren menüsü.
 
 > [!NOTE]
-> Bağlantıları mantıksal uygulama aynı kaynak grubunda olması gerekir.
+> Bağlantılar, mantıksal uygulama ile aynı kaynak grubunda olmalıdır.
 >
 >
 
-### <a name="install-the-logic-app-template-powershell-module"></a>Mantıksal uygulama şablonu PowerShell modülünü yükleyin
-Modülünü yüklemek için en kolay yolu durumda [PowerShell Galerisi](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1), komutunu kullanarak `Install-Module -Name LogicAppTemplate`.  
+### <a name="install-the-logic-app-template-powershell-module"></a>Mantıksal uygulama şablonu PowerShell modülünü yükleme
+Aracılığıyla modülü yüklemek için en kolay yolu olan [PowerShell Galerisi](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1), komutunu kullanarak `Install-Module -Name LogicAppTemplate`.  
 
 PowerShell modülünü el ile de yükleyebilirsiniz:
 
-1. En son sürümünü indirme [mantıksal uygulama şablonu oluşturan](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).  
-2. PowerShell modül klasörünüze klasöre ayıklayın (genellikle `%UserProfile%\Documents\WindowsPowerShell\Modules`).
+1. En son sürümünü indirin [mantıksal uygulama şablonu Oluşturucu](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).  
+2. PowerShell modülü klasörünüzde klasörünü ayıklayın (genellikle `%UserProfile%\Documents\WindowsPowerShell\Modules`).
 
-Modülün herhangi bir kiracı ve abonelik erişim ile çalışmak belirteç, kendisiyle kullanmanızı öneririz [ARMClient](https://github.com/projectkudu/ARMClient) komut satırı aracı.  Bu [blog gönderisi](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) ARMClient daha ayrıntılı olarak anlatılmaktadır.
+Herhangi bir kiracı ve abonelik erişimi ile çalışmak modülü için belirteç ile kullanmanızı öneririz [ARMClient](https://github.com/projectkudu/ARMClient) komut satırı aracı.  Bu [blog gönderisi](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) ARMClient daha ayrıntılı olarak ele alınmaktadır.
 
-### <a name="generate-a-logic-app-template-by-using-powershell"></a>PowerShell kullanarak bir mantıksal uygulama şablonu oluştur
-PowerShell yüklendikten sonra aşağıdaki komutu kullanarak bir şablon oluşturabilirsiniz:
+### <a name="generate-a-logic-app-template-by-using-powershell"></a>PowerShell kullanarak bir mantıksal uygulama şablonunu oluşturma
+PowerShell'i yükledikten sonra aşağıdaki komutu kullanarak bir şablon oluşturabilirsiniz:
 
 `armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp MyApp -ResourceGroup MyRG -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json`
 
-`$SubscriptionId` Azure abonelik kimliği Bu satırı önce bir erişim ARMClient belirtecini alır sonra üzerinden PowerShell Betiği Kanallar ve ardından şablon bir JSON dosyası oluşturur.
+`$SubscriptionId` Azure abonelik kimliğidir. Bu satır, ilk bir erişim belirteci ARMClient alır sonra PowerShell betiğine kanallar aracılığıyla ve ardından şablonu bir JSON dosyası oluşturur.
 
-## <a name="add-parameters-to-a-logic-app-template"></a>Bir mantıksal uygulama şablonu parametreleri ekleme
-Mantıksal uygulama şablonu oluşturduktan sonra eklemek veya gereksinim duyabileceğiniz parametreleri değiştirmek devam edebilirsiniz. Örneğin, bir kaynak kimliği bir Azure işlevi veya tek bir dağıtımda dağıtmayı planladığınız iç içe geçmiş iş akışı tanımınızı içeriyorsa, daha fazla kaynak şablonunuza eklemek ve gerektiğinde kimlikleri Parametreleştirme. Aynı özel API'leri veya Swagger yönelik tüm başvuruları dağıtmak için her kaynak grubu ile beklediğiniz uç noktalar uygular.
+## <a name="add-parameters-to-a-logic-app-template"></a>Parametre için bir mantıksal uygulama şablonunu ekleyin
+Mantıksal uygulama şablonunu oluşturduktan sonra eklemek veya gerek duyabileceğiniz parametreleri değiştirmek devam edebilirsiniz. Örneğin, bir kaynak kimliği için bir Azure işlevine veya tek bir dağıtımda dağıtmayı planladığınız iç içe geçmiş iş akışı tanımınızı içeriyorsa, daha fazla kaynak şablonunuza eklemek ve kimlikleri gerektikçe parametreleştirin. Aynı özel API'ler veya Swagger yönelik tüm başvuruları her bir kaynak grubuyla dağıtmayı beklediğiniz uç noktalar için geçerlidir.
 
-### <a name="add-references-for-dependent-resources-to-visual-studio-deployment-templates"></a>Visual Studio dağıtım şablonları bağımlı kaynaklar için başvurular ekleyin
+### <a name="add-references-for-dependent-resources-to-visual-studio-deployment-templates"></a>Bağımlı kaynaklar için başvuruları için Visual Studio dağıtım şablonları ekleme
 
-Bağımlı kaynaklarla başvurmak için mantıksal uygulamanızı istediğinizde kullanabilirsiniz [Azure Resource Manager şablonu işlevleri](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions) mantığı uygulama dağıtım şablonunuzda. Örneğin, mantıksal uygulamanızı mantıksal uygulamanızı dağıtmak istediğiniz bir Azure işlevi veya tümleştirme hesap başvurmak isteyebilirsiniz. Böylece mantığı Uygulama Tasarımcısı'nı doğru şekilde işler, dağıtım şablonu parametrelerini kullanma hakkında aşağıdaki yönergeleri izleyin. 
+Mantıksal uygulamanızın bağımlı kaynaklar başvurmak istediğinizde kullanabilirsiniz [Azure Resource Manager şablonu işlevleri](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions) mantıksal uygulama dağıtım şablonunuzdaki. Örneğin, mantıksal uygulamanızın mantıksal uygulamanızla dağıtmak istediğiniz bir Azure işlevi veya tümleştirme hesabı başvurusu isteyebilirsiniz. Logic Apps Tasarımcısı'nı doğru şekilde işlediğinden emin parametreleri, dağıtım şablonunuzda kullanma hakkında aşağıdaki yönergeleri izleyin. 
 
-Bu türden tetikleyiciler ve Eylemler mantığı uygulama parametreleri kullanabilirsiniz:
+Mantıksal uygulama Tetikleyicileri ve eylemleri bu tür parametrelerinde kullanabilirsiniz:
 
 *   Alt iş akışı
 *   İşlev uygulaması
 *   APIM çağrısı
-*   API bağlantı çalışma zamanı URL'si
+*   API bağlantısı çalışma zamanı URL'si
 *   API bağlantı yolu
 
-Ve şablon işlevleri parametreleri, değişkenleri, ResourceId, concat vb. gibi kullanabilirsiniz. Örneğin, işte Azure işlevi kaynak kimliği nasıl değiştirebilirsiniz:
+Ve parametreler, değişkenleri, ResourceId, concat vb. gibi şablon işlevleri kullanabilirsiniz. Örneğin, işte Azure işlevi kaynak Kimliğini nasıl değiştirebilir:
 
 ```
 "parameters":{
@@ -104,7 +99,7 @@ Ve şablon işlevleri parametreleri, değişkenleri, ResourceId, concat vb. gibi
 },
 ```
 
-Ve burada parametreleri kullanabilirsiniz:
+Ve burada parametrelerini kullanın:
 
 ```
 "MyFunction": {
@@ -118,7 +113,7 @@ Ve burada parametreleri kullanabilirsiniz:
     "runAfter":{}
 }
 ```
-Başka bir örnek olarak Service Bus ileti gönderme işlemini Parametreleştirme:
+Başka bir örnek olarak Service Bus ileti gönderme işlemini parametreleştirebilirsiniz:
 
 ```
 "Send_message": {
@@ -142,12 +137,12 @@ Başka bir örnek olarak Service Bus ileti gönderme işlemini Parametreleştirm
     }
 ```
 > [!NOTE] 
-> host.runtimeUrl isteğe bağlıdır ve varsa, şablondan kaldırılabilir.
+> host.runtimeUrl isteğe bağlıdır ve varsa şablonunuzdan kaldırılabilir.
 > 
 
 
 > [!NOTE] 
-> Mantıksal uygulama parametrelerini kullandığınızda çalışmak Tasarımcı, varsayılan değerleri, örneğin sağlamanız gerekir:
+> Mantıksal uygulama parametrelerini kullanırken çalışmaya Tasarımcısı için örneğin varsayılan değerler sağlamanız gerekir:
 > 
 > ```
 > "parameters": {
@@ -159,49 +154,49 @@ Başka bir örnek olarak Service Bus ileti gönderme işlemini Parametreleştirm
 > },
 > ```
 
-## <a name="add-your-logic-app-to-an-existing-resource-group-project"></a>Varolan bir kaynak grubu projesine mantıksal uygulamanızı ekleme
+## <a name="add-your-logic-app-to-an-existing-resource-group-project"></a>Mantıksal uygulamanız için mevcut bir kaynak grubu projesi ekleme
 
-Varolan bir kaynak grubu projesi varsa, bu projede JSON ana hattı penceresinin mantıksal uygulamanızı ekleyebilirsiniz. Daha önce oluşturduğunuz uygulama yanında başka bir mantıksal uygulama da ekleyebilirsiniz.
+Mevcut bir kaynak grubu projesi varsa, mantıksal uygulamanızın JSON ana hattı penceresinin projede ekleyebilirsiniz. Daha önce oluşturduğunuz uygulama yanı sıra başka bir mantıksal uygulama da ekleyebilirsiniz.
 
 1. `<template>.json` dosyasını açın.
 
-2. JSON ana hattı penceresini açmak için Git **Görünüm** > **diğer pencereler** > **JSON ana hattı**.
+2. JSON ana hattı penceresinin açmak için Git **görünümü** > **diğer Windows** > **JSON ana hattı**.
 
-3. Kaynak şablon dosyasına eklemek için tıklatın **kaynak ekleme** JSON ana hattı penceresinin üst. Veya JSON ana hattı penceresinde sağ **kaynakları**seçip **yeni kaynak ekleme**.
+3. Şablon dosyasına bir kaynak eklemek için tıklatın **kaynak Ekle** JSON ana hattı penceresinin üst kısmındaki. JSON ana hattı penceresinin içinde sağ tıklatın **kaynakları**seçip **yeni kaynak Ekle**.
 
     ![JSON ana hattı penceresinin](./media/logic-apps-create-deploy-template/jsonoutline.png)
     
-4. İçinde **kaynak ekleme** iletişim kutusu bulun ve seçin, **mantıksal uygulama**. Mantıksal uygulamanızı adlandırın ve seçin **Ekle**.
+4. İçinde **kaynak Ekle** bulun ve seçin iletişim kutusu **mantıksal uygulama**. Mantıksal uygulamanızı adlandırın ve seçin **Ekle**.
 
     ![Kaynak ekle](./media/logic-apps-create-deploy-template/addresource.png)
 
 
-## <a name="deploy-a-logic-app-template"></a>Bir mantıksal uygulama şablonu dağıtma
+## <a name="deploy-a-logic-app-template"></a>Bir mantıksal uygulama şablonunu dağıtma
 
-PowerShell, REST API gibi herhangi bir aracı kullanarak şablonunuzu dağıtabilirsiniz [Visual Studio Team Services yayın Yönetimi](#team-services)ve Azure Portalı aracılığıyla şablon dağıtımı.
-Ayrıca, parametrelerin değerlerini depolamak için oluşturduğunuz öneririz bir [parametre dosyası](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
-Bilgi nasıl [PowerShell ve Azure Resource Manager şablonları kaynaklarla dağıtmak](../azure-resource-manager/resource-group-template-deploy.md) veya [kaynakları Azure Resource Manager şablonları ve Azure portalı ile dağıtma](../azure-resource-manager/resource-group-template-deploy-portal.md).
+PowerShell, REST API gibi herhangi bir aracı kullanarak, şablonunuzu dağıtmak [Visual Studio Team Services Release Management](#team-services)ve Azure portalı üzerinden şablon dağıtımı.
+Ayrıca, parametreleri için değerleri depolamak için oluşturduğunuz öneririz bir [parametre dosyası](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
+Bilgi edinmek için nasıl [kaynakları Azure Resource Manager şablonları ve PowerShell ile dağıtma](../azure-resource-manager/resource-group-template-deploy.md) veya [kaynakları Azure Resource Manager şablonları ve Azure portalı ile dağıtma](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
-### <a name="authorize-oauth-connections"></a>OAuth bağlantılarını yetkilendirmek
+### <a name="authorize-oauth-connections"></a>OAuth bağlantıları yetkilendirin
 
-Dağıtımdan sonra mantıksal uygulama baştan sona geçerli parametrelerle birlikte çalışır.
-Ancak, yine geçerli erişim belirtecini oluşturmak için OAuth bağlantıları yetkilendirmeniz gerekir.
-OAuth bağlantılarını yetkilendirmek için mantıksal uygulama Logic Apps Tasarımcısı'nda açın ve bu bağlantıları yetkilendirin. Veya otomatik dağıtım için bir komut dosyası her OAuth bağlantı onayı için kullanabilirsiniz.
-Github'da altında bir örnek komut dosyası yok [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) projesi.
+Dağıtımdan sonra mantıksal uygulama için uçtan uca geçerli parametreler ile çalışır.
+Ancak, yine de geçerli erişim belirteci oluşturmak için OAuth bağlantıları yetkilendirmeniz gerekir.
+OAuth bağlantılarını yetkilendirmek için Logic Apps Tasarımcısı'nda mantıksal uygulama açın ve bu bağlantıları yetkilendirin. Veya otomatik dağıtım için her OAuth bağlantısı için onay için bir komut dosyası kullanabilirsiniz.
+Altında github'daki bir örnek betiği yoktur [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) proje.
 
 <a name="team-services"></a>
 ## <a name="visual-studio-team-services-release-management"></a>Visual Studio Team Services yayın Yönetimi
 
-Dağıtma ve yönetme bir ortam için yaygın bir senaryo, bir mantıksal uygulama dağıtım şablonu ile Visual Studio Team Services içinde yayın yönetimi gibi bir araç kullanmaktır. Visual Studio Team Services içeren bir [Azure kaynak grubu dağıtma](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) herhangi bir yapı ekleyin veya yayın ardışık düzen görev. Olması gereken bir [hizmet sorumlusu](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) dağıtmak için yetkilendirme sonra yayın tanımı oluşturabilir ve için.
+Dağıtma ve bir ortamı yönetmek için yaygın bir senaryo, bir mantıksal uygulama dağıtım şablonunu ile Visual Studio Team Services Release Management gibi bir araç kullanmaktır. Visual Studio Team Services'ı içeren bir [Azure kaynak grubu dağıtma](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) eklemek için herhangi bir derleme veya yayın işlem hattı görev. İhtiyacınız bir [hizmet sorumlusu](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) için dağıtmak için yetkilendirme ve ardından, yayın tanımı oluşturabilirsiniz.
 
-1. Yayın yönetimini seçin **boş** böylece boş bir tanımı oluşturun.
+1. Sürüm Yönetimi'nde seçin **boş** böylece boş bir tanımı oluşturun.
 
-    ![Boş tanımı oluşturun][1]
+    ![Boş tanımı oluşturma][1]
 
-2. Bunun için büyük olasılıkla el ile veya yapılandırma işleminin bir parçası olarak oluşturulan mantıksal uygulama şablonu dahil olmak üzere gereksinim duyduğunuz tüm kaynakları seçin.
+2. Bunun için büyük olasılıkla el ile veya yapı işleminin bir parçası olarak oluşturulan mantıksal uygulama şablonunu dahil olmak üzere ihtiyacınız olan tüm kaynakları seçin.
 3. Ekleme bir **Azure kaynak grubu dağıtımı** görev.
-4. İle yapılandırma bir [hizmet sorumlusu](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)ve şablonu ve şablon parametreleri dosyalarını başvuru.
-5. Diğer bir ortam, otomatikleştirilmiş test veya gerektiğinde onaylayanlar için yayın işlemindeki adımlar oluşturmak devam edin.
+4. Yapılandırma ile bir [hizmet sorumlusu](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)ve şablon ve şablon parametreleri dosya başvurusu.
+5. Diğer bir ortam, otomatikleştirilmiş test veya gerektiğinde onaylayanlar için yayın işlemindeki adımları oluşturmak için devam edin.
 
 <!-- Image References -->
 [1]: ./media/logic-apps-create-deploy-template/emptyreleasedefinition.png

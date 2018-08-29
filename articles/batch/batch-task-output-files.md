@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
-ms.openlocfilehash: 69990ab7852999dca2b586fd28ef74c44cc283fd
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: f562a6647cadbde6c46eba87b180dfb4cbb3fb90
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117437"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126321"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Batch hizmeti API'si ile Azure depolama için görev verileri kalıcı hale
 
@@ -34,7 +34,7 @@ Azure Batch, görev çıktısını kalıcı hale getirmek için birden fazla yol
 - Görev çıktısı, istemci uygulama, görevin çalıştığı uygulama değiştirmeden kalıcı hale getirmek için kod yazmak istediğiniz.
 - Toplu iş görevleri ve iş yöneticisi görevleri sanal makine yapılandırmasıyla oluşturulan havuzlarda çıktısını kalıcı hale getirmek istediğiniz.
 - Rastgele bir ada sahip bir Azure depolama kapsayıcısı çıkışı kalıcı hale getirmek istediğiniz.
-- Çıkış göre adlı bir Azure depolama kapsayıcısına kalıcı hale getirmek istediğiniz [Batch dosya kuralları standart](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). 
+- Çıkış göre adlı bir Azure depolama kapsayıcısına kalıcı hale getirmek istediğiniz [Batch dosya kuralları standart](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
 
 Senaryonuz yukarıda listelenenlerden farklıysa, farklı bir yaklaşım dikkate almanız gerekebilir. Örneğin, Görev yürütülürken Batch hizmeti API'si akış çıkışı Azure depolama şu anda desteklemiyor. Çıkış akış için kullanılabilen .NET için Batch dosya kuralları kitaplığı kullanmayı düşünün. Diğer diller için kendi çözümünüzü uygulamak gerekir. Görev çıktısını kalıcı hale getirme için diğer seçenekler hakkında daha fazla bilgi için bkz. [Azure Depolama'ya iş ve görev çıktılarını kalıcı hale getirme](batch-task-output.md). 
 
@@ -164,7 +164,7 @@ Her dosyayı karşıya yükleme Batch işlem düğümü için iki günlük dosya
 
 ## <a name="use-the-batch-service-api-with-the-batch-file-conventions-standard"></a>Batch hizmeti API'si ile Batch dosya kuralları standart kullanın
 
-Batch hizmeti API'si ile görev çıktılarını kalıcı hale getirme, hedef kapsayıcı adı verebilirsiniz ve istediğiniz gibi blobları. Ayrıca bunları göre seçebilirsiniz [Batch dosya kuralları standart](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). Dosya kuralları standart Azure Depolama'daki bir blob adları iş ve görev tabanlı bir belirtilen çıkış dosyası için ve hedef kapsayıcı adını belirler. Dosya kuralları standart çıkış dosyalarını adlandırma için kullandığınız sonra çıktı dosyalarınızı görüntülenmek üzere kullanılabilir [Azure portalında](https://portal.azure.com).
+Batch hizmeti API'si ile görev çıktılarını kalıcı hale getirme, hedef kapsayıcı adı verebilirsiniz ve istediğiniz gibi blobları. Ayrıca bunları göre seçebilirsiniz [Batch dosya kuralları standart](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Dosya kuralları standart Azure Depolama'daki bir blob adları iş ve görev tabanlı bir belirtilen çıkış dosyası için ve hedef kapsayıcı adını belirler. Dosya kuralları standart çıkış dosyalarını adlandırma için kullandığınız sonra çıktı dosyalarınızı görüntülenmek üzere kullanılabilir [Azure portalında](https://portal.azure.com).
 
 C# dilinde geliştiriyorsanız yerleşik yöntemlerini kullanabilirsiniz [.NET için Batch dosya kuralları Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files). Bu kitaplık, düzgün bir şekilde adlandırılmış kapsayıcı ve blob yollarının sizin için oluşturur. Örneğin, adın doğru proje adına göre kapsayıcı almak için API çağırabilirsiniz:
 

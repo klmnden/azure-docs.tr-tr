@@ -128,31 +128,6 @@
 #### [Self servis parola sıfırlama için kaydolma](user-help/active-directory-passwords-reset-register.md)
 
 
-## Cihazları yönetme
-### [Genel Bakış](devices/overview.md)
-
-### Hızlı Başlangıçlar
-#### [Azure AD alanında kayıtlı Windows 10 cihazlarını ayarlama](user-help/device-management-azuread-registered-devices-windows10-setup.md)
-#### [Azure AD alanına katılmış cihazları ayarlama](user-help/device-management-azuread-joined-devices-setup.md)
-
-### Öğreticiler
-#### [Yönetilen etki alanları için hibrit Azure AD katılımını yapılandırma](devices/hybrid-azuread-join-managed-domains.md)
-#### [Federasyon etki alanları için hibrit Azure AD katılımını yapılandırma](devices/hybrid-azuread-join-federated-domains.md)
-#### [Hibrit Azure AD katılımını el ile yapılandırma](devices/hybrid-azuread-join-manual-steps.md)
-#### [Windows 10’u ilk kez çalıştırma deneyimi sırasında Azure AD katılımını yapılandırma](devices/azuread-joined-devices-frx.md)
-
-### Nasıl yapılır kılavuzları
-#### [Azure AD katılımını planlama](devices/azureadjoin-plan.md)
-#### [Hibrit Azure AD katılımınızı uygulamayı planlama](devices/hybrid-azuread-join-plan.md)
-#### [Cihazlarınızın hibrit Azure AD katılımını denetleme](devices/hybrid-azuread-join-control.md)
-#### [Azure AD'ye katılan cihazlara yerel yöneticiler atama](devices/assign-local-admin.md)
-#### [Hibrit Azure AD’ye katılmış geçerli Windows cihazlarında sorun giderme](devices/troubleshoot-hybrid-join-windows-current.md)
-#### [Hibrit Azure AD’ye katılmış eski Windows cihazlarında sorun giderme](devices/troubleshoot-hybrid-join-windows-legacy.md)
-
-### Kavramlar
-#### [Azure portalını kullanarak cihazları yönetme](devices/device-management-azure-portal.md)
-#### [SSS](devices/faq.md)
-
 ## Uygulamaları yönetme
 ### [Genel Bakış](manage-apps/what-is-application-management.md)
 ### [Başlarken](manage-apps/plan-an-application-integration.md)

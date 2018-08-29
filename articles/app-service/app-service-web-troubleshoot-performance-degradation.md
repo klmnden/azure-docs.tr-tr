@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 34ee673ee1cf870e376ac8c954a9f3fc468abaa2
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 0f053c0293488f19adcd058f1ba8304d8d238738
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42061490"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128315"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Azure App Service'te yavaş web uygulaması performans sorunlarını giderme
 Bu makale, yavaş bir web uygulaması performans sorunlarını gidermenize yardımcı olur. [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -46,7 +46,7 @@ Sorun giderme sırayla üç ayrı görevlere ayrılabilir:
 2. [Veri toplama](#collect)
 3. [Sorunu gidermek](#mitigate)
 
-[App Service Web Apps](/services/app-service/web/) her adımda çeşitli seçenekler sunar.
+[App Service Web Apps](app-service-web-overview.md) her adımda çeşitli seçenekler sunar.
 
 <a name="observe" />
 

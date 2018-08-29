@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 08/27/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86b8f76bd221be9f30a5b9336af858359ae0af8f
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 8066612db20d1569920835a67d84b27d1b852e6e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238888"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128135"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümüyle ortamınızdaki Değişiklikleri İzle
 
@@ -94,8 +94,18 @@ Windows bilgisayarlarda izlemeye dosyaları yapılandırmak için aşağıdaki a
 |Etkin     | Ayarın uygulanmış olup olmadığını belirler.        |
 |Öğe Adı     | İzlenecek dosyanın kolay adı.        |
 |Grup     | Dosyaları mantıksal olarak gruplamak için bir grup adı.        |
-|Yolu Gir     | Dosyanın denetleneceği yol. Örneğin: “c:\temp\myfile.txt”       |
+|Yolu Gir     | Örneğin dosyanın denetleneceği yol: "c:\temp\\\*.txt"<br>Gibi ortam değişkenlerini kullanabilirsiniz "%winDir%\System32\\\*. *"       |
+|Özyineleme     | İzlenecek öğe aranırken özyinelemenin kullanılıp kullanılmadığını belirler.        |
 |Dosya içeriğini tüm ayarlar için karşıya yükleme| İzlenen değişikliklerin dosya içeriği karşıya yükleme işlemini açar veya kapatır. Kullanılabilir seçenekler: **True** veya **False**.|
+
+## <a name="wildcard-recursion-and-environment-settings"></a>Joker karakter, özyineleme ve ortam ayarları
+
+Özyineleme, dizinleri ve dosyaları ortamlarında birden çok izleme olanak tanımak için ortam değişkenlerini izleme veya dinamik basitleştirmek için joker karakterler belirtmenize olanak sağlar sürücü adları. Özyineleme yapılandırırken bilmeniz gereken genel bilgileri listesi verilmiştir:
+
+* Joker karakter, birden çok dosyayı izlemek için gereklidir
+* Joker karakterler kullanılıyorsa, bunlar yalnızca yolun son segmentinde kullanılabilir. (C:\folder gibi\\**dosya** veya /etc/*.conf)
+* Bir ortam değişkeni geçersiz bir yol varsa, doğrulama başarılı olur ancak sayım yürüttüğünde yol başarısız olur.
+* Genel yolları gibi önlemek `c:\*.*` yolu ayarlarken bu geçilen çok fazla klasörlerinde neden.
 
 ## <a name="configure-file-content-tracking"></a>Dosya içeriği izlemeyi yapılandırma
 
@@ -122,13 +132,8 @@ Windows bilgisayarlarda kayıt defteri anahtarı izlemeyi yapılandırmak için 
 
 Değişiklik izleme çözümü, aşağıdaki öğeler şu anda desteklemez:
 
-* İzleme Windows dosyası için klasörleri (dizin)
-* İzleme Windows dosyası için özyineleme
-* Joker karakterler için Windows dosya izleme
 * İzleme Windows kayıt defteri için özyineleme
-* Yol değişkenleri
 * Ağ dosya sistemleri
-* Dosya İçeriği
 
 Diğer sınırlamalar:
 
@@ -137,7 +142,7 @@ Diğer sınırlamalar:
 * Ağ trafiği yüksek olduğunda, değişiklik kayıtları görüntülemek için altı saat sürebilir.
 * Bilgisayar, bir bilgisayar kapatıldı yapılandırmasını değiştirirseniz, önceki yapılandırmaya ait değiştiğinde post.
 
-## <a name="known-issues"></a>Bilinen sorunlar
+## <a name="known-issues"></a>Bilinen Sorunlar
 
 Değişiklik izleme çözümü şu anda aşağıdaki sorunlarla karşılaşıyor:
 

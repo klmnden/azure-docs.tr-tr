@@ -1,5 +1,5 @@
 ---
-title: Azure Veri Kataloğu Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
+title: Azure Veri Kataloğu Belgeleri - Öğreticiler, API Başvurusu
 description: Kurumunuzun veri kaynaklarını bulabileceği, anlayabileceği ve tüketebileceği bir veri kataloğu oluşturma hakkında bilgi edinin. Öğreticiler, API başvurusu ve diğer belgeler.
 services: data-catalog
 author: czeumault
@@ -7,16 +7,15 @@ manager: carolz
 layout: LandingPage
 ms.assetid: ''
 ms.service: data-catalog
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: landing-page
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: carolz
-ms.openlocfilehash: 7ec21b9b55015c247cef3f216dbb14f4ddc30e8d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5c409b3905b6d75502cfb40bd278865e2673aa27
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050483"
 ---
 # <a name="data-catalog-documentation"></a>Veri Kataloğu Belgeleri
 

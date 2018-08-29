@@ -1,120 +1,115 @@
 ---
-title: Sunucusuz senaryo - Azure ile bir müşteri öngörüleri panosu oluşturun | Microsoft Docs
-description: Müşteri geri bildirimi, sosyal medya veri ve diğer Azure Logic Apps ve Azure işlevleri içeren bir müşteri Pano oluşturma tarafından nasıl yönetebilmeniz için bilgi edinin
-keywords: ''
+title: Sunucusuz senaryo - Azure Hizmetleri ile müşteri öngörüleri panosu oluşturun | Microsoft Docs
+description: Müşteri geri bildirimi, sosyal medya verileri ve diğer Azure Logic Apps ve Azure işlevleri ile müşteri Pano oluşturma tarafından yönetme
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: jeffhollan
+ms.author: jehollan
+ms.reviewer: estfan, LADocs
+ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.author: jehollan; LADocs
-ms.openlocfilehash: 3ee3ec3107cf8aad834e8201405c9aa833d838af
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 9d6d74c4afb4d1cd62e5946b7e6f8c401e7ef2aa
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299969"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124653"
 ---
-# <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Azure işlevleri ve Azure Logic Apps ile bir akış müşteri öngörüleri panosu oluşturun
+# <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Azure Logic Apps ve Azure işlevleri ile akış müşteri öngörüleri panosu oluşturma
 
-Azure yardımcı sunucusuz araçları hızlı bir şekilde bulutta, yapı ve ana bilgisayar uygulamaları altyapı hakkında düşünmek zorunda kalmadan sunar. Bu öğreticide, müşteri geri bildirimi tetikler, machine learning ile geribildirim analiz eden ve Power BI veya Azure Data Lake gibi bir kaynak Öngörüler yayımlar bir Pano oluşturabilirsiniz.
+Azure yardımcı olan sunucusuz Araçlar hızla oluşturun ve barındırın uygulamalarını bulutta, altyapı konusunda düşünmek zorunda kalmadan sunar. Bu öğreticide, müşteri geri bildirimi tetikler, machine learning ile geri bildirim analiz eder ve Power BI veya Azure Data Lake gibi bir kaynaktaki ınsights yayımlar bir Pano oluşturabilirsiniz.
 
-Bu çözüm için sunucusuz uygulamalar için bu anahtar Azure bileşenleri kullan: [Azure işlevleri](https://azure.microsoft.com/services/functions/) ve [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
-Azure mantıksal uygulamaları düzenlemelerin sunucusuz bileşenlerinde oluşturabilir ve 200 + Hizmetleri ve API'ları bağlamak bulutta sunucusuz iş akışı altyapısı sağlar. Azure işlevleri sağlayan sunucusuz bulut bilgi işlem. Bu çözüm, önceden tanımlanmış anahtar sözcükleri temel alarak müşteri tweet'leri bayrak eklemek için Azure işlevleri kullanır.
+Bu çözüm için sunucusuz uygulamalar için bu anahtarı Azure bileşenleri kullan: [Azure işlevleri](https://azure.microsoft.com/services/functions/) ve [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
+Azure Logic Apps sunucusuz bileşenlerinde düzenlemeleri oluşturun ve 200'den fazla Hizmetleri ve API'ler bağlanmak bulutta bir sunucusuz bir iş akışı altyapısı sağlar. Azure işlevleri, sunucusuz bulut bilgi işlem sağlar. Bu çözüm, önceden tanımlanmış bir anahtar sözcüklere göre müşteri tweetleri bayrak eklemek için Azure işlevleri kullanır.
 
-Bu senaryoda, müşterilerden gelen geri bildirim bulunması tetikleyen bir mantıksal uygulama oluşturun. Müşteri geri bildirimine yanıt Yardım içerdiğini Outlook.com, Office 365, anket Monkey, Twitter, bazı bağlayıcılar ve bir [web formu HTTP isteğinden](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). Oluşturduğunuz iş akışı diyez Twitter'da izler.
+Bu senaryoda, müşterilerin geri bildirim bulmaya Tetikleyiciler bir mantıksal uygulama oluşturun. Bazı bağlayıcılar, müşteri geri bildirimlerini yanıt Yardım Outlook.com, Office 365, Twitter, anket Monkey, içerir ve bir [web formu HTTP isteğinden](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). Oluşturduğunuz iş akışı bir diyez etiketi Twitter'da izler.
 
-Yapabilecekleriniz [çözümün tamamında Visual Studio'da derleme](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) ve [Azure Resource Manager şablonu ile çözümü dağıtmak](../logic-apps/logic-apps-create-deploy-template.md). Bu çözüm oluşturmayı gösteren bir videosu için [bu Channel 9 video izlemeyi](http://aka.ms/logicappsdemo). 
+Yapabilecekleriniz [tüm çözümünü Visual Studio'da derleme](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) ve [Azure Resource Manager şablonu ile bir çözüm dağıtma](../logic-apps/logic-apps-create-deploy-template.md). Bu çözümün nasıl oluşturulacağını gösteren video kılavuz [bu Channel 9 videosunu izleyin](http://aka.ms/logicappsdemo). 
 
-## <a name="trigger-on-customer-data"></a>Müşteri verilerine Tetikle
+## <a name="trigger-on-customer-data"></a>Müşteri verilerinizi tetikleyin
 
-1. Azure portal ya da Visual Studio boş mantıksal uygulama oluşturma. 
+1. Azure portalı ya da Visual Studio, boş bir mantıksal uygulama oluşturun. 
 
-   Logic apps yeniyseniz, gözden [Azure portalı için Hızlı Başlangıç](../logic-apps/quickstart-create-first-logic-app-workflow.md) veya [Visual Studio için Hızlı Başlangıç](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+   Logic apps kullanmaya yeni başladıysanız gözden [Hızlı Başlangıç için Azure portalında](../logic-apps/quickstart-create-first-logic-app-workflow.md) veya [Hızlı Başlangıç için Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
-2. Mantıksal Uygulama Tasarımcısı'nda bulun ve bu eylem sahip Twitter tetikleyici ekleyin: **yeni tweet zaman nakledilir**
+2. Mantıksal Uygulama Tasarımcısı'nda, bulun ve bu eylemi olan bir Twitter tetikleyicisi ekleyin: **yeni bir tweet gönderildiğinde**
 
-3. Bir anahtar sözcüğü veya diyez göre tweet'leri dinlemek için tetikleyici ayarlayın.
+3. Bir anahtar sözcüğü veya diyez etiketi dayalı tweetleri dinlemek için tetikleyici ayarlayın.
 
-   Twitter tetikleyici gibi yoklama tabanlı tetikleyiciler üzerindeki mantıksal uygulama için yeni öğeler ne sıklıkta denetleyeceğini yineleme özelliği belirler.
+   Twitter tetikleyicisi gibi yoklama temel alan Tetikleyicileri üzerinde yineleme özelliği, mantıksal uygulama için yeni öğeleri ne sıklıkla denetleyeceğini belirler.
 
-   ![Twitter tetikleyici örneği][1]
+   ![Twitter tetikleyicisi örneği][1]
 
-Bu mantıksal uygulama artık tüm yeni tweet'leri ateşlenir. Ardından alabilir ve böylece ifade düşüncelerin daha iyi anlayabilirsiniz tweet verileri analiz etmek. 
+Bu mantıksal uygulama, artık tüm tweet'leri tetikler. Ardından, alın ve ifade yaklaşımları daha iyi anlayabilmeniz tweet verileri analiz edin. 
 
-## <a name="analyze-tweet-text"></a>Tweet metin çözümleme
+## <a name="analyze-tweet-text"></a>Tweet metni analiz edin
 
-Bazı metinleri arkasında düşünceleri algılamak için kullanabileceğiniz [Azure Bilişsel Hizmetler](https://azure.microsoft.com/services/cognitive-services/).
+Metin arkasında duyarlılığını algılamak için kullanabileceğiniz [Azure Bilişsel Hizmetler](https://azure.microsoft.com/services/cognitive-services/).
 
-1. Tetikleyici altında mantığı Uygulama Tasarımcısı'nda seçin **yeni adım**.
+1. Logic Apps Tasarımcısı'nda tetikleyicinin altında seçin **yeni adım**.
 
-2. Bul **metin analizi** bağlayıcı.
+2. Bulma **metin analizi** bağlayıcı.
 
-3. Seçin **algılamak düşünceleri** eylem.
+3. Seçin **duygu algılama** eylem.
 
-4. İstenirse, metin Analytics hizmeti için geçerli bir Bilişsel hizmetler anahtarı sağlayın.
+4. İstenirse, metin analizi hizmeti için geçerli bir Bilişsel hizmetler anahtarı sağlayın.
 
-5. Altında **iste gövde**seçin **Tweet metin** giriş olarak analize tweet metin sağlayan alan.
+5. Altında **istek gövdesi**seçin **Tweet metni** alanı tweet metni, analiz için giriş olarak sağlar.
 
-Tweet hakkında Öngörüler ve tweet verileri aldıktan sonra şimdi bazı ilgili bağlayıcılar ve eylemlerini kullanabilirsiniz:
+Tweet ile ilgili Öngörüler ve tweet verileri aldıktan sonra artık birden fazla uygun bağlayıcılar ve eylemlerinin kullanabilirsiniz:
 
-* **Power BI - satır akış veri kümesine ekleme**: Power BI Panosu üzerinde gelen tweet'leri görüntüleyin.
-* **Azure Data Lake - dosya ekleme**: müşteri verilerini analytics işlerini dahil etmek için bir Azure Data Lake veri kümesini ekleyin.
-* **SQL - satır ekleme**: deposundaki verileri sonraki alma için bir veritabanı.
-* **Boşluk - iletisi gönderin**: eylemi gerektiren olumsuz görüşler hakkında Slack bir kanal bildirin.
+* **Power BI - akış veri kümesine satırlar eklemek**: gelen tweetleri bir Power BI Panoda görüntüleyin.
+* **Azure Data Lake - dosyasına**: müşteri verilerini analytics işlerinde dahil etmek için bir Azure Data Lake veri kümesi ekleyin.
+* **SQL - Satır Ekle**: sonraki almak için bir veritabanında veri Store.
+* **Slack - ileti gönderme**: negatif eylemi gerektiren geri bildirimler hakkında bir Slack kanalına bildirin.
 
-Azure işlev özel işleme verilerinizde gerçekleştirebilmeleri için ve ayrıca oluşturabilirsiniz. 
+Oluşturabilirsiniz ve böylece özel işleme, verilerinizde gerçekleştirebileceğiniz bir Azure işlevi. 
 
-## <a name="process-data-with-azure-functions"></a>Azure işlevleriyle işlem verileri
+## <a name="process-data-with-azure-functions"></a>Azure işlevleri ile verilerini işleme
 
-Bir işlev oluşturmadan önce Azure aboneliğinizde bir işlev uygulaması oluşturun. Ayrıca, mantıksal uygulamanızı doğrudan bir işlevi çağırmak işlevi tetikleyin bağlama, örneğin, kullanmak bir HTTP olmalıdır **HttpTrigger** şablonu. Bilgi [Azure portalında işlevi ve ilk işlev uygulaması oluşturmak nasıl](../azure-functions/functions-create-first-azure-function-azure-portal.md).
+Bir işlev oluşturmadan önce Azure aboneliğinizde bir işlev uygulaması oluşturun. Ayrıca, mantıksal uygulamanızı doğrudan bir işlevi çağırmak bir HTTP tetikleyicisi bağlama, örneğin, kullanın işlevinin olmalıdır **HttpTrigger** şablonu. Bilgi [Azure portalında işlev ve ilk işlev uygulaması oluşturma işlemini](../azure-functions/functions-create-first-azure-function-azure-portal.md).
 
-Bu senaryo için tweet metin Azure işlevinizi için istek gövdesi olarak kullanın. İşlev kodunuzda tweet metin bir anahtar sözcük veya tümcecik içerip içermediğini belirler mantığı tanımlayın. Basit veya karmaşık senaryo için gerekli olarak işlevini saklayın.
-İşlevi sonunda, örneğin bazı verilerle mantıksal uygulama için bir yanıt döndürür, basit bir boolean değeri gibi `containsKeyword` veya karmaşık bir nesne.
+Bu senaryo için Azure işleviniz için istek gövdesi olarak tweet metni kullanın. İşlev kodunuzu tweet metni, bir anahtar sözcük veya tümcecik içerip içermediğini belirler mantıksal tanımlayın. İşlevi, basit veya karmaşık senaryo için gerekli olarak tutun.
+İşlevin sonunda, örneğin bir mantıksal uygulama bazı verilerle yanıt döndürür, basit bir boolean değeri gibi `containsKeyword` veya karmaşık bir nesne.
 
 > [!TIP]
-> Bir mantıksal uygulama bir işlevden karmaşık yanıt erişmek için **ayrıştırma JSON** eylem.
+> Mantıksal uygulama bir işlevden karmaşık bir yanıt erişmek için **JSON Ayrıştır** eylem.
 
-İşiniz bittiğinde işlevi kaydedin ve ardından, oluşturduğunuz mantıksal uygulama içinde eylem olarak işlevi ekleyin.
+İşiniz bittiğinde işlevi kaydedin ve ardından oluşturduğunuz mantıksal uygulama içinde eylem olarak işlevi ekleyin.
 
-## <a name="add-azure-function-to-logic-app"></a>Mantıksal uygulama için Azure işlevi ekleme
+## <a name="add-azure-function-to-logic-app"></a>Mantıksal uygulama için Azure işlevi Ekle
 
-1. Mantıksal Uygulama Tasarımcısı'nda altında **algılamak düşünceleri** eylemi seçin **yeni adım**.
+1. Mantıksal Uygulama Tasarımcısı'nda altında **duygu algılama** eylemi seçin **yeni adım**.
 
-2. Bul **Azure işlevleri** Bağlayıcısı ve oluşturduğunuz işlevi seçin.
+2. Bulma **Azure işlevleri** bağlayıcı ve oluşturduğunuz işlevi seçin.
 
-3. Altında **iste gövde**seçin **Tweet metin**.
+3. Altında **istek gövdesi**seçin **Tweet metni**.
 
-![Yapılandırılmış Azure işlevi adım][2]
+![Yapılandırılmış bir Azure işlevi adım][2]
 
-## <a name="run-and-monitor-your-logic-app"></a>Çalıştırın ve mantıksal uygulamanızı izleme
+## <a name="run-and-monitor-your-logic-app"></a>Çalıştırma ve mantıksal uygulamanızı izleme
 
-Tüm geçerli veya önceki çalıştırmaları mantıksal uygulamanız için gözden geçirmek için hata ayıklama ve Visual Studio, Azure portalında veya SDK'ları ve Azure REST API'leri aracılığıyla Azure Logic Apps sağlayan özellikleri izleme zengin kullanabilirsiniz.
+Mantıksal uygulamanız için tüm geçerli veya önceki çalıştırmaları gözden geçirmek için zengin hata ayıklama ve izleme Azure Logic Apps, Visual Studio, Azure portalında veya Azure REST API'leri ve SDK'ları aracılığıyla sağlar özelliklerini kullanabilirsiniz.
 
-Kolayca mantığı Uygulama Tasarımcısı'nda mantıksal uygulamanızı test etmek için tercih **tetikleyici çalıştırmak**. Tetikleyici için tweet'leri ölçütlerinizi karşılayan tweet bulunana kadar belirtilen bir zamanlamaya göre yoklar. Çalışma sürerken Tasarımcısı'nı çalıştıran için dinamik bir görünümü gösterir.
+Mantıksal uygulamanızı Logic Apps Tasarımcısı'nda kolayca test edin, tercih **tetikleyici çalıştırması**. Tetikleyici için ölçütlerinizi karşılayan bir tweet bulunana kadar belirtilen bir zamanlamaya göre tweetleri yoklar. Çalıştırma sürerken bu çalıştırma için dinamik bir Görünüm Tasarımcısı'nda gösterilir.
 
-Önceki görünüme geçmişlerini Visual Studio veya Azure Portalı'nı çalıştırın: 
+Visual Studio veya Azure portalında, önceki görünüme geçmişleri çalıştırın: 
 
-* Visual Studio Cloud Explorer'ı açın. Mantıksal uygulamanızı bulmak, uygulamanın kısayol menüsünü açın. Seçin **açık çalıştırma geçmişi**.
+* Visual Studio Cloud Explorer'ı açın. Mantıksal uygulamanızı bulun, uygulamanın kısayol menüsünü açın. Seçin **açık çalıştırma geçmişini**.
 
-* Azure portalda mantıksal uygulamanızı bulun. Mantığı uygulamanızın menüsünde, **genel bakış**. 
+* Azure portalında mantıksal uygulamanızı bulun. Mantıksal uygulama menüsünde, **genel bakış**. 
 
 ## <a name="create-automated-deployment-templates"></a>Otomatik dağıtım şablonları oluşturma
 
-Bir mantıksal uygulama çözüm oluşturduktan sonra yakalama ve uygulamanızı olarak dağıtma bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-overview.md#template-deployment) herhangi bir Azure bölgesine dünyadaki. Hem uygulamanızın farklı sürümlerini oluşturmak ve bir derleme çözümünüzü tümleştirmek için parametreleri değiştirin ve ardışık düzen sürüm için bu özelliği kullanın. Çözümün tamamında tüm bağımlılıkları tek bir şablon olarak yönetebilmeniz için Azure işlevleri dağıtım şablonunuzda de içerebilir. Bilgi [mantığı uygulama dağıtım şablonlarının nasıl oluşturulacağı](../logic-apps/logic-apps-create-deploy-template.md).
+Bir mantıksal uygulama çözümünü oluşturduktan sonra yakalama ve uygulamanızı olarak dağıtma bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-overview.md#template-deployment) dünyanın herhangi bir Azure bölgesine. Yayın işlem hem uygulamanızın farklı sürümlerini oluşturmak ve bir yapıda çözümünüzü tümleştirme için parametreleri değiştirmek için bu özelliği kullanabilirsiniz. Tüm bağımlılıkları olan tüm çözümü tek bir şablon olarak yönetebilmeniz için Azure işlevleri, dağıtım şablonunuza ekleyebilirsiniz. Bilgi [mantıksal uygulama dağıtım şablonları oluşturma](../logic-apps/logic-apps-create-deploy-template.md).
 
-Bir Azure işlevi ile bir örnek dağıtım şablonu için denetleyin [Azure Hızlı Başlangıç şablonu deposu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
+Bir Azure işlevi ile bir örnek dağıtım şablonu için [Azure Hızlı Başlangıç şablonu depo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Diğer örnekleri ve senaryoları için Azure mantıksal uygulamaları Bul](logic-apps-examples-and-scenarios.md)
+* [Diğer örnekler ve senaryolar için Azure Logic Apps bulun](logic-apps-examples-and-scenarios.md)
 
 <!-- Image References -->
 [1]: ./media/logic-apps-scenario-social-serverless/twitter.png

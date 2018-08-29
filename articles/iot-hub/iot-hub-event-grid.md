@@ -1,6 +1,6 @@
 ---
-title: Azure IOT Hub ve olay kılavuz | Microsoft Docs
-description: IOT hub'ında gerçekleşecek Eylemler temel işlemleri tetiklemek için Azure olay kılavuzunu kullanın.
+title: Azure IOT Hub ve Event Grid | Microsoft Docs
+description: IOT Hub'ında gerçekleşen Eylemler göre süreçlerini tetiklemek için Azure Event grid'i kullanın.
 author: kgremban
 manager: timlt
 ms.service: iot-hub
@@ -8,43 +8,71 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: f187aa81ca519f2597657f01c2d7a630740b5348
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 068e9a3379bd2762455aade1761592fa70a09a20
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634320"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144387"
 ---
-# <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>Tetikleyici eylemleri - Önizleme olay kılavuz kullanarak IOT hub'ı olaylarına tepki
+# <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Tetikleyici eylemlere Event Grid kullanarak IOT Hub olaylarına tepki verme
 
-Böylece diğer hizmetlere olay bildirimleri gönderin ve aşağı akış işlemleri tetiklemesini azure IOT hub'ı Azure olay kılavuz ile tümleşir. İş uygulamalarınız, kritik olayları için güvenilir, ölçeklenebilir ve güvenli bir şekilde tepki verme IOT hub'ı olaylarını dinleyecek şekilde yapılandırın. Örneğin, bir veritabanını güncelleştirmek, bir anahtar oluşturma ve yeni bir IOT cihaz IOT hub'ınıza kayıtlı her zaman bir e-posta bildirimi gönderiliyor gibi birden çok eylemleri gerçekleştirmek için bir uygulama oluşturun. 
+Olay bildirimleri diğer hizmetlere gönderin ve aşağı akış süreçlerini tetiklemek, azure IOT hub'ı Azure Event Grid ile tümleşir. İş uygulamalarınızı önemli olaylara güvenilir, ölçeklenebilir ve güvenli bir şekilde tepki verebilir böylece IOT Hub olaylarını dinlemek için yapılandırın. Örneğin, bir veritabanını güncelleştirmek, bilet oluşturma ve IOT hub'ınıza her yeni bir IOT cihazı kaydedildiğinde bir e-posta bildirimi göndermeye gibi birden fazla eylem gerçekleştirmek için bir uygulama oluşturun. 
 
-[Azure olay kılavuz] [ lnk-eg-overview] yayımlamayı kullanan bir tam olarak yönetilen olay yönlendirme hizmeti-model abone olun. Olay kılavuz sahip gibi Azure Hizmetleri için yerleşik destek [Azure işlevleri](../azure-functions/functions-overview.md) ve [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)ve olay uyarıları Web kancalarını kullanarak Azure olmayan hizmetlerine sunabilir. Olay kılavuz destekleyen olay işleyicileri tam bir listesi için bkz: [Azure olay kılavuzuna giriş][lnk-eg-overview]. 
+[Azure Event Grid] [ lnk-eg-overview] Yayımla kullanan bir tam olarak yönetilen olay yönlendirme hizmetidir-abonelik modeli. Olay kılavuzu gibi Azure Hizmetleri için yerleşik desteği vardır [Azure işlevleri](../azure-functions/functions-overview.md) ve [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)ve olay uyarıları için Web kancalarını kullanan Azure dışı hizmetleri sunabilirsiniz. Event Grid tarafından olay işleyicileri tam bir listesi için bkz. [Azure Event grid'e giriş][lnk-eg-overview]. 
 
-![Azure olay kılavuz mimarisi](./media/iot-hub-event-grid/event-grid-functional-model.png)
+![Azure Event Grid mimarisi](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
 ## <a name="regional-availability"></a>Bölgesel kullanılabilirlik
 
-Olay kılavuz tümleştirme, burada olay kılavuz desteklenen bölgelerde bulunan IOT hub'ları için kullanılabilir. Bölgeler en son listesi için bkz: [Azure olay kılavuzuna giriş][lnk-eg-overview]. 
+Event Grid tümleştirmesi, Event Grid desteklendiği bölgede bulunan IOT hub'ları için kullanılabilir. En son bölgelerin listesi için bkz. [Azure Event grid'e giriş][lnk-eg-overview]. 
 
 ## <a name="event-types"></a>Olay türleri
 
-IOT Hub aşağıdaki olay türlerini yayımlar: 
+IOT Hub aşağıdaki olay türleri yayımlar: 
 
 | Olay türü | Açıklama |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | IOT hub'a bir cihaz kaydedildiğinde yayımladı. |
 | Microsoft.Devices.DeviceDeleted | Bir cihaz IOT hub'ından silindiğinde yayımladı. | 
+| Microsoft.Devices.DeviceConnected | Bir cihaz IOT hub'a bağlandığında yayımladı. | 
+| Microsoft.Devices.DeviceDisconnected | Bir cihaz IOT hub'ından kesildiğinde yayımladı. | 
+Bağlı cihaz ve olayları cihazın bağlantısı Not Kanada Doğu ve Doğu ABD bölgeleri için kısa süre içinde etkinleştirilecektir.
 
-Her IOT hub'ından yayımlamak için hangi olayların yapılandırmak için Azure portalında veya Azure CLI kullanın. Örneğin, öğreticiyi deneyin [Logic Apps kullanarak Azure IOT Hub olayları hakkında e-posta bildirim gönderme](../event-grid/publish-iot-hub-events-to-logic-apps.md). 
+Her IOT hub'ından yayımlamak için hangi olayları yapılandırmak için Azure portal veya Azure CLI kullanın. Örneğin, öğreticiyi deneyin [Logic Apps kullanarak Azure IOT Hub olayları hakkında e-posta bildirimleri gönderme](../event-grid/publish-iot-hub-events-to-logic-apps.md). 
 
 ## <a name="event-schema"></a>Olay şeması
 
-IOT hub'ı olayları cihaz yaşam döngüsü değişiklikleri yanıtlamaları gereken tüm bilgileri içerir. EventType özelliği ile başlayan denetleyerek bir IOT hub'ı olay tanımlayabilirsiniz **Microsoft.Devices**. Olay kılavuz olay özelliklerini kullanma hakkında daha fazla bilgi için bkz: [olay kılavuz olay şema](../event-grid/event-schema.md).
+IOT Hub olaylarını cihaz yaşam döngünüzü değişikliklere yanıt vermek için gereken tüm bilgileri içerir. EventType özelliği ile başlayan denetleyerek bir IOT Hub ve event tanımlayabilirsiniz **Microsoft.Devices**. Event Grid olay özelliklerini kullanma hakkında daha fazla bilgi için bkz. [Event Grid olay şeması](../event-grid/event-schema.md).
 
-### <a name="device-created-schema"></a>Oluşturulan cihaz şeması
+### <a name="device-connected-schema"></a>Cihaz bağlı şeması
 
-Aşağıdaki örnek, olay oluşturulan bir aygıtı şeması gösterir: 
+Aşağıdaki örnek, bir cihaz bağlı olay şeması gösterir: 
+
+```json
+[{  
+  "id": "f6bbf8f4-d365-520d-a878-17bf7238abd8", 
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
+  "subject": "devices/LogicAppTestDevice", 
+  "eventType": "Microsoft.Devices.DeviceConnected", 
+  "eventTime": "2018-06-02T19:17:44.4383997Z", 
+  "data": {
+      "deviceConnectionStateEventInfo": {
+        "sequenceNumber":
+          "000000000000000001D4132452F67CE200000002000000000000000000000001"
+      },
+    "hubName": "egtesthub1",
+    "deviceId": "LogicAppTestDevice",
+    "moduleId" : "DeviceModuleID",
+  }, 
+  "dataVersion": "1", 
+  "metadataVersion": "1" 
+}]
+```
+
+### <a name="device-created-schema"></a>Cihaz oluşturuldu şeması
+
+Aşağıdaki örnek, olay oluşturan bir cihaz şemasını gösterir: 
 
 ```json
 [{
@@ -57,6 +85,7 @@ Aşağıdaki örnek, olay oluşturulan bir aygıtı şeması gösterir:
     "twin": {
       "deviceId": "LogicAppTestDevice",
       "etag": "AAAAAAAAAAE=",
+      "deviceEtag":"null",
       "status": "enabled",
       "statusUpdateTime": "0001-01-01T00:00:00",
       "connectionState": "Disconnected",
@@ -84,42 +113,42 @@ Aşağıdaki örnek, olay oluşturulan bir aygıtı şeması gösterir:
       }
     },
     "hubName": "egtesthub1",
-    "deviceId": "LogicAppTestDevice",
-    "operationTimestamp": "2018-01-02T19:17:44.4383997Z",
-    "opType": "DeviceCreated"
+    "deviceId": "LogicAppTestDevice"
   },
-  "dataVersion": "",
+  "dataVersion": "1",
   "metadataVersion": "1"
 }]
 ```
 
-Her bir özellik ayrıntılı bir açıklaması için bkz: [IOT Hub için Azure olay kılavuz olay şeması](../event-grid/event-schema-iot-hub.md)
+Her bir özellik ayrıntılı bir açıklaması için bkz. [IOT hub'ın Azure Event Grid olay şeması](../event-grid/event-schema-iot-hub.md)
 
-## <a name="filter-events"></a>Olaylar filtresi
+## <a name="filter-events"></a>Olayları Filtrele
 
-IOT hub'ı olay abonelikleri olayları olay türü ve cihaz adına göre filtre uygulayabilirsiniz. Olay kılavuz iş konu filtrelere bağlı olarak **önek** ve **soneki** eşleşir. Filtre kullanır, bir `AND` için önek ve sonek eşleşen bir konu olaylarla aboneye teslim işleci. 
+IOT Hub olay abonelikleri, olayları olay türü ve cihaz adına göre filtre uygulayabilirsiniz. Event Grid iş konu filtreleri temel alarak **ile başlar** (ön ek) ve **sona erer ile** (sonek) eşleşir. Filtre kullanır, bir `AND` önek ve sonek eşleşen bir konu olayları aboneye teslim edilmesi işleci. 
 
-IOT olayları konu biçimi kullanır:
+IOT olayların konu biçimi kullanır:
 
 ```json
 devices/{deviceId}
 ```
+## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Bağlı cihaz ve cihaz sınırlamaları olayları bağlantısı kesildi
 
-### <a name="tips-for-consuming-events"></a>Olayları tüketimi için ipuçları
+Bağlı cihaz ve cihaz bağlantısı etkinlikleri almak için cihazınız için D2C veya C2D bağlantısı açmalısınız. Cihazınızı MQTT protokolünü kullanıyorsanız, IOT Hub bağlantısını açmak C2D tutar. İçin AMQP çağırarak C2D bağlantıyı açabilirsiniz [alma zaman uyumsuz API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). Telemetri gönderiyorsanız D2C bağlantı açıktır. Cihaz bağlantı titremeyi, yani cihazın kurulup kesildiğinde sık, her tek bağlantı göndermezler durum ancak anlık görüntüyle alınan dakikada bağlantı durumuna yayımlar. Kesinti bittikten hemen sonra IOT hub'ı kesinti olması durumunda, cihaz bağlantı durumu yayımlarız. Cihaz bu kesinti sırasında kesilirse, cihaz bağlantısı kesilmiş olay 10 dakika içinde yayımlanır.
 
-IOT hub'ı olayları işlemek uygulamalar bu önerilen uygulamaları izlemelidir:
+## <a name="tips-for-consuming-events"></a>Olayları için ipuçları
 
-* Olayları belirli bir kaynaktan olduğunu varsayar değil önemlidir birden çok abonelik aynı olay işleyicisi için rota olayları için yapılandırılabilir. Her zaman beklediğiniz IOT hub'ından geldiğinden emin olmak için ileti konusu denetleyin. 
-* Aldığınız tüm olayları beklediğiniz türleri olduğunu varsayar yok. Her zaman eventType ileti işlemeden önce denetleyin.
-* İletiler, bozuk veya farklı bir gecikmeden sonra geldiğinde. Bilgilerinizi nesneler hakkında güncel olup olmadığını anlamak için etag alanını kullanın.
+IOT Hub olaylarını işlemek uygulamalar bu önerilen uygulamaları izlemelisiniz:
 
-
+* Olayları belirli bir kaynaktan olduğunu varsayar değil önemlidir birden çok abonelik aynı olay işleyicisi, rota olayları için yapılandırılabilir. Her zaman beklediğiniz IOT hub'dan geldiğinden emin olmak için mesajı konusuna bakın. 
+* Aldığınız tüm olayların beklediğiniz türleri olduğunu varsaymayın. EventType iletiyi işlemeyi önce her zaman denetleyin.
+* İletiler sıralamaya veya farklı bir gecikmeden sonra geldiğinde. Etag alanı bilgilerinizi nesneler hakkında güncel olup olmadığını anlamak için kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [IOT hub'ı olayları öğretici deneyin](../event-grid/publish-iot-hub-events-to-logic-apps.md)
-* [Olay kılavuz hakkında daha fazla bilgi edinin][lnk-eg-overview]
-* [Yönlendirme IOT hub'ı olaylarını ve iletileri arasındaki farklar Karşılaştır][lnk-eg-compare]
+* [IOT Hub olaylarını öğreticisini deneyin](../event-grid/publish-iot-hub-events-to-logic-apps.md)
+* [Cihaz bağlı ve olayları bağlantısı kesildi sipariş öğrenin](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
+* [Event Grid hakkında daha fazla bilgi edinin][lnk-eg-overview]
+* [IOT Hub olaylarını yönlendirme iletileri arasındaki farkları karşılaştırın][lnk-eg-compare]
 
 <!-- Links -->
 [lnk-eg-overview]: ../event-grid/overview.md

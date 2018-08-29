@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4d86a8fcd1dc85ccacea91afe36cb39dabe10464
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 0b4ff1799f77581452859d1dbc0e6e9cc47062e4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117598"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128058"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>.NET için Azure Depolama'ya iş ve görev veri Batch dosya kuralları kitaplığı ile kalıcı 
 
@@ -49,7 +49,7 @@ Senaryonuz yukarıda listelenenlerden farklıysa, farklı bir yaklaşım dikkate
 
 ## <a name="what-is-the-batch-file-conventions-standard"></a>Standart Batch dosya kuralları nedir?
 
-[Batch dosya kuralları standart](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) blob yollarının çıktı dosyalarınızı yazılır ve hedef kapsayıcı için bir adlandırma düzeni sağlar. Dosyaları kalıcı dosyası kuralları standardını kullanan Azure depolama için Azure portalında görüntülemek için otomatik olarak kullanılabilir. Portal adlandırma kuralının farkındadır ve bu nedenle ona bağlı dosyalar görüntüleyebilirsiniz.
+[Batch dosya kuralları standart](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) blob yollarının çıktı dosyalarınızı yazılır ve hedef kapsayıcı için bir adlandırma düzeni sağlar. Dosyaları kalıcı dosyası kuralları standardını kullanan Azure depolama için Azure portalında görüntülemek için otomatik olarak kullanılabilir. Portal adlandırma kuralının farkındadır ve bu nedenle ona bağlı dosyalar görüntüleyebilirsiniz.
 
 .NET için dosya kuralları kitaplığı, depolama kapsayıcıları ve Görev çıkış dosyalarını standart dosya kurallarına göre otomatik olarak adlandırır. Dosya kuralları kitaplığı, ayrıca Çıkış dosyalarını Azure storage'da iş kimliği, görev kimliği veya amaçlı göre sorgulamak için yöntemler sağlar.   
 
@@ -201,7 +201,7 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## <a name="view-output-files-in-the-azure-portal"></a>Azure portalında Çıkış dosyalarını görüntüle
 
-Görev çıkış dosyalarını Azure portalında görüntülenir ve bağlı bir Azure depolama için kalıcı günlükleri kullanarak hesap [Batch dosya kuralları standart](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). Bu kuralları kendiniz de uygulayabileceğiniz bir dil seçiminizi veya .NET uygulamalarınızda dosya kuralları kitaplığı kullanabilirsiniz.
+Görev çıkış dosyalarını Azure portalında görüntülenir ve bağlı bir Azure depolama için kalıcı günlükleri kullanarak hesap [Batch dosya kuralları standart](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Bu kuralları kendiniz de uygulayabileceğiniz bir dil seçiminizi veya .NET uygulamalarınızda dosya kuralları kitaplığı kullanabilirsiniz.
 
 Çıktı dosyalarınızı portalında görüntülenmesini etkinleştirmek için aşağıdaki gereksinimleri karşılamanız gerekir:
 

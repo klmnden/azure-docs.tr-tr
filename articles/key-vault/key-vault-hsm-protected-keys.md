@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 08/27/2018
 ms.author: barclayn
-ms.openlocfilehash: 774fd4ca6bbae0d02f5733269f091d325f4c776d
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 9466f4178047a4927684a1fcfd80f661ea4aa7a5
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42058286"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127711"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Azure anahtar kasası için nasıl oluşturma ve aktarma HSM korumalı anahtarlar
-## <a name="introduction"></a>Giriş
+
 Ek güvence için Azure anahtar Kasası'nı kullandığınızda alabilir veya HSM sınırını asla terk donanım güvenlik modüllerinde (HSM'ler) anahtarları oluşturun. Bu senaryo, genellikle olarak adlandırılır *kendi anahtarını Getir*, bYok. HSM'ler, FIPS 140-2 Düzey 2 doğrulanmasına sahiptir. Azure Key Vault, anahtarlarınızı korumak için Thales nShield ailesi Hsm'leri kullanır.
 
 Bilgileri, planlama, oluşturma ve Azure anahtar kasası ile kullanmak için kendi HSM korumalı anahtarlar'ı aktarım yardımcı olması için bu konudaki kullanın.
@@ -31,10 +31,7 @@ Bu işlev Azure Çin için kullanılamıyor.
 
 > [!NOTE]
 > Azure Key Vault hakkında daha fazla bilgi için bkz. [Azure anahtar kasası nedir?](key-vault-whatis.md)  
->
 > Bir anahtar kasası için HSM korumalı anahtarlar oluşturma içeren bir başlangıç öğreticisi için bkz: [Azure anahtar kasası ile çalışmaya başlama](key-vault-get-started.md).
->
->
 
 Oluşturma ve HSM korumalı bir anahtar Internet üzerinden aktarmaktan hakkında daha fazla bilgi için:
 
@@ -46,14 +43,17 @@ Oluşturma ve HSM korumalı bir anahtar Internet üzerinden aktarmaktan hakkınd
 * Microsoft, ayrı Dünyaları kullanır ve her coğrafi bölgede güvenlik Dünyaları ayırın. Bu ayrım anahtarınızı içinde şifrelendiği bölgedeki veri merkezlerinde yalnızca kullanılabilir sağlar. Örneğin, Avrupalı bir müşterinin bir anahtarı Kuzey Amerika veya Asya'daki veri merkezlerinde kullanılamaz.
 
 ## <a name="more-information-about-thales-hsms-and-microsoft-services"></a>Thales Hsm'leri ve Microsoft Hizmetleri hakkında daha fazla bilgi
+
 Thales e güvenlikli bir siber güvenlik çözümleri finansal hizmetler, yüksek teknoloji, üretim, kamu ve teknoloji sektörlerine veri şifreleme ve önde gelen genel sağlayıcısıdır. 40 yıllık tecrübesiyle Kurumsal ve kamu bilgi ile Thales çözümleri dört enerji ve Havacılık beş en büyük şirketleri tarafından kullanılır. Çözümleri ayrıca 22 NATO ülkeler tarafından kullanılır ve daha yüzde 80'den tüm dünyadaki ödeme işlemlerinin güvenli.
 
 Microsoft, HSM'ler için resim durumu için Thales ile CISCO. Bu geliştirmeler tanımaktadır anahtarlarınızın denetimi sizin bırakmadan, barındırılan hizmetlere tipik avantajlardan yararlanmanıza olanak tanıyacak. Özellikle, bu geliştirmeler, böylece gerekmez HSM'ler Microsoft yürütebilmektedir. Bir bulut hizmeti olan Azure Key Vault, kuruluşunuzun ani artışları karşılamak üzere kullanımındaki. Aynı zamanda, anahtarınızı Microsoft'un Hsm'leri içerisinde korunur: anahtarı oluşturun ve Microsoft'un Hsm'lerine aktarmak için anahtar yaşam döngüsü denetim korur.
 
 ## <a name="implementing-bring-your-own-key-byok-for-azure-key-vault"></a>Uygulama kendi anahtarını getir (BYOK) için Azure anahtar kasası
+
 Eğer kendi HSM korumalı anahtar oluşturun ve ardından Azure anahtar Kasası'na aktarma aşağıdaki bilgi ve yordamları kullanın — Getir kendi anahtarı (BYOK) senaryosu.
 
 ## <a name="prerequisites-for-byok"></a>BYOK için Önkoşullar
+
 Kendi anahtarını getir (BYOK) için Azure anahtar kasası için bir önkoşul listesi için aşağıdaki tabloya bakın.
 
 | Gereksinim | Daha fazla bilgi |
@@ -61,9 +61,10 @@ Kendi anahtarını getir (BYOK) için Azure anahtar kasası için bir önkoşul 
 | Azure aboneliği |Bir Azure Key Vault oluşturma için bir Azure aboneliğine ihtiyacınız vardır: [ücretsiz deneme için kaydolun](https://azure.microsoft.com/pricing/free-trial/) |
 | HSM korumalı anahtarları desteklemek için Azure anahtar kasası Premium hizmet katmanı |Azure Key Vault için hizmet katmanları ve özellikler hakkında daha fazla bilgi için bkz. [Azure anahtar kasası fiyatlandırma](https://azure.microsoft.com/pricing/details/key-vault/) Web sitesi. |
 | Thales HSM, akıllı kartlar ve destek yazılımı |Thales donanım güvenlik modülü ve Thales HSM'ler hakkında temel operasyonel bilginiz erişimi olmalıdır. Bkz: [Thales donanım güvenlik modülü](https://www.thales-esecurity.com/msrms/buy) uyumlu modellerin ya da bir yoksa bir HSM satın almak için listesi. |
-| Aşağıdaki donanım ve yazılım:<ol><li>Çevrimdışı bir x64 iş istasyonunda en az bir Windows işletim sistemi en az Windows 7 ve Thales nShield yazılımı sürümü ile 11.50 sürümü.<br/><br/>Bu iş istasyonu Windows 7 çalıştırıyorsa, şunları yapmalısınız [Microsoft .NET Framework 4.5 sürümünü yüklemeniz](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Internet'e bağlı ve Windows 7'in en az bir Windows işletim sistemi olan bir iş istasyonu ve [Azure PowerShell](/powershell/azure/overview) **en düşük sürüm 1.1.0** yüklü.</li><li>Bir USB sürücü veya en az 16 MB boş alanı olan başka bir taşınabilir depolama cihazı.</li></ol> |Güvenlik nedenleriyle ilk iş istasyonunun bir ağa bağlı değilse öneririz. Ancak, bu öneriyi program aracılığıyla zorlanmaz.<br/><br/>Aşağıdaki yönergelerde bu iş istasyonu için bağlantısı kesik iş istasyonu olarak adlandırılır olduğunu unutmayın.</p></blockquote><br/>Ayrıca, Kiracı anahtarınız bir üretim ağı için ise araç takımını indirmek ve Kiracı anahtarınızı karşıya yüklemek için ikinci ve ayrı bir iş istasyonu kullanmanızı öneririz. Ancak test amacıyla Birincisi aynı iş istasyonunu kullanabilirsiniz.<br/><br/>Aşağıdaki yönergelerde bu ikinci iş istasyonu İnternet'e bağlı iş istasyonu olarak adlandırılır olduğunu unutmayın.</p></blockquote><br/> |
+| Aşağıdaki donanım ve yazılım:<ol><li>Çevrimdışı bir x64 iş istasyonunda en az bir Windows işletim sistemi en az Windows 7 ve Thales nShield yazılımı sürümü ile 11.50 sürümü.<br/><br/>Bu iş istasyonu Windows 7 çalıştırıyorsa, şunları yapmalısınız [Microsoft .NET Framework 4.5 sürümünü yüklemeniz](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Internet'e bağlı ve Windows 7'in en az bir Windows işletim sistemi olan bir iş istasyonu ve [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **en düşük sürüm 1.1.0** yüklü.</li><li>Bir USB sürücü veya en az 16 MB boş alanı olan başka bir taşınabilir depolama cihazı.</li></ol> |Güvenlik nedenleriyle ilk iş istasyonunun bir ağa bağlı değilse öneririz. Ancak, bu öneriyi program aracılığıyla zorlanmaz.<br/><br/>Aşağıdaki yönergelerde bu iş istasyonu için bağlantısı kesik iş istasyonu olarak adlandırılır olduğunu unutmayın.</p></blockquote><br/>Ayrıca, Kiracı anahtarınız bir üretim ağı için ise araç takımını indirmek ve Kiracı anahtarınızı karşıya yüklemek için ikinci ve ayrı bir iş istasyonu kullanmanızı öneririz. Ancak test amacıyla Birincisi aynı iş istasyonunu kullanabilirsiniz.<br/><br/>Aşağıdaki yönergelerde bu ikinci iş istasyonu İnternet'e bağlı iş istasyonu olarak adlandırılır olduğunu unutmayın.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Oluşturma ve anahtarınızı Azure anahtar kasası HSM'ye aktarma
+
 Oluşturma ve anahtarınızı Azure anahtar kasası HSM'ye aktarma beş aşağıdaki adımları kullanın:
 
 * [1. adım: İnternet'e bağlı iş istasyonunuzu hazırlama](#step-1-prepare-your-internet-connected-workstation)
@@ -73,29 +74,33 @@ Oluşturma ve anahtarınızı Azure anahtar kasası HSM'ye aktarma beş aşağı
 * [5. adım: anahtarınızı Azure anahtar Kasası'na aktarma](#step-5-transfer-your-key-to-azure-key-vault)
 
 ## <a name="step-1-prepare-your-internet-connected-workstation"></a>1. adım: İnternet'e bağlı iş istasyonunuzu hazırlama
+
 Birinci adım için Internet'e bağlı iş istasyonunuzu üzerinde aşağıdaki yordamları gerçekleştirin.
 
 ### <a name="step-11-install-azure-powershell"></a>Adım 1.1: Azure PowerShell'i yükleme
+
 İnternet'e bağlı iş istasyonundan indirin ve Azure anahtar Kasası'nı yönetmek için cmdlet'ler içeren Azure PowerShell modülünü yükleyin. Bu 0.8.13 ve üstünü gerektirir.
 
 Yükleme yönergeleri için bkz. [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview).
 
 ### <a name="step-12-get-your-azure-subscription-id"></a>1.2. adım: Azure abonelik Kimliğinizi alma
+
 Azure PowerShell oturumu başlatın ve aşağıdaki komutu kullanarak Azure hesabınızda oturum açın:
 
 ```Powershell
-   Add-AzureAccount
+   Add-AzureRMAccount
 ```
 Açılır tarayıcı penceresinde Azure hesabı kullanıcı adınızı ve parolanızı girin. Ardından, [Get-AzureSubscription](/powershell/module/servicemanagement/azure/get-azuresubscription?view=azuresmps-3.7.0) komutu:
 
 ```powershell
-   Get-AzureSubscription
+   Get-AzureRMSubscription
 ```
 Çıkışı, Azure anahtar kasası için kullanacağınız abonelik Kimliğini bulun. Bu abonelik kimliği daha sonra gerekecektir.
 
 Azure PowerShell penceresini kapatmayın.
 
 ### <a name="step-13-download-the-byok-toolset-for-azure-key-vault"></a>1.3. adım: Azure anahtar kasası için BYOK araç takımı indirme
+
 Microsoft Download Center gidin ve [Azure anahtar kasası BYOK araç takımını indirmek](http://www.microsoft.com/download/details.aspx?id=45345) coğrafi bölge veya Azure örneği. İndirme ve karşılık gelen, SHA-256'yı paket karmasını paket adını tanımlamak için aşağıdaki bilgileri kullanın:
 
 - - -
@@ -215,9 +220,11 @@ Araç takımı, aşağıdakileri içerir:
 Paketi bir USB sürücüye veya başka bir taşınabilir depolama kopyalayın.
 
 ## <a name="step-2-prepare-your-disconnected-workstation"></a>2. adım: bağlantısı kesilmiş iş istasyonunuzu hazırlama
+
 Bu ikinci adım için bir ağa (İnternet'e veya iç ağınıza) bağlı olmayan bir iş istasyonunda aşağıdaki yordamları gerçekleştirin.
 
 ### <a name="step-21-prepare-the-disconnected-workstation-with-thales-hsm"></a>2.1. adım: bağlantısı kesilmiş iş istasyonunuzu Thales HSM ile hazırlama
+
 Bir Windows bilgisayara nCipher (Thales) destek yazılımını yükleyin ve ardından o bilgisayara bir Thales HSM ekleyin.
 
 Thales araçlarının yolunuzda olduğundan emin olun (**%nfast_home%\bin**). Örneğin, aşağıdaki komutu yazın:
@@ -229,6 +236,7 @@ Thales araçlarının yolunuzda olduğundan emin olun (**%nfast_home%\bin**). Ö
 Daha fazla bilgi için Thales HSM ile kullanıcı kılavuzuna bakın.
 
 ### <a name="step-22-install-the-byok-toolset-on-the-disconnected-workstation"></a>2.2. adım: BYOK araç takımını bağlantısı kesilmiş iş istasyonunda yükleyin.
+
 USB sürücü veya başka bir taşınabilir depolama BYOK araç takımı paketini kopyalayın ve ardından aşağıdakileri yapın:
 
 1. Dosyaları indirilen paketteki herhangi bir klasöre ayıklayın.
@@ -236,13 +244,16 @@ USB sürücü veya başka bir taşınabilir depolama BYOK araç takımı paketin
 3. Yönergeleri, Visual Studio 2013 için Visual C++ çalışma zamanı bileşenlerini yüklemeyi izleyin.
 
 ## <a name="step-3-generate-your-key"></a>3. adım: anahtarınızı oluşturma
+
 Bu üçüncü adım için bağlantısı kesilmiş iş istasyonunda aşağıdaki yordamları gerçekleştirin. Bu adımı tamamlamak için HSM tedarikçinize başlatma modunda olması gerekir. 
 
 
 ### <a name="step-31-change-the-hsm-mode-to-i"></a>Adım 3.1: 'I' HSM modu değiştirme
+
 Modu değiştirmek için Thales nShield Edge kullanıyorsanız: 1. Gerekli modu vurgulamak için Modu düğmesini kullanın. 2. Birkaç saniye içinde basın ve Temizle düğmesine birkaç saniye basılı tutun. Modu değişirse, yeni modun LED yanıp durdurur ve aydınlatılmış kalır. Durum LED birkaç saniye düzensiz flash ve düzenli olarak cihaz hazır olduğunda, ardından yanıp. Aksi takdirde cihaz kalır LED uygun moduyla geçerli modunda aydınlatma.
 
 ### <a name="step-32-create-a-security-world"></a>Adım 3.2: güvenlik Dünyası oluşturma
+
 Bir komut istemi başlatın ve Thales yeni dünya programını çalıştırın.
 
    ```cmd
@@ -256,10 +267,11 @@ Ardından şunları yapın:
 * Dünya dosyasının yedeğini alın. Güvenli ve dünya dosyasını, yönetici kartlarını ve PIN kodlarını korumak ve tek başına birden fazla kart erişimi olduğundan emin olun.
 
 ### <a name="step-33-change-the-hsm-mode-to-o"></a>Adım 3.3: HSM moduna '
+
 Modu değiştirmek için Thales nShield Edge kullanıyorsanız: 1. Gerekli modu vurgulamak için Modu düğmesini kullanın. 2. Birkaç saniye içinde basın ve Temizle düğmesine birkaç saniye basılı tutun. Modu değişirse, yeni modun LED yanıp durdurur ve aydınlatılmış kalır. Durum LED birkaç saniye düzensiz flash ve düzenli olarak cihaz hazır olduğunda, ardından yanıp. Aksi takdirde cihaz kalır LED uygun moduyla geçerli modunda aydınlatma.
 
-
 ### <a name="step-34-validate-the-downloaded-package"></a>Adım 3.4: indirilen paketi doğrulama
+
 Bu adım isteğe bağlıdır ancak aşağıdakileri doğrulayabilmeniz böylece önerilir:
 
 * Araç takımında yer anahtar değişim anahtarı, orijinal bir Thales HSM'den oluşturulmuştur.
@@ -268,8 +280,6 @@ Bu adım isteğe bağlıdır ancak aşağıdakileri doğrulayabilmeniz böylece 
 
 > [!NOTE]
 > İndirilen paketi doğrulamak için HSM, açık bağlanmalıdır ve üzerindeki güvenlik Dünyası (örneğin, yeni oluşturduğunuz bir tane) sahip olması gerekir.
->
->
 
 İndirilen paketi doğrulamak için:
 
@@ -329,6 +339,7 @@ Bu betik, Thales kök anahtarına kadar doğru imzalayan zincirini doğrular. Bu
 Şimdi yeni bir anahtar oluşturmaya hazırsınız.
 
 ### <a name="step-35-create-a-new-key"></a>Adım 3.5: yeni bir anahtar oluşturun
+
 Thales kullanarak bir anahtar oluşturmak **generatekey** program.
 
 Anahtarı oluşturmak için aşağıdaki komutu çalıştırın:
@@ -348,11 +359,12 @@ Bu simgeleştirilmiş anahtar dosyasını güvenli bir yere yedekleyin.
 > [!IMPORTANT]
 > Anahtarınızı daha sonra Azure anahtar Kasası'na aktardığınızda, anahtarınızı ve güvenlik dünyanızı güvenle yedeklemeniz çok önemli hale gelir için Microsoft bu anahtarı size geri dışarı aktaramazsınız. Yönergeler ve anahtarınızı yedekleme için en iyi yöntemler için Thales başvurun.
 >
->
+
 
 Anahtarınızı Azure anahtar Kasası'na aktarmak artık hazırsınız.
 
 ## <a name="step-4-prepare-your-key-for-transfer"></a>4. adım: Kiracı anahtarınızı aktarım için hazırlama
+
 Bu dördüncü adım için bağlantısı kesilmiş iş istasyonunda aşağıdaki yordamları gerçekleştirin.
 
 ### <a name="step-41-create-a-copy-of-your-key-with-reduced-permissions"></a>4.1. adım: sınırlı izinlerle anahtarınızın bir kopyasını oluşturma
@@ -419,6 +431,7 @@ Komut tamamlandığında, gördüğünüz **sonuç: başarılı** ve anahtarın�
   Bu komutları çalıştırdıktan sonra belirttiğiniz değerle contosokey değiştirin **adım 3.5: yeni bir anahtar oluşturun** gelen [anahtarınızı](#step-3-generate-your-key) adım.
 
 ### <a name="step-42-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>4.2. adım: Microsoft'un anahtar değişim anahtarını kullanarak anahtarınızı şifreleme
+
 Azure örneği veya coğrafi bölgede bağlı olarak aşağıdaki komutlardan birini çalıştırın:
 
 * Kuzey Amerika için:
@@ -473,9 +486,11 @@ Bu komutu çalıştırdığınızda, aşağıdaki yönergeleri kullanın:
 Başarıyla tamamlandığında, bu görüntüler **sonuç: başarılı** ve geçerli klasörde şu ada sahip yeni bir dosya var.: KeyTransferPackage -*ContosoFirstHSMkey*.byok
 
 ### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>4.3. adım: anahtar aktarım paketinizi İnternet'e bağlı iş istasyonuna kopyalama
+
 Çıktı dosyasını (KeyTransferPackage-ContosoFirstHSMkey.byok) önceki adımdaki, İnternet'e bağlı iş istasyonunuzu kopyalamak için bir USB sürücü veya başka bir taşınabilir depolama kullanın.
 
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>5. adım: anahtarınızı Azure anahtar Kasası'na aktarma
+
 Bu son adım İnternet'e bağlı iş istasyonunda, kullanın [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) cmdlet'i için Azure Key Vault HSM'SİNDE bağlantısı kesilmiş iş istasyonundan kopyaladığınız anahtar aktarma paketini karşıya yüklemek için:
 
    ```powershell
@@ -485,4 +500,5 @@ Bu son adım İnternet'e bağlı iş istasyonunda, kullanın [Add-AzureKeyVaultK
 Karşıya yükleme başarılı olursa, gördüğünüz eklediğiniz anahtar özelliklerini görüntülenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Bu HSM korumalı anahtar, anahtar Kasası'nda artık kullanabilirsiniz. Daha fazla bilgi için **bir donanım güvenlik modülü (HSM) kullanmak istiyorsanız** konusundaki [Azure anahtar kasası ile çalışmaya başlama](key-vault-get-started.md) öğretici.

@@ -1,28 +1,23 @@
 ---
 title: Web API'ları ve REST API'leri oluşturmak için Azure Logic Apps | Microsoft Docs
-description: Web API'ları ve REST API'leri, API'leri, hizmetleri ve sistemleri için sistem tümleştirmeler mantıksal uygulama iş akışlarından çağırmak için oluşturma
-keywords: Web API'leri, REST API'ler, iş akışları, sistem tümleştirmeleri
+description: Web API'ları ve REST API'leri için sistem tümleştirmeleri Azure Logic apps'te, API'leri, hizmetleri ve sistemleri çağırmak için oluşturma
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
-ms.date: 5/26/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 748070d43c34b501af3455d03429be1f44178b7f
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
+ms.date: 05/26/2017
+ms.openlocfilehash: a761e384a356a0cbf5531eee7340ddbbd1526909
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172026"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122255"
 ---
-# <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Mantıksal uygulama iş akışlarından çağırabileceğiniz özel API'ler oluşturma
+# <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Azure mantıksal uygulamalardan arayabileceğiniz özel API'ler oluşturma
 
 Azure Logic Apps sunmasına karşın [100'den fazla yerleşik bağlayıcı](../connectors/apis-list.md) mantıksal uygulama iş akışlarınızla kullanabilirsiniz, API, sistemler ve bağlayıcı olarak kullanılamayan Hizmetleri çağırmak isteyebilirsiniz. Eylemler ve tetikleyiciler logic apps içinde kullanılacak sağlayan kendi Apı'lerinize oluşturabilirsiniz. Mantıksal uygulama iş akışlarından çağırabileceğiniz kendi API'leri oluşturmak için neden isteyebileceğiniz diğer nedenler şunlardır:
 

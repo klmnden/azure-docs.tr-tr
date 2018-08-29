@@ -1,170 +1,189 @@
 ---
-title: Azure tümleştirme hizmetleri basit Kurumsal tümleştirme başvuru mimarisi
-description: Bir Azure Logic Apps ve Azure API Management ile basit Kurumsal tümleştirme düzeni nasıl uygulayacağınıza karar gösteren başvuru mimarisini açıklar.
-author: mattfarm
-manager: jonfan
-editor: ''
-services: logic-apps api-management
-documentationcenter: ''
-ms.assetid: ''
+title: Basit Kurumsal tümleştirme mimari deseni - Azure tümleştirme hizmetleri
+description: Bu mimari başvurusu, Azure Logic Apps ve Azure API Management'ı kullanarak basit bir kurumsal tümleştirme düzeni nasıl uygulayacağınıza dair gösterir
+services: logic-apps
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+ms.suite: integration
+author: mattfarm
+ms.author: mattfarm
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: f73a9e59c0add664128b506172182afe566ca670
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 7081c9e4f6e6deee196255f04180a8f2cc792876
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444519"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122504"
 ---
-# <a name="reference-architecture-simple-enterprise-integration"></a>Başvuru mimarisi: basit bir kurumsal tümleştirme
+# <a name="simple-enterprise-integration-architecture"></a>Basit Kurumsal tümleştirme mimarisi
 
-Aşağıdaki başvuru mimarisi, bir Azure tümleştirme hizmetleri kullanan bir tümleştirme uygulaması için uygulayabileceğiniz kanıtlanmış yöntemler kümesi gösterir. Mimari HTTP API'leri, iş akışı ve orchestration gerektiren birçok farklı uygulama desenleri için temel olarak hizmet verebilir.
+Bu makalede, Azure tümleştirme hizmetleri kullanırken tümleştirme uygulamaya uygulayabilirsiniz kendini kanıtlamış yöntemleri kullanan bir kurumsal tümleştirme mimarisi açıklanmaktadır. Bu mimari HTTP API'leri, iş akışı ve orchestration gerektiren birçok farklı uygulama desenleri için temel olarak kullanabilirsiniz.
 
 ![Mimari diyagramı - basit Kurumsal tümleştirme](./media/logic-apps-architectures-simple-enterprise-integration/simple_arch_diagram.png)
 
-*Tümleştirme teknolojileri için birçok olası uygulama vardır. Azure Service Bus uygulaması tam kuruluş basit noktadan noktaya uygulamasından aralığı. Mimari serisi Genel tümleştirme uygulaması oluşturmak için geçerli olabilecek yeniden kullanılabilir bileşen parçalarına açıklar. Mimarları, kendi uygulama ve altyapı için uygulamak için ihtiyaç duydukları hangi bileşenlerin göz önünde bulundurmanız gerekir.*
+Bu seri, genel tümleştirme uygulaması oluşturmak için geçerli olabilecek yeniden kullanılabilir bileşen parçalarına açıklar. Tüm kurumsal Azure hizmet veri yolu uygulamaları için basit bir noktadan noktaya uygulamalardan arasında çok sayıda olası uygulama tümleştirme teknolojileri sahip olduğundan, uygulamalarınızı ve altyapınızı için uygulamanız gereken hangi bileşenlerin göz önünde bulundurun.
 
-## <a name="architecture"></a>Mimari
+## <a name="architecture-components"></a>Mimari bileşenler
 
-Mimari aşağıdaki bileşenlere sahiptir:
+Bu Kurumsal tümleştirme mimarisi şu bileşenleri içerir:
 
-- **Kaynak grubu**. [Kaynak grubu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), Azure kaynakları için mantıksal bir kapsayıcıdır.
-- **Azure API Management**. [API Management](https://docs.microsoft.com/azure/api-management/) yayımlamak, güvenli ve HTTP API'lerini dönüştürmek için kullanılan tam olarak yönetilen bir platformdur.
-- **Azure API Management Geliştirici Portalı**. Erişim için her bir Azure API Management örneğinin birlikte [Geliştirici Portalı](https://docs.microsoft.com/azure/api-management/api-management-customize-styles). API Management Geliştirici Portalı, belgeler ve kod örneklerine erişmenizi sağlar. Geliştirici portalındaki API'ler test edebilirsiniz.
-- **Azure Logic Apps**. [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) ve kurumsal tümleştirme oluşturmak için kullanılan bir sunucusuz platformudur.
-- **Bağlayıcılar**. Logic Apps kullanan [Bağlayıcılar](https://docs.microsoft.com/azure/connectors/apis-list) Hizmetleri için yaygın olarak bağlanmak için kullanılır. Logic Apps farklı bağlayıcıları yüzlerce zaten sahip, ancak bir özel bağlayıcı oluşturabilirsiniz.
-- **IP adresi**. Azure API Management hizmeti sabit bir ortak sahip [IP adresi](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) ve bir etki alanı adı. Azure-api.net contoso.azure-api.net gibi alt etki alanı varsayılan etki alanı adıdır ancak [özel etki alanları](https://docs.microsoft.com/azure/api-management/configure-custom-domain) de yapılandırılabilir. Logic Apps ve Service Bus bir genel IP adresi de. Ancak, bu mimaride, biz yalnızca IP adresi API Management'ın Logic Apps Uç noktalara (güvenlik için) çağırmaya yönelik erişimi kısıtlayın. Service Bus çağrıları bir paylaşılan erişim imzası (SAS) korunur.
-- **Azure DNS**. [Azure DNS](https://docs.microsoft.com/azure/dns/) DNS etki alanları için bir barındırma hizmetidir. Azure DNS, Microsoft Azure altyapısı kullanılarak ad çözümlemesi sağlar. Etki alanlarınızı azure'da barındırarak aynı kimlik bilgilerini, API'leri, araçları kullanarak ve faturalama, diğer Azure Hizmetleri için kullandığınız DNS kayıtlarınızı yönetebilirsiniz. Özel etki alanı contoso.com gibi kullanılacak özel etki alanı adını IP adresine eşleyen DNS kayıtları oluşturun. Daha fazla bilgi için [API Yönetimi'nde bir özel etki alanı adı yapılandırma](https://docs.microsoft.com/en-us/azure/api-management/configure-custom-domain).
-- **Azure Active Directory (Azure AD)**. Kullanım [Azure AD'ye](https://docs.microsoft.com/azure/active-directory/) veya kimlik doğrulaması için başka bir kimlik sağlayıcısı. Azure AD, API uç noktalarını geçirerek erişim için kimlik doğrulaması sağlar bir [API Management için JSON Web belirteci](https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims) doğrulamak için. Azure AD (yalnızca standart ve Premium Katmanlar) API Management Geliştirici portalına erişim güvenliğini sağlayabilirsiniz.
+- **Kaynak grubu**: A [kaynak grubu](../azure-resource-manager/resource-group-overview.md) Azure kaynakları için mantıksal bir kapsayıcıdır.
 
-Mimari, işlemi için temel bazı desenleri sahiptir:
+- **Azure API Management**: [API Management](https://docs.microsoft.com/azure/api-management/) yayımlama, güvenliğini sağlama ve HTTP API'lerini dönüştürme için tam olarak yönetilen bir platform hizmetidir.
 
-- Birleşik API, logic apps kullanarak oluşturulur. Bunlar, yazılım olarak hizmet (SaaS) sistemleri, Azure Hizmetleri ve API Management'a yayımlanan tüm API çağrılarını düzenleyin. [Logic apps ayrıca yayımlanan](https://docs.microsoft.com/azure/api-management/import-logic-app-as-api) API Management Geliştirici Portalı aracılığıyla.
-- Uygulamaları Azure AD'ye kullanın [bir OAuth 2.0 güvenlik belirteci almak](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) , gerekli olan bir API'ye erişim elde etmek için.
-- Azure API Management [güvenlik belirtecini doğrular](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) isteği arka uç API veya mantıksal uygulamaya geçirir.
+- **Azure API Management Geliştirici Portalı**: her bir Azure API Management örneğinin erişim sağlayan [Geliştirici Portalı](../api-management/api-management-customize-styles.md). Bu portal, belgeler ve kod örneklerine erişmenizi sağlar. Geliştirici portalındaki API'ler ayrıca test edebilirsiniz.
+
+- **Azure Logic Apps**: [Logic Apps](../logic-apps/logic-apps-overview.md) kurumsal iş akışları ve tümleştirmeler oluşturmak için sunucusuz bir platformdur.
+
+- **Bağlayıcılar**: Logic Apps kullanan [Bağlayıcılar](../connectors/apis-list.md) hizmetleri kullanılan yaygın olarak bağlanmak için. Logic Apps bağlayıcıları yüzlerce sunar, ancak bir özel bağlayıcı oluşturabilirsiniz.
+
+- **IP adresi**: Azure API Yönetimi hizmeti, sabit bir ortak sahip [IP adresi](../virtual-network/virtual-network-ip-addresses-overview-arm.md) ve bir etki alanı adı. Azure-api.net, örneğin, contoso.azure-api.net, alt etki alanı varsayılan etki alanı adıdır, ancak ayrıca [özel etki alanları](../api-management/configure-custom-domain.md). Logic Apps ve Service Bus bir genel IP adresi de. Ancak, güvenlik için bu mimari yalnızca IP adresi API Management'ın Logic Apps uç noktalarını çağırma için erişimi kısıtlar. Service Bus çağrıları bir paylaşılan erişim imzası (SAS) korunur.
+
+- **Azure DNS**: [Azure DNS](https://docs.microsoft.com/azure/dns/) DNS etki alanları için bir barındırma hizmetidir. Azure DNS, Microsoft Azure altyapısı kullanılarak ad çözümlemesi sağlar. Etki alanlarınızı azure'da barındırarak aynı kimlik bilgilerini, API'leri, araçları kullanarak ve faturalama, diğer Azure Hizmetleri için kullandığınız DNS kayıtlarınızı yönetebilirsiniz. Özel etki alanı, contoso.com gibi kullanılacak özel etki alanı adını IP adresine eşleyen DNS kayıtları oluşturun. Daha fazla bilgi için [API Yönetimi'nde bir özel etki alanı adı yapılandırma](../api-management/configure-custom-domain.md).
+
+- **Azure Active Directory (Azure AD)**: kullanabileceğiniz [Azure AD'ye](https://docs.microsoft.com/azure/active-directory/) veya kimlik doğrulaması için başka bir kimlik sağlayıcısı. Azure AD, API uç noktalarını geçirerek erişim için kimlik doğrulaması sağlar bir [API Management için JSON Web belirteci](../api-management/policies/authorize-request-based-on-jwt-claims.md) doğrulamak için. Standart ve Premium katmanları için Azure AD, API Management Geliştirici portalına erişim güvenliğini sağlayabilirsiniz.
+
+## <a name="patterns"></a>Desenler 
+
+Bu mimari, işlemi için temel bazı desenleri kullanır:
+
+* Birleşik API, hizmet (SaaS) sistemleri, Azure Hizmetleri ve API Management'a yayımlanan herhangi bir API çağrısına yazılım düzenleyin, logic apps kullanarak oluşturulur. Mantıksal uygulamalar, ayrıca [API Management Geliştirici Portalı aracılığıyla yayımlanan](../api-management/import-logic-app-as-api.md).
+
+* Uygulamaları kullanmak için Azure AD [bir OAuth 2.0 güvenlik belirtecini alma](../api-management/api-management-howto-protect-backend-with-aad.md) , gerekli olan bir API'ye erişim elde etmek için.
+
+* Azure API Management [güvenlik belirtecini doğrular](../api-management/api-management-howto-protect-backend-with-aad.md) isteği arka uç API veya mantıksal uygulamaya geçirir.
 
 ## <a name="recommendations"></a>Öneriler
 
-Bu makalede açıklanan genel mimarisinin gereksinimlerinizi farklılık gösterebilir. Bu bölümdeki önerileri bir başlangıç noktası olarak kullanın.
+Gereksinimlerinize göre bu makalede açıklanan genel mimarisinin farklılık gösterebilir. Bu bölümdeki önerileri bir başlangıç noktası olarak kullanın.
 
 ### <a name="azure-api-management-tier"></a>Azure API Management katmanı
 
-API Management temel, standart veya Premium katmanları kullanın. Katmanlar, bir üretim hizmet düzeyi sözleşmesi (SLA) sağlar ve ölçeklendirme (birim sayısını katmana göre değişiklik gösterir) için bir Azure bölgesindeki destekler. Premium katmanında ölçeği genişletme Azure bölgelerinde de destekler. Gerekli aktarım hızı ve özellik kümenize düzeyini seçtiğiniz katman temel alır. Daha fazla bilgi için [API Management fiyatlandırması](https://azure.microsoft.com/pricing/details/api-management/).
+API Management temel, standart veya Premium katmanları kullanın. Bu katmanlar, bir üretim hizmet düzeyi sözleşmesi (SLA) sağlar ve Azure bölgesi içinde genişletme desteği. Birim sayısını katmana göre değişir. Premium katmanı, birçok Azure bölgesinde genişletme de destekler. Özellik kümesi ve gerekli aktarım hızı düzeyi temelinde katmanınızı seçin. Daha fazla bilgi için [API Management fiyatlandırması](https://azure.microsoft.com/pricing/details/api-management/).
 
 Çalışırken tüm API Management örnekleri için ücretlendirilir. Ölçeklendirilebilir ve gerekmez, bu düzeyde performans her zaman ölçeği ve API Management saatlik faturalandırma avantajından yararlanmaya düşünün.
 
 ### <a name="logic-apps-pricing"></a>Logic Apps fiyatlandırma
 
-Logic Apps kullanan bir [sunucusuz](logic-apps-serverless-overview.md) modeli. Faturalandırma üzerinde eylem ve bağlayıcı yürütme temel alınarak hesaplanır. Daha fazla bilgi için [Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps/). Şu anda mantıksal uygulamalar için hiçbir katman hakkında önemli noktalar vardır.
+Logic Apps kullanan bir [sunucusuz](../logic-apps/logic-apps-serverless-overview.md) modeli. Faturalandırma üzerinde eylem ve bağlayıcı yürütme temel alınarak hesaplanır. Daha fazla bilgi için [Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps/). Şu anda mantıksal uygulamalar için hiçbir katman hakkında önemli noktalar vardır.
 
 ### <a name="logic-apps-for-asynchronous-api-calls"></a>Zaman uyumsuz API çağrıları için Logic Apps
 
-Logic Apps, düşük gecikme süresi gerektirmeyen senaryolarda en iyi şekilde çalışır. Örneğin, bunun için en iyi zaman uyumsuz veya yarı uzun süre çalışan API çağrıları. (Örneğin, bir kullanıcı arabirimi engelleyen bir çağrı) düşük gecikme süresi gerekiyorsa, bu API veya işlemi farklı teknolojiyi kullanarak uygulama öneririz. Örneğin, Azure işlevleri veya Azure App Service'i kullanarak dağıttığınız bir Web API'sini kullanın. API Yönetimi'ni kullanarak API tüketicilerini ön hala öneririz.
+Logic Apps, düşük gecikme süresi gerektirmeyen senaryolarda en iyi şekilde çalışır. Örneğin, Logic Apps için en iyi zaman uyumsuz veya yarı uzun süre çalışan API çağrıları. Düşük gecikme süresi gerekiyorsa, örneğin, bir kullanıcı arabirimi engelleyen bir çağrı uygulamak API veya işlemi farklı teknolojiyi kullanarak. Örneğin, Azure işlevleri veya Azure App Service'i kullanarak dağıttığınız bir Web API'sini kullanın. API, API tüketicilerini için ön için API Management'ı kullanın.
 
 ### <a name="region"></a>Bölge
 
-Ağ gecikmesini en aza indirmek için API Management'ı ve Logic Apps ile aynı bölgede sağlayın. Genellikle, kullanıcılarınıza en yakın bölgeyi seçin.
+Ağ gecikmesini en aza indirmek için API Management, Logic Apps ve Service Bus için aynı bölgeyi seçin. Genel olarak, kullanıcılarınıza en yakın bölgeyi seçin.
 
-Kaynak grubu da bir bölge vardır. Bölge, dağıtım meta verileri nerede depolandığını ve nereye dağıtım şablonu, gelen yürütür belirtir. Kaynak grubu ve kaynaklarını dağıtım sırasında kullanılabilirliği geliştirmek için aynı bölgeye yerleştirin.
+Kaynak grubu da bir bölge vardır. Bu bölge, dağıtım meta verileri depolamak nereden ve nereye dağıtım şablonu yürütmek belirtir. Dağıtım sırasında kullanılabilirliği artırmak için söz konusu kaynak grubu ve kaynakları aynı bölgeye yerleştirin.
 
 ## <a name="scalability"></a>Ölçeklenebilirlik
 
-API Management yöneticileri eklemelidir [önbelleğe alma ilkeleri](../api-management/api-management-howto-cache.md) hizmetinin ölçeklenebilirliği artırmak için uygun olduğunda. Önbelleğe alma Ayrıca arka uç Hizmetleri yükünü azaltmaya yardımcı olur.
+API Management hizmeti yönetirken, ölçeklenebilirliği artırmak için ekleme [önbelleğe alma ilkeleri](../api-management/api-management-howto-cache.md) uygun olduğunda. Önbelleğe alma Ayrıca arka uç Hizmetleri yükünü azaltmaya yardımcı olur.
 
-Azure API Management temel, standart ve Premium katmanlarında daha yüksek kapasite sunmak için bir Azure bölgesinde genişletilebilir. Yöneticiler **kapasite ölçüm** seçeneğini **ölçümleri** kendi hizmeti kullanımını analiz edin ve sonra ölçeği veya uygun şekilde ölçeği menüsü.
+Daha fazla kapasite sunmak için bir Azure bölgesinde Azure API Management temel, standart ve Premium katmanlarda ölçeği genişletebilirsiniz. Hizmetinizin kullanım çözümlenecek **ölçümleri** menüsünde **kapasite ölçüm** seçeneğini ve sonra ölçeği veya uygun şekilde ölçeği azaltın.
 
 API Management hizmeti ölçeklendirmeye yönelik öneriler:
 
-- Ölçeklendirme trafiği düzenlerinin hesaba katması gerekiyor. Trafik düzenlerini daha geçici olan müşteriler, artan kapasite büyük gerek.
-- % 66 yukarıda tutarlı kapasite ölçeğinizi gerek gösterebilir.
-- % 20 tutarlı kapasitenin ölçeğini fırsatı gösterebilir.
-- Yük-API Yönetimi hizmetiniz bir temsili yük ile test üretim yük etkinleştirmeden önce için her zaman önerilir.
+- Trafik düzenlerini ölçeklendirme sırasında göz önünde bulundurun. Trafik düzenlerini daha geçici olan müşteriler, daha fazla kapasiteye ihtiyaç.
 
-Premium katmanı hizmetlerini Azure bölgelerinde kullanıma ölçeklendirilebilir. Azure bölgelerinde Hizmetleri ölçekleyerek dağıtan müşteriler, daha yüksek bir SLA (% 99,95 oranında ve % 99,9) elde edin ve hizmetlerine yakın birden fazla bölgede kullanıcılara sağlayabilirsiniz.
+- % 66'dan büyük tutarlı kapasite ölçeğinizi gerek gösterebilir.
+
+- % 20 altında olan tutarlı kapasite ölçeğini fırsatı gösterebilir.
+
+- Üretim yük etkinleştirmeden önce her zaman yük API Yönetimi hizmetiniz temsili bir yük testi.
+
+Premium katmanı hizmetlerini Azure bölgelerinde ölçeklendirebilirsiniz. Azure bölgelerinde Hizmetleri ölçekleyerek dağıtırsanız, daha yüksek bir SLA (% 99,95 oranında ve % 99,9) ve sağlama hizmetleri birden fazla bölgede kullanıcılara yakın elde edebilirsiniz.
 
 Sunucusuz modeli yöneticilerin anlamına gelir. Logic Apps, hizmet ölçeklenebilirliği için planlama gerekmez. Servis talebi karşılamak üzere otomatik olarak ölçeklendirir.
 
 ## <a name="availability"></a>Kullanılabilirlik
 
-Şu anda, Azure API Yönetimi SLA'sı, temel, standart ve Premium katmanları için % 99,9 aşamasındadır. Premium katmanında en az bir birim iki veya daha fazla bölgede dağıtımını yapılandırmalarla % 99,95 oranında SLA'sı vardır.
+* Azure API Management hizmet düzeyi sözleşmesi (SLA), temel, standart ve Premium katmanları için % 99,9 şu anda aşamasındadır. En az bir birimin iki veya daha fazla bölgede bulunan bir dağıtım ile Premium katmanı yapılandırmaları için % 99,95 oranında SLA var.
 
-Şu anda, Azure Logic Apps için SLA % 99,9 aşamasındadır.
+* Şu anda Azure Logic Apps için SLA % 99,9 ' dir.
 
 ### <a name="backups"></a>Yedeklemeler
 
-Azure API Management yapılandırmanızı olmalıdır [düzenli olarak yedeklenen](../api-management/api-management-howto-disaster-recovery-backup-restore.md) (üzerinde değişiklik düzenli göre). Bir konum veya hizmetin bulunduğu farklı Azure bölgesinde yedekleme dosyalarının depolanması gerekir. Müşteriler, ardından kendi olağanüstü durum kurtarma stratejiniz için iki seçenekten birini seçebilirsiniz:
+Değişiklik, düzenli üzerinde temel [düzenli olarak yedekleyin](../api-management/api-management-howto-disaster-recovery-backup-restore.md) Azure API Management yapılandırma. Bir konum veya hizmetinizi bulunduğu farklı Azure bölgesine Yedekleme dosyalarınızı Store. Ardından, olağanüstü durum kurtarma stratejiniz iki seçenekten birini seçebilirsiniz:
 
-- Bir olağanüstü durum kurtarma olayı yeni bir API Management örneği sağlanır ve yeni örneğe yedek geri DNS kayıtlarını repointed.
-- Müşteriler, kendi hizmet Pasif bir kopyasını (ek ücret alınıyor) başka bir Azure bölgesinde tutun. Yedeklemeleri, düzenli olarak kopyaya geri yüklenir. Hizmetini geri yüklemek için bir olağanüstü durum kurtarma olayı yalnızca DNS kayıtları repointed.
+* Bir olağanüstü durum kurtarma olayı içinde yeni bir API Management örneği sağlayın ve sonra yeni örneğe yedek geri yükleme, DNS kayıtlarını repoint.
 
-Logic apps, hızlı bir şekilde yeniden oluşturulabilir ve sunucusuz çünkü bunlar ilişkili Azure Resource Manager şablonunun bir kopyasını kaydederek yedeklenir. Kaynak denetimine kaydedilebilmesi için şablonları ve bir müşterinin sürekli tümleştirme/sürekli dağıtım (CI/CD) işlem ile tümleştirilebilir.
+* Ek ücret doğurur, başka bir Azure bölgesinde, hizmetinize Pasif bir kopyasını tutun. Düzenli yedeklemeleri bu kopyaya geri yükleyin. Hizmet olağanüstü durum kurtarma olayı sırasında geri yüklemek için yalnızca DNS kayıtları repoint.
 
-API Management aracılığıyla yayımlanan bir mantıksal uygulama için farklı bir veri merkezine taşınırsa, uygulamanın konumu güncelleştirin. Uygulamanın konumu güncelleştirmek için güncelleştirmek için temel bir PowerShell Betiği kullanmanız **arka uç** API'nin özellik.
+Hızlı bir şekilde oluşturmanız için sunucusuz, mantıksal uygulamalar, bunları ilişkili Azure Resource Manager şablonunun bir kopyasını kaydederek yedekleyin. Kaynak denetiminde şablonları kaydedebilir ve şablonlar ile sürekli tümleştirme/sürekli dağıtım (CI/CD) işlem tümleştirebilirsiniz.
+
+Azure API Management aracılığıyla bir mantıksal uygulama yayımladığınız ve bu mantıksal uygulama için farklı bir veri merkezine taşınır, uygulamanın konumu güncelleştirin. API'NİZİN güncelleştirebilirsiniz **arka uç** temel bir PowerShell komut dosyası kullanarak özellik.
 
 ## <a name="manageability"></a>Yönetilebilirlik
 
-Üretim, geliştirme için ayrı kaynak grupları oluşturun ve test ortamları. Ayrı kaynak gruplarını kullanarak dağıtımları yönetin, test dağıtımlarını silmeyi ve erişim haklarını atamayı kolaylaştırır.
+Üretim, geliştirme için ayrı kaynak grupları oluşturun ve test ortamları. Ayrı kaynak gruplarında dağıtımları yönetmek, test dağıtımlarını silmeyi ve erişim haklarını atamayı kolaylaştırır.
 
-Kaynakları kaynak gruplarına atadığınızda, aşağıdaki faktörleri göz önünde bulundurun:
+Kaynakları kaynak gruplarına atadığınızda, şu etmenleri dikkate alın:
 
-- **Yaşam döngüsü**. Genel olarak, aynı kaynak grubunda aynı yaşam döngüsüne sahip kaynakları yerleştirin.
-- **Erişim**. Kullanabileceğiniz [rol tabanlı erişim denetimi](../role-based-access-control/overview.md) bir grup içindeki kaynaklara erişim ilkelerini uygulamak için (RBAC).
-- **Faturalama**. Kaynak grubu için toplama maliyetleri görüntüleyebilirsiniz.
-- **API Yönetimi fiyatlandırma katmanı**. Biz, geliştirme için geliştirici katmanı kullanmanızı öneririz ve test ortamları. Üretim öncesi için üretim ortamınızın bir çoğaltma dağıtma testleri çalıştırma ve maliyeti en aza indirmek için ardından kapatılmasını öneririz.
+* **Yaşam döngüsü**: genel olarak, aynı kaynak grubunda aynı yaşam döngüsüne sahip kaynakları yerleştirin.
+
+* **Erişim**: Grup içindeki kaynaklara erişim ilkeleri uygulamak için kullanabileceğiniz [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/overview.md).
+
+* **Faturalama**: kaynak grubu için toplama maliyetleri görüntüleyebilirsiniz.
+
+* **API Yönetimi fiyatlandırma katmanı**: Geliştirici katmanı geliştirme ve test ortamları için kullanın. Ön üretim sırasında maliyetleri en aza indirmek için üretim ortamınızın bir çoğaltma dağıtma, testlerinizi çalıştırmak ve kapatın.
 
 Daha fazla bilgi için bkz. [Azure Resource Manager’a genel bakış](../azure-resource-manager/resource-group-overview.md).
 
-### <a name="deployment"></a>Dağıtım
+## <a name="deployment"></a>Dağıtım
 
-Kullanmanızı öneririz [Azure Resource Manager şablonları](../azure-resource-manager/resource-group-authoring-templates.md) API Management ve Logic Apps dağıtılacak. Şablonlar, PowerShell veya Azure CLI aracılığıyla dağıtımları otomatik hale getirmek kolaylaştırır.
+* API Management ve Logic Apps'ı dağıtmak için [Azure Resource Manager şablonları](../azure-resource-manager/resource-group-authoring-templates.md). Şablonlar, PowerShell veya Azure CLI kullanarak otomatikleştirerek dağıtımları daha kolay olun.
 
-Azure API Management ve herhangi bir tek logic apps, kendi ayrı bir Resource Manager şablonlarında koyarak öneririz. Ayrı şablonları kullandığınızda, kaynaklar kaynak denetimi sistemlerini depolayabilirsiniz. Kaynakları birlikte veya tek tek bir CI/CD dağıtım işleminin bir parçası olarak da dağıtabilirsiniz.
+* API Management ve herhangi bir tek logic apps, kendi ayrı bir Resource Manager şablonlarında yerleştirin. Ayrı bir şablon kullanarak kaynakları kaynak denetimi sistemlerini depolayabilirsiniz. Bu şablonlar ardından, birlikte veya tek tek sürekli tümleştirme/sürekli dağıtım (CI/CD) işleminin bir parçası olarak da dağıtabilirsiniz.
 
 ### <a name="versions"></a>Sürümler
 
-Bir yapılandırması yaptığınız her zaman bir mantıksal uygulama için değiştirme (veya bir update Resource Manager şablonu aracılığıyla dağıtma), bu sürümünün bir kopyasını (çalıştırma geçmişi olan tüm sürümleri tutulur) size kolaylık sağlamak için tutulur. Geçmiş değişiklikleri izlemek ve mantıksal uygulamanın geçerli yapılandırma için bir sürüme yükseltmek için bu sürümlerini kullanabilirsiniz. Örneğin, etkili bir şekilde bir mantıksal uygulama geri alabilirsiniz.
+Bir mantıksal uygulamanın yapılandırmasını değiştirmenize veya bir Resource Manager şablonu aracılığıyla bir güncelleştirme dağıtımı her zaman Azure, size kolaylık olması için bu sürümünün bir kopyasını tutar ve çalıştırma geçmişi olan tüm sürümleri tutar. Geçmiş değişiklikleri izleme veya mantıksal uygulamanın geçerli yapılandırmasına bir sürüme yükseltmek için bu sürümlerini kullanabilirsiniz. Örneğin, etkili bir şekilde bir mantıksal uygulama geri alabilirsiniz.
 
-API Management vardır (ancak ücretsiz) farklı iki [sürüm oluşturma kavramları](https://blogs.msdn.microsoft.com/apimanagement/2018/01/11/versions-revisions-general-availibility/):
+Azure API Management bunlar farklı ancak tamamlayıcı sahiptir [sürüm oluşturma kavramları](https://blogs.msdn.microsoft.com/apimanagement/2018/01/11/versions-revisions-general-availibility/):
 
-- Sürümleri (örneğin, v1, v2 veya beta, üretim), ihtiyaçlarını temel alarak kullanabilecekleri API seçeneğiyle API tüketicilerinize sağlamak için kullanılır.
-- API yöneticilere bir API'ye güvenli bir şekilde değişiklik yapma ve kullanıcıların isteğe bağlı bir yorum ile değişiklikleri dağıtmak düzeltmeler.
+* Örneğin, ihtiyaçlarını temel alan bir API sürümü seçmek için özellik, v1, v2, beta veya üretim API tüketicilerinize sağlayan sürümleri
 
-Dağıtım bağlamında, API Management düzeltmeleri, değişiklikleri güvenle yapmak, değişiklik geçmişini tutmak ve API tüketicilerini bu değişikliklerin farkında yapmak için bir yol olarak dikkate alınması gereken bir fikirdir. Bir düzeltme bir geliştirme ortamında oluşturulabilir ve Resource Manager şablonları kullanarak diğer ortamlar arasında dağıtılır.
+* API yöneticilerin güvenli bir şekilde bir API'de değişiklikler yapmak ve ardından bu değişiklikleri isteğe bağlı bir yorum ile kullanıcılara dağıtmanıza olanak tanıyan düzeltmeler
 
-"Mevcut" ve kullanıcılar için erişilebilir hale getirmeden önce bir API'yi test etme için düzeltmeler kullanabilseniz de, bu mekanizma yük veya tümleştirme testi kullanımı önerilmemektedir. Bunun yerine, ayrı bir test veya üretim öncesi ortamlarda kullanın.
+Dağıtım için güvenli bir şekilde değişiklik yapmak için bir yol olarak API Management düzeltmeler değişiklik geçmişini tutmak ve bu değişiklikleri, API'NİZİN tüketicilere iletişim göz önünde bulundurun. Bir geliştirme ortamında bir değişiklik yapın ve diğer ortamlarda bu değişikliği Resource Manager şablonları kullanarak dağıtın.
 
-### <a name="configuration"></a>Yapılandırma
+"Mevcut" ve kullanıcılar bu değişiklikleri yapmadan önce bir API test etmek için düzeltmeler kullanabilirsiniz, ancak bu yöntem, tümleştirme testi veya yük için önerilmez. Bunun yerine, ayrı bir test veya üretim öncesi ortamlarda kullanın.
 
-Hiçbir zaman parolaları, erişim anahtarlarını veya bağlantı dizelerini kaynak denetimine denetleyin. Bu değerleri gerekiyorsa, dağıtmak ve bu değerleri güvenliğini sağlamak için uygun bir tekniğe kullanın. 
+### <a name="configuration-and-sensitive-information"></a>Yapılandırma ve hassas bilgileri
 
-Logic Apps'te (bağlantı biçiminde oluşturulamıyor) mantıksal uygulamada, gerekli herhangi bir hassas değeri Azure Key Vault'ta depolanabilir ve bir Resource Manager şablonundan başvurulan. Ayrıca, her ortam için dağıtım şablonu parametreleri ve parametre dosyalarını kullanmanızı öneririz. Daha fazla bilgi için [parametreleri ve bir iş akışındaki girişleri güvenli hale getirme](logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow).
+Hiçbir zaman parolaları, erişim anahtarlarını veya bağlantı dizelerini kaynak denetimine dahil etmeyin. Bu değerleri gerekiyorsa, güvenli ve uygun teknikleri kullanarak bu değerleri dağıtın. 
 
-API Yönetimi'nde, gizli dizileri adı verilen nesneleri kullanarak yönetilen *değerleri adlı* veya *özellikleri*. Nesneleri erişilebilen değerleri API Management ilkelerini güvenli bir şekilde depolayın. Daha fazla bilgi için [parolalarını API Management'te yönetme](../api-management/api-management-howto-properties.md).
+Logic apps'teki bir mantıksal uygulama içinde bir bağlantı oluşturulamıyor. herhangi bir hassas değeri gerektiriyorsa, bu değerlerin Azure Key Vault'ta depolamak ve bunları bir Resource Manager şablonundan başvuru. Her ortam için dağıtım şablonu parametreleri ve parametre dosyalarını kullanın. Daha fazla bilgi için [parametreleri ve bir iş akışındaki girişleri güvenli hale getirme](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow).
 
-### <a name="diagnostics-and-monitoring"></a>Tanılama ve izleme
+API Management adı verilen nesneleri kullanarak gizli dizileri yönetir *değerleri adlı* veya *özellikleri*. Bu nesneler, API Management ilkeleri erişebileceğiniz değerleri güvenli bir şekilde depolar. Daha fazla bilgi için [parolalarını API Management'te yönetme](../api-management/api-management-howto-properties.md).
 
-[API Management](../api-management/api-management-howto-use-azure-monitor.md) ve [Logic Apps](logic-apps-monitor-your-logic-apps.md) her ikisi de aracılığıyla işletimsel izleme desteği [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure İzleyici, her hizmet için yapılandırılmış ölçümleri temel alan bilgiler sağlar. Azure İzleyici varsayılan olarak etkindir.
+## <a name="diagnostics-and-monitoring"></a>Tanılama ve izleme
 
-Bu seçenekler ayrıca her hizmet için kullanılabilir:
+Kullanabileceğiniz [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) işletimsel hem de izleme [API Management](../api-management/api-management-howto-use-azure-monitor.md) ve [Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md). Azure İzleyici, her hizmet için yapılandırılmış ölçümleri temel alan bilgiler sağlar ve varsayılan olarak etkindir.
 
-- Logic Apps günlükleri gönderilebilir [Azure Log Analytics](logic-apps-monitor-your-logic-apps-oms.md) daha ayrıntılı analiz ve yönelik Kompozit için.
-- API Management, DevOps izleme için yapılandırma Azure Application ınsights'ı destekler.
-- API Management'ı destekleyen [özel API analiz için Power BI çözüm şablonu](http://aka.ms/apimpbi). Müşteriler, kendi özel analiz çözümü oluşturmak için çözüm şablonu kullanabilirsiniz. Raporlar Power BI'da iş kullanıcıları için kullanılabilir.
+Her hizmet ayrıca bu seçenekler vardır:
+
+* Daha ayrıntılı analiz ve yönelik Kompozit için Logic Apps günlüklerini gönderebilir [Azure Log Analytics](logic-apps-monitor-your-logic-apps-oms.md).
+
+* DevOps izleme için API yönetimi için Azure Application ınsights'ı yapılandırabilirsiniz.
+
+* API Management'ı destekleyen [özel API analiz için Power BI çözüm şablonu](http://aka.ms/apimpbi). Bu çözüm şablonu, kendi analiz çözümü oluşturmak için kullanabilirsiniz. İş kullanıcıları için Power BI raporları kullanılabilir hale getirir.
 
 ## <a name="security"></a>Güvenlik
 
-Bu bölümde, bu makalede açıklanan ve açıklandığı gibi mimari dağıtılan Azure hizmetlerine özel güvenlik konuları listelenmiştir. En iyi güvenlik uygulamalarının tam bir listesi değildir.
+Bu liste tüm en iyi güvenlik uygulamaları tamamen açıklanmamaktadır ancak özellikle tarafından bu makalede açıklanan mimarisinde dağıtılan Azure Hizmetleri için geçerli olan bazı güvenlik konuları aşağıda verilmiştir:
 
-- Uygun kullanıcılar için erişim düzeyini sağlamak için rol tabanlı erişim denetimi (RBAC) kullanın.
-- OAuth/Openıd Connect kullanarak API Management Genel API uç noktalarını güvenli hale getirin. Genel API uç noktalarını güvenli hale getirmek için bir kimlik sağlayıcısı yapılandırmak ve bir JSON Web Token (JWT) doğrulama ilkesi ekleyin.
-- Arka uç Hizmetleri için API Yönetimi'nden karşılıklı sertifikalar kullanarak bağlanın.
-- HTTP tetikleyicisi tabanlı logic apps, API Management IP adresine işaret eden bir IP adresi beyaz listesi oluşturarak güvenliğini sağlayın. API Management aracılığıyla geçmeden genel internet'ten mantıksal uygulamayı çağırmak bir izin verilenler listesinde IP adresi engeller.
+* Kullanıcılar uygun erişim düzeylerine sahip olduğunuzdan emin olmak için rol tabanlı erişim denetimi (RBAC) kullanın.
+
+* OAuth veya Openıd Connect kullanarak, API Management Genel API uç noktalarını güvenli hale getirin. Genel API uç noktalarını güvenli hale getirmek için bir kimlik sağlayıcısı yapılandırmak ve bir JSON Web Token (JWT) doğrulama ilkesi ekleyin.
+
+* Arka uç Hizmetleri için API Yönetimi'nden karşılıklı sertifikalar kullanarak bağlanın.
+
+* HTTP tetikleyicisi tabanlı logic apps, API Management IP adresine işaret eden bir IP adresi beyaz listesi oluşturarak güvenliğini sağlayın. API Management aracılığıyla geçmeden genel internet'ten mantıksal uygulamayı çağırmak bir izin verilenler listesinde IP adresi engeller.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Hakkında bilgi edinin [sıralar ve olaylar ile Kurumsal tümleştirme](logic-apps-architectures-enterprise-integration-with-queues-events.md).
+* Hakkında bilgi edinin [sıralar ve olaylar ile Kurumsal tümleştirme](../logic-apps/logic-apps-architectures-enterprise-integration-with-queues-events.md)

@@ -1,146 +1,141 @@
 ---
-title: Uygulamaları Azure mantıksal uygulamaları için BizTalk Services taşıma | Microsoft Docs
-description: Taşıma veya Azure mantıksal uygulamaları için Azure BizTalk Services (MABS) geçirme
+title: Uygulamaları, BizTalk Services Azure Logic Apps'e taşıyın. | Microsoft Docs
+description: Azure BizTalk Services (MABS) Azure Logic Apps'e geçirme
 services: logic-apps
-documentationcenter: ''
-author: jonfancey
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: jonfancey
+ms.author: jonfan
+ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 05/30/2017
-ms.author: jonfan; LADocs
-ms.openlocfilehash: 846386172c0221c217430e62c8560484f799fa7f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f27e82e780917e00625ef6a14ab8317d1f5b8ae8
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299554"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124808"
 ---
-# <a name="move-from-biztalk-services-to-azure-logic-apps"></a>BizTalk Services Azure mantıksal uygulamaları taşıma
+# <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>BizTalk Services'tan Azure Logic Apps'e geçiş
 
-Microsoft Azure BizTalk Services'ı (MABS) devre dışı bırakılıyor. MABS tümleştirme çözümlerinizi taşımak için [Azure Logic Apps](../logic-apps/logic-apps-overview.md), bu makalede yer alan yönergeleri izleyin. 
+Microsoft Azure BizTalk Services (MABS) devre dışı bırakılıyor. MABS tümleştirme çözümlerinizi taşımak [Azure Logic Apps](../logic-apps/logic-apps-overview.md), bu makaledeki yönergeleri izleyin. 
 
 ## <a name="introduction"></a>Giriş
 
-BizTalk Services iki alt Servisleri oluşur:
+BizTalk Services'ın iki alt Servisleri oluşur:
 
-* Karma bağlantılar Microsoft BizTalk Hizmetleri
-* EAI ve EDI köprüsü tabanlı tümleştirmesi
+* Microsoft BizTalk Hizmetleri karma bağlantılar
+* EAI ve EDI köprüye dayalı tümleştirme
 
-[Azure App Service karma bağlantılar](../app-service/app-service-hybrid-connections.md) BizTalk Services karma bağlantılar yerini alır. Azure karma bağlantılar, Azure Portalı aracılığıyla Azure App Service ile kullanılabilir. Bu hizmet bir karma Bağlantı Yöneticisi sunar, böylece mevcut BizTalk Services karma bağlantılar ve ayrıca portalında oluşturduğunuz yeni karma bağlantılar yönetebilirsiniz. 
+[Azure App Service karma bağlantılar](../app-service/app-service-hybrid-connections.md) BizTalk Hizmetleri karma bağlantılar değiştirir. Azure karma bağlantılar, Azure portalı üzerinden Azure App Service ile kullanılabilir. Mevcut BizTalk Hizmetleri karma bağlantılar ve ayrıca, portalda oluşturduğunuz yeni karma bağlantılar yönetebilmesi bu hizmet bir karma Bağlantı Yöneticisi'ni sağlar. 
 
-[Logic Apps](../logic-apps/logic-apps-overview.md) EAI ve EDI köprüsü dayalı tümleştirme aynı olanaklarına BizTalk Services ve daha fazla ile değiştirir. Bu hizmet, bulut ölçekli tüketim tabanlı iş akışı ve orchestration özellikleri karmaşık tümleştirme çözümleri bir tarayıcı yoluyla veya Visual Studio ile hızlı ve kolay bir şekilde oluşturmanızı sağlar.
+[Logic Apps](../logic-apps/logic-apps-overview.md) EAI ve EDI köprüye dayalı tümleştirme BizTalk Hizmetleri ve diğer tüm aynı özellikleri değiştirir. Bu hizmet, bulut ölçeğinde tüketim temelli iş akışı ve düzenleme özellikleri, bir tarayıcı aracılığıyla veya Visual Studio ile karmaşık tümleştirme çözümlerini hızla ve kolayca oluşturmanızı sağlar.
 
-Bu tablo BizTalk Services özellikleri Logic Apps eşler.
+Bu tablo, Logic Apps için BizTalk Services'ın özellikleri eşler.
 
 | BizTalk Services   | Logic Apps            | Amaç                      |
 | ------------------ | --------------------- | ---------------------------- |
 | Bağlayıcı          | Bağlayıcı             | Veri göndermek ve almak   |
-| Köprüsü             | Logic App             | Ardışık Düzen işlemci           |
+| Köprü             | Logic App             | İşlem hattı işlemci           |
 | Aşama doğrula     | XML doğrulaması eylemi | Bir XML belgesi bir şemaya karşı doğrulama | 
-| Aşama zenginleştirmek       | Veri belirteçleri           | İletilere veya yönlendirme kararları için özelliklerini Yükselt |
+| Aşama zenginleştirin       | Veri belirteçleri           | İletilere veya yönlendirme kararları için özelliklerini Yükselt |
 | Aşama dönüştürme    | Eylem dönüştürme      | XML iletileri bir biçimden diğerine dönüştürme |
-| Aşama kod çözme       | Düz dosya kod çözme eylemi | Düz dosyadan XML biçimine Dönüştür |
-| Aşama kodlama       | Düz dosya kodlamak eylemi | Düz dosya XML'den Dönüştür |
-| İleti denetçisi  | Azure işlevleri veya API uygulamaları | Özel kod, tümleştirmeler çalıştırın |
-| Rota eylem       | Koşul veya anahtar | Belirtilen bağlayıcılar birine iletileri yönlendirmek |
+| Aşama kodunu çözme       | Düz dosya kodunu çözme eylemi | Düz dosyadan XML biçimine Dönüştür |
+| Aşama kodlayın       | Düz dosya kodlama eylemi | XML'den dönüştürmek için düz dosya |
+| İleti denetçisi  | Azure işlevleri veya API uygulamaları | İçinde tümleştirmeler özel kod çalıştırma |
+| Yönlendirme eylemini       | Koşul veya anahtar | Belirtilen bağlayıcıların birine yönlendirme iletileri |
 |||| 
 
-## <a name="biztalk-services-artifacts"></a>BizTalk Services yapıları
+## <a name="biztalk-services-artifacts"></a>BizTalk Hizmetleri yapıtları
 
-BizTalk Services çeşitli türlerde yapıları vardır. 
+BizTalk Services çeşitli yapıtlar vardır. 
 
 ## <a name="connectors"></a>Bağlayıcılar
 
-BizTalk Services bağlayıcıları HTTP tabanlı istek/yanıt etkileşimleri etkinleştirmek iki yönlü köprüleri dahil olmak üzere veri gönderip köprüleri yardımcı olur. Logic Apps kullandığı aynı terminoloji ve çok çeşitli teknolojiler ve hizmetler için bağlanarak aynı amaca hizmet 180 + bağlayıcılar sahiptir. Örneğin, bağlayıcılar SaaS bulut için kullanılabilir ve PaaS, OneDrive, Office365, Dynamics CRM ve diğerleri gibi hizmetleri plus içi sistemler BizTalk bağdaştırıcı hizmeti BizTalk hizmetlerini değiştirir şirket içi veri geçidi arasında. BizTalk Hizmetleri kaynaklarında, FTP, SFTP ve hizmet veri yolu kuyruğu ya da konu aboneliği sınırlıdır.
+BizTalk Hizmetleri bağlayıcılar, istek/yanıt HTTP tabanlı etkileşimler sağlayan iki yönlü köprüleri dahil olmak üzere, veri göndermek ve almak köprüleri yardımcı olur. Logic Apps kullandığı aynı terminoloji ve çok çeşitli teknolojiler ve hizmetler için bağlanarak aynı amaca hizmet 180 fazla bağlayıcıya sahiptir. Örneğin, bağlayıcılar SaaS bulut için kullanılabilir ve PaaS Hizmetleri, OneDrive, Office 365, Dynamics CRM ve diğer gibi yanı sıra şirket içi sistemler ile BizTalk hizmetlerini BizTalk bağdaştırıcı hizmeti değiştirir On-Premises Data Gateway. BizTalk Services kaynakları, FTP, SFTP ve Service Bus kuyruğu veya konuyu aboneliğine sınırlıdır.
 
 ![](media/logic-apps-move-from-mabs/sources.png)
 
-Varsayılan olarak, her köprüsü çalışma zamanı adresi ve köprüsü göreli adres özelliklerini ile yapılandırılmış bir HTTP uç noktası vardır. Logic Apps ile aynı sonucu elde etmek için kullanmak [istek ve yanıt](../connectors/connectors-native-reqres.md) eylemler.
+Varsayılan olarak, her köprüsü çalışma zamanı adresi ve köprüyü göreli adres özelliklerini ile yapılandırılmış bir HTTP uç noktası vardır. Logic Apps ile aynı sonuçları elde etmek için kullanın [istek ve yanıt](../connectors/connectors-native-reqres.md) eylemler.
 
 ## <a name="xml-processing-and-bridges"></a>XML işleme ve köprüleri
 
-BizTalk Services ' bir köprü işleme ardışık düzenine benzerdir. Köprü Bağlayıcısı'ndan alınan verileri alabilir, bazı verilerle çalışmak ve başka bir sisteme sonuçları gönderir. Logic Apps, BizTalk Services olarak aynı ardışık düzen tabanlı etkileşim desenlerini destekleme ve ayrıca diğer tümleştirme desenleri sağlayarak aynı yapar. [XML istek-yanıt köprüsü](https://msdn.microsoft.com/library/azure/hh689781.aspx) BizTalk Services'da bu görevleri gerçekleştiren aşamadan oluşur ve VETER ardışık bilinir:
+BizTalk Hizmetleri'nde bir köprü işleme ardışık düzenine benzer. Bir köprü Bağlayıcısı'ndan alınan veriler alabilir, bazı verilerle çalışmak ve sonuçları başka bir sisteme gönderir. Logic Apps, BizTalk Hizmetleri olarak aynı işlem hattı tabanlı etkileşim desenleri destekleyen ve ayrıca diğer tümleştirme düzenleri sağlayarak aynı yapar. [XML istek-yanıt köprüsü](https://msdn.microsoft.com/library/azure/hh689781.aspx) BizTalk Hizmetleri bu görevleri gerçekleştirmek aşamalardan oluşan bir VETER işlem hattı bilinir:
 
 * (V) doğrulama
-* (E) zenginleştirmek
+* (E) zenginleştirin
 * (T) dönüştürme
-* (E) zenginleştirmek
-* (R) yolu
+* (E) zenginleştirin
+* (R) rota
 
-Bu görüntü nasıl işleme istek ve istek üzerinde denetim sağlar. yanıt arasında bölünür ve yanıt yolları ayrı olarak, örneğin, farklı kullanarak eşler için her yol göstermektedir:
+Bu görüntü nasıl işleme istek ve istek üzerine denetim sağlayan yanıt arasında bölünür ve yanıt yolları ayrı olarak, örneğin, farklı kullanarak eşler için her bir yol gösterir:
 
 ![](media/logic-apps-move-from-mabs/xml-request-reply.png)
 
-Ayrıca, tek yönlü köprüsü XML işlem başlangıcı ve sonunda kod çözme ve kodla aşamaları ekler. Doğrudan köprüsü tek bir Enrich aşamasını içerir.
+Ayrıca, tek yönlü köprüsü XML işleme başlangıç ve sonunda kod çözme ve kodla aşamaları ekler. Doğrudan köprüsü, tek bir zenginleştirin aşamasını içerir.
 
 ### <a name="message-processing-decoding-and-encoding"></a>İleti işleme, kod çözme ve kodlama
 
-BizTalk Services ' farklı türlerde XML iletileri almak ve alınan ileti eşleşen şeması belirleyin. Bu iş içinde gerçekleştirilir *ileti türlerini* alma işleme ardışık düzen aşaması. Kod çözme aşama, algılanan ileti türü sonra iletiyi sağlanan şema kullanarak kod çözme için kullanır. Şemanın bir düz dosya şema ise, bu aşama, gelen düz dosya XML'e dönüştürür. 
+BizTalk Services hizmetinde farklı türde XML iletileri almak ve alınan ileti için eşleşen şema belirleme. Bu iş içinde gerçekleştirilen *ileti türlerini* alma işleme ardışık düzen aşaması. Kod çözme aşama, algılanan ileti türü ardından sağlanan şema kullanarak iletisinin kodunu çözün için kullanır. Şema düz dosya şemasının ise, bu aşama, gelen düz dosya XML biçimine dönüştürür. 
 
-Logic Apps benzer yetenekleri sağlar. Düz dosya farklı bağlayıcı Tetikleyicileri (dosya sistemi, FTP, HTTP vb.) kullanarak farklı protokoller üzerinden almak ve kullanmak [düz dosya kod çözme](../logic-apps/logic-apps-enterprise-integration-flatfile.md) gelen veri XML'e dönüştürmek için eylem. Logic Apps herhangi bir değişiklik yapmadan doğrudan varolan düz dosya şemaları taşıyın ve şemaları tümleştirme hesabınıza yükleyin.
+Logic Apps benzer yetenekler sağlar. (Dosya sistemi, FTP, HTTP ve benzeri) farklı bağlayıcı Tetikleyicileri kullanarak farklı protokoller üzerinden düz dosya alma ve kullanma [düz dosya kodunu çözme](../logic-apps/logic-apps-enterprise-integration-flatfile.md) XML gelen verileri dönüştürmek için eylem. Logic Apps herhangi bir değişiklik yapmadan doğrudan, mevcut bir düz dosya şemasına taşıyın ve şemaları tümleştirme hesabınıza yükleyin.
 
 ### <a name="validation"></a>Doğrulama
 
-Gelen veri dönüştürüldükten sonra XML (veya XML alınan ileti biçimi olup olmadığı için), doğrulama ileti XSD şemanızı aynılarını varsa belirlemek için çalışır. Logic Apps içinde bu görevi gerçekleştirmek için kullanın [XML doğrulama](../logic-apps/logic-apps-enterprise-integration-xml-validation.md) eylem. BizTalk Services aynı şemaları herhangi bir değişiklik yapılmadan kullanabilirsiniz.
+Gelen veri dönüştürüldükten sonra XML (veya XML ileti biçimi alındı olup olmadığını), doğrulama iletisi, XSD şeması uyar, belirlemek için çalışır. Logic Apps'te bu görevi gerçekleştirmek için [XML doğrulama](../logic-apps/logic-apps-enterprise-integration-xml-validation.md) eylem. BizTalk Hizmetleri aynı şemalardan herhangi bir değişiklik yapmadan kullanabilirsiniz.
 
 ### <a name="transform-messages"></a>İletileri dönüştürme
 
-BizTalk Services ' dönüştürme aşaması bir XML tabanlı ileti biçimi diğerine dönüştürür. Bu iş TRFM tabanlı Eşleyici kullanan bir harita uygulanarak yapılır. Logic Apps içinde benzer işlemidir. Dönüştürme eylem bir harita tümleştirme hesabınızdan yürütür. İkisi arasındaki temel fark Logic Apps eşlemelerinin XSLT biçiminde olmasıdır. XSLT, İşlevsiler içeren BizTalk Server için oluşturulan eşlemeleri dahil olmak üzere zaten varolan XSLT yeniden yeteneğini içerir. 
+BizTalk Services hizmetinde dönüştürme aşaması bir XML tabanlı ileti biçimi diğerine dönüştürür. Bu iş TRFM tabanlı Eşleyici kullanarak bir harita, uygulama tarafından gerçekleştirilir. Logic Apps'te işlemi benzer. Dönüştürme eylemi bir harita tümleştirme hesabınızdan yürütür. İkisi arasındaki temel fark haritalar Logic apps'teki XSLT biçiminde olmasıdır. XSLT, İşlevsiler bulunduğu için BizTalk Server oluşturulan eşlemeleri de dahil olmak üzere zaten var olan XSLT yeniden kullanabilme içerir. 
 
 ### <a name="routing-rules"></a>Yönlendirme kuralları
 
-BizTalk Services gelen iletileri veya veri göndermek için hangi uç nokta veya bağlayıcı üzerinde bir yönlendirme karar verir. Önceden yapılandırılmış uç noktalarından seçebilme yönlendirme filtre seçeneğini kullanarak mümkündür:
+BizTalk Hizmetleri, gelen iletileri veya veri göndermek için hangi uç nokta veya Bağlayıcısı yönlendirme karar verir. Önceden yapılandırılmış uç noktalarından seçebilme yönlendirme filtre seçeneğini kullanarak mümkündür:
 
 ![](media/logic-apps-move-from-mabs/route-filter.png)
 
-Yalnızca iki seçenek yoksa, BizTalk Hizmetleri'ni kullanarak bir *koşulu* BizTalk Services yönlendirme filtreleri dönüştürmek için en iyi yoludur. Varsa ikiden daha sonra kullanmak bir **geçiş**.
+BizTalk Services hizmetinde, yalnızca iki seçenek varsa, kullanarak bir *koşul* BizTalk Hizmetleri, yönlendirme filtreleri dönüştürmek için en iyi yoludur. Varsa ikiden, ardından kullanmak bir **geçiş**.
 
 Logic Apps, Gelişmiş mantık özellikleri yanı sıra gelişmiş denetim akışı ve ile yönlendirme sağlar [koşullu deyimler](../logic-apps/logic-apps-control-flow-conditional-statement.md) ve [switch ifadeleri](../logic-apps/logic-apps-control-flow-switch-statement.md).
 
-### <a name="enrich"></a>Zenginleştirmek
+### <a name="enrich"></a>Zenginleştirin
 
-BizTalk Services işlemede Enrich aşama alınan verilerle ilişkili ileti bağlamı özellikler ekler. Örneğin, bir veritabanı araması veya bir XPath ifadesi kullanarak bir değer ayıklanıyor tarafından yönlendirme için kullanmak üzere bir özelliğe yükseltme. Logic Apps, Eylemler aynı davranışı çoğaltmak basit hale getirme, önceki tüm bağlamsal verileri çıktıları erişim sağlar. Örneğin, kullanarak `Get Row` SQL bağlantı eylem, bir SQL Server veritabanından veri dönün ve yönlendirme için verileri bir karar eylemi kullanın. Benzer şekilde, gelen Service Bus özelliklerini Tetikleyici tarafından sıraya alınan iletileri xpath iş akışı tanımı dili ifade kullanılarak XPath yanı sıra olan adreslenebilir.
+BizTalk Hizmetleri işlemede zenginleştirin aşama alınan verilerle ilişkili ileti bağlamı özellikler ekler. Örneğin, bir veritabanı araması veya bir XPath ifadesi kullanarak bir değer ayıklama yönlendirme için kullanılacak bir özellik yükseltiliyor. Logic Apps, Eylemler aynı davranışı çoğaltmak basit hale getirme, önceki gelen tüm bağlamsal veriler çıktıları erişim sağlar. Örnek olarak, `Get Row` SQL bağlantı eylemi, bir SQL Server veritabanından veri döndürmek ve yönlendirme için verileri bir karar eylemini kullanın. Benzer şekilde, Service Bus gelen özellikleri bir tetikleyici tarafından sıraya alınan iletileri olan adreslenebilir yanı sıra iş akışı tanımı dil xpath ifadesi kullanarak XPath.
 
 ### <a name="run-custom-code"></a>Özel kod çalıştırma
 
-BizTalk Services olanak tanır [özel kodu çalıştırmak](https://msdn.microsoft.com/library/azure/dn232389.aspx) kendi derlemelerde karşıya. Bu işlev tarafından uygulanan [IMessageInspector](https://msdn.microsoft.com/library/microsoft.biztalk.services.imessageinspector) arabirimi. Köprüsü her aşamada bu arabirimi gerçekleştiren oluşturduğunuz .NET türü sağlayan iki özellikleri (üzerinde denetçisi girin ve üzerinde çıkış denetçisi) içerir. Özel kod, verileri daha karmaşık işleme gerçekleştirmenize olanak sağlar ve ortak iş mantığını gerçekleştirirler derlemelerde varolan kodunu yeniden olanak tanır. 
+BizTalk Services sayesinde [özel kod çalıştıran](https://msdn.microsoft.com/library/azure/dn232389.aspx) kendi derlemeler yüklenir. Bu işlev tarafından uygulanan [IMessageInspector](https://msdn.microsoft.com/library/microsoft.biztalk.services.imessageinspector) arabirimi. Köprü her aşamasında bu arabirimi uygulayan oluşturduğunuz .NET türü sağlayan iki özellikleri (üzerinde denetçisi girin ve çıkış Inspector'ı üzerinde) içerir. Özel kod daha karmaşık bir işlem veri gerçekleştirmenize olanak tanıyan ve ortak iş mantığını gerçekleştirebilirsiniz derlemelerde mevcut kodu yeniden olanak tanır. 
 
-Logic Apps özel kod yürütmek için iki birincil yol sağlar: Azure işlevleri ve API Apps. Azure işlevleri oluşturulur ve mantığı uygulamalardan çağrılır. Bkz: [ekleme ve Azure işlevleri aracılığıyla mantıksal uygulamalar için çalışma özel kod](../logic-apps/logic-apps-azure-functions.md). API uygulamaları, Azure App Service, parçası kendi tetikleyiciler ve Eylemler oluşturmak için kullanın. Daha fazla bilgi edinmek [Logic Apps ile kullanmak için özel bir API oluşturma](../logic-apps/logic-apps-create-api-app.md). 
+Logic Apps özel kod yürütmek için iki temel yol sunar: Azure işlevleri ve API Apps. Azure işlevleri oluşturulur ve logic apps'ten çağrılır. Bkz: [ekleme ve çalıştırma, Azure işlevleri ile logic apps için özel kod](../logic-apps/logic-apps-azure-functions.md). API Apps, Azure App Service'in bir parçası, kendi Tetikleyicileri ve eylemleri oluşturmak için kullanın. Daha fazla bilgi edinin [Logic Apps ile kullanılacak özel bir API oluşturma](../logic-apps/logic-apps-create-api-app.md). 
 
-BizTalk Services çağrı derlemelerde özel kod varsa, bu kodu Azure işlevleri taşıyın veya ne, uygulama bağlı olarak API uygulamaları ile özel API'leri oluşturabilirsiniz. Örneğin, başka bir service Logic Apps bağlayıcı yok sarmalar kodu varsa, API uygulaması oluşturma sonra mantıksal uygulamanızı içinde API uygulamanızı sağlar eylemlerini kullanın. Yardımcı işlevleri veya kitaplıkları varsa, Azure işlevleri büyük olasılıkla en uygun değil.
+BizTalk Services'ı çağırın derlemelerde özel kodunuz varsa, Azure işlevleri için bu kodu Taşı veya ne uyguladığınız bağlı olarak, API Apps, özel API'ler oluşturma. Örneğin, Logic Apps bağlayıcı yok başka bir hizmete sarmalar kodunuz varsa, ardından API uygulaması oluşturma ve mantıksal uygulamanızın içinde API uygulamanızı sağlar eylemlerini kullanın. Ardından Azure işlevleri, büyük olasılıkla yardımcı işlevleri veya kitaplıkları varsa, en uygun olacaktır.
 
-### <a name="edi-processing-and-trading-partner-management"></a>İşleme ve ticari ortak Yönetimi EDI
+### <a name="edi-processing-and-trading-partner-management"></a>EDI işleme ve ticari ortak Yönetimi
 
-BizTalk Services ve Logic Apps dahil EDI ve B2B işleme desteğiyle AS2 (Uygulanabilirlik deyimi 2) X12 ve EDIFACT. BizTalk Services, EDI köprüleri oluşturma ve oluşturun veya ticaret iş ortakları ve ayrılmış izleme ve Yönetim Portalı'nda sözleşmelerini yönetme.
-Logic Apps içinde bu işlevselliği elde [Enterprise Integration Pack (EIP)](../logic-apps/logic-apps-enterprise-integration-overview.md). EIP sağlar [tümleştirme hesabını](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) ve EDI ve B2B işleme B2B eylemler. Ayrıca bir tümleştirme hesabı oluşturmak ve yönetmek için kullandığınız [ticaret ortakları](../logic-apps/logic-apps-enterprise-integration-partners.md) ve [anlaşmaları](../logic-apps/logic-apps-enterprise-integration-agreements.md). Bir tümleştirme hesabı oluşturduktan sonra bir veya daha fazla logic apps hesabınıza bağlayabilirsiniz. B2B Eylemler sonra mantıksal uygulamanızı ticaret iş ortağı bilgileri erişmek için de kullanabilirsiniz. Aşağıdaki eylemleri sağlanır:
+BizTalk Hizmetleri ve Logic Apps dahil EDI ve B2B işleme desteğiyle AS2 (Uygulanabilirlik deyimi 2) X12 ve EDIFACT. BizTalk Hizmetleri, EDI köprüleri oluşturup oluşturmak veya ticari iş ortaklarının ve sözleşmelerin adanmış izleme ve Yönetim Portalı'nda yönetin.
+Bu işlev, Logic Apps'te alabilirsiniz [Enterprise Integration Pack (EIP)](../logic-apps/logic-apps-enterprise-integration-overview.md). EIP sağlar [tümleştirme hesabı](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) ve B2B eylemlerinin EDI ve B2B işleme. Tümleştirme hesabı oluşturmak ve yönetmek için de [ortaklar](../logic-apps/logic-apps-enterprise-integration-partners.md) ve [sözleşmeleri](../logic-apps/logic-apps-enterprise-integration-agreements.md). Tümleştirme hesabı oluşturduktan sonra bir veya daha fazla mantıksal uygulamalar hesabınıza bağlayabilirsiniz. B2B eylemlerinin sonra mantıksal uygulamanızdan ticaret iş ortağı bilgilerine erişmek için de kullanabilirsiniz. Aşağıdaki eylemleri sağlanır:
 
 * AS2 kodlama
 * AS2 kod çözme
-* X12 kodlama
-* X12 kod çözme
+* X12 kodlayın
+* X12 kodunu çözme
 * EDIFACT kodlama
-* EDIFACT kod çözme
+* EDIFACT kodunu çözme
 
-BizTalk Services, bu eylemleri aktarım protokollerinden birbirinden ayrılır. Mantıksal uygulamalarınızı oluşturduğunuzda, hangi bağlayıcılar daha fazla esneklik bulunur şekilde veri göndermek ve almak için kullanın. Örneğin, alabileceğiniz X12 dosyaları e-posta ve sonra işlemi ek olarak bir mantıksal uygulama içinde bu dosyalar. 
+BizTalk Services'ın bu Eylemler, aktarım protokolleri arasından birbirinden ayrılmıştır. Logic apps'ı oluşturduğunuzda, hangi bağlayıcı daha fazla esnekliğe sahip veri göndermek ve almak için kullanın. Örneğin, alabileceğiniz X12 dosyaları e-posta ve sonra işlem ek olarak bir mantıksal uygulama içinde bu dosyaları. 
 
 ## <a name="manage-and-monitor"></a>Yönetme ve izleme
 
-BizTalk Services ' ayrılmış bir portal izlemek ve sorunlarını gidermek için izleme özellikleri sağlıyordu. Logic Apps sağlar daha zengin izleme ve izleme kapasiteleri aracılığıyla [Azure portal](../logic-apps/logic-apps-monitor-your-logic-apps.md)ve hareket halinde olduğunuzda bir göz şeylere tutmak için bir mobil uygulama içerir.
+BizTalk Services hizmetinde, adanmış bir portal izlemek ve sorunlarını gidermek için izleme özellikleri sağlanan. Daha zengin izleme ve izleme özellikleri ile Logic Apps sağlar [Azure portalında](../logic-apps/logic-apps-monitor-your-logic-apps.md)ve hareket ederken şeylere göz önünde tutmak için bir mobil uygulama içerir.
 
 ## <a name="high-availability"></a>Yüksek kullanılabilirlik
 
-Yüksek kullanılabilirlik için (HA) BizTalk Services, belirli bir bölgede birden fazla örneği kullanarak işlem yükü paylaşabilirsiniz. Logic Apps bölge içinde HA hiçbir ek ücret ödemeden sağlar. 
+Kullanılabilirlik düzeyi yüksek (HA) BizTalk Services, belirli bir bölgede birden fazla örneği'ni kullanarak işlem yükü paylaşabilirsiniz. Logic Apps, ek ücret ödemeden bölge HA sağlar. 
 
-BizTalk Services ' bölge olağanüstü durum kurtarma B2B işleme için bir yedekleme ve geri yükleme işlemi gerektirir. İş sürekliliği için çapraz bölge Etkin/pasif Logic Apps sağlar [DR yetenek](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md), olanak sağlayan, B2B veri tümleştirme hesapları farklı bölgelerdeki eşitleyin.
+BizTalk Hizmetleri'nde B2B işleme için bölge kullanıma olağanüstü durum kurtarma bir yedekleme ve geri yükleme işlemi gerektirir. İş sürekliliği için Logic Apps, bölgeler arası Aktif/Pasif sağlar [DR özelliği](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md), olanak sağlayan tümleştirme hesapları farklı bölgelerde arasında B2B verileri eşitleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Logic Apps nedir?](../logic-apps/logic-apps-overview.md)
 * [İlk mantıksal uygulamanızı oluşturun](../logic-apps/quickstart-create-first-logic-app-workflow.md) veya [önceden oluşturulmuş bir şablon](../logic-apps/logic-apps-create-logic-apps-from-templates.md) kullanarak hızlı şekilde çalışmaya başlayın  
-* [Tüm kullanılabilir bağlayıcılar görüntülemek](../connectors/apis-list.md) logic apps içinde kullanabileceğiniz
+* [Tüm bağlayıcıları görüntüleyin](../connectors/apis-list.md) logic apps'te kullanabileceğiniz

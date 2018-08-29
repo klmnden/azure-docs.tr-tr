@@ -1,105 +1,100 @@
 ---
-title: Kimlik doğrulaması özel API'leri - Azure mantıksal uygulamaları ekleme | Microsoft Docs
-description: Kimlik doğrulaması mantığı uygulamalardan özel API çağrıları için ayarlama
-author: ecfan
-manager: jeconnoc
-editor: ''
+title: Özel API - Azure Logic Apps için kimlik doğrulaması ekleme | Microsoft Docs
+description: Azure Logic Apps'ten özel API'leri çağırmak için kimlik doğrulaması ayarlama
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.author: LADocs; estfan
-ms.openlocfilehash: 705abb2a3cc25c965bdce364eb169b4e3a814bff
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: b329fb1416d28b0732e7b9ea4612f5bac8580b3a
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298558"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43132916"
 ---
-# <a name="secure-calls-to-your-custom-apis-from-logic-apps"></a>Özel Apı'lerinizi mantığı uygulamalardan güvenli çağrılar
+# <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Azure mantıksal uygulamalardan özel API'lere giden çağrıların güvenliğini sağlama
 
-Kodunuzu güncelleştirmek zorunda kalmamak için API çağrıları güvenli hale getirmek için Azure Portalı aracılığıyla Azure Active Directory (Azure AD) kimlik doğrulaması ayarlayabilirsiniz. İsterseniz, API'nizin kodu aracılığıyla kimlik doğrulamasının gerekli ve zorunlu olmasını da sağlayabilirsiniz.
+Kodunuzu güncelleştirmek zorunda kalmamak için API'lere giden çağrıların güvenliğini sağlamak için Azure portalı üzerinden Azure Active Directory (Azure AD) kimlik ayarlayabilirsiniz. İsterseniz, API'nizin kodu aracılığıyla kimlik doğrulamasının gerekli ve zorunlu olmasını da sağlayabilirsiniz.
 
-## <a name="authentication-options-for-your-api"></a>API'nizi için kimlik doğrulama seçenekleri
+## <a name="authentication-options-for-your-api"></a>API'niz için kimlik doğrulama seçenekleri
 
-Bu şekilde, özel API çağrıları güvenliğini sağlayabilirsiniz:
+Özel API'nizi aşağıdaki şekillerde çağrıları güvenli hale getirebilirsiniz:
 
-* [Kod değişiklikleri](#no-code): API'nizi ile koruma [Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md) Azure portalı üzerinden bu nedenle, kodunuzu güncelleştirin veya API'nizi yeniden dağıtmak zorunda değilsiniz.
+* [Kod değişikliği yapmadan](#no-code): ile API'nizi koruma [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) Azure portalı üzerinden, bu nedenle yazmanız gerekmez kodunuzu güncelleştirin veya API'nizi yeniden dağıtın.
 
   > [!NOTE]
-  > Varsayılan olarak, Azure portalında kapatma Azure AD kimlik doğrulaması hassas yetkilendirme sağlamaz. Örneğin, bu kimlik doğrulama API'nizi yalnızca belirli bir kiracı için değil, belirli bir kullanıcı veya uygulama kilitler. 
+  > Varsayılan olarak, hassas yetkilendirme Azure Portalı'nda açmanız Azure AD kimlik doğrulaması sağlamaz. Örneğin, bu kimlik doğrulaması yalnızca belirli bir kiracıda değil, belirli bir kullanıcı veya uygulama API'nizi kilitler. 
 
-* [API kodunu güncelleştirin](#update-code): zorlayarak API'nizi koruma [sertifika kimlik doğrulaması](#certificate), [temel kimlik doğrulaması](#basic), veya [Azure AD kimlik doğrulaması](#azure-ad-code) aracılığıyla kod.
+* [API'NİZİN kodu güncelleştirmeniz](#update-code): zorlayarak API'nizi koruma [sertifika kimlik doğrulaması](#certificate), [temel kimlik doğrulaması](#basic), veya [Azure AD kimlik doğrulaması](#azure-ad-code) aracılığıyla kodu.
 
 <a name="no-code"></a>
 
-### <a name="authenticate-calls-to-your-api-without-changing-code"></a>Kodunu değiştirmeden, API çağrıları kimlik doğrulaması
+### <a name="authenticate-calls-to-your-api-without-changing-code"></a>API çağrıları kodunu değiştirmeden kimlik doğrulaması
 
 Bu yöntem için genel adımlar şunlardır:
 
-1. İki Azure Active Directory (Azure AD) uygulama kimlikleri oluşturma: mantıksal uygulamanızı, diğeri web uygulaması (veya API uygulaması) için.
+1. İki Azure Active Directory (Azure AD) uygulama kimlikleri oluşturma: bir mantıksal uygulamanız, biri web uygulamanızı (veya API uygulaması).
 
-2. API çağrıları kimliğini doğrulamak için kimlik bilgilerini (istemci kimliği ve parolası) mantıksal uygulamanız için Azure AD uygulama kimliği ile ilişkili hizmet asıl kullanın.
+2. Apı'nize çağrı kimliğini doğrulamak için mantıksal uygulamanız için Azure AD uygulama kimliği ile ilişkili hizmet sorumlusunun kimlik bilgilerini (istemci kimliği ve parolası) kullanın.
 
-3. Uygulama kimlikleri mantığı uygulama tanımınızı içerir.
+3. Mantıksal uygulama tanımınızı uygulama kimliklerini içerir.
 
-#### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>1. Kısım: mantıksal uygulamanız için bir Azure AD uygulama kimliği oluşturma
+#### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>1. Bölüm: mantıksal uygulamanız için bir Azure AD uygulama kimliği oluşturma
 
-Mantıksal uygulamanızı Azure AD karşı kimlik doğrulaması için bu Azure AD uygulama kimliğini kullanır. Yalnızca bu kimliği dizininiz için bir kez ayarlamanız gerekir. Örneğin, her mantıksal uygulama için benzersiz kimlik Oluştur olsa bile, tüm mantıksal uygulamalar için aynı kimlik kullanmayı seçebilirsiniz. Azure portalında bu kimlikleri ayarlayın veya kullanmak [PowerShell](#powershell).
+Mantıksal uygulamanızı karşı Azure AD kimlik doğrulaması için bu Azure AD uygulama kimliğini kullanır. Yalnızca bir kez dizininiz için bu kimlik ayarlamak zorunda. Örneğin, her mantıksal uygulama için benzersiz bir kimlik oluşturabilirsiniz olsa bile, tüm logic apps için aynı kimlik kullanmayı da tercih edebilirsiniz. Azure portalında bu kimlikleri ayarlayın veya kullanın [PowerShell](#powershell).
 
-**Azure portalda mantıksal uygulamanızı için uygulama kimliği oluşturma**
+**Azure portalında mantıksal uygulamanız için uygulama kimliği oluşturma**
 
-1. İçinde [Azure portal](https://portal.azure.com "https://portal.azure.com"), seçin **Azure Active Directory**. 
+1. İçinde [Azure portalında](https://portal.azure.com "https://portal.azure.com"), seçin **Azure Active Directory**. 
 
-2. Web uygulaması veya API uygulaması olarak aynı dizinde olduğunuzu doğrulayın.
-
-   > [!TIP]
-   > Dizinleri geçmek için profili seçin ve başka bir dizin seçin. Ya da seçin **genel bakış** > **anahtar dizini**.
-
-3. Dizin menüsünde altında **Yönet**, seçin **uygulama kayıtlar** > **yeni uygulama kaydı**.
+2. Web uygulamanızı veya API uygulaması olarak aynı dizinde olduğunuzdan emin olun.
 
    > [!TIP]
-   > Varsayılan olarak, dizininizdeki tüm uygulama kayıtları uygulama kayıtlar listesi gösterilir. Yalnızca, uygulama kayıtlar yanındaki Arama kutusunu görüntülemek için seçin **uygulamalarım**. 
+   > Dizinleri Değiştir için profilinizi seçin ve başka bir dizin seçin. Ya da seçin **genel bakış** > **dizini Değiştir**.
 
-   ![Yeni uygulama kaydı oluşturun](./media/logic-apps-custom-api-authentication/new-app-registration-azure-portal.png)
+3. Dizin menüsünde altında **Yönet**, seçin **uygulama kayıtları** > **yeni uygulama kaydı**.
 
-4. Uygulama kimliğinizi bir ad verin, bırakın **uygulama türü** kümesine **Web uygulaması / API**, benzersiz bir sağlamak için bir etki alanı olarak biçimlendirilmiş dize **oturum açma URL'si**ve seçin **Oluştur**.
+   > [!TIP]
+   > Varsayılan olarak, uygulama kayıtları listesi, dizininizdeki tüm uygulama kayıtlarını gösterir. Arama kutusunun yanındaki yalnızca, uygulama kayıtları görüntülemek için seçin **uygulamalarım**. 
+
+   ![Yeni uygulama kaydı oluşturma](./media/logic-apps-custom-api-authentication/new-app-registration-azure-portal.png)
+
+4. Uygulama kimliğinizi bir ad verin, bırakın **uygulama türü** kümesine **Web uygulaması / API**, sağlayan benzersiz bir biçimlendirilmiş dize için bir etki alanı olarak **oturum açma URL'si**, seçin **Oluşturma**.
 
    ![URL için uygulama kimliği oturum adı girin ve](./media/logic-apps-custom-api-authentication/logic-app-identity-azure-portal.png)
 
-   Mantıksal uygulamanız artık oluşturduğunuz uygulama kimliğini uygulama kayıtlar listesinde görüntülenir.
+   Şimdi mantıksal uygulamanız için oluşturduğunuz uygulama kimliği, uygulama kayıtları listesi görüntülenir.
 
    ![Mantıksal uygulamanız için uygulama kimliği](./media/logic-apps-custom-api-authentication/logic-app-identity-created.png)
 
-5. Uygulama kayıtlar listesinde, yeni uygulama kimliğini seçin. Kopyalayıp kaydedin **uygulama kimliği** mantıksal uygulamanızı bölümü 3'te "istemci kimlik" olarak kullanılmak üzere.
+5. Uygulama kayıtları listesi, yeni uygulama kimliğini seçin. Kopyalayıp kaydedin **uygulama kimliği** mantıksal uygulamanızda 3. kısım "İstemci kimliği" kullanılacak.
 
    ![Kopyalayın ve mantıksal uygulama için uygulama kimliği kaydedin](./media/logic-apps-custom-api-authentication/logic-app-application-id.png)
 
-6. Uygulama Kimliği ayarlarınızı görünür durumda değilse, seçin **ayarları** veya **tüm ayarları**.
+6. Uygulama Kimliği ayarlarınızı görünmüyorsa seçin **ayarları** veya **tüm ayarlar**.
 
-7. Altında **API erişimini**, seçin **anahtarları**. Altında **açıklama**, anahtarınız için bir ad sağlayın. Altında **Expires**, anahtarınız için bir süre seçin.
+7. Altında **API erişimi**, seçin **anahtarları**. Altında **açıklama**, anahtarınız için bir ad sağlayın. Altında **Expires**, anahtarınız için bir süre seçin.
 
-   Oluşturmakta olduğunuz anahtar uygulama kimliğin "gizli" veya parolasını mantıksal uygulamanızı olarak görev yapar.
+   Oluşturmakta olduğunuz anahtarı, uygulama kimliğin "gizli dizisini" ya da mantıksal uygulamanızın parola olarak görev yapar.
 
    ![Mantıksal uygulama kimliği için anahtar oluşturma](./media/logic-apps-custom-api-authentication/create-logic-app-identity-key-secret-password.png)
 
-8. Araç çubuğunda seçin **kaydetmek**. Altında **değeri**, anahtarınızı artık görünür. 
-**Kopyalama ve anahtarınızı kaydetmek emin olun** daha sonra kullanmak üzere anahtar gizli olduğu çıktığınızda **anahtarları** sayfası.
+8. Araç çubuğunda **Kaydet**. Altında **değer**, anahtarınızı görünür. 
+**Kopyala ve anahtarınızı kaydetmek emin olun** daha sonra kullanmak üzere anahtarı gizli olduğu çıktığınızda **anahtarları** sayfası.
 
-   Mantıksal uygulamanızı bölümü 3'te yapılandırdığınızda, bu anahtarı parola ya da "gizli" olarak belirtin.
+   3. Kısım mantıksal uygulamanızı yapılandırdığınızda, bu anahtarı parola ya da "gizli" olarak belirtin.
 
-   ![Kopyalayın ve anahtarı için daha sonra kaydedin](./media/logic-apps-custom-api-authentication/logic-app-copy-key-secret-password.png)
+   ![Kopyalayıp anahtarı daha sonra kullanmak üzere kaydedin](./media/logic-apps-custom-api-authentication/logic-app-copy-key-secret-password.png)
 
 <a name="powershell"></a>
 
-**PowerShell'de mantığı uygulamanız için uygulama kimliği oluşturma**
+**PowerShell'de mantıksal uygulamanız için uygulama kimliği oluşturma**
 
-Bu görevi PowerShell ile Azure Resource Manager aracılığıyla gerçekleştirebilirsiniz. PowerShell'de aşağıdaki komutları çalıştırın:
+PowerShell ile Azure Resource Manager aracılığıyla bu görevi gerçekleştirebilirsiniz. PowerShell'de şu komutları çalıştırın:
 
 1. `Switch-AzureMode AzureResourceManager`
 
@@ -107,31 +102,31 @@ Bu görevi PowerShell ile Azure Resource Manager aracılığıyla gerçekleştir
 
 3. `New-AzureADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password "identity-password"`
 
-4. Kopyaladığınızdan emin olun **Kiracı kimliği** (GUID) Azure AD kiracınız için **uygulama kimliği**ve kullandığınız parola.
+4. Kopyaladığınızdan emin olun **Kiracı kimliği** (GUID), Azure AD kiracınız için **uygulama kimliği**ve parolayı.
 
-Daha fazla bilgi için bilgi nasıl [kaynaklarına erişmek için PowerShell ile bir hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+Daha fazla bilgi için bilgi nasıl [kaynaklarına erişmek için PowerShell ile hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
-#### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>Bölüm 2: web uygulaması veya API uygulaması için bir Azure AD uygulama kimliği oluşturma
+#### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>2. Bölüm: Azure AD uygulama kimliği, web veya API uygulaması oluşturma
 
-Web uygulaması veya API uygulama zaten dağıtılmışsa, kimlik doğrulamasını etkinleştirmek ve Azure portalında uygulama kimliği oluşturun. Aksi takdirde, şunları yapabilirsiniz [bir Azure Resource Manager şablonu ile dağıtırken kimlik doğrulamasını etkinleştirmek](#authen-deploy). 
+Web uygulamanızı veya API uygulaması zaten dağıtılmışsa, kimlik doğrulamasını etkinleştirmek ve Azure portalında uygulama kimliği oluşturun. Aksi takdirde [bir Azure Resource Manager şablonu ile dağıttığınızda kimlik doğrulamasını etkinleştirmek](#authen-deploy). 
 
-**Uygulama Kimliği oluşturma ve kimlik doğrulama dağıtılan uygulamalar için Azure Portalı'nda Aç**
+**Uygulama Kimliği oluşturma ve kimlik doğrulaması dağıtılan uygulamalar için Azure portalında açın**
 
-1. İçinde [Azure portal](https://portal.azure.com "https://portal.azure.com"), bulma ve web uygulaması veya API uygulaması seçin. 
+1. İçinde [Azure portalında](https://portal.azure.com "https://portal.azure.com")bulup web uygulamanızı veya API uygulaması seçin. 
 
-2. Altında **ayarları**, seçin **kimlik doğrulama/yetkilendirme**. Altında **App Service kimlik doğrulaması**, kimlik doğrulamasını **üzerinde**. Altında **kimlik doğrulama sağlayıcıları**, seçin **Azure Active Directory**.
+2. Altında **ayarları**, seçin **kimlik doğrulama/yetkilendirme**. Altında **App Service kimlik doğrulaması**, kimlik doğrulaması kapatma **üzerinde**. Altında **kimlik doğrulama sağlayıcıları**, seçin **Azure Active Directory**.
 
    ![Kimlik doğrulamasını etkinleştirmek](./media/logic-apps-custom-api-authentication/custom-web-api-app-authentication.png)
 
-3. Artık web uygulaması veya API uygulaması için uygulama kimliği, aşağıda gösterildiği gibi oluşturun. Üzerinde **Azure Active Directory ayarları** sayfasında **yönetim modu** için **Express**. Seçin **yeni AD uygulaması oluştur**. Uygulama kimliğinizi bir ad verin ve seçin **Tamam**. 
+3. Şimdi burada gösterildiği gibi bir uygulama kimliği, web veya API uygulaması oluşturun. Üzerinde **Azure Active Directory ayarları** sayfasında **yönetim modu** için **Express**. Seçin **yeni AD uygulaması oluştur**. Uygulama kimliğinizi bir ad verin ve seçin **Tamam**. 
 
-   ![Web uygulaması veya API uygulaması için uygulama kimliği oluşturma](./media/logic-apps-custom-api-authentication/custom-api-application-identity.png)
+   ![Web uygulamanızı veya API uygulaması için uygulama kimliği oluşturma](./media/logic-apps-custom-api-authentication/custom-api-application-identity.png)
 
 4. **Kimlik Doğrulama / Yetkilendirme** sayfasında **Kaydet**’i seçin.
 
-Artık web uygulaması veya API uygulaması ile ilişkili olan uygulama kimliği için istemci kimliği ve Kiracı kimliği bulmanız gerekir. Bu kimlikleri bölümü 3'te kullanın. Bu nedenle Azure portalı için aşağıdaki adımları devam edin.
+Artık web uygulamanızı veya API uygulaması ile ilişkili uygulama kimliği için istemci kimliği ve Kiracı kimliği bulmanız gerekir. 3. Kısım'de bu kimliği kullanın. Bu nedenle bu adımları Azure portalı ile devam edin.
 
-**Web uygulaması veya API uygulaması için uygulama kimliği'nin istemci kimliği ve Kiracı kimliği Azure portalında Bul**
+**Kimliğin uygulama istemci kimliği ve Kiracı kimliği, web uygulamanızı veya API uygulaması için Azure portalında bulun**
 
 1. Altında **kimlik doğrulama sağlayıcıları**, seçin **Azure Active Directory**. 
 
@@ -139,29 +134,29 @@ Artık web uygulaması veya API uygulaması ile ilişkili olan uygulama kimliği
 
 2. Üzerinde **Azure Active Directory ayarları** sayfasında **yönetim modu** için **Gelişmiş**.
 
-3. Kopya **istemci kimliği**ve bölüm 3'te kullanmak için bu GUID'i kaydedin.
+3. Kopyalama **istemci kimliği**ve 3. Kısım GUID kullanmak için kaydedin.
 
    > [!TIP] 
-   > Varsa **istemci kimliği** ve **veren URL'si** yoksa, görünür, Azure portal'ı yenilemeyi deneyin ve 1. adım yineleyin.
+   > Varsa **istemci kimliği** ve **veren URL'si** yoksa, görünür, Azure portalı yenilemeyi deneyin ve 1. adımı yineleyin.
 
-4. Altında **veren URL'si**, kopyalamak ve yalnızca GUID için bölümü 3 kaydedin. Aynı zamanda bu GUID web uygulamanızı veya API uygulamasının dağıtım şablonu, gerekirse kullanabilirsiniz.
+4. Altında **veren URL'si**kopyalayın ve 3. kısım için GUID kaydedin. Bu GUID web uygulamanızı veya API uygulamasının dağıtım şablonu, gerekirse kullanabilirsiniz.
 
-   Bu GUID belirli kiracının GUID ("Kiracı kimliği") ve bu URL'de görünmelidir: `https://sts.windows.net/{GUID}`
+   Bu GUID, belirli bir kiracının GUID ("Kiracı kimliği") ve bu URL'de görünmesi gerekir: `https://sts.windows.net/{GUID}`
 
-5. Değişikliklerinizi kaydetmeden kapatın **Azure Active Directory ayarları** sayfası.
+5. Değişikliklerinizi kaydetmeden kapatmak **Azure Active Directory ayarları** sayfası.
 
 <a name="authen-deploy"></a>
 
-**Bir Azure Resource Manager şablonu ile dağıtırken kimlik doğrulamasını etkinleştirmek**
+**Bir Azure Resource Manager şablonu ile dağıttığınızda kimlik doğrulamasını etkinleştirmek**
 
-Hala mantığı uygulamanız için uygulama kimliği web uygulaması veya farklı bir API uygulaması için bir Azure AD uygulama kimliği da oluşturmanız gerekir. Uygulama kimliği oluşturmak için Azure portalı için Kısım 2 önceki adımları izleyin. 
+Yine de uygulama kimliğinin mantıksal uygulamanız için web uygulaması ya da farklı bir API uygulaması için bir Azure AD uygulama kimliği oluşturmalısınız. Uygulama kimliği oluşturmak için 2. bölüm önceki adımlarda Azure portalın izleyin. 
 
-Ayrıca, 1. Bölüm adımları ancak web uygulamanızı veya API uygulamasının gerçek kullandığınızdan emin olun `https://{URL}` için **oturum açma URL'si** ve **uygulama kimliği URI'si**. Bu adımları, istemci kimliği ve Kiracı kimliği, uygulamanızın dağıtım şablonu kullanmak için ve ayrıca bölümü 3 kaydetmek gerekir.
+Ayrıca, bölüm 1 adımları izleyerek ancak web uygulamanızı veya API uygulamasının gerçek kullandığınızdan emin olun `https://{URL}` için **oturum açma URL'si** ve **uygulama kimliği URI'si**. Bu adımları, istemci kimliği ve Kiracı kimliği, uygulamanızın dağıtım şablonu kullanmak için ve ayrıca 3. Kısım kaydetmek gerekir.
 
 > [!NOTE]
-> Web uygulaması veya API uygulaması için Azure AD uygulama kimliği oluşturduğunuzda, Azure portalı, değil PowerShell kullanmanız gerekir. PowerShell komutunu kullanıcılar bir Web sitesine oturum için gerekli izinleri ayarlayın değil.
+> Azure AD uygulama kimliği, web veya API uygulaması oluşturduğunuzda, Azure portalı, PowerShell değil kullanmanız gerekir. PowerShell komutu, kullanıcıların bir Web sitesine oturum açmak için gerekli izinleri ayarlamaz.
 
-İstemci kimliği ve Kiracı kimliği aldıktan sonra bu kimlikleri subresource web uygulaması veya API uygulaması için dağıtım şablonunda olarak şunları içerir:
+İstemci kimliği ve Kiracı kimliği aldıktan sonra web uygulaması veya API uygulaması için dağıtım şablonunda bir alt kaynak olarak bu kimlikleri şunları içerir:
 
 ``` json
 "resources": [ {
@@ -179,25 +174,25 @@ Ayrıca, 1. Bölüm adımları ancak web uygulamanızı veya API uygulamasının
 } ]
 ```
 
-Boş web uygulaması ve bir mantıksal uygulama Azure Active Directory kimlik doğrulaması ile birlikte otomatik olarak dağıtmak için [burada tam şablonu görüntüleme](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api/azuredeploy.json), veya **Azure'a Dağıt** burada:
+Bir boş web uygulaması ve bir mantıksal uygulama Azure Active Directory kimlik doğrulaması ile birlikte otomatik olarak dağıtılacak [şablonun tamamını burada görüntülemek](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api/azuredeploy.json), veya **azure'a Dağıt** burada:
 
 [![Azure’a dağıtma](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
-#### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>3. Kısım: mantıksal uygulamanızı yetkilendirme bölümünde doldurma
+#### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>3. Bölüm: mantıksal uygulamanızı yetkilendirme bölümünde Doldur
 
-Önceki şablonu zaten bu yetkilendirmesi bölümünde ayarladığınız sahip, ancak mantıksal uygulama doğrudan yazıyorsanız, tam yetkilendirme bölümü içermelidir.
+Önceki şablon zaten ayarlanmış bu yetkilendirme bölüm vardır, ancak doğrudan mantıksal uygulama yazıyorsanız, tam yetkilendirme bölümü içermelidir.
 
-Açık mantığı uygulama tanımınızı kod görünümünde Git **HTTP** eylem bölümü Bul **yetkilendirme** bölümünde ve bu satırı ekleyin:
+Açık mantıksal uygulama tanımınızı kod Görünümü'nde Git **HTTP** eylem bölümü bulun **yetkilendirme** bölümünde ve bu satırı ekleyin:
 
 `{"tenant": "{tenant-ID}", "audience": "{client-ID-from-Part-2-web-app-or-API app}", "clientId": "{client-ID-from-Part-1-logic-app}", "secret": "{key-from-Part-1-logic-app}", "type": "ActiveDirectoryOAuth" }`
 
 | Öğe | Gerekli | Açıklama | 
 | ------- | -------- | ----------- | 
 | kiracı | Evet | Azure AD kiracısı için GUID | 
-| Hedef kitle | Evet | Web uygulaması veya API uygulaması için uygulama kimliği istemci Kimliğinden erişmek istediğiniz hedef kaynağı için GUID | 
-| istemci kimliği | Evet | Mantıksal uygulamanız için uygulama kimliği gelen istemci kimliği erişim isteğinde bulunan istemci için GUID | 
-| gizli dizi | Evet | Anahtar ya da erişim belirteci isteyen istemci için uygulama kimliği paroladan | 
-| type | Evet | Kimlik doğrulama türü. ActiveDirectoryOAuth kimlik doğrulaması için değerdir `ActiveDirectoryOAuth`. | 
+| Hedef kitle | Evet | İstemci kimlik, web veya API uygulaması için uygulama kimliği, erişmek istediğiniz hedef kaynağı için GUID | 
+| ClientID | Evet | Uygulama Kimliği mantıksal uygulamanızın istemci kimliği olan erişim isteğinde bulunan istemci için GUID | 
+| gizli dizi | Evet | Anahtar veya parolayı erişim belirteci istenirken istemci uygulama kimliği | 
+| type | Evet | Kimlik doğrulaması türü. ActiveDirectoryOAuth kimlik doğrulaması için değerdir `ActiveDirectoryOAuth`. | 
 |||| 
 
 Örneğin:
@@ -231,7 +226,7 @@ Açık mantığı uygulama tanımınızı kod görünümünde Git **HTTP** eylem
 
 #### <a name="certificate-authentication"></a>Sertifika kimlik doğrulaması
 
-Web uygulaması veya API uygulaması için mantıksal uygulamanızı öğesinden gelen istekleri doğrulamak için istemci sertifikaları kullanabilirsiniz. Kodu ayarlamak için bilgi [TLS karşılıklı kimlik doğrulamasını yapılandırmak nasıl](../app-service/app-service-web-configure-tls-mutual-auth.md).
+Web uygulamanızı veya API uygulaması için mantıksal uygulamadan gelen istekleri doğrulamak için istemci sertifikaları kullanabilirsiniz. Kodunuzu oluşturan ayarlamak için bilgi [TLS karşılıklı kimlik doğrulamayı yapılandırma](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
 İçinde **yetkilendirme** bölümünde, bu satırı ekleyin: 
 
@@ -239,7 +234,7 @@ Web uygulaması veya API uygulaması için mantıksal uygulamanızı öğesinden
 
 | Öğe | Gerekli | Açıklama | 
 | ------- | -------- | ----------- | 
-| type | Evet | Kimlik doğrulama türü. SSL istemci sertifikaları için değer olmalıdır `ClientCertificate`. | 
+| type | Evet | Kimlik doğrulaması türü. SSL istemci sertifikaları için bir değer olmalıdır `ClientCertificate`. | 
 | password | Evet | İstemci sertifikası (PFX dosyası) erişmek için parola | 
 | PFX | Evet | İstemci sertifikası (PFX dosyası) base64 ile kodlanmış içeriği | 
 |||| 
@@ -248,7 +243,7 @@ Web uygulaması veya API uygulaması için mantıksal uygulamanızı öğesinden
 
 #### <a name="basic-authentication"></a>Temel kimlik doğrulama
 
-Web uygulaması veya API uygulaması mantıksal uygulamanızı öğesinden gelen istekleri doğrulamak için bir kullanıcı adı ve parola gibi temel kimlik doğrulaması kullanabilirsiniz. Temel kimlik doğrulaması genel bir desen olduğundan ve web uygulaması veya API uygulaması oluşturmak için kullanılan herhangi bir dilde bu kimlik doğrulaması kullanabilirsiniz.
+Web uygulamanızı veya API uygulaması, mantıksal uygulamadan gelen istekleri doğrulamak için bir kullanıcı adı ve parola gibi temel kimlik doğrulaması kullanabilirsiniz. Temel kimlik doğrulaması ortak desendir ve web uygulamanızı veya API uygulaması oluşturmak için kullanılan herhangi bir dilde bu kimlik doğrulaması kullanabilirsiniz.
 
 İçinde **yetkilendirme** bölümünde, bu satırı ekleyin:
 
@@ -256,7 +251,7 @@ Web uygulaması veya API uygulaması mantıksal uygulamanızı öğesinden gelen
 
 | Öğe | Gerekli | Açıklama | 
 | ------- | -------- | ----------- | 
-| type | Evet | Kullanmak istediğiniz kimlik doğrulama türü. Temel kimlik doğrulaması için değer olmalıdır `Basic`. | 
+| type | Evet | Kullanmak istediğiniz kimlik doğrulaması türü. Temel kimlik doğrulaması için bir değer olmalıdır `Basic`. | 
 | kullanıcı adı | Evet | Kimlik doğrulaması için kullanmak istediğiniz kullanıcı adı | 
 | password | Evet | Kimlik doğrulaması için kullanmak istediğiniz parolayı | 
 |||| 
@@ -265,9 +260,9 @@ Web uygulaması veya API uygulaması mantıksal uygulamanızı öğesinden gelen
 
 #### <a name="azure-active-directory-authentication-through-code"></a>Kod aracılığıyla Azure Active Directory kimlik doğrulaması
 
-Varsayılan olarak, Azure portalında kapatma Azure AD kimlik doğrulaması hassas yetkilendirme sağlamaz. Örneğin, bu kimlik doğrulama API'nizi yalnızca belirli bir kiracı için değil, belirli bir kullanıcı veya uygulama kilitler. 
+Varsayılan olarak, hassas yetkilendirme Azure Portalı'nda açmanız Azure AD kimlik doğrulaması sağlamaz. Örneğin, bu kimlik doğrulaması yalnızca belirli bir kiracıda değil, belirli bir kullanıcı veya uygulama API'nizi kilitler. 
 
-Mantıksal uygulamanızı kodlarda için API erişimini kısıtlamak için JSON web token (JWT) sahip üstbilgi ayıklayın. Arayanın Kimliği denetleyin ve eşleşmeyen istekleri reddedecek.
+Kod aracılığıyla mantıksal uygulamanız için API erişimini kısıtlamak için JSON web token (JWT) olan üst ayıkla. Çağıranının kimliğini denetleyin ve eşleşmeyen istekleri reddet.
 
 <!-- Going further, to implement this authentication entirely in your own code, 
 and not use the Azure portal, learn how to 
@@ -278,4 +273,4 @@ you must follow the previous steps. -->
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Dağıtma ve uygulama iş akışları mantığından özel API'leri çağırmak](../logic-apps/logic-apps-custom-api-host-deploy-call.md)
+* [Dağıtma ve özel API'ler, uygulama iş akışları mantığından çağırma](../logic-apps/logic-apps-custom-api-host-deploy-call.md)

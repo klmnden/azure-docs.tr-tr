@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: efc71e02cc02574973f0b6b428b5b670cd9cfd5b
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 15fe97e39fbc1c669762ddb7523cfd043638d3de
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617361"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144238"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure Event Grid olay kaynakları
 
@@ -74,13 +74,14 @@ Yanıt dosyası olaylarını yakalamak için Event Hubs olaylarına abone olun. 
 
 ## <a name="iot-hub"></a>IoT Hub
 
-Abone IOT hub'ına olayları cihaza yanıt oluşturulur ve olayları silindi.
+Oluşturulan, cihaz için silinen, bağlı ve bağlantısı kesilmiş olayları yanıtlamak için IOT Hub olaylarına abone olun.
 
 |Unvan  |Açıklama  |
 |---------|---------|
-| [Öğretici: mantıksal uygulamalar'ı kullanarak Azure IOT Hub olayları hakkında e-posta bildirimleri gönder](publish-iot-hub-events-to-logic-apps.md) | IOT hub'ınıza her bir cihaz eklendiğinde bir mantıksal uygulama bir bildirim e-posta gönderir. |
-| [Genel Bakış: Tetikleyici eylemlere Event Grid kullanarak IOT Hub olaylarına tepki verme](../iot-hub/iot-hub-event-grid.md) | IOT hub'ları Event Grid ile tümleştirme genel bakış. |
+| [Logic Apps kullanarak Azure IOT Hub olayları hakkında e-posta bildirimleri gönder](publish-iot-hub-events-to-logic-apps.md) | IOT Hub'ınıza her bir cihaz eklendiğinde bir mantıksal uygulama bir bildirim e-posta gönderir. |
+| [Tetikleyici eylemlere Event Grid kullanarak IOT Hub olaylarına tepki verme](../iot-hub/iot-hub-event-grid.md) | IOT Hub Event Grid ile tümleştirme genel bakış. |
 | [Olay şeması](event-schema-iot-hub.md) | Alanlar, IOT hub'ına olayları gösterir. |
+| [Sipariş bağlı cihaz ve cihaz olayları bağlantısı kesildi](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Cihaz bağlantı durumu olaylarını sipariş işlemi gösterilmektedir. |
 
 ## <a name="media-services"></a>Media Services
 

@@ -1,47 +1,42 @@
 ---
-title: İş akışları şablonlardan - Azure Logic Apps oluşturmak | Microsoft Docs
-description: Mantıksal uygulama şablonları kullanarak daha hızlı iş akışı yapılandırması
-author: kevinlam1
-manager: jeconnoc
-editor: ''
+title: Şablonlardan - Azure Logic Apps iş akışı oluşturma | Microsoft Docs
+description: Azure Logic Apps'te mantıksal uygulama şablonları kullanarak iş akışları daha hızlı oluşturun
 services: logic-apps
-documentationcenter: ''
-ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
 ms.topic: article
+ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.date: 10/15/2017
-ms.author: LADocs; klam
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 72aca1420d76a34f8f43f05b25d146eb743b3233
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 10191a4fbab325dcd5134b082f050188c6798079
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298697"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122129"
 ---
-# <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Önceden oluşturulmuş şablonlardan uygulama iş mantığı oluşturun
+# <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Mantıksal uygulama iş akışları önceden oluşturulmuş şablonlardan oluşturma
 
-İş akışları daha hızlı oluşturma başlamanıza yardımcı olmak için yaygın olarak kullanılan desenleri izleyin önceden oluşturulmuş mantıksal uygulamalar olan şablonları Logic Apps sağlar. Bu şablonları sağlanan gibi kullanın veya bunları senaryonuza uyacak şekilde düzenleyin.
+İş akışları daha hızlı bir şekilde oluşturmaya başlamanıza yardımcı olmak için Logic Apps, yaygın olarak kullanılan desenler izleyen önceden oluşturulmuş mantıksal uygulamaların şablonları sağlar. Bu şablonlar sağladığı biçimde kullanmanız veya bunları kendi senaryonuza uyacak şekilde düzenleyin.
 
-Bazı şablon kategorileri şunlardır:
+Bazı şablonu kategorileri şunlardır:
 
 | Şablon türü | Açıklama | 
 | ------------- | ----------- | 
-| Kurumsal bulut şablonlar | Azure Blob, Dynamics CRM, Salesforce, kutusunda tümleştirmek için ve kurumsal bulut gereken diğer bağlayıcıları içerir. Örneğin, iş müşteri adayları düzenlemek veya Kurumsal dosya verilerinizi yedeklemek için bu şablonları kullanabilirsiniz. | 
-| Kişisel üretkenlik şablonları | Günlük anımsatıcıları ayarlayarak kişisel üretkenlik geliştirmek için önemli kapatma iş öğelerini Yapılacaklar listesi ve otomatik otomatikleştirme uzun görevleri tek kullanıcı onayı adım aşağı kaydırın. | 
-| Tüketici bulut şablonları | Twitter gibi sosyal medya Hizmetleri kayma tümleştirme ve e-posta için. Sosyal medya girişimleri pazarlama güçlendirme için kullanışlıdır. Bu şablonlar ayrıca geleneksel yinelenen görevleri zaman kaydederek verimliliğini artırır kopyalama, bulut gibi görevleri içerir. | 
-| Kurumsal tümleştirme paketi şablonları | VETER yapılandırmak için (doğrulamak, ayıklama, dönüştürme, zenginleştirmek ve rota) bir X12 alma ardışık AS2 ve XML biçimine dönüştürme ve X12, EDIFACT, işleme üzerinden EDI belge ve AS2 iletileri. | 
-| Protokol düzeni şablonları | İstek-yanıt gibi Protokolü düzenleri HTTP ve tümleştirmeler FTP ve SFTP arasında uygulamak için. Sağlanan bu şablonları kullanabilir veya bunlar üzerinde karmaşık Protokolü desenler için oluşturabilirsiniz. | 
+| Kurumsal bulut şablonları | Azure Blob, Dynamics CRM, Salesforce, kutusunda tümleştirmek ve kurumsal bulut ihtiyaçları için diğer bağlayıcıları içerir. Örneğin, iş müşteri adayları düzenlemek veya Kurumsal dosya verilerinizi yedeklemek için bu şablonları kullanabilirsiniz. | 
+| Kişisel üretkenlik şablonları | Günlük anımsatıcılar ayarlayarak kişisel üretkenliği artırın, önemli kapatma iş öğelerini Yapılacaklar listesi ve otomatikleştirerek verimsiz uzun görevlerden tek kullanıcı onay adım gösteriyor. | 
+| Tüketici Bulutu şablonları | Twitter gibi sosyal medya hizmetlerinde Slack tümleştirme ve e-posta için. Sosyal medya girişimler pazarlama güçlendirmek için kullanışlıdır. Bu şablonlar, geleneksel olarak çoğu yinelenen görevlere zaman kaydederek üretkenliği artıran, kopyalama, bulut gibi görevleri de içerir. | 
+| Kurumsal tümleştirme paketi şablonları | VETER yapılandırmak için (doğrulayın, ayıklayın, dönüştürme, verileri zenginleştirmesine, yönlendirmek) x X12 alma işlem hatlarını AS2 ve XML'e dönüştürme ve işleme X12, EDIFACT, belge EDI ve AS2 iletileri. | 
+| Protokol desen şablonları | İstek-yanıt gibi protokol düzenleri HTTP ve tümleştirmeler üzerinden FTP ve SFTP uygulamak için. Sağlanan bu şablonları kullanın veya bunlar üzerinde karmaşık Protokolü modeller oluşturun. | 
 ||| 
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı için kaydolun](https://azure.microsoft.com/free/). Bir mantıksal uygulama oluşturma hakkında daha fazla bilgi için bkz: [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı için kaydolun](https://azure.microsoft.com/free/). Mantıksal uygulama oluşturma hakkında daha fazla bilgi için bkz. [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="create-logic-apps-from-templates"></a>Logic apps Şablondan Oluştur
+## <a name="create-logic-apps-from-templates"></a>Şablonlardan mantıksal uygulamalar oluşturma
 
-1. Henüz yapmadıysanız, oturum [Azure portal](https://portal.azure.com "Azure portal").
+1. Henüz yapmadıysanız, oturum [Azure portalında](https://portal.azure.com "Azure portalında").
 
 2. Azure ana menüsünden **Kaynak oluştur** > **Kurumsal Tümleştirme** > **Mantıksal Uygulama**'yı seçin.
 
@@ -55,9 +50,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı için k
    | ------- | ----- | ----------- | 
    | **Ad** | *mantıksal-uygulamanızın-adı* | Mantıksal uygulama için benzersiz bir ad girin. | 
    | **Abonelik** | *Azure-aboneliğinizin-adı* | Kullanmak istediğiniz Azure aboneliğini seçin. | 
-   | **Kaynak grubu** | *Azure-kaynak-grubunuzun-adı* | Oluşturma veya seçme bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) bu mantıksal uygulama ve bu uygulamayla ilişkili tüm kaynakları düzenlemek için. | 
+   | **Kaynak grubu** | *Azure-kaynak-grubunuzun-adı* | Oluşturma veya seçme bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) bu mantıksal uygulamanın ve bu uygulamayla ilişkili tüm kaynakları düzenlemek için. | 
    | **Konum** | *Azure-veri-merkezi-bölgeniz* | Batı ABD gibi mantıksal uygulamanızın dağıtılacağı veri merkezi bölgesini seçin. | 
-   | **Log Analytics** | **Kapalı** (varsayılan) veya **üzerinde** | Aç [tanılama günlük](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) mantıksal uygulamanızı için [Azure günlük analizi](../log-analytics/log-analytics-overview.md). Günlük analizi çalışma alanı zaten sahip olmasını gerektirir. | 
+   | **Log Analytics** | **Kapalı** (varsayılan) veya **üzerinde** | Açma [tanılama günlüğüne kaydetme](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) mantıksal uygulamanızın [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Zaten bir Log Analytics çalışma alanı olmasını gerektirir. | 
    |||| 
 
 4. Hazır olduğunuzda **Panoya sabitle**'yi seçin. Bu şekilde mantıksal uygulamanız otomatik olarak Azure panonuzda görüntülenir ve dağıtımdan sonra açılır. **Oluştur**’u seçin.
@@ -68,84 +63,84 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı için k
    Azure mantıksal uygulamanızı dağıttıktan sonra Logic Apps Tasarımcısı açılır ve tanıtım videosu bulunan bir sayfa görüntülenir. 
    Videonun altında sık kullanılan mantıksal uygulama desenlerine ait şablonları bulabilirsiniz. 
 
-5. Kaydırma için giriş video ve ortak Tetikleyicileri geçmiş **şablonları**. Önceden oluşturulmuş bir şablonu seçin. Örneğin:
+5. Kaydırma için giriş videosunu ve sık kullanılan Tetikleyicileri geçmiş **şablonları**. Önceden oluşturulmuş bir şablonu seçin. Örneğin:
 
-   ![Bir mantıksal uygulama şablonu seçin](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
+   ![Bir mantıksal uygulama şablonunu seçin](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
    > [!TIP]
-   > Mantıksal uygulamanızı sıfırdan oluşturmak için seçtiğiniz **boş mantıksal uygulama**.
+   > Mantıksal uygulamanızı sıfırdan oluşturmak için seçin **boş mantıksal uygulama**.
 
-   Önceden oluşturulmuş bir şablonu seçtiğinizde, bu şablonu hakkında daha fazla bilgi görüntüleyebilirsiniz. 
+   Önceden oluşturulmuş bir şablonu seçtiğinizde şablon hakkında daha fazla bilgi görüntüleyebilirsiniz. 
    Örneğin:
 
    ![Önceden oluşturulmuş bir şablon seçin](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
-6. Seçili şablonla devam etmeyi seçerseniz **bu şablonu kullanmak**. 
+6. Seçilen şablonla devam etmeyi tercih **bu şablonu kullan**. 
 
-7. Şablondaki bağlayıcılar bağlı olarak, bu adımları gerçekleştirin istenir:
+7. Şablondaki bağlayıcıları bağlı olarak, aşağıdaki adımlardan birini yapmanız istenir:
 
-   * Kimlik bilgilerinizi sistemleri veya şablon tarafından başvurulan Hizmetleri için oturum açın.
+   * Sistemleri veya şablon tarafından başvurulan services kimlik bilgilerinizle oturum açın.
 
-   * Herhangi bir hizmet veya şablon tarafından başvurulan sistemleri için bağlantıları oluşturun. Bir bağlantı oluşturmak için bağlantı için bir ad ve gerekirse, kullanmak istediğiniz kaynağı seçin. 
+   * Herhangi bir hizmet veya şablon tarafından başvurulan sistemleri için bağlantılar oluşturun. Bir bağlantı oluşturmak için bağlantınız için bir ad sağlayın ve gerekirse, kullanmak istediğiniz kaynak seçin. 
 
-   * Bu bağlantıları zaten ayarladıysanız seçin **devam**.
+   * Bu bağlantıları ayarlarsanız, seçin **devam**.
 
    Örneğin:
 
-   ![Bağlantıları oluşturma](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
+   ![Bağlantılar oluşturun](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
 
-   İşiniz bittiğinde, mantıksal uygulamanızı açar ve Logic Apps Tasarımcısı'nda görünür.
+   İşiniz bittiğinde mantıksal uygulamanız açılır ve Logic Apps Tasarımcısı'nda görünür.
 
    > [!TIP]
-   > Şablon Görüntüleyicisi döndürülecek seçin **şablonları** tasarımcı araç. İsteğinizi onaylamak için bir uyarı iletisi görüntülenir şekilde bu eylem kaydedilmemiş tüm değişiklikleri atar.
+   > Şablon Görüntüleyicisi'ne dönmek için seçin **şablonları** tasarımcı araç çubuğunda. İsteğinizi onaylamak için bir uyarı iletisi görüntülenir. Bu nedenle bu eylemi kaydedilmemiş değişiklikleri atar.
 
 8. Mantıksal uygulamanızı oluşturmaya devam edin.
 
    > [!NOTE] 
-   > Birçok şablonları zaten gerekli özellikleri önceden doldurulmaz bağlayıcıları içerir. Ancak, bazı şablonlar hala mantıksal uygulama düzgün dağıtmadan önce değerleri sağlayın gerektirebilir. Eksik özellik alanları tamamlamadan dağıtmayı deneyin, hata iletisi alırsınız. 
+   > Birçok şablonları gerekli özellikler doldurduk bağlayıcıları içerir. Ancak, bazı şablonlar hala doğru mantıksal uygulamayı dağıtmadan önce değerleri sağlayan gerektirebilir. Eksik özellik alanları tamamlamadan dağıtmayı denerseniz, bir hata iletisi alırsınız. 
 
-## <a name="update-logic-apps-with-templates"></a>Güncelleştirme logic apps şablonları ile
+## <a name="update-logic-apps-with-templates"></a>Logic apps ile şablonları güncelleştirme
 
-1. İçinde [Azure portal](https://portal.azure.com "Azure portal"), bulma ve mantıksal uygulamanızı th içinde açma mantığı Uygulama Tasarımcısı.
+1. İçinde [Azure portalında](https://portal.azure.com "Azure portalında"), bulmak ve mantıksal uygulamanızı açın th mantıksal Uygulama Tasarımcısı.
 
-2. Tasarımcı araç çubuğunda seçin **şablonları**. Devam etmek istediğinizi onaylamak için bir uyarı iletisi görünmesi Bu eylem kaydedilmemiş tüm değişiklikleri atar. Onaylamak için tercih **Tamam**. Örneğin:
+2. Tasarımcı araç çubuğunda **şablonları**. Devam etmek istediğinizi onaylamak için bir uyarı iletisi görüntülenir. Bu nedenle bu eylemi kaydedilmemiş değişiklikleri atar. Doğrulamak için şunu seçin **Tamam**. Örneğin:
 
    !["Şablon" seçin](./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png)
 
-3. Kaydırma için giriş video ve ortak Tetikleyicileri geçmiş **şablonları**. Önceden oluşturulmuş bir şablonu seçin. Örneğin:
+3. Kaydırma için giriş videosunu ve sık kullanılan Tetikleyicileri geçmiş **şablonları**. Önceden oluşturulmuş bir şablonu seçin. Örneğin:
 
-   ![Bir mantıksal uygulama şablonu seçin](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
+   ![Bir mantıksal uygulama şablonunu seçin](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
-   Önceden oluşturulmuş bir şablonu seçtiğinizde, bu şablonu hakkında daha fazla bilgi görüntüleyebilirsiniz. 
+   Önceden oluşturulmuş bir şablonu seçtiğinizde şablon hakkında daha fazla bilgi görüntüleyebilirsiniz. 
    Örneğin:
 
    ![Önceden oluşturulmuş bir şablon seçin](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
-4. Seçili şablonla devam etmeyi seçerseniz **bu şablonu kullanmak**. 
+4. Seçilen şablonla devam etmeyi tercih **bu şablonu kullan**. 
 
-5. Şablondaki bağlayıcılar bağlı olarak, bu adımları gerçekleştirin istenir:
+5. Şablondaki bağlayıcıları bağlı olarak, aşağıdaki adımlardan birini yapmanız istenir:
 
-   * Kimlik bilgilerinizi sistemleri veya şablon tarafından başvurulan Hizmetleri için oturum açın.
+   * Sistemleri veya şablon tarafından başvurulan services kimlik bilgilerinizle oturum açın.
 
-   * Herhangi bir hizmet veya şablon tarafından başvurulan sistemleri için bağlantıları oluşturun. Bir bağlantı oluşturmak için bağlantı için bir ad ve gerekirse, kullanmak istediğiniz kaynağı seçin. 
+   * Herhangi bir hizmet veya şablon tarafından başvurulan sistemleri için bağlantılar oluşturun. Bir bağlantı oluşturmak için bağlantınız için bir ad sağlayın ve gerekirse, kullanmak istediğiniz kaynak seçin. 
 
-   * Bu bağlantıları zaten ayarladıysanız seçin **devam**.
+   * Bu bağlantıları ayarlarsanız, seçin **devam**.
 
-   ![Bağlantıları oluşturma](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
+   ![Bağlantılar oluşturun](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
 
    Mantıksal uygulamanız artık açar ve Logic Apps Tasarımcısı'nda görünür.
 
 8. Mantıksal uygulamanızı oluşturmaya devam edin. 
 
    > [!TIP]
-   > Değişikliklerinizi kaydetmediyseniz, çalışmanızı atmak ve önceki mantıksal uygulamanızı döndürür. Tasarımcı araç çubuğunda seçin **atmak**.
+   > Yaptığınız değişiklikleri kaydetmediniz iş atmak ve önceki mantıksal uygulamanıza dönün. Tasarımcı araç çubuğunda **at**.
 
 > [!NOTE] 
-> Birçok şablonları zaten gerekli özellikleri önceden doldurulmuş bağlayıcıları içerir. Ancak, bazı şablonlar hala mantıksal uygulama düzgün dağıtmadan önce değerleri sağlayın gerektirebilir. Eksik özellik alanları tamamlamadan dağıtmayı deneyin, hata iletisi alırsınız.
+> Birçok şablonları zaten gerekli özellikleri önceden doldurulmuş bağlayıcıları içerir. Ancak, bazı şablonlar hala doğru mantıksal uygulamayı dağıtmadan önce değerleri sağlayan gerektirebilir. Eksik özellik alanları tamamlamadan dağıtmayı denerseniz, bir hata iletisi alırsınız.
 
-## <a name="deploy-logic-apps-built-from-templates"></a>Şablonlardan oluşturulan mantığı uygulamaları dağıtma
+## <a name="deploy-logic-apps-built-from-templates"></a>Yerleşik şablonlardan mantıksal uygulama dağıtma
 
-Şablona yaptığınız değişiklikleri yaptıktan sonra yaptığınız değişiklikleri kaydedebilirsiniz. Bu eylem mantıksal uygulamanızı da otomatik olarak yayımlar.
+Şablona Değişikliklerinizi yaptıktan sonra değişikliklerinizi kaydedebilirsiniz. Bu eylem, mantıksal uygulamanızın da otomatik olarak yayımlar.
 
 Tasarımcı araç çubuğunda **Kaydet**'i seçin.
 
@@ -158,7 +153,7 @@ Tasarımcı araç çubuğunda **Kaydet**'i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Logic apps örnekler, senaryoları, müşteri hikayeler ve izlenecek yollar oluşturma hakkında bilgi edinin.
+Örnekler, senaryolar, müşteri hikayeleri ve izlenecek yollar aracılığıyla mantıksal uygulamalar oluşturma hakkında bilgi edinin.
 
 > [!div class="nextstepaction"]
-> [Gözden geçirme mantığı uygulama örnekler, senaryoları ve izlenecek yollar](../logic-apps/logic-apps-examples-and-scenarios.md)
+> [Mantıksal uygulama örnekler, senaryolar ve Kılavuzlar gözden geçirin](../logic-apps/logic-apps-examples-and-scenarios.md)

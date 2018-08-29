@@ -9,18 +9,18 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 8b66156f147e9806ad648c95d65aee6912f29494
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: dc3b0993350b25d7ee965e2db6a9db7373a92e45
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282801"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127338"
 ---
 # <a name="speech-sdk-reference"></a>Konuşma SDK başvurusu
 
 Konuşma Yazılım Geliştirme Seti (SDK), konuşma özellikli yazılım geliştirmeyi kolaylaştıran konuşma hizmeti işlevlerini uygulamaları erişiminizi sağlar. Şu anda, SDK'ları erişmeyi **Konuşmayı metne dönüştürme**, **konuşma çevirisi**, ve **amaç tanıma**.
 
-[!include[Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
+[!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

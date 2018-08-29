@@ -4,18 +4,18 @@ description: Hadoop, Kafka, Spark, HBase, ML Hizmetleri veya Storm kümeleri HDI
 keywords: hadoop kümesi kurulumu, kafka küme kurulum hadoop kümesi nedir, spark kümesi Kurulumu
 services: hdinsight
 author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: f325e49695cab44d5c3d9fe94cd207755d136f7b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 08/27/2018
+ms.openlocfilehash: 0df38e1bd9c4db1cf988beab31b1c3189da4f0c2
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107138"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127916"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>HDInsight Hadoop, Spark, Kafka ve daha fazlası ile kümelerini ayarlama
 
@@ -99,7 +99,7 @@ HDInsight kümeleri ile küme oluşturma sırasında iki kullanıcı hesapların
 * HTTP kullanıcısı: varsayılan kullanıcı adı *yönetici*. Azure portalında temel yapılandırmayı kullanır. Bazen "kullanıcı küme" adlandırılır
 * SSH kullanıcısı (Linux kümeleri): SSH üzerinden kümeye bağlanmak için kullanılır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-Kurumsal güvenlik paketi, HDInsight Apache ranger'ın Active Directory ile tümleştirmenize olanak tanır. Birden çok kullanıcı Enteprise güvenlik paketi kullanılarak oluşturulabilir.
+Kurumsal güvenlik paketi, HDInsight Apache ranger'ın Active Directory ile tümleştirmenize olanak tanır. Birden çok kullanıcı Kurumsal güvenlik paketi kullanılarak oluşturulabilir.
 
 ## <a name="location"></a>Kümeleri ve depolama için konum (bölge)
 
@@ -140,10 +140,23 @@ Oozie kullanırken performansı artırmak için özel bir meta veri deposu kulla
 > [!IMPORTANT]
 > Özel Oozie meta veri deposu yeniden kullanamazsınız. Özel Oozie meta veri deposu kullanmak için HDInsight kümesi oluştururken boş bir Azure SQL veritabanı sağlamanız gerekir.
 
+
+## <a name="custom-cluster-setup"></a>Özel küme Kurulumu
+Hızlı Kurulum derlemelerinde özel küme ayarlarını oluşturun ve aşağıdaki seçenekleri ekler:
+- [HDInsight uygulamaları](#install-hdinsight-applications-on-clusters)
+- [Küme boyutu](#configure-cluster-size)
+- [Betik eylemleri](#advanced-settings-script-actions)
+- [Sanal ağ](#advanced-settings-extend-clusters-with-a-virtual-network)
+
+## <a name="install-hdinsight-applications-on-clusters"></a>Kümelere HDInsight uygulamaları yükleme
+
+HDInsight uygulaması kullanıcıların Linux tabanlı HDInsight kümesine yükleyebileceği bir uygulamadır. Microsoft, üçüncü tarafların veya, kendinizi geliştirin sağlanan uygulamaları kullanabilir. Daha fazla bilgi için [Azure HDInsight üzerinde üçüncü taraf Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md).
+
+HDInsight uygulamaları çoğu bir boş kenar düğümüne yüklenir.  Aynı istemci araçları yüklü ve yapılandırılmış olduğu gibi baş düğüm ile Linux sanal makinesi bir boş kenar düğümüdür. Kümeye erişen istemci uygulamalarınızı test etme ve istemci uygulamalarınızı barındırmak için kenar düğümünü kullanabilirsiniz. Daha fazla bilgi için [HDInsight içinde boş kenar düğümlerini kullanma](hdinsight-apps-use-edge-node.md).
+
 ## <a name="configure-cluster-size"></a>Küme boyutu yapılandırın
 
 Kümenin var olduğu sürece düğüm kullanım için faturalandırılırsınız. Faturalandırma küme oluşturulduğunda ve küme silindiğinde sona erer başlar. Kümeleri edilemez veya beklemeye alınamaz.
-
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Her küme türü için düğüm sayısı
 Her küme türü kendi sayısı düğüm, düğümleri ve varsayılan VM boyutu için terimler vardır. Aşağıdaki tabloda, parantez içinde her düğüm türü için düğümler sayısıdır.
@@ -191,20 +204,6 @@ Değer dışarı bulmak için farklı SDK'larını kullanarak bir küme oluştur
 >
 
 Daha fazla bilgi için [sanal makine boyutları](../virtual-machines/windows/sizes.md). Çeşitli boyutlardaki fiyatlandırması hakkında daha fazla bilgi için bkz: [HDInsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight).   
-
-## <a name="custom-cluster-setup"></a>Özel küme Kurulumu
-Hızlı Kurulum derlemelerinde özel küme ayarlarını oluşturun ve aşağıdaki seçenekleri ekler:
-- [HDInsight uygulamaları](#hdinsight-applications)
-- [Küme boyutu](#cluster-size)
-- Gelişmiş ayarlar
-  - [Betik eylemleri](#customize-clusters-using-script-action)
-  - [Sanal ağ](#use-virtual-network)
-
-## <a name="install-hdinsight-applications-on-clusters"></a>Kümelere HDInsight uygulamaları yükleme
-
-HDInsight uygulaması kullanıcıların Linux tabanlı HDInsight kümesine yükleyebileceği bir uygulamadır. Microsoft, üçüncü tarafların veya, kendinizi geliştirin sağlanan uygulamaları kullanabilir. Daha fazla bilgi için [Azure HDInsight üzerinde üçüncü taraf Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md).
-
-HDInsight uygulamaları çoğu bir boş kenar düğümüne yüklenir.  Aynı istemci araçları yüklü ve yapılandırılmış olduğu gibi baş düğüm ile Linux sanal makinesi bir boş kenar düğümüdür. Kümeye erişen istemci uygulamalarınızı test etme ve istemci uygulamalarınızı barındırmak için kenar düğümünü kullanabilirsiniz. Daha fazla bilgi için [HDInsight içinde boş kenar düğümlerini kullanma](hdinsight-apps-use-edge-node.md).
 
 ## <a name="advanced-settings-script-actions"></a>Gelişmiş ayarlar: betik eylemleri
 

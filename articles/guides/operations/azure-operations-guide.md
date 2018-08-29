@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 3ae912eb88972246577954cb2ff103ba607f18bf
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 2934c2323b056bfb5e556e7d688704ed20882bca
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110506"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124459"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure BT operatörleri için Başlarken
 
@@ -181,7 +181,7 @@ Azure REST API'leri, Azure portalı kullanıcı arabirimini destekleyen bir dizi
 
 ### <a name="azure-cloud-shell"></a>Azure Cloud Shell
 
-Yöneticiler, Azure PowerShell ve Azure CLI'yı Azure Cloud Shell adlı tarayıcı erişilebilir bir deneyim erişebilir. Bu etkileşimli bir arabirim, kendi seçtiğiniz, Bash veya PowerShell komut satırı arabirimi kullanmak Linux ve Windows yöneticileri için esnek bir araç sağlar. Azure Cloud Shell, bir tek başına web arabirimi portal üzerinden erişim olabilir [shell.azure.com](https://shell.azure.com), veya diğer erişim noktaları sayısı. Daha fazla bilgi için [Azure Cloud shell'e genel bakış](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+Yöneticiler, Azure PowerShell ve Azure CLI'yı Azure Cloud Shell adlı tarayıcı erişilebilir bir deneyim erişebilir. Bu etkileşimli bir arabirim, kendi seçtiğiniz, Bash veya PowerShell komut satırı arabirimi kullanmak Linux ve Windows yöneticileri için esnek bir araç sağlar. Azure Cloud Shell, bir tek başına web arabirimi portal üzerinden erişim olabilir [shell.azure.com](https://shell.azure.com), veya diğer erişim noktaları sayısı. Daha fazla bilgi için [Azure Cloud shell'e genel bakış](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 ## <a name="azure-subscriptions"></a>Azure abonelikleri
 
@@ -191,17 +191,17 @@ Bir Azure hesabına bağlı mantıksal bir gruplandırması olan Azure hizmetler
 
 Azure hizmetleriyle çalışmak için önce bir aboneliğinizin olması gerekir. Bazı abonelik türleri kullanılabilir.
 
-#### <a name="free-accounts-the-link-to-sign-up-for-a-free-account-is-on-the-azure-websitehttpsazuremicrosoftcom-this-gives-you-a-credit-over-the-course-of-30-days-to-try-any-combination-of-resources-in-azure-if-you-exceed-your-credit-amount-your-account-is-suspended-at-the-end-of-the-trial-your-services-are-decommissioned-and-will-no-longer-work-you-can-upgrade-to-a-pay-as-you-go-subscription-at-any-time"></a>Ücretsiz hesaplar: üzerinde ücretsiz bir hesap için kaydolmak için bağlantıyı [Azure Web sitesi](https://azure.microsoft.com/). Bu kredi Azure kaynaklarının herhangi bir birleşimini denemek için 30 gün boyunca sağlar. Kredi tutarı aşarsa, hesabınız askıya alındı. Deneme sonunda hizmetlerinizi yetkisi ve artık çalışmayacak. Herhangi bir zamanda Kullandıkça Öde aboneliğine yükseltebilirsiniz.
+**Ücretsiz hesaplar**: üzerinde ücretsiz bir hesap için kaydolmak için bağlantıyı [Azure Web sitesi](https://azure.microsoft.com/). Bu kredi Azure kaynaklarının herhangi bir birleşimini denemek için 30 gün boyunca sağlar. Kredi tutarı aşarsa, hesabınız askıya alındı. Deneme sonunda hizmetlerinizi yetkisi ve artık çalışmayacak. Herhangi bir zamanda Kullandıkça Öde aboneliğine yükseltebilirsiniz.
 
-#### <a name="msdn-subscriptions-if-you-have-an-msdn-subscription-you-get-a-specific-amount-in-azure-credit-each-month-for-example-if-you-have-a-microsoft-visual-studio-enterprise-with-msdn-subscription-you-get-150-per-month-in-azure-credit"></a>MSDN abonelikleri: MSDN aboneliğiniz varsa, belirli bir miktar Azure kredisi her ay sahip olursunuz. Örneğin, bir Microsoft Visual Studio Enterprise with MSDN aboneliğinizin varsa, elde \$Azure kredisi, aylık 150.
+**MSDN Abonelikleri**: MSDN aboneliğiniz varsa, belirli bir miktar Azure kredisi her ay sahip olursunuz. Örneğin, bir Microsoft Visual Studio Enterprise with MSDN aboneliğinizin varsa, elde \$Azure kredisi, aylık 150.
 
 Kredi miktarı aşarsanız, hizmetiniz devre dışı bırakıldı sonraki ayın başlatana kadar. Harcama sınırınızı kapatabilir ve ek maliyetleri için kullanılacak bir kredi kartı ekleyin. Bu maliyetler bazıları için MSDN hesapları indirim uygulanır. Örneğin, Windows Server çalıştıran VM'ler için Linux fiyatı ödeme ve Microsoft SQL Server gibi Microsoft sunucuları için ek ücret yoktur. Bu hesapları MSDN Geliştirme ve test senaryoları için ideal hale getirir.
 
-#### <a name="bizspark-accounts-the-microsoft-bizspark-program-provides-many-benefits-to-startups-one-of-those-benefits-is-access-to-all-the-microsoft-software-for-development-and-test-environments-for-up-to-five-msdn-accounts-you-get-150-in-azure-credit-for-each-of-those-five-msdn-accounts-and-you-pay-reduced-rates-for-several-of-the-azure-services-such-as-virtual-machines"></a>BizSpark hesapları: Microsoft BizSpark programı, startup'lara yönelik birçok avantaj sağlar. Bu avantajlar tüm Microsoft yazılımları geliştirme ve test ortamları için en fazla beş MSDN hesapları için erişim biridir. 150 ABD Doları değerinde Azure kredisi her beş MSDN hesaplar için sahip olursunuz ve birkaç sanal makineler gibi Azure Hizmetleri için daha düşük ücretler ödersiniz.
+**BizSpark hesapları**: Microsoft BizSpark programı, startup'lara yönelik birçok avantaj sağlar. Bu avantajlar tüm Microsoft yazılımları geliştirme ve test ortamları için en fazla beş MSDN hesapları için erişim biridir. 150 ABD Doları değerinde Azure kredisi her beş MSDN hesaplar için sahip olursunuz ve birkaç sanal makineler gibi Azure Hizmetleri için daha düşük ücretler ödersiniz.
 
-#### <a name="pay-as-you-go-with-this-subscription-you-pay-for-what-you-use-by-attaching-a-credit-card-or-debit-card-to-the-account-if-you-are-an-organization-you-can-also-be-approved-for-invoicing"></a>Kullandıkça Öde: Bu aboneliğe kredi kartı veya banka kartı hesabına ekleyerek kullandıklarınız için ödeme. Bir kuruluş ise, aynı zamanda faturalama için onaylanabilir.
+**Kullandıkça Öde**: Bu abonelikle, hesap için bir kredi kartı veya banka kartı ekleyerek kullandıklarınız için ödeme yaparsınız. Bir kuruluş ise, aynı zamanda faturalama için onaylanabilir.
 
-#### <a name="enterprise-agreements-with-an-enterprise-agreement-you-commit-to-using-a-certain-number-of-services-in-azure-over-the-next-year-and-you-pay-that-amount-ahead-of-time-the-commitment-that-you-make-is-consumed-throughout-the-year-if-you-exceed-the-commitment-amount-you-can-pay-the-overage-in-arrears-depending-on-the-amount-of-the-commitment-you-get-a-discount-on-the-services-in-azure"></a>Kurumsal anlaşmalar: bir kurumsal anlaşma ile belirli bir dizi hizmet Azure'da Önümüzdeki Yıl kullanarak işleme ve bu tutar önceden ödeme yaparsınız. Yaptığınız taahhüt yıl boyunca kullanılır. Taahhüt tutarı aşarsa, fazla kullanım borçlanarak ödeme yapabilirsiniz. Taahhüt miktarına bağlı olarak, Azure hizmetlerinde indirim alabilir.
+**Kurumsal anlaşmalar**: bir kurumsal anlaşma ile belirli bir dizi hizmet Azure'da Önümüzdeki Yıl kullanarak işleme ve bu tutar önceden ödeme yaparsınız. Yaptığınız taahhüt yıl boyunca kullanılır. Taahhüt tutarı aşarsa, fazla kullanım borçlanarak ödeme yapabilirsiniz. Taahhüt miktarına bağlı olarak, Azure hizmetlerinde indirim alabilir.
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Bir Azure aboneliğine yönetim erişimi verme
 
@@ -465,7 +465,7 @@ Kullanıcıların depolama kaynaklarınıza erişim denetimine izin vermeniz ger
 
 ## <a name="azure-virtual-network"></a>Azure Sanal Ağ
 
-Sanal ağlar, sanal makineler arasındaki iletişimi desteklemek gereklidir. Alt ağlar, özel IP adresi, DNS ayarlarını, güvenlik filtresini tanımlayın ve Yük Dengeleme. Azure, farklı kullanım durumlarını destekler: sadece bulutta yer alan ağları veya karma sanal ağları. 
+Sanal ağlar, sanal makineler arasındaki iletişimi desteklemek gereklidir. Alt ağlar, özel IP adresi, DNS ayarlarını, güvenlik filtresini tanımlayın ve Yük Dengeleme. Azure, farklı kullanım durumlarını destekler: sadece bulutta yer alan ağları veya karma sanal ağları.
 
 ### <a name="cloud-only-virtual-networks"></a>Yalnızca bulutta yer alan sanal ağlar
 
@@ -489,7 +489,7 @@ Bir sanal ağı dağıtmak için birkaç seçenek vardır.
 
 - Azure Resource Manager şablonları
 
->**Ne zaman kullanılacağı**: azure'da sanal makineler çalışırken kullandığınız zaman, sanal ağlarla çalışır. Bu, genel kullanıma yönelik ve özel alt ağlar benzer şirket içi veri merkezleri içinde Vm'lerinizi kesimlere için sağlar. 
+>**Ne zaman kullanılacağı**: azure'da sanal makineler çalışırken kullandığınız zaman, sanal ağlarla çalışır. Bu, genel kullanıma yönelik ve özel alt ağlar benzer şirket içi veri merkezleri içinde Vm'lerinizi kesimlere için sağlar.
 
 >**Başlama**: Azure portalını kullanarak bir Azure sanal ağı dağıtmak yalnızca bir etkin Azure aboneliği ve bir web tarayıcısına erişimi gerektirir. Yeni veya mevcut bir kaynak grubuna yeni bir sanal ağa dağıtabilirsiniz. Portaldan yeni bir sanal makine oluştururken, mevcut bir sanal ağ seçin veya yeni bir tane oluşturun. Kullanmaya başlayın ve [Azure portalını kullanarak bir sanal ağ oluşturma](../../virtual-network/quick-create-portal.md).
 

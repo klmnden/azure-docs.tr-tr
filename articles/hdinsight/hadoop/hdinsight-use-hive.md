@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 6dcd9ac725b76463259b60df6312e5cafebd9e88
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 446bb23e15d908c8afe189a33e4d8a70faad284a
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044965"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126646"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Apache Hive ve HiveQL Azure HDInsight üzerinde nedir?
 
@@ -222,7 +222,7 @@ Zamanlanmış veya isteğe bağlı bir iş akışının bir parçası olarak Hiv
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 
-Azure Data Factory, HDInsight, Data Factory işlem hattı bir parçası olarak kullanmanıza olanak sağlar. Bir işlem hattından Hive kullanma hakkında daha fazla bilgi için bkz. [Azure Data Factory'de Hive etkinliğini kullanarak verileri dönüştürme](/data-factory/transform-data-using-hadoop-hive.md) belge.
+Azure Data Factory, HDInsight, Data Factory işlem hattı bir parçası olarak kullanmanıza olanak sağlar. Bir işlem hattından Hive kullanma hakkında daha fazla bilgi için bkz. [Azure Data Factory'de Hive etkinliğini kullanarak verileri dönüştürme](../../data-factory/transform-data-using-hadoop-hive.md) belge.
 
 ### <a name="hive-jobs-and-sql-server-integration-services"></a>Hive işlerini ve SQL Server Integration Services
 

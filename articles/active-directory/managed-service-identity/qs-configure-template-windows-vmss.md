@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 68304b3e5eea50aba28f46344abcbd7ad060c5c8
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 69b88b5aabbadadea3b04f96d9a21f266c85a52f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056252"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125393"
 ---
 # <a name="configure-managed-service-identity-on-virtual-machine-scale-using-a-template"></a>Şablon kullanarak sanal makine ölçek üzerinde yönetilen hizmet kimliği yapılandırma
 
@@ -322,7 +322,7 @@ Bir sanal makine ölçek kümesi artık varsa bir yönetilen hizmet kimliği ger
 
 1. Azure'da yerel olarak veya Azure portalında oturum açın, sanal makine ölçek kümesi içeren Azure aboneliği ile ilişkili olan bir hesap kullanın.
 
-2. Şablona yük bir [Düzenleyicisi](#azure-resource-manager-templates) bulun `Microsoft.Compute/virtualMachineScaleSets` içinde ilgi kaynak `resources` bölümü. Yalnızca kullanıcı tarafından atanan kimlik olan bir sanal makine ölçek kümesi varsa, bunu değiştirerek devre dışı bırakabilirsiniz kimlik türü için `None`.
+2. Şablona yük bir [Düzenleyicisi](#azure-resource-manager-templates) bulun `Microsoft.Compute/virtualMachineScaleSets` içinde ilgi kaynak `resources` bölümü. Yalnızca kullanıcı tarafından atanan kimlik olan bir sanal makine ölçek kümesi varsa, bu kimlik türü için değiştirerek devre dışı bırakabilirsiniz `None`.
 
    Aşağıdaki örnek, tüm kullanıcı kimlikleri sistemi tarafından atanan kimliklerle bulunmayan bir VM'den atanan nasıl kaldırmak gösterir:
 
@@ -339,7 +339,7 @@ Bir sanal makine ölçek kümesi artık varsa bir yönetilen hizmet kimliği ger
    
    **Microsoft.Compute/virtualMachineScaleSets API sürümü 2018-06-01**
     
-   Kaldırmak için bir sanal makine ölçek kümesi, bir tek kullanıcı tarafından atanan kimlik öğesinden kaldırın `userAssignedIdentities` sözlüğü.
+   Bir tek kullanıcı tarafından atanan kimliği bir sanal makine ölçek kümesinden kaldırmak için oradan kaldırın `userAssignedIdentities` sözlüğü.
 
    Bir sistem tarafından atanan kimliği varsa, bunu tutmak içinde `type` altındaki `identity` değeri.
 

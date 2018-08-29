@@ -1,135 +1,131 @@
 ---
-title: XML doğrulama - Azure Logic Apps şemalarda | Microsoft Docs
-description: XML belgeleri şemalarda Azure Logic Apps ve kurumsal tümleştirme paketi için doğrulama
+title: XML doğrulama - Azure Logic Apps için şemalar ekleme | Microsoft Docs
+description: Azure Logic Apps Enterprise Integration Pack ile XML belgeleri doğrulamak şemaları oluşturma
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.date: 07/29/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: e23500ec3c16e66b8dc74fcba29e9b58f0b41790
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e03346da1c2b77f885c39d5329f990684979c56e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299071"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123082"
 ---
-# <a name="validate-xml-with-schemas-for-azure-logic-apps-and-the-enterprise-integration-pack"></a>XML şeması olan Azure Logic Apps ve kurumsal tümleştirme paketi için doğrulama
+# <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>XML şemaları Azure Logic Apps Enterprise Integration Pack ile doğrulama
 
-Şemalar aldığınız XML belgelerinin geçerli ve beklenen verileri önceden tanımlanmış bir biçime sahip olduğunu onaylayın. Şemalar, B2B senaryoda alınıp verilen iletileri doğrulamak yardımcı olur.
+Şemaları aldığınız XML belgelerinin geçerli ve beklenen verileri önceden tanımlanmış bir biçimde sahip onaylayın. Şemalar, B2B senaryoda arasında alınıp verilen iletileri doğrulamak da yardımcı olur.
 
 ## <a name="add-a-schema"></a>Bir şema ekleyin
 
-1. Azure portalında seçin **tüm hizmetleri**.
+1. Azure portalında **tüm hizmetleri**.
 
-    ![Azure portalı, "Tüm hizmetleri"](media/logic-apps-enterprise-integration-schemas/overview-11.png)
+    ![Azure portalı, "Tüm hizmetler"](media/logic-apps-enterprise-integration-schemas/overview-11.png)
 
-2. Filtre Arama kutusuna **tümleştirme**seçip **tümleştirme hesapları** sonuçları listesinden.
+2. Filtre Arama kutusuna **tümleştirme**seçip **tümleştirme hesapları** sonuçları listesinde.
 
-    ![Filtre Arama kutusu](media/logic-apps-enterprise-integration-schemas/overview-21.png)
+    ![Arama kutusuna Filtrele](media/logic-apps-enterprise-integration-schemas/overview-21.png)
 
-3. Seçin **tümleştirme hesabını** şema eklemek istediğiniz.
+3. Seçin **tümleştirme hesabı** şema eklemek istediğiniz.
 
     ![Tümleştirme hesapları listesi](media/logic-apps-enterprise-integration-schemas/overview-31.png)
 
-4. Seçin **şemaları** döşeme.
+4. Seçin **şemaları** Döşe.
 
-    ![Örnek tümleştirme hesabını, "Şemaları"](media/logic-apps-enterprise-integration-schemas/schema-11.png)
+    ![Örnek tümleştirme hesabı, "Şemaları"](media/logic-apps-enterprise-integration-schemas/schema-11.png)
 
-### <a name="add-a-schema-file-smaller-than-2-mb"></a>2 MB'den küçük bir şema dosyası ekleme
+### <a name="add-a-schema-file-smaller-than-2-mb"></a>2 MB'tan daha küçük bir şema dosyası Ekle
 
-1. İçinde **şemaları** (yukarıdaki adımların) açıldığını seçin dikey **Ekle**.
+1. İçinde **şemaları** (önceki adımlardaki), açılır seçim dikey **Ekle**.
 
-    ![Şemalar dikey penceresinde, "Ekle"](media/logic-apps-enterprise-integration-schemas/schema-21.png)
+    ![Şemaları dikey penceresinde "Ekle"](media/logic-apps-enterprise-integration-schemas/schema-21.png)
 
-2. Şemanızı için bir ad girin. Şema dosyası yanındaki klasör simgesini seçerek karşıya **şema** kutusu. Karşıya yükleme işlemi tamamlandıktan sonra Seç **Tamam**.
+2. Şemanızı için bir ad girin. Şema dosyası yanındaki klasör simgesini seçerek karşıya **şema** kutusu. Karşıya yükleme işlemi tamamlandıktan sonra seçin **Tamam**.
 
-    ![Şemanın"Ekle", "küçük dosyası vurgulanmış" ile ekran görüntüsü](media/logic-apps-enterprise-integration-schemas/schema-31.png)
+    ![Şemanın"Ekle", "küçük dosya vurgulanmış" ile ekran görüntüsü](media/logic-apps-enterprise-integration-schemas/schema-31.png)
 
-### <a name="add-a-schema-file-larger-than-2-mb-up-to-8-mb-maximum"></a>2 MB (en fazla 8 MB maksimum) daha büyük bir şema dosyası ekleme
+### <a name="add-a-schema-file-larger-than-2-mb-up-to-8-mb-maximum"></a>(En fazla 8 MB maksimum) 2 MB'tan büyük olan bir şema dosyası Ekle
 
-Bu adımları blob kapsayıcı erişimi düzeyi göre farklılık: **ortak** veya **anonim erişim yok**.
+Bu adımlar blob kapsayıcı erişim düzeyine göre farklılık gösterebilir: **genel** veya **anonim erişim yok**.
 
 **Bu erişim düzeyi belirlemek için**
 
-1.  Açık **Azure Storage Gezgini**. 
+1.  Açık **Azure Depolama Gezgini**. 
 
-2.  Altında **Blob kapsayıcıları**, istediğiniz blob kapsayıcısı seçin. 
+2.  Altında **Blob kapsayıcıları**, istediğiniz blob kapsayıcıyı seçin. 
 
-3.  Seçin **güvenlik**, **erişim düzeyine**.
+3.  Seçin **güvenlik**, **erişim düzeyi**.
 
-Blob güvenlik erişim düzeyini ise **ortak**, şu adımları izleyin.
+Blob güvenlik erişim düzeyi ise **genel**, şu adımları izleyin.
 
 !["Blob kapsayıcıları", "Güvenlik" ve "Genel" vurgulanmış olan Azure Depolama Gezgini](media/logic-apps-enterprise-integration-schemas/blob-public.png)
 
-1. Şema depolama hesabınıza yüklemeniz ve URI'yi kopyalayın.
+1. Şema, depolama hesabınıza yükleyin ve URI'yi kopyalayın.
 
-    ![Vurgulanan URI ile depolama hesabı](media/logic-apps-enterprise-integration-schemas/schema-blob.png)
+    ![Depolama hesabıyla URI'sini vurgulanan](media/logic-apps-enterprise-integration-schemas/schema-blob.png)
 
-2. İçinde **Şema Ekle**seçin **büyük dosya**ve URI'de sağlamak **içerik URI** metin kutusu.
+2. İçinde **Şema Ekle**seçin **büyük dosya**ve URI'de **içerik URI** metin kutusu.
 
-    !["Ekle" düğmesi ve "büyük dosyası vurgulanmış" ile şemaları](media/logic-apps-enterprise-integration-schemas/schema-largefile.png)
+    !["Ekle" düğmesi ve "büyük dosya vurgulanmış" şemaları](media/logic-apps-enterprise-integration-schemas/schema-largefile.png)
 
-Blob güvenlik erişim düzeyini ise **anonim erişim yok**, şu adımları izleyin.
+Blob güvenlik erişim düzeyi ise **anonim erişim yok**, şu adımları izleyin.
 
-!["Blob kapsayıcıları", "Güvenlik" ve "vurgulanmış anonim erişim yok" ile Azure Depolama Gezgini](media/logic-apps-enterprise-integration-schemas/blob-1.png)
+![Azure Depolama Gezgini, "Blob kapsayıcıları", "Güvenlik" ve "vurgulanmış anonim erişim yok"](media/logic-apps-enterprise-integration-schemas/blob-1.png)
 
-1. Şema depolama hesabınıza yükleyin.
+1. Şema, depolama hesabınıza yükleyin.
 
     ![Depolama hesabı](media/logic-apps-enterprise-integration-schemas/blob-3.png)
 
-2. Şema için bir paylaşılan erişim imzası oluşturur.
+2. Şema için paylaşılan erişim imzası oluşturma.
 
-    ![Depolama hesabıyla vurgulanmış paylaşılan erişim İmzalar sekmesi](media/logic-apps-enterprise-integration-schemas/blob-2.png)
+    ![Paylaşılan erişim imzalar sekmesiyle vurgulanmış depolama hesabı](media/logic-apps-enterprise-integration-schemas/blob-2.png)
 
-3. İçinde **Şema Ekle**seçin **büyük dosya**ve paylaşılan erişim imzası URI sağlayın, **içerik URI** metin kutusu.
+3. İçinde **Şema Ekle**seçin **büyük dosya**ve paylaşılan erişim imzası URI'si sağlayın, **içerik URI** metin kutusu.
 
-    !["Ekle" düğmesi ve "büyük dosyası vurgulanmış" ile şemaları](media/logic-apps-enterprise-integration-schemas/schema-largefile.png)
+    !["Ekle" düğmesi ve "büyük dosya vurgulanmış" şemaları](media/logic-apps-enterprise-integration-schemas/schema-largefile.png)
 
-4. İçinde **şemaları** tümleştirme hesabınızın dikey penceresinde, yeni eklenen şemanızı görünmelidir.
+4. İçinde **şemaları** , tümleştirme hesabı dikey penceresinde yeni eklenen şemanızı görüntülenmelidir.
 
-    !["Şemaları" ve vurgulanmış yeni şema ile tümleştirme hesabınız](media/logic-apps-enterprise-integration-schemas/schema-41.png)
+    !["Şemaları" ve vurgulanmış yeni şema ile tümleştirme hesabı](media/logic-apps-enterprise-integration-schemas/schema-41.png)
 
-## <a name="edit-schemas"></a>Şemalar Düzenle
+## <a name="edit-schemas"></a>Şemaları Düzenle
 
-1. Seçin **şemaları** döşeme.
+1. Seçin **şemaları** Döşe.
 
 2. Sonra **şemaları** dikey penceresi açılır ve düzenlemek istediğiniz şema seçin.
 
 3. Üzerinde **şemaları** dikey penceresinde, seçin **Düzenle**.
 
-    ![Şemalar dikey penceresi](media/logic-apps-enterprise-integration-schemas/edit-12.png)
+    ![Şemaları dikey penceresi](media/logic-apps-enterprise-integration-schemas/edit-12.png)
 
-4. Düzenleyin ve ardından istediğiniz şema dosyasını Seç **açık**.
+4. Şema dosyasını düzenleyin ve ardından istediğiniz seçin **açık**.
 
-    ![Düzenlemek için açık şema dosyası](media/logic-apps-enterprise-integration-schemas/edit-31.png)
+    ![Dosyayı düzenlemek için şemayı Aç](media/logic-apps-enterprise-integration-schemas/edit-31.png)
 
 Şema başarıyla karşıya ileti Azure gösterir.
 
-## <a name="delete-schemas"></a>Şemalar Sil
+## <a name="delete-schemas"></a>Şemaları Sil
 
-1. Seçin **şemaları** döşeme.
+1. Seçin **şemaları** Döşe.
 
-2. Sonra **şemaları** dikey penceresi açılır ve silmek istediğiniz şema seçin.
+2. Sonra **şemaları** dikey penceresi açıldığında, silmek istediğiniz şema seçin.
 
-3. Üzerinde **şemaları** dikey penceresinde, seçin **silmek**.
+3. Üzerinde **şemaları** dikey penceresinde, seçin **Sil**.
 
-    ![Şemalar dikey penceresi](media/logic-apps-enterprise-integration-schemas/delete-12.png)
+    ![Şemaları dikey penceresi](media/logic-apps-enterprise-integration-schemas/delete-12.png)
 
-4. Seçili şeması silmek istediğinizi onaylamak için tercih **Evet**.
+4. Seçili şemayı silmek istediğinizi onaylamak için seçin **Evet**.
 
-    !["Şema delete" onay iletisi](media/logic-apps-enterprise-integration-schemas/delete-21.png)
+    ![Onay iletisi "Şema Sil"](media/logic-apps-enterprise-integration-schemas/delete-21.png)
 
-    İçinde **şemaları** dikey penceresinde, şema listesini yeniler ve artık sildiğiniz şeması içerir.
+    İçinde **şemaları** dikey penceresinde, şema listesini yeniler ve artık sildiğiniz şema içerir.
 
-    ![Tümleştirme hesabıyla "vurgulanmış şemaları"](media/logic-apps-enterprise-integration-schemas/delete-31.png)
+    ![Tümleştirmenizi hesabıyla "şemaları vurgulanmış"](media/logic-apps-enterprise-integration-schemas/delete-31.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Enterprise Integration Pack hakkında daha fazla bilgi](logic-apps-enterprise-integration-overview.md "enterprise Integration pack hakkında bilgi edinin").  

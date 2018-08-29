@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 01aeaee03a4cfabbda3a29cddd17febdc8a16e45
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 6ae0217ed4b8833eb42a4719a1f2525461f9dcdd
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003541"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143657"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Çözümünüz için doğru IOT Hub katmanını seçme
 
@@ -43,7 +43,7 @@ IOT hub'ınızı oluşturduğunuzda, mevcut işlemleri kesintiye uğratmadan Tem
 | [İzleme ve tanılama](iot-hub-monitor-resource-health.md) | Evet | Evet |
 | [Bulut-cihaz Mesajlaşma](iot-hub-devguide-c2d-guidance.md) |   | Evet |
 | [Cihaz ikizlerini](iot-hub-devguide-device-twins.md), [modül ikizlerini](iot-hub-devguide-module-twins.md) ve [cihaz Yönetimi](iot-hub-device-management-overview.md) |   | Evet |
-| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | Evet |
+| [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Evet |
 
 IOT Hub ayrıca test ve değerlendirme için tasarlanmıştır ücretsiz bir katmanı sunar. Bu, standart katman, ancak sınırlı Mesajlaşma kesintileri tüm özelliklerine sahiptir. Ücretsiz katmanındaki temel veya standart olarak yükseltemezsiniz. 
 

@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: diberry;
-ms.openlocfilehash: b827f157ccd2919c959385eefd0e0223a8e23607
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.author: diberry
+ms.openlocfilehash: a653d854901f5dc84b957c316c4174610af4be30
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225549"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43130563"
 ---
 # <a name="publish-your-trained-app"></a>Eğitilen uygulamanızı yayımlayın
 Oluşturma ve LUIS uygulamanızı test etme bitirdikten sonra yayımlayın. Uygulamayı yayımladıktan sonra yayımlama sayfası, ilişkili tüm HTTP gösterir [uç noktaları](luis-glossary.md#endpoint). Bu uç noktaları başına [bölge](luis-reference-regions.md) ve başına [anahtarı](luis-how-to-manage-keys.md), ardından istemci, sohbet botu veya arka uç uygulamasına tümleştirilmiştir. 

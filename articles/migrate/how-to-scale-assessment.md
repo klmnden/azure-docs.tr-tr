@@ -4,14 +4,14 @@ description: Azure geçişi hizmetini kullanarak şirket içi makinelerin çok s
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/25/2018
 ms.author: raynew
-ms.openlocfilehash: 06905a2f16a23e5a7c4612f4b567aaf86322924d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 553e0d6569a3a35802703ef58e1460878dcd930b
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056449"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127523"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Büyük bir VMware ortamını bulma ve değerlendirme
 
@@ -22,7 +22,7 @@ Azure geçişi, proje başına 1500 makineyi sınırı vardır, bu makalede kull
 - **VMware**: geçirmeyi planladığınız VM'ler, vCenter Server sürüm 5.5, 6.0 veya 6.5 ile yönetilmelidir. Ayrıca, 5.0 veya üzeri Toplayıcı VM'yi dağıtmak için bir ESXi ana çalışan sürümü gerekir.
 - **vCenter hesabı**: vCenter Server'a erişmek için salt okunur bir hesabınız olması gerekir. Azure Geçişi, şirket içi VM’leri bulmak için bu hesabı kullanır.
 - **İzinleri**: vCenter Server'da, bir dosyayı OVA biçiminde içeri aktararak VM oluşturma için izinlerinizin olması gerekir.
-- **İstatistik ayarları**: dağıtımı başlatmadan önce vCenter Server için istatistik ayarları düzeyini 3 ayarlanması gerekir. Düzey 3'ten daha düşükse, değerlendirme çalışır, ancak depolama ve ağ için performans verileri toplanmaz. Boyut önerileri, CPU ve bellek için performans verilerini ve disk ve ağ bağdaştırıcıları için yapılandırma verilerini bu durumda hesaplanır.
+- **İstatistik ayarları**: dağıtımı başlatmadan önce vCenter Server için istatistik ayarları düzeyini 3 ayarlanması gerekir. İstatistik düzeyini 3 olarak her gün, haftanın günü ve ay toplama aralıkları için ayarlamanız sağlamaktır. Düzeyi üç toplama aralıkları için 3'ten daha düşük olan, değerlendirme çalışır, ancak depolama ve ağ için performans verileri toplanmaz. Boyut önerileri, CPU ve bellek için performans verilerini ve disk ve ağ bağdaştırıcıları için yapılandırma verilerini ardından hesaplanır.
 
 
 ### <a name="set-up-permissions"></a>İzinleri ayarlama

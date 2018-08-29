@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: kumud
-ms.openlocfilehash: e9249f3a5787da9ad54945195b47cf9af0f45fb1
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 1f7e605cbf5aa3d519e04c4fdfd737a4c0926a3e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42060370"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122585"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure'da giden bağlantıları
 
@@ -122,13 +122,23 @@ Kullanırken [standart Load Balancer ile kullanılabilirlik alanları](load-bala
 
 Bir genel yük dengeleyici kaynağı VM örnekleri ile ilişkili olduğunda, her bir giden bağlantı kaynağı yeniden. Kaynak sanal ağ özel IP adres alanından yük dengeleyicinin genel IP adresi ön uç için yeniden. Genel IP adres alanı, 5 demet (kaynak IP adresi, kaynak bağlantı noktası, IP Aktarım Protokolü, hedef IP adresi, hedef bağlantı noktası) akış benzersiz olması gerekir.  Kendini gizleyen SNAT bağlantı noktası, TCP veya UDP IP protokollerle kullanılabilir.
 
-Kısa ömürlü bağlantı noktaları (SNAT), tek bir genel IP adresi birden çok akış kaynaklı olduğundan bu özel kaynak IP adresini yeniden yazma sonra elde etmek için kullanılır. 
+Kısa ömürlü bağlantı noktaları (SNAT), tek bir genel IP adresi birden çok akış kaynaklı olduğundan bu özel kaynak IP adresini yeniden yazma sonra elde etmek için kullanılır. TCP ve UDP bağlantı noktası kendini gizleyen SNAT algoritması SNAT bağlantı noktaları farklı ayırır.
 
-Akışa tek bir hedef IP adresi, bağlantı noktası ve protokol başına bir SNAT bağlantı noktası kullanılır. Aynı hedef IP adresi, bağlantı noktası ve protokol birden çok akışlar için her bir akışın tek bir SNAT bağlantı noktasını kullanır. Bu, aynı genel IP adresinden kaynaklanan ve aynı hedef IP adresi, bağlantı noktası ve protokol gidin, Akışlar benzersiz olmasını sağlar. 
+#### <a name="tcp"></a>TCP SNAT bağlantı noktaları
+
+Akışa tek bir hedef IP adresi, bağlantı noktası başına bir SNAT bağlantı noktası kullanılır. Aynı hedef IP adresi, bağlantı noktası ve protokol birden çok TCP akışları için her TCP akışı tek bir SNAT bağlantı noktasını kullanır. Bu, aynı genel IP adresinden kaynaklanan ve aynı hedef IP adresi, bağlantı noktası ve protokol gidin, Akışlar benzersiz olmasını sağlar. 
 
 Birden çok akış her farklı bir hedef IP adresi, bağlantı noktası ve protokol, tek bir SNAT bağlantı noktası paylaşın. Hedef IP adresi, bağlantı noktası ve protokol akışları genel IP adresi alanını akışları ayırt etmek için bağlantı noktaları ek kaynak gerek kalmadan benzersiz olun.
 
+#### <a name="udp"></a> UDP SNAT bağlantı noktaları
+
+SNAT UDP bağlantı noktası TCP SNAT bağlantı noktaları'dan farklı bir algoritma tarafından yönetilir.  Yük Dengeleyici için UDP "bağlantı noktası kısıtlı koni NAT" bilinen bir algoritma kullanır.  Hedef IP adresi, bağlantı noktası bağımsız olarak her bir akışa ilişkin bir SNAT bağlantı noktası kullanılır.
+
+#### <a name="exhaustion"></a>Tükendi
+
 SNAT bağlantı noktası kaynaklarını tüketmiş, mevcut akışları SNAT bağlantı noktalarını serbest bırakılana kadar giden akışlar başarısız. Yük Dengeleyici geri kazanır SNAT bağlantı noktaları akışı kapatır ve kullandığında bir [4 dakikalık boşta kalma zaman aşımı](#idletimeout) boşta akışlar SNAT noktalarından tekrar kullanılabilir hale getirme için.
+
+SNAT UDP bağlantı noktaları genel SNAT TCP bağlantı noktaları kullanılan algoritması fark nedeniyle çok hızlı tüketebilir. Tasarım ve ölçek ile bu farkı test etmeniz gerekir.
 
 Yaygın olarak SNAT bağlantı noktası tükenmesi için yol koşulları düzenlerini için gözden [yönetme SNAT](#snatexhaust) bölümü.
 
@@ -136,7 +146,7 @@ Yaygın olarak SNAT bağlantı noktası tükenmesi için yol koşulları düzenl
 
 Kendini gizleyen SNAT bağlantı noktasını sayısı önceden ayrılmış SNAT kullanılabilir bağlantı noktası sayısını belirlemek için bir algoritma kullanırken arka uç havuzu boyutuna göre azure kullanır ([PAT](#pat)). Kısa ömürlü bağlantı noktaları için belirli genel IP kaynak adresi kullanılabilir SNAT bağlantı noktalarıdır.
 
-SNAT bağlantı noktalarını aynı sayıda UDP ve TCP için sırasıyla önceden ayrılmış ve bağımsız olarak IP Aktarım Protokolü tüketilen. 
+SNAT bağlantı noktalarını aynı sayıda UDP ve TCP için sırasıyla önceden ayrılmış ve bağımsız olarak IP Aktarım Protokolü tüketilen.  Ancak, SNAT bağlantı noktası kullanımı akışı UDP veya TCP olduğuna bağlı olarak farklılık gösterir.
 
 >[!IMPORTANT]
 >Standart SKU programlama SNAT IP Aktarım Protokolü ve Yük Dengeleme türünden türetilmiş.  SNAT yalnızca TCP Yük Dengeleme kuralı varsa, yalnızca TCP için kullanılabilir. UDP Yük Dengeleme kuralı aynı ön uç gelen aynı arka uç havuzuna sahip yalnızca bir Yük Dengeleme kuralı TCP ve UDP Giden SNAT ihtiyacınız varsa oluşturun.  Bu, UDP için programlama SNAT tetikler.  Bir çalışan kural veya sistem durumu araştırması gerekli değildir.  Temel SKU SNAT SNAT Yük Dengeleme kuralı belirtilen Aktarım Protokolü'ne olursa olsun, her iki IP aktarım protokolü için her zaman programlar.

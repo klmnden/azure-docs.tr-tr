@@ -9,35 +9,35 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 928d8dcf9a074eb78c17393d8dc8e11431ef3d55
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 3ac75c8bab5b4c888ce2cf02e2b270d7eb76a1ef
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39331473"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144721"
 ---
-# <a name="translate-speech-by-using-the-speech-sdk-for-c"></a>Konuşma Speech SDK'sı için C# kullanarak çevir
+# <a name="translate-speech-with-the-cognitive-services-speech-sdk-for-c"></a>Konuşma Bilişsel hizmetler konuşma SDK'sı ile C# ' ta Çevir
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-how-to-translate-speech-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-how-to-translate-speech-selector.md)]
 
-[!include[Intro](../../../includes/cognitive-services-speech-service-how-to-translate-speech-intro.md)]
+[!INCLUDE [Introduction](../../../includes/cognitive-services-speech-service-how-to-translate-speech-intro.md)]
 
-[!include[Intro - top-level declarations](../../../includes/cognitive-services-speech-service-how-to-toplevel-declarations.md)]
+[!INCLUDE [Introduction to top-level declarations](../../../includes/cognitive-services-speech-service-how-to-toplevel-declarations.md)]
 
 [!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/translation_samples.cs#toplevel)]
 
-[!include[Intro - using microphone](../../../includes/cognitive-services-speech-service-how-to-translate-speech-microphone.md)]
+[!INCLUDE [Introduction to using a microphone](../../../includes/cognitive-services-speech-service-how-to-translate-speech-microphone.md)]
 
-[!code-csharp[Translation Using Microphone](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/translation_samples.cs#TranslationWithMicrophoneAsync)]
+[!code-csharp[Translation from a microphone](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/translation_samples.cs#TranslationWithMicrophoneAsync)]
 
-[!include[Intro - using file](../../../includes/cognitive-services-speech-service-how-to-translate-speech-file.md)]
+[!INCLUDE [Introduction to using a file](../../../includes/cognitive-services-speech-service-how-to-translate-speech-file.md)]
 
-[!code-csharp[Translation Using File Input](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/translation_samples.cs#TranslationWithFileAsync)]
+[!code-csharp[Translation from file input](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/translation_samples.cs#TranslationWithFileAsync)]
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Bu makalede kod arayın `samples/csharp/sharedcontent/console` klasör.
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+Bu makaledeki örnekleri/csharp/sharedcontent/Konsolu klasör kullandığınız kodunu arayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Konuşma tanıma nasıl](how-to-recognize-speech-csharp.md)
-- [Konuşma gelen amacı anlamayı](how-to-recognize-intents-from-speech-csharp.md).
+- [Nasıl amaçlardan tutun konuşma tanıma](how-to-recognize-intents-from-speech-csharp.md)

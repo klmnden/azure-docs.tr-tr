@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Lesson.ly | Microsoft Docs'
-description: Azure Active Directory ve Lesson.ly arasında çoklu oturum açmayı yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory tümleştirmesiyle Lessonly.com | Microsoft Docs'
+description: Azure Active Directory ve Lessonly.com arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 13c053b41782fbf1a64d93b500938680f464cf0f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 050e8efed38c40d8c7da292c0d6865869a07c9f9
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438527"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43121718"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-lessonly"></a>Öğretici: Azure Active Directory Lesson.ly ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Öğretici: Azure Active Directory Lessonly.com ile tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Lesson.ly tümleştirme konusunda bilgi edinin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile Lessonly.com tümleştirme konusunda bilgi edinin.
 
-Azure AD ile Lesson.LY tümleştirme ile aşağıdaki avantajları sağlar:
+Azure AD ile Lessonly.com tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Lesson.ly erişimi, Azure AD'de denetleyebilirsiniz
-- Otomatik olarak imzalanan için Lesson.ly (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Lessonly.com erişimi, Azure AD'de denetleyebilirsiniz
+- Otomatik olarak imzalanan için Lessonly.com (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
 - Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
 
 Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD Tümleştirmesi ile Lesson.ly yapılandırmak için aşağıdaki öğeler gerekir:
+Azure AD Tümleştirmesi ile Lessonly.com yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
-- Abonelik Lesson.ly çoklu oturum açma etkin
+- Azure AD aboneliği
+- Abonelik Lessonly.com çoklu oturum açma etkin
 
 > [!NOTE]
 > Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
@@ -51,15 +51,15 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 ## <a name="scenario-description"></a>Senaryo açıklaması
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden Lesson.LY ekleme
+1. Galeriden Lessonly.com ekleme
 1. Yapılandırma ve test Azure AD çoklu oturum açma
 
-## <a name="adding-lessonly-from-the-gallery"></a>Galeriden Lesson.LY ekleme
-Azure AD'de Lesson.ly tümleştirmesini yapılandırmak için Lesson.ly Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
+## <a name="adding-lessonlycom-from-the-gallery"></a>Galeriden Lessonly.com ekleme
+Azure AD'de Lessonly.com tümleştirmesini yapılandırmak için Lessonly.com Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-**Galeriden Lesson.LY eklemek için aşağıdaki adımları gerçekleştirin:**
+**Galeriden Lessonly.com eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -71,51 +71,50 @@ Azure AD'de Lesson.ly tümleştirmesini yapılandırmak için Lesson.ly Galeride
 
     ![Uygulamalar][3]
 
-1. Arama kutusuna **Lesson.ly**.
+1. Arama kutusuna **Lessonly.com**.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/lessonly-tutorial/tutorial_lesson.ly_search.png)
+    ![Bir Azure AD test kullanıcısı oluşturma](./media/lessonly-tutorial/tutorial_lessonly.com_search.png)
 
-1. Sonuçlar panelinde seçin **Lesson.ly**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+1. Sonuçlar panelinde seçin **Lessonly.com**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/lessonly-tutorial/tutorial_lesson.ly_addfromgallery.png)
+    ![Bir Azure AD test kullanıcısı oluşturma](./media/lessonly-tutorial/tutorial_lessonly.com_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
-Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Lesson.ly sınayın.
+Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Lessonly.com sınayın.
 
-Tek iş için oturum açma için Azure AD ne Lesson.ly karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Lesson.ly ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek iş için oturum açma için Azure AD ne Lessonly.com karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Lessonly.com ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Lesson.LY içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
+Lessonly.com içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
 
-Yapılandırma ve Azure AD çoklu oturum açma Lesson.ly ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Lessonly.com ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Lesson.ly test kullanıcısı oluşturma](#creating-a-lessonly-test-user)**  - kullanıcı Azure AD gösterimini bağlı Lesson.ly Britta simon'un bir karşılığı vardır.
+1. **[Lessonly.com test kullanıcısı oluşturma](#creating-a-lessonly-test-user)**  - kullanıcı Azure AD gösterimini bağlı Lessonly.com Britta simon'un bir karşılığı vardır.
 1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Lesson.ly uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Lessonly.com uygulamanızda çoklu oturum açmayı yapılandırın.
 
-**Azure AD çoklu oturum açma ile Lesson.ly yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma ile Lessonly.com yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında, üzerinde **Lesson.ly** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında, üzerinde **Lessonly.com** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
 1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
-    ![Çoklu oturum açmayı yapılandırın](./media/lessonly-tutorial/tutorial_lesson.ly_samlbase.png)
+    ![Çoklu oturum açmayı yapılandırın](./media/lessonly-tutorial/tutorial_lessonly.com_samlbase.png)
 
-1. Üzerinde **Lesson.ly etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **Lessonly.com etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![Çoklu oturum açmayı yapılandırın](./media/lessonly-tutorial/tutorial_lesson.ly_url.png)
+    ![Çoklu oturum açmayı yapılandırın](./media/lessonly-tutorial/tutorial_lessonly.com_url.png)
 
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak:
     | |
     |--|
-    | `https://<companyname>.lesson.ly/signin`|
     | `https://<companyname>.lessonly.com/signin`|
 
     >[!NOTE]
@@ -124,17 +123,16 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve L
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
     | |
     |--|
-    | `https://<companyname>.lesson.ly/auth/saml/metadata`|
     | `https://<companyname>.lessonly.com/auth/saml/metadata`|
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [Lesson.ly istemci Destek ekibine](mailto:dev@lessonly.com) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [Lessonly.com istemci Destek ekibine](mailto:dev@lessonly.com) bu değerleri almak için. 
 
 1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/lessonly-tutorial/tutorial_lesson.ly_certificate.png)
+    ![Çoklu oturum açmayı yapılandırın](./media/lessonly-tutorial/tutorial_lessonly.com_certificate.png)
 
-1. Özel öznitelik eşlemeleri eklemek gerektiren belirli bir biçimde SAML onaylamalarını Lesson.ly uygulama bekliyor, **SAML belirteci öznitelikleri** yapılandırma. Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir.
+1. Özel öznitelik eşlemeleri eklemek gerektiren belirli bir biçimde SAML onaylamalarını Lessonly.com uygulama bekliyor, **SAML belirteci öznitelikleri** yapılandırma. Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir.
 
     ![Çoklu oturum açmayı yapılandırın](./media/lessonly-tutorial/tutorial_lessonly_06.png)
            
@@ -163,11 +161,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve L
 
     ![Çoklu oturum açmayı yapılandırın](./media/lessonly-tutorial/tutorial_general_400.png)
 
-1. Üzerinde **Lesson.ly yapılandırma** bölümünde **yapılandırma Lesson.ly** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+1. Üzerinde **Lessonly.com yapılandırma** bölümünde **yapılandırma Lessonly.com** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
 
-    ![Çoklu oturum açmayı yapılandırın](./media/lessonly-tutorial/tutorial_lesson.ly_configure.png)
+    ![Çoklu oturum açmayı yapılandırın](./media/lessonly-tutorial/tutorial_lessonly.com_configure.png)
 
-1. Çoklu oturum açmayı yapılandırma **Lesson.ly** tarafı, indirilen göndermek için ihtiyacınız **Certificate(Base64)** ve **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si**için [Lesson.ly Destek ekibine](mailto:dev@lessonly.com).
+1. Çoklu oturum açmayı yapılandırma **Lessonly.com** tarafı, indirilen göndermek için ihtiyacınız **Certificate(Base64)** ve **SAML çoklu oturum açma hizmeti URL'sioturumkapatmaURL'siveSAMLvarlıkkimliği** için [Lessonly.com Destek ekibine](mailto:dev@lessonly.com).
 
 > [!TIP]
 > İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -203,30 +201,30 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     d. **Oluştur**’a tıklayın.
  
-### <a name="creating-a-lessonly-test-user"></a>Lesson.ly test kullanıcısı oluşturma
+### <a name="creating-a-lessonlycom-test-user"></a>Lessonly.com test kullanıcısı oluşturma
 
-Bu bölümün amacı Lesson.ly Britta Simon adlı bir kullanıcı oluşturmaktır. Lesson.LY tam zamanında sağlama, varsayılan olarak etkin olan destekler.
+Bu bölümün amacı Lessonly.com Britta Simon adlı bir kullanıcı oluşturmaktır. Lessonly.com tam zamanında sağlama, varsayılan olarak etkin olan destekler.
 
-Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı henüz mevcut değilse Lesson.ly erişme denemesi sırasında oluşturulur.
+Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı henüz mevcut değilse Lessonly.com erişme denemesi sırasında oluşturulur.
 
 > [!NOTE]
-> Bir kullanıcı el ile oluşturmanız gerekiyorsa, iletişime geçmeniz [Lesson.ly Destek ekibine](mailto:dev@lessonly.com).
+> Bir kullanıcı el ile oluşturmanız gerekiyorsa, iletişime geçmeniz [Lessonly.com Destek ekibine](mailto:dev@lessonly.com).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
-Bu bölümde, Azure çoklu oturum açma kullanmak için Lesson.ly erişim vererek Britta Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma kullanmak için Lessonly.com erişim vererek Britta Simon etkinleştirin.
 
 ![Kullanıcı Ata][200] 
 
-**Britta Simon Lesson.ly için atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon Lessonly.com için atamak için aşağıdaki adımları gerçekleştirin:**
 
 1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı Ata][201] 
 
-1. Uygulamalar listesinde **Lesson.ly**.
+1. Uygulamalar listesinde **Lessonly.com**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/lessonly-tutorial/tutorial_lesson.ly_app.png) 
+    ![Çoklu oturum açmayı yapılandırın](./media/lessonly-tutorial/tutorial_lessonly.com_app.png)
 
 1. Soldaki menüde **kullanıcılar ve gruplar**.
 
@@ -246,7 +244,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Lesson.ly erişim verere
 
 Bu bölümün amacı, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test sağlamaktır.
 
-Erişim panelinde Lesson.ly kutucuğa tıkladığınızda, otomatik olarak Lesson.ly uygulamanıza açan.
+Erişim panelinde Lessonly.com kutucuğa tıkladığınızda, otomatik olarak Lessonly.com uygulamanıza açan.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

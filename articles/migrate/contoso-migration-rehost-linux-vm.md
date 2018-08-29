@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/28/2018
 ms.author: raynew
-ms.openlocfilehash: 99733fd80ab722f38a27bd99e5dd61bc32f7ab36
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: dc2e116e9e6bb60da4ba9fecb308ad0f9d7c127b
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105062"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126803"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Contoso geçiş: şirket içi Linux uygulama Azure vm'lerine yeniden barındırma
 
@@ -71,7 +71,7 @@ Hedefleri ve gereksinimleri sabitleme sonra Contoso tasarlar ve bir dağıtım �
 - VMware ortamı vCenter Server 6.5 tarafından yönetilir (**vcenter.contoso.com**), bir VM üzerinde çalışır.
 - Contoso olan bir şirket içi veri merkezi (**contoso-datacenter**), bir şirket içi etki alanı denetleyicisiyle (**contosodc1 adlı**)
 
-## <a name="proposed-architecture"></a>Önerilen mimarisi
+### <a name="proposed-architecture"></a>Önerilen mimarisi
 
 - Uygulamayı bir üretim iş yükü olduğundan, Azure sanal makineleri üretim kaynak grubunda yer alacağı **ContosoRG**.
 - VM'ler birincil bölge (Doğu ABD 2) geçişi ve üretim ağı (VNET-PROD-EUS2) yerleştirilir:
@@ -87,7 +87,7 @@ Contoso, Artıları ve eksileri listesini birbirine koyarak önerilen tasarım d
 
 **Önemli noktalar** | **Ayrıntılar**
 --- | ---
-**Uzmanları** | Uygulama Vm'leri Azure'a geçiş basit hale değişikliğe gerek kalmadan taşınır.<br/><br/> Her iki uygulama Vm'leri için contoso lift-and-shift ile taşıma kullandığından, özel bir yapılandırma veya geçiş araçları uygulama veritabanı için gereklidir.<br/><br/> Contoso, uygulamayı azure'da sanal makineler üzerinde tam denetim korur. <br/><br/> SQL veritabanı, Contoso ayarlanan gerekmez yerleşik hata toleransı vardır. Bu veri katmanı artık tek bir yük devretme noktası olmasını sağlar.</br>/br > Uygulama sanal makinelerini, Ubuntu 16.04-desteklenen bir Linux dağıtımı olan TLS çalışıyor. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+**Uzmanları** | Uygulama Vm'leri Azure'a geçiş basit hale değişikliğe gerek kalmadan taşınır.<br/><br/> Her iki uygulama Vm'leri için contoso lift-and-shift ile taşıma kullandığından, özel bir yapılandırma veya geçiş araçları uygulama veritabanı için gereklidir.<br/><br/> Contoso, uygulamayı azure'da sanal makineler üzerinde tam denetim korur. </br>/br > Uygulama sanal makinelerini, Ubuntu 16.04-desteklenen bir Linux dağıtımı olan TLS çalışıyor. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 **Simgeler** | Web ve veri katmanı uygulaması, tek bir yük devretme noktası kalır. <br/><br/> Contoso, MySQL için Azure App Service ve Azure veritabanı gibi yönetilen bir hizmet taşımak yerine Azure Vm'leri olarak uygulama destekleyen devam etmek gerekir.<br/><br/> Contoso şeyler lift-and-shift ile taşıma VM geçişi ile basit tutarak, bunlar tarafından sağlanan özelliklerden tam anlamıyla yönlendiriyoruz değil, farkında [MySQL için Azure veritabanı](https://docs.microsoft.com/azure/mysql/overview) (yerleşik yüksek kullanılabilirlik, öngörülebilir performans Basit ölçeklendirme, otomatik yedeklemeler ve yerleşik güvenlik).
 
 ### <a name="migration-process"></a>Geçiş işlemi

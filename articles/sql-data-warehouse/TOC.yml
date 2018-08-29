@@ -142,16 +142,16 @@ items:
       href: memory-and-concurrency-limits.md
   - name: Yönetilebilirlik ve izleme
     items:
-    - name: Sorgu Etkinliği ve Kaynak Kullanımı
-      href: sql-data-warehouse-manage-monitor.md
+    - name: Ölçeklendirme, duraklatma, sürdürme
+      href: sql-data-warehouse-manage-compute-overview.md
+    - name: Kaynak kullanımı ve sorgu etkinliği
+      href: sql-data-warehouse-concept-resource-utilization-query-activity.md
     - name: Veri koruma
       href: backup-and-restore.md
-    - name: Ölçeği genişletme, duraklatma, sürdürme
-      href: sql-data-warehouse-manage-compute-overview.md
-    - name: Bakım zamanlaması
-      href: service-maintenance.md
     - name: Öneriler
       href: sql-data-warehouse-concept-recommendations.md
+    - name: Bakım zamanlaması
+      href: service-maintenance.md
     - name: Sorun giderme
       href: sql-data-warehouse-troubleshoot.md
   - name: Tümleştirme
@@ -212,13 +212,15 @@ items:
       href: analyze-your-workload.md
   - name: İzleme ve ayarlama
     items:
+    - name: İş yükünüzü izleme
+      href: sql-data-warehouse-manage-monitor.md
     - name: Geri Yükleme - Portal
       href: sql-data-warehouse-restore-database-portal.md
     - name: Geri Yükleme - PowerShell
       href: sql-data-warehouse-restore-database-powershell.md
     - name: Geri yükleme - REST API
       href: sql-data-warehouse-restore-database-rest-api.md
-    - name: Gen2'ye yükselt
+    - name: Gen1 veri ambarınızı yükseltme
       href: upgrade-to-latest-generation.md
     - name: Performans seviyelerini otomatikleştirme
       href: manage-compute-with-azure-functions.md
@@ -276,9 +278,9 @@ items:
       href: sql-data-warehouse-partner-data-integration.md
     - name: Veri yönetimi
       href: sql-data-warehouse-partner-data-management.md
-ms.openlocfilehash: bdda7231ea4703b33c8547e493cbd47b68cf9aab
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 690faddea704b45f5fcba8079b03a8105b83a649
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42915134"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106754"

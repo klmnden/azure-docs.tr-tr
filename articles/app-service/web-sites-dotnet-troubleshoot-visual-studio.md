@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 1c56f705c07e2001e1ef8f5f9f05c264c33c2c3f
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: ba84d297420ca5a9b75b4cfa432373d3070e0d01
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42058297"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125253"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Visual Studio kullanarak Azure App Service'te bir web uygulaması sorunlarını giderme
 ## <a name="overview"></a>Genel Bakış
@@ -623,7 +623,7 @@ Nasıl Visual Studio, bir Azure web uygulaması tarafından oluşturulan günlü
 ### <a name="azure-web-app-troubleshooting"></a>Azure web uygulaması sorunlarını giderme
 Azure App service'taki web apps sorunlarını giderme hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-* [Web uygulamalarını izleme](/manage/services/web-sites/how-to-monitor-websites/)
+* [Web uygulamalarını izleme](web-sites-monitor.md)
 * [Visual Studio 2013 ile Azure Web uygulamalarında bellek sızıntılarını araştırma](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Yönetilen bellek sorunlarını analiz etmek için Visual Studio özellikleri hakkında Microsoft ALM blog gönderisi.
 * [Azure web apps çevrimiçi araçları bilmeniz gereken](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Blog gönderisi Amit Apple tarafından.
 
@@ -674,7 +674,7 @@ catch (Exception ex)
 
 * [Azure komut satırı (artı Glimpse!) günlüğe kaydetme akış Tanılama izleme](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   Visual Studio'da nasıl hangi Bu öğreticiyi uygulamak için komut satırını kullanmayı gösterir. [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) ASP.NET uygulamalarında hata ayıklama için bir araçtır.
-* [Web Apps günlüğe kaydetme ve tanılama - David Ebbo ile kullanarak](/documentation/videos/azure-web-site-logging-and-diagnostics/) ve [günlükleri - David Ebbo ile Web uygulamalarından akış](/documentation/videos/log-streaming-with-azure-web-sites/)<br>
+* [Web Apps günlüğe kaydetme ve tanılama - David Ebbo ile kullanarak](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) ve [günlükleri - David Ebbo ile Web uygulamalarından akış](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   Scott Hanselman ve David Ebbo videosu.
 
 Hata günlüğü için kendi izleme kodu yazmak için alternatif bir açık kaynak günlüğe kaydetme çerçevesi gibi kullanmaktır [ELMAH](http://nuget.org/packages/elmah/). Daha fazla bilgi için [Scott Hanselman'ın blog yazılarını ELMAH hakkında](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).

@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: f42d3fb709807d77fb0f390b6da76efc4a60dced
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 60cdcbeba0c4149d8f049bbab553bd658c965338
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090579"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128604"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>PowerShell betiklerini Windows VM'nizi ile Çalıştır komutunu çalıştırın.
 
@@ -63,7 +63,6 @@ Bu tabloda Windows Vm'leri için kullanılabilir komutların listesini gösterir
 |**EnableAdminAccount**|Yerel yönetici hesabını devre dışı bırakıldı ve bu durumda bağlayabileceğinizi denetler.|
 |**IP yapılandırması**| Ayrıntılı bilgileri IP adresi, alt ağ maskesi ve varsayılan ağ geçidi IP'ye her bağdaştırıcı için.|
 |**RDPSettings**|Kayıt defteri ayarları ve etki alanı ilkesi ayarlarını denetler. Makine bir etki alanının parçası olan veya ayarları varsayılan değerlerine değiştiriyorsa İlkesi eylemleri önerir.|
-|**ResetAccountPassword**| Yerleşik yönetici hesabı parolasını sıfırlar.|
 |**ResetRDPCert**|RDP dinleyiciye bağlı SSL sertifikası'nı kaldırır ve RDP listerner güvenlik varsayılana geri yükler. Sertifika herhangi bir sorun görürseniz, bu betiği kullanın.|
 |**SetRDPPort**|Ayarlar varsayılan veya kullanıcı Uzak Masaüstü bağlantıları için bağlantı noktası numarası belirtildi. Bağlantı noktasına gelen erişim için güvenlik duvarı kuralı sağlar.|
 

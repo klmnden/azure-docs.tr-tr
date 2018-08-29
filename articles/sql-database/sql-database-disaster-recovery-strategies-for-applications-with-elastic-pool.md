@@ -7,18 +7,18 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/27/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 6952e26898e4ff27dd7c2f6780dcb9b8b224460b
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 8f365d123a234f367a1415232a714d2c18663b63
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092554"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124079"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>SQL veritabanı esnek havuzları kullanan uygulamalar için olağanüstü durum kurtarma stratejileri
-Bulut Hizmetleri kusursuz değildir ve yıkıcı olaylara meydana yıllar içinde edindiğimiz. SQL veritabanı, bu olaylar meydana geldiğinde uygulamanız için iş sürekliliği sağlamak için çeşitli özellikleri sağlar. [Elastik havuzlar](sql-database-elastic-pool.md) ve tek veritabanları aynı türde bir olağanüstü durum kurtarma olanaklarını destekler. Elastik havuzlar için bu makalede, çeşitli DR stratejileri açıklanır. Bu SQL veritabanı iş sürekliliği özellikleri yararlanın.
+Bulut Hizmetleri kusursuz değildir ve yıkıcı olaylara meydana yıllar içinde edindiğimiz. SQL veritabanı, bu olaylar meydana geldiğinde uygulamanız için iş sürekliliği sağlamak için çeşitli özellikleri sağlar. [Elastik havuzlar](sql-database-elastic-pool.md) ve tek veritabanları aynı türde bir olağanüstü durum kurtarma (DR) özellikleri destekler. Elastik havuzlar için bu makalede, çeşitli DR stratejileri açıklanır. Bu SQL veritabanı iş sürekliliği özellikleri yararlanın.
 
 Bu makalede aşağıdaki kurallı ISV SaaS uygulama düzeni kullanır:
 

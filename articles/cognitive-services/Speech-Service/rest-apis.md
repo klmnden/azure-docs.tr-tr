@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 9991e0a1fc54e6aa4a99b8bfbd93abdfe974b01b
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 64dce26303c0e700da54d371af5cb275b1613d70
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283078"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122112"
 ---
 # <a name="speech-service-rest-apis"></a>Konuşma hizmeti REST API'leri
 
@@ -23,7 +23,7 @@ Birleşik konuşma hizmeti REST API'ları tarafından sağlanan API'leri benzerd
 
 İçinde Konuşmayı metne dönüştürme API'si, yalnızca kullanılan uç noktalarını önceki konuşma hizmeti konuşma tanıma API'si farklılık gösterir. Yeni uç nokta, aşağıdaki tabloda gösterilmiştir. Eşleşen abonelik bölgenizi kullanın.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 Konuşmayı metne dönüştürme API'si aksi benzer [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) önceki konuşma tanıma API'si için.
 
@@ -54,7 +54,7 @@ tr-TR  | İngilizce (ABD) | Erkek   | "Microsoft Server Konuşma metin konuşma 
 
 Birleşik konuşma hizmeti metin okuma API için REST uç noktalar aşağıda verilmiştir. Eşleşen abonelik bölgenizi uç noktası kullanma.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 Başvurmanız bu farklılıkları göz önünde bulundurun [REST API belgelerini](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) önceki konuşma tanıma API'si için.
 
@@ -62,7 +62,7 @@ Başvurmanız bu farklılıkları göz önünde bulundurun [REST API belgelerini
 
 Konuşma hizmetin REST API'sine bir istek göndermek için bir erişim belirteci gerektirir. Bölgesel bir konuşma hizmeti için abonelik anahtarınızı sağlayarak bir belirteç elde `issueToken` uç noktası, aşağıdaki tabloda gösterilen. Eşleşen abonelik bölgenizi uç noktası kullanma.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
 Her bir erişim belirteci 10 dakika için geçerlidir. Dilediğiniz zaman yeni bir belirteci edinebilirsiniz — dahil olmak üzere, isterseniz, her konuşma REST API istekten önce yeni. Ağ trafiğini ve gecikme süresini en aza indirmek için ancak aynı belirteci dokuz dakikalığına kullanmanızı öneririz.
 

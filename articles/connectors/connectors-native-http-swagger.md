@@ -1,108 +1,104 @@
 ---
-title: REST uç HTTP + Swagger ile çağrı Azure Logic Apps bağlayıcı | Microsoft Docs
-description: HTTP + Swagger ile Swagger aracılığıyla mantığı uygulamalardan REST Uç noktalara bağlanmak Bağlayıcısı
+title: Azure Logic Apps'ten REST uç noktalarını çağırma | Microsoft Docs
+description: Görevler ve REST uç noktaları ile iletişim kurmak HTTP + Swagger'ı kullanarak iş akışlarını otomatikleştirmek Azure Logic Apps Bağlayıcısı
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-tags: connectors
-ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
+ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
+tags: connectors
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/18/2016
-ms.author: jehollan; LADocs
-ms.openlocfilehash: 4e4421b0dfe0f29c3d50764b9ca04471c73a1450
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e96e271fbb50a2485a22fab061ea160dc00cf3d6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296528"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123181"
 ---
-# <a name="get-started-with-the-http--swagger-action"></a>HTTP + Swagger ile başlama eylemi
+# <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>HTTP + Swagger REST uç noktalarına çağrı Azure Logic Apps Bağlayıcısı
 
-Tüm REST uç noktası aracılığıyla birinci sınıf bir bağlayıcı oluşturabilirsiniz bir [Swagger belgesinin](https://swagger.io) kullandığınızda, HTTP + Swagger mantığı uygulama akışınızın eylem. Birinci sınıf bir mantıksal Uygulama Tasarımcısı deneyim herhangi bir REST uç nokta çağırmak için mantıksal uygulamalar da genişletebilirsiniz.
+Herhangi bir REST uç noktası için birinci sınıf bir bağlayıcı oluşturabilirsiniz bir [Swagger belgesinin](https://swagger.io) da HTTP + Swagger kullandığınızda, mantıksal uygulama iş akışı eylemi. Ayrıca, birinci sınıf bir mantıksal Uygulama Tasarımcısı deneyimi ile herhangi bir REST uç noktasını çağırmak için mantıksal uygulamaları genişletebilirsiniz.
 
-Logic apps ile bağlayıcılar oluşturmayı öğrenmek için bkz: [yeni bir mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Bağlayıcılarla mantıksal uygulamalar oluşturma konusunda bilgi almak için bkz: [yeni bir mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="use-http--swagger-as-a-trigger-or-an-action"></a>HTTP kullan + tetikleyicinin veya bir eylem olarak Swagger
+## <a name="use-http--swagger-as-a-trigger-or-an-action"></a>Kullanım HTTP + Swagger bir tetikleyici veya eylemi
 
-HTTP + tetiklemek Swagger ve aynı iş eylemi [HTTP eylemi](connectors-native-http.md) ancak API yapısı ve çıkışlarından göstererek mantığı Uygulama Tasarımcısı'nda daha iyi bir deneyim sağlamak [Swagger meta verileri](https://swagger.io). HTTP de kullanabilirsiniz + Swagger bağlayıcı tetikleyici olarak. Yoklama Tetik uygulamak istiyorsanız, açıklanan yoklama modeli izleyen [diğer API'leri, hizmetleri ve sistemleri mantığı uygulamalardan çağırmak için özel API oluşturma](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
+HTTP + Swagger tetikleyin ve aynı iş eylemi [HTTP eylemi](connectors-native-http.md) ancak API yapısı ve çıkışları göstererek Logic App Tasarımcısı'nda daha iyi bir deneyim sunmak [Swagger meta verileri](https://swagger.io). HTTP da kullanabileceğinizi + bir tetikleyici olarak Swagger Bağlayıcısı. Yoklama tetikleyici uygulamak istiyorsanız, açıklanan yoklama desenler izleyen [logic apps'ten diğer API'leri, hizmetleri ve sistemleri çağırmak için özel API'ler oluşturma](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
-Daha fazla bilgi edinmek [mantığı uygulama tetikleyiciler ve Eylemler](connectors-overview.md).
+Daha fazla bilgi edinin [mantıksal uygulama Tetikleyicileri ve eylemleri](connectors-overview.md).
 
-Kullanım HTTP + Swagger işlem olarak bir mantıksal uygulama bir iş akışında bir eylemi nasıl örnek aşağıda verilmiştir.
+Kullanım HTTP + Swagger işlem bir eylem olarak bir mantıksal uygulama bir iş akışında ilişkin bir örnek aşağıda verilmiştir.
 
 1. Seçin **yeni adım** düğmesi.
 2. Seçin **Eylem Ekle**.
-3. Eylem arama kutusuna yazın **swagger** listesi HTTP + Swagger eylem.
+3. Eylem arama kutusuna **swagger** listesi HTTP + Swagger eylem.
    
-    ![HTTP + Swagger seçin eylemi](./media/connectors-native-http-swagger/using-action-1.png)
+    ![HTTP + Swagger'ı seçin eylemi](./media/connectors-native-http-swagger/using-action-1.png)
 4. Swagger belgesinin URL'sini yazın:
    
-   * Mantıksal Uygulama Tasarımcısı'ndan çalışmak için URL bir HTTPS uç noktası olması gerekir ve CORS etkinleştirdiniz.
-   * Swagger belgesinin bu gereksinimi karşılamıyorsa, kullanabileceğiniz [Azure Storage CORS'yi ile](#hosting-swagger-from-storage) belge depolamak için.
-5. Tıklatın **sonraki** okuyun ve Swagger belgeyi işlemek için.
-6. HTTP çağrısı için gerekli olan parametreleri ekleyin.
+   * Mantıksal Uygulama Tasarımcısı'ndan çalışmak için URL bir HTTPS uç noktası olması gerekir ve CORS etkinleştirmesi gerekir.
+   * Swagger belgesinin bu gereksinimi karşılamıyorsa, kullanabileceğiniz [CORS'yi Azure depolamasıyla](#hosting-swagger-from-storage) belge depolamak için.
+5. Tıklayın **sonraki** okuyun ve Swagger belgesi işlemek için.
+6. HTTP çağrı için gerekli olan herhangi bir parametre ekleyin.
    
-    ![Tam HTTP eylemi](./media/connectors-native-http-swagger/using-action-2.png)
-7. Kaydetmek ve mantıksal uygulamanızı yayımlamak için **kaydetmek** tasarımcı araç.
+    ![HTTP eylemi tamamlandı](./media/connectors-native-http-swagger/using-action-2.png)
+7. Kaydet ve mantıksal uygulamanızı yayımlamak için tıklatın **Kaydet** tasarımcı araç çubuğunda.
 
 ### <a name="host-swagger-from-azure-storage"></a>Azure depolama biriminden konak Swagger
-Değil barındırılan ya da, güvenlik ve tasarımcı çıkış noktaları arası gereksinimlerini karşılamıyor Swagger belgeye başvurmak isteyebilirsiniz. Bu sorunu çözmek için Swagger belgesinin Azure depolama alanına depolar ve belgeye başvurmak CORS etkinleştirin.  
+Değil barındırılan veya, güvenlik ve tasarımcı için çıkış noktaları arası gereksinimleri karşılamıyor bir Swagger belgesi başvurmak isteyebilirsiniz. Bu sorunu çözmek için Swagger belgesinin Azure Storage'a depoladığınız ve belge başvurmak CORS'yi etkinleştirme.  
 
-Oluşturma, yapılandırma ve Azure depolama alanında Swagger belgeleri depolamak için adımlar şunlardır:
+Oluşturma, yapılandırma ve Azure Depolama'da Swagger belgeleri depolamak için adımlar şunlardır:
 
-1. [Azure Blob storage ile Azure depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md). Bu adımı gerçekleştirmek için izinleri ayarla **genel erişim**.
+1. [Azure Blob Depolama ile bir Azure depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md). Bu adımı gerçekleştirmek için izinleri ayarla **genel erişim**.
 
-2. CORS blob üzerindeki etkinleştirin. 
+2. CORS bloba etkinleştirin. 
 
-   Bu ayarı otomatik olarak yapılandırmak için kullanabileceğiniz [bu PowerShell Betiği](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1).
+   Bu ayar otomatik olarak yapılandırmak için kullanabileceğiniz [bu PowerShell Betiği](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1).
 
 3. Swagger dosyası için blob karşıya yükleyin. 
 
-   Bu adımdaki gerçekleştirebilirsiniz [Azure portal](https://portal.azure.com) veya gibi bir araçtan [Azure Storage Gezgini](http://storageexplorer.com/).
+   Bu adımda gerçekleştirdiğiniz [Azure portalında](https://portal.azure.com) veya gibi bir araçla [Azure Depolama Gezgini](http://storageexplorer.com/).
 
-4. Bir HTTPS bağlantısı Azure Blob Depolama belgesine başvurun. 
+4. Azure Blob depolama alanındaki bir belge için bir HTTPS bağlantısı başvuru. 
 
-   Bağlantı bu biçimi kullanır:
+   Bağlantı şu biçimi kullanır:
 
    `https://*storageAccountName*.blob.core.windows.net/*container*/*filename*`
 
 ## <a name="technical-details"></a>Teknik Ayrıntılar
-Tetikleyiciler ve Eylemler için Ayrıntılar verilmiştir, bu HTTP + Swagger bağlayıcısını destekler.
+Tetikleyiciler ve Eylemler ile ilgili ayrıntıları aşağıda verilmiştir, bu da HTTP + Swagger Bağlayıcısı destekler.
 
 ## <a name="http--swagger-triggers"></a>HTTP + Swagger Tetikleyicileri
-Bir tetikleyici bir mantıksal uygulama tanımlı iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi edinin.](connectors-overview.md) HTTP + Swagger Bağlayıcısı bir tetikleyici vardır.
+Bir tetikleyici bir mantıksal uygulamada tanımlanan iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi edinin.](connectors-overview.md) HTTP + Swagger Bağlayıcısı, bir tetikleyici vardır.
 
 | Tetikleyici | Açıklama |
 | --- | --- |
-| HTTP + Swagger |Bir HTTP çağrısı yapmak ve yanıt içeriği döndürür |
+| HTTP + Swagger |HTTP çağrısı ve yanıt içeriği döndürür |
 
-## <a name="http--swagger-actions"></a>HTTP + Swagger Eylemler
-Bir eylem, bir mantıksal uygulama içinde tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi edinin.](connectors-overview.md) HTTP + Swagger bağlayıcının bir olası eylem.
+## <a name="http--swagger-actions"></a>HTTP + Swagger eylemleri
+Bir eylem mantıksal uygulamada tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi edinin.](connectors-overview.md) HTTP + Swagger Bağlayıcısı olası bir eylem vardır.
 
 | Eylem | Açıklama |
 | --- | --- |
-| HTTP + Swagger |Bir HTTP çağrısı yapmak ve yanıt içeriği döndürür |
+| HTTP + Swagger |HTTP çağrısı ve yanıt içeriği döndürür |
 
 ### <a name="action-details"></a>Eylem ayrıntıları
-HTTP + Swagger bağlayıcı olası bir eylem ile birlikte gelir. Aşağıda, her eylemleri, bunların gerekli ve isteğe bağlı giriş alanları ve kullanımı ile ilişkilendirilmiş ilgili çıkış ayrıntıları hakkında bilgi verilmektedir.
+HTTP + Swagger Bağlayıcısı olası tek bir eylem ile birlikte gelir. Aşağıda, her eylemleri, bunların gerekli ve isteğe bağlı bir giriş alanlarını ve bunların kullanımıyla ilişkili çıkış ayrıntıları hakkında bilgi verilmektedir.
 
 #### <a name="http--swagger"></a>HTTP + Swagger
-Giden HTTP isteğinden Swagger meta verileri Yardım olun.
+Giden HTTP isteği, Swagger meta verileri ile ilgili Yardım olun.
 Bir yıldız işareti (*) gerekli bir alan anlamına gelir.
 
 | Görünen ad | Özellik adı | Açıklama |
 | --- | --- | --- |
-| Yöntemi * |method |HTTP fiili'kullanılacak. |
+| Yöntem * |method |Kullanılacak HTTP fiili. |
 | URI * |uri |HTTP isteği için URI. |
-| Üst bilgiler |headers |Eklenecek HTTP üstbilgilerini JSON nesnesinin. |
+| Üst bilgiler |headers |HTTP üstbilgileri dahil etmek için bir JSON nesnesi. |
 | Gövde |body |HTTP istek gövdesi. |
-| Kimlik Doğrulaması |kimlik doğrulaması |İstek için kullanılacak kimlik doğrulaması. Daha fazla bilgi için bkz: [HTTP Bağlayıcısı](connectors-native-http.md#authentication). |
+| Kimlik Doğrulaması |kimlik doğrulaması |İstek için kullanılacak kimlik doğrulaması. Daha fazla bilgi için [HTTP Bağlayıcısı](connectors-native-http.md#authentication). |
 
 **Çıkış Ayrıntıları**
 
@@ -112,10 +108,10 @@ HTTP yanıtı
 | --- | --- | --- |
 | Üst bilgiler |object |Yanıt üst bilgileri |
 | Gövde |object |Yanıt nesnesi |
-| Durum Kodu |Int |HTTP durum kodu |
+| Durum Kodu |int |HTTP durum kodu |
 
 ### <a name="http-responses"></a>HTTP yanıtları
-Çeşitli eylemler için çağrıları yapılırken belirli yanıtları alabilirsiniz. Karşılık gelen yanıtları ve açıklamaları özetleyen tablosu aşağıdadır.
+Çeşitli eylemler çağrı yaparken, belirli yanıtlarını alabilirsiniz. Aşağıdaki karşılık gelen yanıtları ve açıklamaları özetleyen bir tablodur.
 
 | Ad | Açıklama |
 | --- | --- |
@@ -131,4 +127,4 @@ HTTP yanıtı
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Mantıksal uygulama oluşturun.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Diğer bağlayıcıları Bul](apis-list.md)
+* [Diğer bağlayıcıları bulma](apis-list.md)

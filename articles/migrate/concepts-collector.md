@@ -4,15 +4,15 @@ description: Toplayıcı gerecini ve nasıl yapılandırılacağına ilişkin ge
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 08/25/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: c99d0f74dbb8cc28cabebae60fe10645f4bdb3b6
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 551276f88f5c27cd860a400a5769c95f4d94cbbb
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308468"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122896"
 ---
 # <a name="collector-appliance"></a>Toplayıcı Gereci
 
@@ -58,6 +58,30 @@ Toplayıcı gerecini bulunan makineler bilgileri göndermek için internet'e ba�
 
 > [!NOTE]
 > HTTPS tabanlı Ara sunucuları toplayıcı tarafından desteklenmez.
+
+#### <a name="internet-connectivity-with-intercepting-proxy"></a>Kesintiye proxy ile Internet bağlantısı
+
+Proxy sunucunun internet'e bağlanmak için kullandığınız bir araya giren bir proxy varsa, Toplayıcı VM proxy sertifikasını içeri aktarmak için gereklidir. Toplayıcı sanal makinesi sertifikanın nasıl içeri aktarabilirsiniz adımlar aşağıda verilmiştir.
+
+1. Toplayıcı sanal makinesi, Git **Başlat menüsü** ve bulma ve açma **bilgisayar sertifikalarını yönetme**.
+2. Sol bölmede, sertifikaları aracında altında **sertifikalar - yerel bilgisayar**, bulma **Güvenilen Yayımcılar**. Altında **Güvenilen Yayımcılar**, tıklayın **sertifikaları** sağ taraftaki bölmede sertifikaların listesini görmek için.
+
+    ![Sertifika aracı](./media/concepts-intercepting-proxy/certificates-tool.png)
+
+3. Toplayıcı sanal makinesi, proxy sertifikasını kopyalayın. Bu sertifikayı edinmek için kuruluşunuzdaki ağ yöneticisi ekibine ulaşmak olabilir.
+4. Çift sertifikayı açmak için tıklayın. Tıklayın **Sertifika Yükle**. Bu Sertifika Alma Sihirbazı götürür.
+5. Sertifika İçeri Aktarma Sihirbazı'nda Store konumu seçin **yerel makine**. **İleri'ye**.
+
+    ![Sertifika depolama konumu](./media/concepts-intercepting-proxy/certificate-store-location.png)
+
+6. Seçeneği için **tüm sertifikaları aşağıdaki depolama alanına yerleştir**. Tıklayın **Gözat** seçip **Güvenilen Yayımcılar** gündeme sertifikalar listesinden. **İleri**’ye tıklayın.
+
+    ![Sertifika deposu](./media/concepts-intercepting-proxy/certificate-store.png)
+    
+7. **Son**'a tıklayın. Bu sertifikayı içeri aktaracaksınız. 
+8. İsteğe bağlı olarak, adım 1 ve 2 numaralı olduğu gibi sertifika Aracı'nı açarak sertifika içeri doğrulayabilirsiniz.
+9. Azure geçişi toplayıcısı uygulama, internet bağlantısı Önkoşul denetimi başarılı olduğunu doğrulayın.
+
 
 #### <a name="whitelisting-urls-for-internet-connection"></a>İnternet bağlantısı için URL'leri beyaz listeye ekleme
 

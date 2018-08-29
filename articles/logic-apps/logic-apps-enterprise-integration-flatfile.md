@@ -1,27 +1,23 @@
 ---
-title: Kodlayın veya Azure logic apps'te düz dosyaları kodlayıp kod çözebilirsiniz | Microsoft Docs
-description: Logic apps Kurumsal tümleştirme paketinde dosya Kodlayıcı veya kod çözücü kullanma
+title: Kodlama veya kod çözme düz dosyalar - Azure Logic Apps | Microsoft Docs
+description: Kodlamak veya kodunu çözmek için Azure Logic Apps ile Kurumsal tümleştirme ve Enterprise Integration Pack düz dosyaları
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
-ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.date: 07/08/2016
-ms.author: LADocs; divswa
-ms.openlocfilehash: b13e8da04c984456027f152f5af63cfa6604ddc4
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: d0ef61b94d7bd604b6c0062341224510f3048c57
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42056720"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123937"
 ---
-# <a name="overview-of-enterprise-integration-with-flat-files"></a>Düz dosyalar ile Kurumsal tümleştirme genel bakış
+# <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Kodlayın veya Azure Logic Apps ve Enterprise Integration Pack ile düz dosya kodunu çözme
 
 İşletmeler arası (B2B) senaryosunda iş ortağına göndermeden önce XML içeriği kodlama isteyebilirsiniz. Bir mantıksal uygulama, bunu yapmak için düz dosya kodlama bağlayıcısını kullanabilirsiniz. Oluşturduğunuz mantıksal uygulama, XML HTTP isteği tetikleyicisi, başka bir uygulama veya daha çok birinden gibi kaynakları, çeşitli içerik alabilir [Bağlayıcılar](../connectors/apis-list.md). Logic apps hakkında daha fazla bilgi için bkz. [logic apps belgelerini](logic-apps-overview.md "Logic apps hakkında daha fazla bilgi edinin").  
 

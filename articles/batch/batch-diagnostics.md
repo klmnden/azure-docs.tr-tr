@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 54034b9a851fc6f06f97be9cfd5f261465bad455
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 85bda9e1a936f19a37be2f2c1c42f948cab727d6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248271"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122476"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Toplu ölçümleri, uyarılar ve değerlendirme tanılama ve izleme günlükleri
 
@@ -64,7 +64,7 @@ Program aracılığıyla ölçümleri almak için Azure İzleyici API'lerini kul
 2. Altında **izleme**, tıklayın **uyarı kuralları** > **ölçüm uyarısı Ekle**.
 3. Bir ölçüm, bir uyarı durumu (örneğin, bir ölçüm belirli bir değerin bir süre boyunca aştığında) ve bir veya daha fazla bildirim seçin.
 
-Neredeyse gerçek zamanlı uyarı kullanarak bir yapılandırabilirsiniz [REST API](). Daha fazla bilgi için [Azure portalında Azure Hizmetleri için yeni ölçüm uyarılarının kullanın](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)
+Neredeyse gerçek zamanlı uyarı kullanarak bir yapılandırabilirsiniz [REST API](https://docs.microsoft.com/rest/api/monitor/). Daha fazla bilgi için [Azure portalında Azure Hizmetleri için yeni ölçüm uyarılarının kullanın](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)
 ## <a name="batch-diagnostics"></a>Batch tanılama
 
 Tanılama günlükleri, işlemi her bir kaynağın açıklayan Azure kaynakları tarafından gösterilen bilgileri içerir. Batch için aşağıdaki günlüklere toplayabilirsiniz:

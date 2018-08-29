@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b578abfa6fc0a10edc5daab40f8a0eea5e6653d9
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c0fdcdbf838a0bc283db05f36b900641016211b7
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115071"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43121923"
 ---
 # <a name="persist-job-and-task-output"></a>İş ve görev çıktılarını kalıcı hale getirme
 
@@ -34,7 +34,7 @@ Bu makalede, görev çıktısını kalıcı hale getirme için çeşitli seçene
 
 ## <a name="about-the-batch-file-conventions-standard"></a>Batch dosya kuralları standart hakkında
 
-Batch, görev Çıkış dosyalarını Azure depolama adlandırma kurallarına isteğe bağlı bir kümesini tanımlar. [Batch dosya kuralları standart](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) bu kuralları açıklar. Dosya kuralları standart kapsayıcı ve blob için hedef yolu Azure Depolama'da iş ve görev adlarına göre bir belirtilen çıkış dosyası adını belirler.
+Batch, görev Çıkış dosyalarını Azure depolama adlandırma kurallarına isteğe bağlı bir kümesini tanımlar. [Batch dosya kuralları standart](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) bu kuralları açıklar. Dosya kuralları standart kapsayıcı ve blob için hedef yolu Azure Depolama'da iş ve görev adlarına göre bir belirtilen çıkış dosyası adını belirler.
 
 Bu, çıkış veri dosyalarınızı adlandırmak için dosya kuralları standart kullanmaya karar aittir. Ayrıca, hedef kapsayıcı adı ve istediğiniz ancak blob. Dosya kuralları standart çıkış dosyalarını adlandırma için kullandığınız sonra çıktı dosyalarınızı görüntülenmek üzere kullanılabilir [Azure portalında][portal].
 
@@ -71,13 +71,13 @@ Aşağıdaki bölümlerde, her bir yaklaşıma daha ayrıntılı açıklanmaktad
 
 Sürüm 2017-05-01 toplu işlem hizmeti Çıkış dosyalarını Azure Storage'da görev verileri belirtmek için destek ekler. zaman, [bir işe görev ekleme](https://docs.microsoft.com/rest/api/batchservice/add-a-task-to-a-job) veya [bir işe görev koleksiyonunu ekleme](https://docs.microsoft.com/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
 
-Batch hizmeti API'si kalıcı görev veri gelen sanal makine yapılandırmasıyla oluşturulan havuzlar için bir Azure depolama hesabını destekler. Batch hizmeti API'si ile göreviniz çalışan uygulama değiştirmeden görev verileri kalıcı hale getirebilirsiniz. İsteğe bağlı olarak uyması [Batch dosya kuralları standart](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) Azure depolamada kalıcı hale dosya adlandırma. 
+Batch hizmeti API'si kalıcı görev veri gelen sanal makine yapılandırmasıyla oluşturulan havuzlar için bir Azure depolama hesabını destekler. Batch hizmeti API'si ile göreviniz çalışan uygulama değiştirmeden görev verileri kalıcı hale getirebilirsiniz. İsteğe bağlı olarak uyması [Batch dosya kuralları standart](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) Azure depolamada kalıcı hale dosya adlandırma. 
 
 Batch hizmeti API'si, görevin çıkış kalıcı hale getirmek için kullanın:
 
 - Toplu iş görevleri ve iş yöneticisi görevleri sanal makine yapılandırmasıyla oluşturulan havuzlarda verileri kalıcı hale getirmek istediğiniz.
 - Rastgele bir ada sahip bir Azure depolama kapsayıcısı verileri kalıcı hale getirmek istediğiniz.
-- Şunlara göre adlı bir Azure depolama kapsayıcısına veriyi kalıcı hale getirmek istediğiniz [Batch dosya kuralları standart](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). 
+- Şunlara göre adlı bir Azure depolama kapsayıcısına veriyi kalıcı hale getirmek istediğiniz [Batch dosya kuralları standart](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
 
 > [!NOTE]
 > Batch hizmeti API'si, bulut hizmeti yapılandırmasıyla oluşturulan havuzlar, çalışan görevleri kalıcı verileri desteklemez. Cloud services yapılandırması çalıştıran havuzlarından çıktısını kalıcı hale getirme görevi hakkında daha fazla bilgi için bkz. [iş ve görev verilerini Azure Depolama'da kalıcı hale getirmek .NET için Batch dosya kuralları kitaplığı ile kalıcı ](batch-task-output-file-conventions.md)
@@ -88,7 +88,7 @@ Batch hizmeti API'si ile kalıcı hale getirme görev çıkışı hakkında daha
 
 ### <a name="use-the-batch-file-conventions-library-for-net"></a>.NET için Batch dosya kuralları kitaplığı kullanma
 
-C# ve .NET ile batch çözümleri oluşturmak geliştiriciler [dosya kuralları kitaplığı için .NET] [ nuget_package] kalıcı hale getirmek için görev verileri bir Azure depolama hesabı, göre [toplu iş dosyası Standart kuralları](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). Dosya kuralları kitaplığı taşıma Çıkış dosyalarını Azure depolama ve iyi bilinen bir biçimde hedef kapsayıcıları ve blobları adlandırma işler.
+C# ve .NET ile batch çözümleri oluşturmak geliştiriciler [dosya kuralları kitaplığı için .NET] [ nuget_package] kalıcı hale getirmek için görev verileri bir Azure depolama hesabı, göre [toplu iş dosyası Standart kuralları](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Dosya kuralları kitaplığı taşıma Çıkış dosyalarını Azure depolama ve iyi bilinen bir biçimde hedef kapsayıcıları ve blobları adlandırma işler.
 
 Dosya kuralları kitaplığı kimliği veya tam dosya URI'ler gerek kalmadan bulmak kolaylaştıran bir amaçla sorgulanırken Çıkış dosyalarını destekler. 
 
@@ -106,7 +106,7 @@ Dosya kuralları kitaplığı kimliği veya tam dosya URI'ler gerek kalmadan bul
 
 ### <a name="implement-the-batch-file-conventions-standard"></a>Standart Batch dosya kuralları uygulama
 
-.NET dışında bir dil kullanıyorsanız, uygulayabileceğiniz [Batch dosya kuralları standart](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) kendi uygulamanızda. 
+.NET dışında bir dil kullanıyorsanız, uygulayabileceğiniz [Batch dosya kuralları standart](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) kendi uygulamanızda. 
 
 Kendini kanıtlamış bir adlandırma şeması istediğinizde ya da görev çıktısını Azure portalında görüntülemek istediğiniz dosya kuralları adlandırma standardı kendiniz uygulamak isteyebilirsiniz.
 

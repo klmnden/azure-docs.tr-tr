@@ -80,8 +80,6 @@ items:
         href: physical-azure-architecture.md
       - name: Azure’a VMware çoğaltması için çok kiracılı destek
         href: vmware-azure-multi-tenant-overview.md
-      - name: Mobility hizmeti hakkında
-        href: vmware-azure-install-mobility-service.md
       - name: Yeniden çalışma konumu seçenekleri
         href: concepts-types-of-failback.md
     - name: İkincil bir siteye çoğaltma
@@ -190,26 +188,26 @@ items:
       items:
       - name: PowerShell kullanarak VMware sanal makinelerini Azure’a çoğaltma
         href: vmware-azure-disaster-recovery-powershell.md
-      - name: Fiziksel sunucuları olağanüstü durumdan Azure’a kurtarma
-        href: physical-azure-disaster-recovery.md
       - name: VMware VM’leri için kaynak ortamı ayarlama
         href: vmware-azure-set-up-source.md
-      - name: Fiziksel sunucular için kaynak ortamı ayarlama
-        href: physical-azure-set-up-source.md
       - name: VMware çoğaltması için yapılandırma sunucusunu dağıtma
         href: vmware-azure-deploy-configuration-server.md
       - name: VMware VM’leri için hedef ortamı ayarlama
         href: vmware-azure-set-up-target.md
-      - name: Fiziksel sunucular için hedef ortamı ayarlama
-        href: physical-azure-set-up-target.md
       - name: Çoğaltma ayarlarını yapılandırma
         href: vmware-azure-set-up-replication.md
-      - name: Diskleri çoğaltmanın dışında tutma
-        href: vmware-azure-exclude-disk.md
       - name: VMware VM çoğaltmayı etkinleştirme
         href: vmware-azure-enable-replication.md
+      - name: Diskleri çoğaltmanın dışında tutma
+        href: vmware-azure-exclude-disk.md
       - name: VMWare sanal makineleri için CSP ile çok kiracılı yapı
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
+      - name: Fiziksel sunucular için kaynak ortamı ayarlama
+        href: physical-azure-set-up-source.md
+      - name: Fiziksel sunucular için hedef ortamı ayarlama
+        href: physical-azure-set-up-target.md
+      - name: Fiziksel sunucuları olağanüstü durumdan Azure’a kurtarma
+        href: physical-azure-disaster-recovery.md
     - name: Mobility hizmetini dağıtma
       items:
       - name: Mobility hizmetine genel bakış
@@ -218,24 +216,24 @@ items:
         href: vmware-azure-mobility-install-configuration-mgr.md
     - name: Yük devretme ve yeniden çalışma
       items:
-      - name: Azure’da olağanüstü durum kurtarma tatbikatı çalıştırma
-        href: site-recovery-test-failover-to-azure.md
       - name: Kurtarma planları oluşturma
         href: site-recovery-create-recovery-plans.md
       - name: Kurtarma planlarına Azure runbook ekleme
         href: site-recovery-runbook-automation.md
+      - name: Azure’da olağanüstü durum kurtarma tatbikatı çalıştırma
+        href: site-recovery-test-failover-to-azure.md
+      - name: Azure'a yük devretme işlemini çalıştırma
+        href: site-recovery-failover.md
+      - name: Azure’dan şirket içi VMware’e yeniden koruma
+        href: vmware-azure-reprotect.md
+      - name: Azure’dan VMware’e geçerek yeniden çalışma
+        href: vmware-azure-failback.md
       - name: Azure'da yeniden çalışma işlem sunucularını ayarlama ve yönetme
         href: vmware-azure-set-up-process-server-azure.md
       - name: Yeniden çalışma için bir Linux ana hedef sunucusu ayarlama
         href: vmware-azure-install-linux-master-target.md
-      - name: Azure'a yük devretme işlemini çalıştırma
-        href: site-recovery-failover.md
       - name: Fiziksel sunucular için yük devretme ve yeniden çalışma işlemi başlatma
         href: physical-to-azure-failover-failback.md
-      - name: Azure’dan VMware’e geçerek yeniden çalışma
-        href: vmware-azure-failback.md
-      - name: Azure’dan şirket içi VMware’e yeniden koruma
-        href: vmware-azure-reprotect.md
     - name: Yönetme
       items:
       - name: VMware çoğaltması için yapılandırma sunucusunu yönetme
@@ -390,9 +388,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Hizmet güncelleştirmeleri
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: cdc1990f71a38e7e0740456ccc8fb82e8ed1b5f9
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: f0469d554b25565411bb8c484f3d3937bb9a87f6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42914927"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126079"

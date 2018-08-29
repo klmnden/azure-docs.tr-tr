@@ -1,121 +1,116 @@
 ---
-title: Günlük analizi - Azure Logic Apps B2B iletiler için sorgu | Microsoft Docs
-description: Günlük analizi izleme AS2, X 12 ve EDIFACT iletileri için sorgular oluşturun
-author: padmavc
-manager: jeconnoc
-editor: ''
+title: Log Analytics - Azure Logic Apps B2B iletileri için sorgular oluşturma | Microsoft Docs
+description: Azure Logic Apps için AS2, X 12 ve EDIFACT iletileri Log Analytics ile izleme sorguları oluşturma
 services: logic-apps
-documentationcenter: ''
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/19/2018
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 48cca9919bd09906bdcc3faaaef186ec109c9169
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: baccd255fc2812eae0de3a98dfcef3dcbc7e1b46
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294318"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124279"
 ---
-# <a name="query-for-as2-x12-and-edifact-messages-in-log-analytics"></a>Sorgu için AS2, X 12 ve EDIFACT iletileri günlük analizi
+# <a name="create-queries-for-tracking-as2-x12-and-edifact-messages-in-log-analytics-for-azure-logic-apps"></a>AS2, X 12 ve EDIFACT iletileri Log analytics'te Azure Logic Apps için izleme sorguları oluşturma
 
-AS2 bulmak için X12 veya EDIFACT ile takip ettiğiniz iletileri [Azure günlük analizi](../log-analytics/log-analytics-overview.md), belirli bir ölçüte dayalı Eylemler filtre sorgusu oluşturabilirsiniz. Örneğin, belirli Değişim Denetimi sayısına bağlı olarak iletileri bulabilirsiniz.
+AS2 bulmak için X12 veya EDIFACT ile takip ettiğiniz iletileri [Azure Log Analytics](../log-analytics/log-analytics-overview.md), filtre eylemleri belirli ölçütlere göre sorgular oluşturabilirsiniz. Örneğin, belirli bir değişim denetimi sayısına göre iletileri bulabilirsiniz.
 
 ## <a name="requirements"></a>Gereksinimler
 
-* Tanılama Günlüğü ile ayarlanmış bir mantıksal uygulama. Bilgi [bir mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md) ve [bu mantıksal uygulama için günlük kaydını ayarlamak nasıl](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+* Tanılama günlük kaydı ile ayarlanmış bir mantıksal uygulama. Bilgi [bir mantıksal uygulama oluşturma işlemini](../logic-apps/quickstart-create-first-logic-app-workflow.md) ve [nasıl ayarlanacağı, mantıksal uygulama için günlüğe kaydetmeyi](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
-* İzleme ve günlük ile ayarlanan bir tümleştirme hesabı. Bilgi [tümleştirme hesap oluşturmak nasıl](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) ve [izlemeyi ve o hesap için günlüğe kaydetmeyi nasıl ayarlanacağını](../logic-apps/logic-apps-monitor-b2b-message.md).
+* İzleme ve günlüğe kaydetme ile ayarlanmış bir tümleştirme hesabı. Bilgi [tümleştirme hesabı oluşturma işlemini](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) ve [izleme ve günlüğe kaydetme için bu hesabı ayarlamak nasıl](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Henüz yapmadıysanız [günlük analizi için tanılama veri yayımlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) ve [günlük analizi izleme iletisi ayarlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Henüz kaydolmadıysanız [Log Analytics için tanılama verilerini yayımlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) ve [ileti Log Analytics'te izleme ayarlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 > [!NOTE]
-> Önceki gereksinimlerini karşılamanızın sonra günlük analizi çalışma olması gerekir. Günlük analizi, B2B iletişiminde izlemek için aynı çalışma alanı kullanmanız gerekir. 
+> Önceki gereksinimlerini karşılamanızın sonra bir Log Analytics çalışma alanı olmalıdır. B2B iletişiminizin Log Analytics, izleme için aynı çalışma alanı kullanmanız gerekir. 
 >  
-> Günlük analizi çalışma alanı yoksa, bilgi [günlük analizi çalışma alanı oluşturmak nasıl](../log-analytics/log-analytics-quick-create-workspace.md).
+> Bir Log Analytics çalışma alanınız yoksa, bilgi [bir Log Analytics çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## <a name="create-message-queries-with-filters-in-log-analytics"></a>Günlük analizi filtreleri ile iletisi sorguları oluşturma
+## <a name="create-message-queries-with-filters-in-log-analytics"></a>Log analytics'te filtrelerle iletisi sorguları oluşturma
 
-Bu örnek, değişim denetimi numarasına göre iletileri nasıl bulabilirsiniz gösterir.
+Bu örnekte, iletilerin değişim denetim numaralarına göre nasıl bulabileceğinizi gösterilmektedir.
 
 > [!TIP] 
-> Günlük analizi çalışma alanı adınız biliyorsanız, çalışma giriş sayfasına gidin (`https://{your-workspace-name}.portal.mms.microsoft.com`) ve adım 4 olarak başlatın. Aksi takdirde, adım 1'den başlar.
+> Log Analytics çalışma alanınızın adının biliyorsanız, çalışma alanı giriş sayfanıza gidin (`https://{your-workspace-name}.portal.mms.microsoft.com`) ve adım 4 hızla başlatın. Aksi takdirde, adım 1'den başlar.
 
-1. İçinde [Azure portal](https://portal.azure.com), seçin **tüm hizmetleri**. "İçin günlük analizi" araması yapın ve ardından **günlük analizi** aşağıda gösterildiği gibi:
+1. İçinde [Azure portalında](https://portal.azure.com), seçin **tüm hizmetleri**. "Log analytics için" için arama yapın ve ardından **Log Analytics** burada gösterildiği gibi:
 
-   ![Günlük analizi Bul](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)
+   ![Log Analytics'i bulma](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)
 
-2. Altında **günlük analizi**, bulma ve günlük analizi çalışma alanınızı seçin.
+2. Altında **Log Analytics**bulup Log Analytics çalışma alanınızı seçin.
 
-   ![Günlük analizi çalışma alanınızı seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
+   ![Log Analytics çalışma alanınızı seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
 
-3. Altında **Yönetim**, seçin **günlük arama**.
+3. Altında **Yönetim**, seçin **günlük araması**.
 
-   ![Aet.aet arama seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/azure-portal-page.png)
+   ![Lo arama seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/azure-portal-page.png)
 
-4. Arama kutusuna, bulmak ve basın istediğiniz bir alan girin **Enter**. Yazmaya başladığınızda, günlük analizi olası eşleşmeler ve kullanabileceğiniz işlemleri gösterir. Daha fazla bilgi edinmek [günlük analizi verileri bulmak üzere nasıl](../log-analytics/log-analytics-log-searches.md).
+4. Arama kutusuna bulmak ve tuşuna basarak istediğiniz bir alan girin **Enter**. Yazmaya başladığınızda, Log Analytics, olası eşleşmeler ve kullanabileceğiniz işlemleri gösterilmektedir. Daha fazla bilgi edinin [Log Analytics'te veri bulma](../log-analytics/log-analytics-log-searches.md).
 
    Bu örnekte arama olan olaylar için **türü AzureDiagnostics =**.
 
    ![Sorgu dizesi yazmaya başlayın](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-start-query.png)
 
-5. Sol çubuğunda görüntülemek istediğiniz zaman dilimini seçin. Sorgunuz için bir filtre eklemek için **+ Ekle**.
+5. Sol çubuğunda, görüntülemek istediğiniz zaman çerçevesini seçin. Sorgunuz için bir filtre eklemek için **+ Ekle**.
 
-   ![Filtre sorguya ekleme](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
+   ![Sorgu Filtresi Ekle](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
 
-6. Altında **filtreler Ekle**, istediğiniz filtreyi bulabilmek için filtre adı girin. Filtreyi seçin ve **+ Ekle**.
+6. Altında **ekleme filtreleri**, istediğiniz filtreyi bulabilmesi için filtre adı girin. Filtre seçin ve **+ Ekle**.
 
-   Değişim Denetimi numarasını bulmak için bu örnek "değişim" sözcüğü için arar ve seçer **event_record_messageProperties_interchangeControlNumber_s** filtre olarak.
+   Değişim denetim numarası bulmak için bu örnekte "değişim" sözcüğü için arar ve seçer **event_record_messageProperties_interchangeControlNumber_s** filtre olarak.
 
-   ![Filtreyi seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-add-filter.png)
+   ![Filtre seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-add-filter.png)
 
-7. Sol çubuğunda ve seçin istediğiniz filtre değeri seçin **Uygula**.
+7. Sol çubuğunda, seçin ve istediğiniz filtre değeri **Uygula**.
 
-   Bu örnek istiyoruz iletilerin değiş tokuş denetim numarası seçer.
+   Bu örnek, değişim denetim numarası istiyoruz iletileri seçer.
 
    ![Filtre değeri seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-select-filter-value.png)
 
-8. Şimdi oluşturmakta olduğunuz sorgu döndür. Sorgunuz seçilen filtre olay ve değeri ile güncelleştirilmiştir. Önceki sonuçlarınızı artık çok filtrelenir.
+8. Artık oluşturduğunuz sorgu için döndürür. Sorgunuz, değer ve seçilen filtre olay ile güncelleştirildi. Önceki sonuçlarınızı şimdi çok filtrelenir.
 
-    ![Sorgunuz filtrelenmiş sonuçlar döndürür](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-filtered-results.png)
+    ![Sorgunuzu filtrelenmiş sonuçları ile geri dönün](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-filtered-results.png)
 
 <a name="save-oms-query"></a>
 
-## <a name="save-your-query-for-future-use"></a>Sorgunuz gelecekte kullanım için Kaydet
+## <a name="save-your-query-for-future-use"></a>Sorgunuzu gelecekte kullanım için kaydedin
 
-1. Üzerinde sorgudan **günlük arama** sayfasında, **kaydetmek**. Sorgunuz bir ad verin, bir kategori seçin ve **kaydetmek**.
+1. Üzerinde sorgunuzun **günlük araması** sayfasında **Kaydet**. Sorgunuzu bir ad verin, bir kategori seçip seçin **Kaydet**.
 
-   ![Bir ad ve kategori sorgunuz verin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-save.png)
+   ![Bir ad ve kategori sorgunuzu verin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-save.png)
 
-2. Sorgunuz görüntülemek için seçin **Sık Kullanılanlar**.
+2. Sorgunuzu görüntülemek için seçin **Sık Kullanılanlar**.
 
    !["Sık Kullanılanlar" seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-favorites.png)
 
-3. Altında **kayıtlı aramaları**, sorgunuzu seçin, böylece sonuçlarını görüntüleyebilirsiniz. Farklı sonuçlar bulabilmek için sorguyu güncelleştirmek için sorgu düzenleyin.
+3. Altında **kayıtlı aramalar**, sorgunuzu seçin, böylece sonuçlarını görüntüleyebilirsiniz. Farklı sonuçlar sizi bulabilmesi için sorguyu güncellemek için sorguyu düzenleyin.
 
-   ![Sorgunuz seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
+   ![Sorgunuzu seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
 
-## <a name="find-and-run-saved-queries-in-log-analytics"></a>Bulma ve günlük analizi kaydedilmiş sorguları çalıştırma
+## <a name="find-and-run-saved-queries-in-log-analytics"></a>Bulma ve Log Analytics'te kaydedilmiş sorgular çalıştırma
 
-1. Günlük analizi çalışma alanı giriş sayfanız açın (`https://{your-workspace-name}.portal.mms.microsoft.com`) ve seçin **günlük arama**.
+1. Log Analytics çalışma alanı giriş sayfanızı açın (`https://{your-workspace-name}.portal.mms.microsoft.com`) ve **günlük araması**.
 
-   ![Günlük analizi giriş sayfanızda "Günlük arama" seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
+   ![Log Analytics'e giriş sayfanızda "Günlük araması" seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
 
    -veya-
 
-   ![Menüsünde "Günlük arama" öğesini seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
+   !["Ara" menüsünde'yi seçin.](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
 
-2. Üzerinde **günlük arama** giriş sayfasını, seçin **Sık Kullanılanlar**.
+2. Üzerinde **günlük araması** öğesini giriş sayfasını **Sık Kullanılanlar**.
 
    !["Sık Kullanılanlar" seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-favorites.png)
 
-3. Altında **kayıtlı aramaları**, sorgunuzu seçin, böylece sonuçlarını görüntüleyebilirsiniz. Farklı sonuçlar bulabilmek için sorguyu güncelleştirmek için sorgu düzenleyin.
+3. Altında **kayıtlı aramalar**, sorgunuzu seçin, böylece sonuçlarını görüntüleyebilirsiniz. Farklı sonuçlar sizi bulabilmesi için sorguyu güncellemek için sorguyu düzenleyin.
 
-   ![Sorgunuz seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
+   ![Sorgunuzu seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

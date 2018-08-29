@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5508b5943e116545297d91e85621d2a11a635299
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b8caeab7f08ffeee81492b01750cbb255e172872
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059770"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144531"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Sanal makine teklifi yayımlama Kılavuzu
 
@@ -38,11 +38,11 @@ Kullanıcıların kendi lisansını getir (KLG) blling modeli kullanılırken s�
 |Kullanılabilirlik / çalışma süresi    |    En az % 99,9 çalışma süresi, SaaS uygulaması veya platformu olmalıdır.     |
 |Azure Active Directory     |    Teklifinizi Azure Active Directory (Azure AD) ile etkin onay Federasyon çoklu oturum açma (SSO) (Azure AD Federasyon SSO) izin vermeniz gerekir.     |
 
-## <a name="test-drive"></a>Test Drive
+## <a name="test-drive"></a>Test Sürüşü
 
 Bir veya daha fazla sanal makine infrastructure-as-a-service(IaaS) veya SaaS uygulamaları aracılığıyla dağıtın. Bir sanal makine ya da bir iş ortağı-tarafından barındırılan yönetilen çözümün tamamında otomatik sağlama yayımlama seçeneği olan test sürüşü yararı Kılavuzlu Tur. Bir test sürüşüne müşteriniz için ek ücret ödemeden bir değerlendirme sağlar. Müşterinizin deneme sürümü deneyimi ile etkileşim kurmak amacıyla, mevcut bir Azure müşterisi olmasına gerek yok. 
 
-E-posta amp-testdrive@microsoft.com kullanmaya başlamak için. 
+Şu adresten bizimle [amp testdrive](mailto:amp-testdrive@microsoft.com) kullanmaya başlamak için. 
 
 |Gereksinimler  |Ayrıntılar |
 |---------|---------|

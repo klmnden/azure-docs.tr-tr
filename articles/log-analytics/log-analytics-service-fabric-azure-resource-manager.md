@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nini
 ms.component: na
-ms.openlocfilehash: 9bc1f7d9eab73a086e664dcc520ecf26befbbf0e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7c86c1006d7139356426c0cfb8fc5e684a4c9be6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432900"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125687"
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Service Fabric uygulamaları ve Azure portalı ile mikro hizmetler
 
@@ -80,8 +80,6 @@ Yukarıdaki aynı adımlar, gerekli parametreleri giriş ve dağıtımı devre d
 
 Performans verileri, düğümlerden görüntülemek için:
 
-
-[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 - Log Analytics çalışma alanını Azure portalından başlatın.
   ![Service Fabric](./media/log-analytics-service-fabric/6.png)

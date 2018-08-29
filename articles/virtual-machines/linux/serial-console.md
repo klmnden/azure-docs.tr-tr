@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 1fcac972e7404c2e0549b9bb9f2e03861977bfad
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d4ca44268740f48702594d9c87aa568d4f8eecb6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094780"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122414"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Sanal makinenin seri konsol (Önizleme) 
 
@@ -36,10 +36,14 @@ Windows Vm'leri için seri konsol belgeleri [Buraya](../windows/serial-console.m
 
 * Kaynak Yönetimi dağıtım modeline kullanıyor olmanız gerekir. Klasik dağıtımlar desteklenmez. 
 * Sanal makineniz olmalıdır [önyükleme tanılaması](boot-diagnostics.md) etkin - aşağıdaki ekran görüntüsüne bakın.
+
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
+    
 * Seri konsol kullanarak bir Azure hesabınızın olması gerekir [katkıda bulunan rolü](../../role-based-access-control/built-in-roles.md) VM için ve [önyükleme tanılaması](boot-diagnostics.md) depolama hesabı. 
 * Seri konsol indirmesindeki olduğunuz sanal makine de parola tabanlı bir hesabı olmalıdır. İle bir tane oluşturabilirsiniz [parolayı Sıfırla](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) VM erişimi uzantısı - işlevselliğini aşağıdaki ekran görüntüsüne bakın.
+
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
+
 * Linux dağıtımları için özel ayarları için bkz: [seri konsoluna erişmek için Linux](#access-serial-console-for-linux)
 
 

@@ -4,28 +4,28 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/27/2018
 ms.author: wolfma
-ms.openlocfilehash: 79dc1fe9fffd8c44c97cf68a12bb90655b672577
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: a4accb0846ec9cf5efc5ca5aa00c731edd41d4d4
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577982"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143882"
 ---
 <!-- N.B. no header, language-agnostic -->
 
-[Speech SDK'sı](~/articles/cognitive-services/speech-service/speech-sdk.md) tanımak için bir yol sağlar **amaçlardan tutun konuşma**, konuşma hizmeti tarafından ve [Language Understanding hizmeti (LUIS)](https://www.luis.ai/home).
+Microsoft Bilişsel Hizmetler [Speech SDK'sı](~/articles/cognitive-services/speech-service/speech-sdk.md) tanımak için bir yol sağlar **amaçlardan tutun konuşma** ve Bilişsel hizmetler tarafından desteklenen [Language Understanding hizmeti (LUIS)](https://www.luis.ai/home).
 
-1. Language Understanding hizmeti abonelik anahtarı sağlayan bir konuşma fabrikası oluşturun ve [bölge](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition). Language Understanding hizmeti abonelik anahtarını adlı **uç noktası anahtarı** service belgelerinde. Language Understanding hizmeti anahtarı yazma kullanamazsınız. Ayrıca bkz: **Not** aşağıda.
+1. Bir LUIS abonelik anahtarı ile bir konuşma fabrikası oluşturun ve [bölge](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition) parametre olarak. LUIS abonelik anahtarını adlı **uç noktası anahtarı** service belgelerinde. Anahtar yazma LUIS kullanamazsınız. (Bu bölümün sonraki kısımlarında nota bakın.)
 
 1. Hedefi bir tanıyıcı konuşma fabrikadan alın. Bir tanıyıcı, cihazınızın varsayılan mikrofon, bir ses akışı veya ses bir dosyadan kullanabilirsiniz.
 
-1. Dil anlama modeli üzerinde uygulama kimliğine göre alın ve ihtiyaç duyduğunuz hedef ekleme. 
+1. Temel dil anlama modeli alın, **AppID**. İhtiyaç duyduğunuz ıntents ekleyin. 
 
-1. Olayları zaman uyumsuz işlem için'kurmak isterseniz birbirine bağlayın. Geçici ve son sonuçları (ıntents dahil) sahip olduğunda tanıyıcı daha sonra olay işleyicileri çağırır. Aksi takdirde, uygulamanızı son transkripsiyonu sonuç alırsınız.
+1. Olayları zaman uyumsuz işlem için'kurmak isterseniz birbirine bağlayın. Tanıyıcı geçici ve son sonuçları sahip olduğunda, daha sonra olay işleyicileri çağırır (hedefleri içerir). Olayları tie yoksa uygulamanız yalnızca son transkripsiyonu sonucu alır.
 
-1. Amaç tanıma başlatın. Tek tanıma, tanıma, komut veya sorgu gibi kullanılmaya `RecognizeAsync()`, tanınan ilk utterance döndürür. Uzun süreli tanıma için kullandığınız `StartContinuousRecognitionAsync()` ve zaman uyumsuz tanıma sonuçları için olayları oluşturan bağlayın.
+1. Amaç tanıma başlatın. Tek tanıma, tanıma, komut veya sorgu gibi kullanılmaya `RecognizeAsync()` yöntemi. Bu yöntem ilk tanınan utterance döndürür. Uzun süreli tanıma için kullandığınız `StartContinuousRecognitionAsync()` yöntemi. Zaman uyumsuz tanıma sonuçları için olayları oluşturan birbirine bağlayın.
 
-Aşağıdaki kod parçacıklarından birini Speech SDK'sı kullanarak niyeti tanıma senaryolar için bkz. Kendi dil anlama abonelik anahtarı (uç noktası anahtarı) değiştirmek [aboneliğinizin bölgesi](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition)ve hedefi modelinizin örneklerdeki uygun yerlerde AppID.
+Aşağıdaki kod parçacıkları Speech SDK'sı kullanan niyeti tanıma senaryolar için bkz. Örnek değerleri kendi LUIS abonelik anahtarı (uç noktası anahtarı) ile değiştirin [aboneliğinizin bölgesi](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition)ve **AppID** hedefi modelinizin.
 
 > [!NOTE]
-> Speech SDK'sı tarafından desteklenen diğer hizmetleri aksine niyeti tanıma bir (Language Understanding Hizmeti uç noktası anahtarı) belirli bir abonelik anahtarı gerektirir. [Burada](https://www.luis.ai) niyeti tanıma teknolojisi hakkında ek bilgi bulabilirsiniz. Almak üzere nasıl **uç noktası anahtarı** açıklanan [burada](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/luis-how-to-azure-subscription#create-luis-endpoint-key).
+> Speech SDK'sı tarafından desteklenen diğer hizmetleri aksine niyeti tanıma bir (LUIS uç noktası anahtarı) belirli bir abonelik anahtarı gerektirir. Amaç tanıma teknolojisi hakkında daha fazla bilgi için bkz: [LUIS Web sitesi](https://www.luis.ai). Alma hakkında bilgi için **uç noktası anahtarı**, bkz: [LUIS uç noktası anahtarı oluşturma](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-azure-subscription#create-luis-endpoint-key).

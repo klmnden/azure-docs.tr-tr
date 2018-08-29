@@ -1,6 +1,6 @@
 ---
-title: Hive tabloları oluşturma ve Azure Blob depolama alanından veri yükleme | Microsoft Docs
-description: Hive tabloları oluşturma ve tabloları hive blob veri yükleme
+title: Hive tabloları oluşturma ve Azure Blob depolamadan veri yükleme | Microsoft Docs
+description: Hive tabloları oluşturma ve tabloları hive blob'daki veri yükleme
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
@@ -15,119 +15,119 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 474eb7122de59d12c69b7c1021cfdff8548c5a25
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: ccfa3f8681b220d01f8347abd58140e2621f4282
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837965"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122294"
 ---
-# <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive tabloları oluşturma ve Azure Blob depolama alanından veri yükleme
-Bu konu, Hive tabloları oluşturma ve Azure blob depolama alanından veri yükleme genel Hive sorguları gösterir. Hive tablolarını bölümlendirme ve en iyi duruma getirilmiş satır sütunlu (sorgu performansını artırmak için biçimlendirme ORC) kullanarak bu bazı yönergeler de sağlanır.
+# <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive tabloları oluşturma ve Azure Blob depolamadan veri yükleme
+Bu konuda, Hive tabloları oluşturma ve Azure blob depolamadan veri yükleme genel Hive sorguları sunulmaktadır. Hive tablolarını bölümleme ve en iyi duruma getirilmiş satır sütunlu (sorgu performansını artırmak için biçimlendirme ORC) kullanarak, bazı yönergeler de sağlanır.
 
-Bu **menü** burada veri depolanabilir ve takım veri bilimi işlem (TDSP) sırasında işlenen hedef ortamlara veri alma nasıl açıklayan konulara bağlantılar.
+Bu **menü** nerede veriler depolanan ve işlenen Team Data Science işlem (TDSP) sırasında hedef ortamlara veri almak nasıl açıklayan konulara bağlantılar.
 
 [!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu makalede, sahip olduğunuz varsayılmaktadır:
+Bu makalede, olduğunu varsayar:
 
-* Bir Azure depolama hesabı oluşturuldu. Yönergeler gerekiyorsa bkz [Azure storage hesapları hakkında](../../storage/common/storage-create-storage-account.md).
-* Özelleştirilmiş bir Hadoop kümesine Hdınsight hizmetiyle sağlandı.  Yönergeler gerekiyorsa bkz [özelleştirme Azure Hdınsight Hadoop kümeleri için Gelişmiş analiz](customize-hadoop-cluster.md).
-* Küme için etkin uzaktan erişim, oturum açmış ve Hadoop komut satırı konsolu açılır. Yönergeler gerekiyorsa bkz [Hadoop küme baş düğümü erişim](customize-hadoop-cluster.md).
+* Bir Azure depolama hesabı oluşturuldu. Yönergelere ihtiyacınız varsa bkz [Azure depolama hesapları hakkında](../../storage/common/storage-create-storage-account.md).
+* HDInsight hizmeti ile özelleştirilmiş bir Hadoop kümesi hazırlandı.  Yönergelere ihtiyacınız varsa bkz [özelleştirme Azure HDInsight Hadoop kümeleri için Gelişmiş analiz](customize-hadoop-cluster.md).
+* Kümeye uzaktan erişimin etkinleştirilmesi, oturum ve Hadoop komut satırı konsolu açılır. Yönergelere ihtiyacınız varsa bkz [Hadoop küme baş düğümüne erişmek](customize-hadoop-cluster.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Azure blob depolama alanına veri yükleme
-Sağlanan yönergeleri izleyerek bir Azure sanal makinesi oluşturduysanız [Gelişmiş analiz için Azure sanal makinesi ayarlama](../data-science-virtual-machine/setup-virtual-machine.md), bu komut dosyası indirilmiş oldukları *C:\\kullanıcılar \\ \<kullanıcı adı\>\\belgeleri\\veri bilimi betikleri* sanal makinede dizin. Bu Hive sorguları yalnızca kendi veri şeması ve Azure blob depolama yapılandırması gönderimi için hazır olması için uygun alanları takın gerektirir.
+Bir Azure sanal makinesi bölümlerinde sağlanan yönergeleri izleyerek oluşturduysanız [Gelişmiş analiz için Azure sanal Makine'yi ayarlayın](../data-science-virtual-machine/setup-virtual-machine.md), bu komut dosyası için indirilip *C:\\kullanıcılar \\ \<kullanıcı adı\>\\belgeleri\\veri bilimi betikleri* sanal makinesinde dizin. Bu Hive sorguları yalnızca kendi veri şemasını ve Azure blob depolama yapılandırması gönderimi için hazır olmasını uygun alanları eklenti gereklidir.
 
-Hive tablolarını verilerini de olduğunu varsayıyoruz bir **sıkıştırılmamış** tablo biçiminde ve verileri varsayılan (veya ek bir) yüklendiğini Hadoop küme tarafından kullanılan depolama hesabının kapsayıcı.
+Hive tablolarını verilerini olduğunu varsayıyoruz bir **sıkıştırılmamış** tablosal biçimde ve verileri varsayılan (veya ek bir) yüklendiğini Hadoop kümesi tarafından kullanılan depolama hesabı kapsayıcısı.
 
-Uygulama için istiyorsanız **NYC ücreti seyahat veri**, gerekir:
+Uygulama için isterseniz **NYC taksi seyahat verilerini**, gerekir:
 
-* **karşıdan** 24 [NYC ücreti seyahat veri](http://www.andresmh.com/nyctaxitrips) (12 seyahat dosyalar ve 12 ücreti dosyaları)
+* **indirme** 24 [NYC taksi seyahat verilerini](http://www.andresmh.com/nyctaxitrips) (12 seyahat dosyalar ve 12 taksi dosyaları)
 * **Unzip** .csv dosyalarına tüm dosyaları ve ardından
-* **karşıya yükleme** özetlenen yordamı tarafından oluşturulan Azure depolama hesabı varsayılan (veya uygun bir kapsayıcı) onları [özelleştirme Azure Hdınsight Hadoop kümeleri Advanced Analytics işlemi ve teknolojiiçin](customize-hadoop-cluster.md)konu. İşlem depolama hesabındaki varsayılan kapsayıcı .csv dosyalarını yüklemek için bu bilgisayarda bulunabilir [sayfa](hive-walkthrough.md#upload).
+* **karşıya yükleme** bölümünde açıklanan yordamı tarafından oluşturulan Azure depolama hesabının varsayılan (veya uygun bir kapsayıcı) onları [özelleştirme Azure HDInsight Hadoop kümeleri için Gelişmiş analitik işlemi ve teknolojisi](customize-hadoop-cluster.md)konu. Bu işlem depolama hesabındaki varsayılan kapsayıcı .csv dosyalarını yüklemek için bulunabilir [sayfa](hive-walkthrough.md#upload).
 
-## <a name="submit"></a>Hive sorguları gönderme
+## <a name="submit"></a>Hive sorguları göndermek nasıl
 Hive sorgularını kullanarak gönderilebilir:
 
-1. [Hadoop kümesi headnode Hive sorguları Hadoop komut satırı aracılığıyla gönderme](#headnode)
-2. [Hive düzenleyicisinde Hive sorguları gönderme](#hive-editor)
-3. [Azure PowerShell komutlarıyla Hive sorguları gönderme](#ps)
+1. [Hadoop kümesinin baş içinde Hadoop komut satırı aracılığıyla Hive sorguları göndermek](#headnode)
+2. [Hive Düzenleyicisi ile Hive sorguları göndermek](#hive-editor)
+3. [Azure PowerShell komutları ile Hive sorguları göndermek](#ps)
 
-Hive sorguları SQL benzeri. SQL ile hakkında bilginiz varsa, bulabilirsiniz [Hive SQL kullanıcılar kopya sayfası](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) yararlıdır.
+Hive sorguları SQL benzeri. SQL ile hakkında bilginiz varsa, bulabilirsiniz [Hive SQL kullanıcılar sayfasını hile](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) yararlıdır.
 
-Bir Hive sorgusu gönderirken, ayrıca Hive sorguları çıktısını hedef, ekranda veya baş düğüm yerel bir dosyaya veya bir Azure blob'a olması olup olmadığını kontrol edebilirsiniz.
+Bir Hive sorgusu gönderirken ekranda veya baş düğümü üzerindeki yerel bir dosyaya veya bir Azure blob'a oluşmasından Hive sorguları çıkışının hedef de denetleyebilirsiniz.
 
-### <a name="headnode"></a> 1. Hadoop kümesi headnode Hive sorguları Hadoop komut satırı aracılığıyla gönderme
-Hive sorgusu karmaşıksa, doğrudan Hadoop baş düğümünde gönderme küme genellikle daha hızlı Hive Düzenleyicisi'ni veya Azure PowerShell komut dosyalarıyla gönderme daha kapatma neden olmaktadır.
+### <a name="headnode"></a> 1. Hadoop kümesinin baş içinde Hadoop komut satırı aracılığıyla Hive sorguları göndermek
+Hive sorgusu karmaşıksa, doğrudan Hadoop baş düğümünde gönderme küme genellikle daha hızlı Hive Düzenleyicisi ya da Azure PowerShell betikleri ile gönderme daha geri dönüş için yol açar.
 
-Hadoop küme baş düğümüne oturum açın, masaüstünde baş düğüm, Hadoop komut satırı açın ve komutu girin `cd %hive_home%\bin`.
+Hadoop kümesinin baş düğüme oturum açmak için masaüstünde baş düğümü, Hadoop komut satırını açın ve komutu girin `cd %hive_home%\bin`.
 
-Hadoop komut satırı Hive sorguları göndermek için üç yol vardır:
+Size, Hadoop komut satırı Hive sorguları göndermek için üç yolunuz vardır:
 
 * doğrudan
 * .hql dosyalarını kullanma
-* Hive komutu konsoluyla
+* Hive Komut Konsolu ile
 
-#### <a name="submit-hive-queries-directly-in-hadoop-command-line"></a>Hive sorguları doğrudan içinde Hadoop komut satırı gönderin.
-Komutu gibi çalıştırabilirsiniz `hive -e "<your hive query>;` basit Hive sorguları doğrudan içinde Hadoop komut satırı göndermek için. Burada, burada kırmızı kutu Hive sorgusu gönderdiğinde komutu özetler ve Hive sorgusu çıktısını yeşil kutunun özetlenmektedir bir örnek verilmiştir.
+#### <a name="submit-hive-queries-directly-in-hadoop-command-line"></a>Hive sorguları doğrudan, Hadoop komut satırı gönderin.
+Komutu gibi çalıştırabilirsiniz `hive -e "<your hive query>;` doğrudan, Hadoop komut satırı basit Hive sorguları göndermek için. Burada kırmızı kutu Hive sorgusu gönderen komut özetlemekte ve Hive sorgusu çıkışı yeşil kutuyu özetler bir örnek aşağıda verilmiştir.
 
-![Çalışma alanı oluştur](./media/move-hive-tables/run-hive-queries-1.png)
+![Çalışma alanı oluşturma](./media/move-hive-tables/run-hive-queries-1.png)
 
-#### <a name="submit-hive-queries-in-hql-files"></a>Hive sorguları .hql dosyalarında gönderme
-Komut satırı ya da Hive komut konsolundan sorguları düzenleme, Hive sorgusu daha karmaşıktır ve birden çok satıra sahip olduğunda, pratik değildir. Bir metin düzenleyicisi Hadoop kümesi baş düğümünde bir yerel dizinin baş düğümü .hql dosyasında Hive sorguları kaydetmek için kullanılacak bir alternatiftir. Hive sorgusu .hql dosyasında kullanarak gönderilebilir sonra `-f` şekilde bağımsız değişkeni:
+#### <a name="submit-hive-queries-in-hql-files"></a>.Hql dosyalarında Hive sorguları göndermek
+Komut satırı ya da Hive komut konsolunda sorguları düzenleme, Hive sorgusu daha karmaşıktır ve birden fazla satır olduğunda pratik değildir. Hive sorguları baş düğümün, yerel bir dizinde .hql dosyasına kaydetmek için Hadoop kümesi baş düğümünde bir metin Düzenleyicisi kullanmak için bir alternatiftir. Hive sorgusu .hql dosyasındaki kullanarak gönderilebilir sonra `-f` bağımsız değişkeni aşağıdaki gibi:
 
     hive -f "<path to the .hql file>"
 
-![Çalışma alanı oluştur](./media/move-hive-tables/run-hive-queries-3.png)
+![Çalışma alanı oluşturma](./media/move-hive-tables/run-hive-queries-3.png)
 
-**İlerleme durumu ekranı yazdırma Hive sorgularının gösterme**
+**Hive sorguları ilerleme durumu ekranı Yazdır Gizle**
 
-Hive sorgusu Hadoop komutu gönderildikten sonra varsayılan olarak, harita/azaltın işinin ilerleme durumunu ekranda yazdırılır. Harita/azaltın iş ilerleme ekranı yazdırma gizlemek için bağımsız değişken kullanabilirsiniz `-S` (büyük harflerle "S") komut satırı aşağıdaki gibi:
+Hive sorgusu, Hadoop komut satırında gönderildikten sonra varsayılan olarak, Map/Reduce işinin ilerleme durumunu ekranda yazdırılır. Map/Reduce işi ilerleme ekranı Yazdır bastırmak için bağımsız değişken kullanabilirsiniz `-S` (büyük harf "S") komut satırı şu şekilde:
 
     hive -S -f "<path to the .hql file>"
-.    -S -e hive "<Hive queries>"
+    hive -S -e "<Hive queries>"
 
 #### <a name="submit-hive-queries-in-hive-command-console"></a>Hive komut konsolunda Hive sorguları göndermek.
-Komutunu çalıştırarak da ilk Hive komut konsolundan girebilirsiniz `hive` Hadoop komut satırı ve Hive komut konsolunda Hive sorguları göndermek. Bir örnek verilmiştir. Bu örnekte, iki kırmızı kutu Hive komut konsolundan girmek için kullanılan komutlar ve Hive komut konsolunda sırasıyla gönderilen Hive sorgusu vurgulayın. Yeşil kutunun Hive sorgusu çıktısını vurgular.
+Komutunu çalıştırarak, Hive komut konsolunda da ilk girebilirsiniz `hive` Hadoop komut satırı ve ardından Hive komut konsolunda Hive sorguları göndermek. Bir örnek aşağıda verilmiştir. Bu örnekte, iki kırmızı kutuları, Hive komut konsoluna girmek için kullanılan komutlar ve Hive komut konsolunda sırasıyla gönderilen Hive sorgusu vurgulayın. Yeşil kutuyu Hive sorgusu çıkışı vurgular.
 
-![Çalışma alanı oluştur](./media/move-hive-tables/run-hive-queries-2.png)
+![Çalışma alanı oluşturma](./media/move-hive-tables/run-hive-queries-2.png)
 
-Önceki örneklerde doğrudan Hive sorgu sonuçları ekranda çıktı. Yerel bir dosyaya baş düğüm veya bir Azure blob çıkış yazabilirsiniz. Ardından, daha fazla Hive sorguları çıktısını analiz etmek için diğer araçları kullanabilirsiniz.
+Önceki örneklerde, ekranda Hive sorgu sonuçları doğrudan çıkış. Yerel bir dosyaya baş düğüme veya bir Azure blob çıktı yazabilirsiniz. Ardından, Hive sorguları çıkışı daha fazla analiz için diğer araçları kullanabilirsiniz.
 
-**Yerel bir dosyaya Hive sorgu sonuçları çıktı.**
-Baş düğüm yerel bir dizine Hive sorgusu sonuçlarını çıkarmak için Hive sorgusu Hadoop komut satırında şu şekilde göndermek için gerekenler:
+**Hive sorgu sonuçları yerel bir dosyaya çıktı.**
+Hive sorgu sonuçlarını baş düğümü üzerindeki yerel bir dizine çıkarmak için Hive sorgusunu, Hadoop komut satırını aşağıdaki şekilde gönderin vardır:
 
     hive -e "<hive query>" > <local path in the head node>
 
-Aşağıdaki örnekte, Hive sorgusu çıktısını bir dosyaya yazılır `hivequeryoutput.txt` dizininde `C:\apps\temp`.
+Aşağıdaki örnekte, Hive sorgusu çıkışı bir dosyaya yazılır `hivequeryoutput.txt` dizinde `C:\apps\temp`.
 
-![Çalışma alanı oluştur](./media/move-hive-tables/output-hive-results-1.png)
+![Çalışma alanı oluşturma](./media/move-hive-tables/output-hive-results-1.png)
 
-**Bir Azure blob çıkış Hive sorgu sonuçları**
+**Hive sorgu sonuçları için bir Azure blob çıktı**
 
-Hadoop kümesi varsayılan kapsayıcı içinde bir Azure blob Hive sorgu sonuçlarını da çıkarabilirsiniz. Bu Hive sorgusu aşağıdaki gibidir:
+Ayrıca, Hadoop kümesi varsayılan kapsayıcı içinde bir Azure blob'a Hive sorgu sonuçları çıkış sağlayabilir. Bu Hive sorgu aşağıdaki gibidir:
 
     insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
-Aşağıdaki örnekte, bir blob dizinine Hive sorgusu çıktısını yazılır `queryoutputdir` Hadoop kümesi varsayılan kapsayıcı içinde. Burada, yalnızca blob adı olmadan dizin adı sağlamanız gerekir. Dizin ve blob adları gibi sağlarsanız, bir hata atılır `wasb:///queryoutputdir/queryoutput.txt`.
+Aşağıdaki örnekte, Hive sorgusu çıkışı bir blob dizinine yazılır `queryoutputdir` Hadoop kümesi varsayılan kapsayıcı içinde. Burada, yalnızca blob adı olmayan bir dizin adı sağlamanız gerekir. Dizin hem blob adları gibi sağlarsanız, bir hata oluşturulur `wasb:///queryoutputdir/queryoutput.txt`.
 
-![Çalışma alanı oluştur](./media/move-hive-tables/output-hive-results-2.png)
+![Çalışma alanı oluşturma](./media/move-hive-tables/output-hive-results-2.png)
 
-Azure Depolama Gezgini'ni kullanarak Hadoop kümenin varsayılan kapsayıcı açarsanız, aşağıdaki çizimde gösterildiği gibi Hive sorgusu çıktısını görebilirsiniz. Yalnızca blob adlarındaki belirtilen harf ile almak için (kırmızı kutu ile vurgulanan) filtre uygulayabilirsiniz.
+Azure Depolama Gezgini'ni kullanarak Hadoop kümesi varsayılan kapsayıcı açarsanız, aşağıdaki resimde gösterildiği gibi Hive sorgusu çıkışı görebilirsiniz. Yalnızca blob adları belirtilen harflerle almak için (kırmızı kutu ile vurgulanan) filtre uygulayabilirsiniz.
 
-![Çalışma alanı oluştur](./media/move-hive-tables/output-hive-results-3.png)
+![Çalışma alanı oluşturma](./media/move-hive-tables/output-hive-results-3.png)
 
-### <a name="hive-editor"></a> 2. Hive düzenleyicisinde Hive sorguları gönderme
-Bir URL biçiminde girerek (Düzenleyicisi Hive) sorgu konsolunu da kullanabilirsiniz *https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* bir web tarayıcısı içine. Olması gerekir bu konsolu bakın oturum ve gereken şekilde, Hadoop küme kimlik.
+### <a name="hive-editor"></a> 2. Hive Düzenleyicisi ile Hive sorguları göndermek
+Sorgu Konsolu (Hive Düzenleyicisi) biçiminde bir URL girerek kullanabilirsiniz *https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* içine bir web tarayıcısı. Siz bu konsolun bakın oturum ve Hadoop kümesi kimlik bilgilerinizi buraya nedenle gerekir.
 
-### <a name="ps"></a> 3. Azure PowerShell komutlarıyla Hive sorguları gönderme
-Hive sorguları göndermek için PowerShell de kullanabilirsiniz. Yönergeler için bkz: [gönderme Hive işleri PowerShell kullanarak](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
+### <a name="ps"></a> 3. Azure PowerShell komutları ile Hive sorguları göndermek
+Hive sorguları göndermek için PowerShell de kullanabilirsiniz. Yönergeler için [gönderme Hive işleri PowerShell kullanarak](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
 
 ## <a name="create-tables"></a>Hive veritabanı ve tablo oluşturma
-Hive sorgularını paylaşılan [GitHub deposunu](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) ve buradan yüklenebilir.
+Hive sorguları paylaşılan [GitHub deposu](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) ve oradan indirilebilir.
 
-Bir Hive tablosu oluşturur Hive sorgusu aşağıdadır.
+Bir Hive tablosu oluşturur Hive sorgusu aşağıda verilmiştir.
 
     create database if not exists <database name>;
     CREATE EXTERNAL TABLE if not exists <database name>.<table name>
@@ -142,34 +142,34 @@ Bir Hive tablosu oluşturur Hive sorgusu aşağıdadır.
     ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' lines terminated by '<line separator>'
     STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line.count"="1");
 
-Takılır gereken alanlarının açıklamaları ve diğer yapılandırmalar şunlardır:
+Açıklamaları takın gereken alanların ve diğer yapılandırmalar şunlardır:
 
-* **<database name>**: oluşturmak istediğiniz veritabanının adı. Varsayılan veritabanı sorgu kullanmak istiyorsanız, *veritabanı oluştur...*  atlanabilir.
-* **<table name>**: Belirtilen veritabanı içinde oluşturmak istediğiniz tablonun adı. Varsayılan veritabanı kullanmak istiyorsanız, tablonun doğrudan göre başvurulabilen *<table name>* olmadan <database name>.
-* **<field separator>**: Hive tablosu karşıya yüklenecek veri dosyasındaki alanlar sınırlandıran ayırıcı.
+* **<database name>**: oluşturmak istediğiniz veritabanının adı. Varsayılan veritabanı sorgusunu kullanmak istiyorsanız *veritabanı oluşturun...*  atlanabilir.
+* **<table name>**: Belirtilen veritabanı içinde oluşturmak istediğiniz tablonun adı. Varsayılan veritabanı kullanmak istiyorsanız, tablonun doğrudan tarafından başvurulabilen *<table name>* olmadan <database name>.
+* **<field separator>**: veri dosyası Hive tablosuna karşıya yüklenecek alanları sınırlandıran ayırıcı.
 * **<line separator>**: veri dosyasındaki satır sınırlandıran ayırıcı.
-* **<storage location>**: Hive tablolarını verileri kaydetmek için Azure depolama konumu. Belirtmezseniz, *konumu <storage location>* , veritabanını ve tabloları depolanır *hive/ambarı/* varsayılan olarak Hive kümenin varsayılan kapsayıcısında dizin. Depolama konumu belirtmek istiyorsanız, depolama konumu tablo ve veritabanı için varsayılan kapsayıcı içinde olması gerekir. Bu konum biçimi kümede varsayılan kapsayıcı göreli konumunu olarak adlandırılan gerekiyor *' wasb: / / / < 1 dizini > /'* veya *' wasb: / / / < 1 dizini > / < 2 dizini > /'*, vb. Sorgu yürütüldükten sonra göreli dizinleri varsayılan kapsayıcı içinde oluşturulur.
-* **TBLPROPERTIES("Skip.header.Line.Count"="1")**: veri dosyası bir başlık satırı varsa, bu özellik eklemek zorunda **sonunda** , *tablo oluşturma* sorgu. Aksi takdirde, başlık satırı tablosuna bir kayıt olarak yüklenir. Veri dosyasındaki bir başlık satırı yok, bu yapılandırma Sorguda atlanabilir.
+* **<storage location>**: Hive tablolarını verileri kaydetmek için Azure depolama konumu. Siz belirtmezseniz *konumu <storage location>* , veritabanı ve tabloları depolanır *hive/warehouse/* varsayılan olarak Hive kümenin varsayılan kapsayıcıda dizin. Depolama konumu belirtmek istiyorsanız, depolama konumu, tablo ve veritabanı için varsayılan kapsayıcı içinde olması gerekir. Bu konum biçimi kümenin varsayılan kapsayıcı göreli konumu olarak başvurulacak olan *' wasb: / / / < 1 dizini > /'* veya *' wasb: / / / < 1 dizini > / < 2 dizini > /'* vb. Sorgu yürütüldükten sonra göreli dizinleri varsayılan kapsayıcı içinde oluşturulur.
+* **TBLPROPERTIES("Skip.header.Line.Count"="1")**: veri dosyasındaki bir üst bilgi satırı varsa, bu özellik eklemek zorunda **sonunda** , *tablosu oluşturma* sorgu. Aksi takdirde, üstbilgi satırını tablosuna bir kayıt olarak yüklenir. Veri dosyasındaki bir üst bilgi satırı yoksa, bu yapılandırma sorguda atlanmış olabilir.
 
-## <a name="load-data"></a>Hive tablolarını veri yükleme
-Burada, Hive tabloya veri yükler Hive sorgusu verilmiştir.
+## <a name="load-data"></a>Verileri Hive tablolarına yükleme
+Bir Hive tablosuna veri yükler Hive sorgusu aşağıda verilmiştir.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **<path to blob data>**: Hive tablosu karşıya yüklenecek blob Hdınsight Hadoop kümesi varsayılan kapsayıcısında dosyasıysa *<path to blob data>* biçiminde olmalıdır *' wasb: / / /<directory in this container> / <blob file name>'*. Blob dosya de Hdınsight Hadoop kümesi ek bir kapsayıcı olabilir. Bu durumda, *<path to blob data>* biçiminde olmalıdır *' wasb: / /<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
+* **<path to blob data>**: Hive tablosu için yüklenecek blob HDInsight Hadoop kümesi varsayılan kapsayıcıda dosyasıysa *<path to blob data>* biçiminde olması gerektiğini *' wasb: / / /<directory in this container> / <blob file name>'*. Blob dosya HDInsight Hadoop kümesi ek bir kapsayıcı da olabilir. Bu durumda, *<path to blob data>* biçiminde olması gerektiğini *' wasb: / /<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
 
   > [!NOTE]
-  > Hive tablosu yüklenebilmesi için blob verilerini varsayılan veya ek kapsayıcısına Hadoop kümesi için depolama hesabına ait olması gerekir. Aksi takdirde, *veri yükleme* sorgu başarısız şikayetçi verilere erişemez.
+  > Hive tablosu yüklenmek üzere blob verilerini varsayılan veya ek kapsayıcı Hadoop kümesi için depolama hesabının olması gerekir. Aksi takdirde, *veri yükleme* sorgu başarısız olursa şikayetçi verilere erişemez.
   >
   >
 
-## <a name="partition-orc"></a>Gelişmiş konular: Tablo ve Depolama yığını verileri ORC biçiminde bölümlenmiş
-Veri büyükse, tablo bölümleme yalnızca birkaç bölümlerini tablo taraması gereken sorguları için faydalıdır. Örneğin, bir web sitesinin günlük verilerini göre tarih bölümlemek uygun olur.
+## <a name="partition-orc"></a>Gelişmiş konular: Tablo ve depolama Hive verileri ORC biçiminde bölümlenmiş
+Veriler büyükse, tablo bölümleme yalnızca tablo bazı bölümleri taraması gereken sorguları için yararlıdır. Örneğin, bir web sitesi günlük verilerini tarihlerine göre bölümlemek şüphelenilebilir.
 
-Hive tablolarını bölümleme yanı sıra en iyi duruma getirilmiş satır sütunlu (ORC) biçiminde Hive verileri depolamak faydalı olacaktır. ORC biçimlendirme daha fazla bilgi için bkz: <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles" target="_blank">kullanarak ORC dosyaları Hive okuma, yazma ve verileri işlerken performansını artırır</a>.
+Hive tablolarını bölümleme yanı sıra en iyi duruma getirilmiş satır sütunlu (ORC) biçiminde Hive verileri depolamak faydalı olacaktır. ORC biçimlendirme hakkında daha fazla bilgi için bkz: <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles" target="_blank">kullanarak ORC dosyalarını Hive okuma, yazma ve veri işleme performansını geliştirir</a>.
 
 ### <a name="partitioned-table"></a>Bölümlenmiş bir tablo
-Bölümlenmiş bir tablo oluşturur ve veri içine yükler Hive sorgusu aşağıdadır.
+Bölümlenmiş bir tablo oluşturur ve verileri içine yükler Hive sorgusunu aşağıda verilmiştir.
 
     CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<table name>
     (field1 string,
@@ -181,17 +181,17 @@ Bölümlenmiş bir tablo oluşturur ve veri içine yükler Hive sorgusu aşağı
     LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name>
         PARTITION (<partitionfieldname>=<partitionfieldvalue>);
 
-Bölümlenmiş tablolar sorgulanırken bölüm koşulu eklemek için önerilir **başına** , `where` yan tümcesi bu olarak önemli ölçüde arama sürecinin artırır.
+Bölümlenmiş tablolar sorgulanırken bölüm koşulu eklemek için önerilir **başına** , `where` bu as yan tümcesi çalışıp çalışmadığını arama önemli ölçüde artırır.
 
     select
         field1, field2, ..., fieldN
     from <database name>.<partitioned table name>
     where <partitionfieldname>=<partitionfieldvalue> and ...;
 
-### <a name="orc"></a>Hive verileri ORC biçiminde depolayan
-ORC biçiminde depolanan Hive tablolara blob depolama alanından verileri doğrudan yüklenemiyor. , Yüklemek için uygulamanız gereken adımlar şunlardır verileri Azure BLOB'ların ORC biçiminde depolanan Hive tablolara.
+### <a name="orc"></a>Hive verileri ORC biçiminde Store
+ORC biçiminde depolanan Hive tablolarına, blob depolama alanından verileri doğrudan yüklenemiyor. , Yüklemek için uygulamanız gereken adımlar şunlardır blobları Azure verileri ORC biçiminde depolanan Hive tablolarına.
 
-Bir dış tablo oluşturma **DEPOLANAN AS TEXTFILE** ve veri yükleme blob depolama alanından tabloya.
+Bir dış tablo oluşturma **DEPOLANAN AS TEXTFILE** ve yük verileri blob depolama alanından tabloya.
 
         CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<external textfile table name>
         (
@@ -206,7 +206,7 @@ Bir dış tablo oluşturma **DEPOLANAN AS TEXTFILE** ve veri yükleme blob depol
 
         LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<table name>;
 
-Adım 1, aynı alan sınırlayıcı ile dış tabloda aynı şemasıyla bir iç tablosu oluşturun ve Hive verileri ORC biçiminde depolayan.
+Dış tablo adım 1, aynı alan sınırlayıcı ile aynı şemaya sahip iç tablo oluşturun ve Hive verileri ORC biçiminde depolar.
 
         CREATE TABLE IF NOT EXISTS <database name>.<ORC table name>
         (
@@ -217,13 +217,13 @@ Adım 1, aynı alan sınırlayıcı ile dış tabloda aynı şemasıyla bir iç 
         )
         ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' STORED AS ORC;
 
-1. adımda dış tablodan veri seçin ve ORC tablosuna Ekle
+1. adım dış tablodaki verileri seçin ve ORC tabloya Ekle
 
         INSERT OVERWRITE TABLE <database name>.<ORC table name>
             SELECT * FROM <database name>.<external textfile table name>;
 
 > [!NOTE]
-> Varsa TEXTFILE tablo  *<database name>.<external textfile table name>* bölümler, adım 3'te içeren `SELECT * FROM <database name>.<external textfile table name>` komutu döndürülen veri kümesindeki bir alan olarak bölüm değişkeni seçer. İçine ekleme  *<database name>.<ORC table name>* bu yana başarısız  *<database name>.<ORC table name>* Bölüm değişkeni, tablo şemasında bir alan olarak yok. Bu durumda, özellikle için eklenecek alanları seçmeniz gerekir  *<database name>.<ORC table name>* aşağıdaki gibi:
+> Varsa TEXTFILE tablo  *<database name>.<external textfile table name>* bölümler, adım 3'te sahip `SELECT * FROM <database name>.<external textfile table name>` komutu döndürülen veri kümesindeki bir alan olarak bölüm değişkeni seçer. İçine ekleme  *<database name>.<ORC table name>* bu yana başarısız  *<database name>.<ORC table name>* Tablo şemasını alan olarak bölüm değişkeni yok. Bu durumda, özel alanlar için eklenecek seçmeniz gerekir  *<database name>.<ORC table name>* şu şekilde:
 >
 >
 
@@ -232,8 +232,8 @@ Adım 1, aynı alan sınırlayıcı ile dış tabloda aynı şemasıyla bir iç 
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-Bırakma güvenlidir *<external textfile table name>* olduğunda tüm veri sonra aşağıdaki sorguyu kullanarak ekledi içine *<database name>.<ORC table name>*:
+Drop güvenlidir *<external textfile table name>* zaman sonraki tüm veriler aşağıdaki sorguyu kullanarak eklendiğine içine *<database name>.<ORC table name>*:
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 
-Bu yordamı tamamladıktan sonra kullanıma hazır ORC biçimindeki verileri içeren bir tablo olması gerekir.  
+Bu yordamı tamamladıktan sonra verileri ORC biçiminde kullanıma hazır bir tablo olmalıdır.  

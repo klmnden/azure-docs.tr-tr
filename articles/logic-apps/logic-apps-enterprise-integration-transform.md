@@ -1,96 +1,92 @@
 ---
-title: Dönüşümler - Azure Logic Apps ile XML verileri dönüştürmek | Microsoft Docs
-description: Dönüşümler veya XML verileri Kurumsal tümleştirme SDK'sını kullanarak logic apps içinde biçimleri arasında dönüştürme mapps oluşturma
+title: XML - Azure Logic Apps biçimleri arasında dönüştürme | Microsoft Docs
+description: Dönüşümler ya da Azure Logic Apps Enterprise Integration Pack ile biçimlerde arasında XML dönüştürme eşlemeleri oluşturma
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.date: 07/08/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 1621843d58954aa05a572f43fdab0fb16097332e
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 9dd471f70407191734b4c5a3aa84d5365a7beab8
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299462"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125304"
 ---
-# <a name="enterprise-integration-with-xml-transforms"></a>XML dönüşümler ile Kurumsal tümleştirme
-## <a name="overview"></a>Genel Bakış
-Kurumsal tümleştirme dönüştürme bağlayıcı verileri bir biçimden başka bir biçime dönüştürür. Örneğin, YearMonthDay biçiminde geçerli tarihi içeren bir gelen ileti olabilir. Bir dönüştürme tarihi MonthDayYear biçiminde yeniden biçimlendirmek için kullanabilirsiniz.
+# <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>XML Azure Logic Apps Enterprise Integration Pack ile biçimlerde arasındaki dönüştürme eşlemeleri oluşturma
 
-## <a name="what-does-a-transform-do"></a>Bir dönüştürme ne yapar?
-Kaynak XML Şeması (giriş) ve hedef XML Şeması (çıktı) olarak da bilinen bir eşleme olduğundan, bir dönüşüm oluşur. Farklı yerleşik işlevler yönetmek veya veri denetimi dize işlemeleri, koşullu atamaları, aritmetik ifadeler, tarih saat biçimlendiricileri dahil olmak üzere ve hatta döngü yapıları yardımcı olmak için kullanabilirsiniz.
+Kurumsal tümleştirme dönüştürme Bağlayıcısı verileri bir biçimden başka bir biçime dönüştürür. Örneğin, YearMonthDay biçiminde geçerli tarihi içeren gelen ileti olabilir. Bir dönüştürme tarihi MonthDayYear biçimde yeniden biçimlendirmek için kullanabilirsiniz.
 
-## <a name="how-to-create-a-transform"></a>Bir dönüştürme oluşturmak nasıl?
-Visual Studio kullanarak bir dönüşüm/eşlemesi oluşturabilirsiniz [Kurumsal tümleştirme SDK](https://aka.ms/vsmapsandschemas). Oluşturma ve dönüştürme test bittiğinde tümleştirme hesabınızda dönüştürme karşıya yükleyin. 
+## <a name="what-does-a-transform-do"></a>Dönüşüm ne yapar?
+Olarak da bilinen bir eşlemesi olduğundan, bir dönüştürme kaynak XML Şeması (giriş) ve hedef XML Şeması (çıkış) oluşur. Farklı yerleşik işlevler, yönetmek veya veri denetimi gibi dize işlemeleri, koşullu atamaları, aritmetik ifadeler, tarih saat biçimlendiricileri ve hatta döngü yapıları yardımcı olmak için kullanabilirsiniz.
 
-## <a name="how-to-use-a-transform"></a>Bir dönüşüm kullanma
-Dönüşüm/map tümleştirme hesabınızda yükledikten sonra bir mantıksal uygulama oluşturmak için kullanabilirsiniz. Mantıksal uygulama, dönüştürmeleri mantıksal uygulama tetiklenir (ve dönüştürülmesi için gereken Giriş bir içerik olduğunda) çalışır.
+## <a name="how-to-create-a-transform"></a>Dönüşümü oluşturmak nasıl?
+Visual Studio kullanarak bir dönüşüm/map oluşturabilirsiniz [Kurumsal tümleştirme SDK'sı](https://aka.ms/vsmapsandschemas). Oluşturma ve sınama dönüştürme işlemini tamamladığınızda dönüştürme tümleştirme hesabınıza yükleyin. 
 
-**Bir dönüştürme kullanmak için adımlar şunlardır**:
+## <a name="how-to-use-a-transform"></a>Dönüşüm kullanma
+Tümleştirme hesabınızda dönüştürme/map karşıya yüklenmesinin ardından, mantıksal uygulama oluşturmak için kullanabilirsiniz. Mantıksal uygulama, mantıksal uygulama tetiklenir (ve dönüştürülmesi için gereken giriş içerik olduğunda) Bağlantılarınızdaki çalıştırır.
+
+**Dönüşüm kullanmak için adımlar şunlardır**:
 
 ### <a name="prerequisites"></a>Önkoşullar
 
-* Bir tümleştirme hesabı oluşturun ve bir harita ekleyin  
+* Tümleştirme hesabı oluşturma ve bir eşleme ekleyin  
 
-Önkoşulların yapılan verdiğiniz olduğunuza mantıksal uygulamanızı oluşturmak için zamanı:  
+Geçen Önkoşullar sizin göre, mantıksal uygulamanızı oluşturmak için zaman verilmiştir:  
 
-1. Mantıksal uygulama oluşturma ve [tümleştirme hesabınıza bağlamak](../logic-apps/logic-apps-enterprise-integration-accounts.md "bir mantıksal uygulama için bir tümleştirme hesabı bağlamak bilgi") eşlemesi içerir.
-2. Ekleme bir **isteği** mantıksal uygulamanızı tetikleyiciye  
+1. Mantıksal uygulama oluşturma ve [tümleştirme hesabınıza bağlayın](../logic-apps/logic-apps-enterprise-integration-accounts.md "öğrenmek için mantıksal uygulama tümleştirme hesabı bağlamak") harita içeren.
+2. Ekleme bir **istek** mantıksal uygulamanızın tetikleyicisi  
    ![](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
-3. Ekle **dönüştürme XML** ilk seçerek eylemi **Eylem Ekle**   
+3. Ekle **XML dönüştürme** ilk seçerek eylem **Eylem Ekle**   
    ![](./media/logic-apps-enterprise-integration-transforms/transform-2.png)   
-4. Sözcüğü girin *dönüştürme* kullanmak istediğiniz bir tüm eylemler filtrelemek için arama kutusuna  
+4. Sözcük girin *dönüştürme* kullanmak istediğiniz bir tüm eylemleri filtrelemek için arama kutusuna  
    ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
-5. Seçin **XML dönüştürme** eylem   
-6. XML'in **içerik** , dönüştüren. HTTP isteği aldığınız herhangi bir XML veri kullanabilirsiniz **içerik**. Bu örnekte, mantıksal uygulama tetiklenen HTTP istek gövdesi seçin.
+5. Seçin **XML dönüştürme** eylemi   
+6. XML'in **içerik** , dönüştüren. HTTP isteği aldığınız herhangi bir XML veri kullanabileceğiniz **içerik**. Bu örnekte, mantıksal uygulama tetiklenir HTTP isteği gövdesinin seçin.
 
    > [!NOTE]
-   > Emin olmak için içeriği **XML dönüştürme** XML. İçerik XML biçiminde değil veya base64 ile kodlanmış, içeriği işleyen bir ifade belirtmeniz gerekir. Örneğin, kullanabileceğiniz [işlevleri](logic-apps-workflow-definition-language.md#functions)gibi ```@base64ToBinary``` içerik kod çözme veya ```@xml``` içeriği XML olarak işlemek için.
+   > Emin olun içeriğini **XML dönüştürme** XML'dir. İçerik XML içinde değil veya base64 ile kodlanmış içeriği işleyen bir ifade belirtmeniz gerekir. Örneğin, kullanabileceğiniz [işlevleri](logic-apps-workflow-definition-language.md#functions)gibi ```@base64ToBinary``` içeriği kod çözme için veya ```@xml``` içeriği XML olarak işlemek için.
  
 
-7. Adını seçin **harita** dönüştürme gerçekleştirmek için kullanmak istediğiniz. Harita zaten tümleştirme hesabınız olması gerekir. Bir önceki adımda, zaten haritanızı içeren tümleştirme hesabınıza mantığı uygulama erişimi vermiş.      
+7. Adını seçin **harita** dönüştürmeyi gerçekleştirmek için kullanmak istediğiniz. Harita, tümleştirme hesabında zaten olması gerekir. Daha önceki bir adımda zaten haritanızı içeren, tümleştirme hesabı, mantıksal uygulama erişimi getirdi.      
    ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. Çalışmanızı kaydedin  
     ![](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
 
-Bu noktada, map ayarlama tamamlandı. Gerçek dünya uygulamada bir LOB uygulaması SalesForce gibi dönüştürülmüş verilerin depolamak isteyebilirsiniz. Kolayca dönüşümün çıktısını Salesforce göndermek için bir eylem olarak belirtebilirsiniz. 
+Bu noktada, map ayarlama tamamlandı. Gerçek bir uygulamada, SalesForce gibi bir LOB uygulaması dönüştürülmüş verileri depolamak isteyebilirsiniz. Kolayca Salesforce'a dönüşümün çıkış göndermek için bir eylem olarak belirtebilirsiniz. 
 
 Artık HTTP uç noktası için bir istekte, dönüştürme test edebilirsiniz.  
 
 
-## <a name="features-and-use-cases"></a>Özellikleri ve kullanım örnekleri
-* Bir harita oluşturulan dönüşüm bir ad ve adres bir belgeden diğerine kopyalama gibi basit olabilir. Veya, Giden kutusu eşleme işlemleri kullanarak daha karmaşık dönüşümleri oluşturabilirsiniz.  
-* Birden çok eşleme işlemleri veya İşlevler dizeler, tarih saat işlevleri vb. dahil olmak üzere kullanıma hazır.  
-* Şemalar arasında doğrudan veri kopyalama yapabilirsiniz. SDK'da bulunan eşleyicisinde bu dekiler hedef şemasında ile kaynak şema öğeleri bağlayan bir çizgi çizme olarak kadar basittir.  
-* Bir harita oluştururken, tüm ilişkileri ve oluşturduğunuz bağlantılarını gösterir harita grafik gösterimi görüntüleyin.
-* Örnek bir XML ileti eklemek için Test eşleme özelliğini kullanın. Bir basit tıklamayla oluşturduğunuz haritasını sınamak ve üretilen çıktıyı görürsünüz.  
-* Var olan eşlemeleri karşıya yükle  
+## <a name="features-and-use-cases"></a>Özellikler ve kullanım örnekleri
+* Bir eşlem içinde oluşturulan dönüştürme bir ad ve adres bir belgeden diğerine kopyalama gibi basit olabilir. Veya, kullanıma hazır eşleme işlemleri kullanarak daha karmaşık dönüştürmeler oluşturabilirsiniz.  
+* Birden çok eşleme işlemleri veya işlevleri dizeleri, tarih saat işlevleri ve benzeri gibi kullanıma hazır.  
+* Şemalar arasında doğrudan veri kopyasını yapabilirsiniz. SDK'da bulunan eşleyicisinde karşılıkları hedef şema ile kaynak şema öğeleri bağlayan bir çizgi çizme olarak basit budur.  
+* Bir eşleme oluştururken, tüm bağlantıları, oluşturma ve ilişkileri gösteren haritayı grafik gösterimi görüntüleyin.
+* Örnek XML iletisi eklemek için testi Haritası özelliğini kullanın. Bir basit tıklamayla oluşturduğunuz harita test edin ve oluşturulan çıktıyı görürsünüz.  
+* Var olan eşlemeleri karşıya yükleme  
 * XML biçimi için destek içerir.
 
 ## <a name="advanced-features"></a>Gelişmiş özellikler
 
-### <a name="reference-assembly-or-custom-code-from-maps"></a>Referans derlemesini veya özel kod eşlemeleri 
-Dönüştürme eylem ayrıca, maps destekler veya başvuru içeren dış derleme dönüştürür. Bu özellik çağrılarından özel .NET kodu için doğrudan XSLT eşlemeleri sağlar. Derleme eşlemelerinin kullanmak için Önkoşullar aşağıda verilmiştir.
+### <a name="reference-assembly-or-custom-code-from-maps"></a>Başvuru bütünleştirilmiş kodu veya özel kod eşlemeleri 
+Dönüştürme eylem ayrıca haritalarını destekler veya başvuru içeren dış bütünleştirilmiş dönüştürür. Bu özellik, XSLT eşlemeleri doğrudan çağrıları özel .NET kodu için sağlar. Maps'a derleme kullanmak için Önkoşullar aşağıda verilmiştir.
 
-* Harita ve olmasını harita gereksinimlerini başvurulan derleme [tümleştirme hesabına karşıya](./logic-apps-enterprise-integration-maps.md). 
+* Harita ve harita gereksinimlerini olmasını başvurduğu derlemenin [tümleştirme hesabına yüklediniz](./logic-apps-enterprise-integration-maps.md). 
 
   > [!NOTE]
-  > Harita ve derleme belirli bir sırada yüklenecek gereklidir. Bütünleştirilmiş koduna başvuruyor harita karşıya yüklemeden önce derleme yüklemeniz gerekir.
+  > Belirli bir sırada yüklenecek Haritası ve derleme gereklidir. Derlemenin başvurduğu harita karşıya yüklemeden önce derlemeyi yüklemeniz gerekir.
 
-* Harita Ayrıca bu öznitelikler ve derleme koduna çağrı içeren bir CDATA bölümü olması gerekir:
+* Harita, bu öznitelikler ve derleme koduna çağrı içeren CDATA bölümü de sahip olmanız gerekir:
 
-    * **ad** özel derleme adı.
-    * **ad alanı** özel kod içerir, derlemesindeki ad alanıdır.
+    * **adı** özel bütünleştirilmiş kod adı.
+    * **ad alanı** özel kodunu içeren bütünleştirilmiş kodunuzda ad alanındadır.
 
-  Bu örnek, "XslUtilitiesLib" ve çağrıları adlı bir derlemeye başvuran bir harita gösterir `circumreference` derlemesinden yöntemi.
+  Bu örnek, çağrı "XslUtilitiesLib" adlı bir derlemeye başvuran bir harita gösterir `circumreference` derlemesinden yöntemi.
 
   ````xml
   <?xml version="1.0" encoding="UTF-8"?>
@@ -116,8 +112,8 @@ Dönüştürme eylem ayrıca, maps destekler veya başvuru içeren dış derleme
   ````
 
 
-### <a name="byte-order-mark"></a>Unicode bayt sırası işareti
-Varsayılan olarak, dönüştürme yanıttan bayt sırası işareti (BOM) ile başlar. Bu işlevsellik yalnızca kod görünümü Düzenleyicisi'nde çalışırken erişebilir. Bu işlev devre dışı bırakmak için belirtmek `disableByteOrderMark` için `transformOptions` özelliği:
+### <a name="byte-order-mark"></a>Bayt sırası işareti
+Varsayılan olarak, dönüştürme yanıttan bayt sırası işareti (BOM) ile başlar. Kod Görünümü düzenleyicide çalışırken bu işlevselliğe erişebilirsiniz. Bu işlev devre dışı bırakmak için belirtin `disableByteOrderMark` için `transformOptions` özelliği:
 
 ````json
 "Transform_XML": {

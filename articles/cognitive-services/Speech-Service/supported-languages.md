@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 2a768846958f73ace22971f2f2ca8f886c9df252
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 7e2634db33d760207e9190b9955bd1f2ead179be
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282165"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123163"
 ---
 # <a name="supported-languages-for-speech-service"></a>Konuşma hizmeti için desteklenen diller
 
@@ -27,7 +27,7 @@ Microsoft konuşma tanıma API'si aşağıdaki dilleri desteklemektedir.
   Kod | Dil | Akustik Uyarlama | Dil uyarlama | Söyleniş uyarlama
  ------|----------|---------------------|---------------------|-------------------------
  ar EG | Arapça (Mısır) modern standart | Hayır | Evet | Hayır
- it-IT | İtalyanca (İtalya) | Hayır | Evet | Hayır 
+ İt-IT | İtalyanca (İtalya) | Hayır | Evet | Hayır 
  de-DE | Almanca (Almanya) | Hayır | Evet | Evet
  ja-JP | Japonca (Japonya) | Hayır | Evet | Hayır
  tr-TR | İngilizce (ABD) | Evet | Evet | Evet
@@ -90,7 +90,7 @@ yüksek giriş | Hintçe (Hindistan) | Kadın | "Microsoft Server Konuşma metin
 hr-HR | Hırvatça | Erkek | "Microsoft Server Konuşma metin okuma ses (hr-HR, Matej)"
 hu-HU | Macarca | Erkek | "Microsoft Server Konuşma metin konuşma ses (hu-HU, Szabolcs)"
 ID | Endonezya dili| Erkek | "Microsoft Server Konuşma metin konuşma ses (-ID, Andika)"
-it-IT | İtalyanca |Erkek | "Microsoft Server Konuşma metin konuşma ses (Cosimo, it-IT, Apollo)"
+İt-IT | İtalyanca |Erkek | "Microsoft Server Konuşma metin konuşma ses (Cosimo, it-IT, Apollo)"
 | | |Kadın | "Microsoft Server Konuşma metin konuşma ses (it-IT, LuciaRUS)"
 ja-JP | Japonca |Kadın | "Microsoft Server Konuşma metin okuma ses (ja-JP, Ayumi, Apollo)"
 | | |Erkek | "Microsoft Server Konuşma metin okuma ses (ja-JP, Ichiro, Apollo)"
@@ -98,7 +98,7 @@ ja-JP | Japonca |Kadın | "Microsoft Server Konuşma metin okuma ses (ja-JP, Ayu
 ko-KR | Kore dili |Kadın | "Microsoft Server Konuşma metin konuşma ses (ko-KR, HeamiRUS)"
 ms-MY | Malay dili|Erkek | "Microsoft Server Konuşma metin okuma ses (ms MY, Rizwan)"
 NB-yok | Norveççe|Kadın | "Microsoft Server Konuşma metin okuma ses (nb-yok, HuldaRUS)"
-NL-NL | Felemenkçe|Kadın | "Microsoft Server Konuşma metin okuma ses (nl-NL, HannaRUS)"
+NL-NL | Hollanda dili|Kadın | "Microsoft Server Konuşma metin okuma ses (nl-NL, HannaRUS)"
 pl-PL | Lehçe|Kadın | "Microsoft Server Konuşma metin okuma ses (pl-PL, PaulinaRUS)"
 pt-BR | Portekizce (Brezilya)|Kadın | "Microsoft Server Konuşma metin okuma ses (pt-BR, HeloisaRUS)"
 | | |Erkek | "Microsoft Server Konuşma metin okuma ses (pt-BR, Daniel, Apollo)"
@@ -143,13 +143,13 @@ Dillerin listesini ya da programlı bir şekilde alabilirsiniz veya REST API'nin
 | Arapça (Modern standart)      | `ar` |
 | Çince (Mandarin)      | `zh` |
 | Türkçe      | `en` |
-| Fransızca       | `fr` |
-| Almanca       | `de` |
+| Fransızca      | `fr` |
+| Almanca      | `de` |
 | İtalyanca      | `it` |
 | Japonca      | `jp` |
 | Portekizce (Brezilya)     | `pt` |
 | Rusça      | `ru` |
-| İspanyolca       |  `es` |
+| İspanyolca      |  `es` |
 
 ### <a name="text-languages"></a>Metin dilleri
 
@@ -167,14 +167,14 @@ Dillerin listesini ya da programlı bir şekilde alabilirsiniz veya REST API'nin
 | Hırvatça      | `hr`          |
 | Çekçe      | `cs`          |
 | Danca      | `da`          |
-| Felemenkçe      | `nl`          |
+| Hollanda dili      | `nl`          |
 | Türkçe      | `en`          |
 | Estonca      | `et`          |
 | Fiji Adaları dili      | `fj`          |
 | Filipin dili      | `fil`          |
 | Fince      | `fi`          |
-| Fransızca       | `fr`          |
-| Almanca       | `de`          |
+| Fransızca      | `fr`          |
+| Almanca      | `de`          |
 | Yunanca      | `el`          |
 | Haiti Kreyolu      | `ht`          |
 | İbranice      | `he`          |
@@ -205,7 +205,7 @@ Dillerin listesini ya da programlı bir şekilde alabilirsiniz veya REST API'nin
 | Sırpça (Latin)      | `sr-Latn`          |
 | Slovakça     | `sk`          |
 | Slovence      | `sl`          |
-| İspanyolca       | `es`          |
+| İspanyolca      | `es`          |
 | İsveç dili      | `sv`          |
 | Tahitian      | `ty`          |
 | Tamil dili      | `ta`          |

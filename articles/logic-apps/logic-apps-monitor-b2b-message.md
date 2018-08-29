@@ -1,132 +1,127 @@
 ---
-title: B2B hareketlerini izlemek ve günlük - Azure Logic Apps ayarlama | Microsoft Docs
-description: İzleyici AS2, X 12 ve EDIFACT iletileri tümleştirme hesabınız için tanılama günlüğünü Başlat
-author: padmavc
-manager: jeconnoc
-editor: ''
+title: B2B iletilerini izleme ve günlük kaydını - Azure Logic Apps ayarlama | Microsoft Docs
+description: AS2, X 12 ve EDIFACT iletileri izleyin. Azure Logic Apps, tümleştirme hesabı için tanılama günlüğünü ayarlayın.
 services: logic-apps
-documentationcenter: ''
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
+ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 07/21/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 399c7b91949a854f3a152e9a3788d9163c565934
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: decc0271ae0e7c359f72648d7c4d0076892285da
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299326"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125184"
 ---
-# <a name="monitor-and-set-up-diagnostics-logging-for-b2b-communication-in-integration-accounts"></a>İzleme ve tanılama günlüklerini tümleştirme hesaplarındaki B2B iletişimi için ayarlayın
+# <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>B2B iletilerini izleme ve Azure Logic apps'te tümleştirme hesapları için günlük kaydını ayarlama
 
-İkisi arasındaki B2B iletişim kurduktan sonra iş süreçlerini veya tümleştirme hesabınızı aracılığıyla uygulamaları çalıştıran bu varlıkların birbirleriyle iletileri değiştirebilir. Bu iletişim beklendiği gibi çalıştığından, AS2, X12, izleme işlevini ayarlama ve tümleştirme hesabınız üzerinden için tanılama günlüğünü birlikte EDIFACT iletileri onaylamak için [Azure günlük analizi](../log-analytics/log-analytics-overview.md) hizmet. Bu hizmet, bulut izler ve şirket içi ortamları, bunların kullanılabilirlik ve performans, tutmanıza yardımcı olur ve ayrıca çalışma zamanı Ayrıntılar ve daha zengin hata ayıklama olaylarını toplar. Ayrıca [diğer hizmetlerle tanılama verilerinizi kullanma](#extend-diagnostic-data)Azure Storage ve Azure Event Hubs gibi.
+İkisi arasındaki B2B iletişim kurduktan sonra iş süreçlerine veya tümleştirme hesabınız üzerinden uygulamaları çalıştıran bu varlıkların birbirleriyle iletiler gönderip alabilir. Bu iletişim beklendiği gibi çalıştığından, AS2, X12, izlemeyi ayarlayabilirsiniz ve tümleştirme hesabınız üzerinden için tanılama günlüğünü birlikte EDIFACT iletileri onaylamak için [Azure Log Analytics](../log-analytics/log-analytics-overview.md) hizmeti. Bu hizmet, bulut izler ve şirket içi Ortamlarınızdaki, kullanılabilirliği ve performansı, tutmanıza yardımcı olur ve ayrıca çalışma zamanı Ayrıntılar ve daha zengin hata ayıklama olaylarını toplar. Ayrıca [tanılama verilerinizi diğer hizmetlerle kullanma](#extend-diagnostic-data), Azure depolama ve Azure Event Hubs gibi.
 
 ## <a name="requirements"></a>Gereksinimler
 
-* Tanılama Günlüğü ile ayarlanmış bir mantıksal uygulama. Bilgi [bu mantıksal uygulama için günlük kaydını ayarlamak nasıl](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+* Tanılama günlük kaydı ile ayarlanmış bir mantıksal uygulama. Bilgi [nasıl ayarlanacağı, mantıksal uygulama için günlüğe kaydetmeyi](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
   > [!NOTE]
-  > Bu gereksinim karşılamanızın sonra günlük analizi çalışma olması gerekir. Tümleştirme hesabınız için günlüğü ayarladığınızda, aynı günlük analizi çalışma alanı kullanmanız gerekir. Günlük analizi çalışma alanı yoksa, bilgi [günlük analizi çalışma alanı oluşturmak nasıl](../log-analytics/log-analytics-quick-create-workspace.md).
+  > Bu gereksinim karşılamanızın sonra bir Log Analytics çalışma alanı olmalıdır. Günlük tümleştirme hesabınız için ayarlarken aynı Log Analytics çalışma alanı kullanmanız gerekir. Bir Log Analytics çalışma alanınız yoksa, bilgi [bir Log Analytics çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md).
 
-* Mantıksal uygulamanızı bağlantılı bir tümleştirme hesabı. Bilgi [mantıksal uygulamanızı bağlantı tümleştirme hesap oluşturmak nasıl](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
+* Mantıksal uygulamanıza bağlı olan tümleştirme hesabı. Bilgi [mantıksal uygulamanızın bağlantısını içeren bir tümleştirme hesabı oluşturma](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
-## <a name="turn-on-diagnostics-logging-for-your-integration-account"></a>Tanılama tümleştirme hesabınızda oturum açın
+## <a name="turn-on-diagnostics-logging-for-your-integration-account"></a>Tanılama, tümleştirme hesabı için oturum açın
 
-Doğrudan tümleştirme hesabınızdan ya da günlük özelliğini açın veya [Azure İzleyicisi hizmeti aracılığıyla](#azure-monitor-service). Azure İzleyicisi temel altyapı düzeyinde verilerle izleme sağlar. Daha fazla bilgi edinmek [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md).
+Doğrudan tümleştirme hesabınızdan ya da oturum açın veya [Azure İzleyici hizmeti aracılığıyla](#azure-monitor-service). Azure İzleyici, temel altyapı düzeyinde veriler ile izleme sağlar. Daha fazla bilgi edinin [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md).
 
-### <a name="turn-on-diagnostics-logging-directly-from-your-integration-account"></a>Tanılama tümleştirme hesabınızdan doğrudan oturum aç
+### <a name="turn-on-diagnostics-logging-directly-from-your-integration-account"></a>Tanılama doğrudan tümleştirme hesabından oturum açın
 
-1. İçinde [Azure portal](https://portal.azure.com), bulma ve tümleştirme hesabınızı seçin. Altında **izleme**, seçin **tanılama günlükleri** aşağıda gösterildiği gibi:
+1. İçinde [Azure portalında](https://portal.azure.com)bulup tümleştirme hesabınızı seçin. Altında **izleme**, seçin **tanılama günlükleri** burada gösterildiği gibi:
 
-   ![Bulma ve tümleştirme hesabınızı seçin, "Tanılama günlükleri"](media/logic-apps-monitor-b2b-message/integration-account-diagnostics.png)
+   ![Bul ve tümleştirme hesabınızı seçin, "Tanılama günlükleri" seçin](media/logic-apps-monitor-b2b-message/integration-account-diagnostics.png)
 
-2. Tümleştirme hesabınızı seçtikten sonra aşağıdaki değerleri otomatik olarak seçilir. Bu değerler doğru olup olmadığını seçin **tanılamayı açın**. Aksi takdirde, istediğiniz değerleri seçin:
+2. Tümleştirme hesabı'nı seçtikten sonra aşağıdaki değerleri otomatik olarak seçilir. Bu değerler doğruysa seçin **tanılamayı Aç**. Aksi takdirde, istediğiniz değerleri seçin:
 
    1. Altında **abonelik**, tümleştirme hesabınızla kullandığınız Azure aboneliğini seçin.
-   2. Altında **kaynak grubu**, tümleştirme hesabınızla kullandığınız kaynak grubu seçin.
+   2. Altında **kaynak grubu**, tümleştirme hesabınızla kullandığınız kaynak grubunu seçin.
    3. Altında **kaynak türü**seçin **tümleştirme hesapları**. 
    4. Altında **kaynak**, tümleştirme hesabınızı seçin. 
-   5. Seçin **tanılamayı açın**.
+   5. Seçin **tanılamayı Aç**.
 
-   ![Tanılama tümleştirme hesabınız için ayarlama](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
+   ![Tümleştirme hesabı için tanılamayı ayarlayın](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
-3. Altında **tanılama ayarları**ve ardından **durum**, seçin **üzerinde**.
+3. Altında **tanılama ayarları**, ardından **durumu**, seçin **üzerinde**.
 
-   ![Azure tanılamayı açın](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
+   ![Azure tanılamayı Aç](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
-4. Şimdi gösterildiği gibi günlük için kullanılacak veri ve günlük analizi çalışma alanı seçin:
+4. Artık gösterildiği gibi günlük için kullanılacak veri ve Log Analytics çalışma alanı seçin:
 
-   1. Seçin **için günlük analizi Gönder**. 
-   2. Altında **günlük analizi**, seçin **yapılandırma**. 
-   3. Altında **OMS çalışma alanları**, günlük için kullanılacak günlük analizi çalışma alanını seçin.
+   1. Seçin **Log Analytics'e gönderme**. 
+   2. Altında **Log Analytics**, seçin **yapılandırma**. 
+   3. Altında **OMS çalışma alanları**, günlüğe kaydetme için Log Analytics çalışma alanı seçin.
    4. Altında **günlük**seçin **IntegrationAccountTrackingEvents** kategorisi.
    5. **Kaydet**'i seçin.
 
-   ![Tanılama verilerini günlüğe gönderebilmek için günlük analizi ayarlayın](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
+   ![Tanılama verilerini günlüğe gönderebilmek için Log Analytics'i ayarlama](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-5. Şimdi [B2B iletilerinizi günlük analizi için izlemeyi ayarlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+5. Artık [için Log analytics'te B2B iletilerinizi izleme ayarlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 <a name="azure-monitor-service"></a>
 
-### <a name="turn-on-diagnostics-logging-through-azure-monitor"></a>Tanılama günlükleri Azure İzleyicisi üzerinden Aç
+### <a name="turn-on-diagnostics-logging-through-azure-monitor"></a>Azure İzleyici aracılığıyla tanılama günlüğünü açma
 
-1. İçinde [Azure portal](https://portal.azure.com), ana Azure menüsünde, **İzleyici**, **tanılama günlükleri**. Ardından aşağıda gösterildiği gibi tümleştirme hesabınızı seçin:
+1. İçinde [Azure portalında](https://portal.azure.com), ana Azure menüsünde **İzleyici**, **tanılama günlükleri**. Ardından burada gösterildiği gibi tümleştirme hesabı seçin:
 
-   !["İzleme", "Tanılama günlükleri" seçin tümleştirme hesabınızı seçin](media/logic-apps-monitor-b2b-message/monitor-service-diagnostics-logs.png)
+   !["Tanılama günlükleri" seçin "İzle" tümleştirme hesabınızı seçin](media/logic-apps-monitor-b2b-message/monitor-service-diagnostics-logs.png)
 
-2. Tümleştirme hesabınızı seçtikten sonra aşağıdaki değerleri otomatik olarak seçilir. Bu değerler doğru olup olmadığını seçin **tanılamayı açın**. Aksi takdirde, istediğiniz değerleri seçin:
+2. Tümleştirme hesabı'nı seçtikten sonra aşağıdaki değerleri otomatik olarak seçilir. Bu değerler doğruysa seçin **tanılamayı Aç**. Aksi takdirde, istediğiniz değerleri seçin:
 
    1. Altında **abonelik**, tümleştirme hesabınızla kullandığınız Azure aboneliğini seçin.
-   2. Altında **kaynak grubu**, tümleştirme hesabınızla kullandığınız kaynak grubu seçin.
+   2. Altında **kaynak grubu**, tümleştirme hesabınızla kullandığınız kaynak grubunu seçin.
    3. Altında **kaynak türü**seçin **tümleştirme hesapları**.
    4. Altında **kaynak**, tümleştirme hesabınızı seçin.
-   5. Seçin **tanılamayı açın**.
+   5. Seçin **tanılamayı Aç**.
 
-   ![Tanılama tümleştirme hesabınız için ayarlama](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
+   ![Tümleştirme hesabı için tanılamayı ayarlayın](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
 3. Altında **tanılama ayarları**, seçin **üzerinde**.
 
-   ![Azure tanılamayı açın](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
+   ![Azure tanılamayı Aç](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
-4. Şimdi gösterildiği gibi günlüğü için günlük analizi çalışma alanı ve olay kategorisi seçin:
+4. Artık gösterildiği günlüğe kaydetme için Log Analytics çalışma alanı ve olay kategorisi seçin:
 
-   1. Seçin **için günlük analizi Gönder**. 
-   2. Altında **günlük analizi**, seçin **yapılandırma**. 
-   3. Altında **OMS çalışma alanları**, günlük için kullanılacak günlük analizi çalışma alanını seçin.
+   1. Seçin **Log Analytics'e gönderme**. 
+   2. Altında **Log Analytics**, seçin **yapılandırma**. 
+   3. Altında **OMS çalışma alanları**, günlüğe kaydetme için Log Analytics çalışma alanı seçin.
    4. Altında **günlük**seçin **IntegrationAccountTrackingEvents** kategorisi.
    5. İşiniz bittiğinde **Kaydet**’i seçin.
 
-   ![Tanılama verilerini günlüğe gönderebilmek için günlük analizi ayarlayın](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
+   ![Tanılama verilerini günlüğe gönderebilmek için Log Analytics'i ayarlama](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-5. Şimdi [B2B iletilerinizi günlük analizi için izlemeyi ayarlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+5. Artık [için Log analytics'te B2B iletilerinizi izleme ayarlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
-## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>Nasıl ve tanılama verilerini diğer hizmetleri ile kullandığınız genişletme
+## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>Nasıl ve tanılama verilerini diğer hizmetleri ile kullandığınız genişletin
 
-Azure günlük analizi ile birlikte nasıl mantığı uygulamanızın tanılama verilerini diğer Azure hizmetleriyle örneğin kullandığınız genişletebilirsiniz: 
+Azure Log Analytics ile birlikte mantıksal uygulamanızın tanılama verilerini diğer Azure hizmetleriyle örneğin kullanma genişletebilirsiniz: 
 
-* [Azure depolama alanında Azure tanılama günlüklerini arşiv](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
-* [Azure Event hubs'a akış Azure tanılama günlükleri](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
+* [Azure depolama alanında Azure tanılama günlüklerini arşivleme](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
+* [Azure Event hubs'a Stream Azure tanılama günlükleri](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
-Telemetri ve diğer hizmetlerden analizi kullanarak izleme Get gerçek zamanlı ister sonra şunları yapabilirsiniz [Azure akış analizi](../stream-analytics/stream-analytics-introduction.md) ve [Power BI](../log-analytics/log-analytics-powerbi.md). Örneğin:
+İzleme telemetri ve diğer hizmetlerden analytics kullanarak gerçek zamanlı Get ister sonra yapabilecekleriniz [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) ve [Power BI](../log-analytics/log-analytics-powerbi.md). Örneğin:
 
-* [Event Hubs akış verilerini akış analizi](../stream-analytics/stream-analytics-define-inputs.md)
-* [Akış Analizi ile akış verilerini çözümleme ve gerçek zamanlı analiz Pano Power BI'da oluşturma](../stream-analytics/stream-analytics-power-bi-dashboard.md)
+* [Event Hubs verilerini Stream Stream analytics'e](../stream-analytics/stream-analytics-define-inputs.md)
+* [Stream Analytics ile akış verilerini analiz etme ve Power BI'da gerçek zamanlı analiz Pano oluşturma](../stream-analytics/stream-analytics-power-bi-dashboard.md)
 
-Ayarlamak istediğiniz seçenekleri bağlı olarak, olduğundan emin olun, ilk [bir Azure depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md) veya [Azure olay hub'ı oluşturma](../event-hubs/event-hubs-create.md). Ardından Tanılama verileri gönder istediğiniz seçenekleri seçin:
+Ayarlamak istediğiniz seçenekleri bağlı olarak, emin olun, ilk [bir Azure depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md) veya [bir Azure olay hub'ı oluşturma](../event-hubs/event-hubs-create.md). Ardından, Tanılama verileri göndermek istediğiniz seçenekleri seçin:
 
-![Verileri Azure depolama hesabı veya olay hub'ına Gönder](./media/logic-apps-monitor-b2b-message/storage-account-event-hubs.png)
+![Azure depolama hesabına veya olay hub'ına veri Gönder](./media/logic-apps-monitor-b2b-message/storage-account-event-hubs.png)
 
 > [!NOTE]
 > Yalnızca bir depolama hesabı kullanmayı seçtiğinizde bekletme dönemleri uygulamak.
 
 ## <a name="supported-tracking-schemas"></a>Desteklenen izleme şemaları
 
-Azure bunlar tüm özel türü dışında şemaları sabit şema türleri, izleme destekler.
+Azure tüm şemalar dışında özel türü sabit şema türü izlemeyi destekler.
 
 * [AS2 izleme şeması](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [X12 izleme şeması](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
@@ -134,6 +129,6 @@ Azure bunlar tüm özel türü dışında şemaları sabit şema türleri, izlem
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Günlük analizi B2B iletilerini izlemek](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "OMS izleme B2B iletileri")
+* [Log analytics'te B2B iletilerini izleme](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "OMS izleme B2B iletileri")
 * [Enterprise Integration Pack hakkında daha fazla bilgi](../logic-apps/logic-apps-enterprise-integration-overview.md "Enterprise Integration Pack hakkında bilgi edinin")
 

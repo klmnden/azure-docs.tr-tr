@@ -1,153 +1,151 @@
 ---
-title: 'Logic Apps B2B listesi hatalar ve çözümleri: Azure App Service | Microsoft Docs'
-description: Logic Apps B2B listesi hatalar ve çözümleri
+title: Hatalar ve çözümleri B2B senaryoları - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps B2B senaryoları için hatalar ve çözümleri bulun
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/02/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 8503792d57dd7ed64434d5a306afce850ced77db
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 11fbec81e88eec6c7daa9136eb5421387b79d71c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298347"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124343"
 ---
-# <a name="logic-apps-b2b-list-of-errors-and-solutions"></a>Logic Apps B2B listesi hatalar ve çözümleri  
-Bu makalede mantığını uygulamaları B2B senaryolarda oluşabilir ve bu hataların düzeltilmesi için uygun eylemleri öneren hatalarında sorun giderme yardımcı olur.
+# <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>B2B hatalar ve çözümleri için Azure Logic Apps
 
+Bu makalede Logic Apps B2B senaryolarda oluşabilir ve bu hataları düzeltmek için uygun eylemleri öneren hata gidermenize yardımcı olur.
 
-## <a name="agreement-resolution"></a>Anlaşma çözümleme
+## <a name="agreement-resolution"></a>Sözleşme çözümleme
 
-### <a name="no-agreement-found"></a>* Hiçbir sözleşmesi bulunamadı 
+### <a name="no-agreement-found"></a>Sözleşme bulunamadı 
 
 |   |   |  
 |---|---|
-| Hata açıklaması | Anlaşma çözümleme parametrelerle bulunan hiçbir Sözleşmesi|    
-| Kullanıcı eylemi | Üzerinde anlaşılan iş kimliklerle tümleştirme hesabına sözleşmesi eklenmesi gerekir.</br> İş kimlikleri için giriş iletisi kimlikleri eşleşmelidir|  
+| Hata açıklaması | Sözleşme Sözleşme çözümleme parametrelerle bulunamadı. | 
+| Bir kullanıcı eylemi | Üzerinde anlaşılan iş kimlikleri ile tümleştirme hesabı sözleşmesi eklenmesi gerekir. </br>İş kimlikleri giriş iletisi kimlikleri eşleşmesi gerekir. |  
 |   |   |
 
-### <a name="-no-agreement-found-with-identities"></a>* Kimliklerle bulunan hiçbir Sözleşmesi
+### <a name="no-agreement-found-with-identities"></a>Sözleşme ile kimlikleri bulunamadı
 
 |   |   | 
 |---|---|
-| Hata açıklaması | Kimliklerle bulunan hiçbir sözleşmesi: 'AS2Identity':: 'Partner1' ve 'AS2Identity':: 'Partner3'| 
-| Kullanıcı eylemi | Geçersiz AS2-gelen veya AS2-anlaşma için için yapılandırılmış. </br> Doğru AS2 ileti AS2-gelen veya AS2-üstbilgileri veya AS2 AS2 kimlikleriyle eşleşen anlaşma ileti sözleşmesi yapılandırmalarla üstbilgileri |
+| Hata açıklaması | Sözleşme ile kimlikleri bulunamadı: 'AS2Identity':: 'Partner1' ve 'AS2Identity':: 'Partner3' | 
+| Bir kullanıcı eylemi | Geçersiz AS2-gelen veya AS2-anlaşma için yapılandırılmış. </br>AS2 iletisinin düzeltin "AS2-gelen" veya "AS2-için" üstbilgileri veya anlaşma yapılandırmalarla AS2 iletisi üst bilgilerinde AS2 kimlikleri eşleştirmek için sözleşme. |
 |   |   |     
 
 ## <a name="as2"></a>AS2
 
-### <a name="-missing-as2-message-headers"></a>* AS2 ileti üstbilgilerini eksik  
+### <a name="missing-as2-message-headers"></a>AS2 ileti üstbilgileri eksik  
 
 |   |   |  
 |---|---|
-| Hata açıklaması| Geçersiz AS2 üstbilgileri. Aşağıdakilerden birini ' AS2-için ' veya ' AS2-gelen ' üstbilgileri boş| 
-| Kullanıcı eylemi | AS2 içermeyen bir AS2 iletisi alındı-gelen veya AS2-için veya her iki üstbilgileri. </br> AS2 ileti AS2 denetleyin-gelen ve AS2-üstbilgileri ve doğru bunları sözleşmesi yapılandırmasını temel alarak |
+| Hata açıklaması | Geçersiz AS2 üstbilgileri. Biri "AS2-için" veya "AS2-gelen" üstbilgileri boştur. | 
+| Bir kullanıcı eylemi | AS2 içermeyen bir AS2 iletisi alındı-gelen veya AS2-için veya her iki üstbilgi. </br> AS2 iletisinin AS2 denetleyin-gelen ve AS2-üst bilgiler ve doğru bunları sözleşmesi yapılandırmasına göre. |
 |  |  | 
 
-
-### <a name="-missing-as2-message-body-and-headers"></a>* Eksik AS2 ileti gövdesi ve üstbilgileri    
+### <a name="missing-as2-message-body-and-headers"></a>AS2 ileti gövdesi ve üst bilgileri eksik    
 
 |   |   |  
 |---|---|
-| Hata açıklaması| İstek içeriği null veya boş | 
-| Kullanıcı eylemi | İleti gövdesi içermeyen bir AS2 iletisi alındı |
+| Hata açıklaması | İstek içeriği null veya boş. | 
+| Bir kullanıcı eylemi | İleti gövdesi içermeyen bir AS2 iletisi alındı. |
 |  |  | 
 
-### <a name="-as2-message-decryption-failure"></a>* AS2 ileti şifre çözme hatası
+### <a name="as2-message-decryption-failure"></a>AS2 ileti şifre çözme hatası
 
 |   |   | 
 |---|---|
-| Hata açıklaması |  [işlenen hata: şifre çözme başarısız oldu] | 
-| Kullanıcı eylemi | Ekleme @base64ToBinary göndermeden önce AS2Message için ortağına 
-```java
-            "HTTP": {
-                "inputs": {
-                    "body": "@base64ToBinary(body('Encode_to_AS2_message')?['AS2Message']?['Content'])",
-                    "headers": "@body('Encode_to_AS2_message')?['AS2Message']?['OutboundHeaders']",
-                    "method": "POST",
-                    "uri": "xxxxx.xxx"
-                },
-                
+| Hata açıklaması |  [işlenen hata: şifre çözme başarısız] | 
+| Bir kullanıcı eylemi | Ekleme @base64ToBinary göndermeden önce AS2Message için iş ortağı için. |
+|||
+
+Örneğin:
+
+```json
+"HTTP": {
+   "inputs": {
+   "body": "@base64ToBinary(body('Encode_to_AS2_message')?['AS2Message']?['Content'])",
+   "headers": "@body('Encode_to_AS2_message')?['AS2Message']?['OutboundHeaders']",
+   "method": "POST",
+   "uri": "xxxxx.xxx"
+},
 ``` 
 
-### <a name="-mdn-decryption-failure"></a>* MDN şifre çözme hatası
+### <a name="mdn-decryption-failure"></a>MDN şifre çözme hatası
 
 |   |   | 
 |---|---|
-| Hata açıklaması |  [işlenen hata: şifre çözme başarısız oldu] | 
-| Kullanıcı eylemi | Ekleme @base64ToBinary göndermeden önce MDN için ortağına 
-```java
-            "Response": {
-                "inputs": {
-                    "body": "@base64ToBinary(body('Decode_AS2_message')?['OutgoingMDN']?['Content'])",
-                    "headers": "@body('Decode_AS2_message')?['OutgoingMDN']?['OutboundHeaders']",
-                    "statusCode": 200
-                },
-                
+| Hata açıklaması |  [işlenen hata: şifre çözme başarısız] | 
+| Bir kullanıcı eylemi | Ekleme @base64ToBinary göndermeden önce MDN için iş ortağı için. | 
+|||
+
+Örneğin:
+
+```json
+"Response": {
+   "inputs": {
+   "body": "@base64ToBinary(body('Decode_AS2_message')?['OutgoingMDN']?['Content'])",
+   "headers": "@body('Decode_AS2_message')?['OutgoingMDN']?['OutboundHeaders']",
+   "statusCode": 200
+},               
 ``` 
 
-### <a name="-missing-signing-certificate"></a>* Eksik imzalama sertifikası
+### <a name="missing-signing-certificate"></a>İmzalama sertifikası eksik
 
 |   |   |  
 |---|---|
-| Hata açıklaması| İmzalama sertifikası AS2 taraf için yapılandırılmadı. </br> AS2-gelen: partner1 AS2-için: partner2 | 
-| Kullanıcı eylemi | İmza için doğru sertifika ile AS2 sözleşmesi ayarlarını yapılandırma |
+| Hata açıklaması| AS2 tarafı için imzalama sertifikası yapılandırılmadı. </br>AS2-öğesinden: partner1 AS2-için: partner2 | 
+| Bir kullanıcı eylemi | AS2 anlaşması ayarları doğru imza sertifikası ile yapılandırın. |
 |  |  | 
 
 ## <a name="x12-and-edifact"></a>X12 ve EDIFACT
 
-### <a name="-leading-or-trailing-space-found"></a>* Baştaki veya sondaki boşlukları bulundu    
+### <a name="leading-or-trailing-space-found"></a>Başta veya sonda boşluk bulundu    
     
 |   |   | 
 |---|---|
-| Hata açıklaması | Ayrıştırma sırasında ile karşılaşıldı. EDIFACT işlem kümesi ' 123456 kimliği ile 'kimlikli ' 987654 (olmadan, Grup) değişim, gönderen Kimliği 'Partner1' içindeki', 'Partner2' alıcının kimliği şu hatalarla askıya: baştaki boşlukları ayırıcısı bulundu |
-| Kullanıcı eylemi | Baştaki ve sondaki boşlukları izin verecek şekilde yapılandırılması sözleşmesi ayarlar. </br> Baştaki ve sondaki boşluk izin vermek üzere anlaşma ayarlarını Düzenle |
+| Hata açıklaması | Ayrıştırma sırasında hatayla karşılaşıldı. EDIFACT işlem Kimliğine sahip ' 123456'987654 ' kimlikli değişimin (Grup içermeyen), 'Partner1' gönderen Kimliğine sahip ' kümesinin, 'Partner2' alıcı Kimliğine aşağıdaki hatalarla askıya alınıyor: <p>"Önde gelen sondaki ayırıcı bulundu" |
+| Bir kullanıcı eylemi | Baştaki ve sondaki boşlukları izin verecek şekilde yapılandırılması için anlaşma ayarlar. </br>Başında ve sonunda boşluk izin vermek için anlaşma ayarlarını düzenleyin. |
 |   |   |
 
 ![alan izin ver](./media/logic-apps-enterprise-integration-b2b-list-errors-solutions/leadingandtrailing.png)
 
-### <a name="-duplicate-check-has-enabled-in-the-agreement"></a>* Yinelenen onay anlaşmasında etkinleştirilmiş
+### <a name="duplicate-check-has-enabled-in-the-agreement"></a>Yinelenen onay anlaşmasında etkinleştirdi.
 
 |   |   | 
 |---|---| 
 | Hata açıklaması | Yinelenen Denetim Numarası |
-| Kullanıcı eylemi | Bu hata, yinelenen denetim numaraları alınan ileti olduğunu gösterir. </br> Denetim numarayı düzeltin ve iletiyi yeniden gönderin |
+| Bir kullanıcı eylemi | Bu hata, alınan ileti yinelenen denetim numaralarına sahip olduğunu gösterir. </br>Denetim numarası düzeltin ve iletisini yeniden gönder. |
 |   |   |
 
-### <a name="-missing-schema-in-the-agreement"></a>* Eksik şema Sözleşmesi
+### <a name="missing-schema-in-the-agreement"></a>Sözleşme'deki eksik şema
 
 |   |   | 
 |---|---| 
-| Hata açıklaması | Ayrıştırma sırasında ile karşılaşıldı. Kimliğine sahip '564220001' bulunan işlevsel grubunda Kimliği '56422', '000056422' Gönderen Kimliği ' 12345678 kimlikli değişim içinde', alıcı kimliği ' 87654321' işlem kümesi şu hatalarla askıya X12 "iletisi bir bilinmeyen belge türüne sahip bir ND anlaşmasında yapılandırılmış mevcut şemaları hiçbirine çözümlenmedi" |
-| Kullanıcı eylemi | Şema sözleşmesi yapılandırmak  |
+| Hata açıklaması | Ayrıştırma sırasında hatayla karşılaşıldı. X12 Kimliğine sahip '564220001' yer alan '56422', '000056422' gönderen kimliğine ' 12345678 kimlikli Değişimdeki', kimlikli işlevsel grubun 87654321 ' alıcı Kimliğine' işlem kümesi aşağıdaki hatalarla askıya: <p>"İleti bir belge türü bilinmiyor ve sözleşmede yapılandırılan mevcut şemalardan hiçbirine çözümlenmedi" |
+| Bir kullanıcı eylemi | Şema sözleşmesi ayarları yapılandırın.  |
 |   |   |
 
-### <a name="-incorrect-schema-in-the-agreement"></a>* Yanlış şema Sözleşmesi
+### <a name="incorrect-schema-in-the-agreement"></a>Yanlış şema Sözleşmesi
 
 |   |   | 
 |---|---| 
 | Hata açıklaması | İletinin belge türü bilinmiyor ve ileti, sözleşmede yapılandırılan mevcut şemalardan hiçbirine çözümlenmedi. |
-| Kullanıcı eylemi | Doğru şemayı sözleşmesi yapılandırmak  |
+| Bir kullanıcı eylemi | Doğru şemayı sözleşmesi ayarları yapılandırın. |
 |   |   |
 
 ## <a name="flat-file"></a>Düz dosya
 
-### <a name="-input-message-with-no-body"></a>* Hiçbir gövde ile giriş iletisi
+### <a name="input-message-with-no-body"></a>Hiçbir gövdesi olan giriş iletisi
 
 |   |   | 
 |---|---|
-| Hata açıklaması | InvalidTemplate. İşlem şablonu dili '1' satır ve sütun '1902' eylemi 'Flat_File_Decoding' girişleri ifadelerinde alınamıyor: ' özelliği 'content' bekler bir değer ancak taşınmadığını null gerekli. Yol ''.'. |
-| Kullanıcı eylemi | Bu hata, giriş iletisi bir gövdesi içermiyor belirtir. |
+| Hata açıklaması | InvalidTemplate. Satır '1', sütun '1902', eylem 'Flat_File_Decoding' girişlerinde işlem şablon dili ifadeleri alınamıyor: ' gerekli 'content' özelliği, bir değer alındı null bekliyor. Yol ''.'. |
+| Bir kullanıcı eylemi | Giriş iletisi gövdesi içermiyor bu hata gösterir. |
 |   |   | 
 
-## <a name="learn-more"></a>Daha fazla bilgi edinin
-[Enterprise Integration Pack hakkında daha fazla bilgi edinin](logic-apps-enterprise-integration-overview.md)

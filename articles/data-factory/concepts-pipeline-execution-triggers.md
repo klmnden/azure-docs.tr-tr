@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 4ac0f27480bbddf28b83af05e4b7b89ca6766871
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 8dfc2448861ca9b376246ac42f7563e44422d6de
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093787"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122442"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory'de işlem hattı çalıştırma ve tetikleyiciler
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -324,7 +324,7 @@ Atlayan pencere tetikleyicileri hakkında daha fazla bilgi ve örnekler için bk
 
 ## <a name="event-based-trigger"></a>Olay tabanlı tetikleyici
 
-Olay tabanlı tetikleyiciler Azure Blob Depolama'da bir dosyanın ulaşması veya bir dosyanın silinmesi gibi olaylarda işlem hatları çalıştırır.
+Bir olay-tabanlı tetikleyicisi işlem hatlarını bir dosya varış veya Azure Blob depolama alanındaki bir dosya silme gibi bir olaya yanıt olarak çalıştırır.
 
 Olay tabanlı tetikleyiciler hakkında daha fazla bilgi için bkz. [Bir olaya yanıt olarak işlem hattı çalıştıran bir tetikleyici oluşturma](how-to-create-event-trigger.md).
 

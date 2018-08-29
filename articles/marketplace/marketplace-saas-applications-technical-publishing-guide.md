@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: 69f11c77d01f546aecdcb5f0560f6f89483ac204
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f1a6825cdfab2375f1a6f1858ef14684d374dae2
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056411"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123491"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS uygulamaları sunma yayımlama Kılavuzu
 
@@ -41,7 +41,7 @@ SaaS uygulamalarını hem Azure Vitrinler geçerli kullanılabilir seçenekler a
 | --- | --- | --- |  
 | **Bize Ulaşın** | Evet | Hayır |  
 | **Power BI / Dynamics** | Evet | Evet (Azure AD tümleştirmesi) |  
-| **SaaS uygulamaları**| Evet | Evet (Azure AD tümleştirmesi) |     
+| **SaaS Uygulamaları**| Evet | Evet (Azure AD tümleştirmesi) |     
 
 ## <a name="saas-list"></a>SaaS listesi
 
@@ -97,7 +97,7 @@ Video öğreticiler için aşağıdakileri gözden geçirin:
 * [BT uzmanları içerik serisi için Microsoft Azure: Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 Ayrıca, Azure Active Directory Hizmet güncelleştirmeleri denetlemek için site sağlar   
-* [Azure AD hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=active-directory)|
+* [Azure AD hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=active-directory)
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Deneme için Azure Active Directory kullanma  
 

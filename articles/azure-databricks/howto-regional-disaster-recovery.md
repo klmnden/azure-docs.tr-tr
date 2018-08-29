@@ -8,24 +8,30 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.openlocfilehash: 46cb9eaee1d56a96801065ae0a349aa0b1be85e0
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.openlocfilehash: 671e18346651a40d7f286e984117ce0c9ae62364
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 08/28/2018
-ms.locfileid: "43115241"
+ms.locfileid: "43125978"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Azure Databricks kümeleri için bölgesel bir olağanüstü durum kurtarma
 
 Bu makalede, Azure Databricks kümeleri için kullanışlı bir olağanüstü durum kurtarma mimarisi ve bu tasarımı gerçekleştirmek için gereken adımları açıklar.
 
-## <a name="control-plan-architecture"></a>Denetim planı mimarisi
+## <a name="azure-databricks-overview"></a>Azure Databricks genel bakış
 
-Azure portalından, bir Azure Databricks çalışma alanı oluşturduğunuzda bir yüksek düzeyde bir [yönetilen Gereci](../managed-applications/overview.md) aboneliğinizdeki Azure bölgesi (örneğin, Batı ABD) seçerseniz, bir Azure kaynağı olarak dağıtılır. Bu gereç dağıtıldığı bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md) ile bir [ağ güvenlik grubu](../virtual-network/manage-network-security-group.md) ve aboneliğinizde kullanılabilen bir Azure depolama hesabı. Sanal ağ, Databricks çalışma alanına çevre düzey güvenlik sağlar ve ağ güvenlik grubu korunur. Çalışma alanı içinde çalışan ve sürücü VM türü ve Databricks çalışma zamanı sürümü sağlayarak Databricks kümesi oluşturabilirsiniz. Kalıcı verileri Azure Blob Depolama veya Azure Data Lake Store, depolama hesabınızdaki kullanılabilir. Küme oluşturulduktan sonra belirli bir kümeye ekleyerek dizüstü bilgisayarlar, REST API'ler, ODBC/JDBC uç noktaları aracılığıyla işleri çalıştırabilirsiniz.
+Azure Databricks hızlı, kolay ve işbirliğine dayalı Apache Spark tabanlı analiz hizmetidir. Büyük veri için bir işlem hattı, verileri (ham veya yapılandırılmış) Azure Data Factory aracılığıyla azure'da toplu olarak alınan veya kullanarak neredeyse gerçek zamanlı akış Kafka, olay hub'ı veya IOT hub'ı. Bu veri bölgesi için uzun vadeli bir veri gölü'nde, depolama, Azure Blob Depolama veya Azure Data Lake Storage kalıcı. Analytics akışınızın bir parçası verileri gibi birden çok veri kaynağından okumak için Azure Databricks'i kullanmayı [Azure Blob Depolama](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml) , veya [Azure SQL veri ambarı](../sql-data-warehouse/index.md) ve Spark ile çığır açan öngörülere dönüştürün.
+
+![Databricks işlem hattı](media/howto-regional-disaster-recovery/databricks-pipeline.png)
+
+## <a name="azure-databricks-architecture"></a>Azure Databricks mimarisi
+
+Azure portalından, bir Azure Databricks çalışma alanı oluşturduğunuzda bir yüksek düzeyde bir [yönetilen Gereci](../managed-applications/overview.md) seçtiğiniz Azure bölgesinde (örneğin, Batı ABD) Aboneliğinize bir Azure kaynağı olarak dağıtılır. Bu gereç dağıtıldığı bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md) ile bir [ağ güvenlik grubu](../virtual-network/manage-network-security-group.md) ve aboneliğinizde kullanılabilen bir Azure depolama hesabı. Sanal ağ, Databricks çalışma alanına çevre düzey güvenlik sağlar ve ağ güvenlik grubu korunur. Çalışma alanı içinde çalışan ve sürücü VM türü ve Databricks çalışma zamanı sürümü sağlayarak Databricks kümeler oluşturabilirsiniz. Kalıcı verileri Azure Blob Depolama veya Azure Data Lake Store, depolama hesabınızdaki kullanılabilir. Küme oluşturulduktan sonra belirli bir kümeye ekleyerek dizüstü bilgisayarlar, REST API'ler, ODBC/JDBC uç noktaları aracılığıyla işleri çalıştırabilirsiniz.
 
 Databricks denetim düzlemi yönetir ve Databricks çalışma ortamı izler. Herhangi bir yönetim işlem kümesi oluşturma gibi denetim düzlemi başlatılacak. Zamanlanmış işleri gibi tüm meta veriler, hataya dayanıklılık için coğrafi çoğaltma ile bir Azure veritabanı'nda depolanır.
 
-![Databricks denetim düzlemi mimarisi](media/howto-regional-disaster-recovery/databricks-control-plane.png)
+![Databricks mimarisi](media/howto-regional-disaster-recovery/databricks-architecture.png)
 
 Bu mimarinin avantajı kullanıcılar Azure Databricks hesabında herhangi bir depolama kaynağına bağlanabildiğinizi biridir. Önemli bir avantajı, her ikisi de (Azure Databricks) işlem ve depolama birbirinden bağımsız olarak ölçeklendirilebilir ' dir.
 
@@ -243,7 +249,7 @@ Kendi bölgesel bir olağanüstü durum kurtarma topolojisi oluşturmak için bu
 
 7. **Kitaplıklarının geçişini yapın**
 
-   Şu anda kitaplıkları bir çalışma alanından diğerine geçirmek için kolay bir yolu yoktur. Bu kitaplıklar, yeni çalışma alanınıza yeniden yükleyin. Bu nedenle bu adımı çoğunlukla el ile gerçekleştirilir. Bu bir bileşimini kullanarak otomatik hale getirmek mümkündür [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples) çalışma alanına özel kitaplıklarına yüklenecek ve [kitaplıkları CLI](https://github.com/databricks/databricks-cli#libraries-cli).
+   Şu anda kitaplıkları bir çalışma alanından diğerine geçirmek için kolay bir yolu yoktur. Bunun yerine, bu kitaplıkları yeni çalışma alanına el ile yeniden yükleyin. Bir bileşimini kullanarak otomatik hale getirmek mümkündür [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples) çalışma alanına özel kitaplıklarına yüklenecek ve [kitaplıkları CLI](https://github.com/databricks/databricks-cli#libraries-cli).
 
 8. **Azure blob depolama ve Azure Data Lake Store takar geçirme**
 
@@ -251,7 +257,7 @@ Kendi bölgesel bir olağanüstü durum kurtarma topolojisi oluşturmak için bu
 
 9. **Küme init betikleri geçirme**
 
-   Küme başlatma komut dosyalarını kullanarak yeni çalışma alanı eski geçirilebilir [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples). İlk olarak, gerekli komut dosyalarından kopyalamak "dbfs: / dat abricks/başlatma /..." yerel Masaüstü veya sanal makine. Ardından, bu komut yeni bir çalışma alanı aynı yola kopyalayın.
+   Küme başlatma komut dosyalarını kullanarak yeni çalışma alanı eski geçirilebilir [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples). İlk olarak, gerekli komut dosyalarından kopyalamak `dbfs:/dat abricks/init/..` yerel Masaüstü veya sanal makine. Ardından, bu komut yeni bir çalışma alanı aynı yola kopyalayın.
 
    ```bash
    // Primary to local

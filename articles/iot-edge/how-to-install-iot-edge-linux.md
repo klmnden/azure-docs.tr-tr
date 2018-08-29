@@ -7,29 +7,33 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 5cd12d4fab97f295cad1e0ea06112fc53e376b12
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 56223b2ed8e9d9b1a08f5313940920113a650bfe
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42057429"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128341"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Azure IOT Edge çalışma zamanı (x64) Linux'ta yükleme
 
-Azure IOT Edge çalışma zamanı, tüm IOT Edge cihazlarında dağıtılır. Üç bileşeni vardır. **IOT Edge güvenlik arka plan programı** sağlar ve sınır cihazı güvenlik standartlarını korur. Arka plan programı, her önyükleme başlar ve cihazın IOT Edge Aracısı'nı başlatarak bootstraps. **IOT Edge Aracısı** dağıtım ve IOT Edge hub'ı dahil olmak üzere sınır cihazı, modülleri izlenmesini kolaylaştırır. **IoT Edge hub'ı** IoT Edge cihazındaki modüller ve cihaz ile IoT Hub'ı arasındaki iletişimi yönetir.
+Azure IOT Edge çalışma zamanı, ne bir cihaz ile IOT Edge cihazı kapatır ' dir. Çalışma zamanı, cihaz olarak endüstriyel sunucusu olarak büyük veya küçük bir Raspberry Pi üzerinde dağıtılabilir. Bir cihaz IOT Edge çalışma zamanı ile yapılandırıldıktan sonra iş mantığı buluttan dağıttıktan başlayabilirsiniz. 
 
-Bu makalede x64 (Intel/AMD), Linux üzerinde Azure IOT Edge çalışma zamanı yükleme adımlarını listeler Edge cihazı.
+IOT Edge çalışma zamanı nasıl çalıştığını ve hangi bileşenler dahildir hakkında daha fazla bilgi için bkz: [Azure IOT Edge çalışma zamanı ve mimarisini anlama](iot-edge-runtime.md).
+
+Bu makalede x64 (Intel/AMD), Linux üzerinde Azure IOT Edge çalışma zamanı yükleme adımlarını listeler Edge cihazı. Başvurmak [Azure IOT Edge desteği](support.md#operating-systems) şu anda desteklenen AMD64 işletim sistemlerinin bir listesi için. 
 
 >[!NOTE]
 >Linux yazılım depoları paketlerinde her pakette yer alan lisans koşullarına tabidir (/ usr/paylaşım/doc/*paket adı*). Paket kullanarak önce lisans koşullarını okuyun. Bu koşulları kabul etmeniz, yükleme ve kullanım paket oluşturur. Lisans koşullarını kabul etmiyorsanız, paket kullanmayın.
 
 ## <a name="register-microsoft-key-and-software-repository-feed"></a>Microsoft anahtar ve yazılım deposu akışı kaydedin
 
+İşletim sisteminize bağlı olarak, cihazınız için IOT Edge çalışma zamanı yükleme hazırlamak için uygun komut dosyalarını seçin. 
+
 ### <a name="ubuntu-1604"></a>Ubuntu 16.04
 
-```cmd/sh
+```bash
 # Install repository configuration
 curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
 sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
@@ -41,7 +45,7 @@ sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 
 ### <a name="ubuntu-1804"></a>Ubuntu 18.04
 
-```cmd/sh
+```bash
 # Install repository configuration
 curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
 sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
@@ -78,24 +82,42 @@ sudo apt-get install moby-cli
 
 ## <a name="install-the-azure-iot-edge-security-daemon"></a>Azure IOT Edge güvenlik Daemon'ı yükleme
 
-Aşağıdaki komutları da standart sürümü yüklemeniz **iothsmlib** zaten mevcut değilse.
+**IOT Edge güvenlik arka plan programı** sağlar ve sınır cihazı güvenlik standartlarını korur. Arka plan programı, her önyükleme başlar ve cihazın IOT Edge çalışma zamanı geri kalanını başlatarak bootstraps. 
+
+Yükleme komutunu standart sürümü de yüklenir **iothsmlib** zaten mevcut değilse.
+
+Apt-get güncelleştirin.
 
 ```bash
 sudo apt-get update
+```
+
+Güvenlik daemon'ı yükleyin. Paket yüklü `/etc/iotedge/`.
+
+```bash
 sudo apt-get install iotedge
 ```
 
 ## <a name="configure-the-azure-iot-edge-security-daemon"></a>Azure IOT Edge güvenlik Daemon'ı yapılandırma
 
+Azure IOT hub'ı var olan bir cihaz kimliği ile fiziksel Cihazınızı bağlamak için IOT Edge çalışma zamanı yapılandırın. 
+
 Arka plan programı, yapılandırma dosyası kullanılarak yapılandırılabilir `/etc/iotedge/config.yaml`. Dosya yazma korumalı varsayılan olarak, düzenlemek için yükseltilmiş izinlere ihtiyaç duyabilirsiniz.
+
+Tek bir IOT Edge cihazı IOT Hub tarafından sağlanan cihaz bağlantı dizesini kullanarak el ile sağlanabilir. Veya, cihaz sağlama hizmeti sağlamak için birçok cihaz olduğunda kullanışlı olan cihazları otomatik olarak sağlamak için kullanabilirsiniz. Sağlama seçiminize bağlı olarak, uygun yükleme komut dosyasını seçin. 
+
+### <a name="option-1-manual-provisioning"></a>1. seçenek: El ile sağlama
+
+El ile cihaz sağlama için ile sağlamak gereken bir [cihaz bağlantı dizesini] [ lnk-dcs] IOT hub'ına yeni bir cihazı kaydederek oluşturabilirsiniz.
+
+
+Yapılandırma dosyasını açın. 
 
 ```bash
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Sınır cihazı kullanarak el ile yapılandırılabilir bir [cihaz bağlantı dizesini] [ lnk-dcs] veya [otomatik olarak cihaz sağlama hizmeti aracılığıyla] [ lnk-dps].
-
-* El ile yapılandırma için açıklama durumundan çıkarın **el ile** sağlama modu. Değerini güncelleştirin **device_connection_string** IOT Edge cihazınızdan bağlantı dizesiyle.
+Sağlama dosyasının bölümünü bulun ve açıklama durumundan çıkarın **el ile** sağlama modu. Değerini güncelleştirin **device_connection_string** IOT Edge cihazınızdan bağlantı dizesiyle.
 
    ```yaml
    provisioning:
@@ -109,7 +131,27 @@ Sınır cihazı kullanarak el ile yapılandırılabilir bir [cihaz bağlantı di
    #   registration_id: "{registration_id}"
    ```
 
-* Otomatik yapılandırma için açıklama durumundan çıkarın **dps** sağlama modu. Güncelleştirin **scope_id** ve **regıstratıon_ıd** IOT hub'ı DPS örneğiniz ile TPM ile IOT Edge cihazınız değerlerle. 
+Dosyayı kaydedin ve kapatın. 
+
+   `CTRL + X`, `Y`, `Enter`
+
+Yapılandırma dosyasında sağlama bilgilerini girdikten sonra Daemon programını yeniden başlatın:
+
+```bash
+sudo systemctl restart iotedge
+```
+
+### <a name="option-2-automatic-provisioning"></a>2. seçenek: Otomatik sağlama
+
+Otomatik olarak bir cihazı sağlamak için [cihaz sağlama hizmetini ayarlama ve cihaz kayıt Kimliğinizi almak] [ lnk-dps] (yu DPS). Otomatik sağlama, yalnızca Güvenilir Platform Modülü (TPM) yongasına sahip cihazlarla çalışır. Örneğin, Raspberry Pi cihazlar TPM ile varsayılan olarak gelmeyen. 
+
+Yapılandırma dosyasını açın. 
+
+```bash
+sudo nano /etc/iotedge/config.yaml
+```
+
+Sağlama dosyasının bölümünü bulun ve açıklama durumundan çıkarın **dps** sağlama modu. Güncelleştirin **scope_id** ve **regıstratıon_ıd** değerler, IOT Hub cihazı sağlama hizmeti ve IOT Edge Cihazınızı TPM ile. 
 
    ```yaml
    # provisioning:
@@ -123,14 +165,15 @@ Sınır cihazı kullanarak el ile yapılandırılabilir bir [cihaz bağlantı di
      registration_id: "{registration_id}"
    ```
 
-Yapılandırmada sağlama bilgilerini girdikten sonra Daemon programını yeniden başlatın:
+Dosyayı kaydedin ve kapatın. 
 
-```cmd/sh
+   `CTRL + X`, `Y`, `Enter`
+
+Yapılandırma dosyasında sağlama bilgilerini girdikten sonra Daemon programını yeniden başlatın:
+
+```bash
 sudo systemctl restart iotedge
 ```
-
->[!TIP]
->Çalıştırmak için yükseltilmiş ayrıcalıklarınız olması gerekir `iotedge` komutları. Makinenizde dışında ve geri IOT Edge çalışma zamanını yükledikten sonra ilk kez oturum açmalarını sağlama sonra izinlerinizi otomatik olarak güncelleştirilir. O zamana kadar kullanın **sudo** komutları önünde. 
 
 ## <a name="verify-successful-installation"></a>Yüklemenin başarılı olduğunu doğrulamak
 
@@ -138,21 +181,27 @@ Kullandıysanız **el ile yapılandırma** adımlar önceki bölümde, IOT Edge 
 
 IOT Edge arka plan programı kullanarak durumu denetleyebilirsiniz:
 
-```cmd/sh
+```bash
 systemctl status iotedge
 ```
 
 Kullanarak arka plan programının günlüklerini inceleyin:
 
-```cmd/sh
+```bash
 journalctl -u iotedge --no-pager --no-full
 ```
 
 Ve modüller ile çalışan listesi:
 
-```cmd/sh
+```bash
 sudo iotedge list
 ```
+
+## <a name="tips-and-suggestions"></a>İpuçları ve öneriler
+
+`iotedge` komutlarını çalıştırmak için yükseltilmiş ayrıcalıklara ihtiyacınız olacaktır. Çalışma zamanını yükledikten sonra makinenizin dışında oturum ve izinlerinizi otomatik olarak güncelleştirmek için yeniden oturum açın. O zamana kadar kullanın **sudo** herhangi önünde `iotedge` komutları.
+
+Kısıtlanmış bir kaynak cihazlarda ayarlamanız önerilir *OptimizeForPerformance* ortam değişkenine *false* yönergeleri uyarınca [sorun giderme kılavuzu ][lnk-trouble].
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

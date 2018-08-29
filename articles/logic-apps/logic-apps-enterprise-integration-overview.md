@@ -1,27 +1,23 @@
 ---
-title: B2B - Azure Logic Apps için Kurumsal tümleştirme | Microsoft Docs
-description: B2B iş akışları oluşturabilir ve logic apps Enterprise Integration Pack ile Kurumsal tümleştirme senaryoları desteği
+title: B2B Kurumsal tümleştirme genel bakış - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps ve Enterprise Integration Pack ile Kurumsal tümleştirme çözümleri için otomatik B2B iş akışları oluşturun
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.date: 09/08/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: c4f83d2bf082b5f1358b4eee6468d470b5cb8088
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b2e2c81914e8c0440b358d59c7f0248db46b6c50
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055608"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124301"
 ---
-# <a name="overview-b2b-scenarios-and-communication-with-the-enterprise-integration-pack"></a>Genel Bakış: B2B senaryoları ve Enterprise Integration Pack ile iletişim
+# <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>Genel Bakış: Azure Logic apps'te ile Enterprise Integration Pack B2B Kurumsal tümleştirme senaryoları
 
 İşletmeden işletmeye (B2B) iş akışları ve Azure Logic Apps ile sorunsuz iletişim için Microsoft'un bulut tabanlı çözüm, Enterprise Integration Pack ile Kurumsal tümleştirme senaryoları etkinleştirebilirsiniz. Kuruluşların farklı protokollerini ve biçimlerini kullanıyor olsanız bile iletileri elektronik olarak değiştirebilir. Paketi farklı biçimler kurumlarının sistemleri yorumlayıp işleyebileceği bir biçime dönüştürür. Kuruluşların dahil endüstri standardı protokoller üzerinden ileti alışverişi [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), ve [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md). Şifreleme ve dijital imzalar hem iletileri güvenli hale getirebilirsiniz.
 

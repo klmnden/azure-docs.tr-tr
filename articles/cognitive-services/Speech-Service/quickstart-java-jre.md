@@ -9,16 +9,16 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: fmegen
-ms.openlocfilehash: 11aba1ae6f49d6c00fabd928ae3aefedcbea8ed8
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 923ab3378d5e2d833e11c5111d4dd9964fea6dc4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234351"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126622"
 ---
 # <a name="quickstart-recognize-speech-in-java-windows-or-linux"></a>Hızlı Başlangıç: Java (Windows veya Linux), konuşma tanıma
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Bu belge, bir Java tabanlı bir konsol uygulaması Java Çalışma zamanı ortamı (yaptığı konuşma SDK'yı JRE için) oluşturmayı açıklar.
 Microsoft Bilişsel hizmetler SDK Maven paketi tabanlı bir uygulama.
@@ -107,7 +107,7 @@ Sonraki 15 saniye Konuşma giriş mikrofonu den tanınan ve konsol penceresinde 
 
 ![Başarılı tanıma sonra konsol çıktısı](media/sdk/qs-java-jre-07-console-output.png)
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Bu örnekte arayın `quickstart/java-jre` klasör.
 
 ## <a name="next-steps"></a>Sonraki adımlar

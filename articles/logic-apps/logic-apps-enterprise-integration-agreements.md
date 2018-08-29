@@ -1,79 +1,75 @@
 ---
 title: B2B iletişim - Azure Logic Apps sözleşmelerini | Microsoft Docs
-description: Ortaklar B2B senaryolarda Azure Logic Apps ve kurumsal tümleştirme paketi için iletişim kurabilmesi anlaşmaları oluşturma
+description: B2B ticaret Azure Logic Apps ve Enterprise Integration Pack ile iş ortağı iletişim sözleşmelerini oluşturma
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-ms.assetid: 447ffb8e-3e91-4403-872b-2f496495899d
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 447ffb8e-3e91-4403-872b-2f496495899d
 ms.date: 06/29/2016
-ms.author: LADocs
-ms.openlocfilehash: df41a57b5b6e364ff537a28c939f362b4d399e7a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 09bee10649e2bc0d745e42b8aa13ae9c21df35aa
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298734"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128836"
 ---
-# <a name="partner-agreements-for-b2b-communication-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure mantıksal uygulamaları ve Enterprise Integration Pack B2B iletişim için ortak sözleşmeleri
+# <a name="partner-agreements-for-b2b-communication-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps ve Enterprise Integration Pack ile B2B iletişim için iş ortağı sözleşmeleri
 
-Anlaşmaları dönüm işletmeden işletmeye (B2B) iletişimi için olan ve daha sorunsuz bir şekilde endüstri standardı protokoller kullanarak iletişim kuran iş varlıkları sağlar. Logic apps Enterprise tümleştirme paketi ile B2B senaryolarını etkinleştirilirken bir sözleşmesi ticari ortaklar B2B arasındaki iletişimler düzenleme yer alır. Bu anlaşma ortakları kurmak istiyorsanız ve protokolü iletişimi göre veya taşıma özgü değildir.
+Anlaşmaları iş varlıkları sorunsuz bir şekilde sektör standardı protokolleri kullanarak iletişim kurma sağlar ve işletmeler arası (B2B) iletişimi için temel taşlarıdır. B2B senaryoları için logic apps Enterprise Integration Pack ile etkinleştirirken, bir anlaşma B2B ticaret iş ortakları arasında iletişim düzenlemesidir. İşbu sözleşme, iş ortakları kurmak istediğiniz ve protokolü iletişimleri göre veya aktarım özgü değil.
 
-Kurumsal tümleştirme bu protokolü veya taşıma standartlarını destekler:
+Kurumsal tümleştirme, bu protokolü veya aktarım standartları destekler:
 
 * [AS2](logic-apps-enterprise-integration-as2.md)
 * [X12](logic-apps-enterprise-integration-x12.md)
 * [EDIFACT](logic-apps-enterprise-integration-edifact.md)
 
-## <a name="why-use-agreements"></a>Neden anlaşmalarını kullanın
+## <a name="why-use-agreements"></a>Anlaşmaları neden kullanılır?
 
 Anlaşmaları kullanırken sık karşılaşılan bazı avantajları şunlardır:
 
-* Farklı Kuruluş ve işletmelerin bilgileri bilinen bir biçimde exchange sağlar.
-* B2B işlemleri yürütülürken verimliliğini artırır
-* Kolay oluşturmak, yönetmek ve kurumsal tümleştirme uygulamaları oluştururken kullanın
+* Farklı Kuruluş ve işletmelerin iyi bilinen bir biçimde bilgi alışverişi sağlar.
+* B2B işlemlerini yaparken, verimliliği artırır.
+* Oluşturma, yönetme ve kurumsal tümleştirme uygulamaları oluştururken kullanmak daha kolay
 
 ## <a name="how-to-create-agreements"></a>Anlaşmaları oluşturma
 
-* [AS2 sözleşmesi oluşturma](logic-apps-enterprise-integration-as2.md)
-* [Bir X12 oluşturma Sözleşmesi](logic-apps-enterprise-integration-x12.md)
+* [Bir AS2 sözleşmesi oluşturma](logic-apps-enterprise-integration-as2.md)
+* [X X12 oluşturma Sözleşmesi](logic-apps-enterprise-integration-x12.md)
 * [EDIFACT sözleşmesi oluşturun](logic-apps-enterprise-integration-edifact.md)
 
 ## <a name="how-to-use-an-agreement"></a>Bir anlaşma kullanma
 
-Oluşturabileceğiniz [logic apps](logic-apps-overview.md "Logic apps hakkında daha fazla bilgi") oluşturduğunuz sözleşme kullanarak B2B özelliklerine sahip.
+Oluşturabileceğiniz [logic apps](logic-apps-overview.md "Logic apps hakkında bilgi edinin") B2B özellikli kullanarak oluşturduğunuz bir anlaşma.
 
-## <a name="how-to-edit-an-agreement"></a>Bir anlaşma düzenleme
+## <a name="how-to-edit-an-agreement"></a>Bir sözleşme düzenleme
 
-Aşağıdaki adımları izleyerek herhangi anlaşmayı düzenleyebilirsiniz:
+Aşağıdaki adımları izleyerek her anlaşma düzenleyebilirsiniz:
 
-1. Güncelleştirmek istediğiniz sözleşmesi olduğundan tümleştirme hesabı seçin.
+1. Güncelleştirmek istediğiniz sözleşmesindeki tümleştirme hesabı'nı seçin.
 
-2. Seçin **anlaşmaları** döşeme.
+2. Seçin **sözleşmeleri** Döşe.
 
-3. Üzerinde **anlaşmaları** dikey penceresinde anlaşmasını seçin.
+3. Üzerinde **sözleşmeleri** dikey penceresinde Sözleşmesi'ni seçin.
 
-4. Seçin **Düzenle**. İstediğiniz değişiklikleri yapın.
+4. Seçin **Düzenle**. Değişikliklerinizi yapın.
 
-5. Değişikliklerinizi kaydetmek üzere seçim yapın **Tamam**.
+5. Değişikliklerinizi kaydetmek için seçin **Tamam**.
 
 ## <a name="how-to-delete-an-agreement"></a>Bir anlaşma silme
 
-Aşağıdaki adımları izleyerek herhangi bir anlaşması silebilirsiniz:
+Tüm sözleşme, aşağıdaki adımları izleyerek silebilirsiniz:
 
-1. Silmek istediğiniz sözleşmesi olduğundan tümleştirme hesabı seçin.
-2. Seçin **anlaşmaları** döşeme.
-3. Üzerinde **anlaşmaları** dikey penceresinde anlaşmasını seçin.
-4. Seçin **silmek**.
+1. Silmek istediğiniz sözleşmesindeki tümleştirme hesabı'nı seçin.
+2. Seçin **sözleşmeleri** Döşe.
+3. Üzerinde **sözleşmeleri** dikey penceresinde Sözleşmesi'ni seçin.
+4. Seçin **Sil**.
 5. Seçilen anlaşmayı silmek istediğinizi onaylayın.
 
-    Anlaşmaları dikey artık silinen anlaşmasını gösterir.
+    Anlaşmaları dikey penceresinde, artık silinen sözleşmesi gösterir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [AS2 sözleşmesi oluşturma](logic-apps-enterprise-integration-as2.md)
+* [Bir AS2 sözleşmesi oluşturma](logic-apps-enterprise-integration-as2.md)

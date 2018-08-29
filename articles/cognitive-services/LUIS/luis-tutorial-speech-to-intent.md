@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: diberry;
-ms.openlocfilehash: 286efcd97c0c9ab95a8241215bc36799c486a8b6
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.author: diberry
+ms.openlocfilehash: aadca428fa076d697cc0f893673672850ddc27d4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247724"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124405"
 ---
 # <a name="integrate-speech-service"></a>Konuşma hizmeti tümleştirin
 [Konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) ses almak ve JSON nesneleri LUIS tahmin dönmek için tek bir istek kullanmanıza olanak tanır.
@@ -120,7 +120,7 @@ Doğru amaç **GetEmployeeOrgChart**, %61 güvenle bulundu. Anahtar cümlesi var
 Speech SDK'sı LUIS yanıtın tamamını döndürür. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-LUIS İnsanKaynakları uygulamayı artık gerekli değilse silin. Bunu yapmak için üç noktayı seçin (***...*** ) düğmesini seçin uygulama listesinde uygulama adının sağındaki **Sil**. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
+LUIS İnsanKaynakları uygulamayı artık gerekli değilse silin. Bunu yapmak için uygulama listesinde uygulama adının yanındaki üç nokta (***...***) düğmesini ve sonra da **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
 
 İşiniz bittiğinde LUIS örnekler dizini silmeyi unutmayın örnek kodu kullanarak.
 

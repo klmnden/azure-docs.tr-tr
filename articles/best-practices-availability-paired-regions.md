@@ -6,12 +6,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 4084a5bd8cb82442eb37844f88f2ff6dd166b5ee
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6eb28ad918f9d95c26d91c05d8ee9556ef768bd3
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42446073"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125861"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>İş sürekliliği ve olağanüstü durum kurtarma (BCDR): eşleştirilmiş Azure bölgeleri
 
@@ -19,7 +19,7 @@ ms.locfileid: "42446073"
 
 Azure dünyanın dört bir yanındaki birden çok coğrafi çalışmaktadır. Her Azure coğrafyası dünyanın en az bir Azure bölgesi içeren tanımlanmış bir alandır. Bir Azure bölgesine bir veya daha fazla veri içeren bir coğrafyadaki alanıdır.
 
-Her Azure bölgesi aynı coğrafyadaki birlikte bölgesel çift yaparak başka bir bölgeyle eşleştirilir. Brezilya Güney, kendi Coğrafya dışında bir bölgeyle eşleştirilir istisnadır. Bu yalnızca bir eşleştirilmiş bölge aynı anda güncelleştirilir, böylece Azure serileştirmek bölge çiftleri arasında Platformu (Planlı bakım) güncelleştirir. Ayrıca, birden çok bölgeye en az bir bölge çiftindeki her kurtarma için öncelikli etkileyen bir kesinti olması durumunda.
+Her Azure bölgesi aynı coğrafyadaki birlikte bölgesel çift yaparak başka bir bölgeyle eşleştirilir. Brezilya Güney, kendi Coğrafya dışında bir bölgeyle eşleştirilir istisnadır. Bu yalnızca bir eşleştirilmiş bölge aynı anda güncelleştirilir, böylece Azure serileştirmek bölge çiftleri arasında Platformu (Planlı bakım) güncelleştirir. Ayrıca, birden çok bölgede etkileyen bir kesinti olması durumunda en az bir bölge çiftindeki her kurtarma için öncelik verilir.
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 

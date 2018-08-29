@@ -1,27 +1,23 @@
 ---
 title: AS2 iletilerini - Azure Logic Apps kodlama | Microsoft Docs
-description: AS2 Kodlayıcı için Azure Logic Apps Enterprise Integration Pack içinde kullanma
+description: İLETİLERİ Azure Logic Apps ve Enterprise Integration Pack ile kodlayın
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: 332fb9e3-576c-4683-bd10-d177a0ebe9a3
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 332fb9e3-576c-4683-bd10-d177a0ebe9a3
 ms.date: 08/08/2018
-ms.author: LADocs; padmavc
-ms.openlocfilehash: b3b57b2505c4185f3a81530cbc9eeb464dcfa518
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 6bb19199929a004ee5668a3a6e057a69c24dd752
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42055998"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122722"
 ---
-# <a name="encode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>AS2 iletileri için Azure Logic Apps Enterprise Integration Pack ile kodlayın
+# <a name="encode-as2-messages-with-azure-logic-apps-and-enterprise-integration-pack"></a>AS2 iletilerini Azure Logic Apps ve Enterprise Integration Pack ile kodlayın
 
 Güvenlik ve güvenilirlik aktaran iletileri çalışırken'kurmak için kodlama AS2 iletisi Bağlayıcısı'nı kullanın. Bu bağlayıcı, dijital imzalama, şifreleme ve üzerinden ileti değerlendirme bildirimleri (için inkar desteklemek için de sağlar. MDN), bildirimleri sağlar.
 

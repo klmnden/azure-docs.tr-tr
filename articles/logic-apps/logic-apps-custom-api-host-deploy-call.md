@@ -1,63 +1,58 @@
 ---
-title: Dağıtma ve Azure mantığı uygulamalardan web API'leri & REST API çağrısı | Microsoft Docs
-description: Dağıtma ve API'leri & REST API'leri web sistemi için Azure Logic Apps tümleştirme akışlarında çağırın.
-keywords: Web API'leri, REST API'leri, bağlayıcılar, iş akışları, sistem tümleştirmeler, kimlik doğrulaması
+title: Dağıtma ve Azure Logic Apps'ten web API'leri ve REST API'leri çağırma | Microsoft Docs
+description: Dağıtma ve web API'leri ve REST API'leri için sistemi integratio Azure Logic Apps iş akışlarını çağırma
 services: logic-apps
-author: stepsic-microsoft-com
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, stepsic, LADocs
 ms.topic: article
+ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
-ms.author: LADocs; stepsic
-ms.openlocfilehash: e808a463beb312df6ee2f8fc4378f72755dcdf33
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0d53c8355fadf53c81676a1fe3c71f8e0b046630
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299024"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126577"
 ---
-# <a name="deploy-and-call-custom-apis-from-logic-app-workflows"></a>Dağıtma ve uygulama iş akışları mantığından özel API'leri çağırmak
+# <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Dağıtma ve Azure Logic Apps iş akışlarında öğesinden özel API'ler çağırma
 
-Çalıştırdıktan sonra [özel API oluşturma](./logic-apps-create-api-app.md) mantığı uygulama iş akışlarında kullanım için bunları çağırmadan önce Apı'lerinizi dağıtmanız gerekir. API olarak dağıtabilir miyim [web uygulamaları](../app-service/app-service-web-overview.md), ancak API olarak dağıtmayı göz önünde bulundurun [API uygulamaları](../app-service/app-service-web-tutorial-rest-api.md), hangi olun işinizi daha kolay yapı, ana bilgisayar ve API'leri bulutta ve şirket içi kullanabilir. Tüm Apı'lerinizi kodda değişiklik - yalnızca kodunuzu bir API uygulamasına dağıtmak yok. Üzerinde Apı'lerinizi barındırabilir [Azure App Service](../app-service/app-service-web-overview.md), bir platform olarak-sağlayan yüksek düzeyde ölçeklenebilir, kullanımı kolay API barındırma sunan hizmet (PaaS).
+Çalıştırdıktan sonra [özel API'ler oluşturma](./logic-apps-create-api-app.md) mantıksal uygulama iş akışları içinde kullanım için çağrı yapmadan önce Apı'lerinizi dağıtmanız gerekir. Apı'lerinizi olarak dağıtabileceğiniz [web uygulamaları](../app-service/app-service-web-overview.md), ancak Apı'lerinizi olarak dağıtmayı göz önünde bulundurun [API apps](../app-service/app-service-web-tutorial-rest-api.md), hangi olmak işinizi daha kolay oluşturacağınızı, barındıracağınızı ve API'leri bulutta ve şirket içi olduğunda. Apı'lerinizi herhangi bir kod değişikliği - yalnızca kodunuzu API uygulamasına dağıtma yok. Apı'lerinizi barındırmak [Azure App Service](../app-service/app-service-web-overview.md), bir platform-a sağlayan yüksek düzeyde ölçeklenebilir, kolay API'sini barındıran sunan hizmet olarak (PaaS).
 
-Bir mantıksal uygulama, en iyi deneyim için herhangi bir API'yi çağırabilirsiniz rağmen eklemek [OpenAPI (daha önce Swagger) meta veri](http://swagger.io/specification/) , API'nin işlemlerini ve parametrelerini açıklar. Bu OpenAPI dosya API'nizi daha kolay tümleştirme ve daha iyi logic apps ile çalışmanıza yardımcı olur.
+En iyi deneyim için herhangi bir API'yi bir mantıksal uygulamadan çağırabilirsiniz olsa da, ekleme [Openapı (daha önce Swagger) meta verileri](http://swagger.io/specification/) API'NİZİN işlemlerini ve parametrelerini açıklar. Bu Openapı dosyasını API'nizi daha kolay bir şekilde tümleştirin ve logic apps ile daha iyi çalışmasına yardımcı olur.
 
-## <a name="deploy-your-api-as-a-web-app-or-api-app"></a>API'nizi bir web uygulaması veya API uygulaması olarak dağıtma
+## <a name="deploy-your-api-as-a-web-app-or-api-app"></a>API'nizi API uygulaması veya web uygulaması dağıtma
 
-Özel API'nizi mantığı uygulamadan aramadan önce Azure App Service'e API'nizi bir web uygulaması veya API uygulaması olarak dağıtın. Ayrıca, Logic Apps tasarımcı tarafından okunabilir dosya, OpenAPI yapmak için API tanımı özelliklerini ayarlamak ve etkinleştirmek [çıkış noktaları arası kaynak paylaşımı (CORS)](../app-service/app-service-web-overview.md) web uygulaması veya API uygulaması için.
+API'nizi API uygulaması veya web uygulaması olarak, bir mantıksal uygulamadan özel API'nizi çağrı yapmadan önce Azure App Service'e dağıtın. Ayrıca, Logic Apps tasarımcısı tarafından okunabilir dosyası, Openapı yapmak için API tanımı özellikleri ayarlamak ve etkinleştirmek [çıkış noktaları arası kaynak paylaşımı (CORS)](../app-service/app-service-web-overview.md) , web veya API uygulaması.
 
-1. İçinde [Azure portal](https://portal.azure.com), web uygulaması veya API uygulaması seçin.
+1. İçinde [Azure portalında](https://portal.azure.com), web uygulamanızı veya API uygulaması seçin.
 
-2. Açılır ve altında uygulama menüsünden **API**, seçin **API tanımı**. Ayarlama **API tanımı konumu** OpenAPI swagger.json dosyanızı URL'si.
+2. Altında açılan uygulama menüsündeki **API**, seçin **API tanımı**. Ayarlama **API tanımının konumu** Openapı swagger.json dosyanızı URL'si.
 
    Genellikle, URL şöyle görünür: `https://{name}.azurewebsites.net/swagger/docs/v1)`
 
-   ![Özel API için OpenAPI dosyasına bağlantı](./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png)
+   ![Özel API'niz için Openapı dosyasına bağlantı](./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png)
 
-3. Altında **API**, seçin **CORS**. CORS İlkesi'ni ayarlamak **çıkış izin** için **' *'** (tüm izin ver).
+3. Altında **API**, seçin **CORS**. İçin CORS ilkesini ayarlama **çıkış noktaları** için **' *'** (tüm izin verir).
 
-   Bu ayar mantığı Uygulama Tasarımcısı'ndan istekleri verir.
+   Bu ayar, mantıksal Uygulama Tasarımcısı'ndan istekleri verir.
 
-   ![İstekleri mantığı Uygulama Tasarımcısı'ndan özel API'nizi izin verir.](./media/logic-apps-custom-api-deploy-call/custom-api-cors.png)
+   ![İstekleri, özel API'nizi mantıksal Uygulama Tasarımcısı'ndan izin ver](./media/logic-apps-custom-api-deploy-call/custom-api-cors.png)
 
-Daha fazla bilgi için bkz: [bir RESTful API'sini Azure App Service CORS ile ana bilgisayar](../app-service/app-service-web-tutorial-rest-api.md).
+Daha fazla bilgi için [Azure App Service'te CORS ile RESTful API barındırma](../app-service/app-service-web-tutorial-rest-api.md).
 
 ## <a name="call-your-custom-api-from-logic-app-workflows"></a>Özel API'nizi mantığından uygulama iş akışları çağırın.
 
-API tanımı özellikleri ve CORS ayarladıktan sonra özel API'nin tetikleyiciler ve Eylemler, logic app akışınıza eklemek kullanılabilir olması gerekir. 
+API tanımı özellikleri ve CORS ayarlama sonra özel API'NİZİN tetikleyiciler ve Eylemler, mantıksal uygulama iş akışınızı dahil etmek için kullanılabilir olması gerekir. 
 
-*  OpenAPI URL'lere sahip Web siteleri görüntülemek için Logic Apps Tasarımcısı'nda, abonelik Web sitelerine göz atabilirsiniz.
+*  Openapı URL'lerinin Web sitelerini görüntülemek için Logic Apps Tasarımcısı'nda abonelik sitelerinizi göz atabilirsiniz.
 
-*  Bir OpenAPI belge göstererek kullanılabilir eylemler ve girişleri görüntülemek için kullanın [HTTP + Swagger eylem](../connectors/connectors-native-http-swagger.md).
+*  Kullanılabilir eylemler ve girişler bir Openapı belgesini işaret ederek görüntülemek için kullanın [da HTTP + Swagger eylem](../connectors/connectors-native-http-swagger.md).
 
-*  Yok veya bir OpenAPI belge kullanıma API'leri dahil olmak üzere herhangi bir API'yi çağırmak için her zaman bir istekle oluşturabilirsiniz [HTTP eylemi](../connectors/connectors-native-http.md).
+*  Veya yoksa bir Openapı belgesi kullanıma API'ler dahil olmak üzere herhangi bir API'yi çağırmak için her zaman bir istekle oluşturabilirsiniz [HTTP eylemi](../connectors/connectors-native-http.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Özel bağlayıcı genel bakış](../logic-apps/custom-connector-overview.md)
+* [Özel bağlayıcıya genel bakış](../logic-apps/custom-connector-overview.md)

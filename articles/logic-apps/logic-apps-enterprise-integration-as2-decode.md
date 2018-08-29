@@ -1,27 +1,23 @@
 ---
 title: AS2 iletilerini - Azure Logic Apps kod çözme | Microsoft Docs
-description: AS2 kod çözücü için Azure Logic Apps Enterprise Integration Pack içinde kullanma
+description: Azure Logic Apps ve Enterprise Integration Pack ile iletileri olarak kod çözme
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 08/08/2018
-ms.author: LADocs; padmavc
-ms.openlocfilehash: a1b2d68a4a9433dc5c68d65552bf6bd509463958
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 06ffa6bddc1340ad548f9baf30eba65ba503bf73
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42054740"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128290"
 ---
-# <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>AS2 iletilerini Azure Logic Apps Enterprise Integration Pack ile için kod çözme 
+# <a name="decode-as2-messages-with-azure-logic-apps-and-enterprise-integration-pack"></a>AS2 iletilerini Azure Logic Apps ve Enterprise Integration Pack ile kod çözme 
 
 Güvenlik ve güvenilirlik sırasında aktaran iletileri oluşturmak için AS2 kod çözme ileti Bağlayıcısı'nı kullanın. Bu bağlayıcı, dijital imza, şifre çözme ve onayları ileti değerlendirme bildirimleri (MDN) aracılığıyla sağlar.
 

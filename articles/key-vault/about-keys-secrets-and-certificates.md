@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: bryanla
-ms.openlocfilehash: 962f9be53ce0b2022e8e5490bdeb04b2eefb4d7c
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f36e0e3ddc605d960ed764252308cbf09578832c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42060699"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126151"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Anahtarlar, parolalar ve sertifikalar hakkında
 Azure Key Vault, depolamak ve Microsoft Azure ortamında şifreleme anahtarlarını kullanmak kullanıcıların sağlar. Key Vault, birden çok anahtar türleri ve algoritmalarını destekler ve yüksek değerli anahtarlar donanım güvenlik modülleri (HSM) kullanılmasına olanak tanır. Ayrıca, Key Vault gizli dizileri güvenli bir şekilde depolamak kullanıcıların sağlar. Gizli dizileri boyutlarının sekizli hiçbir belirli semantikler nesneleridir. Key Vault, anahtarları ve gizli anahtarları üzerine yapılandırılmıştır ve otomatik yenileme özelliğini ekleyin sertifikalarını da destekler.
@@ -174,7 +174,7 @@ Azure Key Vault anahtar nesneler üzerinde aşağıdaki işlemleri destekler:
 -   **Yedekleme**: korumalı bir formda bir anahtar verir.  
 -   **Geri yükleme**: daha önce yedeklenen bir anahtarı içeri aktarır.  
 
-Daha fazla bilgi için [anahtar işlemleri anahtar kasası REST API Başvurusu](/rest/api/keyvault).  
+Daha fazla bilgi için [anahtarı anahtar kasası REST API Başvurusu işlemlerinde](/rest/api/keyvault).  
 
 Bir anahtar Azure anahtar Kasası'nda oluşturulduktan sonra aşağıdaki şifreleme işlemleri anahtar kullanılarak gerçekleştirilebilir:  
 
@@ -283,7 +283,7 @@ Aşağıdaki izinleri, bir asıl başına temelinde bir kasasındaki gizli dizil
 -   *silme*: gizli anahtarı silme  
 -   *tüm*: tüm izinler  
 
-Gizli anahtarlarla çalışma hakkında daha fazla bilgi için bkz. [gizli dizi işlemleri anahtar kasası REST API Başvurusu](/rest/api/keyvault).  
+Gizli anahtarlarla çalışma hakkında daha fazla bilgi için bkz. [Key Vault REST API Başvurusu'ndaki gizli dizi işlemleri](/rest/api/keyvault).  
 
 ###  <a name="BKMK_SecretTags"></a> Gizli etiketleri  
 Ek uygulamaya özgü meta veri etiketleri biçiminde belirtebilirsiniz. Azure Key Vault, en fazla 15 etiket, her biri olan 256 karakterlik bir ad ve 256 karakter değeri destekler.  
@@ -443,7 +443,7 @@ Ardından bir sertifika ilkesi için Otomatik yenilemeyi ayarlarsanız, aşağı
 -   *deleteissuers*: Key Vault sertifika verenler silme sağlar  
 -   *tüm*: tüm izinleri sağlar  
 
-Daha fazla bilgi için [sertifika işlemleri, anahtar kasası REST API Başvurusu](/rest/api/keyvault). 
+Daha fazla bilgi için [sertifika anahtar kasası REST API Başvurusu'ndaki işlemleri](/rest/api/keyvault). 
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 
