@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 97d33bfcc8251b10ba121b7fb013800904450563
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/24/2018
 ms.locfileid: "30197163"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
@@ -21,23 +21,23 @@ ms.locfileid: "30197163"
 
 Evet. Önceden, yalnızca otomatik olarak imzalanan kök sertifikalar kullanılabiliyordu. 20 kök sertifika yükleyebilirsiniz.
 
-### <a name="what-tools-can-i-use-to-create-certificates"></a>Sertifikalar oluşturmak için hangi Araçlar kullanabilir miyim?
+### <a name="what-tools-can-i-use-to-create-certificates"></a>Sertifikaları oluşturmak için hangi araçları kullanabilirim?
 
-Kuruluş PKI çözümü (iç PKI), Azure PowerShell, MakeCert ve OpenSSL kullanabilirsiniz.
+Kurumsal PKI çözümünüzü (dahili PKI'nizi), Azure PowerShell'i, MakeCert'i ve OpenSSL'yi kullanabilirsiniz.
 
 ### <a name="certsettings"></a>Sertifika ayarları ve parametreler için yönergeler var mı?
 
-* **İç PKI/Kuruluş PKI çözümü:** adımlarına bakın [oluşturmak sertifikaları](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
+* **Dahili PKI/Kurumsal PKI çözümü:** [Sertifikaları oluşturma](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert) adımlarına bakın.
 
-* **Azure PowerShell:** bkz [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) adımları makalesinde bulabilirsiniz.
+* **Azure PowerShell:** Adımlar için [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) makalesine bakın.
 
-* **MakeCert:** bkz [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) adımları makalesinde bulabilirsiniz.
+* **MakeCert:** Adımlar için [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) makalesine bakın.
 
 * **OpenSSL:** 
 
-    * Sertifikaları verirken Base64 için kök sertifika dönüştürmek emin olun.
+    * Sertifikaları dışarı aktarırken kök sertifikayı Base64'e dönüştürdüğünüzden emin olun.
 
-    * İçin istemci sertifikası:
+    * İstemci sertifikası için:
 
-      * Özel anahtar oluştururken uzunluğu 4096 olarak belirtin.
-      * Sertifika için oluştururken *-uzantıları* parametresini belirtin *usr_cert*.
+      * Özel anahtarı oluştururken uzunluğu 4096 olarak belirtin.
+      * Sertifikayı oluştururken, *-extensions* parametresini *usr_cert* olarak belirtin.
