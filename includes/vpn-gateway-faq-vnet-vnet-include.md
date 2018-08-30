@@ -9,10 +9,10 @@ ms.date: 04/05/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 66ff1e2e02728e05cb0aeedce90de1882a8804ce
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
+ms.lasthandoff: 08/28/2018
 ms.locfileid: "30921317"
 ---
 Sanal Ağdan Sanal Ağa SSS bölümü VPN Gateway bağlantıları için geçerlidir. Sanal Ağ Eşleme konusunu arıyorsanız bkz. [Sanal Ağ Eşleme](../articles/virtual-network/virtual-network-peering-overview.md)
