@@ -3,19 +3,19 @@ title: Azure SQL Veri Ambarı için kural sayfası | Microsoft Docs
 description: Azure SQL Veri Ambarı çözümlerinizi hızlı şekilde oluşturmak için bağlantıları ve en iyi uygulamaları bulun.
 services: sql-data-warehouse
 author: acomet
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.component: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: a22aadff2d58ace60a980a138035e30a638b08fa
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4ef64b9d4e4e5c7f5a628359a8512dcb61b9c941
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190419"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43245902"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı için kural sayfası
 Bu kural sayfası, Azure SQL Veri Ambarı çözümlerinizi oluşturmak için yardımcı ipuçları ve en iyi uygulamalar sağlar. Başlamadan önce, SQL Veri Ambarının ne olup ne olmadığını açıklayan [Azure SQL Veri Ambarı İş Yükü Düzenleri ve Anti Düzenleri](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns) bölümünü okuyarak her bir adım hakkında daha ayrıntılı bilgi edinin.
@@ -144,11 +144,11 @@ SQL Veri Ambarı’ndan SQL veritabanlarındaki bağlı bileşenlerinizden birin
 <!--Article references-->
 [veri yükleme]:design-elt-data-loading.md
 [deeper guidance]:guidance-for-loading-data.md
-[Dizinler]:sql-data-warehouse-tables-index.md
-[Bölümler]:sql-data-warehouse-tables-partition.md
-[İstatistikler]:sql-data-warehouse-tables-statistics.md
+[dizinler]:sql-data-warehouse-tables-index.md
+[bölümler]:sql-data-warehouse-tables-partition.md
+[istatistikler]:sql-data-warehouse-tables-statistics.md
 [Kaynak sınıfları ve eşzamanlılık]:resource-classes-for-workload-management.md
-[Çoğaltılmış tablolar]:design-guidance-for-replicated-tables.md
+[çoğaltılmış tablolar]:design-guidance-for-replicated-tables.md
 [dağıtılmış tablolar]:sql-data-warehouse-tables-distribute.md
 
 <!--MSDN references-->
@@ -157,7 +157,7 @@ SQL Veri Ambarı’ndan SQL veritabanlarındaki bağlı bileşenlerinizden birin
 <!--Other Web references-->
 [typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
 [is and is not]:https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
-[Veri geçişi]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[veri geçişi]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 [Azure Data Lake Store]: ../data-factory/connector-azure-data-lake-store.md
 [sys.dm_pdw_nodes_db_partition_stats]: /sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql

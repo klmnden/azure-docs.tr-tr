@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/31/2018
+ms.date: 08/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 10774e7ca1168a58e8c8d47e6a7295ff727fa1cd
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 80cbe09eca2e5aacd46325e9add35f3ec8aae407
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801458"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143283"
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Karma Kimlik dizin tümleştirme araçları karşılaştırması
 Yıllar içinde dizin tümleştirme araçları büyüme ve gelişim göstermiştir.  Bu belgenin amacı, bu araçlara yönelik birleştirilmiş bir görünüm ve her birinin içerdiği özelliklere dair bir karşılaştırma sağlamaya yardımcı olmaktır.
@@ -45,14 +45,20 @@ GÖ = Genel Önizleme
 | Tek şirket içi AD ormanına bağlanma |● |● |● |● |● |
 | Birden çok şirket içi AD ormanına bağlanma |● |● | |● |● |
 | Birden çok şirket içi Exchange Kuruluşu'na bağlanma |● | | | | |
-| Tek şirket içi LDAP dizinine bağlanma | | | |● |● |
-| Birden çok şirket içi LDAP dizinine bağlanma |  | | |● |● |
-| Şirket içi AD ve şirket içi LDAP dizinlerine bağlanma | | | |● |● |
+| Tek şirket içi LDAP dizinine bağlanma |●* | | |● |● | 
+| Birden çok şirket içi LDAP dizinine bağlanma |●*  | | |● |● | 
+| Şirket içi AD ve şirket içi LDAP dizinlerine bağlanma |●* | | |● |● | 
 | Özel sistemlere (SQL, Oracle, MySQL vb.) bağlanma |GS | | |● |● |
 | Müşteri tanımlı öznitelikleri (dizin uzantıları) eşitleme |● | | | | |
 | Şirket içi İK olanağına (SAP, Oracle eBusiness,PeopleSoft) bağlanma |GS | | |● |● |
 | FIM eşitleme kurallarını ve şirket içi sistemlere hazırlamaya yönelik bağlayıcıları destekler. | | | |● |● |
 
+ 
+&#42; Şu anda bunun için desteklenen iki seçenek mevcuttur.  Bunlar: 
+
+   1. Genel LDAP bağlayıcısını kullanarak Azure AD Connect dışında etkinleştirebilirsiniz.  Bu seçenek karmaşıktır ve ekleme için bir iş ortağı ile sürdürülmesi için bir premier destek sözleşmesi gerektirir.  Bu seçenek, hem tek hem de birden çok LDAP dizinini işleyebilir. 
+
+   2. LDAP’den Active Directory'ye nesneleri taşımak için kendi çözümünüzü geliştirebilirsiniz.  Ardından nesnelerin Azure AD Connect ile eşitleyebilirsiniz.  MIM veya FIM nesneleri taşımak için olası bir çözüm olarak kullanılabilir. 
 
 ## <a name="cloud-to-on-premises-synchronization"></a>Bulut - Şirket İçi Eşitlemesi
 | Özellik | Azure Active Directory Connect | Azure Active Directory Eşitleme Hizmetleri - ARTIK DESTEKLENMİYOR  | Azure Active Directory Eşitleme Aracı (DirSync) - ARTIK DESTEKLENMİYOR  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |

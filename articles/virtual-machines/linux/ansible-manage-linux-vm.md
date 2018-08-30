@@ -7,13 +7,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
-ms.date: 08/21/2018
-ms.openlocfilehash: 66106346b298fae22cce47081916a6c8eec8fd40
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.date: 08/22/2018
+ms.openlocfilehash: 79b10a30eea9e19f7ec21f9f9b7ebb95b4c34bf2
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40250688"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42813394"
 ---
 # <a name="use-ansible-to-manage-a-linux-virtual-machine-in-azure"></a>Ansible kullanarak Azure’da Linux sanal makine yönetme
 Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Ansible'ı kullanarak Azure sanal makinelerinizi diğer kaynaklar gibi yönetebilirsiniz. Bu makalede bir Ansible playbook'unu kullanarak Linux sanal makinesini başlatma ve durdurma adımları gösterilmektedir. 
@@ -22,21 +22,7 @@ Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını
 
 - **Azure aboneliği** - Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 
-- **Azure Cloud Shell'i yapılandırın** veya **Linux sanal makinesine Ansible yükleyin ve yapılandırın**
-
-  **Azure Cloud Shell'i yapılandırın**
-
-  1. **Azure Cloud Shell'i yapılandırın** - Azure Cloud Shell'i kullanmaya yeni başladıysanız [Azure Cloud Shell'de Bash için hızlı başlangıç](/azure/cloud-shell/quickstart) makalesindeki Cloud Shell'i başlatma ve yapılandırma adımlarını izleyebilirsiniz. 
-
-  1. **Linux sanal makinesi** - Linux sanal makinesine erişiminiz yoksa [Ansible ile bir sanal makine oluşturabilirsiniz](ansible-create-vm.md).
-
-  **--VEYA--**
-
-  **Linux sanal makinesine Ansible yükleyin ve yapılandırın**
-
-  1. **Ansible'ı yükleyin** - [Desteklenen bir Linux platformuna](/azure/virtual-machines/linux/ansible-install-configure#install-ansible-on-an-azure-linux-virtual-machine) Ansible'ı yükleyin.
-
-  1. **Ansible'ı yapılandırın** - [Azure kimlik bilgilerini oluşturun ve Ansible'ı yapılandırın](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="use-ansible-to-deallocate-stop-an-azure-virtual-machine"></a>Ansible'ı kullanarak Azure sanal makinesini serbest bırakma (durdurma)
 Bu bölümde Ansible'ı kullanarak bir Azure sanal makinesini serbest bırakma (durdurma) adımları gösterilmektedir

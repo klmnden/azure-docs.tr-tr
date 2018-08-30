@@ -1,22 +1,20 @@
 ---
 title: Sanal makine değişikliklerini izleme - Azure Event Grid ve Logic Apps | Microsoft Docs
 description: Azure Event Grid ve Logic Apps kullanarak sanal makinelerde (VM) yapılandırma değişikliklerini denetleme
-keywords: logic apps, event grids, sanal makine, VM
 services: logic-apps
-author: ecfan
-manager: anneta
-ms.assetid: ''
-ms.workload: logic-apps
 ms.service: logic-apps
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.author: LADocs; estfan
-ms.openlocfilehash: ea3063b5c445dab85a7ef1e5663c40efc34f961e
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 29b28b0d81314d062c1b334092979cc9bccbeb31
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303122"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127668"
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Azure Event Grid ve Logic Apps ile sanal makine değişikliklerini izleme
 
@@ -48,7 +46,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="create-a-logic-app-that-monitors-events-from-an-event-grid"></a>Bir olay kılavuzundan olayları izleyen bir mantıksal uygulama oluşturma
 
-İlk olarak, bir mantıksal uygulama oluşturun ve sanal makineniz için kaynak grubunu izleyen bir Olay kılavuzu tetikleyicisi ekleyin. 
+İlk olarak, bir mantıksal uygulama oluşturun ve sanal makineniz için kaynak grubunu izleyen bir Event Grid tetikleyicisi ekleyin. 
 
 1. [Azure Portal](https://portal.azure.com) oturum açın. 
 

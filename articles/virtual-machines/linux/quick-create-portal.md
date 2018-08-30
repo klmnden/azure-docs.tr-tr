@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 03d4ad081a788299bab563ca6b956edc347732da
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f659c424f7d5e705343c113d2ba0971164ca622a
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447967"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108815"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Hızlı başlangıç: Azure portalında Linux sanal makinesi oluşturma
 
@@ -53,7 +53,7 @@ http://portal.azure.com adresinden Azure portalında oturum açın
 
 3. *myVM* gibi bir VM adı girin, disk türünü *SSD* olarak bırakın ve *azureuser* gibi bir kullanıcı adı girin.
 
-4. . **Kimlik doğrulama türü** için **SSH genel anahtarı**,’nı seçip genel anahtarınızı metin kutusuna yapıştırın. Genel anahtarınızdan önce veya sonra gelen tüm boşlukları kaldırmaya dikkat edin.
+4. **Kimlik doğrulama türü** için **SSH genel anahtarı**,’nı seçip genel anahtarınızı metin kutusuna yapıştırın. Genel anahtarınızdan önce veya sonra gelen tüm boşlukları kaldırmaya dikkat edin.
 
     ![Portal dikey penceresinde VM’niz ile ilgili temel bilgileri girin](./media/quick-create-portal/create-vm-portal-basic-blade.png)
 

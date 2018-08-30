@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d0ec146d276f72abf4cbbe3da4d11c0d5539df6d
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 803e82a294b64452ffd788880097b9d86ac1065b
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144202"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745299"
 ---
 # <a name="what-is-azure-maps"></a>Azure Haritalar nedir?
 Azure Haritalar, web ve mobil uygulamalarınıza coğrafi bağlam sağlamak amacıyla yeni harita verileriyle desteklenen bir jeo-uzamsal hizmetler koleksiyonudur. Konum hizmetleri için haritaları işleme, ilgi çekici noktaları, ilgi çekici noktaların yollarını, trafik koşullarını, saat dilimlerini ve IP'sini aramaya yönelik REST API'ler içerir. Ayrıca bu API'leri tanıdık araçlarla kullanarak hızla konum bilgilerini Azure çözümlerinizle tümleştiren çözümler geliştirebilir ve bu çözümleri ölçeklendirebilirsiniz. REST API'lerin yanı sıra, geliştirmeyi kolay, esnek ve birden fazla ortam arasında taşınabilir hale getirmek amacıyla web tabanlı bir JavaScript denetimi de sağlar. 
@@ -98,7 +98,7 @@ IP Aracılığıyla Konum için REST API'lerini kullanma hakkında bilgi almak i
 
 Azure Haritalar mobil kullanım için oluşturulmuştur ve platformlar arası uygulamaları destekleyebilir. Dilden bağımsız bir programlama modeli kullanır ve [REST API'ler](https://docs.microsoft.com/rest/api/maps/) üzerinde JSON çıkışını destekler. 
 
-Azure Haritalar ayrıca hem web hem de mobil platform uygulamalarının hızlı ve kolay bir şekilde geliştirilmesi için basit bir programlama modeliyle kullanışlı bir [JavaScript harita denetimi](https://docs.microsoft.com/javascript/api/azure-maps-javascript/?view=azure-iot-typescript-latest) sunar. 
+Azure Haritalar ayrıca hem web hem de mobil platform uygulamalarının hızlı ve kolay bir şekilde geliştirilmesi için basit bir programlama modeliyle kullanışlı bir [JavaScript harita denetimi](https://docs.microsoft.com/javascript/api/azure-maps-control/models?view=azure-iot-typescript-latest) sunar. 
 
 
 ## <a name="usage"></a>Kullanım

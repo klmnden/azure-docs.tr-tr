@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 3d1d77e585ae8d608a8f9a4e3de0943315d897af
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: a7916a434552cbcb999f1e69c7a5bc2419f517fb
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41920128"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43094351"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>.NET SDK’sını kullanarak veri fabrikası ve işlem hattı oluşturma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,67 +32,7 @@ Bu hızlı başlangıç, .NET SDK’sı kullanarak bir Azure veri fabrikası olu
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
-
-### <a name="azure-subscription"></a>Azure aboneliği
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
-
-### <a name="azure-roles"></a>Azure rolleri
-Data Factory örnekleri oluşturmak için, Azure’da oturum açarken kullandığınız kullanıcı hesabı, **katkıda bulunan** veya **sahip** rollerinin üyesi ya da bir Azure aboneliğinin **yöneticisi** olmalıdır. Abonelikte sahip olduğunuz izinleri görüntülemek için Azure portalında sağ üst köşedeki **kullanıcı adınıza** tıklayın ve **İzinler**’i seçin. Birden çok aboneliğe erişiminiz varsa uygun aboneliği seçin. Bir role kullanıcı eklemeye ilişkin örnek yönergeler için [Rol ekleme](../billing/billing-add-change-azure-subscription-administrator.md) makalesine bakın.
-
-### <a name="azure-storage-account"></a>Azure Depolama Hesabı
-Bu hızlı başlangıçta, genel amaçlı Azure Depolama Hesabı'nı (özel olarak Blob Depolama) hem **kaynak** hem de **hedef** veri deposu olarak kullanırsınız. Genel amaçlı bir Azure depolama hesabınız yoksa oluşturma bilgileri için bkz. [Depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md). 
-
-#### <a name="get-storage-account-name-and-account-key"></a>Depolama hesabı adını ve hesap anahtarını alma
-Bu hızlı başlangıçta, Azure depolama hesabınızın adını ve anahtarını kullanırsınız. Aşağıdaki yordam, depolama hesabınızın adını ve anahtarını alma adımlarını sağlar. 
-
-1. Web tarayıcısını açın ve [Azure Portal](https://portal.azure.com)'a gidin. Azure kullanıcı adınız ve parolanızla oturum açın. 
-2. Sol taraftaki menüde **Diğer hizmetler >** öğesine tıklayın, **Depolama** anahtar sözcüğüyle filtreleyin ve **Depolama hesapları**'nı seçin.
-
-    ![Depolama hesabını arama](media/quickstart-create-data-factory-dot-net/search-storage-account.png)
-3. Depolama hesapları listesinde, depolama hesabınız için filtre uygulayın (gerekirse) ve ardından **depolama hesabınızı** seçin. 
-4. **Depolama hesabı** sayfasında, menüden **Erişim anahtarları**'nı seçin.
-
-    ![Depolama hesabı adını ve anahtarını alma](media/quickstart-create-data-factory-dot-net/storage-account-name-key.png)
-5. **Depolama hesabı adı** ve **key1** alanlarının değerlerini panoya kopyalayın. Bunları not defterine veya başka bir düzenleyici yapıştırın ve kaydedin.  
-
-#### <a name="create-input-folder-and-files"></a>Giriş klasörünü ve dosyaları oluşturma
-Bu bölümde, Azure blob depolamanızda **adftutorial** adlı bir blob kapsayıcısı oluşturursunuz. Ardından, kapsayıcıda **giriş** adlı bir klasör oluşturur ve giriş klasörüne örnek bir dosya yüklersiniz. 
-
-1. **Depolama hesabı** sayfasında **Genel Bakış**’a geçin ve sonra **Bloblar**’a tıklayın. 
-
-    ![Bloblar seçeneğini belirleyin](media/quickstart-create-data-factory-dot-net/select-blobs.png)
-2. **Blob hizmeti** sayfasında, araç çubuğundaki **+ Kapsayıcı**’ya tıklayın. 
-
-    ![Kapsayıcı ekle düğmesi](media/quickstart-create-data-factory-dot-net/add-container-button.png)    
-3. **Yeni kapsayıcı** iletişim kutusunda ad olarak **adftutorial** girin ve **Tamam**’a tıklayın. 
-
-    ![Kapsayıcı adını girin](media/quickstart-create-data-factory-dot-net/new-container-dialog.png)
-4. Kapsayıcılar listesinde **adftutorial** seçeneğine tıklayın. 
-
-    ![Kapsayıcı seçme](media/quickstart-create-data-factory-dot-net/select-adftutorial-container.png)
-1. **Kapsayıcı** sayfasında araç çubuğundaki **Karşıya Yükle** öğesine tıklayın.  
-
-    ![Karşıya yükle düğmesi](media/quickstart-create-data-factory-dot-net/upload-toolbar-button.png)
-6. **Blobu karşıya yükleme** sayfasında **Gelişmiş**’e tıklayın.
-
-    ![Gelişmiş bağlantısına tıklayın](media/quickstart-create-data-factory-dot-net/upload-blob-advanced.png)
-7. **Not Defteri**’ni başlatın ve şu içeriğe sahip **emp.txt** adlı bir dosya oluşturun: **c:\ADFv2QuickStartPSH** klasörüne kaydedin: Henüz yoksa **ADFv2QuickStartPSH** klasörünü oluşturun.
-    
-    ```
-    John, Doe
-    Jane, Doe
-    ```    
-8. Azure portalında **Blobu karşıya yükleme** sayfasından **Dosyalar** alanı için **emp.txt** dosyasına göz atıp seçin. 
-9. **Klasöre yükle** değeri olarak **input** girin. 
-
-    ![Blobu karşıya yükleme ayarları](media/quickstart-create-data-factory-dot-net/upload-blob-settings.png)    
-10. Klasörün **input**, dosyanın ise **emp.txt** olduğunu onaylayıp **Karşıya Yükle**’ye tıklayın.
-11. Listede **emp.txt** dosyasını ve karşıya yükleme durumunu görmeniz gerekir. 
-12. Köşedeki **X** simgesine tıklayarak **Blobu karşıya yükleme** sayfasını kapatın. 
-
-    ![Blobu karşıya yükleme sayfasını kapatma](media/quickstart-create-data-factory-dot-net/close-upload-blob.png)
-1. **Kapsayıcı** sayfasını açık tutun. Bu hızlı başlangıcın sonundaki çıktıyı doğrulamak için bu sayfayı kullanırsınız.
+[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
 ### <a name="visual-studio"></a>Visual Studio
 Bu makaledeki kılavuzda Visual Studio 2017 kullanılır. Visual Studio 2013 veya 2015 de kullanabilirsiniz.
@@ -100,7 +40,7 @@ Bu makaledeki kılavuzda Visual Studio 2017 kullanılır. Visual Studio 2013 vey
 ### <a name="azure-net-sdk"></a>Azure .NET SDK’sı
 [Azure .NET SDK’sını](http://azure.microsoft.com/downloads/) indirip makinenize yükleyin.
 
-### <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory’de uygulama oluşturma
+## <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory’de uygulama oluşturma
 Aşağıdaki görevleri gerçekleştirmek için [bu makaledeki](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) bölümlerde yer alan yönergeleri izleyin: 
 
 1. **Azure Active Directory uygulaması oluşturma**. Azure Active Directory'de, bu öğreticide oluşturduğunuz .NET uygulamasını temsil eden bir uygulama oluşturma. Oturum açma URL'si için, makalede gösterildiği gibi bir işlevsiz URL sağlayabilirsiniz (`https://contoso.org/exampleapp`).
