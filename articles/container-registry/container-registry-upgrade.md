@@ -6,22 +6,26 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 08/28/2018
 ms.author: marsma
-ms.openlocfilehash: 562bd8da54605986e95d8105782ce7ebb9b359ea
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7a377c607639f5c044e689b11380e9778f9c72c8
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432397"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189030"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Klasik kapsayıcı kayıt defterini yükseltme
 
-Azure Container Registry (ACR) birkaç hizmet katmanlarında kullanılabilir [SKU'ları bilinen](container-registry-skus.md). ACR ilk sürümünde sunulan tek bir SKU temel, standart ve Premium SKU'ları devralınan çeşitli özellikler eksik Klasik, (toplu adıyla *yönetilen* kayıt defterleri). Bu makalede, bunların gelişmiş özellik kümesi yararlanabilir, böylece yönetilmeyen Klasik kayıt defterinizin yönetilen SKU'lar birine geçirme işlemi açıklanmaktadır.
+Azure Container Registry (ACR) birkaç hizmet katmanlarında kullanılabilir [SKU'ları bilinen](container-registry-skus.md). ACR ilk sürümünde sunulan tek bir SKU temel, standart ve Premium SKU'ları devralınan çeşitli özellikler eksik Klasik, (toplu adıyla *yönetilen* kayıt defterleri).
+
+Klasik SKU kullanımdan kaldırılıyor ve Mart 2019 sonra kullanılamaz. Bu makalede, bunların gelişmiş özellik kümesi yararlanabilir, böylece yönetilmeyen Klasik kayıt defterinizin yönetilen SKU'lar birine geçirme işlemi açıklanmaktadır.
 
 ## <a name="why-upgrade"></a>Neden yükseltilsin mi?
 
-Yönetilmeyen Klasik kayıt defterleri sınırlı yeteneklerini nedeniyle, tüm Klasik kayıt defterleri temel, standart veya Premium yükseltilen yönetilen kayıt defterleri olmasını öneririz. Bu üst düzey bir SKU'ları, kayıt defteri serimizde, Azure'un daha derin bir şekilde tümleştirin.
+Klasik kayıt defteri SKU okunuyor **kullanım dışı**ve kullanılamaz durumda gelen **Mart 2019**. Tüm mevcut Klasik kayıt defterleri, yükseltmeden önce Mart 2019 olmalıdır.
+
+Planlanan kullanımdan kaldırma ve yönetilmeyen Klasik kayıt defterleri sınırlı yeteneklerini nedeniyle tüm Klasik kayıt defterleri temel, standart veya Premium yükseltilen yönetilen kayıt defterleri olması. Bu üst düzey bir SKU'ları, kayıt defteri serimizde, Azure'un daha derin bir şekilde tümleştirin.
 
 Yönetilen kayıt defterleri sağlar:
 
@@ -30,7 +34,7 @@ Yönetilen kayıt defterleri sağlar:
 * [Coğrafi çoğaltma](container-registry-geo-replication.md)
 * [Web kancaları](container-registry-webhook.md)
 
-En önemlisi, Klasik kayıt defterini, kayıt defteri oluşturduğunuzda Azure, Azure aboneliğinizde otomatik olarak sağlayan depolama hesabına bağlıdır. Bunun aksine, temel, standart ve Premium SKU'ları Azure'nın yararlanmak [gelişmiş depolama özellikleri](container-registry-storage.md) tarafından şeffaf bir şekilde görüntülerinizin depolama, işleme. Kendi aboneliğinizde ayrı bir depolama hesabı oluşturulmaz.
+Klasik kayıt defterini, kayıt defteri oluşturduğunuzda, Azure otomatik olarak Azure aboneliğinizdeki sağlayan depolama hesabına bağlıdır. Bunun aksine, temel, standart ve Premium SKU'ları Azure'nın yararlanmak [gelişmiş depolama özellikleri](container-registry-storage.md) tarafından şeffaf bir şekilde görüntülerinizin depolama, işleme. Kendi aboneliğinizde ayrı bir depolama hesabı oluşturulmaz.
 
 Yönetilen kayıt defteri depolamasını aşağıdaki avantajları sağlar:
 
