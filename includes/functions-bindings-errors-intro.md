@@ -1,7 +1,13 @@
 Azure işlevleri [Tetikleyicileri ve bağlamaları](..\articles\azure-functions\functions-triggers-bindings.md) çeşitli Azure Hizmetleri ile iletişim kurar. Bu hizmetler ile tümleştirdiğinizde, temel alınan Azure hizmetlerini API'lerinden kaynaklanan yükseltilmiş hataları olabilir. REST veya istemci kitaplıklarını kullanarak, işlev kodunuzun diğer hizmetleriyle iletişim kurmak çalıştığınızda hatalar da meydana gelebilir. Veri kaybını önlemek ve işlevlerinizi iyi davranışı sağlamak için kaynak hatalarını işlemek önemlidir.
 
-Birçok tetikleyici yoktur yerleşik bir yeniden deneme işlevi yürütme sırasında hatalar oluştuğunda. Yeniden deneme desteği olan iki tetikleyiciler, Azure kuyruk depolama ve Azure Blob Depolama ' dir. Varsayılan olarak, bu Tetikleyiciler en fazla beş kez yeniden denenir. Beşinci yeniden denedikten sonra her iki Tetikleyiciler için özel bir ileti yazmak [zehirli kuyruk](..\articles\azure-functions\functions-bindings-storage-queue.md#trigger---poison-messages). 
+Aşağıdaki tetikleyicilerden yerleşik yeniden deneme desteği vardır:
 
-Bir hata işlevinizde gerçekleşmelidir tetikleyici bilgi kaybını önlemek için hataları yakalamak için işlev kodunuzu try-catch bloklarını kullanmanızı öneririz. Bir hata oluştuğunda, özel "zehirli" ileti kuyruğuna tetikleyicisini işleve geçirilen bilgileri yazın. Bu yaklaşım tarafından kullanılan hizmet örneğiyle aynı olan [Blob Depolama tetikleyicisi](..\articles\azure-functions\functions-bindings-storage-blob.md#trigger---poison-blobs). 
+* [Azure Blob Depolama](../articles/azure-functions/functions-bindings-storage-blob.md)
+* [Azure kuyruk depolama](../articles/azure-functions/functions-bindings-storage-queue.md)
+* [Azure Service Bus (kuyruk/konu)](../articles/azure-functions/functions-bindings-service-bus.md)
+
+Varsayılan olarak, bu Tetikleyiciler en fazla beş kez yeniden denenir. Beşinci yeniden denedikten sonra bu Tetikleyiciler için özel bir ileti yazmak [zehirli kuyruk](..\articles\azure-functions\functions-bindings-storage-queue.md#trigger---poison-messages). 
+
+Diğer işlevler Tetikleyicileri için yoktur yerleşik bir yeniden deneme işlevi yürütme sırasında hatalar oluştuğunda. Bir hata işlevinizde gerçekleşmelidir tetikleyici bilgi kaybını önlemek için hataları yakalamak için işlev kodunuzu try-catch bloklarını kullanmanızı öneririz. Bir hata oluştuğunda, özel "zehirli" ileti kuyruğuna tetikleyicisini işleve geçirilen bilgileri yazın. Bu yaklaşım tarafından kullanılan hizmet örneğiyle aynı olan [Blob Depolama tetikleyicisi](..\articles\azure-functions\functions-bindings-storage-blob.md#trigger---poison-blobs). 
 
 Bu şekilde, hataları nedeniyle kaybolur ve depolanan bilgileri kullanarak zehirli kuyruktan iletilerini işlemek için başka bir işlev kullanmayı daha sonraki bir zamanda bunları yeniden deneme olayları tetiklemeyi yakalayabilirsiniz.  
