@@ -11,12 +11,12 @@ ms.topic: article
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
 manager: douge
-ms.openlocfilehash: 001d58aa22d4fc52acebfc88ba07d2467c1be08e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 3f45d8059cd4af5dbab64fef798b61e439a5f2fc
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42060906"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286883"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
@@ -106,6 +106,16 @@ Bu hata azds.exe yüklü değil veya doğru bir şekilde yapılandırıldığın
     ```cmd
     az aks use-dev-spaces -n <cluster-name> -g <resource-group>
     ```
+
+## <a name="warning-dockerfile-could-not-be-generated-due-to-unsupported-language"></a>Uyarı 'Dockerfile nedeniyle desteklenmeyen dil üretilemedi'
+Azure geliştirme alanları, C# ve Node.js için yerel destek sağlar. Çalıştırdığınızda *azds hazırlığı* bu dillerden birinde yazılan kod içeren bir dizinde Azure geliştirme alanları otomatik olarak uygun bir Dockerfile sizin için oluşturur.
+
+Diğer dillerde yazılmış kod ile Azure geliştirme alanları kullanmaya devam edebilirsiniz, ancak Dockerfile çalıştırılmadan önce kendiniz oluşturmanız gerekecektir *yukarı azds* ilk kez.
+
+### <a name="try"></a>Deneyin:
+Uygulamanızı Azure geliştirme alanları tarafından yerel olarak desteklenmeyen bir dilde yazılan kodunuzu çalıştıran bir kapsayıcı görüntüsünü oluşturmak için uygun bir Dockerfile sağlamak gerekir. Docker sağlayan bir [dockerfile'ları yazmak için en iyi uygulamalar listesini](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) yanı [Dockerfile başvurusunu](https://docs.docker.com/engine/reference/builder/) yardımcı olan, bunu.
+
+Uygun bir Dockerfile sağlandıktan çalışır durumda geçebilirsiniz *yukarı azds* Azure geliştirme alanlarında uygulamanızı çalıştırmak için.
 
 ## <a name="error-upstream-connect-error-or-disconnectreset-before-headers"></a>Hata 'yukarı bağlantı hatası veya üst bilgileri önce bağlantıyı kes/reset'
 Hizmetinizi erişmeye çalışırken bu hatayı görebilirsiniz. Örneğin, ne zaman, hizmetin URL'sini bir tarayıcıda gidin. 

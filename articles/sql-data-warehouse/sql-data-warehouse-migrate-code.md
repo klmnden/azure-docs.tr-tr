@@ -1,82 +1,82 @@
 ---
-title: SQL veri ambarına SQL kodunuzu geçirme | Microsoft Docs
-description: Çözümleri geliştirme için Azure SQL Data Warehouse SQL kodunuzu geçirmek için ipuçları.
+title: SQL veri ambarı'na SQL kodunuzu geçirme | Microsoft Docs
+description: SQL kodunuzu çözümleri geliştirmek için Azure SQL veri ambarı'na geçirmek için ipuçları.
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: b17e8e306c01bef4c58658b35f3a67d0e721633c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2f16f9448da2dab9670908f74935bb5fb31a0547
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31527462"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301380"
 ---
-# <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>SQL kodunuzu SQL veri ambarına geçirme
-Bu makalede, büyük olasılıkla kodunuzun başka bir veritabanından SQL veri ambarı'na geçirirken yapmanız gerekecektir kod değişiklikleri açıklanmaktadır. Dağıtılmış bir şekilde çalışması için tasarlanmış gibi bazı SQL veri ambarı özellikleri önemli ölçüde performansını iyileştirebilir. Ancak, performansı ve ölçeği korumak için bazı özellikler de kullanılamaz.
+# <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>SQL veri ambarı'na SQL kodunuzu geçirme
+Bu makalede, büyük olasılıkla, kodunuzun başka bir veritabanından SQL veri ambarı'na geçiş yapmak için ihtiyacınız olacak kod değişiklikleri açıklar. Dağıtılmış bir şekilde çalışmak için tasarlandığı gibi bazı SQL veri ambarı özellikleri performansını önemli ölçüde artırabilir. Ancak, performansı ve ölçeği sürdürmek istiyorsanız, bazı özellikler de kullanılabilir değil.
 
 ## <a name="common-t-sql-limitations"></a>Ortak T-SQL sınırlamaları
-Aşağıdaki listede, SQL Data Warehouse desteklemediği en yaygın özellikler özetlenmektedir. Bağlantılar için desteklenmeyen özellikler geçici çözümler için gerçekleştirin:
+Aşağıdaki liste, SQL veri ambarı desteklemiyor en yaygın özellikler özetlenmiştir. Bağlantılar, desteklenmeyen özellikler için geçici çözümler ulaşmanızı sağlar:
 
 * [ANSI birleştirmeler güncelleştirmeleri][ANSI joins on updates]
 * [ANSI birleştirmeler üzerinde siler][ANSI joins on deletes]
 * [Merge deyimi][merge statement]
-* veritabanları arası birleşimler
+* veritabanları arası birleştirmeler
 * [İmleçler][cursors]
 * [EKLE... EXEC][INSERT..EXEC]
 * Output yan tümcesi
 * Satır içi kullanıcı tanımlı işlevler
-* birden fazla deyim işlevleri
+* çok deyimli İşlevler
 * [Ortak tablo ifadeleri](#Common-table-expressions)
 * [özyinelemeli ortak tablo ifadeleri (CTE)] (#Recursive-common-table-expressions-(CTE)
 * CLR işlevleri ve yordamları
 * $partition işlevi
 * Tablo değişkenleri
-* Tablo değeri parametreleri
+* Tablo değer parametreleri
 * Dağıtılmış işlemler
 * Commit / rollback çalışma
-* işlem Kaydet
-* yürütme bağlamı (EXECUTE AS)
-* [Grup by tümcesi paketi / küp / gruplandırma kümeleri seçenekleri][group by clause with rollup / cube / grouping sets options]
+* işlem kaydedin
+* yürütme bağlamları (EXECUTE AS)
+* [Gruplandırma ölçütü yan tümcesinde toplama / küp / gruplandırma kümeleri seçenekleri][group by clause with rollup / cube / grouping sets options]
 * [iç içe geçme düzeyi 8 ötesinde][nesting levels beyond 8]
-* [görünümleri aracılığıyla güncelleştirme][updating through views]
-* [değişken ataması için seçimi kullanın][use of select for variable assignment]
-* [dinamik SQL dizeleri için hiçbir en büyük veri türü][no MAX data type for dynamic SQL strings]
+* [görünümlerini güncelleştirme][updating through views]
+* [değişken ataması için select kullanımı][use of select for variable assignment]
+* [dinamik SQL dizeleri için hiçbir en fazla veri türü][no MAX data type for dynamic SQL strings]
 
-Neyse ki bu sınırlamalara çoğunu geçici çalışılan. Açıklamalar, yukarıda başvurulan ilgili geliştirme makalelerinde sağlanır.
+Neyse ki bu sınırlamaların çoğunu etrafında çalışılabilmesi. Açıklamalar yukarıda anılan ilgili geliştirmesi makalelerine sağlanır.
 
-## <a name="supported-cte-features"></a>Desteklenen CTE Özellikler
-Ortak tablo ifadelerinde (Cte'lerin) SQL veri ambarı'nda kısmen desteklenir.  Aşağıdaki CTE özellikleri şu anda desteklenir:
+## <a name="supported-cte-features"></a>Desteklenen CTE özellikleri
+Ortak tablo ifadeleri (Cte'lerin), SQL veri ambarı'nda kısmen desteklenir.  Aşağıdaki CTE özellikleri şu anda desteklenmektedir:
 
-* SELECT deyiminde bir CTE belirtilebilir.
-* Bir CTE CREATE VIEW deyiminde belirtilebilir.
-* Bir CTE oluşturmak tablo AS seçin (CTAS) deyiminde belirtilebilir.
-* Bir CTE oluşturma uzak tablo AS seçin (CRTAS) deyiminde belirtilebilir.
-* Bir CTE oluşturmak dış tablo AS seçin (CETAS) deyiminde belirtilebilir.
-* Bir uzak tablo CTE başvurulabilir.
-* Bir dış tablo CTE başvurulabilir.
-* Birden fazla CTE sorgu tanımı bir CTE tanımlanabilir.
+* Bir SELECT deyiminde bir CTE belirtilebilir.
+* Görünüm Oluştur deyiminde bir CTE belirtilebilir.
+* Bir CREATE TABLE AS SELECT (CTAS) deyiminde bir CTE belirtilebilir.
+* Bir oluşturma uzak tablo AS seçin (CRTAS) deyiminde bir CTE belirtilebilir.
+* Bir oluşturma dış tablo AS seçin (CETAS) deyiminde bir CTE belirtilebilir.
+* Uzak tablo bir CTE başvurulabilir.
+* Bir dış tablo bir CTE başvurulabilir.
+* Birden çok CTE sorgu tanımı bir CTE içinde tanımlanabilir.
 
 ## <a name="cte-limitations"></a>CTE sınırlamaları
-Ortak tablo ifadelerinde SQL Data Warehouse dahil, bazı sınırlamalar vardır:
+Ortak tablo ifadelerinde SQL veri ambarı dahil olmak üzere, bazı sınırlamalar mevcuttur:
 
-* Bir CTE tek bir SELECT deyimi tarafından izlenmesi gerekir. INSERT, UPDATE, DELETE ve MERGE deyimleri desteklenmiyor.
-* Başvurular kendisi (bir özyinelemeli ortak tablo ifadesi) içeren bir ortak tablo ifadesi desteklenmiyor (bölüme bakın).
-* Birden çok yan tümcesi ile birlikte bir CTE belirtme izin verilmiyor. Bir CTE_query_definition bir alt sorgu içeriyorsa, örneğin, bu alt sorgu iç içe bir başka bir CTE tanımlayan yan tümcesiyle birlikte içeremez.
+* Bir CTE tek bir SELECT deyimi tarafından izlenmesi gerekir. INSERT, UPDATE, DELETE ve birleştirme deyimleri desteklenmiyor.
+* (Bir özyinelemeli ortak tablo ifadesi) kendine başvuruları içeren bir ortak tablo ifadesi desteklenmiyor (aşağıdaki bölüme bakın).
+* Birden çok yan tümcesine sahip bir CTE içinde belirtme izin verilmez. Bir CTE_query_definition alt sorgu içeriyorsa, örneğin, bu alt sorgu iç içe bir başka bir CTE tanımlayan yan tümcesi ile içeremez.
 * TOP yan tümcesi belirtildiğinde ORDER BY yan tümcesi dışında CTE_query_definition içinde kullanılamaz.
-* Bir CTE bir toplu iş parçası olan bir deyimde kullanıldığında, önceki deyimi noktalı virgülle gelmelidir.
-* Sp_prepare tarafından hazırlanan deyimlerinde kullanıldığında, Cte'lerin PDW diğer SELECT deyimlerinde aynı şekilde davranır. Cte'lerin CETAS sp_prepare tarafından hazırlanan bir parçası olarak kullanılıyorsa, ancak davranışı SQL Server ve diğer PDW deyimleri bağlama için sp_prepare uygulandığı yol nedeniyle erteleneceği. SEÇİN, başvuruları CTE içinde yok yanlış bir sütun CTE kullanarak sp_prepare hata algılama olmadan geçirir, ancak hata sırasında sp_execute yerine oluşturulur.
+* Bir toplu işin bir parçası olan bir deyimde bir CTE kullanıldığında, önceki deyimi noktalı virgül gelmelidir.
+* Sp_prepare tarafından hazırlanmış deyimleri kullanıldığında, Cte'lerin PDW diğer SELECT deyimlerinde aynı şekilde davranır. Cte'lerin CETAS sp_prepare tarafından hazırlanmış bir parçası olarak kullanılır, ancak davranışı SQL Server ve diğer PDW deyimleri bağlama için sp_prepare uygulanma biçimi nedeniyle yayımlanmalarından sonra. SELECT, başvuruları içinde CTE yok yanlış bir sütun CTE kullanarak sp_prepare hata algılama olmadan geçer, ancak hata sırasında sp_execute yerine oluşturulur.
 
 ## <a name="recursive-ctes"></a>Özyinelemeli Cte'lerin
-Özyinelemeli Cte'lerin SQL veri ambarı'nda desteklenmez.  Özyinelemeli CTE geçişini biraz karmaşık olabilir ve içine birden çok adımı ayırmak için en iyi işlemidir. Genellikle, bir döngü kullanın ve geçici bir tablo özyinelemeli geçici sorguları yinelemek gibi doldurun. Geçici tablo doldurulduktan sonra için verileri tek bir sonuç kümesi olarak geri dönebilirsiniz. Benzer bir yaklaşım çözmek için kullanılan `GROUP BY WITH CUBE` içinde [Grup by tümcesi paketi / küp / gruplandırma kümeleri seçenekleri] [ group by clause with rollup / cube / grouping sets options] makalesi.
+Özyinelemeli Cte'lerin SQL veri ambarı'nda desteklenmez.  Özyinelemeli CTE geçişini biraz karmaşık olabilir ve birden çok adımı ayırmak için en iyi işlemidir. Genellikle döngü kullanma ve geçici bir tablo üzerinde yinelenen geçici sorgular yineleme gibi doldurun. Geçici tablo doldurulduktan sonra için verileri tek bir sonuç kümesi iade edebilirsiniz. Benzer bir yaklaşım çözmek için kullanılan `GROUP BY WITH CUBE` içinde [gruplandırma ölçütü yan tümcesinde toplama / küp / gruplandırma kümeleri seçenekleri] [ group by clause with rollup / cube / grouping sets options] makalesi.
 
 ## <a name="unsupported-system-functions"></a>Desteklenmeyen sistem işlevleri
-Desteklenmeyen bazı sistem işlevleri de vardır. Veri ambarı genellikle bulabileceğiniz Ana Kullanılanlar bazıları şunlardır:
+Desteklenmeyen bazı sistem işlevleri vardır. Veri ambarı ' kullanılan genellikle bulabileceğiniz yayılmakta bazıları şunlardır:
 
 * NEWSEQUENTIALID()
 * @@NESTLEVEL()
@@ -85,10 +85,10 @@ Desteklenmeyen bazı sistem işlevleri de vardır. Veri ambarı genellikle bulab
 * ROWCOUNT_BIG
 * ERROR_LINE()
 
-Bu sorunlardan bazıları geçici çalışılan.
+Bu sorunlardan bazıları geçici çalışılabilmesi.
 
 ## <a name="rowcount-workaround"></a>@@ROWCOUNT geçici çözüm
-Desteğinin geçici olarak çözmek için@ROWCOUNT, son satır sayısı sys.dm_pdw_request_steps almak ve sonra yürütün bir saklı yordam oluşturmak `EXEC LastRowCount` DML deyimi sonra.
+Geçici çözüm desteğinin @@ROWCOUNT, sys.dm_pdw_request_steps son satır sayısı almak ve sonra yürütme bir saklı yordam oluşturma `EXEC LastRowCount` DML deyimi sonra.
 
 ```sql
 CREATE PROCEDURE LastRowCount AS
@@ -111,7 +111,7 @@ SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Tüm desteklenen T-SQL deyimlerini tam bir listesi için bkz: [Transact-SQL konuları][Transact-SQL topics].
+Desteklenen tüm T-SQL deyimleri tam bir listesi için bkz. [Transact-SQL konuları][Transact-SQL topics].
 
 <!--Image references-->
 

@@ -1,5 +1,5 @@
 ---
-title: Kullandıkça Öde aboneliğine Azure ayırma kullanımını anlama | Microsoft Docs
+title: Kullandıkça Öde aboneliğine Azure ayırmaları kullanımını anlama | Microsoft Docs
 description: Azure ayırma için Kullandıkça Öde aboneliğinizi nasıl uygulanacağını anlamak için kullanım okumayı öğrenin.
 services: billing
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: manshuk
-ms.openlocfilehash: cf1d7c67fe6033bf41317e75a33349ae07ecf643
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 1226b2f73d556da2ff7d73f6f322e0bd1590f915
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627892"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307067"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Kullandıkça Öde aboneliğinizi Azure ayırma kullanımını anlama
 
@@ -93,12 +93,12 @@ Filtre **ek bilgi** ve yazın, **rezervasyon kimliği**. Aşağıdaki ekran gör
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Rezervasyonlar hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
+Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
 - [Azure ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
 - [Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Azure SQL veritabanı'nın ayrılmış kapasite ile SQL veritabanı bilgi işlem kaynakları için ön ödeme](../sql-database/sql-database-reserved-capacity.md)
-- [Azure'da ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
+- [Azure Ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
 - [Ayırma indirimi nasıl uygulanacağını anlama](billing-understand-vm-reservation-charges.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
 - [Windows yazılım maliyetleri ile ayırmaları dahil değil](billing-reserved-instance-windows-software-costs.md)

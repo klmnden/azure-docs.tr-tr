@@ -1,25 +1,18 @@
 ---
 title: Azure ExpressRoute ile ilgili SSS | Microsoft Docs
 description: ExpressRoute SSS, desteklenen Azure hizmetlerini, maliyet, verileri ve bağlantıları, SLA'sı, sağlayıcıları ve konumları, bant genişliği ve ek teknik ayrıntılar hakkında bilgi içerir.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: jeconnoc
-editor: ''
-ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/14/2018
+ms.topic: conceptual
+ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2e332b361a1531eb5f6a8a1d3c46c2f258035258
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5f40b4c9fff57b105b7d96de69780fea83871032
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818802"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302305"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute SSS
 
@@ -53,7 +46,7 @@ Evet. ExpressRoute bağlantı hatları, hiçbir ek ücret ödenmeden iki kereye 
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Aynı özel ağ bağlantısı ile sanal ağ ve diğer Azure hizmetleriyle aynı anda kullanabilir miyim?
 
-Evet. Kez ayarlamak, bir ExpressRoute bağlantı hattı, bir sanal ağ içindeki Hizmetler ve diğer Azure hizmetleriyle aynı anda erişmenize olanak sağlar. Özel eşleme yolu üzerinden sanal ağlara ve diğer hizmetlere ortak eşleme yolu üzerinden bağlantı.
+Evet. Kez ayarlamak, bir ExpressRoute bağlantı hattı, bir sanal ağ içindeki Hizmetler ve diğer Azure hizmetleriyle aynı anda erişmenize olanak sağlar. Özel eşleme yolu üzerinden sanal ağları ve Microsoft eşleme yolu üzerinden diğer hizmetler için bağlantı.
 
 ### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>ExpressRoute hizmet düzeyi sözleşmesi (SLA) sunduğu?
 
@@ -70,33 +63,18 @@ ExpressRoute destekler [üç yönlendirme etki alanı](expressroute-circuit-peer
 ### <a name="public-peering"></a>Ortak eşleme
 
 >[!NOTE]
->Microsoft eşlemesi, Azure üzerinde barındırılan tüm hizmetlere erişmek için tercih edilen yoludur.
+>Ortak eşleme ExpressRoute devreleri üzerinde devre dışı bırakıldı. Azure Hizmetleri, Microsoft eşlemesi üzerinde kullanılabilir.
 >
-
-* Power BI
-* Dynamics 365 Finans ve operasyon (eski adıyla Dynamics AX Online bilinir) için
-* Azure hizmetlerinin çoğu desteklenir. Lütfen doğrudan destek doğrulamak için kullanmak istediğiniz hizmeti ile denetleyin.<br>
-  Aşağıdaki hizmetler desteklenmez:
-    * CDN
-    * Visual Studio Team Services yük test etme
-    * Multi-factor Authentication
-    * Traffic Manager
 
 ### <a name="microsoft-peering"></a>Microsoft eşlemesi
 
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
-* Dynamics 365 müşteri bağlılığı uygulamalarını (eski adıyla CRM Online bilinir)
-  * Dynamics 365 for Sales
-  * Dynamics 365 for Customer Service
-  * Dynamics 365 for Customer Service
-  * Proje hizmeti için Dynamics 365
-* Kullanarak [rota filtreleri](#route-filters-for-microsoft-peering), Microsoft eşlemesi ile aynı genel hizmetlere erişim elde edersiniz:
-  * Power BI
-  * Finans ve operasyon için Dynamics 365
-  * Azure hizmetlerinin çoğu desteklenir. Lütfen doğrudan destek doğrulamak için kullanmak istediğiniz hizmeti ile denetleyin.<br>
-  Aşağıdaki hizmetler desteklenmez:
+* Dynamics 365 
+* Power BI
+* Azure Active Directory
+* Visual Studio Team Services yük test etme
+* Azure hizmetlerinin çoğu desteklenir. Lütfen doğrudan destek doğrulamak için kullanmak istediğiniz hizmeti ile denetleyin.<br>Aşağıdaki hizmetler **desteklenmiyor**:
     * CDN
-    * Visual Studio Team Services yük test etme
     * Multi-factor Authentication
     * Traffic Manager
 
@@ -132,7 +110,7 @@ Evet. Her ExpressRoute bağlantı hattı çapraz bağlantıları yüksek kullan�
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Expressroute'a bağlanan bir sanal ağ üzerinde yüksek kullanılabilirlik nasıl emin olabilirim?
 
-Sanal ağınıza farklı konumlarda eşleme (örneğin, Singapur, singapur2) ExpressRoute devreleri bağlanarak yüksek kullanılabilirlik ulaşabilir. Bir ExpressRoute bağlantı hattı kalırsa, bağlantı üzerinden başka bir ExpressRoute bağlantı hattına başarısız olur. Varsayılan olarak, sanal ağınızı trafiğe eşit maliyet çoklu yol yönlendirmesi (ECMP üzerinde) göre yönlendirilir. Bağlantı ağırlığına tek bir devreniz diğerine tercih etmek için kullanabilirsiniz. Bkz: [ExpressRoute yönlendirmeyi en iyi duruma getirme](expressroute-optimize-routing.md) bağlantı ağırlığına hakkında daha fazla ayrıntı için.
+Sanal ağınıza farklı konumlarda eşleme (örneğin, Singapur, singapur2) ExpressRoute devreleri bağlanarak yüksek kullanılabilirlik elde edebilirsiniz. Bir ExpressRoute bağlantı hattı kalırsa, bağlantı üzerinden başka bir ExpressRoute bağlantı hattına başarısız olur. Varsayılan olarak, sanal ağınızı trafiğe eşit maliyet çoklu yol yönlendirmesi (ECMP üzerinde) göre yönlendirilir. Bağlantı ağırlığına tek bir devreniz diğerine tercih etmek için kullanabilirsiniz. Daha fazla bilgi için [ExpressRoute yönlendirmeyi en iyi duruma getirme](expressroute-optimize-routing.md).
 
 ### <a name="onep2plink"></a>Bulut değişiminde ortak konumlu değilim ve benim hizmet sağlayıcısı, noktadan noktaya bağlantısı sunar, my şirket içi ağınız ile Microsoft arasında iki fiziksel bağlantıları sıralamak ihtiyacım var?
 
@@ -152,7 +130,7 @@ Evet. Aboneliğinizde birden fazla ExpressRoute bağlantı hattı olabilir. Vars
 
 Evet. ExpressRoute bağlantı hatları birçok hizmet sağlayıcının sahip olabilir. Her ExpressRoute bağlantı hattı yalnızca bir hizmet sağlayıcısı ile ilişkilidir. 
 
-### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-eg-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>İki ExpressRoute eşleme konumlarına aynı metro, örneğin Singapur ve singapur2 görüyorum. ExpressRoute bağlantı hattımı oluşturmak eşleme konumu seçmeliyim?
+### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-for-example-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>İki ExpressRoute eşleme konumlarına aynı metro, örneğin, Singapur ve singapur2 görüyorum. ExpressRoute bağlantı hattımı oluşturmak eşleme konumu seçmeliyim?
 Hizmet sağlayıcınız ExpressRoute iki sitelerdeki sunuyorsa, sağlayıcınızla birlikte çalışmanız ve ExpressRoute ' ayarlamak için her iki site seçin. 
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Birden çok ExpressRoute bağlantı hatları aynı metro olabilir mi? Ben bunları aynı sanal ağa bağlayabilir miyim?
@@ -205,7 +183,7 @@ Evet. Varsayılan yol (0.0.0.0/0) ya da Internet rotası önekleri BGP oturumu �
 
 Evet. Dağıtılan bir sanal ağ içindeki sanal makinelerin tüm Internet bağlantısı engellemek için varsayılan yol (0.0.0.0/0) duyurmak ve tüm trafik ExpressRoute bağlantı hattı üzerinden çıkış yol.
 
-Şirket içi ortamınızda genel eşleme (örneğin, Azure depolama ve SQL DB) geri üzerinden sunulan hizmetler için varsayılan yolları tanıtma, biz trafiği zorlayın. Trafiği için Azure ortak eşleme yolu veya Internet üzerinden döndürülecek yönlendiricilerinizi yapılandırmak gerekir. Hizmeti için hizmet uç noktası (Önizleme) etkinleştirdiyseniz, hizmet trafiği şirket içinde zorunlu değildir. Trafiğin Azure omurga ağında kalır. Hizmet uç noktaları hakkında daha fazla bilgi için bkz: [sanal ağ hizmet uç noktaları](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json)
+Varsayılan yolları tanıtma, biz trafik (Azure depolama ve SQL DB gibi) eşlemesi Microsoft üzerinden sunulan hizmetler için şirket içinde geri zorlar. Microsoft eşleme yolu veya Internet üzerinden Azure'a trafiği döndürülecek yönlendiricilerinizi yapılandırma gerekir. Hizmeti için hizmet uç noktası etkinleştirdiyseniz, hizmet trafiği şirket içinde zorunlu değildir. Trafiğin Azure omurga ağında kalır. Hizmet uç noktaları hakkında daha fazla bilgi için bkz: [sanal ağ hizmet uç noktaları](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 
 ### <a name="can-virtual-networks-linked-to-the-same-expressroute-circuit-talk-to-each-other"></a>Aynı ExpressRoute bağlantı hattına bağlı sanal ağlar birbiriyle iletişim kurabilir?
 
@@ -223,17 +201,13 @@ Evet. Sanal ağınızdaki bir ExpressRoute ağ geçidi oluşturmanız gerekir. �
 
 Genel IP adresi, yalnızca iç yönetimi için kullanılır ve sanal ağınızda güvenlik riskini oluşturmadığına.
 
-### <a name="what-do-i-need-to-connect-to-azure-storage-over-expressroute"></a>ExpressRoute üzerinden Azure depolamaya bağlanmak ne gerekiyor?
-
-Bir ExpressRoute bağlantı hattı kurmak ve genel eşdüzey hizmet sağlama için yolları yapılandırmanız gerekir.
-
 ### <a name="are-there-limits-on-the-number-of-routes-i-can-advertise"></a>Tanıtabilir miyim yolların sayısına yönelik sınırlar var mıdır?
 
-Evet. En fazla özel eşdüzey hizmet sağlama için rota önekleri 4000 ve 200 her ortak eşleme ve Microsoft eşlemesi için kabul. Bu, ExpressRoute premium özelliğini etkinleştirirseniz, özel eşdüzey hizmet sağlama için 10.000 yollar artırabilir.
+Evet. En fazla 4000 rota önekleri özel eşleme ve Microsoft eşlemesi için 200 kabul. Bu, ExpressRoute premium özelliğini etkinleştirirseniz, özel eşdüzey hizmet sağlama için 10.000 yollar artırabilir.
 
 ### <a name="are-there-restrictions-on-ip-ranges-i-can-advertise-over-the-bgp-session"></a>BGP oturumunda tanıtmayı IP aralıkları kısıtlamalar var mı?
 
-Size özel önekleri (RFC1918) genel ve Microsoft eşleme BGP oturumu kabul etmeyin.
+Size özel önekleri (RFC1918) için Microsoft eşleme BGP oturumu kabul etmeyin.
 
 ### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>Sınırlar BGP aşarsam ne olur?
 
@@ -242,18 +216,6 @@ BGP oturumu düşürülür. Bunlar sınırın altına ön ek sayısı ölçeklen
 ### <a name="what-is-the-expressroute-bgp-hold-time-can-it-be-adjusted"></a>ExpressRoute BGP Durma süresini nedir? Ayarlanabilir mi?
 
 Durma süresini 180'dir. 60 saniyede gönderilen etkin tutma iletileri. Bu ayarlar değiştirilemez Microsoft tarafında sabittir. Farklı zamanlayıcılar yapılandırmak için mümkündür ve BGP oturumu parametreleri uygun şekilde gerçekleştirilir.
-
-### <a name="after-i-advertise-the-default-route-00000-to-my-virtual-networks-i-cant-activate-windows-running-on-my-azure-vms-how-to-i-fix-this"></a>My Azure VM'ler üzerinde çalışan Windows, ben varsayılan yolun (0.0.0.0/0) sanal ağlarımı tanıtma sonra etkinleştirin olamaz. İçin bunu nasıl düzeltirim?
-
-Aşağıdaki adımlar, Azure etkinleştirme isteği tanımak yardımcı olur:
-
-1. ExpressRoute bağlantı hattınız için genel eşleme oluşturun.
-2. DNS Arama gerçekleştirebilir ve IP adresini bulmak **kms.core.windows.net**
-3. Anahtar Yönetimi hizmeti, etkinleştirme isteği Azure ve istek Uy gelir tanıması gerekir. Aşağıdaki üç görevlerden birini gerçekleştirin:
-
-   * Şirket içi ağınızda 2. adımda ortak eşleme aracılığıyla azure'a geri aldığınız IP adresini hedefleyen trafiği yönlendirme.
-   * Ortak eşleme aracılığıyla Azure'a yedekleme trafiği, NSP'nin sağlayıcısı artı PIN sahip.
-   * Bir sonraki atlama olarak İnternet'e sahip IP işaret eden kullanıcı tanımlı bir yol oluşturun ve bu sanal makineler olduğu alt ağı, başarılı için geçerlidir.
 
 ### <a name="can-i-change-the-bandwidth-of-an-expressroute-circuit"></a>ExpressRoute bağlantı hattının bant genişliğini değiştirebilirim?
 
@@ -280,7 +242,7 @@ ExpressRoute premium, aşağıdaki özellikler koleksiyonudur:
     **Örnekler:**
 
     *  Silikon Vadisi'nde oluşturulan bir ExpressRoute devresi için Batı Avrupa'da oluşturulan bir sanal ağa bağlayabilirsiniz. 
-    *  İçin örneğin, SQL Azure Batı Avrupa, Silikon vadisi, bağlantı hattı bağlantı kurabilirsiniz şekilde ortak eşleme üzerinde diğer coğrafi bölgelerdeki ön eklerin tanıtılıp.
+    *  İçin örneğin, SQL Azure Batı Avrupa, Silikon vadisi, bağlantı hattı bağlantı kurabilirsiniz olacak şekilde Microsoft eşlemesi, diğer coğrafi bölgelerdeki ön eklerin tanıtılıp.
 
 
 ### <a name="limits"></a>Ben ExpressRoute premium etkinleştirilirse kaç sanal ağlar miyim ExpressRoute devresine bağlayabilir miyim?
@@ -309,11 +271,11 @@ Başvurmak [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/d
 
 Evet. ExpressRoute bağlantı hattı bağlantı sağlayıcı tarafından gerekli süreliğine ve üstünde ExpressRoute premium ücretleri uygulanır.
 
-## <a name="expressroute-for-office-365-and-dynamics-365"></a>Office 365 ve Dynamics 365 için ExpressRoute
+## <a name="expressroute-for-office-365"></a>Office 365 için ExpressRoute
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services-and-dynamics-365"></a>Dynamics 365 ve Office 365 hizmetlerine bağlanmak için bir ExpressRoute bağlantı hattı nasıl oluşturulur?
+### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services"></a>Office 365 hizmetlerine bağlanan bir ExpressRoute bağlantı hattı nasıl oluşturulur?
 
 1. Gözden geçirme [ExpressRoute ön koşullar sayfasında](expressroute-prerequisites.md) gereksinimleri karşıladığından emin olmak için.
 2. Bağlantı gereksinimlerinizi karşılandığından emin olmak için hizmet sağlayıcıları ve konumları olarak listesini gözden geçirin. [ExpressRoute iş ortakları ve konumları](expressroute-locations.md) makalesi.
@@ -321,13 +283,9 @@ Evet. ExpressRoute bağlantı hattı bağlantı sağlayıcı tarafından gerekli
 4. Bağlantı kurmak için iş akışlarında listelenen adımları takip [bağlantı hattı sağlama ve devre durumları için ExpressRoute iş akışları](expressroute-workflows.md).
 
 > [!IMPORTANT]
-> Office 365 Hizmetleri ve Dynamics 365 bağlantısını yapılandırırken ExpressRoute premium eklentisi etkinleştirdiğinizden emin olun.
+> Office 365 hizmetlerine bağlantıyı yapılandırırken ExpressRoute premium eklentisi etkinleştirdiğinizden emin olun.
 > 
 > 
-
-### <a name="do-i-need-to-enable-azure-public-peering-to-connect-to-office-365-services-and-dynamics-365"></a>Azure genel Dynamics 365 ve Office 365 hizmetlerine bağlanmak eşlemeyi etkinleştirmesini gerekiyor mu?
-
-Hayır, yalnızca Microsoft Peering etkinleştirmeniz gerekir. Kimlik doğrulama trafiği Azure AD'ye Microsoft Peering gönderilir. 
 
 ### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-dynamics-365"></a>Uygulamam var olan ExpressRoute bağlantı hatları, Office 365 Hizmetleri ve Dynamics 365 bağlantısı destekleyebilir mi?
 
@@ -337,9 +295,9 @@ Evet. Office 365 hizmetlerine bağlantıyı desteklemek için mevcut bir Express
 
 Başvurmak [Office 365 URL'leri ve IP adresi aralıkları](http://aka.ms/o365endpoints) sayfa ExpressRoute üzerinde desteklenen hizmetlerin güncel bir listesi.
 
-### <a name="how-much-does-expressroute-for-office-365-services-and-dynamics-365-cost"></a>Ne kadar ExpressRoute için Office 365 Hizmetleri ve Dynamics 365 maliyet?
+### <a name="how-much-does-expressroute-for-office-365-services-cost"></a>Ne kadar ExpressRoute için Office 365 Hizmetleri maliyeti?
 
-Office 365 Hizmetleri ve Dynamics 365 premium eklenti, etkin olmasını gerektirir. Bkz: [fiyatlandırma ayrıntıları sayfasına](https://azure.microsoft.com/pricing/details/expressroute/) maliyetleri için.
+Office 365 Hizmetleri premium eklenti, etkin olmasını gerektirir. Bkz: [fiyatlandırma ayrıntıları sayfasına](https://azure.microsoft.com/pricing/details/expressroute/) maliyetleri için.
 
 ### <a name="what-regions-is-expressroute-for-office-365-supported-in"></a>Office 365 için ExpressRoute hangi bölgeler desteklenir?
 
@@ -356,10 +314,6 @@ Evet. ExpressRoute ağınız için yapılandırılmış olsa bile, office 365 hi
 
 Evet. Office 365 GCC hizmet uç noktaları, Azure ABD kamu ExpressRoute aracılığıyla erişilebilir. Ancak, ilk Microsoft'a bildirmek için istediğinize önekleri sağlamak için Azure portalında bir destek bileti açmanız gerekir. Destek bileti çözümlendikten sonra Office 365 GCC hizmetlerine bağlantı kurulur. 
 
-### <a name="can-dynamics-365-for-operations-formerly-known-as-dynamics-ax-online-be-accessed-over-an-expressroute-connection"></a>Dynamics 365 (eski adıyla Dynamics AX Online bilinir) işlemleri için bir ExpressRoute bağlantısı üzerinden erişilebilir?
-
-Evet. [Operasyonlar için Dynamics 365](https://www.microsoft.com/dynamics365/operations) Azure'da barındırılır. Azure ortak bağlanmak için ExpressRoute bağlantı hattı üzerinde eşleme etkinleştirebilirsiniz.
-
 ## <a name="route-filters-for-microsoft-peering"></a>Microsoft eşlemesi için rota filtreleri
 
 ### <a name="i-am-turning-on-microsoft-peering-for-the-first-time-what-routes-will-i-see"></a>I 'M kapatma ilk kez, Microsoft eşlemesi üzerinde hangi rotalar görüyorum?
@@ -374,7 +328,7 @@ Rota filtrelerini kullanırken, tüm müşteriler, Microsoft eşlemesi üzerinde
 
 Hayır, yetkilendirme için Dynamics 365 gerekmez. Bir kural oluşturmak ve Dynamics 365 topluluğu yetkilendirme olmadan seçin.
 
-### <a name="i-enabled-microsoft-peering-prior-to-august-1st-2017-how-can-i-take-advantage-of-route-filters"></a>Ben Microsoft nasıl rota filtreleri,'ndan yararlanabilir miyim 1 Ağustos 2017'den önce eşleme etkin mi?
+### <a name="i-enabled-microsoft-peering-prior-to-august-1-2017-how-can-i-take-advantage-of-route-filters"></a>Ben Microsoft nasıl rota filtreleri,'ndan yararlanabilir miyim 1 Ağustos 2017'den önce eşleme etkin mi?
 
 Mevcut bağlantı hattınız için Office 365 ve Dynamics 365 öneklerinin reklam devam eder. Aynı Microsoft eşlemesi üzerinden Azure genel öneklerinin reklam eklemek istiyorsanız, bir rota filtresinde oluşturabilir, (ihtiyacınız Office 365 Hizmetleri ve Dynamics 365 gibi) tanıtılan gereksinim duyduğunuz hizmetleri seçin ve Microsoft filtre ekleme eşleme. Yönergeler için [Microsoft eşlemesi için rota filtreleri yapılandırma](how-to-routefilter-powershell.md).
 

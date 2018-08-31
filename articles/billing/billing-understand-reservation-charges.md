@@ -1,5 +1,5 @@
 ---
-title: Azure ayırma indirimi anlama | Microsoft Docs
+title: Azure ayırmaları indirim anlama | Microsoft Docs
 description: Ayırma indirimi çalışan SQL veritabanlarını nasıl uygulanacağını öğrenin.
 services: billing
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashar
-ms.openlocfilehash: 3a5339200309a50eace5b48dfbd9127b7eb1dae6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 923337291d297832e03892b505f4efa8d3bb3f36
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39635174"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300723"
 ---
 # <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Bir Azure ayırma indirimi SQL veritabanına nasıl uygulanacağını anlama
 
@@ -40,7 +40,7 @@ Bu örneklerin geri kalanında, satın aldığınız SQL veritabanı ayrılmış
 - Senaryo 3: Bir çalıştırdığınız 16 çekirdek SQL veritabanı 13'te 1:30 pm için. 1:30 pm 2 başka bir 16 çekirdek SQL veritabanı çalıştırın. Her ikisi de, ayırma indirimini tarafından ele alınmaktadır.
 - Senaryo 4: Bir çalıştırdığınız 16 çekirdek SQL veritabanı 13'te 1:45 pm için. 1:30 pm 2 başka bir 16 çekirdek SQL veritabanı çalıştırın. 15 dakikalık çakışma Kullandıkça Öde fiyatı Ücret ödersiniz. Ayırma indirimi işlem kullanımı saat geri kalanı için uygulanır.
 
-Anlamak ve kullanım raporları faturalama Azure ayırmalarınızın uygulamayı görüntülemek için bkz: [anlamak Azure ayırma kullanım](https://go.microsoft.com/fwlink/?linkid=862757).
+Anlamak ve kullanım raporları faturalama Azure Ayırmalarınızın uygulamayı görüntülemek için bkz: [anlamak Azure ayırma kullanım](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -49,7 +49,7 @@ Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalel
 - [Azure ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
 - [Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Azure SQL veritabanı'nın ayrılmış kapasite ile SQL veritabanı bilgi işlem kaynakları için ön ödeme](../sql-database/sql-database-reserved-capacity.md)
-- [Azure ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
+- [Azure Ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
 - [CSP abonelikleri için ayırma kullanımını anlama](https://docs.microsoft.com/partner-center/azure-reservations)

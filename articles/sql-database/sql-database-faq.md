@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 08/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 7f784689e8437d92cf4fc4974983d3ae1455f11b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a7837ac6af82b5c67ea5779340aedc16cb78d156
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091833"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286341"
 ---
 # <a name="sql-database-faq"></a>SQL Veritabanı SSS
 
@@ -22,8 +22,10 @@ ms.locfileid: "43091833"
 Geçerli sürümü, SQL veritabanı V12 ' dir. Sürüm V11 kullanımdan kaldırılmıştır.
 
 ## <a name="what-is-the-sla-for-sql-database"></a>SQL veritabanı SLA'sı nedir?
-Süre en az % 99,99 oranında kullanılabilir olacağına garanti veriyoruz, Microsoft Azure SQL veritabanı ile Internet ağ geçidimizle arasında hizmet katmanınızın bağımsız olarak bağlantınız. Daha fazla bilgi için [SLA](http://azure.microsoft.com/support/legal/sla/).
+Süre en az % 99,99 oranında kullanılabilir olacağına garanti veriyoruz, Microsoft Azure SQL veritabanı ile Internet ağ geçidimizle arasında hizmet katmanınızın bağımsız olarak bağlantınız. %0,01 düzeltme ekleri, yükseltmeleri ve yük devretme işlemleri için ayrılmıştır. Daha fazla bilgi için [SLA](http://azure.microsoft.com/support/legal/sla/). Azure SQL veritabanı kullanılabilirlik mimarisi hakkında daha fazla bilgi için bkz. [yüksek kullanılabilirlik ve Azure SQL veritabanı](sql-database-high-availability.md). 
 
+## <a name="can-i-control-when-patching-downtime-occurs"></a>Kapalı kalma süresi düzeltme eki uygulama oluştuğunda denetleyebilirim
+Hayır. Düzeltme eki uygulama etkisini genellikle gözümüzün değil ise, [yeniden deneme mantığı uyguluyor](sql-database-develop-overview.md#resiliency) uygulamanızda.
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Azure SQL veritabanı için yeni sanal çekirdek tabanlı satın alma modeli nedir?
 
 Yeni satın alma modeli, mevcut DTU temelli model üzerinde yapılan bir eklemedir. Sanal çekirdek tabanlı model, müşterilere esneklik, denetimi, saydamlık sağlamak üzere tasarlanmıştır ve basit bir yol çevirmek için şirket iş yükü gereksinimlerini buluta. Ayrıca, iş yükü ihtiyaçlarını alarak kendi işlem ve depolama kaynakları yönetebileceğiniz ölçeklendirme müşterilerin olanak tanır. Tek veritabanı ve elastik havuz seçenekleri vCore modeli kullanarak da ile yüzde 30 tasarruf için uygun yedekleme [SQL Server için Azure hibrit kullanım teklifi](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) daha fazla bilgi için. 

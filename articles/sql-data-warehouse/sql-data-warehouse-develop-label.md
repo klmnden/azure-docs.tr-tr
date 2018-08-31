@@ -1,28 +1,28 @@
 ---
-title: SQL veri ambarı'nda gereç sorgular için etiketleri kullanma | Microsoft Docs
-description: Çözümleri geliştirme için Azure SQL Data Warehouse'da gereç sorgulara etiketleri kullanma ipuçları.
+title: SQL veri ambarı'nda gereç sorgular için etiketler kullanarak | Microsoft Docs
+description: Çözümleri geliştirmek için Azure SQL veri ambarı'nda gereç sorgular için etiketleri kullanma hakkında ipuçları.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 22737faa146d83f1f31489125dee4146c7d11ac1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 959fddfd24041a245f80b048eca4bef3cd612905
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31524253"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301155"
 ---
-# <a name="using-labels-to-instrument-queries-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse'da gereç sorgular için etiketleri kullanma
-Çözümleri geliştirme için Azure SQL Data Warehouse'da gereç sorgulara etiketleri kullanma ipuçları.
+# <a name="using-labels-to-instrument-queries-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda gereç sorgular için etiketleri kullanma
+Çözümleri geliştirmek için Azure SQL veri ambarı'nda gereç sorgular için etiketleri kullanma hakkında ipuçları.
 
 
 ## <a name="what-are-labels"></a>Etiketleri nelerdir?
-SQL veri ambarı sorgusu etiketleri adlı bir kavram destekler. Herhangi bir derinliğe geçmeden önce bir örneğe bakalım:
+SQL veri ambarı, sorgu etiketleri adlı bir kavram destekler. Herhangi bir derinliğe geçmeden önce bir örneğe göz atalım:
 
 ```sql
 SELECT *
@@ -31,11 +31,11 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-Son satırı sorgu dizesine 'My sorgu etiketi' etiketler. Bu etiket etiket-Dmv'leri sorgulayabilir olduğundan özellikle yararlıdır. Etiketler için sorgulama sorun sorguları bulma ve Çalıştır ELT ilerlemeyi tanımlamak için yardımcı olmak için bir mekanizma sağlar.
+Son satırı sorgu dizesine 'Sorgu etiketi' etiketleri. Etiket Dmv'ler sorgu-mümkün olduğundan bu etiket, özellikle yararlı olur. Etiketler için sorgulama sorguları bulmak ve çalıştırmak için bir ELT ilerlemeyi tanımlamaya yardımcı olmaya yönelik bir mekanizma sağlar.
 
-İyi bir adlandırma kuralı gerçekten yardımcı olur. Örneğin, etiket projesi ile başlayarak, yordam, DEYİMİ veya YORUM sorgu kaynak denetiminde tüm kod arasında benzersiz şekilde tanımlamak için yardımcı olur.
+İyi bir adlandırma kuralı gerçekten yardımcı olur. Örneğin, etiket proje ile başlayarak, yordam, DEYİM veya YORUM sorgu kaynak denetimindeki tüm kod arasında benzersiz olarak tanımlanabilmesi için yardımcı olur.
 
-Aşağıdaki sorgu dinamik yönetim görünümünü etikete göre aramak için kullanır.
+Aşağıdaki sorgu, etiketle aramak için bir dinamik yönetim görünümünü kullanır.
 
 ```sql
 SELECT  *
@@ -45,7 +45,7 @@ WHERE   r.[label] = 'My Query Label'
 ```
 
 > [!NOTE]
-> Köşeli ayraçlar veya word etiketi çift tırnak sorgulanırken koymak için gereklidir. Etiket ayrılmış bir sözcük ve değil ayrılmış bir hata neden olur. 
+> Sorgulanırken köşeli parantezler veya word etiket etrafına çift tırnak işareti koymak için gereklidir. Etiket, ayrılmış bir sözcük ve değil sınırlı olduğunda bir hataya neden olur. 
 > 
 > 
 

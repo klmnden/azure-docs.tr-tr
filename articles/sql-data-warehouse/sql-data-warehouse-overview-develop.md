@@ -1,52 +1,52 @@
 ---
-title: Azure veri ambarında geliştirmek için kaynaklar | Microsoft Docs
-description: Geliştirme kavramları, tasarım kararları, öneriler ve SQL Data Warehouse için kodlama teknikleri.
+title: Bir veri ambarı'nda Azure geliştirme kaynakları | Microsoft Docs
+description: Geliştirme kavramları, tasarım kararlarını, öneriler ve SQL veri ambarı için kodlama tekniklerini.
 services: sql-data-warehouse
-author: ckarst
-manager: craigg-msft
+author: kevinvngo
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 08/29/2018
+ms.author: kevinvngo
 ms.reviewer: igorstan
-ms.openlocfilehash: d9a272b2f43e080cd44b7179fe6f9dc55507142b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5cb3b3b261bcb762187b165e297225080b0fee81
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31601813"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306067"
 ---
-# <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>SQL Data Warehouse için tasarım kararları ve kodlama teknikleri
-SQL Data Warehouse için temel tasarım kararları, öneriler ve kodlama teknikleri daha iyi anlamak için bu geliştirme makalelere göz atın.
+# <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Tasarım kararlarını ve SQL veri ambarı için kodlama tekniklerini
+SQL veri ambarı için temel tasarım kararlarına, öneriler ve kodlama tekniklerini daha iyi anlamak için bu geliştirme makalelere göz atın.
 
 ## <a name="key-design-decisions"></a>Temel tasarım kararları
-Aşağıdaki makaleler, kavramlar ve SQL Data Warehouse kullanarak dağıtılmış veri ambarına geliştirmek için tasarım kararları vurgula:
+Aşağıdaki makaleler kavramları ve SQL veri ambarı'nı kullanarak bir Dağıtılmış veri ambarı geliştirmeye yönelik tasarım kararları vurgular:
 
 * [Bağlantıları][connections]
 * [Eşzamanlılık][concurrency]
 * [İşlemler][transactions]
-* [Kullanıcı tanımlı şemaları][user-defined schemas]
-* [Tablo dağıtım][table distribution]
-* [Tablo dizinlerini][table indexes]
+* [Kullanıcı tanımlı şemalar][user-defined schemas]
+* [Tablo dağıtımı][table distribution]
+* [Tablo dizinleri][table indexes]
 * [Tablo bölümleri][table partitions]
 * [CTAS][CTAS]
 * [İstatistikleri][statistics]
 
-## <a name="development-recommendations-and-coding-techniques"></a>Geliştirme önerileri ve kodlama teknikleri
-Bu makaleler, belirli kodlama teknikleri, ipuçları ve öneriler SQL veri ambarı geliştirmek için vurgula:
+## <a name="development-recommendations-and-coding-techniques"></a>Geliştirme önerileri ve kodlama tekniklerini
+Bu makaleler, belirli bir kodlama tekniklerini, ipuçları ve SQL veri Ambarınızı geliştirmeye yönelik öneriler vurgular:
 
 * [Saklı yordamlar][stored procedures]
-* [Etiketleri][labels]
+* [etiketleri][labels]
 * [Görünümler][views]
-* [geçici tablolar][temporary tables]
+* [Geçici tablolar][temporary tables]
 * [Dinamik SQL][dynamic SQL]
 * [döngü][looping]
-* [Grup tarafından seçenekleri][group by options]
-* [Değişken ataması][variable assignment]
+* [Gruplandırma seçenekleri][group by options]
+* [değişken ataması][variable assignment]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla başvuru bilgileri için bkz: [SQL veri ambarı T-SQL deyimlerini](sql-data-warehouse-reference-tsql-statements.md).
+Daha fazla başvuru bilgileri için bkz: [SQL veri ambarı T-SQL deyimleri](sql-data-warehouse-reference-tsql-statements.md).
 
 <!--Image references-->
 

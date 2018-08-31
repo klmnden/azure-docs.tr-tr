@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/26/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 78e952b5b1eedc1757cfe636eb13e411044dce54
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: fbf8a0302ae8414f49a055ab260a52222425ab7c
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42056244"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287203"
 ---
 # <a name="develop-and-debug-nodejs-modules-with-azure-iot-edge-for-visual-studio-code"></a>Geliştirme ve Node.js modüllerini Visual Studio Code için Azure IOT Edge ile hata ayıklama
 
@@ -92,7 +92,7 @@ Her modül klasöründe, farklı bir kapsayıcı türü için birden çok Docker
 
 2. VS Code komut paletinde yazın ve şu komutu çalıştırın **Azure IOT Edge: IOT Edge çözüm**.
 3. Seçin `deployment.template.json` komut paletini çözümünüzden dosyası. 
-4. Azure IOT Hub cihazları Gezgini'nde bir IOT Edge cihaz Kimliğine sağ tıklayın ve ardından **IOT Edge cihazı için dağıtım oluşturma**. 
+4. Azure IOT Hub cihazları Gezgini'nde bir IOT Edge cihaz Kimliğine sağ tıklayın ve ardından **tek cihaz için dağıtım oluşturma**. 
 5. Açık **config** klasörü, çözümünüzün seçip `deployment.json` dosya. **Select Edge Deployment Manifest** (Edge Dağıtım Bildirimini Seç) öğesine tıklayın. 
 
 Dağıtım başarıyla kimliği VS Code tümleşik bir dağıtım ile terminal oluşturulduktan sonra görebilirsiniz.

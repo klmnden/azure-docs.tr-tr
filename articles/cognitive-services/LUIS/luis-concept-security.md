@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: fe0ee7d575e69c883ad7f980477e86fbd004778e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: fddffbcabba753e9ef214f924d5ff2cee38427a5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397252"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301702"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Geliştirme ve uç noktası kullanıcı erişimi
 Erişim geliştirme sahipleri ve ortak çalışanlar için kullanılabilir. Özel bir uygulama için erişim uç noktası sahipleri ve ortak çalışanlar için kullanılabilir. Genel bir uygulama için uç nokta kendi LUIS hesabını ve genel uygulama kimliğine sahip herkes için erişilebilir 
@@ -60,7 +60,7 @@ Uygulama olarak yapılandırmanıza **genel** üzerinde **ayarları** uygulamas�
 Uygulama kimliğini belirtilen bir sahibi veya ortak çalışan, bir kullanıcı bir genel uygulama yalnızca erişim Genel LUIS yoksa _Pazar_ veya diğer yolu genel bir uygulamayı arayın.  
 
 ## <a name="microsoft-user-accounts"></a>Microsoft kullanıcı hesapları
-Yazarlar ve ortak çalışanlar anahtarları için LUIS Yayımla sayfasında ekleyebilirsiniz. LUIS anahtar oluşturur Azure portalında Microsoft kullanıcı hesabı için uygulama sahibi veya bir uygulama ortak çalışanı gerekir. 
+Yazarlar ve ortak çalışanlar anahtarları için LUIS Yayımla sayfasında ekleyebilirsiniz. LUIS anahtar oluşturur Azure portalında Microsoft kullanıcı hesabının uygulama sahibine ya da bir uygulama ortak çalışanı olması gerekir. 
 
 Bkz: [Azure Active Directory Kiracı Kullanıcı](luis-how-to-collaborate.md#azure-active-directory-tenant-user) Active Directory kullanıcı hesapları hakkında daha fazla bilgi edinmek için. 
 

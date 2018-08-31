@@ -3,82 +3,82 @@ title: Azure SQL veri ambarı hakkında sık sorulan sorular | Microsoft Docs
 description: Bu makalede, Azure SQL veri ambarı hakkında sık sorulan soruların müşterilere ve geliştiricilerinden kullanıma listelenir.
 services: sql-data-warehouse
 author: acomet
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 7a570dfa6e0a2812a8dd3a25b8903c70fe07befc
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 35252b4d262833daef330a89f1874cc0835c480a
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971712"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306749"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL veri ambarı sık sorulan sorular
 
 ## <a name="general"></a>Genel
 
-SORU. Hangi SQL DW veri güvenliği için sunduğu?
+S. Hangi SQL DW veri güvenliği için sunduğu?
 
 A. SQL DW TDE gibi veri koruma ve denetim için çeşitli çözümler sunar. Daha fazla bilgi için [güvenlik].
 
-SORU. Hangi yasal veya iş standartları olduğunu SQL DW ile uyumlu nereden edinebilirim?
+S. Hangi yasal veya iş standartları olduğunu SQL DW ile uyumlu nereden edinebilirim?
 
 A. Ziyaret [Microsoft Uyumluluk] ürün SOC ve ISO gibi çeşitli uyumluluk teklifleri için sayfa. İlk uyumluluk başlığı seçin, ardından Azure genişletin Microsoft kapsamındaki bulut Hizmetleri bölümünde Azure olan hizmetler görmek için sayfanın sağ tarafındaki Hizmetleri uyumludur.
 
-SORU. Power BI bağlayabilirim?
+S. Power BI bağlayabilirim?
 
 A. Evet! SQL DW ile doğrudan sorgu Powerbı destekler ancak çok sayıda kullanıcı veya gerçek zamanlı veriler için tasarlanmamıştır. Power BI'ın üretim sırasında kullanım için Azure Analysis Services veya Analysis Service Iaas üzerine Power BI'ı kullanmanızı öneririz. 
 
-SORU. SQL veri ambarı kapasite sınırları nelerdir?
+S. SQL veri ambarı kapasite sınırları nelerdir?
 
 A. Bizim geçerli bkz [kapasite sınırları] sayfası. 
 
-SORU. Neden benim ölçek/duraklatın/sürdürün kadar uzun sürüyor?
+S. Neden benim ölçek/duraklatın/sürdürün kadar uzun sürüyor?
 
 A. İşlem yönetimi işlemleri için süre çeşitli etkenlere etkileyebilir. Ortak işlemler uzun süre çalışan işlem geri alma için durumda. Bir ölçek veya duraklatma işlemi başlatıldığında, tüm gelen oturumları engellenir ve sorguları boşaltılır. Bir işlemin yeniden başlatılmadan önce sistem kararlı bir duruma ayrılabilmeniz işlemleri alınması gerekir. Büyük sayı ve daha büyük günlük boyutunu işlemler, uzun işlemi sistemi kararlı bir duruma geri durmuş.
 
 ## <a name="user-support"></a>Kullanıcı desteği
 
-SORU. Burada gönderme bir özellik isteği sahibim?
+S. Burada gönderme bir özellik isteği sahibim?
 
 A. Bir özellik isteği varsa, üzerinde iletin bizim [UserVoice] sayfası
 
-SORU. Ne yapabilirim x?
+S. Ne yapabilirim x?
 
 A. SQL veri ambarı ile geliştirmeye yardımcı olmak için hakkında sorular sorabilirsiniz bizim [Stack Overflow] sayfası. 
 
-SORU. Bir destek bileti nasıl gönderebilirim?
+S. Bir destek bileti nasıl gönderebilirim?
 
 A. [Destek bileti] Azure portalı üzerinden Dosyalanan.
 
 ## <a name="sql-languagefeature-support"></a>SQL dil/özellik desteği 
 
-SORU. Hangi veri türleri, SQL veri ambarı destekliyor mu?
+S. Hangi veri türleri, SQL veri ambarı destekliyor mu?
 
 A. SQL veri ambarı bkz [veri türleri].
 
-SORU. Tablo Özellikleri destekliyorsunuz?
+S. Tablo Özellikleri destekliyorsunuz?
 
 A. SQL veri ambarı birçok özellik desteklese de, bazı desteklenmez ve belgelenen [desteklenmeyen tablo özellikleri].
 
 ## <a name="tooling-and-administration"></a>Araçlar ve yönetim
 
-SORU. Visual Studio veritabanı projelerini desteklemez.
+S. Visual Studio veritabanı projelerini desteklemez.
 
 A. Şu anda veritabanı projeleri Visual Studio'da SQL veri ambarı için desteklemiyoruz. Bu özelliği etkinleştirmek için oy dönüştürme yapmak isterseniz, bizim User Voice ziyaret [veritabanı projeleri özellik isteği].
 
-SORU. SQL veri ambarı, REST API'lerini destekliyor mu?
+S. SQL veri ambarı, REST API'lerini destekliyor mu?
 
 A. Evet. SQL veritabanı ile kullanılabilecek en iyi REST işlevselliği de SQL veri ambarı ile kullanılabilir. REST belgeleri sayfaları içinde API bilgi bulabilirsiniz veya [MSDN].
 
 
 ## <a name="loading"></a>Yükleniyor
 
-SORU. Hangi istemci sürücüleri destekliyorsunuz?
+S. Hangi istemci sürücüleri destekliyorsunuz?
 
 A. DW sürücü desteği bulunabilir [bağlantı dizeleri] sayfası
 

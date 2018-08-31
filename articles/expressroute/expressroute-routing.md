@@ -1,25 +1,18 @@
 ---
 title: Azure ExpressRoute için yönlendirme gereksinimleri | Microsoft Belgeleri
 description: Bu sayfada, ExpressRoute devreleri için yönlendirmeyi yapılandırma ve yönetmeye yönelik ayrıntılı gereksinimler verilmektedir.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: ganesr
-editor: ''
-ms.assetid: 5b382e79-fa3f-495a-a764-c5ff86af66a2
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/09/2018
+ms.topic: conceptual
+ms.date: 08/29/2018
 ms.author: ganesr
-ms.openlocfilehash: 7fd2dd870338dc6778d192658143d14d9d9895cc
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: HT
+ms.openlocfilehash: 525d75264ecb54d42d920cacb0712397f4d8c3a8
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072155"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43304366"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute yönlendirme gereksinimleri
 Microsoft bulut hizmetlerine ExpressRoute kullanarak bağlanmak için yönlendirmeyi ayarlamanız ve yönetmeniz gerekir. Bazı bağlantı sağlayıcıları yönlendirme ayarlama ve yönetimini yönetilen bir hizmet olarak sunar. Bu hizmetin sunulup sunulmadığını öğrenmek için bağlantı sağlayıcınıza başvurun. Bu hizmet sağlanmıyorsa aşağıdaki gereksinimlere uymalısınız:
@@ -46,23 +39,16 @@ Eşlikleri yapılandırmak için özel IP adresleri veya ortak IP adresleri kull
   * [Kullanılabilirlik SLA](https://azure.microsoft.com/support/legal/sla/)’sının geçerli olması için her iki BGP oturumunu da ayarlamanız gerekir.  
 
 #### <a name="example-for-private-peering"></a>Özel eşleme örneği
-Eşlik oluşturmak için a.b.c.d/29 kullanmayı seçerseniz iki /30 alt ağına bölünür. Aşağıdaki örnekte, a.b.c.d/29 alt ağının nasıl kullanıldığına bakacağız. 
+Eşlik oluşturmak için a.b.c.d/29 kullanmayı seçerseniz iki /30 alt ağına bölünür. Aşağıdaki örnekte, a.b.c.d/29 alt ağının nasıl kullanıldığına dikkat edin:
 
-a.b.c.d/29; a.b.c.d/30 ve a.b.c.d+4/30 olarak ayrılır ve sağlama API'leri yoluyla Microsoft'a geçirilir. a.b.c.d+1'i Birincil PE'nin VRF IP'si olarak kullanırsınız ve Microsoft birincil MSEE'nin VRF IP'si olarak a.b.c.d+2 kullanır. a.b.c.d+5'i ikincil PE'nin VRF IP'si olarak kullanırsınız ve Microsoft ikincil MSEE'nin VRF IP'si olarak a.b.c.d+6 kullanır.
+* a.b.c.d/29; a.b.c.d/30 ve a.b.c.d+4/30 olarak ayrılır ve sağlama API'leri yoluyla Microsoft'a geçirilir.
+  * a.b.c.d+1'i Birincil PE'nin VRF IP'si olarak kullanırsınız ve Microsoft birincil MSEE'nin VRF IP'si olarak a.b.c.d+2 kullanır.
+  * a.b.c.d+5'i ikincil PE'nin VRF IP'si olarak kullanırsınız ve Microsoft ikincil MSEE'nin VRF IP'si olarak a.b.c.d+6 kullanır.
 
 Özel eşleme oluşturmak için 192.168.100.128/29’u seçtiğiniz bir durum düşünün. 192.168.100.128/29 adresi 192.168.100.128 ile 192.168.100.135 arasındaki adresleri içerir, bunlar arasında:
 
 * 192.168.100.128/30 adresi bağlantı 1’e atanır, sağlayıcı 192.168.100.129 ve Microsoft 192.168.100.130 kullanır.
 * 192.168.100.132/30 adresi bağlantı 2’ye atanır, sağlayıcı 192.168.100.133 ve Microsoft 192.168.100.134 kullanır.
-
-### <a name="ip-addresses-used-for-azure-public-peering"></a>Azure genel eşlemesi için kullanılan IP adresleri
-BGP oturumlarını ayarlamak için sahip olduğunuz ortak IP adreslerini kullanmanız gerekir. Microsoft, IP adreslerinin sahipliğini Routing Internet Registries ve Internet Routing Registries ile doğrulayabilmelidir. 
-
-* Bir ExpressRoute devresindeki her eşleme (birden fazla varsa) için BGP eşliği oluşturmak üzere benzersiz bir /29 alt ağı veya iki /30 alt ağı kullanmanız gerekir. 
-* Bir /29 alt ağı kullanıldığında iki /30 alt ağına bölünür. 
-  * Birinci /30 alt ağı birincil bağlantı ve ikinci /30 alt ağı ikincil bağlantı için kullanılır.
-  * /30 alt ağın her biri için yönlendiriciniz üzerindeki /30 al ağının birinci IP adresini kullanmanız gerekir. Microsoft bir BGP oturumu ayarlamak için /30 alt ağının ikinci IP adresini kullanır.
-  * [Kullanılabilirlik SLA](https://azure.microsoft.com/support/legal/sla/)’sının geçerli olması için her iki BGP oturumunu da ayarlamanız gerekir.
 
 ### <a name="ip-addresses-used-for-microsoft-peering"></a>Microsoft eşlemesi için kullanılan IP adresleri
 BGP oturumlarını ayarlamak için sahip olduğunuz ortak IP adreslerini kullanmanız gerekir. Microsoft, IP adreslerinin sahipliğini Routing Internet Registries ve Internet Routing Registries ile doğrulayabilmelidir.
@@ -77,27 +63,29 @@ BGP oturumlarını ayarlamak için sahip olduğunuz ortak IP adreslerini kullanm
 * /126 alt ağın her biri için yönlendiriciniz üzerindeki /126 al ağının birinci IP adresini kullanmanız gerekir. Microsoft bir BGP oturumu ayarlamak için /126 alt ağının ikinci IP adresini kullanır.
 * [Kullanılabilirlik SLA](https://azure.microsoft.com/support/legal/sla/)’sının geçerli olması için her iki BGP oturumunu da ayarlamanız gerekir.
 
+### <a name="ip-addresses-used-for-azure-public-peering"></a>Azure genel eşlemesi için kullanılan IP adresleri
+
+> [!NOTE]
+> Azure genel eşdüzey hizmet sağlama, yeni bağlantı hatları için avialable değil.
+> 
+
+BGP oturumlarını ayarlamak için sahip olduğunuz ortak IP adreslerini kullanmanız gerekir. Microsoft, IP adreslerinin sahipliğini Routing Internet Registries ve Internet Routing Registries ile doğrulayabilmelidir. 
+
+* Bir ExpressRoute devresindeki her eşleme (birden fazla varsa) için BGP eşliği oluşturmak üzere benzersiz bir /29 alt ağı veya iki /30 alt ağı kullanmanız gerekir. 
+* Bir /29 alt ağı kullanıldığında iki /30 alt ağına bölünür. 
+  * Birinci /30 alt ağı birincil bağlantı ve ikinci /30 alt ağı ikincil bağlantı için kullanılır.
+  * /30 alt ağın her biri için yönlendiriciniz üzerindeki /30 al ağının birinci IP adresini kullanmanız gerekir. Microsoft bir BGP oturumu ayarlamak için /30 alt ağının ikinci IP adresini kullanır.
+  * [Kullanılabilirlik SLA](https://azure.microsoft.com/support/legal/sla/)’sının geçerli olması için her iki BGP oturumunu da ayarlamanız gerekir.
+
 ## <a name="public-ip-address-requirement"></a>Genel IP adresi gereksinimi
 
 ### <a name="private-peering"></a>Özel eşleme
 Özel eşleme için genel veya özel IPv4 adresleri kullanmayı tercih edebilirsiniz. Özel eşleme sırasında adreslerin diğer müşterilerle çakışmasını önlemek için trafiğinizin uçtan uca yalıtılmasını sağlarız. Bu adresler İnternet’e tanıtılmaz. 
 
-
-### <a name="public-peering"></a>Ortak eşleme
-Azure ortak eşleme yolu, Azure’da barındırılan tüm hizmetlere ortak IP adresleri üzerinden bağlanmanıza olanak sağlar. Bunlar [ExpessRoute hakkında SSS](expressroute-faqs.md)’de listelenen tüm hizmetleri ve ISV’ler tarafından Microsoft Azure üzerinde barındırılan hizmetleri içerir. Ortak eşleme üzerinden Microsoft Azure hizmetlerine bağlama, her zaman sizin ağınızdan Microsoft ağına doğru başlatılır. Microsoft ağını hedefleyen trafik için Genel IP adreslerini kullanmanız gerekir.
-
-> [!IMPORTANT]
-> Tüm Azure PaaS hizmetlerine Microsoft eşlemesi üzerinden de erişilebilir. Microsoft eşlemesi oluşturmanızı ve Azure PaaS hizmetlerine Microsoft eşlemesi üzerinden bağlanmanızı öneririz.  
->   
-
-
-Genel Eşleme ile Özel AS Numarası kullanılabilir.
-
 ### <a name="microsoft-peering"></a>Microsoft eşlemesi
-Microsoft eşleme yolu, Azure ortak eşleme yolu üzerinden desteklenmeyen Microsoft bulut hizmetlerine bağlanmanızı sağlar. Bunlara Exchange Online, SharePoint Online, Skype Kurumsal ve Dynamics 365 gibi Office 365 hizmetleri dahildir. Microsoft, Microsoft eşlemesi üzerinde çift yönlü bağlantıyı destekler. Microsoft bulut hizmetlerini hedefleyen trafik, Microsoft ağına girmeden önce geçerli genel IPv4 adresleri kullanmalıdır.
+Microsoft eşleme yolu, Microsoft bulut hizmetlerine bağlanmanızı sağlar. Bunlara Exchange Online, SharePoint Online, Skype Kurumsal ve Dynamics 365 gibi Office 365 hizmetleri dahildir. Microsoft, Microsoft eşlemesi üzerinde çift yönlü bağlantıyı destekler. Microsoft bulut hizmetlerini hedefleyen trafik, Microsoft ağına girmeden önce geçerli genel IPv4 adresleri kullanmalıdır.
 
 IP adresi ve AS numarasının aşağıdaki kayıt defterlerinden birinde size kayıtlı olduğundan emin olun:
-
 
 * [ARIN](https://www.arin.net/)
 * [APNIC](https://www.apnic.net/)
@@ -115,6 +103,15 @@ IP adresi ve AS numarasının aşağıdaki kayıt defterlerinden birinde size ka
 > ExpressRoute üzerinden Microsoft'a tanıtılan genel IP adreslerinin İnternet’e tanıtılması gerekmez. Bu, diğer Microsoft hizmetlerine bağlantıyı kesebilir. Ancak ağınızda Microsoft içindeki O365 uç noktalarıyla iletişim kuran sunucular tarafından kullanılan Genel IP adresleri, ExpressRoute üzerinden tanıtılabilir. 
 > 
 > 
+
+### <a name="public-peering-deprecated---not-available-for-new-circuits"></a>Ortak eşleme (kullanım dışı - yeni bağlantı hatları için kullanılamaz)
+Azure ortak eşleme yolu, Azure’da barındırılan tüm hizmetlere ortak IP adresleri üzerinden bağlanmanıza olanak sağlar. Bunlar [ExpessRoute hakkında SSS](expressroute-faqs.md)’de listelenen tüm hizmetleri ve ISV’ler tarafından Microsoft Azure üzerinde barındırılan hizmetleri içerir. Ortak eşleme üzerinden Microsoft Azure hizmetlerine bağlama, her zaman sizin ağınızdan Microsoft ağına doğru başlatılır. Microsoft ağını hedefleyen trafik için Genel IP adreslerini kullanmanız gerekir.
+
+> [!IMPORTANT]
+> Tüm Azure PaaS hizmetlerine Microsoft eşlemesi üzerinden erişilebilir.
+>   
+
+Özel AS numarası, genel eşleme ile izin verilir.
 
 ## <a name="dynamic-route-exchange"></a>Dinamik yönlendirme değişimi
 Yönlendirme değişimi bir eBGP protokolü üzerinden olacaktır. EBGP oturumları MSEE’ler ile yönlendiricileriniz arasında oluşturulur. BGP oturumlarının kimlik doğrulaması zorunlu değildir. Gerekirse bir MD5 karması yapılandırılabilir. BGP oturumlarını yapılandırma hakkında bilgi için [Yönlendirmeyi yapılandırma](how-to-routefilter-portal.md) ve [Devre sağlama iş akışları ve devre durumları](expressroute-workflows.md) bölümlerine bakın.
@@ -154,7 +151,7 @@ Microsoft’a ExpressRoute aracılığıyla jeopolitik bir bölgedeki herhangi b
 
 Jeopolitik bölgeler, ilişkili Azure bölgeleri ve karşılık gelen ExpressRoute eşleme konumlarını içeren ayrıntılı liste için [ExpressRoute iş ortakları ve eşleme konumları](expressroute-locations.md) sayfasına bakın.
 
-Bir jeopolitik bölge için birden fazla ExpressRoute devresi satın alabilirsiniz. Birden fazla bağlantıya sahip olmanız coğrafi artıklık nedeniyle yüksek kullanılabilirliğe ilişkin önemli avantajlar sunar. Birden fazla ExpressRoute devrenizin olduğu durumlarda ortak eşleme ve Microsoft eşleme yollarında Microsoft’tan tanıtılan aynı ön eklerini alırsınız. Bu durum ağınız ile Microsoft arasında birden fazla yol olacağı anlamına gelir. Bu durum ağınızın içinde en iyi olmayan yönlendirme kararlarına neden olabilir. Sonuç olarak, farklı hizmetlerde en iyi düzeyin altında bağlantı deneyimleri yaşayabilirsiniz. [Kullanıcılar için en iyi yönlendirmeyi](expressroute-optimize-routing.md) sunmak üzere uygun yönlendirme kararlarını almak için topluluk değerlerini kullanabilirsiniz.
+Bir jeopolitik bölge için birden fazla ExpressRoute devresi satın alabilirsiniz. Birden fazla bağlantıya sahip olmanız coğrafi artıklık nedeniyle yüksek kullanılabilirliğe ilişkin önemli avantajlar sunar. Birden fazla ExpressRoute devrenizin olduğu durumlarda, Microsoft eşlemesi ve genel eşleme yollarındaki Microsoft'tan tanıtılan ön ekleri aynı kümesini alır. Bu durum ağınız ile Microsoft arasında birden fazla yol olacağı anlamına gelir. Bu durum ağınızın içinde en iyi olmayan yönlendirme kararlarına neden olabilir. Sonuç olarak, farklı hizmetlerde en iyi düzeyin altında bağlantı deneyimleri yaşayabilirsiniz. [Kullanıcılar için en iyi yönlendirmeyi](expressroute-optimize-routing.md) sunmak üzere uygun yönlendirme kararlarını almak için topluluk değerlerini kullanabilirsiniz.
 
 | **Microsoft Azure bölgesi** | **BGP topluluk değeri** |
 | --- | --- |
@@ -227,7 +224,7 @@ Yukarıdakilerin yanı sıra Microsoft, ön ekleri ait oldukları hizmet göre e
 | --- | --- |
 | **ABD Devleti** |  |
 | ABD Devleti Arizona | 12076:51106 |
-| ABD Devleti Iowa | 12076:51109 |
+| US Gov Iowa | 12076:51109 |
 | ABD Devleti Virginia | 12076:51105 |
 | ABD Devleti Texas | 12076:51108 |
 | US DoD Orta | 12076:51209 |

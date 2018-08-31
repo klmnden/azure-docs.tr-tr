@@ -10,49 +10,81 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 06/06/2017
+ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d6b2d9f43ce9bb86f4557c92887689c83beb49fa
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
-ms.translationtype: HT
+ms.openlocfilehash: 9d5fce5a80ac1f281fdbe6afe7f9a97816807ccc
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189564"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287096"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-pim"></a>PIM yönetmek için diğer yöneticilere erişim izni ver
-Azure AD Privileged Identity Management (PIM) bir kuruluş için otomatik olarak sağlayan bir genel yönetici rolü atamalarını ve PIM erişimi alın. Başka hiç kimse yazma erişimi varsayılan olarak, ancak diğer genel yöneticileri dahil alır. Diğer genel Yöneticiler, güvenlik yöneticileri ve güvenlik okuyucuları Azure AD PIM salt okunur erişimi vardır. PIM erişimi verme, ilk kullanıcı başkalarına atayabilirsiniz **ayrıcalıklı Rol Yöneticisi** rol.
+
+Azure AD Privileged Identity Management (PIM) bir kuruluş için otomatik olarak sağlayan genel yönetici rolü atamalarını ve PIM erişimi alın. Başka hiç kimse yazma erişimi varsayılan olarak, ancak diğer genel yöneticileri dahil alır. Diğer genel Yöneticiler, güvenlik yöneticileri ve güvenlik okuyucuları PIM salt okunur erişimi vardır. PIM için erişim vermek için ilk kullanıcı başkalarına atayabilirsiniz **ayrıcalıklı Rol Yöneticisi** rol.
 
 > [!NOTE]
-> Azure MFA, Azure AD PIM yönetme gerektirir. Microsoft hesapları için Azure MFA kaydını yapamıyorum olduğundan, bir Microsoft hesabıyla oturum açtığında bir kullanıcıyı Azure AD PIM erişemez.
-> 
-> 
+> PIM yönetme, Azure mfa'yı gerektirir. Microsoft hesapları için Azure MFA kaydını yapamıyorum olduğundan, bir Microsoft hesabıyla oturum açtığında bir kullanıcının PIM erişemez.
 
-Her zaman en az iki kullanıcı bir ayrıcalıklı Rol Yöneticisi rolünde bir kullanıcı kilitli durumda veya bunların hesap silindiğinde emin olun.
+Her zaman en az iki kullanıcı ayrıcalıklı Rol Yöneticisi rolünde, bir kullanıcı kilitli durumda veya bunların hesap silindiğinde emin olun.
 
-## <a name="give-another-user-access-to-manage-pim"></a>PIM yönetmek için başka bir kullanıcı erişimi verme
-1. Oturum [Azure portalında](https://portal.azure.com/) seçip **Azure AD Privileged Identity Management** Panoda uygulama.
-2. Seçin **ayrıcalıklı rollerimi Yönet** > **ayrıcalıklı Rol Yöneticisi** > **Ekle**.
-   
-    ![Ayrıcalıklı rol yöneticileri - ekran görüntüsü Ekle](./media/pim-how-to-give-access-to-pim/PIM_add_PRA.png)
-3. Yönetilen Kullanıcı Ekle dikey, 1. adım zaten tamamlandı. 2. adımı seçin **Seçili kullanıcılar** eklemek istediğiniz kullanıcıyı arayın.
-   
-    ![Kullanıcılar - ekran görüntüsü](./media/pim-how-to-give-access-to-pim/PIM_select_users.png)
-4. Arama sonuçlarından kullanıcı seçin ve tıklayın **Bitti**.
-5. Tıklayın **Tamam** seçiminizi kaydetmek için. Seçtiğiniz kullanıcı ayrıcalıklı rol yöneticileri listesinde görünür.
-   
-   * Birine yeni rol atamanız olduğunda, bunlar otomatik uygun rolü etkinleştirmek için ayarlanır. Bunları rolde kalıcı hale getirmek isterseniz, kullanıcı listesinde'e tıklayın. Seçin **kalıcı yap** kullanıcı bilgileri menüsünde.
-6. Kullanıcı bağlantı gönderme [Azure AD Privileged Identity Management ile çalışmaya başlama](pim-getting-started.md).
+## <a name="grant-access-to-manage-pim"></a>PIM yönetme erişimi verme
 
-## <a name="remove-another-users-access-rights-for-managing-pim"></a>PIM yönetmek için başka bir kullanıcının erişim haklarını kaldır
-Biri ayrıcalıklı rol yönetici rolünden kaldırmadan önce her zaman Ayrıca iki kullanıcı atanmış hala olacaktır emin olun.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-1. PIM Panoda role tıklayın **ayrıcalıklı Rol Yöneticisi**.  Bu roldeki kullanıcılar listesi görüntülenir.
-2. Kullanıcı listesinde kullanıcı tıklayın.
-3. Tıklayarak **Kaldır**.  Size bir onay iletisi gösterilir.
-4. Tıklayın **Evet** kullanıcı rolünden kaldırmak için.
+1. Açık **Azure AD Privileged Identity Management**.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+1. Tıklayın **Azure AD Dizin rolleri**.
+
+1. Tıklayın **rolleri**.
+
+    ![PIM Azure AD Dizin rolleri - roller](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
+
+1. Tıklayın **ayrıcalıklı Rol Yöneticisi** rolü üyeleri sayfasını açın.
+
+    ![Ayrıcalıklı Rol Yöneticisi - üyeleri](./media/pim-how-to-give-access-to-pim/pim-pra-members.png)
+
+1. Tıklayın **Üye Ekle** Ekle yönetilen üyeler bölmesi açmak için.
+
+1. Tıklayın **üyelerini seçin** seçim üyeleri bölmesini açmak için.
+
+    ![Ayrıcalıklı Rol Yöneticisi - üyeleri seçin](./media/pim-how-to-give-access-to-pim/pim-pra-select-members.png)
+
+1. Bir üyeyi seçin ve ardından **seçin**.
+
+1. Tıklayın **Tamam** üye için uygun hale getirmek için **ayrıcalıklı Rol Yöneticisi** rol.
+
+    Yeni bir rol, PIM birine atadığınızda, bunlar otomatik olarak yapılandırılır **uygun** rolü etkinleştirmek için.
+
+1. Üye kalıcı hale getirmek için ayrıcalıklı Rol Yöneticisi üye listesinde tıklayın.
+
+1. Tıklayın **daha fazla** ardından **kalıcı hale getirmek** atama kalıcı hale getirmek için.
+
+    ![Ayrıcalıklı Rol Yöneticisi - kalıcı yapma](./media/pim-how-to-give-access-to-pim/pim-pra-make-permanent.png)
+
+1. Kullanıcı bağlantı gönderme [PIM kullanmaya başlamak](pim-getting-started.md).
+
+## <a name="remove-access-to-manage-pim"></a>PIM yönetme erişimi Kaldır
+
+Biri ayrıcalıklı rol yöneticisi rolünden kaldırmadan önce her zaman ayrıca en az iki kullanıcı atanmış hala olacaktır emin olun.
+
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
+
+1. Açık **Azure AD Privileged Identity Management**.
+
+1. Tıklayın **Azure AD Dizin rolleri**.
+
+1. Tıklayın **rolleri**.
+
+1. Tıklayın **ayrıcalıklı Rol Yöneticisi** rolü üyeleri sayfasını açın.
+
+1. Eklemek istediğiniz kaldırın ve ardından kullanıcının yanındaki onay kutusunu **üye kaldırma**.
+
+    ![Ayrıcalıklı Rol Yöneticisi - üye kaldırma](./media/pim-how-to-give-access-to-pim/pim-pra-remove-member.png)
+
+1. Rolden üyeyi kaldırma isterseniz görüntülenen soran iletisinde tıklayın **Evet**.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Kiracınızdaki abonelik yönetimini etkinleştirme](pim-resource-roles-enable-subscription-management.md)
+- [PIM kullanmaya başlayın](pim-getting-started.md)

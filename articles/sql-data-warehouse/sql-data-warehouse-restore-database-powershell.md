@@ -3,19 +3,19 @@ title: Bir Azure SQL veri ambarı'nı (PowerShell) geri yükleme | Microsoft Doc
 description: Bir Azure SQL veri ambarını geri yüklemek için PowerShell görevleri
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: dbf86bfc82706586dfb438b167d13b32b6a4b968
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: fde06a9c7c0f0b225840c3b5a49d00fbfbcf33d9
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42059547"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306275"
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>Bir Azure SQL veri ambarı'nı (PowerShell) geri yükleme
 > [!div class="op_single_selector"]

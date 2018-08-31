@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 08/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7ddab3717626df14f491662849d01cb85658791c
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 160e2a277c82470df7d9ced2899699dae8d4ef01
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617299"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302137"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -57,7 +57,7 @@ Bir kaynağı taşımadan önce gerçekleştirmeniz gereken bazı önemli adıml
   * [Azure aboneliğinin sahipliğini başka bir hesaba devretme](../billing/billing-subscription-transfer.md)
   * [Azure Active Directory'ye bir Azure aboneliğini ekleme veya ilişkilendirme](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-2. Hizmet, kaynakları taşıma olanağını sağlamalıdır. Bu makalede, hangi hizmetlerin kaynakların taşınması etkinleştirmek ve hangi hizmetlerin kaynakların taşınması etkinleştirme listelenmektedir.
+2. Hizmet, kaynakları taşıma olanağını sağlamalıdır. Bu makalede, aşağıdaki bölümlere bakın [Hizmetleri kaynak taşıma olanağı](#services-that-can-be-moved) ve [Hizmetleri kaynakların taşınması etkinleştirmediğiniz](#services-that-cannot-be-moved).
 3. Hedef abonelik, taşınan kaynağın kaynak sağlayıcısına kayıtlı olmalıdır. Belirten bir hata alırsanız, **kaynak türü için abonelik kayıtlı değil**. Kaynağı taşıdığınız yeni abonelik, ilgili kaynak türüyle daha önce kullanılmamışsa bu sorunla karşılaşabilirsiniz.
 
   PowerShell için kayıt durumunu almak için aşağıdaki komutları kullanın:

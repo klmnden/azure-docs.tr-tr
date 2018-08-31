@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08-07-2018
-ms.openlocfilehash: 764470bbf47c18a2ec66dc91d433f8dd14b99a8f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6be00937a6645fbdd266ac0b1aa1ce95ecc6c3d9
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040355"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301874"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme
 
@@ -68,7 +68,7 @@ Ayrılmış VM örnekleri, bazı özel durumlar ile çoğu VM boyutları için k
 
 Ayırma indirimi, çalışan sanal makineler, öznitelikleri ve ayırma kapsamı eşleşen sayısı için otomatik olarak uygulanır. Rezervasyon kapsamı güncelleştirebilirsiniz [Azure portalında](https://portal.azure.com), PowerShell, CLI, ya da API aracılığıyla.
 
-Rezervasyon yönetme konusunda bilgi almak için bkz: [Azure'un ayırmaları](../articles/billing/billing-manage-reserved-vm-instance.md).
+Rezervasyon yönetme konusunda bilgi almak için bkz: [Azure ayırmalarını yönetme](../articles/billing/billing-manage-reserved-vm-instance.md).
 
 Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 

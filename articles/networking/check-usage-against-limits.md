@@ -1,6 +1,6 @@
 ---
-title: Azure kaynak kullanım sınırları karşı denetleyin | Microsoft Docs
-description: Azure kaynak kullanımınızı Azure abonelik limitleri karşı denetleyin öğrenin.
+title: Azure kaynak kullanımı sınırlarını karşı denetleyin. | Microsoft Docs
+description: Azure abonelik limitleri karşı Azure kaynak kullanımınızı kontrol öğrenin.
 services: networking
 documentationcenter: na
 author: jimdial
@@ -15,41 +15,41 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: 0c51f48576c665fbe67f2f18198d6422fe872895
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 30b0c1bdd23858b5cc6224deb2698b5f180359eb
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34811758"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288239"
 ---
-# <a name="check-resource-usage-against-limits"></a>Kaynak kullanım sınırları karşı denetleyin
+# <a name="check-resource-usage-against-limits"></a>Sınırları karşı kaynak kullanımını denetleyin
 
-Bu makalede, aboneliğiniz ve ne dağıttıktan sonra her ağ kaynağı türü sayısını görmek öğrenin, [abonelik sınırları](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) şunlardır. Kaynak kullanım sınırları göre görüntüleme yeteneği geçerli kullanımı izlemek ve gelecekte kullanılmak üzere planlamak yararlıdır. Kullanabileceğiniz [Azure Portal](#azure-portal), [PowerShell](#powershell), veya [Azure CLI](#azure-cli) kullanımını izlemek için.
+Bu makalede, aboneliğiniz ve hangi içinde dağıttığınız her bir ağ kaynak türü sayısını görmek öğrenin, [abonelik limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) olan. Kaynak kullanımı sınırlarını karşı görüntüleme olanağı geçerli kullanımını izlemek ve gelecekte kullanılmak üzere plan yardımcı olur. Kullanabileceğiniz [Azure portalı](#azure-portal), [PowerShell](#powershell), veya [Azure CLI](#azure-cli) kullanımını izlemek için.
 
 ## <a name="azure-portal"></a>Azure Portal
 
-1. Azure günlüğüne [portal](https://portal.azure.com).
-2. Azure portalı üst, sol köşesinde seçin **tüm hizmetleri**.
+1. Azure'da oturum [portalı](https://portal.azure.com).
+2. Azure portalının üst, sol köşede seçin **tüm hizmetleri**.
 3. Girin *abonelikleri* içinde **filtre** kutusu. Zaman **abonelikleri** arama sonuçlarında görünür.
-4. İçin kullanım bilgilerini görüntülemek istediğiniz abonelik adını seçin.
+4. Kullanım bilgilerini görüntülemek istediğiniz abonelik adını seçin.
 5. Altında **ayarları**seçin **kullanım + kota**.
-6. Şu seçenekleri seçebilirsiniz:
-    - **Kaynak türleri**: tüm kaynak türleri seçin veya görüntülemek istediğiniz kaynakları belirli türlerini seçin.
-    - **Sağlayıcıları**: tüm kaynak sağlayıcıları seçin veya seçin **işlem**, **ağ**, veya **depolama**.
-    - **Konumları**: tüm Azure konumları seçin veya belirli konumlara seçin.
-    - Tüm kaynakları veya yalnızca en az bir dağıtıldığı kaynakları görüntülemeyi seçebilirsiniz.
+6. Aşağıdaki seçeneklerden birini belirleyebilirsiniz:
+    - **Kaynak türleri**: tüm kaynak türleri seçin veya belirli türlerini görüntülemek istediğiniz kaynakları seçin.
+    - **Sağlayıcıları**: tüm kaynak sağlayıcılarını seçin veya seçin **işlem**, **ağ**, veya **depolama**.
+    - **Konumları**: tüm Azure konumları seçin veya belirli konumları seçin.
+    - Tüm kaynakları veya yalnızca en az bir dağıtıldığı kaynakları göster seçeneğini belirleyebilirsiniz.
 
-    Aşağıdaki resimde örnekte tüm Doğu ABD dağıtılan en az bir kaynağı ile ağ kaynaklarını gösterir:
+    Aşağıdaki resimde örnekte Doğu ABD bölgesinde dağıtılmış en az bir kaynak ile ağ kaynaklarını tüm gösterir:
 
         ![View usage data](./media/check-usage-against-limits/view-usage.png)
 
-    Sütunun başlığını seçerek sütunları sıralama yapabilirsiniz. Gösterilen sınırları, aboneliğiniz için kısıtlamalardır. Varsayılan sınırı artırmak gereksinim duyarsanız, seçin **isteği artırmak**, daha sonra tamamlamak ve destek isteği gönderin. Tüm kaynakları Azure içinde listelenen bir üst sınırı olacak [sınırları](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). Geçerli sınırınızı zaten en fazla sayı ise, sınır yükseltilemez.
+    Sütunlar, sütunun başlığını seçerek sıralayabilirsiniz. Gösterilen sınırları Aboneliğinize yönelik limitlerdir. Varsayılan bir sınırı artırmanız gerekiyorsa, seçin **isteği artırmak**, ardından tamamlamak ve destek isteği gönderin. Tüm kaynaklar Azure'da listelenen üst sınırına sahip [sınırları](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). Geçerli sınırlarınızı zaten maksimum sayı ise, bu sınır yükseltilemez.
 
 ## <a name="powershell"></a>PowerShell
 
-Takip edin komutları çalıştırmadan [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure bulut Kabuk ücretsiz etkileşimli kabuk ' dir. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. PowerShell bilgisayarınızdan çalıştırırsanız, gereksinim duyduğunuz *AzureRM* PowerShell modülü, sürüm 6.0.1 veya sonraki bir sürümü. Çalıştırma `Get-Module -ListAvailable AzureRM` bilgisayarınızda yüklü olan sürümü bulunamıyor. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `Login-AzureRmAccount` Azure'da oturum açma için.
+İçinde izleyen komutları çalıştırabilirsiniz [Azure Cloud Shell](https://shell.azure.com/powershell), veya PowerShell bilgisayarınızdan çalıştırarak. Azure Cloud Shell ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. PowerShell kullanarak bilgisayarınızdan çalıştırırsanız, gereksinim duyduğunuz *AzureRM* PowerShell modülü sürüm 6.0.1 veya üzeri. Çalıştırma `Get-Module -ListAvailable AzureRM` yüklü sürümü bulmak için bilgisayarınızda. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `Login-AzureRmAccount` için Azure'da oturum açın.
 
-Kullanımınızı sınırlarıyla karşı görüntülemek [Get-AzureRmNetworkUsage](/powershell/module/azurerm.network/powershell/module/azurerm.network/get-azurermnetworkusage). Aşağıdaki örnekte Doğu ABD konumunda en az bir kaynak dağıtıldığı kaynakları için kullanım alır:
+Kullanımınızı sınırlarla karşı görüntülemek [Get-AzureRmNetworkUsage](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0). Aşağıdaki örnek, Doğu ABD konumunda en az bir kaynak dağıtıldığı kaynak kullanımını alır:
 
 ```azurepowershell-interactive
 Get-AzureRmNetworkUsage `
@@ -58,7 +58,7 @@ Get-AzureRmNetworkUsage `
   | Format-Table ResourceType, CurrentValue, Limit
 ```
 
-Çıktı aldığınız aşağıdaki örnek çıkış aynı biçimlendirilmiş:
+Bir çıkış alırsınız aynı aşağıdaki örnek çıktı olarak biçimlendirilmiş:
 
 ```powershell
 ResourceType            CurrentValue Limit
@@ -72,9 +72,9 @@ Network Watchers                   1     1
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Bu makalede görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu makale Azure CLI Sürüm 2.0.32 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `az login` Azure'da oturum açma için.
+Bu makaledeki görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure Cloud Shell](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu makale Azure CLI Sürüm 2.0.32 gerekir veya üzeri. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI'yi yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `az login` için Azure'da oturum açın.
 
-Kullanımınızı sınırlarıyla karşı görüntülemek [az ağ listesi-kullanımları](/cli/azure/network?view=azure-cli-latest#az-network-list-usages). Aşağıdaki örnekte Doğu ABD konumunda kaynakları için kullanım alır:
+Kullanımınızı sınırlarla karşı görüntülemek [az ağ kullanımları-Listele](/cli/azure/network?view=azure-cli-latest#az-network-list-usages). Aşağıdaki örnek, Doğu ABD konumunda kaynakların kullanımı alır:
 
 ```azurecli-interactive
 az network list-usages \
@@ -82,7 +82,7 @@ az network list-usages \
   --out table
 ```
 
-Çıktı aldığınız aşağıdaki örnek çıkış aynı biçimlendirilmiş:
+Bir çıkış alırsınız aynı aşağıdaki örnek çıktı olarak biçimlendirilmiş:
 
 ```azurecli
 Name                    CurrentValue Limit

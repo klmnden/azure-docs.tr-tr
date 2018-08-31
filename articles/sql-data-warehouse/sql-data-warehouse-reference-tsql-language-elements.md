@@ -1,48 +1,49 @@
 ---
-title: T-SQL dil öğeleri - Azure SQL Data Warehouse | Microsoft Docs
-description: Azure SQL Data Warehouse'da desteklenen T-SQL deyimleri için belgelere bağlantılar.
+title: T-SQL dil öğeleri - Azure SQL veri ambarı | Microsoft Docs
+description: Azure SQL veri ambarı'nda desteklenen T-SQL bildirimleri belgelerine bağlantılar.
 services: sql-data-warehouse
-author: ckarst
-manager: craigg-msft
+author: twounder
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 06/13/2018
+ms.author: mausher
 ms.reviewer: igorstan
-ms.openlocfilehash: bd7665798e5bf26c0e538deb713ef9696c84338c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d40861650f479f8ef840c5150b2153f461871331
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307905"
 ---
-# <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse'da desteklenen T-SQL dil öğeleri
-Azure SQL Data Warehouse'da desteklenen T-SQL dil öğeleri için belgelere bağlantılar.
+# <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda desteklenen T-SQL dil öğeleri
+Azure SQL veri ambarı'nda desteklenen T-SQL dil öğeleri belgelerine bağlantılar.
 
 ## <a name="core-elements"></a>Temel öğeler
-* [sözdizimi kuralları](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
+* [Söz dizimi kuralları](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
 * [nesne adlandırma kuralları](https://msdn.microsoft.com/library/ms175874.aspx)
 * [ayrılmış anahtar sözcükler](https://msdn.microsoft.com/library/ms189822.aspx)
 * [harmanlamalar](https://msdn.microsoft.com/library/ff848763.aspx)
 * [Açıklamaları](https://msdn.microsoft.com/library/ms181627.aspx)
 * [Sabitleri](https://msdn.microsoft.com/library/ms179899.aspx)
-* [Veri türleri](https://msdn.microsoft.com/library/ms187752.aspx)
+* [veri türleri](https://msdn.microsoft.com/library/ms187752.aspx)
 * [YÜRÜTME](https://msdn.microsoft.com/library/ms188332.aspx)
-* [İfadeler](https://msdn.microsoft.com/library/ms190286.aspx)
+* [İfadeleri](https://msdn.microsoft.com/library/ms190286.aspx)
 * [KILL](https://msdn.microsoft.com/library/ms173730.aspx)
-* [IDENTİTY özelliği geçici çözüm](https://msdn.microsoft.com/library/ms186775.aspx)
+* [KİMLİK özelliği geçici çözüm](https://msdn.microsoft.com/library/ms186775.aspx)
 * [YAZDIRMA](https://msdn.microsoft.com/library/ms176047.aspx)
 * [KULLANIN](https://msdn.microsoft.com/library/ms188366.aspx)
 
-## <a name="batches-control-of-flow-and-variables"></a>Toplu işlemler, akış denetimi ve değişkenler
-* [BEGIN... BİTİŞ](https://msdn.microsoft.com/library/ms190487.aspx)
+## <a name="batches-control-of-flow-and-variables"></a>Toplu işlemleri, denetim akışı ve değişkenleri
+* [BAŞLA... SON](https://msdn.microsoft.com/library/ms190487.aspx)
 * [SONU](https://msdn.microsoft.com/library/ms181271.aspx)
 * [BİLDİRME @local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
 * [IF... ELSE](https://msdn.microsoft.com/library/ms182717.aspx)
 * [RAISERROR](https://msdn.microsoft.com/library/ms178592.aspx)
 * [SET@local_variable](https://msdn.microsoft.com/library/ms189484.aspx)
 * [THROW](https://msdn.microsoft.com/library/ee677615.aspx)
-* [TRY... YAKALAMA](https://msdn.microsoft.com/library/ms175976.aspx)
+* [DENEYİN... YAKALAMA](https://msdn.microsoft.com/library/ms175976.aspx)
 * [WHILE](https://msdn.microsoft.com/library/ms178642.aspx)
 
 ## <a name="operators"></a>İşleçler
@@ -56,17 +57,17 @@ Azure SQL Data Warehouse'da desteklenen T-SQL dil öğeleri için belgelere bağ
 
 ## <a name="wildcard-characters-to-match"></a>Eşleştirmek için joker karakterler
 * [= (Eşittir)](https://msdn.microsoft.com/library/ms175118.aspx)
-* [> (Büyük)](https://msdn.microsoft.com/library/ms178590.aspx)
+* [> (Büyüktür)](https://msdn.microsoft.com/library/ms178590.aspx)
 * [< (Küçüktür)](https://msdn.microsoft.com/library/ms179873.aspx)
-* [> = (mükemmel veya eşittir)](https://msdn.microsoft.com/library/ms181567.aspx)
-* [< = (küçük veya eşittir)](https://msdn.microsoft.com/library/ms174978.aspx)
+* [> = (büyük veya buna eşit)](https://msdn.microsoft.com/library/ms181567.aspx)
+* [< = (küçüktür veya eşittir)](https://msdn.microsoft.com/library/ms174978.aspx)
 * [<> (Eşit değildir)](https://msdn.microsoft.com/library/ms176020.aspx)
 * [! = (Eşit değildir)](https://msdn.microsoft.com/library/ms190296.aspx)
 * [VE](https://msdn.microsoft.com/library/ms188372.aspx)
 * [ARASINDA](https://msdn.microsoft.com/library/ms187922.aspx)
-* [VAR](https://msdn.microsoft.com/library/ms188336.aspx)
+* [VAR.](https://msdn.microsoft.com/library/ms188336.aspx)
 * [IN](https://msdn.microsoft.com/library/ms177682.aspx)
-* [NULL OLMAYAN]](https://msdn.microsoft.com/library/ms188795.aspx)
+* [NULL DEĞİL]](https://msdn.microsoft.com/library/ms188795.aspx)
 * [GİBİ](https://msdn.microsoft.com/library/ms179859.aspx)
 * [DEĞİL](https://msdn.microsoft.com/library/ms189455.aspx)
 * [VEYA](https://msdn.microsoft.com/library/ms188361.aspx)
@@ -74,10 +75,10 @@ Azure SQL Data Warehouse'da desteklenen T-SQL dil öğeleri için belgelere bağ
 ### <a name="bitwise-operators"></a>Bit düzeyinde işleçler
 * [& (Bit düzeyinde AND)](https://msdn.microsoft.com/library/ms174965.aspx)
 * [| (Bit düzeyinde OR)](https://msdn.microsoft.com/library/ms186714.aspx)
-* [^ (Bit düzeyinde XOR)](https://msdn.microsoft.com/library/ms190277.aspx)
-* [~ (Bit tabanlı değil)](https://msdn.microsoft.com/library/ms173468.aspx)
-* [^ = (Bit düzeyinde özel veya eşittir)](https://msdn.microsoft.com/library/cc627413.aspx)
-* [| = (Bitsel veya eşittir)](https://msdn.microsoft.com/library/cc627409.aspx)
+* [^ (Bit düzeyinde dışlamalı OR)](https://msdn.microsoft.com/library/ms190277.aspx)
+* [~ (Bit düzeyinde değil)](https://msdn.microsoft.com/library/ms173468.aspx)
+* [^ (Bit düzeyinde özel OR eşittir) =](https://msdn.microsoft.com/library/cc627413.aspx)
+* [| = (Bit düzeyinde OR eşittir)](https://msdn.microsoft.com/library/cc627409.aspx)
 * [& = (bit düzeyinde AND eşittir)](https://msdn.microsoft.com/library/cc627427.aspx)
 
 ## <a name="functions"></a>İşlevler
@@ -94,7 +95,7 @@ Azure SQL Data Warehouse'da desteklenen T-SQL dil öğeleri için belgelere bağ
 * [ATAN](https://msdn.microsoft.com/library/ms181746.aspx)
 * [ATN2](https://msdn.microsoft.com/library/ms173854.aspx)
 * [BINARY_CHECKSUM](https://msdn.microsoft.com/library/ms173784.aspx)
-* [DURUMU](https://msdn.microsoft.com/library/ms181765.aspx)
+* [SERVİS TALEBİ](https://msdn.microsoft.com/library/ms181765.aspx)
 * [ATAMA ve dönüştürme](https://msdn.microsoft.com/library/ms187928.aspx)
 * [TAVAN](https://msdn.microsoft.com/library/ms189818.aspx)
 * [CHAR](https://msdn.microsoft.com/library/ms187323.aspx)
@@ -119,9 +120,9 @@ Azure SQL Data Warehouse'da desteklenen T-SQL dil öğeleri için belgelere bağ
 * [DATENAME](https://msdn.microsoft.com/library/ms174395.aspx)
 * [DATEPART](https://msdn.microsoft.com/library/ms174420.aspx)
 * [DATETIME2FROMPARTS](https://msdn.microsoft.com/library/hh213312.aspx)
-* [BULUNAN DATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213233.aspx)
+* [DATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213233.aspx)
 * [DATETIMEOFFSETFROMPARTS](https://msdn.microsoft.com/library/hh231077.aspx)
-* [GÜNÜ](https://msdn.microsoft.com/library/ms176052.aspx)
+* [GÜN](https://msdn.microsoft.com/library/ms176052.aspx)
 * [DB_ID](https://msdn.microsoft.com/library/ms186274.aspx)
 * [DB_NAME](https://msdn.microsoft.com/library/ms189753.aspx)
 * [DERECE](https://msdn.microsoft.com/library/ms178566.aspx)
@@ -153,7 +154,7 @@ Azure SQL Data Warehouse'da desteklenen T-SQL dil öğeleri için belgelere bağ
 * [LOG10](https://msdn.microsoft.com/library/ms175121.aspx)
 * [DAHA DÜŞÜK](https://msdn.microsoft.com/library/ms174400.aspx)
 * [LTRIM](https://msdn.microsoft.com/library/ms177827.aspx)
-* [EN BÜYÜK](https://msdn.microsoft.com/library/ms187751.aspx)
+* [EN FAZLA](https://msdn.microsoft.com/library/ms187751.aspx)
 * [MIN](https://msdn.microsoft.com/library/ms179916.aspx)
 * [AY](https://msdn.microsoft.com/library/ms187813.aspx)
 * [NCHAR](https://msdn.microsoft.com/library/ms182673.aspx)
@@ -166,7 +167,7 @@ Azure SQL Data Warehouse'da desteklenen T-SQL dil öğeleri için belgelere bağ
 * [ODBCS skaler İşlevler](https://msdn.microsoft.com/library/bb630290.aspx)
 * [OVER yan tümcesinde](https://msdn.microsoft.com/library/ms189461.aspx)
 * [PARSENAME](https://msdn.microsoft.com/library/ms188006.aspx)
-* [PATİNDEX'ÖĞESİNİN](https://msdn.microsoft.com/library/ms188395.aspx)
+* [PATINDEX](https://msdn.microsoft.com/library/ms188395.aspx)
 * [PERCENTILE_CONT](https://msdn.microsoft.com/library/hh231473.aspx)
 * [PERCENTILE_DISC](https://msdn.microsoft.com/library/hh231327.aspx)
 * [PERCENT_RANK](https://msdn.microsoft.com/library/hh213573.aspx)
@@ -175,10 +176,10 @@ Azure SQL Data Warehouse'da desteklenen T-SQL dil öğeleri için belgelere bağ
 * [QUOTENAME](https://msdn.microsoft.com/library/ms176114.aspx)
 * [RADYAN CİNSİNDEN](https://msdn.microsoft.com/library/ms189742.aspx)
 * [RAND](https://msdn.microsoft.com/library/ms177610.aspx)
-* [RANK](https://msdn.microsoft.com/library/ms176102.aspx)
+* [BOYUT SAYISI](https://msdn.microsoft.com/library/ms176102.aspx)
 * [DEĞİŞTİR](https://msdn.microsoft.com/library/ms186862.aspx)
 * [ÇOĞALTILAN](https://msdn.microsoft.com/library/ms174383.aspx)
-* [TERS ÇEVİR](https://msdn.microsoft.com/library/ms180040.aspx)
+* [GERİYE DOĞRU](https://msdn.microsoft.com/library/ms180040.aspx)
 * [SAĞ](https://msdn.microsoft.com/library/ms177532.aspx)
 * [YUVARLAK](https://msdn.microsoft.com/library/ms175003.aspx)
 * [SATIR_NUM](https://msdn.microsoft.com/library/ms186734.aspx)
@@ -199,8 +200,8 @@ Azure SQL Data Warehouse'da desteklenen T-SQL dil öğeleri için belgelere bağ
 * [STDEV](https://msdn.microsoft.com/library/ms190474.aspx)
 * [STDEVP](https://msdn.microsoft.com/library/ms176080.aspx)
 * [STR](https://msdn.microsoft.com/library/ms189527.aspx)
-* [HİZMETLER](https://msdn.microsoft.com/library/ms188043.aspx)
-* [SUBSTRING](https://msdn.microsoft.com/library/ms187748.aspx)
+* [ÖĞE](https://msdn.microsoft.com/library/ms188043.aspx)
+* [ALT DİZE](https://msdn.microsoft.com/library/ms187748.aspx)
 * [TOPLA](https://msdn.microsoft.com/library/ms187810.aspx)
 * [SUSER_SNAME](https://msdn.microsoft.com/library/ms174427.aspx)
 * [SWITCHOFFSET](https://msdn.microsoft.com/library/bb677244.aspx)
@@ -228,7 +229,7 @@ Azure SQL Data Warehouse'da desteklenen T-SQL dil öğeleri için belgelere bağ
 * [İşlemler](https://msdn.microsoft.com/library/mt204031.aspx)
 
 ## <a name="diagnostic-sessions"></a>Tanılama oturumları
-* [TANILAMA OTURUMU OLUŞTUR](https://msdn.microsoft.com/library/mt204029.aspx)
+* [TANILAMA OTURUMU OLUŞTURMA](https://msdn.microsoft.com/library/mt204029.aspx)
 
 ## <a name="procedures"></a>Yordamlar
 * [sp_addrolemember](https://msdn.microsoft.com/library/ms187750.aspx)
@@ -253,28 +254,28 @@ Azure SQL Data Warehouse'da desteklenen T-SQL dil öğeleri için belgelere bağ
 * [sp_tables](https://msdn.microsoft.com/library/ms186250.aspx)
 * [sp_unprepare](https://msdn.microsoft.com/library/ff848735.aspx)
 
-## <a name="set-statements"></a>SET deyimleri
-* [SET ANSI_DEFAULTS](https://msdn.microsoft.com/library/ms188340.aspx)
+## <a name="set-statements"></a>Küme deyimleri
+* [KÜMESİ ANSI_DEFAULTS](https://msdn.microsoft.com/library/ms188340.aspx)
 * [SET ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/library/ms187356.aspx)
 * [SET ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/library/ms187375.aspx)
-* [SET ANSI_NULLS](https://msdn.microsoft.com/library/ms188048.aspx)
-* [SET ANSI_PADDING](https://msdn.microsoft.com/library/ms187403.aspx)
-* [SET ANSI_WARNINGS](https://msdn.microsoft.com/library/ms190368.aspx)
-* [SET ARITHABORT](https://msdn.microsoft.com/library/ms190306.aspx)
-* [SET ARITHIGNORE](https://msdn.microsoft.com/library/ms184341.aspx)
+* [KÜMESİ ANSI_NULLS](https://msdn.microsoft.com/library/ms188048.aspx)
+* [KÜMESİ ANSI_PADDING](https://msdn.microsoft.com/library/ms187403.aspx)
+* [KÜMESİ ANSI_WARNINGS](https://msdn.microsoft.com/library/ms190368.aspx)
+* [KÜMESİ ARITHABORT](https://msdn.microsoft.com/library/ms190306.aspx)
+* [KÜMESİ ARITHIGNORE](https://msdn.microsoft.com/library/ms184341.aspx)
 * [SET CONCAT_NULL_YIELDS_NULL](https://msdn.microsoft.com/library/ms176056.aspx)
 * [SET DATEFIRST](https://msdn.microsoft.com/library/ms181598.aspx)
 * [SET DATEFORMAT](https://msdn.microsoft.com/library/ms189491.aspx)
 * [SET FMTONLY](https://msdn.microsoft.com/library/ms173839.aspx)
-* [SET IMPLICIT_TRANSACITONS](https://msdn.microsoft.com/library/ms187807.aspx)
-* [SET LOCK_TIMEOUT](https://msdn.microsoft.com/library/ms189470.aspx)
-* [SET NUMBERIC_ROUNDABORT](https://msdn.microsoft.com/library/ms188791.aspx)
-* [SET QUOTED_IDENTIFIER](https://msdn.microsoft.com/library/ms174393.aspx)
+* [KÜMESİ IMPLICIT_TRANSACITONS](https://msdn.microsoft.com/library/ms187807.aspx)
+* [KÜMESİ LOCK_TIMEOUT](https://msdn.microsoft.com/library/ms189470.aspx)
+* [KÜMESİ NUMBERIC_ROUNDABORT](https://msdn.microsoft.com/library/ms188791.aspx)
+* [KÜMESİ QUOTED_IDENTIFIER](https://msdn.microsoft.com/library/ms174393.aspx)
 * [SET ROWCOUNT](https://msdn.microsoft.com/library/ms188774.aspx)
-* [SET TEXTSIZE](https://msdn.microsoft.com/library/ms186238.aspx)
-* [SET İŞLEM YALITIM DÜZEYİ](https://msdn.microsoft.com/library/ms173763.aspx)
-* [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
+* [TEXTSIZE AYARLA](https://msdn.microsoft.com/library/ms186238.aspx)
+* [İŞLEM YALITIM DÜZEYİ AYARLAMA](https://msdn.microsoft.com/library/ms173763.aspx)
+* [KÜMESİ XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla başvuru bilgileri için bkz: [Azure SQL Data Warehouse T-SQL deyimlerinde](sql-data-warehouse-reference-tsql-statements.md), ve [Azure SQL veri ambarı sistem görünümleri](sql-data-warehouse-reference-tsql-system-views.md).
+Daha fazla başvuru bilgileri için bkz: [T-SQL deyimleri Azure SQL veri ambarı'nda](sql-data-warehouse-reference-tsql-statements.md), ve [Azure SQL veri ambarı sistem görünümleri](sql-data-warehouse-reference-tsql-system-views.md).
 

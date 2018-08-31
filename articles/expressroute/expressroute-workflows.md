@@ -1,112 +1,105 @@
 ---
-title: Bir expressroute bağlantı hattı yapılandırmak için iş akışları | Microsoft Docs
-description: Bu sayfada, expressroute bağlantı hattı ve eşlemeleri yapılandırmak için iş akışları açıklanmaktadır
-documentationcenter: na
+title: Azure ExpressRoute devresi yapılandırmak için iş akışları | Microsoft Docs
+description: Bu sayfada, ExpressRoute bağlantı hattı ve eşlemeleri yapılandırmak için iş akışlarını size
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
-ms.assetid: 55e0418c-e0bf-44a7-9aa1-720076df9297
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.topic: conceptual
+ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: cba1b2cfee379e7d2b079bcb3089981ef1044d66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 765050c9c21c7ba752535fc391cc9bb7d8ac4083
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23850780"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301047"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Devre sağlama ve devre durumları için ExpressRoute iş akışları
-Bu sayfa, sağlama ve yüksek düzeyde configuration iş akışlarını yönlendirme hizmeti açıklanmaktadır.
+Bu sayfa sağlama ve yüksek düzeyde yapılandırma iş akışlarını yönlendirme hizmeti size kılavuzluk eder.
 
 ![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
-Aşağıdaki şekil ve ilgili adımlarda, sağlanan bir expressroute bağlantı hattı olması için izlemeniz gereken görevleri uçtan uca gösterin. 
+Aşağıdaki şekil ve ilgili adımlarda, sağlanan bir ExpressRoute devresi için izlemeniz gereken görevleri uçtan uca gösterilmektedir. 
 
-1. Bir expressroute bağlantı hattı yapılandırmak için PowerShell kullanın. ' Ndaki yönergeleri izleyin [oluşturma ExpressRoute bağlantı hatları](expressroute-howto-circuit-classic.md) daha fazla ayrıntı için makale.
-2. Hizmet sağlayıcısı sipariş bağlantısı. Bu işlem değişir. Bağlantı sipariş konusunda daha fazla ayrıntı için bağlantı sağlayıcınıza başvurun.
-3. Bağlantı hattı başarıyla sağlama durumu PowerShell aracılığıyla expressroute bağlantı hattı doğrulayarak sağlandığından emin olun. 
-4. Yönlendirme etki alanlarını yapılandırın. Bağlantı sağlayıcınızdan sizin için Katman 3 yönetiyorsa hattı için yönlendirmeyi yapılandırır. Bağlantı sağlayıcınız yalnızca Katman 2 Hizmetleri sunuyorsa, açıklanan yönergeleri başına yönlendirme yapılandırmalısınız [yönlendirme gereksinimleri](expressroute-routing.md) ve [yönlendirme yapılandırması](expressroute-howto-routing-classic.md) sayfaları.
+1. Bir ExpressRoute bağlantı hattı yapılandırmak için PowerShell kullanın. Bölümündeki yönergeleri [oluşturma ExpressRoute bağlantı hatları](expressroute-howto-circuit-classic.md) makale daha fazla ayrıntı için.
+2. Bağlantı, hizmet sağlayıcısından sipariş. Bu işlem değişir. Bağlantı sipariş hakkında daha fazla ayrıntı için bağlantı sağlayıcınıza başvurun.
+3. Devre başarıyla sağlama durumu PowerShell aracılığıyla bir ExpressRoute bağlantı hattı doğrulayarak sağlandığından emin olun. 
+4. Yönlendirme etki alanları yapılandırın. Bağlantı sağlayıcınızdan sizin için Katman 3 yönetiyorsa, bağlantı hattı için yönlendirmeyi yapılandıracaksınız. Bağlantı sağlayıcınız yalnızca Katman 2 Hizmetleri sunuyorsa, açıklanan yönergeleri başına yönlendirme yapılandırmalısınız [yönlendirme gereksinimleri](expressroute-routing.md) ve [yönlendirme yapılandırması](expressroute-howto-routing-classic.md) sayfaları.
    
-   * Azure özel eşlemeyi etkinleştirmesini - Bu eşleme VM'ler için Bağlan / bulut sanal ağlar içinde dağıtılan Hizmetleri etkinleştirmeniz gerekir.
-   * Azure ortak eşleme enable - genel IP adresleri üzerinde barındırılan Azure hizmetlerine bağlanmak isterseniz, Azure ortak eşleme etkinleştirmeniz gerekir. Bu, Azure özel eşleme için varsayılan yönlendirme etkinleştirmek seçmiş olmanız durumunda Azure kaynaklarına erişmek için gerekli değildir.
-   * Microsoft eşlemesi - etkinleştirmek, bu erişim Office 365 ve Dynamics 365 etkinleştirmeniz gerekir. 
+   * Azure özel eşlemeyi etkinleştirmesini - bu eşlemeyi bulut Hizmetleri içindeki sanal ağlar dağıtılan Vm'lere bağlanmak etkinleştirin.
+
+   * Microsoft eşlemesi etkinleştirme - bu erişim Office 365 ve Dynamics 365 için etkinleştirin. Ayrıca, tüm Azure PaaS hizmetlerine Microsoft eşlemesi üzerinden erişilebilir.
      
      > [!IMPORTANT]
-     > Ayrı bir proxy sunucu kullan / olandan Microsoft'a bağlanmak için sınır kullanmak için Internet sağlanmalıdır. Hem ExpressRoute hem de Internet için aynı sınır kullanarak asimetrik yönlendirme neden ve ağınıza bağlantı kesintileri neden.
+     > Ayrı bir ara sunucu kullan / hesaptan Microsoft'a bağlanmak için kenar kullanmak için Internet sağlamalısınız. ExpressRoute ve Internet için aynı edge kullanarak asimetrik yönlendirme neden ve ağınızın bağlantı kesintilerine neden olur.
      > 
      > 
      
      ![](./media/expressroute-workflows/routing-workflow.png)
-5. Sanal ağları bağlama ExpressRoute bağlantı hatları için - expressroute bağlantı hattına sanal ağlara bağlayabilirsiniz. Yönergeleri izleyerek [sanal ağlara bağlamak için](expressroute-howto-linkvnet-arm.md) bağlantı hattınız için. Bu sanal ağlar ya da expressroute bağlantı hattı aynı Azure abonelik olabilir veya farklı bir abonelikte olabilir.
+5. Sanal ağları bağlama ExpressRoute devresine - sanal ağları ExpressRoute bağlantı hattına bağlayabilirsiniz. Yönergeleri izleyerek [sanal ağları bağlamak için](expressroute-howto-linkvnet-arm.md) bağlantı hattınız için. Bu sanal ağlar aynı abonelikte Azure ExpressRoute bağlantı hattı olabilir veya farklı bir abonelikte olabilir.
 
-## <a name="expressroute-circuit-provisioning-states"></a>Expressroute bağlantı hattı durumları sağlama
-Her expressroute bağlantı hattı iki durum vardır:
+## <a name="expressroute-circuit-provisioning-states"></a>ExpressRoute bağlantı hattı sağlama durumları
+Her bir ExpressRoute bağlantı hattında iki durum vardır:
 
 * Hizmet Sağlayıcısı sağlama durumu
 * Durum
 
-Durum Microsoft'un sağlama durumunu temsil eder. Bir expressroute bağlantı hattı oluşturduğunuzda, bu özellik etkin olarak ayarlanır
+Durum Microsoft'un sağlama durumu temsil eder. Bir Expressroute bağlantı hattı oluşturduğunuzda, bu özellik etkin olarak ayarlanır
 
-Bağlantı Sağlayıcısı sağlama durumu bağlantı sağlayıcısı tarafında durumunu temsil eder. Ya da olabilir *NotProvisioned*, *sağlama*, veya *hazırlandı*. Expressroute bağlantı hattı, onu kullanabilmek hazırlandı durumunda olması gerekir.
+Bağlantı Sağlayıcısı sağlama durumu bağlantı sağlayıcısı tarafı durumunu temsil eder. Ya da olabilir *NotProvisioned*, *sağlama*, veya *sağlanan*. ExpressRoute bağlantı hattı, onu kullanabilmek sağlanan durumda olması gerekir.
 
-### <a name="possible-states-of-an-expressroute-circuit"></a>Olası bir expressroute bağlantı hattı durumları
-Bu bölümde bir expressroute bağlantı hattı için olası durumlar çıkışı listelenir.
+### <a name="possible-states-of-an-expressroute-circuit"></a>Olası bir ExpressRoute bağlantı hattı durumları
+Bu bölümde bir ExpressRoute bağlantı hattı için olası durumlar kullanıma listelenir.
 
-**Oluşturma sırasında**
+**Oluşturma zamanında**
 
-Expressroute bağlantı hattı oluşturmak için PowerShell cmdlet'ini çalıştırın hemen sonra expressroute bağlantı hattı şu duruma görürsünüz.
+ExpressRoute bağlantı hattı oluşturmak için PowerShell cmdlet'ini çalıştırdığınız hemen sonra aşağıdaki durumundaki ExpressRoute bağlantı hattını görürsünüz.
 
     ServiceProviderProvisioningState : NotProvisioned
     Status                           : Enabled
 
 
-**Bağlantı sağlayıcı devre sağlama sürecinde olduğunda**
+**Bağlantı sağlayıcısı devre sağlama sürecinde olduğunda**
 
-Şu duruma expressroute bağlantı hattı bağlantı sağlayıcı hizmet anahtarı geçirmek ve sağlama işlemini başlattığınız hemen görürsünüz.
+Aşağıdaki durumundaki ExpressRoute bağlantı hattı hizmet anahtarını bağlantı sağlayıcısına geçirilen ve sağlama işlemi başlatıldıktan hemen sonra görürsünüz.
 
     ServiceProviderProvisioningState : Provisioning
     Status                           : Enabled
 
 
-**Bağlantı sağlayıcı sağlama işlemini zaman tamamlandı**
+**Bağlantı Sağlayıcısı sağlama işlemi tamamlandığında**
 
-Bağlantı sağlayıcı sağlama işlemi tamamlandıktan hemen sonra expressroute bağlantı hattı şu duruma görürsünüz.
+Bağlantı sağlayıcısı, sağlama işlemi tamamlandıktan hemen sonra aşağıdaki durumundaki ExpressRoute bağlantı hattını görürsünüz.
 
     ServiceProviderProvisioningState : Provisioned
     Status                           : Enabled
 
-Sağlanan ve yalnızca durum bağlantı hattı onu kullanabilmek için kullanılabilir etkin olur. Bir katman 2 sağlayıcısı kullanıyorsanız, yalnızca bu durumda olduğunda, hattı için yönlendirmeyi yapılandırabilirsiniz.
+Ve hazırlanana etkin bağlantı hattını yalnızca durumu da kullanabilmek için olabilir. Bir katman 2 sağlayıcısı kullanıyorsanız, yalnızca bu durumda olduğunda, bağlantı hattı için yönlendirmeyi yapılandırabilirsiniz.
 
-**Bağlantı sağlayıcı bağlantı hattı zaman sağlamayı kaldırma**
+**Ne zaman bağlantı sağlayıcısı devreyi sağlamayı kaldırma**
 
-Expressroute bağlantı hattı yetkisini kaldırma için hizmet sağlayıcısı istenen hizmet sağlayıcısı sağlamanın kaldırılması işlemini tamamladıktan sonra aşağıdaki durumuna ayarlamak hattı görürsünüz.
+ExpressRoute bağlantı hattının sağlamasını kaldırmak için hizmet sağlayıcısı istenen hizmet sağlayıcısı sağlamayı kaldırma işlemi tamamlandıktan sonra aşağıdaki duruma ayarlanmış bağlantı hattını görürsünüz.
 
     ServiceProviderProvisioningState : NotProvisioned
     Status                           : Enabled
 
 
-Gerekli ya da devreyi silmek için PowerShell cmdlet'lerini çalıştırın yeniden etkinleştirmeyi seçebilirsiniz.  
+Gerekli ya da bağlantı hattını silmek için PowerShell cmdlet'lerini çalıştırmak yeniden etkinleştirmeyi seçebilirsiniz.  
 
 > [!IMPORTANT]
-> Çalıştırırsanız ServiceProviderProvisioningState sağlamada devreyi silmek için PowerShell cmdlet veya hazırlandı işlemi başarısız olur. Lütfen expressroute bağlantı hattı ilk yetkisini kaldırma için bağlantı sağlayıcınıza çalışır ve bağlantı hattı silin. Microsoft devreyi silmek için PowerShell cmdlet çalıştırılıncaya bağlantı hattı faturalandırmak devam eder.
+> Çalıştırırsanız ServiceProviderProvisioningState sağlanırken bağlantı hattını silmek için PowerShell cmdlet veya sağlanan işlemi başarısız olur. Lütfen önce ExpressRoute bağlantı hattının sağlamasını kaldırmak için bağlantı sağlayıcınıza çalışın ve bağlantı hattı silin. Microsoft, bağlantı hattı bağlantı hattını silmek için PowerShell cmdlet çalıştırılıncaya faturalandırmak devam eder.
 > 
 > 
 
 ## <a name="routing-session-configuration-state"></a>Yönlendirme oturum yapılandırma durumu
-Sağlama durumu BGP, BGP oturumu Microsoft edge etkinleştirilirse bilmenizi sağlar. Durum eşlemeyi kullanabilmek için etkinleştirilmelidir.
+Sağlama durumu BGP BGP oturumu Microsoft edge'de etkinleştirilirse bilmenizi sağlar. Durumu eşlemeyi kullanabilmek için etkinleştirilmelidir.
 
-Özellikle Microsoft eşlemesi için BGP oturum durumunu denetlemek önemlidir. Sağlama durumu BGP yanı sıra yok adlı başka bir duruma *tanıtılan genel ön ekten durumu*. Tanıtılan genel ön ekten durumu olmalıdır *yapılandırılmış* durum hem yukarı BGP oturumu ve uçtan uca çalışmak için yönlendirme. 
+Özellikle de Microsoft eşlemesi için BGP oturumu durumunu denetlemek önemlidir. Sağlama durumu BGP ek olarak, adlı başka bir durum yoktur *tanıtılan genel önekler durumu*. Tanıtılan genel önekler durumu olmalıdır *yapılandırılmış* hem kadar BGP oturumu ve uçtan uca çalışmak için yönlendirme durumu. 
 
-Tanıtılan genel ön eki durumu ayarlanırsa bir *gerekli doğrulama* durumunda, BGP oturumu etkin değil, tanıtılan önekler herhangi bir kayıt defterlerini yönlendirme AS numarası eşleşmediğinden. 
+Tanıtılan genel ön eki durumu ayarlanırsa bir *gerekli doğrulama* durumunda, BGP oturumu etkin değil, tanıtılan önekler herhangi bir kayıt defterlerini yönlendirme AS numarasını eşleşmediğinden. 
 
 > [!IMPORTANT]
-> Tanıtılan genel ön ek durum ise *el ile doğrulama* durum ile bir destek bileti açmanız [Microsoft Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ve boyunca ile ilişkili Otonom sistem numarası tanıtılan IP adreslerini kendi kanıt sağlar.
+> Tanıtılan genel önekler durumu ise *el ile doğrulama* durum ile bir destek bileti açmak gerekir [Microsoft Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ve IP adreslerini tanıtılan ile birlikte kendi kanıt ilişkili Otonom sistem numarası.
 > 
 > 
 

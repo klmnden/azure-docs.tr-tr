@@ -3,14 +3,14 @@ title: VMware-Azure Site recovery'de Azure'a çoğaltma mimarisi | Microsoft Doc
 description: Bu makalede şirket içi VMware Vm'leri, Azure Site Recovery ile azure'a çoğaltırken kullanılan bileşenlere ve genel bir bakış sağlar.
 author: rayne-wiselman
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 08/29/2018
 ms.author: raynew
-ms.openlocfilehash: 48adf61dc0f1796b820e1e14ca509d4618c6256b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4a97c44226d875a08f81a6306fc9ddd4ee29c409
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920577"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288150"
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>Vmware'den Azure'a çoğaltma mimarisi
 
@@ -32,22 +32,7 @@ Aşağıdaki tablo ve grafik azure'a VMware çoğaltması için kullanılan bile
 
 ![Bileşenler](./media/vmware-azure-architecture/arch-enhanced.png)
 
-## <a name="configuration-steps"></a>Yapılandırma adımları
 
-Azure'a olağanüstü durum kurtarma veya geçiş için VMware ayarlamaya yönelik genel adımlar aşağıdaki gibidir:
-
-1. **Azure bileşenlerini ayarlarsınız**. Doğru izinlere sahip bir Azure hesabı, bir Azure depolama hesabı, bir Azure sanal ağı ve bir kurtarma Hizmetleri kasası ihtiyacınız var. [Daha fazla bilgi edinin](tutorial-prepare-azure.md).
-2. **Şirket içi ayarlamak**. Site Recovery Vm'leri çoğaltmak için otomatik olarak keşfedebilmesi için VMware sunucusu üzerinde bir hesabı ayarlama çoğaltmak istediğiniz Vm'lere Mobility hizmeti bileşeninin yüklemek için kullanılan bir hesabı kurma ve doğrulama bunlar VMware sunucuları ve Vm'leri önkoşullarıyla uyumlu. Ayrıca isteğe bağlı olarak, bu Azure Vm'lere yük devretme sınamasından sonra hazırlayabilirsiniz. Site Recovery, Azure depolama hesabınız için sanal makine verilerini çoğaltır ve Azure Vm'leri Azure'a yük devretme çalıştırdığınızda verileri kullanarak oluşturur. [Daha fazla bilgi edinin](vmware-azure-tutorial-prepare-on-premises.md).
-3. **Çoğaltmayı ayarlama**. Hedef konumu seçin, çoğaltmak istediğiniz. Kaynak çoğaltma ortamını tek şirket içi VMware VM (yapılandırma sunucusu) tüm şirket içi gereken Site Recovery bileşenlerini çalıştıran ayarlayarak yapılandırın. Kurulumdan sonra kurtarma Hizmetleri Kasası'nda yapılandırma sunucusunun makine kaydedin. Daha sonra hedef ayarlarını seçin. [Daha fazla bilgi edinin](vmware-azure-tutorial.md).
-4. **Çoğaltma İlkesi oluşturma**. Çoğaltma nasıl olacağını belirten bir çoğaltma ilkesi oluşturun. 
-    - **RPO eşiği**: Bu çoğaltma belirtilen süre içinde oluşmuyorsa durumları olan izleme ayarı, bir uyarı (ve isteğe bağlı olarak bir e-posta) verilir. RPO eşiği 30 dakikaya ayarlayın ve bir sorun çoğaltma 30 dakikadır gerçekleşmesini önler, örneğin, bir olay oluşturulur. Bu ayar, çoğaltma etkilemez. Sürekli çoğaltma ve kurtarma noktaları, birkaç dakikada oluşturulur
-    - **Bekletme**: kurtarma noktası bekletme belirtir ne kadar süreyle kurtarma noktaları Azure'da tutulan. 0 ile premium depolama için 24 saat arasında bir değer belirtin veya yukarı standart depolama için 72 saat. Sıfırdan daha yüksek bir değere ayarlarsanız, en son kurtarma noktasına veya bir saklı noktasına devredebilir. Kurtarma noktalarının bekletme penceresi sonra temizlenir.
-    - **Kilitlenme ile tutarlı anlık görüntüleri**: Site Recovery varsayılan olarak kilitlenme ile tutarlı anlık görüntüleri alır ve bunları birkaç dakikada kurtarma noktaları oluşturur. Kilitlenme birbiriyle veri bileşenlerinin tümünü sıralı tutarlı yazma olduğunda tutarlı bir kurtarma noktası, anında oldukları gibi kurtarma noktasının oluşturulmasından. Daha iyi anlamak için bir güç kesintisi ya da benzer bir olay veri PC sabit sürücünüzde durumunu düşünün. Kilitlenmeyle tutarlı kurtarma noktası uygulamanızı veri tutarsızlıkları olmadan bir kilitlenme kurtarmak üzere tasarlanmışsa genellikle yeterli olur.
-    - **Uygulamayla tutarlı anlık görüntüleri**: dosya sistemi ile tutarlı anlık görüntüleri ve kurtarma noktaları oluşturmak bu değeri sıfır değilse, sanal makinede çalışan mobilite hizmeti çalışır. İlk çoğaltma tamamlandıktan sonra ilk anlık görüntü alınır. Ardından, anlık görüntüler, belirttiğiniz sıklığında alınır. Bir kurtarma noktası, yazma sipariş edilen yanı sıra tutarlı, çalışan uygulamaların tüm kullanıcıların işlemlerini tamamlayın ve diske (uygulama sessiz moda) önbelleklerini, uygulamayla tutarlı olur. Uygulamayla tutarlı kurtarma noktaları, SQL, Oracle ve Exchange gibi veritabanı uygulamaları için önerilir. Kilitlenmeyle tutarlı bir anlık görüntü yeterli ise, bu değeri 0 olarak ayarlanabilir.  
-    - **Çoklu VM tutarlılığını**: isteğe bağlı olarak bir çoğaltma grubu oluşturabilirsiniz. Ardından, çoğaltmayı etkinleştirdiğinizde, o gruba Vm'leri toplayabilirsiniz. Bir çoğaltma sanal makineleri çoğaltma gruplamak ve yük devretme sırasında kilitlenmeyle tutarlı ve uygulamayla tutarlı kurtarma noktalarını paylaştığı. Birden çok makinede toplanması gereken anlık görüntüleri olarak iş yükü performansını etkileyebileceğinden, dikkatli bir şekilde, bu seçeneği kullanmanız gerekir. Vm'leri aynı iş yükünü ve tutarlı olması gerekiyorsa çalıştırırsanız yalnızca bunu ve benzer karmaşıklığını VM'ler sahiptir. En fazla 8 VM bir gruba ekleyebilirsiniz. 
-5. **VM çoğaltmayı etkinleştirme**. Son olarak, şirket içi VMware Vm'leri için çoğaltmayı etkinleştirirsiniz. Mobility hizmetini yükleme için bir hesap oluşturulur ve belirtilen Site Recovery göndererek yükleme yapmanız gerekir, Mobility hizmeti her VM için çoğaltmayı etkinleştirme yüklenir. [Daha fazla bilgi edinin](vmware-azure-tutorial.md#enable-replication). Bir çoğaltma grubunun çoklu VM tutarlılığı için oluşturduysanız, sanal makineleri bu gruba ekleyebilirsiniz.
-6. **Yük devretme testi**. Her şeyi ayarlandıktan sonra Vm'leri Azure'a beklendiği gibi yük olduğunu denetlemek için bir yük devretme yapabilirsiniz. [Daha fazla bilgi edinin](tutorial-dr-drill-azure.md).
-7. **Yük devretme**. Vm'leri - Azure'a yalnızca geçiş yapıyorsanız, bunu yapmak için bir tam yük devretme çalıştırın. Olağanüstü durum kurtarma işlemini ayarladığınız, gerektiği şekilde, bir tam yük devretme çalıştırabilirsiniz. Tam olağanüstü durum kurtarma için azure'a yük devredildikten sonra kullanılabilir olduğunda ve şirket içi sitenize geri dönebilirsiniz. [Daha fazla bilgi edinin](vmware-azure-tutorial-failover-failback.md).
 
 ## <a name="replication-process"></a>Çoğaltma işlemi
 

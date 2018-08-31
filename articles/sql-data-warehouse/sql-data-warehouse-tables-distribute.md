@@ -3,19 +3,19 @@ title: Dağıtılmış tablolar Tasarım Kılavuzu - Azure SQL veri ambarı | Mi
 description: Azure SQL Data warehouse'da dağıtılmış karma dağıtılmış ve hepsini bir kez deneme tabloları tasarlama için öneriler sunar.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 99a063abb3edea75b14fbcf67a889c5ba435daf3
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 6b6d6dd5f000c4295ffdf64f7d2f1ece4f625678
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258057"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307526"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data warehouse'da dağıtılmış tablolar tasarlama hakkında rehberlik
 Azure SQL Data warehouse'da dağıtılmış karma dağıtılmış ve hepsini bir kez deneme tabloları tasarlama için öneriler sunar.

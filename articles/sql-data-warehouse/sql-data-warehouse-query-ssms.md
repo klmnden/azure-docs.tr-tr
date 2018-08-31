@@ -1,21 +1,21 @@
 ---
 title: Azure SQL veri ambarı - SSMS bağlanma | Microsoft Docs
-description: SQL Server Management Studio (SSMS) bağlanmak ve Azure SQL Data Warehouse sorgulamak için kullanın.
+description: Bağlanmak ve Azure SQL Data Warehouse'u sorgulamak için SQL Server Management Studio (SSMS) kullanın.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: f4b960115da3d30d355768498ae95270acaef49b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6079c3064699da38fad20468517eb97d6ab107f8
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182383"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307209"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS) ile SQL Data Warehouse'a bağlanma
 > [!div class="op_single_selector"]
@@ -27,18 +27,18 @@ ms.locfileid: "32182383"
 > 
 > 
 
-SQL Server Management Studio (SSMS) bağlanmak ve Azure SQL Data Warehouse sorgulamak için kullanın. 
+Bağlanmak ve Azure SQL Data Warehouse'u sorgulamak için SQL Server Management Studio (SSMS) kullanın. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiyi kullanmak için şunlar gerekir:
 
 * Var olan bir SQL veri ambarı. Bir tane oluşturmak için bkz. [SQL Veri Ambarı oluşturma][Create a SQL Data Warehouse].
-* SQL Server Management Studio (yüklü SSMS). [SSMS yükleme] [ Install SSMS] ücretsiz, zaten yoksa.
+* SQL Server Management Studio (yüklü SSMS). [SSMS yükleme] [ Install SSMS] zaten yoksa bir ücretsiz.
 * Tam SQL server adı. Bunu bulmak için bkz. [SQL Veri Ambarı'na bağlanma][Connect to SQL Data Warehouse].
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. SQL Data Warehouse'unuza bağlanma
 1. SSMS’i açın.
-2. Nesne Gezgini'ni açın. Bunu yapmak için seçin **dosya** > **bağlanmak Nesne Gezgini**.
+2. Nesne Gezgini'ni açın. Bunu yapmak için **dosya** > **nesne Gezginine Bağlan**.
    
     ![SQL Server Nesne Gezgini][1]
 3. Sunucuya Bağlan penceresindeki alanları doldurun.

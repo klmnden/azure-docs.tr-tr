@@ -1,28 +1,30 @@
 ---
-title: Azure SQL Data Warehouse sütun düzeyinde güvenlik | Microsoft Docs
-description: Sütun düzeyi güvenlik (CLS) kullanıcının yürütme bağlamı veya grup üyeliklerini temel alan veritabanı tablo sütunları erişimi denetlemek müşterilerin sağlar. CLS tasarım ve uygulamanızda güvenlik kodlama basitleştirir. CLS sütun erişim kısıtlamalarını uygulamak sağlar.
+title: Azure SQL veri ambarı sütun düzeyinde güvenlik | Microsoft Docs
+description: Sütun düzeyi güvenlik (CLS), kullanıcının yürütme bağlamı veya grup üyeliklerini temel veritabanı tablo sütunları erişimi denetlemek müşterilerin sağlar. Tasarım ve uygulama güvenlik kodlama CLS basitleştirir. CLS sütun erişim kısıtlamaları uygulamak sağlar.
 services: sql-data-warehouse
 author: KavithaJonnakuti
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 06/15/2018
 ms.author: kavithaj
 ms.reviewer: igorstan, carlrab
-ms.openlocfilehash: 5a916132f705f3c517ee6789b61a3972b2445b62
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 1765c92ad10fa35af98e7c7314eb44c3a119f422
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938519"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301064"
 ---
 # <a name="column-level-security"></a>Sütun düzeyinde güvenlik 
-Sütun düzeyi güvenlik (CLS) kullanıcının yürütme bağlamı veya grup üyeliklerini temel alan veritabanı tablo sütunları erişimi denetlemek müşterilerin sağlar.  
+Sütun düzeyi güvenlik (CLS), kullanıcının yürütme bağlamı veya grup üyeliklerini temel veritabanı tablo sütunları erişimi denetlemek müşterilerin sağlar.  
 
-CLS tasarım ve uygulamanızda güvenlik kodlama basitleştirir. CLS önemli verileri korumak için sütun erişim kısıtlamalarını uygulamak sağlar. Örneğin, belirli kullanıcıları yalnızca kendi departmanı ile ilgili bir tablodaki belirli sütunların eriştiğinden emin olun. Veritabanı katmanı bulunur yerine başka bir uygulama katmanındaki veriler koymadan erişim kısıtlama mantığı. Veri erişimini herhangi bir katmanı denenir her zaman veritabanı erişim kısıtlamaları geçerlidir. Bu güvenlik sisteminizde daha güvenli ve sağlam genel güvenlik sisteminizi'nın yüzey alanını azaltarak hale getirir. Ayrıca, bu da kullanıcılara erişim kısıtlamalarını izlenmesi için sütunları filtrelemek için görünümler sunarak gereğini ortadan kaldırır. 
+> [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
 
-CLS ile uygulama [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) T-SQL ifadesi. Bu mekanizma ile hem SQL hem de Azure Active Directory (AAD) kimlik doğrulama desteklenir.
+Tasarım ve uygulama güvenlik kodlama CLS basitleştirir. CLS, hassas verileri korumak için sütun erişim kısıtlamaları uygulamak sağlar. Örneğin, belirli kullanıcılara yalnızca belirli departmanı için uygun bir tablonun sütunlarını eriştiğinden emin olun. Veritabanı katmanı bulunur yerine koy verileri başka bir uygulama katmanı kullanarak erişimi kısıtlama mantığı. Veri erişimini herhangi bir katmanı denenir her zaman veritabanına erişim kısıtlamalarını uygular. Bu kısıtlama, genel güvenlik sistem'ın yüzey alanını azaltarak daha güvenli ve sağlam güvenlik sağlar. Ayrıca, CLS Ayrıca kullanıcıların erişim kısıtlamalarını izlenmesi için sütunları filtrelemek için görünümler tanıtımı için ihtiyacını ortadan kaldırır. 
+
+CLS ile uygulayabileceğine [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) T-SQL deyimi. Bu mekanizma ile hem SQL hem de Azure Active Directory (AAD) kimlik doğrulaması desteklenir.
 
 ![CLS](./media/column-level-security/cls.png)
 
@@ -45,9 +47,9 @@ GRANT <permission> [ ,...n ] ON
 ```
 
 ## <a name="example"></a>Örnek 
-Aşağıdaki örnek 'TestUser' 'Üyelik' tablosunun 'SSN' sütunu erişimini kısıtlamak nasıl gösterir: 
+Aşağıdaki örnek, 'TestUser', 'Üyelik' tablosunun 'SSN' sütunu erişimini kısıtlamak gösterilmektedir: 
 
-'Üyelik' tablo sosyal güvenlik numarası depolamak için kullanılan SSN sütunla oluşturun:
+Sosyal Güvenlik numaraları depolamak için kullanılan SSN sütunuyla 'Üyelik' tablo oluşturun:
 
 ```sql
 CREATE TABLE Membership   
@@ -59,13 +61,13 @@ CREATE TABLE Membership
    Email varchar(100) NULL);  
 ```
 
-'TestUser' izin hassas verileri içeren SSN sütun dışındaki tüm sütunları erişmek için: 
+'TestUser' izin hassas veriler içeren SSN sütun dışındaki tüm sütunları erişmek için: 
 
 ```sql  
 GRANT SELECT ON Membership(MemberID, FirstName, LastName, Phone, Email) TO TestUser;   
 ``` 
 
-Sorgular: SSN sütun içeriyorlarsa 'TestUser' başarısız
+'TestUser' SSN sütun içeriyorlarsa başarısız olacağından yürütülen sorgular:
 
 ```sql  
 SELECT * FROM Membership;
@@ -76,5 +78,5 @@ The SELECT permission was denied on the column 'SSN' of the object 'Membership',
 
 ## <a name="use-cases"></a>Kullanım örnekleri
 CLS bugün nasıl kullanıldığını ilişkin bazı örnekler: 
-- Finansal Hizmetler kesin yalnızca hesap yöneticileri müşteri sosyal güvenlik numarası (SSN), telefon numaraları ve diğer kişisel bilgileri (PII) erişimi olmasını sağlar.
-- Sağlık sağlayıcısı yalnızca Doktorlar ve nurses hassas tıbbi kayıtları fatura departmanı üyeleri sağlanmıyor erişimi bu verileri görüntüleme izin verir.
+- Finansal hizmet şirketi yalnızca hesap yöneticileri müşteri sosyal güvenlik numarası (SSN), telefon numaraları ve diğer kişisel bilgileri (PII) erişmesini sağlar.
+- Sağlık Hizmetleri Sağlayıcısı yalnızca Doktorlar ve nurses fatura departmanı üyeleri sağlanmıyor hassas sağlık kayıtlarına erişim sağlamak bu verileri görüntüleme olanak sağlar.

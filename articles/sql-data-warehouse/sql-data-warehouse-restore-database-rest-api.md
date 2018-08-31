@@ -1,50 +1,50 @@
 ---
-title: Bir Azure SQL veri ambarı - REST API geri | Microsoft Docs
-description: REST API'lerini kullanarak Azure SQL Data Warehouse geri yükleyin.
+title: Bir Azure SQL veri ambarı - REST API geri yükleme | Microsoft Docs
+description: REST API'leri kullanarak bir Azure SQL veri ambarı geri yükleyin.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 2e1874fdf7c11d98d369072739c5937caffe6e96
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 71236afd3f72497887f42667f971539ed294bef1
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31524433"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307545"
 ---
-# <a name="restore-an-azure-sql-data-warehouse-with-rest-apis"></a>Bir Azure SQL veri ambarı REST API'leri ile geri yükleme
-REST API'lerini kullanarak Azure SQL Data Warehouse geri yükleyin.
+# <a name="restore-an-azure-sql-data-warehouse-with-rest-apis"></a>REST API ile bir Azure SQL veri ambarını geri yükleme
+REST API'leri kullanarak bir Azure SQL veri ambarı geri yükleyin.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-**DTU kapasitenizi doğrulayın.** Her SQL veri ambarı varsayılan olan bir mantıksal SQL sunucusu tarafından (örneğin myserver.database.windows.net) barındırılan [DTU kota](../sql-database/sql-database-what-is-a-dtu.md).  SQL Data Warehouse geri yükleyebilmeniz için önce doğrulayın yeterli kalan DTU kota geri yüklenen veritabanı için SQL server'ınızdaki sahiptir. Daha fazla DTU istemek için [destek bileti oluşturma](sql-data-warehouse-get-started-create-support-ticket.md).
+**DTU kapasitenizi doğrulayın.** Varsayılan olan bir mantıksal SQL sunucusu tarafından (örn. myserver.database.windows.net) barındırılan her SQL veri ambarı [DTU kotası](../sql-database/sql-database-what-is-a-dtu.md).  SQL veri ambarı geri yüklemeden önce olduğunu doğrulayın. SQL server'ınızı geri yüklenen veritabanı için yeterli kalan DTU kotası vardır. Daha fazla DTU istemek için [bir destek bileti oluşturma](sql-data-warehouse-get-started-create-support-ticket.md).
 
-## <a name="restore-an-active-or-paused-data-warehouse"></a>Etkin ya da duraklatılmış veri ambarı geri yükle
-Veri ambarı geri yüklemek için:
+## <a name="restore-an-active-or-paused-data-warehouse"></a>Etkin ya da duraklatılmış veri ambarını geri yükleme
+Bir veri ambarını geri yüklemek için:
 
-1. Get veritabanı geri yükleme noktaları işlemi kullanarak veritabanını geri yükleme noktaları listesini alın.
-2. Geri yükleme kullanarak başlayın [oluşturma veritabanı geri yükleme isteği](https://msdn.microsoft.com/library/azure/dn509571.aspx) işlemi.
-3. Kullanarak geri yükleme durumunu izlemek [veritabanı işlemi durumunu](https://msdn.microsoft.com/library/azure/dn720371.aspx) işlemi.
+1. Veritabanı geri yükleme noktalarını al işlemi kullanarak veritabanını geri yükleme noktaları listesini alın.
+2. Geri yükleme kullanarak başlarsanız [Oluştur veritabanı geri yükleme isteği](https://msdn.microsoft.com/library/azure/dn509571.aspx) işlemi.
+3. Kullanarak geri yükleme işleminizin durumunu izlemek [veritabanı işlem durumunu](https://msdn.microsoft.com/library/azure/dn720371.aspx) işlemi.
 
 > [!NOTE]
-> Geri yükleme tamamlandıktan sonra izleyerek kurtarılan veri ambarınız yapılandırabilirsiniz [kurtarma işleminden sonra veritabanını yapılandırma](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+> Geri yükleme tamamlandıktan sonra kurtarılan veri Ambarınızı izleyerek yapılandırabileceğiniz [kurtarma işleminden sonra veritabanını yapılandırma](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
 > 
 > 
 
-## <a name="restore-a-deleted-data-warehouse"></a>Silinen veri ambarı geri yükle
-Silinen veri ambarını geri yüklemek için:
+## <a name="restore-a-deleted-data-warehouse"></a>Silinen bir veri ambarını geri yükleme
+Silinen bir veri ambarını geri yüklemek için:
 
-1. Tüm geri yüklenebilen silinmiş veri ambarınız kullanarak liste [listesi geri yüklenebilen bırakılan veritabanları](https://msdn.microsoft.com/library/azure/dn509562.aspx) işlemi.
-2. [Get geri yüklenebilen bırakılan veritabanı] [Get geri yüklenebilen bırakılan veritabanı] işlemi kullanarak geri yüklemek istediğiniz silinen veri ambarı için ayrıntıları öğrenin.
-3. Geri yükleme kullanarak başlayın [oluşturma veritabanı geri yükleme isteği](https://msdn.microsoft.com/library/azure/dn509571.aspx) işlemi.
-4. Kullanarak geri yükleme durumunu izlemek [veritabanı işlemi durumunu](https://msdn.microsoft.com/library/azure/dn720371.aspx) işlemi.
+1. Tüm geri yüklenebilen silinmiş veri ambarınız kullanarak liste [veritabanları listesi geri yüklenebilen bırakılan](https://msdn.microsoft.com/library/azure/dn509562.aspx) işlemi.
+2. [Get geri yüklenebilen bırakılan veritabanı] [Get geri yüklenebilen bırakılan veritabanı] işlemi kullanılarak geri yüklemek istediğiniz silinen veri ambarı için ayrıntıları öğrenin.
+3. Geri yükleme kullanarak başlarsanız [Oluştur veritabanı geri yükleme isteği](https://msdn.microsoft.com/library/azure/dn509571.aspx) işlemi.
+4. Kullanarak geri yükleme işleminizin durumunu izlemek [veritabanı işlem durumunu](https://msdn.microsoft.com/library/azure/dn720371.aspx) işlemi.
 
 > [!NOTE]
-> Geri yükleme tamamlandıktan sonra veri ambarı yapılandırmak için bkz: [kurtarma işleminden sonra veritabanını yapılandırma](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+> Geri yükleme tamamlandıktan sonra veri Ambarınızı yapılandırmak için bkz: [kurtarma işleminden sonra veritabanını yapılandırma](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
 > 
 > 
 

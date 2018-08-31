@@ -12,45 +12,65 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/28/2017
+ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7bf1e437e97fdb4d929af23bd7b2a9abb49268df
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
-ms.translationtype: HT
+ms.openlocfilehash: bc60c0dbe6c609a08907feb243fe514badfe3e4e
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189167"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288084"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-directory-roles-in-pim"></a>Onaylayın veya Azure AD dizin rollerini PIM isteklerini reddedin
 
-Privileged Identity Management ile rollerini etkinleştirme için onay gerektirecek şekilde yapılandırın ve bir veya birden çok kullanıcı veya grup onaylayanlara temsilci olarak seçin.
+Azure AD Privileged Identity Management ile (PIM), rollerini etkinleştirme için onay gerektirecek şekilde yapılandırın ve bir veya birden çok kullanıcı veya grup onaylayanlara temsilci olarak seçin.
 
-## <a name="view-pending-approvals-requests"></a>Bekleyen onaylar (istek) görüntüleme
+## <a name="view-pending-requests"></a>Bekleyen istekleri görüntüleme
 
-Onayınızı bekleyen istek olduğunda, bir temsilci onaylayan olarak e-posta bildirimleri alırsınız. PIM Portalı'nda bu istekleri görüntülemek için Panoda (Yeni Gezinti) "Bekleyen onay isteklerini" sekmesi sol gezinti çubuğunda seçin.
+Onayınızı bekleyen istek olduğunda, bir temsilci onaylayan olarak e-posta bildirimleri alırsınız. Bu bekleyen istekler PIM'de görüntüleyebilirsiniz.
 
-![](media/azure-ad-pim-approval-workflow/image023.png)
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-Burada, onay bekleyen istek listesi görürsünüz:
+1. Açık **Azure AD Privileged Identity Management**.
 
-![](media/azure-ad-pim-approval-workflow/image024.png)
+1. Tıklayın **Azure AD Dizin rolleri**.
 
-## <a name="approve-or-deny-requests-for-role-elevation-single-andor-bulk"></a>Onaylayın veya reddedin rol yükseltme (tek ve/veya toplu) istekleri
+1. Tıklayın **istekleri onaylama**.
 
-İstekleri onaylamak veya reddetmek istediğiniz seçin ve kararınızı ile karşılık gelen Eylem çubuğu düğmesine tıklayın:
+    ![PIM Azure AD Dizin rolleri - roller](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
-![](media/azure-ad-pim-approval-workflow/image025.png)
+    Onayınızı bekleyen isteklerinin bir listesini görürsünüz.
 
-## <a name="provide-justification-for-my-approvaldenial"></a>My onay/engelleme için gerekçe sağlayın
+## <a name="approve-requests"></a>İstekleri onayla
 
-Bu onaylamak veya aynı anda birden fazla isteği reddetmek için yeni bir dikey pencere açar. Kararınız için bir gerekçe girin ve onaylayın (veya Reddet) alt ya da dikey penceresinde:
+1. İstekleri onaylama ve ardından istediğiniz seçin **Onayla** Onayla açmak için istekleri bölmesinde seçili.
 
-![](media/azure-ad-pim-approval-workflow/image029.png)
+    ![PIM'i Onayla istekleri listesi](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
 
-İstek işlemi tamamlandığında, durum simgesinde yaptığınız karar yansıtır (Bu örnekte, onaylama kararıdır):
+1. İçinde **onay nedeni** bir neden yazın.
 
-![](media/azure-ad-pim-approval-workflow/image031.png)
+    ![İstekler seçilmiş PIM'i Onayla](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
+
+1. Tıklayın **onaylama**.
+
+    Durum simgesinde onayınızı ile güncelleştirilecektir.
+
+    ![İstekler seçilmiş PIM'i Onayla](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
+
+## <a name="deny-requests"></a>İstekleri Reddet
+
+1. İstekleri Reddet ve ardından istediğiniz seçin **Reddet** Reddet açmak için istekleri bölmesinde seçili.
+
+    ![PIM'i Onayla istekleri listesi](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
+
+1. İçinde **reddetme nedeni** bir neden yazın.
+
+    ![Seçili PIM Reddet istekleri](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
+
+1. Tıklayın **Reddet**.
+
+    Durum simgesinde, engelleme ile güncelleştirilecektir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

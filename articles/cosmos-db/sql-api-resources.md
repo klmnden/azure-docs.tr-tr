@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB kaynak modeli ve kavramları | Microsoft Docs
-description: Azure Cosmos veritabanı hiyerarşik modelinin veritabanları, koleksiyonları, kullanıcı tanımlı işlev (UDF), belgeler, kaynakları ve daha fazlasını yönetmek için izinler hakkında bilgi edinin.
+description: Azure Cosmos DB hiyerarşik modelinin veritabanları, koleksiyonlar, kullanıcı tanımlı işlev (UDF), belgelerin, kaynakları ve daha fazlasını yönetmek için izinleri hakkında bilgi edinin.
 keywords: Hiyerarşik modeli, cosmosdb, azure, Microsoft azure
 services: cosmos-db
 author: rafats
@@ -12,62 +12,56 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21b1e69573d2ddd31979e6c23dd7f3bd130cadbe
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 3ba02e7760d7400b5168a902415f16c4b276b3a7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798025"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287962"
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Azure Cosmos DB hiyerarşik kaynak modeli ve temel kavramları
 
-Azure Cosmos DB yönetir veritabanı varlıklar olarak adlandırılır **kaynakları**. Her kaynak mantıksal URI'leri ile benzersiz olarak tanımlanır. Standart HTTP fiillerini, istek/yanıt üstbilgilerini ve durum kodlarını kullanarak kaynakları ile etkileşim kurabilirsiniz. 
+Azure Cosmos DB tarafından yönetilen veritabanı varlıklar olarak adlandırılır **kaynakları**. Her kaynak, mantıksal bir URI ile benzersiz şekilde tanımlanır. Standart HTTP fiilleri, istek/yanıt üst bilgileri ve durum kodlarını kullanarak kaynaklarla etkileşim kurabilir. 
 
-Bu makalede aşağıdaki sorular yanıtlanmaktadır:
+Bu makalede, aşağıdaki soruları yanıtlamaktadır:
 
-* Azure Cosmos veritabanı kaynak modeli nedir?
-* Hangi sistem kaynakları kullanıcı tanımlı kaynakları aksine tanımlanmış?
-* Bir kaynak nasıl ele?
+* Azure Cosmos DB'nin kaynak modeli nedir?
+* Ne sistem kaynakları yerine kullanıcı tarafından tanımlanan kaynakları tanımlanır?
+* Bir kaynağı nasıl ele?
 * Koleksiyonları ile nasıl çalışır?
-* Saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler (UDF'ler) ile nasıl çalışırım?
-
-Aşağıdaki videoda Azure Cosmos DB Program Yöneticisi Barış Liu Azure Cosmos DB kaynak modeli aracılığıyla anlatılmaktadır. 
-
-> [!VIDEO https://www.youtube.com/embed/luWFgTP0IL4]
->
->
+* Saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevlerle (UDF) ile nasıl çalışırım?
 
 ## <a name="hierarchical-resource-model"></a>Hiyerarşik kaynak modeli
-Aşağıdaki diyagramda gösterildiği gibi Azure Cosmos DB hiyerarşik **kaynak modeli** kaynaklar mantıksal ve kararlı bir URI her adreslenebilir bir veritabanı hesabı altında kümesi oluşur. Bir kaynak kümesi denir bir **akış** bu makalede. 
+Aşağıdaki diyagramda gösterildiği gibi Azure Cosmos DB hiyerarşik **kaynak modeli** mantıksal ve kararlı bir URI her adreslenebilir bir veritabanı hesabı altında kaynak kümesi oluşur. Bir kaynak kümesini denir bir **akışı** bu makaledeki. 
 
 > [!NOTE]
-> Azure Cosmos DB sunar aynı zamanda olan RESTful kendi iletişim modelini, son derece verimli bir TCP protokolü aracılığıyla kullanılabilen [SQL .NET istemcisi API](sql-api-sdk-dotnet.md).
+> Azure Cosmos DB sunar, ayrıca RESTful kendi iletişim modelde olduğu gibi bir üst düzeyde verimli TCP protokolü aracılığıyla [SQL .NET istemcisi API](sql-api-sdk-dotnet.md).
 > 
 > 
 
 ![Azure Cosmos DB hiyerarşik kaynak modeli][1]  
 **Hiyerarşik kaynak modeli**   
 
-Kaynaklarla çalışmaya başlamak için şunları yapmanız gerekir [bir veritabanı hesabı oluşturma](create-sql-api-dotnet.md) Azure aboneliğinizi kullanarak. Veritabanı hesabı bir dizi oluşabilir **veritabanları**, her biri birden çok içeren **koleksiyonları**, her sırayla içerir, **saklı yordamlar, Tetikleyiciler, UDF'ler, belgeler ve ilgili Ekleri**. Bir veritabanı da ilişkili **kullanıcılar**, her bir dizi **izinleri** koleksiyonları, saklı yordamlar, Tetikleyiciler, UDF'ler, belgeler veya ekleri erişmek için. Veritabanları, kullanıcılar, izinler ve Koleksiyonlar iyi bilinen şemalar sahip sistem tanımlı kaynakları olsa da, belgeler ve ekleri rasgele, kullanıcı tanımlı JSON içeriği içerir.  
+Kaynaklar ile çalışmaya başlamak için şunları yapmanız gerekir [bir veritabanı hesabı oluşturma](create-sql-api-dotnet.md) Azure aboneliğinizi kullanarak. Bir veritabanı hesabı bir dizi oluşabilir **veritabanları**, her biri birden çok içeren **koleksiyonları**, her sırayla içerir, **saklı yordamlar, Tetikleyiciler, UDF'ler, belgeler ve ilgili Ekleri**. Bir veritabanı aynı zamanda ilişkili **kullanıcılar**, her bir dizi **izinleri** koleksiyonları, saklı yordamlar, Tetikleyiciler, UDF'ler, belgeler veya ekleri erişmek için. Veritabanları, kullanıcılar, izinler ve Koleksiyonlar iyi bilinen şemalar sahip sistem tanımlı kaynakları olsa da, belgeler ve ekleri ise rastgele ve kullanıcı tanımlı JSON içeriği bulunur.  
 
 | Kaynak | Açıklama |
 | --- | --- |
-| Veritabanı hesabı |Veritabanı hesabı, bir dizi veritabanları ve ekleri için blob storage'nın sabit bir tutar ile ilişkilidir. Azure aboneliğinizi kullanarak bir veya daha fazla veritabanı hesabı oluşturabilirsiniz. Daha fazla bilgi için ziyaret [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/cosmos-db/). |
-| Database |Bir veritabanı, koleksiyonlar genelinde bölümlenmiş belge depolama alanının mantıksal bir kapsayıcısıdır. Ayrıca, Kullanıcılar kapsayıcısı unutulmamalıdır. |
-| Kullanıcı |İzinlerin kapsamını belirlerken için mantıksal ad alanı. |
-| İzin |Belirli bir kaynağa erişim için bir kullanıcı ile ilişkili bir yetki belirteci. |
+| Veritabanı hesabı |Bir veritabanı hesabı, veritabanı ve blob depolama için ek sabit miktarda bir dizi ile ilişkilidir. Azure aboneliğinizi kullanarak bir veya daha fazla veritabanı hesabı oluşturabilirsiniz. Daha fazla bilgi için ziyaret [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/cosmos-db/). |
+| Database |Bir veritabanı, koleksiyonlar genelinde bölümlenmiş belge depolama alanının mantıksal bir kapsayıcıdır. Ayrıca kullanıcılar kapsayıcısına bir hizmettir. |
+| Kullanıcı |İçin izinlerin kapsamını belirlerken mantıksal ad alanı. |
+| İzin |Belirli bir kaynağa erişim için bir kullanıcı ile ilişkili bir yetkilendirme belirteci. |
 | Koleksiyon |Koleksiyon, JSON belgeleri ve ilişkili JavaScript uygulama mantığının bir kapsayıcısıdır. Koleksiyonlar bir veya daha fazla bölümü/sunucuyu kapsayabilir ve neredeyse sınırsız miktarda depolama veya işlemeyi işleyebilecek şekilde ölçeklendirilebilir. |
-| Saklı Yordam |Uygulama mantığı ile bir koleksiyon kayıtlı ve işlemsel olarak veritabanı altyapısının içinde yürütülen JavaScript yazılmış. |
-| Tetikleyici |Önce veya sonra ya da bir ekleme yürütülen JavaScript'te yazılmış uygulama mantığını değiştirin ya da silme işlemi. |
-| UDF |JavaScript'te yazılmış bir uygulama mantığı. UDF'ler özel sorgu işleci model ve böylece SQL API sorgu dili çekirdek genişletmek etkinleştirin. |
-| Belge |Kullanıcı tanımlı (rastgele) JSON içeriği bulunur. Varsayılan olarak, hiçbir şema tanımlanması gerekiyor ya da ikincil dizinlerin bir koleksiyona eklenmiş tüm belgeleri için sağlanması gerekmez. |
-| Ek |Ek başvurular ve dış blob/medya için ilişkili meta verileri içeren özel bir belgedir. Geliştirici Cosmos DB tarafından yönetilen blob yok veya OneDrive, Dropbox, vb. gibi bir dış blob hizmeti sağlayıcısında depolamak seçebilirsiniz. |
+| Saklı Yordam |Uygulama mantığı bir koleksiyonuna kayıtlı olan ve işlemsel olarak veritabanı altyapısının içinde yürütülmesini JavaScript dilinde yazılan. |
+| Tetikleyici |Önce veya sonra bir ya da bir INSERT, yürütülen JavaScript'te yazılmış uygulama mantığını değiştirin ya da silme işlemi. |
+| UDF |JavaScript'te yazılmış uygulama mantığı. UDF özel sorgu işleci model ve böylece sorgu dili SQL API'si temel genişletmek etkinleştirin. |
+| Belge |Kullanıcı tanımlı (rastgele) JSON içeriği bulunur. Varsayılan olarak, şema tanımlanması gerekir ya da ikincil dizinlerin bir koleksiyona eklenen tüm belgeler için sağlanması gerekmez. |
+| Ek |Ek başvurular ve dış blob/medya için ilişkili meta verileri içeren özel bir belgedir. Geliştirici, Cosmos DB tarafından yönetilen blob ya da OneDrive, Dropbox vb. gibi dış blob hizmeti sağlayıcısıyla depolamak seçebilirsiniz. |
 
-## <a name="system-vs-user-defined-resources"></a>Sistem kaynakları kullanıcı tanımlı karşılaştırması
-Veritabanı hesaplarını, veritabanları, koleksiyonları, kullanıcılar, izinler, saklı yordamlar, tetikleyiciler ve UDF'ler - gibi kaynakları tüm sabit şemasına sahip ve sistem kaynaklarını denir. Buna karşılık, belgeler ve ekler gibi kaynakları herhangi bir kısıtlama şemasına sahip ve kullanıcı tanımlı kaynaklar olarak gösterilebilir. Cosmos DB'de sistem ve kullanıcı tanımlı kaynakları temsil ve standart uyumlu JSON olarak yönetilir. Tüm kaynaklar, sistem veya kullanıcı tanımlı, aşağıdaki ortak özellikleri vardır:
+## <a name="system-vs-user-defined-resources"></a>Sistem ve kullanıcı tanımlı kaynakları
+Veritabanı hesapları, veritabanları, koleksiyonlar, kullanıcılar, izinler, saklı yordamlar, tetikleyiciler ve UDF'ler - gibi kaynakları, tüm sabit bir şemaya sahip ve sistem kaynakları olarak adlandırılır. Buna karşılık, belgeler ve ekler gibi kaynaklar sınırlanmazlar şemaya ve kullanıcı tanımlı kaynakları örnekleridir. Cosmos DB'de sistem ve kullanıcı tanımlı kaynakları temsil edilen ve standart uyumlu JSON olarak yönetilir. Tüm kaynaklar, sistem veya kullanıcı tanımlı, aşağıdaki ortak özelliklere sahiptir:
 
 > [!NOTE]
-> Bir kaynak tüm sistem tarafından oluşturulan özelliklerinde kendi JSON gösterimi, alt çizgi (_) ile öneki alır.
+> Bir kaynak tüm sistem tarafından oluşturulan özelliklerinde kendi JSON gösterimi, bir altçizgi (_) öneki alır.
 > 
 > 
 
@@ -81,17 +75,17 @@ Veritabanı hesaplarını, veritabanları, koleksiyonları, kullanıcılar, izin
         <tr>
             <td valign="top"><p>_rid</p></td>
             <td valign="top"><p>Sistem tarafından oluşturulan</p></td>
-            <td valign="top"><p>Sistem tarafından oluşturulan, kaynak benzersiz ve hiyerarşik tanıtıcısı</p></td>
+            <td valign="top"><p>Sistem tarafından oluşturulan, kaynağın benzersiz ve hiyerarşik tanımlayıcısı</p></td>
         </tr>
         <tr>
             <td valign="top"><p>_etag</p></td>
             <td valign="top"><p>Sistem tarafından oluşturulan</p></td>
-            <td valign="top"><p>İyimser eşzamanlılık denetimi için gerekli kaynağının ETag</p></td>
+            <td valign="top"><p>ETag iyimser eşzamanlılık denetimi için gereken kaynak</p></td>
         </tr>
         <tr>
             <td valign="top"><p>_ts</p></td>
             <td valign="top"><p>Sistem tarafından oluşturulan</p></td>
-            <td valign="top"><p>Kaynağın en son güncelleştirilen zaman damgası</p></td>
+            <td valign="top"><p>Kaynağın son güncelleştirilen zaman damgası</p></td>
         </tr>
         <tr>
             <td valign="top"><p>_self</p></td>
@@ -100,44 +94,44 @@ Veritabanı hesaplarını, veritabanları, koleksiyonları, kullanıcılar, izin
         </tr>
         <tr>
             <td valign="top"><p>id</p></td>
-            <td valign="top"><p>Her iki</p></td>
-            <td valign="top"><p>Kullanıcı tanımlı benzersiz kaynağın adı (aynı bölüm anahtarı değeri ile). Kullanıcı Kimliği belirtmiyorsa, sistem tarafından oluşturulan kimliği olan</p></td>
+            <td valign="top"><p>Ya da</p></td>
+            <td valign="top"><p>Kullanıcı tanımlı benzersiz adı kaynak (ile aynı bölüm anahtarı değeri). Kullanıcı kimliğiniz belirtmiyor, sistem tarafından oluşturulan bir kimliği olur.</p></td>
         </tr>
     </tbody>
 </table>
 
-### <a name="wire-representation-of-resources"></a>Hat gösterimine kaynakların
-Cosmos DB herhangi özel uzantıları için JSON standart veya özel Kodlamalar zorunlu kılabilir değil; Standart uyumlu JSON belgeleri ile çalışır.  
+### <a name="wire-representation-of-resources"></a>Hat gösterimine kaynakları
+Cosmos DB, JSON standart veya özel Kodlamalar herhangi bir mülkiyet uzantısı kılmaz; Standart uyumlu JSON belgeleri ile çalışır.  
 
 ### <a name="addressing-a-resource"></a>Bir kaynak adresleme
-URI adreslenebilir tüm kaynaklardır. Değeri **_self** kaynak özelliği, kaynağın göreli URI temsil eder. URI biçimi oluşan /\<akış\>/ {_rid} yol kesimleri:  
+URI adreslenebilir tüm kaynaklardır. Değerini **_self** özelliği olan bir kaynağın kaynak göreli URI temsil eder. URI biçimi oluşan /\<akışı\>/ {_rid} yol kesimleri:  
 
 | _Self değeri | Açıklama |
 | --- | --- |
-| /dbs |Bir veritabanı hesabı altında veritabanlarının besleme |
-| /dbs/ {dbName} |{DbName} değerle eşleşen bir kimliğe sahip veritabanı |
-| /dbs/ {dbName} /colls/ |Bir veritabanı altında koleksiyonların besleme |
-| /dbs/ {dbName} /colls/ {collName} |{CollName} değerle eşleşen bir kimliğe sahip koleksiyonu |
-| /dbs/ {dbName} /colls/ {collName} / docs |Bir koleksiyon altında belgelerin besleme |
-| /dbs/{dbName}/colls/{collName}/docs/{docId} |{Doc} değerle eşleşen bir kimliğiyle belge |
-| /dbs/ {dbName} /users/ |Kullanıcıların bir veritabanı altında besleme |
-| /dbs/{dbName}/users/{userId} |{Kullanıcısı} değerle eşleşen bir kimliğe sahip kullanıcı |
-| /dbs/ {dbName} /users/ {UserID} / izinleri |Akış kapsamındaki bir kullanıcı izinleri |
-| /dbs/ {dbName} /users/ {UserID} /permissions/ {permissionId} |{İzni} değerle eşleşen bir kimliğe sahip izni |
+| /dbs |Bir veritabanı hesabı altında veritabanlarının akışı |
+| /dbs/ {dbName} |Eşleşen değere {dbName} kimliğine sahip veritabanı |
+| {dbName} /DBS/ /colls/ |Akış koleksiyonları altında bir veritabanı |
+| {dbName} /DBS/ /colls/ {collName} |' % S'değeri {collName} eşleşen bir kimliğe sahip koleksiyon |
+| {dbName} /DBS/ /colls/ {collName} / docs |Belgelerin koleksiyonu altında akışı |
+| /dbs/{dbName}/colls/{collName}/docs/{docId} |{Belge} değerle eşleşen bir kimliğine sahip belge |
+| {dbName} /DBS/ /users/ |Bir veritabanı altında kullanıcı akışı |
+| /dbs/{dbName}/users/{userId} |{User} değerle eşleşen bir kimliğe sahip kullanıcı |
+| {dbName} /DBS/ /users/ {UserID} / izinleri |Akış kapsamındaki bir kullanıcı izinleri |
+| {dbName} /DBS/ /users/ {UserID} /permissions/ {permissionId} |{İzni} değerle eşleşen bir kimliğine sahip iznin |
 
-Her kaynak kimliği özelliği aracılığıyla kullanıma sunulan benzersiz bir kullanıcı tanımlı adı vardır. Not: kullanıcı bir kimlik belirlemezse belgeler için SDK'ları otomatik olarak belge için benzersiz bir kimliği oluşturur. Bir özel üst kaynak bağlamı içinde benzersizdir en fazla 256 karakterden oluşan kullanıcı tanımlı bir dize kimliğidir. 
+Her kaynak kimliği özelliği aracılığıyla kullanıma sunulan benzersiz bir kullanıcı tanımlı adı vardır. Not: kullanıcı, bir kimliği belirtmezse belgeler için SDK'ları otomatik olarak belge için benzersiz bir kimliği oluşturur. Belirli bir üst kaynak bağlamı içinde benzersiz olan en fazla 256 karakter kullanıcı tanımlı bir dize kimliğidir. 
 
-Her kaynak _rid özelliği aracılığıyla kullanılabilir olduğu bir sistem tarafından oluşturulan hiyerarşik kaynak tanımlayıcısı (bir RID da bilinir) da sahiptir. Tüm belirli bir kaynak hiyerarşisini RID kodlar ve dağıtılmış bir şekilde tutarlılığı zorlamak için kullanılan uygun iç gösterimi ise. RID bir veritabanı hesabı içinde benzersizdir ve çapraz bölüm aramaları gerek kalmadan verimli yönlendirme için Cosmos DB tarafından dahili olarak kullanılır. Bir kaynak alternatif ve kurallı gösterimlerini _self ve _rid özelliklerinin değerlerdir. 
+Her kaynak _rid özelliği aracılığıyla kullanılabilir olan bir sistem tarafından oluşturulan hiyerarşik kaynak tanımlayıcısı (bir RID da bilinir) de vardır. Belirli bir kaynağın tüm bir hiyerarşiye RID kodlar ve dağıtılmış bir şekilde tutarlılığı zorunlu tutmak için kullanılan uygun iç gösterimi ise. RID bir veritabanı hesabı içinde benzersiz olan ve çapraz bölüm aramaları gerek kalmadan verimli yönlendirme için Cosmos DB tarafından dahili olarak kullanılır. _Self _rid özellikleri ve bir kaynak alternatif ve canonical temsillerini değerlerdir. 
 
-REST API'leri kaynakları adreslenmesini ve isteklerinin kimliği ve _rid özellikleri tarafından destekler.
+REST API'leri, kaynakları adreslenmesini ve isteklerinin kimliği hem _rid özelliklerini destekler.
 
 ## <a name="database-accounts"></a>Veritabanı hesapları
-Azure aboneliğinizi kullanarak bir veya daha fazla Cosmos DB veritabanı hesaplarını sağlayabilirsiniz.
+Azure aboneliğinizi kullanarak bir veya daha fazla Cosmos DB veritabanı hesabı sağlayabilirsiniz.
 
-Oluşturma ve Azure portalında aracılığıyla Cosmos DB veritabanı hesaplarını yönetme [ http://portal.azure.com/ ](https://portal.azure.com/). Oluşturma ve bir veritabanı hesabı yönetme yönetimsel erişim gerektirir ve yalnızca Azure aboneliğinizde gerçekleştirilebilir. 
+Oluşturma ve Cosmos DB veritabanı hesapları Azure portal aracılığıyla yönetme [ http://portal.azure.com/ ](https://portal.azure.com/). Oluşturma ve bir veritabanı hesabı yönetme yönetici erişimi gerektiren ve yalnızca Azure aboneliğiniz kapsamındaki gerçekleştirilebilir. 
 
 ### <a name="database-account-properties"></a>Veritabanı hesabı özellikleri
-Hazırlama ve bir veritabanı hesabı yönetme bir parçası olarak yapılandırın ve aşağıdaki özellikleri okuyun:  
+Sağlama ve bir veritabanı hesabı yönetmenin bir parçası olarak yapılandırın ve aşağıdaki özellikleri okuyun:  
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -147,84 +141,84 @@ Hazırlama ve bir veritabanı hesabı yönetme bir parçası olarak yapılandır
         </tr>
         <tr>
             <td valign="top"><p>Tutarlılık İlkesi</p></td>
-            <td valign="top"><p>Veritabanı hesabınız altındaki tüm koleksiyonlar için varsayılan tutarlılık düzeyi yapılandırmak için bu özelliği ayarlayın. [X-ms-tutarlılık-düzey] istek üstbilgisi kullanarak istek başına temelinde tutarlılık düzeyi geçersiz kılabilirsiniz. <p><p>Bu özellik yalnızca uygulanır <i>kullanıcı tanımlı kaynakları</i>. Tanımlanan kaynakları desteklemek için yapılandırılmış olan tüm sistem okuma/ile güçlü tutarlılık sorgular.</p></td>
+            <td valign="top"><p>Veritabanı hesabınız kapsamında tüm koleksiyonlar için varsayılan tutarlılık düzeyini yapılandırmak için bu özelliği ayarlayın. [X-ms-tutarlılık-düzey] istek üst bilgisini kullanarak istek başına tutarlılık düzeyinde geçersiz kılabilirsiniz. <p><p>Bu özellik yalnızca uygulanır <i>kullanıcı tanımlı kaynakları</i>. Tüm sistem tanımlı kaynakları destekleyecek şeiklde yapılandırılan okuma/güçlü tutarlılık ile sorgulama.</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Yetkilendirme anahtarları</p></td>
-            <td valign="top"><p>Veritabanı hesabı altında kaynakların tümünü yönetimsel erişim sağlayan birincil ve ikincil ana ve salt okunur anahtarları.</p></td>
+            <td valign="top"><p>Tüm kaynaklar veritabanı hesabı altında yönetimsel erişim sağlayan birincil ve ikincil ana ve salt okunur anahtarları.</p></td>
         </tr>
     </tbody>
 </table>
 
-Sağlama ek olarak, yapılandırma ve Azure portalından, veritabanı hesabınızı yönetme program aracılığıyla da oluşturabilir ve Cosmos DB veritabanı hesaplarını kullanarak yönetmek [Azure Cosmos DB REST API'lerini](/rest/api/cosmos-db/) yanısıra[istemci SDK'ları](sql-api-sdk-dotnet.md).  
+Sağlamaya ek olarak, yapılandırma ve veritabanı hesabınızı Azure portalından yönetme ayrıca programlı olarak oluşturabilir ve Cosmos DB veritabanı hesaplarını kullanarak yönetme [Azure Cosmos DB REST API'lerini](/rest/api/cosmos-db/) yanısıra[istemci SDK'ları](sql-api-sdk-dotnet.md).  
 
 ## <a name="databases"></a>Veritabanları
-Cosmos DB veritabanı bir mantıksal bir veya daha fazla koleksiyonlarını ve kullanıcılar, aşağıdaki çizimde gösterildiği gibi kapsayıcıdır. Herhangi bir sayıda teklif sınırları tabi Cosmos DB veritabanı hesabı altındaki veritabanları oluşturabilirsiniz.  
+Bir Cosmos DB veritabanı bir mantıksal bir veya daha fazla koleksiyonlarını ve kullanıcılar, aşağıdaki diyagramda gösterildiği gibi kapsayıcıdır. Veritabanları bir Cosmos DB veritabanı hesabı teklif sınırları tabi altında herhangi bir sayıda oluşturabilirsiniz.  
 
 ![Veritabanı hesabı ve koleksiyonları hiyerarşik modeli][2]  
-**Bir veritabanı kullanıcıları ve koleksiyonlar, mantıksal bir kapsayıcısıdır**
+**Bir mantıksal kapsayıcıdır kullanıcıları ve koleksiyon veritabanı**
 
-Bir veritabanı içinde koleksiyonlar bölümlenmiş sınırsız belge depolama içerebilir.
+Bir veritabanı içinde koleksiyonlar bölümlenmiş sınırsız belge depolaması içerebilir.
 
-### <a name="elastic-scale-of-an-azure-cosmos-db-database"></a>Bir Azure Cosmos DB veritabanının esnek ölçeklendirme
-Varsayılan olarak yedeklenen SSD belge depolama ve sağlanan işleme petabaytlarca için birkaç GB ile değişen – esnek bir Cosmos DB veritabanıdır. 
+### <a name="elastic-scale-of-an-azure-cosmos-db-database"></a>Azure Cosmos DB veritabanı için esnek ölçeklendirme
+Birkaç GB ile için SSD destekli belge depolaması ve sağlanan aktarım hızı petabaytlarca arasında değişen varsayılan – esnek bir Cosmos DB veritabanıdır. 
 
-Bir veritabanında geleneksel RDBMS Cosmos DB veritabanında tek bir makineye kapsamlı olmayan. Uygulamanızın ölçeğini büyütmek gerektiği Cosmos DB ile daha çok koleksiyon, veritabanları veya her ikisi de oluşturabilirsiniz. Aslında, Microsoft içindeki çeşitli birinci taraf uygulamalardan Azure Cosmos DB Tüketici ölçekte son derece büyük Azure Cosmos DB veritabanları koleksiyonları içeren her binlerce belge depolama terabayt ile oluşturarak kullanmakta olduğunuz. Büyütür veya bir veritabanı ekleyerek veya kaldırarak, uygulamanızın ölçek gereksinimlerini karşılamak için koleksiyonları küçültür. 
+Geleneksel RDBMS bir veritabanı bir Cosmos DB veritabanında tek bir makineye kapsamında değil. Cosmos DB ile uygulamanızın ölçeğini büyütmek gerektiğinde, koleksiyonlar, veritabanları ya da her ikisini de oluşturabilirsiniz. Aslında, Microsoft içindeki çeşitli birinci taraf uygulamalar Azure Cosmos DB Tüketici ölçekte son derece büyük bir Azure Cosmos DB veritabanları koleksiyonları içeren her binlerce terabaytlık belge depolama ile oluşturarak kullanıyor olmalısınız. Büyütür veya bir veritabanı ekleyerek veya kaldırarak, uygulamanızın ölçek gereksinimlerini karşılamak için koleksiyonları Daralt. 
 
-Herhangi bir sayıda teklif tabi bir veritabanı içinde koleksiyonlar oluşturabilirsiniz. Her koleksiyon veya koleksiyonları (içinde bir veritabanı) kümesi, SSD depolama ve işleme bağlı olarak seçilen teklif sağladığınız yedeklenen.
+Herhangi bir sayıda teklif bağlı olan bir veritabanı içinde koleksiyonlar oluşturabilirsiniz. Her koleksiyon veya koleksiyonları (veritabanında) kümesi, SSD depolama ve sizin için seçilen öneri bağlı olarak sağlanan aktarım hızı desteklenen.
 
-Bir Azure Cosmos DB veritabanı kullanıcı aynı zamanda bir kapsayıcıdır. Bir kullanıcı, Aç, hassas yetkilendirme ve koleksiyonlar, belgeler ve ekleri erişimi sağlayan izinler kümesi için bir mantıksal ad alanıdır.  
+Azure Cosmos DB veritabanı de kullanıcıların bir kapsayıcıdır. Bir kullanıcı, Aç, ayrıntılı yetkilendirme ve koleksiyonlar, belgeler ve ekleri için erişim sağlayan bir izin kümesi için mantıksal bir ad alanıdır.  
 
-Azure Cosmos DB kaynak modeli diğer kaynaklar ile veritabanları, değiştirilmesi silinmiş oluşturulabilir gibi okuma veya kolayca kullanarak numaralandırılan [REST API'leri](/rest/api/cosmos-db/) ya da herhangi bir [istemci SDK'ları](sql-api-sdk-dotnet.md). Azure Cosmos DB okuma veya bir veritabanı kaynak meta verileri sorgulamak için güçlü tutarlılığı garanti altına alır. Veritabanını otomatik olarak silme koleksiyonları veya içerdiği kullanıcılar hiçbirine erişemiyor sağlar.   
+Azure Cosmos DB kaynak modeldeki diğer kaynaklarla veritabanları, değiştirilmesi silinmiş oluşturulabilir gibi okuma veya kolayca kullanarak numaralandırılan [REST API'leri](/rest/api/cosmos-db/) veya herhangi bir [istemci SDK'ları](sql-api-sdk-dotnet.md). Azure Cosmos DB, okuma veya veritabanı kaynak meta verileri sorgulamak için güçlü tutarlılık garanti eder. Veritabanı otomatik olarak silme koleksiyonları veya içerdiği kullanıcıları erişemez sağlar.   
 
 ## <a name="collections"></a>Koleksiyonlar
-Cosmos DB koleksiyon, JSON belgeleri için bir kapsayıcıdır. 
+Bir Cosmos DB koleksiyonu, JSON belgeleri için bir kapsayıcıdır. 
 
-### <a name="elastic-ssd-backed-document-storage"></a>Esnek yedeklenen SSD belge depolama
-Bir koleksiyon doğası gereği esnek - otomatik olarak büyüdükçe ve belgeleri ekleyip olarak küçülür. Koleksiyonlar mantıksal kaynaklar ve bir veya daha fazla fiziksel bölümleri veya sunucuları yayılabilir. Bir koleksiyona atanan bölüm sayısı Cosmos depolama boyutuna göre DB ve koleksiyon veya bir koleksiyon kümesi için sağlanan verime göre belirlenir. Cosmos DB her bölümün SSD yedekli depolama ilişkili sabit bir tutar sahiptir ve yüksek kullanılabilirlik için çoğaltılır. Bölüm yönetimi tam olarak Azure Cosmos DB tarafından yönetilen ve karmaşık kodlar yazmak veya bölüm yönetmek zorunda kalmazsınız. Cosmos DB koleksiyonlarıdır **sınırsız** depolama ve işleme açısından. 
+### <a name="elastic-ssd-backed-document-storage"></a>Esnek SSD destekli belge depolama
+Bir koleksiyon doğası gereği elastik - otomatik olarak büyür ve belgeleri ekleyip olarak küçülür. Koleksiyonlar, mantıksal kaynaklardır ve bir veya daha fazla fiziksel bölüm veya sunucuları yayılabilir. Bir koleksiyona atanan bölüm sayısı, Cosmos DB depolama boyutuna göre ve koleksiyonu veya koleksiyon kümesi için sağlanan işleme tarafından belirlenir. Cosmos DB'de her bölüm, sabit bir tutar, SSD destekli depolamanın ilişkili olan ve yüksek kullanılabilirlik için çoğaltılır. Bölüm yönetim Azure Cosmos DB tarafından tamamen yönetilir ve karmaşık kod yazın veya bölüm yönetmek gerekmez. Cosmos DB koleksiyonları **sınırsız** depolama ve aktarım hızı açısından. 
 
 ### <a name="automatic-indexing-of-collections"></a>Koleksiyonları otomatik dizin oluşturma
-Azure Cosmos DB true şemasız veritabanı sistemidir. Varsaymaz veya JSON belgeleri için herhangi bir şema gerektirir. Belgeleri bir koleksiyona eklemek gibi Azure Cosmos DB bunları otomatik olarak dizinler ve sorgulamak için kullanılabilir. Otomatik belgelerin dizin şemasını ya da ikincil dizinlerin gerek kalmadan Azure Cosmos DB'nin anahtar bir özelliktir ve yazma iyileştirilmiş kilidi serbest ve günlük yapılı dizin bakım teknikleri tarafından etkinleştirilir. Azure Cosmos DB hala tutarlı sorguları hizmet veren sırasında son derece hızlı yazmalar sürekli hacmi destekler. Belge ve dizin depolama her koleksiyon tarafından kullanılan depolama hesaplamak için kullanılır. Depolama ve performans ilişkili bir koleksiyon için dizin oluşturma ilkesini yapılandırarak dizin ile dengelemeler kontrol edebilirsiniz. 
+Azure Cosmos DB true şemasız veritabanı sistemidir. Varsaymaz veya JSON belgeleri için herhangi bir şema gerektirir. Bir koleksiyona belgelere ekleme, Azure Cosmos DB bunları otomatik olarak dizinleyen ve sorgulama için kullanılabilir. Otomatik belgelerin dizin şema veya ikincil dizinler gerek kalmadan Azure Cosmos DB'nin temel bir özelliktir ve yazma için iyileştirilmiş, kilit içermeyen ve günlük yapılı bir dizin bakım teknikleri tarafından etkinleştirilir. Azure Cosmos DB Sürdürülen birim hala tutarlı sorguları hizmet sırasında son derece hızlı yazma destekler. Belge hem dizin depolama her koleksiyon tarafından tüketilen depolama hesaplamak için kullanılır. Depolama ve performans bir koleksiyon için dizin oluşturma ilkesini yapılandırarak dizin ile ilişkili stillerden denetleyebilirsiniz. 
 
-### <a name="configuring-the-indexing-policy-of-a-collection"></a>Bir dizin oluşturma ilkesini yapılandırma
-Dizin oluşturma ilkesini her koleksiyonun performans ve depolama dizin ile ilişkili dengelemeler yapmanızı sağlar. Dizin oluşturma yapılandırmasının bir parçası olarak size aşağıdaki seçenekler kullanılabilir:  
+### <a name="configuring-the-indexing-policy-of-a-collection"></a>Bir koleksiyonun dizin oluşturma ilkesini yapılandırma
+Dizin oluşturma ilkesini her koleksiyonun performans ve depolama dizini oluşturma ile ilişkili dengelemeler yapmanızı sağlar. Dizin yapılandırmasının bir parçası olarak, aşağıdaki seçenekler kullanılabilir:  
 
-* Koleksiyon otomatik olarak tüm belgelerin veya dizinleri olup olmadığını seçin. Varsayılan olarak, tüm belgeler otomatik olarak dizine alınır. Otomatik dizin oluşturma devre dışı bırakma ve yalnızca belirli belgeler için dizin seçerek eklemek seçebilirsiniz. Buna karşılık, yalnızca belirli belgeleri dışlamak seçmeli olarak seçebilirsiniz. Bu otomatik özelliği doğru veya yanlış bir koleksiyon indexingPolicy olacak şekilde ayarlayarak ve [x-ms-indexingdirective] istek üstbilgisi ekleme, değiştirme veya bir belgeyi silme sırasında kullanarak gerçekleştirebilirsiniz.  
-* Dahil etmek veya belirli yollar veya belgelerinizi düzenleri dizinden hariç tutmak isteyip istemediğinizi seçin. Bu ayar includedPaths ve bir koleksiyon indexingPolicy üzerinde excludedPaths sırasıyla elde edebilirsiniz. Ayrıca, depolama ve performans dengelemeler belirli yolu desenler için aralığı ve karma sorgular için de yapılandırabilirsiniz. 
-* Zaman uyumlu arasında (tutarlı) seçin ve zaman uyumsuz (yavaş) dizin güncelleştirmeleri. Varsayılan olarak, dizin her ekleme, değiştirme veya koleksiyona bir belgeyi silme zaman uyumlu olarak güncelleştirilir. Bu belge okuma aynı tutarlılık düzeydeki vermenizin sorguları sağlar. Azure Cosmos DB yazma en iyi duruma getirilmiş ve zaman uyumlu dizin Bakım ve tutarlı sorguları hizmet veren birlikte belge yazma sürekli birimi destekleyen olsa da, belirli koleksiyonlar kendi dizini gevşek güncelleştirmek için yapılandırabilirsiniz. Yavaş dizin daha fazla yazma performansı artırır ve toplu alım senaryoları öncelikle okuma ağır koleksiyonları için idealdir.
+* Koleksiyon otomatik olarak tüm belgeler veya dizin oluşturulup oluşturulmadığını seçin. Varsayılan olarak, tüm belgelerin otomatik olarak dizine eklenir. Otomatik dizin oluşturmayı kapatmak ve seçmeli olarak yalnızca belirli belgeler dizine eklemek seçebilirsiniz. Buna karşılık, yalnızca belirli belgelere dışlanacak seçerek belirleyebilirsiniz. Otomatik özelliği true veya false indexingPolicy koleksiyonunun üzerinde olacak şekilde ayarlayarak ve ekleme, değiştirme veya bir belgeyi silme sırasında [x-ms-indexingdirective] istek üst bilgisini kullanarak bunu gerçekleştirebilirsiniz.  
+* Dahil etmek veya belirli yollar veya belgelerinizi desenleri dizinden hariç tutmak isteyip istemediğinizi seçin. Ayar includedPaths ve bir koleksiyonun indexingPolicy üzerinde excludedPaths sırasıyla bunu gerçekleştirebilirsiniz. Ayrıca, depolama ve performans stillerden aralığı ve karma sorgular için belirli bir yol desenleri için yapılandırabilirsiniz. 
+* Arasında zaman uyumlu (tutarlı) seçin ve zaman uyumsuz (lazy) dizin güncelleştirmeler. Varsayılan olarak, dizin üzerinde her ekleme, değiştirme veya silme koleksiyonuna bir belgenin zaman uyumlu olarak güncelleştirilir. Bu belge okuma işlemleri olarak aynı tutarlılık düzeyi tarafından gönderilen sorguları sağlar. Azure Cosmos DB yazma için iyileştirilmiş ve belge yazma zaman uyumlu dizin Bakımı ve tutarlı sorguları hizmet ile birlikte Sürdürülen birimleri destekler olsa da, belirli koleksiyonlar kendi dizini gevşek güncelleştirmek için yapılandırabilirsiniz. Yavaş dizin yazma performansı artırır ve öncelikli olarak okuma yoğun koleksiyonlar için toplu alımı senaryolar için idealdir.
 
-Dizin oluşturma ilkesini koleksiyonda PUT yürüterek değiştirilebilir. Bu, aracılığıyla elde [istemci SDK](sql-api-sdk-dotnet.md), [Azure portal](https://portal.azure.com), veya [REST API'leri](/rest/api/cosmos-db/).
+Dizin oluşturma ilkesini koleksiyonunda PUT yürüterek değiştirilebilir. Bu, aracılığıyla elde edilen [istemci SDK'sı](sql-api-sdk-dotnet.md), [Azure portalında](https://portal.azure.com), veya [REST API'leri](/rest/api/cosmos-db/).
 
 ### <a name="querying-a-collection"></a>Bir koleksiyonu sorgulama
-Bir koleksiyon içindeki belgelerde rasgele şemalar sahip olabilir ve herhangi bir şemayı ya da ikincil dizinlerin önceden sağlamadan bir koleksiyon içinde belgeleri sorgulayabilirsiniz. Koleksiyonu kullanarak sorgulama yapabilirsiniz [Azure Cosmos DB SQL söz dizimi başvurusu](https://msdn.microsoft.com/library/azure/dn782250.aspx), zengin hiyerarşik, ilişkisel ve uzamsal işleçler ve genişletilebilirlik UDF'ler JavaScript tabanlı aracılığıyla sağlar. JSON dil bilgisi ağaç düğümleri olarak etiketli ağaçlar JSON belgeleri modellenmesini sağlar. Bu hem SQL API'nin otomatik dizin oluşturma teknikleri ve bunun yanı sıra Azure Cosmos veritabanı SQL diyalekti tarafından yararlanan. SQL sorgu dili üç ana yönlerini oluşur:   
+Bir koleksiyonu içindeki belgeler rastgele şemalar sahip olabilir ve herhangi bir şemayı ya da ikincil dizinlerin önceden sağlamadan bir koleksiyonu içindeki belgeler sorgulayabilirsiniz. Koleksiyonunu kullanarak sorgulayabilirsiniz [Azure Cosmos DB SQL söz dizimi başvurusu](https://msdn.microsoft.com/library/azure/dn782250.aspx), zengin hiyerarşik, ilişkisel ve uzamsal işleçler ve UDF'ler JavaScript tabanlı aracılığıyla genişletilebilirlik sağlar. JSON dil bilgisi, ağaç olarak JSON belgelerinin ağaç düğümleri olarak etiketli modelleme sağlar. Bu hem SQL API'SİNİN otomatik dizin oluşturma teknikleri hem de Azure Cosmos DB SQL diyalekti tarafından kötüye. SQL sorgu dili, üç ana yönlerini oluşur:   
 
-1. Doğal olarak hiyerarşik sorgular ve tahminleri dahil olmak üzere ağaç yapısı eşleme sorgu işlemleri küçük bir dizi. 
-2. Bir alt kümesini oluşturma, filtre, projeksiyonları, toplamalar ve kendi kendine birleşim dahil olmak üzere ilişkisel işlemler. 
-3. Saf JavaScript çalışmak UDF'ler (1) ve (2) bağlı.  
+1. Doğal olarak hiyerarşik sorgular ve tahminleri dahil olmak üzere ağaç yapısına harita sorgu işlemleri küçük bir dizi. 
+2. Bir alt kümesini oluşturma, filtre, tahminler, toplamlar ve kendinden birleştirmeler dahil olmak üzere ilişkisel işlemleri. 
+3. Saf JavaScript tabanlı: çalışmak UDF'ler (1) ve (2).  
 
-Azure Cosmos DB sorgu modelini işlevselliği, verimliliği ve Basitlik arasında bir denge dener. Azure Cosmos DB veritabanı altyapısı yerel olarak derler ve SQL sorgu ifadeleri çalıştırır. Bir koleksiyonu kullanarak sorgulama yapabilirsiniz [REST API'leri](/rest/api/cosmos-db/) ya da herhangi bir [istemci SDK'ları](sql-api-sdk-dotnet.md). .NET SDK'sı LINQ sağlayıcı ile birlikte gelir.
+Azure Cosmos DB sorgu modelini işlevselliği, verimlilik ve Basitlik arasında bir denge dener. Azure Cosmos DB veritabanı altyapısı, yerel olarak derler ve SQL sorgu deyimleri yürütür. Bir koleksiyon kullanarak sorgulayabilirsiniz [REST API'leri](/rest/api/cosmos-db/) veya herhangi bir [istemci SDK'ları](sql-api-sdk-dotnet.md). .NET SDK'sı bir LINQ sağlayıcısı ile birlikte gelir.
 
 > [!TIP]
-> Out SQL API deneyin ve kümemize karşı SQL sorguları çalıştırma [Query Playground](https://www.documentdb.com/sql/demo).
+> SQL API'sini deneme ve bizim veri kümesinde SQL sorguları çalıştırmanızı [sorgu oyun alanı](https://www.documentdb.com/sql/demo).
 > 
 > 
 
-## <a name="multi-document-transactions"></a>Çoklu belge işlemler
-Veritabanı işlemleri veri eşzamanlı değişiklik yapılacağı için güvenli ve tahmin edilebilir bir programlama modeli sağlar. RDBMS içinde iş mantığı yazmak için geleneksel yolu yazmaktır **saklı yordamlar** ve/veya **Tetikleyicileri** ve işlem yürütme için veritabanı sunucusu için sevk. RDBMS iki farklı programlama dilleriyle dağıtılacak uygulama Programcı gereklidir: 
+## <a name="multi-document-transactions"></a>Çok Belgeli işlemler
+Veritabanı işlemleri verilerin eş zamanlı yapılan değişiklikler başa çıkmak için güvenli ve tahmin edilebilir bir programlama modeli sağlar. RDBMS iş mantığı yazmak için geleneksel yolu yazmaktır **saklı yordamlar** ve/veya **Tetikleyicileri** ve işlem tabanlı yürütmesi için veritabanı sunucusu için gönderin. RDBMS iki farklı programlama dilleriyle dağıtılacak uygulama programcısı gereklidir: 
 
-* (İşlemsel olmayan) uygulama programlama dili (örneğin, JavaScript, Python, C#, Java, vb.)
-* T-SQL, yerel veritabanı tarafından yürütülen işlem programlama dili
+* (İşlem olmayan) uygulama programlama dili (örneğin, JavaScript, Python, C#, Java, vb.)
+* T-SQL veritabanı tarafından yerel olarak yürütülen işlem programlama dili
 
-Yürütülen JavaScript uygulama mantığını doğrudan saklı yordamlar bakımından koleksiyonları dayanarak, derin taahhüt, JavaScript ve JSON için doğrudan veritabanı altyapısının içinde Azure Cosmos DB sezgisel bir programlama modeli sağlar ve tetikler. Bu hem birini verir:
+Yürütülen JavaScript uygulama mantığının doğrudan koleksiyonlar açısından saklı yordamları üzerinden derin taahhüdü sayesinde JavaScript ve JSON doğrudan veritabanı altyapısının içinde Azure Cosmos DB sezgisel programlama modeli sağlar ve tetiklenir. Bu hem aşağıdakileri sağlar:
 
-* Eşzamanlılık verimli uyarlamasını denetlemek, Kurtarma, doğrudan veritabanı altyapısının içinde JSON nesne grafiklerinin dizin otomatik
-* Denetim akışı doğal olarak ifade, değişken kapsamı, atama ve özel durum işleme temelleri veritabanı işlemleri doğrudan programlama dili JavaScript bakımından ile tümleştirme
+* Verimli uygulaması eşzamanlılık denetimi, JSON nesnesi grafiklerin doğrudan veritabanı altyapısının içinde dizin otomatik kurtarma
+* Denetim akışı doğal olarak ifade etmek, değişken kapsamı, atama ve özel durum işleme temelleri doğrudan programlama dilini JavaScript açısından veritabanı işlemleriyle tümleştirme
 
-Bir koleksiyon düzeyinde kayıtlı JavaScript mantığı, ardından belirli koleksiyon belgelerde veritabanı işlemlerini verebilir. Azure Cosmos DB örtük JavaScript tabanlı sarmalar saklı yordamları ve Tetikleyicileri anlık görüntü yalıtımıyla çevresel ACID işlemi içinde bir koleksiyon içindeki belgelerde arasında. Yürütme sürecinde JavaScript bir özel durum oluşturursa tüm işlem iptal edilir. Sonuçta elde edilen programlama modeli basittir henüz güçlü. JavaScript geliştiricilerin kendi tanıdık dil yapıları ve kitaplık temelleri kullanmaya devam ederken "dayanıklı" programlama modeli alın.   
+Koleksiyon düzeyinde kayıtlı JavaScript mantığının sonra verilen koleksiyon veritabanı işlemleri belgeler üzerinde verebilir. Azure Cosmos DB, JavaScript tabanlı örtük olarak sarmalar saklı yordamları ve Tetikleyicileri anlık görüntü yalıtımıyla çevresel ACID işlemi içinde bir koleksiyonu içindeki belgeler üzerinde. Yürütme sürecinde JavaScript bir özel durum oluşturursa tüm işlem iptal edilir. Sonuçta elde edilen programlama modeli basittir güçlü. JavaScript geliştiricileri yine de kendi tanıdık dil yapıları ve kitaplık temelleri kullanırken "kalıcı" bir programlama modeli alın.   
 
-Doğrudan arabellek havuzu ile aynı adres alanında veritabanı altyapısının içinde JavaScript yürütme yeteneğini kullanıcı ve bir koleksiyon belgeleri karşı veritabanı işlemleri işlem tabanlı olarak yürütülmesini sağlar. Ayrıca, JSON için derin taahhüdü Cosmos DB veritabanı altyapısı yapar ve JavaScript uygulama türü sistemleri ve veritabanı arasındaki tüm empedanslı uyumsuzluğu ortadan kaldırır.   
+Doğrudan arabellek havuzu ile aynı adres alanında veritabanı altyapısının içinde JavaScript yürütme yeteneği, iyi performanslı ve bir koleksiyonun belgelerde veritabanı işlemlerini işlem tabanlı olarak yürütülmesini sağlar. Ayrıca, JSON için derin bir taahhüt Cosmos DB'nin veritabanı altyapısı yapar ve JavaScript uygulama türü sistemleri ve veritabanı arasındaki tüm empedans uyuşmazlığı ortadan kaldırır.   
 
-Bir koleksiyonu oluşturduktan sonra saklı yordamlar, tetikleyiciler ve UDF'lerin koleksiyonunu kullanarak kaydedebilirsiniz [REST API'leri](/rest/api/cosmos-db/) ya da herhangi bir [istemci SDK'ları](sql-api-sdk-dotnet.md). Kayıttan sonra başvuru ve bunları yürütün. Tamamen JavaScript'te yazılmış aşağıdaki saklı yordamı düşünün, aşağıdaki kodu (rehberi adını ve yazar adı) iki bağımsız değişkeni alır ve yeni bir belge oluşturur, bir belge için sorgular ve tüm örtük ACID işlemi içinde onu – güncelleştirir. JavaScript özel durum, yürütme sırasında herhangi bir noktada, tüm işlem durdurur.
+Bir koleksiyonu oluşturduktan sonra saklı yordamlar, tetikleyiciler ve UDF'ler koleksiyonunu kullanarak kaydedebilirsiniz [REST API'leri](/rest/api/cosmos-db/) veya herhangi bir [istemci SDK'ları](sql-api-sdk-dotnet.md). Kayıt sonrasında başvurabilir ve bunları yürütün. Aşağıdaki saklı yordamı tamamen JavaScript'te yazılmış göz önünde bulundurun, aşağıdaki kod (kitap adı ve yazarın adı) iki bağımsız değişkeni alır ve yeni bir belge oluşturur, bir belge için sorgular ve ardından içerdiği tüm örtük bir ACID işlemi içinde güncelleştirir. Bir JavaScript özel durum oluşturulursa, yürütme sırasında herhangi bir noktada, tüm işlemi durdurur.
 
     function businessLogic(name, author) {
         var context = getContext();
@@ -257,7 +251,7 @@ Bir koleksiyonu oluşturduktan sonra saklı yordamlar, tetikleyiciler ve UDF'ler
             })
     };
 
-İstemci "HTTP POST ile işlem yürütme için veritabanı yukarıdaki JavaScript mantığı sevk edebilir". HTTP yöntemleri kullanma hakkında daha fazla bilgi için bkz: [Azure Cosmos DB kaynakları ile RESTful etkileşimleri](https://msdn.microsoft.com/library/azure/mt622086.aspx). 
+İstemci "Yukarıdaki JavaScript mantığının işlem tabanlı yürütmesi HTTP POST aracılığıyla veritabanına sevk edebilir". HTTP yöntemleri kullanma hakkında daha fazla bilgi için bkz. [Azure Cosmos DB kaynaklarını RESTful etkileşim](https://msdn.microsoft.com/library/azure/mt622086.aspx). 
 
     client.createStoredProcedureAsync(collection._self, {id: "CRUDProc", body: businessLogic})
        .then(function(createdStoredProcedure) {
@@ -273,17 +267,17 @@ Bir koleksiyonu oluşturduktan sonra saklı yordamlar, tetikleyiciler ve UDF'ler
         });
 
 
-Veritabanı JSON ve JavaScript'i yerel olarak anlar olduğundan, hiçbir tür sistemi uyuşmazlığı, yok "Veya eşleme" ya da gerekli kod oluşturma Sihirli fark.   
+Veritabanı yerel olarak JSON ve JavaScript anlıyor olduğundan, hiçbir tür sistemi uyuşmazlığı, yok "Veya eşleme" veya gerekli kod oluşturma Sihirli dikkat edin.   
 
-Saklı yordamları ve Tetikleyicileri bir koleksiyon ve belgeler bir koleksiyonda geçerli koleksiyon içeriği sunan bir iyi tanımlanmış nesne modeli aracılığıyla etkileşim.  
+Bir koleksiyon ve belgelerin geçerli koleksiyon içeriği sunan bir iyi tanımlanmış bir nesne modeli üzerinden bir koleksiyondaki saklı yordamları ve Tetikleyicileri etkileşim.  
 
-SQL API koleksiyonlarda oluşturulabilir, silinen, okuma veya numaralandırılmış kolayca kullanarak [REST API'leri](/rest/api/cosmos-db/) ya da herhangi bir [istemci SDK'ları](sql-api-sdk-dotnet.md). SQL API her zaman okuma veya bir koleksiyon meta verileri sorgulamak için güçlü tutarlılık sağlar. Bir koleksiyonun otomatik olarak silineceği belgeleri, ekleri, saklı yordamlar, Tetikleyiciler hiçbirine erişemiyor ve UDF'ler içerdiği sağlar.   
+SQL API'si koleksiyonlarında oluşturulabilir, silinen, okuma veya numaralandırılmış kolayca kullanarak [REST API'leri](/rest/api/cosmos-db/) veya herhangi bir [istemci SDK'ları](sql-api-sdk-dotnet.md). SQL API'si, her zaman okuma veya bir koleksiyonun meta verileri sorgulamak için güçlü tutarlılık sağlar. Otomatik olarak bir koleksiyon silme, belgeler, ekleri, saklı yordamlar, Tetikleyiciler erişemez ve UDF'ler içerdiği sağlar.   
 
 ## <a name="stored-procedures-triggers-and-user-defined-functions-udf"></a>Saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler (UDF)
-Önceki bölümde açıklandığı gibi doğrudan veritabanı altyapısının içinde bir işlem içinde çalıştırmak için uygulama mantığını yazabilirsiniz. Uygulama mantığını tamamen JavaScript'te yazılmış ve bir saklı yordam, tetikleyici veya bir UDF modellenir. JavaScript kodu saklı yordam veya bir tetikleyici içinde ekleyebilirsiniz, değiştirme, silme, okuma veya sorgu belgeleri bir koleksiyon içinde. Öte yandan, bir UDF içinden JavaScript olamaz eklemek, değiştirmek veya belgeleri silin. UDF'ler, belgeler bir sorgunun sonuç kümesinin listeleme ve başka bir sonuç kümesi üretir. Çoklu kiracı için bir katı ayırma tabanlı kaynak İdaresi Azure Cosmos DB zorlar. Her saklı yordam, tetikleyici veya bir UDF işini yapmak için işletim sistemi kaynaklarının sabit Zamanlayıcının alır. Ayrıca, saklı yordamlar, tetikleyiciler ve UDF'ler karşı dış JavaScript kitaplıklarını bağlayamazsınız ve kendisine ayrılan kaynak bütçe aşarsanız kara listede. Kayıt, saklı yordamlar, tetikleyiciler ve UDF'ler REST API'lerini kullanarak bir koleksiyonla kaydını silin.  Kayıt sırasında bir saklı yordam, tetikleyici veya bir UDF önceden derlenmiş ve daha sonra yürütülen bayt kodu olarak depolanır. Aşağıdaki bölümde, kaydetme, yürütme ve saklı yordam, tetikleyici ve bir UDF kaydı için Azure Cosmos DB JavaScript SDK'sı nasıl kullanabileceğiniz gösterilmektedir. Basit bir sarmalayıcı biter JavaScript SDK'sı [REST API'leri](/rest/api/cosmos-db/). 
+Önceki bölümde açıklandığı gibi doğrudan veritabanı altyapısının içinde bir işlem içinde çalıştırmak için uygulama mantığı yazabilirsiniz. Uygulama mantığını tamamen JavaScript'te yazılmış ve bir saklı yordam, tetikleyici veya bir UDF modellenir. JavaScript kodunu bir saklı yordam ya da bir tetikleyici içinde ekleyebilirsiniz, değiştirme, silme, okuma veya sorgu bir koleksiyonu içindeki belgeler. Öte yandan, bir UDF içinden JavaScript olamaz ekleyin, değiştirin veya belgeler silme. UDF'ler, sorgunun sonuç kümesinde belgelerinin numaralandırır ve başka bir sonuç kümesi üretir. Çoklu kiracı için Azure Cosmos DB, katı ayırma tabanlı kaynak İdaresi zorlar. Her bir saklı yordam, tetikleyici veya bir UDF, işlemini gerçekleştirmek için işletim sistemi kaynaklarının sabit bir kuantum alır. Ayrıca, saklı yordamlar, tetikleyiciler ve UDF'ler karşı dış JavaScript kitaplıklarını bağlanamıyor ve bunlar için ayrılmış kaynak bütçeleri aşarsanız kara listede. Kaydetme, saklı yordamlar, tetikleyiciler ve UDF'ler REST API'lerini kullanarak bir koleksiyon ile kaydı kaldırma.  Kayıt sırasında bir saklı yordam, tetikleyici veya bir UDF önceden derlenmiş ve daha sonra yürütülen bayt kodu depolanır. Aşağıdaki bölümde, kaydetme, yürütün ve bir saklı yordam, tetikleyici ve bir UDF kaydını silmek için Azure Cosmos DB JavaScript SDK'sını nasıl kullanabileceğinizi gösterir. JavaScript SDK'sı basit üzerindeki bir sarmalayıcıdır [REST API'leri](/rest/api/cosmos-db/). 
 
-### <a name="registering-a-stored-procedure"></a>Saklı yordam kaydetme
-Kayıt bir saklı yordam yeni bir saklı yordam kaynak HTTP POST ile bir koleksiyon oluşturur.  
+### <a name="registering-a-stored-procedure"></a>Bir saklı yordam kaydedilemedi
+Bir saklı yordam kayıt yeni bir saklı yordam kaynak HTTP POST aracılığıyla bir koleksiyon oluşturur.  
 
     var storedProc = {
         id: "validateAndCreate",
@@ -308,8 +302,8 @@ Kayıt bir saklı yordam yeni bir saklı yordam kaynak HTTP POST ile bir koleksi
             console.log("Error");
         });
 
-### <a name="executing-a-stored-procedure"></a>Saklı yordam yürütme
-Bir saklı yordam yürütme istek gövdesindeki yordam parametreleri geçirerek bir HTTP POST varolan bir saklı yordam kaynağı karşı vererek yapılır.
+### <a name="executing-a-stored-procedure"></a>Bir saklı yordam yürütme
+İstek gövdesindeki yordam parametreleri geçirerek varolan bir saklı yordam kaynağa karşı bir HTTP POST göndererek depolanan yordamının yürütülmesi gerçekleştirilir.
 
     var inputDocument = {id : "document1", author: "G. G. Marquez"};
     client.executeStoredProcedureAsync(createdStoredProcedure.resource._self, inputDocument)
@@ -319,8 +313,8 @@ Bir saklı yordam yürütme istek gövdesindeki yordam parametreleri geçirerek 
             console.log("Error");
         });
 
-### <a name="unregistering-a-stored-procedure"></a>Saklı yordam kaydı siliniyor
-Saklı yordam kaydı silinirken bir HTTP DELETE varolan bir saklı yordam kaynağı karşı vererek yapılır.   
+### <a name="unregistering-a-stored-procedure"></a>Bir saklı yordam kaydı siliniyor
+Bir saklı yordam kaydını varolan bir saklı yordam kaynağa karşı bir HTTP DELETE veren tarafından gerçekleştirilir.   
 
     client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
         .then(function (response) {
@@ -330,8 +324,8 @@ Saklı yordam kaydı silinirken bir HTTP DELETE varolan bir saklı yordam kayna�
         });
 
 
-### <a name="registering-a-pre-trigger"></a>Ön tetikleyici kaydetme
-Bir tetikleyici kaydını HTTP POST ile bir koleksiyon üzerinde yeni bir tetikleyici kaynak oluşturarak yapılır. Tetikleyici bir öncesi veya sonrası tetikleyici ve işlem türü (örneğin, oluşturma, değiştirme, silme veya tüm) ilişkilendirilmiş olabilir, belirtebilirsiniz.   
+### <a name="registering-a-pre-trigger"></a>Öncesi tetiği kaydetme
+Bir tetikleyici kaydını HTTP POST aracılığıyla bir koleksiyon üzerinde yeni bir tetikleyici kaynak oluşturarak yapılır. Tetikleyici bir öncesi veya sonrası tetikleyici ve işlem türü (örneğin, oluşturma, değiştirme, silme veya tüm) ilişkilendirilmiş olabilir, belirtebilirsiniz.   
 
     var preTrigger = {
         id: "upperCaseId",
@@ -351,8 +345,8 @@ Bir tetikleyici kaydını HTTP POST ile bir koleksiyon üzerinde yeni bir tetikl
             console.log("Error");
         });
 
-### <a name="executing-a-pre-trigger"></a>Ön tetikleyici yürütme
-Tetikleyici yürütmesi, istek üstbilgisi aracılığıyla belge kaynağının PUT/POST/DELETE isteği vermeden sırasındaki varolan bir tetikleyicinin adını belirterek yapılır.  
+### <a name="executing-a-pre-trigger"></a>Öncesi bir tetikleyici yürütme
+Bir belge kaynak isteği üstbilgisi aracılığıyla PUT/POST/DELETE isteği veren zaman varolan bir tetikleyiciyi adını belirterek bir tetikleyici yürütmesi gerçekleştirilir.  
 
     client.createDocumentAsync(collection._self, { id: "doc1", key: "Love in the Time of Cholera" }, { preTriggerInclude: "upperCaseId" })
         .then(function(createdDocument) {
@@ -361,8 +355,8 @@ Tetikleyici yürütmesi, istek üstbilgisi aracılığıyla belge kaynağının 
             console.log("Error");
         });
 
-### <a name="unregistering-a-pre-trigger"></a>Ön tetikleyici kaydını silme
-Bir tetikleyici kaydını bir HTTP DELETE varolan bir tetikleyici kaynağı karşı veren aracılığıyla gerçekleştirilir.  
+### <a name="unregistering-a-pre-trigger"></a>Öncesi bir tetikleyici kaydı siliniyor
+Bir tetikleyici kaydını var olan bir tetikleyici kaynağa karşı bir HTTP DELETE veren aracılığıyla gerçekleştirilir.  
 
     client.deleteTriggerAsync(createdPreTrigger._self);
         .then(function(response) {
@@ -371,8 +365,8 @@ Bir tetikleyici kaydını bir HTTP DELETE varolan bir tetikleyici kaynağı kar�
             console.log("Error");
         });
 
-### <a name="registering-a-udf"></a>Bir UDF kaydetme
-Bir UDF kaydını HTTP POST ile bir koleksiyon üzerinde yeni bir UDF kaynak oluşturarak yapılır.  
+### <a name="registering-a-udf"></a>Bir UDF kaydediliyor
+Bir UDF kaydı HTTP POST aracılığıyla bir koleksiyon üzerinde yeni bir UDF kaynak oluşturarak yapılır.  
 
     var udf = { 
         id: "mathSqrt",
@@ -387,8 +381,8 @@ Bir UDF kaydını HTTP POST ile bir koleksiyon üzerinde yeni bir UDF kaynak olu
             console.log("Error");
         });
 
-### <a name="executing-a-udf-as-part-of-the-query"></a>Sorgu parçası olarak bir UDF yürütme
-Bir UDF SQL sorgusunun bir parçası olarak belirtilen ve çekirdek genişletmek için bir yol kullanılan [SQL sorgu dili](sql-api-sql-query-reference.md).
+### <a name="executing-a-udf-as-part-of-the-query"></a>Sorgunun bir parçası olarak bir UDF çalıştırma
+Bir UDF SQL sorgusunun bir parçası belirtilebilir ve çekirdek genişletmek için bir yol kullanılan [SQL sorgu dili](sql-api-sql-query-reference.md).
 
     var filterQuery = "SELECT udf.mathSqrt(r.Age) AS sqrtAge FROM root r WHERE r.FirstName='John'";
     client.queryDocuments(collection._self, filterQuery).toArrayAsync();
@@ -399,7 +393,7 @@ Bir UDF SQL sorgusunun bir parçası olarak belirtilen ve çekirdek genişletmek
         });
 
 ### <a name="unregistering-a-udf"></a>Bir UDF kaydı siliniyor
-Bir UDF kaydını yalnızca bir HTTP DELETE varolan bir UDF kaynağı karşı vererek yapılır.  
+Bir UDF kaydı var olan bir UDF kaynağa karşı bir HTTP DELETE vererek yalnızca gerçekleştirilir.  
 
     client.deleteUserDefinedFunctionAsync(createdUdf._self)
         .then(function(response) {
@@ -408,59 +402,59 @@ Bir UDF kaydını yalnızca bir HTTP DELETE varolan bir UDF kaynağı karşı ve
             console.log("Error");
         });
 
-Yukarıdaki kod parçacıkları aracılığıyla kaydı (POST), kayıt silme (PUT), okuma/listesi (GET) ve yürütme (POST) gösterdi rağmen [JavaScript SDK'sı](https://github.com/Azure/azure-documentdb-js), de kullanabilirsiniz [REST API'leri](/rest/api/cosmos-db/) veya diğer [istemci SDK'ları](sql-api-sdk-dotnet.md). 
+Yukarıdaki kod aracılığıyla kayıt (POST), silme (PUT), / liste okuma (GET) ve yürütme (POST) gösteriyordu ancak [JavaScript SDK'sı](https://github.com/Azure/azure-documentdb-js), ayrıca [REST API'leri](/rest/api/cosmos-db/) veya diğer [istemci SDK'ları](sql-api-sdk-dotnet.md). 
 
 ## <a name="documents"></a>Belgeler
-Eklemek, değiştirmek, silmek, okuyabilir, listeleme ve bir koleksiyondaki rastgele JSON belgelerinin sorgu. Azure Cosmos DB herhangi bir şema zorunlu kılabilir değil ve ikincil dizinler koleksiyonu belgelerde üzerinden sorgulama desteklemek için gerekli değildir. Bir belgenin boyutu üst sınırı 2 MB'tır.   
+Ekleyin, değiştirin, silebilir, okuma, listeleme ve rastgele JSON belgelerinin bir koleksiyondaki sorgu. Azure Cosmos DB, herhangi bir şema kılmaz ve ikincil dizinler koleksiyonu içindeki belgeler üzerinde sorgulama desteklemek için gerekli değildir. Bir belge için boyut üst sınırı 2 MB'dir.   
 
-Gerçekten açık veritabanı hizmeti olan, Azure Cosmos DB herhangi bir özel veri türleri (örneğin, tarih saat) veya belirli kodlamaları JSON belgeleri için stok değil. Azure Cosmos DB çeşitli belgeler arasındaki ilişkileri kod oluşturma için özel JSON kurallarını gerektirmez; Azure Cosmos DB SQL söz dizimi güçlü hiyerarşik ve ilişkisel sorgu işleçleri için sorgu ve proje belgeler herhangi bir özel ek açıklama veya kullanarak belgeler arasında ilişkiler kod oluşturma gerek olmadan özellikleri ayırt sağlar.  
+Gerçek anlamda açık bir veritabanı hizmeti olan, Azure Cosmos DB herhangi bir özel veri türleri (örneğin, tarih saat) veya belirli kodlamaları JSON belgeleri için stok değil. Azure Cosmos DB, çeşitli belgeler arasındaki ilişkileri kod oluşturma için hiçbir özel JSON kurallarını gerektirmez; Azure Cosmos DB SQL söz dizimini güçlü hiyerarşik ve ilişkisel sorgu işleçleri için sorgu ve proje belgelerini herhangi bir özel ek açıklamaları veya ilişkileri belgeleri kullanarak kod oluşturma gerek olmadan ayırt edici özellikleri sağlar.  
 
-Tüm diğer kaynaklarla belgeleri, değiştirilmesi silinmiş, okuma, oluşturulabilir olarak numaralandırılmış ve kolayca REST API'leri veya herhangi birini kullanarak sorgulanan [istemci SDK'ları](sql-api-sdk-dotnet.md). Bir belgenin anında silinmesi tüm iç içe ek karşılık gelen kota boşaltır. Belgeleri okuma tutarlılığı düzeyini tutarlılık ilkesi veritabanı hesabındaki izler. Bu ilke, uygulamanızın veri tutarlılığı gereksinimlerine bağlı olarak istek başına temelinde geçersiz kılınabilir. Belgeleri sorgulanırken okuma tutarlılığı koleksiyonda dizin oluşturma modu izler. "İçin tutarlı", bu hesabın tutarlılık ilke aşağıdaki gibidir. 
+Diğer tüm kaynaklar ile belgeleri, değiştirilmesi silindi, okuma, oluşturulabilir gibi listelenmiş ve REST API'leri veya herhangi bir kolayca kullanarak sorgulanan [istemci SDK'ları](sql-api-sdk-dotnet.md). Tüm iç içe geçmiş ekleri için karşılık gelen kota ayarlama, anında bir belgeyi silme serbest bırakır. Belge okuma tutarlılık düzeyi veritabanı hesabındaki tutarlılık İlkesi izler. Bu ilke, uygulamanızın veri tutarlılığı gereksinimlerine bağlı olarak istek başına temelinde geçersiz kılınabilir. Belgeleri sorgulama sırasında okuma tutarlılığı koleksiyonunda belirlenen dizin oluşturma modu izler. "Tutarlı olmasını sağlamak için", bu hesabın tutarlılık İlkesi izler. 
 
-## <a name="attachments-and-media"></a>Ekleri ve ortam
-Azure Cosmos DB verir ikili BLOB'lar/medyası depolama için Azure Cosmos DB (hesap başına en fazla 2 GB) ile ya da ya da kendi uzaktan medya deposunda. Ayrıca, bir ortam eki adlı özel bir belge bakımından meta verileri temsil etmek sağlar. Ek Azure Cosmos veritabanı başka bir yerde depolanan medya/blob başvuruda bulunan özel bir (JSON) belgedir. Yalnızca Uzak medya depolamada depolanan bir medya meta veriler (örneğin, konum, yazar vb.) yakalayan özel belge ektir. 
+## <a name="attachments-and-media"></a>Ekleri ve medya
+Azure Cosmos DB sayesinde ikili blobları/medya depolamak için Azure Cosmos DB (hesap başına en fazla 2 GB) ile veya kendi Uzak medya mağazasında. Ayrıca, bir ortam eki adlı özel bir belgede açısından meta verileri temsil etmek sağlar. Ek Azure Cosmos DB'de depolanan başka bir yerde medya/blob başvuran bir özel (JSON) belgedir. Bir uzak medya depolanan bir ortam meta veriler (örneğin, konum, yazar vb.) yakalayan yalnızca özel bir belgede ektir. 
 
-Yer işaretleri, derecelendirme, yöntemlerine/Beğenmediklerinizi vb. bir e-kitap için belirli bir kullanıcının ilişkili meta verileri, Yorumlar dahil olmak üzere vurgular ve Azure Cosmos DB ek açıklamaların depolamak için kullandığı bir sosyal okuma uygulaması düşünün.   
+Yer işaretleri, Derecelendirmeler, beğenilerin/Beğenmediklerinizi vb. bir e-kitap için belirli bir kullanıcı, ilişkili meta verileri, Yorumlar dahil olmak üzere vurgular ve açıklamaların depolamak için Azure Cosmos DB kullanan bir sosyal okuma uygulamayı düşünün.   
 
-* Kitap içeriğini ya da ortam depolamada depolanan Azure Cosmos DB veritabanı hesabı parçası veya bir uzak medya deposu olarak kullanılabilir. 
-* Bir uygulamayı ayrı bir belge olarak her kullanıcının meta verileri depolayabilir--Örneğin, Can'ın meta verilerini Kitap1 /colls/joe/docs/book1 tarafından başvurulan bir belge depolanır. 
+* Kitap içeriğini ya da medya depolama alanında depolanan Azure Cosmos DB veritabanı hesabını parçası veya bir uzak medya deposu olarak kullanılabilir. 
+* Bir uygulama her kullanıcının meta verileri ayrı bir belge olarak depolayabilir--Kitap1 Can'ın meta verilerini /colls/joe/docs/book1 tarafından başvurulan bir belge gibi depolanır. 
 * Bir kullanıcının belirli bir kitap içerik sayfalarına işaret eden ekler, ilgili belge altında Örneğin, /colls/joe/docs/book1/chapter1, /colls/joe/docs/book1/chapter2 vb. depolanır. 
 
-Yukarıda listelenen örnekler kolay kimlikleri kaynak hiyerarşisi iletmek için kullanın. Kaynaklar, REST API'leri aracılığıyla benzersiz kaynak kimlikleri aracılığıyla erişilir. 
+Yukarıda listelenen örnekler, kaynak hiyerarşisi iletmek için kolay bir kimlik kullanın. Benzersiz kaynak kimlikleri üzerinden REST API'leri aracılığıyla erişilen kaynaklar. 
 
-Azure Cosmos DB tarafından yönetilen ortam için ekin _media özelliği medya tarafından URI'sini başvurur. Azure Cosmos DB uyduğundan emin olabilirsiniz tüm bekleyen başvurularını bırakılan medya için atık toplama. Azure Cosmos DB otomatik olarak yeni bir ortam yüklediğinizde eki oluşturur ve yeni eklenen medyaya işaret edecek şekilde _media doldurur. Sizin tarafınızdan (örneğin, OneDrive, Azure Storage, DropBox, vb.) yönetilen bir uzak blob Mağazası'nda media depolamayı seçerseniz, ekleri medya başvurmak için kullanmaya devam edebilirsiniz. Bu durumda, ek kendiniz oluşturmanız ve onun _media özelliğini doldurmak.   
+Azure Cosmos DB tarafından yönetilen ortam için ortam URI'sini tarafından ekin _ortam özelliği başvuruyor. Azure Cosmos DB emin olmanızı tüm bekleyen başvuruları bırakıldığında ortam için çöp toplama. Azure Cosmos DB, otomatik olarak yeni bir medyayı karşıya yükleme eki oluşturur ve yeni eklenen medyaya işaret edecek şekilde _ortam doldurur. Sizin tarafınızdan (örneğin, OneDrive, Azure depolama, DropBox, vb.) yönetilen bir uzak blob deposuna medya depolamayı seçerseniz, medyanın başvurmak için ekleri yine de kullanabilirsiniz. Bu durumda, ek kendiniz oluşturmanız ve kendi _ortam özelliğini doldurmak.   
 
-Tüm diğer kaynaklarla ekleri oluşturulabilir gibi yerini silinmiş, okuma veya REST API'leri veya herhangi bir istemci SDK'ları kolayca kullanarak numaralandırılır. Belgelerle olduğu gibi veritabanı hesabındaki tutarlılık İlkesi ekleri okuma tutarlılığı düzeyini izler. Bu ilke, uygulamanızın veri tutarlılığı gereksinimlerine bağlı olarak istek başına temelinde geçersiz kılınabilir. Ekler için sorgulanırken okuma tutarlılığı koleksiyonda dizin oluşturma modu izler. "İçin tutarlı", bu hesabın tutarlılık ilke aşağıdaki gibidir. 
+Diğer tüm kaynaklar ile ekleri oluşturulabilir, yerini, silindi, okuma veya REST API veya istemci SDK'larından birini kullanarak kolayca numaralandırılır. Belgelerle yönteminde olduğu gibi veritabanı hesabındaki tutarlılık İlkesi ekleri okuma tutarlılık düzeyini izler. Bu ilke, uygulamanızın veri tutarlılığı gereksinimlerine bağlı olarak istek başına temelinde geçersiz kılınabilir. Ekler için sorgulanırken okuma tutarlılığı koleksiyonunda belirlenen dizin oluşturma modu izler. "Tutarlı olmasını sağlamak için", bu hesabın tutarlılık İlkesi izler. 
  
 
 ## <a name="users"></a>Kullanıcılar
-Bir Azure Cosmos DB kullanıcı izinleri gruplandırması için mantıksal bir ad alanı temsil eder. Bir Azure Cosmos DB kullanıcı bir kullanıcı için bir kimlik yönetimi sistemi veya önceden tanımlanmış uygulama rolü karşılık gelebilir. Azure Cosmos DB için bir kullanıcı yalnızca bir veritabanı altında izinleri gruplandırmak için bir Özet temsil eder.   
+Bir Azure Cosmos DB kullanıcısının izinleri gruplandırması için mantıksal bir ad alanı temsil eder. Bir Azure Cosmos DB kullanıcısının, bir kimlik yönetimi sistemi veya önceden tanımlanmış uygulama rolü bir kullanıcıya karşılık gelebilir. Azure Cosmos DB için bir kullanıcı yalnızca bir veritabanı altında izin kümesini gruplamak için bir soyutlamayı temsil eder.   
 
-Çoklu kiracı uygulamanızda uygulamak için gerçek kullanıcılarınız veya uygulamanızın kiracılar için karşılık gelen Azure Cosmos veritabanı kullanıcıları oluşturabilirsiniz. Ardından, çeşitli koleksiyonlar, belgeler, ekleri, vb. bir erişim denetimi için karşılık gelen belirli bir kullanıcının izinlerini de oluşturabilirsiniz.   
+Uygulamanızda çok kiracılı uygulama için kullanıcıların gerçek kullanıcılarınıza veya uygulamanızın kiracılar için karşılık gelen Azure Cosmos DB içinde oluşturabilirsiniz. Ardından, çeşitli koleksiyonlar, belgeler, ekleri, vb. bir erişim denetimi karşılık gelen belirli bir kullanıcının izinlerini oluşturabilirsiniz.   
 
-Uygulamalarınızı, kullanıcı büyümesiyle ölçeklendirmek gereksinim duyduğunuz kadar parça için çeşitli şekillerde verilerinizi benimseyebilirsiniz. Her kullanıcılarınızın gibi model oluşturabilirsiniz:   
+Uygulamalarınızı, kullanıcı büyümesi ile ölçeklendirmek gereksinim duyduğunuz kadar parça için çeşitli yollar verilerinizi benimseyebilirsiniz. Tüm kullanıcılarınıza gibi model oluşturabilirsiniz:   
 
 * Her kullanıcı için bir veritabanı eşler.
 * Her kullanıcı bir koleksiyona eşler. 
-* Birden fazla kullanıcıya karşılık gelen belgeleri adanmış bir koleksiyona gidin. 
-* Birden fazla kullanıcıya karşılık gelen belgeleri koleksiyonları kümesine gidin.   
+* Birden fazla kullanıcıya karşılık gelen belgeleri adanmış bir koleksiyonuna gidin. 
+* Birden fazla kullanıcıya karşılık gelen belge koleksiyonları kümesine gidin.   
 
-Belirli parçalama stratejisi bağımsız olarak seçtiğiniz Azure Cosmos DB veritabanındaki kullanıcı olarak gerçek kullanıcılarınızın model ve her kullanıcının hassas izinleri ilişkilendirebilirsiniz.  
+Belirli bir parçalama stratejisi ne olursa olsun seçtiğiniz Azure Cosmos DB veritabanındaki kullanıcılar olarak gerçek kullanıcıların model ve her kullanıcı için ayrıntılı izinler ilişkilendirin.  
 
 ![Kullanıcı koleksiyonları][3]  
-**Parçalama stratejilerini ve modelleme kullanıcılar**
+**Parçalama stratejileri ve modelleme kullanıcılar**
 
-Diğer tüm kaynaklar gibi kullanıcılar Azure Cosmos veritabanı oluşturulabilir, değiştirilen, silinen, okuma veya REST API'leri veya herhangi bir istemci SDK'ları kolayca kullanarak numaralandırılan. Azure Cosmos DB her zaman okuma veya kullanıcı kaynağı meta verileri sorgulamak için güçlü tutarlılık sağlar. Kullanıcı otomatik olarak silme içerdiği izinleri hiçbirine erişemiyor sağlar işaret eden değer olur. Silinen kullanıcı arka planda bir parçası olarak izinleri kota Azure Cosmos DB kaldırsa olsa bile, silinen izinleri kullanılabilir hemen yeniden kullanabilmeniz için.  
+Diğer kaynaklar gibi kullanıcıların Azure Cosmos DB'de oluşturulabilir, değiştirilen, silindi, okuma veya REST API veya istemci SDK'ları birini kullanarak kolayca numaralandırılır. Azure Cosmos DB, her zaman okuma veya bir kullanıcı kaynak meta verileri sorgulamak için güçlü tutarlılık sağlar. Bu, belirtmemiz otomatik olarak bir kullanıcının silinmesi içerdiği izinleri erişemediğini sağlar olur. Silinen kullanıcı arka planda bir parçası olarak Azure Cosmos DB kota izinleri geri kazanır olsa da, silinen izinleri anında yeniden kullanılabilir kullanabilmeniz için.  
 
 ## <a name="permissions"></a>İzinler
-Bir erişim denetimi açısından bakıldığında, veritabanı hesaplarını, veritabanları, kullanıcılar ve izni gibi kaynakları kabul edilen *Yönetim* bunlar yönetim izinleri gerektirir olduğundan kaynaklar. Diğer taraftan, koleksiyonları dahil kaynakların belgeleri, ekleri, saklı yordamlar, Tetikleyiciler, ve UDF'ler altında verilen bir veritabanı kapsamlı ve kabul *uygulama kaynakları*. İki tür kaynakları ve bunlara (yani yönetici ve kullanıcı) erişim rolleri için karşılık gelen, iki tür yetkilendirme modelini tanımlar *erişim anahtarları*: *ana anahtar* ve  *Kaynak anahtarı*. Ana anahtar veritabanı hesabı, bir parçasıdır ve geliştirici (veya yönetici) için sağlanan kimin veritabanı hesabı sağlama. Yönetim ve uygulama kaynaklara erişim yetkisi vermek için kullanılabilir, bu ana anahtar Yöneticisi semantiği sahiptir. Buna karşılık, kaynak anahtarı erişimine izin veren bir ayrıntılı erişim anahtarıdır bir *belirli* Uygulama kaynağı. Bu nedenle, bir veritabanı kullanıcısı ve belirli bir kaynak için (örneğin, koleksiyon, belge, ek, saklı yordam, tetikleyici veya UDF) kullanıcının sahip olduğu izinleri arasındaki ilişkiyi yakalar.   
+Erişim denetimi açısından, veritabanı hesapları, veritabanları, kullanıcılar ve izin gibi kaynakları olarak kabul edilir *Yönetim* kaynaklar olduğundan, bu yönetim izinleri gerektirir. Öte yandan, koleksiyonlar gibi kaynakları belgeler, ek saklı yordamlar, Tetikleyiciler, ve UDF'ler altında belirli bir veritabanı kapsamlı ve kabul *uygulama kaynaklarını*. Kaynaklar ve onlara (yani yönetici ve kullanıcı) erişim rolleri iki türü için karşılık gelen, yetkilendirme modelini iki tür tanımlar *erişim anahtarları*: *ana anahtarı* ve  *Kaynak anahtarı*. Ana anahtarı veritabanı hesabı, bir parçasıdır ve geliştirici (veya yönetici) için sağlanan kimin veritabanı hesabı sağlama. Hem yönetim hem de uygulama kaynaklara erişim yetkisi vermek için kullanılabilir, bu ana anahtarı yönetici semantiği vardır. Buna karşılık, bir kaynak anahtarı erişimine izin veren bir ayrıntılı erişim anahtarı olan bir *belirli* Uygulama kaynağı. Bu nedenle, bir veritabanı kullanıcısı ve kullanıcı izinlerini belirli bir kaynak için (örneğin, toplama, belge, ek, saklı yordam, tetikleyici veya UDF) arasındaki ilişkiyi yakalar.   
 
-Kaynak anahtarı edinmek için yalnızca belirli bir kullanıcının altında izni kaynak oluşturarak yoludur. Oluşturma veya izni almak için bir ana anahtar yetkilendirme üstbilgisinde sunulmalıdır. Kaynak, uygulamaya erişim ve kullanıcı izni kaynak bağlar. Bir izin kaynak oluşturduktan sonra kullanıcı ilgili kaynak erişim sağlamak için ilişkili kaynak anahtarı sunmak yeterlidir. Bu nedenle, bir kaynak anahtarı izni kaynak mantıksal ve compact gösterimi görüntülenebilir.  
+Bir kaynak anahtarı almak için tek yolu, belirli bir kullanıcı altında bir izni kaynak oluşturmaktır. Oluşturma veya izni almak için bir ana anahtar yetkilendirme üst bilgisinde sunulmalıdır. Kaynak erişimini ve kullanıcı izni kaynak bağlar. Bir izni kaynak oluşturduktan sonra kullanıcının yalnızca ilgili kaynak erişim kazanmak için ilişkili kaynak anahtarı sunmak olmalıdır. Bu nedenle, bir kaynak anahtarı mantıksal ve compact kaynağının bir temsili izni görüntülenebilir.  
 
-Tüm diğer kaynaklarla Azure Cosmos veritabanı izinleri oluşturulabileceği gibi değiştirilen silinmiş, okuma veya REST API'leri veya herhangi bir istemci SDK'ları kolayca kullanarak numaralandırılır. Azure Cosmos DB her zaman okuma veya izin meta verileri sorgulamak için güçlü tutarlılık sağlar. 
+Diğer tüm kaynaklar ile Azure Cosmos DB'de izinleri oluşturulabilir, yerini, silindi, okuma veya REST API veya istemci SDK'larından birini kullanarak kolayca numaralandırılır. Azure Cosmos DB, her zaman okuma veya iznin meta verileri sorgulamak için güçlü tutarlılık sağlar. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-HTTP komutları kullanarak kaynakları ile çalışma hakkında daha fazla bilgi [Azure Cosmos DB kaynakları ile RESTful etkileşimleri](https://msdn.microsoft.com/library/azure/mt622086.aspx).
+HTTP komutları kullanarak kaynakları ile çalışma hakkında daha fazla bilgi [Azure Cosmos DB kaynaklarını RESTful etkileşim](https://msdn.microsoft.com/library/azure/mt622086.aspx).
 
 [1]: media/sql-api-resources/resources1.png
 [2]: media/sql-api-resources/resources2.png

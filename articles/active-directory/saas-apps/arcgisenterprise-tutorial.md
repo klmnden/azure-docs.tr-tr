@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: jeedes
-ms.openlocfilehash: ca5bf7ae49cf120c0566419ccadeff92433c6467
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ea2b32b43fedacba7b8a60db29762c32fda65aa5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42820250"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306351"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Öğretici: Azure Active Directory Arcgıs Enterprise ile tümleştirme
 
@@ -120,7 +120,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve A
     İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [Arcgıs Kurumsal İstemci Destek ekibine](mailto:nshampur@esri.com) bu değerleri almak için. Tanımlayıcı değeri erişmenizi sağlayacak **ayarlanmış bir kimlik sağlayıcı** bölümünde, bu öğreticinin ilerleyen bölümlerinde açıklanmıştır.
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [Arcgıs Kurumsal İstemci Destek ekibine](mailto:support@esri.com) bu değerleri almak için. Tanımlayıcı değeri erişmenizi sağlayacak **ayarlanmış bir kimlik sağlayıcı** bölümünde, bu öğreticinin ilerleyen bölümlerinde açıklanmıştır.
 
 5. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
 
@@ -195,7 +195,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 Bu bölümün amacı, Arcgıs kuruluşta Britta Simon adlı bir kullanıcı oluşturmaktır. Arcgıs Kurumsal tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, Arcgıs Kurumsal henüz mevcut değilse erişme denemesi sırasında oluşturulur.
 
 > [!Note]
-> Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Arcgıs Kurumsal Destek ekibine](mailto:nshampur@esri.com).
+> Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Arcgıs Kurumsal Destek ekibine](mailto:support@esri.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

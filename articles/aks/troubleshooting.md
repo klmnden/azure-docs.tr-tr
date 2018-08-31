@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 614930fb11e65404416e604c94351e2754b8e941
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 9f082c5f198ebd7123058bd250d3fef55494d553
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190351"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287548"
 ---
 # <a name="aks-troubleshooting"></a>AKS sorunlarını giderme
 Oluşturduğunuz veya NLB Yöneticisi'ni AKS, bazen sorunlarla karşılaşabilirsiniz. Bu makalede bazı yaygın sorunlar ve sorun giderme adımları ayrıntılı olarak açıklanmaktadır.
@@ -24,14 +24,14 @@ Oluşturduğunuz veya NLB Yöneticisi'ni AKS, bazen sorunlarla karşılaşabilir
 
 ### <a name="i-am-getting-a-quota-exceeded-error-during-create-or-upgrade-what-should-i-do"></a>Oluşturma veya yükseltme sırasında bir kota aşıldı hatası alıyorum. Ne yapmalıyım? 
 
-Çekirdek istemek ihtiyacınız olacak [burada](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)
+Çekirdek istemek ihtiyacınız olacak [burada](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
 ### <a name="what-is-the-max-pods-per-node-setting-for-aks"></a>AKS için düğüm ayarı başına maksimum pod'ları nedir?
 
 Azure portalında AKS kümesi dağıtıyorsanız, düğüm başına en fazla pod'ların varsayılan olarak 30 ayarlanır.
 Azure CLI'yı bir AKS kümesinde dağıtırsanız, düğüm başına en fazla pod'ların 110 olarak varsayılan olarak ayarlanır. (Azure CLI'ın en son sürümü kullandığınızdan emin olun). Bu varsayılan ayarı kullanılarak değiştirilebilir. max-düğüm-başına-pod bayrağı az aks create komutu.
 
-### <a name="i-am-getting--insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Gelişmiş ağ ile bir AKS kümesi dağıtırken "insufficientSubnetSize" hatası alıyorum. Ne yapmalıyım?
+### <a name="i-am-getting-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Gelişmiş ağ ile bir AKS kümesi dağıtırken "insufficientSubnetSize" hatası alıyorum. Ne yapmalıyım?
 
 AKS sırasında ağ oluşturur için seçilen özel VNET seçeneğinde Azure CNI IPAM için kullanılır. Bir AKS kümesindeki düğüm sayısını, 1 ile 100 arasında herhangi bir yerde olabilir. 2 sırasında bağlı olarak) boyutu alt düğüm sayısını ve düğüm alt ağ boyutu başına en fazla pod çarpımını büyük olmalıdır > kümedeki düğümlerin sayısı * düğüm başına pod'ların maks.
 

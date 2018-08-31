@@ -1,51 +1,51 @@
 ---
-title: "Öğretici: Azure SQL veri ambarı için Azure Data Lake Deposu'ndan veri yükleme | Microsoft Docs"
-description: Azure Data Lake Deposu'ndan veri Azure SQL Data Warehouse'a veri yüklemek için PolyBase dış tabloları kullanın.
+title: "Öğretici: Azure Data Lake Store ' Azure SQL Data Warehouse'a veri yükleme | Microsoft Docs"
+description: Verileri Azure Data Lake Store ' Azure SQL Data Warehouse'a yüklemek için PolyBase dış tabloları kullanın.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: c6030d1951c22dddfe6df01225c63cf503a370ac
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 04676db3048cf747e9a20d91a404f29c6cfc6853
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188387"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306402"
 ---
-# <a name="load-data-from-azure-data-lake-store-to-sql-data-warehouse"></a>Azure Data Lake Deposu'ndan veri SQL Data Warehouse'a veri yükleme
-Azure Data Lake Deposu'ndan veri Azure SQL Data Warehouse'a veri yüklemek için PolyBase dış tabloları kullanın. ADLS içinde depolanan veriler üzerinde geçici sorguları çalıştırabilirsiniz, ancak en iyi performans için SQL veri ambarına veri alma öneririz.
+# <a name="load-data-from-azure-data-lake-store-to-sql-data-warehouse"></a>Azure Data Lake Store yük verileri SQL veri ambarı
+Verileri Azure Data Lake Store ' Azure SQL Data Warehouse'a yüklemek için PolyBase dış tabloları kullanın. Geçici sorguları, ADLS, depolanan veriler üzerinde çalıştırabilirsiniz, ancak en iyi performans için SQL veri ambarı'na verilerin içeri aktarılması önerilir.
 
 > [!div class="checklist"]
-> * Azure Data Lake Deposu'ndan veri yüklemek için gerekli veritabanı nesnelerini oluşturun.
+> * Azure Data Lake Store ' yüklemek için gerekli veritabanı nesnelerini oluşturun.
 > * Bir Azure Data Lake Store dizinine bağlanır.
-> * Azure SQL Data Warehouse'a veri yükleme.
+> * Verileri Azure SQL veri ambarı'na yükleyin.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 Bu öğreticiye başlamadan önce, [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)’nun (SSMS) en yeni sürümünü indirin ve yükleyin.
 
-Bu öğretici çalıştırmak için gerekir:
+Bu öğreticide çalıştırmak için ihtiyacınız vardır:
 
-* Azure Active Directory Hizmeti için kimlik doğrulaması için kullanılacak uygulama. Oluşturmak için izlemeniz [Active directory kimlik doğrulaması](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)
+* Azure Active Directory hizmetten hizmete kimlik doğrulaması için kullanılacak uygulama. Oluşturmak için takip [Active directory kimlik doğrulaması](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)
 
 >[!NOTE] 
-> İstemci kimliği, anahtar ve OAuth2.0 belirteç uç noktası değeri, uygulamanızın Active Directory, Azure Data Lake SQL veri ambarından bağlanmak için gerekir. Bu değerleri alma ayrıntılarını yukarıdaki bağlantıyı ' dir. Azure Active Directory Uygulama kaydı için istemci kimliği olarak uygulama kimliği kullanın.
+> İstemci Kimliğini, anahtar ve OAuth2.0 belirteç uç noktası değeri, Active Directory, Azure Data Lake için SQL veri ambarı'ndan bağlanmak için uygulamanızın ihtiyacınız var. Bu değerleri almak nasıl için Ayrıntılar yukarıdaki bağlantıya bulunur. Azure Active Directory Uygulama kaydı için istemci kimliği olarak uygulama Kimliğini kullanın.
 > 
 
-* Bir Azure SQL veri ambarı. Bkz: [oluşturma ve sorgu ve Azure SQL Data Warehouse](create-data-warehouse-portal.md).
+* Bir Azure SQL veri ambarı. Bkz: [oluşturma ve sorgu ve Azure SQL veri ambarı](create-data-warehouse-portal.md).
 
-* Azure Data Lake deposu. Bkz: [Azure Data Lake Store ile çalışmaya başlama](../data-lake-store/data-lake-store-get-started-portal.md). 
+* Azure Data Lake Store. Bkz: [Azure Data Lake Store ile çalışmaya başlama](../data-lake-store/data-lake-store-get-started-portal.md). 
 
 ##  <a name="create-a-credential"></a>Bir kimlik bilgisi oluşturma
-Azure Data Lake Store erişmek için sonraki adımda kullanılan kimlik bilgileri gizli anahtarı şifrelemek için bir veritabanı ana anahtarı oluşturmanız gerekir. Bir veritabanı kapsamlı AAD'de ayarlanmış hizmet asıl kimlik bilgilerini depolayan kimlik bilgileri, oluşturursunuz. Bu Windows Azure depolama BLOB'larını bağlamak için PolyBase kullanmış olduğunuz CREDENTIAL sözdizimi farklı olduğuna dikkat edin.
+Azure Data Lake Store erişmek için kullanılan bir sonraki adımda, kimlik bilgisi gizli anahtarını şifrelemek için bir veritabanı ana anahtarı oluşturmanız gerekecektir. Daha sonra bir veritabanı kapsamlı AAD'de ayarlanmış hizmet sorumlusu kimlik bilgileri depolayan kimlik bilgisi, oluşturursunuz. Bu Windows Azure depolama BLOB'ları için bağlanmak için PolyBase kullanmış olduğunuz CREDENTIAL sözdizimi farklı olduğuna dikkat edin.
 
-Azure Data Lake Store'a bağlanmak için yapmanız gerekir **ilk** Azure Active Directory uygulama oluşturmak, bir erişim anahtarı oluşturun ve Azure Data Lake kaynak uygulama erişimi verin. Yönergeler için bkz: [Azure Data Lake deposu kullanarak Active Directory kimlik doğrulama](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
+Azure Data Lake Store için bağlanmak için şunları yapmanız gerekir **ilk** Azure Data Lake kaynak için uygulama erişimi Azure Active Directory uygulaması oluşturma ve bir erişim anahtarı oluşturun. Yönergeler için [doğrulaması için Azure Data Lake Store kullanarak Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 
 ```sql
 -- A: Create a Database Master Key.
@@ -75,8 +75,8 @@ WITH
 ;
 ```
 
-## <a name="create-the-external-data-source"></a>Dış veri kaynağı oluşturun
-Bu [dış veri kaynağı oluştur](/sql/t-sql/statements/create-external-data-source-transact-sql) verilerin konumu depolamak için komutu. 
+## <a name="create-the-external-data-source"></a>Dış veri kaynağı oluşturma
+Bunu kullanın [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) konumu verileri depolamak için komutu. 
 
 ```sql
 -- C: Create an external data source
@@ -92,9 +92,9 @@ WITH (
 );
 ```
 
-## <a name="configure-data-format"></a>Veri biçimini yapılandırın
-ADLS veri almak için dış dosya biçimini belirtmeniz gerekir. Bu nesne, dosyaları ADLS içinde nasıl yazılır tanımlar.
-Tam liste için bizim T-SQL belgelerine bakın [oluşturmak dış dosya biçimi](/sql/t-sql/statements/create-external-file-format-transact-sql)
+## <a name="configure-data-format"></a>Veri biçimi yapılandırma
+ADLS verileri içeri aktarmak için dış dosya biçimini belirtmek gerekir. Bu nesne dosyaları ADLS, nasıl yazılır tanımlar.
+Tam liste için T-SQL belgelerimize bakın [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql)
 
 ```sql
 -- D: Create an external file format
@@ -114,8 +114,8 @@ WITH
 );
 ```
 
-## <a name="create-the-external-tables"></a>Dış tabloları oluşturma
-Veri kaynağı ve dosya biçimi belirttiğiniz, dış tablo oluşturmak hazır olursunuz. Dış tablolar dış veri ile nasıl etkileşim değildir. Konum parametresi bir dosya veya dizin belirtebilirsiniz. Bir dizin belirtiyorsa, dizin içindeki tüm dosyalar yüklenir.
+## <a name="create-the-external-tables"></a>Dış tablolar oluşturma
+Belirttiğiniz veri kaynağı ve dosya biçimini, dış tablolar oluşturmak hazır olursunuz. Dış tablolar, dış verilerle nasıl etkileşim değildir. Konum parametresi bir dosya veya dizin belirtebilirsiniz. Bir dizini belirtir, dizinin içindeki tüm dosyalar yüklenir.
 
 ```sql
 -- D: Create an External Table
@@ -144,21 +144,21 @@ WITH
 ```
 
 ## <a name="external-table-considerations"></a>Dış tablo konuları
-Bir dış tablo oluşturmak kolaydır, ancak ele alınması gereken bazı küçük farklar vardır.
+Bir dış tablo oluşturmak kolaydır ancak ele alınması gereken bazı küçük farklar vardır.
 
-Dış tablolara kesin türü belirtilmiş. Başka bir deyişle, her alınan veri satırının tablo şeması tanımı karşılaması gerekir.
-Bir satır şema tanımı eşleşmiyorsa, satır yüklerinin reddedilir.
+Dış tablolar kesin türlü yapılır. Başka bir deyişle, her satır alınıyor verilerin tablo şeması tanımı karşılaması gerekir.
+Bir satır şema tanımı eşleşmiyorsa yük satır reddedilir.
 
-REJECT_TYPE ve REJECT_VALUE seçenekleri, satır sayısını veya veri yüzdesini son tablosunda bulunmalıdır tanımlamanıza olanak sağlar. Reddetme değerine ulaşılana yüklenmesi sırasında yükleme başarısız olur. Reddedilen satır en yaygın nedeni bir şema tanımı eşleşmemesidir. Örneğin, veri dosyasındaki bir dize olduğunda bir sütunu int şeması yanlış verilirse, her satıra yüklemek başarısız olur.
+REJECT_TYPE ve REJECT_VALUE seçenekleri kaç satır veya verilerin yüzde son tablosunda bulunmalıdır tanımlamanıza olanak sağlar. Reddetme değere ulaşıncaya yükleme sırasında yükleme başarısız olur. Reddedilen satırların en yaygın nedeni bir şema tanımı uyumsuzluğu var. Örneğin, dosyadaki verileri bir dize olduğunda bir sütunu yanlış int şemasını belirtilmezse, her satır yüklemek başarısız olur.
 
- Azure Data Lake deposu, verilere erişimi denetlemek için rol tabanlı erişim denetimi (RBAC) kullanır. Başka bir deyişle, hizmet sorumlusu konumu parametresinde tanımlanan dizinlere ve son dizin ve dosyaların çocuklar için okuma iznine sahip olmalıdır. Bu kimlik doğrulaması ve bu verileri yüklemek PolyBase sağlar. 
+ Azure Data Lake store, verilere erişimi denetlemek için rol tabanlı erişim denetimi (RBAC) kullanır. Bu hizmet sorumlusunu konumu parametresinde tanımlanan dizinleri ve dosyaları ve son dizin alt izni okuma izinlerinizin olduğunu anlamına gelir. Bu kimlik doğrulaması yapmak ve verileri yüklemek PolyBase sağlar. 
 
 ## <a name="load-the-data"></a>Verileri yükleme
-Azure Data Lake Store kullanımdan veri yüklemek için [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) deyimi. 
+Azure Data Lake Store kullanımdan verileri yüklemek için [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) deyimi. 
 
-CTAS yeni bir tablo oluşturur ve bir select deyimi sonuçları ile doldurur. CTAS select deyimi sonuçları olarak aynı sütunları ve veri türleri için yeni tabloyu tanımlar. Dış bir tablodaki tüm sütunları seçin, yeni bir tablo sütunları ve dış tablosunda veri türlerini çoğaltmasını olur.
+CTAS, yeni bir tablo oluşturur ve bir select deyiminin sonuçları ile doldurur. CTAS bir select deyiminin sonuçları aynı sütunlara ve veri türleri için yeni tablo tanımlar. Bir dış tablodan tüm sütunları seçerseniz, yeni bir tablo veri türleri, dış tablo ve sütunları çoğaltmasıdır.
 
-Bu örnekte, dış tablo DimProduct_external DimProduct adlı karma bir dağıtılmış tablo oluşturuyoruz.
+Bu örnekte, DimProduct, dış tablo DimProduct_external adlı bir karma dağıtılmış tablo oluşturuyoruz.
 
 ```sql
 
@@ -170,10 +170,10 @@ OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 ```
 
 
-## <a name="optimize-columnstore-compression"></a>Columnstore sıkıştırma en iyi duruma getirme
-Varsayılan olarak, SQL Data Warehouse kümelenmiş columnstore dizini tablo depolar. Yükleme tamamlandıktan sonra bazı veriler satır columnstore sıkıştırılır değil.  Çeşitli nedenlerle oluşabilir neden yoktur. Daha fazla bilgi için bkz: [columnstore dizinleri yönetmek](sql-data-warehouse-tables-index.md).
+## <a name="optimize-columnstore-compression"></a>Columnstore sıkıştırması en iyi duruma getirme
+Varsayılan olarak, SQL veri ambarı tablosu kümelenmiş columnstore dizini depolar. Yükleme tamamlandıktan sonra bazı veri satırları columnstore sıkıştırılmasının değil.  Çeşitli nedenlerle oluşabilir neden yoktur. Daha fazla bilgi için bkz. [columnstore dizinlerini Yönet](sql-data-warehouse-tables-index.md).
 
-Sorgu performansı ve yük sonra columnstore sıkıştırma iyileştirmek için tüm satırların sıkıştırılacak columnstore dizinini zorlamak için tabloyu yeniden oluşturun.
+Sorgu performansı ve yük sonra columnstore sıkıştırması iyileştirmek için tüm satırları sıkıştırma columnstore dizinini zorlamak için tabloyu yeniden oluşturun.
 
 ```sql
 
@@ -182,29 +182,29 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 ```
 
 ## <a name="optimize-statistics"></a>İstatistikleri en iyi duruma getirme
-Bir yük hemen sonra tek sütunlu istatistikler oluşturmak en iyisidir. İstatistikleri için bazı seçeneğiniz vardır. Örneğin, her sütunda tek sütunlu İstatistikler oluşturursanız, tüm istatistikleri yeniden oluşturmak için uzun zaman alabilir. Belirli sütunları sorgu koşullarında yapmayacağınız biliyorsanız, bu sütunlarda oluşturma istatistikleri atlayabilirsiniz.
+Hemen sonra bir yükleme tek sütunlu istatistikler oluşturmak idealdir. İstatistikleri için bazı seçeneğiniz vardır. Örneğin, her sütunda tek sütunlu İstatistikler oluşturursanız, tüm İstatistikler yeniden uzun sürebilir. Bazı sütunlar sorgu koşullarda yapmayacağınız biliyorsanız, bu sütunlar üzerinde oluşturmayı istatistikleri atlayabilirsiniz.
 
-Tek sütunlu istatistikler her tablonun her sütunu üzerinde oluşturmaya karar verirseniz, saklı yordam kod örneği kullanabilirsiniz `prc_sqldw_create_stats` içinde [istatistikleri](sql-data-warehouse-tables-statistics.md) makalesi.
+Tek sütunlu istatistikler her tablonun her sütunu oluşturmaya karar verirseniz, saklı yordam kod örneği kullanabilirsiniz `prc_sqldw_create_stats` içinde [istatistikleri](sql-data-warehouse-tables-statistics.md) makalesi.
 
-Aşağıdaki istatistikler oluşturmak için iyi bir başlangıç noktası örnektir. Her sütunun Boyut tablosuna ve olgu tabloları katılan her sütunda tek sütunlu İstatistikler oluşturur. Her zaman tek veya birden çok sütun istatistikleri diğer olgu tablo sütunları daha sonra ekleyebilirsiniz.
+Aşağıdaki örnek istatistik oluşturmak için iyi bir başlangıç noktası var. Her sütunda bir boyut tablosuna ve olgu tabloları katılan her sütunda tek sütunlu İstatistikler oluşturur. Her zaman tek veya birden çok sütun istatistikleri diğer olgu tablo sütunları daha sonra ekleyebilirsiniz.
 
 ## <a name="achievement-unlocked"></a>Kilidi başarı!
-Azure SQL Data Warehouse'a veri başarıyla yüklemiş olduğunuz. Harika iş!
+Azure SQL Data Warehouse'a veri başarıyla yüklediniz. Harika bir iş çıkardınız!
 
 ## <a name="next-steps"></a>Sonraki adımlar 
-Bu öğreticide Azure Data Lake Store'da depolanan verilerin yapısını tanımlamak için dış tabloları oluşturulur ve ardından veri ambarına veri yüklemek için PolyBase CREATE TABLE AS SELECT deyimi kullanılır. 
+Bu öğreticide, Azure Data Lake Store içinde depolanan verilerin yapısını tanımlamak için dış tablolar oluşturdunuz ve sonra verileri veri ambarınıza yüklemek için PolyBase CREATE TABLE AS SELECT deyimi kullanılır. 
 
 Şu işlemleri yaptınız:
 > [!div class="checklist"]
-> * Azure Data Lake Deposu'ndan veri yüklemek için gereken oluşturulan veritabanı nesneleri.
+> * Azure Data Lake Store ' yüklemek için gereken oluşturulan veritabanı nesneleri.
 > * Bir Azure Data Lake Store dizinine bağlı.
-> * Yüklenen verilerin Azure SQL veri ambarında.
+> * Azure SQL veri ambarı'na yüklenen verileri.
 > 
 
-Veri yükleme SQL Data Warehouse kullanarak bir veri ambarı çözüm geliştirmek için ilk adımdır. Bizim geliştirme kaynaklara gözatın.
+Veri yükleme, SQL veri ambarı'nı kullanarak bir veri ambarı çözümü geliştirmek için ilk adımdır. Bizim geliştirme kaynaklara göz atın.
 
 > [!div class="nextstepaction"]
->[SQL veri ambarı tablolarda geliştirmeyi öğrenin](sql-data-warehouse-tables-overview.md)
+>[SQL veri ambarı tabloları geliştirmeyi öğrenin](sql-data-warehouse-tables-overview.md)
 
 
 

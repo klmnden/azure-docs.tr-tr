@@ -6,19 +6,19 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 08/29/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
-ms.openlocfilehash: 329af89e52af6f3599e2d86e6ac6d28b8b63f333
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: f056bfa33e2a43af60357d6bf50a0b9cd8d7f254
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42059772"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286306"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Yüksek kullanılabilirlik ve Azure SQL veritabanı
 
-Azure SQL veritabanı yüksek oranda kullanılabilir platformu süresinin, Bakım ve kapalı kalma süreleri hakkında endişelenmenize gerek kalmadan çalışan % 99,99 oranında ve veritabanınız çalışır durumda olduğunu garanti eden bir hizmet olarak veritabanıdır. SQL Server veritabanınıza her zaman iş yükünüzü etkilemeden yükseltilmiş ve yama olmasını sağlar Azure bulutunda barındırılan tam olarak yönetilen bir SQL Server veritabanı altyapısı işlem budur. Azure SQL veritabanı, verilerinizi her zaman kullanılabilir olduğundan emin olmanın hatta en kritik durumlarda hızla kurtarabilirsiniz.
+Azure SQL veritabanı yüksek oranda kullanılabilir platformu süresinin, Bakım ve kapalı kalma süreleri hakkında endişelenmenize gerek kalmadan çalışan % 99,99 oranında ve veritabanınız çalışır durumda olduğunu garanti eden bir hizmet olarak veritabanıdır. SQL Server veritabanınıza her zaman iş yükünüzü etkilemeden yükseltilmiş ve yama olmasını sağlar Azure bulutunda barındırılan tam olarak yönetilen bir SQL Server veritabanı altyapısı işlem budur. Bir örneği yama veya üzerinden başarısız olduğunda, kapalı kalma süresi genellikle gözümüzün değil ise, [yeniden deneme mantığı uyguluyor](sql-database-develop-overview.md#resiliency) uygulamanızda. Bir yük devretmeyi tamamlamak için 60 saniyeden uzun süredir, bir destek talebi açmanız gerekir. Azure SQL veritabanı, verilerinizi her zaman kullanılabilir olduğundan emin olmanın hatta en kritik durumlarda hızla kurtarabilirsiniz.
 
 Azure platformu, tam olarak yöneten her bir Azure SQL veritabanı ve veri kaybı olmadan ve yüksek miktarda veri kullanılabilirliği garanti eder. Azure, düzeltme eki uygulama, yedekleme, çoğaltma, hata algılama, temel alınan olası donanım, yazılım veya ağ hatası, dağıtımı hata düzeltmeleri, yük devretmeleri, veritabanı yükseltme işlemleri ve diğer bakım görevleri otomatik olarak işler. SQL Server mühendisleri insanın yöntemler, tüm bakım işlemleri veritabanına hayatındaki %0,01 saatten daha az tamamlandığından emin olduktan uyguladınız. Bu mimari, kaydedilmiş veri hiçbir zaman kayıp olduğundan ve bakım işlemlerini iş yükünü etkilemeden gerçekleştirildiğinden emin olmak için tasarlanmıştır. Bakım pencereleri veya kapalı kalma süreleri, veritabanı yükseltme ya da korunan iş yükü durdurmak gereksinim duymanız yoktur. Azure SQL veritabanında yerleşik yüksek kullanılabilirlik veritabanı hiçbir zaman tek yazılım mimarinizdeki hata noktası olmaz garanti eder.
 

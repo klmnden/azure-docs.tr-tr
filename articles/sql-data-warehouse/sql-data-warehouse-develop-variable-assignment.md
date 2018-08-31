@@ -1,34 +1,34 @@
 ---
-title: Azure SQL Data Warehouse değişkenlerde Ata | Microsoft Docs
-description: Çözümleri geliştirme için Azure SQL Data Warehouse T-SQL değişkenleri atamak için ipuçları.
+title: Azure SQL veri ambarı'nda değişkenleri atama | Microsoft Docs
+description: T-SQL değişkenleri Azure SQL veri ambarı çözümleri geliştirmek için atama hakkında ipuçları.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 09b0ee336ce00eb20ea501cd97833dfdd6540b30
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cf6d63c8cf67e42eed2ca52bfd0d0a3f9b0e10b1
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598753"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302093"
 ---
-# <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse değişkenlerde atama
-Çözümleri geliştirme için Azure SQL Data Warehouse T-SQL değişkenleri atamak için ipuçları.
+# <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda değişkenleri atama
+T-SQL değişkenleri Azure SQL veri ambarı çözümleri geliştirmek için atama hakkında ipuçları.
 
 ## <a name="setting-variables-with-declare"></a>DECLARE değişkenlerle ayarlama
-SQL veri ambarı değişkenleri kullanılarak ayarlanır `DECLARE` deyimi veya `SET` deyimi. DECLARE değişkenlerle başlatılıyor SQL veri ambarı'nda bir değişken değerini ayarlamak için en esnek yollardan biridir.
+SQL veri ambarı'nda değişkenleri kullanılarak ayarlanır `DECLARE` deyimi veya `SET` deyimi. DECLARE değişkenlerle başlatma SQL veri ambarı'nda bir değişken değeri ayarlamak için en esnek yollarından biridir.
 
 ```sql
 DECLARE @v  int = 0
 ;
 ```
 
-DECLARE, aynı anda birden fazla değişken ayarlamak üzere de kullanabilirsiniz. Aşağıdakileri yapmak için SELECT veya UPDATE kullanamazsınız:
+DECLARE, aynı anda birden fazla değişkenini ayarlamak için de kullanabilirsiniz. Aşağıdakileri yapmak için seçin ya da güncelleştirme kullanamazsınız:
 
 ```sql
 DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Smith')
@@ -36,7 +36,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-Başlatma ve bir değişkeni aynı DECLARE deyimi kullanın. Noktayı anlamak için aşağıdaki örnekte olduğu **değil** bu yana izin @p1 hem başlatılır ve aynı DECLARE deyiminde kullanılan. Aşağıdaki örnek, bir hata verir.
+Başlatma ve aynı DECLARE deyimi içinde bir değişkeni kullanın. Anlaşılması için aşağıdaki örnek, **değil** beri izin @p1 hem başlatılır ve aynı DECLARE deyimi içinde kullanılır. Aşağıdaki örnek, bir hata verir.
 
 ```sql
 DECLARE @p1 int = 0
@@ -44,10 +44,10 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## <a name="setting-values-with-set"></a>SET değerleri ayarlama
+## <a name="setting-values-with-set"></a>Ayar değerleri KÜMESİ ile
 KÜMESİ, tek bir değişken ayarlamak için yaygın bir yöntemdir.
 
-Aşağıdaki deyimleri kümesine sahip bir değişken ayarlamak üzere tüm geçerli yöntemlerdir:
+Aşağıdaki deyimleri KÜMESİYLE bir değişken ayarlamak için geçerli yöntemlerdir:
 
 ```sql
 SET     @v = (Select max(database_id) from sys.databases);
@@ -56,10 +56,10 @@ SET     @v = @v+1;
 SET     @v +=1;
 ```
 
-KÜMESİYLE aynı anda yalnızca bir değişken ayarlayabilirsiniz. Ancak, bileşik işleçler verilebilir.
+KÜMESİ ile aynı anda yalnızca bir değişken ayarlayabilirsiniz. Ancak, bileşik işleçleri verilebilir.
 
 ## <a name="limitations"></a>Sınırlamalar
-Değişken ataması için SELECT veya UPDATE kullanamazsınız.
+Değişken ataması için seçin ya da güncelleştirme kullanamazsınız.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla geliştirme ipuçları için bkz: [geliştirmeye genel bakış](sql-data-warehouse-overview-develop.md).

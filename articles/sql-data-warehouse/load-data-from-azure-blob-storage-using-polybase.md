@@ -1,25 +1,25 @@
 ---
-title: 'Öğretici: Azure SQL Data Warehouse için yük New York Taxicab veri | Microsoft Docs'
-description: Öğretici kullanır Azure portal ve New York Taxicab verileri ortak Azure'dan yüklemek için SQL Server Management Studio blob Azure SQL Data Warehouse için.
+title: 'Öğretici: Yük New York taksi verilerini Azure SQL veri ambarı | Microsoft Docs'
+description: Öğreticide, Azure portalı ve New York taksi verilerini genel bir Azure yük için SQL Server Management Studio'yu Azure SQL veri ambarı'na blob.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: acc7d0a031821b8b6e9c110c92597b0307e216fb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 06d889686c673adc3941ac7303ab52a6fff408a8
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193242"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288133"
 ---
-# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Öğretici: Azure SQL Data Warehouse için yük New York Taxicab veri
+# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Öğretici: Yük New York taksi verilerini Azure SQL veri ambarı
 
-Bu öğretici kullanır genel bir New York Taxicab veri yüklemek için PolyBase Azure blob Azure SQL Data Warehouse için. Öğreticide aşağıdaki işlemler için [Azure Portal](https://portal.azure.com) ve [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) kullanılır: 
+Bu öğretici kullanan New York taksi verilerini genel kullanıma yüklemek için PolyBase Azure SQL veri ambarı için Azure blob. Öğreticide aşağıdaki işlemler için [Azure Portal](https://portal.azure.com) ve [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) kullanılır: 
 
 > [!div class="checklist"]
 > * Azure Portal'da veri ambarı oluşturma
@@ -78,9 +78,9 @@ Boş bir SQL veri ambarı oluşturmak için aşağıdaki adımları izleyin.
 
 5. **Seç**'e tıklayın.
 
-6. Tıklatın **performans düzeyi** veri ambarı Gen1 veya Gen2 ve sayısı, veri ambarı birimlerini olup olmadığını belirtmek için. 
+6. Tıklayın **performans düzeyi** veri ambarı Gen1 veya 2. nesil ve sayı veri ambarı birimleri olup olmadığını belirtmek için. 
 
-7. Bu öğretici için seçin **Gen1** SQL veri ambarı. Varsayılan olarak, kaydırıcıyı kümesine **DW1000c**.  Nasıl çalıştığını görmek için yukarı ve aşağı taşımayı deneyin. 
+7. Bu öğreticide, seçin **Gen1** SQL veri ambarı. Kaydırıcı varsayılan olarak ayarlanmış **DW1000c**.  Nasıl çalıştığını görmek için yukarı ve aşağı taşımayı deneyin. 
 
     ![performansı yapılandırma](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -103,7 +103,7 @@ SQL Veri Ambarı hizmeti, dış uygulama ve araçların sunucuya ya da sunucu ü
 > SQL Veri Ambarı 1433 numaralı bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 1433 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda BT departmanınız 1433 numaralı bağlantı noktasını açmadığı sürece Azure SQL Veritabanı sunucunuza bağlanamazsınız.
 >
 
-1. Dağıtım tamamlandıktan sonra, soldaki menüden **SQL veritabanları**'na ve ardından **SQL veritabanları** sayfasında **mySampleDatabase** öğesine tıklayın. Veritabanınız için genel bakış sayfası açılır ve tam sunucu adını gösteren (gibi **mynewserver 20180430.database.windows.net**) ve diğer yapılandırmalar için seçenekler sağlar. 
+1. Dağıtım tamamlandıktan sonra, soldaki menüden **SQL veritabanları**'na ve ardından **SQL veritabanları** sayfasında **mySampleDatabase** öğesine tıklayın. Veritabanınıza ilişkin genel bakış sayfası açılır ve tam sunucu adını gösteren (gibi **mynewserver-20180430.database.windows.net**) ve daha fazla yapılandırma seçenekleri sağlar. 
 
 2. Sonraki hızlı başlangıçlarda sunucunuza ve veritabanlarına bağlanmak için bu tam sunucu adını kopyalayın. Ardından sunucu adına tıklayarak sunucu ayarlarını açın.
 
@@ -133,8 +133,8 @@ SQL Veri Ambarı hizmeti, dış uygulama ve araçların sunucuya ya da sunucu ü
 SQL sunucunuzun tam sunucu adını Azure portalından alabilirsiniz. Daha sonra sunucuya bağlanırken tam adı kullanacaksınız.
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Seçin **SQL veri ambarlarında** sol taraftaki menüden ve veritabanınızı tıklayın **SQL veri ambarlarında** sayfası. 
-3. Veritabanınızın Azure portal sayfasındaki **Temel Bilgiler** bölmesinde, **Sunucu adını** bulup kopyalayın. Bu örnekte, tam mynewserver 20180430.database.windows.net addır. 
+2. Seçin **SQL veri ambarları** sol menüdeki ve veritabanınıza tıklayın **SQL veri ambarları** sayfası. 
+3. Veritabanınızın Azure portal sayfasındaki **Temel Bilgiler** bölmesinde, **Sunucu adını** bulup kopyalayın. Bu örnekte, tam ad mynewserver-20180430.database.windows.net ' dir. 
 
     ![bağlantı bilgileri](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
@@ -149,7 +149,7 @@ Bu bölümde Azure SQL sunucunuzla bağlantı kurmak için [SQL Server Managemen
     | Ayar      | Önerilen değer | Açıklama | 
     | ------------ | --------------- | ----------- | 
     | Sunucu türü | Veritabanı altyapısı | Bu değer gereklidir |
-    | Sunucu adı | Tam sunucu adı | Adı, şunun gibi olmalıdır: **mynewserver 20180430.database.windows.net**. |
+    | Sunucu adı | Tam sunucu adı | Ad şunun gibi olmalıdır: **mynewserver-20180430.database.windows.net**. |
     | Kimlik Doğrulaması | SQL Server Kimlik Doğrulaması | Bu öğreticide yapılandırdığımız tek kimlik doğrulaması türü SQL Kimlik Doğrulamasıdır. |
     | Oturum Aç | Sunucu yöneticisi hesabı | Bu, sunucuyu oluştururken belirttiğiniz hesaptır. |
     | Parola | Sunucu yöneticisi hesabınızın parolası | Bu, sunucuyu oluştururken belirttiğiniz paroladır. |
@@ -164,7 +164,7 @@ Bu bölümde Azure SQL sunucunuzla bağlantı kurmak için [SQL Server Managemen
 
 ## <a name="create-a-user-for-loading-data"></a>Verileri yüklemek için kullanıcı oluşturma
 
-Sunucu yöneticisi hesabı yönetim işlemlerini gerçekleştirmeye yöneliktir ve kullanıcı verileri üzerinde sorgu çalıştırmaya uygun değildir. Verileri yükleme, yoğun bellek kullanan bir işlemdir. Bellek üst sınırlar hangi oluşturma, SQL Data Warehouse göre sağladığınız, tanımlanmış [veri ambarı birimlerini](what-is-a-data-warehouse-unit-dwu-cdwu.md), ve [kaynak sınıfı](resource-classes-for-workload-management.md). 
+Sunucu yöneticisi hesabı yönetim işlemlerini gerçekleştirmeye yöneliktir ve kullanıcı verileri üzerinde sorgu çalıştırmaya uygun değildir. Verileri yükleme, yoğun bellek kullanan bir işlemdir. Bellek üst sınırları tanımlanmış hangi oluşturma, SQL veri ambarı göre sağladığınız, [veri ambarı birimleri](what-is-a-data-warehouse-unit-dwu-cdwu.md), ve [kaynak sınıfı](resource-classes-for-workload-management.md). 
 
 En iyisi verileri yüklemeye ayrılmış bir oturum açma ve kullanıcı bilgisi oluşturmaktır. Ardından yükleme kullanıcısını uygun bir bellek ayırma üst sınırına olanak tanıyan bir [kaynak sınıfına](resource-classes-for-workload-management.md) ekleyin.
 
@@ -215,7 +215,7 @@ Verileri yüklemenin ilk adımı LoaderRC20 olarak oturum açmaktır.
 
 ## <a name="create-external-tables-for-the-sample-data"></a>Örnek veriler için dış tablo oluşturma
 
-Verileri yeni veri ambarınıza yükleme işlemine başlamaya hazırsınız. Bu öğretici bir Azure storage blobundan New York şehrinde ücreti cab veri yüklemek için dış tabloları kullanmayı gösterir. [Yüklemeye genel bakış](sql-data-warehouse-overview-load.md) bölümünde, verilerinizi Azure blob depolama alanına alma veya doğrudan kaynağınızdan SQL Veri Ambarı’na yükleme konusunda ileride işinize yarayacak bilgiler edinebilirsiniz.
+Verileri yeni veri ambarınıza yükleme işlemine başlamaya hazırsınız. Bu öğreticide bir Azure depolama blobu'ndan New York taksi verilerini yüklemek için dış tablolar kullanmayı gösterir. [Yüklemeye genel bakış](sql-data-warehouse-overview-load.md) bölümünde, verilerinizi Azure blob depolama alanına alma veya doğrudan kaynağınızdan SQL Veri Ambarı’na yükleme konusunda ileride işinize yarayacak bilgiler edinebilirsiniz.
 
 Aşağıdaki SQL betiklerini çalıştırın, yüklemek istediğiniz veriler hakkındaki bilgileri belirtin. Bu bilgiler verilerin konumu, verilerdeki içeriğin biçimi ve verilerin tablo tanımıdır. 
 
@@ -589,7 +589,7 @@ Kaynakları istediğiniz gibi temizlemek için bu adımları izleyin.
 
 3. İşlem ve depolama için ücretlendirilmemek üzere veri ambarını kaldırmak için **Sil**’e tıklayın.
 
-4. Oluşturduğunuz SQL server kaldırmak için tıklatın **mynewserver 20180430.database.windows.net** önceki görüntü ve ardından **silmek**.  Sunucuyu silmek sunucuyla ilişkili tüm veritabanlarını da sileceğinden bu işlemi gerçekleştirirken dikkatli olun.
+4. Oluşturduğunuz SQL sunucusunu kaldırmak için tıklayın **mynewserver-20180430.database.windows.net** önceki görüntüde ve ardından **Sil**.  Sunucuyu silmek sunucuyla ilişkili tüm veritabanlarını da sileceğinden bu işlemi gerçekleştirirken dikkatli olun.
 
 5. Kaynak grubunu kaldırmak için, **myResourceGroup**’a tıklayıp daha sonra **Kaynak grubunu sil**’e tıklayın.
 

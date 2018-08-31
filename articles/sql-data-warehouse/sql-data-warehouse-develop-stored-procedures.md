@@ -1,50 +1,50 @@
 ---
-title: Azure SQL Data Warehouse'da saklı yordamları kullanma | Microsoft Docs
-description: Saklı yordamlar çözümleri geliştirmek için Azure SQL Data Warehouse'da uygulamak için ipuçları.
+title: Azure SQL veri ambarı'nda saklı yordamları kullanma | Microsoft Docs
+description: Saklı yordamlar çözümleri geliştirmek için Azure SQL veri ambarı'nda uygulama hakkında ipuçları.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 0ad8a599065a44469a3151813972b3d2561782c6
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 4cd8394104c72e8df53fa0c44e60037b4dc05976
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774667"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301622"
 ---
 # <a name="using-stored-procedures-in-sql-data-warehouse"></a>SQL veri ambarı'nda saklı yordamları kullanma
-Saklı yordamlar çözümleri geliştirmek için Azure SQL Data Warehouse'da uygulamak için ipuçları.
+Saklı yordamlar çözümleri geliştirmek için Azure SQL veri ambarı'nda uygulama hakkında ipuçları.
 
 ## <a name="what-to-expect"></a>Sizi neler bekliyor
 
-SQL veri ambarı SQL Server kullanılan T-SQL özelliklerini çoğunu destekler. Daha da önemlisi, çözümünüzün performansını en üst düzeye çıkarmak için kullanabileceğiniz genişleme belirli özellikler vardır.
+SQL veri ambarı SQL Server kullanılan T-SQL özelliklerinin çoğunu destekler. Daha da önemlisi, çözümünüzün performansını en üst düzeye çıkarmak için kullanabileceğiniz genişleme belirli özellikleri vardır.
 
-Ancak, korumak için ölçek ve var. SQL veri ambarı performansını ayrıca bazı özellikler ve davranış farklılıkları ve diğerleri desteklenmeyen işlevsellik değildir.
+Ancak korumak için gereken ölçeğe ve SQL veri ambarı performans var. Ayrıca bazı özellikler ve davranış farklılıkları ve diğer desteklenmeyen işlevler değildir.
 
 
-## <a name="introducing-stored-procedures"></a>Saklı yordamlar Tanıtımı
-Saklı yordamlar SQL kodunuzu Kapsüllenen harika bir yöntemdir; verilerinizi veri ambarındaki yakın depolama. Saklı yordamlar kodu yönetilebilir birimler halinde kapsülleyerek çözümleri modülarize etmek geliştiricilerin yardımcı; kod büyük kullanılırlığı kolaylaştırmanın. Her bir saklı yordam, ayrıca bunları daha esnek hale getirmek için parametre kabul edebilir.
+## <a name="introducing-stored-procedures"></a>Saklı yordamları ile tanışın
+Saklı yordamlar SQL kodunuzu kapsüllemek için harika bir yoludur; veri ambarı'nda, verilere yaklaştırılmasıyla depolamak. Saklı yordamlar, geliştiricilerin çözümlerine kod yönetilebilir birimler halinde kapsülleyerek modülerleştirmek yardımcı; büyük kod kullanılırlığı etkinleştirme. Her bir saklı yordam, ayrıca daha esnek hale getirmek için parametreleri kabul edebilir.
 
-SQL veri ambarı Basitleştirilmiş ve kolaylaştırılmış saklı yordam uygulamasını sağlar. SQL Server'a karşılaştırma büyük fark saklı yordamı önceden derlenmiş kod olmamasıdır. Veri ambarlarında derleme süresi büyük veri birimlerine karşı sorguları çalıştırmak için geçen süreyi kıyasla küçüktür. Saklı yordam doğru büyük sorgular için en iyileştirilmiş kodda emin olmak daha önemlidir. Saat, dakika ve saniye, değil milisaniye kaydetmek için belirtilir. Bu nedenle saklı yordamlar SQL mantığı için kapsayıcı olarak düşünmek daha yardımcı olur.     
+SQL veri ambarı, Basitleştirilmiş ve kolaylaştırılmış saklı yordamı bir uygulamasını sağlar. SQL Server'a kıyasla en büyük fark, saklı yordamın önceden derlenmiş kodu değil ' dir. Veri ambarında, derleme zamanı büyük veri birimlerine karşı sorguları çalıştırmak için gereken süreyi kolaylığına küçüktür. Saklı yordam kodu büyük sorgular için doğru bir şekilde iyileştirilmesini sağlamak daha önemlidir. Saat, dakika ve saniye, milisaniye değil kaydetmek için kullanılan hedeftir. Bu nedenle saklı yordamlar SQL mantıksal için kapsayıcı olarak düşünün daha yararlı olur.     
 
-SQL Data Warehouse, saklı yordam yürüttüğünde SQL deyimlerini ayrıştırılır, çevrilen ve çalışma zamanında en iyi duruma getirilmiş. Bu işlem sırasında her deyim dağıtılmış sorgular dönüştürülür. Veri karşı yürütülen SQL kodunu gönderilen sorgu farklıdır.
+SQL veri ambarı, depolanmış yordamınızdaki yürütüldüğünde, SQL deyimlerini ayrıştırıldığında, çevrilmiş ve çalışma zamanında en iyi duruma getirilmiş. Bu işlem sırasında her deyim dağıtılmış sorgulara dönüştürülür. Veri karşı yürütülen SQL kod gönderilen sorgu farklıdır.
 
-## <a name="nesting-stored-procedures"></a>İç içe geçme saklı yordamlar
-Saklı yordamlar diğer saklı yordamları çağırmak ya da dinamik SQL Yürüt ardından iç saklı yordam veya kod çağırma iç içe söylenir.
+## <a name="nesting-stored-procedures"></a>İç içe geçme depolanan yordamları
+Saklı yordamlar diğer saklı yordamları çağıran ya da dinamik SQL yürütme, ardından iç saklı yordamı veya kodu çağırma iç içe kabul edilir.
 
-SQL veri ambarı en fazla sekiz iç içe geçme düzeyi destekler. Bu SQL Server için biraz farklıdır. SQL Server iç içe geçirme düzeyi 32'dir.
+SQL veri ambarı en fazla sekiz iç içe geçme düzeyini destekler. Bu SQL Server için biraz farklıdır. SQL Server iç içe geçirme düzeyinde 32'dir.
 
-Üst düzey saklı yordam çağrısı düzey 1 iç içe karşılık gelir.
+Düzey 1 içine yerleştirmek için üst düzey bir saklı yordam çağrısı karşılık gelmektedir.
 
 ```sql
 EXEC prc_nesting
 ```
-Saklı yordam ayrıca başka bir yürütme çağrı yaparsa, iç içe geçirme düzeyi iki artırır.
+Saklı yordamı da başka bir ÇALIŞTIRILABİLİR çağrısı yaparsa, iç içe düzeyi için iki artırır.
 
 ```sql
 CREATE PROCEDURE prc_nesting
@@ -53,7 +53,7 @@ EXEC prc_nesting_2  -- This call is nest level 2
 GO
 EXEC prc_nesting
 ```
-İkinci yordam sonra bazı dinamik SQL yürütülürse, iç içe geçirme düzeyi üç artırır.
+İkinci yordam sonra bazı dinamik SQL yürütülürse, iç içe düzeyi için üç artırır.
 
 ```sql
 CREATE PROCEDURE prc_nesting_2
@@ -63,26 +63,26 @@ GO
 EXEC prc_nesting
 ```
 
-Not: SQL Data Warehouse desteklememektedir [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql). İç içe geçirme düzeyi izlemeniz gerekir. Sekiz iç içe geçirme düzeyi sınırı aşan daha düşüktür, ancak bunu yaparsanız, bu sınırı içinde iç içe geçme düzeyi uyacak şekilde kodunuzu rework gerekir.
+Unutmayın, SQL veri ambarı şu anda desteklemiyor [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql). İç içe düzeyi izlemek gerekir. Sekiz iç içe düzeyi sınırı daha düşüktür, ancak bunu yaparsanız, bu sınırı içinde iç içe geçme düzeylerini uyacak şekilde kodunuzu yeniden gerekir.
 
 ## <a name="insertexecute"></a>EKLE... YÜRÜTME
-SQL veri ambarı INSERT deyimi olan bir saklı yordam sonuç kümesini kullanmasına izin vermez. Ancak, kullanabileceğiniz alternatif bir yaklaşım yoktur. Bir örnek için üzerinde makalesine bakın. [geçici tablolar](sql-data-warehouse-tables-temporary.md). 
+SQL veri ambarı, sonuç kümesi saklı yordam INSERT deyimi ile kullanmak için izin vermez. Ancak, kullanabileceğiniz alternatif bir yaklaşım yoktur. Örneğin, makaleye bakın [geçici tablolar](sql-data-warehouse-tables-temporary.md). 
 
 ## <a name="limitations"></a>Sınırlamalar
-SQL veri ambarı'nda uygulanmadı Transact-SQL saklı yordamları bazı yönleri vardır.
+SQL veri ambarı'nda uygulanmaz ve Transact-SQL saklı yordamları bazı yönlerini vardır.
 
 Bunlar:
 
 * geçici saklı yordamlar
-* numaralandırılmış saklı yordamlar
-* genişletilmiş saklı yordamlar
-* CLR saklı yordamlar
-* şifreleme seçeneği
+* numaralanmış saklı yordamlar
+* Genişletilmiş saklı yordamlar
+* CLR saklı yordamları
+* Şifreleme seçeneği
 * çoğaltma seçeneği
-* Tablo değerli parametreleri
+* Tablo değerli Parametreler
 * salt okunur parametreleri
 * varsayılan parametreleri
-* yürütme bağlamı
+* yürütme bağlamları
 * return deyimi
 
 ## <a name="next-steps"></a>Sonraki adımlar

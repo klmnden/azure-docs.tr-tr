@@ -1,19 +1,18 @@
 ---
 title: Azure Vm'lere bağlı diskler sorunlarını giderme | Microsoft Docs
-description: Azure Blob depolama, metin veya ikili veri gibi çok miktarda yapılandırılmamış nesne verilerini depolamak için tasarlanmıştır. Uygulamalarınız, REST üzerinden veya Azure Storage istemci kitaplıkları aracılığıyla koddan, Azure CLI’dan ya da PowerShell’den Blob depolamadaki nesnelere erişebilir.
+description: Sorun giderme kaynakları Azure sanal makine sanal sabit diskler (VHD'ler) için bağlantılar sağlar.
 services: storage
 author: genlin
 ms.service: storage
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: genli
-ms.component: disks
-ms.openlocfilehash: 0dbd89c28d18d64908d92cd38d8bd1cf3138fd5c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 81db3a819c28aab8f4b644a940eeb5e6c5ecf3d6
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397976"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307181"
 ---
 # <a name="troubleshoot-disks-attached-to-azure-vms"></a>Azure Vm'lere bağlı diskler sorunlarını giderme 
 

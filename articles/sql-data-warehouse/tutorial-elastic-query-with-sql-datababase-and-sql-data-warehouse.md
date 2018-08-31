@@ -1,45 +1,45 @@
 ---
 title: 'Öğretici: Azure SQL veri ambarı ile esnek sorgu | Microsoft Docs'
-description: Bu öğretici, Azure SQL veritabanından sorgu Azure SQL Data Warehouse esnek sorgu özelliğini kullanır.
+description: Bu öğreticide, Azure SQL veritabanı'ndan Azure SQL veri ambarı sorgusu için esnek sorgu özelliği kullanılır.
 services: sql-data-warehouse
 author: hirokib
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/14/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: a31f035b5ec086a046028956c4a9c0de0d6a313d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 355ae1c27d0af8f77c2c9bda61c3581562050fc4
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526201"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307101"
 ---
-# <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>Öğretici: Kullanım esnek sorgudan Azure SQL veri ambarındaki verilere erişmek için Azure SQL veritabanı
+# <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>Öğretici: Kullanımı verilere Azure SQL veri ambarı'ndan esnek sorguları Azure SQL veritabanı
 
-Bu öğretici, Azure SQL veritabanından sorgu Azure SQL Data Warehouse esnek sorgu özelliğini kullanır. 
+Bu öğreticide, Azure SQL veritabanı'ndan Azure SQL veri ambarı sorgusu için esnek sorgu özelliği kullanılır. 
 
 ## <a name="prerequisites-for-the-tutorial"></a>Öğreticisi için Önkoşullar
 
-Öğretici başlamadan önce aşağıdaki önkoşullara sahip olmalıdır:
+Öğreticiye başlamadan önce aşağıdaki önkoşullara sahip olmalıdır:
 
 1. Yüklü SQL Server Management Studio'yu (SSMS).
-2. Bir Azure SQL server veritabanı ve veri ambarının bu sunucu içinde oluşturulur.
-3. Azure SQL Server'a erişmek için güvenlik duvarı kurallarını ayarlayın.
+2. Bu sunucu içinde bir veritabanı ve veri ambarı ile Azure SQL sunucusu oluşturdunuz.
+3. Azure SQL sunucusuna erişim için güvenlik duvarı kurallarını ayarlayın.
 
 ## <a name="set-up-connection-between-sql-data-warehouse-and-sql-database-instances"></a>SQL veri ambarı ve SQL veritabanı örnekleri arasında bağlantı kurma 
 
-1. SSMS veya başka bir sorgu istemcisi kullanarak veritabanı için yeni bir sorgu açın **ana** mantıksal sunucunuzda.
+1. SSMS veya başka bir sorgu istemcisini kullanarak, veritabanı için yeni bir sorgu açın **ana** mantıksal sunucunuzdaki.
 
-2. Oturum açma ve SQL veritabanına veri ambarı bağlantısı temsil eden kullanıcısı oluşturun.
+2. Oturum açma ve SQL veritabanı veri ambarı bağlantıyı temsil eden bir kullanıcı oluşturun.
 
    ```sql
    CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
    ```
 
-3. SSMS veya başka bir sorgu istemcisi kullanarak açmak için yeni bir sorgu **SQL veri ambarı örneği** mantıksal sunucunuzda.
+3. SSMS veya başka bir sorgu istemcisini kullanarak açmak için yeni bir sorgu **SQL veri ambarı örneği** mantıksal sunucunuzdaki.
 
 4. Veri ambarı örneği 2. adımda oluşturduğunuz oturum açma bilgileriyle bir kullanıcı oluşturun
 
@@ -47,21 +47,21 @@ Bu öğretici, Azure SQL veritabanından sorgu Azure SQL Data Warehouse esnek so
    CREATE USER SalesDBUser FOR LOGIN SalesDBLogin;
    ```
 
-5. Kullanıcıya adım 4 ile SQL veritabanı yürütmek istediğiniz gibi yaptığınız izinleri. Bu örnekte, yalnızca seçin nasıl biz sorguları SQL veritabanından belirli bir etki alanına kısıtlayabilir gösteren belirli bir şema üzerinde izni. 
+5. Kullanıcı için SQL veritabanı yürütmek istediğiniz gibi yaptığınız adım 4 izinler verir. Bu örnekte, yalnızca seçin nasıl biz sorguları SQL veritabanı'ndan belirli bir etki alanına kısıtlayabilir gösteren, belirli bir şemada izni. 
 
    ```sql
    GRANT SELECT ON SCHEMA :: [dbo] TO SalesDBUser;
    ```
 
-6. SSMS veya başka bir sorgu istemcisi kullanarak açmak için yeni bir sorgu **SQL veritabanı örneği** mantıksal sunucunuzda.
+6. SSMS veya başka bir sorgu istemcisini kullanarak açmak için yeni bir sorgu **SQL veritabanı örneği** mantıksal sunucunuzdaki.
 
-7. Zaten mevcut olmayan bir ana anahtar oluşturun. 
+7. Zaten bir tamamlamadıysanız, bir ana anahtar oluşturun. 
 
    ```sql
    CREATE MASTER KEY; 
    ```
 
-8. 2. adımda oluşturduğunuz kimlik bilgilerini kullanarak bir veritabanı kapsamlı kimlik bilgisi oluşturun.
+8. 2. adımda oluşturduğunuz kimlik bilgilerini kullanarak bir veritabanı kapsamlı kimlik bilgileri oluşturun.
 
    ```sql
    CREATE DATABASE SCOPED CREDENTIAL SalesDBElasticCredential
@@ -69,7 +69,7 @@ Bu öğretici, Azure SQL veritabanından sorgu Azure SQL Data Warehouse esnek so
    SECRET = 'aReallyStrongPassword@#!';
    ```
 
-9. Veri ambarı örneği için işaret eden bir dış veri kaynağı oluşturun.
+9. Veri ambarı örneğine işaret eden bir dış veri kaynağı oluşturun.
 
    ```sql
    CREATE EXTERNAL DATA SOURCE EnterpriseDwSrc WITH 
@@ -80,16 +80,16 @@ Bu öğretici, Azure SQL veritabanından sorgu Azure SQL Data Warehouse esnek so
    ) ;
    ```
 
-10. Artık bu dış veri kaynağına başvuran dış tablolara oluşturabilirsiniz. Bu tablolar kullanarak sorguları, işlenen ve veritabanı örneğine gönderilen veri ambarı örneği için gönderilir.
+10. Artık bu dış veri kaynağı başvurusu dış tablolar oluşturabilirsiniz. Bu tablolar kullanarak sorgular, işlenmesi ve veritabanı örneğine gönderilen için veri ambarı örneği için gönderilir.
 
 
-## <a name="elastic-query-from-sql-database-to-sql-data-warehouse"></a>Esnek sorguya SQL veri ambarı SQL veritabanından
+## <a name="elastic-query-from-sql-database-to-sql-data-warehouse"></a>SQL veri ambarı SQL veritabanı esnek sorgu
 
-Sonraki birkaç adımda bir tablo, veri ambarı örneği birkaç değerlerle oluşturacağız. Ardından veritabanı örneğinde veri ambarı örneğinden sorgulamak için bir dış tablosu oluşturmak göstereceğiz.
+Sonraki birkaç adımda bir tablo, veri ambarı Örneğinizde birkaç değerlerle oluşturacağız. Biz, ardından veri ambarı örneği veritabanı örneğinden sorgulamak için bir dış tablosu oluşturmak nasıl sürdürebileceğiniz gösterilecek.
 
-1. SSMS veya başka bir sorgu istemcisi kullanarak açmak için yeni bir sorgu **SQL Data Warehouse** mantıksal sunucunuzda.
+1. SSMS veya başka bir sorgu istemcisini kullanarak açmak için yeni bir sorgu **SQL veri ambarı** mantıksal sunucunuzdaki.
 
-2. Aşağıdaki sorgu oluşturmak için bir **OrdersInformation** , veri ambarı örneği tablosunda.
+2. Oluşturmak için aşağıdaki sorguyu Gönder bir **OrdersInformation** veri ambarı Örneğinizde bir tablo.
 
    ```sql
    CREATE TABLE [dbo].[OrderInformation]
@@ -104,9 +104,9 @@ Sonraki birkaç adımda bir tablo, veri ambarı örneği birkaç değerlerle olu
    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8)
    ```
 
-3. SSMS veya başka bir sorgu istemcisi kullanarak açmak için yeni bir sorgu **SQL veritabanı** mantıksal sunucunuzda.
+3. SSMS veya başka bir sorgu istemcisini kullanarak açmak için yeni bir sorgu **SQL veritabanı** mantıksal sunucunuzdaki.
 
-4. İşaret eden bir dış tablo tanımı oluşturmak için aşağıdaki sorgu **OrdersInformation** veri ambarı örneği tablosunda.
+4. İşaret eden bir dış tablo tanımındaki oluşturmak için aşağıdaki sorguyu Gönder **OrdersInformation** tabloda veri ambarı örneği.
 
    ```sql
    CREATE EXTERNAL TABLE [dbo].[OrderInformation]
@@ -122,12 +122,12 @@ Sonraki birkaç adımda bir tablo, veri ambarı örneği birkaç değerlerle olu
    )
    ```
 
-5. Şimdi bir dış tablo tanımındaki olduğunuz inceleyin, **SQL veritabanı örneği**.
+5. Artık bir dış tablo tanımındaki mümkün olduğunu, **SQL veritabanı örneği**.
 
-   ![Esnek sorgu dış tablo tanımı](media/sql-data-warehouse-elastic-query-with-sql-database/elastic-query-external-table.png)
+   ![Dış tablo tanımındaki esnek sorgu](media/sql-data-warehouse-elastic-query-with-sql-database/elastic-query-external-table.png)
 
 
-6. Veri ambarı örneği sorgular aşağıdaki sorguyu gönderin. 2. adımda eklediğiniz beş değerleri almanız gerekir. 
+6. Veri ambarı örneği sorgular aşağıdaki sorgu gönderin. 2. adımda eklediğiniz beş değerleri almanız gerekir. 
 
 ```sql
 SELECT * FROM [dbo].[OrderInformation];
@@ -135,9 +135,9 @@ SELECT * FROM [dbo].[OrderInformation];
 
 > [!NOTE]
 >
-> Birkaç değerleri rağmen dikkat edin, bu sorgu döndürmek için önemli ölçüde zaman alır. Esnek sorgu veri ambarına kullanırken, bir sorgu işleme ve taşıma genel giderlerinden kablo üzerinden göz önünde bulundurmanız gerekir. İşlem gücü, gecikme süresi yok önceliği olduğunda esnek sorgu uzaktan yürütme kullanın.
+> Az sayıda değer rağmen bu sorgu döndürmek için büyük miktarda zaman sağladığına dikkat edin. Veri ambarı ile esnek sorgu kullanarak, bir sorgu işleme taşıma ve yüksek maliyetleri kablo üzerinden düşünmelisiniz. Esnek sorgu uzaktan yürütme gecikme değil, işlem gücünü önceliği olduğunda kullanın.
 
-Tebrikler, esnek sorgu çok temelleri ayarlayın. 
+Tebrikler, ayarladığınız çok esnek sorgu temelleri. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Önerileri için bkz: [en iyi yöntemler kullanarak Azure SQL Data Warehouse ile esnek sorgu için](how-to-use-elastic-query-with-sql-data-warehouse.md).
+Öneriler için bkz. [elastik sorgu kullanarak Azure SQL veri ambarı için en iyi yöntemler](how-to-use-elastic-query-with-sql-data-warehouse.md).

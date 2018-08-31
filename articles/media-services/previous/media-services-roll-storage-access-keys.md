@@ -1,6 +1,6 @@
 ---
-title: Depolama erişim tuşlarını çalışırken sonra Media Services güncelleştirme | Microsoft Docs
-description: Bu makaleler depolama erişim tuşlarını çalışırken sonra Media Services güncelleştirme hakkında rehberlik sağlar.
+title: Depolama erişim anahtarlarını değiştirdikten sonra Media Services güncelleştir | Microsoft Docs
+description: Bu makaleler, depolama erişim anahtarlarını değiştirdikten sonra Media Services güncelleştirme hakkında rehberlik sağlar.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,50 +12,50 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 08/30/2018
 ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: ebaa679c43bd577d4f37feb7f3a025086490e25f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e8d8067fcf30b16dd3dbc7f6cf50129d837aa3a5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790296"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306865"
 ---
-# <a name="update-media-services-after-rolling-storage-access-keys"></a>Depolama erişim tuşlarını çalışırken sonra güncelleştirme medya Hizmetleri
+# <a name="update-media-services-after-rolling-storage-access-keys"></a>Depolama erişim anahtarlarını değiştirdikten sonra Media Services'ı güncelleştirme
 
-Yeni bir Azure Media Services (AMS) hesabı oluşturduğunuzda, medya içeriğinizi depolamak için kullanılan bir Azure depolama hesabı seçmeniz istenir. Media Services hesabınıza birden fazla depolama hesapları ekleyebilirsiniz. Bu konuda depolama anahtarlarını döndürmek nasıl gösterilmektedir. Ayrıca, depolama hesapları medya eklemek nasıl gösterir. 
+Yeni bir Azure Media Services (AMS) hesabı oluşturduğunuzda, medya içeriğinizi depolamak için kullanılan bir Azure depolama hesabı seçmeniz istenir. Media Services hesabınız için birden fazla depolama hesapları ekleyebilirsiniz. Bu makale depolama anahtarlarını döndürme işlemini gösterir. Ayrıca bir medya hesabı için depolama hesapları ekleme işlemini de gösterir. 
 
-Bu konuda açıklanan eylemleri gerçekleştirmek için kullandığınız [ARM API'leri](https://docs.microsoft.com/rest/api/media/mediaservice) ve [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media).  Daha fazla bilgi için bkz: [PowerShell ve Resource Manager ile Azure kaynaklarınızı yönetmek nasıl](../../azure-resource-manager/powershell-azure-resource-manager.md).
+Bu makalede açıklanan işlemleri gerçekleştirmek için kullanmanız [Azure Resource Manager API'leri](https://docs.microsoft.com/rest/api/media/mediaservice) ve [Powershell](https://docs.microsoft.com/powershell/module/azurerm.media).  Daha fazla bilgi için [PowerShell ve Resource Manager ile Azure kaynaklarını yönetme](../../azure-resource-manager/powershell-azure-resource-manager.md)
 
 ## <a name="overview"></a>Genel Bakış
 
-Yeni bir depolama hesabı oluşturulduğunda, Azure depolama hesabınıza erişim için kimlik doğrulama için kullanılan iki 512 bit depolama erişim tuşu oluşturur. Depolama bağlantılarınızı daha güvenli tutmak için düzenli aralıklarla yeniden oluşturmak ve depolama erişim anahtarınızı döndürmek için önerilir. İki erişim tuşu (birincil ve ikincil), bir erişim anahtarı yeniden bir erişim tuşunu kullanarak depolama hesabına bağlantıları sağlamanıza olanak tanıyan için sağlanır. Bu yordamı, "çalışırken erişim tuşları" olarak da adlandırılır.
+Yeni bir depolama hesabı oluşturulduğunda Azure depolama hesabınıza erişim kimlik doğrulaması için kullanılan iki adet 512 bit depolama erişim tuşu oluşturur. Depolama bağlantılarınızı daha güvenli tutmak için bunu düzenli aralıklarla yeniden üretin ve depolama erişim anahtarınızı döndürme önerilir. İki erişim tuşu (birincil ve ikincil) depolama hesabı erişim anahtarı yeniden oluşturmak, bir erişim anahtarı kullanılarak bağlantı sürdürmenizi etkinleştirmek için sağlanır. Bu yordamı, "erişim anahtarları" olarak da adlandırılır.
 
-Media Services, sağlanan bir depolama anahtarı bağlıdır. Özellikle, belirtilen depolama erişim tuşu akışla aktarmak veya varlıklarınızı indirmek için kullanılan bulucular bağlıdır. AMS hesabı oluşturduğunuzda, bir bağımlılık birincil depolama erişim anahtarı varsayılan olarak alır ancak bir kullanıcı olarak AMS sahip depolama anahtarı güncelleştirebilirsiniz. Bu konuda açıklanan adımları izleyerek kullanmak için hangi anahtarını bilmesi Media Services olanak emin olmanız gerekir.  
+Media Services, sağlanan depolama anahtarı bağlıdır. Özellikle, akış veya varlıklarınızı indirmek için kullanılan bulucular belirtilen depolama erişim anahtarını temel bağlıdır. AMS hesabınız oluşturulduğunda, bir bağımlılık birincil depolama erişim anahtarı varsayılan olarak alır ancak AMS sahip depolama anahtarı bir kullanıcı olarak güncelleştirebilirsiniz. Media Services'ın bu makalede açıklanan adımları izleyerek kullanmak için hangi anahtarı biliyor olanak emin olmanız gerekir.  
 
 >[!NOTE]
-> Birden çok depolama hesabınız yoksa, bu yordamı her bir depolama hesabıyla gerçekleştirmelisiniz. Depolama anahtarları döndürme sipariş sabit değildir. İkincil anahtar ilk ve birincil anahtar veya bunun tersini de döndürebilirsiniz.
+> Birden çok depolama hesabınız yoksa, bu yordamı her bir depolama hesabı ile gerçekleştirmelisiniz. Depolama anahtarlarını döndürme sırasını sabit değildir. İkincil anahtar ilk ve birincil anahtar veya bunun tersini de döndürebilirsiniz.
 >
-> Bir üretim hesabında bu konuda açıklanan adımları yürütmeden önce bir üretim öncesi hesabında test emin olun.
+> Bir üretim hesapta bu makalede açıklanan adımları yürütülmeden önce bir üretim öncesi hesabında sınanacak emin olun.
 >
 
 ## <a name="steps-to-rotate-storage-keys"></a>Depolama anahtarlarını döndürmek için adımları 
  
- 1. Powershell cmdlet'i aracılığıyla depolama hesabının birincil anahtarını değiştirin veya [Azure](https://portal.azure.com/) portal.
- 2. Depolama hesabı anahtarlarını almak için medya hesabı zorlamak için uygun parametreleri eşitleme AzureRmMediaServiceStorageKeys cmdlet'ini çağırın
+ 1. Depolama hesabının birincil anahtarını powershel cmdlet'i değiştirmek veya [Azure](https://portal.azure.com/) portalı.
+ 2. Depolama hesabı anahtarlarını almak için medya hesabı zorlamak için uygun params ile eşitleme AzureRmMediaServiceStorageKeys cmdlet'i çağırın
  
-    Aşağıdaki örnek, depolama hesaplarına anahtarları eşitleme gösterilmektedir.
+    Aşağıdaki örnek, depolama hesaplarının anahtarlarını eşitleme gösterilmektedir.
   
          Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
   
- 3. Bir saat ya da bunu bekleyin. Akış senaryoları çalıştığınız doğrulayın.
- 4. Powershell cmdlet veya Azure portal üzerinden depolama hesabının ikincil anahtarını değiştirin.
- 5. Eşitleme AzureRmMediaServiceStorageKeys powershell yeni depolama hesabı anahtarlarını almak için medya hesabı zorlamak için uygun parametreleri ile çağırın. 
- 6. Bir saat ya da bunu bekleyin. Akış senaryoları çalıştığınız doğrulayın.
+ 3. Bir saat kadar bekleyin. Akış senaryoları çalışma doğrulayın.
+ 4. Depolama hesabı ikincil anahtar powershell cmdlet'ini veya Azure portalı üzerinden değiştirin.
+ 5. Eşitleme AzureRmMediaServiceStorageKeys powershell ile yeni depolama hesabı anahtarlarını almak için medya hesabı zorlamak için uygun params çağırın. 
+ 6. Bir saat kadar bekleyin. Akış senaryoları çalışma doğrulayın.
  
-### <a name="a-powershell-cmdlet-example"></a>Powershell cmdlet örneği 
+### <a name="a-powershell-cmdlet-example"></a>Bir powershell cmdlet'i örneği 
 
-Aşağıdaki örnek, depolama hesabı almak ve AMS hesabının ile eşitlemek gösterilmiştir.
+Aşağıdaki örnek, depolama hesabı almak ve AMS hesabı ile eşitlemek gösterilmektedir.
 
     $regionName = "West US"
     $resourceGroupName = "SkyMedia-USWest-App"
@@ -68,7 +68,7 @@ Aşağıdaki örnek, depolama hesabı almak ve AMS hesabının ile eşitlemek g�
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>AMS hesabınızı depolama hesapları ekleme adımları
 
-Aşağıdaki konu AMS hesabınızı depolama hesapları ekleme gösterilmektedir: [bir Media Services hesabına birden çok depolama hesabı ekleme](meda-services-managing-multiple-storage-accounts.md).
+Aşağıdaki makalede AMS hesabınızı depolama hesapları ekleme işlemi gösterilmektedir: [bir Media Services hesabına birden çok depolama hesabı ekleme](meda-services-managing-multiple-storage-accounts.md).
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -77,4 +77,4 @@ Aşağıdaki konu AMS hesabınızı depolama hesapları ekleme gösterilmektedir
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>İlgili kaynaklar
-Bu belge oluşturma doğrultusunda katkıda bulunan aşağıdaki kişilerin onaylamak isteriz: Cenk Dingiloglu, Milan Gada Seva Titov.
+Bu belge oluşturma doğrultusunda katkıda bulunan aşağıdaki kişilerin onaylamak istiyoruz: Cenk Dingiloglu, Milano Gada Seva Titov.

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: laviswa
-ms.openlocfilehash: 26928e36b09ef0dfe5576a8a8039ffac2dd3fb4a
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: a3a1f376c36004851d6e64f2fa037bebfc24665b
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42059950"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287767"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Azure Cosmos DB verileri içeren SQL sorguları sorgulama
 
@@ -27,17 +27,7 @@ Microsoft Azure Cosmos DB SQL API hesabı bir JSON sorgu dili olarak SQL (yapıl
 
 * Azure Cosmos DB, temel olarak JavaScript'in programlama modeli için sorgu dili kullanır. SQL API'si, JavaScript'in tür sistemi, ifade değerlendirmesi ve işlev çağrısını kökü belirtilmemiş. Bu, dönüş JSON belgelerini, kendinden birleştirmeler, uzamsal sorgular ve tamamen yanı sıra başka özellikler, JavaScript dilinde yazılmış kullanıcı tanımlı işlevler (UDF'ler) çağrılmasını projeksiyonlar ilişkisel, hiyerarşik gezinme için doğal bir programlama modeli sağlar. 
 
-Bu makalede basit JSON belgelerini kullanarak SQL sorguları bazı örnekler gösterilmektedir. Azure Cosmos DB SQL dili sözdizimi hakkında bilgi edinmek için [SQL söz dizimi başvurusu](sql-api-sql-query-reference.md) makalesi. Ayrıca sorgulama özellikleri Azure Cosmos DB gösteren aşağıdaki videoları izleyerek kullanmaya başlayabilir ve çevrimiçi gösterir [sorgu oyun alanı](http://www.documentdb.com/sql/demo).
-
-> [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
->
->
-
-Daha fazla gelişmiş sorgulama teknikler aşağıdaki videoda gösterilmiştir:
-
-> [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
->
->
+Bu makalede basit JSON belgelerini kullanarak SQL sorguları bazı örnekler gösterilmektedir. Azure Cosmos DB SQL dili sözdizimi hakkında bilgi edinmek için [SQL söz dizimi başvurusu](sql-api-sql-query-reference.md) makalesi. 
 
 ## <a id="GettingStarted"></a>SQL komutları ile çalışmaya başlama
 İki basit JSON belgelerinin ve bu verilere karşı sorgu oluşturalım. İki JSON belgelerini aileleri hakkında göz önünde bulundurun, bu JSON belgelerini bir koleksiyona ekleyin ve ardından verileri sorgulamak. Burada basit JSON sahibiz belge Andersen ve Wakefield ailesi, üst, alt öğelerini (ve bunların Evcil Hayvanlar), adresi ve kayıt bilgileri. Belge dizeleri, sayı, Boole, diziler ve iç içe özellikler vardır. 

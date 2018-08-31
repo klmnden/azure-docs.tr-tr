@@ -1,6 +1,6 @@
 ---
-title: Azure anahtar kasası erişmek için birçok uygulamalara iznini | Microsoft Docs
-description: Bir anahtar kasası erişmek için birçok uygulama izni öğrenin
+title: Çok sayıda uygulamaya bir Azure anahtar kasası erişim izni verme | Microsoft Docs
+description: Çok sayıda uygulamaya bir anahtar kasasına erişim izni vermeyi öğreneceksiniz
 services: key-vault
 documentationcenter: ''
 author: amitbapat
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: ambapat
-ms.openlocfilehash: ddeaf184138bd48d324799ddb45248b0a0ee8eeb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 14e6e8bb723eb236f8fb315454b8697a3bd947ef
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30174992"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286436"
 ---
-# <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>Bir anahtar kasası erişmek için birçok uygulama izni verin
+# <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>Çok sayıda uygulamaya bir anahtar kasasına erişim izni verme
 
-## <a name="q-i-have-several-over-16-applications-that-need-to-access-a-key-vault-since-key-vault-only-allows-16-access-control-entries-how-can-i-achieve-that"></a>S: birkaç sahip bir anahtar kasası erişmesi gerekir (üzerinde 16) uygulamaları. Key Vault yalnızca 16 erişim denetimi girişine izin verdiği için bunu nasıl gerçekleştirebilirim?
+## <a name="q-i-have-several-applications-that-need-to-access-a-key-vault-how-can-i-give-these-applications-up-to-1024-access-to-key-vault"></a>S: bir anahtar kasasına erişmek için gereken çeşitli uygulamalar varsa, nasıl miyim bu uygulamaları (en fazla 1024) Key Vault'a erişmesini?
 
-Anahtar kasası erişim denetimi ilkesini yalnızca 16 girişleri destekler. Ancak, bir Azure Active Directory güvenlik grubu oluşturabilirsiniz. Tüm ilişkili hizmet asıl adı bu güvenlik grubuna ekleyin ve bu anahtar kasası güvenlik grubuna erişim hakkı.
+Anahtar kasası erişim denetimi İlkesi, en fazla 1024 girişleri destekler. Ancak, bir Azure Active Directory güvenlik grubu oluşturabilirsiniz. Tüm ilişkili hizmet sorumlularını bu sistem güvenlik grubuna ekleyin ve bu güvenlik grubu için Key Vault erişim hakkı.
 
 Ön koşullar şunlardır:
-* [Azure Active Directory V2 PowerShell modülünü yüklemek](https://www.powershellgallery.com/packages/AzureAD).
+* [Azure Active Directory V2 PowerShell modülünü yükleme](https://www.powershellgallery.com/packages/AzureAD).
 * [Azure PowerShell'i yükleme](/powershell/azure/overview).
-* Aşağıdaki komutları çalıştırmak için Azure Active Directory Kiracı gruplarında Oluştur/Düzenle izinlerine sahip olmanız gerekir. İzinleri yoksa, Azure Active Directory yöneticinize başvurmanız gerekebilir.
+* Aşağıdaki komutları çalıştırmanız grupları Azure Active Directory kiracısı oluşturma/düzenleme izni gerekir. İzinleriniz yoksa, Azure Active Directory yöneticinize başvurmanız gerekebilir.
 
-Şimdi PowerShell'de aşağıdaki komutları çalıştırın.
+Artık PowerShell'de aşağıdaki komutları çalıştırın.
 
 ```powershell
 # Connect to Azure AD 
@@ -53,8 +53,8 @@ Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.
 # Of course you can adjust the permissions as required 
 ```
 
-Farklı bir uygulama grubu için izinler kümesini vermeniz gerekiyorsa, bu tür uygulamalar için ayrı bir Azure Active Directory güvenlik grubu oluşturun.
+Farklı bir uygulama grubu için izin kümesi vermek gerekirse, bu tür uygulamalar için ayrı bir Azure Active Directory güvenlik grubu oluşturun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Nasıl yapılır hakkında daha fazla bilgi [anahtar kasanızı güvenli](key-vault-secure-your-key-vault.md).
+Kullanma hakkında daha fazla bilgi edinin [anahtar kasanızın güvenliğini sağlama](key-vault-secure-your-key-vault.md).

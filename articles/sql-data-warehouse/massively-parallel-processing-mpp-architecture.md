@@ -1,41 +1,41 @@
 ---
-title: Azure SQL Data Warehouse - MPP mimarisi | Microsoft Docs
-description: Yüksek düzeyde paralel işleme (MPP) yüksek performans ve ölçeklenebilirlik elde etmek için Azure storage ile Azure SQL Data Warehouse nasıl birleştirir öğrenin.
+title: Azure SQL veri ambarı - MPP mimarisi | Microsoft Docs
+description: Azure SQL veri ambarı yüksek performans ve ölçeklenebilirlik elde etmek için Azure depolama ile yüksek düzeyde paralel işleme (MPP) nasıl birleştirir öğrenin.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: e8fef156f4b78c9f7241c9eb9623e061f5a31fe7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 34b908ef79b0a2479c420675272f7d3f3bf0ff15
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799286"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286801"
 ---
-# <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse - yüksek düzeyde paralel işleme (MPP) mimarisi
-Yüksek düzeyde paralel işleme (MPP) yüksek performans ve ölçeklenebilirlik elde etmek için Azure storage ile Azure SQL Data Warehouse nasıl birleştirir öğrenin. 
+# <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL veri ambarı - yüksek düzeyde paralel işleme (MPP) mimarisi
+Azure SQL veri ambarı yüksek performans ve ölçeklenebilirlik elde etmek için Azure depolama ile yüksek düzeyde paralel işleme (MPP) nasıl birleştirir öğrenin. 
 
 ## <a name="mpp-architecture-components"></a>MPP mimarisi bileşenleri
-SQL veri ambarı veri hesaplama işlenmesini birden çok düğüm arasında dağıtmak için Mimari genişletme yararlanır. Veri ambarı birimi bilinen işlem gücü için bir Özet ölçek birimidir. Hangi etkinleştirir ölçeklendirmenizi bağımsız olarak veri sisteminizde işlem depolama alanından SQL Data Warehouse ayırır işlem.
+SQL veri ambarı mimarisi, birden fazla düğümde hesaplama verilerinin işlenmesini dağıtmak için bir genişleme yararlanır. Ölçek birimi, bir veri ambarı birimi bilinen işlem gücü için kullanılan bir soyutlamadır. Hangi etkinleştirir, ölçeklendirmek için bağımsız olarak sisteminizdeki işlem verileri depolama alanından SQL veri ambarı ayırır işlem.
 
 ![SQL Data Warehouse Mimarisi](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-SQL veri ambarı düğümü tabanlı bir mimari kullanır. Uygulamaları bağlanın ve tek veri ambarı için giriş noktası bir denetim düğümü için T-SQL komutlarını verin. Denetim düğümü sorguları paralel işleme için en iyi duruma getirir ve ardından çalışmalarını paralel yapmak için işlem düğümlerine operations geçirir MPP altyapısı çalışır. İşlem düğümlerini Azure depolama alanında tüm kullanıcı verilerini depolamak ve paralel sorgular çalıştırın. Veri Taşıma hizmeti (DMS), paralel sorgular çalıştırmak ve doğru sonuçlar döndürmek için gerekli olan düğümler arasında verileri taşır ve sistem düzeyinde çalışan bir iç hizmetidir. 
+SQL veri ambarı düğümü tabanlı bir mimari kullanır. Uygulamaları bağlama ve tek bir veri ambarı için giriş noktası olan bir denetim düğümü için T-SQL komutlarını yürütün. Denetim düğümü sorguları paralel işleme için en iyi duruma getirir ve ardından çalışmalarını paralel olarak yürütmeleri için işlem düğümlerine operations geçirir MPP altyapısı çalıştırır. İşlem düğümleri, tüm kullanıcı verilerini Azure Storage'a depoladığınız ve paralel sorgular çalıştırın. Veri Taşıma hizmeti (DMS) doğru sonuçlar döndürebilir ve sorguları paralel olarak çalıştırmak için gerekli olan düğümler arasında veri taşıyan bir sistem düzeyinde iç hizmetidir. 
 
 Ayrılmış depolama ve işlem ile SQL Veri Ambarı şunları yapabilir:
 
-* Bağımsız olarak boyutu, depolama ihtiyaçlarınızı yedeklemiş güç işlem.
+* Bağımsız olarak boyutu, depolama ihtiyaçlarınızı ne olursa olsun power işlem.
 * Verileri taşımadan işlem gücünü büyütür veya küçültür.
-* İşlem kapasitesini verilerini olduğu gibi bırakarak yalnızca depolama alanı için ödeme şekilde.
+* İşlem kapasitesini bilgilere dokunmadan yalnızca, böylece yalnızca depolama için ödeme yaparsınız.
 * Çalışma saatleri içinde işlem kapasitesini sürdürür.
 
 ### <a name="azure-storage"></a>Azure Storage
-SQL veri ambarı Azure depolama kullanıcı verilerinizi güvenli tutmak için kullanır.  Verilerinizin depolandığı ve Azure Depolama tarafından yönetilen olduğundan, SQL Data Warehouse depolama tüketim için ayrı ayrı ücretlidir. Veri içine parçalı **dağıtımları** sistemin performansını iyileştirmek için. Tablo tanımlarken veri dağıtırken kullanmak üzere hangi parçalama düzeni seçebilirsiniz. SQL veri ambarı bu parçalama desenleri destekler:
+SQL veri ambarı kullanıcı verilerinizin güvenliğini korumak için Azure depolama kullanır.  Verilerinizin depolandığı ve Azure Depolama tarafından yönetilen olduğundan, SQL veri ambarı depolama tüketiminiz için ayrı ayrı uygular. Verileri içine parçalı **dağıtımları** sistemin performansını iyileştirmek için. Veri tablosu tanımlarsanız dağıtırken kullanmak üzere hangi parçalama düzeni seçebilirsiniz. SQL veri ambarı bu parçalara ayırma örneklerini uygulamanıza destekler:
 
 * Karma
 * Hepsini Bir Kez Deneme
@@ -43,50 +43,50 @@ SQL veri ambarı Azure depolama kullanıcı verilerinizi güvenli tutmak için k
 
 ### <a name="control-node"></a>Denetim düğümü
 
-Veri ambarının Beyin denetim düğümdür. Tüm uygulamalarla ve bağlantılarla etkileşim kuran ön uçtur. MPP altyapısı iyileştirmek ve paralel sorgular koordine etmek için Denetim düğüm üzerinde çalışır. SQL veri ambarı için bir T-SQL sorgusu gönderdiğiniz zaman, kontrol düğümü, her dağıtım paralel karşı çalışan sorguları dönüştürür.
+Veri ambarının Beyin denetim düğümüdür. Tüm uygulamalarla ve bağlantılarla etkileşim kuran ön uçtur. MPP altyapısı iyileştirmek ve paralel sorgular koordine etmek için denetim düğümü üzerinde çalıştırır. SQL veri ambarı'na bir T-SQL sorgusu gönderdiğiniz zaman, kontrol düğümü, her dağıtım paralel karşı çalışan sorguları dönüştürür.
 
 ### <a name="compute-nodes"></a>İşlem düğümleri
 
-İşlem düğümleri hesaplama gücüne sağlar. İşleme için işlem düğümlerine dağıtımları eşleyin. Daha fazla işlem kaynaklarını ödeme olarak SQL Data Warehouse kullanılabilir işlem düğümlerine dağıtımları yeniden eşler. Sayısı 1 ile 60 düğümleri aralığından işlem ve veri ambarı için hizmet düzeyine göre belirlenir.
+İşlem düğümleri, işlem gücünü sağlar. İşleme için işlem düğümlerine dağıtımlarını eşleyin. Daha fazla bilgi işlem kaynakları için ödeme gibi SQL veri ambarı kullanılabilir işlem düğümlerine dağıtımlarını yeniden eşler. Sayısı 1 ile 60 düğümleri aralığından işlem ve veri ambarı hizmet düzeyine göre belirlenir.
 
-Her işlem düğümü sistem görünümlerde görülebilir bir düğüm kimliği vardır. Sistem görünümleri adları sys.pdw_nodes ile başlayan node_id sütununda arayarak işlem düğüm kimliği görebilirsiniz. Bu sistem görünümleri listesi için bkz: [MPP sistem görünümleri](sql-data-warehouse-reference-tsql-statements.md).
+Her işlem düğümü sistem görünümlerde görülebilir bir düğüm kimliği vardır. İşlem düğümü kimliği adları sys.pdw_nodes ile başlayan sistem görünümleri $node_id sütununda bakarak görebilirsiniz. Bu sistem görünümleri listesi için bkz. [MPP sistem görünümleri](sql-data-warehouse-reference-tsql-statements.md).
 
 ### <a name="data-movement-service"></a>Veri Taşıma hizmeti
-Veri Taşıma hizmeti (DMS), veri taşıma işlem düğümleri arasında koordinatları veri aktarım teknolojisidir. Bazı sorguları paralel sorgular doğru sonuçlar döndürebilir emin olmak için veri taşıma gerektirir. Veri taşıma gerekli olduğunda, doğru konuma doğru verileri alır DMS sağlar. 
+Veri Taşıma hizmeti (DMS), işlem düğümleri arasında veri taşıma koordinatları veri aktarım teknolojisidir. Bazı sorgular veri taşımayı paralel sorguları doğru sonuçlar döndürebilir emin olmak için gereklidir. Veri taşıma gerekli olduğunda DMS doğru verilere doğru konuma alır sağlar. 
 
 ## <a name="distributions"></a>Dağıtımlar
 
-Bir dağıtım depolama ve Dağıtılmış veri üzerinde çalıştıran paralel sorgular için işleme temel birimidir. SQL veri ambarı bir sorgu çalıştığında, paralel olarak çalışan 60 küçük sorgulara iş ayrılmıştır. Her 60 küçük sorgulara veri dağıtımları biri üzerinde çalışır. Her işlem düğümünde bir veya daha fazla 60 dağıtımları yönetir. Veri ambarı en fazla işlem kaynağı işlem düğümü başına tek bir dağıtım sahiptir. Veri ambarı minimum işlem kaynağı tüm dağıtımları bir işlem düğümünde sahiptir.  
+Bir dağıtım depolama ve çalıştıran dağıtılmış veriler üzerinde paralel sorgular için işleme temel birimidir. SQL veri ambarı, bir sorgu çalıştırıldığında, işi paralel olarak 60 daha küçük sorgulara ayrılmıştır. Her biri 60 daha küçük sorgulara veri dağıtımları biri üzerinde çalışır. Her işlem düğümünde bir veya daha fazla 60 dağıtım yönetir. En fazla işlem kaynakları ile bir veri ambarı, işlem düğümü başına tek bir dağıtım sahiptir. En düşük bilgi işlem kaynakları ile bir veri ambarı, tüm dağıtımları bir işlem düğümünde sahiptir.  
 
-## <a name="hash-distributed-tables"></a>Karma dağıtılmış tabloları
-Karma dağıtılmış tablo birleşimler ve Toplamalar için en yüksek sorgu performansı büyük tablolarda sunabilir. 
+## <a name="hash-distributed-tables"></a>Karma dağıtılmış tablolar
+Bir karma dağıtılmış tablo birleşimler ve Toplamalar için en yüksek sorgu performansı büyük tablolarda teslim edebilirsiniz. 
 
-Karma dağıtılmış bir tabloya verileri için SQL Data Warehouse belirleyici biçimde her satır için bir dağıtım atamak için bir karma işlevini kullanır. Tablo tanımı sütunlardan biri dağıtım sütunu olarak atanmış. Karma işlevi, her satır için bir dağıtım atamak için dağıtım sütundaki değerleri kullanır.
+Karma dağıtılmış bir tabloya parça verileri SQL veri ambarı belirleyici her satır için bir dağıtım atamak için bir karma işlevi kullanır. Tablo tanımında sütunlardan birinin, dağıtım sütunu olarak atanır. Karma işlevi, her satır için bir dağıtım atamak için dağıtım sütundaki değerleri kullanır.
 
-Aşağıdaki diyagram, tam (dağıtılmış olmayan tablo) karma dağıtılmış bir tablo olarak nasıl depolanır gösterir. 
+Aşağıdaki diyagram, (tablo dağıtılmış olmayan) tam bir karma dağıtılmış tablo nasıl depolanır gösterir. 
 
 ![Dağıtılmış tablo](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "dağıtılmış tablo")  
 
-* Her satır için bir dağıtım aittir.  
-* Belirleyici karma algoritma her satır için bir dağıtım atar.  
-* Dağıtım başına tablo satır sayısı tablolar farklı boyutlarda tarafından gösterildiği gibi değişir.
+* Her satır için bir dağıtım ait.  
+* Belirlenimci karma algoritma her satır için bir dağıtım atar.  
+* Dağıtım başına tablosu satır sayısı, farklı tabloları boyutları tarafından gösterilen şekilde değişir.
 
-Distinctness, veri eğme ve sistem üzerinde çalışan sorguları türleri gibi bir dağıtım sütun seçimi için başarım düşünceleri vardır.
+Distinctness veri dengesizliği ve sistem üzerinde çalışan sorguları türleri gibi bir dağıtım sütun seçimi performansla ilgili önemli noktalar vardır.
 
-## <a name="round-robin-distributed-tables"></a>Hepsini dağıtılmış tabloları
-Hepsini tablo oluşturmak için basit bir tablodur ve hazırlama tablosu olarak yükleri kullanıldığında hızlı performans sunar.
+## <a name="round-robin-distributed-tables"></a>Hepsini bir kez deneme dağıtılmış tablolar
+Hepsini bir kez deneme tablosu oluşturmak için basit tablo ve bir hazırlama tablosuna yükler için kullanıldığında hızlı performans sunar.
 
-Hepsini dağıtılmış tablo veri tablosu arasında ancak hiçbir daha fazla iyileştirme olmadan dağıtır. Bir dağıtımı ilk rastgele seçilir ve ardından arabellek satır dağıtımları için ardışık olarak atanır. Hepsini tabloya veri yüklemek hızlı, ancak sorgu performansı çoğunlukla Dağıtılmış karma tabloları ile daha iyi olabilir. Veri reshuffling hepsini tablolarda birleştirmeler gerektirir ve bu ek zaman alır.
+Hepsini bir kez deneme dağıtılmış tablo verilerini tablo arasında ancak başka hiçbir iyileştirme olmadan eşit olarak dağıtır. Bir dağıtımı ilk rastgele seçilir ve ardından arabellek satır dağıtımlar için sırayla atanır. Hepsini bir kez deneme tablosuna veri yüklemek hızlı bir işlemdir ancak sorgu performansı genellikle karma dağıtılmış tablo ile daha iyi olabilir. Hepsini bir kez deneme tabloları birleştirme veri reshuffling gerektirir ve bu ek zaman alır.
 
 
 ## <a name="replicated-tables"></a>Çoğaltılmış tablolar
-Yinelenen Tablo küçük tablolar için hızlı sorgu performansı sağlar.
+Çoğaltılmış bir tabloda küçük tablolar için en hızlı sorgu performansı sağlar.
 
-Çoğaltılan bir tablo tablo her işlem düğümü üzerinde tam bir kopyasını saklar. Sonuç olarak, bir tablo çoğaltma JOIN veya toplama önce işlem düğümleri arasında veri aktarmak için gereksinimini ortadan kaldırır. Çoğaltılmış tablolarda en küçük tablolarla yararlanılmıştır. Ek depolama alanı gereklidir ve büyümesine neden olan veri yazmada pratik tabloları yükleyen ücrete ek ek yüklerini vardır.  
+Çoğaltılan bir tablo, tablonun her işlem düğümünde tam bir kopyasını önbelleğe alır. Sonuç olarak, bir tablo çoğaltma JOIN veya toplama önce işlem düğümleri arasında veri aktarımı ihtiyacını ortadan kaldırır. Çoğaltılmış tablolar içeren küçük tablolar en iyi şekilde kullanılır. Ek depolama alanı gereklidir ve büyük yapan bunlara veri yazma pratik tabloları yükleyen uygulanır ek ek yüklerini vardır.  
 
-Aşağıdaki diyagramda, çoğaltılmış bir tablo gösterir. SQL Data Warehouse için her işlem düğümü üzerinde ilk dağıtım çoğaltılmış tablo önbelleğe alınır.  
+Aşağıdaki diyagramda, çoğaltılmış bir tabloda gösterilmiştir. SQL veri ambarı için her işlem düğümünde ilk dağıtım çoğaltılmış tablo önbelleğe alınır.  
 
-![Yinelenmiş tablo](media/sql-data-warehouse-distributed-data/replicated-table.png "yinelenmiş tablosu") 
+![Çoğaltılan tablo](media/sql-data-warehouse-distributed-data/replicated-table.png "çoğaltılan tablo") 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 SQL Veri Ambarı hakkında biraz bilgi sahibi olduğunuza göre hızlıca [SQL Veri Ambarı oluşturma][create a SQL Data Warehouse] ve [örnek verileri yükleme][load sample data] hakkında bilgi edinin. Azure'da yeniyseniz yeni terimlerle karşılaşabileceğinizi için [Azure sözlüğünü][Azure glossary] yararlı bulabilirsiniz. Alternatif olarak, aşağıdaki diğer SQL Veri Ambarı Kaynakları’na göz atın.  

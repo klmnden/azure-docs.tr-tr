@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: e94b023275f3992bea9595195688eebf42f0f229
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b5e0a0caacab2413b640c58575673e555eeb76a4
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186797"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288287"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Anlama ve IOT Hub'ında cihaz ikizlerini kullanma
 
@@ -254,7 +254,7 @@ Aşağıdaki kısıtlamalarla JSON nesneleri, etiketler ve istenen özellikler b
     }
     ```
 
-* Tüm dize değerleri, uzunluğu en fazla 4 KB olabilir.
+* Tüm dize değerleri, en fazla 512 bayt uzunluğunda olabilir.
 
 ## <a name="device-twin-size"></a>Cihaz ikizi boyutu
 IOT hub'ı zorunlu bir 8 KB'lık boyut sınırlaması ilgili toplam değerlerinin her `tags`, `properties/desired`, ve `properties/reported`, salt okunur öğeleri hariç.
@@ -354,6 +354,7 @@ Bu makalede açıklanan kavramları bazıları denemek için aşağıdaki öğre
 
 * [Cihaz ikizi kullanma][lnk-twin-tutorial]
 * [Cihaz ikizi özelliklerini kullanma][lnk-twin-properties]
+* [VS Code için Azure IOT araç seti ile cihaz Yönetimi][lnk-twin-vscode]
 
 <!-- links and images -->
 
@@ -377,6 +378,7 @@ Bu makalede açıklanan kavramları bazıları denemek için aşağıdaki öğre
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-properties]: tutorial-device-twins.md
+[lnk-twin-vscode]: iot-hub-device-management-iot-toolkit.md
 [lnk-twin-metadata]: iot-hub-devguide-device-twins.md#device-twin-metadata
 [lnk-concurrency]: iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow

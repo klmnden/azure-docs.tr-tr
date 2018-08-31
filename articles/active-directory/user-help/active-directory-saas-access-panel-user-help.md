@@ -1,5 +1,5 @@
 ---
-title: Erişme ve Azure Active Directory'de uygulamalarım portalında kullanma ile ilgili yardım alın | Microsoft Docs
+title: Erişme ve Azure Active Directory'de MyApps portalında kullanma ile ilgili yardım alın | Microsoft Docs
 description: Oturum açma ve erişim panelinde ortak görevleri gerçekleştirme konusunda yardım alın.
 services: active-directory
 author: eross-msft
@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: a6ac780625f6a109797cbdab78dc555e21e18bee
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 5503681b051066f6601be97bda246128763e7bc7
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343619"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306419"
 ---
-# <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Erişim ve uygulamalarım portalı kullanarak sorunlarını giderme
+# <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>Erişme ve MyApps portalında kullanarak sorunlarını giderme
 
-Oturum açma veya uygulamalarım portalı kullanarak sorunları yaşıyorsanız, Yardım için yardım masasına veya yöneticinize başvurun önce bu sorun giderme ipuçlarını deneyin.
+MyApps portalı kullanarak veya oturum açma sorunları yaşıyorsanız, Yardım için yardım masasına veya yöneticinize başvurun önce sorun giderme ipuçları bu deneyin.
 
-## <a name="i-am-having-trouble-signing-into-the-my-apps-portal"></a>Uygulamalarım portalında imzalama konusunda sorun yaşıyorum
+## <a name="i-am-having-trouble-signing-into-the-myapps-portal"></a>MyApps portalında imzalama konusunda sorun yaşıyorum
 
 Bu genel ipuçlarını deneyin:
 
@@ -45,7 +45,7 @@ Parolanızı sıfırlama veya Self Servis parola sıfırlama (SSPR) kullanarak b
 
 ## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>My Apps güvenli oturum açma uzantısı yükleme konusunda sorun yaşıyorum
 
-Uygulamalarım portalında JavaScript destekleyen bir tarayıcı gerektirir ve CSS etkinleştirdi. Parola tabanlı çoklu oturum açma uygulamaları kullanıyorsanız, eşlik eden uzantısı de yüklü olmalıdır. Bu uzantı, parola tabanlı çoklu oturum açma uygulamaları için yapılandırılmış bir uygulama başlatıldığında otomatik olarak indirilir.
+MyApps portalında JavaScript destekleyen bir tarayıcı gerektirir ve CSS etkinleştirdi. Parola tabanlı çoklu oturum açma uygulamaları kullanıyorsanız, eşlik eden uzantısı de yüklü olmalıdır. Bu uzantı, parola tabanlı çoklu oturum açma uygulamaları için yapılandırılmış bir uygulama başlatıldığında otomatik olarak indirilir.
 
 Tarayıcı aşağıdaki gereksinimleri karşıladığından emin olun:
 
@@ -63,8 +63,8 @@ Ayrıca, doğrudan aşağıdaki sitelerden uzantısı da indirebilirsiniz:
 Uzantıyı yükledikten ve sorunları yaşamaya aşağıdakileri deneyin:
 
 - Uzantı etkinleştirildiğinden emin olmak için tarayıcı uzantısı ayarlarınızı kontrol edin.
-- Tarayıcınızı yeniden başlatın ve uygulamalarım portalında oturum açın.
-- Tarayıcınızın tanımlama bilgilerini temizleyin ve uygulamalarım portalında oturum açın.
+- Tarayıcınızı yeniden başlatın ve MyApps portalında oturum açın.
+- Tarayıcınızın tanımlama bilgilerini temizleyin ve MyApps portalında oturum açın.
 - Bir tanılama aracı ve adım adım yönergeler için Internet Explorer uzantısı yapılandırma erişmek için bkz: [erişim paneli uzantısını Internet Explorer için sorun giderme](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Kullanım uygulamalarım güvenli oturum açma uzantısı
@@ -85,7 +85,7 @@ Uzantıyı yükledikten ve sorunları yaşamaya aşağıdakileri deneyin:
 * Uzantı bir uygulamayı başlatmak için aşağıdakileri yapın:
    1. Uzantıyı yükledikten sonra ona seçerek oturum **kullanmaya başlamak oturum**.
    2. Alt menüsünü açmak için genişletme simgesini seçin.
-   3. Uygulamalarım portalında kullanılabilir olan uygulama arayın.
+   3. MyApps portalında kullanılabilir olan uygulama arayın.
    4. Arama sonuçları listesinde uygulamayı seçin.  
        Son üç uygulamaları kullandığınız görüntülenen **kısa süre önce kullanılan** kısayol listesi.
 

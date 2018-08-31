@@ -3,19 +3,19 @@ title: SQL veri ambarı veri tümleştirme iş ortakları | Microsoft Docs
 description: Azure SQL veri ambarı'nı destekleyen bir veri tümleştirme çözümleri ile üçüncü taraf iş ortaklarından oluşan listeler.
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 1329fe4b30070111354adb87b32be6f694f316c5
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: d92d230be1ec0e85894a1e9e4d8635aa71afa514
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056556"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307713"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL veri ambarı veri tümleştirme iş ortakları
 Veri ambarı çözümünüzü oluşturmak için çok çeşitli sektör lideri araçları seçin. Bu makalede, Azure SQL veri ambarı destekleyen veri tümleştirme çözümleri ile Microsoft iş ortağı şirketlerden vurgulanır.

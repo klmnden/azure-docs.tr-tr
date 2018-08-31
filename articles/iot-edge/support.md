@@ -8,12 +8,12 @@ ms.date: 6/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 696a752f199e2f7018713cb87c3b098556c5b4f5
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
-ms.translationtype: HT
+ms.openlocfilehash: 2163179d3353626e12495381fc64792db56ec78e
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247625"
+ms.locfileid: "43286371"
 ---
 # <a name="azure-iot-edge-support"></a>Azure IOT Edge desteği
 Bir Azure IOT Edge ürün desteği arama için çeşitli yollar vardır.
@@ -35,16 +35,16 @@ Katman 1 sistemleri gibi resmi olarak desteklenen zorlayıcı olabilir. Diğer b
 Genel kullanıma sunuldu
 | İşletim Sistemi | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Ubuntu Server 18.04 | Evet | Hayır |
-| Ubuntu Server 16.04 | Evet | Hayır |
 | Raspbian Uzat | Hayır | Evet|
+| Ubuntu Server 16.04 | Evet | Hayır |
+| Ubuntu Server 18.04 | Evet | Hayır |
 
 Genel önizlemeye sunuldu
 | İşletim Sistemi | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Windows 10 sunucu 1803 | Evet | Hayır |
-| Windows 10 IOT Enterprise (Nisan 2018 güncelleştirmesi) | Evet | Hayır |
 | Windows 10 IoT Core (Nisan 2018 güncelleştirmesi) | Evet | Hayır |
+| Windows 10 IOT Enterprise (Nisan 2018 güncelleştirmesi) | Evet | Hayır |
+| Windows 10 sunucu 1803 | Evet | Hayır |
 
 ### <a name="tier-2"></a>Katman 2
 Katman 2 sistemleri, Azure IOT Edge ile uyumlu olarak düşünülebilir ve görece bir kolayca kullanılabilir. Bunun anlamı:
@@ -53,14 +53,14 @@ Katman 2 sistemleri, Azure IOT Edge ile uyumlu olarak düşünülebilir ve göre
 
 | İşletim Sistemi | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Ubuntu 18.04 | Evet | Evet |
-| Ubuntu 16.04 | Evet | Evet |
 | CentOS 7.5 | Evet | Evet |
-| RHEL 7.5 | Evet | Evet |
-| 8 Rüzgar Irmağı | Evet | Hayır |
-| Yocto | Evet | Hayır |
 | Debian 8 | Evet | Evet |
 | Debian 9 | Evet | Evet |
+| RHEL 7.5 | Evet | Evet |
+| Ubuntu 18.04 | Evet | Evet |
+| Ubuntu 16.04 | Evet | Evet |
+| 8 Rüzgar Irmağı | Evet | Hayır |
+| Yocto | Evet | Hayır |
 
 ## <a name="container-engines"></a>Kapsayıcı altyapıları
 Azure IOT Edge modülleri, üzerinde çalıştığı işletim sisteminden bağımsız olarak başlatmak için bir kapsayıcı altyapısı gerekir. Microsoft, bu gereksinimi karşılamak için moby-altyapısı, bir kapsayıcı altyapısı sağlar. Bu, Moby açık kaynaklı proje ile ilgili temel alır. Docker CE ve Docker EE diğer popüler kapsayıcı motorlardır. Bunlar ayrıca Moby açılır kaynak projesini temel alıyor ve Azure IOT Edge ile uyumludur. Microsoft, bu kapsayıcı altyapıları kullanarak sistemleri için en iyi girişim desteği sağlar. Ancak Microsoft bunları sorunlarını giderir göndermesine imkan yok. Bu nedenle, üretim sistemlerine moby altyapısı kullanarak Microsoft önerir.

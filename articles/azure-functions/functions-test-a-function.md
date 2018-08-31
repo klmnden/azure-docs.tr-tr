@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05c88c8938580666ce99f7cae46dc69cda3c3776
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: a57d5f8d857a8cfcdc81e86650466aec740f41e3
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344707"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286818"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Kodunuzu Azure işlevleri'nde test stratejileri
 
@@ -34,9 +34,9 @@ Bu konu, aşağıdaki genel yaklaşımları kullanarak dahil işlevlerini test e
 + Zamanlayıcı ile tetiklenen işlevi
 + Uygulama veya framework test etme
 
-Bu test yöntemleri aracılığıyla bir sorgu dizesi parametresi veya istek gövdesinde giriş kabul eden bir HTTP tetikleyici işlevi kullanın. Bu işlev ilk bölümde oluşturduğunuz.
+Bu test yöntemleri aracılığıyla bir sorgu dizesi parametresi veya istek gövdesinde giriş kabul eden bir HTTP tetikleyici işlevi kullanın. Bu işlev ilk bölümde Azure portalını kullanarak oluşturduğunuz.
 
-## <a name="create-a-function-for-testing"></a>Test etmek için bir işlev oluşturma
+## <a name="create-a-simple-function-for-testing-using-the-azure-portal"></a>Azure portalını kullanarak test etmek için basit bir işlev oluşturma
 Bu öğreticinin çoğu için bir işlev oluşturduğunuzda kullanılabilir HttpTrigger JavaScript işlev şablonu biraz değiştirilmiş bir sürümünü kullanırız. Bir işlev oluşturma yardıma ihtiyacınız varsa, bilgileri gözden geçirdikten [öğretici](functions-create-first-azure-function.md). Seçin **HttpTrigger - JavaScript** test işlevinde oluştururken şablon [Azure portal].
 
 Varsayılan işlevi şablonu temel geri istek gövdesi veya sorgu dizesi parametresi, adından yankılayan bir "Merhaba Dünya" işlevi olarak `name=<your name>`.  Ayrıca istek gövdesindeki JSON içeriği olarak adı ve adresi sağlamanıza izin verecek kod güncelleştireceğiz. Ardından işlev istemci kullanılabilir olduğunda bu geri görüntülemektedir.   

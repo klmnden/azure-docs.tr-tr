@@ -1,35 +1,35 @@
 ---
-title: Azure SQL Data Warehouse'da T-SQL döngüleri kullanma | Microsoft Docs
-description: T-SQL döngüleri kullanma ve çözümleri geliştirmek için Azure SQL Data Warehouse imleçler değiştirme ipuçları.
+title: Azure SQL veri ambarı'nda T-SQL döngülerini kullanma | Microsoft Docs
+description: T-SQL döngülerini kullanma ve çözümleri geliştirmek için Azure SQL veri ambarı'nda imleçler değiştirme için ipuçları.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 8d51c8f18d7c00d21fcc057efcda73e2a6b46cc7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b7c21566916c9728900e69dc6480098fadae7622
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598974"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301217"
 ---
-# <a name="using-t-sql-loops-in-sql-data-warehouse"></a>SQL veri ambarı'nda T-SQL döngüleri kullanma
-T-SQL döngüleri kullanma ve çözümleri geliştirmek için Azure SQL Data Warehouse imleçler değiştirme ipuçları.
+# <a name="using-t-sql-loops-in-sql-data-warehouse"></a>SQL veri ambarı'nda T-SQL döngülerini kullanma
+T-SQL döngülerini kullanma ve çözümleri geliştirmek için Azure SQL veri ambarı'nda imleçler değiştirme için ipuçları.
 
-## <a name="purpose-of-while-loops"></a>Döngüler sırasında amacı
+## <a name="purpose-of-while-loops"></a>Amacı, WHILE döngüsü
 
-SQL veri ambarı destekleyen [sırada](/sql/t-sql/language-elements/while-transact-sql) art arda deyim blokları yürütmek döngü. İçin belirtilen koşullar doğru veya kod kadar özellikle olduğu sürece bu WHILE döngünün devam BREAK anahtar sözcüğü kullanılarak döngü sonlandırır. Döngüler, SQL kod içinde tanımlanan imleçler değiştirme için kullanışlıdır. Neyse ki, SQL kodda yazılır neredeyse tüm imleçler ileri sarma, salt okunur çeşitli ' dir. Bu nedenle, [döngüler imleçler değiştirme için mükemmel bir alternatif çalışırken].
+SQL veri ambarı destekler [sırada](/sql/t-sql/language-elements/while-transact-sql) deyim blokları tekrar tekrar yürütmeye yönelik döngü. Belirtilen koşul true ya da kod kadar özellikle olduğu sürece bu WHILE döngüsü için devam BREAK anahtar sözcüğünü kullanarak döngüyü sonlandırır. Döngüler, SQL kod içinde tanımlanan imleçler değiştirmek için kullanışlıdır. Neyse ki, SQL kod halinde yazılmış neredeyse tüm işaretçiler ileri sarma, salt okunur çeşitli ' dir. Bu nedenle, [döngüler imleçler değiştirmek için harika bir alternatif çalışırken].
 
-## <a name="replacing-cursors-in-sql-data-warehouse"></a>SQL veri ambarı imleçler değiştirme
-Ancak, head ilk girmeden önce kendiniz aşağıdaki soru: "Bu imleç kümesi tabanlı işlemlerini kullanmak için yazılması?." Çoğu durumda, yanıt Evet ve genellikle en iyi yaklaşımdır. Set-based işlemi genellikle yinelemeli, satır temelinde bir yaklaşım daha hızlı gerçekleştirir.
+## <a name="replacing-cursors-in-sql-data-warehouse"></a>SQL veri ambarı'nda imleçler değiştirme
+Ancak, head içinde ilk girmeden önce kendiniz aşağıdaki soru: "Bu imleç kümesi tabanlı işlemler kullanılacak yazılması?." Çoğu durumda, yanıt evet'tir ve genellikle en iyi yaklaşımdır. Bir set tabanlı işlemi genellikle bir yinelemeli, satır satır yaklaşım daha hızlı gerçekleştirir.
 
-İleri Sarma salt okunur imleçler, döngü yapısı ile kolayca değiştirilebilir. Basit bir örnek verilmiştir. Bu kod örneği, veritabanındaki her tablo için istatistiklerini güncelleştirir. Döngü tablolarda üzerinde yineleme tarafından her komutun sırayla yürütür.
+İleri Sarma salt okunur imleçler uvozuje konstruktor ile kolayca değiştirilebilir. Basit bir örnek verilmiştir. Bu kod örneği, veritabanındaki her bir tablo istatistiklerini güncelleştirir. Her komut, döngü tablolarında üzerinde yineleme tarafından sırayla yürütür.
 
-İlk olarak, tek tek deyimleri tanımlamak için kullanılan benzersiz bir satır numarası içeren geçici bir tablo oluşturun:
+İlk olarak, ayrı deyimler tanımlamak için kullanılan bir benzersiz bir satır numarası içeren geçici bir tablo oluşturun:
 
 ```
 CREATE TABLE #tbl
@@ -44,7 +44,7 @@ FROM    sys.tables
 ;
 ```
 
-İkinci olarak, döngü gerçekleştirmek için gereken değişkenlerini Başlat:
+İkinci olarak, döngü gerçekleştirmek için gereken değişkenleri başlatın:
 
 ```
 DECLARE @nbr_statements INT = (SELECT COUNT(*) FROM #tbl)
@@ -52,7 +52,7 @@ DECLARE @nbr_statements INT = (SELECT COUNT(*) FROM #tbl)
 ;
 ```
 
-Şimdi bir yürütme deyimleri döngü birer birer:
+Artık bir yürütme deyimlerinden döngü bir zaman:
 
 ```
 WHILE   @i <= @nbr_statements

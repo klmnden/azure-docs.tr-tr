@@ -10,21 +10,16 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9c1379cd457dcba37246985058b01e85633f968
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 3cc2794105eff196c3e1db02d664a89c9b37e318
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42056923"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286994"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Bölümleme ve ölçeklendirme Azure Cosmos DB'de
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hızlı, öngörülebilir bir performans elde etmenize yardımcı olmak için tasarlanan bir Global olarak dağıtılmış çok modelli veritabanı hizmetidir. Sorunsuz bir şekilde yanı sıra müşterilerinizin uygulamanıza olacak şekilde ölçeklendirir. Bu makalede, Azure Cosmos DB içinde çalıştığı tüm veriler için bölümleme nasıl modeller genel bir bakış sağlar. Ayrıca, uygulamalarınızı etkili bir şekilde ölçeklendirmek için Azure Cosmos DB kapsayıcıları yapılandırma açıklanır.
-
-Bölümleme ve bölüm anahtarları Bu videoda ele alınmıştır:
-
-> [!VIDEO https://www.youtube.com/embed/SS6WrQ-HJ30]
-> 
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB bölümleme
 Azure Cosmos DB koleksiyonları (belgeler için) grafik veya tablo adı verilen verileri depolamak için kapsayıcılar sağlar. Kapsayıcılar mantıksal kaynaklardır ve bir veya daha fazla fiziksel bölüm veya sunucuları yayılabilir. Bölüm sayısı, Azure Cosmos DB depolama boyutuna göre ve kapsayıcı ya da bir dizi kapsayıcı için sağlanan aktarım hızı tarafından belirlenir. 

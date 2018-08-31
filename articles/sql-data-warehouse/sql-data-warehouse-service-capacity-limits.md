@@ -3,19 +3,19 @@ title: Kapasite sınırları - Azure SQL veri ambarı | Microsoft Docs
 description: Azure SQL veri ambarı çeşitli bileşenler için izin verilen en yüksek değerleri.
 services: sql-data-warehouse
 author: sachinpMSFT
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 07/26/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: df3220936673e508e0fa01a283270e1b4ca4753c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 7c6445624b2c03497c881b0c34bac8256fa28a98
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283444"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302052"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapasite sınırları
 Azure SQL veri ambarı çeşitli bileşenler için izin verilen en yüksek değerleri.
@@ -39,7 +39,7 @@ Azure SQL veri ambarı çeşitli bileşenler için izin verilen en yüksek değe
 | Tablo |Her tablo sütunları |1024 sütunları |
 | Tablo |Sütun başına bayt |Sütun bağımlı [veri türü](sql-data-warehouse-tables-data-types.md). Karakter veri türleri için 8000 nvarchar için 4000 veya en fazla veri türleri için 2 GB sınırdır. |
 | Tablo |Satır, tanımlanmış boyut başına bayt |Açıklama 8060 baytlık<br/><br/>SQL Server için sayfa sıkıştırmayı ile olduğu gibi aynı şekilde satır başına bayt sayısı hesaplanır. SQL Server gibi SQL veri ambarı sağlayan satır taşma depolama destekler **değişken uzunluğu sütununa** satır dışı gönderilecek. Değişken uzunluklu satır satır dışı itildiğinde yalnızca 24 bayt kök ana kayıt içinde depolanır. Daha fazla bilgi için [veri satırı taşma aşan 8 KB'lık](https://msdn.microsoft.com/library/ms186981.aspx). |
-| Tablo |Tablo başına bölüm |15,000<br/><br/>Yüksek performans için sayısını en aza olan öneririz bölümler, yine de iş gereksinimlerinizi destekleyen while. Bölüm sayısı arttıkça, veri tanımlama dili (DDL) ve veri işleme dili (DML) işlemleri için ek yükü artar ve daha yavaş performans neden olur. |
+| Tablo |Tablo başına bölüm |15.000<br/><br/>Yüksek performans için sayısını en aza olan öneririz bölümler, yine de iş gereksinimlerinizi destekleyen while. Bölüm sayısı arttıkça, veri tanımlama dili (DDL) ve veri işleme dili (DML) işlemleri için ek yükü artar ve daha yavaş performans neden olur. |
 | Tablo |Karakter başına bölüm sınırının değeri. |4000 |
 | Dizin oluşturma |Tablo başına olmayan kümelenmiş dizin. |50<br/><br/>Yalnızca rowstore tablolar için geçerlidir. |
 | Dizin oluşturma |Tablo başına Kümelenmiş dizinler. |1<br><br/>Rowstore hem columnstore tablolarına uygulanır. |

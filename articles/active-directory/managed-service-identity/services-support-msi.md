@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: 04247792f8467ecf51a074d1e03bbd6e7c553a02
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
-ms.translationtype: HT
+ms.openlocfilehash: d738abc225e2148460012d9fe200131882b1e698
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247264"
+ms.locfileid: "43306176"
 ---
 # <a name="services-that-support-managed-service-identity"></a>Yönetilen hizmet kimliği destekleyen hizmetler 
 
@@ -46,4 +46,4 @@ Aşağıdaki hizmetler, Azure AD kimlik doğrulamasını desteklemek ve yönetil
 | Azure SQL | https://database.windows.net/ | Kullanılabilir | Ekim 2017 | |
 | Azure Event Hubs | https://eventhubs.azure.net | Kullanılabilir | Aralık 2017 | |
 | Azure Service Bus | https://servicebus.azure.net | Kullanılabilir | Aralık 2017 | |
-| Azure Storage | https://azure.microsoft.com/services/storage/ | Önizleme | Mayıs 2018 | |
+| Azure Storage | https://storage.azure.com/ | Önizleme | Mayıs 2018 | |

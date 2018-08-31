@@ -1,35 +1,35 @@
 ---
-title: Azure SQL Data Warehouse tablolarda dizin oluşturma | Microsoft Azure
-description: Öneriler ve Azure SQL Data Warehouse tablolarda dizin oluşturma için örnekler.
+title: Azure SQL veri ambarı tabloları dizinleme | Microsoft Azure
+description: Öneriler ve Azure SQL veri ambarı tabloları dizinleme örnekler.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 75d3638326bc1bf2f72997fa9d5d5feabc837a62
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d709acfe378583a21b72971f465e4b5d73818bcd
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31527163"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307737"
 ---
-# <a name="indexing-tables-in-sql-data-warehouse"></a>SQL veri ambarı tablolarda dizin oluşturma
-Öneriler ve Azure SQL Data Warehouse tablolarda dizin oluşturma için örnekler.
+# <a name="indexing-tables-in-sql-data-warehouse"></a>SQL veri ambarı'nda dizin tabloları
+Öneriler ve Azure SQL veri ambarı tabloları dizinleme örnekler.
 
 ## <a name="what-are-index-choices"></a>Dizin seçenekleri nelerdir?
 
-SQL Data Warehouse dahil olmak üzere çeşitli dizin oluşturma seçenekleri sunar [kümelenmiş columnstore dizinleri](/sql/relational-databases/indexes/columnstore-indexes-overview), [Kümelenmiş dizinler ve kümelenmemiş dizinler](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described), ve dizini olmayan seçeneği olarak da bilinen [yığın ](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
+SQL veri ambarı dahil olmak üzere çeşitli dizin oluşturma seçeneği sunar [kümelenmiş columnstore dizinleri](/sql/relational-databases/indexes/columnstore-indexes-overview), [Kümelenmiş dizinler ve kümelenmemiş dizinler](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described), ve dizin olmayan bir seçenek olarak da bilinen [yığın ](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
 
-Dizin ile bir tablo oluşturmak için bkz: [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) belgeleri.
+Bir tablo olan bir dizin oluşturmak için bkz: [CREATE TABLE (Azure SQL veri ambarı)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) belgeleri.
 
 ## <a name="clustered-columnstore-indexes"></a>Kümelenmiş columnstore dizinleri
-Bir tablo üzerinde hiçbir dizin seçeneği belirtildiğinde varsayılan olarak, SQL Data Warehouse kümelenmiş columnstore dizini oluşturur. Kümelenmiş columnstore tabloları hem en yüksek düzeyde veri sıkıştırma, hem de en iyi genel sorgu performansı sunar.  Kümelenmiş columnstore tabloları kümelenmiş dizin veya yığın tabloları genellikle aşar ve genellikle büyük tablolar için en iyi seçenek olan.  Bu nedenlerle, kümelenmiş columnstore tablonuz dizini oluşturmak nasıl emin değilseniz başlattığınızda için en iyi yerdir.  
+Bir tabloda dizin seçeneği belirtildiğinde varsayılan olarak, SQL veri ambarı kümelenmiş bir columnstore dizini oluşturur. Kümelenmiş columnstore tablolarının hem en yüksek düzeyde veri sıkıştırma, hem de genel en iyi sorgu performansını sağlar.  Kümelenmiş columnstore tabloları genelde kümelenmiş dizin veya yığın tablo aşar ve genellikle büyük tablolar için en iyi seçenek olan.  Bu nedenlerle, kümelenmiş columnstore tablonuzu dizinleme nasıl gerçekleştireceğinizden emin olduğunuzda başlatmak için en iyi yerdir.  
 
-Kümelenmiş columnstore tablo oluşturmak için basitçe WITH yan tümcesinde kümelenmiş COLUMNSTORE dizini belirtin veya WITH yan tümcesi devre dışı bırakın:
+Kümelenmiş bir columnstore tablosuna oluşturmak için basitçe WITH yan tümcesinde kümelenmiş COLUMNSTORE dizini belirtin veya WITH yan tümcesiyle bırakın:
 
 ```SQL
 CREATE TABLE myTable   
@@ -44,15 +44,15 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 Burada kümelenmiş columnstore iyi bir seçenek olmayabilir birkaç senaryo vardır:
 
 - Columnstore tabloları, varchar(max), nvarchar(max) ve varbinary(max) desteklemez. Yığın veya kümelenmiş dizin yerine göz önünde bulundurun.
-- Columnstore tablolar için geçici verileri daha az verimli olabilir. Yığın ve hatta belki de geçici tabloları göz önünde bulundurun.
-- 100 milyondan az satır içeren küçük tabloları silin. Yığın tabloları göz önünde bulundurun.
+- Columnstore tabloları, geçici veriler için daha az verimli olabilir. Yığın ve hatta belki de geçici tablolara göz önünde bulundurun.
+- 100 milyondan az satır içeren küçük tablolar. Yığın tabloları göz önünde bulundurun.
 
 ## <a name="heap-tables"></a>Yığın tabloları
-Verileri SQL Data Warehouse geçici olarak giriş, öbek tablosunu kullanarak daha hızlı genel işlem yapar bulabilirsiniz. Yığın yükleri daha hızlı bir şekilde dizin tablolara ve sonraki okuma önbelleğinden yapılabilir bazı durumlarda olmasıdır.  Yalnızca daha fazla dönüşümleri çalıştırmadan önce hazırlamak için veri yüklüyorsanız yığın tablosu için tablo yüklenirken karşılaşılan bir kümelenmiş columnstore tablo verileri yüklenirken daha hızlıdır. Ayrıca, verileri yüklenirken bir [geçici tablo](sql-data-warehouse-tables-temporary.md) bir tablo kalıcı depolama birimine yüklenmesi daha hızlı yükler.  
+Verileri SQL Data Warehouse'da geçici olarak giriş, yığın tabloları kullanmanın işlem yapar bulabilirsiniz. Yığınlar yüklemeler daha hızlı dizin tabloları ve bazı durumlarda, sonraki okuma önbelleğinden yapılabilir olmasıdır.  Verileri yalnızca daha fazla dönüştürme gerçekleştirmeden önce hazırlamak için yüklüyorsanız, tabloyu yığın tablosuna yüklemek verileri kümelenmiş columnstore tablosuna yüklemekten çok daha hızlı. Ayrıca, verileri yüklenirken bir [geçici tablo](sql-data-warehouse-tables-temporary.md) kalıcı depolama için bir tablo yüklenirken daha hızlı yükler.  
 
-100 milyondan az satır küçük arama tabloları için genellikle yığın tabloları anlamlı.  100 milyondan fazla satır olduğunda en iyi sıkıştırma elde etmek için küme columnstore tabloları başlayın.
+100 milyondan az satır küçük arama tablolar için sık sık yığın tabloları mantıklı.  100 milyondan fazla satır olduğunda en iyi sıkıştırma elde etmek küme columnstore tabloları başlayın.
 
-Bir yığın tablo oluşturmak için yığın WITH yan tümcesinde belirtin:
+Yığın tablo oluşturmak için yığın WITH yan tümcesinde belirtin:
 
 ```SQL
 CREATE TABLE myTable   
@@ -65,9 +65,9 @@ WITH ( HEAP );
 ```
 
 ## <a name="clustered-and-nonclustered-indexes"></a>Kümelenmiş ve kümelenmemiş dizinleri
-Tek bir satır hızlı bir şekilde alınması gerektiğinde Kümelenmiş dizinler kümelenmiş columnstore tabloları daha iyi performans gösterir. Tek veya çok az sayıda satır arama aşırı hız performansı için gerekli olduğu sorgular için küme dizini ya da ikincil kümelenmemiş dizin göz önünde bulundurun. Kümelenmiş dizin kullanarak dezavantajı yararlanan sorguları kümelenmiş dizin yüksek oranda seçmeli filtre kullanmak olanları olmasıdır. Diğer sütunlarda filtre artırmak için kümelenmemiş bir dizin için diğer sütunları eklenebilir. Ancak, tabloya eklenen her dizin için yükleri alanı ve işlemci zamanı ekler.
+Tek bir satır hızlı bir şekilde alınması gerektiğinde Kümelenmiş dizinler kümelenmiş columnstore tablolarının daha iyi performans gösterir. Sorgular tek veya çok az sayıda satır arama olağanüstü hız performansı için gerekli olduğu için küme dizini ya da ikincil kümelenmemiş dizin göz önünde bulundurun. Kümelenmiş bir dizin kullanılarak dezavantajı yararlanan sorguları yüksek oranda seçmeli bir filtre kullanan kümelenmiş dizin sütunu olanların olmasıdır. Diğer sütunlarda filtre geliştirmek için diğer sütunları kümelenmemiş bir dizin eklenebilir. Ancak, tabloya eklenen her dizin alanı hem de işleme süresini yükler ile ekler.
 
-Bir kümelenmiş dizin tablo oluşturmak için kümelenmiş dizini WITH yan tümcesinde belirtin:
+Bir kümelenmiş dizin tablosu oluşturmak için kümelenmiş dizin WITH yan tümcesinde belirtin:
 
 ```SQL
 CREATE TABLE myTable   
@@ -79,16 +79,16 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-Bir tabloda kümelenmemiş bir dizin eklemek için yalnızca aşağıdaki sözdizimini kullanın:
+Yalnızca bir tabloda kümelenmemiş bir dizin eklemek için aşağıdaki sözdizimini kullanın:
 
 ```SQL
 CREATE INDEX zipCodeIndex ON myTable (zipCode);
 ```
 
 ## <a name="optimizing-clustered-columnstore-indexes"></a>Kümelenmiş columnstore dizinleri en iyi duruma getirme
-Kümelenmiş columnstore tabloları veri kesimler halinde düzenlenir.  Yüksek segment kalite columnstore tabloda en iyi sorgu performansını elde için önemlidir.  Segment kalite sıkıştırılmış satır grubu satır sayısı tarafından ölçülebilir.  Olduğu en az 100 K satır sıkıştırılmış satır başına grup ve satır grubu yaklaşımını başına satır sayısı arttıkça performans 1.048.576 satır, satır grubu içerebilir çoğu satırları olduğu elde segment kalite en uygundur.
+Kümelenmiş columnstore tablolarının verilerinde kesimler halinde düzenlenir.  Columnstore tablosunda optimum sorgu performansı elde etmek için yüksek segment kalitesinin yüksek olması önemlidir.  Segment kalitesi, sıkıştırılmış satır grubu içindeki satır sayısıyla ölçülebilir.  Segment kalitesi olduğu en az sıkıştırılmış satır başına 100 bin satır grubunda ve satır grubu yaklaşımını başına satır sayısı arttıkça performans 1.048.576 satır, satır grubu içerebilir çoğu satırları olduğu geçirmesine en uygunudur.
 
-Aşağıdaki görünüm oluşturulur ve işlem satır başına ortalama satır grup ve tüm alt uygun küme columnstore dizinleri tanımlamak için sisteminizde kullanılır.  Bu görünümde son sütun dizinleri yeniden oluşturmak için kullanılan bir SQL deyimi oluşturur.
+Aşağıdaki görünüm oluşturulabilir ve sisteminizde işlem satır başına ortalama satır grubunda ve herhangi bir düzeyin cluster columnstore dizinlerine tanımlamak için kullanılır.  Bu görünüm son sütunu yeniden kullanılabilir bir SQL deyimi oluşturur.
 
 ```sql
 CREATE VIEW dbo.vColumnstoreDensity
@@ -137,7 +137,7 @@ GROUP BY
 ;
 ```
 
-Görünümü oluşturduğunuza göre daha az 100 K satır ile satır grupları tablolarla tanımlamak için bu sorguyu çalıştırın. Elbette, daha fazla en iyi segment kalitesini arıyorsanız 100 K eşiğini artırmak isteyebilirsiniz. 
+Görünüm oluşturduğunuza göre 100 bin satır miktarından daha azıyla çalışabilse satır grupları tablolarla tanımlamak için bu sorguyu çalıştırın. Elbette, daha fazla iyi segment kalitesini arıyorsanız 100 bin cinsinden eşiğini artırmak isteyebilirsiniz. 
 
 ```sql
 SELECT    *
@@ -146,77 +146,77 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
         OR INVISIBLE_rowgroup_rows_AVG < 100000
 ```
 
-Veri arama ve sonuçlarınızı çözümlemek için başlayabilirsiniz sorgu çalıştırdıktan sonra. Bu tabloda, satır grubu çözümlemede dikkat edilmesi gerekenler açıklanmaktadır.
+Verilere bakmak ve analiz sonuçlarınızı başlamadan sorgu çalıştırıldıktan sonra. Bu tabloda, satır grubu analizinizi dikkat edilmesi gerekenler açıklanmaktadır.
 
 | Sütun | Bu verileri kullanma |
 | --- | --- |
-| [table_partition_count] |Ardından tablo bölümlenmişse daha yüksek açık satır grubu sayar görmeyi beklediğiniz. Her bölüm dağıtımında teorik olarak kendisiyle ilişkili bir açık satır grubu olabilir. Çözümleme öğeli. Bölümlenmiş küçük bir tablo tamamen bölümlendirme kaldırılarak iyileştirilmiş gibi bu sıkıştırma artırmak. |
-| [row_count_total] |Tablo için toplam satır sayısı. Örneğin, sıkıştırılmış durumda satırları yüzdesini hesaplamak için bu değeri kullanın. |
-| [row_count_per_distribution_MAX] |Tüm satırları olacak şekilde eşit dağıtılır, bu değer, dağıtım başına satır sayısını olacaktır. Bu değeri compressed_rowgroup_count ile karşılaştırın. |
-| [COMPRESSED_rowgroup_rows] |Tablo için columnstore biçiminde satırların toplam sayısı. |
-| [COMPRESSED_rowgroup_rows_AVG] |Ortalama satır sayısını önemli ölçüde satır satır grubu için maksimum sayısı daha azdır, CTAS veya ALTER INDEX REBUILD verileri sıkıştırmak kullanmayı göz önünde bulundurun |
-| [COMPRESSED_rowgroup_count] |Satır gruplarını columnstore biçiminde sayısı. Bu sayı tablosu ile ilgili çok yüksekse, columnstore yoğunluğu düşük bir göstergesidir. |
-| [COMPRESSED_rowgroup_rows_DELETED] |Satır columnstore biçiminde mantıksal olarak silinir. Tablo boyutunu göre sayı yüksekse, bölümü yeniden oluşturmak veya bu bunları fiziksel olarak kaldırır dizinini yeniden oluşturmayı düşünün. |
-| [COMPRESSED_rowgroup_rows_MIN] |Ortalama ve en büyük sütunlarla birlikte, columnstore satır grupları için değerleri aralığı anlamak için bunu kullanın. En iyi duruma getirme veri yükü olarak kullanılabilir yükleme eşiği (hizalı bölüm dağıtım başına 102,400) üzerinden düşük bir sayı önerir |
+| [table_partition_count] |Tablo bölümlenmişse, daha yüksek açık satır grubu sayıları görmek bekleyebilir. Her bölümde dağıtım teorik olarak kendisiyle ilişkilendirilmiş bir açık satır grubu olabilir. Bu analiz faktörü. Bölümlenmiş küçük bir tablo bölümleme tamamen ortadan kaldırarak iyileştirilmiş bu sıkıştırma iyileştirecek şekilde. |
+| [row_count_total] |Tablo için toplam satır sayısı. Örneğin, bu değer, sıkıştırılmış satır yüzdesini hesaplamak için kullanabilirsiniz. |
+| [row_count_per_distribution_MAX] |Tüm satırları eşit olarak dağıtılmış, hedef dağıtım başına satır sayısı bu değeri olur. Bu değer compressed_rowgroup_count ile karşılaştırın. |
+| [COMPRESSED_rowgroup_rows] |Satırlar columnstore biçiminde tablosu için toplam sayısı. |
+| [COMPRESSED_rowgroup_rows_AVG] |Ortalama satır sayısını önemli ölçüde satır satır grubu için maksimum sayısı daha azdır, verileri sıkıştırmak için CTAS veya ALTER INDEX REBUILD kullanarak göz önünde bulundurun |
+| [COMPRESSED_rowgroup_count] |Satır grupları columnstore biçiminde sayısı. Bu sayı tablosu ile ilgili çok yüksekse, columnstore yoğunluklu düşükse bir göstergesidir. |
+| [COMPRESSED_rowgroup_rows_DELETED] |Satırlar columnstore biçiminde mantıksal olarak silinir. Tablo boyutuna göre sayı yüksekse, bölümü yeniden oluşturmak veya bu bunları fiziksel olarak kaldırır dizinini yeniden oluşturmayı düşünün. |
+| [COMPRESSED_rowgroup_rows_MIN] |Bu ortalama ve en fazla sütunlarını birlikte, columnstore satır grupları için değer aralığını anlamak için kullanın. En iyi duruma getirme veri yükü olarak kullanılabilir yükleme eşiği (102,400 hizalı bölüm dağıtım başına) üzerinden düşük bir sayı önerir. |
 | [COMPRESSED_rowgroup_rows_MAX] |Yukarıdaki gibi |
-| [OPEN_rowgroup_count] |Açık satır grupları normal. Bir tablo dağıtım (60) başına bir açık satır grubu makul beklenir. Aşırı numaraları veri bölümler yükleme önerin. Çift onay emin olmak için bölümleme stratejisine ses |
-| [OPEN_rowgroup_rows] |Her satır grubu 1.048.576 satır en fazla olabilir. Doluluk açık satır grupları şu anda olduğunu görmek için bu değeri kullanın |
-| [OPEN_rowgroup_rows_MIN] |Gruplar'ı açın, veri akışla yükleniyor tabloya ya da önceki yükleme bu satır grubuna satırları kalan geçmiş olduğunu olduğunu gösterir. Grupları ne kadar veri Aç sat görmek için ortalama sütunları satır, MIN, MAX kullanın. Küçük tablolar için tüm verilerin % 100 olabilir! ALTER INDEX columnstore için veri zorlamak için REBUILD durumda. |
+| [OPEN_rowgroup_count] |Açık satır grupları normal. Bir makul bir açık satır grubu başına Tablo dağıtımı (60) bekleyebilirsiniz. Aşırı numaraları bölümler arasında veri yükleme önerin. Çifte denetim emin olmak için bölümleme stratejisi ses |
+| [OPEN_rowgroup_rows] |Her satır grubu 1.048.576 satır içinde en fazla olabilir. Nasıl tam açık satır grupları şu anda olduğunu görmek için bu değeri kullanın. |
+| [OPEN_rowgroup_rows_MIN] |Gruplar'ı açın, veriler akışla yüklenme tabloya veya önceki yük satırları bu satır grubuna kalan geçmiş olduğunu olduğunu gösterir. MIN MAX kullanın, ne kadar veri, açma sat görmek için ortalama sütunların satır grupları. Küçük tablolar için tüm verilerin %100 olabilir! ALTER INDEX columnstore için veri zorlamak için REBUILD durumda. |
 | [OPEN_rowgroup_rows_MAX] |Yukarıdaki gibi |
 | [OPEN_rowgroup_rows_AVG] |Yukarıdaki gibi |
-| [CLOSED_rowgroup_rows] |Kapalı satır grubu satırları sağlamlık denetimi olarak arayın. |
-| [CLOSED_rowgroup_count] |Kapalı satır grupları sayısı herhangi hiç görülüyorsa düşük olmalıdır. Kapalı satır grupları ALTER INDEX kullanarak sıkıştırılmış satır gruplarına dönüştürülebilir... Komut yeniden düzenleyin. Ancak, bu normalde gerekli değildir. Kapalı grupları, otomatik olarak arka plan "tanımlama grubu taşıyıcısı" işlem tarafından columnstore satır gruplarına dönüştürülür. |
-| [CLOSED_rowgroup_rows_MIN] |Kapalı satır grupları çok yüksek dolgu oranı olması gerekir. Kapalı satır grubu dolgu oranı düşükse çözümlemeler columnstore gereklidir. |
+| [CLOSED_rowgroup_rows] |Kapalı satır grubu satırları sağlamlık denetimi olarak görünür. |
+| [CLOSED_rowgroup_count] |Kapalı satır grubu herhangi hiç görülürse düşük olmalıdır. ALTER INDEX kullanarak sıkıştırılmış satır grupları için Kapalı satır grupları dönüştürülebilir... Komut yeniden düzenleyin. Ancak, bu genellikle gerekli değildir. Kapalı grupları columnstore satır grupları için arka plan "tanımlama grubu taşıyıcısı" işlemi tarafından otomatik olarak geri dönüştürülür. |
+| [CLOSED_rowgroup_rows_MIN] |Kapalı satır grupları, çok yüksek doldurma oranı olmalıdır. Kapalı satır grubu doldurma oranı düşükse, columnstore çözümlemeler gereklidir. |
 | [CLOSED_rowgroup_rows_MAX] |Yukarıdaki gibi |
 | [CLOSED_rowgroup_rows_AVG] |Yukarıdaki gibi |
 | [Rebuild_Index_SQL] |Bir tabloda columnstore dizini yeniden oluşturmak için SQL |
 
-## <a name="causes-of-poor-columnstore-index-quality"></a>Zayıf columnstore dizini kalite nedenleri
-Zayıf segment kalitesiyle tabloları belirlediyseniz, kök nedeni tanımlamak istiyor.  Aşağıda zayıf segment kalitesi bazı diğer yaygın nedenler şunlardır:
+## <a name="causes-of-poor-columnstore-index-quality"></a>Zayıf columnstore dizin kalitesinin nedenleri
+Tablolar ile düşük segment kalitesi belirlediyseniz, kök nedeni belirlemek istersiniz.  Zayıf segment kalitesi, bazı diğer yaygın nedenleri aşağıda verilmiştir:
 
-1. Dizin yapılandırıldığında bellek baskısı
+1. Dizin oluşturulduğunda bellek baskısı
 2. Yüksek hacimli DML işlemleri
-3. Küçük veya yük işlemleri trickle
-4. Çok fazla bölümleri
+3. Küçük veya yükleme işlemlerini trickle
+4. Çok fazla
 
-Bu etkenler satır grubu başına en iyi 1 milyon satır'den küçük bir columnstore dizini önemli ölçüde olması neden olabilir. Ayrıca bir sıkıştırılmış satır grubu yerine delta satır grubu gitmek satır neden olabilir. 
+Bu etkenler satır grubu başına en iyi 1 milyon satır değerinden küçük bir columnstore dizini, önemli ölçüde olması neden olabilir. Bunlar ayrıca bir sıkıştırılmış satır grubu yerine delta satır grubu gitmek satır neden olabilir. 
 
-### <a name="memory-pressure-when-index-was-built"></a>Dizin yapılandırıldığında bellek baskısı
-Sıkıştırılmış satır grubu başına satır sayısı, satır grubu işlemek kullanılabilir bellek miktarına ve satır genişliğini doğrudan ilişkilidir.  Satırlar columnstore tablolarına bellek baskısı altında yazıldığında, segment kalitesi düşebilir.  Bu nedenle, en iyi uygulama olarak, mümkün olduğunca kadar bellek columnstore dizini tabloları erişiminizi yazma oturum vermektir.  Bellek ve eşzamanlılık arasında bir denge olduğundan, tablodaki her satır verileri doğru bellek ayırma hakkında yönergeler bağlıdır, sisteminiz ve eşzamanlılık yuva sayısı için ayrılmış data warehouse birimleri oturuma verebilirsiniz; Veri tablonuza yazma.  En iyi uygulama, DW600 ve mediumrc DW400 DW1000 kullanıyorsanız ve yukarıdaki kullanıyorsanız DW300 kullanıyorsanız xlargerc veya daha az, largerc başlangıç öneririz.
+### <a name="memory-pressure-when-index-was-built"></a>Dizin oluşturulduğunda bellek baskısı
+Sıkıştırılmış satır grubu başına satır sayısı, satır satır grubu işlemek kullanılabilir bellek miktarı ve genişliğine doğrudan ilişkilidir.  Satırlar columnstore tablolarına bellek baskısı altında yazıldığında, segment kalitesi düşebilir.  Bu nedenle, en iyi kadar bellek mümkün olduğunca columnstore dizin tabloları erişiminizi yazma oturum vermektir.  Bellek ve eşzamanlılık arasında bir denge olduğundan, doğru bellek ayırma kılavuzuna tablonuzun her bir satırdaki verileri bağlıdır, sisteminiz ve eşzamanlılık yuva sayısı için ayrılmış veri ambarı birimleri oturuma verebilirsiniz, tablonuza veri yazıyor demektir.  En iyi uygulama, DW600 ve mediumrc DW400 DW1000 kullanıyorsanız ve üzeri kullanıyorsanız DW300 kullanıyorsanız xlargerc veya daha az, largerc başlamanızı öneririz.
 
 ### <a name="high-volume-of-dml-operations"></a>Yüksek hacimli DML işlemleri
-Güncelleştirme ve satırları silme DML işlemleri yüksek hacimli Etkisizliği columnstore ortaya çıkarabilir. Bir satır grubu satırları çoğunluğu değiştirildiğinde durumlarda özellikle geçerlidir.
+Güncelleştirme ve silme satırları DML işlemleri yüksek hacimli Etkisizliği columnstore ortaya çıkarabilir. Bir satır grubunda satırları çoğunu değiştirildiğinde, bu özellikle doğrudur.
 
-- Sıkıştırılmış satır grubundan yalnızca mantıksal olarak bir satırın silinmesi satır silindi olarak işaretler. Bölüm veya tablo yapılana kadar satır sıkıştırılmış satır grubunda kalır.
-- Satır ekleme satır delta satır grubu olarak adlandırılan bir iç rowstore tablosuna ekler. Delta satır grubu dolu olduğunda ve kapatıldı olarak işaretlenen kadar columnstore için eklenen satırın dönüştürülmez. Maksimum kapasite 1.048.576 satır ulaştığınızda satır grupları kapatılır. 
+- Bir sıkıştırılmış satır grubu, mantıksal olarak yalnızca bir satırın silinmesi satır silinmiş olarak işaretler. Bölüm veya tablo yeniden oluşturulana kadar sıkıştırılmış satır grubu içindeki satır kalır.
+- Satır ekleme, bir delta satır grubu olarak adlandırılan bir iç rowstore tabloya satır ekler. Delta satır grubu dolu ve kapalı olarak işaretlenene kadar columnstore için eklenen satır dönüştürülemez. Hizmetin maksimum kapasitesi 1.048.576 satırı sıkıştırması ulaşmadan sonra satır grupları kapatılır. 
 - Columnstore biçiminde bir satırı güncelleştirmek, mantıksal bir silme ve ardından bir ekleme işlenir. Eklenen satırın delta deposunda depolanabilir.
 
-Toplu güncelleştirme ve bölüme göre hizalı dağıtım başına 102,400 satır toplu eşiğini aşan ekleme işlemleri doğrudan columnstore biçimine gidin. Ancak, bir bile dağıtım varsayıldığında, bunun gerçekleşmesi tek bir işlemde birden fazla 6.144 milyon satır değiştirme gereksiniminiz olacaktır. Ardından belirli bir bölüme göre hizalı dağıtım için satır sayısını 102,400'den az ise satır delta deposu andstay için var. yeterli satır eklenir veya satır grubu kapatmak için değiştirilmiş veya dizin yeniden kadar gidin.
+Toplu güncelleştirme ve bölüme göre hizalı dağıtım başına 102. 400 satır toplu eşiğini aşan ekleme işlemleri doğrudan columnstore biçimine gidin. Ancak, bir dağılımı varsayıldığında, bunun gerçekleşmesi tek bir işlemde 6.144 milyondan fazla satır değiştirme gerekecektir. Daha sonra belirli bir bölüme göre hizalı dağıtım için satır sayısı değerinden 102,400 ise satırları delta deposu andstay için orada yeterli satır eklendi veya satır grubu kapatmak için değiştirilmiş veya dizini yeniden oluşturulana kadar gidin.
 
-### <a name="small-or-trickle-load-operations"></a>Küçük veya yük işlemleri trickle
-Küçük SQL Data Warehouse akışına bazen bilinir olduğunu yükleri trickle olarak yükler. Bunlar genellikle sistem tarafından alınan bir veri yakın sabit akışı temsil eder. Ancak, bu akış yakın sürekli olarak birimin satır özellikle büyük değil. Daha sık fazla veri önemli ölçüde columnstore biçimine doğrudan yükleme için gereken eşiğin altında değil.
+### <a name="small-or-trickle-load-operations"></a>Küçük veya yükleme işlemlerini trickle
+SQL veri ambarı'na akış bazen bilinir, yükleri trickle gibi küçük yükler. Bunlar genellikle sistem tarafından alınıyor veri yakın sabit akışını temsil eder. Ancak, bu akış yakın sürekli olarak toplu satır özellikle büyük değil. Genellikle önemli ölçüde columnstore biçiminde doğrudan bir yükleme için gereken eşiğin altında verilerdir.
 
-Bu durumda, verileri Azure blob depolamada ilk güden ve yükleme öncesinde birikmesini çalışmasına izin daha iyidir. Bu teknik genellikle olarak bilinen *mikro toplu işleme*.
+Bu durumda, verileri Azure blob depolama alanında ilk kavuşmak ve yükleme öncesinde accumulate çalışmasına izin daha iyidir. Bu teknik genellikle olarak bilinen *mikro toplu işleme*.
 
-### <a name="too-many-partitions"></a>Çok fazla bölümleri
-Dikkate alınması gereken başka bir şey, kümelenmiş columnstore tabloları bölümleme etkisidir.  Bölümleme önce SQL veri ambarı zaten verilerinizi 60 veritabanlarına olarak böler.  Bölümlendirme, verilerinizi daha fazla böler.  Verilerinizi bölerseniz, ardından göz önünde bulundurun **her** bölümü kümelenmiş columnstore dizinden yararlanmak için en az 1 milyon satır gerekiyor.  Tablonuz 100 bölümlere bölüm sonra kümelenmiş columnstore dizini yararlanmak için en az 6 milyon satır, tablo gerekir (60 dağıtımları * 100 bölümleri * 1 milyon satır). 100-partition tablonuz 6 milyon satır yoksa bölümleri sayısını azaltın veya yığın tablo kullanmayı düşünün.
+### <a name="too-many-partitions"></a>Çok fazla
+Dikkate alınması gereken başka bir şey üzerinde kümelenmiş columnstore tablolarının bölümleme etkisidir.  Bölümleme önce SQL veri ambarı zaten verilerinizi 60 veritabanına olarak böler.  Bölümleme, verilerinizi daha fazla böler.  Ardından, verilerinizi bölümlemeniz halinde düşünün **her** bölümü, bir kümelenmiş columnstore dizini en az 1 milyon satır gerekiyor.  100 bölüme, tablo bölümleme sonra bir kümelenmiş columnstore dizini için en az 6 milyar satıra tablonuzun gerekir (60 dağıtım * 100 bölüm * 1 milyon satır). 100 bölüm tablonuzun 6 milyar satıra sahip değilse, bölüm sayısını azaltabilir veya yığın tablo kullanmayı düşünün.
 
-Tablolarınızı bazı verilerle birlikte yüklenmiş sonra izleyin kümelenmiş columnstore dizinleri tanımlamak ve iyinin tablolarla yeniden oluşturmak için aşağıdaki adımları.
+Bazı veriler tablolarınızı veriler yüklendikten sonra takip tanımlamak ve iyinin tablolarla yeniden oluşturmak için aşağıdaki adımları columnstore dizinleri kümelenmiş.
 
-## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Segment kalitesini artırmak için dizinleri yeniden oluşturma
-### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>1. adım: Tanımlamak veya sağ kaynak sınıfı kullanan kullanıcı oluştur
-Hemen segment kalitesini artırmak için bir hızlı dizini yeniden oluşturma yoludur.  Yukarıdaki görünümü tarafından döndürülen SQL dizinleri yeniden oluşturmak için kullanılan bir ALTER INDEX REBUILD deyimi döndürür. Dizinleri yeniden oluştururken dizininizi oluşturur oturum yeterli bellek ayıramadı emin olun.  Bunu yapmak için önerilen en düşük bu tabloya dizini yeniden oluşturmak için izinlere sahip bir kullanıcı kaynak sınıfının artırın. Sistemde bir kullanıcı oluşturmadıysanız, bunu önce yapmanız gereken şekilde veritabanı sahibi kullanıcı kaynak sınıfının değiştirilemez. DW600 ve mediumrc DW400 DW1000 kullanıyorsanız ve yukarıdaki kullanıyorsanız önerilen en düşük kaynak xlargerc DW300 kullanıyorsanız veya daha az, largerc sınıftır.
+## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Segment kalitesini artırmak için dizinlerini yeniden oluşturma
+### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>1. adım: Tanımlamak veya doğru kaynak sınıfı kullanan kullanıcı oluşturma
+Hemen segment kalitesini artırmak için bir hızlı yol, dizini yeniden sağlamaktır.  Yukarıdaki görünümü tarafından döndürülen SQL dizinlerinizi yeniden oluşturmak için kullanılabilecek bir ALTER INDEX REBUILD deyimi döndürür. Dizinlerinizi yeniden oluştururken dizininizi oluşturur oturum yeterli bellek tahsis emin olun.  Bunu yapmak için bu tablodaki önerilen minimum dizini yeniden oluşturma izni olan bir kullanıcının kaynak sınıfı artırın. Sistemde kullanıcı oluşturmadıysanız, bunu önce gerçekleştirmeniz gereken şekilde veritabanı sahibi kullanıcının kaynak sınıfı değiştirilemez. DW400 DW600 ve mediumrc DW1000 kullanıyorsanız ve üzeri kullanıyorsanız, önerilen en düşük kaynak xlargerc DW300 kullanıyorsanız veya daha az largerc sınıftır.
 
-Aşağıda, bir kullanıcıya kendi kaynak sınıfı artırarak daha fazla bellek ayırmayı örneğidir. Kaynak sınıf ile çalışmak için bkz: [iş yükü yönetimi için kaynak sınıfları](resource-classes-for-workload-management.md).
+Daha fazla kullanıcıya kendi kaynak sınıfı artırarak bellek ilişkin bir örnek aşağıdadır. Kaynak sınıfları ile çalışmak için bkz [iş yükü yönetimi için kaynak sınıfları](resource-classes-for-workload-management.md).
 
 ```sql
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
 
-### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>2. adım: yüksek kaynak sınıfı kullanıcıyla kümelenmiş columnstore dizinleri yeniden oluştur
-Daha yüksek bir kaynak sınıfı kullanarak şimdi olan, kullanıcı olarak adım 1 (örneğin LoadUser) oturum açın ve ALTER INDEX deyimi yürütün. Bu kullanıcı dizini burada yeniden oluşturuluyorsa tablolara ALTER iznine sahip olduğundan emin olun. Bu, tüm columnstore dizini yeniden oluşturun veya tek bir bölüm yeniden örnekler. Bir kerede tek bir bölüm yeniden oluşturmak için daha fazla pratik dizinler olduğu büyük tablolar üzerinde.
+### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>2. adım: Kümelenmiş columnstore dizinleri ile daha yüksek kaynak sınıfı kullanıcı yeniden oluşturun.
+Daha yüksek bir kaynak sınıfı kullanarak artık olan kullanıcı olarak 1. adımdaki (örneğin LoadUser) oturum açın ve ALTER INDEX deyimi yürütün. Bu kullanıcı dizini burada yeniden oluşturuluyorsa tablolara ALTER iznine sahip olduğundan emin olun. Bu örnekler, tüm columnstore dizinini yeniden oluşturmak nasıl ya da tek bir bölüm yeniden oluşturmak nasıl gösterir. Yeniden oluşturmak için daha fazla pratik bir kerede tek bir bölüm dizinleri olduğu büyük tablolar üzerinde.
 
-Alternatif olarak, dizini yeniden derlemeyi yerine, tablo için yeni bir tablo kopyalayabilir [CTAS kullanarak](sql-data-warehouse-develop-ctas.md). Hangi yolla en iyisidir? Büyük veri birimleri için CTAS genellikle daha hızlıdır [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Daha küçük miktarda veriyi, ALTER INDEX kullanmak daha kolay olur ve tablo değiştirilecek ihtiyaç duyduğunuz olmaz. Bkz: **CTAS ve bölüm değiştirme dizinleri yeniden oluşturma** aşağıda CTAS ile dizinleri yeniden oluştur konusunda daha fazla ayrıntı için.
+Alternatif olarak, dizini yeniden derlemeyi yerine, tabloyu yeni bir tabloya kopyalanamadı [CTAS kullanarak](sql-data-warehouse-develop-ctas.md). Hangi yolla en iyisidir? Büyük veri birimleri için CTAS genellikle daha hızlıdır [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Daha küçük veri hacimleri, ALTER INDEX kullanımı daha kolay ve tablo takas etmenizi yapılması gerekmez. Bkz: **CTAS ve bölüm değiştirme ile dizinlerini yeniden oluşturma** aşağıda CTAS bir dizini yeniden düzenleme hakkında daha fazla bilgi için.
 
 ```sql
 -- Rebuild the entire clustered index
@@ -238,13 +238,13 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-SQL Data warehouse'da bir dizini yeniden oluşturma çevrimdışı bir işlemdir.  ALTER INDEX REBUILD bölümünde dizinleri yeniden oluşturma hakkında daha fazla bilgi için bkz: [Columnstore dizinleri birleştirme](/sql/relational-databases/indexes/columnstore-indexes-defragmentation), ve [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
+SQL veri ambarı'nda bir dizini yeniden oluşturma çevrimdışı bir işlemdir.  ALTER INDEX REBUILD bölümünde dizinlerini yeniden oluşturma hakkında daha fazla bilgi için bkz. [Columnstore dizinleri birleştirme](/sql/relational-databases/indexes/columnstore-indexes-defragmentation), ve [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
 
-### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>3. adım: Kümelenmiş columnstore segment kalite geliştirilmiştir doğrulayın
-Yeniden çalıştırılan sorgunun düşük tanımlanan hangi tabloyla kalite segment ve segment kalite doğrulayın geliştirilmiştir.  Segment kalitesini artırmak değil ise, tablosundaki satırları çok geniş olabilir.  Dizinleri yeniden oluştururken daha yüksek kaynak sınıfı veya DWU kullanmayı düşünün.
+### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>3. adım: Kümelenmiş columnstore segment kalitesini geliştirdi doğrulayın.
+Yeniden çalıştırılan sorgunun düşük ile tanımlanan hangi tabloya segment kalitesi ve segment kalitesi doğrulayın geliştirdi.  Segment kalitesini artırmak değil ise, tablosundaki satırları çok geniş olması olabilir.  Daha yüksek kaynak sınıfı ya da DWU dizinlerinizi yeniden oluştururken kullanmayı düşünün.
 
-## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>CTAS ve bölüm değiştirme dizinleri yeniden oluşturma
-Bu örnekte [oluşturma tablo AS seçin (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) deyimi ve bölüm tablo bölümünü yeniden oluşturmak için değiştirme. 
+## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>CTAS ve bölüm değiştirme ile dizinlerini yeniden oluşturma
+Bu örnekte [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) deyimi ve bölüm geçiş tablosu bölümü yeniden oluşturun. 
 
 ```sql
 -- Step 1: Select the partition of data and write it out to a new table using CTAS
@@ -284,8 +284,8 @@ ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternet
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
 ```
 
-CTAS kullanarak bölümleri yeniden oluşturma hakkında daha fazla bilgi için bkz: [SQL veri ambarı'nda bölümleri kullanarak](sql-data-warehouse-tables-partition.md).
+CTAS kullanarak bölümleri yeniden oluşturma hakkında daha fazla ayrıntı için bkz. [bölümleri kullanarak SQL veri ambarı'nda](sql-data-warehouse-tables-partition.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Tabloları geliştirme hakkında daha fazla bilgi için bkz: [tabloları geliştirme](sql-data-warehouse-tables-overview.md).
+Tablo geliştirme hakkında daha fazla bilgi için bkz. [tabloları geliştirme](sql-data-warehouse-tables-overview.md).
 

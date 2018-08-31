@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 07/20/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9fc067c46828079f7369683b5edec682747cd5c7
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 65495893d93fddd6d8e13ae80720e002ac7d8efa
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391461"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307497"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Geliştirme ve C modülleri, Azure IOT Edge için hata ayıklama için Visual Studio Code'u kullanın
 
@@ -29,7 +29,7 @@ Bu makalede, bir bilgisayar veya geliştirme makinenize Windows veya Linux çal�
 Bu makalede ana geliştirme aracı olarak Visual Studio Code kullandığından, VS Code yükleme. Daha sonra gerekli genişletmeleri ekleyin:
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * [Azure IOT Edge uzantısı](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
-* [C/C++ uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) Visual Studio Code için.
+* Visual Studio Code için [C/C++ uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
 * [Docker uzantısı](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
 Bir modül oluşturma modülü görüntüsü ve modülü görüntüsü tutmak için bir kapsayıcı kayıt defteri oluşturmak için Docker gerekir:
@@ -85,7 +85,7 @@ Her modül klasöründe birkaç Docker dosya için farklı bir kapsayıcı tür�
 
     ![Ekleme *** .debug, görüntü adı](./media/how-to-develop-c-module/image-debug.png)
 
-2. Node.js modülü createOptions içinde değiştirin **deployment.template.json** ile içerik aşağıda ve bu dosya: 
+2. İçinde C modülü createOptions değiştirin **deployment.template.json** ile içerik aşağıda ve bu dosya: 
     
     ```json
     "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
@@ -93,7 +93,7 @@ Her modül klasöründe birkaç Docker dosya için farklı bir kapsayıcı tür�
 
 2. VS Code komut paleti girin ve şu komutu çalıştırın **Edge: IOT Edge çözüm**.
 3. Seçin `deployment.template.json` komut paletini çözümünüzden dosyası. 
-4. Azure IOT hub'ı Device Explorer içinde bir IOT Edge cihaz kimliğini sağ tıklayın. Ardından **IOT Edge cihazı için dağıtım oluşturma**. 
+4. Azure IOT hub'ı Device Explorer içinde bir IOT Edge cihaz kimliğini sağ tıklayın. Ardından **tek cihaz için dağıtım oluşturma**. 
 5. Çözümünüzün açın **config** klasör. Ardından `deployment.json` dosya. Seçin **seçin Edge dağıtım bildirimi**. 
 
 Dağıtım kimliği ile bir VS Code tümleşik terminalde başarıyla oluşturuldu. dağıtım görürsünüz.
@@ -113,7 +113,7 @@ VS Code tutar hata ayıklama yapılandırma bilgilerini bir `launch.json` dosya 
 
 4. VS Code hata ayıklama Görünümü'nde sol bölmedeki değişkenleri görürsünüz. 
 
-Yukarıdaki örnekte, C IOT Edge modülleri kapsayıcılarına hata ayıklamak gösterilmektedir. Bu, modül kapsayıcı createOptions içinde kullanıma sunulan bağlantı noktası eklendi. Node.js modüllerinizi hata ayıklamasını tamamladığınızda, üretime hazır IOT Edge modülleri için kullanıma sunulan bu bağlantı noktalarını kaldırmanız önerilir.
+Yukarıdaki örnekte, C IOT Edge modülleri kapsayıcılarına hata ayıklamak gösterilmektedir. Bu, modül kapsayıcı createOptions içinde kullanıma sunulan bağlantı noktası eklendi. C modüllerinizi hata ayıklama işlemini tamamladıktan sonra üretime hazır IOT Edge modülleri için kullanıma sunulan bu bağlantı noktalarını kaldırmanız önerilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

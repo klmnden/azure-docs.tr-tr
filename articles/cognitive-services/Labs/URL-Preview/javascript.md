@@ -1,6 +1,6 @@
 ---
-title: JavaScript hızlı başlangıç projesi URL önizleme - Microsoft Bilişsel hizmetler için | Microsoft Docs
-description: Hızlı bir şekilde Azure üzerinde Microsoft Bilişsel Hizmetleri'ndeki Bing URL önizleme API'si ile çalışmaya başlamak için komut dosyası örneği.
+title: JavaScript Hızlı Başlangıç için proje URL önizlemesi - Microsoft Bilişsel hizmetler | Microsoft Docs
+description: Hızlı bir şekilde Azure üzerinde Microsoft Bilişsel hizmetler Bing URL önizleme API'sı ile çalışmaya başlamak için betik örnek.
 services: cognitive-services
 author: mikedodaro
 ms.service: cognitive-services
@@ -8,27 +8,27 @@ ms.technology: project-url-preview
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 9041a88a292fb2dabead69195ebc3074e2ecf486
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: dda6f7c105dfbadc3c22f0c008aa8759fe12fa03
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354023"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301361"
 ---
-# <a name="url-preview-in-javascript"></a>JavaScript URL önizleme 
+# <a name="url-preview-in-javascript"></a>JavaScript içinde URL önizlemesi 
 
-Aşağıdaki tek sayfalı uygulama SwiftKey site için URL önizleme oluşturmak için JavaScript kullanır: https://swiftkey.com/en. 
+Aşağıdaki tek sayfalı uygulama SwiftKey site için bir URL önizlemesi oluşturmak için JavaScript kullanır: https://swiftkey.com/en. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Ücretsiz deneme sürümü için bir erişim anahtarı alma [Bilişsel hizmetler Laboratuvarları](https://aka.ms/answersearchsubscription)
+Ücretsiz deneme sürümü için bir erişim anahtarı alma [Bilişsel hizmetler Laboratuvarları](https://labs.cognitive.microsoft.com/en-us/project-url-preview)
 
 ## <a name="code-scenario"></a>Kod senaryosu
-Şu javascript örneği burada önizlemek için URL kullanıcının girdiği textbox giriş nesnesi içerir.  Kullanıcı tıkladığında **Önizleme** button, onclick yöntemi yollarını `getPreview` burada kod oluşturur Web isteğine **UrlPreview** uç noktası.
+Aşağıdaki örnek javascript burada Önizleme URL'si kullanıcının girdiği metin giriş nesnesi içerir.  Kullanıcı tıkladığında **Önizleme** düğmesini onclick yöntemi yolları `getPreview` nerede kod oluşturur bir Web isteğine **UrlPreview** uç noktası.
 
-Kod oluşturur bir *XMLHttpRequest*, ekler *Apim abonelik anahtar Ocp* üstbilgi ve anahtar ve isteği gönderir.  Yanıta işlemek için zaman uyumsuz olay işleyicisi ekler.
+Kod oluşturur bir *XMLHttpRequest*, ekler *Ocp-Apim-Subscription-Key* üstbilgi ve anahtar ve isteği gönderir.  Yanıta işlemek için zaman uyumsuz olay işleyicisi ekler.
 
-Yanıt başarıyla döndürürse, işleyici yanıta JSON metnini atar `demo` paragraf sayfasında. Diğer yanıt öğeleri görüntülemek için aşağıdaki paragraflara ayarlanır.
+Yanıtı başarıyla dönerse, işleyici yanıtı JSON metnini atar `demo` paragraf sayfasında. Diğer yanıt öğeleri görüntülemek için aşağıdaki paragraflara ayarlanır.
 
 **Ham JSON yanıtı**
 
@@ -48,17 +48,17 @@ Yanıt başarıyla döndürürse, işleyici yanıta JSON metnini atar `demo` par
 
 **Çalışan Tanıtımı**
 
-![JavaScript Url önizleme örneği](./media/java-script-demo.png)
+![Örnek JavaScript Url önizlemesi](./media/java-script-demo.png)
 
 ## <a name="running-the-application"></a>Uygulamayı çalıştırma
 
 Uygulamayı çalıştırmak için:
 
-1. Değiştir `YOUR-SUBSCRIPTION-KEY` aboneliğiniz için geçerli erişim anahtarı ile değer.
-2. HTML ve komut dosyası .html uzantılı bir dosyaya kaydedin.
-3. Web sayfasını bir tarayıcıda çalıştırın.
-4. Varolan URL'yi kullanın veya başka bir metin kutusuna girin.
-5. Tıklatın **Önizleme** düğmesi.
+1. Değiştirin `YOUR-SUBSCRIPTION-KEY` aboneliğiniz için geçerli erişim anahtar ile değeri.
+2. Komut dosyası ve HTML .html uzantılı bir dosyaya kaydedin.
+3. Web sayfasının bir tarayıcıda çalıştırın.
+4. Var olan bir URL kullanın veya başka bir metin kutusuna girin.
+5. Tıklayın **Önizleme** düğmesi.
 
 **Kaynak kodu:**
 

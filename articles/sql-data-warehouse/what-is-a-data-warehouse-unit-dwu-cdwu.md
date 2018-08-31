@@ -1,45 +1,45 @@
 ---
-title: Azure SQL veri ambarı Data Warehouse birimlerinde (Dwu, cDWUs) | Microsoft Docs
-description: Veri ambarı birimi (Dwu, cDWUs) fiyat ve performans ve birim sayısını değiştirmek nasıl en iyi duruma getirme ideal sayısını seçmeye ilişkin öneriler.
+title: Azure SQL veri ambarı veri ambarı birimleri (Dwu'lar cDWUs) | Microsoft Docs
+description: Veri ambarı birimi (dwu'ları, cDWUs) fiyat ve performans ve birim sayısını değiştirmek nasıl en iyi duruma getirmek için ideal sayısını seçme önerileri.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 94791e4dc3d3c841dde4685d34d4e3fdaf7d9af7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 50e70ab9be87c15816dc6471a2a29afd0f17d907
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32185969"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301254"
 ---
-# <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Veri ambarı birimlerini (Dwu'lar) ve bilgi işlem Data Warehouse birimleri (cDWUs)
-Veri ambarı birimi (Dwu, cDWUs) fiyat ve performans ve birim sayısını değiştirmek nasıl en iyi duruma getirme ideal sayısını seçmeye ilişkin öneriler. 
+# <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Veri ambarı birimi (Dwu) ve işlem veri ambarı birimi (cDWUs)
+Veri ambarı birimi (dwu'ları, cDWUs) fiyat ve performans ve birim sayısını değiştirmek nasıl en iyi duruma getirmek için ideal sayısını seçme önerileri. 
 
-## <a name="what-are-data-warehouse-units"></a>Data Warehouse birimleri nelerdir?
-Veri ambarı birimlerini (Dwu'lar) olarak adlandırılan hesaplama ölçek birimleri, SQL veri ambarı CPU, bellek ve g/ç ile paketlenmiştir. Bir DWU soyut, normalleştirilmiş bir ölçü birimi performans ve işlem kaynaklarını temsil eder. Hizmet düzeyi değiştirerek sırayla performansını ve maliyetini sisteminizi ayarlar sistemine ayrılan Dwu sayısı değiştirin. 
+## <a name="what-are-data-warehouse-units"></a>Veri ambarı birimleri nedir?
+Veri ambarı birimi (Dwu) adı verilen işlem ölçek birimlerine, SQL veri ambarı CPU, bellek ve GÇ ile paketlenmiştir. DWU soyut, normalleştirilmiş bir ölçü performans ve işlem kaynaklarını temsil eder. Hizmet düzeyini değiştirerek sırayla performansını ve maliyetini sisteminizi ayarlayan sisteme ayrılmış Dwu sayısı değiştirir. 
 
-Daha yüksek performans için ödeme için veri ambarı birim sayısını artırabilirsiniz. Daha az performans için ödeme için data warehouse birimleri azaltın. Veri ambarı birimlerini değiştirme depolama maliyetleri etkilemesini depolama ve işlem maliyetleri ayrı olarak faturalandırılır.
+Daha yüksek performansı için ödeme yapmak için veri ambarı birimleri sayısını artırabilirsiniz. Daha az performansı için ödeme yapmak için veri ambarı birimleri azaltın. Veri ambarı birimlerini değiştirmek depolama maliyetlerini etkilemez için depolama ve işlem maliyetleri ayrı olarak faturalandırılır.
 
-Performans veri ambarı birimleri için bu veri ambarı iş yükü ölçümlerinin dayanır:
+Performans veri ambarı birimleri için bu veri ambarı iş yükü ölçümleri temel alır:
 
-- Ne kadar hızlı standart veri ambarı sorgusu çok sayıda satır tarayabilir ve karmaşık bir toplama gerçekleştirmek? Bu işlem, g/ç ve CPU yoğun olur.
-- Ne kadar hızlı veri ambarı verileri Azure Storage Bloblarında veya Azure Data Lake işleyebilen? Bu işlem, ağ ve CPU yoğun olur. 
-- Ne kadar hızlı yapabilirsiniz [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL komutunu kopyalayın tablo? Bu işlem, verilerin depolama alanından okunmasını, gerecin tüm düğümlerine dağıtılmasını ve yeniden depolama alanına yazılmasını içerir. Bu CPU, g/ç ve ağ yoğunluklu bir işlemdir.
+- Ne kadar hızlı bir standart veri ambarı sorgusu çok sayıda satır tarayabilir ve ardından karmaşık bir toplama gerçekleştirebilirsiniz? Bu işlem, yoğun g/ç ve CPU olur.
+- Ne kadar hızlı veri ambarı, verileri Azure depolama Blobları veya Azure Data Lake alabilen? Bu işlem, ağ ve CPU yoğun olur. 
+- Ne kadar hızlı yapabilirsiniz [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL komutunu kopyalayın tablo? Bu işlem, verilerin depolama alanından okunmasını, gerecin tüm düğümlerine dağıtılmasını ve yeniden depolama alanına yazılmasını içerir. Bu CPU, GÇ ve ağ yoğunluklu bir işlemdir.
 
-Dwu artırma:
-- Doğrusal olarak taramaları, toplamalar ve CTAS deyimleri için sistem performansını değiştirir
-- Okuyucular ve PolyBase yükleme işlemleri için yazarları sayısını artırır
-- Eş zamanlı sorgular ve eşzamanlılık yuvaları en fazla sayısını artırır.
+Dwu'lar artırma:
+- Taramaların ve toplamalar CTAS deyimleri için sistemin performansını doğrusal olarak değiştirir
+- Okuyucular ve yazıcılar için PolyBase yükleme işlemleri sayısı artar
+- En fazla bir eş zamanlı sorguları ve eşzamanlılık yuvaları sayısını artırır.
 
 ## <a name="service-level-objective"></a>Hizmet düzeyi hedefi
-Hizmet düzeyi hedefi (SLO), veri ambarı maliyet ve performans düzeyini belirler ölçeklenebilirlik ayardır. Hizmet düzeyleri Gen2 için işlem data warehouse birimlerinde (cDWU), örneğin DW2000c ölçülür. Gen1 hizmet düzeyleri Dwu, örneğin DW2000 ölçülür. 
+Hizmet düzeyi hedefi (SLO), veri Ambarınızı maliyet ve performans düzeyini belirler ölçeklenebilirlik ayarıdır. Hizmet düzeyleri için 2. nesil işlem data warehouse birimlerinde (cDWU), örneğin DW2000c ölçülür. Dwu'lar, örneğin DW2000 Gen1 hizmet düzeyleri ölçülür. 
 
-T-SQL servıce_objectıve ayarı, hizmet düzeyi ve veri ambarınız için performans katmanı belirler.
+T-SQL, hizmet düzeyi ve performans katmanını veri ambarınız için servıce_objectıve ayarı belirler.
 
 ```sql
 --Gen1
@@ -57,45 +57,45 @@ WITH
 ;
 ```
 
-## <a name="performance-tiers-and-data-warehouse-units"></a>Performans katmanı ve Data Warehouse birimleri
+## <a name="performance-tiers-and-data-warehouse-units"></a>Performans katmanları ve veri ambarı birimleri
 
-Her performans katmanı biraz farklı bir ölçü kendi data warehouse birimleri için kullanır. Ölçek birimi için faturalama doğrudan çevirir bu fark fatura üzerinde yansıtılır.
+Her performans katmanı, veri ambarı birimleri için biraz daha farklı bir ölçü kullanır. Ölçek birimi için faturalandırma doğrudan çevirir. Bu fark faturada yansıtılır.
 
 - Gen1 veri ambarları, veri ambarı birimi (Dwu) ölçülür.
-- Gen2 veri warehousesr işlem Data Warehouse birimleri (cDWUs) ölçülür. 
+- 2. nesil veri warehousesr işlem veri ambarı birimi (cDWUs) ölçülür. 
 
-Dwu ve cDWUs yukarı veya aşağı ölçeklendirme işlem desteği ve duraklatma işlem veri ambarını kullan gerekmiyorsa. Bu işlemlerin tümü isteğe bağlı. Gen2 performansını artırmak için işlem düğümlerinde bir yerel disk tabanlı önbelleği kullanır. Ölçeklendirme veya sistem duraklatmak, önbellekte geçersiz kılınan ve önbellek ısıtma, bir süre en iyi performans elde önce böylece gereklidir.  
+Dwu'lar hem cDWUs yukarı veya aşağı ölçeklendirme işlem desteği ve duraklatma işlem, veri ambarı kullanmanız gerekmez. Bu işlemlerin tümü isteğe bağlı. Gen2 performansını artırmak için işlem düğümlerinde disk tabanlı yerel önbelleği kullanır. Ölçeklendirin veya sistem duraklatmak, önbellekte geçersiz kılınan ve önbellek hazırlanıyor, bir süre önce en iyi performans elde edilir şekilde gereklidir.  
 
-Data warehouse birimleri arttıkça, bilgi işlem kaynakları doğrusal olarak artmaktadır. Gen2 yüksek ölçek ve en iyi sorgu performansını sağlar ancak daha yüksek bir giriş fiyat sahiptir. Performans için sabit bir isteğe bağlı olan işletmeler için tasarlanmıştır. Bu sistemler önbellek çoğu kullanılmasını sağlamak. 
+Veri ambarı birimleri arttıkça, bilgi işlem kaynaklarını doğrusal olarak artmaktadır. 2. nesil yüksek ölçek ve en iyi sorgu performansını sağlar, ancak daha yüksek bir giriş fiyatına sahiptir. Performans için sabit bir isteğe bağlı olan şirketler için tasarlanmıştır. Bu sistemler, çoğu önbellek kullanımını olun. 
 
 ### <a name="capacity-limits"></a>Kapasite sınırları
-Her bir SQL server (örneğin, myserver.database.windows.net) sahip bir [veritabanı işlem birimi (DTU)](../sql-database/sql-database-what-is-a-dtu.md) kota data warehouse birimleri belirli bir sayıda izin verir. Daha fazla bilgi için bkz: [iş yükü yönetim kapasite limitlerini](sql-data-warehouse-service-capacity-limits.md#workload-management).
+Her bir SQL server (örn. myserver.database.windows.net) sahip bir [veritabanı işlem birimi (DTU)](../sql-database/sql-database-what-is-a-dtu.md) belirli bir veri ambarı birimleri sayısını veren kota. Daha fazla bilgi için [iş yükü yönetimi kapasite sınırları](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
 
-## <a name="how-many-data-warehouse-units-do-i-need"></a>Kaç tane data warehouse birimleri ihtiyacım var mı?
-Data warehouse birimleri ideal sayısı çok yükünüzü ve sisteme yüklenen veri miktarına bağlıdır.
+## <a name="how-many-data-warehouse-units-do-i-need"></a>Kaç tane veri ambarı birimleri ihtiyacım var?
+Veri ambarı birimleri ideal sayısını çok iş yükünüzü ve sisteme yüklediğiniz veri miktarına bağlıdır.
 
-İş yükü için en iyi DWU bulmak için adımlar:
+İş yükünüz için en iyi DWU bulmaya yönelik adımlar:
 
-1. Daha küçük bir DWU seçerek başlayın. 
-2. Seçili Dwu sayısı, gözlemlemek performans karşılaştırıldığında Gözlemleme sisteme, veri yüklerini test gibi uygulama performansını izleyin.
-3. Tüm ek gereksinimleri için en yüksek etkinlik düzenli dönemleri tanımlayın. İş yükünü önemli yükselmeleri ve troughs etkinliği gösterir ve sık ölçeklendirmek için iyi bir neden yoktur.
+1. Daha küçük DWU seçerek başlayın. 
+2. Siz gözleyin performans karşılaştırma seçildi Dwu sayısı gözleme sisteme veri yüklerini test, uygulama performansını izleme.
+3. Tüm ek gereksinimleri düzenli yüksek etkinlik dönemlerini için belirleyin. İş yükü etkinliğinde önemli yükler ve troughs gösterir ve sık ölçeklendirme için geçerli bir nedeniniz yoksa.
 
-SQL Data Warehouse, işlem ve sorgu oldukça büyük miktarda veri çok büyük miktarda kaynak sağlayabilirsiniz genişleme sistemidir. Özellikle büyük Dwu ölçeklendirmeye yönelik gerçek kapasitesini görmek için veri kümesi, CPU'lar akış için yeterli veri sağlamak için ölçeklendirmenize göre ölçeklendirme önerilir. Ölçek test etmek için en az 1 TB kullanmanızı öneririz.
+SQL veri ambarı, işlem ve sorgu büyük miktarlarda veri çok büyük miktarda sağlayabilirsiniz genişleme sistemidir. Özellikle büyük Dwu'lar ölçeklendirmeye yönelik gerçek kapasitesini görmek için CPU akış için yeterli veri olmasını sağlamak için ölçeği gibi veri kümesini ölçeklendirin öneririz. Ölçek test etmek için en az 1 TB'ı kullanmanızı öneririz.
 
 > [!NOTE]
 >
-> İş işlem düğümleri arasında bölünebilir, sorgu performansı ile daha fazla paralelleştirme yalnızca artırır. Ölçeklendirme performansınızı değişmeyen olduğunu fark ederseniz, tablo tasarımı ve/veya sorgularınızı ayarlamak gerekebilir. Kılavuzu ayarlama sorgusu için bkz: [kullanıcı sorguları yönetme](sql-data-warehouse-overview-manage-user-queries.md). 
+> İş işlem düğümleri arasında bölünmesi, sorgu performansı daha fazla paralelleştirme sayesinde yalnızca artırır. Ölçeklendirme performansınızı değişmeyen olduğunu fark ederseniz, tablo tasarımı ve/veya sorgularınızı ayarlamak gerekebilir. Sorgu ayarlama kılavuzu için bkz. [kullanıcı sorguları yönetme](sql-data-warehouse-overview-manage-user-queries.md). 
 
 ## <a name="permissions"></a>İzinler
 
-Veri ambarı birimlerini değiştirme açıklanan izinleri gerektirir [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql). 
+Veri ambarı birimlerini değiştirmek, açıklanan izinleri gerektirir [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql). 
 
 ## <a name="view-current-dwu-settings"></a>Geçerli DWU ayarlarını görüntüle
 
 Geçerli DWU ayarını görüntülemek için:
 
-1. SQL Server Nesne Gezgini Visual Studio'da açın.
+1. SQL Server Nesne Gezgini, Visual Studio'da açın.
 2. Mantıksal SQL veritabanı sunucusu ile ilişkili ana veritabanına bağlanın.
 3. Sys.database_service_objectives dinamik yönetim görünümünden seçin. Örnek aşağıda verilmiştir: 
 
@@ -108,33 +108,33 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 ;
 ```
 
-## <a name="change-data-warehouse-units"></a>Veri ambarı birimlerini değiştirme
+## <a name="change-data-warehouse-units"></a>Veri ambarı birimlerini değiştirmek
 
-### <a name="azure-portal"></a>Azure portalına
-Dwu veya cDWUs değiştirmek için:
+### <a name="azure-portal"></a>Azure portal
+Dwu'lar veya cDWUs değiştirmek için:
 
-1. Açık [Azure portal](https://portal.azure.com), veritabanınızı açın ve'ı tıklatın **ölçek**.
+1. Açık [Azure portalında](https://portal.azure.com), veritabanınızı açın ve tıklayın **ölçek**.
 
-2. Altında **ölçek**, kaydırıcıyı sola veya DWU ayarını değiştirmek için sağ.
+2. Altında **ölçek**, kaydırıcıyı sola veya ettirerek DWU ayarını değiştirmek için sağ.
 
-3. **Kaydet**’e tıklayın. Bir onay iletisi görüntülenir. Tıklatın **Evet** onaylamak için veya **hiçbir** iptal etmek için.
+3. **Kaydet**’e tıklayın. Bir onay iletisi görüntülenir. Onaylamak için **evet**’e, iptal etmek için **hayır**’a tıklayın.
 
 ### <a name="powershell"></a>PowerShell
-Dwu veya cDWUs değiştirmek için kullanın [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell cmdlet'i. Aşağıdaki örnek, MyServer sunucusunda barındırılan MySQLDW veritabanı için DW1000 için hizmet düzeyi hedefi ayarlar.
+Dwu'lar veya cDWUs değiştirmek için kullanın [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell cmdlet'i. Aşağıdaki örnek, DW1000 için MyServer sunucuda barındırılan MySQLDW veritabanı için hizmet düzeyi hedefi ayarlar.
 
 ```Powershell
 Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
 ```
 
-Daha fazla bilgi için bkz: [SQL Data Warehouse için PowerShell cmdlet'leri](sql-data-warehouse-reference-powershell-cmdlets.md)
+Daha fazla bilgi için [SQL veri ambarı için PowerShell cmdlet'leri](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 ### <a name="t-sql"></a>T-SQL
 T-SQL ile geçerli DWU veya cDWU ayarlarını görüntülemek, ayarlarını değiştirin ve ilerleme durumunu denetleyin. 
 
-Dwu veya cDWUs değiştirmek için:
+Dwu'lar veya cDWUs değiştirmek için:
 
 1. Mantıksal SQL veritabanı sunucunuzla ilişkili ana veritabanına bağlanın.
-2. Kullanım [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql) TSQL deyimi. Aşağıdaki örnek, DW1000 için MySQLDW veritabanı için hizmet düzeyi hedefi ayarlar. 
+2. Kullanım [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql) TSQL deyimi. Aşağıdaki örnekte, hizmet düzeyi hedefi için DW1000 MySQLDW veritabanı için ayarlar. 
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -144,7 +144,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 ### <a name="rest-apis"></a>REST API'leri
 
-Dwu değiştirmek için kullanın [oluşturma veya güncelleştirme veritabanı](/rest/api/sql/databases/createorupdate) REST API. Aşağıdaki örnek, MyServer sunucusunda barındırılan MySQLDW veritabanı için DW1000 için hizmet düzeyi hedefi ayarlar. Sunucu ResourceGroup1 adlı bir Azure kaynak grubunda yer alıyor.
+Dwu'ları değiştirmek için kullanın [oluşturma veya güncelleştirme veritabanı](/rest/api/sql/databases/createorupdate) REST API. Aşağıdaki örnek, DW1000 için MyServer sunucuda barındırılan MySQLDW veritabanı için hizmet düzeyi hedefi ayarlar. ResourceGroup1 adlı bir Azure kaynak grubunda sunucusudur.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -157,20 +157,20 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-Daha fazla REST API örnekler için bkz: [SQL Data Warehouse için REST API'leri](sql-data-warehouse-manage-compute-rest-api.md).
+Daha fazla REST API örnekleri için bkz [SQL veri ambarı için REST API'leri](sql-data-warehouse-manage-compute-rest-api.md).
 
-## <a name="check-status-of-dwu-changes"></a>DWU değişiklikleri durumunu denetleme
+## <a name="check-status-of-dwu-changes"></a>DWU değişiklikleri durumunu denetleyin
 
-DWU değişiklikleri tamamlanması birkaç dakika sürebilir. Otomatik ölçeklendirme, belirli işlemleri başka bir eylem işlemine devam etmeden önce tamamlandığından emin olmak için mantığı uygulayın. 
+DWU değişiklikleri tamamlanması birkaç dakika sürebilir. Otomatik ölçeklendirme, başka bir eylem ile devam etmeden önce belirli işlemleri tamamlandığından emin olmak için mantıksal uygulama düşünün. 
 
-Çeşitli uç noktaları aracılığıyla veritabanı durumunu denetleme, doğru Otomasyon uygulamaya olanak tanır. Portal bir işlem ve veritabanları geçerli durumunun tamamlandıktan sonra bildirim sağlar ancak programlı durumunu denetlemek için izin vermiyor. 
+Çeşitli uç noktaları aracılığıyla veritabanı durumu denetleniyor Otomasyon doğru olanak tanır. Portal tamamlandıktan sonra bildirim işlem ve veritabanı geçerli durumunun sağlar ancak programlı durumunu denetlemek için izin vermiyor. 
 
-Azure portal ile ölçek genişletme işlemleri için veritabanı durumunu denetleyemezsiniz.
+Azure portalı ile ölçek genişletme işlemleri için veritabanı durumunu denetleyemezsiniz.
 
 DWU değişiklikleri durumunu denetlemek için:
 
 1. Mantıksal SQL veritabanı sunucunuzla ilişkili ana veritabanına bağlanın.
-2. Veritabanı durumunu denetlemek için aşağıdaki sorguyu gönderin.
+2. Veritabanı durumunu kontrol etmek için aşağıdaki sorguyu gönderin.
 
 
 ```sql
@@ -179,7 +179,7 @@ FROM      sys.databases
 ;
 ```
 
-3. İşlemin durumunu denetlemek için aşağıdaki sorguyu Gönder
+3. İşlem durumunu denetlemek için aşağıdaki sorguyu Gönder
 
 ```sql
 SELECT    *
@@ -189,14 +189,14 @@ AND       major_resource_id = 'MySQLDW'
 ;
 ```
 
-Bu DMV çeşitli yönetimi hakkında bilgi işlem ve da işlemin durumunu gibi SQL veri ambarı işlemleri IN_PROGRESS olması döndürür veya tamamlandı.
+Bu DMV çeşitli yönetimi hakkında bilgi işlemi ve geçerli işlemin durumunu gibi SQL veri ambarı işlemleri işlemin ın_progress olması döndürür veya tamamlandı.
 
 ## <a name="the-scaling-workflow"></a>Ölçeklendirme iş akışı
 
-Bir ölçeklendirme işlemi başlattığınızda sistem önce açık olan tüm oturumları, tutarlı bir duruma emin olmak için açık işlemler geri alma devre dışı bırakır. Bu işlem geri alma işlemi tamamlandıktan sonra ölçeklendirme ölçek işlemleri için yalnızca oluşur.  
+Bir ölçeklendirme işlemi başlattığınızda sistem önce tüm açık oturum, tutarlı bir duruma emin olmak için herhangi bir açık işlemleri geri devre dışı bırakır. Bu işlem geri alma tamamlandıktan sonra ölçeklendirme ölçek işlemleri için yalnızca gerçekleşir.  
 
-- Bir ölçek büyütme işleminin sistem hükümleri ek işlem ve depolama katmanı reattaches. 
-- Gereksiz ölçek azaltma işlemi için düğümleri depolama biriminden ayırmak ve geri kalan düğümlerde yeniden ekleyin.
+- Bir ölçek artırma işleminin sistem hükümlerine ek işlem ve depolama katmanına ardından etkilenebilecek. 
+- Gereksiz, azaltma işlemi için düğümleri depolama alanından ayırma ve diğer düğümlere yeniden bağlayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Performansı yönetme hakkında daha fazla bilgi için bkz: [iş yükü yönetimi için kaynak sınıfları](resource-classes-for-workload-management.md) ve [bellek ve eşzamanlılık sınırları](memory-and-concurrency-limits.md).

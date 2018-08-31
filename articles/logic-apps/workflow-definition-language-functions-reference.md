@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 78e991fcac87d59ed7b84180192899ddbdf330f2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 8a2e06d2e6cf3e470d4e0909e5559ac0411292fd
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105648"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307122"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps iş akışı tanımı dil işlevleri başvurusu
 
@@ -80,7 +80,7 @@ Dizeleri ile çalışmak için bu dize işlevleri ve ayrıca bazı kullanabilirs
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Bir dizeyi, belirtilen alt dizeyle bitip bitmediğini kontrol edin. | 
 | [GUID](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Bir dize olarak bir genel benzersiz tanıtıcısı (GUID) oluşturur. | 
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Bir alt dizenin başlangıç konumunu döndürür. | 
-| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Bitiş konumu için bir alt dizeyi döndürür. | 
+| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Bir dizenin son a geçişi için başlangıç konumunu döndürür. | 
 | [Değiştir](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Belirtilen dizenin bir alt dizenin yerini ve güncelleştirilmiş dizeyi döndür. | 
 | [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Tüm karakterleri ve her karakter ile belirli sınırlayıcı karakter ayıran bir dizi döndürür. | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Bir dizeyi belirli bir alt dizesi ile başlayıp başlamadığını kontrol edin. | 
@@ -2123,7 +2123,7 @@ indexOf('<text>', '<searchText>')
 
 | Dönüş değeri | Tür | Açıklama | 
 | ------------ | ---- | ----------- | 
-| <*Dizin değeri*>| Tamsayı | Belirtilen alt dizenin başlangıç konumunu veya dizin değeri. <p>Dize bulunamazsa numarası -1 döndürür. </br>Dize boşsa 0 sayısını döndürür. | 
+| <*Dizin değeri*>| Tamsayı | Belirtilen alt dizenin başlangıç konumunu veya dizin değeri. <p>Dize bulunamazsa numarası -1 döndürür. | 
 |||| 
 
 *Örnek* 
@@ -2387,7 +2387,7 @@ Ve bu sonuçları döndürür:
 
 ### <a name="lastindexof"></a>lastIndexOf
 
-Bir alt dize için bitiş konumu veya dizin değerini döndürür. Bu işlev büyük küçük harfe duyarlı değildir ve dizinleri sayısı 0 ile başlatın.
+Başlangıç konumu veya bir alt dizenin son oluşum dizin değerini döndürür. Bu işlev büyük küçük harfe duyarlı değildir ve dizinleri sayısı 0 ile başlatın.
 
 ```
 lastIndexOf('<text>', '<searchText>')
@@ -2401,18 +2401,18 @@ lastIndexOf('<text>', '<searchText>')
 
 | Dönüş değeri | Tür | Açıklama | 
 | ------------ | ---- | ----------- | 
-| <*Bitiş dizin değeri*> | Tamsayı | Belirtilen alt dizeyle bitiş konumu veya dizin değeri. <p>Dize bulunamazsa numarası -1 döndürür. </br>Dize boşsa 0 sayısını döndürür. | 
+| <*Bitiş dizin değeri*> | Tamsayı | Son oluşum belirtilen alt dizenin başlangıç konumunu veya dizin değeri. <p>Dize bulunamazsa numarası -1 döndürür. | 
 |||| 
 
 *Örnek* 
 
-Bu örnekte bitiş dizin değerini "hello world" dizesindeki "world" alt dizeyi bulur:
+Bu örnekte, "hello world" dizesindeki "world" alt dizenin son a geçişi için başlangıç dizini değerini bulur:
 
 ```
 lastIndexOf('hello world', 'world')
 ```
 
-Ve bu sonucu verir: `10`
+Ve bu sonucu verir: `6`
 
 <a name="length"></a>
 

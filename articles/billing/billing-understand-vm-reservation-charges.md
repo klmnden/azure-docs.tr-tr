@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashar
-ms.openlocfilehash: bce4e05cbc4ecc8a44f2929eecbeee4093d39652
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: de4a771672b45f930385c2c923b3935c65b6c045
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628367"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301655"
 ---
 # <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Azure ayırma indirimi sanal makinelerine nasıl uygulanacağını anlama
 
@@ -47,7 +47,7 @@ Ayrılmış VM örneği satın aldıktan sonra sanal makineniz için maliyetleri
 3. Saat 2 ve 3 saat için her iki örnek 1 saat boyunca her çalıştı. Bir örnek tarafından ayırma kapsamındadır ve diğer Kullandıkça Öde fiyatları üzerinden ücretlendirilir.
 4. 4 saat, örnek 1 0,5 saat çalışır ve örnek 2, 1 saat boyunca çalıştırılır. Örnek 1 ayırma tarafından tam olarak ele alınmıştır ve örnek 2 0,5 saat ele alınmaktadır. Kullandıkça Öde fiyatı kalan 0,5 saat için ücret ödersiniz.
 
-Anlamak ve kullanım raporları faturalama Azure ayırmalarınızın uygulamayı görüntülemek için bkz: [ayırma kullanımını anlamak](https://go.microsoft.com/fwlink/?linkid=862757).
+Anlamak ve kullanım raporları faturalama Azure Ayırmalarınızın uygulamayı görüntülemek için bkz: [ayırma kullanımını anlamak](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Ayırma indirimi, bir uygulama için Windows Vm'leri
 
@@ -55,12 +55,12 @@ Windows VM örneklerini çalıştırırken ayırma altyapı maliyetlerini karş�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Rezervasyonlar hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
+Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
 - [Azure ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
 - [Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Azure SQL veritabanı'nın ayrılmış kapasite ile SQL veritabanı bilgi işlem kaynakları için ön ödeme](../sql-database/sql-database-reserved-capacity.md)
-- [Azure ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
+- [Azure Ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
 - [CSP abonelikleri için ayırma kullanımını anlama](https://docs.microsoft.com/partner-center/azure-reservations)

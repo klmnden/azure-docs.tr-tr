@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: 0b84d7b0e7bbd2021ea4d3e3e804c739be59b48a
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 4d55c152bdc938d943c90a3e51af37b45f6a8eb5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186888"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301405"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Anlama ve IOT Hub'ından doğrudan metotları çağırma
 IOT Hub buluttan cihazlar üzerinde doğrudan metotları çağırma yeteneği sağlar. Başarılı veya başarısız hemen (kullanıcı tarafından belirtilen zaman aşımından sonra) doğrudan yöntemler için HTTP çağrısı benzer bir cihazla bir istek-yanıt etkileşimi temsil eder. Bu yaklaşım, hemen işlem boyunca cihaz yanıt verebilmesi olmasına bağlı olarak farklı olduğu senaryolar için kullanışlıdır.
@@ -105,7 +105,7 @@ Arka uç uygulaması oluşturan bir yanıt alır:
     Her ikisi de `status` ve `body` cihaz tarafından sağlanan ve cihazın kendi durum kodu ve/veya açıklamanın ile yanıt vermek için kullanılır.
 
 ### <a name="method-invocation-for-iot-edge-modules"></a>Yöntem çağırma için IOT Edge modülleri
-Bir modül kimliği desteklenen C# dilinde kullanarak çağrılıyor doğrudan yöntemler Önizleme SDK'sı (kullanılabilir [burada](https://www.nuget.org/packages/Microsoft.Azure.Devices/1.16.0-preview-004)).
+Bir modül kimliği C# SDK'ın desteklenen kullanarak doğrudan metotları çağırma (kullanılabilir [burada](https://www.nuget.org/packages/Microsoft.Azure.Devices/)).
 
 Bu amaçla kullanabileceğiniz `ServiceClient.InvokeDeviceMethodAsync()` yöntemi ve geçişinde `deviceId` ve `moduleId` parametre olarak.
 

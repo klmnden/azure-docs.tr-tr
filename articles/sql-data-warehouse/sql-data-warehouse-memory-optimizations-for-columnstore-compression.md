@@ -1,45 +1,45 @@
 ---
-title: Columnstore dizini performansı - Azure SQL Data Warehouse | Microsoft Docs
-description: Bellek gereksinimlerini azaltın veya her satır grubu kimliğinde bir columnstore dizini sıkıştırır satırların sayısı en üst düzeye çıkarmak için kullanılabilir bellek artırın.
+title: Columnstore dizini performansını - Azure SQL veri ambarı | Microsoft Docs
+description: Bellek gereksinimlerini azaltın veya columnstore dizininin her satır sıkıştırır satır sayısını en üst düzeye çıkarmak için kullanılabilir belleğini artırma.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 909b53e65fd893575a944d714f99698c7e45387d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e30320631a7fd9b4ee27096556af01f2ad77a746
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188142"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306841"
 ---
-# <a name="maximizing-rowgroup-quality-for-columnstore"></a>Satır grubu kimliğinde kalitesi columnstore için en üst düzeye çıkarma
+# <a name="maximizing-rowgroup-quality-for-columnstore"></a>Satır grubu kaliteli columnstore için en üst düzeye çıkarma
 
-Satır grubu kimliğinde kalite bir satır grubu kimliğinde satır sayısı tarafından belirlenir. Bellek gereksinimlerini azaltın veya her satır grubu kimliğinde bir columnstore dizini sıkıştırır satırların sayısı en üst düzeye çıkarmak için kullanılabilir bellek artırın.  Sıkıştırma oranları artırmak ve performans columnstore dizinleri için sorgulamak için bu yöntemleri kullanın.
+Satır grubu kalite bir satır satır sayısı tarafından belirlenir. Bellek gereksinimlerini azaltın veya columnstore dizininin her satır sıkıştırır satır sayısını en üst düzeye çıkarmak için kullanılabilir belleğini artırma.  Sıkıştırma oranları artırmak ve performans columnstore dizinleri için sorgulamak için bu yöntemleri kullanın.
 
-## <a name="why-the-rowgroup-size-matters"></a>Satır grubu kimliğinde boyutu neden önemlidir?
-Tek tek rowgroups sütun kesimleri tarayarak bir tabloda bir columnstore dizini tarar olduğundan, her satır grubu kimliğinde satır sayısı en üst düzeye çıkarma sorgu performansını geliştirir. Çok sayıda satır RowGroups sahip olduğunuzda, veri sıkıştırma diskten okumak için daha az veri olmadığı anlamına gelir artırır.
+## <a name="why-the-rowgroup-size-matters"></a>Satır grubu boyutu neden önemlidir
+Tek tek rowgroups olan sütun segmentleri tarayarak bir tabloda bir columnstore dizini tarar olduğundan, her satır satır sayısı en üst düzeye sorgu performansını geliştirir. RowGroups çok sayıda satır varsa, veri sıkıştırma diskten okunan için daha az veri yani artırır.
 
-Rowgroups hakkında daha fazla bilgi için bkz: [Columnstore dizinleri Kılavuzu](https://msdn.microsoft.com/library/gg492088.aspx).
+Satır grupları hakkında daha fazla bilgi için bkz: [Columnstore dizinleri Kılavuzu](https://msdn.microsoft.com/library/gg492088.aspx).
 
-## <a name="target-size-for-rowgroups"></a>Rowgroups ilişkin hedef boyutu
-En iyi sorgu performansını satır grubu kimliğinde bir columnstore dizininde başına satır sayısı en üst düzeye çıkarmak için belirtilir. Bir satır grubu kimliğinde 1.048.576 satır en olabilir. Satır grubu başına satır sayısının üst sınırını olmaması uygundur. Columnstore dizinleri RowGroups 100. 000'en az satır olduğunda iyi performans elde etmek.
+## <a name="target-size-for-rowgroups"></a>Satır grupları için hedef boyutu
+En iyi sorgu performansı için hedef bir columnstore dizini, satır grubu başına satır sayısı en üst düzeye çıkarmaktır. Bir satır grubu en fazla 1.048.576 satır olabilir. Satır grubu başına satır sayısı olmaması uygundur. Columnstore dizinleri RowGroups en az 100.000 satır olduğunda iyi performans elde edin.
 
 ## <a name="rowgroups-can-get-trimmed-during-compression"></a>Sıkıştırma sırasında RowGroups kırpılmış
 
-Bir toplu yükleme veya columnstore dizini yeniden oluşturma sırasında bazen yeterli bellek yok her satır grubu için belirlenen tüm satırları sıkıştırmak kullanılabilir. Bellek baskısı olduğunda sıkıştırma columnstore içine başarılı şekilde columnstore dizinleri satır grubu kimliğinde boyutları kesim. 
+Toplu yük veya columnstore dizini yeniden oluşturma sırasında bazen hiç her satır için belirlenen tüm satırları sıkıştırma için yeterli bellek yok. Bellek baskısı olduğunda, columnstore dizinleri halinde columnstore sıkıştırması başarılı satır grubu boyutları kesim. 
 
-Her satır grubu 10. 000'en az satır sıkıştırmak için bellek yetersiz olduğunda, SQL Data Warehouse bir hata oluşturur.
+10. 000'en az bir satır her satır sıkıştırmak için bellek yetersiz olduğunda, SQL veri ambarı, bir hata oluşturur.
 
-Toplu yükleme hakkında daha fazla bilgi için bkz: [toplu yükleme kümelenmiş columnstore dizinine](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index).
+Toplu yükleme hakkında daha fazla bilgi için bkz. [toplu yükleme kümelenmiş columnstore dizinine](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index).
 
-## <a name="how-to-monitor-rowgroup-quality"></a>Satır grubu kimliğinde kalitesini izleme
+## <a name="how-to-monitor-rowgroup-quality"></a>Satır grubu kalitesini izleme
 
-Rowgroups ve orada kırpma, kırpma nedenini satır sayısı gibi yararlı bilgileri sunan bir DMV (sys.dm_pdw_nodes_db_column_store_row_group_physical_stats) yoktur. Satır grubu kimliğinde kırpma hakkında bilgi almak için bu DMV sorgusu için kullanışlı bir yöntem olarak, aşağıdaki görünümü oluşturabilirsiniz.
+Rowgroups ve kırpma vardır, kırpma nedenini satır sayısı gibi yararlı bilgiler sunan bir DMV (sys.dm_pdw_nodes_db_column_store_row_group_physical_stats) yoktur. Satır grubu kırpmayı hakkında bilgi edinmek için bu DMV sorgulamak için kullanışlı bir yöntem olarak, aşağıdaki görünümü oluşturabilirsiniz.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -66,10 +66,10 @@ select *
 from cte;
 ```
 
-Trim_reason_desc satır grubu kimliğinde aynı olup olmadığını bildirir (trim_reason_desc = NO_TRIM hiçbir kırpma vardı ve satır grubu en iyi kalitesini olduğu anlamına gelir). Kırpma şunlardan satır grubu kimliğinde erken kırpılacağını belirtin:
-- BULKLOAD: gelen toplu iş yükü için satır 1 milyondan az satır varken bu kırpma neden kullanılır. Altyapısı varsa (delta deposuna ekleme aksine) eklenmekte 100.000 satırları büyük sıkıştırılmış satır grupları oluşturur, ancak kırpma neden BULKLOAD için ayarlar. Bu senaryoda, daha fazla satır birikmesine toplu iş yükü pencerenizi artırmayı düşünün. Ayrıca, satır gruplarından bölüm sınırları yayılamaz gibi çok parçalı olmadığından emin olmak için bölümleme düzeni yeniden.
-- MEMORY_LIMITATION: 1 milyon satır satır grupları oluşturmak için belirli bir çalışma bellek miktarını altyapısı tarafından gereklidir. Kullanılabilir bellek yükleme oturumunun gerekli çalışma belleğinden daha az olduğunda, satır grupları erken kırpılmış. Aşağıdaki bölümlerde, gerekli bellek tahmin etmek ve daha fazla bellek ayırmak açıklanmaktadır.
-- DICTIONARY_SIZE: Kırpma bu nedenle, geniş ve/veya yüksek nicelik dizeleri içeren en az bir dize sütunu olduğundan satır grubu kimliğinde kırpma oluştuğunu gösterir. Sözlük boyutu 16 MB bellek sınırlıdır ve satır grubu bu sınıra ulaşıldığında sıkıştırılmış. Bu durumla karşılaşırsanız, sorunlu sütun ayrı bir tabloya izole etmeyi düşünün.
+Trim_reason_desc satır grubu kırpılmış olup olmadığını belirtir (trim_reason_desc = NO_TRIM hiçbir kesme oluştu ve satır grubu en iyi kalitesini anlamına gelir). Kırpma nedeniyle erken erişim satır grubu belirtin:
+- BULKLOAD: gelen toplu iş yükü için satır 1 milyondan az satır başlattıklarında kırpma bu nedenle kullanılır. Altyapısı varsa (delta deposuna ekleme aksine) eklenen 100.000 satır büyük sıkıştırılmış satır grupları oluşturur ancak BULKLOAD için kesim nedeni ayarlar. Bu senaryoda, daha fazla satır accumulate için toplu yükleme pencerenizi artırmayı deneyin. Ayrıca, satır grupları bölüm sınırlarını yayılamaz, çok parçalı değil emin olmak için bölümleme düzeninizi yeniden değerlendir.
+- MEMORY_LIMITATION: 1 milyon satır satır grupları oluşturmak için belirli bir miktarda bellek çalışma altyapısı tarafından gereklidir. Kullanılabilir bellek yükleme oturumu gerekli çalışma belleğinden daha az olduğunda, satır grupları erken kırpılmış. Aşağıdaki bölümlerde, gerekli bellek tahmin edin ve daha fazla bellek açıklanmaktadır.
+- DICTIONARY_SIZE: Kesim bu nedenle, geniş ve/veya yüksek bir kardinalite dizeleri içeren en az bir dize sütunu olduğundan satır kesme oluştuğunu gösterir. Sözlük boyutu bellekte 16 MB ile sınırlıdır ve satır grubu bu sınıra ulaştığınızda sıkıştırılır. Bu durumla karşılaşırsanız, ayrı bir tabloya sorunlu sütuna yalıtarak göz önünde bulundurun.
 
 ## <a name="how-to-estimate-memory-requirements"></a>Bellek gereksinimlerini tahmin etme
 
@@ -77,52 +77,52 @@ Trim_reason_desc satır grubu kimliğinde aynı olup olmadığını bildirir (tr
 To view an estimate of the memory requirements to compress a rowgroup of maximum size into a columnstore index, download and run the view [dbo.vCS_mon_mem_grant](). This view shows the size of the memory grant that a rowgroup requires for compression in to the columnstore.
 -->
 
-Bir satır grubu kimliğinde sıkıştırmak için gereken en fazla bellek yaklaşık olarak şöyledir
+Yaklaşık bir satır grubu sıkıştırmak için gereken en fazla belleği olan
 
 - 72 MB +
-- \#Satır \* \#sütunları \* 8 bayt +
-- \#Satır \* \#kısa dize sütunlarındaki \* 32 bayt +
+- \#satırları \* \#sütunları \* 8 bayt +
+- \#satırları \* \#kısa dize sütunlarındaki \* 32 bayt +
 - \#uzun dize sütunlarındaki \* sıkıştırma sözlüğü için 16 MB
 
-Burada kısa dize sütunlarındaki dize veri türlerini kullanın < = 32 bayt ve > 32 bayt dizesi veri türlerini uzun dize sütunlarındaki kullanın.
+Burada kısa dize sütunlarındaki dize veri türlerini kullanın < = 32 bayt ve dize veri türlerini > 32 bayt uzun dize sütunlarındaki kullanın.
 
-Uzun dizeleri metin sıkıştırma için tasarlanmış bir sıkıştırma yöntemi ile sıkıştırılır. Bu bir sıkıştırma yöntemi kullanan bir *sözlük* metin kalıplarını depolamak için. Bir sözlük maksimum boyutu 16 MB'tır. Satır grubu kimliğinde her uzun bir dize sütunu için yalnızca bir sözlük yoktur.
+Uzun dizeler metin sıkıştırmak için tasarlanmış bir sıkıştırma yöntemi ile sıkıştırılır. Bu sıkıştırma yöntemi kullanan bir *sözlük* metin desenleri depolamak için. Bir sözlük maksimum boyutu 16 MB'dir. Satır grubu içindeki her uzun dize sütunu için yalnızca bir sözlük var.
 
-Video columnstore bellek gereksinimlerini kapsamlı bir açıklama için bkz [Azure SQL Data Warehouse ölçeklendirme: yapılandırma ve Kılavuzu](https://myignite.microsoft.com/videos/14822).
+Video columnstore bellek gereksinimleri ilgili ayrıntılı bir tartışma için bkz [Azure SQL veri ambarı ölçeklendirme: yapılandırma ve rehberlik](https://myignite.microsoft.com/videos/14822).
 
-## <a name="ways-to-reduce-memory-requirements"></a>Bellek gereksinimlerini azaltmak için yollar
+## <a name="ways-to-reduce-memory-requirements"></a>Bellek gereksinimlerini azaltın yolları
 
-Columnstore dizinleri rowgroups sıkıştırma için bellek gereksinimlerini azaltmak için aşağıdaki tekniklerini kullanın.
+Rowgroups columnstore dizinlerine sıkıştırıyorsunuz bellek gereksinimlerini azaltmak için aşağıdaki teknikleri kullanır.
 
 ### <a name="use-fewer-columns"></a>Daha az sütun kullanın
-Mümkünse, daha az sütun içeren tablo tasarlayın. Columnstore dizinini bir satır grubu kimliğinde columnstore sıkıştırılmış olduğunda, her bir sütun segmenti ayrı olarak sıkıştırır. Bu nedenle bir satır grubu kimliğinde sıkıştırmak için bellek gereksinimleri sütunları artar artırın.
+Mümkünse, daha az sütun içeren tablo tasarlayın. Columnstore dizinini bir satır columnstore sıkıştırılmış, her sütun segmenti ayrı olarak sıkıştırır. Bu nedenle bir satır grubu sıkıştırmak için bellek gereksinimleri sayısı arttıkça sütunları artırın.
 
 
 ### <a name="use-fewer-string-columns"></a>Daha az dize sütun kullanın
-Dize veri türleri sütunlarının daha fazla bellek sayısal ve tarih veri türü gerektirir. Bellek gereksinimlerini azaltmak için dize sütunlarındaki olgu tablolarından kaldırarak ve daha küçük boyut tabloları koyma göz önünde bulundurun.
+Dize veri türleri sütunlarının daha fazla bellek sayısal ve tarih veri türleri gerektirir. Bellek gereksinimlerini azaltmak için dize sütunlarındaki olgu tabloları kaldırma ve bunları daha küçük boyut tabloları koyarak göz önünde bulundurun.
 
 Dize sıkıştırma için ek bellek gereksinimleri:
 
-- En çok 32 karakter dizesi veri türleriyle 32 ek bayt değeri başına gerektirebilir.
-- Birden fazla 32 karakter dizesi veri türleriyle sözlük yöntemleri kullanarak sıkıştırılır.  Her sütunda satır grubu kimliğinde sözlük oluşturmak için ek 16 MB kadar gerektirebilir.
+- En çok 32 karakter dizesi veri türleriyle değeri her ek 32 bayt gerektirebilir.
+- 32'den fazla karakter dizesi veri türleriyle sözlük yöntemlerle sıkıştırılır.  Her sütunda bir satır grubu sözlüğü oluşturmak için en fazla ek olarak 16 MB gerektirebilir.
 
 ### <a name="avoid-over-partitioning"></a>Aşırı bölümleme kaçının
 
-Columnstore dizinleri bölüm başına bir veya daha fazla rowgroups oluşturun. SQL veri ambarı'nda bölüm sayısı çünkü veri dağıtılır ve her dağıtım bölümlenmiş hızlı bir şekilde artar. Tablonun çok fazla bölümleri varsa rowgroups doldurmak için yeterli satırları olmayabilir. Satır eksikliği sıkıştırma sırasında bellek baskısı oluşturmaz, ancak en iyi columnstore sorgu performansı elde etmeyin rowgroups yol açar.
+Columnstore dizinleri, bölüm başına bir veya daha fazla satır grupları oluşturun. SQL veri ambarı'nda bölüm sayısı hızla çünkü veriler dağıtılır ve her dağıtım bölümlenmiş büyür. Çok fazla tablo varsa rowgroups doldurmak için yeterli satır olmayabilir. Sıkıştırma sırasında satır eksikliği bellek baskısı oluşturmaz, ancak columnstore sorgularınızdan en iyi performansı elde etmeyin rowgroups için yönlendirir.
 
-Aşırı bölümleme önlemek için başka bir nedenle bölümlenmiş bir tablodaki columnstore dizininin içine satırları yükleme için ek bellek olmasıdır. Bir yükleme sırasında her bir bölümü olan sıkıştırılabilmesi için yeterli satırlar kadar bellekte tutulan gelen satırlarını, birçok bölüm alabilir. Çok fazla bölümlemeye sahip olmak için ek bellek baskısı oluşturur.
+Aşırı bölümleme önlemek için başka bir nedeni, bir bellek yükü bölümlenmiş bir tablodaki columnstore dizininin satır yükleme için olmasıdır. Bir yük birçok bölümler her bölüm sıkıştırılmasının için yeterli satır olana kadar bellekte tutulur gelen satır alabilir. Çok fazla olması, ek bellek baskısı oluşturur.
 
 ### <a name="simplify-the-load-query"></a>Yük sorguyu basitleştirin
 
-Veritabanı bellek ataması sorgu yer alan tüm işleçler arasında bir sorgu için paylaşır. Bir yük sorgu karmaşık sıralar ve birleşimler olduğunda, sıkıştırma kullanılabilir bellek azalır.
+Veritabanı sorgusu içindeki tüm işleçleri arasında bir sorgu için bellek ataması paylaşır. Sıkıştırma için kullanılabilir bellek yükü sorgu karmaşık sıralar ve birleşimler olduğunda azaltılır.
 
-Yalnızca sorgu yüklenirken üzerinde odaklanmaya yük sorgu tasarlayın. Üzerindeki veri dönüşümleri çalıştırmanız gerekiyorsa, bunları yük sorgudan ayrı çalıştırın. Örneğin, öbek tablodaki verileri aşama, dönüştürmeleri çalıştırabilir ve sonra columnstore dizinini hazırlama tablosunda yükleyin. Ayrıca verileri ilk yükleme ve verileri dönüştürmek için MPP sistemi kullanın.
+Yalnızca sorgu yüklenirken üzerinde odaklanmak için yük sorgu tasarlayın. Veriler üzerinde dönüştürmeler çalıştırmanız gerekiyorsa, bunları ayrı yük sorgu çalıştırın. Örneğin, bir yığın tablodaki verileri hazırlama, dönüştürmeleri çalıştırın ve sonra columnstore dizinine hazırlama tablosuna yükleyin. Ayrıca verileri ilk yüklemek ve ardından verileri dönüştürmek için MPP sistemi kullanın.
 
 ### <a name="adjust-maxdop"></a>MAXDOP Ayarla
 
-Dağıtım birden çok CPU çekirdeği bulunmadığında her dağıtım rowgroups paralel columnstore içine sıkıştırır. Paralellik bellek baskısı ve satır grubu kimliğinde kırpma neden olabilecek ek bellek kaynaklarının gerektirir.
+Her dağıtım, birden fazla CPU çekirdeği dağıtım kullanılabilir rowgroups columnstore paralel olarak sıkıştırır. Bellek baskısı ve satır kesme açabilir ek bellek kaynaklarının, paralellik gerektirir.
 
-Bellek baskısı azaltmak için her dağıtım içinde seri modunda çalıştırmak için yükleme işlemi zorlamak için MAXDOP sorgu ipucu kullanabilirsiniz.
+Bellek baskısı azaltmak için yükleme işlemi her dağıtım içinde seri modunda çalışmaya zorlamak için MAXDOP sorgu ipucunu kullanabilirsiniz.
 
 ```
 CREATE TABLE MyFactSalesQuota
@@ -133,20 +133,20 @@ OPTION (MAXDOP 1);
 
 ## <a name="ways-to-allocate-more-memory"></a>Daha fazla bellek yolları
 
-DWU boyutu ve kullanıcı kaynak sınıfı birlikte ne kadar bellek kullanıcı sorgu için uygun olduğunu belirler. Bir yük sorgu için bellek ataması artırmak için Dwu sayısını artırmak veya kaynak sınıfı artırın.
+DWU boyutu ve birlikte kullanıcı kaynak sınıfı için bir kullanıcı sorgu kullanılabilir ne kadar bellek belirleyin. Bellek ataması için bir yük sorgu artırmak için Dwu sayısını artırmak veya kaynak sınıfı artırın.
 
-- Dwu artırmak için bkz: [nasıl ı ölçeklendirme performans?](quickstart-scale-compute-portal.md)
-- Bir sorgu için kaynak sınıfı değiştirmek için bkz: [kullanıcı kaynak sınıfı örneğini değiştirmek](resource-classes-for-workload-management.md#change-a-users-resource-class).
+- Dwu'lar artırmak için bkz: [nasıl ı ölçeklendirme performans?](quickstart-scale-compute-portal.md)
+- Kaynak sınıfı için bir sorgu değiştirmek için bkz [kullanıcı kaynak sınıfı örneğini değiştirmek](resource-classes-for-workload-management.md#change-a-users-resource-class).
 
-Örneğin, DWU 100 üzerinde smallrc kaynak sınıfında bir kullanıcı her dağıtım için 100 MB bellek kullanabilir. Ayrıntılar için bkz [eşzamanlılık SQL Data warehouse'da](resource-classes-for-workload-management.md).
+Örneğin, üzerinde 100 DWU smallrc kaynak sınıfındaki kullanıcı 100 MB bellek her dağıtım için kullanabilirsiniz. Ayrıntılar için bkz. [eşzamanlılık SQL veri ambarı'nda](resource-classes-for-workload-management.md).
 
-Yüksek kaliteli satır grubu kimliğinde boyutları almak için 700 MB bellek gerektiğini belirlemek varsayalım. Bu örnekler, yeterli belleğe sahip yük sorgu nasıl çalıştırabileceğiniz gösterir.
+Yüksek kaliteli satır grubu boyutları almak için 700 MB bellek gerektiğini belirlemek varsayalım. Bu örnekler yük sorgu yeterli belleğe sahip nasıl çalıştırabileceğiniz gösterir.
 
-- DWU 1000 ve mediumrc kullanarak, 800 MB bellek ataması
-- DWU 600 ve largerc kullanarak bellek ataması 800 MB'tır.
+- DWU 1000 ve mediumrc kullanarak, bellek ataması 800 MB olan
+- DWU 600 ve largerc kullanarak, bellek ataması 800 MB'tır.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-SQL veri ambarı performansını artırmak için daha fazla yolunu öğrenmek için bkz: [performans genel bakış](sql-data-warehouse-overview-manage-user-queries.md).
+SQL veri ambarı performansını artırmak için daha fazla yolunu öğrenmek için bkz: [performansa genel bakış](sql-data-warehouse-overview-manage-user-queries.md).
 

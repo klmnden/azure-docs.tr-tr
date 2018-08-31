@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/12/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6e0d2b881e00acc6b1fccd3196187309fc36cba2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c681e5f68299c03685dd7722f8dc671e49026f78
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38755978"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43305086"
 ---
 #### <a name="expressroute-limits"></a>ExpressRoute sınırları
 Aşağıdaki sınırlar abonelik başına ExpressRoute kaynakları için geçerlidir.
@@ -21,11 +21,9 @@ Aşağıdaki sınırlar abonelik başına ExpressRoute kaynakları için geçerl
 | Kaynak | Varsayılan Sınır |
 | --- | --- |
 | Abonelik başına ExpressRoute devreleri |10 |
-| ExpressRoute devreleri ARM için abonelik başına bölgeye göre |10 |
+| ExpressRoute devreleri (Azure Resource Manager) abonelik başına bölgeye göre |10 |
 | Yollar, ExpressRoute standart Azure özel eşleme sayısı |4,000 |
 | ExpressRoute premium eklenti ile Azure özel eşleme için yol sayısı |10,000 |
-| ExpressRoute standart Azure ortak eşleme için yol sayısı |200 |
-| ExpressRoute premium eklenti ile Azure ortak eşleme için yol sayısı |200 |
 | Microsoft Azure ile standart ExpressRoute eşdüzey hizmet sağlama için rota sayısı |200 |
 | Azure ExpressRoute premium eklenti ile eşleme Microsoft yolları sayısı |200 |
 | ExpressRoute devreleri farklı eşleme konumları aynı sanal ağa bağlı en fazla sayısı |4 |

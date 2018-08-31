@@ -1,5 +1,5 @@
 ---
-title: Kuruluş için Azure ayırma kullanımını anlama | Microsoft Docs
+title: Kuruluş için Azure ayırmaları kullanımını anlama | Microsoft Docs
 description: Kurumsal kayıt için Azure ayırma nasıl uygulanacağını anlamak için kullanım okumayı öğrenin.
 services: billing
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: manshuk
-ms.openlocfilehash: 5ce0103315f297996ed3f3bd88b5e53558e22e14
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 334271139b791ab60f2bc89ae695ba9bf06b7d12
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628241"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301029"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Kurumsal kayıt için Azure ayırma kullanımını anlama
 
@@ -86,7 +86,7 @@ Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalel
 - [Azure ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
 - [Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Azure SQL veritabanı'nın ayrılmış kapasite ile SQL veritabanı bilgi işlem kaynakları için ön ödeme](../sql-database/sql-database-reserved-capacity.md) 
-- [Azure ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
+- [Azure Ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
 - [Ayırma indirimi nasıl uygulanacağını anlama](billing-understand-vm-reservation-charges.md)
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
 - [Windows yazılım maliyetleri ile ayırmaları dahil değil](billing-reserved-instance-windows-software-costs.md)

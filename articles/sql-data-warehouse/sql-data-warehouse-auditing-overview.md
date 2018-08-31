@@ -3,19 +3,19 @@ title: Azure SQL veri ambarı'nda denetim | Microsoft Docs
 description: Denetim ve Azure SQL veri ambarı'nda denetimini ayarlama hakkında bilgi edinin.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 3630d4d694452f2c619e707d1e2e58f1bfe71c0e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: c894fed56393e1504f54999e57bba6f9ffed27a7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858961"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288263"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda denetleme
 
@@ -108,7 +108,7 @@ Denetimi kullanıyorsanız onay denetim ayarlamadan önce bir ["Alt düzey istem
 5. Tıklayın **Tamam** depolama ayrıntıları yapılandırmayı kaydetmek için düğme.
 6. Altında **tarafından olay günlüğü**, tıklayın **başarı** ve **hatası** tüm olaylarını günlüğe kaydedecek ya da tek tek olay kategorilerini seçin.
 7. Bir veritabanı için Denetim yapılandırıyorsanız, verileri denetleme düzgün yakalandıktan emin olmak için istemci bağlantı dizesini değiştirmek gerekebilir. Denetleme [bağlantı dizesinde sunucu FDQN değiştirme](sql-data-warehouse-auditing-downlevel-clients.md) konu alt düzey istemci bağlantıları için.
-8. **Tamam**’a tıklayın.
+8. **Tamam** düğmesine tıklayın.
 
 ## <a id="subheading-3"></a>Denetim günlüklerini ve raporları analiz edin
 

@@ -14,14 +14,14 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/09/2017
+ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: a3bba4e8fd83b160472a2dc6a9425192b4bbd301
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1e2204dbe645aeff2587c2c3d55b5da89ac227d8
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531588"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288222"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Yapılandırma Always On kullanılabilirlik grubu Azure VM'de el ile
 
@@ -145,7 +145,7 @@ Bu örnekte Windows Küme, Küme çekirdeğini oluşturmak için bir dosya payla
 
    ![Yeni paylaşım](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/50-filesharepermissions.png)
 
-1. **Tamam**’a tıklayın.
+1. **Tamam** düğmesine tıklayın.
 
 1. İçinde **paylaşılan klasör izinleri**, tıklayın **son**. Tıklayın **son** yeniden.  
 
@@ -247,7 +247,7 @@ Repeat these steps on the second SQL Server.
 
    ![Yeni paylaşım](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/68-backupsharepermission.png)
 
-1. **Tamam**’a tıklayın.
+1. **Tamam** düğmesine tıklayın.
 
 1. İçinde **paylaşılan klasör izinleri**, tıklayın **son**. Tıklayın **son** yeniden.  
 
@@ -411,7 +411,7 @@ Yük Dengeleyici yapılandırmak için bir arka uç havuzu, bir yoklama oluştur
    | Ayar | Açıklama | Örnek
    | --- | --- |---
    | **Ad** | Metin | SQLAlwaysOnEndPointListener |
-   | **Ön uç IP adresi** | Adres seçin |Yük Dengeleyici oluştururken oluşturduğunuz adresini kullanın. |
+   | **Ön uç IP adresi** | Bir adres seçin |Yük Dengeleyici oluştururken oluşturduğunuz adresini kullanın. |
    | **Protokol** | TCP seçin |TCP |
    | **Bağlantı Noktası** | Kullanılabilirlik grubu dinleyicisinin bağlantı noktası kullan | 1435 |
    | **Arka uç bağlantı noktası** | Kayan IP için doğrudan sunucu dönüş ayarlandığında, bu alan kullanılmaz | 1435 |
@@ -427,9 +427,9 @@ Yük Dengeleyici yapılandırmak için bir arka uç havuzu, bir yoklama oluştur
 
 ### <a name="add-the-front-end-ip-address-for-the-wsfc"></a>Ön uç IP adresi için WSFC Ekle
 
-WSFC IP adresi aynı zamanda yük dengeleyicide olması gerekir. 
+WSFC IP adresi aynı zamanda yük dengeleyicide olması gerekir.
 
-1. Portalda yeni bir ön uç IP yapılandırması için WSFC ekleyin. WSFC küme çekirdek kaynakları için yapılandırdığınız IP adresini kullanın. IP adresi, statik olarak ayarlayın. 
+1. Portalda yeni bir ön uç IP yapılandırması için WSFC ekleyin. WSFC küme çekirdek kaynakları için yapılandırdığınız IP adresini kullanın. IP adresi, statik olarak ayarlayın.
 
 1. Load balancer'ı tıklatın, **sistem durumu araştırmalarının**, tıklatıp **+ Ekle**.
 
@@ -450,8 +450,8 @@ WSFC IP adresi aynı zamanda yük dengeleyicide olması gerekir.
 1. Yük Dengeleme kuralları şu şekilde ayarlayın.
    | Ayar | Açıklama | Örnek
    | --- | --- |---
-   | **Ad** | Metin | WSFCPointListener |
-   | **Ön uç IP adresi** | Adres seçin |WSFC IP adresini yapılandırıldığında oluşturduğunuz adresini kullanın. |
+   | **Ad** | Metin | WSFCEndPointListener |
+   | **Ön uç IP adresi** | Bir adres seçin |WSFC IP adresini yapılandırıldığında oluşturduğunuz adresini kullanın. |
    | **Protokol** | TCP seçin |TCP |
    | **Bağlantı Noktası** | Kullanılabilirlik grubu dinleyicisinin bağlantı noktası kullan | 58888 |
    | **Arka uç bağlantı noktası** | Kayan IP için doğrudan sunucu dönüş ayarlandığında, bu alan kullanılmaz | 58888 |
@@ -498,38 +498,20 @@ Bağlantıyı test etmek için:
 
 1. Kullanım **sqlcmd** yardımcı programını kullanarak bağlantıyı test edin. Örneğin, aşağıdaki komut dosyası oluşturur bir **sqlcmd** Windows kimlik doğrulaması ile dinleyicisi aracılığıyla birincil kopyanın bağlantısı:
 
-    ```
-    sqlcmd -S <listenerName> -E
-    ```
+  ```cmd
+  sqlcmd -S <listenerName> -E
+  ```
 
-    Dinleyici varsayılan dışında bir bağlantı noktası kullanıyorsa (1433) bağlantı noktası, bağlantı dizesinde bağlantı noktasını belirtin. Örneğin, aşağıdaki sqlcmd komutunu bir dinleyici bağlantı noktası 1435 bağlanır:
+  Dinleyici varsayılan dışında bir bağlantı noktası kullanıyorsa (1433) bağlantı noktası, bağlantı dizesinde bağlantı noktasını belirtin. Örneğin, aşağıdaki sqlcmd komutunu bir dinleyici bağlantı noktası 1435 bağlanır:
 
-    ```
-    sqlcmd -S <listenerName>,1435 -E
-    ```
+  ```cmd
+  sqlcmd -S <listenerName>,1435 -E
+  ```
 
 Hangi SQL Server örneğini birincil çoğaltmayı barındıran için SQLCMD bağlantı otomatik olarak bağlanır.
 
 > [!TIP]
 > Belirttiğiniz bağlantı noktası hem de SQL Server güvenlik duvarının açık olduğundan emin olun. Her iki sunucuyu kullandığınız TCP bağlantı noktası için bir gelen kuralı gerektirir. Daha fazla bilgi için [Ekle veya güvenlik duvarı kuralını Düzenle](http://technet.microsoft.com/library/cc753558.aspx).
->
->
-
-
-
-<!--**Notes**: *Notes provide just-in-time info: A Note is “by the way” info, an Important is info users need to complete a task, Tip is for shortcuts. Don’t overdo*.-->
-
-
-<!--**Procedures**: *This is the second “step." They often include substeps. Again, use a short title that tells users what they’ll do*. *("Configure a new web project.")*-->
-
-<!--**UI**: *Note the format for documenting the UI: bold for UI elements and arrow keys for sequence. (Ex. Click **File > New > Project**.)*-->
-
-<!--**Screenshot**: *Screenshots really help users. But don’t include too many since they’re difficult to maintain. Highlight areas you are referring to in red.*-->
-
-<!--**No. of steps**: *Make sure the number of steps within a procedure is 10 or fewer. Seven steps is ideal. Break up long procedure logically.*-->
-
-
-<!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

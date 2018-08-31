@@ -1,44 +1,44 @@
 ---
-title: SQL veri ambarına şemanızı geçirme | Microsoft Docs
-description: Çözümleri geliştirme için Azure SQL veri ambarı'na şemanızı geçirmek için ipuçları.
+title: SQL veri ambarı'na şemanızın geçişini yapın | Microsoft Docs
+description: Şemanızı çözümleri geliştirmek için Azure SQL veri ambarı'na geçirmek için ipuçları.
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: fb1085450a16acb0f9a06a9dea9d91fc5ca23363
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 51ad7eed0bf37194b1e5ff2c605b39246e9a1191
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525174"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301191"
 ---
-# <a name="migrate-your-schemas-to-sql-data-warehouse"></a>Şemaları SQL veri ambarına geçirme
-SQL Data Warehouse, SQL şemaları geçirmek için yönergeler. 
+# <a name="migrate-your-schemas-to-sql-data-warehouse"></a>Şemaları SQL veri ambarı'na geçirme
+SQL veri ambarı, SQL şemaları geçişine ilişkin yönergeler. 
 
 ## <a name="plan-your-schema-migration"></a>Şema geçişinizi planlayın
 
-Geçiş planlıyorsanız görür [tablo genel bakışı] [ table overview] tablo tasarım konuları istatistikleri, dağıtım, bölümlendirme ve dizin oluşturma gibi öğrenmeniz için.  Ayrıca bazı listeler [desteklenmeyen tablo özellikleri] [ unsupported table features] ve bunların geçici çözümleri.
+Bir geçiş planı görmeniz [tabloya genel bakış] [ table overview] tablo tasarımları gibi istatistikleri, dağıtım, bölümlendirme ve dizin oluşturma ile ilgili bilgi sahibi olma.  Ayrıca bazı listeler [desteklenmeyen Tablo Özellikler] [ unsupported table features] ve bunların geçici çözümleri bulabilirsiniz.
 
-## <a name="use-user-defined-schemas-to-consolidate-databases"></a>Kullanıcı tanımlı şemaları veritabanları birleştirmek için kullanın
+## <a name="use-user-defined-schemas-to-consolidate-databases"></a>Kullanıcı tanımlı şemalar veritabanları birleştirmek için kullanın
 
-Var olan İş yükünüzün büyük olasılıkla birden fazla veritabanı var. Örneğin, bir SQL Server veri ambarı Hazırlama veritabanı, veri ambarı veritabanı ve bazı veri reyonu veritabanı içerebilir. Bu topolojide, her veritabanı ayrı bir iş yükü ayrı güvenlik ilkeleriyle birlikte çalışır.
+Mevcut iş yükünüz, büyük olasılıkla birden fazla veritabanı vardır. Örneğin, bir SQL Server veri ambarı Hazırlama veritabanı, veri ambarı veritabanını ve bazı veri reyonu veritabanı içerebilir. Bu topolojide, her veritabanını ayrı güvenlik ilkeleriyle ayrı bir iş yükü olarak çalışır.
 
-Bunun aksine, SQL Data Warehouse bir veritabanına içinde tüm veri ambarı iş yükü çalışır. Veritabanı birleştirmeler izin verilmez. Bu nedenle, SQL Data Warehouse bir veritabanı içinde depolanan veri ambarı tarafından kullanılan bütün tablolar bekliyor.
+Bunun aksine, SQL veri ambarı, tüm veri ambarı iş yükünün bir veritabanı içinde çalışır. Veritabanı birleştirmeler izin verilmez. Bu nedenle, bir veritabanı içinde depolanacak veri ambarı tarafından kullanılan tüm tabloları SQL veri ambarı bekliyor.
 
-Var olan İş yükünüzün bir veritabanına birleştirmek için kullanıcı tanımlı şemaları kullanmanızı öneririz. Örnekler için bkz: [kullanıcı tanımlı şemaları](sql-data-warehouse-develop-user-defined-schemas.md)
+Mevcut iş yükünüz bir veritabanına birleştirmek için kullanıcı tanımlı şemalar kullanmanızı öneririz. Örnekler için bkz [kullanıcı tanımlı şemalar](sql-data-warehouse-develop-user-defined-schemas.md)
 
 ## <a name="use-compatible-data-types"></a>Uyumlu veri türleri kullanın
-Veri türlerinizi SQL Data Warehouse ile uyumlu olacak şekilde değiştirin. Desteklenen ve desteklenmeyen veri türlerinin listesi için bkz: [veri türleri][data types]. Bu konu desteklenmeyen türleri için geçici çözümler sunar. Ayrıca, SQL veri ambarı'nda desteklenmez mevcut türleri tanımlayacak bir sorgu sağlar.
+Veri türleri, SQL veri ambarı ile uyumlu olacak şekilde değiştirin. Desteklenen ve desteklenmeyen veri türleri listesi için bkz. [veri türleri][data types]. Bu konu, desteklenmeyen türler için geçici çözümler sağlar. Ayrıca SQL veri ambarı'nda desteklenmez mevcut türlerini tanımlamak üzere bir sorgu sağlar.
 
 ## <a name="minimize-row-size"></a>Satır boyutu en aza indir
-En iyi performans için tablolar satır uzunluğu en aza indirin. Daha iyi performans için daha kısa satır uzunlukları neden olduğundan, iş en küçük veri türleri, verileriniz için kullanın. 
+En iyi performans için tablolarınızı satır uzunluğu en aza indirin. Daha iyi performans için daha kısa satır uzunlukları neden olduğundan, verileriniz için çalışan en küçük veri türlerini kullanın. 
 
-Tablo satır genişliğini için PolyBase 1 MB sınırı vardır.  PolyBase ile SQL veri ambarına veri yükleme planlıyorsanız, en fazla satır genişliğini 1 MB'tan az olması tablolarınızı güncelleştirin. 
+Tablo için satır genişlik, PolyBase 1 MB sınırı vardır.  PolyBase ile SQL veri ambarı'na veri yükleme planlıyorsanız, en büyük satır genişliğini 1 MB'tan az olması tablolarınızı güncelleştirin. 
 
 <!--
 - For example, this table uses variable length data but the largest possible size of the row is still less than 1 MB. PolyBase will load data into this table.
@@ -48,22 +48,22 @@ Tablo satır genişliğini için PolyBase 1 MB sınırı vardır.  PolyBase ile 
 -->
 
 ## <a name="specify-the-distribution-option"></a>Dağıtım seçeneğini belirtin
-SQL veri ambarı dağıtılmış bir veritabanı sistemidir. Her tablo dağıtılmış veya işlem düğümleri arasında çoğaltılan. Nasıl veri dağıtılacağını belirtmenize olanak sağlar. bir tablo seçeneği yoktur. Çoğaltılan, hepsini, seçimlerdir veya karma dağıtılmış. Her Artıları ve eksileri vardır. Dağıtım seçeneği belirtmezseniz, SQL Data Warehouse hepsini varsayılan olarak kullanın.
+SQL veri ambarı dağıtılan bir veritabanı sistemidir. Her tablo dağıtılmış veya işlem düğümleri arasında çoğaltılır. Verilerin nasıl dağıtılacağını belirtmenize olanak sağlar. bir tablo seçenek mevcuttur. Seçimleri çoğaltılan, hepsini bir kez deneme, veya karma dağıtılmış. Her avantajları ve dezavantajları vardır. SQL veri ambarı dağıtım seçeneği belirtmezseniz hepsini bir kez deneme varsayılan olarak kullanır.
 
-- Hepsini varsayılandır. Kullanmak için en basit olan ve sorgu performansı yavaşlatır veri taşıma yükleri mümkün, ancak birleştirmeler hızlı veri ister.
-- Bir tablonun her işlem düğümünde kopyasını çoğaltılmış depolar. Çoğaltılmış tablolar kullanıcı olduklarından, veri taşıma birleşimler ve Toplamalar için gerektirmez. Bunlar ek depolama alanı gerektirir ve bu nedenle daha küçük tablolar için en iyi çalışır.
-- Dağıtılmış karma satırları karma işlevi ile tüm düğümler arasında dağıtır. Büyük tablolarda yüksek sorgu performansını sağlamak için tasarlanmış beri dağıtılmış karma tablolar SQL Data Warehouse Kalp değildir. Bu seçenek bazı verileri dağıtmak en iyi sütunda seçmek planlama gerektirir. İlk kez en iyi sütun seçmezseniz, ancak, kolayca farklı bir sütun üzerindeki verileri yeniden dağıtabilirsiniz. 
+- Hepsini bir kez deneme varsayılandır. Kullanmak için en basit olduğundan ve veri taşıma, bir sorgu performansı yavaşlattığını olası, ancak birleştirmeler hızlı veri yüklerini gerektirir.
+- Bir tablonun her işlem düğümünde kopyasını çoğaltılmış depolar. Bunlar veri taşıma birleşimler ve Toplamalar için gerektirmediğinden çoğaltılmış tablolar performansa sahiptir. Bunlar ek depolama alanı gerektirir ve bu nedenle daha küçük tablolar için en iyi çalışır.
+- Karma dağıtılmış satırları bir karma işlevi ile tüm düğümler arasında dağıtır. Karma dağıtılmış tablo SQL veri ambarı'nın temelini olduğundan yüksek sorgu performansı büyük tablolarda sağlamak için tasarlanmıştır. Bu seçenek, bazı verileri dağıtmak en iyi sütunu seçmek planlama gerektirir. İlk kez en iyi sütun seçmezseniz, ancak, kolayca veriler üzerinde farklı bir sütun yeniden dağıtabilirsiniz. 
 
-Her tablo için en iyi dağıtım seçeneği için bkz: [dağıtılmış tabloları](sql-data-warehouse-tables-distribute.md).
+Her tablo için en iyi dağıtım seçeneği için bkz: [dağıtılmış tablolar](sql-data-warehouse-tables-distribute.md).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-SQL veri ambarı veritabanı şemanızı başarıyla geçirdikten sonra aşağıdaki makaleler birine devam edin:
+Aşağıdaki makalelerden birine, veritabanı şemasını SQL veri ambarı'na başarıyla geçirdikten sonra devam edin:
 
 * [Verilerinizi geçirme][Migrate your data]
 * [Kodunuzu geçirme][Migrate your code]
 
-SQL veri ambarı en iyi uygulamalar hakkında daha fazla bilgi için bkz: [en iyi uygulamalar] [ best practices] makalesi.
+SQL veri ambarı en iyi uygulamalar hakkında daha fazla bilgi için bkz. [en iyi uygulamalar] [ best practices] makalesi.
 
 <!--Image references-->
 

@@ -1,192 +1,191 @@
 ---
-title: SQL Data Warehouse verilerinizi geçirme | Microsoft Docs
-description: Çözümleri geliştirme için Azure SQL Data Warehouse verilerinizi geçirme ipuçları.
+title: Verilerinizi SQL veri ambarı'na geçirme | Microsoft Docs
+description: Çözümleri geliştirme için Azure SQL veri ambarı'na verilerinizi geçirme hakkında ipuçları.
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: ca467ae5fbe784399e4e046c47c920ff7dec638e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fc7bf4eaeb073b0337be68632e5057bfce96e06a
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796012"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307831"
 ---
 # <a name="migrate-your-data"></a>Verilerinizi geçirme
-Veri çeşitli araçları ile SQL veri ambarında farklı kaynaklardan yeniden taşınabilir.  ADF kopyalama, SSIS ve bcp tüm bu hedefe ulaşmak için kullanılabilir. Ancak, veri artar miktarda veri geçiş işlemi adımlara bölmek hakkında düşünmelisiniz. Bu, her adım performans ve esnekliği kesintisiz veri geçişini sağlamak için en iyi duruma getirme olanağı ortaya koymaktadır.
+Farklı kaynaktaki verileri çeşitli araçlarla, SQL veri ambarı'na taşınabilir.  ADF kopyalama, SSIS ve bcp tüm bu hedefe ulaşmak için kullanılabilir. Ancak, veri arttıkça miktarda veri geçiş işlemi adımlara bölmek hakkında düşünmelisiniz. Her adım için performans ve esneklik kesintisiz veri geçişini sağlamak için en iyi duruma getirme olanağı verir.
 
-Bu makalede, ilk ADF kopyalama, SSIS ve bcp basit geçiş senaryoları açıklanmaktadır. Ardından, görünüm nasıl geçiş iyileştirilebilir içine biraz daha derin.
+Bu makalede, ilk ADF kopyalama, SSIS ve bcp basit geçiş senaryoları ele alınmaktadır. Ardından nasıl geçiş iyileştirilebilir içine biraz daha ayrıntılı bir görünüm.
 
-## <a name="azure-data-factory-adf-copy"></a>Azure veri fabrikası (ADF) kopyalama
-[ADF kopyalama] [ ADF Copy] parçası olan [Azure Data Factory][Azure Data Factory]. ADF kopya verileriniz Azure blob depolama alanındaki veya SQL Data Warehouse doğrudan uzak düz dosyalara yerel depolama bulunan düz dosyalar dışarı aktarmak için kullanabilirsiniz.
+## <a name="azure-data-factory-adf-copy"></a>Azure Data Factory (ADF) kopyalama
+[ADF kopyalama] [ ADF Copy] parçasıdır [Azure Data Factory][Azure Data Factory]. ADF kopyalama, verilerinizi Azure blob depolama veya SQL veri ambarı'na doğrudan tutulan uzak düz dosyaları için yerel depolamada bulunan düz dosyalar aktarmak için kullanabilirsiniz.
 
-Verilerinizi düz dosyalarda başlar, sonra önce bir yük başlatmadan önce Azure storage blobuna aktarmak gerekir, SQL Data Warehouse içine. Azure blob depolama alanına aktarılan verileri sonra kullanmayı seçebilirsiniz [ADF kopyalama] [ ADF Copy] yeniden SQL Data Warehouse'a veri göndermek için.
+Verilerinizi düz dosyaları başlar, sonra Yük başlatmadan önce Azure storage blobuna aktarmak önce gerekir, bu SQL veri ambarı'na. Verileri Azure blob depolama alanına devredildikten sonra kullanmayı seçebilirsiniz [ADF kopyalama] [ ADF Copy] verileri SQL veri ambarı'na yeniden gönderin.
 
-PolyBase verilerin yüklenmesi için yüksek performanslı seçeneği de sağlar. Ancak, iki tane yerine araçlarla anlamına gelmez. En iyi performansı gereksinim sonra PolyBase kullanmak istiyorsanız. Bir tek aracı deneyimi istediğiniz (ve veri yoğun değil) sonra ADF yanıtınız olur.
+PolyBase Ayrıca, veri yükleme için yüksek performanslı seçeneği sağlar. Ancak, bir yerine iki araçlarını kullanarak geliyor. En iyi performansa gerek sonra PolyBase kullanma Tek bir araç deneyimi istediğiniz (ve veri çok büyük değilse) sonra ADF aradığınız cevaptır.
 
 
 > 
 > 
 
-Bazı harika için aşağıdaki makaleye üzerinden baş [ADF örnekleri][ADF samples].
+Bazı harika [ADF örnekleri] için şu makaleye gidin [ADF örnekleri].
 
 ## <a name="integration-services"></a>Tümleştirme Hizmetleri
-Integration Services (SSIS) karmaşık iş akışları, veri dönüştürme ve birkaç veri yükleme seçeneklerini destekleyen bir güçlü ve esnek ayıklamak dönüştürme ve yükleme (ETL) aracıdır. SSIS yalnızca Azure veya daha geniş bir geçişin parçası olarak veri aktarmak için kullanın.
+Integration Services (SSIS) karmaşık iş akışları, veri dönüştürme ve birkaç veri yükleme seçeneklerini destekleyen bir güçlü ve esnek ayıklama, dönüştürme ve yükleme (ETL) aracıdır. SSIS yalnızca azure'a ya da daha geniş bir geçişin parçası olarak veri aktarmak için kullanın.
 
 > [!NOTE]
-> SSIS dosyasındaki bayt sırası işareti olmadan UTF-8 olarak dışarı aktarabilirsiniz. Yapılandırmak için bu ilk gerekir türetilmiş sütun bileşen 65001 UTF-8 kod sayfasını kullanmak üzere veri akışındaki karakter verileri dönüştürmek için kullanın. Sütunları dönüştürüldükten sonra 65001 dosyası için kod sayfası olarak da seçilmiş sağlama düz dosya hedef bağdaştırıcı için veri yazma.
+> SSIS dosyasında Unicode bayt sırası işareti olmadan UTF-8 olarak dışarı aktarabilirsiniz. Yapılandırmak için bu ilk gerekir türetilmiş sütun bileşeni UTF-8 kod sayfası 65001 kullanmak için veri akışında karakter verileri dönüştürmek için kullanın. Sütunları dönüştürüldükten sonra verileri sağlama 65001 kod sayfası dosyası için de seçildi düz dosya hedef bağdaştırıcı yazma.
 > 
 > 
 
-Bu SQL Server dağıtımı için yalnızca bağlandığınız gibi SSIS SQL veri ambarı'na bağlanır. Ancak, bağlantılarınızı bir ADO.NET Bağlantı Yöneticisi'ni kullanarak gerekir. Aynı zamanda "kullanım toplu ekleme kullanılabilir olduğunda" yapılandırmak için dikkatli verimliliği en üst düzeye çıkarmak için ayarı. Lütfen [ADO.NET hedef bağdaştırıcı] [ ADO.NET destination adapter] bu özellik hakkında daha fazla bilgi için makalenin
+Bu bir SQL Server dağıtımı için yalnızca bağlandığınız gibi SSIS SQL veri ambarı'na bağlanır. Ancak, bağlantılarınızı bir ADO.NET Bağlantı Yöneticisi'ni kullanarak gerekir. Ayrıca Al "kullanmak toplu ekleme kullanılabilir olduğunda" yapılandırmak için dikkat etmelisiniz aktarım hızını en üst düzeye çıkarmak için ayarı. Lütfen [ADO.NET hedef bağdaştırıcı] [ ADO.NET destination adapter] bu özellik hakkında daha fazla bilgi edinmek için makaleyi
 
 > [!NOTE]
-> OLEDB kullanarak Azure SQL Data Warehouse'a bağlanma desteklenmiyor.
+> OLEDB kullanarak Azure SQL veri ambarı'na bağlanması desteklenmiyor.
 > 
 > 
 
-Ayrıca, var. her zaman bir paket son azaltma veya ağ sorunları için başarısız olabilir olasılığı Tasarım paketleri bunlar olmadan hatası noktasında ettirilebilir şekilde yineleme, iş, arızadan önce tamamlandı.
+Ayrıca, olasılığı vardır her zaman, bir paket azaltma veya ağ sorunları nedeniyle ayıklayamayabilir. Tasarım, bunlar olmadan hata noktasında sürdürülebilir şekilde paketleri yineleme, iş, hatasından önce tamamlandı.
 
-Daha fazla bilgi için [SSIS belgelerine][SSIS documentation].
+Daha fazla bilgi için [SSIS belgelerinde][SSIS documentation].
 
 ## <a name="bcp"></a>bcp
-BCP düz dosya verileri içeri ve dışarı aktarma için tasarlanmış bir komut satırı yardımcı programıdır. Bazı dönüştürme veri dışa aktarma sırasında gerçekleşebilir. Basit dönüşümleri gerçekleştirmek için seçin ve verileri dönüştürmek için bir sorgu kullanın. Dışarı sonra düz dosyalar ardından hedef doğrudan SQL Data Warehouse veritabanı yüklenebilir.
+BCP düz dosya verileri içeri ve dışarı aktarma için tasarlanan bir komut satırı yardımcı programıdır. Bazı dönüştürme verileri dışarı aktarma sırasında gerçekleşir. Basit dönüştürme gerçekleştirmek için seçin ve verileri dönüştürmek için bir sorgu kullanın. Dışarı sonra düz dosyalar ardından hedef doğrudan SQL veri ambarı veritabanı yüklenebilir.
 
 > [!NOTE]
-> Kaynak sistemdeki bir görünümdeki verileri dışa aktarma sırasında kullanılan dönüşümleri kapsülleyen genellikle iyi bir fikirdir. Bu mantığı korunur ve tekrarlanabilir bir işlemdir sağlar.
+> Kaynak sistemdeki bir görünümde verileri dışarı aktarma sırasında kullanılan dönüştürmeleri kapsüllemek için genellikle iyi bir fikirdir. Bu mantığı korunur ve tekrarlanabilir bir işlemdir sağlar.
 > 
 > 
 
 Bcp avantajları şunlardır:
 
-* Basitlik. BCP komutları oluşturmak ve çalıştırmak basit
-* Yeniden başlatılabilir yükleme işlemi. Bir kez dışarı aktarılan yük olabilir kez herhangi bir sayıda yürütülebilir.
+* Basitlik. BCP komut derlemek ve çalıştırmak basit
+* Yeniden başlatılabilir yükleme işlemi. Bir kez verilen yük olabilir herhangi bir sayıda kez yürütüldü
 
 Bcp sınırlamaları vardır:
 
-* BCP tabloda düz dosyalarıyla yalnızca çalışır. Xml veya JSON gibi dosyalarla çalışmıyor
-* Veri dönüştürme özellikleri yalnızca verme aşama sınırlıdır ve doğası gereği basit
-* BCP verilerin internet üzerinden yüklenirken sağlam olması uyarlanmıştır değil. Ağ kararsızlığa yük hataya neden olabilir.
-* BCP yük önce hedef veritabanında var olan şema kullanır
+* BCP sekmeli düz dosyaları ile yalnızca çalışır. Xml veya JSON gibi dosyaları ile çalışmıyor
+* Veri dönüştürme özelliklerini verme aşaması sınırlıdır ve doğası gereği basit
+* BCP verilerini internet üzerinden yüklerken güçlü olacak şekilde uyarlandığı değil. Yükleme hatası ağ kararsızlığa neden olabilir.
+* BCP yüklenmesinden önce hedef veritabanında mevcut olan şemayı kullanır
 
-Daha fazla bilgi için bkz: [verileri SQL Data Warehouse'a veri yüklemek için bcp kullanın][Use bcp to load data into SQL Data Warehouse].
+Daha fazla bilgi için [SQL veri ambarı'na veri yüklemek için bcp kullanın][Use bcp to load data into SQL Data Warehouse].
 
 ## <a name="optimizing-data-migration"></a>Veri geçişi en iyi duruma getirme
-Bir SQLDW veri taşıma işlemi, üç ayrı adımları etkili bir şekilde ayrılabilir:
+SQLDW veri geçiş işlemi, üç ayrı adımlar etkili bir şekilde ayrılabilir:
 
-1. Kaynak verileri dışa aktarma
+1. Kaynak verileri dışarı aktarma
 2. Azure veri aktarımı
-3. Hedef SQLDW veritabanına yükleyin
+3. Hedef SQLDW veritabanı'na yükleme
 
-Her adım, her adım performansı en üst düzeye çıkaran güçlü, yeniden başlatılabilir ve esnek geçiş işlemi oluşturmak için ayrı ayrı iyileştirilebilir.
+Her adım tek tek her bir adımı performans en üst düzeye bir sağlam, yeniden başlatılabilir ve esnek geçiş işlemi oluşturmak için de iyileştirilebilir.
 
 ## <a name="optimizing-data-load"></a>En iyi duruma getirme veri yükleme
-Bu bir süre için ters sırada bakarak; PolyBase veri yüklemek için en hızlı yoludur. Bunu anlamanın en iyisidir PolyBase yükleme işlemi için en iyi duruma getirme Önkoşullar önceki adımları ön yerleştirir. Bunlar:
+Bu kısa bir süre için ters sırada bakarak; PolyBase verileri yüklemek için en hızlı yoludur. Bunu anlamanın en iyisidir PolyBase yükleme işlemi için en iyi duruma getirme önkoşulları önceki adımları ön yerleştirir. Bunlar:
 
-1. Veri dosyaları kodlama
+1. Veri dosya kodlama
 2. Veri dosyalarının biçimi
 3. Veri dosyalarının konumu
 
 ### <a name="encoding"></a>Encoding
-PolyBase, veri dosyalarını UTF-8 veya UTF-16FE olmasını gerektirir. 
+PolyBase UTF-8 veya UTF-16FE veri dosyaları gerektirir. 
 
 
 
 ### <a name="format-of-data-files"></a>Veri dosyalarının biçimi
-PolyBase sabit satır Sonlandırıcı \n ya da yeni satır olması zorunlu tutulmuştur. Veri dosyalarınızı bu standardına uygun olmalıdır. Dize veya sütun sonlandırıcılar üzerinde herhangi bir kısıtlamanın değil.
+PolyBase bir sabit satır Sonlandırıcı \n veya yeni satır zorunlu kılar. Veri dosyalarınızı bu standardına uygun olmalıdır. Dize veya sütun sonlandırıcılar herhangi bir kısıtlama değildir.
 
-PolyBase, dış tablosunda bir parçası olarak, dosyadaki her sütun tanımlamak gerekecektir. Dışarı aktarılan tüm sütunları gereklidir ve türleri gerekli standartlarına uygun emin olun.
+PolyBase, dış tablonuzdaki bir parçası olarak, dosyada her sütun tanımlaması gerekir. Dışarı aktarılan tüm sütunları gereklidir ve türleri için gerekli standartlara uygun emin olun.
 
-Geri lütfen [şemanızı geçirmek] makale desteklenen veri türleri hakkında ayrıntılı bilgi için.
+Lütfen kiracıurl [şemanızın geçişini yapın] makale desteklenen veri türleri hakkında daha fazla ayrıntı için.
 
 ### <a name="location-of-data-files"></a>Veri dosyalarının konumu
-SQL veri ambarı PolyBase verileri Azure Blob depolama alanından özel olarak yüklemek için kullanır. Sonuç olarak, veriler ilk blob depolama alanına aktarıldı gerekir.
+SQL veri ambarı PolyBase, verileri Azure Blob depolama alanından özel olarak yüklemek için kullanır. Sonuç olarak, verileri ilk blob depolama alanına aktarıldı gerekir.
 
 ## <a name="optimizing-data-transfer"></a>En iyi duruma getirme veri aktarımı
-En yavaş bölümleri veri geçişinin Azure veri aktarımını biridir. Yalnızca ağ bant genişliği bir sorun olabilir ancak aynı zamanda ağ güvenilirlik ciddi ilerlemesini. Verileri Azure'a geçirme varsayılan internet üzerinden olduğundan oluşan aktarımı hatalar olasılığını makul olasıdır. Ancak, bu hataları tamamen veya kısmen yeniden gönderilecek verileri gerektirebilir.
+Veri geçişi en yavaş bölümlerini Azure veri aktarımını biridir. Yalnızca ağ bant genişliği bir sorun olabilir, ancak aynı zamanda ağ güvenilirliğini ciddi ilerlemesini. Verileri Azure'a geçirmeyi varsayılan olarak internet üzerinden olduğundan oluşan aktarım hataları olasılığını makul ölçüde yüksektir. Ancak, bu hataları tamamen veya kısmen yeniden gönderilecek verileri gerektirebilir.
 
-Neyse ki hızı ve bu işlemin esnekliği artırmak için birkaç seçeneğiniz vardır:
+Neyse ki bu işlemin esnekliği ve hızını artırmak için birkaç seçeneğiniz vardır:
 
 ### <a name="expressrouteexpressroute"></a>[ExpressRoute][ExpressRoute]
-Kullanmayı göz önünde [ExpressRoute] [ ExpressRoute] aktarma işlemini hızlandırmak için. [ExpressRoute] [ ExpressRoute] bağlantı genel internet üzerinden geçmez şekilde Azure'a ile özel bir bağlantı sağlar. Bu halinde zorunlu bir adımdır. Ancak, bu üretilen işi veri bir şirket içinden Azure'a dağıtmaya zaman artıracaktır veya ortak yerleşim tesisi.
+Göz önünde bulundurmak isteyebileceğiniz [ExpressRoute] [ ExpressRoute] aktarımını hızlandırmak için. [ExpressRoute] [ ExpressRoute] bağlantısını genel internet üzerinden geçmez şekilde Azure'a ile kurulan bir özel bağlantı sağlar. Bu olmadığı göre Hayır zorunlu bir adımdır. Ancak, bu aktarım hızı bir şirket içinden Azure'a veri gönderirken artar veya ortak yerleşim tesisindeki.
 
 Kullanmanın avantajları [ExpressRoute] [ ExpressRoute] şunlardır:
 
 1. Daha fazla güvenilirlik
 2. Daha hızlı ağ hızı
-3. Alt ağ gecikmesi
+3. Daha düşük ağ gecikme süresi
 4. daha yüksek ağ güvenliği
 
-[ExpressRoute] [ ExpressRoute] çeşitli senaryoları; için yararlıdır yalnızca geçiş.
+[ExpressRoute] [ ExpressRoute] birçok senaryoda; için yararlıdır yalnızca geçiş.
 
 İlginizi çekiyor mu? Lütfen fiyatlandırma ve daha fazla bilgi için ziyaret [ExpressRoute belgeleri][ExpressRoute documentation].
 
 ### <a name="azure-import-and-export-service"></a>Azure içeri ve dışarı aktarma hizmeti
-Azure içeri ve dışarı aktarma hizmeti büyük (GB ++ için) yoğun (TB ++) veri aktarımlarını Azure içine için tasarlanmış bir veri aktarım işlemi değil. Verilerinizi diske yazma ve bir Azure veri merkezine sevkiyat içerir. Disk içeriği sizin adınıza ardından Azure Storage Bloblarında yüklenir.
+Azure içeri aktarma ve dışarı aktarma hizmeti, büyük (GB ++ için) çok büyük (TB ++) veri aktarımlarını Azure için tasarlanan bir veri aktarım işlemi olduğundan. Bu, verilerinizi diske yazma ve bunları bir Azure veri merkezine sevkiyat içerir. Disk içeriğinin sonra sizin adınıza Azure depolama Blobları yüklenir.
 
-İçeri aktarma dışa aktarma işlemi üst düzey bir görünümünü aşağıdaki gibidir:
+Üst düzey görünümü içeri aktarma dışarı aktarma işlemi aşağıdaki gibidir:
 
-1. Verileri almak için bir Azure Blob Storage kapsayıcısı yapılandırın
-2. Yerel depolama alanına verilerinizi dışarı aktarma
+1. Verileri almak için bir Azure Blob Depolama kapsayıcısında yapılandırın
+2. Verilerinizi yerel depolamaya Aktar
 3. 3,5 inç SATA II/III sabit disk sürücülerine [Azure içeri/dışarı aktarma aracı] kullanarak veri kopyalama
-4. Azure içeri ve dışarı aktarma [Azure içeri/dışarı aktarma aracı] tarafından oluşturulan günlük dosyalarının sağlayan hizmet kullanarak bir içeri aktarma işi oluşturma
-5. Önerilen Azure veri merkezinizin diskleri sevk
-6. Verileriniz Azure Blob Storage kapsayıcısına aktarılır
-7. Polybase'i kullanarak SQLDW veri yükleme
+4. Azure içeri ve dışarı aktarma [Azure içeri/dışarı aktarma aracı] tarafından oluşturulan günlük dosyalarının sağlama hizmeti kullanarak içeri aktarma işi oluşturma
+5. Diskleri, önerilen Azure veri merkezine gönderin
+6. Verilerinizi Azure Blob Depolama kapsayıcınızı aktarılır.
+7. PolyBase kullanarak SQLDW veri yükleme
 
 ### <a name="azcopyazcopy-utility"></a>[AZCopy][AZCopy] yardımcı programı
-[AZCopy][AZCopy] Azure Storage Bloblarında aktarılan verilerinizi almak için harika bir aracı programıdır. Bu işlem için küçük (MB ++) çok büyük (GB ++) veri aktarımları için tasarlanmıştır. [AZCopy] ayrıca Azure ve bunu veri aktarımı yaparken iyi dayanıklı işleme veri aktarımı adım için harika bir seçim sağlamak için tasarlanmıştır. Bir kez aktarılan PolyBase kullanarak SQL Data Warehouse'a veri yükleme. Ayrıca, bir "Yürütme işlemi" görevini kullanarak, SSIS paketleri AZCopy dahil edebilirsiniz.
+[AZCopy][AZCopy] yardımcı programı, Azure depolama Blobları aktarılan verilerinizi almak için harika bir araçtır. Bu, küçük (MB ++) çok büyük (GB ++) veri aktarımları için tasarlandı. [AZCopy] Azure ve bunu veri aktarımı yaparken iyi dayanıklı işleme veri aktarımı adımı için ideal bir tercih sağlamak için tasarlanmıştır. Bir kez aktarılan PolyBase kullanarak SQL Data Warehouse'a veri yükleme. Ayrıca, bir "Yürütme işlemi" görevi'ni kullanarak SSIS paketlerinizi AZCopy birleştirebilirsiniz.
 
-AZCopy kullanmak için önce indirip yüklemeniz gerekir. Var olan bir [üretim sürümü] [ production version] ve [Önizleme sürümü] [ preview version] kullanılabilir.
+Azcopy'yi kullanma, ilk kez indirip yüklemeniz gerekir. Var olan bir [üretim sürümü] [ production version] ve [Önizleme sürümü] [ preview version] kullanılabilir.
 
-Bir dosyayı, dosya sisteminden yüklemek için komutu aşağıdaki gibi gerekir:
+Dosya sisteminizden bir dosyayı karşıya yüklemek için komutu aşağıdaki gibi ihtiyacınız olacak:
 
 ```
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:abc.txt
 ```
 
-Bir üst düzey işlem özeti aşağıdakilerden biri olabilir:
+Üst düzey bir işlem özeti aşağıdakilerden biri olabilir:
 
-1. Verileri almak için bir Azure depolama blob kapsayıcısını yapılandırın
-2. Yerel depolama alanına verilerinizi dışarı aktarma
-3. AZCopy verilerinizi Azure Blob Storage kapsayıcısı
+1. Verileri almak için bir Azure depolama blob kapsayıcısını yapılandırma
+2. Verilerinizi yerel depolamaya Aktar
+3. AZCopy, verileri Azure Blob Depolama kapsayıcısında
 4. Verileri PolyBase kullanarak SQL Data Warehouse'a veri yükleme
 
-Tam belgeleri kullanılabilir: [AZCopy][AZCopy].
+Tüm belgeleri kullanılabilir: [AZCopy][AZCopy].
 
 ## <a name="optimizing-data-export"></a>En iyi duruma getirme verileri dışarı aktarma
-Verme PolyBase tarafından düzenlendiği gereksinimlerine uyan sağlamaya ek olarak, ayrıca dışarı aktarma işlemi daha fazla artırmak için verilerin en iyi duruma getirmek arama.
+Dışarı aktarma PolyBase tarafından belirtilen gereksinimlere uyan sağlamaya ek olarak, ayrıca verilerin dışarı aktarılmasını işlem daha da geliştirmek için en iyi duruma getirmek arama.
 
 
 
 ### <a name="data-compression"></a>Veri sıkıştırma
-PolyBase gzip sıkıştırılmış verileri okuyabilir. Ardından verilerinizi gzip dosyaları sıkıştır tamamlayabilirseniz ağ üzerinden gönderilen veri miktarını en aza indirgenecektir.
+PolyBase, gzip sıkıştırılmış verisi okuyabilirsiniz. Sonra verilerinizi gzip dosyaları sıkıştır olanağınız varsa ağ üzerinden gönderilen veri miktarını en aza.
 
 ### <a name="multiple-files"></a>Birden çok dosya
-Çeşitli dosyaları büyük tablolara bölme yalnızca verme hızını artırmak için yardımcı olur, ayrıca aktarımı re-startability ve bir kez Azure blob depolama alanındaki verilerin genel yönetilebilirlik yardımcı olur. PolyBase iyi özelliklerinin çoğu bir klasör içindeki tüm dosyaları okuma ve bir tablosu olarak kabul olduğunu biridir. Dosyaları her tablo için kendi klasörüne yalıtmak için bu nedenle iyi bir fikirdir.
+Çeşitli dosyalara büyük tablolarını bozucu yalnızca verme hızını artırmaya yardımcı olur, ayrıca aktarım re-startability ve verilerin Azure blob depolama alanındaki bir kez genel yönetilebilirlik yardımcı olur. Bu klasör içindeki tüm dosyaları okuma ve bir tablo olarak davranma, PolyBase güzel özellikleri olmasıdır. Bu nedenle kendi klasörüne dosyalar her tablo için yalıtmak için iyi bir fikirdir.
 
-PolyBase "özyinelemeli klasör geçişinin" bilinen bir özellik de destekler. Daha fazla veri yönetimini geliştirmek için dışarı aktarılan verileri organizasyonu artırmak için bu özelliği kullanın.
+PolyBase Ayrıca, "özyinelemeli klasör geçişi" bilinen bir özelliği destekler. Bu özellik, veri yönetimini iyileştirmek için dışarı aktarılan verileri organizasyonu daha da geliştirmek için kullanabilirsiniz.
 
-PolyBase ile veri yükleme hakkında daha fazla bilgi için bkz: [kullanım verileri SQL Data Warehouse'a veri yüklemek için PolyBase][Use PolyBase to load data into SQL Data Warehouse].
+PolyBase ile veri yükleme hakkında daha fazla bilgi için bkz. [verileri SQL Data Warehouse'a veri yüklemek için PolyBase kullanma][Use PolyBase to load data into SQL Data Warehouse].
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Geçiş hakkında daha fazla bilgi için bkz: [çözümünüzü SQL veri ambarına geçirme][Migrate your solution to SQL Data Warehouse].
+Geçiş hakkında daha fazla bilgi için bkz. [çözümünüzü SQL veri ambarı'na geçirme][Migrate your solution to SQL Data Warehouse].
 Daha fazla geliştirme ipuçları için bkz: [geliştirmeye genel bakış][development overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[AZCopy]: ../storage/common/storage-use-azcopy.md
-[ADF Copy]: ../data-factory/v1/data-factory-data-movement-activities.md 
-[ADF samples]: ../data-factory/v1/data-factory-samples.md
-[ADF Copy examples]: ../data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio.md
+[AzCopy]: ../storage/common/storage-use-azcopy.md
+[ADF Copy]: ../data-factory/copy-activity-overview.md 
+[ADF Copy examples]: ../data-factory/quickstart-create-data-factory-dot-net.md
 [development overview]: sql-data-warehouse-overview-develop.md
-[şemanızı geçirmek]: sql-data-warehouse-migrate-schema.md
+[şemanızın geçişini yapın]: sql-data-warehouse-migrate-schema.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 [Use bcp to load data into SQL Data Warehouse]: /sql/tools/bcp-utility

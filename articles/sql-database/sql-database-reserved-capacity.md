@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: carlrab
-ms.openlocfilehash: 1d1cad4b614eb35be9235a721368db8048be050a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: fcb7f2c1bb3e1653b9f8112abc0effaddc45fa54
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39635086"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306478"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Azure SQL veritabanı'nın ayrılmış kapasite ile SQL veritabanı bilgi işlem kaynakları için ön ödeme
 
@@ -65,10 +65,11 @@ Sanal çekirdek ayırma indirimi, öznitelikleri ve veritabanına ayrılmış ka
 
 SQL veritabanı'nı yönetme hakkında bilgi edinmek için kapasite ayırma ayrılmış bkz [SQL veritabanı, ayrılan kapasite](../billing/billing-manage-reserved-vm-instance.md).
 
-Azure ayırma hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
+Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
 - [Azure ayırmaları nelerdir?](../billing/billing-save-compute-costs-reservations.md)
-- [Azure ayırmalarını yönetme](../billing/billing-manage-reserved-vm-instance.md)
+- [Azure Ayırmalarını yönetme](../billing/billing-manage-reserved-vm-instance.md)
+- [Azure ayırmaları indirim anlama](../billing/billing-understand-reservation-charges.md)
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](../billing/billing-understand-reserved-instance-usage.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](../billing/billing-understand-reserved-instance-usage-ea.md)
 - [İş ortağı merkezi bulut çözümü sağlayıcısı (CSP) programında Azure ayırmalar](https://docs.microsoft.com/partner-center/azure-reservations)

@@ -1,39 +1,39 @@
 ---
-title: Azure SQL Data Warehouse seçeneklerinde Grup kullanarak | Microsoft Docs
-description: Çözümleri geliştirme için Azure SQL Data Warehouse seçeneklerinde tarafından Grup uygulamak için ipuçları.
+title: Azure SQL veri ambarı seçeneklerinde grubu kullanarak | Microsoft Docs
+description: Çözümleri geliştirme için Azure SQL veri ambarı'nda seçenekleri grubu uygulamak için ipuçları.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 0548983df23b158385783ac777b23268b5ac7d01
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 1f5723bd160abc164779062f213762751e5875c8
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526055"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43303387"
 ---
-# <a name="group-by-options-in-sql-data-warehouse"></a>SQL veri ambarı seçeneklerinde göre gruplandırmak
-Çözümleri geliştirme için Azure SQL Data Warehouse seçeneklerinde tarafından Grup uygulamak için ipuçları.
+# <a name="group-by-options-in-sql-data-warehouse"></a>SQL veri ambarı'nda seçenekleri Gruplandır
+Çözümleri geliştirme için Azure SQL veri ambarı'nda seçenekleri grubu uygulamak için ipuçları.
 
 ## <a name="what-does-group-by-do"></a>GROUP BY ne yapar?
 
-[GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL yan tümcesi Özet bir satır kümesi veri toplar. GROUP BY SQL Data Warehouse desteklemediği bazı seçenekleri vardır. Bu seçenekler geçici çözümler içerir.
+[GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL yan tümcesi Özet bir satır kümesi için veri toplar. GROUP BY, SQL veri ambarı desteklemediği bazı seçenekleri vardır. Bu seçenekler, geçici çözümler içerir.
 
 Bu seçenekler
 
-* GROUP BY ile dökümü
-* GRUPLANDIRMA KÜMELERİ
-* GROUP BY ile KÜPÜ
+* GROUP BY paketi
+* GROUPING SETS
+* GROUP BY ile küp
 
-## <a name="rollup-and-grouping-sets-options"></a>Toplama ve gruplandırma kümeleri seçenekleri
-En basit seçenek burada UNION ALL yerine toplama gerçekleştirmek için kullanmaktır açık sözdizimi, bağlı olan yerine. Tam olarak aynı sonucudur
+## <a name="rollup-and-grouping-sets-options"></a>Döküm ve gruplandırma kümeleri seçenekleri
+En basit seçenek burada UNION ALL yerine toplamayı gerçekleştirmek için kullanmaktır güvenmek açık söz dizimi yerine. Sonuç tamamen aynı.
 
-GROUP BY deyimi TOPLAMASI seçeneğiyle kullanarak aşağıdaki örnek:
+GROUP BY deyimi ile toplama seçeneğini kullanarak aşağıdaki örnekte:
 ```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -47,13 +47,13 @@ GROUP BY ROLLUP (
 ;
 ```
 
-Toplama kullanarak, önceki örnekte aşağıdaki toplamalar ister:
+Yukarıdaki örnekte, paketi kullanarak aşağıdaki toplamalar ister:
 
-* Ülke ve bölgeye
+* Ülke ve bölge
 * Ülke
 * Genel toplam
 
-Toplama değiştirin ve aynı sonuçları döndürmek için UNION ALL kullanın ve gerekli toplamalar açıkça belirtin:
+Toplama değiştirin ve aynı sonuçları döndürmek için UNION ALL kullanın ve gereken toplama açıkça belirtin:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -80,14 +80,14 @@ FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey;
 ```
 
-GRUPLANDIRMA KÜMELERİ değiştirmek için örnek ilkesini uygular. Yalnızca görmek istediğiniz toplama düzeyleri için UNION ALL bölümleri oluşturmanız gerekir.
+GROUPING SETS değiştirmek için örnek ilke uygulanır. UNION ALL bölümleri görmek istediğiniz toplama düzeyleri için oluşturmanız yeterlidir.
 
 ## <a name="cube-options"></a>Küp seçenekleri
-Bir grup tarafından ile UNION ALL yaklaşımı kullanarak KÜPÜ oluşturmak mümkündür. Kod sıkıcı ve yönetilmeleri hızlı bir şekilde olabilecek sorunudur. Bunu azaltmak için bu yaklaşım daha gelişmiş kullanabilirsiniz.
+Bir grubu tarafından ile UNION ALL yaklaşımı kullanarak KÜPÜ oluşturmak mümkündür. Sorun kodu hızlıca sıkıcı ve kullanışsız olabilir olmasıdır. Bunu azaltmak için bu yaklaşım daha gelişmiş kullanabilirsiniz.
 
 Yukarıdaki örnekte kullanalım.
 
-İlk adım, 'biz oluşturmak istediğiniz bir toplama tüm düzeylerini tanımlar cube' tanımlamaktır. CROSS JOIN iki türetilmiş tabloların not almanız önemlidir. Bu tüm düzeyleri bize oluşturur. Kod kalan gerçekten biçimlendirme için yoktur.
+İlk adım, 'oluşturmak istiyoruz toplama tüm düzeyleri tanımlar cube' tanımlamaktır. CROSS JOIN iki türetilmiş tablo dikkat edin önemlidir. Bu tüm düzeyleri bizim için oluşturur. Kodun geri kalanını gerçekten biçimlendirme için yoktur.
 
 ```sql
 CREATE TABLE #Cube
@@ -118,11 +118,11 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-Aşağıdaki CTAS sonuçlarını gösterir:
+CTAS sonuçları gösterir:
 
 ![Küp tarafından Grup](media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
 
-Ara Sonuçların depolanacağı bir hedef tablo belirtmek için ikinci adım şöyledir:
+İkinci adım, geçiş sonuçlarını depolamak için bir hedef tablo belirtmek için verilmiştir:
 
 ```sql
 DECLARE
@@ -145,7 +145,7 @@ WITH
 ;
 ```
 
-Üçüncü adım bizim toplama gerçekleştirme sütunları küp üzerinde döngü oluşturmaktır. Sorgu #Cube geçici tablodaki her satır için bir kez çalıştır ve #Results geçici tablosunda Sonuçların depolanacağı
+Üçüncü adım, bizim toplama işlemini gerçekleştirme sütunları küp üzerinde döngü oluşturmaktır. Sorgu #Cube geçici tablodaki her satır için bir kez çalıştırın ve sonuçları #Results geçici tabloya kaydedin.
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -169,7 +169,7 @@ BEGIN
 END
 ```
 
-Son olarak, #Results geçici tablosundan okuyarak sonuçları geri dönebilirsiniz
+Son olarak, #Results geçici tablodaki okuyarak sonuçları döndürmek
 
 ```sql
 SELECT *
@@ -178,7 +178,7 @@ ORDER BY 1,2,3
 ;
 ```
 
-Kod bölümlere ayırma ve döngü yapısı oluşturma, kod daha yönetilebilir ve sürdürülebilir haline gelir.
+Kod bölümlere ayırma ve uvozuje konstruktor oluşturma, kod daha yönetilebilir ve sürdürülebilir hale gelir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla geliştirme ipuçları için bkz: [geliştirmeye genel bakış](sql-data-warehouse-overview-develop.md).

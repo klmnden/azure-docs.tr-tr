@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: 1a4b970b07514619b2d81a0483546ac64d07927f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 6099a818651cf75a75159f43748720b3eb01e4de
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005484"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287830"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 
@@ -30,27 +30,28 @@ Azure işlevleri için JavaScript deneyimi olarak geçirilen bir işlevi dışa 
 Bu makalede, zaten okuduğunuz varsayılır [Azure işlevleri Geliştirici Başvurusu](functions-reference.md).
 
 ## <a name="exporting-a-function"></a>Bir işlevi dışa aktarma
-Tüm JavaScript işlevleri tek bir dışarı aktarma `function` aracılığıyla `module.exports` işlevi bulmak ve çalıştırmak çalışma zamanı. Bu işlev her zaman içermelidir bir `context` nesne.
+Her bir JavaScript işlevi, tek bir vermelisiniz `function` aracılığıyla `module.exports` işlevi bulmak ve çalıştırmak çalışma zamanı. Bu işlev her zaman almalıdır bir `context` ilk parametre olarak nesne.
 
 ```javascript
-// You must include a context, but other arguments are optional
-module.exports = function(context) {
-    // Additional inputs can be accessed by the arguments property
-    if(arguments.length === 4) {
-        context.log('This function has 4 inputs');
-    }
-};
-// or you can include additional inputs in your arguments
+// You must include a context, other arguments are optional
 module.exports = function(context, myTrigger, myInput, myOtherInput) {
     // function logic goes here :)
+    context.done();
+};
+// You can also use 'arguments' to dynamically handle inputs
+module.exports = function(context) {
+    context.log('Number of inputs: ' + arguments.length);
+    // Iterates through trigger and input binding data
+    for (i = 1; i < arguments.length; i++){
+        context.log(arguments[i]);
+    }
+    context.done();
 };
 ```
 
-Upravit vazby prvku `direction === "in"` boyunca kullanabileceğiniz anlamına gelir işlevi bağımsız değişken geçirilir [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) yeni girişler dinamik olarak işlenecek (kullanarak örneğin, `arguments.length` tüm girişlerinizi yinelemek için). Yalnızca bir tetikleyici ve hiçbir ek girişler varsa, başvuru olmadan tahmin edilebilir bir biçimde tetikleyici verilerinize erişebilirsiniz bu işlevi kullanışlı çünkü, `context` nesne.
+Giriş ve tetikleyici bağlamaları (bağlamalarını `direction === "in"`) işlevi için parametre olarak geçirilebilir. İçinde tanımlanan aynı sırada işlevine geçirilen *function.json*. JavaScript kullanarak girişleri dinamik olarak işleyebilir [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) nesne. Örneğin, `function(context, a, b)` ve değiştirmek için `function(context, a)`, değeri almaya devam `b` başvuran tarafından işlevi kodda `arguments[2]`.
 
-Bağımsız değişkenleri her zaman boyunca hangi ortaya içinde sırayla işlevine geçirilir *function.json*bile dışarı aktarmaları raporunuza belirtmeyin. Örneğin, `function(context, a, b)` ve değiştirmek için `function(context, a)`, değeri almaya devam `b` başvuran tarafından işlevi kodda `arguments[2]`.
-
-Yön bağımsız olarak tüm bağlamaları boyunca da geçirilir `context` nesnesi (aşağıdaki betiği bakın). 
+Yön bağımsız olarak tüm bağlamaları boyunca da geçirilir `context` kullanarak nesne `context.bindings` özelliği.
 
 ## <a name="context-object"></a>bağlam nesnesi
 Çalışma zamanı kullanan bir `context` nesne için ve işlevinizden veri iletmek için ve çalışma zamanı ile iletişim kurmasına izin vermek için.
@@ -61,6 +62,7 @@ Yön bağımsız olarak tüm bağlamaları boyunca da geçirilir `context` nesne
 // You must include a context, but other arguments are optional
 module.exports = function(context) {
     // function logic goes here :)
+    context.done();
 };
 ```
 
@@ -96,7 +98,7 @@ context.done([err],[propertyBag])
 
 Kodunuzu bitirdi çalışma zamanı bildirir. İşlevinizi kullanıyorsa `async function` bildirimi (kullanılabilir işlevler sürüm 8 + düğümü kullanan 2.x), kullanın gerekmez `context.done()`. `context.done` Geri çağırma örtük olarak çağrılır.
 
-İşlevinizi bir zaman uyumsuz işlev değilse **çağırmalısınız `context.done` ** çalışma zamanının işlevinizi tamamlandığını bildirmek için. Yürütme zaman aşımı eksik olması durumunda olur.
+İşlevinizi bir zaman uyumsuz işlev değilse **çağırmalısınız `context.done`**  çalışma zamanının işlevinizi tamamlandığını bildirmek için. Yürütme zaman aşımı eksik olması durumunda olur.
 
 `context.done` Yöntemi sayesinde çalışma zamanı ve özellikler üzerine bir özellik paketi özellikleri hem de bir kullanıcı tanımlı hata geri geçirmek `context.bindings` nesne.
 

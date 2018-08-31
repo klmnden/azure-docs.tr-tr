@@ -1,24 +1,24 @@
 ---
-title: Sistem görünümleri - Azure SQL Data Warehouse | Microsoft Docs
-description: Azure SQL Data Warehouse'da desteklenen sistem görünümleri için belgelere bağlantılar.
+title: Sistem görünümleri - Azure SQL veri ambarı | Microsoft Docs
+description: Azure SQL veri ambarı'nda desteklenen sistem görünümleri için belgelere bağlar.
 services: sql-data-warehouse
-author: kevinvngo
-manager: craigg-msft
+author: twounder
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
-ms.author: kevin
+ms.date: 06/13/2018
+ms.author: twounder
 ms.reviewer: igorstan
-ms.openlocfilehash: a0e75bc9b7cfa6827794f8d4256bddc3807f17d1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: d76e21e37266a1b17f90fe7ce41438b9361c6e31
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195388"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312451"
 ---
-# <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse'da desteklenen sistem görünümleri
-Azure SQL Data Warehouse'da desteklenen T-SQL deyimleri için belgelere bağlantılar.
+# <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda desteklenen sistem görünümleri
+Azure SQL veri ambarı'nda desteklenen T-SQL bildirimleri belgelerine bağlantılar.
 
 ## <a name="sql-data-warehouse-catalog-views"></a>SQL veri ambarı Katalog görünümleri
 * [sys.pdw_column_distribution_properties](http://msdn.microsoft.com/library/mt204022.aspx)
@@ -38,7 +38,7 @@ Azure SQL Data Warehouse'da desteklenen T-SQL deyimleri için belgelere bağlant
 * [sys.pdw_table_distribution_properties](http://msdn.microsoft.com/library/mt203896.aspx)
 * [sys.pdw_table_mappings](http://msdn.microsoft.com/library/mt203876.aspx)
 
-## <a name="sql-data-warehouse-dynamic-management-views-dmvs"></a>SQL veri ambarı dinamik yönetim görünümlerini (Dmv'leri)
+## <a name="sql-data-warehouse-dynamic-management-views-dmvs"></a>SQL veri ambarı dinamik yönetim görünümlerini (Dmv'ler)
 * [sys.dm_pdw_dms_cores](http://msdn.microsoft.com/library/mt203911.aspx)
 * [sys.dm_pdw_dms_external_work](https://msdn.microsoft.com/library/mt204024.aspx)
 * [sys.dm_pdw_dms_workers](http://msdn.microsoft.com/library/mt203878.aspx)
@@ -58,8 +58,8 @@ Azure SQL Data Warehouse'da desteklenen T-SQL deyimleri için belgelere bağlant
 * [sys.dm_pdw_wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)
 * [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 
-## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>SQL Server Dmv'leri SQL Data Warehouse için uygulanabilir
-Aşağıdaki Dmv'leri SQL Data Warehouse için geçerli olan, ancak bağlanarak yürütülmelidir **ana** veritabanı.
+## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>SQL veri ambarı'na uygun SQL Server Dmv'ler
+Aşağıdaki Dmv'leri SQL veri ambarı'na geçerlidir, ancak bağlanarak yürütülmelidir **ana** veritabanı.
 
 * [sys.database_service_objectives](https://msdn.microsoft.com/library/mt712619.aspx)
 * [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)
@@ -129,19 +129,19 @@ Aşağıdaki Dmv'leri SQL Data Warehouse için geçerli olan, ancak bağlanarak 
 * [sys.sysusers](https://msdn.microsoft.com/library/ms179871.aspx)
 * [sys.Tables](http://msdn.microsoft.com/library/ms187406.aspx)
 * [sys.Types](http://msdn.microsoft.com/library/ms188021.aspx)
-* [sys.Views](http://msdn.microsoft.com/library/ms190334.aspx)
+* [denetlenmedi](http://msdn.microsoft.com/library/ms190334.aspx)
 
-## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>SQL Server Dmv'leri kullanılabilir SQL veri ambarı
-SQL veri ambarı SQL Server dinamik yönetim görünümlerini (Dmv'leri) çoğunu kullanıma sunar. SQL veri ambarı'nda sorgulandığında Bu görünümlere dağıtımları üzerinde çalışan SQL veritabanları durumunu bildiriyor.
+## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>SQL Server Dmv'lerdeki kullanılabilir SQL veri ambarı
+SQL veri ambarı birçok SQL Server dinamik yönetim görünümlerini (Dmv'ler) kullanıma sunar. SQL veri ambarı'nda sorgulandığında bu görünümler, SQL veritabanları dağıtımlarında çalışan durumunu bildirmektedir.
 
-SQL veri ambarını ve çözümleme Platform Sistemi'ne'nın Paralel veri ambarı (PDW) aynı sistem görünümleri kullanın. Her DMV işlem düğümü için tanımlayıcı pdw_node_id, adlı bir sütunu var. 
+SQL veri ambarı ve Analytics Platform System'ın Paralel veri ambarı (PDW) aynı sistem görünümleri kullanın. İşlem düğümü tanımlayıcısı pdw_node_id, çağrılan sütun her DMV vardır. 
 
 > [!NOTE]
-> Bu görünümleri kullanmak için aşağıdaki tabloda gösterildiği gibi 'pdw_nodes_' ad alanının içine ekleyin:
+> Bu görünümler kullanmak için aşağıdaki tabloda gösterildiği gibi 'pdw_nodes_' ad alanının içine ekleyin:
 > 
 > 
 
-| SQL veri ambarı DMV adı | SQL Server Transact-SQL makale|
+| SQL veri ambarı'nda DMV adı | SQL Server Transact-SQL makale|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 
@@ -205,8 +205,8 @@ SQL veri ambarını ve çözümleme Platform Sistemi'ne'nın Paralel veri ambar�
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](http://msdn.microsoft.com/library/ms188739.aspx) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](http://msdn.microsoft.com/library/ms188778.aspx) |
 
-## <a name="sql-server-2016-polybase-dmvs-available-in-sql-data-warehouse"></a>SQL Server 2016 PolyBase Dmv'leri kullanılabilir SQL veri ambarı
-Aşağıdaki Dmv'leri SQL Data Warehouse için geçerli olan, ancak bağlanarak yürütülmelidir **ana** veritabanı.
+## <a name="sql-server-2016-polybase-dmvs-available-in-sql-data-warehouse"></a>SQL Server 2016 PolyBase Dmv'lerdeki kullanılabilir SQL veri ambarı
+Aşağıdaki Dmv'leri SQL veri ambarı'na geçerlidir, ancak bağlanarak yürütülmelidir **ana** veritabanı.
 
 * [sys.dm_exec_compute_node_errors](http://msdn.microsoft.com/library/mt146380.aspx)
 * [sys.dm_exec_compute_node_status](http://msdn.microsoft.com/library/mt146382.aspx)
@@ -223,7 +223,7 @@ Aşağıdaki Dmv'leri SQL Data Warehouse için geçerli olan, ancak bağlanarak 
 * [CHECK_CONSTRAINTS](http://msdn.microsoft.com/library/ms189772.aspx)
 * [SÜTUNLARI](http://msdn.microsoft.com/library/ms188348.aspx)
 * [PARAMETRELERİ](http://msdn.microsoft.com/library/ms173796.aspx)
-* [YORDAMLARI](https://msdn.microsoft.com/library/ms188757.aspx)
+* [RUTİNLERİ](https://msdn.microsoft.com/library/ms188757.aspx)
 * [ŞEMALARIN](https://msdn.microsoft.com/library/ms182642.aspx)
 * [TABLOLARI](http://msdn.microsoft.com/library/ms186224.aspx)
 * [VIEW_COLUMN_USAGE](https://msdn.microsoft.com/library/ms190492.aspx)
@@ -231,4 +231,4 @@ Aşağıdaki Dmv'leri SQL Data Warehouse için geçerli olan, ancak bağlanarak 
 * [GÖRÜNÜMLER](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla başvuru bilgileri için bkz: [Azure SQL Data Warehouse T-SQL deyimlerinde](sql-data-warehouse-reference-tsql-statements.md), ve [T-SQL dil öğeleri Azure SQL Data warehouse'da](sql-data-warehouse-reference-tsql-language-elements.md).
+Daha fazla başvuru bilgileri için bkz: [T-SQL deyimleri Azure SQL veri ambarı'nda](sql-data-warehouse-reference-tsql-statements.md), ve [T-SQL dil öğeleri Azure SQL veri ambarı'nda](sql-data-warehouse-reference-tsql-language-elements.md).

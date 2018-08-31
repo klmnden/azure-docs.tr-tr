@@ -1,32 +1,32 @@
 ---
-title: Yedek anahtarlar - Azure SQL Data Warehouse oluşturmak için kimlik BİLGİLERİNİZ kullanılarak | Microsoft Docs
-description: Öneriler ve Azure SQL Data Warehouse tablolarda yedek anahtarlar oluşturmak için kimlik özelliği kullanımına ilişkin örnekler.
+title: Vekil anahtarlar - Azure SQL veri ambarı oluşturmak için kimlik BİLGİLERİNİZ kullanılarak | Microsoft Docs
+description: Öneriler ve tablolarda Azure SQL veri ambarı'nda vekil anahtarlar oluşturmak için kimlik özelliği kullanımına ilişkin örnekler.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: ab028705f5af7c37017d2e697240b7d3436f5f71
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: abe245e6174cb947e78252941c71ce6857b77f77
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526993"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306800"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse'da yedek anahtarlar oluşturmak için kimlik BİLGİLERİNİZ kullanılarak
-Öneriler ve Azure SQL Data Warehouse tablolarda yedek anahtarlar oluşturmak için kimlik özelliği kullanımına ilişkin örnekler.
+# <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda vekil anahtarlar oluşturmak için kimlik BİLGİLERİNİZ kullanılarak
+Öneriler ve tablolarda Azure SQL veri ambarı'nda vekil anahtarlar oluşturmak için kimlik özelliği kullanımına ilişkin örnekler.
 
-## <a name="what-is-a-surrogate-key"></a>Bir yedek anahtar nedir?
-Bir yedek anahtarı bir tablodaki her satır için benzersiz bir tanımlayıcı bir sütundur. Anahtar tablo verileri oluşturulmaz. Veri ambarı modelleri tasarlarken kendi tablolarda yedek anahtarlar oluşturmak veri modelers gibi. IDENTİTY özelliği yükü performansınızı etkilemeden sadece ve etkili bir şekilde bu hedefe ulaşmak için kullanabilirsiniz.  
+## <a name="what-is-a-surrogate-key"></a>Vekil anahtar nedir?
+Bir yedek anahtarı bir tablodaki her satır için benzersiz bir tanımlayıcı bir sütundur. Anahtarı, tablo verilerinden oluşturulmaz. Bunlar veri ambarı modelleri tasarlarken, tablolarda vekil anahtarlar oluşturmak veri modelleyen gibi. KİMLİK özelliği, yük performansını etkilemeden basit ve etkili bir şekilde bu hedefe ulaşmak için kullanabilirsiniz.  
 
-## <a name="creating-a-table-with-an-identity-column"></a>Tablo bir kimlik sütunu ile oluşturma
-KİMLİK özelliği, veri ambarındaki tüm dağıtımlar arasında yük performanslarını etkilemeden genişletmek için tasarlanmıştır. Bu nedenle, kimlik bu hedeflere ulaşmak doğru yönlendirilmiş uygulamasıdır. 
+## <a name="creating-a-table-with-an-identity-column"></a>Bir kimlik sütunu ile tablo oluşturma
+KİMLİK özelliği, veri ambarındaki tüm dağıtımları arasında yük performansını etkilemeden ölçeğini genişletmek için tasarlanmıştır. Bu nedenle, kimlik bu hedeflere ulaşmak için doğru yönlendirilmiş uygulamasıdır. 
 
-Aşağıdaki deyime benzer sözdizimini kullanarak ilk tablonun oluşturduğunuzda kimlik özelliğine sahip olarak bir tablo tanımlayabilirsiniz:
+Aşağıdaki deyime benzer bir sözdizimi kullanarak ilk tablo oluşturduğunuzda kimlik özelliğine sahip olarak bir tablo tanımlayabilirsiniz:
 
 ```sql
 CREATE TABLE dbo.T1
@@ -40,14 +40,14 @@ WITH
 ;
 ```
 
-Daha sonra kullanabilirsiniz `INSERT..SELECT` tabloyu doldurmak için.
+Ardından `INSERT..SELECT` tabloyu doldurmak için.
 
-Bu bölümde bu geri kalanı daha eksiksiz anlamanıza yardımcı olması için uygulama nüanslarını vurgular.  
+Bu bölümde bu geri kalanında daha eksiksiz anlamanıza yardımcı olması için uygulama farklılıklarına vurgular.  
 
 ### <a name="allocation-of-values"></a>Değerlerin ayırma
-KİMLİK özelliği, SQL Server ve Azure SQL veritabanı davranışını yansıtan, yedek değerleri ayrılmış, sipariş garanti etmez. Ancak, Azure SQL veri ambarı'nda bir garanti yokluğu daha belirgin olur. 
+KİMLİK özelliği, SQL Server ve Azure SQL veritabanı davranışını yansıtan vekil değerler, ayrılmış, sipariş garanti etmez. Ancak, Azure SQL veri ambarı'nda bir garanti olmaması daha belirgin olur. 
 
-Aşağıdaki çizim bir örnektir:
+Aşağıdaki örnek bir örnektir:
 
 ```sql
 CREATE TABLE dbo.T1
@@ -72,29 +72,29 @@ FROM dbo.T1;
 DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
-Önceki örnekte, iki satır dağıtım 1 landed. İlk satırı sütun yedek değeri 1 olan `C1`, ve ikinci satırında 61 yedek değerine sahip. Bu değerlerin her ikisi de kimlik özelliği tarafından üretildi. Ancak, değerleri ayırma bitişik değil. Bu davranış tasarım gereğidir.
+Önceki örnekte, iki satır 1 dağıtımlarında yerleştirildi. İlk satır, sütun vekil değeri 1 olan `C1`, ve ikinci satırın 61 vekil değerine sahiptir. Bu değerleri her ikisi kimlik özelliği tarafından üretildi. Ancak, değerler ayırma bitişik değil. Bu davranış tasarım gereğidir.
 
-### <a name="skewed-data"></a>Çarpık veri 
-Veri türü için değer aralığını dağıtımlar arasında eşit olarak yayılır. Dağıtılmış bir tablo çarpık verileri varsa, ardından veri türü için kullanılabilir değerleri aralığı erken tükendi. Tüm verileri sona eriyor, tek bir dağıtım Örneğin, ardından etkili bir şekilde tablo yalnızca bir-sixtieth veri türü değerlerinin erişebilir. Bu nedenle, kimlik özelliği sınırlıdır `INT` ve `BIGINT` veri türleri yalnızca.
+### <a name="skewed-data"></a>Dengesiz veri 
+Veri türü için değer aralığını dağıtımlar arasında eşit olarak yayılır. Dağıtılmış bir tablo dengesiz verilerinden alternatife, ardından veri türü için kullanılabilir değerleri aralığı erken tükenmiş. Tüm verileri sona eriyor tek bir dağıtım, örneğin, etkili bir şekilde tabloda yalnızca bir-sixtieth veri türü değerlerinin erişimi vardır. Bu nedenle, kimlik özelliği sınırlı olan `INT` ve `BIGINT` veri türleri yalnızca.
 
 ### <a name="selectinto"></a>SEÇİN... İÇİNE
-Varolan bir kimlik sütunu yeni bir tabloya seçildiğinde, yeni bir sütun aşağıdaki koşullardan biri doğru olmadıkça kimlik özelliği alır:
-- SELECT deyimi bir birleştirme içerir.
-- Birden çok SELECT deyimine birleşim kullanılarak birleştirilmiştir.
-- KİMLİK sütunu SELECT listesinde birden fazla kez listelenir.
-- KİMLİK sütunu bir ifadenin bir parçasıdır.
+Mevcut bir kimlik sütunu yeni bir tabloya seçildiğinde, aşağıdaki koşullardan biri doğru olmadığı sürece yeni bir sütun kimlik özelliği alır:
+- SELECT deyimi bir JOIN içeriyor.
+- Birden çok SELECT deyimine birleşim ile birleştirilir.
+- KİMLİK sütunu SELECT listesinde bulunan birden fazla kez listeleniyor.
+- KİMLİK sütunu bir ifade bir parçasıdır.
     
-Bu koşulların herhangi biri doğruysa, sütun kimlik özelliğini devralan yerine NOT NULL oluşturulur.
+Bu koşullardan herhangi biri true ise, kimlik özelliğini devralan yerine NULL olmayan sütun oluşturulur.
 
-### <a name="create-table-as-select"></a>TABLE AS SELECT OLUŞTURMA
-OLUŞTURMA tablo AS seçin (CTAS) için SELECT belgelenen aynı SQL Server davranışı izleyen... . Ancak, bir kimlik özelliği sütun tanımında belirtemezsiniz `CREATE TABLE` deyim parçası. Ayrıca kimlik işlevinde kullanamazsınız `SELECT` CTAS bir parçası. Bir tabloyu doldurmak için kullanmanız gerekir `CREATE TABLE` arkasından tablosu tanımlamak için `INSERT..SELECT` onu doldurmak için.
+### <a name="create-table-as-select"></a>TABLO AS SELECT OLUŞTURMA
+CREATE TABLE AS SELECT (CTAS) için seçin'de belgelenen aynı SQL Server davranışı aşağıdaki... . Ancak, sütun tanımında bir kimlik özelliği belirtilemez. `CREATE TABLE` ifadesinin parçası. Ayrıca kimlik işlevinde kullanamazsınız `SELECT` CTAS bir parçası. Bir tabloyu doldurmak için kullanmanız gerekir `CREATE TABLE` ardından tablo tanımlamak için `INSERT..SELECT` bunu doldurmak üzere.
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Açıkça değerleri bir kimlik sütununa ekleme 
-SQL veri ambarı destekleyen `SET IDENTITY_INSERT <your table> ON|OFF` sözdizimi. Açıkça kimlik sütununa değerleri eklemek için şu sözdizimini kullanın.
+SQL veri ambarı destekler `SET IDENTITY_INSERT <your table> ON|OFF` söz dizimi. Açıkça kimlik sütununa değerleri eklemek için bu sözdizimini kullanabilirsiniz.
 
-Birçok veri modelers kendi boyutlarını belirli satırlar için önceden tanımlanmış negatif değerler kullanmak ister. -1 veya "Bilinmeyen bir üyeye" satır örneğidir. 
+Birçok veri modelleyen kendi boyutlarını belirli satırlar için önceden tanımlanmış negatif değerleri kullanmak ister. Bir örnek, "Bilinmeyen üye" satır veya -1 ' dir. 
 
-Sonraki komut dosyası açıkça AYARLAMAK IDENTITY_INSERT kullanarak bu satır eklemek nasıl gösterilmektedir:
+Sonraki betik, açıkça AYARLAMAK IDENTITY_INSERT kullanarak bu satır ekleme işlemi gösterilmektedir:
 
 ```sql
 SET IDENTITY_INSERT dbo.T1 ON;
@@ -115,11 +115,11 @@ FROM    dbo.T1
 
 ## <a name="loading-data"></a>Veri yükleme
 
-IDENTİTY özelliği varlığını veri yükleme kodunuza bazı etkilere sahiptir. Bu bölüm kimliği kullanarak verileri tablolara yüklemek için bazı temel düzenlerden vurgular. 
+IDENTİTY özelliği bulunması, veri yükleme kodunuzda bazı etkilere sahiptir. Bu bölüm kimliği'ni kullanarak verileri tablolara yüklemek için bazı temel düzenlerden vurgular. 
 
-Verileri bir tabloya yüklemek ve bir yedek anahtar kimliği kullanarak oluşturmak, tablo oluştur ve Ekle kullanmak için... Seç veya Ekle... Yükleme gerçekleştirmek için değerler.
+Verileri bir tabloya yüklemek ve kimlik kullanarak bir yedek anahtar oluşturmak için tablo oluşturun ve INSERT kullanın... Seç veya Ekle... Yükleme gerçekleştirmek için değerler.
 
-Aşağıdaki örnek temel düzeni vurgular:
+Aşağıdaki örnek, temel düzeni vurgular:
  
 ```sql
 --CREATE TABLE with IDENTITY
@@ -148,16 +148,16 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
 > [!NOTE] 
-> Tablo AS Seç oluşturmak kullanmak mümkün değil ' şu anda verileri bir kimlik sütunu olan bir tabloya yüklenirken.
+> Tablo AS SE oluşturma kullanmak mümkün değil ' geçerli bir kimlik sütunu içeren bir tabloya veri yükleme zaman.
 > 
 
-Veri yükleme ile ilgili daha fazla bilgi için bkz: [tasarlama ayıklayın, yükleme ve dönüştürme (ELT) Azure SQL Data Warehouse için](design-elt-data-loading.md) ve [en iyi uygulamalar yüklenirken](guidance-for-loading-data.md).
+Veri yükleme ile ilgili daha fazla bilgi için bkz: [tasarlama ayıklama, yükleme ve dönüştürme (ELT) için Azure SQL veri ambarı](design-elt-data-loading.md) ve [en iyi uygulamalar yüklenirken](guidance-for-loading-data.md).
 
 
 ## <a name="system-views"></a>Sistem görünümleri
-Kullanabileceğiniz [sys.identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql) katalog kimlik özelliğine sahip bir sütunu tanımlamak için görünümü.
+Kullanabileceğiniz [sys.identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql) katalog görünümünü kimlik özelliğine sahip bir sütun tanımlayın.
 
-Veritabanı şeması daha iyi anlamanıza yardımcı olması için bu örnek sys.identity_column tümleştirmek gösterilmektedir ' diğer sistem Katalog görünümleri ile:
+Veritabanı şeması daha iyi anlamanıza yardımcı olmak için bu örnek nasıl tümleştireceğinizi sys.identity_column gösterir ' diğer sistem Kataloğu görünümleri ile:
 
 ```sql
 SELECT  sm.name
@@ -180,8 +180,8 @@ AND     tb.name = 'T1'
 ## <a name="limitations"></a>Sınırlamalar
 IDENTİTY özelliği kullanılamaz:
 - Ne zaman sütununun veri türü tamsayı veya büyük tamsayı değil
-- Sütun ayrıca dağıtım anahtarı olduğunda
-- Tablo bir dış tablo olduğunda 
+- Sütun ayrıca dağıtım anahtarının olduğunda
+- Tablo, bir dış tablo olduğunda 
 
 SQL veri ambarı'nda aşağıdaki ilgili işlevleri desteklenmez:
 
@@ -195,21 +195,21 @@ SQL veri ambarı'nda aşağıdaki ilgili işlevleri desteklenmez:
 
 ## <a name="common-tasks"></a>Genel görevler
 
-Bu bölümde kimlik sütunu ile çalışırken ortak görevleri gerçekleştirmek için kullanabileceğiniz bazı örnek kodu sağlıyor. 
+Bu bölümde Kimlik sütunları ile çalışırken yaygın görevleri gerçekleştirmek için kullanabileceğiniz bazı örnek kodlar sağlanmaktadır. 
 
-Sütun C1 tüm aşağıdaki görevler kimliğidir.
+Sütun C1 aşağıdaki görevlerin tümü kimliktir.
  
  
-### <a name="find-the-highest-allocated-value-for-a-table"></a>Bir tablo için en yüksek ayrılmış değeri Bul
-Kullanım `MAX()` işlevi dağıtılmış bir tablo için ayrılan en yüksek değeri belirlemek için:
+### <a name="find-the-highest-allocated-value-for-a-table"></a>Bir tablo için ayrılan en yüksek değeri bulma
+Kullanım `MAX()` işlevi dağıtılan bir tablo için ayrılan en yüksek değeri belirlemek için:
 
 ```sql
 SELECT  MAX(C1)
 FROM    dbo.T1
 ``` 
 
-### <a name="find-the-seed-and-increment-for-the-identity-property"></a>Çekirdek ve Artım kimlik özelliği için Bul
-Katalog görünümleri aşağıdaki sorguyu kullanarak bir tablo için kimlik artırma ve çekirdek yapılandırma değerlerini bulmak için kullanabilirsiniz: 
+### <a name="find-the-seed-and-increment-for-the-identity-property"></a>Çekirdek ve Artım için kimlik özelliği bulunamadı
+Katalog görünümleri aşağıdaki sorguyu kullanarak kimlik artırma ve çekirdek yapılandırma değerlerini bir tablo için keşfetmek için kullanabilirsiniz: 
 
 ```sql
 SELECT  sm.name
@@ -229,5 +229,5 @@ AND     tb.name = 'T1'
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Tabloları geliştirme hakkında daha fazla bilgi için [tablo] bkz: Genel Bakış [genel bakış].  
+* Tablo geliştirme hakkında daha fazla bilgi için [tablo] bkz: Genel Bakış [genel bakış].  
 

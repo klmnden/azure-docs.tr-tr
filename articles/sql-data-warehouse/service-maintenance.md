@@ -1,40 +1,40 @@
 ---
-title: Planlı bakım - Azure SQL Data Warehouse | Microsoft Docs
-description: Azure SQL veri ambarı için planlı bakım etkinliği hazırlama hakkında bilgi edinin.
+title: Planlı bakım - Azure SQL veri ambarı | Microsoft Docs
+description: Azure SQL veri ambarı için planlı bakım olayları için hazırlamayı öğrenin.
 services: sql-data-warehouse
 author: antvgski
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/19/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: a273ad4c256267865d3af324f0ef755a6cb75c5c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8b5b94c959ae9820cab338f3ee3317fb3ee166d6
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31800058"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286610"
 ---
-# <a name="planning-for-maintenance-on-your-azure-sql-data-warehouse"></a>Azure SQL veri ambarı Bakım planlama
+# <a name="planning-for-maintenance-on-your-azure-sql-data-warehouse"></a>Azure SQL veri ambarı bakım planlaması
 
-Azure SQL veri ambarı planlı bakım olaylarına hazırlama hakkında bilgi edinin.
+Azure SQL veri ambarınızın planlı bakım olayları hazırlamayı öğrenin.
 
 ## <a name="what-is-a-planned-maintenance-event"></a>Planlanan bakım olayı nedir?
-Planlanan bakım olayı veri ambarınız için bir bakım işlemi çevrimdışı olması gerektiği zaman zaman bir penceredir. Bu olaylar, hizmet yükseltme, yeni özellikler veya düzeltme ekleri uygulanmasının fırsatlarını verilmiştir. 
+Planlanan bakım olayı, süre veri ambarınız için bir bakım işlemi çevrimdışı olması gerektiğinde bir penceredir. Bu hizmet yükseltme, yeni özellikler ve düzeltme ekleri uygulama fırsatlarını olaylardır. 
 
 ## <a name="frequency"></a>Sıklık
-Ortalama, en az bir planlı bakım olayı her ay oluşur. 
+Ortalama olarak her ay en az bir planlı bir bakım olayı oluşur. 
 
 ## <a name="notifications-and-downtime"></a>Bildirimler ve kapalı kalma süresi
-Her planlanan bakım olayı önce bir bildirim alırsınız. Bir bakım olayı çalışan tüm sorguları iptal eder ve veri ambarınız çevrimdışı duruma getirir. Her veri ambarı için beklenen kapalı kalma süresi yaklaşık olarak 30 dakikadır. Bakım tamamlandıktan sonra bir bildirim bekleyebilirsiniz. 
+Her bir planlanan bakım olayı önce bir bildirim alırsınız. Bir bakım olayı, çalışan tüm sorguları iptal eder ve veri Ambarınızı çevrimdışı duruma getirir. Her veri ambarı için beklenen kapalı kalma süresi yaklaşık 30 dakika olmalıdır. Bakım işlemi tamamlandıktan sonra bildirim bekleyebilirsiniz. 
 
-## <a name="setting-up-alerts"></a>Uyarılarını ayarlama
+## <a name="setting-up-alerts"></a>Uyarıları Ayarlama
 
-Kullanmanızı öneririz [Azure İzleyici](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) planlı bakım günlüğü uyarıları ayarlamak için. Uyarılar, iş üzerindeki etkileri en aza indirmek gerekli bir bakım planlamanıza yardımcı olabilir. 
+Kullanmanızı öneririz [Azure İzleyici](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) bakım günlüğü uyarıları ayarlamak için planlanan. Uyarılar, işletmenizi etkisini en aza indirmek gerekli bakım için planlamanıza yardımcı olur. 
 
-Bildirimleri ayarlamak için bu kullanın [oturum uyarı yönergeleri](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+Bildirimlerini ayarlamak için bu kullanın [günlük uyarı yönergeleri](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-İzleme hakkında daha fazla bilgi için bkz: [, iş yükünü izlemek](sql-data-warehouse-manage-monitor.md).
+İzleme hakkında daha fazla bilgi için bkz. [iş yükünüzü izleme](sql-data-warehouse-manage-monitor.md).

@@ -1,53 +1,53 @@
 ---
-title: Çözümünüzü SQL veri ambarına geçirme | Microsoft Docs
-description: Azure SQL Data Warehouse platformuna çözümünüzü getiren Geçiş Kılavuzu.
+title: Çözümünüzü SQL veri ambarı'na geçirme | Microsoft Docs
+description: Geçiş Kılavuzu, çözümü için Azure SQL veri ambarı platformu sunmaktadır.
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 5a609fb2da1f9dba1247358f64b284fc3e3ef5bc
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b3e01968c74060bd0dc366609275d63753ad62dd
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31523484"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306715"
 ---
-# <a name="migrate-your-solution-to-azure-sql-data-warehouse"></a>Çözümünüzü Azure SQL veri ambarına geçirme
-Azure SQL Data Warehouse için varolan bir veritabanı çözümü geçirme içinde ne katılan bakın. 
+# <a name="migrate-your-solution-to-azure-sql-data-warehouse"></a>Çözümünüzü Azure SQL veri ambarı'na taşıyın
+Ne var olan veritabanı çözümünü Azure SQL veri ambarı'na geçiş ile ilgili bakın. 
 
-## <a name="profile-your-workload"></a>İş yükünüzün profil
-Bazı SQL Data Warehouse, iş yükü için doğru çözümdür olmasını istediğiniz geçirmeden önce. SQL veri ambarı üzerinde büyük veri analizi gerçekleştirmek için tasarlanmış dağıtılan bir sistemdir.  SQL veri ambarı'na geçirme çok sabit anlamak için değildir ancak uygulamak için biraz zaman alabilir bazı tasarım değişiklikleri gerektirir. Bir kurumsal sınıf veri ambarı, İşletmenizde avantajları çabalara demektir. Ancak, SQL Data Warehouse gücünü gerekmiyorsa, düşük maliyetli SQL Server veya Azure SQL Database kullanın.
+## <a name="profile-your-workload"></a>İş yükünüz profil
+Geçiş yapmadan önce belirli SQL veri ambarı iş yükünüz için doğru çözümdür olmasını istediğiniz. SQL veri ambarı, büyük veriler üzerinde analiz gerçekleştirmek için tasarlanmış bir dağıtılmış sistemidir.  SQL veri ambarı'na geçirme uygulamak için biraz zaman alabilir ancak anlamak çok sabit olmayan bazı tasarım değişiklikleri gerektirir. Bir kurumsal sınıf veri ambarı işletmenizin ihtiyaç duyduğu çabalara avantajları vardır. Ancak, SQL veri ambarı'nın gücünü gerekmiyorsa, SQL Server veya Azure SQL veritabanı'nı kullanmak için daha uygun maliyetli olur.
 
-SQL veri ambarı kullanmayı olduğunda:
-- Bir veya daha fazla terabayt veri sahip
-- Büyük miktarlarda veri analizi çalıştırmayı planladığınız
-- İşlem ve depolama ölçeklendirebilmeniz gerekir 
-- Bunları gerekmediğinde tarafından duraklatma işlem kaynakları maliyet tasarrufu sağlamak istiyorsunuz.
+SQL veri ambarı'nı kullanmayı göz önünde bulundurun,:
+- Bir veya daha fazla terabaytlarca veriyi sahip
+- Analytics büyük miktarlarda verileri çalıştırmayı planlayın
+- İşlem ve depolama ölçeklendirme özelliği gerekir 
+- İhtiyacınız olduğunda duraklatma işlem kaynakları tarafından maliyet tasarrufu sağlamak istersiniz.
 
 SQL veri ambarı sahip işlem (gerçekleştirme OLTP) iş yükleri için kullanmayın:
-- Yüksek yoğunlukta okuma ve yazma işlemleri
+- Yüksek sıklık düzeyi okuma ve yazma işlemleri
 - Singleton çok sayıda seçer
 - Yüksek hacimli tek bir satır ekler
-- Satır satır işleme tarafından gerekiyor
+- Satır satır işleme
 - Uyumsuz biçimleri (JSON, XML)
 
 
 ## <a name="plan-the-migration"></a>Geçişi planlama
 
-Varolan bir çözümü SQL Data Warehouse'a geçirmeye karar verdikten sonra başlarken önce geçiş planlama önemlidir. 
+Varolan bir çözümü SQL Data Warehouse'a geçirmeye karar verdikten sonra başlama önce planlamanız önemlidir. 
 
-Planlama bir hedef verilerinizi, tablo şemalarını ve kodunuzu SQL Data Warehouse ile uyumlu olduğundan emin olmaktır. Geçerli sistem ve SQL Data Warehouse arasında çözmek için bazı uyumluluk farklılıklar vardır. Ayrıca, büyük miktarlarda verinin Azure alır zaman geçirme. Dikkatli planlama verilerinizi Azure alma hızlandırır. 
+Planlama tek amacı, verilerinizi, tablo şemalarını ve kodunuzu SQL veri ambarı ile uyumlu sağlamaktır. Bazı uyumluluk fark, geçerli sistem ile SQL veri ambarı arasında geçici çözüm yoktur. Ayrıca, büyük miktarlarda veri için Azure tarafından gerçekleştirilen işlemlerin zaman geçiriliyor. Dikkatli planlama verilerinizi azure'a alma hızlandırır. 
 
-Planlama, başka bir çözümünüzü SQL veri ambarı sağlamak üzere tasarlanmış yüksek sorgu performansı yararlanır emin olmak için tasarım ayarlamalar yapmak için hedeftir. Veri ambarları ölçek tasarlama farklı tasarım desenleri ve bu nedenle geleneksel yaklaşım her zaman en iyi olmayan tanıtır. Geçişten sonra bazı tasarım ayarlamalar yapabilmenize rağmen daha erken bir işlemde değişiklik daha sonra zaman kazandırır.
+Planlama, başka bir amaç, çözümünüzü SQL veri ambarı sağlamak için tasarlanmış yüksek sorgu performansı yararlanır emin olmak için tasarım ayarlamalar sağlamaktır. Veri ambarları için ölçek tasarlama farklı tasarım desenleri ve bu nedenle geleneksel yaklaşımlarını her zaman en iyi olmayan tanıtır. Geçişten sonra bazı tasarım ayarlamalar yapabilirsiniz ancak daha erken bir işlemde değişiklik daha sonra zaman kaydedin.
 
-Başarılı bir geçiş yapmak için tablo şemalarını, kodunuz ve verileriniz geçirmeniz gerekir. Bu geçiş konuları hakkında yönergeler için bkz:
+Başarılı bir geçiş gerçekleştirmek için tablo şemalarını, kodunuz ve verileriniz geçirmek gerekir. Bu geçiş konuları hakkında yönergeler için bkz:
 
--  [Şemalar geçirme](sql-data-warehouse-migrate-schema.md)
+-  [Şema geçişi](sql-data-warehouse-migrate-schema.md)
 -  [Kodunuzu geçirme](sql-data-warehouse-migrate-code.md)
 -  [Verilerinizi geçirme](sql-data-warehouse-migrate-data.md). 
 
@@ -63,7 +63,7 @@ Başarılı bir geçiş yapmak için tablo şemalarını, kodunuz ve verileriniz
 -->
 
 ## <a name="next-steps"></a>Sonraki adımlar
-CAT (Müşteri danışma ekibi) blog yayımlama bazı harika SQL Data Warehouse yönergeler de vardır.  Kendi makale bakalım [uygulamada Azure SQL Data Warehouse için geçiş veri] [ Migrating data to Azure SQL Data Warehouse in practice] geçiş hakkında ek yönergeler için.
+CAT (Müşteri danışma ekibi), Web günlükleri yayımlama bazı harika SQL veri ambarı yönergeler de vardır.  Kendi makaleye göz atın [uygulamada Azure SQL veri ambarı Storsimple'a veri] [ Migrating data to Azure SQL Data Warehouse in practice] geçiş hakkında ek yönergeler için.
 
 <!--Image references-->
 

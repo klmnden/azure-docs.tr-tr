@@ -10,24 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 6296eb423f24762ed32a21ef40852dc1a9dd8f36
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 8377b13014e2f97518bbc779ee809aaa10d6eb45
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42058316"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287453"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB sunucu tarafı programlama: saklı yordamlar, veritabanı tetikleyiciler ve UDF'ler
 
 Azure Cosmos DB'nin dil ile tümleşik, işlem yürütme JavaScript Yazma geliştiricilerin nasıl sağladığını öğrenin **saklı yordamlar**, **Tetikleyicileri**, ve **kullanıcı tanımlı işlevler (UDF'ler)**  içinde yerel olarak bir [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. JavaScript tümleştirme sevk edilen ve doğrudan veritabanı depolama bölümleri içinde yürütülen program mantığını yazmanızı sağlar. 
 
-Biz burada Andrew Liu Azure Cosmos DB'nin veritabanı sunucu tarafı programlama modeli tanıtılmaktadır aşağıdaki videoyu izleyerek çalışmaya başlamanızı öneririz. 
-
-> [!VIDEO https://www.youtube.com/embed/s0cXdHNlVI0]
->
-> 
-
-Ardından, bu makalede, aşağıdaki soruların yanıtlarını burada öğreneceksiniz dönün:  
+Bu makalede aşağıdaki soruların yanıtlarını öğreneceksiniz:  
 
 * Bir saklı yordam, tetikleyici veya JavaScript kullanarak UDF nasıl yazılır?
 * Cosmos DB, ACID nasıl garanti?

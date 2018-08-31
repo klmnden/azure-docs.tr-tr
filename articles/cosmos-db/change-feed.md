@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: e53f1e62b9265d2eec2f49537cc05c865e1436f3
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 3170ee1b48aa332a8730ba835396761ca5ef44c7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902971"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287334"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Azure Cosmos DB'de destek akış değişiklik ile çalışma
 
@@ -31,12 +31,6 @@ ms.locfileid: "37902971"
 
 > [!NOTE]
 > Değişiklik akışı desteği, tüm veri modelleri ve Azure Cosmos DB kapsayıcıları için sağlanır. Ancak, değişiklik akışı SQL istemcisi kullanılarak okunur ve öğeleri JSON biçimine serileştiren. Biçimlendirme, JSON nedeniyle istemciler yaşar MongoDB BSON biçimlendirilmiş belgeleri ve JSON arasında bir uyuşmazlık değişiklik akışı biçimlendirilmiş.
-
-Aşağıdaki videoda, Azure Cosmos DB Program Yöneticisi Manager Andrew Liu nasıl çalışır Azure Cosmos DB değişiklik akışı gösterilmektedir.
-
-> [!VIDEO https://www.youtube.com/embed/mFnxoxeXlaU]
->
->
 
 ## <a name="how-does-change-feed-work"></a>Nasıl değişiklik iş akışı?
 
@@ -510,7 +504,7 @@ Java kitaplığı, değişiklik akışı okumak için kullanılabilir [Github de
 
 _etag biçimidir iç ve, kendisine bağlı olmaması gerekir (ayrıştırmak değil) için dilediğiniz zaman değiştirebilirsiniz.
 _ts değişiklik ya da oluşturma zaman damgası ' dir. _Ts kronolojik bir karşılaştırması için kullanabilirsiniz.
-_lsn ise yalnızca değişiklik akışı için eklenen bir toplu iş kimliği, mağaza'dan temsil ettiği için işlem kimliği... Birçok belge aynı _lsn olabilir.
+_lsn yalnızca değişiklik akışı için eklenen bir toplu iş kimliği, mağaza'dan işlem kimliğini temsil eder... Birçok belge aynı _lsn olabilir.
 Not için ETag FeedResponse üzerinde belgeyle ilgili gördüğünüz _etag farklı bir şey daha. _etag dahili bir tanımlayıcıdır ve eşzamanlılık için kullanıldığında, belge sürümü hakkında bildirir ve ETag akışın sıralama için kullanılır.
 
 ### <a name="does-reading-change-feed-add-any-additional-cost-"></a>Değişiklik akışı okuma herhangi ek bir maliyet ekliyor mu?

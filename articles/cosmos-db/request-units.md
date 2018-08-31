@@ -1,6 +1,6 @@
 ---
-title: İstek birimleri ve verimlilik - Azure Cosmos DB tahmin etme | Microsoft Docs
-description: Anlamak, belirtin ve Azure Cosmos veritabanı istek birimi gereksinimlerini tahmin etme hakkında bilgi edinin.
+title: İstek birimleri ve aktarım hızı - Azure Cosmos DB tahmin etme | Microsoft Docs
+description: Anlamanıza, belirtin ve Azure Cosmos DB'de istek birimi gereksinimlerini tahmin etme hakkında bilgi edinin.
 services: cosmos-db
 author: rimman
 manager: kfile
@@ -9,128 +9,122 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rimman
-ms.openlocfilehash: 160ff4e09f70036fd261c07fa59e13772bc00660
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 66beeb2cc724f75d17a4c155f1cdb888153e8fbf
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053336"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286774"
 ---
-# <a name="request-units-in-azure-cosmos-db"></a>Birimleri Azure Cosmos veritabanı isteği
+# <a name="request-units-in-azure-cosmos-db"></a>İstek birimi olarak Azure Cosmos DB'de
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) Microsoft Genel dağıtılmış multimodel veritabanıdır. Azure Cosmos DB ile sanal makineleri kiralamak, yazılım dağıtma veya veritabanlarını izleme gerekmez. Azure Cosmos DB işletilen ve sürekli olarak dünya çapındaki kullanılabilirliği, performansı ve veri koruma sağlamak üzere Microsoft üst mühendisleri tarafından izlenir. Tercih ettiğiniz API'leri gibi kullanarak, verilerinizi erişebilirsiniz [SQL](documentdb-introduction.md), [MongoDB](mongodb-introduction.md), ve [tablo](table-introduction.md) API'leri ve grafik aracılığıyla [Gremlin API](graph-introduction.md). Tüm API'leri tüm yerel olarak desteklenir. 
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) Microsoft Global olarak dağıtılmış çok modelli veritabanıdır. Azure Cosmos DB ile sanal makineleri kiralayabilirler, yazılım dağıtma veya veritabanlarını izleme gerekmez. Azure Cosmos DB tarafından işletilen ve sürekli olarak birinci sınıf kullanılabilirlik, performans ve veri koruması sağlamak için Microsoft en iyi mühendisleri tarafından izlenen. Gibi tercih ettiğiniz API'lerini kullanarak verilerinize erişebilirsiniz [SQL](documentdb-introduction.md), [MongoDB](mongodb-introduction.md), ve [tablo](table-introduction.md) API ve graph aracılığıyla [Gremlin API](graph-introduction.md). Tüm API'leri tüm yerel olarak desteklenir. 
 
-Azure Cosmos DB para birimi *istek birimi (RU)*. İstek birimleri ile okuma/yazma kapasiteleri veya sağlama CPU, bellek ve IOPS ayırmak gerekmez. Azure Cosmos DB farklı işlemler sahip çeşitli API'ler destekler, basitten arasında değişen, okur ve karmaşık grafik sorguları yazar. Tüm istekleri eşit olduğundan istek isteğe hizmet vermek için gerekli hesaplama miktarına göre istek birimlerinin normalleştirilmiş bir miktar atanır. Bir işlem için istek birimleri belirleyici sayısıdır. Bir yanıt üstbilgisi aracılığıyla Azure Cosmos veritabanı herhangi bir işlem tarafından kullanılan istek birim sayısını izleyebilirsiniz. 
+Azure Cosmos DB'nin para birimi *istek birimi (RU)*. İstek birimleri ile okuma/yazma kapasiteler veya sağlama CPU, bellek ve IOPS ayırmak gerekmez. Azure Cosmos DB, farklı işlem var çeşitli API'ler destekler, basit arasında değişen okur ve karmaşık graf sorgularını yazar. Tüm istekleri eşit olduğundan, istekleri normalleştirilmiş isteğe hizmet vermek için gerekli olan hesaplamayı miktarına göre istek birimi miktarı atanır. Bir işlem için istek birimi belirleyici sayısıdır. Azure Cosmos DB'de herhangi bir işlem aracılığıyla bir yanıt üstbilgisi tarafından kullanılan istek birimleri sayısını takip edebilirsiniz. 
 
-Tahmin edilebilir performans sağlamak için işleme birimi 100 RU/saniye ayırın. Yapabilecekleriniz [, üretilen iş gereken tahmin](request-units.md#estimating-throughput-needs) Azure Cosmos DB kullanarak [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner).
+Tahmin edilebilir performans sağlamak için aktarım hızı birimi 100 RU/saniye saklı tutarız. Yapabilecekleriniz [aktarım hızınızı ihtiyaçlarınızı tahmin etmenize](request-units.md#estimating-throughput-needs) Azure Cosmos DB kullanarak [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner).
 
-![Üretilen iş hesaplayıcısı][5]
+![Aktarım hızı hesaplayıcı][5]
 
-Bu makaleyi okuduktan sonra aşağıdaki soruları yanıtlayın mümkün olacaktır:
+Bu makaleyi okuduktan sonra aşağıdaki soruları yanıtlamak mümkün olacaktır:
 
-* İstek birimleri ve Azure Cosmos DB isteği ücretlere nelerdir?
-* Azure Cosmos DB'de nasıl bir kapsayıcı veya kapsayıcıları kümesi için istek birimi kapasitesini belirtin?
-* My uygulamanın istek birimi gereken nasıl tahmin?
-* Bir kapsayıcı veya Azure Cosmos DB kapsayıcılarında kümesi için istek birim kapasitesi aşmanız durumunda ne olur?
+* İstek birimleri ve Azure Cosmos DB'de istek ücretler nelerdir?
+* İstek birimi kapasiteyi kapsayıcıların bir kapsayıcı veya Azure Cosmos DB'de nasıl belirtebilirim?
+* My uygulamanın istek birimi gereken nasıl tahmin ederim?
+* Bir kapsayıcı veya Azure Cosmos DB kapsayıcıları kümesi için istek birimi kapasite aşarsam ne olur?
 
-Azure Cosmos DB multimodel veritabanı olduğundan, bu makalenin tüm veri modelleri ve Azure Cosmos DB API'leri uygulanabilir olduğunu dikkate almak önemlidir. Bu makalede gibi genel koşulları kullanan *kapsayıcı* genel bir koleksiyon ya da grafik başvurmak için ve *öğesi* genel olarak bir tablo, belge, düğüm veya varlık başvurmak için.
+Azure Cosmos DB çok modelli bir veritabanı olduğundan, bu makalede tüm veri modelleri ve Azure Cosmos DB API'leri için geçerli olduğuna dikkat edin önemlidir. Bu makalede, genel terimleri kullanılmıştır *kapsayıcı* genel bir koleksiyon veya graph başvurmak için ve *öğesi* tablo, belge, düğümü veya varlık için genel olarak başvurmak için.
 
 ## <a name="request-units-and-request-charges"></a>İstek birimleri ve istek ücretleri
 
-Azure Cosmos DB hızlı, uygulamanızın verimlilik ihtiyaçlarını karşılamak için kaynakları ayrılarak tahmin edilebilir performans sunar. Uygulama yük ve erişim desenleri zamanla değiştirin. Azure Cosmos DB kolayca artırma veya uygulamanız için kullanılabilir ayrılmış işleme miktarını azaltmak yardımcı olabilir.
+Azure Cosmos DB, hızlı, uygulamanızın aktarım hızı gereksinimlerini karşılamak için kaynaklarını ayırma tarafından öngörülebilir performans sunar. Uygulama yük ve erişim desenleri zamanla değişir. Azure Cosmos DB, kolayca artırın veya ayrılmış aktarım hızını uygulamanızda kullanılabilen miktarını azaltmak yardımcı olabilir.
 
-Azure Cosmos DB ile ayrılmış işleme saniyede işlediği istek birimi cinsinden belirtilir. İstek birimleri verimlilik para birimi olarak düşünebilirsiniz. Saniye başına temelinde uygulamanız için kullanılabilir olmasını garanti edilen isteği birim sayısını ayırın. Azure Cosmos DB, bir belge yazma dahil olmak üzere her bir işlemde bir sorgu gerçekleştirmek ve bir belge güncelleştirme, CPU, bellek ve IOPS kullanır. Diğer bir deyişle, her işlem istek birimleri cinsinden ifade edilen bir istek ücret doğurur. İstek birimi ücretleri ve uygulamanızın işleme gereksinimleri etkileyen faktörler anladığınızda, uygulamanızı maliyeti etkili bir şekilde olabildiğince olarak çalıştırabilirsiniz. 
+Azure Cosmos DB ile ayrılmış aktarım hızı, işleme saniye başına istek birimi cinsinden belirtilir. İstek birimleri aktarım hızı para birimi olarak düşünebilirsiniz. Uygulamanızın saniyelik aralıklarla kullanılabilir olmasını garanti edilen istek birimi sayısı saklı tutarız. Azure Cosmos DB, bir belge yazma dahil olmak üzere her bir işlemde bir sorgu gerçekleştirmek ve bir belge güncelleştiriliyor, CPU, bellek ve IOPS kullanır. Diğer bir deyişle, her işlem, istek birimleri cinsinden ifade edilen bir istek ücret doğurur. İstek birimi ücreti ve uygulamanızın aktarım hızı gereksinimleri etkileyen faktörler anladığınızda, uygulamanızı maliyeti etkili bir şekilde olabildiğince olarak çalıştırabilirsiniz. 
 
-Başlamanıza yardımcı olmak için istek birimi (video istek birimleri örneği küçük bir yazım hatasından yoktur. aşağıdaki videoda Azure Cosmos DB Program Yöneticisi Barış Liu açıklanır 1 KB veri 100.000 kayıt ile kullanıldığında, toplam depolama 100 MB değil 100 GB ise): <br /><br />
+## <a name="throughput-isolation-in-globally-distributed-databases"></a>Global olarak dağıtılmış veritabanları işleme yalıtımı
 
-> [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
-> 
-> 
-
-## <a name="throughput-isolation-in-globally-distributed-databases"></a>Genel olarak dağıtılmış veritabanlarında işleme yalıtımı
-
-Veritabanınız için birden fazla bölge çoğaltma yaparsanız Azure Cosmos DB istek birimi kullanımına bir bölgede başka bir bölgede istek birimi kullanımına etkilemez emin olmak için işleme yalıtım sağlar. Örneğin, tek bir bölge için veri yazma ve başka bir bölgeye verileri okumak, bir bölgede yazma işlemi gerçekleştirmek için kullanılan istek birimleri ele yok B. isteği bölgede okuma işlemi için kullanılan istek birimleri çıktığınızda birimleri eri ayırın değil ss veritabanınızı, dağıttığınız bölgeleri. Veritabanı çoğaltılan her bölge sağlanan istek birimleri tam sayısına sahip. Genel çoğaltma hakkında daha fazla bilgi için bkz: [Azure Cosmos DB genel verilerle dağıtmak nasıl](distribute-data-globally.md).
+Veritabanınızın birden fazla bölgeye çoğaltma, Azure Cosmos DB istek birimi kullanımının bir bölgede başka bir bölgede istek birimi kullanımının etkilemediğinden emin olmak için aktarım hızı yalıtım sağlar. Örneğin, bir bölgeye verileri yazmak ve başka bir bölgeye verileri okuyun, bir bölgede yazma işlemi gerçekleştirmek için kullanılan istek birimleri yakalayana b isteği bölgede okuma işlemi için kullanılan istek birimleri uzağa birimleri eri bölme değil ss veritabanınızı içinde dağıttığınız bölgeleri. Her bölge içinde veritabanı çoğaltılır, sağlanan istek birimi tam sayısına sahip. Genel çoğaltma hakkında daha fazla bilgi için bkz. [küresel olarak Azure Cosmos DB ile verileri nasıl dağıtılacağını](distribute-data-globally.md).
 
 ## <a name="request-unit-considerations"></a>İstek birimi konuları
-Sağlama isteği birim sayısını tahmin yaparken, aşağıdaki değişkenleri dikkate almanız önemlidir:
+İstek birimi sağlamak için tahmini yaparken, aşağıdaki değişkenleri dikkate almak önemlidir:
 
-* **Öğe boyutunu**. Boyutu arttıkça okumak veya veri yazmak için kullanılan istek birimi sayısı da artar.
-* **Madde özellik sayısı**. Tüm özelliklerin, belge, düğüm veya varlık bir artış özellik sayısı arttıkça yazmak için kullanılan birimleri varsayılan dizin varsayılır.
-* **Veri tutarlılığı**. Veri tutarlılığı modelleri güçlü veya sınırlanmış eskime durumu gibi kullandığınızda, ek istek birimleri öğeleri okumak için kullanılır.
-* **Dizin oluşturulmuş özellikleri**. Bir dizin İlkesi her kapsayıcısı üzerinde varsayılan olarak hangi özellikleri dizinlenir belirler. Dizinli Özellikler sayısını sınırlayarak veya yavaş dizin etkinleştirerek yazma işlemleri için istek birimi tüketimini azaltabilir.
-* **Belge dizine**. Varsayılan olarak, her bir öğeyi otomatik olarak dizine alınır. Bazı öğelerinizi dizin kullanılamıyor seçerseniz daha az istek birimi kullanabilir.
-* **Sorgu desenleri**. Bir sorgu karmaşıklığını kaç tane istek birimi için bir işlem tüketilen etkiler. Koşulları, koşulları yapısını, kullanıcı tanımlı işlevler sayısı, kaynak verilerin boyutunu sayısı sorgu sayısı, sonuçları ve sorgu işlemlerinin maliyetini tahminleri tüm etkiler.
-* **Komut dosyası kullanımı**. Sorguları olarak gerçekleştirilen işlemler kapsamına bağlı istek birimleri saklı yordamları ve Tetikleyicileri tüketir. Uygulamanızı geliştirirken, her işlem isteği birim kapasitesi nasıl tüketir daha iyi anlamak için istek ücret üstbilgisi inceleyin.
+* **Öğe boyutunu**. Boyutu arttıkça, verileri okuma veya yazma için kullanılan istek birimleri sayısı da artar.
+* **Öğe özellik sayısı**. Tüm özelliklerinin bir belge, düğümü veya varlık artış özellik sayısı arttıkça yazmak için kullanılan birimleri varsayılan dizin kullanılır.
+* **Veri tutarlılığı**. Tanımlayıcı veya sınırlanmış eskime durumu gibi veri tutarlılık modeli kullandığınız zaman ek istek birimi öğeleri okumak için kullanılır.
+* **Dizin oluşturulmuş özellikleri**. Her kapsayıcı bir dizin İlkesi, hangi özellikleri varsayılan olarak dizinlenir belirler. Dizinli Özellikler sayısını sınırlama veya yavaş dizin oluşturmayı etkinleştirmek, yazma işlemleri için istek birimi tüketimini azaltabilirsiniz.
+* **Belge dizine**. Varsayılan olarak, her bir öğe otomatik olarak dizine alınır. Değil, öğelerin bazıları dizin seçerseniz istek birimi daha az kullanır.
+* **Sorgu desenleri**. Kaç tane istek birimi bir işlem için kullanılan bir sorgu karmaşıklığı etkiler. Koşullar, koşullarına yapısını, kullanıcı tanımlı işlev sayısı, kaynak verilerin boyutunu sayısını sorgu sayısı, sonuçları ve sorgu işlemlerinin maliyetini projeksiyonlar tüm etkiler.
+* **Betik kullanımı**. Sorgularla olduğu gibi istek birimleri gerçekleştirilmekte olan işlemlerin kapsamına bağlı saklı yordamları ve Tetikleyicileri kullanma. Uygulamanızı geliştirirken, her işlem istek birim kapasitesi nasıl kullandığı daha iyi anlamak için istek ücret üstbilgisi inceleyin.
 
-## <a name="estimating-throughput-needs"></a>Üretilen iş gereksinimlerini tahmin etme
-Bir istek birimi istek maliyet işleme normalleştirilmiş ölçüsüdür. Bir tek istek birimi (kendi bağlantısını veya kimliği), 10 benzersiz özellik değerlerini (Sistem özellikleri dışında) oluşan tek bir 1 KB öğe okumak için gerekli işlem kapasitesini temsil eder. (Ekle) oluşturma isteği değiştirmek veya aynı silme öğesi hizmetinden daha fazla işleme kullanır ve böylece daha fazla istek birimi gerektirir. 
+## <a name="estimating-throughput-needs"></a>Aktarım hızı gereksinimlerini tahmin etme
+Bir istek birimi isteği işleme maliyeti normalleştirilmiş bir ölçüdür. Bir tek istek birimi (kendi bağlantısı veya kodu), 10 benzersiz özellik değerlerini (Sistem özellikleri hariç) oluşan tek bir 1 KB'lik öğe okumak için gerekli işlem kapasitesi temsil eder. (Ekle) oluşturma isteği değiştirin veya aynı silmek öğe hizmetinden daha fazla işleme kullanır ve böylelikle daha fazla istek birimleri gerektirir. 
 
 > [!NOTE]
-> Temel bir 1 KB öğesi için 1 isteği biriminin kendi bağlantısını basit bir GET veya öğenin kimliği karşılık gelir.
+> Temel 1 istek birimin bir 1 KB'lik öğe için basit bir kendi bağlantısını GET ya da öğenin kimliği karşılık gelir.
 > 
 > 
 
-Örneğin, sağlama öğeleri üç farklı boyutlarda (1 KB, 4 KB ve 64 KB) ile ve iki farklı performans düzeyleri için kaç tane istek birimleri gösteren bir tablo İşte (500 Okuma/saniye 100 yazma/saniye ve 500 Okuma/saniye + 500 yazma/saniye). Bu örnekte, veri tutarlılığını ayarlamak **oturum**, ve dizin oluşturma ilkesini ayarlamak **hiçbiri**.
+Örneğin, kaç tane istek birimleri sağlamak için üç farklı boyut (1 KB, 4 KB ve 64 KB) ve iki farklı performans düzeylerinde öğeleri gösteren bir tablo İşte (500 Okuma/sn + 100 Yazma/sn ve 500 Okuma/sn + 500 yazma/saniye). Bu örnekte, veri tutarlılığı kümesine **oturumu**, ve dizin oluşturma ilkesini ayarlamak **hiçbiri**.
 
-| Öğesi boyutu | Okuma/saniye | Yazma/saniye | İstek birimleri
+| Öğe boyutu | Okuma/saniye | Yazma/saniye | İstek birimleri
 | --- | --- | --- | --- |
-| 1 KB | 500 | 100 | (500 * 1) + (100 * 5) = 1.000 RU/s
-| 1 KB | 500 | 500 | (500 * 1) + (500 * 5) = 3000 RU/s
-| 4 KB | 500 | 100 | (500 * 1,3) + (100 * 7) = 1,350 RU/s
-| 4 KB | 500 | 500 | (500 * 1,3) + (500 * 7) = 4,150 RU/s
+| 1 KB | 500 | 100 | (500 * 1) + (100 * 5) 1.000 RU/sn =
+| 1 KB | 500 | 500 | (500 * 1) + (500 * 5) 3.000 RU/sn =
+| 4 KB | 500 | 100 | (500 * 1.3) + (100 * 7) = 1.350 RU/sn
+| 4 KB | 500 | 500 | (500 * 1.3) + (500 * 7) 4,150 RU/sn =
 | 64 KB | 500 | 100 | (500 * 10) + (100 * 48) = 9,800 RU/s
-| 64 KB | 500 | 500 | (500 * 10) + (500 * 48) = 29,000 RU/s
+| 64 KB | 500 | 500 | (500 * 10) + (500 * 48) 29,000 RU/sn =
 
 
-### <a name="use-the-request-unit-calculator"></a>İstek birimi hesaplayıcı kullanın
-Üretilen iş tahminler ince ayar yardımcı olmak için web tabanlı kullanabileceğiniz [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner). Hesaplayıcı, tahmin isteği birim gereksinimleri dahil olmak üzere, normal işlemleri için yardımcı olabilir:
+### <a name="use-the-request-unit-calculator"></a>İstek birimi hesaplayıcıyı kullanın
+Aktarım hızı tahminleri ayarlamanıza yardımcı olmak için web tabanlı kullanabileceğiniz [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner). Hesaplayıcı tahmininize istek birimi gereksinimleri dahil olmak üzere, normal işlemleri için yardımcı olabilir:
 
-* (Yazar) öğesi oluşturur
-* Öğe okur
-* Öğeyi siler
+* Öğesi (yazar) oluşturur.
+* Öğe Okuma
+* Öğesini siler
 * Öğesi güncelleştirmeleri
 
-Aracı, sağladığınız örnek öğeleri temel alan veri depolama gereksinimlerini tahmin etmek için destek de içerir.
+Araç ayrıca, sağladığınız örneği maddeler temel alınarak veri depolama gereksinimlerini tahmin etmek için destek içerir.
 
 Aracı kullanmak için:
 
-1. Bir veya daha fazla temsilcisi öğeleri (örneğin, bir örnek JSON belgesi) karşıya yükleyin.
+1. Bir veya daha fazla temsili öğeleri (örneğin, bir örnek JSON belgesi) karşıya yükleyin.
    
-    ![İstek birimi makinesine öğeleri karşıya yükle][2]
-2. Veri depolama gereksinimlerini tahmin etmek için depolamayı beklediğiniz öğeleri (örneğin, belgeler, satır veya köşeleri) toplam sayısı girin.
-3. Oluşturma, okuma, güncelleştirme ve ihtiyaç duyduğunuz silme işlemlerinin sayısı (bir saniye başına temelinde) girin. İstek birimi ücretleri öğesi güncelleştirme işlemlerinin tahmin etmek için 1. adımdaki tipik alan güncelleştirmeleri içeren örnek öğenin bir kopyasını yükleyin. Örneğin, öğesi güncelleştirmeler genellikle adlı iki özelliklerini değiştirmek *lastLogin* ve *userVisits*örnek öğesi kopyalama, bu iki özellik için değerleri güncelleştirmek ve kopyalanan öğeyi karşıya yükleyin.
+    ![İstek birimi hesaplayıcıya öğeleri karşıya yükle][2]
+2. Veri depolama gereksinimleri tahmin etmek için depolamayı beklediğiniz öğeleri (örneğin, belge, satır veya köşe) toplam sayısı girin.
+3. Oluşturma, okuma, güncelleştirme ve ihtiyaç duyduğunuz silme işlemlerinin sayısı (bir saniye başına temelinde) girin. İstek birimi ücreti öğesi güncelleştirme işlemlerinin tahmin etmek için tipik alan güncelleştirmeler içeren bir adım 1'deki örnek öğenin bir kopyasını yükleyin. Örneğin, madde, güncelleştirmeleri genellikle adlı iki özelliklerini değiştirmek *lastLogin* ve *userVisits*, örnek öğesini kopyalama, bu iki özellik değerlerini güncelleştirin ve sonra kopyalanan öğesi karşıya yükleyin.
    
-    ![Üretilen iş gereksinimleri istek birimi hesaplayıcı girin][3]
-4. Seçin **Hesapla**ve ardından sonuçları inceleyin.
+    ![İstek birimi hesap makinesinde aktarım hızı gereksinimleri girin][3]
+4. Seçin **Calculate**ve sonuçları inceleyin.
    
-    ![Birim hesaplayıcı sonuçları isteği][4]
+    ![İstek birimi hesaplayıcı sonuçları][4]
 
 > [!NOTE]
-> Önemli ölçüde boyutu ve Dizinli Özellikler sayısı bakımından farklılık gösterir öğesi türleriniz varsa, her bir örnek karşıya *türü* tipik öğesi için araç ve sonuçları hesaplar.
+> Boyutu ve dizini oluşturulmuş özellik sayısı bakımından önemli ölçüde farklı öğesi türleriniz varsa, her bir örnek yükleyin *türü* tipik öğesi için araç ve ardından sonuçları hesaplar.
 > 
 > 
 
-### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Azure Cosmos DB istek ücret yanıt üstbilgisi kullanın
-Her yanıt Azure Cosmos DB hizmetinden bir özel üst bilgi içeriyor (`x-ms-request-charge`) belirli bir istek için kullanılan istek birimleri içerir. Bu üst Azure Cosmos DB SDK'ları da erişebilirsiniz. .NET SDK'sındaki **RequestCharge** bir özelliktir **ResourceResponse** nesnesi. Sorgular için Azure portalında Azure Cosmos DB Veri Gezgini yürütülen sorgular için istek ücret bilgileri sağlar. Alma ve ayarlama işleme hakkında kullanarak farklı birden çok model API'leri öğrenmek için [ayarlama ve verimlilik Azure Cosmos DB'de alma](set-throughput.md) makalesi.
+### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Azure Cosmos DB isteği ücret yanıt üst bilgisi kullanın
+Her Azure Cosmos DB hizmetinden gelen yanıt, özel bir başlık içerir (`x-ms-request-charge`) belirli bir istek için kullanılan istek birimleri içerir. Bu üst bilginin Azure Cosmos DB SDK'lar da erişebilirsiniz. .NET SDK'sındaki **RequestCharge** parçasıdır **ResourceResponse** nesne. Sorgular için Azure portalında Azure Cosmos DB Veri Gezgini yürütülen sorgular için ücret bilgi sağlar. Nasıl alınacağı ve aktarım hızı ayarlama hakkında kullanarak farklı çok modelli API'leri öğrenmek için [ayarlayın ve Azure Cosmos DB'de aktarım hızı alma](set-throughput.md) makalesi.
 
-Uygulamanızın gerektirdiği ayrılmış işleme miktarı tahmin etmek için bir yöntem, uygulamanız tarafından kullanılan bir temsili öğesi karşı normal işlemleri çalıştırılması ile ilişkili istek birimi ücret kaydetmektir. Ardından, her saniye gerçekleştirmek düşündüğünüz işlemlerinin sayısını tahmin edin. Ayrıca, ölçü ve tipik sorgular ve Azure Cosmos DB komut dosyası kullanımı dahil emin olun.
+Ayrılmış aktarım hızı uygulamanız için gereken miktarı tahmin etmek için bir yöntem, uygulamanız tarafından kullanılan bir temsili öğesi karşı tipik işlemlerin çalıştırmayla ilgili istek birimi ücreti kaydetmektir. Ardından, her saniye gerçekleştirmek için tahmin işlemlerin sayısını tahmin edin. Ayrıca ölçün ve tipik sorgular ve Azure Cosmos DB betik kullanımı dahil emin olun.
 
 > [!NOTE]
-> Önemli ölçüde boyutu ve Dizinli Özellikler sayısı bakımından farklılık gösterir öğesi türleriniz varsa, her ilişkilendirilmiş geçerli işlem istek birimi ücret kayıt *türü* tipik öğesi.
+> Boyutu ve dizini oluşturulmuş özellik sayısı bakımından önemli ölçüde farklı öğesi türleriniz varsa, her ilişkilendirilmiş geçerli işlemi istek birimi ücreti kayıt *türü* tipik öğesi.
 > 
 > 
 
-Örneğin, bunlar adımlar şunlardır:
+Örneğin, adımlar şunlardır:
 
-1. (Ekleme) oluşturma isteği birim ücret kayıt tipik bir öğe. 
-2. Tipik bir öğe Okuma isteği birim ücret kaydedin.
-3. Tipik bir öğesi güncelleştirme isteği birim ücret kaydedin.
-4. Tipik, ortak öğesi sorgularını istek birimi olarak kaydedin.
-5. Uygulamanın kullandığı tüm özel komut dosyalarını (saklı yordamlar, Tetikleyiciler, kullanıcı tanımlı işlevler) istek birimi olarak kaydedin.
-6. Saniyede çalıştırmayı düşündüğünüz operations tahmini sayısını verilen gerekli istek birimleri hesaplayın.
+1. Kayıt oluşturma (eklerken) istek birimi ücreti tipik bir öğe. 
+2. Tipik bir öğe Okuma istek birimi ücreti kaydedin.
+3. Tipik bir öğe güncelleştirme istek birimi ücreti kaydedin.
+4. İstek birimi ücretine ek olarak normal, sık kullanılan öğesi sorgularının kaydedin.
+5. İstek birimi ücretine ek olarak uygulamanın kullandığı tüm özel komut dosyaları (saklı yordamlar, Tetikleyiciler, kullanıcı tanımlı işlevler) kaydedin.
+6. Tahmini saniyede çalıştırılacak tahmin işlemlerin sayısı belirtilen gerekli istek birimleri hesaplayın.
 
-## <a name="a-request-unit-estimate-example"></a>Bir istek birimi tahmin örneği
-Yaklaşık 1 KB boyutunda aşağıdaki belge göz önünde bulundurun:
+## <a name="a-request-unit-estimate-example"></a>Bir istek birimi tahmini örnek
+Yaklaşık 1 KB boyutundaki aşağıdaki belge göz önünde bulundurun:
 
 ```json
 {
@@ -183,61 +177,61 @@ Yaklaşık 1 KB boyutunda aşağıdaki belge göz önünde bulundurun:
 ```
 
 > [!NOTE]
-> Yukarıdaki belgenin sistem tarafından hesaplanan boyutu 1 KB biraz daha az olacak şekilde belgeler Azure Cosmos DB'de küçültülmüş.
+> Belgeler, yukarıdaki belgenin sistem tarafından hesaplanan boyutu 1 KB'lık biraz daha küçüktür, bu nedenle Azure Cosmos DB'de küçültülmüş.
 > 
 > 
 
-Aşağıdaki tabloda, bu öğeyi normal işlemleri için yaklaşık istek birimi ücretleri gösterir. (Hesabı tutarlılık düzeyi ayarlamak yaklaşık istek birimi ücret varsayar **oturum** ve tüm öğeler otomatik olarak dizini oluşturulmuş.)
+Aşağıdaki tabloda, bu öğe üzerinde normal işlemleri için yaklaşık istek birimi ücreti gösterir. (Yaklaşık istek birimi ücretine ek olarak, hesap tutarlılık düzeyi ayarlamak varsayar **oturumu** ve tüm öğeleri otomatik olarak dizine alınmış.)
 
-| İşlem | İstek birimi ücret |
+| İşlem | İstek birimi ücreti |
 | --- | --- |
 | Öğe oluştur |~15 RU |
 | Öğe Okuma |~ 1 RU |
-| Sorgu öğesi kimliği |~2.5 RU |
+| Sorgu öğesi Kimliğine göre |~2.5 RU |
 
-Aşağıdaki tabloda yaklaşık istek birimi ücretleri uygulamada kullanılan tipik sorguları için gösterilir:
+Aşağıdaki tabloda, yaklaşık istek birimi ücreti uygulamada kullanılan tipik sorgular için gösterilir:
 
-| Sorgu | İstek birimi ücret | döndürülen öğe sayısı |
+| Sorgu | İstek birimi ücreti | döndürülen öğe sayısı |
 | --- | --- | --- |
-| Kimliğe göre yemek seçin |~2.5 RU |1 |
-| Üretici tarafından foods seçin |~7 RU |7 |
-| Yemek grup ve sipariş ağırlığa göre seçin |~70 RU |100 |
-| Üst 10 foods yemek grubunda seçin |~ 10 RU |10 |
+| Gıda Kimliğine göre seçin |~2.5 RU |1 |
+| Üreticiye göre foods seçin |~7 RU |7 |
+| Gıda grubu ve sipariş ağırlığa göre seçin |~70 RU |100 |
+| İlk 10 foods bir yiyecek grubunda seçin |~ 10 RU |10 |
 
 > [!NOTE]
-> İstek birimi ücretleri döndürülen öğe sayısını göre farklılık gösterir.
+> İstek birimi, geri döndürülen öğe sayısına göre değişiklik gösterir.
 > 
 > 
 
-Bu bilgi ile işlemler ve saniye başına beklediğiniz sorguları sayısı verilen bu uygulama için istek birimi gereksinimlerini tahmin edebilirsiniz:
+Bu bilgilerle, işlemler ve sorgular beklediğiniz saniye başına sayısı verilen bu uygulama için istek birimi gereksinimlerini tahmin edebilirsiniz:
 
 | İşlem/sorgu | Saniye başına tahmini sayısı | Gerekli istek birimleri |
 | --- | --- | --- |
 | Öğe oluştur |10 |150 |
 | Öğe Okuma |100 |100 |
-| Üretici tarafından foods seçin |25 |175 |
-| Yemek gruplandırma ölçütü seçin |10 |700 |
+| Üreticiye göre foods seçin |25 |175 |
+| Gıda gruplandırma ölçütü seçin |10 |700 |
 | İlk 10 seçin |15 |150 toplam |
 
-Bu durumda, bir ortalama işleme gereksinimini 1,275 RU/saniye bekler. Yuvarlama kadar yakın 100, 1,300 RU/saniye için bu uygulamanın kapsayıcı (veya kapsayıcıları kümesi) sağlamak.
+Bu durumda, bir ortalama aktarım hızı gereksinimi 1,275 RU/saniye bekler. Yuvarlama en yakın 100 adede kadar RU/saniye için bu uygulamanın kapsayıcı (veya kapsayıcıları kümesi) 1,300 sağlamanız.
 
-## <a id="RequestRateTooLarge"></a> Azure Cosmos DB aşan ayrılmış işleme sınırları
-İstek birimi tüketim saniyede hızında değerlendirilir. Hızı sağlanan işleme düzeyin altına düşene kadar sağlanan istek birimi hızı aşan uygulamalar için istek oranı sınırlı. Bir istek oranı sınırlı olduğunda, sunucu erken önlem istekle sona `RequestRateTooLargeException` (HTTP durum kodu 429) ve döndürür `x-ms-retry-after-ms` üstbilgi. Üstbilgi Kullanıcı isteği yeniden denemeden önce beklemesi gereken milisaniye cinsinden süre miktarını gösterir.
+## <a id="RequestRateTooLarge"></a> Azure Cosmos DB'de ayrılmış aktarım hızı sınırlarını aşma
+İstek birimi tüketimini, saniye başına fiyatı üzerinden değerlendirilir. Hızı sağlanan aktarım hızı düzeyinin altına düşene kadar sağlanan istek birimi hızı aşan uygulamaları için istek oranı sınırlı. İstek oranı sınırlı olduğunda, sunucu sıd'lerde istekle sona `RequestRateTooLargeException` (HTTP durum kodu 429) ve döndürür `x-ms-retry-after-ms` başlığı. Üst bilgisi, kullanıcı isteği yeniden denemeden önce beklemesi gereken milisaniye cinsinden süre miktarını gösterir.
 
     HTTP Status 429
     Status Line: RequestRateTooLarge
     x-ms-retry-after-ms :100
 
-.NET İstemci SDK'sını ve LINQ sorgularını kullan çoğu zaman, hiçbir zaman bu özel durumla dağıtılacak varsa. Geçerli sürümü .NET İstemci SDK'sı, bu yanıt örtük olarak yakalar, yeniden deneme sonra sunucu tarafından belirtilen üstbilgi dikkate alır ve istek otomatik olarak yeniden dener. Hesabınızı eşzamanlı olarak birden çok istemci tarafından erişilen sürece, sonraki yeniden deneme işlemi başarılı olur.
+.NET İstemci SDK'sı ve LINQ sorguları kullanırsanız, çoğu zaman, hiçbir zaman bu özel durum ile uğraşmak zorunda. .NET İstemci SDK'ın geçerli sürümü bu yanıt örtük olarak yakalayan, sunucu tarafından belirtilen retry-after üst bilgisi uyar ve istek otomatik olarak yeniden dener. Hesabınızda aynı anda birden çok istemci tarafından erişilen sürece sonraki yeniden deneme işlemi başarılı olur.
 
-Birden fazla istemci isteği hızı üst üste işletim varsa, varsayılan yeniden deneme davranışı yetersiz olabilir ve istemci oluşturur bir `DocumentClientException` uygulamaya 429 ile durum kodu. Bu gibi durumlarda yeniden deneme davranışı ve uygulamanızın hata işleme yordamları mantığı işleme göz önünde bulundurun veya kapsayıcı (veya kapsayıcıları kümesi) için sağlanan verimliliğini artırmak isteyebilirsiniz.
+İstek hızı üst üste çalışan birden fazla istemci varsa, varsayılan yeniden deneme davranışı yeterli olmayabilir ve istemci oluşturur bir `DocumentClientException` 429 uygulama durumuyla kod. Bu gibi durumlarda, yeniden deneme davranışı ve uygulamanızın hata işleme rutinleri mantığının işleme düşünün veya kapsayıcı (veya kapsayıcıları kümesi) için sağlanan aktarım hızı artırmak isteyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
  
-- Bilgi nasıl [ayarlama ve verimlilik Azure Cosmos DB'de alma](set-throughput.md) Azure portal ve SDK'ları kullanarak.
-- Hakkında bilgi edinin [performansı ve ölçeği Azure Cosmos DB ile test](performance-testing.md).
-- Ayrılmış işleme ile Azure Cosmos DB veritabanları hakkında daha fazla bilgi için bkz: [Azure Cosmos DB fiyatlandırma](https://azure.microsoft.com/pricing/details/cosmos-db/) ve [Azure Cosmos veritabanı veri bölümlendirme](partition-data.md).
-- Azure Cosmos DB hakkında daha fazla bilgi için bkz: [Azure Cosmos DB belgeleri](https://azure.microsoft.com/documentation/services/cosmos-db/). 
+- Bilgi edinmek için nasıl [ayarlayın ve Azure Cosmos DB'de aktarım hızı alma](set-throughput.md) Azure portal ve SDK'ları kullanarak.
+- Hakkında bilgi edinin [performans ve ölçek testi Azure Cosmos DB ile](performance-testing.md).
+- Ayrılmış işleme ile Azure Cosmos DB veritabanları hakkında daha fazla bilgi için bkz: [Azure Cosmos DB fiyatlandırma](https://azure.microsoft.com/pricing/details/cosmos-db/) ve [verileri Azure Cosmos DB'de bölümleme](partition-data.md).
+- Azure Cosmos DB hakkında daha fazla bilgi için bkz: [Azure Cosmos DB belgelerini](https://azure.microsoft.com/documentation/services/cosmos-db/). 
 
 [2]: ./media/request-units/RUEstimatorUpload.png
 [3]: ./media/request-units/RUEstimatorDocuments.png

@@ -1,5 +1,5 @@
 ---
-title: Azure ayırma Windows yazılım maliyetleri | Microsoft Docs
+title: Azure ayırmaları Windows yazılım maliyetleri | Microsoft Docs
 description: Hangi Windows yazılım ölçümleri Azure ayrılmış VM örneği maliyetleri dahil değildir öğrenin.
 services: billing
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: 8ff2d126fd491ddc40f6223b6d4ec1fc4505b8fb
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: ec4869ed5c4d823a8144ba430ebb29c65c2abc13
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630120"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302075"
 ---
-# <a name="windows-software-costs-not-included-with-azure-reservations"></a>Windows yazılım maliyetleri ile Azure ayırmalar dahil değildir
+# <a name="windows-software-costs-not-included-with-azure-reserved-vm-instances"></a>Azure ayrılmış VM örnekleri ile bulunmayan Windows yazılım maliyetleri
 
 Bir Azure hibrit kullanım teklifi, ayrılmış sanal makine örneklerine sahip değilseniz, aşağıdaki bölümde listelenen Windows yazılım ölçümleri için ücretlendirilir.
 
@@ -57,7 +57,7 @@ Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalel
 
 - [Azure ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
 - [Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Azure'da ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
+- [Azure Ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
 - [Ayırma indirimi nasıl uygulanacağını anlama](billing-understand-vm-reservation-charges.md)
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)

@@ -3,19 +3,19 @@ title: 'Hızlı Başlangıç: Azure SQL veri ambarı - Azure Powershell oluştur
 description: Azure PowerShell ile bir SQL veritabanı mantıksal sunucusu, sunucu düzeyinde güvenlik duvarı kuralı ve veri ambarı hızlı bir şekilde oluşturun.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 08/01/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 72ed9e921d96faea155c1da88dd32fcbd467d549
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: ecde7cb3662fc80e7968acfcac99bc8f28e8b15b
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414009"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287582"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Hızlı Başlangıç: Oluşturma ve Azure PowerShell ile Azure SQL veri ambarı sorgu
 

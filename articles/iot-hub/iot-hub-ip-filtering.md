@@ -1,90 +1,89 @@
 ---
-title: Azure IOT Hub IP bağlantı filtrelerini | Microsoft Docs
-description: Belirli IP adreslerinden için Azure IOT hub'ınıza bloğu bağlantıları filtreleme IP kullanmayı. Tek tek bağlantılarından veya IP adres aralıklarını engelleyebilirsiniz.
-author: BeatriceOltean
-manager: ''
+title: Azure IOT hub'ı IP bağlantı filtreleri | Microsoft Docs
+description: IP bloğu bağlantıları için Azure IOT hub'ınıza belirli IP adresleri için filtre kullanma Kişiye ait bağlantılar veya IP adresi aralıkları engelleyebilirsiniz.
+author: rezasherafat
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/23/2017
-ms.author: boltean
-ms.openlocfilehash: fa44fd21eadb910ce90523b46332505c7303751e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: rezas
+ms.openlocfilehash: 864af9cae35912d95f2c0bf0b574a5ca2404a608
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635976"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190650"
 ---
-# <a name="use-ip-filters"></a>IP filtreleri kullanın
+# <a name="use-ip-filters"></a>IP filtreleri kullanma
 
-Güvenlik Azure IOT hub'ına bağlı herhangi bir IOT çözümü önemli bir yönüdür. Bazen açıkça cihazları bağlamak IP adreslerini Güvenlik yapılandırmanızın bir parçası belirtmeniz gerekir. _IP Filtresi_ özelliği reddetme veya belirli IPv4 adresleri gelen trafiği kabul edilmesi için kuralları yapılandırmanıza olanak sağlar.
+Güvenlik, Azure IOT hub'ına bağlı tüm IOT çözümlerinin, önemli bir yönüdür. Bazen cihazlar bağlanabileceği IP adreslerini Güvenlik yapılandırmanızın bir parçası açıkça belirtmeniz gerekir. _IP Filtresi_ özelliği belirli IPv4 adreslerinin gelen trafiği kabul etme veya reddetme kurallarını yapılandırmanıza olanak sağlar.
 
 ## <a name="when-to-use"></a>Kullanılması gereken durumlar
 
-Belirli IP adresleri için IOT Hub uç noktaları engellemek yararlı olduğunda iki belirli kullanım örnekleri şunlardır:
+IOT Hub uç noktaları belirli IP adresleri için engellemek yararlıdır, iki belirli kullanım örnekleri vardır:
 
-- IOT hub'ınızı trafiği yalnızca belirtilen IP adreslerinden almak ve şey Reddet gerekir. Örneğin, IOT hub'ınıza kullanarak [Azure hızlı rota] bir IOT hub ile şirket içi altyapınızı arasında özel bağlantılar oluşturmak için.
-- Kuşkulu olarak IOT hub'ı yönetici tarafından belirlenen IP adreslerinden gelen trafiği reddetmeye gerekir.
+- IOT hub'ınıza, yalnızca belirtilen IP adreslerinden trafiğini almasına ve diğer her şeyi reddet. Örneğin, IOT hub'ınıza kullanarak [Azure Expressroute] bir IOT hub'ı şirket içi altyapınız arasında özel bağlantılar oluşturmak için.
+- IOT hub Yöneticisi tarafından kuşkulu olarak belirlenmiştir IP adreslerinden gelen trafiği reddetmek gerekir.
 
-## <a name="how-filter-rules-are-applied"></a>Filtre kuralları nasıl uygulanır
+## <a name="how-filter-rules-are-applied"></a>Filtre kurallarının uygulanma yöntemi
 
-IP filtre kuralları IOT hub'ı hizmet düzeyinde uygulanır. Bu nedenle IP Filtresi kuralları, cihazları ve herhangi bir desteklenen protokolünü kullanarak arka uç uygulamalarının tüm bağlantılara uygulanır.
+IP Filtresi kurallarının, IOT Hub hizmet düzeyinde uygulanır. Bu nedenle IP Filtresi kurallarının, cihazları ve herhangi bir desteklenen protokolünü kullanarak arka uç uygulamaları tüm bağlantılara uygulanır.
 
-IOT hub'ınızdaki rejecting IP kuralıyla eşleşen bir IP adresinden gelen bağlantı girişimleri yetkisiz 401 durum kodu ve açıklama alır. Yanıt iletisi IP kural Bahsediyor değil.
+IOT hub'ınızda bir rejecting IP kuralıyla eşleşen bir IP adresinden bağlantı girişimleri bir yetkisiz 401 durum kodu ve açıklama alır. Yanıt iletisi IP kuralı başvurmayacak.
 
 ## <a name="default-setting"></a>Varsayılan ayar
 
-Varsayılan olarak, **IP Filtresi** IOT hub'ı portal kılavuzunda boştur. Bu varsayılan ayarı hub'ınızı herhangi bir IP adresi bağlantılarını kabul anlamına gelir. Bu varsayılan ayarı 0.0.0.0/0 IP adresi aralığı kabul eden bir kural eşdeğerdir.
+Varsayılan olarak, **IP Filtresi** portalında bir IOT hub'ı için kılavuz boştur. Bu varsayılan ayar, hub'ınıza herhangi bir IP adresi bağlantılarını kabul anlamına gelir. Bu varsayılan ayarı 0.0.0.0/0 IP adresi aralığı kabul eden bir kural eşdeğerdir.
 
 ![IOT hub'ı varsayılan IP Filtresi Ayarları][img-ip-filter-default]
 
-## <a name="add-or-edit-an-ip-filter-rule"></a>IP filtre kuralı Ekle veya Düzenle
+## <a name="add-or-edit-an-ip-filter-rule"></a>Bir IP filtresi kuralı ekleme veya düzenleme
 
-IP filtre kuralı eklediğinizde, için aşağıdaki değerleri istenir:
+Bir IP filtresi kuralı eklediğinizde, aşağıdaki değerleri istenir:
 
-- Bir **IP filtre kuralı adı** benzersiz, büyük küçük harf duyarsız, alfasayısal bir dize en çok 128 karakter uzunluğunda olmalıdır. Yalnızca ASCII 7 bit alfasayısal karakterler artı `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` kabul edilir.
-- Seçin bir **Reddet** veya **kabul** olarak **eylem** IP filtre kuralı için.
-- Tek bir IPv4 adresi veya IP adreslerinin CIDR gösteriminde sağlar. Örneğin, içinde CIDR gösterimi 192.168.100.0/22 1024 IPv4 adresleri 192.168.100.0 için 192.168.103.255 temsil eder.
+- Bir **IP filtresi kuralı adı** en fazla 128 karakter benzersiz, büyük/küçük harf, alfasayısal bir dize olmalıdır. Yalnızca ASCII 7 bit alfasayısal karakterler artı `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` kabul edilir.
+- Seçin bir **Reddet** veya **kabul** olarak **eylem** IP filtresi kuralı için.
+- Tek bir IPv4 adresi veya IP adresleri CIDR gösteriminde bloğu sağlar. Örneğin, CIDR gösterimi 192.168.100.0/22 1024 IPv4 adreslerini 192.168.100.0 ve 192.168.103.255 arasındaki.
 
-![Bir IOT hub'ına bir IP filtre kuralı ekleyin][img-ip-filter-add-rule]
+![Bir IOT hub'ına bir IP filtresi kuralı Ekle][img-ip-filter-add-rule]
 
-Kural kaydettikten sonra güncelleştirme devam ediyor bildiren bir uyarı görürsünüz.
+Kural kaydettikten sonra güncelleştirme devam ediyor size bildiren bir uyarı görürsünüz.
 
-![IP filtre kuralı kaydetme hakkında bildirim][img-ip-filter-save-new-rule]
+![Bir IP filtresi kuralı kaydetme hakkında bildirim][img-ip-filter-save-new-rule]
 
-**Ekle** en fazla 10 IP filtresi kurallarını ulaştığında seçeneği devre dışıdır.
+**Ekle** en fazla 10 IP Filtresi kurallarının ulaştığında seçeneği devre dışıdır.
 
 Mevcut bir kuralı, kuralı içeren satırı çift tıklayarak düzenleyebilirsiniz.
 
 > [!NOTE]
-> Reddetme IP adreslerini IOT hub ile etkileşim diğer Azure Hizmetleri (örneğin, Azure akış analizi, Azure sanal makineleri veya portal aygıt Explorer'da) engelleyebilirsiniz.
+> Reddetme IP adresleri IOT hub'ı ile etkileşim diğer Azure Hizmetleri (örneğin, Azure Stream Analytics, Azure sanal makineler veya Portalı'nda Device Explorer) engelleyebilirsiniz.
 
 > [!WARNING]
-> IP Filtresi etkinleştirilmiş bir IOT hub'ından iletileri okumak için Azure Stream Analytics (ASA) kullanıyorsanız, Event Hub ile uyumlu ada ve IOT hub'ınızın uç ASA bağlantı dizesinde kullanın.
+> IP Filtresi etkinleştirilmiş bir IOT hub'ından iletileri okumak için Azure Stream Analytics (ASA) kullanırsanız, Event Hub ile uyumlu ada ve uç IOT hub'ınızın ASA bağlantı dizesini kullanın.
 
-## <a name="delete-an-ip-filter-rule"></a>IP filtre kuralını Sil
+## <a name="delete-an-ip-filter-rule"></a>Bir IP filtresi kuralı Sil
 
-IP Filtresi kuralını silmek için bir veya daha fazla kural kılavuz tıklatın seçin ve **silmek**.
+Bir IP filtresi kuralı silmek için bir veya daha fazla kural kılavuz tıklatın seçin ve **Sil**.
 
-![Bir IOT Hub IP Filtresi kuralını silmek][img-ip-filter-delete-rule]
+![Bir IOT hub'ı IP filtresi kuralı Sil][img-ip-filter-delete-rule]
 
-## <a name="ip-filter-rule-evaluation"></a>IP filtre kural değerlendirmesi
+## <a name="ip-filter-rule-evaluation"></a>IP filtresi kuralı değerlendirme
 
-IP filtre kuralları sırayla uygulanır ve IP adresi ile eşleşen ilk kural kabul etme veya reddetme eylemi belirler.
+IP Filtresi kurallarının sırayla uygulanır ve IP adresi ile eşleşen ilk kural kabul etme veya reddetme eylemi belirler.
 
-Örneğin, aralığı 192.168.100.0/22 adresleri kabul edin ve başka her şeyi Reddet istiyorsanız, ilk kural kılavuzunda adres aralığı 192.168.100.0/22 kabul etmelidir. Sonraki kural aralığı 0.0.0.0/0 kullanarak tüm adresleri reddedecek.
+Örneğin, aralığı 192.168.100.0/22 adresleri kabul edin ve diğer her şeyi Reddet istiyorsanız, kılavuzdaki ilk kural adres aralığı 192.168.100.0/22 kabul etmelidir. Sonraki kural aralığı 0.0.0.0/0 kullanarak tüm adresleri reddedecek.
 
-Bir satırın başındaki üç dikey noktalar tıklayarak ve sürükleme kullanarak IP Filtresi kurallarınızı kılavuzunda sırasını değiştirmek ve bırakın.
+Üç dikey noktayı içeren bir satırın başında'ı tıklatarak ve sürükleyerek kullanarak kılavuzunda IP Filtresi kurallarının sırasını değiştirmek ve bırakın.
 
-Yeni IP filtre kuralı siparişinizi kaydetmek için tıklatın **kaydetmek**.
+Yeni IP filtresi kuralı siparişinizi kaydetmek için tıklatın **Kaydet**.
 
-![IOT Hub IP Filtresi kurallarınızı sırasını değiştirme][img-ip-filter-rule-order]
+![IOT hub'ı IP Filtresi kurallarının sırasını değiştirme][img-ip-filter-rule-order]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
+Daha fazla IOT Hub'ın özelliklerini keşfetmek için bkz:
 
-- [İzleme işlemleri][lnk-monitor]
+- [İşlem izleme][lnk-monitor]
 - [IOT hub'ı ölçümleri][lnk-metrics]
 
 <!-- Images -->
@@ -98,7 +97,7 @@ Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 <!-- Links -->
 
 [IoT Hub developer guide]: iot-hub-devguide.md
-[Azure hızlı rota]:  https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services
+[Azure Expressroute]:  https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services
 
 [lnk-monitor]: iot-hub-operations-monitoring.md
 [lnk-metrics]: iot-hub-metrics.md

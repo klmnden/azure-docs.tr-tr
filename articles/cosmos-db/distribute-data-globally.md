@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: dec981ad750a49646916dbef40a4cc632ab71da2
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 19e47e0dba1a89ea32f42ef0bafc26f8c59b4ad7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856649"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288311"
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Verileri Azure Cosmos DB ile küresel olarak dağıtma
 Azure bulunabilen - 50'den fazla coğrafi bölgeler arasında bir küresel kaplama alanını sahiptir ve sürekli genişliyor. Genel iletişim durumu ile Azure, geliştiricilere sunduğu fark yaratan özellikleri oluşturmanızı, dağıtmanızı ve Global olarak dağıtılmış uygulamaları kolayca yönetme olanağı biridir. 
@@ -34,11 +34,6 @@ Bu makalede, Azure Cosmos DB'nin genel dağıtım özelliklerine genel bakış s
 
 ## <a id="EnableGlobalDistribution"></a>Anahtar teslim küresel dağıtım etkinleştirme
 Azure Cosmos DB, kolayca dünya çapında dağıtılan uygulamalar yazma olanağı sağlamak için aşağıdaki özellikleri sağlar. Bu özellikler Azure Cosmos DB kaynağı aracılığıyla sağlayıcı tabanlı kullanılabilir [REST API'leri](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) Azure portalında yanı sıra.
-
-Azure Cosmos DB'de anahtar teslim küresel dağıtım özelliği iş başında görmek için aşağıdaki videoyu izleyin.
-
-> [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
->
 
 ### <a id="RegionalPresence"></a>Her yerde bulunan bölgesel varlığı 
 Azure sürekli giderek kendi coğrafi durum taşıyarak [yeni bölgeler](https://azure.microsoft.com/regions/) çevrimiçi. Azure Cosmos DB olarak sınıflandırılmış bir *temel hizmet* azure'da ve varsayılan olarak tüm yeni Azure bölgelerinde kullanılabilir. Bu iş için yeni bölge Azure açar açmaz coğrafi bölge Azure Cosmos DB veritabanı hesabınız ile ilişkilendirmenizi sağlar.

@@ -7,14 +7,14 @@ manager: carmonm
 keywords: vm'leri yedekleme, sanal makineleri yedekleme
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/31/2018
+ms.date: 8/29/2018
 ms.author: markgal
-ms.openlocfilehash: 438c1130486fe1ba2ee484ae01655a2fb115de27
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 9e2ef16cffb044409b6f7f8e7785010097bcda87
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390764"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286661"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Azure’da sanal makine yedekleme altyapınızı planlama
 Bu makalede, performans ve sanal makine yedekleme altyapınızı planlama yapmanıza yardımcı olması için kaynak önerileri sağlar. Ayrıca, yedekleme hizmeti önemli yönlerini tanımlar; Bu görünüşler Mimarinizi, belirlemede önemli kapasite planlaması ve zamanlama. Belirttiyseniz [ortamınızı hazırladığınız](backup-azure-arm-vms-prepare.md), planlama, sonraki adıma başlamadan önce [Vm'lerini yedekleme](backup-azure-arm-vms.md). Azure sanal makineleri hakkında daha fazla bilgiye ihtiyacınız varsa bkz [sanal makineler belgeleri](https://azure.microsoft.com/documentation/services/virtual-machines/). 
@@ -50,17 +50,18 @@ Azure yedekleme, Windows Vm'lerinde VSS tam yedeklemeler gerçekleştirir (daha 
 ```
 
 #### <a name="linux-vms"></a>Linux VM'leri
-Azure Backup, bir komut dosyası altyapısı sağlar. Uygulama tutarlılığı Linux Vm'lerini yedeklerken emin olmak için özel öncesi ve yedekleme iş akışı ve ortam denetimi sonrası komut dosyalarını oluşturun. Azure yedekleme, VM anlık görüntüsü almadan önce ön betik çağırır ve VM anlık görüntü işi tamamlandıktan sonra sonrası betiği çağırır. Daha fazla ayrıntı için [ön betik ve son betik kullanarak uygulama ile tutarlı VM yedekleri](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+
+Azure Backup, yedekleme iş akışı ve ortam denetlemek için komut dosyası bir çerçeve sağlar. Uygulamayla tutarlı Linux VM yedekleri emin olmak için özel öncesi ve sonrası komut dosyaları oluşturmak için komut dosyası framework kullanın. VM anlık görüntüsü almadan önce ön betik çağırabilir ve VM anlık görüntü işi tamamlandıktan sonra son betik ardından çağırır. Daha fazla bilgi için bkz [uygulama ile tutarlı Linux VM yedekleri](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+
 > [!NOTE]
 > Azure Backup yalnızca çağırır müşteri tarafından yazılan öncesi ve sonrası betikler. Betik öncesi ve sonrası Komut başarıyla çalışırsa, Azure Backup kurtarma noktası uygulama tutarlı işaretler. Ancak, müşterinin özel betikler kullanarak uygulama tutarlılığı için sonuçta sorumludur.
 >
 
-
-Bu tablo, tutarlılık türlerini açıklar ve Azure VM sırasında altında ortaya koşulları yedekleme ve geri yükleme yordamlarını.
+Ortaya çıkan türlerini tutarlılık ve koşullar aşağıdaki tabloda açıklanmaktadır.
 
 | Tutarlılık | VSS tabanlı | Açıklama ve ayrıntıları |
 | --- | --- | --- |
-| Uygulama tutarlılığı |Windows için Evet|Uygulama tutarlılığı, sağlar gibi iş yükleri için idealdir:<ol><li> VM *önyükleme*. <li>Var. *bozulma*. <li>Var. *veri kaybı olmadan*.<li> Veri, uygulamanın yedekleme VSS veya ön/son betik kullanarak--ilgili olarak veri kullanan uygulama tutarlıdır.</ol> <li>*Windows Vm'leri*-en Microsoft iş yükleri, veri tutarlılığı için ilgili iş yüküne özgü eylemlerini gerçekleştirmek VSS yazıcılarının sahiptir. Örneğin, Microsoft SQL Server işlem günlüğü dosyasını ve veritabanına yazma doğru şekilde yapıldığını sağlayan bir VSS yazıcısı olduğu. Azure Windows VM yedeklemeleri için bir uygulama ile tutarlı kurtarma noktası oluşturmak için yedekleme uzantısı gerekir VSS iş akışı çağırın ve VM anlık görüntüsü almadan önce tamamlayın. Azure VM anlık doğru olması tüm Azure VM uygulamaların VSS yazıcılarının de tamamlamanız gerekir. (Bilgi [VSS Temelleri](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) ve Ayrıntılar içinde ayrıntılı olarak inceleyin [nasıl çalıştığını](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)). </li> <li> *Linux Vm'leri*-müşteriler yürütebilir [özel betik öncesi ve sonrası betik uygulama tutarlılığı sağlamak için](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). </li> |
+| Uygulama tutarlılığı |Windows için Evet|Uygulama tutarlılığı, sağlar gibi iş yükleri için idealdir:<ol><li> VM *önyükleme*. <li>Var. *bozulma*. <li>Var. *veri kaybı olmadan*.<li> Veri, uygulamanın yedekleme VSS veya ön/son betik kullanarak--ilgili olarak veri kullanan uygulama tutarlıdır.</ol> <li>*Windows Vm'leri*-en Microsoft iş yükleri, veri tutarlılığı için ilgili iş yüküne özgü eylemlerini yürütmeniz VSS yazıcılarının sahiptir. Örneğin, SQL Server VSS Yazıcı, işlem günlüğü dosyaları ve veritabanı yazma işlemleri sağlar, doğru bir şekilde gerçekleştirilir. Iaas Windows VM yedeklemeleri için bir uygulama ile tutarlı kurtarma noktası oluşturmak için yedekleme uzantısı gerekir VSS iş akışı çağırabilir ve VM anlık görüntüsü almadan önce tamamlayın. Azure VM anlık doğru olması tüm Azure VM uygulamaların VSS yazıcılarının de tamamlamanız gerekir. (Bilgi [VSS Temelleri](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) ve Ayrıntılar içinde ayrıntılı olarak inceleyin [nasıl çalıştığını](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)). </li> <li> *Linux Vm'leri*-müşteriler yürütebilir [özel betik öncesi ve sonrası betik uygulama tutarlılığı sağlamak için](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). </li> |
 | Dosya sistemi tutarlılığı |Evet - Windows tabanlı bilgisayarlar için |Kurtarma noktası olduğu iki senaryo vardır *dosya sistemi ile tutarlı*:<ul><li>Azure'da Linux VM yedekleri öncesi-script/sonrası-script veya öncesi-script/sonrası-script başarısız olursa olmadan. <li>Azure'da Windows VM'ler için yedekleme sırasında VSS hatası.</li></ul> Bu her iki durumda yapılabilir en iyi şekilde emin olmak için verilmiştir: <ol><li> VM *önyükleme*. <li>Var. *bozulma*.<li>Var. *veri kaybı olmadan*.</ol> Geri yüklenen veriler kendi "yukarı düzeltme" mekanizması uygulamak uygulamaları gerekir. |
 | Kilitlenme tutarlılığı |Hayır |Bu durum, bir sanal makine (ya da bir yazılım veya donanım sıfırlama) aracılığıyla "kilitlenme" yaşayan eşdeğerdir. Kilitlenme tutarlılığı, genellikle Azure sanal makine yedekleme sırasında kapatıldığında oluşur. Kilitlenmeyle tutarlı kurtarma noktası çevresinde veri tutarlılığını garanti depolama ortamına--işletim sistemi veya uygulamanın perspektifinden ya da sağlar. Zaten diskte yedekleme sırasında var olan veriler yakalanır ve yedeklendi. <br/> <br/> Varken garanti, genellikle, işletim sistemini başlatır ve ardından disk kontrol ederek yordamı, bozulma hataları düzeltmek için chkdsk gibi. Herhangi bir bellek içi verileri veya diske aktarılmamış yazma kaybolur. Verileri geri alma yapılmalıdır durumunda uygulama genellikle kendi doğrulama mekanizmasına izler. <br><br>İşlem günlüğü girişleri veritabanında mevcut değil varsa veri geri tutarlı olana kadar örnek olarak, veritabanı yazılımına yapar. Veri (Dağıtılmış birimler gibi) birden çok sanal diskler arasında yayılır, kilitlenmeyle tutarlı kurtarma noktası için veri doğruluğunu garanti sağlar. |
 
@@ -104,19 +105,22 @@ Geri yükleme işlemi iki ana görevden oluşur: Seçilen müşteri depolama hes
 * Veri kopyalama saati - verileri kasadan müşteri depolama hesabına kopyalanır. Geri yükleme süresi bağlıdır üzerinde IOPS ve aktarım hızı, Azure Backup hizmeti seçili müşteri depolama hesabına alır. Geri yükleme işlemi sırasında kopyalama süresini azaltmak için diğer uygulama yazar ve okur ile yüklenmemiş bir depolama hesabı seçin.
 
 ## <a name="best-practices"></a>En iyi uygulamalar
-Yönetilmeyen diskleri olan sanal makineleri için yedeklemeleri yapılandırılırken bu yöntemler aşağıdaki öneririz:
 
-> [!Note]
-> Değiştirme ya da depolama hesaplarını yönetme önerilir aşağıdaki yöntemleri, yalnızca yönetilmeyen disklere sahip VM'ler uygulayın. Yönetilen diskler kullanıyorsanız, Azure depolama ile ilgili tüm yönetim etkinliklerini üstlenir.
-> 
+Tüm sanal makineleri için yedeklemeleri yapılandırılırken bu yöntemler aşağıdaki öneririz:
 
-* Aynı anda yedekleme için aynı bulut hizmetindeki 10'dan fazla Klasik Vm'si zamanlama yok. Aynı bulut hizmetinden birden çok sanal makinelerini yedeklemek istiyorsanız, bir saatlik olarak yedekleme başlangıç zamanlarını basamaklandırmak.
-* Aynı anda tek bir kasadan yedeklemek için 100'den fazla VM zamanlamayın. 
+* 10'dan fazla Klasik Vm'si aynı bulut hizmeti için aynı anda yedeklemelerin yok. Aynı bulut hizmetinden birden çok sanal makinelerini yedeklemek istiyorsanız, bir saatlik olarak yedekleme başlangıç zamanlarını basamaklandırmak.
+* Bir kasadan 100'den fazla sanal makineler için aynı anda yedeklemelerin yok.
 * VM yedeklemeleri yoğun olmayan saatlerde zamanlayın. Bu şekilde yedekleme hizmeti Kasası'na müşteri depolama hesabından veri aktarmak için IOPS kullanır.
-* Bir ilke farklı depolama hesaplara yaymak vm'lerde uygulanır emin olun. En fazla 20 öneririz toplam disklerden tek bir depolama hesabında, aynı yedekleme zamanlaması tarafından korunabilir. 20 diskiniz daha büyük bir depolama hesabında varsa, bu sanal makineler için yedekleme işlemi aktarımı aşaması sırasında gerekli IOPS almak için birden çok ilke paylaştırın.
-* Aynı depolama hesabı için Premium depolama alanında çalışan bir VM geri yüklemeyin. Geri yükleme işlemi işlemi, yedekleme işlemi ile örtüşür, yedekleme için kullanılabilir IOPS azaltır.
-* VM yedekleme yığını V1 üzerinde Premium VM yedeklemesi için Azure Backup hizmeti anlık görüntü depolama hesabı ve aktarım veriler için kasa için depolama hesabındaki kopyalanan bu konumdan böylelikle toplam depolama hesabı yalnızca %50 ayırmak önerilir.
 * Linux Vm'leri ile yedekleme için etkin olduğundan emin olun, Python 2.7 veya üzeri bir sürümü vardır.
+
+### <a name="best-practices-for-vms-with-unmanaged-disks"></a>Yönetilmeyen disklere sahip VM'ler için en iyi uygulamalar
+
+Aşağıdaki öneriler, yalnızca yönetilmeyen diskleri kullanarak VM'ler için geçerlidir. Sanal makinelerinizi yönetilen diskler kullanıyorsanız, Backup hizmeti, tüm depolama yönetimi etkinlikleri işler.
+
+* Vm'leri birden çok depolama hesaplara yaymak için bir yedekleme İlkesi uyguladığınızdan emin olun. Tek bir depolama hesabında en fazla 20 toplam disklerden aynı yedekleme zamanlaması tarafından korunmalıdır. 20 diskiniz daha büyük bir depolama hesabında varsa, bu sanal makineler için yedekleme işlemi aktarımı aşaması sırasında gerekli IOPS almak için birden çok ilke paylaştırın.
+* Aynı depolama hesabı için Premium depolama alanında çalışan bir VM geri yüklemeyin. Geri yükleme işlemi işlemi, yedekleme işlemi ile örtüşür, yedekleme için kullanılabilir IOPS azaltır.
+* VM yedekleme yığını V1 üzerinde Premium VM yedeklemesi için Backup hizmeti anlık görüntü depolama hesabına kopyalayın ve kasa için depolama hesabından veri aktarımı için yalnızca %50 toplam depolama hesabı alan ayırmanız gerekir.
+
 
 ## <a name="data-encryption"></a>Veri şifrelemesi
 Azure Backup, Yedekleme işleminin bir parçası olarak verilerini şifrelemez. Ancak, sanal Makinenin içindeki verileri şifrelemek ve korumalı verileri sorunsuz bir şekilde yedekleme (daha fazla bilgi edinin [şifrelenmiş verilerin yedekleme](backup-azure-vms-encryption.md)).

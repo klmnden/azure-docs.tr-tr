@@ -1,44 +1,44 @@
 ---
 title: İletişim güvenliği - Microsoft tehdit modelleme aracı - Azure | Microsoft Docs
-description: Azaltıcı Etkenler tehdit modelleme Aracı kullanıma sunulan tehditleri
+description: Tehdit modelleme Aracı kullanıma sunulan tehdit azaltma
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: c361f74147862585074f3c4475209ba6eb0c1e0c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.date: 02/07/2017
+ms.author: jegeib
+ms.openlocfilehash: 7e8afc02c738a2bba445b1d84b7cb899dfbb93a0
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029807"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301563"
 ---
-# <a name="security-frame-communication-security--mitigations"></a>Güvenlik çerçevesi: İletişim güvenliği | Azaltıcı Etkenler 
+# <a name="security-frame-communication-security--mitigations"></a>Güvenlik çerçeve: İletişim güvenliği | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
 | --------------- | ------- |
-| **Azure Event hub'ı** | <ul><li>[Olay hub'ına SSL/TLS kullanan güvenli iletişim](#comm-ssltls)</li></ul> |
+| **Azure olay hub'ı** | <ul><li>[Olay hub'ına SSL/TLS kullanarak güvenli iletişim](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Hizmet hesabının ayrıcalıkları denetleyin ve özel Services veya ASP.NET sayfaları CRM'ın güvenlik saygı denetleyin](#priv-aspnet)</li></ul> |
-| **Azure Data Factory** | <ul><li>[Veri Yönetimi ağ geçidi şirket içi SQL Server için Azure Data Factory bağlanırken kullanın](#sqlserver-factory)</li></ul> |
+| **Azure Data Factory** | <ul><li>[Veri Yönetimi ağ geçidi, şirket içi SQL Server için Azure Data Factory bağlanırken kullanın](#sqlserver-factory)</li></ul> |
 | **Kimlik sunucusu** | <ul><li>[Kimlik sunucusu tüm trafik HTTPS bağlantısı üzerinden olduğundan emin olun](#identity-https)</li></ul> |
-| **Web uygulaması** | <ul><li>[X.509 doğrulayın SSL, TLS ve DTLS bağlantılarının kimliğini doğrulamak için kullanılan sertifikaları](#x509-ssltls)</li><li>[Azure App Service'te özel etki alanı için SSL sertifikası yapılandırma](#ssl-appservice)</li><li>[Tüm trafiği HTTPS bağlantısı üzerinden Azure App Service'e zorla](#appservice-https)</li><li>[HTTP katı taşıma güvenliği (HSTS) etkinleştir](#http-hsts)</li></ul> |
-| **Veritabanı** | <ul><li>[SQL server bağlantı şifreleme ve sertifika doğrulaması emin olun](#sqlserver-validation)</li><li>[SQL Server şifreli iletişim zorla](#encrypted-sqlserver)</li></ul> |
-| **Azure Depolama** | <ul><li>[Azure Storage iletişim HTTPS üzerinden olduğundan emin olun](#comm-storage)</li><li>[HTTPS etkinleştirilirse blob indirdikten sonra MD5 karma değeri doğrulanamıyor](#md5-https)</li><li>[Azure dosya paylaşımları için aktarım sırasında veri şifreleme sağlamak için SMB 3.0 uyumlu İstemcisi'ni kullanın](#smb-shares)</li></ul> |
-| **Mobil istemci** | <ul><li>[Sertifika sabitleme uygulama](#cert-pinning)</li></ul> |
-| **WCF** | <ul><li>[HTTPS enable - aktarım kanalının güvenliğini sağlayın.](#https-transport)</li><li>[WCF: Kümesi ileti güvenliği da EncryptAndSign için koruma düzeyi](#message-protection)</li><li>[WCF: WCF hizmeti çalıştırmak için en az ayrıcalıklı bir hesap kullanın.](#least-account-wcf)</li></ul> |
-| **Web API** | <ul><li>[Tüm trafiği HTTPS bağlantısı üzerinden Web API'lerine zorla](#webapi-https)</li></ul> |
-| **Azure Redis Önbelleği** | <ul><li>[Azure Redis önbelleği iletişimin SSL üzerinden olduğundan emin olun](#redis-ssl)</li></ul> |
-| **IOT alan ağ geçidi** | <ul><li>[Aygıt için alan ağ geçidi iletişimin güvenliğini sağlama](#device-field)</li></ul> |
-| **IOT bulut ağ geçidi** | <ul><li>[SSL/TLS kullanılarak bulut ağ geçidi iletişim için güvenli aygıt](#device-cloud)</li></ul> |
+| **Web uygulaması** | <ul><li>[X.509 doğrulayın SSL, TLS ve DTLS bağlantıların kimliğini doğrulamak için kullanılan sertifikalar](#x509-ssltls)</li><li>[Azure App Service'te özel etki alanı için SSL sertifikası yapılandırma](#ssl-appservice)</li><li>[Tüm trafik HTTPS bağlantısı üzerinden Azure App Service'e zorla](#appservice-https)</li><li>[HTTP katı aktarım güvenliği (HSTS) etkinleştir](#http-hsts)</li></ul> |
+| **Veritabanı** | <ul><li>[SQL server bağlantı şifreleme ve sertifika doğrulama emin olun](#sqlserver-validation)</li><li>[SQL sunucusuna şifreli iletişim zorla](#encrypted-sqlserver)</li></ul> |
+| **Azure Depolama** | <ul><li>[Azure depolama ile iletişim HTTPS üzerinden olduğundan emin olun](#comm-storage)</li><li>[HTTPS etkinleştirilirse blob indirdikten sonra MD5 karma doğrulama](#md5-https)</li><li>[Azure dosya paylaşımları için aktarım sırasında veri şifrelemesi emin olmak için SMB 3.0 uyumlu bir istemci kullanın](#smb-shares)</li></ul> |
+| **Mobil istemci** | <ul><li>[Uygulama sertifikası sabitleme](#cert-pinning)</li></ul> |
+| **WCF** | <ul><li>[Taşıma kanalının güvenliğini sağlayın - HTTPS'yi etkinleştirme](#https-transport)</li><li>[WCF: Kümesi ileti güvenliği EncryptAndSign için koruma düzeyi](#message-protection)</li><li>[WCF:, WCF hizmeti çalıştırmak için en az ayrıcalıklı bir hesap kullanın.](#least-account-wcf)</li></ul> |
+| **Web API** | <ul><li>[Tüm trafik HTTPS bağlantısı üzerinden Web API'leri için zorla](#webapi-https)</li></ul> |
+| **Azure Redis Önbelleği** | <ul><li>[Azure Redis cache'e iletişim SSL üzerinden olduğundan emin olun](#redis-ssl)</li></ul> |
+| **IOT alan ağ geçidi** | <ul><li>[Alan ağ geçidi ile iletişim cihaz güvenliğini sağlama](#device-field)</li></ul> |
+| **IOT bulut ağ geçidi** | <ul><li>[Cihaz bulut ağ geçidi iletişim SSL/TLS kullanarak güvenli hale getirme](#device-cloud)</li></ul> |
 
-## <a id="comm-ssltls"></a>Olay hub'ına SSL/TLS kullanan güvenli iletişim
+## <a id="comm-ssltls"></a>Olay hub'ına SSL/TLS kullanarak güvenli iletişim
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -46,8 +46,8 @@ ms.locfileid: "37029807"
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [Olay hub'ları kimlik doğrulaması ve güvenlik modeline genel bakış](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
-| **Adımları** | Güvenli olay hub'ına SSL/TLS kullanarak AMQP veya HTTP bağlantıları |
+| **Başvuruları**              | [Event Hubs kimlik doğrulama ve güvenlik modeline genel bakış](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
+| **Adımları** | Olay hub'ına SSL/TLS kullanarak AMQP veya HTTP bağlantıları güvenli hale getirme |
 
 ## <a id="priv-aspnet"></a>Hizmet hesabının ayrıcalıkları denetleyin ve özel Services veya ASP.NET sayfaları CRM'ın güvenlik saygı denetleyin
 
@@ -60,16 +60,16 @@ ms.locfileid: "37029807"
 | **Başvuruları**              | Yok  |
 | **Adımları** | Hizmet hesabının ayrıcalıkları denetleyin ve özel Services veya ASP.NET sayfaları CRM'ın güvenlik saygı denetleyin |
 
-## <a id="sqlserver-factory"></a>Veri Yönetimi ağ geçidi şirket içi SQL Server için Azure Data Factory bağlanırken kullanın
+## <a id="sqlserver-factory"></a>Veri Yönetimi ağ geçidi, şirket içi SQL Server için Azure Data Factory bağlanırken kullanın
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure Data Factory | 
 | **SDL aşaması**               | Dağıtım |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Bağlantılı hizmet - Azure ve şirket içi türleri |
+| **Öznitelikleri**              | Bağlı hizmeti - Azure ve şirket içi türleri |
 | **Başvuruları**              |[ Şirket içi ve Azure Data Factory arasında veri taşıma](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [veri yönetimi ağ geçidi](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
-| **Adımları** | <p>Veri Yönetimi ağ geçidi (DMG) aracı, corpnet veya bir güvenlik duvarının arkasındaysa korunan veri kaynaklarına bağlanmak için gereklidir.</p><ol><li>Makineyi kilitleme DMG aracı yalıtır ve zarar veya veri kaynak makinede Gözetimi hatalı çalışan programların önler. (Örn. en son güncelleştirmelerin yüklü olmalıdır, etkinleştirme minimum gerekli bağlantı noktaları, denetlenen hesapları sağlama, Denetim etkinse, disk şifreleme etkin vs.)</li><li>Veri ağ geçidi anahtarı sık aralıklarla veya DMG hizmet hesabı parolası yeniler her Döndürülmüş gerekir</li><li>Bağlantı hizmeti aracılığıyla veri transits şifrelenmelidir</li></ol> |
+| **Adımları** | <p>Veri Yönetimi ağ geçidi (DMG) aracı, corpnet veya bir güvenlik duvarıyla korunan veri kaynaklarına bağlanmak için gereklidir.</p><ol><li>Makineyi kilitleme DMG aracı yalıtır ve zarar ya da veri kaynak makinede Gözetimi yapıyor programların engeller. (Örn.) en son güncelleştirmeler yüklü olmalıdır, etkinleştirme en düşük gerekli bağlantı noktaları, sağlama, denetlenen hesapları denetimi etkinse, disk şifreleme etkin vs.)</li><li>Veri ağ geçidi anahtarı sık aralıklarla veya her DMG hizmet hesabı parolası yeniler döndürülmesi gerekir</li><li>Bağlantı hizmeti aracılığıyla veri transits şifrelenmelidir</li></ol> |
 
 ## <a id="identity-https"></a>Kimlik sunucusu tüm trafik HTTPS bağlantısı üzerinden olduğundan emin olun
 
@@ -80,9 +80,9 @@ ms.locfileid: "37029807"
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [IdentityServer3 - anahtarları, imzalar ve şifreleme](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html), [IdentityServer3 - dağıtım](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) |
-| **Adımları** | Varsayılan olarak, HTTPS üzerinden gelen tüm gelen bağlantıları IdentityServer gerektirir. IdentityServer ile iletişim yalnızca güvenli aktarım üzerinden yapılır kesinlikle zorunludur. Bu gereksinim nerede gevşetilebilir SSL boşaltma gibi belirli dağıtım senaryoları vardır. Daha fazla bilgi için başvurular içinde kimlik sunucusunu dağıtım sayfasına bakın. |
+| **Adımları** | Varsayılan olarak, HTTPS üzerinden gelen tüm gelen bağlantıları IdentityServer gerektirir. IdentityServer ile iletişimi yalnızca güvenli aktarım üzerinden yapılır kesinlikle zorunludur. Bu gereksinim burada gevşetilebilir SSL yük boşaltma gibi belirli dağıtım senaryosu vardır. Daha fazla bilgi için başvurularda kimlik sunucusu dağıtım sayfasına bakın. |
 
-## <a id="x509-ssltls"></a>X.509 doğrulayın SSL, TLS ve DTLS bağlantılarının kimliğini doğrulamak için kullanılan sertifikaları
+## <a id="x509-ssltls"></a>X.509 doğrulayın SSL, TLS ve DTLS bağlantıların kimliğini doğrulamak için kullanılan sertifikalar
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -91,7 +91,7 @@ ms.locfileid: "37029807"
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | <p>SSL, TLS ve DTLS kullanan uygulamalar, tam olarak bağlandıkları varlıkların X.509 sertifikalarını doğrulamanız gerekir. Bu doğrulama için sertifika içerir:</p><ul><li>Etki alanı adı</li><li>Geçerlilik Tarihleri (başlangıç ve sona erme tarihleri)</li><li>İptal durumu</li><li>Kullanım (örneğin, sunucu kimlik doğrulaması sunucuları, istemcileri için istemci kimlik doğrulaması için)</li><li>Güven zinciri. Platform tarafından güvenilen veya açıkça yönetici tarafından yapılandırılan bir kök sertifika yetkilisine (CA) sertifikaları zincirine bağlı olmalıdır</li><li>Sertifikanın ortak anahtarı anahtar uzunluğu olmalıdır > 2048 bit</li><li>Karma algoritma SHA256 olmalıdır ve üstü |
+| **Adımları** | <p>SSL, TLS ve DTLS kullanan uygulamalar, tam olarak bağlandıkları varlıkları X.509 sertifikaları doğrulamanız gerekir. Bu, doğrulama için sertifikaların içerir:</p><ul><li>Etki alanı adı</li><li>Geçerlilik tarihlerini (hem başlangıç ve sona erme tarihleri)</li><li>İptal durumu</li><li>Kullanım (örneğin, sunucu kimlik doğrulaması için sunucular, istemciler için istemci kimlik doğrulaması)</li><li>Zincir güvenir. Platform tarafından güvenilen veya açıkça yönetici tarafından yapılandırılan bir kök sertifika yetkilisine (CA) sertifikaları zincirine bağlı olmalıdır</li><li>Sertifikanın ortak anahtarı anahtar uzunluğunu olmalıdır > 2048 bit</li><li>Karma algoritması SHA256 olmalıdır ve üzeri |
 
 ## <a id="ssl-appservice"></a>Azure App Service'te özel etki alanı için SSL sertifikası yapılandırma
 
@@ -101,10 +101,10 @@ ms.locfileid: "37029807"
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | EnvironmentType - Azure |
-| **Başvuruları**              | [Azure uygulama hizmetinde bir uygulama için HTTPS'yi etkinleştir](../app-service/app-service-web-tutorial-custom-ssl.md) |
-| **Adımları** | Varsayılan olarak, Azure zaten HTTPS için her uygulama için bir joker karakter sertifikası ile etkinleştirir *. azurewebsites.net etki alanı. Ancak, tüm joker etki alanları gibi kendi sertifika ile özel bir etki alanı kullanmak kadar güvenli değildir [bakın](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/). Dağıtılan uygulama aracılığıyla erişilen özel etki alanı için SSL etkinleştirmek için önerilir.|
+| **Başvuruları**              | [Azure App Service'te bir uygulama için HTTPS'yi etkinleştirme](../app-service/app-service-web-tutorial-custom-ssl.md) |
+| **Adımları** | Varsayılan olarak, Azure zaten HTTPS için joker karakter sertifikası ile her uygulama için sağlar *. azurewebsites.net etki alanında. Ancak, tüm joker karakter etki alanları gibi kendi sertifika ile özel bir etki alanı kullanmak kadar güvenli değildir [bakın](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/). Dağıtılan uygulama aracılığıyla erişilen özel etki alanı için SSL etkinleştirmek için önerilir|
 
-## <a id="appservice-https"></a>Tüm trafiği HTTPS bağlantısı üzerinden Azure App Service'e zorla
+## <a id="appservice-https"></a>Tüm trafik HTTPS bağlantısı üzerinden Azure App Service'e zorla
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -112,8 +112,8 @@ ms.locfileid: "37029807"
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | EnvironmentType - Azure |
-| **Başvuruları**              | [Azure uygulama Hizmeti'nde HTTPS zorla](../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
-| **Adımları** | <p>Azure etki alanının joker nitelikli bir sertifikası ile Azure uygulama hizmetleri için HTTPS zaten sağlar ancak *. azurewebsites.net, onu zorla HTTPS. Ziyaretçilerin uygulamanın güvenliği tehlikeye atabilir HTTP kullanarak uygulamayı erişmeye devam ve bu nedenle açıkça zorlanacak HTTPS sahiptir. ASP.NET MVC uygulamaları kullanması gereken [RequireHttps filtre](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) HTTPS üzerinden yeniden gönderilmesini güvenli olmayan bir HTTP isteği zorlar.</p><p>Alternatif olarak, Azure App Service ile birlikte URL yeniden yazma modülü HTTPS zorlamak için kullanılabilir. URL yeniden yazma modülü, istek uygulamanıza edilmeden önce gelen isteklere uygulanan kurallar tanımlamak geliştiricilerin sağlar. URL yeniden yazma kuralları uygulama kök dizininde depolanmış bir web.config dosyasında tanımlanır</p>|
+| **Başvuruları**              | [Azure App Service'te HTTPS'yi zorunlu kılma](../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
+| **Adımları** | <p>Azure, HTTPS etki alanının joker nitelikli bir sertifikası ile Azure uygulama hizmetleri için zaten sağlar ancak *. azurewebsites.net, onu zorla HTTPS. Ziyaretçiler uygulamanın güvenliği tehlikeye atabilir, HTTP kullanarak uygulama erişmeye devam ve bu nedenle açıkça yürütülebilmesi HTTPS sahiptir. ASP.NET MVC uygulamaları kullanması gereken [RequireHttps filtre](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) HTTPS üzerinden yeniden gönderilmesini güvenli olmayan bir HTTP isteği zorlar.</p><p>Alternatif olarak, Azure App Service ile birlikte URL yeniden yazma modülü HTTPS zorlama için kullanılabilir. URL yeniden yazma modülü, geliştiricilerin istekleri uygulamanıza edilmeden önce gelen isteklere uygulanan kuralları tanımlamak olanak tanır. URL yeniden yazma kuralları, uygulama kök dizininde depolanmış bir web.config dosyasında tanımlanan</p>|
 
 ### <a name="example"></a>Örnek
 Aşağıdaki örnek, HTTPS kullanmak üzere tüm gelen trafiği zorlayan bir temel URL yeniden yazma kuralı içerir.
@@ -135,9 +135,9 @@ Aşağıdaki örnek, HTTPS kullanmak üzere tüm gelen trafiği zorlayan bir tem
   </system.webServer>
 </configuration>
 ```
-Bu kural bir HTTP durum kodu 301 (kalıcı yeniden yönlendirme) döndürerek çalışan bir sayfaya HTTP kullanarak kullanıcı isteğinde bulunduğunda. 301 isteğin istenen ziyaretçi aynı URL'ye yönlendirilmesini sağlar, ancak isteğin HTTP bölümü HTTPS ile değiştirir. Örneğin, HTTP://contoso.com yönlendirileceği HTTPS://contoso.com. 
+Bu kural, bir HTTP durum kodu 301 (kalıcı yeniden yönlendirme) döndürerek çalışır HTTP kullanarak bir sayfa istediğinde kullanıcı. 301 istek istenen ziyaretçi aynı URL'ye yeniden yönlendirir, ancak isteğin HTTP bölümü HTTPS ile değiştirir. Örneğin, HTTP://contoso.com yönlendirileceği HTTPS://contoso.com. 
 
-## <a id="http-hsts"></a>HTTP katı taşıma güvenliği (HSTS) etkinleştir
+## <a id="http-hsts"></a>HTTP katı aktarım güvenliği (HSTS) etkinleştir
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -145,10 +145,10 @@ Bu kural bir HTTP durum kodu 301 (kalıcı yeniden yönlendirme) döndürerek ç
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [OWASP HTTP katı taşıma güvenliği kopya sayfası](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) |
-| **Adımları** | <p>HTTP katı Aktarım güvenlik (HSTS) bir özel yanıt üstbilgisi kullanımı ile bir web uygulaması tarafından belirtilen bir güvenlik katılımı yeniliktir. Bu üst desteklenen bir tarayıcı aldıktan sonra bu tarayıcı iletişimlerle belirtilen etki alanı için HTTP üzerinden gönderilmesini engeller ve bunun yerine tüm iletişimler HTTPS üzerinden gönderir. Ayrıca, HTTPS istekleri tarayıcılarda geçişli tıklatma önler.</p><p>HSTS uygulamak için aşağıdaki yanıt üst bilgisi için bir Web sitesi genel olarak, kod veya yapılandırma yapılandırılması gerekir. Strict-aktarım-güvenliği:, max-age 300; = includeSubDomains HSTS aşağıdaki tehditleri ele alır:</p><ul><li>Kullanıcı yer işaretleri veya el ile türleri http://example.com ve man-in--middle saldırgan tabidir: HSTS otomatik olarak yeniden yönlendiren HTTP isteklerini HTTPS için hedef etki alanı için</li><li>Yalnızca HTTPS yanlışlıkla olması amaçlanmıştır web uygulaması HTTP bağlantılarını içerir veya HTTP üzerinden içerik sunar: HSTS otomatik olarak yeniden yönlendiren HTTP isteklerini HTTPS için hedef etki alanı için</li><li>ADAM-in--middle saldırgan geçersiz bir sertifika kullanarak bir kurban kullanıcı trafiğinden müdahale çalışır ve kullanıcı hatalı sertifika kabul planlamaktadır: HSTS geçersiz sertifika iletisi geçersiz kılmak bir kullanıcı izin verme</li></ul>|
+| **Başvuruları**              | [OWASP HTTP katı aktarım güvenliği kural sayfası](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) |
+| **Adımları** | <p>HTTP katı taşıma güvenliği (HSTS) bir özel yanıt üst bilgisi kullanarak bir web uygulaması tarafından belirtilen bir güvenlik katılımı geliştirmedir. Desteklenen bir tarayıcı bu üst bilgi aldıktan sonra bu tarayıcı her türlü iletişimi, HTTP üzerinden belirtilen etki alanına gönderilmesini engeller ve bunun yerine, tüm iletişimler HTTPS üzerinden gönderir. Ayrıca, HTTPS tıklayarak tarayıcılarında istekleri engeller.</p><p>HSTS uygulamak için aşağıdaki yanıt üst bilgisi için bir Web sitesi, genel olarak, kod veya yapılandırma yapılandırılması gerekir. Strict-aktarma-Security:, max-age = 300; Aşağıdaki tehditleri includeSubDomains HSTS ele alır:</p><ul><li>Kullanıcı işaretleri veya el ile türleri http://example.com ve bir adam-de-adam saldırgan tabidir: HSTS otomatik olarak yönlendiren HTTP isteklerini HTTPS için hedef etki alanı için</li><li>Yalnızca HTTPS yanlışlıkla olmaya yönelik bir web uygulaması HTTP bağlantılarını içerir veya HTTP üzerinden içerik hizmet: HSTS otomatik olarak yönlendiren HTTP isteklerini HTTPS için hedef etki alanı için</li><li>ADAM-de-adam saldırganın victim kullanıcıdan geçersiz bir sertifika kullanarak trafiği ıntercept dener ve kullanıcı hatalı sertifikayı kabul planlamaktadır: Geçersiz sertifika iletisi geçersiz kılmak bir kullanıcı HSTS izin vermiyor</li></ul>|
 
-## <a id="sqlserver-validation"></a>SQL server bağlantı şifreleme ve sertifika doğrulaması emin olun
+## <a id="sqlserver-validation"></a>SQL server bağlantı şifreleme ve sertifika doğrulama emin olun
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -156,21 +156,21 @@ Bu kural bir HTTP durum kodu 301 (kalıcı yeniden yönlendirme) döndürerek ç
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | SQL Azure  |
 | **Öznitelikleri**              | SQL sürümü - V12 |
-| **Başvuruları**              | [SQL veritabanı için bağlantı dizelerini yazma üzerinde en iyi yöntemler güvenli](http://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
-| **Adımları** | <p>SQL veritabanı ile bir istemci uygulama arasındaki tüm iletişimler, her zaman Güvenli Yuva Katmanı (SSL) kullanılarak şifrelenir. SQL veritabanı şifrelenmemiş bağlantıları desteklemiyor. Uygulama kodu veya araçları ile sertifikaları doğrulamak için açıkça şifreli bir bağlantı isteği ve sunucu sertifikaları güvenmeyin. Uygulama kodu veya Araçlar şifreli bir bağlantı isteme, şifreli bağlantıları hala alacağı</p><p>Ancak, sunucu sertifikalarını doğrulamamasına ve bu nedenle "ortadaki adam" saldırılarına olacaktır. ADO.NET uygulama kodu sertifikalarla doğrulamak için `Encrypt=True` ve `TrustServerCertificate=False` veritabanı bağlantı dizesi içinde. SQL Server Management Studio aracılığıyla sertifikaları doğrulamak için Bağlan Server iletişim kutusunu açın. Bağlantı Özellikleri sekmesinde şifrele bağlantısına tıklayın</p>|
+| **Başvuruları**              | [En iyi yöntemler üzerinde yazma, SQL veritabanı için bağlantı dizelerini güvenli](http://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
+| **Adımları** | <p>Her zaman Güvenli Yuva Katmanı (SSL) kullanarak SQL veritabanı ve bir istemci uygulama arasındaki tüm iletişimler şifrelenir. SQL veritabanı, şifrelenmemiş bağlantılarını desteklemiyor. Uygulama kodu veya araçları ile sertifikalarını doğrulamak için açıkça şifreli bir bağlantı isteği ve sunucu sertifikaları güveniyor musunuz. Uygulama kodu veya araçları şifreli bir bağlantı isteme, bunlar şifrelenmiş bağlantılar hala alırsınız</p><p>Ancak, sunucu sertifikaları doğrulamamasına ve bu nedenle "ortadaki adam" saldırılarına açık olacaktır. ADO.NET uygulama kodu ile sertifikalarını doğrulamak için ayarlandı. `Encrypt=True` ve `TrustServerCertificate=False` veritabanı bağlantı dizesi içinde. SQL Server Management Studio aracılığıyla sertifika doğrulamak için Bağlan sunucusu iletişim kutusunu açın. Bağlantı Özellikleri sekmesinde şifrele bağlantısı</p>|
 
-## <a id="encrypted-sqlserver"></a>SQL Server şifreli iletişim zorla
+## <a id="encrypted-sqlserver"></a>SQL sunucusuna şifreli iletişim zorla
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
-| **İlgili teknolojiler** | OnPrem |
+| **İlgili teknolojiler** | Şirket içi |
 | **Öznitelikleri**              | SQL sürümü - MsSQL2016, SQL sürüm - MsSQL2012, SQL sürümü - MsSQL2014 |
 | **Başvuruları**              | [Şifrelenmiş veritabanı altyapısı bağlantılarını etkinleştirme](https://msdn.microsoft.com/library/ms191192)  |
-| **Adımları** | SSL etkinleştirme şifreleme SQL Server örneklerini ve uygulamalar arasında ağlar üzerinden aktarılan verilerin güvenliğini artırır. |
+| **Adımları** | SSL'yi etkinleştirme şifreleme SQL Server örneklerini ve uygulamalar arasında ağ üzerinden aktarılan verilerin güvenliğini artırır. |
 
-## <a id="comm-storage"></a>Azure Storage iletişim HTTPS üzerinden olduğundan emin olun
+## <a id="comm-storage"></a>Azure depolama ile iletişim HTTPS üzerinden olduğundan emin olun
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -178,10 +178,10 @@ Bu kural bir HTTP durum kodu 301 (kalıcı yeniden yönlendirme) döndürerek ç
 | **SDL aşaması**               | Dağıtım |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [Azure depolama aktarım düzeyinde şifreleme – HTTPS kullanarak](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_encryption-in-transit) |
-| **Adımları** | REST API'larını çağırma veya erişme depolama nesneleri Azure Storage veri aktarım sırasında güvenliğini sağlamak için her zaman HTTPS protokolünü kullanır. Ayrıca, paylaşılan erişim Azure Storage nesnelere erişimi devretmek için kullanılabilen, imzalar, yalnızca HTTPS protokolü herkes SAS belirteci bağlantılarıyla dışarı gönderme kullanacağı sağlama paylaşılan erişim imzaları kullanırken kullanılabilir belirtmek için bir seçenek içerir uygun protokolü.|
+| **Başvuruları**              | [Azure depolama aktarım düzeyinde şifreleme, HTTPS kullanarak:](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_encryption-in-transit) |
+| **Adımları** | Azure depolama veri aktarım sırasında güvenliğini sağlamak için REST API'lerini çağırma veya erişme depolama nesneleri HTTPS protokolünü her zaman kullanın. Ayrıca, paylaşılan erişim Azure depolama nesnelere erişim devretmek için kullanılabilecek, imzaları, herkes SAS belirteçlerini bağlantıları dışarı gönderme kullanacağını sağlama paylaşılan erişim imzaları kullanırken yalnızca HTTPS protokolünü kullanılabileceğini belirtmek için bir seçenek içerir doğru protokolü.|
 
-## <a id="md5-https"></a>HTTPS etkinleştirilirse blob indirdikten sonra MD5 karma değeri doğrulanamıyor
+## <a id="md5-https"></a>HTTPS etkinleştirilirse blob indirdikten sonra MD5 karma doğrulama
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -190,9 +190,9 @@ Bu kural bir HTTP durum kodu 301 (kalıcı yeniden yönlendirme) döndürerek ç
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | StorageType - Blob |
 | **Başvuruları**              | [Windows Azure Blob MD5 genel bakış](https://blogs.msdn.microsoft.com/windowsazurestorage/2011/02/17/windows-azure-blob-md5-overview/) |
-| **Adımları** | <p>Windows Azure Blob hizmeti hem uygulama ve taşıma katmanları veri bütünlüğünü sağlamak için mekanizma sağlar. HTTPS ve yerine HTTP kullanmanız gereken herhangi bir nedenle blok blobları ile çalışıyorsanız, MD5 denetimi aktarılan BLOB'ları bütünlüğünü doğrulamak amacıyla kullanabilirsiniz</p><p>Bu ağ/aktarım katmanı hataları korumadan, ancak mutlaka Ara saldırılarla yardımcı olur. Aktarım düzeyi güvenlik sağlayan HTTPS kullanırsanız, MD5 denetimi kullanarak yedekli ve gereksiz.</p>|
+| **Adımları** | <p>Windows Azure Blob hizmetinin hem Aktarım katmanı ve uygulama veri bütünlüğünü sağlamak için mekanizmaları sağlar. HTTP yerine HTTPS ve, kullanmanız gereken herhangi bir nedenle blok blobları ile çalışıyorsanız, MD5 denetimi bloblarını aktarılan bütünlüğünü doğrulamak amacıyla kullanabilirsiniz</p><p>Bu ağ/aktarım katmanı hataları koruması olan ancak mutlaka Ara saldırıları ile yardımcı olur. Aktarım düzeyi güvenlik sağlayan HTTPS kullanırsanız sonra MD5 denetimi yedekli ve gereksiz kullanmaktır.</p>|
 
-## <a id="smb-shares"></a>Azure dosya paylaşımları için aktarım sırasında veri şifreleme sağlamak için SMB 3.0 uyumlu İstemcisi'ni kullanın
+## <a id="smb-shares"></a>Azure dosya paylaşımları için aktarım sırasında veri şifrelemesi emin olmak için SMB 3.0 uyumlu bir istemci kullanın
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -200,10 +200,10 @@ Bu kural bir HTTP durum kodu 301 (kalıcı yeniden yönlendirme) döndürerek ç
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | StorageType - dosya |
-| **Başvuruları**              | [Azure File Storage](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/#comment-2529238931), [Windows istemcileri için Azure dosya depolama SMB desteği](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files/#_mount-the-file-share) |
-| **Adımları** | Azure File Storage REST API'sini kullanarak, HTTPS destekler, ancak daha sık SMB dosya paylaşımı kullanılan bir VM öğesine bağlı. Bağlantıları yalnızca Azure aynı bölgede içinde izin için SMB 2.1 şifrelemeyi desteklemiyor. Ancak, SMB 3.0 Şifreleme destekler ve Windows Server 2012 R2 ile kullanılabilir, Windows 8, Windows 8.1 ve Windows 10, çapraz bölge izin vererek erişmek ve masaüstünde erişim hatta. |
+| **Başvuruları**              | [Azure dosya depolama](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/#comment-2529238931), [Windows istemcileri için Azure dosya depolama SMB desteği](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files/#_mount-the-file-share) |
+| **Adımları** | Azure dosya depolama REST API kullanırken, HTTPS'yi destekleyen ancak daha sık bir SMB dosya paylaşımı kullanılan bir sanal makineye bağlı değildir. Azure'da aynı bölgede bağlantıları yalnızca izin verilir, böylece SMB 2.1 şifrelemeyi desteklemez. Ancak, SMB 3.0 şifrelemesini destekler ve Windows Server 2012 R2 ile kullanılabilir, Windows 8, Windows 8.1 ve Windows 10, bölgeler arası izin vererek erişmek ve masaüstünde erişim bile. |
 
-## <a id="cert-pinning"></a>Sertifika sabitleme uygulama
+## <a id="cert-pinning"></a>Uygulama sertifikası sabitleme
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -212,7 +212,7 @@ Bu kural bir HTTP durum kodu 301 (kalıcı yeniden yönlendirme) döndürerek ç
 | **İlgili teknolojiler** | Genel, Windows Phone |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [Sertifika ve ortak anahtar sabitleme](https://www.owasp.org/index.php/Certificate_and_Public_Key_Pinning#.Net) |
-| **Adımları** | <p>Sertifika sabitleme Man-In--Middle (MITM) saldırılarına karşı defends. Sabitleme olan bir konak kendi beklenen X509 ile ilişkilendirme işlemi sertifikası veya ortak anahtar. Bir sertifika veya ortak anahtar bilinen veya bir konak için görülen sonra sertifika ya da ortak anahtar ilişkili veya 'konağa sabitlenmiş'. </p><p>Bu nedenle, bir saldırganın girişiminde bulunduğunda SSL MITM saldırı yapın, SSL el sıkışması sırasında saldırganın sunucudan anahtar sabitlenmiş sertifika anahtarından farklı olacaktır ve istek atılacak, böylece MITM sertifika önleme sabitleme tarafından sağlanabilir ServicePointManager'ın uygulama `ServerCertificateValidationCallback` temsilci.</p>|
+| **Adımları** | <p>Sertifika sabitleme adam-de-adam (MITM) saldırılarına karşı felaketlerden koruyor. Sabitleme olan bir konak, beklenen X509 ile ilişkilendirme işlemi sertifika veya ortak anahtar. Bir sertifika veya ortak anahtar bilinen veya ana görülen sonra ortak anahtar ve sertifika ilişkili veya 'konağa sabitlenmiş'. </p><p>Bu nedenle, saldırganın çalıştığında SSL MITM saldırı yapmak, SSL el sıkışması sırasında saldırganın sunucu anahtarı sabitlenmiş sertifika anahtarından farklı olacaktır ve istek atılacak, böylece MITM sertifika önleme sabitleme tarafından sağlanabilir. ServicePointManager'ın uygulama `ServerCertificateValidationCallback` temsilci.</p>|
 
 ### <a name="example"></a>Örnek
 ```csharp
@@ -280,7 +280,7 @@ namespace CertificatePinningExample
 }
 ```
 
-## <a id="https-transport"></a>HTTPS enable - aktarım kanalının güvenliğini sağlayın.
+## <a id="https-transport"></a>Taşıma kanalının güvenliğini sağlayın - HTTPS'yi etkinleştirme
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -289,9 +289,9 @@ namespace CertificatePinningExample
 | **İlgili teknolojiler** | NET Framework 3 |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_transport_security_enabled) |
-| **Adımları** | Uygulama yapılandırması HTTPS tüm erişim hassas bilgiler için kullanıldığından emin olmak.<ul><li>**Açıklama:** bir uygulama hassas bilgileri işler ve ileti düzeyi şifreleme kullanmaz durumunda, yalnızca bir şifrelenmiş taşıma kanalı üzerinden iletişim kurmasına izin verilmelidir.</li><li>**ÖNERİLER:** HTTP aktarımı devre dışı bırakıldığından emin olun ve HTTPS aktarımı yerine etkinleştirin. Örneğin, `<httpTransport/>` ile `<httpsTransport/>` etiketi. Uygulama yalnızca güvenli bir kanal üzerinden erişilebilir olmasını garanti etmek için bir ağ yapılandırması (Güvenlik Duvarı) kullanmayın. Bir felsefi açısından bakıldığında, uygulama güvenliğini ağ üzerinde bağlı olmaması gerekir.</li></ul><p>Bunlar geliştikçe bir pratik açısından bakıldığında, ağ güvenliğini sağlamak için sorumlu kişi her zaman uygulamanın güvenlik gereksinimlerini izlemek değil.</p>|
+| **Adımları** | Uygulama yapılandırması, hassas bilgiler tüm erişim HTTPS kullanılır emin olmalısınız.<ul><li>**Açıklama:** bir uygulama hassas bilgileri işler ve ileti düzeyinde şifreleme kullanmaz durumunda, yalnızca bir şifrelenmiş taşıma kanalı üzerinden iletişim kurmasına izin verilmelidir.</li><li>**ÖNERİLER:** HTTP aktarımı devre dışı emin olun ve bunun yerine HTTPS taşımasını etkinleştirme. Örneğin, `<httpTransport/>` ile `<httpsTransport/>` etiketi. Uygulamanın yalnızca güvenli bir kanal üzerinden erişilebilir güvence altına almak için bir ağ yapılandırması (Güvenlik Duvarı) güvenmeyin. Bir felsefi açısından bakıldığında, uygulama ağ güvenliği için bağlı olmamalıdır.</li></ul><p>Değiştikçe bir pratik açısından bakıldığında, kişilerin sorumlu ağ güvenliğini sağlamak için her zaman uygulamanın güvenlik gereksinimlerini izleme (Dnt).</p>|
 
-## <a id="message-protection"></a>WCF: Kümesi ileti güvenliği da EncryptAndSign için koruma düzeyi
+## <a id="message-protection"></a>WCF: Kümesi ileti güvenliği EncryptAndSign için koruma düzeyi
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -300,10 +300,10 @@ namespace CertificatePinningExample
 | **İlgili teknolojiler** | .NET framework 3 |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff650862.aspx) |
-| **Adımları** | <ul><li>**Açıklama:** koruma düzeyi ayarlanır "yok" iletisi korumayı devre dışı bıraktığınızda. Gizliliği ve bütünlük uygun düzeyde bir ayar ile elde edilir.</li><li>**ÖNERİLER:**<ul><li>zaman `Mode=None` -ileti koruma devre dışı bırakır</li><li>zaman `Mode=Sign` -işaretlerini ancak iletiyi şifrelemez; veri bütünlüğü önemli olduğunda kullanılmalıdır</li><li>zaman `Mode=EncryptAndSign` -açar ve iletiyi şifreler</li></ul></li></ul><p>Şifreleme devre dışı kapatma ve iletinizi gizliliği endişeler olmadan bilgilerinin bütünlüğünü doğrulamak yeterlidir yalnızca imzalama göz önünde bulundurun. Bu işlemler için yararlı olabilir veya hizmet sözleşmelerinde özgün göndereni doğrulamanız gerekiyor ancak hiçbir hassas veriler iletilir. Koruma düzeyini azaltır, ileti tüm kişisel bilgileri (PII) içermiyor dikkatli olun.</p>|
+| **Adımları** | <ul><li>**Açıklama:** koruma düzeyi ayarlanır "none" iletisi koruma devre dışı bırakabilir. Gizliliği ve bütünlüğü ayarını uygun düzeyde gerçekleştirilir.</li><li>**ÖNERİLER:**<ul><li>zaman `Mode=None` -ileti koruma devre dışı bırakır</li><li>zaman `Mode=Sign` -işaretleri ancak iletiyi şifrelemek değildir; veri bütünlüğü önemli olduğu durumlarda kullanılmalıdır</li><li>zaman `Mode=EncryptAndSign` -imzalar ve ileti şifreler</li></ul></li></ul><p>Şifreleme devre dışı kapatarak ve endişeleriniz olmadan bilgilerinin gizliliğini, bütünlüğünü doğrulamak, yalnızca ihtiyacınız olduğunda, yalnızca ileti imzalama göz önünde bulundurun. Bu işlemleri için kullanışlı olabilir veya hizmet sözleşmelerinde özgün göndereni doğrulamanız gereken ancak hiçbir hassas veriler iletilir. Koruma düzeyi azaltma, ileti tüm kişisel bilgileri (PII) içermiyor dikkatli olun.</p>|
 
 ### <a name="example"></a>Örnek
-Yapılandırma hizmeti ve yalnızca iletiyi imzalamak için işlemi aşağıdaki örneklerde gösterilmiştir. Hizmet sözleşmesi örneği `ProtectionLevel.Sign`: Hizmet sözleşmesi düzeyinde ProtectionLevel.Sign kullanmaya ilişkin bir örnek verilmiştir: 
+Yapılandırma hizmeti ve işlem yalnızca iletiyi imzalamak için aşağıdaki örneklerde gösterilir. Hizmet sözleşmesi örneği `ProtectionLevel.Sign`: Hizmet sözleşmesini düzeyinde ProtectionLevel.Sign kullanımının bir örneği verilmiştir: 
 ```
 [ServiceContract(Protection Level=ProtectionLevel.Sign] 
 public interface IService 
@@ -313,14 +313,14 @@ public interface IService
 ```
 
 ### <a name="example"></a>Örnek
-İşlemi sözleşme örneği `ProtectionLevel.Sign` (ayrıntılı denetim için): kullanmaya ilişkin bir örnek verilmiştir `ProtectionLevel.Sign` OperationContract düzeyinde:
+İşlem anlaşması örneği `ProtectionLevel.Sign` (ayrıntılı denetim için): kullanımının bir örneği verilmiştir `ProtectionLevel.Sign` OperationContract düzeyinde:
 
 ```
 [OperationContract(ProtectionLevel=ProtectionLevel.Sign] 
 string GetData(int value);
 ``` 
 
-## <a id="least-account-wcf"></a>WCF: WCF hizmeti çalıştırmak için en az ayrıcalıklı bir hesap kullanın.
+## <a id="least-account-wcf"></a>WCF:, WCF hizmeti çalıştırmak için en az ayrıcalıklı bir hesap kullanın.
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -329,9 +329,9 @@ string GetData(int value);
 | **İlgili teknolojiler** | .NET framework 3 |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648826.aspx ) |
-| **Adımları** | <ul><li>**Açıklama:** WCF hizmetleri yönetici veya yüksek ayrıcalıklı hesap altında çalışmaz. Hizmetleri güvenliğinin aşılması durumunda yüksek etkileri neden olur.</li><li>**ÖNERİLER:** , uygulamanızın saldırı yüzeyini küçültmek ve saldırı, potansiyel hasarı azaltmak için WCF Hizmeti barındırma için en az ayrıcalıklı bir hesap kullanın. Hizmet hesabı ek erişim hakları MSMQ, olay günlüğü, performans sayaçları ve dosya sistemi gibi altyapı kaynaklardaki gerektiriyorsa, WCF hizmeti başarıyla çalıştırabilmeniz için bu kaynaklara uygun izinleri verilmelidir.</li></ul><p>Hizmetinizi adına özgün çağıran belirli kaynaklara erişmesi gerekirse arayanın kimliği için bir aşağı akış yetkilendirme denetimi akış için kimliğe bürünme ve temsilci kullanın. Bir geliştirme senaryosunda ayrıcalıkları daha az olan özel bir yerleşik hesap yerel ağ hizmeti hesabı kullanın. Bir üretim senaryosunda, en az ayrıcalıklı özel etki alanı hizmeti hesabı oluşturun.</p>|
+| **Adımları** | <ul><li>**Açıklama:** WCF Hizmetleri Yöneticisi veya yüksek ayrıcalıklı hesap altında çalışmaz. Hizmetleri güvenliğinin aşılması durumunda yüksek etkisi neden olur.</li><li>**ÖNERİLER:** ve uygulamanızın saldırı yüzeyini azaltmanıza, gerçekleşirse durumdaki potansiyel hasarı azaltmak için WCF Hizmeti barındırma için en az ayrıcalıklı bir hesap kullanın. Hizmet hesabı MSMQ, olay günlüğü, performans sayaçları ve dosya sistemi gibi altyapı kaynaklarını ek erişim haklarını gerektiriyorsa, WCF hizmeti başarıyla çalıştırabilmeniz için bu kaynakları için uygun izinleri verilmelidir.</li></ul><p>Hizmetinizin adına özgün arayan belirli kaynaklara erişmesi gerekiyorsa, kimliğe bürünme ve temsilci çağıranının kimliğini bir aşağı akış yetkilendirme denetimi için akış için kullanın. Bir geliştirme senaryosunda ayrıcalıkları daha az olan özel bir yerleşik hesap yerel ağ hizmeti hesabını kullanın. Bir üretim senaryosunda, en az ayrıcalıklı özel etki alanı hizmet hesabı oluşturun.</p>|
 
-## <a id="webapi-https"></a>Tüm trafiği HTTPS bağlantısı üzerinden Web API'lerine zorla
+## <a id="webapi-https"></a>Tüm trafik HTTPS bağlantısı üzerinden Web API'leri için zorla
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -339,11 +339,11 @@ string GetData(int value);
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | MVC5, MVC6 |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [Bir Web API denetleyicisi SSL zorlama](http://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
-| **Adımları** | Bir uygulama, bir HTTPS ve HTTP bağlaması içeriyorsa, istemciler siteye erişmek için HTTP hala kullanabilirsiniz. Bunu önlemek için korumalı API'leri isteklerine daima HTTPS üzerinden olduğundan emin olmak için bir eylem filtresi kullanın.|
+| **Başvuruları**              | [Bir Web API denetleyicisi, SSL'yi zorunlu tutma](http://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
+| **Adımları** | Bir uygulamanın bir HTTPS hem bir HTTP bağlaması varsa, istemciler siteye erişmek için HTTP yine de kullanabilirsiniz. Bunu önlemek için korumalı API'leri için istekleri her zaman HTTPS üzerinden olmasını sağlamak için bir eyleme eylem filtresi kullanın.|
 
 ### <a name="example"></a>Örnek 
-Aşağıdaki kod, SSL için denetler bir Web API kimlik doğrulama filtre gösterir: 
+Aşağıdaki kod, SSL için denetleyen bir Web API kimlik doğrulaması filtre gösterir: 
 ```csharp
 public class RequireHttpsAttribute : AuthorizationFilterAttribute
 {
@@ -363,7 +363,7 @@ public class RequireHttpsAttribute : AuthorizationFilterAttribute
     }
 }
 ```
-Bu filtre SSL gereken tüm Web API eylemler ekleyin: 
+Bu filtre, SSL iste herhangi bir Web API eylemlerini ekleyin: 
 ```csharp
 public class ValuesController : ApiController
 {
@@ -372,7 +372,7 @@ public class ValuesController : ApiController
 }
 ```
  
-## <a id="redis-ssl"></a>Azure Redis önbelleği iletişimin SSL üzerinden olduğundan emin olun
+## <a id="redis-ssl"></a>Azure Redis cache'e iletişim SSL üzerinden olduğundan emin olun
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -381,11 +381,11 @@ public class ValuesController : ApiController
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [Azure Redis SSL desteği](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
-| **Adımları** | Redis sunucu SSL kutu dışı desteklemez ancak Azure Redis önbelleği desteklemez. Azure Redis önbelleği bağlanan ve istemci StackExchange.Redis gibi SSL destekliyorsa SSL kullanmanız gerekir. Varsayılan olarak SSL olmayan bağlantı noktası yeni Azure Redis önbelleği örnekleri için devre dışıdır. SSL desteği, redis istemcileri üzerinde bir bağımlılık olmadıkça güvenli varsayılanlar değiştirilmediğinden emin olun. |
+| **Adımları** | Redis sunucu SSL kullanıma hazır desteklemez, ancak Azure Redis Cache yapar. Azure Redis Cache'e bağlantı kuruyorsanız ve SSL gibi StackExchange.Redis istemci destekler, SSL kullanmanız gerekir. Varsayılan olarak SSL olmayan bağlantı noktası yeni Azure Redis Cache örnekleri için devre dışıdır. Redis istemcileri için SSL desteği üzerinde bir bağımlılık olmadıkça güvenli varsayılan değiştirilmediğinden emin olun. |
 
-Redis güvenilen ortamları içindeki güvenilen istemciler tarafından erişilmek üzere tasarlanmıştır unutmayın. Bu genellikle, Redis örneği doğrudan Internet'e ya da genel olarak, güvenilmeyen istemciler doğrudan Redis TCP bağlantı noktası veya UNIX yuva erişebileceğiniz ortamında kullanıma sunmak için iyi bir fikir olmadığı anlamına gelir. 
+Redis güvenilir ortamlar içinde güvenilir istemcileri tarafından erişilecek tasarlanmıştır unutmayın. Bu genellikle, Redis örneği doğrudan Internet'e ya da genel olarak, güvenilmeyen istemciler doğrudan Redis TCP bağlantı noktası veya UNIX yuva erişebileceğiniz bir ortama kullanıma sunmak için iyi bir fikir olmadığını anlamına gelir. 
 
-## <a id="device-field"></a>Aygıt için alan ağ geçidi iletişimin güvenliğini sağlama
+## <a id="device-field"></a>Alan ağ geçidi ile iletişim cihaz güvenliğini sağlama
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -394,9 +394,9 @@ Redis güvenilen ortamları içindeki güvenilen istemciler tarafından erişilm
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | IP tabanlı cihazlar için iletişim protokolü Aktarımdaki verileri korumak için bir SSL/TLS kanal genellikle saklanmasını. SSL/TLS desteklemeyen diğer protokoller için taşıma veya ileti katmanında güvenliği sağlayan güvenli sürümlerini protokolü varsa araştırın. |
+| **Adımları** | IP tabanlı cihazlar için kullanıcının iletişim protokolü Aktarımdaki verileri korumak için SSL/TLS kanalda genellikle saklanmasını. SSL/TLS desteklemeyen diğer protokoller için taşıma veya ileti katmanında güvenlik sağlamaya güvenli protokol sürümleri varsa araştırın. |
 
-## <a id="device-cloud"></a>SSL/TLS kullanılarak bulut ağ geçidi iletişim için güvenli aygıt
+## <a id="device-cloud"></a>Cihaz bulut ağ geçidi iletişim SSL/TLS kullanarak güvenli hale getirme
 
 | Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -404,5 +404,5 @@ Redis güvenilen ortamları içindeki güvenilen istemciler tarafından erişilm
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [İletişim protokolü seçin](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#messaging) |
+| **Başvuruları**              | [İletişim protokolü seçme](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#messaging) |
 | **Adımları** | HTTP/AMQP veya MQTT protokolleri kullanarak SSL/TLS güvenli hale getirin. |
