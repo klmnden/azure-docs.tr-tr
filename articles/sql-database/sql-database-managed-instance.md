@@ -9,14 +9,14 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 08/30/2018
 ms.author: bonova
-ms.openlocfilehash: 2c6cdcd5d8d50a54a87e3dabd2aa09eccc646738
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 2e1fd7c87931f804433708b6ac30a5960e6006ae
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056576"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287672"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Yönetilen örnek (Önizleme) nedir?
 
@@ -71,7 +71,7 @@ Yönetilen örnek, iki hizmet katmanlarda kullanılabilir:
 - **Genel amaçlı**: tipik performans ve g/ç gecikme süresi gereksinimlerine sahip uygulamalar için tasarlanmıştır.
 - **İş açısından kritik**: düşük g/ç gecikme süresi gereksinimleri ve iş yükü temel bakım işlemlerinin en az etki ile uygulamalar için tasarlanmıştır.
 
-Her iki hizmet katmanları, % 99,99 oranında kullanılabilirlik garantisi ve bağımsız olarak depolama boyutu seçin ve hesaplama kapasitesi sağlar. 
+Her iki hizmet katmanları, % 99,99 oranında kullanılabilirlik garantisi ve bağımsız olarak depolama boyutu seçin ve hesaplama kapasitesi sağlar. Azure SQL veritabanı yüksek kullanılabilirlik mimarisi hakkında daha fazla bilgi için bkz. [yüksek kullanılabilirlik ve Azure SQL veritabanı](sql-database-high-availability.md).
 
 > [!IMPORTANT]
 > Genel amaçlı iş açısından kritik veya tam tersi hizmet katmanınızın değiştirirken, genel Önizleme sürümünde desteklenmiyor. Farklı hizmet katmanında bir örnek için veritabanlarınızı geçirmek istiyorsanız, yeni bir örnek oluşturun, özgün örneğinden noktaya geri yükleme noktası ile veritabanlarını geri yükleme ve artık gerekli değilse özgün örneğe ardından bırakın. 
@@ -97,7 +97,7 @@ Aşağıdaki listede, genel amaçlı hizmet katmanının anahtar özellikleri ö
 | Veritabanı başına veri dosyalarının (satırlar) | Birden çok | 
 | Günlük dosyası (günlük) veritabanı başına sayısı | 1 | 
 | Yönetilen otomatik yedekleri | Evet |
-| YÜKSEK KULLANILABİLİRLİK | Uzak depolama alanına dayalı olarak ve [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| YÜKSEK KULLANILABİLİRLİK | Azure Depolama'da depolanan veriler ve [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
 | Yerleşik bir örneği ve veritabanı izleme ve ölçümler | Evet |
 | Otomatik yazılım düzeltme eki uygulama | Evet |
 | VNet - Azure Resource Manager dağıtımı | Evet |
@@ -131,7 +131,7 @@ Aşağıdaki listede, iş açısından kritik hizmet katmanının anahtar özell
 | Veritabanı başına veri dosyalarının (satırlar) | Birden çok | 
 | Günlük dosyası (günlük) veritabanı başına sayısı | 1 | 
 | Yönetilen otomatik yedekleri | Evet |
-| YÜKSEK KULLANILABİLİRLİK | Temel [Always On kullanılabilirlik grupları](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) ve [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| YÜKSEK KULLANILABİLİRLİK | Yerel SSD ve kullanım depolanan verileri [Always On kullanılabilirlik grupları](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) ve [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
 | Yerleşik bir örneği ve veritabanı izleme ve ölçümler | Evet |
 | Otomatik yazılım düzeltme eki uygulama | Evet |
 | VNet - Azure Resource Manager dağıtımı | Evet |
