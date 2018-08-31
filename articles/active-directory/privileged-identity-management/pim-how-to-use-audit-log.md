@@ -1,6 +1,6 @@
 ---
-title: Azure AD Privileged Identity Management'a denetim günlüğünü kullanma | Microsoft Docs
-description: Azure Privileged Identity Management uzantısı'nda denetim günlüğü kullanmayı öğrenin.
+title: PIM'de görüntülemek için Azure AD Dizin rolleri denetim geçmişi | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM) için Azure AD Dizin rolleri denetim geçmişi görüntülemeyi öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,28 +13,34 @@ ms.component: pim
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 922658f75a0d00998072c7bd8f2160e9db27f318
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: ab5a072d845bfdbaafabe1e0e7bdce2dfce6184d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627799"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188188"
 ---
-# <a name="using-the-audit-log-in-pim"></a>PIM'de denetim günlüğünü kullanma
-Privileged Identity Management (PIM) denetim günlüğü, belirli bir süre içinde tüm kullanıcı atama ve etkinleştirme görmek için kullanabilirsiniz. Etkinlik, kiracınızda yönetici ve son kullanıcı eşitleme etkinliği de dahil olmak üzere tam denetim geçmişini görmek istiyorsanız kullanabileceğiniz [Azure Active Directory erişim ve kullanım raporlarını.](../reports-monitoring/overview-reports.md)
+# <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>Azure AD dizin rollerini PIM denetim geçmişini görüntüle
+Tüm ayrıcalıklı roller için belirli bir süre içinde tüm kullanıcı atama ve etkinleştirme görmek için Privileged Identity Management (PIM) denetim Geçmişi'ni kullanabilirsiniz. Etkinlik, kiracınızda yönetici ve son kullanıcı eşitleme etkinliği de dahil olmak üzere tam denetim geçmişini görmek istiyorsanız kullanabileceğiniz [Azure Active Directory erişim ve kullanım raporlarını.](../reports-monitoring/overview-reports.md)
 
-## <a name="navigate-to-the-audit-log"></a>Denetim günlüğüne gidin
-Gelen [Azure portalında](https://portal.azure.com) panoyu seçin **Azure AD Privileged Identity Management** uygulama. Buradan, Denetim günlüğüne tıklayarak erişim **ayrıcalıklı rollerimi Yönet** > **denetim geçmişi** PIM panosunda.
+## <a name="navigate-to-audit-history"></a>Denetim geçmişi gidin
+Gelen [Azure portalında](https://portal.azure.com) panoyu seçin **Azure AD Privileged Identity Management** uygulama. Tıklayarak denetim geçmişini buradan, erişim **ayrıcalıklı rollerimi Yönet** > **denetim geçmişi** PIM panosunda.
 
-## <a name="the-audit-log-graph"></a>Denetim günlüğü grafiği
-Denetim günlüğü, toplam etkinleştirmelerin, günlük en fazla etkinleştirme ve günlük ortalama etkinleştirme bir çizgi grafikte görüntülemek için kullanabilirsiniz.  Denetim geçmişi birden fazla rol varsa verileri role göre filtre uygulayabilirsiniz.
+![](media/azure-ad-pim-approval-workflow/image021.png)
 
-Kullanım **zaman**, **eylem**, ve **rol** günlük sıralamak için düğmeler.
+>[!NOTE]
+Verileri eyleme göre sıralayın ve "Etkinleştirme onaylı" arayın
 
-## <a name="the-audit-log-list"></a>Denetim günlüğü listesi
-Denetim günlüğü listesi sütunları şunlardır:
 
-* **İstek sahibi** -rol etkinleştirme ya da değişiklik isteyen kullanıcı.  "Azure sistem" değeri ise daha fazla bilgi için Azure denetim günlüğünü denetleyin.
+## <a name="audit-history-graph"></a>Denetim Geçmişi grafiği
+Denetim geçmişi, toplam etkinleştirmelerin, günlük en fazla etkinleştirme ve günlük ortalama etkinleştirme bir çizgi grafikte görüntülemek için kullanabilirsiniz.  Denetim geçmişi birden fazla rol varsa verileri role göre filtre uygulayabilirsiniz.
+
+Kullanım **zaman**, **eylem**, ve **rol** geçmişini sıralamak için düğmeler.
+
+## <a name="audit-history-list"></a>Denetim geçmişi listesi
+Denetim geçmişi listesinde sütunlar şunlardır:
+
+* **İstek sahibi** -rol etkinleştirme ya da değişiklik isteyen kullanıcı.  "Azure sistem" değeri ise daha fazla bilgi için Azure denetim geçmişini denetleyin.
 * **Kullanıcı** -etkinleştiren veya bir rolü atanmış olan kullanıcı.
 * **Rol** -role atanmış veya kullanıcı tarafından etkinleştirildi.
 * **Eylem** - istek sahibi tarafından gerçekleştirilen eylemler. Bu atama, atamayı kaldırma konusunda, etkinleştirme veya devre dışı bırakma içerebilir.
@@ -42,20 +48,20 @@ Denetim günlüğü listesi sütunları şunlardır:
 * **Akıl** -etkinleştirme sırasında herhangi bir metin neden alana girildiyse, burada gösterilir.
 * **Sona erme** - rol etkinleştirmesi için yalnızca ilgili.
 
-## <a name="filter-the-audit-log"></a>Denetim günlüğünü Filtrele
-Denetim günlüğüne tıklayarak gösterilir bilgileri filtreleyebilirsiniz **filtre** düğmesi.  **Güncelleştirme Grafik parametreleri dikey** görünür.
+## <a name="filter-audit-history"></a>Denetim geçmişi Filtrele
+Denetim geçmişi tıklayarak gösterilir bilgileri filtreleyebilirsiniz **filtre** düğmesi.  **Güncelleştirme Grafik parametreleri dikey** görünür.
 
-Filtreleri ayarladıktan sonra tıklayın **güncelleştirme** günlük verileri filtrelemek için.  Veriler hemen görünmüyorsa, sayfayı yenileyin.
+Filtreleri ayarladıktan sonra tıklayın **güncelleştirme** geçmişinde bulunan verilere filtre uygulamak için.  Veriler hemen görünmüyorsa, sayfayı yenileyin.
 
 ### <a name="change-the-date-range"></a>Tarih aralığını değiştirme
-Kullanım **Bugün**, **geçen hafta**, **geçtiğimiz ay**, veya **özel** denetim günlüğü zaman aralığını değiştirmek için düğmeler.
+Kullanım **Bugün**, **geçen hafta**, **geçtiğimiz ay**, veya **özel** denetim geçmişinin zaman aralığını değiştirmek için düğmeler.
 
-Seçtiğinizde **özel** düğmesi, sunulur bir **gelen** tarih alanı ve bir **için** tarih alanını günlüğünün tarih aralığı belirtin.  Tarih GG/AA/YYYY biçiminde girin veya tıkladığınızda **Takvim** simgesini ve bir takvimden tarih seçin.
+Seçtiğinizde **özel** düğmesi, sunulur bir **gelen** tarih alanı ve bir **için** tarih alanını geçmişi için tarih aralığı belirtin.  Tarih GG/AA/YYYY biçiminde girin veya tıkladığınızda **Takvim** simgesini ve bir takvimden tarih seçin.
 
-### <a name="change-the-roles-included-in-the-log"></a>Oturum açma dahil rolleri değiştirme
-İşaretleyin veya işaretini kaldırın **rol** eklemek veya günlükten dışlamak için her rolün yanındaki onay kutusunu.
+### <a name="change-the-roles-included-in-the-history"></a>Geçmişi dahil rollerini değiştirme
+İşaretleyin veya işaretini kaldırın **rol** eklemek veya Geçmişten dışlamak için her rolün yanındaki onay kutusunu.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Sonraki adımlar
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
 
+- [PIM Azure kaynak rolleri için denetim geçmişini görüntüleme](pim-resource-roles-use-the-audit-log.md)

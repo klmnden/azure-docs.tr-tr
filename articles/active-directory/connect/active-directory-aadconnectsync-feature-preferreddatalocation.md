@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory Connect eşitleme: çoklu coğrafi özellikleri için tercih edilen veri konumu Office 365'te yapılandırma | Microsoft Docs"
-description: Office 365 kullanıcı kaynaklarınızı Azure Active Directory Connect eşitleme kullanıcıyla yakın put açıklar.
+title: "Azure Active Directory Connect eşitleme: çoklu coğrafi özellikleri için tercih edilen veri konumu, Office 365'te yapılandırma | Microsoft Docs"
+description: Office 365 kullanıcı kaynaklarınızı Azure Active Directory Connect eşitlemesi ile kullanıcı yakın put işlemini açıklamaktadır.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -12,251 +12,252 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5eae173e02c92bd43faaa9533ce29489d40f1389
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6272cc8b2f34211aa6e5b85dbb508ade74cee637
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592934"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247579"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect eşitleme: Office 365 kaynaklar için tercih edilen veri konumu yapılandırın
-Bu konunun amacı, Azure Active Directory (Azure AD) Connect eşitleme öznitelik tercih edilen veri konumu için yapılandırma konusunda size yol sağlamaktır. Birisi çok coğrafi özellikleri Office 365'te kullandığında, kullanıcının Office 365 verilerin coğrafi konumunu belirtmek için bu öznitelik kullanın. (Koşulları *bölge* ve *coğrafi* birbirlerinin yerine kullanılır.)
+Bu konunun amacı, öznitelik tercih edilen veri konumu için Azure Active Directory (Azure AD) Connect eşitleme yapılandırma konusunda rehberlik sağlamaktır. Birisi çoklu coğrafi özellikleri Office 365'te kullandığında, kullanıcının Office 365 verilerine coğrafi konumunu belirlemek için bu öznitelik kullanın. (Koşulları *bölge* ve *coğrafi* birbirinin yerine kullanılır.)
 
-## <a name="enable-synchronization-of-preferred-data-location"></a>Tercih edilen veri konumu eşitlemeyi etkinleştir
-Varsayılan olarak, Office 365 kaynakları kullanıcılarınız için Azure AD kiracınıza aynı coğrafi bölgede bulunur. Örneğin, Kuzey Amerika'da Kiracı yer alıyorsa, kullanıcıların Exchange posta kutularına de Kuzey Amerika'da bulunur. Çokuluslu bir kuruluş için bu en iyi olmayabilir.
+## <a name="enable-synchronization-of-preferred-data-location"></a>Tercih edilen veri konumu, eşitlemeyi etkinleştirme
+Varsayılan olarak, Office 365 kaynaklarına kullanıcılarınız için Azure AD kiracınız ile aynı coğrafi bölgede yer alır. Örneğin, kiracınız Kuzey Amerika'da yer alıyorsa kullanıcıların Exchange posta kutuları da Kuzey Amerika'da bulunur. Çok uluslu bir kuruluş için bu en uygun olmayabilir.
 
-Öznitelik ayarlayarak **preferredDataLocation**, bir kullanıcının coğrafi tanımlayabilirsiniz. Kullanıcının Office 365 kaynaklarında, posta kutusu ve OneDrive gibi aynı coğrafi bölgede kullanıcı varsa ve kuruluşunuz için bir kiracı devam ediyor.
+Öznitelik ayarlayarak **preferredDataLocation**, kullanıcının coğrafi tanımlayabilirsiniz. Kullanıcının Office 365 kaynaklarına, posta kutusu ve OneDrive gibi bir kullanıcı, aynı coğrafi bölgede olması ve bir kiracı, kuruluşunuzun tamamı için çözümlenmedi.
 
 > [!IMPORTANT]
-> Birden çok coğrafi 5.000 Office 365 Hizmetleri abonelikleri en az müşterilerle şu anda kullanılabilir. Ayrıntılar için Microsoft temsilcinize konuşun.
+> Çoklu coğrafi şu anda en az 5. 000'Office 365 hizmetlerine abonelikleri olan müşteriler için kullanılabilir. Ayrıntılar için Microsoft temsilcinize konuşun.
 >
 >
 
-Office 365 için tüm geos listesini bulunabilir [bulunan, verilerinizin nerede olduğuna?](https://aka.ms/datamaps).
+Office 365 için tüm coğrafi bölgeler listesi bulunabilir [bulunan verileriniz nerede?](https://aka.ms/datamaps).
 
-Office 365 çoklu coğrafi için kullanılabilir bölgelerde şunlardır:
+Office 365 için çoklu coğrafi kullanılabilir bölgelerde şunlardır:
 
 | Coğrafi | preferredDataLocation değeri |
 | --- | --- |
 | Asya Pasifik | APC |
-| Avustralya | AVUSTRALYA |
-| Kanada | CAN |
+| Avustralya | AU |
+| Kanada | OLABİLİR |
 | Avrupa Birliği | EUR |
+| Fransa | FRA |
 | Hindistan | UL |
 | Japonya | JPN |
 | Kore | KOR |
 | Birleşik Krallık | GBR |
 | Amerika Birleşik Devletleri | ADI |
 
-* Ardından bir coğrafi bu tabloda (örneğin, Güney Amerika) listelenmiyorsa, çoklu coğrafi için kullanılamaz.
-* Hindistan coğrafi yalnızca fatura adresini ve bu coğrafi bölgede satın alınan lisans sahip müşteriler için kullanılabilir.
-* Tüm Office 365 iş yükleri bir kullanıcının coğrafi ayarı kullanımını destekler.
+* Ardından bu tablodaki (örneğin, Güney Amerika) bir coğrafi listede yoksa, çoklu coğrafi için kullanılamaz.
+* Hindistan coğrafi yalnızca fatura adresini ve bu coğrafi bölgede satın aldığınız lisansları olan müşteriler için kullanılabilir.
+* Tüm Office 365 iş yükleri, kullanıcının coğrafi ayarlamanın kullanımını destekler.
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Eşitleme için Azure AD Connect desteği
 
-Azure AD Connect eşitleme destekleyen **preferredDataLocation** için öznitelik **kullanıcı** sürüm 1.1.524.0 nesneleri ve daha sonra. Bu avantajlar şunlardır:
+Azure AD Connect eşitleme destekler **preferredDataLocation** özniteliğini **kullanıcı** nesneleri sürüm 1.1.524.0 ve üzeri. Bu avantajlar şunlardır:
 
-* Nesne türü şeması **kullanıcı** Azure AD bağlayıcısında içerecek şekilde Genişletilmiş **preferredDataLocation** özniteliği. Öznitelik, tek değerli dize türünde değil.
-* Nesne türü şeması **kişi** meta veri deposunda içerecek şekilde Genişletilmiş **preferredDataLocation** özniteliği. Öznitelik, tek değerli dize türünde değil.
+* Nesne türünün şeması **kullanıcı** eklemek için Azure AD bağlayıcısında Genişletilmiş **preferredDataLocation** özniteliği. Tek değerli dize türünde özniteliğidir.
+* Nesne türünün şeması **kişi** meta veri deposunda içerecek şekilde Genişletilmiş **preferredDataLocation** özniteliği. Tek değerli dize türünde özniteliğidir.
 
-Varsayılan olarak, **preferredDataLocation** eşitleme için etkin değil. Bu özellik, büyük kuruluşlar için tasarlanmıştır. Olduğundan, kullanıcılarınızın Office 365 coğrafi tutmak için bir öznitelik de tanımlamalıdır hiçbir **preferredDataLocation** şirket içi Active Directory'de öznitelik. Bu her kuruluş için farklı olacak.
+Varsayılan olarak, **preferredDataLocation** eşitleme için etkin değil. Bu özellik, büyük kuruluşlar için tasarlanmıştır. Olduğundan, kullanıcılarınız için Office 365 coğrafi tutmak için bir özniteliği de belirlemeniz gerekir hiçbir **preferredDataLocation** şirket içi Active Directory özniteliği. Bu, her kuruluş için farklı olacak şekilde geçiyor.
 
 > [!IMPORTANT]
-> Azure AD verir **preferredDataLocation** özniteliği **kullanıcı nesneleri bulut** doğrudan Azure AD PowerShell kullanarak yapılandırılmalıdır. Azure AD artık verir **preferredDataLocation** özniteliği **kullanıcı nesneleri eşitlenen** doğrudan Azure AD PowerShell kullanarak yapılandırılacak. Bu öznitelik yapılandırmak için **kullanıcı nesneleri eşitlenen**, Azure AD Connect kullanmanız gerekir.
+> Azure AD'ye verir **preferredDataLocation** özniteliği **kullanıcı, nesneyi bulut** doğrudan Azure AD PowerShell kullanarak yapılandırılmış olması. Artık Azure AD'ye verir **preferredDataLocation** özniteliği **eşitlenmiş kullanıcı, nesneyi** doğrudan Azure AD PowerShell kullanarak yapılandırılmış olması. Bu öznitelik yapılandırma **eşitlenmiş kullanıcı, nesneyi**, Azure AD Connect kullanmanız gerekir.
 
 Eşitleme etkinleştirmeden önce:
 
-* Kaynak özniteliği olarak kullanılmak üzere hangi şirket içi Active Directory öznitelik karar verin. Türünde olmalı **tek değerli dize**. Aşağıdakilerden birini izleyin adımlarda **extensionAttributes** kullanılır.
-* Daha önce yapılandırdıysanız **preferredDataLocation** varolan üzerinde özniteliği **kullanıcı nesneleri eşitlenen** Azure AD PowerShell kullanarak Azure AD içinde öznitelik değerleri için backport gerekir karşılık gelen **kullanıcı** şirket içi Active Directory içindeki nesneleri.
+* Kaynak özniteliği olarak kullanılmak üzere hangi şirket içi Active Directory öznitelik karar verin. Türünde olmalıdır **tek değerli dize**. İçinde biri, aşağıdaki adımları **extensionAttributes** kullanılır.
+* Daha önce yapılandırdıysanız **preferredDataLocation** mevcut öznitelik **eşitlenmiş kullanıcı, nesneyi** Azure AD PowerShell kullanarak Azure AD'de öznitelik değerleri için backport gerekir karşılık gelen **kullanıcı** şirket içi Active Directory içindeki nesneleri.
 
     > [!IMPORTANT]
-    > Bu değerleri değil backport bunu yaparsanız, Azure AD Connect varolan öznitelik değerleri Azure AD'de kaldırır. zaman eşitleme için **preferredDataLocation** özniteliği etkindir.
+    > Bu değerlerin değil backport bunu yaparsanız, Azure AD Connect Azure AD'de mevcut öznitelik değerleri kaldırır. zaman eşitleme için **preferredDataLocation** özniteliği etkindir.
 
-* Kaynak özniteliği, en az birkaç şirket içi Active Directory kullanıcı nesneleri üzerinde şimdi yapılandırın. Bunu daha sonra doğrulama için kullanabilirsiniz.
+* Kaynak özniteliği, en az birkaç şirket içi Active Directory kullanıcı nesneleri üzerinde şimdi yapılandırın. Daha sonra doğrulama için bunu kullanabilirsiniz.
 
-Aşağıdaki bölümlerde biri eşitlenmesine olanak tanımak için adımlar sağlar **preferredDataLocation** özniteliği.
+Aşağıdaki bölümlerde, eşitlemesini adımları **preferredDataLocation** özniteliği.
 
 > [!NOTE]
-> Bir Azure AD dağıtımı tek orman topolojisi ile ve özel eşitleme kuralları olmadan bağlamında adımları açıklanmaktadır. Çoklu orman topolojisini varsa, özel eşitleme kuralları yapılandırılmış veya bir hazırlama sunucusunda, adımları uygun şekilde ayarlamanız.
+> Bir Azure AD dağıtım olmadan özel eşitleme kuralları ve tek ormanlı bir topolojiye bağlamında adımları açıklanmaktadır. Çok ormanlı topolojisi varsa, özel bir eşitleme kuralları yapılandırılmış veya bir hazırlama sunucusunda, adımları uygun şekilde ayarlamanız.
 
-## <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>1. adım: Eşitleme Zamanlayıcısı'nı devre dışı bırakın ve devam eden bir eşitleme doğrulayın
-Azure AD dışarı aktarılan istenmeyen değişiklikleri önlemek için eşitleme kuralları güncelleştiriliyor ortasında durumdayken eşitleme yer alan emin olun. Yerleşik Eşitleme Zamanlayıcısı'nı devre dışı bırakmak için:
+## <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>1. adım: eşitleme Zamanlayıcı'yı devre dışı bırak ve devam eden eşitleme olduğunu doğrulayın
+Azure AD'ye dışarı aktarılan istenmeyen değişiklikleri önlemek için eşitleme kuralları güncelleniyor ortasında durumdayken eşitleme yer aldığını emin olun. Yerleşik Eşitleme Zamanlayıcısı'nı devre dışı bırakmak için:
 
-1. Bir PowerShell oturumunda Azure AD Connect bir sunucuda başlatın.
+1. Azure AD Connect sunucusunda bir PowerShell oturumu başlatın.
 2. Bu cmdlet'i çalıştırarak zamanlanmış eşitleme devre dışı bırak: `Set-ADSyncScheduler -SyncCycleEnabled $false`.
-3. Başlat **Eşitleme Hizmeti Yöneticisi'ni** giderek **Başlat** > **eşitleme hizmeti**.
-4. Seçin **Operations** sekmesini tıklatın ve işlem durumundaki yok onaylayın *devam eden*.
+3. Başlangıç **Eşitleme Hizmeti Yöneticisi** giderek **Başlat** > **eşitleme hizmeti**.
+4. Seçin **işlemleri** sekmesini tıklatıp durumundaki işlemi yok onaylayın *sürüyor*.
 
 ![Eşitleme Hizmeti Yöneticisi'nin ekran görüntüsü](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step1.png)
 
-## <a name="step-2-add-the-source-attribute-to-the-on-premises-active-directory-connector-schema"></a>2. adım: kaynak özniteliği şirket içi Active Directory Bağlayıcısı şemasına ekleme
-Tüm Azure AD öznitelikleri şirket içi Active Directory Bağlayıcısı alanına alınır. Varsayılan olarak eşitlenmemiş bir öznitelik kullanmayı seçtiyseniz, bu içeri aktarmanız gerekir. Kaynak özniteliği içeri aktarılan öznitelikleri listesine eklemek için:
+## <a name="step-2-add-the-source-attribute-to-the-on-premises-active-directory-connector-schema"></a>2. adım: kaynak özniteliği şirket içi Active Directory Bağlayıcısı şemasına ekleyin.
+Tüm Azure AD öznitelikleri, şirket içi Active Directory Bağlayıcısı alanına içeri aktarılır. Varsayılan olarak eşitlenmemiş ise bir özniteliği kullanacak şekilde seçtiyseniz, içeri aktarılması gerekir. Kaynak özniteliği içeri aktarılan öznitelikleri listesine eklemek için:
 
-1. Seçin **Bağlayıcılar** sekme Eşitleme Hizmeti Yöneticisi'nde.
-2. Şirket içi Active Directory Bağlayıcısı sağ tıklatın ve seçin **özellikleri**.
-3. Açılan iletişim kutusunda Git **öznitelikleri Seç** sekmesi.
-4. Kullanmak için seçtiğiniz kaynak özniteliği öznitelik listesinde işaretli olduğundan emin olun. Özniteliğinizi görmüyorsanız seçin **Tümünü Göster** onay kutusu.
-5. Kaydetmek için seçin **Tamam**.
+1. Seçin **Bağlayıcılar** Eşitleme Hizmeti Yöneticisi'nde sekmesi.
+2. Şirket içi Active Directory Bağlayıcısı'nı sağ tıklatıp seçin **özellikleri**.
+3. Açılan iletişim kutusuna gidin **öznitelikleri Seç** sekmesi.
+4. Kullanmayı seçtiğiniz kaynak özniteliğinde öznitelik listesinde seçeneğinin işaretli olduğundan emin olun. Özniteliğinizi görmüyorsanız seçin **Tümünü Göster** onay kutusu.
+5. Seçin kaydetmek için **Tamam**.
 
-![Eşitleme Hizmeti Yöneticisi ekran ve özellikleri iletişim kutusu](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step2.png)
+![Eşitleme Hizmeti Yöneticisi ekran görüntüsü ve özellikleri iletişim kutusu](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step2.png)
 
-## <a name="step-3-add-preferreddatalocation-to-the-azure-ad-connector-schema"></a>3. adım: Ekleme **preferredDataLocation** Azure AD Bağlayıcısı şemaya
-Varsayılan olarak, **preferredDataLocation** özniteliği, Azure AD bağlayıcı alanına değil alınır. İçeri aktarılan öznitelikleri listesine eklemek için:
+## <a name="step-3-add-preferreddatalocation-to-the-azure-ad-connector-schema"></a>3. adım: Ekleme **preferredDataLocation** Azure AD Bağlayıcısı şema
+Varsayılan olarak, **preferredDataLocation** özniteliği Azure AD bağlayıcı alanına alınmadı. İçeri aktarılan öznitelikleri listesine eklemek için:
 
-1. Seçin **Bağlayıcılar** sekme Eşitleme Hizmeti Yöneticisi'nde.
+1. Seçin **Bağlayıcılar** Eşitleme Hizmeti Yöneticisi'nde sekmesi.
 2. Azure AD Bağlayıcısı'nı sağ tıklatın ve seçin **özellikleri**.
-3. Açılan iletişim kutusunda Git **öznitelikleri Seç** sekmesi.
+3. Açılan iletişim kutusuna gidin **öznitelikleri Seç** sekmesi.
 4. Seçin **preferredDataLocation** listesindeki özniteliği.
-5. Kaydetmek için seçin **Tamam**.
+5. Seçin kaydetmek için **Tamam**.
 
-![Eşitleme Hizmeti Yöneticisi ekran ve özellikleri iletişim kutusu](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step3.png)
+![Eşitleme Hizmeti Yöneticisi ekran görüntüsü ve özellikleri iletişim kutusu](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step3.png)
 
 ## <a name="step-4-create-an-inbound-synchronization-rule"></a>4. adım: bir gelen eşitleme kuralı oluşturma
 Gelen eşitleme kuralını şirket içi Active Directory'de kaynak özniteliğinden için meta veri akışı için öznitelik değeri verir.
 
-1. Başlat **eşitleme kuralları Düzenleyicisi** giderek **Başlat** > **eşitleme kuralları Düzenleyicisi**.
+1. Başlangıç **eşitleme kuralları Düzenleyicisi** giderek **Başlat** > **eşitleme kuralları Düzenleyicisi**.
 2. Arama filtresi ayarlamak **yönü** olmasını **gelen**.
-3. Yeni bir gelen kuralı oluşturmak için seçin **Yeni Kural Ekle**.
-4. Altında **açıklama** sekmesinde, aşağıdaki yapılandırma sağlayın:
+3. Yeni bir gelen kuralı oluşturmak için Seç **Yeni Kural Ekle**.
+4. Altında **açıklama** sekmesinde, aşağıdaki yapılandırmayı sağlayın:
 
     | Öznitelik | Değer | Ayrıntılar |
     | --- | --- | --- |
-    | Ad | *Bir ad sağlayın* | Örneğin, "içinde AD'den – kullanıcı preferredDataLocation" |
-    | Açıklama | *Özel bir açıklama belirtin* |  |
+    | Ad | *Bir ad sağlayın* | Örneğin, "içinde ad – kullanıcı preferredDataLocation" |
+    | Açıklama | *Özel bir açıklama sağlayın* |  |
     | Bağlı sistem | *Şirket içi Active Directory bağlayıcısını seçin* |  |
-    | Bağlı sistem nesne türü | **Kullanıcı** |  |
+    | Bağlı sistem nesnesi türü | **Kullanıcı** |  |
     | Meta veri deposu nesne türü | **Kişi** |  |
     | Bağlantı türü | **Birleştir** |  |
     | Öncellik | *1-99 arasında bir sayı seçin* | 1-99 özel eşitleme kuralları için ayrılmıştır. Başka bir eşitleme kuralı tarafından kullanılan bir değer seçmesi değil. |
 
-5. Tutmak **Scoping filtre** tüm nesneleri dahil edecek boş. Azure AD Connect dağıtımınızı göre kapsam filtresi ince ayar gerekebilir.
-6. Git **dönüştürme sekmesi**ve aşağıdaki dönüştürme kuralı uygular:
+5. Tutun **Scoping filtre** tüm nesneleri eklemek için boş. Azure AD Connect dağıtımınıza göre kapsam belirleme filtresi ince yapmanız gerekebilir.
+6. Git **dönüştürme sekmesini**ve aşağıdaki dönüştürme kuralı uygulayın:
 
     | Akış türü | Hedef öznitelik | Kaynak | Bir kez Uygula | Birleştirme türü |
     | --- | --- | --- | --- | --- |
-    |Doğrudan | PreferredDataLocation | Kaynak özniteliği seçin | İşaretli | Güncelleştirme |
+    |Doğrudan | preferredDataLocation | Kaynak öznitelik seçin | Denetlenmeyen | Güncelleştirme |
 
-7. Gelen kuralı oluşturmak için seçin **Ekle**.
+7. Gelen kuralı oluşturmak için Seç **Ekle**.
 
-![Gelen eşitleme kuralı, ekran oluşturma](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step4.png)
+![Gelen eşitleme kuralı oluştur ekran görüntüsü](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step4.png)
 
 ## <a name="step-5-create-an-outbound-synchronization-rule"></a>5. adım: bir giden eşitleme kuralı oluşturma
-Giden eşitleme kuralı öznitelik değerini için aramasındaki akış verir **preferredDataLocation** Azure AD özniteliği:
+Giden eşitleme kuralı için aramasındaki akış için öznitelik değeri verir **preferredDataLocation** Azure AD'de öznitelik:
 
 1. Git **eşitleme kuralları Düzenleyicisi**.
 2. Arama filtresi ayarlamak **yönü** olmasını **giden**.
 3. Seçin **Yeni Kural Ekle**.
-4. Altında **açıklama** sekmesinde, aşağıdaki yapılandırma sağlayın:
+4. Altında **açıklama** sekmesinde, aşağıdaki yapılandırmayı sağlayın:
 
     | Öznitelik | Değer | Ayrıntılar |
     | ----- | ------ | --- |
-    | Ad | *Bir ad sağlayın* | Örneğin, "Out Azure AD – kullanıcı preferredDataLocation" |
-    | Açıklama | *Bir açıklama belirtin* ||
-    | Bağlı sistem | *Azure AD Bağlayıcısı seçin* ||
-    | Bağlı sistem nesne türü | **Kullanıcı** ||
+    | Ad | *Bir ad sağlayın* | Örneğin, "Out Azure AD'ye – kullanıcı preferredDataLocation" |
+    | Açıklama | *Bir açıklama sağlayın* ||
+    | Bağlı sistem | *Azure AD Bağlayıcısı'nı seçin* ||
+    | Bağlı sistem nesnesi türü | **Kullanıcı** ||
     | Meta veri deposu nesne türü | **Kişi** ||
     | Bağlantı türü | **Birleştir** ||
     | Öncellik | *1-99 arasında bir sayı seçin* | 1-99 özel eşitleme kuralları için ayrılmıştır. Başka bir eşitleme kuralı tarafından kullanılan bir değer seçmesi değil. |
 
-5. Git **Scoping filtre** sekmesinde ve iki yan tümceleri içeren tek bir kapsam filtresi gruba ekleyin:
+5. Git **Scoping filtre** sekmesini ve iki yan tümceyi ile tek bir kapsam belirleme filtre grubu Ekle:
 
     | Öznitelik | İşleç | Değer |
     | --- | --- | --- |
     | sourceObjectType | EŞİTTİR | Kullanıcı |
     | cloudMastered | EŞİT DEĞİLDİR | True |
 
-    Kapsam Filtresi hangi Azure AD bu giden eşitleme kuralının uygulandığı nesneleri belirler. Bu örnekte, "Dışı" AD – kullanıcı kimliği için aynı kapsam filtresinden kullanırız OOB (out-of-box) eşitleme kuralı. İçin uygulanan eşitleme kuralı engeller **kullanıcı** şirket içi Active Directory'den eşitlenmez nesneleri. Azure AD Connect dağıtımınızı göre kapsam filtresi ince ayar gerekebilir.
+    Kapsam belirleme filtresi, hangi Azure AD giden eşitleme kuralının uygulanacağı nesneleri belirler. Bu örnekte, "Out AD – kullanıcı kimliği için" aynı kapsam belirleme filtresi kullandığımız OOB (kullanıma hazır) eşitleme kuralı. Eşitleme kuralı için uygulanmasını önleyen **kullanıcı** şirket içi Active Directory'nizden eşitlenen olmayan nesneler. Azure AD Connect dağıtımınıza göre kapsam belirleme filtresi ince yapmanız gerekebilir.
 
-6. Git **dönüştürme** sekmesini tıklatın ve aşağıdaki dönüştürme kuralı uygulayın:
+6. Git **dönüştürme** sekmesini tıklatıp şu dönüştürme kuralı uygulayın:
 
     | Akış türü | Hedef öznitelik | Kaynak | Bir kez Uygula | Birleştirme türü |
     | --- | --- | --- | --- | --- |
-    | Doğrudan | PreferredDataLocation | PreferredDataLocation | İşaretli | Güncelleştirme |
+    | Doğrudan | preferredDataLocation | preferredDataLocation | Denetlenmeyen | Güncelleştirme |
 
 7. Kapat **Ekle** giden kuralı oluşturmak için.
 
-![Giden eşitleme kuralı, ekran görüntüsü oluştur](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step5.png)
+![Giden eşitleme kuralı oluştur ekran görüntüsü](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-step5.png)
 
 ## <a name="step-6-run-full-synchronization-cycle"></a>6. adım: Tam eşitleme döngüsü çalıştırın
-Genel olarak, tam eşitleme döngüsü gereklidir. Active Directory ve Azure AD Bağlayıcısı şema için yeni öznitelikler eklenir ve özel eşitleme kuralları sunulan olmasıdır. Azure AD dışarı aktarmadan önce bu değişiklikleri doğrularsınız. Bir tam eşitleme döngüsü yapmak adımları el ile çalışırken değişiklikleri doğrulamak için aşağıdaki adımları kullanın.
+Genel olarak, tam eşitleme döngüsü gereklidir. Active Directory ve Azure AD Bağlayıcısı şema için yeni özellikler eklendi ve özel eşitleme kuralları sunulan olmasıdır. Değişiklikler Azure AD'ye dışarı aktarmadan önce doğrulayın. El ile yaptığınız bir tam eşitleme döngüsü adımları çalıştırırken, değişiklikleri doğrulamak için aşağıdaki adımları kullanabilirsiniz.
 
-1. Çalıştırma **tam alma** şirket içi Active Directory Bağlayıcısı üzerinde:
+1. Çalıştırma **tam içeri aktarma** üzerinde şirket içi Active Directory Bağlayıcısı:
 
-   1. Git **Operations** sekme Eşitleme Hizmeti Yöneticisi'nde.
-   2. Sağ **şirket içi Active Directory Bağlayıcısı**seçip **çalıştırmak**.
+   1. Git **işlemleri** Eşitleme Hizmeti Yöneticisi'nde sekmesi.
+   2. Sağ **şirket içi Active Directory Bağlayıcısı**seçip **çalıştırma**.
    3. İletişim kutusunda **tam içeri aktarma**seçip **Tamam**.
    4. İşlemin tamamlanmasını bekleyin.
 
     > [!NOTE]
-    > Kaynak özniteliği zaten içe aktarılmış öznitelikleri listesinde yer alıyorsa, şirket içi Active Directory Bağlayıcısı üzerinde tam içeri aktarma atlayabilirsiniz. Diğer bir deyişle, bu makalenin 2 adımı sırasında herhangi bir değişiklik yapmak yoktu.
+    > Kaynak özniteliği zaten içeri aktarılan öznitelikler listesinde yer alıyorsa, şirket içi Active Directory Bağlayıcısı üzerinde tam içeri aktarma atlayabilirsiniz. Diğer bir deyişle, bu makalenin önceki kısımlarında adımı 2 sırasında herhangi bir değişiklik yapmak yoktu.
 
-2. Çalıştırma **tam alma** Azure AD Bağlayıcısı üzerinde:
+2. Çalıştırma **tam içeri aktarma** Azure AD Bağlayıcısı üzerinde:
 
-   1. Sağ **Azure AD Bağlayıcısı**seçip **çalıştırmak**.
+   1. Sağ **Azure AD Bağlayıcısı**seçip **çalıştırma**.
    2. İletişim kutusunda **tam içeri aktarma**seçip **Tamam**.
    3. İşlemin tamamlanmasını bekleyin.
 
-3. Var olan üzerinde eşitleme kuralı değişiklikleri doğrulamak **kullanıcı** nesnesi.
+3. Var olan bir eşitleme kuralı değişiklikleri doğrulamak **kullanıcı** nesne.
 
-   Şirket içi Active Directory'den kaynak özniteliği ve **preferredDataLocation** Azure AD'den her ilgili bağlayıcı alanına alındı. Tam eşitleme adımla devam etmeden önce var olan üzerinde önizlemesini yapın **kullanıcı** şirket içi Active Directory Bağlayıcısı alan nesne. Seçtiğiniz nesne doldurulmuş kaynak özniteliği olmalıdır. Başarılı bir önizleme ile **preferredDataLocation** meta veri deposunda eşitleme yapılandırdığınız iyi bir gösterge kuralları doğru şekilde doldurulur. Önizleme yapma hakkında daha fazla bilgi için bkz: [değişikliği doğrulayın](active-directory-aadconnectsync-change-the-configuration.md#verify-the-change).
+   Şirket içi Active Directory'den kaynak özniteliği ve **preferredDataLocation** Azure AD'den her ilgili bağlayıcı alanına içeri aktarıldığından. Tam eşitleme adımına devam etmeden önce var olan bir önizlemesini yapın **kullanıcı** şirket içi Active Directory Bağlayıcısı alanına nesnesi. Seçtiğiniz nesne doldurulmuş kaynak özniteliğine sahip olmamalıdır. İle başarılı bir önizleme **preferredDataLocation** meta veri deposunda eşitlemenin yapılandırdığınız iyi bir göstergesi kuralları doğru şekilde doldurulur. Bir önizleme yapma hakkında daha fazla bilgi için bkz. [değişikliği doğrulayın](active-directory-aadconnectsync-change-the-configuration.md#verify-the-change).
 
-4. Çalıştırma **tam eşitleme** şirket içi Active Directory Bağlayıcısı üzerinde:
+4. Çalıştırma **tam eşitleme** üzerinde şirket içi Active Directory Bağlayıcısı:
 
-   1. Sağ **şirket içi Active Directory Bağlayıcısı**seçip **çalıştırmak**.
+   1. Sağ **şirket içi Active Directory Bağlayıcısı**seçip **çalıştırma**.
    2. İletişim kutusunda **tam eşitleme**seçip **Tamam**.
    3. İşlemin tamamlanmasını bekleyin.
 
-5. Doğrulama **bekleyen dışarı aktarmaların** Azure ad:
+5. Doğrulama **bekleyen dışarı aktarmaların** Azure AD'ye:
 
    1. Sağ **Azure AD Bağlayıcısı**seçip **arama bağlayıcı alanı**.
    2. İçinde **arama bağlayıcı alanı** iletişim kutusunda:
 
-        a. Ayarlama **kapsam** için **dışa aktarma bekleyen**.<br>
-        b. Tüm üç onay dahil olmak üzere kutularını seçin **ekleme, değiştirme ve silme**.<br>
-        c. Nesneleri dışarı değişikliklerle listesini görüntülemek için seçin **arama**. Belirli nesne değişiklikleri incelemek için nesne çift tıklayın.<br>
-        d. Değişiklikleri beklenir doğrulayın.
+        a. Ayarlama **kapsam** için **bekleyen dışa aktarım**.<br>
+        b. Tüm üç onay kutusunu da dahil olmak üzere, işaretleyin **eklemek, değiştirmek ve silmek**.<br>
+        c. Nesneleri dışarı değişikliklerle listesini görüntülemek için seçin **arama**. Belirli bir nesne için değişiklikleri incelemek için nesneyi çift tıklayın.<br>
+        d. Değişiklikleri beklendiğini doğrulayın.
 
-6. Çalıştırma **verme** üzerinde **Azure AD Bağlayıcısı**
+6. Çalıştırma **dışarı** üzerinde **Azure AD Bağlayıcısı**
 
-   1. Sağ **Azure AD Bağlayıcısı**seçip **çalıştırmak**.
-   2. İçinde **çalıştırmak bağlayıcı** iletişim kutusunda **verme**seçip **Tamam**.
+   1. Sağ **Azure AD Bağlayıcısı**seçip **çalıştırma**.
+   2. İçinde **çalıştırma bağlayıcı** iletişim kutusunda **dışarı**seçip **Tamam**.
    3. İşlemin tamamlanmasını bekleyin.
 
 > [!NOTE]
-> Adımları Azure AD Bağlayıcısı üzerinde tam eşitleme adım veya Active Directory Bağlayıcısı verme adımla eklemeyin fark edebilirsiniz. Öznitelik değerleri yalnızca Azure AD ile şirket içi Active Directory'den akmaktadır çünkü adımlar gerekli değildir.
+> Adımları Azure AD Bağlayıcısı üzerinde tam eşitleme adım ve dışarı aktarma adımında Active Directory Bağlayıcısı içermediğini fark edebilirsiniz. Öznitelik değerleri yalnızca Azure AD ile şirket içi Active Directory'den akışa çünkü adımlar gerekli değildir.
 
 ## <a name="step-7-re-enable-sync-scheduler"></a>7. adım: Eşitleme Zamanlayıcısı'nı yeniden etkinleştirin
 Yerleşik Eşitleme Zamanlayıcısı'nı yeniden etkinleştirin:
 
 1. Bir PowerShell oturumu başlatın.
-2. Zamanlanan eşitleme Bu cmdlet'i çalıştırarak yeniden etkinleştirin: `Set-ADSyncScheduler -SyncCycleEnabled $true`
+2. Zamanlanan eşitleme şu cmdlet'i çalıştırarak yeniden etkinleştirin: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
-## <a name="step-8-verify-the-result"></a>8. adım: sonucu doğrulayın
-Şimdi yapılandırmasını doğrulayın ve kullanıcılarınız için etkinleştirme zamanı gelmiş demektir.
+## <a name="step-8-verify-the-result"></a>8. adım: doğrulama sonucu
+Bu, artık yapılandırmasını doğrulayın ve kullanıcılarınız için etkinleştirme zamanı geldi.
 
-1. Bir kullanıcı seçili öznitelik için coğrafi ekleyin. Kullanılabilir geos listesi bulunabilir [Bu tablo](#enable-synchronization-of-preferreddatalocation).  
-![Bir kullanıcı için eklenen AD özniteliğinin ekran görüntüsü](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
+1. Coğrafi bir kullanıcı seçili özniteliğini ekleyin. Hizmetin kullanılabildiği coğrafyalar listesini bulunabilir [bu tabloda](#enable-synchronization-of-preferreddatalocation).  
+![Ekran görüntüsü AD özniteliği için bir kullanıcı eklendi](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
 2. Azure AD ile eşitlenecek öznitelik bekleyin.
-3. Exchange Online PowerShell kullanarak, posta kutusu bölge doğru ayarlandığını doğrulayın.  
+3. Exchange Online PowerShell kullanarak, posta kutusu bölgesi doğru şekilde ayarlandığını doğrulayın.  
 ![Exchange Online PowerShell ekran görüntüsü](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  
-Kiracı bu özelliği kullanabilmek için işaretlenmiş varsayıldığında, posta kutusu doğru coğrafi taşınır. Bu, posta kutusu bulunduğu sunucu adına bakarak doğrulanabilir.
-4. Bu ayar çok sayıda posta kutusunu etkin olduğunu doğrulamak için komut dosyasındaki kullanın [TechNet Galerisi](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Bu komut dosyası ayrıca tüm Office 365 veri merkezleri sunucu önekleri listesini içeren ve hangi coğrafi bulunduğu içinde. Bu önceki adımda bir başvuru olarak posta kutusunun konumunu doğrulamak için kullanılabilir.
+Kiracınızda bu özelliği kullanabilmek için işaretlenmiş olduğundan varsayıldığında, posta kutusu için doğru coğrafi taşınır. Bu posta kutusu bulunduğu sunucu adına bakarak doğrulanabilir.
+4. Bu ayar birçok posta etkin olduğunu doğrulamak için komut dosyasını kullanın. [TechNet Galerisi](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Bu betik, ayrıca tüm Office 365 veri merkezi sunucusu önekleri listesini sahiptir ve hangi coğrafi bulunduğu içinde. Bu önceki adımda bir başvuru olarak posta kutusunun konumunu doğrulamak için kullanılabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Office 365'te birden çok coğrafi hakkında daha fazla bilgi edinin:
+Office 365'te çoklu coğrafi hakkında daha fazla bilgi edinin:
 
-* [Birden çok coğrafi oturumların Ignite](https://aka.ms/MultiGeoIgnite)
-* [Birden çok coğrafi onedrive'da](https://aka.ms/OneDriveMultiGeo)
-* [SharePoint Online çoklu coğrafi](https://aka.ms/SharePointMultiGeo)
+* [Ignite çoklu coğrafi oturumları](https://aka.ms/MultiGeoIgnite)
+* [Çoklu coğrafi onedrive](https://aka.ms/OneDriveMultiGeo)
+* [SharePoint Online'daki çoklu coğrafi](https://aka.ms/SharePointMultiGeo)
 
-Eşitleme altyapısı yapılandırma modelleri hakkında daha fazla bilgi edinin:
+Eşitleme altyapısı yapılandırma modeli hakkında daha fazla bilgi edinin:
 
-* Yapılandırma modeli hakkında daha fazla bilgiyi [anlama bildirim temelli hazırlama](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
-* İfade dili hakkında daha fazla bilgiyi [anlama bildirim temelli hazırlama ifadelerini](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+* Yapılandırma modeli hakkında daha fazla bilgiyi [anlama bildirim temelli sağlama](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+* İfade dili, hakkında daha fazla bilgiyi [bildirim temelli sağlama ifadelerini anlama](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 
 Genel bakış konuları:
 

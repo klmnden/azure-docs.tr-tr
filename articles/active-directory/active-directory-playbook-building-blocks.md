@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 3ae2e883e3e27adc167b7e831ca53d3cd1572257
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 4618c8a0298afdac28e7511e9521cf1e26238734
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42056928"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189047"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook prova: yapı taşları
 
@@ -480,7 +480,7 @@ Yaklaşık tamamlama süresi: 15 dakika
 | Oturum açma https://portal.azure.com bir genel yönetici (GA) ve önyükleme PIM dikey olarak. Bu adımı gerçekleştirir genel yönetici güvenlik yöneticisi olarak sağlanmış.  Bu aktör GA1 adlandıralım | [İçinde Azure AD Privileged Identity Management Güvenlik Sihirbazı'nı kullanarak](privileged-identity-management/pim-security-wizard.md) |
 | Genel yönetici tanımlamak ve kalıcı uygun şekilde taşıyın. Bu, 1. adımda daha anlaşılır olması için kullanılan hesaptan farklı bir yönetici olmanız gerekir. Bu aktör GA2 adlandıralım | [Azure AD Privileged Identity Management: nasıl kullanıcı rolü ekleme veya kaldırma](privileged-identity-management/pim-how-to-add-role-to-user.md)<br/>[Azure AD Privileged Identity Management nedir?: rol etkinleştirme ayarlarını yapılandırma](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)  |
 | Şimdi, oturum için GA2 olarak https://portal.azure.com ve "Kullanıcı ayarları" değiştirmeyi deneyin. Bazı seçenekler gri unutmayın. | |
-| Şimdi gidin yeni bir sekmede ve 3. adım ile aynı oturumda https://portal.azure.com ve PIM dikey pencereyi panoya ekleyin. | [Etkinleştirmek veya Azure AD Privileged Identity Management içinde rol devre dışı bırakma: Privileged Identity Management uygulamasını ekleme](privileged-identity-management/pim-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| Şimdi gidin yeni bir sekmede ve 3. adım ile aynı oturumda https://portal.azure.com ve PIM dikey pencereyi panoya ekleyin. | [PIM kullanmaya başlayın](privileged-identity-management/pim-getting-started.md) |
 | Genel yönetici rolü etkinleştirme isteği | [Nasıl etkinleştirme veya devre dışı rolleri Azure AD Privileged Identity Management: rol etkinleştirme](privileged-identity-management/pim-how-to-activate-role.md#activate-a-role) |
 | GA2 hiçbir zaman MFA için kaydolduysanız, kayıt için Azure mfa'yı gerekli olduğunu unutmayın |  |
 | Adım 3'teki özgün sekmesine geri dönün ve tarayıcıyı yenile düğmesine tıklayın. Artık "kullanıcı ayarları" erişiminiz olduğunu unutmayın. | |

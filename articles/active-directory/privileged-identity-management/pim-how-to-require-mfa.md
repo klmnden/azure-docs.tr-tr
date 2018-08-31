@@ -1,6 +1,6 @@
 ---
-title: Çok faktörlü kimlik doğrulaması isteme | Microsoft Docs
-description: Azure Active Directory Privileged Identity Management uzantısı ile ayrıcalıklı kimlikleri için çok faktörlü kimlik doğrulaması (MFA) gerektirme öğrenin.
+title: Azure AD dizin rollerini PIM için çok faktörlü kimlik doğrulaması gerektiren | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM), Azure AD Dizin rolleri için çok faktörlü kimlik doğrulaması (MFA) gerekli öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8e1c0fa212b31c05fcc4559f9f8d42b627f0da0e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9777a7d2ed07ea2edf4bea661a5065c808de9f2b
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622856"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188362"
 ---
-# <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management MFA gerektirme
+# <a name="require-multi-factor-authentication-for-azure-ad-directory-roles-in-pim"></a>Azure AD dizin rollerini PIM için çok faktörlü kimlik doğrulaması gerektir
 Çok faktörlü kimlik doğrulaması (MFA) tüm yöneticiler için ihtiyacınız olan öneririz. Bu, gizliliği bozulan parola nedeniyle bir saldırı riskini azaltır.
 
 Kullanıcılar oturum açtığında MFA testini tamamlamanız gerektirebilir. Blog gönderisinde [Office 365 ve Azure MFA için mfa'yı](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/) Office ve Azure abonelikleri Microsoft Azure multi-Factor Authentication teklifinde yer alan özelliklerle eklenir karşılaştırır.
@@ -46,5 +46,6 @@ Alternatif olarak, kullanıcılar şirket içi kimlik doğrulaması, kimlik sağ
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Sonraki adımlar
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
 
+- [PIM'de Azure AD dizini rol ayarlarını yapılandırma](pim-how-to-change-default-settings.md)
+- [Azure AD Dizin rolleri için güvenlik uyarıları PIM'de yapılandırın](pim-how-to-configure-security-alerts.md)

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5f2674aeb83fbb7679d9d0c2574a93484a352e9d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 180f1a39b92dd699fa114cb98a5842b0ab0dc89a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40162226"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190547"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Veri Toplayıcı API'si ile veri işlem hattı oluşturma
 
@@ -42,7 +42,7 @@ Bizim ardışık düzen tasarlamak için bir Klasik ETL türü mantıksal kullan
 
 Bu makalede veri oluşturma kapsamaz veya [bir Azure Blob Depolama hesabına yükleme](../storage/blobs/storage-upload-process-images.md). Yeni bir dosya için blob karşıya yüklendikten hemen sonra bunun yerine, biz akışı değiştirebilmenizdir. Buradan:
 
-1. İşlem, yeni verilerin yüklendiğini algılar.  Örneğimizde kullanan bir [Azure Logic App](../logic-apps/logic-apps-overview.md), kullanılabilir olan yeni veriler bir blob olarak karşıya yüklenen algılamak için bir tetikleyici.
+1. İşlem, yeni verilerin yüklendiğini algılar.  Örneğimizde bir [Azure Logic App](../logic-apps/logic-apps-overview.md), kullanılabilir olan yeni veriler bir blob olarak karşıya yüklenen algılamak için bir tetikleyici.
 
 2. Bir işlemci bu yeni verileri okur ve JSON, Log Analytics tarafından gereken biçime dönüştürür.  Bu örnekte bir [Azure işlevi](../azure-functions/functions-overview.md) işleme kodumuz yürütmenin basit ve ekonomik bir yolu olarak. İşlev algılamak için kullandığımız aynı mantıksal uygulama tarafından başlatılır yeni bir veri.
 

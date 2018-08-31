@@ -3,19 +3,19 @@ title: Elastik sorgu - erişim verileri Azure SQL veritabanından Azure SQL veri
 description: Azure SQL veritabanından Azure SQL veri ambarı'nda verilere erişme elastik sorgu kullanarak en iyi yöntemleri öğrenin.
 services: sql-data-warehouse
 author: hirokib
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: 344cb1bed56b0b6af7bd3704f8674ae30695f885
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: fcc3fd39f9ea4de64faa3a53af98ff9909dc32f3
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42061090"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247962"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda verilere erişmek, Azure SQL veritabanı'nda esnek sorgu kullanmak için en iyi uygulamalar
 Azure SQL veritabanından Azure SQL veri ambarı'nda verilere erişme elastik sorgu kullanarak en iyi yöntemleri öğrenin. 

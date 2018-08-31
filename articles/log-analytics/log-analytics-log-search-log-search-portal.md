@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: e97bab36a9a1a18cab1d45abfa451139323b2320
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 532df20a7639f42d8ba1c840a5fd19f0ad0e4042
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057746"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246342"
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Günlük araması portalını kullanarak Azure Log Analytics günlük aramalarının oluşturulması
 
@@ -38,9 +38,8 @@ Günlük Araması portalını açarak işleme başlayın.
 
 1. Azure portalı açın.
 2. Log Analytics'e gidip çalışma alanınızı seçin.
-3. Seçin **günlük arama**.
+3. **Günlükler**’i seçin.
 
-![Günlük araması düğmesi](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 
 ## <a name="create-a-simple-search"></a>Basit bir arama oluşturma
 Üzerinde çalışılacak bazı verileri almanın en hızlı yolu, tablodaki tüm kayıtları döndüren basit bir sorgudur.  Çalışma alanınıza bağlı Windows veya Linux istemcileriniz varsa Olay (Windows) veya Syslog (Linux) tablosunda verileriniz olur.

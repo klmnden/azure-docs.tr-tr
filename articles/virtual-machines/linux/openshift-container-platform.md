@@ -1,6 +1,6 @@
 ---
-title: Azure'da OpenShift kapsayıcı Platform dağıtma | Microsoft Docs
-description: Azure'da OpenShift kapsayıcı Platform dağıtın.
+title: Azure'da OpenShift kapsayıcı platformu dağıtma | Microsoft Docs
+description: Azure'da OpenShift kapsayıcı platformu dağıtın.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
@@ -15,40 +15,40 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: f1ba6a3d3b9e576d513b55beac4e9365102433e9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a275df4567053149688694315ff24ac1ad7f711f
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29125750"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186923"
 ---
-# <a name="deploy-openshift-container-platform-in-azure"></a>Azure'da OpenShift kapsayıcı Platform dağıtma
+# <a name="deploy-openshift-container-platform-in-azure"></a>Azure'da OpenShift kapsayıcı platformu dağıtma
 
-OpenShift kapsayıcı Platform azure'da dağıtmak için birkaç yöntemden birini kullanabilirsiniz:
+Azure'da OpenShift kapsayıcı platformu dağıtmak için birkaç yöntemden birini kullanabilirsiniz:
 
-- El ile gerekli Azure altyapı bileşenlerini dağıtmak ve OpenShift kapsayıcı Platform izleyin [belgelerine](https://docs.openshift.com/container-platform/3.6/welcome/index.html).
-- Var olan de kullanabilirsiniz [Resource Manager şablonu](https://github.com/Microsoft/openshift-container-platform/) OpenShift kapsayıcı Platform Küme dağıtımı basitleştirir.
-- Başka bir seçenek kullanmaktır [Azure Marketi teklifi](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
+- Gerekli Azure altyapı bileşenlerini el ile dağıtın ve ardından OpenShift kapsayıcı platformu izleyin [belgeleri](https://docs.openshift.com/container-platform/3.10/welcome/index.html).
+- Mevcut bir kullanabilirsiniz [Resource Manager şablonu](https://github.com/Microsoft/openshift-container-platform/) , OpenShift kapsayıcı platformu küme dağıtımını basitleştirir.
+- Başka bir seçenek kullanmaktır [Azure Marketi'nde teklif](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
-Tüm seçenekleri için bir Red Hat aboneliği gereklidir. Dağıtım sırasında Red Hat Enterprise Linux örnek Red Hat abonelik için kaydedilmiş ve OpenShift kapsayıcı Platform için yetkilendirmeleri içeren havuz Kimliğini eklenir.
-Geçerli Red Hat Abonelik Yöneticisi (RHSM) kullanıcı adı, parola ve Havuz kimliği olduğundan emin olun Oturum açarak https://access.redhat.com için bu bilgileri doğrulayabilirsiniz.
+Red Hat aboneliklerini tüm seçenekler için gereklidir. Dağıtım sırasında Red Hat Enterprise Linux örneği Red Hat aboneliğe kayıtlı ve OpenShift kapsayıcı platformu için yetkilendirmeleri içeren havuzu kimliğine bağlı.
+Geçerli Red Hat Abonelik Yöneticisi (RHSM) kullanıcı adı, parola ve havuzu kimliği olduğundan emin olun Oturum açarak bu bilgileri doğrulayabilirsiniz https://access.redhat.com.
 
-## <a name="deploy-by-using-the-openshift-container-platform-resource-manager-template"></a>OpenShift kapsayıcı Platform Resource Manager şablonu kullanarak dağıtın
+## <a name="deploy-by-using-the-openshift-container-platform-resource-manager-template"></a>OpenShift kapsayıcı platformu Resource Manager şablonu kullanarak dağıtın
 
-Resource Manager şablonu kullanarak dağıtmak için giriş parametreleri sağlamak için bir parametre dosyası kullanın. Giriş parametreleri kullanarak kapsanmayan dağıtım öğeleri özelleştirmek için GitHub depo çatallaştırma ve uygun öğeleri değiştirin.
+Resource Manager şablonu kullanarak dağıtmak için giriş parametreleri sağlamak için bir parametre dosyası kullanın. Giriş parametreleri kullanarak kapsamında değildir dağıtım öğeleri özelleştirmek için GitHub depo çatalını oluşturmanız ve uygun öğeleri değiştirin.
 
-Bazı yaygın özelleştirme seçenekleri dahil ancak bunlarla sınırlı değildir:
+Bazı ortak özelleştirme seçenekleri dahil ancak bunlarla sınırlı değildir:
 
-- Sanal ağ CIDR (azuredeploy.json değişkeninde)
+- Sanal ağın CIDR (azuredeploy.json değişkeninde)
 - Savunma VM boyutu (azuredeploy.json değişkeninde)
-- Adlandırma kuralları (azuredeploy.json değişkenler)
-- Hosts dosyasını (deployOpenShift.sh) OpenShift küme özelliklerini değiştirdi
+- Adlandırma kuralları (azuredeploy.json değişkenlerinde)
+- OpenShift küme özellikleri, hosts dosyasını (deployOpenShift.sh) değiştirme
 
-### <a name="configure-the-parameters-file"></a>Parametre dosyasını yapılandırma
+### <a name="configure-the-parameters-file"></a>Parametre dosyasını yapılandırın
 
-Kullanım `appId` daha önce oluşturduğunuz için hizmet sorumlusu değerinden `aadClientId` parametresi. 
+Kullanım `appId` değerinden daha önce oluşturduğunuz için hizmet sorumlusu `aadClientId` parametresi. 
 
-Aşağıdaki örnek, gerekli tüm girişleri ile azuredeploy.parameters.json adlı bir parametre dosyası oluşturur.
+Aşağıdaki örnek, tüm gerekli girişleri ile azuredeploy.parameters.json adlı bir parametre dosyası oluşturur.
 
 ```json
 {
@@ -134,14 +134,14 @@ Aşağıdaki örnek, gerekli tüm girişleri ile azuredeploy.parameters.json adl
 }
 ```
 
-Köşeli ayraçlar, belirli bilgilerle içine öğeleri değiştirin.
+Özel bilgileri ile köşeli ayraçlar içine öğeleri değiştirin.
 
 ### <a name="deploy-by-using-azure-cli"></a>Azure CLI kullanarak dağıtma
 
 > [!NOTE] 
-> Aşağıdaki komutu Azure CLI 2.0.8 gerektirir veya sonraki bir sürümü. CLI sürümüyle doğrulayabilirsiniz `az --version` komutu. CLI Sürüm güncelleştirmek için bkz: [Azure CLI 2.0 yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
+> Aşağıdaki komut, Azure CLI'yı 2.0.8 gerektirir veya üzeri. CLI sürümü ile doğrulayabilirsiniz `az --version` komutu. CLI sürümünü güncelleştirmek için bkz: [Azure CLI 2.0 yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
 
-Aşağıdaki örnek, myResourceGroup, myOpenShiftCluster dağıtım adı ile adlı bir kaynak grubuna OpenShift küme ve tüm ilgili kaynaklar dağıtır. Şablon doğrudan GitHub depo ve azuredeploy.parameters.json dosya adlı dosya kullanılan yerel bir parametreler başvuruluyor.
+Aşağıdaki örnek, OpenShift kümeyi ve tüm ilgili kaynakları myOpenShiftCluster ile bir dağıtım adı myResourceGroup, adlı bir kaynak grubuna dağıtır. Şablon, doğrudan GitHub deposunu ve adlı azuredeploy.parameters.json dosyasının dosya kullanılan yerel bir parametre olarak başvuruluyor.
 
 ```azurecli 
 az group deployment create -g myResourceGroup --name myOpenShiftCluster \
@@ -149,7 +149,7 @@ az group deployment create -g myResourceGroup --name myOpenShiftCluster \
       --parameters @./azuredeploy.parameters.json
 ```
 
-Dağıtım, dağıtılan düğümleri toplam sayısına bağlı olarak tamamlamak için en az 30 dakika sürer. OpenShift konsolu ve dağıtım sona erdiğinde terminale OpenShift ana baskı siparişi DNS adını URL'si.
+Dağıtımın tamamlanması toplam dağıtılan düğüm sayısına bağlı olarak en az 30 dakika sürer. OpenShift konsol OpenShift ana yazdırır dağıtım tamamlandığında terminal için DNS adı ve URL.
 
 ```json
 {
@@ -158,21 +158,21 @@ Dağıtım, dağıtılan düğümleri toplam sayısına bağlı olarak tamamlama
 }
 ```
 
-## <a name="deploy-by-using-the-openshift-container-platform-azure-marketplace-offer"></a>OpenShift kapsayıcı Platform Azure Marketi teklifi kullanarak dağıtma
+## <a name="deploy-by-using-the-openshift-container-platform-azure-marketplace-offer"></a>OpenShift kapsayıcı platformu Azure Marketi'nde teklif kullanarak dağıtma
 
-OpenShift kapsayıcı Platform Azure'a dağıtmak için en basit yolu kullanmaktır [Azure Marketi teklifi](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
+OpenShift kapsayıcı platformu Azure'a dağıtmak için en basit yolu kullanmaktır [Azure Marketi'nde teklif](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
-En basit seçenek budur ancak özelleştirme yeteneği sınırlıdır. Teklif üç yapılandırma seçenekleri içerir:
+En basit seçenek budur ancak özelleştirme özellikleri sınırlıdır. Bu teklif, üç yapılandırma seçenekleri içerir:
 
-- **Küçük**: bir yönetici düğümü, bir altyapı düğümü, iki uygulama düğümleri ve bir savunma düğüm yüksek olmayan kullanılabilirlik (HA) kümeyle dağıtır. Tüm düğümler, yalnızca standart DS2v2 VM boyutlarıdır. Bu küme 10 toplam çekirdek gerektirir ve küçük ölçekli sınamak için idealdir.
-- **Orta**: üç ana düğüm, iki altyapı düğüm, dört uygulama düğümleri ve bir savunma düğüm HA kümeyle dağıtır. Savunma düğüm dışındaki tüm düğümleri standart DS3v2 VM boyutlarıdır. Standart DS2v2 savunma düğümdür. Bu küme 38 çekirdek gerektirir.
-- **Büyük**: üç ana düğüm, iki altyapı düğümleri, altı uygulama düğümleri ve bir savunma düğüm HA kümeyle dağıtır. Ana ve altyapı düğümleri standart DS3v2 VM boyutlarıdır. Uygulama düğümleri standart DS4v2 VM boyutları olan ve standart DS2v2 savunma düğümdür. Bu küme 70 çekirdek gerektirir.
+- **Küçük**: bir ana düğüm, altyapı bir düğümü, iki uygulama düğümü ve bir savunma düğümü ile yüksek olmayan kullanılabilirlik (HA) küme dağıtır. Tüm düğümleri olan standart DS2v2 VM boyutları. Bu küme, 10 toplam çekirdek gerektirir ve küçük ölçekli sınamak için idealdir.
+- **Orta**: üç ana düğüm, iki altyapı düğüm, dört uygulama düğüm ve bir savunma düğümü ile bir HA kümesi dağıtır. Savunma düğüm dışındaki tüm düğümleri olan standart DS3v2 VM boyutları. Standart DS2v2 savunma düğümüdür. Bu küme 38 çekirdek gerektirir.
+- **Büyük**: üç ana düğüm, iki altyapı düğümleri, altı uygulama düğümleri ve bir savunma düğümü ile bir HA kümesi dağıtır. Ana ve altyapı düğümleri olan standart DS3v2 VM boyutları. Uygulama düğümleri olan standart DS4v2 VM boyutları ve standart DS2v2 savunma düğümüdür. Bu küme 70 çekirdek gereklidir.
 
-Azure bulut çözümü sağlayıcısı yapılandırmasını Orta ve büyük küme boyutlarını isteğe bağlıdır. Küçük küme boyutu Azure bulut çözümü sağlayıcısı yapılandırma seçeneği sağlamaz.
+Azure bulut çözümü sağlayıcısı yapılandırmasını, Orta ve büyük bir küme boyutlarını için isteğe bağlıdır. Küçük bir küme boyutu, Azure bulut çözümü sağlayıcısı yapılandırma seçeneği sağlamaz.
 
-## <a name="connect-to-the-openshift-cluster"></a>OpenShift kümeye bağlanın
+## <a name="connect-to-the-openshift-cluster"></a>OpenShift kümeye bağlanma
 
-Dağıtım tamamlandığında tarayıcınızla OpenShift Konsolu'na kullanarak bağlanmak `OpenShift Console Uri`. Alternatif olarak, aşağıdaki komutu kullanarak OpenShift asıl bağlanabilir:
+Dağıtım tamamlandığında OpenShift konsoluyla birlikte tarayıcınızı kullanarak bağlanmak `OpenShift Console Uri`. Alternatif olarak, aşağıdaki komutu kullanarak OpenShift ana bağlanabilir:
 
 ```bash
 $ ssh clusteradmin@myopenshiftmaster.cloudapp.azure.com -p 2200
@@ -180,7 +180,7 @@ $ ssh clusteradmin@myopenshiftmaster.cloudapp.azure.com -p 2200
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Kullanım [az grubu Sil](/cli/azure/group#az_group_delete) OpenShift küme, kaynak grubu kaldırmak için komut ve artık gerekmediğinde tüm ilgili kaynaklar.
+Kullanım [az grubu Sil](/cli/azure/group#az_group_delete) komutunu kullanarak kaynak grubunu, OpenShift küme kaldırmak için ve artık gerekmediğinde tüm ilgili kaynakları.
 
 ```azurecli 
 az group delete --name myResourceGroup
@@ -189,5 +189,5 @@ az group delete --name myResourceGroup
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Dağıtım sonrası görevler](./openshift-post-deployment.md)
-- [Azure'da OpenShift dağıtım sorunlarını gider](./openshift-troubleshooting.md)
-- [OpenShift kapsayıcı Platform ile çalışmaya başlama](https://docs.openshift.com/container-platform/3.6/getting_started/index.html)
+- [Azure'da OpenShift dağıtım sorunlarını giderme](./openshift-troubleshooting.md)
+- [OpenShift kapsayıcı platformu ile çalışmaya başlama](https://docs.openshift.com/container-platform/3.6/getting_started/index.html)

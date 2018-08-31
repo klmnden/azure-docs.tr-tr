@@ -1,26 +1,18 @@
 ---
 title: Azure IoT önceden yapılandırılmış çözümleri | Microsoft Docs
 description: Azure IoT önceden yapılandırılmış çözümlerin ve ek kaynaklara bağlantısı olan mimarisinin bir açıklaması.
-services: ''
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
-manager: timlt
-editor: ''
-ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-suite
+ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: d860c768a73737e6c8c52a8652d6b43434a3a07d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.openlocfilehash: 9642bfb8bb6b2e6d63082ff8287c1d5b31bbaefa
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361997"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43191171"
 ---
 # <a name="what-are-the-azure-iot-suite-preconfigured-solutions"></a>Azure IoT Paketi önceden yapılandırılmış çözümleri nelerdir?
 
@@ -40,9 +32,9 @@ Aşağıdaki tabloda, çözümlerin belirli IoT özelliklerini nasıl karşılad
 
 | Çözüm | Veri alımı | Cihaz kimliği | Cihaz yönetimi | Komut ve denetim | Kurallar ve eylemler | Tahmine dayalı analiz |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Uzaktan izleme][lnk-getstarted-preconfigured] |Yes |Yes |Yes |Yes |Yes |- |
-| [Tahmine dayalı bakım][lnk-predictive-maintenance] |Yes |Yes |- |Yes |Yes |Yes |
-| [Bağlı fabrika][lnk-getstarted-factory] |Yes |Yes |Yes |Yes |Yes |- |
+| [Uzaktan izleme][lnk-getstarted-preconfigured] |Evet |Evet |Evet |Evet |Evet |- |
+| [Tahmine dayalı bakım][lnk-predictive-maintenance] |Evet |Evet |- |Evet |Evet |Evet |
+| [Bağlı fabrika][lnk-getstarted-factory] |Evet |Evet |Evet |Evet |Evet |- |
 
 * *Veri alımı*: Bulut ölçeğinde veri girişi.
 * *Cihaz kimliği*: Benzersiz cihaz kimliklerini yönetin ve çözüme cihaz erişimini denetleyin.
@@ -165,11 +157,11 @@ IoT çözümü mimarileri hakkında daha fazla bilgi için bkz. [Microsoft Azure
 [img-dashboard]: ./media/iot-suite-v1-what-are-preconfigured-solutions/dashboard.png
 [lnk-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
+[lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-consumers
 [lnk-web-job]: ../app-service/web-sites-create-web-jobs.md
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-predictive-maintenance]: iot-suite-predictive-overview.md
-[lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-predictive-maintenance]:../iot-accelerators/iot-accelerators-predictive-overview.md
+[lnk-azureiotsuite]: https://www.azureiotsolutions.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-getstarted-preconfigured]: iot-suite-v1-getstarted-preconfigured-solutions.md
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md

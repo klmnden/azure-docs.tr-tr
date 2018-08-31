@@ -3,7 +3,7 @@ title: Azure SQL Veri Ambarı Belgeleri - Öğreticiler, Kavramlar| Microsoft Do
 description: SQL ilişkisel veritabanlarını yüksek düzeyde paralel işleme ile birleştiren Azure SQL Veri Ambarı’nı nasıl kullanacağınızı öğrenin. Öğreticiler ve diğer belgeler, bir veri ambarı kullanarak verileri nasıl tasarlayacağınızı, yükleyeceğinizi, yöneteceğinizi ve analiz edeceğinizi gösterir.
 services: sql-data-warehouse
 author: hirokib
-manager: craigg-msft
+manager: craigg
 layout: LandingPage
 ms.service: sql-data-warehouse
 ms.topic: overview
@@ -11,12 +11,12 @@ ms.component: design
 ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: 4c716999d082d33536d70465a23e336ee989d065
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 4e6f8cd6bd1a84e7c2a6024bf6bcdb1b6b61620c
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143397"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287276"
 ---
 # <a name="sql-data-warehouse-documentation"></a>SQL Veri Ambarı Belgeleri
 

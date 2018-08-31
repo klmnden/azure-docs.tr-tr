@@ -10,21 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: 053e72ce81f69b267c72ded572e8912a1a09d2e6
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: a8d9704c48801b98800abb71769ba0954e727848
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579706"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190465"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB ile ilgili SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB ile ilgili temel bilgiler
-### <a name="what-is-azure-cosmos-db"></a>Azure Cosmos DB nedir?
-Azure Cosmos DB, şemadan bağımsız veriler üzerinde zengin sorgulama sunan, yapılandırılabilir ve güvenilir bir performans sunmaya yardımcı olur ve hızlı geliştirme sağlar bir genel olarak çoğaltılan, çok modelli veritabanı hizmetidir. Tüm gücü tarafından desteklenen ve Microsoft Azure'nın yönetilen bir platform sağlanır. 
-
-Azure Cosmos DB web, mobil, oyun için doğru çözümdür ve öngörülebilir üretilen iş hacmi, yüksek oranda kullanılabilirlik ve düşük gecikme süresi ve şemasız veri modelinin IOT uygulamaları anahtar koşulları yer almaktadır. Şema esnekliği ve zengin dizin oluşturma sağlar ve tümleşik JavaScript ile çok belgeli işlem desteğini içerir. 
-
-Daha fazla veritabanı soruları yanıtlar ve dağıtma ve bu hizmeti kullanmaya ilişkin yönergeler için bkz. [Azure Cosmos DB belgeleri sayfasının](https://docs.microsoft.com/azure/cosmos-db/).
 
 ### <a name="what-happened-to-the-documentdb-api"></a>DocumentDB API'si için ne oldu?
 
@@ -84,8 +78,8 @@ Hesabınızla ilgili bir sorun gidermek için Azure portalda bir [destek isteği
 
 Diğer sorular adresinden ekibine gönderilebilir [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com); ancak bu bir teknik destek diğer adı değildir. 
 
-<a id="try-cosmos-db"></a>
-## <a name="try-azure-cosmos-db-subscriptions"></a>Azure Cosmos DB abonelikleri deneyin
+
+## <a id="try-cosmos-db"></a>Azure Cosmos DB abonelikleri deneyin
 
 Şimdi, abone olmadan, taahhüt vermeden ve ücretsiz bir süre sınırlı Azure Cosmos DB deneyiminin keyfini çıkarabilirsiniz. Azure Cosmos DB'yi deneyin abonelik için kaydolmak için Git [Azure Cosmos DB'yi ücretsiz deneyin](https://azure.microsoft.com/try/cosmosdb/). Bu abonelik ayrıdır [Azure ücretsiz deneme sürümü](https://azure.microsoft.com/free/)ve bir Azure ücretsiz deneme sürümü veya bir Azure yanı sıra kullanılabilir Ücretli aboneliği. 
 
@@ -124,7 +118,7 @@ Kapsayıcı ve veritabanı düzeyi aktarım hızı sağlama ayrı teklifleri ve 
 
 Bir bölüm anahtarı aktarım hızı ile kullanarak koleksiyon şu anda oluşturabilirsiniz [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) yöntemi kullanarak veya .net SDK'sı [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). Azure portalını kullanarak bir sabit koleksiyon oluşturma, şu anda desteklenen değil.  
 
-## <a name="develop-against-the-sql-api"></a>SQL API'si ile programlama geliştirin
+## <a name="sql-api"></a>SQL API’si
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>SQL API'si ile programlama geliştirmeye nasıl başlarım?
 Öncelikle, bir Azure aboneliği için kaydolmalısınız. Bir Azure aboneliğine kaydolduktan sonra Azure aboneliğinizde bir SQL API'si kapsayıcı ekleyebilirsiniz. Bir Azure Cosmos DB hesabını ekleme ile ilgili yönergeler için bkz: [bir Azure Cosmos DB veritabanı hesabı oluşturma](create-sql-api-dotnet.md#create-account). 
@@ -195,7 +189,7 @@ Bu JavaScript sınırlamasıdır. JavaScript IEEE 754 belirtildiği gibi çift d
 İzinler ResourceTokens kullanarak oluşturma kapsayıcı düzeyinde ve alt öğelerini (örneğin, belgeler, ekleri) izin verilir. Bu veritabanını bir izin oluşturmak çalışan gelir veya hesap düzeyi şu anda verilmez.
 
 
-## <a name="develop-against-the-api-for-mongodb"></a>MongoDB için API karşı geliştirin
+## <a name="mongodb-api"></a>MongoDB API’si
 ### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB MongoDB için API nedir?
 MongoDB için Azure Cosmos DB API uygulamaları kolayca ve şeffaf bir şekilde var olan ve topluluk tarafından desteklenen Apache MongoDB API'leri ve sürücüleri kullanarak yerel Azure Cosmos DB veritabanı altyapısı ile iletişim kurmasına olanak sağlayan bir uyumluluk katmanıdır. Geliştiriciler artık, Azure Cosmos DB yararlanan uygulamalar oluşturmak için var olan MongoDB takımlarına ve becerileri kullanabilirsiniz. Otomatik dizin oluşturma işlemi, yedekleme bakım, finansal destekli bir hizmet düzeyi sözleşmeleri (SLA'lar) vb. içeren benzersiz özelliklerinden Azure Cosmos DB, geliştiricilerin yararlanır.
 
@@ -215,7 +209,7 @@ Ek olarak ortak MongoDB hata kodları, MongoDB API'sini kendi belirli hata kodla
 | TooManyRequests     | 16500 | İstek birimleri tüketilen toplam sayısı, koleksiyon için sağlanan istek birimi oranını aşmış ve kısıtlanan. | Bir kapsayıcı veya bir dizi kapsayıcılar için Azure portal veya deneniyor yeniden atanan aktarım hızını ölçeklendirmeyi düşünün. |
 | ExceededMemoryLimit | 16501 | Çok kiracılı bir hizmet, istemcinin bellek tahsisat işlem eşiğini aştı. | Destek ile iletişime geçin veya daha kısıtlayıcı bir sorgu ölçütü ile bir işlem kapsamını azaltın [Azure portalında](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Örnek:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {adı: "Andy"}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {yaş: -1} }<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
-## <a name="develop-with-the-table-api"></a>Tablo API'si ile geliştirme
+## <a id="table"></a>Tablo API'si
 
 ### <a name="how-can-i-use-the-table-api-offering"></a>Tablo API'si teklifi nasıl kullanabilirim? 
 Azure Cosmos DB tablo API'si kullanılabilir [Azure portalında][azure-portal]. Öncelikle, bir Azure aboneliği için kaydolmalısınız. Açtıktan sonra Azure Aboneliğinize bir Azure Cosmos DB tablo API'si hesabı eklemek ve ardından tabloları hesabınıza ekleyin. 
@@ -446,7 +440,7 @@ Hataların çoğu aynı olacak şekilde azure tablo depolama ve Azure Cosmos DB 
 ### <a name="why-do-i-get-throttled-when-i-try-to-create-lot-of-tables-one-after-another-in-the-table-api"></a>Birçok tabloları birbiri ardına tablo API'SİNDE oluşturmaya çalıştığınızda neden miyim kısıtlanmazsınız?
 Azure Cosmos DB, gecikme süresi, aktarım hızı, kullanılabilirlik ve tutarlılık garantileri sağlar bir SLA tabanlı bir sistemdir. Sağlanan sistem olduğundan, bu gereksinimleri güvence altına almak için kaynakları ayırır. Tablo oluşturma Hızlı oranını algıladı ve kısıtlanmış. Tabloların oluşturulma oranı arayın ve dakika başına 5'ten daha düşük öneririz. Tablo API'si sağlanan sistem olduğunu unutmayın. Sağlama süre için ödeme başlar. 
 
-## <a name="develop-against-the-graph-api"></a>Graph API karşı geliştirin
+## <a name="graph-api"></a>Graph API
 ### <a name="how-can-i-apply-the-functionality-of-graph-api-to-azure-cosmos-db"></a>Nasıl miyim Graph API işlevlerini Azure Cosmos DB'ye uygulayabilir miyim?
 Graph API işlevlerini uygulamak için bir uzantı Kitaplığı'nı kullanabilirsiniz. Bu kitaplık, Microsoft Azure grafikleri denir ve şurada bulunur [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs). 
 
@@ -456,8 +450,8 @@ Evet, sorgu için başka mekanizmalar gelecekte eklemeyi planlıyoruz.
 ### <a name="how-can-i-use-the-new-graph-api-offering"></a>Yeni Graph API'si teklifi nasıl kullanabilirim? 
 Başlamak için tamamlamak [Graph API'si](../cosmos-db/create-graph-dotnet.md) hızlı başlangıç makalesi.
 
-<a id="cassandra"></a> 
-## <a name="develop-with-the-apache-cassandra-api-preview"></a>Apache Cassandra API'si (Önizleme) ile geliştirin
+
+## <a id="cassandra"></a> Cassandra API'si
 
 ### <a name="what-is-the-protocol-version-supported-in-the-private-preview-is-there-a-plan-to-support-other-protocols"></a>Özel önizleme sürümünde desteklenen protokol sürümü nedir? Diğer protokoller desteklemek için bir plan var mı?
 Azure Cosmos DB Apache Cassandra API'si, bugün CQL sürüm 4 destekler. Diğer protokoller destekleme hakkında Geribildiriminiz varsa bize [uservoice geri bildirimi](https://feedback.azure.com/forums/263030-azure-cosmos-db) veya bir e-posta Gönder [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com). 

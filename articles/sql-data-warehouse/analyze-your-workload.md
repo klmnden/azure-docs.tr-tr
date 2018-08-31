@@ -1,27 +1,27 @@
 ---
-title: İş yükü - Azure SQL veri ambarı çözümleme | Microsoft Docs
-description: Azure SQL Data Warehouse, iş yükü için sorgu öncelik çözümleme için teknikler.
+title: İş yükünüzü - Azure SQL veri ambarı çözümleme | Microsoft Docs
+description: Azure SQL veri ambarı iş yükünüz için öncelik teknikleri analiz etmek için sorgu.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6b0d39b81b72615a9522e95558a59007b10bf109
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 4ce84e9714b580bcc243285dc1da5ae24a27e8e5
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795366"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248102"
 ---
-# <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse, iş yükü Çözümle
-Azure SQL Data Warehouse, iş yükü için sorgu öncelik çözümleme için teknikler.
+# <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı iş yükünüzü çözümleme
+Azure SQL veri ambarı iş yükünüz için öncelik teknikleri analiz etmek için sorgu.
 
 ## <a name="workload-groups"></a>İş yükü grupları 
-SQL veri ambarı iş yükü gruplarını kullanarak kaynak sınıfları uygular. Çeşitli DWU boyutları arasında kaynak sınıfları davranışını denetleyen sekiz iş yükü grupları toplam vardır. SQL veri ambarı tüm DWU için yalnızca dört sekiz iş yükü gruplarını kullanır. Her iş yükü grubu dört kaynak sınıflardan birine atanmış olduğundan bu yaklaşım mantıklı: smallrc, mediumrc, largerc, veya xlargerc. Bu iş yükü grupları bazıları için daha yüksek ayarlandığını iş yükü grupları anlama önemi olan *önem*. Önem derecesi CPU için kullanılan planlama. Üç kat daha fazla CPU döngülerini Orta öncelikli olarak çalıştırılan sorguların daha yüksek öncelikli olarak çalışan sorgu alın. Bu nedenle, eşzamanlılık yuvası eşlemeleri CPU Öncelik belirler. Bir sorgu 16 veya daha fazla yuvaları tüketir yüksek önem olarak çalışır.
+SQL veri ambarı iş yükü gruplarını kullanarak kaynak sınıfları uygular. Toplam sekiz iş yükü gruplarının çeşitli DWU boyutları arasında kaynak sınıfları davranışını denetleyen vardır. Her DWU için SQL veri ambarı yalnızca dört sekiz iş yükü gruplarını kullanır. Her iş yükü grubu dört kaynak sınıflardan birine atandığı için bu yaklaşım mantıklı: smallrc, mediumrc, largerc veya xlargerc. Bu iş yükü grupları bazıları için daha yüksek ayarlandığını iş yükü gruplarını anlama önemi olan *önem*. Önem derecesi için CPU kullanılan zamanlama. Üç kat daha fazla CPU çevrimleri Orta önem derecesiyle çalıştırılan sorguların daha yüksek önem derecesiyle çalıştırılan sorguların alın. Bu nedenle, eşzamanlılık yuvası eşlemeleri de CPU önceliği belirleyin. Sorgu en az 16 yuvaları kullanırken, yüksek öncelikli çalışır.
 
 Aşağıdaki tabloda, her iş yükü grubu için önem eşlemeler gösterilmektedir.
 
@@ -39,10 +39,9 @@ Aşağıdaki tabloda, her iş yükü grubu için önem eşlemeler gösterilmekte
 | SloDWGroupC07   | 128                      | 12,800                         | 32,000                      | Yüksek               |
 | SloDWGroupC08   | 256                      | 25,600                         | 64,000                      | Yüksek               |
 
-<!-- where are the allocation and consumption of concurrency slots charts? -->
-**Ayırma ve kullanımını eşzamanlılık yuva** bir DW500 kullanan 1, 4, 8 ya da 16 eşzamanlılık yuvası smallrc, mediumrc, largerc ve xlargerc, sırasıyla grafik gösterir. Her kaynak sınıfı için önem bulmak için bu değerler yukarıdaki grafikte arayabilirsiniz.
+<!-- where are the allocation and consumption of concurrency slots charts? --> **Ayırma ve eşzamanlılık yuvaları tüketiminin** grafik gösterir bir DW500 kullanan 1, 4, 8 veya 16 eşzamanlılık yuvaları smallrc, mediumrc, largerc ve xlargerc, sırasıyla. Her kaynak sınıfı için önemini bulmak için bu değerleri önceki grafikte bakabilirsiniz.
 
-### <a name="dw500-mapping-of-resource-classes-to-importance"></a>Önem derecesi için kaynak sınıfların DW500 eşleme
+### <a name="dw500-mapping-of-resource-classes-to-importance"></a>Önem derecesi için kaynak sınıfları DW500 eşleme
 | Kaynak sınıfı | İş yükü grubu | Kullanılan eşzamanlılık yuvaları | MB / dağıtım | Önem derecesi |
 |:-------------- |:-------------- |:----------------------:|:-----------------:|:---------- |
 | smallrc        | SloDWGroupC00  | 1                      | 100               | Orta     |
@@ -58,8 +57,8 @@ Aşağıdaki tabloda, her iş yükü grubu için önem eşlemeler gösterilmekte
 | staticrc70     | SloDWGroupC03  | 16                     | 1,600             | Yüksek       |
 | staticrc80     | SloDWGroupC03  | 16                     | 1,600             | Yüksek       |
 
-## <a name="view-workload-groups"></a>İş yükü grupları görüntüle
-Aşağıdaki sorguyu kaynak İdarecisi perspektifinden bellek kaynağı ayırma ayrıntılarını gösterir. Bu, iş yükü grupları etkin ve geçmiş kullanımı sorunlarını giderirken çözümlemek için yararlıdır.
+## <a name="view-workload-groups"></a>İş yükü grupları görüntüleyin
+Aşağıdaki sorguyu kaynak İdarecisi perspektifinden bellek kaynak ayırma ayrıntılarını gösterir. Bu, etkin ve geçmiş kullanımı iş yükü gruplarının sorunlarını giderirken çözümlemek için yararlıdır.
 
 ```sql
 WITH rg
@@ -107,8 +106,8 @@ ORDER BY
 ;
 ```
 
-## <a name="queued-query-detection-and-other-dmvs"></a>Sıraya alınan sorgu algılama ve diğer Dmv'leri
-Kullanabileceğiniz `sys.dm_pdw_exec_requests` bir eşzamanlılık sırada bekleyen sorguları tanımlamak için DMV. Sorgular için bir eşzamanlılık yuva bekleyen olan durumu **askıya**.
+## <a name="queued-query-detection-and-other-dmvs"></a>Sıraya alınan sorgu algılama ve diğer Dmv'ler
+Kullanabileceğiniz `sys.dm_pdw_exec_requests` DMV'sini eşzamanlılık kuyrukta bekleyen sorguları belirleyin. Sorgular için eşzamanlılık yuvası bekleniyor durumuna sahip **askıya**.
 
 ```sql
 SELECT  r.[request_id]                           AS Request_ID
@@ -121,7 +120,7 @@ FROM    sys.dm_pdw_exec_requests r
 ;
 ```
 
-İş yükü yönetim rolleri ile görüntülenebilir `sys.database_principals`.
+İş yükünün yönetim rollerini görüntülenebilir `sys.database_principals`.
 
 ```sql
 SELECT  ro.[name]           AS [db_role_name]
@@ -131,7 +130,7 @@ AND     ro.[is_fixed_role]  = 0
 ;
 ```
 
-Aşağıdaki sorguda her kullanıcının atandığı rolü gösterir.
+Aşağıdaki sorgu, her kullanıcıya atanan rolü gösterir.
 
 ```sql
 SELECT  r.name AS role_principal_name
@@ -143,14 +142,14 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-SQL veri ambarı türleri bekleyin aşağıdakileri içerir:
+SQL veri ambarı, aşağıdaki türleri bekleyin sahiptir:
 
-* **LocalQueriesConcurrencyResourceType**: dışında eşzamanlılık yuvası framework sit sorgular. DMV sorgular ve sistem işlevleri gibi `SELECT @@VERSION` yerel sorgular gösterilebilir.
-* **UserConcurrencyResourceType**: içinde eşzamanlılık yuvası framework sit sorgular. Son kullanıcı tabloları sorguları bu kaynak türü kullanırsınız örnekleri temsil eder.
-* **DmsConcurrencyResourceType**: veri taşıma işlemleri kaynaklanan bekler.
-* **BackupConcurrencyResourceType**: Bu bekleme bir veritabanı yedekleniyor olduğunu gösterir. Bu kaynak türü için maksimum değeri 1'dir. Aynı anda diğerlerinin birden çok yedekleme istenen varsa sırası.
+* **LocalQueriesConcurrencyResourceType**: eşzamanlılık yuvası çerçevenin dışında sit sorgular. DMV sorgular ve sistem işlevleri gibi `SELECT @@VERSION` yerel sorgular örnekleridir.
+* **UserConcurrencyResourceType**: eşzamanlılık yuvası framework içinde sit sorgular. Son kullanıcı tablolarda yürütülen sorgular, bu kaynak türü kullanacağınız örnekleri temsil eder.
+* **DmsConcurrencyResourceType**: veri taşıma işlemlerini kaynaklanan bekler.
+* **BackupConcurrencyResourceType**: Bu bekleme bir veritabanı yedekleniyor olduğunu gösterir. Bu kaynak türü için maksimum değeri 1'dir. Aynı zamanda, diğer birden çok yedekleme istenen, kuyruk.
 
-`sys.dm_pdw_waits` DMV, bir isteği bekliyor kaynakları görmek için kullanılabilir.
+`sys.dm_pdw_waits` DMV, hangi kaynakların bir isteği bekliyor görmek için kullanılabilir.
 
 ```sql
 SELECT  w.[wait_id]
@@ -187,7 +186,7 @@ WHERE    w.[session_id] <> SESSION_ID()
 ;
 ```
 
-`sys.dm_pdw_resource_waits` DMV yalnızca belirli bir sorgu tarafından kullanılan kaynak bekler gösterir. Kaynak bekleme süresi yalnızca sorgu CPU üzerine zamanlamak temel alınan SQL sunucuları için gereken süredir sinyal bekleme süresi aksine sağlanması kaynaklar için bekleyen süreyi ölçer.
+`sys.dm_pdw_resource_waits` DMV yalnızca belirli bir sorgu tarafından tüketilen kaynak bekler gösterir. Kaynak bekleme süresi yalnızca CPU üzerinde sorgu zamanlamak temel alınan SQL sunucuları için gereken süre anlamına gelmektedir sinyal bekleme süresi aksine sağlanması kaynaklar için bekleme süresini ölçer.
 
 ```sql
 SELECT  [session_id]
@@ -205,7 +204,7 @@ FROM    sys.dm_pdw_resource_waits
 WHERE    [session_id] <> SESSION_ID()
 ;
 ```
-Aynı zamanda `sys.dm_pdw_resource_waits` DMV hesaplamak kaç eşzamanlılık yuvaları verildi.
+Ayrıca `sys.dm_pdw_resource_waits` DMV hesaplamak kaç tane eşzamanlı kullanım hakkı verilir.
 
 ```sql
 SELECT  SUM([concurrency_slots_used]) as total_granted_slots 
@@ -216,7 +215,7 @@ AND     [session_id]     <> session_id()
 ;
 ```
 
-`sys.dm_pdw_wait_stats` DMV bekler geçmiş eğilim analizi için kullanılabilir.
+`sys.dm_pdw_wait_stats` DMV bekler, geçmiş eğilim analizi için kullanılabilir.
 
 ```sql
 SELECT   w.[pdw_node_id]
@@ -231,6 +230,6 @@ FROM    sys.dm_pdw_wait_stats w
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Veritabanı kullanıcıları yönetme ve güvenlik hakkında daha fazla bilgi için bkz: [SQL veri ambarı veritabanında güvenli](sql-data-warehouse-overview-manage-security.md). Ne kadar büyük kaynak sınıfları hakkında daha fazla bilgi kümelenmiş columnstore dizini kalitesini artırmak, bkz [segment kalitesini artırmak için dizinleri yeniden oluşturma](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Veritabanı kullanıcıları yönetme ve güvenlik hakkında daha fazla bilgi için bkz. [güvenli bir veritabanında SQL veri ambarı](sql-data-warehouse-overview-manage-security.md). Ne kadar büyük kaynak sınıfları hakkında daha fazla bilgi kümelenmiş columnstore dizini kalitesini artırmak, bkz [segment kalitesini artırmak için dizinlerini yeniden oluşturma](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
 
 

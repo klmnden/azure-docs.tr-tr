@@ -1,6 +1,6 @@
 ---
-title: Erişim gözden geçirmesi gerçekleştirme | Microsoft Docs
-description: Azure Privileged Identity Management uygulaması ile bir inceleme gerçekleştirme konusunda bilgi edinin.
+title: PIM'de erişim gözden geçirmesi Azure AD dizin rollerim gerçekleştirmek | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM) erişim gözden geçirmesi, Azure AD Dizin rolleri gerçekleştirmeyi öğreneceksiniz.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2c1cdecb0ce47e72550f430d2b87b3e6cc4eb176
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: b4cffbd1ce240e4792fba84581dafb1933c71a62
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623043"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188560"
 ---
-# <a name="how-to-perform-an-access-review-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management'ta erişim gözden geçirmesi gerçekleştirme
+# <a name="perform-an-access-review-of-my-azure-ad-directory-roles-in-pim"></a>PIM'de erişim gözden geçirmesi Azure AD dizin rollerim gerçekleştirin
 Azure Active Directory (AD) Privileged Identity Management, kuruluşlara ayrıcalıklı Azure ad'deki ve Office 365 veya Microsoft Intune gibi diğer Microsoft çevrimiçi hizmetlerine erişimi yönetme basitleştirir.  
 
 Bir yönetici rolüne atanırsa, kuruluşunuzun ayrıcalıklı Rol Yöneticisi yine de bu rol için işinizi gerektiğini düzenli olarak doğrulamanızı isteyebilir. Bir bağlantısını içeren bir e-posta alabilir veya doğrudan gidebilirsiniz [Azure portalında](https://portal.azure.com). Bir kendi kendini gözden geçirin, atanan rollerinin gerçekleştirmek için bu makaledeki adımları izleyin.
@@ -47,4 +47,5 @@ Erişim değerlendirmesi tamamlama ve bulmak için aşağıdaki adımları izley
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Sonraki adımlar
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [PIM'de erişim gözden geçirmesi Azure kaynağı rollerim gerçekleştirin](pim-resource-roles-perform-access-review.md)

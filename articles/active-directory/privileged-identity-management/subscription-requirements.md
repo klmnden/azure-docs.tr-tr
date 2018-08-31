@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management abonelikler - Azure | Microsoft Docs
-description: Abonelik ve lisans gereksinimleri için kiracınızda Azure AD Privileged Identity Management'ı kullanmaya ve yönetmeye açıklar
+title: Azure PIM - kullanmak için abonelik gereksinimleri | Microsoft Docs
+description: Abonelik ve Azure AD Privileged Identity Management (PIM) kullanmak için lisans gereksinimleri açıklanmaktadır.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.component: pim
 ms.date: 06/01/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: dbe4efa57a7c4c31b2bdca84665eef8179564a8f
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 1554895dcba0c09a3a2e19c284a1cd6f0416cfe1
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617078"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190619"
 ---
-# <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Azure Active Directory Privileged Identity Management abonelik gereksinimleri
+# <a name="subscription-requirements-to-use-pim"></a>PIM'i kullanmak için abonelik gereksinimleri
 
 Azure AD Privileged Identity Management kullanılabilir Azure AD Premium P2 sürümü bir parçası olarak. P2 ve nasıl Premium P1 karşılaştırır, diğer özellikler hakkında daha fazla bilgi için bkz. [Azure Active Directory sürümleri](../active-directory-editions.md).
 
@@ -61,5 +61,5 @@ Bir Azure AD Premium P2 aboneliği veya EMS E5 aboneliği sona erdiğinde veya b
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure AD Privileged Identity Management ile çalışmaya başlama](pim-getting-started.md)
-- [Azure AD Privileged Identity Management içinde rol](pim-roles.md)
+- [PIM kullanmaya başlayın](pim-getting-started.md)
+- [PIM'de yönetebilmeniz için azure AD Dizin rolleri](pim-roles.md)

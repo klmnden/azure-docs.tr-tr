@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management'ı kullanarak Azure kaynakları için rol etkinleştirme | Microsoft Docs
-description: PIM rolleri etkinleştirmeyi açıklar.
+title: Azure kaynağı rollerim PIM etkinleştirme | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM), Azure kaynak rolleri etkinleştirmeyi öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 08/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2a5c192f231bdc75d04c78cd94838a3f341dc925
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 234c1d71f0ec17d15a4dd589e3db92fd9bf68df2
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43111067"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189498"
 ---
-# <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>Privileged Identity Management'ı kullanarak Azure kaynakları için rollerini etkinleştir
+# <a name="activate-my-azure-resource-roles-in-pim"></a>Azure kaynağı rollerim PIM etkinleştir
 Privileged Identity Management (PIM) Azure kaynakları için rol etkinleştirme içinde yeni bir deneyim sağlanıyor. Uygun Rol üyeleri için bir gelecek tarih ve saat etkinleştirme zamanlayabilirsiniz. Bunlar, belirli etkinleştirme süresi üst sınırı (yönetici tarafından yapılandırılır) içinde de seçebilirsiniz. Daha fazla bilgi için [etkinleştirmek veya Azure AD Privileged Identity Management içinde rol devre dışı bırakma](pim-how-to-activate-role.md).
 
 ## <a name="activate-a-role"></a>Bir rolü etkinleştirmesi
@@ -64,3 +64,7 @@ Arama sayfasından yönetmeniz gereken alt kaynak bulun.
 Seçin **rollerim** sol bölmeden ve etkinleştirmek için uygun rolü seçin. Atama türü **devralınan** rol abonelik yerine kaynak grubuna atandığından.
 
 ![Uygun rol atamaları, vurgulanan atama türü listesi](media/azure-pim-resource-rbac/my-roles-02.png)
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+- [Azure AD dizin rollerim PIM etkinleştir](pim-how-to-activate-role.md)

@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: ac2787f69651e950ffb6b786280ba7f11f4fa8e0
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: e3efb19010f36a6ef1fa0a191695a0e2c9f39d19
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127969"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190530"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Depolama Gezgini sürüm notları
 
-Bu makale, Azure Depolama Gezgini 1.2.0 yayın yönelik sürüm notlarına yanı sıra, önceki sürümleri için sürüm notları içerir.
+Bu makale, Azure Depolama Gezgini 1.4.1 yayın yönelik sürüm notlarına yanı sıra, önceki sürümleri için sürüm notları içerir.
 
 [Microsoft Azure Depolama Gezgini](./vs-azure-tools-storage-manage-with-storage-explorer.md) Windows, macOS ve Linux'ta Azure depolama verileriyle kolayca çalışmanızı sağlayan bir tek başına uygulamadır.
 
 ## <a name="version-141"></a>Sürüm 1.4.1
 08/28/2018
 
-### <a name="download-azure-storage-explorer-130"></a>Azure Depolama Gezgini 1.3.0 indirin
-- [Windows için Azure Depolama Gezgini 1.3.0](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Mac için Azure Depolama Gezgini 1.3.0](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Linux için Azure Depolama Gezgini 1.3.0](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-141"></a>Azure Depolama Gezgini 1.4.1 indirin
+- [Windows için Azure Depolama Gezgini 1.4.1](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac için Azure Depolama Gezgini 1.4.1](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Linux için Azure Depolama Gezgini 1.4.1](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Düzeltmeler
 * İlk başlatma sırasında Depolama Gezgini hassas verileri şifrelemek için kullanılan anahtar oluşturamıyor. Bu hızlı erişim kullanılırken sorunlara neden ve kaynaklar ekleme. [#535](https://github.com/Microsoft/AzureStorageExplorer/issues/535)

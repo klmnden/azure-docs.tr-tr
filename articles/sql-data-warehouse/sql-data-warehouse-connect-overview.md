@@ -3,25 +3,25 @@ title: Azure SQL Veri Ambarı'na Bağlanma | Microsoft Belgeleri
 description: Azure SQL veri ambarı'na bağlanın.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: b2aff8379667191017830bf441ee101e773d2dfc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0b2d8cec03c54ebd5bd780a2524da61d718a9673
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31596179"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247867"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse’a bağlanma
 Azure SQL veri ambarı'na bağlanın.
 
 ## <a name="find-your-server-name"></a>Sunucu adınızı bulma
-Aşağıdaki örnekte sunucu samplesvr.database.windows.net adıdır. Tam sunucu adını bulmak için:
+Aşağıdaki örnekte sunucu adı samplesvr.database.windows.net şeklindedir. Tam sunucu adını bulmak için:
 
 1. [Azure Portalı][Azure portal]’na gidin.
 2. **SQL veri ambarları**’na tıklayın.
@@ -31,7 +31,7 @@ Aşağıdaki örnekte sunucu samplesvr.database.windows.net adıdır. Tam sunucu
     ![Tam sunucu adı][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>Desteklenen sürücüler ve bağlantı dizeleri
-Azure SQL Veri Ambarı; [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] ve [JDBC][JDBC]’yi destekler. En son sürümü ve belgeleri bulmak için önceki sürücüleri birini tıklatın. Otomatik olarak Azure portalından, kullanmakta olduğunuz sürücü için bağlantı dizesi oluşturmak için tıklayın **veritabanı bağlantı dizelerini Göster** önceki örnekten. Aşağıda ayrıca her sürücü için bir bağlantı dizesinin nasıl göründüğü ile ilgili bazı örnekler verilmiştir.
+Azure SQL Veri Ambarı; [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] ve [JDBC][JDBC]’yi destekler. En son sürümü ve belgeleri bulmak için yukarıdaki sürücülerden birine tıklayın. Otomatik olarak kullandığınız sürücünün bağlantı dizesini Azure portalından oluşturmak için tıklayın **veritabanı bağlantı dizelerini Göster** önceki örnekten. Aşağıda ayrıca her sürücü için bir bağlantı dizesinin nasıl göründüğü ile ilgili bazı örnekler verilmiştir.
 
 > [!NOTE]
 > Bağlantınızın kısa süreli kesintiler sırasında devam etmesi için bağlantı zaman aşımını 300 saniyeye ayarlayın.

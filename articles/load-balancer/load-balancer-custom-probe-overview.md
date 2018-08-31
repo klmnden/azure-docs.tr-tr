@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/10/2018
+ms.date: 08/28/2018
 ms.author: kumud
-ms.openlocfilehash: 91c7d16296653aea2381793f2e52f2b33b831185
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 5ceddb1bcd6ce89f7014e034b56c873f02cc2007
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42059655"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190742"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer sistem durumu araştırmaları
 
@@ -181,7 +181,12 @@ Bir arka uç havuzundaki tüm örnekleri için tüm araştırmaları başarısı
 
 ## <a name="probesource"></a>Kaynak IP adresi araştırma
 
-Tüm yük dengeleyici sistem durumu araştırmaları, kaynak 168.63.129.16 IP adresinden kaynaklanan.  Azure sanal ağ için kendi IP adreslerinizi getirebilir, bu sistem durumu araştırması kaynak IP adresini Microsoft ayrılmış genel olarak benzersiz olması garanti edilir.  Bu adres, tüm bölgelerde aynıdır ve değişmez. Yalnızca iç Azure platformu bu IP adresinden bir paket kaynağı bir güvenlik riski düşünülmemelidir. 
+Yük Dengeleyici, dağıtılmış bir yoklama hizmeti için kendi iç sistem durumu modeli kullanır. VM'lerin bulunduğu her bir ana bilgisayar başına müşterinin yapılandırma sistem durumu araştırmaları oluşturmak için programlanabilir. Sistem durumu araştırması doğrudan durum yoklaması oluşturur altyapı bileşeni ve müşterinin sanal makine arasında trafiğidir. Tüm yük dengeleyici sistem durumu araştırmaları, kaynak 168.63.129.16 IP adresinden kaynaklanan.  Azure sanal ağ için kendi IP adreslerinizi getirebilir, bu sistem durumu araştırması kaynak IP adresini Microsoft ayrılmış genel olarak benzersiz olması garanti edilir.  Bu adres, tüm bölgelerde aynıdır ve değişmez. Yalnızca iç Azure platformu bu IP adresinden bir paket kaynağı bir güvenlik riski düşünülmemelidir. 
+
+Yük Dengeleyici sistem durumu araştırmaları ek olarak, aşağıdaki işlemleri bu IP adresi kullanın:
+
+- VM platformu ile iletişim kurmak için bir "Hazır" durumunda olduğu sinyal aracısı sağlar
+- Özel DNS sunucuları tanımlamaz müşterilere filtrelenmiş ad çözümlemesi sağlamak için DNS sanal sunucu ile iletişimi sağlar.  Bu filtreleme müşteriler bunların dağıtım ana bilgisayar adları yalnızca çözümleyebilmesini sağlar.
 
 Örneğiniz, işaretlemek Load Balancer'ın sistem durumu araştırması için **gerekir** bu IP adresi herhangi bir Azure izin [güvenlik grupları](../virtual-network/security-overview.md) ve yerel güvenlik duvarı ilkeleri.
 

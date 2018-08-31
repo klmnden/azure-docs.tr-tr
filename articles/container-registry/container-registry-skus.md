@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 08/28/2018
 ms.author: marsma
-ms.openlocfilehash: 5d9001bce4f835e4b9b82ba1c30d09f74eebd1d2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 5c10c961519614d1560f27c41ba57237085261ba
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442760"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190417"
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry SKU'ları
 
@@ -24,13 +24,11 @@ Azure Container Registry (ACR), SKU'ları bilinen birden çok hizmet katmanları
 | **Temel** | Evet | Azure Container Registry hakkında bilgi edinen geliştiriciler için düşük maliyetli bir giriş noktası. Temel kayıt defterleri, Standart ve Premium ile aynı programlama özelliklerine sahiptir (Azure Active Directory kimlik doğrulaması tümleştirmesi, görüntü silme ve web kancaları), ancak boyut ve kullanım kısıtlamaları vardır. |
 | **Standart** | Evet | Standart kayıt defterleri temel, artan depolama sınırları ve görüntü aktarım hızı ile aynı özellikleri sunar. Standart kayıt defterleri, çoğu üretim senaryosu gereksinimlerini karşılayabilir. |
 | **Premium** | Evet | Premium kayıt defterlerinin sınırları daha yüksek depolama ve yüksek hacimli senaryolar etkinleştirme eşzamanlı işlem gibi kısıtlamaları sağlar. Ek olarak daha yüksek görüntü işleme kapasitesi, Premium gibi özellikler ekler [coğrafi çoğaltma] [ container-registry-geo-replication] tek bir kayıt defteri birden çok bölgede yönetmek için her bir ağa yakın kayıt defteri bakımını yapma Dağıtım. |
-| Klasik | Hayır | Klasik kayıt defteri SKU, Azure Azure Container Registry hizmetinde'nin ilk sürümünden etkin. Klasik kayıt defterleri, artan iş hacmi ve coğrafi çoğaltma gibi daha üst düzey özellikler sağlamak ACR becerisini sınırlandırır, aboneliğinizdeki Azure oluşturan bir depolama hesabı tarafından desteklenir. Sınırlı özellikleri nedeniyle Klasik SKU gelecekte kullanımdan kaldırmayı planlıyoruz. |
+| Klasik<sup>1</sup> | Hayır | Bu SKU, Azure Azure Container Registry hizmetinde'nin ilk sürümünden etkin. Klasik kayıt defterleri, artan iş hacmi ve coğrafi çoğaltma gibi daha üst düzey özellikler sağlamak ACR becerisini sınırlandırır, aboneliğinizdeki Azure oluşturan bir depolama hesabı tarafından desteklenir. |
+
+<sup>1</sup> Klasik SKU olacaktır **kullanım dışı** içinde **Mart 2019**. Temel, standart veya Premium tüm yeni kapsayıcı kayıt defterleri için kullanın.
 
 Üst düzey bir SKU daha fazla performans ve ölçek sağlar seçme, ancak tüm yönetilen SKU'lar aynı programlama özelliklerini sağlar. Birden çok hizmet katmanı ile temel ile çalışmaya başlama sonra standart ve Premium, kayıt defteri kullanım arttıkça dönüştürün.
-
-> [!NOTE]
-> Planlanan Klasik kayıt defteri SKU kaldırılması nedeniyle, tüm yeni kayıt defterleri için temel, standart veya Premium kullanmanızı öneririz. Mevcut Klasik kayıt defterinizin dönüştürme hakkında daha fazla bilgi için bkz: [Klasik kayıt defterini yükseltme][container-registry-upgrade].
->
 
 ## <a name="managed-vs-unmanaged"></a>Yönetilmeyen ve yönetilen
 
@@ -41,6 +39,9 @@ Temel, standart ve Premium SKU'larının toplu olarak da bilinir *yönetilen* ka
 Resim depolama tamamen Azure tarafından yönetilen kayıt defterleri avantajı yönetilen. Diğer bir deyişle, görüntüleri depolayan bir depolama hesabı, Azure aboneliğinizde görünmüyor. Çeşitli avantajları vardır yönetilen kayıt defteri SKU'ları kullanılarak elde edilen, ayrıntılı olarak ele alınan [kapsayıcı görüntüsü Azure Container Registry depolamada][container-registry-storage]. Bu makalede, yönetilen kayıt defteri SKU'ları ve yeteneklerini odaklanır.
 
 ### <a name="unmanaged-classic"></a>Yönetilmeyen (Klasik)
+
+> [!IMPORTANT]
+> Klasik SKU kullanımdan kaldırılıyor ve Mart 2019 sonra kullanılamaz. Temel, standart veya Premium tüm yeni kayıt defterleri için kullanın.
 
 Klasik kayıt defterleri "yönetilmeyen" Klasik kayıt defterini yedekleyen depolama hesabı içinde bulunduğu anlamında *,* Azure aboneliği. Bu nedenle, kapsayıcı görüntülerinizin depolandığı depolama hesabının yönetim için sorumlu olursunuz. Yönetilmeyen kayıt defterleri ile gereksinimleriniz değiştikçe SKU'ları arasında geçiş yapamazsınız (dışında [yükseltme] [ container-registry-upgrade] yönetilen kayıt defteri için), ve yönetilen kayıt defterleri'nin birtakım özelliklerini (örneğin, kullanılamıyor kapsayıcı görüntüsünü silme [coğrafi çoğaltma][container-registry-geo-replication], ve [Web kancaları][container-registry-webhook]).
 

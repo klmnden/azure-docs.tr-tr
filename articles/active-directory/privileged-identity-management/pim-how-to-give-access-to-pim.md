@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management - Azure için erişim verme | Microsoft Docs
-description: Azure Active Directory Privileged Identity Management uzantısı ile kullanıcılara rollerini PIM yönetebilmeniz eklemeyi öğrenin.
+title: Azure PIM - yönetmek için diğer yöneticiler için erişim verme | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM) yönetmek için diğer yönetimler erişimi vermeyi öğreneceksiniz.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ade3939057669e7f9979001db4376fe61c2f4ad9
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
-ms.translationtype: MT
+ms.openlocfilehash: d6b2d9f43ce9bb86f4557c92887689c83beb49fa
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623077"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189564"
 ---
-# <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management'ı yönetmek için erişim verme
+# <a name="grant-access-to-other-administrators-to-manage-pim"></a>PIM yönetmek için diğer yöneticilere erişim izni ver
 Azure AD Privileged Identity Management (PIM) bir kuruluş için otomatik olarak sağlayan bir genel yönetici rolü atamalarını ve PIM erişimi alın. Başka hiç kimse yazma erişimi varsayılan olarak, ancak diğer genel yöneticileri dahil alır. Diğer genel Yöneticiler, güvenlik yöneticileri ve güvenlik okuyucuları Azure AD PIM salt okunur erişimi vardır. PIM erişimi verme, ilk kullanıcı başkalarına atayabilirsiniz **ayrıcalıklı Rol Yöneticisi** rol.
 
 > [!NOTE]
@@ -54,4 +54,5 @@ Biri ayrıcalıklı rol yönetici rolünden kaldırmadan önce her zaman Ayrıca
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Sonraki adımlar
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Kiracınızdaki abonelik yönetimini etkinleştirme](pim-resource-roles-enable-subscription-management.md)

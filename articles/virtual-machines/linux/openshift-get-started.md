@@ -1,5 +1,5 @@
 ---
-title: Azure genel bakış OpenShift | Microsoft Docs
+title: OpenShift Azure genel bakış | Microsoft Docs
 description: Azure'da OpenShift genel bakış.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,56 +15,56 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: c8e740a66271c88b3abb036867d1760cc9e77607
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e3ab060c1cea28f83c18dc89aeea7716ec86572a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944510"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190352"
 ---
 # <a name="openshift-in-azure"></a>Azure'da OpenShift
 
-OpenShift Docker ve Kubernetes kuruluşa getiren açık ve Genişletilebilir kapsayıcı uygulama platformudur.  
+OpenShift enterprise için Docker ve Kubernetes getiren açık ve Genişletilebilir bir kapsayıcı uygulama platformudur.  
 
-OpenShift Kubernetes kapsayıcı orchestration ve yönetimi için içerir. Etkinleştirme Geliştirici ve işlemleri merkezli araçları ekler:
+OpenShift Kubernetes kapsayıcı düzenleme ve management içerir. Bunu sağlayan Geliştirici ve işlemleri merkezli araçları ekler:
 
 - Hızlı Uygulama geliştirme.
 - Kolay dağıtım ve ölçeklendirme.
-- Uzun vadeli yaşam döngüsü Bakımı ekipleri ve uygulamalar için.
+- Takımlar ve uygulamalar için uzun vadeli yaşam döngüsü Bakım.
 
-Birden fazla sürümünü OpenShift vardır:
+OpenShift birden çok sürümü kullanılabilir:
 
-- OpenShift Origin
+- OKD (eski adıyla OpenShift Origin)
 - OpenShift Kapsayıcı Platformu
-- Çevrimiçi OpenShift
-- Ayrılmış OpenShift
+- OpenShift çevrimiçi
+- OpenShift dedicated
 
-Dört sürümleri iki müşterilere Azure'da dağıtmak yalnızca bu makalede, kapsamdaki: OpenShift kaynağı ve OpenShift kapsayıcı Platform.
+Dört sürümleri kapsamında bu makalede, yalnızca iki müşterilerin Azure'da dağıtmak kullanılabilir: OpenShift Origin ve OpenShift kapsayıcı platformu.
 
-## <a name="openshift-origin"></a>OpenShift Origin
+## <a name="okd-formerly-openshift-origin"></a>OKD (eski adıyla OpenShift Origin)
 
-Kaynağı bir [açık kaynak](https://www.openshift.org/) desteklenen topluluk OpenShift Yukarı Akış projesi. Kaynak, CentOS veya Red Hat Enterprise Linux (RHEL) yüklenebilir.
+OKD olduğu bir [açık kaynaklı](https://www.okd.io/) desteklenen topluluğu, OpenShift Yukarı Akış projesi. CentOS veya Red Hat Enterprise Linux (RHEL) üzerinde OKD yüklenebilir.
 
 ## <a name="openshift-container-platform"></a>OpenShift Kapsayıcı Platformu
 
-Kapsayıcı platformudur bir kurumsal kullanıma hazır [ticari sürümü](https://www.openshift.com) gelen ve Red Hat tarafından desteklenir. Bu sürümle müşteriler OpenShift kapsayıcı Platform için gerekli yetkilendirmeleri satın alın ve yükleme ve yönetimini tüm altyapının için sorumludur.
+Bir kapsayıcı platformudur Kurumsal kullanıma hazır [ticari sürümü](https://www.openshift.com) gelen ve Red Hat tarafından desteklenir. Bu sürümü ile müşteriler OpenShift kapsayıcı platformu için gerekli yetkilendirmeleri satın alma ve yükleme ve yönetimini tüm altyapının sorumludur.
 
-Tüm platform müşteriler "sahibi"için kullanıcılar kendi şirket içi veri merkezini veya genel bulut (örneğin, Azure, AWS veya Google) yükleyebilir.
+Tüm platform müşteriler "sahip"olduğundan, bunlar kendi şirket içi veri merkezinde veya genel bulut (örneğin, Azure, AWS ve Google) yükleyebilirsiniz.
 
-## <a name="openshift-online"></a>Çevrimiçi OpenShift
+## <a name="openshift-online"></a>OpenShift çevrimiçi
 
-Red Hat yönetimli çevrimiçidir *çok kiracılı* OpenShift kapsayıcı platformu kullanır. Red Hat tüm altyapının (örneğin, sanal makineleri, OpenShift küme, ağ ve depolama) yönetir. 
+Red Hat tarafından yönetilen çevrimiçi *çok kiracılı* OpenShift kapsayıcı platformu kullanan. Red Hat tüm altyapının (örneğin, VM'ler, OpenShift küme, ağ ve depolama) yönetir. 
 
-Bu sürüm ile müşterinin kapsayıcıları dağıtır ancak kapsayıcıların hangi ana bilgisayarların çalıştırmak denetimi yoktur. Çevrimiçi çok kiracılı olduğundan, diğer müşterilerden kapsayıcı olarak aynı VM konaklarda kapsayıcıları bulunabilir. Maliyet bir kapsayıcıdır.
+Bu sürüm ile müşteri kapsayıcıları dağıtılır, ancak denetleyemez kapsayıcıların hangi ana bilgisayarlar üzerinde çalıştırın. Çok kiracılı çevrimiçi olduğundan, diğer müşterilerden kapsayıcıları olarak aynı sanal makine konaklarında kapsayıcıları bulunabilir. Maliyet bir kapsayıcıdır.
 
-## <a name="openshift-dedicated"></a>Ayrılmış OpenShift
+## <a name="openshift-dedicated"></a>OpenShift dedicated
 
-Red Hat yönetilen ayrılmış *tek Kiracı* OpenShift kapsayıcı platformu kullanır. Red Hat tüm altyapının (ağ, depolama, vb. VM'ler, OpenShift küme.) yönetir. Küme bir müşteriye özgü ve genel bulut (örneğin, AWS veya içinde erken 2018 yakında Azure ile Google) çalıştırır. Başlangıç küme 48,000 (Önden Ücretli) yıl başına dört uygulama düğüm içerir.
+Red Hat tarafından yönetilen adanmış *tek kiracılı* OpenShift kapsayıcı platformu kullanan. Red Hat tüm altyapının (ağ, depolama vb. VM'ler, OpenShift küme.) yönetir. Küme tek bir müşteriye özel ve genel bulut (veya Google, 2018 yılının başlarından yakında Azure ile AWS gibi) çalışır. Bir başlangıç kümesi 48,000 (Önden ödenen) yılda dört uygulama düğüm içerir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Azure'da OpenShift ortak önkoşulları yapılandırma](./openshift-prerequisites.md)
-- [Azure'da OpenShift kaynak dağıtma](./openshift-origin.md)
-- [Azure'da OpenShift kapsayıcı Platform dağıtma](./openshift-container-platform.md)
+- [Azure'da OpenShift Origin dağıtma](./openshift-origin.md)
+- [Azure'da OpenShift kapsayıcı platformu dağıtma](./openshift-container-platform.md)
 - [Dağıtım sonrası görevler](./openshift-post-deployment.md)
-- [OpenShift dağıtım sorunlarını gider](./openshift-troubleshooting.md)
+- [OpenShift dağıtım sorunlarını giderme](./openshift-troubleshooting.md)

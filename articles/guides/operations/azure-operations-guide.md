@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 2934c2323b056bfb5e556e7d688704ed20882bca
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 06365e4397075d18150095f7e77367f457e3308c
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124459"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190434"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure BT operatörleri için Başlarken
 
@@ -173,7 +173,7 @@ Azure PowerShell, Azure'ı yönetmek için cmdlet'ler sağlayan modüller kümes
 
 #### <a name="azure-command-line-interface"></a>Azure komut satırı arabirimi
 
-Azure komut satırı arabirimi oluşturmak, yönetmek ve Azure kaynaklarını komut satırından kaldırmak için kullanabileceğiniz bir araçtır. Linux, Mac OS X ve Windows için Azure CLI kullanılabilir. Daha fazla bilgi ve teknik ayrıntılar için bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli.md).
+Azure komut satırı arabirimi oluşturmak, yönetmek ve Azure kaynaklarını komut satırından kaldırmak için kullanabileceğiniz bir araçtır. Linux, Mac OS X ve Windows için Azure CLI kullanılabilir. Daha fazla bilgi ve teknik ayrıntılar için bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
 
 #### <a name="rest-apis"></a>REST API'leri
 
@@ -499,5 +499,5 @@ Bir ağ güvenlik grubu kullanarak güvenli bir Azure sanal ağları yardımcı 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Bir Windows VM oluşturma](/virtual-machines/windows/quick-create-portal.md)
+- [Bir Windows VM oluşturma](../../virtual-machines/windows/quick-create-portal.md)
 - [Linux VM oluşturma](../../virtual-machines/linux/quick-create-portal.md)

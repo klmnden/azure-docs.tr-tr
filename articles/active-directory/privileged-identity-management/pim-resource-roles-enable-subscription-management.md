@@ -1,6 +1,6 @@
 ---
-title: -Azure kaynakları için Privileged Identity Management abonelik yönetimini etkinleştirme | Microsoft Docs
-description: Nasıl genel Yöneticiler öğrenin Kiracı aboneliklerini yönetebilirsiniz.
+title: Kiracınızdaki - Azure abonelik yönetimini etkinleştirme | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM) kullanırken, kiracınızdaki etkin abonelik yönetimi etkinleştirme konusunda bilgi edinin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,12 +14,12 @@ ms.component: pim
 ms.date: 03/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d7a9c0090d3bfaaf1161b6255c4c0b659c77d692
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 89bb6fd48c58b7672b7a2251a172cc169093d368
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620289"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190004"
 ---
 # <a name="enable-subscription-management-in-your-tenant"></a>Kiracınızdaki abonelik yönetimini etkinleştirme
 
@@ -79,14 +79,5 @@ Kuruluşunuzdaki uygun atamalar önemli aboneliklere sahip olduğunuza göre diz
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Kaynakları bulma](pim-resource-roles-discover-resources.md)
-
-[Rol ayarlarını yapılandırma](pim-resource-roles-configure-role-settings.md)
-
-
-
-
-
-
-
-
+- [PIM'de yönetmek için Azure kaynaklarını keşfedin](pim-resource-roles-discover-resources.md)
+- [PIM'de Azure kaynak rol ayarlarını yapılandırma](pim-resource-roles-configure-role-settings.md)

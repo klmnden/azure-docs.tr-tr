@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/28/2018
+ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ea96898e36080096c91285f3ff7621f84bf81edf
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: e0d92cc52b34e1e04f13e03ec2196d13961fb7de
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42056443"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247945"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -35,6 +35,8 @@ Aşağıdaki diyagramda davranışı kavramsal bir görünümü gösterir ve ver
 
 ![Güncelleştirme yönetimi işlem akışı](media/automation-update-management/update-mgmt-updateworkflow.png)
 
+Güncelleştirme yönetimi, yerel makine aynı kiracıda birden çok abonelik içinde kullanılabilir. Yerleşik gereken farklı bir kiracıda makineleri yönetmek için bunları olarak [Azure olmayan makineler](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
+
 Bilgisayar güncelleştirme uyumluluğu için tarama gerçekleştirdikten sonra aracıyı Azure Log Analytics'e toplu bilgiler iletir. Bir Windows bilgisayarda Uyumluluk taraması varsayılan olarak her 12 saatte bir gerçekleştirilir.
 
 Tarama zamanlamasına ek olarak, MMA'yı yeniden başlatılması durumunda 15 dakika içinde güncelleştirme yükleme öncesinde ve güncelleştirme yüklemesi sonrasında, güncelleştirme uyumluluğu için tarama başlatılır.
@@ -48,7 +50,7 @@ Raporları dayanarak bilgisayarınızın ne kaynağı üzerinde nasıl güncel �
 
 Zamanlanmış bir dağıtım oluşturarak, yazılım güncelleştirmelerinin gerekli olduğu bilgisayarlara güncelleştirmeleri dağıtabilir ve yükleyebilirsiniz. Olarak sınıflandırılmış güncelleştirmeler *isteğe bağlı* Windows bilgisayarlar için dağıtım kapsamına dahil değildir. Yalnızca gerekli güncelleştirmeleri dağıtım kapsamına dahildir. 
 
-Zamanlanmış dağıtım, bilgisayarları açıkça belirterek veya seçerek uygun güncelleştirmeleri hangi hedef bilgisayarların alma tanımlayan bir [bilgisayar grubu](../log-analytics/log-analytics-computer-groups.md) belirli bir bilgisayar kümesinin günlük aramaları dayanır. Onayla ve güncelleştirmeleri yüklenebilir süreyi belirtmek için bir zamanlama de belirtirsiniz. 
+Zamanlanmış dağıtım, bilgisayarları açıkça belirterek veya seçerek uygun güncelleştirmeleri hangi hedef bilgisayarların alma tanımlayan bir [bilgisayar grubu](../log-analytics/log-analytics-computer-groups.md) belirli bir bilgisayar kümesinin günlük aramaları dayanır. Onayla ve güncelleştirmeleri yüklenebilir süreyi belirtmek için bir zamanlama de belirtirsiniz.
 
 Güncelleştirmeler Azure Automation’daki runbook'lar tarafından yüklenir. Bu runbook'ları görüntüleyemezsiniz ve runbook'lar herhangi bir yapılandırma gerekmez. Güncelleştirme dağıtımı oluşturulduğunda, güncelleştirme dağıtımına dahil edilen bilgisayarlar için belirtilen zamanda ana güncelleştirme runbook'unu başlatan bir zamanlama oluşturur. Ana runbook, gerekli güncelleştirmelerin yüklemesini gerçekleştirmek için her aracıda bir alt runbook başlatır.
 
@@ -220,7 +222,7 @@ Yeni bir güncelleştirme dağıtımı oluşturmak için Seç **güncelleştirme
 |Hariç tutulacak güncelleştirmeler|Hariç tutulacak güncelleştirmeler girin. Windows için KB 'KB' öneki olmadan girin. Linux için paket adını girin veya bir joker karakter kullanın.  |
 |Zamanlama ayarları|Her iki kez başlatın ve saati seçin veya yineleme için yineleme|
 | Bakım penceresi |Güncelleştirmeler için dakika sayısı. Değeri olması olamaz az 30 dakika ve en fazla 6 saat |
-| Denetim yeniden başlatma| Araçtaki nasıl yeniden başlatma yapılması gerekir.</br>Kullanılabilen seçenekler şunlardır:</br>(Varsayılan) gerekliyse yeniden başlatma</br>Her zaman yeniden Başlat</br>Hiçbir zaman yeniden başlatma</br>Yalnızca yeniden - güncelleştirmeleri yüklenmez|
+| Denetim yeniden başlatma| Yeniden başlatma işlemlerini nasıl işleneceğini belirler. Kullanılabilen seçenekler:</br>Gerekirse yeniden başlat (Varsayılan)</br>Her zaman yeniden başlat</br>Hiçbir zaman yeniden başlatma</br>Yalnızca yeniden başlatma - güncelleştirmeleri yüklemez|
 
 ## <a name="update-classifications"></a>Güncelleştirme sınıflandırmaları
 
@@ -310,7 +312,7 @@ Update
 
 #### <a name="single-azure-vm-assessment-queries-linux"></a>Tek Azure VM değerlendirmesi sorgular (Linux)
 
-Var. bazı Linux dağıtımları için bir [endianness](https://en.wikipedia.org/wiki/Endianness) Azure Resource Manager ve Log Analytics içinde depolanan geldiği VMUUID değerle eşleşmiyor. Aşağıdaki sorgu ya da endianness bir eşleşme olup olmadığını denetler. VMUUID değerleri büyük endian ve endian GUID'sinin biçimi doğru sonuçları döndürmek için ile değiştirin. Log Analytics'te aşağıdaki sorguyu çalıştırarak kullanılması gereken VMUUID bulabilirsiniz: `Update | where Computer == "<machine name>"
+Bazı Linux dağıtımları için var olan bir [endianness](https://en.wikipedia.org/wiki/Endianness) Azure Resource Manager ve Log Analytics içinde depolanan geldiği VMUUID değerle eşleşmiyor. Aşağıdaki sorgu ya da endianness bir eşleşme olup olmadığını denetler. VMUUID değerleri büyük endian ve endian GUID'sinin biçimi doğru sonuçları döndürmek için ile değiştirin. Log Analytics'te aşağıdaki sorguyu çalıştırarak kullanılması gereken VMUUID bulabilirsiniz: `Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>Eksik güncelleştirmeler özeti
@@ -510,7 +512,7 @@ Güncelleştirme yönetimi, güncelleştirme zenginleştirme, bulutta gerçekle�
 
 Ancak, güncelleştirme yönetimi, ilgili güncelleştirme hakkında ek bilgi içerdiğinden olarak uyumlu söz konusu makine hala bildirebilir.
 
-Güncelleştirme sınıflandırmasına göre güncelleştirmeler dağıtma CentOS üzerinde kullanıma hazır çalışmaz. SUSE için seçme *yalnızca* sınıflandırma bazı güvenlik neden olabileceğinden ' diğer ' güvenlik güncelleştirmeleri, ayrıca yüklenen güncelleştirmeler zypper (Paket Yöneticisi) için ilgili veya bağımlılıklarından ilk gereklidir. Zypper ile ilgili bir sınırlama budur. Bazı durumlarda, doğrulamak için Güncelleştirme dağıtımı'nı yeniden çalıştırmak için gerekli olabilecek güncelleştirme günlüğü'nü denetleyin.
+Güncelleştirme sınıflandırmasına göre güncelleştirmeler dağıtma CentOS üzerinde kullanıma hazır çalışmaz. SUSE için seçme *yalnızca* sınıflandırma bazı güvenlik neden olabileceğinden ' diğer ' güvenlik güncelleştirmeleri, ayrıca yüklenen güncelleştirmeler zypper (Paket Yöneticisi) için ilgili veya bağımlılıklarından ilk gereklidir. Zypper ile ilgili bir sınırlama budur. Bazı durumlarda, onay doğrulamak için Güncelleştirme dağıtımı güncelleştirme günlüğü yeniden çalıştırmak için gerekli olabilir.
 
 ## <a name="troubleshoot"></a>Sorun giderme
 

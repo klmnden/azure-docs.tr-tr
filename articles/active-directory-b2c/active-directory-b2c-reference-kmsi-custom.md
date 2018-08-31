@@ -1,202 +1,184 @@
 ---
 title: Azure Active Directory B2C'de Oturumumu açık bırak | Microsoft Docs
-description: "'Oturumumu açık bırak' kurmak nasıl yazılacağını gösteren bir konu."
+description: Yedekleme tutun bana imzalı içinde (KMSI) Azure Active Directory B2C, kurmayı öğrenin.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/05/2016
+ms.date: 08/27/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6bad6e1f2b204f76b075652a9d3f27367a8de49f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6d58a62ef70cb5bacb44a3a9832516a30fc91ffa
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441326"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248068"
 ---
-# <a name="azure-active-directory-b2c-enable-keep-me-signed-in-kmsi"></a>Azure Active Directory B2C: '(KMSI) oturum açmış tut' etkinleştir  
+# <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de (KMSI) içinde Oturumumu açık bırak seçeneğini etkinleştirme
+
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD B2C, artık web ve '(KMSI) oturum açmış tut' işlevselliğini etkinleştirmek için yerel uygulamalar sağlar. Bu özellik, kullanıcıların uygulamaya kullanıcı adı ve parola girmek sormadan döndüren erişimi verir. Kullanıcı oturumu kapattıktan sonra bu erişimi iptal edilir. 
+Web ve yerel uygulamaları Azure Active Directory (Azure AD) B2C tutmak bana imzalı içinde (KMSI) işlevselliği etkinleştirebilirsiniz. Bu özellik, kullanıcı adı ve parola girmek sormadan uygulamanın kullanıcıları döndüren erişimi verir. Bir kullanıcı oturumu kapattığında bu erişimi iptal edilir. 
 
-Genel bilgisayarlarda bu seçenek işaretlendiğinde kullanıcıların karşı öneririz. 
+Kullanıcılar bu seçeneği genel bilgisayarlarda etkinleştirmemeniz gerekir. 
 
-![görüntü](images/kmsi.PNG)
-
+![Oturumumu açık bırak seçeneğini etkinleştirme](./media/active-directory-b2c-reference-kmsi-custom/kmsi.PNG)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Yerel izin verecek şekilde yapılandırılmış bir Azure AD B2C kiracısı hesap oturumu açma kaydolma/oturum açma, açıklandığı [Başlarken](active-directory-b2c-get-started-custom.md).
+Yerel hesap kaydolma ve oturum açma izin verecek şekilde yapılandırılmış bir Azure AD B2C kiracısı. Bir kiracı yoksa, adımları kullanarak bir tane oluşturabilirsiniz [öğretici: Azure Active Directory B2C kiracısı oluşturma](tutorial-create-tenant.md).
 
-## <a name="how-to-enable-kmsi"></a>KMSI'yi etkinleştirme
+## <a name="add-a-content-definition-element"></a>İçerik tanımı öğesi Ekle 
 
-Güven framework uzantıları ilkenizde aşağıdaki değişiklikleri yapın.
+Altında **BuildingBlocks** uzantısı dosyanızın öğe ekleme bir **ContentDefinitions** öğesi. 
 
-## <a name="adding-a-content-definition-element"></a>İçerik tanımı öğesi ekleniyor 
+1. Altında **ContentDefinitions** öğe, Ekle bir **ContentDefinition** tanımlayıcısına sahip öğe `api.signuporsigninwithkmsi`.
+2. Altında **ContentDefinition** öğe, Ekle **LoadUri**, **RecoveryUri**, ve **DataUri** öğeleri. `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` Değerini **DataUri** KMSI onay kutusuna oturum açma sayfalarını getirir makine anlaşılır tanımlayıcısı bir öğedir. Bu değer değiştirilmemelidir. 
 
-`BuildingBlocks` Uzantı dosyanızın düğüm içermelidir bir `ContentDefinitions` öğesi. 
+    ```XML
+    <BuildingBlocks>
+      <ContentDefinitions>
+        <ContentDefinition Id="api.signuporsigninwithkmsi">
+          <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
+          <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0</DataUri>
+          <Metadata>
+            <Item Key="DisplayName">Signin and Signup</Item>
+          </Metadata>
+        </ContentDefinition>
+      </ContentDefinitions>
+    </BuildingBlocks>                       
+    ```
 
-1. İçinde `ContentDefinitions` bölümünde, yeni bir tanımlama `ContentDefinition` kimlikli `api.signuporsigninwithkmsi`.
-2. Yeni `ContentDefinition` içermelidir bir `LoadUri`, `RecoveryUri` ve `DataUri` gibi.
-3. Datauri`urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` KMSI onay kutusuna oturum açma sayfalarını getirir bir makine anlaşılır tanımlayıcısı. Bu değer değişmez emin olun. 
+## <a name="add-a-sign-in-claims-provider-for-a-local-account"></a>Bir yerel hesap oturum açma talep sağlayıcısı Ekle  
 
-```XML
-  <BuildingBlocks>
-    <ContentDefinitions>
-      <ContentDefinition Id="api.signuporsigninwithkmsi">
-        <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
-        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
-        <DataUri>urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0</DataUri>
-        <Metadata>
-          <Item Key="DisplayName">Signin and Signup</Item>
-        </Metadata>
-      </ContentDefinition>
-    </ContentDefinitions>
-  </BuildingBlocks>                       
-```
+Yerel hesap oturum açma kullanarak bir talep sağlayıcısı olarak tanımlayabilirsiniz **ClaimsProvider** uzantısının ilkenizin öğesinde:
 
+1. Açık *TrustFrameworkExtensions.xml* çalışma dizininizin dosyasından. 
+2. Bulma **ClaimsProviders** öğesi. Yoksa, kök öğe altında ekleyin. [Başlangıç paketi](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) bir yerel hesap oturum açma talep sağlayıcısı içerir. 
+3. Ekleme bir **ClaimsProvider** öğeyle **DisplayName** ve **TechnicalProfile** aşağıdaki örnekte gösterildiği gibi:
 
+    ```XML
+    <ClaimsProviders>
+      <ClaimsProvider>
+        <DisplayName>Local Account SignIn</DisplayName>
+        <TechnicalProfiles>
+          <TechnicalProfile Id="login-NonInteractive">
+            <Metadata>
+              <Item Key="client_id">ProxyIdentityExperienceFrameworkAppId</Item>
+              <Item Key="IdTokenAudience">IdentityExperienceFrameworkAppId</Item>
+            </Metadata>
+            <InputClaims>
+              <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="ProxyIdentityExperienceFrameworkAppID" />
+              <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="IdentityExperienceFrameworkAppID" />
+            </InputClaims>
+          </TechnicalProfile>
+        </TechnicalProfiles>
+      </ClaimsProvider>
+    </ClaimsProviders>
+    ```
 
-## <a name="add-a--local-account-sign-in-claims-provider"></a>Bir yerel hesap oturum açma talep sağlayıcısı Ekle 
+### <a name="add-the-application-identifiers-to-your-custom-policy"></a>Uygulama tanımlayıcıları, özel ilkeniz için ekleyin
 
-İçin bir talep sağlayıcısı olarak yerel hesapla oturum aç'ı tanımlayabilirsiniz `<ClaimsProvider>` uzantısının ilkenizin düğümünde:
+Uygulama tanımlayıcıları için ekleme *TrustFrameworkExtensions.xml* dosya.
 
-1. Uzantı dosyası (TrustFrameworkExtensions.xml) çalışma dizininizi açın. 
-2. Bulma `<ClaimsProviders>` bölümü. Yoksa, kök düğümü ekleyin.
-3. Başlangıç Paketi'nden [Başlarken](active-directory-b2c-get-started-custom.md) 'Yerel hesapla oturum aç' talep sağlayıcısı ile birlikte gelir. 
-4. Aksi takdirde, yeni bir ekleme `<ClaimsProvider>` gösterildiği gibi düğüm:
+1. İçinde *TrustFrameworkExtensions.xml* dosya, bulma **TechnicalProfile** tanımlayıcısını öğeyle `login-NonInteractive` ve **TechnicalProfile** öğeyle bir tanımlayıcı `login-NonInteractive-PasswordChange` ve tüm değerleri Değiştir `IdentityExperienceFrameworkAppId` açıklandığı gibi kimlik deneyimi çerçevesi uygulamanın uygulama tanımlayıcısı ile [Başlarken](active-directory-b2c-get-started-custom.md).
 
-```XML
-<ClaimsProviders>
-    <ClaimsProvider>
-      <DisplayName>Local Account SignIn</DisplayName>
-      <TechnicalProfiles>
-         <TechnicalProfile Id="login-NonInteractive">
-           <Metadata>
-            <Item Key="client_id">ProxyIdentityExperienceFrameworkAppId</Item>
-            <Item Key="IdTokenAudience">IdentityExperienceFrameworkAppId</Item>
-           </Metadata>
-            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="ProxyIdentityExperienceFrameworkAppID" />
-            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="IdentityExperienceFrameworkAppID" />
-           </InputClaims>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
- </ClaimsProviders>
-```
+    ```
+    <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
+    ```
 
-### <a name="add-the-application-ids-to-your-custom-policy"></a>Özel ilkenizi uygulama kimlikleri ekleme
+2. Tüm değerleri değiştirin `ProxyIdentityExperienceFrameworkAppId` açıklandığı Proxy kimlik deneyimi çerçevesi uygulamanın uygulama tanımlayıcısı ile [Başlarken](active-directory-b2c-get-started-custom.md).
+3. Uzantıları dosyayı kaydedin.
 
-Uygulama kimlikleri uzantıları dosyaya ekleyin (`TrustFrameworkExtensions.xml`):
+## <a name="create-a-kmsi-enabled-user-journey"></a>KMSI'yi etkin kullanıcı yolculuğu oluşturma
 
-1. Öğesi (TrustFrameworkExtensions.xml) uzantıları dosyasında bulma `<TechnicalProfile Id="login-NonInteractive">` ve `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
+Yerel hesap oturum açma talep sağlayıcısı kullanıcı yolculuğunuza ekleyin. 
 
-2. Tüm örneklerinin yerine `IdentityExperienceFrameworkAppId` açıklandığı gibi kimlik deneyimi çerçevesi uygulamasının uygulama kimliği ile [Başlarken](active-directory-b2c-get-started-custom.md). Örnek aşağıda verilmiştir:
+1. İlkenizin temel dosyasını açın. Örneğin, *TrustFrameworkBase.xml*.
+2. Bulma **UserJourneys** öğenin ve tüm içeriğini kopyalayın **UserJourney** tanımlayıcısını kullanır öğesi `SignUpOrSignIn`.
+3. Uzantı dosyası açın. Örneğin, *TrustFrameworkExtensions.xml* ve bulma **UserJourneys** öğesi. Öğe yoksa bir tane ekleyin.
+4. Tüm yapıştırın **UserJourney** öğesi alt öğesi olarak kopyaladığınız **UserJourneys** öğesi.
+5. Yeni kullanıcı yolculuğu için olan tanımlayıcıyla değiştirin. Örneğin, `SignUpOrSignInWithKmsi`.
+6. Son olarak, ilk düzenleme adımı değiştirin **ContentDefinitionReferenceId** için `api.signuporsigninwithkmsi`. Kullanıcı yolculuğu onay kutusu bu değer ayarı sağlar. 
+7. Kaydet ve uzantı dosyasını karşıya yükleyin ve tüm doğrulamalarını başarılı olduğunu doğrulayın.
 
-   ```
-   <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
-   ```
+    ```XML
+    <UserJourneys>
+      <UserJourney Id="SignUpOrSignInWithKmsi">
+        <OrchestrationSteps>
+          <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsigninwithkmsi">
+            <ClaimsProviderSelections>
+              <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
+            </ClaimsProviderSelections>
+            <ClaimsExchanges>
+              <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
+            </ClaimsExchanges>
+          </OrchestrationStep>
+          <OrchestrationStep Order="2" Type="ClaimsExchange">
+            <Preconditions>
+              <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+                <Value>objectId</Value>
+                <Action>SkipThisOrchestrationStep</Action>
+              </Precondition>
+            </Preconditions>
+            <ClaimsExchanges>
+              <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
+            </ClaimsExchanges>
+          </OrchestrationStep>
+          <!-- This step reads any user attributes that we may not have received when in the token. -->
+          <OrchestrationStep Order="3" Type="ClaimsExchange">
+            <ClaimsExchanges>
+              <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
+            </ClaimsExchanges>
+          </OrchestrationStep>
+          <OrchestrationStep Order="4" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+        </OrchestrationSteps>
+        <ClientDefinition ReferenceId="DefaultWeb" />
+      </UserJourney>
+    </UserJourneys>
+    ```
 
-3. Tüm örneklerinin yerine `ProxyIdentityExperienceFrameworkAppId` açıklandığı Proxy kimlik deneyimi çerçevesi uygulamasının uygulama kimliği ile [Başlarken](active-directory-b2c-get-started-custom.md).
+## <a name="create-a-relying-party-file"></a>Bir bağlı olan taraf dosyası oluşturun
 
-4. Uzantıları dosyanızı kaydedin.
+Oluşturduğunuz kullanıcı yolculuğu başlatır bağlı olan taraf (RP) dosyasını güncelleştirin.
 
-## <a name="create-a-kmsi-in-enabled-user-journey"></a>Etkin kullanıcı yolculuğunda bir KMSI oluşturma
+1. Bir kopyasını *SignUpOrSignIn.xml* çalışma dizininizde dosya ve yeniden adlandırın. Örneğin, *SignUpOrSignInWithKmsi.xml*.
+2. Yeni bir dosya açıp güncelleştirme **Policyıd** özniteliğini **TrustFrameworkPolicy** benzersiz bir değere sahip. İlkenizi adıdır. Örneğin, `SignUpOrSignInWithKmsi`.
+3. Değişiklik **Referenceıd** özniteliğini **DefaultUserJourney** oluşturduğunuz yeni kullanıcı yolculuğu tanımlayıcısını eşleştirilecek öğe. Örneğin, `SignUpOrSignInWithKmsi`.
 
-Şimdi, kullanıcı yolculuğu için yerel hesapla oturum aç talep sağlayıcısı eklemek gerekir. 
+    KMSI'yi kullanarak yapılandırılmış **UserJourneyBehaviors** öğesi. **KeepAliveInDays** özniteliği denetimleri ne kadar süreyle kullanıcının oturum açmış durumda kalır. Aşağıdaki örnekte, KMSI oturumu otomatik olarak kullanım süresi sonu `7` ne sıklıkta sessiz kimlik doğrulaması kullanıcının gerçekleştirdiği bağımsız olarak gün. Ayarı **KeepAliveInDays** değerini `0` KMSI işlevselliği devre dışı bırakır. Varsayılan olarak, bu değer `0`. Varsa değerini **Ssosession** olduğu `Rolling`, KMSI oturumu tarafından Genişletilmiş `7` kullanıcı sessiz kimlik doğrulaması gerçekleştirdiğinde gün.  Varsa `Rolling` olan seçili gün sayısı için minimum tutmalısınız. 
 
-1. Temel dosya ilkenizin (örneğin, TrustFrameworkBase.xml) açın.
-2. Bulma `<UserJourneys>` öğenin ve tüm kopyalama `<UserJourney>` içeren düğüm `Id="SignUpOrSignIn"`.
-3. Uzantı dosyası (örneğin, TrustFrameworkExtensions.xml) açın ve bulun `<UserJourneys>` öğesi. Öğe yoksa bir tane ekleyin.
-4. Tüm yapıştırın `<UserJourney>` alt öğesi olarak kopyaladığınız düğüm `<UserJourneys>` öğesi.
-5. Yeni kullanıcı yolculuğu kimliği yeniden adlandırın (örneğin, Yeniden Adlandır `SignUpOrSignInWithKmsi`).
-6. Son olarak `OrchestrationStep 1` değiştirme `ContentDefinitionReferenceId` için `api.signuporsigninwithkmsi` , önceki adımda el. Bu onay kutusu kullanıcı yolculuğu sağlar. 
-7. İşiniz uzantısının değiştirme. Kaydet ve bu dosyayı karşıya yükleyin. Tüm Doğrulamalar başarıyla emin olun.
+    Değerini **SessionExpiryInSeconds** SSO oturumunun sona erme saati temsil eder. KMSI'yi oturumun veya dolup dolmadığını kontrol etmek için bu Azure AD B2C tarafından dahili olarak kullanılır. Değerini **KeepAliveInDays** web tarayıcısında SSO tanımlama bilgisinin süre sonu/Max-Age değeri belirler. Farklı **SessionExpiryInSeconds**, **KeepAliveInDays** tarayıcı kapatıldığında, tanımlama bilgisi silinmesini önlemek için kullanılır. Yalnızca SSO oturum tanımlama bilgisinin denetlenen yoksa, bir kullanıcının sessiz bir şekilde oturum **KeepAliveInDays**ve süresi değil, hangi tarafından denetlenir **SessionExpiryInSeconds**. Değerini ayarlamak önerilir **SessionExpiryInSeconds** eşdeğer sırada olacak şekilde **KeepAliveInDays** saniye cinsinden aşağıdaki örnekte gösterildiği gibi.
 
-```XML
-<UserJourneys>
-    <UserJourney Id="SignUpOrSignInWithKmsi">
-      <OrchestrationSteps>
-        <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsigninwithkmsi">
-          <ClaimsProviderSelections>
-            <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
-          </ClaimsProviderSelections>
-          <ClaimsExchanges>
-            <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
-          </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="2" Type="ClaimsExchange">
-          <Preconditions>
-            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
-              <Value>objectId</Value>
-              <Action>SkipThisOrchestrationStep</Action>
-            </Precondition>
-          </Preconditions>
-          <ClaimsExchanges>
-            <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
-          </ClaimsExchanges>
-        </OrchestrationStep>
-        <!-- This step reads any user attributes that we may not have received when in the token. -->
-        <OrchestrationStep Order="3" Type="ClaimsExchange">
-          <ClaimsExchanges>
-            <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
-          </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="4" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
-      </OrchestrationSteps>
-      <ClientDefinition ReferenceId="DefaultWeb" />
-    </UserJourney>
-  </UserJourneys>
-```
+    ```XML
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignInWithKmsi" />
+      <UserJourneyBehaviors>
+        <SingleSignOn Scope="Tenant" KeepAliveInDays="7" />
+        <SessionExpiryType>Absolute</SessionExpiryType>
+        <SessionExpiryInSeconds>604800</SessionExpiryInSeconds>
+      </UserJourneyBehaviors>
+      <TechnicalProfile Id="PolicyProfile">
+        <DisplayName>PolicyProfile</DisplayName>
+        <Protocol Name="OpenIdConnect" />
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="displayName" />
+          <OutputClaim ClaimTypeReferenceId="givenName" />
+          <OutputClaim ClaimTypeReferenceId="surname" />
+          <OutputClaim ClaimTypeReferenceId="email" />
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+        </OutputClaims>
+        <SubjectNamingInfo ClaimType="sub" />
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
 
-## <a name="create-a-relying-party-rp-file"></a>Bir bağlı olan taraf (RP) dosyası oluşturun
-
-Ardından, oluşturduğunuz kullanıcı yolculuğu başlatan bağlı olan taraf (RP) dosyasını güncelleştirin:
-
-1. Çalışma dizininizde SignUpOrSignIn.xml kopyalanmasına. Ardından, dosyayı (örneğin, SignUpOrSignInWithKmsi.xml) yeniden adlandırın.
-
-2. Yeni bir dosya açıp güncelleştirme `PolicyId` özniteliğini `<TrustFrameworkPolicy>` benzersiz bir değere sahip. İlkenizi (örneğin, SignUpOrSignInWithKmsi) adıdır.
-
-3. Değiştirme `ReferenceId` özniteliğini `<DefaultUserJourney>` eşleştirilecek `Id` (örneğin, SignUpOrSignInWithKmsi) oluşturduğunuz yeni kullanıcı yolculuğunun.
-
-4. KMSI'yi yapılandırılmıştır `UserJourneyBehaviors`. 
-
-5. **`KeepAliveInDays`** kullanıcının oturum açmış durumda kalır ne kadar süreyle denetler. Aşağıdaki örnekte, KMSI oturumu otomatik olarak ne sıklıkta sessiz kimlik doğrulaması kullanıcının gerçekleştirdiği bakılmaksızın 14 gün sonra süresi dolar.
-
-   Ayar `KeepAliveInDays` 0 değerine KMSI işlevselliği devre dışı bırakır. Varsayılan olarak, bu değer 0'dır
-
-6. Varsa **`SessionExpiryType`** olduğu *çalışırken*, ardından KMSI oturumu kullanıcı sessiz kimlik doğrulaması gerçekleştirdiğinde 14 gün kadar uzatılır.  Varsa *çalışırken* olan seçili gün sayısı için en düşük tutmanızı öneririz. 
-
-       <RelyingParty>
-       <DefaultUserJourney ReferenceId="SignUpOrSignInWithKmsi" />
-       <UserJourneyBehaviors>
-         <SingleSignOn Scope="Tenant" KeepAliveInDays="14" />
-         <SessionExpiryType>Absolute</SessionExpiryType>
-         <SessionExpiryInSeconds>1200</SessionExpiryInSeconds>
-       </UserJourneyBehaviors>
-       <TechnicalProfile Id="PolicyProfile">
-         <DisplayName>PolicyProfile</DisplayName>
-         <Protocol Name="OpenIdConnect" />
-         <OutputClaims>
-           <OutputClaim ClaimTypeReferenceId="displayName" />
-           <OutputClaim ClaimTypeReferenceId="givenName" />
-           <OutputClaim ClaimTypeReferenceId="surname" />
-           <OutputClaim ClaimTypeReferenceId="email" />
-           <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-         </OutputClaims>
-         <SubjectNamingInfo ClaimType="sub" />
-       </TechnicalProfile>
-       </RelyingParty>
-
-7. Yaptığınız değişiklikleri kaydedin ve ardından dosyayı karşıya yükleyin.
-
-8. Azure portalında, karşıya yüklediğiniz özel bir ilkeyi test etmek için ilke dikey penceresine gidin ve ardından **Şimdi Çalıştır**.
-
-
-## <a name="link-to-sample-policy"></a>Örnek ilkesine yönelik bağlantı
+4. Yaptığınız değişiklikleri kaydedin ve ardından dosyayı karşıya yükleyin.
+5. Azure portalında, karşıya yüklediğiniz özel bir ilkeyi test etmek için ilke sayfasına gidin ve ardından **Şimdi Çalıştır**.
 
 Örnek ilke bulabilirsiniz [burada](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in).
 

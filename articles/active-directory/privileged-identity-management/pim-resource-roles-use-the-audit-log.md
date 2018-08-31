@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management'ı kullanarak Azure kaynakları için kaynak rolleri denetim | Microsoft Docs
-description: Tüm rol etkinliği için bir görünümünü elde açıklanmaktadır belirli bir kaynak.
+title: Azure kaynak rolleri için Denetim geçmişi PIM'de görüntüleme | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM içinde) Azure kaynak rolleri için denetim geçmişini görüntülemeyi öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8f328a609d696886ed452589d3cdfb5f45aec62a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: c0536423e9640f78149b612ec66b0a07cdcf24bb
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621292"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189320"
 ---
-# <a name="audit-resource-roles-for-azure-resources-by-using-privileged-identity-management"></a>Privileged Identity Management'ı kullanarak Azure kaynakları için kaynak rolleri denetleme 
+# <a name="view-audit-history-for-azure-resource-roles-in-pim"></a>PIM Azure kaynak rolleri için denetim geçmişini görüntüleme
 
 Kaynak Denetim tüm rol etkinliklerin kaynağın görünüm sağlar. Önceden tanımlanmış tarih veya özel aralığı kullanarak bilgileri filtreleyebilirsiniz.
 ![Filtre bilgileri](media/azure-pim-resource-rbac/rbac-resource-audit.png)
@@ -31,7 +31,7 @@ Kaynak Denetim, ayrıca bir kullanıcının Etkinlik Ayrıntısı hızlı erişi
 
 ![Daha fazla etkinlik ayrıntısı](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
-# <a name="my-audit"></a>Denetimim
+## <a name="my-audit"></a>Denetimim
 
 Denetimim, bir kullanıcının kişisel rol etkinlik bir görünümünü sağlar. Önceden tanımlanmış tarih veya özel aralığı kullanarak bilgileri filtreleyebilirsiniz.
 ![Kişisel rol etkinliği](media/azure-pim-resource-rbac/my-audit-time.png)
@@ -46,3 +46,6 @@ Belirli rol etkinleştirme seçerek, bu kullanıcı etkin olduğu sırada gerçe
 
 ![Rol etkinleştirme'yi seçin](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 
+## <a name="next-steps"></a>Sonraki adımlar
+
+- [Azure AD dizin rollerini PIM denetim geçmişini görüntüle](pim-how-to-use-audit-log.md)

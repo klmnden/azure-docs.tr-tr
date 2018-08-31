@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/22/2018
 ms.author: raynew
-ms.openlocfilehash: 23cf9430f82be860cb9acbfac42163f9243b2d0f
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: a734999f0fa473b5f1ee8ed55c4b73950566490d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42056243"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188782"
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>SQL Server'ın SQL Server olağanüstü durum kurtarma ve Azure Site Recovery kullanarak koruma
 
@@ -83,7 +83,6 @@ Bu tablo, Site Recovery ile SQL Server BCDR teknolojileriyle tümleştirme için
 
 * Desteklenen bir SQL Server sürümünü çalıştıran bir şirket içi SQL Server dağıtımı. Genellikle, ayrıca Active Directory için SQL server'ınızı gerekir.
 * Senaryo için dağıtmak istediğiniz gereksinimleri. Destek gereksinimleri hakkında daha fazla bilgi [azure'a çoğaltma](site-recovery-support-matrix-to-azure.md) ve [şirket içi](site-recovery-support-matrix.md), ve [dağıtım önkoşulları](site-recovery-prereq.md).
-* Azure'da kurtarma ayarlamak için çalıştırma [Azure sanal makine hazır olma durumu değerlendirmesi](http://www.microsoft.com/download/details.aspx?id=40898) , SQL Server sanal makinelerinde, Azure Site Recovery ile uyumlu olduğundan emin olmak için aracı.
 
 ## <a name="set-up-active-directory"></a>Active Directory'yi ayarlama
 

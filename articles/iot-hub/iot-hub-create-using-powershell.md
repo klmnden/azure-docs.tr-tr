@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/24/2018
+ms.date: 08/29/2018
 ms.author: robinsh
-ms.openlocfilehash: f9903781a998db8192e3958ae386b7420f56fd31
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7ecd35ba33d2860ba052aa27286c69985c2f7dd9
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045635"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190239"
 ---
 # <a name="create-an-iot-hub-using-the-new-azurermiothub-cmdlet"></a>New-AzureRmIotHub cmdlet'ini kullanarak IOT hub oluşturma
 
@@ -42,7 +42,7 @@ Bir IOT hub'ı dağıtmak için bir kaynak grubu gerekir. Mevcut bir kaynak grub
 
 IOT hub'ınız için bir kaynak grubu oluşturmak için kullanın [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup) komutu. Bu örnek adlı bir kaynak grubu oluşturur **MyIoTRG1** içinde **Doğu ABD** bölgesi:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 ```
 
@@ -50,7 +50,7 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 
 Önceki adımda oluşturduğunuz kaynak grubunda bir IOT hub'ı oluşturmak için kullanın [yeni AzureRmIotHub](https://docs.microsoft.com/powershell/module/AzureRM.IotHub/New-AzureRmIotHub) komutu. Bu örnekte bir **S1** adlı merkez **MyTestIoTHub** içinde **Doğu ABD** bölgesi:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmIotHub `
     -ResourceGroupName MyIoTRG1 `
     -Name MyTestIoTHub `
@@ -64,15 +64,15 @@ IOT hub'ı adı genel olarak benzersiz olmalıdır.
 
 Tüm IOT hub'larını kullanarak abonelik listeleyebilirsiniz [Get-AzureRmIotHub](https://docs.microsoft.com/powershell/module/AzureRM.IotHub/Get-AzureRmIotHub) komutu:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmIotHub
 ```
 
-Bu örnek, önceki adımda oluşturduğunuz S1 standart IOT Hub gösterir. 
+Bu örnek, önceki adımda oluşturduğunuz S1 standart IOT Hub gösterir.
 
 IOT hub'ı kullanarak silebilirsiniz [Remove-AzureRmIotHub](https://docs.microsoft.com/powershell/module/azurerm.iothub/remove-azurermiothub) komutu:
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmIotHub `
     -ResourceGroupName MyIoTRG1 `
     -Name MyTestIoTHub
@@ -80,7 +80,7 @@ Remove-AzureRmIotHub `
 
 Alternatif olarak, bir kaynak grubu kaldırabilirsiniz ve tüm kaynakları kullanarak içeren [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Remove-AzureRmResourceGroup) komutu:
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name MyIoTRG1
 ```
 

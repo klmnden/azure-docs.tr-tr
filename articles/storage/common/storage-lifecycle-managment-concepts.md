@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: a3208152ddf198d00c0a158e466c9d024c17b4d6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: af32ea826f8150284c242fb6d1013924945aee97
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528452"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247791"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Azure Blob Depolama yaşam döngüsü (Önizleme) yönetme
 
@@ -37,7 +37,7 @@ Yaşam Döngüsü Yönetimi İlkesi ile hem genel amaçlı v2 (GPv2) hesabı ve 
 Yaşam döngüsü yönetimi ücretsiz önizleme olarak özelliğidir. Müşteriler normal işlem maliyetini ücretlendirilir [Blobları listeleme](https://docs.microsoft.com/rest/api/storageservices/list-blobs) ve [Blob katmanını ayarlama](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API çağrıları. Bkz: [blok blobu fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/blobs/) fiyatlandırması hakkında daha fazla bilgi edinmek için.
 
 ## <a name="register-for-preview"></a>Önizleme için kaydolun 
-Genel önizlemeye kaydolmak için aboneliğinize bu özelliği kaydetmek için bir istek göndermeniz gerekir. (Birkaç gün içinde) isteğiniz onaylandıktan sonra tüm mevcut ve yeni GPv2 veya Blob Depolama hesabında Batı ABD 2 ve Batı Orta ABD özelliğinin etkin olacaktır. Önizleme sırasında yalnızca blok blob desteklenir. Tarife ulaşana kadar ile çoğu önizleme olarak, bu özelliği üretim iş yükleri için kullanılmamalıdır
+Genel önizlemeye kaydolmak için aboneliğinize bu özelliği kaydetmek için bir istek göndermeniz gerekir. (Birkaç gün içinde) isteğiniz onaylandıktan sonra tüm mevcut ve yeni GPv2 veya Blob Depolama hesabında Batı ABD 2, Batı Orta ABD ve Batı Avrupa özelliğinin etkin olacaktır. Önizleme sırasında yalnızca blok blob desteklenir. Tarife ulaşana kadar ile çoğu önizleme olarak, bu özelliği üretim iş yükleri için kullanılmamalıdır
 
 Bir istek göndermek için aşağıdaki PowerShell veya CLI komutları çalıştırın.
 

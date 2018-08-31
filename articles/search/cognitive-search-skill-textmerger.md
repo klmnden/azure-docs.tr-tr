@@ -1,6 +1,6 @@
 ---
-title: Metin birleştirme bilişsel arama nitelik (Azure Search) | Microsoft Docs
-description: Metin alanları koleksiyonundan bir birleştirilmiş alanına birleştirin. Bilişsel Bu yetenek, bir Azure Search iyileştirmesini ardışık düzeninde kullanın.
+title: Metin birleştirme bilişsel arama beceri (Azure Search) | Microsoft Docs
+description: Alanlar koleksiyonu metinden birleştirilmiş tek bir alanda birleştirin. Bilişsel Bu yetenek, bir Azure Search zenginleştirme hattında kullanın.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,32 +10,32 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: ba779ebcbc791f9caa60948feeb38b88a23ef379
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d90a9f8bd32924eef6533e602957aa1704cfdae9
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640671"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190482"
 ---
-#    <a name="text-merge-cognitive-skill"></a>Metin birleştirme bilişsel nitelik
+#    <a name="text-merge-cognitive-skill"></a>Metin birleştirme bilişsel beceri
 
-**Metin birleştirme** yetenek koleksiyona tek bir alan alanlar metinden birleştirir. 
+**Metin birleştirme** beceri alanlar koleksiyonu tek bir alana metinden birleştirir. 
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Util.TextMerger
+Microsoft.Skills.Text.MergeSkill
 
 ## <a name="skill-parameters"></a>Yetenek parametreleri
 
-Parametreleri büyük/küçük harfe duyarlıdır.
+Parametreler büyük/küçük harfe duyarlıdır.
 
 | Parametre adı     | Açıklama |
 |--------------------|-------------|
-| insertPreTag  | Her ekleme önce eklenecek dize. Varsayılan değer `" "`. Alanı atlamak için değerine `""`.  |
-| insertPostTag | Sonra her ekleme eklenecek dize. Varsayılan değer `" "`. Alanı atlamak için değerine `""`.  |
+| insertPreTag  | Önce her bir ekleme eklenecek dize. Varsayılan değer `" "` şeklindedir. Değer alanı atlamak için kümesine `""`.  |
+| insertPostTag | Sonra her bir ekleme eklenecek dize. Varsayılan değer `" "` şeklindedir. Değer alanı atlamak için kümesine `""`.  |
 
 
 ##  <a name="sample-input"></a>Örnek Giriş
-Bu yetenek için kullanılabilir giriş sağlayan bir JSON belgesi aşağıdakilerden biri olabilir:
+Bu yetenek için kullanılabilir girişi sağlayan bir JSON belgesi olabilir:
 
 ```json
 {
@@ -54,7 +54,7 @@ Bu yetenek için kullanılabilir giriş sağlayan bir JSON belgesi aşağıdakil
 ```
 
 ##  <a name="sample-output"></a>Örnek çıktı
-Bu örnek olduğunu varsayarak önceki giriş çıktısını gösterir *insertPreTag* ayarlanır `" "`, ve *insertPostTag* ayarlanır `""`. 
+Bu örnek olduğunu varsayarak önceki giriş çıkış gösterir *insertPreTag* ayarlanır `" "`, ve *insertPostTag* ayarlanır `""`. 
 
 ```json
 {
@@ -70,11 +70,11 @@ Bu örnek olduğunu varsayarak önceki giriş çıktısını gösterir *insertPr
 }
 ```
 
-## <a name="extended-sample-skillset-definition"></a>Genişletilmiş örnek skillset tanımı
+## <a name="extended-sample-skillset-definition"></a>Genişletilmiş örnek beceri kümesi tanımı
 
-Metin birleştirme kullanmak için yaygın bir senaryo görüntülerinin (OCR yetenek ya da görüntü başlık metni) değerinin metinsel gösterimini bir belge içerik alanına birleştirmektir. 
+Metin birleştirme kullanmaya yönelik yaygın bir senaryo görüntüleri (OCR beceri veya görüntünün bir açıklamalı alt yazı metni) değerinin metinsel gösterimini birleştirmek için içerik bir belgenin bir alandır. 
 
-Aşağıdaki örnek skillset OCR yetenek metin belgede gömülü görüntüleri ayıklamak için kullanır. Ardından, oluşturduğu bir *merged_text* özgün ve her görüntü OCRed metinden içeren alan. 
+Aşağıdaki örnek becerilerine OCR beceri belgeye gömülü görüntülerinden ayıklamak için kullanmaktadır. Ardından, oluşturur bir *merged_text* hem özgün hem de her görüntü OCRed metni içeren alan. 
 
 ```json
 {
@@ -101,7 +101,7 @@ Aşağıdaki örnek skillset OCR yetenek metin belgede gömülü görüntüleri 
         ]
     },
     {
-      "@odata.type": "#Microsoft.Skills.Util.TextMerger",
+      "@odata.type": "#Microsoft.Skills.Text.MergeSkill",
       "description": "Create merged_text, which includes all the textual representation of each image inserted at the right location in the content field.",
       "context": "/document",
       "insertPreTag": " ",
@@ -126,7 +126,7 @@ Aşağıdaki örnek skillset OCR yetenek metin belgede gömülü görüntüleri 
   ]
 }
 ```
-Yukarıdaki örnekte normalleştirilmiş görüntüleri alan bulunduğunu varsayar. Normalleştirilmiş görüntüleri alan almak üzere *imageAction* dizin oluşturucu tanımınızı yapılandırmasında *generateNormalizedImages* aşağıda gösterildiği gibi:
+Yukarıdaki örnekte, bir normalleştirilmiş görüntüleri alan bulunduğunu varsayar. Normalleştirilmiş görüntüleri alan almak üzere *imageAction* yapılandırma için dizin oluşturucu Tanımınızda *generateNormalizedImages* aşağıda gösterildiği gibi:
 
 ```json
 {  
@@ -142,6 +142,6 @@ Yukarıdaki örnekte normalleştirilmiş görüntüleri alan bulunduğunu varsay
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-+ [Önceden tanımlanmış yetenekleri](cognitive-search-predefined-skills.md)
-+ [Bir skillset tanımlama](cognitive-search-defining-skillset.md)
++ [Önceden tanımlanmış beceriler](cognitive-search-predefined-skills.md)
++ [Bir beceri kümesi tanımlama](cognitive-search-defining-skillset.md)
 + [Dizin Oluşturucu (REST) oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

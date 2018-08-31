@@ -1,26 +1,18 @@
 ---
 title: Önceden yapılandırılmış Uzaktan İzleme çözümünde gezinme | Microsoft Belgeleri
 description: Azure IOT önceden yapılandırılmış çözümü uzaktan izlemenin ve mimarisinin açıklaması.
-services: ''
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
-manager: timlt
-editor: ''
-ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-suite
+ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: d35052087899925e0e8119ce104345f718cc12bd
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
-ms.translationtype: HT
+ms.openlocfilehash: 8cb6c3087bac460069a689f7b109a20aa9125ae9
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858522"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43184922"
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Önceden yapılandırılmış uzaktan izleme çözümünde gezinme
 

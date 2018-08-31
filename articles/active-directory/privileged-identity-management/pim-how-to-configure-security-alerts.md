@@ -1,6 +1,6 @@
 ---
-title: Güvenlik uyarılarının nasıl yapılandırılacağı | Microsoft Docs
-description: Güvenlik Uyarıları Azure Privileged Identity Management uzantısı için yapılandırmayı öğrenin.
+title: Güvenlik Uyarıları Azure AD Dizin rolleri için PIM içinde yapılandırma | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM) güvenlik uyarıları Azure AD Dizin rolleri için yapılandırmayı öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8df9bc7c332a83e9761ea71dddfbfbfaa3ae5154
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: fc39b6ad2dd63d45995b76011f4ebbe0228b4c2d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622162"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190400"
 ---
-# <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management güvenlik uyarılarını yapılandırma
+# <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Azure AD Dizin rolleri için güvenlik uyarıları PIM'de yapılandırın
 ## <a name="security-alerts"></a>Güvenlik uyarıları
 Azure Privileged Identity Management (PIM), ortamınızda şüpheli veya güvenli olmayan bir etkinlik olduğunda uyarılar oluşturur. Bir uyarı tetiklendiğinde, PIM panosunda görünür. Uyarıyı tetikleyen rollerin listeleyen bir rapor görmek için uyarıyı seçin.
 
@@ -65,4 +65,6 @@ Bir kullanıcı bir rolünü etkinleştirmeden belirli bir miktar olursa bu uyar
 * **Gün sayısı**: bir kullanıcı bir rolünü etkinleştirmeden gidebilirsiniz 100, 0 gün sayısını belirtin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [PIM'de Azure AD dizini rol ayarlarını yapılandırma](pim-how-to-change-default-settings.md)
+- [Azure AD dizin rollerini PIM için çok faktörlü kimlik doğrulaması gerektir](pim-how-to-require-mfa.md)

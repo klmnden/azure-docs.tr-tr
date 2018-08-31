@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2018
+ms.date: 08/28/2018
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: luleon
-ms.openlocfilehash: 90b8a9bd45d2c6a8551e3af84a5bfa915f4c3cea
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.reviewer: celested
+ms.openlocfilehash: c9db5169a978875cf639f6c534ce7920909c896e
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592212"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188249"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Uygulamaları Azure Active Directory ile tümleştirme
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -95,12 +95,12 @@ Aşağıdaki adımlar nasıl onayı deneyimi uygulama geliştiriciler ve kullan�
 
 5. Kullanıcıya izin verir. sonra bir yetkilendirme kodu erişim belirteci alma ve yenileme belirteci için kullanılan, uygulamaya döndürülür. Bu akışı hakkında daha fazla bilgi için bkz. [web API bölümünde kimlik doğrulama senaryoları için Azure AD Web uygulaması](authentication-scenarios.md#web-application-to-web-api).
 
-6. Bir yönetici olarak, aynı zamanda tüm kullanıcılar adına uygulamanın temsilci izinleri için kiracınızda onay verebilir. Yönetici onayı onay iletişim kutusunu kiracıdaki her kullanıcı için görüntülenmesini engeller ve yapılabilir [Azure portalında](https://portal.azure.com) Yönetici rolüne sahip kullanıcılar tarafından. Gelen **ayarları** sayfasında uygulamanız için **gerekli izinler** tıklayın **izinler** düğmesi. 
+6. Bir yönetici olarak, aynı zamanda tüm kullanıcılar adına uygulamanın temsilci izinleri için kiracınızda onay verebilir. Yönetici onayı onay iletişim kutusunu kiracıdaki her kullanıcı için görüntülenmesini engeller ve yapılabilir [Azure portalında](https://portal.azure.com) Yönetici rolüne sahip kullanıcılar tarafından. Gelen **ayarları** sayfasında uygulamanız için **gerekli izinler** tıklayın **izinleri verin** düğmesi. 
 
   ![Açık yönetici onayı için izin ver](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
     
   > [!NOTE]
-  > Açık verme onay kullanarak **izinler** düğmesidir ADAL.js kullanan tek sayfalı uygulamalar için (SPA) şu anda gerekli. Erişim belirteci istendiğinde, aksi takdirde uygulama başarısız olur. 
+  > Açık verme onay kullanarak **izinleri verin** düğmesidir ADAL.js kullanan tek sayfalı uygulamalar için (SPA) şu anda gerekli. Erişim belirteci istendiğinde, aksi takdirde uygulama başarısız olur. 
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Web API'leri erişmek için bir istemci uygulaması yapılandırma
 Kimlik doğrulaması gerektiren bir yetkilendirme verme akışı katılmak (ve bir erişim belirteci almak) web/gizli bir istemci uygulaması için sırada güvenli kimlik bilgileri oluşturmanız gerekir. Azure portal tarafından desteklenen varsayılan kimlik doğrulama yöntemidir istemci kimliği ve gizli anahtarı. Bu bölüm, müşterinizin kimlik bilgileriyle gizli anahtar sağlamak için gerekli yapılandırma adımları kapsar.
@@ -112,7 +112,7 @@ Bir istemci bir web API kaynak uygulaması (örneğin, Microsoft Graph API) tara
 - Temsilci izinleri: İstemci uygulamanızı web API'si oturum açmış kullanıcı olarak, ancak seçilen izinle sınırlı erişimi olan erişmesi gerekir. Yönetici onayı izni gerektirmediği sürece bu tür bir izni bir kullanıcı tarafından verilebilir. 
 
   > [!NOTE]
-  > Temsilci atanmış izin, bir uygulamaya ekleme otomatik onay Kiracı içindeki kullanıcılar tanımaz. Kullanıcılar gerekir yine de el ile onay çalışma zamanında, eklenen temsilci izinleri için yönetici tıklatır sürece **izinler** düğmesini **gerekli izinler** bölümü Azure Portalı'nda uygulama sayfası. 
+  > Temsilci atanmış izin, bir uygulamaya ekleme otomatik onay Kiracı içindeki kullanıcılar tanımaz. Yönetici, tüm kullanıcılar adına izin veren sürece kullanıcılar çalışma zamanında, eklenen Temsilcili izinler için yine de el ile onaylamalıdır.
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>Uygulama kimlik bilgileri veya web API'lerine erişim izni eklemek için
 1. [Azure Portal](https://portal.azure.com) oturum açın.
@@ -121,13 +121,15 @@ Bir istemci bir web API kaynak uygulaması (örneğin, Microsoft Graph API) tara
 
    ![Bir uygulamanın kaydı güncelleştir](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
-4. Açılan uygulamanın ana kayıt sayfasına yönlendirilirsiniz **ayarları** uygulama sayfası. Web uygulamanızın kimlik bilgileri için gizli bir anahtar eklemek için:
+4. Açılan uygulamanın ana kayıt sayfasına yönlendirilirsiniz **ayarları** uygulama sayfası. Web uygulamanız için bir kimlik bilgisi eklemek için:
   - Tıklayın **anahtarları** bölümünde **ayarları** sayfası. 
-  - Anahtarınız için bir açıklama ekleyin.
-  - Bir veya iki yıl süre seçin.
-  - **Kaydet**’e tıklayın. Yapılandırma değişiklikleri kaydettikten sonra en sağdaki sütun anahtar değerini içerir. **Anahtarı kopyaladığınızdan emin olun** istemci uygulama kodunuzda kullanmak için bir kez erişilebilir olmadığından bu sayfadan ayrılmadan.
-
-  ![Uygulamanın kayıt - anahtarları güncelleştirme](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-keys.png)
+  - Bir sertifika eklemek için:
+    - Seçin **ortak anahtarı karşıya**.
+    - Yüklemek istediğiniz dosyayı seçin. Aşağıdaki dosya türlerinden biri olmalıdır: .cer, .pem, .crt.
+  - Bir parola eklemek için:
+    - Anahtarınız için bir açıklama ekleyin.
+    - Bir süre seçin.
+    - **Kaydet**’e tıklayın. Yapılandırma değişiklikleri kaydettikten sonra en sağdaki sütun anahtar değerini içerir. **Anahtarı kopyaladığınızdan emin olun** istemci uygulama kodunuzda kullanmak için bir kez erişilebilir olmadığından bu sayfadan ayrılmadan.
 
 5. Kaynak API'leri istemcinizden erişmek için izinler eklemek için
   - Tıklayın **gerekli izinler** bölümünde **ayarları** sayfası. 
@@ -141,11 +143,6 @@ Bir istemci bir web API kaynak uygulaması (örneğin, Microsoft Graph API) tara
   ![Uygulamanın kayıt - izinleri izinleri güncelleştir](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. İşiniz bittiğinde tıklayın **seçin** düğmesini **erişimini etkinleştir** sayfasında, ardından **Bitti** düğmesini **API erişimi Ekle** sayfası. Döndürülürsünüz **gerekli izinler** sayfasında, yeni kaynak API'ler listesine eklenen burada.
-
-  > [!NOTE]
-  > Tıklayarak **Bitti** düğmesi de otomatik olarak izinleri ayarlar uygulamanız için dizininizde yapılandırdığınız diğer uygulamalara izinler göre. Bu uygulama izinleri uygulamayı bakarak görüntüleyebileceğiniz **ayarları** sayfası.
-  > 
-  > 
 
 ### <a name="configuring-a-resource-application-to-expose-web-apis"></a>Web API'leri kullanıma sunmak için bir kaynak uygulaması yapılandırma
 

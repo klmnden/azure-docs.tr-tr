@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/20/2018
+ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e06db4e356de6a4572721d1652d6a2666e7cfefc
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 231a9876c7a84953a7d9a88b761a1da9475d1f48
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056183"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248150"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Birden çok makine için güncelleştirmeleri yönetme
 
@@ -154,10 +154,10 @@ Altında bir veya daha fazla sanal makineler için yeni bir güncelleştirme da�
 
    |Seçenek|Açıklama|
    |---|---|
-   |Gerekirse yeniden başlatma| **(Varsayılan)**  Bakım penceresi izin veriyorsa gerekli, yeniden başlatma intitated olur.|
-   |Her zaman yeniden Başlat|Yeniden başlatma, bir gerekip gerekmediğine bakılmaksızın başlatılır. |
-   |Hiçbir zaman yeniden başlatma|Yeniden başlatma gerekli, bağımsız olarak, yeniden başlatmalar surpressed tutulur.|
-   |Yalnızca yeniden - güncelleştirmeleri yüklenmez|Bu seçenek, güncelleştirmelerin yoksayar ve yalnızca yeniden başlatır.|
+   |Gerekirse yeniden başlatma| **(Varsayılan)**  Bakım penceresi izin veriyorsa yeniden başlatma gerekirse başlatılır.|
+   |Her zaman yeniden başlat|Yeniden başlatma, bir gerekip gerekmediğine bakılmaksızın başlatılır. |
+   |Hiçbir zaman yeniden başlatma|Bağımsız olarak, yeniden başlatma gerekirse yeniden başlatmalar görüntülenmez.|
+   |Yalnızca yeniden başlatma - güncelleştirmeleri yüklemez|Bu seçenek, güncelleştirmelerin yoksayar ve yalnızca yeniden başlatır.|
 
 Zamanlamayı yapılandırmayı tamamladığınızda, seçin **Oluştur** düğmesi ve durum panosuna dönün. **Zamanlanmış** tablo oluşturduğunuz dağıtım zamanlaması gösterilir.
 

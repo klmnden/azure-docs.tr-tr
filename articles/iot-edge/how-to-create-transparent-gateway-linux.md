@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f54001c26938ea508111542b930b189342303633
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: f8ac885444c0ba52802024be9a78dfc0737e2673
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186872"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247692"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Saydam bir ağ geçidi olarak davranır bir Linux IOT Edge cihazı oluşturma
 
@@ -80,9 +80,9 @@ Aşağıdaki adımlarda sertifikaları oluşturma ve bunları doğru yerlerde y�
    >[!NOTE]
    > **DO NOT** ağ geçidinin DNS ana bilgisayar adıyla aynı adı kullanın. Bunun yapılması, bu sertifikaların başarısız olmasına karşı istemci sertifikası neden olur.
 
-      ```cmd
-      ./certGen.sh create_edge_device_certificate "<gateway device name>"
-      ```
+   ```cmd
+   ./certGen.sh create_edge_device_certificate "<gateway device name>"
+   ```
 
    Betik yürütme çıktısı, aşağıdaki sertifika ve anahtar şunlardır:
    * `$WRKDIR/certs/new-edge-device.*`
@@ -101,18 +101,24 @@ Sahibi CA sertifikası ara sertifika ve aşağıdaki komutla Edge cihaz CA serti
    * Cihaz CA sertifikası-  `$WRKDIR/certs/new-edge-device-full-chain.cert.pem`
    * Cihaz CA özel anahtarı- `$WRKDIR/private/new-edge-device.key.pem`
    * Sahibi CA- `$WRKDIR/certs/azure-iot-test-only.root.ca.cert.pem`
+   
+2. IoT Edge yapılandırma dosyasını açın. Korumalı bir dosya olduğu için yükseltilmiş ayrıcalıklarla erişmeniz gerekir.
+   
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
 
-2.  Ayarlama `certificate` özellikleri sertifika ve anahtar dosyaları yerleştirdiğiniz güvenlik Daemon yapılandırma dosyasında yaml yolu.
+3.  Ayarlama `certificate` özellikleri sertifika ve anahtar dosyaları yerleştirdiğiniz IOT Edge Daemon yapılandırma dosyasında yaml yolu.
 
-```yaml
-certificates:
-  device_ca_cert: "$CERTDIR/certs/new-edge-device-full-chain.cert.pem"
-  device_ca_pk: "$CERTDIR/private/new-edge-device.key.pem"
-  trusted_ca_certs: "$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem"
-```
+   ```yaml
+   certificates:
+     device_ca_cert: "$CERTDIR/certs/new-edge-device-full-chain.cert.pem"
+     device_ca_pk: "$CERTDIR/private/new-edge-device.key.pem"
+     trusted_ca_certs: "$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem"
+   ```
 
 ## <a name="deploy-edgehub-to-the-gateway"></a>Ağ geçidine EdgeHub dağıtma
-Azure IoT Edge'in önemli özelliklerinden biri buluttan IoT Edge cihazlarınıza modüller dağıtabilmektir. Bu bölümde, görünüşte boş bir dağıtımını oluşturun bulunur; Edge hub'ı ancak hiçbir diğer modüller mevcut olsa bile tüm dağıtımlara eklenen automatcially olur. Edge hub'ı saydam bir ağ geçidi olarak boş bir dağıtım oluşturma yeterli, bu nedenle işlem için bir Edge cihazında ihtiyacınız yalnızca modülüdür. 
+Azure IoT Edge'in önemli özelliklerinden biri buluttan IoT Edge cihazlarınıza modüller dağıtabilmektir. Bu bölümde, görünüşte boş bir dağıtımını oluşturun bulunur; ancak hiçbir diğer modüller mevcut olsa bile Edge hub'ı için tüm dağıtımları otomatik olarak eklenir. Edge hub'ı saydam bir ağ geçidi olarak boş bir dağıtım oluşturma yeterli, bu nedenle işlem için bir Edge cihazında ihtiyacınız yalnızca modülüdür. 
 1. Azure portalında IoT Hub'ınıza gidin.
 2. Git **IOT Edge** ve ağ geçidi olarak kullanacağınız IOT Edge Cihazınızı seçin.
 3. **Modülleri Ayarlama**'yı seçin.

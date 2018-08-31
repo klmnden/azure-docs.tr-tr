@@ -1,10 +1,11 @@
 ---
-title: Azure Application Insights'ta uyarıları ayarlama | Microsoft Docs
-description: Yavaş yanıt süreleri, özel durumlar ve diğer performans veya web uygulamanızda kullanım değişiklikler hakkında bilgi edinin.
+title: Azure Application Insights uyarıları ayarlamak | Microsoft Docs
+description: Yavaş yanıt süreleri, özel durumlar ve diğer performans veya kullanımı ile ilgili değişiklikleri web uygulamanıza ilgili bildirim alın.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
+ms.reviewer: lagayhar
 ms.assetid: f8ebde72-f819-4ba5-afa2-31dbd49509a5
 ms.service: application-insights
 ms.workload: tbd
@@ -13,87 +14,87 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 87be1a48a6c3320187243e549a8fb8e5ecc9e006
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 1061f356d75037bae440a5289413b2b5d17af1c9
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293612"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246961"
 ---
-# <a name="set-alerts-in-application-insights"></a>Application Insights'ta uyarıları ayarlama
-[Azure Application Insights] [ start] performans veya kullanım ölçümü web uygulamanızda değişikliklere uyarabilir. 
+# <a name="set-alerts-in-application-insights"></a>Uygulama anlayışları'nda uyarılar ayarlayın
+[Azure Application Insights] [ start] web uygulamanızdaki performansı ya da kullanım ölçümleri değişikliklere uyarabilir. 
 
-Application Insights üzerinde Canlı uygulamanızı izler bir [çeşitli platformlar] [ platforms] performans sorunlarını tanılama ve kullanım biçimlerini anlamanıza yardımcı olacak.
+Application Insights hakkında Canlı uygulamanızı izler bir [çeşitli platformlarda] [ platforms] performans sorunlarını tanılama ve kullanım biçimlerini anlamanıza yardımcı olacak.
 
 Uyarılar üç tür vardır:
 
-* **Ölçüm uyarıları** zaman - yanıt süreleri, özel durum sayısı, CPU kullanımı ya da sayfa görünümleri gibi belirli bir süre için bir eşik değeri bir ölçüm kestiği söyleyin. 
-* [**Web testleri** ] [ availability] sitenizi yavaş internet üzerindeki kullanılamıyor veya yanıt veren olduğunda söyleyin. [Daha fazla bilgi edinin][availability].
-* [**Öngörülü tanılama** ](app-insights-proactive-diagnostics.md) olağan dışı performans desenleri hakkında bilgilendirmek için otomatik olarak yapılandırılır.
+* **Ölçüm uyarıları** ne zaman bir ölçüm - yanıt süreleri, özel durum sayısı, CPU kullanımı veya sayfa görüntüleme gibi belirli bir süre boyunca eşik değerini aştığında size söyler. 
+* [**Web testleri** ] [ availability] sitenizi yavaş internet üzerindeki kullanılamıyor veya yanıt olduğunda söyleyin. [Daha fazla bilgi edinin][availability].
+* [**Proaktif tanılama** ](app-insights-proactive-diagnostics.md) olağan dışı performans desenler hakkında bilgilendirmek için otomatik olarak yapılandırılır.
 
-Biz bu makalede ölçüm uyarıları odaklanılmaktadır.
+Bu makalede ölçüm uyarıları odaklanıyoruz.
 
-## <a name="set-a-metric-alert"></a>Ölçüm uyarı ayarlama
+## <a name="set-a-metric-alert"></a>Ölçüm uyarısı ayarlama
 Uyarı kuralları dikey penceresini açın ve ardından Ekle düğmesini kullanın. 
 
-![Uyarı kuralları dikey penceresinde eklemek uyarı seçin. Uygulamanızı ölçmek, uyarı için bir ad veya bir ölçü seçmek için kaynak olarak ayarlayın.](./media/app-insights-alerts/01-set-metric.png)
+![Uyarı kuralları dikey penceresinde, uyarı Ekle'i seçin. Uygulamanızı, ölçün, uyarı için bir ad girin ve bir ölçüm seçin için kaynak olarak ayarlayın.](./media/app-insights-alerts/01-set-metric.png)
 
-* Diğer özellikler önce kaynağı ayarlayın. **"(Bileşenler)" kaynağı seçin** performans ya da kullanım ölçümleri uyarıları ayarlamak istiyorsanız.
-* Uyarı vermek adı (yalnızca, uygulama) kaynak grubunda benzersiz olmalıdır.
+* Kaynak önce diğer özelliklerini ayarlayın. **"(Bileşenler)" kaynağı seçin** performans ya da kullanım ölçümlerine göre uyarıları ayarlamak istiyorsanız.
+* Uyarı veren adı (uygulamanız yalnızca) kaynak grubu içinde benzersiz olmalıdır.
 * Eşik değerini girmeniz istenir birimleri Not dikkat edin.
-* "E-posta sahipleri..." kutusunu işaretlerseniz, uyarılar bu kaynak grubu erişimi olan herkes tarafından e-posta gönderilir. Bu kişiler kümesini genişletmek için bunları Ekle [kaynak grubuna veya aboneliğe](app-insights-resources-roles-access-control.md) (kaynağı değil).
-* "Ek e-postaları" belirtirseniz, uyarılar, bu kişiler veya gruplar (olsun veya olmasın, "... sahipleri e-posta" onay kutusunun işareti) gönderilir. 
-* Ayarlanmış bir [Web kancası adresi](../monitoring-and-diagnostics/insights-webhooks-alerts.md) uyarılara yanıt bir web uygulaması ayarladıysanız. Uyarı etkinleştirildiğinde, hem bu çözümlendiğinde denir. (Ancak şu anda sorgu parametreleri Web kancası özellikleri olarak geçirilecek değil olduğunu unutmayın.)
-* Devre dışı bırakabilir veya uyarıyı etkinleştirin: düğmelerini dikey pencerenin üstündeki bakın.
+* "E-posta sahipleri..." kutuyu işaretlerseniz, uyarılar, bu kaynak grubu erişimi olan herkes için e-posta ile gönderilir. Bu kişi kümesi genişletmek için bunları Ekle [kaynak grubuna veya aboneliğe](app-insights-resources-roles-access-control.md) (kaynak değil).
+* "Ek e-postaları" belirtirseniz, uyarılar, bu kişiler veya gruplara (olsun veya olmasın, "e-posta sahipleri..." onay kutusunun işareti) gönderilir. 
+* Ayarlanmış bir [Web kancası adresi](../monitoring-and-diagnostics/insights-webhooks-alerts.md) uyarılara yanıt veren web uygulaması ayarladıysanız. Uyarı etkinleştirildiğinde hem çözüldüğünde çağrılır. (Ancak şu anda sorgu parametreleri Web kancası özellikleri geçirilecek değil olduğunu unutmayın.)
+* Devre dışı bırakabilir veya uyarıyı etkinleştir: dikey penceresinin üstündeki düğmeleri bakın.
 
-*Uyarı Ekle düğmesi bakın yok.* 
+*Uyarı Ekle düğmesinin göremiyorum.* 
 
-* Bir kurumsal hesap kullanıyor musunuz? Sahibi veya katkıda bu uygulama kaynağa erişim varsa uyarılar ayarlayabilirsiniz. Erişim denetimi dikey göz atın. [Erişim denetimi hakkında bilgi edinin][roles].
+* Bir kuruluş hesabı kullanıyorsunuz? Sahibi veya katkıda bulunan bu uygulama kaynağına erişimi varsa, uyarılar ayarlayabilirsiniz. Erişim denetimi dikey penceresinde göz atın. [Erişim denetimi hakkında bilgi edinin][roles].
 
 > [!NOTE]
-> Uyarıları dikey penceresinde, zaten var olduğu bir uyarı kümesi bkz: [öngörülü tanılama](app-insights-proactive-failure-diagnostics.md). Otomatik uyarı bir belirli ölçüm, isteği hata oranı izler. Öngörülü uyarıyı devre dışı bırakmaya karar sürece, isteği hata oranı üzerinde kendi uyarı ayarlamanız gerekmez. 
+> Uyarılar dikey penceresinde,, zaten var. bir uyarı kümesi bakın: [proaktif tanılama](app-insights-proactive-failure-diagnostics.md). Otomatik uyarı bir belirli ölçüm, istek hata oranı izler. Proaktif uyarı devre dışı bırakmak karar vermediğiniz sürece, istek hata oranı üzerinde kendi uyarı ayarlama gerekmez. 
 > 
 > 
 
-## <a name="see-your-alerts"></a>Uyarılarınızı bakın
-Bir e-posta uyarı değişiklikleri durum olduğunda, etkin ve etkin arasında alın. 
+## <a name="see-your-alerts"></a>Uyarılarınızı görmek
+Etkin ve etkin arasındaki değişiklikleri uyarı durumu, e-posta alın. 
 
-Her uyarı geçerli durumu uyarı kuralları dikey penceresinde görüntülenir.
+Her bir uyarının geçerli durumu uyarı kuralları dikey pencerede gösterilir.
 
-Aşağı açılan uyarılar son etkinliğin bir özeti verilmiştir:
+Aşağı açılan Uyarılardaki son etkinliğin bir özeti verilmiştir:
 
 ![Aşağı açılan uyarıları](./media/app-insights-alerts/010-alert-drop.png)
 
-Durum değişiklikleri geçmişini etkinlik günlüğünde şöyledir:
+Durum değişikliklerinin geçmişini etkinlik günlüğünde şöyledir:
 
-![Genel Bakış dikey penceresinde, ayarlar, Denetim günlükleri'ı tıklatın.](./media/app-insights-alerts/09-alerts.png)
+![Genel Bakış dikey penceresinde, ayarları, Denetim günlükleri](./media/app-insights-alerts/09-alerts.png)
 
 ## <a name="how-alerts-work"></a>Uyarılar nasıl çalışır?
-* Üç durumlu bir uyarı vardır: "Hiçbir zaman etkinleştirilmiş", "Etkinleştirildi" ve "Çözümlendi." Son değerlendirildiğinde etkinleştirilmiş anlamına gelir, belirtilen koşulun true.
-* Bir uyarı durumu değiştiğinde bildirim oluşturulur. (Uyarı oluşturduğunuzda Uyarı koşulu zaten true ise, koşulu yanlış gider kadar bir bildirim alamayabilirsiniz.)
-* Her bir bildirim e-posta kutusunu işaretli veya e-posta adresleri sağlanan bir e-posta oluşturur. Bildirimleri aşağı açılan listesinde de bakabilirsiniz.
-* Bir uyarı, bir ölçüm geldiğinde, ancak aksi, her defasında değerlendirilir.
-* Değerlendirme ölçüm önceki süresi içinde toplar ve yeni durumu belirlemek üzere eşik karşılaştırır.
-* Aralığı belirten seçtiğiniz dönem ölçümleri toplanır. Bu uyarı ne sıklıkta değerlendirileceğini etkilemez: varış ölçümleri sıklığını bağlıdır.
-* Hiçbir veri bir süre için belirli bir ölçüm gelirse boşluğu uyarı değerlendirmesi ve ölçüm Gezgini grafiklerde farklı etkilere sahiptir. Hiçbir veri grafiğin örnekleme aralığı daha uzun süre görülür, ölçüm Explorer'da grafik 0 değerini gösterir. Ancak aynı Ölçüm üzerinde dayalı bir uyarı değil yeniden değerlendirimiş, ve uyarının durumu değişmeden kalır. 
+* Bir uyarı üç durumu vardır: "Etkinleştirmemiştir", "Etkinleştirildi" ve "Çözüldü." Son Değerlendirme zaman etkinleştirilmiş anlamına gelir, belirtilen koşulun true.
+* Bir uyarı durumu değiştiğinde bildirim oluşturulur. (Bir uyarı oluşturulduğunda Uyarı koşulu zaten true, koşul false ölçeklendirilinceye kadar bir uyarı almayabilir.)
+* E-posta kutusu işaretli ya da e-posta adreslerini sağlanan her bir bildirim e-posta oluşturur. Bildirimler açılır listenin de bakabilirsiniz.
+* Bir uyarı, bir ölçüm ulaşan, ancak aksi her zaman değerlendirilir.
+* Değerlendirme, önceki dönem boyunca ölçüm toplar ve ardından yeni durumu belirlemek için eşikle karşılaştırır.
+* Aralık belirten seçtiğiniz dönem ölçümleri toplanır. Uyarı sıklıkta değerlendirileceğini etkilemez: varış ölçümleri sıklığı temel bağlıdır.
+* Hiçbir veri süre için belirli bir ölçüm alınırsa, boşluk uyarı değerlendirmesi ve ölçüm Gezgini'nde grafiklerini farklı etkileri vardır. Uzun süre grafiğin örnekleme aralığı, veri görüldüğünde ölçüm Gezgini'nde grafik 0 değerini gösterir. Ancak aynı ölçüme göre bir uyarı değil yeniden değerlendirimiş, ve uyarının durumu değişmeden kalır. 
   
-    Veri sonunda ulaştığında grafik sıfır değerine geri atlar. Uyarı değerlendirir belirtilen dönem için kullanılabilir verileri temel alan. Yeni veri noktası tek bir dönem içinde kullanılabilir ise, toplama yalnızca üzerinde veri noktası temel alır.
-* Uzun süre ayarlasanız bile bir uyarı uyarı ve sağlam durumları arasında sık Titreşim. Ölçüm değeri eşik gezinen bu durum meydana gelebilir. Eşik yok hysteresis yoktur: sağlıklı geçişi aynı değerde uyarı geçiş olur.
+    Veri sonunda ulaştığında, grafik sıfır değerine geri atlar. Uyarı değerlendirir, belirtilen süre için kullanılabilir verileri temel alan. Yeni veri noktası süresinde tek çoğaltmaysa, toplama yalnızca veri noktası temel alır.
+* Uzun süre ayarlasanız bile bir uyarı uyarı ve iyi durumda durumlar arasında sık Titreşim. Ölçüm değeri bir eşiği getirirse bu durum oluşabilir. Eşik yok hysteresis yoktur: geçiş sağlıklı olarak aynı değerde uyarı geçiş olur.
 
-## <a name="what-are-good-alerts-to-set"></a>Ayarlamak için iyi uyarılar nelerdir?
-Uygulamanızda bağlıdır. İle başlamak çok fazla ölçümleri ayarlanmadı en iyisidir. Uygulamanızı çalışırken nasıl normal şekilde davranır için bir fikir almak için ölçüm grafiklerinizi arayan biraz zaman ayırın. Bu yöntem, kendi performansını artırmak için yollar bulmanıza yardımcı olur. Ardından zaman ölçümleri normal bölgesi dışından Git bildirmek için uyarıları ayarlayın. 
+## <a name="what-are-good-alerts-to-set"></a>Ayarlanacak iyi uyarılar nedir?
+Bu durum uygulamanıza bağlıdır. İle başlamak çok sayıda ölçüm ayarlanmadı en iyisidir. Uygulamanız çalışırken nasıl normal şekilde davranır için bir genel görünüm almak için ölçüm grafiklerine baktığımızda biraz zaman ayırın. Bu uygulama veritabanının performansını geliştirmeye yönelik yollar bulmanıza yardımcı olur. Ardından zaman ölçümlerini normal bölgenin dışında Git bildirmek için uyarılar ayarlayın. 
 
-Popüler uyarıları şunları içerir:
+Popüler uyarılar şunlardır:
 
-* [Tarayıcı ölçümleri][client], özellikle tarayıcı **sayfa yükleme süreleri**, web uygulamaları için iyidir. Sayfanız birçok komut dosyaları varsa, göz önünde bulundurmanız gerekenler **tarayıcı özel durumları**. Bu ölçümleri ve Uyarıları alabilmek için ayarlanmış olan [web sayfası izleme][client].
-* **Sunucu yanıt süresi** sunucu tarafı web uygulamaları için. Uyarılarını ayarlama yanı sıra bu orantısız ile yüksek istek hızları değişiyorsa görmek için bu ölçüm takip: değişim uygulamanızı kaynakları tükendi çalıştığını gösterebilir. 
-* **Sunucu özel durumları** - bunları görmek için bazı yapmak zorunda [ek kurulum](app-insights-asp-net-exceptions.md).
+* [Tarayıcı ölçümleri][client], özellikle tarayıcı **sayfa yükleme sürelerinin**, web uygulamaları için uygundur. Birçok betik, sayfa varsa göz önünde bulundurmanız gerekenler **tarayıcı özel durumları**. Bu ölçümleri ve uyarıları almak için ayarlanmış olması [web sayfası izleme][client].
+* **Sunucu yanıt süresi** sunucu tarafı web uygulamaları için. Uyarıları Ayarlama yanı sıra bu ölçüm, orantısız ile yüksek istek hızları değişiyorsa görmek için takip: değişim uygulamanızı kaynaklar yetersiz çalıştığını gösterebilir. 
+* **Sunucu özel durumları** - bunları görmek için bazı yapmanız gereken [ek kurulum](app-insights-asp-net-exceptions.md).
 
-Unutmayın [öngörülü hata oranı tanılama](app-insights-proactive-failure-diagnostics.md) otomatik olarak hata kodlarıyla isteklerine uygulamanızı yanıt hızını izleme. 
+Gerektiğini unutmayın [öngörülü hata oranı tanılama](app-insights-proactive-failure-diagnostics.md) otomatik olarak, uygulamanızın yanıt vereceğini hata kodlarıyla isteklerine oranı izleyin. 
 
 ## <a name="automation"></a>Otomasyon
 * [Uyarıları Ayarlama otomatikleştirmek için PowerShell kullanma](app-insights-powershell-alerts.md)
-* [Web kancası uyarılara yanıt verme otomatikleştirmek için kullanın](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+* [Uyarılara yanıt verme otomatikleştirmek için Web kancalarını kullanma](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
 ## <a name="video"></a>Video
 
@@ -101,8 +102,8 @@ Unutmayın [öngörülü hata oranı tanılama](app-insights-proactive-failure-d
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Kullanılabilirlik web testleri](app-insights-monitor-web-app-availability.md)
-* [Uyarıları Ayarlama otomatikleştirme](app-insights-powershell-alerts.md)
-* [Öngörülü tanılama](app-insights-proactive-diagnostics.md) 
+* [Uyarıları Ayarlama otomatikleştirin](app-insights-powershell-alerts.md)
+* [Proaktif tanılama](app-insights-proactive-diagnostics.md) 
 
 <!--Link references-->
 

@@ -1,38 +1,36 @@
 ---
-title: Azure SQL Data Warehouse yedekleme ve geri yükleme - anlık görüntüler, coğrafi olarak yedekli | Microsoft Docs
-description: Yedekleme ve geri yükleme şeklini Azure SQL Data Warehouse'da öğrenin. Veri ambarınız birincil bölge içinde bir geri yükleme noktası geri yüklemek için veri ambarı yedekleri kullanın. Coğrafi olarak yedekli yedeklemeleri farklı bir coğrafi bölgeye geri yüklemek için kullanın.
+title: Azure SQL veri ambarı yedekleme ve geri yükleme - anlık görüntüler, coğrafi olarak yedekli | Microsoft Docs
+description: Yedekleme ve geri yükleme şeklini Azure SQL veri ambarı'nda öğrenin. Birincil bölgede bir geri yükleme noktası veri ambarınıza geri yüklemek için veri ambarı yedeklemelerini kullanın. Farklı bir coğrafi bölgeye geri yüklemek için coğrafi olarak yedekli yedeklemelerini kullanın.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 08/24/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a4f24aad95f13315eaeac790c9006ca00f61af69
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: e9b5005fad1eeb13314e1fb6a5708bb02b96cbf9
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187608"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248674"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Yedekleme ve geri yükleme Azure SQL veri ambarı
-Yedekleme ve geri yükleme şeklini Azure SQL Data Warehouse'da öğrenin. Veri ambarınız birincil bölge içinde bir geri yükleme noktası geri yüklemek için veri ambarı yedekleri kullanın. Coğrafi olarak yedekli yedeklemeleri farklı bir coğrafi bölgeye geri yüklemek için kullanın. 
+Yedekleme ve geri yükleme şeklini Azure SQL veri ambarı'nda öğrenin. Kullanım verileri kurtarma anlık görüntüleri ambar veya birincil bölge içinde önceki bir geri yükleme noktası veri Ambarınızı kopyalayın. Farklı bir coğrafi bölgeye geri yüklemek için coğrafi olarak yedekli yedeklemeleri kullanım veri ambarı. 
 
-## <a name="what-is-backup-and-restore"></a>Yedekleme ve geri yükleme nedir?
-A *veri ambarı yedekleme* kopyasıdır veritabanınızın bir veri ambarı geri yüklemek için kullanabilirsiniz.  SQL veri ambarı dağıtılmış bir sistemde olduğundan, bir veri ambarı yedekleme Azure depolama alanında bulunan çok sayıda dosya oluşur. Veri ambarı yedekleme, hem yerel veritabanı anlık görüntüleri hem de coğrafi yedeklemeleri tüm veritabanlarını ve veri ambarı ile ilişkili olan dosyaları içerir. 
+## <a name="what-is-a-data-warehouse-snapshot"></a>Veri ambarı anlık görüntüsünü nedir?
+A *veri ambarı anlık görüntü* kurtarmak veya önceki bir duruma veri ambarınız kopyalama yararlanabilir bir geri yükleme noktası oluşturur.  SQL Data Warehouse dağıtılmış bir sistemde olduğundan, bir veri ambarı anlık görüntü, Azure depolamada bulunan çok sayıda dosya oluşur. Anlık görüntüler, artımlı değişiklikler, veri ambarında depolanan verilerden yakalar.
 
-A *veri ambarı geri yükleme* varolan bir yedek kopyadan oluşturulan yeni veri ambarı veya silinen veri ambarı. Geri yüklenen veri ambarı yedeklenen veri ambarı belirli bir zamanda yeniden oluşturur. Verilerinizin yanlışlıkla Bozulması veya silme işlemi sonrasında yeniden oluşturduğundan, veri ambarını geri tüm iş sürekliliği ve olağanüstü durum kurtarma stratejisi önemli bir bölümünü oluşturur.
+A *veri ambarı geri yükleme* varolan bir geri yükleme noktasından oluşturulan yeni veri ambarı veya silinen veri ambarı. Verilerinizi yanlışlıkla Bozulması veya silinmesi durumunda sonra yeniden oluştuğundan, veri ambarını geri yüklemek bir önemli bir iş sürekliliği ve olağanüstü durum kurtarma stratejinize parçasıdır. Veri ambarı veri Ambarınızı test veya geliştirme amacıyla kopyalarını oluşturmak için güçlü bir mekanizma da dağıtılır.  SQL veri ambarı, 20 dakikadan kısa bir süre için tüm veri boyutu gerçekleştirilecek ölçülen aynı bölge içinde hızlı geri yükleme mekanizması kullanır. 
 
-Hem yerel hem de coğrafi geri yüklemeler SQL Data Warehouse'un olağanüstü durum kurtarma özellikleri bir parçasıdır. 
+## <a name="automatic-restore-points"></a>Otomatik Geri Yükleme Noktaları
+Yerleşik bir özellik oluşturur hizmetini geri yükleme noktaları anlık görüntüleridir. Bu özelliği etkinleştirmeniz gerekmez. Otomatik geri yükleme noktaları şu anda bu geri yükleme hizmeti kullandığı yere işaret kurtarma için SLA korumak için kullanıcılar tarafından silinemez.
 
-## <a name="local-snapshot-backups"></a>Yerel anlık görüntüsü yedekleri
-Yerel anlık görüntüsü yedekleri hizmetinin yerleşik bir özelliktir.  Bunları etkinleştirmeniz gerekmez. 
+SQL veri ambarı, veri ambarınızın yedi gün boyunca kullanılabilir geri yükleme noktası oluşturma gün boyunca anlık görüntüleri alır. Bu bekletme dönemi değiştirilemez. SQL veri ambarı, sekiz saat kurtarma noktası hedefi (RPO) destekler. Veri ambarınız birincil bölgedeki herhangi biri son yedi gün içinde alınan anlık görüntülere geri yükleyebilirsiniz.
 
-SQL Data Warehouse veri Ambarınızı gün boyunca anlık görüntüleri alır. Anlık görüntüler yedi gün için kullanılabilir. SQL veri ambarı bir sekiz saat kurtarma noktası hedefi (RPO) destekler. Veri ambarınız birincil bölge içinde herhangi bir son yedi gün içinde alınan anlık görüntü geri yükleyebilirsiniz.
-
-Son anlık görüntünün başlatıldığında görmek için bu sorguyu çevrimiçi SQL veri ambarı üzerinde çalıştırın. 
+Son anlık görüntünün başlatıldığında görmek için çevrimiçi SQL veri ambarınıza bu sorguyu çalıştırın. 
 
 ```sql
 select   top 1 *
@@ -41,71 +39,63 @@ order by run_id desc
 ;
 ```
 
-### <a name="snapshot-retention-when-a-data-warehouse-is-paused"></a>Veri ambarı duraklatıldığında, anlık görüntü saklama
-SQL Data Warehouse anlık görüntülerini oluşturma değil ve bir veri ambarı duraklatıldığında anlık görüntüleri dolmaz. Veri ambarı duraklatıldığında anlık görüntü yaş değiştirmez. Anlık görüntü saklama, veri ambarı Takvim günleri çevrimiçi olduğu gün sayısını temel alır.
+## <a name="user-defined-restore-points"></a>Kullanıcı Tanımlı Geri Yükleme Noktaları
+Bu özellik, veri ambarınızın geri yükleme noktaları önce ve sonra büyük değişiklikler oluşturmak için el ile tetikleyici anlık görüntüleri sağlar. Bu özellik, herhangi bir iş yükünün kesintiye uğraması veya kullanıcı hata durumunda Hızlı Kurtarma zamanı ek veri koruma sağlayan, geri yükleme noktaları mantıksal olarak tutarlı olmasını sağlar. Kullanıcı tanımlı bir geri yükleme noktaları yedi gün boyunca kullanılabilir ve sizin adınıza otomatik olarak silinir. Kullanıcı tanımlı bir geri yükleme noktalarının saklama süresini değiştiremezsiniz. Yalnızca 42 kullanıcı tanımlı bir geri yükleme noktaları desteklenen herhangi bir noktada sürede olması gerekir böylece [silinmiş](https://go.microsoft.com/fwlink/?linkid=875299) başka oluşturmadan önce geri yükleme noktası. Kullanıcı tanımlı bir geri yükleme noktaları aracılığıyla oluşturmak için anlık görüntüleri tetikleyebilirsiniz [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) veya Azure portalı.
 
-Örneğin, bir anlık görüntü 4'e 1 Ekim başlatır ve 4'e veri ambarı Ekim 3 olarak duraklatıldı, anlık görüntüleri iki güne kadar eski demektir. Veri ambarı tekrar çevrimiçi olduğunda iki gün anlık görüntüsüdür. Veri ambarı Ekim 5 4'e çevrimiçi olursa, anlık görüntü iki gün önce yapılmışsa ve daha fazla beş gün boyunca devam eder.
-
-Veri ambarı tekrar çevrimiçi olduğunda, SQL Data Warehouse Yeni Anlık görüntülerin sürdürür ve yedi günden fazla veri olduğunda anlık görüntüleri süresi dolar.
-
-### <a name="snapshot-retention-when-a-data-warehouse-is-dropped"></a>Veri ambarı bırakıldığında anlık görüntü saklama
-Veri ambarı bıraktığınızda, SQL Data Warehouse son anlık görüntü oluşturur ve yedi gün için kaydeder. Veri ambarı silme işlemi sırasında oluşturulan son geri yükleme noktası geri yükleyebilirsiniz. 
-
-> [!IMPORTANT]
-> Mantıksal bir SQL server örneği silerseniz örneği ait tüm veritabanlarının da silinir ve kurtarılamaz. Silinen bir sunucuya geri yükleyemezsiniz.
-> 
-
-## <a name="geo-backups"></a>Coğrafi yedekleri
-SQL veri ambarı gerçekleştirir coğrafi yedekleme için günde bir kez bir [eşleştirilmiş veri merkezi](../best-practices-availability-paired-regions.md). RPO bir coğrafi geri yükleme için 24 saattir. Bir sunucuya SQL Data Warehouse burada desteklenen başka bir bölgede coğrafi yedekleme geri yükleyebilirsiniz. Coğrafi yedekleme anlık görüntüleri birincil bölgenizde erişemiyor durumunda, veri ambarı geri yükleyebilirsiniz sağlar.
-
-Coğrafi yedeklemeleri varsayılan olarak açıktır. Veri ambarınız Gen1 ise, yapabilecekleriniz [çıkma](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) istiyorsanız. Veri koruma yerleşik gurantee olarak Gen2 için coğrafi yedeklemeleri dışında'ni kaldıramaz.
-
-## <a name="backup-costs"></a>Yedekleme maliyetleri
-Azure Premium Storage ve coğrafi olarak yedekli depolama için bir satır öğesi için bir satır öğesi Azure faturasını sahip fark edeceksiniz. Premium depolama ücret anlık görüntüleri içeren birincil bölgede verilerinizi depolamak için toplam maliyetidir.  Coğrafi olarak yedekli ücret coğrafi yedeklemelerini depolamak için maliyet kapsar.  
-
-Maliyet birincil veri ambarı ve Azure Blob anlık görüntü yedi gün için toplam yakın TB yuvarlanır. Örneğin, veri Ambarınızı 1,5 TB ise ve 100 GB anlık görüntüleri kullanmak, 2 TB veri Azure Premium Storage hızlarında için faturalandırılır. 
 
 > [!NOTE]
-> Her anlık görüntü başlangıçta boş ve birincil veri ambarına değişiklik gibi büyür. Tüm anlık görüntüleri veri ambarı değişiklikleri boyutunu artırın. Bu nedenle, anlık görüntüler için depolama maliyetleri değişme oranı göre artar.
-> 
-> 
+> Geri yükleme noktaları 7 günden daha uzun süre gerekiyorsa, lütfen bu özellik için oy [burada](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). Ayrıca, bir kullanıcı tanımlı bir geri yükleme noktası oluşturmak ve yeni bir veri ambarı yeni oluşturulan geri yükleme noktasından geri yükleme. Geri yükledikten sonra çevrimiçi veri ambarına sahip ve, duraklatma süresiz olarak bilgi işlem maliyetlerinden tasarruf için. Duraklatılmış veritabanı, Azure Premium depolama fiyattan depolama ücreti alınmaz. Geri yüklenen veri ambarı etkin bir kopyasına ihtiyacınız olursa, hangi yalnızca birkaç dakika sürer devam edebilir.
+>
 
-Coğrafi olarak yedekli depolama birimi kullanıyorsanız, ayrı depolama ücret alırsınız. Coğrafi olarak yedekli depolama standart okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) oranı faturalandırılır.
+### <a name="snapshot-retention-when-a-data-warehouse-is-paused"></a>Veri ambarı duraklatıldığında anlık görüntü saklama
+SQL veri ambarı anlık görüntüleri oluşturmaz ve bir veri ambarı duraklatıldığında geri yükleme noktaları süresi dolmaz. Geri yükleme noktaları, veri ambarı duraklatıldığında değiştirmeyin. Geri yükleme noktası bekletme takvim günü veri ambarı çevrimiçi olduğu gün sayısına bağlıdır.
 
-SQL Data Warehouse fiyatlandırması hakkında daha fazla bilgi için bkz: [SQL Data Warehouse fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+Örneğin, bir anlık görüntü 4 saat 1 Ekim başlar ve veri ambarı Ekim 3 saat 4'te duraklatıldı, geri yükleme noktaları en fazla iki gün demektir. Veri ambarı tekrar çevrimiçi olduğunda geri yükleme noktası iki eski gündür. Veri ambarının 5 Ekim 4 saat çevrimiçi olursa geri yükleme noktası iki gün önce yapılmışsa ve beş gün boyunca kalır.
+
+Veri ambarı tekrar çevrimiçi olduğunda, SQL veri ambarı yeni geri yükleme noktaları oluşturma devam eder ve birden fazla yedi günün verilerini sahip oldukları zaman bunları süresi dolar.
+
+### <a name="snapshot-retention-when-a-data-warehouse-is-dropped"></a>Veri ambarı bırakıldığında anlık görüntü saklama
+Veri ambarı düşürdüğünüzde, SQL veri ambarı son anlık görüntüsünü oluşturur ve yedi gün boyunca kaydeder. Veri ambarı silme işlemi sırasında oluşturulan son geri yükleme noktasına geri yükleyebilirsiniz. 
+
+> [!IMPORTANT]
+> Mantıksal bir SQL server örneği silerseniz, örneği ait tüm veritabanlarını da silinir ve kurtarılamaz. Silinen bir sunucuya geri yükleyemezsiniz.
+>
+
+## <a name="geo-backups"></a>Coğrafi yedekleme
+SQL veri ambarı coğrafi yedekleme için günde bir kez gerçekleştiren bir [eşleştirilmiş veri merkezine](../best-practices-availability-paired-regions.md). Bir coğrafi geri yükleme için RPO 24 saattir. Coğrafi yedekleme, SQL veri ambarı desteklendiği Bölgesi'nde bir sunucuya geri yükleyebilirsiniz. Coğrafi yedekleme, geri yükleme noktalarını, birincil bölgedeki erişemiyor durumunda veri ambarını geri yükleme sağlar.
+
+Coğrafi yedekleme varsayılan olarak etkindir. Veri ambarınız Gen1 ise yapabilecekleriniz [çıkma](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) istiyorsanız. Veri koruma garanti yerleşik olarak 2. nesil için coğrafi-yedeklemelerden kapatılamaz.
+
+> [!NOTE]
+> Coğrafi yedekleme için daha kısa bir RPO gerekiyorsa, lütfen bu özellik için oy [burada](https://feedback.azure.com/forums/307516-sql-data-warehouse). Ayrıca, bir kullanıcı tanımlı bir geri yükleme noktası oluşturma ve farklı bir bölgede yeni bir veri ambarı yeni oluşturulan geri yükleme noktasından geri yükleme. Geri yükledikten sonra çevrimiçi veri ambarına sahip ve, duraklatma süresiz olarak bilgi işlem maliyetlerinden tasarruf için. Duraklatılmış veritabanı, Azure Premium depolama fiyattan depolama ücreti alınmaz. ' i tıklatın ve ardından duraklatabilirsiniz. Veri ambarı etkin bir kopyasını gerekir, hangi yalnızca birkaç dakika sürer devam edebilir.
+>
+
+
+## <a name="backup-and-restore-costs"></a>Yedekleme ve geri yükleme maliyetleri
+Azure fatura bir satır öğesi depolama ve bir satır öğesi için olağanüstü durum kurtarma depolama için olduğunu fark edeceksiniz. Depolama anlık görüntüleri tarafından yakalanan artımlı değişikliklerin yanı sıra birincil bölgedeki verilerinizi depolamak için toplam maliyeti ücrettir. Anlık görüntü şu anda nasıl alındığı hakkında daha ayrıntılı açıklaması için lütfen şuna bakın [belgeleri](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). Coğrafi olarak yedekli ücret coğrafi yedekleri depolamak için maliyetini kapsar.  
+
+Toplam Maliyet birincil veri ambarı ve anlık görüntü değişikliklerinin yedi gün için en yakın TB değerine yuvarlanır. Örneğin, veri ambarınızın boyutu 1,5 TB ise ve 100 GB anlık görüntü yakalar, 2 TB veri sayfasındaki Azure Premium depolama fiyatları üzerinden faturalandırılırsınız. 
+
+Coğrafi olarak yedekli depolamayı kullanıyorsanız ayrı bir depolama ücreti alırsınız. Coğrafi olarak yedekli depolama, standart okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) fiyatı üzerinden faturalandırılır.
+
+SQL veri ambarı fiyatlandırması hakkında daha fazla bilgi için bkz. [SQL veri ambarı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) ve [çıkış ücretleri](https://azure.microsoft.com/pricing/details/bandwidth/) bölgeler arası geri yükleme sırasında.
 
 ## <a name="restoring-from-restore-points"></a>Geri yükleme noktalarından geri yükleme
-Her anlık görüntü anlık görüntü başlama zamanı temsil eden bir geri yükleme noktası vardır. Veri ambarı geri yüklemek için bir geri yükleme noktası seçin ve geri yükleme komutu.  
+Anlık görüntü başladığı saati temsil eden bir geri yükleme noktası her anlık görüntü oluşturur. Bir veri ambarını geri yüklemek için bir geri yükleme noktası seçin ve geri yükleme komutu.  
 
-SQL veri ambarı her zaman yeni bir veri ambarı yedeğini geri yükler. Geri yüklenen veri ambarı ve geçerli bir tutun veya bunlardan birini silin. Geçerli veri ambarıyla geri yüklenen veri ambarı ile değiştirmek istiyorsanız, bunu kullanarak adlandırabilirsiniz [ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) adı Değiştir seçeneği. 
+Geri yüklenen veri ambarı ve geçerli tutun veya bunlardan birini silin. Geçerli veri ambarı geri yüklenen veri ambarı ile değiştirmek istiyorsanız, bunu kullanarak adlandırabilirsiniz [ALTER DATABASE (Azure SQL veri ambarı)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) adı değiştirme seçeneği. 
 
-Bir veri ambarı geri yüklemek için bkz: [Azure portalını kullanarak bir veri ambarı geri](sql-data-warehouse-restore-database-portal.md), [PowerShell kullanarak bir veri ambarı geri](sql-data-warehouse-restore-database-powershell.md), veya [T-SQL kullanarak bir veri ambarı geri](sql-data-warehouse-restore-database-rest-api.md) .
+Bir veri ambarını geri yüklemek için bkz: [Azure portalını kullanarak bir veri ambarını geri yükleme](sql-data-warehouse-restore-database-portal.md), [PowerShell kullanarak bir veri ambarını geri yükleme](sql-data-warehouse-restore-database-powershell.md), veya [T-SQL kullanarak bir veri ambarını geri yükleme](sql-data-warehouse-restore-database-rest-api.md) .
 
-Silinmiş ya da duraklatılmış veri ambarını geri yüklemek için [destek bileti oluşturma](sql-data-warehouse-get-started-create-support-ticket.md). 
+Silinmiş ya da duraklatılmış veri ambarını geri yükleme için [bir destek bileti oluşturma](sql-data-warehouse-get-started-create-support-ticket.md). 
 
 
 ## <a name="geo-redundant-restore"></a>Coğrafi olarak yedekli geri yükleme
-Veri ambarı Azure SQL Data Warehouse, seçilen performans düzeyinde destekleyen herhangi bir bölgeyi geri yükleyebilirsiniz. 
+Yapabilecekleriniz [, veri ambarını geri yükleme](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) SQL veri ambarı, seçilen performans düzeyinde destekleyen herhangi bir bölgesine. 
 
 > [!NOTE]
-> Coğrafi olarak yedekli geri yüklemeyi gerçekleştirmek için bu özellik dışında çevirdiniz gerekir değil.
-> 
-> 
-
-## <a name="restore-timeline"></a>Zaman çizelgesi geri yükleme
-Son yedi gün içinde herhangi bir kullanılabilir geri yükleme noktası bir veritabanını geri yükleyebilirsiniz. Anlık görüntüler için dört sekiz saatte başlatmak ve yedi gün için kullanılabilir. Bir anlık görüntü yedi günden daha eski olduğunda süresi dolmadan ve geri yükleme noktası artık kullanılamıyor. 
-
-Yedeklemeleri duraklatılmış veri ambarına karşı durum değil. Veri ambarınız yedi günden fazla bir süre için duraklatıldığında, herhangi bir geri yükleme noktası olmaz. 
-
-## <a name="restore-costs"></a>Maliyetleri geri yükleme
-Azure Premium Storage hızında geri yüklenen veri ambarı için depolama ücret faturalandırılır. 
-
-Geri yüklenen veri ambarı duraklatmak, depolama Azure Premium Storage oranı için ücretlendirilirsiniz. Duraklatma avantajı, bilgi işlem kaynakları için sizden ücret istenmese olmasıdır.
-
-SQL Data Warehouse fiyatlandırması hakkında daha fazla bilgi için bkz: [SQL Data Warehouse fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
-
-## <a name="restore-use-cases"></a>Kullanım örnekleri geri yükleme
-Birincil veri ambarı geri yüklemek için yanlışlıkla veri kaybı veya bozulması sonra verileri kurtarmak için kullanılır. Veri ambarı geri yükleme, bir yedekleme yedi günden daha uzun süre tutmak için de kullanabilirsiniz. Yedeklemeyi geri yüklendikten sonra veri ambarı çevrimiçi olması ve, duraklatma, işlem maliyetleri süresiz olarak kaydetmek için. Duraklatılmış veritabanı depolama ücretleri Azure Premium Storage oranı doğurur. 
+> Coğrafi olarak yedekli bir geri yüklemeyi gerçekleştirmek için bu özelliği bayraklarımızın gerekir değil.
+>
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Olağanüstü durum planlama hakkında daha fazla bilgi için bkz: [iş sürekliliğine genel bakış](../sql-database/sql-database-business-continuity.md)
+Olağanüstü durum planlama hakkında daha fazla bilgi için bkz. [iş sürekliliğine genel bakış](../sql-database/sql-database-business-continuity.md)

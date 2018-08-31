@@ -1,6 +1,6 @@
 ---
-title: Azure multi-Factor Authentication, Privileged Identity Management'ı kullanarak Azure kaynaklarında zorunlu | Microsoft Docs
-description: Bu belge, PIM kaynaklar için çok faktörlü kimlik doğrulamasını etkinleştirmek açıklar.
+title: PIM Azure kaynak rolleri için çok faktörlü kimlik doğrulaması isteme | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM) Azure kaynak rolleri için çok faktörlü kimlik doğrulaması (MFA) gerekli öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 42c93a107c7ed58d6f7412b61627dccaf9076bb7
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 171d79856cf67dae9573dd1076c2ae4617cf86d1
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617879"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190577"
 ---
-# <a name="enforce-azure-multi-factor-authentication-in-azure-resources-by-using-privileged-identity-management"></a>Azure multi-Factor Authentication, Privileged Identity Management'ı kullanarak Azure kaynaklarında zorla
+# <a name="require-multi-factor-authentication-for-azure-resource-roles-in-pim"></a>PIM Azure kaynak rolleri için çok faktörlü kimlik doğrulaması gerektir
 
 Azure kaynak rolleri için Privileged Identity Management (PIM) kaynak yöneticileri ve kimlik yöneticileri zamana bağlı üyelik ve tam zamanında erişim kritik Azure altyapısını koruma sağlar. Ayrıca, iki farklı senaryolar için Azure multi-Factor Authentication isteğe bağlı zorlama PIM sağlar.
 
@@ -59,9 +59,7 @@ Aynı rol ayarı ayrıntıları ekranından, onay kutusunu için **doğrudan ata
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Etkinleştirmek için onay gerektir](pim-resource-roles-approval-workflow.md)
-
-[Denetim günlüğü nasıl kullanma](pim-resource-roles-use-the-audit-log.md)
-
+- [PIM'de Azure kaynak rol ayarlarını yapılandırma](pim-resource-roles-configure-role-settings.md)
+- [Güvenlik Uyarıları Azure kaynak rolleri için PIM içinde yapılandırma](pim-resource-roles-configure-alerts.md)
 
 

@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management'ı kullanarak Azure kaynakları için roller atama | Microsoft Docs
-description: PIM rolleri atamak açıklar.
+title: PIM Azure kaynak rolleri atama | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM) Azure kaynak rolleri atama hakkında bilgi edinin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,25 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 52320fe160fc1df2997dd419b406fce24f43b786
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 7019a6f97a9590d3b652584015f3077f4ed075af
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622985"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188929"
 ---
-# <a name="assign-roles-for-azure-resources-by-using-privileged-identity-management"></a>Privileged Identity Management'ı kullanarak Azure kaynakları için roller atama
+# <a name="assign-azure-resource-roles-in-pim"></a>PIM Azure kaynak Rolleri Ata
+
+Azure AD PIM (ancak bunlarla sınırlı olmayan) özel roller yanı sıra yerleşik Azure kaynağı rolleri yönetebilirsiniz:
+
+- Sahip
+- Kullanıcı Erişimi Yöneticisi
+- Katılımcı
+- Güvenlik Yöneticisi
+- Güvenlik Yöneticisi ve daha fazlası
+
+>[!NOTE]
+Kullanıcılar veya sahibi ya da kullanıcı erişimi yöneticisi rolü ve Azure AD'de abonelik yönetimini etkinleştirme genel Yöneticiler atanmış bir grubun üyelerinin kaynağa yöneticilerdir. Bu yöneticileri, Rolleri Ata, rol ayarlarını yapılandırma ve Azure kaynakları için PIM kullanarak erişimi gözden geçirin. Listesini görüntülemek [Azure kaynakları için yerleşik roller](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="assign-roles"></a>Roller atama
 
@@ -76,3 +87,8 @@ Rol etkinleştirme bekleyen varsa, üyelik görüntülerken bölmenin en üstün
 Kullanıcı/Grup ayrıntı görünümü mevcut atamaları değiştirmek için seçin **ayarlarını değiştir** eylem çubuğunda. Atama türü için değiştirme **tam zamanlı** veya **doğrudan**.
 
 !["Kullanıcı" Ayrıntılar "Ayarları değiştir" düğmesi](media/azure-pim-resource-rbac/rbac-assign-role-manage.png)
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+- [PIM'de Azure kaynak rol ayarlarını yapılandırma](pim-resource-roles-configure-role-settings.md)
+- [Azure AD dizin rollerini PIM atayın](pim-how-to-add-role-to-user.md)

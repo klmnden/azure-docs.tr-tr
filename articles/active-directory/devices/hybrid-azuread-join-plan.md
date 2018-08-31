@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 808914dddcaefa4795264d3904e26ef6200f483e
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 12d3b358be8bb90b63e5e7310123f8ae7093994c
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087319"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190281"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Hibrit Azure Active Directory join uygulamanızı planlama
 
@@ -126,7 +126,7 @@ Ortamınızı etki alanları yönettiği, hibrit Azure AD'ye katılım'ı destek
 
 - Kimlik doğrulaması (PTA) ile sorunsuz çoklu oturum açma (SSO) geçirin. 
 
-- Parola Eşitleme (PHS) ile sorunsuz çoklu oturum açma (SSO) sahiptir. 
+- Sorunsuz çoklu oturum açma (SSO) ile parola karma eşitlemesi (PHS) 
 
 1.1.819.0 sürümünden başlayarak, Azure AD Connect ile hibrit Azure AD'ye katılım'ı yapılandırmak için bir sihirbaz sağlar. Sihirbaz, önemli ölçüde yapılandırma işlemini basitleştirmenize olanak sağlar. Daha fazla bilgi için bkz.
 

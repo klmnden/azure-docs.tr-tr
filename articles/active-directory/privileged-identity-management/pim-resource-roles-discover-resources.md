@@ -1,6 +1,6 @@
 ---
-title: Keşfetmek ve Privileged Identity Management'ı kullanarak Azure kaynaklarını yönetmek | Microsoft Docs
-description: PIM kullanarak Azure kaynaklarını korumak nasıl açıklar.
+title: PIM'de yönetmek için Azure kaynaklarını bulun | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM) yönetmek için Azure kaynaklarını keşfedin. öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: f4b6fafe40fe00492bac7bd6c28268321d4516db
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: MT
+ms.openlocfilehash: b5d48b3f854afaa79574e0ec13cff91f60396ac6
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104364"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190667"
 ---
-# <a name="discover-and-manage-azure-resources-by-using-privileged-identity-management"></a>Bulma ve Privileged Identity Management'ı kullanarak Azure kaynaklarını yönetme
+# <a name="discover-azure-resources-to-manage-in-pim"></a>PIM'de yönetmek için Azure kaynaklarını keşfedin
 
 Bulma ve Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kullandığınızda, Azure kaynaklarını yönetme hakkında bilgi edinin. Bu bilgiler zaten yönetici kaynakları korumak için PIM kullanan kuruluşlar ve üretim kaynaklarını arayan bir abonelik sahipleri için yararlı olabilir.
 
@@ -64,5 +64,5 @@ Seçilen kaynaklara artık PIM tarafından yönetiliyor. Bulma ekranında sağ �
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Rol ayarlarını yapılandırma](pim-resource-roles-configure-role-settings.md)
-- [PIM Rolleri Ata](pim-resource-roles-assign-roles.md)
+- [PIM'de Azure kaynak rol ayarlarını yapılandırma](pim-resource-roles-configure-role-settings.md)
+- [PIM Azure kaynak Rolleri Ata](pim-resource-roles-assign-roles.md)

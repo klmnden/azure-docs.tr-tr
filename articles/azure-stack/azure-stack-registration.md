@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 08/24/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: e2411a91174fd0b52227b4cfe8783c8c74c4039e
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 58c8568da0a818f87a5bb3d6966d2d4a6c977fd9
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42056548"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247832"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack Azure ile kaydedin
 
@@ -84,13 +84,12 @@ Azure Stack dağıtımınıza olabilir *bağlı* veya *bağlantısı kesildi*.
 
  - **Bağlı**  
  İnternet'e ve azure'a bağlanabilmesi için Azure Stack dağıttığınız anlamına gelir bağlı. Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS), kimlik deposu ya da sahip. Bağlı bir dağıtım ile iki faturalandırma modelimiz seçebilirsiniz:-,-kullandıkça veya kapasite tabanlı.
-    - [Azure'ı kullanarak bağlı bir Azure Stack kayıt **-,-kullandıkça** faturalandırma modeli](#register-a-connected-azure-stack-with-azure-using-the-pay-as-you-use-billing-model)
-    - [Azure'ı kullanarak bağlı bir Azure Stack kayıt **kapasite** faturalandırma modeli](#register-a-connected-azure-stack-with-azure-using-the-capacity-billing-model)
+    - [Azure'ı kullanarak bağlı bir Azure Stack kayıt **-,-kullandıkça** faturalandırma modeli](#register-connected-with-pay-as-you-go-billing)
+    - [Azure'ı kullanarak bağlı bir Azure Stack kayıt **kapasite** faturalandırma modeli](#register-connected-with-capacity-billing)
 
  - **Bağlantısı kesildi**  
  Bağlantısı kesilmiş olan Azure dağıtım seçeneği, dağıtma ve Azure Stack internet bağlantısı olmadan kullanın. Ancak, bağlantısı kesilmiş bir dağıtım ile bir AD FS kimlik deposunu ve kapasite tabanlı faturalandırma modeli için sınırlı olursunuz.
-    - [Bağlantısı kesilmiş bir Azure Stack kullanarak kaydolmanız **kapasite** faturalandırma modeli ](#register-a-disconnected-Azure-Stack-using-the-capacity-billing-model
-)
+    - [Bağlantısı kesilmiş bir Azure Stack kullanarak kaydolmanız **kapasite** faturalandırma modeli ](#register-disconnected-with-capacity-billing)
 
 ## <a name="register-connected-with-pay-as-you-go-billing"></a>Kullandıkça Öde faturalandırma ile bağlı kaydetme
 
@@ -218,7 +217,7 @@ Azure ve internet bağlantılı ortamlar erişebilirsiniz. Bu ortamlar için Azu
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -EnableUsageReporting False $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -UsageReportingEnabled:$False $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
    Get-AzsRegistrationToken cmdlet'i hakkında daha fazla bilgi için bkz. [kayıt başvuru](#registration-reference).
 
@@ -358,7 +357,7 @@ Artık tamamen bağlantısı kesilmiş bir senaryoda kaydı ve bir Azure Stack o
 
 ### <a name="disable-or-enable-usage-reporting"></a>Kullanım raporlama etkinleştirmek veya devre dışı
 
-Reporting ile kullanım kapasite faturalandırma modeli kullandığınız Azure Stack ortamlarda, kapatmak **EnableUsageReporting** parametresi kullanarak **kümesi AzsRegistration** veya  **Get-AzsRegistrationToken** cmdlet'leri. Azure Stack, varsayılan olarak kullanım ölçümleri raporları. Kapasite kullanır veya bağlantısı kesilmiş bir ortam destekleyen işleçlerle kullanım bildirimini devre dışı bırak gerekecektir.
+Reporting ile kullanım kapasite faturalandırma modeli kullandığınız Azure Stack ortamlarda, kapatmak **UsageReportingEnabled** parametresi kullanarak **kümesi AzsRegistration** veya  **Get-AzsRegistrationToken** cmdlet'leri. Azure Stack, varsayılan olarak kullanım ölçümleri raporları. Kapasite kullanır veya bağlantısı kesilmiş bir ortam destekleyen işleçlerle kullanım bildirimini devre dışı bırak gerekecektir.
 
 #### <a name="with-a-connected-azure-stack"></a>Bağlı bir Azure Stack ile
 
@@ -378,7 +377,7 @@ Reporting ile kullanım kapasite faturalandırma modeli kullandığınız Azure 
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -EnableUsageReporting False
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -UsageReportingEnabled:$False
    $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
 

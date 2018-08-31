@@ -1,6 +1,6 @@
 ---
-title: Genişletme ve Privileged Identity Management'ı kullanarak Azure kaynaklarını rollerinde gözden geçirin | Microsoft Docs
-description: Bu belge, genişletin ve Azure kaynak rolleri için PIM kaynakları yenilemek açıklar.
+title: PIM Azure kaynak rolleri genişletmek veya yenileme | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM), Azure kaynak rolleri genişletmek veya yenileme öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7eb30f895214ff7d5a1607fc7e477d3d876a6fc1
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 2c85c5bbbd4c152113108e0fdb717d23f85f9fde
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617532"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189659"
 ---
-# <a name="extend-and-review-roles-in-azure-resources-by-using-privileged-identity-management"></a>Genişletme ve Privileged Identity Management'ı kullanarak Azure kaynaklarını rollerinde gözden geçirin
+# <a name="extend-or-renew-azure-resource-roles-in-pim"></a>PIM Azure kaynak rolleri genişletmek veya yenileme
 
 Azure kaynakları için Privileged Identity Management (PIM) Azure kaynakları için erişim ve atama yaşam döngüsünü yönetmek için yeni denetimler sunar. Yöneticiler, üyeliği başlangıç ve bitiş tarihi zamanı özelliklerini kullanarak atayabilirsiniz. Atama sonuna yaklaştığında, PIM etkilenen kullanıcılar veya gruplar için e-posta bildirimleri gönderir. Ayrıca uygun erişim sağlandığından emin olmak için kaynak için Yöneticiler e-posta bildirimleri gönderir. Atamalar yenilenmesi ve erişim genişletilmedi bile görünür 30 güne kadar süresi dolmuş durumda kalır.
 
@@ -131,8 +131,5 @@ Tüm listesini görüntülemek için rol atamalarını tarihinde isteğin süres
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Etkinleştirmek için onay gerektir](pim-resource-roles-approval-workflow.md)
-
-[Bir rolü etkinleştirmesi](pim-resource-roles-use-the-audit-log.md)
-
-
+- [Onaylayın veya reddedin PIM Azure kaynak rolleri için istekleri](pim-resource-roles-approval-workflow.md)
+- [PIM'de Azure kaynak rol ayarlarını yapılandırma](pim-resource-roles-configure-role-settings.md)

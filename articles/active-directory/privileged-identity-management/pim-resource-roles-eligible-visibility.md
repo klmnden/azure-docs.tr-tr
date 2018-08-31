@@ -1,6 +1,6 @@
 ---
-title: Uygun atamalar ve Azure Privileged Identity Management için kaynak görünürlüğü | Microsoft Docs
-description: PIM kullanırken üyeleri kaynak rolleri için uygun olarak atamak açıklar.
+title: Uygun atamalar ve kaynak görünürlük PIM - Azure | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM) Azure kaynak rolleri için uygun üyelere atamak açıklar.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 336453c1ef6ef8d0295d00f31afc6a5e7e42e8b6
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 3551c3231a94f8a844d26a713cbf171ca7653815
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621557"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189223"
 ---
-# <a name="eligible-assignments-and-resource-visibility-with-privileged-identity-management"></a>Uygun atamalar ve Privileged Identity Management ile kaynak görünürlüğü
+# <a name="eligible-assignments-and-resource-visibility-in-pim"></a>Uygun atamalar ve pım'de Kaynak görünürlüğü
 
 Azure kaynak rolleri için Privileged Identity Management (PIM) kritik Azure kaynakları olan kuruluşlar için Gelişmiş güvenlik sağlar. Kaynak yöneticileri PIM üyeleri kaynak rolleri için uygun olarak atamak için kullanabilirsiniz. Aşağıdaki bölümlerde Azure kaynağı rolleri için atama durumu ve farklı atama türleri hakkında daha fazla bilgi edinin. 
 
@@ -70,4 +70,4 @@ Listelenen bir üyelik görüntülediğinizde **etkin rollerin**, değer kullana
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Ayrıcalıklı Kimlik Yöneticisi'nde Rolleri Ata](pim-resource-roles-assign-roles.md)
+- [PIM Azure kaynak Rolleri Ata](pim-resource-roles-assign-roles.md)

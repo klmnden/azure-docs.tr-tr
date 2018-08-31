@@ -1,6 +1,6 @@
 ---
-title: Azure'da OpenShift kaynak dağıtma | Microsoft Docs
-description: Azure'da OpenShift kaynak dağıtın.
+title: OKD azure'da dağıtma | Microsoft Docs
+description: OKD azure'da dağıtın.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
@@ -15,25 +15,25 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: f7a668f30d7acb1ea14fe9fd8921066d40a6669b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0d3a9f05802bef7d6dfc99fcfae6668044f214c8
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29123128"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190313"
 ---
-# <a name="deploy-openshift-origin-in-azure"></a>Azure'da OpenShift kaynak dağıtma
+# <a name="deploy-okd-in-azure"></a>OKD azure'da dağıtma
 
-OpenShift kaynak azure'da dağıtmak için iki yoldan biriyle kullanabilirsiniz:
+Azure'da OKD (eski adıyla OpenShift Origin) dağıtmak için iki şekilde kullanabilirsiniz:
 
-- El ile tüm gerekli Azure altyapı bileşenlerini dağıtmak ve OpenShift kaynağını izleyin [belgelerine](https://docs.openshift.org/3.6/welcome/index.html).
-- Var olan de kullanabilirsiniz [Resource Manager şablonu](https://github.com/Microsoft/openshift-origin) OpenShift kaynak Küme dağıtımı basitleştirir.
+- El ile tüm gerekli Azure altyapı bileşenlerini dağıtmak ve OKD izleyin [belgeleri](https://docs.okd.io/3.10/welcome/index.html).
+- Mevcut bir kullanabilirsiniz [Resource Manager şablonu](https://github.com/Microsoft/openshift-origin) , OKD küme dağıtımını basitleştirir.
 
-## <a name="deploy-by-using-the-openshift-origin-template"></a>OpenShift kaynak şablonu kullanarak dağıtın
+## <a name="deploy-by-using-the-okd-template"></a>OKD şablonu kullanarak dağıtın
 
-Kullanım `appId` için daha önce oluşturduğunuz hizmet asıl değerinden `aadClientId` parametresi.
+Kullanım `appId` için daha önce oluşturduğunuz hizmet sorumlusunun değerinden `aadClientId` parametresi.
 
-Aşağıdaki örnek, gerekli tüm girişleri ile azuredeploy.parameters.json adlı bir parametre dosyası oluşturur.
+Aşağıdaki örnek, tüm gerekli girişleri ile azuredeploy.parameters.json adlı bir parametre dosyası oluşturur.
 
 ```json
 {
@@ -99,9 +99,9 @@ Aşağıdaki örnek, gerekli tüm girişleri ile azuredeploy.parameters.json adl
 
 
 > [!NOTE] 
-> Aşağıdaki komutu Azure CLI 2.0.8 gerektirir veya sonraki bir sürümü. CLI sürümüyle doğrulayabilirsiniz `az --version` komutu. CLI Sürüm güncelleştirmek için bkz: [Azure CLI 2.0 yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Aşağıdaki komut, Azure CLI'yı 2.0.8 gerektirir veya üzeri. CLI sürümü ile doğrulayabilirsiniz `az --version` komutu. CLI sürümünü güncelleştirmek için bkz: [Azure CLI 2.0 yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Aşağıdaki örnek, myResourceGroup, myOpenShiftCluster dağıtım adı ile adlı bir kaynak grubuna OpenShift küme ve tüm ilgili kaynaklar dağıtır. Şablon azuredeploy.parameters.json adlı bir yerel parametre dosyası kullanarak doğrudan GitHub deposuna başvuruluyor.
+Aşağıdaki örnek, OKD kümeyi ve tüm ilgili kaynakları myOpenShiftCluster ile bir dağıtım adı myResourceGroup, adlı bir kaynak grubuna dağıtır. Şablon, doğrudan GitHub deposundan azuredeploy.parameters.json adlı bir yerel parametreleri dosyası kullanılarak başvurulur.
 
 ```azurecli 
 az group deployment create -g myResourceGroup --name myOpenShiftCluster \
@@ -109,7 +109,7 @@ az group deployment create -g myResourceGroup --name myOpenShiftCluster \
       --parameters @./azuredeploy.parameters.json
 ```
 
-Dağıtım, dağıtılan düğümleri toplam sayısına bağlı olarak tamamlamak için en az 25 dakika sürer. OpenShift konsolu ve dağıtım sona erdiğinde terminale OpenShift ana baskı siparişi DNS adını URL'si.
+Dağıtımın tamamlanması toplam dağıtılan düğüm sayısına bağlı olarak en az 25 dakika sürer. OKD konsol OpenShift ana yazdırır dağıtım tamamlandığında terminal için DNS adı ve URL.
 
 ```json
 {
@@ -118,9 +118,9 @@ Dağıtım, dağıtılan düğümleri toplam sayısına bağlı olarak tamamlama
 }
 ```
 
-## <a name="connect-to-the-openshift-cluster"></a>OpenShift kümeye bağlanın
+## <a name="connect-to-the-okd-cluster"></a>OKD kümeye bağlanma
 
-Dağıtım tamamlandığında tarayıcınızla OpenShift Konsolu'na kullanarak bağlanmak `OpenShift Console Uri`. Alternatif olarak, aşağıdaki komutu kullanarak OpenShift asıl bağlanabilir:
+Dağıtım tamamlandığında, tarayıcıyı OKD konsoluyla kullanarak bağlanmak `OpenShift Console Uri`. Alternatif olarak, aşağıdaki komutu kullanarak OKD ana bağlanabilir:
 
 ```bash
 $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
@@ -128,7 +128,7 @@ $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Kullanım [az grubu Sil](/cli/azure/group#az_group_delete) OpenShift küme, kaynak grubu kaldırmak için komut ve artık gerekmediğinde tüm ilgili kaynaklar.
+Kullanım [az grubu Sil](/cli/azure/group#az_group_delete) komutunu kullanarak kaynak grubunu, OpenShift küme kaldırmak için ve artık gerekmediğinde tüm ilgili kaynakları.
 
 ```azurecli 
 az group delete --name myResourceGroup
@@ -137,5 +137,5 @@ az group delete --name myResourceGroup
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Dağıtım sonrası görevler](./openshift-post-deployment.md)
-- [OpenShift dağıtım sorunlarını gider](./openshift-troubleshooting.md)
-- [OpenShift Origin kullanmaya başlama](https://docs.openshift.org/latest/getting_started/index.html)
+- [OpenShift dağıtım sorunlarını giderme](./openshift-troubleshooting.md)
+- [OKD ile çalışmaya başlama](https://docs.okd.io/latest/getting_started/index.html)

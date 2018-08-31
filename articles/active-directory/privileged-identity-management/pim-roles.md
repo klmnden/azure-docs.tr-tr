@@ -1,6 +1,6 @@
 ---
-title: Azure AD Privileged Identity Management rollerinde | Microsoft Docs
-description: Azure Privileged Identity Management uzantısı ile ayrıcalıklı kimlikleri için hangi rollerin kullanıldığı hakkında bilgi edinin.
+title: Azure AD dizin rollerini PIM içinde yönetebileceğiniz | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM) yönetebileceğiniz Azure AD Dizin rolleri açıklanır.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: f8045d70ab4926cdc0e28a9a2290685c4f11205a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: c8870e4da63dc52d5926bdfd5f7c9b3218e5f53a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618572"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188995"
 ---
-# <a name="directory-roles-you-can-manage-using-azure-ad-pim"></a>Dizin rolleri Azure AD PIM kullanarak yönetebilirsiniz.
+# <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>PIM'de yönetebilmeniz için azure AD Dizin rolleri
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
 Azure AD'de farklı yönetim rolleri, kuruluşunuzdaki kullanıcılara atayabilirsiniz. Ekleme veya kullanıcıları kaldırma ya da hizmet ayarlarını değiştirme gibi görevler, kullanıcıları Azure AD, Office 365 ve diğer Microsoft Online Services ve bağlı uygulamalar gerçekleştirebilir. Bu rol atamaları denetleyin.  
@@ -86,5 +86,7 @@ Kullanıcı ayrıca atanmış bir lisansı hizmetin portalını açın veya yön
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Sonraki adımlar
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [PIM kullanmaya başlayın](pim-getting-started.md)
+- [Azure AD dizin rollerini PIM atayın](pim-how-to-add-role-to-user.md)
 

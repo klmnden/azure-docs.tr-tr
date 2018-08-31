@@ -1,6 +1,6 @@
 ---
-title: Etkinleştirmek veya bir rolü devre dışı bırakma | Microsoft Docs
-description: Azure Privileged Identity Management uygulaması ile ayrıcalıklı kimlikleri için rol etkinleştirme hakkında bilgi edinin.
+title: Azure AD dizin rollerim PIM etkinleştirme | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM), Azure AD Dizin rolleri etkinleştirmeyi öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,54 +10,81 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 08/21/2018
+ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 54e092cb98df6c092e6cf3ed8c365f966587b0db
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 7c990fc0d385af9527bf55339b2fa617e589ec0e
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091610"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190595"
 ---
-# <a name="how-to-activate-or-deactivate-roles-in-azure-ad-privileged-identity-management"></a>Etkinleştirmek veya Azure AD Privileged Identity Management içinde rol devre dışı bırakma
-Azure Active Directory (AD) Privileged Identity Management, kuruluşlara ayrıcalıklı Azure ad'deki ve Office 365 veya Microsoft Intune gibi diğer Microsoft çevrimiçi hizmetlerine erişimi yönetme basitleştirir.  
+# <a name="activate-my-azure-ad-directory-roles-in-pim"></a>Azure AD dizin rollerim PIM etkinleştir
+
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM), kuruluşlara ayrıcalıklı Azure ad'deki ve Office 365 veya Microsoft Intune gibi diğer Microsoft çevrimiçi hizmetlerine erişimi yönetme sürecini basitleştirir.  
 
 Bir yönetici rolü için uygun yapılmadıysa, ayrıcalıklı eylemler gerçekleştirmek, ihtiyacınız olduğunda bu role aktive edebileceğiniz anlamına gelir. Office 365 özellikleri bazen yönetiyorsanız, bu rol diğer hizmetleri çok etkiler beri Örneğin, kuruluşunuzun ayrıcalıklı rol yöneticileri, kalıcı bir genel yönetici sunamazsınız. Bunun yerine, bunlar, Exchange Online yönetici gibi Azure AD rolleri için uygun yapın. Kendi ayrıcalıklarına sahip olmanız ve ardından önceden belirlenmiş bir süre için yönetici denetim gerekir. Bu rolü etkinleştirmek için istekte bulunabilir.
 
-Bu makalede, Azure AD Privileged Identity Management (PIM) içindeki rollerine etkinleştirmek için gereken yöneticilerin içindir. Bu izinlere ihtiyacınız olur ve işiniz bittiğinde rolünü devre dışı bir rolü etkinleştirmek için adımlarda size yol gösterir. Ayrıca, ayrıcalıklı rol yöneticileri (Önizleme) bir rolü etkinleştirmek için onay isteyebilir. Daha fazla bilgi edinin [PIM onayı iş akışı](./azure-ad-pim-approval-workflow.md) burada.
+Bu makale, PIM rollerine etkinleştirmek isteyen yöneticiler için yazılmıştır.
 
-## <a name="add-the-privileged-identity-management-application"></a>Privileged Identity Management uygulamasını ekleme
-Azure AD Privileged Identity Management kullanıldığını [Azure portalında](https://portal.azure.com/) başka bir portal veya PowerShell çalışılacak gideceğinizi olsa bile, bir rol etkinleştirme istemek için. Azure AD Privileged Identity Management uygulaması, Azure portalında yoksa, başlamak için aşağıdaki adımları izleyin.
+## <a name="activate-a-role"></a>Bir rolü etkinleştirmesi
+
+Bir rolü gerektiğinde kullanarak etkinleştirme isteyebilir **rollerim** PIM gezinme seçeneği.
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-1. Azure portalı ve burada şunları yapacaksınız, dizini seçin, sağ üst köşedeki kullanıcı adınızı işletim seçin.
+1. Açık **Azure AD Privileged Identity Management**. PIM kutucuk, panonuza ekleme hakkında daha fazla bilgi için bkz: [PIM kullanmaya başlamak](pim-getting-started.md).
 
-1. **Tüm hizmetler** seçeneğini belirleyin ve **Azure AD Privileged Identity Management** araması yapmak için Filtre metin kutusunu kullanın.
+1. Tıklayın **Azure AD Dizin rolleri**.
 
-1. **Panoya sabitle**'yi işaretleyin ve ardından **Oluştur**’a tıklayın. Privileged Identity Management uygulaması açılır.
+1. Tıklayın **rollerim** , uygun bir listesini görmek için Azure AD Dizin rolleri.
 
-## <a name="activate-a-role"></a>Bir rolü etkinleştirmesi
-Bir rolü gerektiğinde seçerek etkinleştirme isteyebilir **My rolleri** Azure AD Privileged Identity Management uygulaması Gezinti seçeneği sol gezinti sütununda.
+    ![Azure AD Dizin rolleri - rollerim](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
 
-1. Oturum [Azure portalında](https://portal.azure.com/) ve Azure AD Privileged Identity Management kutucuğunu seçin.
+1. Etkinleştirmek istediğiniz bir rol bulur.
 
-1. Seçin **Rollerim**. Sayfanın üstündeki gruplandırma, atanan uygun rolleri listesi görüntülenir.
+    ![Azure AD Dizin rolleri - roller listem](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
 
-1. Etkinleştirmek için bir rol seçin.
+1. Tıklayın **etkinleştirme** rol etkinleştirme ayrıntıları bölmesini açmak için.
 
-1. Seçin **etkinleştirme**. **Rol etkinleştirme isteği** dikey penceresi görünür.
+1. Rolünüz multi factor authentication (MFA) gerektiriyorsa, tıklayın **devam etmeden önce kimliğinizi Doğrulamamız**. Yalnızca bir kez oturum başına kimlik doğrulaması gerekir.
 
-1. Bu rolü etkinleştirmeden önce bazı roller, multi-Factor Authentication (MFA) gerektirir. Yalnızca bir kez oturum başına kimlik doğrulaması gerekir.
+    ![MFA ile rol etkinleştirme tamamlanmadan önce doğrulayın.](./media/pim-how-to-activate-role/directory-roles-my-roles-mfa.png)
 
-    ![MFA ile rol etkinleştirme - ekran görüntüsü önce doğrulayın.](./media/pim-how-to-activate-role/PIM_activation_MFA.png)
+1. Tıklayın **Kimliğimi doğrula** ve ek güvenlik doğrulaması sağlamak için yönergeleri izleyin.
 
-1. Etkinleştirme isteği nedeni metin alanına girin.  Bazı roller, sorun bileti numarası girmesini gerektirir.
+    ![Ek güvenlik doğrulaması](./media/pim-how-to-activate-role/additional-security-verification.png)
 
-1. **Tamam**’ı seçin.  Rolü onay gerektirmez, artık etkinleştirilir ve rol (doğrudan listesinin altındaki uygun rol atamaları) etkin rollerin listesinde görünür. Varsa [rolünü onay gerektiren](./azure-ad-pim-approval-workflow.md) etkinleştirmek için bir bildirim kısaca isteği onay bekliyor olduğunu bildiren, tarayıcınızın sağ üst köşesinde görünür.
+1. Tıklayın **etkinleştirme** etkinleştirme bölmesini açmak için.
 
-    ![İstek bildirimi - ekran görüntüsü](./media/pim-how-to-activate-role/PIM_Request_Pending_Toast2.png)
+    ![Etkinleştirme bölmesi](./media/pim-how-to-activate-role/directory-roles-activate.png)
+
+1. Gerekirse, bir özel etkinleştirme başlangıç saatini belirtin.
+
+1. Etkinleştirme süresi belirtin.
+
+1. İçinde **etkinleştirme nedeni** kutusuna, etkinleştirme isteği nedeni girin. Bazı roller, sorun bileti numarası girmesini gerektirir.
+
+    ![Tamamlanan etkinleştirme bölmesi](./media/pim-how-to-activate-role/directory-roles-activation-pane.png)
+
+1. Tıklayın **etkinleştirme**.
+
+    Rolü onay gerektirmez, artık etkinleştirilir ve rol etkin rollerin listesinde görünür. Varsa [rolünü onay gerektiren](./azure-ad-pim-approval-workflow.md) etkinleştirmek için bir bildirim isteği onay bekliyor olduğunu bildiren, tarayıcınızın sağ üst köşesinde görünür.
+
+    ![Bildirim istek](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
+
+## <a name="view-the-status-of-your-requests"></a>İsteklerinizin durumunu görüntüleme
+
+Etkinleştirmek için Bekleyen isteklerinizi durumunu görüntüleyebilirsiniz.
+
+1. Azure AD Privileged Identity Management'ı açın.
+
+1. Tıklayın **Azure AD Dizin rolleri**.
+
+1. Tıklayın **isteklerim** isteklerinizin listesini görmek için.
+
+    ![Azure AD Dizin rolleri - isteklerim](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
 ## <a name="use-a-role-immediately-after-activation"></a>Hemen etkinleştirildikten sonra bir rol kullanın
 
@@ -67,33 +94,44 @@ Bir rolü gerektiğinde seçerek etkinleştirme isteyebilir **My rolleri** Azure
 
 1. Tıklayın **uygulama erişimi** sayfası.
 
-    ![PIM uygulama erişimi - ekran görüntüsü](./media/pim-how-to-activate-role/pim-application-access.png)
+    ![PIM uygulama erişimi](./media/pim-how-to-activate-role/pim-application-access.png)
 
 1. Tıklayın **Azure Active Directory** Şirket portalı yeniden **tüm kullanıcılar** sayfası.
 
     Bu bağlantıyı tıklatın, yenilemeye zorlamak ve yeni Azure denetimi olmadığında AD rol atamaları.
 
 ## <a name="deactivate-a-role"></a>Rol devre dışı bırak
+
 Bir rol etkinleştirildikten sonra süre sınırı (uygunluk süresi) ulaşıldığında otomatik olarak devre dışı bırakır.
 
-Yönetim görevlerinizi erken tamamlarsanız, bir rol el ile Azure AD Privileged Identity Management uygulaması devre dışı bırakabilirsiniz.  Seçin **My rolleri**, bitti rolü seçin kullanarak gelen **etkin rol atamaları** gruplandırma ve select **devre dışı bırak**.  
+Erken yönetici görevleri tamamlanırsa, el ile Azure AD Privileged Identity Management içinde rol devre dışı bırakabilirsiniz.
+
+1. Azure AD Privileged Identity Management'ı açın.
+
+1. Tıklayın **Azure AD Dizin rolleri**.
+
+1. Tıklayın **rollerim**.
+
+1. Tıklayın **etkin rollerin** etkin rollerin listesini görmek için.
+
+1. Bitti rol Bul kullanarak ve ardından **devre dışı bırak**.
 
 ## <a name="cancel-a-pending-request"></a>Bekleyen isteği iptal et
-Onay gerektiren bir rolü etkinleştirmesi gerektirmeyen olayda bekleyen istek dilediğiniz zaman iptal edebilirsiniz. Yalnızca select **My rolleri** Azure AD Privileged Identity Management uygulaması Gezinti seçeneği sol gezinti sütununda.
 
-1. Oturum [Azure portalında](https://portal.azure.com/) ve Azure AD Privileged Identity Management kutucuğunu seçin.
+Onay gerektiren bir rolü etkinleştirmesi gerekmiyorsa, bekleyen istek dilediğiniz zaman iptal edebilirsiniz.
 
-1. Seçin **Rollerim**. Sayfanın üstündeki gruplandırma, atanan uygun rolleri listesi görüntülenir.
+1. Azure AD Privileged Identity Management'ı açın.
 
-1. Bir rol seçin.
+1. Tıklayın **Azure AD Dizin rolleri**.
 
-1. Seçin **Etkinleştirme Onayı beklemede olan** rol etkinleştirme ayrıntıları dikey penceresinde başlık.
+1. Tıklayın **isteklerim**.
 
-1. Seçin **iptal** en üstündeki **onay bekleyen** dikey penceresi.
+1. İptal etmek istediğiniz role tıklayın **iptal** düğmesi.
 
-   ![Bekleyen istek ekran iptal et](./media/pim-how-to-activate-role/PIM_Request_Pending_Banner_Cancel.png)
+    İptal'i tıklattığınızda, isteği iptal edilecek. Rolü etkinleştirmek için yeniden, etkinleştirme için yeni bir istek göndermeniz gerekir.
+
+   ![Bekleyen isteği iptal et](./media/pim-how-to-activate-role/directory-role-cancel.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure AD Privileged Identity Management hakkında daha fazla bilgi edinmek ilginizi çekiyorsa, aşağıdaki bağlantılardan daha fazla bilgi vardır.
 
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+- [Azure kaynağı rollerim PIM etkinleştir](pim-resource-roles-activate-your-roles.md)

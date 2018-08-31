@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: fdbe88492d6260d19955b39ac8eaf6cfb9dba130
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 4e23b70c8dc5fdacfd609fb4664a78293b9e2362
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144555"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247654"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>IOT hub'ınızdaki kimlik kayıt defterinde anlama
 
@@ -85,9 +85,9 @@ Belirli bir IOT çözüm depolar cihaz verilerini bu çözüm belirli gereksinim
 
 ## <a name="device-heartbeat"></a>Cihaz sistem durumu
 
-IOT Hub kimlik kayıt defteri adlı bir alanı içeren **connectionState**. Yalnızca **connectionState** geliştirme ve hata ayıklama sırasında alan. IOT çözümleri çalışma zamanında sorgu alanı değil. Örneğin, değil sorgu **connectionState** bulut-cihaz iletisi veya SMS göndermeden önce bir aygıt bağlı olup olmadığını denetlemek için alan.
+IOT Hub kimlik kayıt defteri adlı bir alanı içeren **connectionState**. Yalnızca **connectionState** geliştirme ve hata ayıklama sırasında alan. IOT çözümleri çalışma zamanında sorgu alanı değil. Örneğin, değil sorgu **connectionState** bulut-cihaz iletisi veya SMS göndermeden önce bir aygıt bağlı olup olmadığını denetlemek için alan. Abone öneririz [ **cihaz bağlantısı kesildi** olay](https://docs.microsoft.com/azure/iot-hub/iot-hub-event-grid#event-types) uyarılar alın ve cihaz bağlantı durumunu izlemek için Event Grid hakkında. Bunu kullanın [öğretici](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps) IOT çözümünüzü IOT Hub'ından olayları tümleştirme hakkında bilgi edinmek için.
 
-IOT çözümünüzün bir cihaz bağlıysa, uygulamanız gerekir bilmeniz gerekiyorsa *sinyal deseni*.
+IOT çözümünüzün bir cihaz bağlıysa, uygulayabilirsiniz bilmeniz gerekiyorsa *sinyal deseni*.
 Sinyal desende cihaz her zaman (örneğin, saatte en az bir kez) en az bir kez sabit miktarda CİHAZDAN buluta iletiler gönderir. Bu nedenle, bir cihazda göndermek için herhangi bir veri yok olsa bile, yine de (genellikle bir sinyal tanımlayan bir özelliği) ile boş bir CİHAZDAN buluta ileti gönderir. Hizmet tarafında, çözüm ile her cihaz için alınan son sinyal bir harita tutar. Çözüm CİHAZDAN beklenen süre içinde bir sinyal ileti almazsa, cihaz ile ilgili bir sorun olduğunu varsayar.
 
 Daha karmaşık bir uygulama bilgileri içerebilir [işlem izleme] [ lnk-devguide-opmon] bağlanmak veya iletişim kurmak çalışıyor ancak başarısız olan cihazlar tanımlamak için. Sinyal desenini uyguladığınızda, denetlediğinizden emin olun [IOT Hub kotaları ve kısıtlamaları][lnk-quotas].
