@@ -3,19 +3,19 @@ title: SQL veri ambarı veri yönetimi iş ortakları | Microsoft Docs
 description: Üçüncü taraf veri yönetimi iş ortakları ile SQL veri ambarı destekleyen çözümler listeler.
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: c300a28356249b019cefce382d92f9cc44345f47
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 8b2451798ffe05372b434207bbfbc092aee00b66
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745871"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301137"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>SQL veri ambarı veri yönetimi iş ortakları
 Veri ambarı çözümünüzü oluşturmak için çok çeşitli sektör lideri araçları seçin. Bu makalede, Microsoft iş ortağı şirketlerden veri yönetimi araçları ve Azure SQL veri ambarı destek çözümleriyle vurgulanır.

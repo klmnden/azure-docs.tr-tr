@@ -1,6 +1,6 @@
 ---
-title: Lambda mimarisiyle Azure Cosmos DB ve Hdınsight (Apache Spark) | Microsoft Docs
-description: Bu makalede Azure Cosmos DB ve Hdınsight Spark kullanarak bir lambda mimarisi uygulama açıklar
+title: Azure Cosmos DB ve HDInsight (Apache Spark) ile lambda mimarisi | Microsoft Docs
+description: Bu makalede Azure Cosmos DB, HDInsight ve Spark'ı kullanarak bir lambda mimarisi uygulama
 keywords: Lambda mimarisi
 services: cosmos-db
 author: tknandu
@@ -11,68 +11,63 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 20fea7f4f4ccf852045d53ba06c3f8fcbdd1d60d
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: e986d1f6d79e12eacf3aa4612c4d298960aaaa37
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959840"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288352"
 ---
-# <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: lambda mimarisi Azure platformunda uygulayın. 
+# <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Azure platformunda lambda mimarisi uygulama 
 
-Lambda mimarileri büyük veri kümelerinin etkili bir veri işleme etkinleştirin. Lambda mimariler, büyük veri sorgulama ilgili gecikmeyi en aza indirmek için toplu işleme, akış işleme ve hizmet katmanındaki kullanın. 
+Lambda mimarisi etkin veri işleme, büyük hacimli veri kümeleri etkinleştirin. Lambda mimarisi, büyük verileri Sorgulama ilgili gecikme süresini en aza indirmek için toplu işlem, akış işleme ve Hizmet katmanını kullanın. 
 
-Azure üzerinde bir lambda mimarisi uygulamak için gerçek zamanlı büyük veri analizi hızlandırmak için aşağıdaki teknolojileri birleştirebilirsiniz:
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), sektörün ilk Genel dağıtılmış, birden çok model veritabanı hizmeti. 
-* [Azure Hdınsight'ta Apache Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/), büyük ölçekli veri analizi uygulamaları çalıştıran bir işleme altyapısı
-* Azure Cosmos DB [akış değiştirme](change-feed.md), Hdınsight işlemek için batch katmana yeni veri akışları
-* [Spark Azure Cosmos DB Bağlayıcısı](spark-connector.md)
+Lambda mimarisi Azure'da uygulamak için gerçek zamanlı büyük veri analizi hızlandırmak için aşağıdaki teknolojileri birleştirebilirsiniz:
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), sektörün ilk Global olarak dağıtılmış çok modelli veritabanı hizmetidir. 
+* [Azure HDInsight için Apache Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/), büyük ölçekli veri analizi uygulamalarını çalıştıran bir işleme çerçevesi
+* Azure Cosmos DB [değişiklik akışını](change-feed.md), toplu iş katmanı işlemek HDInsight için yeni veri akışları
+* [Bağlayıcısı Azure Cosmos DB için Spark](spark-connector.md)
 
-Bu makalede, özgün çok katmanlı tasarımı ve işlemlerini kolaylaştıran bir "rearchitected" lambda mimarisi yararları dayalı bir lambda mimarisi temelleri açıklanır.  
-
-Lambda mimarisi ve lambda mimarisi örnek kaynaklar genel bakış için aşağıdaki videoyu izleyin:
-
-> [!VIDEO https:///channel9.msdn.com/Events/Connect/2017/T135/player]
->
+Bu makalede, özgün çok katmanlı tasarımı ve işlemlerini kolaylaştıran bir "rearchitected" lambda mimarisinin avantajları temel alan bir lambda mimarisinin temelleri açıklanır.  
 
 ## <a name="what-is-a-lambda-architecture"></a>Lambda mimarisi nedir?
-Lambda mimarisi genel, ölçeklenebilir ve hataya dayanıklı veri işleme mimarisi adresine toplu ve Gecikmeli senaryolar tarafından açıklandığı şekilde hızlandırmak [Nathan Marz](https://twitter.com/nathanmarz).
+Lambda mimarisi genel, ölçeklenebilir ve hataya dayanıklı veri işleme mimarisi adresine batch ve düşük gecikme süresi senaryoları açıklandığı hızlandırmak [Nathan Marz](https://twitter.com/nathanmarz).
 
 ![Lambda mimarisi gösteren diyagram](./media/lambda-architecture/lambda-architecture-intro.png)
 
 Kaynak: http://lambda-architecture.net/
 
-Lambda mimarisinin temel ilkeleri olarak başına önceki diyagramda açıklanan [ https://lambda-architecture.net ](http://lambda-architecture.net/).
+Bir lambda mimarisinin temel ilkeleri olarak başına önceki şemada açıklanan [ https://lambda-architecture.net ](http://lambda-architecture.net/).
 
- 1. Tüm **veri** içine gönderilen *her ikisi de* *toplu katman* ve *hızı katman*.
- 2. **Toplu katman** ana bir veri kümesine (sabit, yalnızca append ham veri kümesi) sahiptir ve toplu görünümler önceden hesaplar.
- 3. **Hizmet katmanı** hızlı sorgular için toplu görünümler vardır. 
- 4. **Hızı katman** işleme süresi (için hizmet katmanı) dengeler ve yalnızca son veri ile ilgilidir.
- 5. Tüm sorguları birleştirme sonuçlarına göre toplu görünümler ve gerçek zamanlı görünümleri ya da ayrı ayrı ping yanıtlanması.
+ 1. Tüm **veri** halinde gönderilir *hem* *toplu iş katmanı* ve *hız katmanının*.
+ 2. **Toplu iş katmanı** ana veri kümesinde (sabit, salt ham veri kümesi) ve toplu görünümler önceden hesaplar.
+ 3. **Hizmet katmanını** hızlı sorgular için toplu görünüm vardır. 
+ 4. **Hız katmanının** işleme süresi (için Hizmet katmanını) dengeler ve yalnızca yeni verilerle ilgilidir.
+ 5. Tüm sorguları birleştirme sonuçları toplu görünümler ve gerçek zamanlı bir görünüm veya ayrı ayrı ping yanıtlanması gereken.
 
-Daha fazla okuduktan sonra biz yalnızca aşağıdakileri kullanarak bu mimarisi uygulama mümkün olacaktır:
+Daha fazla okuma sırasında biz yalnızca şunları kullanarak bu mimariyi uygulamak şunları yapabilir:
 
-* Azure Cosmos DB collection(s)
-* Hdınsight'a (Apache Spark 2.1)
-* Spark bağlayıcı [1.0](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark_2.1.0_2.11-1.0.0)
+* Azure Cosmos DB koleksiyonlar
+* HDInsight (Apache Spark 2.1) kümesi
+* Spark Bağlayıcısı [1.0](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark_2.1.0_2.11-1.0.0)
 
 ## <a name="speed-layer"></a>Hızı katmanı
 
-İşlemler açısından bakıldığında, iki veri akışları verileri doğru durumunu sağlarken koruma karmaşık bir çaba olabilir. İşlemleri basitleştirmek üzere kullanma [Azure Cosmos DB Değiştir akışı Destek](change-feed.md) durumunu korumak için *toplu katman* aracılığıyla Azure Cosmos DB değişiklik günlüğü ortaya sırasında *değiştirmek akış API* için *hızı katman*.  
-![Yeni veri, hız katman ve lambda mimarisi ana veri kümesi kısmı vurgulama diyagramı](./media/lambda-architecture/lambda-architecture-change-feed.png)
+İşlemler açısından bakıldığında, iki veri akışlarını veri doğru durumu sağlarken koruma karmaşık bir çaba olabilir. İşlemleri basitleştirmek için yazılımınız [Azure Cosmos DB değişiklik akışı desteği](change-feed.md) durumunu korumak için *toplu iş katmanı* aracılığıyla Azure Cosmos DB değişiklik günlüğü, devamlılığımız çalışırken *değiştirme akış API* için *hız katmanının*.  
+![Yeni veriler, hız katmanı ve lambda mimarisinin ana veri kümesi bölümünü vurgulama diyagramı](./media/lambda-architecture/lambda-architecture-change-feed.png)
 
-Bu katmanlar önemli yenilikler:
+Bu katmanda önemli nedir:
 
- 1. Tüm **veri** itildiği *yalnızca* Azure Cosmos Veritabanına, bu nedenle, çok atama sorunlarını önleyebilirsiniz.
- 2. **Toplu katman** ana bir veri kümesine (sabit, yalnızca append ham veri kümesi) sahiptir ve toplu görünümler önceden hesaplar.
- 3. **Hizmet katmanı** sonraki bölümde açıklanmaktadır.
- 4. **Hızı katman** Azure Cosmos DB Değiştir Akış okumak için Hdınsight (Apache Spark) kullanır. Bu, verilerinizi de sorgulamak ve eşzamanlı olarak işlemeye ilişkin devam ettirmek sağlar.
- 5. Tüm sorguları birleştirme sonuçlarına göre toplu görünümler ve gerçek zamanlı görünümleri ya da ayrı ayrı ping yanıtlanması.
+ 1. Tüm **veri** gönderildiğinde *yalnızca* Azure Cosmos DB'ye, bu nedenle, çok atama sorunlarını önleyebilirsiniz.
+ 2. **Toplu iş katmanı** ana veri kümesinde (sabit, salt ham veri kümesi) ve toplu görünümler önceden hesaplar.
+ 3. **Hizmet katmanını** sonraki bölümde ele alınmıştır.
+ 4. **Hız katmanının** Azure Cosmos DB değişiklik akışı okumak için HDInsight (Apache Spark) kullanır. Bu, sorgulama ve eşzamanlı olarak işlemek için verilerinizin kalıcı hale getirmek sağlar.
+ 5. Tüm sorguları birleştirme sonuçları toplu görünümler ve gerçek zamanlı bir görünüm veya ayrı ayrı ping yanıtlanması gereken.
  
-### <a name="code-example-spark-structured-streaming-to-an-azure-cosmos-db-change-feed"></a>Kod örneği: Spark akış bir Azure Cosmos DB değişikliği akış yapılandırılmış
-Bir parçası olarak akış Azure Cosmos DB Değiştir hızlı prototipi çalıştırmak için **hızı katman**, Twitter veri parçası olarak kullanarak test edebilirsiniz [akış işleme Azure, değiştirme DB Cosmos akışı ve Apache Sparkkullanarakdeğişiklikleri](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark)örnek. Twitter çıkış hızla başlatmak için kod örneğinde bkz [Akış akış Twitter'dan Cosmos DB](https://github.com/tknandu/TwitterCosmosDBFeed). Önceki örnekte, Twitter verilerini Azure Cosmos Veritabanına yüklemekte olduğunuz ve akış değişiklik bağlanmak için (Apache Spark) Hdınsight kümenizi sonra ayarlayabilirsiniz. Bu yapılandırmayı ayarlama hakkında daha fazla bilgi için bkz: [Apache Spark Azure Cosmos DB bağlayıcı kurulumu için](https://github.com/Azure/azure-cosmosdb-spark/wiki/Spark-to-Cosmos-DB-Connector-Setup).  
+### <a name="code-example-spark-structured-streaming-to-an-azure-cosmos-db-change-feed"></a>Kod örneği: Spark yapılandırılmış bir Azure Cosmos DB değişiklik akışı akış
+Azure Cosmos DB değişiklik akışı bir parçası olarak hızlı bir prototipi çalıştırmak için **hız katmanının**, Twitter verilerini kullanarak bir parçası olarak sınayabilirsiniz [Stream işleme değişiklikler Azure Cosmos DB değişiklik akışı ve Apache Sparkkullanarak](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark)örnek. Twitter çıkış oluşturma sürecini hızlandıracak biçimde kod örnekte bkz [Stream Cosmos DB'ye Twitter'dan akış](https://github.com/tknandu/TwitterCosmosDBFeed). Önceki örnekte ile Twitter verilerini Azure Cosmos DB'ye yüklüyorsunuz ve değişiklik akışı bağlanmak için (Apache Spark) HDInsight kümenizi daha sonra ayarlayabilirsiniz. Bu yapılandırmayı ayarlamak nasıl hakkında daha fazla bilgi için bkz. [Azure Cosmos DB bağlayıcı kurulumu için Apache Spark](https://github.com/Azure/azure-cosmosdb-spark/wiki/Spark-to-Cosmos-DB-Connector-Setup).  
 
-Aşağıdaki kod parçacığını nasıl yapılandırılacağını göstermektedir `spark-shell` , çalışan bir aralık sayısı gerçekleştirmek için gerçek zamanlı Twitter veri akışı, incelemeleri akışı, bir Azure Cosmos DB değişikliği bağlanmak için bir yapılandırılmış iş akışında çalıştırmak için.
+Aşağıdaki kod parçacığını nasıl yapılandırılacağı gösterilmektedir `spark-shell` , çalışan bir aralık sayısı gerçekleştirmek için gerçek zamanlı Twitter veri akışı için gözden geçirmeleri için bir Azure Cosmos DB değişiklik akışı, bağlanmak için yapılandırılmış akış işi çalıştırmak için.
 
 ```
 // Import Libraries
@@ -101,37 +96,37 @@ var streamData = spark.readStream.format(classOf[CosmosDBSourceProvider].getName
 val query = streamData.withColumn("countcol", streamData.col("id").substr(0, 0)).groupBy("countcol").count().writeStream.outputMode("complete").format("console").start()
 ```
 
-Tam kod örnekleri için bkz: [azure-cosmosdb-spark/lambda/samples](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda)dahil:
+Tam kod örnekleri için bkz [azure-cosmosdb-spark/lambda/samples](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda)de dahil olmak üzere:
 * [Cosmos DB değişiklik Feed.scala akış sorgusu](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Query%20from%20Cosmos%20DB%20Change%20Feed.scala)
-* [Cosmos DB değişiklik Feed.scala akış etiketleri sorgudan](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala)
+* [Cosmos DB değişiklik Feed.scala akış etiketleri sorgu](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala)
 
-Bu çıktı bir `spark-shell` sürekli bir aralık sayısı Twitter veri karşı akış Azure Cosmos DB değişikliği gerçekleştiren yapılandırılmış bir akış işi çalıştıktan konsol. Aşağıdaki resimde akış işi çıktısını gösterir ve aralığı sayar.
+Bu çıkış bir `spark-shell` konsolunda, sürekli olarak Azure Cosmos DB değişiklik akışı Twitter verilerini karşı bir aralık sayısı gerçekleştiren yapılandırılmış akış işi çalıştırır. Aşağıdaki görüntüde akışı tanımlı işlemin çıktısını gösterir ve aralığı sayar.
 
-![Akış Azure Cosmos DB değişiklik Twitter verilerden karşı aralık sayısı gösteren akış çıkışı](./media/lambda-architecture/lambda-architecture-speed-layer-twitter-count.png) 
+![Azure Cosmos DB değişiklik akışı Twitter verilerini karşı aralık sayısı gösteren akış çıkışı](./media/lambda-architecture/lambda-architecture-speed-layer-twitter-count.png) 
 
-Değiştirme akış Azure Cosmos DB hakkında daha fazla bilgi için bkz:
+Değişiklik akışını Azure Cosmos DB hakkında daha fazla bilgi için bkz:
 
-* [Destek Azure Cosmos DB'de akış değişiklik ile çalışma](change-feed.md)
-* [İşlemci kitaplığı Azure CosmosDB değişiklik Giriş akışı](https://azure.microsoft.com/blog/introducing-the-azure-cosmosdb-change-feed-processor-library/)
-* [: Akış işleme Azure CosmosDB değişiklik akış + Apache Spark](https://azure.microsoft.com/blog/stream-processing-changes-azure-cosmosdb-change-feed-apache-spark/)
+* [Azure Cosmos DB'de destek akış değişiklik ile çalışma](change-feed.md)
+* [Karşınızda Azure CosmosDB değişiklik akışı işlemci kitaplığı](https://azure.microsoft.com/blog/introducing-the-azure-cosmosdb-change-feed-processor-library/)
+* [Değişiklikleri işleme Stream: Azure cosmos DB değişiklik akışı + Apache Spark](https://azure.microsoft.com/blog/stream-processing-changes-azure-cosmosdb-change-feed-apache-spark/)
 
-## <a name="batch-and-serving-layers"></a>Toplu işlem ve Katmanlar hizmet veren
-Yeni veriler Azure Cosmos DB, (burada değişiklik akış kullanılıyor için hız katman) bu yüklendikten sonra yerdir **ana veri kümesi** (bir değişmez, yalnızca append ham veri kümesi) yer alıyor. Bu noktadan başlayarak, Hdınsight (Apache Spark) ön işlem işlevleri gerçekleştirmek için kullanmak **toplu katman** için **hizmet katmanı**aşağıdaki görüntüde gösterildiği gibi:
+## <a name="batch-and-serving-layers"></a>Batch ve hizmet katmanları
+Yeni veriler bu Azure Cosmos DB, (burada değişiklik akışı kullanılan hızı katman için) yüklendikten sonra yerdir **ana veri kümesi** (bir sabit, salt ham veri kümesi) yer alıyor. Bu noktadan itibaren başlayarak, HDInsight (Apache Spark) ön işlem işlevleri gerçekleştirmek için kullanmak **toplu iş katmanı** için **Hizmet katmanını**, aşağıdaki görüntüde gösterildiği gibi:
 
-![Toplu iş katmanı ve hizmet katmanı lambda mimarisinin vurgulama diyagramı](./media/lambda-architecture/lambda-architecture-batch-serve.png)
+![Toplu iş katmanı ve Hizmet katmanını lambda mimarisinin vurgulama diyagramı](./media/lambda-architecture/lambda-architecture-batch-serve.png)
 
-Bu katmanlar önemli yenilikler:
+Bu katmanda önemli nedir:
 
- 1. Tüm **veri** (çok noktaya yayın sorunlarını önlemek için) yalnızca Azure Cosmos Veritabanına gönderilir.
- 2. **Toplu katman** sahip Azure Cosmos DB içinde depolanan bir ana veri kümesi (sabit, yalnızca append ham veri kümesi). HDI Spark kullanarak, hesaplanan toplu görünümlerinizi depolanması, toplamalar önceden hesaplayabilirsiniz.
- 3. **Hizmet katmanı** ana veri kümesi için koleksiyonlarıyla Azure Cosmos DB veritabanıdır ve toplu görünüm hesaplanır.
- 4. **Hızı katman** bu makalenin sonraki bölümlerinde ele alınmıştır.
+ 1. Tüm **veri** yalnızca Azure Cosmos DB'ye (çok noktaya yayın sorunlarını önlemek için) gönderilir.
+ 2. **Toplu iş katmanı** olan Azure Cosmos DB'de depolanan ana veri kümesi (sabit, salt ham veri kümesi). HDI Spark'ı kullanarak hesaplanan batch görünümlerinizde depolanacak işlemlerinizi önceden hesaplayabilirsiniz.
+ 3. **Hizmet katmanını** koleksiyon için ana veri kümesini içeren bir Azure Cosmos DB veritabanı ve toplu iş görünümünü hesaplanır.
+ 4. **Hız katmanının** bu makalenin sonraki bölümlerinde ele alınmıştır.
  5. Tüm sorguların sonuçlarını toplu görünümler ve gerçek zamanlı görünümleri birleştirme veya ayrı ayrı ping yanıtlanması.
 
-### <a name="code-example-pre-computing-batch-views"></a>Kod örneği: Toplu görünümler önceden hesaplama
-Önceden hesaplanan görünümleri yürütmek nasıl göstermek için **ana veri kümesi** Azure Cosmos DB'de Apache Spark not defterlerini gelen aşağıdaki kod parçacıklarını kullanma [Lambda mimarisi Rearchitected - toplu iş katmanı ](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) ve [Lambda mimarisi Rearchitected - katman hizmet veren için toplu](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb). Bu senaryoda, Azure Cosmos DB içinde depolanan Twitter verileri kullanın.
+### <a name="code-example-pre-computing-batch-views"></a>Kod örneği: batch görünümleri önceden bilgi işlem
+Nasıl yürütüleceğini karşı önceden hesaplanmış görünümleri göstermek için **ana veri kümesi** Azure Cosmos DB'de Apache Spark'tan not defterlerini gelen aşağıdaki kod parçacıkları kullanma [Lambda mimarisi Rearchitected - toplu iş katmanı ](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) ve [Lambda mimarisi Rearchitected - hizmet katmanı için Batch'i](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb). Bu senaryoda, Azure Cosmos DB'de depolanan Twitter verilerini kullanın.
 
-Twitter verilerini Azure Cosmos PySpark kodu kullanarak DB içinde yapılandırma bağlantısı oluşturarak başlayalım.
+Twitter verilerini aşağıdaki PySpark kodu kullanarak Azure Cosmos DB içinde yapılandırma bağlantısı oluşturarak başlayalım.
 
 ```
 # Configuration to connect to Azure Cosmos DB
@@ -153,7 +148,7 @@ tweets = spark.read.format("com.microsoft.azure.cosmosdb.spark").options(**tweet
 tweets.createOrReplaceTempView("tweets")
 ```
 
-Ardından, şimdi tweet'leri kümesinin ilk 10 diyez etiketlerini belirlemek için aşağıdaki Spark SQL deyimini çalıştırın. Bu Spark SQL sorgu için biz bunu Jupyter not defterinde doğrudan bu kod parçacığını aşağıdaki çıktı çubuk grafik kullanıyorsunuz.
+Yanında, ilk 10 diyez etiketlerini tweetleri kümesini belirlemek için aşağıdaki Spark SQL deyimi çalıştıralım. Bu bir Spark SQL sorgusu için Biz bu bir Jupyter not defteri doğrudan bu kod parçacığı aşağıdaki çıkış çubuk grafik çalıştırıyorsunuz.
 
 ```
 %%sql
@@ -169,9 +164,9 @@ order by tweets desc
 limit 10
 ```
 
-![Tweet'leri diyez başına sayısını gösteren grafik](./media/lambda-architecture/lambda-architecture-batch-hashtags-bar-chart.png)
+![Tweet diyez etiketi başına sayısını gösteren grafik](./media/lambda-architecture/lambda-architecture-batch-hashtags-bar-chart.png)
 
-Sorgunuz sahip olduğunuza göre şimdi onu bir koleksiyona çıktı verilerini farklı bir koleksiyona kaydetmek için Spark Bağlayıcısı'nı kullanarak kaydedin.  Bu örnekte, Scala bağlantıyı göstermek için kullanın. Önceki örneğe benzer Apache Spark DataFrame farklı bir Azure Cosmos DB koleksiyona kaydetmek için yapılandırma bağlantısı oluşturun.
+Şimdi sorgunuzu olduğuna göre çıktı verilerini farklı bir koleksiyona kaydetmek için Spark Bağlayıcısı'nı kullanarak bir koleksiyon için geri kaydedin.  Bu örnekte, Scala bağlantıyı göstermek için kullanın. Benzer şekilde, önceki örnekte, farklı bir Azure Cosmos DB koleksiyonu için Apache Spark DataFrame kaydetmek için yapılandırma bağlantısı oluşturun.
 
 ```
 val writeConfigMap = Map(
@@ -189,7 +184,7 @@ val writeConfig = Config(writeConfigMap)
 
 ```
 
-Belirttikten sonra `SaveMode` (belirten kullanılıp kullanılmayacağını `Overwrite` veya `Append` belgeleri), oluşturma bir `tweets_bytags` DataFrame benzer şekilde önceki örnekte Spark SQL sorgusu.  İle `tweets_bytags` DataFrame oluşturulmuş, kullanarak kaydedebilirsiniz `write` daha önce belirtilen kullanarak yöntemini `writeConfig`.
+Belirttikten sonra `SaveMode` (belirten kullanılıp kullanılmayacağını `Overwrite` veya `Append` belge), oluşturun bir `tweets_bytags` DataFrame benzer şekilde önceki örnekte Spark SQL sorgusu.  İle `tweets_bytags` kullanarak kaydedebilirsiniz, oluşturulan veri çerçevesi `write` yöntemi kullanarak daha önce belirtilen `writeConfig`.
 
 ```
 // Import SaveMode so you can Overwrite, Append, ErrorIfExists, Ignore
@@ -202,20 +197,20 @@ val tweets_bytags = spark.sql("select hashtags.text as hashtags, count(distinct 
 tweets_bytags.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
 ```
 
-Şimdi bu son deyim, Spark DataFrame yeni bir Azure Cosmos DB koleksiyon kaydetti; lambda mimarisi açısından bakıldığında, bu olduğundan, **toplu Görünüm** içinde **hizmet katmanı**.
+Artık bu son deyim, Spark DataFrame yeni bir Azure Cosmos DB koleksiyonu kaydetti; bir lambda mimarisi açısından bakıldığında, bu, sizin **toplu Görünüm** içinde **Hizmet katmanını**.
  
 #### <a name="resources"></a>Kaynaklar
 
-Tam kod örnekleri için bkz: [azure-cosmosdb-spark/lambda/samples](vhttps://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda) dahil olmak üzere:
-* Lambda mimarisi Rearchitected - toplu katman [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) | [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb)
-* Lambda mimarisi Rearchitected - hizmet veren bir katmana toplu [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) | [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb)
+Tam kod örnekleri için bkz [azure-cosmosdb-spark/lambda/samples](v https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda) dahil olmak üzere:
+* Lambda mimarisi Rearchitected - toplu iş katmanı [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) | [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb)
+* Lambda mimarisi Rearchitected - Batch hizmet katmanına [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) | [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb)
 
 ## <a name="speed-layer"></a>Hızı katmanı
-Daha önce not ettiğiniz, kullanarak Azure Cosmos DB Değiştir Akış kitaplığı işlemleri toplu ve hız katmanlar arasında basitleştirmenize olanak sağlar. Bu mimaride, Apache Spark (aracılığıyla Hdınsight) gerçekleştirmek için kullanın. *akış yapılandırılmış* verileri sorgular. Diğer sistemleri bu verilere erişebilmesi için yapılandırılmış akış sorgularınızı sonuçlarını geçici olarak sürdürmek isteyebilirsiniz.
+Daha önce not ettiğiniz, kullanarak Azure Cosmos DB değişiklik akışı kitaplığı, batch ve hız Katmanlar arasındaki işlemleri basitleştirmek sağlar. Bu mimaride, Apache Spark (HDInsight) aracılığıyla gerçekleştirme *yapılandırılmış akış* verilere karşı sorgular. Bu verileri diğer sistemlere erişebilmesi için geçici olarak yapılandırılmış akış sorgularınızın sonuçlarını kalıcı hale getirmek isteyebilirsiniz.
 
-![Lambda mimarisinin hızı katman vurgulama diyagramı](./media/lambda-architecture/lambda-architecture-speed.png)
+![Lambda mimarisinin hız katmanına vurgulama diyagramı](./media/lambda-architecture/lambda-architecture-speed.png)
 
-Bunu yapmak için yapılandırılmış akış sorguların sonuçlarını kaydetmek için ayrı bir Azure Cosmos DB koleksiyonu oluşturun.  Bu, diğer sistemler erişim sağlamak için bu bilgileri sağlar yalnızca Apache Spark. De Cosmos DB için-yaşam süresi (TTL) özelliği ile ayarlanmış bir süre sonra otomatik olarak silinecek belgelerinizi yapılandırabilirsiniz.  Azure Cosmos DB TTL özelliği hakkında daha fazla bilgi için bkz: [yaşam süresi otomatik olarak ile Azure Cosmos DB koleksiyonlarda verileri süresi dolacak](time-to-live.md)
+Bunu yapmak için yapılandırılmış akış sorgularınızın sonuçlarını kaydetmek için ayrı bir Azure Cosmos DB koleksiyonu oluşturun.  Bu, diğer sistemler erişim sağlamak için bu bilgileri sağlar yalnızca Apache Spark. De Cosmos DB için-yaşam süresi (TTL) özelliği ile kullanarak, belgeleriniz otomatik olarak ayarlanmış bir süre sonra silinecek şekilde yapılandırabilirsiniz.  Azure Cosmos DB TTL özelliği hakkında daha fazla bilgi için bkz. [yaşam süresi otomatik olarak ile Azure Cosmos DB koleksiyonlarındaki verileri süresi dolacak](time-to-live.md)
 
 ```
 // Import Libraries
@@ -251,39 +246,39 @@ var streamingQuery = streamingQueryWriter.start()
 ```
 
 ## <a name="lambda-architecture-rearchitected"></a>Lambda mimarisi: Rearchitected
-Önceki bölümlerde belirtildiği gibi aşağıdaki bileşenleri kullanarak özgün lambda mimarisi basitleştirebilirsiniz:
+Önceki bölümlerde belirtildiği gibi aşağıdaki bileşenleri'ni kullanarak özgün lambda mimarisinin basitleştirebilirsiniz:
 * Azure Cosmos DB
-* Verilerinizi toplu ve hız katmanlar arasında çok noktaya yayın gerek önlemek için Azure Cosmos DB değişiklik akışı kitaplığı
-* Hdınsight'ta Apache Spark
+* Çok noktaya yayın için gereken toplu ve hız Katmanlar arasındaki verilerinizi önlemek için Azure Cosmos DB değişiklik akışı kitaplığı
+* HDInsight üzerinde Apache Spark
 * Azure Cosmos DB için Spark Bağlayıcısı
 
-![Azure Cosmos DB, Spark ve Azure Cosmos DB Değiştir Akış API'sini kullanarak lambda mimarisi rearchitecture gösteren diyagram](./media/lambda-architecture/lambda-architecture-re-architected.png)
+![Azure Cosmos DB, Spark ve Azure Cosmos DB değişiklik akışı API'si kullanarak lambda mimarisinin rearchitecture gösteren diyagram](./media/lambda-architecture/lambda-architecture-re-architected.png)
 
-Bu tasarımla, yalnızca iki yönetilen hizmetler, Azure Cosmos DB ve Hdınsight gerekir. Birlikte, bunlar toplu, hizmet ve lambda mimarisinin hızı katmanı adresi. Bu, yalnızca işlem aynı zamanda veri akışı basitleştirir. 
- 1. Tüm verileri işleme için Azure Cosmos Veritabanına gönderilir
- 2. Toplu iş katmanı ana bir veri kümesine (sabit, yalnızca append ham veri kümesi) sahiptir ve toplu görünümler önceden hesaplar
- 3. Hizmet katmanı verilerin hızlı sorgular için toplu görünümler vardır.
- 4. Hızı katman işleme süresi (için hizmet katmanı) dengeler ve yalnızca son veri ile ilgilidir.
- 5. Toplu görünümler ve gerçek zamanlı görünümleri sonuçlarından birleştirerek tüm sorguları yanıtlanması.
+Bu tasarımla, yalnızca iki yönetilen hizmetler, Azure Cosmos DB ile HDInsight gerekir. Bunlar birlikte, batch, sunma ve lambda mimarisinin hız katmanı adres. Bu, yalnızca işlem aynı zamanda veri akışı kolaylaştırır. 
+ 1. Tüm veri işleme için Azure Cosmos DB'ye gönderildi
+ 2. Toplu iş katmanı ana veri kümesinde (sabit, salt ham veri kümesi) ve toplu görünümler önceden hesaplar
+ 3. Hizmet katmanını, veri hızlı sorgular için toplu görünümler sahiptir.
+ 4. Hızı katman, işleme süresi (için Hizmet katmanını) dengeler ve yalnızca yeni verilerle ilgilidir.
+ 5. Tüm sorguların sonuçlarını toplu görünümler ve gerçek zamanlı görünümleri birleştirerek yanıtlanması gereken.
 
 ### <a name="resources"></a>Kaynaklar
 
- * **Yeni veri**: [Twitter'dan CosmosDB için Akış akış](https://github.com/tknandu/TwitterCosmosDBFeed), yeni verileri Azure Cosmos Veritabanına itme mekanizması olduğu.
- * **Toplu iş katmanı:** toplu katman oluşan *ana veri kümesi* (bir değişmez, yalnızca append ham veri kümesi) ve toplu içine gönderilen veri görünümlerini önceden işlem olanağı **hizmet katmanı** .
-    * **Lambda mimarisi Rearchitected - toplu katman** not defteri [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) sorguları *ana veri kümesi* Toplu görünümler kümesi.
- * **Hizmet katmanı:** **hizmet katmanı** hızlı sorgular için toplu görünümler (örneğin toplamalar, belirli dilimleyicileri, vb.) sonuçta önceden hesaplanan veri oluşur.
-    * **Lambda mimarisi Rearchitected - hizmet veren bir katmana toplu** not defteri [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) toplu veri sunma katmana iter; diğer bir deyişle, Spark tweet'leri toplu iş koleksiyonu sorgular, işler ve başka bir koleksiyona (hesaplanan bir toplu iş) depolar.
-* **Hızı katman:** **hızı katman** okuyup hemen hareket akış Azure Cosmos DB Değiştir kullanılarak Spark oluşur. Veriler için de kaydedilebilir *RT hesaplanan* diğer sistemler sorgulayabilmesi gerçek zamanlı bir çalışan aksine işlenen gerçek zamanlı verileri kendilerini sorgu.
-    * [Akış sorgudan değiştirmek DB Cosmos akışı](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Query%20from%20Cosmos%20DB%20Change%20Feed.scala) scala betik spark Kabuğu'ndan bir aralık sayısı işlem için akış Azure Cosmos DB Değiştir gelen bir akış sorgu yürütür.
-    * [Akış etiketleri sorgudan değiştirmek DB Cosmos akışı](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala) scala komut dosyası etiketleri spark Kabuğu'ndan aralığı sayısı işlem için akış Azure Cosmos DB Değiştir gelen bir akış sorgu yürütür.
+ * **Yeni veri**: [Akış adı CosmosDB olarak Twitter'dan akış](https://github.com/tknandu/TwitterCosmosDBFeed), Azure Cosmos DB'ye yeni veri göndermek için bir mekanizma olduğu.
+ * **Toplu iş katmanı:** toplu iş katmanı oluşan *ana veri kümesi* (bir sabit, salt ham veri kümesi) ve toplu görünümler içinde gönderilen verilerin önceden işlem olanağı **Hizmet katmanını** .
+    * **Lambda mimarisi Rearchitected - toplu iş katmanı** not defteri [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) sorguları *ana veri kümesi* Toplu görünüm kümesi.
+ * **Hizmet katmanını:** **Hizmet katmanını** önceden hesaplanan veri hızlı sorgular için toplu görünümler (örneğin, toplamalar, belirli dilimleyiciler, vb.) bunun sonucunda oluşur.
+    * **Lambda mimarisi Rearchitected - Batch hizmet katmanına** not defteri [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) toplu veriler için Hizmet katmanını gönderir; diğer bir deyişle, Spark tweetleri bir toplu iş koleksiyonu sorgular, işler ve başka bir koleksiyona (hesaplanan bir batch) depolar.
+* **Hızı katmanı:** **hız katmanının** Azure Cosmos DB değişiklik okuyup üzerinde hemen işlem akışı kullanan Spark'ın oluşur. Veriler için de kaydedilebilir *RT hesaplanan* diğer sistemlere sorgulayabilmesi işlenen gerçek zamanlı verileri gerçek zamanlı bir çalışan aksine kendilerini sorgu.
+    * [Akış sorgudan Cosmos DB değişiklik akışı](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Query%20from%20Cosmos%20DB%20Change%20Feed.scala) scala betik spark-shell gelen bir aralık sayısı işlem için akış Azure Cosmos DB değişiklik akışı bir sorgu yürütür.
+    * [Akış etiketleri sorgudan Cosmos DB değişiklik akışı](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala) scala betik spark-shell etiketlerini bir aralık sayısını hesaplamak için akış Azure Cosmos DB değişiklik akışı sorgu yürütür.
   
 ## <a name="next-steps"></a>Sonraki adımlar
-Henüz yapmadıysanız, Spark Azure Cosmos DB bağlayıcısından karşıdan [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark) GitHub deposunu ve depodaki ek kaynakları araştırın:
+Henüz yapmadıysanız, Spark Azure Cosmos DB Bağlayıcısı'ndan indirin [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark) GitHub deposu ve depodaki ek kaynakları keşfedin:
 * [Lambda mimarisi](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda)
 * [Dağıtılmış toplamalar örnekleri](https://github.com/Azure/azure-documentdb-spark/wiki/Aggregations-Examples)
-* [Örnek komut dosyaları ve dizüstü bilgisayarlar](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples)
-* [Yapılandırılmış akış gösterileri](https://github.com/Azure/azure-cosmosdb-spark/wiki/Structured-Stream-demos)
-* [Değişiklik gösterileri akışı](https://github.com/Azure/azure-cosmosdb-spark/wiki/Change-Feed-demos)
-* [Akış Azure Cosmos DB Değiştir akıştan geldi ve Apache Spark kullanarak değişiklikleri işleme](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark)
+* [Örnek betikler ve Not Defterleri](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples)
+* [Yapılandırılmış akış tanıtımları](https://github.com/Azure/azure-cosmosdb-spark/wiki/Structured-Stream-demos)
+* [Değişiklik akışı tanıtımları](https://github.com/Azure/azure-cosmosdb-spark/wiki/Change-Feed-demos)
+* [Azure Cosmos DB değişiklik akışı ile Apache Spark'ı kullanarak değişiklikleri işlemeye Stream](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark)
 
-Gözden geçirmek isteyebilirsiniz [Apache Spark SQL, DataFrames ve veri kümeleri Kılavuzu](http://spark.apache.org/docs/latest/sql-programming-guide.html) ve [Azure hdınsight'ta Apache Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) makalesi.
+İncelemek isteyebilirsiniz [Apache Spark SQL ve DataFrames veri kümeleri Kılavuzu](http://spark.apache.org/docs/latest/sql-programming-guide.html) ve [Azure HDInsight üzerinde Apache Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) makalesi.
