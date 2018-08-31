@@ -28,9 +28,9 @@ items:
     href: billing-spending-limit.md
   - name: Maliyet analizi
     href: billing-cost-analysis.md
-  - name: Azure ayırmaları ile kaydetme
+  - name: Azure Ayırmaları ile kaydetme
     items:
-    - name: Azure ayırmaları nedir?
+    - name: Azure Ayırmaları nedir?
       href: billing-save-compute-costs-reservations.md
     - name: Ayırma satın alma
       items:
@@ -38,19 +38,21 @@ items:
         href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
       - name: SQL Veritabanı
         href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
+      - name: SUSE Linux yazılımı
+        href: ../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
     - name: İndirim nasıl uygulanır?
       items:
       - name: Ayrılmış VM Örnekleri
         href: billing-understand-vm-reservation-charges.md
-      - name: SQL Veritabanı ayrılmış kapasitesi
-        href: billing-understand-reservation-charges.md
+      - name: SUSE Linux yazılım planları
+        href: billing-understand-suse-reservation-charges.md
     - name: Yazılım maliyetleri dahil değil
       href: billing-reserved-instance-windows-software-costs.md
     - name: Kullandıkça Öde için kullanım
       href: billing-understand-reserved-instance-usage.md
     - name: Kurumsal için kullanım
       href: billing-understand-reserved-instance-usage-ea.md
-    - name: Azure ayırmalarını yönetme
+    - name: Ayırmaları yönetme
       href: billing-manage-reserved-vm-instance.md
 - name: Hesabı yönetme
   items:
@@ -168,9 +170,9 @@ items:
     items:
     - name: Kurumsal raporlama REST API’si
       href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-ms.openlocfilehash: 5d7d56325201cbf3c851a843ea4d4393dea4bb40
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 52efe9fa438aea7b47f1fb32568ffcb2eb6bfd0a
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41928430"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302397"

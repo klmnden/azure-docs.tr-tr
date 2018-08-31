@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: db2c6f9995356abc233e971a2fae5a1ee6233ed1
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 40070acab5f656cab7f3034e3b35c113c0ff6051
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42915705"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300820"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Azure faturalama ve maliyet yönetimi belgeleri
 
@@ -104,8 +104,8 @@ Azure faturalandırmanızı anlamayı, kullanımı ve maliyetleri izlemeyi, ayr�
                         <p>
                         <a href="/azure/billing/billing-manage-access">Faturalandırmaya erişim izni verme</a><br/>
                         <a href="/azure/billing/billing-how-to-pay-by-invoice">Fatura ile ödeme</a><br/>
-                        <a href="/azure/billing/billing-manage-reserved-vm-instance">Azure ayırmalarını yönetme</a><br/>
-                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Azure ayırmaları için kullanım</a>
+                        <a href="/azure/billing/billing-manage-reserved-vm-instance">Azure Ayırmalarını yönetme</a><br/>
+                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Azure Ayırmaları için kullanım</a>
                         </p>
                     </div>
                 </div>
@@ -134,9 +134,9 @@ Azure faturalandırmanızı anlamayı, kullanımı ve maliyetleri izlemeyi, ayr�
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure ayırmaları ile kaydetme</h3>
+                        <h3>Azure Ayırmaları ile kaydetme</h3>
                         <p>
-                        <a href="/azure/billing/billing-save-compute-costs-reservations">Azure ayırmaları nedir?</a> <br/>
+                        <a href="/azure/billing/billing-save-compute-costs-reservations">Azure Ayırmaları nedir?</a> <br/>
                         <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Ayrılmış VM Örneği Satın Alma</a><br/>
                         <a href="/azure/sql-database/sql-database-reserved-capacity?toc=/azure/billing/TOC.json">SQL Veritabanı ayrılmış kapasitesi satın alma</a><br/>
                         <a href="/azure/billing/billing-understand-vm-reservation-charges">VM indirimi nasıl uygulanır?</a><br/>
