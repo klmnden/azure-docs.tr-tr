@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 9b4e86e719998c5f19a70734480356bcb98b8d2f
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 46f8602583329a0516edb9af59e53754ca349555
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888109"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336813"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure Uygulama Hizmeti’nde kimlik doğrulaması ve yetkilendirme
 
@@ -135,7 +135,7 @@ Bu seçenek belirtilmişse, uygulamanızda kimlik doğrulaması kod yazmaya gere
 
 Seçenek **Anonime istekleri**. Bu seçenek, kimlik doğrulama ve yetkilendirme App Service'te açar, ancak uygulama kodunuzda yetkilendirme kararlarını erteleyen. Kimliği doğrulanmış istekler için App Service kimlik doğrulama bilgilerini HTTP üstbilgileri boyunca ayrıca geçirir. 
 
-Bu seçenek, anonim isteklerin işlenmesinden daha fazla esneklik sağlar. Örneğin, sağlar [çoklu oturum açma seçenekleri sunmak](app-service-authentication-how-to.md#configure-multiple-sign-in-options) kullanıcılarınıza. Ancak, kod yazmak zorundasınız. 
+Bu seçenek, anonim isteklerin işlenmesinden daha fazla esneklik sağlar. Örneğin, sağlar [birden çok oturum açma sağlayıcısı sunmak](app-service-authentication-how-to.md#use-multiple-sign-in-providers) kullanıcılarınıza. Ancak, kod yazmanız gerekir. 
 
 ## <a name="more-resources"></a>Diğer kaynaklar
 

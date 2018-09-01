@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 48e2f85488adfb776da5f52c154028f8aafb167a
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 9b1eb6878dcafba68c230255f3b3f43e005421ab
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617030"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340197"
 ---
 # <a name="network-connectivity"></a>Ağ bağlantısı
 Bu makalede, Azure Stack mevcut ağ ortamınıza en iyi şekilde tümleştirmek nasıl karar vermenize yardımcı olmak için Azure Stack ağ altyapı bilgileri sağlar. 
@@ -45,7 +45,7 @@ Aşağıdaki tabloda, mantıksal ağlar ve planlamanız gereken ilişkili IPv4 a
 | Geçiş altyapısı | Noktadan noktaya yönlendirme amacıyla, adanmış IP adresleri yönetim arabirimleri ve anahtara atanmış geri döngü adresi geçin. | /26 | 
 | Altyapı | Azure Stack iç bileşenleri için iletişim kurmak için kullanılır. | /24 |
 | Özel | Depolama ağı ve özel VIP'ler için kullanılır. | /24 | 
-| BMC | Fiziksel konaklardaki bmc ile iletişim kurmak için kullanılır. | /27 | 
+| BMC | Fiziksel konaklardaki bmc ile iletişim kurmak için kullanılır. | /26 | 
 | | | |
 
 ## <a name="network-infrastructure"></a>Ağ altyapısı

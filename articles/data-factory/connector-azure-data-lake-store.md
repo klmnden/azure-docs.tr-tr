@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 08/31/2018
 ms.author: jingwang
-ms.openlocfilehash: 735b152f55a9309e5d5dd85dac64a607de6417b0
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: d500bc9c910858341d7fdacb4d85bffc8be215e1
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443978"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338771"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Data Lake depolama Gen1 gelen veya veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -77,8 +77,8 @@ Hizmet sorumlusu kimlik doğrulaması kullanmak için Azure Active Directory (Az
 
 >[!IMPORTANT]
 > Hizmet sorumlusu uygun Azure Data Lake Store içinde izni olduğundan emin olun:
->- **Kaynak olarak**, veri Gezgini'nde -> erişim, en az izni **okuma + yürütme** listelemek ve klasör/klasörlerdeki dosyaları kopyalamak için izni veya **okuma** tek bir dosyayı; kopyalayın ve tercih izni ekleme **bu klasör ve tüm chidren** için yinelemeli olarak ekleyin **erişim izni ve varsayılan izin girdisi**. Hesap düzeyinde erişim denetimi (IAM) gereksinimi yoktur.
->- **Havuz olarak**, veri Gezgini'nde -> erişim, en az izni **yazma + yürütme** klasörde alt öğeler oluşturmak ve eklemek izni **bu klasör ve tüm chidren** özyinelemeli için ekleyin olarak **erişim izni ve varsayılan izin girdisi**. Kopyalamak için Azure IR kullanıyorsanız (hem kaynak hem de bulutta) erişim denetimi (IAM), en az izni **okuyucu** Data Factory'ye Data Lake Store'nın bölgesi algılamak izin vermek için rol. Bu IAM rol açıkça önlemek istediğiniz [Azure IR oluşturma](create-azure-integration-runtime.md#create-azure-ir) bağlı hizmeti aşağıdaki örnekteki gibi konum Data Lake Store ve Data Lake Store içinde ilişkilendirin.
+>- **Kaynak olarak**, veri Gezgini'nde -> erişim, en az izni **okuma + yürütme** listelemek ve klasör/klasörlerdeki dosyaları kopyalamak için izni veya **okuma** tek bir dosyayı; kopyalayın ve tercih izni ekleme **bu klasör ve tüm alt öğeleri** için yinelemeli olarak ekleyin **erişim izni ve varsayılan izin girdisi**. Hesap düzeyinde erişim denetimi (IAM) gereksinimi yoktur.
+>- **Havuz olarak**, veri Gezgini'nde -> erişim, en az izni **yazma + yürütme** klasörde alt öğeler oluşturmak ve eklemek izni **bu klasör ve tüm alt öğeleri** özyinelemeli için ve ekleme olarak **erişim izni ve varsayılan izin girdisi**. Kopyalamak için Azure IR kullanıyorsanız (hem kaynak hem de bulutta) erişim denetimi (IAM), en az izni **okuyucu** Data Factory'ye Data Lake Store'nın bölgesi algılamak izin vermek için rol. Bu IAM rol açıkça önlemek istediğiniz [Azure IR oluşturma](create-azure-integration-runtime.md#create-azure-ir) bağlı hizmeti aşağıdaki örnekteki gibi konum Data Lake Store ve Data Lake Store içinde ilişkilendirin.
 
 Aşağıdaki özellikler desteklenir:
 
@@ -125,8 +125,8 @@ Yönetilen hizmet kimliği (MSI) kimlik doğrulaması kullanmak için:
 
 >[!IMPORTANT]
 > Veri Fabrikası hizmet kimliği uygun Azure Data Lake Store içinde izni olduğundan emin olun:
->- **Kaynak olarak**, veri Gezgini'nde -> erişim, en az izni **okuma + yürütme** listelemek ve klasör/klasörlerdeki dosyaları kopyalamak için izni veya **okuma** tek bir dosyayı; kopyalayın ve tercih izni ekleme **bu klasör ve tüm chidren** için yinelemeli olarak ekleyin **erişim izni ve varsayılan izin girdisi**. Hesap düzeyinde erişim denetimi (IAM) gereksinimi yoktur.
->- **Havuz olarak**, veri Gezgini'nde -> erişim, en az izni **yazma + yürütme** klasörde alt öğeler oluşturmak ve eklemek izni **bu klasör ve tüm chidren** özyinelemeli için ekleyin olarak **erişim izni ve varsayılan izin girdisi**. Kopyalamak için Azure IR kullanıyorsanız (hem kaynak hem de bulutta) erişim denetimi (IAM), en az izni **okuyucu** Data Factory'ye Data Lake Store'nın bölgesi algılamak izin vermek için rol. Bu IAM rol açıkça önlemek istediğiniz [Azure IR oluşturma](create-azure-integration-runtime.md#create-azure-ir) bağlı hizmeti aşağıdaki örnekteki gibi konum Data Lake Store ve Data Lake Store içinde ilişkilendirin.
+>- **Kaynak olarak**, veri Gezgini'nde -> erişim, en az izni **okuma + yürütme** listelemek ve klasör/klasörlerdeki dosyaları kopyalamak için izni veya **okuma** tek bir dosyayı; kopyalayın ve tercih izni ekleme **bu klasör ve tüm alt öğeleri** için yinelemeli olarak ekleyin **erişim izni ve varsayılan izin girdisi**. Hesap düzeyinde erişim denetimi (IAM) gereksinimi yoktur.
+>- **Havuz olarak**, veri Gezgini'nde -> erişim, en az izni **yazma + yürütme** klasörde alt öğeler oluşturmak ve eklemek izni **bu klasör ve tüm alt öğeleri** özyinelemeli için ve ekleme olarak **erişim izni ve varsayılan izin girdisi**. Kopyalamak için Azure IR kullanıyorsanız (hem kaynak hem de bulutta) erişim denetimi (IAM), en az izni **okuyucu** Data Factory'ye Data Lake Store'nın bölgesi algılamak izin vermek için rol. Bu IAM rol açıkça önlemek istediğiniz [Azure IR oluşturma](create-azure-integration-runtime.md#create-azure-ir) bağlı hizmeti aşağıdaki örnekteki gibi konum Data Lake Store ve Data Lake Store içinde ilişkilendirin.
 
 Azure Data Factory'de bağlı hizmet Data Lake Store genel bilgilerin yanı sıra herhangi bir özelliği belirtmeniz gerekmez.
 

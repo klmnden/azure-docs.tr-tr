@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: d5f775761def1c06063cd02b4141c5de2a752cce
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: d3fc3ef6c5fdcf5a87c691c73169ef2bec95805e
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089919"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382697"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Kiracı kullanımı için ekleyin ve Azure Stack'e faturalama
 
@@ -91,5 +91,5 @@ Azure Stack'e eklediğiniz yeni müşteri ya da son müşteri kiracısında Konu
 ## <a name="next-steps"></a>Sonraki adımlar
 
  - Kayıt işleminizi tetiklendikten hata iletilerini gözden geçirin için bkz: [Kiracı kayıt hata iletileri](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes).
- - Azure yığını kaynak kullanım bilgilerini alma hakkında daha fazla bilgi için bkz: [kullanım ve faturalandırma Azure Stack'te](/azure-stack-billing-and-chargeback.md).
+ - Azure yığını kaynak kullanım bilgilerini alma hakkında daha fazla bilgi için bkz: [kullanım ve faturalandırma Azure Stack'te](azure-stack-billing-and-chargeback.md).
  - Nasıl bir son müşteri, CSP olarak ekleyebilir gözden geçirmek için Kiracı Yöneticisi olarak Azure Stack için bkz: [Azure Stack aboneliğinizi yönetmek bir bulut hizmeti sağlayıcısı etkinleştirme](user\azure-stack-csp-enable-billing-usage-tracking.md).

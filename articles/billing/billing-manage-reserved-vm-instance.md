@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashesvi
-ms.openlocfilehash: 2283a12845a3b334e29e3f48cbadb99ad508e459
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c530fdca9d5fe499df680211a741bfd9950bb1fe
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301590"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382159"
 ---
-# <a name="manage-reservations-for-resources-in-azure"></a>Azure'daki kaynakları ayırmalarını yönetme
+# <a name="manage-reservations-for-azure-resources"></a>Rezervasyonlar Azure kaynaklarını yönetme
 
 Azure rezervasyon satın alma sonra gerekebilir ayırma farklı bir aboneliğe uygulamak için kimin ayırma yönetmek veya ayırma kapsamını değiştirmek değiştirin. Ayrıca, bir ayırma satın aldığınız örnekleri bazı başka bir aboneliğe uygulamak için iki ayırmalar halinde bölebilirsiniz.
 
@@ -60,7 +60,7 @@ Erişim yönetimi için bir ayırma temsilci atamak için:
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>Tek bir ayırma iki ayırmalar halinde bölme
 
- Birden fazla kaynak örneği içindeki bir ayırma satın sonra bu ayırma örneklerinden farklı aboneliklere atamak isteyebilirsiniz. Varsayılan olarak, tüm örnekleri bir kapsamı - ya da tek bir abonelik veya paylaşılan. Örneğin, 10 standart D2 VM satın alınan ve belirtilen abonelik a için kapsamı Artık abonelik A için 7 ayırmaları kapsamını değiştirmek isteyebilirsiniz ve ayrıntılı kapsam yönetimi için örnek dağıtmak kalan abonelik b bölme bir ayırma 3 sağlar. Paylaşılan kapsam seçerek aboneliklere ayırma basitleştirebilir. Ancak, maliyet Yönetimi'ni veya ödemeyle amaçları için özel abonelikler miktarlar ayırabilirsiniz.
+ Birden fazla kaynak örneği içindeki bir ayırma satın sonra bu ayırma örneklerinden farklı aboneliklere atamak isteyebilirsiniz. Varsayılan olarak, tüm örnekleri bir kapsamı - ya da tek bir abonelik veya paylaşılan. Örneğin, 10 ayırma örnekleri satın ve belirtilen abonelik a için kapsamı Artık abonelik A için 7 ayırmaları kapsamını değiştirmek isteyebilirsiniz ve ayrıntılı kapsam yönetimi için örnek dağıtmak kalan abonelik b bölme bir ayırma 3 sağlar. Paylaşılan kapsam seçerek aboneliklere ayırma basitleştirebilir. Ancak, maliyet Yönetimi'ni veya ödemeyle amaçları için özel abonelikler miktarlar ayırabilirsiniz.
 
  PowerShell, CLI, ancak iki ayırmalar halinde ayırma bölebilir veya API üzerinden.
 
@@ -86,6 +86,7 @@ Erişim yönetimi için bir ayırma temsilci atamak için:
     Split-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a -Quantity 3,2
     ```
 4. Aşağıdaki komutu çalıştırarak kapsamı güncelleştirebilirsiniz:
+
     ```powershell
     Update-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
@@ -113,7 +114,9 @@ Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalel
 - [Azure ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
 - [Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Azure SQL veritabanı'nın ayrılmış kapasite ile SQL veritabanı bilgi işlem kaynakları için ön ödeme](../sql-database/sql-database-reserved-capacity.md)
+- [Azure ayırmalardan SUSE yazılım planları için ön ödeme](../virtual-machines/linux/prepay-suse-software-charges.md)
 - [VM ayırma indirimi nasıl uygulanacağını anlama](billing-understand-vm-reservation-charges.md)
+- [SUSE Linux Enterprise yazılım planı indirim nasıl uygulanacağını anlama](../billing/billing-understand-suse-reservation-charges.md)
 - [Nasıl diğer ayırma indirimi uygulanmaz anlama](billing-understand-reservation-charges.md)
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)

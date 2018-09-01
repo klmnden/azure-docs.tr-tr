@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: jeedes
-ms.openlocfilehash: f860036f1a69b2d1ab6ac8de763a49380f8fe4bf
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 3a394c13092547991bf7f8ae98e5c69e92077701
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42060690"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344793"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Öğretici: Azure Active Directory YouEarnedIt ile tümleştirme
 
@@ -139,7 +139,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Y
 
     ![YouEarnedIt yapılandırma](./media/youearnedit-tutorial/tutorial_youearnedit_configure.png) 
 
-7. Çoklu oturum açmayı yapılandırma **YouEarnedIt** tarafı, indirilen göndermek için ihtiyacınız **Certificate(Base64)** ve **SAML çoklu oturum açma hizmeti URL'si** , atanan için YouEarnedIt müşteri başarısı Yöneticisi. Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+7. Çoklu oturum açmayı yapılandırma **YouEarnedIt** tarafı, indirilen göndermek için ihtiyacınız ***Certificate(Base64)*** ve ***SAML çoklu oturum açma hizmeti URL'si*** , atanan için **YouEarnedIt** müşteri başarısı Yöneticisi. Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 66cd3644611c1d837de717661a3515a0c0d3956f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 838717aa8f426ea54f4736453aac8c6fcf9a0099
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308040"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344506"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Azure Active Directory B2C kaydolma, oturum açma, profil düzenleme ve parola sıfırlama ile ASP.NET web uygulaması oluşturma
 
@@ -95,7 +95,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 * "Parola Sıfırlama" ilkenizin adıyla `ida:ResetPasswordPolicyId`
 
 ## <a name="launch-the-app"></a>Uygulamayı başlatın
-Öğesinden, Visual Studio içinde uygulamayı başlatın. Yapılacaklar listesi sekmesine gidin ve URL'sini Not: https://login.microsoftonline.com/ *YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*& client_id =*YourclientID*.....
+Öğesinden, Visual Studio içinde uygulamayı başlatın. Yapılacaklar listesi sekmesine gidin ve URL'sini Not: https://*YourTenantName*.b2clogin.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName* & client_id =*YourclientID*...
 
 E-posta adresi veya kullanıcı adı kullanarak uygulamaya kaydoluyor. Çıkışı, oturum sonra yeniden oturum açın ve profili düzenlemek veya parolayı sıfırlayın. Oturumu kapatın ve farklı bir kullanıcı olarak oturum açın. 
 

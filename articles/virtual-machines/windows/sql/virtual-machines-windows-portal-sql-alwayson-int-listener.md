@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 7ef26dc5fa7676ca590d56978c735bf4a195440b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e87b58ecd72291365f9eba70c807e3018c02ae07
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698059"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382748"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Azure'da bir Always On kullanılabilirlik grubu için bir yük dengeleyici yapılandırma
 Bu makalede, Azure Resource Manager ile çalışan Azure sanal makineler'de SQL Server Always On kullanılabilirlik grubu için yük dengeleyici oluşturma açıklanmaktadır. Azure sanal makinelerinde SQL Server örnekleri olan bir kullanılabilirlik grubu yük dengeleyici gerektirir. Yük Dengeleyici IP adresi için kullanılabilirlik grubu dinleyicisi depolar. Bir kullanılabilirlik grubu birden çok bölgede kapsıyorsa, her bölge bir yük dengeleyicinin gerekir.
@@ -117,7 +117,7 @@ Araştırma, Azure'nın hangi SQL Server örneklerinin kullanılabilirlik grubu 
    | **Aralık** |*5* |
    | **Sağlıksız durum eşiği** |*2* |
 
-4.  **Tamam**’a tıklayın. 
+4.  **Tamam** düğmesine tıklayın. 
 
 > [!NOTE]
 > Belirttiğiniz bağlantı noktası hem de SQL Server örneklerinin güvenlik duvarının açık olduğundan emin olun. Her iki örnekleri kullandığınız TCP bağlantı noktası için bir gelen kuralı gerektirir. Daha fazla bilgi için [Ekle veya güvenlik duvarı kuralını Düzenle](http://technet.microsoft.com/library/cc753558.aspx). 
@@ -150,7 +150,7 @@ Yük Dengeleme kuralları, yük dengeleyicinin trafiği için SQL Server örnekl
    > Tüm ayarlar dikey kaydırmanız gerekebilir.
    > 
 
-4. **Tamam**’a tıklayın. 
+4. **Tamam** düğmesine tıklayın. 
 5. Azure Yük Dengeleme kuralını yapılandırır. Artık yük dengeleyici, trafiği yönlendirmek için kullanılabilirlik grubu dinleyicisini barındıran SQL Server örneği için yapılandırılmıştır. 
 
 Bu noktada, kaynak grubuna hem SQL Server makinelerine bağlanan bir yük dengeleyici sahip. İki makine, kullanılabilirlik grupları için isteklere yanıt vermesi Yük Dengeleyiciyi SQL Server Always On kullanılabilirlik grubu dinleyicisi için bir IP adresi de içerir.
@@ -298,6 +298,8 @@ Bir kullanılabilirlik grubuna dağıtılmış kullanılabilirlik grubunda yer a
    |**Kayan IP (doğrudan sunucu dönüşü)** | Etkin
 
 Load balancer'dağıtılmış kullanılabilirlik grubunda yer alan diğer kullanılabilirlik grupları için bu adımları yineleyin.
+
+Eğer bir Azure ağ güvenlik grubu ile erişimi kısıtlama olun arka uç SQL Server VM IP adreslerine izin verme kuralları içerir ve yük dengeleyici kayan IP adresleri /AG dinleyicisi ve küme çekirdek IP adresi için varsa.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

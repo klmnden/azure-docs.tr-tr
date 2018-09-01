@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 08/30/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 3cd178333ee0d8d92db08fb08cbd02b05112f58b
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: cc1b89ff94b4d4dc0b191512b110521d5fa05a7a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445031"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344375"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure dosya eşitleme Aracısı sürüm notları
 Azure Dosya Eşitleme aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Windows Server yüklemeleriniz, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürülür. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilirsiniz. Dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
@@ -27,16 +27,16 @@ Azure Dosya Eşitleme aracısı aşağıdaki sürümleri destekler:
 |----|----------------------|--------------|------------------|
 | Ağustos güncelleştirme paketi | 3.2.0.0 | 15 Ağustos 2018 | Desteklenen (önerilen sürüm) |
 | Genel kullanılabilirlik | 3.1.0.0 | 19 Temmuz 2018 | Desteklenen |
-| Haziran güncelleştirme paketi | 3.0.13.0 | 29 Haziran 2018'e | Aracı sürümü 4 Eylül 2018'de sona erecek |
-| 2 Yenile | 3.0.12.0 | 22 Mayıs 2018 | Aracı sürümü 4 Eylül 2018'de sona erecek |
-| Nisan güncelleştirme paketi | 2.3.0.0 | 8 Mayıs 2018 | Aracı sürümü 4 Eylül 2018'de sona erecek |
-| Mart güncelleştirme paketi | 2.2.0.0 | 12 Mart 2018 | Aracı sürümü 4 Eylül 2018'de sona erecek |
-| Şubat güncelleştirme paketi | 2.1.0.0 | 28 Şubat 2018 | Aracı sürümü 4 Eylül 2018'de sona erecek |
-| 1 Yenile | 2.0.11.0 | 8 Şubat 2018 | Aracı sürümü 4 Eylül 2018'de sona erecek |
-| Ocak güncelleştirme paketi | 1.4.0.0 | 8 Ocak 2018 | Aracı sürümü 4 Eylül 2018'de sona erecek |
-| Kasım güncelleştirme paketi | 1.3.0.0 | 30 Kasım 2017 | Aracı sürümü 4 Eylül 2018'de sona erecek |
-| Ekim güncelleştirme paketi | 1.2.0.0 | 31 Ekim 2017 | Aracı sürümü 4 Eylül 2018'de sona erecek |
-| İlk önizleme yayını | 1.1.0.0 | 26 Eylül 2017 | Aracı sürümü 4 Eylül 2018'de sona erecek |
+| Haziran güncelleştirme paketi | 3.0.13.0 | 29 Haziran 2018'e | Aracı sürümü 1 Ekim 2018 tarihinde sona erecek |
+| 2 Yenile | 3.0.12.0 | 22 Mayıs 2018 | Aracı sürümü 1 Ekim 2018 tarihinde sona erecek |
+| Nisan güncelleştirme paketi | 2.3.0.0 | 8 Mayıs 2018 | Aracı sürümü 1 Ekim 2018 tarihinde sona erecek |
+| Mart güncelleştirme paketi | 2.2.0.0 | 12 Mart 2018 | Aracı sürümü 1 Ekim 2018 tarihinde sona erecek |
+| Şubat güncelleştirme paketi | 2.1.0.0 | 28 Şubat 2018 | Aracı sürümü 1 Ekim 2018 tarihinde sona erecek |
+| 1 Yenile | 2.0.11.0 | 8 Şubat 2018 | Aracı sürümü 1 Ekim 2018 tarihinde sona erecek |
+| Ocak güncelleştirme paketi | 1.4.0.0 | 8 Ocak 2018 | Aracı sürümü 1 Ekim 2018 tarihinde sona erecek |
+| Kasım güncelleştirme paketi | 1.3.0.0 | 30 Kasım 2017 | Aracı sürümü 1 Ekim 2018 tarihinde sona erecek |
+| Ekim güncelleştirme paketi | 1.2.0.0 | 31 Ekim 2017 | Aracı sürümü 1 Ekim 2018 tarihinde sona erecek |
+| İlk önizleme yayını | 1.1.0.0 | 26 Eylül 2017 | Aracı sürümü 1 Ekim 2018 tarihinde sona erecek |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure Dosya Eşitleme aracısı güncelleştirme ilkesi
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
@@ -49,6 +49,9 @@ Bu sürüm aşağıdaki düzeltmeyi içerir:
 
 ## <a name="agent-version-3100"></a>Aracı sürümü 3.1.0.0
 Aşağıdaki sürüm notları (19 Temmuz 2018'den yayımlanan) Azure dosya eşitleme aracısının sürümü için 3.1.0.0 ' dir.
+
+### <a name="evaluation-tool"></a>Değerlendirme Aracı
+Azure dosya eşitleme dağıtmadan önce sisteminizin Azure dosya eşitleme Değerlendirme Aracı'nı kullanma ile uyumlu olduğunu değerlendirmelidir. Bu araç, dosya sistemi ve veri kümesi gibi desteklenmeyen karakterler veya desteklenmeyen bir işletim sistemi sürümü ile ilgili olası sorunları denetleyen bir AzureRM PowerShell cmdlet'i kullanılır. Yükleme ve kullanım yönergeleri için bkz. [Değerlendirme Aracı](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning#evaluation-tool) Planlama Kılavuzu'nda bölümü. 
 
 ### <a name="agent-installation-and-server-configuration"></a>Aracı yükleme ve sunucu yapılandırması
 Yükleme ve Azure dosya eşitleme aracısını Windows Server ile yapılandırma hakkında daha fazla bilgi için bkz. [bir Azure dosya eşitleme dağıtımı planlama](storage-sync-files-planning.md) ve [Azure dosya eşitleme dağıtmayı](storage-sync-files-deployment-guide.md).

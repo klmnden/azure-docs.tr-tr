@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 58a0a1e8be7ad5a119204b52b5263943dcef0192
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9cd5789cd2ee6e167f3d3ed05c2fde077f7ec9a3
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441235"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344950"
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: İsteyen erişim belirteçleri
 
@@ -66,7 +66,7 @@ API kapsamları yayımlamak için yapılandırıldıktan sonra istemci uygulamas
 1. Tıklayarak **API erişimi**.
 1. **Ekle**'ye tıklayın.
 1. Web API'nizi ve vermek istediğiniz kapsamlarınızı (izinler) seçin.
-1. **Tamam**’a tıklayın.
+1. **Tamam** düğmesine tıklayın.
 
 > [!NOTE]
 > Azure AD B2C, istemci uygulama kullanıcıları için kendi onay istemez. Bunun yerine, tüm onay, yukarıda açıklanan uygulamalar arasında yapılandırılmış izinlere dayalı olarak bir yönetici tarafından sağlanır. Bir uygulama için bir iznini iptal edilirse, bu izni almak daha önce mümkün tüm kullanıcılar artık bunu mümkün olacaktır.
@@ -79,7 +79,7 @@ API kapsamları yayımlamak için yapılandırıldıktan sonra istemci uygulamas
 > Şu anda, erişim belirteçleri ile birlikte özel etki alanları desteklenmez. İstek URL'sinde tenantName.onmicrosoft.com etki alanınızı kullanmanız gerekir.
 
 ```
-https://login.microsoftonline.com/tfp/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+https://<tenantName>.b2clogin.com/tfp/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
 Aynı istekte birden fazla izin almak için birden çok girişi tek ekleyebilirsiniz **kapsam** boşluklarla ayırarak parametresi. Örneğin:

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/31/2018
+ms.date: 08/31/2018
 ms.author: rithorn
-ms.openlocfilehash: edc57d146ccb034ac3fd627386000a1953b0e558
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: b95dba65a7ab89306844e48641aba584e3d6b175
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480331"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371525"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Kaynaklarınızı Azure Yönetim grupları ile düzenleme
 
@@ -38,7 +38,7 @@ Burada Yönetim grupları kullanmak başka bir senaryo, birden fazla aboneliğin
 
 ### <a name="important-facts-about-management-groups"></a>Yönetim grupları hakkında önemli bilgiler
 
-- 10.000 Yönetim grupları, tek bir dizinde desteklenebilir.
+- 10.000 Yönetim grupları tek bir dizinde (Azure Active Directory kiracısına) desteklenir.
 - Bir yönetim grubu Ağaç derinliği en fazla altı düzeyde destekleyebilir.
   - Bu sınır, kök düzeyinde veya abonelik düzeyinde içermez.
 - Her bir yönetim grubu ve abonelik yalnızca bir üst destekler.

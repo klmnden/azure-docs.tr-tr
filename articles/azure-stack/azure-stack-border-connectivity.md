@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 260c58ad9099a4532c8a6558cfcf5c13f0fc8d52
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 39edcb97f062693d11fd5c0ce332c206ebd4b54a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282017"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343562"
 ---
 # <a name="border-connectivity"></a>Kenarlık bağlantısı 
 Tümleştirme ağ planlaması, başarılı Azure Stack tümleşik sistemleri dağıtımı, operasyon ve yönetimi için önemli bir önkoşuldur. Kenarlık bağlantı planlama, sınır ağ geçidi Protokolü (BGP) dinamik yönlendirme kullanılıp kullanılmayacağı seçerek başlar. Bu bir 16 bit BGP Otonom sistem numarası (genel veya özel) atama gerektirir veya statik yönlendirme kullanarak, burada statik bir varsayılan yol kenarlığı cihazlara atanır.
@@ -31,7 +31,7 @@ Tümleştirme ağ planlaması, başarılı Azure Stack tümleşik sistemleri da�
 ## <a name="bgp-routing"></a>BGP yönlendirme
 BGP gibi dinamik yönlendirme protokolü kullanarak sisteminizi her zaman ağ değişikliklerden haberdar olur ve yönetimini kolaylaştırır garanti eder. 
 
-Aşağıdaki diyagramda gösterildiği gibi özel IP'si ile reklam TOR anahtarında temel alan bir ön ek listesini kullanarak sınırlıdır. Önek listeler, özel IP alt ağları ve yol haritası TOR kenarlığı arasındaki bağlantı olarak uygulama reddeder.
+Aşağıdaki diyagramda gösterildiği gibi özel IP'si ile reklam TOR anahtarında temel alan bir ön ek listesini kullanarak sınırlıdır. Özel IP alt ağları ve yol haritası TOR kenarlığı arasındaki bağlantı olarak uygulama ön ek listesini tanımlar.
 
 VIP adresleri dinamik olarak tanıtabilir miyim için Azure Stack çözüm içinde çalışan yazılım yük dengeleyici (SLB) TOR cihazlara eşler.
 
@@ -44,13 +44,19 @@ Statik yönlendirme, sınır cihazlar için ek yapılandırma gerektirir. Daha f
 
 Azure Stack kullanarak statik yönlendirme ağ ortamınıza tümleştirmek için tüm dört fiziksel bağlantı kenarlık ve TOR cihaz arasında bağlanması gerekir ve nasıl statik yönlendirmenin çalıştığını nedeniyle yüksek kullanılabilirlik garanti edilemez.
 
-Sınır cihazı TOR cihazlar P2P dış ağ veya ortak VIP ve altyapı ağı hedefleyen trafiği için işaret eden statik yollar ile yapılandırılması gerekir. Dağıtım için BMC ağ için statik yollar gerektiriyor. Müşteriler BMC ağ üzerinde bulunan bazı kaynaklara erişmek için kenarlık statik yollar bırakmayı tercih edebilirsiniz.  Statik yollar ekleme *anahtar altyapı* ve *geçiş Yönetim* ağları isteğe bağlı.
+Sınır cihazı hedefleyen trafiği için TOR cihazlara P2P işaret eden statik yollar ile yapılandırılmalıdır *dış* ağ veya ortak VIP ve *altyapı* ağ. Statik yollara gerektirecek *BMC* ve *dış* dağıtımı için ağ. İşleçleri bulunan yönetim kaynaklarına erişmek için kenarlık statik yollar bırakmayı tercih edebilir *BMC* ağ. Statik yollar ekleme *anahtar altyapı* ve *geçiş Yönetim* ağları isteğe bağlı.
 
 TOR cihazların tüm trafiği kenarlık cihazlara gönderme statik varsayılan bir yol ile yapılandırılmış olarak sunulur. Varsayılan kuralın tek istisnası trafiği üzerinde TOR kenarlık bağlantı için geçerli erişim denetim listesi kullanarak engellenen özel alanı içindir.
 
 TOR ve kenarlık anahtarları arasında yukarı bağlantılar için yalnızca statik yönlendirme uygulanır. BGP dinamik yönlendirme, SLB ve diğer bileşenleri için önemli bir araçtır ve devre dışı ya da kaldırılmış olduğundan rafa içinde kullanılır.
 
 ![Statik yönlendirme](media/azure-stack-border-connectivity/static-routing.png)
+
+<sup>\*</sup> BMC ağ dağıtımdan sonra isteğe bağlıdır.
+
+<sup>\*\*</sup> Anahtar altyapı ağı, isteğe bağlı aynıdır tüm ağ anahtarı yönetimi ağ dahil edilebilir.
+
+<sup>\*\*\*</sup> Anahtar Yönetim ağ gereklidir ve anahtar altyapı ağ üzerinden ayrı olarak eklenebilir.
 
 ## <a name="transparent-proxy"></a>Saydam Ara
 Veri merkezinizi bir ara sunucu kullanmak için tüm trafik gerektiriyorsa, yapılandırmalısınız bir *saydam proxy* ağınızdaki bölgeler arasındaki trafiğin ayrılması, ilkesine göre işlemek için rafa giden tüm trafiği işlemek için.

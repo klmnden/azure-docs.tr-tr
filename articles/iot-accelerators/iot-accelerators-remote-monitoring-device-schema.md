@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: c153153313511640f7969938f63ea9fbe7b0847c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: f312f29e14c371e7b500f3eee6471151e3544513
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282660"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338864"
 ---
 # <a name="understand-the-device-model-schema"></a>Cihaz modeli şemasını anlama
 
@@ -24,7 +24,7 @@ Bu makalede, bir sanal cihaz davranışını ve özellikleri belirten cihaz mode
 Aşağıdaki makaleler için geçerli makalenin ilgili:
 
 * [Cihaz modeli davranışlarını uygulamak](iot-accelerators-remote-monitoring-device-behavior.md) bir sanal cihaz davranışını uygulamak için kullandığınız JavaScript dosyalarını açıklar.
-* [Yeni bir simülasyon cihazı oluşturma](iot-accelerators-remote-monitoring-test.md) tümünü bir araya getirir ve çözümünüze yeni bir sanal cihaz türü dağıtma işlemi gösterilmektedir.
+* [Yeni bir simülasyon cihazı oluşturma](iot-accelerators-remote-monitoring-create-simulated-device.md) tümünü bir araya getirir ve çözümünüze yeni bir sanal cihaz türü dağıtma işlemi gösterilmektedir.
 
 Bu makalede şunları öğreneceksiniz:
 

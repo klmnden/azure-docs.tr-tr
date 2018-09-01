@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 16e4dbac4c8146b048d4d9b76544677a6111e2a5
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 338c2a197cb50091c3b272e0ce590341ffda1d7f
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900838"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341092"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir Microsoft hesabı ile kaydolma ve oturum açma ayarlama
 
@@ -28,7 +28,7 @@ Bir Microsoft hesabı bir Azure Active Directory (Azure AD) B2C kimlik sağlayı
 3. Sağlayan bir **adı** tıklayın ve uygulama için **Oluştur**.
 4. Kayıt sayfasında, değerini kopyalayın **uygulama kimliği**. Microsoft hesabınızla kimlik sağlayıcısı olarak kiracınızda yapılandırmak için kullanın.
 5. Seçin **Ekle platform**ve ardından seçin **Web**.
-6. Girin `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` içinde **yeniden yönlendirme URL'leri**. Değiştirin **{tenant}** kiracınızın adı (örneğin, contosob2c.onmicrosoft.com) ile.
+6. Girin `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` içinde **yeniden yönlendirme URL'leri**. Değiştirin **{tenant}** ile kiracınızın adı (örneğin, contosob2c).
 7. Seçin **yeni parola oluştur** altında **uygulama gizli dizilerini**. Ekranda görüntülenen yeni parolayı kopyalayın. Kiracınızdaki bir kimlik sağlayıcısı olarak bir Microsoft hesabı yapılandırmak için ihtiyacınız. Bu parola, bir önemli güvenlik kimlik bilgisidir.
 
 ## <a name="configure-a-microsoft-account-as-an-identity-provider"></a>Bir Microsoft hesabı kimlik sağlayıcısı olarak yapılandırma

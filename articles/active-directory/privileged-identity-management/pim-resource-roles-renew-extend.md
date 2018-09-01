@@ -1,6 +1,6 @@
 ---
-title: PIM Azure kaynak rolleri genişletmek veya yenileme | Microsoft Docs
-description: Azure AD Privileged Identity Management (PIM), Azure kaynak rolleri genişletmek veya yenileme öğrenin.
+title: PIM Azure kaynak rol atamalarını yenileme veya genişletme | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM) Azure kaynak rol atamalarını yenileme veya genişletme öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2c85c5bbbd4c152113108e0fdb717d23f85f9fde
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 3294bddea867e061d01e8dc72f4e47f3238b6c4d
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189659"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344094"
 ---
-# <a name="extend-or-renew-azure-resource-roles-in-pim"></a>PIM Azure kaynak rolleri genişletmek veya yenileme
+# <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>PIM Azure kaynak rol atamalarını yenileme veya genişletme
 
 Azure kaynakları için Privileged Identity Management (PIM) Azure kaynakları için erişim ve atama yaşam döngüsünü yönetmek için yeni denetimler sunar. Yöneticiler, üyeliği başlangıç ve bitiş tarihi zamanı özelliklerini kullanarak atayabilirsiniz. Atama sonuna yaklaştığında, PIM etkilenen kullanıcılar veya gruplar için e-posta bildirimleri gönderir. Ayrıca uygun erişim sağlandığından emin olmak için kaynak için Yöneticiler e-posta bildirimleri gönderir. Atamalar yenilenmesi ve erişim genişletilmedi bile görünür 30 güne kadar süresi dolmuş durumda kalır.
 
@@ -113,7 +113,7 @@ Herhangi birinin listesinde rol atamalarını yenileme isteği için seçin **ye
 
 Kaynak yöneticileri yenileme isteği e-posta bildirimi veya Azure portalından PIM erişme ve seçerek bağlantıdan erişebileceğiniz **istekleri onaylama** sol bölmeden.
 
-![İstekleri onayla](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_grid.png)
+![İstekleri onaylama](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_grid.png)
 
 Yönetici seçtiğinde **Onayla** veya **Reddet**, isteğinin ayrıntılarını denetim günlükleri için gerekçe göstermesi bir alanı ile birlikte gösterilir.
 

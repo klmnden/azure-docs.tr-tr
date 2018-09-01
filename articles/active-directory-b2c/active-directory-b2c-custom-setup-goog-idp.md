@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 19b7f708d43907ac45450a64f988b2a517293511
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f076a906ba38e6c8e8c9530baba1607553b41ea6
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446716"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338337"
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Özel ilkeleri kullanarak OAuth2 kimlik sağlayıcısı olarak Google + Ekle
 
@@ -78,7 +78,7 @@ Google + Azure Active Directory (Azure AD) B2C'de kimlik sağlayıcısı olarak 
 
     ![Google + - uygulama türünü seçme](media/active-directory-b2c-custom-setup-goog-idp/goog-web-app.png)
 
-13.  Sağlayan bir **adı** uygulamanız için girin `https://login.microsoftonline.com` içinde **yetkili JavaScript kaynakları** alan ve `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` içinde **yetkili yeniden yönlendirme URI'leri** alan. Değiştirin **{tenant}** kiracınızın adı (örneğin, contosob2c.onmicrosoft.com) ile. **{Tenant}** duyarlıdır. **Oluştur**’a tıklayın.
+13.  Sağlayan bir **adı** uygulamanız için girin `https://{tenant}.b2clogin.com` içinde **yetkili JavaScript kaynakları** alan ve `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` içinde **yetkili yeniden yönlendirme URI'leri** alan. Değiştirin **{tenant}** ile kiracınızın adı (örneğin, contosob2c). **{Tenant}** duyarlıdır. **Oluştur**’a tıklayın.
 
     ![Google + - yetkili JavaScript kaynakları sağlayın ve yeniden yönlendirme URI'leri](media/active-directory-b2c-custom-setup-goog-idp/goog-create-client-id.png)
 

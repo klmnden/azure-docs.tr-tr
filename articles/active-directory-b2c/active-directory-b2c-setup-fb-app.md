@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: de059e3875b5f15526cb176d43a019fd2d9ee9b9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 985285b463d66770f97a431705d5b9198b632592
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901390"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344615"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir Facebook hesabıyla kaydolma ve oturum açma ayarlama
 
@@ -30,13 +30,13 @@ Bir Facebook hesabıyla bir kimlik sağlayıcısı olarak Azure Active Directory
 5. Tıklayın **uygulama kimliği oluşturma**. Bu, Facebook platform ilkeleri kabul edin ve çevrimiçi güvenlik denetimini Tamamla gerektirebilir.
 6. Seçin **ayarları** > **temel**.
 7. Sayfanın en altında seçin **Platform Ekle**ve ardından **Web sitesi**.
-8. Girin `https://login.microsoftonline.com/` içinde **Site URL'si**. Bir URL girin **gizlilik ilkesi URL'si**, örneğin `http://www.contoso.com`.
+8. Girin `https://{tenantname}.b2clogin.com/` içinde **Site URL'si**. Bir URL girin **gizlilik ilkesi URL'si**, örneğin `http://www.contoso.com`.
 9. Seçin **değişiklikleri kaydetmek**.
 11. Sayfanın üst kısmında değerini kopyalayın **uygulama kimliği**. 
 12. Tıklayın **Göster** ve değerini kopyalayın **uygulama gizli anahtarı**. Facebook kimlik sağlayıcısı olarak kiracınızda yapılandırmak için bu ikisinin de kullanın. **Uygulama gizli anahtarı** bir önemli güvenlik kimlik bilgisidir.
 13. Seçin **ürünleri**ve ardından **ayarlanan** altında **Facebook oturum açma**.
 14. Seçin **ayarları** altında **Facebook oturum açma**.
-15. Girin `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` içinde **geçerli OAuth yeniden yönlendirme URI'leri** . Değiştirin **{tenant}** kiracınızın adı (örneğin, contosob2c.onmicrosoft.com) ile. Tıklayın **Değişiklikleri Kaydet** sayfanın alt kısmındaki.
+15. Girin `https://{tenantname}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` içinde **geçerli OAuth yeniden yönlendirme URI'leri** . Değiştirin **{tenant}** ile kiracınızın adı (örneğin, contosob2c). Tıklayın **Değişiklikleri Kaydet** sayfanın alt kısmındaki.
 16. Facebook uygulamanızı Azure AD B2C için kullanılabilir hale getirmek için seçin **uygulama incelemesi**ayarlayın **Uygulamam olun genel?** için **Evet**, örneğin birkategoriseçin`Business and Pages`ve ardından **Onayla**.
 
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Bir Facebook hesabıyla bir kimlik sağlayıcısı olarak yapılandırma

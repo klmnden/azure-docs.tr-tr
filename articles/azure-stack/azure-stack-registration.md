@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 58c8568da0a818f87a5bb3d6966d2d4a6c977fd9
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: ebf10c7f0fb90d976062300854f69369dba946fa
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247832"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340175"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack Azure ile kaydedin
 
@@ -58,7 +58,7 @@ Azure Stack Azure ile kaydetmeden önce şunlara sahip olmalısınız:
 
 ### <a name="powershell-language-mode"></a>PowerShell dil modu
 
-Azure Stack başarıyla kaydetmek için PowerShell dil modunu ayarlanmalıdır **FullLanguageMode**.  Geçerli dil modunu tam, yükseltilmiş bir PowerShell penceresi açın ve aşağıdaki PowerShell cmdlts çalıştırmak için ayarlandığını doğrulamak için:
+Azure Stack başarıyla kaydetmek için PowerShell dil modunu ayarlanmalıdır **FullLanguageMode**.  Geçerli dil modunu tam, yükseltilmiş bir PowerShell penceresi açın ve aşağıdaki PowerShell cmdlet'lerini çalıştırmak için ayarlandığını doğrulamak için:
 
 ```PowerShell  
 $ExecutionContext.SessionState.LanguageMode
@@ -100,7 +100,7 @@ Azure Stack-,-Kullandıkça Ödeme modelini kullanarak Azure ile kaydetmek için
 
 Azure ve internet bağlantılı ortamlar erişebilirsiniz. Bu ortamlar için Azure ile Azure Stack kaynak sağlayıcısını kaydedin ve ardından faturalama modelinizi yapılandırmanız gerekir.
 
-1. Azure ile Azure Stack kaynak sağlayıcısını kaydetmek için PowerShell ISE yönetici olarak başlatın ve aşağıdaki PowerShell cmdlts ile **EnvironmentName** parametre uygun Azure aboneliğini türüne (bkz: parametreleri aşağıdaki).
+1. Azure ile Azure Stack kaynak sağlayıcısını kaydetmek için PowerShell ISE yönetici olarak başlatın ve aşağıdaki PowerShell cmdlet'leriyle **EnvironmentName** parametre uygun Azure aboneliğini türüne (bkz: parametreleri aşağıdaki).
 
 2. Azure Stack kaydetmek için kullandığınız bir Azure hesabı ekleyin. Hesap eklemek için şunu çalıştırın **Add-AzureRmAccount** cmdlet'i. Azure genel yönetici hesabı kimlik bilgilerinizi girmeniz istenir ve hesabınızın yapılandırmasına bağlı olarak 2 faktörlü kimlik doğrulaması kullanmak zorunda kalabilirsiniz.
 
@@ -160,7 +160,7 @@ Azure Stack-,-Kullandıkça Ödeme modelini kullanarak Azure ile kaydetmek için
 
 Azure ve internet bağlantılı ortamlar erişebilirsiniz. Bu ortamlar için Azure ile Azure Stack kaynak sağlayıcısını kaydedin ve ardından faturalama modelinizi yapılandırmanız gerekir.
 
-1. Azure ile Azure Stack kaynak sağlayıcısını kaydetmek için PowerShell ISE yönetici olarak başlatın ve aşağıdaki PowerShell cmdlts ile **EnvironmentName** parametre uygun Azure aboneliğini türüne (bkz: parametreleri aşağıdaki).
+1. Azure ile Azure Stack kaynak sağlayıcısını kaydetmek için PowerShell ISE yönetici olarak başlatın ve aşağıdaki PowerShell cmdlet'leriyle **EnvironmentName** parametre uygun Azure aboneliğini türüne (bkz: parametreleri aşağıdaki).
 
 2. Azure Stack kaydetmek için kullandığınız bir Azure hesabı ekleyin. Hesap eklemek için şunu çalıştırın **Add-AzureRmAccount** cmdlet'i. Azure genel yönetici hesabı kimlik bilgilerinizi girmeniz istenir ve hesabınızın yapılandırmasına bağlı olarak 2 faktörlü kimlik doğrulaması kullanmak zorunda kalabilirsiniz.
 
@@ -213,7 +213,7 @@ Azure ve internet bağlantılı ortamlar erişebilirsiniz. Bu ortamlar için Azu
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-2. Kayıt belirtecinizi almak için aşağıdaki PowerShell cmdlts çalıştırın:  
+2. Kayıt belirtecinizi almak için aşağıdaki PowerShell cmdlet'lerini çalıştırın:  
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
@@ -250,7 +250,7 @@ Internet'e bağlı bilgisayarda RegisterWithAzure.psm1 modülünü içeri aktar�
 
 Ardından, Azure'da Register-AzsEnvironment sırasında oluşturulan kayıt kaynağıyla etkinleştirme anahtarı almak gerekir.
 
-Etkinleştirme anahtarı almak için aşağıdaki PowerShell cmdlts çalıştırın:  
+Etkinleştirme anahtarı almak için aşağıdaki PowerShell cmdlet'lerini çalıştırın:  
 
   ```Powershell
   $RegistrationResourceName = "AzureStack-<Cloud Id for the Environment to register>"
@@ -263,7 +263,7 @@ Etkinleştirme anahtarı almak için aşağıdaki PowerShell cmdlts çalıştır
 
 ### <a name="create-an-activation-resource-in-azure-stack"></a>Azure Stack'te bir etkinleştirme kaynağını oluşturma
 
-Azure Stack ortamına, Get-AzsActivationKey oluşturulan etkinleştirme anahtarından dosya ya da metin döndürür. Ardından bu etkinleştirme anahtarı kullanarak Azure Stack'te bir etkinleştirme kaynağını oluşturacaksınız. Bir etkinleştirme kaynağını oluşturmak için aşağıdaki PowerShell cmdlts çalıştırın:  
+Azure Stack ortamına, Get-AzsActivationKey oluşturulan etkinleştirme anahtarından dosya ya da metin döndürür. Ardından bu etkinleştirme anahtarı kullanarak Azure Stack'te bir etkinleştirme kaynağını oluşturacaksınız. Bir etkinleştirme kaynağını oluşturmak için aşağıdaki PowerShell cmdlet'lerini çalıştırın:  
 
   ```Powershell
   $ActivationKey = "<activation key>"
@@ -329,13 +329,13 @@ Güncelleştirebilir veya aşağıdaki durumlarda kaydınızı yenilemeniz gerek
 
 İlk Azure Stack ve Azure kayıt kaynakta etkinleştirme kaynak kaldırmak gerekir.  
 
-Azure Stack'te etkinleştirme kaynağı kaldırmak için aşağıdaki PowerShell cmdlts Azure Stack ortamınıza çalıştırın:  
+Azure Stack'te etkinleştirme kaynak kaldırmak için Azure Stack ortamınıza aşağıdaki PowerShell cmdlet'lerini çalıştırın:  
 
   ```Powershell
   Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   ```
 
-Ardından, Azure'da kayıt kaynağı kaldırmak için bağlı bir Azure üzerinde olduğundan emin olun, bilgisayar için doğru Azure PowerShell bağlamı oturum açın ve uygun PowerShell cmdlts aşağıda açıklandığı gibi çalıştırın.
+Ardından, Azure'da kayıt kaynağı kaldırmak için bağlı bir Azure üzerinde olduğundan emin olun, bilgisayar için doğru Azure PowerShell bağlamı oturum açın ve aşağıda açıklandığı gibi uygun bir PowerShell cmdlet'lerini çalıştırın.
 
 Kaynak oluşturmak için kullanılan kayıt belirtecinizi kullanabilirsiniz:  
 
@@ -386,6 +386,8 @@ Reporting ile kullanım kapasite faturalandırma modeli kullandığınız Azure 
 
 2. Azure üzerinde kullanım için bu kayıt belirtecinizi kaydetme makine bağlı. Dosya veya metin $FilePathForRegistrationToken kopyalayabilirsiniz.
 
+## <a name="move-a-registration-resource"></a>Kayıt kaynak taşıma
+Kayıt kaynak aynı abonelik altında kaynak grupları arasında taşıma **olduğu** tüm ortamlar için desteklenir. Her iki aboneliğin aynı iş ortağı kimliğine çözümlediğinizde ancak kayıt kaynak abonelikler arasında taşıma yalnızca CSP'ler için desteklenir Kaynakları yeni kaynak grubuna taşıma hakkında daha fazla bilgi için bkz. [kaynakları yeni kaynak grubuna veya aboneliğe taşıma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 ## <a name="registration-reference"></a>Kayıt başvurusu
 

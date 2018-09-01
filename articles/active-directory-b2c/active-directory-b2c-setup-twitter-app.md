@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: bf5ae39d83fd021775fbd18cf23d2e6b9078e748
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6d8e9245e95c08aad69cd05f338b6260e554469b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927905"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337799"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir Twitter hesabıyla kaydolma ve oturum açma ayarlama
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) B2C'de kimlik sağlayıcısı olarak Twitter h
 1. Oturum [Twitter uygulamaları](https://apps.twitter.com/) Twitter kimlik bilgilerinizle.
 2. Seçin **yeni uygulama oluştur**.
 3. Girin **adı**, **açıklama**, ve **Web sitesi**.
-4. Girin `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp` içinde **geri çağırma URL'leri**. Değiştirin **{tenant}** kiracınızın adı (örneğin, contosob2c.onmicrosoft.com) ile ve **{Policyıd}** ilke kimliğinizle (örneğin, b2c_1_policy). Twitter hesabı kullanan tüm ilkeleri için bir geri çağırma URL'si eklemeniz gerekir. Kullandığınızdan emin olun `b2clogin.com` yerine ` login.microsoftonline.com` uygulamanızda kullanıyorsanız.
+4. Girin `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/{policyId}/oauth1/authresp` içinde **geri çağırma URL'leri**. Değiştirin **{tenant}** kiracınızın adı (örneğin, contosob2c) ile ve **{Policyıd}** ilke kimliğinizle (örneğin, b2c_1_policy). Twitter hesabı kullanan tüm ilkeleri için bir geri çağırma URL'si eklemeniz gerekir. 
 5. Kabul **Geliştirici sözleşmesi** seçip **kendi Twitter uygulamanızı oluşturun**.
 7. Seçin **anahtarlar ve erişim belirteçleri** sekmesi.
 8. Değerini kopyalayın **tüketici anahtarı** ve **tüketici gizli**. Her ikisi de kiracınızdaki bir kimlik sağlayıcısı olarak Twitter hesabı yapılandırmak için gerekir.

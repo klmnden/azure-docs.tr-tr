@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 84b1ad2ecd2c027c7d8a105579059ceb957f41c6
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e1949c32833bb1d5e6603a6f5e36e22dc58e8cec
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929007"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336937"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir LinkedIn hesabıyla kaydolma ve oturum açma ayarlama
 
@@ -28,7 +28,7 @@ Bir LinkedIn hesabıyla bir kimlik sağlayıcısı olarak Azure Active Directory
 3. Girin **şirket adı**, **uygulama adı**, **uygulama açıklaması**, **uygulama logosu**, **uygulama kullanımı** , **Web sitesi URL'si**, **iş e-posta**, ve **iş telefonu**.
 4. Kabul **LinkedIn API kullanım** tıklatıp **Gönder**.
 5. Değerlerini kopyalamayı **istemci kimliği** ve **gizli**. Bunların altında bulabilirsiniz **kimlik doğrulama anahtarlarını**. Her ikisi de LinkedIn kiracınızdaki bir kimlik sağlayıcısı yapılandırmak için gerekir. **İstemci gizli anahtarı** bir önemli güvenlik kimlik bilgisidir.
-6. Girin `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` içinde **yeniden yönlendirme URL'leri yetkili**. Değiştirin **{tenant}** kiracınızın adı (örneğin, contoso.onmicrosoft.com) ile. Seçin **Ekle**ve ardından **güncelleştirme**.
+6. Girin `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` içinde **yeniden yönlendirme URL'leri yetkili**. Değiştirin **{tenant}** ile kiracınızın adı (örneğin, contosob2c). Seçin **Ekle**ve ardından **güncelleştirme**.
 
 ## <a name="configure-a-linkedin-account-as-an-identity-provider"></a>Bir LinkedIn hesabıyla bir kimlik sağlayıcısı olarak yapılandırma
 

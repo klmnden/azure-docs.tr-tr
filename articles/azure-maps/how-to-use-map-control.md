@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 228d2d3331b510a0f07dbd3ca278715466d747af
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 619dda44b5ad74ba1dcb62cfb3318687aa6ec4d5
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988900"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340144"
 ---
 # <a name="how-to-use-the-azure-maps-map-control"></a>Azure haritalar harita Denetimi'ni kullanma
 Harita denetimi istemci tarafı Javascript kitaplığı, haritalar ve katıştırılmış Azure haritalar işlevselliği web veya mobil uygulama oluşturmak sağlar. 
@@ -62,4 +62,4 @@ Harita denetimi istemci tarafı Javascript kitaplığını kullanarak bir web sa
 Bu makalede Azure haritalar anahtarınız ile temel bir harita oluşturmak nasıl oluşturulacağını gösterir. Eşlenir eklemek daha fazla kod örnekleri için aşağıdaki makalelere bakın: 
 
 * [Bir eşleme oluşturma](map-create.md)
-* [Pin ekleme](map-add-pin.md)
+* [Harita stil seçin](choose-map-style.md)

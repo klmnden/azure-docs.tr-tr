@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: b68550bce1f4e3fbe3845c21598720083c8e384c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 43edbc653ddbd55aab5e722071de1f2cf4bcd1c4
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285830"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344525"
 ---
 # <a name="implement-the-device-model-behavior"></a>Cihaz modeli davranışlarını uygulayın
 
@@ -41,6 +41,6 @@ Bu makale, kendi özel sanal cihaz modeli davranışlarını tanımlamak açıkl
 > * Metot çağrısı bir simülasyon cihazı bağlı IOT hub'ı nasıl yanıt tanımlama
 > * Komut dosyalarınızı hata ayıklama
 
-Bir sanal cihaz davranışını belirtmek öğrendiniz, önerilen sonraki adıma öğrenmektir nasıl [bir simülasyon cihazı oluşturma](iot-accelerators-remote-monitoring-test.md).
+Bir sanal cihaz davranışını belirtmek öğrendiniz, önerilen sonraki adıma öğrenmektir nasıl [bir simülasyon cihazı oluşturma](iot-accelerators-device-simulation-create-simulated-device.md).
 
 Cihaz benzetimi çözüm hakkında daha fazla Geliştirici bilgi için bkz. [geliştirici başvuru kılavuzu](https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide).

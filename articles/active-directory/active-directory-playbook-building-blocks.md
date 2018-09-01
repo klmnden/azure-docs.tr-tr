@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 4618c8a0298afdac28e7511e9521cf1e26238734
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 41d495e38a8360609afe924bb49ccf2f6aea086e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189047"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340048"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook prova: yapı taşları
 
@@ -560,7 +560,7 @@ Yaklaşık tamamlanma süresi: 20 dakika
 | Adım | Kaynaklar |
 | --- | --- |
 | "Sertifika kimlik doğrulamasını" ADFS etkinleştirin | [Kimlik doğrulama ilkeleri yapılandırın: birincil kimlik doğrulaması, Windows Server 2012 R2'de genel olarak yapılandırmak için](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-authentication-policies#to-configure-primary-authentication-globally-in-windows-server-2012-r2) |
-| İsteğe bağlı: Sertifika kimlik doğrulamasını Azure AD'de Exchange Active Sync istemcileri için etkinleştirme | [Azure Active Directory’de sertifika tabanlı kimlik doğrulamayı kullanmaya başlama](active-directory-certificate-based-authentication-get-started.md) |
+| İsteğe bağlı: Sertifika kimlik doğrulamasını Azure AD'de Exchange Active Sync istemcileri için etkinleştirme | [Azure Active Directory’de sertifika tabanlı kimlik doğrulamayı kullanmaya başlama](./authentication/active-directory-certificate-based-authentication-get-started.md) |
 | Erişim paneli gidin ve kullanıcı sertifikası kullanılarak kimlik doğrulaması | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler

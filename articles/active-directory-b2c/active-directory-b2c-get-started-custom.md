@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e25103d2fcbfc70be7f96f5c0e5fa6abe13fe393
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 36fad697758273246d567dfa1010f0e6bfc68939
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446750"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344571"
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: özel ilkeleri kullanmaya başlama
 
@@ -77,7 +77,7 @@ Azure AD B2C, kaydolma ve oturum açma kullanıcıları için altyapısı taraf�
 4. **Yeni uygulama kaydı**’nı seçin.
    * İçin **adı**, kullanın `IdentityExperienceFramework`.
    * İçin **uygulama türü**, kullanın **Web uygulaması/API'si**.
-   * İçin **oturum açma URL'si**, kullanın `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`burada `yourtenant` , Azure AD B2C Kiracı etki alanı adıdır.
+   * İçin **oturum açma URL'si**, kullanın `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com`burada `yourtenant` , Azure AD B2C Kiracı etki alanı adıdır.
 5. **Oluştur**’u seçin.
 6. Oluşturulduktan sonra yeni oluşturduğunuz uygulamayı seçin **IdentityExperienceFramework**.<br>
    * Seçin **özellikleri**.<br>
@@ -89,14 +89,14 @@ Azure AD B2C, kaydolma ve oturum açma kullanıcıları için altyapısı taraf�
 1. **Yeni uygulama kaydı**’nı seçin.
    * İçin **adı**, kullanın `ProxyIdentityExperienceFramework`.
    * İçin **uygulama türü**, kullanın **yerel**.
-   * İçin **yeniden yönlendirme URI'si**, kullanın `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`burada `yourtenant` Azure AD B2C kiracınızın.
+   * İçin **yeniden yönlendirme URI'si**, kullanın `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com`burada `yourtenant` Azure AD B2C kiracınızın.
 1. **Oluştur**’u seçin.
 1. Oluşturulduktan sonra uygulamayı seçin **ProxyIdentityExperienceFramework**.<br>
    * Seçin **özellikleri**. <br>
    * Uygulama Kimliği kopyalayın ve daha sonra kullanmak üzere kaydedin.
 1. Seçin **gerekli izinler**.
 1. **Add (Ekle)** seçeneğini belirleyin.
-1. Seçin **bir API seçin**.
+1. **Bir API seçin**'i belirleyin.
 1. ' % S'adı IdentityExperienceFramework arayın. Seçin **IdentityExperienceFramework** sonuçları ve ardından **seçin**.
 1. Yanındaki onay kutusunu işaretleyin **erişim IdentityExperienceFramework**ve ardından **seçin**.
 1. **Done** (Bitti) öğesini seçin.

@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: cf96e153c07211fe176839e713935adcf6b9dbe1
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 31b137cca55b1dd249368ba5e287496582152c9f
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306971"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382669"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Azure SQL veri ambarı geri yükleme 
 Bu makalede şunları öğreneceksiniz:
@@ -25,6 +25,10 @@ Bu makalede şunları öğreneceksiniz:
 - Silinen bir veritabanını geri yükleme
 - Coğrafi bir yedekten geri yükleyin
 - Kullanıcı tanımlı bir geri yükleme noktasından veri Ambarınızı kopyasını oluşturma
+
+> [!NOTE]
+> 8/27'den itibaren sunucular arası geri yükleme nedeniyle bilinen bir gerileme devre dışı bırakıldı. Bir düzeltme üzerinde etkin olarak sunduğumuz en yüksek öncelikli olarak çalışıyoruz. Bu rahatsızlıktan dolayı özür dileriz. Bu arada, yararlanabileceğiniz, [coğrafi yedekleme](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore#restore-from-an-azure-geographical-region) sunucuya geri yüklemek için.  
+>
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 **DTU kapasitenizi doğrulayın.** Her SQL veri ambarı varsayılan DTU kotası olan bir SQL server tarafından (örn. myserver.database.windows.net) barındırılır.  SQL veri ambarı geri yüklemeden önce olduğunu doğrulayın. SQL server'ınızı geri yüklenen veritabanı için yeterli kalan DTU kotası vardır. Gerekli DTU'yu hesaplama veya daha fazla DTU istemek için öğrenmek için bkz: [DTU kota değişiklik isteği][Request a DTU quota change].

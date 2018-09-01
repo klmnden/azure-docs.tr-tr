@@ -3,7 +3,7 @@ title: Kullanım ve bulut hizmeti sağlayıcısı olarak Azure Stack için fatur
 description: Bir bulut sağlayıcısı (CSP) olarak Azure Stack kaydetme ve faturalandırma için müşterilerin ekleme yoluyla Yürüme.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 08/30/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: 66bab9f4b5099099039aa0f60cd86ef23e73cd1f
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 9bb4a4ea81f2dc0fb11e2f7cae1b9d02b0edfdde
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715694"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341444"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Kullanım ve faturalandırma için Azure Stack bulut hizmeti sağlayıcısı olarak yönetme 
 
@@ -58,7 +58,7 @@ Bulut hizmeti sağlayıcısı (CSP) abonelikleri CSP satıcısı, kayıt için t
 
 ## <a name="register-azure-stack"></a>Azure Stack kaydetme
 
-Azure Stack ile kaydetmek için bkz: [kaydetme Azure Stack, Azure aboneliğiniz ile](azure-stack-registration.md).
+Azure Stack Azure ile kaydetmek için aşağıdaki bilgiler önceki bölümde oluşturduğunuz CSPSS aboneliği kullanın. Daha fazla bilgi için [kaydetme Azure Stack, Azure aboneliğiniz ile](azure-stack-registration.md).
 
 ## <a name="add-end-customer"></a>Son müşteri ekleme
 

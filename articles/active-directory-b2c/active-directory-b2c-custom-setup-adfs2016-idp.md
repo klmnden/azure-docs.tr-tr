@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a81baae553bbf9c58d42372e25e90cd7588f2952
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 4380d21eded3f97e3b3107e78c9544a09d1b0bb2
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445084"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338539"
 ---
 # <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Özel ilkeleri kullanarak bir SAML kimlik sağlayıcısı olarak ADFS Ekle
 
@@ -57,10 +57,10 @@ AD FS Yönetimi ek bileşenini kullanarak yeni bir bağlı olan taraf güveni ek
     ![Görünen ad ve notları belirtin](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-4.png)
 6.  İsteğe bağlı. Bir isteğe bağlı bir belirteç şifreleme sertifikası sonra varsa **sertifika Yapılandır** sayfasında **Gözat** , sertifika dosyasını bulun ve ardından **sonraki**.
     ![Sertifika yapılandırma](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-5.png)
-7.  Üzerinde **URL Yapılandır** sayfasında **SAML 2.0 WebSSO protokolü için desteği etkinleştir** onay kutusu. Altında **bağlı olan taraf SAML 2.0 SSO hizmet URL'si**bu bağlı olan taraf güveni için güvenlik onaylama işlemi biçimlendirme dili (SAML) Hizmeti uç nokta URL'sini yazın ve ardından **sonraki**.  İçin **bağlı olan taraf SAML 2.0 SSO hizmet URL'si**, Yapıştır `https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/{policy}`. {Tenant} (örneğin, contosob2c.onmicrosoft.com) kiracınızın adıyla değiştirin ve {} İlkesi uzantıları ilke adı (örneğin, B2C_1A_TrustFrameworkExtensions) ile değiştirin.
+7.  Üzerinde **URL Yapılandır** sayfasında **SAML 2.0 WebSSO protokolü için desteği etkinleştir** onay kutusu. Altında **bağlı olan taraf SAML 2.0 SSO hizmet URL'si**bu bağlı olan taraf güveni için güvenlik onaylama işlemi biçimlendirme dili (SAML) Hizmeti uç nokta URL'sini yazın ve ardından **sonraki**.  İçin **bağlı olan taraf SAML 2.0 SSO hizmet URL'si**, Yapıştır `https://(tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/{policy}`. {Tenant} (örneğin, contosob2c) kiracınızın adıyla değiştirin ve {} İlkesi uzantıları ilke adı (örneğin, B2C_1A_TrustFrameworkExtensions) ile değiştirin.
     > [!IMPORTANT]
     >İlke adı signup_or_signin İlkesi, bu durumda bu devralınan paroladır: `B2C_1A_TrustFrameworkExtensions`.
-    >Örneğin bir URL olabilir: https://login.microsoftonline.com/te/ **contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
+    >Örneğin bir URL olabilir: https://**contosob2c**.b2clogin.com/te/**contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
 
     ![Bağlı olan taraf SAML 2.0 SSO hizmet URL'si](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-6.png)
 8. Üzerinde **tanımlayıcı Yapılandır** sayfasında, önceki adım olarak aynı URL'yi belirtin, **Ekle** bunları listeye ekleyin ve ardından **sonraki**.

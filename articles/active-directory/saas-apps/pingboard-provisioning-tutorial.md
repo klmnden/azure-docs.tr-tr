@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: c5cc20b4f20e3a4f746ab15aa5f139c8e7201a2c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 93c3b0cbc3ce063aaeb086d089631a8810293bbe
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447175"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382542"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Öğretici: Pingboard otomatik kullanıcı hazırlama için yapılandırma
 
-Bu öğreticinin amacı, otomatik hazırlama ve kullanıcı hesaplarını Azure Active Directory'den (Azure AD) için Pingboard sağlamayı etkinleştirmek için gerçekleştirmeniz gereken adımlarda sağlamaktır.
+Bu öğreticide otomatik hazırlama ve kullanıcı hesaplarını Azure Active Directory'den (Azure AD) için Pingboard sağlamayı etkinleştirmek için izlemeniz gereken adımları size göstermektir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -36,7 +36,7 @@ Bu öğreticide özetlenen senaryo, aşağıdaki öğeleri zaten sahip olduğunu
 *   Pingboard yönetici izinlerine sahip bir kullanıcı hesabı 
 
 > [!NOTE] 
-> Azure AD tümleştirmesi sağlama dayanır [Pingboard API](`https://your_domain.pingboard.com/scim/v2`), hesabınızda bulunan.
+> Azure AD tümleştirmesi sağlama dayanır [Pingboard API](https://pingboard.docs.apiary.io/#), hesabınızda bulunan.
 
 ## <a name="assign-users-to-pingboard"></a>Pingboard için kullanıcı atama
 
@@ -52,7 +52,7 @@ Tek bir atamanızı öneririz Pingboard sağlama yapılandırmayı test etmek i�
 
 ## <a name="configure-user-provisioning-to-pingboard"></a>Pingboard için kullanıcı sağlamayı yapılandırma 
 
-Bu bölümde, Azure AD sağlama API'si Pingboard kullanıcı hesabına bağlama size yol gösterir. Sağlama hizmeti oluşturmak, güncelleştirmek ve Azure AD'de kullanıcı atamaları temel alınarak Pingboard atanan kullanıcı hesaplarını devre dışı bırakmak için de yapılandırmanız.
+Bu bölümde, Azure AD sağlama API'si Pingboard kullanıcı hesabına bağlama size yol gösterir. Sağlama hizmeti oluşturmak, güncelleştirmek ve Azure AD'de kullanıcı atamaları temel alan Pingboard atanan kullanıcı hesaplarını devre dışı bırakmak için de yapılandırmanız.
 
 > [!TIP]
 > SAML tabanlı çoklu oturum açma için Pingboard etkinleştirmek için bölümlerinde sağlanan yönergeleri izleyin. [Azure portalında](https://portal.azure.com). Bu iki özellik birbirini tamamlar ancak otomatik sağlama bağımsız olarak, çoklu oturum açma yapılandırılabilir.
@@ -69,7 +69,7 @@ Bu bölümde, Azure AD sağlama API'si Pingboard kullanıcı hesabına bağlama 
 
     ![Pingboard sağlama](./media/pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
     
-1. Altında **yönetici kimlik bilgileri** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. Altında **yönetici kimlik bilgileri** bölümünde, aşağıdaki adımları kullanın:
 
     a. İçinde **Kiracı URL'si**, girin `https://your_domain.pingboard.com/scim/v2`ve "şöyledir: your_domain" gerçek etki alanınız ile değiştirin.
 
@@ -81,7 +81,7 @@ Bu bölümde, Azure AD sağlama API'si Pingboard kullanıcı hesabına bağlama 
 
     e. Belirteci Kopyala **OAuth taşıyıcı belirteci**girin **gizli belirteç**.
 
-1. Azure portalında **Test Bağlantısı** Azure emin olmak için AD Pingboard uygulamanıza bağlanabilirsiniz. Bağlantı başarısız olursa Pingboard hesabınızın yönetici izinlerine sahip olduğundan emin olun ve deneyin **Test Bağlantısı** adım yeniden uygulayın.
+1. Azure portalında **Bağlantıyı Sına** Pingboard uygulamanızı Azure AD'ye test etmek için bağlanabilirsiniz. Bağlantı başarısız olursa Pingboard hesabınız yönetici izinleri bulunan test ve deneyin **Bağlantıyı Sına** adım yeniden uygulayın.
 
 1. Bir kişi veya sağlama hata bildirimleri almak istediğiniz gruba e-posta adresini girin **bildirim e-posta**. Altındaki onay kutusunu seçin.
 
@@ -95,7 +95,7 @@ Bu bölümde, Azure AD sağlama API'si Pingboard kullanıcı hesabına bağlama 
 
 1. Seçin **Kaydet** Pingboard için atanan kullanıcılar, ilk eşitleme başlatılamadı.
 
-İlk eşitleme hizmetini çalıştıran sürece yaklaşık 40 dakikada oluşan sonraki eşitlemeler gerçekleştirmek için daha uzun sürer. Kullanım **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve etkinlik günlüklerini sağlama için bağlantıları izleyin. Günlükleri Pingboard uygulamanızdan sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır.
+İlk eşitleme hizmeti çalışıyor sürece yaklaşık 40 dakikada oluşan aşağıdaki eşitlemeler çalışması daha uzun sürer. Kullanım **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve etkinlik günlüklerini sağlama için bağlantıları izleyin. Günlükleri Pingboard uygulamanızdan sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır.
 
 Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporu](../active-directory-saas-provisioning-reporting.md).
 
@@ -103,4 +103,4 @@ Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [he
 
 * [Kullanıcı, kurumsal uygulamalar için hesabı hazırlamayı yönetme](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
-* [Çoklu oturum açmayı yapılandırın](pingboard-tutorial.md)
+* [Çoklu oturum açmayı yapılandırma](pingboard-tutorial.md)

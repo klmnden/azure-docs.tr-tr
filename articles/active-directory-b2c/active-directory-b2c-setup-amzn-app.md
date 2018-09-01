@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5fb6289f75f0c98cc218233d8adb900484ee4a17
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: c64b32656db2d3b821833450b4e866b9e33e44cd
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916505"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337354"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir Amazon hesabıyla kaydolma ve oturum açma ayarlama
 
@@ -28,7 +28,7 @@ Amazon hesabınız Azure Active Directory (Azure AD) B2C'de kimlik sağlayıcıs
 3. Seçin **yeni uygulamayı kaydedin**.
 4. Girin bir **adı**, **açıklama**, ve **gizlilik bildirimi URL'si**ve ardından **Kaydet**.
 5. İçinde **Web ayarları** bölümünde, değerlerini kopyalamayı **istemci kimliği**. Seçin **Göster gizli** istemci gizli anahtarı alın ve bunu kopyalayın. Her ikisi de kiracınızdaki bir kimlik sağlayıcısı Amazon hesabı yapılandırmak için gerekir. **İstemci gizli anahtarı** bir önemli güvenlik kimlik bilgisidir.
-6. İçinde **Web ayarları** bölümünden **Düzenle**ve enter `https://login.microsoftonline.com` içinde **izin JavaScript kaynakları** ve `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` içinde **izin verildi URL'leri dönüş**. Değiştirin **{tenant}** kiracınızın adı (örneğin, contoso.onmicrosoft.com) ile. 
+6. İçinde **Web ayarları** bölümünden **Düzenle**ve enter `https://{tenant}.b2clogin.com` içinde **izin JavaScript kaynakları** ve `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` içinde **izin verildi URL'leri dönüş**. Değiştirin **{tenant}** ile kiracınızın adı (örneğin, contosob2c). 
 7. **Kaydet**’e tıklayın.
 
 ## <a name="configure-an-amazon-account-as-an-identity-provider"></a>Bir Amazon hesap kimlik sağlayıcısı olarak yapılandırın

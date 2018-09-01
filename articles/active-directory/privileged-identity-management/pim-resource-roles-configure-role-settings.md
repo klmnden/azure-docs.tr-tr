@@ -11,78 +11,110 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/02/2018
+ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 901eb5ef43ddb2840ed7a3d83fc08f2f05849461
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 9ad4965ccd86f88a61b5f6fb8f540d76e472ea69
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189744"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43345304"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>PIM'de Azure kaynak rol ayarlarını yapılandırma
 
-Rol ayarlarını yapılandırdığınızda, Privileged Identity Management (PIM) ortamında atamaları uygulanan varsayılan ayarları tanımlar. Kaynağınız için bu ayarları tanımlamak için seçin **rol ayarları** sol bölmeden sekmesi. Siz de rol ayarları düğmesi eylem çubuğunda (herhangi bir rolü) geçerli seçeneklerini görüntülemek için seçebilirsiniz.
+Azure kaynak rol ayarlarını yapılandırdığınızda, Azure AD Privileged Identity Management (PIM) Azure kaynak rol atamalarında uygulanan varsayılan ayarları tanımlar. Onay iş akışını yapılandırın ve kimler onaylayabilir veya istekleri reddetme belirtmek için aşağıdaki yordamları kullanın.
 
-## <a name="overview"></a>Genel Bakış
+## <a name="open-role-settings"></a>Rol ayarlarını Aç
 
-Onay iş akışı ile Privileged Identity Management (PIM), Azure kaynak rolleri için Yöneticiler daha fazla koruyabilir veya kritik kaynaklara erişimi kısıtlayın. Diğer bir deyişle, yöneticileri, rol atamalarını etkinleştirmek için onay isteyebilir. 
+Bir Azure Kaynak rolü ayarlarını açmak için şu adımları izleyin.
 
-Azure kaynak rolleri için benzersiz bir kaynak hiyerarşisinin kavramdır. Bu hiyerarşi üst kapsayıcı içindeki tüm alt kaynaklar için rol atamalarını aşağı üst kaynak nesneden devralınmasını sağlar. 
+1. Oturum [Azure portalında](https://portal.azure.com/) üyesi olan bir kullanıcı ile [ayrıcalıklı Rol Yöneticisi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) rol.
 
-Örneğin: Bob, bir kaynak yöneticisi, uygun bir üye olarak Esra'nın Contoso abonelik sahibi rolüne atamak için PIM kullanır. Bu atama ile Esra'nın Contoso Abonelikteki tüm kaynak grubu kapsayıcıları bir uygun sahibidir. Gamze ayrıca bir uygun tüm kaynakları (sanal makineler gibi) abonelik her bir kaynak grubu içinde sahibidir. 
+1. Açık **Azure AD Privileged Identity Management**.
 
-Contoso abonelikte üç kaynak grubunuz yok varsayalım: Fabrikam Test, Fabrikam geliştirme ve Fabrikam ürün. Bu kaynak gruplarının her biri tek bir sanal makine içeriyor.
+1. Tıklayın **Azure kaynaklarını**.
 
-PIM ayarları, her bir kaynağın rolünü için yapılandırılır. Atamaları aksine bu ayarları yok devralınır ve kesinlikle Kaynak rolü için geçerlidir. [Uygun atamalar ve Kaynak görünürlüğü hakkında daha fazla bilgiyi](pim-resource-roles-eligible-visibility.md).
+1. Bir abonelik veya yönetim grubu gibi yönetmek istediğiniz kaynağa tıklayın.
 
-Örneğiyle devam etmesini: Bob PIM Contoso abonelik isteği onay sahibi roldeki tüm üyeleri etkinleştirilmesini istemek için kullanır. Fabrikam Prod kaynak grubundaki kaynakları korumak için Bob Ayrıca bu kaynağın sahip rolünün üyeleri için onay gerektirir. Fabrikam Test ve geliştirme Fabrikam sahip roller, etkinleştirme için onay gerekmez.
+    ![Azure kaynaklarını yönetmek için listesi](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
-Alice Contoso abonelik için sahip rolünü etkinleştirme isteğinde bulunduğunda, bir onaylayan onaylayabilir veya o roldeki etkinleştirilmeden önce her bir isteği reddetmek gerekir. Alice karar verirse [her etkinleştirme kapsam](pim-resource-roles-activate-your-roles.md#apply-just-enough-administration-practices) Fabrikam Prod kaynak grubunu, bir onaylayan gerekir onaylayın veya çok bu isteği reddedin. Ancak, Esra'nın Fabrikam Test veya geliştirme Fabrikam biri veya her ikisi için her etkinleştirme kapsam karar verirse, onayı gerekli değildir.
+1. Tıklayın **rol ayarları**.
 
-Onay iş akışı, bir rolün tüm üyeleri için gerekli olmayabilir. Burada, kuruluşunuzun bir Azure aboneliğinde çalıştırılan uygulamanın geliştirilmesine yardımcı olmak için birkaç sözleşme ilişkilendirir hires bir senaryo düşünün. Bir kaynak yöneticisi, gerekli onay uygun erişim sağlamak için çalışanların istediğiniz, ancak sözleşme ilişkilendirir onay istemelisiniz. Onay iş akışı için yalnızca sözleşme ilişkilendirir yapılandırmak için atanmış çalışanlara rolle aynı izinlere sahip bir özel rol oluşturabilirsiniz. Bu özel rolü etkinleştirmek için onay gerektirebilir. [Özel roller hakkında daha fazla bilgi](pim-resource-roles-custom-role-policy.md).
+    ![Rol ayarları](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
-Onay iş akışını yapılandırın ve kimler onaylayabilir veya istekleri reddetme belirtmek için aşağıdaki yordamları kullanın.
+1. Ayarları yapılandırmak istediğiniz rolüne tıklayın.
+
+    ![Rol ayarı ayrıntıları](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+
+1. Tıklayın **Düzenle** rol ayarlar bölmesini açın.
+
+    ![Rol ayarlarını Düzenle](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+
+    Rol ayarı bölmesinde her rol için yapılandırabileceğiniz birkaç ayar vardır.
+
+## <a name="assignment-duration"></a>Atama süresi
+
+Rol ayarlarını yapılandırırken (uygun ve etkin) her bir atama türü için iki atama süresi seçenekleri arasından seçim yapabilirsiniz. Bu seçenekler, PIM rolüne bir üye atandığında varsayılan en uzun süresi olur.
+
+Bunlardan birini seçebileceğiniz **uygun** atama süresi seçenekleri:
+
+| | |
+| --- | --- |
+| **Kalıcı uygun atamaya izin ver** | Kalıcı uygun üyelik kaynak yöneticileri atayabilirsiniz. |
+| **Uygun atamayı sonra süresi dolacak** | Kaynak yöneticileri, tüm uygun atamalar belirtilen başlangıç ve bitiş tarihi olmasını isteyebilir. |
+
+Ve bunlardan birini seçebileceğiniz **etkin** atama süresi seçenekleri:
+
+| | |
+| --- | --- |
+| **Kalıcı etkin atamaya izin ver** | Kalıcı etkin üyeliğini kaynak yöneticileri atayabilirsiniz. |
+| **Etkin atamada sonra süresi dolacak** | Kaynak yöneticileri, tüm etkin atamalar belirtilen başlangıç ve bitiş tarihi olmasını isteyebilir. |
+
+> [!NOTE] 
+> Kaynak yöneticileri tarafından belirtilen son tarihe sahip tüm atamaları yenilenebilir. Ayrıca, üyeleri Self Servis isteklerine başlatabilirsiniz [genişletin veya rol atamalarını yenileme](pim-resource-roles-renew-extend.md).
+
+## <a name="require-multi-factor-authentication"></a>Çok faktörlü kimlik doğrulaması gerektir
+
+PIM iki farklı senaryolar için isteğe bağlı zorlama Azure multi-Factor Authentication (MFA) sağlar.
+
+### <a name="require-multi-factor-authentication-on-active-assignment"></a>Etkin atamada Multi-Factor Authentication iste
+
+Bazı durumlarda (örneğin bir gün) kısa bir süre için bir role üye atamak isteyebilirsiniz. Bu durumda, etkinleştirme isteği atanan üyelerini gerek yoktur. Üye kendi rol ataması kullandığında zaten atanmış olan şu rolden etkin olduğu Bu senaryoda, MFA PIM zorunlu kılamaz.
+
+Atama yerine getirmesini Kaynak Yöneticisi kimin söyledikleri olduğundan emin olmak için MFA etkin atamada denetleyerek zorunlu kılabilir **etkin atamada multi-Factor Authentication iste** kutusu.
+
+### <a name="require-multi-factor-authentication-on-activation"></a>Etkinleştirme yapılırken Multi-Factor Authentication'ı gerekli kılın
+
+MFA etkinleştirilebilmesi çalıştırmak uygun rolü üyelerinin gerektirebilir. Bu işlem, etkinleştirme kim makul kesin olarak söyledikleri isteyen kullanıcı sağlar. Kullanıcı hesabının tehlikede, bu seçenek zorlamayı durumlarda kritik kaynaklara korur.
+
+Mfa'yı etkinleştirme tamamlanmadan önce çalıştırmak uygun bir üye gerektirecek şekilde kontrol **etkinleştirme multi-Factor Authentication iste** kutusu.
+
+## <a name="activation-maximum-duration"></a>Maksimum etkinleştirme süresi
+
+Kullanım **maksimum etkinleştirme süresi** en uzun süreyi saat cinsinden süresi dolmadan önce rol etkin kaldığından ayarlamak için kaydırıcıyı. Bu değer 1 ile 24 saat arasında olabilir.
+
+## <a name="require-justification"></a>Gerekçelendirme iste
+
+Üyeleri bir gerekçe etkin atamada veya ne zaman etkinleştirdikleri girin gerektirebilir. Gerekçelendirme iste denetleyin **etkin atamada gerekçelendirme iste** kutusu veya **etkinleştirmede gerekçelendirme iste** kutusu.
 
 ## <a name="require-approval-to-activate"></a>Etkinleştirmek için onay gerektir
 
-1. PIM için Azure portalında göz atın ve listeden bir kaynak seçin.
+Bir rolü etkinleştirmek için onay gerektir istiyorsanız, aşağıdaki adımları izleyin.
 
-   ![Seçilen kaynak "Azure kaynaklarını" bölmesi](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
+1. Denetleme **etkinleştirmek için onay gerektir** onay kutusu.
 
-2. Sol bölmeden **rol ayarları**.
+1. Tıklayın **onaylayanları seçin** Seç üyelerinin veya grubun bir bölme açmak için.
 
-3. İçin arama yapın ve bir rol seçin ve ardından **Düzenle** ayarlarını değiştirmek için.
+    ![Üye veya grup seçin](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-   !["Düzenle" düğmesine operatörü rolü için](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_view_settings.png)
+1. En az bir üye veya grup seçin ve ardından **seçin**. Herhangi bir birleşimini üyeleri ve grupları ekleyebilirsiniz. En az bir onaylayan seçmeniz gerekir. Hiçbir varsayılan onaylayanlar vardır.
 
-4. İçinde **etkinleştirme** bölümünden **etkinleştirmek için onay gerektir** onay kutusu.
+    Seçimlerinizi seçili onaylayanlar listesinde görünür.
 
-   ![Rol ayarları "Etkinleştirme" bölümü](media/azure-pim-resource-rbac/aadpim_rbac_settings_require_approval_checkbox.png)
-
-## <a name="specify-approvers"></a>Onaylayanlar belirtin
-
-Tıklayın **onaylayanları seçin** açmak için **bir kullanıcı veya Grup Seç** bölmesi.
-
->[!NOTE]
->En az bir kullanıcı veya grup ayarını güncelleştirmek için seçmeniz gerekir. Hiçbir varsayılan onaylayanlar vardır.
-
-Kaynak yöneticileri, kullanıcıları ve grupları herhangi bir birleşimini onaylayanlar listesine ekleyebilirsiniz. 
-
-![Kullanıcı tarafından seçilen bir "bir kullanıcı veya Grup Seç" bölmesi](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_select_approvers.png)
-
-## <a name="request-approval-to-activate"></a>Etkinleştirmek için onay isteyin
-
-Onay isteme üyesi etkinleştirmek için izlemeniz gereken yordam üzerinde hiçbir etkisi olmaz. [Bir rolü etkinleştirmek için adımları gözden](pim-resource-roles-activate-your-roles.md).
-
-Onay gerektiren bir rolü etkinleştirmesi üyesi istenen ve rol artık gerekli değildir, üye PIM isteğini iptal edebilirsiniz.
-
-İptal etmek için PIM ve seçin için Gözat **isteklerim**. Seçin ve istek bulun **iptal**.
-
-!["İsteklerim" bölmesi](media/azure-pim-resource-rbac/aadpim_rbac_role_approval_request_pending.png)
+1. Tüm rol ayarlarınızı belirledikten sonra tıklayın **güncelleştirme** yaptığınız değişiklikleri kaydedin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [PIM Azure kaynak rolleri için çok faktörlü kimlik doğrulaması gerektir](pim-resource-roles-require-mfa.md)
+- [PIM Azure kaynak Rolleri Ata](pim-resource-roles-assign-roles.md)
 - [Güvenlik Uyarıları Azure kaynak rolleri için PIM içinde yapılandırma](pim-resource-roles-configure-alerts.md)

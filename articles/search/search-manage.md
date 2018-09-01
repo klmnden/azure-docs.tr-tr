@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 896a12db1ac196b6de1e57dde9b5910e11dcc8c7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 6e751715146d0dfa5c89ae8c2e8cb23d8337432f
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31797058"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371236"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Azure portalında Azure arama için Hizmet Yönetimi
 > [!div class="op_single_selector"]
@@ -23,101 +23,101 @@ ms.locfileid: "31797058"
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Azure Search zengin arama deneyimi özel uygulamalara oluşturmak için kullanılan tam olarak yönetilen, bulut tabanlı arama hizmetidir. Bu makalede yer almaktadır *Hizmet Yönetim* nda gerçekleştirebileceğiniz görevler [Azure portal](https://portal.azure.com) zaten sağlanmış bir arama hizmeti için. *Hizmet Yönetimi* basit tasarım, aşağıdaki görevler için sınırlı olduğu:
+Azure arama, özel uygulamalarda zengin arama deneyimi oluşturmak için kullanılan tam olarak yönetilen, bulut tabanlı arama hizmetidir. Bu makalede ele alınmaktadır *Hizmet Yönetim* nda gerçekleştirebileceğiniz görevler [Azure portalında](https://portal.azure.com) zaten sağlanmış bir arama hizmeti için. *Hizmet Yönetim* basit tasarım, aşağıdaki görevler için sınırlı olduğu:
 
-* Yönetme ve güvenliğini erişimi *api anahtarlarından* okuma veya yazma erişimi hizmetiniz için kullanılır.
-* Hizmet kapasite, bölümler ve çoğaltmalar değiştirerek ayarlayın.
-* Hizmet katmanının maksimum sınırlarına göre kaynak kullanımı izleyin.
+* Yönetme ve güvenli erişim *api anahtarlarını* hizmetinize okuma veya yazma için kullanılır.
+* Hizmet kapasite ayırma bölümleri ve çoğaltmalarını değiştirerek ayarlayın.
+* Hizmet katmanının maksimum sınırlara göre kaynak kullanımını izleyin.
 
-Dikkat *yükseltme* bir yönetim görevi olarak listelenmemiş. Hizmet sağlandığında kaynaklar için farklı bir katmana taşıma yeni bir hizmet gerektirir. Ayrıntılar için bkz [bir Azure Search hizmeti oluşturma](search-create-service-portal.md).
+Dikkat *yükseltme* bir yönetim görevi olarak listelenmemiş. Hizmet sağlandığında kaynakların ayrıldığından farklı bir katmana taşıyarak yeni bir hizmettir. Ayrıntılar için bkz [bir Azure Search hizmeti oluşturma](search-create-service-portal.md).
 
 > [!Tip]
-> Arama trafiği veya sorgu performansını analiz etme konusunda yardım için mi arıyorsunuz? Arama terimleri kişiler, sorgu birim ve nasıl başarılı arama sonuçları kazanç Öngörüler dizininizdeki belirli belgelere müşteriler yönlendirmede ' dir. Yönergeler için bkz [Azure arama için arama trafiği analiz](search-traffic-analytics.md), [izlemek kullanım ve sorgu ölçümleri](search-monitor-usage.md), ve [performans ve en iyi duruma getirme](search-performance-optimization.md).
+> Arama trafiği ya da sorgu performansını analiz etme hakkında Yardım almak mı istiyorsunuz? Koşulları kişi için arama, sorgu birimi ve nasıl başarılı arama sonuçları içgörüler belirli belgeleri dizininize için müşterilerin yönlendirme var. Yönergeler için bkz. [için Azure Search arama trafiği analizi](search-traffic-analytics.md), [kullanım ve sorgu ölçümlerini izlemek](search-monitor-usage.md), ve [performans ve iyileştirme](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
 ## <a name="administrator-rights"></a>Yönetici hakları
-Sağlama veya hizmet yetkisini bir Azure Abonelik Yöneticisi veya ortak yönetici tarafından yapılabilir.
+Sağlama veya yetkisini alma hizmeti bir Azure aboneliğinin Yöneticisi veya ortak yönetici tarafından yapılabilir.
 
-İçinde bir hizmet, hizmet URL'sini ve yönetici api anahtarı için erişimi olan herkes hizmet okuma-yazma erişimi vardır. Okuma-yazma erişimi eklemek, silmek veya API anahtarları, dizinler, dizin oluşturucular, veri kaynakları, zamanlamaları ve rol atamalarını aracılığıyla uygulanan dahil olmak üzere sunucu nesneleri değiştirme olanağı sağlar [RBAC tanımlı rolleri](search-security-rbac.md).
+İçinde bir hizmet, hizmet URL'sini ve yönetici api anahtarı erişimi olan herkes hizmete okuma-yazma erişimi vardır. Okuma-yazma erişimi eklemek, silmek veya aracılığıyla uygulanan API anahtarları, dizinler, dizin oluşturucular, veri kaynakları, zamanlamalar ve rol atamaları dahil, sunucu nesneleri değiştirme olanağı sağlar [RBAC tanımlı roller](search-security-rbac.md).
 
-Azure Search tüm kullanıcı etkileşimi bu modlarından birini içinde döner: okuma-yazma erişimi (yönetici hakları) hizmetine veya salt okunur erişim hizmetine (sorgu hakları). Daha fazla bilgi için bkz: [API anahtarlarını Yönet](search-security-api-keys.md).
+Azure Search ile tüm kullanıcı etkileşimi Bu modlardan biri içinde kalan: okuma-yazma erişimi (yönetici hakları) hizmetine veya salt okunur erişim (sorgu hakları) hizmetine. Daha fazla bilgi için [api anahtarlarını yönetme](search-security-api-keys.md).
 
 <a id="sys-info"></a>
 
 ## <a name="logging-and-system-information"></a>Günlüğe kaydetme ve sistem bilgileri
-Azure arama günlük dosyaları için bir bireysel hizmet ya da portalı üzerinden veya programlama arabirimleri sağlamıyor. Temel katman ve üstünde, Microsoft Azure Search hizmetler için hizmet düzeyi sözleşmelerine (SLA) göre % 99,9 kullanılabilirliğini izler. Hizmeti yavaş veya istek işleme SLA eşiklerin altına düştüğünde, destek ekiplerini kullanabilecekleri günlük dosyalarını gözden geçirin ve sorunu gidermeye.
+Portal ya da programlama arabirimleri aracılığıyla belirli bir hizmet için günlük dosyalarını Azure Search'ü kullanıma sunmuyor. Temel katmanında ve üzeri, Microsoft, tüm Azure Search Hizmetleri için % 99,9 kullanılabilirlik hizmet düzeyi sözleşmeleri (SLA) başına izler. Hizmeti yavaş veya istek üretilen işini SLA eşiğin altında düştüğünde, destek ekipleri kullanabilecekleri günlük dosyalarını gözden geçirin ve sorunu çözün.
 
-Hizmet hakkında genel bilgi açısından, aşağıdaki yollarla bilgi elde edebilirsiniz:
+Hizmetinizi hakkında genel bilgi açısından, aşağıdaki yollarla bilgi edinebilirsiniz:
 
-* Portalda hizmet panosunda, bildirimleri, özellikler ve durum iletileri.
-* Kullanarak [PowerShell](search-manage-powershell.md) veya [Yönetimi REST API](https://docs.microsoft.com/rest/api/searchmanagement/) için [hizmeti özelliklerini alma](https://docs.microsoft.com/rest/api/searchmanagement/services), veya dizin kaynak kullanımına durumu.
-* Aracılığıyla [trafiği analytics arama](search-traffic-analytics.md), daha önce belirtildiği gibi.
+* Portalda hizmet panosundaki, bildirimler, özellikler ve durum iletileri.
+* Kullanarak [PowerShell](search-manage-powershell.md) veya [Yönetimi REST API'si](https://docs.microsoft.com/rest/api/searchmanagement/) için [hizmeti özelliklerini alma](https://docs.microsoft.com/rest/api/searchmanagement/services), ya da dizin kaynak kullanımını durumu.
+* Aracılığıyla [trafik analizi arama](search-traffic-analytics.md), daha önce belirtildiği gibi.
 
 <a id="sub-5"></a>
 
 ## <a name="monitor-resource-usage"></a>Kaynak kullanımını izleme
-Panosunda, kaynak izleme hizmet panosunu ve hizmet sorgulayarak edinebilirsiniz birkaç ölçümleri gösterilen bilgiler sınırlıdır. Hizmet panosunda kullanım bölümünde, hızlı bir şekilde bölüm kaynak düzeyleri, uygulamanız için yeterli olup olmadığını belirleyebilirsiniz.
+Panoda, kaynak izleme hizmet panosunu ve hizmet sorgulayarak edinebilirsiniz birkaç ölçümleri gösterilen bilgiler sınırlıdır. Kullanım bölümünde, hizmet Panosu üzerinde hızlı bir şekilde bölüm kaynak düzeylerini uygulamanız için uygun olup olmadığını belirleyebilirsiniz.
 
-Search Hizmeti REST API'sini kullanarak, belgeler ve dizin sayısına program aracılığıyla alabilirsiniz: 
+Arama hizmeti REST API'si kullanarak, belgeler ve dizinlerde bir sayısına programlı bir şekilde alabilirsiniz: 
 
-* [Dizin istatistikleri Al](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
-* [Count belgeleri](https://docs.microsoft.com/rest/api/searchservice/count-documents)
+* [Dizin istatistiklerini alma](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
+* [Belge sayısı](https://docs.microsoft.com/rest/api/searchservice/count-documents)
 
-## <a name="disaster-recovery-and-service-outages"></a>Olağanüstü durum kurtarma ve hizmet kesintilerine karşı
+## <a name="disaster-recovery-and-service-outages"></a>Olağanüstü durum kurtarma ve hizmet kesintilerine
 
-Verilerinizi hurda ancak küme veya veri merkezi düzeyinde bir kesinti durumunda Azure Search hizmetinin anlık yük devretme sağlamaz. Veri merkezinde bir küme başarısız olursa, işletim ekibi algılamak ve hizmet geri için çalışır. Hizmet geri yükleme sırasında kapalı kalma yaşayacaktır. Hizmet kullanılamazlık dengelemek için hizmet iadeleri isteyebilir [hizmet düzeyi sözleşmesi (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+Biz verilerinizi hurda olsa da, küme veya veri merkezi düzeyinde bir kesinti oluşursa, Azure Search hizmetinin anında yük devretme sağlamaz. Veri merkezinde bir küme başarısız olursa, operasyon ekibinin algılamak ve hizmetini geri yüklemek için çalışır. Hizmeti geri yükleme sırasında kapalı kalma süresi yaşar. Hizmet kullanılamazlık için hizmet iadeleri isteyebilir [hizmet düzeyi sözleşmesi (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Hizmetin sürekli Microsoft'un denetimi dışında yıkıcı hataları durumunda gerekliyse, verebilir [ek bir hizmet sağlamak](search-create-service-portal.md) farklı bir bölgeye ve dizinleri emin olmak için coğrafi çoğaltma stratejisiyle gerçekleştir Tüm hizmetler arasında tam yedekli.
+Sürekli hizmet Microsoft'un kontrolü dışında yıkıcı hataları durumunda gerekliyse, verebilir [ek bir hizmet sağlama](search-create-service-portal.md) farklı bir bölge ve dizinleri emin olmak için bir coğrafi çoğaltma stratejisi olan uygulama tüm hizmetlerde tam yedekli.
 
-Kullanan müşteriler [dizin oluşturucular](search-indexer-overview.md) doldurmak ve dizinleri yenilemek için olağanüstü durum kurtarma aynı veri kaynağı yararlanarak coğrafi özgü dizin oluşturucular aracılığıyla işleyebilir. Farklı bölgelerde, her bir dizin oluşturucu çalıştıran iki Hizmetleri coğrafi yedeklilik sağlamak için aynı veri kaynağından dizin. Ayrıca coğrafi olarak yedekli veri kaynaklarından sıralıyorsanız, artımlı birincil çoğaltmalardan dizin oluşturma, Azure Search'te dizin oluşturucular yalnızca gerçekleştirebilir unutmayın. Bir yük devretme olayından dizin oluşturucu yeni birincil çoğaltma yeniden işaret edecek şekilde emin olun. 
+Kullanan müşteriler [dizin oluşturucular](search-indexer-overview.md) doldurmak ve dizinleri yenilemek için aynı veri kaynağını yararlanarak coğrafi özel dizin oluşturucular aracılığıyla olağanüstü durum kurtarma başa çıkabilir. Farklı bölgelerdeki her bir dizin oluşturucu çalıştıran iki hizmet coğrafi yedeklilik elde etmek için aynı veri kaynağından dizin. Ayrıca coğrafi olarak yedekli veri kaynaklarından sıralıyorsanız, artımlı birincil çoğaltmalardan dizin oluşturma, Azure Search dizin oluşturucularında yalnızca gerçekleştirebilir unutmayın. Bir yük devretme olayından içinde dizin oluşturucuyu yeniden yeni birincil çoğaltmaya işaret edecek şekilde emin olun. 
 
-Dizin oluşturucular kullanmazsanız, uygulama kodunuz itme nesnelere ve farklı arama hizmetleri verileri paralel olarak kullanırsınız. Daha fazla bilgi için bkz: [performans ve Azure Search'te iyileştirme](search-performance-optimization.md).
+Dizin oluşturucular kullanmazsanız, uygulama kodunuz için anında iletme nesneleri ve veri farklı arama hizmetleri için paralel olarak kullanırsınız. Daha fazla bilgi için [performans ve iyileştirme Azure Search'te](search-performance-optimization.md).
 
 ## <a name="backup-and-restore"></a>Yedekleme ve geri yükleme
 
-Azure Search birincil veri depolama çözümü olduğundan, biz Self Servis yedekleme ve geri yükleme için resmi bir mekanizma sağlamaz. Uygulama kodunuz oluşturmak ve bir dizinini doldurmak için kullanılan bir dizin yanlışlıkla silerseniz gerçek geri yükleme seçeneğidir. 
+Azure Search birincil veri depolama çözümü olduğundan, Self Servis yedekleme ve geri yükleme için resmi bir mekanizma sunmuyoruz. Uygulama kodunuza oluşturup dizini doldurmak için kullanılan bir dizin yanlışlıkla silerseniz pratikte geri yükleme seçeneğidir. 
 
-Bir dizini yeniden oluşturmak için (var olduğu varsayılarak) silin, dizin hizmetinde yeniden oluşturun ve birincil veri deposundan verileri alarak yeniden. Alternatif olarak, size ulaşmak [müşteri desteği]() bölgesel bir kesintinin ise hurda dizinler için.
+Bir dizini yeniden oluşturmak için (mevcut varsayılarak) silin, dizin hizmetinde yeniden oluşturun ve yeniden yükleyin, birincil veri deposundan verileri alarak. Bölgesel bir kesinti varsa alternatif olarak, müşteri desteği hurda dizinleri iletişim kurabilirsiniz.
 
 
 <a id="scale"></a>
 
 ## <a name="scale-up-or-down"></a>Ölçek büyütme veya küçültme
-Her arama hizmeti en az bir çoğaltma ve bir bölüm ile başlar. İçin kaydolduysanız bir [özel kaynakları sağlar katmanı](search-limits-quotas-capacity.md), tıklatın **ölçek** döşeme kaynak kullanımı ayarlamak için hizmet panosunda.
+Her arama hizmeti bir çoğaltma ve bir bölüm en düşük ile başlar. Kaydolup varsa bir [ayrılmış kaynaklar sağlayan katmanı](search-limits-quotas-capacity.md), tıklayın **ölçek** kaynak kullanımı ayarlamak için hizmet panosuna kutucuk.
 
-Hizmet ya da kaynak aracılığıyla kapasite eklediğinizde, bunları otomatik olarak kullanır. Başka bir eylem yapmanız gereken, ancak yeni kaynak etkisini gerçekleşen önce kısa bir gecikme olduğunu. 15 dakika veya ek kaynakları sağlamak üzere daha fazla sürebilir.
+Kapasite ya da kaynak aracılığıyla eklediğinizde, hizmet bunları otomatik olarak kullanır. Başka bir işlem yapmanız gereken, ancak yeni kaynak etkisini gerçekleşmeden önce bir gecikme olduğunu. 15 dakika veya ek kaynakları sağlamak için daha fazla sürebilir.
 
  ![][10]
 
-### <a name="add-replicas"></a>Çoğaltmaları ekleme
-Sorgular (QPS) saniyede artırmayı veya yüksek kullanılabilirlik elde çoğaltmaları ekleyerek yapılır. Her yineleme bir kopyasını bir dizin sahiptir, bu nedenle bir daha fazla çoğaltma eklemek için daha fazla dizin hizmeti sorgu isteği işlemek için kullanılabilen çevirir. Yüksek kullanılabilirlik için en az 3 çoğaltmaları gereklidir (bkz [kapasite planlaması](search-capacity-planning.md) Ayrıntılar için).
+### <a name="add-replicas"></a>Çoğaltmalar ekleyerek
+Sorgular / saniye (QPS) artırmayı veya yüksek kullanılabilirlik elde etmek, çoğaltmalar ekleyerek gerçekleştirilir. Her yineleme, bir dizinin bir kopyasını olduğundan bir daha fazla çoğaltma ekleme için hizmet sorgu istekleri işlemek için daha fazla dizin çevirir. Yüksek kullanılabilirlik için en az 3 çoğaltma gereklidir (bkz [kapasite planlaması](search-capacity-planning.md) Ayrıntılar için).
 
-Daha fazla çoğaltmaları sahip bir arama hizmeti çok sayıda dizinleri Yük Dengeleme sorgu isteklerini yükleyebilirsiniz. Sorgu toplu düzeyini verildiğinde, sorgu işleme isteklerine hizmet dizin fazla kopyasını olduğunda daha hızlı olacak. Sorgu gecikmesi karşılaşıyorsanız, Ek çoğaltmalar çevrimiçi olduktan sonra performansını olumlu bir etki bekleyebilirsiniz.
+Daha fazla çoğaltma içeren bir arama hizmeti çok sayıda dizin üzerinde Yük Dengeleme sorgu isteklerini yükleyebilirsiniz. Sorgu toplu düzeyini göz önünde bulundurulduğunda, sorgu aktarım hızı isteğe hizmet vermek kullanılabilir dizin daha fazla kopyasını olduğunda daha hızlı olacak. Sorgu gecikme yaşıyorsanız performans ek çoğaltmalar çevrimiçi olduktan sonra olumlu bir etkisi bekleyebilirsiniz.
 
-Çoğaltmaları ekledikçe sorgu işleme artar rağmen onu değil tam olarak çift veya hizmetinize çoğaltmaları ekledikçe Üçlü. Sorgu performansına impinge dış etkenler tüm arama uygulamaları tabidir. Karmaşık sorgular ve ağ gecikmesi için değişimler sorgusu yanıt sürelerini katkıda bulunan iki faktörlerdir.
+Çoğaltmaları ekledikçe, sorgu aktarım hızı artar olsa da, bu kesin olmayan bir şekilde çift veya hizmetinize çoğaltmaları ekledikçe Üçlü desteklemez. Sorgu performansı üzerindeki impinge dış faktörler uygulamaları tüm ara tabidir. Karmaşık sorgular ve ağ gecikmesi farklılıklara sorgu yanıt süreleri katkıda bulunan iki faktörlerdir.
 
 ### <a name="add-partitions"></a>Bölüm Ekle
-Çoğu hizmet uygulamaları bölümleri yerine daha fazla çoğaltmaları yerleşik ihtiyacı vardır. Artan belge sayısı gerekli olduğu durumlarda, standart hizmet için kaydolduysanız bölümleri ekleyebilirsiniz. Temel katman, ek bölümler için sağlamaz.
+Çoğu hizmet uygulamaları bölümler yerine daha fazla çoğaltma için yerleşik bir ihtiyacı vardır. Daha fazla belge sayısı gerekli olduğu durumlarda, standart hizmet için kaydolduysanız bölümleri ekleyebilirsiniz. Temel katman, ek bölümler için sağlamaz.
 
-Standart katmanı bölümler 12'ün katları eklenir (özellikle, 1, 2, 3, 4, 6 veya 12). Bu bir parçalama yapıdır. Tüm yüklenebilir 1 bölüme depolanan veya 2, 3, 4, 6 ve 12 bölümleri (bölüm başına tek parça) eşit olarak bölünmüş 12 parça bir dizin oluşturulur.
+Standart katmanında 12'ın katları şeklinde bölümler eklenir (özellikle, 1, 2, 3, 4, 6 veya 12). Bu parçalama bir yapıdır. Dizin, tüm 1 bölüme depolanan veya 2, 3, 4, 6 veya 12 bölüme (bölüm başına tek parça) eşit olarak bölünmüş 12 parçalardaki oluşturulur.
 
-### <a name="remove-replicas"></a>Çoğaltmaları Kaldır
-Sonra nokta yüksek sorgu birimlerin (örneğin, tatil satış üzerinden sonra) arama sorgu yüklerinin normalleştirilmiş sonra çoğaltmaları azaltabilir.
+### <a name="remove-replicas"></a>Yinelemeleri Kaldır
+Sonraki dönemler yüksek sorgu birimlerin (örneğin, tatil satış üzerinden sonra) arama sorgu yüklerini normalleştirilmiş sonra çoğaltmaları azaltabilir.
 
-Bunu yapmak için daha düşük bir sayı geri çoğaltma kaydırıcıyı taşıyın. Yapmanız gereken başka bir adım vardır. Yineleme sayısını azaltmayı veri merkezindeki sanal makineleri siler. Sorgu ve veri alımı işlemlerinizin artık vm'lerinde daha az önce çalışır. Alt sınır bir çoğaltmadır.
+Bunu yapmak için daha düşük bir sayı geri çoğaltma kaydırıcıyı taşıyın. Başka bir adım bulunmanıza gerek yoktur. Çoğaltma sayısını azaltmayı veri merkezindeki sanal makineleri siler. Sorgu ve veri alma işlemlerinizi daha az sanal makinelerinden önce artık çalışmayacak. Alt sınır bir çoğaltmadır.
 
 ### <a name="remove-partitions"></a>Bölümlerini Kaldır
-Çoğaltmalar, hiçbir ek çaba çaba gerektiren kaldırma kullanılmasının aksine, azaltılabilir olandan daha fazla depolama alanı kullanıyorsanız yapmak için bazı iş olabilir. Örneğin, üç bölüm çözümünüz kullanıyorsanız, yeni depolama alanı gerekenden daha az ise downsizing bir veya iki bölüm için bir hata oluşturur. Beklediğiniz gibi seçimlerinizi dizinleri ve belgeler boşaltın ya da geçerli yapılandırmayı korumak için ilişkili bir dizin içinde silmek üzeresiniz.
+Çoğaltmalar, fazladan çaba sarf gerektiren kaldırma kullanılmasının, azaltılabilir çok daha fazla depolama alanı kullanıyorsanız yapmanız için biraz çalışmanız olabilir. Örneğin, üç bölüm çözümünüz kullanıyorsanız, yeni depolama alanı gerekenden daha az ise bir veya iki bölüm downsizing bir hata oluşturur. Bekleyebileceğiniz gibi seçimlerinizi dizinlere veya boşaltın veya geçerli yapılandırmayı korumak için ilişkili bir dizin içindeki belgeler silmek üzeresiniz.
 
-Hangi dizin parça belirli bölümlerinde depolanan belirten algılama yöntemi yoktur. Sahip olduğunuz bölüm sayısı tarafından kullanılabilmesi için bir boyut için depolama alanını azaltmasını gerekir böylece her bölüm yaklaşık 25 GB depolama sağlar. Bir birime geri dönmek istiyorsanız, tüm 12 parça sığması gerekir.
+Hangi dizin parçalar belirli bölümleri üzerinde depolanan söyleyen algılama yöntemi yoktur. Sahip olduğunuz bölüm sayısı tarafından kullanılabilmesi için bir boyut için depolama azaltmak ihtiyacınız olacak şekilde her bölüm yaklaşık 25 GB depolama alanı sağlar. Bir birime geri dönmek istiyorsanız, tüm 12 parçalar sığması gerekir.
 
-Gelecekteki planlamaya yardımcı olmak için depolama denetlemek isteyebilirsiniz (kullanarak [dizin istatistikleri almak](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) ne kadar gerçekten kullandığınız görmek için. 
+Gelecekteki planlamaya yardımcı olmak için depolama denetlemek isteyebilirsiniz (kullanarak [dizin istatistiklerini alma](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) gerçekte ne kadar kullanıldığını görmek için. 
 
 <a id="advanced-deployment"></a>
 
 ## <a name="best-practices-on-scale-and-deployment"></a>Ölçek ve dağıtım üzerinde en iyi yöntemler
-Bu 30 dakikalık videoda, coğrafi olarak dağıtılan iş yükleri de dahil olmak üzere gelişmiş dağıtım senaryoları için en iyi uygulamaları gözden geçirir. Ayrıca bkz [performans ve Azure Search'te iyileştirme](search-performance-optimization.md) aynı noktaları kapak Yardım sayfaları için.
+Bu 30 dakikalık videoda, coğrafi olarak dağıtılmış iş yükleri de dahil, gelişmiş dağıtım senaryoları için en iyi uygulamaları gözden geçirir. Ayrıca bkz [performans ve iyileştirme Azure Search'te](search-performance-optimization.md) aynı noktalarını kapsayan Yardım sayfaları için.
 
 > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
 > 
@@ -126,11 +126,11 @@ Bu 30 dakikalık videoda, coğrafi olarak dağıtılan iş yükleri de dahil olm
 <a id="next-steps"></a>
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Hizmet Yönetimi Kavramları anladığınızda, kullanmayı [PowerShell](search-manage-powershell.md) görevleri otomatik hale getirmek için.
+Hizmet Yönetimi Kavramları anladığınızda, kullanmayı [PowerShell](search-manage-powershell.md) görevlerini otomatikleştirmek için.
 
-Ayrıca gözden geçirme öneririz [performans ve en iyi duruma getirme makale](search-performance-optimization.md).
+Ayrıca incelemeniz önerilir [performans ve iyileştirme makale](search-performance-optimization.md).
 
-Başka bir önceki bölümünde belirtildiği videoyu izlemek için önerilir. Bu bölümde belirtilen teknikleri daha ayrıntılı bilgi sağlar.
+Başka bir önceki bölümde belirtilen video izlemek için önerilir. Bu, bu bölümünde belirtilen yöntemlerden birini daha ayrıntılı bilgi sağlar.
 
 <!--Image references-->
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png

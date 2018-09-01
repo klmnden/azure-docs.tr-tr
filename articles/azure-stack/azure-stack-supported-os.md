@@ -1,6 +1,6 @@
 ---
-title: Azure yığını için desteklenen konuk işletim sistemleri | Microsoft Docs
-description: Bu konuk işletim sistemleri Azure yığın üzerinde kullanılabilir.
+title: Azure Stack için desteklenen konuk işletim sistemleri | Microsoft Docs
+description: Bu konuk işletim sistemleri, Azure Stack üzerinde kullanılabilir.
 services: azure-stack
 documentationcenter: ''
 author: Brenduns
@@ -15,61 +15,61 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: Brenduns
 ms.reviewer: JeffGoldner
-ms.openlocfilehash: 8d9337053c8905886ed4429d64f8ef5b4e2c7d14
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d6e9531edf8915e4b6c2636372b756002fca10fd
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060456"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382408"
 ---
-# <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure yığında desteklenen konuk işletim sistemleri
+# <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack üzerinde desteklenen konuk işletim sistemleri
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 ## <a name="windows"></a>Windows
 
-Azure yığını aşağıdaki tabloda listelenen Windows konuk işletim sistemlerini destekler:
+Azure Stack aşağıdaki tabloda listelenen Windows konuk işletim sistemlerini destekler:
 
-| İşletim sistemi | Açıklama | Market kullanılabilir |
+| İşletim sistemi | Açıklama | Market'te kullanılabilir |
 | --- | --- | --- | --- | --- | --- |
-| Windows Server, sürüm 1709 | 64 bit | Kapsayıcılarla çekirdek |
-| Windows Server 2016 | 64 bit |  Datacenter, veri merkezi çekirdek kapsayıcıları ile veri merkezi |
+| Windows Server 1709 sürümü | 64 bit | Kapsayıcılar ile çekirdek |
+| Windows Server 2016 | 64 bit |  Veri Merkezi, veri merkezi çekirdek kapsayıcılar ile veri merkezi |
 | Windows Server 2012 R2 | 64 bit |  Veri merkezi |
 | Windows Server 2012 | 64 bit |  Veri merkezi |
 | Windows Server 2008 R2 SP1 | 64 bit |  Veri merkezi |
-| Windows Server 2008 SP2 | 64 bit |  Kendi görüntünüzü Getir |
-| Windows 10 *(bkz. Not 1)* | 64-bit, Pro ve Enterprise | Kendi görüntünüzü Getir |
+| Windows Server 2008 SP2 | 64 bit |  Kendi görüntünüzü getirin |
+| Windows 10 *(bkz. Not 1)* | 64-bit, Pro ve Enterprise | Kendi görüntünüzü getirin |
 
-***Not 1:*** *Azure yığında Windows 10 istemci işletim sistemlerini dağıtmak için bilmeniz gereken [Windows kullanıcı başına lisans](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) veya satın alma tam bir çok kullanıcılı barındırma ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).*
+***1. Not:*** *Azure Stack'te Windows 10 istemci işletim sistemlerini dağıtmak için olmalıdır [Windows kullanıcı başına lisans](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) veya tam bir çok Kiracılı barındırma sağlayıcı satın alma ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).*
 
-Market görüntülerini ödeme olarak,-kullanımlı ya da KLG (EA/SPLA) lisans için kullanılabilir. Hem tek bir Azure yığın örneğinde kullanımı desteklenmiyor. Dağıtım sırasında Azure yığın Konuk Aracısı uygun bir sürümünü görüntüye yerleştirir.
+Market görüntüleri,-,-kullandıkça veya KLG (EA/SPLA) lisans için kullanılabilir. Her ikisi de tek bir Azure Stack örneğinde kullanımı desteklenmez. Dağıtım sırasında Azure Stack Konuk Aracısı'nın uygun bir sürüm görüntüye yerleştirir.
 
- Datacenter sürümleri, indirme Market'te; Müşteriler diğer sürümleri de dahil olmak üzere, kendi sunucu görüntülerinin kullanıma sunabilirsiniz. Windows istemci görüntüleri markette kullanılamaz.
+ Datacenter Edition indirme Market; Müşteriler, diğer sürümleri dahil olmak üzere, kendi sunucu görüntülerini getirebilirsiniz. Windows istemci görüntülerini Market'te kullanılamaz.
 
 ## <a name="linux"></a>Linux
 
-Linux dağıtımları markette kullanılabilir olarak listelenen gerekli Windows Azure Linux Aracısı (WALA) içerir. Azure yığınına kendi görüntünüzü getirirseniz, yönergeleri izleyin [Azure yığın ekleme Linux görüntülere](azure-stack-linux.md).
+Linux dağıtımları kullanılabilir olarak Market'te listelenen gerekli Windows Azure Linux Aracısı (WALA) içerir. Azure Stack için kendi görüntünüzü getirin, yönergeleri izleyin. [ekleme Linux görüntüleri için Azure Stack](azure-stack-linux.md).
 
 > [!NOTE]
-> Özel resimler en son ortak WALA sürümüyle oluşturulmalıdır. 2.2.18 eski sürümleri Azure yığın üzerinde düzgün çalışmayabilir.
+> Özel görüntüler, en son genel WALA sürüm ile oluşturulmalıdır. 2.2.18 eski sürümleri, Azure Stack üzerinde düzgün çalışmayabilir.
 >
-> [Bulut init](https://cloud-init.io/) Azure yığın üzerinde şu anda desteklenmiyor.
+> [cloud-init](https://cloud-init.io/) Azure Stack üzerinde şu anda desteklenmiyor.
 
 | Dağıtım | Açıklama | Yayımcı | Market |
 | --- | --- | --- | --- | --- | --- |
-| CentOS tabanlı 6.9 | 64 bit | Yanlış Wave | Evet |
-| 7.4 centOS tabanlı | 64 bit | Yanlış Wave | Evet |
+| CentOS tabanlı 6.9 | 64 bit | Rogue Wave | Evet |
+| CentOS tabanlı 7.4 | 64 bit | Rogue Wave | Evet |
 | ClearLinux | 64 bit | ClearLinux.org | Evet |
-| Kapsayıcı Linux |  64 bit | CoreOS | Dengeli |
+| Linux kapsayıcısı |  64 bit | CoreOS | Dengeli |
 | Debian 8 "Jessie" | 64 bit | credativ |  Evet |
-| Debian 9 "Esnetme" | 64 bit | credativ | Evet |
-| Red Hat Enterprise Linux 7.x | 64 bit | Red Hat |Kendi görüntünüzü Getir |
+| Debian 9 "Uzat" | 64 bit | credativ | Evet |
+| Red Hat Enterprise Linux 7.x | 64 bit | Red Hat |Kendi görüntünüzü getirin |
 | SLES 11SP4 | 64 bit | SUSE | Evet |
 | SLES 12SP3 | 64 bit | SUSE | Evet |
 | Ubuntu 14.04 LTS | 64 bit | Canonical | Evet |
-| Ubuntu 16.04-LTS | 64 bit | Canonical | Evet |
+| Ubuntu 16.04 LTS | 64 bit | Canonical | Evet |
 | Ubuntu 18.04-LTS | 64 bit | Canonical | Evet |
 
-Diğer Linux dağıtımları gelecekte desteklenmiyor olabilir.
+Diğer Linux dağıtımlarına gelecekte desteklenmiyor olabilir.
 
-Red Hat Enterprise Linux destek bilgileri için lütfen [Red Hat ve Azure yığın: sık sorulan sorular](https://access.redhat.com/articles/3413531).
+Red Hat Enterprise Linux destek bilgileri için başvurmak [Red Hat ve Azure Stack: sık sorulan sorular](https://access.redhat.com/articles/3413531).

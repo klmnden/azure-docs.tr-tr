@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a7d62531492695be6ec148c3bf7b9786b2a428cf
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: d5b01566f672309837f738e185820a0f13eda1c1
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247404"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382263"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -112,7 +112,7 @@ CSV sonuçları görüntülemek için:
 ```
 
 ### <a name="system-requirements"></a>Sistem Gereksinimleri
-- Windows Server 2012 R2 veya Windows Server 2016 çalıştıran bir sunucu 
+- Windows Server 2012 R2 veya Windows Server 2016 çalıştıran bir sunucu:
 
     | Sürüm | Desteklenen SKU'ları | Desteklenen dağıtım seçenekleri |
     |---------|----------------|------------------------------|
@@ -121,15 +121,15 @@ CSV sonuçları görüntülemek için:
 
     Windows Server'ın gelecek sürümlerinden yayınlandıkça eklenir. Önceki Windows sürümlerinde, kullanıcı geri bildirimleri temelinde eklenebilir.
 
-- Bir sunucuyla en az 2GB bellek
+    > [!Important]  
+    > Windows Update'ten en son güncelleştirmeleri ile güncel Azure dosya eşitleme ile kullandığınız tüm sunucuları tutulması önerilir. 
+
+- 2 GiB bellek en az bir sunucu.
 
     > [!Important]  
-    > Sunucu, dinamik belleği etkin bir sanal makinede çalışıyorsa, VM ile bir en az 2048 MB bellek yapılandırılması gerekir.
+    > Sunucu, dinamik belleği etkin bir sanal makinede çalışıyorsa, sanal makine bellek ile bir en az 2048 MiB yapılandırılması gerekir.
     
-- NTFS dosya sistemiyle biçimlendirilmiş yerel olarak bağlı bir birim
-
-> [!Important]  
-> Windows Update'ten en son güncelleştirmeleri ile güncel Azure dosya eşitleme ile kullandığınız tüm sunucuları tutulması önerilir. 
+- Yerel olarak bağlı bir birim NTFS dosya sistemiyle biçimlendirilmiş.
 
 ### <a name="file-system-features"></a>Dosya sistemi özellikleri
 | Özellik | Destek durumu | Notlar |

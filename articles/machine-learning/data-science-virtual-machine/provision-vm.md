@@ -11,14 +11,14 @@ ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: f0fe2bde039cd209514d0cbc4842b20cd4b5fb99
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: b01ef3701ffb46da57c52e5fe73828ec4252b074
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444051"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344769"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Azure üzerinde Windows veri bilimi sanal makinesi sağlama
 Microsoft Veri bilimi sanal makinesi (DSVM), bir Windows Azure sanal makine (VM) görüntüsüdür. Bu önceden yüklenmiş ve veri analizi ve makine öğrenimi için kullanılan çeşitli araçlar ile yapılandırılmış. Aşağıdaki araçları dahil edilir:
@@ -66,7 +66,7 @@ Bir Microsoft Veri bilimi sanal makinesi oluşturmak için bir Azure aboneliğin
 ## <a name="create-your-microsoft-data-science-virtual-machine"></a>Microsoft Veri bilimi sanal makinenizi oluşturma
 Bir örneği, Microsoft Veri bilimi sanal makinesi oluşturmak için aşağıdaki adımları izleyin:
 
-1. Sanal makine üzerinde listeleme gidin [Azure portalında](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016).
+1. Sanal makine üzerinde listeleme gidin [Azure portalında](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016). Zaten oturum değil, Azure hesabınızda oturum açmanız istenebilir.
 1. Seçin **Oluştur** Sihirbazı'na alınması için alt kısımdaki düğmesi.
 
   ![Yapılandırma-data-bilimi-vm](./media/provision-vm/configure-data-science-virtual-machine.png) 

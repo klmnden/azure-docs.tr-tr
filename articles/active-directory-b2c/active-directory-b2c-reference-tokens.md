@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 46e4956aa145aa082de86191ede4adaf9a43fca9
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 5ff4ddee3d8af15caf082be56a51b1aa0d36f02a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309035"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339986"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Belirteç başvurusu
 
@@ -34,7 +34,7 @@ Taşıyıcı belirteçleri üzerinde ek güvenlik konuları için bkz. [RFC 6750
 
 Azure AD B2C sorunları belirteçleri birçoğu, JSON web belirteçleri (Jwt'ler) uygulanır. JWT'nin, iki taraf arasında bilgi aktarma compact, URL güvenli bir yoludur. Jwt'ler talepler olarak bilinen bilgileri içerir. Onaylar taşıyıcı hakkında bilgilerin ve belirtecin konu şunlardır. Jwt'ler Taleplerde kodlanmış ve aktarım için seri hale getirilmiş JSON nesneleridir. Azure AD B2C tarafından verilen Jwt'ler imzalanmış ancak şifreli olduğundan, kolayca hata ayıklamak için bir JWT içeriğini inceleyebilirsiniz. Çeşitli araçlar mevcuttur, bunu yapabilirsiniz, dahil olmak üzere [jwt.ms](https://jwt.ms). Jwt'ler hakkında daha fazla bilgi için [JWT belirtimleri](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
-### <a name="id-tokens"></a>Kimliği belirteçleri
+### <a name="id-tokens"></a>Kimlik belirteçleri
 
 Bir kimlik belirteci, uygulamanızı Azure AD B2C'den aldığı güvenlik belirteci biçimindedir `/authorize` ve `/token` uç noktaları. Kimlik belirteçlerini olarak temsil edilir [Jwt'ler](#types-of-tokens), uygulamanızda kullanıcıları tanımlamak için kullanabileceğiniz talepleri içerir. Ne zaman kimlik belirteçlerini alınan gelen `/authorize` uç nokta, bunların yapılır kullanarak [örtük akış](active-directory-b2c-reference-spa.md), tabanlı web uygulamaları, genellikle oturum için javascript kullanıcıları için kullanılır. Ne zaman kimlik belirteçlerini alınan gelen `/token` uç nokta, bunların yapılır kullanarak [gizli kod akışını](active-directory-b2c-reference-oidc.md), belirteç tarayıcıdan gizli tutar. Bu, aynı uygulama veya hizmetin iki bileşenleri arasındaki iletişim için HTTP isteklerinde güvenli bir şekilde gönderilmesi için belirteci sağlar. Gördüğünüz gibi bir kimlik belirtecinde talep kullanabilirsiniz. Hesap bilgilerini görüntülemek veya erişim denetimi kararları bir uygulama için yaygın olarak kullanılır.  
 
@@ -73,7 +73,7 @@ Kimliği belirteçlere talep herhangi belirli bir sırada döndürülmediğini u
 | Ad | İste | Örnek değer | Açıklama |
 | --- | --- | --- | --- |
 | Hedef kitle |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Bir izleyici talep belirtecinin hedeflenen alıcı tanımlar. Azure AD B2C için hedef kitle, uygulamanızın uygulama kimliği, uygulama kayıt portalında uygulamanıza atanan aynıdır. Uygulamanız, bu değeri doğrulamak ve eşleşmiyorsa, belirteci reddetme. Hedef kitle kaynak ile eşanlamlıdır. |
-| Sertifikayı Veren |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Bu talep, belirteci oluşturur ve güvenlik belirteci hizmeti (STS) tanımlar. Ayrıca, kullanıcı kimlik doğrulamasının yapıldığı Azure AD dizini tanımlar. Verenin talep, belirteci Azure Active Directory v2.0 uç noktasından gelen emin olmak için uygulamanızı doğrulamalıdır. |
+| Sertifikayı Veren |`iss` |`https://{tenantname}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Bu talep, belirteci oluşturur ve güvenlik belirteci hizmeti (STS) tanımlar. Ayrıca, kullanıcı kimlik doğrulamasının yapıldığı Azure AD dizini tanımlar. Verenin talep, belirteci Azure Active Directory v2.0 uç noktasından gelen emin olmak için uygulamanızı doğrulamalıdır. |
 | Çıkışı |`iat` |`1438535543` |Bu talep, belirteci, dönem saatle gösterilir düzenlendiği saattir. |
 | Sona erme zamanı |`exp` |`1438539443` |Dönem zamanı temsil talep, belirteci geçersiz hale geldiği tarih sona erme saati. Uygulamanız bu talep belirteci ömrü geçerliliğini doğrulamak için kullanmanız gerekir. |
 | Öncesine değil |`nbf` |`1438535543` |Bu talep, belirteci olur geçerli, dönem zamanı gösterilen zamandır. Bu genellikle belirtecin verilmiş süresiyle aynıdır. Uygulamanız bu talep belirteci ömrü geçerliliğini doğrulamak için kullanmanız gerekir. |
@@ -120,7 +120,7 @@ Herhangi bir zamanda Azure AD belirli bir dizi ortak-özel anahtar çifti herhan
 Azure AD B2C'yi bir Openıd Connect meta veri uç noktası vardır. Bu, çalışma zamanında Azure AD B2C hakkında bilgi almak uygulamalar sağlar. Bu bilgiler, uç noktaları, belirteç içeriği ve belirteç imzalama anahtarı içerir. B2C dizininizi her ilke için bir JSON meta verileri belgesi içerir. Örneğin, meta veri belgesi için `b2c_1_sign_in` ilkesinde `fabrikamb2c.onmicrosoft.com` şu konumdadır:
 
 ```
-https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
 ```
 
 `fabrikamb2c.onmicrosoft.com` Geçerli kullanıcının kimliğini doğrulamak için kullanılan bir B2C dizin ve `b2c_1_sign_in` belirteci almak için kullanılan ilke. İlkeyi bir belirteç imzalamak için kullanılan (ve meta verilerini getirmek için yapılması gerekenler) belirlemek için iki seçeneğiniz vardır. İlk olarak, ilke adı dahil `acr` belirtecinde talep. Gövde çözme ve sonuçları bir JSON dizesini seri durumdan çıkarılırken 64 tabanlı tarafından talep JWT gövdesinin dışında ayrıştırabilirsiniz. `acr` Talep, belirteci vermek için kullanılan ilke adı olacaktır.  Kullanabileceğiniz diğer seçenek değerini ilkesinde şifrelemektir `state` isteği ve hangi ilke kullanılan belirlemek için kod çözme parametresi. Her iki yöntem geçerli değil.
@@ -128,7 +128,7 @@ https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/o
 Meta veri belgesi birçok yararlı bilgi parçalarını içeren bir JSON nesnesidir. Bunlar, Openıd Connect kimlik doğrulaması gerçekleştirmek için gerekli uç noktaları konumunu içerir. Ayrıca içerirler `jwks_uri`, ortak anahtar kümesini konumunu, sağlayan Belirteçleri imzalamak için kullanılır. Konumu buraya sağlanır, ancak konum meta veri belgesi kullanarak ve kullanıma ayrıştırma dinamik olarak getirilemedi. en iyi `jwks_uri`:
 
 ```
-https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in
 ```
 
 JSON belgesini bu URL'de bulunan tüm ortak anahtar bilgilerini belirli bir anda kullanımda içerir. Uygulamanız kullanabilir `kid` belirli bir belirteç imzalamak için kullanılan JSON belgesinde ortak anahtarı seçmek için JWT üst bilgisindeki talep. Doğru ortak anahtarı ve belirtilen algoritması kullanarak onu imza doğrulaması daha sonra gerçekleştirebilirsiniz.
@@ -150,7 +150,7 @@ Daha fazla bilgi için aşağıdaki belirteç ömrünü sağlanır. Geliştirme 
 
 | Belirteç | Yaşam süresi | Açıklama |
 | --- | --- | --- |
-| Kimliği belirteçleri |Bir saat |Kimlik belirteçleri için bir saat genellikle geçerlidir. Web uygulamanız bu yaşam süresi (önerilen) kullanıcılarla kendi oturumları korumak için kullanabilirsiniz. Farklı oturum ömrünü de seçebilirsiniz. Yeni bir kimlik belirteci almak uygulamanız gerekiyorsa, yalnızca Azure AD ile yeni bir oturum açma isteği yapması gerekiyor. Bir kullanıcının Azure AD ile bir geçerli tarayıcı oturumunu varsa, bu kullanıcının kimlik bilgileri yeniden girmek için gerekli olabilir değil. |
+| Kimlik belirteçleri |Bir saat |Kimlik belirteçleri için bir saat genellikle geçerlidir. Web uygulamanız bu yaşam süresi (önerilen) kullanıcılarla kendi oturumları korumak için kullanabilirsiniz. Farklı oturum ömrünü de seçebilirsiniz. Yeni bir kimlik belirteci almak uygulamanız gerekiyorsa, yalnızca Azure AD ile yeni bir oturum açma isteği yapması gerekiyor. Bir kullanıcının Azure AD ile bir geçerli tarayıcı oturumunu varsa, bu kullanıcının kimlik bilgileri yeniden girmek için gerekli olabilir değil. |
 | Yenileme belirteçlerini |En fazla 14 gün |En fazla 14 gün için geçerli bir tek bir yenileme belirtecidir. Ancak, bir yenileme belirteci için bir dizi nedenden herhangi bir zamanda geçersiz hale gelebilir. Uygulamanızı kadar istek başarısız olur ya da uygulamanız ile yeni bir yenileme belirteci değiştirir kadar bir yenileme belirteci kullanmayı denemeye devam etmelidir. Bir yenileme belirteci ayrıca kullanıcının son girilen kimlik bilgileri bu yana 90 gün geçtiğinde, geçersiz hale gelebilir. |
 | Yetkilendirme kodları |Beş dakika |Yetkilendirme kodları kasıtlı olarak ömürlüdür. Alındığında bunlar hemen erişim belirteçleri, kimlik belirteçlerini veya yenileme belirteçleri kuponları. |
 

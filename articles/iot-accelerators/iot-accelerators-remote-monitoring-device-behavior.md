@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5c05f2617025d5cb4f1328f04c8d71049e1efcc7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: a983c7307308534140ab8999593ac4c8c6992a42
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284784"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338515"
 ---
 # <a name="implement-the-device-model-behavior"></a>Cihaz modeli davranışlarını uygulayın
 
@@ -41,7 +41,7 @@ Bu makale, kendi özel sanal cihaz modeli davranışlarını tanımlamak açıkl
 > * Bir sanal cihaz için bir yöntem çağrısının Uzaktan izleme çözümü nasıl yanıt tanımlama
 > * Komut dosyalarınızı hata ayıklama
 
-Bir sanal cihaz davranışını belirtmek öğrendiniz, önerilen sonraki adıma öğrenmektir nasıl [bir simülasyon cihazı oluşturma](iot-accelerators-remote-monitoring-test.md).
+Bir sanal cihaz davranışını belirtmek öğrendiniz, önerilen sonraki adıma öğrenmektir nasıl [bir simülasyon cihazı oluşturma](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 Uzaktan izleme çözümü hakkında daha fazla Geliştirici bilgi için bkz:
 

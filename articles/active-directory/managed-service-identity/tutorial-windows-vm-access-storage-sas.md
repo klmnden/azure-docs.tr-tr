@@ -1,6 +1,6 @@
 ---
-title: Bir SAS kimlik bilgisi kullanarak Azure Depolama'ya erişmek için bir Windows VM'ye yönetilen kimliği kullanma
-description: Azure depolama, depolama hesabı erişim anahtarı yerine SAS kimlik bilgisi kullanarak erişmek için bir Windows VM yönetilen hizmet kimliği kullanmayı gösteren öğretici.
+title: Bir SAS kimlik bilgisi kullanarak Azure Depolama'ya erişmek için bir Windows VM sistem tarafından atanan yönetilen kimliği kullanma
+description: Yönetilen bir depolama hesabı erişim anahtarı yerine SAS kimlik bilgisi kullanarak Azure depolamaya erişmek için kimliği bir Windows VM sistem tarafından atanan kullanmayı gösteren öğretici.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 7f6049e874f329c1e3a4f72417dd9a7eebc42628
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 7120e7356816fd5308aa7189f90176143742e342
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887072"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340723"
 ---
-# <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Öğretici: Azure depolama bir SAS kimlik bilgisi erişmek için bir Windows VM yönetilen hizmet kimliği kullanın.
+# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Öğretici: Azure depolama bir SAS kimlik bilgisi erişmek için bir Windows VM sistem tarafından atanan yönetilen kimliği kullanma
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -44,12 +44,12 @@ Hizmet SAS, bir hesap erişim anahtarına sokmadan sınırlı süre için bir de
 
 - [Bir Windows sanal makinesi oluşturun](/azure/virtual-machines/windows/quick-create-portal)
 
-- [Atanan kimliği sanal makinenizde Sistemi'ni etkinleştir](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
+- [Sistem tarafından atanan kimlik sanal makinenizde etkinleştir](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma 
 
-Henüz bir depolama hesabınız yoksa, şimdi oluşturacaksınız. Ayrıca, bu adımı atlayıp mevcut bir depolama hesabı SAS kimlik bilgisi, VM yönetilen hizmet kimliği erişim. 
+Henüz bir depolama hesabınız yoksa, şimdi oluşturacaksınız. Ayrıca, bu adımı atlayıp mevcut bir depolama hesabı SAS kimlik bilgisi için sanal makinenizin yönetilen kimlik sistem tarafından atanan erişim. 
 
 1. Azure portalın sol üst köşesinde bulunan **+/Yeni hizmet oluştur** düğmesine tıklayın.
 2. **Depolama**'ya ve **Depolama Hesabı**'na tıklayın; yeni bir "Depolama hesabı oluştur" paneli görüntülenir.
@@ -71,9 +71,9 @@ Daha sonra yeni depolama hesabına dosya yükleyecek ve indireceğiz. Dosyalar i
 
     ![Depolama kapsayıcısı oluşturma](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-managed-service-identity-access-to-use-a-storage-sas"></a>Depolama SAS kullanmak için VM'nize Yönetilen Hizmet Kimliği erişimi verme 
+## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-a-storage-sas"></a>Bir SAS depolama kullanmak için sanal makinenin yönetilen kimlik sistem tarafından atanan erişim 
 
-Azure Depolama Azure AD kimlik doğrulamayı yerel olarak desteklemez.  Ancak, Kaynak Yöneticisi'nden depolama SAS almak için bir yönetilen hizmet Kimliği'ni kullanın sonra depolamaya erişmek için SAS'ı kullanın.  Bu adımda, VM Yönetilen Hizmet Kimliğinize depolama hesabının SAS bilgileri için erişim verirsiniz.   
+Azure Depolama Azure AD kimlik doğrulamayı yerel olarak desteklemez.  Ancak, Kaynak Yöneticisi'nden depolama SAS almak için yönetilen bir kimlik kullanın. ardından depolamaya erişmek için SAS'ı kullanın.  Bu adımda, depolama hesabınıza SAS sanal makinenin yönetilen kimlik sistem tarafından atanan erişim verin.   
 
 1. Yeni oluşturulan depolama hesabınıza geri gidin.   
 2. Sol bölmedeki **Erişim denetimi (IAM)** bağlantısına tıklayın.  
@@ -94,7 +94,7 @@ Bu bölümde Azure Resource Manager PowerShell cmdlet’lerini kullanmanız gere
 1. Azure portalında **Sanal Makineler**'e gidin, Windows sanal makinenize gidin ve ardından **Genel Bakış** sayfasında üst kısımdaki **Bağlan**'a tıklayın.
 2. Windows VM'sini oluştururken eklendiğiniz hesabın **Kullanıcı adı** ve **Parola** değerlerini girin. 
 3. Artık sanal makineyle **Uzak Masaüstü Bağlantısı**'nı oluşturduğunuza göre, uzak oturumda PowerShell'i açın. 
-4. PowerShell’in Invoke-WebRequest komutunu kullanarak, yerel Yönetilen Hizmet Kimliği uç noktasına Azure Resource Manager için erişim belirteci alma isteğinde bulunun.
+4. PowerShell'in Invoke-WebRequest kullanarak, Azure Resource Manager için bir erişim belirteci almak Azure kaynaklarını uç noktası için yönetilen yerel kimliği için istekte bulunmak.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
@@ -208,7 +208,7 @@ Name              : testblob
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir SAS kimlik bilgisi kullanarak Azure Depolama'ya erişmek için Yönetilen hizmet kimliği oluşturma öğrendiniz.  Azure Depolama SAS hakkında daha fazla bilgi edinmek için bkz:
+Bu öğreticide, bir Windows sanal makinenin yönetilen kimlik sistem tarafından atanan bir SAS kimlik bilgisi kullanarak Azure Depolama'ya erişmek için nasıl kullanılacağını öğrendiniz.  Azure Depolama SAS hakkında daha fazla bilgi edinmek için bkz:
 
 > [!div class="nextstepaction"]
 >[Paylaşılan erişim imzaları (SAS) kullanma](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)

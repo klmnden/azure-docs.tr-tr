@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 08/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4e23b70c8dc5fdacfd609fb4664a78293b9e2362
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 78956c8e9d9248708ec326fc07d46f48e51e0f83
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247654"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341269"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>IOT hub'ınızdaki kimlik kayıt defterinde anlama
 
@@ -85,12 +85,12 @@ Belirli bir IOT çözüm depolar cihaz verilerini bu çözüm belirli gereksinim
 
 ## <a name="device-heartbeat"></a>Cihaz sistem durumu
 
-IOT Hub kimlik kayıt defteri adlı bir alanı içeren **connectionState**. Yalnızca **connectionState** geliştirme ve hata ayıklama sırasında alan. IOT çözümleri çalışma zamanında sorgu alanı değil. Örneğin, değil sorgu **connectionState** bulut-cihaz iletisi veya SMS göndermeden önce bir aygıt bağlı olup olmadığını denetlemek için alan. Abone öneririz [ **cihaz bağlantısı kesildi** olay](https://docs.microsoft.com/azure/iot-hub/iot-hub-event-grid#event-types) uyarılar alın ve cihaz bağlantı durumunu izlemek için Event Grid hakkında. Bunu kullanın [öğretici](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps) IOT çözümünüzü IOT Hub'ından olayları tümleştirme hakkında bilgi edinmek için.
+IOT Hub kimlik kayıt defteri adlı bir alanı içeren **connectionState**. Yalnızca **connectionState** geliştirme ve hata ayıklama sırasında alan. IOT çözümleri çalışma zamanında sorgu alanı değil. Örneğin, değil sorgu **connectionState** bulut-cihaz iletisi veya SMS göndermeden önce bir aygıt bağlı olup olmadığını denetlemek için alan. Abone öneririz [ **cihaz bağlantısı kesildi** olay] [ lnk-devguide-evgrid-evtype] uyarılar alın ve cihaz bağlantı durumunu izlemek için Event Grid hakkında. Bunu kullanın [öğretici] [ lnk-howto-evgrid-connstate] IOT hub'dan cihaz bağlı ve cihazın bağlantısı olayları IOT çözümünüzü tümleştirme hakkında bilgi edinmek için.
 
 IOT çözümünüzün bir cihaz bağlıysa, uygulayabilirsiniz bilmeniz gerekiyorsa *sinyal deseni*.
 Sinyal desende cihaz her zaman (örneğin, saatte en az bir kez) en az bir kez sabit miktarda CİHAZDAN buluta iletiler gönderir. Bu nedenle, bir cihazda göndermek için herhangi bir veri yok olsa bile, yine de (genellikle bir sinyal tanımlayan bir özelliği) ile boş bir CİHAZDAN buluta ileti gönderir. Hizmet tarafında, çözüm ile her cihaz için alınan son sinyal bir harita tutar. Çözüm CİHAZDAN beklenen süre içinde bir sinyal ileti almazsa, cihaz ile ilgili bir sorun olduğunu varsayar.
 
-Daha karmaşık bir uygulama bilgileri içerebilir [işlem izleme] [ lnk-devguide-opmon] bağlanmak veya iletişim kurmak çalışıyor ancak başarısız olan cihazlar tanımlamak için. Sinyal desenini uyguladığınızda, denetlediğinizden emin olun [IOT Hub kotaları ve kısıtlamaları][lnk-quotas].
+Daha karmaşık bir uygulama bilgileri içerebilir [Azure İzleyici] [ lnk-AM] ve [Azure kaynak durumu] [ lnk-ARH] tanımlamak için bağlanın veya iletişim kurmasına başarısız, denetlemek istediğiniz cihaz [Tanılama ile izleme] [ lnk-devguide-mon] Kılavuzu. Sinyal desenini uyguladığınızda, denetlediğinizden emin olun [IOT Hub kotaları ve kısıtlamaları][lnk-quotas].
 
 > [!NOTE]
 > Yalnızca bulut-cihaz iletilerini göndermek belirlemek için bağlantı durumu bir IOT çözümünü kullanır ve iletileri olmayan cihazların büyük kümelerine yayın basit kullanmayı *kısa süre sonu* deseni. Bu düzen daha verimli olmanın yanı sıra sinyal deseni kullanarak cihaz bağlantı durumu kayıt defteri koruma aynı sonucu elde eder. İleti onayları istek, IOT Hub hakkında hangi cihazların ileti alabilen hangilerinin bildirimde bulunabilir.
@@ -256,7 +256,7 @@ IOT Hub cihazı sağlama hizmeti kullanarak müdahalesi gerektirmeyen, tam zaman
 [lnk-rfc7232]: https://tools.ietf.org/html/rfc7232
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-export]: iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-[lnk-devguide-opmon]: iot-hub-operations-monitoring.md
+[lnk-devguide-mon]: iot-hub-monitor-resource-health.md
 
 [lnk-devguide-security]: iot-hub-devguide-security.md
 [lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
@@ -265,3 +265,8 @@ IOT Hub cihazı sağlama hizmeti kullanarak müdahalesi gerektirmeyen, tam zaman
 
 [lnk-getstarted-tutorial]: quickstart-send-telemetry-dotnet.md
 [lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
+
+[lnk-AM]: ../monitoring-and-diagnostics/index.yml
+[lnk-ARH]: ../service-health/resource-health-overview.md
+[lnk-devguide-evgrid-evtype]: iot-hub-event-grid.md#event-types
+[lnk-howto-evgrid-connstate]: iot-hub-how-to-order-connection-state-events.md

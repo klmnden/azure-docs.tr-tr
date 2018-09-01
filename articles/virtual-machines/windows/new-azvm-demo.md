@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: ede8fab67c04eb7ce8d26280de2d1563b6cc8ad2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: defc871caed429eeda1f8672323b48a9c0007c8e
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38678749"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371746"
 ---
 # <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>Cloud shell'de Basitleştirilmiş New-AzureRMVM cmdlet'i ile Windows sanal makine oluşturma 
 
-[New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) cmdlet'i, PowerShell kullanarak yeni bir VM oluşturmak için parametreler basitleştirilmiş bir dizi ekledi. Bu konuda, PowerShell'in Azure Cloud Shell'de önceden yeni bir VM oluşturmak için New-AzureVM cmdlet'ini en son sürümü ile nasıl kullanılacağı gösterilmektedir. Otomatik olarak akıllı varsayılanları kullanarak tüm gerekli kaynakları oluşturan Basitleştirilmiş parametre kümesi kullanacağız. 
+[New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm?view=azurermps-6.8.1) cmdlet'i, PowerShell kullanarak yeni bir VM oluşturmak için parametreler basitleştirilmiş bir dizi ekledi. Bu konuda, PowerShell'in Azure Cloud Shell'de önceden yeni bir VM oluşturmak için New-AzureVM cmdlet'ini en son sürümü ile nasıl kullanılacağı gösterilmektedir. Otomatik olarak akıllı varsayılanları kullanarak tüm gerekli kaynakları oluşturan Basitleştirilmiş parametre kümesi kullanacağız. 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -36,7 +36,7 @@ PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, 
 
 ## <a name="create-the-vm"></a>Sanal makine oluşturma
 
-Kullanabileceğiniz [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) dahil Azure Market'te Windows Server 2016 Datacenter görüntüsü kullanarak akıllı varsayılanlar ile bir VM oluşturmak için cmdlet'i. New-AzureRMVM ile kullanabileceğiniz yalnızca **-adı** parametresi ve kullanacağınız değeri tüm kaynak adları için. Bu örnekte, **-Name** parametresini *myVM* olarak ayarlayacağız. 
+Kullanabileceğiniz [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm?view=azurermps-6.8.1) dahil Azure Market'te Windows Server 2016 Datacenter görüntüsü kullanarak akıllı varsayılanlar ile bir VM oluşturmak için cmdlet'i. New-AzureRMVM ile kullanabileceğiniz yalnızca **-adı** parametresi ve kullanacağınız değeri tüm kaynak adları için. Bu örnekte, **-Name** parametresini *myVM* olarak ayarlayacağız. 
 
 Cloud Shell’de **PowerShell**’in seçili olduğundan emin olun ve aşağıdakileri yazın:
 

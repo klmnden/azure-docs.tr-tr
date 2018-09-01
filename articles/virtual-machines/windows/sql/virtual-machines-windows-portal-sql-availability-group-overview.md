@@ -1,6 +1,6 @@
 ---
-title: SQL Server kullanılabilirlik gruplarını - Azure sanal makineleri - genel bakış | Microsoft Docs
-description: Bu makalede, Azure sanal makinelerde SQL Server kullanılabilirlik gruplarını tanıtılır.
+title: SQL Server kullanılabilirlik gruplarını - Azure sanal makineler - genel bakış | Microsoft Docs
+description: Bu makalede, Azure sanal makinelerinde SQL Server kullanılabilirlik gruplarını tanıtılmaktadır.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -15,39 +15,39 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
-ms.openlocfilehash: 4a531fb87d9cd2743138ba7a027bdf0d132b9747
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b71ba12f6c533d67b04366f05b9334e1993823fa
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29396440"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382037"
 ---
-# <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>SQL Server Always On kullanılabilirlik grupları'Azure sanal makinelerde Tanıtımı #
+# <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>SQL Server Always On kullanılabilirlik grupları'Azure sanal makinelerinde ile tanışın #
 
-Bu makalede, SQL Server kullanılabilirlik gruplarını Azure sanal makineler üzerinde tanıtılır. 
+Bu makalede, SQL Server kullanılabilirlik gruplarını Azure sanal Makineler'de tanıtılmaktadır. 
 
-Always On kullanılabilirlik grupları Azure sanal makineler üzerinde Always On kullanılabilirlik grupları şirket içi benzerdir. Daha fazla bilgi için bkz: [Always On kullanılabilirlik grupları (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx). 
+Always On kullanılabilirlik gruplarının Azure sanal makinelerinde Always On kullanılabilirlik grupları şirket içi benzerdir. Daha fazla bilgi için [Always On kullanılabilirlik grupları (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx). 
 
-Diyagram tam SQL Server kullanılabilirlik grubu Azure Virtual Machines'de parçalarını gösterir.
+Diyagram, tam SQL Server kullanılabilirlik grubu Azure sanal Makineler'de parçalarını gösterir.
 
 ![Kullanılabilirlik grubu](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-En önemli fark, Azure sanal makineleri bir kullanılabilirlik grubu için Azure sanal makinelerini gerekmesidir bir [yük dengeleyici](../../../load-balancer/load-balancer-overview.md). Yük Dengeleyici için kullanılabilirlik grubu dinleyici IP adreslerini tutar. Birden çok kullanılabilirlik grubu varsa, her grubun bir dinleyici gerektirir. Bir yük dengeleyici birden çok dinleyici destekleyebilir.
+Anahtar kullanılabilirlik grubu için Azure sanal Makineler'de Azure sanal makinelerini gerektiğini fark bir [yük dengeleyici](../../../load-balancer/load-balancer-overview.md). Yük dengeleyicinin IP adresleri için kullanılabilirlik grubu dinleyicisi tutar. Birden fazla kullanılabilirlik grubu varsa, her grubun bir dinleyici gerektirir. Bir yük dengeleyici birden çok dinleyici destekleyebilir.
 
-Azure Virtual Machines'de SQL Server kullanılabilirlik aroup oluşturmak hazır olduğunuzda bu öğreticileri bakın.
+Azure sanal Makineler'de SQL Server kullanılabilirlik grubu oluşturmak hazır olduğunuzda, aşağıdaki öğreticilere bakın.
 
 ## <a name="automatically-create-an-availability-group-from-a-template"></a>Otomatik olarak bir şablondan bir kullanılabilirlik grubu oluşturun
 
-[Always On kullanılabilirlik grubu Azure VM'de otomatik olarak - Resource Manager yapılandırın.](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+[Always On kullanılabilirlik grubu Azure VM'de otomatik olarak - Kaynak Yöneticisi'ni yapılandırma.](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 
-## <a name="manually-create-an-availability-group-in-azure-portal"></a>Azure portalında bir kullanılabilirlik grubu el ile oluşturma
+## <a name="manually-create-an-availability-group-in-azure-portal"></a>Azure portalını kullanarak bir kullanılabilirlik grubuna el ile oluşturma
 
-Sanal makineleri kendiniz olmadan şablon oluşturabilirsiniz. İlk olarak, önkoşulları tamamlamanız sonra kullanılabilirlik grubu oluşturun. Aşağıdaki konulara bakın: 
+Sanal makineleri kendiniz şablonu oluşturabilirsiniz. İlk olarak, önkoşulları tamamlayın ve ardından kullanılabilirlik grubunu oluşturun. Aşağıdaki konulara bakın: 
 
-- [Azure Virtual Machines'de SQL Server Always On kullanılabilirlik grupları için önkoşulları yapılandırma](virtual-machines-windows-portal-sql-availability-group-prereq.md)
+- [Azure sanal Makineler'de SQL Server Always On kullanılabilirlik grupları önkoşullarını yapılandırın](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 
-- [Her zaman üzerinde kullanılabilirlik kullanılabilirlik ve olağanüstü durum kurtarma artırmak için grubu oluştur](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+- [Her zaman üzerinde kullanılabilirlik kullanılabilirlik ve olağanüstü durum kurtarma geliştirmek için grubu oluştur](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bir SQL Server kullanılabilirlik grubu de farklı bölgelerdeki Azure sanal makinelerde her zaman yapılandırmasına](virtual-machines-windows-portal-sql-availability-group-dr.md).
+[Bir SQL Server Always On'u farklı bölgelerdeki Azure sanal makinelerinde kullanılabilirlik grubu yapılandırma](virtual-machines-windows-portal-sql-availability-group-dr.md).

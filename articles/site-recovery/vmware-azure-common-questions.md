@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 07/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: e8d30ae6cde7c787f1aa950506e0eb74bac0c12d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: fe20cae4c316462e3af3f0a5e7e6052f6ba5719d
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238817"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344432"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
@@ -45,7 +45,7 @@ Bir abonelik yöneticisi değilseniz, ihtiyaç duyduğunuz çoğaltma izinleri s
 
 
 
-## <a name="on-premises"></a>Şirket içi 
+## <a name="on-premises"></a>Şirket içi
 
 ### <a name="what-do-i-need-on-premises"></a>Ne şirket içi gerekiyor?
 Şirket içi Site Recovery bileşenleri, tek bir VMware VM'de yüklü gerekir. En az bir ESXi konağı ile de bir VMware altyapısı gerekir ve bir vCenter sunucusu önerilir. Ayrıca, çoğaltma için bir veya daha fazla VMware Vm'lerini gerekir. [Daha fazla bilgi edinin](vmware-azure-architecture.md) VMware-Azure arası mimari hakkında.
@@ -72,7 +72,7 @@ Evet, ExpressRoute Vm'lerini Azure'a çoğaltma için kullanılabilir. Site Reco
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>VPN üzerinden neden çoğaltma yapamaz?
 
-Azure'a çoğalttığınızda, çoğaltma trafiği ortak uç noktalar Azure depolama hesabının ulaştığında, bu nedenle, yalnızca ExpressRoute (genel eşdüzey hizmet sağlama) ile genel internet üzerinden çoğaltma yapabilirsiniz ve VPN çalışmaz. 
+Azure'a çoğalttığınızda, çoğaltma trafiği ortak uç noktalar Azure depolama hesabının ulaştığında, bu nedenle, yalnızca ExpressRoute (genel eşdüzey hizmet sağlama) ile genel internet üzerinden çoğaltma yapabilirsiniz ve VPN çalışmaz.
 
 
 
@@ -90,7 +90,7 @@ Genişletilmiş veya zincir çoğaltma desteklenmez. Bu özelliği isteği [geri
 Bu özellik desteklenmez. Bu özelliği isteği [geri bildirim Forumu](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-disks"></a>Diskleri çoğaltmanın dışında tutabilirsiniz?
-Evet, diskleri çoğaltmadan hariç tutabilirsiniz. 
+Evet, diskleri çoğaltmadan hariç tutabilirsiniz.
 
 ### <a name="can-i-replicate-vms-with-dynamic-disks"></a>Sanal makineleri dinamik disklerle çoğaltabilir miyim?
 Dinamik diskler çoğaltılabilir. İşletim sistemi diskinin bir temel disk olması gerekir.
@@ -105,7 +105,7 @@ Azure'a VMware çoğaltma için disk boyutunu değiştirebilirsiniz. Yeni diskle
 ## <a name="configuration-server"></a>Yapılandırma sunucusu
 
 ### <a name="what-does-the-configuration-server-do"></a>Yapılandırma sunucusu ne yapar?
-Yapılandırma sunucusu da dahil olmak üzere, Site Recovery bileşenlerini şirket içi çalıştırır: 
+Yapılandırma sunucusu da dahil olmak üzere, Site Recovery bileşenlerini şirket içi çalıştırır:
 - Şirket içi ile Azure arasındaki iletişimi düzenler ve veri çoğaltma işlemlerini yönetir yapılandırma sunucusu.
 - İşlem sunucusu çoğaltma ağ geçidi davranır. Bu çoğaltma verilerini alıp; Bu, önbelleğe alma, sıkıştırma ve şifreleme ile iyileştirir; ve Azure depolama., işlem sunucusu ayrıca Mobility hizmetini şirket içi VMware Vm'lerini otomatik olarak bulunmasını gerçekleştirir ve çoğaltmak istediğiniz Vm'lere yükler gönderir.
 - Ana hedef sunucu azure'dan yeniden çalışma sırasında çoğaltma verilerini işler.
@@ -118,13 +118,13 @@ Yapılandırma sunucusu da dahil olmak üzere, Site Recovery bileşenlerini şir
 Gözden geçirme [önkoşulları](vmware-azure-deploy-configuration-server.md#prerequisites).
 
 ### <a name="can-i-manually-set-up-the-configuration-server-instead-of-using-a-template"></a>El ile bir şablonu kullanmak yerine yapılandırma sunucusunu ayarlayabilirim?
-OVF şablonu için en son sürümünü kullanmanızı öneririz [yapılandırma sunucusu VM'si oluşturma](vmware-azure-deploy-configuration-server.md). Şunları yapamazsınız herhangi bir nedenle Örneğin, VMware sunucusuna erişimi yoksa, şunları yapabilirsiniz [birleşik kurulum dosyasını indirirsiniz](physical-azure-set-up-source.md) Portal'dan ve bir sanal makine üzerinde çalıştırın. 
+OVF şablonu için en son sürümünü kullanmanızı öneririz [yapılandırma sunucusu VM'si oluşturma](vmware-azure-deploy-configuration-server.md). Şunları yapamazsınız herhangi bir nedenle Örneğin, VMware sunucusuna erişimi yoksa, şunları yapabilirsiniz [birleşik kurulum dosyasını indirirsiniz](physical-azure-set-up-source.md) Portal'dan ve bir sanal makine üzerinde çalıştırın.
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>Yapılandırma sunucusu, birden fazla bölgeye çoğaltabilir miyim?
 Hayır. Bunu yapmak için her bölgede bir yapılandırma sunucusu ayarlamanız gerekir.
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>Azure'da bir yapılandırma sunucusu ana bilgisayar?
-Olası, şirket içi VMware altyapınızı ve Vm'leri ile iletişim kurmak yapılandırma sunucusunu çalıştıran Azure VM gerekir. Ek yükü, büyük olasılıkla uygun değildir.
+Olası, şirket içi VMware altyapınızı ve Vm'leri ile iletişim kurmak yapılandırma sunucusunu çalıştıran Azure VM gerekir. Bu gecikme ekleyebilir ve sürmekte olan çoğaltmayı etkilemeden.
 
 
 ### <a name="where-can-i-get-the-latest-version-of-the-configuration-server-template"></a>Yapılandırma sunucusu şablonunun en son sürümünü nereden alabilirim?
@@ -132,6 +132,9 @@ En son sürümü [Microsoft Download Center](https://aka.ms/asrconfigurationserv
 
 ### <a name="how-do-i-update-the-configuration-server"></a>Yapılandırma sunucusu nasıl güncelleştirebilirim?
 Güncelleştirme paketlerini yükleyin. En son güncelleştirme bilgileri bulabilirsiniz [wiki güncelleştirmeleri sayfası](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+
+### <a name="should-i-backup-the-deployed-configuration-server"></a>Ben, dağıtılan yapılandırma sunucusu yedeklemeniz gerekir?
+Yapılandırma sunucusunun düzenli zamanlanmış yedeklemeleri almaya öneririz. Başarıyla yeniden çalışma için geri başarısız sanal makine yapılandırma sunucusu veritabanında bulunmalı ve yapılandırma sunucusunun çalıştığından ve bağlı durumda olması gerekir. Genel yapılandırma sunucusu yönetim görevleri hakkında daha fazla bilgi [burada](vmware-azure-manage-configuration-server.md).
 
 ## <a name="mobility-service"></a>Mobility hizmeti
 
@@ -191,7 +194,7 @@ Evet, Azure'a yük devretmesi, ilkinin kullanılamıyorsa farklı bir konuma ba�
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-to-fail-back"></a>Bir VPN veya ExpressRoute geri başarısız olmasına neden ihtiyacım var?
 
-Azure'dan yeniden çalışma, verileri azure'dan şirket içi Makinenize geri kopyalanır ve özel erişim gereklidir. 
+Azure'dan yeniden çalışma, verileri azure'dan şirket içi Makinenize geri kopyalanır ve özel erişim gereklidir.
 
 
 

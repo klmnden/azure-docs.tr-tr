@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 82668446f139a5a003c33178e2d415a9314c61bc
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 11bb5bf132103bed9e154a12c0e628177ca6a57a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952186"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344933"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir h hesabı ile kaydolma ve oturum açma ayarlama
 
@@ -40,7 +40,7 @@ H hesabı bir Azure Active Directory (Azure AD) B2C kimlik sağlayıcısı olara
 1. [https://connect.qq.com/index.html](https://connect.qq.com/index.html) kısmına gidin.
 2. Seçin**应用管理**(Uygulama Yönetimi).
 5. Seçin**创建应用**(Uygulama Oluştur) ve gerekli bilgileri girin.
-7. Girin `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp` içinde**授权回调域**(geri çağırma URL'si). Örneğin, varsa, `tenant_name` olduğundan, contoso.onmicrosoft.com olması için URL'yi ayarlayın `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+7. Girin `https://{tenant_name}.b2clogin.com/te/{tenant_name}.onmicrosoft.com/oauth2/authresp` içinde**授权回调域**(geri çağırma URL'si). Örneğin, varsa, `tenant_name` olan contoso, olması için URL'yi ayarlayın `https://contoso.b2clogin.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
 8. Seçin**创建应用**(uygulama oluşturma).
 9. Onay sayfasında, seçin**应用管理**(uygulama yönetimi sayfasına geri dönmek için uygulama yönetimi).
 10. Seçin**查看**(görüntüleme), oluşturduğunuz uygulamanın yanında.

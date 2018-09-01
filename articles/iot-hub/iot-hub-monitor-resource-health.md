@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: kgremban
-ms.openlocfilehash: c7d8631a8e7b99cca8f84ea1011c361db01e399e
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 4f7eefc7d6b067c360fdc3ce12b9a7ae36080bd8
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42060892"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336883"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IOT Hub durumunu izleyin ve sorunları hızla tanılayın
 
@@ -45,6 +45,9 @@ Azure İzleyici, IOT Hub'ında gerçekleşen farklı işlem izler. Her kategorin
 #### <a name="connections"></a>Bağlantılar
 
 Bağlantı kategorisi parçaları cihaz bağlayın ve hataları yanı sıra IOT hub'ı, bağlantıyı kesme olayları. Bu kategori izleme, yetkisiz bağlantı girişimleri tanımlama ve zamanlar zayıf bağlantıya alanlarında cihazlar için bir bağlantı kesildiğinde izlemek için yararlıdır.
+
+> [!NOTE]
+> Cihaz güvenilir bir bağlantı durumunu denetleme [cihaz sinyal][lnk-devguide-heartbeat].
 
 ```json
 {
@@ -334,3 +337,4 @@ Sistem Durumu verileri nasıl yorumlayacağınız hakkında daha fazla bilgi iç
 [lnk-AM-schemas]: ../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md
 [lnk-ARH-checks]: ../service-health/resource-health-checks-resource-types.md
 [lnk-monitoring-notifications]: iot-hub-monitoring-notifications-with-azure-logic-apps.md
+[lnk-devguide-heartbeat]: iot-hub-devguide-identity-registry.md#device-heartbeat

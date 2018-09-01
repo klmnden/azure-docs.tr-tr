@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 18f921fb718aeb7ae4add2836fbb6ffabd66668f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1a37a37dbed3b5ef9733f1105444529b4d255bcf
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445067"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336790"
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: sayfa kullanıcı arabirimi (UI) özelleştirme özelliği göstermek için kullanılan bir yardımcı aracı
 Bu makale için bir yardımcı olan [ana kullanıcı Arabirimi özelleştirme makalesi](active-directory-b2c-reference-ui-customization.md) Azure Active Directory (Azure AD) B2C'de. Aşağıdaki adımlar, bizim sağladığımız örnek HTML ve CSS içeriği kullanarak sayfa UI özelleştirmesi özelliği çalışma açıklanmaktadır.
@@ -41,7 +41,7 @@ Bu öğreticinin amaçları doğrultusunda, biz zaten bazı örnek içerik oluş
 1. Oturum kiracınıza [Azure portalında](https://portal.azure.com/) ve B2C özellikleri dikey penceresine gidin.
 2. Tıklayın **oturum açma veya kaydolma ilkeleri'ni**, ilkenizin'a tıklayın ve Düzenle'yi tıklatın (örneğin, "b2c\_1\_oturum\_yukarı\_oturum\_içinde").
 3. Tıklayın **sayfa UI özelleştirmesini** ardından **birleşik kaydolma veya oturum açma sayfası**.
-4. İki durumlu **özel sayfa kullan** geçin **Evet**. İçinde **özel sayfa URI'si** alanına `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/unified.html`. **Tamam**’a tıklayın.
+4. İki durumlu **özel sayfa kullan** geçin **Evet**. İçinde **özel sayfa URI'si** alanına `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/unified.html`. **Tamam** düğmesine tıklayın.
 5. Tıklayın **yerel hesap kaydolma sayfası**. İki durumlu **özel şablon kullan** geçin **Evet**. İçinde **özel sayfa URI'si** alanına `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/selfasserted.html`.
 6. İçin aynı adımı tekrarlayın **sosyal hesap kaydolma sayfası**.
    Tıklayın **Tamam** iki kez UI Özelleştirme dikey pencereleri kapatın.
@@ -58,7 +58,7 @@ Sayfa içeriğinizi barındırmak için Azure Blob Depolama kullanmak istiyorsan
 3. Sağlayan bir **adı** depolama hesap (örneğin, "contoso") ve çekme için uygun seçimleri **fiyatlandırma katmanı**, **kaynak grubu** ve  **Abonelik**. Sahip olduğunuzdan emin olun **başlangıç panosuna Sabitle** teslim seçeneği. **Oluştur**’a tıklayın.
 4. Başlangıç panosuna geri dönün ve yeni oluşturduğunuz depolama hesabına tıklayın.
 5. İçinde **özeti** bölümünde **kapsayıcıları**ve ardından **+ Ekle**.
-6. Sağlayan bir **adı** seçin ve kapsayıcı (örneğin, "b2c") için **Blob** olarak **erişim türü**. **Tamam**’a tıklayın.
+6. Sağlayan bir **adı** seçin ve kapsayıcı (örneğin, "b2c") için **Blob** olarak **erişim türü**. **Tamam** düğmesine tıklayın.
 7. Listede görünür, oluşturduğunuz kapsayıcı **Blobları** dikey penceresi. Kapsayıcı URL'si yazabilirsiniz. Örneğin, benzer şekilde görünmelidir `https://contoso.blob.core.windows.net/b2c`. Kapat **Blobları** dikey penceresi.
 8. Depolama hesabı dikey penceresinde tıklayın **anahtarları** ve değerlerini yazma **depolama hesabı adı** ve **birincil erişim anahtarı** alanları.
 
@@ -74,7 +74,7 @@ Sayfa içeriğinizi barındırmak için Azure Blob Depolama kullanmak istiyorsan
 git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 ```
 
-Bu depo içeren bir `sample_templates\wingtip` örnek HTML, CSS ve resim içeren dizin. Kendi Azure Blob Depolama hesabınızı başvurmak bu şablonları için HTML dosyalarını düzenlemek gerekir. Açık `unified.html` ve `selfasserted.html` ve tüm örneklerini `https://localhost` önceki adımda yazdığınız kendi kapsayıcınızı URL'si ile. Bu durumda, HTML etki alanındaki Azure AD tarafından hizmet verilecek çünkü HTML dosyaları mutlak yolu kullanmalısınız `https://login.microsoftonline.com`.
+Bu depo içeren bir `sample_templates\wingtip` örnek HTML, CSS ve resim içeren dizin. Kendi Azure Blob Depolama hesabınızı başvurmak bu şablonları için HTML dosyalarını düzenlemek gerekir. Açık `unified.html` ve `selfasserted.html` ve tüm örneklerini `https://localhost` önceki adımda yazdığınız kendi kapsayıcınızı URL'si ile. Bu durumda, HTML etki alanındaki Azure AD tarafından hizmet verilecek çünkü HTML dosyaları mutlak yolu kullanmalısınız `tenantname.b2clogin.com`.
 
 ### <a name="upload-the-sample-files"></a>Örnek dosyalarını karşıya yükleme
 Aynı depoda sıkıştırmasını `B2CAzureStorageClient.zip` çalıştırıp `B2CAzureStorageClient.exe` içinde dosya. Bu program yalnızca depolama hesabınıza belirttiğiniz dizindeki tüm dosyaları karşıya yükleme ve bu dosyaları CORS erişimini etkinleştirin. Yukarıdaki adımları izlediyseniz, HTML ve CSS dosyaları artık depolama hesabınıza işaret edecek. Depolama hesabınızın adını önünde bir parçası olduğunu unutmayın `blob.core.windows.net`; Örneğin, `contoso`. İçeriği doğru erişmeye çalışarak yüklendiğini doğrulayabilirsiniz `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` bir tarayıcıdan. Ayrıca [ http://test-cors.org/ ](http://test-cors.org/) içeriği artık CORS'un etkin olduğundan emin olmak için. (Ara "XHR durumu: 200" Sonuçta.)

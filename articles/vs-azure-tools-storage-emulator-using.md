@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: e4a72729cfe69a810e0eec0a0ac6ddb87a468932
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 4b14fa44f484735f2a5efee4d631a6f48e6a8bf6
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42059763"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382645"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Yapılandırma ve Visual Studio ile depolama öykünücüsü kullanma
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -33,7 +33,7 @@ Depolama öykünücüsü sistem gereksinimleri ve özel yapılandırma yönergel
 > 
 
 ## <a name="configuring-a-connection-string-for-the-storage-emulator"></a>Depolama öykünücüsü için bağlantı dizesini yapılandırma
-Depolama öykünücüsü rol içinde kod erişmek için bir Azure depolama hesabına işaret edecek şekilde daha sonra değiştirilebilir ve depolama öykünücüsü için işaret eden bir bağlantı dizesini yapılandırmak isteyeceksiniz. Bir depolama hesabına bağlanmak için çalışma zamanında rolünüz okuyabilen bir yapılandırma ayarı bir bağlantı dizesidir. Bağlantı dizeleri oluşturma hakkında daha fazla bilgi için bkz. [Azure uygulamayı yapılandırma](https://msdn.microsoft.com/library/azure/2da5d6ce-f74d-45a9-bf6b-b3a60c5ef74e#BK_SettingsPage).
+Depolama öykünücüsü rol içinde kod erişmek için bir Azure depolama hesabına işaret edecek şekilde daha sonra değiştirilebilir ve depolama öykünücüsü için işaret eden bir bağlantı dizesini yapılandırmak isteyeceksiniz. Bir depolama hesabına bağlanmak için çalışma zamanında rolünüz okuyabilen bir yapılandırma ayarı bir bağlantı dizesidir. Bağlantı dizeleri oluşturma hakkında daha fazla bilgi için bkz. [yapılandırma Azure Storage bağlantı dizelerini](/azure/storage/common/storage-configure-connection-string).
 
 > [!NOTE]
 > Depolama öykünücüsü hesaba bir başvuru kodunuzdan kullanarak döndürebilir **DevelopmentStorageAccount** özelliği. Depolama öykünücüsü kodunuzdan erişmek istediğiniz, ancak uygulamanızı azure'a yayımlamayı düşünüyorsanız, Azure depolama hesabınıza erişmek ve bu bağlantıyı kullanmak için kodunuzu değiştirmek için bir bağlantı dizesi oluşturmanız gerekir, bu yaklaşım düzgün şekilde çalışır yayımlamadan önce dize. Bir bağlantı dizesi, depolama öykünücüsü hesabı ve Azure depolama hesabı arasında sıklıkla geçiş yapıyorsanız, bu işlemi basitleştirir.

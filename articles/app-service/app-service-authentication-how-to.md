@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: 191d42f43e500c7f8041a02aeba2fbcb7dfd5379
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 629a76ab5610625e14780d7b5c57d3979c2224c9
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226535"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344179"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Kimlik doğrulama ve yetkilendirme Azure App Service'te özelleştirme
 
@@ -34,9 +34,9 @@ Hızlıca kullanmaya başlamak için aşağıdaki öğreticilerden birine bakın
 * [Uygulamanızı Microsoft Hesabı oturum açma bilgilerini kullanacak şekilde yapılandırma](app-service-mobile-how-to-configure-microsoft-authentication.md)
 * [Uygulamanızı Twitter oturum açma bilgilerini kullanacak şekilde yapılandırma](app-service-mobile-how-to-configure-twitter-authentication.md)
 
-## <a name="configure-multiple-sign-in-options"></a>Çoklu oturum açma seçeneklerini yapılandırın
+## <a name="use-multiple-sign-in-providers"></a>Oturum açma birden çok sağlayıcı kullanma
 
-Portal yapılandırma (örneğin, Facebook ve Twitter için), kullanıcılara çoklu oturum açma seçenekleri sunmak için kullanıma hazır bir yol sunmaz. Ancak, web uygulamanıza işlevsellik eklemek zor değildir. Aşağıda belirtilen adımları:
+Portal yapılandırma, çoklu oturum açma sağlayıcılarını (örneğin, Facebook ve Twitter için), kullanıcılarınıza sunmak için bir anahtar teslim yol sunmaz. Ancak, web uygulamanıza işlevsellik eklemek zor değildir. Aşağıda belirtilen adımları:
 
 İlk olarak **kimlik doğrulama / yetkilendirme** sayfasında Azure Portalı'nda, etkinleştirmek istediğiniz kimlik sağlayıcısının her yapılandırın.
 
@@ -58,6 +58,50 @@ Kullanıcı sonrası-oturumu açma, bir özel URL'ye yeniden yönlendirmek için
 
 ```HTML
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+```
+
+## <a name="sign-out-of-a-session"></a>Dışında bir oturumu oturum
+
+Kullanıcılar başlatabilir bir oturum kapatma göndererek bir `GET` uygulamanın isteğine `/.auth/logout` uç noktası. `GET` İsteği şunları yapar:
+
+- Geçerli oturumun kimlik doğrulama tanımlama bilgilerini temizler.
+- Geçerli kullanıcının belirteçleri, belirteci deposundan kaldırır.
+- Azure Active Directory ve Google kimlik sağlayıcısını sunucu tarafı oturum kapatma gerçekleştirir.
+
+Bir Web sayfasında basit bir oturum kapatma bağlantısına şöyledir:
+
+```HTML
+<a href="/.auth/logout">Sign out</a>
+```
+
+Varsayılan olarak başarılı bir oturum kapatma istemci URL'ye yeniden yönlendirilen `/.auth/logout/done`. Post-sign-out yönlendirme sayfası ekleyerek değiştirebileceğiniz `post_logout_redirect_uri` sorgu parametresi. Örneğin:
+
+```
+GET /.auth/logout?post_logout_redirect_uri=/index.html
+```
+
+Bırakmanız önerilir, [kodlama](https://wikipedia.org/wiki/Percent-encoding) değerini `post_logout_redirect_uri`.
+
+Tam URL'leri kullanırken, URL gerekir aynı etki alanında barındırılan veya uygulamanız için bir izin verilen dış yönlendirme URL'si olarak yapılandırılır. Yeniden yönlendirmek için aşağıdaki örnekte `https://myexternalurl.com` aynı etki alanında bulunan değil:
+
+```
+GET /.auth/logout?post_logout_redirect_uri=https%3A%2F%2Fmyexternalurl.com
+```
+
+Aşağıdaki komutu çalıştırmanız gerekir [Azure Cloud Shell](../cloud-shell/quickstart.md):
+
+```azurecli-interactive
+az webapp auth update --name <app_name> --resource-group <group_name> --allowed-external-redirect-urls "https://myexternalurl.com"
+```
+
+## <a name="preserve-url-fragments"></a>URL parçaları koru
+
+Kullanıcıların uygulamanıza oturum açtıktan sonra genellikle aynı sayfanın aynı bölümüne gibi yönlendirilmesi istedikleri `/wiki/Main_Page#SectionZ`. Ancak, çünkü [URL parçaları](https://wikipedia.org/wiki/Fragment_identifier) (örneğin, `#SectionZ`) hiçbir zaman gönderilen sunucuya bunlar korunmaz varsayılan olarak OAuth oturum açma tamamlandıktan ve uygulamanıza geri yönlendirir. Kullanıcılar, ardından için istenen bağlantı yeniden gitmeniz gerektiğinde yetersiz bir deneyim alır. Bu sınırlama, tüm sunucu tarafı kimlik çözümleri için geçerlidir.
+
+App Service kimlik doğrulaması OAuth oturum açma URL parçaları koruyabilirsiniz. Bunu yapmak için çağrılan ayarı bir uygulama kümesi `WEBSITE_AUTH_PRESERVE_URL_FRAGMENT` için `true`. Bunu yapabilirsiniz [Azure portalında](https://portal.azure.com), veya aşağıdaki komutu çalıştırmanız yeterlidir [Azure Cloud Shell](../cloud-shell/quickstart.md):
+
+```azurecli-interactive
+az webapp config appsettings set --name <app_name> --resource-group <group_name> --settings WEBSITE_AUTH_PRESERVE_URL_FRAGMENT="true"
 ```
 
 ## <a name="access-user-claims"></a>Erişim kullanıcı talepleri

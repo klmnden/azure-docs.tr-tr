@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 7bbcaa82b1072b8cbdea015195a8da03ceb3a25f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 02dc4657f6c594242d12e3eca270a3549b77bf02
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056768"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337767"
 ---
 # <a name="deploy-a-configuration-server"></a>Yapılandırma sunucusunu dağıtma
 
@@ -81,7 +81,7 @@ Yapılandırma sunucusuna Ek NIC eklemek istiyorsanız, sunucuyu kasaya kaydetme
 
 1. vSphere Client envanterinde VM’ye sağ tıklayın ve **Ayarları Düzenle**’yi seçin.
 2. **Donanım** bölümünde **Ekle** > **Ethernet Bağdaştırıcısı** seçeneğini belirleyin. Sonra **İleri**’yi seçin.
-3. Bir bağdaştırıcı türü ve ağ seçin. 
+3. Bir bağdaştırıcı türü ve ağ seçin.
 4. VM açıldığında sanal NIC'ye bağlanmak için seçin **Connect güç açma sırasında**. Ardından **sonraki** > **son** > **Tamam**.
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>Azure Site Recovery hizmetleriyle yapılandırma sunucusuna kaydedin
@@ -102,7 +102,7 @@ Yapılandırma sunucusuna Ek NIC eklemek istiyorsanız, sunucuyu kasaya kaydetme
 
     > [!NOTE]
     > Kaydedildikten sonra kurtarma Hizmetleri kasası değiştirmek için hiçbir esneklik yoktur.
-    
+
 3. İçinde **üçüncü taraf yazılım Yükle**,
 
     |Senaryo   |İzlemeniz gereken adımlar  |
@@ -144,6 +144,10 @@ Yapılandırma sunucusuna Ek NIC eklemek istiyorsanız, sunucuyu kasaya kaydetme
 ## <a name="upgrade-the-configuration-server"></a>Yapılandırma sunucusunu yükseltme
 
 Yapılandırma sunucusunu en son sürüme yükseltmek için verilen adımları okuyun [burada](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
+
+## <a name="manage-the-configuration-server"></a>Yapılandırma sunucusunu yönetme
+
+Devam eden çoğaltma kesintileri önlemek için yapılandırma sunucusunu bir kasaya kaydedildikten sonra yapılandırma sunucusunun IP adresi değişmez emin olun. Genel yapılandırma sunucusu yönetim görevleri hakkında daha fazla bilgi [burada](vmware-azure-manage-configuration-server.md).
 
 ## <a name="troubleshoot-deployment-issues"></a>Dağıtım sorunlarını giderme
 

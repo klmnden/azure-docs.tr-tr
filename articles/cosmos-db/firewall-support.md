@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: govindk
-ms.openlocfilehash: 7c9367cccf8d59d60dfa474f02567d59b9c8c8c2
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 6d1daededcf8f0efdc6a3a5649aa830110192fef
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42057420"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381849"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Azure Cosmos DB güvenlik duvarı desteği
 Bir Azure Cosmos DB veritabanı hesabına depolanan verilerinizin güvenliğini sağlamak için Azure Cosmos DB bağlı bir gizli dizi için destek sağlanan [yetkilendirme modelini](https://msdn.microsoft.com/library/azure/dn783368.aspx) , güçlü bir karma tabanlı ileti kimlik doğrulama kodu (HMAC) kullanır. Şimdi, gizli tabanlı yetkilendirme modeli ek olarak, ilke temelli IP tabanlı erişim denetimlerini gelen güvenlik duvarı desteği için Azure Cosmos DB destekler. Bu model, geleneksel veritabanı sistemi güvenlik duvarı kurallarına benzer ve ek bir Azure Cosmos DB veritabanı hesabı için güvenlik düzeyi sağlar. Bu modelde, artık erişilebilir yalnızca onaylanmış bir makine kümesinden ve/veya Bulut Hizmetleri için bir Azure Cosmos DB veritabanı hesabı yapılandırabilirsiniz. Bu onaylı kümelerinden makineleri ve Hizmetleri Azure Cosmos DB kaynaklarına erişimi hala geçerli bir yetkilendirme belirteciyle sunmak çağıranın gerektirir.
@@ -57,7 +57,12 @@ Azure portalına erişim için güvenlik duvarı ayarını değiştirdiğinizde,
 ![Azure portal erişimi etkinleştirme gösteren ekran görüntüsü](./media/firewall-support/enable-azure-portal.png)
 
 ## <a name="connections-from-global-azure-datacenters-or-azure-paas-services"></a>Küresel Azure veri merkezleri ya da Azure PaaS hizmetlerine bağlantılar
-Azure'da, Azure Stream analytics, Azure işlevleri ve Azure App Service gibi PaaS hizmetlerine, Azure Cosmos DB ile birlikte kullanılır. Veritabanı hesabı, IP adresleri hazır olmayan bu hizmetlerden Azure Cosmos DB erişimi etkinleştirmek için program aracılığıyla Azure Cosmos DB veritabanı hesabınız ile ilişkili IP adreslerine izin verilenler listesine IP adresi 0.0.0.0 ekleyin. 
+
+"Azure Stream analytics gibi azure PaaS Hizmetleri, Azure işlevleri vb. Azure Cosmos DB ile birlikte kullanılır. Azure Cosmos DB kaynaklarınıza bağlanmak diğer Azure PaaS Hizmetleri uygulamalardan izin vermek için bir güvenlik duvarı ayarı etkinleştirilmelidir. Bu güvenlik duvarı ayarını etkinleştirmek için izin verilen IP adreslerinin listesi için IP adresi 0.0.0.0 ekleyin. IP adresi 0.0.0.0, Azure Cosmos DB kaynaklarına bağlanmak için tüm Azure veri merkezi IP adres aralığından gelen bağlantılara izin verildiğini gösterir."
+
+> [!IMPORTANT]
+> Bu seçenek, diğer müşterilerin aboneliklerinden gelen bağlantılar dahil Azure’dan tüm bağlantılara izin verecek şekilde güvenlik duvarınızı yapılandırır. Bu seçeneği belirlerken, oturum açma ve kullanıcı izinlerinizin erişimi yalnızca yetkili kullanıcılarla sınırladığından emin olun.
+> 
 
 Küresel Azure veri merkezleri içinde bağlantılara erişim için güvenlik duvarı ayarını değiştirdiğinizde, varsayılan olarak etkindir **seçili ağlar** Azure portalında. 
 

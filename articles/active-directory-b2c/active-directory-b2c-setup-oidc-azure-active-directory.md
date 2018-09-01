@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 70d3a19b715052fe658102929a1c29cf3db2d595
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e09ad89f3225af9de40781fafc022c8326f80619
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443741"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338647"
 ---
 # <a name="azure-active-directory-b2c-sign-in-using-azure-ad-accounts-through-a-built-in-policy"></a>Azure Active Directory B2C: Yerleşik bir ilke aracılığıyla Azure AD hesapları kullanarak oturum açın.
 
@@ -37,13 +37,13 @@ Belirli kullanıcılar için oturum açma etkinleştirmek için Azure AD kurulu�
 1. **Yeni uygulama kaydı**’nı seçin.
 1. Uygulamanız için bir ad girin (örneğin, `Azure AD B2C App`).
 1. Uygulama türü için **Web uygulaması / API** öğesini seçin.
-1. İçin **oturum açma URL'si**, aşağıdaki URL'yi girin. burada `yourtenant` Azure AD B2C kiracınızın adı tarafından değiştirilir (`fabrikamb2c.onmicrosoft.com`):
+1. İçin **oturum açma URL'si**, aşağıdaki URL'yi girin. burada `yourtenant` Azure AD B2C kiracınızın adı tarafından değiştirilir (`fabrikamb2c`):
 
     >[!NOTE]
     >"Yourtenant" değeri, harflerden oluşmalıdır **oturum açma URL'si**.
 
     ```Console
-    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
+    https://yourtenant.b2clogin.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
 1. Uygulama kimliği, sonraki bölümde istemci kimliği olarak kullanacağınız Kaydet
@@ -70,7 +70,7 @@ Belirli kullanıcılar için oturum açma etkinleştirmek için Azure AD kurulu�
 1. İçin varsayılan değer tutmak **yanıt türü**, ayarlanması `code`.
 1. İçin varsayılan değer tutmak **yanıt modu**, ayarlanması `form_post`.
 1. İsteğe bağlı olarak, bir değer girin **etki alanı** (örneğin `ContosoAD`). Bu değeri kullanarak bu kimlik sağlayıcısını söz konusu olduğunda kullanılacak olan *domain_hint* istek. 
-1. **Tamam**’a tıklayın.
+1. **Tamam** düğmesine tıklayın.
 1. Tıklayarak **bu kimlik sağlayıcısının taleplerini Eşle**.
 1. İçin **kullanıcı kimliği**, girin `oid`.
 1. İçin **görünen ad**, girin `name`.

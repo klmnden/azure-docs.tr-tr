@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 3c447a37b1dfbdac2c6e2a4eaa61d0e0e08a2176
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: f444c75fb7a7bcd96a508fed337dfc32adccf665
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442248"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339024"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure SQL veri ambarı veri kopyalayın 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -401,13 +401,14 @@ SQL veri ambarı PolyBase, Azure Blob ve Azure Data Lake Store doğrudan destekl
 Gereksinimleri karşılanmadığı takdirde, Azure Data Factory ayarları denetler ve veri taşıma BULKINSERT mekanizması için otomatik olarak geri döner.
 
 1. **Kaynak bağlı hizmet** türü, Azure Blob Depolama (**AzureBLobStorage**/**AzureStorage**) hesap anahtarı kimlik doğrulaması veya Azure Data Lake ile Depolama Gen1 (**birlikte AzureDataLakeStore**) ile hizmet sorumlusu kimlik doğrulaması.
-1. **Girdi veri kümesi** türü **AzureBlob** veya **AzureDataLakeStoreFile**. Biçim türü altında `type` özellikleri **OrcFormat**, **ParquetFormat**, veya **TextFormat**, aşağıdaki yapılandırmaları ile:
+2. **Girdi veri kümesi** türü **AzureBlob** veya **AzureDataLakeStoreFile**. Biçim türü altında `type` özellikleri **OrcFormat**, **ParquetFormat**, veya **TextFormat**, aşağıdaki yapılandırmaları ile:
 
-   1. `rowDelimiter` olmalıdır **\n**.
-   1. `nullValue` ya da ayarlanmış **boş dize** ("") veya varsayılan olarak sola ve `treatEmptyAsNull` false olarak ayarlı değil.
-   1. `encodingName` ayarlanır **utf-8**, varsayılan değer olan.
-   1. `escapeChar`, `quoteChar` ve `skipLineCount` belirtilmeyen. PolyBase destek Atla olarak yapılandırılan üst bilgi satırı `firstRowAsHeader` ADF içinde.
-   1. `compression` olabilir **sıkıştırma**, **GZip**, veya **Deflate**.
+   1. `fileName` joker karakter filtresi içermiyor.
+   2. `rowDelimiter` olmalıdır **\n**.
+   3. `nullValue` ya da ayarlanmış **boş dize** ("") veya varsayılan olarak sola ve `treatEmptyAsNull` false olarak ayarlı değil.
+   4. `encodingName` ayarlanır **utf-8**, varsayılan değer olan.
+   5. `escapeChar`, `quoteChar` ve `skipLineCount` belirtilmeyen. PolyBase destek Atla olarak yapılandırılan üst bilgi satırı `firstRowAsHeader` ADF içinde.
+   6. `compression` olabilir **sıkıştırma**, **GZip**, veya **Deflate**.
 
     ```json
     "typeProperties": {

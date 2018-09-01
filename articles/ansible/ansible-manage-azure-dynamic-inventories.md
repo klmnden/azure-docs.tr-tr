@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 2757dea5e73f226efc13b7788ce1ab0702aa2e61
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 9de620c5e6a1698b70f25f91a744829548ad5af6
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104706"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382340"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Azure, dinamik envanterleri yönetmek için Ansible'ı kullanın
 Ansible'ı (Azure gibi bulut kaynakları dahil) çeşitli kaynaklardan Envanter bilgilerini çekme için kullanılabilir içine bir *dinamik stok*. Bu makalede, kullandığınız [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) Ansible Azure dinamik iki sanal makine oluşturma envanterini yapılandırmak için bu sanal makinelerden birini etiketi ve Ngınx etiketli sanal makineye yükleyin.
@@ -136,20 +136,21 @@ Etiketleri amacı, hızlı ve kolay bir şekilde sanal makinelerinizin alt grupl
 
 1. Yeni oluşturulan aşağıdaki kodu ekleyin `nginx.yml` dosyası:
 
-    ```yml
-    - name: Install and start Nginx on an Azure virtual machine
-    hosts: azure
-    become: yes
-    tasks:
-    - name: install nginx
-        apt: pkg=nginx state=installed
-        notify:
-        - start nginx
+```yml
+---
+- name: Install and start Nginx on an Azure virtual machine
+  hosts: azure
+  become: yes
+  tasks:
+  - name: install nginx
+    apt: pkg=nginx state=installed
+    notify:
+    - start nginx
 
-    handlers:
-    - name: start nginx
-        service: name=nginx state=started
-    ```
+  handlers:
+  - name: start nginx
+    service: name=nginx state=started
+```
 
 1. Çalıştırma `nginx.yml` playbook:
 

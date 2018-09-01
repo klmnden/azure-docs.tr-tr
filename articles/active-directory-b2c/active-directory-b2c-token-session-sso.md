@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 35210a8e93b8437ea4d8c3b5f002c81c549d3afe
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 061e2257200b6d660a421a86c540f43597112c5e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444845"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337894"
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C: Belirteç, oturum ve çoklu oturum açma yapılandırması
 
@@ -34,7 +34,7 @@ Yerleşik ilkeler için bu özelliği Azure AD B2C dizininizde aşağıdaki gibi
 4. Tıklayın **Düzenle** menüsünün üstünde.
 5. Tıklayın **belirteç, oturum ve çoklu oturum açma yapılandırması**.
 6. İstediğiniz değişiklikleri yapın. Sonraki bölümlerde kullanılabilir özellikler hakkında bilgi edinin.
-7. **Tamam**’a tıklayın.
+7. **Tamam** düğmesine tıklayın.
 8. Tıklayın **Kaydet** menüsünün üstünde.
 
 ## <a name="token-lifetimes-configuration"></a>Belirteç ömrünü yapılandırma
@@ -69,8 +69,8 @@ Bu özellikleri kullanarak etkinleştirebilirsiniz kullanım örnekleri birkaç 
 Azure AD B2C tarafından yayılan güvenlik belirteçleri önemli talepleri için biçimlendirme değişiklikler yaptık. Bu bizim standart protokol desteğini geliştirmek için yapıldı ve üçüncü taraf kimlik kitaplıkları ile daha iyi birlikte çalışabilirlik. Bununla birlikte, mevcut uygulamaları bozmayı önlemek için müşterilerin gerektiğinde katılımı izin vermek için aşağıdaki özellikleri oluşturduk:
 
 * **Verici (iss) talebi**: Bu belirteci veren Azure AD B2C kiracısı tanımlar.
-  * `https://login.microsoftonline.com/{B2C tenant GUID}/v2.0/`: Bu varsayılan değerdir.
-  * `https://login.microsoftonline.com/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: Bu değer, B2C kiracısının hem belirteç istekte kullanılan ilkeyi kimlikleri içerir. Uygulama veya kitaplık ile uyumlu olması için Azure AD B2C gerekip gerekmediğini [Openıd Connect bulma 1.0 belirtimi](http://openid.net/specs/openid-connect-discovery-1_0.html), bu değeri kullanın.
+  * `https://<domain>/{B2C tenant GUID}/v2.0/`: Bu varsayılan değerdir.
+  * `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: Bu değer, B2C kiracısının hem belirteç istekte kullanılan ilkeyi kimlikleri içerir. Uygulama veya kitaplık ile uyumlu olması için Azure AD B2C gerekip gerekmediğini [Openıd Connect bulma 1.0 belirtimi](http://openid.net/specs/openid-connect-discovery-1_0.html), bu değeri kullanın.
 * **Konu (sub) talebi**: Bu belirteci onaylar bilgileri başka bir deyişle, kullanıcı varlığı tanımlar.
   * **ObjectID**: Bu varsayılan değerdir. Dizine kullanıcının nesne kimliği doldurur `sub` belirtecinde talep.
   * **Desteklenmeyen**: Bu, yalnızca geriye dönük uyumluluk için sağlanır ve için geçiş öneririz **objectID** yapabilecekleriniz hemen sonra.

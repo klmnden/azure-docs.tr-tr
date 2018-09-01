@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: 11aecd9b2bc1bc1521a0e27fc3cd06fe7426a26d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b4641c847db817df905f056847a26d003ac25fd1
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307995"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381804"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Bir veya daha fazla Always On kullanılabilirlik grubu dinleyicisi - Resource Manager'ı yapılandırma
 Bu konu başlığı altında gösterilir nasıl yapılır:
@@ -42,6 +42,8 @@ Bu konuda, kullanılabilirlik gruplarını zaten yapılandırılmış olmasını
 
 ## <a name="configure-the-windows-firewall"></a>Windows Güvenlik duvarını yapılandırma
 Windows Güvenlik Duvarı'nı SQL Server erişimine izin verecek şekilde yapılandırın. Güvenlik duvarı kuralları, SQL Server örneği ve dinleyici araştırma bağlantı noktalarını kullandığı için TCP bağlantılara izin verin. Ayrıntılı yönergeler için bkz. [veritabanı altyapısı erişimi için Windows Güvenlik duvarını yapılandırma](http://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). SQL Server bağlantı noktası için ve araştırma bağlantı noktası için bir gelen kuralı oluşturun.
+
+Eğer bir Azure ağ güvenlik grubu ile erişimi kısıtlama olun arka uç SQL Server VM IP adreslerine izin verme kuralları içerir ve yük dengeleyici kayan IP adresleri /AG dinleyicisi ve küme çekirdek IP adresi için varsa.
 
 ## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Örnek betik: PowerShell ile iç yük dengeleyici oluşturma
 > [!NOTE]
@@ -195,6 +197,7 @@ Yük Dengeleyici dahili kullanarak azure'da kullanılabilirlik grubu dinleyicisi
 
 * Bir iç yük dengeleyiciyle yalnızca aynı sanal ağda dinleyicisinden erişin.
 
+* Eğer bir Azure ağ güvenlik grubu ile erişimi kısıtlama olun arka uç SQL Server VM IP adreslerine izin verme kuralları içerir ve yük dengeleyici kayan IP adresleri /AG dinleyicisi ve küme çekirdek IP adresi için varsa.
 
 ## <a name="for-more-information"></a>Daha fazla bilgi edinmek için
 Daha fazla bilgi için [yapılandırma Always On kullanılabilirlik grubu Azure VM'de el ile](virtual-machines-windows-portal-sql-availability-group-tutorial.md).

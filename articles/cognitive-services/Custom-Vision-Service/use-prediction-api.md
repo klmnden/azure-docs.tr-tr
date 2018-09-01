@@ -1,6 +1,6 @@
 ---
-title: Özel görme hizmet tahmin uç - Azure Bilişsel hizmetler kullanın | Microsoft Docs
-description: Program aracılığıyla özel görme hizmet sınıflandırıcı görüntülerle test etmek için API kullanmayı öğrenin.
+title: Custom Vision Service'e tahmin uç - Azure Bilişsel hizmetler | Microsoft Docs
+description: Program aracılığıyla özel görüntü işleme hizmeti sınıflandırıcınızı görüntülerle test etmek için API'sini kullanmayı öğrenin.
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
@@ -9,44 +9,44 @@ ms.component: custom-vision
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 54f9d9fec1f40c167341dec6a8699b6a558419da
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d7f9b90db06811e16cd0cd6ad2b32a27912cfee5
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353303"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341802"
 ---
-# <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>Bir özel görme hizmet sınıflandırıcı program aracılığıyla görüntülerle test etmek için tahmini uç noktası kullan
+# <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>Custom Vision Service'e sınıflandırıcı program aracılığıyla görüntülerle test etmek için tahmin uç noktası kullan
 
-Modelinizi eğitmek sonra görüntüleri programlı olarak tahmin API'sine göndererek test edebilirsiniz. 
+Modelinizi eğitin sonra görüntüleri programlı olarak tahmin API'ye göndererek test edebilirsiniz. 
 
 > [!NOTE]
-> Bu belgeyi kullanarak C# tahmin API görüntüye göndermek için gösterir. Daha fazla bilgi ve API kullanma örnekleri için bkz: [tahmin API Başvurusu](https://go.microsoft.com/fwlink/?linkid=865445).
+> Bu belge, C# Prediction API'deki görüntüye göndermek için kullanmayı gösterir. Daha fazla bilgi ve API kullanma örnekleri için bkz. [tahmin API Başvurusu](https://go.microsoft.com/fwlink/?linkid=865445).
 
-## <a name="get-the-url-and-prediction-key"></a>URL ve tahmin anahtarı alma
+## <a name="get-the-url-and-prediction-key"></a>URL ve tahmin anahtarını alma
 
-Gelen [özel görme web sayfası](https://customvision.ai), projenizi seçin ve ardından __performans__ sekmesi. Tahmin API kullanma hakkında bilgi görüntülemek için seçin __tahmin URL__. Kullanmak için aşağıdaki bilgileri uygulamada kopyalayın:
+Gelen [Custom Vision web sayfası](https://customvision.ai), projenizi seçin ve ardından __performans__ sekmesi. Tahmin API'sini kullanma hakkında bilgi görüntülemek için de dahil olmak üzere __tahmin anahtar__seçin __tahmin URL__. Bir Azure kaynağına bağlı projeleri için __tahmin anahtar__ içinde bulunabilir [Azure portalı](https://portal.azure.com) altında ilişkili Azure kaynak sayfası __anahtarları__. Aşağıdaki bilgileri kullanmak için uygulamaya kopyalayın:
 
-* __URL__ kullanmak için bir __görüntü dosyası__.
-* __Tahmin anahtar__ değeri.
+* __URL__ kullanmaya yönelik bir __görüntü dosyası__.
+* __Tahmin-key__ değeri.
 
 > [!TIP]
-> Birden çok kez varsa, varsayılan olarak ayarlayarak hangisinin kullanılan kontrol edebilirsiniz. Gelen yinelemeyi seçmek __yineleme__ bölümünde ve ardından __olun varsayılan__ sayfanın üst kısmındaki.
+> Çoklu yinelemelere varsa, varsayılan ayarlayarak hangisinin kullanılan kontrol edebilirsiniz. Yinelemeden seçin __yinelemeler__ bölümüne ve ardından __varsayılan yap__ sayfanın üstünde.
 
-![Performans sekmesini tahmin URL çevreleyen için kırmızı bir dikdörtgen gösterilir.](./media/use-prediction-api/prediction-url.png)
+![Performans Sekmesi tahmin URL çevreleyen kırmızı bir dikdörtgen gösterilir.](./media/use-prediction-api/prediction-url.png)
 
 ## <a name="create-the-application"></a>Uygulama oluşturma
 
-1. Visual Studio'da yeni bir C# konsol uygulaması oluşturun.
+1. Visual Studio'dan yeni bir C# konsol uygulaması oluşturun.
 
-2. Aşağıdaki kod gövdesi olarak kullanmak __Program.cs__ dosya.
+2. Aşağıdaki kodu kullanın gövdesi olarak __Program.cs__ dosya.
 
     > [!IMPORTANT]
     > Aşağıdaki bilgileri değiştirin:
     >
-    > * Ayarlama __ad alanı__ projenizin adına.
-    > * Ayarlama __tahmin anahtar__ önceki ile başlayan satırı içindeki alınan değer `client.DefaultRequestHeaders.Add("Prediction-Key",`.
-    > * Ayarlama __URL__ önceki ile başlayan satırı içindeki alınan değer `string url =`.
+    > * Ayarlama __ad alanı__ projenizin adı.
+    > * Ayarlama __tahmin anahtar__ daha önce ile başlayan satırı içinde alınan değeri `client.DefaultRequestHeaders.Add("Prediction-Key",`.
+    > * Ayarlama __URL__ daha önce ile başlayan satırı içinde alınan değeri `string url =`.
 
     ```csharp
     using System;
@@ -105,7 +105,7 @@ Gelen [özel görme web sayfası](https://customvision.ai), projenizi seçin ve 
 
 ## <a name="use-the-application"></a>Uygulamayı kullanma
 
-Uygulama çalışırken, bir görüntü dosyasına giden yolu girin. Görüntü API'sine gönderildi ve sonuçları bir JSON belgesi olarak döndürülür. Aşağıdaki JSON yanıtı örneğidir
+Uygulama çalışırken, bir görüntü dosyasına yolunu girin. Görüntü API'sine gönderilir ve sonuçları bir JSON belgesi olarak döndürülür. Aşağıdaki JSON yanıtı örneğidir
 
 ```json
 {
@@ -122,4 +122,4 @@ Uygulama çalışırken, bir görüntü dosyasına giden yolu girin. Görüntü 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Model mobil kullanım için dışarı aktarma](export-your-model.md)
+[Mobil kullanım için modelini dışarı aktarma](export-your-model.md)

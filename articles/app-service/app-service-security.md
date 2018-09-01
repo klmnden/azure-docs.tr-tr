@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 78487061dd49c057e8f569fd2ccdaa6408443fd2
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 40fdd22bdbb3fc0676688430069d58c0422a7ca2
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885879"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382125"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Azure App Service ve Azure işlevleri güvenliği
 
@@ -29,7 +29,7 @@ Azure sanal makineleri, depolama, ağ bağlantıları, web çerçeveleri, yönet
 
 - Uygulama kaynaklarınız [güvenli](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) diğer müşterilerin Azure kaynaklarından.
 - [Sanal makine örnekleri ve çalışma zamanı yazılım düzenli olarak güncelleştirilen](app-service-patch-os-runtime.md) adresi yeni bulunan güvenlik açıklarına. 
-- Gizli anahtarları (örneğin, bağlantı dizeleri), uygulama ve diğer Azure kaynakları arasında iletişimi (gibi [SQL veritabanı](/services/sql-database/)) Azure içinde kalır ve ağ sınırları çapraz değil. Gizli dizileri, depolandığında her zaman şifrelenir.
+- Gizli anahtarları (örneğin, bağlantı dizeleri), uygulama ve diğer Azure kaynakları arasında iletişimi (gibi [SQL veritabanı](https://azure.microsoft.com/services/sql-database/)) Azure içinde kalır ve ağ sınırları çapraz değil. Gizli dizileri, depolandığında her zaman şifrelenir.
 - App Service bağlantısı üzerinden tüm iletişimi özellikleri, aşağıdaki gibi [karma bağlantı](app-service-hybrid-connections.md), şifrelenir. 
 - Azure PowerShell, Azure CLI, Azure SDK, REST API'leri gibi uzak yönetim araçları bağlantıları tüm şifrelenir.
 - 24 saatlik tehdit Yönetimi korur altyapı ve platform kötü amaçlı yazılımlardan, dağıtılmış hizmet engelleme (DDoS) adam-de-adam (MITM) ve diğer tehditlerden.
@@ -84,7 +84,7 @@ Her durumda, App Service, güvenli bağlantılar kurmak bir yol sağlar, ancak y
 
 ### <a name="azure-resources"></a>Azure kaynakları
 
-Uygulamanızı bağlandığında, Azure kaynakları için gibi [SQL veritabanı](/services/sql-database/) ve [Azure depolama](/azure/storage/), bağlantı, Azure içinde kalır ve ağ sınırları çapraz değil. Ancak, azure'da paylaşılan ağ bağlantısı geçer, böylece her zaman bağlantınız şifrelenir emin olun. 
+Uygulamanızı bağlandığında, Azure kaynakları için gibi [SQL veritabanı](https://azure.microsoft.com/services/sql-database/) ve [Azure depolama](/azure/storage/), bağlantı, Azure içinde kalır ve ağ sınırları çapraz değil. Ancak, azure'da paylaşılan ağ bağlantısı geçer, böylece her zaman bağlantınız şifrelenir emin olun. 
 
 Uygulamanızın içinde barındırılıyorsa bir [App Service ortamı](environment/intro.md), aşağıdakileri yapmalısınız [desteklenen sanal ağ hizmet uç noktaları kullanarak Azure hizmetlerine bağlanın](../virtual-network/virtual-network-service-endpoints-overview.md).
 
@@ -117,4 +117,4 @@ Dışında **yalıtılmış** fiyatlandırma katmanı, tüm katmanlar, uygulamal
 - Azure sanal ağınız içindeki yalnızca erişime izin veren bir iç yük dengeleyici (ILB) kullanarak iç uygulama işlevi görür. ILB internet'ten uygulamalarınızın toplam yalıtımı sağlar, özel alt ağdan bir IP adresi vardır.
 - [Bir web uygulaması Güvenlik Duvarı (WAF) arkasındaki bir ILB kullanın](environment/integrate-with-application-gateway.md). WAF, DDoS koruması, URI filtreleme ve SQL ekleme önleme gibi genel kullanıma yönelik uygulamalarınız için kurumsal düzeyde koruma sunar.
 
-Daha fazla bilgi için [Azure App Service ortamlarına giriş](environment/intro.md).
+Daha fazla bilgi için [Azure App Service ortamlarına giriş](environment/intro.md). 

@@ -13,18 +13,20 @@ ms.component: pim
 ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 20a704a0d5b61134a61b5cbf02a1c71dbc7039e1
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 8af304d28be9b0884a50d60911d901818b514752
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189346"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338916"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>PIM'de Azure AD dizini rol ayarlarını yapılandırma
 
 Ayrıcalıklı Rol Yöneticisi, Azure AD Privileged Identity Management (PIM) uygun rol atamasını etkinleştirme bir kullanıcı deneyimi değiştirme gibi kuruluşlarındaki özelleştirebilirsiniz.
 
 ## <a name="open-role-settings"></a>Rol ayarlarını Aç
+
+Bir Azure AD dizin rolü ayarlarını açmak için şu adımları izleyin.
 
 1. Açık **Azure AD Privileged Identity Management**.
 
@@ -44,19 +46,19 @@ Ayrıcalıklı Rol Yöneticisi, Azure AD Privileged Identity Management (PIM) uy
 
 ## <a name="activations"></a>Etkinleştirmeler
 
-**Etkinleştirmeleri** kaydırıcısı etkinleştirildiğinde en uzun süre dolmadan önce bir rol etkin kaldığından saat. Bu değer 1 ile 72 saat arasında olabilir.
+Kullanım **etkinleştirmeleri** en uzun süreyi saat cinsinden süresi dolmadan önce rol etkin kaldığından ayarlamak için kaydırıcıyı. Bu değer 1 ile 72 saat arasında olabilir.
 
 ## <a name="notifications"></a>Bildirimler
 
-**Bildirimleri** anahtar sistem rol etkinleştirmiş onaylama yöneticileri için e-posta gönderip göndermediğini seçmenize olanak sağlar. Bu, yetkisiz veya aykırı etkinleştirmeleri algılamak için yararlı olabilir.
+Kullanım **bildirimleri** sistem rol etkinleştirmiş onaylama yöneticileri için e-postaları gönderen olup olmadığını belirlemek için anahtarı. Bu, yetkisiz veya aykırı etkinleştirmeleri algılamak için yararlı olabilir.
 
 ## <a name="incidentrequest-ticket"></a>Olay/İstek anahtarı
 
-**Olay/istek anahtarı** anahtar uygun yöneticilerin bir bilet numarası yerine getirecekleri etkinleştirdikleri işlemlerinde gerekip gerekmediğini seçin olanak sağlar. Rol erişim denetimleri gerçekleştirdiğinizde bu yararlı olabilir.
+Kullanım **olay/istek anahtarı** uygun yöneticilerin bir bilet numarası yerine getirecekleri etkinleştirdikleri işlemlerinde gerekip gerekmediğini belirlemek için anahtarı. Rol erişim denetimleri gerçekleştirdiğinizde bu yararlı olabilir.
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-**Multi-Factor Authentication** anahtar rollerinin etkinleştirilebilmesi MFA ile kullanıcıların kimliğini doğrulamak kullanıcıların gerekip gerekmediğini seçin olanak sağlar. Bunlar yalnızca bu kez her bir rolü etkinleştirmemek her zaman oturum doğrulamanız gerekir. Mfa'yı etkinleştirdiğinizde akılda tutulması gereken iki ipuçları şunlardır:
+Kullanım **multi-Factor Authentication** rollerinin etkinleştirilebilmesi MFA ile kullanıcıların kimliğini doğrulamak kullanıcıların gerekip gerekmediğini belirlemek için anahtarı. Bunlar yalnızca bu kez her bir rolü etkinleştirmemek her zaman oturum doğrulamanız gerekir. Mfa'yı etkinleştirdiğinizde akılda tutulması gereken iki ipuçları şunlardır:
 
 * Microsoft hesapları için e-posta adreslerini sahip kullanıcılar (genellikle @outlook.com, ama her zaman kullanılmaz) Azure MFA için kaydedilemiyor. Microsoft hesabı olan kullanıcılar için rol atamak istiyorsanız, bunları kalıcı yönetici yapmak veya o rol için mfa'yı devre dışı bırakmak gerekir.
 * MFA yüksek ayrıcalıklı rolleri için Azure AD için devre dışı bırakamazsınız ve Office365. Bu, bu rolleri dikkatli bir şekilde korunması için bir güvenlik özelliğidir:  
@@ -84,9 +86,9 @@ MFA PIM ile kullanma hakkında daha fazla bilgi için bkz. [Azure AD dizin rolle
 
 ## <a name="require-approval"></a>Onay iste
 
-**Onayı iste** anahtar bu rolü etkinleştirmek için onay gerekip gerekmediğini seçmenize olanak sağlar.
+Bir rolü etkinleştirmek için onay gerektir istiyorsanız, aşağıdaki adımları izleyin.
 
-1. Anahtar ayarlandığında **etkin**, onaylayanları seçin seçeneklerle bölmesini genişletir.
+1. Ayarlama **onayı iste** geçin **etkin**. Onaylayanları seçin seçeneklerle bölmesini genişletir.
 
     ![Azure AD Dizin rolleri - Settings - onayı iste](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
@@ -107,5 +109,6 @@ MFA PIM ile kullanma hakkında daha fazla bilgi için bkz. [Azure AD dizin rolle
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+- [Azure AD dizin rollerini PIM atayın](pim-how-to-add-role-to-user.md)
 - [Azure AD dizin rollerini PIM için çok faktörlü kimlik doğrulaması gerektir](pim-how-to-require-mfa.md)
 - [Azure AD Dizin rolleri için güvenlik uyarıları PIM'de yapılandırın](pim-how-to-configure-security-alerts.md)
