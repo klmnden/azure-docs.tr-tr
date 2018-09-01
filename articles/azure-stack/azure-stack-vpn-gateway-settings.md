@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/14/2018
 ms.author: brenduns
-ms.openlocfilehash: e9e474fe4a32bb99673fba2a88f28a3161f23362
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 6380936766bb0f3848811be305783c274867b0fc
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139583"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381876"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack için VPN gateway yapılandırma ayarları
 
@@ -27,7 +27,7 @@ ms.locfileid: "42139583"
 
 Bir VPN ağ geçidi, sanal ağınızda Azure Stack ve uzak bir VPN ağ geçidi arasında şifrelenmiş trafik gönderen sanal ağ geçidi türüdür. Uzak VPN ağ geçidi, Azure, veri merkezinizde bir cihaz veya başka bir sitedeki bir cihaz olabilir.  İki uç nokta ağ bağlantısı varsa, iki ağ arasında güvenli bir siteden siteye (S2S) VPN bağlantısı kurabilirsiniz.
 
-Bir VPN ağ geçidi bağlantısı, her biri yapılandırılabilir ayarlar içeren yapılandırmasına birden çok kaynak kullanır. Bu makaledeki bölümler, kaynakları ve Resource Manager dağıtım modelinde oluşturulan sanal ağ için bir VPN ağ geçidi ile ilgili ayarları ele alınmıştır. Her bağlantı çözüm için açıklamalar ve topoloji diyagramlarını bulabilirsiniz [Azure Stack için VPN Gateway hakkında](azure-stack-vpn-gateway-about-vpn-gateways.md).
+Bir VPN ağ geçidi bağlantısı, her biri yapılandırılabilir ayarlar içeren yapılandırmasına birden çok kaynak kullanır. Bu makalede Resource Manager dağıtım modelinde oluşturulan sanal ağ için bir VPN ağ geçidi ile ilgili ayarlar ve kaynaklar açıklanır. Her bağlantı çözüm için açıklamalar ve topoloji diyagramlarını bulabilirsiniz [Azure Stack için VPN Gateway hakkında](azure-stack-vpn-gateway-about-vpn-gateways.md).
 
 ## <a name="vpn-gateway-settings"></a>VPN gateway ayarları
 
@@ -100,7 +100,7 @@ VPN ağ geçidi yapılandırması için sanal ağ geçidi oluşturduğunuzda, bi
 >
 > Ayrıca, özel IPSec/IKE İlkesi yapılandırmalarını desteklenmediğinden Azure Stack ilke tabanlı trafik seçicileri için rota tabanlı ağ geçitleri şu anda kullanarak desteklemiyor.
 
-* **PolicyBased**: İlke tabanlı VPN'ler şifreler ve doğrudan şirket içi ağınız ve Azure Stack Vnet'iniz arasında adres öneklerinin birleşimleriyle yapılandırılmış IPSec ilkeleri temelindeki IPSec tüneller üzerinden paketleri. İlke veya trafik Seçici, çoğunlukla VPN cihazı yapılandırmasında bir erişim listesi olarak tanımlanır.
+* **PolicyBased**: İlke tabanlı VPN'ler şifreler ve doğrudan şirket içi ağınız ve Azure Stack Vnet'iniz arasında adres öneklerinin birleşimleriyle yapılandırılmış IPSec ilkeleri temelindeki IPSec tüneller üzerinden paketleri. İlke veya trafik Seçici, genellikle VPN cihazı yapılandırmasında bir erişim listesi olduğu.
 
   >[!NOTE]
   >Azure, ancak Azure stack'teki PolicyBased desteklenir.
@@ -163,7 +163,7 @@ Bazen yerel ağ geçidi ayarlarını değiştirmeniz gerekir. Örneğin, ekledi�
 
 ## <a name="ipsecike-parameters"></a>IPSec/IKE parametreleri
 
-Azure Stack'te bir VPN bağlantısı ayarladığınızda, her iki uçta da bağlantı yapılandırmanız gerekir.  Azure Stack ve bir anahtar veya bir VPN ağ geçidi olarak davranan, yönlendirici gibi bir donanım aygıtı arasında bir VPN bağlantısı yapılandırıyorsanız, bu cihaz için ek ayarlar isteyebilir.
+Azure Stack'te bir VPN bağlantısı ayarladığınızda, her iki uçta da bağlantı yapılandırmanız gerekir.  Azure Stack ve bir anahtar veya bir VPN ağ geçidi olarak görev yapan yönlendirici gibi bir donanım aygıtı arasında bir VPN bağlantısı yapılandırıyorsanız, bu cihaz için ek ayarlar isteyebilir.
 
 Birden çok teklife destekleyen hem Başlatıcı hem de bir Yanıtlayıcı olarak Azure, Azure Stack, yalnızca bir teklif destekler.
 
@@ -184,14 +184,12 @@ Birden çok teklife destekleyen hem Başlatıcı hem de bir Yanıtlayıcı olara
 |IKE Sürümü |IKEv2 |
 |Şifreleme ve karma algoritmaları (şifreleme)     | GCMAES256|
 |Şifreleme ve karma algoritmaları (kimlik doğrulaması) | GCMAES256|
-|SA Yaşam Süresi (Zaman)  | 27.000 saniye<sup>bkz. Not 1</sup> |
-|SA Yaşam Süresi (Bayt) | 33,553,408<sup>bkz. Not 2</sup>     |
-|Kusursuz İletme Gizliliği (PFS) |Hiçbiri<sup>bkz. Not 3</sup> |
+|SA Yaşam Süresi (Zaman)  | 27.000 saniye  |
+|SA Yaşam Süresi (Bayt) | 33,553,408     |
+|Kusursuz İletme Gizliliği (PFS) |Hiçbiri<sup>bkz. Not 1</sup> |
 |Kullanılmayan Eş Algılama | Desteklenen|  
 
-* *1. Not:* 1803 sürüm öncesinde, Azure Stack 14,400 değerini SA yaşam süresi (saat) için kullanır.
-* *2. Not:* 1803 sürüm öncesinde, Azure Stack 819,200 değerini SA yaşam süresi (bayt) için kullanır.
-* *3. Not:* 1807 sürüm öncesinde, Azure Stack değeri PFS2048, Perfect Forward Secrecy (PFS için) kullanır.
+* *1. Not:* 1807 sürüm öncesinde, Azure Stack değeri PFS2048, Perfect Forward Secrecy (PFS için) kullanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

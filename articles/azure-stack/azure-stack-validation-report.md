@@ -1,6 +1,6 @@
 ---
-title: Doğrulama raporu Azure yığınının | Microsoft Docs
-description: Doğrulama sonuçlarını gözden geçirmek için Azure yığın hazırlık denetleyicisi raporu kullanın.
+title: Azure Stack için doğrulama raporu | Microsoft Docs
+description: Doğrulama sonuçlarını gözden geçirmek için Azure Stack hazırlık denetleyicisi raporu kullanın.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -15,48 +15,48 @@ ms.topic: get-started-article
 ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: a0ca0ae3ed615f6bc2774364f7a443023b911b5d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 06b5660a9428e98d2e99b5d447a05700968ec884
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937823"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381922"
 ---
-# <a name="azure-stack-validation-report"></a>Azure yığın doğrulama raporu
-Dağıtım ve bir Azure yığın ortamını bakım desteği doğrulamaları Azure yığın hazırlık Denetleyicisi aracını çalıştırır. Aracı doğrulama sonuçlarını bir .json rapor dosyasına yazar. Rapor, mevcut Azure yığın dağıtımları için ayrıntılı ve Özet verileri Azure yığınının dağıtımı için Önkoşullar durumunu ve gizli anahtarları döndürme görüntüler.  
+# <a name="azure-stack-validation-report"></a>Azure Stack doğrulama raporu
+Dağıtım ve bir Azure Stack ortamı hizmet verme desteği doğrulamaları çalıştırmak için Azure Stack hazırlık Denetleyicisi aracını kullanın. Araç sonuçları bir .json rapor dosyasına yazar. Raporu, Azure Stack dağıtım önkoşulları durumuyla ilgili ayrıntılı ve Özet verileri görüntüler. Rapor, ayrıca var olan Azure Stack dağıtımları için gizli dizileri döndürme hakkında bilgi görüntüler.  
 
- ## <a name="where-to-find-the-report"></a>Raporu nerede bulacağını
-Aracı çalıştırıldığında sonuçları günlüklerini **AzsReadinessCheckerReport.json**. Aracı adlı bir günlük oluşturur **AzsReadinessChecker.log**. Bu dosyaların konumunu PowerShell'de doğrulama sonuçlarını görüntüler.
+ ## <a name="where-to-find-the-report"></a>Rapor yeri
+Araç çalıştığında sonuçlarını kaydeder. **AzsReadinessCheckerReport.json**. Aracı adlı bir günlük oluşturur **AzsReadinessChecker.log**. Doğrulama sonuçları PowerShell'de bu dosyalarının konumunu görüntüler.
 
-![Çalışma doğrulama](./media/azure-stack-validation-report/validation.png)
+![doğrulamayı Çalıştır](./media/azure-stack-validation-report/validation.png)
 
-Her iki dosya aynı bilgisayarda çalıştırdığınızda sonraki doğrulama denetimlerin sonuçlarını kalıcı olmasını sağlar.  Örneğin, aracı sertifikaları doğrulamak için Azure kimlik doğrulamak için yeniden çalıştırın ve kayıt doğrulamak için üçüncü kez çalıştırılabilir. Tüm üç doğrulama sonuçlarını elde edilen .json raporda kullanılabilir.  
+Her iki dosya sonraki doğrulama denetimlerini aynı bilgisayarda çalıştırıldığında sonuçlarını kalıcı hale getirin.  Örneğin, Aracı sertifikalarını doğrulamak için Azure kimlik doğrulamak için tekrar çalıştırın ve ardından kaydı doğrulamak için üçüncü kez çalıştırılabilir. Elde edilen .json raporda tüm üç doğrulama sonuçları kullanılabilir.  
 
-Varsayılan olarak, her iki dosya yazılan *C:\Users\<kullanıcı adı > \AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json*.  
-- Kullanım **- OutputPath** ***&lt;yolu&gt;*** farklı rapor konumunu belirtmek için çalışma komut satırı sonunda parametresi.   
-- Kullanım **- CleanReport** parametre bilgilerini temizlemek için run komutunun sonuna *AzsReadinessCheckerReport.json*. Önceki hakkında aracını çalıştırır.
+Varsayılan olarak, her iki dosya için yazılan *C:\Users\<kullanıcıadı > \AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json*.  
+- Kullanım **- OutputPath** ***&lt;yolu&gt;*** sonunda, farklı rapor konumunu belirtmek için çalışma komut satırı parametresi.   
+- Kullanım **- CleanReport** parametre bilgilerini temizlemek için bir run komutu sonunda *AzsReadinessCheckerReport.json*. Önceki hakkında aracını çalıştırır.
 
 ## <a name="view-the-report"></a>Raporu görüntüleyin
-PowerShell'de raporunu görüntülemek için değeri olarak rapor yolu tedarik **- ReportPath**. Bu komut raporun içeriğini görüntüler ve ayrıca sonuçları henüz yok doğrulamaları tanımlar.
+PowerShell'de raporunu görüntülemek için değeri olarak rapor için bir yol sağlamanız **- ReportPath**. Bu komut, raporun içeriğini görüntüler ve sonuçları henüz sahip olmayan doğrulamaları tanımlar.
 
-Örneğin, raporun bulunduğu konuma açık bir PowerShell isteminden raporunu görüntülemek için çalıştırın: 
+Örneğin, raporun bulunduğu konuma açık olan bir PowerShell isteminden raporu görüntülemek için çalıştırın: 
    > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json` 
 
-Çıktı aşağıdaki görüntüde benzer:
+Çıktı aşağıdaki görüntüye benzer:
 
 ![Raporu Görüntüle](./media/azure-stack-validation-report/view-report.png)
 
 ## <a name="view-the-report-summary"></a>Özet raporunu görüntüle
-Bir özeti raporu görüntülemek için ekleyebilirsiniz **-Özet** PowerShell komut satırından sonunu geçin. Örneğin: 
+Rapor özetini görüntülemek için ekleyebilirsiniz **-Özet** PowerShell komut satırının sonuna geçin. Örneğin: 
  > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json -summary`  
 
-Özet sonuçları yok doğrulamaları gösterir ve başarılı veya başarısız tam doğrulamaların gösterir. Çıktı aşağıdaki görüntüde benzer:
+Özet, sonuçları yoksa doğrulamaları gösterir ve başarılı veya başarısız tamamlandığında Doğrulamalar için gösterir. Çıktı aşağıdaki görüntüye benzer:
 
-![raporu-Özet](./media/azure-stack-validation-report/report-summary.png)
+![Rapor Özeti](./media/azure-stack-validation-report/report-summary.png)
 
 
-## <a name="view-a-filtered-report"></a>Filtrelenmiş raporunu görüntüle
-Tek bir doğrulama türü üzerinde filtrelenmiş bir raporu görüntülemek için kullanın **- ReportSections** parametre ve görüntülemek istediğiniz doğrulama türü için karşılık gelen aşağıdaki değerlerden birini belirtin:
+## <a name="view-a-filtered-report"></a>Filtrelenmiş rapor görüntüle
+Tek bir doğrulama türü üzerinde filtrelenmiş bir rapor görüntülemek için kullanın **- ReportSections** parametresiyle aşağıdaki değerlerden biri:
 - Sertifika
 - AzureRegistration
 - AzureIdentity
@@ -68,4 +68,4 @@ Tek bir doğrulama türü üzerinde filtrelenmiş bir raporu görüntülemek iç
 
 
 ## <a name="see-also"></a>Ayrıca bkz.
-[Start-AzsReadinessChecker cmdlet başvurusu](azure-stack-azsreadiness-cmdlet.md)
+[Başlangıç AzsReadinessChecker cmdlet başvurusu](azure-stack-azsreadiness-cmdlet.md)
