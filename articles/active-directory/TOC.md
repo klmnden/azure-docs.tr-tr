@@ -123,10 +123,6 @@
 #### [Sertifikaları kullanma](reports-monitoring/tutorial-access-api-with-certificates.md)
 
 ## [Parolaları yönetme](authentication/concept-sspr-howitworks.md)
-### Kullanıcı belgeleri
-#### [Parolanızı sıfırlama veya değiştirme](user-help/active-directory-passwords-update-your-own-password.md)
-#### [Self servis parola sıfırlama için kaydolma](user-help/active-directory-passwords-reset-register.md)
-
 
 ## Uygulamaları yönetme
 ### [Genel Bakış](manage-apps/what-is-application-management.md)
@@ -338,10 +334,6 @@
 ### [Erişim gözden geçirmesi sonuçlarını alma](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Kimliklerinizi güvenli hale getirme
-### Sertifika Tabanlı Kimlik Doğrulaması
-#### [Android](active-directory-certificate-based-authentication-android.md)
-#### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Kullanmaya başlama](active-directory-certificate-based-authentication-get-started.md)
 
 ### Azure AD Kimlik Koruması
 #### [Genel Bakış](identity-protection/overview.md)
