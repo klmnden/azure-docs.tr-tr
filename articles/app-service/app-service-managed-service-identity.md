@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: 2e392a3a50cda3daacb5bc358baaea2627eeafc0
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: fc1251cafcb2a535ccaf8354cb5c7c8b6a4afd33
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578839"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337543"
 ---
 # <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>Azure yönetilen hizmet kimliği App Service ve Azure işlevleri'ni kullanma
 
@@ -151,7 +151,7 @@ Burada `<TENANTID>` ve `<PRINCIPALID>` GUID'lerini aşağıdaki ile değiştiril
 Uygulama kimliğini, Azure Key Vault gibi bir AAD tarafından korunan diğer kaynaklara belirteçlerini almak için kullanabilirsiniz. Bu belirteçler kaynağı ve belirli hiçbir kullanıcı uygulamanın erişen uygulamada temsil eder. 
 
 > [!IMPORTANT]
-> Hedef kaynak, uygulamanızdan erişime izin verecek şekilde yapılandırmanız gerekebilir. Örneğin, anahtar kasası için bir belirteç isteği, uygulamanızın kimliğini içeren bir erişim ilkesi eklediğinizden emin olun gerekir. Belirteç içeriyorsa bile Aksi takdirde, aramalarınız için Key Vault, reddedilir. Yönetilen hizmet kimliği belirteçleri daha destek hangi kaynakları hakkında bilgi edinmek için [Azure Hizmetleri söz konusu destek Azure AD kimlik doğrulamasını](../active-directory/managed-service-identity/overview.md#which-azure-services-support-managed-service-identity).
+> Hedef kaynak, uygulamanızdan erişime izin verecek şekilde yapılandırmanız gerekebilir. Örneğin, anahtar kasası için bir belirteç isteği, uygulamanızın kimliğini içeren bir erişim ilkesi eklediğinizden emin olun gerekir. Belirteç içeriyorsa bile Aksi takdirde, aramalarınız için Key Vault, reddedilir. Yönetilen hizmet kimliği belirteçleri daha destek hangi kaynakları hakkında bilgi edinmek için [Azure Hizmetleri söz konusu destek Azure AD kimlik doğrulamasını](../active-directory/managed-service-identity/services-support-msi.md#azure-services-that-support-azure-ad-authentication).
 
 App Service ve Azure işlevleri, bir belirteç almak için basit bir REST protokolü yoktur. .NET uygulamaları için Microsoft.Azure.Services.AppAuthentication kitaplığını, bu protokolü üzerinden bir Özet sağlar ve bir yerel geliştirme deneyimini destekler.
 
