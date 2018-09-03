@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d3be19c67027746ddb73cf2cd9b4545584fd3ce0
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: ccc508b8dbfb990639abe24efa2822ff27f2f910
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389790"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341573"
 documentType: LandingData
-title: Azure Active Directory Yönetilen Hizmet Kimliği Belgeleri
+title: Azure kaynakları için Azure AD yönetilen kimlik belgeleri
 metadata:
   document_id: 
-  title: Azure Active Directory Yönetilen Hizmet Kimliği Belgeleri
-  description: Kimlik bilgilerini kaynak kodunuzda saklamaya gerek kalmadan Azure bulut hizmetlerinde güvenle kimlik doğrulaması yapmak için Yönetilen Hizmet Kimliği’ni kullanmayı öğrenin.
+  title: Azure kaynakları için Azure AD Yönetilen kimlik belgeleri
+  description: Kimlik bilgilerini kaynak kodunuzda saklamaya gerek kalmadan Azure bulut hizmetlerinde güvenle kimlik doğrulaması yapmak amacıyla Azure kaynakları için yönetilen kimlikleri kullanmayı öğrenin.
   services: active-directory
   ms.component: msi
   author: daveba
@@ -22,30 +22,30 @@ metadata:
   ms.date: 03/16/2018
   ms.author: daveba
 abstract:
-  description: Yönetilen Hizmet Kimliği, Azure hizmetlerine Azure Active Directory (Azure AD) üzerinde otomatik olarak yönetilen bir kimlik sağlar. Bu kimliği kullanarak, Azure AD kimlik doğrulamasını destekleyen tüm hizmetlerde kodunuzda kimlik bilgileri bulunmasına gerek kalmadan kimlik doğrulaması yapabilirsiniz.  Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak Yönetilen Hizmet Kimliği oluşturmayı ve yönetmeyi öğrenin.
+  description: Azure kaynakları için yönetilen kimlikler, Azure hizmetlerine Azure Active Directory (Azure AD) üzerinde otomatik olarak yönetilen bir kimlik sağlar. Bu kimliği kullanarak, Azure AD kimlik doğrulamasını destekleyen tüm hizmetlerde kodunuzda kimlik bilgileri bulunmasına gerek kalmadan kimlik doğrulaması yapabilirsiniz.  Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak Azure kaynakları için yönetilen kimlik oluşturmayı ve yönetmeyi öğrenin.
   aside:
     image:
       alt: 
       height: 112
       src: media/index/video-thumb-landing-page.png
       width: 200
-    title: Yönetilen Hizmet Kimliğine giriş
+    title: Azure kaynakları için yönetilen kimliklere giriş
     href: https://www.youtube.com/embed/bBi1bll2928
     width: 200
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
+- title: 5 dakikalık hızlı başlangıçlar
   items:
   - type: paragraph
-    text: Azure Resource Manager API’sine erişmek için Yönetilen Hizmet Kimliği’ni kullanmayı öğrenin
+    text: Azure Resource Manager API’sine erişmek amacıyla Azure kaynakları için yönetilen kimlikleri kullanmayı öğrenin
   - type: list
     style: unordered
     items:
     - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-arm">Windows Azure Sanal Makinesi ile Azure Resource Manager’a erişme</a>
     - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-arm">Linux Azure Sanal Makinesi ile Azure Resource Manager’a erişme</a>
-- title: Adım Adım Öğreticiler
+- title: Adım adım öğreticiler
   items:
   - type: paragraph
-    text: Azure kaynaklarına güvenle erişmek için Yönetilen Hizmet Kimliği’ni kullanmayı öğrenin
+    text: Azure kaynaklarına güvenle erişmek amacıyla Azure kaynakları için yönetilen kimlikleri kullanmayı öğrenin
   - type: paragraph
     text: Windows VM/VMSS
   - type: list

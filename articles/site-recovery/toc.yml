@@ -196,20 +196,22 @@ items:
         href: vmware-azure-deploy-configuration-server.md
       - name: VMware VM’leri için hedef ortamı ayarlama
         href: vmware-azure-set-up-target.md
-      - name: Çoğaltma ayarlarını yapılandırma
+      - name: VMware VM’leri için çoğaltma ayarlarını yapılandırma
         href: vmware-azure-set-up-replication.md
-      - name: VMware VM çoğaltmayı etkinleştirme
+      - name: VMware VM’leri için çoğaltmayı etkinleştirme
         href: vmware-azure-enable-replication.md
-      - name: Diskleri çoğaltmanın dışında tutma
+      - name: Diskleri VMware VM çoğaltmasının dışında tutma
         href: vmware-azure-exclude-disk.md
-      - name: VMWare sanal makineleri için CSP ile çok kiracılı yapı
+      - name: VMWare VM’leri için çoğaltmayı çok kiracılı bir şekilde ve CSP ile ayarlama
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
-      - name: Fiziksel sunucular için kaynak ortamı ayarlama
-        href: physical-azure-set-up-source.md
-      - name: Fiziksel sunucular için hedef ortamı ayarlama
-        href: physical-azure-set-up-target.md
-      - name: Fiziksel sunucuları olağanüstü durumdan Azure’a kurtarma
+      - name: Fiziksel sunucuları olağanüstü durumdan Azure’a kurtarmayı ayarlama
         href: physical-azure-disaster-recovery.md
+      - name: Fiziksel sunucu çoğaltma için kaynak ortamı ayarlama
+        href: physical-azure-set-up-source.md
+      - name: Fiziksel sunucu çoğaltma için hedef ortamını ayarlama
+        href: physical-azure-set-up-target.md
+      - name: Azure Stack VM’leri için olağanüstü durum kurtarmayı ayarlama
+        href: azure-stack-site-recovery.md
     - name: Mobility hizmetini dağıtma
       items:
       - name: Mobility hizmetine genel bakış
@@ -390,9 +392,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Hizmet güncelleştirmeleri
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 63d404406e3b33d4022974246a227cad1e6535a6
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 01f369aede31d44ff404c1ff5e7d2d1e9bb92950
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43285115"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343982"
