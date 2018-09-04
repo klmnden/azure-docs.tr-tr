@@ -1,19 +1,19 @@
 ---
 title: Web uygulamalarınızı Azure’a dağıtmak için Jenkins’i kullanma
 description: Jenkins ve Docker’ı kullanarak Java web uygulamalarınız için GitHub’dan Azure App Service’e sürekli tümleştirme ayarlarını yapın.
-ms.topic: tutorial
-ms.author: tarcher
+ms.service: jenkins
+keywords: jenkins, azure, devops, app service, sürekli tümleştirme, ci, sürekli geliştirme, cd
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: e880d84c3ae0fd23c11bb9b30733544bd5f28872
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b1af82060d316a18cd6427f70695ca4fa982064d
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389951"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106806"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Jenkins ile Azure App Service’e sürekli tümleştirme ve dağıtım ayarlama
 
@@ -33,7 +33,7 @@ Bu öğreticide aşağıdaki görevleri gerçekleştireceksiniz:
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-* JDK ve Maven araçları yapılandırılmış [Jenkins](https://jenkins.io/) sistemi. Jenkins sisteminiz yoksa [Jenkins çözüm şablonunu](/azure/jenkins/install-jenkins-solution-template) kullanarak şimdi Azure’da oluşturabilirsiniz.
+* JDK ve Maven araçları yapılandırılmış şekilde [Jenkins](https://jenkins.io/). Jenkins sisteminiz yoksa [Jenkins çözüm şablonunu](/azure/jenkins/install-jenkins-solution-template) kullanarak şimdi Azure’da oluşturabilirsiniz.
 * Bir [GitHub](https://github.com) hesabı.
 * Yerel komut satırınızdan veya [Azure Cloud Shell](/azure/cloud-shell/overview)’den [Azure CLI 2.0](/cli/azure)
 
@@ -102,7 +102,7 @@ Jenkins’i hesabınızdaki bir depoya yeni işlemeler gönderildiğinde [GitHub
 ## <a name="configure-the-azure-app-service-jenkins-plug-in"></a>Azure App Service Jenkins eklentisini yapılandırma
 
 1. Jenkins web konsolunda oluşturduğunuz **MyJavaApp** işini ve ardından sayfanın sol tarafındaki **Configure** (Yapılandır) öğesini seçin.
-2. Sayfayı aşağı kaydırarak **Post-build Actions** (Derleme Sonrası Eylemler) bölümüne inip **Add post-build action** (Derleme sonrası eylem ekle) ve **Publish an Azure Web App** (Azure Web Uygulaması Yayımla) öğelerini seçin.
+2. Sayfayı aşağı kaydırarak **Post-build Actions** (Derleme Sonrası Eylemler) bölümüne gidip **Add post-build action** (Derleme sonrası eylem ekle) ve **Publish an Azure Web App** (Azure Web Uygulaması Yayımla) öğelerini seçin.
 3. **Azure Profile Configuration** (Azure Profili Yapılandırması) bölümünde **Azure Credentials** (Azure Kimlik Bilgileri) öğesinin yanındaki **Add** (Ekle) öğesini ve ardından **Jenkins**’i seçin.
 4. **Add Credentials** (Kimlik Bilgilerini Ekle) iletişim kutusundaki **Kind** (Tür) açılan menüsünden **Microsoft Azure Service Principal** (Microsoft Azure Hizmet Sorumlusu) girişini seçin.
 5. Azure CLI veya [Cloud Shell](/azure/cloud-shell/overview) ile bir Active Directory hizmet sorumlusu oluşturun.
@@ -164,7 +164,7 @@ Jenkins’i hesabınızdaki bir depoya yeni işlemeler gönderildiğinde [GitHub
 ## <a name="deploy-the-app-from-github"></a>Uygulamayı GitHub’dan dağıtma
 
 1. Örnek uygulamayı Azure’a dağıtmak için Jenkins projesinden **Build Now** (Şimdi Derle) öğesini seçin.
-2. Derleme tamamlandıktan sonra uygulamanıza Azure’daki yayımlama URL’sinden ulaşabilirsiniz; örneğin, http://myjavaapp.azurewebsites.net.   
+2. Derleme tamamlandıktan sonra uygulamanıza Azure'daki yayımlama URL'sinden ulaşabilirsiniz. Örneğin, http://myjavaapp.azurewebsites.net.   
    ![Dağıtılan uygulamanızı Azure’da görüntüleme](media/jenkins-java-quickstart/hello_docker_world_unedited.png)
 
 ## <a name="push-changes-and-redeploy"></a>Değişiklikleri gönderme ve yeniden dağıtma

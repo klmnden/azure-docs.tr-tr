@@ -7,16 +7,16 @@ ms.component: change-inventory-management
 keywords: değişiklik, izleme, otomasyon
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 02/28/2018
+ms.date: 08/27/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 4d62e8e4cb778e60b39e502f09ce0aafca9b5212
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: fd94fd234067f63eab424c7f757d4adf842e7b46
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866826"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43120594"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Ortamınızdaki değişikliklerle ilgili sorunları giderme
 
@@ -112,7 +112,8 @@ Toplanıp izlenecek dosyaları ve Kayıt defteri anahtarlarını belirlemek içi
 |Etkin     | Ayarın uygulanmış olup olmadığını belirler        |
 |Öğe Adı     | İzlenecek dosyanın kolay adı        |
 |Grup     | Dosyaları mantıksal bir biçimde gruplandırmaya yönelik grup adı        |
-|Yolu girin     | Dosyanın denetleneceği yol. Örneğin: “c:\temp\myfile.txt”       |
+|Yolu Gir     | Dosyayı denetlemek için kullanılacak yol (örneğin, "c:\temp\\\*.txt")<br>"%winDir%\System32\\\*.*" gibi ortam değişkenleri de kullanabilirsiniz         |
+|Özyineleme     | İzlenecek öğe aranırken özyinelemenin kullanılıp kullanılmadığını belirler.        |
 |Dosya içeriğini tüm ayarlar için karşıya yükleme| İzlenen değişikliklerin dosya içeriği karşıya yükleme işlemini açar veya kapatır. Kullanılabilir seçenekler: **True** veya **False**.|
 
 ### <a name="add-a-linux-file"></a>Linux dosyası ekleme
@@ -133,7 +134,7 @@ Toplanıp izlenecek dosyaları ve Kayıt defteri anahtarlarını belirlemek içi
 |Bağlantılar     | Bu ayar, dizinleri dolaşırken sembolik bağlantıların nasıl ele alındığını belirler.<br> **Yoksay** - Sembolik bağlantıları yoksayar ve başvurulan dosyaları veya dizinleri içermez<br>**İzle** - Özyineleme sırasında sembolik bağlantıları izler ve başvurulan dosyaları veya dizinleri de içerir<br>**Yönet** - Sembolik bağlantıları izler ve döndürülen içeriğin işlenmesinde değişiklik yapılmasına olanak sağlar      |
 |Dosya içeriğini tüm ayarlar için karşıya yükleme| İzlenen değişikliklerin dosya içeriği karşıya yükleme işlemini açar veya kapatır. Kullanılabilir seçenekler: **True** veya **False**.|
 
-   > [!NOTE]   
+   > [!NOTE]
    > “Yönet” bağlantıları seçeneği önerilmez. Dosya içeriğini alma desteklenmiyor.
 
 ## <a name="enable-activity-log-connection"></a>Etkinlik günlüğü bağlantısını etkinleştirme

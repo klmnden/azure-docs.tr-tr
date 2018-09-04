@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: db4d423a09b6b37fd0ba88d466319cb5da4fdedf
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 30eb40967b2fd8a6b5e18cf0074a68fb24fd0744
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41918029"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886391"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-service-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Öğretici: Azure Resource Manager’a erişmek için Windows VM üzerinde Kullanıcı Tarafından Atanmış Yönetilen Hizmet Kimliği kullanma
 
@@ -30,7 +30,6 @@ Bu öğreticide, kullanıcı tarafından atanan kimliği oluşturma, bunu Window
 Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Windows VM oluşturma 
 > * Kullanıcı tarafından atanan kimliği oluşturma
 > * Kullanıcı tarafından atanan kimliğinizi Windows VM’nize atama
 > * Azure Resource Manager’da Kaynak Grubuna kullanıcı tarafından atanan kimlik için erişim verme 
@@ -39,8 +38,14 @@ Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-- Yönetilen Hizmet Kimliği'ni bilmiyorsanız, [genel bakış](overview.md) bölümünü gözden geçirin. **[Sistem ve kullanıcı tarafından atanan kimlikler arasındaki farklılıkları](overview.md#how-does-it-work) gözden geçirmeyi unutmayın**.
-- Henüz bir Azure hesabınız yoksa, devam etmeden önce [ücretsiz bir hesaba kaydolun](https://azure.microsoft.com/free/).
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+- [Azure portal'da oturum açma](https://portal.azure.com)
+
+- [Windows sanal makinesi oluşturma](/azure/virtual-machines/windows/quick-create-portal)
+
 - Bu öğreticideki gerekli kaynak oluşturma ve rol yönetimini adımlarını gerçekleştirmek için hesabınız uygun kapsamda (aboneliğiniz veya kaynak grubunuz) "Sahip" izinlerini gerektiriyor. Rol atamayla ilgili yardıma ihtiyacınız varsa bkz. [Azure abonelik kaynaklarınıza erişimi yönetmek için Rol Tabanlı Erişim Denetimi kullanma](/azure/role-based-access-control/role-assignments-portal).
 - PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 5.7.0 veya sonraki bir sürümünü gerektirir. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). 
 - PowerShell'i yerel ortamda çalıştırıyorsanız şunları da yapmanız gerekir: 
@@ -48,37 +53,6 @@ Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
     - [PowerShellGet'in en son sürümünü](/powershell/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget) yükleyin.
     - `Install-Module -Name PowerShellGet -AllowPrerelease` komutunu çalıştırarak `PowerShellGet` modülünün yayın öncesi sürümünü alın (`AzureRM.ManagedServiceIdentity` modülünü yüklemek için bu komutu çalıştırdıktan sonra geçerli PowerShell oturumundan `Exit` ile çıkmanız gerekebilir).
     - Bu makaledeki kullanıcı tarafından atanan kimlik işlemlerini gerçekleştirmek için `Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease` komutunu çalıştırarak `AzureRM.ManagedServiceIdentity` modülünün yayın öncesi sürümünü yükleyin.
-
-## <a name="create-resource-group"></a>Kaynak grubu oluşturma
-
-Bu örnekte, *EastUS* bölgesinde *myResourceGroupVM* adlı bir kaynak grubu oluşturulur.
-
-```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName "myResourceGroupVM" -Location "EastUS"
-```
-
-## <a name="create-virtual-machine"></a>Sanal makine oluşturma
-
-Kaynak grubu oluşturulduktan sonra Windows VM'sini oluşturun.
-
-[Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) ile sanal makinede yönetici hesabı için gereken kullanıcı adı ve parolasını ayarlayın:
-
-```azurepowershell-interactive
-$cred = Get-Credential
-```
-[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) ile sanal makineyi oluşturun.
-
-```azurepowershell-interactive
-New-AzureRmVm `
-    -ResourceGroupName "myResourceGroupVM" `
-    -Name "myVM" `
-    -Location "East US" `
-    -VirtualNetworkName "myVnet" `
-    -SubnetName "mySubnet" `
-    -SecurityGroupName "myNetworkSecurityGroup" `
-    -PublicIpAddressName "myPublicIpAddress" `
-    -Credential $cred
-```
 
 ## <a name="create-a-user-assigned-identity"></a>Kullanıcı tarafından atanan kimliği oluşturma
 

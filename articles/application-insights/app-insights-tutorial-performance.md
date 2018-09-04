@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 8489992303425cc00c15994b55ade958d77549e4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4ce4c9e2479c8d570766169ce5094dcc2b4bc511
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29969143"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42812880"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Azure Application Insights ile performans sorunlarını bulma ve tanılama
 
@@ -53,27 +53,20 @@ Application Insights, uygulamanızdaki farklı işlemlerin performans ayrıntıl
 
     ![Performans paneli](media/app-insights-tutorial-performance/performance-blade.png)
 
-3. Grafikte şu anda tüm çağrıların zaman içindeki ortalama süresi gösterilmektedir.  İlgilendiğiniz işlemleri grafiğe sabitleyerek ekleyin.  Burada, araştırmaya değer bazı tepe noktaları olduğu görülmektedir.  Grafiğin zaman aralığını kısaltarak sorunu daha iyi yalıtın.
+3. Grafikte şu anda, seçilen çağrıların zaman içindeki ortalama süresi gösterilmektedir. Performans sorunlarını bulmak için 95. yüzdebirliğe geçiş yapabilirsiniz. İlgilendiğiniz işlemleri grafiğe sabitleyerek ekleyin.  Burada, araştırmaya değer bazı tepe noktaları olduğu görülmektedir.  Grafiğin zaman aralığını kısaltarak sorunu daha iyi yalıtın.
 
     ![İşlemleri sabitleme](media/app-insights-tutorial-performance/pin-operations.png)
 
-4.  Bir işleme tıklayarak işlemin sağ tarafta açılan performans panelini görüntüleyin. Bu panelde farklı istekler için süre dağılımı gösterilir.  Kullanıcılar genellikle yaklaşık yarım saniyelik bir düşük performans fark ettiğinden, istek aralığını 500 milisaniyenin üzerine düşürün.  
+4.  Sağ taraftaki performans panelinde, seçilen işleme ilişkin farklı istek sürelerinin dağıtımı gösterilmektedir.  95. yüzdebirlikten başlamak için zaman aralığını kısaltın. "İlk 3 bağımlılık" içgörü kartı, dış bağımlılıkların yavaş işlemler üzerinde etkili olma olasılığını bir bakışta analiz edebilir.  Örnek listesini görmek için, örnek sayısının yer aldığı düğmeye tıklayın. Ardından, işlem ayrıntılarını görmek için herhangi bir örneği seçin.
 
     ![Süre dağılımı](media/app-insights-tutorial-performance/duration-distribution.png)
 
-5.  Bu örnekte, önemli sayıda isteğin işlenmesinin bir saniyeden uzun sürdüğünü görebilirsiniz. **İşlem ayrıntıları**’na tıklayarak bu işlemin ayrıntılarını görebilirsiniz.
+5.  Toplam işlem süresini en çok Fabrikamaccount başlıklı Azure Tablosuna yapılan çağrının etkilediğini bir bakışta görebilirsiniz. Ayrıca, işlemin başarısız olmasına neden olan bir özel durum oluştuğunu da görebilirsiniz. Sağ tarafta ayrıntılarını görmek istediğiniz herhangi bir öğeye tıklayabilirsiniz. [İşlem tanılama deneyimi hakkında daha fazla bilgi edinin](app-insights-transaction-diagnostics.md)
 
     ![İşlem ayrıntıları](media/app-insights-tutorial-performance/operation-details.png)
+    
 
-    > [!NOTE]
-    Tek bir tam ekran görünümünde istekler, bağımlılıklar, özel durumlar, izlemeler, olaylar, vb. sunucu tarafı telemetri verilerinin tamamını görmek için "Unified details: E2E Transaction Diagnostics" (Birleşik ayrıntılar: E2E İşlem Tanılama) [önizleme deneyimini](app-insights-previews.md) etkinleştirin. 
-
-    Önizleme etkinleştirildiğinde, bağımlılık çağrılarına harcanan sürenin yanı sıra herhangi bir hatayı veya özel durumu birleşik bir deneyimde görebilirsiniz. Bileşenler arası işlemler için Gantt grafiğinin yanı sıra ayrıntılar bölmesi, sorunun kök nedeni olan bileşeni, bağımlılığı veya özel durumu hızlıca tanılamanıza yardımcı olabilir. Alttaki bölümü genişleterek seçili bileşen işlemi için toplanan tüm izlemelerin veya olayların zaman sıralamasını görebilirsiniz. [Yeni deneyim hakkında daha fazla bilgi edinin](app-insights-transaction-diagnostics.md)  
-
-    ![İşlem tanılamaları](media/app-insights-tutorial-performance/e2e-transaction-preview.png)
-
-
-6.  Şimdiye kadar topladığınız bilgiler yalnızca performansın yavaş olduğunu gösterir, ancak kök nedenin bulunması konusunda pek yararlı değildir.  **Profil oluşturucu**, işlem için çalıştırılan kodun kendisini ve her adım için gereken süreyi göstererek bu konuda yardımcı olur. Profil oluşturucu belirli aralıklarla çalıştığından, bazı işlemlerin izlemesi olmayabilir.  Zamanla daha fazla işlemin izlemesi olmalıdır.  İşlem için profil oluşturucuyu başlatmak için **Profiler izlemeleri**’ne tıklayın.
+6.  **Profiler**, işlem için çalıştırılan gerçek kodu ve her adım için gereken süreyi göstererek kod düzeyinde tanılama konusunda size daha fazla yardımcı olur. Profil oluşturucu belirli aralıklarla çalıştığından, bazı işlemlerin izlemesi olmayabilir.  Zamanla daha fazla işlemin izlemesi olmalıdır.  İşlem için profil oluşturucuyu başlatmak için **Profiler izlemeleri**’ne tıklayın.
 5.  İzlemede her işleme yönelik olaylar tek tek gösterildiğinden, genel işlem süresinin kök nedenini tanılayabilirsiniz.  Üstteki en uzun süreye sahip örneklerden birine tıklayın.
 6.  Toplam işlem süresinin en büyük bölümünü oluşturan olaylara özgü yolu vurgulamak için **Etkin Yolu Göster**’e tıklayın.  Bu örnekte, en yavaş çağrının *FabrikamFiberAzureStorage.GetStorageTableData* metodundan geldiğini görebilirsiniz. En çok zaman alan bölüm *CloudTable.CreateIfNotExist* metodudur. İşlev her çağrıldığında bu kod satırı yürütülürse gereksiz ağ çağrısı ve CPU kaynağı tüketilir. Kodunuzu düzeltmenin en iyi yolu, bu satırı yalnızca bir kere yürütülen bir başlangıç yöntemine eklemektir. 
 

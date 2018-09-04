@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/17/2018
+ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: 5288e9900c75eae7601b84f7366edf9ac739d5da
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 931b3fd4730ed9ca3a901b423d6c804dfa7e5305
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125812"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143551"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Azure Data Box Disk nedir? (Önizleme)
 
@@ -60,10 +60,10 @@ A.  Azure Data Box Disklerini edinmek için öncelikle [Data Box Disk önizlemes
 A. Her biri 8 TB boyutunda (7 TB kullanılabilir kapasite) 5 disk için kullanabileceğiniz maksimum kapasite 35 TB olacaktır. Dolayısıyla tek seferde en fazla 35 TB veri aktarabilirsiniz.  Daha fazla veri aktarmak için daha fazla disk sipariş etmeniz gerekir.
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>S. Data Box Disklerinin bulunduğum bölgede kullanılabilir durumda olup olmadığını nasıl kontrol edebilirim? 
-A.  Data Box Diskleri önizleme aşamasında ABD'de ve tüm Avrupa Birliği ülkelerinde kullanılabilir.  
+A.  Data Box Disk'leri önizleme aşamasında ABD, Kanada ve tüm Avrupa Birliği ülkelerinde kullanılabilir.  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>S. Data Box Diskleri ile hangi bölgelerde veri depolayabilirim?
-A. Data Box Disk, önizleme aşamasında ABD, Batı Avrupa ve Kuzey Avrupa'daki tüm bölgelerde kullanılabilir. Yalnızca Azure genel bulut bölgeleri desteklenir. Azure Kamu veya diğer bağımsız bulutlar desteklenmez.
+A. Data Box Disk, önizleme aşamasında ABD, Kanada, Batı Avrupa ve Kuzey Avrupa'daki tüm bölgelerde kullanılabilir. Yalnızca Azure genel bulut bölgeleri desteklenir. Azure Kamu veya diğer bağımsız bulutlar desteklenmez.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>S. Data Box Diskleriyle ilgili sorun yaşamam halinde kiminle iletişim kurmam gerekir?
 A. Data Box Diskleriyle ilgili sorun yaşamanız halinde lütfen [Data Box Disk Desteği](mailto:expresspodsupport@microsoft.com) ile iletişime geçin.

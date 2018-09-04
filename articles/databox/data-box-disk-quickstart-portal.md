@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 08/28/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 20dc414c5cdd309434ba53acf2d7f6716d3edfe5
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 596c4b15ea6ef76d4471bca6994377bf4d5ddc01
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009935"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143432"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Hızlı başlangıç: Azure portalı kullanarak Azure Data Box Disk'i dağıtma (Önizleme)
 
@@ -54,7 +54,6 @@ Bu adım yaklaşık 5 dakika sürer.
 
 Sipariş oluşturulduktan sonra diskler gönderilmek üzere hazırlanır. 
 
-
 ## <a name="unpack"></a>Paketi açma
 
 Bu adım yaklaşık 5 dakika sürer.
@@ -64,7 +63,6 @@ Data Box Disk, UPS Express Box içinde gönderilir. Kutuyu açın ve içinde şu
 - Baloncuklu ambalaja sarılı 1 ile 5 USB disk.
 - Disk başına bir bağlantı kablosu. 
 - İade için sevkiyat etiketi.
- 
 
 ## <a name="connect-and-unlock"></a>Bağlama ve kilidini açma
 
@@ -75,10 +73,8 @@ Bu adım yaklaşık 5 dakika sürer.
 
     1. Azure portalında **Genel > Cihaz Ayrıntıları**'na gidin ve destek anahtarını alın.
     2. Data Box Disk kilit açma aracını disklere veri kopyalamak için kullanılacak bilgisayara indirin ve ayıklayın. 
-    3. *DataBoxDiskUnlock.exe* dosyasını çalıştırın ve destek anahtarını sağlayın. Yeniden takılan tüm diskler için bu adımı tekrarlayın.
+    3. *DataBoxDiskUnlock.exe* dosyasını çalıştırın ve destek anahtarını sağlayın. Yeniden takılan tüm diskler için kilit açma aracını tekrar çalıştırın ve destek anahtarını sağlayın. **Disk kilidini açmak için BitLocker iletişim kutusunu veya BitLocker anahtarını kullanmayın.** 
     4. Diske araç tarafından atanan sürücü harfi görüntülenir. Disk sürücü harfini not edin. Bu harf sonraki adımlarda kullanılacaktır.
-
-
 
 ## <a name="copy-data-and-verify"></a>Verileri kopyalama ve doğrulama
 
@@ -92,7 +88,7 @@ Bu işlemi tamamlamak için gereken süre verilerinizin boyutuna göre değişir
     > - Tüm kapsayıcıların ve blobların [Azure adlandırma kurallarına](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions) uygun olması gerekir. Bu kurallara uyulmaması halinde veriler Azure'a yüklenemez.
     > - Dosya boyutlarının blok blobları için en fazla ~4,7 TiB, sayfa blobları için ise en fazla ~8 TiB olduğundan emin olun.
 
-2. (İsteğe bağlı) Kopyalama işlemini tamamladıktan sonra *AzureImportExport* klasöründe bulunan `AzureExpressDiskService.ps1` uygulamasını çalıştırarak doğrulama için sağlama toplamı oluşturmanız önerilir. Bu adım verilerinizin boyutuna bağlı olarak uzun sürebilir. 
+2. (İsteğe bağlı) Kopyalama işlemini tamamladıktan sonra *AzureImportExport* klasöründe bulunan `AzureExpressDiskService.cmd` uygulamasını çalıştırarak doğrulama için sağlama toplamı oluşturmanız önerilir. Bu adım verilerinizin boyutuna bağlı olarak uzun sürebilir. 
 3. Sürücüyü çıkarın. 
 
 
@@ -116,7 +112,6 @@ Bu işlemi tamamlamak için gereken süre verilerinizin boyutuna göre değişir
     1. Hata günlüklerini kontrol ederek hata olup olmadığını kontrol edin ve gerekli eylemleri gerçekleştirin.
     2. Kaynaktan silmeden önce verilerinizin depolama hesaplarında olduğundan emin olun.
 
-
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Bu adımın tamamlanması 2-3 dakika sürer.
@@ -131,7 +126,7 @@ Temizlemek için Data Box siparişini iptal edebilir ve ardından silebilirsiniz
 
     Siparişi silmek için **Genel bakış**'a gidin ve komut çubuğundan **Sil**'e tıklayın.
 
-## <a name="next-step"></a>Sonraki adım
+## <a name="next-steps"></a>Sonraki adımlar
 
 Bu hızlı başlangıçta Azure'a veri aktarımı konusunda yardım almak için Azure Data Box Disk'i dağıttınız. Azure Data Box Disk yönetimi hakkında daha fazla bilgi edinmek için aşağıdaki öğreticiye geçin: 
 

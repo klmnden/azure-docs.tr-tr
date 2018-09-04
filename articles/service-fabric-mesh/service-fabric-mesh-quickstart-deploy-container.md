@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: SEO uzmanınıza danışmadan anahtar sözcük eklemeyin veya anahtar sözcükleri düzenlemeyin.
 author: rwike77
 ms.author: ryanwi
-ms.date: 07/12/2018
+ms.date: 08/24/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: a740672ea948bd86efce92c534e0f95f65563438
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: f5b834f92b2a126f68780a7647fda4d8b35dfe43
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42023155"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886453"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Hızlı başlangıç: Merhaba Dünya uygulamasını Service Fabric Mesh’e dağıtma
 
@@ -45,11 +45,18 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="deploy-the-application"></a>Uygulamayı dağıtma
-`az mesh deployment create` komutunu kullanarak kaynak grubunda uygulamanızı oluşturun:
+`az mesh deployment create` komutunu kullanarak kaynak grubunda uygulamanızı oluşturun.  Bash konsolu kullanıyorsanız, aşağıdaki komutu çalıştırın:
 
 ```azurecli-interactive
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}" 
 ```
+
+PowerShell konsolu kullanıyorsanız, aşağıdaki komutu çalıştırın:
+
+```azurecli-interactive
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{'location': {'value': 'eastus'}}"
+```
+
 Önceki komut, [mesh_rp.linux.json şablonunu](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json) kullanarak bir Linux uygulamasını dağıtır. Windows uygulaması dağıtmak istiyorsanız [mesh_rp.windows.json şablonunu](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json) kullanın. Windows kapsayıcı görüntüleri Linux kapsayıcı görüntülerinden büyüktür ve dağıtılması daha uzun sürebilir.
 
 Birkaç dakika içinde komut şunu döndürür:

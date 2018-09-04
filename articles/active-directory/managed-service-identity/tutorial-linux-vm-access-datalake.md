@@ -14,23 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 6854b0a6c72b44bcd3f778e0c46cb109b34ce826
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 4a9d147d1605f4efa638ff258df2667b6b95230e
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258839"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885167"
 ---
 # <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Öğretici: Linux VM için Yönetilen Hizmet Kimliği'ni kullanarak Azure Data Lake Store'a erişme
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Bu öğreticide, Linux sanal makinesi için Yönetilen Hizmet Kimliği'ni kullanarak Azure Data Lake Store'a erişme işlemi gösterilir. Azure, Yönetilen Hizmet Kimliği aracılığıyla oluşturduğunuz kimlikleri otomatik olarak yönetir. Kodunuza kimlik bilgileri girmenize gerek kalmadan Azure Active Directory (Azure AD) kimlik doğrulamasını destekleyen hizmetlerde kimlik doğrulaması yapmak için Yönetilen Hizmet Kimliği kullanabilirsiniz. 
+Bu öğreticide, Azure Data Lake'e erişmek amacıyla, Linux sanal makinesi (VM) için sistem tarafından atanmış bir kimliği nasıl kullanacağınız gösterilmektedir. Azure, Yönetilen Hizmet Kimliği aracılığıyla oluşturduğunuz kimlikleri otomatik olarak yönetir. Kodunuza kimlik bilgileri girmenize gerek kalmadan Azure Active Directory (Azure AD) kimlik doğrulamasını destekleyen hizmetlerde kimlik doğrulaması yapmak için Yönetilen Hizmet Kimliği kullanabilirsiniz. 
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Linux VM'de Yönetilen Hizmet Kimliği'ni etkinleştirme. 
 > * Azure Data Lake Store'a VM'niz için erişim verme.
 > * VM kimliğini kullanarak erişim belirteci alma ve Azure Data Lake Store'a erişmek için bunu kullanma.
 
@@ -40,33 +39,11 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+- [Azure portal'da oturum açma](https://portal.azure.com)
 
-[Azure Portal](https://portal.azure.com) oturum açın.
+- [Linux sanal makinesi oluşturma](/azure/virtual-machines/linux/quick-create-portal)
 
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda Linux sanal makinesi oluşturma
-
-Bu öğretici için, yeni bir Linux VM oluşturuyoruz. Ayrıca mevcut bir VM'de MSI'yi etkinleştirebilirsiniz.
-
-1. Azure portalın sol üst köşesinde bulunan **Yeni** düğmesini seçin.
-2. **İşlem**'i ve ardından **Ubuntu Server 16.04 LTS**'yi seçin.
-3. Sanal makine bilgilerini girin. **Kimlik doğrulama türü** olarak **SSH ortak anahtarı**'nı veya **Parola**'yı seçin. Oluşturulan kimlik bilgileri VM'de oturum açmanıza olanak tanır.
-
-   ![Sanal makine oluşturmak için "Temel" bölmesi](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. **Abonelik** listesinde, sanal makine için bir abonelik seçin.
-5. İçinde sanal makinenin oluşturulmasını istediğiniz yeni bir kaynak grubu seçmek için, **Kaynak grubu** > **Yeni oluştur**'u seçin. İşiniz bittiğinde **Tamam**'a tıklayın.
-6. VM'nin boyutunu seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. Ayarlar bölmesinde varsayılan değerleri koruyun ve **Tamam**'ı seçin.
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>VM'nizde Yönetilen Hizmet Kimliği'ni etkinleştirme
-
-VM Yönetilen Hizmet Kimliği, kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure AD'den erişim belirteçlerini almanıza olanak tanır. VM'de Yönetilen Hizmet Kimliği'nin etkinleştirilmesi iki işlem yapar: yönetilen kimliğini oluşturmak için VM'nizi Azure Active Directory'ye kaydeder ve kimliği VM'de yapılandırır.
-
-1. **Sanal Makine** için Yönetilen Hizmet Kimliği'ni etkinleştirmek istediğiniz sanal makineyi seçin.
-2. Sol bölmede **Yapılandırma**'yı seçin.
-3. **Yönetilen hizmet kimliği**'ni görürsünüz. Yönetilen Hizmet Kimliği'ne kaydolmak ve etkinleştirmek için **Evet**'i seçin. Devre dışı bırakmak istiyorsanız **Hayır**'ı seçin.
-   ![Azure Active Directory ile kaydedin" bölümü](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-4. **Kaydet**’i seçin.
+- [Sistem tarafından atanmış kimliği sanal makinenizde etkinleştirme](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Azure Data Lake Store'a VM'niz için erişim verme
 

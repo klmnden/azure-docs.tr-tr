@@ -4,15 +4,15 @@ description: Azure’a geçiş için şirket içi VMware VM’lerinin Azure Geç
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 08/20/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: fab8e4f09062f671714dabd1dae86a1979e356d2
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 65f1d6b448e6c0f16d51e1a4b8b897f52052ff15
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172356"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127639"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure’a geçiş için şirket içi VMware VM’lerini bulma ve değerlendirme
 
@@ -151,7 +151,7 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
     - VM, proxy üzerinden İnternet erişimine sahipse **Proxy ayarları**’na tıklayın ve proxy adresini ve dinleme bağlantı noktasını belirtin. Proxy için kimlik doğrulaması gerekiyorsa kimlik bilgilerini gerekin. İnternet bağlantısı gereksinimleri ve toplayıcının eriştiği URL'lerin listesi hakkında [daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity).
 
     > [!NOTE]
-    > Proxy adresinin, http://ProxyIPAddress veya http://ProxyFQDN biçiminde girilmesi gerekir. Yalnızca HTTP proxy’si desteklenir.
+    > Proxy adresinin, http://ProxyIPAddress veya http://ProxyFQDN biçiminde girilmesi gerekir. Yalnızca HTTP proxy’si desteklenir. Kesintiye neden olan bir ara sunucunuz varsa ve ara sunucu sertifikasını içeri aktarmadıysanız internet bağlantısı başlangıçta başarısız olabilir. Ara sunucu sertifikasını toplayıcı VM'de güvenilir bir sertifika olarak içeri aktarma yoluyla bu sorunu nasıl giderebileceğiniz hakkında [daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy).
 
     - Toplayıcı, toplayıcı hizmetinin çalışıp çalışmadığını denetler. Hizmet, toplayıcı VM’ye varsayılan olarak yüklenir.
     - VMware PowerCLI’yı indirin ve yükleyin.

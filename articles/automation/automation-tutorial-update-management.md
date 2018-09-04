@@ -6,15 +6,15 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 08/29/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 4d5222889d5e840bd03bf77a56584dac48bb740c
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 8458aaee9f8d328d959fb47fb3e32af176d545b1
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41920802"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247377"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Azure Otomasyonu'nu kullanarak Windows güncelleştirmelerini yönetme
 
@@ -82,9 +82,19 @@ Güncelleştirmenin başka bir alanına tıkladığınızda seçilen güncelleş
 
 ## <a name="configure-alerts"></a>Uyarı yapılandırma
 
-Bu adımda, güncelleştirmelerin başarıyla dağıtıldığının size bildirilmesi için bir uyarı ayarlarsınız. Oluşturduğunuz uyarı, bir Log Analytics sorgusunu temel alır. Birçok farklı senaryoda kullanılabilecek ek uyarılar için özel bir sorgu yazabilirsiniz. Azure portalında **İzleyici**'ye gidip **Uyarı Oluştur**'u seçin. 
+Bu adımda, başarısız olan dağıtımlar için Güncelleştirme Yönetimi'ne ilişkin ana runbook'u izleyerek veya bir Log Analytics sorgusu aracılığıyla güncelleştirmelerin başarılı bir şekilde dağıtıldığını bildirecek bir uyarı ayarlamayı öğreneceksiniz.
 
-**Kural oluştur** bölümünün **1. Uyarı koşulunu tanımlama** kısmından **Hedef seçin**'i belirleyin. **Kaynak türüne göre filtrele** bölümünden **Log Analytics**’i seçin. Log Analytics çalışma alanınızı ve ardından **Bitti**'yi seçin.
+### <a name="alert-conditions"></a>Uyarı koşulları
+
+Her uyarı türü için, tanımlanması gereken farklı uyarı koşulları vardır.
+
+#### <a name="log-analytics-query-alert"></a>Log Analytics sorgu uyarısı
+
+Başarılı dağıtımlar için, Log Analytics sorgularına dayalı uyarılar oluşturabilirsiniz. Başarısız dağıtımlar için, düzenleyicilerin dağıtımları güncelleştirmek üzere kullandığı ana runbook başarısız olduğunda uyarı verilmesi için [Runbook uyarısı](#runbook-alert) adımlarını kullanabilirsiniz. Birçok farklı senaryoda kullanılabilecek ek uyarılar için özel bir sorgu yazabilirsiniz.
+
+Azure portalında **İzleyici**'ye gidip **Uyarı Oluştur**'u seçin.
+
+**1. Uyarı koşulunu tamamlama** bölümünde **Hedef seçin**'e tıklayın. **Kaynak türüne göre filtrele** bölümünden **Log Analytics**’i seçin. Log Analytics çalışma alanınızı ve ardından **Bitti**'yi seçin.
 
 ![Uyarı oluşturma](./media/automation-tutorial-update-management/create-alert.png)
 
@@ -104,7 +114,21 @@ Bu sorgu, bilgisayarları ve belirtilen zaman çerçevesinde tamamlanan güncell
 
 ![Sinyal mantığını yapılandırma](./media/automation-tutorial-update-management/signal-logic.png)
 
-**2. Uyarı ayrıntılarını tanımlama** bölümünde uyarı adını ve açıklamasını girin. Uyarı başarılı bir çalıştırma için olduğundan **Önem Derecesi**'ni **Bilgilendirici (Önem Derecesi 2)** olarak ayarlayın.
+#### <a name="runbook-alert"></a>Runbook uyarısı
+
+Başarısız dağıtımlar için, ana runbook başarısızlığıyla ilgili olarak uyarı almanız gerekir. Azure portal'da **İzleme** bölümüne gidin ve **Uyarı Oluştur**'u seçin.
+
+**1. Uyarı koşulunu tamamlama** bölümünde **Hedef seçin**'e tıklayın. **Kaynak türüne göre filtrele** bölümünde **Otomasyon Hesapları**'nı seçin. Otomasyon Hesabınızı ve ardından **Bitti**'yi seçin.
+
+**Runbook Adı** için **\+** işaretine tıklayın özel bir ad olarak **Patch-MicrosoftOMSComputers** değerini girin. **Durum** için **Başarısız**'ı seçin veya **\+** işaretine tıklayıp **Başarısız** değerini girin.
+
+![Runbook'lar için sinyal mantığını yapılandırma](./media/automation-tutorial-update-management/signal-logic-runbook.png)
+
+**Uyarı mantığı** bölümünde **Eşik** alanına **1** değerini girin. İşiniz bittiğinde **Bitti**'yi seçin.
+
+### <a name="alert-details"></a>Uyarı ayrıntıları
+
+**2. Uyarı ayrıntılarını tanımlama** bölümünde uyarı adını ve açıklamasını girin. **Önem Derecesi**'ni başarılı çalıştırmalar için **Bilgilendirici (Önem Derecesi 2)**, başarısız çalıştırmalar içinse **Bilgilendirici (Önem Derecesi 1)** olarak ayarlayın.
 
 ![Sinyal mantığını yapılandırma](./media/automation-tutorial-update-management/define-alert-details.png)
 
@@ -134,7 +158,7 @@ Yeni bir VM güncelleştirme dağıtımı zamanlamak için **Güncelleştirme y�
 
 * **İşletim sistemi**: Güncelleştirme dağıtımı için hedeflenecek işletim sistemini seçin.
 
-* **Güncelleştirilecek makineler**: Kayıtlı bir aramayı veya İçeri aktarılan grubu seçin veya açılan menüden Makine'yi seçerek belirli makineleri seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir. Log Analytics'te bilgisayar grubu oluşturmak için kullanılan farklı yöntemler hakkında bilgi edinmek için bkz. [Log Analytics'teki bilgisayar grupları](../log-analytics/log-analytics-computer-groups.md)
+* **Güncelleştirilecek makineler**: Kayıtlı bir aramayı veya İçeri aktarılan grubu seçin veya açılan menüden Makine'yi seçerek belirli makineleri seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir. Log Analytics'te bilgisayar grupları oluşturmaya yönelik farklı yöntemler hakkında bilgi edinmek için bkz. [Computer groups in Log Analytics (Log Analytics'te bilgisayar grupları)](../log-analytics/log-analytics-computer-groups.md)
 
 * **Güncelleştirme sınıflandırması**: Güncelleştirme dağıtımının dağıtıma dahil olan yazılım türlerini seçin. Bu öğreticide tüm türleri seçili halde bırakın.
 

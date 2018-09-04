@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: e4e783d131c4ceee9315b3442ee504e662157d8c
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 905815259707116759e0b980690fac108ab81c7b
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856816"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186839"
 ---
-# <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Azure Cosmos DB Tablo API'si ile kullanmak üzere veri içe aktarma
+# <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Verilerinizi Azure Cosmos DB Tablo API'si hesabına geçirme
 
-Bu öğretici, Azure Cosmos DB [Tablo API’si](table-introduction.md) ile kullanmak üzere veri içeri aktarma hakkında yönergeler sağlar. Azure Table depolamasında depolanan verileriniz varsa, verilerinizi içeri aktarmak için Veri Taşıma Aracı'nı veya AzCopy'yi kullanabilirsiniz. Bir Azure Cosmos DB Tablo API'si (önizleme) hesabında depolanan verileriniz varsa, verilerinizi taşımak için Veri Taşıma Aracı'nı kullanmanız gerekir. Verileriniz içeri aktarıldıktan sonra Azure Cosmos DB tekliflerinin anahtar teslimi genel dağıtım, ayrılmış aktarım hızı, 99. yüzdede tek sayılı milisaniyelik gecikme, garantili yüksek kullanılabilirlik ve otomatik ikincil dizinleme gibi premium özelliklerinden yararlanabilirsiniz.
+Bu öğretici, Azure Cosmos DB [Tablo API’si](table-introduction.md) ile kullanmak üzere veri içeri aktarma hakkında yönergeler sağlar. Azure Tablo depolama alanında depolanan verileriniz varsa verilerinizi Azure Cosmos DB Tablo API'sine aktarmak için Veri Taşıma Aracı'nı veya AzCopy'yi kullanabilirsiniz. Bir Azure Cosmos DB Tablo API'si (önizleme) hesabında depolanan verileriniz varsa, verilerinizi taşımak için Veri Taşıma Aracı'nı kullanmanız gerekir. 
 
 Bu öğretici aşağıdaki görevleri kapsar:
 
@@ -39,11 +39,11 @@ Komut satırı Azure Cosmos DB Veri Taşıma Aracı (dt.exe), var olan Azure Tab
 Tablo verilerinin geçişini gerçekleştirmek için aşağıdaki görevleri tamamlayın:
 
 1. Geçiş aracını [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool)'dan indirin.
-2. `dt.exe` aracını, senaryonuzun komut satırı bağımsız değişkenlerini kullanarak çalıştırın.
+2. `dt.exe` aracını, senaryonuzun komut satırı bağımsız değişkenlerini kullanarak çalıştırın. `dt.exe` aşağıdaki biçimde bir komut alır:
 
-dt.exe aşağıdaki biçimde bir komut alır:
-
+   ```bash
     dt.exe [/<option>:<value>] /s:<source-name> [/s.<source-option>:<value>] /t:<target-name> [/t.<target-option>:<value>] 
+```
 
 Komutun seçenekleri şunlardır:
 
@@ -105,7 +105,7 @@ Tablo API önizleme sürümünden Table API GA'ya içeri aktarma için bir komut
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Table API preview account name>;AccountKey=<Table API preview account key>;TableEndpoint=https://<Account Name>.documents.azure.com; /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 
-## <a name="azcopy-command"></a>AzCopy komutu
+## <a name="migrate-data-by-using-azcopy"></a>AzCopy'yi kullanarak veri geçirme
 
 Azure Tablo depolamasından Azure Cosmos DB Tablo API'sine veri geçirmek için AzCopy komut satırı yardımcı programı da kullanılabilir. AzCopy'yi kullanmak için önce verilerinizi [Tablo deposundan veri dışarı aktarma](../storage/common/storage-use-azcopy.md#export-data-from-table-storage)'da açıklandığı gibi dışarı aktarır, sonra bu verileri [Azure Cosmos DB Tablo API](../storage/common/storage-use-azcopy.md#import-data-into-table-storage)'de açıklandığı gibi Azure Cosmos DB'ye içeri aktarırsınız.
 

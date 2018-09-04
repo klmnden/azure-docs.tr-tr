@@ -1,6 +1,6 @@
 ---
-title: Hibrit Azure Active Directory'ye katılmış cihazlarda el ile yapılandırmanız | Microsoft Docs
-description: Hibrit Azure Active Directory'ye katılmış cihazlarda el ile yapılandırmayı öğrenin.
+title: Hibrit Azure Active Directory'ye katılmış cihazları elle yapılandır | Microsoft Docs
+description: Hibrit Azure Active Directory'ye katılmış cihazları elle nasıl yapılandıracağınızı öğrenin.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -12,34 +12,45 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/08/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: ba47223f86005809189214f26a63b75b21449e3a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
-ms.translationtype: MT
+ms.openlocfilehash: 4155ea7c24746f9d3381f2d1e4a1e08a7a56206a
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630628"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049946"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Öğretici: Azure Active Directory'ye katılmış cihazlarda karma el ile yapılandırma 
+# <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Öğretici: Hibrit Azure Active Directory'ye katılmış cihazları elle yapılandırma 
 
-İle cihaz Yönetimi Azure Active Directory'de (Azure AD) güvenlik ve uyumluluğa yönelik standartlarınızı karşılayan cihazlardan kullanıcılarınızın kaynaklarınızı eriştiğiniz emin olabilirsiniz. Daha fazla ayrıntı için [Azure Active Directory'de cihaz yönetimine giriş](overview.md).
-
-Bir şirket içi Active Directory ortamınız varsa ve etki alanına katılan cihazları Azure AD'ye istiyorsanız, bunu hibrit Azure AD'ye katılmış cihazları yapılandırarak gerçekleştirebilirsiniz. Bu makalede ile ilgili adımları sağlar. 
-
+Azure Active Directory’de (Azure AD) cihaz yönetimi ile, kullanıcılarınızın güvenlik ve uyumluluk açısından standartlarınızı karşılayan cihazlardan kaynaklarınıza eriştiğinden emin olabilirsiniz. Daha fazla bilgi için, bkz. [Azure Active Directory'de cihaz yönetimine giriş](overview.md).
 
 
 > [!TIP]
-> Azure AD Connect kullanarak sizin için bir seçenek olup olmadığını, [senaryonuzu seçin](hybrid-azuread-join-plan.md#select-your-scenario). Azure AD Connect kullanarak hibrit Azure AD'ye katılma yapılandırmasını önemli ölçüde basitleştirebilir.
+> Azure AD Connect kullanma seçeneğine sahipseniz bkz. [Senaryonuzu seçin](hybrid-azuread-join-plan.md#select-your-scenario). Azure AD Connect özelliğini kullanarak Hibrit Azure AD'ye katılım yapılandırmasını önemli oranda basitleştirebilirsiniz.
+
+
+
+Şirket içi Active Directory ortamınız varsa ve etki alanınıza katılmış cihazları Azure AD'ye katmak istiyorsanız hibrit Azure AD'ye katılmış cihazları yapılandırarak bunu gerçekleştirebilirsiniz. Bu öğreticide, cihazlarınız için hibrit Azure AD'ye katılımı elle nasıl yapılandıracağınızı öğrenirsiniz.
+
+> [!div class="checklist"]
+> * Ön koşullar
+> * Yapılandırma adımları
+> * Hizmet bağlantı noktasını yapılandırma
+> * Talep verme Kurulumu
+> * Windows alt düzey cihazlarını etkinleştirme
+> * Katılmış cihazları doğrulama
+> * Uygulamanızda sorun giderme
+ 
 
 
 
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğretici, aşina olduğunuzu varsayar:
+Bu öğreticide, şu konularda bilgi sahibi olduğunuz varsayılır:
     
 -  [Azure Active Directory'de cihaz yönetimine giriş](../device-management-introduction.md)
     
@@ -48,73 +59,73 @@ Bu öğretici, aşina olduğunuzu varsayar:
 -  [Cihazlarınızın hibrit Azure AD'ye katılımını denetleme](hybrid-azuread-join-control.md)
 
 
-Kuruluşunuzdaki hibrit Azure AD'ye katılmış cihazların etkinleştirme başlamadan önce emin olmanız gerekir:
+Kuruluşunuzda hibrit Azure AD'ye katılmış cihazları etkinleştirmeye başlamadan önce mutlaka:
 
-- Azure AD güncel bir sürümünü çalıştırdığınızı bağlanın.
+- Güncel Azure AD Connect sürümünün yüklü olduğundan emin olun.
 
-- Azure AD connect cihazların hibrit Azure AD'ye Azure AD'ye katılmış olmasını istediğiniz bilgisayar nesnelerinin eşitlendi. Bilgisayar nesnelerinin belirli kuruluş birimine (OU) aitse bu OU'ları Azure AD'de eşitleme için yapılandırılması gereken sonra da bağlanın.
+- Azure AD Connect özelliğinin hibrit Azure AD'ye katılmasını istediğiniz cihazların bilgisayar nesnelerini Azure AD'ye eşitlediğinden emin olun. Bilgisayar nesneleri belirli kuruluş birimlerine (OU) aitse bu kuruluş birimlerinin Azure AD Connect'te eşitleme için de yapılandırılmış olması gerekir.
 
   
 
 Azure AD Connect:
 
-- Şirket içi Active Directory (AD) ve'ndaki bilgisayar hesabının Azure AD'de cihaz nesnesi arasındaki ilişkiyi tutar. 
-- Diğer cihaz sağlar ilgili özellikler gibi Windows iş için Hello.
+- Şirket içi Active Directory'nizdeki (AD) bilgisayar hesabı ile Azure AD'deki cihaz nesnesi arasındaki ilişkiyi korur. 
+- İş için Windows Hello gibi diğer cihaz ile ilgili özellikleri etkinleştirir.
 
-Aşağıdaki URL'ler Azure AD'ye kuruluş ağınızdaki bilgisayarların kayıt bilgisayarlardan erişilebilir olduğundan emin olun:
+Azure AD'ye bilgisayarların kaydı için kuruluşunuzun ağındaki bilgisayarlardan aşağıdaki URL'lere erişilebildiğinden emin olun:
 
 - https://enterpriseregistration.windows.net
 
-- https://login.microsoftonline.com İzin ver
+- https://login.microsoftonline.com İzin Ver
 - https://device.login.microsoftonline.com
 
-- Kuruluşunuzun STS (Federasyon etki alanları)
+- Kuruluşunuza ait STS (federasyon etki alanları)
 
-Yapmadıysanız, kuruluşunuzun STS (için Federasyon etki alanları) kullanıcının yerel intranet ayarları eklenmelidir.
+Henüz yapılmadıysa kuruluşunuza ait STS'nin (federasyon etki alanları) kullanıcının yerel intranet ayarlarına dahil edilmesi gerekir.
 
-Kuruluşunuz sorunsuz çoklu oturum açma kullanmayı planlıyorsanız, aşağıdaki URL'ler kuruluşunuz içinde bilgisayarlardan erişilebilmesi gereken ve kullanıcının yerel intranet bölgesine de eklenmelidir:
+Kuruluşunuz Sorunsuz SSO kullanmayı planlıyorsa aşağıdaki URL'lere kuruluşunuzdaki bilgisayarlardan erişilebilmelidir ve aynı zamanda kullanıcının yerel intranet bölgesine eklenmelidir:
 
 - https://autologon.microsoftazuread-sso.com
 
-- Ayrıca, kullanıcının Intranet Bölgesi'nde aşağıdaki ayarı etkinleştirilmelidir: "durum çubuğu komut güncelleştirmelerine izin ver."
+- Ayrıca kullanıcının intranet bölgesinde aşağıdaki ayarların etkinleştirilebilmesi gereklidir: "Betikle durum çubuğu güncelleştirmelerine izin ver".
 
-Kuruluşunuz yönetilen Kurulum (Federasyon olmayan) kullanıyorsa, şirket içi AD ve ADFS Azure AD ile federasyona eklemek için kullanmaz hibrit Azure AD'ye katılma Windows 10 Azure AD'ye sync'ed olması için ad bilgisayar nesneler üzerinde kullanır ardından. Tüm kurumsal birimlerde (hibrit Azure AD'ye katılmış olması gereken bilgisayar nesnelerini içeren OU) için etkin olması, Azure AD Connect eşitleme yapılandırmasını eşitleme emin olun.
+Kuruluşunuz şirket içi AD ile yönetilen (federasyon olmayan) kurulum kullanıyorsa ve Azure AD ile federasyon için ADFS kullanmıyorsa Windows 10'da hibrit Azure AD'ye katılım özelliği, AD'deki bilgisayar nesnelerinin Azure AD'ye eşitlenmesine dayanır. Hibrit Azure AD'ye katılması gereken bilgisayar nesnelerini içeren tüm Kuruluş Birimlerinin (OU) Azure Ad Connect eşitleme yapılandırmasında eşitlemeler için etkinleştirildiğinden emin olun.
 
-Kuruluşunuzda bir giden proxy üzerinden Internet erişimi gerekiyorsa, sürüm 1703 veya önceki Windows 10 cihazları için Web Proxy Otomatik Bulma (WPAD), Azure AD'ye kaydettirmek Windows 10 bilgisayarlarını etkinleştirmek için uygulamalıdır. 
+1703 veya önceki sürümlereki Windows 10 cihazları için, kuruluşunuz giden bağlantı proxy'si aracılığıyla İnternete erişimi gerektiriyorsa Windows 10 bilgisayarlarını Azure AD'ye kayıt için etkinleştirmek üzere Web Proxy Otomatik Bulma (WPAD) uygulamanız gerekir. 
 
 ## <a name="configuration-steps"></a>Yapılandırma adımları
 
-Hibrit Azure AD'ye katılmış cihazlar çeşitli türlerdeki Windows cihaz platformları için yapılandırabilirsiniz. Bu konu, tüm tipik yapılandırma senaryoları için gerekli olan adımları içerir.  
+Hibrit Azure AD'ye katılmış cihazları çeşitli türlerdeki Windows cihazı platformları için yapılandırabilirsiniz. Bu konu, tüm tipik yapılandırma senaryoları için gereken adımları içerir.  
 
-Senaryonuz için gerekli olan adımları genel bakışını almak için aşağıdaki tabloyu kullanın:  
+Senaryonuz için gereken adımlara ilişkin genel bir bakış elde etmek için aşağıdaki tabloyu kullanın:  
 
 
 
-| Adımlar                                      | Windows geçerli ve parola karması eşitleme | Windows geçerli ve Federasyon | Windows alt düzey |
+| Adımlar                                      | Windows geçerli ve parola karması eşitleme | Windows geçerli ve federasyon | Windows alt düzey |
 | :--                                        | :-:                                    | :-:                            | :-:                |
 | Hizmet bağlantı noktasını yapılandırma | ![İşaretli][1]                            | ![İşaretli][1]                    | ![İşaretli][1]        |
 | Talep verme Kurulumu           |                                        | ![İşaretli][1]                    | ![İşaretli][1]        |
-| Windows 10 cihazları etkinleştirme      |                                        |                                | ![İşaretli][1]        |
-| Katılan cihazlar doğrulayın          | ![İşaretli][1]                            | ![İşaretli][1]                    | ![İşaretli][1]        |
+| Windows 10 olmayan cihazları etkinleştirme      |                                        |                                | ![İşaretli][1]        |
+| Katılmış cihazları doğrulama          | ![İşaretli][1]                            | ![İşaretli][1]                    | ![İşaretli][1]        |
 
 
 
 ## <a name="configure-service-connection-point"></a>Hizmet bağlantı noktasını yapılandırma
 
-Hizmet bağlantı noktası (SCP) nesnesine, cihazlarınız tarafından Azure AD Kiracı bilgileri bulmak için kayıt sırasında kullanılır. Şirket içi Active Directory'nizde (AD), SCP nesne hibrit Azure AD'ye katılmış cihazlar için bilgisayarın ormanın bağlam bölüm adlandırma yapılandırmada bulunmalıdır. Her ormanda yalnızca bir yapılandırma adlandırma bağlamında yoktur. Bir çok ormanlı Active Directory yapılandırması, etki alanına katılmış bilgisayarları içeren tüm ormanlardaki hizmet bağlantı noktası mevcut olmalıdır.
+Azure AD kiracı bilgilerini keşfetmek için kayıt sırasında cihazlarınız tarafından hizmet bağlantı noktası (SCP) nesnesi kullanılır. Şirket içi Active Directory'nizde (AD), bilgisayarın ormanındaki yapılandırma adlandırma bağlamı bölümünde hibrit Azure AD'ye katılmış cihazların SCP nesnesinin bulunması gerekir. Orman başına yalnızca bir yapılandırma adlandırma bağlamı bulunur. Çoklu ormanlı Active Directory yapılandırmasında, etki alanına katılmış bilgisayarları içeren tüm ormanlarda hizmet bağlantı noktası bulunmalıdır.
 
-Kullanabileceğiniz [ **Get-ADRootDSE** ](https://technet.microsoft.com/library/ee617246.aspx) , ormanının yapılandırma adlandırma bağlamında almak için cmdlet'i.  
+Ormanınızın yapılandırma adlandırma bağlamını almak için [**Get-ADRootDSE**](https://technet.microsoft.com/library/ee617246.aspx) cmdlet öğesini kullanabilirsiniz.  
 
-Active Directory etki alanı adına sahip bir orman için *fabrikam.com*, yapılandırma adlandırma bağlamında olan:
+Active Directory etki alanı adı *fabrikam.com* olan bir orman için yapılandırma adlandırma bağlamı:
 
 `CN=Configuration,DC=fabrikam,DC=com`
 
-Ormanda etki alanına katılmış cihazların otomatik kaydı için SCP'yi nesnesi şu konumdadır:  
+Ormanınızda, etki alanına katılmış cihazların otomatik kaydına ilişkin SCP nesnesi şu konumdadır:  
 
 `CN=62a0ff2e-97b9-4513-943f-0d221bd30080,CN=Device Registration Configuration,CN=Services,[Your Configuration Naming Context]`
 
-Nasıl Azure AD Connect dağıttığınız bağlı olarak, SCP nesnesi zaten yapılandırılmış olabilir.
-Nesnesinin varlığını doğrulamak ve aşağıdaki Windows PowerShell betiğini kullanarak bulma değerlerini alma: 
+Azure AD Connect'i nasıl dağıttığınıza bağlı olarak SCP nesnesi yapılandırılmış olabilir.
+Nesnenin varlığını doğrulayabilir ve aşağıdaki Windows PowerShell betiğini kullanan keşif değerlerini alabilirsiniz: 
 
     $scp = New-Object System.DirectoryServices.DirectoryEntry;
 
@@ -122,19 +133,19 @@ Nesnesinin varlığını doğrulamak ve aşağıdaki Windows PowerShell betiğin
 
     $scp.Keywords;
 
-**$Scp. Anahtar sözcükler** çıkış gösteren Azure AD Kiracı bilgileri, örneğin:
+**$scp.Keywords** çıktısı Azure AD kiracı bilgilerini gösterir, örneğin:
 
     azureADName:microsoft.com
     azureADId:72f988bf-86f1-41af-91ab-2d7cd011db47
 
-Hizmet bağlantı noktası mevcut değilse, bunu çalıştırarak oluşturabilirsiniz `Initialize-ADSyncDomainJoinedComputerSync` Azure AD Connect sunucunuzda cmdlet'i. Bu cmdlet'i çalıştırmak için Kurumsal yönetici kimlik bilgileri gereklidir.  
-Cmdlet:
+Hizmet bağlantı noktası mevcut değilse Azure AD Connect sunucunuzda `Initialize-ADSyncDomainJoinedComputerSync` cmdlet öğesini çalıştırarak oluşturabilirsiniz. Bu cmdlet öğesini çalıştırmak için kuruluş yöneticisi kimlik bilgileri gereklidir.  
+cmdlet:
 
-- Azure AD Connect bağlı Active Directory ormanındaki hizmet bağlantı noktası oluşturur. 
-- Belirtmenizi gerektirir `AdConnectorAccount` parametresi. Active Directory Bağlayıcısı hesabı Azure ad connect yapılandırıldığı hesap budur. 
+- Azure AD Connect'in bağlı olduğu Active Directory ormanında hizmet bağlantı noktasını oluşturur. 
+- `AdConnectorAccount` parametresini belirtmenizi gerektirir. Bu, Azure AD Connect'teki Active Directory bağlayıcısı olarak yapılandırılan hesaptır. 
 
 
-Aşağıdaki betiği cmdlet'i kullanmak için bir örnek gösterilmektedir. Bu betikte `$aadAdminCred = Get-Credential` bir kullanıcı adı gerekir. Kullanıcı asıl adı (UPN) biçiminde kullanıcı adı sağlamanız gerekir (`user@example.com`). 
+Aşağıdaki betikte, cmdlet kullanımına ilişkin bir örnek gösterilmektedir. Bu betikte, `$aadAdminCred = Get-Credential` bir kullanıcı adı yazmanızı gerektirir. Kullanıcı asıl adı (UPN) biçiminde kullanıcı adı sağlamanız gerekir (`user@example.com`). 
 
 
     Import-Module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1";
@@ -143,15 +154,15 @@ Aşağıdaki betiği cmdlet'i kullanmak için bir örnek gösterilmektedir. Bu b
 
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
-`Initialize-ADSyncDomainJoinedComputerSync` Cmdlet:
+`Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
 
-- Bir etki alanı denetleyicisinde çalışan Active Directory Web hizmetleri kullanan AD DS araçları ve Active Directory PowerShell modülü kullanır. Active Directory Web Hizmetleri Windows Server 2008 R2 çalıştıran etki alanı denetleyicilerinde ve üzerinde desteklenir.
-- Yalnızca tarafından desteklenen **MSOnline PowerShell modülü sürüm 1.1.166.0**. Bu modül indirmek için bunu kullanın [bağlantı](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).   
-- AD DS araçları yüklü değilse `Initialize-ADSyncDomainJoinedComputerSync` başarısız olur.  AD DS araçları özellikleri - uzak sunucu yönetim araçları - Rol Yönetim Araçları altında Sunucu Yöneticisi üzerinden yüklenebilir.
+- Bir etki alanı denetleyicisinde çalıştırılan Active Directory Web Hizmetlerine dayanan AD DS Araçlarını ve Active Directory PowerShell modülünü kullanır. Active Directory Web Hizmetleri Windows Server 2008 R2 ve sonraki sürümleri çalıştıran etki alanı denetleyicilerinde desteklenir.
+- Yalnızca **MSOnline PowerShell modülü sürüm 1.1.166.0** ile desteklenir. Bu modülü indirmek için bu [bağlantıyı](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/) kullanın.   
+- AD DS araçları yüklü değilse `Initialize-ADSyncDomainJoinedComputerSync` başarısız olur.  AD DS araçları, Özellikler - Uzak Sunucu Yönetim Araçları - Rol Yönetim Araçları bölümünün altındaki Sunucu Yöneticisi aracılığıyla yüklenebilir.
 
-Windows Server 2008 veya önceki sürümlerini çalıştıran etki alanı denetleyicileri için hizmet bağlantı noktası oluşturmak için aşağıdaki betiği kullanın.
+Windows Server 2008 veya önceki sürümlerini çalıştıran etki alanı denetleyicileri için hizmet bağlantı noktası oluşturmak üzere aşağıdaki betiği kullanın.
 
-Bir Çoklu orman yapılandırması, hizmet bağlantı noktası bilgisayarları bulunduğu her ormanda oluşturmak için aşağıdaki betiği kullanmanız gerekir:
+Çoklu orman yapılandırmasında, bilgisayarların bulunduğu her ormanda hizmet bağlantı noktası oluşturmak için aşağıdaki betiği kullanmanız gerekir:
  
     $verifiedDomain = "contoso.com"    # Replace this with any of your verified domain names in Azure AD
     $tenantID = "72f988bf-86f1-41af-91ab-2d7cd011db47"    # Replace this with you tenant ID
@@ -168,53 +179,53 @@ Bir Çoklu orman yapılandırması, hizmet bağlantı noktası bilgisayarları b
 
     $deSCP.CommitChanges()
 
-Yukarıdaki betik
+Yukarıdaki betikte
 
-- `$verifiedDomain = "contoso.com"` Azure AD'de doğrulanmış etki alanı adlarınızı biriyle değiştirmeniz gereken bir yer tutucudur. Kullanabilmeniz için önce etki alanının sahibi gerekecektir.
+- `$verifiedDomain = "contoso.com"`, Azure AD'de doğrulanmış etki alanı adlarınızdan biri ile değiştirmeniz gereken yer tutucudur. Kullanabilmeniz için etki alanına sahip olmanız gerekecektir.
 
-Doğrulanmış etki alanı adları hakkında daha fazla ayrıntı için bkz. [Azure Active Directory'ye özel etki alanı adı ekleme](../active-directory-domains-add-azure-portal.md).  
-Doğrulanmış şirket etki alanlarınızın listesini almak için kullanabileceğiniz [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0) cmdlet'i. 
+Doğrulanmış etki alanı adları hakkında daha fazla bilgi için, bkz. [Azure Active Directory'ye özel etki alanı adı ekleyin](../active-directory-domains-add-azure-portal.md).  
+Doğrulanmış şirket etki alanlarınızın bir listesini edinmek için [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0) cmdlet öğesini kullanabilirsiniz. 
 
 ![Get-AzureADDomain](./media/hybrid-azuread-join-manual-steps/01.png)
 
 ## <a name="setup-issuance-of-claims"></a>Talep verme Kurulumu
 
-Federasyon Azure AD yapılandırması cihazları kullanan Active Directory Federasyon Hizmetleri (AD FS) üzerinde veya 3. taraf Federasyon Hizmeti için Azure AD kimlik doğrulaması için şirket. Cihazlar, Azure Active Directory cihaz kayıt Hizmeti'ne karşı (Azure DRS) kaydetmek için erişim belirteci almak için kimlik doğrulaması.
+Federasyon Azure AD yapılandırmasında, cihazlar Azure AD'ye kimlik doğrulaması yapmak için Active Directory Federasyon Hizmetleri (AD FS) veya 3. taraf şirket içi federasyon hizmetine güvenir. Cihazlar, Azure Active Directory Device Registration Service (Azure DRS) kullanarak kayıt için erişim belirteci almak üzere kimlik doğrulaması yapar.
 
-Windows cihazları şirket içi Federasyon Hizmeti tarafından barındırılan tümleşik Windows doğrulaması etkin bir WS-Trust uç (1.3 veya 2005 sürümleri) kullanarak kimlik doğrulaması.
+Windows geçerli cihazları, Tümleşik Windows Kimlik Doğrulamasını kullanarak şirket içi federasyon hizmeti tarafından barındırılan aktif bir WS-Trust uç noktaya (1.3 veya 2005 sürümleri) kimlik doğrulaması yapar.
 
 > [!NOTE]
-> AD FS ya da kullanırken **adfs/services/güven/13/windowstransport** veya **adfs/services/güven/2005/windowstransport** etkinleştirilmesi gerekir. Ayrıca Web kimlik doğrulaması Ara sunucusu kullanıyorsanız, bu uç nokta proxy'si aracılığıyla yayımlandığından emin olun. Hangi uç noktaları altında AD FS Yönetim Konsolu aracılığıyla etkinleştirilir gördüğünüz **hizmet > uç noktalar**.
+> AD FS kullanırken **adfs/services/trust/13/windowstransport** veya **adfs/services/trust/2005/windowstransport** özelliğinin etkinleştirilmesi gerekir. Web Kimlik Doğrulaması Proxy'si kullanıyorsanız ayrıca bu uç noktanın proxy aracılığıyla yayımlandığından emin olun. **Hizmet > Uç Noktalar** bölümün altındaki AD FS yönetim konsolu aracılığıyla hangi uç noktaların etkinleştirildiğini görebilirsiniz.
 >
->Şirket içi Federasyon hizmetinizin AD FS yoksa, WS-Trust 1.3 veya 2005 uç noktaları ve bunlar meta veri değişimi dosyası (MEX) aracılığıyla yayımlanan destekledikleri emin olmak için satıcınızın yönergeleri izleyin.
+>Şirket içi federasyon hizmetiniz olarak AD FS kullanmıyorsanız WS-Trust 1.3 veya 2005 uç noktalarını desteklediklerinden ve bunların Meta Veri Değişimi (MEX) dosyası aracılığıyla yayımlandıklarından emin olmak için satıcınızın talimatlarını uygulayın.
 
-Aşağıdaki talep tamamlanması, cihaz kaydı için Azure DRS'tarafından alınan belirteç bulunmalıdır. Azure DRS, ardından yeni oluşturulan bir cihaz nesnesi bilgisayar hesabı şirket içi ile ilişkilendirmek için Azure AD Connect tarafından kullanılan bu bilgilerin bazıları ile Azure AD'de bir cihaz nesnesi oluşturacak.
+Cihaz kaydının tamamlanması için Azure DRS tarafından alınan belirteçte aşağıdaki taleplerin yer alması gerekir. Azure DRS bu bilgilerin bir kısmıyla Azure AD'de bir cihaz nesnesi oluşturur. Ardından Azure AD Connect, yeni oluşturulan cihaz nesnesi ile şirket içi bilgisayar hesabını ilişkilendirmek için bu bilgileri kullanır.
 
 * `http://schemas.microsoft.com/ws/2012/01/accounttype`
 * `http://schemas.microsoft.com/identity/claims/onpremobjectguid`
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`
 
-Birden çok doğrulanmış etki alanı adı varsa, bilgisayarlar için aşağıdaki talep vermeniz gerekir:
+Birden fazla doğrulanmış etki alanı adınız varsa bilgisayarlar için aşağıdaki talebi sağlamanız gerekir:
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`
 
-Zaten bir Immutableıd talebi (örneğin, alternatif bir oturum açma kimliği) veriyorsanız bilgisayarlar için karşılık gelen bir talep sağlamanız gerekir:
+Zaten bir ImmutableID talebi veriyorsanız (ör. alternatif oturum açma kimliği) bilgisayarlar için bir karşılık gelen talep sağlamanız gerekir:
 
 * `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`
 
-Aşağıdaki bölümlerde, hakkında bilgi edinin:
+Aşağıdaki bölümlerde, şu konular hakkında bilgiler edinebilirsiniz:
  
-- Her talep değerler içermelidir
-- Nasıl bir tanımı AD FS'de görünmesi
+- Her bir talebin içermesi gereken değerler
+- AD FS'de bir tanım nasıl görünür?
 
-Tanımı değerleri mevcut olup olmadığını veya bunları oluşturmanız gerekip gerekmediğini doğrulamak için yardımcı olur.
+Tanım, değerlerin mevcut olup olmadığını veya bunları oluşturmanızın gerekip gerekmediğini doğrulamanıza yardımcı olur.
 
 > [!NOTE]
-> Şirket içi Federasyon sunucunuz için AD FS kullanmıyorsanız, bu talepleri vermek için uygun bir yapılandırma oluşturmak için satıcınızın yönergeleri izleyin.
+> Şirket içi federasyon sunucunuz için AD FS kullanmıyorsanız bu talepleri vermek üzere uygun yapılandırmayı oluşturmak için satıcınızın talimatlarını uygulayın.
 
-### <a name="issue-account-type-claim"></a>Sorun hesap türü talep
+### <a name="issue-account-type-claim"></a>Hesap türü talep verme
 
-**`http://schemas.microsoft.com/ws/2012/01/accounttype`** -Bu talep değerini içermelidir **DJ**, cihaz etki alanına katılmış bir bilgisayar olarak tanımlar. AD FS'de, şuna benzer bir verme dönüştürme kural ekleyebilirsiniz:
+**`http://schemas.microsoft.com/ws/2012/01/accounttype`** - Bu talebin, cihazı etki alanına katılmış bilgisayar olarak tanımlayan bir **DJ** değeri içermesi gerekir. AD FS'de, aşağıdaki gibi görünen bir verme aktarım kuralı ekleyebilirsiniz:
 
     @RuleName = "Issue account type for domain-joined computers"
     c:[
@@ -227,9 +238,9 @@ Tanımı değerleri mevcut olup olmadığını veya bunları oluşturmanız gere
         Value = "DJ"
     );
 
-### <a name="issue-objectguid-of-the-computer-account-on-premises"></a>ObjectGUID bilgisayar hesabı şirket içi sorun
+### <a name="issue-objectguid-of-the-computer-account-on-premises"></a>Şirket içi bilgisayar hesabının objectGUID değerini verme
 
-**`http://schemas.microsoft.com/identity/claims/onpremobjectguid`** -Bu talebi içermelidir **objectGUID** şirket içi bilgisayar hesabının değeri. AD FS'de, şuna benzer bir verme dönüştürme kural ekleyebilirsiniz:
+**`http://schemas.microsoft.com/identity/claims/onpremobjectguid`** - Bu talebin, şirket içi bilgisayar hesabına ilişkin **objectGUID** değerini içermesi gerekir. AD FS'de, aşağıdaki gibi görünen bir verme aktarım kuralı ekleyebilirsiniz:
 
     @RuleName = "Issue object GUID for domain-joined computers"
     c1:[
@@ -249,9 +260,9 @@ Tanımı değerleri mevcut olup olmadığını veya bunları oluşturmanız gere
         param = c2.Value
     );
  
-### <a name="issue-objectsid-of-the-computer-account-on-premises"></a>ObjectSID bilgisayar hesabı şirket içi sorun
+### <a name="issue-objectsid-of-the-computer-account-on-premises"></a>Şirket içi bilgisayar hesabının objectSID değerini verme
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`** -Bu talebi içermelidir **objectSID** şirket içi bilgisayar hesabının değeri. AD FS'de, şuna benzer bir verme dönüştürme kural ekleyebilirsiniz:
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`** - Bu talebin, şirket içi bilgisayar hesabına ilişkin **objectSid** değerini içermesi gerekir. AD FS'de, aşağıdaki gibi görünen bir verme aktarım kuralı ekleyebilirsiniz:
 
     @RuleName = "Issue objectSID for domain-joined computers"
     c1:[
@@ -266,9 +277,9 @@ Tanımı değerleri mevcut olup olmadığını veya bunları oluşturmanız gere
     ]
     => issue(claim = c2);
 
-### <a name="issue-issuerid-for-computer-when-multiple-verified-domain-names-in-azure-ad"></a>Birden çok etki alanı adlarını Azure AD'de doğrulanmış, bilgisayar için İssuerıd sorunu
+### <a name="issue-issuerid-for-computer-when-multiple-verified-domain-names-in-azure-ad"></a>Azure AD'de birden çok doğrulanmış etki alanı adı olduğunda bilgisayarın issuerID değerini verme
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`** -Herhangi bir şirket içi Federasyon Hizmeti (AD FS veya 3. taraf) ile bağlanan doğrulanmış etki alanı adlarını Tekdüzen Kaynak Tanımlayıcısı (URI) Bu talebi içermelidir belirteci verilirken. ' De AD FS, yukarıdaki olanları sonra belirli bir sıraya göre dışındaki görünmesi verme dönüştürme kuralları ekleyebilirsiniz. Kullanıcılar için kural açıkça vermek için bu kurallardan biri gereklidir unutmayın. Kurallarında, bilgisayar kimlik doğrulaması ve kullanıcı olup olmadığınızı belirlemek ilk kural eklenir.
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`** - Bu talebin, belirteci veren şirket içi federasyon hizmeti (AD FS veya 3. taraf) ile bağlanan herhangi bir doğrulanmış etki alanı adına ait Tekdüzen Kaynak Tanımlayıcısı (URI) değerini içermesi gerekir. AD FS'de, yukarıdakilerden sonra aşağıda belirtilenlere benzer verme aktarım kuralları ekleyebilirsiniz. Kullanıcılar için kuralı açıkça vermek üzere bir kuralın gerekli olduğunu lütfen unutmayın. Aşağıdaki kurallarda, kullanıcıyı ve bilgisayar kimlik doğrulamasını tanımlayan bir ilk kural eklenmiştir.
 
     @RuleName = "Issue account type with the value User when its not a computer"
     NOT EXISTS(
@@ -312,21 +323,21 @@ Tanımı değerleri mevcut olup olmadığını veya bunları oluşturmanız gere
     );
 
 
-Yukarıdaki talep
+Yukarıdaki talepte
 
-- `<verified-domain-name>` Azure AD'de doğrulanmış etki alanı adlarınızı biriyle değiştirmeniz gereken bir yer tutucudur. Örneğin, değer = "http://contoso.com/adfs/services/trust/"
+- `<verified-domain-name>`, Azure AD'de doğrulanmış etki alanı adlarınızdan biri ile değiştirmeniz gereken yer tutucudur. Örneğin, Değer = "http://contoso.com/adfs/services/trust/"
 
 
 
-Doğrulanmış etki alanı adları hakkında daha fazla ayrıntı için bkz. [Azure Active Directory'ye özel etki alanı adı ekleme](../active-directory-domains-add-azure-portal.md).  
+Doğrulanmış etki alanı adları hakkında daha fazla bilgi için, bkz. [Azure Active Directory'ye özel etki alanı adı ekleyin](../active-directory-domains-add-azure-portal.md).  
 
-Doğrulanmış şirket etki alanlarınızın listesini almak için kullanabileceğiniz [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet'i. 
+Doğrulanmış şirket etki alanlarınızın bir listesini edinmek için [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet öğesini kullanabilirsiniz. 
 
 ![Get-MsolDomain](./media/hybrid-azuread-join-manual-steps/01.png)
 
-### <a name="issue-immutableid-for-computer-when-one-for-users-exist-eg-alternate-login-id-is-set"></a>Kullanıcılar için birer mevcut olduğunda (kimliği ayarlanır örn alternatif bir oturum açma) bilgisayar için Immutableıd sorunu
+### <a name="issue-immutableid-for-computer-when-one-for-users-exist-eg-alternate-login-id-is-set"></a>Kullanıcılar için bir adet mevcut olduğunda (ör. alternatif oturum açma kimliği ayarlıdır) bilgisayar için ImmutableID değerini verme
 
-**`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`** -Bu talep, bilgisayarlar için geçerli bir değer içermesi gerekir. AD FS'de, aşağıdaki gibi bir verme dönüştürme kural oluşturabilirsiniz:
+**`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`** - Bu talebin, bilgisayarlar için geçerli bir değer içermesi gerekir. AD FS'de aşağıda şekilde verme aktarım kuralı oluşturabilirsiniz:
 
     @RuleName = "Issue ImmutableID for computers"
     c1:[
@@ -346,9 +357,9 @@ Doğrulanmış şirket etki alanlarınızın listesini almak için kullanabilece
         param = c2.Value
     );
 
-### <a name="helper-script-to-create-the-ad-fs-issuance-transform-rules"></a>AD FS verme dönüştürme kuralları oluşturmak için yardımcı kod
+### <a name="helper-script-to-create-the-ad-fs-issuance-transform-rules"></a>AD FS verme aktarım kuralları oluşturmak üzere yardımcı betik
 
-Aşağıdaki betik, verme oluşturulmasıyla kurallarına yukarıda açıklanan dönüştürme yardımcı olur.
+Aşağıdaki betik, yukarıda açıklanan verme aktarım kurallarını oluşturmanıza yardımcı olur.
 
     $multipleVerifiedDomainNames = $false
     $immutableIDAlreadyIssuedforUsers = $false
@@ -471,89 +482,89 @@ Aşağıdaki betik, verme oluşturulmasıyla kurallarına yukarıda açıklanan 
 
 ### <a name="remarks"></a>Açıklamalar 
 
-- Bu betik, mevcut kurallar için kurallar ekler. Betiği iki kez çalıştırmayın çünkü kural kümesinin iki kez eklenir. Karşılık gelen hiçbir kural (karşılık gelen koşullarda) bu talepler için betiği yeniden çalıştırmadan önce bulunduğundan emin olun.
+- Bu betik, kuralları mevcut kurallara ekler. Kurallar kümesi iki kez ekleneceğinden betiği iki kez çalıştırmayın. Betiği yeniden çalıştırmadan önce bu talepler için hiçbir karşılık gelen kural olmadığından emin olun (karşılık gelen koşullar bölümünde).
 
-- Birden çok doğrulanmış etki alanı adı (Get-MsolDomains cmdlet'i aracılığıyla veya Azure AD portalında gösterildiği gibi) varsa, değerini ayarlamak **$multipleVerifiedDomainNames** betikteki **$true**. Ayrıca Azure AD Connect tarafından veya başka bir yolla aracılığıyla oluşturulmuş olabilir herhangi mevcut issuerıd talebi kaldırdığınızdan emin olun. Bu kural için bir örnek aşağıda verilmiştir:
+- Çoklu doğrulanmış etki alanı adınız varsa (Azure AD portal veya Get-MsolDomains cmdlet aracılığıyla gösterildiği şekilde) betikteki **$multipleVerifiedDomainNames** değerini **$true** olarak ayarlayın. Ayrıca Azure AD Connect veya başka yollarla oluşturulmuş olabilecek tüm mevcut issuerıd taleplerini kaldırdığınızdan emin olun. Bu kural için bir örnek aşağıda verilmiştir:
 
 
         c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
         => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
 
-- Zaten yayımlandı durumunda bir **Immutableıd** ayarlayın, kullanıcı hesapları için talep **$immutableIDAlreadyIssuedforUsers** betikteki **$true**.
+- Kullanıcı hesapları için zaten bir **ImmutableID** talebi verdiyseniz betikteki **$immutableIDAlreadyIssuedforUsers** değerini **$true** olarak ayarlayın.
 
-## <a name="enable-windows-down-level-devices"></a>Windows alt düzey cihazları etkinleştirme
+## <a name="enable-windows-down-level-devices"></a>Windows alt düzey cihazlarını etkinleştirme
 
-Windows alt düzey cihazlar etki alanına katılmış cihazlarınızı bazıları için gerekirse:
+Bazı etki alanına katılmış cihazlar Windows alt düzey cihazlarıysa şunları gerçekleştirmeniz gerekir:
 
-- Kullanıcıların aygıtlarını kaydetmesini sağlamak için Azure AD'de bir ilke ayarlayın.
+- Kullanıcıların cihazları kaydedebilmesini sağlamak için Azure AD'de bir ilke ayarlayın.
  
-- Destek talebi şirket içi Federasyon hizmetinizi yapılandırmak **tümleşik Windows kimlik doğrulaması (IWA)** cihaz kaydı için.
+- Cihaz kaydı için **Tümleşik Windows Kimlik Doğrulaması (IWA)** özelliğini desteklemek üzere talepleri vermek için şirket içi federasyon hizmetinizi yapılandırın.
  
-- Azure AD cihaz kimlik doğrulama uç noktası, cihaz kimlik doğrulaması yapılırken sertifika istemleri önlemek için yerel Intranet bölgesine ekleyin.
+- Cihazın kimlik doğrulaması yapılırken sertifika istemlerinin engellenmesi için yerel İntranet bölgelerine Azure AD cihaz kimlik doğrulaması uç noktasını ekleyin.
 
-### <a name="set-policy-in-azure-ad-to-enable-users-to-register-devices"></a>Kullanıcıların aygıtlarını kaydetmesini sağlamak için Azure AD'de İlkesi ayarlama
+### <a name="set-policy-in-azure-ad-to-enable-users-to-register-devices"></a>Kullanıcıların cihazları kaydetmesini sağlamak için Azure AD'de ilke ayarlama
 
-Windows alt düzey cihazları kaydetmek için ayarı, kullanıcıların cihazları Azure AD'ye kaydetme izin vermek için ayarlanmış olduğundan emin olmanız gerekir. Azure portalında bu ayarı altında bulabilirsiniz:
+Windows alt düzey cihazlarını kaydetmek için, kullanıcıların Azure AD'de cihazları kaydedebilmesini sağlama ayarının ayarlandığından emin olmanız gerekir. Azure portal'da bu ayarları aşağıdaki bölümde bulabilirsiniz:
 
 `Azure Active Directory > Users and groups > Device settings`
     
-Aşağıdaki ilke ayarlanmalıdır **tüm**: **kullanıcıların cihazlarını Azure AD'ye kaydetme**
+Aşağıdaki ilke **Tümü** olarak ayarlanmalıdır: **Kullanıcılar cihazlarını Azure AD ile kaydedebilir**
 
 ![Cihaz kaydetme](./media/hybrid-azuread-join-manual-steps/23.png)
 
 
-### <a name="configure-on-premises-federation-service"></a>Şirket içi Federasyon hizmetini yapılandırın 
+### <a name="configure-on-premises-federation-service"></a>Şirket içi federasyon hizmetini yapılandırma 
 
-Şirket içi Federasyon hizmetinizin verme desteklemelidir **authenticationmethod** ve **wiaormultiauthn** talep tutan Azure AD bağlı olan taraf için kimlik doğrulama isteği aldığında bir resouce_params parametre gösterildiği gibi kodlanmış bir değer ile aşağıda:
+Şirket içi federasyon hizmetinizin, aşağıda gösterildiği şekilde kodlanmış bir değer içeren resouce_params parametresini içeren Azure AD bağlı olan tarafa kimlik doğrulaması isteği alırken **authenticationmethod** ve **wiaormultiauthn** taleplerini vermeyi desteklemesi gerekir.
 
     eyJQcm9wZXJ0aWVzIjpbeyJLZXkiOiJhY3IiLCJWYWx1ZSI6IndpYW9ybXVsdGlhdXRobiJ9XX0
 
     which decoded is {"Properties":[{"Key":"acr","Value":"wiaormultiauthn"}]}
 
-Böyle bir istek geldiğinde, şirket içi Federasyon Hizmeti, tümleşik Windows kimlik doğrulaması kullanarak kullanıcı kimlik doğrulaması yapmalıdır ve başarılı olduktan sonra aşağıdaki iki talep yayımlamanız gerekir:
+Böyle bir istek geldiğinde şirket içi federasyon hizmetinin, Tümleşik Windows Kimlik Doğrulaması kullanarak kullanıcının kimliğini doğrulaması gerekir ve başarılı olduktan sonra aşağıdaki iki talebi vermelidir:
 
     http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows
     http://schemas.microsoft.com/claims/wiaormultiauthn
 
-AD FS'de kimlik doğrulama yöntemini geçişleri bütünlüklü bir verme dönüştürme kuralı eklemeniz gerekir.  
+AD FS'de kimlik doğrulama yöntemi ile geçen bir verme aktarım kuralı eklemeniz gerekir.  
 
-**Bu kural eklemek için:**
+**Bu kuralı eklemek için:**
 
-1. AD FS yönetim konsolunda Git `AD FS > Trust Relationships > Relying Party Trusts`.
-2. Microsoft Office 365 kimlik platformu bağlı olan taraf güveni nesneye sağ tıklayın ve ardından **talep kurallarını Düzenle**.
-3. Üzerinde **verme dönüştürme kuralları** sekmesinde **Kuralı Ekle**.
-4. İçinde **talep kuralı** şablon listesinden **talepleri özel kural kullanarak Gönder**.
+1. AD FS yönetim konsolunda `AD FS > Trust Relationships > Relying Party Trusts` bölümüne gidin.
+2. Microsoft Office 365 Identity Platform bağlı olan taraf güven nesnesine sağ tıklayın ve ardından **Talep Kurallarını Düzenle** seçeneğini belirleyin.
+3. **Verme Aktarım Kuralları** sekmesinde, **Kural Ekle** seçeneğini belirleyin.
+4. **Talep kuralı** şablon listesinde, **Talepleri Özel Kural Kullanarak Gönder** seçeneğini belirleyin.
 5. **İleri**’yi seçin.
-6. İçinde **talep kuralı adı** kutusuna **kimlik doğrulama yöntemi talep kuralı**.
-7. İçinde **talep kuralı** aşağıdaki kural yazın:
+6. **Talep kuralı adı** kutusuna **Kimlik Doğrulama Yöntemi Talep Kuralı** yazın.
+7. **Talep kuralı** kutusuna aşağıdaki kuralı yazın:
 
     `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
-8. Federasyon sunucunuzda değiştirdikten sonra aşağıdaki PowerShell komutunu yazın **\<RPObjectName\>** ile bağlı olan taraf nesne adı, Azure AD bağlı olan taraf güven nesnesi. Bu nesne genellikle adlı **Microsoft Office 365 kimlik platformu**.
+8. Federasyon sunucunuzda, **\<RPObjectName\>** öğesini Azure AD bağlı olan taraf güven nesnenizin bağlı olan taraf nesne adı ile değiştirdikten sonra aşağıdaki PowerShell komutunu yazın. Bu nesne genellikle **Microsoft Office 365 Identity Platform** olarak adlandırılır.
    
     `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
-### <a name="add-the-azure-ad-device-authentication-end-point-to-the-local-intranet-zones"></a>Azure AD cihaz kimlik doğrulama uç noktası yerel Intranet bölgesine ekleyin.
+### <a name="add-the-azure-ad-device-authentication-end-point-to-the-local-intranet-zones"></a>Azure AD cihaz kimlik doğrulaması uç noktasını Yerel İntranet bölgelerine ekleyin
 
-Sertifika önlemek için kayıt cihazlardaki kullanıcılar yerel Intranet bölgesine Internet Explorer'da aşağıdaki URL'yi eklemek için etki alanına katılmış cihazlar için bir ilke gönderebilmek için Azure ad kimlik doğrulaması sırasında ister:
+Kayıt cihazlarındaki kullanıcılar Azure AD'ye kimlik doğrulaması yaparken sertifika istemlerini engellemek için, Internet Explorer'da Yerel İntranet bölgesine aşağıdaki URL'yi eklemek üzere etki alanına katılmış cihazlarınıza bir ilke gönderebilirsiniz:
 
 `https://device.login.microsoftonline.com`
 
 
-## <a name="verify-joined-devices"></a>Katılan cihazlar doğrulayın
+## <a name="verify-joined-devices"></a>Katılmış cihazları doğrulama
 
-Kuruluşunuzda başarılı katılan cihazlar kullanarak denetleyebilirsiniz [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet'inde [Azure Active Directory PowerShell Modülü](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+[Azure Active Directory PowerShell modülünde](/powershell/azure/install-msonlinev1?view=azureadps-2.0) [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet öğesini kullanarak kuruluşunuzda başarıyla katılmış cihazları kontrol edebilirsiniz.
 
-Bu cmdlet'in çıktısı, kayıtlı ve Azure AD'ye katılmış cihazları gösterir. Tüm cihazlar almak için kullanın **-tüm** parametresi ve bunları filtreleyin kullanarak **deviceTrustType** özelliği. Etki alanına katılmış cihazlar değerine sahip **etki alanına katılmış**.
+Bu cmdlet öğesinin çıktısı, Azure AD ile kaydedilmiş ve katılmış cihazları gösterir. Tüm cihazları almak için **-Tümü** parametresini kullanın ve ardından **deviceTrustType** özelliğini kullanarak filtreleyebilirsiniz. Etki alanına katılmış cihazlar **Etki Alanına Katıldı** değerini içerir.
 
 
 
 ## <a name="troubleshoot-your-implementation"></a>Uygulamanızda sorun giderme
 
-Sorunları yaşıyorsanız katılmış Windows cihazlar karma tamamlama ile Azure AD'ye katılım etki alanı için bkz:
+Etki alanına katılmış Windows cihazları için hibrit Azure AD'ye katılımı tamamlama sırasında sorun yaşıyorsanız:
 
-- [Windows cihazları için sorun giderme hibrit Azure AD'ye katılma](troubleshoot-hybrid-join-windows-current.md)
-- [Windows alt düzey cihazları için sorun giderme hibrit Azure AD'ye katılma](troubleshoot-hybrid-join-windows-legacy.md)
+- [Windows geçerli cihazları için Hibrit Azure AD'ye katılım sorunlarını giderme](troubleshoot-hybrid-join-windows-current.md)
+- [Windows alt düzey cihazları için Hibrit Azure AD'ye katılım sorunlarını giderme](troubleshoot-hybrid-join-windows-legacy.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

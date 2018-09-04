@@ -15,20 +15,20 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: d2e4a014a0f7bb7f94885528abc930d2b243318b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1ac55b728a29ff1bb8129087da5992ffe5f23df9
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30911327"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42820320"
 ---
 # <a name="azure-and-linux"></a>Azure ve Linux
-Microsoft Azure çözümlerinizi barındırmak için ideal olan ve giderek büyüyen bir analiz, Sanal Makineler, veritabanları, mobil kullanım, ağ, depolama ve web dahil tümleşik genel bulut hizmetleri koleksiyonudur.  Microsoft Azure şirket içi donanım için yatırım yapmanıza gerek olmadan istediğiniz zaman yalnızca kullandığınız hizmetler için ödeme yapmanızı sağlayan ölçeklenebilir bir bilgi işlem platformu sunar.  Azure, çözümlerinizin ölçeğini artırmaya hazır olduğunuzda müşterilerinizin ihtiyaçlarını karşılamak için gereken ölçeğe yükseltilmek için hazırdır.
+Microsoft Azure; çözümlerinizi barındırmak için ideal olan ve giderek büyüyen bir analiz, sanal makine, veritabanı, mobil kullanım, ağ, depolama ve web dahil tümleşik genel bulut hizmetleri koleksiyonudur.  Microsoft Azure şirket içi donanım için yatırım yapmanıza gerek olmadan istediğiniz zaman yalnızca kullandığınız hizmetler için ödeme yapmanızı sağlayan ölçeklenebilir bir bilgi işlem platformu sunar.  Azure, çözümlerinizin ölçeğini artırmaya hazır olduğunuzda müşterilerinizin ihtiyaçlarını karşılamak için gereken ölçeğe yükseltilmek için hazırdır.
 
 Amazon AWS'nin çeşitli özelliklerini tanıyorsanız, Azure - AWS [tanım eşleme belgesini](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) inceleyebilirsiniz.
 
 ## <a name="regions"></a>Bölgeler
-Microsoft Azure kaynakları, dünyanın farklı yerindeki çeşitli coğrafi bölgelere dağıtılmıştır.  "Bölge", tek bir coğrafi alanda bulunan birden çok veri merkezini temsil eder. Kasım 2017 itibarıyla Azure, dünyanın her yanında genel olarak kullanılabilen 6 bölgeye sahiptir ve 36 bölgenin daha duyurusu yapılmıştır. Mevcut ve yeni duyurulan bölgelerin güncel bir listesi şu sayfada bulunabilir:
+Microsoft Azure kaynakları, dünyanın farklı yerindeki çeşitli coğrafi bölgelere dağıtılmıştır.  "Bölge", tek bir coğrafi alanda bulunan birden çok veri merkezini temsil eder. Ağustos 2018 itibarıyla Azure, dünyanın her yanında genel olarak kullanılabilen 42 bölgeye (diğer bulut sağlayıcılarından daha fazla küresel bölgeye) sahiptir ve 12 bölgenin daha duyurusu yapılmıştır. Mevcut ve yeni duyurulan bölgelerin güncel bir listesi şu sayfada bulunabilir:
 
 * [Azure Bölgeleri](https://azure.microsoft.com/regions/)
 
@@ -59,7 +59,7 @@ Düzgün bir DevOps kültürünü başarmak için tüm altyapı kod olmalıdır.
 * [Azure Şablonları](create-ssh-secured-vm-from-template.md)
 * [Azure VMAccess](using-vmaccess-extension.md)
 
-Azure, bunu destekleyen Linux Dağıtımlarının çoğunda [cloud-init](http://cloud-init.io/) desteği sunar.  Şu anda Canonical'ın Ubuntu VM'leri varsayılan olarak cloud-init etkinleştirilmiş olarak dağıtılmaktadır.  Red Hats RHEL, CentOS ve Fedora cloud-init desteğine sahiptir, ancak RedHat'te tutulan Azure görüntülerinde şu an cloud-init yüklü değildir.  RadHat işletim sistemi ailesinde cloud-init kullanmak için, cloud-init'in yüklü olduğu bir özel görüntü oluşturmanız gerekir.
+Azure, bunu destekleyen Linux Dağıtımlarının çoğunda [cloud-init](http://cloud-init.io/) desteği sunar.  Şu anda Canonical'ın Ubuntu VM'leri varsayılan olarak cloud-init etkinleştirilmiş olarak dağıtılmaktadır.  Red Hat tarafından kullanıma sunulan RHEL, CentOS ve Fedora cloud-init desteğine sahiptir ancak Red Hat'te tutulan Azure görüntülerinde şu anda cloud-init yüklü değildir.  Rad Hat işletim sistemi ailesinde cloud-init kullanmak için, cloud-init'in yüklü olduğu bir özel görüntü oluşturmanız gerekir.
 
 * [Azure Linux VM'lerinde cloud-init kullanma](using-cloud-init.md)
 
@@ -73,7 +73,7 @@ Microsoft, sağlanan görüntülerin güncelleştirilmiş ve Azure çalışma za
 
 * Azure[ Destekli Dağıtımlarda](endorsed-distros.md) Linux
 * SUSE - [Azure Market - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
-* Redhat - [Azure Market - RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
+* Red Hat - [Azure Market - Red Hat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
 * Canonical - [Azure Market - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
 * Debian - [Azure Market - Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
 * FreeBSD - [Azure Market - FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)

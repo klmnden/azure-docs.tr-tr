@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/19/2018
+ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6e3679a994a7340fc38bf98f370efd359785fd90
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 2aca366e6a433e3e71cccb49a13638dedacc38d6
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214974"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887515"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Öğretici: Azure Web Apps’e var olan bir özel SSL sertifikası bağlama
 
@@ -237,11 +237,11 @@ Web uygulaması sayfanızın sol gezinti bölmesinde **SSL ayarları**’nı se�
 - `http://contoso.com`
 - `http://www.contoso.com`
 
-## <a name="enforce-tls-1112"></a>TLS 1.1/1.2 zorlama
+## <a name="enforce-tls-versions"></a>TLS sürümlerini zorlama
 
-Uygulamanız varsayılan olarak [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0’a izin verir. Bu, [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard) gibi sektör standartlarıyla artık güvenli olarak değerlendirilmez. Daha yüksek TLS sürümlerini zorlamak için şu adımları izleyin:
+Uygulamanız varsayılan olarak [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2 sürümüne izin verir. Bu, [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard) gibi endüstri standartlarınca önerilen TLS düzeyidir. Farklı TLS sürümlerini zorlamak için aşağıdaki adımları uygulayın:
 
-Web uygulaması sayfanızın sol gezinti bölmesinde **SSL ayarları**’nı seçin. Ardından **TLS sürümü**’nde istediğiniz en düşük TLS sürümünü seçin.
+Web uygulaması sayfanızın sol gezinti bölmesinde **SSL ayarları**’nı seçin. Ardından **TLS sürümü**’nde istediğiniz en düşük TLS sürümünü seçin. Bu ayar yalnızca gelen çağrıları denetler. 
 
 ![TLS 1.1 veya 1.2’yi zorlama](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 

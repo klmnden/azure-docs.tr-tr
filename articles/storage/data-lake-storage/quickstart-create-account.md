@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 18f4d2656ec7f027557d73959531b781be1d8d44
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 1009a7a1d9f354f7a41b0e3a0fbc49d57992bc31
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42023019"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42916479"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Hızlı Başlangıç: Azure Data Lake Storage Gen2 Önizleme depolama hesabı oluşturma
 
@@ -87,7 +87,7 @@ Azure portalında bir kaynak grubu oluşturmak için şu adımları izleyin:
 Azure portalında genel amaçlı v2 bir depolama hesabı oluşturmak için aşağıdaki adımları izleyin:
 
 > [!NOTE]
-> Hiyerarşik ad alanı yalnızca Batı ABD 2 ve Orta Batı ABD bölgelerinde etkindir. Depolama hesabını oluştururken bu konumlardan birini belirttiğinizden emin olun.
+> Hiyerarşik ad alanı, yalnızca Doğu ABD, Doğu ABD 2, Batı ABD, Batı ABD 2, Batı Orta ABD, Kuzey Avrupa, Batı Avrupa, Güneydoğu Asya ve Doğu Avustralya için etkindir. Depolama hesabını oluştururken bu konumlardan birini belirttiğinizden emin olun.
 
 1. Azure portalında sol taraftaki menüyü genişleterek hizmet menüsünü açın ve **Tüm hizmetler**'i seçin. Ardından **Depolama** bölümüne inin ve **Depolama hesapları**'nı seçin. Açılan **Depolama Hesapları** penceresinde **Ekle**'yi seçin.
 2. Depolama hesabınız için bir ad girin.
@@ -135,7 +135,7 @@ Ardından PowerShell'i yeniden başlatın.
 PowerShell ile yeni bir kaynak grubu oluşturmak için [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) komutunu kullanın: 
 
 > [!NOTE]
-> Hiyerarşik ad alanı yalnızca Batı ABD 2 ve Orta Batı ABD bölgelerinde etkindir. Depolama hesabını oluştururken bu konumlardan birini belirttiğinizden emin olun.
+> Hiyerarşik ad alanı, yalnızca Doğu ABD, Doğu ABD 2, Batı ABD, Batı ABD 2, Batı Orta ABD, Kuzey Avrupa, Batı Avrupa, Güneydoğu Asya ve Doğu Avustralya için etkindir. Depolama hesabını oluştururken bu konumlardan birini belirttiğinizden emin olun.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -196,7 +196,7 @@ az group create \
 ```
 
 > [!NOTE]
-> Hiyerarşik ad alanı yalnızca Batı ABD 2 ve Orta Batı ABD bölgelerinde etkindir. Depolama hesabını oluştururken bu konumlardan birini belirttiğinizden emin olun.
+> Hiyerarşik ad alanı, yalnızca Doğu ABD, Doğu ABD 2, Batı ABD, Batı ABD 2, Batı Orta ABD, Kuzey Avrupa, Batı Avrupa, Güneydoğu Asya ve Doğu Avustralya için etkindir. Depolama hesabını oluştururken bu konumlardan birini belirttiğinizden emin olun.
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>Genel amaçlı v2 depolama hesabı oluşturma
 

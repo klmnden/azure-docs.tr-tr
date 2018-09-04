@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 08/29/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 4a5e613169bf3173b7585b49803fc7ac7f5186ce
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ec56f9fdf21459857c8115222da921b6681a3ac5
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297980"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247245"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Azure Maliyet Yönetimi ile Azure aboneliklerini ve hesaplarını etkinleştirme
 
@@ -103,7 +103,7 @@ Azure Maliyet Yönetimi’ni ayarlamak için Azure Kurumsal Anlaşma API anahtar
 
 Departman yöneticilerine, hesap sahiplerine ve kurumsal yöneticilere Faturalama API’si ile _ücretleri görüntüleme_ izni vermeniz de gerekebilir.
 
-Yalnızca bir Azure hizmet yöneticisi Maliyet Yönetimini etkinleştirebilir. Ortak yönetici izinleri yeterli değil. Ancak, yönetici gereksinimine geçici bir çözüm sunabilirsiniz. Azure Active Directory yöneticinizin PowerShell betiği ile **CloudynAzureCollector**’ı yetkilendirme izni vermesini isteyebilirsiniz. Aşağıdaki betik, **CloudynAzureCollector** adlı Azure Active Directory Hizmet Sorumlusu’nu kaydetme izni verir.
+Yalnızca bir Azure hizmet yöneticisi Maliyet Yönetimini etkinleştirebilir. Ortak yönetici izinleri yeterli değil. Ancak, yönetici gereksinimine geçici bir çözüm sunabilirsiniz. Azure Active Directory yöneticinizin PowerShell betiği ile **CloudynAzureCollector**’ı yetkilendirme izni vermesini isteyebilirsiniz. Aşağıdaki betik, **CloudynAzureCollector** adlı Azure Active Directory Hizmet Sorumlusu’nu kaydetme izni verir. Betik başarıyla çalıştırıldığında işlem sona erer ve tarayıcıda http://localhost:8080/CloudynJava URL'si gösterilir.
 
 ```
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

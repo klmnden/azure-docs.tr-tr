@@ -3,18 +3,18 @@ title: Azure Haritalar ile arama | Microsoft Docs
 description: Azure Haritalar’ı kullanarak yakınlardaki ilgi çekici noktayı arama
 author: dsk-2015
 ms.author: dkshir
-ms.date: 05/07/2018
+ms.date: 08/23/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ffc4b7625a6c43f8e2801313c61f14c785a3ec5f
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: e30d84c70f786a5bea25073c70a29b63c9a00ae9
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988883"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917671"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Azure Haritalar’ı kullanarak yakınlardaki ilgi çekici noktaları arama
 
@@ -81,8 +81,9 @@ Harita Denetimi API’si, Haritalar’ı web uygulamanızla kolayca tümleştirm
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         <title>Map Search</title>
 
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1.0" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1.0"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" /> 
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script> 
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script> 
 
         <style>
             html,
@@ -131,10 +132,12 @@ Harita Denetimi API’si, Haritalar’ı web uygulamanızla kolayca tümleştirm
 
 ## <a name="add-search-capabilities"></a>Arama özellikleri ekleme
 
-Bu bölümde, Haritalar Arama API’sini kullanarak haritanızda ilgi çekici bir noktayı nasıl bulabileceğiniz gösterilmektedir. Bu, geliştiricilerin adres, ilgi çekici nokta ve diğer coğrafi bilgileri araması için tasarlanmış bir RESTful API’dir. Arama hizmeti, belirtilen bir adrese enlem ve boylam bilgileri atar. 
+Bu bölümde, Haritalar Arama API’sini kullanarak haritanızda ilgi çekici bir noktayı nasıl bulabileceğiniz gösterilmektedir. Bu, geliştiricilerin adres, ilgi çekici nokta ve diğer coğrafi bilgileri araması için tasarlanmış bir RESTful API’dir. Arama hizmeti, belirtilen bir adrese enlem ve boylam bilgileri atar. Aşağıda açıklanan **Hizmet Modülü**, Haritalar Arama API'si ile konum bulmaya yönelik aramalarda kullanılabilir.
 
-1. Arama sonuçlarını görüntülemek için haritanıza yeni bir katman ekleyin. Aşağıdaki Javascript kodunu *betik* bloğunda, haritayı başlatan kodun arkasına ekleyin. 
+### <a name="service-module"></a>Hizmet Modülü
 
+1. Arama sonuçlarını görüntülemek için haritanıza yeni bir katman ekleyin. Aşağıdaki JavaScript kodunu betik bloğunda, haritayı başlatan kodun arkasına ekleyin. 
+    
     ```JavaScript
     // Initialize the pin layer for search results to the map
     var searchLayerName = "search-results";
@@ -145,69 +148,50 @@ Bu bölümde, Haritalar Arama API’sini kullanarak haritanızda ilgi çekici bi
     });
     ```
 
-2. Bir [XMLHttpRequest](https://xhr.spec.whatwg.org/) oluşturun ve olay işleyici ekleyerek Haritalar arama hizmeti tarafından gönderilen JSON yanıtını ayrıştırın. Bu kod parçacığı, `searchPins` değişkeninde döndürülen her bir konuma ilişkin adresleri, adları ve enlem ve boylam bilgilerini toplamak için olay işleyiciyi derler. Son olarak, bu konum koleksiyonunu raptiyeler olarak `map` denetimine ekler. 
+2. İstemci hizmetini başlatmak için aşağıdaki Javascript kodunu betik bloğunda, haritayı başlatan kodun arkasına ekleyin.
 
     ```JavaScript
-    // Perform a request to the search service and create a pin on the map for each result
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        var searchPins = [];
-
-        if (this.readyState === 4 && this.status === 200) {
-            var response = JSON.parse(this.responseText);
-
-            var poiResults = response.results.filter((result) => { return result.type === "POI" }) || [];
-
-            searchPins = poiResults.map((poiResult) => {
-                var poiPosition = [poiResult.position.lon, poiResult.position.lat];
-                return new atlas.data.Feature(new atlas.data.Point(poiPosition), {
-                    name: poiResult.poi.name,
-                    address: poiResult.address.freeformAddress,
-                    position: poiResult.position.lat + ", " + poiResult.position.lon
-                });
-            });
-
-            map.addPins(searchPins, {
-                name: searchLayerName
-            });
-
-            var lons = searchPins.map((pin) => { return pin.geometry.coordinates[0] });
-            var lats = searchPins.map((pin) => { return pin.geometry.coordinates[1] });
-
-            var swLon = Math.min.apply(null, lons);
-            var swLat = Math.min.apply(null, lats);
-            var neLon = Math.max.apply(null, lons);
-            var neLat = Math.max.apply(null, lats);
-
-            map.setCameraBounds({
-                bounds: [swLon, swLat, neLon, neLat],
-                padding: 50
-            });
-        }
-    };
+    var client = new atlas.service.Client(subscriptionKey);
     ```
 
-3. *Betik* bloğuna aşağıdaki kodu ekleyerek sorguyu derleyin ve Haritalar Arama hizmetine XMLHttpRequest gönderin:
+3. Sorguyu oluşturmak için aşağıdaki betik bloğunu ekleyin. Bu, Arama Hizmetinin temel arama API'si olan Belirsiz Arama Hizmetini kullanır. Belirsiz Arama Hizmeti, adres ve ilgi çekici nokta (POI) belirteci kombinasyonları gibi belirsiz girişlerin çoğunu işler. Belirtilen yarıçap içinde olup yakında bulunan Benzin İstasyonlarını arar. Ardından yanıt GeoJSON biçimine ayrıştırılır, nokta özelliğine dönüştürülür ve bunlar haritaya iğne olarak eklenir. Betiğin son kısmı, Harita'nın [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) özelliğini kullanarak harita için kamera sınırları ekler.
 
     ```JavaScript
-    var url = "https://atlas.microsoft.com/search/fuzzy/json?";
-    url += "api-version=1.0";
-    url += "&query=gasoline%20station";
-    url += "&subscription-key=" + MapsAccountKey;
-    url += "&lat=47.6292";
-    url += "&lon=-122.2337";
-    url += "&radius=100000";
-
-    xhttp.open("GET", url, true);
-    xhttp.send();
-    ``` 
-    Bu kod parçacığında adlı arama hizmeti temel arama API kullanan **benzer arama**. Bu, herhangi bir adres veya ilgi çekici nokta (POI) belirteçleri birleşimi de dahil olmak üzere en belirsiz girdileri bile işler. Belirtilen enlem ve boylam koordinatlarının belirtilen yarıçapı içinde yer alan yakınlardaki **benzin istasyonlarını** arar. Hesabınızın daha önce örnek dosyada sağlanan birincil anahtarını kullanarak Haritalar’a çağrı yapar. Bulunan konumlar için sonuçları enlem/boylam çiftleri olarak döndürür. 
-    
+    client.search.getSearchFuzzy("gasoline station", {
+     lat: 47.6292,
+     lon: -122.2337,
+     radius: 100000
+    }).then(response => {
+       // Parse the response into GeoJSON 
+       var geojsonResponse = new atlas.service.geojson.GeoJsonSearchResponse(response); 
+ 
+       // Create the point features that will be added to the map as pins 
+       var searchPins = geojsonResponse.getGeoJsonResults().features.map(poiResult => { 
+           var poiPosition = [poiResult.properties.position.lon, poiResult.properties.position.lat]; 
+           return new atlas.data.Feature(new atlas.data.Point(poiPosition), { 
+                name: poiResult.properties.poi.name, 
+                address: poiResult.properties.address.freeformAddress, 
+                position: poiPosition[1] + ", " + poiPosition[0] 
+           }); 
+       }); 
+ 
+       // Add pins to the map for each POI 
+       map.addPins(searchPins, { 
+           name: searchLayerName 
+       }); 
+ 
+       // Set the camera bounds 
+       map.setCameraBounds({ 
+           bounds: geojsonResponse.getGeoJsonResults().bbox, 
+           padding: 50 
+       ); 
+    }); 
+    ```
 4. **MapSearch.html** dosyasını kaydedin ve tarayıcınızı yenileyin. Şimdi haritanın Seattle’da ortalandığını ve bölgedeki benzin istasyonu konumlarının mavi raptiyelerle işaretlendiğini görmeniz gerekir. 
 
    ![Arama sonuçlarıyla haritayı görüntüleme](./media/tutorial-search-location/pins-map.png)
 
-5. Dosyada oluşturduğunuz XMLHTTPRequest komutunu alıp tarayıcınıza girerek, haritanın işlediği işlenmemiş verileri görebilirsiniz. \<Hesap anahtarınızı\> birincil anahtarınızla değiştirin. 
+5. Tarayıcınıza aşağıdaki HTTP İsteğini girerek, haritanın işlediği ham verileri görebilirsiniz. \<Hesap anahtarınızı\> birincil anahtarınızla değiştirin. 
 
    ```http
    https://atlas.microsoft.com/search/fuzzy/json?api-version=1.0&query=gasoline%20station&subscription-key=<your account key>&lat=47.6292&lon=-122.2337&radius=100000
@@ -237,7 +221,7 @@ Bu noktada MapSearch sayfası, belirsiz arama sorgusundan döndürülen ilgi çe
         popupContentElement.appendChild(popupAddressElement);
 
         var popupPositionElement = document.createElement("div");
-        popupPositionElement.innerText = e.features[0].properties.name;
+        popupPositionElement.innerText = e.features[0].properties.position;
         popupContentElement.appendChild(popupPositionElement);
 
         popup.setPopupOptions({

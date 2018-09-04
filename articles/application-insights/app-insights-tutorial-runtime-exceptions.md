@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 115611c5d4eeffb0f0600dd0a792ee9f80247e36
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 7c2e67605cd2489f2c8d9da5ac80386056464afa
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
-ms.locfileid: "27998058"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42815122"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Azure Application Insights ile çalışma zamanı özel durumlarını bulma ve tanılama
 
@@ -43,7 +43,7 @@ Bu öğreticiyi tamamlamak için:
 - Bu öğretici uygulamanızdaki bir özel durumun belirlenmesini izlediğinden, geliştirme veya test ortamındaki kodunuzu özel durum oluşturacak şekilde değiştirin. 
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
-[https://portal.azure.com](https://portal.azure.com) adresinde Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 
 ## <a name="analyze-failures"></a>Hataları analiz etme
@@ -62,20 +62,17 @@ Application Insights, uygulamanızdaki tüm hataları toplar ve bunların farkl�
 
     ![Başarısız istekler penceresi](media/app-insights-tutorial-runtime-exceptions/failed-requests-window.png)
 
-5. İşlemin ayrıntılarını görüntülemek için **Ayrıntıları Görüntüle**’ye tıklayın.  Buna, toplamda tamamlanması neredeyse yarım saniye süren iki başarısız bağımlılığın gösterildiği bir Gantt grafiği de dahildir.  [Azure Application Insights ile performans sorunlarını bulma ve tanılama](app-insights-tutorial-performance.md) başlıklı öğreticiyi tamamlayarak performans sorunlarını analiz etme hakkında daha fazla bilgi edinebilirsiniz.
+5. Filtrelenmiş sonuç sayısının bulunduğu düğmeye tıklayarak ilgili örneklere göz atın. "Önerilen" örnekler, örnekleme herhangi birinde etkili olmuş olsa bile tüm bileşenler arasından ilgili telemetriye sahiptir. Hata ayrıntılarını görmek için bir arama sonucuna tıklayın.
 
-    ![Başarısız isteklerin ayrıntıları](media/app-insights-tutorial-runtime-exceptions/failed-requests-details.png)
+    ![Başarısız istek örnekleri](media/app-insights-tutorial-runtime-exceptions/failed-requests-search.png)
 
-6. İşlemlerin ayrıntısında hataya yol açmış gibi görünen bir FormatException da gösterilir.  Ayrıntılarını görüntülemek üzere özel duruma veya **En sık karşılaşılan 3 özel durum türü** sayımına tıklayın.  Sorunun geçersiz bir posta kodundan kaynaklandığını görebilirsiniz.
+6. Başarısız istek ayrıntılarında Gannt grafiği görüntülenir. Grafikte, bu işlemde, işlemin toplam süresinin % 50'sinden fazlasını oluşturan iki adet bağımlılık hatası olduğu gösterilmektedir. Bu deneyim, dağıtılmış bir uygulamanın bileşenleri arasında bu işlem kimliğiyle ilişkili tüm telemetrileri sunar. [Yeni deneyim hakkında daha fazla bilgi edinin](app-insights-transaction-diagnostics.md). Sağ tarafta, ayrıntılarını görmek istediğiniz öğelerden herhangi birini seçebilirsiniz. 
+
+    ![Başarısız istek ayrıntıları](media/app-insights-tutorial-runtime-exceptions/failed-request-details.png)
+
+7. İşlemlerin ayrıntısında hataya yol açmış gibi görünen bir FormatException da gösterilir.  Sorunun geçersiz bir posta kodundan kaynaklandığını görebilirsiniz. Visual Studio'da kod düzeyinde hata ayıklama bilgilerini görmek için hata ayıklama anlık görüntüsünü açabilirsiniz.
 
     ![Özel durum ayrıntıları](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
-
-> [!NOTE]
-Tek bir tam ekran görünümünde istekler, bağımlılıklar, özel durumlar, izlemeler, olaylar, vb. sunucu tarafı telemetri verilerinin tamamını görmek için "Unified details: E2E Transaction Diagnostics" (Birleşik ayrıntılar: E2E İşlem Tanılama) [önizleme deneyimini](app-insights-previews.md) etkinleştirin. 
-
-Önizleme etkinleştirildiğinde, bağımlılık çağrılarına harcanan sürenin yanı sıra herhangi bir hatayı veya özel durumu birleşik bir deneyimde görebilirsiniz. Bileşenler arası işlemler için Gantt grafiğinin yanı sıra ayrıntılar bölmesi, sorunun kök nedeni olan bileşeni, bağımlılığı veya özel durumu hızlıca tanılamanıza yardımcı olabilir. Alttaki bölümü genişleterek seçili bileşen işlemi için toplanan tüm izlemelerin veya olayların zaman sıralamasını görebilirsiniz. [Yeni deneyim hakkında daha fazla bilgi edinin](app-insights-transaction-diagnostics.md)  
-
-![İşlem tanılamaları](media/app-insights-tutorial-runtime-exceptions/e2e-transaction-preview.png)
 
 ## <a name="identify-failing-code"></a>Başarısız olan kodu belirleme
 Snapshot Debugger, uygulamanızda en sık karşılaşılan özel durumların anlık görüntülerini toplayarak üretimde sorunun kök nedenini tanılamanıza yardımcı olur.  Hata ayıklama anlık görüntülerini portalda görüntüleyerek çağrı yığınını görebilir ve her bir çağrı yığını çerçevesinde değişkenleri inceleyebilirsiniz. Daha sonra anlık görüntüyü indirip Visual Studio 2017’de açarak kaynak kodundaki hataları ayıklayabilirsiniz.
@@ -104,15 +101,6 @@ Application Insights tarafından toplanan tüm veriler, bunları çeşitli yolla
     ![Kod](media/app-insights-tutorial-runtime-exceptions/codelens.png)
 
 9. **Etkiyi çözümleyin**’e tıklayarak Application Insights Analytics’i açın.  Analytics, başarısız isteklerle ilgili olarak etkilenen kullanıcılar, tarayıcılar ve bölgeler gibi ayrıntıları sağlayan çeşitli sorgularla doldurulur.<br><br>![Analizler](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
-
-## <a name="add-work-item"></a>İş öğesi ekleme
-Application Insights’ı Visual Studio Team Services veya GitHub gibi bir izleme sistemine bağlarsanız doğrudan Application Insights’tan bir iş öğesi oluşturabilirsiniz.
-
-1. Application Insights’taki **Özel Durum Özellikleri** paneline dönün.
-2. **Yeni İş Öğesi**’ne tıklayın.
-3. Zaten doldurulan özel durumla ilgili ayrıntıları içeren **Yeni İş Öğesi** paneli açılır.  Bunu kaydetmeden önce dilediğiniz kadar ek bilgi ekleyebilirsiniz.
-
-    ![Yeni İş Öğesi](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Artık çalışma zamanı özel durumlarının nasıl belirleneceğini öğrendiğinize göre, performans sorunlarını belirlemeyi ve tanılamayı öğrenmek için bir sonraki öğreticiye ilerleyebilirsiniz.

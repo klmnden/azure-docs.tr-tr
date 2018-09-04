@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 08/24/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ee38fe542ca6e2e4e1f8e09b54717d4390b453d0
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 48714d71edcf54726eb362c7f56950a1350fd52b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922666"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885334"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Amazon Web Services (AWS) sanal makinelerini Azure’a geçirme
 
@@ -33,10 +33,12 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Ön koşullar
 - Geçirmek istediğiniz VM’lerin desteklenen bir işletim sistemi sürümünü çalıştırdığından emin olun. Desteklenen sürümlere şunlar dahildir: 
-    - Windows Server 2016
-    - Red Hat Enterprise Linux 6.7 (yalnızca HVM sanallaştırılmış örnekleri) yalnızca Citrix PV veya AWS PV sürücülerine sahip olmalıdır. Red Hat PV sürücülerini çalıştıran örnekler **desteklenmez**.
-
-- Çoğaltmak istediğiniz her sanal makinede Mobility hizmeti yüklü olmalıdır. 
+  - Windows Server 2016 
+  - Windows Server 2012 R2
+  - Windows Server 2012 
+  - 64 bit Windows Server 2008 R2 SP1 veya sonrası
+  - Citrix PV veya AWS PV sürücüsü ile Red Hat Enterprise Linux 6.7 (yalnızca HVM sanallaştırılmış örnekleri). RedHat PV sürücülerini çalıştıran örnekler *desteklenmez*.
+ - Çoğaltmak istediğiniz her sanal makinede Mobility hizmeti yüklü olmalıdır. 
 
     > [!IMPORTANT]
     > Sanal makine için çoğaltmayı etkinleştirdiğinizde Site Recovery bu hizmeti otomatik olarak yükler. Otomatik yükleme için, Site Recovery’nin sanal makineye erişmek için kullanacağı EC2 örneklerinde bir hesap hazırlamanız gerekir. Bir etki alanı veya yerel hesap kullanabilirsiniz. 

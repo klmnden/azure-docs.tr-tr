@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/20/2018
+ms.date: 08/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7c78636a210ae90c5bfe1d0bfd35e4e05633f5cd
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 57d5f7039831c9fd617926f20f3ff001b22ef314
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188208"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43097894"
 ---
 # <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Öğretici: Şifrelenmiş depolama hesabı dağıtmak için bir Azure Resource Manager şablonu oluşturma
 
@@ -31,8 +31,6 @@ Bu öğretici aşağıdaki görevleri kapsar:
 > [!div class="checklist"]
 > * Hızlı başlangıç şablonunu açma
 > * Şablon biçimini anlama
-> * Şablonda parametre kullanma
-> * Şablonda değişken kullanma
 > * Şablonu düzenleme
 > * Şablonu dağıtma
 
@@ -101,7 +99,7 @@ Değişkenler, şablonun tamamında kullanılabilecek değerler oluşturmanızı
 Bu şablonda bir değişken tanımlanır: *storageAccountName*. Tanımda iki şablon işlevi kullanılır:
 
 - **concat()**: Dizeleri birleştirir. Daha fazla bilgi için bkz. [concat](./resource-group-template-functions-string.md#concat).
-- **uniqueString()**: Parametre olarak sağlanan değerleri temel alarak belirlenimci bir karma dize oluşturur. Her Azure depolama hesabının Azure'da benzersiz bir ada sahip olması gerekir. Bu işlev, benzersiz bir dize sağlar. Diğer dize işlevleri için bkz. [Dize işlevleri](./resource-group-template-functions-string.md).
+- **uniqueString()**: Parametre olarak sağlanan değerleri temel alarak belirlenimci bir karma dize oluşturur. Her bir Azure depolama hesabı, tüm Azure genelinde benzersiz bir ada sahip olmalıdır. Bu işlev, benzersiz bir dize sağlar. Diğer dize işlevleri için bkz. [Dize işlevleri](./resource-group-template-functions-string.md).
 
 Şablonda tanımlanan değişkeni kullanmak için:
 
@@ -111,10 +109,10 @@ Bu şablonda bir değişken tanımlanır: *storageAccountName*. Tanımda iki şa
 
 ## <a name="edit-the-template"></a>Şablonu düzenleme
 
-Depolama hesabı şifrelemesiyle ilgili yapılandırmayı bulmak için Azure Depolama hesabı şablon başvurusunu kullanabilirsiniz.
+Bu öğreticinin hedefi, şifrelenmiş bir depolama hesabı oluşturmak üzere şablon tanımlamaktır.  Örnek şablon, yalnızca temel şifrelenmemiş depolama hesabı oluşturur. Şifreleme ile ilgili yapılandırmayı bulmak için, Azure Depolama hesabının şablon başvurusunu kullanabilirsiniz.
 
 1. [Azure Şablonları](https://docs.microsoft.com/azure/templates/)'na gidin.
-2. Sol taraftaki içindekiler bölümünden **Başvuru**->**Depolama**->**Depolama Hesapları**'nı seçin. Bu sayfada Depolama Hesabı bilgilerini tanımlamayla ilgili yönlendirmeler bulunur.
+2. Sol taraftaki içindekiler bölümünden **Başvuru**->**Depolama**->**Depolama Hesapları**'nı seçin. Ayrıca **Başlığa göre filtrele** alanına **depolama** değerini de girebilirsiniz.  Bu sayfa, Depolama Hesabı bilgilerini tanımlamaya ilişkin bir şema içerir.
 3. Şifrelemeyle ilgili bilgileri inceleyin.  
 4. Depolama hesabı kaynak tanımının properties öğesine aşağıdaki JSON kodunu ekleyin:
 
@@ -130,59 +128,17 @@ Depolama hesabı şifrelemesiyle ilgili yapılandırmayı bulmak için Azure Dep
     ```
     Bu bölüm, blob depolama hizmetinin şifreleme işlevini etkinleştirir.
 
-resources öğesinin son hali şu şekilde olur:
+Son kaynaklar öğesinin aşağıdaki şekilde görünmesi için Visual Studio Code'dan şablonu değiştirin:
 
 ![Resource Manager şablonu şifrelenmiş depolama hesabı kaynakları](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## <a name="deploy-the-template"></a>Şablonu dağıtma
 
-Şablonları dağıtmak için birçok yöntem vardır.  Bu öğreticide Azure portaldan Cloud Shell'i kullanacaksınız. Cloud Shell hem Azure CLI’yi hem de Azure PowerShell’i destekler. Burada verilen yönergelerde CLI kullanılır.
+Dağıtım yordamı için Visual Studio Code hızlı başlangıçta [Şablonu dağıtma](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) bölümüne bakın.
 
-1. [Azure portalda](https://portal.azure.com) oturum açma
-2. Aşağıdaki resimde gösterildiği gibi, sağ üst köşeden **Cloud Shell**’i seçin:
+Aşağıdaki ekran görüntüsünde, şifrelemenin blob depolama için etkinleştirildiğini belirten, yeni oluşturulan depolama hesabını listelemeye yönelik CLI komutu gösterilmektedir.
 
-    ![Azure portal Cloud Shell](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell.png)
-
-3. Aşağı oku seçin ve seçili değilse **Bash**'i seçin. Bu öğreticide Azure CLI'yı kullanacaksınız.
-
-    ![Azure portal Cloud shell CLI](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-choose-cli.png)
-4. Kabuğu yeniden başlatmak için **Yeniden Başlat**’ı seçin.
-5. **Dosyaları karşıya yükle/indir**'i seçin ve sonra da **Karşıya Yükle**'yi seçin.
-
-    ![Azure portal Cloud shell dosya karşıya yükleme](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-upload-file.png)
-6. Öğreticide daha önce kaydettiğiniz dosyayı seçin. Varsayılan ad **azuredeploy.json** olur.
-7. Cloud Shell'den **ls** komutunu çalıştırarak dosyanın başarılı bir şekilde karşıya yüklendiğini doğrulayın. Şablon içeriğini doğrulamak için **cat** komutunu da kullanabilirsiniz.
-
-    ![Azure portal Cloud Shell dosya listeleme](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-list-file.png)
-8. Cloud Shell’den şu komutları çalıştırın:
-
-    ```cli
-    az group create --name <ResourceGroupName> --location <AzureLocation>
-
-    az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file azuredeploy.json
-    ```
-    İşte örnek bir dağıtımın ekran görüntüsü:
-
-    ![Azure portal Cloud Shell şablon dağıtımı](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-deploy-template.png)
-
-    Ekran görüntüsünde şu değerler kullanılır:
-
-    * **&lt;ResourceGroupName>**: myresourcegroup0719. Parametrenin iki görünümü vardır.  Aynı değeri kullandığınızdan emin olun.
-    * **&lt;AzureLocation>**: eastus2
-    * **&lt;DeployName>**: mydeployment0719
-    * **&lt;TemplateFile>**: azuredeploy.json
-
-    Ekran görüntüsü çıkışında, depolama hesabı adı *fhqbfslikdqdsstandardsa* şeklindedir. 
-
-9. Yeni oluşturulan depolama hesabını listelemek için şu PowerShell komutunu çalıştırın:
-
-    ```cli
-    az storage account show --resource-group <ResourceGroupName> --name <StorageAccountName>
-    ```
-
-    Blob depolama için şifrelemenin etkinleştirildiğini gösteren aşağıdaki ekran görüntüsüne benzer bir çıktı görmeniz gerekir.
-
-    ![Azure Resource Manager şifrelenmiş depolama hesabı](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
+![Azure Resource Manager şifrelenmiş depolama hesabı](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -195,7 +151,7 @@ Artık Azure kaynakları gerekli değilse, kaynak grubunu silerek dağıttığı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide şablon başvurusunu kullanarak var olan bir şablonu özelleştirmeyi öğrendiniz. Bu öğreticide kullanılan şablonda tek bir Azure kaynağı vardır.  Sonraki öğreticide, şablonu birden fazla kaynakla geliştireceksiniz.  Bazı kaynakların bağımlı kaynakları vardır.
+Bu öğreticide şablon başvurusunu kullanarak var olan bir şablonu özelleştirmeyi öğrendiniz. Bu öğreticide kullanılan şablonda tek bir Azure kaynağı vardır.  Sonraki öğreticide, şablonu birden fazla kaynakla geliştireceksiniz. Bazı kaynakların bağımlı kaynakları vardır.
 
 > [!div class="nextstepaction"]
 > [Birden çok kaynak oluşturma](./resource-manager-tutorial-create-templates-with-dependent-resources.md)

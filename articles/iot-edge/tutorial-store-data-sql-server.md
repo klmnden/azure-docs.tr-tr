@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/26/2018
+ms.date: 08/22/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1bd6f048682b93e3dfa1e19f6b3c50bff2ed232e
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 7e02caf9706a5127d3729256fcc238f467eb2991
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41918840"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143509"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Öğretici: SQL Server veritabanları ile uç cihazlarda veri depolama
 
@@ -73,7 +73,7 @@ Bir veritabanına veri göndermek için verileri doğru şekilde yapılandırıp
 Aşağıdaki adımlarda, Visual Studio Code'u ve Azure IoT Edge uzantısını kullanarak IoT Edge işlevinin nasıl oluşturulduğu gösterilir.
 
 1. Visual Studio Code'u açın.
-2. **View (Görünüm)** > **Integrated Terminal (Tümleşik Terminal)** seçimini yaparak VS Code tümleşik terminalini açın.
+2. **Görünüm** > **Terminal**'i seçerek VS Code tümleşik terminalini açın.
 3. **View (Görünüm)** > **Command palette (Komut paleti)** öğesini seçerek VS Code komut paletini açın.
 4. Komut paletinde **Azure: Sign in** komutunu yazıp çalıştırdıktan sonra yönergeleri izleyerek Azure hesabınızda oturum açın. Oturumu önceden açtıysanız bu adımı atlayabilirsiniz.
 3. Komut paletinde **Azure IoT Edge: New IoT Edge solution** komutunu yazıp çalıştırın. Komut paletinde çözümünüzü oluşturmak için aşağıdaki bilgileri girin: 
@@ -253,15 +253,15 @@ IoT Hub üzerinden bir cihazda modül ayarlayabilirsiniz ancak IoT Hub ve cihazl
 2. Azure hesabınızda oturum açmak için yönergeleri izleyin. 
 3. Komut paletinde Azure aboneliğinizi ve ardından IoT Hub'ınızı seçin. 
 4. VS Code gezgininde **Azure IoT Hub Devices** (Azure IoT Hub Cihazları) bölümünü seçin. 
-5. Dağıtımınızla hedeflemek istediğiniz cihaza sağ tıklayıp **Create deployment for IoT Edge device** (IoT Edge cihazı için dağıtım oluştur) öğesini seçin. 
+5. Dağıtımınızla hedeflemek istediğiniz cihaza sağ tıklayıp **Create deployment for single device** (Tek cihaz için dağıtım oluştur) öğesini seçin. 
 6. Dosya gezgininde çözümünüzün içindeki **config** klasörüne gidip **deployment.json** dosyasını seçin. **Select Edge deployment manifest** (Edge dağıtım bildirimini seç) öğesine tıklayın. 
 
 Dağıtım başarılı olursa VS Code çıkışında onay iletisi yazdırılır. Tüm modüllerin cihazınızda çalışıp çalışmadığını da kontrol edebilirsiniz. 
 
 IoT Edge cihazında modüllerin durumunu görmek için aşağıdaki komutu çalıştırın. Bu işlem birkaç dakika sürebilir.
 
-   ```bash
-   sudo iotedge list
+   ```PowerShell
+   iotedge list
    ```
 
 ## <a name="create-the-sql-database"></a>SQL veritabanını oluşturma

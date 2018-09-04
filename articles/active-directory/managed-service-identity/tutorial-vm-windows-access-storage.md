@@ -14,22 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
 ms.author: daveba
-ms.openlocfilehash: e001907b9df77eff1455043a3fd7ce5533838fcc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0781bf3fe9806c2c8aaa911433c4d6eddcafe04c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056183"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885502"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-identity-to-access-azure-storage"></a>Öğretici: Azure Depolama’ya erişmek için Windows VM Yönetilen Kimliği kullanma
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Bu öğreticide, Windows Sanal Makinesi için Yönetilen Kimliği etkinleştirme ve ardından bu kimliği kullanarak Azure Depolama'ya erişme işlemleri gösterilir.  Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Bu öğreticide, Azure Depolama'ya erişmek amacıyla, Windows sanal makinesi (VM) için sistem tarafından atanmış bir kimliği nasıl kullanacağınız gösterilmektedir. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Yeni bir kaynak grubunda Windows sanal makinesi oluşturma 
-> * Windows Sanal Makinesinde (VM) Yönetilen Kimliği etkinleştirme
 > * Depolama hesabında bir blob kapsayıcı oluşturma
 > * Windows VM’nizin Yönetilen Kimliğine depolama hesabı için erişim izni verin 
 > * Erişim elde edin ve bu erişimi Azure Depolama’yı çağırmak için kullanın 
@@ -43,31 +41,11 @@ Bu öğreticide, Windows Sanal Makinesi için Yönetilen Kimliği etkinleştirme
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+- [Azure portal'da oturum açma](https://portal.azure.com)
 
-[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
+- [Windows sanal makinesi oluşturma](/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda Windows sanal makinesi oluşturma
-
-Bu bölümde, daha sonra Yönetilen Kimlik verilen bir Windows VM oluşturursunuz.
-
-1.  Azure portalın sol üst köşesinde bulunan **+/Yeni hizmet oluştur** düğmesine tıklayın.
-2.  **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin. 
-3.  Sanal makine bilgilerini girin. Burada oluşturulan **Kullanıcı adı** ve **Parola**, sanal makinede oturum açmak için kullandığınız kimlik bilgileridir.
-4.  Açılan listede sanal makine için uygun **Aboneliği** seçin.
-5.  İçinde sanal makinenin oluşturulmasını istediğiniz yeni bir **Kaynak Grubu** seçmek için, **Yeni Oluştur**'u seçin. İşlem tamamlandığında **Tamam**’a tıklayın.
-6.  VM'nin boyutunu seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. Ayarlar dikey penceresinde varsayılan değerleri koruyun ve **Tamam**'a tıklayın.
-
-    ![Alternatif resim metni](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-identity-on-your-vm"></a>VM’nizde Yönetilen Kimliği etkinleştirme
-
-Sanal Makine Yönetilen Kimliği kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure AD'den erişim belirteçlerini almanıza olanak tanır. Azure portaldan bir Sanal Makinede Yönetilen Kimliği etkinleştirmek aslında şu iki şeyi gerçekleştirir: Bir yönetilen kimlik oluşturmak için VM’nizi Azure AD’ye kaydeder ve kimliği VM’de yapılandırır. 
-
-1. Yeni sanal makinenizin kaynak grubuna gidin ve önceki adımda oluşturduğunuz sanal makineyi seçin.
-2. **Ayarlar** kategorisinin altında, **Yapılandırma**’ya tıklayın.
-3. Yönetilen Kimliği etkinleştirmek için **Evet**’i seçin.
-4. Yapılandırmayı uygulamak için **Kaydet**’e tıklayın. 
+- [Sistem tarafından atanmış kimliği sanal makinenizde etkinleştirme](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma 
 

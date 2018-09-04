@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 04/06/2018
+ms.date: 08/22/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d404e3a300a953ccc1cfb691cbde6f6d7ee54b26
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f1c933c9dcb3e3e2c2cb267073386d4b9c4e2022
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216317"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746027"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch içe büyük ölçekli paralel işlem çözümleri geliştirme
 
@@ -288,7 +288,7 @@ Bir işlem düğümünde başlangıç görevi başarısız olursa, düğümün d
 Mevcut bir havuz için başlangıç görevi ekler veya güncelleştirirseniz, başlangıç görevinin düğümlere uygulanması için işlem düğümlerini yeniden başlatmanız gerekir.
 
 >[!NOTE]
-> Bir başlangıç görevinin toplam boyutunun kaynak dosyaları ve ortam değişkenleri dahil olmak üzere 32.768 karakter veya daha az olması gerekir. Başlangıç görevinizin bu gereksinime uygun olduğundan emin olmak için aşağıdaki iki yaklaşımdan birini kullanabilirsiniz:
+> Batch, kaynak dosyalarını ve ortam değişkenlerini içeren başlangıç görevinin toplam boyutunu sınırlar. Bir başlangıç görevinin boyutunu azaltmanız gerekirse aşağıdaki iki yaklaşımdan birini kullanabilirsiniz:
 >
 > 1. Uygulamaları veya verileri Batch havuzunuzdaki tüm düğümlere dağıtmak için uygulama paketlerini kullanabilirsiniz. Uygulama paketleri hakkında daha fazla bilgi için bkz. [Batch uygulama paketleriyle işlem düğümlerine uygulama dağıtımı](batch-application-packages.md).
 > 2. El ile uygulama dosyalarınızı içeren bir sıkıştırılmış arşiv oluşturabilirsiniz. Sıkıştırılmış arşivinizi Azure Depolama hesabına blob olarak karşıya yükleyin. Sıkıştırılmış arşivi başlangıç göreviniz için kaynak dosyası olarak belirleyin. Başlangıç göreviniz için komut satırını çalıştırmadan önce sıkıştırılmış arşivi komut satırından açın. 

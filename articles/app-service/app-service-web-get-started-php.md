@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/13/2017
+ms.date: 08/24/2018
 ms.author: cephalin;cfowler
 ms.custom: mvc
-ms.openlocfilehash: 1d2be80ad922e7a2ceb0b25f86cae6fbb9fa9c2c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0dd8f90a39abc18263fcaa5bdb63a5b743728952
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444043"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42884973"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Azure’da PHP web uygulaması oluşturma
 
@@ -45,7 +45,7 @@ Bu hızlı başlangıcı tamamlamak için:
 
 ## <a name="download-the-sample-locally"></a>Örnekleri yerel makineye indirme
 
-Bir terminal penceresinde aşağıdaki komutları çalıştırın. Bu işlem, örnek uygulamanın yerel makinenize kopyalanmasını ve örnek kodu içeren dizine gitmenizi sağlar.
+Bir terminal penceresinde aşağıdaki komutları çalıştırın. Bu işlem, örnek uygulamanın yerel makinenize kopyalanmasını ve örnek kodu içeren dizine gitmenizi sağlar. 
 
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
@@ -54,7 +54,7 @@ cd php-docs-hello-world
 
 ## <a name="run-the-app-locally"></a>Uygulamayı yerel olarak çalıştırma
 
-Yerleşik PHP web sunucusunu başlatmak için bir terminal penceresi açıp ve `php` komutunu kullanıp uygulamayı yerel olarak çalıştırın.
+Azure'a dağıttığınızda nasıl görüneceğini görmek için uygulamayı yerel olarak çalıştırın. Yerleşik PHP web sunucusunu başlatmak için bir terminal penceresi açın ve `php` komutunu kullanın.
 
 ```bash
 php -S localhost:8080

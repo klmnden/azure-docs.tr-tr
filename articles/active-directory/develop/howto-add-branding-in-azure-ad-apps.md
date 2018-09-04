@@ -1,6 +1,6 @@
 ---
-title: Marka yönergeleri için uygulamalar | Microsoft Docs
-description: Azure Active Directory'nin Geliştirici yönelimli kaynakları için kapsamlı bir kılavuz
+title: Uygulamalar için markalama yönergeleri | Microsoft Docs
+description: Azure Active Directory'nin geliştirici yönelimli kaynakları için kapsamlı bir kılavuz
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -17,95 +17,95 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 78a0b9bf7f49cc41c8d78287bcbe54c5c88f0809
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
-ms.translationtype: MT
+ms.openlocfilehash: 92990a71a0b138f08c515450ecd71692fa57f297
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "39597914"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43185429"
 ---
-# <a name="branding-guidelines-for-applications"></a>Uygulamalar için markalama
+# <a name="branding-guidelines-for-applications"></a>Uygulamalar için markalama yönergeleri
 
-Bu makalede, Azure Active Directory (Azure AD) ile uygulamalar geliştirirken kullanmalısınız markalama açıklanmaktadır. Bu yönergeler, Azure AD'de yönetilen uygulamaya iş veya Okul hesabı kullanmak istedikleri ya da kendi kişisel hesap için kaydolma ve oturum açma, uygulamanız için müşterilerinize doğrudan yardımcı olur.
+Bu makalede, Azure Active Directory (Azure AD) ile uygulama geliştirirken kullanmanız gereken markalama yönergeleri açıklanmaktadır. Bu yönergeler, uygulamanıza kaydolmak veya uygulamanızda oturum açmak için Azure AD’de yönetilen iş veya okul hesaplarını ya da kişisel hesaplarını kullanmak istediklerinde müşterilerinizi yönlendirmeye yardımcı olur.
 
-## <a name="personal-accounts-vs-work-or-school-accounts-from-microsoft"></a>İş ve kişisel hesaplar veya Microsoft Okul hesapları
+## <a name="personal-accounts-vs-work-or-school-accounts-from-microsoft"></a>Microsoft kişisel hesapları ile iş veya okul hesapları karşılaştırması
 
-Microsoft, iki tür kullanıcı hesapları yönetir:
+Microsoft, iki tür kullanıcı hesabı yönetir:
 
-* **Kişisel hesaplar** (eski adıyla Windows Live ID da bilinir). Bu hesapları arasındaki ilişkiyi göstermek *bireysel* kullanıcılar ve Microsoft ve olan Microsoft tüketici cihazlara ve hizmetlere erişmek için kullanılabilir. Bu hesaplar, kişisel kullanım için tasarlanmıştır.
-* **İş veya Okul hesapları.** Bu hesaplar, Azure Active Directory kullanan kuruluşlar adına Microsoft tarafından yönetilir. Bu hesaplar, Office 365 ve diğer iş Hizmetleri için Microsoft oturum açmak için kullanılır.
+* **Kişisel hesaplar** (eski adıyla Windows Live ID olarak da bilinir). Bu hesaplar, *bireysel* kullanıcılar ile Microsoft arasındaki ilişkiyi temsil eder ve tüketici cihazlarına ve Microsoft hizmetlerine erişmek üzere kullanılır. Bu hesaplar, kişisel kullanım için tasarlanmıştır.
+* **İş veya okul hesapları.** Bu hesaplar, Azure Active Directory kullanan kuruluşlar adına Microsoft tarafından yönetilir. Bu hesaplar, Office 365 ve diğer Microsoft iş hizmetlerinde oturum açmak için kullanılır.
 
-Microsoft iş veya Okul hesapları genellikle (şirket, okul, kamu kurumunda), kuruluşların son kullanıcılara (çalışanlar, Öğrenciler, federal çalışan) atanır. Bu hesapları doğrudan bulutta (Azure AD platformu) yönetilen veya Windows Server Active Directory gibi bir şirket içi dizinden Azure AD'ye eşitlenmiş. Microsoft, *Emanetçisi* iş veya Okul hesapları, ancak hesaplarına ait ve kuruluş tarafından denetlenir.
+Microsoft iş veya okul hesapları genel olarak kuruluşlar (şirket, okul, devlet kurumu) tarafından son kullanıcılara (çalışanlar, öğrenciler, kamu çalışanları) atanır. Bu hesaplar doğrudan bulutta (Azure AD platformu) yönetilir veya Windows Server Active Directory gibi bir şirket içi dizinden Azure AD’ye eşitlenir. Microsoft iş veya okul hesaplarının *koruyucusudur* ancak hesapların mülkiyeti ve denetimi kuruluşa aittir.
 
-## <a name="referring-to-azure-ad-accounts-in-your-application"></a>Uygulamanızı Azure AD hesaplarının başvurma
+## <a name="referring-to-azure-ad-accounts-in-your-application"></a>Uygulamanızda Azure AD hesaplarına başvurma
 
-Microsoft Azure veya Active Directory marka adları ve bunların hiçbiri son kullanıcılara gerektiğini ortaya çıkarmıyor.
+Microsoft, son kullanıcılara Azure veya Active Directory marka adlarını göstermez ve sizin de göstermemeniz gerekir.
 
-* Kullanıcılar oturum açtıktan sonra kuruluş adını ve logosunu mümkün olduğunca kullanın. Bu "kuruluşunuzun." gibi genel koşulları kullanmaktan daha iyidir
-* Kullanıcılar oturum açmadıysanız, hesaplarına bakın "iş veya Okul hesapları" ve Microsoft bu hesaplar yönetir iletmek için Microsoft logosu kullanın. Kullanım Koşulları "Kurumsal hesap" gibi olmayan "iş hesabı" veya "kullanıcı karışıklık oluşturur Kurumsal hesap,".
+* Kullanıcılar oturum açtıktan sonra mümkün olduğunca kuruluşun adını ve logosunu kullanın. Bu, “kuruluşunuz” gibi genel terimler kullanılmasından çok daha iyidir.
+* Kullanıcılar oturum açmadıklarında hesaplarından “İş veya okul hesapları” olarak bahsedin ve bu hesapları Microsoft’un yönettiğini belirtmek üzere Microsoft logosunu kullanın. Kullanıcının kafasını karıştırabilecek şekilde “kuruluş hesabı”, “iş hesabı” veya “kurumsal hesap” gibi terimler kullanmayın.
 
-## <a name="user-account-pictogram"></a>Kullanıcı hesabı piktogram
+## <a name="user-account-pictogram"></a>Kullanıcı hesabı piktogramı
 
-Önceki bir sürümde bu yönergelerin, "mavi rozeti" piktogram kullanılması önerilir. Kullanıcı ve geliştirici geri bildirimi doğrultusunda, şimdi ise Microsoft logosu kullanımını yerine öneririz. Microsoft logosu, kullanıcıların Office 365 veya diğer Microsoft ile iş Hizmetleri uygulamanıza oturum açmak için kullandıkları hesabı yeniden kullanabilir anlamasına yardımcı olur.
+Bu yönergelerin daha önceki bir sürümünde “mavi rozet” piktogramı kullanılmasını önermiştik. Kullanıcı ve geliştirici geri bildirimleri doğrultusunda şu anda bunun yerine Microsoft logosunun kullanılmasını öneriyoruz. Microsoft logosu, kullanıcıların uygulamanızda oturum açmak için Office 365 veya diğer Microsoft iş hizmetleri ile kullandıkları hesabı yeniden kullanabileceklerini anlamalarına yardımcı olacaktır.
 
-## <a name="signing-up-and-signing-in-with-azure-ad"></a>Kaydolma ve Azure AD'de oturum imzalama
+## <a name="signing-up-and-signing-in-with-azure-ad"></a>Azure AD ile kaydolma ve oturum açma
 
-Uygulamanıza kaydolma ve oturum açma için ayrı yollar sunabilir ve aşağıdaki bölümler her iki senaryo için görsel kılavuz sağlar.
+Uygulamanız kaydolma ve oturum açma için ayrı yollar sunabilir. Aşağıdaki bölümlerde her iki duruma uygun görsel kılavuz sağlanmaktadır.
 
-**Uygulamanızın son kullanıcı (örneğin, deneme veya freemium modeline ücretsiz) kaydolma destekliyorsa**: göstermek bir **oturum** kendi iş hesabını veya kişisel hesapları uygulamanızla erişmesine olanak tanır düğmesi. Azure AD, uygulamanıza erişebilmek ilk kez bir onay istemi gösterir.
+**Uygulamanız son kullanıcının kaydolmasını destekliyorsa (örneğin, ücretsiz deneme sürümü veya freemium modeli)**: Kullanıcıların iş hesapları veya kişisel hesapları ile uygulamanıza erişmesine izin veren bir **oturum aç** düğmesi gösterebilirsiniz. Azure AD, uygulamanıza ilk eriştiklerinde bir izin alma istemi gösterecektir.
 
-**Uygulamanızı yalnızca Yöneticiler onay verebilir izinleri gerektiriyorsa veya uygulamanızı Kurumsal lisanslama gerektiriyorsa**: yönetici alımdaki kullanıcı oturum açma ayırın. **"Bu uygulamayı Al" düğmesine** yöneticilerin oturum açın, sonra son kullanıcı onayı istemlerini uygulamanıza gizleme eklenen avantajına sahiptir, kuruluş içindeki kullanıcılar adına izin vermek için isteyin yönlendirir.
+**Uygulamanız yalnızca yöneticilerin verebileceği izinleri gerektiriyorsa veya uygulamanız kuruluş lisansı gerektiriyorsa**: Yönetici alımını kullanıcı oturum açma işleminden ayırın. **“Bu uygulamayı al” düğmesi** yöneticileri oturum açma ekranına yeniden yönlendirecek ve ardından kuruluştaki kullanıcılar adına izin vermelerini isteyecektir; bu düğme, son kullanıcı izin alma istemlerini uygulamanıza gizleme açısından ek avantaj sunar.
 
-## <a name="visual-guidance-for-app-acquisition"></a>Uygulama alma için görsel kılavuz
+## <a name="visual-guidance-for-app-acquisition"></a>Uygulama alımı için görsel kılavuz
 
-"Uygulama Al" bağlantınız kullanıcı Azure AD erişim izni verme yeniden yönlendirmeniz gerekir (yetkilendirme) sayfasında, uygulamanızı Microsoft tarafından barındırılan kuruluş verilerine erişimi için yetkilendirmek üzere kuruluşun Yöneticisi izin vermek için. Erişim isteği hakkında ayrıntılar açıklanmıştır [uygulamaları Azure Active Directory ile tümleştirme](quickstart-v1-integrate-apps-with-azure-ad.md) makalesi.
+“Uygulamayı al” bağlantınızın, Microsoft tarafından barındırılan kuruluş verilerine erişmek üzere bir kuruluş yöneticisinin uygulamanızı yetkilendirmesine izin vermek için kullanıcıyı Azure AD erişim verme (yetkilendirme) sayfasına yeniden yönlendirmesi gerekir. Nasıl erişim talep edileceğine ilişkin ayrıntılar [Integrating Applications with Azure Active Directory (Uygulamaları Azure Active Directory ile Tümleştirme)](quickstart-v1-integrate-apps-with-azure-ad.md) makalesinde açıklanmaktadır.
 
-Yöneticilerin uygulamanıza onay sonra bunlar için kullanıcı Office 365 uygulama Başlatıcısı deneyimini eklemeyi seçebilirsiniz (gelen ve giden waffle Menüsü'nden erişilebilir [ https://portal.office.com/myapps ](https://portal.office.com/myapps)). Bu özellik bildirmek istiyorsanız, bir düğme Göster ve "kuruluşunuz bu uygulama Ekle" gibi terimler kullanabilirsiniz aşağıdaki örnekteki gibi:
+Yöneticiler uygulamanıza izin verdikten sonra uygulamanızı kullanıcılarının Office 365 uygulama başlatıcı deneyimine ekleyebilirler (waffle menüsünden ve [https://portal.office.com/myapps](https://portal.office.com/myapps) bölümünden erişilebilir). Bu özelliği tanıtmak istiyorsanız “Bu uygulamayı kuruluşunuza ekleyin” gibi ifadeler kullanabilir ve aşağıdaki gibi bir düğme görüntüleyebilirsiniz:
 
-![Uygulama türleri ve senaryolar](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
+![Uygulama Türleri ve senaryolar](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
-Ancak, düğmelerini kalmak yerine açıklayıcı metin yazma öneririz. Örneğin:
+Ancak düğmelere güvenmek yerine açıklayıcı metinler yazmanızı öneririz. Örnek:
 
-> *Office 365 veya Microsoft'un diğer iş hizmeti zaten kullanıyorsanız, < your_app_name > kuruluşunuzun verilerine erişim izni verebilirsiniz. Bu, var olan iş hesaplarıyla < your_app_name > kullanıcılarınızın olanak tanır.*
+> *Office 365 veya diğer bir Microsoft iş hizmeti kullanıyorsanız kuruluşunuzun verilerine <uygulamanızın_adı> erişimi verebilirsiniz. Bu, kullanıcılarınızın mevcut iş hesapları ile <uygulamanızın_adı> uygulamanıza erişebilmelerini sağlayacaktır.*
 
-Uygulamanızda kullanmak için resmi Microsoft logosu yüklemek için bilgisayarınıza kaydedin ve kullanmak istediğiniz bir sağ tıklayın.
+Uygulamanızda kullanmak üzere resmi Microsoft logosunu indirmek için, kullanmak istediğiniz logoya sağ tıklayın ve ardından bilgisayarınıza kaydedin.
 
 | Varlık                                | PNG biçimi | SVG biçimi |
 | ------------------------------------ | ---------- | ---------- |
-| Microsoft logosu  | ![Microsoft logosu PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_MSSymbol_19.png) | ![SVG Microsoft logosu](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_MSSymbol_19.svg) |
+| Microsoft logosu  | ![Microsoft logosu PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Microsoft logosu SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
 
 ## <a name="visual-guidance-for-sign-in"></a>Oturum açma için görsel kılavuz
 
-Uygulamanız kullanıcıların Azure AD ile tümleştirmek için kullandığınız Protokolü karşılık gelen oturum açma uç noktaya yönlendiren bir oturum açma düğmesi görüntülemelidir. Aşağıdaki bölümde, bu düğmeyi gibi görünmelidir ayrıntılar sağlar.
+Uygulamanızda kullanıcıları, Azure AD ile tümleştirme için kullandığınız protokole karşılık gelen oturum açma uç noktasına yönlendiren bir oturum açma düğmesinin görüntülenmesi gerekir. Aşağıdaki bölümde bu düğmenin nasıl görünmesi gerektiğine ilişkin ayrıntılı bilgi sağlanmaktadır.
 
-### <a name="pictogram-and-sign-in-with-microsoft"></a>Piktogram ve "Microsoft ile oturum"
+### <a name="pictogram-and-sign-in-with-microsoft"></a>Piktogram ve “Microsoft ile Oturum Aç”
 
-Microsoft logosu ilişkidir ve uygulamanızı Azure AD'ye diğer kimlik sağlayıcılardan arasında benzersiz olarak temsil eden "Sign in ile Microsoft" koşulları destekleyebilir. "Sign in ile Microsoft" yeterli alan yoksa, "Oturum açma." kısaltmak için Tamam Açık veya koyu renk şeması düğmelerini kullanabilirsiniz.
+Microsoft logosu ve “Microsoft ile Oturum Aç” ifadesinin bir arada sunulması, Azure AD çözümünü uygulamanızın destekleyebileceği diğer kimlik sağlayıcılarından benzersiz şekilde ayıran özelliktir. “Microsoft ile Oturum Aç” ifadesinin tamamını içerecek kadar alanınız yoksa “Oturum Aç” olarak kısaltabilirsiniz. Düğmeler için açık veya koyu renk şeması kullanabilirsiniz.
 
-Aşağıdaki diyagramda, Microsoft tarafından önerilen varlıkları uygulamanızla kullanırken redlines gösterilmektedir. Redlines "Sign in ile Microsoft" veya "Oturum Aç" kısa sürümü için geçerlidir.
+Aşağıdaki diyagramda, uygulamanızla birlikte varlıkları kullanırken Microsoft tarafından önerilen kırmızı çizgiler gösterilmektedir. Kırmızı çizgiler, “Microsoft ile Oturum Aç” veya kısa hali “Oturum Aç” sürümü için geçerlidir.
 
-![Microsoft'ta oturum redlines](./media/howto-add-branding-in-azure-ad-apps/Sign-in-with-Microsoft-redlines.png)
+![Microsoft ile Oturum Aç kırmızı çizgileri](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
 
-Uygulamanızda resmi resimleri indirmek için bilgisayarınıza kaydedin ve kullanmak istediğiniz bir sağ tıklayın.
+Uygulamanızda kullanmak üzere resmi görüntüleri indirmek için kullanmak istediğiniz görüntüye sağ tıklayın ve ardından görüntüyü bilgisayarınıza kaydedin.
 
 | Varlık                                | PNG biçimi | SVG biçimi |
 | ------------------------------------ | ---------- | ---------- |
-| Microsoft'ta (Koyu tema) oturum açın  | ![Düğme koyu tema PNG oturum](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark.png) | ![Microsoft düğme koyu tema oturum SVG oturum](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark.svg) |
-| Microsoft'ta (açık tema) oturum açın | ![Düğme açık tema PNG oturum](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light.png) | ![Microsoft düğme açık tema oturum SVG oturum](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light.svg) |
-| (Koyu tema) oturum açın                 | ![Düğme koyu tema PNG kısa oturum](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark_short.png) | ![Düğme koyu tema SVG kısa oturum](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark_short.svg) |
-| (Açık tema) oturum açın                | ![Düğme açık tema PNG kısa oturum](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light_short.png) | ![Düğme açık tema SVG kısa oturum](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light_short.svg) |
+| Microsoft ile Oturum Aç (koyu tema)  | ![Oturum Aç düğmesi koyu tema PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![Microsoft ile Oturum Aç düğmesi koyu tema SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
+| Microsoft ile Oturum Aç (açık tema) | ![Oturum Aç düğmesi açık tema PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Microsoft ile Oturum Aç düğmesi açık tema SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
+| Oturum Aç (koyu tema)                 | ![Oturum Aç kısa düğme koyu tema PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![Oturum Aç kısa düğme koyu tema SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
+| Oturum Aç (açık tema)                | ![Oturum Aç kısa düğme açık tema PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![Oturum Aç kısa düğme açık tema SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
 
 
-## <a name="branding-dos-and-donts"></a>İlgilenmenin markalama
+## <a name="branding-dos-and-donts"></a>Markalama için Yapılması ve Yapılmaması Gerekenler
 
-**YAPMAK** "iş veya Okul hesabı" bunu kullanıp kullanamayacağını tanımak son kullanıcılara yardımcı olmak için ek açıklamayla "Sign in ile Microsoft" düğmesi ile birlikte kullanın. **Yoksa** "Kurumsal hesap", "iş hesabı" veya "Kurumsal hesap." gibi diğer terimleri kullanın
+**YAPIN**: Son kullanıcıların kullanıp kullanamayacaklarını anlamalarına yardımcı olmak üzere ek açıklama sağlamak için “Microsoft ile Oturum Aç” düğmesi ile birlikte “iş veya okul hesabı” ifadesini kullanın. **YAPMAYIN**: “Kuruluş hesabı”, “iş hesabı” veya “kurumsal hesap” gibi başka ifadeler kullanmayın.”
 
-**Yoksa** "Office 365 kimliği" veya "Azure ID" kullanın Office 365 de bir Microsoft Azure AD kimlik doğrulaması için kullanmaz, sunan bir tüketici adıdır.
+**YAPMAYIN**: “Office 365 ID” veya “Azure ID” kullanmayın. Office 365 aynı zamanda Microsoft’un tüketicilere yönelik bir teklifinin adıdır ve kimlik doğrulama için Azure AD kullanmaz.
 
-**Yoksa** Microsoft logosu değiştirin.
+**YAPMAYIN**: Microsoft logosunu değiştirmeyin.
 
-**Yoksa** Azure veya Active Directory markalar için son kullanıcıların kullanıma sunar. Ancak Tamam olarak bu kullanım koşullarını geliştiriciler, BT uzmanları ve yöneticiler ile kullanmak için.
+**YAPMAYIN**: Son kullanıcılara Azure veya Active Directory markalarını sunmayın. Ancak geliştiriciler, BT uzmanları ve yöneticilere sunabilirsiniz.
 
-## <a name="navigation-dos-and-donts"></a>Gezinti yapılması ve yapılmaması gerekenler
+## <a name="navigation-dos-and-donts"></a>Gezinti için Yapılması ve Yapılmaması Gerekenler
 
-**YAPMAK** kullanıcıların oturumu kapatın ve başka bir kullanıcı hesabına geçmek bir yol sağlar. Çoğu kişi Microsoft/Facebook/Google/Twitter tek kişisel bir hesaptan olsa da, genellikle birden fazla kuruluşla ilişkili kişilerdir. Birden çok oturum açmış kullanıcılar için destek yakında sunulacaktır.
+**YAPIN**: Kullanıcılara, oturumu kapatma ve başka bir kullanıcı hesabına geçme olanağı sağlayın. Çoğu kişi tek bir Microsoft/Facebook/Google/Twitter hesabına sahip olsa da genellikle birden fazla kuruluş ile ilişkilidir. Birden fazla hesapla oturum açan kullanıcılar için destek yakında sunulacaktır.

@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/20/2018
+ms.date: 08/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: bd559cb9f0140706a4b9735c642367e03616a14d
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 7509ed46ba07cd8250f82f8eb258d18e3f4a1ee6
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188174"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43107114"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Öğretici: Bağımlı kaynaklarla Azure Resource Manager şablonları oluşturma
 
@@ -56,12 +56,27 @@ Azure Hızlı Başlangıç Şablonları, Resource Manager şablonları için bir
 
 ## <a name="explore-the-template"></a>Şablonu keşfetme
 
+Bu bölümdeki şablonu inceledikten sonra şu soruları yanıtlamaya çalışın:
+
+- Bu şablonda kaç adet Azure kaynağı tanımlanmıştır?
+- Kaynaklardan biri bir Azure depolama hesabıdır.  Tanım, son öğreticide kullanılan tanıma benziyor mu?
+- Bu şablonda tanımlanan kaynaklara ilişkin şablon başvurularını bulabilir misiniz?
+- Kaynakların bağımlılıklarını bulabilir misiniz?
+
 1. Visual Studio Code'da birinci düzeydeki öğeleri ve **resources** içindeki ikinci düzey öğeleri görene kadar öğeleri daraltın:
 
     ![Visual Studio Code Azure Resource Manager şablonları](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
     Şablonun tanımladığı beş kaynak vardır.
-2. Dördüncü öğeyi genişletin:
+2. İlk kaynağı genişletin. Bir depolama hesabıdır. Tanım, son öğreticinin başında kullanılan tanımla aynı olacaktır.
+
+    ![Visual Studio Code Azure Resource Manager şablonları depolama hesabı tanımı](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
+
+3. İkinci kaynağı genişletin. Kaynak türü: **Microsoft.Network/publicIPAddresses**. Şablon başvurusunu bulmak için, [şablon referansı](https://docs.microsoft.com/azure/templates/) bölümüne göz atın, **Başlığa göre filtrele** alanına **genel IP adresi** veya **genel IP adresleri** girin. Kaynak tanımını şablon başvurusu ile karşılaştırın.
+
+    ![Visual Studio Code Azure Resource Manager şablonları genel IP adresi tanımı](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
+4. Bu şablonda tanımlanan diğer kaynaklara ilişkin şablon başvurularını bulmak için son adımı yineleyin.  Kaynak tanımlarını başvurular ile karşılaştırın.
+5. Dördüncü kaynağı genişletin:
 
     ![Visual Studio Code Azure Resource Manager şablonları dependson](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
@@ -70,7 +85,7 @@ Azure Hızlı Başlangıç Şablonları, Resource Manager şablonları için bir
     * publicIPAddress
     * virtualNetwork
 
-3. Beşinci öğeyi genişletin. Bu kaynak bir sanal makinedir. İki farklı kaynağa bağımlıdır:
+6. Beşinci kaynağı genişletin. Bu kaynak bir sanal makinedir. İki farklı kaynağa bağımlıdır:
 
     * storageAccount
     * networkInterface

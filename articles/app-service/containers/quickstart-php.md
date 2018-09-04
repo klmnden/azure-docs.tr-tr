@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 1cbd29b480c80c93f750b97d47ccb3c09c984942
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5fdf277eb8f99f2d52600140601b413b51bcdfd8
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306795"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885914"
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Linux’ta App Service’te PHP web uygulaması oluşturma
 
@@ -54,7 +54,7 @@ cd php-docs-hello-world
 
 ## <a name="run-the-app-locally"></a>Uygulamayı yerel olarak çalıştırma
 
-Yerleşik PHP web sunucusunu başlatmak için bir terminal penceresi açıp ve `php` komutunu kullanıp uygulamayı yerel olarak çalıştırın.
+Azure'a dağıttığınızda nasıl görüneceğini görmek için uygulamayı yerel olarak çalıştırın. Yerleşik PHP web sunucusunu başlatmak için bir terminal penceresi açın ve `php` komutunu kullanın.
 
 ```bash
 php -S localhost:8080

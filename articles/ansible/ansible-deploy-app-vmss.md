@@ -1,45 +1,39 @@
 ---
-title: Ansible'ı kullanarak azure'da sanal makine ölçek kümeleri uygulamalarını dağıtma
-description: Bir sanal makine ölçek kümesi yapılandırmak ve uygulamayı Azure'da sanal makine ölçek dağıtmak için Ansible'ı kullanmayı öğrenin
+title: Ansible kullanarak Azure’da sanal makine ölçek kümelerine uygulama dağıtma
+description: Azure'da bir sanal makine ölçek kümesi yapılandırmak ve sanal makine ölçek kümesine uygulama dağıtmak için Ansible'ı nasıl kullanacağınızı öğrenin
 ms.service: ansible
-keywords: ansible'ı, azure, devops, bash, playbook, sanal makine, sanal makine ölçek kümesi, vmss
+keywords: ansible, azure, devops, bash, playbook, sanal makine, sanal makine ölçek kümesi, vmss
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: b9c8058606e13c0db4908530e98cddb69d2caf50
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 08/24/2018
+ms.openlocfilehash: 762c14b5b6e30f6410a8d572d69651c803f079c2
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008856"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918095"
 ---
-# <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible'ı kullanarak azure'da sanal makine ölçek kümeleri uygulamalarını dağıtma
-Ansible, dağıtımını ve yapılandırmasını, ortamınızdaki kaynakları otomatikleştirmenize olanak tanır. Uygulamalarınızı Azure'da dağıtmak için Ansible'ı kullanabilirsiniz. Bu makalede bir Azure sanal makine ölçek kümesine (VMSS) bir Java uygulamasının nasıl dağıtılacağı gösterilmektedir.  
+# <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible kullanarak Azure’da sanal makine ölçek kümelerine uygulama dağıtma
+Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Uygulamalarınızı Azure'a dağıtmak için Ansible kullanabilirsiniz. Bu makalede bir Azure sanal makine ölçek kümesine (VMSS) bir Java uygulamasının nasıl dağıtılacağı gösterilmektedir.  
 
-## <a name="prerequisites"></a>Önkoşullar
-- **Azure aboneliği** - oluşturma, bir Azure aboneliği yoksa, bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) başlamadan önce.
-- **Ansible'ı yapılandırma** - [oluşturma Azure kimlik bilgileri ve ansible'ı yapılandırma](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **Ansible'ı ve Azure Python SDK'sı modüller** 
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
-- **Sanal makine ölçek kümesi** - sanal makine ölçek yoksa, küme, şunları yapabilirsiniz [sanal makine ölçek kümesi ile Ansible oluşturma](ansible-create-configure-vmss.md). 
-- **Git** - [git](https://git-scm.com) Bu öğreticide kullanılan bir Java örneği indirmek için kullanılır.
-- **Java SE Development Kit (JDK)** -JDK Java örnek proje oluşturmak için kullanılır.
-- **Apache Maven derleme araçlarını** - [Apache Maven derleme araçlarını](https://maven.apache.org/download.cgi) örnek Java projesi oluşturmak için kullanılır.
+## <a name="prerequisites"></a>Ön koşullar
+- **Azure aboneliği** - Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
+- **Sanal makine ölçek kümesi** - Sanal makine ölçek kümeniz yoksa, [Ansible kullanarak bir sanal makine ölçek kümesi oluşturabilirsiniz](ansible-create-configure-vmss.md). 
+- **Git** - Bu öğreticide Java örneği indirmek için [git](https://git-scm.com) kullanılmaktadır.
+- **Java SE Development Kit (JDK)** - Örnek Java projesini derlemek için JDK kullanılır.
+- **Apache Maven derleme araçları** - Örnek Java projesini derlemek için [Apache Maven derleme araçları](https://maven.apache.org/download.cgi) kullanılır.
 
 > [!Note]
-> Ansible 2.6 aşağıdaki çalıştırılması için gerekli Bu öğreticide örnek playbook'ları. 
+> Bu öğreticideki örnek playbook'ları çalıştırmak için Ansible 2.6 gerekir. 
 
-## <a name="get-host-information"></a>Konak bilgilerini alma
+## <a name="get-host-information"></a>Ana bilgisayar bilgilerini alma
 
-Bu bölümde, bir Azure sanal makine grubu için konak bilgilerini almak için ansible'ı kullanmayı gösterir. Bir örnek Ansible playbook aşağıda verilmiştir. Genel IP adreslerini kodunu alır ve yük dengeleyici içinde belirtilen kaynak grubu ve adlı bir konak grubu oluşturur **saclesethosts** stoktaki. 
+Bu bölümde, bir Azure sanal makine grubu için ana bilgisayar bilgilerini almak üzere Ansible'ın nasıl kullanılacağı gösterilmektedir. Aşağıda bir Ansible playbook örneği verilmiştir. Kod, belirtilen kaynak grubu içinden genel IP adreslerini ve yük dengeleyiciyi alır ve sayımda **saclesethosts** adlı bir ana bilgisayar grubu oluşturur. 
 
-Aşağıdaki örnek playbook olarak Kaydet `get-hosts-tasks.yml`: 
+Aşağıdaki örnek playbook'u `get-hosts-tasks.yml` olarak kaydedin: 
 
   ```yaml
   - name: Get facts for all Public IPs within a resource groups
@@ -65,9 +59,9 @@ Aşağıdaki örnek playbook olarak Kaydet `get-hosts-tasks.yml`:
       - "{{ output.ansible_facts.azure_loadbalancers[0].properties.inboundNatRules }}"
   ```
 
-## <a name="prepare-an-application-for-deployment"></a>Bir uygulama dağıtımı için hazırlama  
+## <a name="prepare-an-application-for-deployment"></a>Uygulamaları dağıtım için hazırlama  
 
-Bu bölümde, bir Java örnek projesini github'dan kopyalama ve projeyi oluşturmak için git kullanın. Aşağıdaki playbook olarak Kaydet `app.yml`:
+Bu bölümde, git kullanarak GitHub'dan bir Java örnek projesi kopyalayacak ve projeyi derleyeceksiniz. Aşağıdaki playbook'u `app.yml` olarak kaydedin:
 
   ```yaml
   - hosts: localhost
@@ -85,13 +79,13 @@ Bu bölümde, bir Java örnek projesini github'dan kopyalama ve projeyi oluştur
       shell: mvn package chdir="{{ workspace }}/complete"
   ```
 
-Örnek Ansible playbook ile aşağıdaki komutu çalıştırın:
+Örnek Ansible playbook'u aşağıdaki komut ile çalıştırın:
 
   ```bash
   ansible-playbook app.yml
   ```
 
-Ansible playbook komutunun çıktısını görüntüler kullanıma gördüğünüz, kopyalanan örnek uygulamasını Github'dan oluşturulmuş aşağıdakine benzer:
+Ansible-playbook komutunun çıktısı aşağıdakine benzer şekilde görüntülenir, burada GitHub'dan kopyalanan örnek uygulamanın derlendiğini görebilirsiniz:
 
   ```bash
   PLAY [localhost] **********************************************************
@@ -110,11 +104,11 @@ Ansible playbook komutunun çıktısını görüntüler kullanıma gördüğün�
 
   ```
 
-## <a name="deploy-the-application-to-vmss"></a>VMSS uygulamayı dağıtma
+## <a name="deploy-the-application-to-vmss"></a>Uygulamayı VMSS'e dağıtma
 
-Aşağıdaki bölümde bir Ansible playbook JRE (Java Çalışma zamanı ortamı) adlı bir konak grubunda yükler **saclesethosts**ve Java uygulama adlı bir konak grubuna dağıtır **saclesethosts**: 
+Ansible playbook'un aşağıdaki bölümü JRE'yi (Java Runtime Environment) **saclesethosts** adlı bir ana bilgisayar grubuna yükler ve Java uygulamasını **saclesethosts** adlı bir ana bilgisayar grubuna dağıtır: 
 
-(Değişiklik `admin_password` kendi parola.)
+(`admin_password` öğesini kendi parolanız ile değiştirin.)
 
   ```yaml
   - hosts: localhost
@@ -153,25 +147,25 @@ Aşağıdaki bölümde bir Ansible playbook JRE (Java Çalışma zamanı ortamı
       poll: 0
   ```
 
-Önceki örnek Ansible playbook olarak kaydedebilirsiniz `vmss-setup-deploy.yml`, veya [tüm örnek playbook'u indirin](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss). 
+Önceki örnek Ansible playbook'u `vmss-setup-deploy.yml` olarak kaydedebilir veya [örnek playbook'un tamamını indirebilirsiniz](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss). 
 
-Kullanılacak ssh bağlantı türü ile Parolaları, sshpass program yüklemeniz gerekir. 
-  - Ubunto 16.04 için komutu çalıştırmak `apt-get install sshpass`.
-  - CentOS 7.4 için komutu çalıştırmak `yum install sshpass`.
+Ssh bağlantı türünü parola ile kullanmak için sshpass programını yüklemeniz gerekir. 
+  - Ubunto 16.04 için `apt-get install sshpass` komutunu çalıştırın.
+  - CentOS 7.4 için `yum install sshpass` komutunu çalıştırın.
 
-Gibi bir hata görebilirsiniz **SSH parolası yerine bir anahtar kullanarak mümkün değildir çünkü ana bilgisayar anahtarı denetimi etkinse ve sshpass bu desteklemez.  Bu konağın parmak izi bu konak yönetmek için known_hosts dosyanıza ekleyin.** Bu hatayı görürseniz, ana bilgisayar anahtarı ya da aşağıdaki satırı ekleyerek denetimi devre dışı bırakabilirsiniz `/etc/ansible/ansible.cfg` dosya veya `~/.ansible.cfg` dosyası:
+Şuna benzer bir hata mesajı görebilirsiniz: **Using an SSH password instead of a key is not possible because Host Key checking is enabled and sshpass does not support this. Add this host's fingerprint to your known_hosts file to manage this host.** (Ana Bilgisayar Anahtarı kontrolü etkin olduğu ve sshpass bunu desteklemediği için anahtar yerine SSH parolası kullanmak mümkün değil. Bu ana bilgisayarı yönetmek için bu ana bilgisayarın parmak izini known_hosts dosyanıza ekleyin.) Bu hatayı görürseniz, aşağıdaki satırı `/etc/ansible/ansible.cfg` veya `~/.ansible.cfg` dosyasına ekleyerek ana bilgisayar anahtarı kontrolünü devre dışı bırakabilirsiniz:
   ```bash
   [defaults]
   host_key_checking = False
   ```
 
-Playbook'u ile aşağıdaki komutu çalıştırın:
+Playbook'u aşağıdaki komut ile çalıştırın:
 
   ```bash
   ansible-playbook vmss-setup-deploy.yml
   ```
 
-Örnek Java uygulamasından, sanal makine ölçek kümesinin konak grubuna yüklenmiş olan ansible playbook komut çalışmasını çıktıyı gösterir:
+Ansible-playbook komutunun çalıştırılması sonucu oluşan çıktı, örnek Java uygulamasının sanal makine ölçek kümesinin ana bilgisayar grubuna yüklendiğini belirtir:
 
   ```bash
   PLAY [localhost] **********************************************************
@@ -208,10 +202,10 @@ Playbook'u ile aşağıdaki komutu çalıştırın:
   localhost                  : ok=4    changed=1    unreachable=0    failed=0
   ```
 
-Congratulation! Uygulamanız artık Azure'da çalışıyor. Artık, sanal makine ölçek kümesi için yük dengeleyicinin URL'sine gezinebilirsiniz:
+Tebrikler! Uygulamanız artık Azure'da çalışıyor. Artık sanal makine ölçek kümenizin yük dengeleyicisinin URL'sine gidebilirsiniz:
 
-![Azure'da bir sanal makine ölçek kümesinde çalıştırılan Java uygulaması ayarlayın.](media/ansible-deploy-app-vmss/ansible-deploy-app-vmss.png)
+![Azure'da bir sanal makine ölçek kümesinde çalıştırılan Java uygulaması.](media/ansible-deploy-app-vmss/ansible-deploy-app-vmss.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"] 
-> [VMSS için örnek playbook Ansible](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [VMSS için Ansible örnek playbook'u](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/13/2017
+ms.date: 08/24/2018
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 31c1ba30eaff66016202888f8488b0e9e2bdc679
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 63e65ffc17ba71a5d2cf00cb5f04e3e0f87c1bfe
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439060"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43184389"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure App Service'te Node.js web uygulaması oluşturma
 
@@ -33,8 +33,6 @@ ms.locfileid: "39439060"
 ![Azure'da çalışan örnek uygulama](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
 Mac, Windows veya Linux makinesi kullanarak buradaki adımları izleyebilirsiniz. Önkoşullar yüklendikten sonra adımların tamamlanması yaklaşık olarak beş dakika sürer.   
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Create-a-Nodejs-app-in-Azure-Quickstart/player]   
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -52,7 +50,7 @@ Terminal penceresinde, örnek Node.js projesinin kök dizinine gidin (_index.js_
 
 ## <a name="run-the-app-locally"></a>Uygulamayı yerel olarak çalıştırma
 
-Yerleşik Node.js HTTP sunucusunu başlatmak için bir terminal penceresi açıp ve `npm start` betiğini kullanıp uygulamayı yerel olarak çalıştırın.
+Azure'a dağıttığınızda nasıl görüneceğini görmek için uygulamayı yerel olarak çalıştırın. Yerleşik Node.js HTTP sunucusunu başlatmak için bir terminal penceresi açın ve `npm start` betiğini kullanın.
 
 ```bash
 npm start
@@ -65,6 +63,9 @@ Sayfada gösterilen örnek uygulamada **Hello World** iletisini görebilirsiniz.
 ![Yerel olarak çalışan örnek uygulama](media/app-service-web-get-started-nodejs-poc/localhost-hello-world-in-browser.png)
 
 Terminal pencerenizde **Ctrl+C** tuşlarına basarak web sunucusundan çıkın.
+
+> [!NOTE]
+> Azure App Service'te uygulama [iisnode](https://github.com/tjanczuk/iisnode) kullanılarak IIS'de çalıştırılır. Uygulamanın iisnode ile çalıştırılmasını sağlamak için kök uygulama dizininde bir web.config dosyası bulunur. Bu dosya IIS tarafından okunabilir ve iisnode ile ilgili ayarlar [iisnode GitHub deposunda](https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config) belgelenmiştir.
 
 [!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
 
@@ -166,6 +167,12 @@ Web uygulamanızın Genel Bakış sayfasını görürsünüz. Buradan göz atma,
 ![Azure portalında App Service sayfası](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
 Soldaki menü, uygulamanızı yapılandırmak için farklı sayfalar sağlar. 
+
+## <a name="video"></a>Video
+
+Bu hızlı başlangıcı uygulamada görmek için videoyu izleyin ve sonra adımları kendiniz uygulayarak Azure'da ilk Node.js uygulamanızı yayımlayın.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Create-a-Nodejs-app-in-Azure-Quickstart/player]   
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

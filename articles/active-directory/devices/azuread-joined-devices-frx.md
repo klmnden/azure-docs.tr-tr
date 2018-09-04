@@ -1,6 +1,6 @@
 ---
-title: İlk çalıştırma sırasında Azure AD ile yeni bir Windows 10 cihazını ekleme | Microsoft Docs
-description: Nasıl kullanıcıları Azure AD'ye katılımı ayarlama ilk çalıştırma deneyimi sırasında ayarlayabilirsiniz açıklayan bir konu.
+title: İlk çalıştırma sırasında Azure AD ile yeni bir Windows 10 cihazının katılımını sağlama | Microsoft Docs
+description: Kullanıcıların ilk çalıştırma deneyimi sırasında Azure AD’ye Katılma özelliğini nasıl ayarlayabileceklerinin açıklandığı konu başlığıdır.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -12,81 +12,85 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/15/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1376f011d056aac33333f6ac31ee2eaadaf3ef4a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
-ms.translationtype: MT
+ms.openlocfilehash: eaf0b3e3b607145598660dbb64cadd5a277360cb
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415004"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046331"
 ---
-# <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>İlk çalıştırma sırasında Azure AD ile yeni bir Windows 10 cihazını ekleme
+# <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Öğretici: İlk çalıştırma sırasında Azure AD ile yeni bir Windows 10 cihazını katma
 
-İle cihaz Yönetimi Azure Active Directory'de (Azure AD) güvenlik ve uyumluluğa yönelik standartlarınızı karşılayan cihazlardan kullanıcılarınızın kaynaklarınızı eriştiğiniz emin olabilirsiniz. Daha fazla bilgi için [Azure Active Directory'de cihaz yönetimine giriş](overview.md).
+Azure Active Directory’de (Azure AD) cihaz yönetimi ile, kullanıcılarınızın güvenlik ve uyumluluk açısından standartlarınızı karşılayan cihazlardan kaynaklarınıza eriştiğinden emin olabilirsiniz. Daha fazla bilgi için, bkz. [Azure Active Directory’de cihaz yönetimine giriş](overview.md).
 
-Windows 10 ile yeni bir cihaz ilk kez çalıştırma deneyimi (FRX) sırasında Azure AD'ye katılabilirsiniz.  
-Bu, çalışanlarınıza veya Öğrenciler naylon cihazlara dağıtmak sağlar.
+Windows 10 ile, ilk çalıştırma deneyimi (FRX) sırasında Azure AD’ye yeni bir cihazı katabilirsiniz.  
+Bu, çalışanlarınıza veya öğrencilerinize kutulu ve ambalajlı cihazlar dağıtmanıza olanak sağlar.
 
-Windows 10 Professional veya Windows 10 Enterprise ' ın bir cihazda yüklü varsa deneyimi şirketinize ait cihazlar Kurulum işlemi varsayılan olarak.
+Bir cihazda Windows 10 Professional veya Windows 10 Enterprise yüklüyse deneyim, varsayılan olarak şirkete ait cihazlar için kurulum işlemine ayarlanır.
 
-Windows içinde *out-of-box deneyimini*, bir şirket içi Active Directory (AD) etki alanına katılma desteklenmiyor. Bilgisayarı, Kurulum sırasında bir AD etki alanına planlıyorsanız, bağlantı seçmelisiniz **Windows ile yerel bir hesap ayarlamak**. Ardından, etki alanından ayarları bilgisayarınızda katılabilirsiniz.
+Windows *ilk çalıştırma deneyiminde* şirket içi Active Directory (AD) etki alanının katılımı desteklenmez. Kurulum sırasında bir bilgisayarı AD etki alanına katmak istiyorsanız **Yerel bir hesapla Windows'u Kur** bağlantısını seçmeniz gerekir. Ardından bilgisayarınızdaki ayarlardan etki alanına katılım sağlayabilirsiniz.
  
+Bu öğreticide ilk çalıştırma deneyimi sırasında bir cihazı nasıl Azure AD'ye katacağınızı öğrenirsiniz:
+ > [!div class="checklist"]
+> * Ön koşullar
+> * Bir cihazı katma
+> * Doğrulama
+
+## <a name="prerequisites"></a>Ön koşullar
+
+Windows 10 cihazını katmak için, cihaz kayıt hizmetinin cihazları kaydedebileceğiniz şekilde yapılandırılması gerekir. Azure AD kiracınızda cihazları katma iznini almanıza ek olarak, kayıtlı cihazların sayısının yapılandırılan maksimum değerden daha az olması gerekir. Daha fazla bilgi için, bkz. [cihaz ayarlarını yapılandır](device-management-azure-portal.md#configure-device-settings).
+
+Ayrıca kiracınız federasyonsa Kimlik sağlayıcınızın WS-Fed ve WS-Trust kullanıcı adı/parola uç noktasını desteklemesi GEREKİR. Bu, sürüm 1.3 veya 2005 olabilir. Bu protokol desteğinin hem cihazı Azure AD'ye katması hem de bir parola ile cihazda oturum açması gerekir.
+
+## <a name="joining-a-device"></a>Bir cihazı katma
+
+**İlk çalıştırma deneyimi sırasında bir Windows 10 cihazını katmak için:**
 
 
-## <a name="before-you-begin"></a>Başlamadan önce
+1. Yeni cihazınızı açıp kurulum işlemini başlattığınızda **Hazırlanıyor** mesajı görüntülenecektir. Cihazınızın kurulumunu gerçekleştirmek için istemleri uygulayın.
 
-Windows 10 cihazı alanına katılmak için cihaz Kayıt Hizmeti'ni aygıtlarını kaydetmesini sağlamak için yapılandırılmalıdır. Azure AD kiracınıza cihazları katılma izni sahip olmaya ek olarak, daha az cihazları yapılandırılmış en fazla kayıtlı olması gerekir. Daha fazla bilgi için [cihaz ayarlarını yapılandırma](device-management-azure-portal.md#configure-device-settings).
-
-Ayrıca, kiracınızın Federasyon kimlik sağlayıcınız WS-Federasyon ve WS-Trust uç noktası kullanıcı adı/parola desteklemesi gerekir. Bu sürüm, 1.3 veya 2005 olabilir. Bu protokol desteği, hem cihaz Azure AD'ye ve cihaza bir parola ile oturum açmak için gereklidir.
-
-## <a name="joining-a-device"></a>Bir cihaz katılma
-
-**Windows 10 cihaz FRX sırasında Azure AD'ye katılmak için:**
-
-
-1. Yeni Cihazınızda ve kurulum işlemini görmelisiniz **alma hazır** ileti. Cihazınızı ayarlamak için yönergeleri izleyin.
-
-2. Bölge ve dil özelleştirerek başlatın. Ardından, Microsoft Yazılımı Lisans koşulları kabul edin.
+2. Bölge ve dil ayarlarını özelleştirerek başlayın. Ardından Microsoft Yazılımı Lisans Koşulları'nı kabul edin.
  
     ![Bölgeniz için özelleştirme](./media/azuread-joined-devices-frx/01.png)
 
-3. Internet'e bağlanmak için kullanmak istediğiniz ağı seçin.
+3. İnternete bağlanmak için kullanmak istediğiniz ağı seçin.
 
-4. Tıklayın **bu cihaz kuruluşuma ait**. 
+4. **Bu cihaz kuruluşuma ait** seçeneğine tıklayın. 
 
-    ![Bu bilgisayar ekran Kime ait](./media/azuread-joined-devices-frx/02.png)
+    ![Bu bilgisayar kime ait ekranı](./media/azuread-joined-devices-frx/02.png)
 
-5. Size kuruluşunuz tarafından sağlanan kimlik bilgilerini girin ve ardından **oturum**.
+5. Kuruluşunuzun sağladığı kimlik bilgilerini girin ve ardından **Oturum aç** düğmesine tıklayın.
 
     ![Oturum açma ekranı](./media/azuread-joined-devices-frx/03.png)
 
-6. Cihaz, eşleşen bir kiracının Azure AD'de bulur. Bir Federasyon etki alanındaysa, şirket içi güvenli belirteç hizmeti (STS) sunucunuza, örneğin, Active Directory Federasyon Hizmetleri (AD FS) yönlendirilir.
+6. Cihazınız Azure AD'de eşleşen bir kiracı bulur. Federasyon etki alanındaysanız şirket içi Güvenli Belirteç Hizmeti (STS) sunucunuza, örneğin Active Directory Federasyon Hizmetleri (AD FS) sunucusuna yönlendirilirsiniz.
 
-7. Federasyon olmayan bir etki alanında bir kullanıcı varsa, doğrudan Azure AD tarafından barındırılan sayfasında kimlik bilgilerinizi girin. 
+7. Federasyon olmayan bir etki alanındaki bir kullanıcıysanız kimlik bilgilerinizi doğrudan Azure AD'de barındırılan sayfaya girin. 
 
-8. İçin çok faktörlü kimlik doğrulaması sınaması istenir. 
+8. Çok faktörlü kimlik doğrulaması sınaması istenir. 
  
-9. Azure AD, bir mobil cihaz Yönetimi kaydında gerekli olup olmadığını denetler.
+9. Azure AD mobil cihaz yönetimine kayıt gerekip gerekmediğini belirler.
 
-10. Windows Azure AD'de kuruluşunuzun dizininde cihazı kaydeder ve uygunsa mobil cihaz Yönetimi'nde kaydeder.
+10. Windows kuruluşun dizinindeki cihazı Azure AD'ye kaydeder ve uygun olan durumlarda mobil cihaz yönetimine kaydeder.
 
-11. Eğer:
-    - Yönetilen bir kullanıcı Windows Masaüstü otomatik oturum açma işlemi aracılığıyla açılır.
+11. Şu anda:
+    - Yönetilen bir kullanıcıysanız Windows otomatik oturum açma işlemi ile sizi masaüstüne yönlendirir.
 
-    - Bir Federasyon kullanıcısı kimlik bilgilerinizi girmeniz için Windows oturum açma ekranına yönlendirilirsiniz.
+    - Federasyon kullanıcıysanız kimlik bilgilerinizi girmek üzere Windows oturum açma ekranına yönlendirilirsiniz.
 
 ## <a name="verification"></a>Doğrulama
 
-Bir cihaz için Azure AD alanına olup olmadığını doğrulamak için gözden **işe veya okula erişim** Windows Cihazınızda iletişim. İletişim, Azure AD dizininize bağlandığını belirtmeniz gerekir.
+Bir cihazın Azure AD'nize katılıp katılmadığını doğrulamak için Windows cihazınızda **İş veya okul hesabına erişim** iletişim kutusunu inceleyin. İletişim kutusunun, Azure AD dizininize bağlı olduğunuzu belirtmesi gerekir.
 
-![İşe veya okula erişim](./media/azuread-joined-devices-frx/13.png)
+![İş veya okul hesabına erişme](./media/azuread-joined-devices-frx/13.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Daha fazla bilgi için [Azure Active Directory'de cihaz yönetimine giriş](overview.md).
+- Daha fazla bilgi için, bkz. [Azure Active Directory’de cihaz yönetimine giriş](overview.md).
 
-- Azure AD portalında cihazları yönetme hakkında daha fazla bilgi için bkz. [Azure portalını kullanarak cihazları yönetme](device-management-azure-portal.md).
+- Azure AD portalında cihazları yönetme hakkında daha fazla bilgi için, bkz. [Azure portalını kullanarak cihazları yönetme](device-management-azure-portal.md).

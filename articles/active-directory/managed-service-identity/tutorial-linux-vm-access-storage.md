@@ -14,23 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: d4daccfdcb2bc11831e960aa20533e32801db946
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5117444b6312d96f87f9e1edf8ce26d0360417ef
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049346"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885760"
 ---
 # <a name="tutorial-use-a-linux-vms-managed-identity-to-access-azure-storage"></a>Öğretici: Azure Depolama’ya erişmek için Linux VM’nin Yönetilen Kimliğini kullanma 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-
-Bu öğreticide, Azure Depolama’ya erişmek için Linux VM Yönetilen Kimliğini oluşturma ve kullanma işlemleri gösterilir. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Bu öğreticide, Azure Depolama'ya erişmek amacıyla, Linux sanal makinesi (VM) için sistem tarafından atanmış bir kimliği nasıl kullanacağınız gösterilmektedir. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Yeni bir kaynak grubunda Linux sanal makinesi oluşturma
-> * Linux Sanal Makinesinde (VM) Yönetilen Kimliği etkinleştirme
+> * Depolama hesabı oluşturma
 > * Depolama hesabında bir blob kapsayıcı oluşturma
 > * Azure Depolama kapsayıcısına Linux VM’sinin Yönetilen Kimlik erişimini verme
 > * Erişim belirteci alma ve bu belirteci Azure Depolama’yı çağırmak için kullanma
@@ -40,41 +38,20 @@ Bu öğreticide, Azure Depolama’ya erişmek için Linux VM Yönetilen Kimliği
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Henüz bir Azure hesabınız yoksa, devam etmeden önce [ücretsiz bir hesaba kaydolun](https://azure.microsoft.com).
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-[!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+- [Azure portal'da oturum açma](https://portal.azure.com)
+
+- [Linux sanal makinesi oluşturma](/azure/virtual-machines/linux/quick-create-portal)
+
+- [Sistem tarafından atanmış kimliği sanal makinenizde etkinleştirme](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 Bu öğreticideki CLI betiği örneklerini çalıştırmak için iki seçeneğiniz vardır:
 
 - Azure portaldan veya her kod bloğunun sağ üst köşesinde yer alan **Deneyin** düğmesi aracılığıyla [Azure Cloud Shell](~/articles/cloud-shell/overview.md)'i kullanın.
 - Yerel bir CLI konsolu kullanmayı tercih ediyorsanız [en son CLI 2.0 sürümünü yükleyin](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 veya üstü).
-
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
-
-[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
-
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda Linux sanal makinesi oluşturma
-
-Bu bölümde, daha sonra Yönetilen Kimlik verilen bir Linux VM oluşturursunuz.
-
-1. Azure portalın sol üst köşesinde bulunan **Yeni** düğmesini seçin.
-2. **İşlem**'i ve ardından **Ubuntu Server 16.04 LTS**'yi seçin.
-3. Sanal makine bilgilerini girin. **Kimlik doğrulama türü** olarak **SSH ortak anahtarı**'nı veya **Parola**'yı seçin. Oluşturulan kimlik bilgileri VM'de oturum açmanıza olanak tanır.
-
-   ![Sanal makine oluşturmak için "Temel" bölmesi](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. **Abonelik** listesinde, sanal makine için bir abonelik seçin.
-5. İçinde sanal makinenin oluşturulmasını istediğiniz yeni bir kaynak grubu seçmek için, **Kaynak grubu** > **Yeni oluştur**'u seçin. İşiniz bittiğinde **Tamam**'a tıklayın.
-6. VM'nin boyutunu seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. Ayarlar bölmesinde varsayılan değerleri koruyun ve **Tamam**'ı seçin.
-
-## <a name="enable-managed-identity-on-your-vm"></a>VM’nizde Yönetilen Kimliği etkinleştirme
-
-Sanal Makine Yönetilen Kimliği kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure AD'den erişim belirteçlerini almanıza olanak tanır. Azure portaldan bir Sanal Makinede Yönetilen Kimliği etkinleştirmek aslında şu iki şeyi gerçekleştirir: Bir yönetilen kimlik oluşturmak için VM’nizi Azure AD’ye kaydeder ve kimliği VM’de yapılandırır.
-
-1. Yeni sanal makinenizin kaynak grubuna gidin ve önceki adımda oluşturduğunuz sanal makineyi seçin.
-2. **Ayarlar** kategorisinin altında, **Yapılandırma**’ya tıklayın.
-3. Yönetilen Kimliği etkinleştirmek için **Evet**’i seçin.
-4. Yapılandırmayı uygulamak için **Kaydet**’e tıklayın. 
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma 
 

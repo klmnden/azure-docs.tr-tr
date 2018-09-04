@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: ceb7d64ddd1923cdd22428df6cbc86676b685b4f
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 1e56d3160e42e3f722f3f9ccb8a6de82ac3bfb83
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42147102"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186067"
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Visual Studio ile .NET (C#) kullanarak Azure SQL veritabanına bağlanma ve veritabanını sorgulama
 
@@ -55,7 +55,7 @@ Bu hızlı başlangıcı tamamlamak için aşağıdakilere sahip olduğunuzdan e
 3. **Konsol Uygulaması**’nı seçin ve projenin adı için *sqltest* girin.
 4. Visual Studio’da yeni projeyi oluşturmak ve açmak için **Tamam**’a tıklayın.
 4. Çözüm Gezgini'nde, **sqltest**'e sağ tıklayın ve **NuGet Paketlerini Yönet**'e tıklayın. 
-5. **Gözat**’ta ```System.Data.SqlClient``` öğesini arayın ve bulduğunuzda seçin.
+5. **Gözat** sekmesinde ```System.Data.SqlClient``` öğesini arayın ve bulduğunuzda seçin.
 6. **System.Data.SqlClient** sayfasında **Yükle**’ye tıklayın.
 7. Yükleme tamamlandığında değişiklikleri gözden geçirin ve **Önizleme** penceresini kapamak için **Tamam**’a tıklayın. 
 8. **Lisans Kabulü** penceresi gösterilirse **Kabul Ediyorum**’a tıklayın.

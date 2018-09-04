@@ -14,22 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ca920a93d754254390a5c5c5a066be3144b47fc7
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b6b2985bf72d9ecb2041d51852b5a4230e11d8be
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41919453"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886062"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-sql"></a>Öğretici: Azure SQL'e erişmek için Windows VM Yönetilen Hizmet Kimliği kullanma
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Bu öğreticide, Azure SQL sunucusuna erişmek için Windows sanal makinesi (VM) için Yönetilen Hizmet Kimliği'ni nasıl kullanacağınız gösterilir. Yönetilen Hizmet Kimlikleri Azure tarafından otomatik olarak yönetilir kodunuza kimlik bilgileri girmenize gerek kalmadan Azure AD kimlik doğrulamasını destekleyen hizmetlerde kimlik doğrulaması yapmanıza olanak tanır. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Bu öğreticide, Azure SQL Server'a erişmek amacıyla, Windows sanal makinesi (VM) için sistem tarafından atanmış bir kimliği nasıl kullanacağınız gösterilmektedir. Yönetilen Hizmet Kimlikleri Azure tarafından otomatik olarak yönetilir kodunuza kimlik bilgileri girmenize gerek kalmadan Azure AD kimlik doğrulamasını destekleyen hizmetlerde kimlik doğrulaması yapmanıza olanak tanır. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Windows VM'de Yönetilen Hizmet Kimliği'ni etkinleştirme 
 > * VM'nize Azure SQL sunucusu için erişim verme
+> * Azure AD'de grup oluşturma ve VM Yönetilen Hizmet Kimliği'ni gruba üye yapma
+> * SQL sunucusu için Azure AD kimlik doğrulamasını etkinleştirme
+> * Azure AD grubunu temsil eden veritabanında bir içerilen kullanıcı oluşturma
 > * VM kimliğini kullanarak erişim belirteci alma ve Azure SQL sunucusunu sorgulamak için bunu kullanma
 
 ## <a name="prerequisites"></a>Ön koşullar
@@ -38,32 +40,11 @@ Bu öğreticide, Azure SQL sunucusuna erişmek için Windows sanal makinesi (VM)
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+- [Azure portal'da oturum açma](https://portal.azure.com)
 
-[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
+- [Windows sanal makinesi oluşturma](/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda Windows sanal makinesi oluşturma
-
-Bu öğretici için, yeni bir Windows VM oluşturuyoruz.  Yönetilen Hizmet Kimliği'ni var olan bir VM'de de etkinleştirebilirsiniz.
-
-1.  Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** düğmesine tıklayın.
-2.  **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin. 
-3.  Sanal makine bilgilerini girin. Burada oluşturulan **Kullanıcı adı** ve **Parola**, sanal makinede oturum açmak için kullandığınız kimlik bilgileridir.
-4.  Açılan listede sanal makine için uygun **Aboneliği** seçin.
-5.  İçinde sanal makinenizi oluşturacağınız yeni bir **Kaynak Grubu** seçmek için **Yeni Oluştur**'u seçin. İşlem tamamlandığında **Tamam**’a tıklayın.
-6.  VM'nin boyutunu seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. Ayarlar penceresinde varsayılan değerleri koruyun ve **Tamam**'a tıklayın.
-
-    ![Alternatif resim metni](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>VM'nizde Yönetilen Hizmet Kimliği'ni etkinleştirme 
-
-VM Yönetilen Hizmet Kimliği, kodunuza kimlik bilgileri yerleştirmeniz gerekmeden Azure AD'den erişim belirteçlerini almanıza olanak tanır. Yönetilen Hizmet Kimliği'nin etkinleştirilmesi Azure'a VM'niz için bir yönetilen kimlik oluşturmasını bildirir. Yönetilen Hizmet Kimliği'nin etkinleştirilmesi arka planda iki işlem gerçekleştirir: yönetilen kimliğini oluşturmak için VM'nizi Azure Active Directory'ye kaydeder ve kimliği VM'de yapılandırır.
-
-1.  Yönetilen Hizmet Kimliği'ni etkinleştirmek istediğiniz **Sanal Makine**'yi seçin.  
-2.  Sol gezinti çubuğunda **Yapılandırma**'ya tıklayın. 
-3.  **Yönetilen Hizmet Kimliği**'ni görürsünüz. Yönetilen Hizmet Kimliği'ni kaydetmek ve etkinleştirmek için **Evet**'i seçin, devre dışı bırakmak istiyorsanız Hayır'ı seçin. 
-4.  Yapılandırmayı kaydetmek için **Kaydet**’e tıkladığınızdan emin olun.  
-    ![Alternatif resim metni](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+- [Sistem tarafından atanmış kimliği sanal makinenizde etkinleştirme](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>VM'nize Azure SQL sunucusundaki bir veritabanı için erişim verme
 
@@ -78,7 +59,7 @@ VM'nize veritabanı erişimi verme işleminin üç adımı vardır:
 > Normalde doğrudan VM'nin Yönetilen Hizmet Kimliği'ne eşlenen bir içerilen kullanıcı oluşturabilirsiniz.  Şu anda Azure SQL, VM Yönetilen Hizmet Kimliği'ni temsil eden Azure AD Hizmet Sorumlusunun içerilen kullanıcıyla eşlenmesine izin vermemektedir.  Desteklenen bir geçici çözüm olarak, VM Yönetilen Hizmet Kimliği'ni Azure AD grubuna üye yapın ve ardından grubu temsil eden veritabanında bir içerilen kullanıcı oluşturun.
 
 
-### <a name="create-a-group-in-azure-ad-and-make-the-vm-managed-service-identity-a-member-of-the-group"></a>Azure AD'de grup oluşturma ve VM Yönetilen Hizmet Kimliği'ni gruba üye yapma
+## <a name="create-a-group-in-azure-ad-and-make-the-vm-managed-service-identity-a-member-of-the-group"></a>Azure AD'de grup oluşturma ve VM Yönetilen Hizmet Kimliği'ni gruba üye yapma
 
 Mevcut Azure AD grubunu kullanabilir veya Azure AD PowerShell kullanarak yeni bir grup oluşturabilirsiniz.  
 
@@ -132,7 +113,7 @@ ObjectId                             AppId                                Displa
 b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTestWinVM
 ```
 
-### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>SQL sunucusu için Azure AD kimlik doğrulamasını etkinleştirme
+## <a name="enable-azure-ad-authentication-for-the-sql-server"></a>SQL sunucusu için Azure AD kimlik doğrulamasını etkinleştirme
 
 Artık grubu oluşturduğunuza ve VM Yönetilen Hizmet Kimliği'ni üyeliğe eklediğinize göre, aşağıdaki adımları kullanarak [SQL sunucusu için Azure AD kimlik doğrulamasını yapılandırabilirsiniz](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server):
 
@@ -143,7 +124,7 @@ Artık grubu oluşturduğunuza ve VM Yönetilen Hizmet Kimliği'ni üyeliğe ekl
 5.  Sunucunun yöneticisi olacak bir Azure AD kullanıcı hesabı seçin ve **Seç**'e tıklayın.
 6.  Komut çubuğunda **Kaydet**'e tıklayın.
 
-### <a name="create-a-contained-user-in-the-database-that-represents-the-azure-ad-group"></a>Azure AD grubunu temsil eden veritabanında bir içerilen kullanıcı oluşturma
+## <a name="create-a-contained-user-in-the-database-that-represents-the-azure-ad-group"></a>Azure AD grubunu temsil eden veritabanında bir içerilen kullanıcı oluşturma
 
 Bu sonraki adım için, [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)'ya (SSMS) ihtiyacınız vardır. Başlamadan önce, Azure Ad tümleştirmesiyle ilgili arka plan bilgileri için aşağıdaki makaleleri gözden geçirmeniz yararlı olabilir:
 

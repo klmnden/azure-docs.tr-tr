@@ -1,19 +1,19 @@
 ---
 title: Azure’da bir Jenkins sunucusu oluşturma
 description: Jenkins çözüm şablonundan Azure Linux sanal makinesine Jenkins’i yükleyin ve örnek bir Java uygulaması oluşturun.
-ms.topic: quickstart
-ms.author: tarcher
+ms.service: jenkins
+keywords: jenkins, azure, devops, portal, sanal makine, çözüm şablonu
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
-ms.date: 07/31/2018
-ms.openlocfilehash: af1082d9b7b350f1845d6c8e22108b9238a40f28
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: quickstart
+ms.date: 6/7/2017
+ms.openlocfilehash: 92a0583ad01c4dc9263988f6ef48c95c380c9289
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390437"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43086583"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Azure portalından Azure Linux VM'de bir Jenkins sunucusu oluşturma
 
@@ -75,7 +75,7 @@ Jenkins konsolundan **Yeni iş oluştur**’u seçin, ardından işi **mySampleA
 
 ![Derlemek için Gradle sarmalayıcıyı kullanma](./media/install-jenkins-solution-template/jenkins-job-gradle-config.png) 
 
-**Gelişmiş...**’i seçin ve ardından **Kök Yapı betiği** alanına `complete` değerini girin. **Kaydet**’i seçin.
+**Advanced**'i (Gelişmiş) seçin ve **Root Build script** (Kök Derleme betiği) alanına `complete` değerini girin. **Kaydet**’i seçin.
 
 ![Gradle sarmalayıcısı derleme adımında Gelişmiş ayarları belirleme](./media/install-jenkins-solution-template/jenkins-job-gradle-advances.png) 
 

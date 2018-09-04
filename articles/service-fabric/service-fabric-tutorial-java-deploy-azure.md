@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: afa9aa4ef4d3d8d8a6816d194b69271fdf0d928a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 4614eedd08eabf5c1c2eec6f26e542e20b0875bf
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109683"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43040512"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Öğretici: Azure’da bir Service Fabric kümesine Java uygulamasını dağıtma
 
@@ -72,7 +72,7 @@ Aşağıdaki adımlar, bir Service Fabric kümesinde uygulamanızı dağıtmak i
     az account set --subscription [SUBSCRIPTION-ID]
     ```
 
-4. *service-fabric-java-quickstart/AzureCluster* klasöründen, Anahtar Kasası’nda bir küme sertifikası oluşturmak için aşağıdaki komutu çalıştırın. Bu sertifika, Service Fabric kümenizin güvenliğini sağlamak için kullanılır. Bölgeyi (Service Fabric kümenizle aynı olmalıdır), anahtar kasası kaynak grubu adını, anahtar kasası adını, sertifika parolasını ve küme DNS adını sağlayın.
+4. *service-fabric-java-quickstart/AzureCluster* klasöründen, Azure Key Vault'ta bir küme sertifikası oluşturmak için aşağıdaki komutu çalıştırın. Bu sertifika, Service Fabric kümenizin güvenliğini sağlamak için kullanılır. Bölgeyi (Service Fabric kümenizle aynı olmalıdır), anahtar kasası kaynak grubu adını, anahtar kasası adını, sertifika parolasını ve küme DNS adını sağlayın.
 
     ```bash
     ./new-service-fabric-cluster-certificate.sh [REGION] [KEY-VAULT-RESOURCE-GROUP] [KEY-VAULT-NAME] [CERTIFICATE-PASSWORD] [CLUSTER-DNS-NAME-FOR-CERTIFICATE]
@@ -173,7 +173,7 @@ Aşağıdaki adımlar, bir Service Fabric kümesinde uygulamanızı dağıtmak i
 
     EventHubs için SAS URL’niz şu yapıyı izler: https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>. Örneğin, https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
 
-12. *sfdeploy.parameters.json* dosyasını açın ve önceki adımlardaki şu içerikleri değiştirin
+12. *sfdeploy.parameters.json* dosyasını açın ve önceki adımlarda bulunan aşağıdaki içerikleri değiştirin. [SAS-URL-STORAGE-ACCOUNT] 8. adımda belirtilmiştir. [SAS-URL-EVENT-HUBS] 11. adımda belirtilmiştir.
 
     ```json
     "applicationDiagnosticsStorageAccountName": {
@@ -187,7 +187,12 @@ Aşağıdaki adımlar, bir Service Fabric kümesinde uygulamanızı dağıtmak i
     }
     ```
 
-13. Service Fabric kümenizi oluşturmak için aşağıdaki komutu çalıştırın
+13. **sfdeploy.parameters.json** dosyasını açın. Aşağıdaki parametreleri değiştirin ve dosyayı kaydedin.
+    - **clusterName**. Yalnızca küçük harf ve sayısal değer kullanın.
+    - **adminUserName** (boş olmayan bir değer)
+    - **adminPassword** (boş olmayan bir değer)
+
+14. Service Fabric kümenizi oluşturmak için aşağıdaki komutu çalıştırın
 
     ```bash
     az sf cluster create --location 'westus' --resource-group 'testlinux' --template-file sfdeploy.json --parameter-file sfdeploy.parameters.json --secret-identifier <certificate_url_from_step4>
@@ -206,13 +211,13 @@ Aşağıdaki adımlar, bir Service Fabric kümesinde uygulamanızı dağıtmak i
 2. Bu kümede uygulamanızı dağıtmak için SFCTL kullanarak kümeyle bağlantı kurmanız gerekir. SFCTL, kümeye bağlanmak için ortak ve özel anahtarın her ikisine de sahip bir PEM dosyası gerektirir. Ortak ve özel anahtarın ikisine de sahip bir PEM dosyası oluşturmak için aşağıdaki komutu çalıştırın. 
 
     ```bash
-    openssl pkcs12 -in testservicefabric.westus.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
+    openssl pkcs12 -in <clustername>.<region>.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
     ```
 
 3. Kümeye bağlanmak için aşağıdaki komutu çalıştırın.
 
     ```bash
-    sfctl cluster select --endpoint https://testlinuxcluster.westus.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
+    sfctl cluster select --endpoint https://<clustername>.<region>.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
     ```
 
 4. Uygulamanızı dağıtmak için *Oylama/Betikler* klasörüne gidin ve **install.sh** betiğini çalıştırın.

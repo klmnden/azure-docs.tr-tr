@@ -4,17 +4,17 @@ description: Bu öğreticide Azure işlevini bir modül olarak Edge cihazına da
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/10/2018
+ms.date: 08/22/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 426d9fd81a0cd856378be3bb4f430f310bee53eb
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: cf973899a6f56010c47588bdd506418a3d9a7cd8
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41919984"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42744051"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>Öğretici: Azure işlevlerini IoT Edge modülleri olarak dağıtma (önizleme)
 
@@ -170,7 +170,7 @@ Bir önceki bölümde bir IoT Edge çözümü oluşturdunuz ve **CSharpFunction*
 
 Bu bölümde kapsayıcı kayıt defterinizin kimlik bilgilerini iki kez belirteceksiniz. Birincisi Visual Studio Code'un görüntüleri kayıt defterinize gönderebilmesi için geliştirme makinenizden oturum açma amacıyla olacak. İkincisi ise IoT Edge cihazınıza kayıt defterinden görüntü çekme izni vermek için IoT Edge çözümünüzün **.env** dosyasında olacak. 
 
-1. **View (Görünüm)** > **Integrated Terminal (Tümleşik Terminal)** seçimini yaparak VS Code tümleşik terminalini açın. 
+1. **Görünüm** > **Terminal**'i seçerek VS Code tümleşik terminalini açın. 
 
 1. Tümleşik terminale aşağıdaki komutu girerek kapsayıcı kayıt defterinizde oturum açın. Ardından, modül görüntünüzü Azure kapsayıcı kayıt defterinize gönderin: 
      
@@ -219,7 +219,7 @@ Hızlı başlangıçlarda yaptığınız gibi işlev modülünüzü IoT Edge cih
 
 5. VS Code gezgininde **Azure IoT Hub Devices** (Azure IoT Hub Cihazları) bölümünü seçin. 
 
-6. IoT Edge cihazınızın adına sağ tıklayın ve ardından **Create Deployment for IoT Edge device** (IoT Edge cihazı için dağıtım oluştur) öğesini seçin. 
+6. IoT Edge cihazınızın adına sağ tıklayıp **Create Deployment for Single Device**'ı (Tek bir cihaz için dağıtım oluştur) seçin. 
 
 7. **CSharpFunction** modülünü içeren çözüm klasörüne göz atın. Config klasörünü açın, deployment.json dosyasını seçin ve ardından **Select Edge Deployment Manifest** (Edge Dağıtım Bildirimini Seç) öğesini seçin.
 

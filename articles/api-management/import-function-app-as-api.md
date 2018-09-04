@@ -1,9 +1,9 @@
 ---
-title: Bir Azure İşlevleri uygulamasını Azure portalda API olarak içeri aktarma | Microsoft Docs
-description: Bu öğreticide, Azure API Management’ı kullanarak bir Azure İşlevleri uygulamasını API olarak içeri aktarmayı öğreneceksiniz.
+title: Azure İşlev Uygulamalarını Azure API Management'a API olarak aktarma | Microsoft Docs
+description: Bu öğreticide, bir Azure İşlev Uygulamasını Azure API Management'a API olarak nasıl aktaracağınız gösterilmektedir.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,100 +11,168 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/15/2018
+ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: 670fa58de7155028b0f72f1f819b9f269e07b9eb
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: ea6078088417099045006f81dcaf1f769bbd64d7
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239061"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246824"
 ---
-# <a name="import-an-azure-functions-app-as-an-api"></a>Azure İşlevleri uygulamasını API olarak içeri aktarma
+# <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Azure İşlev Uygulamalarını Azure API Management'a API olarak aktarma
 
-Bu makalede bir Azure İşlevleri uygulamasını API olarak içeri aktarma adımları gösterilmektedir. Makalede ayrıca Azure API Management API'sinin nasıl test edileceği de anlatılmaktadır.
+Azure API Management, Azure İşlev Uygulamalarının yeni API olarak içeri aktarılmasını veya var olan API'lere eklenmesini destekler. Bu işlemin ardından Azure İşlev Uygulamasında otomatik olarak bir ana bilgisayar anahtarı oluşturulur. Bu anahtar daha sonra Azure API Management'taki bir adlandırılmış değere atanır.
 
-Bu makalede şunları öğreneceksiniz:
+Bu makale, Azure İşlev Uygulamalarını Azure API Management'a API olarak aktarma konusunda yol göstermektedir. Ayrıca makalede test işlemi de açıklanmaktadır.
+
+Şunları öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Azure İşlevleri uygulamasını API olarak içeri aktarma
+> * Azure İşlev Uygulamalarını API olarak içeri aktarma
+> * Azure İşlev Uygulamalarını API'lere ekleme
+> * Yeni Azure İşlev Uygulaması ana bilgisayar anahtarını ve Azure API Management adlandırılmış değerini görüntüleme
 > * Azure portalında API’yi test etme
 > * API'yi geliştirici portalında test etme
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-+ [Azure API Management örneği oluşturma](get-started-create-service-instance.md) hızlı başlangıcını tamamlayın.
-+ Aboneliğinizde bir Azure İşlevleri uygulaması bulunduğundan emin olun. Daha fazla bilgi için bkz. [Azure İşlevleri uygulaması oluşturma](../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
-+ Azure İşlevleri uygulamanızın [OpenAPI tanımını oluşturun](../azure-functions/functions-openapi-definition.md).
+* [Azure API Management örneği oluşturma](get-started-create-service-instance.md) hızlı başlangıcını tamamlayın.
+* Aboneliğinizde bir Azure İşlevleri uygulaması bulunduğundan emin olun. Daha fazla bilgi için bkz. [Azure İşlev Uygulaması oluşturma](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Uygulamanın HTTP tetikleyicili İşlevler içermesi ve yetkilendirme düzeyinin *Anonim* veya *İşlev* olarak ayarlanması gerekir.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"></a>Arka uç API'sini içeri aktarma ve yayımlama
+## <a name="add-new-api-from-azure-function-app"></a> Azure İşlev Uygulamalarını yeni API olarak içeri aktarma
 
-1. **API YÖNETİMİ** bölümünde **API'ler** öğesini seçin.
-2. **Yeni API ekleyin** listesinde **İşlevler Uygulaması**'nı seçin.
+Bir Azure İşlev Uygulamasından yeni API oluşturmak için aşağıdaki adımları uygulayın.
 
-    ![İşlevler uygulaması](./media/import-function-app-as-api/function-app-api.png)
-3. Aboneliğinizdeki İşlevler uygulamalarının listesini görmek için **Göz at**’ı seçin.
-4. Uygulamayı seçin. API Management, seçili uygulamayla ilişkili Swagger’ı bulur, getirir ve içeri aktarır. 
-5. API URL'si soneki ekleyin. Sonek, bu belirli API’yi bu API Management örneğinde tanımlayan bir addır. Sonek bu API Management örneğinde benzersiz olmalıdır.
-6. API’yi bir ürünle ilişkilendirerek yayımlayın. Bu durumda, **Sınırsız** ürünü kullanılır. API’nin yayımlanmasını ve geliştiricilerin kullanımına sunulmasını istiyorsanız, API'yi bir ürüne ekleyin. API'yi ürüne ekleme işlemini API'yi oluştururken veya daha sonra gerçekleştirebilirsiniz.
+1. **Azure API Management** hizmet örneğinizde soldaki menüden **API'ler** seçeneğini belirleyin.
 
-    Ürünler bir veya daha fazla API arasındaki ilişkilendirmelerdir. Birden fazla API ekleyebilir ve geliştirici portalı aracılığıyla geliştiricilere sunabilirsiniz. Geliştiricilerin bir API’ye erişebilmesi için önce ürüne abone olması gerekir. Bir geliştirici abone olduğunda ilgili üründeki tüm API’ler için geçerli olan bir abonelik anahtarı edinir. API Management örneğini siz oluşturduysanız yönetici olursunuz. Yöneticiler varsayılan olarak tüm ürünlere abone olur.
+2. **Yeni API ekleyin** listesinde **İşlev Uygulaması**'nı seçin.
 
-    Varsayılan olarak, her bir API Management örneği iki örnek ürün ile birlikte gelir:
+    ![İşlev Uygulamasından ekleme](./media/import-function-app-as-api/add-01.png)
 
-    * **Başlangıç**
-    * **Sınırsız**   
-7. **Oluştur**’u seçin.
+3. İçeri aktarılacak İşlevleri seçmek için **Gözat**'a tıklayın.
 
-## <a name="populate-azure-functions-keys-in-azure-api-management"></a>Azure API Management’ı Azure İşlevleri anahtarlarıyla doldurma
+    ![İşlev Uygulamasından ekleme](./media/import-function-app-as-api/add-02.png)
 
-İçeri aktarılan Azure İşlevleri uygulamaları anahtarlarla korunuyorsa API Management otomatik olarak bu işlevler için *adlandırılmış değerler* oluşturur. API Management ancak girdileri gizli dizilerle doldurmaz. Aşağıdaki adımları her giriş için tekrarlayın:  
+4. Kullanılabilir İşlev Uygulamaları listesinden seçim yapmak için **İşlev Uygulaması** bölümüne tıklayın.
 
-1. API Management örneğinde **Adlandırılmış değerler** sekmesine gidin.
-2. Girdiyi seçin ve kenar çubuğundan **Değeri göster**’i seçin.
+    ![İşlev Uygulamasından ekleme](./media/import-function-app-as-api/add-03.png)
 
-    ![Adlandırılmış değerler](./media/import-function-app-as-api/apim-named-values.png)
+5. İşlevlerini içeri aktarmak istediğiniz İşlev Uygulamasını bulun, uygulamaya tıklayın ve **Seç**'e basın.
 
-3. **Değer** kutusunda görüntülenen metin **\<Azure İşlevleri adı\> kodu** şeklindeyse **İşlevler Uygulamaları**'na ve ardından **İşlevler**'e gidin.
-4. **Yönet**'e tıklayın ve ardından uygulamanızın kimlik doğrulama yöntemine göre ilgili anahtarı kopyalayın.
+    ![İşlev Uygulamasından ekleme](./media/import-function-app-as-api/add-04.png)
 
-    ![İşlevler uygulaması - Anahtarları kopyalama](./media/import-function-app-as-api/azure-functions-app-keys.png)
+6. İçeri aktarmak istediğiniz İşlevleri seçin ve **Seç**'e tıklayın.
 
-5. Anahtarı **Değer** kutusuna yapıştırın ve **Kaydet**'i seçin.
+    ![İşlev Uygulamasından ekleme](./media/import-function-app-as-api/add-05.png)
 
-    ![İşlevler uygulaması - Anahtar değerleri yapıştırma](./media/import-function-app-as-api/apim-named-values-2.png)
+    > [!NOTE]
+    > Yalnızca HTTP tetikleyicisine dayalı ve yetkilendirme düzeyi *Anonim* veya *İşlev* olarak ayarlanmış olan İşlevleri içeri aktarabilirsiniz.
 
-## <a name="test-the-new-api-management-api-in-the-azure-portal"></a>Yeni API Management API'sini Azure portalda test etme
+7. Gerekirse, önceden doldurulmuş alanları düzenleyin. **Oluştur**’a tıklayın.
+
+    ![İşlev Uygulamasından ekleme](./media/import-function-app-as-api/add-06.png)
+
+## <a name="append-azure-function-app-to-api"></a> Azure İşlev Uygulamalarını var olan API'lere ekleme
+
+Azure İşlev Uygulamasını var olan bir API'ye eklemek için aşağıdaki adımları uygulayın.
+
+1. **Azure API Management** hizmet örneğinizde soldaki menüden **API'ler** seçeneğini belirleyin.
+
+2. Azure İşlev Uygulamasından içeri aktarmak istediğiniz bir API'yi seçin. **...** simgesine tıklayın ve bağlam menüsünden **İçeri Aktar**'ı seçin.
+
+    ![İşlev Uygulamasından ekleme](./media/import-function-app-as-api/append-01.png)
+
+3. **İşlev Uygulaması** kutucuğuna tıklayın.
+
+    ![İşlev Uygulamasından ekleme](./media/import-function-app-as-api/append-02.png)
+
+4. Açılır pencerede **Gözat**'a tıklayın.
+
+    ![İşlev Uygulamasından ekleme](./media/import-function-app-as-api/append-03.png)
+
+5. Kullanılabilir İşlev Uygulamaları listesinden seçim yapmak için **İşlev Uygulaması** bölümüne tıklayın.
+
+    ![İşlev Uygulamasından ekleme](./media/import-function-app-as-api/add-03.png)
+
+6. İşlevlerini içeri aktarmak istediğiniz İşlev Uygulamasını bulun, uygulamaya tıklayın ve **Seç**'e basın.
+
+    ![İşlev Uygulamasından ekleme](./media/import-function-app-as-api/add-04.png)
+
+7. İçeri aktarmak istediğiniz İşlevleri seçin ve **Seç**'e tıklayın.
+
+    ![İşlev Uygulamasından ekleme](./media/import-function-app-as-api/add-05.png)
+
+8. **İçeri Aktar**’a tıklayın.
+
+    ![İşlev Uygulamasından ekleme](./media/import-function-app-as-api/append-04.png)
+
+## <a name="function-app-import-keys"></a> Oluşturulan Azure İşlev Uygulaması ana bilgisayar anahtarı
+
+Bir Azure İşlev Uygulaması içeri aktarıldığında aşağıdakiler otomatik olarak oluşturulur:
+* İşlev Uygulamasında apim-{*Azure API Management hizmet örneğinizin adı*} adlı bir ana bilgisayar anahtarı,
+* Azure API Management örneğinde, oluşturulan ana bilgisayar anahtarını içeren, {*Azure İşlev Uygulaması örneğinin adı*}-key adlı bir adlandırılmış değer.
+
+> [!WARNING]
+> Azure İşlev Uygulaması ana bilgisayar anahtarının veya Azure API Management adlandırılmış değerinin kaldırılması veya değiştirilmesi, hizmetler arasındaki iletişimin kopmasına neden olur. Değerler otomatik olarak eşitlenmez.
+>
+> Ana bilgisayar anahtarını döndürmeniz gerekirse Azure API Management'taki adlandırılmış değerin de değiştirildiğinden emin olun.
+
+### <a name="access-azure-function-app-host-key"></a>Azure İşlev Uygulaması ana bilgisayar anahtarına erişim
+
+1. Azure İşlev Uygulaması örneğinize gidin.
+
+2. Genel bakıştan **İşlev Uygulaması ayarları**'nı seçin.
+
+    ![İşlev Uygulamasından ekleme](./media/import-function-app-as-api/keys-02-a.png)
+
+3. Anahtar, **Ana Bilgisayar Anahtarları** bölümünde bulunur.
+
+    ![İşlev Uygulamasından ekleme](./media/import-function-app-as-api/keys-02-b.png)
+
+### <a name="access-the-named-value-in-azure-api-management"></a>Azure API Management'taki adlandırılmış değere erişim
+
+Azure API Management örneğinize gidin ve soldaki menüden **Adlandırılmış değerler**'i seçin. Azure İşlev Uygulaması anahtarı burada depolanır.
+
+![İşlev Uygulamasından ekleme](./media/import-function-app-as-api/keys-01.png)
+
+## <a name="test-in-azure-portal"></a> Yeni API Management API'sini Azure portal'da test etme
 
 İşlemleri doğrudan Azure portaldan çağırabilirsiniz. Azure portalı kullanarak bir API'nin işlemlerini kolayca görüntüleyebilir ve test edebilirsiniz.  
 
 1. Bir önceki bölümde oluşturduğunuz API'yi seçin.
+
 2. **Test** sekmesini seçin.
+
 3. Bir işlem seçin.
 
     Sayfa, sorgu parametrelerinin ve üst bilgilerin alanlarını görüntüler. Bu API ile ilişkilendirilmiş ürünün abonelik anahtarı için, üst bilgilerden biri **Ocp-Apim-Subscription-Key** üst bilgisidir. API Management örneğini siz oluşturduysanız zaten bir yöneticisinizdir ve anahtar otomatik olarak doldurulur. 
+
 4. **Gönder**’i seçin.
 
     Arka uç **200 OK** şeklinde ve bazı verilerle yanıt verir.
 
-## <a name="call-operation"></a>Geliştirici portalından işlem çağırma
+## <a name="test-in-developer-portal"></a> Geliştirici portalından işlem çağırma
 
 API’leri test etmek için geliştirici portalından da işlem çağırabilirsiniz. 
 
 1. [Arka uç API’sini içeri aktarma ve yayımlama](#create-api) bölümünde oluşturduğunuz API’yi seçin.
+
 2. **Geliştirici portalı**'nı seçin.
 
     Geliştirici portalı sitesi açılır.
+
 3. Oluşturduğunuz **API**’yi seçin.
+
 4. Test etmek istediğiniz işlemi seçin.
+
 5. **Deneyin**'i seçin.
+
 6. **Gönder**’i seçin.
     
     Bir işlem çağrıldıktan sonra, geliştirici portalı **Yanıt durumu**, **Yanıt üst ilgileri** ve tüm **Yanıt içeriğini** gösterir.
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

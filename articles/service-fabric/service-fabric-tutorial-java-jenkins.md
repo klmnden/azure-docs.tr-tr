@@ -12,15 +12,15 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/26/2018
+ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 925a1af53438e21282e65418edc9ea365ad6a653
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b8c114ec3fe9b27d0318bf11a8b1fa8e3ce5f1c3
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432448"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124989"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Öğretici: Service Fabric üzerindeki bir Java uygulamasında CI/CD etkinleştirmek için bir Jenkins ortamı yapılandırma
 
@@ -53,10 +53,10 @@ Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirs
 
 1. Service Fabric Jenkins kapsayıcı görüntüsünü çekin: ``docker pull rapatchi/jenkins:v10``. Bu görüntü, Service Fabric Jenkins eklentisi önceden yüklenmiş şekilde gelir.
 
-1. Sertifikalarınızın yerel makinenizde bulunduğu konum takılı şekilde kapsayıcı görüntüsünü çalıştırma
+1. Kapsayıcı görüntüsünü, Azure sertifikalarınızın bağlı yerel makinenizde depolandığı konum ile çalıştırın.
 
     ```bash
-    docker run -itd -p 8080:8080 -v /Users/suhuruli/Documents/Work/Samples/service-fabric-java-quickstart/AzureCluster:/tmp/myCerts rapatchi/jenkins:v10
+    docker run -itd -p 8080:8080 -v /service-fabric-java-quickstart/AzureCluster rapatchi/jenkins:v10
     ```
 
 1. Kapsayıcı görüntüsü örneğinin kimliğini alın. ``docker ps –a`` komutuyla tüm Docker kapsayıcılarını listeleyebilirsiniz
@@ -86,7 +86,7 @@ Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirs
 
 1. İlk olarak, Github'da Oylama projesini barındırmak için kullanabileceğiniz bir deponuz yoksa oluşturun. Bu öğreticinin geri kalan kısmında depo, **dev_test** olarak anılmıştır.
 
-1. Jenkins panonuzda **yeni öğe** oluşturun.
+1. ``http://<HOST-IP>:8080`` üzerinden Jenkins panonuzda **yeni öğe** oluşturun.
 
 1. Bir öğe adını girin (örneğin, **MyJob**). **Serbest stil proje**’yi seçip **Tamam**’a tıklayın.
 
@@ -123,6 +123,8 @@ Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirs
     > [!NOTE]
     > Burada küme, Jenkins kapsayıcı görüntüsünü dağıtmak için Service Fabric kullandığınız durumda Jenkins kapsayıcı uygulamasını barındıran kümeyle aynı olabilir.
     >
+
+1. **Kaydet**’e tıklayın.
 
 ## <a name="update-your-existing-application"></a>Mevcut uygulamanızı güncelleştirme
 

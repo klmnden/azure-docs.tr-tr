@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 07/13/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: ce84498ab89891bd7b96cfcc6b0c7ac029c93cbd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9a623156ad2a27abf7fa5e865f8b7452e2c70b3c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423088"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124527"
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Azure'da Docker Python ve PostgreSQL web uygulaması oluşturma
 
@@ -169,7 +169,9 @@ PostgreSQL için Azure Veritabanı sunucusu oluşturulduğunda Azure CLI, aşağ
 
 ### <a name="create-a-firewall-rule-for-the-postgresql-server"></a>PostgreSQL için bir güvenlik duvarı kuralı oluşturma
 
-Tüm IP adreslerinden veritabanına erişim izni vermek için Cloud Shell'de aşağıdaki Azure CLI komutunu çalıştırın. Hem başlangıç hem bitiş IP’si `0.0.0.0` olarak ayarlandığında, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır. 
+Tüm IP adreslerinden veritabanına erişim izni vermek için Cloud Shell'de aşağıdaki Azure CLI komutunu çalıştırın. 
+> [!Note]
+> Veritabanınıza yönelik tüm bağlantı noktalarını açık bırakmanız veya veritabanınızı İnternet'e yönelik hale getirmeniz önerilmez.  Üretim kullanımına yönelik yeni veritabanınızın güvenliğini doğru şekilde sağlamak için diğer [Azure güvenlik makalelerine](https://docs.microsoft.com/azure/security/) göz atın.  
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAzureIPs

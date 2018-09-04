@@ -1,6 +1,6 @@
 ---
-title: Azure AD Privileged Identity Management'ı yapılandırma | Microsoft Docs
-description: Azure AD Privileged Identity Management'ı ve bulut güvenliğinizi geliştirmek için nasıl kullanabileceğinizi açıklayan konu.
+title: Azure AD Privileged Identity Management nedir? | Microsoft Docs
+description: Azure Active Directory Privileged Identity Management (PIM) için genel bakış sağlar.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8ac1dad9413d9e2710722127c2e837223a5b6f7f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ff4e5322ac9ccc0bbfd0706ca9f4863670bbf1b5
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618861"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186220"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management nedir?
 
@@ -51,6 +51,35 @@ Azure AD Privileged Identity Management, Azure AD'de Genel Yönetici gibi yerle�
 ## <a name="just-in-time-administrator-access"></a>Anlık yönetici erişimi
 
 Önceden bir kullanıcıya yönetici rolünü Azure portaldan, diğer Microsoft Online Services portallarından veya Windows PowerShell'deki Azure AD cmdlet'lerinden atamak mümkündü. Sonuç olarak bu kullanıcı atanmış rolde sürekli etkin olan bir **sürekli yönetici** oluyordu. Azure AD Privileged Identity Management, **uygun yönetici** kavramını getirmiştir. Uygun yöneticiler, ayrıcalıklı erişime ihtiyaç duyan ancak buna her gün ve bütün gün sahip olması gerekmeyen kullanıcılar olmalıdır. Bu rol, kullanıcı erişime ihtiyaç duyana kadar devre dışıdır ancak kullanıcı bir etkinleştirme işlemini tamamladıktan sonra önceden belirlenen süre boyunca etkin bir yönetici olur. Her geçen gün daha fazla kuruluş bu yaklaşımı, ayrıcalıklı rollere "sürekli yönetici erişimini" sınırlandırmak veya ortadan kaldırmak için seçmektedir.
+
+
+## <a name="terminology"></a>Terminoloji
+
+*Uygun rollü kullanıcı* – Uygun rollü kullanıcı, kuruluşunuzda Azure AD rolüne uygun (rol etkinleştirme gerektirir) olarak atanmış bir kullanıcıdır.
+
+*Onaylayan temsilci* – Onaylayan temsilci, Azure AD'nizde aktif rol isteklerini onaylamaktan sorumlu olan bir veya daha fazla kişidir.
+
+## <a name="scenarios"></a>Senaryolar
+
+Privileged Identity Management aşağıdaki senaryoları destekler:
+
+**Ayrıcalıklı Rol Yöneticisi olarak şunları yapabilirsiniz:**
+
+- Belirli roller için onay etkinleştirmek
+- İstekleri onaylayacak onaylayan kullanıcıları ve/veya grupları belirlemek
+- Tüm ayrıcalıklı roller için istek ve onay geçmişini görüntülemek
+
+**Onaylayan temsilci olarak şunları yapabilirsiniz:**
+
+- Bekleyen onayları (istekler) görüntülemek
+- Rol yükseltme (tek ve/veya toplu) isteklerini onaylamak veya reddetmek
+- Onay/red için gerekçe sağlamak 
+
+**Uygun rollü kullanıcı olarak şunları yapabilirsiniz:**
+
+- Onay gerektiren bir rolün etkinleştirilmesini istemek
+- Etkinleştirme isteğinizin durumunu görüntülemek
+- İstek onaylanmışsa Azure AD'deki görevinizi tamamlamak
 
 ## <a name="enable-privileged-identity-management-for-your-directory"></a>Dizininiz için Privileged Identity Management'ı etkinleştirme
 
@@ -157,4 +186,6 @@ Kuruluşunuz Azure AD Premium P2 aboneliğini yenilemez veya deneme sürümünü
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+- [PIM kullanmak için abonelik gereksinimleri](subscription-requirements.md)
+- [PIM'de yönetebileceğiniz Azure AD dizin rolleri](pim-roles.md)
+- [Azure AD'de karma ve bulut dağıtımları için ayrıcalıklı erişim güvenliğini sağlama](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

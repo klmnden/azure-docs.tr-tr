@@ -3,7 +3,7 @@ title: Azure portalını kullanarak el ile API ekleme  | Microsoft Docs
 description: Bu öğreticide, el ile API eklemek için API Management’ın (APIM) nasıl kullanılacağı gösterilir.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,16 +11,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 08/27/2018
 ms.author: apimpm
-ms.openlocfilehash: ef7cfa0f30eaaa426c312b21ce0a73aa4409d2ec
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 35b4777c7de4db1f8514b24e7b1e4d11775d0ca0
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307457"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247911"
 ---
-# <a name="add-an-api-manually"></a>El ile API ekleme 
+# <a name="add-an-api-manually"></a>El ile API ekleme
 
 Bu makaledeki adımlar, Azure portalını kullanarak API Management (APIM) örneğine nasıl el ile API ekleneceğini gösterir. Boş bir API oluşturup el ile tanımlamanızı gerektirecek yaygın bir senaryo, API’nin sahte bir kopyasını oluşturmak istediğiniz durumlardır. Bir API’nin sahte bir kopyasını oluşturma hakkında ayrıntılı bilgi için bkz. [Sahte API yanıtları](mock-api-responses.md).
 
@@ -54,17 +54,16 @@ Bu makalede boş bir API oluşturacak ve [httpbin.org](http://httpbin.org)’u (
     |**Ürünler**|"*Unlimited*" |API’yi bir ürünle ilişkilendirerek yayımlayın. API’nin yayımlanmasını ve geliştiricilerin kullanımına sunulmasını istiyorsanız, bir ürüne ekleyin. Bunu API oluşturması sırasında yapabilir ya da daha sonra ayarlayabilirsiniz.<br/><br/>Ürünler bir veya daha fazla API arasındaki ilişkilendirmelerdir. Bir dizi API ekleyebilir ve geliştirici portalı aracılığıyla geliştiricilere sunabilirsiniz. <br/>Geliştiricilerin bir API’ye erişebilmesi için önce ürüne abone olması gerekir. Abone olduklarında, ilgili üründeki tüm API’ler için geçerli olan bir abonelik anahtarı edinirler. APIM örneğini siz oluşturduysanız zaten bir yöneticisinizdir ve varsayılan olarak tüm ürünlere abone olmuşsunuz demektir.<br/><br/> Varsayılan olarak, her bir API Management örneği iki örnek ürün ile birlikte gelir: **Başlangıç** ve **Sınırsız**.| 
 5. **Oluştur**’u seçin.
 
-Bu noktada, APIM üzerinde arka uç API’nizdeki işlemlerle eşleşen herhangi bir işlem yoktur. Arka uç aracılığıyla kullanıma sunulup APIM ile sunulmamış bir işleme çağrı yaparsanız **404** yanıtını alırsınız. 
+Bu noktada, APIM üzerinde arka uç API’nizdeki işlemlerle eşleşen herhangi bir işlem yoktur. Arka uç aracılığıyla kullanıma sunulup APIM ile sunulmamış bir işleme çağrı yaparsanız **404** yanıtını alırsınız.
 
 >[!NOTE] 
 > Varsayılan olarak, bir API eklediğinizde bu API bir arka uç hizmetine bağlı olsa bile sizin tarafınızdan beyaz listeye eklenene kadar APIM tarafından herhangi bir işlem sunulmaz. Arka uç hizmetinizin bir işlemini beyaz listeye eklemek için arka uç işlemiyle eşlenen bir APIM işlemi oluşturun.
->
 
 ## <a name="add-and-test-an-operation"></a>İşlem ekleme ve test etme
 
 Bu bölümde, arka uçtaki "http://httpbin.org/get" işlemiyle eşlemek üzere nasıl bir "/get" işlemi ekleneceği gösterilir.
 
-### <a name="add-the-operation"></a>İşlemi ekleme
+### <a name="add-an-operation"></a>Bir işlem ekleme
 
 1. Önceki adımda oluşturduğunuz API’yi seçin.
 2. **+ İşlem Ekle**’ye tıklayın.
@@ -72,7 +71,7 @@ Bu bölümde, arka uçtaki "http://httpbin.org/get" işlemiyle eşlemek üzere n
 4. **Görünen ad** alanına "*FetchData*" değerini girin.
 5. **Kaydet**’i seçin.
 
-### <a name="test-the-operation"></a>İşlemi test etme
+### <a name="test-an-operation"></a>İşlemleri test etme
 
 Azure portalında işlemi test edin. Alternatif olarak, **Geliştirici portalında** da test edebilirsiniz.
 
