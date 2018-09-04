@@ -9,12 +9,12 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: f504f3bf513a20d8590d9907106b1fd12f907877
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 654cb09621837c360deccecb7778c5d467592dd1
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651694"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124223"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Öğretici: Azure portalı ve konuları/abonelikleri kullanarak envanter güncelleştirme
 
@@ -45,9 +45,9 @@ Bu öğreticiyi tamamlamak için şunları yüklediğinizden emin olun:
 
 Her [konu başlığı aboneliği](service-bus-messaging-overview.md#topics) her iletinin bir kopyasını alabilir. Konular, protokol ve anlam açılarından Service Bus kuyrukları ile tam olarak uyumludur. Service Bus konu başlıkları, filtreleme koşullarını ve ileti özelliklerini belirleyen veya değiştiren isteğe bağlı eylemleri olan geniş bir seçim kuralı yelpazesini destekler. Bir kural eşleştiğinde bir ileti oluşturulur. Kurallar, filtreler ve eylemler hakkında daha fazla bilgi edinmek için bu [bağlantıyı](topic-filters.md) izleyin.
 
-## <a name="log-on-to-the-azure-portal"></a>Azure portalda oturum açma
+## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 
-Önce [Azure portala][Azure portal] gidin ve Azure aboneliğinizi kullanarak oturum açın. İlk adım, **Mesajlaşma** türünde bir Service Bus ad alanı oluşturmaktır.
+Öncelikle [Azure portal][Azure portal]'a gidin ve Azure aboneliğinizi kullanarak oturum açın. İlk adım, **Mesajlaşma** türünde bir Service Bus ad alanı oluşturmaktır.
 
 ## <a name="create-a-service-bus-namespace"></a>Service Bus ad alanı oluşturma
 
@@ -73,7 +73,7 @@ Yeni bir ad alanı oluşturulduğunda, her biri ad alanının tüm yönleri üze
 4. **İlke: RootManageSharedAccessKey** penceresinde **Birincil Bağlantı Dizesi**'nin yanındaki **Kopyala** düğmesine tıklayın ve bağlantı dizesini daha sonra kullanmak üzere panonuza kopyalayın. Bu değeri Not Defteri veya başka bir geçici konuma yapıştırın.
 
     ![bağlantı dizesi][connection-string]
-5. **Birincil Anahtar**'ın değerini daha sonra kullanmak üzere geçici bir konuma kopyalayarak önceki adımı tekrarlayın.
+5. **Birincil Anahtar** değerini daha sonra kullanmak üzere geçici bir konuma kopyalayarak önceki adımı tamamlayın.
 
 ## <a name="create-a-topic-and-subscriptions"></a>Konu başlığı ve abonelikler oluşturma
 
@@ -91,7 +91,7 @@ Bir Service Bus konu başlığı oluşturmak için konu başlığının altında
 
 ## <a name="create-filter-rules-on-subscriptions"></a>Aboneliklerde filtre kuralları oluşturma
 
-Ad alanı ve konu başlıkları/abonelikler sağlandıktan ve gerekli kimlik bilgilerini edindikten sonra, aboneliklerde filtre kuralları oluşturmaya ve ileti gönderip almaya hazır olursunuz. [Bu örnek GitHub klasöründeki](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted\BasicSendReceiveTutorialwithFilters) kodu inceleyebilirsiniz.
+Ad alanı ve konu başlıkları/abonelikler sağlandıktan ve gerekli kimlik bilgilerini edindikten sonra, aboneliklerde filtre kuralları oluşturmaya ve ileti gönderip almaya hazır olursunuz. [Bu GitHub örnek klasöründeki](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted\BasicSendReceiveTutorialwithFilters) kodu inceleyebilirsiniz.
 
 ### <a name="send-and-receive-messages"></a>İleti alma ve gönderme
 
@@ -443,12 +443,12 @@ Bu öğreticide Azure portalı kullanarak kaynaklar sağladınız, sonra bir Ser
 > * İletileri gönderme ve bunların beklenen aboneliklere vardığını doğrulama
 > * Aboneliklerden ileti alma
 
-Daha fazla ileti gönderme ve alma örneği için [GitHub'daki Service Bus örnekleri](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted) ile başlayın.
+Daha fazla ileti gönderme ve alma örneği için [GitHub’daki Service Bus örnekleri](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted) ile çalışmaya başlayın.
 
-Service Bus'ın yayımlama/abone olma olanaklarını kullanma hakkında daha fazla bilgi edinmek için bir sonraki öğreticiye ilerleyin.
+Service Bus’ın yayımlama/abone olma özelliklerini kullanma hakkında daha fazla bilgi edinmek için bir sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [PowerShell ve konu başlıkları/abonelikler kullanarak envanter güncelleştirme](service-bus-tutorial-topics-subscriptions-powershell.md)
+> [PowerShell ve konular/abonelikler kullanarak stok güncelleştirme](service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [ücretsiz bir hesap]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [tam etki alanı adının]: https://wikipedia.org/wiki/Fully_qualified_domain_name

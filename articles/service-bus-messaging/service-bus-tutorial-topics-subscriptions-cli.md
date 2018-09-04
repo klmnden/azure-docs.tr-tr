@@ -9,12 +9,12 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 42f0781de5412310ecb5326f0384268aba9c53dd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 81d538c0324f8fa89a7ce86ceaf2b0a2a76b4d51
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651678"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43120693"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Öğretici: CLI'yi ve konuları/abonelikleri kullanarak envanter güncelleştirme
 
@@ -28,7 +28,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * İletileri gönderme ve bunların beklenen aboneliklere vardığını doğrulama
 > * Aboneliklerden ileti alma
 
-Bu senaryonun bir örneği birden çok perakende mağazası için stok sınıflama güncelleştirmesidir. Bu senaryoda, her mağaza veya mağaza grubu, sınıflamalarını güncelleştirmeye yönelik iletiler alır. Bu öğretici, bu senaryonun abonelikler ve filtreler kullanılarak uygulanmasını göstermektedir. Öncelikle 3 aboneliği olan bir konu başlığı oluşturacaksınız, bazı kurallar ve filtreler ekleyeceksiniz ve ardından konu başlıkları ve aboneliklerden iletiler gönderip alacaksınız.
+Bu senaryonun bir örneği, birden çok perakende mağazası için stok sınıflama güncelleştirmesidir. Bu senaryoda, her mağaza veya mağaza grubu, sınıflamalarını güncelleştirmeye yönelik iletiler alır. Bu öğretici, bu senaryonun abonelikler ve filtreler kullanılarak uygulanmasını göstermektedir. Öncelikle 3 aboneliği olan bir konu başlığı oluşturacaksınız, bazı kurallar ve filtreler ekleyeceksiniz ve ardından konu başlıkları ve aboneliklerden iletiler gönderip alacaksınız.
 
 ![konu başlığı](./media/service-bus-tutorial-topics-subscriptions-cli/about-service-bus-topic.png)
 
@@ -48,13 +48,13 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için A
 
 ## <a name="service-bus-topics-and-subscriptions"></a>Service Bus konu başlıkları ve abonelikler
 
-Her [konu başlığı aboneliği](service-bus-messaging-overview.md#topics) her iletinin bir kopyasını alabilir. Konular, protokol ve anlam açılarından Service Bus kuyrukları ile tam olarak uyumludur. Service Bus konu başlıkları filtreleme koşulları ve ileti özelliklerini belirleyen veya değiştiren isteğe bağlı eylemleri olan geniş bir seçim kuralı yelpazesini destekler. Bir kural eşleştiğinde bir ileti oluşturulur. Kurallar, filtreler ve eylemler hakkında daha fazla bilgi edinmek için bu [bağlantıyı](topic-filters.md) izleyin.
+Her [konu başlığı aboneliği](service-bus-messaging-overview.md#topics) her iletinin bir kopyasını alabilir. Konular, protokol ve anlam açılarından Service Bus kuyrukları ile tam olarak uyumludur. Service Bus konu başlıkları, filtreleme koşullarını ve ileti özelliklerini belirleyen veya değiştiren isteğe bağlı eylemleri olan geniş bir seçim kuralı yelpazesini destekler. Bir kural eşleştiğinde bir ileti oluşturulur. Kurallar, filtreler ve eylemler hakkında daha fazla bilgi edinmek için bu [bağlantıyı](topic-filters.md) izleyin.
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-CLI yüklendikten sonra bir komut istemi açın ve Azure'da oturum açma için aşağıdaki komutları girin. Cloud Shell kullanıyorsanız, bu adımlar gerekli değildir:
+CLI yüklendikten sonra bir komut istemi açın ve Azure'da oturum açmak için aşağıdaki komutları çalıştırın. Cloud Shell kullanıyorsanız, bu adımlar gerekli değildir:
 
-1. Azure CLI'yi yerel olarak kullanıyorsanız, Azure'da oturum açma için aşağıdaki komutu çalıştırın. Bu komutları Cloud Shell'de çalıştırıyorsanız bu oturum açma adımı gerekli değildir:
+1. Azure CLI'yi yerel olarak kullanıyorsanız Azure'da oturum açma için aşağıdaki komutu çalıştırın. Bu komutları Cloud Shell'de çalıştırıyorsanız bu oturum açma adımı gerekli değildir:
 
    ```azurecli-interactive
    az login
@@ -157,7 +157,7 @@ Ad alanı ve konu başlıkları/abonelikler sağlandıktan ve gerekli kimlik bil
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Kaynak grubunu, ad alanını ve ilgili kaynakları kaldırmak için aşağıdaki komutu çalıştırın:
+Kaynak grubunu, ad alanını ve tüm ilgili kaynakları kaldırmak için aşağıdaki komutu çalıştırın:
 
 ```azurecli-interactive
 az group delete --resource-group my-resourcegroup
@@ -336,12 +336,12 @@ Bu öğreticide Azure CLI'yi kullanarak kaynaklar sağladınız, sonra bir Servi
 > * İletileri gönderme ve bunların beklenen aboneliklere vardığını doğrulama
 > * Aboneliklerden ileti alma
 
-Daha fazla ileti gönderme ve alma örnekleri için [GitHub'daki Service Bus örnekleri](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted) ile başlayın.
+Daha fazla ileti gönderme ve alma örneği için [GitHub’daki Service Bus örnekleri](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted) ile çalışmaya başlayın.
 
-Service Bus'ın yayımlama/abone olma olanaklarını kullanma hakkında daha fazla bilgi edinmek için bir sonraki öğreticiye ilerleyin.
+Service Bus’ın yayımlama/abone olma özelliklerini kullanma hakkında daha fazla bilgi edinmek için bir sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [PowerShell ve konu başlıkları/abonelikler kullanarak envanter güncelleştirme](service-bus-tutorial-topics-subscriptions-portal.md)
+> [PowerShell ve konular/abonelikler kullanarak stok güncelleştirme](service-bus-tutorial-topics-subscriptions-portal.md)
 
 [ücretsiz bir hesap]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

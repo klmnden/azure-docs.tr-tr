@@ -9,12 +9,12 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 05c30504eb9b4440694f78ee979d4b25f30f65dc
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6246e951cb9b1e0b4dac656fef6acf8027e79271
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237973"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126560"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Öğretici: PowerShell ve konular/abonelikler kullanarak stok güncelleştirme
 
@@ -30,9 +30,9 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * İletileri gönderme ve bunların beklenen aboneliklere vardığını doğrulama
 > * Aboneliklerden ileti alma
 
-Bu senaryonun bir örneği, birden çok perakende mağazası için stok sınıflama güncelleştirmesidir. Bu senaryoda, her mağaza veya mağaza grubu, sınıflamalarını güncelleştirmeye yönelik iletiler alır. Bu öğretici, bu senaryonun abonelikler ve filtreler kullanılarak uygulanmasını göstermektedir. İlk olarak önce 3 aboneliği olan bir konu başlığı oluşturun, bazı kurallar ve filtreler ekleyin ve ardından konu başlıkları ve aboneliklerden iletiler gönderip alın.
+Bu senaryonun bir örneği, birden çok perakende mağazası için stok sınıflama güncelleştirmesidir. Bu senaryoda, her mağaza veya mağaza grubu, sınıflamalarını güncelleştirmeye yönelik iletiler alır. Bu öğretici, bu senaryonun abonelikler ve filtreler kullanılarak uygulanmasını göstermektedir. Öncelikle 3 aboneliği olan bir konu başlığı oluşturacaksınız, bazı kurallar ve filtreler ekleyeceksiniz ve ardından konu başlıkları ve aboneliklerden iletiler gönderip alacaksınız.
 
-![kuyruk](./media/service-bus-quickstart-powershell/quick-start-queue.png)
+![konu başlığı](./media/service-bus-tutorial-topics-subscriptions-powershell/about-service-bus-topic.png)
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][] oluşturun.
 
@@ -47,9 +47,9 @@ Bu öğretici için Azure PowerShell’in en yeni sürümünü çalıştırmanı
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-Azure’da oturum açmak için aşağıdaki komutları düzenleyin. Cloud Shell’de PowerShell komutlarını çalıştırıyorsanız bu adımlar gerekli değildir: 
+Azure'da oturum açmak için aşağıdaki komutları çalıştırın. Cloud Shell’de PowerShell komutlarını çalıştırıyorsanız bu adımlar gerekli değildir: 
 
 1. Service Bus PowerShell modülünü yükleme:
 
@@ -57,7 +57,7 @@ Azure’da oturum açmak için aşağıdaki komutları düzenleyin. Cloud Shell�
    Install-Module AzureRM.ServiceBus
    ```
 
-2. Azure’da oturum açmak için aşağıdaki komutu çalıştırın:
+2. Azure'da oturum açmak için aşağıdaki komutu çalıştırın:
 
    ```azurepowershell-interactive
    Login-AzureRmAccount
@@ -72,7 +72,7 @@ Azure’da oturum açmak için aşağıdaki komutları düzenleyin. Cloud Shell�
 
 ## <a name="provision-resources"></a>Kaynak sağlama
 
-Azure’da oturum açtıktan sonra, Service Bus kaynakları sağlamak için aşağıdaki komutları düzenleyin. Tüm yer tutucuları uygun değerlerle değiştirdiğinizden emin olun:
+Azure'da oturum açtıktan sonra Service Bus kaynakları sağlamak için aşağıdaki komutları çalıştırın. Tüm yer tutucuları uygun değerlerle değiştirdiğinizden emin olun:
 
 ```azurepowershell-interactive
 # Create a resource group 
