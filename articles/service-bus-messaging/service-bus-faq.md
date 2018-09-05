@@ -1,50 +1,50 @@
 ---
-title: Azure Service Bus sık sorulan sorular (SSS) | Microsoft Docs
-description: Azure Service Bus hakkında bazı sık sorulan sorular yanıtlanmaktadır.
+title: Azure Service Bus hakkında sık sorulan sorular (SSS) | Microsoft Docs
+description: Azure Service Bus hakkında sık sorulan bazı sorular yanıtlanmaktadır.
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/05/2018
-ms.author: sethm
-ms.openlocfilehash: b3171ca264afdbdbddeb26eff8744ee67f336dfe
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.author: spelluru
+ms.openlocfilehash: e86471936ccf164bb1fd23450239be85e39dd60b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109533"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696670"
 ---
 # <a name="service-bus-faq"></a>Hizmet Veri Yolu SSS
 
-Bu makalede, Microsoft Azure Service Bus hakkında sık sorulan bazı sorular açıklanmaktadır. Ayrıca, ziyaret edebilirsiniz [Azure destek SSS](https://azure.microsoft.com/en-us/support/faq/) genel Azure fiyatlandırma ve destek bilgileri için.
+Bu makalede, Microsoft Azure Service Bus hakkında sık sorulan bazı sorular açıklanmaktadır. Da ziyaret edebilirsiniz [Azure desteği SSS](https://azure.microsoft.com/en-us/support/faq/) genel Azure fiyatlandırma ve destek bilgileri.
 
 ## <a name="general-questions-about-azure-service-bus"></a>Azure Service Bus hakkında genel sorular
 ### <a name="what-is-azure-service-bus"></a>Azure Service Bus nedir?
-[Azure Service Bus](service-bus-messaging-overview.md) ayrılmış sistemleri arasında veri göndermenizi sağlayan bir zaman uyumsuz Mesajlaşma bulut platformudur. Microsoft, bu özelliği kullanmak için kendi donanımınızın herhangi biri ana bilgisayar gerekmez anlamına gelen bir hizmet olarak sunar.
+[Azure Service Bus](service-bus-messaging-overview.md) ayrılmış sistemleri arasında veri göndermek sağlayan bir zaman uyumsuz Mesajlaşma bulut platformudur. Microsoft, bu özelliği kullanmak için kendi donanımınızın herhangi biri ana bilgisayar gerekmez anlamına gelir. bir hizmet olarak sunar.
 
-### <a name="what-is-a-service-bus-namespace"></a>Bir hizmet veri yolu ad alanı nedir?
-A [ad alanı](service-bus-create-namespace-portal.md) uygulamanızı Service Bus kaynaklarını adreslemek için kapsam bir kapsayıcı sağlar. Bir ad alanı oluşturma Service Bus hizmetini kullanmak gereklidir ve Başlarken ilk adımlar biridir.
+### <a name="what-is-a-service-bus-namespace"></a>Service Bus ad alanı nedir?
+A [ad alanı](service-bus-create-namespace-portal.md) uygulamanızda bulunan Service Bus kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sağlar. Ad alanı oluşturarak, Service Bus hizmetini kullanmak gereklidir ve Başlarken ilk adımlar biridir.
 
-### <a name="what-is-an-azure-service-bus-queue"></a>Bir Azure hizmet veri yolu kuyruğu nedir?
-A [Service Bus kuyruğuna](service-bus-queues-topics-subscriptions.md) iletileri depolandığı bir varlıktır. Sıralar, birden çok uygulama veya birbirleri ile iletişim kurması gereken dağıtılmış bir uygulama birden fazla bölümü olduğunda faydalıdır. Birden fazla ürün (iletileri) alınan ve sonra o konumdan gönderilen sıra için bir dağıtım merkezi benzer.
+### <a name="what-is-an-azure-service-bus-queue"></a>Bir Azure Service Bus kuyruğuna nedir?
+A [Service Bus kuyruğu](service-bus-queues-topics-subscriptions.md) iletileri depolanan bir varlıktır. Kuyruklar, birden fazla uygulama ya da birbirleri ile iletişim kurması gereken dağıtılmış bir uygulama birden fazla bölümü olduğunda yararlıdır. Birden çok ürünlerin (iletiler) alınan ve ardından o konumdan gönderilen bir dağıtım Merkezi'ne kuyruğa benzer.
 
 ### <a name="what-are-azure-service-bus-topics-and-subscriptions"></a>Azure Service Bus konuları ve abonelikleri nelerdir?
-Bir konu sırası olarak canlandırılabilir ve birden çok abonelik kullanırken, bu daha zengin bir Mesajlaşma modeli olur; bir çok iletişim aracı temelde. Bu yayımlama/abonelik modelini (veya *pub/alt*) birden çok uygulama tarafından alınan ileti sağlamak için birden çok abonelik ile bir konuya ileti gönderir bir uygulama sağlar.
+Bir konu bir kuyruk görselleştirilebilir ve birden çok abonelik kullanırken daha zengin bir Mesajlaşma modeli olur; temelde bir-çok iletişim aracıdır. Bu yayımlama/abone olma modelini (veya *pub/sub*) birden çok uygulama tarafından alınan o ileti için birden fazla aboneliğine sahip bir konu başlığına bir ileti gönderen bir uygulama sağlar.
 
-### <a name="what-is-a-partitioned-entity"></a>Bölümlenmiş bir varlık nedir?
-Geleneksel kuyruk veya konu tek ileti aracısı tarafından işlenen ve bir Mesajlaşma deposunda depolanır. Yalnızca temel ve standart Mesajlaşma katmanları, desteklenen bir [bölümlenmiş kuyruk veya konu](service-bus-partitioning.md) birden çok ileti aracıları tarafından işlenen ve birden çok Mesajlaşma deposunda depolanır. Bu özellik, bölümlenmiş kuyruk veya konu, genel üretilen işi, bir tek ileti aracısı veya Mesajlaşma deposu performansını tarafından artık sınırlı olduğu anlamına gelir. Ayrıca, bir Mesajlaşma deposu geçici bir kesinti bölümlenmiş kuyruk veya konu kullanılamaz işlemez.
+### <a name="what-is-a-partitioned-entity"></a>Bölümlenen bir varlığın nedir?
+Geleneksel bir kuyruk veya konuda tek ileti aracısı tarafından işlenmesini ve bir Mesajlaşma deposunda depolanır. Yalnızca temel ve standart Mesajlaşma katmanları, desteklenen bir [bölümlenmiş bir kuyruk veya konuda](service-bus-partitioning.md) birden çok ileti aracıları tarafından işlenmesini ve birden çok Mesajlaşma deposu içinde depolanan. Bu özellik, bir bölümlenmiş kuyruğa veya konuya genel verimini tek ileti aracısı veya ileti deposu performansını artık sınırlı olduğu anlamına gelir. Ayrıca, bir Mesajlaşma deposunun geçici bir kesinti bölümlenmiş bir kuyruk veya konuda kullanılamaz işlemez.
 
-Varlıkları kullanılarak bölümlenmiş zaman sıralama sağlanmaz. Bir bölüm kullanılamıyor gelmesi durumunda, hala gönderebilir ve diğer bölümlerden iletileri alacak.
+Kullanılarak bölümlenmiş varlıklar, sıralama sağlanmaz. Bir bölüm kullanılamıyor durumunda durumunda, yine de göndermek ve diğer bölümlerden ileti alma.
 
- Bölümlenen varlıklar de artık desteklenmektedir [Premium SKU](service-bus-premium-messaging.md). 
+ Bölümlenen varlıklar artık desteklenmemektedir [Premium SKU](service-bus-premium-messaging.md). 
 
 ## <a name="best-practices"></a>En iyi uygulamalar
-### <a name="what-are-some-azure-service-bus-best-practices"></a>Bazı Azure Service Bus en iyi uygulamalar nelerdir?
-Bkz: [Service Bus kullanarak performans iyileştirmeleri için en iyi uygulamaları] [ Best practices for performance improvements using Service Bus] – bu makalede, ileti alışverişi sırasında performansı iyileştirmek açıklar.
+### <a name="what-are-some-azure-service-bus-best-practices"></a>Azure Service Bus en iyi yöntemlerden bazıları nelerdir?
+Bkz: [için Service Bus'ı kullanarak performans geliştirme en iyi yöntemler] [ Best practices for performance improvements using Service Bus] – bu makalede, mesaj alışverişleri sırasında performansı iyileştirmek açıklanır.
 
-### <a name="what-should-i-know-before-creating-entities"></a>Ne ı varlıklar oluşturmadan önce bilmeniz gerekenler?
-Bir kuyruk ve konu aşağıdaki özelliklerini değişmez. Varlıklarınızı sağlarken bu sınırlamaya yeni bir yedek varlık oluşturmadan bu özellikleri değiştirilemez olarak göz önünde bulundurun.
+### <a name="what-should-i-know-before-creating-entities"></a>Neleri varlık oluşturmadan önce bilmeliyim?
+Bir kuyruk ve konu aşağıdaki özelliklerini sabittir. Varlıklarınızı sağladığınızda yeni değiştirme varlık oluşturmadan bu özellikleri değiştirilemez olarak bu sınırlamayı göz önünde bulundurun.
 
 * Bölümleme
 * Oturumlar
@@ -52,51 +52,51 @@ Bir kuyruk ve konu aşağıdaki özelliklerini değişmez. Varlıklarınızı sa
 * Varlık express
 
 ## <a name="pricing"></a>Fiyatlandırma
-Bu bölümde fiyatlandırma yapısına Service Bus hakkında sık sorulan bazı sorular yanıtlanmaktadır.
+Bu bölümde, Service Bus fiyatlandırma yapısı hakkında sık sorulan bazı sorular yanıtlanmaktadır.
 
-[Service fiyatlandırma ve faturalama Bus](service-bus-pricing-billing.md) makale, Service Bus içinde fatura ölçümler açıklar. Service Bus seçenekleri fiyatlandırma hakkında ayrıntılı bilgi için bkz: [Service Bus fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/service-bus/).
+[Fiyatlandırma ve faturalama Service Bus](service-bus-pricing-billing.md) makalede, Service Bus, faturalandırma ölçümlerinde açıklanmaktadır. Service Bus fiyatlandırma seçenekleri hakkında ayrıntılı bilgi için bkz: [Service Bus fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/service-bus/).
 
-Ayrıca, ziyaret edebilirsiniz [Azure desteği ile ilgili SSS](https://azure.microsoft.com/en-us/support/faq/) genel Azure fiyatlandırma bilgileri için. 
+Da ziyaret edebilirsiniz [Azure desteği SSS](https://azure.microsoft.com/en-us/support/faq/) genel Azure fiyatlandırma bilgileri için. 
 
-### <a name="how-do-you-charge-for-service-bus"></a>Hizmet veri yolu için nasıl ücret?
-Hizmet veri yolu fiyatlandırma hakkında tam bilgi için bkz: [Service Bus fiyatlandırma ayrıntıları][Pricing overview]. Not ettiğiniz fiyatların yanı sıra, ilişkili veri aktarımları, uygulamanızın sağlanan veri merkezi dışında çıkışı için ücretlendirilirsiniz.
+### <a name="how-do-you-charge-for-service-bus"></a>Nasıl hizmet veri yolu için ücretlendirme yapılır?
+Service Bus fiyatlandırması hakkında tam bilgi için bkz. [Service Bus fiyatlandırma ayrıntıları][Pricing overview]. Bahsi geçen ücretler ek olarak, ilişkili veri aktarımları, uygulamanızın sağlandığı veri merkezi dışında çıkışı için ücretlendirilirsiniz.
 
-### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>Hizmet veri yolu hangi kullanımını veri aktarımı tabi mi? Ne değil misiniz?
-Belirli bir Azure bölgesi içinde herhangi bir veri aktarımı yanı gelen veri aktarımı hiçbir ücret ödemeden sağlanır. Veri aktarımı bir bölge dışında bulunabilir çıkış ücretlerini tabi olan [burada](https://azure.microsoft.com/pricing/details/bandwidth/).
+### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>Service Bus'ın hangi kullanım, veri aktarımı tabi mi? Ne olur?
+Belirli bir Azure bölgesi içinde tüm veri aktarımları ücretsiz yanı sıra tüm gelen veri aktarımı sağlanır. Bir bölge dışında veri aktarımı ise bulunabilir çıkış ücretlerini tabi [burada](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-### <a name="does-service-bus-charge-for-storage"></a>Hizmet veri yolu, depolama için ücretli mi?
-Hayır, hizmet veri yolu için depolama ücret değil. Ancak, bir kota en fazla sıra/konu kalıcı veri miktarı sınırlama yoktur. Sonraki SSS Bölümüne bakın.
+### <a name="does-service-bus-charge-for-storage"></a>Service Bus, depolama için ücretli midir?
+Hayır, Service Bus depolama için ücret talep etmez. Ancak, maksimum kuyruk/konu kalıcı veri miktarını sınırlayan bir kota yok. Bir sonraki SSS Bölümüne bakın.
 
 ## <a name="quotas"></a>Kotalar
 
-Hizmet veri yolu sınırlarını ve kotaları listesi için bkz: [Service Bus kotaları genel bakış][Quotas overview].
+Service Bus limitler ve kotalar listesi için bkz. [Service Bus kotaları genel bakış][Quotas overview].
 
-### <a name="does-service-bus-have-any-usage-quotas"></a>Hizmet veri yolu olan kullanım kotaları var mı?
-Varsayılan olarak, her bulut için Microsoft hizmet tüm müşteri'nin abonelikler arasında hesaplanan bir toplama aylık kullanım kotası ayarlar. Bu sınırlar birden fazla gerekiyorsa, Müşteri Hizmetleri gereksinimlerinizi anlamak ve bu sınırları uygun şekilde ayarlamak için herhangi bir zamanda başvurabilirsiniz. Hizmet veri yolu için toplam kullanım kotası ayda 5 milyar iletileri ' dir.
+### <a name="does-service-bus-have-any-usage-quotas"></a>Service Bus tüm kullanım kotalarını var mı?
+Varsayılan olarak, herhangi bir bulut hizmeti Microsoft, tüm müşteri abonelikleri hesaplanan bir toplam aylık kullanım kotası ayarlar. Bu limitlerden daha fazlasına ihtiyacınız varsa ihtiyaçlarınızı anlayabilmemiz ve bu limitleri uygun şekilde ayarlamak için istediğiniz zaman Müşteri Hizmetleri başvurabilirsiniz. Service Bus için toplam kullanım kotası ayda 5 milyar ileti ' dir.
 
-Microsoft kullanım kotalarını belirtilen aydaki aştı bir müşteri hesabı devre dışı bırakmak için hakkını olsa da, herhangi bir işlem gerçekleştirmeden önce bağlantı kurmak için birden çok deneme yapılır ve e-posta bildirimi gönderilir. Bu kotalar aşan müşterileri kotaları aşan ücretler hala sorumludur.
+Microsoft, belirli bir ay içinde kullanım kotalarını aştı bir müşterinin hesabını devre dışı hakkını saklı tutar, ancak e-posta bildirimi gönderilir ve birden fazla girişimde herhangi bir işlem gerçekleştirmeden önce bağlantı kurmak için sunulur. Bu kotalar aşan müşterileri yine de kotaları aşan ücretler için sorumlu.
 
-Diğer hizmetleri gibi Azure üzerinde hizmet veri yolu Orta kaynak kullanımını olduğundan emin olmak için özel kotalar bir dizi zorlar. Bu Kotalar hakkında daha fazla ayrıntı bulabilirsiniz [Service Bus kotaları genel bakış][Quotas overview].
+Diğer hizmetler gibi Azure üzerinde ile Service Bus kaynakların adil kullanım olduğundan emin olmak için özel kotalar bir dizi zorlar. Bu kotaları hakkında daha fazla ayrıntı bulabilirsiniz [Service Bus kotaları genel bakış][Quotas overview].
 
 ## <a name="troubleshooting"></a>Sorun giderme
-### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Azure Service Bus API'lerine ve bunların önerilen eylemleri tarafından oluşturulan özel durumları bazıları nelerdir?
-Olası Service Bus özel durumlar listesi için bkz: [özel durumlar genel bakış][Exceptions overview].
+### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Azure Service Bus API'lerine ve önerilen eylemlerinin tarafından oluşturulan özel durumları bazıları nelerdir?
+Olası Service Bus özel durumları listesi için bkz. [özel durumlar genel bakış][Exceptions overview].
 
-### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Paylaşılan erişim imzası nedir ve hangi dilleri imza oluşturma destekliyor?
-Paylaşılan erişim imzaları SHA-256 güvenli karmaları veya URI'ler için temel kimlik doğrulama mekanizması değil. Düğüm, PHP, Java ve C kendi imzaları üretmek hakkında bilgi için\#, bkz: [paylaşılan erişim imzaları] [ Shared Access Signatures] makalesi.
+### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Bir imza oluşturulurken bir paylaşılan erişim imzası nedir ve hangi dilleri destekliyor?
+Paylaşılan erişim imzaları, SHA-256 güvenli karmaları veya URI'ler için temel bir kimlik doğrulama mekanizmasıdır. Düğüm, PHP, Java ve C kendi imzaları üretmek hakkında bilgi için\#, bkz: [paylaşılan erişim imzaları] [ Shared Access Signatures] makalesi.
 
 ## <a name="subscription-and-namespace-management"></a>Abonelik ve ad alanı yönetimi
-### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Başka bir Azure aboneliğine nasıl bir ad alanı geçişini?
+### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Bir ad alanı için başka bir Azure aboneliğine nasıl geçirebilirim?
 
-Bir ad alanı bir Azure aboneliğinden diğerine kullanarak taşıyabilirsiniz [Azure portal](https://portal.azure.com) veya PowerShell komutları. İşlemi yürütmek için ad alanı zaten etkin olması gerekir. Komutlar yürütülürken kullanıcının kaynak ve hedef abonelikler üzerinde bir yönetici olması gerekir.
+Bir ad alanı bir Azure aboneliğine ait diğerine kullanarak taşıyabilirsiniz [Azure portalında](https://portal.azure.com) veya PowerShell komutları. İşlemi yürütmek için ad alanı zaten etkin olması gerekir. Komutları yürütmeden kullanıcı kaynak ve hedef abonelikler yönetici olması gerekir.
 
 #### <a name="portal"></a>Portal
 
-Hizmet veri yolu ad alanları başka bir aboneliği taşımak için Azure Portalı'nı kullanmak için yönergeleri izleyin [burada](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+Service Bus ad alanlarını başka bir aboneliğe geçirme Azure portal'ı kullanmak için yönergeleri izleyin. [burada](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
 
 #### <a name="powershell"></a>PowerShell
 
-Aşağıdaki PowerShell komut dizisi bir ad alanı bir Azure aboneliğinden diğerine taşır. Bu işlemi yürütmek için ad alanı zaten etkin olması gerekir ve PowerShell komutları çalıştıran kullanıcının kaynak ve hedef abonelikler üzerinde bir yönetici olması gerekir.
+Aşağıdaki PowerShell komutları dizisini bir ad alanı bir Azure aboneliğine ait diğerine taşır. Bu işlemi yürütmek için ad alanı zaten etkin olması gerekir ve PowerShell komutları çalıştıran kullanıcının kaynak ve hedef Aboneliklerde yönetici olmanız gerekir.
 
 ```powershell
 # Create a new resource group in target subscription
@@ -110,11 +110,11 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Service Bus hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
+Service Bus hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-* [Azure Service Bus Premium (blog yayını) Tanıtımı](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-* [Azure Service Bus Premium (Channel9) Tanıtımı](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-* [Hizmet veri yolu genel bakış](service-bus-messaging-overview.md)
+* [Azure Service Bus Premium (blog gönderisi) ile tanışın](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+* [Azure Service Bus Premium (Channel9) ile tanışın](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
+* [Service Bus genel bakış](service-bus-messaging-overview.md)
 * [Azure Service Bus mimarisine genel bakış](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus kuyrukları ile çalışmaya başlama](service-bus-dotnet-get-started-with-queues.md)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: 931cc628dccc77a026791b27a7a8159b37c585d4
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: eb6f7d9b34e00ce1efd8c871439c2504e5f550d5
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919572"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669451"
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Azure Site Recovery kullanarak çok katmanlı bir Dynamics AX uygulamasının çoğaltın
 
@@ -99,7 +99,7 @@ Aşağıdaki anlık görüntüde gösterildiği gibi sanal ağ ayarlarını yap�
 
 * Statik IP kullanıyorsanız, VM yapılacağını istediğiniz IP belirtin **hedef IP** metin kutusu.
 
-    ![Ağ ayarları ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png).
+    ![Ağ ayarları ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
 ### <a name="5-create-a-recovery-plan"></a>5. Kurtarma planı oluşturma
@@ -168,7 +168,7 @@ Yük devretme testi gerçekleştirme hakkında daha fazla bilgi için bkz: [Site
 
 Bir yük devretme yaptığınızda daha fazla bilgi için bkz: [Site recovery'de yük devretme](site-recovery-failover.md).
 
-### <a name="perform-a-failback"></a>Bir yeniden çalışma gerçekleştirin
+### <a name="perform-a-failback"></a>Yeniden çalışma gerçekleştirme
 
 Konuları için belirli SQL Server için yeniden çalışma sırasında bkz [çoğaltma SQL Server ve Azure Site Recovery ile uygulamaları](site-recovery-sql.md).
 

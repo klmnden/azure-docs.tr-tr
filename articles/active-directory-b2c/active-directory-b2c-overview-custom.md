@@ -7,97 +7,61 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/04/2017
+ms.date: 09/04/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0724227da425eb2faeee9ac4ae8449782e62a241
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5634c14ee2b25600d66ff0f2c7385b2aaa9f1810
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445999"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699507"
 ---
-# <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: Özel ilkeler
+# <a name="custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C özel ilkeleri
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-## <a name="what-are-custom-policies"></a>Özel ilkeler nedir?
-
-Özel ilkeler, Azure AD B2C kiracınızın davranışlarını tanımlayan yapılandırma dosyalarıdır. Oysa **yerleşik ilkeleri** önceden tanımlanmıştır Azure AD B2C Portalı'nda yaygın kimlik görevler için özel ilkeler tam olarak bir neredeyse sınırsız sayıda görevleri tamamlamak için kimlik geliştiriciler tarafından düzenlenebilir. İçin okumaya devam özel ilkeler, kendiniz ve kimlik senaryonuz olup olmadığını belirlemek.
+Özel ilkeler, Azure Active Directory (Azure AD) B2C kiracınızın davranışlarını tanımlayan yapılandırma dosyalarıdır. Yerleşik ilkeler, en yaygın kimlik görevleri için Azure AD B2C Portalı'nda önceden tanımlanmıştır. Özel ilkeler, tam olarak birçok farklı görevleri tamamlamak için kimlik geliştiriciler tarafından düzenlenebilir.
 
 ## <a name="comparing-built-in-policies-and-custom-policies"></a>Yerleşik ve özel ilkelerinin karşılaştırma
 
 | | Yerleşik ilkeler | Özel ilkeler |
 |-|-------------------|-----------------|
-|Hedef kullanıcı | Tüm uygulama geliştiricilerin ile veya kimlik uzmanlığı gerektirmeden | Kimlik uzmanları: Sistem tümleştiricilerinin ortaklarımızı, danışmanlarımızı ve şirket içi kimlik ekipler. Openıdconnect akışlarıyla kendinizi rahat hissedene ve kimlik sağlayıcısı ve talep tabanlı kimlik doğrulaması'nı anlama |
-|Yapılandırma yöntemi | Azure portalı ile kolay bir kullanıcı Arabirimi | XML dosyalarını doğrudan düzenleyerek ve ardından Azure portalına |
-|Kullanıcı arabirimini özelleştirme | (Özel etki alanı gerektirir), HTML, CSS ve javascript desteği dahil olmak üzere, tam kullanıcı arabirimini özelleştirme<br><br>Özel dizeleri ile birden çok dil desteği | Aynı |
-| Öznitelik özelleştirme | Standart ve özel öznitelikler | Aynı |
-|Belirteç ve oturum yönetimi | Özel belirteç ve birden çok oturum seçenekleri | Aynı |
-|Kimlik Sağlayıcıları| **Bugün**: önceden tanımlanmış yerel, sosyal sağlayıcısı<br><br>**Gelecekteki**: SAML, standartlara dayalı OIDC OAuth | **Bugün**: OAUTH, standartlara dayalı OIDC SAML<br><br>**Gelecekteki**: WsFed |
-|Kimlik görevleri (örnekler) | Yerel ve birçok sosyal hesap ile oturum açma veya kaydolma<br><br>Self Servis Parola Sıfırlama<br><br>Profili Düzenle<br><br>Çok faktörlü kimlik doğrulama senaryoları<br><br>Belirteçleri ve oturum özelleştirme<br><br>Erişim belirteci akışlar | Özel kimlik sağlayıcılarını kullanarak yerleşik ilkeleri olarak aynı görevleri tamamlamak veya özel kapsamlarını kullanın<br><br>Kayıt zamanında başka bir sistem kullanıcı sağlama<br><br>Kendi e-posta hizmeti sağlayıcısı'nı kullanarak bir Hoş Geldiniz e-posta Gönder<br><br>B2C dışında bir kullanıcı deposu kullanma<br><br>Kullanıcı tarafından sağlanan güvenilir bir sistem API'si aracılığıyla bilgilerle doğrula |
+| Hedef kullanıcı | Tüm uygulama geliştiricilerin ile veya kimlik uzmanlığı gerektirmeden. | Kimlik uzmanları, sistem tümleştiricilerinin, danışmanlarımızı ve şirket içi kimlik ekipler. Bunlar, Openıdconnect akışlarıyla kendinizi rahat hissedene ve kimlik sağlayıcısı ve talep tabanlı kimlik doğrulaması anlayın. |
+| Yapılandırma yöntemi | Azure portalı ile bir kullanıcı dostu kullanıcı arabirimi (UI). | XML dosyalarını doğrudan düzenleyerek ve ardından Azure portalında yükleme. |
+| Kullanıcı arabirimini özelleştirme | HTML ve CSS dahil olmak üzere tüm kullanıcı Arabirimi özelleştirme.<br><br>Özel dizeleri ile birden çok dil desteği. | Aynı |
+| Öznitelik özelleştirme | Standart ve özel öznitelikleri. | Aynı |
+| Belirteç ve oturum yönetimi | Özel belirteç ve birden çok oturumu seçeneği. | Aynı |
+| Kimlik Sağlayıcıları | Önceden tanımlanmış yerel ya da sosyal sağlayıcısı. | OIDC standartlara dayalı, OAUTH ve SAML. |
+| Kimlik görevleri | Kaydolma veya oturum açma ile yerel veya birçok sosyal hesap.<br><br>Self Servis parola sıfırlama.<br><br>Profil düzenleme.<br><br>Çok faktörlü kimlik doğrulaması.<br><br>Belirteçleri ve oturum özelleştirin.<br><br>Erişim belirteci akışlar. | Özel kimlik sağlayıcılarını kullanarak yerleşik ilkeleri olarak aynı görevleri tamamlamak veya özel kapsamlarını kullanın.<br><br>Bir kullanıcı hesabı, kayıt zamanında başka bir sistemde sağlayın.<br><br>Kendi e-posta hizmeti sağlayıcısı'nı kullanarak bir Hoş Geldiniz e-posta gönderin.<br><br>Bir kullanıcı deposunun dışında Azure AD B2C'yi kullanın.<br><br>Bir API kullanarak güvenilir bir sistem bilgileriyle sağlanan kullanıcı doğrulayın. |
 
 ## <a name="policy-files"></a>İlke dosyaları
 
-Özel bir ilke birbirleriyle hiyerarşik bir zincirinde başvuran bir veya birden çok XML biçimli dosya olarak temsil edilir. XML öğeleri tanımlayın: şema talep, talep dönüşümleri, içerik tanımları, talep sağlayıcıları/teknik profilleri ve diğer öğeleri arasında kullanıcı yolculuğu düzenleme adımlarının.
+İlke dosyaları bu üç tür kullanılır:
 
-İlke dosyaları üç tür kullanılmasını öneririz:
+- **Temel dosya** -tanımları çoğunu içerir. Bu dosya ile sorun giderme ve uzun süreli bakım ilkelerinizin yardımcı olmak için en az bir dizi değişiklik yapmak önerilir.
+- **Dosya uzantıları** -kiracınız için benzersiz yapılandırma değişikliklerini tutar.
+- **Bağlı olan taraf (RP) dosya** -uygulama veya hizmet tarafından çağrılan tek görev odaklı dosyası (bir bağlı olan taraf da bilinir). Benzersiz her görev kendi RP gerektirir ve gereksinimleri marka bağlı olarak, sayı "uygulama kullanım örneklerinin toplam sayısı x toplam." olabilir
 
-- **TEMEL dosya**, çoğu tanımları ve eksiksiz bir örnek Azure sağlayan içerir.  Sorun giderme ve uzun süreli bakım ilkelerinizin yardımcı olmak için bu dosyaya yaptığınız değişiklikleri en az sayıda öneririz
-- **bir uzantı dosyası** kiracınız için benzersiz yapılandırma değişikliklerini içeren
-- **bir bağlı olan taraf (RP) dosyası** doğrudan uygulamaya veya hizmete (diğer adıyla bağlı olan taraf) tarafından çağrılan diğer bir deyişle tek görev odaklı dosyası.  Daha fazla bilgi için ilke dosyası tanımları makalesini okuyun.  Benzersiz her görev kendi RP gerektirir ve markalama gereksinimlerine bağlı olarak sayı "uygulama kullanım örneklerinin toplam sayısı x toplam." olabilir
+Yukarıda gösterilen üç dosya deseni Azure AD B2C'yi yerleşik ilkeleri izleyin, ancak Azure portalında arka planda uzantıları dosyasına değişiklikler yaparken Geliştirici yalnızca RP dosya görür.
 
+## <a name="custom-policy-core-concepts"></a>Özel ilke temel kavramlar
 
-Yukarıda gösterilen üç dosya deseni Azure AD B2C'yi yerleşik ilkeleri izleyin, ancak Geliştirici Portalı arka planda uzantıları dosyasına değişiklikler yaparken, yalnızca bağlı olan taraf (RP) dosya görür.
+Azure'da müşteri kimlik ve erişim yönetimi (CIAM) hizmeti içerir:
 
-## <a name="core-concepts-you-should-know-when-using-custom-policies"></a>Özel ilkeler kullanırken bilmeniz gereken temel kavramlar
+- Bir kullanıcı, Microsoft Graph'ı kullanarak erişilebilir olduğundan ve yerel hesaplar hem de Federasyon hesapları için kullanıcı verilerini tutan dizin.
+- Erişim **kimlik deneyimi çerçevesi** , kullanıcılar ve varlıklar arasındaki güven düzenler ve talep bir kimlik veya erişim yönetim görevini tamamlamak için bunlar arasında geçirir. 
+- Kimliği belirteçleri, yenileme belirteçleri, erişim belirteçleri (ve eşdeğer SAML onaylamalarını) sorunları ve bunları kaynakları korumak için doğrulama güvenlik belirteci hizmeti (STS).
 
-### <a name="azure-active-directory-b2c"></a>Azure Active Directory B2C
+Azure AD B2C kimlik görevi başarmak için sırada kimlik sağlayıcıları, kullanıcılar, diğer sistemler ve yerel kullanıcı dizini ile etkileşime girer. Örneğin, bir kullanıcının oturumunu, yeni bir kullanıcı kaydı veya parola sıfırlama. Kimlik deneyimi çerçevesi ve (bir kullanıcı yolculuğu ya da bir güven framework ilkesi olarak da bilinir) bir ilke çok taraflı güven oluşturur ve aktör, eylemleri, protokoller ve bir dizi adımdan tamamlamak için açıkça tanımlar.
 
-Azure'nın Müşteri Kimliği ve erişim yönetimi (CIAM) hizmeti. Hizmet içerir:
+Kimlik deneyimi çerçevesi Openıdconnect, OAuth, SAML, WSFed ve birkaç standart olmayan yorumlar, örneğin REST gibi standart protokol biçimlerde varlıklar arasında güven düzenleyen bir tam olarak yapılandırılabilir, ilke odaklı, bulut tabanlı Azure platformudur API tabanlı--sisteme değişimleri talepleri. Framework, HTML ve CSS destekleyen kullanıcı dostu, beyaz etiketli deneyimler oluşturur.
 
-1. Bir özel amaçlı Azure Active Directory ile Microsoft Graph ve kullanıcı verilerini yerel hesaplar hem de Federasyon hesapları için tutan erişilebilir biçiminde bir kullanıcı dizini 
-2. Erişim **kimlik deneyimi çerçevesi** , kullanıcılar ve varlıklar arasındaki güven düzenleyen ve talep bir kimlik/erişim yönetim görevini tamamlamak için bunlar arasında geçirir. 
-3. Kaynakları korumak için onları doğrulamak ve kimliği belirteçleri, yenileme belirteçleri, erişim belirteçleri (ve eşdeğer SAML onaylamalarını) veren bir güvenlik belirteci hizmeti (STS).
-
-Azure AD B2C kimlik görevi başarmak için sırada kimlik sağlayıcıları, kullanıcılar, diğer sistemler ve yerel kullanıcı dizini etkileşim (örneğin bir kullanıcı oturum açma yeni bir kullanıcı kaydı, parola sıfırlama). Çok taraflı güven oluşturur ve bu adımları yürüten temel platform kimlik deneyimi çerçevesi ve bir ilke (bir kullanıcı yolculuğu ya da bir güven framework ilkesi olarak da bilinir) olarak adlandırılır açıkça tanımlar aktörleri, eylemleri, protokoller ve tamamlamak için adımlar dizisi.
-
-### <a name="identity-experience-framework"></a>Kimlik Deneyimi Altyapısı
-
-Openıdconnect, OAuth, SAML, WSFed ve birkaç standart olmayan yorumlar (örneğin REST gibi standart Protokolü (geniş kapsamda talep sağlayıcıları) varlıklar arasında güven düzenleyen bir tam olarak yapılandırılabilir, ilke odaklı, bulut tabanlı Azure platformu biçimleri API-based sistemi sistemi talep değişimleri). HTML, CSS ve javascript desteği kullanıcı dostu, beyaz etiketli deneyimleri I2E oluşturur.  Bugün, kimlik deneyimi çerçevesi için CIAM ilgili görevler için öncelikli ve yalnızca Azure AD B2C hizmetinde bağlamında kullanılabilir.
-
-### <a name="built-in-policies"></a>Yerleşik ilkeler
-
-Güvenilir kişilere ilişkilerini de önceden tanımlanmış (Azure AD B2C ' en yaygın olarak gerçekleştirmek için Azure AD B2C davranışını doğrudan dosyaları kullanılan kimlik görevler (diğer bir deyişle, kullanıcı kaydı, oturum açma, parola sıfırlama) ve etkileşim yapılandırmasıyla önceden tanımlanmış Örneğin Facebook kimlik sağlayıcısı, LinkedIn, Microsoft Account, Google hesapları).  Gelecekte, yerleşik ilkeleri özelleştirmesi genellikle Azure Active Directory Premium, Active Directory/ADFS, Salesforce kimlik sağlayıcısı vb. gibi Kurumsal bölgedeki kimlik sağlayıcıları için de sağlayabilir.
-
-
-### <a name="custom-policies"></a>Özel ilkeler
-
-Azure AD B2C kiracınızda kimlik deneyimi çerçevesi davranışını tanımlayan yapılandırma dosyaları. Özel bir ilke olarak (örneğin bir uygulama) bağlı olan taraf tarafından çağrıldığında kimlik deneyimi çerçevesi tarafından yürütülen (ilke dosyaları tanımları bakın) bir veya birden çok XML dosyaları erişilebilir. Özel ilkeler doğrudan bir neredeyse sınırsız sayıda görevleri tamamlamak için kimlik geliştiriciler tarafından düzenlenebilir. Özel ilkeler yapılandırma geliştiriciler güvenilir ilişkiler meta veri uç noktalarını eklemek için dikkatli ayrıntılı olarak tanımlamanız gerekir, tam talep tanımları exchange ve gizli dizileri, anahtarlar ve sertifikalar her bir kimlik sağlayıcısı tarafından gerektiği şekilde yapılandırın.
-
-## <a name="policy-file-definitions-for-identity-experience-framework-trust-frameworks"></a>Kimlik deneyimi çerçevesi güven çerçeveler için ilke dosyası tanımları
-
-### <a name="policy-files"></a>İlke dosyaları
-
-Özel bir ilke birbirleriyle hiyerarşik bir zincirinde başvuran bir veya birden çok XML biçimli dosya olarak temsil edilir. XML öğeleri tanımlayın: şema talep, talep dönüşümleri, içerik tanımları, talep sağlayıcıları/teknik profilleri ve diğer öğeleri arasında kullanıcı yolculuğu düzenleme adımlarının.  İlke dosyaları üç tür kullanılmasını öneririz:
-
-- **TEMEL dosya** çoğu tanımları ve eksiksiz bir örnek Azure sağlayan içerir.  Sorun giderme ve uzun süreli bakım ilkelerinizin yardımcı olmak için bu dosyaya yaptığınız değişiklikleri en az sayıda öneririz
-- **bir uzantı dosyası** kiracınız için benzersiz yapılandırma değişikliklerini içeren
-- **bir bağlı olan taraf (RP) dosyası** doğrudan uygulamaya veya hizmete (diğer adıyla bağlı olan taraf) tarafından çağrılan tek görev odaklı dosyasıdır.  Daha fazla bilgi için ilke dosyası tanımları makalesini okuyun.  Benzersiz her görev kendi RP gerektirir ve markalama gereksinimlerine bağlı olarak sayı "toplam uygulama kullanım örneklerinin toplam sayısı x" olabilir.
-
-![İlke dosya türleri](media/active-directory-b2c-overview-custom/active-directory-b2c-overview-custom-policy-files.png)
-
-| İlke dosyası türü | Örnek dosya adı | Önerilen kullanım | Devraldığı |
-|---------------------|--------------------|-----------------|---------------|
-| TEMEL |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com B2C 1A_BASE1.xml | Çekirdek talep şeması, talep dönüştürmeleri, talep sağlayıcıları ve Microsoft tarafından yapılandırılan kullanıcı yolculuklarından içerir<br><br>Bu dosya için en az değişiklik | None |
-| Uzantı (Dış) | TrustFrameworkExtensions.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_EXT.xml | TEMEL dosya burada yaptığınız değişiklikleri birleştirin<br><br>Değiştirilen talep sağlayıcıları<br><br>Değiştirilen kullanıcı yolculuklarından<br><br>Kendi özel şema tanımları | TEMEL dosya |
-| Bağlı olan taraf (RP) | B2C_1A_sign_up_sign_in.xml| Belirteç şekli ve oturumu burada ayarları| Extensions(ext) dosyası |
+Özel ilke bir veya hiyerarşi zincirinde birbirine başvuran daha fazla XML biçimindeki dosyadan oluşabilir. XML öğeleri, talep şema, talep dönüştürmeleri, içerik tanımlarını, talep sağlayıcıları, teknik profiller ve diğer öğeleri arasında kullanıcı yolculuğu düzenleme adımları tanımlayın. Özel bir ilke, bağlı olan taraf tarafından çağrıldığında kimlik deneyimi çerçevesi tarafından yürütülen bir veya birden çok XML dosyası olarak erişilebilir. Özel ilkeler yapılandırma geliştiriciler güvenilir ilişkiler meta veri uç noktalarını eklemek için dikkatli ayrıntılı olarak tanımlamanız gerekir, tam talep tanımları exchange ve gizli dizileri, anahtarlar ve sertifikalar her bir kimlik sağlayıcısı tarafından gerektiği şekilde yapılandırın.
 
 ### <a name="inheritance-model"></a>Devralma modeli
 
-Bir uygulama RP ilke dosyası çağırdığında, B2C içinde kimlik deneyimi çerçevesi tüm öğeleri tabanından sonra UZANTILARI ekleyecek ve son olarak geçerli ilke etkin derlemek için RP ilke dosyasından.  Öğeleri aynı türde ve RP dosya adı UZANTILARI içinde geçersiz kılınır ve UZANTILARI temel geçersiz kılar.
-
-**Yerleşik ilkeler** Azure AD B2C'de, yukarıda gösterilen 3-dosya deseni izleyin, ancak Geliştirici Portalı arka planda uzantı dosyasına değişiklikler yaparken, yalnızca bağlı olan taraf (RP) dosya görür.  Tüm Azure AD B2C'in Azure B2C takım denetimi altında olan ve sık sık güncelleştirilir temel ilke dosyası paylaşır.
+Bir uygulama RP ilke dosyası çağırdığında, Azure AD B2C'de kimlik deneyimi çerçevesi tüm öğeleri temel dosya, uzantıları dosyasından ve ardından geçerli ilke etkin derlemek için RP ilke dosyası ekler.  Öğeleri aynı türde ve RP dosya adı uzantıları ve uzantıları geçersiz kılma temel geçersiz kılar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

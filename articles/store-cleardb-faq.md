@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f078cad95d39c18a8391bc32100d08accc53c37c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f145e879dab4484d647cf8ea21582958df0f0cd4
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215212"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665731"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Azure Uygulama Hizmeti ile ClearDB MySQL veritabanları hakkında SSS
 Bu SSS ClearDB MySQL veritabanları, Azure Web Apps için satın alma ve kullanma hakkında sık sorulan soruları yanıtlar.
@@ -41,7 +41,7 @@ ClearDB, bir MySQL barındırma hizmeti olan ve MySQL altyapı sizin yerinize y�
 ## <a name="do-i-need-a-credit-card-for-the-web-app--mysql-template-in-the-azure-marketplace"></a>Kredi kartı kullanmam gerekiyor için Web uygulaması + MySQL şablonu Azure Marketi'nde?
 Bu, kullanmakta olduğunuz abonelik türüne bağlıdır. Bazı yaygın olarak kullanılan abonelik türleri şunlardır:
 
-* [Kullandıkça Öde](/offers/ms-azr-0003p/): bir kredi kartı ve Ücretli bir MySQL veritabanı, kredi kartınıza ücret satın aldığınızda gerektirir.
+* [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/): bir kredi kartı ve Ücretli bir MySQL veritabanı, kredi kartınıza ücret satın aldığınızda gerektirir.
 * [Ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/): Microsoft Azure ile kullanmak üzere Hizmetleri ancak üçüncü taraf kaynakların satın alma izin vermeyen krediler içerir. Üçüncü taraf Hizmetlerinde veya kredi kartı kullanmanız gerekir, ücretli bir MySQL veritabanı satın almak için abonelik etkin. Web Apps için ücretsiz ClearDB MySQL veritabanı oluşturabilirsiniz.
 * [MSDN aboneliği](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) ve **MSDN Geliştirme ve Test Kullandıkça Öde**: benzer şekilde, ücretsiz deneme, MSDN aboneliği Cleardb'den MySQL çözüm Ücretli satın almak için bir kredi kartı olmasını gerektirir.
 * [Kurumsal Anlaşma (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): her üç ay için tüm Azure Marketi (üçüncü taraf) aldıklarını birleştirilmiş, ayrı bir fatura EA müşterileri EA'ya göre faturalandırılır. Marketi satın alma işlemleri için parasal taahhüdü dışında faturalandırılır. Şu anda Azure Store müşterileri tarafından Azerbaycan, Hırvatistan, Norveç ve Porto Riko kayıtlı değil, lütfen unutmayın. 
@@ -109,5 +109,5 @@ Doğrudan olmayan EA müşterileri, Azure Marketi abonelikleri üzerinde bulabil
 İlgili kişi [Kurumsal Müşteri Destek](http://aka.ms/AzureEntSupport) kendi EA kaydı altında faturalama bakımından. EA Portal destek ekibi, sorunuzun yanıtlanması veya sorununuzu çözmenize yardımcı olması.
 
 ## <a name="more-information"></a>Daha fazla bilgi
-[Azure Market SSS](/marketplace/faq/)
+[Azure Market SSS](https://azure.microsoft.com/marketplace/faq/)
 

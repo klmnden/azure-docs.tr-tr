@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 09/04/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4e894eaee6bb151b480204905d0a98324f5c353b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 86e72787347cddd399fbdde4cd943b86ba48375f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049604"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697841"
 ---
 # <a name="update-the-mysql-resource-provider"></a>MySQL kaynak sağlayıcısını güncelle 
 
@@ -31,6 +31,7 @@ Azure Stack yapılar güncelleştirildiğinde yeni bir SQL kaynak sağlayıcıs�
 >Güncelleştirmeleri yayımlandıktan sırayla yüklemeniz gerekir. Sürümleri atlayamazsınız. Sürümleri listesinde başvurmak [kaynak sağlayıcı önkoşulları dağıtma](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
 ## <a name="update-the-mysql-resource-provider-adapter-integrated-systems-only"></a>MySQL kaynak sağlayıcısı bağdaştırıcısını (yalnızca tümleşik sistemleri) güncelleştirme
+
 Azure Stack yapılar güncelleştirildiğinde yeni bir SQL kaynak sağlayıcısı bağdaştırıcısını serbest bırakılması. Mevcut bağdaştırıcısı çalışmaya devam ederken için en son sürüme mümkün olan en kısa sürede güncelleştirilmesi önerilir.  
  
 Kullandığınız kaynak Sağlayıcısı'nı güncelleştirmek için **UpdateMySQLProvider.ps1** betiği. İşlem bölümünde anlatıldığı gibi bir kaynak sağlayıcısını yüklemek için kullanılan işlem benzer [kaynak sağlayıcısı dağıtma](#deploy-the-resource-provider) bu makalenin. Betik kaynak sağlayıcısının indirmeye dahil edilir. 
@@ -97,6 +98,7 @@ Bu parametreleri komut satırında belirtebilirsiniz. Bunu yapmazsanız veya her
 | **AzCredential** | Azure Stack hizmet yönetici hesabının kimlik bilgileri. Azure Stack dağıtmak için kullanılan kimlik bilgilerini kullanın. | _Gerekli_ | 
 | **VMLocalCredential** |SQL kaynak sağlayıcısı VM yerel yönetici hesabı için kimlik bilgileri. | _Gerekli_ | 
 | **PrivilegedEndpoint** | Ayrıcalıklı uç noktasının DNS adı veya IP adresi. |  _Gerekli_ | 
+| **AzureEnvironment** | Azure Stack dağıtmak için kullanılan hizmet yönetici hesabının azure ortamı. Yalnızca AD FS değilse gereklidir. Desteklenen ortam adları **AzureCloud**, **AzureUSGovernment**, veya bir Çin'de Azure Active Directory'yi kullanarak **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Sertifika .pfx dosyanızı bu dizinde yerleştirilmelidir. | _İsteğe bağlı_ (_zorunlu_ çok düğümlü için) | 
 | **DefaultSSLCertificatePassword** | .Pfx sertifika için parola. | _Gerekli_ | 
 | **MaxRetryCount** | Her işlem bir hata olursa yeniden denemek istiyor sayısı.| 2 | 

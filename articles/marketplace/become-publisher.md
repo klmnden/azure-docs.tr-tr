@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4d37aba665fd9b6de89f683ce2785a14b1b6f60b
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: c6f074b84b099f6ea5023967fdae7e44d5e9d545
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412024"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666393"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bulut Market yayımcısı olur
 
@@ -74,7 +74,8 @@ Aşağıdaki bilgiler istenir:
 
 ---  
 ## <a name="4-sign-into-cloud-partner-portal"></a>4. Bulut iş ortağı Portalı'nda oturum açın
-| 1 ila 3 gün | Market ekleme ekibimiz gözden geçirin ve adım 3'te sağlanan Market kayıt ayrıntılarını doğrulayın. Onaylandıktan sonra bir Hoş Geldiniz e-posta ile hesap kimlik bilgilerini ve oturum açma için yönergeler alırsınız [bulut iş ortağı portalı](https://cloudpartner.azure.com).
+| 1 ila 3 gün | <br>
+Market ekleme ekibimiz gözden geçirin ve adım 3'te sağlanan Market kayıt ayrıntılarını doğrulayın. Onaylandıktan sonra bir Hoş Geldiniz e-posta ile hesap kimlik bilgilerini ve oturum açma için yönergeler alırsınız [bulut iş ortağı portalı](https://cloudpartner.azure.com).
 
 Kullanacağınız [bulut iş ortağı portalı](https://cloudpartner.azure.com) oluşturmak için yayımlama ve Market teklifleri yönetin. Onay Hoş Geldiniz e-postası aldıktan sonra hemen üzerinde oturum açabileceğiniz [bulut iş ortağı portalı](https://cloudpartner.azure.com) Market'te yayımlama ve teklifinizi oluşturma hakkında ek teknik bilgiler erişmek için Microsoft hesabınızla. 
 *   Bulut iş ortağı portalı kullanma hakkında daha fazla bilgi için [edinin bölümünde Başlarken makaleyi ziyaret](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal). Bu ayrıntılar erişmek için bulut iş ortağı portalı oturum açmanız gerekir.

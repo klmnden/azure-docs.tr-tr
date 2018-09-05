@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2018
+ms.date: 09/04/2018
 ms.author: kumud
-ms.openlocfilehash: 5ceddb1bcd6ce89f7014e034b56c873f02cc2007
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: ecc33fc6078dac4affe3942f1be7e039ae9e9e70
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190742"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695434"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer sistem durumu araştırmaları
 
@@ -36,7 +36,7 @@ Kullanılabilir sistem durumu araştırmaları türlerini ve hangi SKU, yük Den
 > [!IMPORTANT]
 > Yük Dengeleyici sistem durumu araştırmalarını 168.63.129.16 IP adresinden kaynaklanan ve örneğinizin işaretlemek için araştırmalar için engellenen değil gerekir.  Gözden geçirme [araştırma kaynak IP adresi](#probesource) Ayrıntılar için.
 
-## <a name="types"></a>Sistem durumu araştırması türleri
+## <a name="types"></a>Araştırma türleri
 
 Sistem durumu araştırmaları, bir arka uç örneğindeki gerçek hizmetinin sağlanan bağlantı noktası dahil olmak üzere herhangi bir bağlantı noktası gözlemleyebilirsiniz. Sistem durumu araştırması protokolü, üç farklı türde sistem durumu araştırmaları için yapılandırılabilir:
 
@@ -161,7 +161,7 @@ Yük Dengeleme kuralı tek bir durum araştırması ilgili arka uç havuzuna tan
 
 ## <a name="probedown"></a>Davranışı araştırma
 
-### <a name="tcp-connections"></a>TCP Bağlantıları
+### <a name="tcp-connections"></a>TCP bağlantıları
 
 Yeni bir TCP bağlantısı iyi durumda olan ve bir konuk işletim sistemi ve uygulama yeni bir akış kabul etmeyi arka uç örneğe başarılı olur.
 

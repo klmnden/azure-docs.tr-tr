@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
-ms.openlocfilehash: 4959e4e3a0692837a7775eaf813a8fcff925312d
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 6729c87dcc9a85e2e3ccb6b4822213d38e2ba6f7
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918025"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666123"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure App Service yerel önbelleğe genel bakış
 
@@ -44,13 +44,15 @@ Azure uygulama hizmeti yerel önbelleğinden özelliği bir web rolü içeriğin
 * Planlanmış yükseltme veya plansız kapalı kalma süreleri ve Azure depolama ile içerik Paylaşımı hizmet sunucularda ortaya diğer kesintileri bağışıklığı değildirler.
 * Depolama paylaşımı değişiklikleri nedeniyle daha az uygulama yeniden başlatma sahiptirler.
 
-## <a name="how-local-cache-changes-the-behavior-of-app-service"></a>Yerel önbellek App Service'in davranışını nasıl değiştirir
-* Yerel önbellek, web uygulamasının /site ve /siteextensions klasörleri bir kopyasıdır. Web uygulaması başlangıç yerel sanal makine örneğinde oluşturulur. Web uygulaması başına yerel önbellek boyutu varsayılan olarak 300 MB ile sınırlıdır, ancak en fazla 2 GB artırın.
-* Yerel önbellek, okunur-yazılır olmuştur. Web uygulaması sanal makineleri taşır veya yeniden ancak değişiklikler atılır. Yerel önbellek, görev açısından kritik veri içerik deposuna uygulamalar için kullanmayın.
-* Web uygulamaları, şu anda yaptığınız gibi günlük dosyaları ve tanılama verilerini yazmak devam edebilirsiniz. Günlük dosyaları ve verileri, ancak yerel olarak VM üzerinde depolanır. Ardından bunlar üzerinden düzenli aralıklarla paylaşılan içerik deposuna kopyalanır. Paylaşılan içerik deposu için best-case bir çaba--telefonla geri nedeniyle sanal makine örneği ani bir kilitlenme için kaybolabileceğini yazma kopyasıdır.
-* Yerel önbellek kullanan web uygulamaları için LogFiles ve veri klasörlerin klasörü yapısı içinde bir değişiklik yoktur. "Benzersiz tanımlayıcı" + zaman damgası adlandırma desenini izler depolama LogFiles ve veri klasörler, artık alt klasörler var. Her alt burada web uygulamasını çalıştıran veya çalışan bir VM örneğine karşılık gelir.  
-* Herhangi bir yayımlama mekanizmalar aracılığıyla web uygulaması için yayımlama değişiklikleri kalıcı paylaşılan içerik deposu yayımlar. Web uygulamasının yerel önbelleği yenilemek için yeniden başlatılması gerekir. Yaşam döngüsü sorunsuz hale getirmek için bu makaledeki bilgileri bakın.
-* D:\Home yerel önbelleğe işaret eder. D:\Local geçici sanal Makineye özgü depolama alanına işaret edecek şekilde devam eder.
+## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Yerel önbellek App Service'in davranışını nasıl değiştirir
+* _D:\home_ uygulama başlatıldığında VM örneğine göre oluşturulan yerel önbellek işaret eder. _D:\Local_ geçici sanal Makineye özgü depolama alanına işaret edecek şekilde devam eder.
+* Tek seferlik bir kopyasını yerel önbellek içeren _/site_ ve _/siteextensions_ paylaşılan içerik deposu, klasör, _D:\home\site_ ve _D:\home\ siteextensions_sırasıyla. Uygulama başlatıldığında dosyalar yerel önbelleğe kopyalanır. Her uygulama için iki klasör boyutu varsayılan olarak 300 MB ile sınırlıdır, ancak en fazla 2 GB artırın.
+* Yerel önbellek, okunur-yazılır olmuştur. Uygulama, sanal makineleri taşır veya yeniden ancak değişiklikler atılır. Yerel önbellek, görev açısından kritik veri içerik deposuna uygulamalar için kullanmayın.
+* _D:\home\LogFiles_ ve _D:\home\Data_ günlük dosyaları ve uygulama verilerini içerir. İki alt klasör VM örneğine göre yerel olarak depolanır ve paylaşılan içerik deposu için düzenli olarak kopyalanır. Uygulamaları günlük dosyaları ve verileri, bu klasörlere yazarak devam edebilir. Ancak, günlük dosyalarını ve sanal makine örneği ani bir kilitlenme nedeniyle kaybolacak veri mümkündür paylaşılan içerik deposu için kopyalama en yüksek çaba olduğundan.
+* [Günlük akışını](web-sites-enable-diagnostic-log.md#streamlogs) en yüksek çaba kopyaya göre etkilenir. Akış günlüklerindeki bir dakikalık gecikme kadar mümkün.
+* Paylaşılan içerik deposu klasörü yapısı içinde bir değişiklik olduğunda _LogFiles_ ve _veri_ klasörler için yerel önbellek kullanan uygulamalar. Var. Şimdi alt klasörler "benzersiz tanımlayıcı" + zaman damgası adlandırma desenini izler, bunların Her alt burada uygulama çalıştıran veya çalışan bir VM örneğine karşılık gelir.
+* Diğer klasörler üzerinde _D:\home_ yerel önbellekte kalmasını ve paylaşılan içerik deposu için kopyalanmaz.
+* Uygulama dağıtımı desteklenen herhangi bir yöntem aracılığıyla doğrudan kalıcı paylaşılan içerik deposu için yayımlar. Yenilemek için _D:\home\site_ ve _D:\home\siteextensions_ klasörler yerel önbellekte uygulamanın yeniden başlatılması gerekir. Yaşam döngüsü sorunsuz hale getirmek için bu makaledeki bilgileri bakın.
 * SCM sitesine varsayılan içerik görünümü, paylaşılan içerik deposu olmaya devam eder.
 
 ## <a name="enable-local-cache-in-app-service"></a>App Service yerel önbellek etkinleştir

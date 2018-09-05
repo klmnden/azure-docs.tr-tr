@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8af304d28be9b0884a50d60911d901818b514752
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 2d7226f18eb922eaba3c8184656560c33202ef56
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338916"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665443"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>PIM'de Azure AD dizini rol ayarlarını yapılandırma
 
@@ -82,7 +82,7 @@ Kullanım **multi-Factor Authentication** rollerinin etkinleştirilebilmesi MFA 
   * Skype Kurumsal yöneticisi  
   * Kullanıcı hesabı yöneticisi  
 
-MFA PIM ile kullanma hakkında daha fazla bilgi için bkz. [Azure AD dizin rollerini PIM için çok faktörlü kimlik doğrulaması gerektiren](pim-how-to-require-mfa.md).
+Daha fazla bilgi için [multi factor authentication (MFA) ve PIM](pim-how-to-require-mfa.md).
 
 ## <a name="require-approval"></a>Onay iste
 
@@ -110,5 +110,4 @@ Bir rolü etkinleştirmek için onay gerektir istiyorsanız, aşağıdaki adıml
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Azure AD dizin rollerini PIM atayın](pim-how-to-add-role-to-user.md)
-- [Azure AD dizin rollerini PIM için çok faktörlü kimlik doğrulaması gerektir](pim-how-to-require-mfa.md)
 - [Azure AD Dizin rolleri için güvenlik uyarıları PIM'de yapılandırın](pim-how-to-configure-security-alerts.md)

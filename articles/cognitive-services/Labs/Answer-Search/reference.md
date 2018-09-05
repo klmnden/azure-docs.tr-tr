@@ -9,12 +9,12 @@ ms.technology: project-answer-search
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: a12761c2d913cd7ffaa2cbc2cd42576c6bc96434
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 28a73918b50d7b13248fe5b6a17f2c95287a1ba4
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866993"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666297"
 ---
 # <a name="project-answer-search-v7-reference"></a>Proje yanıt arama v7 başvurusu
 
@@ -63,7 +63,7 @@ Maksimum sorgu URL'SİNİN uzunluğu 2.048 karakterdir. URL uzunluğu sınırı 
   
 |Üst bilgi|Açıklama|  
 |------------|-----------------|  
-|Kabul|İsteğe bağlı isteği üstbilgisi.<br /><br /> Varsayılan medya türü application/json şeklindedir. Yanıt kullandığını belirtmek için [JSON-LD](http://json-ld.org/), uygulama/ld + json Accept üst bilgisi ayarlayın.|  
+|Kabul Ediyorum|İsteğe bağlı isteği üstbilgisi.<br /><br /> Varsayılan medya türü application/json şeklindedir. Yanıt kullandığını belirtmek için [JSON-LD](http://json-ld.org/), uygulama/ld + json Accept üst bilgisi ayarlayın.|  
 |<a name="acceptlanguage" />Kabul dil|İsteğe bağlı isteği üstbilgisi.<br /><br /> Kullanıcı arabirimi dizeleri için kullanılacak dil virgülle ayrılmış listesi. Tercih sırasına göre azalan düzende listesidir. Beklenen biçim'dahil olmak üzere daha fazla bilgi için bkz. [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Bu üst bilgi ve [setLang](#setlang) sorgu parametresi karşılıklı olarak birbirini dışlar&mdash;her ikisini birden belirtmeyin.<br /><br /> De belirtmeniz gerekir bu başlığı ayarlarsanız [cc](#cc) sorgu parametresi. Pazar için sonuçlar döndürecek şekilde belirlemek için Bing listeden bulur ve bununla birleştirir ilk desteklenen dil kullanan `cc` parametre değeri. Liste, desteklenen bir dil içermiyorsa, Bing en yakın dil ve istek destekleyen Pazar bulur veya pazar sonuçları için varsayılan veya bir toplanmış kullanır. Bing kullanılan Pazar belirlemek için BingAPIs pazara açılma üstbilgi bakın.<br /><br /> Bu üstbilgiyi kullanır ve `cc` birden çok dil belirtirseniz sorgu parametresi. Aksi takdirde kullanın [mkt](#mkt) ve [setLang](#setlang) sorgu parametreleri.<br /><br /> Bir kullanıcı arabirimi dizesi kullanıcı arabiriminde bir etiket olarak kullanılan bir dizedir. JSON yanıtı nesneleri birkaç kullanıcı arabirimi dizeleri vardır. Yanıt nesnelerinin Bing.com özelliklerinde herhangi bir bağlantı belirtilen dili uygulayın.|  
 |<a name="market" />BingAPIs-Pazar|Yanıtı üstbilgisi.<br /><br /> İstek tarafından kullanılan Pazar. Form \<languageCode\>-\<countryCode\>. Örneğin, en-US.|  
 |<a name="traceid" />BingAPIs TraceId|Yanıtı üstbilgisi.<br /><br /> İsteğinin ayrıntılarını içeren günlük girdisi kimliği. Bir hata oluştuğunda, bu kimliği yakalama Belirlemek ve sorunu çözmek mümkün değilse, bu kimliği yanı sıra destek ekibinin sağladığı diğer bilgiler içerir.|  
@@ -121,7 +121,7 @@ Başarısız istek olduğunda yanıt içeren üst düzey nesnesi.
 |Ad|Değer|Tür|  
 |----------|-----------|----------|  
 |_türü|Tür ipucu.|Dize|  
-|<a name="errors" />hataları|İsteğin neden başarısız olma nedenlerini tanımlayan hataların listesi.|[Hata](#error)]|  
+|<a name="errors" />Hataları|İsteğin neden başarısız olma nedenlerini tanımlayan hataların listesi.|[Hata](#error)|  
 
   
   

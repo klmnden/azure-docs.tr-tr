@@ -15,20 +15,20 @@ ms.component: pim
 ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: bc60c0dbe6c609a08907feb243fe514badfe3e4e
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 9402824540f965cb89aa00791d093bd87712a89a
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288084"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665851"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-directory-roles-in-pim"></a>Onaylayın veya Azure AD dizin rollerini PIM isteklerini reddedin
 
-Azure AD Privileged Identity Management ile (PIM), rollerini etkinleştirme için onay gerektirecek şekilde yapılandırın ve bir veya birden çok kullanıcı veya grup onaylayanlara temsilci olarak seçin.
+Azure AD Privileged Identity Management ile (PIM), rollerini etkinleştirme için onay gerektirecek şekilde yapılandırın ve bir veya birden çok kullanıcı veya grup onaylayanlara temsilci olarak seçin. Onaylayın veya reddedin istekleri için Azure AD Dizin rolleri için bu makaledeki adımları izleyin.
 
 ## <a name="view-pending-requests"></a>Bekleyen istekleri görüntüleme
 
-Onayınızı bekleyen istek olduğunda, bir temsilci onaylayan olarak e-posta bildirimleri alırsınız. Bu bekleyen istekler PIM'de görüntüleyebilirsiniz.
+Onayınızı bekleyen bir Azure AD dizini rol istek olduğunda, bir temsilci onaylayan olarak bir e-posta bildirimi alırsınız. Bu bekleyen istekler PIM'de görüntüleyebilirsiniz.
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
@@ -42,7 +42,7 @@ Onayınızı bekleyen istek olduğunda, bir temsilci onaylayan olarak e-posta bi
 
     Onayınızı bekleyen isteklerinin bir listesini görürsünüz.
 
-## <a name="approve-requests"></a>İstekleri onayla
+## <a name="approve-requests"></a>İstekleri onaylama
 
 1. İstekleri onaylama ve ardından istediğiniz seçin **Onayla** Onayla açmak için istekleri bölmesinde seçili.
 
@@ -74,5 +74,5 @@ Onayınızı bekleyen istek olduğunda, bir temsilci onaylayan olarak e-posta bi
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Onaylayın veya reddedin PIM Azure kaynak rolleri için istekleri](pim-resource-roles-approval-workflow.md)
 - [PIM e-posta bildirimleri](pim-email-notifications.md)
+- [Onaylayın veya reddedin PIM Azure kaynak rolleri için istekleri](pim-resource-roles-approval-workflow.md)

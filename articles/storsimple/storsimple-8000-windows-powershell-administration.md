@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 291de21d3d98bf9eb65adc7d506f3549171ee0a0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9408531a9e24af93359b562ed022b3d8253851e8
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696829"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665693"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Cihazınızı yönetmek için StorSimple için Windows PowerShell kullanma
 
@@ -37,7 +37,7 @@ Bu makaleyi okuduktan sonra şunları yapabilir:
 
 > [!NOTE]
 > * StorSimple cmdlet'leri için Windows PowerShell, StorSimple Cihazınızı bir seri konsol üzerinden veya Windows PowerShell uzaktan iletişimini aracılığıyla uzaktan yönetmek izin verin. Bu arabirimde kullanılabilecek tek cmdlet'lerin her birine hakkında daha fazla bilgi için Git [için StorSimple için Windows PowerShell cmdlet başvurusu](https://technet.microsoft.com/library/dn688168.aspx).
-> * Azure PowerShell, StorSimple, StorSimple hizmet düzeyi otomatik hale getirmenizi ve geçiş görevleri komut satırından izin verin cmdlet'lerinin farklı bir koleksiyon cmdlet'leridir. StorSimple için Azure PowerShell cmdlet'leri hakkında daha fazla bilgi için Git [Azure StorSimple cmdlet başvurusu](https://docs.microsoft.com/powershell/servicemanagement/azure.storsimple/v3.1.0/azure.storsimple).
+> * Azure PowerShell, StorSimple, StorSimple hizmet düzeyi otomatik hale getirmenizi ve geçiş görevleri komut satırından izin verin cmdlet'lerinin farklı bir koleksiyon cmdlet'leridir. StorSimple için Azure PowerShell cmdlet'leri hakkında daha fazla bilgi için Git [Azure StorSimple cmdlet başvurusu](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0&viewFallbackFrom=azuresmps-3.7.0#azure).
 
 
 Aşağıdaki yöntemlerden birini kullanarak StorSimple için Windows PowerShell erişebilirsiniz:

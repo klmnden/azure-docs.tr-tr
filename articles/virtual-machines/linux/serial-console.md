@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: d4ca44268740f48702594d9c87aa568d4f8eecb6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: e74ee48f0adc0d8ba0d2ea91b5d82415601f9405
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122414"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702427"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Sanal makinenin seri konsol (Önizleme) 
 
@@ -38,7 +38,7 @@ Windows Vm'leri için seri konsol belgeleri [Buraya](../windows/serial-console.m
 * Sanal makineniz olmalıdır [önyükleme tanılaması](boot-diagnostics.md) etkin - aşağıdaki ekran görüntüsüne bakın.
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
-    
+
 * Seri konsol kullanarak bir Azure hesabınızın olması gerekir [katkıda bulunan rolü](../../role-based-access-control/built-in-roles.md) VM için ve [önyükleme tanılaması](boot-diagnostics.md) depolama hesabı. 
 * Seri konsol indirmesindeki olduğunuz sanal makine de parola tabanlı bir hesabı olmalıdır. İle bir tane oluşturabilirsiniz [parolayı Sıfırla](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) VM erişimi uzantısı - işlevselliğini aşağıdaki ekran görüntüsüne bakın.
 
@@ -124,14 +124,14 @@ Başka bir deyişle, bağlantısı kesilse kullanıcı kapatılacak değil! Bağ
 Seri konsol işlevlerini belirli sanal makineler için bu sanal makinenin önyükleme tanılama ayarı devre dışı bırakılarak devre dışı bırakılabilir.
 
 ## <a name="common-scenarios-for-accessing-serial-console"></a>Seri konsoluna erişmek için genel senaryolar 
-Senaryo          | Seri konsol eylemleri                |  İşletim sistemi uygulanabilirliği 
-:------------------|:-----------------------------------------|:------------------
-FSTAB dosyası bozuk | `Enter` devam etmek ve bir metin düzenleyici kullanarak fstab dosyasını düzeltin anahtarı. Bunun tek kullanıcı modunda olması gerekebilir. Bkz: [fstab sorunlarını gidermeye yönelik](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) ve [GRUB ve tek kullanıcı modu erişmek için seri konsol kullanarak](serial-console-grub-single-user-mode.md) kullanmaya başlamak için. | Linux 
-Yanlış güvenlik duvarı kuralları | Seri konsola erişin, iptables veya Windows Güvenlik duvarı kuralları Düzelt. | Linux/Windows 
-Dosya Sistemi Bozulması/işaretleyin | Seri konsol erişmek ve dosya sistemi kurtarın. | Linux/Windows 
-SSH/RDP yapılandırma sorunları | Seri Konsol erişim ve ayarları değiştirin. | Linux/Windows 
-Sistem ağ kilitleme| Seri konsol sistemini yönetmek için portal aracılığıyla erişim. | Linux/Windows 
-Önyükleme yükleyicisi ile etkileşim kurma | Erişim GRUB/BCD seri Konsolu aracılığıyla. Git [GRUB ve tek kullanıcı modu erişmek için seri konsol kullanarak](serial-console-grub-single-user-mode.md) kullanmaya başlamak için. | Linux/Windows 
+Senaryo          | Seri konsol eylemleri                
+:------------------|:-----------------------------------------
+FSTAB dosyası bozuk | `Enter` devam etmek ve bir metin düzenleyici kullanarak fstab dosyasını düzeltin anahtarı. Bunun tek kullanıcı modunda olması gerekebilir. Bkz: [fstab sorunlarını gidermeye yönelik](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) ve [GRUB ve tek kullanıcı modu erişmek için seri konsol kullanarak](serial-console-grub-single-user-mode.md) kullanmaya başlamak için.
+Yanlış güvenlik duvarı kuralları | Seri konsola erişin, iptables düzeltin. 
+Dosya Sistemi Bozulması/işaretleyin | Seri konsol erişmek ve dosya sistemi kurtarın. 
+SSH/RDP yapılandırma sorunları | Seri Konsol erişim ve ayarları değiştirin. 
+Sistem ağ kilitleme| Seri konsol sistemini yönetmek için portal aracılığıyla erişim. 
+Önyükleme yükleyicisi ile etkileşim kurma | Seri konsol üzerinden GRUB erişim. Git [GRUB ve tek kullanıcı modu erişmek için seri konsol kullanarak](serial-console-grub-single-user-mode.md) kullanmaya başlamak için. 
 
 ## <a name="access-serial-console-for-linux"></a>Linux için seri konsol erişimi
 Okuma ve seri bağlantı noktasına konsol iletileri yazma, düzgün bir şekilde seri konsol için sırada, konuk işletim sistemi yapılandırılması gerekir. Çoğu [desteklenen Azure Linux dağıtımı](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) varsayılan olarak yapılandırılmış seri Konsolu. Yalnızca Azure portalında seri konsol bölümüne tıklayarak konsoluna erişim sağlar. 
@@ -145,6 +145,15 @@ CoreOS      | Azure'da CoreOS görüntülerinden, varsayılan olarak etkin konso
 SUSE        | Azure'da sunulan yeni SLES görüntüleri, varsayılan olarak etkin konsol erişebilir. Azure'da SLES'ın daha eski sürümleri (10 veya aşağıdaki) kullanıyorsanız uygulayın [KB makalesi](https://www.novell.com/support/kb/doc.php?id=3456486) seri konsol etkinleştirmek için. 
 Oracle Linux        | Azure'da Oracle Linux görüntüleri, varsayılan olarak etkin konsol erişebilir.
 Özel Linux görüntüleri     | Seri konsol özel Linux VM görüntünüz için etkinleştirmek üzere bir terminal ttyS0 üzerinde çalıştırılacak /etc/inittab konsol erişimi etkinleştirin. Bu inittab dosyasına eklemek için bir örnek aşağıda verilmiştir: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Düzgün bir şekilde özel görüntü oluşturma hakkında daha fazla bilgi için bkz. [azure'da bir Linux VHD'si oluşturup yükleme](https://aka.ms/createuploadvhd).
+
+## <a name="accessibility"></a>Erişilebilirlik
+Erişilebilirlik bir anahtar Azure seri konsol biridir. Bu amaçla, seri konsol fare kullanmanız mümkün olmayabilir kişilerin yanı sıra visual ve işitme zorluğu yaşayan kişiler erişilebilir olduğunu belirlediniz.
+
+### <a name="keyboard-navigation"></a>Klavye ile gezinme
+Kullanım `tab` With Azure Portal'ın seri konsol arabirimi geçici olarak gezinmek için klavyenizdeki anahtar. Konumunuz ekranda vurgulanır. Seri konsol dikey pencerenin odağı bırakmak için basın `Ctrl + F6` klavyenizde.
+
+### <a name="use-serial-console-with-a-screen-reader"></a>Seri konsol ekran okuyucuyla kullanma
+Seri konsol ekran okuyucu desteği yerleşik olarak bulunur. Açık bir ekran okuyucu ile geçici olarak gezinmek sesli ekran okuyucu tarafından okunacak şu anda seçili düğme için alternatif metin izin verir.
 
 ## <a name="errors"></a>Hatalar
 Doğası gereği geçici hataların çoğu ve adresleri bunlar genellikle seri konsol bağlantısı yeniden deneniyor. Aşağıdaki tabloda, hataları ve risk azaltma işlemleri listesini gösterir

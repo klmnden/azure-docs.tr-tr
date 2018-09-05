@@ -1,9 +1,9 @@
 ---
-title: Azure'da SQLRuleAction söz dizimi başvurusu | Microsoft Docs
+title: SQLRuleAction söz dizimi başvurusu azure'da | Microsoft Docs
 description: SQLRuleAction dilbilgisi hakkında ayrıntılar.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/05/2018
-ms.author: sethm
-ms.openlocfilehash: 9ac9a2968adfdd8e1fb229ad744bc99914cdcd08
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: spelluru
+ms.openlocfilehash: 01833a51425f6a02c5ed781f4b10b22dc292f45d
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29125828"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696406"
 ---
-# <a name="sqlruleaction-syntax"></a>SQLRuleAction sözdizimi
+# <a name="sqlruleaction-syntax"></a>SQLRuleAction söz dizimi
 
-A *SqlRuleAction* örneği [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) sınıfı ve SQL dilinde yazılmış eylemleri temsil kümesi göre karşı gerçekleştirilen sözdizimi bir [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
+A *SqlRuleAction* örneğidir [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) karşı gerçekleştirilen söz dizimi tabanlı sınıf ve SQL dilinde yazılmış eylemleri kümesini temsil eder bir [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
   
 Bu makalede SQL kural eylemi dilbilgisi ayrıntılarını listeler.  
   
@@ -65,11 +65,11 @@ Bu makalede SQL kural eylemi dilbilgisi ayrıntılarını listeler.
   
 ## <a name="arguments"></a>Bağımsız Değişkenler  
   
--   `<scope>`kapsamını belirten isteğe bağlı bir dize `<property_name>`. Geçerli değerler `sys` veya `user`. `sys` Değeri gösterir sistemi kapsamı nerede `<property_name>` bir ortak özellik adı [BrokeredMessage sınıfı](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`Kullanıcı kapsam gösterir nerede `<property_name>` , bir anahtar [BrokeredMessage sınıfı](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) sözlük. `user`Kapsam ise varsayılan kapsamı `<scope>` belirtilmedi.  
+-   `<scope>` kapsamını belirten isteğe bağlı bir dize `<property_name>`. Geçerli değerler `sys` veya `user`. `sys` Değeri gösterir sistem kapsamı burada `<property_name>` ortak özelliği adıdır [BrokeredMessage sınıfı](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` Kullanıcı kapsamını belirtir burada `<property_name>` bir anahtarı [BrokeredMessage sınıfı](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) sözlüğü. `user` Kapsam ise varsayılan kapsam `<scope>` belirtilmedi.  
   
 ### <a name="remarks"></a>Açıklamalar  
 
-Mevcut olmayan kullanıcı özelliği erişme denemesi bir hata olduğundan mevcut olmayan sistem özelliği erişme denemesi bir hata var. Bunun yerine, mevcut olmayan kullanıcı özelliği bilinmeyen bir değere dahili olarak değerlendirilir. Bilinmeyen bir değere özel işleci değerlendirme sırasında kabul edilir.  
+Mevcut olmayan kullanıcı özelliği erişme denemesi bir hata değildir ancak mevcut olmayan sistem özelliği erişme denemesi bir hata var. Bunun yerine, mevcut olmayan kullanıcı özelliği, bilinmeyen bir değer olarak dahili olarak değerlendirilir. Bilinmeyen bir değere işleci değerlendirmesi sırasında özel olarak kabul edilir.  
   
 ## <a name="propertyname"></a>property_name  
   
@@ -84,21 +84,21 @@ Mevcut olmayan kullanıcı özelliği erişme denemesi bir hata olduğundan mevc
 ```  
   
 ### <a name="arguments"></a>Bağımsız Değişkenler  
- `<regular_identifier>`bir dize aşağıdaki normal ifade tarafından temsil edilen:  
+ `<regular_identifier>` bir dize, aşağıdaki normal ifade tarafından temsil edilir:  
   
 ```  
 [[:IsLetter:]][_[:IsLetter:][:IsDigit:]]*  
 ```  
   
- Bu, bir harf ile başlayıp bir veya daha fazla alt çizgi/harf/basamaklı tarafından izlenen herhangi bir dize anlamına gelir.  
+ Bu, bir harf ile başlayan ve bir veya daha fazla alt çizgi/harf/basamak tarafından izlenen herhangi bir dize anlamına gelir.  
   
- `[:IsLetter:]`bir Unicode harf kategorilere herhangi bir Unicode karakter anlamına gelir. `System.Char.IsLetter(c)`döndürür `true` varsa `c` bir Unicode harf.  
+ `[:IsLetter:]` bir Unicode harf kategorilere ayrılır herhangi bir Unicode karakter anlamına gelir. `System.Char.IsLetter(c)` döndürür `true` varsa `c` Unicode harfidir.  
   
- `[:IsDigit:]`ondalık bir sayı kategorilere herhangi bir Unicode karakter anlamına gelir. `System.Char.IsDigit(c)`döndürür `true` varsa `c` Unicode sayıdır.  
+ `[:IsDigit:]` bir ondalık basamak kategorilere ayrılır herhangi bir Unicode karakter anlamına gelir. `System.Char.IsDigit(c)` döndürür `true` varsa `c` bir Unicode basamak.  
   
  A `<regular_identifier>` ayrılmış bir anahtar sözcük olamaz.  
   
- `<delimited_identifier>`sol/sağ köşeli ayraç ([]) içine herhangi bir dize değil. Sağ köşeli ayraç iki sağ köşeli temsil edilir. Örnekleri aşağıda verilmiştir `<delimited_identifier>`:  
+ `<delimited_identifier>` sol/sağ köşeli ayraç ([]) içine bir dizedir. Bir sağ köşeli ayraç iki sağ köşeli ayraç temsil edilir. Aşağıdaki örnekler `<delimited_identifier>`:  
   
 ```  
 [Property With Space]  
@@ -106,13 +106,13 @@ Mevcut olmayan kullanıcı özelliği erişme denemesi bir hata olduğundan mevc
   
 ```  
   
- `<quoted_identifier>`ile çift tırnak işaretleri arasına herhangi bir dize değil. Çift tırnak işareti tanımlayıcıda iki çift tırnak işareti temsil edilir. Bir dize sabiti ile kolayca çakışabilir çünkü tırnak işaretli tanımlayıcılar kullanmak için önerilmez. Sınırlandırılmış bir kimlik mümkünse kullanın. Aşağıdaki örneğidir `<quoted_identifier>`:  
+ `<quoted_identifier>` çift tırnak işareti ile herhangi bir karakter dizisidir. Çift tırnak işareti tanımlayıcı iki çift tırnak işareti temsil edilir. Kolayca bir dize sabitine ile çakışabilir tırnak işaretli tanımlayıcılar kullanmanız önerilmez. Mümkünse, sınırlandırılmış bir kimlik kullanın. Aşağıdaki örneğidir `<quoted_identifier>`:  
   
 ```  
 "Contoso & Northwind"  
 ```  
   
-## <a name="pattern"></a>düzeni  
+## <a name="pattern"></a>Düzeni  
   
 ```  
 <pattern> ::=  
@@ -121,11 +121,11 @@ Mevcut olmayan kullanıcı özelliği erişme denemesi bir hata olduğundan mevc
   
 ### <a name="remarks"></a>Açıklamalar
   
- `<pattern>`bir dize olarak değerlendirilen bir ifade olmalıdır. LIKE işleci için bir desen olarak kullanılır.      Aşağıdaki joker karakterleri içerebilir:  
+ `<pattern>` bir dize olarak değerlendirilen bir ifade olmalıdır. LIKE işleci için bir desen olarak kullanılır.      Bu joker karakterleri içerebilir:  
   
--   `%`: Herhangi bir dize sıfır veya daha fazla karakter.  
+-   `%`: Sıfır veya daha fazla karakter dizesi.  
   
--   `_`: Herhangi bir tek karakteri.  
+-   `_`: Herhangi bir tek karakter.  
   
 ## <a name="escapechar"></a>escape_char  
   
@@ -136,11 +136,11 @@ Mevcut olmayan kullanıcı özelliği erişme denemesi bir hata olduğundan mevc
   
 ### <a name="remarks"></a>Açıklamalar
   
- `<escape_char>`dize uzunluğu 1 olarak değerlendirilen bir ifade olmalıdır. LIKE işleci için bir kaçış karakteri olarak kullanılır.  
+ `<escape_char>` dize uzunluğu 1 olarak değerlendirilen bir ifade olmalıdır. LIKE işleci için bir kaçış karakteri kullanılır.  
   
  Örneğin, `property LIKE 'ABC\%' ESCAPE '\'` eşleşen `ABC%` ile başlayan bir dize yerine `ABC`.  
   
-## <a name="constant"></a>sabiti  
+## <a name="constant"></a>Sabit  
   
 ```  
 <constant> ::=  
@@ -149,27 +149,27 @@ Mevcut olmayan kullanıcı özelliği erişme denemesi bir hata olduğundan mevc
   
 ### <a name="arguments"></a>Bağımsız Değişkenler  
   
--   `<integer_constant>`yalnızca tırnak işaretleri içine değil ve ondalık basamak içeren değil sayı dizesidir. Değerleri olarak depolanan `System.Int64` dahili olarak, aynı aralık izleyin.  
+-   `<integer_constant>` tırnak işaretleri arasına değil ve ondalık basamak içermeyen sayıdan oluşan bir dizedir. Değerleri olarak depolanır `System.Int64` dahili olarak, aynı aralık izleyin.  
   
-     Uzun sabitleri örnekleri verilmiştir:  
+     Uzun sabitleri örnekleri şunlardır:  
   
     ```  
     1894  
     2  
     ```  
   
--   `<decimal_constant>`yalnızca tırnak işaretleri içine değil ve ondalık içeren sayı dizesidir. Değerleri olarak depolanan `System.Double` dahili olarak, aynı aralık/duyarlık izleyin.  
+-   `<decimal_constant>` sayıların tırnak işaretleri arasına değil ve ondalık nokta içeren bir dizedir. Değerleri olarak depolanır `System.Double` dahili olarak, aynı aralık/duyarlık izleyin.  
   
-     Sonraki bir sürümde tam sayı semantiğini desteklemek için farklı bir veri türü bu sayı depolanabilir, arka plandaki olgu üzerinde doğrulamamalısınız veri türü olduğundan `System.Double` için `<decimal_constant>`.  
+     Gelecekte yayımlanacak bir sürümde bu sayının tam sayı semantiği desteklemek için farklı veri türü depolanabilir, arka plandaki olgu üzerinde doğrulamamalısınız veri türü olduğundan `System.Double` için `<decimal_constant>`.  
   
-     Ondalık sabitleri örnekleri verilmiştir:  
+     Ondalık sabitler örnekleri şunlardır:  
   
     ```  
     1894.1204  
     2.0  
     ```  
   
--   `<approximate_number_constant>`bir sayı yazılmış bilimsel gösterim şeklindedir. Değerleri olarak depolanan `System.Double` dahili olarak, aynı aralık/duyarlık izleyin. Yaklaşık sayı sabitleri örnekleri verilmiştir:  
+-   `<approximate_number_constant>` bir sayı ile yazılmış bilimsel gösterim olur. Değerleri olarak depolanır `System.Double` dahili olarak, aynı aralık/duyarlık izleyin. Yaklaşık sayı sabitleri örnekleri şunlardır:  
   
     ```  
     101.5E5  
@@ -185,7 +185,7 @@ Mevcut olmayan kullanıcı özelliği erişme denemesi bir hata olduğundan mevc
   
 ### <a name="remarks"></a>Açıklamalar
   
-Boole sabitleri anahtar sözcükleri tarafından temsil edilen `TRUE` veya `FALSE`. Değerleri olarak depolanan `System.Boolean`.  
+Boole sabit anahtar sözcüklere göre temsil edilir `TRUE` veya `FALSE`. Değerleri olarak depolanır `System.Boolean`.  
   
 ## <a name="stringconstant"></a>string_constant  
   
@@ -195,7 +195,7 @@ Boole sabitleri anahtar sözcükleri tarafından temsil edilen `TRUE` veya `FALS
   
 ### <a name="remarks"></a>Açıklamalar
   
-Dize sabitleri tek tırnak işaretleri içine ve geçerli Unicode karakterler içerir. Bir dize sabitine katıştırılmış tek tırnak işareti, iki tırnak işaretleri tek olarak temsil edilir.  
+Dize sabitleri tek tırnak işaretleri içine alınır ve geçerli Unicode karakterlerini içerir. İki tek tırnak işareti gibi bir dize sabiti katıştırılmış tek tırnak işareti temsil edilir.  
   
 ## <a name="function"></a>işlev  
   
@@ -207,18 +207,18 @@ Dize sabitleri tek tırnak işaretleri içine ve geçerli Unicode karakterler i�
   
 ### <a name="remarks"></a>Açıklamalar  
 
-`newid()` İşlev döndürür bir **System.Guid** tarafından oluşturulan `System.Guid.NewGuid()` yöntemi.  
+`newid()` İşlevinin döndürdükleriyle bir **System.Guid** tarafından oluşturulan `System.Guid.NewGuid()` yöntemi.  
   
-`property(name)` İşlevi tarafından başvurulan özelliğinin değerini döndürür `name`. `name` Değeri bir string değeri döndürür geçerli bir ifade olabilir.  
+`property(name)` İşlevi tarafından başvurulan özelliğin değerini döndürür `name`. `name` Değeri bir dize değeri döndüren herhangi bir geçerli ifade olabilir.  
   
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 
-- Küme, yeni bir özellik oluşturmak veya mevcut bir özellik değerini güncelleştirmek için kullanılır.
+- Yeni bir özellik oluşturmak veya var olan bir özelliğin değerini güncelleştirmek için kullanılır.
 - Kaldır, bir özelliği kaldırmak için kullanılır.
-- İfade türü ve var olan özellik türü farklı olduğunda örtük dönüşüm mümkünse gerçekleştirir.
+- İfade türü ve özellik türü var olan farklı olduğunda KÜMESİ örtük dönüştürme mümkünse gerçekleştirir.
 - Mevcut olmayan Sistem özellikleri başvurulan eylem başarısız olur.
 - Mevcut olmayan kullanıcı özelliklerini başvurulan, eylem başarısız olmaz.
-- Mevcut olmayan kullanıcı özelliği "Bilinmiyor" olarak dahili olarak, aynı topluca aşağıdaki değerlendirilir [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) işleçleri değerlendirirken.
+- Mevcut olmayan kullanıcı özelliği "Bilinmiyor" olarak dahili olarak, aynı semantiklere aşağıdaki değerlendirilir [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) işleçleri değerlendirirken.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

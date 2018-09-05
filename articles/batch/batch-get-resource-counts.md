@@ -6,18 +6,18 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 08/23/2018
 ms.author: danlep
-ms.openlocfilehash: f4bad3d7058e82a246afce9502d275c7d485cb88
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0ef3cc373b3b87bbd1dde5682fbc076e6b77d6a0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009178"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698392"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Görevler ve düğümleri duruma göre sayma tarafından Batch çözümlerini izleme
 
-İzleme ve büyük ölçekli Azure Batch çözümlerinin yönetmek için çeşitli durumları kaynakların doğru sayıları gerekir. Azure Batch, toplu işlemi için bu alınacağı verimli işlemler sağlar *görevleri* ve *işlem düğümlerine*. Bu işlemler, görevler veya düğümleri büyük Koleksiyonlar hakkında ayrıntılı bilgi döndürmek için büyük olasılıkla zaman API çağrıları yerine kullanın.
+İzleme ve büyük ölçekli Azure Batch çözümlerinin yönetmek için çeşitli durumları kaynakların doğru sayıları gerekir. Azure Batch, toplu işlemi için bu alınacağı verimli işlemler sağlar *görevleri* ve *işlem düğümlerine*. Bu işlemler, görevler veya düğümleri büyük Koleksiyonlar hakkında ayrıntılı bilgiler döndürür olası zaman alıcı listesi sorguların yerine kullanın.
 
 * [Görev sayıları alma] [ rest_get_task_counts] etkin, çalışan ve tamamlanmış bir iş görevleri ve başarılı veya başarısız görevlerin bir toplam sayısını alır. 
 
@@ -49,19 +49,15 @@ Console.WriteLine("Task count in preparing or running state: {0}", taskCounts.Ru
 Console.WriteLine("Task count in completed state: {0}", taskCounts.Completed);
 Console.WriteLine("Succeeded task count: {0}", taskCounts.Succeeded);
 Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
-Console.WriteLine("ValidationStatus: {0}", taskCounts.ValidationStatus);
 ```
 
 Görev sayıları için bir işi almak için REST için benzer bir desen ve diğer desteklenen dilleri kullanabilirsiniz. 
- 
 
-### <a name="consistency-checking-for-task-counts"></a>Tutarlılık için görev sayıları denetleniyor
+### <a name="counts-for-large-numbers-of-tasks"></a>Çok sayıda görevler için sayıları
 
-Batch, görev durumu sayıları için ek doğrulama tutarlılık denetimleri sistemin birden çok bileşen karşı gerçekleştirerek sağlar. Olası durumunda tutarlılık hataları bulur, tutarlılık denetimi sonuçlarına göre görevleri sayar alma işleminin sonucu Batch düzeltir.
+Görev sayıları alma işlemi Görev durumlarının sayısını zamanda sistemdeki bir noktada döndürür. İşinizi çok sayıda görev olduğunda, görev alma sayar tarafından döndürülen sayıları tarafından gerçek görev durumlarının kadar birkaç saniye lag. Toplu İşlem sonuçlarını Al görevi sayar (Bu liste görevleri API aracılığıyla sorgulayabilirsiniz) gerçek görev durumlarının arasındaki son tutarlılık sağlar. Ancak, işiniz bir çok sayıda görev varsa (> 200.000), listesi görevleri API'sini kullanmanız önerilir ve [filtrelenmiş sorgu](batch-efficient-list-queries.md) sağlayan bunun yerine, daha fazla güncel bilgi. 
 
-`validationStatus` Yanıt özelliği, Batch tutarlılık denetimi gerçekleştirip gerçekleştirmediğini gösterir. Durum sayıları sistemde tutulan gerçek durumları karşı toplu açmadıysa sonra `validationStatus` özelliği `unvalidated`. Performansla ilgili nedenlerden dolayı iş birden fazla 200.000 görevleri içeriyorsa, tutarlılık denetimi Batch gerçekleştirmez böylece `validationStatus` özelliği `unvalidated` bu durumda. (Sınırlı veri kaybı olasılığı düşük olduğu gibi görev sayısı bu durumda, mutlaka bir sorun değildir.) 
-
-Toplama işlem hattı, bir görev durumu değiştiğinde değişiklik birkaç saniye içinde işler. Görev sayıları Al işlemi, bu süre içinde güncelleştirilmiş görev sayısı yansıtır. Toplama işlem hattı bir görev durumundaki bir değişikliği isabetsizliği varsa, ancak daha sonra bu değişiklik kadar sonraki doğrulama geçişini kayıtlı değil. Bu süre boyunca görev sayıları eksik olay nedeniyle biraz yanlış olabilir ancak bunlar sonraki doğrulama geçişte düzeltildi.
+Batch hizmeti API sürümleri de 2018-08-01.7.0 döndürmeden önce bir `validationStatus` özellik alma görev sayıları yanıt. Bu özellik, Batch durumu listesi görevleri API'SİNDE rapor durumları ile tutarlılık açısından sayar işaretli olup olmadığını gösterir. Değerini `validated` yalnızca toplu işi için en az bir kez tutarlılık için iade gösterir. Değerini `validationStatus` özellik alma görev sayıları döndürür sayıları şu anda güncel olup olmadığını belirtmez.
 
 ## <a name="node-state-counts"></a>Düğüm durumu sayar
 

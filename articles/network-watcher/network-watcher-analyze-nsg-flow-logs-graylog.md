@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 87d7c39a9340a82813f4df971c03a10be56e8f94
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: db3b08ae8092661e6ffa0f2dd7e460f341a8d013
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056101"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666068"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Ağ İzleyicisi ile Graylog kullanarak azure'da ağ güvenlik grubu akış günlüklerini analiz etme ve yönetme
 
@@ -32,7 +32,7 @@ Birçok ağ güvenlik grubu akış günlüğe kaydetme etkin ağınızdaki olabi
 
 Ağ İzleyicisi'ni kullanarak ağ güvenlik grubu akış günlüklerini etkinleştirilir. Azure blob depolama alanına akış günlükleri akış içinde. Logstash eklentisi, bağlanma ve blob depolama alanından akış günlüklerini işlemek ve bunları Graylog için göndermek için kullanılır. Akış günlüklerini içinde Graylog depolandıktan sonra edilebilmeleri analiz ve özelleştirilmiş panolar görselleştirilir.
 
-![Graylog iş akışı]](./media/network-watcher-analyze-nsg-flow-logs-graylog/workflow.png)
+![Graylog iş akışı](./media/network-watcher-analyze-nsg-flow-logs-graylog/workflow.png)
 
 ## <a name="installation-steps"></a>Yükleme Adımları
 

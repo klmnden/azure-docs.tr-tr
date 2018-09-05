@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus Mesajlaşma varlıkları askıya alma | Microsoft Docs
+title: Azure Service Bus Mesajlaşma varlıklarını askıya alma | Microsoft Docs
 description: Askıya alma ve Azure Service Bus ileti varlıkları yeniden etkinleştirin.
 services: service-bus-messaging
 documentationcenter: ''
@@ -12,40 +12,40 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
-ms.author: sethm
-ms.openlocfilehash: 1984b113f695107f8d4d80e5bbf25c7dc39d13f6
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: spelluru
+ms.openlocfilehash: 3e3c0fdf4133fa1f44a67f4f7e0df1995c0a23f0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28197035"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701985"
 ---
-# <a name="suspend-and-reactivate-messaging-entities-disable"></a>Askıya alma ve mesajlaşma varlıkları (devre dışı bırak) yeniden etkinleştirin
+# <a name="suspend-and-reactivate-messaging-entities-disable"></a>Askıya alma ve mesajlaşma varlıkları (devre dışı bırak) yeniden etkinleştirme
 
-Kuyruklar, konu başlıkları ve abonelikleri geçici olarak askıya alınabilir. Askıya tüm iletileri deposunda saklanır devre dışı durumuna varlığı yerleştirir. Ancak, iletileri kaldırılamaz veya eklenen ve ilgili protokol işlemlerini hataları verim.
+Kuyruklar, konular ve abonelikler geçici olarak askıya alınabilir. Askıya alma varlığın tüm iletileri depolama alanında tutulur devre dışı bırakılmış bir duruma koyar. Ancak, iletileri kaldırıldı veya eklenemez ve ilgili protokol işlemlerini hataları yield.
 
-Bir varlık askıya genellikle Acil Yönetimsel nedenlerden dolayı gerçekleştirilir. Bir senaryo sıra dışı iletileri alan hatalı bir alıcı dağıtılan başarısız işlem, henüz yanlış iletileri tamamlandıktan ve bunları kaldırır. Bu davranışı tanı koydu, sıranın devre dışı bırakılabilir düzeltilmiş kod dağıtılır ve daha fazla hatalı kodla kaynaklanan veri kaybı önlenmiş kadar alır.
+Bir varlık askıya alma, genellikle Acil Yönetim amaçları için gerçekleştirilir. Senaryolardan biri Kuyruk iletilerini alan hatalı bir alıcı dağıtılan işlem başarısız olur ve henüz yanlış iletileri tamamlar ve bunları kaldırır. Bu davranışı tanı koydu, kuyruk için devre dışı bırakılabilir Düzeltilen kod dağıtılır ve başka hatalı kod tarafından kaynaklanan veri kayıplarını engellenebilir kadar alır.
 
-Kullanıcı veya sistem tarafından askıya alma veya yeniden etkinleştirme gerçekleştirilebilir. Sistem, yalnızca varlık harcama sınırı abonelik basarsa gibi işareti Yönetimsel nedenlerden dolayı askıya alır. Devre dışı sistem varlıkları kullanıcı tarafından yeniden Etkinleştirilemeyecek ancak askıya nedenini ele yüklediğinizde geri.
+Kullanıcı veya sistem tarafından askıya alma veya yeniden etkinleştirme gerçekleştirilebilir. Sistem, harcama limiti aboneliği ulaşma gibi grave yönetim nedenlerden dolayı varlıkları yalnızca askıya alır. Sistemi devre dışı varlıklar kullanıcı tarafından yeniden etkinleştirilemez, ancak askıya alınma nedenini ele alındığında geri yüklenir.
 
-Portalda, **özellikleri** ilgili varlığın bölüm sağlar durumunu değiştirme; aşağıdaki ekran görüntüsünde iki durumlu bir kuyruk için gösterir:
+Portalda, **özellikleri** ilgili varlığın bölüm etkinleştirir durumunu değiştirme; bir kuyruk için iki durumlu düğme aşağıdaki ekran görüntüsünde gösterilmektedir:
 
 ![][1]
 
-Portal, yalnızca tamamen sıralarını devre dışı bırakma verir. Ayrıca gönderme devre dışı bırakma ve alma işlemleri ayrı ayrı hizmet veri yolu kullanarak [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API'leri .NET Framework SDK veya Azure CLI veya Azure PowerShell ile bir Azure Resource Manager şablonu ile.
+Portal, yalnızca tamamen kuyrukları devre dışı bırakma verir. Ayrıca gönderme devre dışı bırakma ve alma işlemleri ayrı olarak Service Bus'ı kullanarak [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API'ler .NET Framework SDK veya Azure CLI veya Azure PowerShell ile Azure Resource Manager şablonu ile.
 
 ## <a name="suspension-states"></a>Askıya alma durumları
 
 Bir kuyruk için ayarlanabilir durumlar şunlardır:
 
--   **Etkin**: sırası etkindir.
--   **Devre dışı**: sıranın askıya alınır.
--   **SendDisabled**: sıranın kısmen, izin verilen alma ile askıya alındı.
--   **ReceiveDisabled**: sıranın kısmen, izin verilen gönderme ile askıya alındı.
+-   **Etkin**: sıra etkindir.
+-   **Devre dışı bırakılmış**: sıra askıya alındı.
+-   **SendDisabled**: sıra kısmen, izin verilen Al ile askıya alındı.
+-   **ReceiveDisabled**: sıra kısmen, gönderme işlemine izin askıya alındı.
 
-Abonelikler ve yalnızca konularını **etkin** ve **devre dışı** ayarlanabilir.
+Abonelikler ve konular, yalnızca **etkin** ve **devre dışı bırakılmış** ayarlanabilir.
 
-[EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) numaralandırma ayrıca yalnızca sistem tarafından ayarlanabilir geçici durumlar kümesini tanımlar. Bir kuyruk devre dışı bırakmak için PowerShell komutunu aşağıdaki örnekte gösterilir. Yeniden etkinleştirme komutu ayarlama, eşdeğerdir `Status` için **etkin**.
+[EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) numaralandırması da bir dizi yalnızca sistem tarafından ayarlanabilir geçiş durumları tanımlar. Bir kuyruk devre dışı bırakmak için PowerShell komutunu aşağıdaki örnekte gösterilmiştir. Ayarı yeniden etkinleştirme komut eşdeğer `Status` için **etkin**.
 
 ```powershell
 $q = Get-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
@@ -57,7 +57,7 @@ Set-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName m
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Service Bus Mesajlaşma hizmeti hakkında daha fazla bilgi için aşağıdaki konulara bakın:
+Service Bus mesajlaşması hakkında daha fazla bilgi edinmek için aşağıdaki konulara bakın:
 
 * [Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus kuyrukları, konu başlıkları ve abonelikleri](service-bus-queues-topics-subscriptions.md)

@@ -14,12 +14,12 @@ ms.component: pim
 ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b84addf4c45e39e68dd22f6369553d397794f6b0
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7b82be6cdc8b64595c11eef84e8071fad9c07191
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340521"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665472"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>PIM Azure kaynak Rolleri Ata
 
@@ -126,5 +126,6 @@ Güncelleştirme veya mevcut bir rol atamasını kaldırmak için aşağıdaki a
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+- [PIM Azure kaynak rolleri genişletmek veya yenileme](pim-resource-roles-renew-extend.md)
 - [PIM'de Azure kaynak rol ayarlarını yapılandırma](pim-resource-roles-configure-role-settings.md)
 - [Azure AD dizin rollerini PIM atayın](pim-how-to-add-role-to-user.md)

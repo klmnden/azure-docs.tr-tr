@@ -1,9 +1,9 @@
 ---
 title: Paylaşılan erişim imzaları ile Azure Service Bus erişim denetimi | Microsoft Docs
-description: Paylaşılan erişim imzaları genel bakış, SAS yetkilendirme Azure Service Bus ile ilgili ayrıntıları kullanarak Service Bus erişim denetimine genel bakış.
+description: Paylaşılan erişim imzaları genel bakış, Azure Service Bus ile SAS yetkilendirme ayrıntılarını kullanarak Service Bus erişim denetimine genel bakış.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,102 +13,102 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2018
-ms.author: sethm
-ms.openlocfilehash: 420f4573fbe8b5139a4e1e5fa4dea3404c4e099d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: spelluru
+ms.openlocfilehash: 2905bff56c5ab49c91f85e0816b84018b27bbb57
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312534"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700248"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Paylaşılan erişim imzaları ile Service Bus erişim denetimi
 
-*Paylaşılan erişim imzası* (SAS) olan Service Bus Mesajlaşma hizmeti için birincil güvenlik mekanizması. Bu makalede, SAS, nasıl çalıştığını ve bunları bir platform belirsiz şekilde nasıl kullanılacağını açıklanmaktadır.
+*Paylaşılan erişim imzaları* (SA) olan Service Bus mesajlaşması için birincil güvenlik mekanizması. Bu makalede, SAS, nasıl çalıştıklarını ve bunları bir platformdan şekilde nasıl kullanacağınızı açıklar.
 
-SAS yetkilendirme kurallarına göre Service Bus erişimi korur. Bu, bir ad alanı veya bir Mesajlaşma varlığı (geçiş, kuyruk veya konu) yapılandırılır. Bir yetkilendirme kuralı bir ada sahip, belirli haklar ile ilişkili ve şifreleme anahtarlarını çifti taşır. Bir SAS belirteci üretmek için kuralın adını ve anahtar hizmet veri yolu SDK'sı üzerinden veya kendi kodunuzu'nı kullanın. Bir istemci, istenen işlem için yetkilendirme kanıtlamak için Service Bus belirteç sonra geçiş yapabilir.
+SAS, Service Bus yetkilendirme kurallarına göre erişimi korur. Bu, bir ad alanı veya bir Mesajlaşma varlığı (geçiş, kuyruk veya konu) yapılandırılır. Bir yetkilendirme kuralı bir ada sahip, belirli haklar ile ilişkilendirilir ve bir çift şifreleme anahtar taşır. Bir SAS belirteci oluşturmak için kuralın adı ve anahtarı aracılığıyla hizmet veri yolu SDK'sı veya kendi kodunuzu'nı kullanın. Bir istemci, ardından istenen işlem için yetkilendirme kanıtlamak için Service Bus belirteci geçirebilirsiniz.
 
 ## <a name="overview-of-sas"></a>SAS genel bakış
 
-Paylaşılan erişim imzaları basit belirteçleri kullanarak talep tabanlı yetkilendirme bir sistemdir. SAS kullanarak, anahtarları asla kablo geçirilir. Anahtarlar, şifreleme açısından daha sonra hizmeti tarafından doğrulanabilen bilgileri imzalamak için kullanılır. SAS benzer şekilde bir kullanıcı adı ve parola düzeni istemci hemen bir yetkilendirme kuralı adı ve eşleşen bir anahtarı elinde olduğu kullanılabilir. SAS da benzer bir federe güvenlik modeline burada istemci zaman sınırlı ve imzalanmış erişim belirteci bir güvenlik belirteci Hizmeti'nden imzalama anahtarı elinde gelmeden alır kullanılabilir.
+Paylaşılan erişim imzaları basit belirteçleri kullanarak bir beyana dayalı yetkilendirme mekanizması mevcuttur. SAS kullanarak, anahtarları asla kablo geçirilir. Anahtarlar şifreli olarak daha sonra hizmet tarafından doğrulanabilir bilgi imzalamak için kullanılır. SAS benzer bir kullanıcı adı ve parola düzeni için istemci anında bir yetkilendirme kuralı adı ve eşleşen bir anahtar elinde olduğu kullanılabilir. SAS de benzer bir Federasyon güvenlik modeli, burada istemci bir süre sınırlı ve imzalanmış bir erişim belirteci bir güvenlik belirteci Hizmeti'nden imzalama anahtarı elinde gelmeden alır kullanılabilir.
 
-Hizmet veri yolu SAS kimlik doğrulaması yapılandırılmış adında [paylaşılan erişim yetkilendirme kuralları](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) erişim hakları ve bir birincil ve ikincil şifreleme anahtar çiftini ilişkili. Anahtarları 256 bit Base64 gösteriminde değerlerdir. Ad alanı düzeyinde Service Bus kuralları yapılandırabilirsiniz [geçişleri](service-bus-fundamentals-hybrid-solutions.md#relays), [sıraları](service-bus-fundamentals-hybrid-solutions.md#queues), ve [konuları](service-bus-fundamentals-hybrid-solutions.md#topics).
+Service Bus SAS kimlik doğrulaması yapılandırılmış adlı [paylaşılan erişimi yetkilendirme kuralları](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) ilişkili erişim hakları ve bir çift birincil ve ikincil şifreleme anahtarına. Anahtarları Base64 gösterimine 256 bitlik değerler. Ad alanı düzeyinde, hizmet veri yolu kuralları yapılandırabilirsiniz [geçişleri](service-bus-fundamentals-hybrid-solutions.md#relays), [kuyrukları](service-bus-fundamentals-hybrid-solutions.md#queues), ve [konuları](service-bus-fundamentals-hybrid-solutions.md#topics).
 
-[Paylaşılan erişim imzası](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) belirteç erişilen, kaynak anlık, geçerlilik süresi URI'sini seçilen Yetkilendirme kuralının adını içerir ve HMAC SHA256 şifreleme imzası kullanarak bu alanları hesaplanır birincil veya ikincil şifreleme anahtarı seçilen yetkilendirme kuralı.
+[Paylaşılan erişim imzası](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) belirteç erişilebilir, bir süre sonu anında, kaynağın URI'sini seçilen Yetkilendirme kuralının adını içerir ve HMAC SHA256 şifreleme imzası kullanarak bu alanları hesaplanır birincil veya ikincil şifreleme anahtarı seçilen yetkilendirme kuralı.
 
 ## <a name="shared-access-authorization-policies"></a>Paylaşılan erişim Yetkilendirme İlkeleri
 
-Her bir hizmet veri yolu ad alanı ve her Service Bus varlık kuralları oluşan bir paylaşılan erişim yetkilendirme ilkesi vardır. Bir ad alanı içinde tek tek ilke yapılandırmalarını bağımsız olarak tüm varlıklar için ad alanı düzeyinde ilke uygulanır.
+Her Service Bus ad alanı ve her bir Service Bus varlık kuralları oluşan bir paylaşılan erişim yetkilendirme ilkesi var. Ad alanı düzeyinde bir ilke tek tek ilke yapılandırmalarını bakılmaksızın ad alanı içindeki tüm varlıklar için geçerlidir.
 
-Her yetkilendirme ilkesi kuralı için üç parça bilgi karar verin: **adı**, **kapsam**, ve **hakları**. **Adı** yalnızca bu; bu kapsam içinde benzersiz bir ad. Kapsamı kadar kolaydır: söz konusu kaynak URI'dir. Bir hizmet veri yolu ad alanı için kapsam tam etki alanı adı (FQDN) olduğu gibi `https://<yournamespace>.servicebus.windows.net/`.
+Her yetkilendirme ilkesi kuralı için üç parça bilgi karar verin: **adı**, **kapsam**, ve **hakları**. **Adı** yalnızca bu; bu kapsam içinde benzersiz bir ad. Kapsam oldukça kolaydır: söz konusu kaynak URI'dir. Bir Service Bus ad alanı için tam etki alanı adı (FQDN) gibi kapsamdır `https://<yournamespace>.servicebus.windows.net/`.
 
-İlke kuralı tarafından'basıp basmadığını değerlendirerek hakları bir bileşimi olabilir:
+İlke kuralı tarafından ağır basıp basmadığını hakları, bir birleşimi olabilir:
 
-* 'Gönderme' - Confers sağındaki varlığa iletileri göndermek için
-* 'Dinleme' - Confers (geçiş) dinlemek veya (sıra, abonelikleri) almak için sağ ve ilişkili tüm ileti işleme
-* 'Yönet' - oluşturma ve varlıkları silme de dahil olmak üzere ad alanının topolojisini yönetme hakkı Confers
+* 'Gönder' - Confers varlığa ileti göndermek için sağ
+* 'Dinleme' - Confers (geçiş) dinlemek veya (kuyruk, abonelik) alma hakkı ve ilgili tüm ileti işleme
+* 'Yönetme' - oluşturma ve varlıkları silmek gibi ad alanının topolojisini yönetme hakkı Confers
 
-'Yönet' right 'Gönder' ve 'Al' hakları içerir.
+'Yönet' sağ 'Gönder' ve 'Receive' hakları içerir.
 
-Bir ad alanı veya varlık ilke kuralları, üç adet yer her temel hakları ve gönderme ve dinleme birleşimi kapsayan sağlayan en fazla 12 paylaşılan erişim yetkilendirme kuralları basılı tutabilirsiniz. SAS ilke deposu bu sınırı alt çizgiler, bir kullanıcı veya hizmet hesap deposu olması için tasarlanmamıştır. Uygulamanızın hizmet veri yolu kullanıcı veya hizmet kimlikleri göre erişim vermek gerekirse, bir kimlik doğrulama ve erişim denetimi sonra SAS belirteçleri bir güvenlik belirteci hizmeti uygulamanız gerekir.
+Bir ad alanı veya varlık ilke kuralları, üç adet yer her temel hakları ve gönderme ve dinleme birleşimi kapsayan sağlayarak, 12 adede kadar paylaşılan erişimi yetkilendirme kuralları barındırabilir. SAS İlkesi depolamak bu sınır çizgileri, bir kullanıcı veya hizmet hesap deposu olması için tasarlanmamıştır. Service Bus'ın kullanıcı veya hizmet kimlikleri göre erişim vermek uygulamanız gerekiyorsa, bir kimlik doğrulama ve erişim denetimi sonra SAS belirteçlerini çıkartan güvenlik belirteci hizmeti uygulamanız gerekir.
 
-Bir yetkilendirme kuralı atanmış bir *birincil anahtar* ve *ikincil anahtar*. Şifreleme açısından güçlü anahtarları şunlardır. Bunlar kaybolur veya bunları sızıntısı yok - bunlar her zaman kullanılabilir olması [Azure portal][Azure portal]. Oluşturulan anahtarları birini kullanabilirsiniz ve her zaman yeniden oluşturabilirsiniz. Yeniden oluşturmak veya bir anahtarı ilkesinde değiştirirseniz tüm daha önce hemen geçersiz duruma bu anahtarı temel verilen belirteçler. Ancak, bu tür simgelerinde göre oluşturulan devam eden bağlantıları belirtecin süresi doluncaya kadar çalışmaya devam eder.
+Bir yetkilendirme kuralı atanmış bir *birincil anahtar* ve *ikincil anahtar*. Bu şifreleme açısından güçlü bir anahtarlarıdır. Bunlar kaybolur veya bunları sızıntı yoksa - bunlar her zaman içinde kullanıma sunulacak [Azure portalında][Azure portal]. Oluşturulan anahtarların kullanabilirsiniz ve dilediğiniz zaman yeniden oluşturabilirsiniz. Bir ilke anahtarı yeniden oluşturulmuş veya, tüm daha önce bu anahtarı hemen geçersiz duruma temel verilen belirteçler. Ancak, bu tür belirteçleri üzerinde göre oluşturulan devam eden bağlantıları belirteç süresi dolana kadar çalışmaya devam eder.
 
-Bir hizmet veri yolu ad alanı oluşturduğunuzda, ilke kuralı adlı **RootManageSharedAccessKey** ad alanı için otomatik olarak oluşturulur. Bu ilke tüm ad alanı için yönetme izinleri var. Bu kural bir yönetim gibi davran önerilir **kök** hesap ve uygulamanızda kullanmayın. Ek ilke kuralları oluşturabilirsiniz **yapılandırma** ad alanı portalda, Powershell veya Azure CLI aracılığıyla sekmesi.
+Service Bus ad alanı oluşturduğunuzda, bir ilke kuralı adlı **RootManageSharedAccessKey** ad alanı için otomatik olarak oluşturulur. Bu ilke, tüm ad alanı için izinleri yönetir sahiptir. Bu kural bir yönetim gibi ele almanız tavsiye edilir **kök** hesap ve uygulamanızda kullanmayın. Ek ilke kuralları oluşturabilirsiniz **yapılandırma** portalında, Powershell veya Azure CLI aracılığıyla ad alanı için sekmesinde.
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>Paylaşılan erişim imzası kimlik doğrulaması için yapılandırma
 
-Yapılandırabileceğiniz [Rootmanagesharedaccesskey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) hizmet veri yolu ad alanları, kuyruk veya konuları kuralı. Yapılandırma bir [Rootmanagesharedaccesskey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) bir Service Bus abonelik şu anda desteklenmiyor ancak abonelikleri erişimi güvenli hale getirmek için bir ad alanı veya konu yapılandırılmış kurallarını kullanabilirsiniz. Bu yordam gösterilmektedir çalışan bir örnek için bkz [kullanarak paylaşılan erişim imzası (SAS) kimlik doğrulama hizmet veri yolu abonelikleri ile](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) örnek.
+Yapılandırabileceğiniz [Rootmanagesharedaccesskey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) kural Service Bus ad alanı, kuyruklar veya Konular. Yapılandırma bir [Rootmanagesharedaccesskey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) üzerinde bir Service Bus abonelik şu anda desteklenmiyor ancak aboneliklerine erişimin güvenliğini sağlamak için bir ad alanı veya konu üzerinde yapılandırılan kuralları kullanabilirsiniz. Bu yordam gösterir çalışan bir örnek için bkz [kullanarak paylaşılan erişim imzası (SAS) kimlik doğrulaması ile Service Bus abonelikleri](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) örnek.
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
-Bu şekilde *manageRuleNS*, *sendRuleNS*, ve *listenRuleNS* S1 sırasını ve konu T1, için yetkilendirme kuralları uygula sırada *listenRuleQ*  ve *sendRuleQ* yalnızca sıra S1 uygulamak ve *sendRuleT* yalnızca konu T1 geçerlidir.
+Bu şekilde *manageRuleNS*, *sendRuleNS*, ve *listenRuleNS* S1 kuyruk ve konu T1, için yetkilendirme kuralları geçerlidir ancak *listenRuleQ*  ve *sendRuleQ* yalnızca kuyruğa S1 uygulamak ve *sendRuleT* yalnızca konu T1 geçerlidir.
 
-## <a name="generate-a-shared-access-signature-token"></a>Bir paylaşılan erişim imzası belirteci oluştur
+## <a name="generate-a-shared-access-signature-token"></a>Paylaşılan erişim imzası belirteci oluştur
 
-Bir yetkilendirme kuralı adı erişimi olan herhangi bir istemci ve imzalama anahtarları biri bir SAS belirteci oluşturabilirsiniz. Belirteç aşağıdaki biçiminde bir dize olarak hazırlayın tarafından oluşturulur:
+Bir yetkilendirme kuralı adı erişimi olan herhangi bir istemci ve kendi İmzalama anahtarları bir SAS belirteci oluşturur. Belirteç, aşağıdaki biçimde bir dizeye kaynaklı tarafından oluşturulur:
 
 ```
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-* **`se`** -Belirteç süre sonu anlık. Dönem saniyesi yansıtma tamsayı `00:00:00 UTC` 1 Ocak belirtecin süresi dolduğunda 1970'ten (UNIX dönem) üzerinde.
+* **`se`** -Belirteç süre sonu anlık. Dönem beri geçen saniye sayısı yansıtan tamsayı `00:00:00 UTC` 1 Ocak belirtecin süresinin sona erdiği 1970 (UNIX dönem) üzerinde.
 * **`skn`** -Yetkilendirme kuralının adı.
 * **`sr`** -Erişilen kaynak URI'si.
 * **`sig`** -İmzası.
 
-`signature-string` SHA-256 karma kaynak URI'si hesaplanır (**kapsam** önceki bölümde açıklandığı gibi) ve anlık, belirteç süre sonu dize gösterimini CRLF ile ayrılır.
+`signature-string` SHA-256 karma kaynak URI'si hesaplanır (**kapsam** önceki bölümde açıklandığı gibi) ve anında, belirteç süre sonu dize gösterimini CRLF tarafından ayrılmış.
 
-Karma hesaplama aşağıdaki sözde kodu benzer ve 256 bit/32 bayt karma değer döndürür.
+Karma hesaplama, aşağıdaki sözde koda benzer ve 256 bit/32 bayt karma değer döndürür.
 
 ```
 SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 ```
 
-Böylece alıcı karma aynı parametrelere sahip geçerli bir imzalama anahtarı elinde veren doğrulama yeniden hesaplamak belirteç karma olmayan değerler içeriyor. 
+Alıcı karma aynı parametrelere sahip geçerli bir imzalama anahtarı elinde veren doğrulanıyor yeniden oynatmanız, böylece belirteç karma olmayan değerler içeriyor. 
 
-Kaynak URI erişim talep Service Bus kaynağının tam URI değil. Örneğin, `http://<namespace>.servicebus.windows.net/<entityPath>` veya `sb://<namespace>.servicebus.windows.net/<entityPath>`; diğer bir deyişle, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. URI olmalıdır [yüzde olarak kodlanmış](https://msdn.microsoft.com/library/4fkewx0t.aspx).
+URI tam erişim talep edildikten Service Bus kaynağın URI'sini bir kaynaktır. Örneğin, `http://<namespace>.servicebus.windows.net/<entityPath>` veya `sb://<namespace>.servicebus.windows.net/<entityPath>`; diğer bir deyişle, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. Bir URI olmalıdır [yüzde olarak kodlanmış](https://msdn.microsoft.com/library/4fkewx0t.aspx).
 
-İmzalama için kullanılan paylaşılan erişim yetkilendirme kuralı bu URI tarafından ya da hiyerarşik üst öğelerinden biri tarafından belirtilen varlık yapılandırılması gerekir. Örneğin, `http://contoso.servicebus.windows.net/contosoTopics/T1` veya `http://contoso.servicebus.windows.net` önceki örnekte.
+Bu URI veya hiyerarşik öğelerinden belirtilen varlık üzerinde imzalamak için kullanılan paylaşılan erişim yetkilendirme kuralı yapılandırılması gerekir. Örneğin, `http://contoso.servicebus.windows.net/contosoTopics/T1` veya `http://contoso.servicebus.windows.net` önceki örnekte.
 
-Bir SAS belirteci önekine sahip tüm kaynaklar için geçerli `<resourceURI>` kullanılan `signature-string`.
+Ön ekine sahip tüm kaynaklar için bir SAS belirteci geçerliyse `<resourceURI>` kullanılan `signature-string`.
 
-## <a name="regenerating-keys"></a>Anahtarlarını yeniden oluşturma
+## <a name="regenerating-keys"></a>Anahtarları yeniden oluşturuluyor
 
-Kullanılan anahtarları düzenli aralıklarla yeniden önerilir [Rootmanagesharedaccesskey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) nesnesi. Yavaş anahtarlarını döndürmek için birincil ve ikincil anahtar yuva yok. Uygulamanızı genellikle birincil anahtarı kullanıyorsa, ikincil anahtar yuvaya birincil anahtarı kopyalayın ve sonra yalnızca birincil anahtar yeniden. Yeni birincil anahtar değerine sonra ikincil yuvasında eski birincil anahtar kullanarak erişim devam istemci uygulamalara yapılandırılabilir. Tüm istemciler güncelleştirilmiş sonra son olarak eski birincil anahtar devre dışı bırakmak için ikincil anahtarı yeniden oluşturabilirsiniz.
+İçinde kullanılan anahtarlar düzenli aralıklarla yeniden önerilir [Rootmanagesharedaccesskey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) nesne. Kademeli olarak anahtarlarını döndürmek için birincil ve ikincil anahtar yuva yok. Uygulamanızı genellikle birincil anahtarı kullanır, ikincil anahtar yuvaya birincil anahtarı kopyalayın ve ardından yalnızca birincil anahtarı yeniden. Yeni birincil anahtar değerini daha sonra ikincil yuvada eski birincil anahtar kullanarak erişim devam istemci uygulamalara yapılandırılabilir. Tüm istemcilerin güncelleştirildikten sonra son olarak, eski birincil anahtarı devre dışı bırakmak için ikincil anahtarı yeniden oluşturabilirsiniz.
 
-Bilmeniz veya bir anahtar güvenliği aşıldığında ve anahtarlarını iptal gerekir şüphe, her ikisini de yeniden oluşturabilmeniz [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) ve [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) , bir [Rootmanagesharedaccesskey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), yeni anahtarlarla değiştirme. Bu yordam, eski anahtarlarla imzalanması tüm belirteçleri geçersiz kılar.
+Bildiğiniz veya bir anahtar güvenliği aşıldığında ve anahtarlar iptal etmek sahip olduğunuz şüpheleniyorsanız, her ikisi de yeniden oluşturabilirsiniz [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) ve [ikincil anahtarı oluşturma](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) , bir [Rootmanagesharedaccesskey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), bunları yeni anahtarlarla değiştirme. Bu yordam, tüm belirteçlerin eski anahtarlarla imzalanması geçersiz kılar.
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>Service Bus ile paylaşılan erişim imzası kimlik doğrulaması
 
-Aşağıda açıklandığı senaryolar yetkilendirme kuralları yapılandırma, SAS belirteci ve istemci kimlik doğrulaması olarak oluşturulmasını içerir.
+Aşağıda açıklanan senaryolar yetkilendirme kuralları yapılandırma, SAS belirteçleri ve istemci yetkilendirme oluşturulmasını içerir.
 
-Bir tam için yapılandırma ve kullandığı SAS yetkilendirme gösterilmektedir bir hizmet veri yolu uygulaması çalışma örneği bkz [Service Bus ile paylaşılan erişim imzası kimlik doğrulaması](http://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Ad alanları veya hizmet veri yolu abonelikleri güvenli hale getirmek için konuları yapılandırılan SAS yetkilendirme kuralları kullanımını göstermektedir ilgili bir örnek aşağıda verilmiştir: [hizmet veri yolu abonelikleriilekullanarakpaylaşılanerişimimzası(SAS)kimlikdoğrulaması](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+Bir tam çalışma yapılandırması ve kullandığı SAS yetkilendirme gösteren bir Service Bus uygulaması örneğini görmek [Service Bus ile paylaşılan erişim imzası kimlik doğrulaması](http://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Ad alanları veya konuları Service Bus abonelikleri güvenliğini sağlamak için yapılandırılmış olan SAS yetkilendirme kuralları kullanışını ilgili bir örnek aşağıda verilmiştir: [Service Bus aboneliklerikullanarakpaylaşılanerişimimzası(SAS)kimlikdoğrulaması](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
 
-## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Bir varlık üzerinde erişim paylaşılan erişim yetkilendirme kuralları
+## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Bir varlıkta erişim paylaşılan erişimi yetkilendirme kuralları
 
-Hizmet veri yolu .NET Framework kitaplıklarıyla erişebileceğiniz bir [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) bir hizmet veri yolu kuyruğu ya da konu üzerinden yapılandırılmış nesne [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) karşılık gelen koleksiyon [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) veya [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription).
+Hizmet veri yolu .NET Framework kitaplıkları ile erişebileceğiniz bir [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) bir Service Bus kuyruğu veya konuyu yapılandırılmış nesne [Authorizationrules'a](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) karşılık gelen koleksiyon [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) veya [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription).
 
-Aşağıdaki kod, sıra için yetkilendirme kuralları eklemek gösterilmiştir.
+Aşağıdaki kod, bir kuyruk için yetkilendirme kuralları eklemek gösterilmektedir.
 
 ```csharp
 // Create an instance of NamespaceManager for the operation
@@ -141,7 +141,7 @@ nsm.CreateQueue(qd);
 
 ## <a name="use-shared-access-signature-authorization"></a>Paylaşılan erişim imzası yetkilendirme kullanın
 
-Hizmet veri yolu .NET kitaplıklarıyla Azure .NET SDK'yı kullanarak uygulamaları aracılığıyla SAS yetkilendirme kullanabileceğiniz [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) sınıfı. Aşağıdaki kod bir Service Bus kuyruğuna ileti göndermek için belirteç sağlayıcı kullanımını gösterir. Burada, daha önce verilen belirteç için belirteç sağlayıcı Üreteç yöntemi geçebilen gösterilen kullanım alternatif.
+Hizmet veri yolu .NET kitaplıklarıyla Azure .NET SDK kullanarak uygulamaları aracılığıyla SAS yetkilendirme kullanabileceğiniz [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) sınıfı. Aşağıdaki kod, bir Service Bus kuyruğuna ileti göndermek için belirteç sağlayıcısı kullanımını gösterir. Daha önce verilmiş bir belirteç için belirteç sağlayıcı Üreteç yöntemi de geçirebilirsiniz, burada gösterilen kullanım alternatifi.
 
 ```csharp
 Uri runtimeUri = ServiceBusEnvironment.CreateServiceUri("sb",
@@ -156,15 +156,15 @@ helloMessage.MessageId = "SAS-Sample-Message";
 sendClient.Send(helloMessage);
 ```
 
-Ayrıca belirteç sağlayıcı doğrudan belirteçlerini vermek için diğer istemcilere geçirmek için kullanabilirsiniz. 
+Belirteç sağlayıcı doğrudan belirteçlerini vermek için diğer istemcilere geçirmek için kullanabilirsiniz. 
 
-Bağlantı dizeleri, bir kural adı içerebilir (*SharedAccessKeyName*) ve kuralın anahtarı (*SharedAccessKey*) ya da daha önce verilen bir belirteç (*SharedAccessSignature*). Bu herhangi bir oluşturucu veya bir bağlantı dizesi kabul Üreteç yöntemi geçirilen bağlantı dizesinde mevcut olduğunda, SAS belirteci sağlayıcısı otomatik olarak oluşturulan doldurulur ve.
+Bağlantı dizeleri, kural adı içerebilir (*SharedAccessKeyName*) ve kuralın anahtarı (*SharedAccessKey*) veya daha önce verilmiş bir belirteç (*SharedAccessSignature*). Bu herhangi bir oluşturucu veya bir bağlantı dizesi kabul Üreteç yöntemi geçirilen bağlantı dizesinde mevcut olduğunda, SAS belirteci sağlayıcısı otomatik olarak oluşturulan doldurulur ve.
 
-SAS yetkilendirme ile Service Bus geçişlerini kullanmak için üzerinde hizmet veri yolu ad alanı yapılandırılmış SAS anahtarları kullanabileceğinizi unutmayın. Bir geçiş ad açıkça oluşturursanız ([NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ile bir [RelayDescription](/dotnet/api/microsoft.servicebus.messaging.relaydescription)) nesnesi, bu geçiş için yalnızca SAS kuralları ayarlayabilirsiniz. Hizmet veri yolu aboneliklerle SAS yetkilendirme kullanmak için bir hizmet veri yolu ad alanı veya konu yapılandırılmış SAS tuşlarını kullanabilirsiniz.
+Service Bus geçişlerine SAS yetkilendirme kullanmak için Service Bus ad alanınızdaki yapılandırılmış SAS anahtarları kullanabileceğinizi unutmayın. Bir geçiş ad alanı üzerinde açıkça oluşturursanız ([NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ile bir [RelayDescription](/dotnet/api/microsoft.servicebus.messaging.relaydescription)) nesne yalnızca bu geçiş için SAS kuralları ayarlayabilirsiniz. Service Bus abonelikleri SAS yetkilendirme kullanmak için yapılandırılmış bir Service Bus ad alanında veya konu SAS anahtarları kullanabilirsiniz.
 
 ## <a name="use-the-shared-access-signature-at-http-level"></a>Paylaşılan erişim imzası (HTTP düzeyinde) kullanın
 
-Service Bus içinde herhangi bir varlık için paylaşılan erişim imzaları oluşturma bildiğinize göre bir HTTP POST gerçekleştirmek hazırsınız:
+Service Bus içinde herhangi bir varlık için paylaşılan erişim imzaları oluşturma artık bildiğinize göre bir HTTP POST gerçekleştirin geçmeye hazırsınız:
 
 ```http
 POST https://<yournamespace>.servicebus.windows.net/<yourentity>/messages
@@ -173,17 +173,17 @@ Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus
 ContentType: application/atom+xml;type=entry;charset=utf-8
 ``` 
 
-Unutmayın, bu her şey için çalışır. Bir kuyruk, konu veya abonelik için SAS oluşturabilirsiniz.
+Bunun için her şeyin çalıştığını unutmayın. Bir kuyruk, konu veya abonelik için SAS oluşturabilirsiniz.
 
-Bir gönderici veya istemci bir SAS belirteci verirseniz, anahtarı doğrudan yoktur ve bunu elde etmek için karma tersine çeviremezsiniz. Bu nedenle, Denetim nasıl ve ne erişebilecekleri üzerinden uzun sahip. Anımsaması bir önemli İlkesi birincil anahtarda değiştirirseniz, tüm paylaşılan erişim imzaları oluşturulan geçersiz kılınır şeydir.
+Bir gönderici veya istemci bir SAS belirteci izni verirseniz anahtarı doğrudan yoksa ve bunu elde etmek için karma geri alınamaz. Bu nedenle, nasıl yanı sıra, üzerinden erişim denetimi uzun vardır. Anımsanması bir önemli olan, birincil anahtar ilkesinde değiştirirseniz, tüm paylaşılan erişim imzaları oluşturulan geçersiz kılınır olmasıdır.
 
 ## <a name="use-the-shared-access-signature-at-amqp-level"></a>Paylaşılan erişim imzası (AMQP düzeyinde) kullanın
 
-Önceki bölümde, SAS belirteci ile HTTP POST isteği için hizmet veri yolu veri göndermek için kullanmayı gördünüz. Bildiğiniz gibi Service Bus Gelişmiş Message Queuing Protokolü (Performans nedeniyle, birçok senaryoda kullanmak için tercih edilen protokolü olan AMQP) kullanarak erişebilirsiniz. AMQP ile SAS belirteci kullanımını belgede açıklanan [AMQP Claim-Based güvenlik sürüm 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) diğer bir deyişle içinde çalışma taslak bugün 2013 Azure tarafından desteklenen iyi ancak bu yana.
+Önceki bölümde, Service Bus'na veri göndermek için bir HTTP POST isteği ile bir SAS belirteci kullanabilir öğrendiniz. Bildiğiniz gibi Advanced Message Queuing Protocol (tercih edilen Protokolü birçok senaryoda performansı artırmak için kullanılacak olan AMQP) kullanarak Service Bus erişebilirsiniz. AMQP ile SAS belirteci kullanımı belgede açıklanan [AMQP Claim-Based güvenlik sürüm 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) diğer bir deyişle söz çalışma taslak bugün 2013 ancak Azure tarafından desteklenen iyi itibaren.
 
-Service Bus hizmetine veri göndermeye başlamadan önce yayımcı adlı iyi tanımlanmış bir AMQP düğüm için bir AMQP iletisi içinde SAS belirteci göndermelidir **$cbs** (edinmeli ve tüm SAS doğrulamak için hizmet tarafından kullanılan bir "özel" sırası olarak görebileceğiniz belirteçleri). Yayımcı belirtmelisiniz **ReplyTo** alan AMQP ileti içine; bu, hizmet yanıtlar (Basit istek/yanıt desen yayımcı ve hizmeti arasında belirteci doğrulama sonucu yayımcıyla düğümü ). Bu yanıt düğüm oluşturulmuş "açık"dinamik oluşturma uzak düğümün hakkında"tarafından AMQP 1.0 belirtimi açıklandığı gibi konuşma uç,". Yayımcı, SAS belirteci geçerli olup olmadığını kontrol ettikten sonra İleri gidin ve hizmete veri göndermek başlatın.
+Service Bus veri göndermeye başlamadan önce yayımcı adlı iyi tanımlanmış bir AMQP düğüm için SAS belirteci bir AMQP iletisi içinde göndermelisiniz **$cbs** (almak ve tüm SAS doğrulamak için hizmet tarafından kullanılan bir "özel" sırası olarak görebileceğiniz belirteci). Yayımcı belirtmelisiniz **ReplyTo** AMQP ileti içinde alan; bu, hizmet yanıt (Basit istek/yanıt desen yayımcı ve hizmet arasında belirteç doğrulama sonucu olan yayımcıyla düğümü ). Bu yanıt düğümü oluşturulur "hareket halindeyken"dinamik oluşturma uzak düğümün hakkında"AMQP 1.0 belirtimi tarafından açıklandığı gibi". Yayımcı, SAS belirtecinin geçerli olup olmadığını denetleyerek sonra İleri gidin ve veri hizmetine göndermek başlatın.
 
-Aşağıdaki adımlar AMQP protokolünü kullanarak ile SAS belirteci göndermek nasıl gösterir [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) kitaplığı. Bu resmi hizmet veri yolu SDK'sı kullanamıyorsanız faydalı olur (örneğin üzerinde WinRT, .net Compact Framework, .net mikro Framework ve Mono) C'de geliştirme\#. Elbette, bu kitaplık nasıl talep tabanlı güvenlik anlamanıza yardımcı olması yararlıdır (ile bir HTTP POST isteği ve "Yetkilendirme" üstbilgisi içinde gönderilen SAS belirteci) HTTP düzeyinde nasıl çalışır anlatıldığı gibi AMQP düzeyinde çalışır. AMQP hakkında ayrıntılı oluşturabildiğinden gerekmiyorsa, resmi hizmet veri yolu SDK'sı .net ile kullanabileceğiniz sizin için ne yapacağını Framework uygulamaları.
+Aşağıdaki adımlar ile AMQP protokolünü kullanarak SAS belirteci gönderme işlemini gösterir [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) kitaplığı. Resmi Service Bus SDK'sı kullanamıyorsanız kullanışlıdır (örneğin üzerinde WinRT, .net Compact Framework, .net mikro çerçevesi ve Mono) C geliştirme\#. Elbette, bu kitaplığı nasıl talep tabanlı güvenlik anlamanıza yardımcı olması kullanışlıdır (ile bir HTTP POST isteği ve "Yetkilendirme" üst bilgisi içinde gönderilen SAS belirteci) HTTP düzeyinde şekli gördüğünüz gibi AMQP düzeyinde çalışır. AMQP gibi ayrıntılı bilgileri gerekmiyorsa, .net ile resmi hizmet veri yolu SDK'sını kullanabilirsiniz. sizin için yapacak Framework uygulamaları.
 
 ### <a name="c35"></a>C&#35;
 
@@ -236,65 +236,65 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-`PutCbsToken()` Yöntemi alır *bağlantı* (AMQP bağlantı sınıf örneği tarafından sağlanan gibi [AMQP .NET Lite Kitaplığı](https://github.com/Azure/amqpnetlite)) TCP bağlantısı temsil eden hizmet ve *sasToken* SAS parametre belirteci göndermek için. 
+`PutCbsToken()` Yöntemi alır *bağlantı* (AMQP bağlantısı sınıf örneği tarafından sağlanan [AMQP .NET Lite Kitaplığı](https://github.com/Azure/amqpnetlite)) TCP bağlantısını temsil eden hizmete ve *sasToken* parametresine SAS belirteci göndermek için. 
 
 > [!NOTE]
-> Bağlantı ile oluşturduğunuz önemlidir **SASL kimlik doğrulama mekanizması ayarlamak için anonim** (ve değil varsayılan DÜZ kullanıcı adı ve parola SAS belirteci göndermek gerekmediğinde kullanılır).
+> Bağlantı ile oluşturduğunuz önemlidir **SASL kimlik doğrulama mekanizmasını ayarlamak için anonim** (ve varsayılan DÜZ kullanıcı adını ve SAS belirteci göndermek ihtiyacınız kalmadığında kullanılan parola ile değil).
 > 
 > 
 
-Ardından, yayımcı SAS belirteci göndermek ve hizmetinden (belirteci doğrulama sonucu) yanıt almak için iki AMQP bağlantılarını oluşturur.
+Ardından, yayımcı, SAS belirteci gönderme ve hizmetten yanıt (belirteç doğrulama sonucu) almak için iki AMQP bağlantıları oluşturur.
 
-AMQP ileti bir dizi özellikler ve basit bir ileti daha fazla bilgi içerir. SAS belirteci (kendi oluşturucusunu kullanarak) ileti gövdesi ' dir. **"ReplyTo"** özelliği (değiştirebileceğiniz adını ve dinamik olarak hizmeti tarafından oluşturulan istiyorsanız) alıcı bağlantıyı doğrulama sonucu almak için düğüm adı olarak ayarlanmış. Son üç uygulama/özel özellikler hizmet tarafından yürütülecek olan ne tür bir işlemi belirtmek için kullanılır. CBS taslak belirtimine göre açıklandığı gibi olmalıdırlar **işlem adı** ("put-token"), **Belirtecin türü** (Bu durumda, bir `servicebus.windows.net:sastoken`) ve **İzleyici"adı"** belirtecin geçerli olduğu (tüm varlık).
+AMQP ileti bir dizi özellik ve basit bir ileti daha fazla bilgi içerir. (Kendi oluşturucuyu kullanarak) iletisinin gövdesi, SAS belirtecidir. **"ReplyTo"** özelliği (değiştirebilirsiniz adını ve hizmet tarafından dinamik olarak oluşturulur) alıcı bağlantıya doğrulama sonucu almak için düğüm adına ayarlanır. Son üç uygulama/özel özellikler hizmet tarafından yürütülecek olan ne tür bir işlem belirtmek için kullanılır. CBS taslak belirtimi tarafından açıklandığı gibi bunlar olmalıdır **işlem adı** ("put-token"), **Belirtecin türü** (Bu durumda, bir `servicebus.windows.net:sastoken`) ve **"name" hedef kitlenizin** belirtecin geçerli olduğu (tüm varlık).
 
-SAS belirteci gönderen bağlantıyı gönderdikten sonra yayımcı alıcı bağlantıya yanıt okumalısınız. Adlı bir uygulama özelliği basit bir AMQP iletisiyle yanıt olan **"durum kodu"** bir HTTP durum kodu aynı değerlere içerebilir.
+SAS belirteci gönderen bağlantıyı gönderdikten sonra yayımcı alıcı bağlantıya yanıtı okumalısınız. Adlı bir uygulama özelliği basit bir AMQP iletisiyle yanıt olduğunu **"durum kodu"** bir HTTP durum kodu aynı değerleri içerebilir.
 
-## <a name="rights-required-for-service-bus-operations"></a>Hizmet veri yolu işlemleri için gereken haklar
+## <a name="rights-required-for-service-bus-operations"></a>Service Bus işlemleri için gereken hakları
 
-Aşağıdaki tabloda Service Bus kaynaklarını üzerinde çeşitli işlemler için gerekli erişim haklarını gösterir.
+Aşağıdaki tablo, Service Bus kaynakları üzerinde çeşitli işlemler için gerekli erişim haklarını gösterir.
 
-| İşlem | Gerekli talep | Talep kapsamı |
+| İşlem | Gerekli talep | Kapsam talebi |
 | --- | --- | --- |
 | **Namespace** | | |
-| Yetkilendirme kuralı üzerinde bir ad alanı yapılandırma |Yönetme |Herhangi bir ad alanı adresi |
+| Üzerinde bir ad alanı yetkilendirme kuralı yapılandırma |Yönetme |Herhangi bir ad alanı adresi |
 | **Hizmet kayıt defteri** | | |
 | Özel ilkeler listeleme |Yönetme |Herhangi bir ad alanı adresi |
-| Bir ad alanı üzerinde dinleme yapmaya başlamasını |Dinle |Herhangi bir ad alanı adresi |
-| Bir ad alanı konumundaki bir dinleyici iletileri gönder |Gönder |Herhangi bir ad alanı adresi |
-| **Sırası** | | |
+| Bir ad alanı üzerinde dinleme başlayın |Dinle |Herhangi bir ad alanı adresi |
+| Bir ad alanı, bir dinleyici iletiler gönderme |Gönder |Herhangi bir ad alanı adresi |
+| **Kuyruk** | | |
 | Bir kuyruk oluşturma |Yönetme |Herhangi bir ad alanı adresi |
-| Bir kuyruk silme |Yönetme |Herhangi bir geçerli sıra adresi |
-| Kuyruklar listeleme |Yönetme |$ Kaynakları/sıraları |
-| Al sıra açıklaması |Yönetme |Herhangi bir geçerli sıra adresi |
-| Sıra için yetkilendirme kuralı yapılandırma |Yönetme |Herhangi bir geçerli sıra adresi |
-| İçine kuyruğa gönderme |Gönder |Herhangi bir geçerli sıra adresi |
-| Kuyruktan ileti alma |Dinle |Herhangi bir geçerli sıra adresi |
-| Abandon veya gözlem kilidinin modunda iletiyi aldıktan sonra tamamlandı iletileri |Dinle |Herhangi bir geçerli sıra adresi |
-| Sonraki alınması için bir ileti erteleme |Dinle |Herhangi bir geçerli sıra adresi |
-| Sahipsiz bir ileti |Dinle |Herhangi bir geçerli sıra adresi |
-| Bir ileti sırası oturumla ilişkili durumunu Al |Dinle |Herhangi bir geçerli sıra adresi |
-| Bir ileti sırası oturumla ilişkili durumunu ayarlama |Dinle |Herhangi bir geçerli sıra adresi |
-| Bir ileti daha sonra gönderim için zamanlama; Örneğin, [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Dinle | Herhangi bir geçerli sıra adresi
+| Bir kuyruk silme |Yönetme |Herhangi bir geçerli kuyruk adresi |
+| Kuyrukları listeleme |Yönetme |$ Kaynaklar/kuyruklar |
+| Kuyruk açıklamasını alın |Yönetme |Herhangi bir geçerli kuyruk adresi |
+| Bir kuyruk için yetkilendirme kuralı yapılandırma |Yönetme |Herhangi bir geçerli kuyruk adresi |
+| İçine kuyruğa gönderme |Gönder |Herhangi bir geçerli kuyruk adresi |
+| Bir kuyruktan ileti alma |Dinle |Herhangi bir geçerli kuyruk adresi |
+| İptal veya iletiyi gözlem kilidi modunda aldıktan sonra iletileri tamamlayın |Dinle |Herhangi bir geçerli kuyruk adresi |
+| Daha sonra almak için bir iletiyi ertele |Dinle |Herhangi bir geçerli kuyruk adresi |
+| Bir ileti teslim edilemeyen iletiler |Dinle |Herhangi bir geçerli kuyruk adresi |
+| Bir ileti kuyruğu oturumla ilişkili durumunu Al |Dinle |Herhangi bir geçerli kuyruk adresi |
+| Bir ileti kuyruğu oturumla ilişkili durumunu ayarla |Dinle |Herhangi bir geçerli kuyruk adresi |
+| Bir ileti sonraki teslimat zamanlaması; Örneğin, [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Dinle | Herhangi bir geçerli kuyruk adresi
 | **Konu** | | |
 | Konu başlığı oluşturma |Yönetme |Herhangi bir ad alanı adresi |
-| Bir konu Sil |Yönetme |Herhangi bir geçerli konu adresi |
-| Konular listeleme |Yönetme |$ Kaynakları/konuları |
-| Al konu açıklaması |Yönetme |Herhangi bir geçerli konu adresi |
-| Bir konu için yetkilendirme kuralı yapılandırma |Yönetme |Herhangi bir geçerli konu adresi |
-| Konuya Gönder |Gönder |Herhangi bir geçerli konu adresi |
+| Bir konu Sil |Yönetme |Herhangi bir geçerli konunun adresi |
+| Konuları listeleme |Yönetme |$ Kaynaklar/konuları |
+| Konunun açıklamayı Al |Yönetme |Herhangi bir geçerli konunun adresi |
+| Bir konu için yetkilendirme kuralı yapılandırma |Yönetme |Herhangi bir geçerli konunun adresi |
+| Konuya gönderme |Gönder |Herhangi bir geçerli konunun adresi |
 | **Abonelik** | | |
 | Abonelik oluşturma |Yönetme |Herhangi bir ad alanı adresi |
 | Aboneliği silin |Yönetme |../myTopic/Subscriptions/mySubscription |
 | Aboneliklerini listeleme |Yönetme |../ myTopic/abonelikleri |
-| Al abonelik açıklaması |Yönetme |../myTopic/Subscriptions/mySubscription |
-| Abandon veya gözlem kilidinin modunda iletiyi aldıktan sonra tamamlandı iletileri |Dinle |../myTopic/Subscriptions/mySubscription |
-| Sonraki alınması için bir ileti erteleme |Dinle |../myTopic/Subscriptions/mySubscription |
-| Sahipsiz bir ileti |Dinle |../myTopic/Subscriptions/mySubscription |
+| Abonelik açıklaması Al |Yönetme |../myTopic/Subscriptions/mySubscription |
+| İptal veya iletiyi gözlem kilidi modunda aldıktan sonra iletileri tamamlayın |Dinle |../myTopic/Subscriptions/mySubscription |
+| Daha sonra almak için bir iletiyi ertele |Dinle |../myTopic/Subscriptions/mySubscription |
+| Bir ileti teslim edilemeyen iletiler |Dinle |../myTopic/Subscriptions/mySubscription |
 | Bir konu oturumla ilişkili durumunu Al |Dinle |../myTopic/Subscriptions/mySubscription |
-| Bir konu oturumla ilişkili durumunu ayarlama |Dinle |../myTopic/Subscriptions/mySubscription |
-| **Kuralları** | | |
-| Bir kural oluşturun |Yönetme |../myTopic/Subscriptions/mySubscription |
-| Kural silme |Yönetme |../myTopic/Subscriptions/mySubscription |
+| Bir konu oturumla ilişkili durumunu ayarla |Dinle |../myTopic/Subscriptions/mySubscription |
+| **kuralları** | | |
+| Kural oluşturma |Yönetme |../myTopic/Subscriptions/mySubscription |
+| Kuralı silme |Yönetme |../myTopic/Subscriptions/mySubscription |
 | Kuralları listeleme |Dinlemek veya yönetme |../myTopic/Subscriptions/mySubscription/Rules 
 
 ## <a name="next-steps"></a>Sonraki adımlar

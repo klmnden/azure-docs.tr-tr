@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeedes
-ms.openlocfilehash: c8613697481f642066bf1d5d5db7be3af81a6529
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 4094de1a1c17e844d96ac789bb4bc1655fdc1546
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307742"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669252"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-figma"></a>Öğretici: Azure Active Directory Figma ile tümleştirme
 
@@ -38,10 +38,10 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 Azure AD Tümleştirmesi ile Figma yapılandırmak için aşağıdaki öğeler gerekir:
 
 - Azure AD aboneliği
-- Abonelik Figma çoklu oturum açma etkin
+- Bir Figma [aboneliği etkin çoklu oturum açma](https://www.figma.com/pricing/)
 
 > [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz. Yeni müşteriler ve Figma Professional ekibinin etkin aboneler için Figma başvurun [aboneliğini yükseltme](https://www.figma.com/pricing/) Figma kuruluş katmanına.
 
 Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
@@ -81,15 +81,14 @@ Azure AD'de Figma tümleştirmesini yapılandırmak için Figma Galeriden yönet
 
 Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Figma sınayın.
 
-Tek iş için oturum açma için Azure AD ne Figma karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Figma ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek iş için oturum açma için Azure AD için Figma ile bağlantılı olması gerekir.  Yapılandırma ve Azure AD çoklu oturum açma Figma ile test etmek için aşağıdaki adımları tamamlayın:
 
-Yapılandırma ve Azure AD çoklu oturum açma Figma ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
-
-1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Figma test kullanıcısı oluşturma](#create-a-figma-test-user)**  - kullanıcı Azure AD gösterimini bağlı Figma Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. [**Figma Destek ekibine başvurun** ](mailto:support@figma.com?subject=SAML+Config) kuruluşunuz için bir SAML yapılandırma başlatmak ve bir ORG_SAML_CONFIG_ID alın.
+2. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Figma test kullanıcısı oluşturma](#create-a-figma-test-user)**  - kullanıcı Azure AD gösterimini bağlı Figma Britta simon'un bir karşılığı vardır.
+5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -120,7 +119,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve F
     İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>/start`
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [Figma istemci Destek ekibine]( mailto:services-404040@figma.com) bu değerleri almak için.
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [Figma Destek ekibine](mailto:support@figma.com?subject=SAML+Config) bu değerleri almak için.
 
 5. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
 
@@ -130,7 +129,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve F
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/figma-tutorial/tutorial_general_400.png)
 
-7. Çoklu oturum açmayı yapılandırma **Figma** tarafını göndermek için ihtiyacınız **uygulama Federasyon meta verileri URL'sini** için [Figma Destek ekibine]( mailto:services-404040@figma.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+7. Çoklu oturum açma Figma tarafında yapılandırmak için lütfen bu formu doldurun: [ https://goo.gl/forms/XkRB1z5ed4eVUzXn2 ](https://goo.gl/forms/XkRB1z5ed4eVUzXn2). Kabul eder, **uygulama Federasyon meta verileri URL'sini** # 5. adımdaki.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -167,9 +166,6 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 ### <a name="create-a-figma-test-user"></a>Figma test kullanıcısı oluşturma
 
 Bu bölümün amacı Figma Britta Simon adlı bir kullanıcı oluşturmaktır. Figma tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa Figma erişme denemesi sırasında oluşturulur.
-
-> [!Note]
-> Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Figma Destek ekibine]( mailto:services-404040@figma.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

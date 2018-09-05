@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8396db3a45c2b6f2c88a9fd6bbf0b8e5a7df4efb
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 404be287d2e6ac693e0942c84f630f4e067127f3
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162057"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666761"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Parola ilkeleri ve Azure Active Directory'de kısıtlamaları
 
@@ -23,7 +23,7 @@ Bu makalede, Azure Active Directory (Azure AD) kiracınız depolanan kullanıcı
 
 ## <a name="administrator-reset-policy-differences"></a>Yönetici İlkesi farklar Sıfırla
 
-**Microsoft, varsayılan olarak güçlü bir zorlar *iki ağ geçidi* parola sıfırlama İlkesi tüm Azure yöneticisi rolleri için** bu polciy kullanıcılarınız için tanımladığınız ve değiştirilemez parçacıktan farklı olabilir. Her zaman bir kullanıcı olarak parola sıfırlama işlevselliği test etmelisiniz atanmış tüm Azure yöneticisi rollerini olmadan.
+**Microsoft, varsayılan olarak güçlü bir zorlar *iki ağ geçidi* parola sıfırlama İlkesi tüm Azure yöneticisi rolleri için** Bu ilke, kullanıcılarınız için tanımladığınız ve değiştirilemez parçacıktan farklı olabilir. Her zaman bir kullanıcı olarak parola sıfırlama işlevselliği test etmelisiniz atanmış tüm Azure yöneticisi rollerini olmadan.
 
 İki ağ geçidi İlkesi ile **Yöneticiler, güvenlik sorularını kullan olanağı yok**.
 
@@ -76,7 +76,7 @@ Tek parça bir e-posta adresi gibi kimlik doğrulama verilerinin bir ağ geçidi
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Tüm kullanıcı hesaplarına uygulanan UserPrincipalName ilkeleri
 
-Azure AD'de oturum açmak için gereken her bir kullanıcı hesabını hesaplarıyla ilişkili benzersiz kullanıcı asıl adı (UPN) öznitelik değeri olması gerekir. Aşağıdaki tabloda ana hatlarını ilkeleri, Bulut ve yalnızca bulut kullanıcı hesapları eşitlenmiş hem şirket içi Active Directory kullanıcı hesapları için geçerlidir:
+Azure AD'de oturum açmak için gereken her bir kullanıcı hesabını hesaplarıyla ilişkili benzersiz kullanıcı asıl adı (UPN) öznitelik değeri olması gerekir. Aşağıdaki tabloda, bulutta ve yalnızca bulut kullanıcı hesapları için eşitlenir hem şirket içi Active Directory kullanıcı hesaplarına uygulanan tüm ilkeler özetlenmektedir:
 
 | Özellik | UserPrincipalName gereksinimleri |
 | --- | --- |

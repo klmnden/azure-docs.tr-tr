@@ -1,127 +1,128 @@
 ---
-title: Azure SQL veritabanı kullanan bir parçalı çok Kiracı veritabanı SaaS uygulaması dağıtma | Microsoft Docs
-description: Dağıtma ve Azure SQL veritabanı kullanarak SaaS desenleri gösteren parçalı Wingtip biletleri SaaS çok Kiracı veritabanı uygulama, keşfedin.
+title: Azure SQL veritabanı kullanan çok kiracılı veritabanı parçalı SaaS uygulamasını dağıtma | Microsoft Docs
+description: Dağıtma ve Azure SQL veritabanı'nı kullanarak, SaaS düzenlerinin gösteren parçalı Wingtip bilet SaaS çok kiracılı veritabanı uygulama keşfedin.
 keywords: sql veritabanı öğreticisi
 services: sql-database
-author: MightyPen
+author: billgib
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: genemi
-ms.openlocfilehash: ac53443140b792d01147cdf22b81d0e6658fa429
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 04/02/2018
+ms.reviewer: genemi
+ms.author: billgib
+ms.openlocfilehash: 0c2677622b118c11216bef62ff70e87f4de4cded
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646465"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665932"
 ---
-# <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Dağıtma ve Azure SQL veritabanı kullanan parçalı bir çok kiracılı uygulama keşfedin
+# <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Azure SQL veritabanı kullanan parçalı bir çok kiracılı uygulamasını dağıtma ve keşfetme
 
-Bu öğreticide dağıtın ve Wingtip biletleri adlı örnek bir çok kiracılı SaaS uygulama keşfedin. Wingtip biletleri uygulama SaaS senaryoları uyarlamasını basitleştirmek Azure SQL veritabanı özelliklerini göstermek için tasarlanmıştır.
+Bu öğreticide, dağıtın ve Wingtip bilet adlandırılmış bir örnek çok kiracılı SaaS uygulaması keşfedin. Wingtip bilet uygulaması, Azure SQL veritabanı'nın SaaS senaryolarını uygulamasını basitleştirmek özellikleri göstermek için tasarlanmıştır.
 
-Bu uygulama Wingtip biletleri uygulamanın parçalı çok Kiracı veritabanı desen kullanır. Parçalama tarafından Kiracı tanımlayıcısıdır. Kiracı veri Kiracı tanımlayıcı değerlerini göre belirli bir veritabanına dağıtılır. 
+Wingtip bilet uygulaması, bu uygulaması, parçalı çok kiracılı veritabanı deseni kullanır. Parçalama Kiracı tarafından tanımlayıcısıdır. Kiracı verilerini Kiracı tanımlayıcısı değerlere göre belirli bir veritabanına dağıtılır. 
 
-Bu veritabanı deseni her parça veya veritabanında bir veya daha fazla Kiracı depolamanıza olanak sağlar. Birden çok kiracılar tarafından paylaşılan her veritabanı sağlayarak için en düşük maliyeti en iyi duruma getirebilirsiniz. Veya, yalıtım için yalnızca bir kiracı depolamak her veritabanı sağlayarak en iyi duruma getirebilirsiniz. En iyi duruma getirme tercih ettiğiniz bağımsız olarak her belirli bir kiracı için yapılabilir. Tercih ettiğiniz Kiracı ilk depolanan ya da daha sonra fikrinizi değiştirirseniz yapılabilir. Uygulama ya da düzgün şekilde çalışmak üzere tasarlanmıştır.
+Bu veritabanı Düzen her parça ya da veritabanı veya daha fazla Kiracı depolamanıza olanak tanır. Birden fazla Kiracı tarafından paylaşılacak her bir veritabanı sağlayarak en düşük maliyeti en iyi duruma getirebilirsiniz. Veya her bir veritabanı yalnızca tek bir kiracı depolamak sağlayarak yalıtımı için iyileştirebilirsiniz. En iyi duruma getirme seçtiğiniz belirli her Kiracı için bağımsız olarak yapılabilir. Seçtiğiniz Kiracı ilk depolanan ya da daha sonra fikrinizi değiştirirseniz yapılabilir. Uygulama ya da düzgün şekilde çalışmak üzere tasarlanmıştır.
 
-#### <a name="app-deploys-quickly"></a>Uygulamayı hızlı bir şekilde dağıtır
+#### <a name="app-deploys-quickly"></a>Uygulama hızlı bir şekilde dağıtır
 
-Uygulama Azure bulutunda çalışır ve Azure SQL veritabanı kullanır. Aşağıdaki dağıtım mavi bölümde **Azure'a Dağıt** düğmesi. Düğmeye basıldığında uygulaması Azure aboneliğinize beş dakika içinde tam olarak dağıtılır. Tek tek uygulama bileşenleri ile çalışmak için tam erişime sahip.
+Uygulama, Azure bulutunda çalışır ve Azure SQL veritabanı kullanır. Aşağıdaki dağıtım bölümde mavi sağlar **azure'a Dağıt** düğmesi. Düğmeye basıldığında, uygulama tam olarak beş dakika içinde Azure aboneliğinize dağıtılır. Tek tek uygulama bileşenleri ile çalışmak için tam erişime sahiptir.
 
-Uygulama verileri üç örnek kiracılar için dağıtılır. Kiracılar birlikte bir çok kiracılı veritabanında depolanır.
+Uygulama verileri için üç örnek Kiracı dağıtılır. Kiracılar, birlikte bir çok kiracılı veritabanında depolanır.
 
-C# ve PowerShell kaynak kodu herkes için Wingtip anahtarlarından indirebilirsiniz [GitHub deposunu][link-github-wingtip-multitenantdb-55g].
+Herkes için Wingtip bilet ' C# ve PowerShell kaynak kodunu indirebilirsiniz [kendi GitHub deposu][link-github-wingtip-multitenantdb-55g].
 
-#### <a name="learn-in-this-tutorial"></a>Bu öğreticide öğrenin
+#### <a name="learn-in-this-tutorial"></a>Bu öğreticide bilgi edinin
 
 > [!div class="checklist"]
-> - Wingtip biletleri SaaS uygulamasının nasıl.
-> - Uygulama kaynak koduna ve yönetim komut dosyaları nereden.
-> - Sunucular ve veritabanları hakkında uygulaması olun.
-> - Kiracıların kendi veri ile nasıl eşlendiğini *katalog*.
-> - Yeni bir kiracı sağlamasını yapma.
-> - Uygulamasında Kiracı etkinliğini izlemek nasıl.
+> - Wingtip bilet SaaS uygulamasını dağıtma
+> - Uygulama kaynak kodunu ve yönetim komut dosyaları elde edileceği.
+> - Sunucuları ve uygulamayı oluşturan veritabanları hakkında.
+> - Kiracıların kendi verilerle nasıl eşlendiğine *Kataloğu*.
+> - Yeni Kiracı sağlama öğrenin.
+> - Uygulamasında Kiracı etkinliğini izlemeyi öğrenin.
 
-İlgili eğitim serileri kullanılabilir bu ilk dağıtım sırasında oluşturun. Aralık, SaaS tasarım ve yönetim desenleri öğreticileri keşfedin. Şu öğreticileri çalışırken, adım farklı SaaS desenleri nasıl uygulandığını görmek için sağlanan betikler için önerilir.
+Bir dizi ilgili öğretici kullanılabilir bu ilk dağıtımı temel oluşturun. Aralık, SaaS tasarım ve yönetim düzenlerini öğreticileri keşfedin. Öğreticilerde ilerlerken çalışırken, farklı SaaS düzenlerinin nasıl uygulandığını görmek için sağlanan betikleri adımlayın teşvik edilmektedir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığından emin olun:
 
-- En son Azure PowerShell yüklü. Ayrıntılar için bkz [Azure PowerShell ile çalışmaya başlama][link-azure-get-started-powershell-41q].
+- En son Azure PowerShell yüklü. Ayrıntılar için bkz [Azure PowerShell'i kullanmaya başlama][link-azure-get-started-powershell-41q].
 
-## <a name="deploy-the-wingtip-tickets-app"></a>Wingtip dağıtmak biletleri uygulama
+## <a name="deploy-the-wingtip-tickets-app"></a>Dağıtma Wingtip bilet uygulaması
 
 #### <a name="plan-the-names"></a>Adları planlama
 
-Bu bölüm, aşağıdaki adımlarda, sağladığınız bir *kullanıcı* kaynak adları genel benzersiz olduğundan emin olmak için kullanılan değeri ve için bir ad *kaynak grubu* bir dağıtım tarafından oluşturulan tüm kaynaklar içeriyor uygulama. Adlı bir kişi için *Ann Finley*, öneririz:
-- *Kullanıcı:* **af1***(kendi baş harflerini artı bir sayı. İkinci kez uygulama dağıttığınızda farklı bir değer (örneğin af2) kullanın.)*
-- *Kaynak grubu:* **wingtip mt af1** *(wingtip mt gösterir parçalı çok kiracılı uygulama budur. Kullanıcı adı af1 ekleme içerdiği kaynakların adları ile kaynak grubu adı hatalarla ilintilidir.)*
+Bu bölümdeki adımlarda, sağladığınız bir *kullanıcı* Kaynak adlarının benzersiz olduğundan emin olmak için kullanılan değer ve için bir ad *kaynak grubu* bir dağıtım tarafından oluşturulan tüm kaynakları içerir uygulamanın. Adlı bir kişi için *Ann Finley*, öneririz:
+- *Kullanıcı:* **af1***(kendi baş yanı sıra bir sayı.   İkinci kez uygulamayı dağıtma (örneğin af2) farklı bir değer kullanın.)*
+- *Kaynak grubu:* **wingtip mt af1** *(wingtip-mt gösterir parçalı çok kiracılı uygulama budur. Kullanıcı adı af1 ekleme adlarıyla içerdiği tüm kaynakları kaynak grubu adını ilişkilendirir.)*
 
-Adlarınızı şimdi seçin ve not edin. 
+Artık adlarınızı seçin ve not edin. 
 
 #### <a name="steps"></a>Adımlar
 
-1. Aşağıdaki mavi tıklatın **Azure'a Dağıt** düğmesi.
-    - Wingtip biletleri SaaS dağıtım şablonu ile Azure Portalı'nı açar.
+1. Aşağıdaki mavi tıklayın **azure'a Dağıt** düğmesi.
+    - Azure portalı ile Wingtip bilet SaaS dağıtım şablonu açar.
 
     [![Düğme için Azure'a dağıtın.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
 1. Dağıtım için gerekli parametre değerlerini girin.
 
     > [!IMPORTANT]
-    > Bu Tanıtım için tüm önceden var olan kaynak grupları, sunucular veya havuzları kullanmayın. Bunun yerine, seçin **yeni bir kaynak grubu oluşturma**. İlgili faturalandırmayı durdurmak için uygulamayla işiniz bittiğinde bu kaynak grubunu silin.
-    > Bu uygulama ya da oluşturur, herhangi bir kaynağa üretim için kullanmayın. Kimlik doğrulama ve sunucu güvenlik duvarı ayarları, bazı yönlerini tanıtım kolaylaştırmak için uygulamada bilerek güvenli değil.
+    > Bu Tanıtım için tüm önceden var olan kaynak grupları, sunucuları veya havuzları kullanmayın. Bunun yerine, seçin **yeni bir kaynak grubu oluşturma**. İlgili faturalandırmayı durdurmak için uygulamayla işiniz bittiğinde bu kaynak grubunu silin.
+    > Bu uygulamayı ya da oluşturduğu kaynakları üretim için kullanmayın. Kimlik doğrulaması ve sunucu güvenlik duvarı ayarları, bazı yönlerini tanıtım kolaylaştırmak için uygulamada kasıtlı olarak güvenli değil.
 
-    - İçin **kaynak grubu** - seçin **Yeni Oluştur**ve ardından sağlayan bir **adı** (büyük küçük harf duyarlı) kaynak grubu için.
+    - İçin **kaynak grubu** - seçin **Yeni Oluştur**ve ardından bir **adı** kaynak grubunun (büyük/küçük harfe duyarlı).
         - Seçin bir **konumu** aşağı açılan listeden.
     - İçin **kullanıcı** -kısa seçmenizi öneririz **kullanıcı** değeri.
 
 1. **Uygulamayı dağıtın**.
 
-    - Hüküm ve koşulları kabul için tıklatın.
+    - Hüküm ve koşulları kabul etmek için tıklayın.
     - **Satın al**’a tıklayın.
 
-1. Dağıtım durumunu izlemek tıklayarak **bildirimleri**, arama kutusunun sağındaki zil simgesine olduğu. Wingtip uygulama dağıtma yaklaşık beş dakika sürer.
+1. Tıklayarak dağıtım durumunu izlemek **bildirimleri**, arama kutusunun sağındaki zil simgesine olduğu. Wingtip uygulamasının dağıtılması yaklaşık beş dakika sürer.
 
    ![dağıtım başarılı](media/saas-multitenantdb-get-started-deploy/succeeded.png)
 
-## <a name="download-and-unblock-the-management-scripts"></a>Karşıdan yükleme ve yönetim komut dosyaları Engellemeyi Kaldır
+## <a name="download-and-unblock-the-management-scripts"></a>Karşıdan yükleme ve yönetim komut dosyaları engelini kaldırma
 
-Uygulama dağıtımı sırasında uygulama kaynak kodu ve yönetim komut dosyaları indirin.
+Uygulama dağıtılırken, uygulama kaynak kodu ve yönetim komut dosyaları indirin.
 
 > [!NOTE]
-> ZIP dosyaları bir dış kaynaktan yüklediğiniz ve açtığınız zaman yürütülebilir içeriği (komut dosyaları, DLL'ler) Windows tarafından engellenmiş olabilir. Komut dosyaları zip dosyasından çıkarılırken, .zip dosyasını ayıklanıyor önce engellemesini kaldırmak için aşağıdaki adımları kullanın. .Zip dosyasını kaldırma tarafından komut dosyalarını çalıştırmak için izin verildiğinden emin olun.
+> Zip dosyaları bir dış kaynaktan indirilip ayıklanan zaman yürütülebilir içeriği (betikler, DLL'ler) Windows tarafından engelleniyor olabilir. Komut dosyaları zip dosyasından ayıklanırken, .zip dosyasını ayıklamadan önce engelini kaldırmak için aşağıdaki adımları kullanın. .Zip dosyasını engellemesinin kaldırılması betikleri çalıştırmak için izin verildiğinden emin olun.
 
-1. Gözat [WingtipTicketsSaaS MultiTenantDb GitHub deposuna](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
-2. Tıklatın **Kopyala veya indir**.
-3. Tıklatın **ZIP'i indir** ve dosyayı kaydedin.
-4. Sağ **WingtipTicketsSaaS MultiTenantDb master.zip** dosya ve seçin **özellikleri**.
-5. Üzerinde **genel** sekmesine **Engellemeyi Kaldır**, tıklatıp **Uygula**.
-6. **Tamam**’a tıklayın.
+1. Gözat [WingtipTicketsSaaS MultiTenantDb GitHub deposunu](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
+2. Tıklayın **Kopyala veya indir**.
+3. Tıklayın **ZIP'i indir** ve dosyayı kaydedin.
+4. Sağ **WingtipTicketsSaaS MultiTenantDb master.zip** seçin ve dosya **özellikleri**.
+5. Üzerinde **genel** sekmesinde **Engellemeyi Kaldır**, tıklatıp **Uygula**.
+6. **Tamam** düğmesine tıklayın.
 7. Dosyaları ayıklayın.
 
-Komut dosyaları bulunan *... \\WingtipTicketsSaaS MultiTenantDb ana\\öğrenme modülleri\\*  klasör.
+Betikleri bulunan *... \\WingtipTicketsSaaS MultiTenantDb ana\\öğrenme modülleri\\*  klasör.
 
-## <a name="update-the-configuration-file-for-this-deployment"></a>Bu dağıtım için yapılandırma dosyasını güncelleştir
+## <a name="update-the-configuration-file-for-this-deployment"></a>Bu dağıtım için yapılandırma dosyasını güncelleştirme
 
-Herhangi bir betiği çalıştırmadan önce ayarlayın *kaynak grubu* ve *kullanıcı* değerler **UserConfig.psm1**. Dağıtım sırasında ayarladığınız aynı değerlere bu değişkenleri ayarlayın.
+Komut dosyalarını çalıştırmadan önce ayarlayın *kaynak grubu* ve *kullanıcı* değerler **UserConfig.psm1**. Bu değişkenler, dağıtım sırasında ayarladığınız aynı değerlere ayarlayın.
 
-1. Aç... \\Modülleri öğrenme\\*UserConfig.psm1* içinde *PowerShell ISE*.
-2. Güncelleştirme *ResourceGroupName* ve *adı* (10 ve 11 yalnızca satırlarındaki) dağıtımınız belirli değerleri içeren.
+1. Aç... \\Öğrenme modülleri\\*UserConfig.psm1* içinde *PowerShell ISE*.
+2. Güncelleştirme *ResourceGroupName* ve *adı* dağıtımınız (10 ve 11 yalnızca satırlarındaki) için belirli değerlere sahip.
 3. Değişiklikleri kaydedin.
 
-Doğru önemlidir bu dosyasında ayarlanan değerler tüm betikler tarafından kullanılır. Uygulama yeniden dağıtın, kullanıcı ve kaynak grubu için farklı değerler seçmeniz gerekir. Ardından UserConfig.psm1 dosyasını yeni değerlerle yeniden güncelleştirin.
+Ayarların doğruluğunu önemli, bu nedenle bu dosyasında ayarlanan değerlerle tüm betikler tarafından kullanılır. Uygulamayı yeniden, kullanıcı ve kaynak grubu için farklı değerler seçmeniz gerekir. Ardından UserConfig.psm1 dosyasını yeni değerlerle yeniden güncelleştirin.
 
 ## <a name="run-the-application"></a>Uygulamayı çalıştırma
 
-Wingtip uygulamada, kiracılar görebildikleri ' dir. Bir salonundan birlikte hall, spor kulübü veya olayları barındıran herhangi bir yere olabilir. Görebildikleri Wingtip içinde müşteri olarak kaydetmek ve her salonundan için bir kiracı tanımlayıcı oluşturulur. Ortak olaylar bilet satın alabileceğiniz şekilde her salonundan Wingtip, kendi Yaklaşan olayları listeler.
+Wingtip uygulamasında kiracılar venues ' dir. Bir mekan Konser Salonu, bir spor kulübü veya olayları barındıran herhangi bir konumda olabilir. Mekanlar Wingtip müşteriler olarak kaydedin ve Kiracı tanımlayıcısı, her mekanın için oluşturulur. Genel olaylar bilet satın alabilirsiniz, böylece her mekan kendi Wingtip, gelecekteki olayları listeler.
 
-Bunların olaylarını listelemek ve bilet satabilir için kişiselleştirilmiş web uygulaması her yerini alır. Her web uygulaması bağımsız ve diğer kiracıdan yalıtılmış ' dir. Dahili olarak Azure SQL veritabanı'nda, her veri her Kiracı için varsayılan olarak parçalı bir çok kiracılı veritabanına depolanır. Tüm verileri Kiracı tanımlayıcısı ile etiketlenir.
+Her mekan, etkinliklerini ve bilet satmak için kişiselleştirilmiş web uygulaması alır. Her web uygulaması, bağımsız ve diğer kiracıdan yalıtılmış ' dir. Dahili olarak Azure SQL veritabanı'nda, her her kiracının verileri varsayılan olarak parçalı bir çok kiracılı veritabanında depolanır. Tüm veri Kiracı tanımlayıcısı ile etiketlenir.
 
-Merkezi bir **olay hub'ı** Web sayfası kendi dağıtımınıza içindeki kiracıların bağlantıların listesini sağlar. Denemek için aşağıdaki adımları kullanın **olay hub'ı** Web sayfası ve tek tek web uygulaması:
+Bir merkezi **olay hub'ı** Web sayfası, belirli dağıtım içindeki kiracıların bağlantıların listesini sağlar. Denemek için aşağıdaki adımları kullanın **olay hub'ı** Web sayfası ve tek tek web uygulaması:
 
 1. Açık **olay hub'ı** web tarayıcınızda:
     - http://events.wingtip-mt.&lt; Kullanıcı&gt;. trafficmanager.net &nbsp; *(Değiştir &lt;kullanıcı&gt; dağıtımınızın kullanıcı değerine sahip.)*
@@ -134,121 +135,121 @@ Merkezi bir **olay hub'ı** Web sayfası kendi dağıtımınıza içindeki kirac
 
 #### <a name="azure-traffic-manager"></a>Azure Traffic Manager
 
-Gelen istekleri dağıtımını denetlemek için Wingtip uygulamanın kullandığı [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Her bir kiracı için olayları sayfası, URL'de Kiracı adını içerir. Her URL Ayrıca belirli, kullanıcı değeri içerir. Her URL, aşağıdaki adımları kullanarak gösterilen biçimde obeys:
+Gelen isteklerin dağıtımını denetlemek için Wingtip uygulama kullanan [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Her Kiracı için olayları sayfası, URL'de Kiracı adını içerir. Her URL, ayrıca, belirli bir kullanıcı değerini içerir. Her URL, aşağıdaki adımları kullanarak, gösterilen biçimi ilişkiden:
 
 - http://events.wingtip-mt.&lt; Kullanıcı&gt;.trafficmanager.net/*fabrikamjazzclub*
 
-1. Olayları uygulama URL'den Kiracı adı ayrıştırır. Kiracı adı *fabrikamjazzclub* önceki örnek URL.
-2. Uygulama Kataloğu'nu kullanarak erişmek için bir anahtar oluşturmak için Kiracı adı sonra karmaları [parça eşleme Yönetim](sql-database-elastic-scale-shard-map-management.md).
-3. Uygulama Kataloğu'nda anahtar bulur ve karşılık gelen kiracının veritabanının konumunu alır.
+1. Etkinlikler uygulaması, Kiracı adını URL'den ayrıştırır. Kiracı adı *fabrikamjazzclub* önceki örnek URL.
+2. Uygulamayı kullanarak bir kataloğa erişim sağlayacak anahtar oluşturmak üzere Kiracı adından sonra karma [parça eşleme Yönetimi](sql-database-elastic-scale-shard-map-management.md).
+3. Uygulama Kataloğu'nda anahtar bulur ve karşılık gelen kiracının veritabanı konumunu alır.
 4. Uygulama konum bilgilerini bulmak ve Kiracı için tüm verileri içeren bir veritabanına erişmek için kullanır.
 
 #### <a name="events-hub"></a>Olay hub'ı
 
-1. **Olay hub'ı** kataloğu ve bunların görebildikleri kayıtlı tüm kiracılar listeler.
-2. **Olay hub'ı** URL'leri oluşturmak için her eşleme ile ilişkili kiracının adını almak için katalogda genişletilmiş meta verilerini kullanır.
+1. **Olay hub'ı** katalog ve bunların venues kayıtlı olan tüm kiracılar listeler.
+2. **Olay hub'ı** URL'leri oluşturmak için her eşleme ile ilişkili kiracının adını almak için katalogdaki genişletilmiş meta verileri kullanır.
 
-Bir üretim ortamında genellikle bir CNAME DNS kaydı oluşturduğunuz [bir şirketin internet etki alanını işaret](../traffic-manager/traffic-manager-point-internet-domain.md) trafik Yöneticisi profili için.
+Bir üretim ortamında, genellikle bir CNAME DNS kaydı için oluşturduğunuz [bir şirketin internet etki alanını işaret](../traffic-manager/traffic-manager-point-internet-domain.md) için traffic manager profili.
 
 ## <a name="start-generating-load-on-the-tenant-databases"></a>Kiracı veritabanları üzerinde yük oluşturmaya başlama
 
-Uygulamanın dağıtıldığı, şimdi uygulamaya koyun! *Demo LoadGenerator* PowerShell komut dosyasını her bir kiracı için çalışan bir iş yükünü başlatır. Birçok SaaS uygulamalarını gerçek Yük genellikle durumlarıyla ve tahmin edilemez. Bu tür yük benzetimini yapmak için tüm kiracılar arasında dağıtılmış yük üreteci oluşturur. Yük rastgele aralıklarla gerçekleşen her bir kiracı üzerinde rastgele WINS'e içerir. Yük izleme önce en az üç veya dört dakika çalıştırmak Oluşturucu izin vermek en iyisidir çıkmaya, yük düzeni için birkaç dakika sürer.
+Şimdi uygulama dağıtıldıktan sonra bu çalışmaya başlayabiliriz! *Tanıtım LoadGenerator* PowerShell komut dosyasını çalıştıran her Kiracı için bir iş yükü başlatır. Birçok SaaS uygulamalarına gerçek Yük genellikle düzensiz ve tahmin edilemezdir. Bu tür iş yükünün benzetimini yapmak için tüm kiracılar genelinde dağıtılmış bir yük Oluşturucu oluşturur. Yük rastgele aralıklarla gerçekleşen her bir kiracı üzerinde rastgele artışları içerir. Yükü izleme önce en az üç veya dört dakika çalıştırın oluşturucunun en iyisidir çıkması yük düzeni için birkaç dakika sürer.
 
-1. İçinde *PowerShell ISE*açın... \\Öğrenme modülleri\\yardımcı programları\\*Demo LoadGenerator.ps1* komut dosyası.
+1. İçinde *PowerShell ISE*açın... \\Öğrenme modülleri\\yardımcı programları\\*tanıtım LoadGenerator.ps1* betiği.
 2. Betiği çalıştırmak ve yük oluşturucuyu başlatmak için **F5**’e basın (şimdilik varsayılan parametre değerlerini bırakın).
 
-*Demo LoadGenerator.ps1* komut dosyası yükleme Oluşturucu çalıştığı başka bir PowerShell oturumu açar. Arka plan yük oluşturma işleri, her bir kiracı için bir tane çağıran bir ön plan görevi olarak bu oturumda yük Oluşturucu çalışır.
+*Tanıtım LoadGenerator.ps1* betik yük Oluşturucu çalıştığı başka bir PowerShell oturumu açar. Yük Oluşturucu, arka plan yük oluşturma işleri, her Kiracı için bir çağıran bir ön plan görevi olarak bu oturumda çalıştırır.
 
-Ön plan görev başlatıldıktan sonra iş çağrılırken bir durumda kalır. Görev sonradan sağlanan yeni kiracılar için ek arka plan işleri başlatır.
+Ön plan görev başlatıldıktan sonra bir işlemi çağırma durumda kalır. Görev, daha sonra sağlanan yeni kiracılar için ek arka plan işleri başlatır.
 
 PowerShell oturumu kapatma tüm işleri durdurur.
 
-Farklı parametre değerleri kullanmak için yük Oluşturucu oturumu yeniden isteyebilirsiniz. Öyleyse, PowerShell oluşturma oturumu kapatın ve sonra yeniden *Demo LoadGenerator.ps1*.
+Farklı parametre değerleri kullanılacak yük Oluşturucu oturumlarını yeniden başlatmanız isteyebilirsiniz. Bu durumda, PowerShell oluşturma oturumu kapatın ve yeniden *tanıtım LoadGenerator.ps1*.
 
 ## <a name="provision-a-new-tenant-into-the-sharded-database"></a>Parçalı veritabanına yeni bir kiracı sağlama
 
-İlk üç örnek kiracılar içeren *Tenants1* veritabanı. Şirketinizdeki başka bir kiracı oluşturmak ve dağıtılmış uygulamanın kendi etkileri gözlemleyin. Bu adımda, yeni bir kiracı oluşturmak için bir tuşa basın:
+İlk dağıtım üç örnek Kiracı içerir *Tenants1* veritabanı. Şimdi başka bir kiracı oluşturur ve dağıtılan uygulama üzerindeki etkileri gözlemleyin. Bu adımda, yeni bir kiracı oluşturmak için bir tuşa basın:
 
-1. Aç... \\Modülleri öğrenme\\sağlamak ve Katalog\\*Demo ProvisionTenants.ps1* içinde *PowerShell ISE*.
-2. Tuşuna **F5** (değil **F8**) komut dosyasını çalıştırmak için (şu an için varsayılan değerleri bırakın).
+1. Aç... \\Öğrenme modülleri\\sağlama ve kataloğa kaydetme\\*tanıtım ProvisionTenants.ps1* içinde *PowerShell ISE*.
+2. Tuşuna **F5** (değil **F8**) betiği çalıştırmak için (şimdilik varsayılan değerlerini bırakın).
 
    > [!NOTE]
-   > Yalnızca tuşlarına basarak PowerShell komut dosyalarını çalıştırması gereken **F5** basarak değil anahtar **F8** komut dosyası, seçilen bir parçası çalıştırmak için. Sorun **F8** olan *$PSScriptRoot* değişkeni değerlendirilmez. Bu değişken klasörleri gitmek için birçok komut dosyaları tarafından başka betikleri çağırma ya da modülleri içe gereklidir.
+   > Yalnızca tuşlarına basarak PowerShell betikleri çalıştırmanız gerekir **F5** basarak değil, anahtar **F8** seçilen bir kod parçası çalıştırmak için. Sorun **F8** olan *$PSScriptRoot* değişken değerlendirilmez. Bu değişken klasörleri gitmek için birçok betikler tarafından diğer betikleri çağırma veya modülleri içeri aktarmak için gerekli.
 
-Yeni kırmızı Akçaağaç yarış Kiracı eklenen *Tenants1* veritabanı ve kataloğa kayıtlı. Yeni Kiracı bilet satış **olayları** site tarayıcınızda açar:
+Yeni Kiracı Red Maple yarışı eklenir *Tenants1* veritabanı ve kataloğa kayıtlı. Yeni kiracının bilet satış **olayları** sitesi, tarayıcınızda açılır:
 
 ![Yeni kiracı](./media/saas-multitenantdb-get-started-deploy/red-maple-racing.png)
 
-Yenileme **olay hub'ı**, ve yeni Kiracı şimdi listede görüntülenir.
+Yenileme **olay hub'ı**, ve yeni kiracının listede görünür.
 
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Kendi veritabanında yeni bir kiracı sağlama
 
-Parçalı çok kiracılı bir model diğer kiracılar içeren bir veritabanına ya da kendi bir veritabanına yeni bir kiracı sağlayacak seçmesine izin verir. Kendi veritabanında yalıtılmış Kiracı aşağıdaki yararları özgürlüğüne:
-- Kiracının veritabanının performansını gereksinimlerine göre diğer kiracılar bozmasına gerek kalmadan yönetilebilir.
-- Diğer bir kiracılar etkilenecek çünkü gerekiyorsa, veritabanını önceki bir noktaya, zaman içindeki geri yüklenebilir.
+Parçalı çok kiracılı model, diğer kiracılar içeren bir veritabanına veya kendi veritabanına yeni bir kiracı sağlama konusundaki kararı olanak tanır. Kendi veritabanında yalıtılmış Kiracı, aşağıdaki faydaları ölçeklenebilme:
+- Diğer kiracıların ihtiyaçlarını tehlikeye gerek kalmadan kiracının veritabanının performansını yönetilebilir.
+- Diğer bir kiracı etkilenebileceğini çünkü gerekirse, veritabanı önceki bir noktaya zaman içinde geri yüklenebilir.
 
-Ücretsiz deneme müşteriler veya ekonomi müşteriler, çok kiracılı veritabanlarına koymak isteyebilirsiniz. Her premium Kiracı kendi adanmış veritabanı koyabilirsiniz. Çok sayıda yalnızca bir kiracı içeren veritabanları oluşturursanız, bunları kaynak maliyetleri en iyi duruma getirmek için bir esnek havuz tüm topluca yönetebilirsiniz.
+Ücretsiz deneme müşterileri veya ekonomi müşterileri, çok kiracılı veritabanlarına koymak isteyebilirsiniz. Her premium kiracıya adanmış kendi veritabanında yerleştirebilirsiniz. Yalnızca tek bir kiracı içeren veritabanları çok sayıda oluşturursanız, bunları kaynak maliyetleri iyileştirmek için bir elastik havuz tüm topluca yönetebilirsiniz.
 
-Ardından, biz başka bir kiracı, bu süre, kendi veritabanındaki sağlayın:
+Ardından, biz başka bir kiracı, bu süre içinde kendi veritabanı sağlayın:
 
-1. İçinde... \\Öğrenme modülleri\\sağlamak ve Katalog\\*Demo ProvisionTenants.ps1*, değişiklik *$TenantName* için **Salix Salsa**, *$VenueType* için **dance** ve *$Scenario* için **2**.
+1. İçinde... \\Öğrenme modülleri\\sağlama ve kataloğa kaydetme\\*tanıtım ProvisionTenants.ps1*, değişiklik *$TenantName* için **Salix Salsa**, *$VenueType* için **dansını** ve *$Scenario* için **2**.
 
-2. Tuşuna **F5** betiği yeniden çalıştırmak için.
-    - Bu **F5** basın ayrı bir veritabanında yeni Kiracı sağlar. Veritabanı ve Kiracı katalogda kaydedilir. Ardından tarayıcı Kiracı olayları sayfası açılır.
+2. Tuşuna **F5** betiğini yeniden çalıştırmak için.
+    - Bu **F5** basın, yeni kiracıya ayrı bir veritabanı sağlar. Veritabanı ve Kiracı kataloğa kaydedilir. Ardından tarayıcı kiracının olayları sayfası açılır.
 
    ![Salix Salsa olayları sayfası](./media/saas-multitenantdb-get-started-deploy/salix-salsa.png)
 
-   - Sayfanın alt kısmına kaydırın. Var. başlığında Kiracı verilerin depolandığı veritabanı adı bakın.
+   - Sayfanın alt kısmına kaydırın. Orada başlığında Kiracı verilerini depolandığı veritabanı adı bakın.
 
-3. Yenileme **olay hub'ı** ve iki yeni kiracılar şimdi listede görünür.
+3. Yenileme **olay hub'ı** ve iki yeni kiracılar listesinde görünür.
 
-## <a name="explore-the-servers-and-tenant-databases"></a>Sunucuları araştırın ve Kiracı veritabanları
+## <a name="explore-the-servers-and-tenant-databases"></a>Sunucular ve Kiracı veritabanlarını öğrenme
 
-Şimdi biz dağıtılan kaynakların bazıları bakın:
+Artık dağıtılan kaynaklardan bazıları bakacağız:
 
-1. İçinde [Azure portal](http://portal.azure.com), kaynak grupları listesine göz atın. Uygulama dağıtıldığında, oluşturduğunuz kaynak grubunu açın.
+1. İçinde [Azure portalında](http://portal.azure.com), kaynak grupları, listeye göz atın. Uygulama dağıtıldığında, oluşturduğunuz kaynak grubunu açın.
 
    ![kaynak grubu](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
-2. Tıklatın **katalog mt&lt;kullanıcı&gt;**  sunucu. Katalog sunucusu adlı iki veritabanı içerdiğinden *tenantcatalog* ve *basetenantdb*. *Basetenantdb* veritabanı bir boş şablonu veritabanıdır. Bu yeni bir kiracı veritabanı oluşturmak için çok sayıda Kiracı veya yalnızca bir kiracı için kullanılan olup olmadığını kopyalanır.
+2. Tıklayın **Kataloğu-mt&lt;kullanıcı&gt;**  sunucusu. Katalog sunucusu adlı iki veritabanı içeren *tenantcatalog* ve *basetenantdb*. *Basetenantdb* boş şablonu veritabanı veritabanıdır. Yeni bir kiracı veritabanı oluşturmak için birçok kiracının veya tek bir kiracı için kullanılıp kopyalanır.
 
    ![katalog sunucusu seçeneğine tıklayın](./media/saas-multitenantdb-get-started-deploy/catalog-server.png)
 
-3. Geri dönerek seçin ve kaynak grubu *tenants1 mt* Kiracı veritabanlarını barındıran sunucu.
-    - Özgün üç kiracılar yanı sıra, eklediğiniz ilk Kiracı depolanan çok Kiracı veritabanı tenants1 veritabanıdır. 50 DTU standart bir veritabanı olarak yapılandırılır.
-    - **Salixsalsa** veritabanı Salix Salsa dance salonundan yalnızca kendi Kiracı olarak tutar. Varsayılan olarak 50 Dtu'ya sahip Standard edition veritabanı olarak yapılandırılır.
+3. Geri Git seçin ve kaynak grubu *tenants1-mt* Kiracı veritabanlarını barındıran sunucu.
+    - Tenants1 veritabanı, özgün üç Kiracı yanı sıra, eklediğiniz ilk Kiracı depolandığı çok kiracılı bir veritabanıdır. 50 DTU standart veritabanı olarak yapılandırılmış.
+    - **Salixsalsa** Salix Salsa dansını mekan olarak kendi tek kiracılı veritabanı tutar. Varsayılan olarak 50 Dtu içeren standart sürüm veritabanı olarak yapılandırılır.
 
-   ![kiracılar sunucu](./media/saas-multitenantdb-get-started-deploy/tenants-server.png)
+   ![kiracılar sunucusu](./media/saas-multitenantdb-get-started-deploy/tenants-server.png)
 
 
-## <a name="monitor-the-performance-of-the-database"></a>Veritabanının performansını izleme
+## <a name="monitor-the-performance-of-the-database"></a>Veritabanı performansını izleme
 
-Yük Oluşturucu için birkaç dakika çalışır, izleme kapasiteleri Azure portalda yerleşik veritabanı bakmak yeterli telemetri yok.
+Yük Oluşturucu birkaç dakikadır çalışıyorsa, yeterli telemetri İzleme özelliklerini Azure portalında oluşturulan veritabanı bakmak kullanılabilir.
 
-1. Gözat **tenants1 mt&lt;kullanıcı&gt;**  sunucusu ve tıklatın **tenants1** dört kiracılar içerdiği veritabanı için kaynak kullanımını görüntülemek için. Her bir kiracı durumlarıyla ağır bir yük yük Oluşturucu gelen tabidir:
+1. Gözat **tenants1-mt&lt;kullanıcı&gt;**  sunucusu seçeneğine tıklayıp **tenants1** dört kiracılar olduğu veritabanı için kaynak kullanımını görüntülemek için. Kullanımın ağır bir yük gelen yük Oluşturucu her Kiracı tabidir:
 
-   ![İzleyici tenants1](./media/saas-multitenantdb-get-started-deploy/monitor-tenants1.png)
+   ![tenants1 izleyin](./media/saas-multitenantdb-get-started-deploy/monitor-tenants1.png)
 
-   DTU kullanımı grafik sorunsuz şekilde çok Kiracı veritabanı arasında çok sayıda Kiracı öngörülemeyen bir iş yükünü nasıl desteklediğini göstermektedir. Bu durumda, yük Oluşturucu yaklaşık 30 Dtu'lar durumlarıyla yükü her kiracıya uygulanıyor. Bu yükleme için % 60 kullanımı 50 DTU veritabanı karşılık gelir. % 60 aşan yükselmeleri aynı anda birden fazla Kiracı uygulanmakta yük sonucudur.
+   DTU kullanımı grafiği düzgün şekilde, çok kiracılı veritabanı birçok kiracılar genelinde öngörülemeyen bir iş yüküne nasıl desteklediğini göstermektedir. Bu durumda, yük Oluşturucu her Kiracı için yaklaşık 30 Dtu'ların ara sıra bir yük uyguluyor. Bu yük 50 DTU veritabanının % 60 kullanımına karşılık gelmektedir. % 60'ı aşan en yüksek sayılar birden fazla Kiracı için aynı anda uygulanan yük sonucudur.
 
-2. Gözat **tenants1 mt&lt;kullanıcı&gt;**  sunucusu ve tıklatın **salixsalsa** veritabanı. Kaynak kullanımı yalnızca bir kiracı içeren bu veritabanında görebilirsiniz.
+2. Gözat **tenants1-mt&lt;kullanıcı&gt;**  sunucusu seçeneğine tıklayıp **salixsalsa** veritabanı. Kaynak kullanımını tek bir kiracı içeren bu veritabanında görebilirsiniz.
 
    ![salixsalsa veritabanı](./media/saas-multitenantdb-get-started-deploy/monitor-salix.png)
 
-Yük oluşturucu bağımsız olarak hangi veritabanı her Kiracı bulunduğu her bir kiracı benzer yük uygulanıyor. Yalnızca bir kiracı ile **salixsalsa** veritabanı, veritabanı bir çok daha yüksek yük veritabanından ile birkaç kiracılar dayanabilir görebilirsiniz. 
+Yük Oluşturucu her Kiracı bulunduğu veritabanı bağımsız olarak her bir kiracı benzer bir yük uygulanıyor. Tek bir kiracıda ile **salixsalsa** veritabanı, veritabanı veritabanından çok daha yüksek yük ile birden çok kiracıyı dayanabilir görebilirsiniz. 
 
-#### <a name="resource-allocations-vary-by-workload"></a>Kaynak ayırma iş yüküne göre farklılık gösterir.
+#### <a name="resource-allocations-vary-by-workload"></a>Kaynak ayırmalar iş yüküne göre farklılık gösterir.
 
-Bazen çok Kiracı veritabanı tek Kiracı veritabanı, daha iyi performans için daha fazla kaynak gerektiren, ancak her zaman. En iyi Tahsis edilen kaynakların sisteminizde kiracılar için belirli bir iş yükünü özelliklerine bağlıdır.
+Bazen bir çok kiracılı veritabanı bir tek kiracılı veritabanı daha iyi performans için daha fazla kaynak gerektiren ama her zaman kullanılmaz. En uygun kaynakların ayrılması, sisteminizdeki kiracılar için belirli iş yükü özelliklerine bağlıdır.
 
-Yük üreteci komut dosyası tarafından oluşturulan iş yükleri, yalnızca gösterme amaçlıdır.
+Yük Oluşturucu betiği tarafından oluşturulan iş yükleri, yalnızca gösterme amaçlıdır.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-- Çok kiracılı SaaS uygulamaları hakkında bilgi edinmek için [tasarım desenleri çok kiracılı SaaS uygulamaları için](saas-tenancy-app-design-patterns.md).
+- Çok kiracılı SaaS uygulamaları hakkında bilgi edinmek için [çok kiracılı SaaS uygulamaları için Tasarım Düzenleri](saas-tenancy-app-design-patterns.md).
 
-- Esnek havuzları hakkında bilgi için bkz:
-    - [Esnek havuz yönetmek ve birden çok Azure SQL veritabanı ölçekleme Yardım](sql-database-elastic-pool.md)
+- Elastik havuzlar hakkında bilgi edinmek için bkz:
+    - [Elastik havuzlar, yönetmenize ve birden çok Azure SQL veritabanını ölçeklendirme Yardım](sql-database-elastic-pool.md)
     - [Azure SQL Veritabanı ile ölçek genişletme](sql-database-elastic-scale-introduction.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -256,14 +257,14 @@ Yük üreteci komut dosyası tarafından oluşturulan iş yükleri, yalnızca g�
 Bu öğreticide şunları öğrendiniz:
 
 > [!div class="checklist"]
-> - Wingtip biletleri SaaS çok Kiracı veritabanı uygulamasının nasıl.
-> - Sunucular ve veritabanları hakkında uygulaması olun.
-> - Kiracıların kendi verilerle eşlendiğinden *katalog*.
-> - Çok Kiracı veritabanı ve tek Kiracı veritabanı yeni kiracılar sağlamasını yapma.
-> - Kiracı etkinliğini izlemek için havuzu kullanımı görüntülemek nasıl.
-> - Nasıl ilgili faturalama durdurmak için örnek kaynaklar silinir.
+> - Wingtip bilet SaaS çok kiracılı veritabanı uygulama dağıtma
+> - Sunucuları ve uygulamayı oluşturan veritabanları hakkında.
+> - Kiracılar ve verilerinin ile *Kataloğu*.
+> - Yeni kiracılar, çok kiracılı veritabanı ile tek kiracılı veritabanı sağlamasını yapma.
+> - Nasıl Kiracı etkinliğini izlemek için havuz kullanımını görüntüleme.
+> - İlgili faturalandırmayı durdurmak için örnek kaynakları silme yapma.
 
-Şimdi deneyin [sağlamak ve kataloğu Öğreticisi](sql-database-saas-tutorial-provision-and-catalog.md).
+Şimdi deneyin [sağlama ve kataloğa kaydetme öğreticisinde](sql-database-saas-tutorial-provision-and-catalog.md).
 
 
 <!--  Link references.
@@ -287,5 +288,5 @@ A [series of related tutorials] is available that build upon this initial deploy
 [image-deploy-to-azure-blue-48d]: http://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
 -->
 
-[image-deploy-to-azure-blue-48d]: media/saas-multitenantdb-get-started-deploy/deploy.png "Azure'a dağıtmak için düğmesi."
+[image-deploy-to-azure-blue-48d]: media/saas-multitenantdb-get-started-deploy/deploy.png "Azure'a dağıtmaya düğmesi."
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 3c6adc3f27e49facec124401f03a036269b7c7a9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e87b791dda03521def32ca7473336d7d37644773
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524456"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666028"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti için bir içeri aktarma işi oluşturma
 
@@ -57,7 +57,7 @@ Sürücünüz hazırlanıyor içerir:
 
 ## <a name="obtaining-your-shipping-location"></a>Sevkiyat konumunuz edinme
 
-Bir dağıtımı konum adı ve adresi çağırarak elde etmeniz içeri aktarma işine oluşturmadan önce [List Locations](/rest/api/storageimportexport/listlocations) işlemi. `List Locations` konumlar ve posta adresleri listesi döndürür. Döndürülen listeden bir konum seçin ve sabit sürücülerinizi bu adrese gönderin. Ayrıca `Get Location` doğrudan belirli bir konumun teslimat adresini edinme işlemi.
+Bir dağıtımı konum adı ve adresi çağırarak elde etmeniz içeri aktarma işine oluşturmadan önce [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/locations/list) işlemi. `List Locations` konumlar ve posta adresleri listesi döndürür. Döndürülen listeden bir konum seçin ve sabit sürücülerinizi bu adrese gönderin. Ayrıca `Get Location` doğrudan belirli bir konumun teslimat adresini edinme işlemi.
 
  Sevkiyat konum elde etmek için aşağıdaki adımları izleyin:
 

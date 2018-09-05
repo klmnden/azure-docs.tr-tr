@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 84493ae83515c0458bf5b9e9cf44603300a8b4f7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 1f9facf94b8068b98aa49c49ece7070a83db0686
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284896"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665094"
 ---
 # <a name="creating-custom-voice-fonts"></a>Özel ses tipi olarak oluşturma
 
@@ -22,7 +22,6 @@ Ses tipi oluşturmak için studio kaydını yapabilir ve ilişkili betikler eği
 
 Az miktarda bir kavram kanıtı için verileri ile başlayabilirsiniz. Ancak daha fazla veri sağlarsanız, daha doğal ve professional, ses çalar.
 
-Ses özelleştirme ABD İngilizce (en-US) ve ana kara Çince (zh-CN) için kullanılabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -45,6 +44,9 @@ Ayrıca bir Azure hesabı ve konuşma hizmeti için bir abonelik gerekir. [Bir o
      ![Abonelik Ekle](media/custom-voice/add-subscription.png)
 
 Başlamaya hazırsınız!
+
+> [!IMPORTANT]
+> Özel önizleme aşamasında abonelikler, özel sesli özelliğini kullanmak için izin verilenler listesinde olmalıdır. Sayfasında, abonelik beyaz listeye almak için adımları izleyin.
 
 ## <a name="prepare-recordings-and-transcripts"></a>Kayıtları ve dökümler hazırlama
 
@@ -69,8 +71,6 @@ Ses dosyaları gibi hazırlıklı olmalıdır. Diğer biçimlere desteklenmez ve
 | Arşiv Biçimi| Zip      |
 | Maksimum Arşiv Boyutu|200 MB|
 
-Ses dosyaları kümesini alt dizinler olmadan tek bir klasöre yerleştirin ve tek bir ZIP dosyası arşivi ayarlamak tüm paket.
-
 > [!NOTE]
 > 16.000 Hz reddedilir daha düşük bir örnekleme hızı dosyalarıyla Wave. Burada bir zip dosyası farklı bir örnekleme hızı Dalgalar içeren durumlarda, yalnızca eşit veya daha yüksek 16.000 Hz aktarılır.
 > Portal şu anda ZIP alır. en fazla 200 MB arşivler. Ancak, birden fazla arşivini yüklenebilir. En fazla izin verilen veri kümeleri aboneliği kullanıcılarını ve 50 Standart abonelik kullanıcılar için ücretsiz 10 ZIP dosyaları sayısıdır.
@@ -90,7 +90,7 @@ Düz metin dosyası (ANSI/UTF-8/UTF-8-BOM/UTF-16-LE/UTF-16-BE) döküm dosyasıd
 Özel ses sistem dökümleri için küçük metin dönüştürme ve gereksiz noktalama işaretlerini kaldırarak normalleştirir. Dökümler %100 ilgili ses kayıtları için doğru olduğunu önemlidir.
 
 > [!TIP]
-> Ne zaman üretim metin okuma oluşturma, fonetik kapsamı hem verimlilik dikkate konuşma seçin (veya yazma betikler) sesler.
+> Ne zaman üretim metin okuma oluşturma, fonetik kapsamı hem verimlilik dikkate konuşma seçin (veya yazma betikler) sesler. Sonuçları aşmakta sorun istiyor musunuz? [Özel ses ekibiyle](mailto:tts@microsoft.com) bize sahip hakkında daha fazla inceleyin çıkış bulunacak.
 
 ## <a name="upload-your-datasets"></a>Veri kümelerini karşıya yükleme
 
@@ -102,8 +102,6 @@ Ses dosyası Arşiv ve dökümler hazırlandıktan sonra bunları aracılığıy
 1. Portalda oturum açın.
 
 2. Seçin **veri** özel sesli ana sayfada altında. 
-
-    ![Projelerim](media/custom-voice/my-projects.png)
 
     Ses verilerim tablo görünür. Henüz hiçbir sesli veri kümelerini karşıya yüklediğiniz değil, boş olur.
 
@@ -224,13 +222,20 @@ Dağıtım durumu başarılı olduğunda, dağıtılan ses tipi uç noktası My 
 Çevrimiçi uç noktasını sınama de özel sesli portal kullanılabilir. Uç noktanız test etmek için seçin **test uç noktaları** özel sesli aşağı açılan menüden. Uç nokta sayfasını test etme görünür. Dağıtılan bir özel sesli seçin ve (düz metin veya SSML'yi biçimi) metin kutusuna söylenir için metin girin.
 
 > [!NOTE] 
-> SSML'yi, kullanırken `<voice>` etiket oluşturduğunuzda, özel sesli verdiği adı belirtmeniz gerekir.
+> SSML'yi, kullanırken `<voice>` etiket oluşturduğunuzda, özel sesli verdiği adı belirtmeniz gerekir. Düz metin gönderirseniz, özel sesli her zaman kullanılır.
 
 Tıklayın **Play** içinde özel ses tipi konuşulan metnin duymak.
 
 ![Uç nokta test etme](media/custom-voice/endpoint-testing.png)
 
 Özel uç nokta, metin okuma istekleri için kullanılan standart uç nokta işlevsel olarak eşdeğerdir. Bkz: [REST API](rest-apis.md) daha fazla bilgi için.
+
+## <a name="language-support"></a>Dil desteği
+
+Ses özelleştirme ABD İngilizce (en-US), ana kara Çince (zh-CN) ve İtalyanca (it-IT) için kullanılabilir.
+
+> [!NOTE]
+> İtalyan sesi eğitim 2000'den fazla konuşma bir veri kümesi ile başlar. Çince-İngilizce dilli modelleri de Konuşma 2000'den fazla veri kümesi ile desteklenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -14,12 +14,12 @@ ms.component: pim
 ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9ad4965ccd86f88a61b5f6fb8f540d76e472ea69
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: a4aecd276df8e5453f0c35d6290bbe8a8d156ffa
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345304"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669372"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>PIM'de Azure kaynak rol ayarlarını yapılandırma
 
@@ -89,6 +89,8 @@ Atama yerine getirmesini Kaynak Yöneticisi kimin söyledikleri olduğundan emin
 MFA etkinleştirilebilmesi çalıştırmak uygun rolü üyelerinin gerektirebilir. Bu işlem, etkinleştirme kim makul kesin olarak söyledikleri isteyen kullanıcı sağlar. Kullanıcı hesabının tehlikede, bu seçenek zorlamayı durumlarda kritik kaynaklara korur.
 
 Mfa'yı etkinleştirme tamamlanmadan önce çalıştırmak uygun bir üye gerektirecek şekilde kontrol **etkinleştirme multi-Factor Authentication iste** kutusu.
+
+Daha fazla bilgi için [multi factor authentication (MFA) ve PIM](pim-how-to-require-mfa.md).
 
 ## <a name="activation-maximum-duration"></a>Maksimum etkinleştirme süresi
 

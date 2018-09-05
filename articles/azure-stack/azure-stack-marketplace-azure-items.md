@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 08/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 196e671eefc3a8baaa7d6edc723851c101afc2da
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: bb2dc0d5500778372de674c749b44267fb512a2e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42055592"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701162"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack için kullanılabilir olan Azure Market öğeleri
 
@@ -90,8 +90,7 @@ Microsoft Azure Stack, çözüm şablonları ve şu Azure Marketi sanal makinele
 | ![Debian 9 "Uzat"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 9 "Uzat"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian9) | Debian GNU/Linux en popüler Linux dağıtımları biridir. | credativ |
 | ![CentOS tabanlı 6.9](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS tabanlı 6.9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | Linux'ın bu dağıtım üzerinde CentOS tabanlı ve Rogue Wave yazılımı tarafından sağlanır. | Rogue Wave yazılım (eski adıyla OpenLogic)  |
 | ![CentOS tabanlı 6.10](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS tabanlı 6.10](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | Linux'ın bu dağıtım üzerinde CentOS tabanlı ve Rogue Wave yazılımı tarafından sağlanır. | Rogue Wave yazılım (eski adıyla OpenLogic)  |
-| ![CentOS tabanlı 7.4](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS tabanlı 7.4](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74) | Linux'ın bu dağıtım üzerinde CentOS tabanlı ve Rogue Wave yazılımı tarafından sağlanır. | Rogue Wave yazılım (eski adıyla OpenLogic) |
-| ![7.4-LVM centOS tabanlı](media/azure-stack-marketplace-azure-items/roguewave.png) | [7.4-LVM centOS tabanlı](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74) | Linux'ın bu dağıtım üzerinde CentOS tabanlı ve Rogue Wave yazılımı tarafından sağlanır. | Rogue Wave yazılım (eski adıyla OpenLogic) |
+| ![CentOS tabanlı 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS tabanlı 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73) | Linux'ın bu dağıtım üzerinde CentOS tabanlı ve Rogue Wave yazılımı tarafından sağlanır. | Rogue Wave yazılım (eski adıyla OpenLogic) |
 | ![CentOS tabanlı 7.5](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS tabanlı 7.5](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | Linux'ın bu dağıtım üzerinde CentOS tabanlı ve Rogue Wave yazılımı tarafından sağlanır. | Rogue Wave yazılım (eski adıyla OpenLogic) |
 | ![7.5-LVM centOS tabanlı](media/azure-stack-marketplace-azure-items/roguewave.png) | [7.5-LVM centOS tabanlı](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | Linux'ın bu dağıtım üzerinde CentOS tabanlı ve Rogue Wave yazılımı tarafından sağlanır. | Rogue Wave yazılım (eski adıyla OpenLogic) |
 | ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 11 SP4. | SUSE |
@@ -234,9 +233,9 @@ Microsoft Azure Stack, çözüm şablonları ve şu Azure Marketi sanal makinele
 | ![KEMP LoadMaster yük dengeleyici ADC içerik anahtarı](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster yük dengeleyici ADC içerik anahtarı](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 4-7. Katman uygulama teslim denetleyicisini (ADC) yük dengeleyici, içerik anahtarı ve Traffic Manager. | KEMP Technologies Inc. |
 | ![NRI mPLAT paketi - çoklu bulut Conductor](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT paketi - çoklu bulut Conductor](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | Bir tek bölmesinde, izlemek için cam yapılandırma, sağlama, otomatikleştirin ve herhangi bir iş yükü veya Bulut yönetir. | NRI |
 | ![NooBaa karma AWS S3 uyumlu - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa karma AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | Genel yayılan ve şirket içi kapasite kaynaklara S3 ile uyumlu depolama hizmeti. | NooBaa |
+| ![Palo Alto VM serisi yeni nesil güvenlik duvarı](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM serisi yeni nesil güvenlik duvarı](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | VM serisi tasarlanan yeni nesil Güvenlik Duvarı'nı müşterilerin Azure Stack için uygulamalarına ve verilerine güvenli bir şekilde geçirmek bunları uygulama beyaz listeye ekleme ve tehdit önleme ilkeleri ile bilinen ve bilinmeyen tehditlere karşı koruma sağlar. **Bu görüntü dağıtmak için bir şablon gerektirir; bkz. Bu [makale](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack) önemli bilgileri.**| Palo Alto Networks, Inc. |
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall, bilinen ve bilinmeyen güvenlik açıklarına algılar ve web apps'te saldırıları engeller. **Her iki PT Market öğelerini indirme.** | Pozitif teknolojileri |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Kurumsal tüm yaşam döngüsü, Azure Stack altyapısının otomatikleştirmenizi sağlar. **Her iki Puppet Market öğelerini indirme.** | Puppet |
 | ![Quest Hızlı Kurtarma](media/azure-stack-marketplace-azure-items/quest.png) | [Quest Hızlı Kurtarma çekirdek](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Gelişmiş veri koruması Hızlı Kurtarma, yedekleme, çoğaltma ve Kurtarma bir kullanımı kolay yazılım çözümde birleştirir. | Quest yazılım |
 | ![SUSE yönetici 3.1 Proxy'si (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE yönetici 3.1 Proxy'si (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSE-Manager) | Sınıfının en iyi açık kaynak altyapı yönetimi. | SUSE |
 | ![ZeroDown yazılım BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [Hizmet olarak yazılım ZeroDown iş sürekliliği](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | ZeroDown® yazılım teknolojisi, işletmelerin şirket verilerine kendi iş sürekliliği aracılığıyla sürekli erişim (BCaaS) hizmet olarak sağlar™ mimarisi, koruma uygulamaları ve işlem durumunda olduğu ağ kesintileri Normalde Kurumsal cripple. | ZeroDown yazılım |
-| ![Palo Alto VM serisi yeni nesil güvenlik duvarı](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM serisi yeni nesil güvenlik duvarı](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | VM serisi tasarlanan yeni nesil Güvenlik Duvarı'nı müşterilerin Azure Stack için uygulamalarına ve verilerine güvenli bir şekilde geçirmek bunları uygulama beyaz listeye ekleme ve tehdit önleme ilkeleri ile bilinen ve bilinmeyen tehditlere karşı koruma sağlar. **Bu görüntü dağıtmak için bir şablon gerektirir; bkz. Bu [makale](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack) önemli bilgileri.**| Palo Alto Networks, Inc. |

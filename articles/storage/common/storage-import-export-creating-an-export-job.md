@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 889cedf555c8a9a86cc8a2101f27cafcb48376df
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0066ec20c68d70fac9a6529f8f5b85855d6c5349
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523164"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666833"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti için dışarı aktarma işi oluşturma
 Microsoft Azure içeri/dışarı aktarma hizmeti REST API kullanarak dışarı aktarma işi oluşturma, aşağıdaki adımları içerir:
@@ -48,7 +48,7 @@ Microsoft Azure içeri/dışarı aktarma hizmeti REST API kullanarak dışarı a
  Dışarı aktarılacak bloblar belirtme hakkında daha fazla bilgi için bkz. [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) işlemi.
 
 ## <a name="obtaining-your-shipping-location"></a>Sevkiyat konumunuz edinme
-Bir dağıtımı konum adı ve adresi çağırarak elde etmeniz dışarı aktarma işi oluşturmadan önce [alma konumu](https://portal.azure.com) veya [List Locations](/rest/api/storageimportexport/listlocations) işlemi. `List Locations` konumlar ve posta adresleri listesi döndürür. Döndürülen listeden bir konum seçin ve sabit sürücülerinizi bu adrese gönderin. Ayrıca `Get Location` doğrudan belirli bir konumun teslimat adresini edinme işlemi.
+Bir dağıtımı konum adı ve adresi çağırarak elde etmeniz dışarı aktarma işi oluşturmadan önce [alma konumu](https://portal.azure.com) veya [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/locations/list) işlemi. `List Locations` konumlar ve posta adresleri listesi döndürür. Döndürülen listeden bir konum seçin ve sabit sürücülerinizi bu adrese gönderin. Ayrıca `Get Location` doğrudan belirli bir konumun teslimat adresini edinme işlemi.
 
 Sevkiyat konum elde etmek için aşağıdaki adımları izleyin:
 

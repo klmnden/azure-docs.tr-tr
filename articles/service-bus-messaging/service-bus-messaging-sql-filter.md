@@ -1,9 +1,9 @@
 ---
-title: Azure hizmet veri yolu SQLFilter söz dizimi başvurusu | Microsoft Docs
+title: Azure Service Bus SQLFilter söz dizimi başvurusu | Microsoft Docs
 description: SQLFilter dilbilgisi hakkında ayrıntılar.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/05/2018
-ms.author: sethm
-ms.openlocfilehash: ec9d728eb31eb979e82bfb53cf619f823750e65c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: spelluru
+ms.openlocfilehash: c94ffed753ebf8fddbd553977c5d733f2306971d
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29132176"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698341"
 ---
-# <a name="sqlfilter-syntax"></a>SQLFilter sözdizimi
+# <a name="sqlfilter-syntax"></a>SQLFilter söz dizimi
 
-A *SqlFilter* nesnesidir örneği [SqlFilter sınıfı](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)ve karşı hesaplanan bir SQL dil temelli bir filtre ifadesi temsil eden bir [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Bir SqlFilter SQL 92 standart kümesini destekler.  
+A *SqlFilter* nesnedir örneği [SqlFilter sınıfı](/dotnet/api/microsoft.servicebus.messaging.sqlfilter), karşı değerlendirilir bir SQL dil temelli bir filtre ifadesi temsil eder bir [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Bir SQL 92 standart kümesini destekler.  
   
- Bu konu SqlFilter dilbilgisi ayrıntılarını listeler.  
+ Bu konu, SqlFilter dilbilgisi ayrıntılarını listeler.  
   
 ```  
 <predicate ::=  
@@ -60,11 +60,11 @@ A *SqlFilter* nesnesidir örneği [SqlFilter sınıfı](/dotnet/api/microsoft.se
   
 ## <a name="arguments"></a>Bağımsız Değişkenler  
   
--   `<scope>`kapsamını belirten isteğe bağlı bir dize `<property_name>`. Geçerli değerler `sys` veya `user`. `sys` Değeri gösterir sistemi kapsamı nerede `<property_name>` bir ortak özellik adı [BrokeredMessage sınıfı](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`Kullanıcı kapsam gösterir nerede `<property_name>` , bir anahtar [BrokeredMessage sınıfı](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) sözlük. `user`Kapsam ise varsayılan kapsamı `<scope>` belirtilmedi.  
+-   `<scope>` kapsamını belirten isteğe bağlı bir dize `<property_name>`. Geçerli değerler `sys` veya `user`. `sys` Değeri gösterir sistem kapsamı burada `<property_name>` ortak özelliği adıdır [BrokeredMessage sınıfı](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` Kullanıcı kapsamını belirtir burada `<property_name>` bir anahtarı [BrokeredMessage sınıfı](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) sözlüğü. `user` Kapsam ise varsayılan kapsam `<scope>` belirtilmedi.  
   
 ## <a name="remarks"></a>Açıklamalar
 
-Mevcut olmayan kullanıcı özelliği erişme denemesi bir hata olduğundan mevcut olmayan sistem özelliği erişme denemesi bir hata var. Bunun yerine, mevcut olmayan kullanıcı özelliği bilinmeyen bir değere dahili olarak değerlendirilir. Bilinmeyen bir değere özel işleci değerlendirme sırasında kabul edilir.  
+Mevcut olmayan kullanıcı özelliği erişme denemesi bir hata değildir ancak mevcut olmayan sistem özelliği erişme denemesi bir hata var. Bunun yerine, mevcut olmayan kullanıcı özelliği, bilinmeyen bir değer olarak dahili olarak değerlendirilir. Bilinmeyen bir değere işleci değerlendirmesi sırasında özel olarak kabul edilir.  
   
 ## <a name="propertyname"></a>property_name  
   
@@ -80,21 +80,21 @@ Mevcut olmayan kullanıcı özelliği erişme denemesi bir hata olduğundan mevc
   
 ### <a name="arguments"></a>Bağımsız Değişkenler  
 
- `<regular_identifier>`bir dize aşağıdaki normal ifade tarafından temsil edilen:  
+ `<regular_identifier>` bir dize, aşağıdaki normal ifade tarafından temsil edilir:  
   
 ```  
 [[:IsLetter:]][_[:IsLetter:][:IsDigit:]]*  
 ```  
   
-Bu dilbilgisi bir harf ile başlayıp bir veya daha fazla alt çizgi/harf/basamaklı tarafından izlenen herhangi bir dize anlamına gelir.  
+Bu dil bilgisi, bir harf ile başlayan ve bir veya daha fazla alt çizgi/harf/basamak tarafından izlenen herhangi bir dize anlamına gelir.  
   
-`[:IsLetter:]`bir Unicode harf kategorilere herhangi bir Unicode karakter anlamına gelir. `System.Char.IsLetter(c)`döndürür `true` varsa `c` bir Unicode harf.  
+`[:IsLetter:]` bir Unicode harf kategorilere ayrılır herhangi bir Unicode karakter anlamına gelir. `System.Char.IsLetter(c)` döndürür `true` varsa `c` Unicode harfidir.  
   
-`[:IsDigit:]`ondalık bir sayı kategorilere herhangi bir Unicode karakter anlamına gelir. `System.Char.IsDigit(c)`döndürür `true` varsa `c` Unicode sayıdır.  
+`[:IsDigit:]` bir ondalık basamak kategorilere ayrılır herhangi bir Unicode karakter anlamına gelir. `System.Char.IsDigit(c)` döndürür `true` varsa `c` bir Unicode basamak.  
   
 A `<regular_identifier>` ayrılmış bir anahtar sözcük olamaz.  
   
-`<delimited_identifier>`sol/sağ köşeli ayraç ([]) içine herhangi bir dize değil. Sağ köşeli ayraç iki sağ köşeli temsil edilir. Örnekleri aşağıda verilmiştir `<delimited_identifier>`:  
+`<delimited_identifier>` sol/sağ köşeli ayraç ([]) içine bir dizedir. Bir sağ köşeli ayraç iki sağ köşeli ayraç temsil edilir. Aşağıdaki örnekler `<delimited_identifier>`:  
   
 ```  
 [Property With Space]  
@@ -102,13 +102,13 @@ A `<regular_identifier>` ayrılmış bir anahtar sözcük olamaz.
   
 ```  
   
-`<quoted_identifier>`ile çift tırnak işaretleri arasına herhangi bir dize değil. Çift tırnak işareti tanımlayıcıda iki çift tırnak işareti temsil edilir. Bir dize sabiti ile kolayca çakışabilir çünkü tırnak işaretli tanımlayıcılar kullanmak için önerilmez. Sınırlandırılmış bir kimlik mümkünse kullanın. Aşağıdaki örneğidir `<quoted_identifier>`:  
+`<quoted_identifier>` çift tırnak işareti ile herhangi bir karakter dizisidir. Çift tırnak işareti tanımlayıcı iki çift tırnak işareti temsil edilir. Kolayca bir dize sabitine ile çakışabilir tırnak işaretli tanımlayıcılar kullanmanız önerilmez. Mümkünse, sınırlandırılmış bir kimlik kullanın. Aşağıdaki örneğidir `<quoted_identifier>`:  
   
 ```  
 "Contoso & Northwind"  
 ```  
   
-## <a name="pattern"></a>düzeni  
+## <a name="pattern"></a>Düzeni  
   
 ```  
 <pattern> ::=  
@@ -117,11 +117,11 @@ A `<regular_identifier>` ayrılmış bir anahtar sözcük olamaz.
   
 ### <a name="remarks"></a>Açıklamalar
   
-`<pattern>`bir dize olarak değerlendirilen bir ifade olmalıdır. LIKE işleci için bir desen olarak kullanılır.      Aşağıdaki joker karakterleri içerebilir:  
+`<pattern>` bir dize olarak değerlendirilen bir ifade olmalıdır. LIKE işleci için bir desen olarak kullanılır.      Bu joker karakterleri içerebilir:  
   
--   `%`: Herhangi bir dize sıfır veya daha fazla karakter.  
+-   `%`: Sıfır veya daha fazla karakter dizesi.  
   
--   `_`: Herhangi bir tek karakteri.  
+-   `_`: Herhangi bir tek karakter.  
   
 ## <a name="escapechar"></a>escape_char  
   
@@ -132,11 +132,11 @@ A `<regular_identifier>` ayrılmış bir anahtar sözcük olamaz.
   
 ### <a name="remarks"></a>Açıklamalar  
 
-`<escape_char>`dize uzunluğu 1 olarak değerlendirilen bir ifade olmalıdır. LIKE işleci için bir kaçış karakteri olarak kullanılır.  
+`<escape_char>` dize uzunluğu 1 olarak değerlendirilen bir ifade olmalıdır. LIKE işleci için bir kaçış karakteri kullanılır.  
   
  Örneğin, `property LIKE 'ABC\%' ESCAPE '\'` eşleşen `ABC%` ile başlayan bir dize yerine `ABC`.  
   
-## <a name="constant"></a>sabiti  
+## <a name="constant"></a>Sabit  
   
 ```  
 <constant> ::=  
@@ -145,27 +145,27 @@ A `<regular_identifier>` ayrılmış bir anahtar sözcük olamaz.
   
 ### <a name="arguments"></a>Bağımsız Değişkenler  
   
--   `<integer_constant>`yalnızca tırnak işaretleri içine değil ve ondalık basamak içeren değil sayı dizesidir. Değerleri olarak depolanan `System.Int64` dahili olarak, aynı aralık izleyin.  
+-   `<integer_constant>` tırnak işaretleri arasına değil ve ondalık basamak içermeyen sayıdan oluşan bir dizedir. Değerleri olarak depolanır `System.Int64` dahili olarak, aynı aralık izleyin.  
   
-     Bu, uzun sabitleri örnekleri şunlardır:  
+     Uzun sabitleri örnekleri şunlardır:  
   
     ```  
     1894  
     2  
     ```  
   
--   `<decimal_constant>`yalnızca tırnak işaretleri içine değil ve ondalık içeren sayı dizesidir. Değerleri olarak depolanan `System.Double` dahili olarak, aynı aralık/duyarlık izleyin.  
+-   `<decimal_constant>` sayıların tırnak işaretleri arasına değil ve ondalık nokta içeren bir dizedir. Değerleri olarak depolanır `System.Double` dahili olarak, aynı aralık/duyarlık izleyin.  
   
-     Sonraki bir sürümde tam sayı semantiğini desteklemek için farklı bir veri türü bu sayı depolanabilir, arka plandaki olgu üzerinde doğrulamamalısınız veri türü olduğundan `System.Double` için `<decimal_constant>`.  
+     Gelecekte yayımlanacak bir sürümde bu sayının tam sayı semantiği desteklemek için farklı veri türü depolanabilir, arka plandaki olgu üzerinde doğrulamamalısınız veri türü olduğundan `System.Double` için `<decimal_constant>`.  
   
-     Ondalık sabitleri örnekleri verilmiştir:  
+     Ondalık sabitler örnekleri şunlardır:  
   
     ```  
     1894.1204  
     2.0  
     ```  
   
--   `<approximate_number_constant>`bir sayı yazılmış bilimsel gösterim şeklindedir. Değerleri olarak depolanan `System.Double` dahili olarak, aynı aralık/duyarlık izleyin. Yaklaşık sayı sabitleri örnekleri verilmiştir:  
+-   `<approximate_number_constant>` bir sayı ile yazılmış bilimsel gösterim olur. Değerleri olarak depolanır `System.Double` dahili olarak, aynı aralık/duyarlık izleyin. Yaklaşık sayı sabitleri örnekleri şunlardır:  
   
     ```  
     101.5E5  
@@ -181,7 +181,7 @@ A `<regular_identifier>` ayrılmış bir anahtar sözcük olamaz.
   
 ### <a name="remarks"></a>Açıklamalar  
 
-Boole sabitleri anahtar sözcükleri tarafından temsil edilen **TRUE** veya **FALSE**. Değerleri olarak depolanan `System.Boolean`.  
+Boole sabit anahtar sözcüklere göre temsil edilir **TRUE** veya **FALSE**. Değerleri olarak depolanır `System.Boolean`.  
   
 ## <a name="stringconstant"></a>string_constant  
   
@@ -191,7 +191,7 @@ Boole sabitleri anahtar sözcükleri tarafından temsil edilen **TRUE** veya **F
   
 ### <a name="remarks"></a>Açıklamalar  
 
-Dize sabitleri tek tırnak işaretleri içine ve geçerli Unicode karakterler içerir. Bir dize sabitine katıştırılmış tek tırnak işareti, iki tırnak işaretleri tek olarak temsil edilir.  
+Dize sabitleri tek tırnak işaretleri içine alınır ve geçerli Unicode karakterlerini içerir. İki tek tırnak işareti gibi bir dize sabiti katıştırılmış tek tırnak işareti temsil edilir.  
   
 ## <a name="function"></a>işlev  
   
@@ -203,9 +203,9 @@ Dize sabitleri tek tırnak işaretleri içine ve geçerli Unicode karakterler i�
   
 ### <a name="remarks"></a>Açıklamalar
   
-`newid()` İşlev döndürür bir **System.Guid** tarafından oluşturulan `System.Guid.NewGuid()` yöntemi.  
+`newid()` İşlevinin döndürdükleriyle bir **System.Guid** tarafından oluşturulan `System.Guid.NewGuid()` yöntemi.  
   
-`property(name)` İşlevi tarafından başvurulan özelliğinin değerini döndürür `name`. `name` Değeri bir string değeri döndürür geçerli bir ifade olabilir.  
+`property(name)` İşlevi tarafından başvurulan özelliğin değerini döndürür `name`. `name` Değeri bir dize değeri döndüren herhangi bir geçerli ifade olabilir.  
   
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
   
@@ -213,39 +213,39 @@ Aşağıdakileri göz önünde bulundurun [SqlFilter](/dotnet/api/microsoft.serv
   
 -   Özellik adları büyük/küçük harfe duyarsızdır.  
   
--   C# örtük dönüşüm semantiği mümkün olduğunca işleçleri izleyin.  
+-   İşleçler, C# örtük dönüştürme semantiği mümkün olduğunca izleyin.  
   
--   Sistem özellikleri olan ortak özellikler, gösterilen [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) örnekleri.  
+-   Sistem özellikleri de kullanıma sunulan ortak özellikler olan [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) örnekleri.  
   
     Aşağıdakileri göz önünde bulundurun `IS [NOT] NULL` semantiği:  
   
-    -   `property IS NULL`olarak değerlendirilir `true` özelliği yok veya özelliğin değeri, `null`.  
+    -   `property IS NULL` değerlendirmesinde `true` özelliği yok ya da özelliğin değeri `null`.  
   
-### <a name="property-evaluation-semantics"></a>Özellik değerlendirme semantiği  
+### <a name="property-evaluation-semantics"></a>Özellik değerlendirmesi semantiği  
   
--   Mevcut olmayan sistem özelliği değerlendirmek için girişiminde oluşturur bir [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) özel durum.  
+-   Mevcut olmayan sistem özelliği değerlendirilecek girişiminde oluşturur bir [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) özel durum.  
   
 -   Var olmayan bir özellik olarak dahili olarak değerlendirilir **bilinmeyen**.  
   
- Aritmetik işleçler bilinmeyen hesaplanmasında:  
+ Bilinmeyen değerlendirme aritmetik işleçler içinde:  
   
--   İkili işleçler varsa sol ve sağ tarafındaki işlenenleri olarak değerlendirildiği için **bilinmeyen**, sonuç sonra **bilinmeyen**.  
+-   İkili işleçleri sol ve sağ tarafında işlenen olarak değerlendirilir, **bilinmeyen**, sonuç ise **bilinmeyen**.  
   
--   Birli işleçleri işleneni olarak değerlendirildiği taktirde **bilinmeyen**, sonuç sonra **bilinmeyen**.  
+-   Bir işlenen olarak değerlendirildiği taktirde birli işleçler için **bilinmeyen**, sonuç ise **bilinmeyen**.  
   
- İkili Karşılaştırma işleçleri bilinmeyen hesaplanmasında:  
+ Bilinmeyen değerlendirme ikili Karşılaştırma işleçleri içinde:  
   
--   Varsa sol ve sağ tarafındaki işlenenleri olarak değerlendirildiği **bilinmeyen**, sonuç sonra **bilinmeyen**.  
+-   Sol ve sağ tarafında işlenen olarak değerlendirilir, **bilinmeyen**, sonuç ise **bilinmeyen**.  
   
- Bilinmeyen hesaplanmasında `[NOT] LIKE`:  
+ Bilinmeyen değerlendirme `[NOT] LIKE`:  
   
--   Tüm işleneni olarak değerlendirildiği taktirde **bilinmeyen**, sonuç sonra **bilinmeyen**.  
+-   Herhangi bir işlenen olarak değerlendirildiği taktirde **bilinmeyen**, sonuç ise **bilinmeyen**.  
   
- Bilinmeyen hesaplanmasında `[NOT] IN`:  
+ Bilinmeyen değerlendirme `[NOT] IN`:  
   
--   Sol işleneni olarak değerlendirildiği taktirde **bilinmeyen**, sonuç sonra **bilinmeyen**.  
+-   Sol işlenen olarak değerlendirildiği taktirde **bilinmeyen**, sonuç ise **bilinmeyen**.  
   
- Bilinmeyen hesaplanmasında **ve** işleci:  
+ Bilinmeyen değerlendirme **ve** işleci:  
   
 ```  
 +---+---+---+---+  
@@ -259,7 +259,7 @@ Aşağıdakileri göz önünde bulundurun [SqlFilter](/dotnet/api/microsoft.serv
 +---+---+---+---+  
 ```  
   
- Bilinmeyen hesaplanmasında **veya** işleci:  
+ Bilinmeyen değerlendirme **veya** işleci:  
   
 ```  
 +---+---+---+---+  
@@ -275,12 +275,12 @@ Aşağıdakileri göz önünde bulundurun [SqlFilter](/dotnet/api/microsoft.serv
   
 ### <a name="operator-binding-semantics"></a>İşleç bağlama semantiği
   
--   Karşılaştırma işleçleri gibi `>`, `>=`, `<`, `<=`, `!=`, ve `=` veri türü promosyonlar ve örtük dönüşümler bağlama C# işleci aynı topluca izleyin.  
+-   Karşılaştırma işleçleri gibi `>`, `>=`, `<`, `<=`, `!=`, ve `=` veri türü promosyonlar ve örtük dönüştürmelerin bağlama C# işleci ile aynı semantiğe izleyin.  
   
--   Aritmetik işleçler gibi `+`, `-`, `*`, `/`, ve `%` veri türü promosyonlar ve örtük dönüşümler bağlama C# işleci aynı topluca izleyin.
+-   Aritmetik işleçler gibi `+`, `-`, `*`, `/`, ve `%` veri türü promosyonlar ve örtük dönüştürmelerin bağlama C# işleci ile aynı semantiğe izleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [SQLFilter sınıfı (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
-- [SQLFilter sınıfı (.NET standart)](/dotnet/api/microsoft.azure.servicebus.filters.sqlfilter)
+- [SQLFilter sınıfı (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)
 - [SQLRuleAction sınıfı](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)

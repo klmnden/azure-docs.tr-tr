@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: e708ae741c6835395e8eb35f6835c2d8c7002780
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: af7d4253b4e631295f8c04c96601e932595af9c1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044739"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697773"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration Runtime (IR) Azure Data Factory tarafından farklı ağ ortamları veri tümleştirme özellikleri sağlamak için kullanılan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -219,7 +219,7 @@ Konumunda **Kurumsal güvenlik duvarınız** düzeyi, aşağıdaki etki alanlar�
 
 Etki alanı adları | Bağlantı Noktaları | Açıklama
 ------------ | ----- | ------------
-*.servicebus.windows.net | 443, 80 | Veri taşıma Hizmeti'nde arka ucu ile iletişim kurmak için kullanılır
+*.servicebus.windows.net | 443 | Veri taşıma Hizmeti'nde arka ucu ile iletişim kurmak için kullanılır
 *. core.windows.net | 443 | Azure Blob (yapılandırılmışsa) kullanarak hazırlanmış kopya için kullanılan
 *.frontend.clouddatahub.net | 443 | Veri taşıma Hizmeti'nde arka ucu ile iletişim kurmak için kullanılır
 download.microsoft.com | 443 | Güncelleştirmeleri yüklemek için kullanılan

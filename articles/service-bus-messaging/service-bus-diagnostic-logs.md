@@ -1,10 +1,10 @@
 ---
-title: Azure Service Bus tanılama günlüklerini | Microsoft Docs
-description: Azure'da hizmet veri yolu için tanılama günlüklerini ayarlamak öğrenin.
+title: Azure Service Bus tanılama günlükleri | Microsoft Docs
+description: Azure'da hizmet veri yolu için tanılama günlüklerini ayarlama konusunda bilgi edinin.
 keywords: ''
 documentationcenter: .net
 services: service-bus-messaging
-author: banisadr
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -14,69 +14,69 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 02/05/2018
-ms.author: sethm
-ms.openlocfilehash: 4ce724adc9ca167634be9a0b7137b6a3d54211bf
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: spelluru
+ms.openlocfilehash: 3c2528634dea5c75e4a0e35b7e1a6a30de8d96c1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29122195"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696165"
 ---
-# <a name="service-bus-diagnostic-logs"></a>Hizmet veri yolu tanılama günlükleri
+# <a name="service-bus-diagnostic-logs"></a>Service Bus tanılama günlükleri
 
-Azure hizmet veri yolu için iki tür günlükleri görüntüleyebilirsiniz:
-* **[Etkinlik günlükleri](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Bu günlükler bir iş üzerinde gerçekleştirilen işlemler hakkında bilgi içerir. Günlükleri her zaman etkindir.
-* **[Tanılama günlüklerini](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. İçinde bir işi olur daha zengin hakkında bilgi için tanılama günlüklerini yapılandırabilirsiniz. Tanılama güncelleştirmeleri ve iş çalışırken oluşan etkinlikler dahil olmak üzere iş silinene kadar işin oluşturulduğu zamandan itibaren kapak etkinlikleri günlüğe kaydeder.
+Azure Service Bus için iki tür günlüğü görüntüleyebilirsiniz:
+* **[Etkinlik günlükleri](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Bu günlükler bir proje üzerinde gerçekleştirilen işlemler hakkında bilgi içerir. Günlükler her zaman etkindir.
+* **[Tanılama günlükleri](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Bir işin içinde gerçekleşen daha zengin bilgi hakkında her şey için tanılama günlüklerini yapılandırabilirsiniz. Tanılama günlüklerine yönelik güncelleştirmeleri ve iş çalışırken gerçekleşen etkinlikler dahil olmak üzere iş silinene kadar iş oluşturulur zamanından kapak etkinlikler.
 
-## <a name="turn-on-diagnostic-logs"></a>Tanılama günlüklerini Aç
+## <a name="turn-on-diagnostic-logs"></a>Tanılama günlüklerini açın
 
 Tanılama günlükleri, varsayılan olarak devre dışıdır. Tanılama günlüklerini etkinleştirmek için aşağıdaki adımları gerçekleştirin:
 
-1.  İçinde [Azure portal](https://portal.azure.com)altında **izleme + Yönetim**, tıklatın **tanılama günlükleri**.
+1.  İçinde [Azure portalında](https://portal.azure.com)altında **izleme + Yönetim**, tıklayın **tanılama günlükleri**.
 
-    ![Tanılama günlüklerini dikey gezinme](./media/service-bus-diagnostic-logs/image1.png)
+    ![Tanılama günlükleri dikey penceresinde gezinme](./media/service-bus-diagnostic-logs/image1.png)
 
-2. İzlemek istediğiniz kaynak'ı tıklatın.  
+2. İzlemek istediğiniz kaynağa tıklayın.  
 
-3.  Tıklatın **tanılamayı açın**.
+3.  **Tanılamayı aç**’a tıklayın.
 
-    ![Tanılama günlüklerini Aç](./media/service-bus-diagnostic-logs/image2.png)
+    ![Tanılama günlüklerini açın](./media/service-bus-diagnostic-logs/image2.png)
 
-4.  İçin **durum**, tıklatın **üzerinde**.
+4.  İçin **durumu**, tıklayın **üzerinde**.
 
-    ![Tanılama günlüklerini durumunu değiştirme](./media/service-bus-diagnostic-logs/image3.png)
+    ![Tanılama günlükleri durumunu değiştirin](./media/service-bus-diagnostic-logs/image3.png)
 
-5.  İstediğiniz arşiv hedef ayarlanmış; Örneğin, bir depolama hesabı, bir olay hub'ı veya Azure günlük analizi.
+5.  İstediğiniz arşiv hedef ayarlayın; Örneğin, bir depolama hesabı, bir olay hub'ı veya Azure Log Analytics.
 
 6.  Yeni tanılama ayarları kaydedin.
 
-Yeni ayarları yaklaşık 10 dakika içinde etkinleşir. Bundan sonra günlükler yapılandırılmış arşivleme hedef görünür **tanılama günlükleri** dikey.
+Yeni ayarları yaklaşık 10 dakika içinde etkinleşir. Bundan sonra günlüklerini arşivleme yapılandırılmış hedefte görünür **tanılama günlükleri** dikey penceresi.
 
-Tanılama yapılandırma hakkında daha fazla bilgi için bkz: [Azure tanılama günlükleri'ne genel bakış](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Tanılama yapılandırma hakkında daha fazla bilgi için bkz. [Azure tanılama günlükleri'ne genel bakış](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
-## <a name="diagnostic-logs-schema"></a>Tanılama günlüklerini şeması
+## <a name="diagnostic-logs-schema"></a>Tanılama günlükleri şeması
 
-Tüm günlükler JavaScript nesne gösterimi (JSON) biçiminde depolanır. Her giriş aşağıdaki bölümde açıklanan biçimini kullanan alanlarına sahiptir.
+Tüm günlükler, JavaScript nesne gösterimi (JSON) biçiminde depolanır. Her girişin aşağıdaki bölümde açıklanan biçimde kullanan dize alanları içerir.
 
-## <a name="operational-logs-schema"></a>İşlem günlükleri şeması
+## <a name="operational-logs-schema"></a>İşlem günlüklerinde şeması
 
-Her oturum açtığında **OperationalLogs** kategori yakalama ne Service Bus işlemleri sırasında olur. Özellikle, bu günlükler sıra oluşturma, kullanılan kaynakları ve işlem durumu da dahil olmak üzere işlem türü yakalayın.
+' De oturum açması **OperationalLogs** kategori yakalama Service Bus işlemleri sırasında ne olur. Özellikle, bu günlükleri sıra oluşturma, kullanılan kaynakları ve işlemin durumu gibi bir işlem türü yakalayın.
 
-İşlem günlüğü JSON dizeler aşağıdaki tabloda listelenen öğeleri şunları içerir:
+İşlem günlüğü JSON dizelerini aşağıdaki tabloda listelenen öğeleri içerir:
 
 Ad | Açıklama
 ------- | -------
-ActivityId | İzleme için kullanılan iç kimliği
+Etkinlik Kimliği | İzleme için kullanılan iç kimliği
 EventName | İşlem adı           
 resourceId | Azure Resource Manager kaynak kimliği
 SubscriptionId | Abonelik Kimliği
 EventTimeString | İşlem süresi
 EventProperties | İşlem özellikleri
 Durum | İşlem durumu
-Çağıran | Arayan işlemi (Azure portalı veya yönetim istemcisi)
+Çağıran | Çağıran işlemin (Azure portalı ya da yönetim istemcisi)
 category | OperationalLogs
 
-Bir işlem günlüğü JSON dize örneği şöyledir:
+Aşağıda, bir işlem günlüğü JSON dizesi örneği verilmiştir:
 
 ```json
 {
@@ -94,7 +94,7 @@ Bir işlem günlüğü JSON dize örneği şöyledir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Service Bus hakkında daha fazla bilgi için aşağıdaki bağlantılara bakın:
+Hizmet veri yolu hakkında daha fazla bilgi için aşağıdaki bağlantılara bakın:
 
-* [Hizmet veri yolu giriş](service-bus-messaging-overview.md)
+* [Service Bus'a giriş](service-bus-messaging-overview.md)
 * [Service Bus ile çalışmaya başlama](service-bus-dotnet-get-started-with-queues.md)

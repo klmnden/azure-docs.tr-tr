@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/27/2018
+ms.date: 08/31/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8066612db20d1569920835a67d84b27d1b852e6e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0707726ec86b0a0c69d1ec752ebd6761327f3f0f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128135"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669492"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümüyle ortamınızdaki Değişiklikleri İzle
 
@@ -27,8 +27,7 @@ Yüklü yazılım, Windows Hizmetleri, Windows kayıt defteri ve dosya ve izlene
 
 Aşağıdaki Windows işletim sistemi sürümleri Windows aracısı için resmi olarak desteklenir:
 
-* Windows Server 2008 Service Pack 1 (SP1) veya üzeri
-* Windows 7 SP1 ve üzeri.
+* Windows Server 2008 R2 veya üzeri
 
 ## <a name="supported-linux-operating-systems"></a>Desteklenen Linux işletim sistemleri
 
@@ -47,8 +46,8 @@ Resmi olarak desteklenen aşağıdaki Linux dağıtımları. Ancak, Linux Aracı
 Değişiklikleri izlemeye başlamak için Automation hesabınız için değişiklik izleme ve stok çözümü etkinleştirmek gerekir.
 
 1. Azure portalında, Otomasyon hesabınıza gidin
-1. Seçin **değişiklik izleme** altında **yapılandırma**.
-1. Mevcut bir Log analytics çalışma alanı seçin veya **yeni çalışma alanı oluştur** tıklatıp **etkinleştirme**.
+2. Seçin **değişiklik izleme** altında **yapılandırma**.
+3. Mevcut bir Log analytics çalışma alanı seçin veya **yeni çalışma alanı oluştur** tıklatıp **etkinleştirme**.
 
 Bu, automation hesabınız için bir çözüm sağlar. Çözümü etkinleştirmek 15 dakika kadar sürebilir. Mavi renkli bir başlık, çözüm etkinleştirildiğinde size bildirir. Geri gidin **değişiklik izleme** çözümü yönetmek için sayfa.
 
@@ -94,7 +93,7 @@ Windows bilgisayarlarda izlemeye dosyaları yapılandırmak için aşağıdaki a
 |Etkin     | Ayarın uygulanmış olup olmadığını belirler.        |
 |Öğe Adı     | İzlenecek dosyanın kolay adı.        |
 |Grup     | Dosyaları mantıksal olarak gruplamak için bir grup adı.        |
-|Yolu Gir     | Örneğin dosyanın denetleneceği yol: "c:\temp\\\*.txt"<br>Gibi ortam değişkenlerini kullanabilirsiniz "%winDir%\System32\\\*. *"       |
+|Yolu Gir     | Dosyayı denetlemek için kullanılacak yol (örneğin, "c:\temp\\\*.txt")<br>"%winDir%\System32\\\*.*" gibi ortam değişkenleri de kullanabilirsiniz       |
 |Özyineleme     | İzlenecek öğe aranırken özyinelemenin kullanılıp kullanılmadığını belirler.        |
 |Dosya içeriğini tüm ayarlar için karşıya yükleme| İzlenen değişikliklerin dosya içeriği karşıya yükleme işlemini açar veya kapatır. Kullanılabilir seçenekler: **True** veya **False**.|
 

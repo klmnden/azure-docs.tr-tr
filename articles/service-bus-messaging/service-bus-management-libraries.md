@@ -1,9 +1,9 @@
 ---
-title: Azure hizmet veri yolu yönetim kitaplıklarını | Microsoft Docs
-description: Hizmet veri yolu ad alanları ve .NET varlıklardan Mesajlaşma yönetin.
+title: Azure Service Bus yönetim kitaplıkları | Microsoft Docs
+description: Service Bus ad alanı ve mesajlaşma varlıkları net'ten yönetin.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,40 +13,40 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/05/2018
-ms.author: sethm
-ms.openlocfilehash: 7946958bec8b2f444155b5a9701f1f7401fe4f3c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: spelluru
+ms.openlocfilehash: a959687fbf6e296cab7e0d8ca49ae97a005622cf
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29120905"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696584"
 ---
-# <a name="service-bus-management-libraries"></a>Hizmet veri yolu yönetim kitaplıkları
+# <a name="service-bus-management-libraries"></a>Service Bus yönetim kitaplıkları
 
-Azure hizmet veri yolu yönetim kitaplıklarını dinamik olarak hizmet veri yolu ad alanları ve varlıkları sağlayabilirsiniz. Bu karmaşık dağıtımlar ve mesajlaşma senaryolarına olanak sağlar ve program aracılığıyla sağlamak için hangi varlıkları belirlemek mümkün hale getirir. Bu kitaplıklar, .NET için şu anda kullanılabilir.
+Azure Service Bus yönetim kitaplıkları, Service Bus ad alanlarını ve varlıkları dinamik olarak sağlayabilirsiniz. Bu karmaşık dağıtımları ve mesajlaşma senaryoları etkinleştirir ve hangi varlıkları sağlamak için programlı olarak belirlemek mümkün kılar. Bu kitaplıklar, şu anda .NET için kullanılabilir.
 
 ## <a name="supported-functionality"></a>Desteklenen işlevi
 
 * Namespace oluşturma, güncelleştirme, silme
-* Kuyruk oluşturma, güncelleştirme, silme
+* Sıra oluşturma, güncelleştirme, silme
 * Konu oluşturma, güncelleştirme, silme
 * Abonelik oluşturma, güncelleştirme, silme
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Hizmet veri yolu yönetim kitaplıklarını kullanmaya başlamak için Azure Active Directory (Azure AD) hizmeti ile kimlik doğrulaması gerekir. Azure AD, Azure kaynaklarınızı erişim sağlayan bir hizmet sorumlusu olarak kimlik doğrulaması gerektirir. Bir hizmet sorumlusu oluşturma hakkında daha fazla bilgi için Bu makalelerden birine bakın:  
+Service Bus yönetim kitaplıklarını kullanmaya başlamak için Azure Active Directory (Azure AD) hizmeti ile kimlik doğrulaması gerekir. Azure AD, Azure kaynaklarınıza erişim sağlayan bir hizmet sorumlusu olarak kimlik doğrulaması gerektirir. Hizmet sorumlusu oluşturma hakkında daha fazla bilgi için şu makalelerden birine bakın:  
 
-* [Active Directory Uygulama ve kaynaklarına erişebilir hizmet sorumlusu oluşturmak için Azure portalını kullanma](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Active Directory uygulaması ve kaynaklara erişebilen hizmet sorumlusu oluşturmak için Azure portalını kullanma](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 * [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
 * [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure CLI kullanma](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 
-Bu öğreticiler sağladığını bir `AppId` (istemci kimliği) `TenantId`, ve `ClientSecret` (kimlik doğrulama anahtarı), her biri yönetim kitaplıklarını tarafından kimlik doğrulaması için kullanılır. Bilmeniz gereken **sahibi** üzerinde istediğiniz çalıştırmak kaynak grubu için izinleri.
+Bu öğreticiler sunmak bir `AppId` (istemci kimliği) `TenantId`, ve `ClientSecret` (kimlik doğrulama anahtarı), tüm yönetim kitaplıkları ile kimlik doğrulama için kullanılır. Olmalıdır **sahibi** üzerinde istediğiniz çalıştırmak kaynak grubu için izinleri.
 
-## <a name="programming-pattern"></a>Programlama modeli
+## <a name="programming-pattern"></a>Programlama düzeni
 
-Ortak bir protokolle herhangi bir Service Bus kaynak yönetmenize olanak deseni izler:
+Tüm Service Bus kaynakları yönetmek için ortak bir protokolle yapıdadır:
 
-1. Azure AD kullanarak bir belirteç elde **Microsoft.IdentityModel.Clients.activedirectory tarafından** kitaplığı:
+1. Azure AD kullanarak bir belirteç elde **Microsoft.IdentityModel.Clients.activedirectory** kitaplığı:
    ```csharp
    var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
@@ -61,7 +61,7 @@ Ortak bir protokolle herhangi bir Service Bus kaynak yönetmenize olanak deseni 
        SubscriptionId = SettingsCache["SubscriptionId"]
    };
    ```
-3. Ayarlama `CreateOrUpdate` belirtilen değerlerinizi parametreleri:
+3. Ayarlama `CreateOrUpdate` belirttiğiniz değerlerin parametreleri:
 
    ```csharp
    var queueParams = new QueueCreateOrUpdateParameters()
@@ -78,5 +78,5 @@ Ortak bir protokolle herhangi bir Service Bus kaynak yönetmenize olanak deseni 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [.NET Yönetim örnek](https://github.com/Azure-Samples/service-bus-dotnet-management/)
-* [Microsoft.Azure.Management.ServiceBus API reference](/dotnet/api/Microsoft.Azure.Management.ServiceBus)
+* [.NET Yönetim örneği](https://github.com/Azure-Samples/service-bus-dotnet-management/)
+* [Microsoft.Azure.Management.ServiceBus API Başvurusu](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

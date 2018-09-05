@@ -1,9 +1,9 @@
 ---
 title: Azure Service Bus kaynaklarını yönetmek için PowerShell kullanma | Microsoft Docs
-description: PowerShell modülü oluşturun ve Service Bus kaynaklarını yönetmek için kullanın
+description: Hizmet veri yolu kaynakları oluşturup yönetmek için PowerShell modülü kullanın
 services: service-bus-messaging
 documentationcenter: .NET
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,49 +13,49 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
-ms.author: sethm
-ms.openlocfilehash: 962134c0c71ac0a251f8adf1f0f067d6067cb808
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.author: spelluru
+ms.openlocfilehash: 66475d9d59c8825eef7eb16e826d9813e819aa8a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018630"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699636"
 ---
-# <a name="use-powershell-to-manage-service-bus-resources"></a>Service Bus kaynaklarını yönetmek için PowerShell kullanma
+# <a name="use-powershell-to-manage-service-bus-resources"></a>Hizmet veri yolu kaynaklarını yönetmek için PowerShell'i kullanma
 
-Microsoft Azure PowerShell denetlemek ve dağıtımını ve Azure Hizmetleri yönetimini otomatikleştirmek için kullanabileceğiniz bir komut dosyası ortamıdır. Bu makalede nasıl kullanılacağını açıklar [Service Bus Resource Manager PowerShell Modülü](/powershell/module/azurerm.servicebus) sağlamak ve hizmet veri yolu varlıklarını (ad alanları, kuyruklar, konular ve abonelikler) yönetmek için yerel Azure PowerShell konsolunda veya komut dosyası kullanarak.
+Microsoft Azure PowerShell, denetlemek ve dağıtım ve yönetimini Azure hizmetlerinin otomatikleştirmek için kullanabileceğiniz bir komut dosyası ortamıdır. Bu makalede nasıl kullanılacağını [Service Bus Resource Manager PowerShell Modülü](/powershell/module/azurerm.servicebus) sağlamak ve Service Bus varlıklarına (ad alanları, kuyruklar, konular ve abonelikler) yönetmek için bir yerel Azure PowerShell konsolunda veya komut dosyası kullanarak.
 
-Hizmet veri yolu varlıklarını Azure Resource Manager şablonları kullanarak da yönetebilirsiniz. Daha fazla bilgi için bkz: [oluşturma Service Bus kaynaklarını Azure Resource Manager şablonları kullanarak](service-bus-resource-manager-overview.md).
+Ayrıca, Azure Resource Manager şablonlarını kullanarak Service Bus varlıklarına yönetebilirsiniz. Daha fazla bilgi için bkz [Azure Resource Manager şablonlarını kullanarak Service Bus'ı oluşturma kaynakları](service-bus-resource-manager-overview.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Başlamadan önce aşağıdaki önkoşullar gerekir:
+Başlamadan önce aşağıdaki önkoşulları karşılamanız gerekir:
 
-* Azure aboneliği. Bir aboneliği edinme hakkında daha fazla bilgi için bkz: [satın alma seçeneği][purchase options], [üye teklifleri][member offers], veya [boş Hesap][free account].
-* Azure PowerShell ile bir bilgisayar. Yönergeler için bkz: [Azure PowerShell cmdlet'leri kullanmaya başlama](/powershell/azure/get-started-azureps).
-* PowerShell komut dosyaları, NuGet paketlerini ve .NET Framework genel anlama.
+* Azure aboneliği. Bir aboneliği edinme hakkında daha fazla bilgi için bkz. [satın alma seçenekleri][purchase options], [üye tekliflerimizi][member offers], veya [ücretsiz Hesap][free account].
+* Azure PowerShell ile bir bilgisayar. Yönergeler için [Azure PowerShell cmdlet'lerini kullanmaya başlama](/powershell/azure/get-started-azureps).
+* PowerShell betikleri, NuGet paketlerini ve .NET Framework genel yaklaşım.
 
 ## <a name="get-started"></a>başlarken
 
-İlk adım, Azure hesabınızı ve Azure abonelik oturum açmak için PowerShell kullanmaktır. ' Ndaki yönergeleri izleyin [Azure PowerShell cmdlet'leri kullanmaya başlama](/powershell/azure/get-started-azureps) Azure hesabınızda oturum açın ve almak ve Azure aboneliğinizde kaynaklara erişmek için.
+İlk adım, Azure hesabınızı ve Azure aboneliği için oturum açmak için PowerShell kullanmaktır. Bölümündeki yönergeleri [Azure PowerShell cmdlet'lerini kullanmaya başlama](/powershell/azure/get-started-azureps) Azure hesabınızda oturum açın ve almak ve Azure aboneliğinizde kaynaklara erişmek için.
 
-## <a name="provision-a-service-bus-namespace"></a>Bir hizmet veri yolu ad alanı sağlama
+## <a name="provision-a-service-bus-namespace"></a>Service Bus ad alanı sağlama
 
-Hizmet veri yolu ad alanları ile çalışırken, kullanabileceğiniz [Get-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespace), [yeni AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespace), [Remove-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespace), ve [kümesi AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespace) cmdlet'leri.
+Service Bus ad alanları ile çalışırken kullanabileceğiniz [Get-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespace), [yeni AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespace), [Remove-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespace), ve [kümesi AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespace) cmdlet'leri.
 
-Bu örnek komut dosyasında birkaç yerel değişkenler oluşturur; `$Namespace` ve `$Location`.
+Bu örnek betikte birkaç yerel değişkenler oluşturur; `$Namespace` ve `$Location`.
 
-* `$Namespace` Biz birlikte çalışmak istediğiniz hizmet veri yolu ad alanı adıdır.
-* `$Location` Veri Merkezi biz ad sağlamak tanımlar.
-* `$CurrentNamespace` Biz alınamıyor (veya oluşturma) başvuru ad alanını depolar.
+* `$Namespace` Service Bus ad alanı ile çalışmak istiyoruz adıdır.
+* `$Location` Biz ad alanı sağlama veri merkezini tanımlar.
+* `$CurrentNamespace` Biz almak (veya oluşturma) başvuru ad alanı depolar.
 
-Gerçek bir betik içinde `$Namespace` ve `$Location` parametre olarak geçirilebilir.
+Gerçek bir betikte `$Namespace` ve `$Location` parametre olarak geçirilebilir.
 
 Bu komut dosyasının parçası şunları yapar:
 
-1. Belirtilen ada sahip bir hizmet veri yolu ad alanı almaya çalışır.
-2. Ad alanı bulunursa, bulunanları bildirir.
-3. Ad alanı bulunmazsa, ad alanı oluşturur ve yeni oluşturulan ad alanı alır.
+1. Belirtilen ada sahip bir Service Bus ad alanı almaya çalışır.
+2. Ad alanı bulunursa bulunanları bildirir.
+3. Ad alanı bulunamazsa, ad alanı oluşturur ve ardından yeni oluşturulan ad alanı alır.
    
     ``` powershell
     # Query to see if the namespace currently exists
@@ -79,9 +79,9 @@ Bu komut dosyasının parçası şunları yapar:
     }
     ```
 
-### <a name="create-a-namespace-authorization-rule"></a>Ad alanı yetkilendirme kuralı oluştur
+### <a name="create-a-namespace-authorization-rule"></a>Bir ad alanı yetkilendirme kuralı oluştur
 
-Aşağıdaki örnek ad alanı yetkilendirme kurallarını kullanarak yönetmek nasıl gösterir [yeni AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespaceauthorizationrule), [Get-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespaceauthorizationrule), [Kümesi AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespaceauthorizationrule), ve [Kaldır AzureRmServiceBusNamespaceAuthorizationRule cmdlet'leri](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespaceauthorizationrule).
+Aşağıdaki örnek, ad alanı yetkilendirme kurallarını kullanarak yönetmek gösterilmektedir [New-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespaceauthorizationrule), [Get-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespaceauthorizationrule), [Set-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespaceauthorizationrule), ve [Remove-AzureRmServiceBusNamespaceAuthorizationRule cmdlet'leri](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespaceauthorizationrule).
 
 ```powershell
 # Query to see if rule exists
@@ -123,7 +123,7 @@ else
 
 ## <a name="create-a-queue"></a>Bir kuyruk oluşturma
 
-Bir kuyruk veya konu oluşturmak için önceki bölümde komut dosyası kullanarak bir ad alanı denetimi gerçekleştirin. Ardından, sıranın oluşturun:
+Bir kuyruk veya konuda oluşturmak için önceki bölümde komut dosyası kullanarak bir ad alanı denetimi gerçekleştirin. Ardından, kuyruk oluşturun:
 
 ```powershell
 # Check if queue already exists
@@ -143,9 +143,9 @@ else
 }
 ```
 
-### <a name="modify-queue-properties"></a>Sıra özelliklerini değiştir
+### <a name="modify-queue-properties"></a>Kuyruk özelliklerini değiştirme
 
-Kullanabileceğiniz önceki bölümde komut dosyası yürütme sonrasında [kümesi AzureRmServiceBusQueue](/powershell/module/azurerm.servicebus/set-azurermservicebusqueue) cmdlet'i aşağıdaki örnekteki gibi bir sıranın özelliklerini güncelleştirmek için:
+Kullanabileceğiniz önceki bölümde komut dosyası yürütme sonrasında [Set-AzureRmServiceBusQueue](/powershell/module/azurerm.servicebus/set-azurermservicebusqueue) aşağıdaki örnekteki gibi bir sıranın özelliklerini güncelleştirmek için cmdlet:
 
 ```powershell
 $CurrentQ.DeadLetteringOnMessageExpiration = $True
@@ -156,21 +156,21 @@ $CurrentQ.EnableExpress = $True
 Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName -QueueObj $CurrentQ
 ```
 
-## <a name="provisioning-other-service-bus-entities"></a>Diğer hizmet veri yolu varlıklarını sağlama
+## <a name="provisioning-other-service-bus-entities"></a>Diğer Service Bus varlık sağlama
 
-Kullanabileceğiniz [Service Bus PowerShell modülünü](/powershell/module/azurerm.servicebus) konu başlıkları ve abonelikler gibi diğer varlıklar sağlayacak. Bu cmdlet, önceki bölümde gösterilen kuyruk oluşturma cmdlet'leri sözdizimsel olarak benzerdir.
+Kullanabileceğiniz [Service Bus PowerShell modülünü](/powershell/module/azurerm.servicebus) konu başlıkları ve abonelikler gibi diğer varlıklar sağlamak için. Bu cmdlet'ler, önceki bölümde gösterilen kuyruk oluşturma cmdlet'leri sözdizimsel olarak benzerdir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Tam Service Bus Resource Manager PowerShell modülü belgelerine bakın [burada](/powershell/module/azurerm.servicebus). Bu sayfa, tüm kullanılabilir cmdlet'leri listeler.
-- Azure Resource Manager şablonları kullanma hakkında daha fazla bilgi için bkz: [oluşturma Service Bus kaynaklarını Azure Resource Manager şablonları kullanarak](service-bus-resource-manager-overview.md).
-- Hakkında bilgi [Service Bus .NET Yönetim kitaplıklarını](service-bus-management-libraries.md).
+- Tüm Service Bus Resource Manager PowerShell modülü belgelerine bakın [burada](/powershell/module/azurerm.servicebus). Tüm kullanılabilir cmdlet'lerin bu sayfada listelenir.
+- Azure Resource Manager şablonlarını kullanma hakkında daha fazla bilgi için bkz [Azure Resource Manager şablonlarını kullanarak Service Bus'ı oluşturma kaynakları](service-bus-resource-manager-overview.md).
+- Hakkında bilgi [hizmet veri yolu .NET Yönetim kitaplıklarını](service-bus-management-libraries.md).
 
-Bu Web günlüğü postaları açıklandığı gibi hizmet veri yolu varlıklarını yönetmek için bazı alternatif yolu vardır:
+Bu blog gönderilerinde açıklandığı gibi hizmet veri yolu varlıklarını yönetmek için bazı alternatif yolu vardır:
 
-* [Service Bus kuyrukları, konuları ve abonelikleri bir PowerShell Betiği kullanılarak oluşturma](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-* [Hizmet veri yolu Namespace ve bir PowerShell komut dosyası kullanarak bir Event Hub oluşturma](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
-* [Hizmet veri yolu PowerShell betikleri](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
+* [Service Bus kuyrukları, konular ve abonelikler bir PowerShell betiğini kullanarak oluşturma](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+* [Bir Service Bus Namespace ve bir PowerShell betiğini kullanarak bir olay hub'ı oluşturma](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+* [Service Bus PowerShell betikleri](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->
 

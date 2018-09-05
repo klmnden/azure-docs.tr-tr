@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: a6d6a7639d3db0cc7d194ca9fae126ad9a2cc3ba
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 0b1eda89d2baaa54b17d8a7c73a2e9c987f0f8eb
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413663"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665994"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Bir bulut SQL Server seçeneği seçin: Azure SQL (PaaS) Veritabanı ya da Azure VM'lerde SQL Server (IaaS)
 
@@ -28,7 +28,7 @@ Azure'da barındırılan bir altyapı (Iaas) içinde çalışan veya barındır�
       > [!NOTE]
       > Tek ve havuza alınmış veritabanlarını içeren bir Azure SQL veritabanı, SQL Server veritabanı kapsamlı özelliklerinin çoğunu sağlar.
 
-      Aşağıdaki çizim, bu dağıtım seçenekleri gösterir:
+      Aşağıdaki şekilde bu dağıtım seçenekleri gösterilmektedir:
 
       ![dağıtım seçenekleri](./media/sql-database-technical-overview/deployment-options.png) 
   - Dağıtabileceğiniz bir [Azure SQL veritabanı yönetilen örneği (Önizleme)](sql-database-managed-instance.md). 
@@ -133,7 +133,7 @@ Birçok BT departmanı için, bir Hizmet Düzeyi Sözleşmesi'nin çalışma sü
 **Azure VM'lerinde çalıştırılan SQL Server** için Microsoft, yalnızca Sanal Makine'yi kapsayan %99,95 oranında bir kullanılabilirlik SLA'sı sağlar. Bu SLA, VM'de çalıştırılan işlemleri (SQL Server gibi) kapsamaz ve bir kullanılabilirlik kümesinde en az iki VM örneğini barındırmanızı gerektirir. En son bilgiler için bkz. [VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Veritabanı yüksek kullanılabilirlik (HA) vm'lerde, desteklenen yüksek kullanılabilirlik seçeneklerinden birini SQL Server'da aşağıdaki gibi yapılandırmanız gerekiyor [Always On kullanılabilirlik grupları](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). Desteklenen bir yüksek kullanılabilirlik seçeneğinin kullanılması ek bir SLA sağlamaz, ancak %99,99’un üzerinde veritabanı kullanılabilirliği elde etmenize imkan tanır.
 
 ### <a name="market"></a>Azure'a taşıma zamanı
-**SQL veritabanı mantıksal sunucuları, elastik havuzlar ve tek veritabanları** Geliştirici üretkenliği ve hızlı zaman pazara açılma noew çözümleri için kritik önem taşıdığında bulut Tasarımlı uygulamalarınız için doğru çözüm olduğunu. Programlama DBA benzeri işlevsellik ile, altta yatan işletim sistemini ve veritabanını yönetmeye yönelik ihtiyacı azalttığından, bulut mimarları ve geliştiricileri için idealdir. 
+**SQL veritabanı mantıksal sunucuları, elastik havuzlar ve tek veritabanları** Geliştirici üretkenliği ve hızlı zaman pazara açılma yeni çözümleri için kritik önem taşıdığında bulut Tasarımlı uygulamalarınız için doğru çözüm olduğunu. Programlama DBA benzeri işlevsellik ile, altta yatan işletim sistemini ve veritabanını yönetmeye yönelik ihtiyacı azalttığından, bulut mimarları ve geliştiricileri için idealdir. 
 
 **SQL veritabanı yönetilen örneği** geçirilen veritabanı Azure'da hızla pazara uygulamalarınızı getirin olanak sağlayan, Azure SQL veritabanı mevcut uygulamaların geçişi büyük ölçüde basitleştirir.
 

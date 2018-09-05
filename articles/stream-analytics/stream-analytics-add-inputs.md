@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: 62e928525c8bd63258ea079830585db0f0ffc358
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 4a84e8f7460d3a339be783be6a12353770ced1b8
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716500"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665832"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Azure Stream Analytics için girişler anlama
 
@@ -42,7 +42,7 @@ Stream Analytics de destekler olarak bilinen giriş *başvuru verileri*. Başvur
 
 Başvuru verisi girişleri hakkında daha fazla bilgi için bkz: [Stream analytics'te aramaları için başvuru verilerini kullanma](stream-analytics-use-reference-data.md)
 
-Bu makalede bir adımdır [Stream Analytics öğrenme yolu](/documentation/learning-paths/stream-analytics/).
+Bu makalede bir adımdır [Stream Analytics öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]

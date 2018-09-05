@@ -1,9 +1,9 @@
 ---
-title: AMQP 1.0 Azure Service Bus içinde genel bakış | Microsoft Docs
-description: Gelişmiş Message Queuing Protokolü (AMQP) 1.0 Azure kullanma hakkında bilgi edinin.
+title: Azure hizmet veri yolu AMQP 1.0 genel bakış | Microsoft Docs
+description: Advanced Message Queuing Protocol (AMQP) 1.0 azure'da kullanma hakkında bilgi edinin.
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 0e8d19cc-de36-478e-84ae-e089bbc2d515
@@ -13,43 +13,43 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/30/2018
-ms.author: sethm
-ms.openlocfilehash: 6d2dffd22ecfc0aaf6e338567d5cf107a2c07383
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: spelluru
+ms.openlocfilehash: 8fd87897a70b0a7bb629e185473374837cf1026e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28926606"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701943"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Hizmet veri yolu AMQP 1.0 desteği
-Azure hizmet veri yolu bulut hizmeti ve şirket içi [Windows Server için hizmet veri yolu (hizmet veri yolu 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) Gelişmiş Message Queuing Protokolü (AMQP) 1.0 destekler. AMQP, platformlar arası, açık bir standart protokol kullanan karma uygulamalar oluşturmanıza olanak sağlar. Farklı diller ve çerçeveler kullanılarak oluşturulan ve farklı işletim sistemlerinde çalışan bileşenleri kullanan uygulamalar oluşturabilirsiniz. Tüm bu bileşenleri Service Bus ve sorunsuz bir şekilde bağlayabilirsiniz yapılandırılmış iş iletileri verimli bir şekilde ve tam bir güvenilirlik, exchange.
+Azure Service Bus bulut hizmeti ve şirket içi [Windows Server için hizmet veri yolu (hizmet veri yolu 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) Gelişmiş ileti sıraya alma Protokolü (AMQP) 1.0 desteği. AMQP, platformlar arası, açık standart protokolü kullanılarak karma uygulamalar oluşturmanıza olanak sağlar. Farklı diller ve çerçeveler kullanılarak oluşturulur ve farklı işletim sistemleri üzerinde çalışan bileşenlerini kullanarak uygulama oluşturabilirsiniz. Tüm bu bileşenler, Service Bus ve sorunsuz bir şekilde bağlanabilir, verimli bir şekilde ve tam uygunlukta yapılandırılmış iş mesaj alışverişi.
 
 ## <a name="introduction-what-is-amqp-10-and-why-is-it-important"></a>Giriş: AMQP 1.0 nedir ve neden önemlidir?
-Geleneksel olarak, ileti odaklı ara yazılım ürünleri istemci uygulamaları ve aracıları arasındaki iletişim için özel protokoller kullanmış. Bu, belirli bir satıcının Mesajlaşma Aracısı seçtikten sonra o satıcının kitaplıkları istemci uygulamalarınızı bu Aracısı bağlanmak için kullanması gerektiğini anlamına gelir. Farklı bir ürün uygulamaya taşıma bağlı tüm uygulamaları kod değişikliklerini gerektirdiğinden bu satıcıya, bağımlılığı derecesini sonuçlanır. 
+Geleneksel olarak, iletiye yönelik ara yazılım ürünleri, istemci uygulamaları ile aracıları arasındaki iletişim için özel protokoller kullandınız. Bu, belirli bir satıcının Mesajlaşma Aracısı seçtikten sonra satıcının kitaplıkları bu aracı, istemci uygulamalarınıza bağlanmak için kullanmanız gerekir, anlamına gelir. Bir uygulama için farklı bir ürünü taşıma bağlı tüm uygulamaları içinde kod değişiklikleri gerektirdiğinden bu düzeyde bir satıcıyı bağımlılığa sonuçlanır. 
 
-Ayrıca, farklı satıcılardan Mesajlaşma aracıları bağlanma hassas. Bu, genellikle iletilerin bir sistemden taşımak ve kendi özel ileti biçim arasında çeviri için uygulama düzeyi köprüleme gerektirir. Bu ortak bir gereksinimdir; Örneğin, ne zaman yeni bir birleştirilmiş arabirimde çok eski farklı sistemleri sağlayın veya gerekir bir birleşme izleyerek BT sistemleri tümleştirme.
+Ayrıca, farklı satıcılardan Mesajlaşma aracıları bağlamak zor aynıdır. Bu, genellikle iletilerin bir sistemden diğerine taşımak için ve kendi özel ileti biçim arasında çeviri yapmak için uygulama düzeyi köprüleme gerektirir. Bu sık karşılaşılan bir gereksinimdir; Örneğin, ne zaman gerekir yeni birleşik bir arabirim için eski bağımsız sistemleri sağladığınız veya bir birleşme izleyerek BT sistemlerini tümleştirin.
 
-Yazılım endüstrisinin hızlı taşınan bir iştir; Yeni programlama dilleri ve uygulama çerçeveleri bazen bewildering hızı sunulur. Benzer şekilde, BT sistemlerinin gereksinimleri zamanla gelişmesi ve geliştiriciler, en son platform özelliklerinden yararlanmak istersiniz. Ancak, bazen seçili Mesajlaşma satıcı bu platformu desteklemez. Mesajlaşma protokolleri özel olduğundan, bu yeni platformlar için kitaplıkları sağlar başkalarına mümkün değil. Bu nedenle, ağ geçitleri veya ileti ürünü kullanmaya devam etmek etkinleştirmeniz köprüleri oluşturma gibi yaklaşımlar kullanmanız gerekir.
+Yazılım sektöründe hızlı ilerleyen bir iştir; Yeni programlama dilleri ve uygulama çerçeveleri bazen bewildering bir hızda kullanıma sunulmuştur. Benzer şekilde, BT sistemlerinin gereksinimleri zamanla gelişmesinin ve geliştiriciler, en son platform özelliklerinden yararlanmak istiyorsanız. Ancak, bazen seçili ileti satıcı bu platformları desteklemez. Mesajlaşma protokolleri özel olduğundan, başkalarının yeni şu platformlar için kitaplıkları sağlamak mümkün değildir. Bu nedenle, ağ geçitleri veya Mesajlaşma ürünü kullanmaya devam etmenize olanak sağlayan köprüleri oluşturma gibi bir yaklaşım kullanmanız gerekir.
 
-Geliştirme, Gelişmiş Message Queuing Protokolü (AMQP) 1.0 sorunlardan motive. JP Morgan olan, en finansal hizmetler firmalarından gibi ileti odaklı Ara ağır kullanıcılarının Chase, kaynaklanan. Hedef basit: farklı diller, çerçeveler ve işletim sistemleri kullanılarak oluşturulan bileşenleri kullanan ileti tabanlı uygulamalar oluşturmak mümkün kılan bir açık standart Mesajlaşma Protokolü oluşturmak için tüm en iyi türünün bileşenleri Üreticiler aralığından kullanma.
+Geliştirme, Advanced Message Queuing Protocol (AMQP) 1.0 sorunlardan motive. JP Morgan kimin gibi en finansal hizmet şirketleri, iletiye yönelik ara yazılım ağır kullanıcılarıdır kestirmeden sonuca gitme, kutucuğun kaynağı. Hedef basit: farklı dilleri, çerçeveler ve işletim sistemleri, kullanılarak oluşturulan bileşenlerini kullanarak ileti tabanlı uygulamalar oluşturmak yapılabilir bir Mesajlaşma açık standart protokolü oluşturmak için tüm türünün en iyisi çeşitli bileşenlerini kullanma Üreticiler.
 
-## <a name="amqp-10-technical-features"></a>AMQP 1.0 Teknik Özellikleri
-AMQP 1.0 ileti uygulamalarını güçlü, platformlar arası oluşturmak için kullanabileceğiniz bir verimli, güvenilir ve hat düzeyinde Mesajlaşma protokolüdür. Basit bir hedef Protokolü vardır: iletileri iki taraf arasında güvenli, güvenilir ve verimli aktarım mekanizması tanımlamak için. İletilerini kendileri heterojen göndericiler ile alıcılar tam uygunluğunu yapılandırılmış iş iletileri Exchange sağlayan bir taşınabilir veri gösterimi kullanılarak kodlanır. En önemli özelliklerin özeti aşağıdadır:
+## <a name="amqp-10-technical-features"></a>AMQP 1.0 Teknik Özellikler
+AMQP 1.0 Mesajlaşma uygulamaları sağlam, platformlar arası oluşturmak için kullanabileceğiniz bir verimli, güvenilir, hat düzeyinde bir Mesajlaşma protokolüdür. Basit bir hedef Protokolü vardır: iki taraflar arasında iletileri güvenli, güvenilir ve verimli aktarım mekanizması tanımlamak için. İletileri heterojen göndericiler ve alıcılar tam uygunlukta, yapılandırılmış iş mesaj alışverişi sağlayan bir taşınabilir veri gösterimi kullanılarak kodlanır. En önemli özelliklerin özeti aşağıda verilmiştir:
 
-* **Verimli**: AMQP 1.0 olan bir bağlantıya dayalı bir ikili Protokolü yönergeleri ve iş iletileri için kodlama, aktarılan üzerine kullanan protokol. Ağ ve bağlı bileşenleri kullanımını en üst düzeye çıkarmak için Gelişmiş Akış denetimi düzenleri içerir. Bu, protokol verimlilik, esneklik ve birlikte çalışabilirlik arasında bir denge için tasarlanmıştır belirtti.
-* **Güvenilir**: AMQP 1.0 protokolü yangın ve unut için güvenilir, gelen güvenilirlik garanti aralıklı tam olarak değiştirilebilmesi için iletilerini sağlar-kere teslim onaylanır.
-* **Esnek**: AMQP 1.0 olan farklı topoloji desteklemek için kullanılan esnek bir protokoldür. Aynı protokol istemci istemci, istemci aracısı ve Aracısı Aracısı iletişimi için kullanılabilir.
-* **Aracısı modeli bağımsız**: AMQP 1.0 belirtimi yapmaz gereksinimlere aracısı tarafından kullanılan bir ileti modeli. Başka bir deyişle, kolayca varolan Mesajlaşma aracıları için AMQP 1.0 desteği eklemek mümkündür.
+* **Verimli**: AMQP 1.0 olan bağlantıya dayalı bir ikili Protokolü yönergeleri ve iş iletileri için kodlama, aktarılan üzerine kullanan protokolü. Bu, ağ ve bağlı bileşenleri kullanımını en üst düzeye çıkarmak için Gelişmiş Akış denetimi düzenleri içerir. Bu, Protokolü verimliliği, esneklik ve birlikte çalışabilirlik arasında bir denge için tasarlanmış belirtti.
+* **Güvenilir**: AMQP 1.0 protokol bir dizi Başlat ve unut için güvenilir, gelen güvenilirlik Garantisi ile tam olarak değiştirilmek üzere iletileri sağlar-bir kez teslim onaylanır.
+* **Esnek**: AMQP 1.0 olan farklı topolojileri desteklemek için kullanılabilecek, esnek bir protokoldür. Aynı protokol, istemci ve istemci, istemci aracısı ve aracısı için aracı iletişimi için kullanılabilir.
+* **Model Aracısı bağımsız**: AMQP 1.0 belirtimi yapmaz gereksinimlere aracısı tarafından kullanılan bir Mesajlaşma modeli. Başka bir deyişle, var olan bir Mesajlaşma aracıları için AMQP 1.0 desteğine kolayca eklemek mümkündür.
 
-## <a name="amqp-10-is-a-standard-with-a-capital-s"></a>AMQP 1.0 olan bir standart (büyük harf ait olan ')
-AMQP 1.0 Uluslararası bir standart olan ISO ve IEC ISO/IEC 19464:2014 olarak onaylandı.
+## <a name="amqp-10-is-a-standard-with-a-capital-s"></a>AMQP 1.0 olan bir standart (büyük'ın ')
+AMQP 1.0 bir uluslararası standart olan ISO ve ISO/IEC 19464:2014 olarak IEC tarafından onaylandı.
 
-AMQP 1.0 çekirdek Grup 20'den fazla şirketleri tarafından 2008 beri geliştirilmekte açıldı teknolojisi üreticiler ve son kullanıcı firmalarından. Bu süre boyunca kullanıcı firmalarından gerçek iş gereksinimleri katkısı ve teknoloji satıcıları bu gereksinimleri karşılamak için Protokolü gelişim göstermiştir. İşlem boyunca, kendi uygulamalarını arasında birlikte çalışabilirlik doğrulamak için bunlar işbirliği Atölyeleri satıcılar katılan.
+AMQP 1.0, bir çekirdek Grup 20'den fazla şirketler tarafından 2008 geliştirilmekte oluştu teknoloji tedarikçileri hem son kullanıcı firmalar. Bu süre boyunca kullanıcı firmaları gerçek dünyadaki iş gereksinimlerine olmuş ve teknoloji satıcıları bu gereksinimleri karşılamak için protokol gelişim göstermiştir. İşlem boyunca, uygulamalar arasında birlikte çalışabilirliği doğrulamak için bunlar etiketlerde atölyeler satıcıları katılan.
 
-Ekim 2011 terfi, yapılandırılmış bilgi standartları (OASIS) ve OASIS AMQP 1.0 standart için kuruluşunuzdaki teknik komitesi geçti geliştirme iş Ekim 2012'de serbest bırakıldı. Aşağıdaki firmalarından içinde teknik komitesi standart geliştirme sırasında katılmış:
+Ekim 2011'in geliştirme çalışması için ilerletme, yapılandırılmış bilgi standartları (OASIS) ve OASIS AMQP 1.0 standart için bir kuruluştaki bir teknik komitesi geçirileceğini Ekim 2012'de yayınlanmıştır. Aşağıdaki şirketleri teknik komitesi standart geliştirilmesi sırasında aracısından:
 
-* **Teknoloji satıcılar**: Axway yazılım, Huawei teknolojileri, IIT yazılım, INETCO sistemleri, Kaazing, Microsoft, Mitre Corporation, Primeton teknolojileri, devam eden yazılım, Red Hat, SITA, yazılım AG, Solace sistemleri, VMware, WSO2, Zenika.
-* **Kullanıcı firmalarından**: banka, Amerika, kredi Suisse, Alman Boerse, Goldman Sachs, JPMorgan Chase.
+* **Teknoloji satıcıları**: Axway yazılım, Huawei teknolojileri, IIT yazılım, INETCO sistemleri, Kaazing, Microsoft, Mitre Corporation, Primeton teknolojileri, ilerleme durumunu Software, Red Hat, SITA, yazılım AG, Solace sistemleri, VMware, WSO2, Zenika.
+* **Kullanıcı firmaları**: Bank'ın Amerika, kredi Suisse, Deutsche Boerse, Goldman Sachs, JPMorgan kestirmeden sonuca gitme.
 
 Açık standartlar yaygın olarak alıntı avantajlarından bazıları şunlardır:
 
@@ -57,44 +57,44 @@ Açık standartlar yaygın olarak alıntı avantajlarından bazıları şunlard�
 * Birlikte çalışabilirlik
 * Geniş kullanılabilirliğini kitaplıkları ve araçları
 * Kullanım dışı kalma karşı koruma
-* Bilgili personel kullanılabilirliği
-* Alt ve yönetilebilir riski
+* Bilgili personeli kullanılabilirliği
+* Alt ve yönetilebilir risk
 
-## <a name="amqp-10-and-service-bus"></a>AMQP 1.0 ve hizmet veri yolu
-Azure hizmet veri yolu AMQP 1.0 desteği Service Bus queuing yararlanan şimdi ve yayımlama/aracılı Mesajlaşma özellikleri verimli bir ikili protokolünü kullanarak platformları aralığından abonelik anlamına gelir. Ayrıca, diller, çerçevelerinin ve işletim sistemlerinin bir karışımını kullanılarak oluşturulan bileşenlerden oluşan uygulamalar oluşturabilir.
+## <a name="amqp-10-and-service-bus"></a>AMQP 1.0 ve Service Bus
+Azure hizmet veri yolu AMQP 1.0 desteğine, Service Bus queuing yararlanarak artık ve yayımlama/aracılı Mesajlaşma özelliklerinin verimli bir ikili protokolü kullanılarak platformlar aralığından abonelik anlamına gelir. Ayrıca, dillerin, çerçevelerin ve işletim sistemlerinin bir karışımını kullanılarak oluşturulan bileşenlerden oluşan bir uygulama oluşturabilirsiniz.
 
-Aşağıdaki şekilde standart Java ileti hizmeti (JMS) API ve Windows üzerinde çalışan .NET istemcileri kullanılarak yazılmış Linux üzerinde çalışan Java istemcileri AMQP 1.0 kullanarak Service Bus aracılığıyla iletileri değiş örnek dağıtımı gösterilmektedir.
+Aşağıdaki şekilde, standart Java mesaj hizmeti (JMS) API ve Windows üzerinde çalışan .NET istemcileri kullanılarak yazılmış, Linux üzerinde çalışan Java istemcileri'nı AMQP 1.0 kullanarak Service Bus aracılığıyla iletileri değiş örnek bir dağıtım gösterilmektedir.
 
 ![][0]
 
-**Şekil 1: platformlar arası Service Bus ve AMQP 1.0 kullanarak ileti gösteren örnek dağıtım senaryosu**
+**Şekil 1: platformlar arası Mesajlaşma Service Bus ve AMQP 1.0 kullanarak gösteren örnek dağıtım senaryosu**
 
-Şu anda, Service Bus ile çalışmak için aşağıdaki istemci kitaplıklarından bilinmektedir:
+Şu anda, Service Bus ile çalışmak için aşağıdaki istemci kitaplıklardan bilinmektedir:
 
 | Dil | Kitaplık |
 | --- | --- |
-| Java |Apache Qpid Java ileti hizmeti (JMS) istemcisi<br/>IIT yazılım SwiftMQ Java istemcisi |
+| Java |Apache Qpid Java mesaj hizmeti (JMS) istemcisi<br/>IIT yazılım SwiftMQ Java istemci |
 | C |Apache Qpid Proton-C |
 | PHP |Apache Qpid Proton-PHP |
 | Python |Apache Qpid Proton-Python |
 | C# |AMQP .net Lite |
 
-**Şekil 2: Tablo AMQP 1.0 istemci kitaplıkları**
+**Şekil 2: Tablo AMQP 1.0 istemci kitaplığı**
 
 ## <a name="summary"></a>Özet
-* AMQP 1.0, platformlar arası, karma uygulamalar oluşturmak için kullanabileceğiniz bir açık, güvenilir Mesajlaşma protokolüdür. AMQP 1.0 bir OASIS standardıdır.
-* AMQP 1.0 desteği artık Windows Server için hizmet veri yolu (hizmet veri yolu 1.1) yanı sıra Azure Service Bus içinde kullanılabilir. Fiyatlandırma varolan protokolleri aynıdır.
+* AMQP 1.0 platformlar arası karma uygulamalar oluşturmak için kullanabileceğiniz bir açık, güvenilir bir Mesajlaşma protokolüdür. AMQP 1.0 bir OASIS standart'tır.
+* Windows Server için hizmet veri yolu (hizmet veri yolu 1.1) yanı sıra Azure hizmet veri yolu AMQP 1.0 desteği artık kullanılabilir. Fiyatlandırma mevcut protokolleri aynıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla bilgi hazır mısınız? Aşağıdaki bağlantıları ziyaret edin:
 
-* [.NET gelen hizmet veri yolu AMQP ile kullanma]
-* [Java'dan hizmet veri yolu AMQP ile kullanma]
+* [.NET Service Bus ile AMQP kullanma]
+* [Java Service Bus ile AMQP kullanma]
 * [Bir Azure Linux VM'de Proton-C Apache Qpid yükleme]
 * [Windows Server için hizmet veri yolu AMQP]
 
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
-[.NET gelen hizmet veri yolu AMQP ile kullanma]: service-bus-amqp-dotnet.md
-[Java'dan hizmet veri yolu AMQP ile kullanma]: service-bus-amqp-java.md
+[.NET Service Bus ile AMQP kullanma]: service-bus-amqp-dotnet.md
+[Java Service Bus ile AMQP kullanma]: service-bus-amqp-java.md
 [Bir Azure Linux VM'de Proton-C Apache Qpid yükleme]: service-bus-amqp-apache.md
 [Windows Server için hizmet veri yolu AMQP]: https://msdn.microsoft.com/library/dn574799.aspx

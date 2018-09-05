@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 08/05/2018
 ms.author: juliako
-ms.openlocfilehash: 64a38ba617a1cc5fe1fdb3473e3cb88a49d89bb0
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: df9d3f40b28f5b030f3d7e7a63b1b3e77caedb6c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744759"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700827"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure'a bağlı bir Video Indexer hesabı oluşturun
 
@@ -52,7 +52,7 @@ Bu makalede bir Azure aboneliğine bağlı bir Video Indexer hesabınız ve Azur
 
 ## <a name="connect-to-azure"></a>Azure'a Bağlanma
 
-1. Oturum, kullanıcı ile oturum açın ve tıklayarak **Azure'a bağlanma** düğmesi:
+1. Oturum [ https://www.videoindexer.ai/ ](https://www.videoindexer.ai/) tıklayın **Azure'a bağlanma** düğmesi:
 
     ![Azure'a bağlanma](./media/create-account/connect-to-azure.png)
 
@@ -69,9 +69,21 @@ Bu makalede bir Azure aboneliğine bağlı bir Video Indexer hesabınız ve Azur
     * Mevcut bir Media Services hesabını kullanmayı tercih **var olan kaynağı kullanın**. Hesapları listesinden hesabınızı seçin.
 
         Media Services hesabınızı, Video Indexer hesabınız ile aynı bölgede olması gerekir. Dizin oluşturma süresi ve aktarım hızının düşük olmasını en aza indirmek için ayrılmış birim sayısı ve türü ayarlamak **10 S3 ayrılmış birim** Media Services hesabı.
-    * Bağlantınız el ile yapılandırmak için tıklayın **el ile yapılandırmaya geçiş** bağlamak ve gerekli bilgileri sağlayın:
+    * Bağlantınız el ile yapılandırmak için tıklayın **el ile yapılandırmaya geçiş**. 
+    
+        Bağlantınızı tamamlamak otomatik seçeneğini herhangi bir nedenden dolayı başarısız olursa veya kurulumu ve yapılandırması ise sık karşılaşılan durumlarda farklı veya ayarları üzerinde tam görünürlük ve denetim olmasını istediğiniz el ile yapılandırmak isteyebilirsiniz. 
+        
+        İçinde **bağlanın, Video Indexer bir Azure aboneliğine**, aşağıdaki bilgileri sağlayın.
 
-    ![Video Indexer'ı Azure'a bağlanma](./media/create-account/connect-vi-to-azure-subscription-2.png)
+        |Ayar|Açıklama|
+        |---|---|
+        |Video Indexer hesabının bölgesi|Video Indexer hesap bölgesi adı. Daha iyi performans ve düşük maliyetlerden için Azure Media Services kaynağınız ve Azure depolama hesabının bulunduğu bölge adını belirtmek için önemle tavsiye edilir. |
+        |Azure Active Directory (AAD) kiracısı|Azure AD kiracısı, örneğin "contoso.onmicrosoft.com" adı. Kiracı bilgileri, Azure portalından alınabilir. İmlecinizi üst oturum açan kullanıcı adının üzerine sağ alt köşesinde yerleştirin.|
+        |Abonelik Kimliği|Azure aboneliği altında bu bağlantının oluşturulması. Abonelik kimliği, Azure portalından alınabilir. Tıklayarak **tüm hizmetleri** sol bölme ve "abonelikler" arayın. SELECT, **abonelikleri** ve istenen kimliği aboneliklerinizi listesinden seçin.|
+        |Azure kaynak grubu adı|Bağlantınızı oluşturulacağı yeni kaynak grubunun adı.|
+        |Azure kaynağı adı|Azure Media Services kaynağı adı.|
+        |Uygulama Kimliği|Azure AD uygulama kimliği ile belirtilen Media Services hesabı için izinler. Daha fazla bilgi için [kullanım hizmet sorumlusu kimlik doğrulaması](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
+        |Uygulama Anahtarı|Daha fazla bilgi için [kullanım hizmet sorumlusu kimlik doğrulaması](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
 
 5. İşiniz bittiğinde seçin **Connect**. Bu işlem birkaç dakika sürebilir. 
 

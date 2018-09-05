@@ -1,6 +1,6 @@
 ---
-title: Azure Portalı'nı kullanarak medya çözümleme | Microsoft Docs
-description: Bu konuda, Azure Portalı'nı kullanarak medya analizi medya işlemcileri (Mp'leri) medyanızı işlemek nasıl ele alınmıştır.
+title: Azure portalını kullanarak medyanızı analiz etme | Microsoft Docs
+description: Bu konuda, Azure portalını kullanarak medya analizi medya işlemcileri (MP'ler) ile medyanızı işlemek nasıl ele alınmaktadır.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 60da24b5b0bb7d83414539f07936c61a196e0b62
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d8c3bb07c88dc96b7ca779ca0f4dfe09052ab290
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788854"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666179"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Azure portalını kullanarak medyanızı analiz etme
 > [!NOTE]
@@ -28,32 +28,32 @@ ms.locfileid: "33788854"
 > 
 
 ## <a name="overview"></a>Genel Bakış
-Azure Media Services analizi, kuruluş ve işletmelerin video dosyalarından eyleme dönüştürülebilir Öngörüler türetmesini kolaylaştıran konuşma ve görme bileşenler (Kurumsal ölçek, uyumluluk, güvenlik ve genel ulaşma) koleksiyonudur. Daha ayrıntılı Azure Media Services Analytics'e genel bakış için bkz: [bu](media-services-analytics-overview.md) konu. 
+Azure medya Hizmetleri analizi, kuruluş ve işletmelerin video dosyalarından eyleme dönüştürülebilir Öngörüler türetmesini kolaylaştıran konuşma ve görüntü tanıma bileşenlerinin (en, Kurumsal ölçekte, uyumluluk, güvenlik ve küresel erişim) koleksiyonudur. Daha ayrıntılı Azure Media Services Analytics'e genel bakış için bkz. [bu](media-services-analytics-overview.md) konu. 
 
-Bu konuda, Azure Portalı'nı kullanarak medya analizi medya işlemcileri (Mp'leri) medyanızı işlemek nasıl ele alınmıştır. Medya analizi Mp'leri MP4 veya JSON dosyaları üretir. Medya işlemcisi bir MP4 dosyası oluşturduysa dosyayı aşamalı olarak yükleyin. Medya işlemcisi bir JSON dosyası oluşturduysa dosyayı Azure blob depolama alanından yükleyin. 
+Bu konuda, Azure portalını kullanarak medya analizi medya işlemcileri (MP'ler) ile medyanızı işlemek nasıl ele alınmaktadır. Media Analytics Mp'leri MP4 veya JSON dosyaları üretir. Medya işlemcisi bir MP4 dosyası oluşturduysa dosyayı aşamalı olarak yükleyin. Medya işlemcisi bir JSON dosyası oluşturduysa dosyayı Azure blob Depolama'yı yükleyin. 
 
-## <a name="choose-an-asset-that-you-want-to-analyze"></a>Analiz etmek istediğiniz bir varlığı seçin
+## <a name="choose-an-asset-that-you-want-to-analyze"></a>Çözümlemek istediğiniz bir varlık seçin
 1. [Azure portalında](https://portal.azure.com/) Azure Media Services hesabınızı seçin.
 2. **Ayarlar** penceresinde **Varlıklar**’ı seçin.  
-   .
-    ![Videolar Çözümle](./media/media-services-portal-analyze/media-services-portal-analyze001.png)
-3. Çözümleme ve basın istediğiniz varlığı seçin **Çözümle** düğmesi.
    
-    ![Videolar Çözümle](./media/media-services-portal-analyze/media-services-portal-analyze002.png)
-4. İçinde **medya analizi medya varlıkla işlem** penceresinde, işlemci seçin. 
+    ![Videoları analiz etme](./media/media-services-portal-analyze/media-services-portal-analyze001.png)
+3. Tuşuna basın ve analiz etmek istediğiniz varlığı seçin **Çözümle** düğmesi.
    
-    Makalenin kalanında nedenini açıklar ve her işlemci kullanma. 
-5. Tuşuna **oluşturma** iş başlatma.
+    ![Videoları analiz etme](./media/media-services-portal-analyze/media-services-portal-analyze002.png)
+4. İçinde **Media Analytics ile medya varlığını işle** penceresinde işleyicisini seçin. 
+   
+    Bu makalenin geri kalanında nedenini açıklar ve her işlemci kullanma. 
+5. Tuşuna **Oluştur** iş başlatma.
 
 ## <a name="azure-media-indexer"></a>Azure Media Indexer
-**Azure Media Indexer** medya işlemcisi yanı sıra medya dosyaları ve içerik aranabilir yapmanıza kapalı açıklamalı alt yazı parçaları oluşturmak olanak sağlar. Bu bölümde bu MP için belirlediğiniz seçenekler hakkında bazı ayrıntılarını verir.
+**Azure Media Indexer'ın** medya işlemci kapalı açıklamalı alt yazı parçaları oluşturmak yanı sıra medya dosyalarını ve içerik aranabilir yapmanıza olanak tanır. Bu bölümde, bu MP için belirttiğiniz seçenekleri hakkında bazı ayrıntılar sağlar.
 
-![Videolar Çözümle](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
+![Videoları analiz etme](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
 
 ### <a name="language"></a>Dil
-Multimedya dosyasında tanınması için doğal dil. Örneğin, İngilizce ve İspanyolca. 
+Multimedya dosyasında tanınacak doğal dili. Örneğin, İngilizce veya İspanyolca. 
 
-### <a name="captions"></a>Açıklamalı alt yazılar
+### <a name="captions"></a>açıklamalı alt yazılar
 İçeriğinizi oluşturulan açıklamalı alt yazı biçimi seçebilirsiniz. Bir dizin oluşturma işi kapalı açıklamalı alt yazı dosyaları aşağıdaki biçimlerde oluşturabilirsiniz:  
 
 * **SAMI**
@@ -63,89 +63,89 @@ Multimedya dosyasında tanınması için doğal dil. Örneğin, İngilizce ve İ
 Bu biçimler dosyalarında ses ve video dosyaları işitme engelli kişiler için erişilebilir hale getirmek için kullanılan açıklamalı alt yazı (CC) kapatıldı.
 
 ### <a name="aib-file"></a>AIB dosyası
-Özel SQL Server IFilter ile kullanmak için ses dizin Blob dosyası oluşturmak istiyorsanız bu seçeneği belirleyin. Daha fazla bilgi için bkz: [bu](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) blogu.
+Özel SQL Server IFilter ile kullanılacak ses dizini Blob dosyasını oluşturmak istiyorsanız bu seçeneği belirleyin. Daha fazla bilgi için [bu](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) blogu.
 
 ### <a name="keywords"></a>Anahtar sözcükler
-Anahtar sözcükler XML dosyası oluşturmak istiyorsanız bu seçeneği belirleyin. Bu dosya, sıklığı ve uzaklık bilgileri konuşma içerikten ayıklanan anahtar sözcükler içeriyor.
+Bir anahtar sözcük XML dosyası oluşturmak istiyorsanız bu seçeneği belirleyin. Bu dosya, sıklık ve uzaklık bilgilerini konuşma içeriğinden ayıklanan anahtar sözcükler içerir.
 
 ### <a name="job-name"></a>İş adı
-İş belirlemenize olanak sağlayan bir kolay ad. [Bu](media-services-portal-check-job-progress.md) makalede nasıl bir işin ilerleme durumunu izleyebilirsiniz. 
+İşi tanımlamanızı sağlayan bir kolay ad. [Bu](media-services-portal-check-job-progress.md) makalede nasıl bir işin ilerlemesini izleyebilirsiniz. 
 
 ### <a name="output-file"></a>Çıktı dosyası
 Çıkış içeriği belirlemenize olanak sağlayan bir kolay ad. 
 
 ## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
-Azure medya Hyperlapse ilk kişi veya eylem kamera içerikten kesintisiz zaman onlara videolar oluşturan bir MP ' dir.  Daha fazla bilgi için [bu](media-services-hyperlapse-content.md) konu başlığına bakın. Bu bölümde bu MP için belirlediğiniz seçenekler hakkında bazı ayrıntılarını verir.
+Azure medya Hyperlapse birinci kişi veya eylem kamera içerikten kesintisiz zaman aralıklı videoları oluşturan bir MP ' dir.  Daha fazla bilgi için [bu](media-services-hyperlapse-content.md) konu başlığına bakın. Bu bölümde, bu MP için belirttiğiniz seçenekleri hakkında bazı ayrıntılar sağlar.
 
-![Videolar Çözümle](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
+![Videoları analiz etme](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
 ### <a name="speed"></a>Hız
-Giriş video hızlandırmak için hızıyla belirtin. Çıktı, sabit ve zaman onlara yorumlama video giriş şeklindedir.
+Hızını giriş videosunu hızlandırma katsayısını belirtin. Titreşimsiz ve zaman aralıklı bir işleme giriş video çıktıdır.
 
 ### <a name="job-name"></a>İş adı
-İş belirlemenize olanak sağlayan bir kolay ad. [Bu](media-services-portal-check-job-progress.md) makalede nasıl bir işin ilerleme durumunu izleyebilirsiniz. 
+İşi tanımlamanızı sağlayan bir kolay ad. [Bu](media-services-portal-check-job-progress.md) makalede nasıl bir işin ilerlemesini izleyebilirsiniz. 
 
 ### <a name="output-file"></a>Çıktı dosyası
 Çıkış içeriği belirlemenize olanak sağlayan bir kolay ad. 
 
 ## <a name="azure-media-face-detector"></a>Azure Media Face Detector
-**Azure medya yüz algılayıcısı** medya işlemcisi (MP) sayısı, hareketleri izlemek ve İzleyici katılım ve tepki yüz ifadeleri aracılığıyla bile ölçer olanak sağlar. Bu hizmet, iki özellik içerir: 
+**Azure medya yüz algılayıcısı** medya işlemci (MP) sayısı, hareketleri izlemek ve hatta İzleyici katılım ve yüz ifadelerini aracılığıyla tepki ölçer olanak sağlar. Bu hizmet, iki özellik içerir: 
 
 * **Yüz algılama**
   
-    Yüz algılama bulur ve video içinde İnsan yüzeyleri izler. Birden çok yüzeyleri algılanabilir ve bunların geçici bir JSON dosyası döndürülen zaman ve yer meta verilerle taşırken sonradan izlenmesi. İzleme sırasında bunu obstructed veya kısaca çerçeve bırakın olsa bile kişinin ekranında dolaşma sırada tutarlı kimliği aynı yüz vermek dener.
+    Yüz algılama bulur ve video İnsan yüzlerini izler. Birden fazla yüzeye algılanabilir ve bunlar JSON dosyasında döndürülen zaman ve konum meta verileriyle hareket ettirmek sonradan izlenmesi. İzleme sırasında bu obstructed veya kısaca çerçeve bırakın bile kişi ekranında gezinmek sırada tutarlı kimliği için aynı yüz vermek dener.
   
   > [!NOTE]
-  > Bu hizmetler, yüz tanıma gerçekleştirmez. Çerçeve ayrıldığında ya da için obstructed hale bir kişi döndürmeleri zaman uzun yeni bir kimlik verilir.
+  > Bu hizmetler yüz tanıma gerçekleştirmez. Çerçeve ayrıldığında ya da için obstructed olur bireysel bunlar döndüğünüzde yeni bir kimliği çok uzun sunulur.
   > 
   > 
 * **Duygu algılama**
   
-    Duygu algılama analiz mutluluk, sadness, Korku, öfke ve daha fazlası da dahil olmak üzere algılandı, yüzler birden çok kendini özniteliklerinde döndürür yüz algılama medya işlemcisi isteğe bağlı bir bileşenidir. 
+    Duygu algılama, birden çok duygusal özniteliklerinde mutluluk, üzüntü, Korku, kızgınlık ve daha fazlası dahil olmak üzere algılanan yüzleri analiz döndüren yüz algılama medya işlemcisi isteğe bağlı bir bileşendir. 
 
-![Videolar Çözümle](./media/media-services-portal-analyze/media-services-portal-analyze005.png)
+![Videoları analiz etme](./media/media-services-portal-analyze/media-services-portal-analyze005.png)
 
 ### <a name="detection-mode"></a>Algılama modu
-Aşağıdaki modlarından birini işlemcisi tarafından kullanılabilir:
+Şu modlardan biri işlemci tarafından kullanılabilir:
 
 * Yüz algılama
-* Yüz duygu algılama
-* Birleşik duygu algılama
+* yüze göre duygu algılama
+* Toplu duygu algılama
 
 ### <a name="job-name"></a>İş adı
-İş belirlemenize olanak sağlayan bir kolay ad. [Bu](media-services-portal-check-job-progress.md) makalede nasıl bir işin ilerleme durumunu izleyebilirsiniz. 
+İşi tanımlamanızı sağlayan bir kolay ad. [Bu](media-services-portal-check-job-progress.md) makalede nasıl bir işin ilerlemesini izleyebilirsiniz. 
 
 ### <a name="output-file"></a>Çıktı dosyası
 Çıkış içeriği belirlemenize olanak sağlayan bir kolay ad. 
 
 ## <a name="azure-media-motion-detector"></a>Azure Media Motion Detector
-**Azure medya hareket algılayıcısı** medya işlemcisi (MP), aksi takdirde uzun ve olaysız video içinde ilgi bölümleri verimli bir şekilde tanımlamak sağlar. Hareket algılama statik kamera görüntülerinin video hareket oluştuğu bölümlerini belirlemek için kullanılabilir. Zaman damgaları ve olayın gerçekleştiği sınırlayıcı bölge ile meta verileri içeren bir JSON dosyası oluşturur.
+**Azure ortam hareket algılayıcısı** medya işlemci (MP) faiz yoksa uzun ve olaysız bir video içinde bölümlerini verimli bir şekilde belirlemenizi sağlar. Hareket algılama üzerinde statik kamerası kayıtları, video bölümlerini hareket nerede oluştuğunu belirlemek için kullanılabilir. Bu zaman damgaları ve olayın gerçekleştiği sınırlayıcı bölge ile bir meta veri içeren bir JSON dosyası oluşturur.
 
-Doğru güvenlik video akışları hedeflenen, bu teknolojiyi ilgili olayları ve hatalı pozitif sonuç gölgeleri ve aydınlatma değişiklikleri gibi hareket kategorilere yapabiliyor. Bu, güvenlik uyarıları sonsuz ilgisiz olaylarıyla aşırı uzun gözetleme videoların ilgi dakika ayıklayın kullanabilmeye devam ederken adresinize olmadan kamera Akışları'oluşturmanıza olanak sağlar.
+Doğru güvenlik video akışları hedeflenen, ilgili olaylar ve hatalı pozitif sonuçları shadows ve ışık değişiklikleri gibi hareket kategorilere ayırmak bu teknoloji kuramıyor. Bu güvenlik uyarıları kamera akışlarından sonsuz ilgisiz olayları ile son derece uzun gözetim videolardan ilgi dakika ayıklayamayabilir olmanın yanı sıra adresinize gerek kalmadan oluşturmanıza olanak sağlar.
 
-![Videolar Çözümle](./media/media-services-portal-analyze/media-services-portal-analyze006.png)
+![Videoları analiz etme](./media/media-services-portal-analyze/media-services-portal-analyze006.png)
 
 ## <a name="azure-media-video-thumbnails"></a>Azure Media Video Thumbnails
-Bu işlemci otomatik olarak kaynak video ilginç parçacıkları'i seçerek uzun videoları özetlerini oluşturmanıza yardımcı olabilir. Bu, uzun bir video beklenmesi gerekenler hızlı bir bakış sağlamak istediğinizde yararlıdır. Ayrıntılı bilgi ve örnekler için bkz: [bir Video özeti oluşturma kullanım Azure medya Video küçük](media-services-video-summarization.md)
+Bu işlemci otomatik olarak kaynak videodaki ilginç parçacıkları'i seçerek uzun videoların özetlerini oluşturmanıza yardımcı olabilir. Uzun bir videoda beklenmesi gerekenler hızlı bir bakış sağlamak istediğinizde bu kullanışlıdır. Ayrıntılı bilgi ve örnekler için bkz. [kullanımı Azure medya Video küçük'bir Video özeti oluşturma](media-services-video-summarization.md)
 
-![Videolar Çözümle](./media/media-services-portal-analyze/media-services-portal-analyze008.png)
+![Videoları analiz etme](./media/media-services-portal-analyze/media-services-portal-analyze008.png)
 
 ### <a name="job-name"></a>İş adı
-İş belirlemenize olanak sağlayan bir kolay ad. [Bu](media-services-portal-check-job-progress.md) makalede nasıl bir işin ilerleme durumunu izleyebilirsiniz. 
+İşi tanımlamanızı sağlayan bir kolay ad. [Bu](media-services-portal-check-job-progress.md) makalede nasıl bir işin ilerlemesini izleyebilirsiniz. 
 
 ### <a name="output-file"></a>Çıktı dosyası
 Çıkış içeriği belirlemenize olanak sağlayan bir kolay ad. 
 
-## <a name="azure-media-content-moderator"></a>Azure Media içerik denetleyici
-Bu işlemci olası yetişkin ve saldırganlardan içeriği videoları belirlemenize yardımcı olur. İşlemci videoda görüntüleri ve ana kareleri otomatik olarak algılar. Olası Yetişkin veya saldırganlardan içerik için ana kare puanlar ve varsayılan eşiklere dayanarak incelemeler önerir. Ayrıntılı bilgi ve örnekler için bkz: [kullanım Azure medya içerik videolar Orta geçirilmesini](media-services-content-moderation.md)
+## <a name="azure-media-content-moderator"></a>Azure medya Content Moderator
+Bu işlemci videolarda yetişkinlere yönelik ve müstehcen içerik olası algılamanıza yardımcı olur. İşlemci, videoda görüntüleri ve ana kareleri otomatik olarak algılar. Olası yetişkinlere yönelik veya müstehcen içeriği için ana kareler puanlar ve varsayılan eşiklere dayanarak incelemeleri önerir. Ayrıntılı bilgi ve örnekler için bkz. [kullanımı Azure medya içerik videoları Orta geçirilmesini](media-services-content-moderation.md)
 
-![Orta videolar](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
+![Orta videoları](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
 
 ### <a name="version"></a>Sürüm 
 "2.0" kullanın.
 
 ### <a name="mode"></a>Mod
-2.0 sürümü Yoksay `Mode` ayarı.
+2.0 sürümünü Yoksay `Mode` ayarı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Görünüm Media Services'i öğrenme yolları.

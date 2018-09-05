@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/14/2018
+ms.date: 08/31/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 8c9d1ee51acdfff188e0d6483f723fbb08e17bd5
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: e5db7b9bed674011c2922f026c301172f347f53f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39601958"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666317"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory uygulama galerisinde uygulamanızı listeleme
 
@@ -45,11 +45,23 @@ Azure Active Directory (Azure AD), bulut tabanlı kimlik hizmetidir. [Azure AD u
 
 *  SCIM kullanan müşteriler, aynı uygulama için sağlama kullanabilirsiniz.
 
-##  <a name="prerequisites-implement-federation-protocol"></a>Önkoşullar: Uygulama Federasyon Protokolü
+## <a name="prerequisites"></a>Önkoşullar
+
+- Federe uygulamaları (Open ID ve SAML/WS-Federasyon), uygulamanın Azure AD Galerisi'nde listelenmeyle SaaS modeli desteklemesi gerekir. Kurumsal galeri uygulamalar birden çok müşteri yapılandırmalarının ve hiçbir belirli bir müşteri desteklemelidir.
+
+- Open ID Connect için uygulamanın çok kiracılı olmalıdır ve [Azure AD'ye onay çerçevesine](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework) uygulamayı düzgün bir şekilde uygulanmalıdır. Herhangi bir müşteri uygulama onay sağlayabilmesi kullanıcı oturum açma isteği ortak bir uç noktasına gönderebilir. Kiracı kimliği ve belirteçte alınan kullanıcının UPN göre kullanıcı erişimi denetleyebilirsiniz.
+
+- SAML 2.0/WS-Federasyon, SP veya IDP modunda SAML/WS-Federasyon SSO tümleştirme yapabilme olanağı, uygulamanızın olmalıdır. Lütfen bu isteği göndermeden önce düzgün çalıştığından emin olun.
+
+- Parola SSO için beklendiği gibi çoklu oturum açma işleri için parola kasası oluşturma yapılabilir, böylece uygulamanız form kimlik doğrulaması desteklediğinden emin olun.
+
+- Otomatik kullanıcı hazırlama istekler için uygulama yukarıda açıklanan Federasyon protokolünü kullanarak etkin tek oturum açma özelliği ile galeride listelenmelidir. SSO ve kullanıcı henüz listeleniyorsa birlikte portalda, sağlama için talep edebilir.
+
+##  <a name="implementing-sso-using-federation-protocol"></a>Federasyon protokolünü kullanan SSO uygulama
 
 Uygulamanın Azure AD uygulama galerisinde listelemek için öncelikle bir Azure AD tarafından desteklenen aşağıdaki Federasyon protokollerini uygulamak ve Azure AD uygulama Galerisi hüküm ve koşulları kabul ediyorum gerekir. Hüküm ve Koşulları ' Azure AD uygulama Galerisi okuma [burada](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/).
 
-*   **Openıd Connect**: Azure AD'de çok kiracılı bir uygulama oluşturmak ve uygulamak [Azure AD'ye onay çerçevesine](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework) uygulamanız için. Herhangi bir müşteri uygulama onay sağlayabilmesi için ortak bir uç nokta oturum açma isteği gönderin. Kiracı kimliği ve belirteçte alınan kullanıcının UPN göre kullanıcı erişimi denetleyebilirsiniz. Uygulamanızı Azure AD ile tümleştirmek için izleyin [geliştiricilerin yönergeleri](authentication-scenarios.md).
+*   **Openıd Connect**: uygulamanız Open ID Connect protokolünü kullanarak Azure AD ile tümleştirmek için izleyin [geliştiricilerin yönergeleri](authentication-scenarios.md).
 
     ![Openıd Connect galeri uygulamasına listeleme, zaman çizelgesi](./media/howto-app-gallery-listing/openid.png)
 
@@ -57,21 +69,23 @@ Uygulamanın Azure AD uygulama galerisinde listelemek için öncelikle bir Azure
 
     * Erişim ile ilgili herhangi bir sorun varsa, kişi [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** veya **WS-Federasyon**: SP veya IDP modunda SAML/WS-Federasyon SSO tümleştirme yapabilme olanağı, uygulamanızın olmalıdır. Uygulamanız SAML 2.0 destekliyorsa, doğrudan Azure AD kiracısı ile kullanarak tümleştirebilirsiniz [özel bir uygulama eklemek için yönergeleri](../active-directory-saas-custom-apps.md).
+*   **SAML 2.0** veya **WS-Federasyon**: uygulamanız SAML 2.0 destekliyorsa, doğrudan Azure AD kiracısı ile kullanarak tümleştirebilirsiniz [özel bir uygulama eklemek için yönergeleri](../active-directory-saas-custom-apps.md).
 
     ![Galeri SAML 2.0 veya WS-Federasyon uygulamasına listeleme, zaman çizelgesi](./media/howto-app-gallery-listing/saml.png)
 
     * Galerisini kullanarak uygulamanızı listesine eklemek isteyip istemediğimi **SAML 2.0** veya **WS-Federasyon**seçin **SAMl 2.0/WS-Federasyon** yukarıdaki gibi.
 
-    * Erişim ile ilgili herhangi bir sorun varsa, kişi [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
-
-*   **Parola SSO**: yapılandırmak için bir HTML oturum açma sayfasına sahip bir web uygulaması oluşturma [parola tabanlı çoklu oturum açma](../manage-apps/what-is-single-sign-on.md). Parola tabanlı SSO de denir gibi kullanıcı erişim ve Kimlik Federasyonu Desteği web uygulamaları için parolaları yönetmek vaulting, parola sağlar. Kuruluşunuzun sosyal medya uygulaması hesaplara gibi tek bir hesabı paylaşmak birkaç kullanıcı gerektiği senaryolar için de yararlıdır.
-
-    ![Parola SSO galeri uygulamasına listeleme, zaman çizelgesi](./media/howto-app-gallery-listing/passwordsso.png)
-
-    * Parola SSO, select kullanarak Galeriden uygulamanızı listesine eklemek istiyorsanız **parola SSO** yukarıdaki gibi.
-
     * Erişim ile ilgili herhangi bir sorun varsa, kişi [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+
+## <a name="implementing-sso-using-password-sso"></a>Parola SSO ile SSO uygulama
+
+Yapılandırmak için bir HTML oturum açma sayfasına sahip bir web uygulaması oluşturma [parola tabanlı çoklu oturum açma](../manage-apps/what-is-single-sign-on.md). Parola tabanlı SSO de denir gibi kullanıcı erişim ve Kimlik Federasyonu Desteği web uygulamaları için parolaları yönetmek vaulting, parola sağlar. Kuruluşunuzun sosyal medya uygulaması hesaplara gibi tek bir hesabı paylaşmak birkaç kullanıcı gerektiği senaryolar için de yararlıdır.
+
+![Parola SSO galeri uygulamasına listeleme, zaman çizelgesi](./media/howto-app-gallery-listing/passwordsso.png)
+
+* Parola SSO, select kullanarak Galeriden uygulamanızı listesine eklemek istiyorsanız **parola SSO** yukarıdaki gibi.
+
+* Erişim ile ilgili herhangi bir sorun varsa, kişi [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ##  <a name="updateremove-existing-listing"></a>Mevcut listeyi güncelleştirme/kaldırma
 
@@ -80,7 +94,7 @@ Güncelleştirme ya da Azure AD uygulama galerisinde mevcut bir uygulamayı kald
 * Uygun seçeneği seçin aşağıdaki görüntüde
 
     ![Saml galeri uygulamasına listeleme, zaman çizelgesi](./media/howto-app-gallery-listing/updateorremove.png)
-    
+
     * Mevcut bir uygulamayı güncelleştirmek isteyip istemediğinizi seçin **mevcut uygulama listesini güncelleştirme**.
 
     * Azure AD galeri var olan bir uygulamayı kaldırmak isteyip istemediğinizi seçin **mevcut uygulama listesini Kaldır**

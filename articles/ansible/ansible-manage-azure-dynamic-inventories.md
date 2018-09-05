@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 9de620c5e6a1698b70f25f91a744829548ad5af6
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 1b8c1ba80b4c69f36e8304cbe978452a359ac911
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382340"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698088"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Azure, dinamik envanterleri yönetmek için Ansible'ı kullanın
 Ansible'ı (Azure gibi bulut kaynakları dahil) çeşitli kaynaklardan Envanter bilgilerini çekme için kullanılabilir içine bir *dinamik stok*. Bu makalede, kullandığınız [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) Ansible Azure dinamik iki sanal makine oluşturma envanterini yapılandırmak için bu sanal makinelerden birini etiketi ve Ngınx etiketli sanal makineye yükleyin.
@@ -136,27 +136,27 @@ Etiketleri amacı, hızlı ve kolay bir şekilde sanal makinelerinizin alt grupl
 
 1. Yeni oluşturulan aşağıdaki kodu ekleyin `nginx.yml` dosyası:
 
-```yml
----
-- name: Install and start Nginx on an Azure virtual machine
-  hosts: azure
-  become: yes
-  tasks:
-  - name: install nginx
-    apt: pkg=nginx state=installed
-    notify:
-    - start nginx
+    ```yml
+    ---
+    - name: Install and start Nginx on an Azure virtual machine
+    hosts: azure
+    become: yes
+    tasks:
+    - name: install nginx
+      apt: pkg=nginx state=installed
+      notify:
+      - start nginx
 
-  handlers:
-  - name: start nginx
-    service: name=nginx state=started
-```
+    handlers:
+    - name: start nginx
+      service: name=nginx state=started
+    ```
 
 1. Çalıştırma `nginx.yml` playbook:
 
-  ```azurecli-interactive
-  ansible-playbook -i azure_rm.py nginx.yml
-  ```
+    ```azurecli-interactive
+    ansible-playbook -i azure_rm.py nginx.yml
+    ```
 
 1. Playbook'u çalıştırdıktan sonra aşağıdaki çıktıya benzer sonuçlar görürsünüz:
 

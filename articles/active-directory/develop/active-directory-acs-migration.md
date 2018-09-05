@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
-ms.openlocfilehash: 803dd69aed91f6e33c354d01d3f5419597d98de9
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 41c7de3039634f262efedc1bb3de1b39dda4593a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115893"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698069"
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Azure erişim denetimi Hizmeti'nden geçiş
 
@@ -106,7 +106,7 @@ SharePoint 2013, 2016 ve SharePoint Online müşterilerine uzun ACS kimlik doğr
 
 | Özellik | Rehber |
 | ------- | -------- |
-| Azure ad kullanıcıların kimliklerinin doğrulanması | Daha önce Azure AD kimlik doğrulaması için SharePoint'e gereken SAML 1.1 belirteçleri desteklemez ve Azure AD ile SharePoint uyumlu belirteci yapılan bir ara biçim olarak ACS kullanıldı. Artık, [SharePoint belirteç verme ilkeleri kullanarak doğrudan Azure AD'ye bağlanma](https://docs.microsoft.com/Office365/Enterprise/using-azure-ad-for-sharepoint-server-authentication). |
+| Azure ad kullanıcıların kimliklerinin doğrulanması | Daha önce Azure AD kimlik doğrulaması için SharePoint'e gereken SAML 1.1 belirteçleri desteklemez ve Azure AD ile SharePoint uyumlu belirteci yapılan bir ara biçim olarak ACS kullanıldı. Artık, [SharePoint şirket içi uygulama Azure AD uygulama galerisinde SharePoint kullanarak doğrudan Azure AD'ye bağlama](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [Uygulama kimlik doğrulaması ve SharePoint şirket içi sunucudan sunucuya kimlik doğrulaması](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | ACS emeklilik tarafından etkilenen değil; Gerekli değişiklik yok. | 
 | [SharePoint eklentileri için (sağlayıcı tarafından barındırılan ve barındırılan SharePoint) yetkilendirme düşük güven](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | ACS emeklilik tarafından etkilenen değil; Gerekli değişiklik yok. |
 | [SharePoint bulut hibrit arama](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | ACS emeklilik tarafından etkilenen değil; Gerekli değişiklik yok. |

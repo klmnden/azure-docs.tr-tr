@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 02dc4657f6c594242d12e3eca270a3549b77bf02
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: bd456e0f881f606f36f2b4d80e704ce138f7db0f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337767"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666441"
 ---
 # <a name="deploy-a-configuration-server"></a>Yapılandırma sunucusunu dağıtma
 
@@ -42,7 +42,7 @@ Yapılandırma sunucusu boyutlandırma gereksinimlerini olası veri değişikli�
 | 12 Vcpu (2 yuva * 6 çekirdek \@ 2.5 GHz) |18 GB |600 GB |500 GB ila 1 TB |100-150 makineleri çoğaltabilir. |
 | 16 Vcpu (2 yuva * 8 çekirdek \@ 2.5 GHz) |32 GB |1 TB |1 TB ile 2 TB |150-200 makineleri çoğaltabilir. |
 
-Birden fazla VMware VM çoğaltma yapıyorsanız okuma [kapasite planlaması konuları](/site-recovery-plan-capacity-vmware.md). Çalıştırma [dağıtım Planlayıcısı aracını](site-recovery-deployment-planner.md) VMWare çoğaltması için.
+Birden fazla VMware VM çoğaltma yapıyorsanız okuma [kapasite planlaması konuları](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware). Çalıştırma [dağıtım Planlayıcısı aracını](site-recovery-deployment-planner.md) VMWare çoğaltması için.
 
 ## <a name="download-the-template"></a>Şablon indirme
 

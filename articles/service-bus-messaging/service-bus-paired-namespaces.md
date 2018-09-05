@@ -1,9 +1,9 @@
 ---
-title: Azure hizmet veri yolu ad alanları eşleştirilmiş | Microsoft Docs
-description: Eşleştirilmiş ad uygulama ayrıntılarını ve maliyet
+title: Azure Service Bus ad alanları eşleştirilmiş | Microsoft Docs
+description: Eşleştirilmiş ad alanı uygulama ayrıntılarını ve maliyet
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 2440c8d3-ed2e-47e0-93cf-ab7fbb855d2e
@@ -13,94 +13,94 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
-ms.author: sethm
-ms.openlocfilehash: f16c65286b0aa079889c9d53e98bf54e3d57c95f
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.author: spelluru
+ms.openlocfilehash: 3dbeba3e8a7a3acc651eb9f2f679440dd9e6728b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27159550"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696760"
 ---
-# <a name="paired-namespace-implementation-details-and-cost-implications"></a>Ad alanı uygulama ayrıntılarını eşleştirilmiş ve etkileri maliyet
+# <a name="paired-namespace-implementation-details-and-cost-implications"></a>Eşleştirilmiş ad alanı uygulama ayrıntılarını ve etkileri maliyet
 
-[PairNamespaceAsync] [ PairNamespaceAsync] yöntemini kullanarak bir [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] örneği, sizin adınıza görünür görevleri gerçekleştirir. Var maliyet çünkü konuları özelliğini kullanırken, böylece bu durum oluştuğunda davranışı beklediğiniz bu görevleri anlamak kullanışlıdır. API aşağıdaki otomatik davranışı, sizin adınıza prosese:
+[PairNamespaceAsync] [ PairNamespaceAsync] yöntemini kullanarak bir [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] örneği, görünür görevler gerçekleştirir sizin adınıza. Bir maliyeti yoktur çünkü konuları özelliğini kullanırken, böyle durumlarda davranış beklediğiniz. böylece, bu görevleri anlamak kullanışlıdır. API, sizin adınıza otomatik aşağıdaki davranış yönetir:
 
-* Biriktirme listesi sıraları oluşturma.
-* Oluşturulmasını bir [MessageSender] [ MessageSender] sıralar veya konuları ettiği nesnesi.
-* Bir Mesajlaşma varlığı kullanılamaz duruma geldiğinde, varlığın yeniden kullanılabilir duruma geldiğinde algılama girişimi varlık iletileri gönderir ping işlemi uygulayın.
-* İsteğe bağlı olarak "iletisi Pompalar" kümesi oluşturur, iletileri taşıma biriktirme listesi kuyruklardan birincil sıralar.
-* Koordinatları kapanış/hatalı birincil ve ikincil [Eventhubclient] [ MessagingFactory] örnekleri.
+* Biriktirme listesi kuyruk oluşturma.
+* Oluşturma bir [MessageSender] [ MessageSender] nesnesini kuyruklar veya konular hakkında konuşuyor.
+* Bir Mesajlaşma varlığı kullanılamaz hale geldiğinde, varlığın yeniden kullanılabilir duruma geldiğinde algılama girişimi varlık iletileri gönderir ping işlemi yapın.
+* İsteğe bağlı olarak "iletisi pompalara" bir dizi oluşturur, iletileri taşıma biriktirme listesi kuyruklardan için birincil sıralar.
+* Koordinatları kapanış/hatalı birincil ve ikincil [MessagingFactory] [ MessagingFactory] örnekleri.
 
-Yüksek düzeyde, bu özellik şu şekilde çalışır: birincil varlık iyi durumda hiçbir davranış değişiklikleri oluşur. Zaman [FailoverInterval] [ FailoverInterval] süresi dolduktan ve birincil varlık görür Hayır başarılı bir geçici olmayan sonra gönderir [MessagingException] [ MessagingException] veya [TimeoutException][TimeoutException], aşağıdaki davranış oluşur:
+Yüksek düzeyde, bu özellik şu şekilde çalışır: hiçbir davranış değişiklikleri birincil varlık iyi durumda olduğunda oluşur. Zaman [FailoverInterval] [ FailoverInterval] süresi dolduktan ve Hayır başarılı birincil varlık görür gönderen bir geçici olmayan sonra [Istransient] [ MessagingException] veya [TimeoutException][TimeoutException], aşağıdaki davranış oluşur:
 
-1. Birincil varlık işlemleri devre dışı bırakılır ve ping başarıyla teslim edilebilir kadar sistem birincil varlık ping gönderin.
-2. Rastgele biriktirme listesi sırası seçilir.
-3. [BrokeredMessage] [ BrokeredMessage] nesneler, seçtiğiniz biriktirme listesi kuyruğuna yönlendirilir.
-4. Seçilen biriktirme listesi kuyruğa gönderme işlemi başarısız olursa, o sıra döndürme çekilir ve yeni bir sıra seçilir. Üzerindeki tüm gönderenlerin [Eventhubclient] [ MessagingFactory] örneği başarısızlığını öğrenin.
+1. Birincil varlık için işlemleri devre dışı bırakıldı ve ping başarıyla teslim edilebilir kadar sistem birincil varlık ping gönderin.
+2. Bir rastgele biriktirme listesi sırası seçilir.
+3. [BrokeredMessage] [ BrokeredMessage] nesneleri, seçilen kapsam kuyruğa yönlendirilir.
+4. Seçilen kapsam kuyruğa bir gönderme işlemi başarısız olursa, döndürme bu kuyruğa alındığından ve yeni bir kuyruk seçilir. Tüm Gönderenler üzerinde [MessagingFactory] [ MessagingFactory] örneği hatasını öğrenin.
 
-Aşağıdaki şekil dizisini tarif. İlk olarak, gönderici iletileri gönderir.
+Aşağıdaki şekil dizisi kullanılırlar. İlk olarak, gönderici iletileri gönderir.
 
-![Eşleştirilmiş ad alanları][0]
+![Eşleştirilen ad alanları][0]
 
-Birincil sıraya göndermek için başarısızlık durumunda, rastgele seçilen biriktirme listesi kuyruğa ileti gönderme gönderen başlar. Aynı anda bir ping görev başlatır.
+Birincil kuyruğa göndermek için başarısızlık durumunda, rastgele seçilen kapsam kuyruğa ileti gönderme gönderen başlar. Eşzamanlı olarak ping görevi başlatır.
 
-![Eşleştirilmiş ad alanları][1]
+![Eşleştirilen ad alanları][1]
 
-Bu noktada iletiler hala ikincil sıraya ve birincil kuyruğuna teslim edilmedi. Birincil kuyruk yeniden sağlıklı olduğunda en az bir işlem Sifon çalıştırıyor olması gerekir. Sifon iletileri çeşitli biriktirme listesi sıraları tüm uygun hedef varlıkları (kuyruklar ve konu başlıkları) sunar.
+Bu noktada iletiler yine de ikincil kuyrukta ve birincil kuyruğa teslim edilemedi. Birincil kuyruk yeniden sağlıklı hale geldikten sonra en az bir işlem Sifon çalıştırıyor olmalıdır. Sifon iletileri farklı biriktirme listesi sıralar tüm uygun hedef varlıkları (kuyruklar ve konular) sunar.
 
-![Eşleştirilmiş ad alanları][2]
+![Eşleştirilen ad alanları][2]
 
-Bu konunun geri kalanında bu bilgilerin nasıl çalıştığını belirli ayrıntılarını açıklanır.
+Bu konunun geri kalanı belirli ayrıntılarını parçaların nasıl çalıştığı açıklanır.
 
-## <a name="creation-of-backlog-queues"></a>Biriktirme listesi sıraların oluşturma
-[SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] nesne geçirilen [PairNamespaceAsync] [ PairNamespaceAsync] yöntemi kullanmak istediğiniz biriktirme listesi sıraları sayısını belirtir. Her bir biriktirme listesi sırası sonra aşağıdaki özelliklere sahip açıkça oluşturulur ayarlayın (diğer tüm değerler kümesine [QueueDescription] [ QueueDescription] Varsayılanları):
+## <a name="creation-of-backlog-queues"></a>Sıraların biriktirme listesi oluşturma
+[SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] geçirilen nesne [PairNamespaceAsync] [ PairNamespaceAsync] yöntemi sayısını belirtir kullanmak istediğiniz biriktirme listesini sıralar. Her biriktirme listesi sırası sonra aşağıdaki özelliklerle açıkça oluşturulduğunda ayarlayın (diğer tüm değerler kümesine [QueueDescription] [ QueueDescription] varsayılan):
 
-| Yol | [birincil ad alanı] / x servicebus aktarımı / [[dizin] [0, BacklogQueueCount) değerinde olduğu dizin] |
+| Yol | [birincil ad alanı] / x-servicebus-aktarım / [[dizin] [0, BacklogQueueCount) bir değer olduğu dizin] |
 | --- | --- |
-| MaxSizeInMegabytes |5120 |
-| maxDeliveryCount |int MaxValue |
+| Maxsizeınmegabytes |5120 |
+| MaxDeliveryCount |tamsayı MaxValue |
 | DefaultMessageTimeToLive |TimeSpan.MaxValue |
 | AutoDeleteOnIdle |TimeSpan.MaxValue |
 | LockDuration |1 dakika |
-| EnableDeadLetteringOnMessageExpiration |doğru |
-| EnableBatchedOperations |doğru |
+| EnableDeadLetteringOnMessageExpiration |true |
+| EnableBatchedOperations |true |
 
-Örneğin, ilk biriktirme listesi sıranın oluşturulan ad alanı için **contoso** adlı `contoso/x-servicebus-transfer/0`.
+Örneğin, ad alanı için oluşturulan ilk biriktirme listesi sırası **contoso** adlı `contoso/x-servicebus-transfer/0`.
 
-Kuyruklar oluştururken, kod ilk böyle bir sıra olup olmadığını denetler. Sıranın mevcut değilse, sıranın oluşturulur. Kod desteklemez "ek" biriktirme listesi sıraları temizlenemedi. Özellikle, uygulama birincil ad alanı ile **contoso** beş biriktirme listesi sırası ancak bir biriktirme listesi sıra yolu ile istekleri `contoso/x-servicebus-transfer/7` var, bu ek biriktirme listesi kuyruğa hala var, ancak kullanılmaz. Sistem değil kullanılacak olan mevcut için fazladan biriktirme listesi kuyrukları açıkça izin verir. Ad alanı sahibi olarak, tüm kullanılmayan/istenmeyen biriktirme listesi sıralarını temizleme işlemi için sorumluluğu size aittir. Bu karar hizmet veri yolu ad alanınız içinde tüm sıraları için hangi amacıyla mevcut bilemezsiniz nedeni. Ayrıca, bir sıra verilen ada sahip var, ancak varsayılan karşılamıyor [QueueDescription][QueueDescription], sonra da için kendi varsayılan davranışı değiştirme, nedenleri. Garanti biriktirme listesi sıraları değişiklikler için kodunuz tarafından yapılır. Yaptığınız değişiklikleri sınamanız emin olun.
+Kuyrukların oluştururken, kod önce böyle bir sıra olup olmadığını denetler. Kuyruk yoksa, daha sonra kuyruk oluşturulur. Kodu daha önceden temizleme "fazladan" biriktirme listesini sıralar. Özellikle, uygulama birincil ad alanı ile **contoso** beş biriktirme listesi sırası ancak bir biriktirme listesi kuyruk yoluyla istekleri `contoso/x-servicebus-transfer/7` yoksa, bu ek biriktirme listesi sırası hala mevcut olduğu ancak kullanılmaz. Sistem, kullanılmayan mevcut ek biriktirme listesi sıralarına açıkça izin verir. Ad alanı sahibi olarak, tüm biriktirme listesi kullanılmayan/istenmeyen sıralarını temizleme işlemi için sorumlu olursunuz. Bu karar nedeni, Service Bus ad alanınızdaki tüm kuyrukları için hangi amacıyla mevcut bilemezsiniz olmasıdır. Ayrıca, bir kuyruk verilen ada sahip mevcut, ancak varsayılan karşılamıyor [QueueDescription][QueueDescription], ardından için kendi varsayılan davranışını değiştirme, nedenleri. Garanti varsayılan olarak, kodunuz tarafından yapılan değişiklikler biriktirme listesi kuyruklar için yapılır. Yaptığınız değişiklikleri sınamanız emin olun.
 
 ## <a name="custom-messagesender"></a>Özel MessageSender
-Tüm iletileri gönderirken, bir iç Git [MessageSender] [ MessageSender] zaman her şeyi çalışır ve biriktirme listesine yönlendiren normal şekilde davranır nesne kuyruklar şey "böldüğünüzde." Bir geçici olmayan hata alındıktan sonra bir süreölçer başlatır. Sonra bir [TimeSpan] [ TimeSpan] oluşan süresi [FailoverInterval] [ FailoverInterval] sırasında başarılı bir ileti gönderilir, özellik değeri yük devretme gerçekleştiriliyor. Bu noktada, her bir varlık için aşağıdakiler gerçekleşir:
+Tüm iletileri gönderirken, bir iç Git [MessageSender] [ MessageSender] ne zaman her şey çalışır ve biriktirme listesine yönlendirir normal şekilde davranır nesne kuyruklar şey "böldüğünüzde." Geçici olmayan hata alındıktan sonra bir süreölçer başlatır. Sonra bir [TimeSpan] [ TimeSpan] oluşan süresi [FailoverInterval] [ FailoverInterval] boyunca herhangi bir başarılı iletisi gönderilir, özellik değeri Yük devretme gerçekleştiriliyor. Bu noktada, her varlık için aşağıdakiler gerçekleşir:
 
-* Bir ping görevi yürütür her [PingPrimaryInterval] [ PingPrimaryInterval] varlık kullanılabilir olup olmadığını denetlemek için. Bu görev başarılı olduktan sonra varlığı hemen kullanan tüm istemci kodu birincil ad alanına yeni iletileri göndermeye başlar.
-* Diğer bir göndericilerden aynı varlık göndermek için gelecekteki isteklerin neden olur [BrokeredMessage] [ BrokeredMessage] biriktirme listesi sıraya sit için değiştirilmesi gönderilen. Bazı özelliklerinden değişikliği kaldırır [BrokeredMessage] [ BrokeredMessage] nesne ve başka bir yerde depolar. Aşağıdaki özellikler temizlenir ve Service Bus ve SDK iletileri hep işlemeye izin vererek yeni bir ad altında eklendi:
+* Ping görevi yürüten her [PingPrimaryInterval] [ PingPrimaryInterval] varlık kullanılabilir olup olmadığını denetlemek için. Bu görev başarılı olduktan sonra birincil ad alanı için yeni bir ileti gönderme hemen varlığını kullanan tüm istemci kodu başlatır.
+* Diğer kullanıcılardan, aynı varlığa göndermek için sonraki istekler sonucunda [BrokeredMessage] [ BrokeredMessage] biriktirme listesi kuyrukta oturmak değiştirilecek gönderilen. Bazı özellikleri değişikliği kaldırır [BrokeredMessage] [ BrokeredMessage] nesnesini ve başka bir yerde depolar. Aşağıdaki özellikleri temizlenir ve Service Bus ve SDK'sı iletileri aynı şekilde işlemeye izin vererek yeni bir ad altında eklendi:
 
 | Eski özellik adı | Yeni özellik adı |
 | --- | --- |
-| SessionID |x-ms-SessionID |
+| oturum kimliği |x-ms-oturum kimliği |
 | TimeToLive |x-ms-timetolive |
-| ScheduledEnqueueTimeUtc |x-ms-yol |
+| ScheduledEnqueueTimeUtc |x-ms-path |
 
-Özgün hedef yolu, aynı zamanda içindeki ileti x-ms-path adlı bir özellik olarak saklanır. Bu tasarım, bir tek biriktirme listesi kuyruktaki bir arada birçok varlıklar için iletileri sağlar. Özellikler Sifon tarafından geri çevrilir.
+Özgün hedef yolu, ayrıca ileti içinde x-ms-path adında bir özellik olarak depolanır. Bu tasarım, tek bir biriktirme listesi kuyrukta bulunabilmesi birçok varlık için iletileri sağlar. Özellikleri Sifon tarafından geri çevrilir.
 
-Özel [MessageSender] [ MessageSender] nesne sorunlarla iletileri 256 KB sınıra yaklaşmak ve yük devretme gerçekleştiriliyor. Özel [MessageSender] [ MessageSender] nesnesi tüm kuyrukları ve konularından biriktirme listesi kuyruklarda birlikte iletileri saklar. Bu nesne pek çok ana biriktirme listesi sıraları içinde birlikte gelen iletileri karıştırır. Yük Dengeleme birbirine bilmiyorsanız birçok istemciler arasında işlemek için SDK rastgele bir biriktirme listesi sırasına her biri için Çekmeleri [QueueClient] [ QueueClient] veya [TopicClient] [ TopicClient] kodda oluşturabilir.
+Özel [MessageSender] [ MessageSender] iletileri 256 KB sınıra yaklaşmak ve yük devretme ilgisini hep Canlı nesne sorunları karşılaşabilir. Özel [MessageSender] [ MessageSender] nesnesi tüm kuyrukları ve konuları biriktirme listesi kuyruklarda birlikte iletileri kaydeder. Bu nesne, biriktirme listesi kuyrukların birlikte içinde birçok seçimlerine iletilerden karıştırır. Birbirine bilmiyorsanız, birden çok istemci arasında yük dengelemeyi işlemek için SDK'sı rastgele bir biriktirme listesi sırası her biri için seçer [QueueClient] [ QueueClient] veya [TopicClient] [ TopicClient] kod içinde oluşturun.
 
 ## <a name="pings"></a>Ping isteği
-Boş bir ping iletisidir [BrokeredMessage] [ BrokeredMessage] ile kendi [ContentType] [ ContentType] özelliği uygulama/vnd.ms-servicebus-ping ayarlanmış ve [TimeToLive] [ TimeToLive] 1 saniye değeri. Bu ping Service Bus içinde bir özellik vardır: herhangi bir çağırıcı istediğinde sunucusu hiçbir zaman bir ping sunar bir [BrokeredMessage][BrokeredMessage]. Bu nedenle, hiçbir zaman alır ve bu iletiler yoksay öğrenmek zorunda. Her varlığın (benzersiz kuyruk veya konu) başına [Eventhubclient] [ MessagingFactory] istemci başına örnek ping işlemi kullanılamaz hale gelmesine değerlendirildiğinde. Varsayılan olarak, bu kez dakika başına gerçekleşir. Ping iletilerine normal Service Bus iletiler olduğu kabul edilir ve bant genişliği ve iletileri ilişkin ücretlere neden olabilir. İstemciler sistemin kullanılabilir olduğunu tespit hemen iletileri durdurun.
+Boş bir ping iletisidir [BrokeredMessage] [ BrokeredMessage] ile kendi [ContentType] [ ContentType] uygulama/vnd.ms-servicebus-ping özelliği ve bir [TimeToLive] [ TimeToLive] değeri 1 saniye. Bu ping, Service Bus bir özellik vardır: her arayana istediğinde sunucunun bir ping hiçbir zaman sunar. bir [BrokeredMessage][BrokeredMessage]. Bu nedenle, hiçbir zaman alır ve bu iletiler yoksay öğrenin zorunda. Her varlık (benzersiz bir kuyruk veya konu) başına [MessagingFactory] [ MessagingFactory] örnek istemci başına işten durumlarda kullanılamaz olarak kabul edilir. Varsayılan olarak, bu kez dakikada gerçekleşir. Ping iletilerine normal Service Bus iletileri olarak değerlendirilir ve bant genişliği ve iletileri ücretleri neden olabilir. İstemciler sistemin kullanılabilir olduğunu tespit hemen sonra iletileri durdurun.
 
 ## <a name="the-syphon"></a>Sifon
-Uygulamada en az bir yürütülebilir program etkin olarak Sifon çalıştırıyor olması gerekir. Bir uzun Sifon gerçekleştirir yoklama alırsınız, 15 dakika sürer. Tüm varlıklar kullanılabilir olduğunda ve 10 biriktirme listesi sıraların sahip olduğunda Sifon barındıran uygulama 40 kez günde 960 kez ve 28800 kez 30 gün içinde saat başına alma işlemi çağırır. Sifon etkin olarak iletileri biriktirme listesindeki birincil kuyruğuna olduğu taşırken, her ileti (tüm aşamalarda ileti boyutu ve bant genişliği için standart ücretler geçerlidir) aşağıdaki ücretleri görür:
+Uygulamada en az bir yürütülebilir programı Sifon etkin bir şekilde çalışmalıdır. Sifon gerçekleştiren bir uzun yoklama almak, 15 dakika sürer. Tüm varlıkları kullanılabilir ve 10 biriktirme listesi kuyrukları Sifon barındıran uygulaması 40 kat saatlik, günlük 960 kez ve 28800 kez 30 gün içinde alma işlemi çağırır. Sifon etkin bir şekilde iletileri biriktirme listesinden birincil kuyruğa taşınıyor, her iletinin (ileti boyutu ve bant genişliği için standart ücretler tüm aşamalar halinde uygulanır) aşağıdaki ücretler görür:
 
 1. Biriktirme listesine gönderin.
-2. Biriktirme listesindeki alırsınız.
-3. Birincil gönderin.
+2. Biriktirme listesinden alırsınız.
+3. Birincil siteye gönderin.
 4. Birincil sunucudan alma.
 
-## <a name="closefault-behavior"></a>Davranış Kapat/hata
-Sifon, bir kez birincil veya ikincil barındıran uygulama içinde [Eventhubclient] [ MessagingFactory] hataları ya da hatalı kendi iş ortağı kapalı olduğu veya kapalı ve bu durum Sifon algılar Sifon yapar. Varsa diğer [Eventhubclient] [ MessagingFactory] kapalı 5 saniye içinde hala açık Sifon hataları [Eventhubclient][MessagingFactory].
+## <a name="closefault-behavior"></a>Kapat/hata davranışı
+Sifon, bir kez birincil veya ikincil barındıran uygulama içinde [MessagingFactory] [ MessagingFactory] hataları ya da hatalı, iş ortağı kapalı veya kapalı ve Sifon bu durumu algılar. Sifon işlevi görür. Varsa diğer [MessagingFactory] [ MessagingFactory] kapalı 5 saniye içinde hala açık Sifon hataları [MessagingFactory][MessagingFactory].
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bkz: [zaman uyumsuz desenleri ve yüksek kullanılabilirlik Mesajlaşma] [ Asynchronous messaging patterns and high availability] Service Bus zaman uyumsuz Mesajlaşma hakkında ayrıntılı bilgi için. 
+Bkz: [zaman uyumsuz desenleri ve yüksek kullanılabilirlik Mesajlaşma] [ Asynchronous messaging patterns and high availability] ayrıntılı bir irdelemesi ve Service Bus Mesajlaşma hizmetinin zaman uyumsuz. 
 
 [PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PairNamespaceAsync_Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_
 [SendAvailabilityPairedNamespaceOptions]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions

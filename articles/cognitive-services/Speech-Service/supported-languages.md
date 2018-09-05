@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7e2634db33d760207e9190b9955bd1f2ead179be
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: de9abac2839341e1744a694daaaa0befdff4e7fa
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123163"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668589"
 ---
 # <a name="supported-languages-for-speech-service"></a>Konuşma hizmeti için desteklenen diller
 
@@ -39,7 +39,7 @@ Microsoft konuşma tanıma API'si aşağıdaki dilleri desteklemektedir.
 
 ## <a name="text-to-speech"></a>Metin Okuma
 
-**Metin okuma** API, belirli bir dil ve yerel ayar tarafından tanımlanan diyalekti, her biri destekleyen aşağıdaki sesi sunar.
+Konuşma sentezi API'si her biri belirli bir dil ve yerel ayar tarafından tanımlanan diyalekti, destekleyen aşağıdaki sesi sunar.
 
 Yerel ayar | Dil | Cinsiyet | Hizmet adı eşleme
 -------|----------|---------|--------------------
@@ -128,13 +128,16 @@ zh-TW | Çince (Tayvan)|Kadın | "Microsoft Server Konuşma metin konuşma ses (
 
 ### <a name="customization"></a>Özelleştirme
 
-Özel **metin okuma** ABD İngilizce (en-US) ve Çince (zh-CN) ses tiplerini destekler.
+Ses özelleştirme ABD İngilizce (en-US), ana kara Çince (zh-CN) ve İtalyanca (it-IT) için kullanılabilir.
+
+> [!NOTE]
+> İtalyan sesi eğitim 2000'den fazla konuşma bir veri kümesi ile başlar. Çince-İngilizce dilli modelleri da bir ilk konuşma 2000'den fazla veri kümesi ile desteklenir.
 
 ## <a name="speech-translation"></a>Konuşma Çevirisi
 
 **Konuşma çevirisi** API, konuşma tanıma ve konuşma tanıma ve konuşma metin çevirisi için farklı dilleri destekler. Kaynak dil konuşma dilini tablosundan her zaman olmalıdır. Hedef diller Çeviri hedef konuşma veya metin olmasına göre değişir.
 
-Dillerin listesini ya da programlı bir şekilde alabilirsiniz veya REST API'nin dilleri uç noktası kullanma. İngilizce dil adının yanı sıra, her dil kodu listesi sağlar — veya tüm diğer diller desteklenmez. Yeni bir dil kullanılabilir olduğunda bu liste Microsoft Translator hizmeti tarafından güncelleştirilir.
+REST API'nin dilleri uç nokta kullanarak program aracılığıyla dillerin listesini alabilirsiniz. İngilizce dil adının yanı sıra, her dil kodu listesi sağlar — veya tüm diğer diller desteklenmez. Yeni bir dil kullanılabilir olduğunda bu liste Microsoft Translator hizmeti tarafından güncelleştirilir.
 
 ### <a name="speech-languages"></a>Konuşma dillerini
 

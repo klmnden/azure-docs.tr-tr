@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 16d023a2f3abf0feb1f1c0478edb3de7a157d5a4
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 1f3a24cebe5061f7e3ca3897692b068531780431
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42058292"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668130"
 ---
 # <a name="how-to-use-perfinsights"></a>Perfınsights kullanma
 
@@ -171,9 +171,9 @@ Diskspd g/ç iş yükü testleri (işletim sistemi diski [yazma] ve havuzu sür�
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Üretim Vm'lerinde aracı çalıştırdığınızda olası sorunlar
 
--  Kıyaslama senaryo veya Xperf veya Diskspd kullanacak şekilde yapılandırılmış "Gelişmiş Performans Analizi" senaryosu için araç VM'nin performansını olumsuz etkileyebilir. Bu senaryolar, Canlı üretim ortamında çalıştırılmamalıdır.
+-  Kıyaslama senaryo veya Xperf veya Diskspd kullanacak şekilde yapılandırılmış "Gelişmiş Performans Analizi" bir senaryo için araç VM'nin performansını olumsuz etkileyebilir. Bu senaryolar, Canlı üretim ortamında çalıştırılmamalıdır.
 
--  Kıyaslama senaryo veya Diskspd kullanacak şekilde yapılandırılmış "Gelişmiş Performans Analizi" senaryosu için başka bir arka plan etkinliği g/ç iş yükü uğratan emin olun.
+-  Kıyaslama senaryo veya Diskspd kullanacak şekilde yapılandırılmış "Gelişmiş Performans Analizi" bir senaryo için başka bir arka plan etkinliği g/ç iş yükü uğratan emin olun.
 
 -  Varsayılan olarak, aracı, verileri toplamak için geçici depolama birimi sürücüsünü kullanır. Daha uzun bir süre etkin kalır izleme, toplanan veri miktarı ilgili olabilir. Bu, geçici diskteki kullanılabilirliğini azaltabilir ve bu nedenle, bu sürücüde güvenen herhangi bir uygulama etkileyebilir.
 
@@ -245,11 +245,11 @@ Perfınsights aracını çalıştırmak için aşağıdaki adımları izleyin:
     >
     >Süresini geçerseniz **/d** belirtilmezse, Perfınsights sizden yineleme için sorun vmslow depolamasını Azure dosyalarına ve Gelişmiş senaryolar çalışırken. 
 
-İzlemeleri ya da işlem tamamlandığında, yeni bir dosya aynı klasörde Perfınsights görünür. Dosyanın adı **CollectedData\_yyyy-aa-gg\_ss dd ss fff.zip.** Analiz için destek aracı bu dosyayı göndermek veya bulguları ve önerileri gözden geçirmek için zip dosyası içinde bir rapor açın.
+İzlemeleri ya da işlem tamamlandığında, yeni bir dosya aynı klasörde Perfınsights görünür. Dosyanın adı **PerformanceDiagnostics\_yyyy-aa-gg\_ss dd ss fff.zip.** Analiz için destek aracı bu dosyayı göndermek veya bulguları ve önerileri gözden geçirmek için zip dosyası içinde bir rapor açın.
 
 ## <a name="review-the-diagnostics-report"></a>Tanılama raporunu gözden geçirin
 
-İçinde **CollectedData\_yyyy-aa-gg\_ss dd ss fff.zip** dosyası bulguları Perfınsights'ın ayrıntılarını bir HTML raporu bulabilirsiniz. Raporu gözden geçirmek için genişletme **CollectedData\_yyyy-aa-gg\_ss dd ss fff.zip** dosyasını ve ardından açın **Perfınsights raporu.HTML** dosya.
+İçinde **PerformanceDiagnostics\_yyyy-aa-gg\_ss dd ss fff.zip** dosyası bulguları Perfınsights'ın ayrıntılarını bir HTML raporu bulabilirsiniz. Raporu gözden geçirmek için genişletme **PerformanceDiagnostics\_yyyy-aa-gg\_ss dd ss fff.zip** dosyasını ve ardından açın **Perfınsights raporu.HTML** dosya.
 
 Seçin **bulguları** sekmesi.
 
@@ -314,4 +314,4 @@ Aşağıdaki ekran görüntüsünde, ne alabileceğiniz benzer bir ileti göster
 
 Dosya aktarımı çalışma alanına erişmek için iletideki yönergeleri izleyin. Ek güvenlik için ilk kullanımda parolanızı değiştirmeniz gerekir.
 
-Oturum açtıktan sonra karşıya yüklemek için bir iletişim kutusu bulacaksınız **CollectedData\_yyyy-aa-gg\_ss dd ss fff.zip** Perfınsights tarafından toplanan dosya.
+Oturum açtıktan sonra karşıya yüklemek için bir iletişim kutusu bulacaksınız **PerformanceDiagnostics\_yyyy-aa-gg\_ss dd ss fff.zip** Perfınsights tarafından toplanan dosya.

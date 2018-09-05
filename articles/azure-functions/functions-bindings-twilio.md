@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 07/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 580dd0409c2210de786723736128d489e5a93aa9
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 8d973e4003f8501fb3b4d1b461703bd0b869c205
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345839"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669163"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Azure işlevleri için Twilio bağlama
 
@@ -227,10 +227,9 @@ public static CreateMessageOptions Run(
 {
     log.Info($"C# Queue trigger function processed: {order}");
 
-    var message = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"))
+    var message = new CreateMessageOptions(new PhoneNumber(order["mobileNumber"].ToString()))
     {
-        Body = $"Hello {order["name"]}, thanks for your order!",
-        To = order["mobileNumber"].ToString()
+        Body = $"Hello {order["name"]}, thanks for your order!"
     };
 
     return message;
@@ -404,7 +403,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**type**|| Ayarlanmalıdır `twilioSms`.|
 |**direction**|| Ayarlanmalıdır `out`.|
 |**Adı**|| İşlev kodu için Twilio SMS mesajı kullanılan değişken adı. |
-|**AccountSid**|**AccountSid**| Bu değer, Twilio hesap SID'si tutan bir uygulama ayarı adı için ayarlamanız gerekir.|
+|**accountSid**|**accountSid**| Bu değer, Twilio hesap SID'si tutan bir uygulama ayarı adı için ayarlamanız gerekir.|
 |**authToken**|**AuthToken**| Bu değer, Twilio kimlik doğrulama belirtecinizi içeren uygulama ayarı adı için ayarlamanız gerekir.|
 |**Hedef**|**Alıcı**| Bu değer, telefon numarasına gönderilen SMS metni ayarlanır.|
 |**Kaynak**|**Kaynak**| SMS metni gönderildiği telefon numarası için bu değeri ayarlayın.|

@@ -8,43 +8,43 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/25/2018
 ms.author: saurse
-ms.openlocfilehash: e7a63167285c06fdfe632e7d45d9fddd3cca7842
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 2c8978cfba8fc56d4dbc565cb3a91c75d9d54679
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248531"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700204"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent-issues"></a>Microsoft Azure kurtarma Hizmetleri (MARS) aracısı sorunlarını giderme
 ## <a name="recommended-steps"></a>Önerilen adımlar
 Yapılandırma, kaydı, yedekleme sırasında hataları gidermek için bu makaleye bakın ve MARS Aracısı'nı kullanarak geri yükleme.
 
 ## <a name="invalid-vault-credentials-provided-the-file-is-either-corrupted-or-does-not-have-the-latest-credentials-associated-with-recovery-service"></a>Sağlanan kasa kimlik bilgileri geçersiz. Dosya bozuk veya mu değil sahip en son kimlik bilgilerini kurtarma hizmeti ile ilişkili.
-| Hata ayrıntıları | Olası nedenler | Önerilen eylemler |
+| Hata Ayrıntıları | Olası nedenler | Önerilen eylemler |
 | ---     | ---     | ---    |
 | **Hata** </br> *Sağlanan kasa kimlik bilgileri geçersiz. Dosya bozuk veya mu değil sahip en son kimlik bilgilerini kurtarma hizmeti ile ilişkili. (KİMLİK: 34513)* | <ul><li> Kasa kimlik bilgileri geçersiz (diğer bir deyişle, bunlar 48 saatten fazla kayıt süreden önce yüklenen).<li>MARS aracısını indirip yükleyin. Windows Temp Dizini silemiyor. <li>Kasa kimlik bilgilerini bir ağ konumunda ' dir. <li>TLS 1.0 devre dışı bırakıldı<li> Yapılandırılmış bir proxy sunucusundan bağlantıyı engelliyor. <br> |  <ul><li>Yeni kasa kimlik bilgilerini indirin.<li>Git **Internet Seçenekleri** > **güvenlik** > **Internet**. Ardından, **Özel düzey**ve bölüm karşıdan dosya görene kadar kaydırın. Ardından **etkinleştirme**.<li>Siteye eklemek gerekebilir [Güvenilen siteler](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins#network-and-connectivity-requirements).<li>Bir proxy sunucusu kullanmak için ayarları değiştirin. Ardından proxy sunucusu ayrıntıları sağlayın. <li> Tarih ve saat, makine ile aynı.<li>C:/Windows/Temp gidin ve .tmp uzantısına sahip birden fazla 60.000 veya 65.000 dosyaları olup olmadığını denetleyin. Varsa, bu dosyaları silin.<li>Bu SDP paket sunucu üzerinde çalıştığını doğrulayabilirsiniz. Dosya indirmeleri izin verilmeyen bildiren bir hata alırsanız, çok sayıda dosya C:/Windows/Temp dizininde olması olasıdır.<li>.NET framework 4.6.2 yüklü olduğundan emin olun. <li>PCI uyumluluk nedeniyle TLS 1.0 devre dışı bıraktığınız, şuna başvurun [sorun giderme sayfası](https://support.microsoft.com/help/4022913). <li>Aşağıdaki dosyaları, sunucu üzerinde yüklü virüsten koruma yazılımınız varsa, virüsten koruma tarama dışında tut: <ul><li>CBengine.exe<li>.NET Framework ile ilgili CSC.exe. Sunucuda yüklü her .NET sürümü için bir CSC.exe yoktur. .NET framework etkilenen sunucudaki tüm sürümleri bağlıdır CSC.exe dosyaları hariç tutun. <li>Karalama klasörünü veya önbellek konumu. <br>*Karalama klasörünü veya önbellek konumu yolu için varsayılan konum C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch olan*.
 
 ## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>Microsoft Azure Recovery hizmet Aracısı Microsoft Azure Backup'a bağlanamadı.
 
-| Hata ayrıntıları | Olası nedenler | Önerilen eylemler |
+| Hata Ayrıntıları | Olası nedenler | Önerilen eylemler |
 | ---     | ---     | ---    |
 | **Hata** </br><ol><li>*Microsoft Azure Recovery hizmet Aracısı, Microsoft Azure Backup'a bağlanamadı. (KİMLİK: 100050) Ağ ayarlarınızı denetleyin ve internet'e bağlanabilir olduğundan emin olun*<li>*(407) Ara sunucu kimlik doğrulaması gerekli* |Proxy bağlantıyı engelliyor. |  <ul><li>Na **Internet Seçenekleri** > **güvenlik** > **Internet**. Ardından **Özel düzey** ve bölüm karşıdan dosya görene kadar kaydırın. **Etkinleştir**’i seçin.<li>Siteye eklemek gerekebilir [Güvenilen siteler](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins#network-and-connectivity-requirements).<li>Bir proxy sunucusu kullanmak için ayarları değiştirin. Ardından proxy sunucusu ayrıntıları sağlayın. <li>Aşağıdaki dosyaları, sunucu üzerinde yüklü virüsten koruma yazılımınız varsa, virüsten koruma tarama dışında tut. <ul><li>CBEngine.exe (yerine dpmra.exe).<li>CSC.exe (.NET Framework ile ilgili). Sunucuda yüklü her .NET sürümü için bir CSC.exe yoktur. .NET framework etkilenen sunucudaki tüm sürümleri bağlıdır CSC.exe dosyaları hariç tutun. <li>Karalama klasörünü veya önbellek konumu. <br>*Karalama klasörünü veya önbellek konumu yolu için varsayılan konum C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch olan*.
 
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>Güvenli yedekleme işlemleri için şifreleme anahtarı ayarlanamadı
 
-| Hata ayrıntıları | Olası nedenler | Önerilen eylemler |
+| Hata Ayrıntıları | Olası nedenler | Önerilen eylemler |
 | ---     | ---     | ---    |      
 | **Hata** </br>*Şifreleme parolası aşağıdaki dosyasına kaydedildi ancak güvenli yedekleme etkinleştirme başarısız oldu tamamen şifreleme anahtarı ayarlanamadı*. |<li>Sunucu zaten başka bir kasa ile kayıtlı.<li>Yapılandırma sırasında parola bozuk| Kasadan sunucunun kaydını silin ve yeni bir parola ile tekrar kaydedin.
 
 ## <a name="the-activation-did-not-complete-successfully-the-current-operation-failed-due-to-an-internal-service-error-0x1fc07"></a>Etkinleştirme başarıyla tamamlanmadı. Geçerli işlem bir [0x1FC07] iç hizmet hatası nedeniyle başarısız oldu
 
-| Hata ayrıntıları | Olası nedenler | Önerilen eylemler |
+| Hata Ayrıntıları | Olası nedenler | Önerilen eylemler |
 |---------|---------|---------|
 |**Hata** </br><ol>*Etkinleştirme başarıyla tamamlanmadı. Geçerli işlem bir [0x1FC07] iç hizmet hatası nedeniyle başarısız oldu. Bir süre sonra işlemi yeniden deneyin. Sorun devam ederse lütfen Microsoft desteğine başvurun*     | <li> Karalama klasörünü yeterli alana sahip bir birimde bulunur. <li> Karalama klasörünü yanlış başka bir konuma taşındı. <li> OnlineBackup.KEK dosyası eksik.         | <li>Yükseltme [en son sürümü](http://aka.ms/azurebackup_agent) MARS Agent'ın.<li>Karalama klasörünü veya önbellek konumunu yedekleme verilerinin toplam boyutunun 5-%10 boş disk alanı ile bir birime taşıyın. Önbellek konumunu doğru şekilde taşımak için adımlarda bakın [Azure Backup Aracısı hakkında sorular](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> OnlineBackup.KEK dosyanın mevcut olduğundan emin olun. <br>*Karalama klasörünü veya önbellek konumu yolu için varsayılan konum C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch olan*.        |
 
 ## <a name="error-34506-the-encryption-passphrase-stored-on-this-computer-is-not-correctly-configured"></a>34506 hata oluştu. Bu bilgisayarda depolanan şifreleme parolası düzgün yapılandırılmamış
 
-| Hata ayrıntıları | Olası nedenler | Önerilen eylemler |
+| Hata Ayrıntıları | Olası nedenler | Önerilen eylemler |
 |---------|---------|---------|
 |**Hata** </br><ol>*34506 hata oluştu. Bu bilgisayarda depolanan şifreleme parolası düzgün yapılandırılmamış*.    | <li> Karalama klasörünü yeterli alana sahip bir birimde bulunur. <li> Karalama klasörünü yanlış başka bir konuma taşındı. <li> OnlineBackup.KEK dosyası eksik.        | <li>Yükseltme [en son sürümü](http://aka.ms/azurebackup_agent) MARS Agent'ın.<li>Karalama klasörünü veya önbellek konumunu boş alan 5-%10 eşdeğer yedekleme verilerinin toplam boyutu olan bir birime taşıyın. Önbellek konumunu doğru şekilde taşımak için adımlarda bakın [Azure Backup Aracısı hakkında sorular](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> OnlineBackup.KEK dosyanın mevcut olduğundan emin olun. <br>*Karalama klasörünü veya önbellek konumu yolu için varsayılan konum C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch olan*.         |
 
@@ -66,7 +66,10 @@ El ile yedeklemeler sorunsuz çalışırken zamanlanmış yedeklemeleri otomatik
 <li>'Microsoft OnlineBackup' görevi çift tıklatın ve 'Tetikleyiciler' sekmesine gidin.
 <li>'Status' görevinin 'Etkin' olarak ayarlandığından emin olun. Aksi halde 'Düzenle' ' yi tıklatın ve 'Enabled' onay kutusunu işaretleyin
 <li>Gidin *güvenlik seçenekleri* bölümünü *genel* sekmesi
-<li>Görevi çalıştırmak için seçili kullanıcı hesabı ya da olduğundan emin olun *sistem* veya sunucuda yerel Yöneticiler grubunun > [!TIP] değişiklikleri emin olmak için yukarıdaki adımları gerçekleştirdikten sonra sunucunun yeniden başlatılması önerilir yapılan tutarlı bir şekilde uygulanır
+<li>Görevi çalıştırmak için seçili kullanıcı hesabı ya da olduğundan emin olun *sistem* ya da sunucu üzerindeki yerel Yöneticiler grubu
+
+> [!TIP]
+> Yapılan değişiklikler tutarlı bir şekilde uygulandığından emin olmak için yukarıdaki adımları gerçekleştirdikten sonra sunucunun yeniden başlatılması önerilir.
 
 
 ## <a name="troubleshooting-restore-issues"></a>Geri yükleme sorunlarını giderme

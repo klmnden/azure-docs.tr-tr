@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: dfca26f36287cfd856beb98edeb2b2362f36bc4b
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b54a302c022a8af84c1964c13ffadc52b45c4ca4
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858815"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696828"
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Azure işlevleri ile sunucusuz veritabanı bilgi işlem
 
@@ -31,7 +31,7 @@ Azure Cosmos DB ile Azure işlevleri, sunucusuz uygulamalar ve veritabanları a�
 * Bind bir işlevi kullanarak bir Azure Cosmos DB kapsayıcısı bir **çıktı bağlaması**. Bir işlev tamamlandığında, çıkış bağlamaları veri bir kapsayıcıya yazma.
 
 > [!NOTE]
-> Şu anda Azure Cosmos DB tetikleyicisi, giriş bağlamaları ve çıkış bağlamaları yalnızca SQL API ve Graph API hesaplarıyla çalışır.
+> Şu anda Azure Cosmos DB tetikleyicisi, giriş bağlamaları ve çıkış bağlamaları yalnızca SQL API ve Gremlin API hesaplarıyla çalışır.
 
 Aşağıdaki diyagram, her biri üç bu tümleştirmelere gösterir: 
 
@@ -82,7 +82,7 @@ Aşağıdaki kod bu senaryo için Azure Portalı'nda gösterilmektedir.
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>Oyun kullanım örneği - Azure Cosmos DB tetikleyicisi ve çıktı bağlaması
 
-Yeni bir kullanıcı oluşturulduğunda, oyun, bunları kullanarak biliyor olabilirsiniz diğer kullanıcılar arayabilirsiniz [Azure Cosmos DB Graph API](graph-introduction.md). Ardından sonuçları kolayca almak için [Azure Cosmos DB SQL veritabanı] yazabilirsiniz.
+Yeni bir kullanıcı oluşturulduğunda, oyun, bunları kullanarak biliyor olabilirsiniz diğer kullanıcılar arayabilirsiniz [Azure Cosmos DB Gremlin API](graph-introduction.md). Ardından sonuçları kolayca almak için [Azure Cosmos DB SQL veritabanı] yazabilirsiniz.
 
 **Uygulama:** bir Azure Cosmos DB tetikleyicisi ve bir çıkış bağlaması kullanın
 

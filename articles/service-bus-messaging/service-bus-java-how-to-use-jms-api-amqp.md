@@ -1,9 +1,9 @@
 ---
-title: AMQP 1.0 Java hizmet veri yolu API'si ile kullanma | Microsoft Docs
-description: Java ileti hizmeti (JMS) Azure Service Bus ve Gelişmiş Message Queuing Protodol (AMQP) 1.0 ile nasıl kullanılır.
+title: AMQP 1.0 ile Java Service Bus API'sini kullanma | Microsoft Docs
+description: Advanced Message Queuing Protodol (AMQP) 1.0 ile Azure Service Bus ile Java mesaj hizmeti (JMS) kullanma
 services: service-bus-messaging
 documentationcenter: java
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
@@ -13,42 +13,42 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: sethm
-ms.openlocfilehash: 0848facd764c4fb0d7f95c1ae89ecb02a32257e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: spelluru
+ms.openlocfilehash: bfab0c374e4b20b09167f37363fe0681144426ac
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23868385"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699354"
 ---
-# <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Hizmet veri yolu AMQP 1.0 ile Java ileti hizmeti (JMS) API kullanma
-Gelişmiş Message Queuing Protokolü (AMQP) 1.0, güçlü, platformlar arası ileti uygulamaları oluşturmak için kullanabileceğiniz bir verimli, güvenilir ve hat düzeyinde Mesajlaşma protokolüdür.
+# <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Hizmet veri yolu AMQP 1.0 ile Java mesaj hizmeti (JMS) API kullanma
+Advanced Message Queuing Protocol (AMQP) 1.0 sağlam, platformlar arası Mesajlaşma uygulamaları oluşturmak için kullanabileceğiniz bir verimli, güvenilir, hat düzeyinde bir Mesajlaşma protokolüdür.
 
-Destek için hizmet veri yolu AMQP 1.0 queuing kullanın ve yayımlama/aracılı Mesajlaşma özellikleri verimli bir ikili protokolünü kullanarak platformları aralığından abonelik anlamına gelir. Ayrıca, diller, çerçevelerinin ve işletim sistemlerinin bir karışımını kullanılarak oluşturulan bileşenlerden oluşan uygulamalar oluşturabilir.
+Destek için hizmet veri yolu AMQP 1.0 sıraya alma kullanın ve yayımlama/aracılı Mesajlaşma özelliklerinin verimli bir ikili protokolü kullanılarak platformlar aralığından abonelik anlamına gelir. Ayrıca, dillerin, çerçevelerin ve işletim sistemlerinin bir karışımını kullanılarak oluşturulan bileşenlerden oluşan bir uygulama oluşturabilirsiniz.
 
-Bu makalede, popüler Java ileti hizmeti (JMS) API standart kullanarak Java uygulamalardan nasıl Service Bus (kuyruklar ve konu başlıkları Yayınla/Abone ol) özellikleri Mesajlaşma kullanılacağı açıklanmaktadır. Var olan bir [yardımcı makale](service-bus-amqp-dotnet.md) , hizmet veri yolu .NET API kullanarak aynı şeyi açıklanmaktadır. AMQP 1.0 kullanarak platformlar arası ileti hakkında bilgi edinmek için bu iki kılavuzları birlikte kullanabilirsiniz.
+Bu makalede, Java uygulamalarından popüler Java mesaj hizmeti (JMS) API standart kullanarak Service Bus Mesajlaşma özelliklerinin (sıralar ve yayımlama/abone olma konuları) kullanmayı açıklar. Var olan bir [Yardımcısı makale](service-bus-amqp-dotnet.md) , hizmet veri yolu .NET API kullanarak aynı şeyi nasıl açıklar. AMQP 1.0 kullanarak platformlar arası Mesajlaşma hakkında bilgi edinmek için bu iki Kılavuzlar birlikte kullanabilirsiniz.
 
 ## <a name="get-started-with-service-bus"></a>Service Bus’ı kullanmaya başlama
-Bu kılavuz, adlandırılan bir kuyruğun içeren bir hizmet veri yolu ad alanı zaten sahip olduğunuzu varsayar **sıra 1**. Bunu yapmanız sonra şunları yapabilirsiniz [ad alanı oluşturup sıra](service-bus-create-namespace-portal.md) kullanarak [Azure portal](https://portal.azure.com). Hizmet veri yolu ad alanları ve Kuyruklar oluşturma hakkında daha fazla bilgi için bkz: [Service Bus kuyrukları ile çalışmaya başlama](service-bus-dotnet-get-started-with-queues.md).
+Bu kılavuz, adlandırılan bir kuyruğun içeren bir Service Bus ad alanı zaten sahip olduğunuzu varsayar **sıra 1**. Bunu yapmanız durumunda yapabilecekleriniz [ad alanı ve Kuyruk oluşturma](service-bus-create-namespace-portal.md) kullanarak [Azure portalında](https://portal.azure.com). Service Bus ad alanları ve Kuyruk oluşturma hakkında daha fazla bilgi için bkz. [Service Bus kuyrukları ile çalışmaya başlama](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
-> Bölümlenmiş kuyruklar ve konu başlıkları da AMQP destekler. Daha fazla bilgi için bkz: [bölümlenmiş Mesajlaşma varlıkları](service-bus-partitioning.md) ve [hizmet veri yolu AMQP 1.0 desteği bölümlenmiş kuyruklar ve konu başlıkları](service-bus-partitioned-queues-and-topics-amqp-overview.md).
+> Bölümlenmiş kuyruklar ve konular da AMQP destekler. Daha fazla bilgi için [bölümlenmiş Mesajlaşma varlıkları](service-bus-partitioning.md) ve [hizmet veri yolu AMQP 1.0 desteği bölümlenmiş kuyruklar ve konular](service-bus-partitioned-queues-and-topics-amqp-overview.md).
 > 
 > 
 
-## <a name="downloading-the-amqp-10-jms-client-library"></a>AMQP 1.0 JMS istemci kitaplığı indirme
-Apache Qpid JMS AMQP 1.0 istemci kitaplığının en son sürümü karşıdan yükleme konumu hakkında daha fazla bilgi için ziyaret [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
+## <a name="downloading-the-amqp-10-jms-client-library"></a>AMQP 1.0 JMS istemci Kitaplığı'nı indirme
+Apache Qpid JMS AMQP 1.0 istemci Kitaplığı'nın en son sürümü karşıdan yükleme konumu hakkında daha fazla bilgi için ziyaret [ https://qpid.apache.org/download.html ](https://qpid.apache.org/download.html).
 
-Aşağıdaki dört JAR dosyalarını Apache Qpid JMS AMQP 1.0 dağıtım arşivinden Java sınıf oluşturma ve Service Bus ile JMS uygulamaları çalıştırırken eklemeniz gerekir:
+Aşağıdaki dört JAR dosyaları Apache Qpid JMS AMQP 1.0 dağıtım arşivden için Java sınıf yolu oluşturma ve Service Bus ile JMS uygulamaları çalıştırırken eklemelisiniz:
 
-* geronimo jms\_1.1\_spec 1.0.jar
+* geronimo jms\_1.1\_1.0.jar belirtimi
 * qpid-amqp-1-0-client-[Version].jar
 * qpid-amqp-1-0-Client-jms-[Version].jar
 * qpid-amqp-1-0-Common-[Version].jar
 
 ## <a name="coding-java-applications"></a>Java uygulamalarını kodlama
 ### <a name="java-naming-and-directory-interface-jndi"></a>Java adlandırma ve dizini arabirimi (JNDI)
-JMS, mantıksal ve fiziksel adlarını arasında ayrım oluşturmak için Java adlandırma ve dizin arabirimi (JNDI) kullanır. İki tür JMS nesneleri JNDI kullanarak çözümlenir: ConnectionFactory ve hedef. JNDI ad çözümleme görevlerini işlemek için farklı dizin hizmetleri ekleyebilirsiniz sağlayıcı modeli kullanır. Dosya tabanlı JNDI aşağıdaki özellikleri dosyası kullanılarak yapılandırılmış sağlayıcısı kitaplığı basit özellikleri ile birlikte gelen Apache Qpid JMS AMQP 1.0 Biçimlendir:
+JMS mantıksal ve fiziksel adlarını arasında bir ayrım oluşturmak için Java adlandırma ve dizin arabirimi (JNDI) kullanır. İki tür JMS nesnelerin JNDI kullanarak çözülmüş: ConnectionFactory ve hedef. JNDI farklı dizin hizmetleri, ad çözümlemesi görevlerini işlemek için takılabilir bir sağlayıcı modeli kullanır. Dosya tabanlı JNDI aşağıdaki özellikler dosyası kullanılarak yapılandırılan sağlayıcısı kitaplığı basit bir özellik ile gelir Apache Qpid JMS AMQP 1.0 biçimlendirin:
 
 ```
 # servicebus.properties - sample JNDI configuration
@@ -64,15 +64,15 @@ queue.QUEUE = queue1
 ```
 
 #### <a name="configure-the-connectionfactory"></a>ConnectionFactory yapılandırın
-Girişi tanımlamak için kullanılan bir **ConnectionFactory** Qpid özellikleri JNDI sağlayıcısı şu biçimde dosyasıdır:
+Girişi tanımlamak için kullanılan bir **ConnectionFactory** Qpid özellikleri dosyasında JNDI sağlayıcısı aşağıdaki biçimi şöyledir:
 
 ```
 connectionfactory.[jndi_name] = [ConnectionURL]
 ```
 
-Burada **[jndi_name]** ve **[ConnectionURL]** şu anlama gelir:
+Burada **[jndi_name]** ve **[ConnectionURL]** aşağıdaki anlamlara sahiptir:
 
-* **[jndi_name]** : ConnectionFactory mantıksal adı. Bu, JNDI IntialContext.lookup() yöntemini kullanarak Java uygulamasında çözümlenir addır.
+* **[jndi_name]** : ConnectionFactory mantıksal adı. Bu, JNDI IntialContext.lookup() yöntemini kullanarak bir Java uygulamasında çözümlenir addır.
 * **[ConnectionURL]** : JMS kitaplığı AMQP aracısı için gereken bilgileri sağlayan bir URL.
 
 Biçimi **ConnectionURL** aşağıdaki gibidir:
@@ -80,19 +80,19 @@ Biçimi **ConnectionURL** aşağıdaki gibidir:
 ```
 amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
 ```
-Burada **[ad]**, **[SASPolicyName]** ve **[SASPolicyKey]** şu anlama gelir:
+Burada **[ad]**, **[SASPolicyName]** ve **[SASPolicyKey]** aşağıdaki anlamlara sahiptir:
 
-* **[ad]** : Hizmet veri yolu ad alanı.
+* **[ad]** : Service Bus ad alanı.
 * **[SASPolicyName]** : Sıra paylaşılan erişim imzası ilke adı.
 * **[SASPolicyKey]** : Sıra paylaşılan erişim imzası ilke anahtarı.
 
 > [!NOTE]
-> URL kodlama parola kullanmanız gerekir. URL kodlaması yararlı bir yardımcı şu adresten edinilebilir [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
+> URL kodlaması parola kendiniz bağlanmalısınız. Yararlı bir URL kodlaması yardımcı programı kullanılabilir [ http://www.w3schools.com/tags/ref_urlencode.asp ](http://www.w3schools.com/tags/ref_urlencode.asp).
 > 
 > 
 
-#### <a name="configure-destinations"></a>Hedeflerini yapılandırma
-Bir hedef Qpid özellikleri dosya JNDI sağlayıcısında tanımlamak için kullanılan girişinin aşağıdaki biçimi şöyledir:
+#### <a name="configure-destinations"></a>Hedefleri yapılandırma
+Bir hedef Qpid özellikleri dosya JNDI sağlayıcısında tanımlamak için kullanılan giriş aşağıdaki biçimi şöyledir:
 
 ```
 queue.[jndi_name] = [physical_name]
@@ -104,21 +104,21 @@ or
 topic.[jndi_name] = [physical_name]
 ```
 
-Burada **[JNDI\_adı]** ve **[fiziksel\_adı]** şu anlama gelir:
+Burada **[JNDI\_adı]** ve **[fiziksel\_adı]** aşağıdaki anlamlara sahiptir:
 
-* **[jndi_name]** : Hedef mantıksal adı. Bu, JNDI IntialContext.lookup() yöntemini kullanarak Java uygulamasında çözümlenir addır.
+* **[jndi_name]** : Hedef mantıksal adı. Bu, JNDI IntialContext.lookup() yöntemini kullanarak bir Java uygulamasında çözümlenir addır.
 * **[physical_name]** : Uygulama gönderir veya iletileri alan Service Bus varlık adı.
 
 > [!NOTE]
-> Bir hizmet veri yolu konusu abonelikten alırken JNDI içinde belirtilen fiziksel adı konu adı olmalıdır. Dayanıklı abonelik JMS uygulama kodunda oluşturulduğunda, abonelik adını sağlanır. [Hizmet veri yolu AMQP 1.0 Geliştirici Kılavuzu](service-bus-amqp-dotnet.md) JMS Service Bus konularından ile çalışma hakkında daha fazla ayrıntı sağlar.
+> Bir Service Bus konu aboneliğinden alındığında, JNDI belirtilen fiziksel adı konunun adı olmalıdır. Dayanıklı abonelik JMS uygulama kodunda oluşturulduğunda abonelik adı sağlanır. [Hizmet veri yolu AMQP 1.0 Geliştirici Kılavuzu](service-bus-amqp-dotnet.md) JMS hizmet veri yolu konuları ile çalışma hakkında daha fazla ayrıntı sağlar.
 > 
 > 
 
-### <a name="write-the-jms-application"></a>JMS uygulama yazma
-Özel API'leri veya JMS Service Bus ile kullanırken gereken seçenekler yok. Ancak, daha sonra ele alınacak bazı kısıtlamalar vardır. Herhangi bir JMS uygulama ile çözümleyebilmesi için JNDI ortamının yapılandırması ilk şey gerekli olduğu gibi bir **ConnectionFactory** ve hedefler.
+### <a name="write-the-jms-application"></a>JMS uygulaması yazma
+Özel API'ler veya JMS ile Service Bus kullanırken gerekli seçenekleri yoktur. Ancak, daha sonra ele alınacak bazı kısıtlamalar vardır. Herhangi bir JMS uygulama ile çözümleyebilmesi için JNDI ortamın yapılandırması ilk şey gerekli olduğu gibi bir **ConnectionFactory** ve hedefleri.
 
 #### <a name="configure-the-jndi-initialcontext"></a>JNDI InitialContext yapılandırın
-JNDI ortam yapılandırma bilgilerini bir hashtable javax.naming.InitialContext sınıfı oluşturucusuna geçirerek yapılandırılır. İki hashtable öğelerindeki ilk bağlam fabrikası ve sağlayıcı URL sınıf adı gereklidir. Aşağıdaki kod özellikleri dosya adlı bir özellik dosyası JNDI sağlayıcı tabanlı Qpid kullanmak için JNDI ortamını yapılandırma gösterir **servicebus.properties**.
+Yapılandırma bilgilerinin bir hashtable javax.naming.InitialContext sınıf oluşturucusuna geçirerek JNDI ortam yapılandırılır. İki hashtable öğeleri ilk bağlam Üreteç sağlayıcısı URL'si ve sınıf adı gereklidir. Aşağıdaki kod, özellikler dosyası adlı bir özellik dosyası ile JNDI sağlayıcı tabanlı Qpid kullanacak şekilde JNDI ortamı yapılandırma işlemi gösterilmektedir **servicebus.properties**.
 
 ```java
 Hashtable<String, String> env = new Hashtable<String, String>(); 
@@ -127,8 +127,8 @@ env.put(Context.PROVIDER_URL, "servicebus.properties");
 InitialContext context = new InitialContext(env);
 ``` 
 
-### <a name="a-simple-jms-application-using-a-service-bus-queue"></a>Service Bus kuyruğu kullanarak basit bir JMS uygulama
-Aşağıdaki örnek program sırasının JNDI mantıksal adı ile Service Bus kuyruğuna JMS TextMessages gönderir ve iletilerini geri alır.
+### <a name="a-simple-jms-application-using-a-service-bus-queue"></a>Service Bus kuyruğu kullanarak basit bir JMS uygulaması
+Aşağıdaki örnek program JMS TextMessages kuyruğun JNDI mantıksal adı ile bir Service Bus kuyruğuna gönderir ve iletileri geri alır.
 
 ```java
 // SimpleSenderReceiver.java
@@ -228,7 +228,7 @@ public class SimpleSenderReceiver implements MessageListener {
 ```
 
 ### <a name="run-the-application"></a>Uygulamayı çalıştırma
-Uygulamayı çalıştıran biçiminde bir çıktı üretir:
+Uygulamayı çalıştıran biçiminde çıktı üretir:
 
 ```
 > java SimpleSenderReceiver
@@ -245,18 +245,18 @@ Received message with JMSMessageID = ID:956102171969368961
 exit
 ```
 
-## <a name="cross-platform-messaging-between-jms-and-net"></a>Platformlar arası ileti JMS ve .NET arasında
-Bu kılavuz, JMS kullanarak Service Bus gelen ve giden ileti gönderme ve alma nasıl oluşturulacağını gösterir. Ancak, AMQP 1.0 kilit yararları güvenilir bir şekilde ve tam bir güvenilirlik, alınıp iletilerle farklı dillerde yazılmış bileşenlerinden oluşturulacak uygulamalar sağlayan biridir.
+## <a name="cross-platform-messaging-between-jms-and-net"></a>Platformlar arası .NET JMS arasında ileti
+Bu kılavuz, JMS kullanarak Service Bus gelen ve giden iletileri gönderip nasıl oluşturulacağını gösterir. Ancak, iletileri güvenilir bir şekilde ve tam uygunlukta değişimi ile farklı dillerde yazılmış olan bileşenlerden oluşturulacak uygulamalar sağlar AMQP 1.0 başlıca avantajlarından biri olur.
 
-Yukarıda açıklanan örnek JMS uygulama ve yardımcı makaleden gerçekleştirilecek benzer bir .NET uygulaması kullanarak [kullanarak Service Bus .NET AMQP 1.0 ile birlikte gelen](service-bus-amqp-dotnet.md), .NET ve Java arasında iletileri değiştirebilir. Platformlar arası Service Bus ve AMQP 1.0 kullanarak Mesajlaşma, ayrıntıları hakkında daha fazla bilgi için bu makaleyi okuyun.
+Yukarıda açıklanan örnek JMS uygulama ve bir yardımcı makalesinden gerçekleştirilecek benzer bir .NET uygulaması kullanarak [.NET ile AMQP 1.0 kullanarak Service Bus](service-bus-amqp-dotnet.md), .NET ve Java'dan arasında iletileri gönderip alabilir. Platformlar arası Mesajlaşma Service Bus ve AMQP 1.0 kullanarak, ayrıntıları hakkında daha fazla bilgi için bu makaleyi okuyun.
 
 ### <a name="jms-to-net"></a>.NET için JMS
 .NET ileti JMS göstermek için:
 
-* Tüm komut satırı bağımsız değişkenleri olmadan .NET örnek uygulaması başlatın.
-* Java örnek uygulaması "sendonly" komut satırı bağımsız değişkeniyle başlatın. Bu modda, uygulama iletileri almaz sıradan, yalnızca gönderir.
+* Herhangi bir komut satırı bağımsız değişkeni olmadan .NET örnek uygulaması başlatın.
+* Java örnek uygulaması "sendonly" komut satırı bağımsız değişkeniyle başlatın. Bu modda uygulama iletileri almaz sıradan, yalnızca gönderir.
 * Tuşuna **Enter** birkaç kez Java uygulama konsolunda neden olacak gönderilecek iletilerin.
-* Bu iletiler .NET uygulama tarafından alınır.
+* Bu iletiler, .NET uygulama tarafından alınır.
 
 #### <a name="output-from-jms-application"></a>JMS uygulama çıktısı
 ```
@@ -268,7 +268,7 @@ Sent message with JMSMessageID = ID:1565011046230456854
 exit
 ```
 
-#### <a name="output-from-net-application"></a>.NET uygulaması çıktısı
+#### <a name="output-from-net-application"></a>.NET uygulama çıktısı
 ```
 > SimpleSenderReceiver.exe    
 Press [enter] to send a message. Type 'exit' + [enter] to quit.
@@ -279,14 +279,14 @@ exit
 ```
 
 ### <a name="net-to-jms"></a>JMS için .NET
-İleti gönderme ve alma JMS .NET göstermek için:
+.NET JMS ileti göstermek için:
 
-* .NET örnek uygulaması "sendonly" komut satırı bağımsız değişkeniyle başlatın. Bu modda, uygulama iletileri almaz sıradan, yalnızca gönderir.
-* Tüm komut satırı bağımsız değişkenleri olmadan Java örnek uygulamayı başlatın.
+* .NET örnek uygulaması "sendonly" komut satırı bağımsız değişkeniyle başlatın. Bu modda uygulama iletileri almaz sıradan, yalnızca gönderir.
+* Herhangi bir komut satırı bağımsız değişkeni olmadan Java örnek uygulamayı başlatın.
 * Tuşuna **Enter** birkaç kez .NET uygulama konsolunda neden olacak gönderilecek iletilerin.
-* Bu iletiler Java uygulama tarafından alınır.
+* Bu iletiler, Java uygulama tarafından alınır.
 
-#### <a name="output-from-net-application"></a>.NET uygulaması çıktısı
+#### <a name="output-from-net-application"></a>.NET uygulama çıktısı
 ```
 > SimpleSenderReceiver.exe sendonly
 Press [enter] to send a message. Type 'exit' + [enter] to quit.
@@ -307,22 +307,22 @@ exit
 ```
 
 ## <a name="unsupported-features-and-restrictions"></a>Desteklenmeyen özellikler ve kısıtlamalar
-Yani JMS Service Bus ile AMQP 1.0 üzerinden kullanırken, aşağıdaki kısıtlamalar mevcuttur:
+Yani JMS Service Bus ile AMQP 1.0 üzerinden kullanırken, aşağıdaki kısıtlamaları mevcuttur:
 
-* Yalnızca bir **MessageProducer** veya **MessageConsumer** başına izin verilen **oturum**. Birden çok oluşturmanız gerekiyorsa **MessageProducers** veya **MessageConsumers** bir uygulamada, ayrılmış bir oluşturma **oturum** her biri için.
+* Yalnızca bir **MessageProducer** veya **MessageConsumer** başına izin verilen **oturumu**. Birden çok oluşturmanız gerekiyorsa **MessageProducers** veya **MessageConsumers** bir uygulamada, ayrılmış bir oluşturma **oturumu** her biri için.
 * Volatile konu abonelikleri şu anda desteklenmemektedir.
 * **MessageSelectors** şu anda desteklenmiyor.
-* Geçici hedefleri; Örneğin, **TemporaryQueue**, **TemporaryTopic** şu anda, bunların ile desteklenmemektedir **QueueRequestor** ve **TopicRequestor**Kullanılacakları API'leri.
-* Uygulaması yapılan oturumlar ve dağıtılmış işlemler desteklenmiyor.
+* Geçici hedefleri; Örneğin, **TemporaryQueue**, **TemporaryTopic** şu anda, bunların ile desteklenmemektedir **QueueRequestor** ve **TopicRequestor**Bunları API'leri.
+* İşlenen oturumları ve dağıtılmış işlemler desteklenmez.
 
 ## <a name="summary"></a>Özet
-Nasıl yapılır bu kılavuz, popüler JMS API ve AMQP 1.0 kullanarak Service Bus aracılı Mesajlaşma özellikleri (kuyruklar ve konu başlıkları Yayınla/Abone ol) Java'dan kullanmak nasıl oluşturulacağını gösterir.
+Bu nasıl yapılır kılavuzunda AMQP 1.0 ve popüler JMS API kullanarak Service Bus aracılı Mesajlaşma özelliklerinin (sıralar ve yayımlama/abone olma konuları) Java kullanma gösterdi.
 
-Hizmet veri yolu AMQP 1.0 .NET, C, Python ve PHP gibi diğer dillerden de kullanabilirsiniz. Bu farklı diller kullanılarak oluşturulan bileşenleri ileti güvenilir bir şekilde gönderip ve AMQP 1.0 kullanarak tam bir güvenilirlik hizmet veri yolundaki destekler.
+Hizmet veri yolu AMQP 1.0 .NET, C, Python ve PHP dahil olmak üzere diğer dillerden de kullanabilirsiniz. Bu farklı diller kullanılarak oluşturulan bileşenleri, iletileri güvenilir bir şekilde gönderip alır ve hizmet veri yolunda AMQP 1.0 kullanarak tam uygunlukta destekler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure hizmet veri yolu AMQP 1.0 desteği](service-bus-amqp-overview.md)
-* [AMQP 1.0 ile Service Bus .NET API kullanma](service-bus-dotnet-advanced-message-queuing.md)
+* [Hizmet veri yolu .NET API ile AMQP 1.0 kullanma](service-bus-dotnet-advanced-message-queuing.md)
 * [Hizmet veri yolu AMQP 1.0 Geliştirici Kılavuzu](service-bus-amqp-dotnet.md)
 * [Service Bus kuyrukları ile çalışmaya başlama](service-bus-dotnet-get-started-with-queues.md)
 * [Java Geliştirici Merkezi](https://azure.microsoft.com/develop/java/)

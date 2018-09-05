@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric uygulama dağıtımı | Microsoft Docs
-description: Dağıtma ve Service Fabric PowerShell kullanarak uygulamalarda Kaldır.
+description: Nasıl dağıtılacağı ve PowerShell kullanarak Service Fabric uygulamaları kaldırın.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 0fa7bd1135c099f853b9a3bb66661c0a57a0f7eb
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: d38ec87fb634e1809959b85f0382935e8a78bf3b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271425"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697173"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Dağıtma ve PowerShell kullanarak uygulamaları kaldırma
 > [!div class="op_single_selector"]
@@ -30,50 +30,50 @@ ms.locfileid: "34271425"
 
 <br/>
 
-Bir kez bir [uygulama türü paketlenmiş][10], Azure Service Fabric kümesi içine dağıtımı için hazırdır. Dağıtım aşağıdaki üç adımdan oluşur:
+Bir kez bir [uygulama türü paketlenmiş][10], bir Azure Service Fabric kümesine dağıtım için hazırdır. Dağıtım, aşağıdaki üç adımdan oluşur:
 
-1. Uygulama paketi görüntü deposuna karşıya yükleyin.
-2. Uygulama türü görüntü deposu göreli yolu ile kaydedin.
-3. Uygulama örneği oluşturun.
+1. Uygulama paketi görüntü deposuna yükleyin.
+2. Görüntü deposu göreli yolu ile uygulama türünü kaydedin.
+3. Uygulama örneğini oluşturun.
 
-Dağıtılmış uygulamanın gerekli olduğunda uygulama örneği ve uygulama türünü silebilirsiniz. Bir uygulamayı kümeden tamamen kaldırmak için aşağıdaki adımları içerir:
+Dağıtılan uygulamayı artık gerekli olduğunda uygulama örneğini ve uygulama türünü silebilirsiniz. Bir uygulamayı kümeden tamamen kaldırmak için aşağıdaki adımları içerir:
 
-1. Çalışan Kaldır (veya Sil) uygulama örneği.
-2. Artık ihtiyacınız varsa uygulama türü kaydını silin.
+1. Çalışan Kaldır (veya sildiğinizde) uygulama örneği.
+2. Artık ihtiyacınız yoksa, uygulama türünün kaydını silin.
 3. Uygulama paketi görüntü deposundan kaldırır.
 
-Dağıtma ve yerel geliştirme kümenizde uygulamalarında hata ayıklama için Visual Studio kullanıyorsanız, yukarıdaki adımların tümünü otomatik olarak bir PowerShell komut dosyası gerçekleştirilir.  Bu komut dosyası içinde bulunur *betikleri* uygulama projesi klasörü. Bu makalede, Visual Studio dışında aynı işlemleri gerçekleştirebilmeleri için komut dosyası yaptıklarını üzerinde arka plan sağlar. 
+Dağıtma ve hata ayıklama, yerel geliştirme kümenizde uygulamaları için Visual Studio kullanıyorsanız, tüm önceki adımları otomatik olarak bir PowerShell Betiği işlenir.  Bu betik bulunan *betikleri* uygulama projesinin klasörü. Bu makalede, Visual Studio dışında aynı işlemleri gerçekleştirebilmeleri için bu betiği yaptığı hakkında arka plan sağlar. 
 
-Bir uygulamayı dağıtmak için bir başka yolu dış sağlama kullanmaktır. Uygulama paketi olabilir [olarak paketlenmiş `sfpkg` ](service-fabric-package-apps.md#create-an-sfpkg) ve bir dış deposuna yüklenir. Bu durumda, görüntü deposuna karşıya yükleme gerekli değildir. Dağıtım, aşağıdaki adımlar gerekir:
+Bir uygulamayı dağıtmak için başka bir yolu, dış sağlama kullanmaktır. Uygulama paketi olabilir [paketlenmiş olarak `sfpkg` ](service-fabric-package-apps.md#create-an-sfpkg) ve bir dış depoya yüklenir. Bu durumda, karşıya yükleme görüntü deposu için gerekli değildir. Dağıtım, aşağıdaki adımlar gerekir:
 
-1. Karşıya yükleme `sfpkg` bir dış depolama. Dış deponun bir REST http veya https uç noktasını kullanıma sunar deposu olabilir.
-2. Dış indirme URI'si ve uygulama türü bilgileri kullanarak uygulama türünü kaydetme.
-2. Uygulama örneği oluşturun.
+1. Karşıya yükleme `sfpkg` bir dış depolama. Dış depo, bir REST http veya https uç noktasını kullanıma sunar herhangi deposu olabilir.
+2. Dış indirme URI'si ve uygulama türü bilgilerini kullanarak uygulama türünü kaydedin.
+2. Uygulama örneğini oluşturun.
 
-Temizleme, uygulama örneklerini kaldırın ve uygulama türü kaydını silin. Paketi görüntü deposuna kopyalanmadı olmadığından, temizleme geçici konum yoktur. Dış depodan sağlama Service Fabric sürüm 6.1 itibaren kullanılabilir.
+Temizleme, uygulama türünün kaydını silmek ve uygulama örneklerini kaldırın. Paket görüntü deposuna kopyalanamadı çünkü hiçbir temizleme geçici bir konuma yoktur. Dış depodan sağlama, Service Fabric 6.1 sürümünde'den itibaren kullanılabilmektedir.
 
 >[!NOTE]
-> Visual Studio Dış sağlama şu anda desteklemiyor.
+> Visual Studio, dış sağlama şu anda desteklemiyor.
 
  
 ## <a name="connect-to-the-cluster"></a>Kümeye bağlanma
-Bu makaledeki tüm PowerShell komutları çalıştırmadan önce her zaman başlamayı [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) Service Fabric kümeye bağlanmak için. Yerel geliştirme kümeye bağlanmak için şu komutu çalıştırın:
+Bu makaledeki tüm PowerShell komutları çalıştırmadan önce her zaman kullanarak başlatın [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) Service Fabric kümesine bağlanmak için. Yerel geliştirme kümesine bağlanmak için şu komutu çalıştırın:
 
 ```powershell
 PS C:\>Connect-ServiceFabricCluster
 ```
 
-Bir uzak küme veya Azure Active Directory, X509 kullanılarak güvenlik altına kümeye bağlanma örnekleri için sertifikalar veya Windows Active Directory bkz [güvenli kümeye Bağlan](service-fabric-connect-to-secure-cluster.md).
+Örnekleri, bir uzak kümeye veya Azure Active Directory, X509 kullanılarak güvenli bir kümeye bağlanmak için sertifikaları veya Windows Active Directory bakın [güvenli bir kümeye bağlanma](service-fabric-connect-to-secure-cluster.md).
 
-## <a name="upload-the-application-package"></a>Uygulama paketi yükleme
-Uygulama paketini karşıya yükleme, iç Service Fabric bileşenleri tarafından erişilebilen bir konuma koyan.
-Uygulama paketi yerel olarak doğrulamak istiyorsanız, kullanmak [Test ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet'i.
+## <a name="upload-the-application-package"></a>Uygulama paketini karşıya yükleyin
+Uygulama paketini karşıya yükleme, iç Service Fabric bileşenleri tarafından erişilebilen bir konuma yerleştirir.
+Uygulama paketi yerel olarak doğrulamak istediğiniz kullanırsanız [Test ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet'i.
 
-[Kopya ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) komutu, küme görüntü deposu için uygulama paketi yükler.
+[Kopyalama ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) komut, uygulama paketini kümenin görüntü deposuna yükler.
 
-Derleme ve adlı bir uygulama paketi varsayalım *MyApplication* Visual Studio 2015'te. Varsayılan olarak, ApplicationManifest.xml listelenen uygulama türü adı "MyApplicationType" bağlıdır.  Gerekli uygulama bildirimini, hizmet bildirimlerini ve kod/config/veri paketleri içeren uygulama paketi bulunan *C:\Users\<kullanıcıadı\>\Documents\Visual Studio 2015\Projects\ MyApplication\MyApplication\pkg\Debug*. 
+Derleme ve adlı bir uygulama paketi varsayalım *MyApplication* Visual Studio 2015'te. Varsayılan olarak, "MyApplicationType" ApplicationManifest.xml içinde listelenen uygulama türü adı var.  Gerekli uygulama bildirimi, hizmet bildirimleri ve kodu/config/veri paketleri içeren uygulama paketini bulunan *C:\Users\<kullanıcıadı\>\Documents\Visual Studio 2015\Projects\ MyApplication\MyApplication\pkg\Debug*. 
 
-Aşağıdaki komut, uygulama paketinin içeriğini listeler:
+Aşağıdaki komut, uygulama paketinin içeriği listeler:
 
 ```powershell
 PS C:\> $path = 'C:\Users\<user\>\Documents\Visual Studio 2015\Projects\MyApplication\MyApplication\pkg\Debug'
@@ -103,13 +103,13 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
             Settings.xml
 ```
 
-Uygulama paketi büyük ve/veya birçok dosyaları yoksa, şunları yapabilirsiniz [onu Sıkıştır](service-fabric-package-apps.md#compress-a-package). Sıkıştırma, boyutu ve dosya sayısını azaltır.
-Yan etkisi, kaydetme ve kayıt uygulama türü daha hızlı. Özellikle paket sıkıştırmak için zaman eklerseniz karşıya yükleme zamanı şu anda, yavaş olabilir. 
+Uygulama paketi büyük ve/veya sahip çok sayıda dosya varsa [bu sıkıştırma](service-fabric-package-apps.md#compress-a-package). Sıkıştırma, boyutu ve dosya sayısını azaltır.
+Yan etkisi, kayıt ve kayıt daha hızlı uygulama türü. Karşıya yükleme zamanı şu anda, özellikle paket sıkıştırmak için zaman eklerseniz daha yavaş olabilir. 
 
-Bir paket sıkıştırmak için aynı kullanın [kopya ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) komutu. Sıkıştırma yapılabilir ayrı karşıya yükleme işlemini kullanarak `SkipCopy` bayrağı veya karşıya yükleme işlemi ile birlikte. Sıkıştırılmış paketi üzerinde sıkıştırma uygulama yok.
-Sıkıştırılmış paketi sıkıştırmasını kaldırma için aynı kullanın [kopya ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) komutunu `UncompressPackage` geçin.
+Bir paket sıkıştırmak için aynı kullanın [kopyalama ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) komutu. Sıkıştırma yapılabilir ayrı karşıya yükleme işlemini kullanarak `SkipCopy` bayrağı veya karşıya yükleme işlemi ile birlikte. Sıkıştırılmış bir paketi üzerinde sıkıştırma uygulama İşlemsiz.
+Sıkıştırılmış bir paketi sıkıştırmasını açmak için aynı kullanın [kopyalama ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) komutunu `UncompressPackage` geçin.
 
-Aşağıdaki cmdlet'i paketi görüntü deposuna kopyalama olmadan sıkıştırır. Paket sıkıştırılmış dosya için artık içerir `Code` ve `Config` paketler. (Paylaşım, uygulama türü adı ve sürümü için ayıklama belirli doğrulamaları paketini gibi) çok sayıda dahili işlemleri için gerekli olduğu için uygulama ve hizmet bildirimlerini, daraltılmış değil. Bildirimleri sıkıştırma bu işlemleri verimli hale getirir.
+Aşağıdaki cmdlet, görüntü deposuna kopyalamadan paket sıkıştırır. Paket artık sıkıştırılmış dosyaları içeren `Code` ve `Config` paketleri. (Paket paylaşımı, uygulama türü adı ve sürümü için ayıklama belirli doğrulamaları gibi) birçok iç işlemler için gerekli olduğu uygulama ve hizmet bildirimleri, daraltılmış değil. Bildirimleri sıkıştırma, bu işlemleri verimli hale getirir.
 
 ```
 PS C:\> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -CompressPackage -SkipCopy
@@ -125,10 +125,10 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
        ServiceManifest.xml
 ```
 
-Büyük uygulama paketlerini için sıkıştırma zaman alır. En iyi sonuçlar için hızlı bir SSD sürücüsü kullanın. Sıkıştırma zamanları ve sıkıştırılmış paket boyutu Ayrıca paket içeriğini göre farklılık.
+Büyük uygulama paketleri için sıkıştırma zaman alır. En iyi sonuçları almak için hızlı bir SSD sürücüsü kullanın. Sıkıştırma zamanları ve sıkıştırılmış paket boyutu Ayrıca paket içeriğini göre farklılık gösterir.
 Örneğin, ilk ve sıkıştırma süresiyle sıkıştırılmış paket boyutu göster bazı paketler için sıkıştırma istatistikleri aşağıdadır.
 
-|Başlangıç boyutu (MB)|Dosya sayısı|Sıkıştırma zamanı|Sıkıştırılmış paket boyutu (MB)|
+|İlk boyutu (MB)|Dosya sayısı|Sıkıştırma zaman|Sıkıştırılmış paket boyutu (MB)|
 |----------------:|---------:|---------------:|---------------------------:|
 |100|100|00:00:03.3547592|60|
 |512|100|00:00:16.3850303|307|
@@ -136,25 +136,25 @@ Büyük uygulama paketlerini için sıkıştırma zaman alır. En iyi sonuçlar 
 |2048|1000|00:01:04.3775554|1231|
 |5012|100|00:02:45.2951288|3074|
 
-Bir paket sıkıştırılmış sonra onu bir veya birden çok Service Fabric kümesi için gerektiği şekilde yüklenebilir. Sıkıştırılmış ve sıkıştırılmamış paketler için aynı dağıtım mekanizmadır. Sıkıştırılmış paketler, bu nedenle küme görüntü deposunda saklanır. Uygulamayı çalıştırmadan önce paketleri düğüme sıkıştırılmamış.
+Bir paket sıkıştırılmış sonra bir veya birden çok Service Fabric kümeleri için gerektiği şekilde karşıya yüklenebilir. Sıkıştırılmış ve sıkıştırılmamış paketleri için aynı dağıtım mekanizmadır. Sıkıştırılmış paketlerini kümenin görüntü deposuna şekilde depolanır. Uygulamayı çalıştırmadan önce paketleri düğüme sıkıştırılmamış.
 
 
-Aşağıdaki örnek paketi görüntü deposuna "MyApplicationV1" adlı bir klasöre yükler:
+Aşağıdaki örnek, "MyApplicationV1" adlı bir klasöre paket görüntü deposuna yükler:
 
 ```powershell
 PS C:\> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -ApplicationPackagePathInImageStore MyApplicationV1 -TimeoutSec 1800
 ```
 
-Belirtmezseniz, *- ApplicationPackagePathInImageStore* parametresi, uygulama paketi Image store "Hata ayıklama" klasörüne kopyalanır.
+Siz belirtmezseniz *- ApplicationPackagePathInImageStore* parametresi, uygulama paketi, görüntü deposu "Debug" klasörüne kopyalanır.
 
 >[!NOTE]
->**Kopya ServiceFabricApplicationPackage** PowerShell oturumu bir Service Fabric kümesi bağlıysa, uygun görüntü deposu bağlantı dizesi otomatik olarak algılar. Service Fabric sürümleri 5.6 eski **- ImageStoreConnectionString** bağımsız değişkeni açıkça sağlanmalıdır.
+>**Kopyalama ServiceFabricApplicationPackage** uygun görüntü deposu bağlantı dizesi PowerShell oturumu bir Service Fabric kümesine bağlı olup olmadığını otomatik olarak algılar. Sürümleri Service Fabric 5.6 eski **- Imagestoreconnectionstring** bağımsız değişkenini açıkça belirtilmelidir.
 >
 >```powershell
 >PS C:\> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $path -ApplicationPackagePathInImageStore MyApplicationV1 -ImageStoreConnectionString (Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest)) -TimeoutSec 1800
 >```
 >
->**Get-ImageStoreConnectionStringFromClusterManifest** Service Fabric SDK PowerShell modülünün bir parçası olan cmdlet, görüntü deposu bağlantı dizesini almak için kullanılır.  SDK modülü içeri aktarmak için aşağıdakini çalıştırın:
+>**Get-ImageStoreConnectionStringFromClusterManifest** cmdlet'i, Service Fabric SDK PowerShell modülünü parçası olan resim depolama bağlantı dizesini almak için kullanılır.  SDK modülü içeri aktarmak için çalıştırın:
 >
 >```powershell
 >Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
@@ -165,37 +165,37 @@ Belirtmezseniz, *- ApplicationPackagePathInImageStore* parametresi, uygulama pak
 >
 >
 
-Bir paketi yükleme süresini birden çok faktörlere bağlı olarak farklılık gösterir. Bu etkenler paketin, paket boyutu ve dosya boyutları dosya sayısı bazılarıdır. Kaynak makine ve Service Fabric kümesi arasındaki ağ hızı karşıya yükleme zamanı da etkiler. İçin varsayılan zaman aşımı [kopya ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) 30 dakikadır.
-Açıklanan etkenlere bağlı olarak zaman aşımı süresini artırın gerekebilir. Paket Kopyala çağrısında sıkıştırma, sıkıştırma zaman da dikkate almanız gerekir.
+Bir paketi karşıya yüklemek için gereken süreyi birden çok faktörlere bağlı olarak farklılık gösterir. Bu etkenler paketin, paket boyutu ve dosya boyutları dosyaların sayısı, bazılarıdır. Kaynak makine ve Service Fabric kümesi arasındaki ağ hızı, karşıya yükleme zamanı da etkilenir. Varsayılan zaman aşımını [kopyalama ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) 30 dakikadır.
+Açıklandığı gibi faktörlere bağlı olarak, zaman aşımı artırmanız gerekebilir. Paket Kopyala çağrısında'nu sıkıştırma, sıkıştırma zaman de dikkate almanız gerekir.
 
 
 
-## <a name="register-the-application-package"></a>Uygulama paketi Kaydet
-Uygulama türü ve sürümü, uygulama paketi kaydedildikten sonra kullanılabilir hale uygulama bildiriminde bildirildi. Sistem önceki adımda karşıya yüklenen paket okur, paket doğrular, paket içeriğini işler ve işlenen paket bir iç sistem konumuna kopyalar.  
+## <a name="register-the-application-package"></a>Uygulama paketini kaydetme
+Uygulama türü ve sürümü, uygulama paketi kaydedildiğinde kullanıma hazır hale uygulama bildirimde belirtilen. Sistem önceki adımda karşıya yüklenen paket okur, paket doğrular, paket içeriğini işler ve işlenen paket bir iç sistem konumuna kopyalar.  
 
-Çalıştırma [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) kümede uygulama türünü kaydetme ve dağıtım için kullanılabilir hale getirmek için cmdlet:
+Çalıştırma [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) kümeye uygulama türünü kaydedin ve dağıtım için kullanılabilir hale getirmek için cmdlet:
 
-### <a name="register-the-application-package-copied-to-image-store"></a>Uygulama paketi görüntü deposuna kopyalanır Kaydet
-Bir paketi görüntü deposuna önceden kopyalanan, kayıt işlemi görüntü deposuna göreli yolu belirtir.
+### <a name="register-the-application-package-copied-to-image-store"></a>Görüntü deposuna kopyalanan uygulama paketini kaydetme
+Bir paket, daha önce görüntü deposuna kopyalanır, kayıt işlemi görüntü deposundaki görece yolu belirtir.
 
 ```powershell
 PS C:\> Register-ServiceFabricApplicationType -ApplicationPathInImageStore MyApplicationV1
 Register application type succeeded
 ```
 
-"MyApplicationV1" uygulama paketi bulunduğu Image store klasöründe bulunur. Uygulama türü adı "MyApplicationType" Sürüm "1.0.0 (her ikisi de uygulama bildiriminde bulunur)" ile şimdi kümedeki kaydedilir.
+"MyApplicationV1" görüntü deposundaki uygulama paketi bulunduğu bir klasördür. Uygulama türü adı "MyApplicationType" ve "(her ikisi de, uygulama bildiriminde bulunan) 1.0.0" sürümü ile artık kümede kayıtlı.
 
-### <a name="register-the-application-package-copied-to-an-external-store"></a>Bir dış saklayın uygulama paketine Kaydet
-Service Fabric sürüm 6.1 ile başlayarak, bir dış depodan paketini indirme destekler sağlayın. URI yolu temsil eden indirme [ `sfpkg` uygulama paketi](service-fabric-package-apps.md#create-an-sfpkg) nereden uygulama paketi, HTTP veya HTTPS protokolleri kullanılarak yüklenebilir. Paketi daha önce bu dış konuma yüklenmiş olmalıdır. Service Fabric dosya indirebilmesi için URI okuma erişimine izin vermesi gerekir. `sfpkg` Dosya uzantısı ".sfpkg" olması gerekir. Sağlama işlemi içinde uygulama bildirimi bulunan uygulama türü bilgileri içermesi gerekir.
+### <a name="register-the-application-package-copied-to-an-external-store"></a>Bir dış depoya kopyalandı uygulama paketini kaydetme
+Service Fabric 6.1 sürümünde ile başlayarak, bir dış depodan paket indiriliyor destekler sağlayın. URI yolu temsil eden indirme [ `sfpkg` uygulama paketini](service-fabric-package-apps.md#create-an-sfpkg) nereden uygulama paketi, HTTP veya HTTPS protokollerini kullanan indirilebilir. Paket daha önce bu dış konuma yüklenmiş olmalıdır. Service Fabric dosyayı indirebilirsiniz şekilde URI okuma erişimine izin vermeniz gerekir. `sfpkg` Dosya uzantısı ".sfpkg" olması gerekir. Sağlama işlemi, uygulama bildiriminde bulunan uygulama türü bilgilerini içermelidir.
 
 ```
 PS C:\> Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async
 ```
 
-[Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) komut, yalnızca sistem uygulama paketi başarıyla kaydolduktan sonra döndürür. Ne kadar süreyle kayıt alır boyutu ve uygulama paketi içeriğini bağlıdır. Gerekirse, **- TimeoutSec** parametre (60 saniye olan varsayılan zaman aşımı) daha uzun bir süre sağlamak için kullanılabilir.
+[Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) komutu, yalnızca sistem uygulama paketi başarıyla kaydolduktan sonra döndürür. Ne kadar süreyle kayıt alır boyutu ve uygulama paketinin içeriği bağlıdır. Gerekirse, **- TimeoutSec** parametresi, uzun bir zaman aşımı (60 saniye olan varsayılan zaman aşımı) sağlamak için kullanılabilir.
 
-Paket veya zaman aşımına uğruyor kullanırsanız büyük bir uygulamanız varsa, **- zaman uyumsuz** parametresi. Küme kayıt komutu kabul ettiğinde komut döndürür. Kayıt işlemi gerektiği gibi devam eder.
-[Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) komutu uygulama türü sürümleri ve kayıt durumlarını listeler. Kayıt tamamlandığında belirlemek için bu komutu kullanın.
+Büyük bir uygulama paketini veya zaman aşımları yaşıyorsanız kullanmak varsa **zaman - uyumsuz** parametresi. Küme kayıt komutu kabul ettiğinde komut döndürür. Kayıt işlemi, gerektiği şekilde devam eder.
+[Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) komut, uygulama türü sürümleri ve kayıt durumlarını listeler. Kayıt tamamlandığında belirlemek için bu komutu kullanabilirsiniz.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationType
@@ -206,15 +206,15 @@ Status                 : Available
 DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
-## <a name="remove-an-application-package-from-the-image-store"></a>Bir uygulama paketi görüntü deposundan kaldırır
-Bir paketi görüntü deposuna kopyaladıysanız, uygulamanın başarıyla kaydedildikten sonra geçici konumundan kaldırmanız gerekir. Uygulama paketleri görüntü deposundan silme sistem kaynakları serbest bırakır. Kullanılmayan uygulama paketleri tutma disk depolama alanı kullanır ve uygulama performans sorunlarına yol açar.
+## <a name="remove-an-application-package-from-the-image-store"></a>Bir uygulama paketi görüntü deposundan kaldırmak
+Bir paket görüntü deposuna kopyaladıysanız, uygulamanın başarıyla kaydedildikten sonra geçici konumundan kaldırmanız gerekir. Uygulama paketleri görüntü deposundan silme, sistem kaynakları serbest bırakır. Kullanılmayan uygulama paketleri tutma disk depolama alanını kullanan ve uygulama performası sorunlarını için yol açar.
 
 ```powershell
 PS C:\>Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApplicationV1
 ```
 
 ## <a name="create-the-application"></a>Uygulama oluşturma
-Bir uygulama kullanarak başarıyla kaydettirildi herhangi bir uygulama türü sürümü örneği [yeni ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet'i. Her bir uygulama adı ile başlamalıdır *"fabric:"* düzen ve her bir uygulama örneği için benzersiz olmalıdır. Hedef uygulama türü uygulama bildiriminde tanımlanan varsayılan hizmetlerin de oluşturulur.
+Bir uygulamadan kullanarak başarıyla kaydedildi herhangi bir uygulama türü sürümü oluşturabileceğiniz [yeni ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet'i. Her uygulamanın adı ile başlamalıdır *"fabric:"* şeması ve her uygulama örneği için benzersiz olmalıdır. Hedef uygulama türü uygulama bildiriminde tanımlanan varsayılan hizmetlerin de oluşturulur.
 
 ```powershell
 PS C:\> New-ServiceFabricApplication fabric:/MyApp MyApplicationType 1.0.0
@@ -224,9 +224,9 @@ ApplicationTypeName    : MyApplicationType
 ApplicationTypeVersion : 1.0.0
 ApplicationParameters  : {}
 ```
-Verilen herhangi bir kayıtlı uygulama türü sürümü için birden çok uygulama örneği oluşturulabilir. Her uygulama örneği yalıtımı, kendi çalışma dizini ve işlem ile çalışır.
+Birden fazla uygulama örneğinin belirtilen herhangi bir kayıtlı uygulama türü sürümü için oluşturulabilir. Her uygulama örneği yalıtım, kendi çalışma dizini ve işlem ile çalışır.
 
-Hangi adlı görmek için uygulama ve hizmetlere çalıştırmak kümede çalışan [Get-ServiceFabricApplication](/powershell/servicefabric/vlatest/get-servicefabricapplication) ve [Get-ServiceFabricService](/powershell/module/servicefabric/get-servicefabricservice?view=azureservicefabricps) cmdlet:
+Hangi adlı görmek için uygulamalar ve hizmetler çalıştırmak, bir kümede çalışan [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication) ve [Get-ServiceFabricService](/powershell/module/servicefabric/get-servicefabricservice?view=azureservicefabricps) cmdlet'leri:
 
 ```powershell
 PS C:\> Get-ServiceFabricApplication  
@@ -250,7 +250,7 @@ HealthState            : Ok
 ```
 
 ## <a name="remove-an-application"></a>Bir uygulamayı kaldırma
-Uygulama örneğini artık gerekli olmadığında kalıcı olarak adını kullanarak kaldırabilirsiniz [Kaldır ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps) cmdlet'i. [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps) tüm hizmet durumunu da, kalıcı olarak kaldırma uygulamaya ait tüm hizmetleri otomatik olarak kaldırır. 
+Bir uygulama örneği artık gerekli olmadığında, kalıcı olarak adını kullanarak kaldırabilirsiniz [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps) cmdlet'i. [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps) tüm hizmet durumunu da, kalıcı olarak kaldırma uygulamaya ait tüm hizmetleri otomatik olarak kaldırır. 
 
 > [!WARNING]
 > Bu işlem geri alınamaz ve uygulama durumu kurtarılamıyor.
@@ -266,8 +266,8 @@ Remove application instance succeeded
 PS C:\> Get-ServiceFabricApplication
 ```
 
-## <a name="unregister-an-application-type"></a>Bir uygulama türü kaydını kaldırma
-Belirli bir uygulama türü sürümü artık gerekli olmadığında kullanılarak uygulama türü kaydını [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) cmdlet'i. Kullanılmayan uygulama türleri kaydını uygulama türü dosyaları kaldırarak Image store tarafından kullanılan depolama alanını serbest bırakır. Görüntü deposuna kopyalama kullandıysanız uygulama türü kaydını görüntü deposu geçici konuma kopyalanmadığı uygulama paketi kaldırmaz. Uygulama türü olarak hiçbir uygulamaları karşı oluşturulur ve uygulama Beklemede yükseltmeler, Hayır başvurduğunuzdan sürece kaydı olabilir.
+## <a name="unregister-an-application-type"></a>Bir uygulama türünün kaydını silmek
+Belirli bir uygulama türü sürümü artık gerekli değilse, uygulama türünü kullanarak kaydını [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) cmdlet'i. Kullanılmayan uygulama türleri kaydı, görüntü deposu tarafından uygulama türü dosyaları kaldırarak kullanılan depolama alanı serbest bırakır. Görüntü deposu için kopyalama kullandıysanız bir uygulama türünün kaydını görüntü deposu geçici konuma kopyalanır uygulama paketi kaldırmaz. Uygulama türü, uygulama karşı örneği oluşturulur ve uygulama yükseltmeleri, Hayır başvurduğunuzdan sürece kaydı olabilir.
 
 Çalıştırma [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) kümede kayıtlı uygulama türlerini görmek için:
 
@@ -280,27 +280,27 @@ Status                 : Available
 DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
-Çalıştırma [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) belirli uygulama türü kaydını kaldırmak için:
+Çalıştırma [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) belirli uygulama türünün kaydını silmek için:
 
 ```powershell
 PS C:\> Unregister-ServiceFabricApplicationType MyApplicationType 1.0.0
 ```
 
 ## <a name="troubleshooting"></a>Sorun giderme
-### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Kopya ServiceFabricApplicationPackage bir ImageStoreConnectionString için sorar
-Service Fabric SDK ortam zaten ayarlanmış doğru Varsayılanları olması gerekir. Ancak gerekirse, tüm komutlar için ImageStoreConnectionString Service Fabric kümesi kullanarak değer eşleşmesi gerekir. Küme bildiriminde ImageStoreConnectionString bulabilirsiniz kullanarak alınan [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) ve Get-ImageStoreConnectionStringFromClusterManifest komutlar:
+### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>İçin bir Imagestoreconnectionstring kopyalama ServiceFabricApplicationPackage sorar
+Service Fabric SDK'sı ortamı zaten ayarlanmış doğru varsayılan değerleri olmalıdır. Ancak, gerekirse Imagestoreconnectionstring tüm komutlar için Service Fabric kümesi kullanan değer ile eşleşmelidir. Küme bildiriminde Imagestoreconnectionstring bulabilirsiniz kullanarak [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) ve Get-ImageStoreConnectionStringFromClusterManifest komutları:
 
 ```powershell
 PS C:\> Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest)
 ```
 
-**Get-ImageStoreConnectionStringFromClusterManifest** Service Fabric SDK PowerShell modülünün bir parçası olan cmdlet, görüntü deposu bağlantı dizesini almak için kullanılır.  SDK modülü içeri aktarmak için aşağıdakini çalıştırın:
+**Get-ImageStoreConnectionStringFromClusterManifest** cmdlet'i, Service Fabric SDK PowerShell modülünü parçası olan resim depolama bağlantı dizesini almak için kullanılır.  SDK modülü içeri aktarmak için çalıştırın:
 
 ```powershell
 Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
 ```
 
-ImageStoreConnectionString küme bildiriminde bulunur:
+Imagestoreconnectionstring küme bildiriminde bulunur:
 
 ```xml
 <ClusterManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="Server-Default-SingleNode" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -317,18 +317,18 @@ ImageStoreConnectionString küme bildiriminde bulunur:
 Bkz: [görüntü deposu bağlantı dizesi anlamak](service-fabric-image-store-connection-string.md) resim ve görüntü deposu hakkında ek bilgi için bağlantı dizesi depolar.
 
 ### <a name="deploy-large-application-package"></a>Büyük uygulama paketini dağıtma
-Sorun: [kopya ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) büyük uygulama paketi (GB sırasını) için zaman aşımına uğradı.
+Sorun: [kopyalama ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) büyük uygulama paketi (sipariş GB) için zaman aşımına uğrar.
 Deneyin:
-- Daha büyük zaman aşımını belirtmek [kopya ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) komutu ile `TimeoutSec` parametresi. Varsayılan olarak, zaman aşımı 30 dakikadır.
-- Kaynak makine ve küme arasındaki ağ bağlantısını denetleyin. Bağlantı yavaş ise, bir makine daha iyi bir ağ bağlantısı ile kullanmayı düşünün.
-İstemci makine küme başka bir bölgede ise, bir istemci makine bir daha yakından ya da aynı bölgede küme olarak düşünün.
-- Dış azaltma devreyi olmadığını denetleyin. Örneğin, görüntü deposu azure depolama kullanacak şekilde yapılandırıldığında, karşıya yükleme kısıtlanan.
+- İçin daha büyük bir zaman belirtmek [kopyalama ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) komutunu `TimeoutSec` parametresi. Varsayılan olarak, zaman aşımını 30 dakikadır.
+- Küme ve kaynak makine arasında ağ bağlantısını denetleyin. Bağlantısının yavaş olması daha iyi bir ağ bağlantısı ile bir makineyi kullanmayı düşünün.
+İstemci makine kümesinden başka bir bölgede ise, bir istemci makine olarak aynı veya daha yakın bir bölgede kullanarak göz önünde bulundurun.
+- Dış azaltma karşılaşırsınız olmadığını kontrol edin. Örneğin, görüntü deposu azure depolamanızı kullanmak için yapılandırıldığında, karşıya yüklemeyi azaltma.
 
-Sorun: karşıya yükleme paketi başarıyla tamamlandı ancak [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) zaman aşımına uğradı. Deneyin:
-- [Paket Sıkıştır](service-fabric-package-apps.md#compress-a-package) görüntü deposuna kopyalama önce.
-Sıkıştırma küçültür ve hangi sırayla trafik miktarını azaltır ve bu Service Fabric çalışma dosyaları sayısı gerçekleştirmeniz gerekir. Karşıya yükleme işlemi (özellikle sıkıştırma zaman eklerseniz) daha yavaş olabilir, ancak kaydedin ve kaydı uygulama türü daha hızlı.
-- Daha büyük zaman aşımını belirtmek [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) ile `TimeoutSec` parametresi.
-- Belirtin `Async` için geçiş [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps). Komutu, küme komutu kabul eder ve uygulama türü kaydını zaman uyumsuz olarak devam döndürür. Bu nedenle, bu durumda daha yüksek bir zaman aşımı belirtmek için gerek yoktur. [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) komutu tüm başarıyla kayıtlı uygulama türü sürümleri ve kayıt durumlarını listeler. Kayıt tamamlandığında belirlemek için bu komutu kullanın.
+Sorun: karşıya yükleme paketi başarıyla tamamlandı ancak [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) zaman aşımına uğrar. Deneyin:
+- [Paket sıkıştırma](service-fabric-package-apps.md#compress-a-package) görüntü deposuna kopyalamadan önce.
+Sıkıştırma boyutunu azaltır ve hangi sırayla trafik miktarını azaltır ve bu Service Fabric çalışma dosyaları sayısı gerçekleştirmeniz gerekir. Karşıya yükleme işlemi (özellikle sıkıştırma zaman eklerseniz) daha yavaş olabilir, ancak kayıt ve kaydını uygulama türü daha hızlı.
+- İçin daha büyük bir zaman belirtmek [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) ile `TimeoutSec` parametresi.
+- Belirtin `Async` için geçiş [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps). Komut, kümeyi komutu kabul eder ve uygulama türünün kaydını zaman uyumsuz olarak devam ettiğinde döndürür. Bu nedenle, bu durumda daha yüksek bir zaman aşımını belirtmek için gerek yoktur. [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) komut tüm başarıyla kayıtlı uygulama türü sürümleri ve kayıt durumlarını listeler. Kayıt tamamlandığında belirlemek için bu komutu kullanabilirsiniz.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationType
@@ -339,13 +339,13 @@ Status                 : Available
 DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
-### <a name="deploy-application-package-with-many-files"></a>Birçok dosyalarıyla uygulama paketini dağıtma
-Sorun: [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) zaman aşımına uğraması için uygulama paketi birçok dosyalarla (binlerce sırasını).
+### <a name="deploy-application-package-with-many-files"></a>Çok sayıda dosya içeren uygulama paketini dağıtma
+Sorun: [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) zaman aşımına uğraması için uygulama paketi (binlerce siparişi) çok sayıda dosya içeren.
 Deneyin:
-- [Paket Sıkıştır](service-fabric-package-apps.md#compress-a-package) görüntü deposuna kopyalama önce. Sıkıştırma dosyalarının sayısını azaltır.
-- Daha büyük zaman aşımını belirtmek [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) ile `TimeoutSec` parametresi.
-- Belirtin `Async` için geçiş [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps). Komutu, küme komutu kabul eder ve uygulama türü kaydını zaman uyumsuz olarak devam döndürür.
-Bu nedenle, bu durumda daha yüksek bir zaman aşımı belirtmek için gerek yoktur. [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) komutu tüm başarıyla kayıtlı uygulama türü sürümleri ve kayıt durumlarını listeler. Kayıt tamamlandığında belirlemek için bu komutu kullanın.
+- [Paket sıkıştırma](service-fabric-package-apps.md#compress-a-package) görüntü deposuna kopyalamadan önce. Sıkıştırma dosyalarının sayısını azaltır.
+- İçin daha büyük bir zaman belirtmek [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) ile `TimeoutSec` parametresi.
+- Belirtin `Async` için geçiş [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps). Komut, kümeyi komutu kabul eder ve uygulama türünün kaydını zaman uyumsuz olarak devam ettiğinde döndürür.
+Bu nedenle, bu durumda daha yüksek bir zaman aşımını belirtmek için gerek yoktur. [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) komut tüm başarıyla kayıtlı uygulama türü sürümleri ve kayıt durumlarını listeler. Kayıt tamamlandığında belirlemek için bu komutu kullanabilirsiniz.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationType
@@ -359,13 +359,13 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ## <a name="next-steps"></a>Sonraki adımlar
 [Uygulamaları paketleme](service-fabric-package-apps.md)
 
-[Service Fabric uygulama yükseltme](service-fabric-application-upgrade.md)
+[Service Fabric uygulaması yükseltme](service-fabric-application-upgrade.md)
 
 [Service Fabric sistem durumu giriş](service-fabric-health-introduction.md)
 
-[Tanılama ve bir Service Fabric hizmeti sorun giderme](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+[Tanılama ve sorun giderme bir Service Fabric hizmeti](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Service Fabric uygulamada modeli](service-fabric-application-model.md)
+[Bir Service Fabric uygulamasında model](service-fabric-application-model.md)
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-package-apps.md

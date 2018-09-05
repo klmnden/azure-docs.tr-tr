@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/25/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 551276f88f5c27cd860a400a5769c95f4d94cbbb
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 74caf0ab052e1f6558dc20d15d84c01177b3f9cb
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122896"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665589"
 ---
 # <a name="collector-appliance"></a>Toplayıcı Gereci
 
@@ -212,17 +212,27 @@ Ayrıca gerecinize güvenliğini sağlamak için aşağıdaki adımları önerir
 
 OVA yine indirmeden Toplayıcı en son sürüme yükseltebilirsiniz.
 
-1. En son sürümünü indirin [yükseltme paketi](https://aka.ms/migrate/col/upgrade_9_13) (sürüm 1.0.9.13).
+1. En son sürümünü indirin [yükseltme paketi](https://aka.ms/migrate/col/upgrade_9_14) (sürüm 1.0.9.14).
 2. İndirilen düzeltme güvenli olmasını sağlamak için yönetici komut penceresi açın ve karma ZIP dosyası oluşturmak için aşağıdaki komutu çalıştırın. Oluşturulan karma karşı belirli bir sürüm belirtilen karma değeri ile eşleşmesi gerekir:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-    (örnek kullanım C:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.7.zip SHA256)
+    (örnek kullanım C:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)
 3. Azure geçişi toplayıcısı sanal makineye (Toplayıcı gerecini) zip dosyasını kopyalayın.
 4. Zip dosyasını sağ tıklatın ve tümünü Ayıkla'ı seçin.
 5. Setup.ps1 üzerinde sağ tıklayın ve PowerShell ile Çalıştır'ı seçin ve güncelleştirmeyi yüklemek için ekrandaki yönergeleri izleyin.
 
 ### <a name="list-of-updates"></a>Güncelleştirmelerin listesi
+
+#### <a name="upgrade-to-version-10914"></a>1.0.9.14 sürümüne yükseltin
+
+Karma değerleri yükseltme [paketini 1.0.9.14](https://aka.ms/migrate/col/upgrade_9_14)
+
+**Algoritma** | **Karma değeri**
+--- | ---
+MD5 | c5bf029e9fac682c6b85078a61c5c79c
+SHA1 | af66656951105e42680dfcc3ec3abd3f4da8fdec
+SHA256 | 58b685b2707f273aa76f2e1d45f97b0543a8c4d017cd27f0bdb220e6984cc90e
 
 #### <a name="upgrade-to-version-10913"></a>1.0.9.13 sürümüne yükseltin
 

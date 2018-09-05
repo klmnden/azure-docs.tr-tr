@@ -10,7 +10,7 @@ Runbook'ları kullanarak [Azure Otomasyonu](../articles/automation/automation-in
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Sanal makine ölçek kümesi oluşturma
 
-Ölçek kümeleri, birbirinin aynısı olan Vm'leri bir küme olarak yönetmek ve dağıtmak kolay hale getirir. Linux oluşturabilir veya Windows ölçek kümelerini kullanarak [Azure portalında](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](../articles/virtual-machines/windows/tutorial-create-vmss.md), veya [Azure CLI](../articles/virtual-machines/linux/tutorial-create-vmss.md). Ayrıca oluşturabilir ve SDK'ları ile ölçek kümeleri gibi yönetme [Python](/develop/python) veya [Node.js](/nodejs/azure), veya doğrudan [REST API'leri](/rest/api/compute/virtualmachinescalesets). Sanal makinelerin otomatik ölçeklendirme, ölçüm ve kurallarını ölçek kümesine uygulayarak elde edilir.
+Ölçek kümeleri, birbirinin aynısı olan Vm'leri bir küme olarak yönetmek ve dağıtmak kolay hale getirir. Linux oluşturabilir veya Windows ölçek kümelerini kullanarak [Azure portalında](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](../articles/virtual-machines/windows/tutorial-create-vmss.md), veya [Azure CLI](../articles/virtual-machines/linux/tutorial-create-vmss.md). Ayrıca oluşturabilir ve SDK'ları ile ölçek kümeleri gibi yönetme [Python](https://azure.microsoft.com/develop/python/) veya [Node.js](/nodejs/azure), veya doğrudan [REST API'leri](/rest/api/compute/virtualmachinescalesets). Sanal makinelerin otomatik ölçeklendirme, ölçüm ve kurallarını ölçek kümesine uygulayarak elde edilir.
 
 ## <a name="configure-autoscale-for-a-scale-set"></a>Bir ölçek kümesi için otomatik ölçeklendirmeyi yapılandırma
 

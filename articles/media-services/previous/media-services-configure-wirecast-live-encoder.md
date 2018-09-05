@@ -1,6 +1,6 @@
 ---
-title: Tek bit hızlı bir canlı akışı göndermek için Telestream Wirecast Kodlayıcı yapılandırma | Microsoft Docs
-description: 'Bu konuda, tek bit hızlı akış gerçek zamanlı kodlama için etkinleştirilmiş AMS kanallar göndermek için Wirecast gerçek zamanlı Kodlayıcı yapılandırma gösterilmektedir. '
+title: Tek bit hızlı canlı akış göndermek için Telestream Wirecast Kodlayıcı yapılandırma | Microsoft Docs
+description: 'Bu konuda, tek bit hızlı akış gerçek zamanlı kodlama için etkinleştirilmiş kanallar AMS göndermek için Wirecast Canlı Kodlayıcı yapılandırma gösterilmektedir. '
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,59 +14,58 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 25193232263d55cb56c6ca35a8d1a074ce6bb157
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6cc4c0b01511309766e48c3d671ee897e5d6f326
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637999"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669122"
 ---
-# <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Tek bit hızlı bir canlı akışı göndermek için Wirecast Kodlayıcı kullanın
+# <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Wirecast Kodlayıcı tek bit hızlı canlı akış göndermektir.
 > [!div class="op_single_selector"]
-> * [wirecast](media-services-configure-wirecast-live-encoder.md)
-> * [Elemental dinamik](media-services-configure-elemental-live-encoder.md)
-> * [tricaster](media-services-configure-tricaster-live-encoder.md)
+> * [Wirecast](media-services-configure-wirecast-live-encoder.md)
+> * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 >
 >
 
-Bu makalede nasıl yapılandırılacağı gösterilmektedir [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) AMS bir tek bit hızlı akışın kanallar göndermek için gerçek zamanlı Kodlayıcı, gerçek zamanlı kodlama için etkinleştirilir.  Daha fazla bilgi için bkz. [Azure Media Services ile Gerçek Zamanlı Kodlama Gerçekleştirmek İçin Etkinleştirilmiş Kanallar ile Çalışma](media-services-manage-live-encoder-enabled-channels.md).
+Bu makalede nasıl yapılacağı gösterilmektedir [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) AMS tekli bit hızı akışına kanallar göndermek için gerçek zamanlı Kodlayıcı, gerçek zamanlı kodlama için etkinleştirilir.  Daha fazla bilgi için bkz. [Azure Media Services ile Gerçek Zamanlı Kodlama Gerçekleştirmek İçin Etkinleştirilmiş Kanallar ile Çalışma](media-services-manage-live-encoder-enabled-channels.md).
 
-Bu öğretici, Azure Media Services Gezgini (AMSE) aracı ile Azure Media Services (AMS) yönetmek gösterilmiştir. Bu araç, yalnızca bir Windows Bilgisayarına çalışır. Mac veya Linux varsa, oluşturmak için Azure portalını kullanın [kanalları](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) ve [programlar](media-services-portal-creating-live-encoder-enabled-channel.md).
+Bu öğreticide, Azure Media Services Gezgini (AMSE) aracı ile Azure Media Services (AMS) yönetilecek gösterilmektedir. Bu araç yalnızca Windows bilgisayarda çalışır. Mac veya Linux bilgisayarda ise oluşturmak için Azure portalını kullanma [kanalları](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) ve [programlar](media-services-portal-creating-live-encoder-enabled-channel.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
-* [Bir Azure Media Services hesabı oluşturma](media-services-portal-create-account.md)
-* Çalıştıran bir akış uç olduğundan emin olun. Daha fazla bilgi için bkz: [akış uç noktalarını yönetme Media Services hesabı](media-services-portal-manage-streaming-endpoints.md)
-* En son sürümünü yüklemek [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) aracı.
-* Aracı'nı başlatın ve AMS hesabınıza bağlanın.
+* [Azure Media Services hesabı oluşturma](media-services-portal-create-account.md)
+* Çalışan bir akış uç bulunduğundan emin olun. Daha fazla bilgi için [akış uç noktalarını yönetme Media Services hesabı](media-services-portal-manage-streaming-endpoints.md)
+* En son sürümünü yükleyin [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) aracı.
+* Aracı'nı başlatın ve AMS hesabınızı bağlayın.
 
 ## <a name="tips"></a>İpuçları
-* Mümkün olduğunda, bir sabit Internet bağlantısı kullanır.
-* Bir iyi bant genişliği gereksinimlerini belirlerken için udur akış bit çift. Bu zorunlu bir gereksinim olmamasına karşın, Ağ Tıkanıklığı etkisini azaltmaya yardımcı olur.
+* Mümkün olduğunda, bir sabit internet bağlantısı kullanın.
+* Bir iyi bant genişliği gereksinimlerini belirlerken için udur akış bit hızlarına dönüştürme çift. Bu zorunlu bir gereksinim olmamasına karşın, Ağ Tıkanıklığı etkisini azaltmaya yardımcı olur.
 * Yazılım tabanlı kodlayıcılar kullanırken, gereksiz tüm programları kapatın.
 
 ## <a name="create-a-channel"></a>Kanal oluşturma
-1. AMSE aracını gidin **canlı** sekmesini tıklatın ve içinde kanal alanı sağ tıklatın. Seçin **kanal oluştur...** menüden.
+1. AMSE Aracı'nda gidin **canlı** sekmesini tıklatıp içinde kanal alana sağ tıklayın. Seçin **kanal oluştur...** belirleyin.
 
     ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
-2. Bir kanal adı belirtin açıklama alanı isteğe bağlıdır. Kanal ayarları altında seçin **standart** gerçek zamanlı kodlama seçeneğini ayarlamak giriş protokolü için **RTMP**. Olduğu gibi tüm diğer ayarlar bırakabilirsiniz.
+2. Bir kanal adı belirtirseniz açıklama alanı isteğe bağlıdır. Kanal ayarları altında **standart** Live Encoding seçeneğini ayarlamak giriş protokolü için **RTMP**. Olduğu gibi tüm diğer ayarlar bırakabilirsiniz.
 
-    Emin olun **yeni kanal Şimdi Başlat** seçilir.
+    Emin **yeni kanal Şimdi Başlat** seçilir.
 
-3. Tıklatın **kanal oluşturmak**.
+3. Tıklayın **kanal oluşturma**.
 
    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
 
 > [!NOTE]
-> Kanal başlatmak için 20 dakika sürebilir.
+> Kanalı başlatmak için 20 dakika sürebilir.
 >
 >
 
-Kanal başlatılırken yapabilecekleriniz [Kodlayıcı yapılandırma](media-services-configure-wirecast-live-encoder.md#configure_wirecast_rtmp).
+Kanal başlatılırken yapabilecekleriniz [kodlayıcıyı Yapılandır](media-services-configure-wirecast-live-encoder.md#configure_wirecast_rtmp).
 
 > [!IMPORTANT]
-> Kanal hazır bir durumuna geçtiğinde hemen faturalama başlar. Daha fazla bilgi için bkz: [kanalın durumları](media-services-manage-live-encoder-enabled-channels.md#states).
+> Faturalandırma, kanalın bir hazır durumuna geçtiğinde hemen sonra başlar. Daha fazla bilgi için [kanalın durumları](media-services-manage-live-encoder-enabled-channels.md#states).
 >
 >
 
@@ -78,8 +77,8 @@ Bu öğreticide, aşağıdaki çıkış ayarları kullanılır. Bu bölümün ge
 * Codec: H.264
 * Profil: Yüksek (düzeyi 4.0)
 * Bit hızı: 5000 KB/sn
-* Anahtar kare: 2 saniye (60 saniye)
-* Çerçeve oranı: 30
+* Ana kare: 2 saniye (60 saniye)
+* Kare oranı: 30
 
 **Ses**:
 
@@ -89,85 +88,85 @@ Bu öğreticide, aşağıdaki çıkış ayarları kullanılır. Bu bölümün ge
 
 ### <a name="configuration-steps"></a>Yapılandırma adımları
 1. Kullanılan ve RTMP akış için ayarlanmış olan makine üzerinde Telestream Wirecast uygulamayı açın.
-2. Çıktı giderek yapılandırmak **çıkış** sekmesi ve seçerek **çıktı ayarları...** .
+2. Çıkış giderek yapılandırma **çıkış** sekmesine **çıkış ayarları...** .
 
-    Emin olun **Çıkış hedefini** ayarlanır **RTMP sunucusu**.
-3. **Tamam**’a tıklayın.
-4. Ayarlar sayfasında ayarlamak **hedef** olmasını alan **Azure Media Services**.
+    Emin **Çıkış hedefini** ayarlanır **RTMP sunucusu**.
+3. **Tamam** düğmesine tıklayın.
+4. Ayarlar sayfasında, ayarlama **hedef** olmasını alan **Azure Media Services**.
 
-    Kodlama profili için önceden seçilmiş **Azure H.264 720 p 16:9 (1280 x 720)**. Bu ayarları özelleştirmek için aşağı açılan sağındaki dişli simgesini seçin ve ardından **yeni önceden**.
+    Kodlama profili için önceden seçilmiş **Azure H.264 720 p 16:9 (1280 x 720)**. Bu ayarları özelleştirmek için açılan sağındaki dişli simgesini seçin ve ardından **yeni önceden**.
 
     ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
 5. Encoder hazır ayarlarını yapılandırın.
 
-    Önceden ayarlanmış adlandırın ve için önerilen ayarları aşağıdakileri denetleyin:
+    Ön ayarın adını ve önerilen ayarları için şunları denetleyin:
 
     **Video**
 
    * Kodlayıcı: MainConcept H.264
-   * Saniyedeki çerçeve sayısı: 30
+   * Saniyedeki: 30
    * Ortalama bit hızı: 5000 kbit/sn (ayarlanabilir ağ sınırlamalar tabanlı)
    * Profil: ana
-   * Anahtar çerçevesi her: 60 çerçeveler
+   * Anahtar çerçeve her: 60 çerçeveler
 
     **Ses**
 
    * Hedef bit hızı: 192 kbit/sn
-   * Örnek Hızı: 44,100 kHz
+   * Örnek Hızı: 44.100 kHz
 
      ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
 6. **Kaydet**’e basın.
 
-    Encoding alanı artık seçim için kullanılabilen yeni oluşturulan profil sahiptir.
+    Yeni oluşturulan profil seçilebilir Encoding alanı artık var.
 
     Yeni profili seçili olduğundan emin olun.
-7. Get kanal girdisini URL için Wirecast atamak için **RTMP Endpoint**.
+7. Kanal alma giriş URL'si için Wirecast atamak için **RTMP uç nokta**.
 
-    AMSE aracına gidin ve kanal tamamlanma durumunu denetleyin. Durumu değiştiğinden sonra **başlangıç** için **çalıştıran**, giriş URL'yi elde edebilirsiniz.
+    AMSE aracına gidin ve kanal tamamlanma durumunu denetleyin. Durum değiştiğinde **başlangıç** için **çalıştıran**, giriş URL'sini alabilirsiniz.
 
-    Kanal çalıştırırken, kanal adına sağ tıklayın, üzerinden vurgulu aşağıya doğru gidin **Panoya Kopyala giriş URL** ve ardından **birincil giriş URL**.  
+    Kanal çalıştırırken, kanal adına sağ tıklayın, üzerine gelindiğinde aşağı gidin **Panoya kopyalama giriş URL** seçip **birincil giriş URL**.  
 
     ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast6.png)
-8. Wirecast içinde **çıkış ayarları** penceresinde, bu bilgileri **adresi** çıkış bölüm ve atama Akış adı alanı.
+8. Wirecast içinde **çıkış ayarları** penceresinde, bu bilgileri yapıştırın **adresi** çıkış bölümüne ve ata Akış adı alanı.
 
     ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
 
 1. **Tamam**’ı seçin.
-2. Ana **Wirecast** hazır olduğunuzda, video ve ses giriş kaynağı onaylayın ve ardından isabet **akış** sol üst köşesindeki.
+2. Ana **Wirecast** hazır olduğunuzda, video ve ses giriş kaynağı onaylayın ve ardından isabet **Stream** sol üst köşedeki.
 
    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
 > [!IMPORTANT]
-> Tıklamadan önce **akış**, size **gerekir** kanal hazır olduğundan emin olun.
-> Ayrıca, kanal hazır durumda > 15 dakikadan fazla akış bir giriş katkı olmadan bırakın değil emin olun.
+> Tıklamadan önce **Stream**, size **gerekir** kanal hazır olduğundan emin olun.
+> Ayrıca, kanal hazır durumda > 15 dakikadan fazla akış bir giriş katkı olmadan bırakmamaya emin olun.
 >
 >
 
 ## <a name="test-playback"></a>Testi kayıttan yürütme
 
-AMSE Aracı'na gidin ve sınanacak kanalı sağ tıklatın. Menüden, üzerine gelerek **kayıttan yürütme Önizleme** seçip **Azure Media Player ile**.  
+AMSE aracına gidin ve test edilecek kanal sağ tıklayın. Menüden üzerine **kayıttan yürütme Önizleme** seçip **Azure Media Player ile**.  
 
     ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
-Ardından akış player görünürse, kodlayıcı düzgün için AMS bağlanmak için yapılandırıldı.
+Ardından akış Player'da görünüyorsa, kodlayıcı düzgün AMS'ye bağlanmak için yapılandırıldı.
 
-Bir hata alırsanız, kanal sıfırlanması gerekir ve Kodlayıcı ayarları ayarlanır. Bkz: [sorun giderme](media-services-troubleshooting-live-streaming.md) makale Kılavuzu.  
+Bir hata aldıysanız, kanal sıfırlanması gerekir ve Kodlayıcı ayarları ayarlanır. Bkz: [sorun giderme](media-services-troubleshooting-live-streaming.md) makale Kılavuzu.  
 
-## <a name="create-a-program"></a>Bir program oluşturun
-1. Kanal kayıttan yürütme onaylandıktan sonra bir program oluşturun. Altında **canlı** sekmesinde AMSE aracının içinde programı alanı sağ tıklatın ve seçin **Yeni Program Oluştur**.  
+## <a name="create-a-program"></a>Bir program oluşturma
+1. Kanal kayıttan yürütme onaylandıktan sonra bir program oluşturun. Altında **canlı** sekmesinde AMSE aracı içinde program alanı sağ tıklatın ve seçin **yeni bir Program oluşturma**.  
 
     ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast9.png)
-2. Program adı ve gerekirse, ayarlamak **arşiv penceresi uzunluğu** (hangi varsayılan olarak dört saate kadar). Ayrıca, bir depolama konumu belirtin veya varsayılan olarak bırakın.  
-3. Denetleme **Program Şimdi Başlat** kutusu.
-4. Tıklatın **Program oluşturma**.  
+2. Program adı ve gerekirse ayarlamak **arşiv penceresi uzunluğu** (bunun varsayılan dört saate kadar). Ayrıca, bir depolama konumu belirtin veya varsayılan olarak bırakın.  
+3. Denetleme **programı'nı şimdi başlatmak** kutusu.
+4. Tıklayın **Program oluşturma**.  
 
    >[!NOTE]
-   >Program oluşturma kanal oluşturma daha az zaman alır.
+   >Program oluşturma kanal oluşturmayı daha az zaman alır.
        
-5. Program çalışmaya başladıktan sonra program sağ tıklayarak ve giderek kayıttan yürütme onaylayın **kayıttan yürütme edinin** seçilerek **Azure Media Player ile**.  
-6. Onaylandıktan sonra programı tekrar sağ tıklayın ve seçin **çıkış URL'yi Panoya Kopyala** (veya bu bilgileri almak **Program bilgilerine ve ayarlarına** seçeneği menüsünde).
+5. Program çalışmaya başladığında, kayıttan yürütme programa sağ tıklayıp giderek onaylayın **kayıttan yürütme programlarının** seçip **Azure Media Player ile**.  
+6. Onaylandıktan sonra programı tekrar sağ tıklayıp **çıkış URL'sini Panoya Kopyala** (veya bu bilginin alındığı **Program bilgileri ve ayarları** menü seçeneğinden).
 
-Akış bir oynatıcı katıştırılmış veya dinamik görüntülemek için bir izleyici için Dağıtılmış artık hazırdır.  
+Akış bir oynatıcı içinde gömülü veya canlı görüntülemek için bir hedef kitle için Dağıtılmış artık hazırdır.  
 
 ## <a name="troubleshooting"></a>Sorun giderme
 Bkz: [sorun giderme](media-services-troubleshooting-live-streaming.md) makale Kılavuzu.

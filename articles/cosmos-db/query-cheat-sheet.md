@@ -1,7 +1,7 @@
 ---
-title: Azure Cosmos DB PDF sorgu hızlı başvuru sayfaları | Microsoft Docs
-description: Yazdırılabilir PDF kopya verilerinizi sorgulamak için Azure Cosmos veritabanı SQL, MongoDB, grafik ve tablo API'leri kullanmanıza yardımcı olan sayfaları
-keywords: SQL kopya sayfası, sql hızlı başvuru sayfası pdf, sql sorgu kopya sayfası
+title: Azure Cosmos DB PDF sorgu kurallar sayfası | Microsoft Docs
+description: Yazdırılabilir PDF kural, verileri sorgulamak için Azure Cosmos DB SQL, MongoDB, graf ve tablo API'leri kullanmanıza yardımcı olan listeleri
+keywords: SQL kağıdı, sql hızlı başvuru sayfası pdf, sql sorgu kopya kağıdı
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -10,35 +10,35 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: 10ee398bce30b82d1e199a12cd471ae52d4fae21
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 432f61adaf736180a720aa23a7275e96fed4c733
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34614127"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696940"
 ---
-# <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB sorgu hızlı başvuru sayfaları
+# <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB sorgu kurallar sayfası
 
-**Azure Cosmos DB sorgu hızlı başvuru sayfaları** hızla ortak veritabanı sorguları, işlemleri, İşlevler ve işleçler kolay yazdırma PDF başvuru sayfaları görüntüleyerek yazma sorguları verileriniz için Yardım. Hızlı başvuru sayfaları SQL API MongoDB API, tablo API ve Gremlin/grafik API'si için başvuru bilgileri içerir. 
+**Azure Cosmos DB sorgu kurallar sayfası** hızlıca ortak veritabanı sorguları, işlemler, İşlevler ve işleçler kolay yazdırma PDF başvuru sayfalarında görüntüleyerek yazma sorguları verileriniz için Yardım. Kurallar sayfası SQL API'si, MongoDB API'si, tablo API'si ve Gremlin API'si için başvuru bilgileri içerir. 
 
-Letter boyutlu veya A3 ölçekli Merkezi'nden seçin. 
+Bir harf boyutlu veya A3 boyutlu indirilerek seçin. 
 
-## <a name="letter-sized-cheat-sheets"></a>Letter boyutlu hızlı başvuru sayfaları
+## <a name="letter-sized-cheat-sheets"></a>Letter boyutlu kurallar sayfası
 
-Karşıdan [Azure Cosmos DB letter boyutlu sorgu hızlı başvuru sayfaları](http://go.microsoft.com/fwlink/?LinkId=623215) yazdırma letter boyutlu kağıdı için (8.5 "x 11") ise oluşturacağız.
+İndirme [Azure Cosmos DB sorgu letter boyutlu kurallar sayfası](http://go.microsoft.com/fwlink/?LinkId=623215) letter boyutlu incelemesini (8.5 "x 11") yazdırma, oluşturacağız.
 
-![Azure Cosmos DB sorgu hızlı başvuru sayfaları - letter SQL API, JavaScript, MongoDB API, grafik API'si ve tablo API sorgular ve işlevleri boyutlu,](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
+![Azure Cosmos DB sorgu kurallar sayfası - letter SQL API'si, JavaScript, MongoDB API, Gremlin API ve tablo API'si sorguları ve işlevler ile boyutlu,](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
 
-## <a name="oversized-cheat-sheets"></a>Büyük boyutlu hızlı başvuru sayfaları
-Karşıdan [Azure Cosmos DB A3 ölçekli sorgu hızlı başvuru sayfaları](https://go.microsoft.com/fwlink/?linkid=870413) çizici veya büyük ölçekli yazıcı A3 boyutlu kağıda (11.7 "x 16.5") kullanarak yazdırma varsa oluşturacağız.
+## <a name="oversized-cheat-sheets"></a>Büyük boyutlu kurallar sayfası
+İndirme [Azure Cosmos DB A3 boyutlu sorgu kurallar sayfası](https://go.microsoft.com/fwlink/?linkid=870413) çizici veya büyük ölçekli yazıcı A3 boyutlu kağıda (11.7 "x 16.5") kullanarak yazdırma, oluşturacağız.
 
-![Azure Cosmos DB sorgu hızlı başvuru sayfaları - A3 ölçekli, SQL API'yi, JavaScript, MongoDB API, grafik API'si ve tablo API sorgular ve İşlevler](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png)
+![Azure Cosmos DB sorgu kurallar sayfası - A3 ölçekli, SQL API'si, JavaScript, MongoDB API, Gremlin API ve tablo API'si sorguları ve işlevleri](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Sorgu yazma daha fazla yardım için aşağıdaki makalelere bakın:
-* SQL API sorgular için bkz: [SQL API'yi kullanarak sorgu](tutorial-query-sql-api.md), [SQL sorgularını Azure Cosmos DB için](sql-api-sql-query.md), ve [SQL söz dizimi başvurusu](sql-api-sql-query-reference.md)
-* MongoDB sorgular için bkz: [MongoDB API kullanarak sorgu](tutorial-query-mongodb.md) ve [MongoDB özellikleri ve sözdizimi için MongoDB API desteği](mongodb-feature-support.md)
-* Grafik API'si sorguları için bkz: [grafik API'sini kullanarak sorgu](tutorial-query-graph.md) ve [Azure Cosmos DB Gremlin grafik desteği](gremlin-support.md)
-* Tablo API sorgular için bkz: [tablo API kullanarak sorgulama](tutorial-query-table.md)
+* SQL API'si sorguları için bkz: [SQL API'sini kullanarak sorgulama](tutorial-query-sql-api.md), [Azure Cosmos DB SQL sorgularında](sql-api-sql-query.md), ve [SQL söz dizimi başvurusu](sql-api-sql-query-reference.md)
+* MongoDB sorgular için bkz: [MongoDB API'sini kullanarak sorgulama](tutorial-query-mongodb.md) ve [MongoDB özellikleri ve söz dizimi için MongoDB API'si desteği](mongodb-feature-support.md)
+* Gremlin API sorgular için bkz: [Gremlin API kullanımı sorgu](tutorial-query-graph.md) ve [Azure Cosmos DB Gremlin graf desteği](gremlin-support.md)
+* Tablo API'si sorguları için bkz: [tablo API'sini kullanarak sorgulama](tutorial-query-table.md)
 
 

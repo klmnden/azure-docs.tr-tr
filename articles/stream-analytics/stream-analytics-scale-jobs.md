@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 61ee84ccfccfa49ff2e106e7036d072c1b21ca03
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 4da97d708f8db2dcee406645a0eee409fa111012
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34652551"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696811"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Azure Stream Analytics işi verimliliğini artırmak için ölçeklendirme
 Bu makalede, Streaming Analytics işlerini verimliliğini artırmak için bir Stream Analytics sorgu nasıl ayarlanacağını gösterir. İşinizi daha yüksek bir yükü işlemek ve daha fazla sistem kaynakları (örneğin, daha fazla bant genişliği, daha fazla CPU kaynaklarının, daha fazla bellek) yararlanmak için ölçeklendirmek için aşağıdaki kılavuzu kullanabilirsiniz.
@@ -70,7 +70,7 @@ Belirli bir ISV kullanmak için olduğu daha tek bir işlemde birden çok kirac�
 2.  Olay hub'ı kullanıyorsanız giriş bölüm sayısı 2 olası en düşük değerini azaltın.
 3.  Sorgu 6 SU ile çalıştırın. İş, sistem kaynak sınırlarını ulaşma kadar her alt sorgu için beklenen yükü ile mümkün olduğu kadar alt ekleyin. Başvurmak [vaka 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions) için böyle bir durumda belirtileri.
 4.  Yukarıda ölçülen alt sınırı karşılaştınız demektir sonra alt sorgu yeni bir projeye ekleme başlatın. İşlev bağımsız sorgularının sayısı olarak çalıştırılacak işlerin sayısı eğme herhangi bir yüke sahip değilseniz varsayılarak oldukça doğrusal olmalıdır. 6 kaç SU işleri kiracılara hizmet vermek için istediğiniz sayıda bir işlev çalıştırmak için gereken tahmini.
-5.  Başvuru veri JOIN sorgularını ile kullanırken, birleşim girişleri birlikte aynı başvuru verilerini katılmadan önce olay gerekirse bölünmesi gerekir. Aksi takdirde, her başvuru veri birleştirme, büyük olasılıkla bellek kullanımını serbest gereksiz yere blowing bellekte başvuru verilerinin bir kopyasını tutar.
+5.  Başvuru veri JOIN sorgularını ile kullanırken girişleri birlikte aynı ile birleştirilmeden önce başvuru verileri birleşim. Ardından, gerekirse olaylarını bölün. Aksi takdirde, her başvuru veri birleştirme, büyük olasılıkla bellek kullanımını serbest gereksiz yere blowing bellekte başvuru verilerinin bir kopyasını tutar.
 
 > [!Note] 
 > Her bir iş koymak için kaç adet kiracıyı?

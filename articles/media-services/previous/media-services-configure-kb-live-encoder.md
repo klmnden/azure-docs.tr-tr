@@ -1,6 +1,6 @@
 ---
-title: Tek bit hızlı bir canlı akışı Azure'a göndermek için Haivision KB Kodlayıcı yapılandırma | Microsoft Docs
-description: Bu konuda, tek bit hızlı akış gerçek zamanlı kodlama için etkinleştirilmiş AMS kanallar göndermek için Haivision KB gerçek zamanlı Kodlayıcı yapılandırma gösterilmektedir.
+title: Haivision KB Kodlayıcı, tek bit hızlı canlı akış'ı Azure'a göndermek için yapılandırma | Microsoft Docs
+description: Bu konuda, tek bit hızlı akış gerçek zamanlı kodlama için etkinleştirilmiş kanallar AMS göndermek için Canlı Haivision KB Kodlayıcı yapılandırma gösterilmektedir.
 services: media-services
 documentationcenter: ''
 author: dbgeorge
@@ -14,46 +14,45 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: juliako;dbgeorge
-ms.openlocfilehash: 25077cd9338a2764c6dff9e755812033685f6641
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a36e12080cbbcb1a98bf786a6634959362cb52a7
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788791"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666458"
 ---
-# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Tek bit hızlı bir canlı akışı göndermek için Haivision KB gerçek zamanlı Kodlayıcı kullanın
+# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Haivision KB gerçek zamanlı Kodlayıcı, tek bit hızlı canlı akış göndermek için kullanın
 > [!div class="op_single_selector"]
-> * [Elemental dinamik](media-services-configure-elemental-live-encoder.md)
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Haivision](media-services-configure-kb-live-encoder.md)
-> * [tricaster](media-services-configure-tricaster-live-encoder.md)
-> * [wirecast](media-services-configure-wirecast-live-encoder.md)
+> * [Tricaster](media-services-configure-tricaster-live-encoder.md)
+> * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 
-Bu konuda nasıl yapılandırılacağını göstermektedir [Havision KB gerçek zamanlı Kodlayıcı](https://www.haivision.com/products/kb-series/) AMS bir tek bit hızlı akışın kanallar göndermek için Kodlayıcı, gerçek zamanlı kodlama için etkinleştirilir. Daha fazla bilgi için bkz. [Azure Media Services ile Gerçek Zamanlı Kodlama Gerçekleştirmek İçin Etkinleştirilmiş Kanallar ile Çalışma](media-services-manage-live-encoder-enabled-channels.md).
+Bu konu nasıl yapılandırılacağı gösterilmektedir [Havision KB gerçek zamanlı Kodlayıcı](https://www.haivision.com/products/kb-series/) AMS tekli bit hızı akışına kanallar göndermek için Kodlayıcı, gerçek zamanlı kodlama için etkinleştirilir. Daha fazla bilgi için bkz. [Azure Media Services ile Gerçek Zamanlı Kodlama Gerçekleştirmek İçin Etkinleştirilmiş Kanallar ile Çalışma](media-services-manage-live-encoder-enabled-channels.md).
 
-Bu öğretici, Azure Media Services Gezgini (AMSE) aracı ile Azure Media Services (AMS) yönetmek gösterilmiştir. Bu araç, yalnızca bir Windows Bilgisayarına çalışır. Mac veya Linux varsa, oluşturmak için Azure portalını kullanın [kanalları](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) ve [programlar](media-services-portal-creating-live-encoder-enabled-channel.md).
+Bu öğreticide, Azure Media Services Gezgini (AMSE) aracı ile Azure Media Services (AMS) yönetilecek gösterilmektedir. Bu araç yalnızca Windows bilgisayarda çalışır. Mac veya Linux bilgisayarda ise oluşturmak için Azure portalını kullanma [kanalları](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) ve [programlar](media-services-portal-creating-live-encoder-enabled-channel.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
-*   SW v5.01 çalıştıran bir Haivision KB Kodlayıcısı erişimi veya daha büyük.
-* [Bir Azure Media Services hesabı oluşturma](media-services-portal-create-account.md)
-* Çalıştıran bir akış uç olduğundan emin olun. Daha fazla bilgi için bkz: [akış uç noktalarını yönetme Media Services hesabı](media-services-portal-manage-streaming-endpoints.md)
-* En son sürümünü yüklemek [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) aracı.
-* Aracı'nı başlatın ve AMS hesabınıza bağlanın.
+*   Çalışıyor SW v5.01 bir Haivision KB Kodlayıcı erişimi veya daha büyük.
+* [Azure Media Services hesabı oluşturma](media-services-portal-create-account.md)
+* Çalışan bir akış uç bulunduğundan emin olun. Daha fazla bilgi için [akış uç noktalarını yönetme Media Services hesabı](media-services-portal-manage-streaming-endpoints.md)
+* En son sürümünü yükleyin [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) aracı.
+* Aracı'nı başlatın ve AMS hesabınızı bağlayın.
 
 ## <a name="tips"></a>İpuçları
-* Mümkün olduğunda, bir sabit Internet bağlantısı kullanır.
-* Bir iyi bant genişliği gereksinimlerini belirlerken için udur akış bit çift. Bu zorunlu bir gereksinim olmamasına karşın, Ağ Tıkanıklığı etkisini azaltmaya yardımcı olur.
+* Mümkün olduğunda, bir sabit internet bağlantısı kullanın.
+* Bir iyi bant genişliği gereksinimlerini belirlerken için udur akış bit hızlarına dönüştürme çift. Bu zorunlu bir gereksinim olmamasına karşın, Ağ Tıkanıklığı etkisini azaltmaya yardımcı olur.
 * Yazılım tabanlı kodlayıcılar kullanırken, gereksiz tüm programları kapatın.
 
 ## <a name="create-a-channel"></a>Kanal oluşturma
-1. AMSE aracını gidin **canlı** sekmesini tıklatın ve içinde kanal alanı sağ tıklatın. Seçin **kanal oluştur...** menüden.
+1. AMSE Aracı'nda gidin **canlı** sekmesini tıklatıp içinde kanal alana sağ tıklayın. Seçin **kanal oluştur...** belirleyin.
 [Haivision](./media/media-services-configure-kb-live-encoder/channel.png)
-2. Bir kanal adı belirtin açıklama alanı isteğe bağlıdır. Kanal ayarları altında seçin **standart** gerçek zamanlı kodlama seçeneğini ayarlamak giriş protokolü için **RTMP**. Olduğu gibi tüm diğer ayarlar bırakabilirsiniz. Emin olun **yeni kanal Şimdi Başlat** seçilir.
-3. Tıklatın **kanal oluşturmak**.
+2. Bir kanal adı belirtirseniz açıklama alanı isteğe bağlıdır. Kanal ayarları altında **standart** Live Encoding seçeneğini ayarlamak giriş protokolü için **RTMP**. Olduğu gibi tüm diğer ayarlar bırakabilirsiniz. Emin **yeni kanal Şimdi Başlat** seçilir.
+3. Tıklayın **kanal oluşturma**.
 [Haivision](./media/media-services-configure-kb-live-encoder/livechannel.png)
 
 > [!NOTE]
-> Kanal başlatmak için 20 dakika sürebilir.
+> Kanalı başlatmak için 20 dakika sürebilir.
 
 ## <a name="configure-the-haivision-kb-encoder"></a>Haivision KB Kodlayıcı yapılandırın
 Bu öğreticide, aşağıdaki çıkış ayarları kullanılır. Bu bölümün geri kalanında daha ayrıntılı yapılandırma adımlarını açıklar.
@@ -62,8 +61,8 @@ Video:
 -   Codec: H.264
 -   Profil: Yüksek (düzeyi 4.0)
 -   Bit hızı: 5000 KB/sn
--   Anahtar kare: 2 saniye (60 saniye)
--   Çerçeve oranı: 30
+-   Ana kare: 2 saniye (60 saniye)
+-   Kare oranı: 30
 
 Ses:
 -   Codec: AAC (LC)
@@ -72,39 +71,39 @@ Ses:
 
 ## <a name="configuration-steps"></a>Yapılandırma adımları
 1.  Haivision KB kullanıcı arabirimine oturum açın.
-2.  Tıklayın **menü düğmesi** kanal denetim merkezi seçip **Ekle kanal**  
+2.  Tıklayarak **menü düğmesine** kanal denetim merkezi seçip **Kanal Ekle**  
     ![Ekran görüntüsü 2017-08-14 9.15.09 adresindeki AM.png](./media/media-services-configure-kb-live-encoder/step2.png)
-3.  Tür **kanal adı** alan adı ve sonraki tıklayın.  
+3.  Tür **kanal adı** ad alanı ve sonraki tıklayın.  
     ![Ekran görüntüsü 2017-08-14 9.19.07 adresindeki AM.png](./media/media-services-configure-kb-live-encoder/step3.png)
 4.  Seçin **kanal giriş kaynağı** gelen **giriş kaynağı** açılır ve sonraki tıklayın.
     ![Ekran görüntüsü 2017-08-14 9.20.44 adresindeki AM.png](./media/media-services-configure-kb-live-encoder/step4.png)
-5.  Gelen **Kodlayıcı şablonu** açılan seçin **H264-720-AAC-192** tıkladıktan sonra.
+5.  Gelen **Encoder şablonunu** açılan seçin **720 AAC 192 H264** ve sonraki tıklayın.
     ![Ekran görüntüsü 2017-08-14 9.23.15 adresindeki AM.png](./media/media-services-configure-kb-live-encoder/step5.png)
-6.  Gelen **yeni çıkış seçin** açılan seçin **RTMP** ve sonraki tıklayın.  
+6.  Gelen **seçin yeni çıkış** açılan seçin **RTMP** ve sonraki tıklayın.  
     ![Ekran görüntüsü 2017-08-14 9.27.51 adresindeki AM.png](./media/media-services-configure-kb-live-encoder/step6.png)
-7.  Gelen **kanal çıktı** penceresinde, Azure akış bilgileri doldurun. Yapıştır **RTMP** ilk kanal kurulumunda bağlantısından **Server** alanı. İçinde **çıktı adı** kanal adını alanı yazın. Akış adı şablonu alanında şablon RTMPStreamName_ video_bitrate % akış adlandırmak için kullanın.
+7.  Gelen **kanal çıkış** penceresinde Azure akış bilgileri doldurun. Yapıştırma **RTMP** ilk kanal kurulumunda bağlantıdan **sunucu** alan. İçinde **çıkış adı** kanal adını alan yazın. Stream adı şablon bölümünde, şablonu RTMPStreamName_ video_bitrate % Akış adı için kullanın.
     ![Ekran görüntüsü 2017-08-14 9.33.17 adresindeki AM.png](./media/media-services-configure-kb-live-encoder/step7.png)
 8.  İleri'yi ve sonra Bitti'ye tıklayın tıklatın.
-9.  Tıklatın **Yürüt düğmesini** Kodlayıcı kanal başlatmak için.  
+9.  Tıklayın **YÜRÜT düğmesine** Kodlayıcı kanalı başlatmak.  
     ![Haivision KB.png](./media/media-services-configure-kb-live-encoder/step9.png)
 
 ## <a name="test-playback"></a>Testi kayıttan yürütme
-AMSE Aracı'na gidin ve sınanacak kanalı sağ tıklatın. Menüsünde Önizleme kayıttan yürütme getirin ve Azure Media Player ile seçin.
+AMSE aracına gidin ve test edilecek kanal sağ tıklayın. Menüsünden Önizleme kayıttan yürütme gelin ve Azure Media Player'ı seçin.
 
-Ardından akış player görünürse, kodlayıcı düzgün için AMS bağlanmak için yapılandırıldı.
+Ardından akış Player'da görünüyorsa, kodlayıcı düzgün AMS'ye bağlanmak için yapılandırıldı.
 
-Bir hata alırsanız, kanal sıfırlanması gerekir ve Kodlayıcı ayarları ayarlanır. Yönergeler için sorun giderme makalesine bakın.
+Bir hata aldıysanız, kanal sıfırlanması gerekir ve Kodlayıcı ayarları ayarlanır. Yönergeler için sorun giderme makalesine bakın.
 
-## <a name="create-a-program"></a>Bir program oluşturun
-1.  Kanal kayıttan yürütme onaylandıktan sonra bir program oluşturun. AMSE aracının Canlı sekmesindeki içinde programı alanı sağ tıklatın ve Yeni Program Oluştur seçin.
+## <a name="create-a-program"></a>Bir program oluşturma
+1.  Kanal kayıttan yürütme onaylandıktan sonra bir program oluşturun. AMSE Aracı'nda Canlı sekmesindeki içinde program alana sağ tıklayın ve yeni bir Program oluşturma seçin.
 [Haivision](./media/media-services-configure-kb-live-encoder/program.png)
-1.  Program adı ve gerekirse, arşiv penceresi uzunluğu (hangi varsayılan olarak dört saat) ayarlayın. Ayrıca, bir depolama konumu belirtin veya varsayılan olarak bırakın.
+1.  Program adı ve gerekirse, arşiv penceresi uzunluğu (Bu varsayılan olarak dört saat) ayarlayın. Ayrıca, bir depolama konumu belirtin veya varsayılan olarak bırakın.
 2.  Başlangıç programı şimdi kutuyu işaretleyin.
-3.  Program Oluştur'u tıklatın.
-4.  Program çalışmaya başladıktan sonra kayıttan yürütme program sağ tıklayarak onaylayın ve giderek edinin kayıttan ve Azure Media Player ile seçme.
-5.  Onaylandıktan sonra programı tekrar sağ tıklayın ve çıkış URL'yi Panoya Kopyala'yı seçin (veya Program bilgilerini ve ayarlar seçeneğini menüsünde bu bilgileri almak).
+3.  Program Oluştur'a tıklayın.
+4.  Program çalışmaya başladığında, kayıttan yürütme programa sağ tıklayarak onaylayın ve giderek programların kayıttan yürütme ve Azure Media Player'ı seçerek.
+5.  Onaylandıktan sonra programı tekrar sağ tıklayın ve çıkış URL'sini Panoya Kopyala'yı seçin (veya menü seçeneğinden ayarları ve Program bilgilerini bu bilgileri almak).
 
-Akış bir oynatıcı katıştırılmış veya dinamik görüntülemek için bir izleyici için Dağıtılmış artık hazırdır.
+Akış bir oynatıcı içinde gömülü veya canlı görüntülemek için bir hedef kitle için Dağıtılmış artık hazırdır.
 
 > [!NOTE]
-> Program oluşturma kanal oluşturma daha az zaman alır.
+> Program oluşturma kanal oluşturmayı daha az zaman alır.

@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/30/2018
+ms.date: 09/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 160e2a277c82470df7d9ced2899699dae8d4ef01
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 429a10988fdc19863cfd6809a8d73757d33349c9
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302137"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702324"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -122,10 +122,9 @@ Bir yeni kaynak grubuna ve aboneliğe geri taşıyarak sağlayan hizmetler şunl
 * Azure Haritalar
 * Azure Geçişi
 * Azure Stack - kayıtları
-* Azure Geçişi
 * Batch
 * BizTalk Services
-* Boz Hizmeti
+* Bot Hizmeti
 * CDN
 * Bulut Hizmetleri - bkz [Klasik dağıtım sınırlamalarını](#classic-deployment-limitations)
 * Bilişsel Hizmetler
@@ -141,7 +140,7 @@ Bir yeni kaynak grubuna ve aboneliğe geri taşıyarak sağlayan hizmetler şunl
 * Event Grid
 * Event Hubs
 * Bkz: HDInsight kümeleri - [HDInsight sınırlamaları](#hdinsight-limitations)
-* IOT Central
+* IoT Central
 * IoT Hub
 * Key Vault
 * Yük Dengeleyiciler - bkz [yük dengeleyici sınırlamaları](#lb-limitations)
@@ -188,6 +187,7 @@ Bir yeni kaynak grubuna ve aboneliğe geri taşıyarak sağlayan hizmetler şunl
 * PostgreSQL için Azure Veritabanı
 * Azure veritabanı geçişi
 * Azure Databricks
+* Azure Geçişi
 * Batch AI
 * Sertifikalar - App Service sertifikaları taşınabilir, ancak karşıya yüklenen Sertifikalar [sınırlamaları](#app-service-limitations).
 * Container Instances
@@ -237,8 +237,6 @@ Bir sanal ağ taşırken, bağımlı kaynaklarını da taşımanız gerekir. VPN
 Eşlenmiş sanal ağın taşımak için önce sanal ağ eşlemesi devre dışı bırakmanız gerekir. Devre dışı sonra sanal ağ taşıyabilirsiniz. Taşıma sonrasında, sanal ağ eşlemesi yeniden etkinleştirin.
 
 Bir alt ağ kaynak gezinti bağlantılarının bulunduğu sanal ağı içeriyorsa bir sanal ağ başka bir aboneliğe taşınamıyor. Örneğin, bir Redis Cache kaynak bir alt ağa dağıtılırsa, bu alt ağ kaynak Gezinti bağlantısı vardır.
-
-Sanal ağ özel bir DNS sunucusu içeriyorsa, bir sanal ağ başka bir aboneliğe taşınamıyor. Sanal ağ taşımak için varsayılan (Azure tarafından sağlanan) DNS sunucusunu ayarlayın. Taşıma sonrasında, özel DNS sunucusunu yeniden yapılandırın.
 
 ## <a name="app-service-limitations"></a>App Service kısıtlamaları
 

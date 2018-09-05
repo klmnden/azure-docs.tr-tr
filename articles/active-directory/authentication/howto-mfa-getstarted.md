@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 09/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: c2d0f14bca2b9ab062c61407479ab45a0104ff0a
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 0408b26e687dd31c408dbccc68f56e8198016c8f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716272"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664797"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Bulut tabanlı Azure multi-Factor Authentication'ı dağıtma
 
@@ -23,8 +23,8 @@ Azure multi-Factor Authentication (Azure MFA) ile çalışmaya başlama basit bi
 
 Başlamadan önce aşağıdaki önkoşulların karşılandığından emin olun:
 
-* Azure AD kiracınızda genel yönetici hesabı. Bu adımın yardıma ihtiyacınız olursa makalemizi bkz [Azure AD'yi kullanmaya başlama](../get-started-azure-ad.md)
-* Doğru lisansları kullanıcılara atanır. Daha fazla bilgi için bkz. konu gerekiyorsa [Azure multi-Factor Authentication'ı edinme](concept-mfa-licensing.md)
+* Azure AD kiracınızda genel yönetici hesabı. Bu adımın yardıma ihtiyacınız olursa makalemizi bkz [Azure AD'yi kullanmaya başlama](../get-started-azure-ad.md).
+* Doğru lisansları kullanıcılara atanır. Daha fazla bilgi için bkz. konu gerekiyorsa [Azure multi-Factor Authentication'ı alma](concept-mfa-licensing.md).
 
 ## <a name="choose-how-to-enable"></a>Etkinleştirme seçin
 
@@ -32,7 +32,7 @@ Başlamadan önce aşağıdaki önkoşulların karşılandığından emin olun:
 
 Bu yöntem Azure AD kimlik koruması tarafından - etkin iki aşamalı kimlik doğrulaması oturum açma riski tüm bulut uygulamaları için yalnızca temel Azure AD kimlik Koruması riski İlkesi kullanır. Bu yöntem, Azure Active Directory P2 lisansı gerektirir. Bu yöntem hakkında daha fazla bilgi bulunabilir [Azure Active Directory kimlik koruması](../identity-protection/overview.md#risky-sign-ins).
 
-Kullanıcı değiştirerek etkin durumu - iki aşamalı doğrulama gerektirme geleneksel yöntem budur. Bu, hem de bulutta Azure MFA ve Azure MFA sunucusu ile çalışır. Bu yöntemi kullanarak, kullanıcıların iki aşamalı doğrulamanın gerektirir **her** oturum açın ve koşullu erişim ilkeleri geçersiz kılar. Bu yöntem hakkında daha fazla bilgi bulunabilir [bir kullanıcı için iki aşamalı doğrulama gerektirme](howto-mfa-userstates.md)
+Kullanıcı değiştirerek etkin durumu - iki aşamalı doğrulama gerektirme geleneksel yöntem budur. Bu, hem de bulutta Azure MFA ve Azure MFA sunucusu ile çalışır. Bu yöntemi kullanarak, kullanıcıların iki aşamalı doğrulamanın gerektirir **her** oturum açın ve koşullu erişim ilkeleri geçersiz kılar. Bu yöntem hakkında daha fazla bilgi bulunabilir [bir kullanıcı için iki aşamalı doğrulama gerektirme](howto-mfa-userstates.md).
 
 > [!Note]
 > Lisanslar ve fiyatlandırma hakkında daha fazla bilgi bulunabilir [Azure AD'ye](https://azure.microsoft.com/pricing/details/active-directory/

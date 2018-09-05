@@ -9,19 +9,32 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: juliako
-ms.openlocfilehash: 8a9409c46cac8397bc449c586374729a4d864036
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ac9d3f8fd10a3b65a2af2999b8c7ade7965de912
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41988774"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664453"
 ---
 # <a name="upload-and-index-your-videos"></a>Karşıya yükleme ve videolarınızı dizin  
 
-Bu makalede nasıl kullanılacağını gösterir [videoyu karşıya yükle](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) karşıya yüklemek ve videolarınızı Azure Video Indexer ile dizin için API. Ayrıca işlem ve API çıktısını değiştirmek için API ayarlayabilirsiniz parametrelerden bazıları açıklanır.
+Bu makalede, Azure Video Indexer ile videoyu karşıya yükle gösterilmektedir. Video Indexer API iki yükleme seçeneği sağlar: 
+
+* (tercih edilir), bir URL'den videonuzu karşıya yükleyin
+* İstek gövdesinde bir bayt dizisi olarak video dosyasını gönderin.
+
+Makaleyi nasıl kullanılacağını gösterir [videoyu karşıya yükle](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) karşıya yüklemek ve videolarınızı dizin için API tabanlı bir URL üzerinde. Bayt dizisinin yüklemeyi gösteren kod açıklamalı makaledeki bir kod örneği içerir.  
+
+Ayrıca bazı parametreler işlem ve API çıktısını değiştirmek için API ayarlayabilirsiniz anlatılmaktadır.
 
 > [!Note]
-> Video Indexer hesabınız oluşturulurken (belirli sayıda boş dizin dakika nereden) ücretsiz bir deneme hesabı veya Ücretli bir seçeneğe (burada, kota tarafından sınırlı değildir) seçebilirsiniz. <br/>Ücretsiz deneme ile 2400 dakika sayısı en fazla ücretsiz API kullanıcılara dizin oluşturma ve Video Indexer, ücretsiz Web sitesi kullanıcılara dizin 600 dakika sağlar. <br/>Bir Video Indexer hesabı oluşturduğunuz Ücretli seçeneğiyle [Azure aboneliğinizi ve Azure Media Services hesabına bağlı](connect-to-azure.md). İlgili medya hesabı yanı sıra dizine dakikalar için ödeme ücretleri. 
+> Video Indexer hesabınız oluşturulurken (belirli sayıda boş dizin dakika nereden) ücretsiz bir deneme hesabı veya Ücretli bir seçeneğe (burada, kota tarafından sınırlı değildir) seçebilirsiniz. <br/>Ücretsiz deneme ile 2400 dakika sayısı en fazla ücretsiz API kullanıcılara dizin oluşturma ve Video Indexer, ücretsiz Web sitesi kullanıcılara dizin 600 dakika sağlar. Bir Video Indexer hesabı oluşturduğunuz Ücretli seçeneğiyle [Azure aboneliğinizi ve Azure Media Services hesabına bağlı](connect-to-azure.md). İlgili medya hesabı yanı sıra dizine dakikalar için ödeme ücretleri. 
+
+## <a name="uploading-considerations"></a>Karşıya yükleme konuları
+    
+- Videonuz karşıya (tercih edilir) URL'si üzerinde temel uç nokta TLS 1.2 (veya üzeri) korunmalıdır
+- Bayt dizisi seçenek 4 GB ile sınırlıdır ve 30 dakika sonra zaman aşımına uğruyor
+- Sağlanan URL `videoURL` param kodlanması gerekiyor
 
 ## <a name="configurations-and-params"></a>Yapılandırmalar ve parametreler
 
@@ -45,7 +58,7 @@ Fiyat, seçili dizin seçeneğe bağlıdır.
 
 Dizin oluşturulurken bildirmek için bir POST URL'si tamamlanır. Video Indexer ekler iki sorgu dizesi parametreleri: kimliği ve durumu. Örneğin, geri çağırma URL'si ise 'https://test.com/notifyme?projectName=MyProject', ek parametreler ile bildirim gönderilir'https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed'.
 
-Video Indexer çağrısı göndermeden önce URL'sine daha fazla parametre ekleyebilir ve bu parametreleri geri aramada dahil edilir. Sorgu dizesini ayrıştırmak ve alma kodunuzda (URL'si artı Video Indexer tarafından sağlanan bilgileri için başlangıçta eklenmiş veriler.) sorgu dizesinde belirtilen parametrelerin tümü daha sonra tekrar 
+Video Indexer çağrısı göndermeden önce URL'sine daha fazla parametre ekleyebilir ve bu parametreleri geri aramada dahil edilir. Sorgu dizesini ayrıştırmak ve alma kodunuzda (URL'si artı Video Indexer tarafından sağlanan bilgileri için başlangıçta eklenmiş veriler.) sorgu dizesinde belirtilen parametrelerin tümü daha sonra tekrar Kodlanacak URL gerekiyor.
 
 ### <a name="streamingpreset"></a>streamingPreset
 
@@ -56,6 +69,12 @@ Kullanırken [videoyu karşıya yükle](https://api-portal.videoindexer.ai/docs/
 Dizin oluşturma ve kodlama işleri çalıştırmak için [Azure Media Services hesabına bağlı Video Indexer hesabınız](connect-to-azure.md), ayrılmış birim gerektirir. Daha fazla bilgi için [medya işlemeyi ölçeklendirme](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview). Bu işlem gücü kullanımlı işleri olduğundan, S3 birimi türü önemle tavsiye edilir. RU sayısı, paralel olarak çalıştırılabilir işler en fazla sayısını tanımlar. 10 S3 RU'ları temel önerilir. 
 
 Yalnızca videonuzu dizinlemeyi istiyoruz, ancak bunu kodlamamayı verilirse `streamingPreset`için `NoStreaming`.
+
+### <a name="videourl"></a>videoUrl
+
+Sıralanacak bir görüntü/ses dosyanın URL'si. URL bir medya dosyasını işaret etmelidir (HTML sayfalarını desteklenmez). Dosya URI'ın bir parçası olarak sunulan bir erişim belirteci tarafından korunuyor olabilir ve dosyayı hizmet uç noktası güvenli, TLS 1.2 veya üzeri olmalıdır. Kodlanacak URL gerekiyor. 
+
+Varsa `videoUrl` belirtilmezse, Video Indexer dosya multipart/form gövdesi içeriği olarak geçirmek için bekliyor.
 
 ## <a name="code-sample"></a>Kod örneği
 

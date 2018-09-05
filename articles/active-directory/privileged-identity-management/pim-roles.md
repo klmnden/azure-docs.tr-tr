@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: c8870e4da63dc52d5926bdfd5f7c9b3218e5f53a
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: fc45cde1a5f0f287274302541ac0115569e2239d
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188995"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666345"
 ---
 # <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>PIM'de yönetebilmeniz için azure AD Dizin rolleri
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -76,13 +76,36 @@ Azure Aboneliklerini yönetmek kullanıcı gerekmiyor olsa bile bir Hizmet Yöne
 Kullanıcı ayrıca atanmış bir lisansı hizmetin portalını açın veya yönetim görevlerini gerçekleştirmek için önce Microsoft Online hizmetlerine erişim gerektirebilir.
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Azure AD'de bir kullanıcıya lisans atama
+
 1. Oturum [Azure portalında](http://portal.azure.com) ile bir genel yönetici veya ortak yönetici hesabı.
-3. Azure AD'yi seçin ve onunla ilişkili lisans ile çalışma ve, istediğiniz dizine sahip.
-4. Seçin **lisansları** soldaki. Kullanılabilir lisanslar listesi görüntülenir.
-5. Dağıtmak istediğiniz lisansları içeren lisans planını seçin.
-6. Seçin **Kullanıcıları Ata**.
-7. Bir lisansı atamak istediğiniz kullanıcıyı seçin.
-8. Tıklayın **atama** düğmesi.  Kullanıcı artık Azure'da oturum açabilir.
+
+1. Lisansları ile ilişkili olan ve çalışmak istediğiniz Azure AD dizini seçin.
+
+1. Sol gezinti bölmesinde tıklayın **Azure Active Directory**.
+
+1. Tıklayın **lisansları**. Kullanılabilir lisanslar listesi görüntülenir.
+
+    ![Azure Active Directory lisansları](./media/pim-roles/licenses-overview.png)
+
+1. ' A tıklayın, **ürün**.
+
+1. Dağıtmak istediğiniz lisansları içeren lisans plana tıklayın.
+
+    ![Lisans ürünleri](./media/pim-roles/licenses-products.png)
+
+1. Tıklayın **atama** Ata lisans bölmesini açmak için.
+
+    ![Lisanslı kullanıcılar](./media/pim-roles/licenses-licensed-users.png)
+
+1. Kullanıcı veya bir lisansı atamak istediğiniz grubu seçin.
+
+    ![Lisans ata](./media/pim-roles/licenses-assign-license.png)
+
+1. Tıklayın **atama seçenekleri** atama seçenekleri yapılandırmak için.
+
+    ![Atama seçenekleri](./media/pim-roles/licenses-assignment-options.png)
+
+1. Tıklayın **atama** lisans atamak için. Kullanıcı, artık lisansına sahiptir.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Sonraki adımlar

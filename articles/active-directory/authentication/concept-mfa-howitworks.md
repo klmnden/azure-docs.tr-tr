@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 25af61ce51828691d08210f4089afa0cf56b9846
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 46c99011a22f855f6faf53e03169b2d1e4c6ce85
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257863"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669016"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Nasıl çalıştığını: Azure multi-Factor Authentication
 
@@ -39,11 +39,14 @@ Azure multi-Factor Authentication (MFA) erişimi korumaya yardımcı olur ve kol
 * **Office 365 için multi-Factor Authentication** -Azure multi-Factor Authentication yeteneklerinin bir alt kümesini, aboneliğinizin bir parçası olarak kullanılabilir. Office 365 için MFA hakkında daha fazla bilgi için bkz [planlama Office 365 dağıtımlar için çok faktörlü kimlik doğrulaması](https://support.office.com/article/plan-for-multi-factor-authentication-for-office-365-deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba).
 * **Azure Active Directory küresel yöneticileri** -Azure multi-Factor Authentication yeteneklerinin bir alt kümesini genel yönetici hesapları korumak için bir araç olarak kullanılabilir.
 
+> [!NOTE]
+> Yeni müşteriler artık etkin 1 Eylül Mayıs 2018 sunan bir tek başına olarak Azure multi-Factor Authentication satın alabilirsiniz. Çok faktörlü kimlik doğrulaması, Azure AD Premium lisansınız kullanılabilir bir özellik olmaya devam edecektir.
+
 ### <a name="auth-provider-or-mfa-license"></a>Kimlik doğrulama sağlayıcısı veya MFA lisans
 
-Azure AD Premium veya Azure AD Premium içeren bir lisans paket varsa, Azure mfa'yı zaten sahip. Kuruluşunuz, tüm kullanıcılar için iki aşamalı doğrulama özelliğini genişletmek için ek herhangi bir şey gerekmez. Yalnızca bir kullanıcıya bir lisans ataması gerekir ve ardından MFA'yı etkinleştirebilirsiniz.
+Azure AD Premium veya Azure AD Premium içeren başka bir lisans paketini varsa, Azure mfa'yı zaten sahip. Kuruluşunuz, tüm kullanıcılar için iki aşamalı doğrulama özelliğini genişletmek için ek herhangi bir şey gerekmez. Yalnızca bir kullanıcıya bir lisans ataması gerekir ve ardından MFA'yı etkinleştirebilirsiniz.
 
-Azure mfa'yı içerir veya oluşturabileceğiniz daha sonra tüm kullanıcılarınızı kapsamaya yetecek sayıda lisansınız yoksa lisans yoksa bir [MFA kimlik doğrulama sağlayıcısı](concept-mfa-authprovider.md) bunları isteyen kullanıcılar için MFA'ın tüm özelliklerini genişletmek için. 
+Azure mfa'yı içerir veya oluşturabileceğiniz daha sonra tüm kullanıcılarınızı kapsamaya yetecek sayıda lisansınız yoksa lisans yoksa bir [MFA kimlik doğrulama sağlayıcısı](concept-mfa-authprovider.md) bunları isteyen kullanıcılar için MFA'ın tüm özelliklerini genişletmek için.
 
 > [!IMPORTANT]
 > Tüm kullanıcılar için yeterince lisansa sahip değilseniz, bir kullanıcı başına çok faktörlü yetki Sağlayıcı'nın kuruluşunuzun rest kapsayacak şekilde oluşturabilirsiniz. Kimlik doğrulaması başına multi-Factor Auth sağlayıcısı oluşturmayın. Bunu yaparsanız, doğrulama istekleri zaten lisanslara sahip kullanıcılardan ödeme son.

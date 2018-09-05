@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 08/08/2018
+ms.date: 08/31/2018
 ms.author: marsma
-ms.openlocfilehash: 051402a319e1dc26145b5a1602a4caeffa7fba19
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: e78be76d68cf75cf9d59f5b5dff86c65524275a9
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445516"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697250"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Ağ yapılandırması Azure Kubernetes Service (AKS)
 
@@ -47,30 +47,28 @@ Gelişmiş Ağ aşağıdaki avantajları sağlar:
 
 ## <a name="advanced-networking-prerequisites"></a>Gelişmiş Ağ önkoşulları
 
-* AKS kümesi için sanal ağda giden internet bağlantısına izin vermelidir.
+* AKS kümesi için sanal ağ, giden internet bağlantısına izin vermelidir.
 * Aynı alt ağda birden fazla AKS kümesi oluşturma.
 * AKS kümeleri kullanamazsınız `169.254.0.0/16`, `172.30.0.0/16`, veya `172.31.0.0/16` için Kubernetes hizmeti adres aralığı.
-* AKS kümesi tarafından kullanılan hizmet sorumlusunun en az olmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md#network-contributor) , sanal ağ içindeki alt ağ üzerindeki izinleri. Tanımlamak istiyorsanız bir [özel rol](../role-based-access-control/custom-roles.md) yerleşik ağ Katılımcısı rolü kullanmak yerine, aşağıdaki izinler gereklidir:
+* AKS kümesi tarafından kullanılan hizmet sorumlusunun en az olmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md#network-contributor) sanal ağınızdaki bir alt ağ üzerindeki izinleri. Tanımlamak istiyorsanız bir [özel rol](../role-based-access-control/custom-roles.md) yerleşik ağ Katılımcısı rolü kullanmak yerine, aşağıdaki izinler gereklidir:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>Kümeniz için IP adresini planlama
 
-Gelişmiş ağ ile yapılandırılan kümeler için ek planlama gerektirir. Vnet'iniz ve onun alt ağ boyutunu hem çalıştırmayı planladığınız pod'ların sayısını, hem de küme için düğüm sayısını, uyum sağlamak gerekir.
+Gelişmiş ağ ile yapılandırılan kümeler için ek planlama gerektirir. Sanal ağınız ile onun alt ağ boyutunu hem çalıştırmayı planladığınız pod'ların sayısını, hem de küme için düğüm sayısını, uyum sağlamak gerekir.
 
-Pod'ların ve küme düğümleri için IP adresleri, sanal ağ içindeki belirli alt ağından atanır. Her düğüm düğüm ve düğüme zamanlanmış pod'ların atanan Azure CNI tarafından önceden yapılandırılmış 30 ek IP adreslerini içeren IP olduğu birincil bir IP ile yapılandırılır. Kümenizin ölçeğini daralttığınızda, her düğüm alt ağdaki IP adresleriyle benzer şekilde yapılandırılır.
+Pod'ların ve küme düğümleri için IP adresleri, sanal ağ içinde belirtilen alt ağından atanır. Her düğüm düğüm ve düğüme zamanlanmış pod'ların atanan Azure CNI tarafından önceden yapılandırılmış 30 ek IP adreslerini içeren IP olduğu birincil bir IP ile yapılandırılır. Kümenizin ölçeğini daralttığınızda, her düğüm alt ağdaki IP adresleriyle benzer şekilde yapılandırılır.
 
-Sanal ağ, düğümler ve pod'ları, en az bir alt ağ, bir AKS kümesi IP adresi planlama oluşur ve bir Kubernetes hizmeti adres aralığı.
+IP adresi planı bir AKS kümesi bir sanal oluşur için ağ, düğümler, pod'ların ve bir Kubernetes hizmeti adres aralığı için en az bir alt ağ.
 
 | Adres aralığı / Azure kaynağı | Limitler ve boyutlandırma |
 | --------- | ------------- |
-| Sanal ağ | Azure sanal ağı /8 büyük olabilir, ancak yalnızca 16.000 IP adreslerini yapılandırabilir. |
+| Sanal ağ | Azure sanal ağı /8 büyük olabilir, ancak 65.536 yapılandırılmış IP adresleri için sınırlıdır. |
 | Alt ağ | Düğümler, pod'ların ve kümenizde sağlanan tüm Kubernetes ile Azure kaynaklarını tutabilecek kadar büyük olmalıdır. Örneğin, bir iç Azure yük dengeleyici dağıtırsanız, Küme alt ağından değil genel IP'ler, ön uç IP'ler ayrılır. <p/>Hesaplamak için *minimum* alt ağ boyutu: `(number of nodes) + (number of nodes * pods per node)` <p/>Örneğin, 50 düğümlü bir küme: `(50) + (50 * 30) = 1,550` (/ 21 veya daha büyük) |
 | Kubernetes hizmeti adres aralığı | Bu aralık herhangi bir ağ öğe tarafından kullanılan veya bu sanal ağa bağlı. Hizmeti adresi CIDR /12 küçük olmalıdır. |
 | Kubernetes DNS hizmeti IP adresi | Kubernetes içinde IP adresi (kube-dns) Küme hizmetini bulma tarafından kullanılan adres aralığı hizmeti. |
 | Docker köprü adresi | IP adresi (CIDR gösteriminde) Docker köprü düğümlerinde IP adresi kullanılır. Varsayılan değer 172.17.0.1/16. |
-
-Her sanal ağ için Azure CNI eklentisi ile kullanımı sınırlı sağlanan **16.000 yapılandırılmış IP adresleri**.
 
 ## <a name="maximum-pods-per-node"></a>Düğüm başına en fazla pod'ları
 
@@ -78,37 +76,46 @@ Pod'ların bir AKS kümesindeki düğüm başına varsayılan en büyük sayıs�
 
 ### <a name="default-maximum"></a>Varsayılan üst sınır
 
-* Temel ağ: **110 pod'ların düğüm başına**
-* Gelişmiş Ağ **30 pod'ların düğüm başına**
+Bunlar *varsayılan* bir AKS dağıttığınızda üst sınırlar küme dağıtım sırasında pod'ların sayısını belirtmeden:
 
-### <a name="configure-maximum"></a>En fazla yapılandırma
+| Dağıtım yöntemi | Temel | Gelişmiş | Dağıtım sırasında yapılandırılabilir |
+| -- | :--: | :--: | -- |
+| Azure CLI | 110 | 30 | Evet |
+| Resource Manager şablonu | 110 | 30 | Evet |
+| Portal | 110 | 30 | Hayır |
 
-Dağıtım yöntemine bağlı olarak pod'ların bir AKS kümesindeki düğüm başına en fazla sayısını değiştirmek mümkün olabilir.
+### <a name="configure-maximum---new-clusters"></a>Maksimum - yeni kümeleri yapılandırma
+
+Bir AKS kümesi dağıtırken bir pod'ların düğüm başına en fazla sayısını farklı belirtmek için:
 
 * **Azure CLI**: belirtin `--max-pods` ile bir küme dağıtılırken bağımsız değişken [az aks oluşturma] [ az-aks-create] komutu.
 * **Resource Manager şablonu**: belirtin `maxPods` özelliğinde [ManagedClusterAgentPoolProfile] bir Resource Manager şablonu ile bir küme dağıtılırken nesne.
 * **Azure portalında**: Azure portalı ile bir küme dağıtılırken pod'ların düğüm başına en fazla sayısını değiştiremezsiniz. Gelişmiş Ağ kümeleri 30 pod'ları Azure Portalı'nda dağıtılan düğüm başına sınırlıdır.
 
+### <a name="configure-maximum---existing-clusters"></a>Maksimum - var olan kümeleri yapılandırma
+
+Mevcut bir AKS kümesindeki düğüm başına en fazla pod'ların değiştiremezsiniz. Yalnızca ilk kümesi dağıtırken sayısını ayarlayabilirsiniz.
+
 ## <a name="deployment-parameters"></a>Dağıtım parametreleri
 
 Bir AKS kümesi oluşturduğunuzda, aşağıdaki parametreleri için Gelişmiş Ağ yapılandırılabilir:
 
-**Sanal ağ**: Kubernetes kümesini dağıtmak istediğiniz sanal ağ. Kümeniz için yeni bir sanal ağ oluşturmak isteyip istemediğinizi seçin *Yeni Oluştur* ve adımları izleyerek *sanal ağ oluştur* bölümü. VNet 16.000 yapılandırılmış IP adresleri için sınırlıdır.
+**Sanal ağ**: Kubernetes kümesini dağıtmak istediğiniz sanal ağı. Kümeniz için yeni bir sanal ağ oluşturmak isteyip istemediğinizi seçin *Yeni Oluştur* ve adımları izleyerek *sanal ağ oluştur* bölümü. Bir Azure sanal ağı için kotaları ve sınırları hakkında daha fazla bilgi için bkz. [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
-**Alt ağ**: kümeyi dağıtmak istediğiniz sanal ağ içindeki alt ağ. Kümeniz için sanal ağda yeni bir alt ağ oluşturmak isteyip istemediğinizi seçin *Yeni Oluştur* ve adımları izleyerek *alt ağ oluşturma* bölümü.
+**Alt ağ**: kümeyi dağıtmak istediğiniz sanal ağ içindeki alt ağ. Kümenizin bir sanal ağdaki yeni bir alt ağ oluşturmak isteyip istemediğinizi seçin *Yeni Oluştur* ve adımları izleyerek *alt ağ oluşturma* bölümü.
 
 **Kubernetes hizmeti adres aralığı**: Kubernetes atar sanal IP'ler kümesidir [Hizmetleri] [ services] kümenizdeki. Aşağıdaki gereksinimleri karşılayan herhangi bir özel adres aralığını kullanabilirsiniz:
 
 * Kümeniz sanal ağ IP adresi aralığında olmamalıdır.
-* ' % S'küme sanal ağ ile eşleri diğer Vnet'lere ile çakışmaması gerekir
+* Küme sanal ağ ile eşleri diğer sanal ağlara ile çakışmaması gerekir
 * Tüm şirket içi IP'leri ile çakışmaması gerekir
 * Aralıklar olmamalıdır `169.254.0.0/16`, `172.30.0.0/16`, veya `172.31.0.0/16`
 
-Bunun yapılması hizmeti adres aralığı aynı VNet içindeki kümenizi belirtmek teknik olarak mümkün olsa da, bu nedenle önerilmez. Çakışan IP aralıkları kullanılıyorsa öngörülemeyen davranışlara neden olabilir. Daha fazla bilgi için [SSS](#frequently-asked-questions) bu makalenin. Kubernetes hizmetleri hakkında daha fazla bilgi için bkz. [Hizmetleri] [ services] Kubernetes belgelerinde.
+Bunun yapılması hizmeti adres aralığı aynı sanal ağ içinde küme olarak belirtmek teknik olarak mümkün olsa da, bu nedenle önerilmez. Çakışan IP aralıkları kullanılıyorsa öngörülemeyen davranışlara neden olabilir. Daha fazla bilgi için [SSS](#frequently-asked-questions) bu makalenin. Kubernetes hizmetleri hakkında daha fazla bilgi için bkz. [Hizmetleri] [ services] Kubernetes belgelerinde.
 
 **Kubernetes DNS hizmeti IP adresi**: küme DNS hizmeti için IP adresi. İçinde bu adresi olmalıdır *Kubernetes hizmeti adres aralığı*.
 
-**Docker köprü adresi**: IP adresi ve Docker köprüsüne atamak için ağ maskesi. Bu IP adresi kümenizin VNet IP adresi aralığında olmamalıdır.
+**Docker köprü adresi**: IP adresi ve Docker köprüsüne atamak için ağ maskesi. Bu IP adresi kümenizin sanal ağ IP adresi aralığında olmamalıdır.
 
 ## <a name="configure-networking---cli"></a>Ağ oluşturma - CLI yapılandırma
 
@@ -150,13 +157,15 @@ Aşağıdaki sorular ve yanıtlar uygulamak **Gelişmiş** ağ yapılandırması
 
   Azure CLI veya Resource Manager şablonu ile bir küme dağıtılırken, Evet. Bkz: [düğüm başına en fazla pod](#maximum-pods-per-node).
 
+  Pod'ların var olan bir kümede düğüm başına en fazla sayısını değiştiremezsiniz.
+
 * *AKS kümesi oluşturulurken oluşturduğum alt ağ için ek özelliklerini nasıl yapılandırırım? Örneğin, hizmet uç noktaları.*
 
-  VNet ve AKS küme oluşturma sırasında oluşturduğunuz alt ağlar için özelliklerin tam listesi, standart sanal ağ yapılandırma sayfasında Azure Portalı'nda yapılandırılabilir.
+  AKS küme oluşturma sırasında oluşturduğunuz alt ağlar ve sanal ağ için özelliklerinin tam listesini standart sanal ağ yapılandırma sayfasında Azure Portalı'nda yapılandırılabilir.
 
-* *Kümem sanal ağ içinde farklı bir alt kullanabilirsiniz için* **Kubernetes hizmeti adres aralığı**?
+* *Benim için küme sanal ağ içindeki farklı bir alt kullanabilirim* **Kubernetes hizmeti adres aralığı**?
 
-  Önerilmez, ancak bu yapılandırma mümkündür. Hizmeti adres aralığı, Kubernetes kümenizdeki Hizmetleri atar sanal IP'ler (VIP) kümesidir. Azure ağı yok görünürlük bir Kubernetes kümesinin hizmet IP aralığı vardır. Küme hizmeti adres aralığı görünürlük eksikliği nedeniyle, daha sonra Küme hizmeti adres aralığı ile çakışıyor. sanal ağ içinde yeni bir alt ağ oluşturmak mümkündür. Böyle bir çakışma ortaya çıkarsa, Kubernetes hizmet öngörülemeyen davranışlara veya hatalara neden alt ağdaki başka bir kaynak tarafından kullanımda bir IP atayabilirsiniz. Küme sanal ağ dışındaki bir adres aralığı kullandığınız sağlayarak bu çakışma risk önleyebilirsiniz.
+  Önerilmez, ancak bu yapılandırma mümkündür. Hizmeti adres aralığı, Kubernetes kümenizdeki Hizmetleri atar sanal IP'ler (VIP) kümesidir. Azure ağı yok görünürlük bir Kubernetes kümesinin hizmet IP aralığı vardır. Küme hizmeti adres aralığı görünürlük eksikliği nedeniyle, daha sonra hizmet adres aralığıyla çakışıyor küme sanal ağda yeni bir alt ağ oluşturmak mümkündür. Böyle bir çakışma ortaya çıkarsa, Kubernetes hizmet öngörülemeyen davranışlara veya hatalara neden alt ağdaki başka bir kaynak tarafından kullanımda bir IP atayabilirsiniz. Küme sanal ağ dışındaki bir adres aralığı kullandığınız sağlayarak bu çakışma risk önleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/10/2018
 ms.author: routlaw
-ms.openlocfilehash: d895258a4c8a38d00932d81600dc8633d7d70112
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: bbc1c3426b52e71db84a988b39a1d76ac24b6168
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42059654"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697020"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Java işlevleri Geliştirici Kılavuzu
 
@@ -93,7 +93,7 @@ Buna karşılık gelen ile `function.json`:
 
 Azure işlevleri, üçüncü taraf kitaplıkların kullanımını destekler. Varsayılan olarak, tüm bağımlılıkları belirtilen projenizde `pom.xml` dosya otomatik olarak toplanmış sırasında `mvn package` hedefi. Bağımlılık olarak belirtilmemiş kitaplıkları `pom.xml` dosya, yerleştirebilirsiniz bir `lib` işlevin kök dizininde dizin. Bağımlılıkları yerleştirildiğinde `lib` dizin sistemi sınıf yükleyicisi zamanında eklenecektir.
 
-## <a name="data-types"></a>Veri Türleri
+## <a name="data-type-support"></a>Veri türü desteği
 
 Yerel türler içeren giriş ve çıkış verileri için herhangi bir veri türü Java'da kullanabilirsiniz; Java türleri ve özel Azure türleri içinde tanımlanan özelleştirilmiş `azure-functions-java-library` paket. Azure işlevleri çalışma zamanı çalışır, kodunuz tarafından istenen türüne içine alınan girişi dönüştürür.
 
@@ -243,7 +243,7 @@ public class MyClass {
 
 Azure işlevleri yürütme ortamı etkileşim `ExecutionContext` içinde tanımlanan nesne `azure-functions-java-library` paket. Kullanma `ExecutionContext` çağırma ve İşlevler çalışma zamanı bilgileri, kodunuzda kullanılacak nesne.
 
-### <a name="logging"></a>Günlüğe kaydetme
+### <a name="custom-logging"></a>Özel günlük
 
 İşlevler çalışma zamanı Günlükçü erişimi aracılığıyla `ExecutionContext` nesne. Bu Günlükçü için Azure İzleyici bağlıdır ve bayrağını uyarılar ve işlev yürütme sırasında karşılaşılan hataları sağlar.
 
@@ -263,6 +263,29 @@ public class Function {
     }
 }
 ```
+
+## <a name="view-logs-and-trace"></a>Günlükleri görüntüleme ve izleme
+
+Diğer uygulama günlüğü yanı sıra stream Java standart çıkış ve hata günlüğü için Azure CLI'yı kullanabilirsiniz. İlk olarak, Azure CLI kullanarak uygulama günlükleri yazmak için işlev uygulamanızı yapılandırın:
+
+```azurecli-interactive
+az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
+```
+
+Azure CLI kullanarak işlev uygulamanız için günlük çıktısı akış, yeni bir komut istemi, Bash veya Terminal oturumu açın ve aşağıdaki komutu girin için:
+
+```azurecli-interactive
+az webapp log tail --name webappname --resource-group myResourceGroup
+```
+[Az webapp log tail](/cli/azure/webapp/log) komutunu kullanarak çıkışının filtreleme seçeneklerini içeren `--provider` seçeneği. 
+
+Günlük dosyaları, Azure CLI kullanarak tek bir ZIP dosyası olarak karşıdan yüklemek için yeni bir komut istemi, Bash veya Terminal oturumu açın ve aşağıdaki komutu girin:
+
+```azurecli-interactive
+az webapp log download --resource-group resourcegroupname --name functionappname
+```
+
+Bu komutu çalıştırmadan önce Azure Portal veya Azure CLI günlüğü dosya sistemi etkinleştirmiş olmanız gerekir.
 
 ## <a name="environment-variables"></a>Ortam değişkenleri
 
@@ -288,9 +311,12 @@ Her anahtar / değer eşlemede `values` harita oluşturulacak kullanılabilir ç
 Kodunuzu test etme, yerel olarak hem de Azure'da dağıtılan eşdeğer işlevlerinin artık bu ortam değişkenlerine bağlı olarak, kod ile aynı anahtarı / değer çiftlerini, işlev uygulaması ayarları Azure portalında oturum açabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi için aşağıdaki kaynaklara bakın:
+
+Azure işlevi Java geliştirme hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [Azure İşlevleri için en iyi uygulamalar](functions-best-practices.md)
 * [Azure İşlevleri geliştirici başvurusu](functions-reference.md)
 * [Azure işlevleri Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md)
+- Yerel geliştirme ve hata ayıklama ile [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [Intellij](functions-create-maven-intellij.md), ve [Eclipse](functions-create-maven-eclipse.md). 
 * [Uzaktan hata ayıklama Java Azure işlevleri ile Visual Studio kodu](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
+* [Azure işlevleri için maven plugin](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) -kolaylaştırın ile işlevi oluşturma `azure-functions:add` hedef ve hazırlamak için bir hazırlama dizin [ZIP dosyası dağıtım](deployment-zip-push.md).
