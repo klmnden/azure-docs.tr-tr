@@ -1,185 +1,194 @@
+items:
 - name: Akış Analizi Belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
-    - name: Stream Analytics nedir?
-      href: stream-analytics-introduction.md
+  - name: Stream Analytics nedir?
+    href: stream-analytics-introduction.md
 - name: Hızlı Başlangıçlar
   items:
-    - name: İş oluşturma - Azure portalı
-      href: stream-analytics-quick-create-portal.md
-    - name: İş oluşturma - PowerShell
-      href: stream-analytics-quick-create-powershell.md
-    - name: İş oluşturma - Visual Studio
-      href: stream-analytics-quick-create-vs.md
+  - name: İş oluşturma - Azure portalı
+    href: stream-analytics-quick-create-portal.md
+  - name: İş oluşturma - PowerShell
+    href: stream-analytics-quick-create-powershell.md
+  - name: İş oluşturma - Visual Studio
+    href: stream-analytics-quick-create-vs.md
 - name: Öğreticiler
   items:
-    - name: 1 - İş oluşturma / yönetme
-      href: stream-analytics-manage-job.md
-    - name: 2 - Azure İşlevleri çalıştırma
-      href: stream-analytics-with-azure-functions.md
-    - name: 3 - JavaScript UDF çalıştırma
-      href: stream-analytics-javascript-user-defined-functions.md
-    - name: 4 - VSTS’de CI/CD ile dağıtma
-      href: stream-analytics-tools-visual-studio-cicd-vsts.md
+  - name: 1 - İş oluşturma / yönetme
+    href: stream-analytics-manage-job.md
+  - name: 2 - Azure İşlevleri çalıştırma
+    href: stream-analytics-with-azure-functions.md
+  - name: 3 - JavaScript UDF çalıştırma
+    href: stream-analytics-javascript-user-defined-functions.md
+  - name: 4 - VSTS’de CI/CD ile dağıtma
+    href: stream-analytics-tools-visual-studio-cicd-vsts.md
 - name: Örnekler
   items:
-    - name: Kod örnekleri
-      href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
+  - name: Kod örnekleri
+    href: https://azure.microsoft.com/resources/samples/?service=stream-analytics
 - name: Kavramlar
   items:
-    - name: İş için giriş türleri
-      href: stream-analytics-add-inputs.md
-      items:
-        - name: Akış verisi girişleri
-          href: stream-analytics-define-inputs.md
-        - name: Başvuru verisi girişleri
-          href: stream-analytics-use-reference-data.md
-    - name: Bir iş için çıktı türleri
-      href: stream-analytics-define-outputs.md
-      items:
-        - name: Cosmos DB çıkışı
-          href: stream-analytics-documentdb-output.md
-    - name: Pencere işlevleri
-      href: stream-analytics-window-functions.md
-    - name: Uyumluluk düzeyi
-      href: stream-analytics-compatibility-level.md
-    - name: Sık sorulan soru yapıları
-      href: stream-analytics-stream-analytics-query-patterns.md
-    - name: JSON ve AVRO verilerini ayrıştırma
-      href: stream-analytics-parsing-json.md
-    - name: Olay sıralama konusunda dikkat edilmesi gerekenler
-      href: stream-analytics-out-of-order-and-late-events.md
-    - name: Denetim noktası ve yeniden yürütme
-      href: stream-analytics-concepts-checkpoint-replay.md
-    - name: Hata ilkesi
-      href: output-error-policy.md
+  - name: İş için giriş türleri
+    href: stream-analytics-add-inputs.md
+    items:
+    - name: Akış verisi girişleri
+      href: stream-analytics-define-inputs.md
+    - name: Başvuru verisi girişleri
+      href: stream-analytics-use-reference-data.md
+  - name: Bir iş için çıktı türleri
+    href: stream-analytics-define-outputs.md
+    items:
+    - name: Cosmos DB çıkışı
+      href: stream-analytics-documentdb-output.md
+  - name: Pencere işlevleri
+    href: stream-analytics-window-functions.md
+  - name: Jeo-uzamsal işlevler
+    href: stream-analytics-geospatial-functions.md
+  - name: Uyumluluk düzeyi
+    href: stream-analytics-compatibility-level.md
+  - name: Sık sorulan soru yapıları
+    href: stream-analytics-stream-analytics-query-patterns.md
+  - name: JSON ve AVRO verilerini ayrıştırma
+    href: stream-analytics-parsing-json.md
+  - name: Olay sıralama konusunda dikkat edilmesi gerekenler
+    href: stream-analytics-out-of-order-and-late-events.md
+  - name: Denetim noktası ve yeniden yürütme
+    href: stream-analytics-concepts-checkpoint-replay.md
+  - name: Hata ilkesi
+    href: output-error-policy.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Yönetme
+  - name: Yönetme
+    items:
+    - name: Kimlik bilgilerini güncelleştirme
+      href: stream-analytics-login-credentials-inputs-outputs.md
+    - name: Uyarı yapılandırma
+      href: stream-analytics-set-up-alerts.md
+    - name: Bir işi test etme
+      href: stream-analytics-test-query.md
+    - name: Sonuçları bir panoda görüntüleme
+      href: stream-analytics-power-bi-dashboard.md
+    - name: Bir işi temizleme
+      href: stream-analytics-clean-up-your-job.md
+    - name: Güvenilirlik için işleri eşleştirme
+      href: stream-analytics-job-reliability.md
+  - name: Çözüm oluşturma
+    items:
+    - name: Twitter yaklaşım analizi
+      href: stream-analytics-twitter-sentiment-analysis-trends.md
+    - name: Gerçek zamanlı sahtekarlık algılama
+      href: stream-analytics-real-time-fraud-detection.md
+    - name: IOT Edge üzerinde iş çalıştırma
+      href: stream-analytics-edge.md
+    - name: Ücretli geçiş algılayıcısı veri analizi
+      href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
+    - name: JavaScript UDA çalıştırma
+      href: stream-analytics-javascript-user-defined-aggregates.md
+    - name: Yüksek frekanslı alım-satım
+      href: stream-analytics-high-frequency-trading.md
+    - name: IoT akış verilerini işleme
+      href: stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md
+    - name: Eşik temelli kurallar
+      href: stream-analytics-threshold-based-rules.md
+  - name: İzleme
+    items:
+    - name: İşleri izleme - Azure portalı
+      href: stream-analytics-monitoring.md
+    - name: İşleri izleme - PowerShell
+      href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
+    - name: İşleri izleme - Azure .Net SDK
+      href: stream-analytics-monitor-jobs.md
+    - name: İşleri izleme - Visual Studio
+      href: stream-analytics-monitor-jobs-use-vs.md
+  - name: Ölçek
+    items:
+    - name: Akış birimleri ile ölçeklendirme
+      href: stream-analytics-streaming-unit-consumption.md
+    - name: Sorgu paralelleştirmesiyle ölçeklendirme
+      href: stream-analytics-parallelization.md
       items:
-        - name: Kimlik bilgilerini güncelleştirme
-          href: stream-analytics-login-credentials-inputs-outputs.md
-        - name: Uyarı yapılandırma
-          href: stream-analytics-set-up-alerts.md
-        - name: Bir işi test etme
-          href: stream-analytics-test-query.md
-        - name: Sonuçları bir panoda görüntüleme
-          href: stream-analytics-power-bi-dashboard.md
-        - name: Bir işi temizleme
-          href: stream-analytics-clean-up-your-job.md
-        - name: Güvenilirlik için işleri eşleştirme
-          href: stream-analytics-job-reliability.md
-    - name: Çözüm oluşturma
-      items:
-        - name: Twitter yaklaşım analizi
-          href: stream-analytics-twitter-sentiment-analysis-trends.md
-        - name: Gerçek zamanlı sahtekarlık algılama
-          href: stream-analytics-real-time-fraud-detection.md
-        - name: IOT Edge üzerinde iş çalıştırma
-          href: stream-analytics-edge.md
-        - name: Ücretli geçiş algılayıcısı veri analizi
-          href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
-        - name: JavaScript UDA çalıştırma
-          href: stream-analytics-javascript-user-defined-aggregates.md
-        - name: Yüksek frekanslı alım-satım
-          href: stream-analytics-high-frequency-trading.md
-        - name: IoT akış verilerini işleme
-          href: stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md
-        - name: Eşik temelli kurallar
-          href: stream-analytics-threshold-based-rules.md
-    - name: İzleme
-      items:
-        - name: İşleri izleme - Azure portalı
-          href: stream-analytics-monitoring.md
-        - name: İşleri izleme - PowerShell
-          href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
-        - name: İşleri izleme - Azure .Net SDK
-          href: stream-analytics-monitor-jobs.md
-        - name: İşleri izleme - Visual Studio
-          href: stream-analytics-monitor-jobs-use-vs.md
-    - name: Ölçek
-      items:
-        - name: Akış birimleri ile ölçeklendirme
-          href: stream-analytics-streaming-unit-consumption.md
-        - name: Sorgu paralelleştirmesiyle ölçeklendirme
-          href: stream-analytics-parallelization.md
-          items:
-            - name: Aktarım hızını artırma
-              href: stream-analytics-scale-jobs.md
-        - name: ML işlevleriyle ölçeklendirme
-          href: stream-analytics-scale-with-machine-learning-functions.md
-    - name: Otomatikleştirme
-      items:
-        - name: .NET SDK’sını kullanma
-          href: stream-analytics-dotnet-management-sdk.md
-        - name: Azure PowerShell’i kullanma
-          href: 'https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick'
-    - name: Visual Studio araçları
-      items:
-        - name: Araçları yükleme
-          href: stream-analytics-tools-for-visual-studio-install.md
-        - name: İşi yerel olarak test etme
-          href: stream-analytics-vs-tools-local-run.md
-        - name: Visual Studio'da işleri görüntüleme
-          href: stream-analytics-vs-tools.md
-        - name: Edge işi geliştirme
-          href: stream-analytics-tools-for-visual-studio-edge-jobs.md
-        - name: CI/CD işlem hattı ayarlama
-          href: stream-analytics-tools-for-visual-studio-cicd.md
-    - name: Sorun giderme
-      items:
-        - name: Sorun giderme adımları
-          href: stream-analytics-troubleshooting-guide.md
-        - name: Genel sorunlar
-          href: stream-analytics-common-troubleshooting-issues.md
-        - name: İş diyagramı
-          href: stream-analytics-job-diagram-with-metrics.md
-        - name: Tanılama günlükleri
-          href: stream-analytics-job-diagnostic-logs.md
-        - name: SELECT INTO deyimi
-          href: stream-analytics-select-into.md
-        - name: Olay Hub'ı alıcıları
-          href: stream-analytics-event-hub-consumer-groups.md
-    - name: Makine öğrenimiyle tümleştirme
-      items:
-        - name: ML modelleriyle yaklaşım analizi
-          href: stream-analytics-machine-learning-integration-tutorial.md
-        - name: Anormallik algılama
-          href: stream-analytics-machine-learning-anomaly-detection.md
-        - name: REST API'lerini kullanma
-          href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
+      - name: Aktarım hızını artırma
+        href: stream-analytics-scale-jobs.md
+    - name: ML işlevleriyle ölçeklendirme
+      href: stream-analytics-scale-with-machine-learning-functions.md
+  - name: Otomatikleştirme
+    items:
+    - name: .NET SDK’sını kullanma
+      href: stream-analytics-dotnet-management-sdk.md
+    - name: Azure PowerShell’i kullanma
+      href: https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick
+  - name: Visual Studio araçları
+    items:
+    - name: Araçları yükleme
+      href: stream-analytics-tools-for-visual-studio-install.md
+    - name: İşi yerel olarak test etme
+      href: stream-analytics-vs-tools-local-run.md
+    - name: Visual Studio'da işleri görüntüleme
+      href: stream-analytics-vs-tools.md
+    - name: Edge işi geliştirme
+      href: stream-analytics-tools-for-visual-studio-edge-jobs.md
+    - name: CI/CD işlem hattı ayarlama
+      href: stream-analytics-tools-for-visual-studio-cicd.md
+  - name: Sorun giderme
+    items:
+    - name: Sorun giderme adımları
+      href: stream-analytics-troubleshooting-guide.md
+    - name: Genel sorunlar
+      href: stream-analytics-common-troubleshooting-issues.md
+    - name: İş diyagramı
+      href: stream-analytics-job-diagram-with-metrics.md
+    - name: Tanılama günlükleri
+      href: stream-analytics-job-diagnostic-logs.md
+    - name: SELECT INTO deyimi
+      href: stream-analytics-select-into.md
+    - name: Olay Hub'ı alıcıları
+      href: stream-analytics-event-hub-consumer-groups.md
+  - name: Makine öğrenimiyle tümleştirme
+    items:
+    - name: ML modelleriyle yaklaşım analizi
+      href: stream-analytics-machine-learning-integration-tutorial.md
+    - name: Anormallik algılama
+      href: stream-analytics-machine-learning-anomaly-detection.md
+    - name: REST API'lerini kullanma
+      href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
 - name: Başvuru
   items:
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.streamanalytics
-    - name: Sorgu dili
-      href: 'https://msdn.microsoft.com/library/azure/dn834998'
-    - name: .NET
-      href: /dotnet/api/microsoft.azure.management.streamanalytics
-    - name: REST
-      href: /rest/api/streamanalytics
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.streamanalytics
+  - name: Sorgu dili
+    href: https://msdn.microsoft.com/library/azure/dn834998
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.streamanalytics
+  - name: REST
+    href: /rest/api/streamanalytics
 - name: Kaynaklar
   items:
-    - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Blog
-      href: 'http://blogs.msdn.com/b/streamanalytics/'
-    - name: Geri Bildirim forumu
-      href: 'http://feedback.azure.com/forums/270577-azure-stream-analytics'
-    - name: Forum
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics'
-    - name: Fiyatlandırma
-      href: 'https://azure.microsoft.com/pricing/details/stream-analytics/'
-    - name: Fiyatlandırma hesaplayıcı
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Hizmet güncelleştirmeleri
-      href: 'https://azure.microsoft.com/updates/?product=stream-analytics'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-stream-analytics'
-    - name: Videolar
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest'
-    - name: Müşteri örnek olay incelemeleri
-      href: 'https://azure.microsoft.com/case-studies/?service=stream-analytics'
-    - name: Teknik inceleme - Gerçek zamanlı olay işleme
-      href: stream-analytics-real-time-event-processing-reference-architecture.md
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/
+  - name: Blog
+    href: http://blogs.msdn.com/b/streamanalytics/
+  - name: Geri Bildirim forumu
+    href: http://feedback.azure.com/forums/270577-azure-stream-analytics
+  - name: Forum
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics
+  - name: Fiyatlandırma
+    href: https://azure.microsoft.com/pricing/details/stream-analytics/
+  - name: Fiyatlandırma hesaplayıcı
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Hizmet güncelleştirmeleri
+    href: https://azure.microsoft.com/updates/?product=stream-analytics
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-stream-analytics
+  - name: Videolar
+    href: https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest
+  - name: Müşteri örnek olay incelemeleri
+    href: https://azure.microsoft.com/case-studies/?service=stream-analytics
+  - name: Teknik inceleme - Gerçek zamanlı olay işleme
+    href: stream-analytics-real-time-event-processing-reference-architecture.md
+ms.openlocfilehash: 6598121e8405a60c64490fda179c22f34ac86455
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695329"

@@ -1,5 +1,5 @@
 items:
-- name: Azure Belgeleri’nde Terraform
+- name: Azure üzerinde Terraform belgeleri
   href: index.yml
 - name: Genel Bakış
   items:
@@ -16,23 +16,33 @@ items:
   expanded: true
 - name: Öğreticiler
   items:
-  - name: AKS ve Terraform ile bir Kubernetes kümesi oluşturma
-    href: terraform-create-k8s-cluster-with-tf-and-aks.md
-  - name: Terraform ve Azure sağlayıcısı dağıtım yuvaları
-    href: terraform-slot-walkthru.md
-  - name: MSI etkin bir Terraform VM’si oluşturma
-    href: terraform-vm-msi.md
-  - name: Terraform modülleri ile VM kümesi oluşturma
-    href: terraform-create-vm-cluster-module.md
-  - name: Terraform ve HCL ile VM kümesi oluşturma
-    href: terraform-create-vm-cluster-with-infrastructure.md
-  - name: Altyapı ile VM ölçek kümesini sağlama
-    href: terraform-create-vm-scaleset-network-disks-hcl.md
-  - name: Packer özel görüntüsünden sanal makine ölçek kümesi sağlama
-    href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+  - name: App Service
+    items:
+    - name: Terraform ve Azure sağlayıcısı dağıtım yuvaları
+      href: terraform-slot-walkthru.md
+  - name: Kapsayıcılar
+    items:
+    - name: AKS ve Terraform ile bir Kubernetes kümesi oluşturma
+      href: terraform-create-k8s-cluster-with-tf-and-aks.md
+  - name: Altyapı
+    items:
+    - name: MSI etkin bir Terraform VM’si oluşturma
+      href: terraform-vm-msi.md
+    - name: Terraform modülleri ile VM kümesi oluşturma
+      href: terraform-create-vm-cluster-module.md
+    - name: Terraform ve HCL ile VM kümesi oluşturma
+      href: terraform-create-vm-cluster-with-infrastructure.md
+    - name: Altyapı ile VM ölçek kümesini sağlama
+      href: terraform-create-vm-scaleset-network-disks-hcl.md
+    - name: Packer özel görüntüsünden sanal makine ölçek kümesi sağlama
+      href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+  - name: Araçlar
+    items:
+    - name: Terraform Visual Studio Code uzantısını yükleme
+      href: terraform-vscode-extension.md
 - name: Kavramlar
   items:
-  - name: Cloud Shell tümleştirmesi
+  - name: Azure Cloud Shell tümleştirmesi
     href: terraform-cloud-shell.md
 - name: Örnekler
   items:
@@ -44,17 +54,15 @@ items:
     href: https://registry.terraform.io/modules/Azure
   - name: Terraform başvurusu
     href: http://aka.ms/terraform
-  - name: Azure Terraform VS Code uzantısı
-    href: terraform-vscode-extension.md
 - name: Kaynaklar
   items:
   - name: Azure ve Terraform
     href: https://azure.microsoft.com/solutions/devops/terraform/
   - name: Azure Yol Haritası
     href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: 349348f2230005831c1ad68eb7f48dfaa8f4b78c
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e6c4637618d794f96db8ed9ca8eb063a62f704a1
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41929073"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43663545"

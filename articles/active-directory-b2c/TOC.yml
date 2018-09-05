@@ -37,6 +37,20 @@ items:
       href: active-directory-b2c-tutorials-spa-webapi.md
 - name: Örnekler
   href: code-samples.md
+- name: Kavramlar
+  items:
+  - name: Uygulama türleri
+    href: active-directory-b2c-apps.md
+  - name: Kimlik doğrulama protokolleri
+    href: active-directory-b2c-reference-protocols.md
+  - name: OAuth 2.0
+    href: active-directory-b2c-reference-oauth-code.md
+  - name: OpenID Connect
+    href: active-directory-b2c-reference-oidc.md
+  - name: Belirteçler
+    href: active-directory-b2c-reference-tokens.md
+  - name: Kullanıcı hesapları
+    href: user-overview.md
 - name: Nasıl yapılır kılavuzları
   items:
   - name: Uygulamanızı kaydetme
@@ -45,8 +59,6 @@ items:
     href: active-directory-b2c-reference-policies.md
   - name: Mobil ve masaüstü uygulamalar
     items:
-    - name: Genel Bakış
-      href: active-directory-b2c-reference-oauth-code.md
     - name: iOS
       items:
       - name: MSAL kullanarak iOS Swift
@@ -67,8 +79,6 @@ items:
       href: configure-ropc.md
   - name: Web uygulamaları
     items:
-    - name: Genel Bakış
-      href: active-directory-b2c-reference-oidc.md
     - name: ASP.NET
       href: active-directory-b2c-devquickstarts-web-dotnet-susi.md
     - name: ASP.NET Çekirdeği
@@ -238,14 +248,6 @@ items:
     items:
     - name: Kod örnekleri
       href: https://azure.microsoft.com/resources/samples/?service=active-directory-b2c
-    - name: Sözlük
-      items:
-      - name: Uygulama türleri
-        href: active-directory-b2c-apps.md
-      - name: Kimlik doğrulama protokolleri
-        href: active-directory-b2c-reference-protocols.md
-      - name: Belirteçler
-        href: active-directory-b2c-reference-tokens.md
     - name: Bölge kullanılabilirliği ve veri yerleşikliği
       href: active-directory-b2c-reference-tenant-type.md
     - name: Faturalamayı etkinleştirme
@@ -276,9 +278,9 @@ items:
     href: active-directory-b2c-support.md
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: 6a0a90627abaf94b004f07ad22fc1156396829ec
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 9d9e448d37a8780fe24fd6a72f8fdf0d412f2066
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41927015"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43663909"

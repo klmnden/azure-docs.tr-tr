@@ -103,6 +103,7 @@
 #### [Etkinlik günlüklerini Azure olay hub’ına yönlendirme](reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
 #### [Etkinlik günlüklerini Azure depolama hesabında arşivleme](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 #### [Azure İzleyici kullanarak etkinlik günlüklerini Splunk ile tümleştirme](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
+#### [Azure İzleyici kullanarak etkinlik günlüklerini SumoLogic ile tümleştirme](reports-monitoring/howto-integrate-activity-logs-with-sumologic.md)
 
 ### Başvuru
 #### [Bekletme](reports-monitoring/reference-reports-data-retention.md)
@@ -332,6 +333,8 @@
 ### [Gözden geçirmelerle kullanıcı erişimini yönetme](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 ### [Programları ve denetimleri yönetme](active-directory-azure-ad-controls-manage-programs-controls.md)
 ### [Erişim gözden geçirmesi sonuçlarını alma](active-directory-azure-ad-controls-retrieve-access-review.md)
+
+## [Kullanım koşulları](active-directory-tou.md)
 
 ## Kimliklerinizi güvenli hale getirme
 

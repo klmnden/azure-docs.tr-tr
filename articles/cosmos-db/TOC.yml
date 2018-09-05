@@ -37,7 +37,7 @@ items:
       href: create-mongodb-golang.md
   - name: Gremlin
     items:
-    - name: Gremlin konsolunu kullanma
+    - name: Gremlin konsolu
       href: create-graph-gremlin-console.md
     - name: .NET
       href: create-graph-dotnet.md
@@ -78,6 +78,9 @@ items:
     href: distribute-data-globally.md
   - name: Aktarım hızı
     href: request-units.md
+    items:
+    - name: Aktarım hızı alma ve ayarlama
+      href: set-throughput.md
   - name: Bölümleme
     href: partition-data.md
   - name: Dizinleme
@@ -86,11 +89,11 @@ items:
     href: consistency-levels.md
   - name: Çok yöneticili
     href: multi-region-writers.md
+    items:
+    - name: Çok yöneticili kurulum
+      href: multi-master-workaround.md
   - name: Akışı değiştirme
     href: change-feed.md
-    items:
-    - name: Akış e-ticaret çözümünü değiştirme
-      href: changefeed-ecommerce-solution.md
   - name: Yaşam süresi
     href: time-to-live.md
   - name: Benzersiz anahtarlar
@@ -104,18 +107,16 @@ items:
       href: secure-access-to-data.md
     - name: Güvenlik duvarı desteği
       href: firewall-support.md
-    - name: Sanal ağ hizmeti uç noktasını ayarlama
+    - name: Sanal ağ uç noktasını ayarlama
       href: vnet-service-endpoint.md
-    - name: Gizli dizileri depolamaya yönelik anahtar kasası
+    - name: Anahtar kasası desteği
       href: access-secrets-from-keyvault.md
 - name: Çoklu model API’ler
   items:
   - name: SQL API Belgeleri
     items:
     - name: Genel Bakış
-      items:
-      - name: SQL API Hakkında
-        href: sql-api-introduction.md
+      href: sql-api-introduction.md
     - name: Öğreticiler
       items:
       - name: 1 - Hesap oluşturma
@@ -172,22 +173,16 @@ items:
         href: powershell-samples.md
       - name: Azure CLI
         href: cli-samples.md
-    - name: Kavramlar
-      items:
-      - name: Belge verilerini modelleme
-        href: modeling-data.md
     - name: Nasıl yapılır kılavuzları
       items:
-      - name: Toplu yürütücü kullanma - .NET kitaplığı
+      - name: Toplu yürütücü - .NET kitaplığı
         href: bulk-executor-dot-net.md
-      - name: Toplu yürütücü kullanma - Java kitaplığı
+      - name: Toplu yürütücü - Java kitaplığı
         href: bulk-executor-java.md
       - name: SQL sorgusu yazma
         href: sql-api-sql-query.md
       - name: Sorgu performansını ayarlama
         href: sql-api-sql-query-metrics.md
-      - name: SQL veri bölümleme
-        href: sql-api-partition-data.md
       - name: Veri türleri
         items:
         - name: DateTime
@@ -220,16 +215,11 @@ items:
         href: /rest/api/cosmos-db-resource-provider/
       - name: SQL dili söz dizimi
         href: sql-api-sql-query-reference.md
-    - name: Kaynaklar
-      items:
-      - name: SQL oyun alanı
-        href: https://aka.ms/cosmos-db-playground
   - name: MongoDB API Belgeleri
     items:
     - name: Genel Bakış
+      href: mongodb-introduction.md
       items:
-      - name: MongoDB API hakkında
-        href: mongodb-introduction.md
       - name: MongoDB desteği
         href: mongodb-feature-support.md
     - name: Öğreticiler
@@ -276,16 +266,11 @@ items:
         href: mongodb-time-to-live.md
       - name: Veri dizinlemeyi yönetme
         href: mongodb-indexing.md
-    - name: Kaynaklar
-      items:
-      - name: Visual Studio Code uzantısı
-        href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
   - name: Gremlin API Belgeleri
     items:
     - name: Genel Bakış
+      href: graph-introduction.md
       items:
-      - name: Gremlin API hakkında
-        href: graph-introduction.md
       - name: Gremlin desteği
         href: gremlin-support.md
     - name: Öğreticiler
@@ -296,14 +281,10 @@ items:
       items:
       - name: Graf verilerini içeri aktarma
         href: bulk-executor-graph-dotnet.md
-      - name: Graf verilerini bölümleme
-        href: graph-partitioning.md
   - name: Cassandra API Belgeleri
     items:
     - name: Genel Bakış
-      items:
-      - name: Cassandra API Hakkında
-        href: cassandra-introduction.md
+      href: cassandra-introduction.md
     - name: Öğreticiler
       items:
       - name: 1 - Hesap oluşturma
@@ -313,9 +294,7 @@ items:
   - name: Tablo API’si Belgeleri
     items:
     - name: Genel Bakış
-      items:
-      - name: Tablo API’si Hakkında
-        href: table-introduction.md
+      href: table-introduction.md
     - name: Öğreticiler
       items:
       - name: 1 - Hesap oluşturma
@@ -373,10 +352,8 @@ items:
       href: storage-explorer.md
     - name: Veri gezginini kullanarak yönetme
       href: data-explorer.md
-    - name: Anahtarları ve tutarlılık düzeylerini yönetme
+    - name: Hesabınızı yönetme
       href: manage-account.md
-    - name: Aktarım hızı alma ve ayarlama
-      href: set-throughput.md
   - name: Günlüğe kaydetme
     items:
     - name: Tanılama günlüğüne kaydetme
@@ -407,6 +384,14 @@ items:
       href: performance-tips-async-java.md
     - name: Performans testi - örnek uygulama
       href: performance-testing.md
+  - name: En iyi uygulamalar
+    items:
+    - name: Belge verilerini modelleme
+      href: modeling-data.md
+    - name: SQL veri bölümleme
+      href: sql-api-partition-data.md
+    - name: Graf verilerini bölümleme
+      href: graph-partitioning.md
   - name: Büyük veri ve analiz
     items:
     - name: Lambda mimarisi
@@ -415,9 +400,11 @@ items:
       href: spark-connector.md
     - name: Spark, Kafka ve Azure Cosmos DB
       href: https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json
+    - name: Akış e-ticaret çözümünü değiştirme
+      href: changefeed-ecommerce-solution.md
   - name: Diğer Azure hizmetleri ile tümleştirme
     items:
-    - name: Azure Uygulama Hizmeti ile web sitesi dağıtma
+    - name: Azure App Service
       href: create-website.md
     - name: Azure Search dizinleyicisi
       href: https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json
@@ -427,7 +414,7 @@ items:
         href: serverless-computing-database.md
       - name: Azure İşlev bağlamaları
         href: https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json
-    - name: Azure Data Factory ile veri taşıma
+    - name: Azure Data Factory
       href: https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json
     - name: Azure Stream Analytics
       href: ../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db
@@ -449,8 +436,6 @@ items:
     href: regional-failover.md
   - name: Saklı yordamlar, tetikleyiciler ve UDF'ler
     href: programming.md
-  - name: Çok yöneticili kurulum
-    href: multi-master-workaround.md
   - name: Toplu yürütücü kitaplığı hakkında
     href: bulk-executor-overview.md
   - name: Düşük maliyetli okuma ve yazmalar
@@ -459,8 +444,8 @@ items:
   items:
   - name: Sorgu kopya kağıdı
     href: query-cheat-sheet.md
-  - name: 20 günde 20 ipucu
-    href: 20-days-of-tips.md
+  - name: SQL oyun alanı
+    href: https://aka.ms/cosmos-db-playground
   - name: SSS
     href: faq.md
   - name: Teknik incelemeler
@@ -478,9 +463,9 @@ items:
     href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
   - name: Sosyal medya uygulamaları
     href: social-media-apps.md
-ms.openlocfilehash: 882b7d69a8282beb2fcbbce0ed788810210236ca
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 8837d9bc6cf492a146d96d917d9157e51bffa0f5
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43184904"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695991"
