@@ -1,6 +1,6 @@
 ---
-title: Javascript - Microsoft Bilişsel hizmetler Anomali Bulucu API kullanma | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get Anomali Bulucu Bilişsel hizmetler Javascript ile kullanmaya başlayın.
+title: Anomali Bulucu API Javascript - Microsoft Bilişsel hizmetler ile kullanma | Microsoft Docs
+description: Bilişsel hizmetler JavaScript'te Anomali Bulucu kullanarak hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get başlayın.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,16 +9,16 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 105da0219efd7bf7c9a105a018dda7ea5b084cfd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 048647f1657a5674bcb508b20b7c57a8a6ed5ed9
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353339"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665031"
 ---
 # <a name="use-the-anomaly-finder-api-with-javascript"></a>Anomali Bulucu API Javascript ile kullanma
 
-Bu makalede bilgiler sağlanmaktadır ve hızlı bir şekilde yardımcı olmak için kod örnekleri anomali algılama sonucu zaman serisi veri alma görevi gerçekleştirmek için Javascript ile Anomali algılama API kullanarak çalışmaya başlayın.
+Bu makalede bilgiler sağlanmaktadır ve kod örnekleri, hızlı bir şekilde yardımcı olması için anomali algılama sonucu zaman serisi verilerini alma görevi gerçekleştirmek için Javascript ile Anomali algılama API'sini kullanarak kullanmaya başlayın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -28,19 +28,21 @@ Bu makalede bilgiler sağlanmaktadır ve hızlı bir şekilde yardımcı olmak i
 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
-### <a name="example-of-time-series-data"></a>Zaman serisi veri örneği
+### <a name="example-of-time-series-data"></a>Zaman serisi verilerini örneği
 
-Zaman serisi veri noktaları örneği aşağıdaki gibidir: [!INCLUDE [Request](../includes/request.md)]
+Zaman serisi veri noktaları örneği aşağıdaki gibidir:
 
-### <a name="analyze-data-and-get-anomaly-points-javascript-example"></a>Verileri çözümlemek ve Javascript örnek anomali noktaları Al
+[!INCLUDE [Request](../includes/request.md)]
+
+### <a name="analyze-data-and-get-anomaly-points-javascript-example"></a>Verileri analiz etmek ve Javascript örnek anomali puan Al
 
 Örneği kullanarak adımlar aşağıdaki gibidir.
 
 1. Yeni bir HTML dosyası oluşturun.
-2. HTML dosyasını aşağıdaki kodla değiştirin.
-3. Değiştir `[YOUR_SUBSCRIPTION_KEY]` değeri geçerli bir abonelik anahtarınızı ile.
+2. HTML dosyası aşağıdaki kodla değiştirin.
+3. Değiştirin `[YOUR_SUBSCRIPTION_KEY]` değeri geçerli bir abonelik.
 4. RequestTextArea verileri, veri noktası ile değiştirin.
-5. Bir Web tarayıcısında HTML dosyasını açın ve'ı tıklatın `Anomaly Detection` düğmesi.
+5. Bir Web tarayıcısında HTML dosyasını açın ve tıklayın `Anomaly Detection` düğmesi.
 
 ```Javascript
 <!DOCTYPE html>
@@ -304,7 +306,7 @@ Zaman serisi veri noktaları örneği aşağıdaki gibidir: [!INCLUDE [Request](
 
 ### <a name="example-response"></a>Örnek yanıt
 
-Başarılı yanıt JSON döndürülür. Örnek yanıt aşağıdaki gibidir.
+Başarılı bir yanıt JSON biçiminde döndürülür. Örnek yanıt aşağıdaki gibidir.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -3,7 +3,7 @@ title: Node.js ile Azure Service Bus konu başlıklarını ve aboneliklerini kul
 description: Service Bus konuları ve Abonelikleri, Azure'da bir Node.js uygulamasından kullanmayı öğrenin.
 services: service-bus-messaging
 documentationcenter: nodejs
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: sethm
-ms.openlocfilehash: d3a7ebd135f705a6a3ea91feb4e037a9ed6d0c79
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: fbb43d07296ca573f0c4cb9f1e10e005633ade06
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38705005"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700105"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Nasıl yapılır kullanım Service Bus konuları ve abonelikleri ile Node.js
 

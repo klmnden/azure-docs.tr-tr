@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7ca0e8eb2d496bdcd8eff7dbee2af2e549f123dd
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 988c264ef6052b4b41de493944ac8d39a197a083
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626864"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698766"
 ---
 # <a name="data-management-gateway"></a>Veri Yönetimi Ağ Geçidi
 > [!NOTE]
@@ -142,7 +142,7 @@ Kurumsal güvenlik duvarınız düzeyinde aşağıdaki etki alanları ve giden b
 
 | Etki alanı adları | Bağlantı Noktaları | Açıklama |
 | --- | --- | --- |
-| *.servicebus.windows.net |443, 80 |Veri taşıma Hizmeti'nde arka ucu ile iletişim kurmak için kullanılır |
+| *.servicebus.windows.net |443 |Veri taşıma Hizmeti'nde arka ucu ile iletişim kurmak için kullanılır |
 | *. core.windows.net |443 |Azure Blob (yapılandırılmışsa) kullanarak hazırlanmış kopya için kullanılan|
 | *.frontend.clouddatahub.net |443 |Veri taşıma Hizmeti'nde arka ucu ile iletişim kurmak için kullanılır |
 | *.servicebus.windows.net |9350-9354, 5671 |Kopyalama Sihirbazı tarafından kullanılan TCP üzerinden isteğe bağlı bir service bus geçişi |

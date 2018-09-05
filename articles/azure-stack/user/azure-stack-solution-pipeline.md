@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/08/2018
+ms.date: 09/04/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 5fbce0c20e66eec0e7d7023344051fcf302af677
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 391cc4ca4b34149aeda54a60bfe6f6949e5a379b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382621"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697756"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack'te uygulama dağıtma
 
@@ -108,10 +108,11 @@ Aşağıdaki adımlar, hangi kimlik doğrulamasını yapılandırmak için gerek
 
 ### <a name="create-a-service-principal"></a>Hizmet sorumlusu oluşturma
 
-Başvurmak [hizmet sorumlusu oluşturma](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) hizmet sorumlusu oluşturma ve ardından yönergeleri **Web uygulaması/API'si** uygulama türü için veya [bu PowerShell Betiği](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5)açıklandığı gibi [burada](https://docs.microsoft.com/en-us/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
+Başvurmak [hizmet sorumlusu oluşturma](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) bir hizmet sorumlusu oluşturmak için yönergeler. Seçin **Web uygulaması/API'si** uygulama türü için veya [PowerShell betiğini kullanın](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5) makalesinde açıklandığı gibi [bir hizmetiniz ile bir Azure Resource Manager hizmet bağlantısı oluştur Asıl ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
 
- > [!Note]
- > Betik bir Azure Stack Azure Resource Manager uç nokta oluşturmak için kullanacaksanız, geçirin gerek `-azureStackManagementURL` ve `-environmentName` olan parametreleri https://management.local.azurestack.external/ ve *AzureStack*.
+ > [!Note]  
+ > Betik bir Azure Stack Azure Resource Manager uç nokta oluşturmak için kullandığınız geçirmek gerekirse **- azureStackManagementURL** parametresi ve **- environmentName** parametresi. Örneğin:  
+> `-azureStackManagementURL https://management.local.azurestack.external -environmentName AzureStack`
 
 ### <a name="create-an-access-key"></a>Bir erişim anahtarı oluştur
 
@@ -204,7 +205,7 @@ Bir kişisel erişim VSTS erişim belirteci oluşturun.
 1. VSTS hesabınızda oturum açın ve hesap profil adınızı seçin.
 2. Seçin **Güvenliği Yönet** için erişim belirteci oluşturma sayfası.
 
-    ![Kullanıcı oturum açma](media\azure-stack-solution-hybrid-pipeline\000_17.png)
+    ![Kullanıcı oturumu açma](media\azure-stack-solution-hybrid-pipeline\000_17.png)
 
     ![Takım projesi seçin](media\azure-stack-solution-hybrid-pipeline\000_18.png)
 
@@ -264,17 +265,17 @@ Visual Studio Online (VSTO) derleme, uç noktaları oluşturarak, Azure Stack i�
 9. İçinde **kullanıcılar ve gruplar ekleme**, bir kullanıcı adı girin ve kullanıcının kullanıcılar listesinden seçin.
 10. Seçin **değişiklikleri kaydetmek**.
 
-## <a name="create-azure-stack-endpoint"></a>Azure Stack uç noktası oluşturma
+## <a name="create-an-azure-stack-endpoint"></a>Bir Azure Stack uç noktası oluşturma
 
-Denetleme [bu](https://docs.microsoft.com/en-us/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) belgeleri bir hizmet bağlantısı ile mevcut bir hizmet sorumlusu oluşturma ve aşağıdaki eşlemeyi kullanın:
+' Ndaki yönergeleri takip edebilirsiniz [bir Azure Resource Manager hizmet bağlantısı ile mevcut bir hizmet sorumlusu oluşturma ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) makale bir hizmet bağlantısı ile mevcut bir hizmet sorumlusu oluşturma ve aşağıdaki eşlemeyi kullanın:
 
 - Ortam: AzureStack
 - Ortam URL'si: Aşağıdaki gibi `https://management.local.azurestack.external`
 - Abonelik kimliği: Azure Stack kullanıcı aboneliği kimliği
 - Abonelik adı: Azure Stack kullanıcı abonelik adı
-- Hizmet sorumlusu istemci kimliği: asıl Kimliğinden [bu](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) bu makaledeki bir bölüm.
+- Hizmet sorumlusu istemci kimliği: asıl Kimliğinden [bu](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) bu makaledeki bir bölüm.
 - Hizmet sorumlusu anahtarı: aynı makalenin (veya betiği kullandıysanız parolayı) anahtarı.
-- Kiracı kimliği: Kiracı kimliği, aradığınızı [burada](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).
+- Kiracı kimliği: Kiracı kimliği, aşağıdaki yönerge almak [Kiracı Kimliğinizi alma](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).
 
 Uç nokta oluşturulduktan sonra Azure Stack bağlantı VSTS'ye kullanıma hazırdır. Yapı aracısının Azure Stack'te VSTS'den yönergeler alır ve ardından aracıyı Azure Stack ile iletişim için uç nokta bilgileri iletmez.
 

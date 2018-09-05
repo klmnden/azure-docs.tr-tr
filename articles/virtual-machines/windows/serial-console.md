@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: ddd30729aa2bcb616efab814dc4046d2817c64fa
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 725f52e55795025671036095f209fd92636a4d9c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128686"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701508"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Sanal makinenin seri konsol (Önizleme) 
 
@@ -39,7 +39,7 @@ Linux VM'ler için seri konsol belgeleri [Buraya](../linux/serial-console.md).
 * Sanal makinesinin olmalıdır [önyükleme tanılaması](boot-diagnostics.md) etkin 
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
-    
+
 * Seri konsol kullanarak hesabı olmalıdır [katkıda bulunan rolü](../../role-based-access-control/built-in-roles.md) VM için ve [önyükleme tanılaması](boot-diagnostics.md) depolama hesabı. 
 * Seri konsol indirmesindeki olduğunuz sanal makine de parola tabanlı bir hesabı olmalıdır. İle bir tane oluşturabilirsiniz [parolayı Sıfırla](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) VM erişimi uzantısı - işlevselliğini aşağıdaki ekran görüntüsüne bakın.
 
@@ -77,7 +77,7 @@ Gerekli SAC çevrimdışı de etkinleştirilebilir ise
 
 Varsa [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) etkin seri konsol SAC istemi gösterilmez. Bazı durumlarda VM sistem durumu bilgileri gösterebilir veya boş olamaz.  
 
-### <a name="enabling-boot-menu-to-show-in-the-serial-console"></a>Seri konsol içinde göstermek, önyükleme menüsü etkinleştirme 
+## <a name="enabling-boot-menu-to-show-in-the-serial-console"></a>Seri konsol içinde göstermek, önyükleme menüsü etkinleştirme 
 
 Windows Önyükleme Yükleyicisi'ni etkinleştirmek gerekiyorsa göstermek için seri konsolunda Windows önyükleme yükleyicisi için aşağıdaki ek seçenekleri ekleyebilirsiniz ister.
 
@@ -149,6 +149,15 @@ Seri konsola bir kullanıcı bağlandığından ve başka bir kullanıcı, aynı
 >[!CAUTION] 
 Başka bir deyişle, bağlantısı kesilse kullanıcı kapatılacak değil! Bağlantıyı Kes (aracılığıyla SIGHUP veya benzer bir mekanizma) bağlı bir oturum kapatma zorunlu tutma becerisi hala Yol Haritası ' dir. Windows için yoktur SAC içinde etkin otomatik bir zaman aşımı ancak Linux için terminal zaman aşımı ayarını yapılandırabilirsiniz. 
 
+## <a name="common-scenarios-for-accessing-serial-console"></a>Seri konsoluna erişmek için genel senaryolar 
+Senaryo          | Seri konsol eylemleri                
+:------------------|:-----------------------------------------
+Yanlış güvenlik duvarı kuralları | Seri konsol ve düzeltme Windows Güvenlik duvarı kuralları erişin. 
+Dosya Sistemi Bozulması/işaretleyin | Seri konsol erişmek ve dosya sistemi kurtarın. 
+RDP yapılandırma sorunları | Seri Konsol erişim ve ayarları değiştirin. Git [RDP belgeleri](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access) kullanmaya başlamak için.
+Sistem ağ kilitleme| Seri konsol sistemini yönetmek için portal aracılığıyla erişim. İçinde listelenen bazı ağ komutları [seri Konsolu CMD ve PowerShell belgeleri](./serial-console-cmd-ps-commands.md). 
+Önyükleme yükleyicisi ile etkileşim kurma | Seri konsol üzerinden BCD erişim. Git [seri konsol içinde gösterilecek etkinleştirme önyükleme menüsü](#enabling-boot-menu-to-show-in-the-serial-console) kullanmaya başlamak için. 
+
 ## <a name="using-serial-console-for-nmi-calls-in-windows-vms"></a>Seri konsol için NMI kullanarak Windows VM çağırır
 Maskelenemez olmayan bir kesinti (NMI) yazılımı bir sanal makinede değil yoksayacak bir sinyal oluşturmak için tasarlanmıştır. Tarihsel olarak, NMIs belirli yanıt süreleri gerektiren sistemleri donanım sorunları izlemek için kullanılır.  Bugün, programcılar ve sistem yöneticileri bir mekanizma NMI hata ayıklama veya askıya sistemler gidermek için genellikle kullanın.
 
@@ -158,6 +167,14 @@ Seri konsol, aşağıda gösterilen komut çubuğunda klavye simgesini kullanara
 
 Kilitlenme bilgi dökümü bir NMI aldığında oluşturmak için Windows yapılandırma hakkında daha fazla bilgi için bkz: [tam kilitlenme bilgi döküm dosyası veya bir çekirdek kilitlenme dökümü dosyalarının Windows tabanlı bir sistemde bir NMI kullanarak oluşturma](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
+## <a name="accessibility"></a>Erişilebilirlik
+Erişilebilirlik bir anahtar Azure seri konsol biridir. Bu amaçla, seri konsol fare kullanmanız mümkün olmayabilir kişilerin yanı sıra visual ve işitme zorluğu yaşayan kişiler erişilebilir olduğunu belirlediniz.
+
+### <a name="keyboard-navigation"></a>Klavye ile gezinme
+Kullanım `tab` With Azure Portal'ın seri konsol arabirimi geçici olarak gezinmek için klavyenizdeki anahtar. Konumunuz ekranda vurgulanır. Seri konsol dikey pencerenin odağı bırakmak için basın `Ctrl + F6` klavyenizde.
+
+### <a name="use-serial-console-with-a-screen-reader"></a>Seri konsol ekran okuyucuyla kullanma
+Seri konsol ekran okuyucu desteği yerleşik olarak bulunur. Açık bir ekran okuyucu ile geçici olarak gezinmek sesli ekran okuyucu tarafından okunacak şu anda seçili düğme için alternatif metin izin verir.
 
 ## <a name="errors"></a>Hatalar
 Çoğu hataların doğası ve bağlantı adresi bunlar yeniden deneniyor geçicidir. Aşağıdaki tabloda, hataları ve risk azaltma işlemleri listesini gösterir

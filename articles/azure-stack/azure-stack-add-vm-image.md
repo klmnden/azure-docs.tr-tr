@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 06/27/2018
+ms.date: 08/30/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 5c2088ab39e32c049ce867698e84efba759c9a87
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7f16f53af7d1c2f46c5c61974601833fafc8f828
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447345"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698783"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Azure Stack'te bir sanal makine görüntüsü kullanılabilmesini
 
@@ -37,7 +37,7 @@ Görüntüleri bir blob depolama URI'si başvurulmak üzere kurabilmesi gerekir.
 
 1. [Resource Manager dağıtımları için azure'a bir Windows VM görüntüsü](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) veya bir Linux görüntüsü için açıklanan yönergeleri [Azure Stack'te dağıtma Linux sanal makineleri](azure-stack-linux.md). Görüntüyü karşıya yüklemeden önce aşağıdaki etmenleri düşünmeniz önemlidir:
 
-   - Azure Stack sabit disk VHD biçimini destekler. Sabit biçim, disk farkı X blob farkı X depolanır. Bu nedenle mantıksal diski dosya içinde doğrusal olarak yapıları. Blob'un sonundaki küçük bir alt bilgi VHD'nin özelliklerini açıklar. Diskinizin giderilip doğrulamak için şunu kullanın [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell komutu.  
+   - Azure yığını, yalnızca nesil desteklediği bir (1) sanal sabit disk VHD format. Sabit biçim, disk farkı X blob farkı X depolanır. Bu nedenle mantıksal diski dosya içinde doğrusal olarak yapıları. Blob'un sonundaki küçük bir alt bilgi VHD'nin özelliklerini açıklar. Diskinizin giderilip doğrulamak için şunu kullanın [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell komutu.  
 
     > [!IMPORTANT]
     >  Azure Stack, dinamik disk VHD desteklemez. Bir VM'ye bağlı bir dinamik disk yeniden boyutlandırması VM başarısız durumda bırakır. Bu sorunu gidermek için sanal makinenin disk bir depolama hesabında bir VHD blobunun silmeden VM'yi silin. Dönüştürme, dinamik bir diski VHD'den bir sabit diske ve sanal makine'yeniden oluşturun.
@@ -48,7 +48,7 @@ Görüntüleri bir blob depolama URI'si başvurulmak üzere kurabilmesi gerekir.
 
    * Blob depolama URI'si görüntünün karşıya yüklersiniz not edin. Blob depolama URI'si aşağıdaki biçime sahiptir: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd.
 
-   * Blob anonim olarak erişilebilir olması için burada VHD VM görüntüsünü karşıya yüklenen depolama hesabının blob kapsayıcısına gidin. Seçin **Blob**ve ardından **erişim ilkesi**. İsteğe bağlı olarak, bunun yerine kapsayıcı paylaşılan erişim imzası oluşturma de blob URI'si parçası olarak dahil edebilirsiniz.
+   * Blob anonim olarak erişilebilir olması için burada VHD VM görüntüsünü karşıya yüklenen depolama hesabının blob kapsayıcısına gidin. Seçin **Blob**ve ardından **erişim ilkesi**. İsteğe bağlı olarak, bunun yerine kapsayıcı paylaşılan erişim imzası oluşturma de blob URI'si parçası olarak dahil edebilirsiniz. Bu adım, bunu bir görüntü olarak eklemek için kullanılacak blob kullanılabilir emin olur. Blob, anonim olarak erişilebilir durumda değilse, VM görüntüsü için hatalı bir durumda oluşturulacak.
 
    ![Depolama hesabının BLOB'ları için Git](./media/azure-stack-add-vm-image/image1.png)
 
