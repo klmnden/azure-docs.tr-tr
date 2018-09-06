@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: de597424c1be01e651068b7900acbece822610b1
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: MT
+ms.openlocfilehash: d64233883d2dd6fb174c55467fcfcd276b452775
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008384"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782999"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örnek meta veri hizmeti
 
@@ -37,10 +37,10 @@ Hizmet genel kullanıma sunulan Azure bölgelerinde kullanılabilir. Tüm API s�
 
 Bölgeler                                        | Kullanılabilirlik?                                 | Desteklenen Sürümler
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Tüm genel kullanıma sunulan Global Azure bölgeleri](https://azure.microsoft.com/regions/)     | Genel kullanıma sunuldu   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
-[Azure Devlet Kurumları](https://azure.microsoft.com/overview/clouds/government/)              | Genel kullanıma sunuldu | 2017-04-02,2017-08-01
-[Azure Çin](https://www.azure.cn/)                                                           | Genel kullanıma sunuldu | 2017-04-02,2017-08-01
-[Azure Almanya](https://azure.microsoft.com/overview/clouds/germany/)                    | Genel kullanıma sunuldu | 2017-04-02,2017-08-01
+[Tüm genel kullanıma sunulan Global Azure bölgeleri](https://azure.microsoft.com/regions/)     | Genel Kullanıma Sunuldu   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02
+[Azure Devlet Kurumları](https://azure.microsoft.com/overview/clouds/government/)              | Genel Kullanıma Sunuldu | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
+[Azure Çin](https://www.azure.cn/)                                                           | Genel Kullanıma Sunuldu | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
+[Azure Almanya](https://azure.microsoft.com/overview/clouds/germany/)                    | Genel Kullanıma Sunuldu | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
 
 Bu tablo veya hizmet güncelleştirmeleri vardır ve yeni desteklenen sürümler kullanılabilir güncelleştiriliyor
 
@@ -49,7 +49,7 @@ Bu tablo veya hizmet güncelleştirmeleri vardır ve yeni desteklenen sürümler
 ## <a name="usage"></a>Kullanım
 
 ### <a name="versioning"></a>Sürüm oluşturma
-Örnek meta veri hizmeti sürümü. Sürümleri zorunludur ve genel Azure üzerinde geçerli sürümü `2017-12-01`. (2017-04-02, 2017-08-01,2017-12-01) geçerli desteklenen sürümler:
+Örnek meta veri hizmeti sürümü. Sürümleri zorunludur ve genel Azure üzerinde geçerli sürümü `2018-04-02`. (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02) geçerli desteklenen sürümler:
 
 > [!NOTE] 
 > Önceki Önizleme sürümlerinde zamanlanmış olaylar {son} api-version desteklenir. Bu biçim, artık desteklenmemektedir ve gelecekte kullanım dışı bırakılacaktır.
@@ -299,6 +299,8 @@ subscriptionId | Sanal makine için Azure aboneliği | 2017-08-01
 etiketler | [Etiketleri](../../azure-resource-manager/resource-group-using-tags.md) sanal makineniz için  | 2017-08-01
 resourceGroupName | [Kaynak grubu](../../azure-resource-manager/resource-group-overview.md) sanal makineniz için | 2017-08-01
 placementGroupId | [Yerleştirme grubu](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) , sanal makine ölçek kümesi | 2017-08-01
+plan | [Planı] (https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#plan) Azure Market görüntüsü içindeki bir VM için adı, ürün ve yayımcı içerir. | 2017-04-02
+publicKeys | Ortak anahtarlar koleksiyonunu [https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#sshpublickey] VM ve yolları atanan | 2017-04-02
 vmScaleSetName | [Sanal makine ölçek kümesi adı](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) , sanal makine ölçek kümesi | 2017-12-01
 bölge | [Kullanılabilirlik alanı](../../availability-zones/az-overview.md) sanal makinenizin | 2017-12-01 
 IPv4/Privateıpaddress | Sanal makinenin yerel IPv4 adresi | 2017-04-02
@@ -379,6 +381,39 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 }
 ```
 
+
+### <a name="getting-azure-environment-where-the-vm-is-running"></a>Azure VM çalıştığı ortamı alma 
+
+Azure, çeşitli soverign Bulutları gibi sahiptir [Azure kamu](https://azure.microsoft.com/overview/clouds/government/) , bazen Azure ortamına bazı çalışma zamanı kararlar gerekir. Aşağıdaki örnek Bunu başarmak nasıl gösterir
+
+**İstek**
+
+```
+  $metadataResponse = Invoke-WebRequest "http://169.254.169.254/metadata/instance/compute?api-version=2018-02-01" -H @{"Metadata"="true"} -UseBasicParsing
+  $metadata = ConvertFrom-Json ($metadataResponse.Content)
+ 
+  $endpointsResponse = Invoke-WebRequest "https://management.azure.com/metadata/endpoints?api-version=2017-12-01" -UseBasicParsing
+  $endpoints = ConvertFrom-Json ($endpointsResponse.Content)
+ 
+  foreach ($cloud in $endpoints.cloudEndpoint.PSObject.Properties) {
+    $matchingLocation = $cloud.Value.locations | Where-Object {$_ -match $metadata.location}
+    if ($matchingLocation) {
+      $cloudName = $cloud.name
+      break
+    }
+  }
+ 
+  $environment = "Unknown"
+  switch ($cloudName) {
+    "public" { $environment = "AzureCloud"}
+    "usGovCloud" { $environment = "AzureUSGovernment"}
+    "chinaCloud" { $environment = "AzureChinaCloud"}
+    "germanCloud" { $environment = "AzureGermanCloud"}
+  }
+ 
+  Write-Host $environment
+```
+
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>VM içindeki farklı dilleri kullanarak meta verileri hizmete çağrı yapma örnekleri 
 
 Dil | Örnek 
@@ -404,7 +439,7 @@ Puppet | https://github.com/keirans/azuremetadata
    * Örnek meta veri hizmeti şu anda yalnızca Azure Resource Manager ile oluşturulan örnekleri destekler. Bulut hizmeti sanal makineleri eklenebilir gelecekte desteği.
 3. Azure Resource Manager aracılığıyla sanal makineme geri bir süre oluşturdum. Bkz: değil neden ben meta veri bilgilerini işlem?
    * Eylül 2016'dan sonra oluşturulan tüm vm'leri için bir [etiketi](../../azure-resource-manager/resource-group-using-tags.md) görmek için işlem meta verileri. Eski Vm'leri (Eylül 2016'dan önce oluşturulmuş) için ekleme/meta verilerini yenilemek için VM uzantıları veya veri diski kaldırma.
-4. Doldurulmuş yeni 2017-08-01 sürümü için tüm veri görmüyorum
+4. Yeni sürüm için doldurulmuş tüm veri görmüyorum
    * Eylül 2016'dan sonra oluşturulan tüm vm'leri için bir [etiketi](../../azure-resource-manager/resource-group-using-tags.md) görmek için işlem meta verileri. Eski Vm'leri (Eylül 2016'dan önce oluşturulmuş) için ekleme/meta verilerini yenilemek için VM uzantıları veya veri diski kaldırma.
 5. Neden iletisi alıyorum hata `500 Internal Server Error`?
    * Üstel geri alma sistemi göre isteğinizi yeniden deneyin. Sorun devam ederse Azure desteğine başvurun.
@@ -414,6 +449,10 @@ Puppet | https://github.com/keirans/azuremetadata
    * Evet meta veri hizmetine ölçek kümesi örnekleri için kullanılabilir. 
 8. Hizmet için nasıl destek alabilirim?
    * Hizmet için destek almak için uzun denemeden sonra meta veri yanıtını almanız mümkün olmadığı bir VM için Azure portalında bir destek sorunu oluşturun 
+9. My çağrısı zaman aşımına uğradı isteği alabilirim hizmet?
+   * Meta veri çağrıları VM'nin ağ kartına birincil IP adresinden yapılması gerekir, ayrıca, değişmesi durumunda yollarınızı var. ağ kartınıza dışında 169.254.0.0/16 adresi için bir yol olmalıdır.
+10. Ben Etiketlerim sanal makine ölçek kümesindeki güncelleştirildi ancak Vm'leri farklı örneklerinde görünmüyor?
+   * Şu anda ScaleSets için etiketleri yalnızca VM yeniden başlatma/yeniden görüntü oluşturma/bir disk örneği değiştirin ya da gösterilir. 
 
    ![Örnek meta veri desteği](./media/instance-metadata-service/InstanceMetadata-support.png)
     

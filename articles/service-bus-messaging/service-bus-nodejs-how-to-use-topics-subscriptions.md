@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: fbb43d07296ca573f0c4cb9f1e10e005633ade06
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: daabf711e923e1c4ff3132c5e4765bdbff206948
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700105"
+ms.locfileid: "43782920"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Nasıl yapılır kullanım Service Bus konuları ve abonelikleri ile Node.js
 
@@ -95,7 +95,7 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 });
 ```
 
-`createServiceBusService` Yöntemi, varsayılan ileti yaşam süresi veya en büyük konu boyutu gibi konu başlığı ayarlarını geçersiz kılmak etkinleştirdiğiniz ek seçenekler de destekler. 
+`createTopicIfNotExists` Yöntemi, varsayılan ileti yaşam süresi veya en büyük konu boyutu gibi konu başlığı ayarlarını geçersiz kılmak etkinleştirdiğiniz ek seçenekler de destekler. 
 
 Aşağıdaki örnekte, bir dakikalık bir süresi ile en büyük konu boyutu 5 GB ila ayarlar:
 
@@ -235,12 +235,12 @@ var rule={
 }
 ```
 
-Ne zaman bir ileti hemen gönderilir `MyTopic`, abone alıcılara teslim edilecek `AllMessages` konu aboneliği ve seçmeli olarak teslim edilen alıcılar abone için `HighMessages` ve `LowMessages` (bağlı konu abonelikleri ileti içeriği).
+Ne zaman bir ileti hemen gönderilir `MyTopic`, abone alıcıya teslim `AllMessages` konu aboneliği ve seçmeli olarak teslim edilen alıcılar abone için `HighMessages` ve `LowMessages` konu abonelikleri (bağlı ileti içeriği).
 
 ## <a name="how-to-send-messages-to-a-topic"></a>Bir konuya ileti göndermek nasıl
 Bir Service Bus konusuna bir ileti göndermek için uygulamanızı kullanmalısınız `sendTopicMessage` yöntemi **ServiceBusService** nesne.
 Service Bus konu başlıklarına gönderilen iletiler **BrokeredMessage** nesneleri.
-**BrokeredMessage** nesneleri olan bir standart özellikler kümesi (gibi `Label` ve `TimeToLive`), bir uygulamaya özgü özel özellikleri tutmak için kullanılan sözlüğü ve dize verileri gövdesi içerir. Bir uygulama iletisinin gövdesini dize değeri geçirerek ayarlayabilirsiniz `sendTopicMessage` ve standart özellikleri varsayılan değerlerle doldurulacak gerekli.
+**BrokeredMessage** nesneleri olan bir standart özellikler kümesi (gibi `Label` ve `TimeToLive`), bir uygulamaya özgü özel özellikleri tutmak için kullanılan sözlüğü ve dize verileri gövdesi içerir. Bir uygulama iletisinin gövdesini dize değeri geçirerek ayarlayabilirsiniz `sendTopicMessage` ve gerekli standart özellikleri varsayılan değerlerle doldurulur.
 
 Aşağıdaki örnek nasıl beş test iletisi göndereceğinizi gösterir `MyTopic`. `messagenumber` Her ileti özelliği değerinin değişen döngü yinelemeyi (Bu alacak abonelikleri belirler):
 
@@ -268,7 +268,7 @@ Service Bus konu başlıkları, [Standart katmanda](service-bus-premium-messagin
 ## <a name="receive-messages-from-a-subscription"></a>Abonelikten ileti alma
 Kullanarak bir abonelik iletilerin alındığı `receiveSubscriptionMessage` metodunda **ServiceBusService** nesne. Varsayılan olarak, bunlar okurken iletileri abonelikten silinir. Ancak, isteğe bağlı parametre ayarlayabilirsiniz `isPeekLock` için **true** (Özet) okuyun ve iletiyi abonelikten silmeden kilitlemek için.
 
-Okuma ve ileti alma işleminin bir parçası olarak silmeye varsayılan davranışı en basit modeldir ve uygulamanın bir arıza olması durumunda bir iletiyi işlememeye izin dayanabilir senaryolar için en iyi şekilde çalışır. Bu davranışı anlamak için hangi tüketici alma isteği bildirdiğini ve ardından işlenmeden önce kilitleniyor bir senaryo düşünün. Service Bus iletiyi kullanılıyor olarak işaretleyeceğinden, uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında ardından onu çökmenin öncesinde kullanılan iletiyi atlamış olur.
+Okuma ve ileti alma işleminin bir parçası olarak silmeye varsayılan davranışı en basit modeldir ve uygulamanın bir arıza olması durumunda bir iletiyi işlememeye izin dayanabilir senaryolar için en iyi şekilde çalışır. Bu davranışı anlamak için hangi tüketici alma isteği bildirdiğini ve ardından işlenmeden önce kilitleniyor bir senaryo düşünün. Service Bus iletiyi kullanılıyor olarak işaretlediğinden, uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında ardından onu çökmenin öncesinde kullanılan iletiyi eksik.
 
 Varsa `isPeekLock` parametrenin ayarlanmış **true**, alma, kaçırılan iletilere veremeyen uygulamaları desteklemenin mümkün kılar bir iki aşamalı işlemi haline gelir. Service Bus bir istek aldığında kullanmak için sonraki iletiyi bulur, diğer tüketicilerin iletiyi almasını engellemek için kilitler ve uygulamaya döndürür.
 Uygulama iletiyi işler (veya güvenilir bir şekilde işlemek üzere depolar sonra) çağırarak alma işleminin ikinci aşamasını tamamlar **deleteMessage** yöntemi ve bir parametre olarak silmek için ileti geçirir. **DeleteMessage** yöntemi iletiyi kullanılmış olarak işaretler ve abonelikten kaldırır.

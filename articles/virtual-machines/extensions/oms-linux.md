@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/21/2018
+ms.date: 09/05/2018
 ms.author: roiyz
-ms.openlocfilehash: 58827e8abd6394b1c9359ecbabbee37193a34706
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 858c586151c8a0dd5378794a5057c22a423c43cf
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414303"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782748"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Linux için sanal makine uzantısı Analytics oturum
 
@@ -36,18 +36,24 @@ Log Analytics aracısını uzantısı bu Linux dağıtımları karşı çalışt
 
 | Dağıtım | Sürüm |
 |---|---|
-| CentOS Linux | 5, 6 ve 7 (x86/x64) |
-| Oracle Linux | 5, 6 ve 7 (x86/x64) |
-| Red Hat Enterprise Linux Server | 5, 6 ve 7 (x86/x64) |
-| Debian GNU/Linux | 6, 7, 8 ve 9 (x86/x64) |
-| Ubuntu | 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64) |
-| SUSE Linux Enterprise Server | 11 ve 12 (x86/x64) |
+| CentOS Linux | 6 ve 7 (x86/x64) |
+| Amazon Linux | 2017.09 | 
+| Oracle Linux | 6 ve 7 (x86/x64) |
+| Red Hat Enterprise Linux Server | 6 ve 7 (x86/x64) |
+| Debian GNU/Linux | 8 ve 9 (x86/x64) |
+| Ubuntu | 14.04 LTS, 16.04 LTS ve 18.04 LTS (x86/x64) |
+| SUSE Linux Enterprise Server | 12 (x86/x64) |
+
+>[!NOTE]
+>OpenSSL sürümünden daha düşük 1.x herhangi bir platformda desteklenmiyor ve sürüm 1.10 (64-bit) x86_64 platformlarda desteklenir.  
+>
 
 ### <a name="agent-and-vm-extension-version"></a>Aracı ve VM uzantısı sürümü
 Aşağıdaki tabloda, her sürüm için Log Analytics aracısını paket ve Log Analytics VM uzantısı sürümünü bir eşleme sağlar. Log Analytics aracı Paket sürümü için sürüm notları için bir bağlantı bulunur. Sürüm Notları, hata düzeltmeleri ve belirli bir aracı sürüm için yeni özellikler hakkında ayrıntılı bilgi içerir.  
 
 | Log Analytics Linux VM uzantı sürümü | Log Analytics aracısını Paket sürümü | 
 |--------------------------------|--------------------------|
+| 1.7.7 | [1.6.1-3](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.1.3)| 
 | 1.6.42.0 | [1.6.0-42](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
 | 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
 | 1.4.59.1 | [1.4.3-174](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.3-174)|
@@ -84,7 +90,7 @@ Log Analytics aracısını Uzantı Şeması aşağıdaki JSON'u göstermektedir.
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.6",
+    "typeHandlerVersion": "1.7",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -102,7 +108,7 @@ Log Analytics aracısını Uzantı Şeması aşağıdaki JSON'u göstermektedir.
 | apiVersion | 2015-06-15 |
 | Yayımcı | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
-| typeHandlerVersion | 1.6 |
+| typeHandlerVersion | 1.7 |
 | Çalışma alanı kimliği (örn.) | 6f680a37-00c6-41C7-a93f-1437e3462574 |
 | workspaceKey (örn.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
@@ -127,7 +133,7 @@ Aşağıdaki örnekte, VM uzantısını sanal makine kaynağı içinde iç içe 
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.6",
+    "typeHandlerVersion": "1.7",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -152,7 +158,7 @@ Uzantı JSON şablonu kökünde yerleştirilirken, kaynak adı üst sanal makine
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.6",
+    "typeHandlerVersion": "1.7",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -173,7 +179,7 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.6 --protected-settings '{"workspaceKey": "omskey"}' \
+  --version 1.7 --protected-settings '{"workspaceKey": "omskey"}' \
   --settings '{"workspaceId": "omsid"}'
 ```
 
@@ -200,12 +206,11 @@ Uzantı yürütme çıkış aşağıdaki dosyasına kaydedilir:
 | 9 | Etkinleştirme beklenenden önce çağırılır | [Azure Linux aracısını güncelleştirme](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) kullanılabilir en son sürüme için. |
 | 10 | VM, Log Analytics çalışma alanınıza zaten bağlı | VM uzantısı şemasında belirtilen çalışma alanına bağlanmak için stopOnMultipleConnections genel ayarları false olarak ayarlayın veya bu özelliği kaldırın. Bu VM için bağlı her bir çalışma alanı için bir kez faturalandırılır. |
 | 11 | Uzantı için sağlanan geçersiz yapılandırma | Dağıtım için gerekli tüm özellik değerlerini ayarlamak için Yukarıdaki örneklerde izleyin. |
-| 12 | Dpkg Paket Yöneticisi kilitli | Tamamlandı ve yeniden deneyin dpkg güncelleştirme üzerindeki tüm işlemler makine emin olun. |
 | 17 | OMS paket yükleme hatası | 
 | 19 | OMI paket yükleme hatası | 
 | 20 | SCX paket yükleme hatası |
 | 51 | Bu uzantı sanal makinenin işletim sistemi üzerinde desteklenmiyor | |
-| 55 | Microsoft Operations Management Suite hizmetine bağlanamıyor | Sistem ya da Internet erişimi veya geçerli bir HTTP proxy'sinin sağlanan sahip olmadığını denetleyin. Ayrıca, çalışma alanı kimliği doğruluğunu denetleyin |
+| 55 | Bağlantı kurulamıyor OMS hizmetine veya gerekli paketleri eksik ya da dpkg Paket Yöneticisi kilitli| Sistem ya da Internet erişimi veya geçerli bir HTTP proxy'sinin sağlanan sahip olmadığını denetleyin. Ayrıca, çalışma alanı kimliği doğruluğunu denetleyin ve curl ve tar yardımcı programları yüklü olmadığını doğrulayın. |
 
 Ek bilgiler bulunabilir [Linux için OMS Aracısı sorun giderme kılavuzu](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
 
