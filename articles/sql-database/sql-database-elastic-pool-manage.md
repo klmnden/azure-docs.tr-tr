@@ -11,12 +11,12 @@ ms.date: 08/01/2018
 ms.author: ninarn
 ms.topic: conceptual
 ms.reviewer: carlrab
-ms.openlocfilehash: 96ea965ac383ae449afffa62c5e9950c6fd4e4da
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: cbfbe02926907ca3ca5b6c13932c8b67862c8456
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39411942"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842032"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Azure SQL veritabanı elastik havuzları oluşturma ve yönetme
 
@@ -104,17 +104,11 @@ SQL veritabanı elastik havuzları ve havuza alınan veritabanları oluşturmak 
 |[Elastik havuzlar - Get](/rest/api/sql/elasticpools/get)|Elastik havuz alır.|
 |[Elastik havuzlar - sunucu listesi](/rest/api/sql/elasticpools/listbyserver)|Bir sunucu elastik havuzları listesini döndürür.|
 |[Elastik havuzlar - güncelleştirme](/rest/api/sql/elasticpools/update)|Var olan bir esnek havuzun güncelleştirir.|
-|[Elastik havuzlar - önerilen Al](/rest/api/sql/recommendedelasticpools/get)|Önerilen bir elastik havuz alır.|
-|[Elastik havuzlar - listesi sunucu tarafından önerilen](/rest/api/sql/recommendedelasticpools/listbyserver)|Elastik havuzlar döndürür önerilir.|
-|[Önerilen elastik havuzlar - liste ölçümleri](/rest/api/sql/recommendedelasticpools/listmetrics)|Elastik havuz ölçümleri döndürür önerilir.|
 |[Elastik havuz etkinlikleri](/rest/api/sql/elasticpoolactivities)|Elastik havuz etkinlikleri döndürür.|
 |[Elastik havuz veritabanı etkinlikleri](/rest/api/sql/elasticpooldatabaseactivities)|İçinde bir elastik havuzdaki veritabanları üzerinde etkinlik döndürür.|
 |[Veritabanları - oluştur veya güncelleştir](/rest/api/sql/databases/createorupdate)|Yeni bir veritabanı oluşturur veya mevcut bir veritabanını güncelleştirir.|
 |[Veritabanları - Get](/rest/api/sql/databases/get)|Bir veritabanını alır.|
-|[Veritabanları - Get ile elastik havuz](/rest/api/sql/databases/getbyelasticpool)|Bir veritabanını bir elastik havuzun içine alır.|
-|[Veritabanları - önerilen elastik havuzu tarafından alınamadı](/rest/api/sql/databases/getbyrecommendedelasticpool)|Bir veritabanı içinde bir önerilen elastik havuz alır.|
 |[Veritabanı - elastik havuz göre listesi](/rest/api/sql/databases/listbyelasticpool)|Elastik havuzdaki veritabanlarının listesini döndürür.|
-|[Veritabanları - önerilen elastik havuz göre listesi](/rest/api/sql/databases/listbyrecommendedelasticpool)|Önerilen bir elastik havuz içindeki veritabanları listesi döndürür.|
 |[Veritabanı - sunucu listesi](/rest/api/sql/databases/listbyserver)|Bir sunucu veritabanlarının listesini döndürür.|
 |[Veritabanları - güncelleştirme](/rest/api/sql/databases/update)|Varolan bir veritabanını güncelleştirir.|
 

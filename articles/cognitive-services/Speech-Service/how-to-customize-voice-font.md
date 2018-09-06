@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 1f9facf94b8068b98aa49c49ece7070a83db0686
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 35572f046b3702deba56e86819b8ad0cd7ae6e9b
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665094"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842487"
 ---
 # <a name="creating-custom-voice-fonts"></a>Özel ses tipi olarak oluşturma
 
@@ -31,13 +31,11 @@ Ayrıca bir Azure hesabı ve konuşma hizmeti için bir abonelik gerekir. [Bir o
 
 1. Oturum [özel sesli portalı](https://customvoice.ai) uygulamak için kullandığınız erişim için aynı Microsoft hesabını kullanarak.
 
-2. Sağ üst kısımdaki 'Subscriptions' hesap adınızın altında gidin.
+2. Sağ üst kısımdaki 'Tüm abonelikleri' hesap adınızın altında gidin.
 
     ![Abonelikler](media/custom-voice/subscriptions.png)
 
 3. 'Subscriptions' sayfasında 'Connect mevcut aboneliği' seçin.
-
-     ![Mevcut abonelik'e bağlanma](media/custom-voice/connect-existing-sub.png)
 
 4. Abonelik anahtarınız, aşağıda gösterildiği gibi tablosu içine yapıştırın. Her aboneliğin iki anahtarı vardır ve bunlardan birini kullanabilir.
 
@@ -122,7 +120,7 @@ Ses dosyası Arşiv ve dökümler hazırlandıktan sonra bunları aracılığıy
 > [!NOTE]
 > Ücretsiz aboneliği kullanıcıları, aynı anda iki veri kümesi yükleyebilirsiniz. Standart abonelik kullanıcılar aynı anda beş veri kümelerini karşıya yükleyebilirsiniz. Sınıra ulaştıysanız, en az bir veri kümeleriniz bekleyin içeri aktarma tamamlandıktan, sonra yeniden deneyin.
 
-Karşıya yükleme tamamlandığında, My sesli veri tablosunu yeniden görüntülenir. Just-karşıya veri karşılık gelen bir giriş görmeniz gerekir. 
+Karşıya yükleme tamamlandığında, My sesli veri tablosunu yeniden görüntülenir. Just-karşıya veri karşılık gelen bir giriş görmeniz gerekir.
 
 Veri kümelerini karşıya yükledikten sonra otomatik olarak doğrulanır. Veri doğrulama, bir dizi ses dosyaları, dosya biçimi, boyutu ve örnekleme hızı doğrulamak için denetim içerir. Döküm dosyaları üzerinde denetimleri dosya biçimini doğrulayın ve bazı metin normalleştirme gerçekleştirin. Konuşma tanıma ile Konuşma transcribed ve elde edilen metnini sağladığınız döküm ile karşılaştırılır.
 
@@ -189,17 +187,11 @@ Zaman eğitim işlenen ses veri hacmine bağlı olarak değişir. Tipik bir kez 
 
 ## <a name="test-your-voice-font"></a>Test, ses tipi
 
-Kendi ses tipi başarıyla oluşturulduktan sonra kullanım için dağıtmadan önce test edebilirsiniz. Tıklayın **Test** Operations sütunda. Test sayfası için seçilen ses tipi görüntülenir. Ses için herhangi bir testi istekleri henüz göndermediniz, tablo boşsa.
-
-![2. Bölüm My ses tipleri](media/custom-voice/my-voice-fonts2.png)
+Kendi ses tipi başarıyla oluşturulduktan sonra kullanım için dağıtmadan önce test edebilirsiniz. Tıklayın **Test** Operations sütunda My ses tiplerini tablo. Test sayfası için seçilen ses tipi görüntülenir. Ses için herhangi bir testi istekleri henüz göndermediniz, tablo boşsa.
 
 Tıklayın **metinle Test** düğmesi metni istekleri göndermek için açılan menüyü görüntülemek için tablo başlık altında. Düz metin veya SSML'yi test isteğinizi gönderebilirsiniz. En büyük giriş boyutuna, SSML'yi istek için tüm etiketleri dahil olmak üzere, 1024 karakterdir. Dilin metin, ses tipi dili ile aynı olması gerekir.
 
-![Yazı tipi test ses](media/custom-voice/voice-font-testing.png)
-
 Metin kutusunu doldurarak ve giriş modu onayladıktan sonra **Evet** test isteğinizi göndermek ve test sayfasına geri dönün. Tablo, artık yeni isteğinizi ve şimdi bilinen Durum sütununda karşılık gelen bir giriş içerir. Bu konuşma sentezlemek için birkaç dakika sürebilir. Durum sütununda başarılı okuduğunda, metin girişi indirebilirsiniz (bir `.txt` dosyası) ve ses çıkış (bir `.wav` dosyası) ve ikincisi için kalite audition.
-
-![Ses yazı tipi testi, bölüm 2](media/custom-voice/voice-font-testing2.png)
 
 ## <a name="create-and-use-a-custom-endpoint"></a>Oluşturma ve özel bir uç noktası kullanma
 

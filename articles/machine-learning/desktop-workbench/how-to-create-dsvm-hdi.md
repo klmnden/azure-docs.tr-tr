@@ -11,12 +11,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 18cf885cd71822c2c24791f3c6f55835c3204d35
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 211f60b9c25b4bd20769f6a4840afaecf8373b9f
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285831"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782354"
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Hedef işlem olarak DSVM ve HDI Spark kümesi oluşturma
 
@@ -69,14 +69,14 @@ Bir Azure kaynak yönetimi şablonu ayrıca bir DSVM dağıtmak için de kullana
 >[!TIP]
 > İçin [derin öğrenme iş yüklerinin](how-to-use-gpu.md) dağıtabileceğiniz GPU desteklenen VM'ler.
 
-- [Genel amaçlı sanal makineleri](/virtual-machines/linux/sizes-general.md)
+- [Genel amaçlı sanal makineleri](../../virtual-machines/linux/sizes-general.md)
   - Standard_DS2_v2 
   - Standard_DS3_v2 
   - Standard_DS4_v2 
   - Standard_DS12_v2 
   - Standard_DS13_v2 
   - Standard_DS14_v2 
-- [GPU desteklenen VM'ler](/virtual-machines/linux/sizes-gpu.md)
+- [GPU desteklenen VM'ler](../../virtual-machines/linux/sizes-gpu.md)
   - Standard_NC6 
   - Standard_NC12 
   - Standard_NC24 

@@ -1,7 +1,7 @@
 ---
-title: QnA Maker ve HALUK - Microsoft Bilişsel hizmetler tümleştirme | Microsoft Docs
+title: Soru-cevap oluşturucu ve LUIS - Microsoft Bilişsel hizmetler | Microsoft Docs
 titleSuffix: Azure
-description: adım adım öğretici QnA Maker ve HALUK tümleştirme
+description: soru-cevap oluşturucu ve LUIS tümleştirme ilişkin adım adım öğretici
 services: cognitive-services
 author: nstulasi
 manager: sangitap
@@ -10,42 +10,42 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 04/21/2018
 ms.author: saneppal
-ms.openlocfilehash: 0a0eeb3815b793ed81f60b2b239bc459e5574788
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 18eae69867dc9774f63b11c762b22df4595bdce6
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354112"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781756"
 ---
-# <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>QnA Maker ve HALUK, Bilgi Bankası dağıtmak için tümleştirme
-QnA Maker Bilgi Bankası büyük büyüdükçe, tek tek yapılı bir ayarlayın ve Bilgi Bankası küçük mantıksal parçalara bölmek için gerekirse olarak korumak zorlaşır.
+# <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Soru-cevap oluşturucu ve LUIS bilgi bankanızı dağıtmak için tümleştirin
+Soru-cevap Oluşturucu bankanızı büyük büyüdükçe, tek tek parça bir ayarlayın ve Bilgi Bankası daha küçük mantıksal parçalara bölmek için gerekir bakımını yapmak zor hale gelir.
 
-Birden çok Bilgi Bankası QnA Maker'oluşturmak basit olsa da, uygun Bilgi Bankası'na gelen soru yönlendirmek için bazı mantığı gerekir. HALUK kullanarak bunu yapabilirsiniz.
+Soru-cevap oluşturucu içinde birden çok bilgi bankaları oluşturmak kolay olsa da, uygun Bilgi Bankası'na gelen soru yönlendirmek için mantığa ihtiyacınız olacak. LUIS kullanarak bunu yapabilirsiniz.
 
 ## <a name="architecture"></a>Mimari
 
-![QnA Maker Haluk mimarisi](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
+![Soru-cevap Oluşturucu luıs mimarisi](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
-Yukarıdaki senaryoda QnA Maker önce gelen soru amacı HALUK modelden alır ve, doğru QnA Maker Bilgi Bankası'na yönlendirmek için kullanın.
+Yukarıdaki senaryoda soru-cevap Oluşturucu önce gelen soru amacı LUIS modelden alır ve doğru soru-cevap Oluşturucu Bilgi Bankası'na yönlendirmek için bunu kullanın.
 
 ## <a name="prerequisites"></a>Önkoşullar
-- Oturum [HALUK](https://www.luis.ai/) portal ve [bir uygulama oluşturmak](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app).
-- [Hedefleri Ekle](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents) senaryonuz göredir.
-- [Tren](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-train) ve [yayımlama](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/publishapp) HALUK uygulamanızı.
-- Oturum [QnA Maker](https://qnamaker.ai) ve [oluşturma bilgi]() senaryonuza uygun şekilde ayarlar.
-- [Test]() ve [yayımlama]() Bilgi Bankası.
+- Oturum [LUIS](https://www.luis.ai/) portalı ve [uygulama oluşturma](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app).
+- [Hedef ekleme](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents) senaryonuza göre.
+- [Train](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-train) ve [yayımlama](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/publishapp) LUIS uygulamanızı.
+- Oturum [soru-cevap Oluşturucu](https://qnamaker.ai) ve [oluşturma](https://www.qnamaker.ai/Create) bilgi bankalarından senaryonuza göre.
+- Test edin ve bilgi bankalarından yayımlayın.
 
-## <a name="qna-maker--luis-bot"></a>QnA Maker + HALUK Bot
-1. Önce bir Web uygulaması bot HALUK şablonla oluşturabilir, yukarıda oluşturduğunuz HALUK uygulaması ile bağlantı ve hedefleri değiştirebilirsiniz. Ayrıntılı adımlar bkz [burada](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample).
+## <a name="qna-maker--luis-bot"></a>Soru-cevap Oluşturucu + LUIS Robotu
+1. İlk LUIS şablonu ile bir Web App botu oluşturun, yukarıda oluşturduğunuz LUIS uygulaması ile bağlantı ve hedefleri değiştirin. Ayrıntılı adımlar için bkz: [burada](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample).
 
-2. Bağımlılıklar diğer bağımlılıkları olan dosyanın en üstüne ekleyin:
+2. Bağımlılıklar, diğer bağımlılıkları olan dosyanın üstüne ekleyin:
 
     ```
     using RestSharp;
     using System.Collections.Generic;
     using Newtonsoft.Json;
     ```
-3. Ekleme QnA Maker hizmetinizi çağırmak için sınıf altında:
+3. Ekleme, soru-cevap Oluşturucu hizmetini çağırmak için sınıf aşağıda:
 
     ```
         /// <summary>
@@ -121,11 +121,11 @@ Yukarıdaki senaryoda QnA Maker önce gelen soru amacı HALUK modelden alır ve,
         /* END - QnA Maker Response Class */
     ```
 
-3. Git https://qnamaker.ai -> My Bilgi Bankası, karşılık gelen Bilgi Bankası görünümü kodu ->. Aşağıdaki bilgileri alın:
+3. Git https://qnamaker.ai -> My bilgi bankalarından karşılık gelen Bilgi Bankası tabanınızın Kodu Görüntüle ->. Aşağıdaki bilgileri edinin:
 
-    ![QnA Maker HTTP isteği](../media/qnamaker-tutorials-qna-luis/qnamaker-http-request.png)
+    ![Soru-cevap Oluşturucu HTTP isteği](../media/qnamaker-tutorials-qna-luis/qnamaker-http-request.png)
 
-4. QnAMakerService sınıfının her bir Bilgi Bankası için örneği:
+4. QnAMakerService sınıfının her biri, bilgi bankaları için örneği:
     ```
             // Instantiate the knowledge bases
             public QnAMakerService hrQnAService = new QnAMakerService("https://hrkb.azurewebsites.net", "<HR knowledge base id>", "<HR endpoint key>");
@@ -133,7 +133,7 @@ Yukarıdaki senaryoda QnA Maker önce gelen soru amacı HALUK modelden alır ve,
             public QnAMakerService financeQnAService = new QnAMakerService("https://financekb.azurewebsites.net", "<Finance knowledge base id>", "<Finance endpoint key>");
     ```
 
-5. Karşılık gelen Bilgi Bankası hedefini çağırın.
+5. Karşılık gelen Bilgi Bankası için hedefi arayın.
     ```
             // HR Intent
             [LuisIntent("HR")]
@@ -160,21 +160,21 @@ Yukarıdaki senaryoda QnA Maker önce gelen soru amacı HALUK modelden alır ve,
             }
     ```
 
-## <a name="build-the-bot"></a>Bot derleme
-1. Kod Düzenleyicisi'nde sağ tıklayın `build.cmd` seçip **konsolundan çalıştırma**.
+## <a name="build-the-bot"></a>Bot oluşturma
+1. Kod Düzenleyicisi'nde sağ `build.cmd` seçip **konsolundan çalıştırın**.
 
-    ![konsolundan çalıştırma](../media/qnamaker-tutorials-qna-luis/run-from-console.png)
+    ![konsolundan çalıştırın](../media/qnamaker-tutorials-qna-luis/run-from-console.png)
 
-2. Kod görünümünde ilerleme durumunu ve sonuçlarını derleme gösteren bir terminal penceresi ile değiştirilir.
+2. Kod görünümü, bir terminal penceresi yapının sonuçlarını ve ilerleme durumunu gösteren değiştirilir.
 
     ![Konsol derleme](../media/qnamaker-tutorials-qna-luis/console-build.png)
 
 ## <a name="test-the-bot"></a>Bot test
-Azure portalında seçin **Test Web sohbet** bot test etmek için. Karşılık gelen Bilgi Bankası'ndaki yanıt almak için farklı amaçlar gelen iletileri yazın.
+Azure portalında **Test Web sohbeti içinde** bot test etmek için. Karşılık gelen Bilgi Bankası'ndaki yanıt almak için farklı amaçlarla gelen iletileri yazın.
 
-![Web sohbeti testi](../media/qnamaker-tutorials-qna-luis/qnamaker-web-chat.png)
+![Web sohbeti test](../media/qnamaker-tutorials-qna-luis/qnamaker-web-chat.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [QnA Maker için bir iş sürekliliği planı oluşturma](../How-To/business-continuity-plan.md)
+> [Soru-cevap Oluşturucu için bir iş süreklilik planı oluşturma](../How-To/business-continuity-plan.md)

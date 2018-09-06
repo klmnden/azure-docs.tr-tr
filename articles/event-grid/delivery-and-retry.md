@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: b34386a7b416d6f7d8b008a9cb5ef142948a370f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 2a9ff23e5182c8cb7c91ad93e368f61f258c84f8
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005404"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841601"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid iletiyi teslim ve yeniden deneyin 
 
@@ -35,19 +35,20 @@ Aşağıdaki HTTP yanıt kodları, bir olay için Web kancası başarıyla tesli
 
 ### <a name="failure-codes"></a>Hata kodları
 
-Aşağıdaki HTTP yanıt kodları olay teslim denemesi başarısız olduğunu gösterir. 
+Aşağıdaki HTTP yanıt kodları olay teslim denemesi başarısız olduğunu gösterir.
 
 - 400 Hatalı istek
 - 401 Yetkisiz
 - 404 Bulunamadı
 - 408 istek zaman aşımı
+- 413 istek varlığı çok büyük
 - 414 URI çok uzun
 - 429 çok fazla istek
 - 500 İç Sunucu Hatası
 - 503 Hizmet Kullanılamıyor
 - 504 Ağ Geçidi Zaman Aşımı
 
-Event Grid alırsa, uç nokta belirten bir hata geçici olarak kullanılamıyor veya gelecekteki bir istek başarılı olabilir, olay göndermek yeniden çalışır. Event Grid teslim hiçbir zaman başarılı olur belirten bir hata alırsa ve [edilemeyen uç nokta yapılandırıldı](manage-event-delivery.md), olay edilemeyen uç noktasına gönderir. 
+Varsa [edilemeyen uç yapılandırılmış](manage-event-delivery.md) ve Event Grid alır ya da bir 400 ya da 413 yanıt kodu, Event Grid hemen olay edilemeyen uç noktasına gönderir. Aksi takdirde, Event Grid, tüm hataları yeniden dener.
 
 ## <a name="retry-intervals-and-duration"></a>Yeniden deneme aralıkları ve süresi
 

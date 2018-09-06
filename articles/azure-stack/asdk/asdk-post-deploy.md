@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: e057d7a649397083240e9f67080808a3057c7f50
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: d3bfe2c472d48a68bd818ac06874db136528b470
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42059248"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840278"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK yükleme sonrası yapılandırma görevleri
 
@@ -140,16 +140,6 @@ Sınamaların tamamlanması birkaç dakika sürebilir. Yükleme başarılı oldu
 ![Test-azurestack](media/asdk-post-deploy/test-azurestack.png)
 
 Bir hata oluştuğunda, Yardım almak için sorun giderme adımlarını izleyin.
-
-## <a name="activate-the-administrator-and-tenant-portals"></a>Yönetici ve Kiracı portalları etkinleştirme
-Azure AD kullanan dağıtımlar sonra Azure Stack yönetici ve Kiracı portalı etkinleştirmeniz gerekir. Bu etkinleştirme Azure Stack portal ve Azure Resource Manager (onay sayfasında listelenmiştir) doğru tüm kullanıcılar için izinleri dizinin vermenizi toplanmasına onay verir.
-
-- Yönetici portalı için gidin https://adminportal.local.azurestack.external/guest/signupbilgileri okuyun ve ardından **kabul**. Kabul ettikten sonra aynı zamanda dizin Kiracı yönetici olmayan hizmet yöneticileri ekleyebilir.
-
-- Kiracı portalı için gidin https://portal.local.azurestack.external/guest/signupbilgileri okuyun ve ardından **kabul**. Kabul ettikten sonra kullanıcılar dizininde Kiracı portalında oturum açabilir. 
-
-> [!NOTE] 
-> Portalları etkin değil, yalnızca dizin Yöneticisi oturum açın ve portallarını birlikte kullanmanız gerekir. Başka bir kullanıcı oturum açtığında, yönetici izinleri diğer kullanıcılara vermemiş bildiren bir hata görürsünüz. Yöneticinin yerel olarak Azure Stack için kayıtlı dizine ait değil, Azure Stack directory etkinleştirme URL eklenmesi gerekir. Örneğin, Azure Stack, Fabrikam.onmicrosoft.com adresli ve yönetici kullanıcı için kayıtlı ise admin@contoso.com, gitmek https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com portal'ı etkinleştirmek için. 
 
 ## <a name="reset-the-password-expiration-policy"></a>Parola süresi dolma ilkesini Sıfırla 
 ASDK dağıttıktan sonra değerlendirme süresi sona ermeden önce Geliştirme Seti konak için parola süresi sona ermiyor emin olmak için aşağıdaki adımları izleyin.

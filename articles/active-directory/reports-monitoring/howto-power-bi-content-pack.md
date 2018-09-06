@@ -14,14 +14,19 @@ ms.component: report-monitor
 ms.date: 12/06/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 090e7419f80bc734ee2b1cb4f976911792046a9c
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 752e71f3c6b22a6d9f1e2392b58c01deef9de89c
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056359"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782177"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Azure Active Directory Power BI İçerik Paketi'ni kullanma
+
+|  |
+|--|
+|Şu anda Azure AD Power BI içerik paketi, Azure AD kiracınızdan verileri almak için Azure AD Graph API kullanır. Sonuç olarak, içerik paketindeki veri kullanarak alınan verileri arasındaki bazı girdilerinde görebilirsiniz [raporlama için Microsoft Graph API'lerini](concept-reporting-api.md). |
+|  |
 
 Kullanıcılarınızın Azure Active Directory özelliklerini benimseme ve kullanma şekli BT yöneticileri için çok önemlidir. Kullanımı artırmak ve AAD özelliklerinden en iyi şekilde faydalanmak için BT altyapınızı planlamanızı ve şirket içi iletişimi planlamanızı sağlar. Azure Active Directory için Power BI İçerik Paketi, verilerinizi analiz etmenizi ve Azure Active Directory'nin yoğun kullandığınız özelliklerinin durumu hakkında daha iyi öngörülere sahip olmak amacıyla nasıl kullanabileceğinizi anlamanızı sağlar.  Azure Active Directory API'lerini Power BI ile tümleştirerek önceden oluşturulmuş içerik paketlerini kolayca indirebilir ve Power BI tarafından sunulan zengin görselleştirme deneyiminden faydalanarak Azure Active Directory içindeki tüm işlemler hakkında öngörüye sahip olabilirsiniz. Kendi panonuzu oluşturabilir ve kuruluşunuzdaki herkesle kolayca paylaşabilirsiniz. 
 

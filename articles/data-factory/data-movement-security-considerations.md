@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: c9cebd16d34758550144a50b6ff26da84924a964
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3c2b44455b417d1bc764337d91a5535d7ffa34a5
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745677"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783381"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data factory'de veri taşımayı için güvenlik konuları
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -188,7 +188,7 @@ Bu özellik henüz desteklemiyoruz. Etkin olarak üzerinde çalışıyoruz.
 
 **Çalışmak şirket içinde barındırılan tümleştirme çalışma zamanı için bağlantı noktası gereksinimleri nelerdir?**
 
-Şirket içinde barındırılan tümleştirme çalışma zamanı, İnternet'e erişmek için HTTP tabanlı bağlantılar oluşturur. Giden bağlantı noktası 443 ve 80 şirket içinde barındırılan tümleştirme çalışma zamanı bu bağlantıyı açık olması gerekir. Gelen istekler noktasının 8050 yalnızca makine düzeyinde (Kurumsal güvenlik duvarınız düzeyinde değil) için kimlik bilgileri Yöneticisi uygulamasını açın. Azure SQL veritabanı veya Azure SQL veri ambarı kaynak veya hedef kullanılıyorsa, 1433 numaralı bağlantı noktasını da açmanız gerekir. Daha fazla bilgi için [güvenlik duvarı yapılandırmaları ve IP adreslerini beyaz listeye ekleme](#firewall-configurations-and-whitelisting-ip-address-of-gateway) bölümü. 
+Şirket içinde barındırılan tümleştirme çalışma zamanı, İnternet'e erişmek için HTTP tabanlı bağlantılar oluşturur. Şirket içinde barındırılan tümleştirme çalışma zamanı bu bağlantıyı kurmak 443 giden bağlantı noktaları açılmalıdır. Gelen istekler noktasının 8050 yalnızca makine düzeyinde (Kurumsal güvenlik duvarınız düzeyinde değil) için kimlik bilgileri Yöneticisi uygulamasını açın. Azure SQL veritabanı veya Azure SQL veri ambarı kaynak veya hedef kullanılıyorsa, 1433 numaralı bağlantı noktasını da açmanız gerekir. Daha fazla bilgi için [güvenlik duvarı yapılandırmaları ve IP adreslerini beyaz listeye ekleme](#firewall-configurations-and-whitelisting-ip-address-of-gateway) bölümü. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

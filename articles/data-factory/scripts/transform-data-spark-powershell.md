@@ -1,6 +1,6 @@
 ---
-title: PowerShell komut dosyası dönüştürme verileri Data Factory kullanarak bulutta | Microsoft Docs
-description: Bu PowerShell Betiği, Azure Hdınsight Spark kümesi üzerinde Spark programını çalıştırarak verileri bulutta dönüştürür.
+title: Data Factory ile bulutta PowerShell Betiği-Dönüştür veri | Microsoft Docs
+description: Bu PowerShell Betiği, bir Azure HDInsight Spark kümelerinde Spark programını kullanarak buluttaki verileri dönüştürür.
 services: data-factory
 author: sharonlo101
 manager: craigg
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: shlo
-ms.openlocfilehash: 27458a48c04a6d4ec612252dc298d454a48cf009
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d885ffc531c24e8116da991f49ba5f8591e966d1
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30165799"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781606"
 ---
-# <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>PowerShell Betiği - Azure Data Factory kullanarak bulut verilerde dönüştürme
+# <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>PowerShell Betiği - Azure Data Factory kullanarak bulutta verileri dönüştürme
 
-Bu örnek PowerShell komut dosyasını bir Azure Hdınsight Spark kümesi üzerinde Spark programını çalıştırarak verileri bulutta dönüştüren bir işlem hattı oluşturur. 
+Bu örnek PowerShell Betiği bir Azure HDInsight Spark kümelerinde Spark programını kullanarak buluttaki verileri dönüştüren bir işlem hattı oluşturur. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
-* **Azure Depolama hesabı**. Bir python betiğini ve girdi dosyası oluşturun ve bunları Azure Storage'a yükler. Spark programının çıktısı bu depolama hesabında depolanır. İsteğe bağlı Spark kümesi, birincil depolama alanıyla aynı depolama hesabını kullanır.  
+* **Azure Depolama hesabı**. Bir python betiği ve giriş dosyası oluşturma ve bunları Azure depolama alanına yükleyin. Spark programının çıktısı bu depolama hesabında depolanır. İsteğe bağlı Spark kümesi, birincil depolama alanıyla aynı depolama hesabını kullanır.  
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Python betiğini Blob Depolama hesabınıza yükleme
 1. Aşağıdaki içeriğe sahip **WordCount_Spark.py** adlı bir python dosyası oluşturun: 
@@ -63,23 +63,23 @@ Bu örnek PowerShell komut dosyasını bir Azure Hdınsight Spark kümesi üzeri
 
 ### <a name="upload-the-input-file"></a>Girdi dosyasını yükleme
 1. Bazı metinlerle **minecraftstory.txt** adlı bir dosya oluşturun. Spark programı bu metindeki sözcükleri sayar. 
-2. Adlı bir alt klasör oluşturun `inputfiles` içinde `spark` blob kapsayıcısının klasör. 
+2. Adlı bir alt klasör oluşturun `inputfiles` içinde `spark` blob kapsayıcısını, klasörü. 
 3. `minecraftstory.txt` dosyasını `inputfiles` alt klasörüne yükleyin. 
 
 ## <a name="sample-script"></a>Örnek betik
 > [!IMPORTANT]
-> Bu komut dosyası c:\ klasöründe sabit diskinizde Data Factory varlıkları (bağlı hizmet, veri kümesi ve ardışık düzeni) tanımlayan JSON dosyaları oluşturur.
+> Bu betik Data Factory varlıklarını (bağlı hizmet, veri kümesi ve işlem hattı) tanımlayan JSON dosyalarını sabit sürücünüzdeki c:\ klasöründe oluşturur.
 
 [!code-powershell[main](../../../powershell_scripts/data-factory/transform-data-using-spark/transform-data-using-spark.ps1 "Transform data using Spark")]
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
-Örnek betiği çalıştırma sonra aşağıdaki komutu kaynak grubu ve onunla ilişkili tüm kaynakları kaldırmak için kullanabilirsiniz:
+Örnek betiği çalıştırdıktan sonra aşağıdaki komutu kaynak grubunu ve onunla ilişkili tüm kaynakları kaldırmak için kullanabilirsiniz:
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName $resourceGroupName
 ```
-Veri Fabrikası kaynak grubundan kaldırmak için aşağıdaki komutu çalıştırın: 
+Data factory kaynak grubundan kaldırmak için aşağıdaki komutu çalıştırın: 
 
 ```powershell
 Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
@@ -92,11 +92,11 @@ Bu betik şu komutları kullanır:
 | Komut | Notlar |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/new-azurermdatafactoryv2) | Veri fabrikası oluşturma. |
-| [Set-AzureRmDataFactoryV2LinkedService](/powershell/module/azurerm.datafactoryv2/new-azurermdatafactoryv2linkedservice) | Veri fabrikasında bağlı hizmet oluşturur. Bağlı hizmet veri deposunda veya işlem bir data factory'ye bağlar. |
-| [Set-AzureRmDataFactoryV2Pipeline](/powershell/module/azurerm.datafactoryv2/new-azurermdatafactorv2ypipeline) | Data factory işlem hattı oluşturur. Bir işlem hattı belirli bir işlemi gerçekleştiren bir veya daha fazla etkinlik içerir. Bu ardışık düzeninde bir spark etkinlik verileri Azure Hdınsight Spark kümesi üzerinde bir program çalıştırarak dönüştürür. |
-| [Invoke-AzureRmDataFactoryV2Pipeline](/powershell/module/azurerm.datafactoryv2/new-azurermdatafactoryv2pipelinerun) | Ardışık düzeni için bir farklı çalıştır oluşturur. Diğer bir deyişle, ardışık düzen çalışır. |
-| [Get-AzureRmDataFactoryV2ActivityRun](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2activityrun) | (Etkinlik) etkinlik çalışma ayrıntıları ardışık düzeninde alır. 
+| [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2) | Veri fabrikası oluşturma. |
+| [Set-AzureRmDataFactoryV2LinkedService](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2linkedservice) | Bağlı hizmet, data factory'de oluşturur. Bağlı hizmet, bir veri deposu veya işlem bir veri fabrikasına bağlar. |
+| [Set-AzureRmDataFactoryV2Pipeline](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2pipeline) | Veri fabrikasında bir işlem hattı oluşturur. Bir işlem hattı, belirli bir işlem gerçekleştiren bir veya daha fazla etkinlik içerir. Bu işlem hattı bir spark etkinliği, verileri bir Azure HDInsight Spark kümesi üzerinde bir program çalıştırarak dönüştürür. |
+| [Invoke-AzureRmDataFactoryV2Pipeline](/powershell/module/azurerm.datafactoryv2/invoke-azurermdatafactoryv2pipeline) | İşlem hattının çalıştırma oluşturur. Diğer bir deyişle, işlem hattını çalışır. |
+| [Get-AzureRmDataFactoryV2ActivityRun](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2activityrun) | İşlem hattında (etkinlik çalıştırma) etkinlik çalıştırması ayrıntılarını alır. 
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 |||
 
@@ -104,4 +104,4 @@ Bu betik şu komutları kullanır:
 
 Azure PowerShell hakkında daha fazla bilgi için bkz. [Azure PowerShell belgeleri](https://docs.microsoft.com/powershell/).
 
-Ek Azure veri fabrikası PowerShell komut dosyası örnekleri bulunabilir [Azure veri fabrikası PowerShell örnekleri](../samples-powershell.md).
+Ek Azure Data Factory PowerShell Betiği örnekleri, içinde bulunabilir [Azure Data Factory PowerShell örnekleri](../samples-powershell.md).

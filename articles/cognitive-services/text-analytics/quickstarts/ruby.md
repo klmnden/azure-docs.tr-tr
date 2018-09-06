@@ -1,45 +1,45 @@
 ---
-title: Azure Bilişsel hizmetler, metin analizi API için Söyleniş hızlı başlangıç | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get metin Analytics API Azure üzerinde Microsoft Bilişsel Hizmetleri'ndeki kullanmaya başlayın.
+title: Ruby Hızlı Başlangıç için Azure Bilişsel hizmetler, metin analizi API'si | Microsoft Docs
+description: Hızlı bir şekilde yardımcı olması için alma bilgileri ve kod örnekleri, Azure üzerinde Microsoft Bilişsel hizmetler metin analizi API'sini kullanarak başlayın.
 services: cognitive-services
 documentationcenter: ''
 author: ashmaka
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 08/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 7563a967ed23f98d8626092d58b5a0f5d4d1834c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 75c6476e86ee4a742e32ae0e7ffd27842f591843
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352655"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841771"
 ---
-# <a name="quickstart-for-text-analytics-api-with-ruby"></a>Metin analizi Ruby API'SİYLE için hızlı başlangıç 
+# <a name="quickstart-for-text-analytics-api-with-ruby"></a>Metin analizi API'si ile Ruby için hızlı başlangıç 
 <a name="HOLTop"></a>
 
-Bu makale size nasıl gösterir için [dili Algıla](#Detect), [düşünceleri analiz](#SentimentAnalysis), [anahtar tümcecikleri ayıklamak](#KeyPhraseExtraction), ve [bağlantılı varlıkları tanımlamak](#Entities) kullanma [metin Analytics API'leri](//go.microsoft.com/fwlink/?LinkID=759711) Ruby ile.
+Bu makalede gösterilmektedir için [dili algılayın](#Detect), [düşüncelerini çözümleme](#SentimentAnalysis), [anahtar tümcecikleri ayıklayın](#KeyPhraseExtraction), ve [bağlı varlıkları tanımlama](#Entities) kullanma [metin analizi API'lerini](//go.microsoft.com/fwlink/?LinkID=759711) Ruby ile.
 
-Başvurmak [API tanımlarını](//go.microsoft.com/fwlink/?LinkID=759346) API için teknik belgeler için.
+Başvurmak [API tanımlarını](//go.microsoft.com/fwlink/?LinkID=759346) API'leri için teknik belgeler için.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Sahip olmanız gerekir bir [Bilişsel Hizmetleri API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **metin Analytics API**. Kullanabileceğiniz **5.000 işlemleri/ay ücretsiz katmanına** Bu hızlı başlangıç tamamlamak için.
+Olmalıdır bir [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **metin analizi API'si**. Kullanabileceğiniz **5.000 işlem/ay için ücretsiz katman** Bu hızlı başlangıcı tamamlamak için.
 
-Ayrıca olmalıdır [endpoint ve erişim anahtarı](../How-tos/text-analytics-how-to-access-key.md) üretilen sizin için oturum açma sırasında ayarlama. 
+Sahip olmalısınız [uç noktası ve erişim anahtarı](../How-tos/text-analytics-how-to-access-key.md) oluşturulan sizin için oturum sırasında ayarlama. 
 
 <a name="Detect"></a>
 
 ## <a name="detect-language"></a>Dili algılama
 
-Bir metin dilini dil algılama API algılar belge, kullanarak [algılamak dil yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
+Dil algılama API bir metnin dilini algılar kullanarak belge [dil algılama yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
 
-1. Sık kullanılan IDE içinde yeni bir Söyleniş projesi oluşturun.
-2. Aşağıda sunulan kodu ekleyin.
-3. Değiştir `accessKey` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
+1. Sık kullandığınız IDE'de yeni bir Ruby projesi oluşturun.
+2. Aşağıda sağlanan kod ekleyin.
+3. Değiştirin `accessKey` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
 4. Konumu değiştirmek `uri` (şu anda `westus`) oturumunuz için bölge.
-5. Programını çalıştırın.
+5. Programı çalıştırın.
 
 ```ruby
 require 'net/https'
@@ -51,7 +51,7 @@ require 'json'
 # **********************************************
 
 # Replace the accessKey string value with your valid access key.
-accessKey = 'enter key here'
+accessKey = 'ENTER KEY HERE'
 
 # Replace or verify the region.
 #
@@ -62,9 +62,9 @@ accessKey = 'enter key here'
 # NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 # a free trial access key, you should not need to change this region.
 uri = 'https://westus.api.cognitive.microsoft.com'
-path = '/text/analytics/v2.0/languages'
+path = '/text/analytics/v2.0/'
 
-uri = URI(uri + path)
+uri = URI(uri + path + 'languages')
 
 documents = { 'documents': [
     { 'id' => '1', 'text' => 'This is a document written in English.' },
@@ -88,7 +88,7 @@ puts JSON::pretty_generate (JSON (response.body))
 
 **Dil algılama yanıt**
 
-Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
 ```json
 
@@ -136,38 +136,12 @@ Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir:
 
 ## <a name="analyze-sentiment"></a>Yaklaşımı analiz etme
 
-Düşünceleri analiz API detexts kullanarak metin kayıt kümesinin düşünceleri [düşünceleri yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). Aşağıdaki örnek, bir giriş İngilizce ve İspanyolca başka bir, iki belge puanlar.
+Yaklaşım analizi API'sini detexts yaklaşımı kullanarak bir metin kayıt kümesinin [yaklaşım yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). Aşağıdaki örnek, bir giriş İngilizce ve İspanyolca başka iki belge puanlar.
 
-1. Sık kullanılan IDE içinde yeni bir Söyleniş projesi oluşturun.
-2. Aşağıda sunulan kodu ekleyin.
-3. Değiştir `accessKey` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-4. Konumu değiştirmek `uri` (şu anda `westus`) oturumunuz için bölge.
-5. Programını çalıştırın.
+Koda aşağıdaki kodu ekleyin [önceki bölümde](#Detect).
 
 ```ruby
-require 'net/https'
-require 'uri'
-require 'json'
-
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the accessKey string value with your valid access key.
-accessKey = 'enter key here'
-
-# Replace or verify the region.
-#
-# You must use the same region in your REST API call as you used to obtain your access keys.
-# For example, if you obtained your access keys from the westus region, replace 
-# "westcentralus" in the URI below with "westus".
-#
-# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-# a free trial access key, you should not need to change this region.
-uri = 'https://westus.api.cognitive.microsoft.com'
-path = '/text/analytics/v2.0/sentiment'
-
-uri = URI(uri + path)
+uri = URI(uri + path + 'sentiment')
 
 documents = { 'documents': [
     { 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
@@ -188,9 +162,9 @@ end
 puts JSON::pretty_generate (JSON (response.body))
 ```
 
-**Düşünceleri analiz yanıt**
+**Yaklaşım analizi yanıt**
 
-Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
 ```json
 {
@@ -212,39 +186,12 @@ Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir:
 
 ## <a name="extract-key-phrases"></a>Anahtar ifadeleri ayıklama
 
-Anahtar tümcecik ayıklama API anahtarı tümcecikleri bir metinden ayıklar belge, kullanarak [anahtar tümcecikleri yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Aşağıdaki örnek İngilizce ve İspanyolca belgeler için anahtar tümcecikleri ayıklar.
+Anahtar tümcecik ayıklama API anahtar tümcecikleri metinden ayıklar kullanarak belge [anahtar tümcecikleri yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Aşağıdaki örnek İngilizce ve İspanyolca belgeler için anahtar ifadeleri ayıklar.
 
-1. Sık kullanılan IDE içinde yeni bir Söyleniş projesi oluşturun.
-2. Aşağıda sunulan kodu ekleyin.
-3. Değiştir `accessKey` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-4. Konumu değiştirmek `uri` (şu anda `westus`) oturumunuz için bölge.
-5. Programını çalıştırın.
-
+Koda aşağıdaki kodu ekleyin [önceki bölümde](#SentimentAnalysis).
 
 ```ruby
-require 'net/https'
-require 'uri'
-require 'json'
-
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the accessKey string value with your valid access key.
-accessKey = 'enter key here'
-
-# Replace or verify the region.
-#
-# You must use the same region in your REST API call as you used to obtain your access keys.
-# For example, if you obtained your access keys from the westus region, replace 
-# "westcentralus" in the URI below with "westus".
-#
-# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-# a free trial access key, you should not need to change this region.
-uri = 'https://westus.api.cognitive.microsoft.com'
-path = '/text/analytics/v2.0/keyPhrases'
-
-uri = URI(uri + path)
+uri = URI(uri + path + 'keyPhrases')
 
 documents = { 'documents': [
     { 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
@@ -266,9 +213,9 @@ end
 puts JSON::pretty_generate (JSON (response.body))
 ```
 
-**Anahtar tümcecik ayıklama yanıt**
+**Anahtar ifade ayıklama yanıt**
 
-Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
 ```json
 {
@@ -307,41 +254,14 @@ Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir:
 ```
 <a name="Entities"></a>
 
-## <a name="identify-linked-entities"></a>Bağlantılı varlıkları tanımlayın
+## <a name="identify-linked-entities"></a>Bağlı varlıkları tanımlama
 
-Bir metin iyi bilinen varlıklarda varlık bağlama API tanımlayan belge, kullanarak [varlık bağlama yöntemini](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). Aşağıdaki örnek varlıklar İngilizce belgeler için tanımlar.
+Varlık bağlama API'si metin bilinen varlıklar tanımlayan kullanarak belge [varlık bağlama yöntemini](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). Aşağıdaki örnek İngilizce belgeler için varlıklar tanımlayan.
 
-1. Sık kullanılan IDE içinde yeni bir Söyleniş projesi oluşturun.
-2. Aşağıda sunulan kodu ekleyin.
-3. Değiştir `accessKey` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-4. Konumu değiştirmek `uri` (şu anda `westus`) oturumunuz için bölge.
-5. Programını çalıştırın.
-
+Koda aşağıdaki kodu ekleyin [önceki bölümde](#KeyPhraseExtraction).
 
 ```ruby
-require 'net/https'
-require 'uri'
-require 'json'
-
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the accessKey string value with your valid access key.
-accessKey = 'enter key here'
-
-# Replace or verify the region.
-#
-# You must use the same region in your REST API call as you used to obtain your access keys.
-# For example, if you obtained your access keys from the westus region, replace 
-# "westcentralus" in the URI below with "westus".
-#
-# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-# a free trial access key, you should not need to change this region.
-uri = 'https://westus.api.cognitive.microsoft.com'
-path = '/text/analytics/v2.0/entities'
-
-uri = URI(uri + path)
+uri = URI(uri + path + 'entities')
 
 documents = { 'documents': [
     { 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
@@ -364,7 +284,7 @@ puts JSON::pretty_generate (JSON (response.body))
 
 **Varlık bağlama yanıt**
 
-Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
 ```json
 {
@@ -433,5 +353,5 @@ Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir:
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
- [Metin analizi genel bakış](../overview.md)  
+ [Metin Analizi'ne genel bakış](../overview.md)  
  [Sık sorulan sorular (SSS)](../text-analytics-resource-faq.md)

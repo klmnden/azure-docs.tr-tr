@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: de2e1defeff9ab2dd78bdf019009b62955f73b88
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 4dfeff0e22a541a39a59c37c869af41a7e444fa6
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970560"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842507"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL kaynak sağlayıcısı için barındırma sunucuları ekleme
 
@@ -78,15 +78,15 @@ Tek başına kullanabilirsiniz (olmayan-yüksek kullanılabilirlik) herhangi bir
 
 1. Azure Stack operatörü portalda Hizmet Yöneticisi olarak oturum açın.
 
-2. Seçin **Gözat** &gt; **yönetim kaynakları** &gt; **SQL barındırma sunucuları**.
+2. Seçin **tüm hizmetleri** &gt; **yönetim kaynakları** &gt; **SQL barındırma sunucuları**.
 
    ![SQL barındırma sunucuları](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
-   Altında **SQL barındırma sunucuları**, SQL Server'ın kaynak sağlayıcısının arka uç olarak hizmet örneklerini SQL kaynak sağlayıcısı bağlanabilirsiniz.
+   Altında **SQL barındırma sunucuları**, kaynak sağlayıcısının arka uç olarak hizmet verecek bir SQL Server örneğinin SQL kaynak sağlayıcısı bağlanabilirsiniz.
 
-   ![SQL bağdaştırıcısı Panosu](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
+   ![SQL bağdaştırıcısı Panosu](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
 
-3. Üzerinde **barındıran bir SQL Server ekleme**, SQL Server örneğinizi bağlantı ayrıntılarını sağlayın.
+3. Tıklayın **Ekle** ve ardından şirket için SQL Server Örneğinize bağlantı ayrıntılarını sağlayın **barındıran bir SQL Server ekleme** dikey penceresi.
 
    ![SQL barındırma sunucusu Ekle](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 

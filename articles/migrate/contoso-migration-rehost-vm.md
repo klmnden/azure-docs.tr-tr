@@ -6,19 +6,19 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 09/05/2018
 ms.author: raynew
-ms.openlocfilehash: 63102b3fe131deb889fc57603c0da3608004e54b
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: b8adaebfe3195e85850bca868ed8fce41d6635f8
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125900"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842660"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Contoso taşıma: Azure sanal makinelerini şirket içi uygulamaya yeniden barındırma
 
 
-Bu makalede, Contoso uygulama sanal makinelerini Azure Vm'lerine geçiş yaparak, azure'da şirket içi SmartHotel uygulamayı nasıl rehosts gösterilmektedir.
+Bu makalede, Contoso uygulama sanal makinelerini Azure Vm'lerine geçiş yaparak, azure'da şirket içi SmartHotel360 uygulamayı nasıl rehosts gösterilmektedir.
 
 
 Bu belge, Contoso adlı kurgusal şirketin şirket içi kaynaklara Microsoft Azure bulutuna nasıl geçirdiğini gösteren makaleler serisinin biridir. Seri arka plan bilgileri ve geçiş altyapı kurulumu, geçiş için şirket içi kaynaklarınızı değerlendirerek ve geçişleri farklı türlerde çalıştıran gösteren senaryolar içerir. Senaryoları, karmaşık hale gelmesi. Zaman içinde ek makaleleri ekleyeceğiz.
@@ -27,20 +27,20 @@ Bu belge, Contoso adlı kurgusal şirketin şirket içi kaynaklara Microsoft Azu
 --- | --- | ---
 [Makale 1: genel bakış](contoso-migration-overview.md) | Makale serisi, Contoso'nun geçiş stratejisi ve dizisinde kullanılan örnek uygulamalar genel bakış. | Kullanılabilir
 [2. makale: Azure altyapısı dağıtma](contoso-migration-infrastructure.md) | Contoso şirket içi altyapısını ve Azure altyapısını geçiş için hazırlar. Altyapıyı, serideki tüm geçiş makaleleri için kullanılır. | Kullanılabilir
-[3. makale: şirket içi kaynaklarınızı Azure'a geçiş için değerlendirme](contoso-migration-assessment.md)  | Contoso, Vmware'de çalıştırılan şirket içi SmartHotel uygulamasının bir değerlendirme çalışır. Contoso Azure geçişi hizmeti ve veri geçiş Yardımcısı'nı kullanarak uygulama SQL Server veritabanı kullanarak uygulama Vm'leri değerlendirir. | Kullanılabilir
-[4. makale: bir uygulamayı bir Azure VM ve SQL veritabanı yönetilen örneği yeniden barındırma](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso, Azure'a lift-and-shift ile taşıma geçiş için kendi şirket içi SmartHotel uygulaması çalışır. Contoso geçirir uygulama ön uç VM kullanarak [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso geçirir uygulama veritabanını kullanarak bir Azure SQL veritabanı yönetilen örneği [Azure veritabanı geçiş hizmeti](https://docs.microsoft.com/azure/dms/dms-overview). | Kullanılabilir  
-Makale 5: bir uygulamayı Azure vm'lerinde yeniden barındırma | Contoso, SmartHotel uygulama sanal makinelerini Azure Site Recovery hizmetini kullanarak sanal makineleri geçirir. | Bu makalede
-[Makale 6: Azure sanal makinelerinde ve SQL Server AlwaysOn Kullanılabilirlik grubuna bir uygulamayı barındırma](contoso-migration-rehost-vm-sql-ag.md) | Contoso SmartHotel uygulamaya geçirir. Contoso, uygulama sanal makinelerini geçirmek için Site Recovery kullanır. Veritabanı geçiş hizmeti uygulama veritabanı AlwaysOn Kullanılabilirlik grubu tarafından korunan bir SQL Server kümesine geçirmek için kullanır. | Kullanılabilir    
+[3. makale: şirket içi kaynaklarınızı Azure'a geçiş için değerlendirme](contoso-migration-assessment.md)  | Contoso, Vmware'de çalıştırılan şirket içi SmartHotel360 uygulamasının bir değerlendirme çalışır. Contoso Azure geçişi hizmeti ve veri geçiş Yardımcısı'nı kullanarak uygulama SQL Server veritabanı kullanarak uygulama Vm'leri değerlendirir. | Kullanılabilir
+[4. makale: bir uygulamayı bir Azure VM ve SQL veritabanı yönetilen örneği yeniden barındırma](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso, Azure'a lift-and-shift ile taşıma geçiş için kendi şirket içi SmartHotel360 uygulaması çalışır. Contoso geçirir uygulama ön uç VM kullanarak [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso geçirir uygulama veritabanını kullanarak bir Azure SQL veritabanı yönetilen örneği [Azure veritabanı geçiş hizmeti](https://docs.microsoft.com/azure/dms/dms-overview). | Kullanılabilir   
+Makale 5: bir uygulamayı Azure vm'lerinde yeniden barındırma | Contoso, SmartHotel360 uygulama sanal makinelerini Azure Site Recovery hizmetini kullanarak sanal makineleri geçirir. | Bu makalede
+[Makale 6: Azure sanal makinelerinde ve SQL Server AlwaysOn Kullanılabilirlik grubuna bir uygulamayı barındırma](contoso-migration-rehost-vm-sql-ag.md) | Contoso SmartHotel360 uygulamaya geçirir. Contoso, uygulama sanal makinelerini geçirmek için Site Recovery kullanır. Veritabanı geçiş hizmeti uygulama veritabanı AlwaysOn Kullanılabilirlik grubu tarafından korunan bir SQL Server kümesine geçirmek için kullanır. | Kullanılabilir 
 [Makale 7: Azure sanal makineler'de Linux uygulaması barındırma](contoso-migration-rehost-linux-vm.md) | Azure Site Recovery kullanarak Azure vm'lerine Linux osTicket uygulamayı lift-and-shift ile taşıma geçişini contoso tamamlar | Kullanılabilir
 [Makale 8: Azure sanal makineler ve Azure MySQL üzerinde bir Linux uygulaması barındırma](contoso-migration-rehost-linux-vm-mysql.md) | Contoso, Azure Site Recovery kullanarak Azure Vm'leri için Linux osTicket uygulaması geçirir ve uygulama veritabanı, MySQL Workbench kullanarak Azure MySQL Server örneğine geçirir. | Kullanılabilir
-[Makale 9: bir uygulamayı Azure Web Apps ve Azure SQL veritabanında yeniden düzenleme](contoso-migration-refactor-web-app-sql.md) | Contoso SmartHotel uygulamayı bir Azure Web uygulamasına geçirir ve uygulama veritabanı için veritabanı geçiş Yardımcısı'nı kullanarak bir Azure SQL Server örneği geçirir | Kullanılabilir
+[Makale 9: bir uygulamayı Azure Web Apps ve Azure SQL veritabanında yeniden düzenleme](contoso-migration-refactor-web-app-sql.md) | Contoso SmartHotel360 uygulamayı bir Azure Web uygulamasına geçirir ve uygulama veritabanı için veritabanı geçiş Yardımcısı'nı kullanarak bir Azure SQL Server örneği geçirir | Kullanılabilir
 [Makale 10: Azure Web Apps ve Azure MySQL üzerinde bir Linux uygulaması yeniden düzenleyin.](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso, bir Azure web uygulamasına GitHub ile sürekli teslim için tümleşik Azure Traffic Manager'ı kullanarak birden fazla Azure bölgesini üzerinde kendi Linux osTicket uygulaması geçirir. Contoso uygulaması veritabanı örneği MySQL için Azure veritabanı geçirir. | Kullanılabilir 
 [Makale 11: TFS VSTS üzerinde yeniden düzenleyin.](contoso-migration-tfs-vsts.md) | Contoso, Visual Studio Team Services azure'da, şirket içi Team Foundation Server dağıtımı geçirir. | Kullanılabilir
-[Makale 12: bir uygulamayı Azure kapsayıcıları ve Azure SQL veritabanı yeniden oluşturma](contoso-migration-rearchitect-container-sql.md) | Contoso, SmartHotel uygulamayı Azure'a geçirir. Ardından, Azure Service Fabric ve Azure SQL veritabanı ile veritabanı çalıştıran bir Windows kapsayıcısı olarak app web katmanından rearchitects. | Kullanılabilir
-[Makale 13: uygulamanızı Azure'a yeniden oluşturun.](contoso-migration-rebuild.md) | Contoso Azure özellikleri ve Hizmetleri, Azure App Service, Azure Kubernetes Service (AKS), Azure işlevleri, Azure Bilişsel hizmetler ve Azure Cosmos DB dahil olmak üzere çeşitli kullanarak kendi SmartHotel uygulaması oluşturur. | Kullanılabilir
+[Makale 12: bir uygulamayı Azure kapsayıcıları ve Azure SQL veritabanı yeniden oluşturma](contoso-migration-rearchitect-container-sql.md) | Contoso, SmartHotel360 uygulamayı Azure'a geçirir. Ardından, Azure Service Fabric ve Azure SQL veritabanı ile veritabanı çalıştıran bir Windows kapsayıcısı olarak app web katmanından rearchitects. | Kullanılabilir
+[Makale 13: uygulamanızı Azure'a yeniden oluşturun.](contoso-migration-rebuild.md) | Contoso Azure özellikleri ve Hizmetleri, Azure App Service, Azure Kubernetes Service (AKS), Azure işlevleri, Azure Bilişsel hizmetler ve Azure Cosmos DB dahil olmak üzere çeşitli kullanarak kendi SmartHotel360 uygulaması oluşturur. | Kullanılabilir
 
 
-Bu makalede, iki katmanlı Windows Contoso geçirir. Azure'a VMware Vm'lerinde çalışan NET SmartHotel uygulama. Bu uygulamayı kullanmak istiyorsanız, açık kaynaklı sağlanır ve buradan indirebileceğiniz [github](https://github.com/Microsoft/SmartHotel360).
+Bu makalede, iki katmanlı Windows Contoso geçirir. Azure'a VMware Vm'lerinde çalışan NET SmartHotel360 uygulama. Bu uygulamayı kullanmak istiyorsanız, açık kaynaklı sağlanır ve buradan indirebileceğiniz [github](https://github.com/Microsoft/SmartHotel360).
 
 
 
@@ -49,7 +49,7 @@ Bu makalede, iki katmanlı Windows Contoso geçirir. Azure'a VMware Vm'lerinde �
 BT yönetim takımı, bu geçişle elde etmek istedikleri anlamak için iş ortaklarıyla yakından çalıştı:
 
 - **Adres büyütmeye**: Contoso giderek ve sonuç olarak, şirket içi sistemler ve altyapı Basıncı yoktur.
-- **Risk sınırlamak**: SmartHotel uygulamadır Contoso iş açısından kritik. Sıfır riskle uygulamayı Azure'a taşımak istiyor.
+- **Risk sınırlamak**: SmartHotel360 uygulamadır Contoso iş açısından kritik. Sıfır riskle uygulamayı Azure'a taşımak istiyor.
 - **Genişletme**: Contoso uygulamayı değiştirmek istediğiniz değil, ancak tutarlı olmasını sağlamak istiyorsunuz.
 
 
@@ -161,7 +161,7 @@ Bunlar bu aşağıdaki ayarlamaları yapın:
 
 1. Site Recovery için ağ kurma zaten bir ağ Contoso ayarlayın, bunlar [dağıtılan Azure altyapısı](contoso-migration-infrastructure.md)
 
-    - Bir üretim uygulaması SmartHotel uygulamasıdır ve Vm'leri birincil Doğu ABD 2 bölgesinde Azure üretim ağına (VNET-PROD-EUS2) geçirilecektir.
+    - Bir üretim uygulaması SmartHotel360 uygulamasıdır ve Vm'leri birincil Doğu ABD 2 bölgesinde Azure üretim ağına (VNET-PROD-EUS2) geçirilecektir.
     - Her iki VM üretim kaynaklar için kullanılan ContosoRG kaynak grubunda yer alır.
     - Uygulama ön uç VM (WEBVM), üretim ağındaki ön uç alt ağına (PROD-FE-EUS2) geçirir.
     - Uygulama veritabanı VM (SQLVM) bir üretim ağında alt ağ (PROD-DB-EUS2) veritabanı geçirir.
@@ -438,7 +438,7 @@ Her şeyin beklendiği gibi çalıştığından emin olmak için yük devretme t
 
 ## <a name="clean-up-after-migration"></a>Geçişten sonra Temizleme
 
-Tam geçişi ile SmartHotel uygulama katmanlarında artık Azure Vm'leri üzerinde çalışıyor.
+Tam geçişi ile SmartHotel360'ın uygulama katmanlarında artık Azure Vm'leri üzerinde çalışıyor.
 
 Şimdi, Contoso temizleme adımları tamamlaması gerekir:  
 
@@ -477,10 +477,10 @@ Contoso, iş sürekliliği ve olağanüstü durum kurtarma (BCDR) için aşağı
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu makalede, Contoso uygulama sanal makinelerini Site Recovery hizmetini kullanarak Azure Vm'lerine geçiş yaparak Azure SmartHotel uygulamada rehosted. 
+Bu makalede, Contoso uygulama sanal makinelerini Site Recovery hizmetini kullanarak Azure Vm'lerine geçiş yaparak Azure SmartHotel360 uygulamada rehosted. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-İçinde [sonraki makalede](contoso-migration-rehost-vm-sql-ag.md) dizide nasıl Contoso SmartHotel uygulama ön uç bir Azure sanal makinesinde VM rehosts ve azure'da bir SQL Server AlwaysOn Kullanılabilirlik grubu veritabanı geçirir göstereceğiz.
+İçinde [sonraki makalede](contoso-migration-rehost-vm-sql-ag.md) dizide nasıl Contoso SmartHotel360 uygulama ön uç bir Azure sanal makinesinde VM rehosts ve azure'da bir SQL Server AlwaysOn Kullanılabilirlik grubu veritabanı geçirir göstereceğiz.
 

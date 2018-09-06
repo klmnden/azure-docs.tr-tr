@@ -84,7 +84,6 @@
 
 ## [Grupları ve üyeleri yönetme](fundamentals/active-directory-manage-groups.md)
 ### [Grupları yönetme](fundamentals/active-directory-groups-create-azure-portal.md)
-### [Silinen bir Office 365 grubunu geri yükleme](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Grup ayarlarını yönetme](fundamentals/active-directory-groups-settings-azure-portal.md)
 ## [Raporları yönetme](reports-monitoring/overview-reports.md)
 ### [Oturum açma etkinliği](reports-monitoring/concept-sign-ins.md)

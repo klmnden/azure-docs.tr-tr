@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: f444c75fb7a7bcd96a508fed337dfc32adccf665
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: ef1bd613943543f78d358064f4abefc6fa31b63e
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339024"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842344"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure SQL veri ambarı veri kopyalayın 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -163,9 +163,9 @@ MSI tabanlı Azure AD uygulama belirteci kimlik doğrulamasını kullanmak için
 
 1. **Azure AD'de bir grup oluşturun.** MSI Fabrika grubunun bir üyesi olun.
 
-    a. Azure Portalı'ndan veri fabrikası hizmet kimliği bulunamadı. Veri fabrikasının Git **özellikleri**. Hizmet kimlik kimliği kopyalayın.
+    1. Azure Portalı'ndan veri fabrikası hizmet kimliği bulunamadı. Veri fabrikasının Git **özellikleri**. Hizmet kimlik kimliği kopyalayın.
 
-    b. Yükleme [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) modülü. Kullanarak oturum `Connect-AzureAD` komutu. Grup oluşturma ve veri fabrikasının MSI üye olarak eklemek için aşağıdaki komutları çalıştırın.
+    1. Yükleme [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) modülü. Kullanarak oturum `Connect-AzureAD` komutu. Grup oluşturma ve veri fabrikasının MSI üye olarak eklemek için aşağıdaki komutları çalıştırın.
     ```powershell
     $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"

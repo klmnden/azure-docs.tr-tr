@@ -1,25 +1,24 @@
 ---
 title: Şirket içi veri ağ geçidi - Azure Logic Apps yükleme | Microsoft Docs
-description: İndirme ve mantıksal uygulamalardan şirket içi verilere önce şirket içi veri ağ geçidi yükleme hakkında
+description: Azure Logic Apps'ten şirket içi veri erişebilmeniz için önce indirin ve şirket içi veri ağ geçidi yükleme
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.reviewer: yshoukry, LADocs
-ms.suite: integration
-ms.openlocfilehash: 616e3d81d577fd30e65117ec15c65250d3b3e27e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d4fbbcb81433876e4c57763b8a90b3ff1168a699
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503657"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842456"
 ---
-# <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps için şirket içi veri ağ geçidi yükleme
+# <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps için şirket içi veri ağ geçidi yükleme
 
-Mantıksal uygulamalarınızı şirket içi veri kaynaklarına bağlanmadan önce indirin ve yerel bir bilgisayarda şirket içi veri ağ geçidi yükleyin. Ağ geçidi hızlı veri aktarımı ve logic apps ile şirket içi (bulutta olmayan) veri kaynakları arasındaki şifreleme sunan bir köprü olarak çalışır. Bu makalede nasıl indirin, yükleyin ve şirket içi veri ağ geçidini ayarlamak gösterilmektedir. 
+Azure Logic Apps'ten şirket içi veri kaynaklarına bağlanmadan önce indirin ve yerel bir bilgisayarda şirket içi veri ağ geçidi yükleyin. Ağ geçidi hızlı veri aktarımı ve logic apps ile şirket içi (bulutta olmayan) veri kaynakları arasındaki şifreleme sunan bir köprü olarak çalışır. Bu makalede nasıl indirin, yükleyin ve şirket içi veri ağ geçidini ayarlamak gösterilmektedir. 
 
 Power BI, Microsoft Flow, PowerApps ve Azure Analysis Services gibi diğer hizmetler ile aynı ağ geçidi yüklemesi'ni kullanabilirsiniz. Daha fazla bilgi edinin [veri ağ geçidi nasıl çalıştığını](#gateway-cloud-service).
 
@@ -52,7 +51,11 @@ Diğer hizmetlerle ağ geçidi kullanma hakkında daha fazla bilgi için şu mak
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* A [iş veya Okul hesabı](../active-directory/fundamentals/sign-up-organization.md) olan bir [Azure aboneliği](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer). Ağ geçidi yüklemesi Azure aboneliğinizle ilişkilendirebilmeniz için ağ geçidi yüklemesi sırasında bu hesap için oturum açın. Daha sonra Azure portalında, ağ geçidi yüklemesi için bir Azure kaynağı oluştururken de aynı hesabı kullanın. Henüz Azure aboneliğiniz yoksa, <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>.
+* A [iş veya Okul hesabı](../active-directory/fundamentals/sign-up-organization.md) olan bir [Azure aboneliği](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) 
+
+  Ağ geçidi yüklemesi Azure aboneliğinizle ilişkilendirebilmeniz için ağ geçidi yüklemesi sırasında bu hesap için oturum açın. 
+  Daha sonra Azure portalında, ağ geçidi yüklemesi için bir Azure kaynağı oluştururken de aynı hesabı kullanın. 
+  Henüz Azure aboneliğiniz yoksa, <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>.
 
 * Yerel bilgisayarınıza gereksinimleri şunlardır:
 
@@ -72,8 +75,7 @@ Diğer hizmetlerle ağ geçidi kullanma hakkında daha fazla bilgi için şu mak
     > [!TIP]
     > Gecikmeyi en aza indirmek için izinlere sahip olduğunuz varsayılarak veri kaynağınız için ya da aynı bilgisayarda mümkün olabildiğince yakın ağ geçidi yükleyebilirsiniz.
 
-  * Ağ geçidi bir bilgisayara yüklemek, *değil* devre dışı bırakmak, uyku moduna geçer ve Internet'e bağlanın. Ağ geçidi, bu koşullar altında çalıştırılamaz. 
-  Ağ geçidi performansı da kablosuz ağ üzerinde düşebilir.
+  * Ağ geçidi her zaman açık İnternet'e bağlı bir bilgisayara yükleyin ve *değil* uyu. Aksi takdirde, ağ geçidi çalıştırılamaz. Ayrıca, performansı, kablosuz ağ üzerinde düşebilir.
 
   * Yükleme sırasında yalnızca oturum açmak bir [iş veya Okul hesabı](../active-directory/sign-up-organization.md) Azure Active Directory (Azure AD) ve Microsoft hesabı tarafından yönetilir. 
   Ayrıca, bu hesap Azure B2B olmadığından emin olun (konuk) hesabı. 

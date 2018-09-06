@@ -11,16 +11,24 @@ ms.topic: article
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
 manager: douge
-ms.openlocfilehash: 3f45d8059cd4af5dbab64fef798b61e439a5f2fc
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b66e43c0f40f184bfb2c62327f5742346ff8b187
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286883"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841618"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
 Bu kılavuz, Azure geliştirme alanları kullanılırken olabilir sık karşılaşılan sorunlar hakkında bilgi içerir.
+
+## <a name="enabling-detailed-logging"></a>Ayrıntılı günlük kaydını etkinleştirme
+
+Sorunları daha etkili bir şekilde gidermek için ayrıntılı günlükleri gözden geçirme oluşturmak için yardımcı.
+
+Visual Studio uzantısı için ayarlayarak bunu yapabilirsiniz `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` ortam değişkeni 1. Visual Studio ortam değişkeni için etkili olması için yeniden emin olun. Etkinleştirildikten sonra ayrıntılı günlükler yazılır, `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` dizin.
+
+CLI, komut yürütme sırasında daha fazla bilgi kullanarak çıkarabilirsiniz `--verbose` geçin.
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>'Azure geliştirme alanları denetleyicisi oluşturmak için başarısız' hatası
 

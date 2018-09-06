@@ -14,12 +14,12 @@ ms.date: 03/09/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 656577211a992432366033326362c9892f7ba6ef
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 29a53101bff8c384d01f952c4498e09d9d970ee3
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861903"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841743"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Office 365 grupları için süre sonu ilkesi yapılandırma
 
@@ -43,9 +43,9 @@ Rol | İzinler
 Genel yönetici veya kullanıcı hesabı yöneticisi | Oluşturma, okuma, güncelleştirme veya Office 365 grupları süre sonu ilkesi ayarlarını silin<br>Herhangi bir Office 365 grubu yenileyebilirsiniz
 Kullanıcı | Oldukları bir Office 365 grubu yenileyebilirsiniz<br>Sahip bir Office 365 grubunu geri yükleyebilirsiniz<br>Süre sonu ilkesi ayarlarını okuyabilirsiniz
 
-Silinen bir grubu geri yüklemek için izinler hakkında daha fazla bilgi için bkz. [Azure Active Directory silinen bir Office 365 grubunda geri](../fundamentals/active-directory-groups-restore-azure-portal.md).
+Silinen bir grubu geri yüklemek için izinler hakkında daha fazla bilgi için bkz. [Azure Active Directory silinen bir Office 365 grubunda geri](groups-restore-deleted.md).
 
-## <a name="set-group-expiration"></a>Grup süre sonu Ayarla
+## <a name="set-group-expiration"></a>Grup süre sonunu ayarlama
 
 1. Açık [Azure AD yönetim merkezini](https://aad.portal.azure.com) Azure AD kiracınızda genel yönetici olan bir hesapla.
 
@@ -71,7 +71,7 @@ Bir grubu süresi dolduğunda, bir gün sonra sona erme tarihini grubu silindi. 
 
 ![Grup silme e-posta bildirimi](./media/groups-lifecycle/deletion-notification.png)
 
-Grup silme işlemi, 30 gün içinde seçerek geri yüklenebilir **grubu geri yükleme** ya da açıklandığı gibi PowerShell cmdlet'lerini kullanarak [Azure Active Directory silinen bir Office 365 grubunda geri](../fundamentals/active-directory-groups-restore-azure-portal.md).
+Grup silme işlemi, 30 gün içinde seçerek geri yüklenebilir **grubu geri yükleme** ya da açıklandığı gibi PowerShell cmdlet'lerini kullanarak [Azure Active Directory silinen bir Office 365 grubunda geri](groups-restore-deleted.md).
     
 Grubun, geri belgeleri, SharePoint siteleri veya diğer kalıcı nesneler içeriyorsa, tam olarak grubu ve içeriğini geri yüklemek için 24 saat sürebilir.
 
@@ -146,8 +146,8 @@ Daha ayrıntılı olarak ilkesini yapılandırmak için aşağıdaki cmdlet'leri
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makaleler, Azure AD grupları hakkında ek bilgi sağlar.
 
-* [Var olan grupları bakın](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Var olan grupları görme](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Bir grubun ayarlarını yönetme](../fundamentals/active-directory-groups-settings-azure-portal.md)
-* [Grup üyelerini Yönet](../fundamentals/active-directory-groups-members-azure-portal.md)
-* [Bir grubun üyeliğini yönetme](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Gruptaki kullanıcılar için dinamik kurallarını yönetme](groups-dynamic-membership.md)
+* [Bir grubun üyelerini yönetme](../fundamentals/active-directory-groups-members-azure-portal.md)
+* [Bir grubun üyeliklerini yönetme](../fundamentals/active-directory-groups-membership-azure-portal.md)
+* [Bir gruptaki kullanıcılar için dinamik kuralları yönetme](groups-dynamic-membership.md)

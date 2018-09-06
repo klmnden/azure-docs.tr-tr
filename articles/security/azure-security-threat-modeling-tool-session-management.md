@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: cd843f1826ad65098a7c0f6d30383113ccd28f6a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 97953779f1132d89c7ad07abdb4e08c0f476f4b9
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306448"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841822"
 ---
-# <a name="security-frame-session-management--articles"></a>Güvenlik çerçevesi: Oturum yönetimi | Makaleler 
+# <a name="security-frame-session-management"></a>Güvenlik çerçevesi: Oturum yönetimi
 | Ürün/hizmet | Makale |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[Azure AD kullanarak ADAL yöntemleri kullanarak uygulama uygun oturum kapatma](#logout-adal)</li></ul> |
@@ -380,36 +380,42 @@ void Page_Init (object sender, EventArgs e) {
 | **Adımları** | Oturum zaman aşımı, kullanıcı herhangi bir işlem bir web sitesinde (web sunucusu tarafından tanımlanan) bir aralık boyunca gerçekleştirmez sırasında oluşan olayı temsil eder. Sunucu tarafında olay kullanıcı oturumunun durumunu (örneğin "artık kullanılmıyor") 'için geçersiz' değiştirmek ve web sunucusu (içine yer alan tüm verileri silme) edilecek isteyin. Aşağıdaki kod örneği, Web.config dosyasında 15 dakika ile oturum zaman aşımı özniteliğini ayarlar.|
 
 ### <a name="example"></a>Örnek
-'''XML kodunu <configuration> < system.web > <sessionState mode="InProc" cookieless="true" timeout="15" /> < /system.web > </configuration>
+```XML 
+<configuration>
+  <system.web>
+    <sessionState mode="InProc" cookieless="true" timeout="15" />
+  </system.web>
+</configuration>
 ```
 
-## <a id="threat-detection"></a>Enable Threat detection on Azure SQL
-```
-
-| Unvan                   | Ayrıntılar      |
-| ----------------------- | ------------ |
-| **Bileşen**               | Web Uygulaması | 
-| **SDL aşaması**               | Oluşturma |  
-| **İlgili teknolojiler** | Web formları |
-| **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [Öğe forms kimlik doğrulaması için (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
-| **Adımları** | Forms kimlik doğrulaması bileti tanımlama bilgisi zaman aşımı 15 dakika olarak ayarlayın.|
-
-### <a name="example"></a>Örnek
-'''XML kodu <forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
-</forms>
+## <a id="threat-detection"></a>Azure SQL tehdit algılamayı etkinleştirme
 ```
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
 | **Component**               | Web Application | 
 | **SDL Phase**               | Build |  
-| **Applicable Technologies** | Web Forms, MVC5 |
-| **Attributes**              | EnvironmentType - OnPrem |
-| **References**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
-| **Steps** | When the web application is Relying Party and ADFS is the STS, the lifetime of the authentication cookies - FedAuth tokens - can be set by the following configuration in web.config:|
+| **Applicable Technologies** | Web Forms |
+| **Attributes**              | N/A  |
+| **References**              | [forms Element for authentication (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **Steps** | Set the Forms Authentication Ticket cookie timeout to 15 minutes|
 
 ### Example
+```XML
+<forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
+</forms>
+```
+
+| Unvan                   | Ayrıntılar      |
+| ----------------------- | ------------ |
+| **Bileşen**               | Web Uygulaması | 
+| **SDL aşaması**               | Oluşturma |  
+| **İlgili teknolojiler** | Web Forms, MVC5 |
+| **Öznitelikleri**              | EnvironmentType - OnPrem |
+| **Başvuruları**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
+| **Adımları** | Bağlı olan taraf web uygulamasıdır ve AD FS STS olduğunda web.config dosyasında aşağıdaki yapılandırma ile kimlik doğrulama tanımlama bilgisi - FedAuth belirteçleri - ömrünü ayarlayabilirsiniz:|
+
+### <a name="example"></a>Örnek
 ```XML
   <system.identityModel.services>
     <federationConfiguration>

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 29ed96044ceaa914db3f8b7090a1be5f65827e54
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 5f654ce8730af1e66e0186d7087aa130b00afd2b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627483"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782117"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sorunsuz çoklu oturum açma: sık sorulan sorular
 
@@ -84,12 +84,11 @@ Azure AD Connect çalıştırdığınız şirket içi sunucusunda bu adımları 
 
 ### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>1. Adım Sorunsuz çoklu oturum açma yeri etkinleştirilmiş AD ormanına listesini alın
 
-1. İlk olarak, indirme ve yükleme [Microsoft Online Services oturum açma Yardımcısı](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Ardından indirme ve yükleme [64 bit Windows PowerShell için Azure Active Directory Modülü](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
-3. `%programfiles%\Microsoft Azure Active Directory Connect` klasörüne gidin.
-4. Bu komutu kullanarak sorunsuz SSO PowerShell modülünü içeri aktarın: `Import-Module .\AzureADSSO.psd1`.
-5. PowerShell'i yönetici olarak çalıştırın. PowerShell'de, çağrı `New-AzureADSSOAuthenticationContext`. Bu komut, kiracınızın genel yönetici kimlik bilgilerini girmek için bir açılan pencere vermeniz gerekir.
-6. Çağrı `Get-AzureADSSOStatus`. Bu komut, bu özelliğin etkinleştirildiği üzerinde AD ormanına ("Etki alanları" listesinde bakın) listesini sağlar.
+1. İlk olarak, indirme ve yükleme [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+2. `%programfiles%\Microsoft Azure Active Directory Connect` klasörüne gidin.
+3. Bu komutu kullanarak sorunsuz SSO PowerShell modülünü içeri aktarın: `Import-Module .\AzureADSSO.psd1`.
+4. PowerShell'i yönetici olarak çalıştırın. PowerShell'de, çağrı `New-AzureADSSOAuthenticationContext`. Bu komut, kiracınızın genel yönetici kimlik bilgilerini girmek için bir açılan pencere vermeniz gerekir.
+5. Çağrı `Get-AzureADSSOStatus`. Bu komut, bu özelliğin etkinleştirildiği üzerinde AD ormanına ("Etki alanları" listesinde bakın) listesini sağlar.
 
 ### <a name="step-2-update-the-kerberos-decryption-key-on-each-ad-forest-that-it-was-set-it-up-on"></a>2. Adım Bu, üzerinde ayarlanmış her AD ormanında Kerberos şifre çözme anahtarı güncelleştirme
 
@@ -123,26 +122,24 @@ Temizleme işlemi tamamlamak için Azure AD Connect çalıştırdığınız şir
 
 Aşağıdaki adımlar, Azure AD Connect çalıştırdığınız şirket içi sunucusunda çalıştırın:
 
-1. İlk olarak, indirme ve yükleme [Microsoft Online Services oturum açma Yardımcısı](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Ardından indirme ve yükleme [64 bit Windows PowerShell için Azure Active Directory Modülü](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. `%programfiles%\Microsoft Azure Active Directory Connect` klasörüne gidin.
-4. Bu komutu kullanarak sorunsuz SSO PowerShell modülünü içeri aktarın: `Import-Module .\AzureADSSO.psd1`.
-5. PowerShell'i yönetici olarak çalıştırın. PowerShell'de, çağrı `New-AzureADSSOAuthenticationContext`. Bu komut, kiracınızın genel yönetici kimlik bilgilerini girmek için bir açılan pencere vermeniz gerekir.
-6. Çağrı `Enable-AzureADSSO -Enable $false`.
+1. İlk olarak, indirme ve yükleme [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+2. `%programfiles%\Microsoft Azure Active Directory Connect` klasörüne gidin.
+3. Bu komutu kullanarak sorunsuz SSO PowerShell modülünü içeri aktarın: `Import-Module .\AzureADSSO.psd1`.
+4. PowerShell'i yönetici olarak çalıştırın. PowerShell'de, çağrı `New-AzureADSSOAuthenticationContext`. Bu komut, kiracınızın genel yönetici kimlik bilgilerini girmek için bir açılan pencere vermeniz gerekir.
+5. Çağrı `Enable-AzureADSSO -Enable $false`.
 
 >[!IMPORTANT]
 >Sorunsuz çoklu oturum açma devre dışı bırakma PowerShell kullanarak Azure AD CONNECT'te durumu değiştirmez. Sorunsuz çoklu oturum açma etkin olarak gösterilir **değiştirme kullanıcı oturum açma** sayfası.
 
 ### <a name="step-2-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>2. Adım Sorunsuz çoklu oturum açma yeri etkinleştirilmiş AD ormanına listesini alın
 
-Sorunsuz bir Azure AD Connect kullanarak çoklu oturum açma devre dışı bıraktıysanız, 1 ile 5 aşağıdaki adımları izleyin. Bunun yerine PowerShell kullanarak sorunsuz SSO devre dışı bırakılırsa adım 6 atlamayın.
+Sorunsuz bir Azure AD Connect kullanarak çoklu oturum açma devre dışı bıraktıysanız, 1 ile 4 aşağıdaki görevleri izleyin. Bunun yerine PowerShell kullanarak sorunsuz SSO devre dışı bıraktıysanız, görev 5 atlamayın.
 
-1. İlk olarak, indirme ve yükleme [Microsoft Online Services oturum açma Yardımcısı](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Ardından indirme ve yükleme [64 bit Windows PowerShell için Azure Active Directory Modülü](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. `%programfiles%\Microsoft Azure Active Directory Connect` klasörüne gidin.
-4. Bu komutu kullanarak sorunsuz SSO PowerShell modülünü içeri aktarın: `Import-Module .\AzureADSSO.psd1`.
-5. PowerShell'i yönetici olarak çalıştırın. PowerShell'de, çağrı `New-AzureADSSOAuthenticationContext`. Bu komut, kiracınızın genel yönetici kimlik bilgilerini girmek için bir açılan pencere vermeniz gerekir.
-6. Çağrı `Get-AzureADSSOStatus`. Bu komut, bu özelliğin etkinleştirildiği üzerinde AD ormanına ("Etki alanları" listesinde bakın) listesini sağlar.
+1. İlk olarak, indirme ve yükleme [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+2. `%programfiles%\Microsoft Azure Active Directory Connect` klasörüne gidin.
+3. Bu komutu kullanarak sorunsuz SSO PowerShell modülünü içeri aktarın: `Import-Module .\AzureADSSO.psd1`.
+4. PowerShell'i yönetici olarak çalıştırın. PowerShell'de, çağrı `New-AzureADSSOAuthenticationContext`. Bu komut, kiracınızın genel yönetici kimlik bilgilerini girmek için bir açılan pencere vermeniz gerekir.
+5. Çağrı `Get-AzureADSSOStatus`. Bu komut, bu özelliğin etkinleştirildiği üzerinde AD ormanına ("Etki alanları" listesinde bakın) listesini sağlar.
 
 ### <a name="step-3-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>3. Adım El ile silmeniz `AZUREADSSOACCT` listelenen gördüğünüz her AD ormanında bilgisayar hesabı.
 

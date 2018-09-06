@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: 7270ec7c5129352b0e801808e5c7720e5021ac9d
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: bf7dabc1c3765d86e7a0f87acaa6f06a68d3d530
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398827"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782017"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Kapsayıcılara ve blob’lara anonim okuma erişimini yönetme
 Bir kapsayıcı ve bloblarını Azure Blob Depolama alanında anonim, genel okuma erişimi etkinleştirebilirsiniz. Bunu yaptığınızda, hesap anahtarınız paylaşımı ve paylaşılan erişim imzası (SAS) gerek olmadan bu kaynaklara salt okunur erişim verebilirsiniz.
@@ -39,7 +39,7 @@ Kapsayıcı izinlerini ayarlamak için şunları kullanabilirsiniz:
 Kapsayıcı izinlerini ayarlamak için [Azure portalında](https://portal.azure.com), şu adımları izleyin:
 
 1. Açık, **depolama hesabı** portaldaki dikey pencere. Depolama hesabınızı seçerek bulabilirsiniz **depolama hesapları** ana portal menü dikey penceresinde.
-1. Altında **BLOB hizmeti** menü dikey penceresinde seçin **kapsayıcıları**.
+1. Altında **BLOB hizmeti** menü dikey penceresinde seçin **Blobları**.
 1. Kapsayıcı satıra sağ tıklayın veya kapsayıcının açmak için üç noktayı seçin **bağlam menüsü**.
 1. Seçin **erişim ilkesi** bağlam menüsünde.
 1. Seçin bir **erişim türü** açılan menüden.
@@ -140,7 +140,7 @@ Aşağıdaki tabloda gösterilen bir kapsayıcının ACL erişimine izin verecek
 | Kira blob'u |Yalnızca sahibi |Yalnızca sahibi |
 | Sayfa yerleştirin |Yalnızca sahibi |Yalnızca sahibi |
 | Alma sayfası aralıkları |Tümü |Tümü |
-| Ekleme blobu |Yalnızca sahibi |Yalnızca sahibi |
+| Ekleme Blobu |Yalnızca sahibi |Yalnızca sahibi |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

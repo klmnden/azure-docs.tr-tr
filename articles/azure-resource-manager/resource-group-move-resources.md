@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 429a10988fdc19863cfd6809a8d73757d33349c9
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 35bd895636bcedf0fd3fad073819d238c7850326
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702324"
+ms.locfileid: "43783347"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -57,8 +57,7 @@ Bir kaynağı taşımadan önce gerçekleştirmeniz gereken bazı önemli adıml
   * [Azure aboneliğinin sahipliğini başka bir hesaba devretme](../billing/billing-subscription-transfer.md)
   * [Azure Active Directory'ye bir Azure aboneliğini ekleme veya ilişkilendirme](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-2. Hizmet, kaynakları taşıma olanağını sağlamalıdır. Bu makalede, aşağıdaki bölümlere bakın [Hizmetleri kaynak taşıma olanağı](#services-that-can-be-moved) ve [Hizmetleri kaynakların taşınması etkinleştirmediğiniz](#services-that-cannot-be-moved).
-3. Hedef abonelik, taşınan kaynağın kaynak sağlayıcısına kayıtlı olmalıdır. Belirten bir hata alırsanız, **kaynak türü için abonelik kayıtlı değil**. Kaynağı taşıdığınız yeni abonelik, ilgili kaynak türüyle daha önce kullanılmamışsa bu sorunla karşılaşabilirsiniz.
+1. Hedef abonelik, taşınan kaynağın kaynak sağlayıcısına kayıtlı olmalıdır. Belirten bir hata alırsanız, **kaynak türü için abonelik kayıtlı değil**. Kaynağı taşıdığınız yeni abonelik, ilgili kaynak türüyle daha önce kullanılmamışsa bu sorunla karşılaşabilirsiniz.
 
   PowerShell için kayıt durumunu almak için aşağıdaki komutları kullanın:
 
@@ -86,14 +85,16 @@ Bir kaynağı taşımadan önce gerçekleştirmeniz gereken bazı önemli adıml
   az provider register --namespace Microsoft.Batch
   ```
 
-4. Kaynakları taşıma hesabı, en az aşağıdaki izinlere sahip olmanız gerekir:
+1. Kaynakları taşıma hesabı, en az aşağıdaki izinlere sahip olmanız gerekir:
 
    * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** kaynak kaynak grubu.
    * **Microsoft.Resources/subscriptions/resourceGroups/write** hedef kaynak grubunda.
 
-5. Kaynakları taşımadan önce kaynaklara Taşımakta olduğunuz abonelik için abonelik kotaları denetleyin. Kaynakları taşıma abonelik, sınırları aşamaz anlamına gelir, kota artışı isteği olup olmadığını gözden geçirmek gerekir. Limitler ve bir artış istemek nasıl bir listesi için bkz. [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md).
+1. Kaynakları taşımadan önce kaynaklara Taşımakta olduğunuz abonelik için abonelik kotaları denetleyin. Kaynakları taşıma abonelik, sınırları aşamaz anlamına gelir, kota artışı isteği olup olmadığını gözden geçirmek gerekir. Limitler ve bir artış istemek nasıl bir listesi için bkz. [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md).
 
-5. Mümkün olduğunda, kesme büyük ayrı taşıma işlemlerini taşır. Kaynak Yöneticisi'ni hemen 800'den fazla kaynakları tek bir işlemde taşıma girişimleri başarısız olur. Ancak, 800'den daha az kaynağı taşımadan da zaman aşımına göre başarısız olabilir.
+1. Mümkün olduğunda, kesme büyük ayrı taşıma işlemlerini taşır. Kaynak Yöneticisi'ni hemen 800'den fazla kaynakları tek bir işlemde taşıma girişimleri başarısız olur. Ancak, 800'den daha az kaynağı taşımadan da zaman aşımına göre başarısız olabilir.
+
+1. Hizmet, kaynakları taşıma olanağını sağlamalıdır. Taşıma başarılı olur olup olmadığını belirlemek için [, taşıma isteği doğrulamak](#validate-move). Bu makalede, aşağıdaki bölümlere bakın [Hizmetleri kaynak taşıma olanağı](#services-that-can-be-moved) ve [Hizmetleri kaynakların taşınması etkinleştirmediğiniz](#services-that-cannot-be-moved).
 
 ## <a name="when-to-call-support"></a>Destek çağrısı yapıldığında
 
@@ -106,6 +107,59 @@ Bu makalede gösterilen Self-Servis işlemler çoğu kaynaklarında taşıyabili
 
 * Kaynaklarınızı bir yeni bir Azure hesabı (ve Azure Active Directory kiracısına) taşımak ve önceki bölümde yönergeleri konusunda Yardım gerekiyor.
 * Klasik kaynakları taşıma ancak kısıtlamalarla sorun yaşıyoruz.
+
+## <a name="validate-move"></a>Taşıma doğrula
+
+[Taşıma işlemi doğrulama](/rest/api/resources/resources/validatemoveresources) kaynakları taşımadan taşıma senaryonuza sınamanızı sağlar. Bu işlem, taşıma başarılı olur belirlemek için kullanın. Bu işlemin çalıştırılması için ihtiyacınız vardır:
+
+* Kaynak kaynak grubu adı
+* Hedef kaynak grubunun kaynak kimliği
+* Her bir kaynağın kaynak kimliği taşımak için
+* [erişim belirteci](/rest/api/azure/#acquire-an-access-token) hesabınız için
+
+Aşağıdaki isteği gönder:
+
+```
+POST https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<source-group>/validateMoveResources?api-version=2018-02-01
+Authorization: Bearer <access-token>
+Content-type: application/json
+```
+
+İstek gövdesi ile:
+
+```json
+{
+ "resources": ['<resource-id-1>', '<resource-id-2>'],
+ "targetResourceGroup": "/subscriptions/<subscription-id>/resourceGroups/<target-group>"
+}
+```
+
+İstek düzgün biçimlendirilmiş olup olmadığını, işlemi döndürür:
+
+```
+Response Code: 202
+cache-control: no-cache
+pragma: no-cache
+expires: -1
+location: https://management.azure.com/subscriptions/<subscription-id>/operationresults/<operation-id>?api-version=2018-02-01
+retry-after: 15
+...
+```
+
+Doğrulama isteği kabul edildi, ancak henüz taşıma işlemi başarılı olur, belirlenen taşınmadığından 202 durum kodunu gösterir. `location` Değeri uzun süre çalışan işlemin durumunu denetlemek için kullandığınız bir URL içerir.  
+
+Durumu denetlemek için aşağıdaki isteği gönder:
+
+```
+GET <location-url>
+Authorization: Bearer <access-token>
+```
+
+İşlemi hala devam ederken, 202 durum kodu almaya devam eder. Belirtilen saniye sayısı bekleyin `retry-after` yeniden denemeden önce değeri. Taşıma işlemi başarıyla doğrular, 204 durum kodu alırsınız. Taşıma doğrulaması başarısız olursa, bir hata iletisi gibi alırsınız:
+
+```json
+{"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
+```
 
 ## <a name="services-that-can-be-moved"></a>Taşınabilir Hizmetleri
 

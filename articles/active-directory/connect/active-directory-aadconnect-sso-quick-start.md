@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4710e30ad38485f47c115ac2e0e914e91c96d582
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8cab491a874094ee195f12ba6fe7f19a87f09ef2
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522190"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841962"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sorunsuz çoklu oturum açma: Hızlı Başlangıç
 
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) sorunsuz çoklu oturum açma (sorunsuz çoklu 
 
 Sorunsuz çoklu oturum açma dağıtmak için aşağıdaki adımları izleyin.
 
-## <a name="step-1-check-the-prerequisites"></a>1. adım: önkoşulları denetleme
+## <a name="step-1-check-the-prerequisites"></a>1. Adım: Önkoşulları denetleme
 
 Aşağıdaki önkoşulların karşılandığından emin olun:
 
@@ -42,6 +42,9 @@ Aşağıdaki önkoşulların karşılandığından emin olun:
     >Azure AD Connect sürüm 1.1.557.0, 1.1.558.0 1.1.561.0 ve 1.1.614.0 parola karması eşitleme için ilgili bir sorun var. Varsa, _yoksa_ okuma geçişli kimlik doğrulaması ile birlikte parola karması eşitleme kullanmayı düşündüğünüz [Azure AD Connect sürüm notları](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) daha fazla bilgi için.
 
 * **Desteklenen bir kullanan Azure AD Connect topolojisi**: Azure AD Connect'in desteklenen topolojiler açıklanan birini kullandığınızdan emin olun [burada](active-directory-aadconnect-topologies.md).
+
+    >[!NOTE]
+    >Olup olmadığını AD güvenleri arasında veya birden fazla AD ormanına sorunsuz çoklu oturum açmayı destekler.
 
 * **Etki alanı yönetici kimlik bilgilerini ayarla**: her Active Directory orman için etki alanı yönetici kimlik bilgilerine sahip olmanız gerekir:
     * Azure AD Connect aracılığıyla Azure AD'ye eşitleyin.
@@ -180,7 +183,7 @@ Mozilla Firefox, otomatik olarak Kerberos kimlik doğrulaması kullanmaz. Her ku
 
 #### <a name="safari-macos"></a>Safari (macOS)
 
-MacOS çalıştıran makinenin AD'ye katıldığından emin olun. AD katılma ile ilgili yönergeler için bkz: [Active Directory ile tümleştirme OS X için en iyi](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
+MacOS çalıştıran makinenin AD'ye katıldığından emin olun. Yönergeler AD katılma için macOS Cihazınızı bu makalenin kapsamı dışında ' dir.
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (tüm platformlar)
 

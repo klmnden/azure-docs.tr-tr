@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 725f52e55795025671036095f209fd92636a4d9c
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 4e93e455e309771ed3e33382ee49cdc144036fb1
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701508"
+ms.locfileid: "43782422"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Sanal makinenin seri konsol (Önizleme) 
 
 
-Azure'da sanal makine seri konsolu, Linux ve Windows sanal makineler için metin tabanlı bir konsol erişim sağlar. Bu seri bağlantı COM1 için sanal makinenin seri bağlantı noktasıdır ve sanal makineye erişim sağlar ve sanal makinenin ağa ilgili olmayan / işletim sistemi durumu. Seri konsol erişimi için bir sanal makine şu anda yalnızca Azure portalı üzerinden yapılır ve yalnızca VM katkıda bulunanı olan kullanıcılar için veya sanal makineye erişimi yukarıda izin. 
+Azure'da sanal makine seri konsolu, Windows sanal makineler için metin tabanlı bir konsol erişim sağlar. Bu seri bağlantı, COM1, bir sanal makinenin ağ veya işletim sistemi durumu bağımsız olan sanal makineye erişim sağlayarak sanal makinenin seri bağlantı noktası sağlamaktır. Bir sanal makine şu anda için seri konsoluna erişim yalnızca Azure Portalı aracılığıyla yapılması ve VM katkıda bulunanı olan kullanıcılar için veya sanal makineye erişimi yukarıda izin verilmiyor. 
 
 Linux VM'ler için seri konsol belgeleri [Buraya](../linux/serial-console.md).
 
@@ -46,7 +46,7 @@ Linux VM'ler için seri konsol belgeleri [Buraya](../linux/serial-console.md).
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
 ## <a name="get-started-with-serial-console"></a>Seri konsol ile çalışmaya başlama
-Sanal makineler için seri konsol üzerinden erişilebilir, yalnızca [Azure portalında](https://portal.azure.com). Portal aracılığıyla sanal makineler için seri konsoluna erişmek için adımları aşağıda verilmiştir 
+Sanal makineler için seri konsol üzerinden erişilebilir, yalnızca [Azure portalında](https://portal.azure.com). Portal aracılığıyla sanal makineler için seri konsoluna erişmek için adımlar aşağıdadır.
 
   1. Azure portalını açın
   2. Sol taraftaki menüde, sanal makineleri seçin.
@@ -55,8 +55,8 @@ Sanal makineler için seri konsol üzerinden erişilebilir, yalnızca [Azure por
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-## <a name="configure-serial-console-for-windows"></a>Seri konsol için Windows yapılandırma 
-Azure'da yeni Windows Server görüntülerini olacaktır [Özel Yönetim Konsolu](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) varsayılan olarak etkin. SAC Windows server sürümlerinde desteklenir, ancak istemci sürümleri (örneğin, Windows 10, Windows 8 veya Windows 7) kullanılamıyor. Seri konsol kullanarak oluşturulan Windows sanal makineler için etkinleştirmeyi Feb2018 veya alt görüntüleri Lütfen aşağıdaki adımları kullanın: 
+## <a name="enable-serial-console-in-custom-or-older-images"></a>Seri konsol eski veya özel görüntüleri etkinleştir
+Azure'da yeni Windows Server görüntülerini olacaktır [Özel Yönetim Konsolu](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) varsayılan olarak etkin. SAC Windows server sürümlerinde desteklenir, ancak istemci sürümleri (örneğin, Windows 10, Windows 8 veya Windows 7) kullanılamıyor. Şubat 2018 tarihinden önce oluşturulan Windows sanal makineleri için seri konsol etkinleştirmek için lütfen aşağıdaki adımları kullanın: 
 
 1. Windows sanal makinenize Uzak Masaüstü aracılığıyla bağlanma
 2. Bir yönetim komut isteminden aşağıdaki komutları çalıştırın. 
@@ -73,13 +73,13 @@ Gerekli SAC çevrimdışı de etkinleştirilebilir ise
 * `bcdedit /store <mountedvolume>\boot\bcd /ems {default} on`
 * `bcdedit /store <mountedvolume>\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 
-### <a name="how-do-i-know-if-sac-is-enabled-or-not"></a>SAC etkin'in etkin olup olmadığını nasıl anlarım 
+### <a name="how-do-i-know-if-sac-is-enabled"></a>SAC etkin olup olmadığını nasıl anlarım?
 
-Varsa [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) etkin seri konsol SAC istemi gösterilmez. Bazı durumlarda VM sistem durumu bilgileri gösterebilir veya boş olamaz.  
+Varsa [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) etkin seri konsol SAC istemi gösterilmez. Bazı durumlarda, VM sistem durumu bilgileri gösterilir ve diğer durumlarda boş olacaktır.  
 
-## <a name="enabling-boot-menu-to-show-in-the-serial-console"></a>Seri konsol içinde göstermek, önyükleme menüsü etkinleştirme 
+## <a name="enable-the-windows-boot-menu-in-serial-console"></a>Seri konsol içinde Windows önyükleme menüsünü etkinleştir 
 
-Windows Önyükleme Yükleyicisi'ni etkinleştirmek gerekiyorsa göstermek için seri konsolunda Windows önyükleme yükleyicisi için aşağıdaki ek seçenekleri ekleyebilirsiniz ister.
+Windows Önyükleme Yükleyicisi'ni etkinleştirmek gerekiyorsa göstermek için seri konsoldan, önyükleme yapılandırma verileri için aşağıdaki ek seçenekleri ekleyebilirsiniz ister. Bkz: [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set) daha fazla ayrıntı için
 
 1. Windows sanal makinenize Uzak Masaüstü aracılığıyla bağlanma
 2. Bir yönetici komut isteminden aşağıdaki komutları çalıştırın. 
@@ -88,8 +88,14 @@ Windows Önyükleme Yükleyicisi'ni etkinleştirmek gerekiyorsa göstermek için
 * `bcdedit /set {bootmgr} bootems yes`
 3. Önyükleme menüsünün etkinleştirilmesi sistemi yeniden başlatın
 
-> [!NOTE] 
-> Bu işlev için noktası Destek'teki anahtarları etkin değilse, Gelişmiş Önyükleme Seçenekleri kullandığınıza bcdedit/set {geçerli} onetimeadvancedoptions ihtiyaç duyuyorsanız bkz [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set) daha fazla ayrıntı için
+## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>Windows vm'lerinde NMI çağrıları için seri Konsolu
+Maskelenemez olmayan bir kesinti (NMI) yazılımı bir sanal makinede değil yoksayacak bir sinyal oluşturmak için tasarlanmıştır. Tarihsel olarak, NMIs belirli yanıt süreleri gerektiren sistemleri donanım sorunları izlemek için kullanılır.  Bugün, programcılar ve sistem yöneticileri bir mekanizma NMI hata ayıklama veya askıya sistemler gidermek için genellikle kullanın.
+
+Seri konsol, aşağıda gösterilen komut çubuğunda klavye simgesini kullanarak bir Azure sanal makine bir NMI göndermek için kullanılabilir. NMI teslim sonra sanal makine yapılandırması sistemin nasıl yanıt vereceğini denetleyin. Windows için kilitlenme yapılandırılabilir ve bir NMI alırken bir bellek dökümü oluşturun.
+
+![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
+
+Kilitlenme bilgi dökümü bir NMI aldığında oluşturmak için Windows yapılandırma hakkında daha fazla bilgi için bkz: [tam kilitlenme bilgi döküm dosyası veya bir çekirdek kilitlenme dökümü dosyalarının Windows tabanlı bir sistemde bir NMI kullanarak oluşturma](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
 ## <a name="disable-serial-console"></a>Seri konsol devre dışı bırak
 Varsayılan olarak, seri konsol erişimi tüm VM'ler için Etkin Abonelikler var. Abonelik düzeyinde veya VM düzeyi seri konsol devre dışı bırakabilir.
@@ -157,15 +163,6 @@ Dosya Sistemi Bozulması/işaretleyin | Seri konsol erişmek ve dosya sistemi ku
 RDP yapılandırma sorunları | Seri Konsol erişim ve ayarları değiştirin. Git [RDP belgeleri](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access) kullanmaya başlamak için.
 Sistem ağ kilitleme| Seri konsol sistemini yönetmek için portal aracılığıyla erişim. İçinde listelenen bazı ağ komutları [seri Konsolu CMD ve PowerShell belgeleri](./serial-console-cmd-ps-commands.md). 
 Önyükleme yükleyicisi ile etkileşim kurma | Seri konsol üzerinden BCD erişim. Git [seri konsol içinde gösterilecek etkinleştirme önyükleme menüsü](#enabling-boot-menu-to-show-in-the-serial-console) kullanmaya başlamak için. 
-
-## <a name="using-serial-console-for-nmi-calls-in-windows-vms"></a>Seri konsol için NMI kullanarak Windows VM çağırır
-Maskelenemez olmayan bir kesinti (NMI) yazılımı bir sanal makinede değil yoksayacak bir sinyal oluşturmak için tasarlanmıştır. Tarihsel olarak, NMIs belirli yanıt süreleri gerektiren sistemleri donanım sorunları izlemek için kullanılır.  Bugün, programcılar ve sistem yöneticileri bir mekanizma NMI hata ayıklama veya askıya sistemler gidermek için genellikle kullanın.
-
-Seri konsol, aşağıda gösterilen komut çubuğunda klavye simgesini kullanarak bir Azure sanal makine bir NMI göndermek için kullanılabilir. NMI teslim sonra sanal makine yapılandırması sistem nasıl yanıt denetler. Windows için kilitlenme yapılandırılabilir ve bir NMI alırken bir bellek dökümü oluşturun.
-
-![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
-
-Kilitlenme bilgi dökümü bir NMI aldığında oluşturmak için Windows yapılandırma hakkında daha fazla bilgi için bkz: [tam kilitlenme bilgi döküm dosyası veya bir çekirdek kilitlenme dökümü dosyalarının Windows tabanlı bir sistemde bir NMI kullanarak oluşturma](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
 ## <a name="accessibility"></a>Erişilebilirlik
 Erişilebilirlik bir anahtar Azure seri konsol biridir. Bu amaçla, seri konsol fare kullanmanız mümkün olmayabilir kişilerin yanı sıra visual ve işitme zorluğu yaşayan kişiler erişilebilir olduğunu belirlediniz.

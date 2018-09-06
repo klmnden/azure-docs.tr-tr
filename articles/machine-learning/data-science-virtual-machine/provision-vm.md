@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: b01ef3701ffb46da57c52e5fe73828ec4252b074
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8131122f78f743d04e332bfc8dfeba87a8c34236
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344769"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782663"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Azure üzerinde Windows veri bilimi sanal makinesi sağlama
 Microsoft Veri bilimi sanal makinesi (DSVM), bir Windows Azure sanal makine (VM) görüntüsüdür. Bu önceden yüklenmiş ve veri analizi ve makine öğrenimi için kullanılan çeşitli araçlar ile yapılandırılmış. Aşağıdaki araçları dahil edilir:
@@ -126,7 +126,7 @@ Python kullanarak geliştirme için Anaconda Python dağıtımlarını 2.7 ve 3.
 > 
 > 
 
-Anaconda Python 3.6 altında yüklü **C:\Anaconda**. Anaconda Python 2.7 altında yüklü **c:\Anaconda\envs\python2**. Ayrıntılı adımlar için bkz. [PTVS dokümantasyonu](/visualstudio/python/installing-python-interpreters.md). 
+Anaconda Python 3.6 altında yüklü **C:\Anaconda**. Anaconda Python 2.7 altında yüklü **c:\Anaconda\envs\python2**. Ayrıntılı adımlar için bkz. [PTVS dokümantasyonu](https://docs.microsoft.com/visualstudio/python/installing-python-interpreters). 
 
 ### <a name="the-jupyter-notebook"></a>Jupyter not defteri
 Anaconda dağıtım Jupyter not defteri ile kod ve analiz paylaşmak için bir ortam da gelir. Jupyter Notebook sunucusu ile Python 2.7 ve Python 3.x, PySpark, Julia ve R defterleri önceden yapılandırılmıştır. Jupyter sunucuyu başlatın ve vardır not defteri sunucusuna erişmek için tarayıcıyı başlatmak için Masaüstü simgesi çağrılan **Jupyter not defteri**. 

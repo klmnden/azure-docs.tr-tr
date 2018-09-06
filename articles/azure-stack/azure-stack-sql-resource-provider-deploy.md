@@ -11,19 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: c9efaeed05856f830a4f0cf699cb35ebc21966c1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 08ab76e587c4e2c8b8afe9cb27e9df59a5924475
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700719"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842049"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Azure Stack'te SQL Server Kaynak sağlayıcısı dağıtma
 
 SQL veritabanları Azure Stack hizmet olarak kullanıma sunmak için Azure Stack SQL Server Kaynak Sağlayıcısı'nı kullanın. SQL kaynak sağlayıcısı, bir hizmet olarak Windows Server 2016 Server Core sanal makinede (VM) çalışır.
+
+> [!IMPORTANT]
+> Yalnızca kaynak sağlayıcısı, ana bilgisayar SQL veya MySQL sunucuları üzerinde öğeleri oluşturmak için desteklenir. Kaynak sağlayıcısı tarafından oluşturulmamış bir ana bilgisayar sunucusunda oluşturulan öğeler, eşleşmeyen bir duruma neden olabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -144,8 +147,8 @@ Aşağıdaki kullanabileceğiniz adımları SQL kaynak sağlayıcısı başarıy
 2. Seçin **kaynak grupları**.
 3. Seçin **sistem.\< Konum\>.sqladapter** kaynak grubu.
 4. Kaynak grubu genel bakış için Özet sayfasında, hiçbir dağıtımları başarısız olmalıdır.
-
       ![SQL kaynak sağlayıcısı, dağıtımı doğrulama](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+5. Son olarak, seçin **sanal makineler** doğrulamak için Yönetim Portalı'nda SQL kaynak sağlayıcısı sanal makine başarıyla oluşturuldu ve çalışıyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

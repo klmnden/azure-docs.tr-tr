@@ -11,19 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 6d6ee22bd1691f1af6956330b3299a1483c588f7
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 722df244135d045e18b9f2d0dd88066ba00b7d49
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696651"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841888"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Azure Stack'te MySQL kaynak sağlayıcısı dağıtma
 
 MySQL veritabanları Azure Stack hizmet olarak kullanıma sunmak için MySQL Server Kaynak Sağlayıcısı'nı kullanın. MySQL kaynak sağlayıcısı, bir hizmet olarak Windows Server 2016 Server Core sanal makinede (VM) çalışır.
+
+> [!IMPORTANT]
+> Yalnızca kaynak sağlayıcısı, ana bilgisayar SQL veya MySQL sunucuları üzerinde öğeleri oluşturmak için desteklenir. Kaynak sağlayıcısı tarafından oluşturulmamış bir ana bilgisayar sunucusunda oluşturulan öğeler, eşleşmeyen bir duruma neden olabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -150,6 +153,7 @@ Kaynak Sağlayıcı yükleme betiği sona erdiğinde, en son güncelleştirmeler
 2. Seçin **kaynak grupları**
 3. Seçin **sistem.\< Konum\>.mysqladapter** kaynak grubu.
 4. Kaynak grubu genel bakış için Özet sayfasında, hiçbir dağıtımları başarısız olmalıdır.
+5. Son olarak, seçin **sanal makineler** doğrulamak için Yönetim Portalı'nda MySQL kaynak sağlayıcısı sanal makine başarıyla oluşturuldu ve çalışıyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

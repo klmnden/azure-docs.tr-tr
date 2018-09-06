@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: jaredmoo
-ms.openlocfilehash: ca21355c836a58591bbbd09874d0c5d0b5c17435
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: ae5dafcebd50ecd22309a7771b0edf01a97fd7a7
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126434"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842633"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Elastik veritabanı işleri oluşturmak ve yönetmek için Transact-SQL (T-SQL) kullanın
 
@@ -184,7 +184,13 @@ Birçok veri toplama senaryolarda, bazı iş sonuçlarını işlem sonrası yard
 
 ## <a name="monitor-database-performance"></a>Veritabanı performansını izleme
 
-Aşağıdaki örnek, birden çok veritabanlarından performans verilerini toplamak için yeni bir iş oluşturur.  
+Aşağıdaki örnek, birden çok veritabanlarından performans verilerini toplamak için yeni bir iş oluşturur.
+
+Varsayılan olarak, döndürülen sonuçlarda depolamak için bir tablo oluşturmak için İş Aracısı görünecektir. Sonuç olarak çıktı kimlik bilgileri kullanılan kimlik bilgileri ile ilişkili oturum açma, bunu gerçekleştirmek için yeterli izinlere sahip gerekecektir. Daha sonra el ile tablo önceden oluşturmak istiyorsanız aşağıdaki özelliklere sahip olması gerekir:
+1. Sütun adının doğru ve veri türleri için sonuç kümesi.
+2. Benzersiz tanımlayıcı veri türünde internal_execution_id ek sütun.
+3. Kümelenmemiş bir dizin adı "IX_<TableName>_Internal_Execution_ID" internal_execution_id sütunu.
+
 Bağlanma [ *iş veritabanı* ](elastic-jobs-overview.md#job-database) ve aşağıdaki komutları çalıştırın:
 
 ```sql

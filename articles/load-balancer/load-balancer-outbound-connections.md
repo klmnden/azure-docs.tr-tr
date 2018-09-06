@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2018
 ms.author: kumud
-ms.openlocfilehash: 1f7e605cbf5aa3d519e04c4fdfd737a4c0926a3e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ea8e8ae9b0f487481ac2f25d4e2b9c5733e15431
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122585"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842264"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure'da giden bağlantıları
 
@@ -80,7 +80,7 @@ Bu senaryoda, VM'ye bir genel yük dengeleyici havuzu (ve bir iç Load Balancer 
 >[!IMPORTANT] 
 >Bu senaryo ayrıca olduğunda geçerlidir __yalnızca__ bir iç temel yük dengeleyici olarak eklenir. Senaryo 3 __kullanılamıyor__ iç bir Standard Load Balancer bir VM'ye bağlı olduğunda.  Açıkça oluşturmalısınız [Senaryo 1](#ilpip) veya [Senaryo 2](#lb) iç bir Standard Load Balancer'ı kullanmanın yanı sıra.
 
-Azure, bağlantı noktası maskelemeyi ile SNAT kullanır ([PAT](#pat)) bu işlevi gerçekleştirmek için. Bu senaryo benzer [Senaryo 2](#lb)yoktur dışında kullanılan IP adresi üzerinde denetimi yoktur. Bu senaryo 1 ve 2 mevcut olduğunda için geri dönüş bir senaryodur. Giden adresi üzerinde denetim istiyorsanız bu senaryo önerilmemektedir. Giden bağlantılar, uygulamanız önemli bir parçası ise, seçtiğiniz başka bir senaryo.
+Azure, bağlantı noktası maskelemeyi ile SNAT kullanır ([PAT](#pat)) bu işlevi gerçekleştirmek için. Bu senaryo benzer [Senaryo 2](#lb)yoktur dışında kullanılan IP adresi üzerinde denetimi yoktur. Bu senaryo 1 ve 2 mevcut olduğunda için geri dönüş bir senaryodur. Giden adresi üzerinde denetim istiyorsanız bu senaryo önerilmemektedir. Giden bağlantılar, uygulamanız önemli bir parçası ise başka bir senaryo seçmeniz gerekir.
 
 Bölümünde anlatıldığı gibi SNAT bağlantı noktaları önceden ayrılmış [anlama SNAT ve PAT](#snat) bölümü.  Vm'leri bir kullanılabilirlik kümesi paylaşımı serilerindeki hangi katmanda uygulanır belirler.  Tek başına VM kullanılabilirlik kümesi olmadan etkili bir şekilde bir 1 ön tahsis (1024 SNAT bağlantı noktaları) belirleme amacıyla havuzudur. SNAT bağlantı noktaları tükendi sınırlı bir kaynaktır. Nasıl olduğunu anlama açısından önemlidir [tüketilen](#pat). Bu tüketimi için tasarımı ve gerektiği şekilde etkisini anlamak için gözden [yönetme SNAT tükenmesi](#snatexhaust).
 
@@ -165,7 +165,7 @@ Aşağıdaki tabloda, arka uç havuz boyutları katmanları için SNAT bağlant�
 | 801 1.000 | 32 |
 
 >[!NOTE]
-> Standart Load Balancer ile kullanırken [birden çok ön uç](load-balancer-multivip-overview.md), [her ön uç IP adresi kullanılabilir SNAT bağlantı noktalarının sayısı çarpar](#multivipsnat) önceki tabloda. Örneğin, 50 sanal makinenin 2 Yük Dengeleme kuralları, her bir ayrı ön uç IP adreslerine sahip olan bir arka uç havuzu başına IP yapılandırması (2 x 1024) 2048 SNAT çıkış kullanır. Ayrıntılar için bkz. [birden çok ön uç](#multife).
+> Standart Load Balancer ile kullanırken [birden çok ön uç](load-balancer-multivip-overview.md), [her ön uç IP adresi kullanılabilir SNAT bağlantı noktalarının sayısı çarpar](#multivipsnat) önceki tabloda. Örneğin, 50 sanal makinenin 2 Yük Dengeleme kuralları, her bir ayrı ön uç IP adresi ile arka uç havuzu başına IP yapılandırması (2 x 1024) 2048 SNAT çıkış kullanır. Ayrıntılar için bkz. [birden çok ön uç](#multife).
 
 Kullanılabilir SNAT bağlantı noktasına doğrudan akışlar sayıya çevirmez unutmayın. Tek bir SNAT bağlantı noktası için birden fazla benzersiz hedefler yeniden kullanılabilir. Yalnızca akış benzersiz hale getirmek gerekli değilse, bağlantı noktaları tüketilir. Tasarım ve risk azaltma kılavuzu için ilgili bölümüne bakın. [exhaustible bu kaynağı yönetmek nasıl](#snatexhaust) ve açıklayan bölümüne [PAT](#pat).
 
@@ -219,7 +219,7 @@ Senaryonuz için değişiklikleri bir ILPIP atama [örnek düzeyinde ortak IP, b
 
 #### <a name="multifesnat"></a>Birden çok ön uç kullanın
 
-Genel Standard Load Balancer kullanırken, atadığınız [giden bağlantılar için birden çok ön uç IP adresi](#multife) ve [SNAT bağlantı noktalarının kullanılabilir Çarp](#preallocatedports).  Bir ön uç IP yapılandırması, kural ve ön uç genel IP için SNAT programlamasını tetiklemek için arka uç havuzu oluşturmanız gerekir.  Kural çalışması gerekmez ve bir durum araştırması başarılı olması gerekmez.  Birden çok ön uç için kullanıyorsanız de gelen (yalnızca giden), kullanmanız gereken özel sistem durumu araştırmaları iyi güvenilirlik sağlamak üzere.
+Genel Standard Load Balancer kullanırken, atadığınız [giden bağlantılar için birden çok ön uç IP adresi](#multife) ve [SNAT bağlantı noktalarının kullanılabilir Çarp](#preallocatedports).  Bir ön uç IP yapılandırması, kural ve ön uç genel IP için SNAT programlamasını tetiklemek için arka uç havuzu oluşturmanız gerekir.  Kural çalışması gerekmez ve bir durum araştırması başarılı olması gerekmez.  Birden çok ön uç için kullanıyorsanız de gelen (yalnızca giden), kullanmanız gereken özel sistem durumu araştırmaları iyi güvenilirlik sağlamak için.
 
 >[!NOTE]
 >Çoğu durumda, SNAT bağlantı noktası tükenmesi hatalı tasarımının bir yer işaretidir.  Neden SNAT bağlantı noktaları eklemek için daha fazla ön uçlar kullanmadan önce tükettiğini bağlantı noktaları olduğunu anladığınızdan emin olun.  Daha sonra başarısız olmasına neden olabilecek bir sorunu maskeleme.
@@ -228,7 +228,7 @@ Genel Standard Load Balancer kullanırken, atadığınız [giden bağlantılar i
 
 [Bağlantı noktaları önceden ayrılmış](#preallocatedports) arka uç havuzu boyutuna bağlı olarak ve bağlantı noktalarından bazılarını sonraki daha büyük arka uç havuzu boyut katmanını karşılamak için ayrılabilecek gerektiğinde uğramasını azaltmak için katmanları halinde gruplandırılmış atanır.  Belirli bir katman boyutu üst sınırı için arka uç havuzu ölçeklendirme tarafından verilen bir ön uç bağlantı noktası kullanımı SNAT yoğunluğunu artırmak için bir seçeneğiniz olabilir.  Bu uygulama için verimli bir şekilde ölçeklendirmek gerektirir.
 
-Örneğin, arka uç havuzundaki sanal makinelerin 2 1024 SNAT bağlantı noktası başına dağıtım için bağlantı noktalarını 2048 SNAT toplam izin vererek, IP yapılandırması olur.  Dağıtım 50 sanal artırılacak olsaydı makinelerin sayısı SNAT bağlantı noktalarını bağlantı noktalarının kalır sabiti 51,200 (50 x 1024) toplam sanal makine başına önceden ayrılmış olsa bile dağıtım tarafından kullanılabilir.  Dağıtımınızı genişletmek istiyorsanız, sayısını denetleyin [bağlantı noktaları önceden ayrılmış](#preallocatedports) emin olmak için katman, ölçeği genişletme ilgili katman için en fazla şekil.  Önceki örnekte, ölçeği, 50 örneğe yerine 51 için seçtiyseniz, uç ve bir sonraki katmana yukarı toplam olduğu gibi de VM başına daha az SNAT bağlantı durumu.
+Örneğin, arka uç havuzundaki sanal makinelerin 2 1024 SNAT bağlantı noktası başına dağıtım için bağlantı noktalarını 2048 SNAT toplam izin vererek, IP yapılandırması olur.  Dağıtım 50 sanal artırılacak olsaydı makinelerin sayısı SNAT bağlantı noktalarını bağlantı noktalarının kalır sabiti 51,200 (50 x 1024) toplam sanal makine başına önceden ayrılmış olsa bile dağıtım tarafından kullanılabilir.  Dağıtımınızı genişletmek istiyorsanız, sayısını denetleyin [bağlantı noktaları önceden ayrılmış](#preallocatedports) emin olmak için katman, ölçeği genişletme ilgili katman için en fazla şekil.  Ölçeği, 50 örneğe yerine 51 için seçtiyseniz önceki örnekte, uç ve bir sonraki katmana yukarı toplam olduğu gibi de VM başına daha az SNAT bağlantı durumu.
 
 Sonraki daha büyük arka uç havuzu boyutu katmana ölçeği genişletme, varsa bazı zaman aşımına giden bağlantılar için olası ayrılabilecek ayrılmış bağlantı noktaları gerekir.  Yalnızca, SNAT bağlantı noktalarından bazılarını kullanıyorsanız, arasında sonraki daha büyük arka uç havuz boyutunu genişletme önemsizdir.  Yarı var olan bağlantı noktaları her zaman bir sonraki arka uç havuzu katmana taşıdığınız ayrılacaktır.  Bunun gerçekleşmesi için istemiyorsanız, katman boyutu dağıtımınıza şekil gerekir.  Veya gerektiğinde uygulamanızı algılamak ve yeniden deneyin emin olun.  TCP canlı tutma nasıl yardımcı olabileceğine içinde SNAT önceliksiz nedeniyle işlevi artık bağlantı noktalarının ne zaman gerçekleştiğini algılayın.
 

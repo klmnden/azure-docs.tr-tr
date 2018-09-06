@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: a742ac79f1152816621312e2ebc59598772ba127
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 55feb64f06c2d67f85f230cb92e84dfe8fd3ada2
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990630"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782398"
 ---
 # <a name="introduction-to-auto-scaling"></a>Otomatik ölçeklendirme giriş
 Otomatik ölçeklendirme Hizmetleri raporladığınız ya da kendi kaynak kullanımını temel alarak yük hizmetlerinizi dinamik olarak ölçeklendirmeniz mi ek bir Service fabric özelliktir. Otomatik ölçeklendirme, büyük esneklik sağlar ve ek örnekler ya da isteğe bağlı hizmetinizin bölümler sağlama sağlar. Tüm otomatik ölçeklendirme işlemi, otomatik ve şeffaf ve bir hizmette ilkelerinizi ayarladıktan sonra hizmet düzeyinde el ile ölçeklendirme işlemleri için gerek yoktur. Otomatik ölçeklendirme üzerinde hizmet oluşturma zamanında veya herhangi bir zamanda hizmet güncelleştirerek kapatılabilir.
@@ -47,7 +47,7 @@ Bir Service Fabric kümesindeki her bir hizmet için otomatik ölçeklendirme il
 İlk tetikleyici türünü bir durum bilgisi olmayan hizmet bölümdeki örneklerinin yük temel alır. Ölçüm yükleri bir bölüm, her örneği için yük almak için ilk düzleştirilmiş ve ardından bu değerleri bölüm tüm örneklerinde ortalaması alınır. Hizmet zaman ölçeklendirileceği belirlemek üç faktöre vardır:
 
 * _Alt yükleme eşiği_ hizmeti ne zaman olacağını belirleyen bir değer **ölçeği**. Ortalama yük tüm örneklerinin bölüm bu değerden düşükse, hizmet olarak ayarlanacaktır.
-* _Üst yükleme eşiği_ hizmeti ne zaman olacağını belirleyen bir değer **ölçeği**. Ortalama yük tüm örneklerinin bölüm bu değerden düşükse, hizmetin kullanıma ayarlanacaktır.
+* _Üst yükleme eşiği_ hizmeti ne zaman olacağını belirleyen bir değer **ölçeği**. Ortalama yük tüm örneklerinin bölüm bu değerden daha yüksek ise, hizmetin kullanıma ayarlanacaktır.
 * _Ölçeklendirme aralığı_ tetikleyici ne sıklıkla kontrol edileceği belirler. Ölçeklendirme gerekliyse tetikleyici iade edildikten sonra mekanizması uygulanır. Ölçeklendirme gerekmiyorsa, hiçbir işlem yapılmadı. Yeniden ölçeklendirme aralığı sona ermeden önce her iki durumda da, tetikleyici yeniden denetlenmez.
 
 Bu tetikleyici yalnızca durum bilgisi olmayan hizmetler ile (durum bilgisi olmayan kapsayıcılar veya Service Fabric Hizmetleri) kullanılabilir. Ne zaman bir hizmet birden çok bölüm olması durumunda, tetikleyici her bölüm için ayrı olarak değerlendirilir ve her bölüm bağımsız olarak uygulanan belirtilen mekanizmasına sahip olur. Bu nedenle, bu durumda, bazı hizmet bölümlerini kullanıma ölçeklendirileceği, içindeki bazı ölçeğinin azaltılıp ve bazı hiç aynı zamanda, kendi iş yüküne göre ölçeği olmaz mümkündür.

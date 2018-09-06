@@ -10,15 +10,15 @@ ms.component: manage
 ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 31b137cca55b1dd249368ba5e287496582152c9f
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 6eba50fbe7c2a7a40b08e37a96adac66583b8251
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382669"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781869"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Azure SQL veri ambarı geri yükleme 
-Bu makalede şunları öğreneceksiniz:
+Bu makalede Azure portalı ve PowerShell'de şunları öğreneceksiniz:
 
 - Geri yükleme noktası oluştur
 - Bir otomatik geri yükleme noktası veya kullanıcı tanımlı bir geri yükleme noktasından geri yükleme
@@ -33,12 +33,12 @@ Bu makalede şunları öğreneceksiniz:
 ## <a name="before-you-begin"></a>Başlamadan önce
 **DTU kapasitenizi doğrulayın.** Her SQL veri ambarı varsayılan DTU kotası olan bir SQL server tarafından (örn. myserver.database.windows.net) barındırılır.  SQL veri ambarı geri yüklemeden önce olduğunu doğrulayın. SQL server'ınızı geri yüklenen veritabanı için yeterli kalan DTU kotası vardır. Gerekli DTU'yu hesaplama veya daha fazla DTU istemek için öğrenmek için bkz: [DTU kota değişiklik isteği][Request a DTU quota change].
 
-# <a name="restore-through-powershell"></a>PowerShell aracılığıyla geri yükleme
+## <a name="restore-through-powershell"></a>PowerShell aracılığıyla geri yükleme
 
 ## <a name="install-powershell"></a>PowerShell yükleme
 SQL veri ambarı ile Azure PowerShell'i kullanmak için Azure PowerShell 1.0 veya üzeri bir sürümü yüklemeniz gerekir.  Çalıştırarak sürümünüzü kontrol edebilirsiniz **Get-Module - ListAvailable-Name AzureRM**.  En son sürümü yüklenebilir [Microsoft Web Platformu yükleyicisi][Microsoft Web Platform Installer].  En son sürümü yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma][How to install and configure Azure PowerShell].
 
-## <a name="restore-an-active-or-paused-database"></a>Etkin ya da duraklatılmış bir veritabanını geri yükleme
+## <a name="restore-an-active-or-paused-database-using-powershell"></a>PowerShell kullanarak etkin ya da duraklatılmış bir veritabanı geri yükleme
 Geri yükleme noktası kullanılmakta olan bir veritabanını geri yüklemek için [Restore-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] PowerShell cmdlet'i.
 
 1. Windows PowerShell'i açın.
@@ -94,7 +94,7 @@ $RestoredDatabase.status
 > Geri yükleme tamamlandıktan sonra takip ederek, kurtarılan veritabanı yapılandırabilirsiniz [kurtarma işleminden sonra veritabanını yapılandırma][Configure your database after recovery].
 >
 
-## <a name="copy-your-data-warehouse-with-user-defined-restore-points"></a>Kullanıcı tanımlı bir geri yükleme noktaları sayesinde veri Ambarınızı kopyalayın
+## <a name="copy-your-data-warehouse-with-user-defined-restore-points-using-powershell"></a>PowerShell kullanarak kullanıcı tanımlı bir geri yükleme noktaları ile veri Ambarınızı kopyalayın
 Kullanıcı tanımlı bir geri yükleme noktası kullanılmakta olan bir veritabanını geri yüklemek için [Restore-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] PowerShell cmdlet'i.
 
 1. Windows PowerShell'i açın.
@@ -102,10 +102,10 @@ Kullanıcı tanımlı bir geri yükleme noktası kullanılmakta olan bir veritab
 3. Geri yüklenecek veritabanını içeren aboneliği seçin.
 4. Veritabanınızın yakındaki bir kopyası için bir geri yükleme noktası oluştur
 5. Veritabanınızı, geçici bir adla yeniden adlandırın.
-5. En son geri yükleme noktası tarafından belirtilen RestorePointLabel alın.
-6. Veritabanını geri yüklemeyi başlatmak için kaynak kimliğini alın
-6. Veritabanını geri yüklemek için istenen geri yükleme noktası.
-7. Geri yüklenen veritabanının çevrimiçi olduğunu doğrulayın.
+6. En son geri yükleme noktası tarafından belirtilen RestorePointLabel alın.
+7. Veritabanını geri yüklemeyi başlatmak için kaynak kimliğini alın
+8. Veritabanını geri yüklemek için istenen geri yükleme noktası.
+9. Geri yüklenen veritabanının çevrimiçi olduğunu doğrulayın.
 
 ```Powershell
 
@@ -142,7 +142,7 @@ $RestoredDatabase.status
 
 ```
 
-## <a name="restore-a-deleted-database"></a>Silinen veritabanını geri yükleme
+## <a name="restore-a-deleted-database-using-powershell"></a>PowerShell kullanarak silinen bir veritabanını geri yükleme
 Silinen bir veritabanını geri yüklemek için kullanın [Restore-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] cmdlet'i.
 
 1. Windows PowerShell'i açın.
@@ -177,7 +177,7 @@ $RestoredDatabase.status
 > Geri yükleme tamamlandıktan sonra takip ederek, kurtarılan veritabanı yapılandırabilirsiniz [kurtarma işleminden sonra veritabanını yapılandırma][Configure your database after recovery].
 >
 
-## <a name="restore-from-an-azure-geographical-region"></a>Azure bir coğrafi bölgesinden geri yükleme
+## <a name="restore-from-an-azure-geographical-region-using-powershell"></a>PowerShell kullanarak bir Azure coğrafi bölgesinden geri yükleme
 Bir veritabanını kurtarmak için kullanmak [Restore-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] cmdlet'i.
 
 > [!NOTE]
@@ -212,9 +212,9 @@ $GeoRestoredDatabase.status
 
 Kaynak veritabanı TDE etkinse kurtarılmış veritabanını TDE etkin olacaktır.
 
-# <a name="restore-through-the-azure-portal"></a>Azure Portalı aracılığıyla geri yükleme
+## <a name="restore-through-the-azure-portal"></a>Azure Portalı aracılığıyla geri yükleme
 
-## <a name="create-a-user-defined-restore-point"></a>Bir kullanıcı tanımlı bir geri yükleme noktası oluştur
+## <a name="create-a-user-defined-restore-point-using-the-azure-portal"></a>Azure portalını kullanarak bir kullanıcı tanımlı bir geri yükleme noktası oluştur
 1. [Azure portalında][Azure portal] oturum açın.
 
 2. İçin bir geri yükleme noktası oluşturmak istediğiniz SQL veri ambarı gidin.
@@ -222,37 +222,37 @@ Kaynak veritabanı TDE etkinse kurtarılmış veritabanını TDE etkin olacaktı
 3. Genel Bakış dikey pencerenin en üstünde seçin **+ yeni geri yükleme noktası**.
 
     ![Yeni Geri Yükleme Noktası](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_0.png)
-    
+
 4. Geri yükleme noktası için bir ad belirtin.
 
     ![Geri yükleme noktası adı](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_1.png)
 
-## <a name="restore-an-active-or-paused-database"></a>Etkin ya da duraklatılmış bir veritabanını geri yükleme
+## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Azure portalını kullanarak etkin ya da duraklatılmış bir veritabanı geri yükleme
 1. [Azure portalında][Azure portal] oturum açın.
 2. Öğesinden geri yüklemek istediğiniz SQL veri ambarı gidin.
 3. Genel Bakış dikey pencerenin en üstünde seçin **geri**.
 
     ![ Geri Yüklemeye Genel Bakış](./media/sql-data-warehouse-restore-database-portal/restoring_0.png)
-    
+
 4. Şunlardan birini seçin **otomatik geri yükleme noktaları** veya **kullanıcı tanımlı bir geri yükleme noktaları**.
 
     ![Otomatik Geri Yükleme Noktaları](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
-    
+
 5. Kullanıcı tanımlı noktaları, geri yüklemek için **geri yükleme noktası seçin** veya **yeni bir kullanıcı tanımlı bir geri yükleme noktası oluşturma**.
 
     ![Kullanıcı tanımlı bir geri yükleme noktaları](./media/sql-data-warehouse-restore-database-portal/restoring_2_udrp.png)
 
-## <a name="restore-a-deleted-database"></a>Silinen veritabanını geri yükleme
+## <a name="restore-a-deleted-database-using-the-azure-portal"></a>Azure portalını kullanarak silinen bir veritabanını geri yükleme
 1. [Azure portalında][Azure portal] oturum açın.
 2. SQL server, silinen veritabanını barındırılan gidin.
 3. Silinen veritabanları simgesine içindekiler tablosundan seçin.
 
     ![Silinen veritabanları](./media/sql-data-warehouse-restore-database-portal/restoring_deleted_0.png)
-    
+
 4. Geri yüklemek istiyorsanız silinen veritabanını seçin.
 
     ![Silinen veritabanlarını seçin](./media/sql-data-warehouse-restore-database-portal/restoring_deleted_1.png)
-    
+
 5. Yeni bir veritabanı adı belirtin.
 
     ![Veritabanı adı belirtin](./media/sql-data-warehouse-restore-database-portal/restoring_deleted_2.png)

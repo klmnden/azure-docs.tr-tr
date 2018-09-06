@@ -9,15 +9,15 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: def1bbd52e05666f380ab9d5a9295366798d5ae0
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 029ba1c936862ef5c5f774dc683c4746e157c4aa
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626932"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781956"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sorunsuz çoklu oturum açma sorunlarını giderme
 
@@ -34,7 +34,7 @@ Bu makale size yardımcı olur. sorun giderme bilgilerini ilgili sık karşıla�
 - Geliştirilmiş korumalı mod etkin olduğunda sorunsuz çoklu oturum açma Internet Explorer'da çalışmaz.
 - Sorunsuz çoklu oturum açma, iOS ve Android mobil tarayıcılarda çalışmaz.
 - Bir kullanıcı Active Directory içinde çok fazla gruplarının bir parçası ise, kullanıcının Kerberos anahtarı büyük olasılıkla işlemek için çok büyük olacaktır ve bu sorunsuz SSO başarısız olmasına neden olur. Azure AD HTTPS istekleri üstbilgileri en fazla 50 KB boyutlu olabilir; Kerberos biletleri tanımlama bilgileri gibi diğer Azure AD yapıları (genellikle 2-5 KB) uyum sağlamak için bu sınırdan küçük olması gerekir. Bizim önerimiz, kullanıcının grup üyeliklerini azaltın ve yeniden deneyin sağlamaktır.
-- 30 veya daha fazla Active Directory ormanları eşitliyorsanız, Azure AD Connect ile sorunsuz SSO etkinleştirilemiyor. Geçici bir çözüm olarak yapabilecekleriniz [el ile etkinleştirmeniz](#manual-reset-of-azure-ad-seamless-sso) kiracınız özelliği.
+- 30 veya daha fazla Active Directory ormanları eşitliyorsanız, Azure AD Connect ile sorunsuz SSO etkinleştirilemiyor. Geçici bir çözüm olarak yapabilecekleriniz [el ile etkinleştirmeniz](#manual-reset-of-the-feature) kiracınız özelliği.
 - Azure AD hizmet URL'si ekleme (https://autologon.microsoftazuread-sso.com) Güvenilen siteler bölgesine yerel intranet bölgesine yerine *oturum açarken kullanıcıların engeller*.
 - Kullanımını devre dışı bırakma **RC4_HMAC_MD5** Active Directory ayarlarınızdaki şifreleme türü Kerberos için sorunsuz SSO bozar. Grup İlkesi Yönetimi Düzenleyicisi aracınız için ilke değeri emin **RC4_HMAC_MD5** altında **bilgisayar yapılandırması -> Windows Ayarları -> Güvenlik Ayarları -> yerel ilkeler -> güvenlik seçenekleri - > "Ağ güvenliği: Kerberos'ta izin verilen şifreleme türlerini Yapılandır"** "Etkin".
 
@@ -106,10 +106,9 @@ Sorun giderme yaramazsa, kiracınızda özelliğini el ile de sıfırlayabilirsi
 
 ### <a name="step-1-import-the-seamless-sso-powershell-module"></a>1. adım: sorunsuz SSO PowerShell modülünü içeri aktarın
 
-1. İndirme ve yükleme [Microsoft Online Services oturum açma Yardımcısı](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. İndirme ve yükleme [64 bit Windows PowerShell için Azure Active Directory Modülü](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Gözat `%programfiles%\Microsoft Azure Active Directory Connect` klasör.
-4. Bu komutu kullanarak sorunsuz SSO PowerShell modülünü içeri aktarın: `Import-Module .\AzureADSSO.psd1`.
+1. İlk olarak, indirme ve yükleme [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+2. Gözat `%programfiles%\Microsoft Azure Active Directory Connect` klasör.
+3. Bu komutu kullanarak sorunsuz SSO PowerShell modülünü içeri aktarın: `Import-Module .\AzureADSSO.psd1`.
 
 ### <a name="step-2-get-the-list-of-active-directory-forests-on-which-seamless-sso-has-been-enabled"></a>2. adım: Active Directory ormanlarını sorunsuz çoklu oturum açma etkinleştirildi'nın listesini alın
 
@@ -129,8 +128,10 @@ Sorun giderme yaramazsa, kiracınızda özelliğini el ile de sıfırlayabilirsi
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>4. adım: Her Active Directory ormanı için sorunsuz SSO etkinleştirme
 
 1. Çağrı `Enable-AzureADSSOForest`. İstendiğinde, hedeflenen Active Directory orman için etki alanı yönetici kimlik bilgilerini girin.
+
    >[!NOTE]
    >Etki alanı yöneticisinin kullanıcı adı, kullanıcı asıl adı (UPN) içinde sağlanan kullanırız (johndoe@contoso.com) biçimi veya hedeflenen AD ormanı bulmak için etki alanı tam sam hesabı adı (contoso\johndoe veya contoso.com\johndoe) biçimi. Etki alanı tam sam hesabı adı kullanırsanız, etki alanı bölümü için kullanıcı adını kullanıyoruz [, DNS kullanarak olan etki alanı yöneticisi etki alanı denetleyicisinin yerini](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Bunun yerine, UPN kullanırsanız, biz [bir etki alanı tam sam hesabı adı için çevir](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) uygun etki alanı denetleyicisi bulunurken önce.
+
 2. Bir özelliği ayarlamak istediğiniz her bir Active Directory ormanı için önceki adımı yineleyin.
 
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>5. Adım. Kiracı özelliğini etkinleştirme

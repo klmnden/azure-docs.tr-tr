@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 08/31/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f89a6bdbe906d490231725cf528396928faebe47
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 730b11fb5038e5d6c4f9b00fbc4eb07d673757f9
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092103"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840998"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services ölçeğini genişletme
 
@@ -23,11 +23,15 @@ ms.locfileid: "43092103"
 
 Bir normal server dağıtımında, işlem sunucusu ve sorgu sunucusu bir sunucusu işlevi görür. İstemci sorguları sunucunuzdaki modelleri karşı sorgu işleme birimi (QPU), sunucunuzun planının aşıyor veya yüksek sorgu iş yükleri ile aynı anda model işlemesi, performansı düşürebilir. 
 
-Ölçeklendirme ile en fazla yedi ek sorgu çoğaltması (sizin sunucunuzla birlikte Toplam sekiz) ile bir sorgu havuzu oluşturabilirsiniz. Kritik zamanlarda QPU taleplerini karşılamak üzere sorgu yinelemelerinin sayısı ölçeklendirilebilir ve herhangi bir anda bir işlem sunucusu sorgu havuzundan ayırabilirsiniz. Tüm sorgu çoğaltmaları, sunucunuzla aynı bölgede oluşturulur.
+Ölçeklendirme ile en fazla yedi ek sorgu çoğaltması kaynakları (sizin sunucunuzla birlikte Toplam sekiz) ile bir sorgu havuzu oluşturabilirsiniz. Kritik zamanlarda QPU taleplerini karşılamak üzere sorgu yinelemelerinin sayısı ölçeklendirilebilir ve herhangi bir anda bir işlem sunucusu sorgu havuzundan ayırabilirsiniz. Tüm sorgu çoğaltmaları, sunucunuzla aynı bölgede oluşturulur.
 
-Bir sorgu havuzundaki sahip sorgu çoğaltmaları sayısından bağımsız olarak, işleme iş yükleri arasında sorgu çoğaltmaları dağıtılmadı. Tek bir sunucu işlem sunucusu olarak görev yapar. Sorgu çoğaltmaları, yalnızca sorgu havuzundaki her çoğaltma arasında eşitlenen modelleri karşı sorgular işlevi görür. 
+Bir sorgu havuzundaki sahip sorgu çoğaltmaları sayısından bağımsız olarak, işleme iş yükleri arasında sorgu çoğaltmaları dağıtılmadı. Tek bir sunucu işlem sunucusu olarak görev yapar. Sorgu çoğaltmaları, yalnızca sorgu havuzundaki her sorgu çoğaltma arasında eşitlenen modelleri karşı sorgular işlevi görür. 
 
-Yürütme işlemi tamamlandığında işlem sunucusu ve sorgu çoğaltma sunucusu arasında bir eşitleme gerçekleştirilmelidir. İşlemleri otomatikleştirme, işlem işleme başarıyla tamamlandıktan sonra bir eşitleme işlemi yapılandırılması önemlidir. Eşitleme, portalda veya PowerShell veya REST API kullanarak el ile gerçekleştirilebilir.
+Ölçek genişletme, yeni sorgu çoğaltmaları artımlı olarak sorgu havuzuna eklenir. Bu sorgu havuza eklenecek yeni sorgu çoğaltması kaynaklar için beş dakikaya kadar sürebilir; istemci bağlantıları ve sorguları almaya hazır. Ne zaman tüm yeni sorgu çoğaltmaları hazır ve çalışır hale geldiğinde, yeni istemci bağlantılarını tüm sorgu havuzu kaynaklar arasında Yük Dengelemesi yapılıyor. Mevcut istemci bağlantıları, şu anda bağlı oldukları kaynaktan değiştirilmez.  Ölçek artırma, tüm mevcut istemci bağlantıları için sorgu havuzdan kaldırılmadan bir sorgu havuzu kaynak sonlandırılır. Ölçek işlemi tamamlandıktan sonra kalan sorgu kaynak havuzuna bağlanır.
+
+İşlemleri tamamlandıktan sonra modeller, işleme sırasında işlem sunucusu ve sorgu çoğaltmaları eşitleme gerçekleştirilmelidir. İşlemleri otomatikleştirme, işlem işleme başarıyla tamamlandıktan sonra bir eşitleme işlemi yapılandırılması önemlidir. Eşitleme, portalda veya PowerShell veya REST API kullanarak el ile gerçekleştirilebilir. 
+
+Hem işlem hem de sorgu işlemleri için en yüksek performans için işlem sunucunuzun sorgu havuzundan ayırmak seçebilirsiniz. Ayrılmış, mevcut ve yeni istemci bağlantılarını sorgu çoğaltmaları yalnızca sorgu havuzundaki atanır. İşlemleri yalnızca kısa bir süre alırsa, sorgu havuzu, işleme ve eşitleme işlemleri ve ardından sorgu havuza eklemek için gereken süre, işlem sunucusundan ayrı seçebilirsiniz. 
 
 > [!NOTE]
 > Ölçek genişletme standart fiyatlandırma katmanı sunucuları için kullanılabilir. Her sorgu çoğaltma sunucunuz ile aynı fiyat üzerinden faturalandırılır.

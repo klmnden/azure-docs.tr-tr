@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: ab2a05c55ee248d8a74f70d36b06277db3a0f38a
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: df949b65ac4a193c9e7bdb6ee3c32d7026f7c93d
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42056961"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782973"
 ---
 # <a name="use-service-management-from-python"></a>Hizmet Yönetimi'nden Python kullanma
 Bu kılavuz, yaygın hizmet yönetimi görevlerini Python'dan programlama yoluyla gerçekleştirmek nasıl gösterir. **ServiceManagementService** sınıfını [Python için Azure SDK'sı](https://github.com/Azure/azure-sdk-for-python) kullanılabilir Hizmet Yönetimi ile ilgili işlevselliğinin programlı erişim destekler [Azure Portal][management-portal]. Bu işlev, oluşturmak, güncelleştirmek ve bulut Hizmetleri, dağıtımlar, Veri Yönetimi Hizmetleri ve sanal makineleri silmek için kullanabilirsiniz. Bu işlev Hizmet Yönetimi programlı erişim gerekir. uygulamaları oluşturmada faydalı olabilir.
@@ -426,4 +426,4 @@ Daha fazla bilgi için bkz. [Python Geliştirici Merkezi](https://azure.microsof
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[cloud service]:/services/cloud-services/
+[cloud service]:/azure/cloud-services/

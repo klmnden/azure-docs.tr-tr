@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2060239b27ef05c34ea6f5b388b4c4086a44a826
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 037c2714d146bd59b30573df874794342d743e03
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42057128"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782241"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure automation'da alt runbook'lar
 
@@ -72,7 +72,9 @@ Alt runbook'ları çıktısını alınmadı güvenilir bir şekilde zamanlama ne
 
 Cmdlet ile başlatılan bir alt runbook için parametreler açıklandığı gibi karma tablosu olarak sağlanır [Runbook parametreleri](automation-starting-a-runbook.md#runbook-parameters). Yalnızca basit veri türleri kullanılabilir. Ardından runbook karmaşık veri türüne sahip bir parametreye sahipse, satır içi çağrılmalıdır.
 
-Birden çok aboneliği ile çalışıyorsanız, abonelik bağlamına alt runbook'ları çağrılırken kaybolmuş olabilir. Abonelik bağlamına alt runbook'larına geçirilir emin olmak için ekleme `DefaultProfile` cmdlet'i ve ona geçiş bağlam parametresi.
+Alt runbook'lar olarak ayrı işleri çağrılırken, abonelik bağlamına kaybolmuş olabilir. Azure RM cmdlet'leri istediğiniz bir Azure aboneliği karşı çağırmak alt runbook için sırada üst runbook bağımsız olarak bu abonelik için alt runbook'un doğrulaması gerekir.
+
+Bir işlemde bir aboneliğin seçilmesi işleri aynı Otomasyon hesabı içindeki birden çok abonelik ile çalışıyorsanız, normalde istenmiyorsa şu an seçili abonelik bağlamı için diğer işleri de değişebilir. Bu sorunu önlemek için sonucu Kaydet `Select-AzureRmSubscription` cmdlet'ini çağırma ve geçişi bu nesne için `DefaultProfile` sonraki tüm Azure RM cmdlet'leri çağrılarını parametresi. Bu düzen, bu Otomasyon hesabı içinde çalışan tüm runbook'ları için tutarlı bir şekilde uygulanmalıdır.
 
 ### <a name="example"></a>Örnek
 

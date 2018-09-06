@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: 5b3cea87e7762e492432722c54a1a8aaa342b84a
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d2ab34b3737ec00e4adc464f6d2255203fb6ae08
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42055842"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840628"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Key Vault, Visual Studio bağlı Hizmetler'i kullanarak web uygulamanıza ekleyin
 
@@ -74,6 +74,10 @@ Artık, kod, gizli dizileri erişebilirsiniz. Sonraki adımlar 4.7.1 ASP.NET vey
 
 ## <a name="access-your-secrets-in-code-aspnet-core-projects"></a>Kod (ASP.NET Core projeleri için), gizli erişim
 
+Key Vault bağlantısı başlangıçta uygulayan bir sınıf tarafından ayarlanmış [Microsoft.AspNetCore.Hosting.IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1) açıklanan başlangıç davranışını genişletme yöntemi kullanarak [harici bir uygulama geliştirin ASP.NET Core ile Ihostingstartup derlemede](/aspnet/core/fundamentals/host/platform-specific-configuration). Key Vault bağlantı bilgilerini içeren iki ortam değişkenlerini başlangıç sınıfı kullanır: ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONENABLED ayarlamak, doğru ve ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT, anahtarı ayarlayın Vault URL'si. Çalıştırdığınızda bu launchsettings.json dosyasına eklenir **bağlı hizmet Ekle** işlem.
+
+Gizli anahtarlarınız erişmek için:
+
 1. Visual Studio kullanarak ASP.NET Core projenizde, artık bu gizli dizileri kodda aşağıdaki ifadeleri kullanarak başvurabilirsiniz:
  
    ```csharp
@@ -99,6 +103,10 @@ Artık, kod, gizli dizileri erişebilirsiniz. Sonraki adımlar 4.7.1 ASP.NET vey
 1. Derleme ve web uygulamasını çalıştırmak, hakkında sayfasına gidin ve "gizli" değere bakın.
 
 ## <a name="access-your-secrets-in-code-aspnet-471-projects"></a>Kod, gizli erişim (ASP.NET 4.7.1 projeleri)
+
+Key Vault'unuza bağlantısı çalıştırdığınızda, web.config dosyasına eklenen bilgileri kullanarak ConfigurationBuilder sınıfı tarafından ayarlanır **bağlı hizmet Ekle** işlem.
+
+Gizli anahtarlarınız erişmek için:
 
 1. Web.config şu şekilde değiştirin. Anahtarları Key Vault'ta gizli diziler değerleriyle AzureKeyVault ConfigurationBuilder ile değiştirilecek tutuculardır.
 

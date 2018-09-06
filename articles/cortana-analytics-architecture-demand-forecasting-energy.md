@@ -1,32 +1,32 @@
 ---
-title: İsteğe bağlı enerji tahmin Cortana Intelligence çözüm şablonu mimarisi | Microsoft Docs
+title: Talep tahmini enerji için Cortana Intelligence çözüm şablonu mimarisi | Microsoft Docs
 description: İsteğe bağlı bir enerji yardımcı şirket için tahmini yardımcı olan Microsoft Cortana Intelligence çözüm şablonu mimarisi.
-keywords: Çözüm Hızlandırıcısı cortana analytics; enerji tahmin
-services: cortana-analytics
+keywords: Çözüm Hızlandırıcısını; cortana analytics; enerji tahmini
+services: machine-learning
 documentationcenter: ''
 author: garyericson
-manager: jhubbard
-editor: cgronlun
+manager: cgronlun
 ms.assetid: 745db9da-9ca1-421a-aa76-13c992f6513d
-ms.service: cortana-analytics
+ms.service: machine-learning
+ms.subservice: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2015
 ms.author: garye
-ms.openlocfilehash: 87a27dbe9042973dcfa7e9a5a438773d1bbab4d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1cce1d7932c547c76e42617d1d8c3fc5a3e8ff8
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23845663"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840645"
 ---
-# <a name="cortana-intelligence-solution-template-architecture-for-demand-forecasting-of-energy"></a>İsteğe bağlı enerji tahmin Cortana Intelligence çözüm şablonu mimarisi
-Aşağıdaki diyagramda mimari genel bakış sağlar [isteğe bağlı enerji tahmin için Cortana Intelligence çözüm şablonu](cortana-analytics-playbook-demand-forecasting-energy.md).
+# <a name="cortana-intelligence-solution-template-architecture-for-demand-forecasting-of-energy"></a>Talep tahmini enerji için Cortana Intelligence çözüm şablonu mimarisi
+Aşağıdaki diyagramda mimari genel bakış sağlar [Talep tahmini enerji için Cortana Intelligence çözüm şablonu](cortana-analytics-playbook-demand-forecasting-energy.md).
 
-Diyagramı buradan tam boyutlu bir sürümünü yükleyebilirsiniz: [mimarisi diyagramı: isteğe bağlı enerji tahmin için çözüm şablonu](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-energy-forecasting.png).
+Diyagramı buradan tam boyutlu bir sürümünü indirebilirsiniz: [mimari diyagramı: Talep tahmini enerji için çözüm şablonu](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-energy-forecasting.png).
 
-![İsteğe bağlı enerji tahmin için Microsoft Cortana Intelligence çözüm şablonu mimarisi diyagramı][image]
+![Talep tahmini enerji için Microsoft Cortana Intelligence çözüm şablonu mimarisi diyagramı][image]
 
 [image]: ./media/cortana-analytics-architecture-demand-forecasting-energy/ca-topologies-energy-forecasting.png

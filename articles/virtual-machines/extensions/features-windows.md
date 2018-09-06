@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e23d3c39c6fd4e69f03ab0f2c11c9b523307b788
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: fc2433b8ac12bc1d485b6f23b56f356041e5128e
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715150"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783109"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Sanal makine uzantıları ve özellikleri Windows için
 
@@ -43,7 +43,7 @@ Birkaç farklı Azure VM uzantıları kullanılabilir, her biri belirli bir kull
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Sanal makine uzantısını işlemek için Azure Linux Aracısı gerekir. Bazı uzantıları ayrı ayrı kaynaklar veya bağımlılıkları erişim gibi önkoşulları sahip.
+Sanal makine uzantısını işlemek için Azure Windows Aracısı gerekir. Bazı uzantıları ayrı ayrı kaynaklar veya bağımlılıkları erişim gibi önkoşulları sahip.
 
 ### <a name="azure-vm-agent"></a>Azure VM aracısı
 

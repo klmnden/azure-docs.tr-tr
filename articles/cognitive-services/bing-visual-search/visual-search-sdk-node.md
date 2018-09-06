@@ -1,6 +1,6 @@
 ---
 title: Görsel arama SDK düğümü hızlı başlangıç | Microsoft Docs
-description: Görsel arama SDK düğümü konsol uygulaması kurulumu.
+description: Görsel arama SDK Node konsol uygulaması için kurulumu.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
@@ -10,25 +10,25 @@ ms.component: bing-web-search
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: 51797f4b674224b4348f3f51518a5b087fd2329a
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: bb245f9eab0f367a0e1b69af88352c54132ea29d
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961914"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782449"
 ---
 # <a name="visual-search-sdk-node-quickstart"></a>Görsel arama SDK düğümü hızlı başlangıç
 
-Bing Visual arama SDK web isteklerini ve ayrıştırma sonuçları için REST API işlevselliğini kullanır.
-[Kaynak kodu düğümü Visual arama SDK örnekleri için](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js) Git hub'da kullanılabilir.
+Bing görsel arama SDK web isteklerini ve ayrıştırma sonuçları için REST API işlevlerini kullanır.
+[Kaynak düğüm Visual Search SDK'sı örnekleri için kodu](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js) Git hub'da kullanılabilir.
 
-Kod senaryoları aşağıdaki başlıklar altında belgelenmiştir:
+Aşağıdaki başlıklar altında kod senaryoları belgelenmiştir:
 * [Görsel arama istemci](#client)
-* [Tam konsol uygulaması](#complete)
+* [Eksiksiz bir konsol uygulaması](#complete)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Bilişsel hizmetler API anahtarı SDK çağrıları kimlik doğrulaması için gereklidir. Kaydolun bir [ücretsiz deneme anahtarı]((https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7)). Deneme anahtarı saniyede bir çağrıyla yedi gün için uygundur. Üretim senaryoları için [bir erişim anahtarı satın](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Ayrıca bkz. [fiyatlandırma bilgileri](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Bilişsel hizmetler API anahtarı SDK çağrıları kimlik doğrulaması için gereklidir. Kaydolun bir [ücretsiz deneme sürümü anahtarı](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). Deneme anahtarı ile saniye başına çağrı yedi gün için uygundur. Üretim senaryolarında, [bir erişim anahtarı satın](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Ayrıca bkz: [fiyatlandırma bilgileri](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
 
@@ -36,7 +36,7 @@ Kod senaryoları aşağıdaki başlıklar altında belgelenmiştir:
 
 <a name="client"></a>
 ## <a name="visual-search-client"></a>Görsel arama istemci
-Örneği oluşturmak için `VisualSearchAPI` istemci, yönergeleri kullanarak ekleyin:
+Bir örneğini oluşturmak için `VisualSearchAPI` istemci, using yönergelerini ekleyin:
 ```
 const Search = require('azure-cognitiveservices-visualsearch');
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
@@ -49,7 +49,7 @@ let credentials = new CognitiveServicesCredentials(keyVar);
 let visualSearchApiClient = new Search.VisualSearchAPIClient(credentials);
 
 ```
-İstemci görüntüleri aramak için kullanın:
+İstemci görüntülerini aramak için kullanın:
 ```
 let fileStream = fs.createReadStream('../Data/image.jpg');
 let visualSearchRequest = JSON.stringify({});
@@ -97,9 +97,9 @@ else {
 
 ```
 <a name="complete"></a>
-## <a name="complete-console-application"></a>Tam konsol uygulaması
+## <a name="complete-console-application"></a>Eksiksiz bir konsol uygulaması
 
-Aşağıdaki konsol uygulaması, önceki kod, diğer senaryolar çalıştırır ve sonuçları ayrıştırır:
+Aşağıdaki konsol uygulamasında, bir önceki kod, diğer senaryolar çalıştırır ve sonuçları ayrıştırır:
 ```
 /*
  * Copyright (c) Microsoft Corporation. All rights reserved.
@@ -328,4 +328,4 @@ exports.sample = sample;
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel Services .NET SDK'sı örnekleri](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).
+[Bilişsel hizmetler .NET SDK'sı örnekleri](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).

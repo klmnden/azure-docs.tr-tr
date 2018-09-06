@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/17/2018
 ms.author: tomsh
-ms.openlocfilehash: 933d0f60b902ae2cb0abcde2ca39a58e59457c6b
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: cc922762f84b3a0658d503c4bfa6eb0079173e4e
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42060944"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841556"
 ---
 # <a name="azure-security-white-papers"></a>Azure güvenlik teknik incelemeler
 | | |
@@ -30,7 +30,8 @@ ms.locfileid: "42060944"
 |[Azure günlük kaydı ve denetim](azure-log-audit.md)|Oluşturma, toplama ve Azure'da barındırılan hizmetlerden çözümlenirken güvenlik günlükleri için bir giriş sağlar. Bu günlükler, Azure dağıtımlarınızı güvenlik Öngörüler yardımcı olabilir. |
 |[Azure ağ güvenliği](abstract-azure-network-security.md)|Ağ denetimleri, Azure'da dağıttığınız çözümlerinin güvenliğini geliştirmek için yapılandırabileceğiniz çok sayıda tanıtır. Müşterilere yönelik ağ güvenlik denetimleri biridir.|
 |[Azure işlevleri ve sunucusuz platform güvenliği](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)|Bu indirilebilir Teknik İnceleme, güvenlik hususlarının yanı sıra Azure bağlamında azaltmaları sağlarken sunucusuz bilgi işlem avantajları kapsar. |
-|[Azure çalışma güvenliği](azure-operational-security.md)|Azure ile müşteriye dönük işletimsel güvenlik teknolojileri ve Hizmetleri kullanılabilir kapsamlı bir bakış sağlar.|
+|[Microsoft azure'da kapsayıcı güvenliği](abstract-container-security-microsoft-azure.md)|Kapsayıcılar, kapsayıcı dağıtımı ve yönetimi ve yerel platform hizmetlerini açıklar. Ayrıca, kapsayıcı kullanımını Azure platformunda ortaya çıkan çalışma zamanı güvenlik sorunları açıklar. |
+|[Azure çalışma güvenliği](abstract-azure-operational-security.md)|Azure ile müşteriye dönük işletimsel güvenlik teknolojileri ve Hizmetleri kullanılabilir kapsamlı bir bakış sağlar.|
 |[Azure güvenlik Teknik Özellikler](azure-security-technical-capabilities.md)|Tüm bunları yönetebileceğiniz odaklar güvenlik özellikleri ve işlevselliği Azure depolama, Azure SQL veritabanları, Azure sanal makine modeli, araçları ve altyapı destekleme.|
 |[Azure Depolama güvenlik kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Her bir Azure depolama ile kullanılan güvenlik özelliklerine genel bakış sağlar. Yönetim düzlemi güvenlik, veri düzlemi güvenliği, bekleme sırasında şifreleme, şifreleme uçuş ve depolama analizi kapsar.|
 |[Bulut hazırlığı için veri sınıflandırması](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03/file/172083/1/Data%20Classification%20for%20Cloud%20Readiness%20(2017-04-11).pdf)  |Bu indirilebilir belgede veri sınıflandırması ve bulut bağlamında değerini temelleri tanıtır bilgi işlem. Kuruluşlar bulut değerlendirme şu anda kullanılmak veya kuruluşları için bilgi işlem bulut Hizmetleri ve veri yönetim olacak en iyi duruma getirmek için yöntemler bulmaktan çoğu bu kağıt yararlanır.|

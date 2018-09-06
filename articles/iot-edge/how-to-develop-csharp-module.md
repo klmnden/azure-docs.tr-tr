@@ -6,25 +6,25 @@ keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 06/27/2018
+ms.date: 09/04/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a4d6d7bfe259e8616a51100162594315a5d37546
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: b1c6209c4d589093d7a29cd8a883d3e5d4ca12f9
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382436"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782311"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Geliştirme ve C# modülleri, Azure IOT Edge için hata ayıklama için Visual Studio Code'u kullanın
 
 İçin Azure IOT Edge modülleri, iş mantığınızı kapatabilirsiniz. Bu makalede Visual Studio Code (VS Code) ana aracı olarak geliştirme ve modüller C# hata ayıklama için nasıl kullanılacağını gösterir.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu makalede, bir bilgisayar veya geliştirme makinenize Windows veya Linux çalıştıran sanal makine kullandığınızı varsayar. IOT Edge Cihazınızı başka bir fiziksel cihaz olabilir. Veya IOT Edge Cihazınızı geliştirme makinenizde benzetimini yapabilirsiniz.
+Bu makalede, bir bilgisayarı veya Windows, macOS veya Linux geliştirme makinenizde olarak çalıştıran sanal makine kullandığınızı varsayar. IOT Edge Cihazınızı başka bir fiziksel cihaz olabilir.
 
 > [!NOTE]
-> Hata ayıklama bu makalede, bir modül kapsayıcıdaki bir sürece iliştirilip ve VS Code ile hata ayıklama gösterilmektedir. Yalnızca Linux amd64-kapsayıcılarında modüller C# hata ayıklama yapabilirsiniz. Visual Studio Code ile hata ayıklama özelliklerine aşina değilseniz okuyun [hata ayıklama](https://code.visualstudio.com/Docs/editor/debugging). 
+> Hata ayıklama bu makalede, VS Code, C# modülün hatalarını ayıklamak için iki normal şekilde gösterilmektedir. Diğer lanuch için modül kod hata ayıklama modunda iken bir modül kapsayıcıdaki bir bir sürece iliştirilip bir yoludur. Visual Studio Code ile hata ayıklama özelliklerine aşina değilseniz okuyun [hata ayıklama](https://code.visualstudio.com/Docs/editor/debugging).
 
 Bu makalede ana geliştirme aracı olarak Visual Studio Code kullandığından, VS Code yükleme. Daha sonra gerekli genişletmeleri ekleyin:
 * [Visual Studio Code](https://code.visualstudio.com/) 
@@ -38,9 +38,15 @@ Bir modülü oluşturmak için Docker modülü görüntüsü ve modülü görün
 * [Azure kapsayıcı kayıt defteri](https://docs.microsoft.com/azure/container-registry/) veya [Docker hub'ı](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * Prototip ve test etme amacıyla bir bulut kayıt defteri yerine yerel bir Docker kayıt defteri kullanabilirsiniz. 
 
+Yerel kurulumu için hata ayıklamak için geliştirme ortamı ve IOT Edge çözümünüzü test çalıştırmak, gereksinim duyduğunuz [Azure IOT EdgeHub geliştirme aracı](https://pypi.org/project/iotedgehubdev/). Yükleme [(2.7/3.6) Python ve Pip](https://www.python.org/). Yüklemeyi **iotedgehubdev** aşağıdaki komutu, terminalde çalıştırarak.
+
+   ```cmd
+   pip install --upgrade iotedgehubdev
+   ```
+
 Modülünüzün bir cihazda test etmek için etkin bir IOT hub ile en az bir IOT Edge cihazı gerekir. Bilgisayarınızı bir IOT Edge cihazı kullanmak için hızlı başlangıç için adımları izleyin. [Windows](quickstart.md) veya [Linux](quickstart-linux.md). 
 
-## <a name="create-a-new-solution-template"></a>Yeni bir çözüm şablonu oluşturma
+## <a name="create-a-new-solution-with-c-module"></a>C# modülü ile yeni bir çözüm oluşturma
 
 Visual Studio Code ve Azure IOT Edge uzantısını kullanarak .NET Core 2.0 üzerinde dayalı bir IOT Edge modülünüzü oluşturmak için bu adımları uygulayın. İlk olarak, bir çözüm oluşturun ve ardından ilk Modül içindeki çözümü oluşturun. Her çözüm, birden fazla modülü içerebilir. 
 
@@ -74,39 +80,96 @@ VS Code, sağlanan bir IOT Edge çözümü oluşturur ve ardından yeni bir penc
 
 ## <a name="develop-your-module"></a>Modülü geliştirme
 
-Çözümünüzle birlikte gelen varsayılan Azure işlevi kodu şu konumdadır **modülleri** > [, modül adı] > **Program.cs**. Çözümü derleyin, kapsayıcı kayıt defterinize itme ve herhangi bir kod dokunmadan testi başlatmak için bir aygıta dağıtmak modülü ve deployment.template.json dosya ayarlanır. Modül, yalnızca bir kaynak (Bu durumda, veri benzetimi gerçekleştiren tempSensor Modülü) gelenlerin ve IOT Hub'ına kanal için oluşturulmuştur. 
+Çözümünüzle birlikte gelen varsayılan C# modülü kodu şu konumdadır **modülleri** > ** [modül adı] ** > **Program.cs**. Çözümü derleyin, kapsayıcı kayıt defterinize itme ve herhangi bir kod dokunmadan testi başlatmak için bir aygıta dağıtmak modülü ve deployment.template.json dosya ayarlanır. Modül, yalnızca bir kaynak (Bu durumda, veri benzetimi gerçekleştiren tempSensor Modülü) gelenlerin ve IOT Hub'ına kanal için oluşturulmuştur. 
 
 Kendi kodunuzu ile C# şablonunu özelleştirmek hazır olduğunuzda kullanın [Azure IOT Hub SDK'ları](../iot-hub/iot-hub-devguide-sdks.md) anahtar gereken güvenlik, cihaz yönetimi ve güvenilirlik gibi IOT çözümleri için bu adrese modüller oluşturmak için. 
 
-## <a name="build-and-deploy-your-module-for-debugging"></a>Derleme ve hata ayıklama için modülünüzde dağıtma
+VS code'da C# desteği, platformlar arası .NET Core geliştirme için optimize edilmiştir. Daha fazla bilgi edinin [VS Code, C# ile nasıl çalışılacağını](https://code.visualstudio.com/docs/languages/csharp).
 
-Her modül klasöründe birkaç Docker dosya için farklı bir kapsayıcı türü vardır. Uzantısıyla biten bu dosyaları dilediğinizi **.debug** test etmek için modülü. Şu anda C# Modüller yalnızca Linux amd64 kapsayıcılarında hata ayıklama desteği.
+## <a name="launch-and-debug-module-code-without-container"></a>Başlatma ve kapsayıcı olmadan modül kodu hatalarını ayıklama
+IOT Edge C# modülü olan bir.Net Core uygulaması. Ve Azure IOT C# cihaz SDK'sı üzerinde bağlıdır. Varsayılan modülü kodda, başlatma bir **ModuleClient** ortam ayarlar ve giriş adı, IOT Edge C# modülü başka bir deyişle, başlatmak ve çalıştırmak ortam ayarları gerektirir ve ayrıca göndermek veya iletileri yönlendirmek gerekir Giriş kanalı. Varsayılan C# modülü yalnızca bir giriş kanalı içerir ve ad **input1**.
 
-1. VS Code'da gidin `deployment.template.json` dosya. Ekleyerek, işlev görüntü URL'sini güncelleştirme **.debug** sonuna.
+### <a name="setup-iot-edge-simulator-for-single-module-app"></a>Kurulum IOT Edge modülü tek uygulama simülatörü
 
-   ![Ekleme *** .debug, görüntü adı](./media/how-to-develop-csharp-module/image-debug.png)
+1. Simülatörü başlatın ve kurulum için VS Code komut paleti yazıp seçin **Azure IOT Edge: IOT Edge hub'ı simülatörü başlatın tek modülü için**. Ayrıca tek modülü uygulamanızın türü için giriş adlarını gerekir **input1** ve Enter tuşuna basın. Komut tetikleyecek **iotedgehubdev** CLI ve IOT Edge simülatör ve test yardımcı programını modülü kapsayıcı başlatın. Simülatör tek modülü modunda başarıyla başlatıldı tümleşik terminalde aşağıdaki çıktıları görebilirsiniz. Ayrıca bkz bir `curl` yardımcı olmak için komut üzerinden ileti gönder. Daha sonra bu adı kullanacaksınız.
 
-2. VS Code komut paleti girin ve şu komutu çalıştırın **Edge: IOT Edge çözüm**.
-3. Seçin `deployment.template.json` komut paletini çözümünüzden dosyası. 
-4. Azure IOT hub'ı Device Explorer içinde bir IOT Edge cihaz kimliğini sağ tıklayın. Ardından **tek cihaz için dağıtım oluşturma**. 
-5. Çözümünüzün açın **config** klasör. Ardından `deployment.json` dosya. Seçin **seçin Edge dağıtım bildirimi**. 
+   ![Kurulum IOT Edge modülü tek uygulama simülatörü](media/how-to-develop-csharp-module/start-simulator-for-single-module.png)
 
-Dağıtım kimliği ile bir VS Code tümleşik terminalde başarıyla oluşturuldu. dağıtım görürsünüz.
+   Docker Gezgini taşıyabilir ve çalışma durumu modülüne bakın.
 
-VS Code Docker Gezgini veya çalıştırarak kapsayıcı durumunuzu denetleme `docker ps` terminalde komutu.
+   ![Simülatör Modül durumu](media/how-to-develop-csharp-module/simulator-status.png)
 
-## <a name="start-debugging-c-module-in-vs-code"></a>C# modülü VS code'da hata ayıklamayı Başlat
-VS Code tutar hata ayıklama yapılandırma bilgilerini bir `launch.json` dosya bulunan bir `.vscode` çalışma alanınızda bir klasör. Bu `launch.json` dosya yeni bir IOT Edge çözümü oluşturduğunuz zaman oluşturulduğu. Bu, her seferinde hata ayıklama destekleyen yeni Modül Ekle güncelleştirir. 
+   **EdgeHubDev** yerel IOT Edge simülatör setinin kapsayıcıdır. Bu IOT Edge güvenlik arka plan programı olmadan geliştirme makinenizde çalıştırın ve uygulamanızı yerel modül veya modül kapsayıcılar için ortam ayarları sağlayın. **Giriş** kapsayıcı kullanıma sunulan restAPIs Giriş kanalı, modül hedef köprüsü iletileri yardımcı olmak için.
 
-1. VS Code hata ayıklama görünümüne gidin. Bir modül için hata ayıklama yapılandırma dosyasını seçin. Hata ayıklama seçeneği adı şuna benzer olmalıdır **ModuleName uzaktan hata ayıklama (.NET Core)**
+2. VS Code komut paleti yazın ve **Azure IOT Edge: kullanıcı ayarları için modülü kimlik bilgilerini ayarla** ortam ayarlarına modülü ayarlanacak `azure-iot-edge.EdgeHubConnectionString` ve `azure-iot-edge.EdgeModuleCACertificateFile` kullanıcı ayarları. Bu ortam ayarlarını başvurulan bulabilirsiniz **.vscode** > **launch.json** ve [VS Code kullanıcı ayarları](https://code.visualstudio.com/docs/getstarted/settings).
 
-   ![Select hata ayıklama yapılandırması](./media/how-to-develop-csharp-module/debug-config.png).
+### <a name="build-module-app-and-debug-in-launch-mode"></a>Modül uygulaması oluşturma ve başlatma modda hata ayıklama
+
+1. Tümleşik terminalde dizinine **CSharpModule** klasörü,.Net Core oluşturmak için aşağıdaki komutu çalıştırın, uygulama.
+
+    ```cmd
+    dotnet build
+    ```
+
+   > [!TIP]
+   > Ayrıca [PostMan](https://www.getpostman.com/) veya yerine üzerinden ileti göndermek için API araçlara `curl`.
 
 2. `program.cs` sayfasına gidin. Bu dosyada kesme noktası ekleyin.
 
-3. Seçin **hata ayıklamayı Başlat** veya **F5**. Ekleme yapılacak işlem seçin.
+3. VS Code hata ayıklama görünümüne gidin. Hata ayıklama Yapılandırması **ModuleName yerel hata ayıklama (.NET Core)**. 
 
-4. VS Code hata ayıklama Görünümü'nde sol bölmedeki değişkenleri görürsünüz. 
+4. Tıklayın **hata ayıklamayı Başlat** veya basın **F5**. Hata ayıklama oturumu başlar.
+
+5. VS Code tümleşik terminale göndermek için aşağıdaki komutu çalıştırın bir **Hello World** modülünüzde ileti. Önceki adımda gösterilen komut budur zaman IOT Edge simulator'ı başarıyla ayarlandı.
+
+    ```cmd
+    curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
+    ```
+
+   > [!NOTE]
+   > Windows kullanıyorsanız, VS Code tümleşik Terminalini Kabuk olduğundan emin olarak **Git Bash** veya **WSL Bash**. Çalıştıramazsınız `curl` komutu PowerShell veya komut isteminde. 
+   
+   > [!TIP]
+   > Ayrıca [PostMan](https://www.getpostman.com/) veya yerine üzerinden ileti göndermek için API araçlara `curl`.
+
+6. VS Code hata ayıklama Görünümü'nde sol bölmedeki değişkenleri görürsünüz. 
+
+    ![Değişkenleri izleyin](media/how-to-develop-csharp-module/single-module-variables.png)
+
+7. Hata ayıklama oturumunu durdurmak için Durdur düğmesini veya tuşuna tıklayın **Shift + F5 tuşlarına basarak**. VS Code komut paleti yazın ve seçin **Azure IOT Edge: IOT Edge simülatör Durdur**.
+
+## <a name="build-module-container-for-debugging-and-debug-in-attach-mode"></a>Hata ayıklama ve hata ayıklama için modül kapsayıcı derleme içinde modu ekleme
+
+İki modül varsayılan çözümünüzü içeren sanal sıcaklık algılayıcısı modülü biridir ve diğer C# kanal modülüdür. Sanal sıcaklık algılayıcısı, C# kanal modülü iletileri göndermeye devam eder ve sonra iletileri IOT Hub'ına yöneltilen. Oluşturduğunuz modül klasöründe birkaç Docker dosya için farklı bir kapsayıcı türü vardır. Uzantısıyla biten bu dosyaları dilediğinizi **.debug** test etmek için modülü. Şu anda C# modüller desteği yalnızca Linux amd64 kapsayıcılarında hata ayıklama modu ekleyin. 
+
+### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>IOT Edge çözüm Kurulum IOT Edge simülatörü
+
+Geliştirme makinenizde, IOT Edge çözümü çalıştırmak için IOT Edge güvenlik daemon yüklemek yerine IOT Edge simülatör başlayabilirsiniz. 
+
+1. Sol taraftaki cihaz Gezgini'nde, sağ tıklayın, IOT Edge cihaz Kimliğine, select **Kurulum IOT Edge simülatör** cihaz bağlantı dizesiyle simülatörü başlatın.
+
+2. IOT Edge simülatör tümleşik terminalde Kurulum başarıyla verildi görebilirsiniz.
+
+### <a name="build-and-run-container-for-debugging-and-debug-in-attach-mode"></a>Derleme ve hata ayıklama ve hata ayıklama için kapsayıcı çalıştırma modu olarak ekleme
+
+1. VS Code'da gidin `deployment.template.json` dosya. Ekleyerek, C# modülü resim URL'si güncelleştirmesi **.debug** sonuna.
+
+   ![Ekleme *** .debug, görüntü adı](./media/how-to-develop-csharp-module/image-debug.png)
+
+2. `program.cs` sayfasına gidin. Bu dosyada kesme noktası ekleyin.
+3. VS Code dosya Gezgini'nde seçin `deployment.template.json` bağlam menüsü, çözümünüz için dosyaya tıklayın **simülatör derleme ve çalıştırma IOT Edge çözümde**. Aynı pencerede modülü kapsayıcı günlüklerini izleyebilirsiniz. Docker kapsayıcı durumu izlemek için Gezgini da gidebilirsiniz.
+
+   ![Değişkenleri izleyin](media/how-to-develop-csharp-module/view-log.png)
+
+5. VS Code hata ayıklama görünümüne gidin. Bir modül için hata ayıklama yapılandırma dosyasını seçin. Hata ayıklama seçeneği adı şuna benzer olmalıdır **ModuleName uzaktan hata ayıklama (.NET Core)**
+
+   ![Yapılandırma seçin](media/how-to-develop-csharp-module/debug-config.png)
+
+6. Seçin **hata ayıklamayı Başlat** veya **F5**. Ekleme yapılacak işlem seçin.
+
+7. VS Code hata ayıklama Görünümü'nde sol bölmedeki değişkenleri görürsünüz.
+
+8. Hata ayıklama oturumunu durdurmak için Durdur düğmesini veya tuşuna tıklayın **Shift + F5 tuşlarına basarak**. VS Code komut paleti yazın ve seçin **Azure IOT Edge: IOT Edge simülatör Durdur**.
 
 > [!NOTE]
 > Bu örnek, .NET Core IOT Edge modülleri kapsayıcılarına hata ayıklamak nasıl gösterir. Hata ayıklama sürümünde temel `Dockerfile.debug`, içeren .NET Core komut satırı hata ayıklayıcı VSDBG kapsayıcı görüntünüzü oluşturma sırasında. Doğrudan kullanabilir veya özelleştirebilirsiniz C# modüllerinizi hata ayıklama sonra öneririz `Dockerfile` VSDBG üretime hazır IOT Edge modülleri için olmadan.

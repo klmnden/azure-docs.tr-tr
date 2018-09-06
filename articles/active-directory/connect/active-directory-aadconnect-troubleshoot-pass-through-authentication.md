@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 99f877a0002e9a631bcfdabdbea51fcf2ca1a2c1
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 890c28601315a63e34c286289cd7378830afa9ba
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626601"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782067"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory geçişli kimlik doğrulaması sorunlarını giderme
 
@@ -97,7 +97,7 @@ Tüm Azure AD Connect veya tek başına kimlik doğrulama Aracısı yükleme ve 
 
 Doğrudan kiracınızda etkin kimlik doğrulama varsa ve Azure AD Connect kaldırmayı deneyin, bu, aşağıdaki uyarı iletisi gösterilir: "kullanıcılar şunları yapamaz Azure AD'ye diğer doğrudan kimlik doğrulama aracılarının yüklü olmadığı sürece oturum diğer sunucular."
 
-Kurulumunuzu olduğundan emin olun [yüksek kullanılabilir](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) Azure AD Connect kullanıcı oturumu açma bozmayı önlemek için kaldırmadan önce.
+Kurulumunuzu olduğundan emin olun [yüksek oranda kullanılabilir](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) Azure AD Connect kullanıcı oturumu açma bozmayı önlemek için kaldırmadan önce.
 
 ## <a name="issues-with-enabling-the-feature"></a>Özellik etkinleştirilmesiyle ilgili sorunlar
 
@@ -129,7 +129,7 @@ Ayrıntılı analizler için "oturum" etkinleştirin. Kimlik doğrulaması Arac�
 
 ### <a name="detailed-trace-logs"></a>Ayrıntılı izleme günlükleri
 
-Kullanıcı oturum açma sorunlarını giderme için izleme günlüklerine bakın **%ProgramData%\Microsoft\Azure AD Connect kimlik doğrulaması Agent\Trace\\**. Bu günlükler geçişli kimlik doğrulaması özelliğini kullanarak başarısız neden belirli bir kullanıcı oturum açma nedenleri. Bu hatalar da gösterilen önceki oturum açma hatası nedeniyle eşlendiğine [tablo](#sign-in-failure-reasons-on-the-Azure-portal). Bir örnek günlük girişi aşağıda verilmiştir:
+Kullanıcı oturum açma sorunlarını giderme için izleme günlüklerine bakın **%ProgramData%\Microsoft\Azure AD Connect kimlik doğrulaması Agent\Trace\\**. Bu günlükler geçişli kimlik doğrulaması özelliğini kullanarak başarısız neden belirli bir kullanıcı oturum açma nedenleri. Bu hatalar da önceki oturum açma hatası nedeniyle tabloda gösterilen oturum açma hatası nedeniyle eşlenir. Bir örnek günlük girişi aşağıda verilmiştir:
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.

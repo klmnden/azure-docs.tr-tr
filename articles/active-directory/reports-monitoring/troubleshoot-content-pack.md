@@ -16,15 +16,19 @@ ms.component: report-monitor
 ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: eafbe25a5a0fa9182030304e9142a6013c9fb29b
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: bf50dbf942dc7a82afbb60455be45b6c4b287ccd
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42061109"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782184"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Sorun giderme Azure Active Directory etkinlik günlükleri içerik paketi hataları 
 
+|  |
+|--|
+|Şu anda Azure AD Power BI içerik paketi, Azure AD kiracınızdan verileri almak için Azure AD Graph API kullanır. Sonuç olarak, içerik paketindeki veri kullanarak alınan verileri arasındaki bazı girdilerinde görebilirsiniz [raporlama için Microsoft Graph API'lerini](concept-reporting-api.md). |
+|  |
 
 Azure Active Directory önizlemesi için Power BI içerik paketi ile çalışırken aşağıdaki hatalarla karşılaşırsanız çalıştırmak mümkündür: 
 

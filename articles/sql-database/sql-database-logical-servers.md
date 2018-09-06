@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 9d31d12e400bbae441d70c5d3797d4fcdca509fc
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 9213f82a8e3a350312d4830aa2a8e5f695852ca5
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414955"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841860"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Azure SQL veritabanı mantıksal sunucuları ve bunların yönetimi
 
@@ -179,10 +179,7 @@ Azure SQL server, veritabanlarını ve güvenlik duvarları oluşturmak ve yöne
 |[Sunucuları - güncelleştirme](/rest/api/sql/servers/update)|Mevcut bir sunucu güncelleştirir.|
 |[Veritabanları - oluştur veya güncelleştir](/rest/api/sql/databases/createorupdate)|Yeni bir veritabanı oluşturur veya mevcut bir veritabanını güncelleştirir.|
 |[Veritabanları - Get](/rest/api/sql/databases/get)|Bir veritabanını alır.|
-|[Veritabanları - Get ile elastik havuz](/rest/api/sql/databases/getbyelasticpool)|Bir veritabanını bir elastik havuzun içine alır.|
-|[Veritabanları - önerilen elastik havuzu tarafından alınamadı](/rest/api/sql/databases/getbyrecommendedelasticpool)|Bir veritabanı içinde recommented bir elastik havuz alır.|
 |[Veritabanı - elastik havuz göre listesi](/rest/api/sql/databases/listbyelasticpool)|Elastik havuzdaki veritabanlarının listesini döndürür.|
-|[Veritabanları - önerilen elastik havuz göre listesi](/rest/api/sql/databases/listbyrecommendedelasticpool)|Önerilen bir elastik havuz içindeki veritabanları listesi döndürür.|
 |[Veritabanı - sunucu listesi](/rest/api/sql/databases/listbyserver)|Bir sunucu veritabanlarının listesini döndürür.|
 |[Veritabanları - güncelleştirme](/rest/api/sql/databases/update)|Varolan bir veritabanını güncelleştirir.|
 |[Güvenlik duvarı kuralları - oluştur veya güncelleştir](/rest/api/sql/firewallrules/createorupdate)|Oluşturur veya bir güvenlik duvarı kuralını güncelleştirir.|

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 7734848035eeab3c38a57b9999f8cda77f6a4e24
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f1aa80ec9df8faee4cf5ea98910e28cfc11a7920
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107165"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782136"
 ---
 # <a name="authorize-users-for-ambari-views"></a>Kullanıcıları Ambari Views için yetkilendirme
 
@@ -116,7 +116,7 @@ Liste görünümüne iki kategoride hızlı düzenleme özellikleri sağlar: kul
 
     ![Liste Görünümü - Kullanıcı rolleri](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* Tüm grupları ve her gruba atanan rolü liste görünümüne Grup kategorisini görüntüler. Bizim örneğimizde, belirtilen Azure AD gruplarındaki gruplarının listesini eşitlenir **erişim kullanıcı grubu** kümenin etki alanı ayarlarını özelliği. Bkz: [bir etki alanına katılmış HDInsight kümesi oluşturma](/domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster).
+* Tüm grupları ve her gruba atanan rolü liste görünümüne Grup kategorisini görüntüler. Bizim örneğimizde, belirtilen Azure AD gruplarındaki gruplarının listesini eşitlenir **erişim kullanıcı grubu** kümenin etki alanı ayarlarını özelliği. Bkz: [bir etki alanına katılmış HDInsight kümesi oluşturma](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster).
 
     ![Liste Görünümü - grupları rolleri](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 79c78da3ba3102f41a1bd623c6844f064699b30a
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 62a7bb9bf63e8ebf97f9aeb5b08bf08ef06da43b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382108"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782799"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -119,7 +119,7 @@ System Center Operations Manager yönetim grubunuzun bir Log Analytics çalışm
 Çözüm yönetim paketlerini nasıl güncelleştirileceğini hakkında daha fazla bilgi için bkz. [Log Analytics için Operations Manager'ı bağlama](../log-analytics/log-analytics-om-agents.md).
 
 > [!NOTE]
-> Operations Manager Aracısı ile sistemler için güncelleştirme yönetimi tarafından tam olarak yönetilmeye Aracısı Microsoft Monitoring Agent'olarak güncelleştirilmesi gerekir. Aracı güncelleştirme hakkında bilgi edinmek için bkz: [bir Operations Manager Aracısı yükseltme](/system-center/scom/deploy-upgrade-agents).
+> Operations Manager Aracısı ile sistemler için güncelleştirme yönetimi tarafından tam olarak yönetilmeye Aracısı Microsoft Monitoring Agent'olarak güncelleştirilmesi gerekir. Aracı güncelleştirme hakkında bilgi edinmek için bkz: [bir Operations Manager Aracısı yükseltme](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
 
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Azure olmayan makineler eklenmedi olduğundan emin olun
 
@@ -217,7 +217,7 @@ Yeni bir güncelleştirme dağıtımı oluşturmak için Seç **güncelleştirme
 | --- | --- |
 | Adı |Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad. |
 |İşletim Sistemi| Linux veya Windows|
-| Güncelleştirilecek makineler |İçeri aktarılan grubu, kayıtlı bir aramayı seçin veya makine açılan listeden seçin ve tek bir makine seçin. Seçerseniz **makineler**, makinenin hazır olma gösterilen **güncelleştirme ARACISI hazırlığı** sütun.</br> Log Analytics'te bilgisayar grupları oluşturmak için farklı yöntemler hakkında bilgi edinmek için bkz: [Log analytics'te bilgisayar grupları](../log-analytics/log-analytics-computer-groups.md) |
+| Güncelleştirilecek makineler |İçeri aktarılan grubu, kayıtlı bir aramayı seçin veya makine açılan listeden seçin ve tek bir makine seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir.</br> Log Analytics'te bilgisayar grupları oluşturmaya yönelik farklı yöntemler hakkında bilgi edinmek için bkz. [Computer groups in Log Analytics (Log Analytics'te bilgisayar grupları)](../log-analytics/log-analytics-computer-groups.md) |
 |Güncelleştirme sınıflandırmaları|Gereksinim duyduğunuz tüm güncelleştirme sınıflandırmalarını seçin|
 |Hariç tutulacak güncelleştirmeler|Hariç tutulacak güncelleştirmeler girin. Windows için KB 'KB' öneki olmadan girin. Linux için paket adını girin veya bir joker karakter kullanın.  |
 |Zamanlama ayarları|Her iki kez başlatın ve saati seçin veya yineleme için yineleme|

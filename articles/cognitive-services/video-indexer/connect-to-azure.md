@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 08/05/2018
+ms.date: 09/05/2018
 ms.author: juliako
-ms.openlocfilehash: df9d3f40b28f5b030f3d7e7a63b1b3e77caedb6c
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: c598fdae40b4552e1d4dc29b8558d82d0830160a
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700827"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841857"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure'a bağlı bir Video Indexer hesabı oluşturun
 
@@ -80,8 +80,8 @@ Bu makalede bir Azure aboneliğine bağlı bir Video Indexer hesabınız ve Azur
         |Video Indexer hesabının bölgesi|Video Indexer hesap bölgesi adı. Daha iyi performans ve düşük maliyetlerden için Azure Media Services kaynağınız ve Azure depolama hesabının bulunduğu bölge adını belirtmek için önemle tavsiye edilir. |
         |Azure Active Directory (AAD) kiracısı|Azure AD kiracısı, örneğin "contoso.onmicrosoft.com" adı. Kiracı bilgileri, Azure portalından alınabilir. İmlecinizi üst oturum açan kullanıcı adının üzerine sağ alt köşesinde yerleştirin.|
         |Abonelik Kimliği|Azure aboneliği altında bu bağlantının oluşturulması. Abonelik kimliği, Azure portalından alınabilir. Tıklayarak **tüm hizmetleri** sol bölme ve "abonelikler" arayın. SELECT, **abonelikleri** ve istenen kimliği aboneliklerinizi listesinden seçin.|
-        |Azure kaynak grubu adı|Bağlantınızı oluşturulacağı yeni kaynak grubunun adı.|
-        |Azure kaynağı adı|Azure Media Services kaynağı adı.|
+        |Azure Media Services kaynak grubu adı|İçin Media Services hesabı, kaynak grubunun adı zaten var.|
+        |Medya hizmeti kaynak adı|Azure Media Services kaynağı adı.|
         |Uygulama Kimliği|Azure AD uygulama kimliği ile belirtilen Media Services hesabı için izinler. Daha fazla bilgi için [kullanım hizmet sorumlusu kimlik doğrulaması](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
         |Uygulama Anahtarı|Daha fazla bilgi için [kullanım hizmet sorumlusu kimlik doğrulaması](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
 

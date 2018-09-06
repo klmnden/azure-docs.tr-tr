@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 5e265543e2ce5feeed095d89cdb47ede9817bad1
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 317d8bf40ef152e5b7dae6406be29330feaaa8d3
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40002687"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842490"
 ---
 # <a name="create-your-first-function-with-java-and-intellij-preview"></a>Intellij (Önizleme) ve Java ile ilk işlevinizi oluşturma
 
@@ -80,11 +80,11 @@ Ekleme işlevi konak hata ayıklama modunda başlatmak için **- DenableDebug** 
 mvn azure-functions:run -DenableDebug
 ```
 
-Intellij içinde hata ayıklamak için **çalıştırma** menüsünü seçin **yapılandırmalarını Düzenle**. Tıklayın ** + ** eklemek için bir **uzak**. Doldurun **adı** ve **ayarları**ve ardından **Tamam** yapılandırmayı kaydetmek için. Ayarladıktan sonra tıklayın **hata ayıklama** 'Bilgisayarınızı uzaktan yapılandırma adı' veya isabet **SHIFT + F9** hata ayıklama başlatılamıyor.
+Intellij içinde hata ayıklamak için **çalıştırma** menüsünü seçin **yapılandırmalarını Düzenle**. Tıklayın **+** eklemek için bir **uzak**. Doldurun **adı** ve **ayarları**ve ardından **Tamam** yapılandırmayı kaydetmek için. Ayarladıktan sonra tıklayın **hata ayıklama** 'Bilgisayarınızı uzaktan yapılandırma adı' veya isabet **SHIFT + F9** hata ayıklama başlatılamıyor.
 
 ![Intellij işlevlerinde hata ayıklama](media/functions-create-first-java-intellij/debug-configuration-intellij.PNG)
 
-İşiniz bittiğinde hata ayıklayıcı ve çalışan işlemi durdurun. Yalnızca bir işlev konak aynı anda etkin olduğu ve çalıştırıldığı yerel olarak en olabilir.
+İşiniz bittiğinde hata ayıklayıcı ve çalışan işlemi durdurun. İşlevi yalnızca bir ana bilgisayar etkin olduğu ve çalıştırıldığı yerel olarak bir zaman olabilir.
 
 ## <a name="deploy-the-function-to-azure"></a>İşlevi Azure’a dağıtma
 

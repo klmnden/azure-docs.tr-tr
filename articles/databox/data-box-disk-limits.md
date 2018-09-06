@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/12/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 358f81498d8caad7c0a67519bbb776efa153249f
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 3b26c5f9a6d75725fb102d89192e77988b295dea
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42060682"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782034"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Azure Data Box Disk sınırları (Önizleme)
 
@@ -33,7 +33,7 @@ Limitler, dağıtmanıza ve Microsoft Azure Data Box Disk çözümünüz olarak 
 
 ## <a name="data-box-service-limits"></a>Veri kutusu hizmeti sınırları
 
- - Veri kutusu hizmeti yalnızca ABD ve AB Azure genel bulutu için tüm Azure bölgelerinde kullanılabilir durumdadır.
+ - Veri kutusu hizmeti yalnızca ABD, AB, Kanada ve Avustralya'da Azure genel bulutu için tüm Azure bölgelerinde kullanılabilir durumdadır.
  - Tek bir depolama hesabında Data Box Disk ile desteklenir.
 
 ## <a name="data-box-disk-performance"></a>Veri kutusu Disk performansı
@@ -77,8 +77,8 @@ Azure nesnelerin yazılabilir boyutları aşağıda verilmiştir. Yüklenen tüm
 
 | Azure nesne türü | Varsayılan Sınır                                             |
 |-------------------|-----------------------------------------------------------|
-| Blok blobu        | ~ 8 TB                                                 |
-| Sayfa blobu         | 1 TB <br> (Sayfa blobu biçiminde yüklenen her dosya, 512 bayt hizalı (tamsayı katı) olmalıdır, aksi takdirde yükleme başarısız olur. <br> VHD ve VHDX 512 bayt hizalı var.) |
+| Blok Blobu        | ~ 8 TB                                                 |
+| Sayfa Blobu         | 1 TB <br> (Sayfa blobu biçiminde yüklenen her dosya, 512 bayt hizalı (tamsayı katı) olmalıdır, aksi takdirde yükleme başarısız olur. <br> VHD ve VHDX 512 bayt hizalı var.) |
 
 
 ## <a name="azure-block-blob-and-page-blob-naming-conventions"></a>Azure blok blobu ve sayfa blob'u adlandırma kuralları
