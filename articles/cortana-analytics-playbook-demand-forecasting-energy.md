@@ -1,404 +1,405 @@
 ---
-title: İsteğe bağlı enerji tahmin için Cortana Intelligence çözüm şablonu Playbook | Microsoft Docs
-description: Bir çözüm şablonu ile Microsoft Cortana Intelligence'de, isteğe bağlı bir enerji yardımcı şirket için tahmini yardımcı olur.
-services: cortana-analytics
+title: Talep tahmini enerji için Cortana Intelligence çözüm şablonu Playbook'u | Microsoft Docs
+description: İsteğe bağlı bir enerji yardımcı şirket için tahmini yardımcı olan bir Microsoft Cortana Intelligence çözüm şablonuyla.
+services: machine-learning
 documentationcenter: ''
 author: ilanr9
-manager: ilanr9
+manager: cgronlun
 editor: yijichen
 ms.assetid: 8855dbb9-8543-45b9-b4c6-aa743a04d547
-ms.service: cortana-analytics
+ms.service: machine-learning
+ms.subservice: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2016
-ms.author: ilanr9;yijichen;garye
-ms.openlocfilehash: 275e387878900154660d044b26ff5ac03a17a65a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: yijichen
+ms.openlocfilehash: 6a879faa88cc6cdf586f2c12283bcb6f0263bf57
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23846433"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842614"
 ---
-# <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>İsteğe bağlı enerji tahmin için Cortana Intelligence çözüm şablonu Playbook
-## <a name="executive-summary"></a>Yönetici Özeti
-Son birkaç yılda, büyük fırsatı yardımcı programı ve enerji etki alanı oluşturmak için nesnelerin interneti (IOT), alternatif enerji kaynakları ve büyük veri birleştirilmiş sahip. Aynı anda yardımcı programı ve tüm enerji kesim enerji kullanımını denetlemek için daha iyi yollar yoğun tüketicileri düzleştirme tüketim gördünüz. Bu nedenle, akıllı kılavuz şirketler ve yardımcı programı yenilik ve kendilerini yenilemek için harika ihtiyaç var. Ayrıca, birçok gücü ve yardımcı kılavuzlar, süresi dolmuş ve bakımını yapmak ve yönetmek çok yüksek maliyetli hale gelmektedir. Geçen yıl içinde takım katılımlar enerji etki alanı içindeki bir dizi çalışmaktadır. Çoğu durumda, yardımcı programları veya ISV (bağımsız yazılım satıcıları) gelecekteki enerji talebi tahmin içine arayan bu katılımlar sırasında karşılaştık. Bu tahminleri kendi güncel ve gelecekteki iş önemli bir rol oynar ve çeşitli kullanım durumları için temel oldunuz. Bunlar kısa ve uzun vadeli güç yük tahmin, ticaret, Yük Dengeleme, kılavuz iyileştirme vb. içerir. Büyük veri ve Gelişmiş Analytics (AA) yöntemleri Machine Learning (ML) gibi doğru ve güvenilir tahminleri üretmek için anahtar etkinleştiricilerden durumdadır.  
+# <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Talep tahmini enerji için Cortana Intelligence çözüm şablonu kitabı
+## <a name="executive-summary"></a>Yönetim Özeti
+Son birkaç yılda, nesnelerin interneti (IOT), alternatif enerji kaynakları ve büyük veri yardımcı programı ve enerji etki alanında geniş fırsatları oluşturmak için birleştirilmiş. Aynı zamanda, yardımcı program ve tüm enerji sektörü tüketim enerji kullanımını denetlemek için daha iyi yollarını zorlu tüketicileriyle düzleştirme gördünüz. Bu nedenle, akıllı şebeke şirketler ve yardımcı programı yenilik yapın ve kendilerini yenilemek için harika ihtiyacı olan. Ayrıca, birçok güç ve yardımcı kılavuzlar, güncel ve korumak ve yönetmek çok yüksek maliyetli hale gelmektedir. Geçen yıl içinde takım enerji etki alanı içinde yaşadığımız sayıda üzerinde çalışmaktadır. Çoğu durumda, ISV (bağımsız yazılım satıcıları) ve yardımcı programlar için gelecekteki enerji talebini tahmin içine mı arıyorsunuz bu bildirimi sırasında karşılaştık. Bu tahminler, şimdiki ve gelecekteki iş önemli bir rol oynar ve çeşitli kullanım örnekleri için temel haline geldi. Bunlar kısa ve uzun süreli power yük tahmin, ticaret, Yük Dengeleme, kılavuz iyileştirme vb. içerir. Büyük veri ve Gelişmiş analiz (AA) yöntemleri Machine Learning (ML) gibi anahtar etkinleştiricilerden doğru ve güvenilir tahminler üretmek için olan.  
 
-Bu playbook biz iş ve analitik yönergeleri başarılı bir geliştirme için gereken bir araya getirin ve çözüm enerji talep dağıtımını tahmin. Bu önerilen yönergeleri, yardımcı programlar, veri bilimcilerine ve tam olarak kullanıma hazır hale getirilmiş, bulut tabanlı, isteğe bağlı tahmin çözümleri oluşturma, veri mühendisleri yardımcı olabilir. Yalnızca kendi büyük veri ve gelişmiş analizler gezisine başlangıç şirketler için bu tür bir çözüm, uzun vadeli akıllı kılavuz strateji ilk projeksiyondaki temsil edebilir.
+Playbook'u, iş ve başarılı bir geliştirme için gereken analitik yönergeleri araya ve çözüm dağıtımı enerji talebini tahmin. Bu önerilen yönergeler, yardımcı programlar, veri uzmanları ve tam olarak çalışır hale getirilen, bulut tabanlı, Talep tahmini çözümleri oluşturma, veri mühendisleri yardımcı olabilir. Yalnızca kendi büyük veri ve Gelişmiş analiz yolculuğunun başlangıç şirketler için böyle bir çözümü, uzun vadeli bir akıllı şebeke stratejisi, ilk çekirdek temsil edebilir.
 
 > [!TIP]
-> Bu şablon mimari bir genel bakış sağlayan bir diyagram indirmek için bkz: [isteğe bağlı enerji tahmin Cortana Intelligence çözüm şablonu mimarisi](cortana-analytics-architecture-demand-forecasting-energy.md).  
+> Bu şablon bir mimari genel bakış sağlayan bir diyagram indirmek için bkz [Cortana Intelligence çözüm şablonu mimarisi için Talep tahmini enerji](cortana-analytics-architecture-demand-forecasting-energy.md).  
 > 
 > 
 
 ## <a name="overview"></a>Genel Bakış
-Bu belge, iş, veri ve teknik unsurlarınızın Cortana Intelligence kullanma ve içinde belirli Azure Machine Learning (AML) uygulama ve dağıtım enerji tahmin çözümleri için kapsar. Belge üç ana bölümden oluşur:  
+Bu belge, iş, verileri ve Cortana Intelligence'ı kullanma ve de belirli Azure Machine Learning (AML) uygulama ve dağıtım tahmini enerji çözümleri için teknik yönlerini kapsar. Belge üç ana bölümden oluşur:  
 
 1. Kurumsal yaklaşım  
 2. Veri anlama  
 3. Teknik uygulama
 
-**İş anlama** bölümü bir anlamak ve yatırım kararı vermeden önce göz önünde bulundurun için gereksinim duyduğu iş en boy özetlenmektedir. Elinizdeki Tahmine dayalı analiz ve makine öğrenme gerçekten etkili ve geçerli olduğundan emin olmak için iş sorununu nitelemek nasıl açıklanmaktadır. Daha fazla belge machine learning ve enerji tahmin sorunları gidermek için nasıl kullanıldığı temelleri açıklanır. Önkoşullar ve kullanım niteliği ölçütünü özetlenmektedir. Bazı örnek senaryolar da sağlanır durumları ve iş durumu kullanın.
+**İş anlama** bölümü gerektiren anlamak ve bir yatırım karar vermeden önce göz önünde bulundurun iş en boy özetler. Bu, eldeki Tahmine dayalı analiz ve makine öğrenimi gerçekten etkili ve geçerli olduğundan emin olmak için iş sorununu nitelemek nasıl açıklar. Daha fazla belge, makine öğrenimi ve enerji tahmini sorunları ele almak için nasıl kullanıldığı hakkındaki temel bilgileri açıklar. Bunu, önkoşulları ve kullanım nitelik ölçütlerini açıklar. Bazı örnek kullanım örneklerinize ve İş Gerekçesi senaryoları da sağlanır.
 
-Çözüm öğrenme herhangi bir makine için ana tarifi verilerdir. **Veri anlama** bu belgenin bölümü veri önemli bazı yönlerini kapsar. Enerji tahmin, veri kalitesi gereksinimleri ve hangi veri kaynaklarına genellikle mevcut için gerekli veri türünü özetlenmektedir. Ayrıca ham verileri gerçekten modelleme bölümü sürücü veri özellikleri hazırlamak için nasıl kullanıldığını açıklamaktadır.
+Ana içerik için herhangi bir makine öğrenimi çözümünüzü verilerdir. **Veri anlama** bölümünü bu belgenin bazı önemli yönlerini kapsar. Bunu, enerji tahmini, veri kalitesi gereksinimleri ve genellikle hangi veri kaynaklarını mevcut için gereken veri türünü açıklar. Ayrıca ham verileri gerçekte modelleme bölümü sürücü veri özellikleri hazırlamak için nasıl kullanıldığını açıklar.
 
-Belgenin üçüncü bölümü kapsayan **teknik uygulamanın** bir çözüm yönü. Özellik Mühendisliği ve modelleme veri bilimi işlemi özünde ve biraz ayrıntılı olarak bu nedenle açıklanır. Bulut dağıtım Tahmine dayalı analiz çözümleri için önemli bir platformdur web hizmetleri kavramı kapsar. Biz de tipik bir uçtan uca kullanıma hazır hale getirilmiş çözüm mimarisi verilmiştir.
+Üçüncü kısmı olan belgenin kapsar **teknik uygulama** bir çözüm yönü. Özellik Mühendisliği ve modelleme data science Process'i özünde ve bazı ayrıntılı olarak bu nedenle açıklanır. Bu Tahmine dayalı analiz çözümlerini bulut dağıtımı için önemli bir araç olan web hizmetleri kavramı ele alınmaktadır. Biz de tipik bir uçtan uca çalışır hale getirilen çözüm mimarisini özetler.
 
-Ayrıca, belgeyi daha fazla teknoloji ve etki alanını anlamak için kullanabileceğiniz başvuru bilgileri içerir.
+Ayrıca, belgeyi başka bir etki alanı ve teknoloji anlamak için kullanabileceğiniz bir başvuru malzemesi içerir.
 
-Biz bu belgede daha derin veri bilimi işlemi kapak düşünmüyorsanız dikkate almak önemlidir, matematiksel ve teknik yönlerini. Bu ayrıntılar bulunabilir [Azure ML belgelerine](http://azure.microsoft.com/services/machine-learning/) ve [bloglar](http://blogs.microsoft.com/blog/tag/azure-machine-learning/).
+Biz bu belgede daha ayrıntılı veri bilimi işlemi kapsayacak şekilde düşünmüyorsanız dikkat edin önemlidir, matematiksel ve teknik yönden. Bu ayrıntıları bulunabilir [Azure ML belgeleri](http://azure.microsoft.com/services/machine-learning/) ve [blogları](http://blogs.microsoft.com/blog/tag/azure-machine-learning/).
 
 ### <a name="target-audience"></a>Hedef kitle
-Bu belgenin hedef kitlesi iş ve bilgi elde etmek ister misiniz teknik personeli olduğundan ve Machine Learning anlayış çözümleri ve özellikle enerji tahmin etki alanı içinde bu nasıl kullanıldığını temel.
+Bu belgenin hedef kitlesi, işletme ve teknik bilgi elde etmek için istediğiniz personeli olduğundan ve çözümleri ve özellikle enerji tahmini etki alanında bunlar nasıl kullanıldığını anlama Machine Learning tabanlı.
 
-Veri bilimcilerine çözüm tahmin enerji dağıtımını sürücüleri yüksek düzeyli işlem daha iyi anlamak için bu belgeyi okuma da yararlı olabilir. Bu bağlamda bu da iyi bir taban çizgisi oluşturmak için kullanılabilir ve daha fazla bilgi için başlangıç noktası ayrıntılı ve malzeme Gelişmiş.
+Veri bilimcileri, ayrıca bir enerji çözümü tahmini dağıtımı sürücüleri yönelik yüksek düzeyli işlem daha iyi bir anlayış kazanmak için bu belgeyi okuma yararlı olabilir. Bu bağlamda, de iyi bir taban çizgisi oluşturmak için kullanılabilir ve daha fazla bilgi için başlangıç noktası ayrıntılı ve malzeme Gelişmiş.
 
-### <a name="industry-trends"></a>Endüstri eğilimleri
-Son birkaç yılda, büyük fırsatı yardımcı programı ve enerji alanı oluşturmak için IOT, alternatif enerji kaynakları ve büyük veri birleştirilmiş sahip. Aynı anda yardımcı programı ve tüm enerji kesimler enerji kullanımını denetlemek için daha iyi yollar yoğun tüketicileri düzleştirme tüketim gördünüz.
+### <a name="industry-trends"></a>Sektör eğilimleri
+Son birkaç yılda büyük fırsatlar yardımcı programı ve enerji alanı oluşturmak için IOT, alternatif enerji kaynakları ve büyük veri birleştirilmiş. Aynı zamanda, yardımcı program ve tüm enerji kesimler tüketim enerji kullanımını denetlemek için daha iyi yollarını zorlu tüketicileriyle düzleştirme gördünüz.
 
-Çok sayıda yardımcı programı ve akıllı enerji şirketleri pioneering [akıllı kılavuz](https://en.wikipedia.org/wiki/Smart_grid) kullanım sayısı dağıtarak hale kılavuz tarafından oluşturulan verilerin kullanım. Birçok kullanım örnekleri elektrik üretim devralınmış özellikleri Uzayda Döndür: Bu olamaz toplanan ya da kenara envanter olarak depolanan. Bu nedenle, ne üretilen kullanılması gerekir. Daha verimli olmasını istediğiniz yardımcı programlar gereksinim güç tüketimini yalnızca tahmin etmek, büyük yeteneği verir çünkü **dengelemek tedarik ve talep**, böylece enerji atık önleme **greenhouse gaz azaltın çıkması**ve denetim maliyeti.
+Pek çok yardımcı ve akıllı enerji şirketlerinin öncü [akıllı şebeke](https://en.wikipedia.org/wiki/Smart_grid) birkaç kullanım dağıtarak kılavuz tarafından oluşturulan verilerin yaptığınız çalışmaları kullanın. Birçok kullanım örnekleri, elektrik devralınmış özelliklere çalışmalarınızı: Bu olamaz toplanan veya kenara envanter olarak depolanır. Bu nedenle, hangi üretilen kullanılması gerekir. Daha verimli olmasını istediğiniz yardımcı programlar gereksinim güç tüketimini yalnızca tahmin etmek, daha yüksek bir beceri verir çünkü **Bakiye arz ve talep**, böylece enerji atık önleme **greenhouse gaz azaltın Arabellek**ve maliyetini denetleyebilirsiniz.
 
-Maliyetleri konuşurken fiyatıdır başka bir önemli boy yoktur. Yardımcı programlar arasında güç ticari yönelik yeni yetenekler için harika bir gereksinim getirildi **gelecekteki isteğe bağlı ve elektrik gelecekteki fiyatını tahmin**. Bu, üretim birimleri belirlemek şirketler yardımcı olabilir.
+Maliyetleri konuşurken fiyatı bir diğer önemli unsuru yoktur. Yardımcı programlar arasında Power ticari yeni yetenekleri için harika bir gereksinim getirildi **gelecek talebi ve elektrik gelecekteki fiyat tahmini**. Bu şirketler üretim hacimleri belirlemek yardımcı olabilir.
 
-Biz 'Akıllı' word kullandığınızda, biz gerçekte öğrenin ve ardından tahminlerde bir kılavuz bakın. Tüketim Mevsimlik değişiklikler tahmin yanı **geçici aşırı durumlarda öngörüyor ve bunun için otomatik olarak ayarla**. Uzaktan tüketimiyle (Akıllı Bu ölçümler Yardım) düzenleyerek yerelleştirilmiş aşırı durumlarda işlenebilir. **İlk tahmin etmeye ve ardından hareket**, kılavuz kendisini akıllı zamanla yapar.
+'Akıllı' sözcük kullanıyoruz, aslında öğrenin ve ardından tahminlerde bir kılavuz için diyoruz. Tüketim alışkanlıklarıyla tahmin yanı **için otomatik olarak ayarlayın ve geçici bir aşırı yük durumlarından öngörüyor**. Uzaktan tüketim (Bu akıllı ölçüm cihazlarından yardımıyla) düzenleyerek yerelleştirilmiş aşırı yük durumlarından işlenebilir. **İlk tahmin etme ve ardından çalışan**, kılavuz kendisini daha akıllı zamanla kolaylaştırır.
 
-Biz belirli geleceği, tahmin kapak kullanım örnekleri ailesinde odaklanmak bu belgenin geri kalanı için kısa vadeli ve uzun vadeli enerji isteğe bağlı. Biz bu alandaki birkaç ay için çalışmakta ve bazı bilgi ve endüstri düzeyde sonuçlar etmemizi sağlayan yetenek elde etmiştir. Diğer kullanım örnekleri de belgede yakın gelecekte ele alınacaktır.
+Biz, geleceği tahmin kapsayan kullanım örneklerinin belirli ailesinde odaklanmak bu belgenin geri kalanında kısa vadede ve uzun vadeli enerji talebi. Biz bu alanlarda birkaç ay boyunca çalışmaktadır ve bazı bilgi ve sektör sınıf sonuçlar olanak beceri elde etmiştir. Diğer kullanım örnekleri de belgede yakın gelecekte ele alınmaktadır.
 
 ## <a name="business-understanding"></a>İşin Gereksinimlerini Anlama
 ### <a name="business-goals"></a>İş hedefleri
-**Enerji Demo** hedeftir tipik Tahmine dayalı analiz ve makine öğrenimi çok kısa bir zaman dilimi içinde dağıtılabilir çözüm göstermek için. Özellikle, böylece iş değeri kullanılabilir hızla gerçekleşen ve bağlı işlevden enerji talep tahmin çözümleri etkinleştirmek için geçerli bizim odak noktasıdır. Bu playbook bilgileri aşağıdaki hedefleri gerçekleştirmeye müşteri yardımcı olabilir:
+**Enerji tanıtım** hedeftir tipik Tahmine dayalı analiz ve makine öğrenimi çok kısa bir zaman dilimi içinde dağıtılabilir çözüm göstermek için. Özellikle, iş değeri kullanılabilir hızla gerçekleşen ve üzerinde kullanılabilir böylece enerji talebi tahmin çözümleri etkinleştirme kazanmasının geçerli olur. Playbook'u bilgileri aşağıdaki hedefleri yerine getirmeye müşteri yardımcı olabilir:
 
-* Kısa süre için makine öğrenme değerini tabanlı çözümün
-* Bir pilot genişletme olanağı kullanım örneği diğer kullanım örnekleri veya kendi iş gereksinimleri temelinde daha geniş bir kapsama
-* Hızlı bir şekilde Cortana Intelligence Suite ürün bilgisi elde
+* Kısa süre değerinin machine learning tabanlı çözümüdür
+* Bir pilot genişletme olanağı kullanım örneği, diğer kullanım örnekleri veya kendi iş ihtiyaca göre daha geniş bir kapsama
+* Hızlı bir şekilde Cortana Intelligence Suite ürün bilgisi edinin
 
-Bu hedefleri göz önünde bulundurarak, iş ve bu hedeflere elde etmeye yardımcı olacak teknik bilgi teslim etmek bu playbook amaçlar.
+Bu hedefleri göz önünde bulundurarak, iş ve bu hedefleri elde etmeye yardımcı olacak teknik bilgi sunan bu playbook amaçlar.
 
-### <a name="power-load-and-demand-forecasting"></a>Güç yük ve isteğe bağlı tahmin
-Enerji kesim içinde hangi isteğe bağlı olarak tahmin kritik iş sorunlarını çözmenize yardımcı olabilecek birçok yolu olabilir. Aslında, isteğe bağlı tahmin foundation sektörde pek çok çekirdek kullanım örnekleri için kabul edilebilir. Genel olarak, biz enerji isteğe bağlı tahminleri iki tür düşünün: kısa vadeli ve uzun süreli. Her biri farklı bir amaca ve farklı bir yaklaşım kullanmak olabilir. İkisi arasındaki temel fark, biz tahmin geleceğe zaman aralığını anlamı tahmin yatay ' dir.
+### <a name="power-load-and-demand-forecasting"></a>Güç yük ve Talep tahmini
+Enerji sektörü bağlamında hangi isteğe bağlı olarak tahmin kritik iş sorunlarını çözmenize yardımcı olabilecek birçok yolu olabilir. Aslında, Talep tahmini foundation sektörde çok çekirdekli kullanım örnekleri için kabul edilebilir. Genel olarak, şu iki tür enerji talep tahminleri düşünün: kısa vadeli ve uzun vadeli. Her biri farklı bir amaca hizmet ve farklı bir yaklaşım kullanın. İkisi arasındaki temel fark, zaman aralığı için biz tahmin geleceğe anlamına gelir tahmin Ufuk ' dir.
 
-#### <a name="short-term-load-forecasting"></a>Kısa vadeli yük tahmin
-Enerji talep bağlamında kısa süreli yük tahmin (STLF) çeşitli bölümlerini kılavuz (veya bir bütün olarak kılavuz) üzerinde yakın gelecekte tahmini toplanmış yük olarak tanımlanır. Bu bağlamda, kısa vadeli süresini 24 saat için 1 saat aralığında olarak tanımlanır. Bazı durumlarda, 48 saat kapsamını da mümkündür. Bu nedenle, STLF kılavuz işlemsel kullanım durumda çok yaygın bir durumdur. Kullanım örnekleri güdümlü STLF bazı örnekleri şunlardır:
+#### <a name="short-term-load-forecasting"></a>Kısa süreli yük tahmin
+Enerji talebi bağlamında, kısa süreli yük tahmin (STLF) kılavuz (veya bir bütün olarak kılavuz) çeşitli bölümleri yakın gelecekte tahmini toplam yükü olarak tanımlanır. Bu bağlamda, kısa vadeli süresini 1 saatin 24 saatlik aralıkta olarak tanımlanır. Bazı durumlarda, 48 saat kapsamını da mümkündür. Bu nedenle, STLF kılavuz bir işletimsel kullanım örneği, yaygın olarak görülür. Kullanım örnekleri temelli STLF bazı örnekleri aşağıda verilmiştir:
 
-* Tedarik ve talep Dengeleme
-* Güç ticaret desteği
-* Pazar yapma (ayar güç Fiyat)
+* Arz ve talep Dengeleme
+* Güç alım-satım desteği
+* Pazar yapma (ayarı power fiyatı)
 * Kılavuz işletimsel en iyi duruma getirme
 * [İsteğe yanıt](https://en.wikipedia.org/wiki/Demand_response)
-* İsteğe bağlı tahmin en yüksek
+* Talep tahmini en üst seviyeye
 * İsteğe bağlı tarafı Yönetimi
 * Yük Dengeleme ve önleme aşırı yükleme
 * Uzun süreli yük tahmin
-* Hataya ve anomali algılama
+* Hata ve anomali algılama
 * Yoğun curtailment/Dengeleme 
 
-STLF model üzerinde yakın geçmişte çoğunlukla dayalı (son gün veya hafta) Tüketim verileri ve kullanım tahmini sıcaklık önemli bir göstergesi olduğu olarak. Sonraki saat için tahmini doğru sıcaklık alma ve ayarlama 24 saate kadar küçük bir sınama şimdi gün durumundadır. Bu modeller Mevsimlik desenleri veya uzun vadeli tüketimi eğilimlerini daha az duyarlıdır.
+STLF modeli çoğunlukla yakın geçmişi tabanlı (son gün veya hafta) tüketim verilerini ve kullanım tahmini önemli bir tahmin unsuru olarak sıcaklık. Önümüzdeki bir saati tahmin doğru sıcaklık almak ve ayarlamak için 24 saat daha az bir sınama şimdi gün gelmektedir. Bu modeller dönemsel desenleri ya da uzun süreli tüketim eğilimleri daha az duyarlı olan.
 
-SLTF çözümleri tahmin çağrıları (hizmet istekleri), yüksek hacimli oluşturmak büyük olasılıkla da bunlar bir saatlik aralıklarla ve bazı durumlarda bile yüksek sıklığı ile çağrılmakta bu yana. Ayrıca, her tek tek alt istasyon veya transformer tek başına model olarak temsil edilir ve bu nedenle tahmin istek hacmini daha da büyük implantation görmek için çok yaygındır.
+SLTF çözümleri (hizmet istek) tahmin çağrısı yüksek hacimli üreteceği Ayrıca bunlar saatlik bazda ve bazı durumlarda bile daha yüksek sıklık ile çağrılmakta bu yana. Ayrıca, burada her ayrı alt istasyon veya transformer tek başına model olarak temsil edilir ve bu nedenle tahmin istek hacmi daha da fazla implantation görmek için oldukça sık rastlanıyor.
 
 #### <a name="long-term-load-forecasting"></a>Uzun süreli yük tahmin
-Uzun vadeli yük tahmin (LTLF) birden fazla ay için (ve bazı durumlarda yıl sayısı için) 1 haftada arasında değişen bir süresini ile güç talep tahmin etmek için belirtilir. Bu aralığı yatay çoğunlukla planlama için geçerlidir ve yatırım durumlarda kullanın.
+' % S'hedefi, uzun süreli yük tahmin (LTLF) ile birden çok aya (ve bazı durumlarda bir yıl sayısı için) 1 hafta arasında bir süresini güç talebini tahmin olmaktır. Gelecekte bu aralığı çoğunlukla planlama için geçerlidir ve yatırım kullanım örnekleri.
 
-Uzun vadeli senaryoları için birden çok yıl (en az 3 yıl) aralığını kapsayan yüksek kaliteli veri olması önemlidir. Bu modeller genellikle mevsimselliğin desenleri geçmiş verileri ayıklamak ve, dış predicators gibi kullanan hava durumu ve iklim desenleri olarak.
+Uzun vadeli senaryoları için birden çok yıl (en az 3 yıl) aralığını kapsayan yüksek kaliteli veri olması önemlidir. Bu modeller genellikle mevsimsellik desenleri geçmiş verilerin ayıklanacağı ve gibi dış predicators kullanan hava durumu ve iklim desenleri olarak.
 
-Tahmin yatay uzun olduğundan, tahmin az doğru olmayabilir açıklamak önemlidir. Bu nedenle, bazı güvenirlik aralıkları kendi planlama işlemine olası değişim faktörü insanlar belirleyebilmesini gerçek tahmin birlikte üretmek önemlidir.
+Tahmin gelecekte uzun olduğundan, daha az doğru tahmin olabilir açıklamak önemlidir. Bu nedenle, bazı güvenle aralıkları birlikte bunların planlama işlemine olası değişim etkimesi insanlar izin gerçek tahmin oluşturmak önemlidir.
 
-Tüketim senaryo LTLF için çoğunlukla planlama olduğundan, biz kadar düşük tahmin birimler (karşılaştırıldığında STLF) bekleyebilirsiniz. Biz Excel veya Power BI gibi görselleştirme araçları içine katıştırılmış bu Öngörüler genellikle görürsünüz ve el ile kullanıcı tarafından çağrılan.
+Tüketim senaryo LTLF için çoğunlukla planlama olduğundan, biz çok daha düşük tahmin birimleri (karşılaştırıldığında STLF) bekleyebilirsiniz. Biz genellikle bu tahminler, Excel veya Power BI gibi bir görselleştirme araçları içine katıştırılmış görür ve kullanıcı tarafından el ile çağrılan.
 
 ### <a name="short-term-vs-long-term-prediction"></a>Kısa vadeli vs. Uzun vadeli tahmin
 Aşağıdaki tabloda, en önemli öznitelikleri açısından STLF ve LTLF karşılaştırılır:
 
-| Öznitelik | Kısa vadeli yük tahmin | Yük tahmin'uzun süreli |
+| Öznitelik | Kısa süreli yük tahmin | Yükü tahmin'uzun süreli |
 | --- | --- | --- |
-| Yatay tahmin |1 saat ile 48 saat |1 ile 6 ay veya daha fazla |
-| Veri ayrıntı düzeyi |Saatlik |Saatlik veya günlük |
-| Tipik kullanım durumları |<ul><li>Talep/tedarik dengeleme</li><li>Saat tahmin seçin</li><li>İsteğe yanıt</li></ul> |<ul><li>Uzun süreli planlama</li><li>Planlama Kılavuzu varlıklar</li><li>Kaynak planlama</li></ul> |
-| Tipik predictors |<ul><li>Gün veya hafta</li><li>Günün saati</li><li>Saatlik sıcaklık</li></ul> |<ul><li>Yılın ayı</li><li>Ayın günü</li><li>Uzun vadeli sıcaklık ve iklim</li></ul> |
-| Geçmiş verileri aralığı |İki ila üç yıllık veri |10'a beş yıllık veri |
-| Tipik doğruluğu |MAPE * %5 veya daha düşük |MAPE * % 25 veya daha düşük |
+| Ufuk tahmin |1 saat 48 saattir |1 ile 6 ay veya daha fazla bilgi için |
+| Verilerin ayrıntı düzeyi |Saatlik |Saatlik veya günlük |
+| Tipik kullanım durumları |<ul><li>İsteğe bağlı/tedarik dengeleme</li><li>Tahmini saatlik seçin</li><li>İsteğe yanıt</li></ul> |<ul><li>Uzun süreli planlama</li><li>Planlama Kılavuzu varlıklar</li><li>Kaynak planlama</li></ul> |
+| Tipik adaylarının |<ul><li>Gün veya hafta</li><li>günün saati</li><li>Saatlik sıcaklık</li></ul> |<ul><li>Yılın ayı</li><li>Ayın günü</li><li>Uzun vadeli sıcaklık ve iklim</li></ul> |
+| Geçmiş veri aralığı |İki ila üç yılda değerinde veri |5-10 yıl değerinde veri |
+| Tipik doğruluğu |MAPE * % 5 veya daha düşük |MAPE * % 25 veya daha düşük |
 | Tahmin sıklığı |Her saat veya 24 saatte oluşturulan |Aylık, üç aylık veya yıllık sonra üretilen |
 
 \*[MAPE](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error) – ortalama yüzde hata anlama
 
-Bu tablodan görüldüğü gibi kısa ve uzun süreli bunlar farklı iş gereksinimlerini temsil eden ve farklı dağıtım ve kullanım düzenlerini olabilir senaryoları tahmin ayırt oldukça önemlidir.
+Bu tablodan görüldüğü gibi kısa ve uzun vadede bunlar farklı iş ihtiyaçlarını temsil eder ve farklı dağıtım ve tüketim düzenlerine sahip gibi senaryoları tahmin ayırt etmek çok önemlidir.
 
-### <a name="example-use-case-1-esmart-systems--overload-optimization"></a>Örnek Kullanım örneği 1: eSmart sistemleri – aşırı en iyi duruma getirme
-Önemli bir rol, bir [akıllı kılavuz](https://en.wikipedia.org/wiki/Smart_grid) dinamik olarak ve sürekli olarak en iyi duruma getirme ve değişen tüketim desenler için ayarlayın. Güç tüketimini sıcaklık dalgalanmaları tarafından çoğunlukla neden kısa vadeli değişikliklerden etkilenebilir (*ör*, daha fazla güç hava durumu veya ısıtma kullanılır). Aynı anda güç tüketimini de uzun vadeli eğilimleri tarafından etkilenir. Bunlar mevsimselliğin efektler, Ulusal tatilleri, uzun vadeli tüketim büyüme ve tüketici dizin, Petrol fiyat ve GDP gibi bile ekonomik etkenler olabilir.
+### <a name="example-use-case-1-esmart-systems--overload-optimization"></a>Örnek Kullanım örneği 1: eSmart sistemleri – aşırı yükleme en iyi duruma getirme
+Önemli bir rol, bir [akıllı şebeke](https://en.wikipedia.org/wiki/Smart_grid) dinamik ve sürekli olarak iyileştirin ve değişen tüketim düzenlerine için ayarlayın. Kısa vadeli değişikliklerden çoğunlukla sıcaklık dalgalanmalarına göre neden olduğu güç tüketimini etkilenebilir (*örn*, daha fazla güç hava durumu veya ısıtma kullanılır). Aynı zamanda, güç tüketiminde de uzun vadeli eğilimleri etkiler. Bunlar, mevsimsellik etkileri, Ulusal tatilleri, uzun vadeli tüketim büyüme ve tüketici dizini, Petrol fiyat ve gayrisafi yurt içi HASILA gibi daha ekonomik etkenler olabilir.
 
-Bu kullanım örneğindeki [eSmart](http://www.esmartsystems.com/) verilen tüm alt istasyon ızgaranın bir aşırı yüklemesini durumunuza propensity tahmin etmeye sağlayan bulut tabanlı bir çözümü dağıtmak için istedik. Acil eylem önlemenize veya bu sorunu çözmek için gerçekleştirilecek şekilde saat içinde aşırı büyük olasılıkla substations tanımlamak özel olarak, eSmart istedik.
+Bu kullanım örneğindeki [eSmart](http://www.esmartsystems.com/) herhangi belirli alt istasyon üzerinde aşırı yükleme durumuna kılavuzunun eğilimini tahmin sağlayan bulut tabanlı bir çözümü dağıtmak için istiyordu. Özellikle, bir Acil eylem önlemenize veya bu sorunu çözmek için yapılması için sonraki bir saat içinde tekrar olasılığı şalt tanımlamak eSmart istiyordu.
 
-Doğru bir ve hızlı tahmin gerçekleştirme üç Tahmine dayalı modelleri uyarlamasını gerektirir:
+Bir doğru ve hızlı tahmin gerçekleştirme üç Tahmine dayalı modelleri uygulama gerektirir:
 
-* Uzun vadeli modeli, her alt istasyon üzerinde güç tüketimi sonraki birkaç hafta veya ay sırasında tahmin sağlar.
-* Belirli bir alt istasyon aşırı durumunuza sonraki saatte tahminini sağlar kısa vadeli modeli
-* Birden çok senaryolar gelecekteki sıcaklığını tahmin sağlar sıcaklık modeli
+* Uzun vadeli modeli, her alt istasyon üzerinde güç tüketimi sırasında sonraki birkaç hafta veya ayda tahmin sağlar.
+* Bir sonraki saatte belirli bir alt istasyon üzerinde aşırı yükleme durum öngörü sağlayan kısa süreli modeli
+* Birden fazla senaryoyu gelecekteki sıcaklığını tahmin sağlayan sıcaklık modeli
 
-Uzun vadeli modeli amacı (Güç iletim kapasitelerine) sonraki hafta veya ay içinde aşırı yüklemeyi kendi propensity tarafından substations rank. Bu, kısa vadeli tahmin için bir giriş olarak hizmet sunar substations kısa bir listesi oluşturulmasına izin verir. Sıcaklık uzun vadeli modeli için önemli bir göstergesi olduğu gibi sürekli çok senaryo sıcaklık tahminleri oluşturabilir ve bunları uzun vadeli modeli giriş olarak akış gerek yoktur. Kısa vadeli tahmin sonra hangi alt istasyon sonraki saatten fazla aşırı büyük olasılıkla tahmin etmek için çağrılır.
+Uzun vadeli modelinin amacı, eğilimini (Güç iletim kapasitelerini) sonraki hafta veya ayda sırasında aşırı yükleme tarafından şalt rank. Bu, kısa vadeli tahmin için giriş olarak hizmet verecek şalt kısa bir listesi oluşturulmasına izin verir. Uzun vadeli modeli için önemli bir tahmin unsuru sıcaklık olduğundan, sürekli olarak çok senaryo sıcaklık tahminlerini oluşturmak ve bunları uzun vadeli modeli giriş olarak akış gerek yoktur. Kısa vadeli tahmin sonra hangi alt istasyon bir sonraki saat içinde tekrar olasıdır tahmin etmek için çağrılır.
 
-Kısa vadeli ve uzun vadeli modelleri tek tek her alt istasyon dağıtılır. Bu nedenle, bu modeller pratik yürütülmesi kapsamlı orchestration gerektirir. Kısa vadede daha yüksek tahmin doğruluğunu kazanmak için daha ayrıntılı bir model her gün saat için ayrılır. Bu modeller saatte yürütülür ve yanıt ve önleyici gerekirse eylemleri için yeterli zaman izin vermek için birkaç dakika içinde yürütülmesi biter. Bu koleksiyon modellerin dönemsel yeniden eğitme en son verileri kullanarak güncel tutulur.
+Kısa vadede ve uzun modelleri, tek tek her alt istasyon dağıtılır. Bu nedenle, bu modeller pratik yürütülmesini kapsamlı düzenleme gerektirir. Kısa vadede daha yüksek tahmin doğruluğunu sağlamak için daha ayrıntılı bir model günün her saati için ayrılmıştır. Bu modeller saatte çalıştırılır ve yanıt ve gerekirse önleyici eylemleri gerçekleştirmek için yeterli zamana izin vermek için birkaç dakika içinde yürütülmesi biter. Dönemsel yeniden eğitme en son verileri kullanarak bu modellerin koleksiyonu güncel tutulur.
 
-Bu kullanım durumu hakkında daha fazla bilgi bulunabilir [burada](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18945).
+Bu kullanım örneği hakkında daha fazla bilgi bulunabilir [burada](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18945).
 
-#### <a name="use-case-qualification-criteria--prerequisites"></a>Servis talebi niteliği ölçütünü – Önkoşullar kullanın
-Cortana Intelligence ana gücünü dağıtmak ve makine öğrenme merkezli çözümlerini ölçeklendirme güçlü içinde yeteneğidir. Eşzamanlı olarak yürütülen tahminleri, binlerce desteği için tasarlanmıştır. Otomatik olarak değişen tüketim desen karşılayacak şekilde ölçeklendirebilirsiniz. Çözümün bu nedenle, doğruluk ve hesaplama performansı sağlamaktır. Örneğin, bir yardımcı programı şirket tahmin sonraki bir saat ve her saat için doğru enerji talep üretmek ilgileniyor. Diğer taraftan, biz isteğe bağlı olarak olması neden tahmin soruyu yanıtlarken daha az ilgilendiğiniz (modeli, ilgilenebilmek).
+#### <a name="use-case-qualification-criteria--prerequisites"></a>Büyük/küçük harf nitelik ölçütleri – önkoşulları kullanın
+Cortana Intelligence ana gücünü dağıtmanızı ve ölçeklendirmenizi makine öğrenimi odaklı çözümleri güçlü içinde olmasıdır. Bu eşzamanlı olarak yürütülen Öngörüler, binlerce desteği için tasarlandı. Değişen bir tüketim deseni karşılamak üzere otomatik olarak ölçeklendirebilirsiniz. Bir çözümün odağı, bu nedenle, doğruluk ve bilgi işlem performansı üzerinde gereklidir. Örneğin, bir yardımcı şirket doğru enerji talebini tahmin sonraki bir saat ve günün her saati için üretimiyle ilgilenmektedir. Öte yandan, isteğe bağlı olarak olması neden tahmin soruyu yanıtlayarak daha az ilgilenen duyuyoruz (modeli, ilgileniriz).
 
-Bu nedenle, tüm kullanım örnekleri ve iş sorunlarını etkili bir şekilde machine learning kullanarak çözülebilir hayata geçirmek önemlidir.
+Bu nedenle, tüm kullanım örnekleri ve iş sorunlarını etkili bir şekilde makine öğrenimini kullanarak çözülebilir bilmeniz önemlidir.
 
-Cortana Intelligence ve makine öğrenme aşağıdaki ölçütler sağlandığında belirli iş sorununu çözme konusunda son derece verimli olabilir:
+Cortana Intelligence ve machine learning, aşağıdaki ölçütler sağlandığında belirli iş sorununu çözme yüksek oranda etkili olabilir:
 
-* Elle iş sorunudur **Tahmine dayalı** yapısı. Tahmine dayalı kullanım örneği örnek belirli bir alt istasyon güç yükünü sonraki saatte tahmin etmek istediğiniz yardımcı programı bir şirkettir. Diğer taraftan, çözümleme ve geçmiş isteğe bağlı sürücülerin sıralaması olacaktır **açıklayıcı** yapısı ve bu nedenle daha az uygulanabilir.
-* Açık olduğundan **eylemin yolunu** tahmini kullanılabilir olduğunda gerçekleştirilecek. Örneğin, bir sonraki saatte bir alt istasyon üzerinde bir aşırı tahmin etmeye o alt istasyon ile ilişkili yük azaltır ve bu nedenle bir aşırı büyük olasılıkla önleme öngörülü bir eylem tetikleyebilir.
-* Kullanım örneğini temsil eder bir **tipik tür bir sorun** şekilde Çözüldü olduğunda bu şekilde pave diğer benzer çözme için kullanım.
-* Müşteri ayarlayabilirsiniz **nicel ve nitel hedeflerini** başarılı çözüm uygulama göstermek için. Örneğin, enerji talep tahmin için iyi bir nicel hedefi gerekli doğruluğu eşik olur (*ör*, %5 hata varan izin verilir) veya ne zaman alt istasyon tahmin etmeye aşırı ardından kesinlik (doğru pozitif sonuç oranı) ve geri çağırma belirli bir eşiğin (doğru pozitif sonuç kapsamını) olmalıdır. Bu hedefleri müşterinin iş hedeflerden türetilmesi.
-* Açık olduğundan **tümleştirme senaryosunun** şirketin iş akışıyla. Örneğin, alt istasyon yük tahmin aşırı önleme etkinlikleri izin vermek için kılavuz denetim merkezine tümleştirilebilir.
-* Kullanmak için hazır müşterinin **yeterli kalite verilerle** kullanım örneğini desteklemek için (daha sonraki bölümde **veri kalitesini**, bu playbook olarak).
-* Müşteri kapsayan bulut merkezli veri mimarisi veya **bulut tabanlı makine öğrenme**Azure ML ve diğer Cortana Intelligence Suite bileşenleri dahil olmak üzere.
-* Müşteri oluşturma konusunda istekli mi **bir uçtan uca veri akışı** bu tesisler veri teslim düzenli olarak, buluta ve istemediği **faaliyete** çözümü.
-* Müşteri için hazır **kaynak ayırması** kimin etkin olarak bağlı sırasında ilk pilot uygulaması böylece bilgi ve çözüm sahipliğini başarıyla tamamlandıktan sonra müşteriye aktarılabilir.
-* Müşteri kaynak olmalıdır bir **becerikli veri professional**, tercihen veri Bilimcisi.
+* Elle iş sorunudur **Tahmine dayalı** yapısı. Tahmine dayalı bir kullanım örneği örnek sonraki bir saat boyunca belirli bir alt istasyon power yükünü tahmin etmek istediğiniz yardımcı programı bir şirkettir. Öte yandan, çözümleme ve sürücüleri, geçmiş talep sıralaması olacaktır **açıklayıcı** yapısı ve bu nedenle daha az uygulanabilir.
+* Açık olduğundan **eylemin yolunu** tahmin kullanılabilir olduğunda gerçekleştirilecek. Örneğin, bir sonraki saatte bir alt istasyon üzerinde aşırı tahmin etme, o alt istasyon ile ilişkili yük azaltma ve bu nedenle büyük olasılıkla aşırı önleme önleyici bir eylem tetikleyebilirsiniz.
+* Kullanım örneğini temsil eder bir **tipik sorun türünü** şekilde Çözüldü zaman biçimini pave diğer benzer çözme için kullanım örnekleri.
+* Müşteri ayarlayabilirsiniz **nicel ve nitel hedeflerini** başarılı çözümün uygulamasını göstermek için. Örneğin, enerji talebi tahmin için iyi bir nicel hedefi gerekli doğruluk eşiği olacaktır (*örn*, %5 hata varan izin verilir) veya ne zaman alt istasyon tahmin aşırı ardından duyarlık (gerçek pozitif sonuç oranı) ve çağırma belirli bir eşiğin üstünde (doğru pozitif sonuçlar kapsamını) olmalıdır. Bu hedefleri müşterinin iş hedeflerden türetilmesi.
+* Açık olduğundan **tümleştirme senaryosu** şirketin iş akışı ile. Örneğin, alt istasyon yük tahmin aşırı önleme etkinlikleri izin vermek için kılavuz denetim Merkezi'nde oturum tümleştirilebilir.
+* Hazır kullanmak için müşterinin **yeterli kalite verilerle** kullanım örneğini desteklemek için (sonraki bölümde, daha fazla bilgi bkz **veri kalitesi**, bu playbook'ın).
+* Müşteri benimsediğini bulut odaklı veri mimarisi veya **bulut tabanlı makine öğrenme**Azure ML ve diğer Cortana Intelligence Suite bileşenleri dahil olmak üzere.
+* Müşteri kurma konusunda istekli mi **bir uçtan uca veri akışı** bu tesislerde veri teslimini düzenli olarak, buluta ve iradeye sahip **faaliyete** çözüm.
+* Müşteri için hazırdır **kaynak ayırması** kim etkin olarak bağlı sırasında ilk pilot uygulaması böylece bilgi ve çözüm sahipliğini başarıyla tamamlandıktan sonra müşteriye aktarılabilir.
+* Müşteri kaynak olmalıdır bir **nitelikli veri professional**, tercihen bir veri Bilimcisi.
 
-Yukarıdaki ölçütlere göre kullanım örneğinin niteliğe büyük ölçüde kullanım başarı oranları artırmak ve gelecekteki kullanım örnekleri uygulama için iyi bir beachhead oluşturun.
+Nitelik yukarıdaki ölçütlere göre bir kullanım örneği, büyük ölçüde kullanım başarı oranları artırmak ve uygulama gelecekte kullanım için iyi bir beachhead oluşturun.
 
 ### <a name="cloud-based-solutions"></a>Bulut tabanlı çözümler
-Cortana Intelligence Azure üzerinde bulutta bulunan tümleşik bir ortam paketidir. Önemli avantajlar işletmeler için ve aynı zamanda şirketler için büyük değişiklik hala kullanım BT çözümleri şirket içi olduğunu olduğu anlamına gelebilir bulut ortamında bulunan bir Gelişmiş analiz çözümü dağıtımını tutar. Enerji kesim içinde aşamalı geçiş buluta işlemlerinin Temizle eğilimini yoktur. Bu eğilimin el ele, yukarıda açıklandığı gibi akıllı kılavuz geliştirme birlikte gider **endüstri eğilimleri**. Bu playbook enerji etki alanı bulut tabanlı bir çözümde odaklanmıştır gibi avantajları ve bulut tabanlı bir çözüm dağıtma diğer noktalar açıklamak önemlidir.
+Cortana Intelligence Suite, Azure üzerinde bulutta yer alan tümleşik bir ortamdır. Gelişmiş analiz çözümünün bir bulut ortamında dağıtım, işletmelerin ve aynı zamanda önemli avantajları hala kullanım BT çözümleri şirket, şirketler için büyük bir değişiklik gelebilir tutar. Enerji sektörü bağlamında buluta işlemlerinin aşamalı geçiş Temizle eğilimi vardır. Bu eğilim, de, yukarıda açıklandığı gibi akıllı şebeke geliştirilmesini birlikte gider **sektör eğilimlerini**. Playbook'u, bulut tabanlı bir çözüm enerji etki alanındaki odaklanan gibi avantajları ve bulut tabanlı bir çözüm dağıtma ile diğer değerlendirmeler açıklamak önemlidir.
 
-Belki de bulut tabanlı bir çözüme en büyük avantajlarından maliyetidir. Bir çözümü olarak kullanır buluta dağıtılan bileşenlerinin ön maliyetleri veya ilişkili SMM (maliyet mal satılan) bileşeni giderleri yoktur. Donanım, yazılım ve BT bakım yatırım gerek yoktur ve bu nedenle iş riskinin önemli ölçüde azalma yoktur anlamına gelir.
+Belki de en büyük avantajı, bulut tabanlı bir çözüm maliyetidir. Bir çözümü olarak kullanır buluta dağıtılan bileşenleri, ön maliyet veya ilişkili COGS (maliyet ürünlerin satılan) bileşen maliyetleri yoktur. Bu, donanım, yazılım ve BT bakım yatırım yapmaya gerek yoktur ve bu nedenle iş riski önemli bir azalma var. anlamına gelir.
 
-Başka bir önemli avantajı bulut tabanlı çözümlerle Kullandıkça Öde maliyet yapısıdır. Bulut tabanlı sunucular bilgi işlem ve depolama için dağıtılan ve gerekli yeni bir temelinde ölçeklendirilmiş. Bu, bulut tabanlı bir çözüme maliyet verimliliği avantajlarından temsil eder.
+Başka bir önemli avantajı, bulut tabanlı çözümler, Kullandıkça Öde maliyet yapısıdır. Bilgi işlem ve depolama için bulut tabanlı sunuculara dağıtılabilir ve gerektiğinde tam olarak Ölçeklendirildi. Bu, bulut tabanlı bir çözüm maliyet verimliliği avantajlarından temsil eder.
 
-Son olarak, bu tüm bulut tabanlı teklif parçası olarak BT Bakım veya gelecekteki altyapı geliştirme yatırım yapmak için gerek yoktur. Bu uzantı için yol haritası gelişen tutar ve Cortana Intelligence Suite en iyi sınıf Hizmetleri'nde içerir. Yeni özellik, bileşenleri ve yetenekler sürekli eklenen ve geliştirin.
+Son olarak, tüm bu bulut tabanlı teklif parçası olarak BT Bakım veya gelecekteki altyapı geliştirme yatırım için gerek yoktur. Bu ölçüde, yol haritası gelişen tutar ve Cortana Intelligence Suite en iyi sınıf hizmetleri içerir. Yeni özellikler, bileşenler ve Özellikler sürekli olarak sunulan ve evrim Geçiren.
 
-Yalnızca kendi geçiş buluta başlayarak bir şirket için yüksek oranda bulut geçiş yol haritası uygulayarak aşamalı bir yaklaşım yapılacak öneriyoruz. Yardımcı programlar ve enerji etki alanındaki şirketler için bu playbook ele alınan kullanım örneklerini Tahmine dayalı analiz çözümlerini bulutta Pilot uygulaması için mükemmel bir fırsat temsil eden inanıyoruz.
+Buluta, geçiş yeni başlayan bir şirket için yüksek oranda bulut geçişi yol haritası uygulayarak aşamalı bir yaklaşım olması için öneriyoruz. Yardımcı programları ve enerji etki alanındaki şirketler için Tahmine dayalı analiz çözümlerini bulut uygulamalar için mükemmel bir fırsat bu playbook'ları tartışılan kullanım örneklerini temsil inanıyoruz.
 
-#### <a name="business-case-justification-considerations"></a>İş örneği doğrulama konuları
-Çoğu durumda, müşteri bir bulut tabanlı çözümü ve Machine Learning önemli bileşenleri olduğu belirli kullanım örneği için bir iş gerekçesinin yaparken ilgilenebilirsiniz. Bulut tabanlı bir çözüme söz konusu olduğunda bir şirket içi çözüm aksine ön maliyet bileşenidir en az ve maliyet öğelerin çoğu gerçek kullanımı ile ilişkilendirilmiş. Cortana Intelligence Suite çözümünü tahmin enerji dağıtımına geldiğinde, birden fazla hizmet, tek bir ortak maliyet yapısı ile tümleştirilebilir. Örneğin, veritabanları (*ör*, SQL Azure) ham verileri depolamak için kullanılan ve gerçek Azure ML tahminleri için ardından tahmin hizmetlerini barındırmak için kullanılır. Bu örnekte, depolama ve işlemsel bileşenlerini maliyet yapısı dahil olabilir.
+#### <a name="business-case-justification-considerations"></a>Servis talebi İş Gerekçesi konuları
+Çoğu durumda, müşteri, bir bulut tabanlı bir çözüm ve Machine Learning önemli bileşenleri olan belirli bir kullanım örneği için bir iş gerekçesi yaparken ilginizi çekebilir. Bulut tabanlı bir çözüm söz konusu olduğunda bir şirket içi çözüm aksine Minimum ön ödeme maliyeti bileşendir ve maliyet öğelerin çoğu gerçek kullanım ile ilişkilendirilir. Cortana Intelligence Suite çözümü tahmini bir enerji dağıtımına söz konusu olduğunda, birden çok hizmet, tek bir ortak maliyet yapısı ile tümleştirilebilir. Örneğin, veritabanları (*örn*, SQL Azure) ham verilerini depolamak için kullanılan ve Azure ML gerçek tahminleri için ardından tahmin hizmetlerini barındırmak için kullanılır. Bu örnekte, maliyet yapısında, depolama ve işlem bileşenleri dahil olabilir.
 
-Öte yandan, bir (kısa veya uzun süreli) tahmin enerji isteğe bağlı işletme iş değerinin iyi anlamış olmanız gerekir. Aslında, her tahmin işlemi iş değerini hayata geçirmek önemlidir. Örneğin, doğru şekilde güç yük için sonraki 24 saat tahmin overproduction engelleyebilir veya aşırı kılavuzundaki önlenmesine yardımcı olabilir ve bu günlük olarak finansal tasarrufları bakımından quantified.
+Öte yandan, bir bir enerji talebini tahmin etme (kısa veya uzun vadeli) çalışan iş değerini bir iyi anlamış olmanız gerekir. Aslında, tahmin her işlemin iş değerin anlaşılabilmesi önemlidir. Örneğin, doğru bir şekilde sonraki 24 saat boyunca yükünü tahmin overproduction engelleyebilir veya aşırı yükleme kılavuzundaki engellemeye yardımcı olabilir ve bu günlük olarak finansal tasarrufu açısından amaçlarıyla.
 
-İsteğe bağlı finansal yararı hesaplamak için temel bir formül çözüm olacaktır tahmin: ![isteğe bağlı finansal yararı hesaplamak için temel formülü tahmin çözümü](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
+İsteğe bağlı finansal avantajı hesaplamak için temel bir formül uygulanabilecek tahmin: ![isteğe bağlı finansal avantajı hesaplamak için temel formül tahmin çözümü](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
-Cortana Intelligence Suite Kullandıkça Öde bir fiyatlandırma modelini sağlar olduğundan, bu formülü bir sabit maliyet bileşenine yansıtılmasını için gerek yoktur. Bu formülü bir günlük, aylık veya yıllık temelinde hesaplanabilir.
+Cortana Intelligence Suite, Kullandıkça Öde fiyatlandırma modeli sağlar olduğundan, bu formülü bir sabit maliyete bileşenine yansıtılmasını için gerek yoktur. Bu formül günlük, aylık veya yıllık olarak hesaplanabilir.
 
-Geçerli Cortana Intelligence Suite ve Azure fiyatlandırma planı ML bulunabilir [burada](http://azure.microsoft.com/pricing/details/machine-learning/).
+Geçerli Cortana Intelligence Suite ve Azure ML fiyatlandırma planları bulunabilir [burada](http://azure.microsoft.com/pricing/details/machine-learning/).
 
 ### <a name="solution-development-process"></a>Çözüm geliştirme işlemi
-Bulut tabanlı teknolojiler ve hizmetler Cortana Intelligence Suite içinde çözüm genellikle her biri vermiyoruz 4 aşamaları içerir tahmin enerji talebin geliştirme döngüsü kullanır.
+Geliştirme döngüsü bir enerji talebini tahmin çözümü genellikle her biri vermiyoruz 4 aşamaya içerir, bulut tabanlı teknolojiler ve Cortana Intelligence Suite Hizmetleri kullanın.
 
-Bu, aşağıdaki çizimde gösterilmiştir:
+Bu, aşağıdaki diyagramda gösterilmiştir:
 
-![Akıllı kılavuz döngüsü](media/cortana-analytics-playbook-demand-forecasting-energy/smart-grid-cycle.png)
+![Akıllı şebeke döngüsü](media/cortana-analytics-playbook-demand-forecasting-energy/smart-grid-cycle.png)
 
-Aşağıdaki paragraf bu 4 adım işlemi açıklanmaktadır:
+Aşağıdaki paragrafta bu 4 adım işlemi açıklanmaktadır:
 
-1. **Veri toplama** – her Gelişmiş dayalı analiz çözümü verileri kullanır (bkz **veri anlama**). Özellikle, Tahmine dayalı analiz ve tahmin söz konusu olduğunda, biz devam eden, dinamik veri akışını kullanır. Enerji talep tahmin, söz konusu olduğunda bu verileri doğrudan akıllı ölçümler kaynaklanan veya bir şirket içi veritabanında zaten toplanması. Biz de verilerin hava durumu ve sıcaklık gibi diğer dış kaynaklarını kullanır. Devam eden bu veri akışını düzenlenmiş, zamanlanmış depolanan ve gerekir. [Azure Data Factory](http://azure.microsoft.com/services/data-factory/) (ADF), bu görevi gerçekleştirmeye için ana bizim workhorse olduğu.
-2. **Modelleme** – doğru ve güvenilir enerji tahminleri için bir gerekir (tren) geliştirmek ve bakımını yapar geçmiş verileri kullanmak ve verileri anlamlı ve Tahmine dayalı modelleri ayıklar harika bir modeli. Machine Learning (ML) alanı ile daha gelişmiş algoritmalar düzenli olarak geliştirilen hızla büyüyor. Azure ML Studio en gelişmiş ML algoritmaları tam iş akışı içinde kullanmasına yardımcı olan bir iyi kullanıcı deneyimi sağlar. İş akışının sezgisel bir akış şemada gösterilmiştir ve veri hazırlığı, özelliği ayıklama, model ve model değerlendirme içerir. Kullanıcı bu ortamda dahil çeşitli modellerin yüzlerce çeker. Bu aşamada son tarafından tam olarak değerlendirilen ve dağıtım için hazır bir çalışma modeli veri Bilimcisi sahip olur.
+1. **Veri toplama** – daha gelişmiş veri dayalı bir analiz çözümü kullanır (bkz **veri anlama**). Özellikle, Tahmine dayalı analiz ve tahmin için söz konusu olduğunda, biz üzerinde sürekli olarak dinamik akış veri kullanır. Enerji Talep tahmini, söz konusu olduğunda bu verileri doğrudan akıllı ölçüm cihazlarından kaynaklanan veya zaten bir şirket içi veritabanı üzerinde bir araya getirilebilir. Ayrıca diğer dış hava durumu ve sıcaklık gibi veri kaynaklarının bağımlı olduğumuz. Devam eden bu veri akışını düzenlenmiş, zamanlanmış depolanan ve gerekir. [Azure Data Factory](http://azure.microsoft.com/services/data-factory/) (ADF), bu görevi yerine ana bizim workhorse olduğu.
+2. **Modelleme** – doğru ve güvenilir enerji tahminleri, bir gerekir (eğitme) geliştirme ve bakımını yaptığı geçmiş verilerini kullanın ve verileri anlamlı ve Tahmine dayalı modelleri ayıklar harika bir model. Machine Learning (ML) alanında düzenli olarak geliştirilen daha gelişmiş algoritmalar ile hızla büyüyen. Azure ML Studio, bir tam iş akışı içinde en gelişmiş ML algoritmaları kullanmasına yardımcı olacak harika bir deneyim sağlar. Bu iş akışı, sezgisel bir akış diyagramda gösterilmiştir ve veri hazırlama, özellik ayıklama, modelleme ve model değerlendirme içerir. Kullanıcı, bu ortamda bulunan çeşitli modelleri yüzlerce çekebilirsiniz. Bu aşama sonunda bir veri Bilimcisi tamamen değerlendirilir ve dağıtım için hazır olan bir çalışma modeli gerekir.
    
-   Aşağıdaki diyagram tipik bir iş akışı çizim şöyledir:
+   Aşağıdaki diyagram tipik bir iş akışı bir örnektir:
    
    ![İş akışı modelleme](media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
-3. **Dağıtım** – çalışma modeli yandan, sonraki adıma dağıtımıdır. Burada model çeşitli tüketim istemcilerinden gelen Internet üzerinden eşzamanlı olarak çağrılabilen bir RESTful API'si gösteren bir web hizmeti dönüştürülür. Azure ML bir modelden doğrudan Azure ML Studio'da bir düğmeye tek bir tıklatmayla dağıtma basit bir yol sağlar. Tüm dağıtım işlemi başlık altında olur. Bu çözüm otomatik olarak gerekli tüketim karşılayacak şekilde ölçeklendirebilirsiniz.
-4. **Tüketim** – bu aşamasında, aslında vermiyoruz tahmin modelinin tahminleri üretmek için kullanın. Tüketim bir kullanıcı uygulamadan güdümlü (*ör*, Pano) veya doğrudan gibi bir işletim sisteminden talep/tedarik sistem ya da bir kılavuz iyileştirme çözümün Dengeleme. Birden çok kullanım durumu tek bir modelden güdümlü.
+3. **Dağıtım** – çalışma modelini yandan, sonraki adıma dağıtımıdır. Burada model çeşitli tüketim istemcilerinden gelen Internet üzerinden aynı anda çağrılabilen bir RESTful API sunan bir web hizmeti dönüştürülür. Azure ML, doğrudan bir düğmeye tek bir tıklamayla Azure ML Studio üzerinden model dağıtma basit bir yol sağlar. Tüm dağıtım işlemi Bileşenler'olmuyor. Bu çözüm, gerekli tüketim karşılamak üzere otomatik olarak ölçeklendirebilirsiniz.
+4. **Tüketim** – bu aşamasında, biz aslında yapmak tahminler üretmek için tahmin modelini kullanın. Bir kullanıcı uygulamadan tüketim temelli (*örn*, Pano) veya doğrudan gibi bir işletim sisteminden talep/tedarik sistem veya bir kılavuz iyileştirmesi çözümü. Birden çok kullanım durumu, tek bir modelden odaklı.
 
 ## <a name="data-understanding"></a>Veri anlama
-İş konuları kapsayan sonra (bkz **iş anlama**) çözümü tahmin bir enerji isteğe bağlı, biz artık veri bölümü tartışmak hazırsınız. Herhangi bir Tahmine dayalı analiz çözümü güvenilir verileri kullanır. İsteğe bağlı enerji tahmin için size çeşitli ayrıntı düzeyleri ile geçmiş verilere kullanır. Bu geçmiş verileri ham madde kullanılır. Veri Bilimcisi, gerekli tahminleri sonunda oluşturacak bir modeli koyabilirsiniz (özellikleri da bilinir) predictors tanımlayacak dikkatli bir çözümlemesini yapılacaktır.
+İş konuları kapsayan sonra (bkz **iş anlama**) tahmin çözümü, bir enerji talebi artık veri bölümünü tartışmak hazırız. Herhangi bir Tahmine dayalı analiz çözümü güvenilir veri kullanır. Enerji Talep tahmini için çeşitli düzeylerde verileriyle geçmiş tüketim bağımlı olduğumuz. Bu geçmiş verileri ham madde kullanılır. Bu, veri uzmanı gerekli tahminleri sonunda oluşturacak bir modele koyabilirsiniz (Özellikler da bilinir) adaylarının tanımlayacak bir çözümlenmesiyle tutulacaktır.
 
-Bu bölümde kalan biz çeşitli adımları ve veri ve kullanılabilir bir biçime getirmek nasıl anlama konuları anlatmaktadır.
+Bu bölümün kalanında, biz çeşitli adımları ve veri ve için kullanılabilir biçime getirilmesi anlama konuları anlatmaktadır.
 
 ### <a name="the-model-development-cycle"></a>Model geliştirme döngüsü
-İyi tahmin modelleri bazı dikkatli hazırlık gerekir ve planlama notlarının oluşturulması. Birden çok adımı modelleme işlemine bölmek ve aynı anda tek bir adımda odaklanan tüm işleminin sonucunu önemli ölçüde arttırabilir.
+İyi tahmini modeller bazı dikkatli hazırlıkları gerektirir ve planlama üretir. Birden çok adım modelleme işlemine bölmek ve aynı anda bir adımında odaklanarak tüm işleminin sonucunu önemli ölçüde geliştirebilirsiniz.
 
-Aşağıdaki diyagram, modelleme işlemini içine birden çok adımı nasıl bölünebilir gösterir:
+Aşağıdaki diyagram, modelleme işleminin içine birden çok adımı nasıl bölünebilir gösterir:
 
 ![Model geliştirme döngüsü](media/cortana-analytics-playbook-demand-forecasting-energy/model-development-cycle.png)
 
-Döngü altı adımlardan oluşur görüldüğü gibi:
+Döngü altı adımlardan oluşur görülebileceği gibi:
 
-* Sorun formülasyonu
-* Veri alımı ve veri araştırması
+* Sorun, oluşumunu
+* Veri alımı ve veri keşfi
 * Veri hazırlama ve özellik Mühendisliği
 * Modelleme
-* Model değerlendirme
+* Modeli değerlendirme
 * Geliştirme
 
-Bu bölümün geri kalanında biz her adımda göz önünde bulundurmanız gerekenler ve tek tek adımları anlatmaktadır.
+Bu bölümün geri kalanında biz, her adımda göz önünde bulundurmanız gerekenler ve tek tek adımları anlatmaktadır.
 
-### <a name="problem-formulation"></a>Sorun Formülasyonu
-Biz sorun formülasyonu aşağıdakilerden herhangi bir Tahmine dayalı analiz çözümü uygulamadan önce gerçekleştirmeniz gereken en önemli adım olarak düşünebilirsiniz. Burada size problemini dönüştürme ve verileri kullanarak ve teknikleri modelleme çözülebilir belirli öğelere parçalayın. Sorun soruları yanıtlamak için isteriz kümesi olarak formüle iyi bir uygulamadır. İsteğe bağlı enerji tahmin kapsamı içinde geçerli olabilecek bazı olası sorular şunlardır:
+### <a name="problem-formulation"></a>Sorun, oluşumunu
+Biz sorun formülasyonu aşağıdakilerden herhangi bir Tahmine dayalı analiz çözümü uygulamadan önce yapması gereken en önemli adım olarak düşünebilirsiniz. Burada biz problemini dönüştürme ve belirli öğeleri kullanarak veri ve modelleme teknikleri çözülebileceğini parçalara ayırın. Sorular yanıtlanacak istiyoruz bir dizi sorunu formüle etmek için iyi bir uygulamadır. Enerji talebi tahmin kapsamı içinde geçerli olabilecek bazı olası sorular şunlardır:
 
-* Tek bir alt istasyon beklenen yükü sonraki saat veya gün nedir?
-* Günün hangi saatinde my kılavuz en yüksek talebi yaşar?
-* Nasıl olasılıkla beklenen en yüksek yükü sürdürebilmek için my Kılavuzu mu?
-* Ne kadar güç güç istasyon her günün sırasında oluşturmalı mı?
+* Sonraki saat veya gün içinde tek bir alt istasyon beklenen yükü nedir?
+* Günün hangi saatinde my kılavuz en üst düzey talepleri yaşar?
+* Nasıl büyük olasılıkla beklenen en yüksek yükü sürdürebilmek için benim kılavuz var mı?
+* Ne kadar güce power istasyon her gün saat boyunca oluşturmalı mı?
 
-Bu soruları formulating sağ verileri almak ve elinizdeki problemini ile tam olarak hizalanır bir çözüm uygulama odaklanmak olanak tanır. Ayrıca, biz model performansını değerlendirmek etmemizi sağlayan bazı önemli metrikleri sonra ayarlayabilirsiniz. Örneğin, tahmin ne kadar doğru olmalıdır ve hala işi tarafından kabul edilebilir olacak hata aralığını nedir?
+Bu soruları formulating doğru veri alma ve tam olarak eldeki problemini ile hizalanan bir çözüm uygulama olanak sağlıyor. Ayrıca, biz model performansını değerlendirme olanak bazı ana ölçümleri daha sonra ayarlayabilirsiniz. Örneğin, tahmin ne kadar doğru olmalıdır ve iş için kabul edilebilir olmaya hata aralığı nedir?
 
 ### <a name="data-sources"></a>Veri Kaynakları
-Modern akıllı kılavuz çeşitli bölümleri ve kılavuz bileşenlerinin veri toplar. Bu veriler işlemi çeşitli yönlerini ve güç kılavuz kullanımını temsil eder. Tahmin enerji isteğe bağlı kapsamında biz gerçek talep tüketim yansıtacak veri kaynaklarında tartışma kısıtlayan. Akıllı ölçümler enerji tüketimi önemli bir kaynağı var. Yardımcı programlar dünyanın kendi Tüketiciler için hızlı bir şekilde akıllı ölçümler dağıtıyorsanız. Akıllı ölçümler gerçek güç tüketimi kaydedebilir ve bu verileri geri yardımcı şirket sürekli geçiş. Veriler toplanır ve 5 dakikada 1 saat arasında değişen geri sabit bir aralık, gönderilir. Daha gelişmiş akıllı metre uzaktan denetim ve bir evin içindeki gerçek tüketim dengelemek için de programlanabilir. Akıllı ölçüm verileri görece güvenilirdir ve zaman damgası içerir. Bu tahmin talep için önemli bir malzeme kolaylaştırır. Ölçer veri bir araya getirilir (yukarı toplanan) kılavuz topoloji içindeki çeşitli düzeylerde: transformer, alt istasyon, bölge, *vb.*. Biz, ardından bir tahmin modeli için oluşturmak için gerekli toplama düzeyi seçebilirsiniz. Örneğin, yardımcı şirket gelecekteki her birinin yüküne göre kendi kılavuz substations tahmin etmek istiyorsanız sonra tüm ölçümler veriler için tek tek her alt istasyon bir araya getirilir ve tahmin modeli için bir giriş olarak kullanılır. Biz akıllı ölçümler için bir iç veri kaynağı olarak bakın.
+Modern bir akıllı şebeke çeşitli bölümleri ve kılavuz bileşenlerinin verileri toplar. Bu veriler, çeşitli yönlerini işlemi ve güç kılavuz kullanımını temsil eder. Enerji talebi hakkında tahmin kapsamında, biz gerçek tüketim yansıtan veri kaynaklarında tartışma sınırlıyoruz. Akıllı ölçüm cihazlarından enerji tüketimi önemli bir kaynağı var. Dünya çapındaki yardımcı programlar, hızlı bir şekilde kendi Tüketiciler için akıllı ölçüm cihazlarından dağıtıyorsanız. Akıllı ölçüm cihazlarından gerçek güç tüketimi kaydetmek ve bu verileri geri yardımcı şirket için sürekli geçiş. Veriler toplanır ve 5 dakikada 1 saate kadar geri sabit bir aralık, gönderilir. Daha gelişmiş akıllı ölçüm cihazlarından uzaktan denetim ve içinde bir evin gerçek kullanım dengelemek için de programlanabilir. Akıllı ölçüm verileri görece güvenilir ve zaman damgası içerir. Bu, Talep tahmini için önemli bir tarifi kolaylaştırır. Ölçer veri toplanabilir (yukarı toplanan) grid topolojisi içindeki çeşitli düzeylerde: transformer, alt istasyon, bölge, *vb.*. Ardından, biz bunun için bir tahmin modelli oluşturmak için gerekli bir toplama düzeyinde seçebilirsiniz. Örneğin, yardımcı şirket her birinin kendi kılavuz şalt gelecekteki yükü tahmin istiyorsanız, ardından tüm ölçümleri veriler için tek tek her alt istasyon toplanır ve için tahmin modeli giriş olarak kullanılır. Bir iç veri kaynağı olarak için akıllı ölçüm cihazlarından diyoruz.
 
-Bir güvenilir enerji talep tahmin ayrıca diğer dış veri kaynaklarına bağlıdır. Güç tüketimini etkileyen bir önemli hava ya da daha kesin olarak sıcaklık faktördür. Geçmiş verileri dış sıcaklık ve güç tüketimini arasında güçlü bağıntı gösterir. Tüketiciler sıcak Yaz gün boyunca olun kendi hava bağıntıyı ve sistemler ısıtma üzerinde Kış güç sırasında kullanın. Güvenilir bir kaynak kılavuz konumda geçmiş etme, bu nedenle anahtardır. Ayrıca, biz de sıcaklık doğru tahmin üzerinde bir göstergesi olduğu güç tüketimini kullanır.
+Bir güvenilir enerji talebi tahmin, ayrıca diğer dış veri kaynaklarına bağlıdır. Güç tüketimini etkileyen tek önemli faktör, hava durumu ve daha kesin sıcaklık ' dir. Geçmiş verileri dış sıcaklığı ve güç tüketimini arasında güçlü bir bağıntısı gösterir. Sık erişimli Yaz gün boyunca, tüketicilerin olun, hava bağıntıyı ve sistemleri ısıtma üzerinde Kış power sırasında kullanın. Güvenilir bir kaynak geçmiş Sıcaklıkların kılavuz konumda bu nedenle anahtardır. Ayrıca, biz de sıcaklık, doğru bir tahmin üzerinde bir güç tüketimini tahmin unsuru kullanır.
 
-Diğer dış veri kaynaklarına enerji talep tahmin modelleri oluşturmaya da yardımcı olur. Bu uzun vadeli iklim değişiklikleri, ekonomik dizinleri içerebilir (*ör*, GDP) ve diğerleri. Bu belgede Biz bu diğer veri kaynakları dahil edilmez.
+Diğer dış veri kaynakları, enerji talebi tahmin modellerini oluşturmaya da yardımcı olabilir. Bu uzun vadeli iklim değişiklikler, ekonomik dizinler içerebilir (*örn*, gayrisafi yurt içi HASILA) ve diğerleri. Bu belgede size bu diğer veri kaynakları dahil edilmez.
 
 ### <a name="data-structure"></a>Veri yapısı
-Gerekli veri kaynakları belirledikten sonra toplanan ham verileri doğru veri özelliklerini içerdiğinden emin olmak isteriz. Güvenilir isteğe bağlı bir tahmin modeli oluşturmak için biz toplanan verileri gelecekteki talep tahmin etmeye yardımcı olması veri öğeleri içerdiğinden emin olmak gerekir. Ham verileri veri yapısını (şema) ile ilgili bazı temel gereksinimleri aşağıda verilmiştir.
+Gerekli veri kaynaklarına belirledikten sonra toplanmış olan ham verileri doğru veri özelliklerini içerdiğinden emin olmak istiyoruz. Güvenilir bir talep tahmin modeli oluşturmak için biz toplanan veriler, gelecek talebi tahmin yardımcı olabilecek veri öğeleri içermesini sağlamak amacıyla gerekir. Ham veri (şema) veri yapısı ile ilgili bazı temel gereksinimler aşağıda verilmiştir.
 
-Ham verileri satırları ve sütunları oluşur. Her ölçüm verileri tek bir satır temsil edilir. Her veri satırının birden çok sütun (Özellikler veya alanlar da bilinir) içerir.
+Ham verileri satırlar ve sütunlar oluşur. Her ölçüm verileri tek bir satır temsil edilir. Her veri satırının birden çok sütun (Özellikler veya alanlar da bilinir) içerir.
 
-1. **Zaman damgası** – ne zaman ölçümü kaydedilen gerçek zaman zaman damgası alanı temsil eder. Ortak tarih/saat biçimlerinden biri ile uyumlu. Tarih ve saat bölümleri eklenmelidir. Çoğu durumda, ikinci ayrıntı düzeyini kaydedilmesi süre için gerek yoktur. Veri kaydedilen saat dilimini belirtin önemlidir.
-2. **Ölçüm kimliği** -Bu alan ölçer veya ölçüm aygıt tanımlar. Kategorik bir değişkendir ve basamak ve karakter bir bileşimi olabilir.
-3. **Tüketim değeri** – belirli bir tarih/zaman gerçek tüketim budur. Tüketim kWh (kilowatt-hour) ölçülebilir veya diğer tercih edilen birimleri. Ölçü birimi verilerdeki tüm ölçümler arasında tutarlı kalması gerekir dikkate almak önemlidir. Bazı durumlarda, tüketim üzerinde 3 güç aşamaları sağlanabilir. Bu durumda biz tüm bağımsız tüketim aşamaları toplamak gerekir.
-4. **Sıcaklık** – sıcaklık genellikle bağımsız bir kaynaktan toplanır. Ancak, verilere ile uyumlu olmalıdır. Gerçek tüketim verilerle eşitlenmek üzere izin veren yukarıda açıklandığı gibi bir zaman damgası içermelidir. Sıcaklık değer derece derece veya Fahrenhayt belirtilebilir ancak tüm ölçümler arasında tutarlı kalmasını.
-5. **Konum –** konum alanı genellikle burada sıcaklık toplanan veriler yer ile ilişkilidir. Bir posta kodu sayı olarak veya enlem/boylam (lat/uzun) biçiminde gösterilebilir.
+1. **Zaman damgası** – ne zaman ölçüm kaydedilen zaman gerçek zaman damgası alanı temsil eder. Genel tarih/saat biçimlerinden biri ile uyumlu olmalıdır. Tarih ve saat bölümleri eklenmelidir. Çoğu durumda, ikinci taneciklik düzeyini kaydedilecek kez gerek yoktur. Hangi veri kaydedilen saat dilimi belirtmek önemlidir.
+2. **Ölçüm kimliği** -meter veya ölçüm cihaz Bu alan tanımlar. Bu Kategorik bir değişkendir ve bir rakam ve karakter birleşimi olabilir.
+3. **Tüketim değer** – belirli bir tarih/saat gerçek tüketime budur. Tüketim (kilowatt-hour) kWh cinsinden ölçülen veya diğer tercih edilen birimler. Ölçü birimi verilerdeki tüm ölçümler genelinde tutarlı kalması gereken dikkat edin önemlidir. Bazı durumlarda, tüketim 3 power aşamaları sağlanabilir. Bu durumda biz bağımsız tüketim aşamaları toplamak gerekir.
+4. **Sıcaklık** – genellikle bağımsız bir kaynaktan toplanan sıcaklık. Ancak, tüketim veri türüyle uyumlu olmalıdır. Bu, gerçek kullanım verileri ile eşitlenmesine olanak tanıyan yukarıda açıklandığı gibi bir zaman damgasını içermelidir. Sıcaklık değeri Santigrat derece ya da Fahrenhayt belirtilebilir, ancak tüm ölçümler tutarlı kalır.
+5. **Konum –** konum alanı genellikle burada sıcaklık verilerini toplanmış yer ile ilişkilidir. Bir posta kodu sayı olarak veya enlem/boylam (lat/uzun) biçiminde gösterilebilir.
 
-Aşağıdaki tablolarda iyi kullanım ve sıcaklık veri biçimi örnekler gösterilmektedir:
+Aşağıdaki tablolarda, iyi bir tüketim ve sıcaklık veri biçimi örneklerini gösterir:
 
-| **Tarih** | **Saat** | **Ölçer kimliği** | **Aşama 1** | **Aşama 2** | **3. Aşama** |
+| **Tarih** | **saat** | **Ölçüm kimliği** | **1. Aşama** | **2. Aşama** | **3. Aşama** |
 | --- | --- | --- | --- | --- | --- |
 | 7/1/2015 |10:00:00 |ABC1234 |7.0 |2.1 |5.3 |
 | 7/1/2015 |10:00:01 |ABC1234 |7.1 |2.2 |4.3 |
 | 7/1/2015 |10:00:02 |ABC1234 |6.0 |2.1 |4.0 |
 
-| **Tarih** | **Saat** | **Konum** | **Sıcaklık** |
+| **Tarih** | **saat** | **Konum** | **Sıcaklık** |
 | --- | --- | --- | --- |
 | 7/1/2015 |10:00:00 |11242 |24.4 |
 | 7/1/2015 |10:00:01 |11242 |24.4 |
 | 7/1/2015 |10:00:02 |11242 |24.5 |
 
-Yukarıdaki görüldüğü gibi bu örnek 3 güç aşaması olan ilişkili tüketimi için 3 farklı değerler içerir. Ayrıca, tarih ve saat alanları ayrılmış olduğunu, ancak bunlar da tek bir sütun halinde birleştirilebilir unutmayın. Bu durumda konum sütunu 5 rakamlı posta kodu biçimi ve sıcaklık derece derece biçiminde gösterilir.
+Yukarıda görüldüğü gibi bu örnek 3 güç aşaması olan ilişkili tüketim için 3 farklı değerler içerir. Ayrıca, tarih ve saat alanları ayrılmış olduğunu, ancak bunlar de tek bir sütunda birleştirilebilir unutmayın. Bu örnekte konum sütunu 5 basamaklı posta kodu biçimi ve sıcaklığı Santigrat derece biçimde temsil edilir.
 
 ### <a name="data-format"></a>Veri biçimi
-Cortana Intelligence Suite, CSV, TSV, JSON, gibi en yaygın veri biçimleri destekleyebilmesi *vb.*. Veri biçimi için tüm yaşam döngüsünü projenin tutarlı kalmasını önemlidir.
+Cortana Intelligence Suite, CSV, TSV, JSON, en yaygın veri biçimlerini destekleyebilir *vb.*. Veri biçimi için tüm yaşam döngüsünü projenin tutarlı kalmasını önemlidir.
 
 ### <a name="data-ingestion"></a>Veri Alımı
-Enerji talep tahmin sürekli ve sık tahmin olduğundan, biz ham verileri düz ve güvenilir veri alım işlemi yoluyla akan emin olmanız gerekir. Alım işlem ham verileri gereken zaman tahmin işlemi için kullanılabilir olduğunu güvence altına almalıdır. Veri alım sıklığı tahmin sıklığından büyük olması gerektiğini gösterir.
+Enerji talebi tahmin sürekli ve sık bir şekilde tahmin olduğundan, biz ham veriler sağlam ve güvenilir veri alma işlemi yoluyla geçiyor emin olmanız gerekir. Alma işlemi, ham verileri gereken zaman tahmin işlemi için kullanılabilir olacağını garanti gerekir. Bu, veri alımı sıklığı tahmin sıklığından büyük olması gerektiğini anlamına gelir.
 
-Örneğin: Çözüm tahmin bizim isteğe bağlı 8: 00'da her gün yeni bir tahmini oluşturur sonra tüm son 24 saat sırasında toplanan verileri o noktadan bir tam olarak alınan ve hatta gerekir, son bir saat eklediğinizden emin olun gerekir  veriler.
+Örneğin: tahmin çözümü bizim isteğe bağlı saat 8: 00'da her gün yeni bir tahmini oluşturur sonra tüm son 24 saat toplanan verileri o noktaya kadar bir tam olarak alınan ve hatta gerekir, son bir saat eklediğinizden emin olun gerekir  veriler.
 
-Bunu gerçekleştirmek için Cortana Intelligence Suite güvenilir veri alım işlemini desteklemek için çeşitli yollar sunar. Bu, daha fazla incelenecektir **dağıtım** bu belgenin bölüm.
+Bunu gerçekleştirmek için Cortana Intelligence Suite güvenilir veri alma işlemini desteklemek için çeşitli yollar sunar. Bu daha ayrıntılı olarak açıklanmıştır **dağıtım** bu belgenin bölüm.
 
 ### <a name="data-quality"></a>Veri Kalitesi
-Güvenilir ve doğru bir talebi tahmin gerçekleştirmek için gerekli olan ham veri kaynağı bazı temel veri kalite ölçütlerini karşılamalıdır. Gelişmiş istatistiksel yöntemler için bazı olası veri kalitesi sorunu dengelemek için kullanılır ancak biz yine biz bazı temel veri kalitesi eşik yeni veri alma zaman geçmesinden emin olmak gerekir. Ham veri kalitesini ilgili birkaç dikkat edilecek noktalar şunlardır:
+Güvenilir ve doğru Talep tahmini gerçekleştirmek için gerekli olan ham veri kaynağı, bazı temel veri kalite ölçütlerini karşılamalıdır. Bazı olası veri kalitesi sorunu dengelemek için Gelişmiş istatistiksel yöntemler kullanılabilir olsa da, yine de biz bazı temel veri kalitesi eşiği yeni veri alma, geçmeden emin olmak ihtiyacımız var. Ham veri kalitesi ilgili bazı önemli noktalar şunlardır:
 
-* **Eksik değeri** – belirli bir ölçü değil toplanan olduğunda bu duruma başvuruyor. Temel burada eksik değeri oranı belirli bir süre için % 10 ' büyük olmamalıdır, gereksinimdir. Durumda, tek bir değer eksik önceden tanımlanmış bir değer kullanarak belirtilmesi (örneğin: '9999') ve 'geçerli bir ölçü olabilen 0'.
-* **Ölçüm doğruluğu** – tüketimi veya sıcaklık gerçek değeri doğru olarak kayıtlı olmalıdır. Yanlış ölçümleri yanlış tahminleri oluşturur. Genellikle, ölçüm hata %1 true değeri göre daha düşük olması gerekir.
-* **Ölçüm zaman** – gerekli verilerin gerçek zaman damgası toplanan gerçek ölçü doğru zamanı göre 10 saniyeden fazla tarafından sapma değil.
-* **Eşitleme** – birden çok veri kaynağı kullanıldığında (*ör*, kullanım ve sıcaklık) biz hiçbir zaman eşitleme olduğundan emin olun aralarında sorunları. Bu, herhangi iki bağımsız veri kaynaklarından toplanan zaman damgası arasındaki zaman farkı 10 saniyeden fazla aşmamalıdır anlamına gelir.
-* **Gecikme süresi** - de, yukarıda açıklanan şekilde **veri alımı**, bir güvenilir veri akışı ve alım işleme bağımlı duyuyoruz. Denetimi biz biz veri gecikmesi kontrol emin olmalısınız. Bu, gerçek ölçüm alındığı saat ve veren Cortana Intelligence Suite depoya yüklendi ve kullanıma hazırdır saat arasındaki zaman farkı olarak belirtilir. Kısa vadeli yük için toplam gecikmeyi düşük tahmin 30 dakikadan fazla olmamalıdır. Uzun vadeli yük için toplam gecikmeyi düşük tahmin 1 günden daha büyük olmamalıdır.
+* **Eksik değer** – belirli bir ölçü değil toplandığında, bu duruma başvurur. Temel burada eksik değer oranı belirli bir süre için % 10'den büyük olmamalıdır, gereksinimidir. Durumda, tek bir değer eksik önceden tanımlı bir değer kullanarak belirtilmesi (örneğin: '9999') ve 'geçerli bir ölçü olabilecek 0'.
+* **Ölçüm doğruluğu** – tüketim veya sıcaklık gerçek değerini doğru bir şekilde kaydedilmelidir. Yanlış ölçümleri yanlış tahminleri üretecektir. Genellikle, ölçüm hata %1 true değerine göre daha düşük olmalıdır.
+* **Ölçü zaman** – gerekli verilerin gerçek zaman damgası, toplanan 10 saniyeden göre doğru zamanı gerçek ölçü tarafından sapma değil.
+* **Eşitleme** – birden çok veri kaynağına kullanıldığında (*örn*, tüketim ve sıcaklık) size hiçbir zaman eşitleme olduğundan emin olmalısınız aralarında sorunları. Bu, herhangi iki bağımsız veri kaynaklarından toplanan zaman damgası arasındaki zaman farkı 10 saniyeden fazla aşmamalıdır anlamına gelir.
+* **Gecikme süresi** - de, yukarıda açıklandığı gibi **veri alımı**, bir güvenilir veri akışı ve alım işleme bağımlı duyuyoruz. Denetimi biz size veri gecikme süresinin denetim emin olmalısınız. Bu, gerçek ölçüm alındığı saat ve, Cortana Intelligence Suite depolama alanına yüklenmiş ve kullanıma hazır saat arasındaki zaman farkı olarak belirtilir. Kısa süreli yük için toplam gecikme süresini tahmin 30 dakikadan fazla olmamalıdır. Uzun süreli yük için toplam gecikme süresini tahmin 1 günden daha büyük olmamalıdır.
 
 ### <a name="data-preparation-and-feature-engineering"></a>Veri hazırlama ve özellik Mühendisliği
-Ham verileri alınan sonra (bkz **veri alımı**) ve güvenli bir şekilde depolanır; bu işlenmek üzere hazırdır. Veri hazırlama aşamasında temelde ham verileri alan ve (, yeniden şekillendirmek dönüştürme) dönüştürme modelleme aşaması için bir form içine. Ham verileri sütunu olduğundan, gerçek ölçülen değeri, standartlaştırılmış değerleri, gibi daha karmaşık işlemleri kullanarak gibi basit işlemleri içerebilir [zaman İzolasyonu](https://en.wikipedia.org/wiki/Lag_operator)ve diğerleri. Yeni oluşturulan veri sütunlarını veri özellikleri adlandırılır ve bunlar oluşturma işlemine özellik Mühendisliği olarak adlandırılır. Bu işlem sonu biz ham verileri türetilmiş ve model için kullanılacak yeni bir veri kümesi gerekir. Buna ek olarak, veri hazırlık aşamasının eksik değerleri ilgilenebilmek gerekir (bkz **veri kalitesini**) ve bunlar için dengelemek. Bazı durumlarda, biz de tüm değerleri aynı ölçeğini sunulur emin olmak için verileri normalleştirmek gerekir.
+Ham verileri alınan sonra (bkz **veri alımı**) ve güvenli bir şekilde kaldırıldı depolanır; bunu işlenmek üzere hazırdır. Veri Hazırlık aşaması temelde ham verileri alma ve dönüştürme (, yeniden şekillendirmeyi dönüştürme) içine modelleme aşaması için bir form. Ham veri sütunu olduğundan, gerçek ölçülen değeri, standartlaştırılmış değerleri, gibi daha karmaşık işlemler kullanarak gibi basit işlemler içerebilir [zaman İzolasyonu](https://en.wikipedia.org/wiki/Lag_operator)ve diğerleri. Yeni oluşturulan veri sütunlarını veri özellikleri adlandırılır ve bunlar oluşturma işlemi özellik Mühendisliği olarak adlandırılır. Bu işlem sonunda biz ham verilerden türetilmiş ve model için kullanılacak yeni bir veri kümesi gerekir. Ayrıca, veri Hazırlık aşaması ilgileniriz eksik değerleri gerekir (bkz **veri kalitesi**) ve bunları dengelemek. Bazı durumlarda, biz de tüm değerler aynı ölçek temsil edilebilmesi için verilerin'leri normalleştirmek gerekir.
 
-Bu bölümde biz enerji dahil edilen ortak veri özelliklerin bir listesi tahmin modelleri isteğe bağlı.
+Bu bölümde, biz enerjinin dahil edilen genel verileri özelliklerinden bazıları listesinde tahmin modellerini isteğe bağlı.
 
-**Özellikler güdümlü saat:** bu özellikler tarih/zaman damgası verilerden türetilir. Bunlar ayıklanan ve gibi kategorik özellikleri dönüştürülür:
+**Özellik temelli zaman:** bu özellikler tarih/zaman damgası verilerden türetilir. Bunlar ayıklanır ve gibi kategorik özellikler dönüştürülür:
 
-* Saat saat değerleri 0 ile 23 alan budur – günü
-* Gün haftanın – Bu haftanın gününü temsil eder ve 1 arasında değerleri alır (Pazar) 7 (Cumartesi)
-* Gün ayın – Bu gerçek tarihini temsil eder ve değerleri 1 ile 31 alabilir
-* Ay yıl – bu ay temsil eder ve 1 arasında değerleri alır (Ocak) ile 12 (aralık)
-* Hafta sonu – bu hafta sonu için haftanın günlerini veya 1'için 0 değerini alan bir ikili değer özelliğidir
-* Tatil - bu tatil için normal bir gün veya 1 için 0 değerini alan bir ikili değer özelliğidir
-* Fourier koşulları – Fourier koşulları zaman damgası ' türetilen ve mevsimselliğin (döngü) yakalamak için kullanılan ağırlıkları verinin içindedir. Birden çok dönemleri bizim verilerde olabilir beri birden çok Fourier koşulları ihtiyacımız. Örneğin, talep değerleri yıllık, haftalık ve günlük dönemleri/3 Fourier koşullarını neden olacak döngüleri olabilir.
+* Saat gün saat değerleri 0 ile 23 arasında alan gün budur
+* Gün haftanın – Bu haftanın gününü temsil eder ve 1 arasında değerleri alır (Pazar) ile 7 (Cumartesi)
+* Gün, ayın – Bu gerçek tarihini temsil eder ve değerleri 1 ile 31 alabilir
+* Ay yıl – bu ayı temsil eder ve 1 arasında değerleri alır (Ocak) ile 12 (aralık)
+* Hafta sonu – Bu haftanın günleri veya 1 hafta için 0 değerini alan bir ikili değer özelliğidir
+* Tatil - bu değeri 0 veya 1 normal bir gün için bir tatil için alan bir ikili değer özelliğidir
+* Fourier – Fourier koşulları itibaren zaman damgası türetilir ve ' % s'mevsimsellik (döngüler) yakalamak için kullanılan ağırlıkları verileri terimlerdir. Biz birden çok sezonlar verilerimizi olabileceği birden çok Fourier koşulları ihtiyacımız. Örneğin, isteğe bağlı değerler yıllık, haftalık ve günlük sezonlar/3 Fourier koşullarını sonuçlanacak döngüleri olabilir.
 
-**Bağımsız ölçüm özellikleri:** biz predictors bizim modelinde olarak kullanmak istediğiniz tüm veri öğelerini bağımsız özellikleri içerir. Burada tahmin etmek için ihtiyacımız bağımlı özelliğini dışlayın.
+**Bağımsız ölçüm özellikleri:** adaylarının modelimizi de olarak kullanılacak istiyoruz tüm veri öğeleri bağımsız özellikler içerir. Burada, tahmin etmek için ihtiyacımız bağımlı özellik tutarız.
 
-* Gecikme özelliği – bunlar gölgeye zaman gerçek talep değerleri. Örneğin, öteleme 1 özellikleri, isteğe bağlı değeri (saatlik veri varsayılarak) göre geçerli zaman damgası önceki saat içinde tutar. Benzer şekilde, biz öteleme 2 eklemek için 3, öteleme *vb.*. Kullanılan öteleme özellik gerçek bileşimi, model oluşturma aşamasında modeli sonuçları değerlendirme tarafından belirlenir.
-* Uzun süreli oluşturan eğilim – bu özellik isteğe bağlı yıl arasında doğrusal artışa temsil eder.
+* Lag özellik – bunlar zaman kaydırılacağı uzaklık değerleri gerçek isteğe bağlı. Örneğin, lag 1 özellikleri, isteğe bağlı değerin göreli geçerli zaman damgasını (saatlik veri varsayılarak) önceki saat içinde tutar. Benzer şekilde, biz 2 gecikme eklemek için 3, öteleme *vb.*. Kullanılan lag özellikleri gerçek birleşimi, modelleme aşaması sırasında model sonuçlarını değerlendirmesi tarafından belirlenir.
+* Uzun süreli popüler: Bu özellik isteğe bağlı yılları arasında doğrusal artışı temsil eder.
 
-**Bağımlı özellik:** tahmin etmek için modelimizi isteriz veri sütun bağımlı özelliğidir. İle [denetimli makine öğrenme](https://en.wikipedia.org/wiki/Supervised_learning), ilk (, aynı zamanda etiketleri olarak da adlandırılır), bağımlı özelliklerini kullanarak modeli eğitmek ihtiyacımız. Bu bağımlı özelliği ile ilişkilendirilen veri desenleri bilgi edinmek model sağlar. Tahmin enerji isteğe bağlı olarak genellikle gerçek talep tahmin etmek istiyoruz ve bu nedenle biz bunu bağımlı bir özellik olarak kullanırsınız.
+**Bağımlı özellik:** modelimizi tahmin etmek istiyoruz. veri sütunu bağımlı özelliğidir. İle [denetimli makine öğrenimi](https://en.wikipedia.org/wiki/Supervised_learning), önce (Bu aynı zamanda etiket olarak adlandırılır), bağımlı özellikleri kullanarak modeli eğitmek için oluşturmamız gerekir. Bu bağımlı özellikle ilişkilendirilen veri desenlerinde öğrenmek model sağlar. Tahmini enerji talebini genellikle gerçek talep tahmin etmek istiyoruz ve bu nedenle biz bağımlı bir özellik olarak kullanılır.
 
-**Eksik değerleri işleme:** verileri hazırlama aşamasında, biz eksik değerleri işlemek için en iyi stratejisini belirlemek gerekir. Bu çoğunlukla çeşitli istatistik kullanarak yapılır [veri imputation yöntemleri](https://en.wikipedia.org/wiki/Imputation_\(statistics\)). İsteğe bağlı enerji tahmin söz konusu olduğunda, biz genellikle eksik değerleri önceki kullanılabilir veri noktalarından hareketli ortalama kullanarak impute.
+**Eksik değerleri işleme:** veri hazırlama aşamasında, biz eksik değerleri işlemek için en iyi stratejisini belirlemek gerekir. Bu çeşitli istatistik kullanarak çoğunlukla yapılır [veri imputation yöntemleri](https://en.wikipedia.org/wiki/Imputation_\(statistics\)). Enerji talebi tahmin söz konusu olduğunda, biz genellikle eksik değerleri önceki kullanılabilir veri noktalarından hareketli ortalama kullanarak impute.
 
-**Veri normalleştirme:** veri normalleştirme benzer bir ölçek tahmin talep gibi tüm sayısal verileri getirmek için kullanılan dönüşümünün başka bir türüdür. Bu, genellikle model doğruluğundan ve duyarlık artırılmasına yardımcı olur. Biz genellikle veri aralığına göre gerçek değer bölerek yaparsınız.
-Bu ilk değeri -1 ile 1 arasında genellikle daha küçük bir aralık içinde ölçeklenir.
+**Veri normalleştirme:** veri normalleştirme benzer bir ölçek Talep tahmini gibi tüm sayısal verileri getirmek için kullanılan dönüşümünün başka bir türdür. Bu, genellikle duyarlık ve doğruluğu artırmak yardımcı olur. Genellikle veri aralığına göre gerçek değeri bölerek bunu.
+Bu özgün değer -1 ile 1 arasında genellikle daha küçük bir aralıkta birleştirir, ölçeği.
 
 ## <a name="modeling"></a>Modelleme
-Veri dönüştürme bir modeline gerçekleştiği modelleme aşamasıdır. Bu işlemi var. çekirdek geçmiş verileri (eğitim) tarayın, desenleri ayıklamak ve bir model oluşturma algoritmaları Gelişmiş. Bu model, daha sonra model oluşturmak için kullanılmamış olan yeni veriler üzerinde tahmin etmek için kullanılabilir.
+Veri dönüştürme bir modeline gerçekleştiği modelleme aşamasıdır. Bu işlemin var. çekirdek geçmiş verileri (eğitim) tarayın, desenleri ayıklayın ve model derleme algoritmalar Gelişmiş. Bu model, daha sonra modeli oluşturmak için kullanılmamış olan yeni veriler üzerinde tahmin etmek için kullanılabilir.
 
-Biz çalışmaya güvenilir bir modeli eğittikten sonra biz ardından, gerekli özellikleri (X) içerecek şekilde yapılandırılmış yeni verilerinizi puanlamada için kullanabilirsiniz. Puanlama işlem kalıcı modelinin (eğitim aşaması nesnesinden) kullanın ve Ŷ tarafından belirtilen hedef değişkeni tahmin hale getirir.
+Bir çalışma güvenilir modeli sahibiz sonra sonra gerekli özellikleri (X) içerecek şekilde yapılandırılmış yeni verileri puanlamak için kullanabiliriz. Puanlama işlemi, kalıcı modelinin (eğitim aşaması nesneden) kullanın ve Ŷ tarafından belirtilen hedef değişkeni tahmin hale getirir.
 
-### <a name="demand-forecasting-modeling-techniques"></a>Tahmin modelleme teknikleri talep
-İsteğe bağlı vermiyoruz tahmin durumunda zamanına göre sıralanmış geçmiş verilerin kullanın. Biz genellikle zaman boyutu olarak içeren verilere başvuran [zaman serisi](https://en.wikipedia.org/wiki/Time_series). Zaman serisi modelleme hedefte bulmaktır olanlar bir modeline formüle ve zaman ilgili eğilimleri, mevsimselliğin, otomatik bağıntı (bağıntı zaman içinde).
+### <a name="demand-forecasting-modeling-techniques"></a>Talep tahmini teknikleri modelleme
+Talep tahmini vermiyoruz söz konusu olduğunda, zamana göre sıralı geçmiş verilerin kullanın. Zaman boyutu olarak içeren verileri genel olarak diyoruz [zaman serisi](https://en.wikipedia.org/wiki/Time_series). Hedef içinde zaman serisi modelleme bulmaktır zaman ilgili eğilim, mevsimsellik, otomatik-bağıntı (bağıntı zaman içinde) ve bunları da bir model oluşturmak.
 
-Son yıllarda gelişmiş algoritmalar zaman serisi tahmin uyum sağlayacak şekilde ve tahmin doğruluğunu artırmak için geliştirilmiştir. Biz kısaca birkaç tanesi aşağıda ele alınmıştır.
+Son yıllarda, zaman serisi tahmin uyum sağlamak için ve tahmin doğruluğunu artırmak için gelişmiş algoritmalar geliştirilmiştir. Kısaca birkaç tanesi burada ele alır.
 
 > [!NOTE]
-> Bu bölümde, bir makine öğrenme ve genel bakış tahmin olarak ancak bunun yerine isteğe bağlı tahmin için yaygın olarak kullanılan teknikleri modelleme kısa anket olarak kullanılmak üzere tasarlanmamıştır. Daha fazla bilgi ve eğitim malzemesi zaman serisi tahmin hakkında çevrimiçi kitap öneririz [tahmin: ilkeleri ve uygulama](https://www.otexts.org/book/fpp).
+> Bu bölümde, makine öğrenimi ve genel bakış tahmin ancak Talep tahmini için yaygın olarak kullanılır teknikler modelleme çok kısa bir ankete olarak kullanılmak üzere tasarlanmamıştır. Daha fazla bilgi ve zaman serisi tahmini hakkında eğitim malzemesi için çevrimiçi kitap öneririz [tahmin: ilkeleri ve uygulama](https://www.otexts.org/book/fpp).
 > 
 > 
 
 #### <a name="ma-moving-averagehttpswwwotextsorgfpp62"></a>[**MA (hareketli ortalama)**](https://www.otexts.org/fpp/6/2)
-Hareketli ortalama zaman serisi tahmin için kullanılan ilk analitik teknikleri birini ve hala bir en sık kullanılan teknikleri bugünden itibaren olur. Bu ayrıca teknikleri tahmin daha gelişmiş temelidir. Hareketli Ortalama biz burada K hareketli ortalama sırasını gösterir K en son noktaları ortalayarak sonraki veri noktası tahmin.
+Hareketli ortalama zaman serisi tahmini için kullanılan ilk analitik tekniklerden birini ve yine de bir en sık kullanılan teknikleri bugünden itibaren şeklindedir. Ayrıca tahmin tekniklerinin daha gelişmiş için bir temel niteliğindedir. Hareketli Ortalama biz burada K hareketli ortalama sırasını gösterir K en son noktaları ortalaması alınarak sonraki veri noktası tahmin.
 
-Hareketli Ortalama teknik tahmin düzgünleştirme etkisi vardır ve bu nedenle de büyük volatilite veri işleyebilir değil.
+Hareketli Ortalama teknik tahmin düzgünleştirme etkisi vardır ve bu nedenle de büyük geçiciliğine veri yönetemeyen.
 
-#### <a name="ets-exponential-smoothinghttpswwwotextsorgfpp75"></a>[**Madde işaretleri (Üstel düzeltme)**](https://www.otexts.org/fpp/7/5)
-Üstel yumuşatma (madde işaretleri) son veri noktalarını ağırlıklı ortalaması sonraki veri noktası tahmin etmek için kullanabileceğiniz çeşitli yöntemler ailesi ' dir. Daha yeni değerleri daha yüksek ağırlıkları atayın ve bu ağırlık eski ölçülen değerler için giderek azaltmak için kullanılan uygulamadır. Birkaç farklı yöntemle bu aile, bunlardan bazıları, veri mevsimselliğin gibi işleme dahil [Holt Winters Mevsimlik yöntemi](https://www.otexts.org/fpp/7/5).
+#### <a name="ets-exponential-smoothinghttpswwwotextsorgfpp75"></a>[**ETS (Üstel düzeltme)**](https://www.otexts.org/fpp/7/5)
+Üstel düzgünleştirme (ETS), son veri noktalarını ağırlıklı ortalamasını sonraki veri noktası tahmin etmek için kullanabileceğiniz çeşitli yöntemler ailesidir. Daha yüksek ağırlıkları için daha yeni değerler atayın ve giderek eski ölçülen değerleri için bu ağırlığı olur. Birkaç farklı yöntemle bu aile, bunlardan bazıları veri mevsimsellik gibi işleme özelliğini içerecek [Holt-Winters dönemsel yöntemi](https://www.otexts.org/fpp/7/5).
 
-Bu yöntemlerin bazıları aynı zamanda veri mevsimselliğin içinde öğeli.
+Bu yöntemlerden bazıları aynı zamanda verilerin mevsimsellik faktörü.
 
-#### <a name="arima-auto-regression-integrated-moving-averagehttpswwwotextsorgfpp8"></a>[**ARIMA (otomatik gerileme tümleşik hareketli ortalama)**](https://www.otexts.org/fpp/8)
-Otomatik gerileme tümleşik hareketli ortalama (ARIMA) zaman serisi tahmin için yaygın olarak kullanılan başka bir yöntem ailesi ' dir. Pratikte, otomatik gerileme yöntemleri'nin hareketli ortalama ile birleştirir. Otomatik gerileme yöntemler sonraki tarih noktası hesaplamak üzere önceki zaman serisi değerleri gerçekleştirerek regresyon modeli kullanır. ARIMA yöntemleri aynı zamanda veri noktaları arasındaki farkı hesaplama ve bunları özgün ölçülen değeri yerine kullanarak içeren fark kayıt yöntemleri için geçerlidir. Son olarak, ARIMA da yukarıda açıklanan hareketli ortalama teknikler kullanır. Bu yöntemlerin çeşitli şekillerde tümü, ne ARIMA yöntemleri ailesi oluşturur birleşimidir.
+#### <a name="arima-auto-regression-integrated-moving-averagehttpswwwotextsorgfpp8"></a>[**ARIMA (otomatik gerileme bütünleşik hareketli ortalama)**](https://www.otexts.org/fpp/8)
+Otomatik gerileme tümleşik hareketli ortalama (ARIMA) için zaman serisi tahmin yaygın olarak kullanılan başka bir yöntem ailesidir. Hareketli Ortalama otomatik gerileme yöntemleri bulundurmanızı birleştirir. Otomatik gerileme yöntemleri sonraki tarih noktası hesaplamak için önceki zaman seri değerlerini yararlanarak regresyon modellerini kullanın. ARIMA yöntemleri veri noktaları arasındaki farkı hesaplamak ve özgün ölçülen değeri yerine bu kullanarak içeren fark kayıt yöntemleri için de geçerlidir. Son olarak, ARIMA ayrıca yukarıda açıklanan hareketli ortalama teknikleri kullanır. Tüm bu yöntemleri çeşitli şekillerde ne ARIMA yöntemleri ailesi oluşturur birleşimidir.
 
-Madde işaretleri ve ARIMA yaygın olarak bugün enerji talep tahmin ve diğer birçok tahmin sorunları için kullanılır. Çoğu durumda bunlar birleştirilir birlikte çok doğru sonuçlar teslim etmek için.
+ETS hem de ARIMA yaygın bugün enerji Talep tahmini ve diğer birçok tahmin sorunları için kullanılır. Çoğu durumda bunlar birleştirilir birlikte çok doğru sonuçlar sağlamak için.
 
-**Genel çoklu regresyon** regresyon modelleri için en önemli modelleme yaklaşım makine öğrenme ve İstatistikler etki alanı içinde olabilir. Zaman serisi bağlamında regresyon gelecekteki değerleri tahmin etmek için kullanıyoruz (*ör*, isteğe bağlı olarak). Regresyon içinde predictors doğrusal bileşimini alın ve eğitim işlemi sırasında bu predictors (katsayısını da bilinir) ağırlıkları öğrenin. Bizim tahmin edilen bir değer tahmin regresyon satır üretmek için belirtilir. Hedef değişkeni sayısal olduğunda ve bu nedenle de zaman serisi tahmin uygun regresyon yöntemleri uygundur. Regresyon yöntemleri çok basit regresyon modeller gibi çeşitli yoktur [doğrusal regresyon](https://en.wikipedia.org/wiki/Linear_regression) ve olanları karar ağaçları gibi daha gelişmiş [rastgele ormanlar](https://en.wikipedia.org/wiki/Random_forest), [Neural Ağları](https://en.wikipedia.org/wiki/Artificial_neural_network)ve karar ağaçları Boosted.
+**Genel çoklu regresyon** regresyon modelleri, makine öğrenimi ve istatistikleri etki alanı içinde en önemli modelleme yaklaşımı olabilir. Zaman serisi bağlamında regresyon gelecekteki değerleri tahmin etmek için kullanırız (*örn*, talep). Regresyon, adaylarının doğrusal birleşimi alın ve bu adaylarının ağırlıkları (katsayıları da bilinir) bir eğitim işlemi sırasında öğrenin. Bizim tahmin edilen bir değer tahmin bir regresyon çizgi oluşturmak için kullanılan hedeftir. Hedef değişkeni sayısal ve bu nedenle de zaman serisi tahmin uygun olduğunda regresyon yöntemleri uygundur. Regresyon yöntemlerden çok basit bir regresyon modelleri gibi çeşitli yoktur [doğrusal regresyon](https://en.wikipedia.org/wiki/Linear_regression) ve olanları karar ağaçları'gibi daha gelişmiş [rastgele ormanları](https://en.wikipedia.org/wiki/Random_forest), [Neural Ağları](https://en.wikipedia.org/wiki/Artificial_neural_network)ve Artırılmış karar ağaçları.
 
-Enerji isteğe bağlı bir regresyon sorun tahmin oluşturma bize büyük bir fiili talep zaman serisi veri ve sıcaklık gibi dış etkenler birleştirilebilir bizim veri özellikleri seçerek esneklik sağlar. Seçilen özellikler hakkında daha fazla bilgi özellik Mühendisliği içinde açıklanan (bkz **veri hazırlığı ve özellik Mühendisliği**) bu playbook bölümü.
+Regresyon problemi tahmini enerji talebini oluşturmak çok fazla gerçek zaman serisi verilerini ve sıcaklık gibi dış faktörler, birleştirilebilen veri özelliklerimizi seçme esnekliği sağlıyor. Seçilen özellikler hakkında daha fazla bilgi, özellik Mühendisliği içinde açıklanmıştır (bkz **veri hazırlama ve özellik Mühendisliği**) playbook'u bölümü.
 
-Uygulama ve enerji isteğe bağlı tahminleri pilot dağıtımı ile bizim deneyimlerden Azure ML bulunan Gelişmiş regresyon modeller en iyi sonuçlar eğilimindedir ve vermiyoruz bulduk bunları kullanın.
+Deneyimlerimizden uygulama ve enerji talep tahminleri pilot dağıtımı, Azure ML üzerinde mevcut olan gelişmiş regresyon modelleri, en iyi sonuçlar eğilimindedir ve vermiyoruz bulduk bunları kullanın.
 
-## <a name="model-evaluation"></a>Model değerlendirme
-Model değerlendirme sahip kritik bir rolde **modeli geliştirme döngüsü**. Bu adımda modeli ve performansını gerçek verilerle doğrulama içine bakın. Modelleme adımı sırasında kullanılabilir verilerin bir kısmını modeli eğitmek için kullanırız. Değerlendirme aşaması sırasında veri modeli test etmek için geri kalanı alın. Pratikte biz yeniden oluşturulamaz ve eğitim veri kümesi ile aynı özellikleri içeren model yeni verileri besleme anlamına gelir. Ancak, doğrulama işlemi sırasında model hedef değişkeni tahmin etmek yerine kullanılabilir hedef değişkeni sağlamak için kullanırız. Biz genellikle modeli Puanlama olarak bu işlem bakın. Biz sonra doğru hedef değerleri kullanın ve bunları tahmin edilen raporlarla karşılaştırın. Burada ölçmek ve tahminleri true değeri arasındaki fark anlamına tahmin hata en aza indirmek için belirtilir. Model ince ayar ve hata gerçekte azalan olup olmadığını doğrulamak isteriz beri hata ölçüm niceleme anahtardır. Model ince ayar yapılabilir öğrenme işlemini denetleyen modeli parametreleri değiştirerek veya ekleyerek veya kaldırarak veri özellikleri (olarak adlandırılan [parametreleri tarama](https://channel9.msdn.com/Blogs/Azure/Data-Science-Series-Building-an-Optimal-Model-With-Parameter-Sweep)). Pratikte, biz modelleme, özellik Mühendisliği arasında yinelemek ve biz hata gerekli düzeyine azaltabilirsiniz kadar Değerlendirme Aşaması birden çok kez model gerekebilir anlamına gelir.
+## <a name="model-evaluation"></a>Modeli değerlendirme
+Modeli değerlendirme sahip kritik bir rol içinde **Model geliştirme döngüsü**. Bu adımda modeli ve gerçek verilerle performansını doğrulama içine bakın. Modelleme adımı sırasında kullanılabilir verilerin bir kısmını modeli eğitmek için kullanırız. Değerlendirme aşaması sırasında biz kalan modeli test etmek üzere verileri alın. Pratikte, biz yeniden oluşturulamaz ve eğitim veri kümesi ile aynı özellikleri içeren model yeni verileri besleme anlamına gelir. Ancak, doğrulama işlemi sırasında model hedefi değişkeni tahmin etmek yerine kullanılabilir hedef değişkeni sağlamak için kullanırız. Genellikle bu işlemi olarak Puanlama modeli diyoruz. Biz sonra doğru hedef değerleri kullanın ve bunları tahmin edilen oluşturduklarıyla karşılaştırın. Buradaki amaç, tahminler ve gerçek değer arasındaki farkı anlamı tahmin hata en aza indirmek ve ölçmek sağlamaktır. Model ince ayar yapma ve hata gerçekten azalan dağıtılamayacağını doğrulamak isteriz olduğundan hata ölçüm niceleme anahtardır. Model ince ayar yapılabilir learning işlemini denetleyen model parametreleri değiştirerek veya ekleyerek veya kaldırarak veri özelliklerini (olarak adlandırılan [parametreleri gözden geçirme](https://channel9.msdn.com/Blogs/Azure/Data-Science-Series-Building-an-Optimal-Model-With-Parameter-Sweep)). Pratikte, biz modelleme, özellik Mühendisliği arasında yineleme yapmak ve hata için gerekli düzeyi azaltabilmenizi duyuyoruz kadar değerlendirme aşamaları birden çok kez model gerekebileceğini anlamına gelir.
 
-Tahmin hatası hiçbir zaman sıfır olarak olacağını Vurgu önemlidir hiçbir mükemmel her sonucu tahmin etmek bir model değildir. Ancak, belirli bir iş tarafından kabul edilebilir hata büyüklüğünü yoktur. Doğrulama işlemi sırasında bizim modeli tahmin hata düzeyinde olduğundan emin olmak isteriz veya iş tolerans düzeyi daha iyi. Bu nedenle döngüsü sırasında başındaki tolerable hata düzeyini ayarlamak önemli olan **sorun Formülasyonu** aşaması.
+Tahmin hatası asla sıfır olarak olacağını Vurgu önemlidir hiçbir zaman her sonuç mükemmel bir şekilde tahmin edebilen bir model yok. Ancak, belirli bir boyuta, iş için kabul edilebilir bir hata yoktur. Doğrulama işlemi sırasında model tahmin hata iletilerimizi düzeyinde olduğundan emin olmak istiyoruz veya iş tolerans düzeyi daha iyi. Bu nedenle döngüsü sırasında başındaki fazla hata düzeyini ayarlamak önemli olan **sorun, oluşumunu** aşaması.
 
-### <a name="typical-evaluation-techniques"></a>Tipik değerlendirme teknikleri
-Hangi tahmin hata ölçülen quantified ve çeşitli yolları vardır. Bu bölümde biz zaman serisi ve özel enerji talebi tahmin ilgili değerlendirme teknikleri hakkında tartışma odaklanır.
+### <a name="typical-evaluation-techniques"></a>Tipik bir değerlendirme tekniklerini
+Hangi tahmine hata ölçülen amaçlarıyla ve çeşitli yolları vardır. Bu bölümde biz değerlendirme tekniklerini zaman serisi ve enerji talebini tahmin özel ilgili tartışma odaklanır.
 
 #### <a name="mapehttpsenwikipediaorgwikimeanabsolutepercentageerror"></a>[**MAPE**](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error)
-MAPE ortalama mutlak yüzdesi hata anlamına gelir. İle MAPE biz arasındaki farkı bilgisayar her nokta ve o noktadan gerçek değeri tahmini. Biz sonra hata noktası başına gerçek değer göreli fark oranını hesaplayarak ölçme. Son adımda bu değerleri ortalama. MAPE için kullanılan matematiksel formül aşağıda verilmiştir:
+MAPE ortalama mutlak yüzdesi hata anlamına gelir. İle MAPE biz arasındaki farkı bilgisayar her nokta ve o noktadan gerçek değerini tahmini. Biz ardından nokta başına hata oranı gerçek değeri göreli fark hesaplayarak ölçme. Son adımda size bu değerleri ortalama. MAPE için kullanılan matematik formülünü aşağıda verilmiştir:
 
-![MAPE formülü](media/cortana-analytics-playbook-demand-forecasting-energy/mape-formula.png)
-*burada A<sub>t</sub> gerçek değer, F<sub>t</sub> tahmin edilen bir değer ve n tahmin yatay.*
+![MAPE formül](media/cortana-analytics-playbook-demand-forecasting-energy/mape-formula.png)
+*nerede A<sub>t</sub> gerçek değeri, F<sub>t</sub> tahmin edilen değer ve n tahmin gelecekte.*
 
 ## <a name="deployment"></a>Dağıtım
-Biz modelleme aşaması nailed ve model performans doğrulanmış sonra biz dağıtım aşaması gitmek hazırsınız. Bu bağlamda dağıtım modeli gerçek tahminleri üzerinde büyük ölçekte çalıştırarak kullanmak üzere müşteri anlamına gelir. Ana Amacımız yalnızca verilerinden öngörü alma aksine tahminleri sürekli çağrılacak olduğundan dağıtım Azure ML anahtarında kavramdır. Dağıtım aşaması, büyük ölçekli olarak kullanılması için modelini etkinleştirme burada parçasıdır.
+Biz modelleme aşamayı nailed ve model performansını doğrulanmış sonra dağıtım aşaması gitmek hazırız. Bu bağlamda dağıtım modeli gerçek Öngörüler üzerinde büyük ölçekte çalıştırarak kullanma müşteriye etkinleştirme anlamına gelir. Ana Amacımız yalnızca verilerden öngörü edinme aksine Öngörüler sürekli olarak çağrılacak olduğundan dağıtım kavramı Azure ML anahtardır. Dağıtım aşaması, büyük ölçekli olarak kullanılacak bir model nerede etkinleştiririz parçasıdır.
 
-Enerji talep tahmin bağlamında bizim AIM sürekli ve düzenli tahminleri yeni veri modeli için kullanılabilir olduğundan ve tahmin edilen verilerin kaybı istemcisine geri gönderilir sağlarken çağırmaktır.
+Enerji talebi tahmin bağlamında, bir yandan devamlı Periyodik tahminlerini yeni bir veri modeli için kullanılabilir olduğunu ve tahmini veri kaybı istemciye geri gönderilir sağlarken çağırmaktır.
 
 ### <a name="web-services-deployment"></a>Web Hizmetleri dağıtımı
-Azure ML ana dağıtılabilir yapı taşıdır web hizmetidir. Bu, bulutta Tahmine dayalı bir model kullanımını etkinleştirmek için en etkili yoludur. Web hizmeti model yalıtır ve ile sarmalar bir [RESTful](http://www.restapitutorial.com/) API (uygulama programlama arabirimi). API, aşağıdaki çizimde gösterildiği gibi herhangi bir istemci kod parçası olarak kullanılabilir.
+Ana dağıtılabilir yapı taşı Azure ML web hizmetidir. Bu, bulutta Tahmine dayalı bir model kullanımını etkinleştirmek için en etkili yoludur. Web hizmetini model kapsüller ve ile geldik bir [RESTful](http://www.restapitutorial.com/) API (uygulama programlama arabirimi). API, aşağıdaki diyagramda gösterildiği gibi istemci kodunun bir parçası olarak kullanılabilir.
 
-![Hizmet dağıtımı ve kullanımı](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
+![Hizmet dağıtımı ve tüketimi](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
 
-Görüldüğü gibi web hizmeti Cortana Intelligence Suite buluta dağıtılan ve kendi gösterilen REST API uç noktası üzerinden çağrılabilir. Çeşitli etki alanlarında istemciler farklı türde Hizmet Web API aracılığıyla aynı anda çalıştırabilirsiniz. Web hizmeti ayrıca eş zamanlı çağrıları binlerce destekleyecek şekilde ölçeklendirebilirsiniz.
+Görülebileceği gibi web hizmeti, Cortana Intelligence Suite bulutta dağıtılan ve, kullanıma sunulan REST API uç noktası çağrılabilir. Çeşitli etki alanlarında istemciler farklı türde hizmet aracılığıyla Web API'si aynı anda çalıştırabilirsiniz. Web hizmeti, ayrıca eş zamanlı çağrılar binlerce desteklemek üzere ölçeklendirilebilir.
 
-### <a name="a-typical-solution-architecture"></a>Tipik çözüm mimarisi
-Çözüm tahmin enerji isteğe bağlı dağıtırken, tahmin web hizmeti geçer ve tüm veri akışı kolaylaştıran bir uçtan uca Çözüm dağıtımı konusuna ilgi duyan duyuyoruz. Size yeni bir tahmini çağırma zamanında biz model güncel verileri özelliklerle gönderilir emin olmak gerekir. Bu yeni toplanan ham verileri sürekli alınan, işlenen ve model derlendiği ayarlanmış gerekli özellik içine dönüştürülmüş anlamına gelir. Tahmin edilen verilerin istemcileri tüketen son kullanabilmesi aynı anda isteriz. Bir örnek veri akışı döngüsü (veya veri ardışık) aşağıdaki çizimde gösterilmiştir:
+### <a name="a-typical-solution-architecture"></a>Tipik bir çözüm mimarisi
+Bir enerji talebini tahmin çözümü dağıtırken tahmin web hizmeti geçer ve tüm veri akışını kolaylaştıran bir uçtan uca çözüm dağıtmada ilgilenen duyuyoruz. Yeni bir tahmin ediyoruz çağırma zaman modeli güncel verileri özelliklerle beslenir emin olmak biz gerekir. Bu yeni toplanan ham verileri sürekli alınan, işlenen ve hangi model üzerinde geliştirildiği ayarlanmış gerekli özellik olarak dönüştürülür anlamına gelir. Aynı zamanda, tahmin edilen verilerin kullanan istemcileri ve uç kullanılabilir olmasını istiyoruz. Bir örnek veri akışı döngüsü (veya veri işlem hattı), aşağıdaki diyagramda gösterilmiştir:
 
-![Uçtan uca veri akışı enerji talep tahmin](media/cortana-analytics-playbook-demand-forecasting-energy/energy-demand-forecase-end-data-flow.png)
+![Uçtan uca veri akışı enerji talebini tahmin](media/cortana-analytics-playbook-demand-forecasting-energy/energy-demand-forecase-end-data-flow.png)
 
-Enerji talep tahmin döngüsü bir parçası olarak gerçekleşmesi adımları şunlardır:
+Enerji talebi tahmin döngüsünün bir parçası gerçekleşmesi adımlar şunlardır:
 
-1. Dağıtılan veri ölçümler milyonlarca sürekli güç tüketimi verilerinin gerçek zamanlı olarak veren.
-2. Bu veri okunduğunu toplanır ve bir bulut depoya karşıya (*ör*, Azure Blob).
-3. İşlenmeden önce ham verileri bir alt istasyon veya bölgesel düzeyinde iş tarafından tanımlanan toplanır.
-4. Özellik işleme (bkz **veri hazırlığı ve özellik işleme**) sonra gerçekleşmesi üretir için gerekli olan verileri model ve eğitim veya Puanlama – özellik kümesi verilerinin bir veritabanında depolanır (*örneğin*, SQL Azure).
-5. Yeniden eğitim hizmet çağrılan böylece Puanlama web hizmeti tarafından kullanılan tahmin modeli – yeniden eğitmek için model güncelleştirilmiş sürümünün kalıcıdır.
-6. Puanlama web hizmeti gerekli tahmin sıklığı uygun bir zamanlamaya göre çağrılır.
-7. Tahmin edilen verilerin son tüketim istemci tarafından erişilebilir bir veritabanında depolanır.
-8. Tüketim istemci tahminleri alır, geri kılavuza uygular ve uygun şekilde gerekli kullanım örneğini kullanır.
+1. Dağıtılan veri ölçümlerine milyonlarca sürekli güç tüketimi verilerinin gerçek zamanlı olarak oluşturduğunuzdan.
+2. Bu veri toplanan ve bulut deposuna yüklenir (*örn*, Azure Blob).
+3. İşlenmeden önce ham veriler için bir alt istasyon veya bölgesel düzeyde işletme tarafından tanımlandığı şekilde toplanır.
+4. Özellik işleme (bkz **veri hazırlama ve işleme özelliği**) sonra gerçekleşir ve üretir için gerekli olan veri modeli eğitimi veya Puanlama – özellik kümesi veriler bir veritabanında depolanır (*örn*, SQL Azure).
+5. Yeniden eğitim hizmet çağrılır Puanlama web hizmeti tarafından kullanılabilir, böylece yeniden – tahmin modeli eğitmek için model güncelleştirilmiş sürümünün kalıcıdır.
+6. Puanlama web hizmeti gerekli tahmin sıklığı en uygun bir zamanlamaya göre çağrılır.
+7. Tahmin edilen veriler son tüketim istemci tarafından erişilebilen bir veritabanında depolanır.
+8. Tüketim istemci tahminleri alır, ızgaranın içine uygular ve uygun şekilde gerekli kullanım örneğini kullanır.
 
-Tüm bu döngüsünü tamamen otomatik hale getirilmiştir ve bir zamanlamaya göre çalışan dikkate almak önemlidir. Bu veri döngüsü tüm orchestration gibi araçları kullanarak yapılabilir [Azure Data Factory](http://azure.microsoft.com/services/data-factory/).
+Tüm bu döngü tam olarak otomatik değildir ve bir zamanlamaya göre çalışan unutulmaması önemlidir. Bu veri döngüsünün tamamını düzenleme gibi araçları kullanarak yapılabilir [Azure Data Factory](http://azure.microsoft.com/services/data-factory/).
 
 ### <a name="end-to-end-deployment-architecture"></a>Uçtan uca dağıtım mimarisi
-Pratikte enerji bir isteğe bağlı tahmin çözüm Cortana Intelligence üzerinde dağıtmak için gerekli bileşenleri kurulmuş ve doğru yapılandırıldığından emin olmak ihtiyacımız.
+Pratikte bir enerji talebi tahmin çözümü Cortana Intelligence'ı dağıtmak için gerekli bileşenleri kurulan ve doğru yapılandırıldığından emin olmak gerekiyor.
 
-Aşağıdaki diyagramda uygulayan ve yukarıda açıklanan veri akışı döngüsü düzenler tipik bir Cortana Intelligence tabanlı mimari gösterilir:
+Aşağıdaki diyagram, uygular ve yukarıda açıklanan veri akışı döngüsü düzenler tipik bir Cortana Intelligence'nın temel mimarisini gösterir:
 
 ![Uçtan uca dağıtım mimarisi](media/cortana-analytics-playbook-demand-forecasting-energy/architecture.png)
 
-Her bir bileşenleri ve tüm mimarisi hakkında daha fazla bilgi için lütfen enerji çözüm şablona bakın.
+Her bileşen ve mimarinin tamamını hakkında daha fazla bilgi için lütfen enerji çözümü şablona bakın.
 
