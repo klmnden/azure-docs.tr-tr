@@ -2,19 +2,19 @@
 title: Hızlı başlangıç - Azure Service Bus'tan iletileri gönderip almak için Azure CLI ve Java kullanma | Microsoft Docs
 description: Bu hızlı başlangıçta, Azure CLI ve örnek bir Java uygulaması kullanarak Azure Service Bus iletileri gönderip almayı öğrenirsiniz
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/22/2018
-ms.author: sethm
-ms.openlocfilehash: 717ac3c61ba4e362f01bad91f52ecb217cdbe1cd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: a39b93a0b778de6fb6e09e4359678713cc308aac
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630394"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701658"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>Hızlı başlangıç: Azure CLI ve Java kullanarak iletileri gönderme ve alma
 

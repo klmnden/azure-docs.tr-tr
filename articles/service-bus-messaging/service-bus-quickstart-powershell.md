@@ -2,20 +2,20 @@
 title: Hızlı başlangıç - Azure Service Bus'ta iletileri gönderme ve alma | Microsoft Docs
 description: Bu hızlı başlangıçta, PowerShell ve .NET Standard istemcisini kullanarak Service Bus iletilerini göndermeyi ve almayı öğreneceksiniz
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2018
-ms.author: sethm
-ms.openlocfilehash: b22bf2acc83f46eda1aa74981377e66261d13394
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: spelluru
+ms.openlocfilehash: 5652069e7a81f54936a41ddb563b49fe6131e7e0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660630"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696845"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-powershell-and-net"></a>Hızlı başlangıç: Azure PowerShell ve .NET kullanarak iletileri gönderme ve alma
 
@@ -125,11 +125,11 @@ Remove-AzureRmResourceGroup -Name my-resourcegroup
 
 ## <a name="understand-the-sample-code"></a>Örnek kodu anlama
 
-Bu bölümde, örnek kodun yaptıkları hakkında daha fazla ayrıntı bulunur. 
+Bu bölümde örnek kodun işlevleri hakkında daha fazla ayrıntı bulunmaktadır. 
 
 ### <a name="get-connection-string-and-queue"></a>Bağlantı dizesini ve kuyruğu alma
 
-Bağlantı dizesi ve kuyruk adı, `Main()` yöntemine komut satırı bağımsız değişkenleri olarak iletilir. `Main()`, bu değerleri tutmak için iki dize değişkeni bildirir:
+Bağlantı dizesi ve kuyruk adı, `Main()` yöntemine komut satırı bağımsız değişkenleri olarak geçirilir. `Main()`, bu değerleri tutmak için iki dize değişkeni bildirir:
 
 ```csharp
 static void Main(string[] args)

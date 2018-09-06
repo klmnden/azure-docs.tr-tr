@@ -2,19 +2,19 @@
 title: Öğretici - Perakende stok sınıflamasını, Azure portal ile yayımlama/abone olma kanalları ve konu başlığı filtreleri kullanarak güncelleştirme | Microsoft Belgeleri
 description: Bu öğreticide bir konu başlığı ve abonelikten ileti gönderip almayı ve .NET ile filtre kuralları ekleyip kullanmayı öğreneceksiniz
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
-ms.author: sethm
+ms.author: spelluru
 ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 654cb09621837c360deccecb7778c5d467592dd1
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2496c931da734c019801e3fa6deee127d8e571df
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124223"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697062"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Öğretici: Azure portalı ve konuları/abonelikleri kullanarak envanter güncelleştirme
 
