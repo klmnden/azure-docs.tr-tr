@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.openlocfilehash: 01635b184903b88fa12e23c370caa65bb1eb377c
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 31676ea43acc495bf0cb6a249901e5b64ef217b7
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37024785"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782939"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning ile ilgili sık sorulan sorular: Faturalama, özellikler, sınırlamalar ve destek
 Aşağıda, tahmine dayalı modeller geliştirmeye ve web hizmetleri aracılığıyla çözümleri faaliyete geçirmeye yönelik bir bulut hizmeti olan Azure Machine Learning hakkında sık sorulan bazı sorular (SSS) ve yanıtları verilmiştir. Bu SSS bölümlerinde faturalama modeli, özellikler, sınırlamalar ve destek dahil olmak üzere hizmetin nasıl kullanılacağına ilişkin sorular sağlanır.
@@ -312,7 +312,7 @@ Machine Learning Merkezi'ne düzenli olarak yeni materyaller ekleriz. Machine Le
 
 **Azure Machine Learning için nasıl destek alabilirim?**
 
-Azure Machine Learning için teknik destek almak istiyorsanız [Azure Desteği](/support/options/)'ne gidin ve **Machine Learning**'i seçin.
+Azure Machine Learning için teknik destek almak istiyorsanız [Azure Desteği](https://azure.microsoft.com/support/options/)'ne gidin ve **Machine Learning**'i seçin.
 
 Azure Machine Learning'in hizmet hakkında sorular sorabileceğiniz bir MSDN topluluk forumu da bulunur. Forum, Azure Machine Learning ekibi tarafından izlenir. [Azure Forumu](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)'na gidin.
 

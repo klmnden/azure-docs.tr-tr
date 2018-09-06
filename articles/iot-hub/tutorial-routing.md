@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 6e421aa630dc121589dece789e2e0d7f9a56bbe6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a52ab4ff65312088e65d56006b6f99a7470b88f6
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434848"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287259"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Öğretici: IoT Hub'ı ile ileti yönlendirmeyi yapılandırma
 
@@ -184,7 +184,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ### <a name="powershell-instructions"></a>PowerShell yönergeleri
 
-Bu betiği kullanmanın en kolay yolu [PowerShell ISE](/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise.md)'yi açmak, betiği panoya kopyalamak ve ardından betiğini tamamını betik penceresine yapıştırmaktır. Ardından, kaynak adı değerlerini (isterseniz) değiştirebilir ve betiğin tamamını çalıştırabilirsiniz. 
+Bu betiği kullanmanın en kolay yolu [PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise?view=powershell-6)'yi açmak, betiği panoya kopyalamak ve ardından betiğini tamamını betik penceresine yapıştırmaktır. Ardından, kaynak adı değerlerini (isterseniz) değiştirebilir ve betiğin tamamını çalıştırabilirsiniz. 
 
 ```azurepowershell-interactive
 # Log into Azure account.
@@ -587,14 +587,14 @@ Oluşturduğunuz tüm kaynakları kaldırmak istiyorsanız, kaynak grubunu silin
 
 ### <a name="clean-up-resources-using-azure-cli"></a>Azure CLI kullanarak kaynakları temizleme
 
-Kaynak grubunu kaldırmak için [az group delete](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az-group-delete) komutunu kullanın.
+Kaynak grubunu kaldırmak için [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) komutunu kullanın.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
 ```
 ### <a name="clean-up-resources-using-powershell"></a>PowerShell kullanarak kaynakları temizleme
 
-Kaynak grubunu kaldırmak için [Remove-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup) komutunu kullanın. $resourceGroup, yeniden bu öğreticinin başındaki **ContosoIoTRG1** değerine ayarlanır.
+Kaynak grubunu kaldırmak için [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) komutunu kullanın. $resourceGroup, yeniden bu öğreticinin başındaki **ContosoIoTRG1** değerine ayarlanır.
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name $resourceGroup

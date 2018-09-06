@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 368caa063ea0487923af8a29f67aa73cae7ed75e
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 355f80479ba7c6d6399bb25f7ba1511c6b18599b
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952901"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43285236"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Yerel geliştirme ve test için Azure Cosmos DB Öykünücüsünü kullanma
 
@@ -51,12 +51,6 @@ Bu makale aşağıdaki görevleri kapsar:
 > * Windows için Docker üzerinde Öykünücüyü çalıştırma
 > * İzleme dosyalarını toplama
 > * Sorun giderme
-
-Kirill Gavrylyuk’un Azure Cosmos DB Öykünücüsü ile çalışmaya başlama konulu aşağıdaki videosunu izleyerek çalışmaya başlamanızı öneririz. Videoda öykünücü, DocumentDB Öykünücüsü olarak ifade edilmektedir, ancak videonun bant kaydından sonra aracın adı Azure Cosmos DB Öykünücüsü olarak değiştirilmiştir. Video içindeki tüm bilgiler, Azure Cosmos DB Öykünücüsü için doğruluğunu korumaktadır. 
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/2016/192/player]
-> 
-> 
 
 ## <a name="how-the-emulator-works"></a>Öykünücü nasıl çalışır?
 

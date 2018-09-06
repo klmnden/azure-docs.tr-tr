@@ -2,18 +2,18 @@
 title: include dosyası
 description: include dosyası
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
 ms.date: 06/29/2018
-ms.author: sethm
+ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: bad7e87cb194fb7d8846e7e675881658a1d33b1e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 7ed298fc8f13685c4872c4c54ba1e447debea79f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37138169"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702653"
 ---
 Daha önce [burada][namespace-how-to] gösterildiği gibi bir Service Bus ad alanı oluşturduğunuzdan emin olun.
 

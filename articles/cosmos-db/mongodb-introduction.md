@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/12/2018
 ms.author: sclyon
-ms.openlocfilehash: 3a5978603ae57a6975b76a0736dc4e2d1f133d30
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: b0fba3cee298e55702629815da4649d9af315b25
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42022792"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43283035"
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB'ye giriş: MongoDB API'si
 
@@ -49,11 +49,6 @@ Azure Cosmos DB veritabanları, [MongoDB](https://docs.mongodb.com/manual/introd
 **Otomatik dizin oluşturma:** Azure Cosmos DB, varsayılan olarak MongoDB veritabanınızdaki tüm belgelerin içindeki özelliklerinin otomatik olarak dizinini oluşturur ve herhangi bir şemayı ya da ikincil dizinlerin oluşturulmasını beklemez veya gerektirmez. Ayrıca benzersiz dizin özelliği, Azure Cosmos DB'de zaten otomatik olarak dizini oluşturulmuş belge alanlarında bir benzersizlik kısıtlamasını olanaklı kılar.
 
 **Kurumsal düzey**: Azure Cosmos DB, yerel ve bölgesel hatalarda %99,99'luk kullanılabilirlik ve veri koruması sunmak için birden çok yerel çoğaltmayı destekler. Azure Cosmos DB'nin kurumsal düzeyde [uyumluluk sertifikaları](https://www.microsoft.com/trustcenter) ve güvenlik özellikleri vardır. 
-
-Azure Cosmos DB Üst Düzey Program Yöneticisi Aleksey Savateyev ile yapılan bu videoda daha fazlasını öğrenebilirsiniz.
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T136/player]
-> 
 
 ## <a name="how-to-get-started"></a>Nasıl kullanmaya başlarım
 

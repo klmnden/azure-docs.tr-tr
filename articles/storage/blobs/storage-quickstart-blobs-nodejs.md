@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: acf332209ca0588ab7722ddcfdcfe7b6715d672c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 21e09ea231853826155d1ab12d9c992d85ef568a
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397941"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664221"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Hızlı Başlangıç: Node.js’yi kullanarak blobları yükleme, indirme ve listeleme
 
@@ -100,11 +100,11 @@ Değişkenler aşağıdaki değerlere ayarlanır:
 - *sourceFilePath*, karşıya yüklenecek dosyanın mutlak yoluna ayarlanır
 - *blobName*, dosya adı alınıp dosya uzantısı kaldırılarak oluşturulur
 
-Aşağıdaki uygulamada, *blobService* işlevlerinin her biri bir *Promise* içinde kaydırılır ve bu da [Azure Depolama API](/nodejs/api/azure-storage/blobservice)’sinin geri çağrı yapısını kolaylaştırmak için JavaScript'in *async* işlevine ve *await* işlecine erişilmesini sağlar. Her bir işlev için başarılı bir yanıt döndürüldüğünde Promise, eyleme özgü bir iletiyle birlikte alakalı verilerle çözümleme gerçekleştirir.
+Aşağıdaki uygulamada, *blobService* işlevlerinin her biri bir *Promise* içinde kaydırılır ve bu da [Azure Depolama API](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest)’sinin geri çağrı yapısını kolaylaştırmak için JavaScript'in *async* işlevine ve *await* işlecine erişilmesini sağlar. Her bir işlev için başarılı bir yanıt döndürüldüğünde Promise, eyleme özgü bir iletiyle birlikte alakalı verilerle çözümleme gerçekleştirir.
 
 ### <a name="create-a-blob-container"></a>Blob kapsayıcısı oluşturma
 
-*createContainer* işlevi, [createContainerIfNotExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists) öğesini çağırır ve blob için uygun erişim düzeyini ayarlar.
+*createContainer* işlevi, [createContainerIfNotExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createcontainerifnotexists) öğesini çağırır ve blob için uygun erişim düzeyini ayarlar.
 
 ```javascript
 const createContainer = () => {
@@ -120,13 +120,13 @@ const createContainer = () => {
 };
 ```
 
-**createContainerIfNotExists** için ikinci parametre (*options*), [publicAccessLevel](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists) için bir değer kabul eder. *publicAccessLevel* için *blob* değeri, belirli blob verilerinin genel kullanıma sunulduğunu belirtir. Bu ayar, kapsayıcının içeriklerini listeleme yeteneği sağlayan *kapsayıcı* düzeyinde erişimin tersidir.
+**createContainerIfNotExists** için ikinci parametre (*options*), [publicAccessLevel](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createcontainerifnotexists) için bir değer kabul eder. *publicAccessLevel* için *blob* değeri, belirli blob verilerinin genel kullanıma sunulduğunu belirtir. Bu ayar, kapsayıcının içeriklerini listeleme yeteneği sağlayan *kapsayıcı* düzeyinde erişimin tersidir.
 
 **createContainerIfNotExists** kullanılması, kapsayıcı önceden mevcut olduğunda uygulamanın hata döndürmeden *createContainer* komutunu birçok defa çalıştırmasına olanak sağlar. Üretim ortamında, uygulama genelinde aynı kapsayıcı kullanıldığında çoğu zaman **createContainerIfNotExists** komutunu yalnızca bir defa çağırırsınız. Bu durumlarda, önceden portal veya Azure CLI aracılığıyla kapsayıcı oluşturabilirsiniz.
 
 ### <a name="upload-a-blob-to-the-container"></a>Bir kapsayıcıya blob yükleme
 
-*upload* işlevi, dosya sistemindeki bir dosyayı blob depolamaya yüklemek ve yazmak veya söz konusu dosyanın üzerine yazmak için [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromLocalFile) işlevini kullanır. 
+*upload* işlevi, dosya sistemindeki bir dosyayı blob depolamaya yüklemek ve yazmak veya söz konusu dosyanın üzerine yazmak için [createBlockBlobFromLocalFile](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromlocalfile) işlevini kullanır. 
 
 ```javascript
 const upload = () => {
@@ -141,13 +141,13 @@ const upload = () => {
     });
 };
 ```
-Örnek uygulama bağlamında, *test-container* adlı bir kapsayıcının içinde *example* adlı bir bloba *example.txt* adlı dosya yüklenir. Bloblara içerik yüklemenin başka bir yolu da [text](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) ve [streams](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromStream) ile çalışmaktır.
+Örnek uygulama bağlamında, *test-container* adlı bir kapsayıcının içinde *example* adlı bir bloba *example.txt* adlı dosya yüklenir. Bloblara içerik yüklemenin başka bir yolu da [text](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext) ve [streams](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream) ile çalışmaktır.
 
 Dosyanın blob depolamanıza yüklendiğini doğrulamak için [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/)’ni kullanarak hesabınızdaki verileri görüntüleyebilirsiniz.
 
 ### <a name="list-the-blobs-in-a-container"></a>Blob’ları bir kapsayıcıda listeleme
 
-*list* işlevi, bir kapsayıcıdaki blob meta verileri listesini döndürmek için [listBlobsSegmented](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) yöntemini çağırır. 
+*list* işlevi, bir kapsayıcıdaki blob meta verileri listesini döndürmek için [listBlobsSegmented](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listblobssegmented) yöntemini çağırır. 
 
 ```javascript
 const list = () => {
@@ -163,11 +163,11 @@ const list = () => {
 };
 ```
 
-*listBlobsSegmented* çağrıldığında, [BlobResult](/nodejs/api/azure-storage/blobresult) örnekleri dizisi olarak blob meta verileri döndürülür. Sonuçlar, 5.000’er olarak artan toplu işler (segmentler) halinde döndürülür. Bir kapsayıcıda 5.000’den fazla blob varsa, sonuçlar **continuationToken** için bir değer içerir. Blob kapsayıcısında yer alan sonraki segmentleri listelemek için, ikinci bağımsız değişken olarak devamlılık belirtecini **listBlobSegmented** öğesine geri gönderebilirsiniz.
+*listBlobsSegmented* çağrıldığında, [BlobResult](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.blobresult?view=azure-node-latest) örnekleri dizisi olarak blob meta verileri döndürülür. Sonuçlar, 5.000’er olarak artan toplu işler (segmentler) halinde döndürülür. Bir kapsayıcıda 5.000’den fazla blob varsa, sonuçlar **continuationToken** için bir değer içerir. Blob kapsayıcısında yer alan sonraki segmentleri listelemek için, ikinci bağımsız değişken olarak devamlılık belirtecini **listBlobSegmented** öğesine geri gönderebilirsiniz.
 
 ### <a name="download-a-blob-from-the-container"></a>Kapsayıcıdan blob indirme
 
-*download* işlevi, belirtilen mutlak dosya yoluna blobun içeriklerini indirmek için [getBlobToLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_getBlobToLocalFile) öğesini kullanır.
+*download* işlevi, belirtilen mutlak dosya yoluna blobun içeriklerini indirmek için [getBlobToLocalFile](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtolocalfile) öğesini kullanır.
 
 ```javascript
 const download = () => {
@@ -187,7 +187,7 @@ Burada gösterilen uygulama, dosya adının sonuna *.downloaded.txt* eklemek iç
 
 ### <a name="delete-blobs-in-the-container"></a>Kapsayıcıdaki blobları silme
 
-*deleteBlock* işlevi (diğer adı *delete* konsol komutu olan), [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) işlevini çağırır. Adından da anlaşılacağı gibi bu işlev, blob önceden silindiyse bir hata döndürmez.
+*deleteBlock* işlevi (diğer adı *delete* konsol komutu olan), [deleteBlobIfExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists) işlevini çağırır. Adından da anlaşılacağı gibi bu işlev, blob önceden silindiyse bir hata döndürmez.
 
 ```javascript
 const deleteBlock = () => {
@@ -272,7 +272,7 @@ try {
 ```
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-Bu makalede oluşturulan verileri veya hesapları kullanmayı planlamıyorsanız, istenmeyen faturaları önlemek için bunları silmek isteyebilirsiniz. Blobu ve kapsayıcıları silmek için [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteBlobIfExists_container__blob__options__callback_) ve [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteContainerIfExists_container__options__callback_) yöntemlerini kullanabilirsiniz. Depolama hesabını [portaldan da](../common/storage-create-storage-account.md) silebilirsiniz.
+Bu makalede oluşturulan verileri veya hesapları kullanmayı planlamıyorsanız, istenmeyen faturaları önlemek için bunları silmek isteyebilirsiniz. Blobu ve kapsayıcıları silmek için [deleteBlobIfExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists) ve [deleteContainerIfExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deletecontainerifexists) yöntemlerini kullanabilirsiniz. Depolama hesabını [portaldan da](../common/storage-create-storage-account.md) silebilirsiniz.
 
 ## <a name="resources-for-developing-nodejs-applications-with-blobs"></a>Bloblarla Node.js uygulamaları geliştirme kaynakları
 

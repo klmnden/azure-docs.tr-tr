@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c4f1b63e2d564f0480508c3ec5a5a24c76ea6bc4
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 7ae235ea52c5c505e535cc3fad2306167d349ee9
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41918111"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782269"
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Azure Container Service öğreticisi - DC/OS Yönetme
 
@@ -238,7 +238,7 @@ Bu adrese göz atıldığında varsayılan NGINX sitesi döndürülür.
 
 ## <a name="scale-dcos-cluster"></a>DC/OS kümesini ölçeklendirme
 
-Önceki örneklerde, bir uygulama birden çok örneğe ölçeklendirilmişti. DC/OS altyapısı ayrıca daha fazla veya daha az işlem kapasitesi sağlayacak şekilde ölçeklendirilebilir. Bu, [az acs scale]() komutuyla sağlanır. 
+Önceki örneklerde, bir uygulama birden çok örneğe ölçeklendirilmişti. DC/OS altyapısı ayrıca daha fazla veya daha az işlem kapasitesi sağlayacak şekilde ölçeklendirilebilir. Bu, [az acs scale](/cli/azure/acs#az-acs-scale) komutuyla sağlanır. 
 
 DC/OS aracılarının geçerli sayısını görmek için [acs az show](/cli/azure/acs#az-acs-show) komutunu kullanın.
 

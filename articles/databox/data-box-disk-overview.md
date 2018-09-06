@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/28/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: f2e1a59584507b52d0a834af1869e3e9f2db5f07
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: b1beb0e9a5a0435bdf298eddbefc230b2f95ed0a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127373"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698511"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Azure Data Box Disk nedir? (Önizleme)
 
@@ -106,14 +106,14 @@ Data Box Disk önizleme sırasında aşağıdaki Azure bölgelerine veri aktarab
 
 |Azure bölgesi  |Azure bölgesi  |
 |---------|---------|
-|Batı Orta ABD     |Doğu ABD        |        
-|Batı ABD 2     |Doğu ABD 2          |     
+|Batı Orta ABD     |Orta Kanada       |        
+|Batı ABD 2     |Doğu Kanada         |     
 |Batı ABD     | Batı Avrupa        |      
 |Orta Güney ABD   |Kuzey Avrupa     |         
-|Orta ABD     |Doğu Kanada|
-|Orta Kuzey ABD  |Orta Kanada    |
-
-
+|Orta ABD     |Avustralya Doğu|
+|Orta Kuzey ABD  |Avustralya Güneydoğu   |
+|Doğu ABD      |Avustralya Orta |
+|Doğu ABD 2     |Avustralya Orta 2|
 
 
 ## <a name="pricing"></a>Fiyatlandırma

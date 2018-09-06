@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: 6ec0feeac9364b416709b45af09c79773a87d0e1
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: f2f2257d3ddc22a80600882d2078210ac27cb15d
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42023988"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43284931"
 ---
 # <a name="introduction-to-azure-cosmos-db-apache-cassandra-api"></a>Azure Cosmos DB'ye giriş: Apache Cassandra API'si
 
@@ -34,10 +34,7 @@ Azure Cosmos DB, [Apache Cassandra](https://cassandra.apache.org/) için Apache 
 
 ![Azure Cosmos DB Cassandra API'si](./media/cassandra-introduction/cosmosdb-cassandra.png)
 
-Cassandra API'si, (CQLSH gibi) Cassandra Sorgu Dili tabanlı araçları ve zaten aşina olduğunuz Cassandra istemci sürücülerini kullanarak Azure Cosmos DB'de depolanan verilerle etkileşim kurmanızı sağlar. Bu konuda, Baş Mühendislik Yöneticisi Kirill Gavrylyuk ile yapılmış bu Microsoft Mechanics videosunda daha fazla bilgi edinebilirsiniz.
-
-> [!VIDEO https://www.youtube.com/embed/1Sf4McGN1AQ]
->
+Cassandra API'si, (CQLSH gibi) Cassandra Sorgu Dili tabanlı araçları ve zaten aşina olduğunuz Cassandra istemci sürücülerini kullanarak Azure Cosmos DB'de depolanan verilerle etkileşim kurmanızı sağlar. 
 
 ## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>Azure Cosmos DB için Apache Cassandra API'si kullanmanın avantajı nedir?
 

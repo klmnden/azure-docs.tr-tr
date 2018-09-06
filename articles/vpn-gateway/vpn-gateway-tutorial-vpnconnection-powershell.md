@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/08/2018
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: da077f013c558448be63dce9b215ded99362d22e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 61e040fc2f7ff70794b49204e3dea01375637641
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452473"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336585"
 ---
 # <a name="create-and-manage-s2s-vpn-connections-with-the-azure-powershell-module"></a>Azure PowerShell modülü ile S2S VPN bağlantıları Oluşturma ve Yönetme
 
@@ -86,7 +86,7 @@ S2S VPN bağlantısı oluşturmak için uygulanması gereken iş akışı basitt
 * Şirket içi adres alanı
 * (İsteğe bağlı) BGP öznitelikleri (BGP eş IP adresi ve AS numarası)
 
-[New-AzureRmLocalNetworkGateway](/powershell/module/azurerm.resources/new-azurermlocalnetworkgateway) komutu ile bir yerel ağ geçidi oluşturun.
+[New-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermlocalnetworkgateway?view=azurermps-6.8.1) komutu ile bir yerel ağ geçidi oluşturun.
 
 ```azurepowershell-interactive
 New-AzureRmLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
@@ -95,7 +95,7 @@ New-AzureRmLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
 
 ## <a name="create-a-s2s-vpn-connection"></a>S2S VPN bağlantısı oluşturma
 
-Şimdi de [New-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.resources/new-azurermvirtualnetworkgatewayconnection) komutunu kullanarak sanal ağ geçidiniz ile VPN cihazınız arasında bir Siteden Siteye VPN bağlantısı oluşturacaksınız. Siteden Siteye VPN bağlantısı için ‘-ConnectionType’ değerinin *IPsec* olduğunu unutmayın.
+Şimdi de [New-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayconnection?view=azurermps-6.8.1) komutunu kullanarak sanal ağ geçidiniz ile VPN cihazınız arasında bir Siteden Siteye VPN bağlantısı oluşturacaksınız. Siteden Siteye VPN bağlantısı için ‘-ConnectionType’ değerinin *IPsec* olduğunu unutmayın.
 
 ```azurepowershell-interactive
 $vng1 = Get-AzureRmVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
@@ -112,7 +112,7 @@ BGP kullanıyorsanız isteğe bağlı "**-EnableBGP $True**" özelliğini ekleye
 
 ### <a name="view-and-update-your-pre-shared-key"></a>Önceden paylaşılan anahtarınızı görüntüleme ve güncelleştirme
 
-Azure S2S VPN bağlantısı, şirket içi VPN cihazınız ile Azure VPN ağ geçidi arasında kimlik doğrulaması gerçekleştirmek için önceden paylaşılan bir anahtar (gizli dizi) kullanır. Bir bağlantının önceden paylaşılan anahtarını [Get-AzureRmVirtualNetworkGatewayConnectionSharedKey](/powershell/module/azurerm.resources/get-azurermvirtualnetworkgatewayconnectionsharedkey) ve [Set-AzureRmVirtualNetworkGatewayConnectionSharedKey](/powershell/module/azurerm.resources/set-azurermvirtualnetworkgatewayconnectionsharedkey) komutlarını kullanarak görüntüleyebilir ve güncelleştirebilirsiniz.
+Azure S2S VPN bağlantısı, şirket içi VPN cihazınız ile Azure VPN ağ geçidi arasında kimlik doğrulaması gerçekleştirmek için önceden paylaşılan bir anahtar (gizli dizi) kullanır. Bir bağlantının önceden paylaşılan anahtarını [Get-AzureRmVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1) ve [Set-AzureRmVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1) komutlarını kullanarak görüntüleyebilir ve güncelleştirebilirsiniz.
 
 > [!IMPORTANT]
 > Önceden paylaşılan anahtar, en fazla 128 **yazdırılabilir ASCII karakterden** oluşan bir dizedir.
@@ -140,7 +140,7 @@ Azure VPN ağ geçidi, BGP dinamik yönlendirme protokolünü destekler. Şirket
 * Şirket içi yerel ağ geçidi ASN’si
 * Şirket içi yerel ağ geçidi BGP eş IP adresi
 
-BGP özelliklerini yapılandırmadıysanız şu komutları kullanarak VPN ağ geçidinize ve yerel ağ geçidinize bu özellikleri ekleyin: [Set-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.resources/set-azurermvirtualnetworkgateway) ve [Set-AzureRmLocalNetworkGateway](/powershell/module/azurerm.resources/set-azurermlocalnetworkgateway).
+BGP özelliklerini yapılandırmadıysanız şu komutları kullanarak VPN ağ geçidinize ve yerel ağ geçidinize bu özellikleri ekleyin: [Set-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-6.8.1) ve [Set-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-6.8.1).
 
 ```azurepowershell-interactive
 $vng1 = Get-AzureRmVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
@@ -151,7 +151,7 @@ Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $lng1 `
   -Asn $LNGASN1 -BgpPeeringAddress $BGPPeerIP1
 ```
 
-[Set-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.resources/set-azurermvirtualnetworkgatewayconnection) komutu ile BGP’yi etkinleştirin.
+[Set-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgatewayconnection?view=azurermps-6.8.1) komutu ile BGP’yi etkinleştirin.
 
 ```azurepowershell-interactive
 $connection = Get-AzureRmVirtualNetworkGatewayConnection `
@@ -214,7 +214,7 @@ Azure VPN ağ geçidiniz ile iki S2S VPN bağlantısı kurmuş oldunuz.
 
 ## <a name="delete-a-s2s-vpn-connection"></a>Bir S2S VPN bağlantısını silme
 
-Bir S2S VPN bağlantısını [Remove-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.resources/remove-azurermvirtualnetworkgatewayconnection) komutu ile silebilirsiniz.
+Bir S2S VPN bağlantısını [Remove-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermvirtualnetworkgatewayconnection?view=azurermps-6.8.1) komutu ile silebilirsiniz.
 
 ```azurepowershell-interactive
 Remove-AzureRmVirtualNetworkGatewayConnection -Name $Connection2 -ResourceGroupName $RG1
