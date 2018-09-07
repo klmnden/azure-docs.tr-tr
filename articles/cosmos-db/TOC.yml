@@ -223,9 +223,8 @@ items:
     items:
     - name: Genel Bakış
       href: mongodb-introduction.md
-      items:
-      - name: MongoDB desteği
-        href: mongodb-feature-support.md
+    - name: MongoDB desteği
+      href: mongodb-feature-support.md
     - name: Öğreticiler
       items:
       - name: 1 - Hesap oluşturma
@@ -274,9 +273,8 @@ items:
     items:
     - name: Genel Bakış
       href: graph-introduction.md
-      items:
-      - name: Gremlin desteği
-        href: gremlin-support.md
+    - name: Gremlin desteği
+      href: gremlin-support.md
     - name: Öğreticiler
       items:
       - name: 1 - Verileri sorgulama
@@ -396,8 +394,6 @@ items:
       href: key-value-store-cost.md
     - name: SQL veri bölümleme
       href: sql-api-partition-data.md
-    - name: Graf verilerini bölümleme
-      href: graph-partitioning.md
   - name: Diğer Azure hizmetleri ile tümleştirme
     items:
     - name: Akış e-ticaret çözümünü değiştirme
@@ -459,13 +455,11 @@ items:
   - name: Fiyatlandırma
     href: https://azure.microsoft.com/pricing/details/cosmos-db/
   - name: Uygulama alanları
-  - name: Beyzbol örneği ile açıklanan veri tutarlılığı
-    href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
   - name: Sosyal medya uygulamaları
     href: social-media-apps.md
-ms.openlocfilehash: afa2ccd0998ba78aa0f9e75bb87691ead8b96697
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 6f7d5290dd64b074a9933c8e10ccab2922355283
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783265"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054130"

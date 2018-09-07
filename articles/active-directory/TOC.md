@@ -49,7 +49,6 @@
 ### [Kullanıcı parolasını sıfırlama](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [Hesapları paylaşma](active-directory-sharing-accounts.md)
 ### [Kullanıcıları yönetici rollerine atama](fundamentals/active-directory-users-assign-role-azure-portal.md)
-### [Silinen bir kullanıcıyı geri yükleme](fundamentals/active-directory-users-restore.md)
 ### [Başka bir dizinden konuk kullanıcılar ekleme (B2B)](b2b/what-is-b2b.md)
 #### [B2B kullanıcıları ekleyen yöneticiler](b2b/add-users-administrator.md)
 #### [B2B kullanıcıları ekleyen bilgi çalışanları](b2b/add-users-information-worker.md)
@@ -163,7 +162,7 @@
 ##### [Sessiz yükleme](manage-apps/application-proxy-register-connector-powershell.md)
 ##### [Özel giriş sayfası](manage-apps/application-proxy-configure-custom-home-page.md)
 ##### [Satır içi bağlantıları çevirme](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
-##### [Joker karakterler](active-directory-application-proxy-wildcard.md)
+##### [Joker karakterler](manage-apps/application-proxy-wildcard.md)
 ##### [Kişisel verileri kaldırma](manage-apps/application-proxy-remove-personal-data.md)
 
 
@@ -172,7 +171,7 @@
 ##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft Teams](manage-apps/application-proxy-integrate-with-teams.md)
 ##### [Tableau](manage-apps/application-proxy-integrate-with-tableau.md)
-##### [Qlik](active-directory-application-proxy-qlik.md)
+##### [Qlik](manage-apps/application-proxy-qlik.md)
 #### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) 
 
 #### [Sorun giderme](manage-apps/application-proxy-troubleshoot.md)

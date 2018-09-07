@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: e7a5c7f08b34c91512ad2bf5d9f3fcb82feb9e08
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026105"
 documentType: LandingData
 title: Site Recovery Belgeleri
 metadata:
@@ -13,12 +19,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/23/2017
   ms.author: carolz
-  ms.openlocfilehash: 0d66952b5f159ce92b8586f7beb71c25fe7c7b39
-  ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
-  ms.translationtype: HT
-  ms.contentlocale: tr-TR
-  ms.lasthandoff: 01/10/2018
-  ms.locfileid: "27740094"
 abstract:
   description: Azure Site Recovery, Azure VM’leri, şirket içi VM’ler ve fiziksel sunucular için olağanüstü durum kurtarma hizmetini düzenler ve yönetir. Hızlı başlangıç yönergelerimiz ve öğreticilerimizden yararlanarak çoğaltma, yük devretme ve ilk duruma döndürme işlemlerini nasıl yapacağınızı öğrenin.
 sections:
@@ -31,7 +31,7 @@ sections:
     items:
     - image:
         src: /azure/site-recovery/media/index/portal.svg
-      text: Azure portalına
+      text: Azure portal
       href: /azure/site-recovery/azure-to-azure-quickstart
 - title: Adım Adım Öğreticiler
   items:
@@ -54,7 +54,7 @@ sections:
     - html: <a href="tutorial-prepare-on-premises-vmware">Şirket içi VMware’leri hazırlama</a>
     - html: <a href="tutorial-vmware-to-azure">Olağanüstü durum kurtarmayı ayarlama</a>
     - html: <a href="tutorial-dr-drill-azure">Olağanüstü durum kurtarma tatbikatı çalıştırma</a>
-    - html: <a href="tutorial-vmware-to-azure-failover-failback">Yük devretme ve yeniden çalışma işlemi çalıştırma</a>
+    - html: <a href="vmware-azure-tutorial-failover-failback">Yük devretme ve yeniden çalışma işlemi çalıştırma</a>
   - type: text
     html: <h3>Hyper-V</h3>
   - type: list
@@ -80,6 +80,6 @@ sections:
     className: cardsD
     items:
     - title: Komut Satırı
-      html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+      html: <p><a href="/powershell/module/azurerm.siterecovery>Azure PowerShell</a></p>
     - title: REST
       html: <p><a href="/rest/api/site-recovery/">REST API başvurusu</a></p>
