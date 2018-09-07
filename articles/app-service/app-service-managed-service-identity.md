@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: fc1251cafcb2a535ccaf8354cb5c7c8b6a4afd33
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: c7a819f987de41ba7705d21bb6de95475cd3f9c8
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337543"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027195"
 ---
 # <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>Azure yönetilen hizmet kimliği App Service ve Azure işlevleri'ni kullanma
 
@@ -26,7 +26,7 @@ ms.locfileid: "43337543"
 > [!Important] 
 > App Service ve Azure işlevleri için Yönetilen hizmet kimliği, uygulamanızı abonelikleri/kiracılar genelinde geçirdiyseniz beklendiği gibi davranmaz. Uygulamayı devre dışı bırakıp yeniden özelliğini etkinleştirerek yapılabilir yeni bir kimliği edinmeniz gerekir. Bkz: [Kimlikteki kaldırma](#remove) aşağıda. Aşağı Akış kaynakları da erişim ilkelerini yeni bir kimlik kullanacak şekilde güncelleştirilmiş olması gerekir.
 
-Bu konu, uygulamaları App Service ve Azure işlevleri için bir yönetilen uygulama kimliği oluşturma ve diğer kaynaklarına erişmek için kullanma gösterilmektedir. Yönetilen hizmet kimliği Azure Active Directory'den Azure Key Vault gibi diğer AAD korumalı kaynakları kolayca erişmek için uygulamanızı sağlar. Kimlik Azure platformu tarafından yönetilir ve sağlama veya herhangi bir gizli anahtar döndürme gerektirmez. Yönetilen hizmet kimliği hakkında daha fazla bilgi için bkz. [yönetilen hizmet Kimliği'ne genel bakış](../active-directory/managed-service-identity/overview.md).
+Bu konu, uygulamaları App Service ve Azure işlevleri için bir yönetilen uygulama kimliği oluşturma ve diğer kaynaklarına erişmek için kullanma gösterilmektedir. Yönetilen hizmet kimliği Azure Active Directory'den Azure Key Vault gibi diğer AAD korumalı kaynakları kolayca erişmek için uygulamanızı sağlar. Kimlik Azure platformu tarafından yönetilir ve sağlama veya herhangi bir gizli anahtar döndürme gerektirmez. Yönetilen hizmet kimliği hakkında daha fazla bilgi için bkz. [yönetilen hizmet Kimliği'ne genel bakış](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="creating-an-app-with-an-identity"></a>Bir kimlik ile uygulama oluşturma
 
@@ -151,7 +151,7 @@ Burada `<TENANTID>` ve `<PRINCIPALID>` GUID'lerini aşağıdaki ile değiştiril
 Uygulama kimliğini, Azure Key Vault gibi bir AAD tarafından korunan diğer kaynaklara belirteçlerini almak için kullanabilirsiniz. Bu belirteçler kaynağı ve belirli hiçbir kullanıcı uygulamanın erişen uygulamada temsil eder. 
 
 > [!IMPORTANT]
-> Hedef kaynak, uygulamanızdan erişime izin verecek şekilde yapılandırmanız gerekebilir. Örneğin, anahtar kasası için bir belirteç isteği, uygulamanızın kimliğini içeren bir erişim ilkesi eklediğinizden emin olun gerekir. Belirteç içeriyorsa bile Aksi takdirde, aramalarınız için Key Vault, reddedilir. Yönetilen hizmet kimliği belirteçleri daha destek hangi kaynakları hakkında bilgi edinmek için [Azure Hizmetleri söz konusu destek Azure AD kimlik doğrulamasını](../active-directory/managed-service-identity/services-support-msi.md#azure-services-that-support-azure-ad-authentication).
+> Hedef kaynak, uygulamanızdan erişime izin verecek şekilde yapılandırmanız gerekebilir. Örneğin, anahtar kasası için bir belirteç isteği, uygulamanızın kimliğini içeren bir erişim ilkesi eklediğinizden emin olun gerekir. Belirteç içeriyorsa bile Aksi takdirde, aramalarınız için Key Vault, reddedilir. Yönetilen hizmet kimliği belirteçleri daha destek hangi kaynakları hakkında bilgi edinmek için [Azure Hizmetleri söz konusu destek Azure AD kimlik doğrulamasını](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication).
 
 App Service ve Azure işlevleri, bir belirteç almak için basit bir REST protokolü yoktur. .NET uygulamaları için Microsoft.Azure.Services.AppAuthentication kitaplığını, bu protokolü üzerinden bir Özet sağlar ve bir yerel geliştirme deneyimini destekler.
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/07/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 6bd722801202f5cdff2882c29895ae06fecbbcb8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 09b9126125006fb70f5e2560f04b815b4a874405
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425372"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027308"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Öğretici: sanal makineler, Azure Stack kullanıcılar için kullanılabilir yap
 
@@ -118,7 +118,7 @@ Teklif oluşturduğunuza göre bunu test edebilirsiniz. Bir kullanıcı olarak o
 
    ![Teklif oluşturma](media/azure-stack-subscribe-plan-provision-vm/image02.png)
 
-   c. Aboneliği görüntülemek için seçin **diğer hizmetler**ve ardından **abonelikleri**. Hangi hizmetlerin abonelik parçası olduğunu görmek için yeni aboneliğinizi seçin.
+   c. Aboneliği görüntülemek için seçin **tüm hizmetleri**ve ardından altındaki **genel** kategorisi seçin **abonelikleri**. Hangi hizmetlerin abonelik parçası olduğunu görmek için yeni aboneliğinizi seçin.
 
    >[!NOTE]
    >Bir teklife abone olduktan sonra hangi hizmetlerin yeni aboneliğinin bir parçası olduğunu görmek için portalı yenilemeniz gerekebilir.

@@ -9,16 +9,16 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: 7320286e186d7e6ba4041d3ed52f19e573b4d7e3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 87ed816077d2c742223a0350851cdf2f0c5653f6
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049890"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023047"
 ---
 # <a name="moderate-text-using-net"></a>.NET kullanarak metin
 
-Bu makalede bilgiler sağlanmaktadır ve yardımcı olması için kod örnekleri için .NET için Content Moderator SDK'sını kullanarak kullanmaya başlayın:
+Bu makalede bilgiler sağlanmaktadır ve yardımcı olması için kod örnekleri, kullanmaya başlama [Content Moderator SDK'sı .NET için](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) için:
 - Terim tabanlı filtrelemeyle metin olası küfürleri algılamanıza
 - Makine öğrenme tabanlı modeller için kullanma [metin sınıflandırma](text-moderation-api.md#classification) üç kategoride.
 - ABD ve UK telefon numaraları, e-posta adreslerini ve ABD adresleriniz gibi kişisel bilgileri (PII) algılar.
@@ -211,4 +211,4 @@ Program için günlük dosyasına yazılmış gibi çıktı örneği verilmişti
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Visual Studio çözümü indirme](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) bu ve diğer Content Moderator hızlı başlangıçlar, .NET için ve tümleştirmenizi üzerinde çalışmaya başlayın.
+Alma [Content Moderator .NET SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) ve [Visual Studio çözümü](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) bu ve diğer Content Moderator hızlı başlangıçlar, .NET için ve tümleştirmenizi üzerinde çalışmaya başlayın.

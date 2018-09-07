@@ -1,6 +1,6 @@
 ---
-title: Azure içerik denetleyicinin özel terim listeleriyle Orta | Microsoft Docs
-description: .NET için Azure içerik denetleyici SDK'sını kullanarak özel terimiyle Orta nasıl listeler.
+title: Azure Content Moderator, özel terim listeleri ile orta | Microsoft Docs
+description: .NET için Azure Content Moderator SDK'sını kullanarak nasıl özel terimiyle Orta listeler.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,60 +9,60 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: sajagtap
-ms.openlocfilehash: 6da72ad070d9c3a6be38e24626dff77b52fed852
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2ae080518a9ad78552a8ec173e7f4d70085c7a6b
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351845"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022649"
 ---
-# <a name="moderate-with-custom-term-lists-in-net"></a>.NET özel terim listeleriyle Orta
+# <a name="moderate-with-custom-term-lists-in-net"></a>. NET'te özel terim listeleri ile orta
 
-Varsayılan Genel Azure içeriği denetleyici koşullarını birçok içerik yönetimini ihtiyaçları için yeterli listesidir. Ancak, kuruluşunuz için belirli koşullar için ekran gerekebilir. Örneğin, daha fazla inceleme için etiket rakip adları isteyebilirsiniz. 
+Varsayılan Genel Azure Content Moderator koşullarını çoğu içerik denetimi ihtiyaçları için yeterli listesidir. Ancak, kuruluşunuz için belirli koşulların ekran gerekebilir. Örneğin, daha fazla inceleme için rakip etiketlerden isteyebilirsiniz. 
 
-.NET için içerik denetleyici SDK metin denetleme API ile kullanmak için koşulları özel listesini oluşturmak için kullanabilirsiniz.
+Kullanabileceğiniz [Content Moderator SDK'sı .NET için](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) özel metin denetimi API'si ile kullanmak için koşullarını listesini oluşturmak için.
 
 > [!NOTE]
-> Maksimum sınırı yoktur **5 terim listeler** her listesine ile **10.000 koşulları aşmaması**.
+> Bir maksimum sınırı **5 terim listeleri** her listesine ile **10.000 koşulları aşmayacak**.
 >
 
-Bu makalede bilgiler sağlanmaktadır ve yardımcı olması için kod örnekleri için .NET için içerik denetleyici SDK'sını kullanarak kullanmaya başlama:
+Bu makalede bilgiler sağlanmaktadır ve yardımcı olması için kod örnekleri için .NET için Content Moderator SDK'sını kullanarak kullanmaya başlayın:
 - Bir liste oluşturur.
 - Koşulları bir listesine ekleyin.
 - Bir liste koşullarını karşı ekran koşulları.
 - Koşulları listeden silin.
 - Bir listeyi silin.
-- Liste bilgilerini düzenleyin.
-- Yeni bir tarama listeye yapılan değişiklikler dahil edilmesini dizini yenileyin.
+- Liste bilgileri düzenleyin.
+- Listeye yeni bir tarama dahil edilmesini dizini yenileyin.
 
-Bu makalede, Visual Studio ve C# ile bilginiz olduğunu varsayar.
+Bu makalede, zaten Visual Studio ve C# ile ilgili bilgi sahibi olduğunuz varsayılır.
 
-## <a name="sign-up-for-content-moderator-services"></a>İçerik denetleyici Hizmetleri için kaydolun
+## <a name="sign-up-for-content-moderator-services"></a>Content Moderator Hizmetleri için kaydolun
 
-REST API veya SDK üzerinden içerik denetleyici Hizmetleri kullanabilmeniz için önce bir abonelik anahtarı gerekir.
+Content Moderator Hizmetleri REST API veya SDK aracılığıyla kullanabilmeniz için önce bir abonelik anahtarı gerekir.
 
-İçerik denetleyici panosunda abonelik anahtarınızı bulabilirsiniz **ayarları** > **kimlik bilgileri** > **API**  >  **Deneme Ocp-Apim-Subscription-Key**. Daha fazla bilgi için bkz: [genel bakış](overview.md).
+Content Moderator panosunda abonelik anahtarınızı bulabilirsiniz **ayarları** > **kimlik bilgilerini** > **API**  >  **Deneme Ocp-Apim-Subscription-Key**. Daha fazla bilgi için [genel bakış](overview.md).
 
-## <a name="create-your-visual-studio-project"></a>Visual Studio projesi oluşturma
+## <a name="create-your-visual-studio-project"></a>Visual Studio projenizi oluşturun
 
-1. Yeni bir ekleme **konsol uygulaması (.NET Framework)** çözümünüzü projeye.
+1. Yeni bir **konsol uygulaması (.NET Framework)** çözümünüze bir proje.
 
-1. Proje adı **TermLists**. Bu proje çözüme yönelik tek başlangıç projesi olarak seçin.
+1. Projeyi adlandırın **TermLists**. Bu proje, çözüm için tek bir başlangıç projesi olarak seçin.
 
-1. Bir başvuru ekleyin **ModeratorHelper** proje oluşturduğunuz derleme [içerik denetleyici istemci Yardımcısı quickstart](content-moderator-helper-quickstart-dotnet.md).
+1. Bir başvuru ekleyin **ModeratorHelper** proje oluşturduğunuz derleme [Content Moderator istemci Yardımcısı hızlı](content-moderator-helper-quickstart-dotnet.md).
 
 ### <a name="install-required-packages"></a>Gerekli paketleri yükleme
 
-TermLists proje için aşağıdaki NuGet paketlerini yükleyin:
+TermLists projesi için aşağıdaki NuGet paketlerini yükleyin:
 
 - Microsoft.Azure.CognitiveServices.ContentModerator
 - Microsoft.Rest.ClientRuntime
 - Microsoft.Rest.ClientRuntime.Azure
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Güncelleştirme program using deyimleri
+### <a name="update-the-programs-using-statements"></a>Deyimleri kullanarak program güncelleştirme
 
-Değiştirme program using deyimleri kullanıcının.
+Değiştirme deyimleri kullanarak program.
 
     using System;
     using System.Threading;
@@ -72,7 +72,7 @@ Değiştirme program using deyimleri kullanıcının.
 
 ### <a name="add-private-properties"></a>Özel Özellikler ekleme
 
-Aşağıdaki özel özellikleri ad alanına TermLists, sınıf Program ekleyin.
+Aşağıdaki özel özellikleri ad TermLists, Program sınıfı ekleyin.
 
     /// <summary>
     /// The language of the terms in the term lists.
@@ -91,16 +91,16 @@ Aşağıdaki özel özellikleri ad alanına TermLists, sınıf Program ekleyin.
     /// </summary>
     private const double latencyDelay = 0.5;
 
-## <a name="create-a-term-list"></a>Bir terim listesi oluşturma
+## <a name="create-a-term-list"></a>Terim listesi oluşturma
 
-Bir terim listesiyle oluşturduğunuz **ContentModeratorClient.ListManagementTermLists.Create**. İlk parametre olarak **oluşturma** "application/json" olması gereken bir MIME türü içeren bir dizedir. Daha fazla bilgi için bkz: [API Başvurusu](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). İkinci parametre bir **gövde** bir ad ve açıklama yeni terim listesi içeren nesne.
+Bir terim listesi ile oluşturduğunuz **ContentModeratorClient.ListManagementTermLists.Create**. İlk parametre olarak **Oluştur** "application/json" olması gereken bir MIME türü içeren bir dizedir. Daha fazla bilgi için [API Başvurusu](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). İkinci parametre bir **gövdesi** bir ad ve açıklama yeni terim listesi içeren nesne.
 
-Aşağıdaki yöntem tanımını ad alanına TermLists, sınıf Program ekleyin.
+Aşağıdaki yöntem tanımını ad alanına TermLists, Program sınıfı ekleyin.
 
 > [!NOTE]
-> İçerik denetleyici hizmeti anahtarınızı ikinci (RPS) hız sınırı başına bir istek varsa ve sınırı aşarsanız, SDK 429 hata kodunu içeren bir özel durum oluşturur. 
+> Content Moderator hizmet anahtarınız bir istek başına ikinci (RP'ler) hız sınırı vardır ve sınırını aşarsanız, SDK'sı, 429 hata koduna sahip bir özel durum oluşturur. 
 >
-> Ücretsiz katmanı anahtarı bir RPS hızı sınırı vardır.
+> Ücretsiz katmanı anahtarı bir RPS oranı sınırı vardır.
 
     /// <summary>
     /// Creates a new term list.
@@ -128,9 +128,9 @@ Aşağıdaki yöntem tanımını ad alanına TermLists, sınıf Program ekleyin.
 
 ## <a name="update-term-list-name-and-description"></a>Güncelleştirme terim listesi adı ve açıklaması
 
-Terim listesi bilgilerle güncelleştirmek **ContentModeratorClient.ListManagementTermLists.Update**. İlk parametre olarak **güncelleştirme** terim listesi kimliğidir. İkinci parametre "application/json" olması gereken bir MIME türü değil. Daha fazla bilgi için bkz: [API Başvurusu](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f685). Üçüncü parametre bir **gövde** yeni adı ve açıklamayı içeren nesne.
+Terim listesi bilgilerle güncelleştirme **ContentModeratorClient.ListManagementTermLists.Update**. İlk parametre olarak **güncelleştirme** terim listesi kimliğidir. Bir MIME türü "application/json" olması gereken ikinci parametredir. Daha fazla bilgi için [API Başvurusu](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f685). Üçüncü parametre bir **gövdesi** yeni bir ad ve açıklama içeren bir nesne.
 
-Aşağıdaki yöntem tanımını ad alanına TermLists, sınıf Program ekleyin.
+Aşağıdaki yöntem tanımını ad alanına TermLists, Program sınıfı ekleyin.
 
     /// <summary>
     /// Update the information for the indicated term list.
@@ -147,9 +147,9 @@ Aşağıdaki yöntem tanımını ad alanına TermLists, sınıf Program ekleyin.
         Thread.Sleep(throttleRate);
     }
 
-## <a name="add-a-term-to-a-term-list"></a>Bir terim bir terim listesine ekle
+## <a name="add-a-term-to-a-term-list"></a>Bir terimi listesine bir terim ekleyin
 
-Aşağıdaki yöntem tanımını ad alanına TermLists, sınıf Program ekleyin.
+Aşağıdaki yöntem tanımını ad alanına TermLists, Program sınıfı ekleyin.
 
     /// <summary>
     /// Add a term to the indicated term list.
@@ -164,9 +164,9 @@ Aşağıdaki yöntem tanımını ad alanına TermLists, sınıf Program ekleyin.
         Thread.Sleep(throttleRate);
     }
 
-## <a name="get-all-terms-in-a-term-list"></a>Tüm koşulları terim listesini al
+## <a name="get-all-terms-in-a-term-list"></a>Tüm terimler terimi listesini alın
 
-Aşağıdaki yöntem tanımını ad alanına TermLists, sınıf Program ekleyin.
+Aşağıdaki yöntem tanımını ad alanına TermLists, Program sınıfı ekleyin.
 
     /// <summary>
     /// Get all terms in the indicated term list.
@@ -185,13 +185,13 @@ Aşağıdaki yöntem tanımını ad alanına TermLists, sınıf Program ekleyin.
         Thread.Sleep(throttleRate);
     }
 
-## <a name="add-code-to-refresh-the-search-index"></a>Arama dizini yenilemek için kod ekleme
+## <a name="add-code-to-refresh-the-search-index"></a>Arama dizini yenilemek için kod ekleyin
 
-Bir terim listesine değişiklikleri yaptıktan sonra değişikliklerin ekran metni terim listesine bir sonraki kullanışınızda dahil edilmesi arama dizinini yenileyin. Bu, nasıl bir arama motoru (etkinse) masaüstü veya bir web arama motoru sürekli yeni dosyalar veya sayfaları içerecek şekilde dizinini yeniler için benzer.
+Bir terimi listesine değişiklikler yaptıktan sonra değişikliklerin terimi listeye ekrana metnin bir sonraki kullandığınızda dahil edilmesi arama dizinini yenileyin. Bu, nasıl bir arama motoru (etkinse) masaüstü veya bir web arama motoru sürekli olarak yeni dosyalar veya sayfalar eklemek için dizinini yeniler için benzer.
 
-Bir terim listesi arama dizini ile yenileme **ContentModeratorClient.ListManagementTermLists.RefreshIndexMethod**.
+Terim listesi arama dizini ile yenileme **ContentModeratorClient.ListManagementTermLists.RefreshIndexMethod**.
 
-Aşağıdaki yöntem tanımını ad alanına TermLists, sınıf Program ekleyin.
+Aşağıdaki yöntem tanımını ad alanına TermLists, Program sınıfı ekleyin.
 
     /// <summary>
     /// Refresh the search index for the indicated term list.
@@ -205,22 +205,22 @@ Aşağıdaki yöntem tanımını ad alanına TermLists, sınıf Program ekleyin.
         Thread.Sleep((int)(latencyDelay * 60 * 1000));
     }
 
-## <a name="screen-text-using-a-term-list"></a>Terim listesini kullanarak ekran metni
+## <a name="screen-text-using-a-term-list"></a>Terim listesi kullanarak ekranı metni
 
-Bir terim listesiyle kullanarak metin ekran **ContentModeratorClient.TextModeration.ScreenText**, aşağıdaki parametreleri alır.
+Terim listesini kullanarak metin ekran **ContentModeratorClient.TextModeration.ScreenText**, şu parametreleri alır.
 
 - Terim listesi koşullarını dili.
-- "Text/html", "text/xml", "metin/markdown" veya "metin/düz" bir MIME türü.
-- Ekran metni.
-- Bir Boole değeri. Bu alan kümesi'ne **true** düzeltme, filtreleme önce metni için.
-- Bir Boole değeri. Bu alan kümesi'ne **true** kişisel bilgilerin (PII) metinde algılamak için.
-- Terim liste kimliği
+- "Text/html", "metin/xml", "metin/markdown" veya "text/plain" bir MIME türü.
+- Ekrana metin.
+- Bir Boole değeri. Bu alan kümesine **true** düzeltme bu filtreleme önce metin için.
+- Bir Boole değeri. Bu alan kümesine **true** kişisel bilgilerin (PII) metinde algılamak için.
+- Terim liste kimliği.
 
-Daha fazla bilgi için bkz: [API Başvurusu](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
+Daha fazla bilgi için [API Başvurusu](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
 
-**ScreenText** döndürür bir **ekran** sahip nesne, bir **koşulları** herhangi listeler özellik koşulları o içerik filtreleme algılanan denetleyici. İçerik denetleyici filtreleme sırasında tüm koşullar algılamadı gerçekleştiriyorsanız **koşulları** değerine **null**.
+**ScreenText** döndürür bir **ekran** olan nesne bir **koşulları** herhangi listeler özellik koşulları, Content Moderator, filtreleme algılandı. Content Moderator filtreleme sırasında herhangi bir hüküm algılamadı gerçekleştiriyorsanız **koşulları** özellik değerine sahip **null**.
 
-Aşağıdaki yöntem tanımını ad alanına TermLists, sınıf Program ekleyin.
+Aşağıdaki yöntem tanımını ad alanına TermLists, Program sınıfı ekleyin.
 
     /// <summary>
     /// Screen the indicated text for terms in the indicated term list.
@@ -248,15 +248,15 @@ Aşağıdaki yöntem tanımını ad alanına TermLists, sınıf Program ekleyin.
 
 ## <a name="delete-terms-and-lists"></a>Hüküm ve listeleri sil
 
-Bir terim veya bir liste silme basittir. SDK, aşağıdaki görevleri gerçekleştirmek için kullanın:
+Bir terimi veya ayrılmış bir listeyi silmek oldukça basittir. SDK'sı, aşağıdaki görevleri gerçekleştirmek için kullanın:
 
-- Bir terim silin. (**ContentModeratorClient.ListManagementTerm.DeleteTerm**)
-- Bir listedeki tüm koşulları listesi silmeden silin. (**ContentModeratorClient.ListManagementTerm.DeleteAllTerms**)
-- Bir listesi ve tüm içeriğini silin. (**ContentModeratorClient.ListManagementTermLists.Delete**)
+- Bir terimi silin. (**ContentModeratorClient.ListManagementTerm.DeleteTerm**)
+- Bir listedeki tüm koşulları, listenin silmeden silin. (**ContentModeratorClient.ListManagementTerm.DeleteAllTerms**)
+- Bir liste ve tüm içeriğini silin. (**ContentModeratorClient.ListManagementTermLists.Delete**)
 
-### <a name="delete-a-term"></a>Bir terim Sil
+### <a name="delete-a-term"></a>Bir terimi Sil
 
-Aşağıdaki yöntem tanımını ad alanına TermLists, sınıf Program ekleyin.
+Aşağıdaki yöntem tanımını ad alanına TermLists, Program sınıfı ekleyin.
 
     /// <summary>
     /// Delete a term from the indicated term list.
@@ -271,9 +271,9 @@ Aşağıdaki yöntem tanımını ad alanına TermLists, sınıf Program ekleyin.
         Thread.Sleep(throttleRate);
     }
 
-### <a name="delete-all-terms-in-a-term-list"></a>Bir terim listedeki tüm koşulları Sil
+### <a name="delete-all-terms-in-a-term-list"></a>Bir terimi listesindeki tüm koşulları Sil
 
-Aşağıdaki yöntem tanımını ad alanına TermLists, sınıf Program ekleyin.
+Aşağıdaki yöntem tanımını ad alanına TermLists, Program sınıfı ekleyin.
 
     /// <summary>
     /// Delete all terms from the indicated term list.
@@ -287,9 +287,9 @@ Aşağıdaki yöntem tanımını ad alanına TermLists, sınıf Program ekleyin.
         Thread.Sleep(throttleRate);
     }
 
-### <a name="delete-a-term-list"></a>Terim listesini sil
+### <a name="delete-a-term-list"></a>Terim listesi Sil
 
-Aşağıdaki yöntem tanımını ad alanına TermLists, sınıf Program ekleyin.
+Aşağıdaki yöntem tanımını ad alanına TermLists, Program sınıfı ekleyin.
 
     /// <summary>
     /// Delete the indicated term list.
@@ -303,9 +303,9 @@ Aşağıdaki yöntem tanımını ad alanına TermLists, sınıf Program ekleyin.
         Thread.Sleep(throttleRate);
     }
 
-## <a name="putting-it-all-together"></a>Tüm bir araya getirme
+## <a name="putting-it-all-together"></a>Hepsini birleştirme
 
-Ekleme **ana** yöntem tanımını ad alanına TermLists, Program sınıfı. Son olarak, Program sınıfı ve TermLists ad kapatın.
+Ekleme **ana** yöntem tanımını ad alanına TermLists, Program sınıfı. Son olarak, Program sınıfına ve TermLists ad alanı kapatın.
 
     static void Main(string[] args)
     {
@@ -341,9 +341,9 @@ Ekleme **ana** yöntem tanımını ad alanına TermLists, Program sınıfı. Son
         }
     }
 
-## <a name="run-the-application-to-see-the-output"></a>Çıkışı görmek için uygulamayı çalıştırın
+## <a name="run-the-application-to-see-the-output"></a>Çıktıyı görmek için uygulamayı çalıştırma
 
-Aşağıdaki satırda, çıktı olacaktır, ancak verileri gösterebilir.
+Çıkışınız aşağıdaki satırda olacaktır, ancak Veri farklılık gösterebilir.
 
     Creating term list.
     Term list created. ID: 252.
@@ -375,4 +375,4 @@ Aşağıdaki satırda, çıktı olacaktır, ancak verileri gösterebilir.
     
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Visual Studio çözümü indirme](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) bu ve diğer içerik denetleyici hızlı başlangıç ipuçları için .NET için ve tümleştirme üzerinde başlayın.
+Alma [Content Moderator .NET SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) ve [Visual Studio çözümü](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) bu ve diğer Content Moderator hızlı başlangıçlar, .NET için ve tümleştirmenizi üzerinde çalışmaya başlayın.

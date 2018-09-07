@@ -1,6 +1,6 @@
 ---
-title: Azure içerik denetleyicinin özel görüntü listeleriyle Orta | Microsoft Docs
-description: .NET için Azure içerik denetleyici SDK'sını kullanarak özel görüntüsüyle Orta nasıl listeler.
+title: Azure Content Moderator, özel görüntü listeleriyle Orta | Microsoft Docs
+description: .NET için Azure Content Moderator SDK'sını kullanarak özel görüntü ile orta nasıl listeler.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,47 +9,47 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: c953df88f878b4f05c9a9f3099aea77f3ff48a92
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 040962077def18d373d6e187d4b0b220889ed133
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351856"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024010"
 ---
-# <a name="moderate-with-custom-image-lists-in-net"></a>.NET özel görüntü listeleriyle Orta
+# <a name="moderate-with-custom-image-lists-in-net"></a>. NET'te özel görüntü listeleriyle Orta
 
-Bu makalede bilgiler sağlanmaktadır ve yardımcı olması için kod örnekleri için .NET için içerik denetleyici SDK'sını kullanarak kullanmaya başlama:
+Bu makalede bilgiler sağlanmaktadır ve yardımcı olması için kod örnekleri, kullanmaya başlama [Content Moderator SDK'sı .NET için](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) için:
 - Özel görüntü listesi oluşturma
-- Ekleme ve listeden görüntüleri kaldırma
+- Ekleme ve görüntüleri listeden kaldırma
 - Listede tüm görüntülerin kimlikleri alma
-- Almak ve liste meta veri güncelleştirme
+- Alma ve liste meta verilerini güncelleştir
 - Liste arama dizini Yenile
-- Görüntü listesinde karşı ekran görüntüleri
+- Görüntüleri listesinde karşı ekran görüntüleri
 - Listeden tüm görüntüleri silin
-- Özel listeyi silme
+- Özel liste sil
 
 > [!NOTE]
-> Maksimum sınırı yoktur **5 görüntü listeleri** her listesine ile **10.000 görüntüleri aşmaması**.
+> Bir maksimum sınırı **5 görüntü listeleri** her listesine ile **10.000 görüntüleri aşmayacak**.
 >
 
-Bu Hızlı Başlangıç için konsol uygulaması resim listesi API ile gerçekleştirebileceğiniz görevlerden bazıları benzetimini yapar.
+Bu Hızlı Başlangıç için konsol uygulaması görüntü listesi API'si ile gerçekleştirebileceğiniz görevlerden bazıları benzetimini yapar.
 
-Bu makalede, Visual Studio ve C# ile bilginiz olduğunu varsayar.
+Bu makalede, zaten Visual Studio ve C# ile ilgili bilgi sahibi olduğunuz varsayılır.
 
-## <a name="sign-up-for-content-moderator-services"></a>İçerik denetleyici Hizmetleri için kaydolun
+## <a name="sign-up-for-content-moderator-services"></a>Content Moderator Hizmetleri için kaydolun
 
-REST API veya SDK üzerinden içerik denetleyici Hizmetleri kullanabilmeniz için önce bir abonelik anahtarı gerekir.
-Başvurmak [Hızlı Başlangıç](quick-start.md) anahtarı nasıl edinebilirsiniz öğrenin.
+Content Moderator Hizmetleri REST API veya SDK aracılığıyla kullanabilmeniz için önce bir abonelik anahtarı gerekir.
+Başvurmak [hızlı](quick-start.md) anahtarı nasıl edinebilirsiniz öğrenin.
 
-## <a name="create-your-visual-studio-project"></a>Visual Studio projesi oluşturma
+## <a name="create-your-visual-studio-project"></a>Visual Studio projenizi oluşturun
 
-1. Yeni bir ekleme **konsol uygulaması (.NET Framework)** çözümünüzü projeye.
+1. Yeni bir **konsol uygulaması (.NET Framework)** çözümünüze bir proje.
 
-   Örnek kodda proje adı **ImageLists**.
+   Örnek kodda, projeyi adlandırın **ImageLists**.
 
-1. Bu proje çözüme yönelik tek başlangıç projesi olarak seçin.
+1. Bu proje, çözüm için tek bir başlangıç projesi olarak seçin.
 
-1. Bir başvuru ekleyin **ModeratorHelper** proje oluşturduğunuz derleme [içerik denetleyici istemci Yardımcısı quickstart](content-moderator-helper-quickstart-dotnet.md).
+1. Bir başvuru ekleyin **ModeratorHelper** proje oluşturduğunuz derleme [Content Moderator istemci Yardımcısı hızlı](content-moderator-helper-quickstart-dotnet.md).
 
 ### <a name="install-required-packages"></a>Gerekli paketleri yükleme
 
@@ -59,9 +59,9 @@ Aşağıdaki NuGet paketlerini yükleyin:
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Güncelleştirme program using deyimleri
+### <a name="update-the-programs-using-statements"></a>Deyimleri kullanarak program güncelleştirme
 
-Değiştirme program using deyimleri kullanıcının.
+Değiştirme deyimleri kullanarak program.
 
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
@@ -73,7 +73,7 @@ Değiştirme program using deyimleri kullanıcının.
     using System.Threading;
 
 
-### <a name="initialize-application-specific-settings"></a>Uygulamaya özgü ayarları başlatma
+### <a name="initialize-application-specific-settings"></a>Uygulamaya özgü ayarları başlatmak
 
 Aşağıdaki sınıflar ve statik alanları eklemek **Program** Program.cs sınıfında.
 
@@ -197,9 +197,9 @@ Aşağıdaki sınıflar ve statik alanları eklemek **Program** Program.cs sın�
    
 
 > [!NOTE]
-> İçerik denetleyici hizmeti anahtarınızı ikinci (RPS) hız sınırı başına bir istek varsa ve sınırı aşarsanız, SDK 429 hata kodunu içeren bir özel durum oluşturur. 
+> Content Moderator hizmet anahtarınız bir istek başına ikinci (RP'ler) hız sınırı vardır ve sınırını aşarsanız, SDK'sı, 429 hata koduna sahip bir özel durum oluşturur. 
 >
-> Ücretsiz katmanı anahtarı bir RPS hızı sınırı vardır.
+> Ücretsiz katmanı anahtarı bir RPS oranı sınırı vardır.
 
 
 ## <a name="create-a-method-to-write-messages-to-the-log-file"></a>İletileri günlük dosyasına yazmak için bir yöntem oluşturma
@@ -221,7 +221,7 @@ Aşağıdaki sınıflar ve statik alanları eklemek **Program** Program.cs sın�
         }
     }
 
-## <a name="create-a-method-to-create-the-custom-list"></a>Özel listesi oluşturmak için bir yöntem oluşturma
+## <a name="create-a-method-to-create-the-custom-list"></a>Özel liste oluşturmak için bir yöntem oluşturma
 
 **Program** sınıfına aşağıdaki yöntemi ekleyin. 
 
@@ -248,11 +248,11 @@ Aşağıdaki sınıflar ve statik alanları eklemek **Program** Program.cs sın�
         return result;
     }
 
-## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>Bir görüntü koleksiyonu listesine eklemek için bir yöntem oluşturma
+## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>Görüntü koleksiyonunu listesine eklemek için bir yöntem oluşturma
 
 **Program** sınıfına aşağıdaki yöntemi ekleyin.
 
-Bu hızlı başlangıç görüntüleri listedeki etiketleri uygulamak nasıl gösterilmemiştir. 
+Bu hızlı başlangıç görüntülerini listesinde etiketler nasıl göstermemiz gerekmez. 
 
     /// <summary>
     /// Adds images to an image list.
@@ -292,7 +292,7 @@ Bu hızlı başlangıç görüntüleri listedeki etiketleri uygulamak nasıl gö
         }
     }
 
-## <a name="create-a-method-to-remove-images-from-the-list"></a>Görüntüleri listesinden kaldırmak için bir yöntem oluşturma
+## <a name="create-a-method-to-remove-images-from-the-list"></a>Görüntü listesinden kaldırmak için bir yöntem oluşturma
 
 **Program** sınıfına aşağıdaki yöntemi ekleyin. 
 
@@ -327,7 +327,7 @@ Bu hızlı başlangıç görüntüleri listedeki etiketleri uygulamak nasıl gö
         }
     }
 
-## <a name="create-a-method-to-get-all-of-the-content-ids-for-images-in-the-list"></a>Tüm içerik kimlikleri listesinde görüntüleri almak için bir yöntem oluşturma
+## <a name="create-a-method-to-get-all-of-the-content-ids-for-images-in-the-list"></a>Tüm içeriği kimlikleri listesi görüntüleri almak için bir yöntem oluşturma
 
 **Program** sınıfına aşağıdaki yöntemi ekleyin. 
 
@@ -409,7 +409,7 @@ Bu hızlı başlangıç görüntüleri listedeki etiketleri uygulamak nasıl gö
 
 **Program** sınıfına aşağıdaki yöntemi ekleyin.
 
-Bir listeyi güncelleştirmek istediğiniz zaman arama dizini ekran görüntüleri listesine kullanmadan önce yenilemeniz gerekir.
+Bir listeyi güncelleştirmek istediğiniz zaman ekran görüntüleri listesine kullanmadan önce arama dizini yenilemeniz gerekir.
 
     /// <summary>
     /// Refreshes the search index for an image list.
@@ -432,7 +432,7 @@ Bir listeyi güncelleştirmek istediğiniz zaman arama dizini ekran görüntüle
         return result;
     }
 
-## <a name="create-a-method-to-match-images-against-the-list"></a>Görüntüleri listesiyle eşleşen bir yöntem oluşturma
+## <a name="create-a-method-to-match-images-against-the-list"></a>Görüntüleri listesiyle eşleştirmeye bir yöntem oluşturma
 
 **Program** sınıfına aşağıdaki yöntemi ekleyin. 
 
@@ -504,7 +504,7 @@ Bir listeyi güncelleştirmek istediğiniz zaman arama dizini ekran görüntüle
         WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
     }
 
-## <a name="create-a-method-to-retrieve-ids-for-all-image-lists"></a>Tüm resim listeleri için kimliklerini almak için bir yöntem oluşturma
+## <a name="create-a-method-to-retrieve-ids-for-all-image-lists"></a>Tüm görüntü listeleri için kimliklerini almak için bir yöntem oluşturma
 
 **Program** sınıfına aşağıdaki yöntemi ekleyin. 
 
@@ -527,11 +527,11 @@ Bir listeyi güncelleştirmek istediğiniz zaman arama dizini ekran görüntüle
         return result;
     }
 
-## <a name="add-code-to-simulate-the-use-of-an-image-list"></a>Görüntü listesi kullanımını benzetimini yapmak için kod ekleme
+## <a name="add-code-to-simulate-the-use-of-an-image-list"></a>Görüntü listesi kullanımını benzetimini yapmak için kod ekleyin
 
 Aşağıdaki kodu ekleyin **ana** yöntemi.
 
-Bu kod tanımlama ve liste yönetme, aynı zamanda ekran görüntüleri için listeyi kullanarak gerçekleştireceği işlemlerinin birçoğu benzetimini yapar. Günlüğe kaydetme özelliklerini içerik Aracı hizmeti için SDK çağrısı tarafından oluşturulan yanıt nesneleri görmenize olanak sağlar.
+Bu kod tanımlama ve listeyi yönetmek, ek olarak ekran görüntüleri listesine kullanarak gerçekleştirecek işlemlerinin birçoğu benzetimini yapar. Günlüğe kaydetme özelliklerini Content Moderator hizmet SDK çağrıları tarafından oluşturulan yanıt nesnelerinin görmenize olanak sağlar.
 
     // Create the text writer to use for logging, and cache a static reference to it.
     using (StreamWriter outputWriter = new StreamWriter(OutputFile))
@@ -599,10 +599,10 @@ Bu kod tanımlama ve liste yönetme, aynı zamanda ekran görüntüleri için li
     Console.WriteLine("Press any key to exit...");
     Console.ReadKey();
 
-## <a name="run-the-program-and-review-the-output"></a>Programını çalıştırın ve çıktıyı gözden geçirin
+## <a name="run-the-program-and-review-the-output"></a>Programı çalıştırın ve çıktıyı gözden geçirin
 
-Liste kimliği ve görüntünün kimlikleri farklı içerik her, uygulamayı çalıştırma zamanı.
-Program tarafından yazılan günlük dosyası aşağıdaki çıkış sahiptir:
+Liste kimliği ile görüntü kimlikleri farklı içerik her uygulamayı çalıştırdığınızda.
+Aşağıdaki çıktı program tarafından yazılan günlük dosyası vardır:
 
     Creating list MyList.
     Response:
@@ -1021,4 +1021,4 @@ Program tarafından yazılan günlük dosyası aşağıdaki çıkış sahiptir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Visual Studio çözümü indirme](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) bu ve diğer içerik denetleyici hızlı başlangıç ipuçları için .NET için ve tümleştirme üzerinde başlayın.
+Alma [Content Moderator .NET SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) ve [Visual Studio çözümü](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) bu ve diğer Content Moderator hızlı başlangıçlar, .NET için ve tümleştirmenizi üzerinde çalışmaya başlayın.

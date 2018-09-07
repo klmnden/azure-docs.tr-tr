@@ -1,6 +1,6 @@
 ---
-title: Azure içerik aracı - .NET kullanarak incelemeler oluşturma | Microsoft Docs
-description: .NET için Azure içerik denetleyici SDK'sını kullanarak nasıl oluşturulacağını gözden geçirme
+title: Azure Content Moderator - .NET kullanarak incelemeleri oluştur | Microsoft Docs
+description: .NET için Azure Content Moderator SDK'sını kullanarak nasıl oluşturulacağını gözden geçirmeleri
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,38 +9,50 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: 6a0ff48f4ea17f9c800f3e6c096df2492699f87a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5a4d6383f0ee7e8db6ceee0997e53afa1e9dd93c
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351839"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026474"
 ---
-# <a name="create-reviews-using-net"></a>.NET kullanarak incelemeler oluşturma
+# <a name="create-reviews-using-net"></a>.NET kullanarak incelemeleri oluşturma
 
-Bu makalede bilgiler sağlanmaktadır ve yardımcı olması için kod örnekleri için .NET için içerik denetleyici SDK'sını kullanarak kullanmaya başlama:
+Bu makalede bilgiler sağlanmaktadır ve yardımcı olması için kod örnekleri, kullanmaya başlama [Content Moderator SDK'sı .NET için](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) için:
  
-- İnsan denetleyiciler için incelemeler kümesi oluşturma
-- İnsan denetleyiciler için varolan incelemeler durumunu Al
+- İnsan Moderatörler için gözden geçirmeleri kümesi oluşturma
+- İnsan Moderatörler için mevcut incelemeleri durumunu alın
 
-Genellikle, içerik İnsan gözden geçirilmek üzere zamanlandığı anlarda önce bazı otomatik yönetimini geçer. Bu makalede yalnızca İnsan yönetimini gözden oluşturma kapsar. Daha eksiksiz bir senaryo için bkz [Facebook içerik yönetimini](facebook-post-moderation.md) ve [e-ticaret katalog yönetimini](ecommerce-retail-catalog-moderation.md) öğreticileri.
+Genellikle, içerik insan tarafından İnceleme için planlanan önce bazı otomatik denetimden geçer. Bu makalede, insan tarafından denetim için gözden geçirmesi oluşturma yalnızca kapsar. Daha eksiksiz bir senaryo için bkz [Facebook içerik denetleme](facebook-post-moderation.md) ve [Eticaret katalog denetimi](ecommerce-retail-catalog-moderation.md) öğreticiler.
 
-Bu makalede, Visual Studio ve C# ile bilginiz olduğunu varsayar.
+Bu makalede, zaten Visual Studio ve C# ile ilgili bilgi sahibi olduğunuz varsayılır.
 
-## <a name="sign-up-for-content-moderator-services"></a>İçerik denetleyici Hizmetleri için kaydolun
+## <a name="sign-up-for-content-moderator"></a>Content Moderator için kaydolun
 
-REST API veya SDK üzerinden içerik denetleyici Hizmetleri kullanabilmeniz için önce bir abonelik anahtarı gerekir.
-Başvurmak [Hızlı Başlangıç](quick-start.md) anahtarı nasıl edinebilirsiniz öğrenin.
+Content Moderator Hizmetleri REST API veya SDK aracılığıyla kullanabilmeniz için önce bir abonelik anahtarı gerekir.
+Başvurmak [hızlı](quick-start.md) anahtarı nasıl edinebilirsiniz öğrenin.
 
-## <a name="create-your-visual-studio-project"></a>Visual Studio projesi oluşturma
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Önceki adımda tamamlanmamış olursa bir gözden geçirme aracı hesabı için kaydolun
 
-1. Yeni bir ekleme **konsol uygulaması (.NET Framework)** çözümünüzü projeye.
+Content Moderator, Azure portalından da aldığınız varsa [gözden geçirme aracı hesabı için kaydolun](https://contentmoderator.cognitive.microsoft.com/) ve bir gözden geçirme ekibi oluşturun. Takım Kimliği ve bir iş başlatabilir ve gözden geçirmeleri gözden geçirme Aracı'nda görüntülemek için gözden geçirme API'sini çağırmak için gözden geçirme aracı ihtiyacınız var.
 
-   Örnek kodda proje adı **CreateReviews**.
+## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Gözden geçirme oluşturmak için API anahtarınızı gözden geçirme API çağrısı emin olun.
 
-1. Bu proje çözüme yönelik tek başlangıç projesi olarak seçin.
+Azure Portalı'ndan başlattıysanız önceki adımları tamamladıktan sonra iki Content Moderator anahtarlarla bitirebilirsiniz. 
 
-1. Bir başvuru ekleyin **ModeratorHelper** proje oluşturduğunuz derleme [içerik denetleyici istemci Yardımcısı quickstart](content-moderator-helper-quickstart-dotnet.md).
+SDK'sı örneğinizi Azure tarafından sağlanan API anahtarı kullanmayı planlıyorsanız, belirtilen adımları izleyin [gözden geçirme API kullanarak Azure anahtarla](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) bölümünde uygulamanız gözden geçirme API çağrısı ve gözden geçirmeler oluşturmak izin vermek için.
+
+Gözden geçirme aracı tarafından oluşturulan ücretsiz deneme sürümü anahtarı kullanırsanız, gözden geçirme aracı hesabınızı anahtarı hakkında zaten bilir ve bu nedenle, ek adımlar gereklidir.
+
+## <a name="create-your-visual-studio-project"></a>Visual Studio projenizi oluşturun
+
+1. Yeni bir **konsol uygulaması (.NET Framework)** çözümünüze bir proje.
+
+   Örnek kodda, projeyi adlandırın **CreateReviews**.
+
+1. Bu proje, çözüm için tek bir başlangıç projesi olarak seçin.
+
+1. Bir başvuru ekleyin **ModeratorHelper** proje oluşturduğunuz derleme [Content Moderator istemci Yardımcısı hızlı](content-moderator-helper-quickstart-dotnet.md).
 
 ### <a name="install-required-packages"></a>Gerekli paketleri yükleme
 
@@ -50,9 +62,9 @@ Aşağıdaki NuGet paketlerini yükleyin:
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Güncelleştirme program using deyimleri
+### <a name="update-the-programs-using-statements"></a>Deyimleri kullanarak program güncelleştirme
 
-Değiştirme program using deyimleri kullanıcının.
+Değiştirme deyimleri kullanarak program.
 
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
@@ -63,10 +75,10 @@ Değiştirme program using deyimleri kullanıcının.
     using System.IO;
     using System.Threading;
 
-## <a name="create-a-class-to-associate-internal-content-information-with-a-review-id"></a>İç içerik bilgileri bir gözden geçirme kimliği ile ilişkilendirmek için bir sınıf oluşturun
+## <a name="create-a-class-to-associate-internal-content-information-with-a-review-id"></a>İç içerik bilgilerini gözden geçirme kimliği ile ilişkilendirmek için bir sınıf oluşturun
 
-Aşağıdaki sınıf ekleme **Program** sınıfı.
-İç içerik Kimliğinizi öğesi için gözden geçirme Kimliğine ilişkilendirmek için bu sınıf kullanın.
+Aşağıdaki sınıfa eklemek **Program** sınıfı.
+Bu sınıf, öğe için dahili içerik kimliğinizin gözden geçirme kimliği ilişkilendirmek için kullanın.
 
     /// <summary>
     /// Associates the review ID (assigned by the service) to the internal
@@ -95,12 +107,12 @@ Aşağıdaki sınıf ekleme **Program** sınıfı.
         public string ReviewId;
     }
 
-### <a name="initialize-application-specific-settings"></a>Uygulamaya özgü ayarları başlatma
+### <a name="initialize-application-specific-settings"></a>Uygulamaya özgü ayarları başlatmak
 
 > [!NOTE]
-> İçerik denetleyici hizmeti anahtarınızı ikinci (RPS) hız sınırı başına bir istek varsa ve sınırı aşarsanız, SDK 429 hata kodunu içeren bir özel durum oluşturur. 
+> Content Moderator hizmet anahtarınız bir istek başına ikinci (RP'ler) hız sınırı vardır ve sınırını aşarsanız, SDK'sı, 429 hata koduna sahip bir özel durum oluşturur. 
 >
-> Ücretsiz katmanı anahtarı bir RPS hızı sınırı vardır.
+> Ücretsiz katmanı anahtarı bir RPS oranı sınırı vardır.
 
 #### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Aşağıdaki sabitleri ekleyin **Program** Program.cs sınıfında.
     
@@ -122,12 +134,12 @@ Aşağıdaki sınıf ekleme **Program** sınıfı.
     /// <remarks>Relative paths are ralative the execution directory.</remarks>
     private const string OutputFile = "OutputLog.txt";
 
-#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Statik alanları ve aşağıdaki sabitleri ekleyin **Program** Program.cs sınıfında.
+#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Aşağıdaki sabitler ve statik alanları ekleme **Program** Program.cs sınıfında.
 
-Bu değerler için aboneliği ve takım özgü bilgileri içerecek şekilde güncelleştirin.
+Aboneliğiniz ve takım için belirli bilgiler içerecek şekilde bu değerleri güncelleştirin.
 
 > [!NOTE]
-> TeamName sabiti oluştururken kullandığınız adına ayarlayın, [içerik denetleyici gözden geçirme aracı](https://contentmoderator.cognitive.microsoft.com/) abonelik. Gelen TeamName almak **kimlik bilgileri** bölümüne **ayarları** (dişli) menüsü.
+> TeamName sabiti oluştururken kullandığınız ada ayarlayın, [Content Moderator İnceleme aracı](https://contentmoderator.cognitive.microsoft.com/) abonelik. Gelen TeamName almak **kimlik bilgilerini** konusundaki **ayarları** (dişli) menüsü.
 >
 > Takım adınızı değeri **kimliği** alanındaki **API** bölümü.
 
@@ -179,7 +191,7 @@ Bu değerler için aboneliği ve takım özgü bilgileri içerecek şekilde gün
 
 #### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>Aşağıdaki statik alanları ekleme **Program** Program.cs sınıfında.
 
-Uygulama durumunu izlemek için bu alanları kullanın.
+Bu alanlar, uygulama durumunu izlemek için kullanın.
 
     /// <summary>
     /// A static reference to the text writer to use for logging.
@@ -214,7 +226,7 @@ Uygulama durumunu izlemek için bu alanları kullanın.
 
 ## <a name="create-a-method-to-create-a-set-of-reviews"></a>Gözden geçirmeler kümesi oluşturmak için bir yöntem oluşturma
 
-Normalde, gelen resim, metin tanımlamak için bazı iş mantığı sahip veya video, gözden geçirilmesi gerekir. Ancak, burada yalnızca bir sabit listesi görüntülerinin kullanın.
+Normalde, gelen resim, metin tanımlamaya yönelik bazı iş mantığına sahip olmak veya video, gözden geçirilmesi gerekiyor. Bununla birlikte, burada yalnızca görüntülerin sabit listesini kullanın.
 
 **Program** sınıfına aşağıdaki yöntemi ekleyin.
 
@@ -279,13 +291,13 @@ Normalde, gelen resim, metin tanımlamak için bazı iş mantığı sahip veya v
         Thread.Sleep(throttleRate);
     }
 
-## <a name="create-a-method-to-get-the-status-of-existing-reviews"></a>Varolan incelemeler durumunu almak için bir yöntem oluşturma
+## <a name="create-a-method-to-get-the-status-of-existing-reviews"></a>Mevcut incelemeleri durumunu almak için bir yöntem oluşturma
 
 **Program** sınıfına aşağıdaki yöntemi ekleyin. 
 
 > [!Note]
-> Uygulamada, geri çağırma URL'si ayarlarsınız `CallbackEndpoint` el ile gözden geçirme (aracılığıyla bir HTTP POST isteği) sonuçlarını alacağı URL.
-> Gözden geçirmeler bekleyen durumunu denetlemek için bu yöntem değiştirebilir.
+> Uygulamada, geri çağırma URL'si ayarlamalı `CallbackEndpoint` URL'sine (aracılığıyla bir HTTP POST isteği) el ile İnceleme sonuçları alırsınız.
+> Bu yöntem, incelemeleri bekleyen durumunu denetlemek için değiştirebilir.
 
     /// <summary>
     /// Gets the review details from the server.
@@ -310,11 +322,11 @@ Normalde, gelen resim, metin tanımlamak için bazı iş mantığı sahip veya v
         }
     }
 
-## <a name="add-code-to-create-a-set-of-reviews-and-check-its-status"></a>Gözden geçirmeler kümesi oluşturma ve durumunu denetlemek için kod ekleme
+## <a name="add-code-to-create-a-set-of-reviews-and-check-its-status"></a>İncelemeleri kümesi oluşturma ve onun durumunu denetlemek için kod ekleyin
 
 Aşağıdaki kodu ekleyin **ana** yöntemi.
 
-Bu kod tanımlama ve liste yönetme, aynı zamanda ekran görüntüleri için listeyi kullanarak gerçekleştirdiğiniz işlemlerinin birçoğu benzetimini yapar. Günlüğe kaydetme özelliklerini içerik Aracı hizmeti için SDK çağrısı tarafından oluşturulan yanıt nesneleri görmenize olanak sağlar.
+Bu kod tanımlama ve listeyi yönetmek, ek olarak ekran görüntüleri listesine kullanarak gerçekleştirdiğiniz işlemlerinin birçoğu benzetimini yapar. Günlüğe kaydetme özelliklerini Content Moderator hizmet SDK çağrıları tarafından oluşturulan yanıt nesnelerinin görmenize olanak sağlar.
 
     using (TextWriter outputWriter = new StreamWriter(OutputFile, false))
     {
@@ -345,9 +357,9 @@ Bu kod tanımlama ve liste yönetme, aynı zamanda ekran görüntüleri için li
     Console.WriteLine("Press any key to exit...");
     Console.ReadKey();
 
-## <a name="run-the-program-and-review-the-output"></a>Programını çalıştırın ve çıktıyı gözden geçirin
+## <a name="run-the-program-and-review-the-output"></a>Programı çalıştırın ve çıktıyı gözden geçirin
 
-Aşağıdaki örnek çıkış bakın:
+Aşağıdaki örnek çıktı görürsünüz:
 
     Creating reviews for the following images:
         - https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg; with id = 0.
@@ -355,11 +367,11 @@ Aşağıdaki örnek çıkış bakın:
     Getting review details:
     Review 201712i46950138c61a4740b118a43cac33f434 for item ID 0 is Pending.
 
-İçerik denetleyici içine oturum gözden ile gözden bekleyen görüntü görmek için aracı **sc** etiketi kümesine **doğru**. Ayrıca varsayılan bkz **bir** ve **r** etiketleri ve gözden geçirme aracı içinde tanımlanan herhangi bir özel etiket. 
+Content Moderator oturum gözden ile gözden geçirin. bekleyen görüntüyü görmek için aracı **sc** etiket kümesine **true**. Ayrıca varsayılan gördüğünüz **bir** ve **r** etiketleri ve gözden geçirme aracı içinde tanımlanan herhangi bir özel etiket. 
 
 Kullanım **sonraki** gönderme düğmesi.
 
-![İnsan araburucu için görüntü gözden geçirme](images/moderation-reviews-quickstart-dotnet.PNG)
+![İnsan Moderatörler için resim incelemesi](images/moderation-reviews-quickstart-dotnet.PNG)
 
 Devam etmek için herhangi bir tuşa basın.
 
@@ -370,12 +382,12 @@ Devam etmek için herhangi bir tuşa basın.
 
     Press any key to exit...
 
-## <a name="check-out-the-following-output-in-the-log-file"></a>Günlük dosyasında çıktı aşağıdaki göz atın.
+## <a name="check-out-the-following-output-in-the-log-file"></a>Aşağıdaki çıktıyı günlük dosyasına göz atın.
 
 > [!NOTE]
-> Çıktı dosyanızda, dizeleri "\{teamname}" ve "\{callbackUrl}" için değerleri yansıtacak `TeamName` ve `CallbackEndpoint` alanlar, sırasıyla.
+> Dizeleri, çıkış dosyasında "\{teamname}" ve "\{callbackUrl}" için değerleri yansıtmasına `TeamName` ve `CallbackEndpoint` alanlar, sırasıyla.
 
-Kimlikleri gözden geçirme ve görüntünün URL'leri her zaman farklıdır içerik, uygulamayı çalıştırın ve bir gözden geçirme olduğunda tamamlayın, `reviewerResultTags` alan, gözden geçirenin nasıl öğesi etiketli yansıtır.
+Gözden geçirme kimliği URL'leri her zaman farklıdır içerik görüntüsü, uygulamayı çalıştırın ve bir gözden geçirme olduğunda tamamlandı, `reviewerResultTags` alanı nasıl Gözden Geçiren öğeyi etiketli yansıtır.
 
     Creating reviews for the following images:
         - https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg; with id = 0.
@@ -436,9 +448,9 @@ Kimlikleri gözden geçirme ve görüntünün URL'leri her zaman farklıdır iç
         "callbackEndpoint": "{callbackUrl}"
     }
 
-## <a name="your-callback-url-if-provided-receives-this-response"></a>Geri çağırma URL'si sağladıysa, bu yanıt alır
+## <a name="your-callback-url-if-provided-receives-this-response"></a>Sağlanırsa, bu yanıt, geri çağırma URL'sini alır
 
-Aşağıdaki örneğe benzer bir yanıt görürsünüz:
+Aşağıdaki örnekte olduğu gibi bir yanıt görürsünüz:
 
     {
         "ReviewId": "201801i48a2937e679a41c7966e838c92f5e649",
@@ -459,4 +471,4 @@ Aşağıdaki örneğe benzer bir yanıt görürsünüz:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Visual Studio çözümü indirme](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) bu ve diğer içerik denetleyici hızlı başlangıç ipuçları için .NET için ve tümleştirme üzerinde başlayın.
+Alma [Content Moderator .NET SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) ve [Visual Studio çözümü](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) bu ve diğer Content Moderator hızlı başlangıçlar, .NET için ve tümleştirmenizi üzerinde çalışmaya başlayın.

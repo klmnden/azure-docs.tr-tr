@@ -14,12 +14,12 @@ ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 1a7ecbe42857e522785d5919d46b783feae4caeb
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1ac15ce8f8abf2b30b42f02b300a17448f86fc40
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494134"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052777"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?
 Çoklu oturum açma tüm uygulamalar ve yalnızca tek bir kullanıcı hesabı kullanarak bir kez oturum açarak iş yapmanız gereken kaynaklara erişmeye çalıştığında anlamına gelir. Oturum açtıktan sonra tüm gereken kimlik doğrulaması için gerekli olmadan uygulamaları erişebilirsiniz (örneğin, bir parola yazmak) ikinci kez.
@@ -46,7 +46,7 @@ Azure AD uygulamaları için oturum açmak için üç farklı yolla destekler:
 
 * **Federasyon çoklu oturum açma** uygulamaların yerine için kendi parola istemi kullanıcı kimlik doğrulaması için Azure ad yeniden yönlendirme sağlar. Federasyon çoklu oturum açma desteği gibi SAML 2.0, WS-Federation ve Openıd Connect protokolleri ve fikirlerini modu, çoklu oturum açma uygulamaları için desteklenir.
 * **Parola tabanlı çoklu oturum açma** güvenli uygulama parola depolama ve bir web tarayıcısı uzantısı veya mobil uygulama kullanarak etkinleştirir. Parola tabanlı çoklu oturum açma uygulama tarafından sağlanan mevcut işlem kullanıyor ancak yönetici parolaları yönetmek etkinleştirir ve kullanıcının parolasını bilmesini gerektirmez.
-* **Varolan çoklu oturum açma** herhangi var olan tek bir uygulama için ayarlanmadı, ancak bu uygulamaların Office 365 veya Azure AD erişim paneli portallarında bağlanmasını sağlar oturum yararlanmak Azure AD tarafından doğrulanmasını sağlar ve ek sağlar Raporlama, Azure AD'de uygulamaları var. ne zaman başlatılır.
+* **Çoklu oturum açma bağlı** herhangi var olan tek bir uygulama için ayarlanmadı, ancak bu uygulamaların Office 365 veya Azure AD erişim paneli portallarında bağlanmasını sağlar oturum yararlanmak Azure AD tarafından doğrulanmasını sağlar ve ek sağlar Raporlama, Azure AD'de uygulamaları var. ne zaman başlatılır.
 
 Bir kullanıcı bir uygulama ile doğrulandıktan sonra bunlar Ayrıca uygulama izinleri ve erişim düzeyini içindeki uygulama nerede bildiren uygulama düzeyinde sağlanan hesap kaydı olması gerekir. Bu hesap kaydını sağlama ya da otomatik olarak gerçekleşebileceği veya kullanıcı çoklu oturum açma erişimi sağlanan önce el ile bir yönetici tarafından ortaya çıkabilir.
 
@@ -79,10 +79,10 @@ Parola tabanlı SSO için son kullanıcının tarayıcılar olabilir:
 * Chrome--Üzerinde Windows 7 ve daha sonra ve MacOS x veya sonrası
 * Firefox 26,0 veya daha sonra--Windows XP SP2 veya üstü ve Mac OS X 10,6 veya sonraki bir sürümü üzerinde
 
-### <a name="existing-single-sign-on"></a>Varolan çoklu oturum açma
-Bir uygulama için çoklu oturum açmayı yapılandırırken, Azure portalı, "mevcut çoklu oturum açma" üçüncü bir seçenek sağlar. Bu seçenek, yalnızca bir uygulamaya bir bağlantı oluşturun ve seçili kullanıcıların erişim panelinde yerleştirme silebilirler.
+### <a name="linked-single-sign-on"></a>Bağlantılı çoklu oturum açma
+Bir uygulama için çoklu oturum açmayı yapılandırırken, Azure portalı, "bağlantılı çoklu oturum açma" üçüncü bir seçenek sağlar. Bu seçenek, yalnızca bir uygulamaya bir bağlantı oluşturun ve seçili kullanıcıların erişim panelinde yerleştirme silebilirler.
 
-Active Directory Federasyon Hizmetleri 2.0 kullanan kullanıcıların kimliğini doğrulamak üzere yapılandırılmış bir uygulama ise, örneğin, bir yönetici "varolan çoklu oturum açma" seçeneği erişim panelinde bir bağlantı oluşturmak için kullanabilirsiniz. Kullanıcılar bağlantıyı eriştiğinde, Active Directory Federasyon Hizmetleri 2.0 veya uygulama tarafından sağlanan tüm var olan tek oturum açma çözümü kullanarak doğrulanır.
+Active Directory Federasyon Hizmetleri 2.0 kullanan kullanıcıların kimliğini doğrulamak üzere yapılandırılmış bir uygulama ise, örneğin, bir yönetici "bağlantılı çoklu oturum açma" seçeneği erişim panelinde bir bağlantı oluşturmak için kullanabilirsiniz. Kullanıcılar bağlantıyı eriştiğinde, Active Directory Federasyon Hizmetleri 2.0 veya uygulama tarafından sağlanan tüm var olan tek oturum açma çözümü kullanarak doğrulanır.
 
 ### <a name="user-provisioning"></a>Kullanıcı sağlama
 Uygulama için Windows Server Active Directory veya Azure AD kimlik bilgilerinizi kullanarak otomatik kullanıcı hazırlama ve hesapların Azure Portal'ı, üçüncü taraf SaaS uygulamaları'nda sağlamayı Azure AD sağlar. Bir kullanıcı, bu uygulamalardan birini için Azure ad'deki izinleri verildiğinde, bir hesap otomatik olarak (sağlanan hedef SaaS uygulaması) oluşturulabilir.
@@ -172,7 +172,7 @@ SAML 2.0, WS-Federation ve Openıd destekleyen en Federasyon uygulamaları, kull
 ![](./media/what-is-single-sign-on/workdaymobile.png)
 
 ### <a name="direct-sign-on-links-for-federated-password-based-or-existing-apps"></a>Doğrudan bağlantılar Federasyon, parola tabanlı veya var olan uygulamalar için oturum açma
-Azure AD çoklu oturum açma uygulamalar için doğrudan bağlantılar parola tabanlı çoklu oturum açma, var olan çoklu oturum açma ve herhangi bir biçimde Federasyon çoklu oturum açmayı destekleyen tek tek de destekler.
+Azure AD çoklu oturum açma uygulamalar için doğrudan bağlantılar parola tabanlı çoklu oturum açma, bağlantılı çoklu oturum açma ve herhangi bir biçimde Federasyon çoklu oturum açmayı destekleyen tek tek de destekler.
 
 Bu bağlantılar bir kullanıcı belirli bir uygulama için Azure AD oturum açma işlemi aracılığıyla bunları Azure ad erişim paneli veya Office 365 kullanıcı başlatma gerek kalmadan gönderme özel olarak hazırlanmış URL'leri verilmiştir. Bu tek oturum açma URL'leri önceden tümleştirilmiş tüm uygulamalar, Pano sekmesi altında Azure portal'ın Active Directory bölümünde aşağıdaki ekran görüntüsünde gösterildiği gibi bulunabilir.
 

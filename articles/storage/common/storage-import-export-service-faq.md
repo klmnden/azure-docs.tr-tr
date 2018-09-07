@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/22/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 6a2d067625e96aefdcb0197e1abb13b0c41fbe7f
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: edaff86531a9c40064d25a046bbbb70f48b75c84
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521447"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027138"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure içeri/dışarı aktarma hizmeti: sık sorulan sorular 
 Aşağıda, soruları ve Azure depolama alanına veri aktarmak için Azure içeri/dışarı aktarma hizmeti kullanırken karşılaşabileceğiniz yanıtları verilmiştir. Sorular ve yanıtlar aşağıdaki kategorilere ayrılmıştır:
@@ -119,7 +119,7 @@ Bir sabit sürücü içeri aktarma işi için hazırlık yaparken, hedef CSV kü
 Bağlıdır. Sürücü hazırlanırken, hedef dosyaların üzerine yazılması ya da adlandırılan değerlendirme yoksayılan alanın veri kümesi CSV dosyasını kullanarak belirtebilirsiniz: < yeniden adlandırma | no üzerine | üzerine >. Varsayılan olarak, yeni dosyalar yeniden adlandırır yerine hizmetini mevcut BLOB'ları veya dosyaların üzerine yaz.
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>WAImportExport aracının 32-bit işletim sistemleriyle uyumlu mu?
-Hayır. WAImportExport aracın yalnızca 64 bit Windows işletim sistemleriyle uyumludur. Desteklenen işletim sistemi tam listesi için Git [desteklenen işletim sistemleri](). 
+Hayır. WAImportExport aracın yalnızca 64 bit Windows işletim sistemleriyle uyumludur. Desteklenen işletim sistemi tam listesi için Git [desteklenen işletim sistemleri](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements). 
 
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>En fazla blok Blob ve Azure içeri/dışarı aktarma tarafından desteklenen sayfa Blob boyutu nedir?
