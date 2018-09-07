@@ -9,15 +9,27 @@ items:
     href: sql-database-paas-vs-sql-server-iaas.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: DB Oluşturma - Portal
-    href: sql-database-get-started-portal.md
-  - name: DB Oluşturma - Azure CLI
-    href: sql-database-get-started-cli.md
-  - name: DB Oluşturma - Azure PowerShell
-    href: sql-database-get-started-powershell.md
-  - name: Yönetilen Örnek oluşturma
-    href: sql-database-managed-instance-get-started.md
-  - name: Bağlanma ve sorgulama
+  - name: Oluştur
+    items:
+    - name: Tek veritabanı
+      href: sql-database-get-started-portal.md
+    - name: Yönetilen Örnek
+      href: sql-database-managed-instance-get-started.md
+  - name: Yapılandırma
+    items:
+    - name: Mantıksal sunucu güvenlik duvarı kuralı
+      href: sql-database-get-started-portal-firewall.md
+    - name: Yönetilen Örneğe yönelik istemci VM bağlantısı
+      href: sql-database-managed-instance-configure-vm.md
+    - name: Yönetilen Örneğe yönelik noktadan siteye bağlantı
+      href: sql-database-managed-instance-configure-p2s.md
+  - name: Veri yükleme
+    items:
+    - name: Tek bir veritabanına BACPAC aktarma
+      href: sql-database-import.md
+    - name: Veritabanı yedeğini Yönetilen Örneğe geri yükleme
+      href: sql-database-managed-instance-get-started-restore.md
+  - name: Sorgu
     href: sql-database-connect-query.md
     items:
     - name: SSMS
@@ -59,13 +71,9 @@ items:
     href: sql-database-security-tutorial.md
   - name: 5 - Coğrafi olarak dağıtılmış bir veritabanı uygulama
     href: sql-database-implement-geo-distributed-database.md
-  - name: 6 - Yönetilen Örnek oluşturma
-    href: sql-database-managed-instance-create-tutorial-portal.md
-  - name: 7 - Bir Yönetilen Örneğe yedek geri yükleme
-    href: sql-database-managed-instance-restore-from-backup-tutorial.md
-  - name: 8 - DMS kullanarak Yönetilen Örneğe geçirme
+  - name: 6 - DMS kullanarak Yönetilen Örneğe geçirme
     href: ../dms/tutorial-sql-server-to-managed-instance.md
-  - name: 9 - Azure SQL Data Sync’i ayarlama
+  - name: 7 - Azure SQL Data Sync’i ayarlama
     href: sql-database-get-started-sql-data-sync.md
 - name: Örnekler
   items:
@@ -606,9 +614,9 @@ items:
     href: /azure/architecture/
   - name: Müşteri hikayeleri
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 1cd65f1f3ee3907324bdb17be61dcfb5d0a747f1
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: e44c2d461f35098e20e50c776ca37b932566c4a0
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43245920"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050488"

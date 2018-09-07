@@ -1,69 +1,78 @@
-- name: Azure yığın Geliştirme Seti Belgeleri
+items:
+- name: Azure Stack Geliştirme Seti Belgeleri
   href: index.yml
 - name: Genel Bakış
-  expanded: true
   items:
-    - name: ASDK nedir?
-      href: asdk-what-is.md
-    - name: ASDK sürüm notları
-      href: asdk-release-notes.md
+  - name: ASDK nedir?
+    href: asdk-what-is.md
+  - name: ASDK sürüm notları
+    href: asdk-release-notes.md
+  expanded: true
 - name: Kavramlar
   items:
-    - name: Dağıtım Planlama konuları
-      href: asdk-deploy-considerations.md
-    - name: Geliştirme Seti mimarisi
-      href: asdk-architecture.md
-    - name: ASDK Yönetimi temelleri
-      href: asdk-admin-basics.md
-    - name: Gelişmiş değerlendirme görevleri
-      href: asdk-advanced-eval.md
+  - name: Dağıtım Planlama konuları
+    href: asdk-deploy-considerations.md
+  - name: Geliştirme Seti mimarisi
+    href: asdk-architecture.md
+  - name: ASDK yönetim temel bilgileri
+    href: asdk-admin-basics.md
+  - name: Gelişmiş değerlendirme görevleri
+    href: asdk-advanced-eval.md
 - name: Nasıl yapılır
   items:
-    - name: Kurulum ASDK
-      items:
-        - name: İndirmeyi ve ayıklamayı Geliştirme Seti
-          href: asdk-download.md
-        - name: ASDK ana bilgisayarı hazırla
-          href: asdk-prepare-host.md
-        - name: Yükleyici - ASDK dağıtma
-          href: asdk-install.md
-        - name: PowerShell - ASDK dağıtma
-          href: asdk-deploy-powershell.md
-        - name: Dağıtım sonrası yapılandırma
-          href: asdk-post-deploy.md
-        - name: ASDK yeniden dağıtın
-          href: asdk-redeploy.md
-    - name: ASDK kaydetme
-      href: asdk-register.md
-    - name: Azure yığın telemetri ayarlarını yapılandırma
-      href: asdk-telemetry.md
-    - name: ASDK durdurup başlatın
-      href: asdk-start-stop.md
-    - name: Sorun giderme
-      href: asdk-troubleshooting.md
+  - name: Kurulum ASDK
+    items:
+    - name: İndirmeyi ve ayıklamayı Geliştirme Seti
+      href: asdk-download.md
+    - name: ASDK ana bilgisayarını hazırlayın
+      href: asdk-prepare-host.md
+    - name: Yükleyici - ASDK dağıtma
+      href: asdk-install.md
+    - name: PowerShell - ASDK dağıtma
+      href: asdk-deploy-powershell.md
+    - name: Dağıtım sonrası yapılandırma
+      href: asdk-post-deploy.md
+    - name: ASDK yeniden dağıtma
+      href: asdk-redeploy.md
+  - name: ASDK kaydetme
+    href: asdk-register.md
+  - name: Azure Stack telemetri ayarlarını yapılandırma
+    href: asdk-telemetry.md
+  - name: Başlatma ve durdurma ASDK
+    href: asdk-start-stop.md
+  - name: Azure Stack yedekleme doğrula
+    href: asdk-validate-backup.md
+  - name: Sorun giderme
+    href: asdk-troubleshooting.md
 - name: Başvuru
   items:
-    - name: Azure Stack PowerShell
-      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
-    - name: Azure Stack CLI
-      href: /cli/azure/?view=azure-cli-2017-03-09-profile
+  - name: Azure Stack PowerShell
+    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
+  - name: Azure Stack CLI
+    href: /cli/azure/?view=azure-cli-2017-03-09-profile
 - name: İlgili
   items:
-    - name: Azure Stack Operatör Belgeleri
-      href: /azure/azure-stack/
-    - name: Azure Stack Kullanıcı Belgeleri
-      href: /azure/azure-stack/user/
+  - name: Azure Stack Operatör Belgeleri
+    href: /azure/azure-stack/
+  - name: Azure Stack Kullanıcı Belgeleri
+    href: /azure/azure-stack/user/
 - name: Kaynaklar
   items:
-    - name: Azure yığın yol haritası
-      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: Azure yığın MSDN Forumu
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
-    - name: Azure yığın belgelerine geri bildirim
-      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
-    - name: Fiyatlandırma bilgileri
-      href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-stack'
-    - name: Eğitim ve sertifika
-      href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'
+  - name: Azure Stack yol haritası
+    href: https://azure.microsoft.com/roadmap/?tag=azure-stack
+  - name: Azure Stack MSDN Forumu
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack
+  - name: Azure Stack belgeleri geri bildirim
+    href: https://feedback.azure.com/forums/344565-azure-stack?category_id=160275
+  - name: Fiyatlandırma bilgileri
+    href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-stack
+  - name: Eğitim ve sertifika
+    href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
+ms.openlocfilehash: 49a707294e6018355a2e355bffa2139057ba81f3
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023622"

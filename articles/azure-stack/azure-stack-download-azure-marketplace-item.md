@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 418b2f6b156853c1a2820271808bdba922d41a87
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 290b3daf73e323b3f5a7e1ef81299e72bf1c5f1d
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412908"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024809"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure Stack için Azure Market öğelerini indirme
 
@@ -151,7 +151,7 @@ Bu senaryo iki bölümü vardır:
 2. Market öğesi paket (.azpkg dosyası) Azure Stack Blob Depolama'ya yüklemek için yönetim portalını kullanın. Öğe daha sonra yayımlayabilmeniz paketin karşıya yükleme, Azure Stack için Azure Stack Marketini kullanılabilir.
 
    Karşıya yükleme, genel olarak erişilebilir kapsayıcısı ile bir depolama hesabına sahip olmasını gerektirir (bu senaryonun önkoşulları bakın)   
-   1. Azure Stack Yönetim Portalı'nda Git **diğer hizmetler** > **depolama hesapları**.  
+   1. Azure Stack Yönetim Portalı'nda Git **tüm hizmetleri** altındaki **veri + depolama** kategorisi seçin **depolama hesapları**.  
    
    2. Aboneliğinizde ve altında bir depolama hesabı seçin **BLOB hizmeti**seçin **kapsayıcıları**.  
       ![BLOB hizmeti](media/azure-stack-download-azure-marketplace-item/blob-service.png)  
@@ -198,7 +198,7 @@ Bu senaryo iki bölümü vardır:
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
     ```
-5. Bir galeri öğesi yayımladıktan sonra buradan görüntüleyebilirsiniz **diğer hizmetler** > **Market**.  İndirme işleminiz bir çözüm şablonu, bu çözüm şablonu herhangi bir bağımlı VHD görüntü eklediğinizden emin olun.  
+5. Bir galeri öğesinin konumuna giderek bunu yayımladıktan sonra **tüm hizmetleri**. Sonraki altında **genel** kategorisi, select **Market**.  İndirme işleminiz bir çözüm şablonu, bu çözüm şablonu herhangi bir bağımlı VHD görüntü eklediğinizden emin olun.  
   ![Görünüm Market](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
 
 > [!NOTE]

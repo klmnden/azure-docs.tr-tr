@@ -7,16 +7,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: c692bc461c116b4c0497c2378ae4e21e1b841c8f
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: e82c3de4461e2d663496cd4ae4a98c10e7819466
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139585"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025419"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Hızlı Başlangıç: Azure Stack portal ile Linux server sanal makinesi oluşturma
 
@@ -27,6 +27,10 @@ Azure Stack portalını kullanarak bir Ubuntu Server 16.04 LTS sanal makine olu�
 * Sanal Makine Uzak istemcisi ile bağlanın.
 * NGINX web sunucusunu yükleyin.
 * Kaynaklarınızı temizleme.
+
+> [!NOTE]  
+> Bu makalede ekran görüntüleri, değişiklikleri 1808 Azure Stack sürümüyle eşleşecek şekilde güncelleştirilir. 1808 kullanma desteği ekler *yönetilen diskler* yönetilmeyen diskler yanı sıra. Önceki bir sürümünü kullanıyorsanız, bazı görüntüleri disk seçimi gibi görevler için bu makalede gösterilen daha farklı olabilir.  
+
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -66,7 +70,9 @@ Azure Stack portalında oturum açın. Azure Stack portal'ın adresi, Azure Stac
 1. Tıklayın **kaynak Oluştur** Azure Stack portal'ın sol üst köşedeki.
 
 2. **İşlem**'i ve ardından **Ubuntu Server 16.04 LTS**'yi seçin.
-3. **Oluştur**’a tıklayın.
+   
+   ![Farklı Linux sunucu](media/azure-stack-quick-linux-portal/select.png)
+1. **Oluştur**’a tıklayın.
 
 4. Sanal makine bilgilerini yazın. **Kimlik doğrulama türü** için **SSH ortak anahtarı**’nı seçin. Yapıştırma seçeneğiyle, kaydedilen ve ardından SSH ortak anahtarını **Tamam**.
 
@@ -75,24 +81,28 @@ Azure Stack portalında oturum açın. Azure Stack portal'ın adresi, Azure Stac
 
    ![Temel panelinde - sanal makine yapılandırma](media/azure-stack-quick-linux-portal/linux-01.PNG)
 
-5. Seçin **D1_V2** sanal makine için.
+5. Seçin **D1** sanal makine için.
 
    ![Panel boyutunu - bir sanal makine boyutu seçin](media/azure-stack-quick-linux-portal/linux-02.PNG)
 
-6. Üzerinde **ayarları** sayfasında varsayılan değerleri koruyun ve tıklayın **Tamam**.
+6. Üzerinde **ayarları** sayfasında, varsayılan olarak istediğiniz değişiklikleri yapın.
+   
+    - Yapılandırabileceğiniz 1808 Azure Stack sürümünden başlayarak **depolama** seçebileceğiniz kullanılacak *yönetilen diskler*. 1808 sürümünden önce yalnızca yönetilmeyen diskler kullanılabilir.    
+      ![Yönetilen diskler için depolama alanını yapılandırma](media/azure-stack-quick-linux-portal/linux-03.PNG)
+    
+    Yapılandırmalarınızı hazır olduğunuzda seçin **Tamam** devam etmek için.
 
-7. Üzerinde **özeti** sayfasında **Tamam** sanal makine dağıtımını başlatın.
+7. Üzerinde **özeti** sayfasında **Tamam** sanal makine dağıtımını başlatın.  
+   ![Dağıtma](media/azure-stack-quick-linux-portal/deploy.png)
 
 ## <a name="connect-to-the-virtual-machine"></a>Sanal makineye bağlanma
 
-1. Tıklayın **Connect** sanal makine sayfasında. Bu sanal makineye bağlanmak için bir SSH bağlantı dizesi görüntüler.
-
-   ![Sanal makineye bağlanma](media/azure-stack-quick-linux-portal/linux-03.PNG)
+1. Tıklayın **Connect** sanal makine sayfasında. Bu sanal makineye bağlanmak için bir SSH bağlantı dizesi görüntüler. 
 
 2. PuTTY’yi açın.
-3. Üzerinde **PuTTY Yapılandırması** kullanacağınız ekran **kategori** penceresinde yukarı veya aşağı kaydırın. Ekranı aşağı kaydırarak **SSH**, genişletme **SSH**ve ardından **Auth**. Tıklayın **Gözat** ve kaydedilen özel anahtar dosyası seçin.
 
-   ![PuTTY özel anahtar seçin](media/azure-stack-quick-linux-portal/Putty03.PNG)
+3. Üzerinde **PuTTY Yapılandırması** kullanacağınız ekran **kategori** penceresinde yukarı veya aşağı kaydırın. Ekranı aşağı kaydırarak **SSH**, genişletme **SSH**ve ardından **Auth**. Tıklayın **Gözat** ve kaydedilen özel anahtar dosyası seçin.
+   ![Sanal makineye bağlanma](media/azure-stack-quick-linux-portal/putty03.PNG)
 
 4. Yukarı kaydırın **kategori** penceresi ve ardından **oturumu**.
 5. İçinde **ana bilgisayar adı (veya IP adresi)** kutusuna, Azure Stack portalında gösterilen bağlantı dizesini yapıştırın. Bu örnekte, dizedir ```asadmin@192.168.102.34```.
@@ -136,7 +146,7 @@ NGINX ve 80 numaralı bağlantı noktası, sanal makinede, sanal makinenin genel
 
 Bir web tarayıcısı açın ve gidin ```http://<public IP address>```.
 
-![NGINX web-server-Hoş Geldiniz sayfası](media/azure-stack-quick-linux-portal/linux-04.PNG)
+![NGINX web-server-Hoş Geldiniz sayfası](media/azure-stack-quick-linux-portal/linux-05.PNG)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

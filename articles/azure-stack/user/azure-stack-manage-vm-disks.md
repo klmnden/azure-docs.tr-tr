@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: fc17ce0ebd13fb7e89405fcf4d6633551f340a27
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: bdf31c72fbcd8941161e6b9df0a490df7f6a16e0
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139548"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026527"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Azure stack'teki sanal makine disk depolama sağlama
 
@@ -30,9 +30,13 @@ Bu makalede, Azure Stack portalını kullanarak veya PowerShell kullanarak sanal
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure Stack kullanılmasını desteklediği [yönetilmeyen diskler](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) sanal makinelerde bir işletim sistemi (OS) hem de veri diski olarak.
+Azure Stack 1808 sürümünden başlayarak, sanal makinelerde bir işletim sistemi (OS) hem de veri diski olarak yönetilen ve yönetilmeyen disklerle kullanımını destekler. Sürüm 1808 önce yalnızca yönetilmeyen diskleri desteklenir. 
 
-Yönetilmeyen diskler kullanmak için oluşturduğunuz bir [depolama hesabı](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) disklerini depolamak için. Oluşturduğunuz diskler, VM diskleri adlandırılır ve depolama hesabındaki kapsayıcıları depolanır.
+**[Yönetilen diskler](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#managed-disks)**  VM diskleriyle ilişkili depolama hesaplarını yöneterek Azure Iaas Vm'leri için disk yönetimini basitleştirin. Yalnızca boyutu belirtmek zorunda duyduğunuz disk ve Azure Stack oluşturur ve diski oluşturup yönetebilmesi.
+
+**[Yönetilmeyen diskler](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)**, oluşturmanızı gerektiren bir [depolama hesabı](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) disklerini depolamak için. Oluşturduğunuz diskler, VM diskleri adlandırılır ve depolama hesabındaki kapsayıcıları depolanır.
+
+ 
 
 ### <a name="best-practice-guidelines"></a>En iyi uygulama kılavuzları
 

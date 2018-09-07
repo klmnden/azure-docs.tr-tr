@@ -6,22 +6,26 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: efe6213e5c0261fb26ac40e74c2b0f6e0c9252dd
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 7277aeb97409815e2e218da8f233cd836bccc72b
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139635"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022425"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-with-the-azure-stack-portal"></a>Hızlı Başlangıç: Azure Stack portal ile bir Windows server sanal makinesi oluşturma
 
 *İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Azure Stack portalını kullanarak bir Windows Server 2016 sanal makine oluşturabilirsiniz. Bir sanal makine oluşturup, bu makaledeki adımları izleyin.
+
+> [!NOTE]  
+> Bu makaledeki ekran görüntüleri, Azure Stack 1808 sürümü ile sunulan kullanıcı arabirimini eşleşecek şekilde güncelleştirilir. 1808 kullanma desteği ekler *yönetilen diskler* yönetilmeyen diskler yanı sıra. Önceki bir sürümünü kullanıyorsanız, disk seçimi gibi bazı görüntülerini bu makalede gösterilen değerinden farklı olacaktır.  
+
 
 ## <a name="sign-in-to-the-azure-stack-portal"></a>Azure Stack portalında oturum açın
 
@@ -32,18 +36,23 @@ Azure Stack portalında oturum açın. Azure Stack portal'ın adresi, Azure Stac
 
 ## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 
-1. Tıklayın **yeni** > **işlem** > **Windows Server 2016 Datacenter değerlendirme** > **oluşturma**. Görmüyorsanız **Windows Server 2016 Datacenter değerlendirme** girişi, Azure Stack operatörü başvurun. Bunlar ve Market içinde anlatıldığı gibi eklemenizi isteyin [Windows Server 2016 VM görüntüsü eklemek için Azure Stack marketini](../azure-stack-add-default-image.md) makalesi.
+1. Tıklayın **yeni** > **işlem** > **Windows Server 2016 Datacenter –-,-kullandıkça** > **oluşturma**. Görmüyorsanız **Windows Server 2016 Datacenter –-,-kullandıkça** girişi, Azure Stack operatörü başvurun. Bunlar ve Market içinde anlatıldığı gibi eklemenizi isteyin [Windows Server 2016 VM görüntüsü eklemek için Azure Stack marketini](../azure-stack-add-default-image.md) makalesi.
 
     ![Portalında bir Windows sanal makinesi oluşturma adımları](media/azure-stack-quick-windows-portal/image01.png)
 2. Altında **Temelleri**, tür a **adı**, **kullanıcı adı**, ve **parola**. Seçin bir **abonelik**. Oluşturma bir **kaynak grubu**, veya varolan bir adet seçin bir **konumu**ve ardından **Tamam**.
 
     ![Temel ayarları yapılandırma](media/azure-stack-quick-windows-portal/image02.png)
-3. Altında **bir boyut seçin**, tıklayın **standart D1** > **seçin**.
+3. Altında **boyutu** seçin **standart D1**ve ardından **seçin**.  
     ![Sanal makine boyutunu seçin](media/azure-stack-quick-windows-portal/image03.png)
-4. Altında **ayarları**, Varsayılanları kabul edin ve tıklayın **Tamam**.
-    ![Sanal makine ayarlarını yapılandırma](media/azure-stack-quick-windows-portal/image04.png)
+
+4. Üzerinde **ayarları** sayfasında, varsayılan olarak istediğiniz değişiklikleri yapın.
+   - Yapılandırabileceğiniz 1808 Azure Stack sürümünden başlayarak **depolama** seçebileceğiniz kullanılacak *yönetilen diskler*. 1808 sürümünden önce yalnızca yönetilmeyen diskler kullanılabilir.  
+   ![Sanal makine ayarlarını yapılandırma](media/azure-stack-quick-windows-portal/image04.png)  
+   Yapılandırmalarınızı hazır olduğunuzda seçin **Tamam** devam etmek için.
+
 5. Altında **özeti**, tıklayın **Tamam** sanal makine oluşturmak için.
     ![Özet görüntüleyin ve sanal makine oluşturma](media/azure-stack-quick-windows-portal/image05.png)
+
 6. Yeni sanal makinenize görmek için tıklayın **tüm kaynakları**, sanal makine adı için arama yapın ve ardından arama sonuçlarında adına tıklayın.
     ![Sanal makine bakın](media/azure-stack-quick-windows-portal/image06.png)
 

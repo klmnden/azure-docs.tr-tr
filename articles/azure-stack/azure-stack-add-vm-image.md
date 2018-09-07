@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 08/30/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 7f16f53af7d1c2f46c5c61974601833fafc8f828
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: ba4c53f03350995544eb95917102bd7123a077d2
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698783"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022773"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Azure Stack'te bir sanal makine görüntüsü kullanılabilmesini
 
@@ -54,7 +54,7 @@ Görüntüleri bir blob depolama URI'si başvurulmak üzere kurabilmesi gerekir.
 
    ![Kümesi blob erişimi için ortak](./media/azure-stack-add-vm-image/image2.png)
 
-2. Azure Stack için operatör olarak oturum açın. Menüde **diğer hizmetler**. Ardından, **işlem** > **VM görüntüleri** > **Ekle**.
+2. Azure Stack için operatör olarak oturum açın. Menüde **tüm hizmetleri**. Ardından, altında **Yönetim** kategorisi seçin **işlem** > **VM görüntüleri** > **Ekle**.
 
 3. Altında **bir VM görüntüsü ekleme**, yayımcı, teklif, SKU ve sanal makine görüntüsü sürümü girin. Bu adı kesimlerini Resource Manager şablonlarını sanal makine görüntüsünü bakın. Seçtiğinizden emin olun **osType** doğru değeri. İçin **işletim sistemi diski Blob URİ'si**, burada görüntünün karşıya yüklendiği Blob URI'si girin. Ardından, **Oluştur** VM oluşturmaya başlamak için.
 
@@ -115,7 +115,7 @@ Görüntüleri bir blob depolama URI'si başvurulmak üzere kurabilmesi gerekir.
     PowerShell başvurusu için daha fazla bilgi için bkz. [Ekle AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet'i ve [yeni DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) cmdlet'i.
 
 ## <a name="add-a-custom-vm-image-to-the-marketplace-by-using-powershell"></a>PowerShell kullanarak özel bir VM görüntüsü Market'te Ekle
-
+ 
 1. [Azure Stack için PowerShell yükleme](azure-stack-powershell-install.md).
 
   ```PowerShell  

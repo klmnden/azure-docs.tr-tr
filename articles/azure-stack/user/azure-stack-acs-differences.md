@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 6c0c42763ec3d124850555500c3a322073af2479
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 89f6a0c1adaded724f159ffbf33aae98969ab9fe
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139637"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027178"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Azure stack Depolama: farklılıklar ve dikkat edilmesi gerekenler
+# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack Depolama: farklılıklar ve dikkat edilmesi gerekenler
 
 *İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Azure yığını, Microsoft Azure stack'teki depolama bulut Hizmetleri kümesi depolamadır. Azure stack depolama, blob, tablo, kuyruk ve Azure ile tutarlı semantiğine sahip hesabı yönetimi işlevselliğini sağlar.
+Azure Stack depolama Microsoft Azure stack'teki depolama bulut hizmetleri kümesidir. Azure Stack depolama, blob, tablo, kuyruk ve Azure ile tutarlı semantiğine sahip hesabı yönetimi işlevselliğini sağlar.
 
-Bu makalede, Azure depolama hizmetlerinde bilinen Azure Stack depolama farklar özetlenmektedir. Ayrıca, Azure Stack dağıtırken göz önünde bulundurulması gerekenler listelenir. Global Azure ve Azure Stack arasında üst düzey farklılıklar hakkında bilgi edinmek için bkz. [anahtar konuları](azure-stack-considerations.md) konu.
+Bu makalede, Azure depolama hizmetlerinde bilinen Azure Stack depolama farklar özetlenmektedir. Ayrıca, Azure Stack dağıtırken göz önünde bulundurulması gerekenler listelenir. Global Azure ve Azure Stack arasında üst düzey farklılıklar hakkında bilgi edinmek için bkz. [anahtar konuları](azure-stack-considerations.md) makalesi.
 
 ## <a name="cheat-sheet-storage-differences"></a>Kopya kağıdı: depolama farkları
 
@@ -38,7 +38,7 @@ Bu makalede, Azure depolama hizmetlerinde bilinen Azure Stack depolama farklar �
 |Depolama hesabı türü|Genel amaçlı ve Azure blob depolama hesapları|Genel amaçlı yalnızca.
 |Çoğaltma seçenekleri|Yerel olarak yedekli depolama, coğrafi olarak yedekli depolama, okuma erişimli coğrafi olarak yedekli depolama ve bölgesel olarak yedekli depolama|Yerel olarak yedekli depolama.
 |Premium depolama|Tam olarak desteklenir|Garanti ya da performans sınır sağlanabilir.
-|Yönetilen diskler|Premium ve standart desteklenir|Henüz desteklenmiyor.
+|Yönetilen diskler|Premium ve standart desteklenir|1808 veya sonraki bir sürümü kullandığınızda desteklenir.
 |Blob adı|1024 karakter (2.048 bayt)|880 karakterleri (1,760 bayt)
 |Blok blobu en büyük boyutu|4,75 TB (100 MB X 50.000 blok)|1802 güncelleştirme veya yeni bir sürümü için 4,75 TB (100 MB x 50.000 blok). Önceki sürümler için 50.000 x 4 MB (yaklaşık 195 GB).
 |Sayfa blob anlık görüntü kopyalama|Desteklenen çalışan bir VM'ye bağlı yedekleme Azure yönetilmeyen VM diskleri|Henüz desteklenmiyor.

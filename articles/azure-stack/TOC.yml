@@ -7,14 +7,14 @@ items:
     href: azure-stack-poc.md
   - name: Sürüm notları
     items:
+    - name: 1808 güncelleştirme
+      href: azure-stack-update-1808.md
     - name: 1807 güncelleştirme
       href: azure-stack-update-1807.md
     - name: 1805 güncelleştirme
       href: azure-stack-update-1805.md
     - name: 1804 güncelleştirme
       href: azure-stack-update-1804.md
-    - name: 1803 güncelleştirme
-      href: azure-stack-update-1803.md
 - name: Hızlı Başlangıçlar
   items:
   - name: Azure Stack değerlendirme
@@ -53,6 +53,8 @@ items:
         items:
         - name: Uç noktalarını yayımlama
           href: azure-stack-integrate-endpoints.md
+        - name: Uzantısı konağı
+          href: azure-stack-extension-host-prepare.md
     - name: Kimlik Tümleştirme
       items:
       - name: Bir kimlik sağlayıcısı seçin
@@ -370,9 +372,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Eğitim ve sertifika
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: d56f99f44539f4979a9fdec672278dffd4a16809
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 2334accb56409bf77b52153a9e0d279cddd1d352
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668039"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026673"

@@ -6,15 +6,15 @@ author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: d478ccd0895ad067657bce56469a3a61d4ea0e17
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 143e6c2856485e33022254abfcf0cf3806b30cef
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139346"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025782"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Azure Stack sanal makinelerine giriş
 
@@ -99,7 +99,7 @@ Aşağıdaki tablodaki kaynaklar VM tarafından kullanılır ve mevcut veya sana
 |Kaynak|Gerekli|Açıklama|
 |---------|---------|---------|
 |Kaynak grubu|Evet|VM bir kaynak grubunda yer almalıdır.|
-|Depolama hesabı|Evet|VM, sanal sabit disklerini depolamak için bir depolama hesabına ihtiyaç duyar.|
+|Depolama hesabı|Hayır|VM mu değil, yönetilen diskler kullanıyorsanız, sanal sabit disklerini depolamak için depolama hesabı gerekir. <br>VM, yönetilmeyen diskler kullanıyorsanız, sanal sabit disklerini depolamak için depolama hesabınızın olması gerekir.|
 |Sanal ağ|Evet|VM’in bir sanal ağa üye olması gerekir.|
 |Genel IP adresi|Hayır|VM, uzaktan erişim için atanmış bir genel IP adresine sahip olabilir.|
 |Ağ arabirimi|Evet|VM’in ağda iletişim kurabilmek için ağ arabirimine ihtiyacı vardır.|
