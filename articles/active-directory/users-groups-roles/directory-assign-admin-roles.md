@@ -14,12 +14,12 @@ ms.date: 08/31/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 384afb36f2a63fcbf290fa96ed15db2a1f469f55
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: c49f15ddde60513be47feb264da0e35f4e8b3a0d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337860"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055582"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory’de yönetici rolü atama
 
@@ -44,6 +44,8 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
 * **[Faturalama Yöneticisi](#billing-administrator)**: satın alma işlemleri yapar, abonelikleri yönetir, destek biletlerini yönetir ve hizmetin sistem durumunu izler.
 
 * **[Bulut uygulaması Yöneticisi](#cloud-application-administrator)**: Bu roldeki kullanıcılar, uygulama proxy'si yönetme olanağı hariç uygulama yöneticisi rolü aynı izinlere sahip. Bu rol oluşturmak ve kurumsal uygulamaları ve uygulama kayıtlarını tüm yönlerini yönetmek için yeteneği verir. Bu rol, ayrıca temsilci izinleri ve Microsoft Graph ve Azure AD Graph hariç olmak üzere uygulama izinleri onayını olanağı verir. Yeni uygulama kaydı veya kurumsal uygulamalar oluştururken, bu rolün üyeleri, sahip olarak eklenmez.
+
+* **[Bulut cihaz Yöneticisi](#cloud-device-administrator)**: Bu roldeki kullanıcılar etkinleştirmek, devre dışı bırakabilir ve Azure AD'de cihazları silin ve Windows 10 BitLocker anahtarları Azure Portalı'nda (varsa) okuyun. Rol, cihazdaki diğer özelliklerini yönetmek için izinleri tanımaz.
 
 * **[Uyumluluk Yöneticisi](#compliance-administrator)**: Bu role sahip kullanıcılar, Office 365 güvenlik ve Uyumluluk Merkezi ve Exchange yönetici merkezini de yönetim izinlerine sahip. Daha fazla bilgiye [hakkında Office 365 Yönetici rolleri](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -97,7 +99,7 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
 
 * **[Rapor okuyucu](#reports-reader)**: Bu role sahip kullanıcılar, kullanım verileri ve raporları Panoda, Office 365 Yönetim merkezine ve benimseme bağlam paketini Power bı'da raporu görüntüleyebilirsiniz. Ayrıca, rol oturum açma için erişim sağlayan raporları ve etkinlik Azure AD'de ve Microsoft Graph tarafından döndürülen veri raporlama API'si. Rapor okuyucu rolüne atanan bir kullanıcı yalnızca ilgili kullanım ve benimseme ölçümleri erişebilir. Bunlar, ayarları veya Exchange gibi ürün belirli Yönetim Merkezleri erişimi yapılandırmak için bir yönetici izinlere sahip değilsiniz. 
 
-* **[Güvenlik Yöneticisi](#security-administrator)**: Bu role sahip kullanıcılar tüm güvenlik okuyucu rolünün yanı sıra, güvenlikle ilgili şu hizmetler için yapılandırma yönetme olanağı, salt okunur izinleri vardır: Azure Active Directory kimlik koruması, Azure Information Protection, Privileged Identity Management ve Office 365 güvenlik ve Uyumluluk Merkezi. Office 365 izinler hakkında daha fazla bilgi edinilebilir [Office 365 güvenlik ve uyumluluk Merkezi'nde izinler](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **[Güvenlik Yöneticisi](#security-administrator)**: Bu role sahip kullanıcılar tüm güvenlik okuyucu rolünün yanı sıra, güvenlikle ilgili şu hizmetler için yapılandırma yönetme olanağı, salt okunur izinleri vardır: Azure Active Directory kimlik koruması, Azure Information Protection ve Office 365 güvenlik ve Uyumluluk Merkezi. Office 365 izinler hakkında daha fazla bilgi edinilebilir [Office 365 güvenlik ve uyumluluk Merkezi'nde izinler](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
   
   | İçinde | Yapabilirsiniz |
   | --- | --- |
@@ -117,7 +119,7 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
 
 * **[SharePoint Hizmet Yöneticisi](#sharepoint-service-administrator)**: Bu role sahip kullanıcılar sahip Microsoft SharePoint hizmet mevcut olduğunda Online içinde genel izinlere olmanın yanı sıra destek biletlerini yönetebilir ve hizmet durumunu izleyebilir. Daha fazla bilgiye [hakkında Office 365 Yönetici rolleri](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **[İşletme için Skype / Lync Hizmet Yöneticisi](#lync-service-administrator)**: Bu role sahip olan kullanıcılar hizmet olduğunda Microsoft Skype Kurumsal, içinde genel izinlere sahip, hem de Skype özgü kullanıcı öznitelikleri, Azure Active Yönet Dizin. Ayrıca, bu rol, destek biletlerini yönetebilir ve hizmet durumu izleme olanağı verir. Daha fazla bilgiye [hakkında Skype kurumsal iş yöneticisi rolüne](https://support.office.com/en-us/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5).
+* **[İşletme için Skype / Lync Hizmet Yöneticisi](#lync-service-administrator)**: Bu role sahip olan kullanıcılar hizmet olduğunda Microsoft Skype Kurumsal, içinde genel izinlere sahip, hem de Skype özgü kullanıcı öznitelikleri, Azure Active Yönet Dizin. Ayrıca, bu rol, destek biletlerini yönetebilir ve hizmet durumunu izleyebilir ve takımlar ve Skype kurumsal iş Yönetim Merkezi erişim olanağı verir. Hesap, takımlar için lisanslanmalıdır veya ekipler PowerShell cmdlet'leri çalıştırılamaz. Daha fazla bilgi [hakkında Skype kurumsal iş yöneticisi rolüne](https://support.office.com/en-us/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) ve lisans bilgileri takımlar [iş ve Microsoft Teams eklenti lisansı için Skype](https://docs.microsoft.com/en-us/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
 
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell'de bu rol "Lync Hizmet Yöneticisi" olarak tanımlanır. "Skype Kurumsal Hizmet Yöneticisi" olarak [Azure portalında](https://portal.azure.com/).
@@ -145,6 +147,7 @@ Aşağıdaki roller kullanılmamalıdır. Bunlar olan kullanım dışı ve ileri
 ## <a name="detailed-azure-active-directory-permissions"></a>Azure Active Directory izinlerini ayrıntılı
 Aşağıdaki tablolarda her rol için belirtilen Azure Active Directory'de özel izinler açıklanmaktadır. Genel yönetici gibi bazı roller, Azure Active Directory Microsoft Hizmetleri outide ek izinlere sahip olabilir.
 
+
 ### <a name="adhoc-license-administrator"></a>AdHoc Lisans Yöneticisi
 Tüm uygulama kayıtlarını ve kurumsal uygulamaları oluşturabilir ve bunların tüm özelliklerini yönetebilir.
 
@@ -155,26 +158,26 @@ Tüm uygulama kayıtlarını ve kurumsal uygulamaları oluşturabilir ve bunlar�
 
 | **Eylemler** | **Açıklama** |
 | --- | --- |
-| Microsoft.aad.Directory/Domains/default/Read | Azure Active Directory etki alanlarında temel özelliklerini okuyun. |
+| Microsoft.aad.Directory/Domains/Basic/Read | Azure Active Directory etki alanlarında temel özelliklerini okuyun. |
 | microsoft.aad.directory/groups/appRoleAssignments/read | Azure Active Directory'de groups.appRoleAssignments özelliği okuyun. |
-| Microsoft.aad.Directory/Groups/default/Read | Azure Active Directory'de grupları temel özelliklerini okuyun. |
+| Microsoft.aad.Directory/Groups/Basic/Read | Azure Active Directory'de grupları temel özelliklerini okuyun. |
 | microsoft.aad.directory/groups/memberOf/read | Azure Active Directory'de groups.memberOf özelliği okuyun. |
 | Microsoft.aad.Directory/Groups/Members/Read | Azure Active Directory'de Groups.Members özelliği okuyun. |
 | Microsoft.aad.Directory/Groups/Owners/Read | Azure Active Directory'de Groups.Owners özelliği okuyun. |
 | Microsoft.aad.Directory/Groups/Settings/Read | Azure Active Directory'de Groups.Settings özelliği okuyun. |
-| microsoft.aad.directory/oAuth2PermissionGrants/default/read | Azure Active Directory'de oAuth2PermissionGrants temel özelliklerini okuyun. |
+| microsoft.aad.directory/oAuth2PermissionGrants/basic/read | Azure Active Directory'de oAuth2PermissionGrants temel özelliklerini okuyun. |
 | microsoft.aad.directory/oAuth2PermissionGrants/update | Azure Active Directory'de oAuth2PermissionGrants güncelleştirin. |
-| Microsoft.aad.Directory/Organization/default/Read | Kuruluşunuz Azure Active Directory'de temel özelliklerini okuyun. |
+| Microsoft.aad.Directory/Organization/Basic/Read | Kuruluşunuz Azure Active Directory'de temel özelliklerini okuyun. |
 | microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/read | Azure Active Directory'de organization.trustedCAsForPasswordlessAuth özelliği okuyun. |
 | microsoft.aad.directory/users/assignLicense | Azure Active Directory'deki kullanıcı lisansları yönetin. |
 | microsoft.aad.directory/users/appRoleAssignments/read | Azure Active Directory'de users.appRoleAssignments özelliği okuyun. |
-| Microsoft.aad.Directory/Users/default/Read | Azure Active Directory Kullanıcıları temel özelliklerini okuyun. |
+| Microsoft.aad.Directory/Users/Basic/Read | Azure Active Directory Kullanıcıları temel özelliklerini okuyun. |
 | microsoft.aad.directory/users/directReports/read | Azure Active Directory'de users.directReports özelliği okuyun. |
 | microsoft.aad.directory/users/invitedBy/read | Azure Active Directory'de users.invitedBy özelliği okuyun. |
 | microsoft.aad.directory/users/invitedUsers/read | Azure Active Directory'de users.invitedUsers özelliği okuyun. |
 | Microsoft.aad.Directory/Users/Manager/Read | Azure Active Directory'de Users.Manager özelliği okuyun. |
 | microsoft.aad.directory/users/memberOf/read | Azure Active Directory'de users.memberOf özelliği okuyun. |
-| microsoft.aad.directory/users/oAuth2PermissionGrants/default/read | Azure Active Directory'de users.oAuth2PermissionGrants özelliği okuyun. |
+| microsoft.aad.directory/users/oAuth2PermissionGrants/basic/read | Azure Active Directory'de users.oAuth2PermissionGrants özelliği okuyun. |
 | microsoft.aad.directory/users/ownedDevices/read | Azure Active Directory'de users.ownedDevices özelliği okuyun. |
 | microsoft.aad.directory/users/ownedObjects/read | Azure Active Directory'de users.ownedObjects özelliği okuyun. |
 | microsoft.aad.directory/users/registeredDevices/read | Azure Active Directory'de users.registeredDevices özelliği okuyun. |
@@ -189,24 +192,28 @@ Tüm uygulama kayıtlarını ve kurumsal uygulamaları oluşturabilir ve bunlar�
 
 | **Eylemler** | **Açıklama** |
 | --- | --- |
+| Microsoft.aad.Directory/Applications/Audience/Update | Azure Active Directory'de Applications.Audience özelliğini güncelleştirin. |
+| Microsoft.aad.Directory/Applications/Authentication/Update | Azure Active Directory'de Applications.Authentication özelliğini güncelleştirin. |
+| Microsoft.aad.Directory/Applications/Basic/Update | Uygulamaları Azure Active Directory'de temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Applications/Create | Azure Active Directory'de uygulamalar oluşturun. |
-| Microsoft.aad.Directory/Applications/default/Update | Uygulamaları Azure Active Directory'de temel özelliklerini güncelleştirin. |
+| Microsoft.aad.Directory/Applications/credentials/Update | Azure Active Directory'de Applications.credentials özelliğini güncelleştirin. |
 | Microsoft.aad.Directory/Applications/DELETE | Azure Active Directory'de uygulamaları silin. |
 | Microsoft.aad.Directory/Applications/Owners/Update | Azure Active Directory'de Applications.Owners özelliğini güncelleştirin. |
+| Microsoft.aad.Directory/Applications/Permissions/Update | Azure Active Directory'de Applications.Permissions özelliğini güncelleştirin. |
 | Microsoft.aad.Directory/Applications/Policies/Update | Azure Active Directory'de Applications.Policies özelliğini güncelleştirin. |
 | microsoft.aad.directory/appRoleAssignments/create | Azure Active Directory'de appRoleAssignments oluşturun. |
 | microsoft.aad.directory/appRoleAssignments/read | Azure Active Directory'de appRoleAssignments okuyun. |
 | microsoft.aad.directory/appRoleAssignments/update | Azure Active Directory'de appRoleAssignments güncelleştirin. |
 | microsoft.aad.directory/appRoleAssignments/delete | Azure Active Directory'de appRoleAssignments silin. |
+| microsoft.aad.directory/policies/applicationConfiguration/basic/read | Azure Active Directory'de policies.applicationConfiguration özelliği okuyun. |
+| microsoft.aad.directory/policies/applicationConfiguration/basic/update | Azure Active Directory'de policies.applicationConfiguration özelliğini güncelleştirin. |
 | microsoft.aad.directory/policies/applicationConfiguration/create | Azure Active Directory'de ilkeleri oluşturun. |
-| microsoft.aad.directory/policies/applicationConfiguration/default/read | Azure Active Directory'de policies.applicationConfiguration özelliği okuyun. |
-| microsoft.aad.directory/policies/applicationConfiguration/default/update | Azure Active Directory'de policies.applicationConfiguration özelliğini güncelleştirin. |
 | microsoft.aad.directory/policies/applicationConfiguration/delete | Azure Active Directory ilkeleri silin. |
 | microsoft.aad.directory/policies/applicationConfiguration/owners/read | Azure Active Directory'de policies.applicationConfiguration özelliği okuyun. |
 | microsoft.aad.directory/policies/applicationConfiguration/owners/update | Azure Active Directory'de policies.applicationConfiguration özelliğini güncelleştirin. |
 | microsoft.aad.directory/policies/applicationConfiguration/policyAppliedTo/read | Azure Active Directory'de policies.applicationConfiguration özelliği okuyun. |
+| microsoft.aad.directory/servicePrincipals/basic/update | Azure Active Directory'de servicePrincipals temel özelliklerini güncelleştirin. |
 | microsoft.aad.directory/servicePrincipals/create | Azure Active Directory'de servicePrincipals oluşturun. |
-| microsoft.aad.directory/servicePrincipals/default/update | Azure Active Directory'de servicePrincipals temel özelliklerini güncelleştirin. |
 | microsoft.aad.directory/servicePrincipals/delete | Azure Active Directory'de servicePrincipals silin. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | Azure Active Directory'de servicePrincipals.appRoleAssignedTo özelliğini güncelleştirin. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | Azure Active Directory'de servicePrincipals.appRoleAssignments özelliğini güncelleştirin. |
@@ -249,7 +256,7 @@ Uygulama kayıtları ayarı uygulamaları bağımsız kullanıcılar olarak kayd
 
 | **Eylemler** | **Açıklama** |
 | --- | --- |
-| Microsoft.aad.Directory/Organization/default/Update | Kuruluşunuz Azure Active Directory'de temel özelliklerini güncelleştirin. |
+| Microsoft.aad.Directory/Organization/Basic/Update | Kuruluşunuz Azure Active Directory'de temel özelliklerini güncelleştirin. |
 | microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/update | Azure Active Directory'de organization.trustedCAsForPasswordlessAuth özelliğini güncelleştirin. |
 | microsoft.azure.accessService/allEntities/allTasks | Azure erişim hizmetinin tüm özelliklerini yönetebilir. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Okuma ve Azure hizmet durumu yapılandırın. |
@@ -268,25 +275,29 @@ Uygulama Ara Sunucusu hariç tüm uygulama kayıtlarını ve kurumsal uygulamala
 
 | **Eylemler** | **Açıklama** |
 | --- | --- |
+| Microsoft.aad.Directory/Applications/Audience/Update | Azure Active Directory'de Applications.Audience özelliğini güncelleştirin. |
+| Microsoft.aad.Directory/Applications/Authentication/Update | Azure Active Directory'de Applications.Authentication özelliğini güncelleştirin. |
+| Microsoft.aad.Directory/Applications/Basic/Update | Uygulamaları Azure Active Directory'de temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Applications/Create | Azure Active Directory'de uygulamalar oluşturun. |
-| Microsoft.aad.Directory/Applications/default/Update | Uygulamaları Azure Active Directory'de temel özelliklerini güncelleştirin. |
+| Microsoft.aad.Directory/Applications/credentials/Update | Azure Active Directory'de Applications.credentials özelliğini güncelleştirin. |
 | Microsoft.aad.Directory/Applications/DELETE | Azure Active Directory'de uygulamaları silin. |
 | Microsoft.aad.Directory/Applications/Owners/Update | Azure Active Directory'de Applications.Owners özelliğini güncelleştirin. |
+| Microsoft.aad.Directory/Applications/Permissions/Update | Azure Active Directory'de Applications.Permissions özelliğini güncelleştirin. |
 | Microsoft.aad.Directory/Applications/Policies/Update | Azure Active Directory'de Applications.Policies özelliğini güncelleştirin. |
 | microsoft.aad.directory/appRoleAssignments/create | Azure Active Directory'de appRoleAssignments oluşturun. |
 | microsoft.aad.directory/appRoleAssignments/update | Azure Active Directory'de appRoleAssignments güncelleştirin. |
 | microsoft.aad.directory/appRoleAssignments/delete | Azure Active Directory'de appRoleAssignments silin. |
 | microsoft.aad.directory/policies/applicationConfiguration/create | Azure Active Directory'de ilkeleri oluşturun. |
-| microsoft.aad.directory/policies/applicationConfiguration/default/read | Azure Active Directory'de policies.applicationConfiguration özelliği okuyun. |
-| microsoft.aad.directory/policies/applicationConfiguration/default/update | Azure Active Directory'de policies.applicationConfiguration özelliğini güncelleştirin. |
+| microsoft.aad.directory/policies/applicationConfiguration/basic/read | Azure Active Directory'de policies.applicationConfiguration özelliği okuyun. |
+| microsoft.aad.directory/policies/applicationConfiguration/basic/update | Azure Active Directory'de policies.applicationConfiguration özelliğini güncelleştirin. |
 | microsoft.aad.directory/policies/applicationConfiguration/delete | Azure Active Directory ilkeleri silin. |
 | microsoft.aad.directory/policies/applicationConfiguration/owners/read | Azure Active Directory'de policies.applicationConfiguration özelliği okuyun. |
 | microsoft.aad.directory/policies/applicationConfiguration/owners/update | Azure Active Directory'de policies.applicationConfiguration özelliğini güncelleştirin. |
 | microsoft.aad.directory/policies/applicationConfiguration/policyAppliedTo/read | Azure Active Directory'de policies.applicationConfiguration özelliği okuyun. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | Azure Active Directory'de servicePrincipals.appRoleAssignedTo özelliğini güncelleştirin. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | Azure Active Directory'de servicePrincipals.appRoleAssignments özelliğini güncelleştirin. |
+| microsoft.aad.directory/servicePrincipals/basic/update | Azure Active Directory'de servicePrincipals temel özelliklerini güncelleştirin. |
 | microsoft.aad.directory/servicePrincipals/create | Azure Active Directory'de servicePrincipals oluşturun. |
-| microsoft.aad.directory/servicePrincipals/default/update | Azure Active Directory'de servicePrincipals temel özelliklerini güncelleştirin. |
 | microsoft.aad.directory/servicePrincipals/delete | Azure Active Directory'de servicePrincipals silin. |
 | microsoft.aad.directory/servicePrincipals/owners/update | Azure Active Directory'de servicePrincipals.owners özelliğini güncelleştirin. |
 | microsoft.aad.directory/servicePrincipals/policies/update | Azure Active Directory'de servicePrincipals.policies özelliğini güncelleştirin. |
@@ -296,6 +307,22 @@ Uygulama Ara Sunucusu hariç tüm uygulama kayıtlarını ve kurumsal uygulamala
 | microsoft.azure.supportTickets/allEntities/allTasks | Oluşturun ve Azure destek biletlerini yönetebilir. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Office 365 Hizmet Durumu'nu okuyun ve yapılandırın. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Office 365 destek biletleri oluşturun ve yönetin. |
+
+### <a name="cloud-device-administrator"></a>Bulut cihaz Yöneticisi
+Azure AD'de cihazları yönetmek için tam erişim.
+
+  > [!NOTE]
+  > Bu rol dizin okuyucular rolünden ek izinleri devralır.
+  >
+  >
+
+| **Eylemler** | **Açıklama** |
+| --- | --- |
+| Microsoft.aad.Directory/Devices/DELETE | Azure Active Directory cihazları silin. |
+| Microsoft.aad.Directory/Devices/Update | Azure Active Directory'de cihazlarda accountEnabled özelliğini güncelleştirin |
+| microsoft.aad.reports/allEntities/read | Azure AD Raporlarını okuyun. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Okuma ve Azure hizmet durumu yapılandırın. |
+| Microsoft.Office365.serviceHealth/allEntities/allTasks | Office 365 Hizmet Durumu'nu okuyun ve yapılandırın. |
 
 ### <a name="company-administrator"></a>Şirket Yöneticisi
 Azure AD'nin ve Azure AD kimliklerini kullanan Microsoft hizmetlerinin tüm özelliklerini yönetebilir.
@@ -347,9 +374,9 @@ Azure AD'nin ve Azure AD kimliklerini kullanan Microsoft hizmetlerinin tüm öze
 | microsoft.azure.serviceHealth/allEntities/allTasks | Okuma ve Azure hizmet durumu yapılandırın. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Oluşturun ve Azure destek biletlerini yönetebilir. |
 | microsoft.commerce.billing/allEntities/allTasks | Office 365 faturalamasının tüm özelliklerini yönetin. |
+| microsoft.intune/allEntities/allTasks | Intune'un tüm özelliklerini yönetin. |
 | Microsoft.Office365.complianceManager/allEntities/allTasks | Office 365 uyumluluk Yöneticisi tüm özelliklerini yönetebilir |
 | Microsoft.Office365.Exchange/allEntities/allTasks | Exchange Online'ın tüm özelliklerini yönetin. |
-| microsoft.intune/allEntities/allTasks | Intune'un tüm özelliklerini yönetin. |
 | Microsoft.Office365.lockbox/allEntities/allTasks | Office 365 müşteri kasa tüm özelliklerini yönetebilir |
 | microsoft.powerApps.powerBI/allEntities/allTasks | Power BI'ın tüm özelliklerini yönetin. |
 | Microsoft.Office365.protectionCenter/allEntities/allTasks | Office 365 koruma merkezinde tüm özelliklerini yönetebilir. |
@@ -394,9 +421,9 @@ Koşullu erişim özelliklerini yönetebilir.
 
 | **Eylemler** | **Açıklama** |
 | --- | --- |
+| microsoft.aad.directory/policies/conditionalAccess/basic/read | Azure Active Directory'de policies.conditionalAccess özelliği okuyun. |
+| microsoft.aad.directory/policies/conditionalAccess/basic/update | Azure Active Directory'de policies.conditionalAccess özelliğini güncelleştirin. |
 | microsoft.aad.directory/policies/conditionalAccess/create | Azure Active Directory'de ilkeleri oluşturun. |
-| microsoft.aad.directory/policies/conditionalAccess/default/read | Azure Active Directory'de policies.conditionalAccess özelliği okuyun. |
-| microsoft.aad.directory/policies/conditionalAccess/default/update | Azure Active Directory'de policies.conditionalAccess özelliğini güncelleştirin. |
 | microsoft.aad.directory/policies/conditionalAccess/delete | Azure Active Directory ilkeleri silin. |
 | microsoft.aad.directory/policies/conditionalAccess/owners/read | Azure Active Directory'de policies.conditionalAccess özelliği okuyun. |
 | microsoft.aad.directory/policies/conditionalAccess/owners/update | Azure Active Directory'de policies.conditionalAccess özelliğini güncelleştirin. |
@@ -452,8 +479,8 @@ Bu rolün üyeleri, Azure AD'ye katılmış cihazlarda yerel Yöneticiler grubun
 
 | **Eylemler** | **Açıklama** |
 | --- | --- |
-| microsoft.aad.directory/groupSettings/default/read | Azure Active Directory'de groupSettings temel özelliklerini okuyun. |
-| microsoft.aad.directory/groupSettingTemplates/default/read | Azure Active Directory'de groupSettingTemplates temel özelliklerini okuyun. |
+| microsoft.aad.directory/groupSettings/basic/read | Azure Active Directory'de groupSettings temel özelliklerini okuyun. |
+| microsoft.aad.directory/groupSettingTemplates/basic/read | Azure Active Directory'de groupSettingTemplates temel özelliklerini okuyun. |
 
 ### <a name="device-managers"></a>Cihaz Yöneticileri
 Müşterinin kuruluş verilerine erişmek için Microsoft destek isteklerini onaylayabilir.
@@ -470,8 +497,8 @@ Müşterinin kuruluş verilerine erişmek için Microsoft destek isteklerini ona
 
 | **Eylemler** | **Açıklama** |
 | --- | --- |
-| Microsoft.aad.Directory/Devices/default/Read | Azure Active Directory'de cihazlarda temel özelliklerini okuyun. |
-| Microsoft.aad.Directory/Devices/default/Update | Azure Active Directory'de cihazlarda temel özelliklerini güncelleştirin. |
+| Microsoft.aad.Directory/Devices/Basic/Read | Azure Active Directory'de cihazlarda temel özelliklerini okuyun. |
+| Microsoft.aad.Directory/Devices/Basic/Update | Azure Active Directory'de cihazlarda temel özelliklerini güncelleştirin. |
 | microsoft.aad.directory/devices/memberOf/read | Azure Active Directory'de devices.memberOf özelliği okuyun. |
 | microsoft.aad.directory/devices/registeredOwners/read | Azure Active Directory'de devices.registeredOwners özelliği okuyun. |
 | microsoft.aad.directory/devices/registeredOwners/update | Azure Active Directory'de devices.registeredOwners özelliğini güncelleştirin. |
@@ -488,49 +515,54 @@ Temel dizin bilgileri okuyabilir. Uygulamalara erişim vermek için
 
 | **Eylemler** | **Açıklama** |
 | --- | --- |
-| microsoft.aad.directory/administrativeUnits/default/read | Azure Active Directory'de administrativeUnits temel özelliklerini okuyun. |
+| microsoft.aad.directory/administrativeUnits/basic/read | Azure Active Directory'de administrativeUnits temel özelliklerini okuyun. |
 | microsoft.aad.directory/administrativeUnits/members/read | Azure Active Directory'de administrativeUnits.members özelliği okuyun. |
-| Microsoft.aad.Directory/Applications/default/Read | Uygulamaları Azure Active Directory'de temel özelliklerini okuyun. |
+| Microsoft.aad.Directory/Applications/Audience/Read | Azure Active Directory'de Applications.Audience özelliği okuyun. |
+| Microsoft.aad.Directory/Applications/Authentication/Read | Azure Active Directory'de Applications.Authentication özelliği okuyun. |
+| Microsoft.aad.Directory/Applications/Basic/Read | Uygulamaları Azure Active Directory'de temel özelliklerini okuyun. |
+| Microsoft.aad.Directory/Applications/credentials/Read | Azure Active Directory'de Applications.credentials özelliği okuyun. |
 | Microsoft.aad.Directory/Applications/Owners/Read | Azure Active Directory'de Applications.Owners özelliği okuyun. |
-| Microsoft.aad.Directory/Contacts/default/Read | Azure Active Directory'de kişiler üzerinde temel özelliklerini okuyun. |
+| Microsoft.aad.Directory/Applications/Permissions/Read | Azure Active Directory'de Applications.Permissions özelliği okuyun. |
+| Microsoft.aad.Directory/Applications/Policies/Read | Azure Active Directory'de Applications.Policies özelliği okuyun. |
+| Microsoft.aad.Directory/Contacts/Basic/Read | Azure Active Directory'de kişiler üzerinde temel özelliklerini okuyun. |
 | microsoft.aad.directory/contacts/memberOf/read | Azure Active Directory'de contacts.memberOf özelliği okuyun. |
-| Microsoft.aad.Directory/Contracts/default/Read | Azure Active Directory'de sözleşmelerinde temel özelliklerini okuyun. |
-| Microsoft.aad.Directory/Devices/default/Read | Azure Active Directory'de cihazlarda temel özelliklerini okuyun. |
+| Microsoft.aad.Directory/Contracts/Basic/Read | Azure Active Directory'de sözleşmelerinde temel özelliklerini okuyun. |
+| Microsoft.aad.Directory/Devices/Basic/Read | Azure Active Directory'de cihazlarda temel özelliklerini okuyun. |
 | microsoft.aad.directory/devices/memberOf/read | Azure Active Directory'de devices.memberOf özelliği okuyun. |
 | microsoft.aad.directory/devices/registeredOwners/read | Azure Active Directory'de devices.registeredOwners özelliği okuyun. |
 | microsoft.aad.directory/devices/registeredUsers/read | Azure Active Directory'de devices.registeredUsers özelliği okuyun. |
-| microsoft.aad.directory/directoryRoles/default/read | Azure Active Directory'de directoryRoles temel özelliklerini okuyun. |
+| microsoft.aad.directory/directoryRoles/basic/read | Azure Active Directory'de directoryRoles temel özelliklerini okuyun. |
 | microsoft.aad.directory/directoryRoles/eligibleMembers/read | Azure Active Directory'de directoryRoles.eligibleMembers özelliği okuyun. |
 | microsoft.aad.directory/directoryRoles/members/read | Azure Active Directory'de directoryRoles.members özelliği okuyun. |
-| Microsoft.aad.Directory/Domains/default/Read | Azure Active Directory etki alanlarında temel özelliklerini okuyun. |
+| Microsoft.aad.Directory/Domains/Basic/Read | Azure Active Directory etki alanlarında temel özelliklerini okuyun. |
 | microsoft.aad.directory/groups/appRoleAssignments/read | Azure Active Directory'de groups.appRoleAssignments özelliği okuyun. |
-| Microsoft.aad.Directory/Groups/default/Read | Azure Active Directory'de grupları temel özelliklerini okuyun. |
+| Microsoft.aad.Directory/Groups/Basic/Read | Azure Active Directory'de grupları temel özelliklerini okuyun. |
 | microsoft.aad.directory/groups/memberOf/read | Azure Active Directory'de groups.memberOf özelliği okuyun. |
 | Microsoft.aad.Directory/Groups/Members/Read | Azure Active Directory'de Groups.Members özelliği okuyun. |
 | Microsoft.aad.Directory/Groups/Owners/Read | Azure Active Directory'de Groups.Owners özelliği okuyun. |
 | Microsoft.aad.Directory/Groups/Settings/Read | Azure Active Directory'de Groups.Settings özelliği okuyun. |
-| microsoft.aad.directory/groupSettings/default/read | Azure Active Directory'de groupSettings temel özelliklerini okuyun. |
-| microsoft.aad.directory/groupSettingTemplates/default/read | Azure Active Directory'de groupSettingTemplates temel özelliklerini okuyun. |
-| microsoft.aad.directory/oAuth2PermissionGrants/default/read | Azure Active Directory'de oAuth2PermissionGrants temel özelliklerini okuyun. |
-| Microsoft.aad.Directory/Organization/default/Read | Kuruluşunuz Azure Active Directory'de temel özelliklerini okuyun. |
+| microsoft.aad.directory/groupSettings/basic/read | Azure Active Directory'de groupSettings temel özelliklerini okuyun. |
+| microsoft.aad.directory/groupSettingTemplates/basic/read | Azure Active Directory'de groupSettingTemplates temel özelliklerini okuyun. |
+| microsoft.aad.directory/oAuth2PermissionGrants/basic/read | Azure Active Directory'de oAuth2PermissionGrants temel özelliklerini okuyun. |
+| Microsoft.aad.Directory/Organization/Basic/Read | Kuruluşunuz Azure Active Directory'de temel özelliklerini okuyun. |
 | microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/read | Azure Active Directory'de organization.trustedCAsForPasswordlessAuth özelliği okuyun. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/read | Azure Active Directory'de servicePrincipals.appRoleAssignedTo özelliği okuyun. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/read | Azure Active Directory'de servicePrincipals.appRoleAssignments özelliği okuyun. |
-| microsoft.aad.directory/servicePrincipals/default/read | Azure Active Directory'de servicePrincipals temel özelliklerini okuyun. |
+| microsoft.aad.directory/servicePrincipals/basic/read | Azure Active Directory'de servicePrincipals temel özelliklerini okuyun. |
 | microsoft.aad.directory/servicePrincipals/memberOf/read | Azure Active Directory'de servicePrincipals.memberOf özelliği okuyun. |
-| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/default/read | Azure Active Directory'de servicePrincipals.oAuth2PermissionGrants özelliği okuyun. |
+| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/basic/read | Azure Active Directory'de servicePrincipals.oAuth2PermissionGrants özelliği okuyun. |
 | microsoft.aad.directory/servicePrincipals/ownedObjects/read | Azure Active Directory'de servicePrincipals.ownedObjects özelliği okuyun. |
 | microsoft.aad.directory/servicePrincipals/owners/read | Azure Active Directory'de servicePrincipals.owners özelliği okuyun. |
 | microsoft.aad.directory/servicePrincipals/policies/read | Azure Active Directory'de servicePrincipals.policies özelliği okuyun. |
-| microsoft.aad.directory/subscribedSkus/default/read | Azure Active Directory'de subscribedSkus temel özelliklerini okuyun. |
+| microsoft.aad.directory/subscribedSkus/basic/read | Azure Active Directory'de subscribedSkus temel özelliklerini okuyun. |
 | microsoft.aad.directory/users/appRoleAssignments/read | Azure Active Directory'de users.appRoleAssignments özelliği okuyun. |
-| Microsoft.aad.Directory/Users/default/Read | Azure Active Directory Kullanıcıları temel özelliklerini okuyun. |
+| Microsoft.aad.Directory/Users/Basic/Read | Azure Active Directory Kullanıcıları temel özelliklerini okuyun. |
 | microsoft.aad.directory/users/directReports/read | Azure Active Directory'de users.directReports özelliği okuyun. |
 | microsoft.aad.directory/users/invitedBy/read | Azure Active Directory'de users.invitedBy özelliği okuyun. |
 | microsoft.aad.directory/users/invitedUsers/read | Azure Active Directory'de users.invitedUsers özelliği okuyun. |
 | Microsoft.aad.Directory/Users/Manager/Read | Azure Active Directory'de Users.Manager özelliği okuyun. |
 | microsoft.aad.directory/users/memberOf/read | Azure Active Directory'de users.memberOf özelliği okuyun. |
-| microsoft.aad.directory/users/oAuth2PermissionGrants/default/read | Azure Active Directory'de users.oAuth2PermissionGrants özelliği okuyun. |
+| microsoft.aad.directory/users/oAuth2PermissionGrants/basic/read | Azure Active Directory'de users.oAuth2PermissionGrants özelliği okuyun. |
 | microsoft.aad.directory/users/ownedDevices/read | Azure Active Directory'de users.ownedDevices özelliği okuyun. |
 | microsoft.aad.directory/users/ownedObjects/read | Azure Active Directory'de users.ownedObjects özelliği okuyun. |
 | microsoft.aad.directory/users/registeredDevices/read | Azure Active Directory'de users.registeredDevices özelliği okuyun. |
@@ -548,8 +580,8 @@ Yalnızca Azure AD Connect hizmeti tarafından kullanılır.
 | microsoft.aad.directory/organization/dirSync/update | Azure Active Directory'de organization.dirSync özelliğini güncelleştirin. |
 | Microsoft.aad.Directory/Policies/Create | Azure Active Directory'de ilkeleri oluşturun. |
 | Microsoft.aad.Directory/Policies/DELETE | Azure Active Directory ilkeleri silin. |
-| Microsoft.aad.Directory/Policies/default/Read | İlkeleri Azure Active Directory'de temel özelliklerini okuyun. |
-| Microsoft.aad.Directory/Policies/default/Update | İlkeleri Azure Active Directory'de temel özelliklerini güncelleştirin. |
+| Microsoft.aad.Directory/Policies/Basic/Read | İlkeleri Azure Active Directory'de temel özelliklerini okuyun. |
+| Microsoft.aad.Directory/Policies/Basic/Update | İlkeleri Azure Active Directory'de temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Policies/Owners/Read | Azure Active Directory'de policies.Owners özelliği okuyun. |
 | Microsoft.aad.Directory/Policies/Owners/Update | Azure Active Directory'de policies.Owners özelliğini güncelleştirin. |
 | microsoft.aad.directory/policies/policiesAppliedTo/read | Azure Active Directory'de policies.policiesAppliedTo özelliği okuyun. |
@@ -557,11 +589,11 @@ Yalnızca Azure AD Connect hizmeti tarafından kullanılır.
 | microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | Azure Active Directory'de servicePrincipals.appRoleAssignedTo özelliğini güncelleştirin. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/read | Azure Active Directory'de servicePrincipals.appRoleAssignments özelliği okuyun. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | Azure Active Directory'de servicePrincipals.appRoleAssignments özelliğini güncelleştirin. |
+| microsoft.aad.directory/servicePrincipals/basic/read | Azure Active Directory'de servicePrincipals temel özelliklerini okuyun. |
+| microsoft.aad.directory/servicePrincipals/basic/update | Azure Active Directory'de servicePrincipals temel özelliklerini güncelleştirin. |
 | microsoft.aad.directory/servicePrincipals/create | Azure Active Directory'de servicePrincipals oluşturun. |
-| microsoft.aad.directory/servicePrincipals/default/read | Azure Active Directory'de servicePrincipals temel özelliklerini okuyun. |
-| microsoft.aad.directory/servicePrincipals/default/update | Azure Active Directory'de servicePrincipals temel özelliklerini güncelleştirin. |
 | microsoft.aad.directory/servicePrincipals/memberOf/read | Azure Active Directory'de servicePrincipals.memberOf özelliği okuyun. |
-| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/default/read | Azure Active Directory'de servicePrincipals.oAuth2PermissionGrants özelliği okuyun. |
+| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/basic/read | Azure Active Directory'de servicePrincipals.oAuth2PermissionGrants özelliği okuyun. |
 | microsoft.aad.directory/servicePrincipals/owners/read | Azure Active Directory'de servicePrincipals.owners özelliği okuyun. |
 | microsoft.aad.directory/servicePrincipals/owners/update | Azure Active Directory'de servicePrincipals.owners özelliğini güncelleştirin. |
 | microsoft.aad.directory/servicePrincipals/ownedObjects/read | Azure Active Directory'de servicePrincipals.ownedObjects özelliği okuyun. |
@@ -582,16 +614,16 @@ Okuma ve yazma temel dizin bilgileri kullanabilirsiniz. Uygulamalara erişim ver
 | Microsoft.aad.Directory/Groups/Create | Azure Active Directory'de grupları oluşturun. |
 | microsoft.aad.directory/groups/createAsOwner | Azure Active Directory'de grupları oluşturun. Oluşturucu, ilk sahibi olarak eklenir ve oluşturulan nesnesi oluşturan kişinin 250'den oluşturulan nesne kotaya sayılmaktadır. |
 | microsoft.aad.directory/groups/appRoleAssignments/update | Azure Active Directory'de groups.appRoleAssignments özelliğini güncelleştirin. |
-| Microsoft.aad.Directory/Groups/default/Update | Azure Active Directory'de grupları temel özelliklerini güncelleştirin. |
+| Microsoft.aad.Directory/Groups/Basic/Update | Azure Active Directory'de grupları temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Groups/Members/Update | Azure Active Directory'de Groups.Members özelliğini güncelleştirin. |
 | Microsoft.aad.Directory/Groups/Owners/Update | Azure Active Directory'de Groups.Owners özelliğini güncelleştirin. |
 | Microsoft.aad.Directory/Groups/Settings/Update | Azure Active Directory'de Groups.Settings özelliğini güncelleştirin. |
+| microsoft.aad.directory/groupSettings/basic/update | Azure Active Directory'de groupSettings temel özelliklerini güncelleştirin. |
 | microsoft.aad.directory/groupSettings/create | Azure Active Directory'de groupSettings oluşturun. |
-| microsoft.aad.directory/groupSettings/default/update | Azure Active Directory'de groupSettings temel özelliklerini güncelleştirin. |
 | microsoft.aad.directory/groupSettings/delete | Azure Active Directory'de groupSettings silin. |
 | microsoft.aad.directory/users/appRoleAssignments/update | Azure Active Directory'de users.appRoleAssignments özelliğini güncelleştirin. |
 | microsoft.aad.directory/users/assignLicense | Azure Active Directory'deki kullanıcı lisansları yönetin. |
-| Microsoft.aad.Directory/Users/default/Update | Azure Active Directory Kullanıcıları temel özelliklerini güncelleştirin. |
+| Microsoft.aad.Directory/Users/Basic/Update | Azure Active Directory Kullanıcıları temel özelliklerini güncelleştirin. |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Azure Active Directory'de tüm kullanıcı yenileme belirteçlerini geçersiz kılın. |
 | Microsoft.aad.Directory/Users/Manager/Update | Azure Active Directory'de Users.Manager özelliğini güncelleştirin. |
 | microsoft.aad.directory/users/userPrincipalName/update | Azure Active Directory'de users.userPrincipalName özelliğini güncelleştirin. |
@@ -628,11 +660,16 @@ Konuk kullanıcılar için varsayılan rol. Sınırlı sayıda dizin bilgileri o
 
 | **Eylemler** | **Açıklama** |
 | --- | --- |
-| Microsoft.aad.Directory/Applications/default/Read | Uygulamaları Azure Active Directory'de temel özelliklerini okuyun. |
+| Microsoft.aad.Directory/Applications/Audience/Read | Azure Active Directory'de Applications.Audience özelliği okuyun. |
+| Microsoft.aad.Directory/Applications/Authentication/Read | Azure Active Directory'de Applications.Authentication özelliği okuyun. |
+| Microsoft.aad.Directory/Applications/Basic/Read | Uygulamaları Azure Active Directory'de temel özelliklerini okuyun. |
+| Microsoft.aad.Directory/Applications/credentials/Read | Azure Active Directory'de Applications.credentials özelliği okuyun. |
 | Microsoft.aad.Directory/Applications/Owners/Read | Azure Active Directory'de Applications.Owners özelliği okuyun. |
-| Microsoft.aad.Directory/Domains/default/Read | Azure Active Directory etki alanlarında temel özelliklerini okuyun. |
+| Microsoft.aad.Directory/Applications/Permissions/Read | Azure Active Directory'de Applications.Permissions özelliği okuyun. |
+| Microsoft.aad.Directory/Applications/Policies/Read | Azure Active Directory'de Applications.Policies özelliği okuyun. |
+| Microsoft.aad.Directory/Domains/Basic/Read | Azure Active Directory etki alanlarında temel özelliklerini okuyun. |
 | microsoft.aad.directory/groups/appRoleAssignments/read | Azure Active Directory'de groups.appRoleAssignments özelliği okuyun. |
-| Microsoft.aad.Directory/Groups/default/Read | Azure Active Directory'de grupları temel özelliklerini okuyun. |
+| Microsoft.aad.Directory/Groups/Basic/Read | Azure Active Directory'de grupları temel özelliklerini okuyun. |
 | microsoft.aad.directory/groups/memberOf/read | Azure Active Directory'de groups.memberOf özelliği okuyun. |
 | Microsoft.aad.Directory/Groups/Members/Read | Azure Active Directory'de Groups.Members özelliği okuyun. |
 | Microsoft.aad.Directory/Groups/Owners/Read | Azure Active Directory'de Groups.Owners özelliği okuyun. |
@@ -640,23 +677,23 @@ Konuk kullanıcılar için varsayılan rol. Sınırlı sayıda dizin bilgileri o
 | microsoft.aad.directory/organization/basicProfile/read | Azure Active Directory'de temel kuruluş profili bilgilerini okuyun. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/read | Azure Active Directory'de servicePrincipals.appRoleAssignedTo özelliği okuyun. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/read | Azure Active Directory'de servicePrincipals.appRoleAssignments özelliği okuyun. |
-| microsoft.aad.directory/servicePrincipals/default/read | Azure Active Directory'de servicePrincipals temel özelliklerini okuyun. |
+| microsoft.aad.directory/servicePrincipals/basic/read | Azure Active Directory'de servicePrincipals temel özelliklerini okuyun. |
 | microsoft.aad.directory/servicePrincipals/memberOf/read | Azure Active Directory'de servicePrincipals.memberOf özelliği okuyun. |
 | microsoft.aad.directory/servicePrincipals/members/read | Azure Active Directory'de servicePrincipals.members özelliği okuyun. |
-| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/default/read | Azure Active Directory'de servicePrincipals.oAuth2PermissionGrants özelliği okuyun. |
+| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/basic/read | Azure Active Directory'de servicePrincipals.oAuth2PermissionGrants özelliği okuyun. |
 | microsoft.aad.directory/servicePrincipals/owners/read | Azure Active Directory'de servicePrincipals.owners özelliği okuyun. |
 | microsoft.aad.directory/servicePrincipals/ownedObjects/read | Azure Active Directory'de servicePrincipals.ownedObjects özelliği okuyun. |
 | microsoft.aad.directory/servicePrincipals/policies/read | Azure Active Directory'de servicePrincipals.policies özelliği okuyun. |
 | microsoft.aad.directory/users/basicProfile/read | Azure Active Directory'de users.basicProfile özelliği okuyun. |
 | microsoft.aad.directory/users/appRoleAssignments/read | Azure Active Directory'de users.appRoleAssignments özelliği okuyun. |
-| Microsoft.aad.Directory/Users/default/Read | Azure Active Directory Kullanıcıları temel özelliklerini okuyun. |
+| Microsoft.aad.Directory/Users/Basic/Read | Azure Active Directory Kullanıcıları temel özelliklerini okuyun. |
 | microsoft.aad.directory/users/directReports/read | Azure Active Directory'de users.directReports özelliği okuyun. |
 | microsoft.aad.directory/users/eligibleMemberOf/read | Azure Active Directory'de users.eligibleMemberOf özelliği okuyun. |
 | microsoft.aad.directory/users/invitedBy/read | Azure Active Directory'de users.invitedBy özelliği okuyun. |
 | microsoft.aad.directory/users/invitedUsers/read | Azure Active Directory'de users.invitedUsers özelliği okuyun. |
 | Microsoft.aad.Directory/Users/Manager/Read | Azure Active Directory'de Users.Manager özelliği okuyun. |
 | microsoft.aad.directory/users/memberOf/read | Azure Active Directory'de users.memberOf özelliği okuyun. |
-| microsoft.aad.directory/users/oAuth2PermissionGrants/default/read | Azure Active Directory'de users.oAuth2PermissionGrants özelliği okuyun. |
+| microsoft.aad.directory/users/oAuth2PermissionGrants/basic/read | Azure Active Directory'de users.oAuth2PermissionGrants özelliği okuyun. |
 | microsoft.aad.directory/users/ownedDevices/read | Azure Active Directory'de users.ownedDevices özelliği okuyun. |
 | microsoft.aad.directory/users/ownedObjects/read | Azure Active Directory'de users.ownedObjects özelliği okuyun. |
 | Microsoft.aad.Directory/Users/Password/Update | Azure Active Directory'de tüm kullanıcıların parolalarının güncelleştirin. Daha fazla ayrıntı için çevrimiçi belgelerine bakın. |
@@ -675,14 +712,14 @@ Konuk kullanıcılar için varsayılan rol. Sınırlı sayıda dizin bilgileri o
 | **Eylemler** | **Açıklama** |
 | --- | --- |
 | microsoft.aad.directory/users/appRoleAssignments/read | Azure Active Directory'de users.appRoleAssignments özelliği okuyun. |
-| Microsoft.aad.Directory/Users/default/Read | Azure Active Directory Kullanıcıları temel özelliklerini okuyun. |
+| Microsoft.aad.Directory/Users/Basic/Read | Azure Active Directory Kullanıcıları temel özelliklerini okuyun. |
 | microsoft.aad.directory/users/directReports/read | Azure Active Directory'de users.directReports özelliği okuyun. |
 | microsoft.aad.directory/users/invitedBy/read | Azure Active Directory'de users.invitedBy özelliği okuyun. |
 | microsoft.aad.directory/users/inviteGuest | Azure Active Directory'de konuk kullanıcıları davet edin. |
 | microsoft.aad.directory/users/invitedUsers/read | Azure Active Directory'de users.invitedUsers özelliği okuyun. |
 | Microsoft.aad.Directory/Users/Manager/Read | Azure Active Directory'de Users.Manager özelliği okuyun. |
 | microsoft.aad.directory/users/memberOf/read | Azure Active Directory'de users.memberOf özelliği okuyun. |
-| microsoft.aad.directory/users/oAuth2PermissionGrants/default/read | Azure Active Directory'de users.oAuth2PermissionGrants özelliği okuyun. |
+| microsoft.aad.directory/users/oAuth2PermissionGrants/basic/read | Azure Active Directory'de users.oAuth2PermissionGrants özelliği okuyun. |
 | microsoft.aad.directory/users/ownedDevices/read | Azure Active Directory'de users.ownedDevices özelliği okuyun. |
 | microsoft.aad.directory/users/ownedObjects/read | Azure Active Directory'de users.ownedObjects özelliği okuyun. |
 | microsoft.aad.directory/users/registeredDevices/read | Azure Active Directory'de users.registeredDevices özelliği okuyun. |
@@ -741,18 +778,18 @@ Intune ürününün tüm özelliklerini yönetebilir.
 
 | **Eylemler** | **Açıklama** |
 | --- | --- |
+| Microsoft.aad.Directory/Contacts/Basic/Update | Azure Active Directory'de kişiler üzerinde temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Contacts/Create | Azure Active Directory'de kişiler oluşturma. |
-| Microsoft.aad.Directory/Contacts/default/Update | Azure Active Directory'de kişiler üzerinde temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Contacts/DELETE | Azure Active Directory'de kişiler silin. |
+| Microsoft.aad.Directory/Devices/Basic/Update | Azure Active Directory'de cihazlarda temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Devices/Create | Cihazları Azure Active Directory'de oluşturun. |
-| Microsoft.aad.Directory/Devices/default/Update | Azure Active Directory'de cihazlarda temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Devices/DELETE | Azure Active Directory cihazları silin. |
 | microsoft.aad.directory/devices/registeredOwners/update | Azure Active Directory'de devices.registeredOwners özelliğini güncelleştirin. |
 | microsoft.aad.directory/devices/registeredUsers/update | Azure Active Directory'de devices.registeredUsers özelliğini güncelleştirin. |
 | microsoft.aad.directory/groups/appRoleAssignments/update | Azure Active Directory'de groups.appRoleAssignments özelliğini güncelleştirin. |
+| Microsoft.aad.Directory/Groups/Basic/Update | Azure Active Directory'de grupları temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Groups/Create | Azure Active Directory'de grupları oluşturun. |
 | microsoft.aad.directory/groups/createAsOwner | Azure Active Directory'de grupları oluşturun. Oluşturucu, ilk sahibi olarak eklenir ve oluşturulan nesnesi oluşturan kişinin 250'den oluşturulan nesne kotaya sayılmaktadır. |
-| Microsoft.aad.Directory/Groups/default/Update | Azure Active Directory'de grupları temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Groups/DELETE | Azure Active Directory içinde grupları silin. |
 | microsoft.aad.directory/groups/hiddenMembers/read | Azure Active Directory'de groups.hiddenMembers özelliği okuyun. |
 | Microsoft.aad.Directory/Groups/Members/Update | Azure Active Directory'de Groups.Members özelliğini güncelleştirin. |
@@ -760,7 +797,7 @@ Intune ürününün tüm özelliklerini yönetebilir.
 | Microsoft.aad.Directory/Groups/Restore | Azure Active Directory'de gruplar geri yükleyin. |
 | Microsoft.aad.Directory/Groups/Settings/Update | Azure Active Directory'de Groups.Settings özelliğini güncelleştirin. |
 | microsoft.aad.directory/users/appRoleAssignments/update | Azure Active Directory'de users.appRoleAssignments özelliğini güncelleştirin. |
-| Microsoft.aad.Directory/Users/default/Update | Azure Active Directory Kullanıcıları temel özelliklerini güncelleştirin. |
+| Microsoft.aad.Directory/Users/Basic/Update | Azure Active Directory Kullanıcıları temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Users/Manager/Update | Azure Active Directory'de Users.Manager özelliğini güncelleştirin. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Oluşturun ve Azure destek biletlerini yönetebilir. |
 | microsoft.intune/allEntities/allTasks | Intune'un tüm özelliklerini yönetin. |
@@ -837,8 +874,8 @@ Kullanmayın - genel kullanım için tasarlanmamıştır.
 
 | **Eylemler** | **Açıklama** |
 | --- | --- |
+| Microsoft.aad.Directory/Contacts/Basic/Update | Azure Active Directory'de kişiler üzerinde temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Contacts/Create | Azure Active Directory'de kişiler oluşturma. |
-| Microsoft.aad.Directory/Contacts/default/Update | Azure Active Directory'de kişiler üzerinde temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Contacts/DELETE | Azure Active Directory'de kişiler silin. |
 | Microsoft.aad.Directory/Groups/Create | Azure Active Directory'de grupları oluşturun. |
 | microsoft.aad.directory/groups/createAsOwner | Azure Active Directory'de grupları oluşturun. Oluşturucu, ilk sahibi olarak eklenir ve oluşturulan nesnesi oluşturan kişinin 250'den oluşturulan nesne kotaya sayılmaktadır. |
@@ -846,7 +883,7 @@ Kullanmayın - genel kullanım için tasarlanmamıştır.
 | Microsoft.aad.Directory/Groups/Owners/Update | Azure Active Directory'de Groups.Owners özelliğini güncelleştirin. |
 | microsoft.aad.directory/users/appRoleAssignments/update | Azure Active Directory'de users.appRoleAssignments özelliğini güncelleştirin. |
 | microsoft.aad.directory/users/assignLicense | Azure Active Directory'deki kullanıcı lisansları yönetin. |
-| Microsoft.aad.Directory/Users/default/Update | Azure Active Directory Kullanıcıları temel özelliklerini güncelleştirin. |
+| Microsoft.aad.Directory/Users/Basic/Update | Azure Active Directory Kullanıcıları temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Users/DELETE | Azure Active Directory'de kullanıcıları silin. |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Azure Active Directory'de tüm kullanıcı yenileme belirteçlerini geçersiz kılın. |
 | Microsoft.aad.Directory/Users/Manager/Update | Azure Active Directory'de Users.Manager özelliğini güncelleştirin. |
@@ -874,19 +911,19 @@ Kullanmayın - genel kullanım için tasarlanmamıştır.
 
 | **Eylemler** | **Açıklama** |
 | --- | --- |
+| Microsoft.aad.Directory/Contacts/Basic/Update | Azure Active Directory'de kişiler üzerinde temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Contacts/Create | Azure Active Directory'de kişiler oluşturma. |
-| Microsoft.aad.Directory/Contacts/default/Update | Azure Active Directory'de kişiler üzerinde temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Contacts/DELETE | Azure Active Directory'de kişiler silin. |
 | microsoft.aad.directory/domains/allTasks | Oluşturma ve etki alanlarını silmek ve okuma ve güncelleştirme, Azure Active Directory'de standart özellikleri. |
 | Microsoft.aad.Directory/Groups/Create | Azure Active Directory'de grupları oluşturun. |
 | Microsoft.aad.Directory/Groups/DELETE | Azure Active Directory içinde grupları silin. |
 | Microsoft.aad.Directory/Groups/Members/Update | Azure Active Directory'de Groups.Members özelliğini güncelleştirin. |
 | Microsoft.aad.Directory/Groups/Restore | Azure Active Directory'de gruplar geri yükleyin. |
-| Microsoft.aad.Directory/Organization/default/Update | Kuruluşunuz Azure Active Directory'de temel özelliklerini güncelleştirin. |
+| Microsoft.aad.Directory/Organization/Basic/Update | Kuruluşunuz Azure Active Directory'de temel özelliklerini güncelleştirin. |
 | microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/update | Azure Active Directory'de organization.trustedCAsForPasswordlessAuth özelliğini güncelleştirin. |
 | microsoft.aad.directory/users/appRoleAssignments/update | Azure Active Directory'de users.appRoleAssignments özelliğini güncelleştirin. |
 | microsoft.aad.directory/users/assignLicense | Azure Active Directory'deki kullanıcı lisansları yönetin. |
-| Microsoft.aad.Directory/Users/default/Update | Azure Active Directory Kullanıcıları temel özelliklerini güncelleştirin. |
+| Microsoft.aad.Directory/Users/Basic/Update | Azure Active Directory Kullanıcıları temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Users/DELETE | Azure Active Directory'de kullanıcıları silin. |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Azure Active Directory'de tüm kullanıcı yenileme belirteçlerini geçersiz kılın. |
 | Microsoft.aad.Directory/Users/Manager/Update | Azure Active Directory'de Users.Manager özelliğini güncelleştirin. |
@@ -975,8 +1012,8 @@ Güvenlik bilgilerini ve raporları okuyabilir
 | **Eylemler** | **Açıklama** |
 | --- | --- |
 | Microsoft.aad.Directory/Applications/Policies/Update | Azure Active Directory'de Applications.Policies özelliğini güncelleştirin. |
+| Microsoft.aad.Directory/Policies/Basic/Update | İlkeleri Azure Active Directory'de temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Policies/Create | Azure Active Directory'de ilkeleri oluşturun. |
-| Microsoft.aad.Directory/Policies/default/Update | İlkeleri Azure Active Directory'de temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Policies/DELETE | Azure Active Directory ilkeleri silin. |
 | Microsoft.aad.Directory/Policies/Owners/Update | Azure Active Directory'de policies.Owners özelliğini güncelleştirin. |
 | microsoft.aad.directory/servicePrincipals/policies/update | Azure Active Directory'de servicePrincipals.policies özelliğini güncelleştirin. |
@@ -1067,13 +1104,13 @@ Kullanıcıların ve grupların tüm özelliklerini yönetebilir
 | microsoft.aad.directory/appRoleAssignments/create | Azure Active Directory'de appRoleAssignments oluşturun. |
 | microsoft.aad.directory/appRoleAssignments/delete | Azure Active Directory'de appRoleAssignments silin. |
 | microsoft.aad.directory/appRoleAssignments/update | Azure Active Directory'de appRoleAssignments güncelleştirin. |
+| Microsoft.aad.Directory/Contacts/Basic/Update | Azure Active Directory'de kişiler üzerinde temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Contacts/Create | Azure Active Directory'de kişiler oluşturma. |
-| Microsoft.aad.Directory/Contacts/default/Update | Azure Active Directory'de kişiler üzerinde temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Contacts/DELETE | Azure Active Directory'de kişiler silin. |
 | microsoft.aad.directory/groups/appRoleAssignments/update | Azure Active Directory'de groups.appRoleAssignments özelliğini güncelleştirin. |
+| Microsoft.aad.Directory/Groups/Basic/Update | Azure Active Directory'de grupları temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Groups/Create | Azure Active Directory'de grupları oluşturun. |
 | microsoft.aad.directory/groups/createAsOwner | Azure Active Directory'de grupları oluşturun. Oluşturucu, ilk sahibi olarak eklenir ve oluşturulan nesnesi oluşturan kişinin 250'den oluşturulan nesne kotaya sayılmaktadır. |
-| Microsoft.aad.Directory/Groups/default/Update | Azure Active Directory'de grupları temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Groups/DELETE | Azure Active Directory içinde grupları silin. |
 | microsoft.aad.directory/groups/hiddenMembers/read | Azure Active Directory'de groups.hiddenMembers özelliği okuyun. |
 | Microsoft.aad.Directory/Groups/Members/Update | Azure Active Directory'de Groups.Members özelliğini güncelleştirin. |
@@ -1082,8 +1119,8 @@ Kullanıcıların ve grupların tüm özelliklerini yönetebilir
 | Microsoft.aad.Directory/Groups/Settings/Update | Azure Active Directory'de Groups.Settings özelliğini güncelleştirin. |
 | microsoft.aad.directory/users/appRoleAssignments/update | Azure Active Directory'de users.appRoleAssignments özelliğini güncelleştirin. |
 | microsoft.aad.directory/users/assignLicense | Azure Active Directory'deki kullanıcı lisansları yönetin. |
+| Microsoft.aad.Directory/Users/Basic/Update | Azure Active Directory Kullanıcıları temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Users/Create | Azure Active Directory'de kullanıcıları oluşturun. |
-| Microsoft.aad.Directory/Users/default/Update | Azure Active Directory Kullanıcıları temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Users/DELETE | Azure Active Directory'de kullanıcıları silin. |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Azure Active Directory'de tüm kullanıcı yenileme belirteçlerini geçersiz kılın. |
 | Microsoft.aad.Directory/Users/Manager/Update | Azure Active Directory'de Users.Manager özelliğini güncelleştirin. |
@@ -1107,34 +1144,38 @@ Varsayılan rol üyesi kullanıcılar için. Tüm okuyabilir ve sınırlı sayı
 | **Eylemler** | **Açıklama** |
 | --- | --- |
 | microsoft.aad.directory/applications/createAsOwner | Azure Active Directory'de uygulamalar oluşturun. Oluşturucu, ilk sahibi olarak eklenir ve oluşturulan nesnesi oluşturan kişinin 250'den oluşturulan nesne kotaya sayılmaktadır. |
+| Microsoft.aad.Directory/Groups/Basic/Read | Azure Active Directory'de grupları temel özelliklerini okuyun. |
 | microsoft.aad.directory/groups/createAsOwner | Azure Active Directory'de grupları oluşturun. Oluşturucu, ilk sahibi olarak eklenir ve oluşturulan nesnesi oluşturan kişinin 250'den oluşturulan nesne kotaya sayılmaktadır. |
-| Microsoft.aad.Directory/Groups/default/Read | Azure Active Directory'de grupları temel özelliklerini okuyun. |
 | microsoft.aad.directory/oAuth2PermissionGrants/create | Azure Active Directory'de oAuth2PermissionGrants oluşturun. |
 | microsoft.aad.directory/oAuth2PermissionGrants/delete | Azure Active Directory'de oAuth2PermissionGrants silin. |
 | microsoft.aad.directory/oAuth2PermissionGrants/update | Azure Active Directory'de oAuth2PermissionGrants güncelleştirin. |
 | microsoft.aad.directory/servicePrincipals/createAsOwner | Azure Active Directory'de servicePrincipals oluşturun. Oluşturucu, ilk sahibi olarak eklenir ve oluşturulan nesnesi oluşturan kişinin 250'den oluşturulan nesne kotaya sayılmaktadır. |
 | microsoft.aad.directory/users/activateServicePlan | Azure Active Directory'de Activateserviceplan kullanıcılar. |
 | microsoft.aad.directory/users/inviteGuest | Azure Active Directory'de konuk kullanıcıları davet edin. |
+| Microsoft.aad.Directory/Applications/Audience/Update | Azure Active Directory'de Applications.Audience özelliğini güncelleştirin. |
+| Microsoft.aad.Directory/Applications/Authentication/Update | Azure Active Directory'de Applications.Authentication özelliğini güncelleştirin. |
+| Microsoft.aad.Directory/Applications/Basic/Update | Uygulamaları Azure Active Directory'de temel özelliklerini güncelleştirin. |
+| Microsoft.aad.Directory/Applications/credentials/Update | Azure Active Directory'de Applications.credentials özelliğini güncelleştirin. |
 | Microsoft.aad.Directory/Applications/DELETE | Azure Active Directory'de uygulamaları silin. |
-| Microsoft.aad.Directory/Applications/Restore | Azure Active Directory'de uygulamalar geri yükleyin. |
-| Microsoft.aad.Directory/Applications/default/Update | Uygulamaları Azure Active Directory'de temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Applications/Owners/Update | Azure Active Directory'de Applications.Owners özelliğini güncelleştirin. |
+| Microsoft.aad.Directory/Applications/Permissions/Update | Azure Active Directory'de Applications.Permissions özelliğini güncelleştirin. |
 | Microsoft.aad.Directory/Applications/Policies/Update | Azure Active Directory'de Applications.Policies özelliğini güncelleştirin. |
+| Microsoft.aad.Directory/Applications/Restore | Azure Active Directory'de uygulamalar geri yükleyin. |
 | Microsoft.aad.Directory/Devices/disable | Cihazları Azure Active Directory'de devre dışı bırakın. |
 | microsoft.aad.directory/groups/appRoleAssignments/update | Azure Active Directory'de groups.appRoleAssignments özelliğini güncelleştirin. |
+| Microsoft.aad.Directory/Groups/Basic/Update | Azure Active Directory'de grupları temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Groups/DELETE | Azure Active Directory içinde grupları silin. |
-| Microsoft.aad.Directory/Groups/default/Update | Azure Active Directory'de grupları temel özelliklerini güncelleştirin. |
 | microsoft.aad.directory/groups/dynamicMembershipRule/update | Azure Active Directory'de groups.dynamicMembershipRule özelliğini güncelleştirin. |
 | Microsoft.aad.Directory/Groups/Members/Update | Azure Active Directory'de Groups.Members özelliğini güncelleştirin. |
 | Microsoft.aad.Directory/Groups/Owners/Update | Azure Active Directory'de Groups.Owners özelliğini güncelleştirin. |
 | Microsoft.aad.Directory/Groups/Restore | Azure Active Directory'de gruplar geri yükleyin. |
 | Microsoft.aad.Directory/Groups/Settings/Update | Azure Active Directory'de Groups.Settings özelliğini güncelleştirin. |
+| Microsoft.aad.Directory/Policies/Basic/Update | İlkeleri Azure Active Directory'de temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Policies/DELETE | Azure Active Directory ilkeleri silin. |
-| Microsoft.aad.Directory/Policies/default/Update | İlkeleri Azure Active Directory'de temel özelliklerini güncelleştirin. |
 | Microsoft.aad.Directory/Policies/Owners/Update | Azure Active Directory'de policies.Owners özelliğini güncelleştirin. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | Azure Active Directory'de servicePrincipals.appRoleAssignedTo özelliğini güncelleştirin. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | Azure Active Directory'de servicePrincipals.appRoleAssignments özelliğini güncelleştirin. |
-| microsoft.aad.directory/servicePrincipals/default/update | Azure Active Directory'de servicePrincipals temel özelliklerini güncelleştirin. |
+| microsoft.aad.directory/servicePrincipals/basic/update | Azure Active Directory'de servicePrincipals temel özelliklerini güncelleştirin. |
 | microsoft.aad.directory/servicePrincipals/delete | Azure Active Directory'de servicePrincipals silin. |
 | microsoft.aad.directory/servicePrincipals/owners/update | Azure Active Directory'de servicePrincipals.owners özelliğini güncelleştirin. |
 | microsoft.aad.directory/servicePrincipals/policies/update | Azure Active Directory'de servicePrincipals.policies özelliğini güncelleştirin. |
@@ -1143,6 +1184,7 @@ Varsayılan rol üyesi kullanıcılar için. Tüm okuyabilir ve sınırlı sayı
 | microsoft.aad.directory/users/basicProfile/update | Azure Active Directory'de users.basicProfile özelliğini güncelleştirin. |
 | Microsoft.aad.Directory/Users/Mobile/Update | Azure Active Directory'de Users.Mobile özelliğini güncelleştirin. |
 | microsoft.aad.directory/users/searchableDeviceKey/update | Azure Active Directory'de users.searchableDeviceKey özelliğini güncelleştirin. |
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

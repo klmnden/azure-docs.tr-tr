@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 09/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 730b11fb5038e5d6c4f9b00fbc4eb07d673757f9
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: ecf56f3172ebeab54757d7cbd164b92ca1470ce5
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840998"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051179"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services ölçeğini genişletme
 
@@ -27,7 +27,7 @@ Bir normal server dağıtımında, işlem sunucusu ve sorgu sunucusu bir sunucus
 
 Bir sorgu havuzundaki sahip sorgu çoğaltmaları sayısından bağımsız olarak, işleme iş yükleri arasında sorgu çoğaltmaları dağıtılmadı. Tek bir sunucu işlem sunucusu olarak görev yapar. Sorgu çoğaltmaları, yalnızca sorgu havuzundaki her sorgu çoğaltma arasında eşitlenen modelleri karşı sorgular işlevi görür. 
 
-Ölçek genişletme, yeni sorgu çoğaltmaları artımlı olarak sorgu havuzuna eklenir. Bu sorgu havuza eklenecek yeni sorgu çoğaltması kaynaklar için beş dakikaya kadar sürebilir; istemci bağlantıları ve sorguları almaya hazır. Ne zaman tüm yeni sorgu çoğaltmaları hazır ve çalışır hale geldiğinde, yeni istemci bağlantılarını tüm sorgu havuzu kaynaklar arasında Yük Dengelemesi yapılıyor. Mevcut istemci bağlantıları, şu anda bağlı oldukları kaynaktan değiştirilmez.  Ölçek artırma, tüm mevcut istemci bağlantıları için sorgu havuzdan kaldırılmadan bir sorgu havuzu kaynak sonlandırılır. Ölçek işlemi tamamlandıktan sonra kalan sorgu kaynak havuzuna bağlanır.
+Ölçek genişletme, yeni sorgu çoğaltmaları artımlı olarak sorgu havuzuna eklenir. Bu sorgu havuza eklenecek yeni sorgu çoğaltması kaynaklar için beş dakikaya kadar sürebilir; istemci bağlantıları ve sorguları almaya hazır. Ne zaman tüm yeni sorgu çoğaltmaları hazır ve çalışır hale geldiğinde, yeni istemci bağlantılarını tüm sorgu havuzu kaynaklar arasında Yük Dengelemesi yapılıyor. Mevcut istemci bağlantıları, şu anda bağlı oldukları kaynaktan değiştirilmez.  Ölçek artırma, tüm mevcut istemci bağlantıları için sorgu havuzdan kaldırılmadan bir sorgu havuzu kaynak sonlandırılır. İşlem ölçek, bu beş dakikaya kadar sürebilir tamamlandıktan sonra kalan sorgu kaynak havuzuna bağlanır.
 
 İşlemleri tamamlandıktan sonra modeller, işleme sırasında işlem sunucusu ve sorgu çoğaltmaları eşitleme gerçekleştirilmelidir. İşlemleri otomatikleştirme, işlem işleme başarıyla tamamlandıktan sonra bir eşitleme işlemi yapılandırılması önemlidir. Eşitleme, portalda veya PowerShell veya REST API kullanarak el ile gerçekleştirilebilir. 
 

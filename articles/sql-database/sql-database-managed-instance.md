@@ -11,12 +11,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/30/2018
 ms.author: bonova
-ms.openlocfilehash: 2e1fd7c87931f804433708b6ac30a5960e6006ae
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 5caafdfbaca1a701d2728afdfcb31e8e73b4fded
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287672"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050315"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Yönetilen örnek (Önizleme) nedir?
 
@@ -200,7 +200,7 @@ Yetkilendirme hangi kullanıcının bir Azure SQL veritabanında yapabilir ve ku
 ### <a name="backup-and-restore"></a>Yedekleme ve geri yükleme  
 
 Azure blob depolama için yedeklemeleri SQL geçiş yaklaşımı yararlanır. Azure depolama blobu'nda depolanan yedeklemeler doğrudan geri yükleyebilirsiniz yönetilen örneğe kullanarak [T-SQL RESTORE komutunu](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current). 
-  - Wide World Importers - standart veritabanı yedek dosyasını geri yükleme işlemini gösteren bir öğretici için bkz. [yönetilen örneğe yedek dosyayı geri](sql-database-managed-instance-restore-from-backup-tutorial.md). Bu öğretici, Azure Web günlüğü depolama ve güvenli bir paylaşılan erişim imzası (SAS) anahtarı kullanarak bir yedekleme dosyası karşıya yüklemeniz gösterir.
+  - Wide World Importers - standart veritabanı yedek dosyasını geri yükleme işlemini gösteren bir öğretici için bkz. [yönetilen örneğe yedek dosyayı geri](sql-database-managed-instance-get-started-restore.md). Bu öğretici, Azure Web günlüğü depolama ve güvenli bir paylaşılan erişim imzası (SAS) anahtarı kullanarak bir yedekleme dosyası karşıya yüklemeniz gösterir.
   - URL'den geri yükleme hakkında daha fazla bilgi için bkz. [yerel geri URL'den](sql-database-managed-instance-migrate.md#native-restore-from-url).
   
 ### <a name="data-migration-service"></a>Veri geçiş hizmeti
@@ -251,6 +251,6 @@ Aşağıdaki tabloda, yönetilen örnek sayesinde, uygulamanızın çalıştığ
 - İlk yönetilen örneğinizi oluşturma konusunda bilgi almak için bkz: [Hızlı Başlangıç Kılavuzu](sql-database-managed-instance-get-started.md).
 - Bir özellik için ve karşılaştırma listesini görmek [SQL ortak özellikleri](sql-database-features.md).
 - Sanal ağ yapılandırması hakkında daha fazla bilgi için bkz. [Yönetilen Örnek Sanal Ağ Yapılandırması](sql-database-managed-instance-vnet-configuration.md).
-- Yönetilen bir örneğini oluşturur ve bir veritabanı yedekleme dosyasından geri yükleyen bir öğretici için bkz. [bir yönetilen örnek oluşturma](sql-database-managed-instance-create-tutorial-portal.md).
+- Yönetilen bir örneğini oluşturur ve bir veritabanı yedekleme dosyasından geri yükleyen bir öğretici için bkz. [bir yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md).
 - Azure Veritabanı Geçiş Hizmeti’ni (DMS) geçiş için kullanmaya ilişkin bir öğretici için bkz. [DMS kullanarak Yönetilen Örnek geçişi](../dms/tutorial-sql-server-to-managed-instance.md).
 - Fiyatlandırma bilgileri için bkz: [SQL veritabanı yönetilen örneği fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-database/managed/).

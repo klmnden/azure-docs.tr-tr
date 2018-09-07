@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 04/20/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 48d03b590d718cf82d692dc177a69f6d54de43d1
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: cd6cf2e94b032408fd6c3b298294d84837e102a6
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39496324"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024757"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Microsoft Graph API'sini çağırmak bir evrensel Windows platformu uygulaması (XAML)
 
@@ -71,11 +71,14 @@ Bu kılavuz, Graph API'si sorguları ve oturum kapatma düğmesi çağrıların�
 2. Aşağıdaki komutu kopyalayıp **Paket Yöneticisi Konsolu** penceresi:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre
+    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
     ```
 
 > [!NOTE]
 > Bu komut yükler [Microsoft kimlik doğrulama Kitaplığı](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). MSAL alır, önbelleğe alır ve Azure Active Directory v2 tarafından korunan API'lere kullanıcı belirteçleri yeniler.
+
+> [!NOTE]
+> Bu öğreticide daha önceden kullanımı henüz MSAL.NET, en son sürümünü ancak güncelleştirme üzerinde çalışıyoruz.
 
 ## <a name="initialize-msal"></a>MSAL Başlat
 Bu adım belirteçleri işleme gibi MSAL, etkileşim işlemek için bir sınıf oluşturmanıza yardımcı olur.
