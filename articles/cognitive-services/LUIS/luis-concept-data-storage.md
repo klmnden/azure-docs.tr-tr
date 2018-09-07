@@ -1,6 +1,7 @@
 ---
-title: LUIS - Azure Depolama'da veri anlama | Microsoft Docs
-description: Language Understanding (LUIS), verilerin depolanma şeklini öğrenin
+title: LUIS - Language Understanding veri depolama
+titleSuffix: Azure Cognitive Services
+description: Language Understanding (LUIS), verilerin depolanma şeklini öğrenin. LUIS anahtarı ile belirtilen bölgeyi karşılık gelen bir Azure veri deposunda şifrelenmiş verileri depolar.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -9,14 +10,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: diberry
-ms.openlocfilehash: e4e289db0803a127bdbff5122095ae2125cdbb38
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: a34426efd998a5573277e9129b832f5167c5da5e
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226201"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022388"
 ---
-# <a name="data-storage-and-removal"></a>Veri depolama ve kaldırma
+# <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Veri depolama ve Bilişsel hizmetler Language Understanding (LUIS) kaldırılması
 LUIS anahtarı ile belirtilen bölgeyi karşılık gelen bir Azure veri deposunda şifrelenmiş verileri depolar. Bu veriler 30 gün boyunca saklanır. 
 
 ## <a name="export-and-delete-app"></a>Dışarı aktarma ve uygulamayı Sil

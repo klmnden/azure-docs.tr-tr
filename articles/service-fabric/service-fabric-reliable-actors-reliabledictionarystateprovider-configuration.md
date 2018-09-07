@@ -1,6 +1,6 @@
 ---
-title: Azure mikro ReliableDictionaryActorStateProvider ayarlarında değişiklik | Microsoft Docs
-description: Durum bilgisi olan Azure Service Fabric aktör türü ReliableDictionaryActorStateProvider yapılandırma hakkında bilgi edinin.
+title: Azure Service Fabric aktör ReliableDictionaryActorStateProvider ayarları | Microsoft Docs
+description: Azure Service Fabric durum bilgisi olan aktör türü reliabledictionaryactorstateprovider'ı yapılandırma hakkında bilgi edinin.
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
@@ -14,38 +14,38 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 1c7e31f9da2b2f9fe7a3a7c64cd6927224cb9fa1
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 13cf9c148e36201bd8ee81d4072d8b8cd8660bd1
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017904"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053157"
 ---
-# <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Güvenilir aktörler--ReliableDictionaryActorStateProvider yapılandırma
-Visual Studio Paketi kök yapılandırma klasörü altında belirtilen aktör için oluşturulan settings.xml dosyasını değiştirerek ReliableDictionaryActorStateProvider varsayılan yapılandırmasını değiştirebilirsiniz.
+# <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Reliable Actors--reliabledictionaryactorstateprovider'ı yapılandırma
+Visual Studio Paket kökünde Config klasörü altında belirtilen aktör için oluşturulan settings.xml dosyasının değiştirerek varsayılan reliabledictionaryactorstateprovider yapılandırmasını değiştirebilirsiniz.
 
-Azure Service Fabric çalışma zamanı settings.xml dosyasında tanımlanmış bölüm adları arar ve temeldeki çalışma zamanı bileşenleri oluşturulurken yapılandırma değerlerini kullanır.
+Azure Service Fabric çalışma zamanı settings.xml dosyasında önceden tanımlı bölüm adlarını arar ve temel alınan çalışma zamanı bileşenleri oluşturma sırasında yapılandırma değerlerini kullanır.
 
 > [!NOTE]
-> Yapmak **değil** silebilir veya Visual Studio çözümünde oluşturulan settings.xml dosyasında aşağıdaki yapılandırmalardan birini bölüm adlarını değiştirebilirsiniz.
+> Yapmak **değil** silebilir veya Visual Studio çözümü içinde oluşturulan settings.xml dosyasında aşağıdaki yapılandırmaları bölüm adlarını değiştirebilirsiniz.
 > 
 > 
 
-ReliableDictionaryActorStateProvider yapılandırmasını etkileyen genel ayarlar da vardır.
+Reliabledictionaryactorstateprovider yapılandırmasını etkileyen genel ayarlar da vardır.
 
 ## <a name="global-configuration"></a>Genel yapılandırma
-Genel yapılandırma KtlLogger bölümünde küme için küme bildiriminde belirtilir. Paylaşılan günlük konumunu ve boyutunu ve Günlükçü tarafından kullanılan genel bellek sınırları yapılandırmanızı sağlar. Küme bildiriminde değişiklik ReliableDictionaryActorStateProvider kullanan tüm hizmetleri ve durum bilgisi olan güvenilir hizmetler etkileyeceğini unutmayın.
+Genel yapılandırma KtlLogger bölümünün altında küme için küme bildiriminde belirtilir. Bu, paylaşılan Günlük konumu ve boyutu artı Günlükçü tarafından kullanılan genel bellek sınırlarını yapılandırmanızı sağlar. Küme bildiriminde değişiklikler reliabledictionaryactorstateprovider'ı kullanan tüm hizmetler ve güvenilir durum bilgisi olan hizmetler etkileyeceğini unutmayın.
 
-Küme bildirimi ayarları ve tüm düğümleri ve küme Hizmetleri'nde geçerli yapılandırmaları tutan tek bir XML dosyasıdır. Dosya genellikle ClusterManifest.xml çağrılır. Küme görebilirsiniz Get-ServiceFabricClusterManifest powershell komutunu kullanarak, kümeniz için bildirim.
+Küme bildiriminde ayarlar ve tüm düğümleri ve kümedeki hizmetler için geçerli yapılandırmaları tutan tek bir XML dosyasıdır. Dosya, genellikle ClusterManifest.xml çağrılır. Küme görebilirsiniz Get-ServiceFabricClusterManifest powershell komutunu kullanarak kümeniz için bildirim.
 
 ### <a name="configuration-names"></a>Yapılandırma adları
 | Ad | Birim | Varsayılan değer | Açıklamalar |
 | --- | --- | --- | --- |
-| WriteBufferMemoryPoolMinimumInKB |Kilobayt |8388608 |Çekirdek modunda Günlükçü yazma arabelleği bellek havuzu için ayrılacak KB minimum sayısı. Bu bellek havuzundaki durum bilgilerini diske yazma önce önbelleğe almak için kullanılır. |
-| WriteBufferMemoryPoolMaximumInKB |Kilobayt |Sınırsız |Günlükçü yazma arabelleği bellek havuzundaki en büyük boyutu büyüyebilir. |
-| SharedLogId |GUID |"" |SharedLogId hizmet belirli yapılandırmalarında belirtmeyin kümedeki tüm düğümlere tüm güvenilir hizmetler tarafından kullanılan varsayılan paylaşılan günlük dosyası belirlemek için kullanmak üzere benzersiz bir GUID belirtir. SharedLogId belirtilirse, SharedLogPath de belirtilmelidir. |
-| SharedLogPath |Tam yol adı |"" |Paylaşılan günlük dosyası SharedLogPath hizmet belirli yapılandırmalarında belirtmeyin kümedeki tüm düğümlere tüm güvenilir hizmetler tarafından kullanıldığı tam yolunu belirtir. SharedLogPath belirtilirse, ancak ardından SharedLogId de belirtilmesi gerekir. |
-| SharedLogSizeInMB |Megabayt |8192 |Statik olarak paylaşılan günlüğü ayırmak için MB disk alanı sayısını belirtir. Değer, 2048 veya daha büyük olmalıdır. |
+| WriteBufferMemoryPoolMinimumInKB |Kilobayt |8388608 |KB, çekirdek modunda Günlükçü yazma arabellek belleği havuzu için ayrılacak en küçük sayısı. Bu bellek havuzundaki önce diske yazma durumu bilgilerini önbelleğe almak için kullanılır. |
+| WriteBufferMemoryPoolMaximumInKB |Kilobayt |Sınırsız |Günlükçü için arabellek belleği havuzu yazma en büyük boyutu büyür. |
+| SharedLogId |GUID |"" |SharedLogId hizmet belirli yapılandırmalarında belirtmeyin kümedeki tüm düğümleri üzerindeki tüm güvenilir Hizmetleri tarafından kullanılan varsayılan paylaşılan günlük dosyası tanımlamak için kullanılacak benzersiz bir GUID belirtir. SharedLogId belirtilmişse SharedLogPath de belirtilmelidir. |
+| SharedLogPath |Tam yol adı |"" |Paylaşılan bir günlük dosyası SharedLogPath hizmet belirli yapılandırmalarında belirtmeyin kümedeki tüm düğümleri üzerindeki tüm güvenilir Hizmetleri tarafından kullanıldığı tam yolunu belirtir. SharedLogPath belirtilirse, ancak ardından SharedLogId de belirtilmelidir. |
+| SharedLogSizeInMB |Megabayt |8192 |MB disk alanı için paylaşılan günlüğe statik olarak ayrılacak sayısını belirtir. Değer, 2048 ya da daha büyük olmalıdır. |
 
 ### <a name="sample-cluster-manifest-section"></a>Örnek Küme bildirim bölümü
 ```xml
@@ -59,26 +59,26 @@ Küme bildirimi ayarları ve tüm düğümleri ve küme Hizmetleri'nde geçerli 
 ```
 
 ### <a name="remarks"></a>Açıklamalar
-Günlükçü hizmetlerine ayrılmış günlüğe yazılan güvenilir hizmet çoğaltma ile ilişkili önce durumu verileri önbelleğe alma için tüm güvenilir bir düğüm üzerindeki kullanılabilir alınamayan çekirdek bellekten ayrılmış bellek genel havuzu vardır. Havuz boyutu WriteBufferMemoryPoolMinimumInKB ve WriteBufferMemoryPoolMaximumInKB ayarları tarafından denetlenir. Bu bellek havuzundaki ilk boyutu ve bellek havuzu Küçült en düşük boyut WriteBufferMemoryPoolMinimumInKB belirtir. WriteBufferMemoryPoolMaximumInKB, bellek havuzunda büyümesine en yüksek boyutudur. Açılan her güvenilir hizmet çoğaltma belirlenen sistem miktar WriteBufferMemoryPoolMaximumInKB kadar bellek havuzunun boyutunu artırabilir. Kullanılabilenden bellek havuzundaki bellek için daha fazla isteğe bağlı ise, bellek için istekleri bellek kullanılabilir oluncaya kadar geciktirilir. Yazma arabelleği bellek havuzu için belirli bir yapılandırma çok küçük ise, bu nedenle sonra performans düşebilir.
+Günlükçü güvenilir hizmet çoğaltma ile ilişkili ayrılmış günlüğe yazılan önce durumu verileri önbelleğe alma için bir düğüm tüm güvenilir hizmetlerinde kullanılabilir disk belleksiz çekirdek bellek ayrılan belleğin küresel bir havuz sahiptir. Havuz boyutunu WriteBufferMemoryPoolMinimumInKB ve WriteBufferMemoryPoolMaximumInKB ayarlarınız tarafından kontrol edilir. En düşük boyutunun bellek havuzunda küçültme ve bu bellek havuzundaki ilk boyutu WriteBufferMemoryPoolMinimumInKB belirtir. WriteBufferMemoryPoolMaximumInKB, bellek havuzunda büyüme en yüksek boyutudur. Açılan her bir güvenilir hizmet çoğaltma WriteBufferMemoryPoolMaximumInKB kadar bir sistem belirlenen miktarda bellek havuzunun boyutunu artırabilirsiniz. Kullanılabilir alandan bellek havuzundaki bellek için daha fazla isteğe bağlı ise, bellek için istekleri bellek kullanılabilir oluncaya kadar geciktirilecek. Yazma arabelleğini bellek havuzundaki belirli bir yapılandırma için çok küçük olduğunda bu nedenle daha sonra performans düşebilir.
 
-SharedLogId ve SharedLogPath ayarlarını her zaman kümedeki tüm düğümler için varsayılan paylaşılan günlük için konum ve GUID tanımlamak için birlikte kullanılır. Varsayılan paylaşılan günlük ayarları belirli hizmet settings.xml belirtmediği tüm güvenilir hizmetler için kullanılır. En iyi performans için yalnızca paylaşılan günlük dosyası için Çekişme azaltmak için kullanılan diskler üzerinde paylaşılan günlük dosyalarını yerleştirilmelidir.
+SharedLogId ve SharedLogPath ayarları her zaman GUID ve tüm düğümler için varsayılan paylaşılan Günlük konumu kümedeki tanımlamak için birlikte kullanılır. Varsayılan paylaşılan günlük ayarları belirli hizmet settings.xml belirtmeyen tüm reliable services için kullanılır. En iyi performans için paylaşılan günlük dosyaları, çekişmeyi azaltmak için yalnızca paylaşılan bir günlük dosyası için kullanılan disklerde yerleştirilmelidir.
 
-SharedLogSizeInMB varsayılan paylaşılan günlüğü tüm düğümlerde erişinceye için disk alanı miktarını belirtir.  SharedLogId ve SharedLogPath belirtilmesini SharedLogSizeInMB sırada belirtilmesi gerekmez.
+SharedLogSizeInMB için tüm düğümlerde varsayılan paylaşılan günlük erişinceye için disk alanı miktarını belirtir.  SharedLogId ve SharedLogPath SharedLogSizeInMB belirtilmesi için sırayla belirtilmesi gerekmez.
 
-## <a name="replicator-security-configuration"></a>Çoğaltıcı güvenlik yapılandırması
-Çoğaltıcı güvenlik yapılandırmalarını çoğaltma sırasında kullanılır ve iletişim kanalının güvenliğini sağlamak için kullanılır. Bu hizmetler yüksek oranda kullanılabilir hale getirileceğini verileri de güvenlidir sağlama birbirlerinin çoğaltma trafiği, göremeyeceği anlamına gelir.
-Varsayılan olarak, bir boş güvenlik yapılandırması bölümü çoğaltma güvenlik engeller.
+## <a name="replicator-security-configuration"></a>Çoğaltıcı güvenliği yapılandırma
+Çoğaltıcı güvenlik yapılandırmalarını, çoğaltma sırasında kullanılan iletişim kanalını güvenli hale getirmek için kullanılır. Bu hizmetler yüksek oranda kullanılabilir hale getirileceğini verileri de güvenli olduğunu birbirlerinin çoğaltma trafiğini göremez anlamına gelir.
+Varsayılan olarak, bir boş güvenlik yapılandırma bölümü çoğaltma güvenlik engeller.
 
 > [!IMPORTANT]
-> Linux düğümleri üzerinde sertifikaların PEM biçimlendirilmiş olması gerekir. Daha fazla hakkında bulma ve Linux için sertifikaları yapılandırma öğrenmek için bkz [Linux'ta sertifikaları yapılandırma](./service-fabric-configure-certificates-linux.md). 
+> Linux düğümlerinde sertifikaların PEM biçimli olması gerekir. Daha fazla bulma ve sertifikalar için Linux yapılandırması hakkında bilgi edinmek için [Linux'ta sertifikaları yapılandırma](./service-fabric-configure-certificates-linux.md). 
 > 
 
 ### <a name="section-name"></a>Bölüm adı
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
 ## <a name="replicator-configuration"></a>Çoğaltıcı yapılandırma
-Çoğaltıcı yapılandırmaları aktör durumu sağlayıcısı durumu yüksek oranda güvenilir çoğaltmak ve durumu yerel olarak kalıcı yapmaktan sorumlu çoğaltıcı yapılandırmak için kullanılır.
-Varsayılan yapılandırma Visual Studio şablon tarafından oluşturulan ve yeterli olacaktır. Bu bölümde çoğaltıcı ayarlamak kullanılabilir olan ek yapılandırmalar hakkında alınmaktadır.
+Çoğaltıcı yapılandırmaları, aktör durumu sağlayıcısı durumu yüksek oranda güvenilir yineleme ve durumu yerel olarak kalıcı hale yapmaktan sorumlu çoğaltıcı yapılandırmak için kullanılır.
+Varsayılan yapılandırma, Visual Studio şablon tarafından oluşturulur ve yeterli olacaktır. Bu bölümde, yineleyici ayarlamak kullanılabilir olan ek yapılandırmalar hakkında konuşuyor.
 
 ### <a name="section-name"></a>Bölüm adı
 &lt;ActorName&gt;ServiceReplicatorConfig
@@ -86,16 +86,16 @@ Varsayılan yapılandırma Visual Studio şablon tarafından oluşturulan ve yet
 ### <a name="configuration-names"></a>Yapılandırma adları
 | Ad | Birim | Varsayılan değer | Açıklamalar |
 | --- | --- | --- | --- |
-| BatchAcknowledgementInterval |Saniye |0.015 |Kendisi için göndermeden önce bir işlem aldıktan sonra ikincil bekler adresindeki çoğaltıcı geri bir bildirim için birincil süre. Bu aralık dahilinde işlenen işlemleri için gönderilmek üzere başka bir onayları bir yanıt olarak gönderilir. |
-| ReplicatorEndpoint |Yok |Varsayılan yok--gerekli parametre |IP adresi ve birincil/ikincil çoğaltıcı diğer çoğaltıcılar yineleme ile iletişim kurmak için kullanacağı bağlantı noktası olarak ayarlayın. Bu hizmet bildiriminde TCP kaynak uç noktası başvuruda bulunmalıdır. Başvurmak [Service manifest kaynakları](service-fabric-service-manifest-resources.md) daha fazla bilgi için uç nokta kaynakları hizmet bildiriminde tanımlama hakkında. |
-| MaxReplicationMessageSize |Bayt |50 MB |Tek bir iletiye iletilen çoğaltma verilerinin en büyük boyutu. |
-| MaxPrimaryReplicationQueueSize |İşlem sayısı |8192 |Birincil kuyruk işlemlerinde maksimum sayısı. Birincil çoğaltma tüm ikincil çoğaltıcılar alındısı sonra bir işlem yukarı serbest bırakılır. Bu değer 64 ve 2'in büyük olmalıdır. |
-| MaxSecondaryReplicationQueueSize |İşlem sayısı |16384 |İkincil kuyruk işlemlerinde maksimum sayısı. Bir işlem yukarı durumuna Kalıcılık üzerinden yüksek oranda kullanılabilir yaptıktan sonra serbest bırakılır. Bu değer 64 ve 2'in büyük olmalıdır. |
-| CheckpointThresholdInMB |MB |200 |Günlük dosyası alanının geçmesi belirttiğinizde durumda tutar. |
-| MaxRecordSizeInKB |KB |1024 |Çoğaltıcı günlüğüne yazabilir en büyük kayıt boyutu. Bu değer birden fazla 4 ve 16'den büyük olmalıdır. |
-| OptimizeLogForLowerDiskUsage |Boole |true |Doğru olduğunda, günlük bir NTFS seyrek dosya kullanarak yinelemenin ayrılmış günlük dosyası oluşturulur şekilde yapılandırılır. Bu dosya için gerçek disk alanı kullanımını azaltır. Yanlış olduğunda, dosya yazma en iyi performansı sağlamak sabit ayırma ile oluşturulur. |
-| SharedLogId |GUID |"" |Bu çoğaltma ile kullanılan paylaşılan günlük dosyası belirlemek için kullanmak üzere benzersiz bir GUID belirtir. Genellikle, hizmetleri, bu ayar kullanmamalısınız. SharedLogId belirtilirse, ancak ardından SharedLogPath de belirtilmesi gerekir. |
-| SharedLogPath |Tam yol adı |"" |Bu çoğaltma için paylaşılan günlük dosyası oluşturulacağı tam yolunu belirtir. Genellikle, hizmetleri, bu ayar kullanmamalısınız. SharedLogPath belirtilirse, ancak ardından SharedLogId de belirtilmesi gerekir. |
+| BatchAcknowledgementInterval |Saniye |0.015 |Kendisi için göndermeden önce bir işlem aldıktan sonra ikincil bekler, yineleyici geri bir bildirim birincil siteye süre. Bu aralıkta işlenen işlemleri için gönderilecek diğer bir onayları bir yanıt olarak gönderilir. |
+| ReplicatorEndpoint |Yok |Varsayılan--gerekli parametre |IP adresi ve birincil/ikincil çoğaltma çoğaltmasındaki diğer çoğaltıcılar ile iletişim kurmak için kullanacağı bağlantı noktası ayarlayın. Bu hizmet bildirimindeki bir TCP kaynak uç noktası başvurmalıdır. Başvurmak [hizmet bildirimi kaynakları](service-fabric-service-manifest-resources.md) daha fazla bilgi için hizmet bildiriminde uç nokta kaynakları tanımlama hakkında. |
+| (Maxreplicationmessagesize) |Bayt |50 MB |Tek bir iletiye iletilen çoğaltma verilerinin en büyük boyutu. |
+| MaxPrimaryReplicationQueueSize |İşlem sayısı |8192 |Birincil sırasındaki işlemlerinin maksimum sayısı. Birincil çoğaltıcı tüm ikincil çoğaltıcılar alındısı sonra bir işlem yukarı serbest bırakılır. Bu değer, 64 ve 2'in kuvveti büyük olmalıdır. |
+| MaxSecondaryReplicationQueueSize |İşlem sayısı |16384 |İkincil sırasındaki işlemlerinin maksimum sayısı. Bir işlem yukarı durumuna Kalıcılık aracılığıyla yüksek oranda kullanılabilir yaptıktan sonra serbest bırakılır. Bu değer, 64 ve 2'in kuvveti büyük olmalıdır. |
+| CheckpointThresholdInMB |MB |200 |Günlük dosyası alanının sonra durumu belirttiğinizde miktarı. |
+| MaxRecordSizeInKB |KB |1024 |Çoğaltıcı günlüğünde yazabilir en büyük kayıt boyutu. Bu değerin katlarından biri 4 ile 16'dan büyük olması gerekir. |
+| OptimizeLogForLowerDiskUsage |Boole |true |True olduğunda, günlük bir NTFS seyrek dosyası kullanarak yinelemenin ayrılmış günlük dosyası oluşturulur şekilde yapılandırılır. Bu dosya için gerçek disk alanı kullanımını azaltır. Yanlış olduğunda, dosya yazma en iyi performansı sağlamak sabit ayırmaları ile oluşturulur. |
+| SharedLogId |GUID |"" |Bu çoğaltma ile kullanılan paylaşılan günlük dosyası tanımlamak için kullanılacak benzersiz bir GUID belirtir. Genellikle, hizmetleri bu ayarı kullanmanız gerekir. SharedLogId belirtilirse, ancak ardından SharedLogPath de belirtilmelidir. |
+| SharedLogPath |Tam yol adı |"" |Bu yineleme için paylaşılan bir günlük dosyasına oluşturulacağı tam yolunu belirtir. Genellikle, hizmetleri bu ayarı kullanmanız gerekir. SharedLogPath belirtilirse, ancak ardından SharedLogId de belirtilmelidir. |
 
 ## <a name="sample-configuration-file"></a>Örnek yapılandırma dosyası
 ```xml
@@ -119,14 +119,14 @@ Varsayılan yapılandırma Visual Studio şablon tarafından oluşturulan ve yet
 ```
 
 ## <a name="remarks"></a>Açıklamalar
-BatchAcknowledgementInterval parametre çoğaltma gecikmesi denetler. (Daha fazla bildirim iletileri gerekir gönderilmesine ve işlenen her daha az onayları içeren gibi) '0' değeri, üretilen işi, en düşük olası gecikme sonuçlanır.
-BatchAcknowledgementInterval için büyük değer, o kadar yüksektir genel çoğaltma üretilen işi, daha yüksek işlem gecikme artması pahasına olur. Bu işlem yürütme gecikmesi için doğrudan dönüşür.
+Çoğaltma gecikmesi BatchAcknowledgementInterval parametre denetler. (Daha fazla bildirim iletileri gönderilen ve gereken işlenen her daha az bir onayları içeren gibi) '0' değeri en düşük gecikmeyi, aktarım hızı artırılabilir sonuçlanır.
+BatchAcknowledgementInterval için büyük değer, yüksek genel çoğaltma aktarım hızı, daha yüksek işlem gecikme süresi artırılabilir. Bu işlem yürütme gecikme süresi için doğrudan dönüşür.
 
-CheckpointThresholdInMB parametre çoğaltıcı yinelemenin ayrılmış günlük dosyasında durum bilgilerini depolamak için kullanabileceğiniz disk alanı miktarını denetler. Bu varsayılan değerinden daha yüksek bir değere artırma yeni bir çoğaltma kümesine eklendiğinde daha hızlı yeniden yapılandırma sürelerine neden olabilir. Bu işlem günlüğünde daha fazla geçmiş kullanılabilirliği nedeniyle gerçekleşir kısmi durum transfer kaynaklanır. Bu olası kilitlenme sonrasında bir çoğaltmanın kurtarma süresini artırabilir.
+CheckpointThresholdInMB parametre çoğaltıcı yinelemenin ayrılmış günlük dosyasında durum bilgilerini depolamak için kullanabileceğiniz disk alanı miktarını denetler. Bu varsayılan değerinden daha yüksek bir değere artırma kümesine yeni bir yineleme eklendiğinde daha hızlı yeniden yapılandırma süresi neden olabilir. Bu, günlük işlemlerinde daha fazla geçmiş kullanılabilirliği nedeniyle gerçekleşen kısmi durum transferi kaynaklanır. Bu olası kilitlenme sonrasında bir çoğaltmanın kurtarma süresini artırabilir.
 
-OptimizeForLowerDiskUsage true olarak ayarlarsanız, etkin olmayan çoğaltmalar daha az disk alanı kullanırken etkin çoğaltmaları günlük dosyalarına daha fazla durum bilgilerini depolayabileceğiniz günlük dosyası alanının aşırı sağlanan olacaktır. Bu, bir düğüm üzerinde daha fazla çoğaltmaları barındıran mümkün kılar. Durum bilgisi OptimizeForLowerDiskUsage false olarak ayarlarsanız, günlük dosyalarına daha hızlı yazılır.
+OptimizeForLowerDiskUsage true olarak ayarlarsanız, etkin olmayan çoğaltmaların daha az disk alanı kullanırken daha fazla durum bilgilerini günlük dosyalarına etkin çoğaltmaları depolayabileceğiniz günlük dosyası alanının aşırı sağlanmış olur. Daha fazla düğüm üzerindeki barındıracak mümkün kılar. Durum bilgisi OptimizeForLowerDiskUsage false olarak ayarlarsanız, günlük dosyalarına daha hızlı yazılır.
 
-MaxRecordSizeInKB ayarı çoğaltıcı tarafından günlük dosyasına yazılabilir bir kayıt en büyük boyutunu tanımlar. Çoğu durumda, varsayılan 1024-KB kayıt boyutu idealdir. Hizmet durumu bilgileri parçası olarak daha büyük veri öğeleri neden olup olmadığını ancak, daha sonra bu değeri artırılacak gerekebilir. Daha küçük kayıtları yalnızca küçük kayıt için ihtiyaç duyulan alanı kullanırken, 1024'ten MaxRecordSizeInKB küçülterek az avantajı vardır. Bu değer yalnızca nadir durumlarda değiştirilmesi gerekir bekliyoruz.
+MaxRecordSizeInKB ayarı günlük dosyasına çoğaltıcı tarafından yazılabilir bir kaydın en büyük boyutunu tanımlar. Çoğu durumda, varsayılan 1024-KB kayıt boyutu idealdir. Hizmet durumu bilgilerini bir parçası olarak daha büyük veri öğeleri neden oluyorsa, ancak daha sonra bu değer artırılması gerekebilir. Daha küçük kayıtları yalnızca küçük bir kayıt için ihtiyaç duyulan alanı kullanırken, 1024'ten MaxRecordSizeInKB küçülterek içinde küçük bir avantajı yoktur. Bu değer yalnızca nadir durumlarda değiştirilmesi gerekecektir bekliyoruz.
 
-SharedLogId ve SharedLogPath ayarlarını her zaman ayrı bir paylaşılan günlük varsayılan paylaşılan günlüğünden düğümü için kullanmak hizmet olmak için birlikte kullanılır. En iyi verimlilik için mümkün olduğunca çok Hizmetleri aynı paylaşılan günlük belirtmeniz gerekir. Paylaşılan günlük dosyaları, yalnızca paylaşılan günlük dosyası için baş taşıma Çekişme azaltmak için kullanılan disklerde yerleştirilmelidir. Bu değerleri yalnızca nadir durumlarda değiştirilmesi gerekir bekliyoruz.
+SharedLogId ve SharedLogPath ayarları her zaman varsayılan paylaşılan günlüğünden ayrı bir paylaşılan günlük düğümü için kullanmak bir hizmet sağlamak için birlikte kullanılır. En iyi verimlilik için mümkün olduğunca çok Hizmetleri aynı paylaşılan günlüğe belirtmeniz gerekir. Paylaşılan günlük dosyaları, yalnızca paylaşılan bir günlük dosyası için baş taşıma çekişmeyi azaltmak için kullanılan disklerde yerleştirilmelidir. Bu değerler yalnızca nadir durumlarda değiştirilmesi gerekecektir bekliyoruz.
 

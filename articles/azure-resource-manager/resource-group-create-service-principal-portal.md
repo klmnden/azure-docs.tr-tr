@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 57d017e2320e5cfea15f1716bc3b6518606e2ea4
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: fc0ccd84f493fd69c84515331386592ec11a887e
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282262"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025302"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Bir Azure Active Directory uygulaması ve kaynaklara erişebilen hizmet sorumlusu oluşturmak için portalı kullanma
 
@@ -27,7 +27,7 @@ Erişim ya da kaynakları değiştirmek için gereken kodu varsa, Azure Active D
 Bu makalede, portal üzerinden bu adımların nasıl gerçekleştirileceğini gösterir. Tek kiracılı bir uygulama yalnızca bir kuruluş içinde çalıştırmak için uygulamayı nerede yöneliktir odaklanır. Genellikle tek kiracılı uygulamalar kuruluşunuzda çalışan satır iş kolu uygulamaları için kullanırsınız.
 
 > [!IMPORTANT]
-> Hizmet sorumlusu oluşturmak yerine, uygulama kimliğiniz için Azure AD Yönetilen Hizmet Kimliği kullanmayı göz önünde bulundurun. Azure AD MSI, Azure Active Directory'nin kod için kimlik oluşturmayı basitleştiren ve genel önizleme aşamasında olan bir özelliğidir. Kodunuz Azure AD MSI desteği olan bir hizmette çalıştırılıyorsa ve Azure Active Directory kimlik doğrulamasını destekleyen kaynaklara erişiyorsa, Azure AD MSI sizin için daha iyi bir seçenektir. Azure AD MSI hakkında daha fazla bilgi edinmek ve şu anda bunu hangi hizmetlerin desteklediğini öğrenmek için bkz. [Azure kaynakları için Yönetilen Hizmet Kimliği](../active-directory/managed-service-identity/overview.md).
+> Hizmet sorumlusu oluşturmak yerine, uygulama kimliğiniz için Azure AD Yönetilen Hizmet Kimliği kullanmayı göz önünde bulundurun. Azure AD MSI, Azure Active Directory'nin kod için kimlik oluşturmayı basitleştiren ve genel önizleme aşamasında olan bir özelliğidir. Kodunuz Azure AD MSI desteği olan bir hizmette çalıştırılıyorsa ve Azure Active Directory kimlik doğrulamasını destekleyen kaynaklara erişiyorsa, Azure AD MSI sizin için daha iyi bir seçenektir. Azure AD MSI hakkında daha fazla bilgi edinmek ve şu anda bunu hangi hizmetlerin desteklediğini öğrenmek için bkz. [Azure kaynakları için Yönetilen Hizmet Kimliği](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="required-permissions"></a>Gerekli izinler
 

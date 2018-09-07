@@ -1,5 +1,6 @@
 ---
-title: Azure Cloud Shell LUIS kullanımından görüntüleme | Microsoft Docs
+title: LUIS Azure Cloud Shell kullanım verileri
+titleSuffix: Azure Cognitive Services
 description: Kullanım bilgileri için LUIS Azure Cloud Shell'de almayı öğrenin.
 services: cognitive-services
 author: diberry
@@ -7,16 +8,16 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 09/06/2017
 ms.author: diberry
-ms.openlocfilehash: f9d3a489328263bd300d60935bfde2f0dfc0245c
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 95bd1e83b4a0ed08850862ec4f4addb3353a9481
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224050"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052974"
 ---
-# <a name="manage-luis-service-from-azure-cloud-shell"></a>Azure Cloud Shell'den LUIS hizmetini yönetme
+# <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Azure Cloud shell'den LUIS hizmeti için kullanım verileri
 Azure portalında LUIS kaynak ile çalışmak için PowerShell cmdlet'leri kullanmanıza olanak tanır. 
 
 Bu cmdlet'ler izin [oluşturma](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/new-azurermcognitiveservicesaccount?view=azurermps-6.0.0) LUIS abonelik, aboneliği hakkında bilgi alın dahil olmak üzere [kullanım](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0), ve [Kaldır](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/remove-azurermcognitiveservicesaccount?view=azurermps-6.0.0) abonelik. 

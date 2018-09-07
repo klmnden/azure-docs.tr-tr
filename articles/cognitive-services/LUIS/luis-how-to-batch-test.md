@@ -1,22 +1,23 @@
 ---
-title: Toplu test LUIS uygulamanızı - Azure | Microsoft Docs
-description: Language Understanding (LUIS) test toplu konuşma yanlış hedefleri ve varlıkları bulmak için kullanın.
+title: 1000 örnek Konuşma ile batch test
+titleSuffix: Azure Cognitive Services
+description: Language Understanding (LUIS) batch test etme, konuşma yanlış hedefleri ve varlıkları bulmak için kullanın.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 07c38aa5f66fc8c38392c5407449ec6911e80d47
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: e5820b7d65cb989411657670ae19ef1bdca2122d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888635"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054783"
 ---
-# <a name="batch-testing"></a>Toplu işe testi
+# <a name="batch-testing-with-a-set-of-example-utterances"></a>Batch örnek konuşma bir dizi testi
  Toplu test LUIS, performansı ölçmek için geçerli eğitilen modelinizde kapsamlı bir testtir. 
 
 <a name="batch-testing"></a>
@@ -27,8 +28,6 @@ ms.locfileid: "42888635"
     ![Batch test bağlantısına](./media/luis-how-to-batch-test/batch-testing-link.png)
 
 2. Seçin **alma dataset**. **Yeni veri kümesi alma** iletişim kutusu görüntülenir. Seçin **Dosya Seç** doğru içeren bir JSON dosyası bulun [JSON biçimine](luis-concept-batch-test.md#batch-file-format) içeren *en fazla 1.000* konuşma test etmek için.
-
-    ![Veri kümesi dosyasını içeri aktar](./media/luis-how-to-batch-test/batchtest-importset.png)
 
     Alma hataları, tarayıcının en üstündeki kırmızı bildirim çubuğunda bildirilir. Bir içeri aktarma hataları olduğunda, herhangi bir veri kümesi oluşturulur. Daha fazla bilgi için [sık karşılaşılan](luis-concept-batch-test.md#common-errors-importing-a-batch).
 

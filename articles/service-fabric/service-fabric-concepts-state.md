@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric, mikro hizmetler durumda yönetme | Microsoft Docs
-description: Tanımlamak ve Service Fabric hizmet durumunda yönetme
+title: Azure Service Fabric Hizmetleri durumda yönetme | Microsoft Docs
+description: Tanımlamak ve Service Fabric Hizmetleri hizmet durumunda yönetme hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: eaa38e864da2525b640fa101ecc807f89de8eeaf
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 48345be959bb9bebf7c30fa71de91b7881863d66
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072206"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054966"
 ---
 # <a name="service-state"></a>Hizmet durumu
 **Hizmet durumu** belleğe veya işlevi için bir hizmet gerektiren disk verileri ifade eder. Bu, örneğin, hizmet okur ve yazar çalışmak üye değişkenleri ve veri yapıları içerir. Hizmet nasıl geliştirilmiştir bağlı olarak dosyalara veya diske depolanmış diğer kaynaklara de içerebilir. Örneğin, dosyalar, bir veritabanı veri ve işlem günlüklerini depolamak için kullanırsınız.

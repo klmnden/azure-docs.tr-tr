@@ -1,5 +1,6 @@
 ---
-title: LUIS - Azure veri ayıklama kavramları anlama | Microsoft Docs
+title: LUIS - Language Understanding veri ayıklama kavramları
+titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) ne tür veriler ayıklanabileceği öğrenin
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: f57e7cb85e6d183a59b358e347d70d4d185868a7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 40c7e0744825697779e6bd19a78d8d3512b5d63e
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225691"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023469"
 ---
 # <a name="data-extraction"></a>Veri ayıklama
 LUIS, bir kullanıcının doğal dil konuşma bilgi almak için sağlar. Bilgiler bir program, uygulama veya sohbet botu tarafından Harekete geçmeye kullanılabilmesi için bir şekilde ayıklanır.
@@ -46,7 +47,7 @@ LUIS, yayımlanan verilerden sağlar [uç nokta](luis-glossary.md#endpoint). **H
 
 |Veri nesnesi|Veri Türü|Veri Konumu|Değer|
 |--|--|--|--|
-|Hedefi|Dize|topScoringIntent.intent|"GetStoreInfo"|
+|Amaç|Dize|topScoringIntent.intent|"GetStoreInfo"|
 
 Sohbet botu veya arama LUIS uygulama birden fazla hedefi puanına göre karar verir, sorgu dizesi parametresini ayarlayarak ıntents puanlarını döndürür `verbose=true`. Uç nokta yanıt şöyledir:
 
@@ -75,8 +76,8 @@ Intents en yüksek öncelikten en düşük puan için sıralanır.
 
 |Veri nesnesi|Veri Türü|Veri Konumu|Değer|Puan|
 |--|--|--|--|:--|
-|Hedefi|Dize|ıntents [0] .intent|"GetStoreInfo"|0.984749258|
-|Hedefi|Dize|ıntents [1] .intent|"None"|0.0168218873|
+|Amaç|Dize|ıntents [0] .intent|"GetStoreInfo"|0.984749258|
+|Amaç|Dize|ıntents [1] .intent|"None"|0.0168218873|
 
 Önceden oluşturulmuş etki alanları eklerseniz, hedefi adı etki alanı gibi gösterir `Utilties` veya `Communication` amaç yanı sıra:
 
@@ -104,11 +105,11 @@ Intents en yüksek öncelikten en düşük puan için sıralanır.
 }
 ```
     
-|Etki alanı|Veri nesnesi|Veri Türü|Veri Konumu|Değer|
+|Domain|Veri nesnesi|Veri Türü|Veri Konumu|Değer|
 |--|--|--|--|--|
-|Altyapı Hizmetleri|Hedefi|Dize|ıntents [0] .intent|"<b>Yardımcı programları</b>. ShowNext"|
-|İletişim|Hedefi|Dize|ıntents [1] .intent|<b>İletişim</b>. StartOver"|
-||Hedefi|Dize|[2] hedefleri .intent|"None"|
+|Altyapı Hizmetleri|Amaç|Dize|ıntents [0] .intent|"<b>Yardımcı programları</b>. ShowNext"|
+|İletişim|Amaç|Dize|ıntents [1] .intent|<b>İletişim</b>. StartOver"|
+||Amaç|Dize|[2] hedefleri .intent|"None"|
 
 
 ## <a name="data-from-entities"></a>Veri varlıkları

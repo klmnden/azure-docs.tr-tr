@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0007396ad6d5fc16177d76683f959591e9830ac3
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 55f66203c7d84a41e6c060dd6ae5241b4a719f1c
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782085"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049040"
 ---
 # <a name="support-for-the-marketplace"></a>Market için destek  
 Market'e destek seçenekleri.  
@@ -41,7 +41,8 @@ Market'e destek seçenekleri.
 | Slack: [join.marketplace.azure.com](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Teknik sorunlar iş ortaklarıyla desteklemek için Slack ortamı. Şu anda bu ortamda çalışan 350 + iş ortakları hakkında vardır. |  
 | MSDN Forumları: Market bulunan [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Microsoft Developer Network Forumu. |  
 | Yığın taşması: Azure konumundaki [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Taşma ortam çözümleri edinin ve Azure Marketi'nde ilgili her şeyi hakkında sorular sormak için yığın.<ul> <li>Yığın taşması: Azure Market konumundaki [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Yığın taşması: Azure Resource Manager konumundaki [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Yığın taşması: Azure sanal makinelerinde bulunan [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Yığın taşması: Azure'da kapsayıcı konumundaki [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
-| AppSource desteği: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Sizin için Dynamics uygulamaları yayımlama desteği |
+| AppSource desteği: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Dynamics uygulamaları için yayımlamayı desteği |
+
 ## <a name="marketing-resources"></a>Pazarlama kaynakları  
 
 | Kanal desteği | Açıklama | Kullanılabilirlik |  

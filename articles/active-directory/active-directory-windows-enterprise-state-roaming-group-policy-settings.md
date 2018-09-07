@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 9db0fa29f6af0053d45f9f0238b52ac34fdb464a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: f1bbbecf1f40b110614b3da9874d5d2c560f9e58
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223270"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024644"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Grup İlkesi ve MDM ayarları
 Bu ilkeler, kullanıcının cihazın tamamını uygulandığından yalnızca şirkete ait cihazlarda bu Grup İlkesi ve mobil cihaz Yönetimi (MDM) ayarlarını kullanın. Cihaz kullanıcıya ait kişisel için ayarları eşitleme devre dışı bırakmak için bir MDM ilkesi uygulayarak, cihazın kullanımını olumsuz etkiler. Ek olarak, diğer cihazda kullanıcı hesaplarını ilkeden etkilenir.
@@ -30,7 +30,7 @@ Bu ilkeler, kullanıcının cihazın tamamını uygulandığından yalnızca şi
 Aşağıdaki tablolar kullanılabilir ilke ayarlarını açıklar.
 
 ## <a name="mdm-settings"></a>MDM ayarları
-MDM ilke ayarları, Windows 10 ve Windows 10 Mobile için geçerlidir.  Windows 10 Mobile destek kullanıcının OneDrive hesabına Dolaşım tabanlı yalnızca Microsoft hesabı yok.  Lütfen Azure AD tabanlı eşitleme için hangi cihazlar desteklenir ilişkin ayrıntılar için "Cihazları ve uç noktaları" bölümüne bakın.
+MDM ilke ayarları, Windows 10 ve Windows 10 Mobile için geçerlidir.  Windows 10 Mobile destek kullanıcının OneDrive hesabına Dolaşım tabanlı yalnızca Microsoft hesabı yok.  Lütfen [cihazları ve uç noktaları](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md) ayrıntılı Azure AD tabanlı eşitleme için hangi cihazlar desteklenir.
 
 | Ad | Açıklama |
 | --- | --- |

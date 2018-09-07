@@ -7,20 +7,20 @@ manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: kivenkat
-ms.openlocfilehash: 4e77e187d969af7ea2a12754b18d4a218daceed6
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 3fbc3047688fed877280ca2d0f079ddea66bceb8
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39411915"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024740"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Sanal makine ölçek kümeleri Azure Stack'te kullanılabilir yapın
 
 *İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
-
+  
 Sanal makine ölçek kümeleri Azure Stack işlem kaynaklarıdır. Bir özdeş sanal makine kümesini dağıtıp yönetmek için kullanabilirsiniz. Ölçek kümeleri, sanal makinelerin önceden sağlama gerektirmeyen tüm sanal makinelerle aynı şekilde yapılandırılmış. Büyük işlem, büyük veri ve kapsayıcılı iş yüklerini hedefleyen büyük ölçekli hizmetler oluşturmayı kolaylaştırır.
 
 Bu makalede ölçek kümeleri Azure Stack Market'te kullanılabilir hale getirmek için işleminde size rehberlik eder. Bu yordamı tamamladıktan sonra kullanıcılarınızın abonelikleri için sanal makine ölçek kümeleri ekleyebilirsiniz.
@@ -36,9 +36,31 @@ Azure Stack üzerinde sanal makine ölçek kümelerini otomatik ölçeklendirme 
 - **Market**  
     Azure Stack öğeleri Market'te kullanılabilirliğini etkinleştirmek için genel Azure ile kaydedin. Bölümündeki yönergeleri [kaydetme Azure Stack Azure ile](azure-stack-registration.md).
 - **İşletim sistemi görüntüsü**  
-    Bir işletim sistemi görüntüsü için Azure Stack Marketini eklemediniz olup [Azure'dan bir Azure Stack Market öğesi ekleme](asdk/asdk-marketplace-item.md).
+  Bir sanal makine ölçek kümesi (VMSS) oluşturulabilmesi için önce VMSS kullanmak için VM görüntüleri indirin [Azure Stack Marketini](azure-stack-download-azure-marketplace-item.md). Görüntüleri zaten bir kullanıcı yeni bir VMSS oluşturabilmeniz için önce mevcut olması gerekir. 
 
-## <a name="add-the-virtual-machine-scale-set"></a>Sanal makine ölçek kümesi ekleme
+
+## <a name="use-the-azure-stack-portal"></a>Azure Stack portalını kullanın 
+
+>[!NOTE]  
+> Bu bölümdeki bilgiler, Azure Stack 1808 veya sonraki bir sürümü kullandığınızda uygulanır. Sürümünüzü 1807 veya önceki bir sürümü olup olmadığını [(önce 1808) sanal makine ölçek kümesi ekleme](#add-the-virtual-machine-scale-set-(prior-to-version-1808)).
+
+1. Azure Stack portalında oturum açın. Ardından, Git **tüm hizmetleri** > **sanal makine ölçek kümeleri**ve ardından altındaki *işlem*seçin **sanal makine ölçek kümeleri**. 
+   ![Sanal makine ölçek kümeleri](media/azure-stack-compute-add-scalesets/all-services.png)
+
+2. Oluştur'u seçin ***sanal makine ölçek kümeleri***.
+   ![Sanal makine ölçek kümesi oluşturma](media/azure-stack-compute-add-scalesets/create-scale-set.png)
+
+3. Boş alanları doldurun, için ve pencerelerden seçin *işletim sistemi disk görüntüsü*, *abonelik*, ve *örnek boyutu*. Seçin **Evet** için *yönetilen diskleri kullan*. Ardından **Oluştur**’u seçin.
+    ![Oluşturma ve yapılandırma](media/azure-stack-compute-add-scalesets/create.png)
+
+4. Yeni sanal makine ölçek kümesi, Git görmek için **tüm kaynakları**, sanal makine ölçek kümesi adı için arama yapın ve ardından aramaya adını seçin. 
+   ![Ölçek kümesini görüntüleme](media/azure-stack-compute-add-scalesets/search.png)
+
+
+
+## <a name="add-the-virtual-machine-scale-set-prior-to-version-1808"></a>Sanal makine ölçek kümesi (önceki sürüm 1808) Ekle
+>[!NOTE]  
+> Bu bölümdeki bilgiler, Azure Stack bir sürümünü 1808 önce kullandığınızda uygulanır. 1808 veya sonraki bir sürümü kullanıyorsanız bkz [Azure Stack portalını](#use-the-azure-stack-portal).
 
 1. Azure Stack Marketini açın ve Azure'a bağlanın. Seçin **Market Yönetim**> **+ Ekle azure'dan**.
 
@@ -56,7 +78,7 @@ Bir sanal makine ölçek kümesi oluşturduktan sonra kullanıcılar görüntül
 
    Zaman *sürüm* olarak ayarlandığından **son** içinde *Imagereference* bölümünde şablonu bir ölçek kümesi, en yeni sürüme ölçek kümesi kullanımı üzerinde işlem ölçeğini görüntünün ölçek kümesi örnekleri. Ölçeği artırma işlemi tamamlandıktan sonra eski sanal makine ölçek kümesi örneklerine silebilirsiniz.  (Değerlerini *yayımcı*, *teklif*, ve *sku* değişmeden kalır). 
 
-   Belirten bir örnek verilmiştir *son*:  
+   Aşağıdaki JSON örneği belirtir *son*:  
 
     ```Json  
     "imageReference": {
@@ -81,6 +103,17 @@ Bir sanal makine ölçek kümesi oluşturduktan sonra kullanıcılar görüntül
     Bir görüntü (kullanılabilir sürüm Değişeni) daha yeni bir sürümüyle yüklerseniz, Ölçek kümesinin ölçeği olamaz. Ölçek kümesi şablonunuzda belirtilen görüntü sürümü kullanılabilir olması gerekir, bu tasarım gereğidir.  
 
 Daha fazla bilgi için [işletim sistemi diskleri ve görüntüleri](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
+
+
+## <a name="scale-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesini ölçeklendirme
+Boyutu ölçeklendirilebilir bir *sanal makine ölçek kümesi* büyütmek veya küçültmek yapma.  
+
+1. Portalda ölçek kümenizi seçin ve ardından **ölçeklendirme**.
+2. Bu sanal makine ölçek kümesi için ölçeklendirme yeni düzeyini ayarlamak için kaydırma çubuğunu kullanın ve ardından **Kaydet**.
+     ![Ölçek kümesi](media/azure-stack-compute-add-scalesets/scale.png)
+
+
+
 
 
 ## <a name="remove-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesi Kaldır

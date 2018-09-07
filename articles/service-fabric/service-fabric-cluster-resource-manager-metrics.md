@@ -1,5 +1,5 @@
 ---
-title: Azure mikro hizmet yük ölçümleri kullanarak yönetme | Microsoft Docs
+title: Ölçümleri kullanarak Azure Service Fabric uygulama yük yönetme | Microsoft Docs
 description: Yapılandırma ve hizmet kaynak tüketimi yönetmek için Service Fabric'te ölçümleri kullanma hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e16f1ae28f2212d0cec61368a2fba946d48fd811
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 7a7d3ad59d743287e5fe13c52c6c6a1a115d53f3
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006293"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053321"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Kaynak tüketimine ve Service Fabric yük ölçümlerle yönetme
 *Ölçümleri* , hizmetleri çok değer verdiğiniz ve, kümedeki düğümler tarafından sağlanan kaynaklar. Bir ölçüm iyileştirmek veya hizmetlerinizin performansını izlemek için yönetmek istediğiniz herhangi bir şey: Örneğin, hizmetiniz aşırı yüklü olmadığını bilmek bellek tüketimi izlemek. Başka bir olup hizmet bellek az daha iyi performans elde etmek için sınırlı olduğu başka bir yere taşıyabilirsiniz şekil için kullanılır.

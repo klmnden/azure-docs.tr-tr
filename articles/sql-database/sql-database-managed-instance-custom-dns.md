@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: af9afcbf97df5f3d7fa82f6ea0163c714fa4f582
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: be32bc4b3f91fbc71305ee9f16fec17ff472cd4c
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051750"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049584"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Özel DNS yapılandırma için Azure SQL veritabanı yönetilen örneği
 
@@ -41,5 +41,5 @@ Azure SQL veritabanı yönetilen örneği (Önizleme) içinde bir Azure dağıt�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Genel bakış için bkz. [yönetilen örnek nedir](sql-database-managed-instance.md)
-- Yeni bir yönetilen örneğin nasıl oluşturulacağını gösteren bir öğretici için bkz [bir yönetilen örnek oluşturma](sql-database-managed-instance-create-tutorial-portal.md).
+- Yeni bir yönetilen örneğin nasıl oluşturulacağını gösteren bir öğretici için bkz [bir yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md).
 - Bir yönetilen örnek için bir VNet yapılandırma hakkında daha fazla bilgi için bkz: [yönetilen örnekleri için sanal ağ yapılandırması](sql-database-managed-instance-vnet-configuration.md)

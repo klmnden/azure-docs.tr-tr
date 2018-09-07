@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: 7925ef15dc7b3ce25ae919810a5ed2220184fe6e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a67d0a6387201362199c0f96fba3f338d906bbda
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700852"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052102"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB ile iletişim
 İçinde bir yüksek düzeyde birbirine society yaşayan anlamına gelir hayatta belirli bir noktada, bir parçası haline gelir, bir **sosyal ağ**. Sosyal ağlar arkadaşlarınız, iş arkadaşlarınızın, ailesi sürdürebilecek tutmak veya bazen Tutkunuzu ortak ilgi alanlarına kişilerle paylaşmak için kullanın.

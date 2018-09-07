@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 6ddae66ee6408a3cab905826cd0d7c0831607d33
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e20e0c412206b2a35973b192ef911bb99ed7c210
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526394"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021872"
 ---
 # <a name="authenticate-with-azure-ad-from-an-azure-managed-service-identity-preview"></a>Bir Azure yönetilen hizmet kimliği (Önizleme) Azure AD ile kimlik doğrulaması
 
-Azure depolama ile Azure Active Directory (Azure AD) kimlik doğrulamasını destekleyen [yönetilen hizmet kimliği](../../active-directory/managed-service-identity/overview.md). Yönetilen hizmet kimliği (MSI), Azure Active Directory'de (Azure AD) otomatik olarak yönetilen bir kimlik sağlar. MSI, Azure sanal makineleri, işlev uygulamaları, sanal makine ölçek kümeleri ve diğerleri çalışan uygulamalarından Azure depolama için kimlik doğrulaması yapmak için kullanabilirsiniz. MSI kullanarak ve Azure AD kimlik doğrulaması gücünden yararlanan, bulutta çalışan uygulamalarınızın ile kimlik bilgilerini depolama önleyebilirsiniz.  
+Azure depolama ile Azure Active Directory (Azure AD) kimlik doğrulamasını destekleyen [yönetilen hizmet kimliği](../../active-directory/managed-identities-azure-resources/overview.md). Yönetilen hizmet kimliği (MSI), Azure Active Directory'de (Azure AD) otomatik olarak yönetilen bir kimlik sağlar. MSI, Azure sanal makineleri, işlev uygulamaları, sanal makine ölçek kümeleri ve diğerleri çalışan uygulamalarından Azure depolama için kimlik doğrulaması yapmak için kullanabilirsiniz. MSI kullanarak ve Azure AD kimlik doğrulaması gücünden yararlanan, bulutta çalışan uygulamalarınızın ile kimlik bilgilerini depolama önleyebilirsiniz.  
 
 Yönetilen hizmet kimliği depolama kapsayıcıları veya kuyruklar için izinler vermek için bir MSI depolama izinleri kapsayan bir RBAC rolü atayın. Depolamadaki RBAC rolleri hakkında daha fazla bilgi için bkz. [Yönet RBAC (Önizleme) ile depolama verilere erişim hakları](storage-auth-aad-rbac.md). 
 
@@ -33,14 +33,14 @@ Bu makalede, Azure Depolama'ya MSI ile bir Azure VM'den kimlik doğrulaması yap
 Azure depolama, VM'den kimliğini doğrulamak için MSI kullanmadan önce VM'deki MSI önce etkinleştirmeniz gerekir. MSI etkinleştirme konusunda bilgi edinmek için şu makalelerden birine bakın:
 
 - [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
-- [Azure PowerShell](../../active-directory/managed-service-identity/qs-configure-powershell-windows-vm.md)
-- [Azure CLI](../../active-directory/managed-service-identity/qs-configure-cli-windows-vm.md)
-- [Azure Resource Manager şablonu](../../active-directory/managed-service-identity/qs-configure-template-windows-vm.md)
-- [Azure SDK'ları](../../active-directory/managed-service-identity/qs-configure-sdk-windows-vm.md)
+- [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+- [Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+- [Azure Resource Manager şablonu](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Azure SDK'ları](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="get-an-msi-access-token"></a>MSI erişim belirteci alma
 
-MSI ile kimlik doğrulamak için uygulama veya betiğin bir MSI erişim belirtecini almalıdır. Erişim belirteci alma hakkında bilgi edinmek için [belirtecinin alınması için bir Azure VM yönetilen hizmet kimliği (MSI) kullanma](../../active-directory/managed-service-identity/how-to-use-vm-token.md).
+MSI ile kimlik doğrulamak için uygulama veya betiğin bir MSI erişim belirtecini almalıdır. Erişim belirteci alma hakkında bilgi edinmek için [belirtecinin alınması için bir Azure VM yönetilen hizmet kimliği (MSI) kullanma](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
 ## <a name="net-code-example-create-a-block-blob"></a>.NET kod örneği: bir blok blobu oluştur
 

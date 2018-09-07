@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 131ba3dfb8bd8ad8be893e26fcc22c5a0e65f145
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 010556dae1649754df5199fb81c10efcf4c5a226
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431649"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050009"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>ODBC sürücüsü ile BI analizi araçları kullanarak Azure Cosmos DB'ye bağlanma
 
@@ -173,7 +173,7 @@ Tanımlayabilir ve örnekleme işleminin bir parçası görünümler oluşturun.
 
 Verileriniz için bir görünüm oluşturmak için **şema Düzenleyicisi** penceresi, **tanımlarını** sütun tıklayın **Ekle** örnek koleksiyonuna satırda. Ardından **tanımlarını** penceresinde aşağıdakileri yapın:
 1. Tıklayın **yeni**, örneğin, EmployeesfromSeattleView görünümü için bir ad girin ve ardından **Tamam**.
-1. İçinde **düzenleme görünümü** penceresinde Azure Cosmos DB sorgusu girin. Bu Azure Cosmos DB SQL sorgusu, örneğin olmalıdır`SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = “Seattle”`ve ardından **Tamam**.
+1. İçinde **düzenleme görünümü** penceresinde Azure Cosmos DB sorgusu girin. Bu Azure Cosmos DB SQL sorgusu, örneğin olmalıdır`SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = "Seattle"`ve ardından **Tamam**.
 
 İstediğiniz gibi birçok bir görünüm oluşturabilirsiniz. İşiniz bittiğinde görünümleri tanımlama, ardından veri örnekleme yapabilirsiniz. 
 

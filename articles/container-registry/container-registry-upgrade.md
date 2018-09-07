@@ -3,17 +3,16 @@ title: Klasik Azure kapsayıcı kayıt defteri yükseltme
 description: Genişletilmiş yararlanmak özellik kümesini temel, standart ve Premium yönetilen kapsayıcı kayıt defterleri yönetilmeyen Klasik kapsayıcı kayıt defterinizde yükselterek.
 services: container-registry
 author: mmacy
-manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: marsma
-ms.openlocfilehash: 7a377c607639f5c044e689b11380e9778f9c72c8
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 951866c1c74cb14536ea341d80c06e0fcfe0e4fe
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189030"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025597"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Klasik kapsayıcı kayıt defterini yükseltme
 
@@ -23,7 +22,7 @@ Klasik SKU kullanımdan kaldırılıyor ve Mart 2019 sonra kullanılamaz. Bu mak
 
 ## <a name="why-upgrade"></a>Neden yükseltilsin mi?
 
-Klasik kayıt defteri SKU okunuyor **kullanım dışı**ve kullanılamaz durumda gelen **Mart 2019**. Tüm mevcut Klasik kayıt defterleri, yükseltmeden önce Mart 2019 olmalıdır.
+Klasik kayıt defteri SKU okunuyor **kullanım dışı**ve kullanılamaz durumda gelen **Mart 2019**. Tüm mevcut Klasik kayıt defterleri Mart 2019'öncesinde yükseltilmelidir.
 
 Planlanan kullanımdan kaldırma ve yönetilmeyen Klasik kayıt defterleri sınırlı yeteneklerini nedeniyle tüm Klasik kayıt defterleri temel, standart veya Premium yükseltilen yönetilen kayıt defterleri olması. Bu üst düzey bir SKU'ları, kayıt defteri serimizde, Azure'un daha derin bir şekilde tümleştirin.
 

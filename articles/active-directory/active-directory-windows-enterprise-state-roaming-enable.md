@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: bb2210619e481189fc88ca3bb6b8044a8f5d7e14
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: aa14563966e028716d8e18c3228f026af983561f
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262957"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024118"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Azure Active Directory'de Kurumsal Durumda Dolaşımı etkinleştirme
 Kurumsal durumda dolaşım, tüm kuruluşa bir Azure AD Premium veya Enterprise Mobility + Security (EMS) lisansı ile kullanılabilir. Azure AD aboneliğiniz alma hakkında daha fazla bilgi için bkz. [Azure AD'ye ürün sayfası](https://azure.microsoft.com/services/active-directory).
@@ -32,16 +32,17 @@ Kurumsal durumda Dolaşım etkinleştirdiğinizde, kuruluşunuz Azure Informatio
 
 1. Oturum [Azure AD yönetim merkezini](https://aad.portal.azure.com/).
 
-2. Seçin **Azure Active Directory** &gt; **cihazları** &gt; **cihaz ayarları**.
+2. Seçin **Azure Active Directory** &gt; **cihazları** &gt; **Kurumsal durumda Dolaşım**.
 
 3. Seçin **kullanıcılar eşitleme ayarları ve uygulama verilerini cihazlarda**. Daha fazla bilgi için [cihaz ayarlarının nasıl yapılandırılacağı](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
   
   ![Etiketli Kullanıcılar Cihaz ayarı görüntüsü cihazlarda ayarları ve uygulama verilerini eşitleyebilir](./media/active-directory-windows-enterprise-state-roaming-enable/device-settings.png)
   
-Windows 10 cihaz Kurumsal durumda Dolaşım hizmetini kullanmak üzere bir Azure AD kimlik kullanarak cihaz kimliğini doğrulaması gerekir. Azure AD'ye katılmış cihazlar için oturum açma kullanıcının birincil kimliğini kendi Azure AD kimlik olduğundan ek yapılandırma gerekli değildir. Şirket içi Active Directory kullanan cihazlar için BT yöneticisi gerekir [deneyimleri Windows 10 için etki alanına katılan cihazları Azure AD'ye bağlanma](active-directory-azureadjoin-devices-group-policy.md).
+Windows 10 cihaz Kurumsal durumda Dolaşım hizmetini kullanmak üzere bir Azure AD kimlik kullanarak cihaz kimliğini doğrulaması gerekir. Azure AD'ye katılmış cihazlar için oturum açma kullanıcının birincil kimliğini kendi Azure AD kimlik olduğundan ek yapılandırma gerekli değildir. Şirket içi Active Directory kullanan cihazlar için BT yöneticisi gerekir [yapılandırma hibrit Azure Active Directory alanına katılmış cihazlar](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual-steps). 
 
 ## <a name="data-storage"></a>Veri depolama
 Bir veya daha fazla veri Kurumsal durumda Dolaşım barındırılan [Azure bölgeleri](https://azure.microsoft.com/regions/) en iyi ülke/bölge değeri Azure Active Directory örneğinde ayarlanmış Hizala. Kurumsal durumda Dolaşım veri bölümlenmiş üç ana coğrafi bölgelerine bağlı: Kuzey Amerika, EMEA ve APAC. Kiracının verileri Kurumsal durumda Dolaşım coğrafi bölge ile yerel olarak bulunur ve bölgeler arasında çoğaltılmaz.  Örneğin:
+
 Ülke/bölge değeri | kendi veri barındırılan
 ---------------------|-------------------------
 "Fransa" veya "Zambiya" gibi bir EMEA ülke | bir veya Avrupa içinde Azure bölgeleri 
@@ -69,7 +70,7 @@ Kullanıcı başına cihaz eşitleme Durum raporunda görüntülemek için aşa�
   ![cihaz eşitleme sütunlu verilerin görüntüsü](./media/active-directory-windows-enterprise-state-roaming-enable/device-status-row.png)
 
 ## <a name="data-retention"></a>Veri saklama
-Kurumsal durumda Dolaşım kullanarak Azure'a eşitlenmiş verileri el ile silinene kadar veya söz konusu veri eski olduğu belirlenir kadar korunur. 
+Kurumsal durumda Dolaşım kullanarak Microsoft Bulut'a eşitlenmiş verileri el ile silinene kadar veya söz konusu veri eski olduğu belirlenir kadar korunur. 
 
 ### <a name="explicit-deletion"></a>Açık silme
 Azure yönetici bir kullanıcı ya da bir dizin siler veya aksi halde açıkça veri silinecek olan istekleri açık silinmesine olur.
@@ -79,14 +80,14 @@ Azure yönetici bir kullanıcı ya da bir dizin siler veya aksi halde açıkça 
 * **Silme isteği**: Azure AD Yöneticisi, belirli bir kullanıcının veri veya ayar verileri el ile silmeniz isterse, yönetici bileti ile dosya [Azure Destek](https://azure.microsoft.com/support/). 
 
 ### <a name="stale-data-deletion"></a>Eski veri silme
-Bir yıl ("Bekletme dönemi") erişilemeyen veri eski kabul edilir ve Azure'dan silinmiş. Saklama dönemi değiştirilebilir, ancak 90 günden daha az olur. Eski veri Windows/uygulama ayarları veya bir kullanıcı için tüm ayarları belirli bir kümesi olabilir. Örneğin:
+Bir yıl ("Bekletme dönemi") erişilemeyen veri eski kabul edilir ve Microsoft bulutundan silinebilir. Saklama dönemi değiştirilebilir, ancak 90 günden daha az olur. Eski veri Windows/uygulama ayarları veya bir kullanıcı için tüm ayarları belirli bir kümesi olabilir. Örneğin:
 
 * Cihaz erişimi belirli ayarlar koleksiyonu (örneğin, bir uygulama CİHAZDAN kaldırılır veya bir "Tema" gibi ayarları grubu tüm kullanıcı aygıtları için devre dışıdır), o koleksiyon saklama döneminden sonra eski hale gelir ve silinebilir . 
 * Bir kullanıcı, kullanıcının tüm cihazlarında ayarları eşitleme devre dışı bıraktıysa ayarları verilerin hiçbiri ardından erişilir ve söz konusu kullanıcı için tüm ayarları veri eski hale gelir ve saklama döneminden sonra silinebilir. 
 * Azure AD dizin Yöneticisi Kurumsal durumda dolaşım, tüm kullanıcılar gibi tüm dizin için dizin ayarları eşitlenirken durdurur ve tüm kullanıcılar için tüm ayarları veri eski hale gelir ve saklama döneminden sonra silinebilir kapatırsa. 
 
 ### <a name="deleted-data-recovery"></a>Silinen verileri kurtarma
-Veri bekletme ilkesi yapılandırılabilir değildir. Veriler kalıcı olarak silindikten sonra kurtarılamaz değil. Ancak, ayarları veriler yalnızca azure'dan, son kullanıcı CİHAZDAN silinir. Herhangi bir CİHAZDAN Kurumsal durumda Dolaşım hizmete daha sonra bağlanırsa, ayarları yeniden eşitlenen ve Azure'da depolanır.
+Veri bekletme ilkesi yapılandırılabilir değildir. Veriler kalıcı olarak silindikten sonra kurtarılamaz değil. Ancak, son kullanıcı CİHAZDAN Microsoft bulutundan yalnızca ayar verileri silinir. Herhangi bir CİHAZDAN Kurumsal durumda Dolaşım hizmete daha sonra bağlanırsa, ayarları yeniden eşitlenir ve Microsoft bulutta depolanır.
 
 ## <a name="related-topics"></a>İlgili konular
 * [Kurumsal durumda dolaşıma genel bakış](active-directory-windows-enterprise-state-roaming-overview.md)

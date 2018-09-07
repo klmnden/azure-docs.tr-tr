@@ -1,7 +1,7 @@
 ---
-title: Language Understanding (LUIS) sınırları | Microsoft Docs
-titleSuffix: Azure
-description: Bu makale, LUIS bilinen sınırlamaları içerir.
+title: Sınırları ve sınırları için Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
+description: Bu makale, Azure Bilişsel hizmetler Language Understanding (LUIS) bilinen sınırları içerir. LUIS, birden fazla sınır alanlara sahip değildir. Model sınır amacı, varlıkları ve LUIS özellikleri denetler. Kota sınırları, anahtar türüne göre. Klavye birleşimi LUIS Web sitesini denetler.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: diberry
-ms.openlocfilehash: 0a75c113f619aa70ba6c504f07afc8dc8a35b694
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: b867d2c6c2bd586e0844d4ad149ac4a73399ed7b
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399840"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023243"
 ---
 # <a name="luis-boundaries"></a>LUIS sınırları
 LUIS, birden fazla sınır alanlara sahip değildir. İlk [modeli sınır](#model-boundaries), amacı, varlıkları ve LUIS özellikleri denetler. İkinci alanı [kota sınırları](#key-limits) anahtar türüne göre. Üçüncü bir sınırları alanıdır [klavye birleşimi](#keyboard-controls) LUIS Web sitesi denetleme. Dördüncü alan [dünya bölge eşleme](luis-reference-regions.md) LUIS ile Web sitesi geliştirme LUIS arasındaki [uç nokta](luis-glossary.md#endpoint) API'leri. 

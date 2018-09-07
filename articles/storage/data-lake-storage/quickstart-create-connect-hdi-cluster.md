@@ -11,12 +11,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: e0816e8609ba1ab0ef1b4f685731339378fee844
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8bfe069ba03aec2476d437f25ebb00f8a934c845
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525595"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025562"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Hızlı Başlangıç: HDInsight kümelerinde ayarlayın
 
@@ -242,7 +242,7 @@ Bazı durumlarda, aşağıdaki yapılandırma dosyalarını oluşturma işlemi s
 Daha fazla bilgi için [özelleştirme HDInsight kümeleri Bootstrap ile](../../hdinsight/hdinsight-hadoop-customize-cluster-bootstrap.md).
 
 ## <a name="advanced-settings-extend-clusters-with-a-virtual-network"></a>Gelişmiş ayarlar: bir sanal ağ ile kümeleri genişletme
-Çözümünüz birden çok HDInsight küme türleri arasında yayılır teknolojileri gerektiriyorsa bir [Azure sanal ağı](../../hdinsight/https://docs.microsoft.com/azure/virtual-network) gerekli küme türleri bağlanabilirsiniz. Bu yapılandırma, kümeler ve doğrudan birbirleri ile iletişim kurmak için bunlara dağıttığınız herhangi bir kod sağlar.
+Çözümünüz birden çok HDInsight küme türleri arasında yayılır teknolojileri gerektiriyorsa bir [Azure sanal ağı](https://docs.microsoft.com/azure/virtual-network) gerekli küme türleri bağlanabilirsiniz. Bu yapılandırma, kümeler ve doğrudan birbirleri ile iletişim kurmak için bunlara dağıttığınız herhangi bir kod sağlar.
 
 HDInsight ile bir Azure sanal ağı kullanma hakkında daha fazla bilgi için bkz. [genişletmek HDInsight ile Azure sanal ağları](../../hdinsight/hdinsight-extend-hadoop-virtual-network.md).
 

@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2018
+ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 67e82a4809253123e15305b5f2ecd8cc5f7ee4ed
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 5df8104907e30337cdf47e5a9489ffdb50451a94
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046859"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055225"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Azure Stack için bir Kubernetes kümesi dağıtma
 
 *İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 > [!Note]  
-> Azure Stack'te Azure Kubernetes Hizmetleri (AKS) Kubernetes özel Önizleme aşamasındadır. Bu makaledeki yönergeleri gerçekleştirmek için gereken Kubernetes Market öğesi erişim istemek, Azure Stack operatörü gerekir.
+> Azure Stack'te AKS (Azure Kubernetes hizmeti) altyapısı, özel Önizleme aşamasındadır. Bu makaledeki yönergeleri gerçekleştirmek için gereken Kubernetes Market öğesi erişim istemek, Azure Stack operatörü gerekir.
 
 Aşağıdaki makalede dağıtıp tek ve eşgüdümlü bir işlemle Kubernetes için kaynakları sağlamak için bir Azure Resource Manager çözüm şablonu kullanarak arar. , Azure Stack yüklemesi hakkında gerekli bilgileri toplamak için şablonu oluşturun ve ardından, buluta dağıtın.
 

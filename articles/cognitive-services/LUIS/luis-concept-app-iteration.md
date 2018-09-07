@@ -1,6 +1,7 @@
 ---
-title: Anlamak yinelemeli LUIS uygulaması tasarlama - Azure | Microsoft Docs
-description: LUIS uygulamaları en iyi veri ayıklama almak için LUIS eğitmek için tasarım yinelemeleri gerektirir.
+title: LUIS yinelemeli uygulama tasarımı - Language Understanding anlama
+description: LUIS, en iyi modeli değişiklikleri, utterance örnekler, yayımlama ve veri toplamayı yinelemeli bir döngüyle uç nokta sorgularından öğrenir.  LUIS uygulamaları en iyi veri ayıklama almak için LUIS eğitmek için tasarım yinelemeleri gerektirir.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
 manager: cjgronlund
@@ -9,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: diberry
-ms.openlocfilehash: 947350a1d0dcfb0caaca654768c3660fc1b146e1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 7c267d53c9057ac05427ff14a7e3c25d56ab1f62
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225450"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025436"
 ---
 # <a name="authoring-cycle"></a>Yazma döngüsü
 LUIS, en iyi modeli değişiklikleri, utterance örnekler, yayımlama ve veri toplamayı yinelemeli bir döngüyle uç nokta sorgularından öğrenir. 

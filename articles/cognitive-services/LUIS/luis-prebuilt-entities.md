@@ -1,22 +1,23 @@
 ---
-title: LUIS uygulamasında önceden oluşturulmuş varlıklar | Microsoft Docs
-description: Bu makale, Language Understanding Intelligent Services (LUIS içinde) dahil edilen önceden oluşturulmuş varlıklar listesi içerir.
+title: Önceden oluşturulmuş varlıklar için Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
+description: LUIS, tarihler, saatler, sayılar, Ölçümler ve para birimi gibi bilgileri genel türleri tanıma için önceden oluşturulmuş varlıklar kümesi içerir. Önceden oluşturulmuş varlık destek LUIS uygulamanızı kültüre göre değişir.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 95ff173a843e7ad18ec396a1130b2e2b4035f656
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: f62c078a023d9ee7ca535cb5e02623df7a568e8a
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248246"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052882"
 ---
-# <a name="prebuilt-entities"></a>Önceden oluşturulmuş varlıklar
+# <a name="prebuilt-entities-to-recognize-common-data-types"></a>Ortak veri türleri tanımak için önceden oluşturulmuş varlıklar
 
 LUIS, tarihler, saatler, sayılar, Ölçümler ve para birimi gibi bilgileri genel türleri tanıma için önceden oluşturulmuş varlıklar kümesi içerir. Önceden oluşturulmuş varlık destek LUIS uygulamanızı kültüre göre değişir. LUIS destekler, kültür tarafından desteği dahil olmak üzere önceden oluşturulmuş varlıkların tam listesi için bkz. [önceden oluşturulmuş bir varlık başvurusu](./luis-reference-prebuilt-entities.md).
 
@@ -28,7 +29,6 @@ LUIS, tarihler, saatler, sayılar, Ölçümler ve para birimi gibi bilgileri gen
 1. Adını tıklayarak uygulamanızı açın **uygulamalarım** sayfasında ve ardından **varlıkları** sol tarafındaki. 
 2. Üzerinde **varlıkları** sayfasında **önceden oluşturulmuş varlıklarla yönetme**.
 
-    ![Varlıkları sayfası - önceden oluşturulmuş varlıkları yönetme](./media/luis-use-prebuilt-entity/add-prebuilt-entity-button.png)
 3. İçinde **önceden oluşturulmuş varlıklar ekleme** iletişim kutusunda, önceden oluşturulmuş (örneğin, "datetimeV2") eklemek istediğiniz varlığa tıklayın. Daha sonra **Kaydet**'e tıklayın.
 
     ![Önceden oluşturulmuş varlık Ekle iletişim kutusu](./media/luis-use-prebuilt-entity/add-prebuilt-entity-dialog.png)
@@ -42,7 +42,7 @@ LUIS, tarihler, saatler, sayılar, Ölçümler ve para birimi gibi bilgileri gen
 
     ![sayı bir varlık içeren tarayıcıda utterance](./media/luis-use-prebuilt-entity/browser-query.png)
 
-LUIS, standart olmayan biçiminde olmayan sayılar akıllı bir şekilde tanınmasını sağlayabilir. Farklı sayısal ifadeler, konuşma denemek ve LUIS döndürür ne bakın.
+LUIS, standart biçiminde olmayan sayılar akıllı bir şekilde tanınmasını sağlayabilir. Farklı sayısal ifadeler, konuşma denemek ve LUIS döndürür ne bakın.
 
 Aşağıdaki örnek, çözüm için "iki düzine" utterance 24, değeri içeren bir JSON yanıtı, luıs'den gösterir.
 
@@ -67,7 +67,7 @@ Aşağıdaki örnek, çözüm için "iki düzine" utterance 24, değeri içeren 
 }
 ```
 ## <a name="use-a-prebuilt-datetimev2-entity"></a>Önceden oluşturulmuş datetimeV2 varlık kullanın
-**DatetimeV2** önceden oluşturulmuş bir varlık, tarihler, saatler, tarih aralıkları ve süreler tanır. Görmek için bu adımları nasıl `datetimeV2` önceden oluşturulmuş varlık çalışır:
+**DatetimeV2** önceden oluşturulmuş bir varlık, tarih, saat, tarih aralıkları ve süreler tanır. Görmek için bu adımları nasıl `datetimeV2` önceden oluşturulmuş varlık çalışır:
 
 1. Ekleme bir **datetimeV2** uygulamanızı, ardından bir varlığa [eğitme](luis-interactive-test.md) ve [yayımlama](luis-how-to-publish-app.md) uygulama.
 2. Uç nokta URL'sini tıklayın **uygulama yayımlama** LUIS uç noktası bir web tarayıcısında açmak için sayfa. 

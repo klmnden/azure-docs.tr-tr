@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: b5e0a0caacab2413b640c58575673e555eeb76a4
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: dfdffaad63d23ecf9968292cd2a8075b9cd374bc
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288287"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022362"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Anlama ve IOT Hub'ında cihaz ikizlerini kullanma
 
@@ -90,7 +90,7 @@ Aşağıdaki örnek, bir cihaz ikizi JSON belgesini gösterir:
             "telemetryConfig": {
                 "sendFrequency": "5m",
                 "status": "success"
-            }
+            },
             "batteryLevel": 55,
             "$metadata" : {...},
             "$version": 4

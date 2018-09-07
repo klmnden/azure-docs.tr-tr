@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: d7ed440ba794bcdfab4744e0ac4864aab6896ca8
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 6743d03b623084675f5043a7e158fa99e8aa39d2
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057068"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054014"
 ---
 # <a name="archive-the-azure-activity-log"></a>Azure Etkinlik günlüğünü arşivleme
 Bu makalede, biz arşivlemek için Azure portalı, PowerShell cmdlet'leri veya platformlar arası CLI nasıl kullanabileceğinizi gösterir, [ **Azure etkinlik günlüğü** ](monitoring-overview-activity-logs.md) bir depolama hesabında. Etkinlik günlüğünüzü 90 günden uzun (ile bekletme ilkesini üzerinde tam denetim) denetim, statik analiz veya yedekleme korumak istiyorsanız, bu seçenek kullanışlıdır. Yalnızca olaylarınızı 90 gün boyunca Beklet gerekir ya da daha az, etkinlik günlüğü olaylarını arşivleme etkinleştirmeden Azure platformunda 90 gün boyunca bekletilir olduğundan bir depolama hesabına arşivleme ayarlamak ihtiyacınız yoktur.
@@ -65,9 +65,9 @@ Aşağıdaki yöntemlerden birini kullanarak Etkinlik günlüğünü arşivleme 
 | Özellik | Gerekli | Açıklama |
 | --- | --- | --- |
 | StorageAccountId |Evet |Etkinlik günlükleri kaydedileceği depolama hesabı kaynak kimliği. |
-| Konumlar |Evet |Etkinlik günlüğü olayları toplamak istiyorsanız bölgelerin virgülle ayrılmış listesi. Tüm bölgelerin listesi için aboneliği kullanarak görüntüleyebileceğiniz `(Get-AzureRmLocation).Location`. |
+| Konum |Evet |Etkinlik günlüğü olayları toplamak istiyorsanız bölgelerin virgülle ayrılmış listesi. Tüm bölgelerin listesi için aboneliği kullanarak görüntüleyebileceğiniz `(Get-AzureRmLocation).Location`. |
 | Retentionındays |Hayır |Hangi olayların tutulacağını, 1 ile 2147483647 arasında bir gün sayısı. Sıfır değeri günlükler süresiz olarak depolar (sonsuz). |
-| Kategoriler |Hayır |Virgülle ayrılmış liste toplanması gereken olay kategorileri. Olası değerler şunlardır: yazma, silme ve eylem.  Sağlanmazsa, ardından tüm olası değerler kabul edilir |
+| Kategori |Hayır |Virgülle ayrılmış liste toplanması gereken olay kategorileri. Olası değerler şunlardır: yazma, silme ve eylem.  Sağlanmazsa, ardından tüm olası değerler kabul edilir |
 
 ## <a name="archive-the-activity-log-via-cli"></a>CLI aracılığıyla Etkinlik günlüğünü arşivleme
 

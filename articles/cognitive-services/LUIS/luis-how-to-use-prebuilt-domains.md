@@ -1,20 +1,21 @@
 ---
-title: Önceden oluşturulmuş etki alanlarını azure'da LUIS uygulamalarında | Microsoft Docs
-description: Language Understanding Intelligent Service (LUIS) uygulamaların önceden oluşturulmuş etki alanlarında kullanmayı öğrenin.
+title: Uygulamaları daha hızlı giriş LUIS uygulamalar oluşturmak için önceden oluşturulmuş etki alanları kullanın
+titleSuffix: Azure Cognitive Services
+description: 'Language Understanding (LUIS), önceden oluşturulmuş hedefleri ve etki alanları için birlikte çalışan bir varlık kümesi veya istemci uygulamaların genel kategorileri şunlardır: önceden oluşturulmuş etki alanları sağlar. Önceden oluşturulmuş etki alanları önceden eğitilmiş ve LUIS uygulamanıza eklemek hazırdır.'
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: df57f9adf5bf7f5f652a77ddeafe950463c6a9fc
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 80a83fdb1e2b84ac03d0ae0cf969f1635f00cca0
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224186"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053732"
 ---
 # <a name="use-prebuilt-domains-in-luis-apps"></a>LUIS uygulamalarında önceden oluşturulmuş etki alanları kullanın  
 

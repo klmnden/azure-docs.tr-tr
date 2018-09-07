@@ -1,6 +1,6 @@
 ---
-title: Azure içerik aracı - metin denetleme | Microsoft Docs
-description: Metin denetleme metin, PII, olası istenmeyen ve özel koşulları listeler için kullanın.
+title: Azure Content Moderator - metin denetimi | Microsoft Docs
+description: Metin denetimi, metin, PII, olası istenmeyen ve koşulları özel listeler için kullanın.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,31 +9,31 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: sajagtap
-ms.openlocfilehash: 6924807a64cec074d9688eaad158bb9bb638f6bb
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: b2edaa145650ea3c9fe3c0e9fd5e496ec7d30b99
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085768"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025490"
 ---
 # <a name="text-moderation"></a>Metin denetimi
 
-İçerik denetleyicinin makine destekli metin yönetimini kullanın ve [İnsan gözden geçirme](Review-Tool-User-Guide/human-in-the-loop.md) metin içeriği Orta özellikleri.
+Content Moderator'ın makine destekli metin denetimi kullanın ve [insan tarafından İnceleme](Review-Tool-User-Guide/human-in-the-loop.md) metin içeriğini denetlemek özellikleri.
 
-Engelleme, onaylayabilir ya da, ilkeleri ve eşikleri bağlı içeriğini gözden geçirin. İnsan yönetimini ortamlarının genişletmek için burada iş ortakları, çalışanlar ve tüketicilerin metin içeriği oluşturmak kullanın. Bunlar, sohbet odaları, tartışma panoları, chatbots, e-ticaret kataloglar ve belgeleri içerir. 
+Engelleme, onaylayabilir ya da, ilkeleri ve eşiklere göre içeriği gözden geçirin. İnsan tarafından denetim ortamların genişletmek için iş ortakları, çalışanlar ve tüketiciler metin içeriği burada oluşturun kullanın. Bunlar, sohbet odaları, tartışma panosu, sohbet robotları, e-ticaret katalogları ve belgelerini içerir. 
 
-Hizmet yanıtı aşağıdaki bilgileri içerir:
+Hizmet yanıt aşağıdaki bilgileri içerir:
 
-- Uygunsuz metin: çeşitli dillerde saygısız içerikli terimlerin yerleşik listesiyle terim tabanlı eşleştirme
-- Sınıflandırma: Makine destekli sınıflandırma üç kategoride
-- Kişisel bilgiler (PII)
-- Otomatik olarak düzeltileceğini metin
-- Özgün metin
+- Küfür: çeşitli dillerde Küfürlü Koşulları'nın yerleşik listesiyle terimi tabanlı eşleşen
+- Sınıflandırma: üç kategoride makine destekli sınıflandırma
+- Kişisel olarak tanımlanabilir bilgiler (PII)
+- Otomatik olarak düzeltti metin
+- Orijinal metni
 - Dil
 
-## <a name="profanity"></a>Uygunsuz metin
+## <a name="profanity"></a>Küfür
 
-API tüm saygısız içerikli koşullarını herhangi birini algılarsa, [desteklenen diller](Text-Moderation-API-Languages.md), söz konusu hükümleri yanıta dahil edilir. Yanıt ayrıca konumlarını içerir (`Index`) özgün metin. `ListId` JSON başvuruyor bulunan Koşulları'nı aşağıdaki örnekteki [özel terim listeleri](try-terms-list-api.md) varsa.
+API birinde Küfürlü tüm koşullar algılarsa [desteklenen diller](Text-Moderation-API-Languages.md), bu koşullarında yanıta dahil edilir. Yanıt konumlarını da içeren (`Index`) özgün metin. `ListId` Aşağıdaki örnekte bulunan koşulları başvurduğu JSON [özel terim listeleri](try-terms-list-api.md) varsa.
 
     "Terms": [
     {
@@ -46,13 +46,13 @@ API tüm saygısız içerikli koşullarını herhangi birini algılarsa, [destek
 > [!NOTE]
 > İçin **dil** parametresi, Ata `eng` veya makine destekli görmek için boş bırakın **sınıflandırma** yanıt (Önizleme özelliği). **Bu özellik yalnızca İngilizce destekler**.
 >
-> İçin **uygunsuz metin koşulları** algılama, kullanım [ISO 639-3 kodu](http://www-01.sil.org/iso639-3/codes.asp) , bu konuda listelenen desteklenen diller makale veya bu alanı boş bırakın.
+> İçin **küfür koşulları** algılama, kullanımı [ISO 639-3 kodu](http://www-01.sil.org/iso639-3/codes.asp) bu konuda listelenen desteklenen dillerin makale veya boş bırakın.
 
 ## <a name="classification"></a>Sınıflandırma
 
-İçerik denetleyici makine destekli **metin sınıflandırma özelliği** destekleyen **yalnızca İngilizce**, ve olası istenmeyen içerik algılamaya yardımcı olur. Bayrak eklenmiş içerik, içerik bağlı olarak uygun olarak uygunluk. Her kategori olasılığını iletir ve İnsan İnceleme önerebilir. Özellik bir modeli olası kullanım, negatif veya discriminatory dil tanımlamak için kullanır. Bu argo, kısaltılmış sözcükler, gözden geçirme için rahatsız edici ve bilerek yanlış yazılmış sözcükleri içerir. 
+Content Moderator makine destekli **metin sınıflandırma özelliği** destekler **yalnızca İngilizce**, ve potansiyel olarak istenmeyen içeriği algılamaya yardımcı olur. Bağlama bağlı olarak uygun olarak işaretlenen içeriğin denetlenmesini. Her kategori olasılığını iletmez ve insan tarafından İnceleme önerebilir. Özelliği, olası uygunsuz, negatif veya discriminatory dil tanımlamak için eğitilen bir modeli kullanır. Bu argo kullanımlar, kısaltılmış sözcükler, gözden geçirme için rahatsız edici ve bilerek yanlış yazılan sözcükleri içerir. 
 
-JSON Ayıkla içinde aşağıdaki Ayıkla bir örnek çıkış şunları gösterir:
+Aşağıdaki Ayıkla JSON extract içindeki bir örnek çıktı gösterilmektedir:
 
     "Classification": {
         "ReviewRecommended": true,
@@ -69,21 +69,21 @@ JSON Ayıkla içinde aşağıdaki Ayıkla bir örnek çıkış şunları göster
 
 ### <a name="explanation"></a>Açıklama
 
-- `Category1` olası durum cinsel açık veya bazı durumlarda yetişkinlere yönelik olarak kabul dilinin ifade eder.
-- `Category2` olası durum cinsel müstehcen veya bazı durumlarda yetişkin olarak kabul dilinin ifade eder.
-- `Category3` Belirli durumlarda rahatsız edici olabilecek dil olası varlığını ifade eder.
-- `Score` 0 ile 1 arasında değil. Yüksek puanı kategori uygulanabilen yüksek modeli tahmin etmektir. Bu önizleme el ile kodlanmış sonuçlar yerine bir istatistik modeli kullanır. Her kategoride gereksinimlerinizi için nasıl hizalandığını belirlemek için kendi içerikle sınama öneririz.
-- `ReviewRecommended` true veya false iç puan üzerinde eşikleri bağlı değil. Müşteriler bu değeri kullanın ya da kendi içerik ilkelerine dayalı özel eşikler karar değerlendirmelisiniz.
+- `Category1` olası durum cinsel açık veya bazı durumlarda yetişkinlere yönelik olarak kabul edilebilir dilinin ifade eder.
+- `Category2` olası durum cinsel müstehcen veya bazı durumlarda olgun düşünülebilecek dilinin ifade eder.
+- `Category3` Belirli durumlarda rahatsız edici olduğu düşünülebilecek dil olası varlığını gösterir.
+- `Score` 0 ile 1 arasındadır. Yüksek puanı, kategori uygun olabilir yüksek modeli tahmin etmektir. Bu özellik, el ile kodlanmış sonuçları yerine istatistiksel bir model kullanır. Her kategori için gereksinimlerinizi nasıl hizalandığını belirlemek için kendi içeriğe sahip test etmenizi öneririz.
+- `ReviewRecommended` true veya false iç puanına göre eşikleri bağlı değil. Müşteriler, bu değeri kullanın veya kendi içerik ilkelere dayalı özel eşikler karar değerlendirmelisiniz.
 
-## <a name="personally-identifiable-information-pii"></a>Kişisel bilgiler (PII)
+## <a name="personally-identifiable-information-pii"></a>Kişisel olarak tanımlanabilir bilgiler (PII)
 
-PII özelliği bu bilgileri olası varlığını algılar:
+PII özelliği, bu bilgilerin olası varolup olmadığını algılar:
 
 - E-posta adresi
 - ABD posta adresi
 - IP adresi
 - ABD telefon numarası
-- Birleşik Krallık telefon numarası
+- UK telefon numarası
 - Sosyal Güvenlik numarası (SSN)
 
 Aşağıdaki örnek, bir örnek yanıt gösterir:
@@ -136,20 +136,20 @@ Aşağıdaki örnek, bir örnek yanıt gösterir:
 
 ## <a name="auto-correction"></a>Otomatik Düzeltme
 
-Giriş metni olduğunu varsayın ('lzay' ve 'f0x' kasıtlı):
+Giriş metni olduğunu varsayın ('lzay' ve 'f0x' bilinçli yapıldığı):
 
     The qu!ck brown f0x jumps over the lzay dog.
 
-Otomatik düzeltme için isteyin, yanıt metni düzeltilmiş sürümünü içerir:
+Otomatik düzeltmeye sorarsanız yanıt düzeltilmiş metin sürümünü içerir:
 
     The quick brown fox jumps over the lazy dog.
 
-## <a name="creating-and-managing-your-custom-lists-of-terms"></a>Terimler, özel listeleri oluşturma ve yönetme
+## <a name="creating-and-managing-your-custom-lists-of-terms"></a>Koşulları, özel listeleri oluşturma ve yönetme
 
-Varsayılan olarak genel koşulları listesini çoğu zaman harika çalışırken, iş gereksinimleriniz için belirli terimleri karşı ekran isteyebilirsiniz. Örneğin, kullanıcılar tarafından gönderileri rekabet tüm marka adlarından filtrelemenize isteyebilirsiniz.
+Varsayılan olarak genel koşulları listesini çoğu durum için mükemmel çalışırken, iş gereksinimlerinize özel terimleri karşı ekran isteyebilirsiniz. Örneğin, kullanıcılar tarafından gönderileri herhangi rekabetçi marka adları filtrelemek isteyebilirsiniz.
 
 > [!NOTE]
-> Maksimum sınırı yoktur **5 terim listeler** her listesine ile **10.000 koşulları aşmaması**.
+> Bir maksimum sınırı **5 terim listeleri** her listesine ile **10.000 koşulları aşmayacak**.
 >
 
 Aşağıdaki örnek, eşleşen liste kimliği gösterir:
@@ -162,8 +162,8 @@ Aşağıdaki örnek, eşleşen liste kimliği gösterir:
         "Term": "crap"
     }
 
-İçerik denetleyici sağlayan bir [terim listesi API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) özel terim yönetmek için işlemleri listeler. İle başlayan [terim listeler API konsol](try-terms-list-api.md) ve REST API kod örnekleri kullanır. Ayrıca kullanıma [terim listeler .NET quickstart](term-lists-quickstart-dotnet.md) Visual Studio ve C# ile hakkında bilginiz varsa.
+Content Moderator sağlayan bir [terim listesi API'si](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) özel terim yönetme işlemleri listeler. İle başlayan [terim listeleri API Konsolu](try-terms-list-api.md) ve REST API kod örnekleri kullanın. Ayrıca kullanıma [terim listeleri .NET Hızlı Başlangıç](term-lists-quickstart-dotnet.md) Visual Studio ve C# ile deneyiminiz varsa.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Test sürücü [metin denetleme API konsol](try-text-api.md) ve REST API kod örnekleri kullanır. Ayrıca kullanıma [metin denetleme .NET quickstart](text-moderation-quickstart-dotnet.md) Visual Studio ve C# ile bilginiz varsa.
+Sürücü test [metin denetimi API'si konsol](try-text-api.md) ve REST API kod örnekleri kullanın. Ayrıca kullanıma [metin denetimi .NET hızlı](text-moderation-quickstart-dotnet.md) Visual Studio ve C# ile ilgili bilgi sahibi değilseniz.

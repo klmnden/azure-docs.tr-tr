@@ -1,6 +1,6 @@
 ---
-title: Desen şablonları LUIS uygulamaları ekleme | Microsoft Docs
-titleSuffix: Azure
+title: LUIS uygulamalarda daha fazla konuşma yerine desen şablonları ekleme
+titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) uygulamalarında tahmin doğruluğunu artırmak için desen şablonları eklemeyi öğrenin.
 services: cognitive-services
 author: diberry
@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 8926ce48a8426aa667787f7bbe104e27e1a68669
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0fc7c0d0cafef1bdb8d33c6ebfaa672c55101ee5
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124693"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049747"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Nasıl tahmin doğruluğunu artırmak için düzenleri ekleyin
 Bir LUIS uygulaması konuşma uç noktası aldıktan sonra kullanmak [kavramı](luis-concept-patterns.md) sözcük sırasını ve sözcük seçim içindeki bir desenle açığa konuşma için tahmin doğruluğunu artırmak için desenleri. Kullanım desenlerini [varlıkları](luis-concept-entity-types.md) ve belirli bir desene söz dizimini kullanarak verileri ayıklamak için kullanıcı rolleri. 

@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/04/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b1c6209c4d589093d7a29cd8a883d3e5d4ca12f9
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: a66a17a0f8daed5f61753dd7c20ed5d9987c0b15
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782311"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053909"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Geliştirme ve C# modülleri, Azure IOT Edge için hata ayıklama için Visual Studio Code'u kullanın
 
@@ -44,7 +44,7 @@ Yerel kurulumu için hata ayıklamak için geliştirme ortamı ve IOT Edge çöz
    pip install --upgrade iotedgehubdev
    ```
 
-Modülünüzün bir cihazda test etmek için etkin bir IOT hub ile en az bir IOT Edge cihazı gerekir. Bilgisayarınızı bir IOT Edge cihazı kullanmak için hızlı başlangıç için adımları izleyin. [Windows](quickstart.md) veya [Linux](quickstart-linux.md). 
+Modülünüzün bir cihazda test etmek için oluşturulan en az bir IOT Edge cihaz Kimliğine sahip etkin bir IOT hub gerekir. IOT Edge arka plan programı geliştirme makinesinde çalıştırıyorsanız, sonraki adıma geçmeden önce EdgeHub ve EdgeAgent durdurmanız gerekebilir. 
 
 ## <a name="create-a-new-solution-with-c-module"></a>C# modülü ile yeni bir çözüm oluşturma
 
@@ -111,9 +111,6 @@ IOT Edge C# modülü olan bir.Net Core uygulaması. Ve Azure IOT C# cihaz SDK's�
     dotnet build
     ```
 
-   > [!TIP]
-   > Ayrıca [PostMan](https://www.getpostman.com/) veya yerine üzerinden ileti göndermek için API araçlara `curl`.
-
 2. `program.cs` sayfasına gidin. Bu dosyada kesme noktası ekleyin.
 
 3. VS Code hata ayıklama görünümüne gidin. Hata ayıklama Yapılandırması **ModuleName yerel hata ayıklama (.NET Core)**. 
@@ -136,7 +133,7 @@ IOT Edge C# modülü olan bir.Net Core uygulaması. Ve Azure IOT C# cihaz SDK's�
 
     ![Değişkenleri izleyin](media/how-to-develop-csharp-module/single-module-variables.png)
 
-7. Hata ayıklama oturumunu durdurmak için Durdur düğmesini veya tuşuna tıklayın **Shift + F5 tuşlarına basarak**. VS Code komut paleti yazın ve seçin **Azure IOT Edge: IOT Edge simülatör Durdur**.
+7. Hata ayıklama oturumunu durdurmak için Durdur düğmesini veya tuşuna tıklayın **Shift + F5 tuşlarına basarak**. VS Code komut paleti yazın ve seçin **Azure IOT Edge: IOT Edge simülatör Durdur** durdurun ve simülatör temizleyin.
 
 ## <a name="build-module-container-for-debugging-and-debug-in-attach-mode"></a>Hata ayıklama ve hata ayıklama için modül kapsayıcı derleme içinde modu ekleme
 

@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: bff0140d173fc3393ac56ec3d709c3c067842a2a
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 9287eb0925556d382410f95caf16a9ca478ca2da
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42061074"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054426"
 ---
 # <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Bir Kubernetes kümesi için Azure Stack Marketini Ekle
 
 *İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 > [!note]  
-> Azure Stack'te Azure Kubernetes Hizmetleri (AKS) Kubernetes özel Önizleme aşamasındadır. Bu makaledeki yönergeleri gerçekleştirmek için gereken Kubernetes Market öğesi erişim istemek için [erişim elde etmek için talebinizi](https://aka.ms/azsk8).
+> Azure Stack'te AKS (Azure Kubernetes hizmeti) altyapısı, özel Önizleme aşamasındadır. Bu makaledeki yönergeleri gerçekleştirmek için gereken Kubernetes Market öğesi erişim istemek için [erişim elde etmek için talebinizi](https://aka.ms/azsk8).
 
 Kullanıcılarınız için bir Market öğesi bir Kubernetes kümesi sunabilir. Kullanıcılarınızın Kubernetes tek ve eşgüdümlü bir işlemle dağıtabilir.
 
@@ -66,7 +66,7 @@ Ubuntu Server aşağıda Market'te ekleyin:
 
 1. Oturum [Yönetim Portalı](https://adminportal.local.azurestack.external).
 
-1. Seçin **diğer hizmetler** > **Market Yönetim**.
+1. Seçin **tüm hizmetleri**ve ardından altındaki **Yönetim** kategorisi, select **Market Yönetim**.
 
 1. Seçin **+ Azure'dan Ekle**.
 
@@ -89,7 +89,7 @@ Kubernetes kümesini marketten ekleyin:
 
 1. Açık [Yönetim Portalı](https://adminportal.local.azurestack.external).
 
-1. Seçin **diğer hizmetler** > **Market Yönetim**.
+1. Seçin **tüm hizmetleri** altındaki **Yönetim** kategorisi, select **Market Yönetim**.
 
 1. Seçin **+ Azure'dan Ekle**.
 
@@ -110,7 +110,7 @@ Kubernetes kümesini marketten ekleyin:
 
 1. Açık [Yönetim Portalı](https://adminportal.local.azurestack.external).
 
-1. Seçin **diğer hizmetler** > **Market Yönetim**.
+1. Seçin **Hizmetleri; bir;** altındaki **Yönetim** kategorisi, select **Market Yönetim**.
 
 1. Seçin **+ Azure'dan Ekle**.
 

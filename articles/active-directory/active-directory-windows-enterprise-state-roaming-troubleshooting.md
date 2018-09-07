@@ -18,12 +18,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: a80bec460fffcc7c7170204d541d578428980394
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: c7a2428e4e5e3b5af0e9e01514ba433707e6a3c8
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223958"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022807"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Azure Active Directory'de Kurumsal durumda Dolaşım ayarları sorunlarını giderme
 
@@ -71,7 +71,7 @@ Kurumsal durumda dolaşım, cihazın Azure AD'ye kayıtlı olması gerekir. Kuru
 **Olası sorun**: **WamDefaultSet** ve **AzureAdJoined** hem "Hayır" alan değeri olması, cihaz etki alanına katılmış ve Azure AD ile kaydedilen ve cihaz eşitleme. Bu gösteriyor, cihaz ilkesinin uygulanması için beklemeniz gerekebilir veya Azure AD'ye bağlanma cihaz için kimlik doğrulaması başarısız oldu. Kullanıcı, uygulanacak ilke için birkaç saat beklemeniz gerekebilir. Diğer sorun giderme adımları kapatıp arka planda otomatik kaydı yeniden denemeden veya Görev Zamanlayıcı görevi başlatma içerebilir. Bazı durumlarda, çalışan "*dsregcmd.exe /leave*" Bu sorunla yeniden başlatarak ve kaydı yeniden denemeden bir yükseltilmiş komut istemi penceresinde yardımcı olabilir.
 
 
-**Olası sorun**: alan için **AzureAdSettingsUrl** boştur ve cihazı eşitleyebilir değil. Kurumsal durumda Dolaşım Azure Active Directory portalında etkinleştirilmeden önce kullanıcının son cihaza oturum açmış. Cihazı yeniden başlatın ve kullanıcı oturum açma bilgileriniz yok. İsteğe bağlı olarak, portalda BT devre dışı bırakıp yeniden kullanıcılar olabilir eşitleme ayarları ve kurumsal uygulama verilerini etkinleştirin yöneticinin deneyin. Yeniden etkinleştirildikten sonra cihazı yeniden başlatın ve kullanıcı oturum açma bilgileriniz yok. Bu sorunu çözmezse **AzureAdSettingsUrl** söz konusu olduğunda hatalı cihaz sertifika boş olabilir. Bu durumda, çalışan "*dsregcmd.exe /leave*" Bu sorunla yeniden başlatarak ve kaydı yeniden denemeden bir yükseltilmiş komut istemi penceresinde yardımcı olabilir.
+**Olası sorun**: alan için **SettingsUrl** boştur ve cihazı eşitleyebilir değil. Kurumsal durumda Dolaşım Azure Active Directory portalında etkinleştirilmeden önce kullanıcının son cihaza oturum açmış. Cihazı yeniden başlatın ve kullanıcı oturum açma bilgileriniz yok. İsteğe bağlı olarak, portalda BT devre dışı bırakıp yeniden kullanıcılar olabilir eşitleme ayarları ve kurumsal uygulama verilerini etkinleştirin yöneticinin deneyin. Yeniden etkinleştirildikten sonra cihazı yeniden başlatın ve kullanıcı oturum açma bilgileriniz yok. Bu sorunu çözmezse **SettingsUrl** söz konusu olduğunda hatalı cihaz sertifika boş olabilir. Bu durumda, çalışan "*dsregcmd.exe /leave*" Bu sorunla yeniden başlatarak ve kaydı yeniden denemeden bir yükseltilmiş komut istemi penceresinde yardımcı olabilir.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Kurumsal durumda Dolaşım ve çok faktörlü kimlik doğrulaması 
 Belirli koşullar altında Azure multi-Factor Authentication yapılandırılmışsa veri eşitlemesine izin Kurumsal durumda Dolaşım devredebilirsiniz. Destek belgesi bu belirtiler ilgili ek ayrıntılar için bkz [KB3193683](https://support.microsoft.com/kb/3193683). 
@@ -81,7 +81,7 @@ Belirli koşullar altında Azure multi-Factor Authentication yapılandırılmı�
 **Olası sorun**: yönetici, Active Directory Federasyon hizmetlerini çok faktörlü kimlik doğrulaması koşullu erişim ilkesini yapılandırır ve cihazın erişim belirtecinin süresi eşitleme başarısız olabilir. Office 365 gibi diğer Azure hizmetlerine erişirken çok faktörlü kimlik doğrulamasını tamamlamak ya da oturum açın ve Microsoft Passport for Work PIN kullanarak oturumunuzu emin olun.
 
 ### <a name="event-viewer"></a>Olay Görüntüleyici
-Gelişmiş sorun giderme için Olay Görüntüleyicisi'ni belirli hataları bulmak için kullanılabilir. Bunlar aşağıdaki tabloda belirtilmiştir. Olayları Olay Görüntüleyicisi'ni altında bulunabilir > Uygulama ve hizmet günlükleri > **Microsoft** > **Windows** > **SettingSync** ve Eşitleme kimlik ile ilgili sorunlar **Microsoft** > **Windows** > **AAD**.
+Gelişmiş sorun giderme için Olay Görüntüleyicisi'ni belirli hataları bulmak için kullanılabilir. Bunlar aşağıdaki tabloda belirtilmiştir. Olayları Olay Görüntüleyicisi'ni altında bulunabilir > Uygulama ve hizmet günlükleri > **Microsoft** > **Windows** > **SettingSync Azure** ve kimlikle ilgili sorunları ile eşitleme için **Microsoft** > **Windows** > **AAD**.
 
 
 ## <a name="known-issues"></a>Bilinen sorunlar
@@ -174,14 +174,6 @@ Bu hata ile olay 1104 günlükleri AAD/Operational altındaki Olay Görüntüley
 
 **Önerilen eylem**  
 Listelenen adımlarla devam edin [KB3196528](https://support.microsoft.com/kb/3196528).  
-
-
-
-## <a name="next-steps"></a>Sonraki adımlar
-
-- Kullanım [User Voice forumunu](https://social.technet.microsoft.com/Forums/windows/en-US/f51c856c-db92-4cf7-a497-720da21d7d31/enterprise-state-roaming) geri bildirim sağlamak ve kurumsal durumda Dolaşım geliştirme hakkında önerilerde bulunmak için.
-
-- Daha fazla bilgi için [Kurumsal durumda dolaşıma genel bakış](active-directory-windows-enterprise-state-roaming-overview.md). 
 
 ## <a name="related-topics"></a>İlgili konular
 * [Kurumsal Dolaşım durumuna genel bakış](active-directory-windows-enterprise-state-roaming-overview.md)

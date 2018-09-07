@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 12b383267cb90d9305043b52450572add0c1c202
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: d09505e4738243576dbde64fa6daba22d054bc8e
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527499"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053276"
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Azure CLI 2.0, Azure depolama ile kullanma
 
@@ -105,7 +105,7 @@ Ardından, size Azure Storage kaynakları ile etkileşim kurmak için birkaç te
 # A simple Azure Storage example script
 
 export AZURE_STORAGE_ACCOUNT=<storage_account_name>
-export AZURE_STORAGE_ACCESS_KEY=<storage_account_key>
+export AZURE_STORAGE_KEY=<storage_account_key>
 
 export container_name=<container_name>
 export blob_name=<blob_name>
@@ -210,7 +210,7 @@ Anahtar olduğuna göre ortam değişkenleri olarak ve hesap adı tanımlayabili
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
-export AZURE_STORAGE_ACCESS_KEY=<key>
+export AZURE_STORAGE_KEY=<key>
 ```
 
 Başka bir yolu varsayılan depolama hesabı bağlantı dizesi kullanmaktır. İlk olarak, bağlantı dizesiyle alın `show-connection-string` komutu:
@@ -228,7 +228,7 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 ```
 
 > [!NOTE]
-> Aşağıdaki bölümlerde, bu makalenin tüm örnekler, ayarlamış olduğunuz varsayılır `AZURE_STORAGE_ACCOUNT` ve `AZURE_STORAGE_ACCESS_KEY` ortam değişkenleri.
+> Aşağıdaki bölümlerde, bu makalenin tüm örnekler, ayarlamış olduğunuz varsayılır `AZURE_STORAGE_ACCOUNT` ve `AZURE_STORAGE_KEY` ortam değişkenleri.
 
 ## <a name="create-and-manage-blobs"></a>Oluşturma ve BLOB'ları yönetme
 Azure Blob Depolama, büyük miktarlarda herhangi bir HTTP veya HTTPS aracılığıyla dünyanın erişilebilen metin veya ikili veriler gibi yapılandırılmamış verileri depolamak için kullanılan bir hizmettir. Bu bölümde, zaten ile Azure Blob Depolama kavramları hakkında bilgi sahibi olduğunuz varsayılır. Ayrıntılı bilgi için bkz. [.NET kullanarak Azure Blob depolamayı kullanmaya başlama](../blobs/storage-dotnet-how-to-use-blobs.md) ve [Blob hizmeti kavramları](/rest/api/storageservices/blob-service-concepts).
@@ -257,6 +257,8 @@ az storage blob upload \
     --container-name <container_name> \
     --name <blob_name>
 ```
+
+Doğrudan depolama hesabınızdaki kapsayıcı içinde bir klasöre yüklemek isterseniz değiştirme `--name <blob_name>` ile `--name <folder/blob_name>`.
 
  Varsayılan olarak, `blob upload` komut sayfa BLOB'ları veya blok blobları aksi *.vhd dosyaları karşıya yükler. Bir blob karşıya yüklediğinizde, başka bir tür belirtmek için kullanabileceğiniz `--type` izin verilen değerler değişken-- `append`, `block`, ve `page`.
 

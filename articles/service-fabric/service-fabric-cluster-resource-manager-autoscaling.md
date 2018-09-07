@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: 55feb64f06c2d67f85f230cb92e84dfe8fd3ada2
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: db4f83d0d407ad3d9e895759ea2a687662f5620a
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782398"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053304"
 ---
 # <a name="introduction-to-auto-scaling"></a>Otomatik ölçeklendirme giriş
 Otomatik ölçeklendirme Hizmetleri raporladığınız ya da kendi kaynak kullanımını temel alarak yük hizmetlerinizi dinamik olarak ölçeklendirmeniz mi ek bir Service fabric özelliktir. Otomatik ölçeklendirme, büyük esneklik sağlar ve ek örnekler ya da isteğe bağlı hizmetinizin bölümler sağlama sağlar. Tüm otomatik ölçeklendirme işlemi, otomatik ve şeffaf ve bir hizmette ilkelerinizi ayarladıktan sonra hizmet düzeyinde el ile ölçeklendirme işlemleri için gerek yoktur. Otomatik ölçeklendirme üzerinde hizmet oluşturma zamanında veya herhangi bir zamanda hizmet güncelleştirerek kapatılabilir.
@@ -117,7 +117,7 @@ Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName
 İkinci tetikleyici, bir hizmetin tüm bölümlerin yükünü alır. Ölçüm yükleri, her çoğaltma veya örnek bir bölümü için yük almak için ilk düzleştirilmiş. Durum bilgisi olan hizmetler için yük bölümün durum bilgisi olmayan hizmetler için ortalama yük tüm örneklerinin bölüm bölümün yük olsa birincil çoğaltmanın yükünü olarak değerlendirilir. Bu değerler, hizmetin tüm bölümler ortalaması alınır ve bu değer, otomatik ölçeklendirmeyi tetiklemek için kullanılır. Önceki mekanizması olduğu gibi aynı hizmet ölçeklendirildiğinde belirleyen üç faktör vardır:
 
 * _Alt yükleme eşiği_ hizmeti ne zaman olacağını belirleyen bir değer **ölçeği**. Ortalama yük hizmetinin tüm bölümlerin bu değerden düşükse, hizmet olarak ayarlanacaktır.
-* _Üst yükleme eşiği_ hizmeti ne zaman olacağını belirleyen bir değer **ölçeği**. Ortalama yük hizmetinin tüm bölümlerin bu değerden düşükse, hizmetin kullanıma ayarlanacaktır.
+* _Üst yükleme eşiği_ hizmeti ne zaman olacağını belirleyen bir değer **ölçeği**. Ortalama yük hizmetinin tüm bölümlerin bu değerden daha yüksek ise, hizmetin kullanıma ayarlanacaktır.
 * _Ölçeklendirme aralığı_ tetikleyici ne sıklıkla kontrol edileceği belirler. Ölçeklendirme gerekliyse tetikleyici iade edildikten sonra mekanizması uygulanır. Ölçeklendirme gerekmiyorsa, hiçbir işlem yapılmadı. Yeniden ölçeklendirme aralığı sona ermeden önce her iki durumda da, tetikleyici yeniden denetlenmez.
 
 Bu tetikleyiciyi olabilir hem de durum bilgisi olan ve olmayan Hizmetleri ile kullanılır. Bu tetikleyici ile kullanılabilecek tek AddRemoveIncrementalNamedParitionScalingMechanism mekanizmadır. Yeni bir bölüm eklendikten sonra hizmeti kullanıma ölçeklenir ve hizmet var olan bölümleri birinde ölçeklendirildiğinde kaldırılır. Hizmet oluşturulduğunda veya güncelleştirildiğinde ve hizmet oluşturma/güncelleştirme başarısız olur, bu koşullar karşılanmazsa denetlenecek kısıtlamaları vardır:

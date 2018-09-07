@@ -1,20 +1,21 @@
 ---
-title: LUIS uygulamanızı - Azure eğitimi | Microsoft Docs
-description: Language Understanding (LUIS), modelinizi eğitmek için kullanın.
+title: LUIS uygulamanızı eğitin
+titleSuffix: Azure Cognitive Services
+description: Eğitim, doğal dil anlama geliştirmek için Language Understanding (LUIS) uygulamanızı eğitiminde işlemidir. Ekleme, düzenleme, etiketleme veya varlıkları, amacı veya konuşma silme gibi bir Modeli'ne güncelleştirmelerinden sonra LUIS uygulamanızı eğitin.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: e947df20141b0b9870f318f410488aea23bafcf5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 42cff3dd8237598da5aa71ed1a4d6462c5b4c25d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223193"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049140"
 ---
 # <a name="train-your-luis-app"></a>LUIS uygulamanızı eğitin
 
@@ -32,11 +33,7 @@ Yinelemeli işlemini başlatmak için önce en az bir kez LUIS uygulamanızı ge
 
 2. Uygulamanızda seçin **eğitme** üst panelinde. 
 
-    ![Train (Eğitim) düğmesi](./media/luis-how-to-train/train-button.png)
-
 3. Alıştırma tamamlandıktan sonra yeşil bildirim çubuğu tarayıcı üst kısmında görünür.
-
-    ![Sayfa eğitme ve Test uygulaması](./media/luis-how-to-train/train-success.png)
 
 <!-- The following note refers to what might cause the error message "Training failed: FewLabels for model: <ModelName>" -->
 

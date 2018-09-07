@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/27/2018
 ms.author: aljo
-ms.openlocfilehash: ed904f7d4de9406e60de1652cefeb5bb84e5a1d8
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: cf8e9dff020e16efe4b37a2bfd66563211be3020
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144047"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055548"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric küme ayarlarını özelleştirme
 Bu makalede, Service Fabric kümeniz için çeşitli yapı ayarları özelleştirmeyi açıklar. Azure'da barındırılan kümeler için ayarları aracılığıyla özelleştirebilirsiniz [Azure portalında](https://portal.azure.com) veya bir Azure Resource Manager şablonu kullanarak. Tek başına kümeler için ClusterConfig.json dosyası güncelleştiriliyor ve kümenizde bir yapılandırma yükseltme gerçekleştirme ayarlarını özelleştirin. 
@@ -624,10 +624,13 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 ## <a name="security"></a>Güvenlik
 | **Parametre** | **İzin verilen değerler** |**Yükseltme İlkesi**| **Kılavuz veya kısa açıklama** |
 | --- | --- | --- | --- |
+|AADCertEndpointFormat|Varsayılan bir dize ise ""|Statik|AAD sertifikası uç nokta Azure kamu gibi varsayılan olmayan ortamda belirtilen biçimi, varsayılan Azure ticari "https://login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
 |AADClientApplication|Varsayılan bir dize ise ""|Statik|Yerel istemci uygulama adı veya kimliği Fabric istemcileri temsil eden |
 |AADClusterApplication|Varsayılan bir dize ise ""|Statik|Web API uygulaması adı veya küme temsil eden kimliği |
+|AADLoginEndpoint|Varsayılan bir dize ise ""|Statik|AAD oturum açma için Azure kamu gibi ortam varsayılan olmayan belirtilen uç noktası, varsayılan Azure ticari "https://login.microsoftonline.us" |
 |AADTenantId|Varsayılan bir dize ise ""|Statik|Kiracı kimliği (GUID) |
 |AdminClientCertThumbprints|Varsayılan bir dize ise ""|Dinamik|Yönetici rolünde istemcileri tarafından kullanılan sertifika parmak izleri. Bu ad virgülle ayrılmış listesidir. |
+|AADTokenEndpointFormat|Varsayılan bir dize ise ""|Statik|AAD belirteci Azure kamu gibi varsayılan olmayan ortamı için belirtilen uç noktası, varsayılan Azure ticari "https://login.microsoftonline.us/{0}" |
 |AdminClientClaims|Varsayılan bir dize ise ""|Dinamik|Tüm olası talepler; yönetici istemcilerden bekleniyor ClientClaims aynı biçimi; Bu liste ClientClaims için dahili olarak eklenen; Ayrıca aynı girişleri için ClientClaims ekleme gerek yoktur. |
 |AdminClientIdentities|Varsayılan bir dize ise ""|Dinamik|Windows fabric istemciler, yönetici rolünde kimliklerini; Ayrıcalıklı fabric işlemleri yetkilendirmek için kullanılır. Bir virgülle ayrılmış listesi olduğu; Her bir etki alanı hesap adı veya grup adı girdidir. Kolaylık olması için; fabric.exe çalıştıran hesap yöneticisi rolüne otomatik olarak atanır; Bu nedenle olan ServiceFabricAdministrators gruplandırın. |
 |CertificateExpirySafetyMargin|Zaman aralığı, Common::TimeSpan::FromMinutes(43200) varsayılandır|Statik|Saniye cinsinden zaman aralığı belirtin. Sertifika süre sonu için güvenlik kenar boşluğu; sona erme bu değerden daha yakın olduğunda sertifika durumu rapor Tamam'a uyarı olarak değiştiğini. Varsayılan değer 30 gündür. |

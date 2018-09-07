@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: e6cb83eb6aaaea38686c63d0f3f70738efa4bcff
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 39d3913013d9528405191c5f052a943f1869048a
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630765"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026865"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Ayarlar ve veri dolaşımı hakkında SSS
 Bu makalede, BT yöneticileri, ayarları ve uygulama verilerini eşitleme hakkında olabilir. bazı sorular yanıtlanmaktadır.
@@ -35,12 +35,12 @@ Bu makalede, BT yöneticileri, ayarları ve uygulama verilerini eşitleme hakkı
 * *Parolalar*Internet parolaları, Wi-Fi profilleri ve diğerleri dahil olmak üzere.
 * *Dil Tercihleri*, klavye düzenleri, Sistem dili, tarih ve saat ve daha fazlası için ayarları içerir.
 * *Özelliklere erişim kolaylığı*, yüksek karşıtlıklı tema ve ekran okuyucusu Büyüteç gibi.
-* *Diğer Windows ayarları*komut istemi ayarları ve uygulama listesi gibi.
+* *Diğer Windows ayarları*, fare ayarları gibi.
 
 **Uygulama verileri**: Evrensel Windows uygulamaları, ayarları veri gezici bir klasöre yazabilirsiniz ve bu klasöre yazılan tüm veriler otomatik olarak eşitlenir. Bu özellikten faydalanmak için bir uygulama tasarlamak için tek tek uygulama geliştiriciye aittir. Dolaşım kullanan bir evrensel Windows uygulaması geliştirme hakkında daha fazla ayrıntı için bkz. [appdata depolama API'si](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) ve [Geliştirici blog Dolaşım Windows 8 appdata](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Hangi hesap ayarlarını eşitleme için kullanılır?
-Windows 8 ve Windows 8.1 ayarları eşitleme tüketici Microsoft hesapları her zaman kullanılır. Kurumsal kullanıcıların bir Microsoft hesabı ayarlarının eşitlenmesinin erişim elde etmek için Active Directory etki alanı hesabına bağlanma yeteneğini gerekiyordu. Windows 10'da bu işlevselliği bir birincil/ikincil hesap çerçevesiyle değiştirilmekte olan bir Microsoft hesabı bağlı.
+Ayarları eşitleme, Windows 8.1 tüketici Microsoft hesapları her zaman kullanılır. Kurumsal kullanıcıların bir Microsoft hesabı ayarlarının eşitlenmesinin erişim elde etmek için Active Directory etki alanı hesabına bağlanma yeteneğini gerekiyordu. Windows 10'da bu işlevselliği bir birincil/ikincil hesap çerçevesiyle değiştirilmekte olan bir Microsoft hesabı bağlı.
 
 Birincil hesap için Windows oturum açmak için kullanılan hesap olarak tanımlanır. Bu, bir Microsoft hesabı, bir Azure Active Directory (Azure AD) hesabı, bir şirket içi Active Directory hesabı veya yerel hesap olabilir. Birincil hesap ek olarak, Windows 10 kullanıcıları, kullanıcının cihazında bir veya daha fazla ikincil bulut hesapları ekleyebilirsiniz. Bir ikincil genellikle bir Microsoft hesabı, bir Azure AD hesabı veya başka bir hesap Gmail veya Facebook gibi hesabıdır. Bu ikincil hesaplar çoklu oturum açma gibi ek hizmetlerden ve Windows Store için erişim sağlar, ancak ayarları eşitleme destekleyen yeteneğine sahip değildir.
 
@@ -59,7 +59,7 @@ Bir uygulamanın sahibi belirtilmemesi durumunda, birincil hesap dolaşır. Wind
 >
 
 ## <a name="how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10"></a>Nasıl yükseltebilirim Windows 8'de Microsoft hesap ayarlarını Eşitleme'den Azure AD'ye Windows 10 ayarları eşitleme?
-Bağlantılı bir Microsoft hesabı ile Windows 8 veya Windows 8.1 çalıştıran Active Directory etki alanına katılmış ise Microsoft hesabınız üzerinden ayarları eşitleme yapar. Windows 10'a yükselttikten sonra etki alanına katılmış bir kullanıcı olduğunuz ve Azure AD ile Active Directory etki alanına bağlanmaz sürece Microsoft hesabı ile kullanıcı ayarlarını eşitlemek devam eder.
+Bağlantılı bir Microsoft hesabı ile Windows 8.1 çalıştıran Active Directory etki alanına katılmış ise Microsoft hesabınız üzerinden ayarları eşitleme yapar. Windows 10'a yükselttikten sonra etki alanına katılmış bir kullanıcı olduğunuz ve Azure AD ile Active Directory etki alanına bağlanmaz sürece Microsoft hesabı ile kullanıcı ayarlarını eşitlemek devam eder.
 
 Şirket içi Active Directory etki alanı ile Azure AD connect, cihazınız bağlı kullanarak ayarlarını eşitlemek deneyecek Azure AD hesabı. Azure AD Yöneticisi, Kurumsal durumda dolaşım, uygulamanızın bağlı etkinleştirmez, Azure AD hesap ayarlarını eşitleme durdurur. Windows 10 kullanıcıysanız ve bir Azure AD kimlik bilgilerinizle oturum açın, windows ayarları Azure AD üzerinden ayarları eşitleme yöneticinize sağlar hemen sonra eşitleme başlar.
 
@@ -94,7 +94,7 @@ Yöneticiler, Windows işletim sistemi ayarları ve evrensel uygulama verileri d
 Gelecekte, Microsoft Windows ile tamamen tümleştirilmiştir UE-V olun ve ayarları Azure AD bulut üzerinden Dolaşımda olabilen UE-V genişletmek için yol araştırabilir.
 
 ## <a name="can-i-store-synced-settings-and-data-on-premises"></a>Şirket içi eşitlenmiş ayarları ve verileri depolayabilir?
-Kurumsal durumda Dolaşım tüm eşitlenmiş veriler, Azure bulutta depolar. UE-V sunan bir şirket içi çözüm Dolaşım.
+Kurumsal durumda Dolaşım tüm eşitlenmiş veriler, Microsoft bulutunda yer depolar. UE-V sunan bir şirket içi çözüm Dolaşım.
 
 ## <a name="who-owns-the-data-thats-being-roamed"></a>Dolaşımda verilerin sahibi kim?
 Kuruluşların kendi veri Kurumsal durumda Dolaşım dolaşıma açıldı. Veriler bir Azure veri merkezinde depolanır. Hem aktarım hem de Azure Information protection'dan Azure Rights Management hizmetini kullanarak bulutta bekleyen tüm kullanıcı verileri şifrelenir. Cihaz bırakmadan önce belirli kullanıcı kimlik bilgileri gibi yalnızca hassas verileri şifreler Microsoft hesabı tabanlı ayarları eşitlemeye izin, karşılaştırıldığında bir geliştirme budur.

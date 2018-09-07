@@ -1,6 +1,6 @@
 ---
-title: Azure yığınında Yönetici portalı'nı kullanarak | Microsoft Docs
-description: Bir Azure yığın operatör olarak, Yönetici portalı'nı kullanmayı öğrenin.
+title: Azure Stack'te Yönetici portalını kullanma | Microsoft Docs
+description: Azure Stack operatörü, Yönetici portalını nasıl kullanacağınızı öğrenin.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,26 +12,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 673b1144fe927e0619f5f8638d7e8ce9a181f48c
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: cea59d061dadfa3e10330cbce7b6005a286524cc
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248529"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024175"
 ---
-# <a name="using-the-administrator-portal-in-azure-stack"></a>Azure yığınında Yönetici portalı'nı kullanarak
+# <a name="using-the-administrator-portal-in-azure-stack"></a>Azure Stack'te Yönetici portalını kullanma
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Azure yığınında iki portalı vardır; Yönetici portalı'nı ve Kullanıcı Portalı'nı (bazen denir *Kiracı* portal.) Bir Azure yığın operatör olarak, günlük yönetimi ve Azure yığınının işlemleri için Yönetici portalı'nı kullanabilirsiniz.
+Azure Stack'te iki Portal vardır; Yönetici portalını ve kullanıcı portalı (bazen denir *Kiracı* portal.) Azure Stack operatörü, günlük yönetimi ve işlemleri Azure Stack için Yönetici portalını kullanabilirsiniz.
 
-## <a name="access-the-administrator-portal"></a>Erişim Yönetici portalı
+## <a name="access-the-administrator-portal"></a>Yönetici portalına erişim
 
-Bir geliştirme seti ortamı için önce şunları yapabilirsiniz emin olmanız gerekir. [Geliştirme Seti ana bilgisayarına bağlanmak](azure-stack-connect-azure-stack.md) sanal özel ağ (VPN) veya Uzak Masaüstü bağlantısı aracılığıyla.
+Bir geliştirme seti ortamı için ilk erişebildiğiniz emin olmanız gerekir [Geliştirme Seti ana bilgisayarına bağlanmak](azure-stack-connect-azure-stack.md) sanal özel ağ (VPN) veya Uzak Masaüstü bağlantısı aracılığıyla.
 
-Yönetici portalına erişmek için göz atın portalı URL'si ve bir Azure yığın işleç kimlik bilgilerini kullanarak oturum açın. Tümleşik bir sistem için URL değişir portal bölge adı ve Azure yığın dağıtımınızı dış tam etki alanı adı (FQDN) bağlı.
+Yönetici portalına erişmek için portal URL'si ve Azure Stack operatörü kimlik bilgilerini kullanarak oturum açma göz atın. Tümleşik bir sistem için URL değişir portalı bölge adı ve Azure Stack dağıtımınıza dış tam etki alanı adı (FQDN) bağlı.
 
 | Ortam | Yönetici portalı URL'si |   
 | -- | -- | 
@@ -39,50 +39,50 @@ Yönetici portalına erişmek için göz atın portalı URL'si ve bir Azure yı�
 | Tümleşik sistemler | https://adminportal.&lt; *bölge*&gt;.&lt; *FQDN*&gt; | 
 | | |
 
- ![Yönetici portalı](media/azure-stack-manage-portals/image1.png)
+ ![Yönetici portalı](media/azure-stack-manage-portals/admin-portal.png)
 
-Yönetici portalı'nda, gibi şeyler yapabilir:
+Yönetici portalı'nda gibi şeyler yapabilirsiniz:
 
-* (sistem durumu, güncelleştirmeler, kapasite, vb. dahil.) altyapısını yönetme
+* (Sistem durumu, güncelleştirme, kapasite, vb. dahil.) altyapısını yönetme
 * Market’i doldurma
-* kullanıcılar için abonelikleri oluşturma
-* planları ve teklifleri oluştur
+* Kullanıcılar için abonelikleri oluşturma
+* Plan ve teklif oluşturma
 
-**Hızlı başlangıç Öğreticisi** kutucuğu en yaygın görevler için çevrimiçi belgeleri bağlantılarını sağlar.
+**Hızlı başlangıç öğreticisinde** kutucuk en yaygın görevleri için çevrimiçi belgelere bağlantılar sağlar.
 
-Bir işleç olsa da kaynaklar oluşturabilirsiniz sanal makineler, sanal ağlar ve depolama hesaplarını Yönetici portalı'nda gibi gerekir [kullanıcı portalı oturum açma](user/azure-stack-use-portal.md) oluşturmak ve test kaynakları için.
+Bir işleç olsa da kaynaklar oluşturabilir yapmanız gerekir, bu sanal makineler, sanal ağlar ve Yönetici portalı'nda depolama hesapları gibi [kullanıcı portalında oturum açın](user/azure-stack-use-portal.md) oluşturun ve kaynakları test etmek için.
 
 >[!NOTE]
->**Bir sanal makine oluşturmak** hızlı başlangıç Öğreticisi döşemesinin bağlantısı olan bir sanal makine Yönetici portalı'nda oluşturmanıza, ancak bu yalnızca ilk dağıtıldıktan sonra Azure yığın doğrulamak için tasarlanmıştır.
+>**Sanal makine oluşturma** hızlı başlangıç Öğreticisi kutucuğunda bağlantı Yönetici portalı'nda bir sanal makine oluşturma, sahiptir, ancak bu yalnızca ilk kez dağıtıldıktan sonra Azure Stack doğrulamak için tasarlanmıştır.
 
-## <a name="understand-subscription-behavior"></a>Abonelik davranışlarını anlamak
+## <a name="understand-subscription-behavior"></a>Abonelik davranışı anlayın
 
-Yalnızca bir abonelik Yönetici portalı'ndan kullanılabilir yoktur. Bu abonelik *varsayılan sağlayıcı abonelik*. Başka bir abonelik ekleme ve Yönetici portalı'nda kullanın.
+Yönetici portalından Web'de kullanılabilir olan yalnızca bir aboneliğiniz yok. Bu abonelik *varsayılan sağlayıcı aboneliği*. Başka bir abonelik ekleyin ve bunları Yönetici portalı'nda kullanabilirsiniz olamaz.
 
-Bir Azure yığın işleci Yönetici portalı'ndan (kendiniz dahil), kullanıcılarınız için abonelikler ekleyebilir. Kullanıcılar (kendiniz dahil) erişebilir ve bu aboneliklerden kullanmak **kullanıcı** portal. Ancak, kullanıcı portalı herhangi bir Yönetici portalı'nı yönetimsel veya işletimsel özelliklerini erişim sağlamaz.
+Azure Stack operatörü, Yönetici portalı'ndan (kendiniz de dahil), kullanıcılarınız için abonelikler ekleyebilirsiniz. Kullanıcılar (kendiniz de dahil) erişebilir ve bu aboneliklerden kullanın **kullanıcı** portalı. Ancak, kullanıcı portalı herhangi bir Yönetici portalını yönetimsel veya işletimsel özelliklerine erişim sağlamaz.
 
-Yönetici ve kullanıcı portalı ayrı örnekleri Azure Kaynak Yöneticisi'nin tarafından desteklenir. Bu Kaynak Yöneticisi'ni ayrımı nedeniyle abonelikleri portalları geçmez. Bir Azure yığın operatör olarak, kullanıcı portalında oturum açarsanız, örneğin, erişemiyor *varsayılan sağlayıcı abonelik*. Tüm yönetim işlevlerini erişiminiz yok olsa da, kullanılabilir genel önerileri kendiniz için abonelikleri oluşturabilirsiniz. Kullanıcı portalında oturum açtınız sürece bir kiracı kullanıcı olarak kabul edilir.
+Yönetici ve Kullanıcı Portalı, Azure Resource Manager'ın ayrı örnekleri tarafından desteklenir. Bu Kaynak Yöneticisi'ni ayırma nedeniyle, abonelikleri portalları aşmaz. Örneğin, Azure Stack operatörü, kullanıcı portalında oturum açın, erişemediğiniz *varsayılan sağlayıcı aboneliği*. Tüm yönetim işlevleri için erişiminiz yoksa olsa da, kullanılabilir genel teklifler abonelikleri kendiniz oluşturabilirsiniz. Kullanıcı portalında oturum açmadıysanız sürece bir kiracı kullanıcı olarak kabul edilir.
 
   >[!NOTE]
-  >Bir kullanıcı Azure yığın işleci aynı Kiracı dizine aitse Geliştirme Seti ortamında, bunlar Yönetici portalı'na açmasını engellenmez. Ancak, bunlar yönetim işlevlerini hiçbirine erişemiyor. Ayrıca, Yönetici portalı'ndan Kullanıcı Portalı'nda kullanılabilen aboneliklerini ya da erişim sunar ekleyemezler.
+  >Bir kullanıcı olarak Azure Stack operatörü aynı Kiracı dizinine dahilse Geliştirme Seti ortamında kullanıcılar Yönetici portalına açmasını engellenmez. Ancak, bunlar herhangi bir yönetim işlevlerini erişemez. Ayrıca, Yönetici portalı'ndan, Kullanıcı Portalı'nda kullanılabilir abonelikleri veya erişim sunan ekleyemezler.
 
 ## <a name="administrator-portal-tips"></a>Yönetici portalı ipuçları
 
-### <a name="customize-the-dashboard"></a>Pano özelleştirme
+### <a name="customize-the-dashboard"></a>Panoyu özelleştirin
 
-Pano, bir dizi varsayılan kutucukla içerir. Seçebileceğiniz **düzenleme Pano** varsayılan pano değiştirmek veya seçmek için **yeni Pano** özel bir pano eklemek için. Bir Pano kutucukları kolayca ekleyebilirsiniz. Örneğin, seçebileceğiniz **yeni**, sağ **sunar + planları**ve ardından **panoya Sabitle**.
+Pano, bir dizi varsayılan kutucukla içerir. Seçebileceğiniz **panoyu Düzenle** varsayılan pano değiştirmek veya **yeni Pano** özel bir pano eklemek için. Kutucukları bir panoya kolayca ekleyebilirsiniz. Örneğin, seçebileceğiniz **yeni**, sağ **sunar + planlar**seçip **panoya Sabitle**.
 
 ### <a name="quick-access-to-online-documentation"></a>Hızlı erişim için çevrimiçi belgeleri
 
-Azure yığın işleci belgelerine erişmek için Yardım'ı kullanma ve Yönetici portalı'nı sağ üst köşesinde simgesi (soru işareti) destekler. İmleci simgesine getirin ve ardından **Yardım + Destek**.
+Azure Stack operatör belgeleri erişmek için Yardımı kullanın ve yönetici portalının sağ üst köşesindeki simgeyi (soru işareti) destek. İmlecinizi simgenin üzerine taşıyın ve ardından **Yardım + Destek**.
 
-### <a name="quick-access-to-help-and-support"></a>Yardım ve destek için hızlı erişim
+### <a name="quick-access-to-help-and-support"></a>Yardım ve Destek hızlı erişim
 
-Yönetici portalı'nı sağ üst köşesinde Yardım ve Destek simgesini (soru işareti) seçin ve ardından **yeni destek isteği**, aşağıdaki sonuçları biri gerçekleşir:
+Yönetici portalını sağ üst köşesinde bulunan Yardım ve Destek simgesini (soru işareti) seçin ve ardından **yeni destek isteği**, aşağıdaki sonuçları biri gerçekleşir:
 
-- Tümleşik bir sistem kullanıyorsanız, bu eylem sizi doğrudan bir destek bileti Microsoft Müşteri Destek Hizmetleri'ne (CSS) ile açabileceğiniz bir site açar. Başvurmak [destek almak nereye](azure-stack-manage-basics.md#where-to-get-support) Microsoft destek ya da özgün donanım üreticisi (OEM) donanım satıcısı destek zaman gitmesi gereken anlamak için.
-- Geliştirme Seti kullanıyorsanız, bu eylem Azure yığın forumları sitenin doğrudan açılır. Bu forumları düzenli olarak izlenir. Geliştirme Seti bir değerlendirme ortamı olduğundan, Microsoft CSS sunulan resmi desteği yoktur.
+- Bu eylem, tümleşik bir sistem kullanıyorsanız, burada doğrudan bir destek bileti Microsoft Müşteri Destek Hizmetleri (CSS) ile açabileceğiniz bir site açar. Başvurmak [destek alınacağı](azure-stack-manage-basics.md#where-to-get-support) zaman orijinal ekipman üreticisi (OEM) donanım satıcısı Desteğinizi veya Microsoft desteği aracılığıyla gideceğine anlamak için.
+- Bu eylem, Geliştirme Seti kullanıyorsanız, Azure Stack Forum sitesine doğrudan açar. Bu Forum düzenli olarak izlenir. Geliştirme Seti değerlendirme ortamı olduğundan, Microsoft CSS sunulan resmi desteği yoktur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure yığınında bölge Yönetimi](azure-stack-region-management.md)
+- [Azure stack'teki bölge Yönetimi](azure-stack-region-management.md)

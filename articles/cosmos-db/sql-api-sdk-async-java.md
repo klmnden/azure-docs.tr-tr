@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/16/2018
+ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 9852edfca26e78ad1b373418970dfe9c7ab477d8
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: e90c5640e571aaf28e184e9439f6228e3a5bbc6b
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42059762"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023571"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK'sı SQL API'si için: yayın notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -52,6 +52,13 @@ SQL API Async Java SDK'sı desteği ile zaman uyumsuz işlemleri sağlayarak SQL
 </table></br>
 
 ## <a name="release-notes"></a>Sürüm notları
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Proxy için destek eklendi.
+* Kaynak belirteci yetkilendirme için destek eklendi.
+* Büyük bölüm anahtarlarını işleme içinde bir hata düzeltildi ([github #63](https://github.com/Azure/azure-cosmosdb-java/issues/63)).
+* Belgeleri geliştirdik.
+* SDK daha ayrıntılı modüllerine yeniden oluşturulamaz.
 
 ### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
 * İngilizce dışındaki diller için bir hata düzeltildi ([github #51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
@@ -103,6 +110,7 @@ Cosmos DB devre dışı bırakılan bir SDK'sını kullanarak yapılan tüm iste
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |5 Eylül 2018'den|--- |
 | [2.0.1](#2.0.1) |16 Ağustos 2018|--- |
 | [2.0.0](#2.0.0) |20 Haziran 2018'e|--- |
 | [1.0.2](#1.0.2) |18 Mayıs 2018|--- |

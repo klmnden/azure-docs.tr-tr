@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: jaredmoo
-ms.openlocfilehash: ae5dafcebd50ecd22309a7771b0edf01a97fd7a7
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: d524f7756c8dd394d8651839a1f6426c512d6a73
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842633"
+ms.locfileid: "44023537"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Elastik veritabanı işleri oluşturmak ve yönetmek için Transact-SQL (T-SQL) kullanın
 
@@ -482,7 +482,7 @@ Başarıyla oluşturulursa, işe atanan iş kimlik numarası. job_id, türü ben
 Bir proje eklemek için sp_add_job yürütüldükten sonra sp_add_jobstep iş için etkinlikleri gerçekleştiren adımları eklemek için kullanılabilir. İşin ilk sürüm numarası, ilk adım eklendiğinde 1 artırılır 0 ' dır.
 
 #### <a name="permissions"></a>İzinler
-Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Kısıtlama yalnızca bir kullanıcı, işleri izlemek için, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
+Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Bunlar, yalnızca işlerini izleme kullanabilmek için bir kullanıcı kısıtlamak, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
 
 - jobs_reader
 
@@ -544,7 +544,7 @@ Tarih üzerinde hangi iş yürütme durdurabilirsiniz. schedule_end_time, DATETI
 Bir proje eklemek için sp_add_job yürütüldükten sonra sp_add_jobstep iş için etkinlikleri gerçekleştiren adımları eklemek için kullanılabilir. İşin ilk sürüm numarası, ilk adım eklendiğinde 1 artırılır 0 ' dır.
 
 #### <a name="permissions"></a>İzinler
-Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Kısıtlama yalnızca bir kullanıcı, işleri izlemek için, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
+Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Bunlar, yalnızca işlerini izleme kullanabilmek için bir kullanıcı kısıtlamak, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
 - jobs_reader
 
 Bu rollerden izinler hakkında daha fazla ayrıntı için bu belgedeki izni bölümüne bakın. Yalnızca sysadmin üyeleri bu saklı yordam, diğer kullanıcılara ait işlerin öznitelikleri düzenlemek için kullanabilirsiniz.
@@ -576,7 +576,7 @@ Silinecek iş adı. job_name nvarchar(128) ' dir.
 İş geçmişi, bir işi silindiğinde otomatik olarak silinir.
 
 #### <a name="permissions"></a>İzinler
-Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Kısıtlama yalnızca bir kullanıcı, işleri izlemek için, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
+Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Bunlar, yalnızca işlerini izleme kullanabilmek için bir kullanıcı kısıtlamak, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
 - jobs_reader
 
 Bu rollerden izinler hakkında daha fazla ayrıntı için bu belgedeki izni bölümüne bakın. Yalnızca sysadmin üyeleri bu saklı yordam, diğer kullanıcılara ait işlerin öznitelikleri düzenlemek için kullanabilirsiniz.
@@ -701,7 +701,7 @@ Paralellik elastik havuz başına en fazla düzeyi. Küme ve iş adımı yalnız
 Sp_add_jobstep başarılı olduğunda, işin geçerli sürüm numarası artırılır. Yeni sürüm, işin yürütüldüğünde, sonraki açışınızda kullanılacaktır. İş yürütülmekte olduğundan, bu yürütme yeni adım içermez.
 
 #### <a name="permissions"></a>İzinler
-Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Kısıtlama yalnızca bir kullanıcı, işleri izlemek için, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:  
+Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Bunlar, yalnızca işlerini izleme kullanabilmek için bir kullanıcı kısıtlamak, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:  
 
 - jobs_reader
 
@@ -825,7 +825,7 @@ Paralellik elastik havuz başına en fazla düzeyi. Küme ve iş adımı yalnız
 İşin tüm devam eden yürütmeleri etkilenmez. Sp_update_jobstep başarılı olduğunda, işin sürüm numarası artırılır. Yeni sürüm, işin yürütüldüğünde, sonraki açışınızda kullanılacaktır.
 
 #### <a name="permissions"></a>İzinler
-Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Kısıtlama yalnızca bir kullanıcı, işleri izlemek için, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
+Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Bunlar, yalnızca işlerini izleme kullanabilmek için bir kullanıcı kısıtlamak, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
 
 - jobs_reader
 
@@ -870,7 +870,7 @@ Yeni proje sürüm numarasını atanacak çıkış parametresi. job_version tams
 Bir iş adımları silinmiş bir iş adımı tarafından sol boşluğu doldurmak için otomatik olarak numaralandırılır.
  
 #### <a name="permissions"></a>İzinler
-Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Kısıtlama yalnızca bir kullanıcı, işleri izlemek için, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
+Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Bunlar, yalnızca işlerini izleme kullanabilmek için bir kullanıcı kısıtlamak, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
 - jobs_reader
 
 Bu rollerden izinler hakkında daha fazla ayrıntı için bu belgedeki izni bölümüne bakın. Yalnızca sysadmin üyeleri bu saklı yordam, diğer kullanıcılara ait işlerin öznitelikleri düzenlemek için kullanabilirsiniz.
@@ -906,7 +906,7 @@ Adım kaldırılacak iş adı. job_name varsayılansız bir nvarchar(128) ' dir.
 Yok.
  
 #### <a name="permissions"></a>İzinler
-Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Kısıtlama yalnızca bir kullanıcı, işleri izlemek için, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
+Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Bunlar, yalnızca işlerini izleme kullanabilmek için bir kullanıcı kısıtlamak, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
 - jobs_reader
 
 Bu rollerden izinler hakkında daha fazla ayrıntı için bu belgedeki izni bölümüne bakın. Yalnızca sysadmin üyeleri bu saklı yordam, diğer kullanıcılara ait işlerin öznitelikleri düzenlemek için kullanabilirsiniz.
@@ -934,7 +934,7 @@ Durdurmak için iş yürütme kimliği sayısı. Varsayılan null ile benzersiz 
 Yok.
  
 #### <a name="permissions"></a>İzinler
-Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Kısıtlama yalnızca bir kullanıcı, işleri izlemek için, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
+Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Bunlar, yalnızca işlerini izleme kullanabilmek için bir kullanıcı kısıtlamak, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
 - jobs_reader
 
 Bu rollerden izinler hakkında daha fazla ayrıntı için bu belgedeki izni bölümüne bakın. Yalnızca sysadmin üyeleri bu saklı yordam, diğer kullanıcılara ait işlerin öznitelikleri düzenlemek için kullanabilirsiniz.
@@ -966,7 +966,7 @@ Oluşturulacak hedef grubun adı. target_group_name varsayılansız bir nvarchar
 Hedef grupları veritabanları koleksiyonunu bir işi hedeflemek için kolay bir yol sağlar.
 
 #### <a name="permissions"></a>İzinler
-Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Kısıtlama yalnızca bir kullanıcı, işleri izlemek için, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
+Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Bunlar, yalnızca işlerini izleme kullanabilmek için bir kullanıcı kısıtlamak, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
 - jobs_reader
 
 Bu rollerden izinler hakkında daha fazla ayrıntı için bu belgedeki izni bölümüne bakın. Yalnızca sysadmin üyeleri bu saklı yordam, diğer kullanıcılara ait işlerin öznitelikleri düzenlemek için kullanabilirsiniz.
@@ -994,7 +994,7 @@ Silmek için hedef grubun adı. target_group_name varsayılansız bir nvarchar(1
 Yok.
 
 #### <a name="permissions"></a>İzinler
-Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Kısıtlama yalnızca bir kullanıcı, işleri izlemek için, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
+Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Bunlar, yalnızca işlerini izleme kullanabilmek için bir kullanıcı kısıtlamak, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
 - jobs_reader
 
 Bu rollerden izinler hakkında daha fazla ayrıntı için bu belgedeki izni bölümüne bakın. Yalnızca sysadmin üyeleri bu saklı yordam, diğer kullanıcılara ait işlerin öznitelikleri düzenlemek için kullanabilirsiniz.
@@ -1050,7 +1050,7 @@ Dönüş kodu değerler 0 (başarılı) veya 1 (hata)
 Bir sunucu içindeki tüm veritabanlarına üzerinde bir iş çalıştırır veya elastik havuz bir mantıksal sunucu ya da elastik havuz yürütme zamanında hedef gruba dahil edildi.
 
 #### <a name="permissions"></a>İzinler
-Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Kısıtlama yalnızca bir kullanıcı, işleri izlemek için, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
+Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Bunlar, yalnızca işlerini izleme kullanabilmek için bir kullanıcı kısıtlamak, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
 - jobs_reader
 
 Bu rollerden izinler hakkında daha fazla ayrıntı için bu belgedeki izni bölümüne bakın. Yalnızca sysadmin üyeleri bu saklı yordam, diğer kullanıcılara ait işlerin öznitelikleri düzenlemek için kullanabilirsiniz.
@@ -1106,7 +1106,7 @@ Bağımsız değişkenler [ @target_group_name =] 'target_group_name'
 Hedef grup üyesini kaldırmak için hedef grubun adı. target_group_name varsayılansız bir nvarchar(128) ' dir.
 
 [ @target_id =] target_id  
- Hedef kimlik numarası kaldırılması hedef grubu üyesine atanmış. Varsayılan null bir benzersiz tanımlayıcı target_id olur.
+ Hedef kimlik numarası kaldırılması hedef grubu üyesine atanmış. Varsayılan olarak NULL ile benzersiz tanımlayıcı target_id olur.
 
 #### <a name="return-code-values"></a>Dönüş kodu değerleri
 (başarılı) 0 veya 1 (hata)
@@ -1115,7 +1115,7 @@ Hedef grup üyesini kaldırmak için hedef grubun adı. target_group_name varsay
 Hedef grupları veritabanları koleksiyonunu bir işi hedeflemek için kolay bir yol sağlar.
 
 #### <a name="permissions"></a>İzinler
-Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Kısıtlama yalnızca bir kullanıcı, işleri izlemek için, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
+Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Bunlar, yalnızca işlerini izleme kullanabilmek için bir kullanıcı kısıtlamak, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
 - jobs_reader
 
 Bu rollerden izinler hakkında daha fazla ayrıntı için bu belgedeki izni bölümüne bakın. Yalnızca sysadmin üyeleri bu saklı yordam, diğer kullanıcılara ait işlerin öznitelikleri düzenlemek için kullanabilirsiniz.
@@ -1166,7 +1166,7 @@ Bir iş geçmişi kayıtları kaldırır.
 (başarılı) 0 veya 1 (hata) Açıklamalar hedef grupları veritabanları koleksiyonunu bir işi hedeflemek için kolay bir yol sağlar.
 
 #### <a name="permissions"></a>İzinler
-Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Kısıtlama yalnızca bir kullanıcı, işleri izlemek için, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
+Varsayılan olarak, sysadmin sabit sunucu rolünün üyeleri bu saklı yordamı yürütebilir. Bunlar, yalnızca işlerini izleme kullanabilmek için bir kullanıcı kısıtlamak, aşağıdaki İş Aracısı oluştururken belirttiğiniz İş Aracısı veritabanı veritabanı rolünün bir parçası olarak kullanıcı verebilirsiniz:
 - jobs_reader
 
 Bu rollerden izinler hakkında daha fazla ayrıntı için bu belgedeki izni bölümüne bakın. Yalnızca sysadmin üyeleri bu saklı yordam, diğer kullanıcılara ait işlerin öznitelikleri düzenlemek için kullanabilirsiniz.
@@ -1336,7 +1336,7 @@ Tüm hedef grupların tüm üyeleri gösterir.
 
 ## <a name="resources"></a>Kaynaklar
 
- - ![Konu bağlantı simgesi](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "konu bağlantı simgesi") [Transact-SQL söz dizimi kuralları](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ - ![Konu bağlantı simgesi](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "konu bağlantı simgesi") [Transact-SQL söz dizimi kuralları](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

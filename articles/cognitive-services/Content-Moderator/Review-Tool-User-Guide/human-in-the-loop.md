@@ -1,6 +1,6 @@
 ---
-title: Makine destekli içerik yönetimini ve içerik yönetici alanına İnsan incelemeler | Microsoft Docs
-description: Nasıl makineler ve insanlar birlikte en iyi sonuçlar için içerik yönetimini sağlar
+title: Makine destekli içerik denetleme ve Content Moderator İnsan incelemelerine | Microsoft Docs
+description: Nasıl makineler ve insanlar birlikte en iyi sonuçları içerik denetleme için sağlar
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,25 +9,25 @@ ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
 ms.author: sajagtap
-ms.openlocfilehash: da657404e4cb8b86d67f56084a6f5a261bad4de2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1c08b30c0e59aac21d24f75d88530ba51b67d6b4
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351551"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023942"
 ---
-# <a name="human-in-the-loop"></a>İnsan-içinde--döngüsü
+# <a name="human-in-the-loop"></a>İnsan içinde--döngüsü
 
-İnsanlar ve makineleri birlikte içerik yönetimini üzerinde çalışırken en iyi sonuçları alın. Makineler etkili bir şekilde tahmin güvenirlik destekli ya da gerçek dünya bağlamı içinde tempered için sahip olduğu İnsan incelemeler kullanmasıdır. Sonuç insanlar ya da makineleri tek başına çalıştığınız varsa daha iyi gerçekleştiren bir karma içeriği denetleme işlemidir.
+İnsanlar ve makineler birlikte içerik denetleme üzerinde çalışırken en iyi sonuçları alın. Makineleri etkili bir şekilde tahmin olasılık Yardımlı ya da bir gerçek dünya bağlamında geliştirildiğinde sahip olduğu incelemelere artırabilir. Sonuç gerçekleştiren insanlar ve makineler yalnızca çalışmakta olduğunuz, daha iyi bir karma içerik denetleme işlemidir.
 
-## <a name="how-the-review-tool-helps"></a>Gözden geçirme Aracı'nı nasıl yardımcı olur ##
+## <a name="how-the-review-tool-helps"></a>İnceleme aracını yönelik yardımları ##
 
-Makine destekli yönetimini API'leri ile birlikte kullanıldığında İnsan gözden geçirme aracı, içerik yönetimi yaşam döngüsü ile ilgili önemli bu görevleri gerçekleştirmenize olanak sağlar.
+İnsan tarafından İnceleme aracı makine Yardımlı resim denetimi API'leri ile birlikte kullanıldığında, içerik denetleme yaşam döngüsü ile ilgili önemli görevleri gerçekleştirmenize olanak sağlar.
 
-1. Temel alınan denetleme API sonuçlarından İnsan incelemeler oluşturulmasını otomatik hale getirme
-2. Birden çok biçim (metin, görüntü ve video - yakında) Orta için bir aracı (gözden geçirme aracı ve API) kullanın
-3. İçerik kategori veya deneyim düzeyine göre düzenlenmiş birden çok gözden geçirme takımlara içerik incelemeleri İlerlet veya atayabilirsiniz.
-4. Varsayılan iş akışlarını kullanın veya özel iş akışları esnek kurallarla ve herhangi bir kod yazmadan olmadan tanımlayın.
-5. Herhangi bir API veya iş İnsan gözden geçirme ekleyin yalnızca bir bağlayıcı oluşturma tarafından işlem.
-6. Microsoft PhotoDNA, metin analizleri ve yüz API'leri sonuçlarını gözden geçirmek için varsayılan bağlayıcıları kullanın.
-7. İçerik yönetimini işlemlerinizi temel performans ölçümlerini alın.
+1. Temel alınan denetimi API'si sonuçlarından incelemelere oluşturulmasını otomatikleştirin
+2. Orta birden çok biçimde (metin, görüntü ve video) için bir aracı (gözden geçirme aracı ve API) kullanın
+3. Atayın veya içerik kategori veya deneyim düzeyine göre düzenlenmiş birden çok gözden geçirme ekibi için içerik incelemeleri ilerletebilirsiniz.
+4. Varsayılan iş akışlarını kullanın veya özel iş akışları ile esnek kurallara ve herhangi bir kod yazmadan tanımlar.
+5. Herhangi bir API veya iş için insan tarafından İnceleme ekleyin yalnızca bağlayıcı oluşturmanın tarafından işlem.
+6. Microsoft PhotoDNA, metin analizi ve yüz tanıma API'leri sonuçlarını gözden geçirmek için varsayılan bağlayıcıları kullanın.
+7. Temel performans ölçümlerini, içerik denetleme işlemleri alın.

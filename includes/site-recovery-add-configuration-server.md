@@ -1,3 +1,21 @@
+---
+title: include dosyası
+description: include dosyası
+services: site-recovery
+author: rayne-wiselman
+manager: carmonm
+ms.service: site-recovery
+ms.topic: include
+ms.date: 09/06/2018
+ms.author: raynew
+ms.custom: include file
+ms.openlocfilehash: 2ca4916d48da6fe8a2c061056a1ea0fed9a78bb6
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44058499"
+---
 1. Birleşik Kurulum yükleme dosyasını çalıştırın.
 2. İçinde **başlamadan önce**seçin **yapılandırma sunucusu ve işlem sunucusunu yükle**.
 
@@ -21,10 +39,7 @@
 7. **MySQL Yapılandırması** menüsünde, yüklü MySQL sunucu örneğinde oturum açmak için kimlik bilgileri oluşturun.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)
-8. **Ortam Ayrıntıları**’nda VMware sanal makinelerini çoğaltıp çoğaltmayacağınızı seçin. Varsa, Kurulum Powerclı 6.0 yüklü olduğunu denetler.
-
-    ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz7.png)
-
+8. İçinde **ortam ayrıntıları**Hayır Azure Stack sanal makineleri veya fiziksel sunucuları çoğaltıyorsanız seçin. 
 9. **Yükleme Konumu** alanında ikili dosyaları yüklemek ve önbelleği depolamak istediğiniz konumu seçin. Seçtiğiniz sürücü en az 5 GB kullanılabilir disk alanına sahip olmalıdır, ancak en az 600 GB boş alanı olan bir önbellek sürücüsü seçmeniz önerilir.
 
     ![Yükleme konumu](./media/site-recovery-add-configuration-server/combined-wiz8.png)

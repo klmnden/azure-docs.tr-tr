@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 9a06ff345d1bf91efd1abff9960a1a6f9a681dce
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 40e67dfd4ffa427ac47198e88994762a4a45cc94
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223676"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023360"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 dolaşım ayarları başvurusu
 Dolaşıma açıldı veya Windows 10'da yedeklenen tüm ayarları tam bir listesi verilmiştir. 
@@ -44,10 +44,11 @@ Aşağıdaki ayar grubu, son kullanıcılar, Windows 10 cihazlarında ayarları 
 
 * Tema: Masaüstü arka plan, kullanıcı kutucuğunda, görev çubuğunun konumu, vb. 
 * Internet Explorer ayarlarını: gözatma geçmişi, URL'ler, Sık Kullanılanlar yazdınız. 
-* Parolalar: [Windows kimlik bilgileri kasası](https://technet.microsoft.com/library/jj554668.aspx), Wi-Fi profilleri de dahil olmak üzere 
+* Parolalar: Wi-Fi profilleri de dahil olmak üzere Windows kimlik bilgisi Yöneticisi 
 * Dil Tercihleri: yazım sözlük, Sistem dil ayarları 
 * Erişim Kolaylığı: Ekran Okuyucusu, ekran klavyesi, Büyüteç 
 * Diğer Windows ayarları: Windows ayarları ayrıntıları bakın
+* Edge tarayıcı ayarları: Microsoft Edge Sık Kullanılanlar okuma listesi ve diğer ayarları
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
@@ -73,20 +74,20 @@ Dolaşımda yoksa ayarlar veya eşitleme grubuna ait değil.
 | **Uygulama verilerini**: tek tek uygulamalar verileri Eşitle |Eşitleme yedekleme |Eşitleme yedekleme |İç |
 | **Uygulama listesi**: yüklü uygulamalar listesi |X |yedekleme |Diğer |
 | **Bluetooth**: tüm Bluetooth ayarları |X |X | |
-| **Komut İstemi**: komut istemi "Varsayılan" ayarları |eşitle |X | |
+| **Komut İstemi**: komut istemi "Varsayılan" ayarları |eşitle |X |İç |
 | **Kimlik bilgileri**: kimlik bilgileri kasası |eşitle |eşitle |password |
-| **Tarih, saat ve bölge**: otomatik saat (Internet zaman eşitleme) |eşitle |eşitle |Dil |
-| **Tarih, saat ve bölge**: 24 saatlik düzende |eşitle |X |Dil |
-| **Tarih, saat ve bölge**: tarih ve saat |eşitle |X |Dil |
-| **Tarih, saat ve bölge**: saat dilimi | |X |Dil |
-| **Tarih, saat ve bölge**: gün ışığından yararlanma saatine |eşitle |X |Dil |
-| **Tarih, saat ve bölge**: ülke/bölge |eşitle |X |Dil |
-| **Tarih, saat ve bölge**: haftanın ilk günü |eşitle |X |Dil |
-| **Tarih, saat ve bölge**: bölge format (yerel) |eşitle |X |Dil |
-| **Tarih, saat ve bölge**: kısa tarih |eşitle |X |Dil |
-| **Tarih, saat ve bölge**: uzun tarih |eşitle |X |Dil |
-| **Tarih, saat ve bölge**: kısa süre |eşitle |X |Dil |
-| **Tarih, saat ve bölge**: uzun saat |eşitle |X |Dil |
+| **Tarih, saat ve bölge**: otomatik saat (Internet zaman eşitleme) |eşitle |eşitle |dil |
+| **Tarih, saat ve bölge**: 24 saatlik düzende |eşitle |X |dil |
+| **Tarih, saat ve bölge**: tarih ve saat |eşitle |X |dil |
+| **Tarih, saat ve bölge**: saat dilimi | |X |dil |
+| **Tarih, saat ve bölge**: gün ışığından yararlanma saatine |eşitle |X |dil |
+| **Tarih, saat ve bölge**: ülke/bölge |eşitle |X |dil |
+| **Tarih, saat ve bölge**: haftanın ilk günü |eşitle |X |dil |
+| **Tarih, saat ve bölge**: bölge format (yerel) |eşitle |X |dil |
+| **Tarih, saat ve bölge**: kısa tarih |eşitle |X |dil |
+| **Tarih, saat ve bölge**: uzun tarih |eşitle |X |dil |
+| **Tarih, saat ve bölge**: kısa süre |eşitle |X |dil |
+| **Tarih, saat ve bölge**: uzun saat |eşitle |X |dil |
 | **Masaüstü kişiselleştirme**: Masaüstü tema (arka plan, sistem renk, varsayılan sistem ses ve ekran koruyucu) |eşitle |X |Tema |
 | **Masaüstü kişiselleştirme**: slayt gösterisi duvar kağıdı |eşitle |X |Tema |
 | **Masaüstü kişiselleştirme**: görev çubuğu ayarları (konum, otomatik gizleme, vb.) |eşitle |X |Tema |

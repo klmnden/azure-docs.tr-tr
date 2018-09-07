@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: juliako
-ms.openlocfilehash: 757ba9e999bfbb46be96e653e7939d91bdf67679
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 015b8570e9cbb06a33107de7a8cb9ae00d60cacb
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287134"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053997"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>REST kullanarak isteğe bağlı içerik göndermeye başlama
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -54,7 +54,7 @@ Bu hızlı başlangıçta, aşağıdaki görevleri gösterilir.
 >[!NOTE]
 >Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Aynı günleri / erişim izinlerini, örneğin, ilkeleri kalmasına yerinde uzun bir süredir (karşıya yükleme olmayan ilkeler) yöneliktir bulucular için her zaman aynı ilke Kimliğini kullanın. Daha fazla bilgi için [bu makaleye](media-services-dotnet-manage-entities.md#limit-access-policies) bakın.
 
-Bu makalede kullanılan AMS REST varlıklar hakkında daha fazla ayrıntı için bkz: [Azure Media Services REST API Başvurusu](https://docs.microsoft.com/en-us/rest/api/media/services/azure-media-services-rest-api-reference). Ayrıca bkz [Azure Media Services kavramları](media-services-concepts.md).
+Bu makalede kullanılan AMS REST varlıklar hakkında daha fazla ayrıntı için bkz: [Azure Media Services REST API Başvurusu](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference). Ayrıca bkz [Azure Media Services kavramları](media-services-concepts.md).
 
 >[!NOTE]
 >Varlıklar Media Services erişirken, HTTP isteklerini özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md).
@@ -405,7 +405,7 @@ Başarılı olursa, aşağıdaki döndürülür:
 
 ## <a id="encode"></a>Kaynak dosyayı Uyarlamalı bit hızı MP4 dosyaları kümesine kodlayın
 
-Önce Media Services, medya varlıklarına kodlanmış başlayan kümeniz, medyaya, kodlama vb. sonra istemcilere teslim edilir. Bu etkinlikler, yüksek performans ve kullanılabilirlik sağlamak için birden fazla arka plan rol örneğinde zamanlanır ve çalıştırılır. Bu etkinliklere işler adı verilir ve her bir iş varlık dosyası üzerinde asıl işi yapan atomik görevlerden oluşur (daha fazla bilgi için [iş](https://docs.microsoft.com/en-us/rest/api/media/operations/job), [görev](https://docs.microsoft.com/en-us/rest/api/media/operations/task) açıklamaları).
+Önce Media Services, medya varlıklarına kodlanmış başlayan kümeniz, medyaya, kodlama vb. sonra istemcilere teslim edilir. Bu etkinlikler, yüksek performans ve kullanılabilirlik sağlamak için birden fazla arka plan rol örneğinde zamanlanır ve çalıştırılır. Bu etkinliklere işler adı verilir ve her bir iş varlık dosyası üzerinde asıl işi yapan atomik görevlerden oluşur (daha fazla bilgi için [iş](https://docs.microsoft.com/rest/api/media/operations/job), [görev](https://docs.microsoft.com/rest/api/media/operations/task) açıklamaları).
 
 İle Azure Media Services en sık karşılaşılan senaryolardan biri, istemcilerinize bit hızı Uyarlamalı akış iletmektir çalışırken daha önce belirtildiği gibi. Media Services dinamik olarak paketlemek Uyarlamalı bit hızı MP4 dosyaları kümesini aşağıdaki biçimlerden birini: HTTP canlı akışı (HLS), kesintisiz akış, MPEG DASH.
 

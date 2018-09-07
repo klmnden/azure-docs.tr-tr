@@ -8,14 +8,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 375990f095d3a6cbbbfa18db70466c274fd7e17b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2f18840802a39f03659792a4d5b33ad3a73c5961
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702604"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051451"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB ile ilgili SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB ile ilgili temel bilgiler
@@ -441,15 +441,132 @@ Hataların çoğu aynı olacak şekilde azure tablo depolama ve Azure Cosmos DB 
 Azure Cosmos DB, gecikme süresi, aktarım hızı, kullanılabilirlik ve tutarlılık garantileri sağlar bir SLA tabanlı bir sistemdir. Sağlanan sistem olduğundan, bu gereksinimleri güvence altına almak için kaynakları ayırır. Tablo oluşturma Hızlı oranını algıladı ve kısıtlanmış. Tabloların oluşturulma oranı arayın ve dakika başına 5'ten daha düşük öneririz. Tablo API'si sağlanan sistem olduğunu unutmayın. Sağlama süre için ödeme başlar. 
 
 ## <a name="gremlin-api"></a>Gremlin API
-### <a name="how-can-i-apply-the-functionality-of-gremlin-api-to-azure-cosmos-db"></a>Nasıl miyim Gremlin API işlevlerini Azure Cosmos DB'ye uygulayabilir miyim?
-Uzantı kitaplığı, Gremlin API işlevlerini uygulamak için kullanabilirsiniz. Bu kitaplık, Microsoft Azure grafikleri denir ve şurada bulunur [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs). 
 
-### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>Gremlin graf çapraz dil desteği gibi görünüyor. Sorgu, daha fazla formlar eklemek üzere planlıyor musunuz?
-Evet, sorgu için başka mekanizmalar gelecekte eklemeyi planlıyoruz. 
+### <a name="for-cnet-development-should-i-use-the-microsoftazuregraphs-package-or-gremlinnet"></a>C# / .NET geliştirme kullanmalıyım Microsoft.Azure.Graphs paket ya da Gremlin.NET? 
 
-### <a name="how-can-i-use-the-new-gremlin-api-offering"></a>Yeni Gremlin API teklifi nasıl kullanabilirim? 
-Başlamak için tamamlamak [Gremlin API](../cosmos-db/create-graph-dotnet.md) hızlı başlangıç makalesi.
+Azure Cosmos DB Gremlin API'si hizmeti için ana Bağlayıcılarla açık kaynaklı sürücüleri yararlanır. Önerilen seçenek kullanmak için bu nedenle [Apache Tinkerpop tarafından desteklenen sürücüler](http://tinkerpop.apache.org/).
 
+### <a name="how-are-rus-charged-when-running-queries-on-a-graph-database"></a>Bir grafik veritabanı üzerinde sorgu çalıştırırken RU/sn nasıl ücretlendirilir? 
+
+JSON belgeleri olarak arka uç tüm graf nesneleri, köşe ve kenarlar gösterilir. Bir Gremlin sorgu birini değiştirebilir veya aynı anda birçok nesneleri graf maliyeti ilişkilendirilmiş nesneleri, sorgu tarafından işlenen kenarlar doğrudan ilgili isbe. Azure Cosmos DB için diğer tüm API'leri kullandığı aynı işlemi budur. Daha fazla bilgi için [Azure Cosmos DB'de istek birimleri](request-units.md).
+
+RU ücret geçişi çalışma veri kümesini temel alır ve sonuç kümesi. Örneğin, bir sorgu tek bir köşe sonucunda elde amaçlayan, ancak birden fazla diğer nesne şekilde geçirmek gereken maliyeti, tek bir sonuç köşe işlem sürer tüm grafik nesneler üzerinde hesaplanır.
+
+### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>Bir grafik veritabanı, Azure Cosmos DB Gremlin API sahip olabileceği en fazla ölçek nedir? 
+
+Azure Cosmos DB kullanır [yatay bölümleme](partition-data.md) otomatik olarak depolama ve aktarım hızı gereksinimleri adresi artış. Bir iş yükü en fazla aktarım hızı ve depolama kapasitesi, belirli bir koleksiyon ile ilişkili olan bölümleri miktarına göre belirlenir. Ancak, yönergelerine uygun ölçekte bir uygun performans deneyimi sağlamak için belirli bir dizi Gremlin API koleksiyonu vardır. Daha fazla bilgi ve en iyi uygulamalar için bkz. [bölümleme için en iyi uygulamalar](partition-data.md#best-practices-when-choosing-a-partition-key) belge. 
+
+### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Gremlin sürücüleri kullanarak ekleme saldırılarına karşı nasıl koruyabilirim? 
+
+En yerel Tinkerpop Gremlin sürücüleri, sorgu yürütme için parametre sözlüğü sağlama seçeneği sağlar. Bu, bunun nasıl yapılacağı örneğidir [Gremlin.Net]() ve [Gremlin Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+
+### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Neden iletisi alıyorum "Gremlin sorgu derleme hatası: herhangi bir yöntem bulunamadı" hatası?
+
+Azure Cosmos DB Gremlin API, Gremlin yüzey alanı içinde tanımlanan işlev kümesini uygular. Desteklenen adımlar ve daha fazla bilgi için lütfen bkz [Gremlin desteği](gremlin-support.md) makalesi.
+
+En iyi çözüm tüm gerekli Gremlin adımı Azure Cosmos DB tarafından desteklendiğinden gerekli Gremlin adımı desteklenen işleviyle yeniden yazmaktır.
+
+### <a name="why-am-i-getting-the-websocketexception-the-server-returned-status-code-200-when-status-code-101-was-expected-error"></a>Neden iletisi alıyorum "WebSocketException: sunucu döndürdü durum kodu '200' durum kodu '101' bekleniyordu" hatası?
+
+Yanlış uç nokta kullanıldığında bu hata büyük olasılıkla oluşturulur. Bu hatayı oluşturmasının uç noktası şu desene sahiptir:
+
+`https:// YOUR_DATABASE_ACCOUNT.documents.azure.com:443/` 
+
+Bu grafik veritabanı belgeleri uç noktadır.  Kullanılacak doğru uç nokta şu biçimdedir Gremlin uç şöyledir: 
+
+`https://YOUR_DATABASE_ACCOUNT.gremlin.cosmosdb.azure.com:443/`
+
+### <a name="why-am-i-getting-the-requestrateistoolarge-error"></a>Neden "RequestRateIsTooLarge" hatası alıyorum?
+
+Bu hata, saniye başına ayrılmış istek birimi sorgu hizmet vermek yeterli olmadığını anlamına gelir. Tüm köşeleri alır bir sorgu çalıştırdığınızda bu hata genellikle görülür:
+
+```
+// Query example:
+g.V()
+```
+
+Bu sorgu tüm köşeleri almak grafikten dener. Bu nedenle, bu sorgu maliyetini köşeler RU bakımından eşit en az sayıda olacaktır. Bu sorgu ele almak için RU/sn ayarı düşüncesiyle ayarlanması gerekir.
+
+### <a name="why-do-my-gremlin-driver-connections-get-dropped-eventually"></a>Neden Gremlin sürücüsünü Bağlantılarım sonunda bırakılan?
+
+Gremlin bağlantı WebSocket bağlantısı üzerinden yapılır. WebSocket bağlantılarını Canlı belirli bir zaman gerekmese de, Azure Cosmos DB Gremlin API 30 dakika işlem yapılmadığında boşta kalan bağlantıların sona erer. 
+
+### <a name="why-cant-i-use-fluent-api-calls-in-the-native-gremlin-drivers"></a>Yerel Gremlin sürücüleri fluent API çağrıları neden kullanamıyorum?
+
+Fluent API çağrıları Azure Cosmos DB Gremlin API tarafından henüz desteklenmemektedir. Fluent API çağrıları, şu anda Azure Cosmos DB Gremlin API'si tarafından desteklenmeyen bayt destek olarak bilinen bir iç biçimlendirme özelliği gerektirir. Aynı nedenden dolayı en son JavaScript Gremlin sürücüsünü de şu anda desteklenmiyor. 
+
+### <a name="how-can-i-evaluate-the-efficiency-of-my-gremlin-queries"></a>Gremlin Sorgularım verimliliğini değerlendirmek nasıl?
+
+**ExecutionProfile()** Önizleme adım, sorgu yürütme planı analizini sağlamak için kullanılabilir. Bu adım, aşağıdaki örnekte gösterildiği gibi herhangi bir Gremlin sorgu sonuna eklenmesi gerekir:
+
+**Sorgu örneği**
+
+```
+g.V('mary').out('knows').executionProfile()
+```
+
+**Örnek çıktı**
+
+```json
+[
+  {
+    "gremlin": "g.V('mary').out('knows').executionProfile()",
+    "totalTime": 8,
+    "metrics": [
+      {
+        "name": "GetVertices",
+        "time": 3,
+        "annotations": {
+          "percentTime": 37.5
+        },
+        "counts": {
+          "resultCount": 1
+        }
+      },
+      {
+        "name": "GetEdges",
+        "time": 5,
+        "annotations": {
+          "percentTime": 62.5
+        },
+        "counts": {
+          "resultCount": 0
+        },
+        "storeOps": [
+          {
+            "partitionsAccessed": 1,
+            "count": 0,
+            "size": 0,
+            "time": 0.6
+          }
+        ]
+      },
+      {
+        "name": "GetNeighborVertices",
+        "time": 0,
+        "annotations": {
+          "percentTime": 0
+        },
+        "counts": {
+          "resultCount": 0
+        }
+      },
+      {
+        "name": "ProjectOperator",
+        "time": 0,
+        "annotations": {
+          "percentTime": 0
+        },
+        "counts": {
+          "resultCount": 0
+        }
+      }
+    ]
+  }
+]
+```
+
+Köşe ve uç nesnelerin yanı sıra çalışma veri kümesinin boyutunu almak için ne kadar süre yukarıdaki profili çıktısını gösterir. Bu Azure Cosmos DB sorgular için standart maliyet ölçümleri ilişkilidir.
 
 ## <a id="cassandra"></a> Cassandra API'si
 

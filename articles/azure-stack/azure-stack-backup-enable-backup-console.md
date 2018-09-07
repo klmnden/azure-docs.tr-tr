@@ -12,14 +12,14 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 6231ee760902618afedf64443690be0b02c4d0eb
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 1373e98b8edac81ebdb15aaf36d8bbfc910029fe
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056088"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026194"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Yönetim Portalı'ndan Azure Stack için yedeklemeyi etkinleştirme
 Azure Stack yedekleme oluşturabilmesi altyapı Backup Hizmeti Yönetim Portalı aracılığıyla etkinleştirin. Bu yedeklemeler bulut kurtarma durumunda kullanarak ortamınızda geri yüklemek için kullanabileceğiniz [geri dönülemez bir arıza](.\azure-stack-backup-recover-data.md). Bulut kurtarma amacı, Kurtarma tamamlandıktan sonra operatörler ve kullanıcılar portalına geri dönüp oturum açabildiğinizden emin sağlamaktır. Kullanıcılar, rol tabanlı erişim izinleri ve rolleri, özgün planları, teklifleri ve önceden tanımlı bilgi işlem, depolama ve ağ kotaları dahil olmak üzere geri aboneliklerini sahip olacaktır.
@@ -36,7 +36,7 @@ Yöneticiler ve kullanıcılar için yedekleme ve Iaas ve PaaS kaynakları ayrı
 ## <a name="enable-or-reconfigure-backup"></a>Etkinleştirmek veya yedekleme yeniden yapılandırın
 
 1. Açık [Azure Stack Yönetim Portalı](azure-stack-manage-portals.md).
-2. Seçin **diğer hizmetler** > **altyapı yedeklemesine**. Seçin **yapılandırma** içinde **altyapı yedeklemesine** dikey penceresi.
+2. Seçin **tüm hizmetleri**ve ardından altındaki **Yönetim** kategorisi seçin **altyapı yedeklemesine**. Seçin **yapılandırma** içinde **altyapı yedeklemesine** dikey penceresi.
 3. Yolunu yazın **yedekleme depolama konumu**. Ayrı bir cihazda barındırılan bir dosya paylaşımı yolu için bir Evrensel Adlandırma Kuralı (UNC) dize kullanın. Bir UNC dize paylaşılan dosyalarını veya cihazları gibi kaynakların konumunu belirtir. Hizmet için bir IP adresi kullanabilirsiniz. Yedekleme verilerinin kullanılabilirlik, olağanüstü bir durumla karşılaştığınızda emin olmak için cihaz ayrı bir konumda olmalıdır.
 
     > [!Note]  

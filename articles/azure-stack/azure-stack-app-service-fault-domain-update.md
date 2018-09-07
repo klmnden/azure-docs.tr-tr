@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 09/05/2018
 ms.author: anwestg
-ms.openlocfilehash: 53766099f283f802482fe8e84144502d386b1d69
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: acadd1adec93d10d64712a2fbedb89e098998294
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440160"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025971"
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Azure Stack'te Azure App Service, hata etki alanlarında yeniden dağıtma
 
@@ -48,8 +48,8 @@ ms.locfileid: "39440160"
 Ölçek kümeleri ölçeklendirmek için aşağıdaki adımları izleyin:
 
 1. Azure Stack Yönetici portalında oturum açın.
-1. Seçin **diğer hizmetler**.
-1. İŞLEM altında seçin **sanal makine ölçek kümeleri**. Örnek sayısı bilgilerle uygulama hizmeti dağıtımının bir parçası olarak dağıtılan var olan ölçek kümeleri listelenir. Aşağıdaki ekran görüntüsü yakalamayı ölçek kümesi örneği gösterilmektedir.
+1. **Tüm Hizmetler**’i seçin.
+2. İçinde **işlem** kategorisi, select **sanal makine ölçek kümeleri**. Örnek sayısı bilgilerle uygulama hizmeti dağıtımının bir parçası olarak dağıtılan var olan ölçek kümeleri listelenir. Aşağıdaki ekran görüntüsü yakalamayı ölçek kümesi örneği gösterilmektedir.
 
       ![Sanal makine ölçek kümeleri UX içinde listelenen Azure App Service ölçek kümeleri][1]
 

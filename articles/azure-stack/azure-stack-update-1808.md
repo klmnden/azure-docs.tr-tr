@@ -1,0 +1,254 @@
+---
+title: Azure Stack 1808 güncelleştirme | Microsoft Docs
+description: Bilinen sorunlar da dahil olmak üzere Azure Stack tümleşik sistemleri için 1808 güncelleştirmesindeki yenilikler ve güncelleştirme karşıdan yükleme konumu hakkında bilgi edinin.
+services: azure-stack
+documentationcenter: ''
+author: brenduns
+manager: femila
+editor: ''
+ms.assetid: ''
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/06/2018
+ms.author: brenduns
+ms.reviewer: justini
+ms.openlocfilehash: f7ad862b150adc7b096c01a1c326a93bf2de2792
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049975"
+---
+# <a name="azure-stack-1808-update"></a>Azure Stack 1808 güncelleştirme
+
+*İçin geçerlidir: Azure Stack tümleşik sistemleri*
+
+Bu makalede 1808 güncelleştirme paketinin içeriğini açıklar. Güncelleştirme paketinin bu sürümü, Azure Stack için bilinen sorunlar geliştirmeleri ve düzeltmeleri içerir. Bu makalede, güncelleştirmeyi indirebilmesi bağlantıyı da içerir. Bilinen sorunlar için güncelleştirme işlemini doğrudan ilgili sorunları ve derleme (yükleme sonrası) ile ilgili sorunlar ayrılır.
+
+> [!IMPORTANT]  
+> Yalnızca Azure Stack tümleşik sistemleri için bu güncelleştirme paketidir. Bu güncelleştirme paketi için Azure Stack geliştirme Seti'ni geçerli değildir.
+
+## <a name="build-reference"></a>Yapı Başvurusu
+
+Azure Stack 1808 güncelleştirmenin yapı numarasıdır **1.1808.0.97**.  
+
+### <a name="new-features"></a>Yeni Özellikler
+
+Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir.
+
+- <!--  2682594   | IS  -->  **Tüm Azure Stack ortamlarında artık Eşgüdümlü Evrensel Saat (UTC) saat dilimi biçimini kullanın.**  Tüm veri günlük ve UTC biçiminde artık ilgili bilgileri görüntüler. UTC saat kullanarak yüklenmedi önceki bir sürümden güncelleştirmezseniz ortamınız UTC kullanmak için güncelleştirilir. 
+
+- <!-- 2437250  | IS  ASDK --> **Yönetilen diskleri desteklenir.** Azure Stack sanal makineler ve sanal makine ölçek kümeleri artık yönetilen diskler kullanabilirsiniz. Daha fazla bilgi için [Azure Stack yönetilen diskler: farklılıklar ve dikkat edilmesi gerekenler](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
+
+- <!-- 2563799  | IS  ASDK -->  **Azure İzleyici**. Azure'da Azure İzleyici gibi Azure Stack'te Azure İzleyici, temel düzeyde altyapı ölçümlerini ve günlüklerini çoğu hizmetleri sağlar. Daha fazla bilgi için [Azure Stack'te Azure İzleyici](/azure/azure-stack/user/azure-stack-metrics-azure-data).
+
+- <!-- 2487932| IS -->  **Uzantı ana bilgisayar için hazırlama**. Uzantısı konağı gerekli TCP/IP bağlantı noktası sayısını azaltarak güvenli Azure Stack yardımcı olmak için kullanabilirsiniz. 1808 güncelleştirmesiyle, hazırlama, Azure Stack uzantısı konağı için hazırlanın. Daha fazla bilgi için [hazırlamak için Azure Stack için uzantısı konağı](/azure/azure-stack/azure-stack-extension-host-prepare).
+
+- <!-- IS --> **Sanal makine ölçek kümeleri için galeri öğeleri yerleşik artık**.  Sanal makine ölçek kümesi galeri öğesini şimdi indirmek zorunda kalmadan kullanıcı ve Yönetici portalındaki yapılır.  1808 için yükseltirseniz, Yükseltme tamamlandığında kullanılabilir.  
+
+- <!-- IS, ASDK --> **Sanal makine ölçek kümesi ölçeklendirme**.  Portala kullanabileceğiniz [bir sanal makine ölçek kümesi ölçeği](azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).    
+
+- <!-- 2489570 | IS ASDK--> **Özel IPSec/IKE İlkesi yapılandırmalarını desteği** için [Azure Stack hizmetinde VPN ağ geçitlerinin](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
+
+
+ ### <a name="fixed-issues"></a>Giderilen sorunlar
+- <!-- IS ASDK--> Bir kullanılabilirlik kümesi Portal'da bulunan ve bir hata etki alanı ve 1 güncelleştirme etki alanına sahip kümesinde sonuçlandı oluşturmaya yönelik bir sorunu düzelttik. 
+
+- <!-- IS ASDK --> Sanal makine ölçek kümeleri ölçeklendirme ayarları Portalı'nda kullanıma sunulmuştur.  
+
+- <!-- 2494144- IS, ASDK --> Bazı F serisi sanal makine boyutları, dağıtım için bir VM boyutu seçerken görünmesini engelleyen sorunu artık çözülmüştür. 
+
+- <!-- IS, ASDK --> Sanal makineler ve en iyi duruma getirilmiş daha fazlasını oluştururken performans geliştirmeleri temel alınan depolama kullanın.
+
+- **Çeşitli düzeltmeleri** performans, kararlılık, güvenlik ve Azure Stack tarafından kullanılan işletim sistemi için.
+
+
+### <a name="changes"></a>Değişiklikler
+- <!-- 1697698  | IS, ASDK --> *Hızlı Başlangıç öğreticileri* Kullanıcı Portalı Panosu şimdi bağlantıda ilgili makaleleri çevrimiçi Azure Stack belgeleri.
+
+- <!-- 2515955   | IS ,ASDK--> *Tüm hizmetler* değiştirir *diğer hizmetler* Azure Stack yönetici ve Kullanıcı Portalı'nda. Artık *tüm hizmetleri* Azure portallarında yaptığınız gibi Azure Stack portallarında gezinmek için alternatif olarak.
+
+- <!--  TBD – IS, ASDK --> *Temel A* sanal makine boyutları için devre dışı [sanal makine ölçek kümeleri oluşturma](azure-stack-compute-add-scalesets.md) (VMSS) portal üzerinden. Bu boyut ile bir VMSS oluşturmak için PowerShell ya da bir şablon kullanın.  
+
+### <a name="common-vulnerabilities-and-exposures"></a>Yaygın güvenlik açıklarına ve exposures'ı
+
+Bu güncelleştirme aşağıdaki güncelleştirmeleri yükler:  
+
+- [CVE-2018-0952](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-0952)
+- [CVE-2018-8200](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8200)
+- [CVE-2018-8204](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8204)
+- [CVE-2018-8253](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8253)
+- [CVE-2018-8339](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8339)
+- [CVE-2018-8340](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8340)
+- [CVE-2018-8341](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8341)
+- [CVE-2018-8343](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8343)
+- [CVE-2018-8344](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8344)
+- [CVE-2018-8345](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8345)
+- [CVE-2018-8347](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8347)
+- [CVE-2018-8348](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8348)
+- [CVE-2018-8349](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8349)
+- [CVE-2018-8394](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8394)
+- [CVE-2018-8398](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8398)
+- [CVE-2018-8401](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8401)
+- [CVE-2018-8404](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8404)
+- [CVE-2018-8405](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8405)
+- [CVE-2018-8406](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8406)  
+
+Bu güvenlik açıkları hakkında daha fazla bilgi için yukarıdaki bağlantılara tıklayın veya Microsoft Bilgi Bankası makalesi bkz [4343887](https://support.microsoft.com/help/4343887).
+
+Bu güncelleştirme ayrıca L1 Terminal içinde açıklanan hata (L1TF) olarak bilinen kurgusal yürütme yan kanal güvenlik açığına yönelik risk azaltma içeren [Microsoft Güvenlik Danışma ADV180018](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180018).  
+
+### <a name="prerequisites"></a>Önkoşullar
+
+- Azure yığını'nı yükleme [1807 güncelleştirme](azure-stack-update-1807.md) Azure Stack 1808 güncelleştirmeyi uygulamadan önce. 
+
+- En son kullanılabilir yükleme [güncelleştirme veya düzeltme sürümü 1805](azure-stack-update-1805.md#post-update-steps).  
+  > [!TIP]  
+  > Aşağıdaki abone olmak *RRS* veya *Atom* Azure Stack düzeltmelerle birlikte kalmasını sağlamak için akışları:
+  > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss ... 
+  > - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom ...
+
+
+- Bu güncelleştirme yüklemesi başlamadan önce çalıştırması [Test AzureStack](azure-stack-diagnostic-test.md) Azure Stack durumunu doğrulamak ve tüm uyarılar ve hatalar dahil olmak üzere bulundu, çalışma sorunlarını çözün. Ayrıca etkin Uyarıları gözden geçirin ve eylemi gerektiren tüm çözümleyin.
+
+### <a name="known-issues-with-the-update-process"></a>Güncelleştirme işlemi ile ilgili bilinen sorunlar
+
+- <!-- 2468613 - IS --> Bu güncelleştirme yüklemesi sırasında başlık uyarılarla görebileceğiniz *hatası – şablon FaultType UserAccounts.New için eksik.*  Bu uyarılar güvenle yok sayabilirsiniz. Bu güncelleştirme yüklemesi tamamlandıktan sonra bu uyarıları otomatik olarak kapatılacak.
+
+- <!-- 2489559 - IS --> Bu güncelleştirme yüklemesi sırasında sanal makineleri oluşturmaya çalışmayın. Güncelleştirmeleri yönetme hakkında daha fazla bilgi için bkz. [Azure Stack genel bakış güncelleştirmeleri yönetme](azure-stack-updates.md#plan-for-updates).
+
+- <!-- 2830461 - IS --> Bazı durumlarda, bir güncelleştirme dikkat gerektirdiğinde karşılık gelen bir uyarı oluşturulamayabilir. Doğru durumu Portalı'nda yine de yansıtılır ve etkilenmez.
+
+### <a name="post-update-steps"></a>Güncelleştirme sonrası adımlar
+
+*1808 güncelleştirmesi güncelleştirme sonrası adımları yoktur.*
+
+<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
+ - [Link to KB]()  
+ -->
+
+## <a name="known-issues-post-installation"></a>Bilinen sorunlar (yükleme sonrası)
+
+Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
+
+### <a name="portal"></a>Portal
+-  <!--  2873083 - IS ASDK --> Bir sanal makine ölçek oluşturmak için portalı kullandığınızda ayarlayın (VMSS) *örnek boyutu* açılan olmayan yük doğru bir şekilde Internet Explorer kullandığınızda. Bu sorunu çözmek için bir VMSS oluşturmak için portalı kullanırken başka bir tarayıcı kullanın.  
+
+- <!-- 2931230 – IS  ASDK --> Kullanıcı aboneliği plan kaldırdığınızda bile, bir kullanıcı abonelikte eklenti planı eklendiği planları silinemiyor. Eklenti planı başvuru abonelikleri de silinene kadar plan kalır. 
+
+- <!--2760466 – IS  ASDK --> Bu sürümünü çalıştıran yeni bir Azure Stack ortamına yüklediğinizde, uyarıyı gösterir *etkinleştirme gerekli* görüntülenmeyebilir. [Etkinleştirme](azure-stack-registration.md) Market dağıtım kullanabilmeniz için gereklidir.  
+
+- <!-- TBD - IS ASDK --> İki Yönetim abonelik türlerini [1804 sürümü ile sunulan](azure-stack-update-1804.md#new-features) kullanılmamalıdır. Abonelik türleridir **abonelik ölçümü**, ve **tüketim abonelik**. Bu abonelik türlerini 1804 sürümünden başlayarak yeni Azure Stack ortamlarında görülebilir ancak henüz kullanıma sunulmamıştır. Kullanmaya devam etmelidir **varsayılan sağlayıcı** abonelik türü.
+
+- <!-- TBD - IS --> Yönetici portalı'nda işlem ve depolama kaynaklarını görüntülemek mümkün olmayabilir. Bu sorunun nedeni, yanlış başarılı olarak raporlanacak güncelleştirilecek neden olan güncelleştirme yüklemesi sırasında bir hata var. Bu sorun devam ederse Yardım için Microsoft Müşteri Destek Hizmetleri'ne başvurun.
+
+- <!-- TBD - IS --> Bir boş Pano portalında görebilirsiniz. Pano kurtarmak için portalın sağ üst köşesindeki dişli simgesini seçin ve ardından **varsayılan ayarları geri**.
+
+- <!-- TBD - IS ASDK --> Kullanıcı abonelikleri sonuçlarında yalnız bırakılmış kaynakları siliniyor. Geçici bir çözüm olarak kullanıcı kaynaklar veya kaynak grubunun tamamını silin ve sonra kullanıcı abonelikleri silin.
+
+- <!-- TBD - IS ASDK --> Azure Stack portalı kullanarak aboneliğinize izinleri görüntüleyemezsiniz. Geçici bir çözüm olarak, izinleri doğrulamak için PowerShell kullanın.
+
+
+### <a name="health-and-monitoring"></a>Sistem durumu ve izleme
+- <!-- 1264761 - IS ASDK -->  Uyarıları görebilirsiniz **sistem durumu denetleyicisi** aşağıdaki ayrıntıları olan bir bileşeni:  
+
+   Uyarı #1:
+   - ADI: Sağlıksız altyapı rolü
+   - Önem DERECESİ: uyarı
+   - BİLEŞENİ: Sistem durumu denetleyicisi
+   - Açıklama: Sistem durumu denetleyici sinyal tarayıcı kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.  
+
+  Uyarı #2:
+   - ADI: Sağlıksız altyapı rolü
+   - Önem DERECESİ: uyarı
+   - BİLEŞENİ: Sistem durumu denetleyicisi
+   - Açıklama: Hata tarayıcı durumu denetleyicisi kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.
+
+  Her iki uyarılar güvenle yoksayılabilir ve zaman içinde otomatik olarak kapatılması.  
+
+
+- <!-- 2812138 | IS --> İçin bir uyarı görebileceğiniz **depolama** aşağıdaki ayrıntıları olan bir bileşeni:
+
+   - Ad: Depolama hizmeti iç iletişim hatası  
+   - Önem DERECESİ: kritik  
+   - Bileşen: depolama  
+   - Açıklama: Aşağıdaki düğümlere istekleri gönderirken, depolama hizmeti iç iletişim hatası oluştu.  
+
+    Uyarıyı güvenle yoksayılabilir, ancak uyarıyı el ile kapatmanız gerekir.
+
+- <!-- 2368581 - IS. ASDK --> Düşük bellek uyarısı alırsanız ve Kiracı sanal makinelerini başarısız ile dağıtmak bir Azure Stack operatörü bir **Fabric VM oluşturma hatası**, Azure Stack damga kullanılabilir bellek yetersiz olabilir. Kullanım [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) iş yükleriniz için kapasite en iyi anlamak için.
+
+
+### <a name="compute"></a>İşlem
+- <!-- 2869209 – IS, ASDK --> Kullanırken [ **Ekle AzsPlatformImage** cmdlet'i](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), kullanmalısınız **- OsUri** parametre olarak depolama hesabı URI'si disk nereye yüklenir. Yerel yol diskin kullanırsanız, cmdlet şu hatayla başarısız olur: *işlemi uzun süre çalışan 'Başarısız' durumuyla başarısız oldu*. 
+
+- <!--  2966665 – IS, ASDK --> Premium boyutuna SSD veri diskleri ekleme, yönetilen disk sanal makineler (DS, DSv2, Fs, Fs_V2) bir hatayla başarısız oluyor: *'vmname' hata sanal makinenin diskleri güncelleştirilemedi: İstenen işlem gerçekleştirilemiyor depolama hesabı türü ' Premium_LRS'VM boyutu için desteklenmeyen ' Standard_DS/Ds_V2/FS/Fs_v2)*
+
+   Bu sorunu geçici olarak çözmek için kullanın *Standard_LRS* veri diskleri yerine *Premium_LRS diskleri*. Kullanım *Standard_LRS* veri diskleri IOPS veya fatura ücreti değiştirmez. 
+
+- <!--  2795678 – IS, ASDK --> VM, portalı sanal makineler (VM) oluşturmak için bir premium VM boyutu (DS, Ds_v2, FS, FSv2) kullandığınızda, bir standart depolama hesabı oluşturulur. Bir standart depolama hesabı oluşturma IOPS, işlevsel olarak, etkilemez ya da fatura. 
+
+   Bildiren bir uyarıyı güvenle yok sayabilirsiniz: *premium diskleri destekleyen bir boyutta standart disk kullanmayı seçtiniz. Bu işletim sisteminin performansını etkileyebilir ve önerilmez. Premium depolamayı (SSD) kullanmayı düşünün.*
+
+- <!-- 2967447 - IS, ASDK --> Sanal makine ölçek kümesi (VMSS) deneyimi oluşturmasına 7.2 CentOS tabanlı dağıtım için bir seçenek olarak sağlar. Bu görüntüyü Azure Stack üzerinde kullanılabilir olmadığından, dağıtımınız için başka bir işletim sistemi seçin veya Market'ten dağıtımdan işleciyle indirildi başka bir CentOS görüntüsü belirten bir ARM şablonu kullanın.  
+
+- <!-- 2724873 - IS --> PowerShell cmdlet'lerini kullanırken **başlangıç AzsScaleUnitNode** veya **Stop-AzsScaleunitNode** ölçek birimleri yönetmek için başlatma veya durdurma ölçek birimi için yapılan ilk girişim başarısız olabilir. İlk çalıştırılmasında cmdlet'i başarısız olursa, cmdlet'in ikinci kez çalıştırın. İkinci çalıştırma işlemi tamamlamak için başarılı olmalıdır. 
+
+- <!-- TBD - IS ASDK --> Portal, Azure Stack kullanıcı portalında sanal makine oluşturduğunuzda, DS serisi VM ekleyebilirsiniz veri diskleri yanlış sayıda görüntüler. DS serisi VM'ler gibi çok sayıda veri diski Azure yapılandırması sağlayabilir.
+
+- <!-- TBD - IS ASDK --> VM dağıtımı üzerinde bir uzantı sağlama çok uzun sürerse, kullanıcıların serbest bırakma veya VM silme işlemini durdurulmaya çalışılırken yerine sağlama zaman aşımı izin vermelisiniz.  
+
+- <!-- 1662991 IS ASDK --> Linux VM tanılama Azure Stack'te desteklenmiyor. VM tanılaması etkin bir Linux sanal makinesi dağıttığınızda, dağıtım başarısız olur. Tanılama ayarları aracılığıyla Linux VM temel ölçümleri etkinleştirirseniz, ayrıca dağıtım başarısız olur.  
+
+- <!-- 2724961- IS ASDK --> Kaydettiğinizde **Microsoft.Insight** abonelik ayarlarında, kaynak sağlayıcısı ve bir Windows VM konuk işletim sistemi etkin Tanılama ile oluşturma, VM genel bakış sayfasında CPU yüzdesi grafik, ölçüm verilerini göstermek mümkün olmayacaktır.
+
+   Sanal makine için CPU yüzdesi grafik bulmak için Git **ölçümleri** dikey penceresinde ve desteklenen tüm Windows VM show Konuk ölçümleri.
+
+
+
+### <a name="networking"></a>Ağ  
+
+- <!-- 1766332 - IS ASDK --> Altında **ağ**, tıklarsanız **VPN ağ geçidi Oluştur** bir VPN bağlantısı kurmak için **ilkesine** bir VPN türü listelenir. Bu seçeneği belirlemeyin. Yalnızca **rota tabanlı** seçeneği Azure Stack'te desteklenir.
+
+- <!-- 1902460 - IS ASDK --> Azure Stack destekleyen tek bir *yerel ağ geçidi* her bir IP adresi. Bu tüm Kiracı abonelikler arasında geçerlidir. Aynı IP adresine sahip bir yerel ağ geçidi kaynağı oluşturmak ilk yerel ağ geçidi bağlantısı, sonraki oluşturulmasını denemeden sonra engellenir.
+
+- <!-- 16309153 - IS ASDK --> DNS sunucusu ayarı ile oluşturulan bir sanal ağda *otomatik*, özel bir DNS sunucusunun başarısız olması için değiştirilmesi. Bu vnet'teki VM'ler için güncelleştirilmiş ayarları gönderiliyor değil.
+
+- <!-- 2702741 -  IS ASDK --> Dinamik ayırma yöntemi kullanılarak dağıtılan genel IP'ler garanti edilmez durdurun-serbest verildiği sonra korunması.
+
+- <!-- 2529607 - IS ASDK --> Azure Stack sırasında *gizli dönüş*, bir süre içinde genel IP adresleri olan erişilemeyen iki ila beş dakikalığına yoktur.
+
+-   <!-- 2664148 - IS ASDK --> Bir S2S VPN tüneli aracılığıyla Kiracı sanal makinelerini burada erişiyor senaryolarda, yerel ağ geçidi için şirket içi alt ağ geçidi zaten oluşturulduktan sonra eklenmişse nerede bağlantı girişimleri başarısız bir senaryo hatalarla karşılaşabilirsiniz. 
+
+
+<!-- ### SQL and MySQL-->
+
+
+### <a name="app-service"></a>App Service
+
+- <!-- 2352906 - IS ASDK --> Kullanıcılar, bunlar, ilk Azure işlevinizi aboneliği oluşturmadan önce depolama kaynak sağlayıcısı kaydetmeniz gerekir.
+
+- <!-- 2489178 - IS ASDK --> (Çalışan, yönetim, ön uç rollerini) altyapıyı ölçeklendirme için sürüm notları için işlem açıklandığı PowerShell kullanmanız gerekir.
+
+
+
+### <a name="usage"></a>Kullanım  
+- <!-- TBD - IS ASDK --> Kullanım genel IP adresi kullanım ölçümü verilerini gösterir aynı *olay tarihi-saati* yerine her kaydın değerini *TimeDate* gösteren kaydın oluşturulduğu zaman damgası. Şu anda, genel IP adresi kullanımının doğru hesap gerçekleştirmek için bu verileri kullanamazsınız.
+
+
+<!-- #### Identity -->
+<!-- #### Marketplace -->
+
+
+## <a name="download-the-update"></a>Güncelleştirmeyi indirin
+Azure Stack 1808 güncelleştirme paketinden indirebileceğiniz [burada](https://aka.ms/azurestackupdatedownload).
+  
+
+## <a name="next-steps"></a>Sonraki adımlar
+- Azure Stack tümleşik sistemleri ve desteklenen bir duruma sisteminizi tutmak için yapmanız gerekenlere bakım ilkeyi gözden geçirmek için bkz: [Azure Stack hizmet İlkesi](azure-stack-servicing-policy.md).  
+- Ayrıcalıklı uç noktasına (CESARETLENDİRİCİ) izlemek ve güncelleştirmelerini sürdürmek üzere kullanmak için bkz [izleme ayrıcalıklı uç noktayı kullanarak Azure stack'teki güncelleştirmeleri](azure-stack-monitor-update.md).  
+- Azure Stack'te güncelleştirme yönetimi genel bakış için bkz. [Azure Stack genel bakış güncelleştirmeleri yönetme](azure-stack-updates.md).  
+- Azure Stack güncelleştirmeleriyle uygulama hakkında daha fazla bilgi için bkz. [güncelleştirmelerini Azure Stack'te](azure-stack-apply-updates.md).  

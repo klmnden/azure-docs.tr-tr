@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 8/10/2018
+ms.date: 9/6/2018
 ms.author: victorh
-ms.openlocfilehash: 858427bfd2a9b4c40ddf7054e09d98bcf5c1a992
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: e180f0912bdb9145f3d36492fb9bcdcb551037f0
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42055570"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022925"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway için sık sorulan sorular
 
@@ -84,7 +84,7 @@ Hayır, Application Gateway statik genel IP adreslerini desteklemez, ancak stati
 
 Yalnızca bir genel IP adresi, bir uygulama ağ geçidinde desteklenmiyor.
 
-**SORU. Application Gateway için ne kadar büyük alt uygulamalıyım?**
+**SORU. Ne kadar büyük alt Application Gateway için uygulamalıyım?**
 
 Özel ön uç IP yapılandırması yapılandırılmışsa, uygulama ağ geçidi örneği başına bir özel IP adresi yanı sıra, başka bir özel IP adresini kullanır. Ayrıca, Azure ilk dört ayırır ve son her alt ağda iç kullanım için IP adresi.
 Örneğin, üç örnek ve ardından bir/29 hiçbir özel ön uç IP uygulama ağ geçidi ayarlanırsa boyutu veya daha fazla alt ağ gereklidir. Bu durumda, uygulama ağ geçidi üç IP adresini kullanır. Üç örnekleri ve ardından/28 özel ön uç IP yapılandırması için bir IP adresi varsa dört IP adresleri gerekli olduğu gibi alt ağı veya büyük boyut gereklidir.
@@ -211,8 +211,8 @@ Aşağıdaki tabloda, SSL boşaltmasının etkin olduğu her bir Application Gat
 
 | Ortalama arka uç sayfa yanıtı boyutu | Küçük | Orta | Büyük |
 | --- | --- | --- | --- |
-| 6KB |7,5 Mbps |13 Mbps |50 Mbps |
-| 100KB |35 Mbps |100 Mbps |200 Mbps |
+| 6 KB |7,5 Mbps |13 Mbps |50 Mbps |
+| 100 KB |35 Mbps |100 Mbps |200 Mbps |
 
 > [!NOTE]
 > Bu değerler bir uygulama ağ geçidi verimliliği için yaklaşık değerlerdir. Gerçek verimlilik; ortalama sayfa boyutu, arka uç örneklerinin konumu ve bir sayfaya hizmet etmek için işleme süresi gibi çeşitli ortam ayrıntılarına bağlıdır. Tam performans rakamlarına ulaşmak için kendi testlerinizi çalıştırmanız gerekir. Bu değerler yalnızca kapasite planlama konusunda yardımcı olmak için verilmiştir.
@@ -333,7 +333,7 @@ WAF, şu anda CRS destekler [2.2.9](application-gateway-crs-rulegroups-rules.md#
 
 **SORU. WAF, DDoS önleme de destekliyor mu?**
 
-Hayır, WAF, DDoS önleme sağlamaz.
+Evet. DDos koruması uygulama ağ geçidi dağıtıldığı sanal ağ üzerinde etkinleştirebilirsiniz. Bu, VIP ayrıca Azure DDos koruması hizmetini kullanarak korumalı bir uygulama ağ geçidi sağlar.
 
 ## <a name="diagnostics-and-logging"></a>Tanılama ve günlüğe kaydetme
 

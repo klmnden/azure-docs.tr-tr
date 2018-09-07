@@ -12,12 +12,12 @@ ms.date: 08/16/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 ms.topic: conceptual
-ms.openlocfilehash: 54917c6548c7f0bfacad6408732c5619e6346683
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 56a1e7038515a64f1dfe3fda639213bcfcde63d6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177683"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053440"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL veritabanı yönetilen örneği bağlantı mimarisi 
 
@@ -73,7 +73,7 @@ Yönetim ve dağıtım hizmetlerini dış yük dengeleyici eşlemeleri genel bir
 - Genel bakış için bkz. [yönetilen örnek nedir](sql-database-managed-instance.md) 
 - Sanal ağ yapılandırması hakkında daha fazla bilgi için bkz. [yönetilen örnek sanal ağ yapılandırması](sql-database-managed-instance-vnet-configuration.md). 
 - Yönetilen örnek oluşturma Hızlı Başlangıç için bkz: 
-  - gelen [Azure portalı](sql-database-managed-instance-create-tutorial-portal.md) 
+  - Gelen [Azure portalı](sql-database-managed-instance-get-started.md) 
   - kullanarak [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) 
   - kullanarak [Azure Resource Manager şablonu](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/) 
   - kullanarak [Azure Resource Manager şablonu (Sıçrama kutusu dahil SSMS ile)](https://portal.azure.com/) 

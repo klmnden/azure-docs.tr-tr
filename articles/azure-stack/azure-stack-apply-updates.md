@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 09/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: da8261d27ae7fad3c5ff30e4e1cce3f1bca2b70a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: ca07c3aca106f6c92187fea5a3ebf7bf172cddcc
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035342"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026211"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Azure stack'teki güncelleştirmelerini uygulayın
 
@@ -42,7 +42,7 @@ Aşağıdaki yordam, içeri aktarma ve Yönetici portalı'nda güncelleştirme p
 > [!IMPORTANT]
 > Herhangi bir bakım işlemi kullanıcılara bildirmek ve çalışma saatleri sırasında mümkün olduğunca normal bakım pencereleri zamanlamanızı öneririz. Bakım işlemleri, kullanıcı iş yükleri hem portal işlemlerini etkileyebilir.
 
-1. Yönetici portalında **diğer hizmetler**. Ardından, altında **veri + depolama** kategorisi, select **depolama hesapları**. (Veya filtre kutusuna yazmaya başlayın **depolama hesapları**ve bu seçeneği belirleyin.)
+1. Yönetici portalında **tüm hizmetleri**. Ardından, altında **veri + depolama** kategorisi, select **depolama hesapları**. (Veya filtre kutusuna yazmaya başlayın **depolama hesapları**ve bu seçeneği belirleyin.)
 
     ![Depolama hesaplarını portalda nerede bulacağını gösterir](media/azure-stack-apply-updates/ApplyUpdates1.png)
 

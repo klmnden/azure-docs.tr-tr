@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: df1cf093a154b4f7adf59fae93f90fbc70459788
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 57cfa44a0eb114503b89733b2c3e309b65d5b7e5
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42060671"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023333"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Azure PowerShell kullanarak sertifikayla bir hizmet sorumlusu oluşturma
 
@@ -29,7 +29,7 @@ Kaynaklara erişmesi gereken bir uygulamanız veya betiğiniz olduğunda, uygula
 * Katılımsız bir betik yürütürken kimlik doğrulaması için sertifika kullanabilirsiniz.
 
 > [!IMPORTANT]
-> Hizmet sorumlusu oluşturmak yerine, uygulama kimliğiniz için Azure AD Yönetilen Hizmet Kimliği kullanmayı göz önünde bulundurun. Azure AD MSI, Azure Active Directory'nin kod için kimlik oluşturmayı basitleştiren ve genel önizleme aşamasında olan bir özelliğidir. Kodunuz Azure AD MSI desteği olan bir hizmette çalıştırılıyorsa ve Azure Active Directory kimlik doğrulamasını destekleyen kaynaklara erişiyorsa, Azure AD MSI sizin için daha iyi bir seçenektir. Azure AD MSI hakkında daha fazla bilgi edinmek ve şu anda bunu hangi hizmetlerin desteklediğini öğrenmek için bkz. [Azure kaynakları için Yönetilen Hizmet Kimliği](../active-directory/managed-service-identity/overview.md).
+> Hizmet sorumlusu oluşturmak yerine, uygulama kimliğiniz için Azure AD Yönetilen Hizmet Kimliği kullanmayı göz önünde bulundurun. Azure AD MSI, Azure Active Directory'nin kod için kimlik oluşturmayı basitleştiren ve genel önizleme aşamasında olan bir özelliğidir. Kodunuz Azure AD MSI desteği olan bir hizmette çalıştırılıyorsa ve Azure Active Directory kimlik doğrulamasını destekleyen kaynaklara erişiyorsa, Azure AD MSI sizin için daha iyi bir seçenektir. Azure AD MSI hakkında daha fazla bilgi edinmek ve şu anda bunu hangi hizmetlerin desteklediğini öğrenmek için bkz. [Azure kaynakları için Yönetilen Hizmet Kimliği](../active-directory/managed-identities-azure-resources/overview.md).
 
 Bu makalede, sertifikayla kimlik doğrulaması yapan bir hizmet sorumlusunun nasıl oluşturulduğu gösterilir. Parolası olan bir hizmet sorumlusu ayarlamak için bkz. [Azure PowerShell ile Azure hizmet sorumlusu oluşturma](/powershell/azure/create-azure-service-principal-azureps).
 

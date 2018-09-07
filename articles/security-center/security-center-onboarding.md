@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi standart Gelişmiş güvenlikten yararlanmaya ba�
 description: " Bilgi nasıl için Azure Güvenlik Merkezi standart yerleşik Gelişmiş Güvenlik. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: a68c0ecc15f81efe6045f4c298b48f9809916297
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/02/2018
+ms.author: rkarlin
+ms.openlocfilehash: 21ffab10b87925513a50198b5b0e66188ef15455
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38479470"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024919"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Gelişmiş güvenlikten yararlanmaya başlamak için Azure Güvenlik Merkezi standart ekleme
 Gelişmiş güvenlik yönetimi ve tehdit koruması için hibrit bulut iş yüklerinizi yararlanmak için Güvenlik Merkezi standart yükseltin.  Standart 60 gün boyunca ücretsiz deneyebilirsiniz. Güvenlik Merkezi'ni [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/) daha fazla bilgi için.
@@ -40,59 +40,40 @@ Tüm Azure aboneliğinin abonelik içindeki tüm kaynaklar tarafından devralın
 >
 >
 
-## <a name="upgrade-an-azure-subscription"></a>Bir Azure aboneliğine yükseltme
-Standart abonelikler yükseltmek için:
-1. Güvenlik Merkezi ana menüsünde **Gelişmiş güvenliğe ekleme** seçeneğini belirleyin.
-2. Altında **Gelişmiş güvenliğe ekleme**, Güvenlik Merkezi, ekleme işlemi için uygun abonelikleri listeler. Listelenen abonelikler tümünün seçerek yükseltebilirsiniz **geçerli standart plan**.
+## <a name="upgrade-an-azure-subscription-or-workspace"></a>Bir Azure aboneliğini veya çalışma alanını yükseltme
+Standart abonelik veya çalışma alanını yükseltmek için:
+1. Güvenlik Merkezi ana menüsünde seçin **Başlarken**.
+  ![Başlarken](./media/security-center-onboarding/get-started.png)
+2. Altında **yükseltme**, Güvenlik Merkezi, abonelikleri ve çalışma alanı ekleme işlemi için uygun listeler. 
+   - Genişletilebilir üzerinde tıklayabilirsiniz **denemenizi uygulamak** tüm abonelikler ve deneme uygunluk durumları ile birlikte çalışma alanlarının bir listesini görmek için.
+   -    Abonelikler ve deneme sürümü için uygun olmayan çalışma alanları yükseltebilirsiniz.
+   -    Uygun çalışma alanları ve deneme sürümünüzü başlatmak için abonelikleri seçebilirsiniz.
+3.  Tıklayın **deneme sürümünü Başlat** seçili Aboneliklerde deneme sürümünüzü başlatmak için.
+  ![Abonelik seçin](./media/security-center-onboarding/select-subscription.png)
 
-  ![Tüm abonelikleri yükseltme][1]
-
-Standart olarak tek bir abonelik yükseltmek için: bir abonelikten yükseltebilirsiniz **ekleme** seçerek **geçerli standart katman**. Standart abonelik altında bir kaynak grubu yükseltmek için aboneliği seçin:
-1. Bir abonelik seçin.  **Güvenlik İlkesi** kaynak grubunun abonelikte yer alan hakkında bilgi sağlar.
-2. Abonelik veya kaynak grubu seçin.
-
-  ![Tüm abonelikleri yükseltme][2]
-
-3. Seçin **standart** ücretsiz sürümünden standart sürümüne yükseltebilir için.
-4. **Kaydet**’i seçin.
-
-> [!NOTE]
-> Bir aboneliği standart sürümüne yükseltme'ı açma [otomatik sağlama](security-center-enable-data-collection.md) varsa, daha önce devre dışı bırakıldı. İzleme aracılarını otomatik sağlama öneririz.
->
->
-
-## <a name="upgrade-a-workspace"></a>Çalışma alanını yükseltme
-Standart çalışma alanına uygulama çalışma alanınıza raporlayan tüm kaynaklar için geçerlidir.
-
-1. Geri dönüp **ekleme** dikey penceresi.
-2. Bir çalışma alanı seçin.
-
-  ![Çalışma alanını yükseltme][8]
-
-3. Seçin **standart** yükseltmek için.  
-4. **Kaydet**’i seçin.
 
    > [!NOTE]
-   > Burada boş olamaz veya standart çalışma alanınıza uygulanan bir senaryo yoktur. Daha sonra serbest seçerseniz, Güvenlik Merkezi'nin ücretsiz özellikleri yalnızca, Azure sanal makinelerine uygulanır. Ücretsiz özellikleri, Azure dışı bilgisayarlarınızı uygulanmaz. Standart'ı seçerseniz, tüm Azure Vm'leri ve Azure olmayan bilgisayarlar çalışma alanına raporlama standart yetenekleri uygulanır. Azure ve Azure dışı kaynaklar için Gelişmiş güvenliği sağlamak için standart uygulamanızı öneririz.
+   > Güvenlik Merkezi'nin ücretsiz özellikleri, Azure Vm'lerine uygulanır. Ücretsiz özellikleri, Azure dışı bilgisayarlarınızı uygulanmaz. Standart'ı seçerseniz, tüm Azure Vm'leri ve Azure olmayan bilgisayarlar çalışma alanına raporlama standart yetenekleri uygulanır. Azure ve Azure dışı kaynaklar için Gelişmiş güvenliği sağlamak için standart uygulamanızı öneririz.
    >
    >
 
 ## <a name="onboard-non-azure-computers"></a>Azure dışı bilgisayarları ekleme
-Güvenlik Merkezi, Azure dışı bilgisayarların güvenlik durumunu izleyebilir ancak öncelikle bu kaynakları eklemeniz gerekir. Azure dışı bilgisayarlar ekleyebilirsiniz **ekleme** dikey veya **işlem** dikey penceresi. Her iki yöntem alacağız.
+Güvenlik Merkezi, Azure dışı bilgisayarların güvenlik durumunu izleyebilir ancak öncelikle bu kaynakları eklemeniz gerekir. Azure dışı bilgisayarlar ekleyebilirsiniz **Başlarken** dikey veya **işlem** dikey penceresi. Her iki yöntem alacağız.
 
-### <a name="add-new-non-azure-computers-from-onboarding"></a>Hazırlama yeni Azure olmayan bilgisayarlar ekleme
+### <a name="add-new-non-azure-computers-from-getting-started"></a>Yeni Azure olmayan bilgisayarlardan ekleme **kullanmaya başlama**
 
-1. Geri dönüp **ekleme**.   
-2. Seçin **yeni Azure olmayan bilgisayarlar eklemek istiyor musunuz**.
+1. Geri dönüp **Başlarken**.   
+2. Seçin **başlama** sekmesi.
 
-  ![Azure olmayan bilgisayar ekleme][3]
+  ![Azure Dışı](./media/security-center-onboarding/non-azure.png)
+
+3. Tıklayın **yapılandırma** altında **yeni Azure olmayan bilgisayar ekleme**. Log Analytics çalışma alanlarınızın listesi gösterilir. Listede, varsa, otomatik sağlama etkinleştirildiğinde Güvenlik Merkezi tarafından sizin için oluşturulan varsayılan çalışma alanı bulunur. Bu çalışma alanını veya kullanmak istediğiniz başka bir çalışma alanı seçin.
+
+  ![Azure olmayan bilgisayar ekleme][7]
 
 Mevcut çalışma alanınız varsa bunlar altında listelenen **yeni Azure olmayan bilgisayar ekleme**. Mevcut bir çalışma alanına bilgisayar eklemek veya yeni bir çalışma alanı oluşturun. Yeni bir çalışma alanı oluşturmak için bağlantıyı seçin **yeni bir çalışma alanı Ekle**.
 
-Her iki yöntem alacağız:
-
-- Yeni bir çalışma alanı oluşturun ve bilgisayar ekleme
-- Mevcut bir çalışma alanını seçin ve bilgisayar ekleme
+### <a name="add-new-non-azure-computers-from-compute"></a>Yeni Azure olmayan bilgisayarlardan ekleme **işlem**
 
 **Yeni bir çalışma alanı oluşturun ve bilgisayar ekleme**
 
@@ -134,9 +115,9 @@ Bu makalede öğrendiğiniz yerleşik Azure Güvenlik Merkezi'nin Gelişmiş gü
 <!--Image references-->
 [1]: ./media/security-center-onboarding/onboard.png
 [2]: ./media/security-center-onboarding/onboard-subscription.png
-[3]: ./media/security-center-onboarding/add-non-azure-resource.png
+[3]: ./media/security-center-onboarding/get-started.png
 [4]: ./media/security-center-onboarding/create-workspace.png
 [5]: ./media/security-center-onboarding/overview.png
 [6]: ./media/security-center-onboarding/compute-blade.png
-[7]: ./media/security-center-onboarding/add-non-azure-computer.png
+[7]: ./media/security-center-onboarding/add-computer.png
 [8]: ./media/security-center-onboarding/onboard-workspace.png

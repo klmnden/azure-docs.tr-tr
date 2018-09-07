@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: fd93f1ad83f6627f27534eca17f91c9fe9b2cc9f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: ab56ad07bd3da17f105bd09f2484173207d30015
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667866"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025073"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Azure sanal makine kullanımını anlama
-Azure kullanım verilerinizi analiz etmeye tarafından güçlü tüketim öngörüleri elde edebileceğimize – etkinleştirebilirsiniz ınsights daha iyi maliyet yönetim ve kuruluşunuz genelinde ayırma. Bu belge, Azure işlem tüketim ayrıntılarınızı ayrıntılar sağlar. Genel Azure kullanımı hakkında daha fazla ayrıntı için gidin [faturanızı anlama](/billing/billing-understand-your-bill.md).
+Azure kullanım verilerinizi analiz etmeye tarafından güçlü tüketim öngörüleri elde edebileceğimize – etkinleştirebilirsiniz ınsights daha iyi maliyet yönetim ve kuruluşunuz genelinde ayırma. Bu belge, Azure işlem tüketim ayrıntılarınızı ayrıntılar sağlar. Genel Azure kullanımı hakkında daha fazla ayrıntı için gidin [faturanızı anlama](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
 
 ## <a name="download-your-usage-details"></a>Kullanım ayrıntılarınızı indirin
 Başlamak için [kullanım ayrıntılarını karşıdan](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). Aşağıdaki tabloda, Azure Resource Manager üzerinden dağıtılan sanal makineler için kullanım tanımı ve örnek değerleri sağlar. Bu belge, Klasik modelimizi dağıtılan VM'ler için ayrıntılı bilgi içermiyor.
@@ -143,5 +143,6 @@ Klasik modeldeki kaynaklar için faturalandırma bulut hizmet düzeyinde toplan�
 Premium depolama özellikli VM'ler premium olmayan depolama aynı oranda faturalandırılır özellikli VM'ler. Yalnızca depolama maliyetlerinizi farklılık gösterir. Ziyaret [depolama fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/) daha fazla bilgi için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kullanım ayrıntılarınızı hakkında daha fazla bilgi için bkz: [Microsoft Azure için faturanızı anlayın.](/billing/billing-understand-your-bill.md)
+Kullanım ayrıntılarınızı hakkında daha fazla bilgi için bkz: [Microsoft Azure için faturanızı anlayın.](https://docs.microsoft.com/azure/billing/billing-understand-your-bill
+)
 

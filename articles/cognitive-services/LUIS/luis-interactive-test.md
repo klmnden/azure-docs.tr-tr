@@ -1,5 +1,6 @@
 ---
-title: Eğitme ve test etme LUIS uygulamanızı - Azure | Microsoft Docs
+title: LUIS portalın içinde LUIS uygulamanızı test edin
+titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS), uygulamanızı geliştirebilirsiniz ve kendi dil anlama geliştirmek için sürekli olarak çalışmak için kullanın.
 services: cognitive-services
 author: diberry
@@ -7,18 +8,18 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 925b96b61de876d40105c89556fd6dcb600d1b1a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: f697e55e095baf113b7e622c4e7447b78444d4ac
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223659"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054757"
 ---
 # <a name="test-your-luis-app"></a>LUIS uygulamanızı test edin
 <a name="train-your-app"></a>
-[Eğitim](luis-how-to-train.md) ve [test](luis-concept-test.md) uygulama yinelemeli bir işlemdir. LUIS uygulamanızı eğitim sonra bu amaç ve varlıkları doğru tanınır olmadığını görmek için örnek Konuşma ile test edin. Değilseniz, güncelleştirmeleri LUIS uygulaması, eğitin ve test için yeniden yapın. 
+[Test](luis-concept-test.md) uygulama yinelemeli bir işlemdir. LUIS uygulamanızı eğitim sonra bu amaç ve varlıkları doğru tanınır olmadığını görmek için örnek Konuşma ile test edin. Değilseniz, güncelleştirmeleri LUIS uygulaması, eğitin ve test için yeniden yapın. 
 
 <!-- anchors for H2 name changes -->
 <a name="test-your-app"></a>

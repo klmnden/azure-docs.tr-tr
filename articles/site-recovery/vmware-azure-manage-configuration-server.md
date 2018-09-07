@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 0935867e835fe88568f1cdce1ea8dfcea14a451a
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 1d2f194eb6a2186fc1e8451a7022d26cd1013bb2
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669324"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022405"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>VMware Vm'leri için yapılandırma sunucusunu yönetme
 
@@ -88,7 +88,22 @@ Gerekirse yapılandırma sunucusunu aynı kasaya yeniden kaydettirin. Varsayıla
           net stop obengine
           net start obengine
   ```
-  
+
+## <a name="register-a-configuration-server-with-a-different-vault"></a>Yapılandırma sunucusunu farklı bir kasaya kaydetme
+
+> [!WARNING]
+> Geçerli kasa yapılandırma sunucusundan aşağıdaki adımı ayırır ve yapılandırma sunucusu altında tüm korumalı sanal makinelerin çoğaltma durdurulur.
+
+1. Yapılandırma sunucusuna oturum açın.
+2. Bir yönetici PowerShell komut penceresi açın ve aşağıdaki komutu çalıştırın:
+
+    ```
+    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    net stop dra
+    ```
+3. Masaüstü kısayolunu kullanarak yapılandırma sunucusu Gereci tarayıcı portalını başlatın.
+4. Yeni bir yapılandırma sunucusu için benzer kayıt adımları [kayıt](vmware-azure-tutorial.md#register-the-configuration-server).
+
 ## <a name="upgrade-the-configuration-server"></a>Yapılandırma sunucusunu yükseltme
 
 Yapılandırma sunucusunu güncelleştirmek için güncelleştirme paketleri çalıştırdığınız. Güncelleştirmeleri kadar N-4 sürümleri için uygulanabilir. Örneğin:

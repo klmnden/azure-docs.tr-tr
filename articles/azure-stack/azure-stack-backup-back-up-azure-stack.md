@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 578bb864f56b788db77d1201533e73d3b9616669
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: a11de2a4580515f6a358438a706e5be3f5543e28
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42056541"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025319"
 ---
 # <a name="back-up-azure-stack"></a>Azure yığını yedekleme
 
@@ -81,7 +81,7 @@ Sonuç aşağıdaki çıktı gibi görünmelidir:
 Aşağıdaki adımları izleyerek bu Yedekleme başarıyla tamamlandığını doğrulayın için Azure Stack yönetim portalını kullanın:
 
 1. Açık [Azure Stack Yönetim Portalı](azure-stack-manage-portals.md).
-2. Seçin **diğer hizmetler** > **altyapı yedeklemesine**. Seçin **yapılandırma** içinde **altyapı yedeklemesine** dikey penceresi.
+2. Seçin **tüm hizmetleri**ve ardından altındaki **Yönetim** kategorisi seçin > **altyapı yedeklemesine**. Seçin **yapılandırma** içinde **altyapı yedeklemesine** dikey penceresi.
 3. Bulma **adı** ve **tamamlanma tarihi** yedeğin **kullanılabilir yedekler** listesi.
 4. Doğrulama **durumu** olduğu **başarılı**.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashesvi
-ms.openlocfilehash: c530fdca9d5fe499df680211a741bfd9950bb1fe
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3e5316ac0ca20c58a0960818d3151c238927df0d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382159"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054606"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Rezervasyonlar Azure kaynaklarını yönetme
 
@@ -91,9 +91,17 @@ Erişim yönetimi için bir ayırma temsilci atamak için:
     Update-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
 
+## <a name="cancellations-and-exchanges"></a>İptalleri ve değişimler
+
+Ayırma türüne bağlı olarak, iptal etme veya rezervasyon exchange mümkün olabilir. Daha fazla bilgi için İptal ve aşağıdaki konulardaki değişimleri bölümlere bakın:
+
+- [Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
+- [Azure ayırmalardan SUSE yazılım planları için ön ödeme](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
+- [Azure SQL veritabanı'nın ayrılmış kapasite ile SQL veritabanı bilgi işlem kaynakları için ön ödeme](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
+
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Ayrılmış VM örnekleri için ayar değişiklik iyileştirin
 
- Ayrılmış VM örneği satın aldığınızda, örneği boyutu esnekliği veya kapasite önceliği seçin. Örnek boyutu esneklik, aynı diğer VM'ler için ayırma indirimi geçerlidir [VM boyutu grubu](https://aka.ms/RIVMGroups). Kapasite önceliği dağıtımlarınız için veri merkezi kapasitenizi ayırır. Bu seçenek, ihtiyaç duyduğunuzda sanal makine örneklerini başlatma yeteneğinizi ek güvence sunar.
+ Ayrılmış VM örneği satın aldığınızda, örneği boyutu esnekliği veya kapasite önceliği seçin. Örnek boyutu esneklik, aynı diğer VM'ler için ayırma indirimi geçerlidir [VM boyutu grubu](https://aka.ms/RIVMGroups). Kapasite önceliği dağıtımlarınız için veri merkezi kapasitenizi önceliklendirir. Bu seçenek, ihtiyaç duyduğunuzda sanal makine örneklerini başlatma yeteneğinizi ek güvence sunar.
 
 Rezervasyon kapsamı paylaşıldığında, varsayılan olarak, örnek boyutu esneklik açıktır. Veri Merkezi kapasitenizi VM dağıtımları için öncelik değildir.
 

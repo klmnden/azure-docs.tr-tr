@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 2ea1c337b4193997039876a05e71fb0088d455b1
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4df929e8a185a04aef5cb13f30c19b0db707e765
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921496"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022002"
 ---
 # <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>VMware sanal makinelerinin çoğaltma ve fiziksel sunucuları ikincil bir siteye destek matrisi
 
@@ -99,7 +99,7 @@ Sık erişimli Ekle/Kaldır disk | Evet
 Diski hariç tutma | Evet 
 Çok yollu (MPIO) | Yok 
 
-## <a name="vaults"></a>Kasaları
+## <a name="vaults"></a>Kasalar
 
 **Eylem** | **Destekleniyor** 
 --- | --- 
@@ -112,7 +112,7 @@ Mobility hizmeti, şirket içi VMware sunucularını veya fiziksel sunucuları v
 
 **Güncelleştirme** | **Ayrıntılar** 
 --- | --- 
-Scout güncelleştirmeleri | [Öğrenin ve indirin](/vmware-physical-secondary-disaster-recovery.md#updates) Scout Haberleri | Scout güncelleştirmeleri birikmeli özelliktedir.
+Scout güncelleştirmeleri | [Öğrenin ve indirin](vmware-physical-secondary-disaster-recovery.md#updates) Scout Haberleri | Scout güncelleştirmeleri birikmeli özelliktedir.
 Bileşen güncelleştirmeleri | Scout güncelleştirmeleri RX sunucu, yapılandırma sunucusu, işlem ve ana hedef sunucular, vContinuum sunucuları ve korumak istediğiniz kaynak sunucular da dahil olmak üzere tüm bileşenler için güncelleştirmeleri içerir.<br/><br/> [Daha fazla bilgi edinin](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).
 
 

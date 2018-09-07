@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: marsma
-ms.openlocfilehash: 6419753a48e1356b2d94592fca72cee1f848dcdb
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 9108d9e1b230fe2267f0195bd2c33c5a4c57d956
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390662"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021949"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Kullanım Azure Container Instances olarak bir Jenkins derleme aracısı
 
@@ -48,7 +48,7 @@ Azure Container Instances hakkında daha fazla bilgi için bkz. [Azure Container
 
    ![Jenkins portal dağıtım için ek ayarlar](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. Hizmet sorumlusu tümleştirmesi seçin **Auto(MSI)** olmasını [Azure yönetilen hizmet kimliği] [ managed-service-identity] otomatik olarak bir kimlik doğrulama kimliği için Jenkins oluşturma örneği. Seçin **el ile** kendi hizmet sorumlusu kimlik bilgileri sağlamak için.
+4. Hizmet sorumlusu tümleştirmesi seçin **Auto(MSI)** [Azure yönetilen hizmet kimliği] için [yönetilen-kimlik-azure-kaynaklar] otomatik olarak Jenkins örneği için bir kimlik doğrulama kimliğini oluşturun. Seçin **el ile** kendi hizmet sorumlusu kimlik bilgileri sağlamak için.
 
 5. Jenkins derleme işleri için bulut tabanlı bir platform bulut aracılarını yapılandırın. Bu makalede amacıyla seçin **ACI**. ACI bulut Aracısı ile her bir Jenkins derleme işi container Instance üzerinde çalıştırılır.
 
@@ -128,9 +128,9 @@ Test derleme işi ve yapı platformu olarak Azure Container Instances gözlemek 
 
    ![Kaldırılan container Instances ile kaynak grubu](./media/container-instances-jenkins/jenkins-aci-none.png)
 
-## <a name="troubleshooting-the-jenkins-plugin"></a>Jenkins eklentisi sorunlarını giderme
+## <a name="troubleshooting-the-jenkins-plugin"></a>Jenkins eklentisiyle ilgili sorunları giderme
 
-Tüm hatalar Jenkins eklentileri ile karşılaşırsanız, sorunu bildirin [Jenkins JIRA](https://issues.jenkins-ci.org/) belirli bileşeni.
+Jenkins eklentileriyle ilgili hatalarla karşılaşırsanız [Jenkins JIRA](https://issues.jenkins-ci.org/) sayfasında söz konusu bileşenle ilgili sorun bildirebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

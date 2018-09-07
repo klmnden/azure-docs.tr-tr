@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: af2a3da788fd26387ccdcc36422ffa5b11893212
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 529612aeecfcea1d775c2f4359c5135ca3c6885e
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888092"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052552"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Geliştirme ve test için Azure depolama öykünücüsü kullanma
 
@@ -68,7 +68,7 @@ Depolama öykünücüsü varsayılan LocalDB örnekten başka bir SQL veritaban�
 
   Varsayılan SQL Server örneğini kullanacak şekilde öykünücü yönlendirir aşağıdaki komutu kullanabilirsiniz:
 
-  `AzureStorageEmulator.exe init /server .\\`
+  `AzureStorageEmulator.exe init /server .`
 
   Veya, varsayılan LocalDB örneğini veritabanına yeniden başlatır aşağıdaki komutu kullanabilirsiniz:
 
@@ -93,10 +93,10 @@ Xamarin kitaplığı gibi bazı Azure depolama istemci kitaplıkları, yalnızca
 Ayrıca, Azure PowerShell kullanarak bir SAS belirteci oluşturabilirsiniz. Aşağıdaki örnek, bir blob kapsayıcısı için tam izinlere sahip bir SAS belirteci oluşturur:
 
 1. Henüz yapmadıysanız yükleme Azure PowerShell (Azure PowerShell cmdlet'leri önerilen en son sürümünü kullanarak). Yükleme yönergeleri için bkz. [yüklemek ve Azure PowerShell yapılandırma](/powershell/azure/install-azurerm-ps).
-2. Azure PowerShell'i açın ve değiştirerek aşağıdaki komutları çalıştırın `ACCOUNT_NAME` ve `ACCOUNT_KEY==` kendi kimlik bilgileriyle ve `CONTAINER_NAME` seçtiğiniz bir ada sahip:
+2. Azure PowerShell'i açın ve değiştirerek aşağıdaki komutları çalıştırın `CONTAINER_NAME` seçtiğiniz bir ada sahip:
 
 ```powershell
-$context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
+$context = New-AzureStorageContext -Local
 
 New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
 
@@ -108,7 +108,7 @@ New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryT
 Yeni bir kapsayıcı elde edilen paylaşılan erişim imzası URI'si aşağıdakine benzer olmalıdır:
 
 ```
-https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
+http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
 ```
 
 Bu örnek ile oluşturulmuş paylaşılan erişim imzası bir gün boyunca geçerlidir. İmza kapsayıcı içindeki blobları tam (okuma, yazma, silme, liste) erişim verir.

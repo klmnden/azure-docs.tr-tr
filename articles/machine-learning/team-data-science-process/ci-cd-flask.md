@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: 4d95fc25ed6f2f2efec8313e5b208b3cccbb619f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 6de1832dde1764b2655d4c34643d6a026e198f64
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968800"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052233"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>Yapay zeka (AI) uygulamalar için DevOps: Azure'da Docker ve Kubernetes kullanarak sürekli tümleştirme işlem hattı oluşturma
 Yapay ZEKA uygulaması için iş, veri Bilimcileri makine öğrenimi modelleri ve bir uygulama oluşturmak ve kullanmak için son kullanıcılara gösterme uygulama geliştiriciler genellikle iki akışlarını vardır. Bu makalede, biz nasıl sürekli tümleştirme (CI) uygulanacağını gösteren / sürekli teslim (CD) işlem hattı için yapay ZEKA uygulama. Yapay ZEKA uygulaması, uygulama kodu kullanan machine learning (ML) bir modelle katıştırılmış birleşimidir. Bu makalede, biz pretrained modeli özel Azure blob depolama hesabından getiriliyor, AWS S3 hesabı da olabilir. Makale için bir basit bir python flask web uygulaması kullanacağız.
@@ -65,7 +65,7 @@ Uygulamayı bir Azure depolama hesabı ve paketlerin en son modelden, uygulaman�
 11. DNS sunucusu, yük dengeleyici isteği geçirir ve kullanıcı geri yanıt gönderir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Başvurmak [öğretici]((https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md)) ayrıntılarını izleyin ve kendi uygulamanız için CI/CD ardışık uygulamak için.
+* Başvurmak [öğretici](https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md) ayrıntılarını izleyin ve kendi uygulamanız için CI/CD ardışık uygulamak için.
 
 ## <a name="references"></a>Başvurular
 * [Team Data Science Process (TDSP)](https://aka.ms/tdsp)

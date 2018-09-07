@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: af7d4253b4e631295f8c04c96601e932595af9c1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: bb5e58c0cb06baabf76d7d0443e94b368549176f
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697773"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051349"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration Runtime (IR) Azure Data Factory tarafından farklı ağ ortamları veri tümleştirme özellikleri sağlamak için kullanılan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -30,16 +30,16 @@ Bu belgenin nasıl oluşturabileceğinizi ve şirket içinde barındırılan IR 
 1. Şirket içinde barındırılan tümleştirme çalışma zamanı oluşturma. Kendinden konak IR oluşturmak için ADF kullanıcı Arabirimi kullanabilirsiniz. PowerShell örneği aşağıda verilmiştir:
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
 2. Şirket içinde barındırılan tümleştirme çalışma zamanını (yerel makine) yükleyip yeniden açın.
 3. Kimlik doğrulama anahtarı almak ve şirket içinde barındırılan tümleştirme çalışma zamanı anahtarı ile kaydedin. PowerShell örneği aşağıda verilmiştir:
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
 
-## <a name="setting-up-self-hosted-ir-on-azure-vm-using-azure-resource-manager-template-automatation"></a>Azure Resource Manager şablonu (automatation) kullanarak Azure sanal makinesinde kendinden konak IR ayarlama
+## <a name="setting-up-self-hosted-ir-on-azure-vm-using-azure-resource-manager-template-automation"></a>Azure Resource Manager şablonu (Otomasyonu) kullanarak Azure sanal makinesinde kendinden konak IR ayarlama
 Bir Azure VM kullanarak şirket içinde barındırılan IR Kurulumu otomatik hale getirebilirsiniz [bu Azure Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). Bu, (2 veya daha yüksek düğüm sayısı ayarladığınız sürece) yüksek Avalaibility ve ölçeklenebilirlik özelliğiyle Azure VNet içinde tam olarak işlevsel bir şirket içinde barındırılan IR sağlamak için kolay bir yol sağlar.
 
 ## <a name="command-flow-and-data-flow"></a>Komut akışını ve veri akışı

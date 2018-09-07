@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 48e04d3bdd783d1dc04ac5cc77c4183ef5f87865
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ac6d3a23e3afcc3a4c17798db7f63d846b123fba
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818448"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022122"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows üzerinde geliştirme ortamınızı hazırlama
 > [!div class="op_single_selector"]
@@ -70,6 +70,9 @@ Geçerli sürümler şunlardır:
 * Visual Studio 2017 15.7 2.3.10710.1 Visual Studio için Service Fabric araçlarını içerir 
 
 Desteklenen sürümlerin listesi için bkz. [Service Fabric desteği](service-fabric-support.md)
+
+> [!NOTE]
+> Kümeleri (OneBox) kullanılması desteklenmez veya küme için tek makine yükseltmeleri; OneBox kümeyi silin ve bir küme yükseltmesi gerçekleştirin veya uygulama yükseltme gerçekleştirme herhangi bir sorun olması gerekiyorsa bunu oluşturun. 
 
 ## <a name="enable-powershell-script-execution"></a>PowerShell betik yürütmesini etkinleştirme
 Service Fabric, yerel geliştirme merkezi oluşturmak ve Visual Studio'dan uygulamaları dağıtmak için Windows PowerShell betiklerini kullanır. Varsayılan olarak, Windows bu betiklerin çalışmasını engeller. Betikleri etkinleştirmek için PowerShell yürütme ilkenizi değiştirmeniz gerekir. PowerShell'i yönetici olarak açın ve şu komutu girin:

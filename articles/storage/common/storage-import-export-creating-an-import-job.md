@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: e87b791dda03521def32ca7473336d7d37644773
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: c1effeba7e4b0750d5af3a5a82b755704379af68
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666028"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021855"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti için bir içeri aktarma işi oluşturma
 
@@ -97,7 +97,7 @@ Bir dağıtımı konum adı ve adresi çağırarak elde etmeniz içeri aktarma i
 >  Sürücülerinizi paketiniz için bir izleme numarası sağlayacak bir desteklenen taşıyıcı hizmeti aracılığıyla göndermeniz gerekir.
 
 ## <a name="updating-the-import-job-with-your-shipping-information"></a>Sevkiyat bilgilerinizi içeri aktarma işi güncelleştiriliyor
-İzleme numaranızı sonra çağrı [güncelleştirme işi özellikleri](/api/storageimportexport/jobs#Jobs_Update) Sevkiyat taşıyıcısı adı, iş için takip numarasını ve taşıyıcı hesap numarası iade gönderimi için güncelleştirme işlemi. İsteğe bağlı olarak, sürücüler ve gönderim tarihi de belirtebilirsiniz.
+İzleme numaranızı sonra çağrı [güncelleştirme işi özellikleri](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Update) Sevkiyat taşıyıcısı adı, iş için takip numarasını ve taşıyıcı hesap numarası iade gönderimi için güncelleştirme işlemi. İsteğe bağlı olarak, sürücüler ve gönderim tarihi de belirtebilirsiniz.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 

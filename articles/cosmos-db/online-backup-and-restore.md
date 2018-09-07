@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 613c61d9b881b7d736a50cadbf313c1f9aac57c9
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: a2c52844e09daf42418b4e548f7185e31dcf4ae9
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42056735"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053542"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Otomatik çevrimiçi yedekleme ve geri yükleme işlemi Azure Cosmos DB
 Azure Cosmos DB, tüm verilerinizin yedeklerini düzenli aralıklarla otomatik olarak alır. Otomatik yedeklemeler, performans veya veritabanı işlemlerinizi kullanılabilirliğini etkilemeden alınır. Tüm yedeklemeler ayrı olarak başka bir depolama hizmetinde depolanır ve bu yedekleri bölgesel felaketlere karşı dayanıklılık için genel olarak çoğaltılır. Cosmos DB kapsayıcınız kaza ve daha sonra veri kurtarma veya bir olağanüstü durum kurtarma çözümü gerektiğinde otomatik yedekleme senaryoları için tasarlanmıştır.  

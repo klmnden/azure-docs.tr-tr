@@ -1,42 +1,42 @@
 ---
-title: Azure Service Fabric mikro (Önizleme) containerize nasıl
-description: Azure Service Fabric, Service Fabric mikro containerize yeni bir işlevsellik ekledi. Bu özellik şu anda önizleme sürümündedir.
+title: Azure Service Fabric hizmetleriniz Windows üzerinde kapsayıcılı hale getirme
+description: Service Fabric Reliable Services ve Reliable Actors hizmetleriniz Windows üzerinde kapsayıcılı hale getirme hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: .net
 author: anmolah
 manager: anmolah
-editor: anmolah
+editor: roroutra
 ms.assetid: 0b41efb3-4063-4600-89f5-b077ea81fa3a
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/04/2017
+ms.date: 5/23/2018
 ms.author: anmola
-ms.openlocfilehash: 3741e74e70769d186da2757b43ca60bbb1e78a1f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d3ed1ff46bf4c82a172954828ec74bae80241288
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212662"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44057282"
 ---
-# <a name="how-to-containerize-your-service-fabric-reliable-services-and-reliable-actors-preview"></a>Service Fabric Reliable Services ve Reliable Actors (Önizleme) containerize nasıl
+# <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Service Fabric güvenilir hizmetler ve Windows üzerinde Reliable Actors kapsayıcılı hale getirme
 
-Service Fabric containerizing Service Fabric mikro (Reliable Services ve güvenilir dayalı aktör Hizmetleri) destekler. Daha fazla bilgi için bkz: [service fabric kapsayıcıları](service-fabric-containers-overview.md).
+Service Fabric, kapsayıcılı hale getirmek Service Fabric mikro hizmetler (Reliable Services ve Reliable Actor bağlı hizmetler) destekler. Daha fazla bilgi için [service fabric kapsayıcıları](service-fabric-containers-overview.md).
 
-Bu özellik Önizleme sürümünde olduğu ve bu makalede bir kapsayıcı içinde çalışan hizmetiniz için çeşitli adımlar sağlar.  
+Bu belgede, bir Windows kapsayıcısının içinde çalışan hizmetinizi almak için yönergeler verilmektedir.
 
 > [!NOTE]
-> Bu özellik Önizleme aşamasındadır ve üretimde desteklenmiyor. Şu anda bu özellik yalnızca Windows için çalışır. Kapsayıcıları çalıştırmak için küme Windows Server 2016 kapsayıcılarla çalıştırması gerekir.
+> Şu anda bu özellik yalnızca Windows için çalışır. Kapsayıcıları çalıştırmak için kümenin kapsayıcılar ile Windows Server 2016 çalıştırmalıdır.
 
-## <a name="steps-to-containerize-your-service-fabric-application"></a>Service Fabric uygulamanızı containerize adımları
+## <a name="steps-to-containerize-your-service-fabric-application"></a>Service Fabric uygulamanızı kapsayıcılı hale getirme adımları
 
 1. Service Fabric uygulamanızı Visual Studio'da açın.
 
-2. Sınıf ekleme [SFBinaryLoader.cs](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/code/SFBinaryLoaderForContainers/SFBinaryLoader.cs) projenize. Bu sınıftaki Service Fabric çalışma zamanı ikili dosyaları, uygulamanızın içinde bir kapsayıcı içinde çalışırken doğru bir şekilde yüklemek için bir yardımcı kodudur.
+2. Sınıf ekleme [SFBinaryLoader.cs](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/code/SFBinaryLoaderForContainers/SFBinaryLoader.cs) projenize. Bu sınıfın kodu, doğru kapsayıcısının içinde çalışan uygulamanız içinde Service Fabric çalışma zamanı ikili yükleme yardımcıdır.
 
-3. Containerize, yükleyici programı girişi adresindeki başlatmak istediğiniz her kod paketi noktası. Program giriş noktası dosyanıza aşağıdaki kod parçacığında gösterildiği statik oluşturucu ekleyin.
+3. Kapsayıcılı hale getirme, yükleyici programı girişi sırasında başlatmak istediğiniz her kod paketi için bu seçeneği işaretleyin. Programın giriş noktası dosyanıza aşağıdaki kod parçacığında gösterilen statik oluşturucuyu ekleyin.
 
   ```csharp
   namespace MyApplication
@@ -55,20 +55,29 @@ Bu özellik Önizleme sürümünde olduğu ve bu makalede bir kapsayıcı içind
           {
   ```
 
-4. Derleme ve [paket](service-fabric-package-apps.md#Package-App) projenizi. Derleme ve bir paket oluşturmak için Çözüm Gezgini'nde uygulama projesine sağ tıklayın ve seçin **paket** komutu.
+4. Derleme ve [paket](service-fabric-package-apps.md#Package-App) projenizi. Derlemek ve bir paket oluşturmak için Çözüm Gezgini'nde uygulama projesine sağ tıklayın ve seçin **paket** komutu.
 
-5. Her kod paketi için containerize, PowerShell betiğini çalıştırmak istediğiniz [CreateDockerPackage.ps1](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/scripts/CodePackageToDockerPackage/CreateDockerPackage.ps1). Kullanım aşağıdaki gibidir:
-  ```powershell
-    $codePackagePath = 'Path to the code package to containerize.'
-    $dockerPackageOutputDirectoryPath = 'Output path for the generated docker folder.'
-    $applicationExeName = 'Name of the ode package executable.'
-    CreateDockerPackage.ps1 -CodePackageDirectoryPath $codePackagePath -DockerPackageOutputDirectoryPath $dockerPackageOutputDirectoryPath -ApplicationExeName $applicationExeName
- ```
-  Komut dosyası, Docker yapıtlarla $dockerPackageOutputDirectoryPath adresindeki bir klasör oluşturur. Tüm bağlantı noktalarını kullanıma, gereksinimlerinize göre vb. Kurulum betikleri çalıştırmak için oluşturulan Dockerfile değiştirin.
+5. Her kod paketi için kapsayıcılı hale getirme, PowerShell betiğini çalıştırmak istediğiniz [CreateDockerPackage.ps1](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/scripts/CodePackageToDockerPackage/CreateDockerPackage.ps1). Kullanım aşağıdaki gibidir:
 
-6. Sonra [yapı](service-fabric-get-started-containers.md#Build-Containers) ve [itme](service-fabric-get-started-containers.md#Push-Containers) Docker kapsayıcısı paketinizi deponuza.
+    Tam .NET
+      ```powershell
+        $codePackagePath = 'Path to the code package to containerize.'
+        $dockerPackageOutputDirectoryPath = 'Output path for the generated docker folder.'
+        $applicationExeName = 'Name of the Code package executable.'
+        CreateDockerPackage.ps1 -CodePackageDirectoryPath $codePackagePath -DockerPackageOutputDirectoryPath $dockerPackageOutputDirectoryPath -ApplicationExeName $applicationExeName
+      ```
+    .NET Core
+      ```powershell
+        $codePackagePath = 'Path to the code package to containerize.'
+        $dockerPackageOutputDirectoryPath = 'Output path for the generated docker folder.'
+        $dotnetCoreDllName = 'Name of the Code package dotnet Core Dll.'
+        CreateDockerPackage.ps1 -CodePackageDirectoryPath $codePackagePath -DockerPackageOutputDirectoryPath $dockerPackageOutputDirectoryPath -DotnetCoreDllName $dotnetCoreDllName
+      ```
+      Betik $dockerPackageOutputDirectoryPath Docker yapıtlarla bir klasör oluşturur. Değiştirmek için oluşturulan Dockerfile `expose` vb. Kurulum betikleri çalıştırma tüm bağlantı noktaları. gereksinimlerinize göre.
 
-7. ApplicationManifest.xml ve ServiceManifest.xml kapsayıcı görüntü, havuz bilgileri, kayıt defteri kimlik doğrulaması ve bağlantı noktası ana bilgisayar eşleme eklemek için değiştirin. Bildirimleri değiştirmek için bkz: [Azure Service Fabric kapsayıcı uygulama oluşturma](service-fabric-get-started-containers.md). Hizmet bildirimi kod paketi tanımında karşılık gelen kapsayıcı görüntüsüyle değiştirilmesi gerekiyor. EntryPoint ContainerHost türüne değiştirdiğinizden emin olun.
+6. Sonraki için ihtiyacınız [derleme](service-fabric-get-started-containers.md#Build-Containers) ve [anında iletme](service-fabric-get-started-containers.md#Push-Containers) Docker kapsayıcı paketinize deponuzu.
+
+7. ServiceManifest.xml ve ApplicationManifest.xml kapsayıcı görüntüsü, depo bilgilerini, kayıt defteri kimlik doğrulaması ve bağlantı noktası ana bilgisayar eşlemesi eklemek için değiştirin. Bildirimleri değiştirmek için bkz: [bir Azure Service Fabric kapsayıcı uygulaması oluşturma](service-fabric-get-started-containers.md). Hizmet bildirimindeki kod paket tanımı, karşılık gelen kapsayıcı görüntüsü ile değiştirilmesi gerekir. EntryPoint ContainerHost türüne değiştirdiğinizden emin olun.
 
   ```xml
 <!-- Code package is your service executable. -->
@@ -79,11 +88,11 @@ Bu özellik Önizleme sürümünde olduğu ve bu makalede bir kapsayıcı içind
       <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
     </ContainerHost>
   </EntryPoint>
-  <!-- Pass environment variables to your container: -->    
+  <!-- Pass environment variables to your container: -->
 </CodePackage>
   ```
 
-8. Yineleyici ve hizmet uç noktası için bağlantı noktası ana bilgisayar eşlemesi ekleyin. Her iki, bu bağlantı noktalarına çalışma zamanında Service Fabric tarafından atanmış olduğundan, ContainerPort eşleme için atanan bağlantı noktası kullanmak için sıfır olarak ayarlanır.
+8. Yineleyici ve hizmet uç noktası için bağlantı noktası ana bilgisayar eşlemesi ekleyin. Bu her iki bağlantı noktası, Service Fabric tarafından çalışma zamanında atanmış olduğundan ContainerPort eşleme için atanan bağlantı noktasını kullanmak için sıfır olarak ayarlanır.
 
  ```xml
 <Policies>
@@ -94,7 +103,24 @@ Bu özellik Önizleme sürümünde olduğu ve bu makalede bir kapsayıcı içind
 </Policies>
  ```
 
-9. Bu uygulamayı test etmek için 5.7 veya daha yüksek sürümünü çalıştıran bir kümeye dağıtmak için gerekir. Ayrıca, düzenlemek ve bu önizleme özelliği etkinleştirmek için küme ayarlarını güncelleştirmek gerekir. Bu adımları [makale](service-fabric-cluster-fabric-settings.md) sonraki gösterilen ayarı eklemek için.
+9. Kapsayıcı yalıtım modunu yapılandırmak için bkz: [yapılandırma yalıtım modu]( https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). Windows, kapsayıcılar için iki yalıtım modunu destekler: İşlem ve Hyper-V. Aşağıdaki kod parçacıkları, uygulama bildirimi dosyasında yalıtım modunun nasıl belirtildiğine gösterir.
+
+ ```xml
+<Policies>
+  <ContainerHostPolicies CodePackageRef="Code" Isolation="process">
+  ...
+  </ContainerHostPolicies>
+</Policies>
+ ```
+  ```xml
+<Policies>
+  <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
+  ...
+  </ContainerHostPolicies>
+</Policies>
+ ```
+
+10. Bu uygulamayı test etmek için 5.7 veya üzeri sürümü çalıştıran bir kümeye dağıtmak gerekir. Çalışma zamanı sürüm 6.1 veya daha düşük, düzenleyin ve bu önizleme özelliğini etkinleştirmek için küme ayarları güncelleştirmeniz gerekir. Bu adımları izleyerek [makale](service-fabric-cluster-fabric-settings.md) sonraki gösterilen ayarı eklemek için.
 ```
       {
         "name": "Hosting",
@@ -106,9 +132,10 @@ Bu özellik Önizleme sürümünde olduğu ve bu makalede bir kapsayıcı içind
         ]
       }
 ```
-10. Sonraki [dağıtmak](service-fabric-deploy-remove-applications.md) bu kümeye düzenlenen uygulama paketi.
 
-Şimdi, küme çalışmayı kapsayıcılı Service Fabric uygulaması olmalıdır.
+11. Sonraki [dağıtma](service-fabric-deploy-remove-applications.md) bu kümeye düzenlenen uygulama paketi.
+
+Artık kümenize çalışan kapsayıcılı bir Service Fabric uygulaması olmalıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Service Fabric’te kapsayıcı](service-fabric-get-started-containers.md) çalıştırma hakkında daha fazla bilgi edinin.

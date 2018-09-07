@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2018
+ms.date: 09/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: afbe3ff2e6be4e03f8de8ac2490922c3ec788733
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: b5bcd12d3ead3fa99f80355e02a068246d7bcfa8
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091389"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052828"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 güncelleştirme
 
@@ -143,7 +143,7 @@ Bu güvenlik açıkları hakkında daha fazla bilgi için yukarıdaki bağlantı
   > - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom ...
 
 
-- Güncelleştirme 1807 yüklemesi başlamadan önce çalıştırmak [Test AzureStack](azure-stack-diagnostic-test.md) Azure Stack durumunu doğrulamak ve bulunan tüm çalışma sorunlarını çözün. Ayrıca etkin Uyarıları gözden geçirin ve eylemi gerektiren tüm çözümleyin.
+- Bu güncelleştirme yüklemesi başlamadan önce çalıştırması [Test AzureStack](azure-stack-diagnostic-test.md) Azure Stack durumunu doğrulamak ve tüm uyarılar ve hatalar dahil olmak üzere bulundu, çalışma sorunlarını çözün. Ayrıca etkin Uyarıları gözden geçirin ve eylemi gerektiren tüm çözümleyin.
 
 ### <a name="known-issues-with-the-update-process"></a>Güncelleştirme işlemi ile ilgili bilinen sorunlar
 

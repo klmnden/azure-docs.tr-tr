@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: 11cec9621ad72cfeaee45e4cd466430e64b9b836
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: c9004e776488006d563fd4de791cade69736a5b8
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42056007"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024378"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Başvuru - IOT Hub kotaları ve azaltma
 
@@ -42,8 +42,9 @@ Aşağıdaki tabloda zorlanan kısıtlamalar gösterilmektedir. Değerleri tek t
 | Doğrudan yöntemler<sup>1</sup> | 160KB/sn/birim<sup>2</sup> | 480KB/sn/birim<sup>2</sup> | 24MB/sn/birim<sup>2</sup> | 
 | İkiz (cihaz ve modül) okuma<sup>1</sup> | 10/sn | Daha yüksek 10/sn veya 1/sn/birim | 50/sn/birim |
 | İkiz Güncelleştirmesi (cihaz ve modül)<sup>1</sup> | 10/sn | Daha yüksek 10/sn veya 1/sn/birim | 50/sn/birim |
-| İşler işlemleri<sup>1</sup> <br/> (oluşturma, güncelleştirme, listeleme, silme) | 1.67/sec/Unit (100/dk/birim) | 1.67/sec/Unit (100/dk/birim) | 83.33/sec/Unit (5000/dk/birim) |
-| Cihaz işlemleri işleri<sup>1</sup> <br/> (ikiz güncelleştirmesi, doğrudan yöntem çağırma) | 10/sn | Daha yüksek 10/sn veya 1/sn/birim | 50/sn/birim |
+| İşleri oluşturma, güncelleştirme, listeleme, silme işlemleri | 1.67/sec/Unit (100/dk/birim) | 1.67/sec/Unit (100/dk/birim) | 83.33/sec/Unit (5000/dk/birim) |
+| İşleri ikiz güncelleştirmesi, işlemleri doğrudan yöntem çağırma | 10/sn | Daha yüksek 10/sn veya 1/sn/birim | 50/sn/birim |
+| İçeri/dışarı aktarma işlemlerini işler toplu | 1 etkin iş hub'ı başına | 1 etkin iş hub'ı başına | 1 etkin iş hub'ı başına |
 | Yapılandırmalar ve edge dağıtımlarını<sup>1</sup> <br/> (oluşturma, güncelleştirme, listeleme, silme) | 0.33/sec/Unit (20/dk/birim) | 0.33/sec/Unit (20/dk/birim) | 0.33/sec/Unit (20/dk/birim) |
 
 

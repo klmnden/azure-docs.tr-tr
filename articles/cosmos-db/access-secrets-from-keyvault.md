@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
-ms.openlocfilehash: 11aac0ab4476494f74453ca64a1b77964197adaa
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: b090c1593b49bec4f51fea8d498860e8af8b2f4b
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42748054"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053093"
 ---
 # <a name="use-key-vault-to-store-and-access-azure-cosmos-db-keys"></a>Azure Cosmos DB anahtarlara erişmek ve depolamak için Key Vault'u kullanın
 
@@ -56,7 +56,7 @@ Aşağıdaki adımlar, depolama ve Azure Cosmos DB erişim anahtarlarını Key V
 
 ## <a name="create-an-azure-web-application"></a>Azure web uygulaması oluşturma
 
-1. Bir Azure web uygulaması oluşturduğunuzda veya uygulamadan indirebileceğiniz [GitHub deposu](https://github.com/rsarosh/CosmosDB-KeyVault). Bu basit bir MVC uygulamasıdır.  
+1. Bir Azure web uygulaması oluşturduğunuzda veya uygulamadan indirebileceğiniz [GitHub deposu](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo). Bu basit bir MVC uygulamasıdır.  
 
 2. İndirilen uygulama ve açılması **HomeController.cs** dosya. Aşağıdaki satırı gizli kimliği güncelleştirin:
 
@@ -87,11 +87,9 @@ Bu bölümde, uygulamayı Azure Active Directory'ye kaydetmeniz ve Key Vault oku
 
 ![Uygulama gizli anahtarı ile dağıtılan](./media/access-secrets-from-keyvault/app-deployed-with-access.png)
  
-Benzer şekilde, bu anahtar kasasına erişmek için bir kullanıcı ekleyebilirsiniz. Kendinizi "Erişim ilkeleri" tıklayarak anahtar Kasası'na ekleyin ve ardından uygulamayı Visual Studio'dan çalıştırmak için ihtiyacınız olan tüm izin vermek gerekir. Bu uygulama masaüstünüzden çalışırken, kimliğinizi alır.
+Benzer şekilde, bu anahtar kasasına erişmek için bir kullanıcı ekleyebilirsiniz. Anahtar Kasası'na seçerek eklemeniz gerekir **erişim ilkeleri** ve uygulamayı Visual Studio'dan çalıştırmak gereken tüm izinleri verin. Bu uygulama masaüstünüzden çalışırken, kimliğinizi alır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Azure Cosmos DB için bkz. bir güvenlik duvarını [güvenlik duvarı desteği](firewall-support.md) makalesi.
 * Sanal ağ hizmet uç noktasını yapılandırmak için bkz: [sanal ağ hizmet uç noktası kullanarak erişim güvenliğini sağlama](vnet-service-endpoint.md) makalesi.
-
-

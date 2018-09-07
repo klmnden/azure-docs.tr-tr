@@ -6,18 +6,19 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 4aaba753a8d61d60cb053a4aa164b5be0a3c50fa
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 26ee1c8f02a0a4e5aa5048a7a02929c448106ffd
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307617"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024967"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack veri merkezi tümleştirmesi - uç noktalarını yayımlama
+
 Azure Stack altyapısını rollerinden sanal IP adresleri (VIP) ayarlar. Bu Vıp'lerin genel IP adresi havuzundan ayrılır. Her bir VIP yazılım tanımlı ağ katmanında bir erişim denetimi listesi (ACL) ile korunmaktadır. ACL, fiziksel anahtarlar (Zleyicileri ve BMC) arasında daha fazla çözüm sağlamlaştırmak için de kullanılır. Dağıtım sırasında belirtilen dış DNS bölge içindeki her bir uç nokta için bir DNS girişi oluşturulur.
 
 
@@ -39,12 +40,14 @@ Bunlar yayımlama Azure Stack için gerekli değil çünkü VIP'ler listelenmemi
 |---------|---------|---------|---------|
 |AD FS|ADFS.  *&lt;bölge >.&lt; FQDN >*|HTTPS|443|
 |Portal (Yönetici)|Adminportal.  *&lt;bölge >.&lt; FQDN >*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015|
+|Adminhosting | *.adminhosting. \<bölge >. \<fqdn > | HTTPS | 443 |
 |Azure Resource Manager (Yönetici)|Adminmanagement.  *&lt;bölge >.&lt; FQDN >*|HTTPS|443<br>30024|
 |Portal (kullanıcı)|Portalı.  *&lt;bölge >.&lt; FQDN >*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003|
 |Azure Resource Manager (kullanıcı)|Yönetimi.  *&lt;bölge >.&lt; FQDN >*|HTTPS|443<br>30024|
 |Graf|Grafiği.  *&lt;bölge >.&lt; FQDN >*|HTTPS|443|
 |Sertifika iptal listesi|CRL.*&lt;bölge >.&lt; FQDN >*|HTTP|80|
 |DNS|&#42;.  *&lt;bölge >.&lt; FQDN >*|TCP VE UDP|53|
+|Barındırma | * .hosting. \<bölge >. \<fqdn > | HTTPS | 443 |
 |Key Vault (kullanıcı)|&#42;.Vault.  *&lt;bölge >.&lt; FQDN >*|HTTPS|443|
 |Key Vault (Yönetici)|&#42;.adminvault.  *&lt;bölge >.&lt; FQDN >*|HTTPS|443|
 |Depolama Kuyruğu|&#42;.Queue.  *&lt;bölge >.&lt; FQDN >*|HTTP<br>HTTPS|80<br>443|

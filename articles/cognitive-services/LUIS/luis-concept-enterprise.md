@@ -1,5 +1,6 @@
 ---
-title: Bir LUIS uygulaması - Azure için Kurumsal kavramları | Microsoft Docs
+title: Bir LUIS uygulaması - Language Understanding için kuruluş kavramları
+titleSuffix: Azure Cognitive Services
 description: Büyük LUIS uygulamaları için tasarım kavramları anlayın.
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: diberry
-ms.openlocfilehash: fda4a089866950688d88f9f47988c1540abe1cc0
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 010efdf0fbfabb92b7465e37cb678a64810c8979
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224869"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025257"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Bir LUIS uygulaması için Kurumsal stratejileri
 Bu tasarım stratejiler Kurumsal uygulamanız için gözden geçirin.

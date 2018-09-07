@@ -1,5 +1,6 @@
 ---
-title: LUIS uygulama işbirliği - Azure'ı Anlama | Microsoft Docs
+title: LUIS uygulama işbirliği - dil anlama
+titleSuffix: Azure Cognitive Services
 description: LUIS uygulamaları tek bir sahibi ve isteğe bağlı ortak çalışanlar gerektirir.
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: fe5e35c2dcb08cdff9d92142558cf8d7ec81c36c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: fd4955cb2d7ea76e8d0fd6c60027740b64bd8b24
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399580"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026256"
 ---
 # <a name="collaborating"></a>İşbirliği yapma
 
@@ -41,7 +42,7 @@ Birden fazla uygulama ortak çalışanlarla paylaşmak istiyorsanız, her uygula
 ## <a name="managing-multiple-authors"></a>Birden çok yazarlar yönetme
 [LUIS](luis-reference-regions.md#luis-website) Web sitesi olmayan şu anda teklif işlem düzeyinde yazma. Temel bir sürümden bağımsız sürümler üzerinde çalışmak yazarlar izin verebilirsiniz. İki farklı yöntemleri aşağıdaki bölümlerde açıklanmıştır.
 
-### <a name="manage-multiple-versions-inside-the-same-app"></a>Aynı uygulama içinde birden çok sürümlerini yönetme
+## <a name="manage-multiple-versions-inside-the-same-app"></a>Aynı uygulama içinde birden çok sürümlerini yönetme
 Başlayın [kopyalama](luis-how-to-manage-versions.md#clone-a-version), her yazar için bir temel sürüm. 
 
 Her geliştirici kendi uygulama sürümüne değişiklik yapar. Her geliştirici modeliyle memnun olduğunda, yeni sürümleri JSON dosyasına dışarı aktarın.  
@@ -50,7 +51,7 @@ Değişiklikler için karşılaştırılabilir JSON biçimli dosyaları dışar�
 
 Bu yöntem bir etkin sürüm, bir aşama sürümü ve bir yayımlanmış sürümüne sahip olmanızı sağlar. Sonuçları etkileşimli test bölmesinde üç sürümde karşılaştırabilirsiniz.
 
-### <a name="manage-multiple-versions-as-apps"></a>Birden çok sürümü uygulamaları yönetme
+## <a name="manage-multiple-versions-as-apps"></a>Birden çok sürümü uygulamaları yönetme
 [Dışarı aktarma](luis-how-to-manage-versions.md#export-version) temel sürüm. Her geliştirici sürümünü alır. Uygulamayı alır kişi sürüm sahibidir. Bunların ne zaman yapılır dışarı aktarma sürümü uygulama değiştirme. 
 
 Değişiklikler için temel dışarı aktarma ile karşılaştırılabilir JSON biçimli dosyaları dışarı aktarılan uygulamalardır. Yeni sürümü tek bir JSON dosyası oluşturmak için dosyaları birleştirin. Değişiklik **VersionID** yeni birleştirilmiş sürüm belirtmek için JSON özelliği. Bu sürüm, özgün uygulamaya aktarma.

@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2018
+ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: e381d2ed3c6a972d776dd31f311fcebe2e35823a
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 1e7d3c4d5f91a74adb881840e3c5a5ac7e8f3763
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917092"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053565"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Azure Stack PKI sertifikalarını doğrulama
 
@@ -38,7 +38,7 @@ Hazır olma denetimi aracı, aşağıdaki sertifika doğrulama gerçekleştirir:
 - **DNS adları**  
     SAN her uç nokta için ilgili DNS adlarını içeren veya destekleniyorsa bir joker karakter varsa denetler.
 - **Anahtar kullanımı**  
-    Dijital imza ve anahtar şifreleme anahtarı kullanım içerir ve sunucu kimlik doğrulaması ve istemci kimlik doğrulaması Gelişmiş anahtar kullanımı içeren denetler.
+    Anahtar kullanımı bir dijital imza ve anahtar şifreleme içerir ve sunucu kimlik doğrulaması ve istemci kimlik doğrulaması Gelişmiş anahtar kullanımı içeren denetler.
 - **Anahtar boyutu**  
     Anahtar boyutu 2048 ya da daha büyük olup olmadığını denetler.
 - **Zincir sırası**  
@@ -66,21 +66,20 @@ Hazırlama ve dağıtım ve gizli döndürme Azure Stack PKI sertifikalarını d
 
 1. Yükleme **AzsReadinessChecker** aşağıdaki cmdlet'i çalıştırarak bir PowerShell isteminden (5.1 veya üstü):
 
-    ````PowerShell  
+    ```PowerShell  
         Install-Module Microsoft.AzureStack.ReadinessChecker -force 
-    ````
+    ```
 
 2. Sertifika dizin yapısı oluşturun. Aşağıdaki örnekte, değiştirebileceğiniz `<c:\certificates>` için tercih ettiğiniz yeni bir dizin yolu.
-
-    ````PowerShell  
+    ```PowerShell  
     New-Item C:\Certificates -ItemType Directory
     
-    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal'
+    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
     
     $destination = 'c:\certificates'
     
     $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}
-    ````
+    ```
     
     > [!Note]  
     > AD FS ve graf kimlik sisteminizde AD FS kullanıyorsanız gereklidir.
@@ -92,16 +91,15 @@ Hazırlama ve dağıtım ve gizli döndürme Azure Stack PKI sertifikalarını d
 
 3. PowerShell penceresinde değerlerini değiştirmek **RegionName** ve **FQDN** Azure Stack ortamına uygun ve aşağıdaki komutu çalıştırın:
 
-    ````PowerShell  
+    ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD 
-
-    ````
+    ```
 
 4. Çıktı ve tüm sertifikaları geçirmek tüm testleri denetleyin. Örneğin:
 
-    ````PowerShell
+    ```PowerShell  
     AzsReadinessChecker v1.1803.405.3 started
     Starting Certificate Validation
 
@@ -134,7 +132,7 @@ Hazırlama ve dağıtım ve gizli döndürme Azure Stack PKI sertifikalarını d
     AzsReadinessChecker Report location: 
     C:\AzsReadinessChecker\AzsReadinessReport.json
     AzsReadinessChecker Completed
-    ````
+    ```
 
 ### <a name="known-issues"></a>Bilinen sorunlar
 
@@ -144,7 +142,7 @@ Hazırlama ve dağıtım ve gizli döndürme Azure Stack PKI sertifikalarını d
 
  - Sertifika zinciri başarısız olursa, diğer sertifikalar atlanır.
 
-    ````PowerShell  
+    ```PowerShell  
     Testing: ACSBlob\singlewildcard.pfx
         Read PFX: OK
         Signature Algorithm: OK
@@ -165,7 +163,7 @@ Hazırlama ve dağıtım ve gizli döndürme Azure Stack PKI sertifikalarını d
     AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
     AzsReadinessChecker Report location (for OEM): C:\AzsReadinessChecker\AzsReadinessChecker.log
     AzsReadinessChecker Completed
-    ````
+    ```
 
 **Çözüm**: her her sertifika için test kümesini altındaki ayrıntılar bölümünde Aracı'nın yönergeleri izleyin.
 
@@ -175,13 +173,13 @@ SQL/MySQL veya uygulama hizmetleri dağıtımları planlı hazırlayıp hizmet (
 
 1.  Yükleme **AzsReadinessChecker** aşağıdaki cmdlet'i çalıştırarak bir PowerShell isteminden (5.1 veya üstü):
 
-    ````PowerShell  
+    ```PowerShell  
       Install-Module Microsoft.AzureStack.ReadinessChecker -force
-    ````
+    ```
 
 2.  Yollar ve doğrulama gerektiren her bir PaaS sertifikanın parolasını içeren iç içe geçmiş bir karma tablosu oluşturun. Çalıştırma PowerShell penceresinde:
 
-    ```PowerShell
+    ```PowerShell  
         $PaaSCertificates = @{
         'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
         'PaaSDefaultCert' = @{'pfxPath' = '<Path to Default PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
@@ -193,7 +191,7 @@ SQL/MySQL veya uygulama hizmetleri dağıtımları planlı hazırlayıp hizmet (
 
 3.  Değerlerini değiştirmek **RegionName** ve **FQDN** doğrulamayı başlatmak için Azure Stack ortamınıza uyum sağlaması için. Ardından şunu çalıştırın:
 
-    ```PowerShell
+    ```PowerShell  
     Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com 
     ```
 4.  Tüm sertifikaları çıktı ve, tüm sınamaları geçmesi denetleyin.

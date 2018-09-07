@@ -2,7 +2,7 @@
 title: Bir temel koruma Azure Active Directory koşullu erişim nedir? -Önizleme | Microsoft Docs
 description: Nasıl temel koruma, Azure Active Directory ortamında etkin güvenlik temel düzeyde en az sahip olmasını sağlar. öğrenin.
 services: active-directory
-keywords: uygulamalar, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
+keywords: uygulamalara koşullu erişim, Azure AD ile koşullu erişim, şirket kaynaklarına güvenli erişim, koşullu erişim ilkeleri
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 856673d2a5465f9646172a1436ed75c0d73692cb
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 57fef112186834ead76f6223e32cb358e4d6d053
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003181"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024082"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Taban çizgisi protection (Önizleme) nedir?  
 
@@ -51,7 +51,7 @@ Kullanıcılara ayrıcalıklı hesaplara erişim ortamınıza sınırsız erişi
 
 ![Azure Active Directory](./media/baseline-protection/01.png)
 
-Bu temel ilke kullanıcıları ve grupları Dışla seçeneği sağlar. Biri hariç tutmak isteyebileceğiniz * [Acil Durum erişimi yönetici hesabı](../users-groups-roles/directory-emergency-access.md) * , kilitli dışında Kiracı emin olmak için.
+Bu temel ilke kullanıcıları ve grupları Dışla seçeneği sağlar. Biri hariç tutmak isteyebileceğiniz *[Acil Durum erişimi yönetici hesabı](../users-groups-roles/directory-emergency-access.md)* , kilitli dışında Kiracı emin olmak için.
 
 
 ## <a name="enable-a-baseline-policy"></a>Temel ilke etkinleştir 
@@ -86,7 +86,7 @@ Temel ilkeleri önizlemede olsa da, bunlar varsayılan olarak etkin. El ile etki
 
 Temel ilkeye dahil Dizin rolleri en yüksek ayrıcalıklı bir Azure AD rolleridir. 
 
-Komut dosyalarınızda kullanılan hesapları ayrıcalıklı, değiştirmelisiniz [yönetilen hizmet kimliği (MSI)](../managed-service-identity/overview.md) veya [hizmet sorumluları sertifikalarla](../../azure-resource-manager/resource-group-authenticate-service-principal.md). Geçici bir çözüm, belirli kullanıcı hesaplarını temel ilkesinden hariç tutabilirsiniz. 
+Komut dosyalarınızda kullanılan hesapları ayrıcalıklı, değiştirmelisiniz [yönetilen hizmet kimliği (MSI)](../managed-identities-azure-resources/overview.md) veya [hizmet sorumluları sertifikalarla](../../azure-resource-manager/resource-group-authenticate-service-principal.md). Geçici bir çözüm, belirli kullanıcı hesaplarını temel ilkesinden hariç tutabilirsiniz. 
 
 Temel ilkeleri POP, IMAP, eski Office masaüstü istemcisi gibi eski bir kimlik doğrulama akışları için geçerlidir. 
 

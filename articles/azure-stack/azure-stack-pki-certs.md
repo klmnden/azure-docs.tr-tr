@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 13bc82caf5e10f5b35df29d085349ec4c80628a2
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: d4322e5a7f9d587049e9225c3adde08d04325afc
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917461"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024313"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack ortak anahtar altyapısı sertifika gereksinimleri
 
@@ -76,6 +76,8 @@ Dağıtımınız, [Bölge] ve [externalfqdn] değerleri bölge ve Azure Stack si
 | ACSQueue | * .queue. &lt;bölge >. &lt;fqdn ><br>(Joker SSL sertifikası) | Kuyruk Depolama | Kuyruk. &lt;bölge >. &lt;fqdn > |
 | KeyVault | * .vault. &lt;bölge >. &lt;fqdn ><br>(Joker SSL sertifikası) | Key Vault | Kasa. &lt;bölge >. &lt;fqdn > |
 | KeyVaultInternal | *.adminvault. &lt;bölge >. &lt;fqdn ><br>(Joker SSL sertifikası) |  İç anahtar kasası |  adminvault. &lt;bölge >. &lt;fqdn > |
+| Yönetici uzantısı konağı | *.adminhosting. \<bölge >. \<fqdn > (joker SSL sertifikaları) | Yönetici uzantısı konağı | adminhosting. \<bölge >. \<fqdn > |
+| Genel uzantı konak | * .hosting. \<bölge >. \<fqdn > (joker SSL sertifikaları) | Genel uzantı konak | barındırma. \<bölge >. \<fqdn > |
 
 Azure Stack Azure AD dağıtım modunu kullanarak dağıtırsanız, yalnızca önceki tabloda listelenen sertifika istemeniz gerekir. Ancak, Azure Stack AD FS dağıtım modunu kullanarak dağıtırsanız, aşağıdaki tabloda açıklanan sertifikaları da isteğinde gerekir:
 

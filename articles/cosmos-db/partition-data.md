@@ -10,20 +10,25 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3cc2794105eff196c3e1db02d664a89c9b37e318
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: d53106efa4e3761a497e67181546c8ec09fd880c
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286994"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055514"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Bölümleme ve ölçeklendirme Azure Cosmos DB'de
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hızlı, öngörülebilir bir performans elde etmenize yardımcı olmak için tasarlanan bir Global olarak dağıtılmış çok modelli veritabanı hizmetidir. Sorunsuz bir şekilde yanı sıra müşterilerinizin uygulamanıza olacak şekilde ölçeklendirir. Bu makalede, Azure Cosmos DB içinde çalıştığı tüm veriler için bölümleme nasıl modeller genel bir bakış sağlar. Ayrıca, uygulamalarınızı etkili bir şekilde ölçeklendirmek için Azure Cosmos DB kapsayıcıları yapılandırma açıklanır.
 
+Azure Cosmos DB aşağıdaki türden kapsayıcıya tüm API'leri destekler:
+
+- **Sabit kapsayıcıyı**: Bu kapsayıcıların bir grafik depolayabilirsiniz 10.000 istek birimi / saniye için ayrılan maksimum boyutu 10 GB'a kadar veritabanı. Sabit bir kapsayıcı oluşturmak için bir bölüm anahtarı özelliği verileri belirtmek gerekli değildir.
+
+- **Sınırsız sayıda kapsayıcı**: Bu kapsayıcıların bir grafiğin yatay bölümleme üzerinden 10 GB sınırından depolamak için otomatik olarak ölçeklendirebilirsiniz. Her bölüm 10 GB depolar ve verileri otomatik olarak bağlı olarak dengelenir **belirtilen bölüm anahtarı**, sınırsız bir kapsayıcıya kullanırken gerekli bir parametre olacak. Bu tür bir kapsayıcı veya saniye başına en fazla 100.000 istek birimleri izin verebilir ve neredeyse sınırsız veri boyutu depolayabilirsiniz [destek ile iletişim kurarak](https://aka.ms/cosmosdbfeedback?subject=Cosmos%20DB%20More%20Throughput%20Request).
+
 ## <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB bölümleme
 Azure Cosmos DB koleksiyonları (belgeler için) grafik veya tablo adı verilen verileri depolamak için kapsayıcılar sağlar. Kapsayıcılar mantıksal kaynaklardır ve bir veya daha fazla fiziksel bölüm veya sunucuları yayılabilir. Bölüm sayısı, Azure Cosmos DB depolama boyutuna göre ve kapsayıcı ya da bir dizi kapsayıcı için sağlanan aktarım hızı tarafından belirlenir. 
-
 
 ### <a name="physical-partition"></a>Fiziksel bölüm
 
@@ -72,7 +77,7 @@ Bir fiziksel bölüm, depolama sınırına ulaştığında ve bölümdeki verile
 Bir bölüm anahtarı seçmek gibi:
 
 * Depolama, hatta tüm anahtarları arasında dağıtımıdır.  
-* Toplu istekleri belirli bir noktada zaman bile tüm anahtarları arasında dağıtımıdır.  
+* Verileri bölümler arasında eşit şekilde dağıtacak bölüm anahtarı seçin.
 
   Verilerinizi bölümler arasında nasıl dağıtıldığını denetlemek için iyi bir fikirdir. Portal veri dağıtımını denetlemek için Azure Cosmos DB hesabınıza gidin ve tıklayarak **ölçümleri** içinde **izleme** bölümüne ve ardından **depolama** görmek için sekmesinde nasıl, verileri farklı fiziksel bölümler arasında bölümlenir.
 
@@ -80,13 +85,13 @@ Bir bölüm anahtarı seçmek gibi:
 
   Bozuk bölüm anahtarı sonucunu yukarıdaki sol resmi gösterir ve iyi bir bölüm anahtarı seçildi, yukarıdaki sağdaki resimde sonucu gösterir. Soldaki resimde verileri bölümler arasında eşit olarak dağıtılmaz görebilirsiniz. Doğru görüntüye benzer şekilde, verilerinizi dağıtan bir bölüm anahtarı seçmek için çaba göstermelisiniz.
 
-* Yüksek eşzamanlılık ile çağrılan sorguları içinde filtre koşulu bölüm anahtarını dahil ederek, verimli bir şekilde yeniden yönlendirilebilir.  
+* Mümkün olduğunda bir bölüm sınırları içinde verileri almak için sorguları iyileştirin. Sorgulama desenleri için uygun bir bölümleme stratejisi hizalanabilir. Tek bölümden veri elde sorguları mümkün olan en iyi performansı sağlar. Yüksek eşzamanlılık ile çağrılan sorguları içinde filtre koşulu bölüm anahtarını dahil ederek, verimli bir şekilde yeniden yönlendirilebilir.  
+
 * Daha yüksek bir kardinalite ile bir bölüm anahtarı seçmeyi genellikle tercih edilir: sonuçlanacağını da genellikle daha iyi dağıtımı ve ölçeklenebilirliği verir. Örneğin, bir yapay anahtar kardinalite artırmak için birden çok özellik değerleri ile birleştirerek oluşturulabilir.  
 
 Bölüm anahtarı ile ilgili önemli noktalar yukarıda seçtiğiniz, olarak Azure Cosmos DB fiziksel bölüm sayısının ölçeğini bölümleri veya ne kadar aktarım hızı fiziksel bölüm başına ayrılmış sayısı hakkında endişelenmenize gerek yoktur ve ayrıca ölçeklendirebilirsiniz tek tek bölümler gerektiğinde.
 
-<a name="prerequisites"></a>
-## <a name="prerequisites-for-partitioning"></a>Bölümleme için Önkoşullar
+## <a name="prerequisites"></a>Bölümleme için Önkoşullar
 
 Azure Cosmos DB kapsayıcıları sabit olarak oluşturulabilir veya Azure portalında sınırsız. Sabit boyutlu kapsayıcıların üst sınırı 10 GB ve 10.000 RU/sn aktarım hızıdır. Sınırsız olarak bir kapsayıcı oluşturmak için bir bölüm anahtarı ve en düşük aktarım hızı, 1.000 RU/sn belirtmeniz gerekir. Azure Cosmos DB kapsayıcıları da yapılandırılabilir aktarım hızı, her kapsayıcı gerekir specificy kapsayıcılar, bir dizi arasında paylaşmak için bir bölüm anahtarı ve sınırsız büyüyebilir. Bölümleme ve ölçeklendirme için dikkate alınması gereken önkoşullar şunlardır:
 
@@ -98,16 +103,49 @@ Azure Cosmos DB kapsayıcıları sabit olarak oluşturulabilir veya Azure portal
 
 Oluşturduysanız bir **sabit** olmadan kapsayıcı 1. 000'den az RU/sn bölüm anahtarı veya üretilen iş, kapsayıcı otomatik ölçeklendirmeyi olur. Sınırsız bir kapsayıcıya sabit bir kapsayıcıdan verileri geçirmek için kullanmanız gerekir [veri geçiş aracı](import-data.md) veya [değişiklik akışı Kitaplığı](change-feed.md). 
 
-## <a name="partitioning-and-provisioned-throughput"></a>Bölümlendirme ve sağlanan aktarım hızı
-Azure Cosmos DB tahmin edilebilir performans için tasarlanmıştır. Bir kapsayıcı veya kapsayıcıları kümesi oluşturduğunuzda, aktarım hızı açısından rezerve  *[istek birimi](request-units.md) (RU) saniye başına*. Her istek, CPU, bellek ve GÇ işlemi tarafından kullanılan gibi sistem kaynaklarının miktarı orantılıdır RU ücretsiz olarak sağlar. Oturum tutarlılığı sahip bir 1 KB'lık belge okuma tüketir 1 RU. Okuma 1. RU depolanan öğe sayısını veya aynı anda çalışan eş zamanlı istek sayısı ne olursa olsun. Daha büyük öğe boyutuna bağlı olarak daha yüksek Ruı gerekir. Boyutuna, varlıklarınızı ve uygulamanız için desteklemeniz gereken okuma sayısı biliyorsanız, aktarım hızı, uygulamanızın ihtiyaçları için gerekli miktarda sağlayabilirsiniz. 
+## <a name="PartitionedGraph"></a>Bölünmüş grafik gereksinimleri
 
-> [!NOTE]
-> Bir kapsayıcı veya bir dizi kapsayıcı için sağlanan aktarım hızı tam olarak yararlanmak için istekleri tüm farklı bir bölüm anahtarı değerlerine arasında eşit olarak dağıtmak izin veren bir bölüm anahtarı seçmeniz gerekir.
-> 
-> 
+Bölünmüş grafik kapsayıcısı oluştururken aşağıdaki ayrıntıları göz önünde bulundurun:
 
-<a name="designing-for-partitioning"></a>
-## <a name="create-partition-key"></a>Bölüm anahtarı oluşturma 
+- **Bölümleme yedekleme ayarı gereklidir** kapsayıcı boyutu 10 GB'den fazla olması beklenir ve/veya 10. 000'den fazla istek birimi (RU/sn) saniyede ayırma gerekli olursa.
+
+- **Köşe ve kenarlar JSON belgeleri olarak depolanır** bir Azure Cosmos DB Gremlin API'si, arka uçtaki.
+
+- **Köşe gerektiren bir bölüm anahtarı**. Bu anahtar, köşe depolamak için kullanılacak olan bölümünü belirler ve bu işlem bir karma algoritma kullanır. Bu bölüm anahtarı adı boşluk veya özel karakter içermeyen bir Tek sözcüklü dizedir ve aşağıdaki biçimi kullanarak yeni bir kapsayıcı oluşturulurken tanımlanan `/partitioning-key-name`.
+
+- **Kenarlar, kendi kaynak köşe ile depolanan**. Diğer bir deyişle, her köşe için bölüm anahtarını köşe ve kenarlarını giden depolandığı tanımlar. Bu bölümler arası sorgular kullanırken önlemek için yapılır `out()` graf sorgularını kardinalitesini.
+
+- **Graf sorgularını, bölüm anahtarını belirtmelidir**. Mümkün olduğunda, yatay Azure Cosmos DB'de bölümleme tam grafik yararlanmak için sorgular bölüm anahtarını içermesi gerekir. Örneğin, tek bir köşe seçilir. Aşağıdaki örnek sorgularda, bir veya daha fazla köşe bölümlenmiş bir grafikte seçerken bölüm anahtarını dahil gösterilmektedir:
+
+    - Ardından Kimliğe göre bir köşe seçerek **kullanın `.has()` bölüm anahtar özelliği belirtmek için adım**: 
+    
+        ```
+        g.V('vertex_id').has('partitionKey', 'partitionKey_value')
+        ```
+    
+    - Bir köşe tarafından seçilmesi **bölüm anahtarı değeri ve kimliği de dahil olmak üzere bir tanımlama grubu belirterek**: 
+    
+        ```
+        g.V(['partitionKey_value', 'vertex_id'])
+        ```
+        
+    - Bir köşe belirleyerek bir **bölüm anahtarı değerlerine ve kimlikleri içeren tanımlama gruplarının dizisi**:
+    
+        ```
+        g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
+        ```
+        
+    - Bir dizi köşelerle seçerek **bölüm anahtar değerlerin bir listesini belirtme**: 
+    
+        ```
+        g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
+        ```
+
+* **Her zaman bir köşe sorgulanırken bölüm anahtarı değeri belirtin**. Bilinen bir bölümün dışında bir köşe edinme, performans açısından en verimli yoludur.
+
+* **Giden yön kenarlar sorgulanırken kullanın** her mümkündür. Kenarlar, kendi kaynak köşe giden yönde ile depolanır. Bu bölümler arası sorgular için maksimum olasılığını unutmayın, bu düzendeki veriler ve sorgular tasarlanırsa küçültülür anlamına gelir.
+
+## <a name="designing-for-partitioning"></a> Bölüm anahtarı oluşturma 
 Kapsayıcı oluşturma ve bunları herhangi bir zamanda ölçeklendirmek için Azure portal veya Azure CLI'yı kullanabilirsiniz. Bu bölümde her API kullanarak sağlanan aktarım hızı ve bölüm anahtarı belirtin ve kapsayıcı oluşturma işlemi gösterilmektedir.
 
 
@@ -225,8 +263,7 @@ PartitionKey /deviceId veya /date ayarlamak bir seçenektir. Cihaz kimliği ve t
 
 Yapay bir anahtara değerleri birleştirebilir, yapay anahtar belgelerine ekleme ve bölüm anahtarı belirtmek için kullanın, istemci tarafı mantığı tanımlamalıdır. Bu nedenle, gerçek zamanlı senaryolarda belgeleri binlerce olabilir.
 
-<a name="designing-for-scale"></a>
-## <a name="design-for-scale"></a>Ölçek için Tasarım
+## <a name="designing-for-scale"></a> Ölçek için Tasarım
 Azure Cosmos DB ile etkili bir şekilde ölçeklendirmek için kapsayıcı oluşturmak iyi bir bölüm anahtarı seçmek gerekir. İyi bir bölüm anahtarı seçmek için iki ana hususlar vardır:
 
 * **Sorgu sınır ve işlemleri**. Seçtiğiniz bölüm anahtarına varlıklarınızı ölçeklenebilir bir çözüm sağlamak için birden çok bölüm anahtarları arasında dağıtmak için gereksinim işlemler kullanmaya gerek dengelemeniz. Bir üst düzey, tüm öğeler için aynı bölüm anahtarı ayarlayabilirsiniz, ancak bu seçenek, çözümünüzün ölçeklenebilirliği sınırlayabilir. Diğer uçta her öğesi için benzersiz bir bölüm anahtarı atayabilirsiniz. Bu yüksek oranda ölçeklenebilir bir seçenektir, ancak saklı yordamları ve Tetikleyicileri aracılığıyla belgeler arası işlemleri kullanarak engel olur. İdeal bir bölüm anahtarı, verimli sorgular kullanmanıza olanak tanır ve çözümünüzün ölçeklenebilir olduğundan emin olmak için yeterli kardinalite sahiptir. 

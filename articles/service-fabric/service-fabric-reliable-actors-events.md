@@ -1,6 +1,6 @@
 ---
-title: Aktör tabanlı Azure mikro olayları | Microsoft Docs
-description: Service Fabric Reliable Actors olayları için giriş.
+title: Azure Service Fabric aktör aktör temelli olayları | Microsoft Docs
+description: Service Fabric Reliable Actors olayları giriş.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: ed920c8d4ff7254b19c6eef8f5961593bb56bacf
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c228821383a1bfedf380f97e3411fdacc322a6f9
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207086"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054487"
 ---
 # <a name="actor-events"></a>Aktör olayları
-Aktör olayları en yüksek çaba bildirim oyuncusu istemcilere göndermek için bir yol sağlar. Aktör olayları aktör istemci iletişimi için tasarlanmıştır ve aktör aktör iletişimi için kullanılmaması gerekir.
+Aktör olaylar istemciye aktör en yüksek çaba bildirimleri göndermek için bir yol sağlar. Aktör olayları aktör istemci iletişimi için tasarlanmıştır ve aktör aktör iletişimi için kullanılmamalıdır.
 
-Aşağıdaki kod parçacıkları, uygulamanızda aktör olayları kullanmayı gösterir.
+Aşağıdaki kod parçacıkları, aktör olayları, uygulamanızda kullanmayı göstermektedir.
 
-Aktör tarafından yayımlanan olayları tanımlayan bir arabirim tanımlayın. Bu arabirim öğesinden türetilmelidir `IActorEvents` arabirimi. Bağımsız değişkenler yöntemlerin olmalıdır [veri sözleşmesi seri hale getirilebilir](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). Yöntemleri boş döndürmeleri gerektiği, bir yolu ve en iyi çaba bildirimleri olayı olarak olur.
+Aktör yayımlanan olaylar açıklayan bir arabirim tanımlayın. Bu arabirim nesnesinden türetilmesi `IActorEvents` arabirimi. Yöntemlerin bağımsız değişkenlerini olmalıdır [veri sözleşme seri hale getirilebilir](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). Yöntem boş döndürmelidir, olay olarak bildirimleri bir şekilde ve en iyi çaba.
 
 ```csharp
 public interface IGameEvents : IActorEvents
@@ -40,7 +40,7 @@ public interface GameEvents implements ActorEvents
     void gameScoreUpdated(UUID gameId, String currentScore);
 }
 ```
-Aktör arabiriminde aktör tarafından yayımlanan olayları bildirme.
+Aktör arabirimi, aktörün tarafından yayımlanan olaylar bildirin.
 
 ```csharp
 public interface IGameActor : IActor, IActorEventPublisher<IGameEvents>
@@ -58,7 +58,7 @@ public interface GameActor extends Actor, ActorEventPublisherE<GameEvents>
     CompletableFuture<String> getGameScore();
 }
 ```
-İstemci tarafında olay işleyicisi uygulayın.
+İstemci tarafında olay işleyicisini uygulayın.
 
 ```csharp
 class GameEventsHandler : IGameEvents
@@ -79,7 +79,7 @@ class GameEventsHandler implements GameEvents {
 }
 ```
 
-İstemci üzerindeki olay yayımlar aktör proxy'sine oluşturun ve kendi olaylarına abone olma.
+İstemcisinde, olay yayımlayan aktör için bir ara sunucu oluşturabilir ve kendi olaylarına abone olma.
 
 ```csharp
 var proxy = ActorProxy.Create<IGameActor>(
@@ -94,9 +94,9 @@ GameActor actorProxy = ActorProxyBase.create<GameActor>(GameActor.class, new Act
 return ActorProxyEventUtility.subscribeAsync(actorProxy, new GameEventsHandler());
 ```
 
-Yük devretme durumunda aktör üzerinden farklı işlem ya da düğüm başarısız olabilir. Aktör proxy etkin abonelikleri yönetir ve otomatik olarak yeniden abone. Aracılığıyla yeniden abonelik aralığı kontrol edebilirsiniz `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API. Aboneliğinizi iptal etmek için kullanmak `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API.
+Yük devretme durumunda, aktör üzerinden farklı bir işlem ya da düğümü başarısız olabilir. Aktör proxy etkin abonelikleri yöneten ve otomatik olarak yeniden abone. Yeniden abonelik aralığı aracılığıyla denetleyebilirsiniz `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API. Aboneliğinizi iptal etmek için kullanmak `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API.
 
-Sırada aktör üzerinde olayları yayımlayın. Olay abonelere varsa, aktörler çalışma zamanı bunları bildirim gönderir.
+Gelişmelerden olayları aktör üzerinde yayımlayın. Aktörler çalışma zamanı aboneleri olay varsa, bunları bildirim gönderir.
 
 ```csharp
 var ev = GetEvent<IGameEvents>();
@@ -109,9 +109,9 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Aktör yeniden giriş](service-fabric-reliable-actors-reentrancy.md)
+* [Aktör'na yeniden giriş](service-fabric-reliable-actors-reentrancy.md)
 * [Aktör tanılama ve performans izleme](service-fabric-reliable-actors-diagnostics.md)
 * [Aktör API başvuru belgeleri](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [C# örnek kod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [C# .NET Core örnek kod](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
-* [Java örnek kod](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [C# .NET Core örnek kodu](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
+* [Java örnek kodu](http://github.com/Azure-Samples/service-fabric-java-getting-started)

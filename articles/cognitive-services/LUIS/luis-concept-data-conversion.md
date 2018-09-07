@@ -1,20 +1,21 @@
 ---
-title: LUIS - Azure veri dönüştürme kavramları anlama | Microsoft Docs
+title: LUIS - Language Understanding veri dönüştürme kavramları
+titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) Öngörüler önce Konuşma nasıl değiştirilebilir öğrenin
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: diberry
-ms.openlocfilehash: 05a02191af171936dd9f5c4bf469b9c84aa144a3
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e1d0e0a0205190846612d727fbf34404e33c3ad4
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223710"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027087"
 ---
 # <a name="data-conversion-concepts-in-luis"></a>LUIS, veri dönüştürme kavramları
 LUIS konuşma metin konuşma tahmin önce konuşulan konuşma dönüştürmek için bir yol sağlar. 

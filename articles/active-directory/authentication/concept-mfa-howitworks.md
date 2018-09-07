@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 46c99011a22f855f6faf53e03169b2d1e4c6ce85
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: a79c09df7d5fec5884a6810b82b7c174042a4c93
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669016"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054572"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Nasıl çalıştığını: Azure multi-Factor Authentication
 
@@ -35,7 +35,7 @@ Azure multi-Factor Authentication (MFA) erişimi korumaya yardımcı olur ve kol
 
 * **Azure Active Directory Premium lisansları** -tam özellikli Azure multi-Factor Authentication hizmetinin (bulut) ya da Azure multi-Factor Authentication sunucusu (şirket içi) kullanın.
    * **Azure MFA hizmeti (bulut)** - **bu seçenek yeni dağıtımlar için önerilen yoldur**. Bulutta Azure MFA, herhangi bir şirket içi altyapı gerektirir ve şirket dışı veya salt bulut kullanıcılarınız ile kullanılabilir.
-   * **Azure MFA sunucusu** -kuruluşunuz ilişkili altyapı öğelerini yönetmek istiyorsa ve AD FS eşitlendiğinde üzerinde ortamınızda dağıtılmış bu şekilde bir seçenek olabilir.
+   * **Azure MFA sunucusu** -kuruluşunuz ilişkili altyapı öğelerini yönetmek istiyorsa ve AD FS şirket içi ortamınızda dağıtılmış bu şekilde bir seçenek olabilir.
 * **Office 365 için multi-Factor Authentication** -Azure multi-Factor Authentication yeteneklerinin bir alt kümesini, aboneliğinizin bir parçası olarak kullanılabilir. Office 365 için MFA hakkında daha fazla bilgi için bkz [planlama Office 365 dağıtımlar için çok faktörlü kimlik doğrulaması](https://support.office.com/article/plan-for-multi-factor-authentication-for-office-365-deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba).
 * **Azure Active Directory küresel yöneticileri** -Azure multi-Factor Authentication yeteneklerinin bir alt kümesini genel yönetici hesapları korumak için bir araç olarak kullanılabilir.
 

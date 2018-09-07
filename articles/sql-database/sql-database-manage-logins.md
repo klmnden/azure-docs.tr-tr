@@ -9,14 +9,14 @@ ms.service: sql-database
 ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 09/07/2018
 ms.author: carlrab
-ms.openlocfilehash: 7dbd2585628c64f5baf7df6083e38217d00953be
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4abdbac44f4730d15c36d587190db1f95ea54d19
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42057042"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050742"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Denetleme ve SQL veritabanı ve SQL veri ambarı veritabanına erişim izni verme
 
@@ -49,7 +49,7 @@ Ayrıca, Azure Active Directory’deki bir adet kişi veya güvenlik grubu hesab
 - Görüntüleyebilirsiniz `sys.sql_logins` sistem tablosu.
 
 ### <a name="configuring-the-firewall"></a>Güvenlik duvarını yapılandırma
-Sunucu düzeyinde güvenlik duvarı tek bir IP adresi veya aralığı için yapılandırıldığında **SQL sunucu yöneticisi** ve **Azure Active Directory yöneticisi**, ana veritabanına ve tüm kullanıcı veritabanlarına bağlanabilir. İlk sunucu düzeyi güvenlik duvarı [Azure portalı](sql-database-get-started-portal.md) üzerinden [PowerShell](sql-database-get-started-powershell.md) veya [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx) kullanılarak yapılandırılabilir. Bağlantı kurulduktan sonra [Transact-SQL](sql-database-configure-firewall-settings.md) kullanarak ek sunucu düzeyi güvenlik duvarı kuralları yapılandırılabilir.
+Sunucu düzeyinde güvenlik duvarı tek bir IP adresi veya aralığı için yapılandırıldığında **SQL sunucu yöneticisi** ve **Azure Active Directory yöneticisi**, ana veritabanına ve tüm kullanıcı veritabanlarına bağlanabilir. İlk sunucu düzeyi güvenlik duvarı [Azure portalı](sql-database-get-started-portal.md) üzerinden [PowerShell](sql-database-powershell-samples.md) veya [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx) kullanılarak yapılandırılabilir. Bağlantı kurulduktan sonra [Transact-SQL](sql-database-configure-firewall-settings.md) kullanarak ek sunucu düzeyi güvenlik duvarı kuralları yapılandırılabilir.
 
 ### <a name="administrator-access-path"></a>Yönetici erişim yolu
 Sunucu düzeyi güvenlik duvarı doğru şekilde yapılandırıldığında **SQL sunucu yöneticisi** ve **Azure Active Directory yöneticisi**, SQL Server Management Studio veya SQL Server Veri Araçları gibi istemci araçlarını kullanarak bağlantı kurabilir. Tüm özellikler ve yetenekler yalnızca en güncel araçlar tarafından sunulur. Aşağıdaki şemada iki yönetici hesabı için tipik yapılandırma gösterilmektedir.

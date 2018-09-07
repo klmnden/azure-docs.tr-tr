@@ -1,6 +1,6 @@
 ---
-title: Aktör tabanlı Azure mikro yaşam döngüsüne genel bakış | Microsoft Docs
-description: Service Fabric güvenilir aktör yaşam döngüsü, atık toplama ve aktörler ve durumlarına el ile silinmesi açıklanmaktadır
+title: Azure Service Fabric aktör yaşam döngüsüne genel bakış | Microsoft Docs
+description: Service Fabric güvenilir aktör yaşam döngüsü, çöp toplama ve el ile aktörleri ve durumlarını silme açıklar
 services: service-fabric
 documentationcenter: .net
 author: amanbha
@@ -14,54 +14,54 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: 4e919c565574e0765227abda5832c858c36a77c0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: dbd9551027744d443613e32e0a082c10d4f357d5
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208446"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052068"
 ---
-# <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Aktör yaşam döngüsü, otomatik çöp toplama ve el ile silme
-Bir oyuncu yöntemlerinden herhangi biri için bir çağrı yapılır ilk kez etkinleştirilir. Bir oyuncu devre dışı bırakılmış (Çöp aktörler çalışma zamanı tarafından toplanan) ise yapılandırılabilir bir süre için kullanılmaz. Bir aktör ve durumu da el ile herhangi bir zamanda silinebilir.
+# <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Aktör yaşam döngüsü, otomatik çöp toplama ve el ile silin
+Aktörün yöntemlerinden herhangi biri için bir çağrı yapılır ilk kez etkinleştirilir. Aktörün devre dışı bırakılmış (atık aktörler çalışma zamanı tarafından toplanan) ise yapılandırılabilir bir süre için kullanılmaz. Aktörün ve durumunu da el ile herhangi bir zamanda silinebilir.
 
 ## <a name="actor-activation"></a>Aktör etkinleştirme
-Bir oyuncu etkinleştirildiğinde, aşağıdakiler gerçekleşir:
+Aktörün etkinleştirildiğinde, aşağıdakiler gerçekleşir:
 
-* Bir oyuncu için bir çağrı gelir ve bir etkin değilse, yeni aktör oluşturulur.
-* Durum koruma aktör'in durumu yüklenir.
-* `OnActivateAsync` (C#) veya `onActivateAsync` (hangi aktör uygulamasında kılınabilir) (Java) yöntemi çağrılır.
+* Yeni bir aktör, bir aktör için bir çağrı gelir ve biri etkin değilse, oluşturulur.
+* Bu durum koruma aktörün durumu yüklenir.
+* `OnActivateAsync` (C#) veya `onActivateAsync` (aktör uygulamasında geçersiz kılınabilir) (Java) yöntemi çağrılır.
 * Aktör şimdi etkin olarak kabul edilir.
 
 ## <a name="actor-deactivation"></a>Aktör devre dışı bırakma
-Bir oyuncu devre dışı bırakıldığında, aşağıdakiler gerçekleşir:
+Aktörün devre dışı bırakıldığında, aşağıdakiler gerçekleşir:
 
-* Belirli bir süre için bir aktör kullanılmadığı zaman etkin aktörler tablosundan kaldırılır.
-* `OnDeactivateAsync` (C#) veya `onDeactivateAsync` (hangi aktör uygulamasında kılınabilir) (Java) yöntemi çağrılır. Aktör için tüm zamanlayıcılar temizler. Aktör işlemleri değişiklikler bu yönteminden çağrılmamalıdır durumu ister.
+* Bir aktör, belirli bir süre için kullanılmaz etkin aktörler tablosundan kaldırılır.
+* `OnDeactivateAsync` (C#) veya `onDeactivateAsync` (aktör uygulamasında geçersiz kılınabilir) (Java) yöntemi çağrılır. Bu, bir aktör tüm zamanlayıcılar temizler. Aktör işlemleri durum değişiklikleri Bu yöntemden çağrılmamalıdır ister.
 
 > [!TIP]
-> Fabric aktör çalışma zamanı bazı yayar [olayları ilgili aktör etkinleştirme ve devre dışı bırakma](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters). Bunlar, tanılama ve performans izlemesi kullanışlıdır.
+> Fabric aktörleri çalışma zamanı bazı yayan [ilgili olayları aktör etkinleştirme ve devre dışı bırakma](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters). Bunlar, tanılama ve performans izleme kullanışlıdır.
 >
 >
 
 ### <a name="actor-garbage-collection"></a>Aktör çöp toplama
-Bir oyuncu devre dışı bırakıldığında aktör nesne başvuruları yayımlanan ve normalde ortak dil çalışma zamanı (CLR) veya java sanal makinesi (JVM) atık toplayıcı tarafından toplanacak olabilir. Çöp toplama yalnızca aktör nesnesini temizler; Mevcut **değil** aktör ait durum Yöneticisi'nde depolanan durumunu kaldırın. Aktör etkinleştirilir, sonraki açışınızda yeni bir aktör nesnesi oluşturulur ve durumu geri.
+Aktörün devre dışı bırakıldığında, aktör nesne başvurularını serbest bırakılır ve bu normalde ortak dil çalışma zamanı (CLR) veya java sanal makinesi (JVM) çöp toplayıcısı tarafından toplanan çöp olabilir. Çöp toplama yalnızca aktör nesnesi temizler; Mevcut **değil** aktörün durum Yöneticisi'nde depolanan durumu kaldırın. Aktör etkinleştirildiğinde, sonraki açışınızda yeni bir aktör nesnesi oluşturulur ve durumuna geri yüklenir.
 
-Ne "devre dışı bırakma ve atık toplama amacıyla kullanılan olarak" sayar?
+Ne "devre dışı bırakma ve çöp toplama amacıyla kullanılan olarak" sayılır?
 
-* Çağrı Alma
-* `IRemindable.ReceiveReminderAsync` (yalnızca aktör anımsatıcıları kullanıyorsa geçerlidir) çağrılan yöntemi
+* Bir çağrı alma
+* `IRemindable.ReceiveReminderAsync` (yalnızca aktör anımsatıcılar kullanıyorsa geçerlidir) çağrılan yöntemi
 
 > [!NOTE]
-> Aktör zamanlayıcılar kullanıyorsa ve Zamanlayıcı geri çağırma çağrılır, mevcut **değil** "kullanılan" olarak sayısı.
+> Aktör zamanlayıcılar kullanıyorsa ve Zamanlayıcı geri çağırma işlemi çağrıldı, mevcut **değil** "kullanılan" olarak sayısı.
 >
 >
 
-Biz devre dışı bırakma ayrıntıları geçmeden önce aşağıdaki koşulları tanımlamak önemlidir:
+Biz devre dışı bırakma ayrıntılarına geçmeden önce aşağıdaki koşulları tanımlamak önemlidir:
 
-* *Tarama aralığı*. Withintext aktörler çalışma zamanı, etkin aktörler tablosunu devre dışı bırakılabilir aktörler için tarar ve atık toplanan aralığını budur. Bu varsayılan değeri 1 dakikadır.
-* *Boşta kalma zaman aşımı*. Bu bir aktör kullanılmayan kalması gereken süreyi belirtir (boş) devre dışı bırakılabilir ve atık toplanan önce. Bunun için varsayılan değer 60 dakikadır.
+* *Tarama aralığı*. Bu, aktör çalışma zamanı devre dışı bırakılabilir aktörler için etkin aktörler tablosunu tarar ve atık olarak toplanmış aralığıdır. Bunun için varsayılan değer 1 dakikadır.
+* *Boşta kalma zaman aşımı*. Aktörün kullanılmaması gereken süre miktarıdır (boşta) devre dışı bırakılabilir ve atık olarak toplanmış önce. Bunun için varsayılan değer 60 dakikadır.
 
-Genellikle, bu varsayılan değişiklik gerekmez. Ancak, gerekirse, bu aralıklar üzerinden değiştirilebilir `ActorServiceSettings` kaydederken, [aktör hizmeti](service-fabric-reliable-actors-platform.md):
+Genellikle, bu varsayılan ayarları değiştirmek gerekmez. Ancak, gerekirse, bu aralıklar arasında değiştirilebilir `ActorServiceSettings` kaydederken, [Actor hizmetinin](service-fabric-reliable-actors-platform.md):
 
 ```csharp
 public class Program
@@ -94,36 +94,36 @@ public class Program
     }
 }
 ```
-Her etkin aktör aktör çalışma zamanı, (yani kullanılır) boşta olduğu süre miktarını izler. Aktör çalışma zamanı her aktörler denetler her `ScanIntervalInSeconds` , çöp toplanır ve boşta olması durumunda topladığı olup olmadığını görmek için `IdleTimeoutInSeconds`.
+Etkin her aktör için de actor çalışma zamanına, (yani kullanılır) uzun zamandır boşta olan süre miktarını izler. Actor çalışma zamanına her aktör denetler her `ScanIntervalInSeconds` , atık toplanan ve boşta kaldığında topladığı olup olmadığını görmek için `IdleTimeoutInSeconds`.
 
-Bir oyuncu kullanılan zaman boşta kalma süresini 0 olarak sıfırlanır. Bundan sonra yalnızca onu yeniden boşta kalırsa toplanacak aktör olabilir `IdleTimeoutInSeconds`. Bir oyuncu aktör arabirim yöntemi veya aktör anımsatıcı geri çağırma yürütülürse kullanılan değerlendirilir çağırma. Bir oyuncu olan **değil** Zamanlayıcı geri çağırma çalıştırıldığında kullanılan düşünülür.
+Aktörün kullanılan herhangi bir zamanda, boşta kalma süresini 0 olarak ayarlanır. Bundan sonra yalnızca onu yeniden boşta kalırsa atık aktör olabilir `IdleTimeoutInSeconds`. Geri çağırma aktörün bir aktör arabirim yöntemini ya da bir oyuncu anımsatıcı geri çağırma yürütülürse kullanılan değerlendirilir. Bir aktör olur **değil** Zamanlayıcısı geri çağırma işlemi yürütülürse kullanılan düşünülür.
 
-Aşağıdaki diyagramda bu kavramları göstermek için tek bir aktör yaşam döngüsü gösterilmektedir.
+Aşağıdaki diyagram bu kavramları göstermek için tek bir aktör yaşam döngüsü gösterir.
 
 ![Boşta kalma süresi örneği][1]
 
-Örnek bu aktör lifetime öğesine aktör yöntem çağrıları, anımsatıcı ve zamanlayıcılar etkisini gösterir. Aşağıdaki noktaları örnek hakkında tümleştirilmediği şunlardır:
+Örnek üzerinde bu aktör ömrünü aktör yöntem çağrılarını ve anımsatıcılar zamanlayıcılar etkisini gösterir. Bu örnek hakkında aşağıdaki noktalara söz şunlardır:
 
-* ScanInterval ve IdleTimeout 5 ve 10 sırasıyla ayarlanır. (Yalnızca kavramı göstermek için bu konudaki Hedefimiz olduğundan birimleri burada önemli değildir.)
-* Toplanacak aktörler için tarama T = 0, 5, 10, 15, 20, 25 5 tarama aralığı tarafından tanımlandığı şekilde gerçekleşir.
-* T = konumundaki 4, 8, 12, 16, 20, 24, düzenli bir süreölçeri başlatılır ve kendi geri çağırmayı yürütür. Aktör boşta kalma süresi etkilemez.
-* Aktör yöntem çağrısı T = 7, boşta kalma süresi 0 olarak sıfırlar ve aktör çöp koleksiyonu geciktirir.
-* Aktör anımsatıcı geri çağırma T = 14 yürütür ve daha fazla aktör çöp koleksiyonu geciktirir.
-* Çöp toplama tarama T = 25 adresindeki sırasında aktör'ın boşta kalma süresi son 10 boşta kalma zaman aşımı aşıyor ve aktör toplanacak olan.
+* ScanInterval ve IdleTimeout 5 ve 10 sırasıyla ayarlanır. (Amacımız yalnızca konsepti açıklamak amacıyla olduğundan birim burada önemli değildir.)
+* Aktörlerin toplanacak taraması tarama aralığı 5 tarafından tanımlandığı şekilde T = 0, 5, 10, 15, 20, 25 ' olmuyor.
+* T = 4 8, 12, 16, 20, 24, düzenli bir süreölçer başlatılır ve kendi geri çağırmayı yürütür. Aktör boşta kalma süresi etkilemez.
+* Bir aktör yöntem çağrısı T = 7, boşta kalma süresini 0 olarak sıfırlar ve aktör çöp koleksiyonu geciktirir.
+* Bir aktör anımsatıcı geri çağırma T = 14 yürütür ve daha fazla aktör çöp koleksiyonu geciktirir.
+* T = 25, çöp toplama tarama sırasında aktörün boşta kalma süresi son 10 boşta kalma zaman aşımını aşıyor ve çöp olarak toplanacak aktör olur.
 
-Bir oyuncu hiçbir zaman bu yöntemin yürütülmesi için ne kadar süre olsun yöntemlerinden birini yürütülürken toplanacak olmaz. Daha önce belirtildiği gibi aktör arabirim yöntemleri ve anımsatıcı geri aramalar yürütülmesini aktör'ın boşta kalma süresi 0 olarak sıfırlayarak çöp toplama engeller. Zamanlayıcı geri aramalar yürütülmesi boşta kalma süresi 0 olarak sıfırlamaz. Ancak, aktör çöp koleksiyonu Zamanlayıcı geri yürütme tamamlanana kadar ertelenir.
+Bir aktör, hiçbir zaman bu yöntem yürütülürken harcanan ne kadar süre ne olursa olsun, yöntemlerinden biri olan Yürütülüyor iken atık olacaktır. Daha önce bahsedildiği gibi yürütülmesi aktör arabirim yöntemlerine ve anımsatıcı geri çağırmaları aktörün boşta kalma süresi 0 olarak sıfırlama çöp toplama engeller. Zamanlayıcı geri çağırmaları yürütülmesini boşta kalma süresini 0 olarak sıfırlanmaz. Ancak, Zamanlayıcı geri çağırma yürütme tamamlanana kadar aktör çöp koleksiyonu ertelenir.
 
-## <a name="manually-deleting-actors-and-their-state"></a>Aktör ve durumlarına el ile silme
-Çöp toplama devre dışı bırakılan aktör yalnızca aktör nesnesini temizler, ancak bir aktör ait durum Yöneticisi'nde depolanan verileri kaldırmaz. Bir aktör yeniden etkinleştirildiğinde, verileri yeniden durum Yöneticisi aracılığıyla için kullanılabilir hale getirilir. Burada aktörler durum Yöneticisi'nde veri depolamak ve devre dışı ancak hiçbir zaman yeniden etkinleştirilmiş durumda, kendi verilerini temizle gerekebilir.  Aktör silmek nasıl bir örnekleri için okuma [aktörler silip durumlarına](service-fabric-reliable-actors-delete-actors.md).
+## <a name="manually-deleting-actors-and-their-state"></a>El ile aktörleri ve durumlarını silme
+Çöp toplama devre dışı bırakılan aktör yalnızca aktör nesnesi temizler, ancak bir aktörün durum Yöneticisi'nde depolanan verileri kaldırmaz. Aktörün yeniden etkinleştirildiğinde, verileri yeniden durum Yöneticisi için kullanılabilir hale getirilir. Burada actors durum Yöneticisi'nde veri depolamak ve devre dışı bırakıldı ancak etkinleştirmemiştir yeniden durumlarda, kullanıcıların verileri temizlemek gerekebilir.  Aktörler silme örnekleri için okuma [aktörleri ve durumlarını silme](service-fabric-reliable-actors-delete-actors.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Aktör zamanlayıcılar ve anımsatıcıları](service-fabric-reliable-actors-timers-reminders.md)
+* [Aktör süreölçerler ve anımsatıcılar](service-fabric-reliable-actors-timers-reminders.md)
 * [Aktör olayları](service-fabric-reliable-actors-events.md)
-* [Aktör yeniden giriş](service-fabric-reliable-actors-reentrancy.md)
+* [Aktör'na yeniden giriş](service-fabric-reliable-actors-reentrancy.md)
 * [Aktör tanılama ve performans izleme](service-fabric-reliable-actors-diagnostics.md)
 * [Aktör API başvuru belgeleri](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [C# örnek kod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java örnek kod](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java örnek kodu](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

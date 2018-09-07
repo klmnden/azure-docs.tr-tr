@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8f79926d0d4729c6ad939bc604e9eb885dbe9f03
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b742f3eb9124093bcf0c3c912bbae0367cdcce56
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421272"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053848"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Öğretici: Azure Active Directory Slack ile tümleştirme
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Slack yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir Slack çoklu oturum açma abonelik etkin.
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD'de Slack tümleştirmesini yapılandırmak için Slack galerideki yöne
 
 **Galeriden Slack eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -114,11 +114,8 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<companyname>.slack.com`
 
-    b. İçinde **tanımlayıcı** metin kutusuna URL'yi yazın: `https://slack.com`
+    b. İçinde **tanımlayıcı** metin değeri üzerinde oturum URL'si ile güncelleştirin. Bu, çalışma alanı etki alanıdır. Örneğin, `https://contoso.slack.com`
 
-    > [!NOTE] 
-    > Değer, gerçek değil. Değerini gerçek işareti bulunan URL'si ile güncelleştirmeniz gerekir. İlgili kişi [Slack Destek ekibine](https://slack.com/help/contact) değeri alınamıyor.
-     
 1. Slack uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirme sayfasında bölümü. Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir.
     
     ![Çoklu oturum açmayı yapılandırın](./media/slack-tutorial/tutorial_slack_attribute.png)
@@ -128,7 +125,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
 1. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda **user.mail** olarak **kullanıcı tanımlayıcısı** ve gösterilen her satır için Aşağıdaki tabloda, aşağıdaki adımları gerçekleştirin:
     
-    | Öznitelik adı | Öznitelik değeri |
+    | Öznitelik Adı | Öznitelik Değeri |
     | --- | --- |
     | first_name | User.givenName |
     | Soyadı | User.surname |

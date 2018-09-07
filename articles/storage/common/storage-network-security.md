@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 9eaaaaa4cc9be661cdc2ffde2b634e062c95a404
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 56c464b9fbc9fe5f2d9acd1a403333fd1c729113
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523266"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023401"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure depolama güvenlik duvarlarını ve sanal ağları yapılandırma
 Azure depolama, belirli bir ağa izin kümesi, depolama hesaplarınıza güvenli olanak tanıyan bir katmanlı güvenlik modeli sağlar.  Ağ kuralları yapılandırıldığında, yalnızca izin verilen ağları uygulamalardan bir depolama hesabına erişebilir.  İzin verilen bir ağdan çağırırken uygulamalar (geçerli bir erişim anahtarı veya SAS belirteci) depolama hesabına erişmek için uygun yetkilendirme gerektirecek şekilde devam edin.
 
 > [!IMPORTANT]
-> Depolama hesabınız için güvenlik duvarı kurallarını etkinleştirmek, gelen istekleri için diğer Azure Hizmetleri dahil olmak üzere, veri erişimi engeller.  Bu günlükler, vb. yazmak, portalı kullanarak içerir.  Katılımcı Hizmetleri aracılığıyla işlevsellik yeniden etkinleştirebilirsiniz [özel durumları](#Exceptions) bölümüne bakın.  Portala erişmek için bir makine ayarlamış olduğunuz güvenilen sınır (IP veya VNet) içinde bunu gerekecektir.
+> Depolama hesabınız için güvenlik duvarı kurallarını etkinleştirmek, gelen istekleri için diğer Azure Hizmetleri dahil olmak üzere, veri erişimi engeller.  Bu günlükler, vb. yazmak, portalı kullanarak içerir.  Katılımcı Hizmetleri aracılığıyla işlevsellik yeniden etkinleştirebilirsiniz [özel durumları](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) bölümüne bakın.  Portala erişmek için bir makine ayarlamış olduğunuz güvenilen sınır (IP veya VNet) içinde bunu gerekecektir.
 >
 
 ## <a name="scenarios"></a>Senaryolar
@@ -35,7 +35,7 @@ Sanal makine diski trafiği (bağlama dahil olmak üzere operations çıkarın v
 
 Klasik depolama hesapları **olmayan** güvenlik duvarları ve sanal ağlar'ı destekler.
 
-Yedekleme ve geri yükleme, yönetilmeyen diskler depolama hesaplarında uygulanan ağ kurallarıyla kullanarak sanal makineleri desteklenir açıklandığı gibi bir özel durum oluşturma aracılığıyla [özel durumları](/storage/common/storage-network-security#exceptions) bu makalenin.  Güvenlik Duvarı özel durumları zaten Azure tarafından yönetildikleri yönetilen diskler ile ilgili değildir.
+Yedekleme ve geri yükleme, yönetilmeyen diskler depolama hesaplarında uygulanan ağ kurallarıyla kullanarak sanal makineleri desteklenir açıklandığı gibi bir özel durum oluşturma aracılığıyla [özel durumları](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) bu makalenin.  Güvenlik Duvarı özel durumları zaten Azure tarafından yönetildikleri yönetilen diskler ile ilgili değildir.
 
 ## <a name="change-the-default-network-access-rule"></a>Varsayılan ağ erişim kuralını değiştirme
 Varsayılan olarak, depolama hesapları herhangi bir ağ üzerinde istemci bağlantılarını kabul edin.  Seçili ağlar erişimi sınırlamak için önce varsayılan eylem değiştirmeniz gerekir.

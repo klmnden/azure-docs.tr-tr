@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: bd456e0f881f606f36f2b4d80e704ce138f7db0f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 4222214705c42fe09d90d77faa7be63cc2a13206
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666441"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025285"
 ---
 # <a name="deploy-a-configuration-server"></a>Yapılandırma sunucusunu dağıtma
 
@@ -42,7 +42,7 @@ Yapılandırma sunucusu boyutlandırma gereksinimlerini olası veri değişikli�
 | 12 Vcpu (2 yuva * 6 çekirdek \@ 2.5 GHz) |18 GB |600 GB |500 GB ila 1 TB |100-150 makineleri çoğaltabilir. |
 | 16 Vcpu (2 yuva * 8 çekirdek \@ 2.5 GHz) |32 GB |1 TB |1 TB ile 2 TB |150-200 makineleri çoğaltabilir. |
 
-Birden fazla VMware VM çoğaltma yapıyorsanız okuma [kapasite planlaması konuları](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware). Çalıştırma [dağıtım Planlayıcısı aracını](site-recovery-deployment-planner.md) VMWare çoğaltması için.
+Birden fazla VMware VM çoğaltma yapıyorsanız okuma [kapasite planlaması konuları](site-recovery-plan-capacity-vmware.md). Çalıştırma [dağıtım Planlayıcısı aracını](site-recovery-deployment-planner.md) VMWare çoğaltması için.
 
 ## <a name="download-the-template"></a>Şablon indirme
 
@@ -121,7 +121,7 @@ Yapılandırma sunucusuna Ek NIC eklemek istiyorsanız, sunucuyu kasaya kaydetme
 
 1. Yapılandırma sunucusu, farklı amaçlara yönelik yüklendiği VM kullanabilir miyim?
 
-    **Hayır**, yapılandırma sunucusunun amacı VM kullanmanızı öneririz. Belirtilen tüm özellikleri uyguladığınızdan emin olun [önceki bölümde](vmware-azure-deploy-configuration-server.md#Prerequisites) verimli olağanüstü durum kurtarma yönetimi için.
+    **Hayır**, yapılandırma sunucusunun amacı VM kullanmanızı öneririz. Belirtilen tüm belirtimleri izleyin olun [önkoşulları](#prerequisites) verimli olağanüstü durum kurtarma yönetimi için.
 2. Yeni oluşturulan bir kasa yapılandırma sunucusuyla zaten kayıtlı kasa geçiş yapabilir miyim?
 
     **Hayır**, yapılandırma sunucusu ile bir kasaya kaydedildikten sonra değiştirilemez.
@@ -130,10 +130,10 @@ Yapılandırma sunucusuna Ek NIC eklemek istiyorsanız, sunucuyu kasaya kaydetme
     **Evet**, aynı yapılandırma sunucusuna, fiziksel ve sanal makineleri çoğaltmak için kullanılabilir. Ancak, fiziksel makine başarısız geriye yalnızca bir VMware VM.
 4. Yapılandırma sunucusunun amacı ve kullanıldığı nedir?
 
-    Azure Site Recovery mimarimiz bakın [burada](vmware-azure-architecture.md) yapılandırma sunucusu ve onun işlevler hakkında daha fazla bilgi edinmek için.
+    Başvurmak [Vmware'den Azure'a çoğaltma mimarisi](vmware-azure-architecture.md) yapılandırma sunucusu ve onun işlevler hakkında daha fazla bilgi edinmek için.
 5. Yapılandırma sunucusunun en son sürümünü nereden bulabilirim?
 
-    Yapılandırma sunucusunu yükseltmek için adımlar makalesine başvurun [portal üzerinden](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Ayrıca doğrudan buradan indirebilirsiniz [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+    Portal üzerinden yapılandırma sunucusunu yükseltmek adımlar için bkz: [yapılandırma sunucusunu yükseltme](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Ayrıca doğrudan buradan indirebilirsiniz [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 6. Yapılandırma sunucusu için parola nereden indirebilirim?
 
     Başvurmak [bu makalede](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) parola indirilemedi.
@@ -143,7 +143,7 @@ Yapılandırma sunucusuna Ek NIC eklemek istiyorsanız, sunucuyu kasaya kaydetme
 
 ## <a name="upgrade-the-configuration-server"></a>Yapılandırma sunucusunu yükseltme
 
-Yapılandırma sunucusunu en son sürüme yükseltmek için verilen adımları okuyun [burada](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
+Yapılandırma sunucusunu en son sürüme yükseltmek için aşağıdaki adımları [adımları](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 
 ## <a name="manage-the-configuration-server"></a>Yapılandırma sunucusunu yönetme
 

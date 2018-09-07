@@ -1,6 +1,6 @@
 ---
-title: İçinde Azure mikro ölçümleri ve yerleştirme ayarlarını belirtme | Microsoft Docs
-description: Service Fabric hizmeti, ölçümler, yerleştirme kısıtlamaları ve diğer yerleşim ilkeleri belirterek açıklayan.
+title: Azure Service Fabric'te ölçümleri ve yerleştirme ayarlarını belirtme | Microsoft Docs
+description: Ölçümler, yerleştirme kısıtlamaları ve diğer yerleştirme ilkeleri belirterek bir Service Fabric hizmeti açıklayan öğrenin.
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 16e19a02bf12e30e81eb1743fc637bce435df914
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ea781b5dbbf09c0a21fbcf781ae129295d02dbad
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210588"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054800"
 ---
-# <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Service Fabric Hizmetleri için küme kaynak yönetici ayarlarını yapılandırma
-Service Fabric kümesi Kaynak Yöneticisi adlı hizmetin her kişi belirleyen kurallar üzerinde ayrıntılı denetim sağlar. Her adlandırılmış hizmet kümesinde nasıl ayrılmalıdır kuralları belirtebilirsiniz. Adlandırılmış her hizmet bu hizmete oldukları ne kadar önemli dahil olmak üzere raporlanacak istediği ölçümleri kümesi de tanımlayabilirsiniz. Hizmetleri yapılandırma üç farklı görevlere parçalara ayırır:
+# <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Service Fabric Hizmetleri için küme kaynak yöneticisi ayarlarını yapılandırma
+Service Fabric Küme Kaynak Yöneticisi, her kişi adlı hizmetin yöneten kurallar üzerinde ayrıntılı denetim sağlar. Adlandırılmış her hizmetin nasıl kümede ayrılmalıdır kuralları belirtebilirsiniz. Adlandırılmış her hizmet ne kadar önemli bu hizmete oldukları dahil olmak üzere, rapor istediği ölçüm kümesini de tanımlayabilirsiniz. Hizmetleri yapılandırma üç farklı görevlere böler:
 
 1. Yerleştirme kısıtlamalarını yapılandırma
 2. Ölçümleri yapılandırma
-3. Gelişmiş yerleşim ilkeleri ve diğer kurallar (daha az ortak) yapılandırma
+3. Gelişmiş yerleştirme ilkeleri ve diğer kurallar (daha az ortak) yapılandırma
 
 ## <a name="placement-constraints"></a>Yerleştirme kısıtlamaları
-Yerleşim kısıtlaması, bir hizmeti kümedeki düğümler gerçekte çalıştırabileceğiniz denetlemek için kullanılır. Tipik olarak belirli bir hizmet örneği veya kısıtlı belirli türde bir düğüm üzerinde çalıştırmak için belirli bir türde tüm hizmetleri adlı. Kısıtlamalarından genişletilebilir. Tüm düğüm türü başına özellikler kümesini tanımlar ve sonra bunlar için kısıtlamalarıyla Hizmetleri oluştururken seçin. Çalışırken bir hizmetin kısıtlamalarından de değiştirebilirsiniz. Bu, küme veya hizmet gereksinimlerine değişiklikleri yanıt vermesini sağlar. Belirli bir düğümün özelliklerini de kümeye dinamik olarak güncelleştirilebilir. Yerleştirme kısıtlamaları ve bunların nasıl yapılandırılacağı hakkında daha fazla bilgi bulunabilir [bu makalede](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)
+Yerleştirme kısıtlamaları, hizmet kümedeki düğümlere gerçekten çalıştırabileceğiniz denetlemek için kullanılır. Genellikle belirli bir hizmet örneği veya belirli bir düğüm türü üzerinde çalıştırmak için kısıtlı belirli bir türden tüm hizmetleri olarak adlandırılır. Yerleştirme kısıtlamaları genişletilebilir. Her düğüm türü başına özellikler kümesini tanımlar ve sonra bunlar için kısıtlamalarla Hizmetleri oluştururken seçin. Çalışırken, bir hizmetin yerleştirme kısıtlamaları değiştirebilirsiniz. Bu, değişiklik kümesi ya da hizmet gereksinimlerine yanıt vermesini sağlar. Belirli bir düğümün özelliklerini de kümeye dinamik olarak güncelleştirilebilir. Yerleştirme kısıtlamaları ve nasıl yapılandırılacakları hakkında daha fazla bilgi bulunabilir [bu makalede](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)
 
 ## <a name="metrics"></a>Ölçümler
-Ölçümleri belirli bir adlandırılmış hizmeti gereken kaynakları kümesidir. Bir hizmet ölçüm yapılandırmasının varsayılan olarak her bir durum bilgisi olan çoğaltma veya hizmet durum bilgisiz örneğiniz tüketir bu kaynağın ne kadarının içerir. Ölçümleri gerekli bileşim durumda ne kadar önemli Bu ölçüm Dengeleme bu hizmete olan, gösteren ağırlık de içerir.
+Belirli bir adlandırılmış hizmetinin gereken kaynak kümesini ölçümleridir. Bir hizmetin ölçüm yapılandırma varsayılan olarak her bir durum bilgisi olan çoğaltma ya da durum bilgisi olmayan hizmet örneğini kullanan bu kaynağın ne kadar içerir. Ölçümleri nasıl önemli bu ölçümü Dengeleme bu hizmete olduğu durumda ödün gerekli olduğu gösteren ağırlık de içerir.
 
 ## <a name="advanced-placement-rules"></a>Gelişmiş yerleştirme kuralları
-Diğer kullanışlı daha az yaygın senaryolar yerleştirme kuralı türü vardır. Bazı örnekler şunlardır:
+Diğer türde daha az yaygın senaryoları kullanışlı olan yerleştirme kuralları vardır. Bazı örnekler şunlardır:
 - Coğrafi olarak dağıtılmış kümeleriyle yardım eden kısıtlamaları
-- Belirli uygulama mimarisi
+- Belirli uygulama mimarileri
 
-Diğer yerleştirme kuralları bağıntıları veya ilkeleri aracılığıyla yapılandırılır.
+Diğer yerleştirme kuralları Bağıntılar veya ilkeleri aracılığıyla yapılandırılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Service Fabric kümesi Kaynak Yöneticisi, kullanım ve kapasite kümedeki nasıl yönettiğini ölçümleridir. Ölçümleri ve bunların nasıl yapılandırılacağı hakkında daha fazla bilgi için kullanıma [bu makalede](service-fabric-cluster-resource-manager-metrics.md)
-- Benzeşim hizmetlerinizi için yapılandırabileceğiniz bir moddur. Ortak değildir, ancak ihtiyacınız varsa onu hakkında bilgi edinebilirsiniz [burada](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-- Hizmetinizde ilave senaryolar işlemek için yapılandırılmış birçok farklı yerleştirme kuralları vardır. Bu farklı yerleşim ilkeleri hakkında bilgi almak [burada](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-- En baştan başlatın ve [bir giriş için Service Fabric kümesi Resource Manager Al](service-fabric-cluster-resource-manager-introduction.md)
-- Küme Kaynak Yöneticisi'ni yönetir ve yük devretme kümesinde dengeleyen hakkında bilgi almak için makalesine kontrol [Yük Dengeleme](service-fabric-cluster-resource-manager-balancing.md)
-- Küme Kaynak Yöneticisi'ni küme açıklamak için birçok seçeneğiniz vardır. Bunları hakkında daha fazla bilgi için bu makalede kontrol [açıklayan bir Service Fabric kümesi](service-fabric-cluster-resource-manager-cluster-description.md)
+- Kullanım ve kapasite kümedeki Service Fabric Küme Kaynak Yöneticisi'ni nasıl yönettiğini ölçümleridir. Ölçümler ve nasıl yapılandırılacakları hakkında daha fazla bilgi edinmek için kullanıma [bu makalede](service-fabric-cluster-resource-manager-metrics.md)
+- Benzeşim hizmetlerinizi için yapılandırabileceğiniz bir moddur. Yaygın değildir, ancak ihtiyacınız varsa, hakkında bilgi edinebilirsiniz [burada](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+- Hizmetinizde ek senaryoları işlemek için yapılandırılabilir birçok farklı yerleştirme kuralları vardır. Bu farklı yerleştirme ilkeleri hakkında bilgi edinin [burada](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
+- En baştan başlatmak ve [için Service Fabric Küme Kaynak Yöneticisi giriş yapın](service-fabric-cluster-resource-manager-introduction.md)
+- Küme Kaynak Yöneticisi yönetir ve kümedeki yük dengeleyen hakkında bilgi almak için makalesine göz atın [Yük Dengeleme](service-fabric-cluster-resource-manager-balancing.md)
+- Küme Kaynak Yöneticisi kümesi tanımlamak için birçok seçenek vardır. Bunlar hakkında daha fazla bilgi için bu makalede atın [açıklayan bir Service Fabric kümesi](service-fabric-cluster-resource-manager-cluster-description.md)

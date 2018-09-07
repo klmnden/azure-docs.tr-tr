@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Services uygulamalar için mikro Dönüştür | Microsoft Docs
-description: Bu kılavuz bulut hizmetlerinden Service Fabric geçirme yardımcı olmak için bulut Hizmetleri Web ve çalışan rolleri ve Service Fabric durum bilgisi olmayan hizmetler karşılaştırır.
+title: Dönüştürme Azure Cloud Services uygulamalarını Service fabric'e | Microsoft Docs
+description: Bu kılavuz, Cloud Services'tan Service Fabric'e geçme yardımcı olmak için Cloud Services Web ve çalışan rolleri ve Service Fabric durum bilgisi olmayan hizmetler karşılaştırılmaktadır.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: c6bdd6f88c9008a8d9c15d22bdcf263190424649
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4eed3825d52fe52025077980e21f3763cc5751ac
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206691"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049958"
 ---
-# <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Web ve çalışan rolleri Service Fabric durum bilgisi olmayan hizmetler için dönüştürme Kılavuzu
-Bu makalede, bulut Hizmetleri Web ve çalışan rolleri Service Fabric durum bilgisi olmayan hizmetler için nasıl geçirileceği açıklanmaktadır. Bu en basit geçiş bulut hizmetlerinden Service Fabric, genel mimarisi kabaca aynı kalmasını gittiği uygulamalar için yoludur.
+# <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Web ve çalışan rolleri için Service Fabric durum bilgisi olmayan hizmetler dönüştürme Kılavuzu
+Bu makalede, Cloud Services Web ve çalışan rolleri için Service Fabric durum bilgisi olmayan hizmetler geçirmeyi açıklar. Bu en basit geçiş bulut hizmetlerinden Service fabric'e genel, mimarisi, yaklaşık aynı kalmasını geçiyor uygulamalar için yoludur.
 
 ## <a name="cloud-service-project-to-service-fabric-application-project"></a>Service Fabric uygulaması projesi için bulut hizmeti projesi
- Bir bulut hizmeti projesi ve bir Service Fabric uygulaması projesi benzer bir yapıya sahip ve her iki temsil dağıtım uygulamanız için - diğer bir deyişle, bunların her uygulamanızı çalıştırmak için dağıtılan eksiksiz paket tanımlamak. Bir bulut hizmeti projesi, bir veya daha fazla Web veya çalışan rolleri içerir. Benzer şekilde, bir Service Fabric uygulaması projesi bir veya daha fazla hizmet içeriyor. 
+ Bir bulut hizmeti projesini ve Service Fabric uygulaması projesini benzer bir yapıya sahiptir ve hem temsil uygulamanızı çalıştırmak için dağıtılan tam paketi uygulamanız için - diğer bir deyişle, bunlar her dağıtım birimi tanımlayın. Bir bulut hizmeti projesi, bir veya daha fazla Web veya çalışan rolleri içerir. Benzer şekilde, bir Service Fabric uygulaması projesi bir veya daha fazla hizmet içeriyor. 
 
-Service Fabric uygulaması proje için bir dizi dağıtılan bir uygulamayı yalnızca tanımlar ancak bulut hizmeti projesi VM dağıtımı ile uygulama dağıtımı couples ve bu nedenle, VM yapılandırma ayarlarını içeren farktır var olan sanal makineleri bir Service Fabric kümesindeki. Service Fabric kümesi yalnızca bir kez bir Resource Manager şablonu veya Azure portal aracılığıyla dağıtılır ve birden çok Service Fabric uygulamaları dağıtılabilir.
+Service Fabric uygulaması projesi için bir dizi dağıtılacak bir uygulama yalnızca tanımlar. oysa bulut hizmeti projesi bir VM dağıtımı ile uygulama dağıtımı couples ve bu nedenle, VM yapılandırma ayarlarını içeren fark vardır bir Service Fabric kümesinde var olan VM'ler. Service Fabric kümesi yalnızca bir kez bir Resource Manager şablonu aracılığıyla veya Azure Portalı aracılığıyla dağıtılır ve birden çok Service Fabric uygulamaları dağıtılabilir.
 
-![Service Fabric ve Cloud Services proje karşılaştırma][3]
+![Service Fabric ve Cloud Services projesi karşılaştırması][3]
 
-## <a name="worker-role-to-stateless-service"></a>Durum bilgisiz hizmetine çalışan rolü
-Kavramsal olarak, bir çalışan rolü iş yükü, her örneği aynıdır ve istekleri herhangi bir zamanda herhangi bir örneğine yönlendirilebilir anlamına durum bilgisiz iş yükünü temsil eder. Her bir örnek, önceki isteği anımsaması beklenmiyor. İş yükü çalıştırır durumu, Azure Table Storage veya Azure belge DB gibi bir dış durum depolama alanını tarafından yönetilir. Service Fabric iş yükü bu tür bir durum bilgisiz hizmeti tarafından temsil edilir. Çalışan rolü için Service Fabric geçiş için en kolay yaklaşım, durum bilgisi olmayan bir hizmete çalışan rolü kodunu dönüştürerek yapılabilir.
+## <a name="worker-role-to-stateless-service"></a>Çalışan rolü için durum bilgisi olmayan hizmet
+Kavramsal olarak, bir çalışan rolü istekleri herhangi bir zamanda herhangi bir örneğine yönlendirilebilir ve iş yükü'nin her örneğinin aynı anlamı durum bilgisi olmayan bir iş yükünü temsil eder. Her örnek, önceki isteği hatırlamak beklenmiyor. İş yükü çalışır duruma Azure tablo depolama veya Azure Document DB gibi bir dış durumlarını mağaza tarafından yönetilir. Service Fabric'te, iş yükü bu tür bir durum bilgisi olmayan hizmet tarafından temsil edilir. Bir çalışan rolü Service Fabric'e geçiş için en kolay yaklaşım, durum bilgisi olmayan hizmete çalışan rolü kodunu dönüştürerek yapılabilir.
 
-![Durum bilgisiz hizmetine çalışan rolü][4]
+![Çalışan rolü için durum bilgisi olmayan hizmet][4]
 
-## <a name="web-role-to-stateless-service"></a>Durum bilgisiz hizmetine Web rolü
-Benzer şekilde çalışan rolü, Web rolü ayrıca durum bilgisiz iş yükünü temsil eder ve böylece kavramsal, çok bir Service Fabric durum bilgisiz hizmetine eşlenebilir. Ancak, Web rolünden farklı olarak, IIS Service Fabric desteklemez. Bir web geçirmek için kendi kendini barındırır ve IIS veya ASP.NET Core 1 gibi System.Web bağlı olmayan bir web çerçevesidir ilk taşıma Web rolünden Hizmeti'ne uygulama için bir durum bilgisiz gerektirir.
+## <a name="web-role-to-stateless-service"></a>Durum bilgisi olmayan hizmet için Web rolü
+Benzer şekilde çalışan rolü, Web rolü de durum bilgisi olmayan bir iş yükünü temsil eder ve bu nedenle, kavramsal olarak, çok bir Service Fabric durum bilgisi olmayan hizmet eşlenebilir. Ancak, Web rolünden farklı olarak, IIS Service Fabric desteklemez. Bir web geçirmek için IIS veya ASP.NET Core 1 gibi bir System.Web bağlı değildir ve şirket içinde barındırılan bir web çerçevesi ilk taşıma Web rolü bir uygulamadan bir durum bilgisi olmayan hizmete gerektirir.
 
 | **Uygulama** | **Destekleniyor** | **Geçiş yolu** |
 | --- | --- | --- |
-| ASP.NET Web formları |Hayır |ASP.NET Core 1 MVC Dönüştür |
-| ASP.NET MVC |İle geçiş |ASP.NET yükseltmeye 1 MVC çekirdek |
-| ASP.NET Web API'si |İle geçiş |Kendini barındıran sunucu veya ASP.NET Core 1 kullanın |
+| ASP.NET Web formları |Hayır |1 ASP.NET Core MVC için Dönüştür |
+| ASP.NET MVC |İle geçiş |Yükseltme ASP.NET Core MVC 1 |
+| ASP.NET Web API'si |İle geçiş |Şirket içinde barındırılan bir sunucu veya ASP.NET Core 1 kullanın |
 | ASP.NET Core 1 |Evet |Yok |
 
 ## <a name="entry-point-api-and-lifecycle"></a>Giriş noktası API ve yaşam döngüsü
@@ -53,8 +53,8 @@ Benzer şekilde çalışan rolü, Web rolü ayrıca durum bilgisiz iş yükünü
 | --- | --- | --- |
 | İşleniyor |`Run()` |`RunAsync()` |
 | VM Başlat |`OnStart()` |Yok |
-| VM'yi Durdur |`OnStop()` |Yok |
-| İstemci istekleri için açık dinleyicisi |Yok |<ul><li> `CreateServiceInstanceListener()` için durum bilgisiz</li><li>`CreateServiceReplicaListener()` durum bilgisi için</li></ul> |
+| VM durdurma |`OnStop()` |Yok |
+| İstemci istekleri için açık dinleyici |Yok |<ul><li> `CreateServiceInstanceListener()` için durum bilgisi olmayan</li><li>`CreateServiceReplicaListener()` durum bilgisi olan için</li></ul> |
 
 ### <a name="worker-role"></a>Çalışan rolü
 ```csharp
@@ -81,7 +81,7 @@ namespace WorkerRole1
 
 ```
 
-### <a name="service-fabric-stateless-service"></a>Doku durum bilgisiz hizmeti
+### <a name="service-fabric-stateless-service"></a>Service Fabric durum bilgisi olmayan hizmet
 ```csharp
 
 using System.Collections.Generic;
@@ -106,38 +106,38 @@ namespace Stateless1
 
 ```
 
-Hem birincil "Çalıştır" geçersiz kılma işlemeye başlamak üzere sahiptir. Service Fabric Hizmetleri birleştirme `Run`, `Start`, ve `Stop` tek bir giriş noktasına `RunAsync`. Hizmetinizi ne zaman çalışmaya başlaması gereken `RunAsync` başlar ve ne zaman çalışma durması gerektiğini `RunAsync` yöntemin CancellationToken durdurulma. 
+Her ikisi de, işleme başlamak bir birincil "Çalıştır" geçersiz kılma sahiptir. Service Fabric Hizmetleri birleştirme `Run`, `Start`, ve `Stop` tek Giriş noktasına `RunAsync`. Hizmetinizi ne zaman çalışmaya başlayacak `RunAsync` başlar ve ne zaman çalışmayı durdurmasına `RunAsync` yöntemin CancellationToken sinyal. 
 
-Yaşam döngüsü ve çalışan rolleri ve Service Fabric Hizmetleri ömrü arasında birkaç temel farklılıklar vardır:
+Yaşam döngüsü ve çalışan rolleri ve Service Fabric Hizmetleri ömrünü arasında bazı önemli farklılıklar vardır:
 
-* **Yaşam döngüsü:** büyük bir VM çalışan rolü ise ve böylece kendi yaşam döngüsü bağlı zaman VM başlatır ve durdurur olaylarını içerir VM'ye farktır. Service Fabric hizmeti, birbiriyle ilgili olmayan olarak ne zaman konağı VM veya makine başlar ve durdurun, olayları içermez böylece VM döngüsü ayrı bir yaşam döngüsü sahiptir.
-* **Yaşam süresi:** çalışan rolü örneği varsa geri `Run` yöntemi çıkar. `RunAsync` Bir Service Fabric hizmeti yönteminde ancak çalıştırabilirsiniz tamamlanması ve hizmet örneği oluşturan kalır. 
+* **Yaşam döngüsü:** bir çalışan rolü bir vm'dir ve bu nedenle yaşam döngüsü bağlı VM'yi başlatır ve durdurur, olayları içeren VM en büyük fark vardır. Bir Service Fabric hizmeti, ilgili olmayan konak VM veya makine ne zaman başlar ve durdurmak için olayları içermez, VM yaşam döngüsü ' ayrı bir yaşam döngüsüne sahiptir.
+* **Yaşam süresi:** bir çalışan rolü örneği, dönüşüm `Run` yöntemi çıkar. `RunAsync` Yöntemi bir Service Fabric hizmetinde ancak tamamlanana kadar çalışması ve hizmet örneği oluşturan kalır. 
 
-Service Fabric, istemci isteklerini dinlemek Hizmetleri için isteğe bağlı iletişim Kurulum giriş noktası sağlar. RunAsync ve iletişimi giriş noktası olan RunAsync yönteminde yeniden başlatmadan çıkmak için izin verilir - hizmetiniz yalnızca istemci isteklerini dinlemek veya yalnızca bir işleme döngüsü ya da her ikisini de çalıştırmak için seçebilirsiniz - Service Fabric hizmetlerini isteğe bağlı bir geçersiz kılma Hizmet örneği, çünkü istemci isteklerini dinlemek devam edebilir.
+Service Fabric Hizmetleri için istemci isteklerini dinlemek için bir isteğe bağlı iletişim Kurulumu giriş noktası sağlar. RunAsync ve iletişimi giriş noktası olan RunAsync yönteminde başlatmadan çıkmak için izin verilir neden olan Service Fabric Hizmetleri - hizmetinizi yalnızca istemci isteklerini dinleyecek veya yalnızca bir işleme döngüsü veya her ikisini de çalıştırın seçebilir - isteğe bağlı bir geçersiz kılma Hizmet örneği, çünkü istemci isteklerini dinlemek devam edebilir.
 
 ## <a name="application-api-and-environment"></a>Uygulama API ve ortam
-Bulut Hizmetleri ortam API bilgileri ve geçerli VM örneği yanı sıra diğer VM rolü örneklerini hakkında bilgi için işlevsellik sağlar. Service Fabric, çalışma zamanı için ilgili bilgiler sağlar ve bir hizmet düğüm hakkında bazı bilgiler şu anda çalışıyor. 
+Bulut Hizmetleri ortamı API, bilgi ve diğer VM rol örnekleriyle ilgili bilgilerin yanı sıra geçerli sanal makine örneği için işlevsellik sağlar. Service Fabric, çalışma zamanı için ilgili bilgiler sağlar ve bir hizmet düğümü hakkında bazı bilgiler şu anda çalışıyor. 
 
-| **Ortam görev** | **Cloud Services** | **Service Fabric** |
+| **Ortam görevi** | **Cloud Services** | **Service Fabric** |
 | --- | --- | --- |
-| Yapılandırma ayarları ve değişiklik bildirimi |`RoleEnvironment` |`CodePackageActivationContext` |
+| Yapılandırma ayarlarını ve değişiklik bildirimi |`RoleEnvironment` |`CodePackageActivationContext` |
 | Yerel Depolama |`RoleEnvironment` |`CodePackageActivationContext` |
-| Uç nokta bilgileri |`RoleInstance` <ul><li>Geçerli örnek: `RoleEnvironment.CurrentRoleInstance`</li><li>Diğer roller ve örneği: `RoleEnvironment.Roles`</li> |<ul><li>`NodeContext` Geçerli düğüm adresi</li><li>`FabricClient` ve `ServicePartitionResolver` hizmet uç noktası bulma</li> |
-| Ortam öykünmesi |`RoleEnvironment.IsEmulated` |Yok |
-| Eşzamanlı değişiklik olayı |`RoleEnvironment` |Yok |
+| Uç nokta bilgileri |`RoleInstance` <ul><li>Geçerli örneğin: `RoleEnvironment.CurrentRoleInstance`</li><li>Diğer roller ve örneği: `RoleEnvironment.Roles`</li> |<ul><li>`NodeContext` Geçerli düğüm adresi</li><li>`FabricClient` ve `ServicePartitionResolver` hizmet uç noktası bulma</li> |
+| Ortam öykünme |`RoleEnvironment.IsEmulated` |Yok |
+| Eş zamanlı değişiklik olayı |`RoleEnvironment` |Yok |
 
 ## <a name="configuration-settings"></a>Yapılandırma ayarları
-Bulut hizmetleri yapılandırma ayarlarında bir VM rolü için ayarlanır ve bu VM rolü tüm örnekleri için geçerlidir. Bu ayarlar, anahtar-değer çiftleri ServiceConfiguration.*.cscfg dosyalarında ayarlamak ve doğrudan RoleEnvironment erişilebilir. Bir VM birden çok hizmet ve uygulamaları barındırmak için Service Fabric içinde ayarlarını ayrı ayrı her hizmet ve her uygulama yerine bir VM uygulayın. Bir hizmet üç paketlerini oluşur:
+Cloud Services yapılandırma ayarlarında bir VM rolü için ayarlanır ve bu VM rolü'nün tüm örnekleri için geçerlidir. Bu ayarlar, anahtar-değer çiftleridir ServiceConfiguration.*.cscfg dosyalarında ayarlayın ve doğrudan RoleEnvironment erişilebilir. Bir VM'nin birden çok hizmet ve uygulamaları barındırabilir, Service Fabric ayarları tek tek her hizmet ve her bir uygulama yerine bir VM geçerlidir. Hizmet üç paketlerini oluşur:
 
-* **Kod:** hizmeti yürütülebilir dosyaları, ikili dosyaları, DLL'ler ve bir hizmetin ihtiyaç çalıştırmak için diğer dosyaları içerir.
-* **Config:** tüm yapılandırma dosyalarını ve ayarlarını bir hizmet için.
-* **Veri:** statik veri dosyalarını hizmetle ilişkilendirilmiş.
+* **Kod:** hizmeti yürütülebilir dosyaları, ikili dosyaları, DLL'ler ve çalıştırmak için bir hizmet gereken dosyaları içerir.
+* **Config:** tüm yapılandırma dosyalarını ve ayarlarını bir hizmet.
+* **Veri:** statik veri dosyalarının hizmetle ilişkili.
 
-Bu paketleri her bağımsız olarak sürümlü hem de yükseltilmiş olabilir. Bulut Hizmetleri için benzer bir yapılandırma paketi program aracılığıyla bir API aracılığıyla erişilebilir ve olayları bir yapılandırma paketi değişikliği hizmetine bildirmek kullanılabilir. Settings.xml dosyası anahtar-değer yapılandırması ve benzer bir App.config dosyası uygulama ayarları bölümüne program erişimi için kullanılabilir. Ancak, XML, JSON, YAML veya özel bir ikili biçimi olup bulut Hizmetleri, herhangi bir biçimdeki tüm yapılandırma dosyalarını bir Service Fabric yapılandırma paketi içerebilir. 
+Bu paketlerin her bağımsız olarak sürümü oluşturulabilir ve yükseltilebilir. Bulut hizmetlerine benzer bir yapılandırma paketi programlı bir API aracılığıyla erişilebilen ve olayları hizmeti, bir yapılandırma paketi değişikliği bildirmek kullanılabilir. Bir Settings.xml dosyasının, anahtar-değer yapılandırma ve programlı erişim bir App.config dosyası uygulama ayarları bölümüne benzer için kullanılabilir. Ancak, XML, YAML, JSON ya da özel bir ikili biçimi olup olmadığını bulut hizmetlerinin aksine, bir Service Fabric config paketi herhangi bir biçimdeki tüm yapılandırma dosyaları içerebilir. 
 
 ### <a name="accessing-configuration"></a>Erişimi yapılandırma
-#### <a name="cloud-services"></a>Bulut Hizmetleri
-Yapılandırma ayarları ServiceConfiguration.*.cscfg üzerinden erişilebilir `RoleEnvironment`. Bu ayarlar, tüm rol örneklerinin aynı bulut hizmeti dağıtım genel olarak kullanılabilir.
+#### <a name="cloud-services"></a>Cloud Services
+ServiceConfiguration.*.cscfg aracılığıyla yapılandırma ayarlarınızı üzerinden erişilebilir `RoleEnvironment`. Bu ayarlar, tüm rol örneklerinin aynı bulut hizmeti dağıtımı için genel olarak kullanılabilir.
 
 ```csharp
 
@@ -146,9 +146,9 @@ string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 ```
 
 #### <a name="service-fabric"></a>Service Fabric
-Her hizmetin kendi tek tek bir yapılandırma paketi vardır. Hiçbir yerleşik mekanizması olduğunu genel yapılandırma ayarları için erişilebilir bir kümedeki tüm uygulamalar tarafından. Service Fabric'ın özel Settings.xml yapılandırma dosyasının bir yapılandırma paketi içinde kullanırken, uygulama düzeyinde yapılandırma ayarlarını edinerek uygulama düzeyinde Settings.xml değerlerde üzerine yazılabilir.
+Her hizmet kendi ayrı yapılandırma paketi içerir. Yerleşik bir mekanizma bulunmamaktadır genel yapılandırma ayarları için erişilebilir bir kümedeki tüm uygulamalar tarafından. Service Fabric'in özel Settings.xml yapılandırma dosyası içinde bir yapılandırma paketini kullanırken, uygulama düzeyinde yapılandırma ayarları edinerek uygulama düzeyinde Settings.xml değerleri üzerine yazılabilir.
 
-Yapılandırma ayarları her hizmet örneği hizmetin aracılığıyla içinde erişimleri olan `CodePackageActivationContext`.
+Yapılandırma ayarları olan erişen her bir hizmet örneği aracılığıyla hizmetin içinde `CodePackageActivationContext`.
 
 ```csharp
 
@@ -168,8 +168,8 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 ```
 
 ### <a name="configuration-update-events"></a>Yapılandırma güncelleştirme olayları
-#### <a name="cloud-services"></a>Bulut Hizmetleri
-`RoleEnvironment.Changed` Olay ortamında, bir yapılandırma değişikliği gibi bir değişiklik meydana geldiğinde tüm rol örneklerini bildirmek için kullanılır. Bu, yapılandırma güncelleştirmelerini rol örnekleri geri dönüştürme veya bir çalışan işleminin yeniden kullanmak için kullanılır.
+#### <a name="cloud-services"></a>Cloud Services
+`RoleEnvironment.Changed` Olay ortamında, bir yapılandırma değişikliği gibi bir değişiklik meydana geldiğinde, tüm rol örneklerine bildirmek için kullanılır. Bu yapılandırma güncelleştirmeleri rol örneklerine geri dönüştürerek ya da bir çalışan sürecin yeniden başlatılarak olmadan kullanmak için kullanılır.
 
 ```csharp
 
@@ -188,9 +188,9 @@ foreach (var settingChange in settingChanges)
 ```
 
 #### <a name="service-fabric"></a>Service Fabric
-Bir hizmette - kod, yapılandırma ve verileri - üç paket türlerinin her biri bir paket güncelleştirildi, eklenen veya kaldırılan bir hizmet örneği bildir olayları vardır. Bir hizmet birden çok paket her tür içerebilir. Örneğin, bir hizmet birden çok yapılandırma paketleri, tek tek her sürümü tutulan ve yükseltilebilir olabilir. 
+-Kod, yapılandırma ve verileri - bir hizmette üç paket türlerinin her biri bir hizmet örneği bir paket güncelleştirildi, eklenen veya kaldırıldığında bildiren olaylar vardır. Bir hizmet birden çok paket her tür içerebilir. Örneğin, bir hizmet birden çok yapılandırma paketleri, tek tek her tutulan ve yükseltilebilir olabilir. 
 
-Bu olaylar, hizmet örneği başlatmadan hizmet paketleri değişiklikleri kullanmak kullanılabilir.
+Bu olaylar hizmet örneği yeniden başlatmanıza gerek kalmadan hizmet paketleri değişiklikleri kullanmak kullanılabilir.
 
 ```csharp
 
@@ -205,17 +205,17 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 
 ```
 
-## <a name="startup-tasks"></a>Başlangıç görevi
-Başlatma, bir uygulama başlatılmadan önce gerçekleştirilen eylemler görevlerdir. Bir başlangıç görevi, genellikle yükseltilmiş ayrıcalıklar kullanarak kurulum komut dosyalarını çalıştırmak için kullanılır. Bulut Hizmetleri ve Service Fabric başlangıç görevleri destekler. Bir rol örneği bir parçası olduğundan Service Fabric herhangi belirli VM bağlanmayan bir hizmet için bir başlangıç görevi bağlıdır ancak bulut Hizmetleri'nde bir başlangıç görevi bir VM'ye bağlı olduğunu ana farktır.
+## <a name="startup-tasks"></a>Başlangıç görevleri
+Başlangıç, bir uygulama başlatılmadan önce gerçekleştirilen eylemler görevlerdir. Başlangıç görevi, genellikle yükseltilmiş ayrıcalıklar kullanarak kurulum komut dosyalarını çalıştırmak için kullanılır. Hem bulut hizmetlerini hem de Service Fabric başlangıç görevleri destekler. İkisi arasındaki temel fark, bir rol örneğinin parçası olduğu için Service Fabric başlangıç görevi belirli bir sanal Makineye bağlı değildir bir hizmete bağlıdır ancak bulut Hizmetleri'nde bir başlangıç görevi bir VM'ye bağlı olduğunu ' dir.
 
-| Service Fabric | Bulut Hizmetleri |
+| Service Fabric | Cloud Services |
 | --- | --- | --- |
 | Yapılandırma konumu |ServiceDefinition.csdef |
-| Ayrıcalıklar |"sınırlı" veya "yükseltilmiş" |
+| Ayrıcalıkları |"kısıtlı" veya "yükseltilmiş" |
 | Sıralama |"Basit", "arka plan", "ön" |
 
-### <a name="cloud-services"></a>Bulut Hizmetleri
-Bulut Hizmetleri başlatma giriş noktası ServiceDefinition.csdef rol başına yapılandırılır. 
+### <a name="cloud-services"></a>Cloud Services
+Bulut Hizmetleri'nde bir başlangıç giriş noktası ServiceDefinition.csdef rol başına yapılandırılır. 
 
 ```xml
 
@@ -250,13 +250,13 @@ Service Fabric başlangıç giriş noktası ServiceManifest.xml hizmetinde baş�
 ``` 
 
 ## <a name="a-note-about-development-environment"></a>Geliştirme ortamı hakkında bir Not
-Bulut Hizmetleri ve Service Fabric ile Visual Studio Proje şablonları ve hata ayıklama, yapılandırma ve hem yerel hem de dağıtımı Azure desteği ile tümleştirilir. Service Fabric ve bulut hizmetlerini de bir yerel geliştirme çalışma zamanı ortamı sağlar. Farktır bulut hizmeti geliştirme çalışma zamanı, çalıştığı Azure ortamı öykünür olsa da, Service Fabric bir öykünücü kullanmaz - tam Service Fabric çalışma zamanını kullanır. Yerel geliştirme makinenizde çalıştırma Service Fabric üretimde çalışan aynı ortamda ortamıdır.
+Hem bulut hizmetlerini hem de Service Fabric ile Visual Studio Proje şablonları ve hata ayıklama, yapılandırma ve hem de yerel olarak ve dağıtımı için Azure desteği ile tümleştirilmiştir. Hem bulut hizmetlerini hem de Service Fabric aynı zamanda bir yerel geliştirme çalışma zamanı ortamı sağlar. Fark vardır: Bulut hizmeti geliştirme çalışma zamanı üzerinde çalışan Azure ortamına öykünür olsa da Service Fabric, bir öykünücü kullanmaz - tam Service Fabric çalışma zamanı kullanır. Yerel geliştirme makinenizde kurulmayı Service Fabric ortam üretim ortamında çalışan aynı ortamıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Service Fabric Reliable Services hakkında daha fazla bilgi ve bulut Hizmetleri ve Service Fabric uygulama mimarisi tamamını Service Fabric özelliklerden yararlanmak nasıl anlamak için arasındaki temel farklar.
+Service Fabric güvenilir hizmetler hakkında daha fazla bilgi ve eksiksiz bir Service Fabric özelliklerden yararlanmak nasıl anlamak için Cloud Services ve Service Fabric uygulama mimarisi arasındaki temel farklar.
 
-* [Service Fabric Reliable Services ile çalışmaya başlama](service-fabric-reliable-services-quick-start.md)
-* [Bulut Hizmetleri ve Service Fabric arasındaki farklar kavramsal Kılavuzu](service-fabric-cloud-services-migration-differences.md)
+* [Service Fabric güvenilir hizmetler ile çalışmaya başlama](service-fabric-reliable-services-quick-start.md)
+* [Cloud Services ve Service Fabric arasındaki farklar için kavramsal Kılavuzu](service-fabric-cloud-services-migration-differences.md)
 
 <!--Image references-->
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png

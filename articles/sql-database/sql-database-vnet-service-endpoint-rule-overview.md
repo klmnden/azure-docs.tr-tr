@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/28/2018
 ms.reviewer: carlrab
 ms.author: dmalik
-ms.openlocfilehash: 223a8da0c3c940c57dfc58d9cc87a19ae45a64eb
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 38806b3dbf47b21885ef704cfec8be3c491a66a0
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143819"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055395"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Azure SQL veritabanı ve SQL veri ambarı için sanal ağ hizmet uç noktaları ve kuralları kullanma
 
@@ -184,7 +184,7 @@ Bir Azure SQL Server tarafından kullanılan bir depolama hesabı ile bu özelli
 PolyBase, verileri depolama hesaplarından Azure SQLDW yüklemek için yaygın olarak kullanılır. Verilerden yüklenmekte olan depolama hesabı yalnızca bir sanal ağ alt kümesine erişim getiriyorsa, PolyBase kullanılarak hesabı bağlantı çalışmamasına neden olur. Bunun için bir risk azaltma yoktur ve daha fazla bilgi için Microsoft desteğine başvurabilirsiniz.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob denetimi
-BLOB denetimi denetim günlükleri, kendi depolama hesabınıza gönderir. Olay hizmet uç noktaları özelliği bu depolama hesabı kullanıyorsa, SQLDB Azure depolama hesabı bağlantısı çalışmamasına neden olur.
+BLOB denetimi denetim günlükleri, kendi depolama hesabınıza gönderir. Sanal ağ hizmet uç noktaları özelliği bu depolama hesabı kullanıyorsa, SQLDB Azure depolama hesabı bağlantısı çalışmamasına neden olur.
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Üzerinde sanal ağ hizmet uç noktaları açmadan sunucunuza bir VNET güvenlik duvarı kuralı ekleme
 
@@ -254,7 +254,7 @@ Belirli sanal ağ hizmet uç noktası ile etiketlenmiş bir alt ağ zaten olmal�
 
 ### <a name="azure-portal-steps"></a>Azure portal adımları
 
-1. Oturum [Azure portalında][http-azure-portal-link-ref-477t].
+1. [Azure portalında][http-azure-portal-link-ref-477t] oturum açın.
 
 2. Ardından portala gitmek **SQL sunucuları** &gt; **güvenlik duvarı / sanal ağlar**.
 

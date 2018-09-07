@@ -11,12 +11,12 @@ ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: bonova
-ms.openlocfilehash: e152fa4bb439f1881dc9974bfdf1b3e8c77c434a
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 276d36562aece7101465752528f59008e1ee7607
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42055599"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050332"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği SQL Server örneği geçirme
 
@@ -100,13 +100,13 @@ Aşağıdaki tabloda, kaynak SQL Server sürümüne bağlı olarak kullanabilece
 |Azure Storage'a yedekleme yerleştirin|Önceki SQL 2012 SP1 CU2|.Bak dosyası doğrudan Azure depolamaya yükleme|
 ||2012 SP1 CU2 - 2016|Kullanım dışı doğrudan Yedekleme kullanılarak [WITH CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql) söz dizimi|
 ||2016 ve üzeri|Doğrudan Yedekleme kullanılarak [ile SAS kimlik bilgisi](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
-|Azure depolama biriminden yönetilen örneğine geri yükleyin.|[Geri yükleme kaynak URL ile SAS kimlik bilgisi](sql-database-managed-instance-restore-from-backup-tutorial.md)|
+|Azure depolama biriminden yönetilen örneğine geri yükleyin.|[Geri yükleme kaynak URL ile SAS kimlik bilgisi](sql-database-managed-instance-get-started-restore.md)|
 
 > [!IMPORTANT]
 > - [Saydam Veri Şifrelemesi](transparent-data-encryption-azure-sql.md) ile korunan veritabanı yerel geri yükleme seçeneği kullanılarak Azure SQL Yönetilen Örneği’ne geçirildiğinde, veritabanı geri yüklenmeden önce ilgili sertifikanın şirket içinden veya IaaS SQL Server’dan geçirilmesi gerekir. Ayrıntılı adımlar için bkz. [yönetilen örneğe geçirme TDE cert](sql-database-managed-instance-migrate-tde-certificate.md)
 > - Sistem veritabanlarının geri yükleme desteklenmiyor. Örnek düzeyi nesneler (ana veya msdb veritabanlarında depolanan) geçirmek için bunları komut dosyası ve hedef örneğinde T-SQL betiklerini çalıştırma öneririz.
 
-Bir SAS kimlik bilgisi kullanarak yönetilen örneği için bir veritabanı yedeğini geri içeren tam bir öğretici için bkz [yedekten bir yönetilen örneğe geri](sql-database-managed-instance-restore-from-backup-tutorial.md).
+Bir SAS kimlik bilgisi kullanarak yönetilen örneği için veritabanı yedeklemesini geri yükleme işlemini gösteren bir hızlı başlangıç için bkz: [yedekten bir yönetilen örneğe geri](sql-database-managed-instance-get-started-restore.md).
 
 ## <a name="monitor-applications"></a>Uygulamaları izleme
 

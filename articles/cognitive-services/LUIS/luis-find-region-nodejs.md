@@ -1,5 +1,6 @@
 ---
-title: Language Understanding (LUIS) sınırları içinde Node.js ile LUIS bölge bulma | Microsoft Docs
+title: Node.js ile uç nokta bölgesi içinde LUIS bulun
+titleSuffix: Azure Cognitive Services
 description: Bulma uç noktası anahtarı ve uygulama ile bölgeye yayımlama program aracılığıyla LUIS kimliği.
 services: cognitive-services
 author: diberry
@@ -7,16 +8,16 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 66a34b5b611934ca531e7709b13e0c6d1c794206
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 2b978b8459bbf248f7702076c78c1948b036aec6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222520"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44057383"
 ---
-# <a name="region-can-be-determined-from-api-call"></a>Bölge belirlenebilir API çağrısından 
+# <a name="find-endpoint-region-with-nodejs"></a>Node.js ile uç nokta bölgesi bulma
 LUIS uygulama kimliği ve LUIS abonelik kimliği varsa, hangi bölge için uç nokta sorgular bulabilirsiniz.
 
 > [!NOTE] 

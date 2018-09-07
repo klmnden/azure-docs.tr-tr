@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 0813/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: f05f6f785ec8466fc6d0ae2c94c975312ef37fa2
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 57c6b52df3e8f6c47eb794cda4b47bfa2d7de374
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42056439"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051247"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları 
 
@@ -425,4 +425,4 @@ Yalnızca bir veritabanı posta profili olabilir ve çağrılması gerekir `Azur
 
 - Yönetilen örneği hakkında daha fazla ayrıntı için bkz: [yönetilen örnek nedir?](sql-database-managed-instance.md)
 - Bir özellik için ve karşılaştırma listesini görmek [SQL ortak özellikleri](sql-database-features.md).
-- Yeni bir yönetilen örneğin nasıl oluşturulacağını gösteren bir öğretici için bkz [bir yönetilen örnek oluşturma](sql-database-managed-instance-create-tutorial-portal.md).
+- Yeni bir yönetilen örneğin nasıl oluşturulacağını gösteren bir öğretici için bkz [bir yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md).

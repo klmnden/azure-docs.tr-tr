@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: a76cf1394dc2c4900b370b52f3479dc03d1d8afe
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: f74a4ad0507f1c1f029befff88d733ffa719a763
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054544"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023520"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack hizmet İlkesi
 Bu makalede, Azure Stack tümleşik sistemleri ve desteklenen bir duruma sisteminizi tutmak için yapmanız gerekenlere hizmet İlkesi açıklanır. 
@@ -38,9 +38,10 @@ Tümleşik sistemler için güncelleştirme paketleri iki tür vardır:
 Microsoft, yazılım güncelleştirme paketleri aylık temposu serbest bırakmak bekliyor. Ancak, bir ay içindeki birden çok veya hiçbir güncelleştirme sürümleri mümkündür. OEM donanım satıcıları güncellemeleri gerektiğinde olarak bırakın. 
 
 Planlama ve güncelleştirmeleri yönetme ve geçerli sürümünüzde belirleme belgelere [yönetme genel bakış güncelleştirmeleri](azure-stack-updates.md). Belirli bir güncelleştirme hakkında daha fazla bilgi için indirin, güncelleştirme sürüm notları için bkz dahil olmak üzere: 
+- [Azure Stack 1808 güncelleştirme](azure-stack-update-1808.md)
 - [Azure Stack 1807 güncelleştirme](azure-stack-update-1807.md)
 - [Azure Stack 1805 güncelleştirme](azure-stack-update-1805.md)
-- [Azure Stack 1804 güncelleştirme](azure-stack-update-1804.md)
+
 
 ## <a name="hotfixes"></a>Düzeltmeler
 Bazen, Microsoft bu adrese önleyici veya zamana duyarlı genellikle belirli bir sorunun Azure Stack için düzeltmeler sağlar.  Her bir düzeltme sorun, nedeni ve çözümü ayrıntıları karşılık gelen bir Microsoft Bilgi Bankası makalesiyle serbest bırakılır. 

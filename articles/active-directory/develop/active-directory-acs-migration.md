@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 09/06/2018
 ms.author: celested
-ms.reviewer: hirsin, dastrock
-ms.openlocfilehash: 41c7de3039634f262efedc1bb3de1b39dda4593a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.reviewer: jlu, annaba, hirsin
+ms.openlocfilehash: 3120bf36c32a8be42f325ef584bfc8a2c5cd04df
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698069"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055303"
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Azure erişim denetimi Hizmeti'nden geçiş
 
-Azure erişim denetimi, Azure Active Directory (Azure AD), hizmet 7 Kasım 2018'de kullanımdan kaldırılacaktır. Şu anda erişim denetimi kullanın, uygulamalar ve hizmetler için bir farklı kimlik doğrulama mekanizması tarafından daha sonra tam olarak geçirilmelidir. Bu makalede, erişim denetimi kullanımınız kullanımdan planladığınız geçerli müşteri önerileri açıklanmaktadır. Access Control şu anda kullanmazsanız, herhangi bir eylemde bulunmanız gerekmez.
-
+Microsoft Azure Access Control Service (ACS), Azure Active Directory (Azure AD), bir hizmet 7 Kasım 2018'de kullanımdan kaldırılacaktır. Şu anda erişim denetimi kullanın, uygulamalar ve hizmetler için bir farklı kimlik doğrulama mekanizması tarafından daha sonra tam olarak geçirilmelidir. Bu makalede, erişim denetimi kullanımınız kullanımdan planladığınız geçerli müşteri önerileri açıklanmaktadır. Access Control şu anda kullanmazsanız, herhangi bir eylemde bulunmanız gerekmez.
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -73,7 +72,6 @@ Erişim denetimi bileşenleri kullanımdan zamanlamasını şu şekildedir:
 - **2 Nisan 2018**: Klasik Azure portalı tamamen devre dışı bırakılan, erişim denetimi ad alanı yönetim herhangi bir URL kullanılabilir artık anlamına gelir. Bu noktada, devre dışı bırakmak veya etkinleştirmek, silemez veya erişim denetimi ad alanlarınıza listeleme. Erişim denetimi Yönetim Portalı ve tam olarak işlevsel konumunda bulunan ancak olacaktır `https://\<namespace\>.accesscontrol.windows.net`. Erişim denetimi tüm diğer bileşenleri normal şekilde çalışmaya devam eder.
 - **7 Kasım 2018'den**: tüm erişim denetimi bileşenleri kalıcı olarak kapat. Bu, erişim denetimi Yönetim Portalı, yönetim hizmeti, STS'ye ve belirteç dönüştürme kuralı altyapısı içerir. Bu noktada, erişim denetimi için gönderilen tüm istekler (konumundaki \<ad alanı\>. accesscontrol.windows.net) başarısız. Var olan tüm uygulamaları ve Hizmetleri için diğer teknolojiler de bu süreden önce geçirdiğiniz.
 
-
 ## <a name="migration-strategies"></a>Geçiş stratejileri
 
 Aşağıdaki bölümlerde, diğer Microsoft teknolojileri için erişim denetiminden geçirmek için üst düzey önerileri açıklanmaktadır.
@@ -98,7 +96,6 @@ Access Control tarafından artık verilen belirteçleri kabul eden her bir Micro
 <!-- Retail federation services are moving, customers don't need to move -->
 <!-- Azure StorSimple: TODO -->
 <!-- Azure SiteRecovery: TODO -->
-
 
 ### <a name="sharepoint-customers"></a>SharePoint müşteriler
 
@@ -175,26 +172,14 @@ Azure AD ile tümleştirmek için WS-Federation veya WIF kullanmak için aşağ�
 - Azure AD belirteç özelleştirme tam esnekliğe sahip olursunuz. Azure AD Access Control tarafından verilen taleplere eşleşecek şekilde tarafından verilen talepleri özelleştirebilirsiniz. Bu özellikle, kullanıcı kimliği veya adı tanımlayıcısı talebi içerir. Teknolojileri değiştirdikten sonra kullanıcılarınız için tutarlı kullanıcı tanımlayıcılarını almaya devam etmek için kullanıcı kimliklerini Azure AD'ye eşleşme tarafından bu erişim denetimi tarafından verilen verilen emin olun.
 - Sizin denetlediğiniz bir yaşam süresi ve uygulamanıza özgü bir belirteç imzalama sertifikası yapılandırabilirsiniz.
 
-<!--
-
-Possible nameIdentifiers from Access Control (via AAD or AD FS):
-- AD FS - Whatever AD FS is configured to send (email, UPN, employeeID, what have you)
-- Default from AAD using App Registrations, or Custom Apps before ClaimsIssuance policy: subject/persistent ID
-- Default from AAD using Custom apps nowadays: UPN
-- Kusto can't tell us distribution, it's redacted
-
--->
-
 > [!NOTE]
 > Bu yaklaşım, bir Azure AD Premium lisansı gerektirir. Bir erişim denetimi müşterisi olduğunuz ve çoklu oturum açma için bir uygulama ayarlamak için bir premium Lisansı gerektiren varsa, bizimle iletişime geçin. Geliştirici lisansı kullanabilmeniz için konusunda seve olacaktır.
 
 Alternatif bir yaklaşım izlemektir [Bu kod örneği](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), WS-Federation ayarlamak için biraz daha farklı yönergeler sağlar. Bu kod örneği, WIF, ancak bunun yerine, ASP.NET 4.5 OWIN ara yazılımı kullanmaz. Ancak, uygulama kaydı yönergelerini WIF kullanarak uygulamalar için geçerlidir ve Azure AD Premium lisansı gerekmez. 
 
-Bu yaklaşım tercih ederseniz anlamanız gerekir [Azure AD'de imzalama anahtarı geçiş işlemi](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Bu yaklaşım, imzalama anahtarı sorunu belirteçleri genel Azure AD kullanır. Varsayılan olarak, WIF İmzalama anahtarları otomatik olarak yenilenmez. Azure AD genel, imzalama anahtarları döndürdüğünde, WIF uygulamanız değişiklikleri kabul etmek için hazırlanması gerekir.
+Bu yaklaşım tercih ederseniz anlamanız gerekir [Azure AD'de imzalama anahtarı geçiş işlemi](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Bu yaklaşım, imzalama anahtarı sorunu belirteçleri genel Azure AD kullanır. Varsayılan olarak, WIF İmzalama anahtarları otomatik olarak yenilenmez. Azure AD genel, imzalama anahtarları döndürdüğünde, WIF uygulamanız değişiklikleri kabul etmek için hazırlanması gerekir. Daha fazla bilgi için [Azure AD'de imzalama anahtarı geçiş işlemi hakkında önemli bilgiler](https://msdn.microsoft.com/en-us/library/azure/dn641920.aspx).
 
 Openıd Connect veya OAuth protokolleri üzerinden Azure ad'yle tümleştirebilirsiniz varsa bunu öneririz. Kapsamlı belgeler ve Azure AD web uygulamanızı kullanılabilir tümleştirin konusunda rehberlik sunuyoruz bizim [Azure AD Geliştirici Kılavuzu](https://aka.ms/aaddev).
-
-<!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
 
 #### <a name="migrate-to-azure-active-directory-b2c"></a>Azure Active Directory B2C'ye geçirme
 
@@ -237,7 +222,6 @@ Azure AD B2C uygulamaları ve Hizmetleri için en iyi geçiş yolu olduğuna kar
 - [Azure AD B2C özel ilkeler](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
 - [Azure AD B2C fiyatlandırması](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
-
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Ping Identity veya Auth0 geçirme
 
 Bazı durumlarda, Azure AD ile Azure AD bulabilirsiniz B2C erişim denetimi, web uygulamalarınızda büyük kod değişikliği yapmadan değiştirmek yeterli değildir. Bazı genel örnekleri içerebilir:
@@ -249,8 +233,6 @@ Bazı durumlarda, Azure AD ile Azure AD bulabilirsiniz B2C erişim denetimi, web
 - Birçok farklı kimlik sağlayıcıları için Federasyon merkezi olarak yönetmek için ACS kullanan çok kiracılı web uygulamaları
 
 Bu gibi durumlarda, web uygulamanızın başka bir bulut kimlik doğrulaması hizmetine geçirmeyi düşünün isteyebilirsiniz. Aşağıdaki seçenekleri keşfetmeye öneririz. Aşağıdaki seçeneklerin her biri benzer erişim denetimi özellikleri sağlar:
-
-
 
 |     |     | 
 | --- | --- |

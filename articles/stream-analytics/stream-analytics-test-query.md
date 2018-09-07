@@ -10,12 +10,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: d699d69362b2d28c205aab14a4bfb26570a68a4e
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 63f9b98bcd70378ae02769298f0ffcd796378612
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42056549"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027274"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>Örnek verilerle bir Stream Analytics sorgu testi
 
@@ -29,7 +29,7 @@ Azure Stream Analytics'i kullanarak Azure portalında örnek veri ve test sorgul
 
 3. Sayfasında, üzerinde Stream Analytics işi, altında **iş topolojisi** başlığı seçin **sorgu** sorgu Düzenleyicisi penceresini açın. 
 
-4. Sorgunuzu örnek giriş verileri ile test etmek için tüm girişlerinizi sağ tıklayın.  Ardından **örnek verileri dosyadan karşıya**. Veri, JSON, CSV veya AVRO seri hale getirilmelidir.
+4. Sorgunuzu örnek giriş verileri ile test etmek için tüm girişlerinizi sağ tıklayın.  Ardından **örnek verileri dosyadan karşıya**. Veri, JSON, CSV veya AVRO seri hale getirilmelidir. Örnek giriş UTF-8 olarak kodlanmış ve sıkıştırılmaz. Yalnızca virgül (,) sınırlayıcı CSV giriş portalında test etme için desteklenir.
 
     ![Stream analytics sorgu Düzenleyicisi'ni test sorgusu](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 

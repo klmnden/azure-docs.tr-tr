@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2018
 ms.author: shlo
-ms.openlocfilehash: 1023eadbf4b799cd8b0c761c1689b9249cee450a
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: d0f36551fb06e04b50af464bac6953dda64c6202
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616853"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054157"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Azure İzleyicisi'ni kullanarak veri fabrikalarını izleme ve uyarı
 Bulut uygulamaları ile birçok hareketli parçadan karmaşıktır. İzleme, uygulama güncel kalıp emin olmak için veri ve sağlam bir durumda çalışmasını sağlar. Ayrıca olası sorunları stave veya olanları sorun gidermeye yardımcı olur. Ayrıca, uygulamanızı daha ayrıntılı Öngörüler elde etmek için izleme verilerini kullanabilirsiniz. Bu bilgi bakım ya da uygulama performansı artırmak için yardımcı veya aksi halde el ile müdahale gerektiren eylemleri otomatikleştirme.
@@ -392,7 +392,7 @@ Aşağıdaki ölçümler ADFV2 yayar
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
 | PipelineSucceededRun | İşlem hattı çalıştırmaları ölçümleri başarılı oldu | Sayı    | Toplam                | Toplam işlem hatlarını çalıştırır başarılı bir dakikalık bir pencere içinde |
 | PipelineFailedRuns   | İşlem hattı çalıştırmaları ölçümleri başarısız oldu    | Sayı    | Toplam                | Toplam işlem hatlarını çalıştırır başarısız bir dakikalık bir pencere içinde    |
-| ActiviySucceededRuns | Etkinlik çalıştırmaları ölçümlerinin başarılı oldu | Sayı    | Toplam                | Toplam etkinlik, bir dakikalık bir pencere içinde başarılı çalıştırır  |
+| ActivitySucceededRuns | Etkinlik çalıştırmaları ölçümlerinin başarılı oldu | Sayı    | Toplam                | Toplam etkinlik, bir dakikalık bir pencere içinde başarılı çalıştırır  |
 | ActivityFailedRuns   | Etkinlik çalıştırmaları ölçümlerinin başarısız oldu    | Sayı    | Toplam                | Toplam etkinlik içinde bir dakika aralığında başarısız çalıştırmaları     |
 | TriggerSucceededRuns | Tetikleyici çalıştırmaları ölçümleri başarılı oldu  | Sayı    | Toplam                | Bir dakika aralığında içinde toplam tetikleyici başarılı çalışır   |
 | TriggerFailedRuns    | Tetikleyici çalıştırmaları ölçümleri başarısız oldu     | Sayı    | Toplam                | Toplam tetikleyici içinde bir dakika aralığında başarısız çalıştırmaları      |

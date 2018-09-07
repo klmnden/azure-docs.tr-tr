@@ -1,6 +1,6 @@
 ---
-title: Azure mikro hataları benzetimini | Microsoft Docs
-description: Hizmetlerinizin normal ve durunda hatalarına karşı sağlamlaştırmak yapma.
+title: Azure Service Fabric uygulamalarında hata benzetimleri gerçekleştirme | Microsoft Docs
+description: Hizmetlerinizi zarif ve yaşanmamasını arızalarına karşı zorlaştırmak nasıl.
 services: service-fabric
 documentationcenter: .net
 author: anmolah
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: dccd8eeeda1a41f23c9e3dd9896e0630e2a7a0a4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3c075ac9642c7d050fc45ce6164071c9c733326e
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208905"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051923"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Hizmet iş yükleri sırasında hata benzetimleri yapma
-Azure Service Fabric Test Edilebilirlik senaryolarda, tek tek hatalarıyla yapılacağı hakkında endişelenmeye gerek yok geliştiricilerin. Burada bir açık istemcisi iş yükünü ve hataları Interleaving gerekebilecek senaryo vardır. İstemci iş yükü ve hataları Interleaving başarısızlık gerçekleştiğinde hizmeti bazı eylemleri gerçekte gerçekleştirmeyi sağlar. Test Edilebilirlik sağlar denetim düzeyini göz önüne alındığında, bu iş yükü yürütmeye kesin noktalarda olabilir. Farklı durumlarda uygulama hatalarını, bu endüksiyon hataları bulma ve kalitesini artırmak.
+Azure Service fabric'te Test Edilebilirlik senaryoları, geliştiricilerin tek hataları ne yapılacağı hakkında endişe duymamanızı olanak sağlar. Burada bir açık istemci iş yükü ve hataları Interleaving gerekebilecek senaryo vardır. İstemci iş yükü ve hataları Interleaving hata gerçekleştiğinde hizmet aslında bir eylem gerçekleştiriyor sağlar. Test Edilebilirlik sağlar denetim düzeyini göz önünde bulundurulduğunda, bu iş yükü yürütmeye kesin noktalarda olabilir. Bu endüksiyon farklı durumlarda uygulama hatalarını, hataları bulabilir ve kalitesini geliştirin.
 
-## <a name="sample-custom-scenario"></a>Örnek özel senaryosu
-Bu test iş yüküyle interleaves bir senaryo gösterilmektedir [normal ve durunda hatalarını](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Hataları, hizmet işlemleri veya en iyi sonuçlar için işlem ortasında kopyaladığınızda.
+## <a name="sample-custom-scenario"></a>Özel örnek senaryosu
+Bu test, iş yüküyle karışır bir senaryo gösterilmektedir [zarif ve yaşanmamasını hataları](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Hataları, ortada hizmet işlemleri ya da en iyi sonuçlar için işlem başlattığı.
 
-Şimdi dört iş yükleri kullanıma sunan bir hizmet örneği yol: A, B, C ve D. her iş akışları için karşılık gelen ve işlem, depolama veya bir karışımı olabilir. Basitleştirmek amacıyla, biz örneğimizde iş yükleri soyut. Bu örnekte yürütülen farklı hataları şunlardır:
+Dört iş yükleri ortaya koyan bir hizmet örneği atalım: A, B, C ve d her iş akışları için karşılık gelen ve işlem, depolama veya bir karışımı olabilir. Basitleştirmek amacıyla, biz Bu örnekte iş yüklerinin ölçeğini soyut. Bu örnekte yürütülen farklı hatalar şunlardır:
 
-* RestartNode: makinenin yeniden başlatılması benzetimini yapmak için durunda hatası.
-* RestartDeployedCodePackage: hizmet ana bilgisayar işlemi benzetimini yapmak için durunda hataya çöküyor.
-* RemoveReplica: yineleme kaldırma benzetimini yapmak için normal hatası.
-* MovePrimary: çoğaltma benzetimini yapmak için normal hata Service Fabric yük dengeleyici tarafından tetiklenen taşır.
+* RestartNode: makinenin yeniden başlatılması benzetimini yapmak için Yaşanmamasını hatası.
+* RestartDeployedCodePackage: hizmet ana bilgisayarı işlemi benzetimini yapmak için Yaşanmamasını hata kilitleniyor.
+* RemoveReplica: yineleme kaldırma benzetimini yapmak için normal hata.
+* MovePrimary: Service Fabric yük dengeleyici tarafından tetiklenen bir yineleme taşır benzetimini yapmak için normal hata.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.

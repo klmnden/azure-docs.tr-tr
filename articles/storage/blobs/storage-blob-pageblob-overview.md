@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: wielriac
 ms.component: blobs
-ms.openlocfilehash: a215771b0126e9048b7d9da4ed1d6073c8e960a4
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: dc15dcb9f7b342d2d5140199ecf34c1a4781fa25
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39266147"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022697"
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Azure sayfa blobları, benzersiz özellikleri
 
@@ -71,7 +71,7 @@ pageBlob.Resize(32 * OneGigabyteAsBytes);
 ```
 
 #### <a name="writing-pages-to-a-page-blob"></a>Bir sayfa blobu yazma sayfalarına
-Sayfaları yazmak için kullanın [CloudPageBlob.WritePages](/library/microsoft.windowsazure.storageclient.cloudpageblob.writepages.aspx) yöntemi.  Bu sayfaları 4MBs kadar sıralı bir dizi yazmanıza olanak sağlar. Yazılmakta olan uzaklığı bir 512 bayt sınırlarında başlaması gerekir (startingOffset % 512 == 0) ve 512 sınır - 1 sonlandır.  Aşağıdaki kod örneğinde nasıl çağrılacağını gösterir **WritePages** bir blob için:
+Sayfaları yazmak için kullanın [CloudPageBlob.WritePages](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.beginwritepages?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_BeginWritePages_System_IO_Stream_System_Int64_System_String_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_System_AsyncCallback_System_Object_) yöntemi.  Bu sayfaları 4MBs kadar sıralı bir dizi yazmanıza olanak sağlar. Yazılmakta olan uzaklığı bir 512 bayt sınırlarında başlaması gerekir (startingOffset % 512 == 0) ve 512 sınır - 1 sonlandır.  Aşağıdaki kod örneğinde nasıl çağrılacağını gösterir **WritePages** bir blob için:
 
 ```csharp
 pageBlob.WritePages(dataStream, startingOffset); 
@@ -116,8 +116,6 @@ foreach (PageRange range in pageRanges)
 
 #### <a name="leasing-a-page-blob"></a>Sayfa blob kiralama
 Blob kira işlemi oluşturur ve yazma için bir blob kilit yönetir ve silme işlemleri. Bu işlem yalnızca bir istemci aynı anda bloba yazabilirsiniz emin olmak için birden çok istemciden gelen bir sayfa blobu burada erişiliyor senaryolarda yararlıdır. Azure diskleri gibi yararlanır bu kiralama mekanizması disk yalnızca tek bir VM tarafından yönetildiğinden emin olmak için. Kilit süresi 15 ila 60 saniye olabilir veya sonsuz olabilir. Belgelere bakın [burada](/rest/api/storageservices/lease-blob) daha fazla ayrıntı için.
-
-> Almak için aşağıdaki bağlantıyı kullanın [kod örnekleri](/resources/samples/?service=storage&term=blob&sort=0 ) diğer birçok uygulama senaryoları için. 
 
 Zengin REST API'lerine ek olarak, sayfa blobları paylaşılan erişim, dayanıklılık ve Gelişmiş güvenlik sağlar. Biz bu avantajlar daha ayrıntılı sonraki paragraf olarak ele alınacaktır. 
 

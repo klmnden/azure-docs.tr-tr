@@ -11,20 +11,159 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2018
-ms.author: brenduns
+ms.date: 09/05/2018
+git ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: 6016d6fd4dcae699efba49667676373a6586e723
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: fe6be5a041b87af2323c7978c5371e326b3cd3d6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43101654"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051281"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure Stack Geliştirme Seti sürüm notları  
-Bu sürüm notları geliştirmeleri ve düzeltmeleri Azure Stack geliştirme Seti'ni'de bilinen sorunlar hakkında bilgi sağlar. Hangi sürümü çalıştırdığınızdan emin değilseniz yapabilecekleriniz [denetlemek için portal'ı kullanmanızı](.\.\azure-stack-updates.md#determine-the-current-version).
+Bu makalede, geliştirmeleri, düzeltmeler ve Azure Stack geliştirme Seti'ni'de bilinen sorunlar hakkında bilgi sağlar. Hangi sürümü çalıştırdığınızdan emin değilseniz yapabilecekleriniz [denetlemek için portal'ı kullanmanızı](.\.\azure-stack-updates.md#determine-the-current-version).
 
 > Abone olarak ASDK yenilikler ile güncel kalın [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [akış](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
+
+## <a name="build-11808097"></a>Derleme 1.1808.0.97
+
+### <a name="new-features"></a>Yeni Özellikler
+Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içerir.  
+
+- <!-- 2682594   | ASDK  -->   **Tüm Azure Stack ortamlarında artık Eşgüdümlü Evrensel Saat (UTC) saat dilimi biçimini kullanın.**  Tüm veri günlük ve UTC biçiminde artık ilgili bilgileri görüntüler. 
+
+- <!-- 2437250  | IS  ASDK --> **Yönetilen diskleri desteklenir.** Azure Stack sanal makineler ve sanal makine ölçek kümeleri artık yönetilen diskler kullanabilirsiniz. Daha fazla bilgi için [Azure Stack yönetilen diskler: farklılıklar ve dikkat edilmesi gerekenler](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
+ 
+- <!-- 2563799  | IS  ASDK -->  **Azure İzleyici**. Azure'da Azure İzleyici gibi Azure Stack'te Azure İzleyici, temel düzeyde altyapı ölçümlerini ve günlüklerini çoğu hizmetleri sağlar. Daha fazla bilgi için [Azure Stack'te Azure İzleyici](/azure/azure-stack/user/azure-stack-metrics-azure-data).
+
+- <!-- ASDK --> **Sanal makine ölçek kümeleri için galeri öğeleri yerleşik artık**.  Sanal makine ölçek kümesi galeri öğeleri artık bunları yüklemeye gerek kalmadan kullanıcı ve Yönetici portalı içinde kullanılabilir hale getirilir. 
+
+- <!-- IS, ASDK --> **Sanal makine ölçek kümesi ölçeklendirme**.  Portala kullanabileceğiniz [bir sanal makine ölçek kümesi ölçeği](/azure/azure-stack/azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).   
+
+- <!-- 2489570 | IS ASDK--> **Özel IPSec/IKE İlkesi yapılandırmalarını desteği** için [Azure Stack hizmetinde VPN ağ geçitlerinin](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
+
+
+### <a name="fixed-issues"></a>Giderilen sorunlar
+- <!-- IS ASDK--> Bir kullanılabilirlik kümesi Portal'da bulunan ve bir hata etki alanı ve 1 güncelleştirme etki alanına sahip kümesinde sonuçlandı oluşturmaya yönelik bir sorunu düzelttik.
+
+- <!-- IS ASDK --> Sanal makine ölçek kümeleri ölçeklendirme ayarları Portalı'nda kullanıma sunulmuştur.  
+
+- <!-- 2494144- IS, ASDK --> Bazı F serisi sanal makine boyutları, dağıtım için bir VM boyutu seçerken görünmesini engelleyen sorunu artık çözülmüştür. 
+
+- <!-- IS, ASDK --> Sanal makineler ve en iyi duruma getirilmiş daha fazlasını oluştururken performans geliştirmeleri temel alınan depolama kullanın.
+
+- **Çeşitli düzeltmeleri** performans, kararlılık, güvenlik ve Azure Stack tarafından kullanılan işletim sistemi
+
+
+### <a name="changes"></a>Değişiklikler
+- <!-- 1697698  | IS, ASDK --> *Hızlı Başlangıç öğreticileri* Kullanıcı Portalı Panosu şimdi bağlantıda ilgili makaleleri çevrimiçi Azure Stack belgeleri.
+
+- <!-- 2515955   | IS ,ASDK--> *Tüm hizmetler* değiştirir *diğer hizmetler* Azure Stack yönetici ve Kullanıcı Portalı'nda. Artık *tüm hizmetleri* Azure portallarında yaptığınız gibi Azure Stack portallarında gezinmek için alternatif olarak.
+
+- <!--  TBD – IS, ASDK --> *Temel A* sanal makine boyutları için devre dışı [sanal makine ölçek kümeleri oluşturma](.\.\azure-stack-compute-add-scalesets.md) (VMSS) portal üzerinden. Bu boyut ile bir VMSS oluşturmak için PowerShell ya da bir şablon kullanın. 
+
+### <a name="known-issues"></a>Bilinen sorunlar
+
+#### <a name="portal"></a>Portal  
+-  <!--  2873083 - IS ASDK --> Bir sanal makine ölçek oluşturmak için portalı kullandığınızda ayarlayın (VMSS) *örnek boyutu* açılan olmayan yük doğru bir şekilde Internet Explorer kullandığınızda. Bu sorunu çözmek için bir VMSS oluşturmak için portalı kullanırken başka bir tarayıcı kullanın.  
+
+- <!-- TBD  ASDK --> Tüm Azure Stack dağıtımlar için varsayılan saat dilimini şimdi Eşgüdümlü Evrensel Saat (UTC) ayarlayın. Bu otomatik olarak UTC'ye varsayılan olarak yükleme sırasında döner ancak Azure Stack, yükleme sırasında bir saat dilimi seçebilirsiniz.
+
+- <!-- 2931230 – IS  ASDK --> Kullanıcı aboneliği plan kaldırdığınızda bile, bir kullanıcı abonelikte eklenti planı eklendiği planları silinemiyor. Eklenti planı başvuru abonelikleri de silinene kadar plan kalır. 
+
+- <!--2760466 – IS  ASDK --> Bu sürümünü çalıştıran yeni bir Azure Stack ortamına yüklediğinizde, uyarıyı gösterir *etkinleştirme gerekli* görüntülenmeyebilir. [Etkinleştirme](.\.\azure-stack-registration.md) Market dağıtım kullanabilmeniz için gereklidir. 
+
+- <!-- TBD - IS ASDK --> İki Yönetim abonelik türlerini [1804 sürümü ile sunulan](.\.\azure-stack-update-1804.md#new-features) kullanılmamalıdır. Abonelik türleridir **abonelik ölçümü**, ve **tüketim abonelik**. Bu abonelik türleri **abonelik ölçümü**, ve **tüketim abonelik**. Bu abonelik türlerini 1804 sürümünden başlayarak yeni Azure Stack ortamlarında görülebilir ancak henüz kullanıma sunulmamıştır. Kullanmaya devam etmelidir **varsayılan sağlayıcı aboneliği** türü.
+
+- <!-- TBD -  IS ASDK --> Kullanıcı abonelikleri sonuçlarında yalnız bırakılmış kaynakları siliniyor. Geçici bir çözüm olarak kullanıcı kaynaklar veya kaynak grubunun tamamını silin ve sonra kullanıcı abonelikleri silin.
+
+- <!-- TBD -  IS ASDK --> Azure Stack portalı kullanarak aboneliğinize izinleri görüntüleyemezsiniz. Geçici bir çözüm olarak, izinleri doğrulamak için PowerShell kullanın.
+
+
+
+#### <a name="health-and-monitoring"></a>Sistem durumu ve izleme
+- <!-- 1264761 - IS ASDK -->  Uyarıları görebilirsiniz *sistem durumu denetleyicisi* aşağıdaki ayrıntıları olan bir bileşeni:  
+
+   Uyarı #1:
+   - ADI: Sağlıksız altyapı rolü
+   - Önem DERECESİ: uyarı
+   - BİLEŞENİ: Sistem durumu denetleyicisi
+   - Açıklama: Sistem durumu denetleyici sinyal tarayıcı kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.  
+
+  Uyarı #2:
+   - ADI: Sağlıksız altyapı rolü
+   - Önem DERECESİ: uyarı
+   - BİLEŞENİ: Sistem durumu denetleyicisi
+   - Açıklama: Hata tarayıcı durumu denetleyicisi kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.
+
+  Her iki uyarılar güvenle yoksayılabilir ve zaman içinde otomatik olarak kapatılacak.  
+
+- <!-- 2368581 - IS. ASDK --> Düşük bellek uyarısı alırsanız ve Kiracı sanal makinelerini başarısız ile dağıtmak bir Azure Stack operatörü bir *Fabric VM oluşturma hatası*, Azure Stack damga kullanılabilir bellek yetersiz olabilir. Kullanım [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) iş yükleriniz için kapasite en iyi anlamak için.
+
+
+#### <a name="compute"></a>İşlem  
+- <!-- 2869209 – IS, ASDK --> Kullanırken [ **Ekle AzsPlatformImage** cmdlet'i](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), kullanmalısınız **- OsUri** parametre olarak depolama hesabı URI'si disk nereye yüklenir. Yerel yol diskin kullanırsanız, cmdlet şu hatayla başarısız olur: *işlemi uzun süre çalışan 'Başarısız' durumuyla başarısız oldu*. 
+
+- <!--  2966665 – IS, ASDK --> Premium boyutuna SSD veri diskleri ekleme, yönetilen disk sanal makineler (DS, DSv2, Fs, Fs_V2) bir hatayla başarısız oluyor: *'vmname' hata sanal makinenin diskleri güncelleştirilemedi: İstenen işlem gerçekleştirilemiyor depolama hesabı türü ' Premium_LRS'VM boyutu için desteklenmeyen ' Standard_DS/Ds_V2/FS/Fs_v2)*
+
+   Bu sorunu geçici olarak çözmek için kullanın *Standard_LRS* veri diskleri yerine *Premium_LRS diskleri*. Kullanım *Standard_LRS* veri diskleri IOPS veya fatura ücreti değiştirmez.  
+
+- <!--  2795678 – IS, ASDK --> VM, portalı sanal makineler (VM) oluşturmak için bir premium VM boyutu (DS, Ds_v2, FS, FSv2) kullandığınızda, bir standart depolama hesabı oluşturulur. Bir standart depolama hesabı oluşturma IOPS, işlevsel olarak, etkilemez ya da fatura. 
+
+   Bildiren bir uyarıyı güvenle yok sayabilirsiniz: *premium diskleri destekleyen bir boyutta standart disk kullanmayı seçtiniz. Bu işletim sisteminin performansını etkileyebilir ve önerilmez. Premium depolamayı (SSD) kullanmayı düşünün.*
+
+- <!-- 2967447 - IS, ASDK --> Sanal makine ölçek kümesi (VMSS) deneyimi oluşturmasına 7.2 CentOS tabanlı dağıtım için bir seçenek olarak sağlar. Bu görüntüyü Azure Stack üzerinde kullanılabilir olmadığından, dağıtımınız için başka bir işletim sistemi seçin veya Market'ten dağıtımdan işleciyle indirildi başka bir CentOS görüntüsü belirten bir ARM şablonu kullanın.
+
+- <!-- TBD -  IS ASDK --> Ölçeklendirme ayarları sanal makine ölçek kümeleri için portalda kullanılabilir değildir. Geçici çözüm olarak, kullandığınız [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). PowerShell sürüm farklar nedeniyle, kullanmanız gereken `-Name` yerine parametre `-VMScaleSetName`.
+
+- <!-- TBD -  IS ASDK --> Portal, Azure Stack kullanıcı portalında sanal makine oluşturduğunuzda, D serisi VM ekleyebilirsiniz veri diskleri yanlış sayıda görüntüler. Tüm desteklenen D serisi VM'ler gibi çok sayıda veri diski Azure yapılandırması sağlayabilir.
+
+- <!-- TBD -  IS ASDK --> Bir VM görüntüsü oluşturulması başarısız olduğunda, nelze odstranit başarısız bir öğe için VM görüntüleri işlem dikey eklenebilir.
+
+  Geçici çözüm olarak, Hyper-V ile oluşturduğunuz işlevsiz bir VHD ile yeni bir VM görüntüsü oluşturma (yeni-VHD-yolu C:\dummy.vhd-- SizeBytes sabit 1 GB). Bu işlem başarısız öğesini silme engelleyen sorunu çözer. Ardından, işlevsiz bir görüntü oluşturduktan sonra 15 dakika başarıyla silebilirsiniz.
+
+  Ardından, daha önce başarısız olan VM görüntüsünün indirilmesi yeniden deneyebilir.
+
+- <!-- TBD -  IS ASDK --> VM dağıtımı üzerinde bir uzantı sağlama çok uzun sürerse, kullanıcıların serbest bırakma veya VM silme işlemini durdurulmaya çalışılırken yerine sağlama zaman aşımı izin vermelisiniz.  
+
+- <!-- 1662991 - IS ASDK --> Linux VM tanılama Azure Stack'te desteklenmiyor. VM tanılaması etkin bir Linux sanal makinesi dağıttığınızda, dağıtım başarısız olur. Tanılama ayarları aracılığıyla Linux VM temel ölçümleri etkinleştirirseniz, ayrıca dağıtım başarısız olur.
+
+- <!-- 2724961- IS ASDK --> Kaydettiğinizde **Microsoft.Insight** abonelik ayarlarında, kaynak sağlayıcısı ve bir Windows VM konuk işletim sistemi etkin Tanılama ile oluşturma, VM genel bakış sayfasında CPU yüzdesi grafik, ölçüm verilerini göstermek mümkün olmayacaktır.
+ 
+  Sanal makine için CPU yüzdesi grafik bulmak için Git **ölçümleri** dikey penceresinde ve desteklenen tüm Windows VM show Konuk ölçümleri.
+
+ 
+
+#### <a name="networking"></a>Ağ
+- <!-- 1766332 - IS, ASDK --> Altında **ağ**, tıklarsanız **VPN ağ geçidi Oluştur** bir VPN bağlantısı kurmak için **ilkesine** bir VPN türü listelenir. Bu seçeneği belirlemeyin. Yalnızca **rota tabanlı** seçeneği Azure Stack'te desteklenir.
+
+- <!-- 1902460 -  IS ASDK --> Azure Stack destekleyen tek bir *yerel ağ geçidi* her bir IP adresi. Bu tüm Kiracı abonelikler arasında geçerlidir. Aynı IP adresine sahip bir yerel ağ geçidi kaynağı oluşturmak ilk yerel ağ geçidi bağlantısı, sonraki oluşturulmasını denemeden sonra engellenir.
+
+- <!-- 16309153 -  IS ASDK --> DNS sunucusu ayarı ile oluşturulan bir sanal ağda *otomatik*, özel bir DNS sunucusunun başarısız olması için değiştirilmesi. Bu vnet'teki VM'ler için güncelleştirilmiş ayarları gönderiliyor değil.
+
+- <!-- 2702741 -  IS ASDK --> Dinamik ayırma yöntemi kullanılarak dağıtılan genel IP'ler garanti edilmez durdurun-serbest verildiği sonra korunması.
+
+- <!-- 2529607 - IS ASDK --> Azure Stack sırasında *gizli dönüş*, bir süre içinde genel IP adresleri olan erişilemeyen iki ila beş dakikalığına yoktur.
+
+-   <!-- 2664148 - IS ASDK --> Bir S2S VPN tüneli aracılığıyla Kiracı sanal makinelerini burada erişiyor senaryolarda, yerel ağ geçidi için şirket içi alt ağ geçidi zaten oluşturulduktan sonra eklenmişse nerede bağlantı girişimleri başarısız bir senaryo hatalarla karşılaşabilirsiniz. 
+
+
+<!--  #### SQL and MySQL  -->
+
+
+#### <a name="app-service"></a>App Service
+- <!-- 2352906 - IS ASDK --> Kullanıcılar, bunlar, ilk Azure işlevinizi aboneliği oluşturmadan önce depolama kaynak sağlayıcısı kaydetmeniz gerekir.
+
+- <!-- TBD - IS ASDK --> (Çalışan, yönetim, ön uç rollerini) altyapıyı ölçeklendirme için sürüm notları için işlem açıklandığı PowerShell kullanmanız gerekir.  
+
+
+#### <a name="usage"></a>Kullanım  
+- <!-- TBD -  IS ASDK --> Kullanım genel IP adresi kullanım ölçümü verilerini gösterir aynı *olay tarihi-saati* yerine her kaydın değerini *TimeDate* gösteren kaydın oluşturulduğu zaman damgası. Şu anda, genel IP adresi kullanımının doğru hesap gerçekleştirmek için bu verileri kullanamazsınız.
+
+<!-- #### Identity -->
+
+
 
 
 ## <a name="build-11807076"></a>Derleme 1.1807.0.76
@@ -140,7 +279,7 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
 
 - <!-- 2368581 - IS. ASDK --> Düşük bellek uyarısı alırsanız ve Kiracı sanal makinelerini başarısız ile dağıtmak bir Azure Stack operatörü bir *Fabric VM oluşturma hatası*, Azure Stack damga kullanılabilir bellek yetersiz olabilir. Kullanım [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) iş yükleriniz için kapasite en iyi anlamak için.
 
-- <!-- TBD - IS. ASDK --> Test AzureStack cmdlet (CESARETLENDİRİCİ) ayrıcalık uç noktada çalıştırılırken ERCS VM için bir uyarı iletisi oluşturur. ASDK kullanmaya devam edebilirsiniz. 
+- <!-- TBD - IS. ASDK --> Test AzureStack cmdlet (CESARETLENDİRİCİ) ayrıcalık uç noktada çalıştırılırken test ERCS VM için bir uyarı/hata iletisi oluşturur. ASDK kullanmaya devam edebilirsiniz.
 
 #### <a name="compute"></a>İşlem
 - <!-- 2494144 - IS, ASDK --> Bir sanal makine dağıtımı için bir sanal makine boyutu seçerken, bazı F serisi VM boyutlarının görünür olmayan bir VM oluşturduğunuzda boyut seçici bir parçası olarak. Aşağıdaki VM boyutları seçicide görünmez: *F8s_v2*, *F16s_v2*, *F32s_v2*, ve *F64s_v2*.  
@@ -226,14 +365,14 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
 
 - <!-- 2297790 - IS, ASDK --> **Azure Stack artık içeren bir *Syslog* istemci** olarak bir *önizleme özelliği*. Bu istemci, Azure Stack için dış bir Syslog sunucusu veya güvenlik bilgileri ve Olay yönetimi (SIEM) yazılımı için Azure Stack altyapısının ilgili denetim ve güvenlik günlüklerini iletilmesini sağlar. Şu anda, Syslog istemci varsayılan bağlantı noktası 514'üzerinden yalnızca kimliği doğrulanmamış UDP bağlantıyı destekler. Her Syslog ileti yükünü Common Event Format (CEF) olarak biçimlendirilir.
 
-  Syslog istemcisini yapılandırmak için kullanın **kümesi SyslogServer** ayrıcalıklı uç noktayı kullanıma cmdlet.
+  Syslog istemcisini yapılandırmak için kullanın **kümesi SyslogServer** ayrıcalıklı uç noktasında cmdlet'i.
 
   Bu önizlemeyle, aşağıdaki üç uyarılar görebilirsiniz. Azure yığını tarafından sunulan, bu uyarılar dahil *açıklamaları* ve *düzeltme* Kılavuzu.
   - Başlık: Kod bütünlüğü devre dışı  
   - Başlık: Denetim modunda kod bütünlüğü
   - Başlık: Oluşturulan kullanıcı hesabı
 
-  Bu özellik Önizleme aşamasında olduğu sürece, bu bağlı üretim ortamlarında kullanılmamalıdır.   
+  Bu özellik Önizleme aşamasında olduğu sürece, bu bağlı üretim ortamlarında dayanan olmamalıdır.   
 
 
 ### <a name="fixed-issues"></a>Giderilen sorunlar
@@ -383,144 +522,4 @@ Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içe
 - <!-- TBD -  IS ASDK --> Kullanım genel IP adresi kullanım ölçümü verilerini gösterir aynı *olay tarihi-saati* yerine her kaydın değerini *TimeDate* gösteren kaydın oluşturulduğu zaman damgası. Şu anda, genel IP adresi kullanımının doğru hesap gerçekleştirmek için bu verileri kullanamazsınız.
 
 <!-- #### Identity -->
-
-
-## <a name="build-201805131"></a>Derleme 20180513.1
-
-### <a name="new-features"></a>Yeni Özellikler
-Bu derleme, Azure Stack için aşağıdaki geliştirmeleri ve düzeltmeleri içerir.  
-
-- <!-- 1759172 - IS, ASDK --> **Yeni Yönetim abonelikler**. 1804 ile portalda kullanılabilir iki yeni abonelik türü vardır. Bu yeni abonelik türleriyle 1804 sürümünden başlayarak yeni Azure Stack yükleme varsayılan sağlayıcı aboneliği yanı sıra ve görünür olan. *Azure Stack bu sürümü bu yeni abonelik türleriyle kullanmayın*. <!-- We will announce the availability to use these subscription types in with a future update. -->
-
-  Bu yeni abonelik türleriyle görünür, ancak varsayılan sağlayıcı aboneliği güvenliğini sağlamak için ve SQL barındırma sunucuları gibi paylaşılan kaynakları dağıtmayı kolaylaştırmak için daha büyük bir değişikliğin bir parçası değildir.
-
-  Artık kullanılabilir üç abonelik türleri şunlardır:  
-  - Sağlayıcı aboneliği varsayılan: Bu abonelik türü kullanmaya devam edin.
-  - Abonelik ölçümü: *Bu abonelik türü kullanmayın.*
-  - Tüketim abonelik: *Bu abonelik türü kullanmayın*
-
-### <a name="fixed-issues"></a>Giderilen sorunlar
-- <!-- IS, ASDK -->  Yönetim Portalı'nda artık bir bilgi görüntülemeden önce güncelleştirme kutucuk yenilemeniz gerekir.
-
-- <!-- 2050709 - IS, ASDK -->  Ayrıca, Blob hizmeti, tablo hizmeti ve kuyruk hizmeti depolama ölçümleri düzenlemek için artık Yönetici portalını kullanabilir.
-
-- <!-- IS, ASDK --> Altında **ağ**'ye tıkladığınızda **bağlantı** bir VPN bağlantısı kurmak için **siteden siteye (IPSec)** kullanılabilir tek seçenek sunulmuştur.
-
-- **Çeşitli düzeltmeleri** performans, kararlılık, güvenlik ve Azure Stack tarafından kullanılan işletim sistemi
-
-<!-- ### Changes  -->
-### <a name="additional-releases-timed-with-this-update"></a>Bu güncelleştirme ile zaman aşımına ek sürümleri  
-Aşağıdaki kullanıma sunulmuştur, ancak Azure Stack güncelleştirme 1804 gerektirmez.
-- **Güncelleştirmek için Microsoft Azure Stack System Center Operations Manager izleme paketi**. Yeni bir sürümünü (1.0.3.0) Microsoft System Center Operations Manager izleme paketi Azure Stack için kullanılabilir [indirme](https://www.microsoft.com/download/details.aspx?id=55184). Bağlı bir Azure Stack dağıtımı eklediğinizde, bu sürümü ile hizmet sorumluları kullanabilirsiniz. Bu sürüm ayrıca düzeltme doğrudan Operations Manager içinde harekete geçmenizi sağlayan bir güncelleştirme yönetim deneyimi sunar. Kaynak sağlayıcılarını görüntüleme birimlerini ölçeklendirebilir ve birim düğümlerini ölçeklendirme yeni panolar da vardır.
-
-- **Yeni Azure Stack yönetici PowerShell sürümü 1.3.0**.  Azure Stack PowerShell 1.3.0 artık yükleme için kullanılabilir. Bu sürüm, Azure Stack yönetmek tüm yönetici kaynak sağlayıcıları için komutlar sağlar.  Bu sürümle birlikte, bazı içeriklerin Azure Stack araçları Github'dan kaldırılacak [depo](https://github.com/Azure/AzureStack-Tools).
-
-   Yükleme ayrıntılarını izleyin [yönergeleri](.\.\azure-stack-powershell-install.md) veya [yardımcı](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) Azure Stack modülü 1.3.0 içeriği.
-
-- **İlk Azure Stack Rest API sürümü**. [Tüm Azure Stack yönetici kaynak sağlayıcıları için API Başvurusu](https://docs.microsoft.com/rest/api/azure-stack/) artık yayımlanır.
-
-### <a name="known-issues"></a>Bilinen sorunlar
-
-#### <a name="portal"></a>Portal
-- <!-- TBD - IS ASDK --> Özelliği [açılan listeden yeni bir destek isteği açmak için](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) gelen içinde Yönetici portalı kullanılamıyor. Bunun yerine, aşağıdaki bağlantıyı kullanın:     
-    - Azure Stack Geliştirme Seti için kullanmak https://aka.ms/azurestackforum.    
-
-- <!-- 2403291 - IS ASDK --> Yatay kaydırma çubuğunun alt kısmında bulunan yönetici ve Kullanıcı Portalı'nın kullanımını olmayabilir. Yatay kaydırma çubuğunun erişemiyorsanız, önceki bir dikey pencere portaldaki dikey penceresinin adı seçerek, gitmek için içerik haritaları en üstünde bulunan içerik haritası listeden görüntülemek istediğiniz kullanım portalın sol.
-  ![İçerik haritası](media/asdk-release-notes/breadcrumb.png)
-
-- <!-- TBD -  IS ASDK --> Kullanıcı abonelikleri sonuçlarında yalnız bırakılmış kaynakları siliniyor. Geçici bir çözüm olarak kullanıcı kaynaklar veya kaynak grubunun tamamını silin ve sonra kullanıcı abonelikleri silin.
-
-- <!-- TBD -  IS ASDK --> Azure Stack portalı kullanarak aboneliğinize izinleri görüntüleyemezsiniz. Geçici bir çözüm olarak, izinleri doğrulamak için PowerShell kullanın.
-
--   <!-- TBD -  IS ASDK --> Yönetim Portalı'nda Microsoft.Update.Admin bileşen için önemli bir uyarı görebilirsiniz. Uyarı adı, açıklaması ve düzeltme tüm olarak görüntüle:  
-    - *HATA - şablon FaultType ResourceProviderTimeout için eksik.*
-
-    Bu uyarıyı güvenle yoksayılabilir.
-
-#### <a name="health-and-monitoring"></a>Sistem durumu ve izleme
-- <!-- 1264761 - IS ASDK -->  Uyarıları görebilirsiniz *sistem durumu denetleyicisi* aşağıdaki ayrıntıları olan bir bileşeni:  
-
-   Uyarı #1:
-   - ADI: Sağlıksız altyapı rolü
-   - Önem DERECESİ: uyarı
-   - BİLEŞENİ: Sistem durumu denetleyicisi
-   - Açıklama: Sistem durumu denetleyici sinyal tarayıcı kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.  
-
-  Uyarı #2:
-   - ADI: Sağlıksız altyapı rolü
-   - Önem DERECESİ: uyarı
-   - BİLEŞENİ: Sistem durumu denetleyicisi
-   - Açıklama: Hata tarayıcı durumu denetleyicisi kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.
-
-  Her iki uyarılar güvenle yoksayılabilir. Bunlar, zaman içinde otomatik olarak kapatılacak.  
-
-#### <a name="marketplace"></a>Market
-- Kullanıcılar, abone olmadan tüm markete göz atabilir ve planlar ve teklifler gibi yönetim öğelerini görebilirsiniz. Bu kullanıcılara işlevsel olmayan öğelerdir.
-
-#### <a name="compute"></a>İşlem
-- <!-- TBD -  IS ASDK --> Ölçeklendirme ayarları sanal makine ölçek kümeleri için portalda kullanılabilir değildir. Geçici çözüm olarak, kullandığınız [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). PowerShell sürüm farklar nedeniyle, kullanmanız gereken `-Name` yerine parametre `-VMScaleSetName`.
-
-- <!-- TBD -  IS ASDK --> Portal, Azure Stack kullanıcı portalında sanal makine oluşturduğunuzda, DS serisi VM ekleyebilirsiniz veri diskleri yanlış sayıda görüntüler. DS serisi VM'ler gibi çok sayıda veri diski Azure yapılandırması sağlayabilir.
-
-- <!-- TBD -  IS ASDK --> Bir VM görüntüsü oluşturulması başarısız olduğunda, nelze odstranit başarısız bir öğe için VM görüntüleri işlem dikey eklenebilir.
-
-  Geçici çözüm olarak, Hyper-V ile oluşturduğunuz işlevsiz bir VHD ile yeni bir VM görüntüsü oluşturma (yeni-VHD-yolu C:\dummy.vhd-- SizeBytes sabit 1 GB). Bu işlem başarısız öğesini silme engelleyen sorunu çözer. Ardından, işlevsiz bir görüntü oluşturduktan sonra 15 dakika başarıyla silebilirsiniz.
-
-  Ardından, daha önce başarısız olan VM görüntüsünün indirilmesi yeniden deneyebilir.
-
-- <!-- TBD -  IS ASDK --> VM dağıtımı üzerinde bir uzantı sağlama çok uzun sürerse, kullanıcıların serbest bırakma veya VM silme işlemini durdurulmaya çalışılırken yerine sağlama zaman aşımı izin vermelisiniz.  
-
-- <!-- 1662991 - IS ASDK --> Linux VM tanılama Azure Stack'te desteklenmiyor. VM tanılaması etkin bir Linux sanal makinesi dağıttığınızda, dağıtım başarısız olur. Tanılama ayarları aracılığıyla Linux VM temel ölçümleri etkinleştirirseniz, ayrıca dağıtım başarısız olur.
-
-#### <a name="networking"></a>Ağ
-- <!-- 1766332 - IS, ASDK --> Altında **ağ**, tıklarsanız **VPN ağ geçidi Oluştur** bir VPN bağlantısı kurmak için **ilkesine** bir VPN türü listelenir. Bu seçeneği belirlemeyin. Yalnızca **rota tabanlı** seçeneği Azure Stack'te desteklenir.
-
-- <!-- 2388980 -  IS ASDK --> Bir VM oluşturulur ve bir genel IP adresiyle ilişkili sonra o VM'den bir IP adresi ilişkisini olamaz. İlişkisi kaldırma çalışıyor gibi görünür, ancak daha önce atanan genel IP adresi orijinal VM ile ilişkili olarak kalır.
-
-  Şu anda, oluşturduğunuz yeni VM'ler için yalnızca yeni ortak IP adreslerini kullanmanız gerekir.
-
-  Yeni bir VM için IP adresi yeniden atama olsa bile bu durumda (genellikle olarak adlandırılan bir *VIP takas*). Tüm gelecek bu IP adresi sonucu özgün VM ve yeni bir bağlantı üzerinden bağlanma girişiminde bulunur.
-
-- <!-- 2292271 - IS ASDK --> Bir teklif ve Kiracı abonelikle ilişkilendirilmiş planı parçası olan bir ağ kaynağı için bir kota sınırı yükseltirseniz, bu abonelik için yeni sınır uygulanmaz. Ancak, yeni sınır kota artırılır sonra oluşturulan yeni abonelikler için geçerlidir.
-
-  Bu sorunu gidermek için plan aboneliği ile ilişkili olduğunda, bir ağ Kotayı artırmak için bir eklenti planı kullanın. Daha fazla bilgi için bkz. nasıl [eklenti planı kullanılabilmesini](.\.\azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
-
-- <!-- 2304134 IS ASDK --> DNS bölgesi veya yol tablosu kaynaklar ile ilişkili olan bir abonelik silinemiyor. Abonelik başarıyla silmek için DNS bölgesi ve yol tablosu kaynakları Kiracı abonelikten silmeniz gerekir.
-
-
-- <!-- 1902460 -  IS ASDK --> Azure Stack destekleyen tek bir *yerel ağ geçidi* her bir IP adresi. Bu tüm Kiracı abonelikler arasında geçerlidir. Aynı IP adresine sahip bir yerel ağ geçidi kaynağı oluşturmak ilk yerel ağ geçidi bağlantısı, sonraki oluşturulmasını denemeden sonra engellenir.
-
-- <!-- 16309153 -  IS ASDK --> DNS sunucusu ayarı ile oluşturulan bir sanal ağda *otomatik*, özel bir DNS sunucusunun başarısız olması için değiştirilmesi. Bu vnet'teki VM'ler için güncelleştirilmiş ayarları gönderiliyor değil.
-
-- <!-- TBD -  IS ASDK --> Azure Stack, VM dağıtıldıktan sonra ek ağ arabirimi bir sanal makine örneğine eklemeyi desteklemez. VM birden fazla ağ arabirimi gerektiriyorsa, dağıtım sırasında tanımlanmalıdır.
-
-
-#### <a name="sql-and-mysql"></a>SQL ve MySQL
-- <!-- TBD - ASDK --> Veritabanını barındıran sunucu kaynak sağlayıcısı ve kullanıcı iş yükleri tarafından kullanım için ayrılmış olmalıdır. Uygulama Hizmetleri dahil olmak üzere diğer herhangi bir tüketici tarafından kullanılan bir örnek kullanılamaz.
-
-- <!-- IS, ASDK --> Özel karakterler, boşluk ve nokta dahil olmak üzere desteklenmez **ailesi** adı, SQL ve MySQL kaynak sağlayıcıları için bir SKU oluşturduğunuzda.
-
-#### <a name="app-service"></a>App Service
-- <!-- TBD -  IS ASDK --> Kullanıcılar, bunlar, ilk Azure işlevinizi aboneliği oluşturmadan önce depolama kaynak sağlayıcısı kaydetmeniz gerekir.
-
-- <!-- TBD -  IS ASDK --> (Çalışan, yönetim, ön uç rollerini) altyapıyı ölçeklendirme için sürüm notları için işlem açıklandığı PowerShell kullanmanız gerekir.
-
-#### <a name="usage"></a>Kullanım  
-- <!-- TBD -  IS ASDK --> Kullanım genel IP adresi kullanım ölçümü verilerini gösterir aynı *olay tarihi-saati* yerine her kaydın değerini *TimeDate* gösteren kaydın oluşturulduğu zaman damgası. Şu anda, genel IP adresi kullanımının doğru hesap gerçekleştirmek için bu verileri kullanamazsınız.
-
-<!--
-#### Identity
--->
-
-
-
-#### <a name="downloading-azure-stack-tools-from-github"></a>Github'dan Azure Stack araçları indirme
-- Kullanırken *Invoke-webrequest* Github'dan Azure Stack indirmek için PowerShell cmdlet araçları, bir hata alırsınız:     
-    -  *Invoke-webrequest: istek iptal edildi: SSL/TLS güvenli kanal oluşturulamadı.*     
-
-  Bu hata, Tlsv1 ve Tlsv1.1 şifreleme standartları (PowerShell için varsayılan), yeni bir GitHub destek kullanımdan kaldırma nedeniyle oluşur. Daha fazla bilgi için [zayıf şifreleme standartları Temizleme Bildirimi](https://githubengineering.com/crypto-removal-notice/).
-
-<!-- #### Identity -->
-
-
 

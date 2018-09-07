@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: be3fd304e04a66e6564141b6a20efea88cf62553
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 75b7ecac465fa12b1e19ca409d1535d89c755801
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056172"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021896"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>RBAC (Önizleme) ile Azure depolama verilere erişim haklarını yönetme
 
 Azure Active Directory (Azure AD) ile güvenli kaynaklara erişim hakları yetkilendirir [rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview). Azure depolama genel kapsayıcılar veya sıralara erişmek için kullanılan izin kümelerini kapsayacak yerleşik RBAC rolleri kümesi tanımlar. Ne zaman bir RBAC rolü atanmış bir Azure AD kimlik için kimlik bu kaynaklara erişimi verilir göre belirtilen kapsam. Abonelik, kaynak grubu, depolama hesabı veya bir kapsayıcının veya kuyruk düzeyi için erişimi sınırlayabilirsiniz. Azure portalı, Azure komut satırı araçları ve Azure Management API'leri kullanarak Azure Storage kaynakları için erişim hakları atayabilirsiniz. 
 
-Bir Azure AD kimlik, bir kullanıcı, Grup veya uygulama hizmet sorumlusu olabilir veya olabilir bir *yönetilen hizmet kimliği*. Bir güvenlik sorumlusu, kullanıcı, Grup veya uygulama hizmet sorumlusu olabilir. A [yönetilen hizmet kimliği](../../active-directory/managed-service-identity/overview.md) olan Azure sanal makineleri, işlev uygulamaları, sanal makine ölçek kümeleri ve diğerleri çalışan uygulamalardan kimliğini doğrulamak için kullanılan otomatik olarak yönetilen bir kimlik. Azure AD'de kimlik genel bakış için bkz. [anlamak Azure kimlik çözümleri](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
+Bir Azure AD kimlik, bir kullanıcı, Grup veya uygulama hizmet sorumlusu olabilir veya olabilir bir *yönetilen hizmet kimliği*. Bir güvenlik sorumlusu, kullanıcı, Grup veya uygulama hizmet sorumlusu olabilir. A [yönetilen hizmet kimliği](../../active-directory/managed-identities-azure-resources/overview.md) olan Azure sanal makineleri, işlev uygulamaları, sanal makine ölçek kümeleri ve diğerleri çalışan uygulamalardan kimliğini doğrulamak için kullanılan otomatik olarak yönetilen bir kimlik. Azure AD'de kimlik genel bakış için bkz. [anlamak Azure kimlik çözümleri](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
 
 ## <a name="rbac-roles-for-azure-storage"></a>RBAC rolleri için Azure depolama
 

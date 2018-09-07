@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 112586d3ee5f49eab9adb72d41a210e2dd9828d8
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: b58118a3ed4fba5017e0eb630d822ec59f04aa16
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42056431"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024785"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Azure Stack’te teklifleri yetkilendirme
 
@@ -128,7 +128,7 @@ Sağlayıcı temsilcisi olarak kullanıcı portalında oturum açın ve ardında
 
 4. Teklif temsilcisi genel artık yalnızca yetkilendirilmiş portal üzerinden görülebilir. Bulmak ve bu URL'yi değiştirmek için:
 
-    a.  Seçin **Gözat** > **diğer hizmetler** > **abonelikleri**. Ardından, temsilci sağlayıcı aboneliği seçin. Örneğin, **DPSubscription** > **özellikleri**.
+    a.  Seçin **Gözat** > **tüm hizmetleri**ve ardından altındaki **genel** kategorisi seçin **abonelikleri**. Sağlayıcı temsilcisi aboneliğini seçin. Örneğin, **DPSubscription** > **özellikleri**.
 
     b.  Portaldaki kopyalayın, Not Defteri gibi ayrı bir konuma URL.
 

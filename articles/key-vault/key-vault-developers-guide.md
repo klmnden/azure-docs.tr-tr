@@ -7,14 +7,14 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 10/12/2017
+ms.date: 09/05/2018
 ms.author: bryanla
-ms.openlocfilehash: d8554d235fdfeb5b192ddf1268e60b7bc32aabe7
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: b4522d9eb2e9af782918f021c79bbcb155c5c383
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42056438"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053630"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure anahtar kasası Geliştirici Kılavuzu
 
@@ -53,11 +53,9 @@ Yukarıdaki videoda belirtilen kaynaklar:
 
 ## <a name="creating-and-managing-key-vaults"></a>Oluşturma ve anahtar kasalarını yönetme
 
-Azure Key Vault kimlik bilgilerini ve diğer anahtarlarla gizli dizileri güvenle depolamak için bir yol sağlar, ama bunları alabilmek için kodunuzun Key Vault'ta kimlik doğrulaması yapması gerekir. Yönetilen Hizmet Kimliği (MSI), Azure hizmetlerine Azure Active Directory (Azure AD) üzerinde otomatik olarak yönetilen bir kimlik vererek bu soruna daha basit bir çözüm getirir. Bu kimliği kullanarak, Key Vault da dahil olmak üzere Azure AD kimlik doğrulamasını destekleyen tüm hizmetlerde kodunuzda kimlik bilgileri bulunmasına gerek kalmadan kimlik doğrulaması yapabilirsiniz. 
+Azure Key Vault kimlik bilgilerini ve diğer anahtarlarla gizli dizileri güvenle depolamak için bir yol sağlar, ama bunları alabilmek için kodunuzun Key Vault'ta kimlik doğrulaması yapması gerekir. Azure kaynakları için yönetilen kimlikleri, Azure hizmetleri otomatik olarak yönetilen bir kimlik Azure Active Directory (Azure AD) sağlayarak bu sorunu daha basit çözme hale getirir. Bu kimliği kullanarak, Key Vault da dahil olmak üzere Azure AD kimlik doğrulamasını destekleyen tüm hizmetlerde kodunuzda kimlik bilgileri bulunmasına gerek kalmadan kimlik doğrulaması yapabilirsiniz. 
 
-MSI hakkında daha fazla bilgi için bkz. [yönetilen hizmet kimliği (MSI) Azure kaynakları için](https://docs.microsoft.com/azure/active-directory/msi-overview).
-
-AAD ile çalışma hakkında daha fazla bilgi için bkz. [uygulamaları Azure Active Directory ile tümleştirme](/azure/active-directory/develop/active-directory-integrating-applications).
+Azure kaynakları için yönetilen kimlikleri hakkında daha fazla bilgi için bkz. [yönetilen kimlikleri genel bakış](../active-directory/managed-identities-azure-resources/overview.md). AAD ile çalışma hakkında daha fazla bilgi için bkz. [uygulamaları Azure Active Directory ile tümleştirme](/azure/active-directory/develop/active-directory-integrating-applications).
 
 Anahtar kasanızda anahtarları, gizli dizileri veya sertifikalar ile çalışmaya başlamadan önce oluşturacak ve CLI, PowerShell, Resource Manager şablonları ya da, REST üzerinden anahtar kasanıza aşağıdaki makalelerde açıklanan şekilde yönetin:
 
@@ -110,14 +108,14 @@ Node.js'de Key Vault Yönetimi API'si ve API Key Vault nesne ayrıdır. Aşağı
 ### <a name="quick-start-guides"></a>Hızlı Başlangıç kılavuzları
 
 - [Anahtar kasası oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-- [Node.js'de Key Vault'u kullanmaya başlama](https://azure.microsoft.com/resources/samples/key-vault-node-getting-started/)
+- [Node.js'de Key Vault'u kullanmaya başlama](https://github.com/Azure-Samples/key-vault-node-getting-started)
 
 ### <a name="code-examples"></a>Kod örnekleri
 
 Key Vault ile uygulamalarınızı kullanan tam örnekler için bkz:
 
-- [Azure Key Vault kod örnekleri](http://www.microsoft.com/download/details.aspx?id=45343) -.NET örnek uygulaması *HelloKeyVault* ve bir Azure web servisi örneği. 
-- [Bir Web uygulamasından Azure Key Vault'u kullanın](key-vault-use-from-web-application.md) -azure'da bir web uygulamasından Azure Key Vault kullanmayı öğrenmenize yardımcı olacak öğretici. 
+- [Azure Key Vault kod örnekleri](https://azure.microsoft.com/resources/samples/?service=key-vault) -Azure Key Vault için kod örnekleri. 
+- [Bir Web uygulamasından Azure Key Vault'u kullanın](quick-create-net.md) -azure'da bir web uygulamasından Azure Key Vault kullanmayı öğrenmenize yardımcı olacak öğretici. 
 
 ## <a name="how-tos"></a>Nasıl yapılır makaleleri
 

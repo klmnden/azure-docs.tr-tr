@@ -1,6 +1,6 @@
 ---
-title: Azure içerik denetleyici Başlarken | Microsoft Docs
-description: Azure içerik Denetleyici ile çalışmaya nasıl başlayacağınız.
+title: Azure Content Moderator çalışmaya başlama | Microsoft Docs
+description: Azure Content Moderator ile çalışmaya başlama konusunda.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,80 +9,80 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: sajagtap
-ms.openlocfilehash: ae4333047ebd95733c7baaed0323a0c2c477d323
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 39727b4d97ade67b854fe525afad565451cc3d77
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352565"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024520"
 ---
 # <a name="get-started-with-content-moderator"></a>Content Moderator’ı kullanmaya başlama
 
-Aşağıdaki yollarla içerik denetleyici API'leri ve gözden geçirme Aracı'nı kullanmaya başlama:
+Aşağıdaki yollarla Content Moderator'ı kullanmaya başlayın:
 
-- [Başlatmak için İnceleme aracı ile](#start-with-the-review-tool) API anahtarları ve gözden geçirme ekip oluşturmak için. Gözden geçirme Aracı'nı keşfedin ve içerik yönetici API'ları kullanarak tümleştirme öğrenin.
-- [İçerik denetleyiciye abone](#start-with-the-apis) Azure portalında. Hala bir gözden geçirme ekip oluşturmak için çevrimiçi kaydolmanız gerekir.
-- [Akış Bağlayıcısı ve şablonları kullanmak](https://flow.microsoft.com/connectors/shared_cognitiveservicescontentmoderator/content-moderator/) çok çeşitli kullanımı kolay Tasarımcısı ile tümleştirmeleri kullanıma için.
+- [İle gözden geçirme Aracı'nı başlatın](#start-with-the-review-tool) API anahtarı alma ve bir gözden geçirme ekibi oluşturun. İçerik ve İnceleme API'lerini incelemeleri, ek adımlar olmadan oluşturmak için taramak için yönetim API'lerini çağırmak için API anahtarını kullanabilirsiniz avantajdır.
+- [Content Moderator için abone](#start-with-the-apis) API anahtarını almak için Azure. Kullanıma [API Başvurusu](api-reference.md) ve [SDK'ları](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net). Yine de bir gözden geçirme ekibi oluşturmak için çevrimiçi kaydolmanız gerekir.
+- [Akış Bağlayıcısı ve şablonları](https://flow.microsoft.com/connectors/shared_cognitiveservicescontentmoderator/content-moderator/) çok çeşitli kullanımı kolay Tasarımcısı ile tümleştirmeler görmek için.
 
-Belirlediğiniz seçenek ne olursa olsun, bkz: [kimlik bilgilerini yönetme](review-tool-user-guide/credentials.md) API kimlik bilgilerinizi bulmak için makale.
+Belirlediğiniz seçeneğe bakılmaksızın bkz [kimlik bilgilerinin yönetimiyle](review-tool-user-guide/credentials.md) API kimlik bilgilerinizi bulmak için makale.
 
-## <a name="start-with-the-review-tool"></a>Gözden geçirme aracıyla başlatın
-[Kaydolun](http://contentmoderator.cognitive.microsoft.com/) içerik denetleyici gözden geçirme aracı web sitesinde.
+## <a name="start-with-the-review-tool"></a>Gözden geçirme aracı ile Başlat
+[Kaydolun](http://contentmoderator.cognitive.microsoft.com/) Content Moderator gözden geçirme aracı web sitesinde.
 
-![İçerik denetleyici giriş sayfası](images/homepage.PNG)
+![İçerik Moderator giriş sayfası](images/homepage.PNG)
 
-### <a name="create-a-review-team"></a>Gözden geçirme takım oluşturma
-Ekibinizin bir ad verin. İş arkadaşlarınızı davet etmek istiyorsanız, e-posta adreslerini girerek bunu yapabilirsiniz.
+### <a name="create-a-review-team"></a>Bir gözden geçirme takım oluştur
+Ekibiniz için bir ad verin. İş arkadaşlarınızı davet etmek istiyorsanız, e-posta adreslerini girerek bunu yapabilirsiniz.
 
-![Bir ekip üyesi davet et](images/QuickStart-2-small.png)
+![Takım üyesi davet et](images/QuickStart-2-small.png)
 
-### <a name="upload-images-or-enter-text"></a>Resimler yükleyin veya metni girin
-Tıklatın **deneyin > Görüntü** veya **deneyin > metin**. En fazla beş örnek resimler yükleyin veya denetleme için örnek metin girin.
+### <a name="upload-images-or-enter-text"></a>Görüntüleri karşıya yükleme veya metin girin
+Tıklayın **deneyin > Görüntü** veya **deneyin > metin**. En fazla beş örnek görüntüleri karşıya yükleyebilir veya denetimi için örnek metni girin.
 
-![Görüntü veya metin denetleme deneyin](images/tryimagesortext.png)
+![Görüntü veya metin denetimi deneyin](images/tryimagesortext.png)
 
-### <a name="submit-for-automated-moderation"></a>Otomatik denetleme için Gönder
-İçeriğinizi otomatik denetleme için gönderin. Dahili olarak, gözden geçirme Aracı'nı denetleme içeriğinizi taramak için API çağırır. Tarama tamamlandığında, gözden geçirmeniz için bekleyen sonuçlarıyla ilgili bildiren bir ileti görür.
+### <a name="submit-for-automated-moderation"></a>Otomatik denetimden için gönderme
+İçeriğiniz için otomatik denetimden gönderin. Dahili olarak İnceleme aracını yönetim içeriğinizi taranacak API'lerini çağırır. Tarama tamamlandığında, gözden geçirmeniz için bekleyen sonuçlarıyla ilgili bildiren bir ileti görürsünüz.
 
 ![Orta dosyaları](images/submitted.png)
 
 ### <a name="review-and-confirm-results"></a>Gözden geçirin ve sonuçları onaylayın
-Otomatik aracılı etiketleri gözden geçirin, gerekirse değiştirin ve kullanarak gönderin **sonraki** düğmesi. Yönetici API ' ları, queuing etiketli içerik başlatır iş uygulamanızı çağırır gibi İnsan gözden geçirme ekipleri tarafından gözden geçirilmesi için hazır. Bu yaklaşımı kullanarak içeriğin büyük birimleri hızlı bir şekilde gözden geçirin.
+Kullanarak otomatik olarak aracılı etiketleri gözden geçirin ve gerekirse değiştirin **sonraki** düğmesi. Moderator API'leri, sıraya alma etiketli içerik başlatır, iş uygulaması çağrısı insan tarafından İnceleme ekipleri tarafından incelenmesi için hazır. İçerik bu yaklaşımı kullanarak büyük hacimlerdeki hızlı bir şekilde gözden geçirin.
 
 ![Sonuçları gözden geçirme](images/reviewresults.png)
 
-Tüm kullanmayı öğrenin [aracın özellikleri gözden](Review-Tool-User-Guide/human-in-the-loop.md) veya API'ler hakkında bilgi edinmek için sonraki bölüme devam edin. Sizin için İnceleme aracı gösterildiği gibi sağlanan API anahtarı sahip için kaydolma adımı atlayın [kimlik bilgilerini yönetme](review-tool-user-guide/credentials.md) makalesi.
+Tüm kullanmayı öğrenin [Aracı'nın özellikleri gözden geçirin](Review-Tool-User-Guide/human-in-the-loop.md) veya API'ler hakkında bilgi edinmek için sonraki bölüme devam edin. Kayıt adımı sizin için gözden geçirme Aracı'nda gösterildiği gibi sağlanan API anahtarı olduğundan atlamak [kimlik bilgilerinin yönetimiyle](review-tool-user-guide/credentials.md) makalesi.
 
-### <a name="use-the-apis"></a>API'leri kullanın
+### <a name="use-the-apis"></a>API'leri kullanma
 
-İçerik yönetimini incelediniz ve aracı deneyimi gözden geçirin, içerik denetleyici iş uygulamalarınızla tümleştirin öğrenin. Daha fazla bilgi edinmek ve örnekleri ve SDK'ları anlama Hızlı İzleme için aşağıdaki bölümü kullanın.
+Content Moderator İş uygulamalarınızı ile tümleştirmeyi öğrenin. Kullanıma [API Başvurusu](api-reference.md) ve [SDK'ları](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net).
 
-## <a name="start-with-the-apis"></a>API'leri ile Başlat
+## <a name="subscribe-in-the-azure-portal"></a>Azure portalında abone olun
 
-[İçerik denetleyiciye abone](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) Azure portalında. Aşağıdaki API'leri biriyle başlatın:
+[Content Moderator için abone](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) Azure portalında. Aşağıdaki API'leri biriyle başlayın:
 
 ### <a name="image-moderation"></a>Görüntü denetimi
 
-İle başlayan [API konsol](try-image-api.md) veya kullanın [.NET Hızlı Başlangıç](image-moderation-quickstart-dotnet.md) görüntüleri taramak ve etiketleri, güvenirlik puanları ve diğer kullanarak olası yetişkin ve saldırganlardan içeriği algılamak için bilgi ayıklanır.
+İle başlayan [API Konsolu](try-image-api.md) veya [.NET Hızlı Başlangıç](image-moderation-quickstart-dotnet.md) görüntülerini taramak ve olası yetişkinlere yönelik ve müstehcen içeriğin etiketleri, güven puanları ve diğer kullanarak algılamak için bilgi ayıklanır.
 
 ### <a name="text-moderation"></a>Metin denetimi
 
-İle başlayan [API konsol](try-text-api.md) veya [.NET Hızlı Başlangıç](text-moderation-quickstart-dotnet.md) olası uygunsuz metin, makine destekli istenmeyen metin sınıflandırma (Önizleme) için metin içeriği taramak için ve kişisel bilgileri (PII). 
+İle başlayan [API Konsolu](try-text-api.md) veya [.NET Hızlı Başlangıç](text-moderation-quickstart-dotnet.md) olası küfür makine destekli istenmeyen metin sınıflandırma (Önizleme), metin içeriğini taramak ve kişisel bilgileri (PII). 
 
 
 ### <a name="video-moderation"></a>Video denetimi
 
-İle başlayan [.NET quickstart](video-moderation-api.md) videolar tarama ve olası yetişkin ve saldırganlardan içeriği algılayabilir. 
+İle başlayan [.NET Hızlı Başlangıç](video-moderation-api.md) videoları taramak ve olası yetişkinlere yönelik ve müstehcen içerikleri algılama için. 
 
 
 ### <a name="review-apis"></a>API’leri inceleme
 
-İş, gözden geçirme ve iş akışı API'leri seçerek buradan başlayın.
+Buradan iş, gözden geçirme ve iş akışı API'leri seçerek başlayın.
 
-- [İş API](try-review-api-job.md) API'leri yönetimini kullanarak içeriğinizi tarar ve gözden geçirme aracında incelemeler oluşturur. 
-- [Gözden geçirme API](try-review-api-review.md) doğrudan görüntü, metin ya da video incelemeler İnsan denetleyiciler için içerik taramadan oluşturur. 
-- [İş akışı API](try-review-api-workflow.md) oluşturur, güncelleştirir ve ekibinizin oluşturduğu özel iş akışları ayrıntılarını alır.
+- [İş API](try-review-api-job.md) yönetim API'lerini kullanarak içeriğinizi tarar ve gözden geçirmeleri gözden geçirme Aracı'nda oluşturur. 
+- [Gözden geçirme API](try-review-api-review.md) doğrudan görüntü, metin veya görüntü incelemeleri İnsan Moderatörler için içerik taramadan oluşturur. 
+- [İş akışı API](try-review-api-workflow.md) oluşturur, güncelleştirir ve ekibinizin oluşturduğu özel iş akışlarını ayrıntılarını alır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-İçerik yönetimini başlayarak hakkında daha fazla bilgi [Görüntü Yönetimi API](image-moderation-api.md).
+Kullanıma [API Başvurusu](api-reference.md) ve [SDK'ları](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net). Hızlı bir başlangıç yapmak, tümleştirme ile [.NET SDK'sı örnekleri](sdk-and-samples.md#net-sdk-samples), [C# REST API örnekleri](https://github.com/sanjeev3/azure-docs-pr/blob/master/articles/cognitive-services/Content-Moderator/sdk-and-samples.md#rest-api-samples-in-c) ve [öğreticiler](sdk-and-samples.md#tutorials).

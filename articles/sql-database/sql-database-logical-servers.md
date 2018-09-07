@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/07/2018
 ms.author: carlrab
-ms.openlocfilehash: 9213f82a8e3a350312d4830aa2a8e5f695852ca5
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: f30d15c70b33200565f1933a4d8ebe8ed654638c
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841860"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055242"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Azure SQL veritabanı mantıksal sunucuları ve bunların yönetimi
 
@@ -62,7 +62,7 @@ Kullanarak bir Azure SQL veritabanı oluşturmak için [Azure portalında](https
 > [!IMPORTANT]
 > Veritabanınıza ait fiyatlandırma katmanını seçme hakkında daha fazla bilgi için bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
 
-Bir yönetilen örnek oluşturmak için bkz [bir yönetilen örnek oluşturma](sql-database-managed-instance-create-tutorial-portal.md)
+Bir yönetilen örnek oluşturmak için bkz [bir yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md)
 
 ### <a name="manage-an-existing-sql-server"></a>Mevcut bir SQL server'ı yönetme
 
@@ -132,7 +132,7 @@ Azure SQL server, veritabanlarını ve güvenlik duvarlarıyla oluşturmak ve y�
 |[az sql server güvenlik duvarı kuralını Sil](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Bir güvenlik duvarı kuralını siler|
 
 > [!TIP]
-> Azure CLI Hızlı Başlangıç için bkz. [Azure CLI kullanarak tek bir Azure SQL veritabanı oluşturma](sql-database-get-started-cli.md). Azure CLI örnek betikler için bkz: [kullanımı tek bir Azure SQL veritabanı oluşturma ve bir güvenlik duvarı kuralı yapılandırmak için CLI](scripts/sql-database-create-and-configure-database-cli.md) ve [kullanımı tek bir SQL veritabanını izleme ve ölçeklendirme için CLI](scripts/sql-database-monitor-and-scale-database-cli.md).
+> Azure CLI Hızlı Başlangıç için bkz. [Azure CLI kullanarak tek bir Azure SQL veritabanı oluşturma](sql-database-cli-samples.md). Azure CLI örnek betikler için bkz: [kullanımı tek bir Azure SQL veritabanı oluşturma ve bir güvenlik duvarı kuralı yapılandırmak için CLI](scripts/sql-database-create-and-configure-database-cli.md) ve [kullanımı tek bir SQL veritabanını izleme ve ölçeklendirme için CLI](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-transact-sql"></a>Azure SQL sunucularını, veritabanlarını ve güvenlik duvarları Transact-SQL kullanarak yönetme

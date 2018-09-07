@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 1db7219beead4d7ee228baff4c802c105419ba1c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 248ec73b09c25c162c5bdc77ceb18e610d604b77
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524612"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052182"
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Azure Depolama Ölçeklenebilirlik ve Performans Hedefleri
 ## <a name="overview"></a>Genel Bakış
@@ -46,6 +46,8 @@ Azure dosyaları ve Azure dosya eşitleme için ölçek ve performans hedefleri 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
 ### <a name="azure-file-sync-scale-targets"></a>Azure dosya eşitleme ölçek hedefleri
+Bu her zaman mümkün değildir, ancak Azure dosya eşitleme ile sınırsız kullanım için tasarlamak mümkün olduğunca çalıştık. Aşağıdaki tabloda test işlemlerimizi sınırları ve hangi hedeflerin gerçekten sabit limitlerdir gösterir:
+
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ## <a name="azure-queue-storage-scale-targets"></a>Azure kuyruk depolama ölçek hedefleri

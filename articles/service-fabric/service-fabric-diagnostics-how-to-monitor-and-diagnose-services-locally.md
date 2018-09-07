@@ -1,6 +1,6 @@
 ---
-title: Windows Azure mikro hata ayıklama | Microsoft Docs
-description: İzleme ve bir yerel geliştirme makinede Microsoft Azure Service Fabric kullanılarak yazılmış hizmetlerinizi tanılama öğrenin.
+title: Hata ayıklama Azure Service Fabric Windows uygulamalarında | Microsoft Docs
+description: Microsoft Azure Service Fabric yerel geliştirme makinenizde kullanılarak yazılmış, hizmetleri izleme ve Tanılama hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,57 +14,57 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 93cf4985e94c0af480d9f4e2e38b792cffe4df6e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b4c3bc21591e8472dc8d51309f7431cb5d4421fd
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206190"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054184"
 ---
-# <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>İzleme ve yerel makine geliştirme Kurulum Hizmetleri'nde tanılama
+# <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>İçinde bir yerel makine dağıtım kurulumunda Hizmetleri izleme ve tanılama
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 > * [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 > 
 > 
 
-İzleme, algılama, tanılama ve sorun giderme Hizmetleri kullanıcı deneyimini en az kesintiyi devam etmek izin verir. İzleme ve tanılama gerçek dağıtılmış üretim ortamında kritik olsa da, verimliliği benzer bir model için gerçek kurulum taşıdığınızda, bunlar çalıştığından emin olmak için Hizmetleri geliştirme sırasında benimsenmesi bağlı olacaktır. Service Fabric tek makineli yerel geliştirme kurulumları ve gerçek üretim küme kurulumları arasında sorunsuz bir şekilde çalışabilirsiniz tanılama uygulamak hizmet geliştiricileri için kolaylaştırır.
+İzleme, algılama, tanılama ve sorun giderme kullanıcı deneyimi için çok az kesinti devam etmek hizmetler sağlar. İzleme ve tanılama bir gerçek dağıtılan üretim ortamı için kritik olsa da, benzer bir model, gerçek kurulum taşıdığınızda, bunlar çalıştığından emin olmak amacıyla hizmetlerin geliştirme sırasında benimseme verimliliğini bağlıdır. Service Fabric, tek makinede yerel geliştirme ayarları ve gerçek üretim kümesi ayarlar arasında sorunsuz bir şekilde çalışabilir tanılama uygulamak hizmet geliştiricileri kolaylaştırır.
 
 ## <a name="event-tracing-for-windows"></a>Windows için olay izleme
-[Windows için olay izleme](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) Service Fabric izleme iletiler için önerilen teknolojisidir. ETW kullanmanın bazı avantajları şunlardır:
+[İçin olay izleme Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW), Service fabric'te izleme iletileri için önerilen teknolojisidir. ETW kullanmanın bazı avantajları şunlardır:
 
-* **ETW hızlıdır.** Kod yürütme süreleri etkisi en az bir izleme teknoloji olarak oluşturuldu.
-* **ETW İzleme, yerel geliştirme ortamları ve ayrıca gerçek küme kurulumları arasında sorunsuz çalışır.** Başka bir deyişle, gerçek bir kümeye kodunuzu dağıtmaya hazır olduğunuzda, izleme kodu yeniden yazmanız gerekmez.
-* **Service Fabric sistem kodu ETW iç izleme için de kullanır.** Bu, Service Fabric sistem izlemeleri ile araya eklemeli, uygulama izlemelerini görüntülemenize olanak sağlar. Ayrıca, daha kolay sıraları ve uygulama kodu ve olaylar birbiriyle temel sistemde anlamanıza yardımcı olur.
-* **Service Fabric Visual Studio Araçları ETW olayları görüntülemek üzere yerleşik desteği yoktur.** Visual Studio Service Fabric ile doğru şekilde yapılandırıldıktan sonra ETW olayları Visual Studio Tanılama Olayları görünümünde görüntülenir. 
+* **ETW hızlıdır.** Kod yürütme süreleri çok az etkisi olan izleme teknolojisi olarak oluşturulmuştur.
+* **ETW İzleme, yerel geliştirme ortamları ve ayrıca gerçek küme ayarları arasında sorunsuz çalışır.** Başka bir deyişle, gerçek bir küme için kodunuzu dağıtmaya hazır olduğunuzda, izleme kodu yeniden yazmanız gerekmez.
+* **Service Fabric sistem kodu ETW iç izleme için de kullanır.** Bu uygulama izlemelerinizi kullanarak Service Fabric sistem izlemeleri aralıklı görüntülemenize olanak sağlar. Bu ayrıca daha kolay dizileri ve uygulama kodu ve olaylar birbiriyle alttaki sistemde anlamanıza yardımcı olur.
+* **ETW olaylarını görüntülemek için Service Fabric Visual Studio Araçları'nda yerleşik desteği mevcuttur.** Visual Studio Service Fabric ile doğru şekilde yapılandırıldıktan sonra ETW olayları Visual Studio Tanılama Olayları görünümünde görünür. 
 
-## <a name="view-service-fabric-system-events-in-visual-studio"></a>Visual Studio'da Service Fabric sistem olayları görüntülemek
-Service Fabric uygulama geliştiricileri platform neler olduğunu anlamanıza yardımcı olmak için ETW olayları gösterir. Zaten yapmadıysanız, bir tane adımları [Visual Studio'da ilk uygulamanızı oluşturma](service-fabric-create-your-first-application-in-visual-studio.md). Bu bilgiler Tanılama Olayları Görüntüleyicisi izleme iletilerini gösteren bir uygulama başlamak ve çalıştırmak yardımcı olur.
+## <a name="view-service-fabric-system-events-in-visual-studio"></a>Visual Studio'da Service Fabric sistem olaylarını görüntüleyin
+Service Fabric uygulama geliştiricilerin platform neler olduğunu anlamanıza yardımcı olmak için ETW olayları gösterir. Zaten yapmadıysanız, devam edin ve adımları izleyerek [Visual Studio'da ilk uygulamanızı oluşturma](service-fabric-create-your-first-application-in-visual-studio.md). Bu bilgiler, uygulama Tanılama Olayları Görüntüleyicisi izleme iletilerini gösteren ayarlayıp çalıştırmaya başlamasına yardımcı olur.
 
-1. Olayları penceresi otomatik olarak göstermiyor, tanılama gidin, **Görünüm** sekmesinde Visual Studio'da, seçin **diğer pencereler** ve ardından **Tanılama Olayları Görüntüleyicisi**.
-2. Her bir olay düğümü, uygulama ve hizmet olayı geldiği belirten standart meta veri bilgisi yok. Kullanarak olayların listesini filtreleyebilirsiniz **filtre olayları** olayları pencerenin üstündeki kutusu. Örneğin, filtreleyebilirsiniz **düğüm adı** veya **hizmet adı.** Ve olay ayrıntılarını bakarken, ayrıca kullanarak duraklatabilirsiniz **duraklatma** olayları penceresinin en üstünde düğmesine tıklayın ve daha sonra olayları herhangi bir kayıp devam.
+1. Tanılama Olayları penceresinde otomatik olarak göstermiyor, Git, **görünümü** sekmesini Visual Studio'da, **diğer Windows** ardından **Tanılama Olayları Görüntüleyicisi**.
+2. Her olay, düğüm, uygulama ve hizmet olayı geldiğini belirten standart meta veri bilgilerini içerir. Kullanarak ayrıca olayların listesini filtreleyebilirsiniz **filtre olayları** olayları penceresinin üst kısmındaki kutusu. Örneğin, filtreleyebilirsiniz **düğüm adı** veya **hizmet adı.** Ve olay ayrıntılarını da bakarken, ayrıca kullanarak duraklatabilirsiniz **duraklatmak** olayları penceresinin en üstünde düğmesini tıklatın ve daha sonra olayları herhangi bir kayıp devam.
    
    ![Visual Studio Tanılama Olayları Görüntüleyicisi](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
 
-## <a name="add-your-own-custom-traces-to-the-application-code"></a>Uygulama kodu kendi özel izlemeleri ekleyin
-Service Fabric Visual Studio Proje şablonları örnek kod içerir. Kod hizmet yapıdan sistem izlemeleri yanı sıra Visual Studio ETW görüntüleyicide görünmesini özel uygulama kodu ETW izleri ekleme gösterir. Bu yöntemin avantajı meta verileri izlemeleri için otomatik olarak eklenir ve Visual Studio Tanılama Olayları Görüntüleyicisi bunları görüntülemek için zaten yapılandırıldı ' dir.
+## <a name="add-your-own-custom-traces-to-the-application-code"></a>Uygulama kodu kendi özel izleme ekleyin
+Service Fabric Visual Studio Proje şablonları, örnek kod içerir. Kod, Service Fabric sistem izlemeleri yanı sıra Visual Studio ETW görüntüleyicide görünmesini özel uygulama kodu ETW izlemelerini ekleme işlemi gösterilmektedir. Bu yöntemin avantajı, meta verileri izlemeleri için otomatik olarak eklenir ve bunları görüntülemek için Visual Studio Tanılama Olayları Görüntüleyicisi zaten yapılandırılmış olmanızdır.
 
-Oluşturulan projeleri için **hizmet şablonları** (durum bilgisiz veya durum bilgisi olan) yalnızca arama `RunAsync` uygulama:
+Oluşturulan projeleri için **hizmet şablonları** yalnızca arayın (durum bilgisi olan veya) `RunAsync` uygulama:
 
-1. Çağrı `ServiceEventSource.Current.ServiceMessage` içinde `RunAsync` yöntemi bir özel ETW İzleme örneği uygulama kodundan gösterir.
-2. İçinde **ServiceEventSource.cs** dosyası için bir aşırı bulacaksınız `ServiceEventSource.ServiceMessage` performans nedenlerden dolayı yüksek sıklıkta olayları için kullanılması gereken yöntemi.
+1. Çağrı `ServiceEventSource.Current.ServiceMessage` içinde `RunAsync` yöntem uygulama kodundan özel bir ETW İzleme örneği gösterilmektedir.
+2. İçinde **ServiceEventSource.cs** dosyası için bir aşırı yükleme bulacaksınız `ServiceEventSource.ServiceMessage` performansla ilgili nedenlerden dolayı yüksek sıklık düzeyindeki olayları için kullanılması gereken yöntemini.
 
-Oluşturulan projeleri için **aktör şablonları** (durum bilgisiz veya durum bilgisi olan):
+Oluşturulan projeleri için **aktör şablonları** (durum bilgisi olan veya):
 
-1. Açık **"ProjectName".cs** dosya nerede *ProjectName* Visual Studio projeniz için seçtiğiniz adıdır.  
-2. Kod Bul `ActorEventSource.Current.ActorMessage(this, "Doing Work");` içinde *DoWorkAsync* yöntemi.  Bu, uygulama kodundan yazılmış özel bir ETW İzleme örneğidir.  
-3. Dosyasındaki **ActorEventSource.cs**, aşırı için bulacaksınız `ActorEventSource.ActorMessage` performans nedenlerden dolayı yüksek sıklıkta olayları için kullanılması gereken yöntemi.
+1. Açık **"ProjectName".cs** dosya nerede *ProjectName* Visual Studio projeniz için seçtiğiniz adı.  
+2. Kodun bulunacağı `ActorEventSource.Current.ActorMessage(this, "Doing Work");` içinde *DoWorkAsync* yöntemi.  Bu, uygulama kodundan yazılan özel bir ETW İzleme örneğidir.  
+3. Dosyasındaki **ActorEventSource.cs**, aşırı için bulabilirsiniz `ActorEventSource.ActorMessage` performansla ilgili nedenlerden dolayı yüksek sıklık düzeyindeki olayları için kullanılması gereken yöntemini.
 
-Özel ETW İzleme hizmeti kodunuzu eklendikten sonra derleme, dağıtma ve yeniden Tanılama Olayları Görüntüleyicisi'nde, olay görmek için uygulamayı çalıştırın. Uygulama ile ayıklaması **F5**, tanılama olayları Görüntüleyicisi'ni otomatik olarak açılır.
+Özel ETW İzleme hizmeti kodunuza ekledikten sonra derleme, dağıtma ve tanılama olayları Görüntüleyicisi'nde, olaylar yeniden görmek için uygulamayı çalıştırın. Uygulama hatalarını ayıklıyorsanız **F5**, tanılama olayları Görüntüleyicisi'ni otomatik olarak açılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Yerel tanılama için, uygulamanıza eklediğiniz aynı izleme kodu, uygulamanızı Azure bir kümede çalışırken bu olayları görüntülemek için kullanabileceğiniz araçları ile çalışır. Araçları için farklı seçenekleri ele ve nasıl bunları ayarlayabilirsiniz açıklayan bu makalelere göz atın.
+Yerel tanılama için, uygulamanıza eklediğiniz aynı izleme kodu, uygulamanızı bir Azure kümesinde çalıştırırken bu olayları görüntülemek için kullanabileceğiniz araçları ile çalışır. Araçlar için farklı seçenekler hakkında konuşmak ve nasıl bunları ayarlayabilirsiniz açıklayan şu makalelere göz atın.
 
-* [Azure Tanılama ile günlükleri toplamak nasıl](service-fabric-diagnostics-how-to-setup-wad.md)
-* [Olay toplama ve EventFlow kullanarak koleksiyonu](service-fabric-diagnostics-event-aggregation-eventflow.md)
+* [Azure Tanılama ile günlük toplama](service-fabric-diagnostics-how-to-setup-wad.md)
+* [Olay toplama ve koleksiyon EventFlow kullanma](service-fabric-diagnostics-event-aggregation-eventflow.md)
 

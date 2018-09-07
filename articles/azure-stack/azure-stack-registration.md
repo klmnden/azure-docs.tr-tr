@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 5a6dcddce3337989a7a34515570ac3277aa1edd5
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 52d0706177482e162d1f4bc038c967a4596fd3b3
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841939"
+ms.locfileid: "44024867"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack Azure ile kaydedin
 
@@ -45,7 +45,7 @@ Kaydetmeden önce aşağıdakiler yerinde gerekir:
 
 Azure Stack Azure ile kaydetmeden önce şunlara sahip olmalısınız:
 
-- Abonelik kimliği için bir Azure aboneliği. Kimliğini almak için Azure'da oturum açın, sırayla **diğer hizmetler** > **abonelikleri**, kullanmak istediğiniz aboneliğe tıklayın ve altında **Essentials** bulabilirsiniz Abonelik kimliği
+- Abonelik kimliği için bir Azure aboneliği. Kimliğini almak için Azure'da oturum açın, sırayla **tüm hizmetleri**. Ardından, altında **genel** kategorisi seçin **abonelikleri**, kullanmak istediğiniz aboneliğe tıklayın ve altında **Essentials** abonelik kimliği bulabilirsiniz
 
   > [!Note]  
   > Almanya bulut abonelikleri şu anda desteklenmemektedir.
@@ -284,7 +284,7 @@ Azure Stack ortamına, Get-AzsActivationKey oluşturulan etkinleştirme anahtar�
 Azure Stack, Azure ile başarılı bir şekilde kaydedildiğini doğrulamak için aşağıdaki adımları kullanın.
 
 1. Azure Stack oturum [Yönetici portalı](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;bölge >. &lt;fqdn >*.
-2. Seçin **diğer hizmetler** > **Market Yönetim** > **Azure'dan ekleme**.
+2. Seçin **tüm hizmetleri**ve ardından altındaki **Yönetim** kategorisi, select **Market Yönetim** > **azure'danEkle**.
 
 (Örneğin, WordPress) azure'dan kullanılabilir öğeleri listesini görürseniz, etkinleştirme başarılı oldu. Ancak, bağlantısı kesilmiş ortamlarda, Azure Stack marketini Azure Market öğeleri tarafından görülmez.
 

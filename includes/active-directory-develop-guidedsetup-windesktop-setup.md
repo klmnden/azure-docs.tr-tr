@@ -15,51 +15,55 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 5e933406b266b8371019abf0f62365184d8900b3
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: c5d61da61f6ec98a1cac37ce9b12b28019ce2ae1
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36205253"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44058289"
 ---
-## <a name="set-up-your-project"></a>Projenizin kurulumunu
+## <a name="set-up-your-project"></a>Projenizi ayarlama
 
-Bu bölümde bir Windows Masaüstü .NET uygulaması (XAML) tümleştirme göstermek için yeni bir proje ile oluşturduğunuz *Microsoft ile oturum açma* uygulama bir belirteci gerektiren Web API'leri sorgulayabilmesi.
+Bu bölümde ile nasıl tümleştireceğinizi Windows Masaüstü .NET uygulaması (XAML) göstermek için yeni bir proje oluşturma *Microsoft ile oturum açma* uygulama bir belirteç gerektiren bir Web API sorgulama yapabilirsiniz.
 
-Bu kılavuz ile oluşturduğunuz uygulama bir grafik ekranında sonuçları görüntülemek için bir alana çağırmak için kullanılan bir düğme ve oturum kapatma düğmesini görüntüler.
+Çağrı grafı, ekrandaki sonuçları göstermek için bir alan için kullanılan bir düğme ve oturum kapatma düğmesi ile bu kılavuz, oluşturduğunuz uygulamayı görüntüler.
 
 > [!NOTE]
-> Bunun yerine bu örneği ait Visual Studio projesi indirmeyi tercih ediyorsunuz? [Bir proje indirme](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip)ve geçin [yapılandırma adımı](#register-your-application) kod örneği, yürütmeden önce yapılandırmak için.
+> Bunun yerine bu örneği ait Visual Studio projeyi indirmek tercih ediyorsunuz? [Bir projeyi indirirken](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip)ve atlamak [yapılandırma adımı](#register-your-application) yürütmeden önce onun kod örneği yapılandırmak için.
 >
 
 Uygulamanızı oluşturmak için aşağıdakileri yapın:
-1. Visual Studio'da seçin **dosya** > **yeni** > **proje**.
+1. Visual Studio'da **dosya** > **yeni** > **proje**.
 2. Altında **şablonları**seçin **Visual C#**.
-3. Seçin **WPF uygulaması** veya **WPF uygulaması**bağlı olarak kullanmakta olduğunuz Visual Studio sürümü.
+3. Seçin **WPF uygulaması** veya **WPF uygulaması**kullanmakta olduğunuz Visual Studio sürümü bağlı olarak.
 
-## <a name="add-msal-to-your-project"></a>MSAL projenize ekleyin
-1. Visual Studio'da seçin **Araçları** > **NuGet Paket Yöneticisi**> **Paket Yöneticisi Konsolu**.
-2. Paket Yöneticisi konsolu penceresinde, aşağıdaki Azure PowerShell komutunu yapıştırın:
+## <a name="add-msal-to-your-project"></a>MSAL projenize ekleyin.
+1. Visual Studio'da **Araçları** > **NuGet Paket Yöneticisi**> **Paket Yöneticisi Konsolu**.
+2. Paket Yöneticisi konsolu penceresinde, aşağıdaki Azure PowerShell komutu yapıştırın:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre
+    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
     ```
 
     > [!NOTE] 
-    > Bu komut, Microsoft kimlik doğrulama kitaplığı yükler. MSAL alınırken önbelleğe alma ve Azure Active Directory v2 tarafından korunan API'leri erişmek için kullanılan kullanıcı belirteçleri yenilemeyi işler.
+    > Bu komut, Microsoft kimlik doğrulama kitaplığı yükler. MSAL alınırken, önbelleğe alma ve Azure Active Directory v2 tarafından korunan API'lerine erişmek için kullanılan kullanıcı belirteçleri yenileme işler.
     >
 
-## <a name="add-the-code-to-initialize-msal"></a>MSAL başlatmak için kod ekleme
-Bu adımda, MSAL, etkileşim belirteçleri işleme gibi işlemek için bir sınıf oluşturun.
+    > [!NOTE]
+    > Bu hızlı başlangıçta daha önceden kullanımı henüz MSAL.NET, en son sürümünü ancak güncelleştirme üzerinde çalışıyoruz
+    > 
 
-1. Açık *App.xaml.cs* dosyasını bulun ve ardından başvuru için MSAL sınıfına ekleyin:
+## <a name="add-the-code-to-initialize-msal"></a>MSAL başlatmak için kodu ekleyin
+Bu adımda, belirteçlerin işleme gibi MSAL, etkileşim işlemek için bir sınıf oluşturun.
+
+1. Açık *App.xaml.cs* dosya ve başvuru için MSAL sınıfı ekleyin:
 
     ```csharp
     using Microsoft.Identity.Client;
     ```
 <!-- Workaround for Docs conversion bug -->
 
-2. Uygulama sınıfı şu güncelleştirin:
+2. Uygulama sınıfına aşağıdaki gibi güncelleştirin:
 
     ```csharp
     public partial class App : Application
@@ -75,9 +79,9 @@ Bu adımda, MSAL, etkileşim belirteçleri işleme gibi işlemek için bir sın�
 
 ## <a name="create-the-application-ui"></a>Uygulama kullanıcı Arabirimi oluşturma
 
-Bu bölümde, bir uygulama gibi Microsoft Graph korumalı bir arka uç sunucusu nasıl sorgulayabilir gösterir. 
+Bu bölümde, Microsoft Graph gibi korumalı bir arka uç sunucusu uygulama nasıl sorgulayabilirsiniz gösterilir. 
 
-A *MainWindow.xaml* dosya proje şablonu bir parçası olarak otomatik olarak oluşturulmalıdır. Bu dosyayı açın ve ardından, uygulamanızın değiştirin  *\<kılavuz >* aşağıdaki kodla düğümü:
+A *MainWindow.xaml* dosyası, proje şablonunun bir parçası olarak otomatik olarak oluşturulmalıdır. Bu dosyayı açın ve ardından uygulamanızın değiştirin  *\<kılavuz >* aşağıdaki kodla düğüm:
 
 ```xml
 <Grid>

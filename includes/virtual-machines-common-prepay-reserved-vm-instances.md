@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 08-07-2018
-ms.openlocfilehash: 6be00937a6645fbdd266ac0b1aa1ce95ecc6c3d9
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.date: 09-05-2018
+ms.openlocfilehash: 75e493f6b2e47bf3323df9e52ad3a933a6efbead
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301874"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44058342"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme
 
@@ -50,9 +50,9 @@ Ayrılmış VM örnekleri, bazı özel durumlar ile çoğu VM boyutları için k
     |Ad        |Bu rezervasyon adı.| 
     |Abonelik|Ayırma için ödeme yapmak üzere kullanılan abonelik. Aboneliğinizin ödeme yöntemini, ön maliyet ayırma için ücretlendirilir. Abonelik, kurumsal anlaşma (teklif numarası: MS-AZR-0017P) veya Kullandıkça Öde (teklif numarası: MS-AZR-0003P) türündedir. Kurumsal abonelik için ücretler kaydın maddi işlem bakiyesinden düşülür ve fazla kullanım olarak ücretlendirilir. Kullandıkça Öde aboneliğinde ücretler, aboneliğin kredi kartı veya fatura ödeme yöntemi ile faturalandırılır.|    
     |Kapsam       |Ayırma'nın kapsamı, bir abonelik veya birden çok abonelik (paylaşılan kapsamı) ele. Seçerseniz: <ul><li>Tek bir abonelik - ayırma indirimini bu abonelikte Vm'lere uygulanır. </li><li>Paylaşılan - ayırma indirimi herhangi bir abonelik, fatura bağlamı içinde çalışan Vm'lere uygulanır. Kurumsal müşteriler için Paylaşılan kapsam kayıt ve kayıt (geliştirme ve test abonelikleri) hariç tüm aboneliklere dahildir. Kullandıkça Öde müşterileri için paylaşılan tüm Kullandıkça Öde abonelikleri Hesap Yöneticisi tarafından oluşturulan kapsamdır.</li></ul>|
-    |Konum    |Ayırma tarafından kapsanan Azure bölgesi.|    
+    |Bölge    |Ayırma tarafından kapsanan Azure bölgesi.|    
     |VM Boyutu     |Sanal makine örneği boyutu.|
-    |En iyi duruma getir:     |Sanal makine örneği boyutu esnekliği, aynı diğer VM'ler için ayırma indirimi geçerlidir [VM boyutu grubu](https://aka.ms/RIVMGroups). Kapasite önceliği dağıtımlarınız için veri merkezi kapasite ayırır. Bu, ihtiyaç duyduğunuzda sanal makine örneklerini başlatma yeteneğinizi ek güvence sunar. Kapasite önceliği yalnızca ayırma kapsamı tek bir abonelik olduğunda kullanılabilir. |
+    |En iyi duruma getir:     |Sanal makine örneği boyutu esnekliği, aynı diğer VM'ler için ayırma indirimi geçerlidir [VM boyutu grubu](https://aka.ms/RIVMGroups). Kapasite önceliği dağıtımlarınız için veri merkezi kapasitenizi önceliklendirir. Bu, ihtiyaç duyduğunuzda sanal makine örneklerini başlatma yeteneğinizi ek güvence sunar. Kapasite önceliği yalnızca ayırma kapsamı tek bir abonelik olduğunda kullanılabilir. |
     |Sözleşme Dönemi        |Bir yıl veya üç yıl.|
     |Miktar    |İçinde rezervasyon satın örnek sayısı. Çalışan faturalandırma indirim almak sanal makine örneği sayısını miktarıdır. Doğu ABD bölgesinde 10 işler için standart_d2 VM çalıştırıyorsanız, örneğin, ardından, miktar avantajı tüm çalışan makineler için en üst düzeye çıkarmak için 10 olarak belirtmeniz gerekir. |
 5. Seçtiğinizde, rezervasyon maliyeti görüntüleyebilirsiniz **maliyeti hesaplamak**.
@@ -63,6 +63,12 @@ Ayrılmış VM örnekleri, bazı özel durumlar ile çoğu VM boyutları için k
 7. Seçin **bu rezervasyonu görüntüle** satın alma işleminizi durumunu görmek için.
 
     ![Rezervasyon satın alma gönderdikten sonra ekran görüntüsü](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
+
+## <a name="cancellations-and-exchanges"></a>İptalleri ve değişimler
+
+Rezervasyonunuz iptal etmeniz gerekiyorsa, % 12 erken sonlandırma ücreti olabilir. Para iadesi veya satın alma fiyatına, hem de ayırmanın geçerli fiyatını düşük fiyatı temel alınarak temel alır. Para iadesi yıl başına 50.000 TL sınırlıdır. Para iadesi alırsınız % 12 erken sonlandırma ücreti kalan günlere Bakiye ' dir. Azure portal ve select ayırma Git bir iptal isteğinde bulunmak **para iadesi** bir destek isteği oluşturmak için.
+
+Başka bir bölge, VM boyutu grubu veya terimi, ayrılmış VM örnekleri ayırma değiştirmeniz gerekiyorsa, eşit veya daha fazla değeri için başka bir ayırma gönderip alabilir. Yeni Ayırma dönemi başlangıç tarihi alışverişi olur ayırma aktarılmaz. 1 veya 3 yıllık dönemin yeni ayırma oluştururken başlatır. Bir exchange istemek için Azure portalında ayırma gidin ve seçin **Exchange** bir destek isteği oluşturmak için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
