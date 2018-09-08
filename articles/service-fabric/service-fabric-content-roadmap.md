@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: d4b27feab5c1bb5913d2ba26f7f43aca9a899aa0
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b24860aaf10ba483aeab54d215816314a7d0bc36
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697678"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162861"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Bu nedenle, Service Fabric hakkında öğrenmek ister misiniz?
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur.  Ancak, Service Fabric, büyük bir yüzey alanı vardır ve öğreneceğiniz çok şey yoktur.  Bu makale, Service fabric'in bir özeti sağlar ve programlama modellerini, uygulama yaşam döngüsü, test, kümeler ve sistem durumu izleme temel kavramları açıklar. Okuma [genel bakış](service-fabric-overview.md) ve [mikro hizmetler nedir?](service-fabric-overview-microservices.md) giriş ve Service Fabric mikro hizmetler oluşturmak için nasıl kullanılabilir. Bu makalede, kapsamlı bir içerik listesi içermiyor, ancak genel bakış ve Service Fabric için her bir alanı Başlarken makaleleri bağlantı. 
@@ -84,7 +84,7 @@ Durum bilgisi olmayan olanları yanı sıra durum bilgisi olan mikro hizmetler n
 Service Fabric, yazma ve hizmetlerinizi yönetmek için birden çok yol sunar. Hizmetleri, tam anlamıyla platformun özellikleri ve uygulama çerçeveleri için Service Fabric API'leri kullanabilirsiniz. Hizmetleri, herhangi bir dilde yazılmış ve bir Service Fabric kümede barındırılan derlenmiş bir yürütülebilir programı da olabilir. Daha fazla bilgi için [desteklenen programlama modelleri](service-fabric-choose-framework.md).
 
 ### <a name="containers"></a>Kapsayıcılar
-Varsayılan olarak, Service Fabric dağıtır ve hizmet işlemleri olarak etkinleştirir. Service Fabric ayrıca Hizmetleri dağıtma [kapsayıcıları](service-fabric-containers-overview.md). Önemlisi, hizmetleri ve kapsayıcıları aynı uygulama Hizmetleri'nde karıştırabilirsiniz. Service Fabric Linux kapsayıcıları Windows kapsayıcıları dağıtımı, Windows Server 2016'da destekler. Var olan uygulamalar, durum bilgisi olmayan hizmetler veya durum bilgisi olan hizmetlerle kapsayıcılardaki dağıtabilirsiniz. 
+Varsayılan olarak, Service Fabric dağıtır ve hizmet işlemleri olarak etkinleştirir. Service Fabric ayrıca Hizmetleri dağıtma [kapsayıcıları](service-fabric-containers-overview.md). Önemlisi, hizmetleri ve kapsayıcıları aynı uygulama Hizmetleri'nde karıştırabilirsiniz. Service Fabric Linux kapsayıcıları ve Windows kapsayıcıları dağıtımı, Windows Server 2016'da destekler. Var olan uygulamalar, durum bilgisi olmayan hizmetler veya durum bilgisi olan hizmetlerle kapsayıcılardaki dağıtabilirsiniz. 
 
 ### <a name="reliable-services"></a>Reliable Services
 [Reliable Services](service-fabric-reliable-services-introduction.md) hizmetler Service Fabric platformu ile tümleştirin ve platform özellikleri tam kümesinden yararlanmak yazmak için basit bir çerçevedir. Güvenilir Hizmetleri durum bilgisiz olabilir (benzer şekilde, web sunucuları veya Azure Cloud Services çalışan rolleri gibi çoğu hizmet platformu), burada durumu kalıcıdır Azure DB veya Azure tablo depolama gibi harici bir çözümde. Reliable Services hizmeti kendisini güvenilir koleksiyonlar kullanarak doğrudan durum burada kalıcı durum bilgisi olan, de olabilir. Durum yapılan [yüksek oranda kullanılabilir](service-fabric-availability-services.md) çoğaltmayla ve dağıtılmış aracılığıyla [bölümleme](service-fabric-concepts-partitioning.md), Service Fabric tarafından otomatik olarak tüm yönetilen.

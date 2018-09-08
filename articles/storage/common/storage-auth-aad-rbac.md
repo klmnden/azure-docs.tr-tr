@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 75b7ecac465fa12b1e19ca409d1535d89c755801
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 7dde80d8134a6f30f4f32086a2dd030712051256
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021896"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093151"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>RBAC (Önizleme) ile Azure depolama verilere erişim haklarını yönetme
 
@@ -34,10 +34,7 @@ Hakkında daha fazla bilgi için Azure depolama için yerleşik roller tanımlan
 
 Kapsayıcılar ve Kuyruklar ile kullanmak için özel roller de tanımlayabilirsiniz. Daha fazla bilgi için [Azure rol tabanlı erişim denetimi için özel roller oluşturma](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
 
-> [!IMPORTANT]
-> Bu önizleme, yalnızca üretim dışı kullanması için tasarlanmıştır. Azure AD tümleştirmesi için Azure depolama genel kullanıma sunulan bildirildiği kadar üretim hizmet düzeyi sözleşmeleri (SLA'lar) kullanılamaz. Azure AD tümleştirme senaryonuz için henüz desteklenmiyor, uygulamalarınızda paylaşılan anahtar yetkilendirme veya SAS belirteçlerini kullanmaya devam. Önizleme hakkında ek bilgi için bkz: [erişim Azure Active Directory (Önizleme) kullanarak Azure depolama için kimlik doğrulaması](storage-auth-aad.md).
->
-> Önizleme sırasında RBAC rolü atamalarını yayılması için beş dakika sürebilir.
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="assign-a-role-to-a-security-principal"></a>Bir güvenlik sorumlusu için rol atama
 

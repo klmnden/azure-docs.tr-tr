@@ -1,6 +1,6 @@
 ---
-title: Özel raporlar verizon'dan | Microsoft Docs
-description: 'Aşağıdaki raporlar kullanarak, CDN için kullanım desenlerini görüntüleyebilirsiniz: bant genişliği, aktarılan verileri, isabet, önbellek durumları, önbellek isabet oranı, IPv4/IPv6 aktarılan veriler.'
+title: Verizon özel raporları | Microsoft Docs
+description: "Aşağıdaki Raporlar'ı kullanarak, CDN kullanım biçimlerini görüntüleyebilirsiniz: bant genişliğini, aktarılan veriler, isabet sayısı, önbellek durumları, önbellek isabet oranını, IPv4/IPv6 aktarılan veriler."
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -14,79 +14,79 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: v-deasim
-ms.openlocfilehash: f09195dc07a96ebcca7f7a9e4bcf521fae13630c
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: f18b6edb900640e48e5ca87639f71cec9287af38
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26343897"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159750"
 ---
-# <a name="custom-reports-from-verizon"></a>Verizon'dan özel raporlar
+# <a name="custom-reports-from-verizon"></a>Verizon özel raporları
 
-[!INCLUDE[cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Verizon profillerini Verizon özel raporları Yönet portalı yoluyla kullanarak kenar CNAME'ler raporlar için toplanacak veri türünü tanımlayabilirsiniz.
+Verizon özel raporları Yönet portal Verizon profilleri için kullanarak, edge CNAME'ler raporlar için toplanacak veri türü tanımlayabilirsiniz.
 
 
-## <a name="accessing-verizon-custom-reports"></a>Verizon özel raporlar erişme
+## <a name="accessing-verizon-custom-reports"></a>Verizon özel raporları erişme
 1. CDN profili dikey penceresinden tıklayın **Yönet** düğmesi.
    
     ![CDN profili Yönet düğmesi](./media/cdn-reports/cdn-manage-btn.png)
    
-    CDN Yönetim Portalı'nı açar.
-2. Üzerine gelerek **Analytics** sekmesini ve ardından üzerine gelerek **özel raporlar** çıkma. Tıklatın **kenar CNAME'ler**.
+    CDN yönetim portalına açılır.
+2. Üzerine **Analytics** sekmesine ve ardından üzerine **özel raporlar** açılır öğesi. Tıklayın **kenar CNAME'ler**.
    
-    ![CDN Yönetim Portalı - menü özel raporlar](./media/cdn-reports/cdn-custom-reports.png)
+    ![CDN yönetim portalına - özel menü bildirir.](./media/cdn-reports/cdn-custom-reports.png)
 
-## <a name="edge-cnames-custom-report"></a>Edge CNAME'ler özel raporu
-Edge CNAME'ler özel rapor için özel rapor günlük etkinleştirildiği kenar CNAME'ler isabetler ve aktarılan veri istatistikleri sağlar. Edge CNAME'ler Azure CDN uç noktası ana bilgisayar adları ve tüm ilişkili özel etki alanı ana bilgisayar adları oluşur. 
+## <a name="edge-cnames-custom-report"></a>Edge CNAME'ler özel rapor
+Edge CNAME'ler özel rapor için özel rapor günlük etkinleştirildiği edge CNAME'ler isabet sayısı ve aktarılan veriler istatistikler sağlar. Azure CDN uç noktası ana bilgisayar adları ve tüm ilişkili özel etki alanı ana bilgisayar adları Edge CNAME'ler oluşur. 
 
-Özel rapor veri günlük kaydı bir bir sınır CNAME'ın özel raporlama özelliği etkinleştirdikten sonra saat başlar. Tüm platformlar için veya belirli bir platform için bir sınır CNAME'ler raporu oluşturarak, rapor verilerini görüntüleyebilirsiniz. Bu rapor için kapsamı özel rapor verilerini belirtilen süre içinde toplanan kenar CNAME'ler sınırlıdır. Kenarın CNAME'ler rapor üst 10 kenarı CNAMEs için bir grafik ve veri tablosu ölçümleri seçeneğinde tanımlanan ölçüm göre oluşur. 
+Bir edge CNAME'ın özel raporlama özelliği etkinleştirdikten sonra bir saat özel rapor veri günlük kaydı başlar. Rapor verileri, belirli bir platform için veya tüm platformlar için bir kenar CNAME'ler raporu oluşturarak görüntüleyebilirsiniz. Bu rapor için kapsamı özel rapor verilerini belirtilen süre içinde toplanan kenar CNAME'ler sınırlıdır. Ölçümleri seçeneğinde tanımlı ölçüm göre bir grafik ve veri tablosu için 10 üst kenarı CNAME'ler CNAME'ler rapor edge oluşur. 
 
-Aşağıdaki rapor seçeneklerini tanımlayarak özel bir rapor oluşturmak:
+Özel bir rapor, aşağıdaki rapor seçeneklerini tanımlayarak oluştur:
 
-- Ölçümler: Aşağıdaki seçenekleri desteklenir:
+- Ölçüm: Aşağıdaki seçeneklerden desteklenir:
 
-   - İsabet: özel raporlama özelliği etkin olduğu bir kenar CNAME yönlendirilmiş isteklerinin toplam sayısını gösterir. Bu ölçüm, istemciye döndürülen durum kodu içermez.
+   - İsabet sayısı: özel raporlama özelliği etkin olduğu bir kenar CNAME yönlendirilen isteklerin toplam sayısını gösterir. Bu ölçüm, istemciye döndürülen durum kodu içermez.
 
-   - Veri transfer: özel raporlama özelliği etkin olduğu bir kenar CNAME yönlendirilmiş istekleri için toplam uç sunuculardan (örneğin, web tarayıcıları) HTTP istemcilere aktarılan veri miktarını gösterir. Aktarılan veri miktarını yanıt gövdesi için HTTP yanıt üstbilgilerini ekleyerek hesaplanır. Sonuç olarak, her varlık için aktarılan veri miktarını, gerçek dosya boyutundan daha büyük.
+   - Veri transfer: özel raporlama özelliği etkin olduğu bir kenar CNAME yönlendirilen istekler için toplam HTTP istemciler (örneğin, web tarayıcıları) için edge sunuculardan aktarılan veri miktarını gösterir. Yanıt gövdesi için HTTP yanıt üst bilgilerini ekleyerek, aktarılan veri miktarı hesaplanır. Sonuç olarak, her varlık için aktarılan veri miktarı, gerçek dosya boyutundan büyük.
 
-- Gruplandırmalar: çubuk grafik gösterilen istatistikleri türünü belirler. Aşağıdaki seçenekleri desteklenir:
+- Gruplandırmaları: çubuk grafik gösterilen istatistikleri türünü belirler. Aşağıdaki seçenekler desteklenir:
 
    - HTTP yanıt kodları: istatistikleri HTTP yanıt koduna göre düzenler (örneğin, 200, 403, istemciye döndürülen vb.). 
 
    - Önbellek durumu: istatistikleri önbellek durumuna göre düzenler.
 
 
-Rapor için tarih aralığını ayarlamak için ya da önceden tanımlanmış tarih aralığı gibi seçebileceğiniz **Bugün** veya **bu hafta**, aşağı açılan listeden ya da, seçebilirsiniz **özel** ve Takvim simgelere tıklayarak el ile bir tarih aralığı girin. 
+Rapor için tarih aralığını ayarlamak için ya da bir önceden tanımlanmış tarih aralığı gibi seçebileceğiniz **Bugün** veya **bu hafta**, aşağı açılan listesinden veya, seçebilirsiniz **özel** ve el ile Takvim simgelere tıklayarak bir tarih aralığı girin. 
 
-Tarih aralığı seçtikten sonra tıklatın **Git** raporu oluşturmak için.
+Tarih aralığı seçtikten sonra tıklayın **Git** raporu oluşturmak için.
 
-Sağındaki Excel simgesini tıklatarak verileri Excel biçiminde dışarı aktarabilirsiniz **Git** düğmesi.
+Excel simgesine sağ tıklayarak verileri Excel biçiminde dışarı aktarabilirsiniz **Git** düğmesi.
 
-![CNAMEs raporu](./media/cdn-reports/cdn-cnames-report.png)
+![CNAME'ler raporu](./media/cdn-reports/cdn-cnames-report.png)
 
 ## <a name="edge-cnames-custom-report-fields"></a>Edge CNAME'ler özel rapor alanları
 
 | Alan                     | Açıklama   |
 |---------------------------|---------------|
-| 2xx                       | İstekleri ya da aktarılan veriler (MB) bir 2xx HTTP durum kodunu sonuçları CNAME kenar için toplam sayısını gösterir (örneğin, 200 Tamam). |
-| 3xx                       | İstekleri ya da aktarılan veriler (MB) bir 3xx HTTP durum kodunu sonuçları CNAME kenar için toplam sayısını gösterir (örneğin, 302 bulundu veya 304 değiştirilemez. |
-| 4xx                       | İstekleri ya da aktarılan veriler (MB) bir 4xx HTTP durum kodunu sonuçları CNAME kenar için toplam sayısını gösterir (örneğin, 400 Hatalı istek, 403 Yasak veya 404 bulunamadı). |
-| 5XX                       | Kenarın bir 5xx HTTP durum kodunu (örneğin, 500 İç sunucu hatası veya hatalı 502 ağ geçidi) sonuçları CNAME için istekleri ya da aktarılan veriler (MB) toplam sayısını gösterir. |
-| İsabetli Önbellek Okuma Yüzdesi               | Doğrudan önbelleğinden istemciye sunulduğunu alınabilir isteklerinin yüzdesini gösterir. |
-| İsabetli Önbellek Okuma Sayısı                | İstekleri ya da aktarılan veriler (MB) bir önbellek isabet (örneğin, TCP_EXPIRED_HIT, TCP_HIT veya TCP_PARTIAL_HIT) sonuçları CNAME kenar için toplam sayısını gösterir. İstenen içerik önbelleğe alınmış bir sürümü bulunan bir önbellek isabet oluşur. |
-| Aktarılan veriler (MB)     | Toplam aktarılan veri miktarını (MB) uç sunuculardan için CNAME kenar HTTP istemcileri (web tarayıcıları) gösterir. Aktarılan veri miktarını yanıt gövdesi için HTTP yanıtı üstbilgileri ekleyerek hesaplanır. Sonuç olarak, her varlık için aktarılan veri miktarını, gerçek dosya boyutundan daha büyük. |
+| 2xx                       | İstekler veya aktarılan veri (MB) 2xx HTTP durum kodunda sonuçlanan CNAME edge için toplam sayıyı belirtir (örneğin, 200 Tamam). |
+| 3xx                       | İstekler veya aktarılan veri (MB) 3xx HTTP durum kodunda sonuçlanan CNAME edge için toplam sayıyı belirtir (örneğin, 302 bulunamadı veya 304 değiştirilmedi. |
+| 4xx                       | İstekler veya aktarılan veri (MB) HTTP 4xx durum kodunda sonuçlanan CNAME edge için toplam sayıyı belirtir (örneğin, 400 Hatalı istek, 403 Yasak veya 404 bulunamadı). |
+| 5XX                       | Edge 5xx HTTP durum koduna (örneğin, 500 İç sunucu hatası veya 502 hatalı ağ geçidi) sonuçları CNAME için istekleri ya da aktarılan veri (MB) toplam sayısını gösterir. |
+| Önbellek isabet yüzdesi               | Önbellekten doğrudan istemciye sunulduğunu önbelleğe istek yüzdelerini gösterir. |
+| İsabetli Önbellek Okuma Sayısı                | İstekleri ya da aktarılan veri (MB) önbellek isabet (örneğin, TCP_EXPIRED_HIT, TCP_HIT veya TCP_PARTIAL_HIT) içinde sonuçları CNAME edge için toplam sayısını gösterir. İstenen içeriği önbelleğe alınmış bir sürümü bulunan bir önbellek isabet gerçekleşir. |
+| Aktarılan veri (MB)     | Toplam aktarılan veri miktarı (MB) uç sunuculardan CNAME edge için HTTP istemcilere (web tarayıcıları) gösterir. Yanıt gövdesi için HTTP yanıt üst bilgilerini ekleyerek, aktarılan veri miktarı hesaplanır. Sonuç olarak, her varlık için aktarılan veri miktarı, gerçek dosya boyutundan büyük. |
 | Açıklama               | Kendi ana bilgisayar adı bir çizgiyle CNAME tanımlar |
-| İsabetli                      | Kenarın CNAME isteklerine toplam sayısını gösterir. |
-| İsabetsiz                    | İstekleri ya da aktarılan veriler (MB) kenarın önbellek isabetsizliği (örneğin, TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS veya TCP_MISS) içinde sonuçları CNAME için toplam sayısını gösterir. Önbellek isabetsizliği, istenen içerik isteği dikkate alınır uç sunucusunda önbelleğe alınmamış oluşur. | 
-| Önbellek yok                  | İstekleri ya da aktarılan veriler (MB) CONFIG_NOCACHE önbellek durum koduna sonuçları CNAME kenar için toplam sayısını gösterir.  |
-| Diğer                     | İsteklerini veya 2xx - 5xx aralık dışında kalan bir HTTP durum kodu sonuçlanır CNAME kenar için aktarılan (MB) belirtilen veri toplam sayısını gösterir. |
-| Platform                  | Edge CNAME'ın trafiğini işler platform gösterir. |
-| Atanmamış               | İstekleri ya da aktarılan veriler (MB) toplam sayısı hangi önbellek durum kodunu veya HTTP durum kodu için bilgi değil kaydedilen kenar CNAME için gösterir.  |
-| Uncacheable               | İstekleri ya da aktarılan veriler (MB) bir UNCACHEABLE önbellek durum kodunu sonuçları CNAME kenar için toplam sayısını gösterir.  |
+| İsabet sayısı                      | CNAME edge istekleri toplam sayısını gösterir |
+| İsabetsiz                    | İstekleri ya da aktarılan veri (MB) önbellek isabetsizliği içinde (örneğin, TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS veya TCP_MISS) sonuçları CNAME edge için toplam sayısını gösterir. Önbellek isabetsizliği talep edilen içeriği istek kabul uç sunucuda önbelleğe alınmamış oluşur. | 
+| Önbellek yok                  | İstekleri ya da aktarılan veri (MB) için edge CONFIG_NOCACHE önbellek durum koduna sonuçları CNAME toplam sayısını gösterir.  |
+| Diğer                     | İsteklerini veya 2xx - 5xx aralığında dışında kalan bir HTTP durum kodu ile sonuçlanır, edge CNAME için aktarılan (MB) belirtilen veri toplam sayısını gösterir. |
+| Platform                  | Edge CNAME'ın trafiği işleme platformu belirtir. |
+| Atanmamış               | Toplam istekler veya aktarılan veri (MB) için edge CNAME bilgi değil hangi önbellek durum kodu veya HTTP durum kodunu günlüğe gösterir.  |
+| Uncacheable               | İstekleri ya da aktarılan veri (MB) bir UNCACHEABLE önbellek durum kodunda sonuçlanan CNAME edge için toplam sayısını gösterir.  |
 
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
-Raporları yalnızca son 18 ay içinde oluşturulabilir.
+Raporlar yalnızca son 18 ay içinde oluşturulabilir.
 

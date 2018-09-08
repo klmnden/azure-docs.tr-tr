@@ -15,18 +15,21 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: a58905d4e6ab22af38bb06b41a4523e6e5ddf86e
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 27f9e0a3875b8d7e9411517863f7d7c2f6982ab3
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028695"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158645"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>SSS ve Azure kaynakları için yönetilen kimliklerle bilinen sorunlar
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 ## <a name="frequently-asked-questions-faqs"></a>Sık Sorulan Sorular (SSS)
+
+> [!NOTE]
+> Azure kaynakları için yönetilen kimlikleri daha önce yönetilen hizmet kimliği (MSI) olarak bilinen hizmetin yeni adıdır.
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>Azure kaynakları için yönetilen kimlikleri, Azure Cloud Services ile çalışır mı?
 
@@ -49,7 +52,7 @@ VM'ler ile Azure kaynakları için yönetilen kimliklerle, Azure kaynaklarını 
 3. Tarafından yönetilen kimlikleri Azure kaynakları için kullanılan sertifikaları artık VM yok. 
 4. Bir bilinen yönlendirilemeyen IP adresi, VM içinden yalnızca bulunan IMDS uç nokta var. 
 
-VM uzantısı Günümüzde kullanılan hala kullanılabilir Azure kaynakları için yönetilen kimlikleri; ancak biz varsayılan IMDS uç noktayı kullanarak ilerletme. VM uzantısı üzerinde bir kullanımdan kaldırma başlayacak Azure kaynakları için yönetilen kimlikleri yakında planlayın. 
+VM uzantısı Günümüzde kullanılan hala kullanılabilir Azure kaynakları için yönetilen kimlikleri; ancak biz varsayılan IMDS uç noktayı kullanarak ilerletme. VM uzantısını Azure kaynakları için yönetilen kimlikleri Ocak 2019 ' kullanımdan kaldırılacaktır. 
 
 Azure örnek meta veri hizmeti hakkında daha fazla bilgi için bkz. [IMDS belgeleri](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
@@ -57,7 +60,7 @@ Azure örnek meta veri hizmeti hakkında daha fazla bilgi için bkz. [IMDS belge
 
 Azure Iaas tarafından desteklenen tüm Linux dağıtımları ile yönetilen kimlikleri IMDS uç noktası aracılığıyla Azure kaynakları için kullanılabilir. 
 
-Not: Azure kaynakları VM uzantısı yalnızca destekler aşağıdaki Linux dağıtımları için yönetilen kimlikleri:
+Not: Yönetilen kimlikleri (Ocak 2019'da kullanımdan kaldırma planlanan) VM uzantısını Azure kaynakları için yalnızca aşağıdaki Linux dağıtımları destekler:
 - CoreOS kararlı
 - CentOS 7.1
 - Red Hat 7.2
@@ -87,9 +90,9 @@ Azure kaynakları için yönetilen kimlikleri bir VM'de etkinleştirildiğinde, 
 
 ![Otomasyon betiği Azure kaynakları için yönetilen kimlikleri dışarı aktarma hatası](./media/msi-known-issues/automation-script-export-error.png)
 
-VM uzantısını Azure kaynakları için yönetilen kimlik şu anda desteklemiyor ve şeması için bir kaynak grubu şablonu dışarı aktarma yeteneği. Sonuç olarak oluşturulan şablon kaynağında Azure kaynakları için yönetilen kimlikleri etkinleştirmek için yapılandırma parametreleri göstermez. Bu bölümlerde örneklerde izleyerek elle eklenebilir [yapılandırma kimlikleri şablonları kullanarak bir Azure sanal makinesinde Azure kaynakları için yönetilen](qs-configure-template-windows-vm.md).
+VM uzantısı (Ocak 2019'da kullanımdan kaldırma planlanan) şu anda mu Azure kaynakları için yönetilen kimlikleri ve şeması için bir kaynak grubu şablonu dışarı aktarma özelliğini destekler. Sonuç olarak oluşturulan şablon kaynağında Azure kaynakları için yönetilen kimlikleri etkinleştirmek için yapılandırma parametreleri göstermez. Bu bölümlerde örneklerde izleyerek elle eklenebilir [yapılandırma kimlikleri şablonları kullanarak bir Azure sanal makinesinde Azure kaynakları için yönetilen](qs-configure-template-windows-vm.md).
 
-Şema dışarı aktarma işlevi VM uzantısını Azure kaynakları için yönetilen kimlikleri için kullanılabilir hale geldiğinde, içinde listelenecektir [verme kaynak VM uzantıları içeren gruplara](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
+Şema dışarı aktarma işlevi (Ocak 2019'da kullanımdan kaldırma planlanan) Azure kaynakları VM uzantısı için yönetilen kimlikleri için kullanılabilir olduğunda, listelenecektir [verme kaynakVMuzantılarıiçerengruplara](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
 ### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>Yapılandırma dikey penceresinde, Azure portalında görünmüyor
 
@@ -125,11 +128,11 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 - kullanıcı tarafından atanan kimlik atamaları, yalnızca VM ve VMSS için kullanılabilir. Önemli: kullanıcı tarafından atanan kimlik atamaları gelecek ay içinde değiştirin.
 - Kullanıcı tarafından atanan kimlikleri aynı VM/VMSS üzerinde yinelenen, başarısız VM/VMSS neden olur. Bu, farklı büyük/küçük harf ile eklenen kimliklerini içerir. Örneğin MyUserAssignedIdentity ve myuserassignedidentity. 
-- Bir VM için VM uzantısının sağlama DNS arama hataları nedeniyle başarısız olabilir. VM'yi yeniden başlatın ve yeniden deneyin. 
+- Bir VM sağlama (Ocak 2019'da kullanımdan kaldırma planlanan) VM uzantısı, DNS arama hataları nedeniyle başarısız olabilir. VM'yi yeniden başlatın ve yeniden deneyin. 
 - 'Var olmayan' kullanıcı tarafından atanan bir kimlik ekleniyor VM başarısız olmasına neden olur. 
 - Adında özel karakterler (örneğin, alt çizgi) ile bir kullanıcı tarafından atanan kimliği oluşturma, desteklenmiyor.
 - kullanıcı tarafından atanan kimlik adları uçtan uca senaryo için 24 karakterden kısıtlanır. ad 24 karakterden daha fazla kullanıcı tarafından atanan kimliklerle atanacak başarısız olur.
-- Yönetilen kimlik sanal makine uzantısını kullanarak desteklenen sınırı, kullanıcı tarafından atanan 32 yönetilen kimlikleri olur. Yönetilen kimlik sanal makine uzantısı, desteklenen sınırı 512'dır.  
+- Desteklenen sınırı (Ocak 2019'da kullanımdan kaldırma planlanan) yönetilen kimlik sanal makine uzantısı'nı kullanarak, kullanıcı tarafından atanan 32 yönetilen kimlikleri olur. Yönetilen kimlik sanal makine uzantısı, desteklenen sınırı 512'dır.  
 - İkinci bir kullanıcı tarafından atanan kimliği eklerken ClientID VM uzantısı için istekleri belirteçleri kullanılabilir olmayabilir. Bir risk azaltma, Azure kaynaklarını VM uzantısı aşağıdaki iki bash komutları için yönetilen kimlikleri yeniden başlatın:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`

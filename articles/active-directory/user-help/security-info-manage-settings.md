@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: abd2984574f80f03f276861782ff9ee51348d07e
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: f9a77c1f3fbce295a40db366619d7485d44efc4f
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391386"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162725"
 ---
 # <a name="manage-your-security-info-preview"></a>Güvenlik bilgilerinizi (Önizleme) yönetme
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 İş veya Okul hesabınızda oturum açın veya parolanızı sıfırlamak için güvenlik bilgilerinizi kullanabilirsiniz.
 
@@ -92,13 +92,13 @@ Bu makalede, iki aşamalı doğrulama ile ilgili sorunlar da dahil olmak üzere 
 
 - Güvenlik bilgileri alanında, cihazlarınızın ayarlama hakkında bilgi edinmek için bu nasıl yapılır makaleleri birini izleyin:
 
-    - [Güvenlik bilgileri ' authenticator uygulamasını kullanmak için ayarlama](security-info-setup-auth-app.md)
+    - [Güvenlik bilgilerinizi doğrulayıcı uygulaması kullanacak şekilde ayarlama](security-info-setup-auth-app.md)
 
-    - [Güvenlik bilgilerini, telefon aramaları kullanacak şekilde](security-info-setup-phone-number.md)
+    - [Güvenlik bilgilerini telefon aramalarını kullanacak şekilde ayarlama](security-info-setup-phone-number.md)
 
     - [Güvenlik bilgilerini, kısa mesaj kullanacak şekilde](security-info-setup-text-msg.md)
 
-    - [Güvenlik bilgileri e-posta kullanacak şekilde](security-info-setup-email.md)
+    - [Güvenlik bilgilerini e-posta kullanacak şekilde ayarlama](security-info-setup-email.md)
 
     - [Güvenlik sorularını kullanmak için güvenlik bilgileri ' ayarlayın](security-info-setup-questions.md)
 

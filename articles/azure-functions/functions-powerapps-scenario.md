@@ -3,26 +3,21 @@ title: Powerapps'ten bir işlev çağırma | Microsoft Docs
 description: Özel bağlayıcı oluşturma, ardından bu bağlayıcıyı kullanarak bir işlev çağırın.
 services: functions
 keywords: Bulut uygulamaları, bulut Hizmetleri, PowerApps, iş süreçleri, iş kolu uygulaması
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 3693b167f196b82c520703fa50ffabb27b555050
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 55de3cd8830834a2af512661d5389952d927ef9f
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38586985"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094324"
 ---
 # <a name="call-a-function-from-powerapps"></a>PowerApps’ten bir işlev çağırma
 [PowerApps](https://powerapps.microsoft.com) platform, geleneksel uygulama kodu olmadan uygulamalar oluşturmak, iş uzmanları için tasarlanmıştır. Profesyonel Geliştiriciler, Azure işlevleri, PowerApps uygulama derleyicileri from teknik ayrıntıları koruma sırasında PowerApps, yeteneklerini genişletmek için kullanabilirsiniz.

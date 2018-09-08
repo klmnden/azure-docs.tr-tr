@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2018
 ms.author: rithorn
-ms.openlocfilehash: 04d5f5dc340d6be47a26baf05aa3d2f2ea7458ae
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f7677d8b545c28522c370f3af422a55f3a656646
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428827"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091195"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Yönetim gruplarıyla kaynaklarınızı yönetin
 
@@ -167,7 +167,7 @@ Hangi izinlerin görmek için sahip, yönetim grubu seçip **IAM**. RBAC rolleri
     ![Alt Öğeler](media/management-groups/add_context_sub.png)
 1. "Kaydet" seçin
 
-**Abonelik bir yönetim grubundan kaldırın.**
+**Abonelik başka bir yönetim grubuna taşıma**
 
 1. Oturum [Azure portalı](https://portal.azure.com)
 2. Seçin **tüm hizmetleri** > **Yönetim grupları** 

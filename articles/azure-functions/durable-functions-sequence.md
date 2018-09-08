@@ -3,23 +3,19 @@ title: Dayanıklı işlevler - Azure zincirleme işlevi
 description: İşlevler bir dizi yürüten bir dayanıklı işlevler örneği çalıştırma hakkında bilgi edinin.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a5b337e5318154e299f82b1102ca832303d752f7
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: ea8c275e5cc37f8c5ecd7c29491b7146669d00fb
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970063"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092912"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Dayanıklı işlevler - Hello dizisi örnek zincirleme işlevi
 

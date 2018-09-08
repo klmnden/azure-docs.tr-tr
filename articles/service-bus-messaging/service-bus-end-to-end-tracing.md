@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: lmolkova
-ms.openlocfilehash: 5489fa999f3427345c3ee9f07f904296de224e31
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e30c6b9ef8f593f2fea3f6e3f5ccf22734ca5bee
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42061101"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092182"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Dağıtılmış izleme ve Service Bus mesajlaşması ile bağıntı
 
@@ -83,10 +83,10 @@ async Task ProcessAsync(Message message)
 Bu örnekte, `RequestTelemetry` bir zaman damgası, süresi ve sonucu (başarılı) işlenen her ileti için bildirilir. Telemetriyi de bağıntı özellikler kümesi vardır.
 İç içe geçmiş izlemeleri ve özel durum iletisi işleme sırasında bildirilen ayrıca damgalı bunları 'alt' temsil eden bağıntı özellikleriyle `RequestTelemetry`.
 
-İleti işleme sırasında desteklenen dış bileşenler çağrı yapmak durumunda, bunlar Ayrıca izlenen ve bağıntılı automagically. Başvurmak [Application Insights .NET SDK ile özel işlemleri izleme](../application-insights/application-insights-custom-operations-tracking.md) el ile izleme ve bağıntı için.
+İleti işleme sırasında desteklenen dış bileşenler çağrı yapmak durumunda, bunlar da otomatik olarak bağıntılı ve izlenmesi. Başvurmak [Application Insights .NET SDK ile özel işlemleri izleme](../application-insights/application-insights-custom-operations-tracking.md) el ile izleme ve bağıntı için.
 
 ### <a name="tracking-without-tracing-system"></a>İzleme sistemi olmadan izleme
-Durumda, izleme sistemi automagical Service Bus çağrıları izleme desteklemiyor, bu tür destek bir izleme sistemine veya uygulamanıza ekleme içine arıyor olabilirsiniz. Bu bölümde, Service Bus .NET istemci tarafından gönderilen Tanılama Olayları açıklanmaktadır.  
+Durumda, izleme sistemi otomatik Service Bus çağrıları izleme desteklemiyor, bu tür destek bir izleme sistemine veya uygulamanıza ekleme içine arıyor olabilirsiniz. Bu bölümde, Service Bus .NET istemci tarafından gönderilen Tanılama Olayları açıklanmaktadır.  
 
 Hizmet veri yolu .NET istemci .NET izleme temelleri kullanarak izleniyor [System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) ve [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md).
 
@@ -153,7 +153,7 @@ Her 'Stop' olayının `Status` özelliğiyle `TaskStatus` zaman uyumsuz işlemi 
 
 İzleme eklenmiş operations tam listesi aşağıda verilmiştir:
 
-| İşlem Adı | İzlenen API | Belirli yükü özellikleri|
+| İşlem adı | İzlenen API | Belirli yükü özellikleri|
 |----------------|-------------|---------|
 | Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | IList<Message> gönderilen iletileri - ileti listesi |
 | Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | İleti - işlenen ileti<br/>DateTimeOffset ScheduleEnqueueTimeUtc - zamanlanmış iletileri uzaklığı<br/>uzun SequenceNumber - (olay yükü 'Stop') zamanlanmış iletinin sıra numarası |

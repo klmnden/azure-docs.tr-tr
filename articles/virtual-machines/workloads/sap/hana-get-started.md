@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/15/2016
+ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 1948fb927c00e928a46c347bc6f1a01a43e155df
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 5ce80e85f00c4c3542bf61e910baec9ccd635bcd
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43112148"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161314"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Hızlı Başlangıç: Azure sanal makinelerinde tek örnek SAP hana el ile yükleme
 ## <a name="introduction"></a>Giriş
@@ -45,7 +45,9 @@ Bu kılavuz, ayrıca aşina olduğunuzu varsayar:
    * ASCS/SCS azure'da çoklu SID yüklenmesini yararlanarak, verimliliği geliştirmeye ilişkin ayrıntıları. Bkz: [SAP NetWeaver çoklu SID yapılandırmasını oluşturun](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-multi-sid). 
    * Azure'da Linux tabanlı sanal makineler üzerinde çalışan SAP NetWeaver ilkeler temel. Bkz: [Microsoft Azure SUSE Linux Vm'lerde SAP NetWeaver'ı çalıştıran](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart). Bu kılavuz, düzgün bir şekilde Linux VM'ler için Azure depolama diskleri ekleme konusunda Linux Azure sanal makinelerini ve Ayrıntılar için belirli ayarlarını sağlar.
 
-Şu anda Azure Vm'lerinde SAP tarafından yalnızca SAP HANA ölçek büyütme yapılandırmaları için sertifikalı. SAP HANA iş yüklerine sahip genişleme yapılandırmaları henüz desteklenmemektedir. SAP HANA yüksek kullanılabilirlik için ölçek büyütme yapılandırmalarının durumlarda bkz [Azure sanal makinelerinde (VM'ler) SAP hana yüksek kullanılabilirlik](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+Üretim senaryoları için kullanılabilecek Azure VM türleri listelenen [IAAS için SAP belgelerindeki](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). Üretim dışı senaryolar için çok çeşitli yerel Azure VM türleri kullanılabilir.
+VM üzerinde daha fazla ayrıntı için yapılandırma ve işlemleri belge başvurun [SAP HANA altyapısı yapılandırmaları ve işlemleri Azure üzerinde](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
+SAP HANA yüksek kullanılabilirlik için bkz: [Azure sanal makineler için SAP HANA yüksek kullanılabilirlik](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
 
 Bir SAP HANA örneği veya S/4HANA veya BW/4hana'yı sistem çok hızlı bir sürede dağıtılan almak arıyorsanız kullanımını dikkate almanız gereken [SAP Cloud Appliance Library](http://cal.sap.com). Örneğin, bir S/4hana'yı sistemi içinde Azure üzerinde SAP CAL aracılığıyla dağıtma hakkında belgeler bulabilirsiniz [bu kılavuzda](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h). Tek ihtiyacınız olan bir Azure aboneliği ve SAP Cloud Appliance Library ile kayıtlı bir SAP kullanıcısı.
 

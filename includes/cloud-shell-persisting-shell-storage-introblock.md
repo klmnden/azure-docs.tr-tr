@@ -1,13 +1,23 @@
+---
+author: jluk
+ms.service: cloud-shell
+ms.topic: persist-storage
+ms.date: 9/7/2018
+ms.author: juluk
+ms.openlocfilehash: 6055b70c7df2704a334b7f14c9365863ddafbd5a
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44164563"
+---
 # <a name="persist-files-in-azure-cloud-shell"></a>Azure Cloud Shell, dosyaların kalıcı olması
-Cloud Shell'i dosyaları oturumlarda kalıcı hale getirilmesi için Azure dosya depolama kullanır.
-
-## <a name="set-up-a-clouddrive-file-share"></a>Clouddrive dosya paylaşımı ayarlama
-İlk Başlat, Cloud Shell'i dosyaları oturumlarda kalıcı hale getirmek için yeni veya varolan bir dosya paylaşımını ilişkilendirmek isteyip istemediğinizi sorar.
+Cloud Shell'i dosyaları oturumlarda kalıcı hale getirilmesi için Azure dosya depolama kullanır. İlk Başlat, Cloud Shell'i dosyaları oturumlarda kalıcı hale getirmek için yeni veya varolan bir dosya paylaşımını ilişkilendirmek isteyip istemediğinizi sorar.
 
 > [!NOTE]
 > Bash ve PowerShell aynı dosya paylaşımını paylaşın. Yalnızca bir dosya paylaşımı, Cloud shell'de otomatik olarak bağlama ile ilişkilendirilebilir.
 
-### <a name="create-new-storage"></a>Yeni depolama oluşturma
+## <a name="create-new-storage"></a>Yeni depolama oluşturma
 
 Cloud Shell, desteklenen bölgede size en yakın olanında, sizin adınıza üç kaynak oluşturur, temel ayarları kullanın ve yalnızca bir abonelik seçin:
 * Kaynak grubu: `cloud-shell-storage-<region>`
@@ -21,26 +31,18 @@ Dosya Paylaşımı bağlar olarak `clouddrive` içinde `$Home` dizin. Bu tek sef
 > [!NOTE]
 > Güvenlik için her bir kullanıcı kendi depolama hesaplarını sağlamanız gerekir.  Rol tabanlı erişim denetimi (RBAC), kullanıcılara katkıda bulunan erişimine sahip veya hesap düzeyinde depolama alanı yukarıda gerekir.
 
-Bash hizmetinde dosya paylaşımını da sizin için otomatik olarak oluşturulduğu bir 5 GB'lık görüntüsünü içeren veri devam ederse, `$Home` dizin. 
+Dosya paylaşımını da sizin için otomatik olarak oluşturulduğu bir 5 GB'lık görüntüyü içeren veri devam ederse, `$Home` dizin. Bu, hem Bash hem PowerShell için geçerlidir.
 
-### <a name="use-existing-resources"></a>Var olan kaynakları kullan
+## <a name="use-existing-resources"></a>Var olan kaynakları kullan
 
-Gelişmiş seçeneğini kullanarak, mevcut kaynaklar ilişkilendirebilirsiniz. Depolama Kurulum istemi göründüğünde seçin **Gelişmiş ayarları göster** ek seçenekleri görmek için. Aşağı açılan menüler, atanan Cloud Shell bölgeniz ve yerel olarak yedekli depolama ve coğrafi olarak yedekli depolama hesapları için filtrelenir.
-
-Dosya paylaşımları, kalıcı hale getirmek oluşturduğunuz bir 5 GB'lık görüntüsü almak, `$Home` dizin.
+Gelişmiş seçeneğini kullanarak, mevcut kaynaklar ilişkilendirebilirsiniz. Depolama Kurulum istemi göründüğünde seçin **Gelişmiş ayarları göster** ek seçenekleri görmek için. Yerel olarak yedekli depolama (LRS), coğrafi olarak yedekli depolama (GRS) ve bölgesel olarak yedekli depolama (ZRS) hesapları için doldurulmuş depolama seçenekleri filtre. Git [daha fazla bilgi için buraya](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option) Azure depolama hesabı çoğaltma seçenekleri hakkında.
 
 ![Kaynak grubu ayarı](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 
-### <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Bir Azure kaynak İlkesi ile kaynak oluşturmayı kısıtla
-Cloud Shell'de oluşturduğunuz depolama hesapları ile etiketlenmiş `ms-resource-usage:azure-cloud-shell`. Kullanıcıların depolama hesapları, Cloud Shell'de oluşturmasını istiyorsanız oluşturma bir [etiketleri için bir Azure kaynak ilkesinden](../articles/azure-policy/json-samples.md) bu belirli bir etikete göre tetiklenir.
+Cloud Shell bölgesi seçerken de bu bölgedeki bir yedekleme depolama hesabına bağlanacak seçmeniz gerekir.
 
-## <a name="supported-storage-regions"></a>Desteklenen depolama bölgeleri
-Azure depolama hesapları için bağlama Cloud Shell makine ile aynı bölgede bulunmalıdır ilişkili.
-
-Bölgenize atanan bulmak için şunları yapabilirsiniz:
-* Notu "Gelişmiş Depolama ayarları" iletişim kutusunda görüntüleyin
-* Sizin için oluşturulan depolama hesabı adına bakın (örn: `cloud-shell-storage-westus`)
-* Çalıştırma `env` değişkeni bulun `ACC_LOCATION`
+### <a name="supported-storage-regions"></a>Desteklenen depolama bölgeleri
+Azure depolama hesapları için bağlama Cloud Shell makine ile aynı bölgede bulunmalıdır ilişkili. Çalışabilir, geçerli bölge bulmayı `env` bash değişkeni bulun `ACC_LOCATION`. Dosya paylaşımları, kalıcı hale getirmek oluşturduğunuz bir 5 GB'lık görüntüsü almak, `$Home` dizin.
 
 Cloud Shell makineler aşağıdaki bölgelerde mevcuttur:
 |Alan|Bölge|
@@ -49,3 +51,5 @@ Cloud Shell makineler aşağıdaki bölgelerde mevcuttur:
 |Avrupa|Kuzey Avrupa, Batı Avrupa|
 |Asya Pasifik|Hindistan Orta, Güneydoğu Asya|
 
+## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Bir Azure kaynak İlkesi ile kaynak oluşturmayı kısıtla
+Cloud Shell'de oluşturduğunuz depolama hesapları ile etiketlenmiş `ms-resource-usage:azure-cloud-shell`. Kullanıcıların depolama hesapları, Cloud Shell'de oluşturmasını istiyorsanız oluşturma bir [etiketleri için bir Azure kaynak ilkesinden](../articles/azure-policy/json-samples.md) bu belirli bir etikete göre tetiklenir.

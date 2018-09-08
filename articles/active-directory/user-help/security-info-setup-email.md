@@ -11,20 +11,20 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 34696802735fd2a145cd6383dcdc7e4a4b6368e2
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 3f98b4e34c4c76efc33395530ef016b26e1ad523
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391418"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163048"
 ---
 # <a name="set-up-security-info-to-use-email-preview"></a>Güvenlik bilgileri e-posta (Önizleme) kullanacak şekilde
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 Güvenlik bilgilerinizi ayarlamak için iş veya Okul hesabınızda oturum açın ve ardından kayıt işlemini tamamlamak gerekir. Güvenlik bilgilerinizi daha önce oluşturmadıysanız, artık yapmanız istenir.
 
-## <a name="set-up-email"></a>E-posta kurma
+## <a name="set-up-email"></a>E-postayı ayarlama
 
 Kuruluşunuzun ayarlara bağlı olarak, oturum açtığınızda, güvenlik bilgilerinizi bir e-posta adresi eklemek için istenebilir. Aksi takdirde, e-posta güvenlik bilgileri ayarlama başlamak için adımları izleyin. [güvenlik bilgilerinizi yönetmek](security-info-manage-settings.md).
 

@@ -4,23 +4,19 @@ description: Tetikleyicileri ve bağlamaları, Azure işlevleri'nde, kod yürüt
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure işlevleri, işlevler, olay işleme, web kancaları, dinamik işlem, sunucusuz mimari
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 05/24/2018
 ms.author: glenga
-ms.openlocfilehash: 85b7248c9b4c61e29ce3c29b9432f94934255819
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e3f2cc24a3ff765a33d27bbe5a43ca9d5a229e1b
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346611"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092964"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure işlevleri Tetikleyicileri ve bağlamaları kavramları
 
@@ -28,7 +24,7 @@ Bu makalede, Tetikleyicileri ve bağlamaları Azure işlevleri'nde kavramsal bir
 
 ## <a name="overview"></a>Genel Bakış
 
-A *tetikleyici* nasıl bir işlev çağrılır tanımlar. Bir işlev tam olarak bir tetikleyici olmalıdır. Tetikleyiciler genellikle işlevi tetikleyen yüktür veri ilişkilendirdiniz.
+A *tetikleyici* nasıl bir işlev çağrılır tanımlar. Bir işlev tam olarak bir tetikleyici olmalıdır. Tetikleyiciler genellikle işlevi tetikleyen yük olan ilgili verilere sahiptir.
 
 Giriş ve çıkış *bağlamaları* kodunuz içinde verilere bağlanmak için bildirim temelli bir yöntemini sağlar. Bağlamaları isteğe bağlıdır ve bir işlev sahip birden fazla giriş ve çıkış bağlamaları. 
 

@@ -5,22 +5,18 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 08/23/2018
 ms.author: glenga
-ms.openlocfilehash: 850b30ff42b77fe0ab527a54b62ba0f77027f932
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 6d15405ef22f47dc8a94c07d9d09d343a743408e
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746255"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094561"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure işlevleri için olay Kılavuzu tetikleyicisi
 
@@ -510,7 +506,7 @@ HTTP tetikleyicisi kullanıyorsanız, Event Grid tetikleyicisinin otomatik olara
 
 İşlevi yerel olarak veya Azure'da çalıştırıldığında çağırmak için kullanılacak URL hakkında daha fazla bilgi için bkz. [HTTP tetikleyici bağlama başvuru belgeleri](functions-bindings-http-webhook.md)
 
-### <a name="event-grid-schema"></a>Olay ızgarası şeması
+### <a name="event-grid-schema"></a>Olay Kılavuz şeması
 
 Aşağıdaki örnek C# kod HTTP tetikleyicisi için olay Kılavuzu tetikleyicisi davranışını taklit eder. Bu örnek olay ızgarası şema teslim olaylar için kullanın.
 

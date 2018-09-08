@@ -1,52 +1,48 @@
 ---
 title: Azure işlevleri (Deneysel) için dış dosya bağlamaları
-description: Dış dosya bağlamaları Azure işlevlerini kullanma
+description: Azure işlevleri'nde dış dosya bağlamaları kullanma
 services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: alkarche
-ms.openlocfilehash: 4e9c2c336df465d7488de84bd2a02cc5d9e42f30
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: be2d34202b88d0d424eb23c4e078c2fdc45c6ab6
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27607930"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093779"
 ---
-# <a name="azure-functions-external-file-bindings-experimental"></a>Azure işlevleri dış dosya bağlamalarını (Deneysel)
-Bu makalede, Azure işlevleri (örneğin, Dropbox veya Google sürücü) farklı SaaS sağlayıcı dosyalarını işlemek gösterilmiştir. Tetiklemek, giriş ve dış dosyalar için bağlamaları çıktı Azure işlevleri destekler. Bu bağlamaların SaaS sağlayıcısı API bağlantıları oluşturma veya varolan API bağlantıları işlevi uygulamanızın kaynak grubundan kullanın.
+# <a name="azure-functions-external-file-bindings-experimental"></a>Azure işlevleri dış dosya bağlamaları (Deneysel)
+Bu makalede, Azure işlevleri'nde (örneğin, Dropbox veya Google Drive gibi) farklı SaaS sağlayıcıları dosyalarını işlemek gösterilmektedir. Azure işlevleri destekler tetiklemek, girdi ve çıktı bağlaması için dış dosyaları. Bu bağlamaları SaaS sağlayıcıları için API bağlantıları oluşturma ve işlev uygulamanızın kaynak grubundan mevcut API bağlantıları kullanın.
 
 > [!IMPORTANT]
-> Dış dosya bağlamalarını Deneysel ve hiçbir zaman genellikle kullanılabilir (GA) durumuna ulaşmasını. Yalnızca Azure içinde bulunan 1.x işlevler ve bunları Azure işlevleri eklemek için herhangi bir plan yok 2.x. SaaS sağlayıcıları veri erişimi gerektiren senaryolar için kullanmayı [işlevlerini çağırma logic apps](functions-twitter-email.md). Bkz: [Logic Apps dosya sistemi bağlayıcı](../logic-apps/logic-apps-using-file-connector.md).
+> Dış dosya bağlamaları, Deneysel ve genel kullanıma (GA) durumu hiçbir zaman ulaşın. Bunlar yalnızca Azure'da eklenir 1.x işlevleri ve Azure işlevleri'ne eklenecek planlanmamaktadır 2.x. SaaS sağlayıcıları verilere erişim gerektiren senaryolar için kullanmayı [işlevlerini çağıran logic apps'i](functions-twitter-email.md). Bkz: [Logic Apps dosya sistemi Bağlayıcısı](../logic-apps/logic-apps-using-file-connector.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="available-file-connections"></a>Kullanılabilir bir dosya bağlantıları
+## <a name="available-file-connections"></a>Kullanılabilir dosya bağlantıları
 
 |Bağlayıcı|Tetikleyici|Girdi|Çıktı|
 |:-----|:---:|:---:|:---:|
 |[Kutusu](https://www.box.com)|x|x|x
-|[Açılan kutu](https://www.dropbox.com)|x|x|x
+|[Dropbox](https://www.dropbox.com)|x|x|x
 |[FTP](https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp)|x|x|x
 |[OneDrive](https://onedrive.live.com)|x|x|x
 |[OneDrive İş](https://onedrive.live.com/about/business/)|x|x|x
 |[SFTP](https://docs.microsoft.com/azure/connectors/connectors-create-api-sftp)|x|x|x
-|[Google sürücü](https://www.google.com/drive/)||x|x|
+|[Google Drive'a](https://www.google.com/drive/)||x|x|
 
 > [!NOTE]
 > Dış dosya bağlantıları da kullanılabilir [Azure Logic Apps](https://docs.microsoft.com/azure/connectors/apis-list).
 
 ## <a name="trigger"></a>Tetikleyici
 
-Dış dosya tetikleyici uzak bir klasör izlemenizi ve değişiklik algılandığında işlevi kodunuzu çalıştırmak sağlar.
+Dış dosya tetikleyici uzak bir klasör izlemek ve değişiklik algılandığında, işlev kodunuzun çalıştırmanıza olanak tanır.
 
 ## <a name="trigger---example"></a>Tetikleyici - örnek
 
@@ -55,9 +51,9 @@ Dile özgü örneğe bakın:
 * [C# betiği](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
-### <a name="trigger---c-script-example"></a>Tetikleyici - C# kod örneği
+### <a name="trigger---c-script-example"></a>Tetikleyici - C# betiği örneği
 
-Aşağıdaki örnek, bağlama bir dış dosya tetikleyicisi gösterir bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanır. İşlev izlenen klasöre eklenen her dosyanın içeriğini günlüğe kaydeder.
+Aşağıdaki örnek, bir dış dosya tetikleyicisi bağlama gösterir. bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanan. İşlevi izlenen klasöre eklenen her bir dosyanın içeriğini günlüğe kaydeder.
 
 Veri bağlama işte *function.json* dosyası:
 
@@ -76,7 +72,7 @@ Veri bağlama işte *function.json* dosyası:
 }
 ```
 
-C# betik kod aşağıdaki gibidir:
+C# betik kodunu şu şekildedir:
 
 ```cs
 public static void Run(string myFile, TraceWriter log)
@@ -87,7 +83,7 @@ public static void Run(string myFile, TraceWriter log)
 
 ### <a name="trigger---javascript-example"></a>Tetikleyici - JavaScript örneği
 
-Aşağıdaki örnek, bağlama bir dış dosya tetikleyicisi gösterir bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanır. İşlev izlenen klasöre eklenen her dosyanın içeriğini günlüğe kaydeder.
+Aşağıdaki örnek, bir dış dosya tetikleyicisi bağlama gösterir. bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanan. İşlevi izlenen klasöre eklenen her bir dosyanın içeriğini günlüğe kaydeder.
 
 Veri bağlama işte *function.json* dosyası:
 
@@ -117,19 +113,19 @@ module.exports = function(context) {
 
 ## <a name="trigger---configuration"></a>Tetikleyici - yapılandırma
 
-Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya.
+Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini açıklayan *function.json* dosya.
 
 |Function.JSON özelliği | Açıklama|
 |---------|---------|----------------------|
-|**türü** | ayarlanmalıdır `apiHubFileTrigger`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
-|**yönü** | ayarlanmalıdır `in`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
-|**adı** | İşlev kodu olay öğesinde temsil eden değişken adı. | 
-|**bağlantı**| Bağlantı dizesi depolar uygulama ayarı tanımlar. Azure portalında UI tümleştir bir bağlantı eklediğinizde uygulama ayarı otomatik olarak oluşturulur.|
-|**yol** | İzlemek için klasör ve isteğe bağlı olarak bir adı deseni.|
+|**type** | Ayarlanmalıdır `apiHubFileTrigger`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır.|
+|**direction** | Ayarlanmalıdır `in`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır. |
+|**Adı** | İşlev kodunu olay öğeyi temsil eden değişken adı. | 
+|**bağlantı**| Bağlantı dizesi depolar uygulama ayarı tanımlar. Azure portalında tümleştir UI içinde bir bağlantı eklediğinizde, uygulama ayarı otomatik olarak oluşturulur.|
+|**Yolu** | İzlemek için klasör ve isteğe bağlı olarak bir adı deseni.|
 
-### <a name="name-patterns"></a>Adı desenleri
+### <a name="name-patterns"></a>Adı modelleri
 
-Bir dosya adı deseni içinde belirttiğiniz `path` özelliği. Başvurulan klasörü SaaS sağlayıcı mevcut olmalıdır.
+Bir dosya adı deseni de belirtebilirsiniz `path` özelliği. Başvurulan klasörü, SaaS sağlayıcısı mevcut olmalıdır.
 
 Örnekler:
 
@@ -137,7 +133,7 @@ Bir dosya adı deseni içinde belirttiğiniz `path` özelliği. Başvurulan klas
 "path": "input/original-{name}",
 ```
 
-Bu yol adlı bir dosyayı bulur *özgün Dosya1.ref* içinde *giriş* klasörü ve değerini `name` işlev kodu değişkende olacaktır `File1.txt`.
+Bu yolu adlı bir dosya bulur *özgün Dosya1.ref* içinde *giriş* klasörü ve değerini `name` işlev kodunu bir değişkende olacaktır `File1.txt`.
 
 Bir örnek daha:
 
@@ -145,7 +141,7 @@ Bir örnek daha:
 "path": "input/{filename}.{fileextension}",
 ```
 
-Bu yolu da adlı bir dosyayı bulur *özgün Dosya1.ref*, değerini `filename` ve `fileextension` işlev kodu değişkenleri olacaktır *özgün dosya1* ve *txt* .
+Bu yolu da adlı bir dosya bulur *özgün Dosya1.ref*, değeri `filename` ve `fileextension` işlevinin kodundaki değişkenleri olacaktır *özgün dosya1* ve *txt* .
 
 Dosya uzantısı için sabit bir değer kullanarak dosyaları dosya türünü kısıtlayabilirsiniz. Örneğin:
 
@@ -153,29 +149,29 @@ Dosya uzantısı için sabit bir değer kullanarak dosyaları dosya türünü k�
 "path": "samples/{name}.png",
 ```
 
-Bu durumda, yalnızca *.png* dosyalar *örnekleri* klasörü tetiklemek işlevi.
+Bu durumda, yalnızca *.png* dosyalar *örnekleri* klasör işlevi tetikleyin.
 
-Süslü ayraçlar adı desenleri bulunan özel karakterleri var. Süslü ayraçlar içinde ada sahip dosya adlarını belirtmek için süslü ayraçlar çift.
+Küme ayracı adı desenleri özel karakterler şunlardır. Küme ayraçları içinde ada sahip dosya adlarını belirtmek için küme ayracı çift.
 Örneğin:
 
 ```json
 "path": "images/{{20140101}}-{name}",
 ```
 
-Bu yol adlı bir dosyayı bulur *{20140101}-soundfile.mp3* içinde *görüntüleri* klasörünü ve `name` işlev kodu değişken değerinin olacaktır *soundfile.mp3*.
+Bu yolu adlı bir dosya bulur  *{20140101}-soundfile.mp3* içinde *görüntüleri* klasöründe ve `name` işlev kodunu değişken değeri olacak *soundfile.mp3*.
 
 ## <a name="trigger---usage"></a>Tetikleyici - kullanım
 
-C# işlevlerde, girdi dosyası veri adlandırılmış bir parametre gibi işlevi imzanız kullanarak bağladığınız `<T> <name>`.
-Burada `T` veri türü, verileri seri durumdan istediğiniz olduğunda ve `paramName` , belirtilen adı [JSON tetiklemek](#trigger). Giriş dosyası kullanarak veri erişim node.js işlevlerde `context.bindings.<name>`.
+C# işlevleri'nde giriş dosya verileri için işlev imzasında gibi adlandırılmış bir parametre kullanarak bağladığınız `<T> <name>`.
+Burada `T` , verileri seri durumdan çıkarılacak istediğiniz veri türünü olduğu ve `paramName` içinde belirtilen ad [JSON tetikleme](#trigger). Node.js işlevleri'nde giriş dosyası kullanarak veri erişim `context.bindings.<name>`.
 
-Dosya türlerinden herhangi birinde aşağıdaki seri durumdan çıkarılabiliyorsa:
+Dosya şu türlerden birini seri durumdan çıkarılabiliyorsa:
 
-* Tüm [nesne](https://msdn.microsoft.com/library/system.object.aspx) - JSON serileştirilmiş dosya verileri için kullanışlıdır.
+* Tüm [nesne](https://msdn.microsoft.com/library/system.object.aspx) - JSON ile seri hale getirilmiş dosya verileri için kullanışlıdır.
   Özel bir giriş türü bildirirseniz (örneğin `FooType`), Azure işlevleri, belirtilen türe JSON verilerini seri durumdan dener.
-* String - metin dosya verileri için yararlıdır.
+* Dize - metin dosya verileri için yararlıdır.
 
-C# işlevleri, şu türlerden birine de bağlayabilirsiniz ve işlevleri çalışma zamanı bu türünü kullanarak dosya verileri seri durumdan dener:
+C# işlevleri, şu türlerden birine de bağlayabilirsiniz ve İşlevler çalışma zamanı bu türü kullanarak dosya verilerini seri durumdan dener:
 
 * `string`
 * `byte[]`
@@ -199,31 +195,31 @@ File receipts are stored in a folder named *azure-webjobs-hosts* in the Azure st
 To force reprocessing of a file, delete the file receipt for that file from the *azure-webjobs-hosts* folder manually.
 --->
 
-## <a name="trigger---poison-files"></a>Tetikleyici - zararlı dosyaları
+## <a name="trigger---poison-files"></a>Tetikleyici - zehirli dosyaları
 
-Bir dış dosya Tetik işlevi başarısız olduğunda, Azure işlevleri, işlevi en fazla 5 kez (ilk denemede dahil) varsayılan olarak belirli bir dosya için yeniden dener.
-İşlevler tüm 5 deneme başarısız olursa adlı bir depolama kuyruğuna bir ileti ekler *webjobs apihubtrigger poison*. Kuyruk iletisini zararlı dosyaları için aşağıdaki özellikleri içeren bir JSON nesnesidir:
+Bir dış dosya tetikleyici işlevi başarısız olduğunda, Azure işlevleri, işlev en fazla 5 kez (ilk denemede dahil) varsayılan olarak belirli bir dosya için yeniden dener.
+İşlevleri 5 tüm denemeler başarısız olursa, adlı bir depolama kuyruğuna bir ileti ekler *webjobs apihubtrigger poison*. Kuyruk iletisi zehirli dosyaları için aşağıdaki özellikleri içeren bir JSON nesnesidir:
 
-* FunctionId (biçimde  *&lt;işlevi uygulama adı >*. İşlevler.  *&lt;işlev adı >*)
-* Dosya türü
+* FunctionId (biçimde  *&lt;işlev uygulaması adı >*. İşlevler.  *&lt;işlev adı >*)
+* fileType
 * KlasörAdı
 * Dosya adı
-* ETag (örneğin, bir dosya sürümü tanımlayıcısı: "0x8D1DC6E70A277EF")
+* ETag (örneğin, bir dosya sürüm tanımlayıcısı: "0x8D1DC6E70A277EF")
 
 ## <a name="input"></a>Girdi
 
-Azure dış dosya giriş bağlaması, dış işlevinizi klasöründeki bir dosya kullanmanıza olanak sağlar.
+Azure harici dosya giriş bağlama, bir dış işlevinizi klasöründeki bir dosyayı kullanmak sağlar.
 
-## <a name="input---example"></a>Girişi - örnek
+## <a name="input---example"></a>Giriş - örnek
 
 Dile özgü örneğe bakın:
 
 * [C# betiği](#input---c-script-example)
 * [JavaScript](#input---javascript-example)
 
-### <a name="input---c-script-example"></a>Giriş - C# kod örneği
+### <a name="input---c-script-example"></a>Giriş - C# betiği örneği
 
-Aşağıdaki örnek, giriş ve çıkış bağlamaları dış dosya gösterir bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanır. İşlev bir çıktı dosyasına bir giriş dosyası kopyalar.
+Aşağıdaki örnek, giriş ve çıkış bağlamaları, dış dosya gösterir bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanan. İşlev bir giriş dosyası için bir çıktı dosyası kopyalar.
 
 Veri bağlama işte *function.json* dosyası:
 
@@ -256,7 +252,7 @@ Veri bağlama işte *function.json* dosyası:
 }
 ```
 
-C# betik kod aşağıdaki gibidir:
+C# betik kodunu şu şekildedir:
 
 ```cs
 public static void Run(string myQueueItem, string myInputFile, out string myOutputFile, TraceWriter log)
@@ -268,7 +264,7 @@ public static void Run(string myQueueItem, string myInputFile, out string myOutp
 
 ### <a name="input---javascript-example"></a>Giriş - JavaScript örneği
 
-Aşağıdaki örnek, giriş ve çıkış bağlamaları dış dosya gösterir bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanır. İşlev bir çıktı dosyasına bir giriş dosyası kopyalar.
+Aşağıdaki örnek, giriş ve çıkış bağlamaları, dış dosya gösterir bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanan. İşlev bir giriş dosyası için bir çıktı dosyası kopyalar.
 
 Veri bağlama işte *function.json* dosyası:
 
@@ -311,29 +307,29 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="input---configuration"></a>Girişi - yapılandırma
+## <a name="input---configuration"></a>Giriş - yapılandırma
 
-Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya.
+Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini açıklayan *function.json* dosya.
 
 |Function.JSON özelliği | Açıklama|
 |---------|---------|----------------------|
-|**türü** | ayarlanmalıdır `apiHubFile`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
-|**yönü** | ayarlanmalıdır `in`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
-|**adı** | İşlev kodu olay öğesinde temsil eden değişken adı. | 
-|**bağlantı**| Bağlantı dizesi depolar uygulama ayarı tanımlar. Azure portalında UI tümleştir bir bağlantı eklediğinizde uygulama ayarı otomatik olarak oluşturulur.|
-|**yol** | Klasör adı ve dosya adını içermelidir. Örneğin, bir [sıra tetikleyici](functions-bindings-storage-queue.md) işlevinizi, kullandığınız `"path": "samples-workitems/{queueTrigger}"` bir dosyaya işaret edecek şekilde `samples-workitems` tetikleyici iletisinde belirtilen dosya adıyla eşleşen bir ada sahip klasör.   
+|**type** | Ayarlanmalıdır `apiHubFile`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır.|
+|**direction** | Ayarlanmalıdır `in`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır. |
+|**Adı** | İşlev kodunu olay öğeyi temsil eden değişken adı. | 
+|**bağlantı**| Bağlantı dizesi depolar uygulama ayarı tanımlar. Azure portalında tümleştir UI içinde bir bağlantı eklediğinizde, uygulama ayarı otomatik olarak oluşturulur.|
+|**Yolu** | Klasör adı ve dosya adını içermelidir. Örneğin, bir [kuyruk tetikleyicisi](functions-bindings-storage-queue.md) işlevinizde kullanabileceğiniz `"path": "samples-workitems/{queueTrigger}"` bir dosyaya işaret edecek şekilde `samples-workitems` tetikleyici message içinde belirtilen dosya adıyla eşleşen bir ada sahip klasör.   
 
 ## <a name="input---usage"></a>Giriş - kullanım
 
-C# işlevlerde, girdi dosyası veri adlandırılmış bir parametre gibi işlevi imzanız kullanarak bağladığınız `<T> <name>`. `T`veri türü, verileri seri durumdan istediğiniz olduğunda ve `name` giriş bağlamasında belirtilen adı. Giriş dosyası kullanarak veri erişim node.js işlevlerde `context.bindings.<name>`.
+C# işlevleri'nde giriş dosya verileri için işlev imzasında gibi adlandırılmış bir parametre kullanarak bağladığınız `<T> <name>`. `T` veri türü, verileri seri durumdan çıkarılacak istediğiniz olduğu ve `name` giriş bağlamasında belirtilen adı. Node.js işlevleri'nde giriş dosyası kullanarak veri erişim `context.bindings.<name>`.
 
-Dosya türlerinden herhangi birinde aşağıdaki seri durumdan çıkarılabiliyorsa:
+Dosya şu türlerden birini seri durumdan çıkarılabiliyorsa:
 
-* Tüm [nesne](https://msdn.microsoft.com/library/system.object.aspx) - JSON serileştirilmiş dosya verileri için kullanışlıdır.
+* Tüm [nesne](https://msdn.microsoft.com/library/system.object.aspx) - JSON ile seri hale getirilmiş dosya verileri için kullanışlıdır.
   Özel bir giriş türü bildirirseniz (örneğin `InputType`), Azure işlevleri, belirtilen türe JSON verilerini seri durumdan dener.
-* String - metin dosya verileri için yararlıdır.
+* Dize - metin dosya verileri için yararlıdır.
 
-C# işlevleri, şu türlerden birine de bağlayabilirsiniz ve işlevleri çalışma zamanı bu türünü kullanarak dosya verileri seri durumdan dener:
+C# işlevleri, şu türlerden birine de bağlayabilirsiniz ve İşlevler çalışma zamanı bu türü kullanarak dosya verilerini seri durumdan dener:
 
 * `string`
 * `byte[]`
@@ -343,35 +339,35 @@ C# işlevleri, şu türlerden birine de bağlayabilirsiniz ve işlevleri çalı�
 
 ## <a name="output"></a>Çıktı
 
-Azure dış dosya çıktı bağlama dosyaları işlevinizi dış bir klasörde yazma olanak sağlar.
+Azure harici dosyasının çıkış bağlaması işlevinizi dış bir klasörde dosyaları yazmanıza olanak sağlar.
 
-## <a name="output---example"></a>Çıktı - örnek
+## <a name="output---example"></a>Çıkış - örnek
 
-Bkz: [giriş bağlaması örnek](#input---example).
+Bkz: [giriş bağlama örnek](#input---example).
 
-## <a name="output---configuration"></a>Çıktı - yapılandırma
+## <a name="output---configuration"></a>Çıkış - yapılandırma
 
-Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya.
+Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini açıklayan *function.json* dosya.
 
 |Function.JSON özelliği | Açıklama|
 |---------|---------|----------------------|
-|**türü** | ayarlanmalıdır `apiHubFile`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
-|**yönü** | ayarlanmalıdır `out`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
-|**adı** | İşlev kodu olay öğesinde temsil eden değişken adı. | 
-|**bağlantı**| Bağlantı dizesi depolar uygulama ayarı tanımlar. Azure portalında UI tümleştir bir bağlantı eklediğinizde uygulama ayarı otomatik olarak oluşturulur.|
-|**yol** | Klasör adı ve dosya adını içermelidir. Örneğin, bir [sıra tetikleyici](functions-bindings-storage-queue.md) işlevinizi, kullandığınız `"path": "samples-workitems/{queueTrigger}"` bir dosyaya işaret edecek şekilde `samples-workitems` tetikleyici iletisinde belirtilen dosya adıyla eşleşen bir ada sahip klasör.   
+|**type** | Ayarlanmalıdır `apiHubFile`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır.|
+|**direction** | Ayarlanmalıdır `out`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır. |
+|**Adı** | İşlev kodunu olay öğeyi temsil eden değişken adı. | 
+|**bağlantı**| Bağlantı dizesi depolar uygulama ayarı tanımlar. Azure portalında tümleştir UI içinde bir bağlantı eklediğinizde, uygulama ayarı otomatik olarak oluşturulur.|
+|**Yolu** | Klasör adı ve dosya adını içermelidir. Örneğin, bir [kuyruk tetikleyicisi](functions-bindings-storage-queue.md) işlevinizde kullanabileceğiniz `"path": "samples-workitems/{queueTrigger}"` bir dosyaya işaret edecek şekilde `samples-workitems` tetikleyici message içinde belirtilen dosya adıyla eşleşen bir ada sahip klasör.   
 
-## <a name="output---usage"></a>Çıktı - kullanım
+## <a name="output---usage"></a>Çıkış - kullanım
 
-C# işlevlerde, çıktı dosyasına adlandırılmış kullanarak bağladığınız `out` işlevi imzanız parametresinde ister `out <T> <name>`, burada `T` veri türü, verileri seri hale getirmek istediğiniz olduğunda ve `name` , belirtilen adı Çıktı bağlama. Çıkış dosyası kullanarak erişim node.js işlevlerde `context.bindings.<name>`.
+C# işlevleri'nde, çıktı dosyasına adlandırılmış kullanarak bağlama `out` , işlev imzası parametresinde ister `out <T> <name>`burada `T` veri türü, verileri seri hale getirmek istediğiniz olduğu ve `name` , belirtilen adı Çıkış bağlaması. Node.js işlevleri kullanarak çıkış dosyasını erişim `context.bindings.<name>`.
 
 Şu türlerden birini kullanarak çıktı dosyasına yazabilirsiniz:
 
-* Tüm [nesne](https://msdn.microsoft.com/library/system.object.aspx) - JSON serileştirmesi için kullanışlıdır.
-  Özel çıkış türü bildirirseniz (örneğin `out OutputType paramName`), JSON içinde nesneyi serileştirmek Azure işlevleri çalışır. Çıkış parametresi null ise, işlev çıktığında işlevleri çalışma zamanı null bir nesne bir dosya oluşturur.
-* String - (`out string paramName`) metin dosya verileri için kullanışlıdır. işlev çıktığında yalnızca dize parametresi null olmayan ise işlevleri çalışma zamanı bir dosya oluşturur.
+* Tüm [nesne](https://msdn.microsoft.com/library/system.object.aspx) - JSON seri hale getirme için kullanışlıdır.
+  Özel çıkış türü bildirirseniz (örneğin `out OutputType paramName`), nesne JSON'a seri hale getirmek Azure işlevleri çalışır. Çıkış parametresi null ise, işlev işlevler çalışma zamanı bir dosya null bir nesne oluşturur.
+* Dize - (`out string paramName`) metin dosya verileri için kullanışlıdır. İşlevler çalışma zamanı yalnızca işlev dize parametresi null olmayan bir dosya oluşturur.
 
-C# işlevlerde şu türlerden birine de çıkarabilirsiniz:
+C# işlevleri şu türlerden birine de çıkarabilirsiniz:
 
 * `TextWriter`
 * `Stream`

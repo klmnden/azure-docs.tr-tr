@@ -1,6 +1,6 @@
 ---
-title: Windows Server ve Linux üzerinde Azure Service Fabric kümeleri oluşturma | Microsoft Docs
-description: Windows Server ve Linux, anlamına gelir, dağıtabilmesi ve ana bilgisayar Service Fabric uygulamaları herhangi bir yerden çalışan Service Fabric kümeleri, Windows Server veya Linux çalıştırabilirsiniz.
+title: Windows Server ve Linux üzerinde Service Fabric kümeleri oluşturma | Microsoft Docs
+description: Windows Server ve Linux, yani sizin dağıtmayı mümkün olacaktır ve konak Service Fabric uygulamaları her yerde çalışan Service Fabric kümeleri, Windows Server veya Linux çalıştırabilirsiniz.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/28/2018
 ms.author: dekapur
-ms.openlocfilehash: 3d427d99f6919991c29fc5947ebe0082670a1cc1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 80b331d32fe1e7bb4eb331bd981106968bc73bed
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213138"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163218"
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Windows Server veya Linux Service Fabric kümeleri oluşturma
-Azure Service Fabric kümesi bir ağa bağlı içine, mikro dağıtılır ve yönetilen sanal veya fiziksel makineler kümesidir. Bir küme düğümü bir makine ya da bir kümenin parçasıysa VM adı verilir. Küme düğümleri binlerce ölçeklendirebilirsiniz. Kümeye yeni düğümler eklerseniz, Service Fabric hizmeti çoğaltmalarını ve örnekleri sayısının artması düğümleri arasında yeniden dengeler. Genel uygulama performansını artıran ve bellek erişimi için Çekişme azaltır. Kümedeki düğümler verimli bir şekilde kullanılmayan, kümedeki düğüm sayısını azaltabilirsiniz. Service Fabric yeniden örnekleri ve çoğaltmalarını azalmasına her bir düğümüne donanım daha iyi kullanılmasını sağlamak için düğüm sayısı arasında yeniden dengeler.
+Service Fabric kümesi bir ağa bağlı, mikro hizmetlerin dağıtıldığı ve yönetildiği sanal veya fiziksel makine kümesidir. Bir makine ya da bir kümenin parçası olan sanal makine bir küme düğümü adı verilir. Kümeler binlerce düğümde için ölçeklendirme yapabilir. Kümeye yeni düğümler eklerseniz, Service Fabric örnekleri ve hizmet bölüm çoğaltmaları sayısının artması düğümleri arasında yeniden dengeler. Genel uygulama performansını artıran ve bellek erişim çekişmesini azaltır. Kümedeki düğümler verimli bir şekilde kullanılmayan, kümedeki düğümlerin sayısını azaltabilirsiniz. Service Fabric yeniden örnekleri ve bölüm çoğaltmalarını azalan her düğümde donanım daha iyi kullanabilmesine için düğüm sayısını arasında yeniden dengeler.
 
-Service Fabric herhangi bir VM veya Windows Server veya Linux çalıştıran bilgisayarlar üzerinde Service Fabric kümeleri oluşturulmasını sağlar. Bu, dağıtmak ve Service Fabric uygulamaları birbirine bağlı bir Windows Server veya Linux bilgisayarlar kümesi sahip olduğu herhangi bir ortamda çalıştırılabilir, şirket içi, Microsoft Azure olması mümkün gelir veya herhangi bir bulut sağlayıcısı ile.
+Service Fabric Service Fabric kümeleri herhangi bir VM veya Windows Server veya Linux çalıştıran bilgisayarlar üzerinde oluşturulmasını sağlar. Bu, dağıtmak ve Service Fabric uygulamaları birbirlerine bağlanış Windows Server veya Linux bilgisayarlar kümesi sahip olduğu herhangi bir ortamda çalıştırmak, şirket içi, Microsoft Azure olması mümkün olduğu anlamına gelir veya tüm bulut sağlayıcıları ile.
 
 ## <a name="create-service-fabric-clusters-on-azure"></a>Azure'da Service Fabric kümeleri oluşturma
-Azure üzerinde bir küme oluşturma yapılır ya da bir kaynak modeli şablonu aracılığıyla veya [Azure portal](https://portal.azure.com). Okuma [Resource Manager şablonu kullanarak bir Service Fabric kümesi oluşturma](service-fabric-cluster-creation-via-arm.md) veya [Azure portalından bir Service Fabric kümesi oluştur](service-fabric-cluster-creation-via-portal.md) daha fazla bilgi için.
+Azure'da küme oluşturma yapılır ya da bir kaynak modeli şablon aracılığıyla veya [Azure portalında](https://portal.azure.com). Okuma [Resource Manager şablonu kullanarak bir Service Fabric kümesi oluşturma](service-fabric-cluster-creation-via-arm.md) veya [Azure portalında bir Service Fabric kümesi oluşturma](service-fabric-cluster-creation-via-portal.md) daha fazla bilgi için.
 
-## <a name="supported-operating-systems-for-clusters-on-azure"></a>Azure üzerinde kümeleri için desteklenen işletim sistemleri
-Bu işletim sistemlerini çalıştıran sanal makinelere kümeleri oluşturabilirsiniz:
+## <a name="supported-operating-systems-for-clusters-on-azure"></a>Azure'da kümeler için desteklenen işletim sistemleri
+Bu işletim sistemlerini çalıştıran sanal makinelere kümeleri oluşturmak kullanabilirsiniz:
 
 * Windows Server 2012 R2
 * Windows Server 2016 
@@ -38,48 +38,48 @@ Bu işletim sistemlerini çalıştıran sanal makinelere kümeleri oluşturabili
 * Linux Ubuntu 16.04
 
 > [!NOTE]
-> Windows Server 1709 üzerinde Service Fabric dağıtmaya karar verirseniz (1), bir uzun süreli bakım dalı, böylece sürümleri gelecekte taşımanız gerekebilir ve (2) kapsayıcıları dağıtırsanız, Windows Server'da Windows Server 2016 yerleşik kapsayıcıları işe yaramazsa olmadığını unutmayın  1709, bunun tam tersi (bunları dağıtmak için bunları yeniden gerekecek).
+> Service Fabric'te Windows Server 1709 dağıtmaya karar verirseniz, (1), uzun süreli bakım dalı, sürüm gelecekte taşımanız gerekebilir ve (2) kapsayıcıları dağıtma, kapsayıcıları Windows Server 2016'da oluşturulmuş Windows Server üzerinde çalışmaz olmadığını unutmayın  1709 ve bunun tersi de geçerlidir (bunları dağıtmak için bunları yeniden oluşturmak gerekir).
 >
 
-## <a name="create-service-fabric-standalone-clusters-on-premises-or-with-any-cloud-provider"></a>Service Fabric tek başına içi kümeleri oluşturmak veya herhangi bir bulut sağlayıcısı ile
-Service Fabric, tek başına Service Fabric kümeleri şirket içi oluşturmak için veya herhangi bir bulut sağlayıcısına üzerinde bir yükleme paketi sağlar.
+## <a name="create-service-fabric-standalone-clusters-on-premises-or-with-any-cloud-provider"></a>Service Fabric tek başına kümeler şirket içi oluşturma veya tüm bulut sağlayıcıları ile
+Service Fabric, tek başına Service Fabric kümeleri şirket içi oluşturmak için veya tüm bulut sağlayıcılarından kurulum paketi sağlar.
 
-Windows Server'da tek başına Service Fabric ayarlama hakkında daha fazla bilgi kümeleri için okuma [Windows Server için Service Fabric kümesi oluşturma](service-fabric-cluster-creation-for-windows-server.md)
+Windows Server'da tek başına Service Fabric hakkında daha fazla bilgi kümeleri için okuma [Windows Server için Service Fabric kümesi oluşturma](service-fabric-cluster-creation-for-windows-server.md)
 
   > [!NOTE]
-  > Tek başına kümelerinin Linux için şu anda desteklenmiyor. Linux Kutulu geliştirme ve Azure Linux çoklu makine kümeleri için desteklenir.
+  > Linux için tek başına kümeler şu anda desteklenmiyor. Linux üzerinde çalıştırma geliştirme ve Azure Linux çoklu makine kümeleri için desteklenir.
   >
 
-### <a name="any-cloud-deployments-vs-on-premises-deployments"></a>Şirket içi dağıtımları ve tüm bulut dağıtımları
-Şirket içi bir Service Fabric kümesi oluşturma işlemi, sanal makineleri bir dizi olan tercih ettiğiniz herhangi bir buluta bir küme oluşturma işlemi benzerdir. VM'ler sağlamak için ilk adım bulut sağlayıcısı veya kullanmakta olduğunuz şirket içi ortamı tarafından yönetilir. Aralarında etkin ağ bağlantısı ile sanal makineleri kümesine sahip sonra sonra Service Fabric paketi, ayarlamak için adımları küme ayarlarını düzenleme ve küme oluşturma çalıştırın ve yönetim komut dosyaları aynıdır. Bu bilgi ve işletim ve Service Fabric kümelerini yönetme deneyimi transfer edilebilir yeni barındırma ortamları hedef seçtiğinizde sağlar.
+### <a name="any-cloud-deployments-vs-on-premises-deployments"></a>Tüm bulut dağıtımları ve şirket içi dağıtımlar
+Şirket içi bir Service Fabric kümesi oluşturma işlemi, bir VM kümesi ile kendi tercih ettiğiniz herhangi bir bulut üzerindeki bir küme oluşturma işlemi benzerdir. Vm'leri sağlama işlemi ilk adımlarında, kullanmakta olduğunuz şirket içi ortam ve bulut sağlayıcısı tarafından yönetilir. Bunlar arasında etkin ağ bağlantısı ile bir VM kümesi oluşturduktan sonra sonra adımları, Service Fabric paketi küme ayarları düzenleyin ve küme oluşturma çalıştırın ve yönetim komut dosyaları aynıdır. Bu deneyimi ve Service Fabric kümeleri yönetmek ve Bilgi Bankası aktarılamaz, yeni barındırma ortamları hedeflemek seçtiğinizde sağlar.
 
 ### <a name="benefits-of-creating-standalone-service-fabric-clusters"></a>Tek başına Service Fabric kümeleri oluşturma avantajları
-* Kümenizi barındırmak için herhangi bir bulut sağlayıcısına seçmek boş.
-* Bir kez yazılmış, Service Fabric uygulamaları ile birden çok barındırma ortamlarında herhangi bir değişiklik en az çalıştırılabilir.
-* Service Fabric uygulamaları oluşturmak, bilgiye bir barındırma ortamdan diğerine taşır.
-* Service Fabric çalıştırma ve işletimsel deneyimi taşıyan üzerinden bir ortamdan diğerine kümeleri.
-* Geniş müşteri ulaşma ortamı kısıtlamaları barındırarak sınırsız.
-* Bir veri merkezi veya Bulut sağlayıcısı bir Kararma varsa, hizmetler için başka bir dağıtım ortamı taşıyabilirsiniz var olduğundan, güvenilirlik ve yaygın kesintilere karşı koruma fazladan bir katmanı.
+* Kümenizi barındırmak amacıyla bulut sağlayıcıları seçebilirsiniz.
+* Service Fabric uygulamaları, bir kez yazılan ile birden çok barındırma ortamlarında değişiklik yapmadan en az çalıştırılabilir.
+* Service Fabric uygulamaları oluşturmak, bilgi barındıran bir ortamdan diğerine taşır.
+* Çalıştıran ve yöneten Service Fabric çalışma deneyimi taşıyan üzerinden bir ortamdan diğerine kümeleri.
+* Barındırma ortamı kısıtlamaları tarafından geniş ulaşarak sınırsızdır.
+* Bir veri merkezi veya Bulut sağlayıcısı bir Kararma varsa, hizmetler için başka bir dağıtım ortamı taşıyabilirsiniz nedeniyle ek bir koruma katmanı güvenilirlik ve yaygın kesintilerine karşı koruma bulunmaktadır.
 
-## <a name="supported-operating-systems-for-standalone-clusters"></a>Tek başına kümeleri için desteklenen işletim sistemleri
-VM'ler (Linux henüz desteklenmemektedir) bu işletim sistemlerini çalıştıran bilgisayarlarda veya kümeleri oluşturabilirsiniz:
+## <a name="supported-operating-systems-for-standalone-clusters"></a>Tek başına kümeler için desteklenen işletim sistemleri
+Vm'leri veya (Linux henüz desteklenmiyor) bu işletim sistemlerini çalıştıran bilgisayarlara kümeleri oluşturmak kullanabilirsiniz:
 
 * Windows Server 2012 R2
 * Windows Server 2016 
 
-## <a name="advantages-of-service-fabric-clusters-on-azure-over-standalone-service-fabric-clusters-created-on-premises"></a>Şirket içi Azure Service Fabric kümelerinde tek başına Service Fabric kümeleri üzerinden avantajları oluşturuldu
-Service Fabric kümeleri Azure üzerinde çalışan bunu kümeleriniz çalıştırdığı için belirli gereksinimler yoksa şirket içi avantajları, seçeneği sağlar sonra Azure üzerinde çalıştırmanızı öneririz. Azure üzerinde biz diğer Azure özellikleri ve işlemler ve küme yönetiminin daha kolay ve daha güvenilir yapar Hizmetleri ile tümleştirme sağlar.
+## <a name="advantages-of-service-fabric-clusters-on-azure-over-standalone-service-fabric-clusters-created-on-premises"></a>Şirket içi Azure Service Fabric kümelerinde tek başına Service Fabric kümeleri üzerinde avantajları oluşturuldu
+Service Fabric kümeleri Azure üzerinde çalışan bunu kümeleriniz, çalıştırdığınız için belirli gereksinimleriniz yoksa, şirket içi avantajları, seçenek sağlar, sonra Azure'da çalıştırmanızı öneririz. Azure'da tümleştirme diğer Azure özellikleri ve operasyon ve küme yönetimi daha kolay ve daha güvenilir olmasını sağlayan hizmetler ile sunuyoruz.
 
-* **Azure portal:** Azure portal oluşturmak ve kümeleri yönetmek kolaylaştırır.
-* **Azure Resource Manager:** kullanım Azure Kaynak Yöneticisi'nin bir birim olarak küme tarafından kullanılan tüm kaynakları kolay yönetilmesine izin verir ve maliyet izleme ve faturalama basitleştirir.
-* **Service Fabric kümesi bir Azure kaynağı olarak** A Service Fabric kümesi diğer kaynaklara yaptığınız gibi model bir Azure kaynağı olduğundan.
-* **Azure altyapısı ile tümleştirme** Service Fabric koordinatları işletim sistemi, ağ ve diğer yükseltmeler kullanılabilirliğini ve uygulamalarınızı güvenilirliğini artırmak için Azure altyapının ile.  
-* **Tanılama:** Azure üzerinde tümleştirme Azure tanılama ve günlük analizi ile sağlıyoruz.
-* **Otomatik ölçeklendirme:** Azure ile ilgili daha fazla kümeler için sanal makine ölçek kümeleri nedeniyle yerleşik otomatik ölçeklendirme işlevi sağlıyoruz. Şirket içi ve diğer bulut ortamları, kendi otomatik ölçeklendirme özelliğini el ile kümeleri ölçekleme için Service Fabric gösterir API'lerini kullanarak ölçek derleme veya sahiptir.
+* **Azure portalı:** Azure portalı küme oluşturmak ve yönetmek kolaylaştırır.
+* **Azure Resource Manager:** Azure Resource Manager kullanımı kolay bir birim olarak küme tarafından kullanılan tüm kaynakların yönetilmesine izin verir ve maliyet izleme ve faturalandırma basitleştirir.
+* **Service Fabric kümesi bir Azure kaynağı olarak** bir Service Fabric kümesi olan bir Azure kaynağı azure'daki diğer kaynakları olduğu gibi modelini oluşturabilir.
+* **Azure altyapı tümleştirmesi** kullanılabilirliği ve güvenilirliği iyileştirmek işletim sistemi, ağ ve diğer yükseltme işlemleri için temel alınan Azure altyapısı sayesinde Service Fabric düzenler.  
+* **Tanılama:** Azure'da tümleştirme Log Analytics ve Azure Tanılama ile sunuyoruz.
+* **Otomatik ölçeklendirme:** azure'da kümeler için yerleşik otomatik ölçeklendirmeyi işlevselliği nedeniyle sanal makine ölçek kümeleri sunuyoruz. Şirket içinde ve diğer bulut ortamları, kendi otomatik ölçeklendirme özelliği veya el ile kümeleri ölçeklendirme için Service Fabric sunan API'lerini kullanarak ölçek oluşturmak gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Vm'leri veya Windows Server çalıştıran bilgisayarlarda bir küme oluşturun: [Windows Server için Service Fabric kümesi oluşturma](service-fabric-cluster-creation-for-windows-server.md)
-* Sanal makineleri veya Linux çalıştıran bilgisayarlarda bir küme oluşturun: [Linux kümesi oluşturma](service-fabric-cluster-creation-via-portal.md)
+* Küme Vm'leri veya Windows Server çalıştıran bilgisayarlara oluşturma: [Windows Server için Service Fabric kümesi oluşturma](service-fabric-cluster-creation-for-windows-server.md)
+* Küme sanal makineleri veya Linux çalıştıran bilgisayarlara oluşturma: [bir Linux kümesi oluşturma](service-fabric-cluster-creation-via-portal.md)
 * [Service Fabric destek seçenekleri](service-fabric-support.md) hakkında bilgi edinin
 

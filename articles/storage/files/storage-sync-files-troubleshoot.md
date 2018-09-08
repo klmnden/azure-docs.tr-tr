@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 4434b67393d34c3418e44e82681a586c268a37e5
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 88c73b3c9fd3ffc0c323b9971e245e6f6d9695a0
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42747005"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095547"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -22,7 +22,7 @@ Bu makalede, sorun giderme ve Azure dosya eşitleme dağıtımınıza karşıla�
 
 1. [Azure depolama Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 2. [Azure dosyaları UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
-3. Microsoft Desteği. Azure portalında yeni bir destek isteği oluşturmak için **yardımcı** sekmesinde **Yardım + Destek** düğmesini ve ardından **yeni destek isteği**.
+3. Microsoft desteği. Azure portalında yeni bir destek isteği oluşturmak için **yardımcı** sekmesinde **Yardım + Destek** düğmesini ve ardından **yeni destek isteği**.
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>My server (eşitleme, bulut katmanlama, vb..) Azure dosya eşitleme ile ilgili bir sorun yaşıyorum. Kaldırın ve paylaşabilirim my server uç noktası yeniden?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -125,6 +125,16 @@ Set-AzureRmStorageSyncServerEndpoint `
     -CloudTiering true `
     -VolumeFreeSpacePercent 60
 ```
+<a id="server-endpoint-noactivity"></a>**Sunucu uç noktası "No etkinliği" veya "Bekliyor" durumu durumuna sahip ve "çevrimdışı görünüyor" kayıtlı sunucuları dikey penceresinde sunucu durumu**  
+
+Depolama eşitleme İzleyicisi işlemi çalışmıyor veya sunucunun bir proxy veya Güvenlik Duvarı nedeniyle Azure dosya eşitleme hizmeti ile iletişim kuramıyor Bu sorun oluşabilir.
+
+Bu sorunu çözmek için aşağıdaki adımları gerçekleştirin:
+
+1. Sunucuda Görev Yöneticisi'ni açın ve depolama eşitleme İzleyicisi (AzureStorageSyncMonitor.exe) işleminin çalıştığını doğrulayın. İşlem çalışmıyorsa önce sunucuyu yeniden başlatmayı deneyin. Sunucunun yeniden başlatılması sorunu çözmezse, kaldırma ve Azure dosya eşitleme aracısını yeniden yükleyin (Not: sunucu ayarlarını, aracıyı kaldırıp zaman korunur).
+2. Güvenlik Duvarı ve Proxy ayarlarının doğru yapılandırıldığından doğrulayın:
+    - Sunucu bir güvenlik duvarının arkasındaysa, 443 giden bağlantı noktası izin verilen doğrulayın. Güvenlik Duvarı trafiği belirli etki alanlarına erişimi kısıtlıyorsa, Güvenlik Duvarı'nda listelenen etki alanları onaylayın [belgeleri](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) erişilebilir.
+    - Sunucu bir proxy'nin arkasındaysa, Proxy adımları izleyerek makineye veya uygulamaya özel proxy ayarlarını yapılandırın [belgeleri](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Bir dosya my Azure dosya paylaşımı doğrudan portal üzerinden ya da SMB üzerinden oluşturduğum, ne kadar dosya sunucularına eşitleme grubundaki eşitleme zaman alır?**  
@@ -223,7 +233,7 @@ Bu hataları görmek için şunu çalıştırın **FileSyncErrorsReport.ps1** Po
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Bir dosya kullanımda olduğundan eşitlenemiyor. Dosya artık kullanımda olmadığında eşitlenecektir. | Eylem gerekmiyor. Azure dosya eşitleme, günde bir kez açık tanıtıcıları içeren dosyaları eşitleyin sunucudaki geçici bir VSS anlık görüntüsü oluşturur. |
 | 0x20 | 32 | ERROR_SHARING_VIOLATION | Bir dosya kullanımda olduğundan eşitlenemiyor. Dosya artık kullanımda olmadığında eşitlenecektir. | Eylem gerekmiyor. |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Bir dosya veya dizin değişiklik henüz bağımlı bir klasörü henüz eşitlenmedi olduğundan eşitlenemiyor. Bu öğe, bağımlı değişiklikleri eşitlendiğinde eşitler. | Eylem gerekmiyor. |
-| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Eşitleme sırasında bir dosya değiştirildiğinden yeniden eşitlenmesi gerekiyor. | Eylem gerekmiyor. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Bir dosya eşitleme sırasında değiştirildi, yeniden eşitlenmesi gerekir. | Eylem gerekmiyor. |
 
 #### <a name="handling-unsupported-characters"></a>İşleme desteklenmeyen karakterler
 Varsa **FileSyncErrorsReport.ps1** PowerShell Betiği, desteklenmeyen karakterler nedeniyle hataları gösterir (0x7b hata kodları ve 0x8007007b), kaldırmalı veya ilgili dosyalarından hata karakterde yeniden adlandırın. Çoğu bu karakterlerden biri standart görsel kodlaması olduğundan PowerShell büyük olasılıkla bu karakterler soru işareti ya da boş dikdörtgenler yazdırın.
@@ -413,7 +423,7 @@ Kuruluşunuz, SSL sonlandırma proxy kullanıyorsa veya kötü amaçlı bir varl
     Restart-Service -Name FileSyncSvc -Force
     ```
 
-Bu kayıt defteri değeri ayarlandığında Azure Dosya Eşitleme aracısı, verileri sunucu ile bulut hizmeti arasında aktarırken yerel olarak güvenilen herhangi bir SSL sertifikasını kabul eder.
+Bu kayıt defteri değerini ayarlayarak, Azure dosya eşitleme aracısının yerel olarak güvenilir bir SSL sertifikası sunucu ve bulut hizmeti arasında veri aktarımı yaparken kabul eder.
 
 <a id="-2147012894"></a>**Hizmetle bağlantı kurulamadı.**  
 | | |
@@ -506,7 +516,7 @@ Durumlarda olduğu dosya eşitleme hatalarını çok sayıda, Eşitleme oturumla
 | **Hata dizesi** | ECS_E_SYNC_INVALID_PATH |
 | **Düzeltme gerekli** | Evet |
 
-Yolun var olduğundan, yerel bir NTFS biriminde bulunduğundan ve bir yeniden ayrıştırma noktası veya mevcut bir sunucu uç noktası olmadığından emin olun.
+Yolun var, yerel bir NTFS biriminde olduğundan ve bir yeniden ayrıştırma noktası veya mevcut bir sunucu uç noktası değil emin olun.
 
 <a id="-2134376373"></a>**Hizmet şu anda kullanılamıyor.**  
 | | |

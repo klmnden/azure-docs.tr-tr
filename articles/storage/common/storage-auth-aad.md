@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 90868961475c2e9d0ac7d28c5d9a50c8eb281675
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 78df10f3b6062a157e1ec5a057e9f39fc40193e5
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525214"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091774"
 ---
 # <a name="authenticate-access-to-azure-storage-using-azure-active-directory-preview"></a>Azure Active Directory (Önizleme) kullanarak Azure depolama erişimi kimlik doğrulaması
 
@@ -32,7 +32,7 @@ Azure AD kullanarak Azure Depolama'ya erişen uygulamalar yetkilendirme üst dü
 - Azure AD yetkilendirme standart depolama hesaplarında kaynaklara erişim şu anda desteklenmiyor. Premium depolama hesaplarındaki sayfa blobları için erişim yetkilendirme aktarılması yakında desteklenecek.
 - Azure depolama, hem yerleşik hem de özel RBAC rollerini destekler. Abonelik, kaynak grubu, depolama hesabı veya bir kapsayıcının veya sıra kapsamı roller atayabilirsiniz.
 - Azure AD tümleştirme desteklemekte Azure depolama istemci kitaplıkları şunları içerir:
-    - [.NET](https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0)
+    - [.NET](https://www.nuget.org/packages/WindowsAzure.Storage)
     - [Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) (7.1.x-Preview kullanın)
     - Python
         - [Blob](https://github.com/Azure/azure-storage-python/releases/tag/v1.2.0rc1-blob)
@@ -40,18 +40,13 @@ Azure AD kullanarak Azure Depolama'ya erişen uygulamalar yetkilendirme üst dü
     - [Node.js](https://www.npmjs.com/package/azure-storage)
     - [JavaScript](https://aka.ms/downloadazurestoragejs))
 
-> [!IMPORTANT]
-> Bu önizleme, yalnızca üretim dışı kullanması için tasarlanmıştır. Azure AD tümleştirmesi için Azure depolama genel kullanıma sunulan bildirildiği kadar üretim hizmet düzeyi sözleşmeleri (SLA'lar) kullanılamaz. Azure AD tümleştirme senaryonuz için henüz desteklenmiyor, uygulamalarınızda paylaşılan anahtar yetkilendirme veya SAS belirteçlerini kullanmaya devam.
->
-> Önizleme sırasında RBAC rolü atamalarını yayılması için beş dakika sürebilir.
->
-> Azure depolama ile Azure AD tümleştirmesi, Azure depolama işlemleri için HTTPS kullanmanızı gerektirir.
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="get-started-with-azure-ad-for-storage"></a>Depolama için Azure AD ile çalışmaya başlama
 
-RBAC rolleri için hizmet sorumlusu için veri depolama (kullanıcı, Grup veya uygulama hizmet sorumlusu) veya yönetilen hizmet kimliği (MSI), Azure depolama ile Azure AD tümleştirmesi kullanılarak ilk adımı atamaktır. RBAC rollerini ortak kapsayıcılar ve Kuyruklar için izin kümesi kapsayabilir. Azure depolama için RBAC rolleri hakkında daha fazla bilgi edinmek için [Yönet RBAC (Önizleme) ile depolama verilere erişim hakları](storage-auth-aad-rbac.md).
+Azure depolama ile Azure AD tümleştirmesi kullanılarak ilk adımı hizmet sorumlusu (kullanıcı, Grup veya uygulama hizmet sorumlusu) veya Azure kaynakları için yönetilen kimlikleri için RBAC rolleri için depolama veri atamaktır. RBAC rollerini ortak kapsayıcılar ve Kuyruklar için izin kümesi kapsayabilir. Azure depolama için RBAC rolleri hakkında daha fazla bilgi edinmek için [Yönet RBAC (Önizleme) ile depolama verilere erişim hakları](storage-auth-aad-rbac.md).
 
-Depolama kaynaklarını uygulamalarınıza erişim yetkisi vermek için Azure AD kullanmak için kodunuz içinden bir OAuth 2.0 erişim belirteci istemeniz gerekir. Bir erişim belirteci istemek ve Azure Depolama'ya yönelik isteklerin yetkilendirmek için kullanmak üzere öğrenmek için bkz: [Azure AD'den bir Azure depolama uygulaması (Önizleme) ile kimlik doğrulama](storage-auth-aad-app.md). Bir Azure yönetilen hizmet kimliği (MSI) kullanıyorsanız bkz [Azure AD'den bir Azure VM yönetilen hizmet kimliği (Önizleme) ile kimlik doğrulama](storage-auth-aad-msi.md).
+Depolama kaynaklarını uygulamalarınıza erişim yetkisi vermek için Azure AD kullanmak için kodunuz içinden bir OAuth 2.0 erişim belirteci istemeniz gerekir. Bir erişim belirteci istemek ve Azure Depolama'ya yönelik isteklerin yetkilendirmek için kullanmak üzere öğrenmek için bkz: [Azure AD'den bir Azure depolama uygulaması (Önizleme) ile kimlik doğrulama](storage-auth-aad-app.md). Yönetilen bir kimlik kullanıyorsanız bkz [BLOB'lar ve Kuyruklar Azure ile kimlik doğrulama erişim kimlikleri (Önizleme) Azure kaynakları için yönetilen](storage-auth-aad-msi.md).
 
 Azure CLI ve PowerShell artık bir Azure AD kimlik oturum destekler. Bir Azure AD kimlik bilgilerinizle oturum sonra oturumunuz bu kimliği altında çalışır. Daha fazla bilgi için bkz. [CLI veya PowerShell (Önizleme) ile Azure depolamaya erişmek için bir Azure AD kimlik kullanmak](storage-auth-aad-script.md).
 

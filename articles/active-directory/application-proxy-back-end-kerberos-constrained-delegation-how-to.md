@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ad2140d9d94cc4655043625200d42485b03c719b
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 258df8f784cf673d628e3e70874a89c8ade692bd
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364300"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093694"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Uygulama Ara sunucusu için kısıtlı Kerberos temsilcisi yapılandırmalarıyla ilgili sorunları giderme
 
@@ -117,42 +117,42 @@ Bağlayıcı tarafından sunulan Kerberos biletini tüketici. Bu aşamada, bağl
 
 3.  DevTools çalıştırın (**F12**) Internet Explorer veya [Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/) bağlayıcı konaktan. İç URL kullanarak uygulamaya gidin. Döndürülen sunulan WWW yetkilendirme üstbilgileri incelemek ya da uygulamadan emin olmak için yanıtta anlaşmasına veya Kerberos varsa. 
 
-    a. Uygulamaya bir tarayıcıdan yanıtta döndürülen İleri Kerberos blob ile başlayan **YII**. Bu harfler Kerberos çalışıp çalışmadığını bildirir. Microsoft NT LAN Manager (NTLM), diğer yandan, her zaman ile başlayan **TlRMTVNTUAAB**, NTLM Güvenlik Desteği Sağlayıcısı (Base64 kodlaması çözülmüş olduğunda NTLMSSP) okur. Görürseniz **TlRMTVNTUAAB** blob başlangıcında, Kerberos kullanılabilir değil. Görmüyorsanız **TlRMTVNTUAAB**, Kerberos büyük olasılıkla kullanılabilir.
-
+    - Uygulamaya bir tarayıcıdan yanıtta döndürülen İleri Kerberos blob ile başlayan **YII**. Bu harfler Kerberos çalışıp çalışmadığını bildirir. Microsoft NT LAN Manager (NTLM), diğer yandan, her zaman ile başlayan **TlRMTVNTUAAB**, NTLM Güvenlik Desteği Sağlayıcısı (Base64 kodlaması çözülmüş olduğunda NTLMSSP) okur. Görürseniz **TlRMTVNTUAAB** blob başlangıcında, Kerberos kullanılabilir değil. Görmüyorsanız **TlRMTVNTUAAB**, Kerberos büyük olasılıkla kullanılabilir.
+   
        > [!NOTE]
        > Fiddler'ı kullanırsanız, bu yöntem, Genişletilmiş Koruma'IIS uygulama yapılandırmasında geçici olarak devre dışı gerektirir.
-
-       ![Ağ İnceleme tarayıcının](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic6.png)
-
-    b. Bu şekil blob, ile başlamaz **TIRMTVNTUAAB**. Bu örnekte, Kerberos kullanılabilir ve Kerberos blob, ile başlamaz **YII**.
+      
+      ![Ağ İnceleme tarayıcının](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic6.png)
+   
+    - Bu şekil blob, ile başlamaz **TIRMTVNTUAAB**. Bu örnekte, Kerberos kullanılabilir ve Kerberos blob, ile başlamaz **YII**.
 
 4.  Geçici olarak NTLM IIS sitesinde sağlayıcıları listesinden kaldırın. Uygulama bağlayıcısı ana bilgisayarda Internet Explorer'dan doğrudan erişim. NTLM, artık sağlayıcılar listesinde değil. Yalnızca Kerberos kullanarak uygulamaya erişebilir. Erişim başarısız olursa, uygulamanın yapılandırma ile ilgili bir sorun olabilir. Kerberos kimlik doğrulaması işlev değil.
 
-    a. Kerberos kullanılabilir değilse, IIS'de uygulamanın kimlik doğrulama ayarlarını kontrol edin. Emin **anlaş** hemen altındaki NTLM ile üst listelenir. Görürseniz **anlaşma**, **Kerberos veya anlaşma**, veya **PKU2U**, yalnızca Kerberos işlevsel olup olmadığını devam edin.
+    - Kerberos kullanılabilir değilse, IIS'de uygulamanın kimlik doğrulama ayarlarını kontrol edin. Emin **anlaş** hemen altındaki NTLM ile üst listelenir. Görürseniz **anlaşma**, **Kerberos veya anlaşma**, veya **PKU2U**, yalnızca Kerberos işlevsel olup olmadığını devam edin.
 
        ![Windows kimlik doğrulama sağlayıcıları](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
    
-    b. Kerberos ve NTLM yerinde, ön kimlik doğrulama Portalı'nda uygulama için geçici olarak devre dışı bırakın. Dış URL'yi kullanarak internet'ten erişmeyi deneyin. Kimlik doğrulaması istenir. Önceki adımda kullanılan hesap ile bunu yapabilirsiniz. Aksi durumda, arka uç uygulaması, değil KCD ile ilgili bir sorun yoktur.
+    - Kerberos ve NTLM yerinde, ön kimlik doğrulama Portalı'nda uygulama için geçici olarak devre dışı bırakın. Dış URL'yi kullanarak internet'ten erişmeyi deneyin. Kimlik doğrulaması istenir. Önceki adımda kullanılan hesap ile bunu yapabilirsiniz. Aksi durumda, arka uç uygulaması, değil KCD ile ilgili bir sorun yoktur.
 
-    c. Ön kimlik doğrulama Portalı'nda yeniden etkinleştirin. Azure ile kimlik doğrulaması, dış URL aracılığıyla uygulamaya bağlanmak deneyerek. SSO başarısız olursa, tarayıcı ve 13022 olay günlüğünde Yasak hata iletisini görürsünüz:
+    - Ön kimlik doğrulama Portalı'nda yeniden etkinleştirin. Azure ile kimlik doğrulaması, dış URL aracılığıyla uygulamaya bağlanmak deneyerek. SSO başarısız olursa, tarayıcı ve 13022 olay günlüğünde Yasak hata iletisini görürsünüz:
 
        *Microsoft AAD Application Proxy Connector, Kerberos kimlik doğrulaması denemeleri ile bir HTTP 401 hata için arka uç sunucu yanıt verir çünkü kullanıcının kimliğini doğrulayamıyor.*
 
        ![HTTTP 401 Yasak hatası alır](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
-
-    d. IIS uygulama denetleyin. Azure AD'de aynı hesabı kullanmak için yapılandırılan uygulama havuzu ve SPN yapılandırılmış olduğundan emin olun. IIS'de aşağıdaki çizimde gösterildiği gibi gidin:
-
+   
+    - IIS uygulama denetleyin. Azure AD'de aynı hesabı kullanmak için yapılandırılan uygulama havuzu ve SPN yapılandırılmış olduğundan emin olun. IIS'de aşağıdaki çizimde gösterildiği gibi gidin:
+      
        ![IIS Uygulama Yapılandırması penceresi](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic9.png)
-
+      
        Kimlik bulduktan sonra bu hesap söz konusu SPN ile yapılandırıldığından emin olun. `setspn –q http/spn.wacketywack.com` bunun bir örneğidir. Komut isteminde aşağıdaki metni girin:
-
+      
        ![SetSPN komut penceresi](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
-
-    e. Uygulamanın ayarları portalda karşı tanımlanmış SPN denetleyin. Azure AD hesabı hedefe karşı yapılandırılmış aynı SPN uygulamanın uygulama havuzu tarafından kullanıldığından emin olun.
+      
+    - Uygulamanın ayarları portalda karşı tanımlanmış SPN denetleyin. Azure AD hesabı hedefe karşı yapılandırılmış aynı SPN uygulamanın uygulama havuzu tarafından kullanıldığından emin olun.
 
        ![Azure portalında SPN yapılandırma](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
    
-    f. IIS ve select biçimine **yapılandırma Düzenleyicisi** uygulama için seçeneği. Gidin **system.webServer/security/authentication/windowsAuthentication**. Değer emin **UseAppPoolCredentials** olduğu **True**.
+    - IIS ve select biçimine **yapılandırma Düzenleyicisi** uygulama için seçeneği. Gidin **system.webServer/security/authentication/windowsAuthentication**. Değer emin **UseAppPoolCredentials** olduğu **True**.
 
        ![IIS yapılandırması uygulama havuzları kimlik bilgisi seçeneği](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
 

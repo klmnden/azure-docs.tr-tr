@@ -8,18 +8,18 @@ manager: mbaldwin
 editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/20/2018
 ms.author: terrylan
-ms.openlocfilehash: 117fc5cb6583c4e3eed0c9506bda470400941f61
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
-ms.translationtype: HT
+ms.openlocfilehash: 930b1ebebbc99cbc5969f7549a0481a6457c7554
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41918561"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158611"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki tümleşik güvenlik çözümleri
 Bu belge Azure Güvenlik Merkezi'ne bağlanmış olan güvenlik çözümlerini yönetmenize ve yenilerini eklemenize yardımcı olur.
@@ -46,11 +46,11 @@ Tümleşik güvenlik çözümleri şu anda aşağıdakileri içermektedir:
 
 | Uç Nokta Koruması               | Platformlar                             | Güvenlik Merkezi Yüklemesi | Güvenlik Merkezi Bulma |
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
-| Windows Defender (Microsoft Kötü Amaçlı Yazılım Koruması)                  | Windows Server 2016                   | Hayır, işletim sisteminde yerleşik           | Yes                       |
-| System Center Endpoint Protection (Microsoft Kötü Amaçlı Yazılım Koruması) | Windows Server 2012 R2, 2012, 2008 R2 | Uzantı ile                | Yes                       |
-| Trend Micro – Tüm sürümler         | Windows Server Ailesi                 | Hayır                           | Yes                       |
-| Symantec v12.1.1100+              | Windows Server Ailesi                 | Hayır                           | Yes                       |
-| McAfee v10+                       | Windows Server Ailesi                 | Hayır                           | Yes                       |
+| Windows Defender (Microsoft Kötü Amaçlı Yazılım Koruması)                  | Windows Server 2016                   | Hayır, işletim sisteminde yerleşik           | Evet                       |
+| System Center Endpoint Protection (Microsoft Kötü Amaçlı Yazılım Koruması) | Windows Server 2012 R2, 2012, 2008 R2 | Uzantı ile                | Evet                       |
+| Trend Micro – Tüm sürümler         | Windows Server Ailesi                 | Hayır                           | Evet                       |
+| Symantec v12.1.1100+              | Windows Server Ailesi                 | Hayır                           | Evet                       |
+| McAfee v10+                       | Windows Server Ailesi                 | Hayır                           | Evet                       |
 | Kaspersky                         | Windows Server Ailesi                 | Hayır                           | Hayır                        |
 | Sophos                            | Windows Server Ailesi                 | Hayır                           | Hayır                        |
 

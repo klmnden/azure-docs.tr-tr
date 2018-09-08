@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 09/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 35bd895636bcedf0fd3fad073819d238c7850326
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: e0a2e26fb3dd0afeb4d1f3d030cb42bdc181e63c
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783347"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094969"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -210,7 +210,7 @@ Bir yeni kaynak grubuna ve aboneliğe geri taşıyarak sağlayan hizmetler şunl
 * Portalı panoları
 * Power BI - hem Power BI Embedded ve Power BI çalışma alanı koleksiyonu
 * Genel IP - bkz [genel IP kısıtlamaları](#pip-limitations)
-* Redis Cache
+* Redis Cache - Redis Cache örneği sanal ağ ile yapılandırılmışsa, örneği farklı bir aboneliğe taşınamaz. Bkz: [sanal ağlar sınırlamaları](#virtual-networks-limitations).
 * Scheduler
 * Arama
 * Service Bus

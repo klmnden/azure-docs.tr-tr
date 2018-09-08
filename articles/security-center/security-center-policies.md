@@ -3,26 +3,28 @@ title: Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama | Microsoft Bel
 description: Bu makale Azure Güvenlik Merkezi'nde güvenlik ilkelerini yapılandırmanıza yardımcı olur.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2018
-ms.author: terrylan
-ms.openlocfilehash: f12cede430a94da937a874ade2e50e4ed9860da9
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
-ms.translationtype: HT
+ms.date: 09/3/2018
+ms.author: rkarlin
+ms.openlocfilehash: c68b55beba445b7f5d30efe7155a47e7f6f76690
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757000"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161297"
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama
 Bu makale Güvenlik Merkezi'nde güvenlik ilkelerini yapılandırmanıza yardımcı olur.
+
+PowerShell kullanarak ilkeler ayarlama konusunda yönergeler için bkz: [hızlı başlangıç: Azure RM PowerShell modülünü kullanarak uyumlu olmayan kaynakları belirlemek üzere bir ilke ataması oluşturma](../azure-policy/assign-policy-definition-ps.md).
 
 ## <a name="how-security-policies-work"></a>Güvenlik ilkeleri nasıl çalışır?
 Güvenlik Merkezi, Azure aboneliklerinizin her biri için otomatik olarak varsayılan bir güvenlik ilkesi oluşturur. Güvenlik Merkezi'nde ilkeleri düzenleyebilir ve ilke uyumluluğunu izleyebilirsiniz.
@@ -37,13 +39,12 @@ Güvenlik Merkezi'nde tüm Azure aboneliklerinizin varsayılan güvenlik ilkesin
 
 1. Azure Portal’da oturum açın.
 
-2. **Güvenlik Merkezi** panosunun **Genel** bölümünde **Güvenlik ilkesi**'ni seçin.
+2. **Güvenlik Merkezi** panosunun **İLKE VE UYUMLULUK** bölümünde **Güvenlik ilkesi**'ni seçin.
 
 3. Güvenlik ilkesini etkinleştirmek istediğiniz aboneliği seçin.
 
-4. **İlke Bileşenleri** bölümünde **Güvenlik ilkesi**'ni seçin.  
-    Bu, Güvenlik Merkezi tarafından atanmış olan varsayılan ilkedir. Kullanılabilir ilke önerilerini açabilir veya kapatabilirsiniz.
-
+4. Abonelik için etkinleştirmek istediğiniz ilkelerini etkinleştirin. Seçtiğiniz her ilkesine göre öneriler alırsınız. 
+  ![ilke listesi](./media/security-center-policies/policies.png)
 5. Düzenlemeyi tamamladığınızda **Kaydet**'i seçin.
 
 ## <a name="available-security-policy-definitions"></a>Kullanılabilir güvenlik ilkesi tanımları

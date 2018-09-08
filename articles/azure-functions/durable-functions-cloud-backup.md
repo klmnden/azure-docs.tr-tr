@@ -1,62 +1,58 @@
 ---
-title: Fan-dışarı/fan-arada senaryolarda dayanıklı işlevleri - Azure
-description: Fan-dışarı fan-bileşenini senaryo için Azure işlevleri dayanıklı işlevleri uzantısı'nda uygulama hakkında bilgi edinin.
+title: Fan-dışarı/fan-içeren senaryolarda dayanıklı işlevler - Azure
+description: Fan-dışarı-fan-gelen senaryo dayanıklı işlevler uzantısını Azure işlevleri için uygulamayı öğrenin.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4e7b7b6af1f41eb0077d8a8605eb2a553c251f8e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: eec75ad9cf0f568e674b2a4f12d962982f84294f
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763857"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092674"
 ---
-# <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Fan-dışarı/fan-arada senaryoda dayanıklı işlevleri - bulut yedekleme örneği
+# <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Fan-dışarı/fan-arada senaryoda dayanıklı işlevler - bulut yedekleme örneği
 
-*Fan-dışarı/fan-arada* birden çok işlevleri eşzamanlı olarak yürütülen ve ardından bazı toplama sonuçlarına gerçekleştirme desenini başvuruyor. Bu makalede kullanan bir örneğin açıklanmaktadır [dayanıklı işlevleri](durable-functions-overview.md) fan-arada/fan kapatma senaryo uygulamak için. Örnek tümü veya bir uygulamanın site içeriğini bazıları Azure depolama alanına yedekler dayanıklı bir işlevdir.
+*Fan-dışarı/fan-arada* birden çok işlevleri eşzamanlı olarak yürütülmesi ve ardından bazı toplama sonuçlarına gerçekleştiren deseni ifade eder. Bu makalede kullanan bir örnek açıklanmaktadır [dayanıklı işlevler](durable-functions-overview.md) bir fan-arada/fan-dışarı senaryoyu uygulamak için. Örnek tümü veya bir uygulamanın site içeriği bazıları, Azure Depolama'ya yedekler kalıcı bir işlevdir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Dayanıklı işlevleri yüklemek](durable-functions-install.md).
+* [Dayanıklı işlevler yükleme](durable-functions-install.md).
 * Tamamlamak [Hello dizisi](durable-functions-sequence.md) gözden geçirme.
 
 ## <a name="scenario-overview"></a>Senaryoya genel bakış
 
-Bu örnekte, İşlevler, blob depolama alanına belirtilen dizin yinelemeli olarak altındaki tüm dosyaları karşıya yükleyin. Bunlar ayrıca toplam yüklenen bayt sayısı.
+Bu örnekte, işlevleri belirtilen dizin yinelemeli olarak altındaki tüm dosyaları blob depolama alanına yükleyin. Bunlar ayrıca toplam yüklenen bayt sayısı.
 
-Her şey mvc'deki tek bir işlevi yazma mümkündür. İçine çalışıyor ana sorun **ölçeklenebilirlik**. Bu tek VM üretilen işi tarafından üretilen işi sınırlandırılacak şekilde bir tek işlevi yürütme yalnızca tek bir VM üzerinde çalışabilir. Başka bir sorun **güvenilirlik**. Hata yarıda aracılığıyla ise veya tüm işlem 5 dakikadan daha uzun sürerse, yedekleme kısmen tamamlanmış bir durumunda başarısız olabilir. Ardından, yeniden başlatılması gerekir.
+Her şey üstlenir tek bir işlevi yazmak mümkündür. İçine çalıştırmak ana sorun **ölçeklenebilirlik**. Aktarım hızı, tek bir VM aktarım hızı tarafından sınırlandırılacak şekilde tek bir işlev yürütmeye yalnızca tek bir VM üzerinde çalışır. Başka bir sorun **güvenilirlik**. Yedekleme, bir hata sürecin yarısında ise veya sürecinin tamamını 5 dakikadan uzun sürerse, yalnızca kısmen tamamlanmış bir durumda başarısız olabilir. Ardından, yeniden başlatılması gerekir.
 
-İki normal işlevleri yazmak için daha sağlam bir yaklaşım olacaktır: biri dosyaları numaralandırma dosya adları için bir kuyruk ekleyin ve başka bir kuyruktan okunmak ve blob depolama alanına dosyaları karşıya. Bu verimlilik ve güvenilirlik bakımından daha iyi olur, ancak sağlamak ve bir sıraya yönetmek gerektirir. Önemli karmaşıklık cinsinden daha da önemlisi, sunulan **durum yönetimi** ve **düzenleme** başka bir işlem yapmanız istiyorsanız, raporu gibi karşıya yüklenen toplam bayt sayısı.
+Daha güçlü bir yaklaşım iki normal işlev yazmaktır: ve dosyaları numaralandırma dosya adları için bir kuyruk ekleyin ve başka bir kuyruktan okunmak ve dosyaları blob depolama alanına yükleme. Performans ve güvenilirlik açısından daha iyi budur ancak sağlamak ve bir kuyruk yönetmenizi gerektirir. Önemli karmaşıklık açısından daha da önemlisi, sunulan **durum yönetimi** ve **koordinasyon** fazla bir şey istiyorsanız, toplam bayt sayısı gibi rapor karşıya.
 
-Dayanıklı işlevleri bir yaklaşım, tüm çok düşük ek yükleri ile sözü edilen avantajları sunar.
+Dayanıklı işlevler bir yaklaşım, tüm çok az bir Giderle bahsedilen avantajları sunar.
 
-## <a name="the-functions"></a>İşlevler
+## <a name="the-functions"></a>İşlevleri
 
-Bu makalede örnek uygulamasında aşağıdaki işlevleri açıklanmaktadır:
+Bu makalede örnek uygulama aşağıdaki işlevler açıklanmaktadır:
 
 * `E2_BackupSiteContent`
 * `E2_GetFileList`
 * `E2_CopyFileToBlob`
 
-Aşağıdaki bölümlerde kullanılan kod ve yapılandırma açıklanmaktadır C# kodlama için. Visual Studio geliştirme için kod makalenin sonunda gösterilir.
+Aşağıdaki bölümlerde, kullanılan kod ve yapılandırma açıklanmaktadır. C# betik oluşturma. Visual Studio geliştirme için kod makalenin sonunda gösterilir.
 
-## <a name="the-cloud-backup-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Bulut yedekleme düzenleme (Visual Studio Code ve Azure portal örnek kodu)
+## <a name="the-cloud-backup-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Bulut yedekleme düzenleme (Visual Studio Code ve Azure portalı örnek kodu)
 
-`E2_BackupSiteContent` İşlevini kullanan standart *function.json* orchestrator işlevler için.
+`E2_BackupSiteContent` İşlevini kullanan standart *function.json* orchestrator işlevleri için.
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_BackupSiteContent/function.json)]
 
-Orchestrator işlevi uygulayan kod aşağıdaki gibidir:
+Orchestrator işlevi uygulayan kod şu şekildedir:
 
 ### <a name="c"></a>C#
 
@@ -66,27 +62,27 @@ Orchestrator işlevi uygulayan kod aşağıdaki gibidir:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/index.js)]
 
-Bu orchestrator işlevi temelde şunları yapar:
+Bu orchestrator işlevi aslında şunları yapar:
 
 1. Alan bir `rootDirectory` giriş parametresi olarak değeri.
-2. Dosyaları altında özyinelemeli listesini almak için bir işlev çağrılarını `rootDirectory`.
-3. Her dosyayı Azure Blob depolama alanına yüklemek için birden çok paralel işlevi çağrısı yapmaz.
-4. Tamamlamak tüm yüklemeler için bekler.
-5. Azure Blob Depolama birimine yüklenen Toplamı toplam bayt döndürür.
+2. Altındaki dosyaları bir özyinelemeli listesini almak için bir işlev çağırır `rootDirectory`.
+3. Azure Blob depolama alanına her dosyayı karşıya yüklemek için birden çok paralel işlev çağrıları yapar.
+4. Tamamlamak tüm karşıya yüklemelerin tamamlanmasını bekler.
+5. Azure Blob depolama alanına yüklenen Toplamı toplam bayt döndürür.
 
-Bildirim `await Task.WhenAll(tasks);` (C#) ve `yield context.df.Task.all(tasks);` (JS) satır. Tüm çağrıların `E2_CopyFileToBlob` işlevi olan *değil* beklemenin. Bu paralel olarak çalıştırılmasına izin vermeniz için bilinen bir durumdur. Bu görevler dizisi iletmek biz `Task.WhenAll`, Geri Al biz tamamlamak olmaz bir görevi *tüm kopyalama işlemleri tamamlanana kadar*. İle görev paralel kitaplığı (TPL) .NET içinde bilgi sahibi değilseniz, ardından bu size yeni değildir. Bu görevleri birden çok sanal makine aynı anda çalışması olasıdır ve dayanıklı işlevleri uzantısı uçtan uca yürütme işlem geri dönüştürme için dayanıklı olmasını sağlar farktır.
+Bildirim `await Task.WhenAll(tasks);` (C#) ve `yield context.df.Task.all(tasks);` (JS) satır. Tüm çağrıları `E2_CopyFileToBlob` işlevi olan *değil* bekleniyor. Bu, paralel olarak çalıştırmak izin vermek üzere kasıtlıdır. Bu görevler dizisi iletmek biz `Task.WhenAll`, geri tamamlaması gerekmez görev aldığımız *kopyalama işlemleri tamamlanana kadar*. İle görev paralel kitaplığı (TPL). NET'te biliyorsanız, ardından bu sizin için yeni değildir. Bu görevleri birden çok VM'de eşzamanlı çalışıyor olabilir ve dayanıklı işlevler uzantısını uçtan uca yürütme işlem geri dönüştürme için dayanıklı olmasını sağlar farktır.
 
-Görevler öneriler JavaScript kavramı çok benzer. Ancak, `Promise.all` arasındaki bazı farklar vardır `Task.WhenAll`. Kavramı `Task.WhenAll` üzerinden bir parçası olarak bağlantı noktası kurulmuş `durable-functions` JavaScript modülü ve kendisine özeldir.
+Görevler için JavaScript kavramı gösterir, oldukça benzerdir. Ancak, `Promise.all` arasındaki bazı farklar vardır `Task.WhenAll`. Kavramını `Task.WhenAll` üzerinden bir parçası olarak unity'nin `durable-functions` JavaScript modülü ve ona özel kullanımda.
 
-Gelen bekleyen sonra `Task.WhenAll` (veya gelen sağlayan `context.df.Task.all`), tüm işlev çağrılarını tamamladınız ve değerleri bize geri döndürülen biliyoruz. Her çağrı `E2_CopyFileToBlob` bayt sayısı karşıya, sum toplam bayt sayısı hesaplama sağlasa da, bunlar tüm dönüş değerleri birlikte ekleme olacak şekilde döndürür.
+Bekleyen öğesinden sonra `Task.WhenAll` (veya gelen sonuçlanmıyor `context.df.Task.all`), tüm işlev çağrıları tamamladınız ve değerleri bize geri döndürülen biliyoruz. Her çağrı `E2_CopyFileToBlob` bayt sayısı karşıya Toplamı toplam bayt sayısı hesaplama sağlasa da bu tüm dönüş değerleri birbirine ekleme, bu nedenle döndürür.
 
 ## <a name="helper-activity-functions"></a>Yardımcı etkinlik işlevleri
 
-Yardımcı etkinlik işlevleri başka bir örnek olduğu gibi kullandığınız yalnızca normal işlevlerdir `activityTrigger` tetiklemek bağlama. Örneğin, *function.json* dosya `E2_GetFileList` aşağıdaki gibi görünür:
+Yardımcı etkinlik işlevleri ile diğer örnekleri olduğu gibi kullanan yalnızca normal işlevlerdir `activityTrigger` bağlama tetikleyin. Örneğin, *function.json* dosya `E2_GetFileList` aşağıdaki gibi görünür:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/function.json)]
 
-Ve uygulama şöyledir:
+Ve uygulama şu şekildedir:
 
 ### <a name="c"></a>C#
 
@@ -96,16 +92,16 @@ Ve uygulama şöyledir:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/index.js)]
 
-JavaScript uygulamasını `E2_GetFileList` kullanan `readdirp` yinelemeli olarak modülüne dizin yapısını okuyun.
+JavaScript uygulamasını `E2_GetFileList` kullanan `readdirp` yinelemeli olarak modülüne dizin yapısı okuyun.
 
 > [!NOTE]
-> Neden henüz bu kodu doğrudan orchestrator işlevi koyduğunuz uygulanamadı merak ediyor olabilirsiniz. Olabilir, ancak bu bir orchestrator İşlevler, bunlar hiç dahil olmak üzere yerel dosya sistemi erişimi g/ç yapmalısınız olan temel kurallarının bölün.
+> Neden yalnızca bu kodu doğrudan Düzenleyici işlevi yerleştirdiğiniz uygulanamadı merak ediyor olabilirsiniz. Yapabilirsiniz, ancak bunlar hiçbir zaman dahil olmak üzere yerel dosya sistemi erişimini g/ç yapmalısınız olan orchestrator işlevlerin temel kurallarından biri bu kesme.
 
 *Function.json* dosya `E2_CopyFileToBlob` benzer şekilde basittir:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/function.json)]
 
-C# uygulaması da oldukça basittir. Bazı kullanmak için Azure işlevleri bağlamaları özelliklerini Gelişmiş olur (diğer bir deyişle, kullanımını `Binder` parametresi), ancak bu kılavuzda amacıyla bu ayrıntıları hakkında endişelenmeniz gerekmez.
+C# uygulaması da oldukça kolaydır. Bazı kullanmak için Azure işlevleri bağlamaları özelliklerinin Gelişmiş olur (diğer bir deyişle, kullanımını `Binder` parametresi), ancak bu gözden geçirme amacıyla bu ayrıntıları hakkında endişelenmeniz gerekmez.
 
 ### <a name="c"></a>C#
 
@@ -113,18 +109,18 @@ C# uygulaması da oldukça basittir. Bazı kullanmak için Azure işlevleri bağ
 
 ### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
 
-JavaScript uygulamasını erişimi yok `Binder` Özelliği Azure işlevleri, böylece [düğümü için Azure depolama SDK'sı](https://github.com/Azure/azure-storage-node) yerini alır. SDK'sı gerektirir Not bir `AZURE_STORAGE_CONNECTION_STRING` uygulama ayarı.
+JavaScript uygulamasını erişimi yok `Binder` özelliği, Azure işlevleri, böylece [düğüm için Azure depolama SDK'sı](https://github.com/Azure/azure-storage-node) yerini alır. SDK'sı gerektirir Not bir `AZURE_STORAGE_CONNECTION_STRING` uygulama ayarı.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_CopyFileToBlob/index.js)]
 
-Uygulama diskten dosyayı yükler ve zaman uyumsuz olarak "yedekleme" kapsayıcısında aynı ada sahip bir blob içine içeriği akışlarını. Dönüş değeri birleşik toplam hesaplamak için orchestrator işlevi tarafından sonra kullanılan depolama birimine kopyalanan bayt sayısıdır.
+Uygulama, dosya diskten yükler ve zaman uyumsuz olarak "yedekleme" kapsayıcı içinde aynı adlı bir blob içinde içeriği akışları. Dönüş değeri, ardından Düzenleyici işlevi tarafından toplama toplamı hesaplamak için kullanılan depolama alanına kopyalandığından bayt sayısıdır.
 
 > [!NOTE]
-> Bu bir g/ç işlemleri içine taşıma kusursuz örnektir bir `activityTrigger` işlevi. Yalnızca iş birçok farklı VM dağıtılabilir, ancak ayrıca denetim noktası oluşturma yararları ilerleme elde edersiniz. Ana bilgisayar işlemi için herhangi bir nedenle sonlandırıldı, hangi yüklemeleri daha önce tamamlamış bildirin.
+> Bu bir g/ç işlemi taşıma mükemmel örnektir bir `activityTrigger` işlevi. Yalnızca iş birçok farklı sanal makinelerde dağıtılabilir, ancak ilerleme ayrıca denetim noktası avantajlarından yararlanın. Ana bilgisayar işlemi için herhangi bir nedenle sonlandırıldıysa, hangi karşıya yükleme zaten tamamlandı bildirin.
 
 ## <a name="run-the-sample"></a>Örneği çalıştırma
 
-Aşağıdaki HTTP POST isteği göndererek orchestration başlatabilirsiniz.
+Aşağıdaki HTTP POST isteği göndererek düzenleme başlayabilirsiniz.
 
 ```
 POST http://{host}/orchestrators/E2_BackupSiteContent
@@ -135,9 +131,9 @@ Content-Length: 20
 ```
 
 > [!NOTE]
-> `HttpStart` Çağırdığınız işlevi yalnızca JSON biçimli içerik ile çalışır. Bu nedenle, `Content-Type: application/json` üstbilgi gereklidir ve dizin yolu bir JSON dizesi olarak kodlanır.
+> `HttpStart` Çağırdığınız işlev, yalnızca JSON biçimli içerik ile çalışır. Bu nedenle, `Content-Type: application/json` üst bilgisi gereklidir ve dizin yolu bir JSON dizesi kodlanır.
 
-Bu HTTP isteği Tetikleyicileri `E2_BackupSiteContent` orchestrator ve dize geçirir `D:\home\LogFiles` bir parametre olarak. Yanıt, yedekleme işlemi durumunu almak için bir bağlantı sağlar:
+Bu HTTP isteği Tetikleyicileri `E2_BackupSiteContent` orchestrator ve dize `D:\home\LogFiles` bir parametre olarak. Yanıt, yedekleme işlemi durumunu almak için bir bağlantı sağlar:
 
 ```
 HTTP/1.1 202 Accepted
@@ -148,7 +144,7 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/b4e9bdcc
 (...trimmed...)
 ```
 
-İşlevi uygulamanızda sahip kaç günlük dosyaları bağlı olarak, bu işlemin tamamlanması birkaç dakika sürebilir. En son durumunu URL'de sorgulayarak alabileceğiniz `Location` önceki HTTP 202 yanıtı üstbilgisi.
+İşlev uygulamanızda sahip olduğunuz kaç günlük dosyalarının bağlı olarak, bu işlemin tamamlanması birkaç dakika sürebilir. En son durumu URL'de sorgulayarak alabileceğiniz `Location` önceki HTTP 202 yanıt üstbilgisi.
 
 ```
 GET http://{host}/admin/extensions/DurableTaskExtension/instances/b4e9bdcc435d460f8dc008115ff0a8a9?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
@@ -163,7 +159,7 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/b4e9bdcc
 {"runtimeStatus":"Running","input":"D:\\home\\LogFiles","output":null,"createdTime":"2017-06-29T18:50:55Z","lastUpdatedTime":"2017-06-29T18:51:16Z"}
 ```
 
-Bu durumda, işlevi hala çalışıyor. Orchestrator durumunu ve son güncellenme zamanı kaydedildi giriş görüyor. Kullanmaya devam edebilirsiniz `Location` tamamlanmasını yoklamak için üstbilgi değerleri. Durumu "tamamlandı"olduğunda, aşağıdakine benzer bir HTTP yanıt değeri bakın:
+Bu durumda, işlev hala çalışıyor. Orchestrator durumunu ve son güncelleştirme zamanı kaydedildi girişi görebilirsiniz. Kullanmaya devam edebilirsiniz `Location` tamamlanmasını yoklamak için üstbilgi değerleri. Durumu tamamlandı""olduğunda, aşağıdakine benzer bir HTTP yanıt değeri bakın:
 
 ```
 HTTP/1.1 200 OK
@@ -173,17 +169,17 @@ Content-Type: application/json; charset=utf-8
 {"runtimeStatus":"Completed","input":"D:\\home\\LogFiles","output":452071,"createdTime":"2017-06-29T18:50:55Z","lastUpdatedTime":"2017-06-29T18:51:26Z"}
 ```
 
-Şimdi orchestration tamamlandıktan ve yaklaşık ne kadar zaman tamamlamak için harcanan görebilirsiniz. İçin bir değer de gördüğünüz `output` yaklaşık 450 KB günlükleri karşıya gösterir alan.
+Artık düzenleme tamamlandıktan ve tamamlanması yaklaşık olarak ne kadar zaman geçen görebilirsiniz. İçin bir değer de gördüğünüz `output` alanı gösterir, yaklaşık 450 KB günlükleri karşıya yüklendi.
 
 ## <a name="visual-studio-sample-code"></a>Visual Studio örnek kod
 
-Tek bir C# dosyasında bir Visual Studio projesi olarak orchestration şöyledir:
+Tek bir C# dosyası olarak Visual Studio projesi içinde düzenleme şu şekildedir:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu örnek, fan-dışarı/fan-arada desen uygulamak nasıl göstermiştir. Sonraki örnek İzleyicisi'ni kullanarak desen uygulamak gösterilmiştir [dayanıklı zamanlayıcılar](durable-functions-timers.md).
+Bu örnek fan-dışarı/fan-arada düzeni nasıl uygulayacağınıza karar göstermiştir. Sonraki örnek, İzleyicisi'ni kullanarak desen uygulamak gösterilmektedir [dayanıklı zamanlayıcılar](durable-functions-timers.md).
 
 > [!div class="nextstepaction"]
-> [İzleyici örneğini çalıştırın](durable-functions-monitor.md)
+> [İzleyici örneği çalıştırma](durable-functions-monitor.md)

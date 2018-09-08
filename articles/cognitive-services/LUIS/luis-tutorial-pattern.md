@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: diberry
-ms.openlocfilehash: 355c1edd4fa7433e68a9c0e903f4f782203326fe
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 9c14f2121cd83cec802f4fd4a92661d58eb7efb3
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365887"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159582"
 ---
 # <a name="tutorial-improve-app-with-patterns"></a>Öğretici: uygulama desenleri ile geliştirin
 
@@ -26,7 +26,7 @@ Bu öğreticide, hedefi ve varlık tahmin artırmak için desenleri kullanın.
 * Bir düzen oluşturma
 * Desen tahmin geliştirmeleri doğrulama
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -114,15 +114,15 @@ Bu hedefleri, örnek konuşma miktarını LUIS düzgün şekilde ayarlayabilmesi
 
 ## <a name="train-the-luis-app"></a>LUIS uygulamasını eğitme
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Uç nokta URL'sini almak için uygulamayı yayımlama
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Uç noktayı farklı bir konuşmayla sorgulama
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Adres çubuğundaki URL'nin sonuna gidip `Who is the boss of Jill Jones?` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. 
 
@@ -353,7 +353,7 @@ Bu öğreticideki önceki deseni şablon konuşma birkaç örnek verilmiştir, s
 
 Örnek konuşma şunlardır:
 
-|Hedefi|İsteğe bağlı bir metin ve önceden oluşturulmuş varlıklar ile örnek konuşma|
+|Amaç|İsteğe bağlı bir metin ve önceden oluşturulmuş varlıklar ile örnek konuşma|
 |:--|:--|
 |Kuruluş Şeması-Manager|`Who was Jill Jones manager on March 3?`|
 |Kuruluş Şeması-Manager|`Who is Jill Jones manager now?`|
@@ -363,7 +363,7 @@ Bu öğreticideki önceki deseni şablon konuşma birkaç örnek verilmiştir, s
 Bu örneklerin her bir fiil geniş zaman kullanılmaktadır `was`, `is`, `will be`, bir tarih yanı sıra `March 3`, `now`, ve `in a month`, LUIS gereken doğru şekilde tahmin edin. Son iki örneği neredeyse aynı metni dışında kullandığına dikkat edin `in` ve `on`.
 
 Örnek şablon konuşma:
-|Hedefi|İsteğe bağlı bir metin ve önceden oluşturulmuş varlıklar ile örnek konuşma|
+|Amaç|İsteğe bağlı bir metin ve önceden oluşturulmuş varlıklar ile örnek konuşma|
 |:--|:--|
 |Kuruluş Şeması-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
 |Kuruluş Şeması-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
@@ -396,7 +396,7 @@ Köşeli parantezler, isteğe bağlı söz diziminin kullanılması `[]`, bu ist
 
 1. Yine **desenleri** bölümünü **derleme**, birkaç yeni şablon konuşma deseni ekleyin. Seçin **Kuruluş Şeması-yönetici** hedefi aşağı açılan menüden ve her biri aşağıdaki şablon konuşma girin:
 
-    |Hedefi|İsteğe bağlı bir metin ve önceden oluşturulmuş varlıklar ile örnek konuşma|
+    |Amaç|İsteğe bağlı bir metin ve önceden oluşturulmuş varlıklar ile örnek konuşma|
     |--|--|
     |Kuruluş Şeması-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
     |Kuruluş Şeması-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
@@ -424,7 +424,7 @@ Tüm bu konuşma bulunan varlıkların içinde bu nedenle bunlar aynı deseniyle
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

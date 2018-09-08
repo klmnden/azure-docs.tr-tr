@@ -8,18 +8,18 @@ manager: mbaldwin
 editor: ''
 ms.assetid: 4c5599cc-99a1-430f-895f-601615ef12a0
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: yurid
-ms.openlocfilehash: 699903ff874ace4991c5c4b0584d4661d3e45f33
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: a0a218fc18c1c9ede71de590179b0c93221eb80c
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894282"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161043"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Azure Güvenlik Merkezi algılama özellikleri
 Bu belge, Microsoft Azure kaynaklarınızı hedefleyen etkin tehditleri belirlemenize yardımcı olan ve hızlı yanıt vermek için gereken bilgileri sağlayan Azure Güvenlik Merkezi’nin gelişmiş algılama özelliklerini ele almaktadır.
@@ -27,7 +27,7 @@ Bu belge, Microsoft Azure kaynaklarınızı hedefleyen etkin tehditleri belirlem
 Gelişmiş algılamalar Azure Güvenlik Merkezi'nin Standart Katmanında mevcuttur. 60 günlük ücretsiz deneme sürümü mevcuttur. [Güvenlik İlkesi](security-center-policies.md) bölümündeki Fiyatlandırma Katmanı’ndan yükseltme yapabilirsiniz. Fiyatlandırma hakkında daha fazla bilgi almak için [Güvenlik Merkezi sayfasını](https://azure.microsoft.com/pricing/details/security-center/) ziyaret edin. 
 
 > [!NOTE]
-> Güvenlik Merkezi Linux makinelerdeki kötü amaçlı davranışlarını algılamak için denetim kayıtlarını kullanan yeni bir algılama kümesi ve ortak denetim çerçevesi içeren sınırlı bir önizleme sürümüyle yayımlanmıştır. Önizlemeye katılmak için lütfen abonelik kimliklerinizi [bize](mailto:ASC_linuxdetections@microsoft.com) e-posta ile gönderin.
+> Güvenlik Merkezi Linux makinelerdeki kötü amaçlı davranışları algılamak için ortak bir denetim çerçevesi, denetlenen kayıtları yararlanan bir algılama kümesi sınırlı Önizleme için kullanıma sundu. Önizlemeye katılmak için lütfen abonelik kimliklerinizi [bize](mailto:ASC_linuxdetections@microsoft.com) e-posta ile gönderin.
 
 ## <a name="responding-to-todays-threats"></a>Günümüzün tehditlerine yanıt verme
 Son 20 yılda tehdit kapsamında önemli değişiklikler olmuştur. Geçmişte şirketlerin yalnızca çoğunlukla “yapabileceklerini” görmeyle ilgilenen bireysel saldırganların web sitesi tahrifatından endişe duyması gerekiyordu. Bugün ise saldırganlar çok daha karmaşık ve organize hareket etmektedir. Saldırganlar genellikle belirli finansal ve stratejik hedeflere sahiptir. Ayrıca, ulus devletler veya organize suç örgütleri tarafından finanse edilebildiklerinden ellerinde daha fazla kaynak bulunmaktadır.

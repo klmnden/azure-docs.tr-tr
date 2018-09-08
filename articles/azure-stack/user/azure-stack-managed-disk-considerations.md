@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 4fd2a26d9119e52fc75918abc1ca97e6f9888169
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: a2ad07809963560b1225ff07b095509c93618996
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028599"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160430"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack yönetilen diskler: Farklılıklar ve dikkat edilmesi gerekenler
 Bu makalede, Azure Stack yönetilen diskler için Azure yönetilen diskler arasındaki bilinen farklar özetlenmektedir. Azure Stack ve Azure arasında üst düzey farklılıklar hakkında bilgi edinmek için bkz. [anahtar konuları](azure-stack-considerations.md) makalesi.
@@ -28,7 +28,7 @@ Bu makalede, Azure Stack yönetilen diskler için Azure yönetilen diskler aras�
 Yönetilen diskler yöneterek Iaas Vm'leri için disk yönetimini basitleştirir [depolama hesapları](/azure/azure-stack/azure-stack-manage-storage-accounts) VM diskleriyle ilişkili.
   
 
-## <a name="cheat-sheet-virtual-machine-differences"></a>Kopya kağıdı: sanal makine farkları
+## <a name="cheat-sheet-managed-disk-differences"></a>Kopya kağıdı: yönetilen disk farkları
 
 | Özellik | Azure (Genel) | Azure Stack |
 | --- | --- | --- |

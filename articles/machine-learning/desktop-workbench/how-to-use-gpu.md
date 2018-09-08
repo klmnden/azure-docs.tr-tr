@@ -11,12 +11,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: f3b6c4f6af14615511400650662fe7a350c172ba
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 09d8e3da543cdf4433d986b321697abcad88eb22
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42055941"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157999"
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Azure Machine Learning'de GPU kullanma
 Grafik işlem birimi (GPU), genellikle bazı derin sinir ağı modelleri eğitimindeki oluşabilir işlem bakımından yoğun görevlerini işlemek için yaygın olarak kullanılır. GPU'ları kullanarak modellerin eğitim süresini önemli ölçüde azaltabilir. Bu belgede, Azure ML Workbench uygulamasını kullanmak için yapılandırma hakkında bilgi edinin [DSVM (veri bilimi sanal makinesi)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) yürütme hedefi Gpu'lar ile donatılmış. 
@@ -86,7 +86,7 @@ C:\MyProj> az ml computetarget attach remotedocker --name "my_dsvm" --address "m
 ### <a name="configure-azure-ml-workbench-to-access-gpu"></a>Azure ML Workbench GPU erişimi yapılandırma
 Proje geri gidin ve açık **dosya görünümü**ve isabet **Yenile** düğmesi. Şimdi iki yeni yapılandırma dosyalarını gördüğünüz `my_dsvm.compute` ve `my_dsvm.runconfig`.
  
-Açık `my_dsvm.compute`. Değişiklik `baseDockerImage` için `microsoft/mmlspark:plus-gpu-0.7.9` ve yeni bir satır eklemek `nvidiaDocker: true`. Bu nedenle dosyada şu iki satırı olmalıdır:
+Açık `my_dsvm.compute`. Değişiklik `baseDockerImage` için `microsoft/mmlspark:plus-gpu-0.9.9` ve yeni bir satır eklemek `nvidiaDocker: true`. Bu nedenle dosyada şu iki satırı olmalıdır:
  
 ```yaml
 ...

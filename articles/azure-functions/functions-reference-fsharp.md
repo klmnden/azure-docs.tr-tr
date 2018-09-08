@@ -1,41 +1,37 @@
 ---
 title: 'Azure işlevleri F # Geliştirici Başvurusu | Microsoft Docs'
-description: 'F # kullanarak Azure işlevleri geliştirmek nasıl anlayın.'
+description: 'F # kullanarak Azure işlevleri geliştirme hakkında bilgi edinin.'
 services: functions
 documentationcenter: fsharp
 author: sylvanc
 manager: jbronsk
-editor: ''
-tags: ''
-keywords: 'Azure işlevleri, İşlevler, olay işleme, Web kancalarını, dinamik işlem, sunucusuz mimarisi, F #'
+keywords: 'Azure işlevleri, İşlevler, olay işleme, Web kancaları, dinamik işlem, sunucusuz mimari, F #'
 ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: fsharp
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 09/09/2016
 ms.author: syclebsc
-ms.openlocfilehash: 2c84de3f38a49bc97fda04a7a4eb449a1f7d14bd
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ec4260363aa0af3062a6d61db44a75d9ebd599db
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31515603"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44090753"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure işlevleri F # Geliştirici Başvurusu
 
-F # için Azure işlevleri küçük parçalarını kodu veya "işlevleri" bulutta kolayca çalıştırmak için bir çözümdür. Veri, F # işlevi işlev bağımsız değişkenleri aracılığıyla akar. Bağımsız değişken adları belirtilir `function.json`, ve işlevi Günlükçü ve iptal belirteçleri gibi şeyleri erişmek için önceden tanımlanmış adları vardır.
+F # Azure işlevleri için küçük parçaları kodu veya "işlevleri" bulutta kolayca çalıştırmaya yönelik bir çözümdür. Veri, F # işlevi işlev bağımsız değişkenleri aracılığıyla akar. Bağımsız değişken adları içinde belirtilen `function.json`, ve işlevi Günlükçü ve iptal belirteçlerini gibi şeyleri erişmek için önceden tanımlanmış adları vardır.
 
 Bu makalede, zaten okuduğunuz varsayılır [Azure işlevleri Geliştirici Başvurusu](functions-reference.md).
 
 ## <a name="how-fsx-works"></a>.Fsx nasıl çalışır?
-Bir `.fsx` F # betiği bir dosyadır. Bu, tek bir dosyada bulunan F # proje olarak düşünülebilir. Dosyası kodu programınızın (Bu durumda, Azure işlevinizi) içerir ve bağımlılıkları yönetmek için yönergeleri.
+Bir `.fsx` bir F # komut dosyasıdır. Bu, tek bir dosyada yer alan bir F # projesi olarak düşünülebilir. (Bu durumda, Azure işlevinizi), programınız için kodu her iki dosyayı içeren ve bağımlılıkları yönetmek için yönergeleri.
 
-Kullandığınızda, bir `.fsx` bir Azure işlevi için yaygın olarak derlemeler "ortak" yerine işlevi kodlarına odaklanmasını olanak tanıyan sizin için otomatik olarak dahil gereklidir.
+Kullandığınızda, bir `.fsx` bir Azure işlevi için yaygın olarak gerekli derlemeleri işlevi "standart" yerine koda odaklanabilirsiniz sizin için otomatik olarak dahil edilir.
 
-## <a name="binding-to-arguments"></a>Bağımsız değişkenler bağlama
-Her bağlama bağımsız değişkenler, içinde ayrıntılı olarak bazı kümesini destekler [Azure işlevleri Tetikleyicileri ve bağlamaları Geliştirici Başvurusu](functions-triggers-bindings.md). Örneğin, bir blob tetikleyici destekleyen bağımsız değişken bağlamaları kullanarak bir F # kayıt ifade bir POCO biridir. Örneğin:
+## <a name="binding-to-arguments"></a>Bağımsız değişkenler için bağlama
+Her bağlama bazı bağımsız değişkenler, içinde ayrıntılı olarak kümesini destekleyen [Azure işlevleri Tetikleyicileri ve bağlamaları Geliştirici Başvurusu](functions-triggers-bindings.md). Örneğin, blob Tetikleyicileri destekler bağımsız değişken bağlamaları bir F # kayıt kullanarak ifade edilebilir bir POCO biridir. Örneğin:
 
 ```fsharp
 type Item = { Id: string }
@@ -45,11 +41,11 @@ let Run(blob: string, output: byref<Item>) =
     output <- item
 ```
 
-F # Azure işlevinizi bağımsız değişkenlerden biri veya daha fazla sürer. Biz Azure işlevleri bağımsız değişkenleri hakkında konuşurken biz başvurmak *giriş* bağımsız değişkenleri ve *çıkış* bağımsız değişkenler. Ne gibi ses giriş bağımsız değişkeni tam olduğundan: F # Azure işlevinizi için giriş. Bir *çıkış* değişkendir değişebilir veri veya `byref<>` geri veri iletmek için bir yol olarak hizmet veren bir bağımsız değişken *çıkışı* , işlevin.
+F # Azure işlevi, bağımsız değişkenlerden biri veya daha fazla sürebilir. Biz Azure işlevleri bağımsız değişkenler hakkında konuşurken, diyoruz *giriş* bağımsız değişkenleri ve *çıkış* bağımsız değişkenler. Ne gibi ses giriş bağımsız değişkeni tam olarak olmadığı: Giriş, F # Azure işlevi. Bir *çıkış* değişkendir değişebilir veri veya `byref<>` geri veri iletmek için bir yol hizmet veren bağımsız değişken *kullanıma* işlevinizin.
 
-Yukarıdaki örnekte `blob` bir giriş bağımsız değişkeni ve `output` bir çıktı bağımsız değişken. Kullandık bildirimi `byref<>` için `output` (eklemeye gerek yoktur `[<Out>]` ek açıklama). Kullanarak bir `byref<>` türü hangi kaydı veya bağımsız değişkeni başvuruda bulunduğu nesne değiştirmek, işlevi sağlar.
+Yukarıdaki örnekte `blob` bir giriş bağımsız değişkeni ve `output` bir çıkış bağımsız değişkeni. Kullanılan bildirim `byref<>` için `output` (eklemenize gerek yoktur `[<Out>]` ek açıklama). Kullanarak bir `byref<>` tür hangi kayıt veya bağımsız değişkenin başvurduğu nesneyi değiştirmek, işlevinizi sağlar.
 
-İle bir F # kaydı bir girdi türü olarak kullanıldığında, kayıt tanımı işaretlenmelidir `[<CLIMutable>]` işlevinizi için kayıt geçirmeden önce alanlarını uygun şekilde ayarlamak Azure işlevleri framework izin vermek üzere. Başlık altında `[<CLIMutable>]` kaydı özellikler için ayarlayıcılar oluşturur. Örneğin:
+İle bir F # kayıt, bir giriş türü olarak kullanıldığında, kayıt tanımı işaretlenmelidir `[<CLIMutable>]` kaydı işlevinize geçirmeden önce alanlarını uygun şekilde ayarlamak Azure işlevleri framework izin vermek üzere. Başlık altında `[<CLIMutable>]` ayarlayıcılar kayıt özellikleri oluşturur. Örneğin:
 
 ```fsharp
 [<CLIMutable>]
@@ -61,7 +57,7 @@ let Run(req: TestObject, log: TraceWriter) =
     { req with Greeting = sprintf "Hello, %s" req.SenderName }
 ```
 
-F # sınıfı, giriş ve çıkış bağımsız değişkenler her ikisi için de kullanılabilir. Bir sınıf için özellikleri genellikle alıcılar ve ayarlayıcılar gerekir. Örneğin:
+Bir F # sınıfı, giriş ve çıkış değişkenleri her ikisi için de kullanılabilir. Bir sınıf için özellikler genellikle alıcılar ve ayarlayıcılar gerekir. Örneğin:
 
 ```fsharp
 type Item() =
@@ -74,7 +70,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Günlüğe kaydetme
-Çıktıyı oturum, [akış günlükleri](../app-service/web-sites-enable-diagnostic-log.md) F #'ta işlevinizi türünde bir bağımsız değişken zamanınızı `TraceWriter`. Tutarlılık için bu bağımsız değişken adlandırılan olan öneririz `log`. Örneğin:
+Çıkış için oturum, [akış günlükleri](../app-service/web-sites-enable-diagnostic-log.md) F #'ta işlevinizi türünde bir bağımsız değişken almalıdır `TraceWriter`. Tutarlılık sağlamak için bu bağımsız değişken adlı olan öneririz `log`. Örneğin:
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: TraceWriter) =
@@ -82,8 +78,8 @@ let Run(blob: string, output: byref<string>, log: TraceWriter) =
     output <- input
 ```
 
-## <a name="async"></a>Zaman uyumsuz
-`async` İş akışı kullanılabilir, ancak sonuç döndürmesi gerekir bir `Task`. Bu, yapılabilir `Async.StartAsTask`, örneğin:
+## <a name="async"></a>zaman uyumsuz
+`async` İş akışı kullanılabilir, ancak sonuç döndürmesi gerekir. bir `Task`. Bu ile yapılabilir `Async.StartAsTask`, örneğin:
 
 ```fsharp
 let Run(req: HttpRequestMessage) =
@@ -93,7 +89,7 @@ let Run(req: HttpRequestMessage) =
 ```
 
 ## <a name="cancellation-token"></a>İptal belirteci
-İşlevinizi kapatma işleyebilmesini gerekiyorsa verebilirsiniz bir [ `CancellationToken` ](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) bağımsız değişkeni. Bu ile birleştirilebilir `async`, örneğin:
+İşleviniz kapatma düzgün biçimde işlemesi gerekiyorsa verebilirsiniz bir [ `CancellationToken` ](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) bağımsız değişken. Bu ile birleştirilebilir `async`, örneğin:
 
 ```fsharp
 let Run(req: HttpRequestMessage, token: CancellationToken)
@@ -115,7 +111,7 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
     ...
 ```
 
-Şu ad alanlarından otomatik olarak açılır:
+Aşağıdaki ad alanlarını otomatik olarak açılır:
 
 * `System`
 * `System.Collections.Generic`
@@ -126,8 +122,8 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
 * `Microsoft.Azure.WebJobs`
 * `Microsoft.Azure.WebJobs.Host`.
 
-## <a name="referencing-external-assemblies"></a>Dış derlemelere başvurma
-Framework'te derleme başvurularını ile benzer şekilde, eklenebilecek `#r "AssemblyName"` yönergesi.
+## <a name="referencing-external-assemblies"></a>Dış derlemeler başvurma
+Framework'te derleme başvuruları ile benzer şekilde, eklenebilir `#r "AssemblyName"` yönergesi.
 
 ```fsharp
 #r "System.Web.Http"
@@ -140,7 +136,7 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
     ...
 ```
 
-Aşağıdaki derlemeler barındırma ortamı Azure işlevleri tarafından otomatik olarak eklenir:
+Aşağıdaki derlemeleri Azure işlevleri barındırma ortamı tarafından otomatik olarak eklenir:
 
 * `mscorlib`,
 * `System`
@@ -153,7 +149,7 @@ Aşağıdaki derlemeler barındırma ortamı Azure işlevleri tarafından otomat
 * `System.Web.Http`
 * `System.Net.Http.Formatting`.
 
-Ayrıca, aşağıdaki derlemeler özel ortası ve simplename tarafından başvurulan (örneğin `#r "AssemblyName"`):
+Ayrıca, aşağıdaki derlemeler özel büyük/küçük harfleri ve simplename tarafından başvurulabilir (örneğin `#r "AssemblyName"`):
 
 * `Newtonsoft.Json`
 * `Microsoft.WindowsAzure.Storage`
@@ -161,10 +157,10 @@ Ayrıca, aşağıdaki derlemeler özel ortası ve simplename tarafından başvur
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNEt.WebHooks.Common`.
 
-Özel derleme başvurusu ihtiyacınız varsa, derleme dosyasına yükleyebilirsiniz bir `bin` klasörüne görelidir dosyasını kullanarak adlandırın (örneğin, işlev ve başvurusu  `#r "MyAssembly.dll"`). İşlev klasörünüze dosyaları karşıya yükleme hakkında daha fazla bilgi için paket yönetimi hakkında aşağıdaki bölümüne bakın.
+Özel bir derleme başvurmanız gerekiyorsa, derleme dosyasına yükleyebilirsiniz. bir `bin` klasörüyle ilgili dosyasını kullanarak adlandırın (örneğin, işlevi ve başvuru  `#r "MyAssembly.dll"`). İşlev klasörünüze dosyaları karşıya yükleme hakkında daha fazla bilgi için üzerinde paket Yönetimi aşağıdaki bölüme bakın.
 
-## <a name="editor-prelude"></a>Düzenleyici Prelude
-F # derleyici hizmetlerini destekleyen bir düzenleyici ad alanları ve Azure işlevleri otomatik olarak içeren derlemeler haberdar olmaz. Bu nedenle, kullandığınız derlemelerini bulmak Düzenleyicisi yardımcı olan bir prelude dahil edilecek ve ad alanları açıkça açmak için yararlı olabilir. Örneğin:
+## <a name="editor-prelude"></a>Düzenleyici tanıtımlar
+Ad alanları ve Azure işlevleri otomatik olarak içeren derlemeler, F # derleyici hizmetlerini destekleyen bir düzenleyici bilmez. Bu nedenle, kullanmakta olduğunuz derlemelerini Bul Düzenleyicisi yardımcı olan bir tanıtımlar içeren ve açıkça ad alanlarını açmak için yararlı olabilir. Örneğin:
 
 ```fsharp
 #if !COMPILED
@@ -179,12 +175,12 @@ let Run(blob: string, output: byref<string>, log: TraceWriter) =
     ...
 ```
 
-Azure işlevleri, kodunuzu yürütüldüğünde, kaynağıyla işler `COMPILED` tanımlı, bu nedenle Düzenleyicisi prelude yoksayıldı.
+Azure işlevleri, kodunuzu yürütüldüğünde, kaynak ile işler `COMPILED` tanımlanan şekilde Düzenleyicisi tanıtımlar göz ardı edilir.
 
 <a name="package"></a>
 
-## <a name="package-management"></a>Paket Yönetimi
-NuGet paketlerini bir F # işlevi kullanmak için ekleyin bir `project.json` dosyasını işlevin klasöre işlevi uygulamanın dosya sistemi. İşte bir örnek `project.json` NuGet paketi başvuru ekler dosya `Microsoft.ProjectOxford.Face` sürüm 1.1.0:
+## <a name="package-management"></a>Paket yönetimi
+F # işlevi NuGet paketlerini kullanmak için ekleme bir `project.json` işlevin klasörüne işlevi uygulamanın dosya sisteminde dosya. İşte bir örnek `project.json` ekleyen bir NuGet paketi başvuru dosyası `Microsoft.ProjectOxford.Face` sürüm 1.1.0 yer:
 
 ```json
 {
@@ -198,16 +194,16 @@ NuGet paketlerini bir F # işlevi kullanmak için ekleyin bir `project.json` dos
 }
 ```
 
-Yalnızca .NET Framework 4.6 desteklenmez, bu nedenle olduğundan emin olun, `project.json` dosyayı belirtir `net46` aşağıda gösterildiği gibi.
+Yalnızca .NET Framework 4.6 desteklenmez, bu nedenle emin olun, `project.json` dosyasını belirtir `net46` burada gösterildiği gibi.
 
-Karşıya yüklediğiniz zaman bir `project.json` dosya, çalışma zamanı paketleri alır ve paketi derleme başvuruları otomatik olarak ekler. Eklemeniz gerekmez `#r "AssemblyName"` yönergeleri. Yalnızca gerekli Ekle `open` deyimleri için `.fsx` dosya.
+Karşıya yüklerken, bir `project.json` dosya, çalışma zamanı paketlerini alır ve paket derlemelerine başvurular otomatik olarak ekler. Eklemenize gerek yoktur `#r "AssemblyName"` yönergeleri. Yalnızca gerekli Ekle `open` deyimleriyle, `.fsx` dosya.
 
-F # Hizmetleri derlemek Düzenleyicisi'nin etkileşim artırmak için Düzenleyicisi prelude otomatik olarak başvuru derlemeleri koymak isteyebilirsiniz.
+F # derleme Hizmetleri ile düzenleyicinin etkileşimi geliştirmek için düzenleyici tanıtımlar otomatik olarak başvuru derlemeleri koymak isteyebilirsiniz.
 
 ### <a name="how-to-add-a-projectjson-file-to-your-azure-function"></a>Nasıl ekleneceği bir `project.json` Azure işlevinizi dosyasına
-1. Azure portalında işlevinizi açarak yapabilirsiniz işlevi uygulamanızı emin yaparak Başlangıç çalışıyor. Bu ayrıca akış günlüklerine paket yükleme çıktısı görüntülenir burada erişmenizi sağlar.
-2. Karşıya yüklemek için bir `project.json` dosya, açıklanan yöntemlerden birini kullanın [işlevi uygulama dosyaları güncelleştirmek nasıl](functions-reference.md#fileupdate). Kullanıyorsanız [Azure işlevleri için sürekli dağıtım](functions-continuous-deployment.md), ekleyebileceğiniz bir `project.json` ile dağıtım dalınızdaki eklemeden önce denemek için hazırlama dalı dosyasına.
-3. Sonra `project.json` dosya eklenir, işlevinizi aşağıdaki örneğe benzer bir çıktı günlük akış görürsünüz:
+1. Azure Portal'da işlevinize açarak bunu yapabilirsiniz başlangıç işlev uygulamanızı emin olarak çalışıyor. Bu ayrıca akış günlüklerine paket yükleme çıkış burada görüntülenecek erişmenizi sağlar.
+2. Karşıya yüklenecek bir `project.json` dosya, açıklanan yöntemlerden birini kullanın [işlevi uygulama dosyalarını nasıl güncelleştireceğinizi](functions-reference.md#fileupdate). Kullanıyorsanız [Azure işlevleri için sürekli dağıtım](functions-continuous-deployment.md), ekleyebileceğiniz bir `project.json` dağıtım dalınızda eklemeden önce denemeler yapabilmeleri için hazırlama dalınızı dosyasına.
+3. Sonra `project.json` dosya eklendiğinde, akış günlüğü işlevinizi aşağıdaki örneğe benzer bir çıktı görürsünüz:
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -227,7 +223,7 @@ F # Hizmetleri derlemek Düzenleyicisi'nin etkileşim artırmak için Düzenleyi
 ```
 
 ## <a name="environment-variables"></a>Ortam değişkenleri
-Bir ortam değişkeni veya ayar değeri bir uygulamayı almak için `System.Environment.GetEnvironmentVariable`, örneğin:
+Bir ortam değişkeni veya değeri ayarlamak uygulama almak için kullanın `System.Environment.GetEnvironmentVariable`, örneğin:
 
 ```fsharp
 open System.Environment
@@ -238,7 +234,7 @@ let Run(timer: TimerInfo, log: TraceWriter) =
 ```
 
 ## <a name="reusing-fsx-code"></a>.Fsx kodu yeniden kullanma
-Diğer kodu kullanabilirsiniz `.fsx` kullanarak dosyaları bir `#load` yönergesi. Örneğin:
+Diğer kod kullanabileceğiniz `.fsx` dosyaları kullanarak bir `#load` yönergesi. Örneğin:
 
 `run.fsx`
 
@@ -256,13 +252,13 @@ let mylog(log: TraceWriter, text: string) =
     log.Verbose(text);
 ```
 
-Yollar sağlar için `#load` göreli konumunu yönerge olan, `.fsx` dosya.
+Yollar sağlar `#load` yönerge olan göreli konumunu, `.fsx` dosya.
 
 * `#load "logger.fsx"` işlev klasöründe bir dosya yükler.
 * `#load "package\logger.fsx"` bulunan bir dosya yükler `package` işlevi klasöründe.
-* `#load "..\shared\mylogger.fsx"` bulunan bir dosya yükler `shared` klasör başka bir deyişle, işlevi klasör ile aynı düzeyde doğrudan altında `wwwroot`.
+* `#load "..\shared\mylogger.fsx"` bulunan bir dosya yükler `shared` klasör diğer bir deyişle, işlev klasör ile aynı düzeyde doğrudan altında `wwwroot`.
 
-`#load` Yönergesi yalnızca çalışır `.fsx` (F # betik) dosyaları ve değil `.fs` dosyaları.
+`#load` Yönergesi yalnızca çalışır `.fsx` (F # betik) dosyaları ile değil `.fs` dosyaları.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:

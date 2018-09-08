@@ -1,6 +1,6 @@
 ---
-title: Azure portalında Service Fabric kümesi oluşturma | Microsoft Docs
-description: Bu makalede Azure portalı ve Azure anahtar Kasası'nı kullanarak azure'da güvenli Service Fabric kümesi oluşturma işlemini açıklamaktadır.
+title: Azure portalında bir Service Fabric kümesi oluşturma | Microsoft Docs
+description: Azure portalı ve Azure anahtar Kasası'nı kullanarak azure'da güvenli Service Fabric kümesi ayarlama konusunda bilgi edinin.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/09/2018
+ms.date: 09/06/2018
 ms.author: aljo
-ms.openlocfilehash: 5d8f1d2634fd2efd624d1000f2fbc0400af4af11
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: e56c60f67dcfe5c11191942a812d2c670055dfd8
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136817"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092657"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure portalını kullanarak Azure'da bir Service Fabric kümesi oluşturma
 > [!div class="op_single_selector"]
@@ -78,15 +78,18 @@ Uygulama sertifikaları olamaz ne zaman yapılandırılmış [Azure Portal'dan b
 Uygulama ihtiyaçlarınızı karşılayabilmek için bir üretim kümesi oluşturma içerir bazı planlama ile yardımcı olmak için okumanız ve anlamanız önemle tavsiye edilir [planlama konuları Service Fabric kümesi] [ service-fabric-cluster-capacity] belge. 
 
 ### <a name="search-for-the-service-fabric-cluster-resource"></a>Service Fabric küme kaynağı arayın
+
+[Azure portalında][azure-portal] oturum açın.
+Tıklayın **kaynak Oluştur** yeni bir kaynak şablonu eklemek için. Service Fabric kümesi şablonunun arama **Market** altında **her şeyi**.
+Seçin **Service Fabric kümesi** listeden.
+
 ![Azure portalında Service Fabric küme şablonu arayın.][SearchforServiceFabricClusterTemplate]
 
-1. [Azure portalında][azure-portal] oturum açın.
-2. Tıklayın **kaynak Oluştur** yeni bir kaynak şablonu eklemek için. Service Fabric kümesi şablonunun arama **Market** altında **her şeyi**.
-3. Seçin **Service Fabric kümesi** listeden.
-4. Gidin **Service Fabric kümesi** dikey penceresinde tıklayın **Oluştur**,
-5. **Oluşturma Service Fabric kümesi** dikey penceresinde aşağıdaki dört adım vardır:
+Gidin **Service Fabric kümesi** dikey penceresinde de **Oluştur**.
 
-#### <a name="1-basics"></a>1. Temel Bilgiler
+**Oluşturma Service Fabric kümesi** dikey penceresinde aşağıdaki dört adım vardır:
+
+### <a name="1-basics"></a>1. Temel Bilgiler
 ![Yeni bir kaynak grubu oluşturma ekran görüntüsü.][CreateRG]
 
 Temel bilgiler dikey penceresinde, kümeniz için temel ayrıntılarını sağlamanız gerekir.
@@ -94,15 +97,15 @@ Temel bilgiler dikey penceresinde, kümeniz için temel ayrıntılarını sağla
 1. Kümenizin adını girin.
 2. Girin bir **kullanıcı adı** ve **parola** VM'ler için Uzak Masaüstü için.
 3. Seçtiğinizden emin olun **abonelik** özellikle birden fazla aboneliğiniz varsa, kümeniz için dağıtılacak istiyor.
-4. Oluşturma bir **yeni kaynak grubu**. Özellikle dağıtımınız için değişiklik veya kümenizi sildiğinizden çalışırken bunları daha sonra bulma konusunda yardımcı olduğundan küme adıyla aynı sağlamak en iyisidir.
+4. Yeni bir **kaynak grubu**. Özellikle dağıtımınız için değişiklik veya kümenizi sildiğinizden çalışırken bunları daha sonra bulma konusunda yardımcı olduğundan küme adıyla aynı sağlamak en iyisidir.
    
    > [!NOTE]
    > Mevcut bir kaynak grubunu kullanmak karar olsa da, yeni bir kaynak grubu oluşturmak için iyi bir uygulamadır. Bu, kümeler ve kullandığı tüm kaynakları silmek kolaylaştırır.
    > 
    > 
-5. Seçin **bölge** kümeyi oluşturmak istediğiniz. Önceden bir anahtar kasasına yüklenmiş mevcut bir sertifikayı kullanmayı planlıyorsanız, anahtar kasanızın bulunduğu aynı bölgede kullanmanız gerekir. 
+5. Seçin **konumu** kümeyi oluşturmak istediğiniz. Önceden bir anahtar kasasına yüklenmiş mevcut bir sertifikayı kullanmayı planlıyorsanız, anahtar kasanızın bulunduğu aynı bölgede kullanmanız gerekir. 
 
-#### <a name="2-cluster-configuration"></a>2. Küme yapılandırması
+### <a name="2-cluster-configuration"></a>2. Küme yapılandırması
 ![Düğüm türü oluşturma][CreateNodeType]
 
 Küme düğümlerini yapılandırın. Düğüm türleri VM boyutlarını, VM'lerin sayısını ve bunların özelliklerini tanımlayın. Kümenizi birden fazla düğüm türü olabilir, ancak bu düğüm türü Service Fabric sistem hizmetlerinin yerleştirildiği olduğu en az beş VM birincil düğüm türü (portalda tanımladığınız ilk öğe) olmalıdır. Yapılandırmayın **yerleşim özellikleri** çünkü nodetypename "adlı" varsayılan yerleştirme özelliğini otomatik olarak eklenir.
@@ -110,55 +113,54 @@ Küme düğümlerini yapılandırın. Düğüm türleri VM boyutlarını, VM'ler
 > [!NOTE]
 > Birden çok düğüm türleri için yaygın bir senaryo bir ön uç hizmeti ve arka uç hizmeti içeren bir uygulamadır. Ön uç hizmeti bağlantı noktalarını açık daha küçük sanal makineleri (VM boyutları D2_V2 gibi) Internet'e yerleştirin ve arka uç hizmeti büyük Vm'lerle (VM boyutları D3_V2, D6_V2, D15_V2 vb. gibi) ile Internet'e yönelik bağlantı noktalarını açık yerleştirmek istediğiniz.
 > 
-> 
 
 1. (1-12 karakter yalnızca harfler ve sayılar içeren), düğüm türü için bir ad seçin.
-2. En düşük **boyutu** VM'lerin birincil düğüm türü tarafından yönetilir **dayanıklılık** katmanı için kümeyi seçin. Bronz dayanıklılık katmanı için varsayılandır. Dayanıklılık hakkında daha fazla bilgi için bkz. [Service Fabric kümesi dayanıklılık seçme][service-fabric-cluster-durability].
-3. VM boyutunu seçin. D serisi VM'ler, SSD sürücülerine sahip ve durum bilgisi olan uygulamalar için kesinlikle önerilir. Kısmi çekirdeği olan sanal makine SKU'sunu kullanın değil veya 10 GB'tan az kullanılabilir disk kapasitesine sahip. Başvurmak [planlama konuları service fabric kümesi] [ service-fabric-cluster-capacity] VM boyutunu seçme hakkında Yardım için.
-4. Düğüm türü için VM sayısını seçin. Yukarı veya aşağı bir düğüm türünde VM sayısı daha sonra ölçeklendirebilirsiniz, ancak birincil düğüm türünde beş üretim iş yükleri için en düşük gerekliliktir. Diğer düğüm türleri, bir VM en az olabilir. En düşük **numarası** birincil düğüm türü sürücüleri için VM'lerin **güvenilirlik** kümenizin.  
-5. **Tek düğümlü bir küme ve üç düğümlü küme** -yalnızca test kullanımı için bunları yöneliktir. Çalışan tüm üretim iş yükleri için desteklenmez.
-6. Özel uç noktalar yapılandırın. Bu alan Azure Load Balancer, uygulamalarınız için genel internet üzerinden kullanıma sunmak istediğiniz bağlantı noktalarının virgülle ayrılmış listesi girmenizi sağlar. Örneğin, bir web uygulaması kümenize dağıtmayı planlıyorsanız, "80" kümenizi içine 80 numaralı bağlantı noktasında trafiğe izin verecek şekilde olmadığını buraya girin. Uç noktaları hakkında daha fazla bilgi için bkz. [uygulamalarla iletişim kurma][service-fabric-connect-and-communicate-with-services]
-7. Küme yapılandırma **tanılama**. Varsayılan olarak, tanılama, kümenizde sorunlarını gidermeye yardımcı olmak için etkinleştirilir. Tanılama değişiklik devre dışı bırakmak isterseniz **durumu** geç **kapalı**. Tanılama kapatıldığında kaynağınızın olan **değil** önerilir. Oluşturulan Application Insights proje zaten varsa, kendisine uygulama izlemeler yönlendirilebilmesi anahtarıyla, ardından verin.
-8. Küme istediğiniz yapı yükseltme modu seçin. Seçin **otomatik**sistemin otomatik olarak en son sürümü seçin ve kendisine kümenizi yükseltmek deneyin istiyorsanız. Modunun **el ile**, desteklenen bir sürüm seçmek istiyorsanız. Yapı yükseltme modu hakkında daha fazla ayrıntı için [service fabric kümesini yükseltme belge.] bakın. [service-fabric-kümesi-yükseltme]
+2. En düşük **boyutu** VM'lerin birincil düğüm türü tarafından yönetilir **dayanıklılık katmanı** küme için seçin. Bronz dayanıklılık katmanı için varsayılandır. Dayanıklılık hakkında daha fazla bilgi için bkz. [Service Fabric kümesi dayanıklılık seçme][service-fabric-cluster-durability].
+3. Seçin **sanal makine boyutu**. D serisi VM'ler, SSD sürücülerine sahip ve durum bilgisi olan uygulamalar için kesinlikle önerilir. Kısmi çekirdeği olan sanal makine SKU'sunu kullanın değil veya 10 GB'tan az kullanılabilir disk kapasitesine sahip. Başvurmak [planlama konuları service fabric kümesi] [ service-fabric-cluster-capacity] VM boyutunu seçme hakkında Yardım için.
+4. Seçin **ilk VM ölçek kümesi kapasitesini** düğüm türü için. Yukarı veya aşağı bir düğüm türünde VM sayısı daha sonra ölçeklendirebilirsiniz, ancak birincil düğüm türünde beş üretim iş yükleri için en düşük gerekliliktir. Diğer düğüm türleri, bir VM en az olabilir. En düşük **numarası** birincil düğüm türü sürücüleri için VM'lerin **güvenilirlik** kümenizin.  
+5. **Tek düğümlü bir küme ve üç düğümlü küme** yalnızca test kullanımı için tasarlanmıştır. Çalışan tüm üretim iş yükleri için desteklenmez.
+6. Yapılandırma **özel uç noktalar**. Bu alan Azure Load Balancer, uygulamalarınız için genel internet üzerinden kullanıma sunmak istediğiniz bağlantı noktalarının virgülle ayrılmış listesi girmenizi sağlar. Örneğin, bir web uygulaması kümenize dağıtmayı planlıyorsanız, "80" kümenizi içine 80 numaralı bağlantı noktasında trafiğe izin verecek şekilde olmadığını buraya girin. Uç noktaları hakkında daha fazla bilgi için bkz. [uygulamalarla iletişim kurma][service-fabric-connect-and-communicate-with-services]
+7. **Ters Proxy'yi Etkinleştir**.  [Service Fabric ters proxy'si](service-fabric-reverseproxy.md) yardımcı mikro hizmetler bir Service Fabric kümesinde çalışan bulmak ve http uç noktaları olan diğer hizmetlerle iletişim kurma.
+8. Altında **+ isteğe bağlı ayarları göster**, küme yapılandırma **tanılama**. Varsayılan olarak, tanılama, kümenizde sorunlarını gidermeye yardımcı olmak için etkinleştirilir. Tanılama değişiklik devre dışı bırakmak isterseniz **durumu** geç **kapalı**. Tanılama kapatıldığında kaynağınızın olan **değil** önerilir. Oluşturulan Application Insights proje zaten varsa, kendisine uygulama izlemeler yönlendirilebilmesi anahtarıyla, ardından verin.
+9. **DNS hizmetini dahil et**.  [DNS hizmeti](service-fabric-dnsservice.md) DNS protokolünü kullanarak diğer hizmetleri bulmanıza olanak sağlayan isteğe bağlı bir hizmettir.
+10. Seçin **yapı yükseltme modu** istediğiniz kümenizi ayarlayın. Seçin **otomatik**sistemin otomatik olarak en son sürümü seçin ve kendisine kümenizi yükseltmek deneyin istiyorsanız. Modunun **el ile**, desteklenen bir sürüm seçmek istiyorsanız. Yapı yükseltme modu hakkında daha fazla ayrıntı için [service fabric kümesini yükseltme belge.] bakın. [service-fabric-kümesi-yükseltme]
 
 > [!NOTE]
-> Yalnızca service Fabric, desteklenen sürümlerini çalıştıran kümeler destekliyoruz. Seçerek **el ile** modunda almak sorumluluğa kümenizi desteklenen bir sürüme yükseltmek için. > 
+> Yalnızca Service Fabric, desteklenen sürümlerini çalıştıran kümeler destekliyoruz. Seçerek **el ile** modunda almak sorumluluğa kümenizi desteklenen bir sürüme yükseltmek için.
 > 
 
-#### <a name="3-security"></a>3. Güvenlik
+### <a name="3-security"></a>3. Güvenlik
 ![Güvenlik yapılandırmalarını Azure portalı ekran görüntüsü.][BasicSecurityConfigs]
 
-Güvenli bir test kümesi ayarlama, kolaylaştırmak için sağladık **temel** seçeneği. Zaten bir sertifikanız ve varsa, anahtar kasası için karşıya (ve dağıtım için anahtar kasasını etkin değilse) kullanın, ardından **özel** seçeneği
+Güvenli bir test kümesi ayarlama, kolaylaştırmak için sağladık **temel** seçeneği. Zaten bir sertifika varsa ve karşıya yüklediğiniz varsa, [anahtar kasası](/azure/key-vault/) (ve dağıtım için anahtar kasasını etkin), ardından **özel** seçeneği
 
-##### <a name="basic-option"></a>Temel seçeneği
-Eklemek veya mevcut bir anahtar Kasası'nı yeniden ve bir sertifika eklemek için ekranlarındaki yönergeleri uygulayın. Sertifika eklenmesi zaman uyumlu bir işlemdir ve böylece sertifika oluşturulmasını beklemeniz gerekecektir.
-
+#### <a name="basic-option"></a>Temel seçeneği
+Eklemek veya mevcut bir anahtar kasasını yeniden ve bir sertifika eklemek için ekranlarındaki yönergeleri uygulayın. Sertifika eklenmesi zaman uyumlu bir işlemdir ve böylece sertifika oluşturulmasını beklemeniz gerekecektir.
 
 Önceki işlemi tamamlanana kadar ekrandan ayrıldığınızda dürtüsüne kaçının.
 
 ![CreateKeyVault]
 
-Sertifika, anahtar kasası için eklenir, aşağıdaki ekranda, anahtar kasası için erişim ilkeleri düzenlemek isteyen görebilirsiniz. tıklayarak **düzenleme için erişim ilkeleri.** tıklayın.
+Anahtar kasası oluşturulur, anahtar kasanız için erişim ilkeleri düzenleyin. 
 
 ![CreateKeyVault2]
 
-Gelişmiş erişim ilkeleri ve sanal makinelere erişim dağıtımı için etkinleştirin. Şablon dağıtımı de etkinleştirmeniz önerilir. Seçimlerinizi yaptıktan sonra tıklamayı değil **Kaydet** dışı kapatmak ve düğme **erişim ilkeleri** bölmesi.
+Tıklayarak **düzenleme erişim ilkeleri**, ardından **Gelişmiş erişim ilkeleri Göster** ve dağıtımı için Azure sanal Makineler'e erişimi etkinleştir. Şablon dağıtımı de etkinleştirmeniz önerilir. Seçimlerinizi yaptıktan sonra tıklamayı değil **Kaydet** dışı kapatmak ve düğme **erişim ilkeleri** bölmesi.
 
 ![CreateKeyVault3]
 
-Küme oluşturma işlemi geri kalanına devam etmek artık hazırsınız.
+Sertifika adını girin ve tıklayın **Tamam**.
 
 ![CreateKeyVault4]
 
-##### <a name="custom-option"></a>Özel seçeneği
+#### <a name="custom-option"></a>Özel seçeneği
 Bu bölüm atlayın, adımları gerçekleştirdiğinizden **temel** seçeneği.
 
 ![SecurityCustomOption]
 
 CertificateThumbprint SourceVault ve CertificateURL bilgileri güvenlik sayfası tamamlamak için ihtiyacınız. Elinizin altında yoksa başka bir tarayıcı penceresi açın ve aşağıdakileri yapın
 
-
-1. İçin anahtar kasası gidin, sertifikayı seçin. 
+1. Anahtar kasanızı gidin, sertifikayı seçin. 
 2. "Özellikler" sekmesini seçin ve "Kaynak Key vault" bir tarayıcı penceresinde 'Kaynak kimliği' kopyalayın 
 
     ![CertInfo0]
@@ -172,17 +174,15 @@ CertificateThumbprint SourceVault ve CertificateURL bilgileri güvenlik sayfası
 6. Artık aşağıdaki gibi ekranında olması gerekir. "Sertifika parmak izi" bir tarayıcı penceresinde 'Parmak izi' kopyalayın
 7. Diğer tarayıcı penceresinde "sertifika URL'si" 'Gizli dizi tanımlayıcısı' bilgileri kopyalayın.
 
-
-![CertInfo2]
-
+    ![CertInfo2]
 
 Denetleme **Gelişmiş ayarları Yapılandır** istemci sertifikaları için girmek için kutusu **yönetici istemci** ve **salt okunur istemci**. Bu alanlarda varsa yönetim istemci sertifikanızın parmak izi ve salt okunur kullanıcının istemci sertifikanızın parmak izini girin. Yöneticiler kümeye bağlanmayı denediğinizde, erişimi yalnızca bir sertifika parmak izi değerleri eşleşen bir parmak izi varsa buraya girilen verilir.  
 
-#### <a name="4-summary"></a>4. Özet
+### <a name="4-summary"></a>4. Özet
 
 Kümeyi dağıtmak hazırsınız. Bunu yapmadan önce sertifika arama bağlantısı büyük mavi bilgilendirici kutu içinde indirin. Sertifikayı güvenli bir yerde sakladığınızdan emin olun. kümenize bağlanmak için ihtiyacınız. İndirdiğiniz sertifika bir parola olmadığından birini eklemeniz önerilir.
 
-Küme oluşturma işlemini tamamlamak için tıklatın **Oluştur**. İsteğe bağlı olarak, şablon da indirebilirsiniz. 
+Küme oluşturma işlemini tamamlamak için tıklatın **Oluştur**. İsteğe bağlı olarak, şablon da indirebilirsiniz.
 
 ![Özet]
 
@@ -190,7 +190,7 @@ Oluşturma işleminin ilerleme durumunu bildirimler bölümünden görebilirsini
 
 Powershell veya CLI kullanarak kümenize yönetim işlemleri için gerekir, kümeye bağlanmak, okuma daha fazla bilgi [kümenize bağlanma](service-fabric-connect-to-secure-cluster.md).
 
-### <a name="view-your-cluster-status"></a>Küme durumunuzu görüntülemek
+## <a name="view-your-cluster-status"></a>Küme durumunuzu görüntülemek
 ![Küme ayrıntıları panosunda ekran görüntüsü.][ClusterDashboard]
 
 Kümeniz oluşturulduktan sonra kümenizin portal inceleyebilirsiniz:

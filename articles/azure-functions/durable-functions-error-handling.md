@@ -1,35 +1,31 @@
 ---
-title: Dayanıklı işlevlerinde - Azure hataları işleme
-description: Azure işlevleri için dayanıklı işlevleri uzantı hataları işlemek öğrenin.
+title: Dayanıklı işlevler - Azure, hataları işleme
+description: Dayanıklı işlevler uzantısını hataları işlemek için Azure işlevleri hakkında bilgi edinin.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 944fab5ccc55bc9a697e870208338bd0e697672d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0b19fe7441d3c2c5222095c31d9c3677b8c9cf34
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763314"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092726"
 ---
-# <a name="handling-errors-in-durable-functions-azure-functions"></a>Dayanıklı işlevlerinde (Azure işlevleri) hataları işleme
+# <a name="handling-errors-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) hataları işleme
 
-Dayanıklı işlevi düzenlemelerin kodda uygulanır ve programlama dili hata işleme özelliklerini kullanabilirsiniz. Bu durum dikkate alınarak, gerçekten yok herhangi yeni kavram olduğunda hata işleme ve maaş, düzenlemelerin ekleme hakkında bilgi almanız gerekir. Ancak, farkında olmanız gereken birkaç davranışları vardır.
+Dayanıklı işlevi düzenlemeleri kodda uygulanır ve hata işleme özelliklerini programlama dilini kullanabilirsiniz. Bunu aklınızda gerçekten yok hata işleme ve maaş, düzenlemeleri ekleme yaparken öğrenmek için gereken tüm yeni kavramları. Ancak, bilmeniz gereken birkaç davranışları vardır.
 
-## <a name="errors-in-activity-functions"></a>Etkinlik işlevleri hataları
+## <a name="errors-in-activity-functions"></a>Etkinlik işlevlerini hataları
 
-Bir etkinlik işlevinde oluşturulan özel durumları orchestrator işlevine sıraya ve olarak oluşturulan bir `FunctionFailedException`. Orchestrator işlevinde gereksinimlerinizi karşılayacak hata işleme ve Dengeleme kodu yazabilirsiniz.
+Bir etkinlik işlevinde oluşturulan herhangi bir özel durum orchestrator işleve sıraya ve olarak oluşturulan bir `FunctionFailedException`. Orchestrator işlevindeki gereksinimlerinize uygun hata işleme ve Dengeleme kodu yazabilirsiniz.
 
-Örneğin, bir hesaptan fon aktaran aşağıdaki orchestrator işlevi göz önünde bulundurun:
+Örneğin, bir hesaptan para aktarımı aşağıdaki orchestrator işlevi göz önünde bulundurun:
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -68,11 +64,11 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-Varsa çağrısı **CreditAccount** işlevi hedef hesabı için başarısız olursa, orchestrator işlevi bu kaynak hesap fon'alacak kaydetmeye dengeler.
+Çağrı **CreditAccount** işlevi hedef hesabı için başarısız olursa, orchestrator işlevi bunun için kaynak hesap fon alacak kaydetme dengeler.
 
-## <a name="automatic-retry-on-failure"></a>Hata durumunda otomatik yeniden dene
+## <a name="automatic-retry-on-failure"></a>Hata durumunda otomatik yeniden deneme
 
-Ne zaman etkinlik işlevleri çağırmak veya alt orchestration işlevleri otomatik belirtebilirsiniz İlkesi yeniden deneyin. Aşağıdaki örnek 3 kereye kadar bir işlevi çağırmak çalışır ve denemeler arasındaki 5 saniye bekler:
+Etkinlik işlevlerini veya alt düzenleme işlevler çağırdığınızda, otomatik yeniden deneme ilkesi belirtebilirsiniz. Aşağıdaki örnek, en fazla üç kez bir işlevi çağırmak çalışır ve her yeniden deneme arasındaki 5 saniye bekler:
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -87,20 +83,20 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-`CallActivityWithRetryAsync` API alır bir `RetryOptions` parametresi. Alt orchestration çağırır kullanarak `CallSubOrchestratorWithRetryAsync` API aynı bu yeniden deneme ilkelerini kullanabilirsiniz.
+`CallActivityWithRetryAsync` API alır bir `RetryOptions` parametresi. Suborchestration çağrıları kullanarak `CallSubOrchestratorWithRetryAsync` API'si aynı bu yeniden deneme ilkelerini kullanabilirsiniz.
 
-Otomatik yeniden deneme ilkesi özelleştirmek için birkaç seçeneğiniz vardır. Bu ülkelere şunlar dahildir:
+Otomatik yeniden deneme ilkesi özelleştirmek için birkaç seçenek vardır. Bu ülkelere şunlar dahildir:
 
-* **Deneme sayısı üst sınırı**: en fazla yeniden deneme sayısı.
+* **En fazla deneme sayısı**: yeniden deneme sayısı.
 * **İlk yeniden deneme aralığı**: ilk yeniden denemeden önce beklenecek süre.
-* **Geri Çekilme katsayısı**: geri Çekilme çıktığını oranını belirlemek için kullanılan katsayısı. Varsayılan olarak 1.
-* **En fazla yeniden deneme aralığı**: yeniden denemeler arasında beklenecek en fazla süreyi.
-* **Zaman aşımı yeniden deneme**: Bunu yapmak için harcamanız en uzun süreyi yeniden dener. Sonsuza kadar yeniden denemeye varsayılan davranıştır.
-* **Özel**: kullanıcı tanımlı bir geri çağırma işlevi çağrısı denenen olup olmadığını belirleyen belirtilebilir.
+* **Geri alma katsayısı**: geri alma sayısında artış oranını belirlemek için kullanılan katsayısı. Varsayılan olarak 1.
+* **En fazla yeniden deneme aralığı**: yeniden denemeler arasında beklenecek en uzun süreyi.
+* **Yeniden deneme zaman aşımının**: harcama yapmak için en uzun süreyi yeniden dener. Süresiz olarak yeniden denemek için varsayılan davranıştır.
+* **Özel**: bir işlev çağrısı denenen olup olmadığını belirleyen kullanıcı tanımlı bir geri çağırma belirtilebilir.
 
-## <a name="function-timeouts"></a>İşlev zaman aşımları
+## <a name="function-timeouts"></a>İşlevi zaman aşımları
 
-Bir işlev çağrısı bir orchestrator işlevi içinde tamamlanması çok uzun sürüyorsa abandon isteyebilirsiniz. Bugün bunun için en uygun oluşturarak yoludur bir [dayanıklı Zamanlayıcı](durable-functions-timers.md) kullanarak `context.CreateTimer` birlikte `Task.WhenAny`, aşağıdaki örnekte olduğu gibi:
+Bir düzenleyici işlevi içinde bir işlev çağrısının tamamlanması çok uzun sürüyorsa bırakmasını isteyebilirsiniz. Bugün Bunu yapmak için uygun yolu oluşturmaktır bir [dayanıklı Zamanlayıcı](durable-functions-timers.md) kullanarak `context.CreateTimer` birlikte `Task.WhenAny`, aşağıdaki örnekte olduğu gibi:
 
 ```csharp
 public static async Task<bool> Run(DurableOrchestrationContext context)
@@ -130,13 +126,13 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 ```
 
 > [!NOTE]
-> Bu mekanizma Süren etkinlik işlevi yürütme gerçekten sonlandırmak değil. Bunun yerine, sonuç yoksayıp geçmek orchestrator işlevi yalnızca sağlar. Bkz: [zamanlayıcılar](durable-functions-timers.md#usage-for-timeout) daha fazla bilgi için.
+> Bu mekanizma Süren etkinlik işlevi yürütme sonlanmamasına. Bunun yerine, yalnızca sonucunu yoksay ve geçmek için orchestrator işlevi sağlar. Daha fazla bilgi için [zamanlayıcılar](durable-functions-timers.md#usage-for-timeout) belgeleri.
 
-## <a name="unhandled-exceptions"></a>İşlenmeyen özel durumlar
+## <a name="unhandled-exceptions"></a>İşlenmeyen özel durumları
 
-Bir orchestrator işlevi işlenmeyen bir özel durum ile başarısız olursa, özel durum ayrıntıları kaydedilir ve ile örnek tamamlandığında bir `Failed` durumu.
+Bir düzenleyici işlevi işlenmeyen bir özel durum ile başarısız olursa özel durumun ayrıntılarını günlüğe kaydedilir ve örneği ile tamamlanan bir `Failed` durumu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Sorunları tanılayın öğrenin](durable-functions-diagnostics.md)
+> [Sorunları tanılamayı öğrenin](durable-functions-diagnostics.md)

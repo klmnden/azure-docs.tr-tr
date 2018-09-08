@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 5bdd764c3e3c273e3495085f2b684cfdd316706d
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 9021f65e3418ace408177e618390438d312cfed2
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028498"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158951"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Şablonları kullanarak bir Azure sanal makinesinde Azure kaynakları için yönetilen kimlik Yapılandır
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Azure kaynakları için yönetilen kimlikleri Azure Active Directory'de otomatik olarak yönetilen bir kimlikle Azure hizmetleri sağlar. Bu kimlik, Azure AD kimlik doğrulaması, kimlik bilgilerini kodunuzda zorunda kalmadan destekleyen herhangi bir hizmeti kimlik doğrulaması için kullanabilirsiniz. 
 
@@ -68,7 +68,7 @@ Bu bölümde, etkinleştirin ve bir Azure Resource Manager şablonu kullanarak b
 3. (İsteğe bağlı) Bir uzantısı olarak Azure kaynakları için yönetilen VM kimlikleri ekleme bir `resources` öğesi. Azure örnek meta veri hizmeti (IMDS) kimlik endpoint de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır.  Aşağıdaki sözdizimini kullanın:
 
    >[!NOTE] 
-   > Aşağıdaki örnekte, bir Windows VM uzantısı varsayılır (`ManagedIdentityExtensionForWindows`) dağıtılıyor. Kullanarak Linux için yapılandırabilirsiniz `ManagedIdentityExtensionForLinux` için bunun yerine, `"name"` ve `"type"` öğeleri.
+   > Aşağıdaki örnekte, bir Windows VM uzantısı varsayılır (`ManagedIdentityExtensionForWindows`) dağıtılıyor. Kullanarak Linux için yapılandırabilirsiniz `ManagedIdentityExtensionForLinux` için bunun yerine, `"name"` ve `"type"` öğeleri. VM uzantısı için Ocak 2019'da kullanımdan kaldırma planlanmaktadır.
    >
 
    ```JSON
@@ -251,7 +251,7 @@ Bu bölümde, Azure Resource Manager şablonu kullanarak bir Azure sanal makines
    ```
        
 
-2. (İsteğe bağlı) Sonraki altında `resources` öğesi, yönetilen kimlik uzantısı VM'nize atamak için şu girişi ekleyin. Azure örnek meta veri hizmeti (IMDS) kimlik endpoint de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır. Aşağıdaki sözdizimini kullanın:
+2. (İsteğe bağlı) Sonraki altında `resources` öğesi, yönetilen kimlik uzantısı (Ocak 2019'da kullanımdan kaldırma planlanan), sanal Makinenizin atamak için şu girişi ekleyin. Azure örnek meta veri hizmeti (IMDS) kimlik endpoint de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır. Aşağıdaki sözdizimini kullanın:
     ```json
     {
         "type": "Microsoft.Compute/virtualMachines/extensions",

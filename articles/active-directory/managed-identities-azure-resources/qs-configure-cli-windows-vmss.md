@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: d5c285f13ce45047619b327b9440fbd69c18267e
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 2ec52adec85cc209cee07225cc753a2c40d874c0
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028688"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157642"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Azure CLI kullanarak sanal makine ölçek kümesi üzerinde Azure kaynakları için yönetilen kimlik Yapılandır
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Azure kaynakları için yönetilen kimlikleri Azure Active Directory'de otomatik olarak yönetilen bir kimlikle Azure hizmetleri sağlar. Bu kimlik, Azure AD kimlik doğrulaması, kimlik bilgilerini kodunuzda zorunda kalmadan destekleyen herhangi bir hizmeti kimlik doğrulaması için kullanabilirsiniz. 
 
@@ -109,7 +109,7 @@ Artık yönetilen kimlik sistem tarafından atanan gereken bir sanal makineye sa
 az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-VM uzantısını Azure kaynakları için yönetilen kimlikleri kaldırmak için [az vmss kimliğini kaldırma](/cli/azure/vmss/identity/#az-vmss-remove-identity) bir VMSS yönetilen kimliği sistem tarafından atanan kaldırmak için komutu:
+Azure kaynaklarını VM uzantısı (Ocak 2019'da kullanımdan kaldırma planlanan) için yönetilen kimlikleri kaldırmak için [az vmss kimliğini kaldırma](/cli/azure/vmss/identity/#az-vmss-remove-identity) bir VMSS yönetilen kimliği sistem tarafından atanan kaldırmak için komutu:
 
 ```azurecli-interactive
 az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
@@ -131,7 +131,7 @@ Bu bölümde, bir VMSS oluşturulmasını ve kullanıcı tarafından atanan bir 
 
 2. Bir kullanıcı tarafından atanan yönetilen kimlik kullanarak oluşturduğunuz [az kimliği oluşturma](/cli/azure/identity#az-identity-create).  `-g` Parametresi, kullanıcı tarafından atanan bir yönetilen kimlik oluşturulduğu, kaynak grubunu belirtir ve `-n` parametre adını belirtir. `<RESOURCE GROUP>` ve `<USER ASSIGNED IDENTITY NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın:
 
-   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
+   [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
    ```azurecli-interactive
    az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>

@@ -3,23 +3,19 @@ title: Dayanıklı işlevler - Azure tanılama
 description: Azure işlevleri için dayanıklı işlevler uzantısını sorunları tanılamayı öğrenin.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ce5acda7e2beca1f3d6367708d5b96a5275b2c7f
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: e1211241ec3a2b32647260d1a5c7dc561019cfdf
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340710"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092250"
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) hizmetinde tanılama
 

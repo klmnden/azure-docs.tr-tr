@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 62a5c69eb03733133856ec9ec88ba46d7cf7bec0
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 348186bcb29b272b7e6512ce42221d54d6b388d9
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185763"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161824"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi (Node.js) Azure IOT hub'a bağlanma
 
@@ -230,6 +230,6 @@ Algılayıcı verilerini ve IOT hub'ınıza gönderdiği iletileri gösterir aş
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Algılayıcı verilerini toplamak ve IOT hub'ına göndermek için örnek bir uygulama çalıştırdınız. Raspberry Pi'yi IOT hub'ınıza gönderdiği iletileri görmek için veya bir komut satırı arabirimi Raspberry Pi'yi iletileri göndermek için bkz: [Yönet bulut cihaz iothub-explorer öğreticiyle Mesajlaşma](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
+Algılayıcı verilerini toplamak ve IOT hub'ına göndermek için örnek bir uygulama çalıştırdınız. Raspberry Pi'yi Raspberry Pi'yi, IOT hub'ı veya gönderme iletilerini gönderilen iletileri görmek için bkz: [kullanımı Azure IOT Toolkit uzantısını IOT Hub ve cihaz arasında ileti göndermek ve almak Visual Studio Code için](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

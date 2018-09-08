@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: nberdy
-ms.openlocfilehash: 0f4d5105b7266ba24fc5efa9af887b4458c05d5e
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 3aa452cd178bd0d064726c5be7dbdf65c6ef8d92
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186205"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160057"
 ---
 # <a name="iot-hub-operations-monitoring"></a>IOT Hub işlemlerini izleme
 
@@ -96,7 +96,7 @@ Cihaz telemetrisi kategorisi, IOT hub ve telemetri ardışık düzene ilgili hat
 }
 ```
 
-### <a name="cloud-to-device-commands"></a>Bulut-cihaz komutları
+### <a name="cloud-to-device-commands"></a>Buluttan cihaza komutlar
 
 Bulut-cihaz komutlarını kategorisi, IOT hub ve bulut-cihaz ileti işlem hattına ilgili hataları izler. Bu kategori, (örneğin, yetkisiz gönderen) bulut buluttan cihaza iletileri gönderme (örneğin, teslimat sayısı aşıldı) bulut-cihaz iletilerini alma ve (geri bildirim süresi gibi) bulut-cihaz ileti geri bildirim alan olduğunda oluşan hataları içerir. Bu kategori, bulut buluttan cihaza iletinin başarıyla teslim edildi, yanlış bir bulut-cihaz iletiyi işleyen bir CİHAZDAN hataları yakalamaz.
 
@@ -185,26 +185,6 @@ Bu kategori, cihazın depolama için bir dosya yüklenirken doğrudan ortaya ç�
     "details": "ExternalEndpointDisabled"
 }
 ```
-
-## <a name="view-events"></a>Etkinlikleri görüntüleme
-
-Kullanabileceğiniz *iothub-explorer* IOT hub'ınızı izleme olayları oluşturduğunu hızlı bir şekilde test etmek için aracı. Aracı yüklemek için yönergeleri görmek [iothub-explorer] [ lnk-iothub-explorer] GitHub deposu.
-
-1. Emin **bağlantıları** izleme kategorisi ayarlanır **ayrıntılı** portalında.
-
-1. Bir komut isteminde, izleme uç noktasından okumak için aşağıdaki komutu çalıştırın:
-
-    ```
-    iothub-explorer monitor-ops --login {your iothubowner connection string}
-    ```
-
-1. Başka bir komut istemi'nde, CİHAZDAN buluta iletiler gönderen bir cihazın benzetimini yapmak için aşağıdaki komutu çalıştırın:
-
-    ```
-    iothub-explorer simulate-device {your device name} --send "My test message" --login {your iothubowner connection string}
-    ```
-
-1. Sanal cihaz IOT hub'ınıza bağlanır gibi ilk komut istemi izleme olayları gösterir.
 
 ## <a name="connect-to-the-monitoring-endpoint"></a>İzleme uç noktasına bağlanma
 
@@ -303,5 +283,4 @@ Daha fazla IOT Hub'ın özelliklerini keşfetmek için bkz:
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md

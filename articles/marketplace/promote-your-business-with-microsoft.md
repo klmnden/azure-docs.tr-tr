@@ -1,6 +1,6 @@
 ---
-title: Microsoft ile işinizi Yükselt | Azure
-description: Uygulama ve hizmet yayımcılar için Azure Marketi ve AppSource kullanarak işletmenizin Yükselt
+title: Microsoft ile işletmenizi tanıtmak | Azure
+description: Uygulama ve hizmet yayımcılar için Azure Market ve AppSource kullanarak işletmenizi yükseltin
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: jm-aditi-ms
@@ -14,30 +14,30 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: b2b0a0bbc91115de22eda98df91fb104eb5972ed
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: b02ab403c82fd781af72c3b1f08e843c3fc770e3
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825339"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094952"
 ---
-# <a name="promote-your-business-with-microsoft"></a>Microsoft ile işinizi Yükselt  
-Microsoft ortakları (,) desteği ve uygulamanızı satış basitleştirin veya Market'te veriş sunmak için hedefi vardır. Market'te listesi tarafından programlar ve kaynakları Market'te erişin. 
+# <a name="promote-your-business-with-microsoft"></a>Microsoft ile işletmenizi yükseltin  
+Microsoft iş ortakları (,) desteği ve uygulamanızın satmak basitleştirin veya Market'te vitrinler giren için hedef vardır. Marketi'nde listeleme tarafından programlar ve Market kaynaklara erişin. 
 
-Zaten Microsoft Partner Network (MPN) ve ardından bu oturum için devam etmeden önce değil kaydolduysanız.  
-*   MPN hakkında daha fazla bilgi için Microsoft iş ortağı ağı sayfasında bulunan ziyaret [partner.microsoft.com](https://partner.microsoft.com).  
+Ardından, zaten Microsoft iş ortağı ağı (MPN) kaydolmadıysanız, devam etmeden önce bunu.  
+*   MPN hakkında daha fazla bilgi için ziyaret edin sayfasında bulunan Microsoft iş ortağı ağı [partner.microsoft.com](https://partner.microsoft.com).  
 
 MPN şu konularda rehberlik sağlar.  
-*   Yeni iş fırsatlarını  
+*   Yeni iş fırsatları  
 *   Takımlar veya iş ortakları ile bağlanma  
-*   Çözümler ve eğitim, skillset artırılmasına yardımcı olmak için  
+*   Çözümler ve becerilerinizi artırılmasına yardımcı olmak için eğitim  
 
-Teklif veya uygulama yükseltmek için daha fazla avantajları ve kaynaklarına erişmek için aşağıdaki tabloyu kullanın. 
+Teklif veya uygulamanızı yükseltmek için diğer avantajları ve kaynakları erişmek için aşağıdaki tabloyu kullanın. 
 
-| Avantajı | kaynaklar |  
+| Avantajı | kaynak |  
 |:--- |:--- |  
-| Çekirdek Avantajlarınızı kullanın | Microsoft iş ortağı ağı bir parçası olarak, saat ve para tasarrufu yardımcı olabilecek çekirdek avantajları bir dizi alırsınız. Avantajları da yeteneklerinizi güçlendirme, daha iyi müşteri hizmet ve tam iş potansiyelinize ulaşmak için bağlantıları oluşturmanıza yardımcı olabilir.<ul> <li>Çekirdek avantajları hakkında daha fazla bilgi için çekirdek avantajları ziyaret edin ve gereksinimler sayfası bulunan [partner.microsoft.com/membership/core-benefits](https://partner.microsoft.com/membership/core-benefits).</li> </ul> |  
-| Bulut platformu uzmanlığı kazanma | Bir uzmanlığı getirisi kendiniz diğer Microsoft iş ortakları arasında ayırt yardımcı olur. Bir uzmanlığı getirisi ayrıca teknik uzmanlığı ve müşteri başarı pazardaki göstermek yardımcı olur. Uzmanlığı ortak satış gibi birçok anahtar iş ortağı programı için bir önkoşuldur.<ul> <li>Bulut platformu uzmanlığı hakkında daha fazla bilgi için bulut platformu sayfasında bulunan uzmanlığı ziyaret [partner.microsoft.com/membership/cloud-platform-competency](https://partner.microsoft.com/membership/cloud-platform-competency).</li> </ul> |  
-| Ortak satış hazır hale gelir | Ortak satış hazır program doğrudan Microsoft satıcılar ve diğer iş ortakları hedef müşteriye fırsatları ve hesap planlaması ile işbirliği olanak sağlar. Çözümünüzü Microsoft satıcıları satıcı çözümü katalogda görünür olur. Microsoft satıcılar, işbirliği ve sizinle kazanma ödülünü.<ul> <li>Ortak satış hazırlık hakkında daha fazla bilgi için yükseltme sayfasında bulunan işletmenize ziyaret [partner.microsoft.com/reach-customers/promote-your-business](https://partner.microsoft.com/reach-customers/promote-your-business).</li> </ul> |  
+| Çekirdek Avantajlarınızı kullanın | Microsoft iş ortağı ağı bir parçası olarak, bir dizi zamandan ve paradan tasarruf etmenize yardımcı olabilecek temel avantajlar alırsınız. Avantajları yeteneklerinizi güçlendirebilir, daha iyi müşterilere ve işletmenizin tüm potansiyelini için bağlantılar oluşturmanıza da yardımcı olabilir.<ul> <li>Temel avantajlar hakkında daha fazla bilgi için temel avantajlar ziyaret edin ve gereksinimleri sayfasında bulunan [partner.microsoft.com/membership/core-benefits](https://partner.microsoft.com/membership/core-benefits).</li> </ul> |  
+| Bulut platformu uzmanlığı'na kazanın | Bir uzmanlık kazanmaya kendiniz diğer Microsoft iş ortakları arasında ayırt etmenize yardımcı olur. Bir uzmanlık kazanmaya ayrıca teknik uzmanlığa ve müşteri başarı pazarında gösteren yardımcı olur. Uzmanlık, ortak satış gibi birçok önemli iş ortağı programı için bir önkoşuldur.<ul> <li>Bulut platformu uzmanlığı hakkında daha fazla bilgi için ziyaret edin sayfasında bulunan bulut platformu uzmanlığı [partner.microsoft.com/membership/cloud-platform-competency](https://partner.microsoft.com/membership/cloud-platform-competency).</li> </ul> |  
+| Ortak satışa hazır olun | Ortak satışa hazır programı, doğrudan Microsoft satıcılarıyla ve hedef müşteri fırsatlarını ve hesap planlama diğer iş ortaklarıyla işbirliği sağlar. Çözümünüzü Microsoft satıcılarıyla satıcı çözüm Kataloğu'nda görünür hale gelir. Microsoft satıcılarıyla, işbirliği ve sizinle kazanma ödülünü.<ul> <li>Ortak satış hazırlığına hakkında daha fazla bilgi için yükseltme sayfasında bulunan işletmenize ziyaret [partner.microsoft.com/reach-customers/promote-your-business](https://partner.microsoft.com/reach-customers/promote-your-business).</li> </ul> |  
 
 ---  

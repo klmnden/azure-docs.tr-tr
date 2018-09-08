@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: a61dca8332a613176b01eb85b44cd743ff8b4085
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 0f8789d64b550d9f0a45aa65728fbc1db64d6def
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028707"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094935"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Azure VM'de oturum açma için Azure kaynakları için yönetilen kimliklerini kullanma 
 
@@ -89,7 +89,7 @@ Yanıt aşağıdaki gibi Azure kaynakları için sanal makinenin yönetilen kiml
 Azure VM ile Bu hatalardan birini alırsanız, dönmek [Azure portalında](https://portal.azure.com) ve:
 
 - Git **kimlik** sayfasında ve olun **sistem tarafından atanan** "Evet" olarak ayarlayın
-- Git **uzantıları** sayfasında ve yönetilen kimlik bilgilerini başarıyla dağıtılan Azure kaynaklarını uzantısı emin olun.
+- Git **uzantıları** sayfasında ve uzantı Azure kaynakları için yönetilen kimlikleri sağlamak **(Ocak 2019'da kullanımdan kaldırma planlanan)** başarıyla dağıtıldı.
 
 Ya da yanlışsa, kaynağınızı Azure kaynakları için yönetilen kimlikleri yeniden dağıtmanız veya dağıtım hatasıyla ilgili sorunları giderme gerekebilir. Bkz: [Azure kaynaklarındaki Azure portalını kullanarak bir VM için yapılandırma yönetilen kimlikleri](qs-configure-portal-windows-vm.md) VM yapılandırması ile ilgili yardıma ihtiyacınız varsa.
 

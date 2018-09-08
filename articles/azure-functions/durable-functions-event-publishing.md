@@ -3,23 +3,19 @@ title: Azure Event Grid'e (Önizleme) yayımlama dayanıklı İşlevler
 description: Dayanıklı işlevler için otomatik Azure Event Grid yayımlama yapılandırmayı öğrenin.
 services: functions
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: glenga
-ms.openlocfilehash: 691f00b0f05d8c91ae6f4409ba9eeeb50b0cd53b
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: dff0aace6c46340f07ff6fb4fd7f92ee93b7fa8c
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343704"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091765"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Azure Event Grid'e (Önizleme) yayımlama dayanıklı İşlevler
 
@@ -255,7 +251,7 @@ Azure portalında oluşturduğunuz işlevden günlüklerine bakın.
 2018-04-20T09:28:37.098 [Info] Function completed (Success, Id=36fadea5-198b-4345-bb8e-2837febb89a2, Duration=0ms)
 ```
 
-## <a name="event-schema"></a>Olay Şeması
+## <a name="event-schema"></a>Olay şeması
 
 Yaşam döngüsü olayları Şeması aşağıdaki listede açıklanmıştır:
 

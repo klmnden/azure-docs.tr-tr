@@ -10,20 +10,20 @@ ms.component: manage
 ms.date: 07/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 35ae3d1a8a6de2d348f90e2f55b732421b879917
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 48d64873f0a8c3754ac5c3ecda2294c0f337b9d5
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307646"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094613"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>SQL veri ambarı önerileri
 
 Bu makalede, Azure Danışmanı üzerinden SQL veri ambarı tarafından sunulan önerileri açıklanmaktadır.  
 
-SQL veri ambarı veri Ambarınızı emin olmak için öneriler tutarlı performans için iyileştirilmiş sağlar. Veri ambarı önerileri ile sıkı bir şekilde tümleşmiş [Azure Danışmanı](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) içinde doğrudan en iyi yöntemler sağlamak üzere [Azure portalında](https://aka.ms/Azureadvisor). SQL veri ambarı, veri ambarının geçerli durumunu analiz eder, telemetri ve yüzeyleri öneriler etkin iş yükünüz için günlük bir tempoyla toplar. Desteklenen veri ambarı öneri senaryoları, önerilen eylemleri uygulamak nasıl birlikte aşağıda özetlenmiştir.
+SQL veri ambarı veri Ambarınızı emin olmak için öneriler tutarlı performans için iyileştirilmiş sağlar. Veri ambarı önerileri ile sıkı bir şekilde tümleştirilir [Azure Danışmanı](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) içinde doğrudan en iyi yöntemler sağlamak üzere [Azure portalında](https://aka.ms/Azureadvisor). SQL veri ambarı, veri ambarının geçerli durumunu analiz eder, telemetri ve yüzeyleri öneriler etkin iş yükünüz için günlük bir tempoyla toplar. Desteklenen veri ambarı öneri senaryoları, önerilen eylemleri uygulamak nasıl birlikte aşağıda özetlenmiştir.
 
-SQL veri ambarı Advisor hakkında geri bildirimde bulunmak veya herhangi bir sorunla karşılaşırsanız lütfen ulaşın [ sqldwadvisor@service.microsoft.com ](mailto:sqldwadvisor@service.microsoft.com).   
+SQL veri ambarı Advisor hakkında geri bildirimde bulunmak veya herhangi bir sorunla karşılaşırsanız, ulaşın [ sqldwadvisor@service.microsoft.com ](mailto:sqldwadvisor@service.microsoft.com).   
 
 Tıklayın [burada](https://aka.ms/Azureadvisor) önerilerinizi bugün denetlemek için! Şu anda bu özellik yalnızca 2. nesil veri ambarları için geçerlidir. 
 
@@ -39,4 +39,4 @@ Yetersiz sorgu planlarına oluşturmak SQL veri ambarı sorgu iyileştiricisi ne
 
 - [Tablo istatistikleri oluşturma ve güncelleştirme](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistic)
 
-Bu iki önerileri için advisor aşağıdaki sürekli çalışan [T-SQL betiği](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables) sapması ve istatistikleri önerileri tarafından etkilenen tablolar tanımlamak için.
+Bu öneri tarafından etkilenen tabloların listesini görmek için aşağıdaki komutu çalıştırın. [T-SQL betiği](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). Danışman, sürekli olarak bu önerileri oluşturmak için aynı T-SQL betiği çalıştırır.

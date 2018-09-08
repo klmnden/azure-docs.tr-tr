@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 47a9b04e98337bb9ef4222b3f124d3fb063913a2
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6e668394bcb647df901dfac72c552475e56f20bf
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187120"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161110"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-python"></a>Azure IOT hub'a (Python) Raspberry Pi bağlama
 
@@ -203,6 +203,6 @@ Raspberry Pi'yi bağlanmak için ana bilgisayarınız aşağıdaki SSH istemcile
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Algılayıcı verilerini toplamak ve IOT hub'ına göndermek için örnek bir uygulama çalıştırdınız. Raspberry Pi'yi Raspberry Pi'yi bir komut satırı arabirimi, IOT hub'ı veya gönderme iletilerini gönderilen iletileri görmek için bkz: [Yönet bulut cihaz iothub-explorer öğreticiyle Mesajlaşma](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
+Algılayıcı verilerini toplamak ve IOT hub'ına göndermek için örnek bir uygulama çalıştırdınız. Raspberry Pi'yi Raspberry Pi'yi, IOT hub'ı veya gönderme iletilerini gönderilen iletileri görmek için bkz: [kullanımı Azure IOT Toolkit uzantısını IOT Hub ve cihaz arasında ileti göndermek ve almak Visual Studio Code için](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

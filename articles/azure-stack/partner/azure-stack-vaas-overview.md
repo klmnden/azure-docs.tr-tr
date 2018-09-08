@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: c96e7385356354d398108ad69492603d38667e46
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 56251245a23df031f3bc8fe3d36de43e194fbcc7
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235138"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159682"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack"></a>Azure Stack için hizmet olarak doğrulama nedir?
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Doğrulama (VaaS) hizmet olarak Azure Stack'te teklifleri Microsoft ile ortak mühendislik çözüm iş ortakları için tasarlanan yerel bir Azure hizmetidir. Çözüm ortakları hizmeti çözümleri Microsoft'un gereksinimlerini ve Azure Stack ile beklendiği gibi çalışmayabilir denetlemek için kullanabilirsiniz.
 

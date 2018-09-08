@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: c9004e776488006d563fd4de791cade69736a5b8
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 3989ff6e8ef600500f1c3dcc292d4385d6fb4a8b
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024378"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162572"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Başvuru - IOT Hub kotaları ve azaltma
 
@@ -25,7 +25,7 @@ Her IOT hub'ı, belirli sayıda birimleri belirli bir katman içinde sağlanır.
 Katman da üzerindeki tüm işlemler IOT hub'ı uygulayan azaltma sınırları belirler.
 
 ## <a name="operation-throttles"></a>İşlem kısıtlamalar
-İşlem kısıtlamalar dakikalık aralıklar uygulanır ve kötüye kullanımı önlemek için kullanılmaya oranı sınırlamalardır. IOT hub'ı mümkün olduğunda hataları döndürüyor önlemek çalışır, ancak çok uzun süredir kısıtlama ihlal edilirse, özel durumları döndüren başlatır.
+İşlem kısıtlamalar dakikalık aralıklar uygulanır ve kötüye kullanımı önlemek için kullanılmaya oranı sınırlamalardır. IOT Hub, mümkün olduğunda hataları döndürüyor önlemek çalışır, ancak döndüren başlar `429 ThrottlingException` azaltma çok uzun süredir ihlal edilirse.
 
 Bir IOT hub'ındaki sağlanan birim sayısını artırarak, herhangi bir zamanda, kota veya azaltma sınırları artırabilirsiniz.
 
@@ -42,15 +42,14 @@ Aşağıdaki tabloda zorlanan kısıtlamalar gösterilmektedir. Değerleri tek t
 | Doğrudan yöntemler<sup>1</sup> | 160KB/sn/birim<sup>2</sup> | 480KB/sn/birim<sup>2</sup> | 24MB/sn/birim<sup>2</sup> | 
 | İkiz (cihaz ve modül) okuma<sup>1</sup> | 10/sn | Daha yüksek 10/sn veya 1/sn/birim | 50/sn/birim |
 | İkiz Güncelleştirmesi (cihaz ve modül)<sup>1</sup> | 10/sn | Daha yüksek 10/sn veya 1/sn/birim | 50/sn/birim |
-| İşleri oluşturma, güncelleştirme, listeleme, silme işlemleri | 1.67/sec/Unit (100/dk/birim) | 1.67/sec/Unit (100/dk/birim) | 83.33/sec/Unit (5000/dk/birim) |
-| İşleri ikiz güncelleştirmesi, işlemleri doğrudan yöntem çağırma | 10/sn | Daha yüksek 10/sn veya 1/sn/birim | 50/sn/birim |
-| İçeri/dışarı aktarma işlemlerini işler toplu | 1 etkin iş hub'ı başına | 1 etkin iş hub'ı başına | 1 etkin iş hub'ı başına |
+| İşler işlemleri<sup>1,3</sup> <br/> (oluşturma, güncelleştirme, listeleme, silme) | 1.67/sec/Unit (100/dk/birim) | 1.67/sec/Unit (100/dk/birim) | 83.33/sec/Unit (5000/dk/birim) |
+| Cihaz işlemleri işleri<sup>1</sup> <br/> (ikiz güncelleştirmesi, doğrudan yöntem çağırma) | 10/sn | Daha yüksek 10/sn veya 1/sn/birim | 50/sn/birim |
 | Yapılandırmalar ve edge dağıtımlarını<sup>1</sup> <br/> (oluşturma, güncelleştirme, listeleme, silme) | 0.33/sec/Unit (20/dk/birim) | 0.33/sec/Unit (20/dk/birim) | 0.33/sec/Unit (20/dk/birim) |
 
 
-<sup>1</sup>bu özellik, IOT Hub'ın temel katmanda kullanılabilir değil. Daha fazla bilgi için [doğru IOT hub'a seçme](iot-hub-scaling.md). <br/><sup>2</sup>8 KB'lık olan ölçüm boyutunu azaltma.
+<sup>1</sup>bu özellik, IOT Hub'ın temel katmanda kullanılabilir değil. Daha fazla bilgi için [doğru IOT hub'a seçme](iot-hub-scaling.md). <br/><sup>2</sup>8 KB'lık olan ölçüm boyutunu azaltma. <br/><sup>3</sup>aynı anda yalnızca bir etkin cihaz içeri/dışarı aktarma işi olabilir.
 
-*Cihaz bağlantılarını* kısıtlama oranı, yeni cihaz bağlantılarını kurulabileceği ile IOT hub'ı yönetir. *Cihaz bağlantılarını* azaltma, en fazla eşzamanlı olarak bağlanan cihaz sayısını belirleyen değil. IOT hub için sağlanan birim sayısını azaltma bağlıdır.
+*Cihaz bağlantılarını* kısıtlama oranı, yeni cihaz bağlantılarını kurulabileceği ile IOT hub'ı yönetir. *Cihaz bağlantılarını* azaltma, en fazla eşzamanlı olarak bağlanan cihaz sayısını belirleyen değil. *Cihaz bağlantılarını* hızı azaltma, IOT hub için sağlanan birim sayısını bağlıdır.
 
 Örneğin, tek bir S1 birimi satın alırsanız, saniye başına 100 bağlantılarının bir kısıtlama alın. Bu nedenle, 100.000 cihaz bağlanmak için en az 1000 saniye (yaklaşık 16 dakika) alır. Ancak, kimlik kayıt defterinde kayıtlı cihazları olan sayıda eşzamanlı olarak bağlanan cihazlara sahip olabilir.
 

@@ -1,35 +1,31 @@
 ---
-title: Özel orchestration durum dayanıklı işlevlerinde - Azure
-description: Yapılandırma ve özel orchestration durumunu dayanıklı işlevleri için kullanmak hakkında bilgi edinin.
+title: Dayanıklı işlevler - Azure özel düzenleme durumu
+description: Yapılandırma ve dayanıklı işlevler için özel düzenleme durumu kullanma hakkında bilgi edinin.
 services: functions
 author: kadimitr
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 840b96b9cfdb28ca1b17f54698677f4d491342c8
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: c8eb2be6836e11ddbaed81970024ea7200ea819d
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32310354"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093100"
 ---
-# <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Dayanıklı işlevleri (Azure işlevleri) özel düzenleme durumu
+# <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) özel düzenleme durumu
 
-Özel orchestration durumu, orchestrator işlevi için bir özel durum değeri ayarlamanıza olanak tanır. Bu durum HTTP GetStatus API üzerinden sağlanır veya `DurableOrchestrationClient.GetStatusAsync` API.
+Özel düzenleme durumu orchestrator işleviniz için bir özel durum değeri ayarlamanıza olanak tanır. Bu durum HTTP GetStatus API aracılığıyla sağlanan veya `DurableOrchestrationClient.GetStatusAsync` API.
 
 ## <a name="sample-use-cases"></a>Örnek kullanım durumları 
 
-### <a name="visualize-progress"></a>İlerlemeyi Görselleştirme
+### <a name="visualize-progress"></a>İlerleme durumunu görselleştirin
 
-İstemciler durum uç noktası yoklamak ve ilerleme durumunu geçerli yürütme aşaması visualizes UI görüntüleme. Aşağıdaki örnek, ilerleme paylaşımı gösterir:
+İstemciler, durum uç noktası yoklama ve ilerleme durumunu görselleştirir geçerli yürütme aşaması UI görüntüleme. Aşağıdaki örnek paylaşımı ilerleme durumunu gösterir:
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -56,7 +52,7 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-Ve ardından istemci orchestration çıktısını alırsınız yalnızca `CustomStatus` alanını "Londra" ayarlayın:
+Ve ardından istemci düzenleme çıktısını alır yalnızca `CustomStatus` alan "London" için ayarlanır:
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -89,9 +85,9 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-### <a name="output-customization"></a>Çıktı özelleştirme 
+### <a name="output-customization"></a>Çıkış özelleştirme 
 
-Başka bir ilginç senaryo kullanıcılar benzersiz özelliklerine veya etkileşimleri göre özelleştirilmiş çıkış döndürerek kesimlere. Özel orchestration durum yardımıyla, istemci tarafı kodlar genel olarak kalır. Tüm ana değişiklikler, aşağıdaki örnekte gösterildiği gibi sunucu tarafında gerçekleşir:
+Başka bir ilgi çekici senaryo kullanıcıları benzersiz özellikleri veya etkileşimler göre özelleştirilmiş çıkış döndürerek kesimlere. Özel düzenleme durumu yardımıyla, istemci tarafı kod genel olarak kalır. Aşağıdaki örnekte gösterildiği gibi tüm ana değişiklikleri sunucu tarafında gerçekleşir:
 
 ```csharp
 [FunctionName("CityRecommender")]
@@ -129,9 +125,9 @@ public static void Run(
 } 
 ```
 
-### <a name="instruction-specification"></a>Yönerge belirtimi 
+### <a name="instruction-specification"></a>Yönergesi belirtimi 
 
-Orchestrator özel durumu aracılığıyla istemcilere benzersiz yönergeleri sağlar. Özel durum yönergeleri orchestration kod adımlarına eşlenecek:
+Orchestrator, özel bir durum aracılığıyla istemcilere benzersiz yönergeler sağlayabilir. Özel durum yönergeleri düzenleme kodunda adımlarla eşlenir:
 
 ```csharp
 [FunctionName("ReserveTicket")]
@@ -161,7 +157,7 @@ public static async Task<bool> Run(
 
 ## <a name="sample"></a>Örnek
 
-Aşağıdaki örnekte, özel durum önce ayarlanır;
+Aşağıdaki örnekte, özel durumu ilk olarak ayarlanır;
 
 ```csharp
 public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext ctx)
@@ -176,7 +172,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrati
 }
 ```
 
-Orchestration çalışırken, dış istemcilere bu özel durum getirebilirsiniz:
+Düzenleme devam ederken, dış istemcilere bu özel durum getirebilirsiniz:
 
 ```http
 GET /admin/extensions/DurableTaskExtension/instances/instance123
@@ -197,12 +193,12 @@ GET /admin/extensions/DurableTaskExtension/instances/instance123
 ```
 
 > [!WARNING]
->  Bir Azure Table Storage sütuna sığmayacak kadar gerektiği için özel durum yükü UTF-16 JSON metnin 16 KB ile sınırlıdır. Daha büyük yük gerekiyorsa geliştiriciler harici depolama kullanabilir.
+>  Bir Azure tablo depolama sütuna sığamayacak kadar olması gerektiğinden, özel durum yükü 16 KB olarak UTF-16 JSON metnini sınırlıdır. Bunlar daha büyük yükü gerekirse geliştiriciler dış depolama kullanabilir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [HTTP API'leri dayanıklı işlevleri hakkında bilgi edinin](durable-functions-http-api.md)
+> [Dayanıklı işlevler HTTP API'leri hakkında bilgi edinin](durable-functions-http-api.md)
 
 

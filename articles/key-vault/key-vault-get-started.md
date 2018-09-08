@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 3f3adb1230d6ca6b3a7e616a0beed15d66895124
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
-ms.translationtype: HT
+ms.openlocfilehash: af4ab892ab84ba2f1a19e72710f23ce5ba1232f9
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43283006"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163116"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Azure Anahtar Kasası kullanmaya başlama 
 Bu makale PowerShell kullanarak Azure Key Vault kullanmaya başlamanıza yardımcı olur ve aşağıdaki etkinliklerde size kılavuzluk eder:
@@ -66,7 +66,7 @@ Connect-AzureRmAccount
 ```
 
 >[!NOTE]
- Belirli bir Azure örneği kullanıyorsanız -Environment parametresini kullanın. Örnek: 
+ Belirli bir Azure örneği kullanıyorsanız -Environment parametresini kullanın. Örneğin: 
  ```powershell
  Connect-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
  ```
@@ -140,7 +140,7 @@ Oluşturduğunuz veya Azure Key Vault’a yüklediğiniz bu anahtara, URI’sini
 
 ### <a name="importing-an-existing-pfx-file-into-azure-key-vault"></a>Mevcut PFX dosyasını Azure Key Vault’a aktarma
 
-Azure Key Vault’a yüklemek istediğiniz bir pfx dosyasında depolanmış mevcut anahtarlar söz konusu olduğunda adımlar farklıdır. Örnek:
+Azure Key Vault’a yüklemek istediğiniz bir pfx dosyasında depolanmış mevcut anahtarlar söz konusu olduğunda adımlar farklıdır. Örneğin:
 - .PFX dosyasında mevcut bir yazılım korumalı anahtarınız varsa
 - Pfx dosyası softkey.pfx olarak adlandırılır 
 - Dosya C sürücüsünde depolanır.

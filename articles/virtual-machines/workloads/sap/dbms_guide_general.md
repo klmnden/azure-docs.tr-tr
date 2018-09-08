@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2018
+ms.date: 09/06/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e7ad93cbfd096cacadaef8666b0ea5b31d7fd992
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: e46503f8dc97f58db1cd5acfd2122e2895fb15b0
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918810"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162317"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -272,6 +272,11 @@ Müşteri dağıtımları yüzlerce dışında sonuçlandı birkaç en iyi uygul
 - Sanal ağ içindeki sanal makineler özel IP adresini statik ayırma vardır. Makaleye göz atın [IP adresi türleri ve ayırma yöntemleri azure'da](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) başvuru olarak.
 - Yönlendirme kısıtlamalar DBMS VM'lerin **değil** yerel DBMS Vm'lerde yüklü güvenlik duvarları ile ayarlayın. Bunun yerine trafik yönlendirme ile tanımlanan [Azure ağ güvenlik grupları (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview)
 - Ayrılması ve DBMS VM trafiğini yalıtmak amacıyla VM farklı Nıc'lere atayın. Burada her NIC, farklı bir IP adresi vardır ve her NIC farklı bir sanal ağ alt ağı için bir atanan farklı NSG kuralları yeniden sahip. Ağ trafiği ayrımı ve yalıtım yönlendirme için yalnızca bir ölçüdür ve ağ aktarım hızı için kotaları ayarlama izin vermiyor aklınızda bulundurun.
+
+> [!NOTE]
+> Azure yol aracılığıyla statik IP adresleri atamasını bireysel Vnıc'ler için. Konuk işletim sistemi içinde statik IP adresleri için bir Vnıc atamanız gerekir değil. Olgu üzerinde bazı Azure Hizmetleri gibi Azure Backup hizmeti kullanan, en azından birincil Vnıc DHCP ve statik IP adresleri için ayarlanır. Ayrıca bkz [sanal makine yedekleme sorunlarını giderme Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). Bir VM'ye birden fazla statik IP adresleri atamak gerekiyorsa, bir VM'ye çoklu Vnıcs atamanız gerekir.
+>
+>
 
 DBMS dağıtım yanı sıra SAP uygulama katmanı ve iki DBMS VM yönetimi ve işlemleri trafiği için ayrı yönlendirme Azure kullanılabilirlik kümesi içinde üretim için iki VM kullanarak kaba diyagramı aşağıdaki gibidir:
 

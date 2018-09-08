@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 510bf383848725f3864c40af02c2b309370237f0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 855f147b0622ecc0831f2bc464e83d245af9e574
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438095"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158680"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Öğretici: Azure Active Directory Clarizen ile tümleştirme
 
@@ -39,7 +39,7 @@ Azure AD ile bir hizmet (SaaS) uygulamasını tümleştirme olarak yazılım hak
 ## <a name="prerequisites"></a>Önkoşullar
 Azure AD Tümleştirmesi ile Clarizen yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Çoklu oturum açma için etkinleştirilen Clarizen abonelik
 
 Bu öğreticideki adımları test etmek için aşağıdaki önerileri uygulayın:
@@ -188,7 +188,7 @@ Azure portalında Britta Simon adlı bir test kullanıcısı oluşturun.
 
 ### <a name="create-a-clarizen-test-user"></a>Clarizen test kullanıcısı oluşturma
 
-Bu bölümün amacı Clarizen Britta Simon adlı bir kullanıcı oluşturmaktır. Clarizen otomatik kullanıcı hazırlama, varsayılan olarak etkin olan destekler. Daha fazla ayrıntı bulabilirsiniz [burada](clarizen-provisioning-tutorial.md) otomatik kullanıcı sağlamayı yapılandırma.
+Bu bölümün amacı Clarizen Britta Simon adlı bir kullanıcı oluşturmaktır.
 
 **Kullanıcı el ile oluşturmanız gerekiyorsa, lütfen aşağıdaki adımları uygulayın:**
 
@@ -196,11 +196,11 @@ Azure AD kullanıcıları için Clarizen oturum açmak etkinleştirmek için kul
 
 1. Clarizen şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-1. Tıklayın **kişiler**.
+2. Tıklayın **kişiler**.
 
     !["Kişiler" tıklayarak](./media/clarizen-tutorial/create_aaduser_001.png "kişiler")
 
-1. Tıklayın **kullanıcı davet**.
+3. Tıklayın **kullanıcı davet**.
 
     !["Kullanıcı davet et" düğmesini](./media/clarizen-tutorial/create_aaduser_002.png "kullanıcılar davet edin")
 
@@ -251,7 +251,6 @@ Erişim paneli Clarizen kutucuğa tıkladığınızda, size otomatik olarak Clar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
 * [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
-* [Kullanıcı sağlamayı yapılandırma](clarizen-provisioning-tutorial.md)
 
 <!--Image references-->
 

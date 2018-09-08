@@ -3,23 +3,19 @@ title: Dayanıklı işlevler uzantısını ve örnekleri - Azure'ı yükleme
 description: Dayanıklı işlevler uzantısını portal geliştirme veya Visual Studio geliştirme için Azure işlevleri için yüklemeyi öğrenin.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 12b5c013a0704eb2d3f7df58011571b902955c75
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 8c5f3114172a7d27685e7aee2972b43b9ebef4e9
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42056340"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093015"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Örnekler (Azure işlevleri) ve dayanıklı işlevler uzantısını yükleme
 

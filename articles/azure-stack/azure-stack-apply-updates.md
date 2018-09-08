@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
-ms.openlocfilehash: ca07c3aca106f6c92187fea5a3ebf7bf172cddcc
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8e4c86a3c9ff40f23a2a758b450d685b81dabc1a
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026211"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091909"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Azure stack'teki güncelleştirmelerini uygulayın
 
@@ -65,7 +65,7 @@ Aşağıdaki yordam, içeri aktarma ve Yönetici portalı'nda güncelleştirme p
 6. Altında **blobu karşıya yükleme**klasör simgesine tıklayın, güncelleştirme paketi .exe dosyasına göz atın ve ardından **açık** dosya Gezgini penceresinde.
   
 7. Altında **blobu karşıya yükleme**, tıklayın **karşıya**. 
- 
+  
     ![Her bir paket dosyasını nerede gösterir](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
 8. 6 ve 7. adımları yineleyin *PackageName*.bin ve Metadata.xml dosyaları. Ek Notice.txt dosyası eklediyseniz içeri aktarılmaz.
@@ -74,6 +74,8 @@ Aşağıdaki yordam, içeri aktarma ve Yönetici portalı'nda güncelleştirme p
 11. Güncelleştirmeyi yüklemek için olarak işaretlenmiş paketi seçin **hazır** ya da paketini sağ tıklatın ve seçin ve **Şimdi Güncelleştir**, veya **Şimdi Güncelleştir** üst eylemi .
 12. Güncelleştirme paketi yüklenirken tıkladığınızda, durumu görüntüleyin **güncelleştirme çalıştırması ayrıntıları** alan. Burada da tıklayabilirsiniz **tam günlükleri indirmek** günlük dosyaları indirilemedi.
 13. Güncelleştirme tamamlandığında, Azure Stack gireceği kutucuğu güncelleştir gösterir.
+
+Azure Stack'te yüklendikten sonra depolama hesabından güncelleştirmeleri el ile silebilirsiniz. Azure Stack, düzenli aralıklarla için eski güncelleştirme paketleri denetler ve bunları Depolama'dan kaldırır. Azure Stack sürebilir iki hafta içinde eski paketleri kaldırın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

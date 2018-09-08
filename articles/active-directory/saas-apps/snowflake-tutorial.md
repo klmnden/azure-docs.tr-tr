@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 09/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 3ad3f42563878d829f900d5cddb0c6866d2deab5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 247d18eb13f7bad10cbfd89891a80d2d1c6135c3
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307808"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160556"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Öğretici: Azure Active Directory Snowflake ile tümleştirme
 
@@ -39,6 +39,7 @@ Azure AD Tümleştirmesi ile Snowflake yapılandırmak için aşağıdaki öğel
 
 - Azure AD aboneliği
 - Bir Snowflake çoklu oturum açma abonelik etkin.
+- Müşteriler bir Snowflake hesabınız yok mu ve Azure AD uygulama Galerisi denemek istiyorsanız lütfen bakın [bu](https://trial.snowflake.net/?cloud=azure&utm_source=azure-marketplace&utm_medium=referral&utm_campaign=self-service-azure-mp) bağlantı.
 
 > [!NOTE]
 > Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
@@ -103,22 +104,22 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
  
     ![Çoklu oturum açma iletişim kutusu](./media/snowflake-tutorial/tutorial_snowflake_samlbase.png)
 
-3. Üzerinde **Snowflake etki alanı ve URL'ler** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** başlatılan modu:
+3. Üzerinde **Snowflake etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Snowflake etki alanı ve URL'ler tek oturum açma bilgileri](./media/snowflake-tutorial/tutorial_snowflake_url.png)
 
-    a. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://<SNOWFLAKE-URL>`
+    a. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
 
-    b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<SNOWFLAKE-URL>/fed/login`
+    b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/login`
 
 4. Denetleme **Gelişmiş URL ayarlarını göster** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
     ![Snowflake etki alanı ve URL'ler tek oturum açma bilgileri](./media/snowflake-tutorial/tutorial_snowflake_url1.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<SNOWFLAKE-URL>`
+    İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
      
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [Snowflake istemci Destek ekibine](https://support.snowflake.net/s/snowflake-support) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin.
 
 5. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
@@ -132,7 +133,22 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     ![Snowflake yapılandırma](./media/snowflake-tutorial/tutorial_snowflake_configure.png) 
 
-8. Çoklu oturum açmayı yapılandırma **Snowflake** tarafı, indirilen göndermek için ihtiyacınız **sertifika (Base64)** ve **SAML çoklu oturum açma hizmeti URL'si** için [ Snowflake Destek ekibine](https://support.snowflake.net/s/snowflake-support). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+8. Bir başka web tarayıcı penceresinde Snowflake bir güvenlik yöneticisi olarak oturum açın.
+
+9. Çalıştırma aşağıdaki SQL sorgusunu ayarlayarak çalışma sayfasındaki **sertifika** değerini **dowloaded sertifika** ve **ssoUrl** için kopyalanan **SAML çoklu oturum açma Hizmet URL'si** değere aşağıda gösterildiği gibi Azure ad.
+
+    ![Snowflake sql](./media/snowflake-tutorial/tutorial_snowflake_sql.png) 
+
+    ```
+    use role accountadmin;
+    alter account set saml_identity_provider = '{
+    "certificate": "<Paste the content of downloaded certificate from Azure portal>",
+    "ssoUrl":"<SAML single sign-on service URL value which you have copied from the Azure portal>",
+    "type":"custom",
+    "label":"AzureAD"
+    }';
+    alter account set sso_login_page = TRUE;
+    ```
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -168,7 +184,25 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
  
 ### <a name="create-a-snowflake-test-user"></a>Snowflake test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Snowflake içinde adlı bir kullanıcı oluşturun. Çalışmak [Snowflake Destek ekibine](https://support.snowflake.net/s/snowflake-support) Snowflake platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Snowflake için oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunların Snowflake sağlanması gerekir. Snowflake içinde sağlama bir el ile gerçekleştirilen bir görevdir.
+
+**Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
+
+1. Snowflake'e bir güvenlik yöneticisi olarak oturum açın.
+
+2. **Geçiş rol** için **ACCOUNTADMIN**, tıklayarak **profili** sayfanın üst sağ taraftaki.  
+
+    ![Snowflake yönetici ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+
+3. Çalıştırarak oluşturacağı SQL sorgusunun altına "Oturum açma adı" sağlayarak Azure AD kullanıcı adı çalışma sayfasındaki aşağıda gösterildiği gibi ayarlanır.
+
+    ![Snowflake adminsql ](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
+
+    ```
+
+    use role accountadmin;
+    CREATE USER britta_simon PASSWORD = '' LOGIN_NAME = 'BrittaSimon@contoso.com' DISPLAY_NAME = 'Britta Simon';
+    ```
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

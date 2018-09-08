@@ -4,23 +4,19 @@ description: Azure işlevleri'nde Azure Mobile Apps bağlamaları kullanma hakk�
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Azure işlevleri, İşlevler, olay işleme dinamik işlem, sunucusuz mimari
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 67adec7f30c8e4b24d0726ebdefa613fcefa7d3e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d43032f854aa37f150945c25515c03ec97277b41
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602526"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091314"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure işlevleri için Mobile Apps bağlamaları 
 
@@ -154,10 +150,10 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 | **type**|| "MobileTable için" olarak ayarlanmalıdır|
 | **direction**||"İçin" ayarlanmalıdır|
 | **Adı**|| İşlev imzası giriş parametresi adı.|
-|**tableName** |**TableName**|Mobil uygulamanın veri tablosunun adı|
+|**TableName** |**TableName**|Mobil uygulamanın veri tablosunun adı|
 | **Kimliği**| **Kimlik** | Alınacak kaydın tanıtıcısı. Bağlı işlevi çağıran bir tetikleyici olarak veya statik olabilir. Örneğin, bir kuyruk tetikleyicisi işleviniz için ardından kullanırsanız `"id": "{queueTrigger}"` kuyruk iletisini dize değerini almak için kayıt Kimliğini kullanır.|
 |**bağlantı**|**bağlantı**|Mobil uygulamanızın URL'sine sahip bir uygulama ayarının adı. İşlev, gerekli REST işlemlerini karşı mobil uygulamanızı oluşturmak için bu URL'yi kullanır. İşlev uygulamanızda mobil uygulamanın URL'si içeren bir uygulama ayarı oluşturmak ve ardından uygulama ayarlarında adını `connection` , giriş bağlama özelliği. URL şuna `http://<appname>.azurewebsites.net`.
-|**apiKey**|**ApiKey**|Mobil uygulamanızın API anahtarı içeren bir uygulama ayarının adı. API anahtarı if sağlayın, [bir API anahtarı Node.js mobil uygulamanıza](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), veya [bir API anahtarı .NET Mobil uygulamanıza](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Anahtar sağlamak için işlev uygulamanızı API anahtarını içeren bir uygulama ayarı oluşturmak, sonra Ekle `apiKey` özelliği, giriş bağlama uygulama ayarının adı. |
+|**ApiKey**|**ApiKey**|Mobil uygulamanızın API anahtarı içeren bir uygulama ayarının adı. API anahtarı if sağlayın, [bir API anahtarı Node.js mobil uygulamanıza](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), veya [bir API anahtarı .NET Mobil uygulamanıza](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Anahtar sağlamak için işlev uygulamanızı API anahtarını içeren bir uygulama ayarı oluşturmak, sonra Ekle `apiKey` özelliği, giriş bağlama uygulama ayarının adı. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -313,9 +309,9 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 | **type**|| "MobileTable için" olarak ayarlanmalıdır|
 | **direction**||"Out" olarak ayarlanmalıdır|
 | **Adı**|| İşlev imzası çıkış parametresinin adı.|
-|**tableName** |**TableName**|Mobil uygulamanın veri tablosunun adı|
+|**TableName** |**TableName**|Mobil uygulamanın veri tablosunun adı|
 |**bağlantı**|**MobileAppUriSetting**|Mobil uygulamanızın URL'sine sahip bir uygulama ayarının adı. İşlev, gerekli REST işlemlerini karşı mobil uygulamanızı oluşturmak için bu URL'yi kullanır. İşlev uygulamanızda mobil uygulamanın URL'si içeren bir uygulama ayarı oluşturmak ve ardından uygulama ayarlarında adını `connection` , giriş bağlama özelliği. URL şuna `http://<appname>.azurewebsites.net`.
-|**apiKey**|**ApiKeySetting**|Mobil uygulamanızın API anahtarı içeren bir uygulama ayarının adı. API anahtarı if sağlayın, [Node.js mobil uygulama arka ucunuza bir API anahtarı uygulama](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), veya [, .NET Mobil uygulama arka ucu bir API anahtarı uygulama](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Anahtar sağlamak için işlev uygulamanızı API anahtarını içeren bir uygulama ayarı oluşturmak, sonra Ekle `apiKey` özelliği, giriş bağlama uygulama ayarının adı. |
+|**ApiKey**|**ApiKeySetting**|Mobil uygulamanızın API anahtarı içeren bir uygulama ayarının adı. API anahtarı if sağlayın, [Node.js mobil uygulama arka ucunuza bir API anahtarı uygulama](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key), veya [, .NET Mobil uygulama arka ucu bir API anahtarı uygulama](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Anahtar sağlamak için işlev uygulamanızı API anahtarını içeren bir uygulama ayarı oluşturmak, sonra Ekle `apiKey` özelliği, giriş bağlama uygulama ayarının adı. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

@@ -11,20 +11,20 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: f20bcb4245a2870d8eaa442c6f747ee533b362db
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e5edfc92fc23c3235e4d4b9ca23f83c7adc3accf
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348530"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158434"
 ---
 # <a name="set-up-security-info-to-use-text-messaging-preview"></a>Metin iletileri (Önizleme) kullanmak için güvenlik bilgileri ' ayarlayın
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 Güvenlik bilgilerinizi ayarlamak için iş veya Okul hesabınızda oturum açın ve ardından kayıt işlemini tamamlamak gerekir. Güvenlik bilgilerinizi daha önce oluşturmadıysanız, artık yapmanız istenir.
 
-## <a name="set-up-text-messaging"></a>Kısa mesaj yukarı ayarlayın
+## <a name="set-up-text-messaging"></a>SMS mesajlaşmasını ayarlama
 
 Kuruluşunuzun ayarlara bağlı olarak, metin, oturum açtığında güvenlik bilgilerinizi iletileri eklemek için istenebilir. Aksi takdirde, güvenlik bilgilerini ileti metni ayarlama başlamak için adımları izleyin. [güvenlik bilgilerinizi yönetmek](security-info-manage-settings.md).
 

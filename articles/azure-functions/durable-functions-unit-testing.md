@@ -1,33 +1,29 @@
 ---
-title: Azure dayanıklı işlevleri birim testi
-description: Bilgi nasıl dayanıklı işlevleri için birim testi.
+title: Azure dayanıklı işlevler birim testi
+description: Bilgi nasıl dayanıklı işlevler için birim test.
 services: functions
 author: kadimitr
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: kadimitr
-ms.openlocfilehash: 7de9a6f0d4dfcb45932b89504c0d38c3c70283e9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 81d187cf5b75b7bd943d9dcedc97b56ba9c397de
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33762769"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092585"
 ---
-# <a name="durable-functions-unit-testing"></a>Dayanıklı işlevleri birim testi
+# <a name="durable-functions-unit-testing"></a>Dayanıklı işlevler birim testi
 
-Birim testi modern yazılım geliştirme uygulamalarını önemli bir parçasıdır. Birim testleri iş mantığı davranışını doğrulayabilir ve gözden kaçan önemli değişiklikler gelecekte Tanıtımı koruyabilirsiniz. Giriş birim testleri önemli değişiklikler önlemek için yardımcı olacak şekilde dayanıklı işlevleri kolayca karmaşıklığı büyüyebilir. Aşağıdaki bölümlerde açıklanmıştır birimine üç işlev türleri - Orchestration istemci, Orchestrator ve etkinliği test nasıl işlevleri. 
+Birim testi, modern yazılım geliştirme yöntemleri önemli bir parçasıdır. Birim testleri, iş mantığı davranışı doğrulayın ve gelecekte gözden kaçan bozucu değişiklikleri giriş koruyun. Karşınızda birim testleri bozucu değişiklikler önlemeye yardımcı şekilde dayanıklı işlevler kolayca karmaşık hale gelmesi. Aşağıdaki bölümlerde açıklanmaktadır nasıl üç işlev türleri - düzenleme istemcisi, Orchestrator ve etkinlik için birim test işlevleri. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu makaledeki örneklerde, aşağıdaki kavramlar ve çerçeveleri bilgi gerektirir: 
+Bu makaledeki örneklerde aşağıdaki kavramlar ve çerçeveleri gerektirir: 
 
 * Birim testi
 
@@ -35,40 +31,40 @@ Bu makaledeki örneklerde, aşağıdaki kavramlar ve çerçeveleri bilgi gerekti
 
 * [xUnit](https://xunit.github.io/) -test çerçevesi
 
-* [moq](https://github.com/moq/moq4) -framework Mocking
+* [moq](https://github.com/moq/moq4) -framework sahte işlem
 
 
-## <a name="base-classes-for-mocking"></a>Mocking için temel sınıflar 
+## <a name="base-classes-for-mocking"></a>Sahte işlem için temel sınıflar 
 
-Mocking dayanıklı işlevlerinde iki soyut sınıflar aracılığıyla desteklenir:
+Sahte işlem dayanıklı işlevler için iki soyut sınıf üzerinden desteklenir:
 
 * [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) 
 
 * [DurableOrchestrationContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContextBase.html)
 
-Temel sınıflar için bu sınıflardır [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) ve [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) Orchestration istemci ve Orchestrator yöntemleri tanımlar. Birim testi iş mantığı doğrulayabilmeniz için mocks taban sınıf yöntemlerini için beklenen bir davranış ayarlayın. Birim Orchestration istemci ve Orchestrator iş mantığı testi için iki aşamalı iş akışı vardır:
+Bu sınıflar için temel sınıflardır [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) ve [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) düzenleme istemcisi ve Orchestrator yöntemleri tanımlar. Birim testi iş mantığı doğrulayabilmeniz için taban sınıf yöntemlerini yönelik beklenen davranışın mocks ayarlar. İş mantığı düzenleme istemcisi ve Orchestrator birim testi için iki aşamalı iş akışı şöyledir:
 
-1. Temel sınıflar, Orchestration istemci ve Orchestrator'ın imzaları tanımlarken yerine somut uygulaması kullanın.
-2. Birim testleri temel sınıflar davranışını mock ve iş mantığı doğrulayın. 
+1. Düzenleme istemcisi ve Orchestrator'ın imzaları tanımlarken, temel sınıflar somut bir uygulama yerine kullanın.
+2. Birim testleri temel sınıflar davranışını Sahne ve iş mantığı doğrulayın. 
 
-Test etmek için aşağıdaki paragrafta diğer ayrıntıları bulmak bağlama orchestration istemci ve orchestrator kullanan işlevler bağlama tetikler.
+Test etmek için aşağıdaki paragrafta diğer ayrıntıları öğrenmek bağlama düzenleme istemcisi ve orchestrator'ı kullanan işlevler bağlama tetikleyin.
 
-## <a name="unit-testing-trigger-functions"></a>Birim testi tetikleyici işlevleri
+## <a name="unit-testing-trigger-functions"></a>Birim test tetikleyici işlevleri
 
-Bu bölümde, yeni düzenlemelerin başlatmak için aşağıdaki HTTP tetikleyicisi işlevi mantıksal birim testi doğrular.
+Bu bölümde, yeni düzenlemeleri başlatmak için aşağıdaki HTTP tetikleyici işlevi, mantıksal birim testi doğrular.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-Birim testi değerini doğrulamak için bu durumda görev `Retry-After` yanıt yükünde sağlanan üstbilgi. Birim testi bazı mock şekilde [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) tahmin edilebilir bir davranış sağlamak için yöntemleri. 
+Birim test değerini doğrulamak için bu durumda görev `Retry-After` yanıt yükünde sağlanan üstbilgisi. Birim testi bazı sahte şekilde [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) tahmin edilebilir davranış sağlamak için yöntemleri. 
 
-İlk olarak, temel sınıfın mock gereklidir [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). Mock uygulayan yeni bir sınıf olabilir [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). Ancak, bir mocking framework gibi kullanılarak [moq](https://github.com/moq/moq4) işlemini basitleştirir:    
+İlk olarak, temel sınıfın sahte gereklidir [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). Sahte uygulayan yeni bir sınıf olması [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). Ancak, gibi sahte bir çerçeve kullanarak [moq](https://github.com/moq/moq4) bu süreci kolaylaştırır:    
 
 ```csharp
     // Mock DurableOrchestrationClientBase
     var durableOrchestrationClientBaseMock = new Mock<DurableOrchestrationClientBase>();
 ```
 
-Ardından `StartNewAsync` yöntemi mocked iyi bilinen örneği bir kimlik döndürmek için
+Ardından `StartNewAsync` yöntemi örnek bir bilinen örneği kimliği döndürmek için
 
 ```csharp
     // Mock StartNewAsync method
@@ -77,7 +73,7 @@ Ardından `StartNewAsync` yöntemi mocked iyi bilinen örneği bir kimlik dönd�
         ReturnsAsync(instanceId);
 ```
 
-Sonraki `CreateCheckStatusResponse` boş bir HTTP 200 yanıtı her zaman mocked iade değil.
+Sonraki `CreateCheckStatusResponse` sahte her zaman döndürülecek olan boş bir HTTP 200 yanıtı.
 
 ```csharp
     // Mock CreateCheckStatusResponse method
@@ -90,7 +86,7 @@ Sonraki `CreateCheckStatusResponse` boş bir HTTP 200 yanıtı her zaman mocked 
         });
 ```
 
-`TraceWriter` Ayrıca mocked:
+`TraceWriter` Ayrıca örnek:
 
 ```csharp
     // Mock TraceWriter
@@ -98,7 +94,7 @@ Sonraki `CreateCheckStatusResponse` boş bir HTTP 200 yanıtı her zaman mocked 
 
 ```  
 
-Şimdi `Run` yöntemi, birim testi çağrılır:
+Artık `Run` yöntemi, birim testi çağrılır:
 
 ```csharp
     // Call Orchestration trigger function
@@ -113,7 +109,7 @@ Sonraki `CreateCheckStatusResponse` boş bir HTTP 200 yanıtı her zaman mocked 
         traceWriterMock.Object);
  ``` 
 
- Çıktı beklenen değerle karşılaştırmak için son adımdır bakın:
+ Son adım, çıktı beklenen değeri ile Karşılaştırılacak içerir:
 
 ```csharp
     // Validate that output is not null
@@ -123,25 +119,25 @@ Sonraki `CreateCheckStatusResponse` boş bir HTTP 200 yanıtı her zaman mocked 
     Assert.Equal(TimeSpan.FromSeconds(10), result.Headers.RetryAfter.Delta);
 ```
 
-Birim testi tüm adımları birleştirme sonra aşağıdaki kodu olacaktır: 
+Tüm adımları birleştirdikten sonra birim testini şu kodu görürsünüz: 
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HttpStartTests.cs)]
 
 ## <a name="unit-testing-orchestrator-functions"></a>Birim testi orchestrator işlevleri
 
-Orchestrator işlevleri için birim genellikle çok daha fazla iş mantığı olduğundan testi daha ilginç.
+Orchestrator işlevleri birim genellikle çok daha fazla iş mantığı olduğundan test etmek daha da ilginç.
 
-Bu bölümde birim testleri çıktısını doğrulayacak `E1_HelloSequence` Orchestrator işlevi:
+Bu bölümde birim testleri çıktısını doğrulayacaktır `E1_HelloSequence` Orchestrator işlevi:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-Birim testi kodunu bir mock oluşturma ile başlar:
+Birim testi kodu bir Sahne oluşturma ile başlar:
 
 ```csharp
     var durableOrchestrationContextMock = new Mock<DurableOrchestrationContextBase>();
 ```
 
-Ardından etkinlik yöntem çağrılarını mocked:
+Ardından etkinlik yöntem çağrıları örnek:
 
 ```csharp
     durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Tokyo")).ReturnsAsync("Hello Tokyo!");
@@ -164,19 +160,19 @@ Ve son olarak çıkış doğrulanacak:
     Assert.Equal("Hello London!", result[2]);
 ```
 
-Birim testi tüm adımları birleştirme sonra aşağıdaki kodu olacaktır:
+Tüm adımları birleştirdikten sonra birim testini şu kodu görürsünüz:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceOrchestratorTests.cs)]
 
-## <a name="unit-testing-activity-functions"></a>Birim testi etkinlik işlevleri
+## <a name="unit-testing-activity-functions"></a>Birim test etkinliği işlevleri
 
-Etkinlik işlevleri dayanıklı olmayan işlevleri aynı şekilde test birim olabilir. Etkinlik işlevleri mocking için bir taban sınıfı yok. Birim testleri parametre türleri doğrudan kullanın.
+Etkinlik işlevlerini dayanıklı olmayan işlevler aynı şekilde test birimi olabilir. Etkinlik işlevlerini sahte işlem için bir temel sınıf yok. Bu nedenle doğrudan parametre türlerini birim testleri kullanın.
 
-Bu bölümde birim testi davranışını doğrulayacak `E1_SayHello` etkinlik işlevi:
+Bu bölümde, birim testi davranışını doğrulayacaktır `E1_SayHello` etkinlik işlevi:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-Ve birim testi çıktı biçimi doğrular:
+Ve birim testi çıkış biçimini doğrular:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceActivityTests.cs)]
 

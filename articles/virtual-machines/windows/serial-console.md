@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 4e93e455e309771ed3e33382ee49cdc144036fb1
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 196882cf4515be8afd129128402e9eaee322cb4b
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782422"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093592"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Sanal makinenin seri konsol (Önizleme) 
 
@@ -75,7 +75,7 @@ Gerekli SAC çevrimdışı de etkinleştirilebilir ise
 
 ### <a name="how-do-i-know-if-sac-is-enabled"></a>SAC etkin olup olmadığını nasıl anlarım?
 
-Varsa [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) etkin seri konsol SAC istemi gösterilmez. Bazı durumlarda, VM sistem durumu bilgileri gösterilir ve diğer durumlarda boş olacaktır.  
+Varsa [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) etkin seri konsol SAC istemi gösterilmez. Bazı durumlarda, VM sistem durumu bilgileri gösterilir ve diğer durumlarda boş olacaktır. Şubat 2018 tarihinden önce oluşturulan bir Windows Server görüntüsü kullanıyorsanız büyük olasılıkla SAC etkinleştirilmeyecek.
 
 ## <a name="enable-the-windows-boot-menu-in-serial-console"></a>Seri konsol içinde Windows önyükleme menüsünü etkinleştir 
 
@@ -194,7 +194,7 @@ Sanal makine ölçek kümesi örneği seri konsolu ile seçeneği yoktur | Öniz
 Ulaşmaktan bağlantı başlık satırında bir günlük göstermez sonra girin | Lütfen şu sayfaya bakın: [Hitting girin hiçbir şey yapmaz](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Bu özel bir VM çalıştırıyorsanız, gereç sağlamlaştırılmış olması veya düzgün bir şekilde seri bağlantı noktasına bağlanmak başarısız olmasına, causers Windows yapılandırma kaz.
 Yalnızca sistem durumu bilgileri, bir Windows VM'ye bağlanırken gösterilir.| Bu özel Yönetim Konsolu Windows görüntünüzü için etkinleştirilmemiş olmadığını gösterilir. Bkz: [erişim seri konsol için Windows](#access-serial-console-for-windows) SAC, Windows VM'de el ile etkinleştirme hakkında yönergeler için. Daha fazla ayrıntı şu adreste bulunabilir: [Windows durum sinyallerini](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 Çekirdek hata ayıklamasını etkin olduğunda SAC komut istemi türü oluşturulamıyor | VM ve çalıştırmak için RDP `bcdedit /debug {current} off` yükseltilmiş bir komut isteminden. RDP gerçekleştiremezsiniz, bunun yerine başka bir Azure VM için işletim sistemi diski ve kullanarak bir veri diski olarak bağlı durumdayken değiştirmek `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, ardından diski geri değiştirme.
-Özgün içerik yinelenen bir karakter varsa PowerShell içinde SAC sonuçları üçüncü bir karakter yapıştırma | Geçici bir çözüm PSReadLine modülü kaldırmaktır. `Remove-Module PSReadLine` PSReadLine modülü geçerli oturumdan kaldırır.
+Özgün içerik yinelenen bir karakter varsa PowerShell içinde SAC sonuçları üçüncü bir karakter yapıştırma | Geçerli oturumun PSReadLine modülünü kaldırmak için bir çözüm olabilir. Çalıştırma `Remove-Module PSReadLine` - geçerli oturumu PSReadLine modülünden kaldırmak için bu silmez veya modül kaldırın.
 Bazı klavye girişleri garip SAC çıkış üretmesi (örneğin `[A`, `[3~`) | [VT100](https://aka.ms/vtsequences) kaçış dizileri SAC istemi tarafından desteklenmiyor.
 Bu sanal makinenin önyükleme tanılaması depolama hesabı erişirken 'Yasak' yanıt karşılaşıldı. | Bu önyükleme tanılama hesabı bir güvenlik duvarı bulunmadığından emin olun. İşleve seri konsol için bir erişilebilir önyükleme tanılaması depolama hesabı gereklidir.
 

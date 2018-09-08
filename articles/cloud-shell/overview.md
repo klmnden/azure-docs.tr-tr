@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 9588bebdc827760f0e0d3e2aadccbff5f24723f1
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: ff50ea8c49d35306ccb48ec703de39c27c24bf7b
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258934"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160685"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud shell'e genel bakış
 Azure Cloud Shell'i Azure kaynaklarını yönetmek için etkileşimli ve tarayıcı erişilebilir bir kabuktur.
@@ -35,6 +35,7 @@ Cloud Shell simgesini kullanarak Azure portalından deneyin.
 ![Portal başlatma](media/overview/portal-launch-icon.png)
 
 ## <a name="features"></a>Özellikler
+
 ### <a name="browser-based-shell-experience"></a>Tarayıcı tabanlı kabuk deneyimi
 Cloud Shell, Azure yönetim görevlerini aklınızda ile oluşturulmuş bir tarayıcı tabanlı komut satırı deneyimi erişim sağlar.
 Bir şekilde yalnızca bulut yerel makineden untethered çalışmanız yararlanarak Cloud Shell sağlayabilir.
@@ -65,33 +66,11 @@ Cloud Shell'i gelen kullanılabilen esnek bir araçtır:
 * [VS Code Azure hesabı uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Microsoft Azure dosya depolama bağlama
-Cloud Shell makine geçicidir ve takılamadı için bir Azure dosya paylaşımı gerektiren `clouddrive` dosyalarınızı kalıcı hale getirmek için.
+Cloud Shell makine geçicidir ve takılamadı için bir yeni veya var olan Azure dosya paylaşımı gerektiren `clouddrive` dosyalarınızı kalıcı hale getirmek için.
 
 Bir kaynak oluşturmak için cloud Shell ister ilk başlatma sırasında sizin adınıza grubu, depolama hesabı ve Azure dosyaları paylaşın. Bu tek seferlik bir adımdır ve tüm oturumları için otomatik olarak eklenir. Tek bir dosya paylaşımı eşlenebilir ve hem Bash hem PowerShell Cloud shell'de (Önizleme) tarafından kullanılır.
 
-#### <a name="create-new-storage"></a>Yeni depolama oluşturma
-![](media/overview/basic-storage.png)
-
-Yerel olarak yedekli depolama (LRS) hesabı ve Azure dosyaları paylaşım sizin adınıza oluşturulabilir. Her ikisini birden kullanmayı tercih ederseniz, Azure dosyaları paylaşım hem Bash hem PowerShell ortamlar için kullanılır. Normal depolama ücretleri.
-
-Sizin adınıza üç kaynak oluşturulacak:
-1. Kaynak grubu adı: `cloud-shell-storage-<region>`
-2. Adlı depolama hesabı: `cs<uniqueGuid>`
-3. Adlı dosya paylaşımı: `cs-<user>-<domain>-com-<uniqueGuid>`
-
-> [!Note]
-> Cloud Shell'deki bash hizmetinde aynı zamanda bir varsayılan 5 GB'lik bir disk yansımasını oluşturur `$Home`. Bağlı Azure dosya paylaşımınızı depolanan kullanıcı disk görüntünüze $Home dizininizin SSH anahtarları gibi tüm dosyalarda kalıcıdır. Dosyaları, $Home dizininizin ve bağlı Azure dosya paylaşımı kaydedilirken en iyi yöntemleri uygulayın.
-
-#### <a name="use-existing-resources"></a>Var olan kaynakları kullan
-![](media/overview/advanced-storage.png)
-
-Cloud Shell mevcut kaynaklara ilişkilendirmek için Gelişmiş bir seçenek sağlanır.
-Depolama Kurulum isteminde "Show Gelişmiş ayarları"'a tıklayın. ek seçenekleri görmek için.
-
-> [!Note]
-> Açılır menüleri kullanarak, önceden atanmış Cloud Shell bölgesi ve GRS/LRS/ZRS depolama hesapları için filtrelenir.
-
-[Bilgi Cloud Shell depolama hakkında dosyaları Azure dosya paylaşımlarını güncelleştiriliyor ve karşıya yükleme ve indirme.](persisting-shell-storage.md)
+Bağlama hakkında bilgi edinmek için daha fazla bilgi edinin bir [yeni veya mevcut bir depolama hesabı](persisting-shell-storage.md).
 
 ## <a name="concepts"></a>Kavramlar
 * Cloud Shell'i bir başına-oturum, kullanıcı başına sağlanan geçici bir konak üzerinde çalışır

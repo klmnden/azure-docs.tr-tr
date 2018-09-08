@@ -1,31 +1,27 @@
 ---
-title: Kontrol noktalarına ve yeniden yürütme dayanıklı işlevlerinde - Azure
-description: Denetim noktası oluşturma ve yanıt işleyişi dayanıklı işlevleri uzantısı'nda Azure işlevleri için öğrenin.
+title: Kontrol noktalarına ve dayanıklı işlevler - Azure içinde yeniden yürütme
+description: Denetim noktası oluşturma ve yanıt işleyişi dayanıklı işlevler uzantısını Azure işlevleri için öğrenin.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 39cdb9b2c6eae9a3176aedc64b8d187e298fdfdd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 90860759e8a20bca03d3eb74e4859d0b26d14da1
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764579"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091875"
 ---
-# <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Kontrol noktalarına ve yeniden yürütme dayanıklı işlevlerinde (Azure işlevleri)
+# <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Kontrol noktalarına ve yeniden yürütme içinde dayanıklı işlevler (Azure işlevleri)
 
-Dayanıklı işlevlerin en önemli özelliklerinden biridir **güvenilir yürütme**. Orchestrator işlevler ve etkinlik işlevleri bir veri merkezi içinde farklı vm'lerinde çalışıyor olabilir ve bu sanal makineleri veya arka plandaki ağ altyapısı % 100 güvenilir değil.
+Dayanıklı İşlevler, en önemli özelliklerinden biridir **güvenilir yürütme**. Orchestrator işlevlerini ve etkinlik işlevlerini bir veri merkezi içinde farklı vm'lerinde çalışıyor olabilir ve bu sanal makineler veya ağ altyapının % 100 güvenilir değil.
 
-Bu tüm dayanıklı işlevleri düzenlemelerin güvenilir bir biçimde yürütülmesini sağlar. Bunu sürücü işlev çağrısını depolama sıralara kullanarak ve düzenli aralıklarla denetim noktası oluşturma yürütme geçmişini depolama tablolara yapar (olarak bilinen bir bulut tasarım modeli kullanarak [olay kaynak Hizmeti'nden](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing)). Bu geçmiş sonra otomatik olarak bir orchestrator işlevi bellek içi durumunu yeniden oluşturma çalınabilir.
+Bu rağmen güvenilir bir biçimde yürütülmesini düzenlemeleri dayanıklı işlevler sağlar. Bunu sürücü işlev çağrısını depolama kuyruklarını kullanarak ve düzenli olarak denetim noktası oluşturma yürütme geçmişini depolama tablolarına yapar (olarak bilinen bir bulut tasarım modeli kullanarak [olay kaynağını belirleme](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing)). Bu geçmiş, ardından bir düzenleyici işlevi bellek içi durumunu otomatik olarak yeniden çalınabilir.
 
 ## <a name="orchestration-history"></a>Orchestration geçmişi
 
@@ -64,24 +60,24 @@ module.exports = df(function*(context) {
 });
 ```
 
-Her `await` (C#) veya `yield` (JavaScript) deyimi, dayanıklı görev Framework kontrol noktalarını tablo depolama alanına işlevi yürütme durumu. Ne olarak adlandırılmıştır bu durumda *orchestration geçmişi*.
+Her `await` (C#) veya `yield` deyimi (JavaScript), dayanıklı görev Framework kontrol noktaları tablo depolama işleve yürütme durumu. Bu durumu ne olarak adlandırılır olan *düzenleme geçmişi*.
 
 ## <a name="history-table"></a>Geçmiş tablosu
 
 Genel olarak bakıldığında, dayanıklı görev Framework her noktasında şunları yapar:
 
-1. Yürütme geçmişini Azure Storage tablolara kaydeder.
-2. Enqueues iletileri işlevler için orchestrator çağırma istiyor.
-3. Orchestrator için Enqueues iletileri &mdash; Örneğin, dayanıklı Zamanlayıcı iletileri.
+1. Yürütme geçmişi, Azure depolama tablolara kaydeder.
+2. İşlevler için Kaybolmamasının iletileri çağırmak orchestrator istiyor.
+3. Orchestrator için Kaybolmamasının iletileri &mdash; gibi dayanıklı bir zamanlayıcı iletileri.
 
-Denetim noktası işlemi tamamlandıktan sonra bunu yapmak daha fazla çalışma kadar bellekten kaldırılacak orchestrator işlevi ücretsizdir.
+Denetim noktası işlemi tamamlandıktan sonra orchestrator işlevi oluncaya kadar yapmak için daha fazla iş bellekten kaldırılmak ücretsizdir.
 
 > [!NOTE]
-> Azure depolama, veri kaydetme tablo depolama ve Kuyruklar arasında işlem garanti sağlamaz. Hataları işlemek için dayanıklı işlevleri depolama sağlayıcısını kullanır *nihai tutarlılık* desenleri. Bu düzenleri çökmesi ya da bir denetim noktası ortasında bağlantı kaybı ise hiçbir veri kaybı olduğundan emin olun.
+> Azure depolama, tablo depolama ve kuyruk halinde veri kaydetme arasında işlem konusunda garanti sağlamaz. Dayanıklı işlevler depolama sağlayıcısını hatalarını işlemek için kullandığı *nihai tutarlılık* desenleri. Bu desenleri bir kilitlenme veya bir denetim noktası ortasında bağlantı kaybı ise hiçbir veri kaybı olduğundan emin olun.
 
-Tamamlandığında, daha önce gösterilen işlevi geçmişini aşağıdakine benzer Azure Table Storage'nın (gösterim amacıyla kısaltılmış) arar:
+Tamamlandığında, daha önce gösterilen işlev geçmişini aşağıdaki Azure tablo depolama (gösterim amacıyla kısaltılır) şuna benzer:
 
-| PartitionKey (InstanceId)                     | Olay türü             | Zaman damgası               | Girdi | Ad             | Sonuç                                                    | Durum | 
+| PartitionKey (InstanceId)                     | olay türü             | Zaman damgası               | Girdi | Ad             | Sonuç                                                    | Durum | 
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------| 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     | 
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | Null  | E1_HelloSequence |                                                           |                     | 
@@ -92,72 +88,72 @@ Tamamlandığında, daha önce gösterilen işlevi geçmişini aşağıdakine be
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:34.435Z |       | E1_SayHello      |                                                           |                     | 
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.435Z |       |                  |                                                           |                     | 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     | 
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.763Z |       |                  | "" "Merhaba Seattle!" ""                                      |                     | 
+| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.763Z |       |                  | "" "Seattle Merhaba!" ""                                      |                     | 
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:34.857Z |       | E1_SayHello      |                                                           |                     | 
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     | 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     | 
 | eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919Z |       |                  | "" "Merhaba Londra!" ""                                       |                     | 
-| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Tokyo! Hello" ifadesini",""Merhaba Seattle!" ",""Merhaba Londra!" "]" | Tamamlandı           | 
+| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Tokyo Merhaba!" ",""Merhaba Seattle!" ",""Merhaba Londra!" "]" | Tamamlandı           | 
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     | 
 
 Sütun değerleri birkaç Notlar:
-* **PartitionKey**: orchestration örnek Kimliğini içerir.
-* **EventType**: olay türünü temsil eder. Aşağıdaki türlerden biri olabilir:
-    * **OrchestrationStarted**: orchestrator işlevi ilk kez çalıştırma veya bir bekleme sürdürülemez. `Timestamp` Sütunu belirleyici değerini doldurmak için kullanılan [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) API.
-    * **ExecutionStarted**: ilk kez çalıştırma orchestrator işlevi başlatıldı. Bu olay işlevi girişinde de içeren `Input` sütun.
-    * **TaskScheduled**: bir etkinlik işlevi zamanlandı. Etkinlik işlevin adını, yakalanan `Name` sütun.
-    * **TaskCompleted**: tamamlanmış bir etkinlik işlevi. İşlevin sonucu olarak `Result` sütun.
-    * **TimerCreated**: dayanıklı süreölçer oluşturuldu. `FireAt` Sütun süreölçer süresinin dolma zamanlanmış UTC saati içerir.
-    * **TimerFired**: dayanıklı süreölçer tetiklenir.
-    * **EventRaised**: bir dış olay orchestration örneğine gönderildi. `Name` Sütunu olayın adı yakalar ve `Input` sütun olay yükü yakalar.
-    * **OrchestratorCompleted**: beklemenin orchestrator işlevi.
-    * **ContinueAsNew**: orchestrator işlevi tamamlandı ve kendisini yeni durumuyla yeniden. `Result` Sütun giriş yeniden örneği olarak kullanılan değer içeriyor.
-    * **ExecutionCompleted**: orchestrator işlevi tamamlanıncaya kadar çalıştıran (veya başarısız oldu). İşlev veya hata ayrıntılarını çıkışları depolanmış `Result` sütun.
+* **PartitionKey**: düzenleme örneği Kimliğini içerir.
+* **EventType**: olay türünü temsil eder. Şu türlerden biri olabilir:
+    * **OrchestrationStarted**: orchestrator işlevi ilk kez çalıştırma veya bir await sürdürülemez. `Timestamp` Sütunu belirleyici değerini doldurmak için kullanılır [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) API.
+    * **ExecutionStarted**: orchestrator işlevi ilk kez çalıştırma başlatıldı. Bu olay işlevi girişinde de içeren `Input` sütun.
+    * **TaskScheduled**: etkinlik işlevi zamanlandı. Etkinlik işlevin adını yakalanan `Name` sütun.
+    * **TaskCompleted**: bir etkinlik işlev tamamlandı. İşlevin sonucu bulunduğu `Result` sütun.
+    * **TimerCreated**: kalıcı bir zamanlayıcı oluşturuldu. `FireAt` Sütun Zamanlayıcı süresinin dolma zamanlanmış UTC saati içerir.
+    * **TimerFired**: kalıcı bir zamanlayıcı tetiklendi.
+    * **EventRaised**: dış bir olaya düzenleme örneğine gönderildi. `Name` Sütunu olayın adını yakalar ve `Input` sütunu olayın yükünü yakalar.
+    * **OrchestratorCompleted**: bekleniyor Düzenleyici işlevi.
+    * **ContinueAsNew**: orchestrator işlevi tamamlandı ve kendisini yeni durumuyla yeniden başlatıldı. `Result` Sütunu yeniden örneğinde girdi olarak kullanılan değeri içerir.
+    * **ExecutionCompleted**: orchestrator işlev tamamlanana kadar çalıştırıldı (veya başarısız). İşlev veya hata ayrıntılarını çıkışlarına depolanan `Result` sütun.
 * **Zaman damgası**: geçmiş olayın UTC zaman damgası.
 * **Ad**: çağrıldı işlevin adı.
-* **Giriş**: işlevinin giriş JSON biçimli.
-* **Sonuç**: işlevi çıktısını; diğer bir deyişle, kendi dönüş değeri.
+* **Giriş**: işlevin giriş JSON ile biçimlendirilmiş.
+* **Sonuç**: işlev çıkışı; diğer bir deyişle, dönüş değeri.
 
 > [!WARNING]
-> Hata ayıklama aracı olarak yararlı olsa da, herhangi bir bağımlılığı bu tabloda etkili olmaz. Dayanıklı işlevleri uzantısı geliştikçe değişebilir.
+> Bir hata ayıklama aracı kullanışlı olsa da, bu tabloyu temel bağımlılığın almaz. Dayanıklı işlevler uzantısını geliştikçe değişebilir.
 
-Gelen işlevin sürdürür her zaman bir `await`, dayanıklı görev Framework orchestrator işlevi en baştan yeniden çalıştırır. Geçerli zaman uyumsuz işlemi sürdü olup olmadığını belirlemek için yürütme geçmişi danışır her yeniden çalıştır üzerinde yerleştirin.  Framework işlemi gerçekleşen, bu işlemin çıktısı hemen başlayarak yeniden oynatılır ve diğerine geçer `await`. Bu işlem, tüm geçmişi, önceki değerlerine geri hangi noktada orchestrator işlevde tüm yerel değişkenler yeniden kadar devam eder.
+Gelen işlevin sürdürür her zaman bir `await`, dayanıklı görev Framework orchestrator işlevi sıfırdan yeniden çalıştırır. Geçerli zaman uyumsuz işlem alınması olup olmadığını belirlemek için yürütme geçmişini danışır her yeniden çalıştırmada yerleştirin.  Framework işlemi gerçekleşen, bu işlemin çıktısı hemen yeniden yürütür ve diğerine geçer `await`. Bu işlem, tüm geçmişi, bu noktada orchestrator işlevindeki tüm yerel değişkenlerin önceki değerlere geri yüklenir durumdayken kadar devam eder.
 
 ## <a name="orchestrator-code-constraints"></a>Orchestrator kod kısıtlamaları
 
-Yeniden yürütme davranışı bir orchestrator işlevinde yazılan kod türünü kısıtlamalar oluşturur:
+Yeniden yürütme davranışını bir düzenleyici işlevi içinde yazılan kod türü kısıtlamalar oluşturur:
 
-* Orchestrator kodu olmalıdır **belirleyici**. Birden çok kez yeniden ve her zaman aynı sonucu gerekir. Örneğin, geçerli tarih/saat almak, rastgele sayılar almak, rastgele GUID'ler oluşturmak veya uzak uç noktalarına çağırmak için hiçbir doğrudan çağırır.
+* Orchestrator kod olmalıdır **belirleyici**. Bu, birden çok kez yeniden yürütülmesi gereken ve her zaman aynı sonucu gerekir. Örneğin, geçerli tarih/saat almak, rastgele sayılar alın, rastgele bir GUID oluşturun veya uzak uç noktalarına çağrı için hiçbir doğrudan çağırır.
 
-  Orchestrator kodu geçerli tarih/saat almak gerekirse, kullanması gereken [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) yeniden yürütme için güvenlidir API.
+  Orchestrator kodunun geçerli tarih/saat almak gerekiyorsa, bunu kullanmalısınız [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) API yeniden yürütme için güvenlidir.
 
-  Etkinlik işlevlerde belirleyici olmayan işlemleri yapılması gerekir. Bu, diğer giriş veya çıkış bağlamaları ile etkileşimi içerir. Bu, belirleyici olmayan tüm değerleri kez ilk yürütme sırasında oluşturulur ve yürütme geçmişini kaydedilmiş olduğunu sağlar. Sonraki yürütmelerde sonra kaydedilen değeri otomatik olarak kullanır.
+  Etkinlik işlevlerde belirleyici olmayan işlemleri yapılması gerekir. Bu, diğer giriş veya çıkış bağlamaları herhangi bir etkileşim içerir. Bu, belirleyici olmayan değerleri üzerinde ilk yürütme kez oluşturulur ve yürütme geçmişine kaydedilir, sağlar. Sonraki yürütmeleri sonra otomatik olarak kaydedilen değer kullanır.
 
-* Orchestrator kodu olmalıdır **engellemeyen**. Örneğin, yani hiçbir g/ç ve hiçbir çağrıları `Thread.Sleep` veya eşdeğer API'leri.
+* Orchestrator kod olmalıdır **engelleyici olmayan**. Örneğin, yani hiçbir g/ç ve çağrı `Thread.Sleep` veya eşdeğer API'ler.
 
-  Bir orchestrator gecikme gerekiyorsa kullanabilirsiniz [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) API.
+  Bir orchestrator gecikmesi gerekiyorsa kullanabilirsiniz [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) API.
 
-* Orchestrator kod gerekir **hiçbir zaman herhangi bir zaman uyumsuz işlemi başlatmak** dışındaki kullanarak [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API. Örneğin, Hayır `Task.Run`, `Task.Delay` veya `HttpClient.SendAsync`. Dayanıklı görev Framework tek bir iş parçacığı üzerinde orchestrator kodu yürütür ve diğer zaman uyumsuz API tarafından zamanlanabilir diğer tüm iş parçacıkları ile etkileşime giremezler.
+* Orchestrator kod gerekir **hiçbir zaman herhangi bir zaman uyumsuz işlemi başlatmak** dışındaki kullanarak [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API. Örneğin, Hayır `Task.Run`, `Task.Delay` veya `HttpClient.SendAsync`. Dayanıklı görev Framework tek bir iş parçacığı üzerinde orchestrator kodu yürütür ve diğer zaman uyumsuz API'leri tarafından zamanlanabilir diğer tüm iş parçacıkları ile etkileşime giremezler.
 
-* **Sonsuz döngüler kaçınılmalıdır** orchestrator kod. Dayanıklı görev Framework orchestration işlevi ilerledikçe yürütme geçmişini kaydettiğinden, sonsuz bir döngüde belleğin tükenmek üzere orchestrator örneği neden olabilir. Sonsuz bir döngü senaryoları için API'leri gibi kullandığınız [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) işlevi yürütme yeniden başlatın ve önceki yürütme geçmişini atmak için.
+* **Sonsuz döngüler kaçınılmalıdır** orchestrator kod. Dayanıklı görev Framework yürütme geçmişi orchestration işlevi ilerledikçe kaydettiğinden, sonsuz bir döngüye belleğin tükenmek üzere orchestrator örneği neden olabilir. Sonsuz döngü senaryoları için API'leri gibi kullanan [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) işlevi yürütme yeniden başlatın ve önceki yürütme geçmişini atmak için.
 
-Bu kısıtlamaların önce izlemek sabit olmayan uygulamada göz korkutucu adresindeki görünebilir ancak. Dayanıklı görev Framework yukarıdaki kurallarını ihlal algılamaya çalışır ve oluşturur bir `NonDeterministicOrchestrationException`. Ancak, en yüksek çaba bu algılama davranıştır ve bağımlı döndürmemelidir.
-
-> [!NOTE]
-> Bu kuralların hepsi sadece tarafından tetiklenen işlevleri uygulamak `orchestrationTrigger` bağlama. Etkinlik işlevleri tetiklenen tarafından `activityTrigger` bağlama ve kullanan işlevler `orchestrationClient` bağlama, hiçbir tür sınırlamaları vardır.
-
-## <a name="durable-tasks"></a>Dayanıklı görevleri
+Bu kısıtlamaları, ilk olarak, bunlar izlemek sabit olmayan uygulamada göz korkutucu görünse olsa da. Dayanıklı görev Framework yukarıdaki kuralları ihlalleri saptamaya çalışır ve oluşturur bir `NonDeterministicOrchestrationException`. Ancak, bu algılama en yüksek çaba, davranıştır ve ona bağlı olmaması gerekir.
 
 > [!NOTE]
-> Bu bölümde dayanıklı görev Framework'ün iç uygulama ayrıntıları açıklanmaktadır. Bu bilgiler bilmeden dayanıklı işlevlerini kullanabilirsiniz. Yalnızca yeniden yürütme davranışı anlamanıza yardımcı olmak için tasarlanmıştır.
+> Tüm bu kurallar tarafından tetiklenen işlevler uygulamak `orchestrationTrigger` bağlama. Etkinlik işlevleri tarafından tetiklenen `activityTrigger` bağlama ve kullanan işlevler `orchestrationClient` bağlama, bu bir sınırlamalara sahip.
 
-Güvenli bir şekilde orchestrator işlevlerde beklemenin görevler zaman zaman denir *dayanıklı görevleri*. Bu oluşturulan ve dayanıklı görev çerçevesi tarafından yönetilen görevlerdir. Örnekler tarafından döndürülen görevleri `CallActivityAsync`, `WaitForExternalEvent`, ve `CreateTimer`.
+## <a name="durable-tasks"></a>Kalıcı görevleri
 
-Bunlar *dayanıklı görevleri* dahili listesi kullanılarak yönetilen `TaskCompletionSource` nesneleri. Yeniden yürütme sırasında bu görevleri orchestrator kod yürütmeyi bir parçası olarak oluşturulan ve dağıtıcı ilgili geçmiş olaylar numaralandırır olarak tamamlandı. Bu tüm tüm geçmişi yeniden kadar zaman uyumlu olarak tek bir iş parçacığı kullanılarak gerçekleştirilir. Geçmiş yeniden yürütme ucu tarafından tamamlanmamış dayanıklı görevleri gerçekleştirilmesi uygun eylemler vardır. Örneğin, bir ileti bir etkinlik işlevi çağırmak için sıraya alınan olabilir.
+> [!NOTE]
+> Bu bölümde, dayanıklı görev çerçevesi iç uygulama ayrıntıları açıklanmaktadır. Bu bilgiler bilmeden dayanıklı işlevler kullanabilirsiniz. Yalnızca yeniden yürütme davranışını anlamanıza yardımcı olmak için tasarlanmıştır.
 
-Burada açıklanan yürütme davranışını neden orchestrator işlev kodu asla gerekir anlamanıza yardımcı olması `await` dayanıklı olmayan göreve: dağıtıcı iş parçacığı tamamlanmasını bekleyin ve görev tarafından herhangi bir geri çağırma olası izleme bozuk olabilir orchestrator işlevi durumu. Bazı çalışma zamanı denetimleri Bunu önlemek denemek için verilmiştir.
+Orchestrator işlevlerde güvenli bir şekilde beklenmesini görevler zaman zaman denir *kalıcı görevleri*. Oluşturulan ve dayanıklı görev Framework tarafından yönetilen bir görevler şunlardır. Örnekler tarafından döndürülen görevler `CallActivityAsync`, `WaitForExternalEvent`, ve `CreateTimer`.
 
-Nasıl dayanıklı görev Framework orchestrator işlevlerini yürüten hakkında daha fazla bilgi isterseniz, yapmak için en iyi incelediğinizden şeydir [dayanıklı görev kaynak kodu github'da](https://github.com/Azure/durabletask). Özellikle, bkz: [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) ve [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs)
+Bunlar *kalıcı görevleri* dahili olarak bir listesini kullanarak yönetilen `TaskCompletionSource` nesneleri. Yeniden, yürütme sırasında bu görevleri orchestrator kod yürütme işleminin bir parçası olarak oluşturulan ve ilgili geçmiş olaylar dağıtıcı numaralandırır olarak tamamlanır. Bu tüm geçmişi yeniden kadar eş zamanlı olarak tek bir iş parçacığı kullanarak gerçekleştirilir. Geçmişi yeniden yürütme sonunda tamamlanmamış kalıcı görevleri uygun eylemlerin gerçekleştirilmesini sahiptir. Örneğin, bir ileti etkinliği bir işlevi çağırmak için sıraya alınan olabilir.
+
+Burada açıklanan yürütme davranışını neden orchestrator işlev kodu asla gerekir anlamanıza yardımcı olması `await` dayanıklı olmayan görev: dağıtıcı iş parçacığı tamamlanmasını bekleyin ve bu görev tarafından herhangi bir geri çağırma olasılığı izleme bozuk olabilir orchestrator işlevi durumu. Bazı çalışma zamanı denetimleri Bunu önlemek deneyin içindir.
+
+Dayanıklı görev Framework orchestrator işlevleri nasıl çalışır hakkında daha fazla bilgi isterseniz, başvurmanız yapılacak en iyi şey olan [dayanıklı görev kaynak kodu github'da](https://github.com/Azure/durabletask). Özellikle, bkz: [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) ve [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

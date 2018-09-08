@@ -3,26 +3,21 @@ title: Microsoft Flow bir Azure işlevini çağırabilir | Microsoft Docs
 description: Özel bağlayıcı oluşturma, ardından bu bağlayıcıyı kullanarak bir işlev çağırın.
 services: functions
 keywords: Bulut uygulamaları, bulut Hizmetleri, Microsoft Flow, iş süreçleri, iş kolu uygulaması
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 57d80ad836a16b8821ba0cce42c822728c654dfd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 662c78fc7074b0dafc53c393962aa4b578779095
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467753"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092267"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Microsoft Flow’dan işlev çağırma
 
@@ -125,17 +120,17 @@ Artık özel bağlayıcı ile oluşturduğunuz SharePoint listesi kullanan bir a
 
 2. SharePoint tetikleyicisini tıklayın **bir öğe oluşturulduğunda**.
 
-    ![Tetikleyici seçin](media/functions-flow-scenario/choose-trigger.png)
+    ![Bir tetikleyici seçin](media/functions-flow-scenario/choose-trigger.png)
 
     SharePoint ile henüz oturum açmadıysanız, bunu yapmak için istenir.
 
 3. İçin **Site adresi**, SharePoint site adınızı girin ve **liste adı**, türbinin verileri içeren bir liste girin.
 
-    ![Tetikleyici seçin](media/functions-flow-scenario/site-list.png)
+    ![Bir tetikleyici seçin](media/functions-flow-scenario/site-list.png)
 
 4. Tıklayın **yeni adım**, ardından **koşul Ekle**.
 
-    ![Koşul ekle](media/functions-flow-scenario/add-condition.png)
+    ![Koşul Ekle](media/functions-flow-scenario/add-condition.png)
 
     Microsoft Flow, akışı için iki dal ekler: **Evet ise** ve **hiçbir**. Eşleştirmek istediğiniz koşulu tanımlandıktan sonra bir veya iki dalı için adımları ekleyin.
 
@@ -181,7 +176,7 @@ Artık Azure'da işlevi çağıran özel bağlayıcıyı ekleyin. Flow standart 
 
 4. Sayfanın alt kısmında **Evet ise** dal, tıklayın **daha fazla**, ardından **koşul Ekle**.
 
-    ![Koşul ekle](media/functions-flow-scenario/condition2-add.png)
+    ![Koşul Ekle](media/functions-flow-scenario/condition2-add.png)
 
 5. Üzerinde **koşul 2** kart, ilk kutuyu tıklayın ve ardından seçin **ileti** gelen **dinamik içerik** iletişim kutusu.
 

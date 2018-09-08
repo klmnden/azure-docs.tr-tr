@@ -1,43 +1,39 @@
 ---
-title: Dayanıklı işlevlerinde - Azure zamanlayıcılar
-description: Dayanıklı zamanlayıcılar Azure işlevleri için dayanıklı işlevleri uzantısı'nda uygulama hakkında bilgi edinin.
+title: Dayanıklı işlevler - Azure zamanlayıcılar
+description: Dayanıklı zamanlayıcılar dayanıklı işlevler uzantısını Azure işlevleri için uygulamayı öğrenin.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4fd86b70965a7be84c72e265af798292819cbe96
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ff530d1af9a64383568aa53d3f53c59781d868a5
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33762277"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44090719"
 ---
-# <a name="timers-in-durable-functions-azure-functions"></a>Dayanıklı işlevlerinde (Azure işlevleri) zamanlayıcılar
+# <a name="timers-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) zamanlayıcılar
 
-[Dayanıklı işlevleri](durable-functions-overview.md) sağlar *dayanıklı zamanlayıcılar* orchestrator işlevlerinde gecikmelere uygulamak için veya zaman aşımları zaman uyumsuz eylemleri ayarlamak için kullanılacak. Dayanıklı zamanlayıcılar orchestrator işlevleri yerine kullanılmalıdır `Thread.Sleep` ve `Task.Delay` (C#) veya `setTimeout()` ve `setInterval()` (JavaScript).
+[Dayanıklı işlevler](durable-functions-overview.md) sağlar *dayanıklı zamanlayıcılar* orchestrator işlevlerinde gecikmelere uygulamak veya zaman uyumsuz işlemleri zaman aşımları ayarlamak için kullanılacak. Dayanıklı zamanlayıcılar orchestrator işlevleri yerine kullanılmalıdır `Thread.Sleep` ve `Task.Delay` (C#) veya `setTimeout()` ve `setInterval()` (JavaScript).
 
-Çağırarak dayanıklı Zamanlayıcı oluşturma [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) yönteminde [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html). Yöntemi, belirtilen tarih ve saat sürdürür bir görev döndürür.
+Çağırarak dayanıklı bir zamanlayıcı oluşturma [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) yönteminde [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html). Yöntemi, belirtilen tarih ve saatini temel sürdürür bir görev döndürür.
 
 ## <a name="timer-limitations"></a>Zamanlayıcı sınırlamaları
 
-Yalnızca 4:30 şöyle görünür hale bir ileti 4:30 şöyle sırasında temel alınan dayanıklı görev Framework enqueues süresi bir süreölçer oluşturduğunuzda. Azure işlevleri tüketim planında çalıştırırken, yeni görünür süreölçer iletisi işlev uygulaması uygun bir VM üzerinde etkinleştirilmiş güvence altına alır.
+4:30 pm sırasında temel alınan dayanıklı görev Framework kaybolmamasının yalnızca 4:30 pm görünür hale gelmesi bir ileti süresinin dolduğu Zamanlayıcı oluşturduğunuzda. Azure işlevleri tüketim planında çalıştırırken, işlev uygulaması uygun bir VM üzerinde etkin yeni görünür Zamanlayıcı iletiyi sağlayacaktır.
 
 > [!NOTE]
-> * Dayanıklı zamanlayıcılar en son Azure storage'da sınırlamaları nedeniyle 7 günden daha uzun olamaz. Üzerinde çalıştığımız bir [zamanlayıcılar 7 gün ötesine genişletmek için özellik isteği](https://github.com/Azure/azure-functions-durable-extension/issues/14).
-> * Her zaman kullanmak [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) yerine `DateTime.UtcNow` dayanıklı Süreölçerde göreli bir son tarih hesaplanırken örnekleri gösterildiği gibi.
+> * Dayanıklı zamanlayıcılar en son Azure storage'da sınırlamaları nedeniyle, 7 günden daha uzun olamaz. Üzerinde çalışmakta olduğumuz bir [zamanlayıcılar 7 gün ötesine genişletmek için özellik isteği](https://github.com/Azure/azure-functions-durable-extension/issues/14).
+> * Her zaman [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) yerine `DateTime.UtcNow` dayanıklı bir Zamanlayıcının göreli bir son tarih ile ilgili işlem yapılırken örneklerde gösterildiği gibi.
 
-## <a name="usage-for-delay"></a>Gecikme için kullanım
+## <a name="usage-for-delay"></a>Kullanım gecikme
 
-Aşağıdaki örnek dayanıklı zamanlayıcılar yürütme geciktirme için kullanma gösterilmektedir. Örnek bir fatura bildirim on gün boyunca her gün işleniyor.
+Aşağıdaki örnek, yürütme geciktirmeye dayanıklı zamanlayıcılar kullanmayı gösterir. Örneğin, on gün için her gün bir fatura bildirimi veriyor.
 
 #### <a name="c"></a>C#
 
@@ -72,11 +68,11 @@ module.exports = df(function*(context) {
 ```
 
 > [!WARNING]
-> Sonsuz döngüler orchestrator işlevlerinde kaçının. Güvenli ve verimli bir şekilde sonsuz bir döngü senaryolarını uygulayan hakkında daha fazla bilgi için bkz: [Eternal düzenlemelerin](durable-functions-eternal-orchestrations.md). 
+> Sonsuz döngüler orchestrator işlevlerde kaçının. Güvenle ve etkili bir şekilde sonsuz döngü senaryoların nasıl uygulanacağına hakkında daha fazla bilgi için bkz. [dış düzenlemeler](durable-functions-eternal-orchestrations.md). 
 
-## <a name="usage-for-timeout"></a>Zaman aşımı için kullanım
+## <a name="usage-for-timeout"></a>Kullanım için zaman aşımı
 
-Bu örnek dayanıklı zamanlayıcılar zaman aşımları uygulamak için nasıl kullanılacağı gösterilmektedir.
+Bu örnekte, dayanıklı zamanlayıcılar zaman aşımları uygulamak için nasıl kullanılacağı gösterilmektedir.
 
 #### <a name="c"></a>C#
 
@@ -136,14 +132,14 @@ module.exports = df(function*(context) {
 ```
 
 > [!WARNING]
-> Kullanım bir `CancellationTokenSource` dayanıklı Zamanlayıcı (C#) veya Çağrı iptal etmek için `cancel()` döndürülen üzerinde `TimerTask` (kodunuzu tamamlanmasını bekler değil, JavaScript). Dayanıklı görev Framework "tamamlandı" Tüm Bekleyen Görevler tamamlandı veya iptal kadar bir orchestration's durumu değiştirmez.
+> Kullanım bir `CancellationTokenSource` dayanıklı Zamanlayıcı (C#) veya Çağrı iptal etmek için `cancel()` döndürülen üzerinde `TimerTask` (JavaScript), kodunuzu tamamlanmasını beklemeleri gerekir. Dayanıklı görev Framework "tamamlandı" Tüm Bekleyen Görevler tamamlandı veya iptal kadar düzenleme 's durumunu değiştirmez.
 
-Bu mekanizma Süren etkinlik işlevi yürütme gerçekten sonlandırmak değil. Bunun yerine, sonuç yoksayıp geçmek orchestrator işlevi yalnızca sağlar. İşlev uygulamanız tüketim planı kullanıyorsa, hala herhangi bir zaman ve terk edilmiş etkinlik işlevi tarafından kullanılan bellek için Fatura edilecek. Varsayılan olarak, beş dakikalık bir zaman aşımı tüketim planında çalıştıran işlevleri sahiptir. Bu sınır aşılırsa, tüm yürütme durdurup kaçak fatura durumu önlemek için Azure işlevleri konak dönüştürülmeden. [İşlevi zaman aşımı yapılandırılabilir](functions-host-json.md#functiontimeout).
+Bu mekanizma Süren etkinlik işlevi yürütme sonlanmamasına. Bunun yerine, yalnızca sonucunu yoksay ve geçmek için orchestrator işlevi sağlar. İşlev uygulamanızın bir tüketim planı kullanılıyorsa, her zaman ve terk edilmiş etkinlik işlevi tarafından kullanılan bellek hala faturalandırılırsınız. Varsayılan olarak, tüketim planında çalıştırmayı işlevleri beş dakikalık bir zaman aşımı vardır. Bu sınır aşılırsa tüm yürütmeyi durdurun ve kaçan bir fatura durumu önlemek için Azure işlevleri konak dönüştürülmeden. [İşlevi zaman aşımı yapılandırılabilir](functions-host-json.md#functiontimeout).
 
-Zaman aşımları orchestrator işlevlerde uygulamak nasıl daha ayrıntılı bir örnek için bkz: [insan etkileşimi & zaman aşımları - telefonu doğrulama](durable-functions-phone-verification.md) gözden geçirme.
+Zaman aşımları orchestrator işlevlerini uygulamak nasıl daha ayrıntılı bir örnek için bkz: [insan etkileşimi & zaman aşımı - telefon doğrulama](durable-functions-phone-verification.md) gözden geçirme.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Yükseltmek ve dış olayları işlemek hakkında bilgi edinin](durable-functions-external-events.md)
+> [Yükseltme ve dış olayları işleme hakkında bilgi edinin](durable-functions-external-events.md)
 

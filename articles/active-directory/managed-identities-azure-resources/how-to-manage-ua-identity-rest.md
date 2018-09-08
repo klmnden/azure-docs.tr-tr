@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
 ms.author: daveba
-ms.openlocfilehash: 72f098cac32422ddbd2632336dd82cfc09a8bc93
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: dc7abd4bdec30ae870ff6add33d4b9b1c08b5bbd
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028610"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159648"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Oluşturma, liste veya REST API çağrıları kullanarak bir kullanıcı tarafından atanan yönetilen kimlik silme
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 Kimlikleri Hizmetleri kimlik bilgileri, kodunuzda gerek kalmadan, söz konusu destek Azure AD kimlik doğrulamasını kimlik doğrulama becerisi sağlamak Azure hizmetleri sağlayan Azure kaynakları için yönetilen. 
 
@@ -47,7 +47,7 @@ Bu makalede, oluşturma, liste ve REST API çağrıları gerçekleştirmek için
 
 Kullanıcı tarafından atanan bir yönetilen kimlik oluşturmak için aşağıdaki CURL isteği Azure Resource Manager API'si kullanın. Değiştirin `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<USER ASSIGNED IDENTITY NAME>`,`<LOCATION>`, ve `<ACCESS TOKEN>` değerleri kendi değerlerinizle:
 
-[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
+[!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup

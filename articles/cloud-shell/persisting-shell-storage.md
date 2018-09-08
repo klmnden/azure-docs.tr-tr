@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 9a22b14df18e10342bb2a872b82b94ab4ea62d0a
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 606b36be4a2bbeff8dd226f41341d60e23f0d988
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859876"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163286"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -42,9 +42,7 @@ Cloud shell'de Bash ile adlı bir komut çalıştırabileceğiniz `clouddrive`, 
 #### <a name="prerequisites-for-manual-mounting"></a>El ile bağlama için Önkoşullar
 Cloud Shell ile kullanarak ilişkili dosya paylaşımı güncelleştirebilirsiniz `clouddrive mount` komutu.
 
-Var olan bir dosya paylaşımı bağlarsanız, depolama hesapları olmalıdır:
-* Yerel olarak yedekli depolama veya dosya paylaşımları desteklemek için coğrafi olarak yedekli depolama.
-* Atanan bölgenizde bulunur. Atandığınız bölge ekleme olduğunda, kaynak grubu adında listelenir `cloud-shell-storage-<region>`.
+Var olan bir dosya paylaşımı bağlarsanız, depolama hesaplarını seçme Cloud Shell bölgeniz bulunması gerekir. Konumu almak `env` Bash ve denetimi `ACC_LOCATION`.
 
 #### <a name="the-clouddrive-mount-command"></a>`clouddrive mount` Komutu
 

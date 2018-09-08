@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 56e7467443cb91f73a6b48f318d576345000a0e0
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: b90050291a936027f66a76c14458e717b63c7257
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023106"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44090736"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>CLI veya PowerShell (Önizleme) ile Azure depolamaya erişmek için bir Azure AD kimliğini kullanın.
 
@@ -21,12 +21,7 @@ Azure depolama, Azure CLI ve PowerShell oturum açın ve Azure Active Directory 
 
 Azure CLI veya PowerShell ile bir Azure AD kimlik oturum açtığınızda, bu kimliği altında Azure depolama erişimi için bir erişim belirteci döndürülür. Bu belirteci daha sonra otomatik olarak CLI veya PowerShell ile Azure depolama üzerinde işlemler yetkilendirmek için kullanılır. Desteklenen işlemler için artık bir hesap anahtarı veya SAS belirteci komutu geçmesi gerekir.
 
-> [!IMPORTANT]
-> Bu önizleme, yalnızca üretim dışı kullanması için tasarlanmıştır. Azure AD tümleştirmesi için Azure depolama genel kullanıma sunulan bildirildiği kadar üretim hizmet düzeyi sözleşmeleri (SLA'lar) kullanılamaz. Azure AD tümleştirme senaryonuz için henüz desteklenmiyor, uygulamalarınızda paylaşılan anahtar yetkilendirme veya SAS belirteçlerini kullanmaya devam. Önizleme hakkında ek bilgi için bkz: [erişim Azure Active Directory (Önizleme) kullanarak Azure depolama için kimlik doğrulaması](storage-auth-aad.md).
->
-> Önizleme sırasında RBAC rolü atamalarını yayılması için beş dakika sürebilir.
->
-> Azure depolama ile Azure AD tümleştirmesi, Azure depolama işlemleri için HTTPS kullanmanızı gerektirir.
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="supported-operations"></a>Desteklenen işlemler
 
@@ -95,6 +90,6 @@ Get-AzureStorageBlob -Container $sample-container -Context $ctx
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - RBAC rolleri için Azure depolama hakkında daha fazla bilgi için bkz: [Yönet RBAC (Önizleme) ile depolama verilere erişim hakları](storage-auth-aad-rbac.md).
-- Yönetilen hizmet kimliği Azure depolama ile kullanma hakkında bilgi edinmek için [Azure AD'den bir Azure yönetilen hizmet kimliği (Önizleme) ile kimlik doğrulama](storage-auth-aad-msi.md).
+- Azure depolama ile Azure kaynakları için yönetilen kimlikleri kullanma hakkında bilgi edinmek için [BLOB'lar ve Kuyruklar Azure ile kimlik doğrulama erişim kimlikleri (Önizleme) Azure kaynakları için yönetilen](storage-auth-aad-msi.md).
 - Kapsayıcılar ve kuyruklardaki depolama uygulamalarınızda erişim yetkisi verme konusunda bilgi almak için bkz: [depolama uygulamaları ile kullanmak üzere Azure AD](storage-auth-aad-app.md).
 - Azure AD tümleştirmesi için Azure BLOB'ları ve kuyrukları hakkında ek bilgi için bkz: gönderin, Azure depolama ekibi blogu [Önizleme, Azure AD kimlik doğrulaması için Azure depolama ile tanışın](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).

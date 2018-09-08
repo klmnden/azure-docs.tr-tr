@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 3b836859dd2af45e84d0f53db06d2c7ab2828253
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 4ecc94f4ab5e9091db1705e99d4a5df6abbaf350
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057164"
+ms.locfileid: "44161093"
 ---
 # <a name="security-in-azure-data-lake-store"></a>Azure Data Lake Store güvenlik
 Çoğu kurum akıllı kararlar yapmalarına yardımcı olmak iş öngörüleri için büyük veri analizi avantajlarından sürüyor. Bir kuruluş, artan sayıda farklı kullanıcılar ile karmaşık ve denetimli bir ortam olabilir. Kritik iş verilerini doğru bireysel kullanıcılara verilen erişim düzeyini ile daha güvenli bir şekilde saklandığından emin olmak bir kuruluş için önemlidir. Azure Data Lake Store, bu güvenlik gereksinimlerini karşılamanıza yardımcı olmak üzere tasarlanmıştır. Bu makalede Data Lake Store güvenlik özellikleri hakkında bilgi dahil olmak üzere:
@@ -80,7 +80,7 @@ Azure Data Lake Store, yaşam döngüsü boyunca, verilerinizi korur. Data Lake 
 
 Data Lake Store, hesapta depolanan veriler için şifreleme özelliği de sağlar. Verilerinizin şifrelenmesini tercih edebilir ya da şifrelemeyi kabul etmeyebilirsiniz. Şifreleme için kabul ederseniz, Data Lake Store içinde depolanan verileri kalıcı medyada depolanmadan önce şifrelenir. Böyle bir durumda, Data Lake Store otomatik olarak kaydetmeden önce verileri şifreler ve veriye erişen istemci için tamamen saydam olacak şekilde, almadan öncesinde verilerin şifresini çözer. İstemci tarafında veri şifreleme/şifre çözme için gereken kod değişikliği vardır.
 
-Anahtar Yönetimi için Data Lake Store, Data Lake Store içinde depolanan tüm verilerin şifresini çözmek için gerekli olan, ana şifreleme anahtarlarının (Mek'ler) yönetimi için iki mod sağlar. Data Lake Store, Mek'leri yönetmek veya Azure anahtar kasası hesabınızı kullanarak Mek'ler sahipliğini tutmayı seçin ya da sağlayabilirsiniz. Bir Data Lake Store hesabı oluştururken sırasında anahtar yönetimi modunu belirtin. Şifreleme tabanlı yapılandırmanın nasıl sağlanacağı üzerine daha fazla bilgi edinmek için bkz. [Azure Portal'ı kullanarak Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md).
+Anahtar Yönetimi için Data Lake Store, Data Lake Store içinde depolanan tüm verilerin şifresini çözmek için gerekli olan, ana şifreleme anahtarlarının (Mek'ler) yönetimi için iki mod sağlar. Data Lake Store, Mek'leri yönetmek veya Azure anahtar kasası hesabınızı kullanarak Mek'ler sahipliğini tutmayı seçin ya da sağlayabilirsiniz. Anahtar Yönetimi modunda, bir Data Lake Store hesabı oluşturma sırasında belirtin. Şifreleme tabanlı yapılandırmanın nasıl sağlanacağı üzerine daha fazla bilgi edinmek için bkz. [Azure Portal'ı kullanarak Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md).
 
 ## <a name="activity-and-diagnostic-logs"></a>Etkinlik ve tanılama günlükleri
 Etkinlik veya hesap yönetimi ile ilgili etkinlikler ve verilerle ilgili etkinlikler için mi aradığınız bağlı olarak tanılama günlükleri, kullanabilirsiniz.

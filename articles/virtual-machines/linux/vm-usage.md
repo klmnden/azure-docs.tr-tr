@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: ab56ad07bd3da17f105bd09f2484173207d30015
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d9df71f6fa2f64544cbefc7d9aca8c153c86ac98
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025073"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094264"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Azure sanal makine kullanımını anlama
 Azure kullanım verilerinizi analiz etmeye tarafından güçlü tüketim öngörüleri elde edebileceğimize – etkinleştirebilirsiniz ınsights daha iyi maliyet yönetim ve kuruluşunuz genelinde ayırma. Bu belge, Azure işlem tüketim ayrıntılarınızı ayrıntılar sağlar. Genel Azure kullanımı hakkında daha fazla ayrıntı için gidin [faturanızı anlama](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
@@ -128,7 +128,7 @@ ImageType alanın, görüntüleri bir alt kümesi için yalnızca doldurulur. Yu
 ### <a name="why-is-the-vmname-blank-in-the-additional-info"></a>Neden VMName içindeki ek bilgi boş mi?
 VMName yalnızca ek bilgi alanında VM'ler için bir ölçek kümesindeki doldurulur. Olmayan bir ölçek kümesi Vm'lerine InstanceId alan VM adını içerir.
 ### <a name="what-does-computehr-mean-in-the-usagetype-field-in-the-additional-info"></a>Ek bilgi UsageType alanında ne ComputeHR anlama geliyor?
-ComputeHR temel infrasturcture maliyetleri için kullanım olayı temsil eden işlem saati gösterir. UsageType ComputeHR ise\_SW, kullanım olayı VM premium yazılım ücreti temsil eder.
+İşlem için temel alınan altyapı maliyetini kullanım olayı temsil eden saat ComputeHR gösterir. UsageType ComputeHR ise\_SW, kullanım olayı VM premium yazılım ücreti temsil eder.
 ### <a name="how-do-i-know-if-i-am-charged-for-premium-software"></a>Premium yazılım için ücretlendirilirim durumunda olduğunu nasıl öğrenebilirim?
 Kullanıma emin olun, ihtiyaçlarınıza uygun en iyi hangi VM görüntüsü keşfetme, [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute). Görüntünün yazılım planı ücrete sahiptir. "Ücretsiz" ücretine görürseniz, yazılımı için ek ücret yoktur. 
 ### <a name="what-is-the-difference-between-microsoftclassiccompute-and-microsoftcompute-in-the-consumed-service"></a>Tüketilen hizmetinde Microsoft.ClassicCompute Microsoft.Compute arasındaki fark nedir?
