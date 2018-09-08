@@ -1,6 +1,6 @@
 ---
-title: Azure yığınında PowerShell kullanarak bir Windows sanal makine oluşturma | Microsoft Docs
-description: Azure yığınında PowerShell ile Windows sanal makine oluşturun.
+title: Azure Stack'te PowerShell kullanarak bir Windows sanal makine oluşturun. | Microsoft Docs
+description: Azure stack'teki PowerShell ile bir Windows sanal makine oluşturun.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,38 +12,40 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/20/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 9f5752a969ff6a191ec60e175494316aea4abcaf
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: aaeed9c86f340d2eda2524922c7af9a8285a1782
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32152128"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162686"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Hızlı Başlangıç: Azure yığınında PowerShell kullanarak bir Windows Server sanal makine oluşturma
+# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Hızlı Başlangıç: Azure Stack'te PowerShell kullanarak bir Windows Server sanal makinesi oluşturma
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Azure yığın PowerShell kullanarak bir Windows Server 2016 sanal makine oluşturabilirsiniz. Bir sanal makine oluşturmak için bu makaledeki adımları izleyin. Bu makalede ayrıca adımlarını sağlar:
+Azure Stack PowerShell kullanarak bir Windows Server 2016 sanal makine oluşturabilirsiniz. Bir sanal makine oluşturup, bu makaledeki adımları izleyin. Bu makalede ayrıca adımları sunar:
 
-* Uzak bir istemci ile sanal makineye bağlanabilirsiniz.
-* IIS web sunucusu yüklemek ve varsayılan giriş sayfasını görüntüleyin.
-* Kaynakları temizlemek.
+* Sanal Makine Uzak istemcisi ile bağlanın.
+* IIS web sunucusunu yükleme ve varsayılan giriş sayfasını görüntüleyin.
+* Kaynaklarınızı temizleme.
 
 >[!NOTE]
- Bu makalede Azure yığın Geliştirme Seti veya bir Windows tabanlı bir dış istemci VPN üzerinden bağlandığı sırada açıklanan adımları çalıştırabilirsiniz.
+ Bu makalede, Azure Stack geliştirme Seti'ni veya Windows tabanlı bir dış istemci VPN üzerinden bağlandığı sırada açıklanan adımları çalıştırabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Azure yığın operatörünüze Azure yığın Market "Windows Server 2016" görüntü ekledi emin olun.
+* Azure Stack operatörünüze eklediğini doğrulayın **Windows Server 2016** Azure Stack marketini görüntüye.
 
-* Azure yığını, Azure PowerShell oluşturmak ve kaynakları yönetmek için belirli bir sürümünü gerektirir. PowerShell Azure yığını için yapılandırılmış yoksa adımlarını izleyin [yükleme](azure-stack-powershell-install.md) ve [yapılandırma](azure-stack-powershell-configure-user.md) PowerShell.
+* Azure Stack, Azure kaynaklarını oluşturmak ve yönetmek için PowerShell belirli bir sürümünü gerektirir. Azure Stack için yapılandırılmış PowerShell yoksa, adımları [yükleme](azure-stack-powershell-install.md) PowerShell.
+
+* Azure Stack ayarlanan PowerShell ile Azure Stack ortamınıza bağlanmak gerekir. Yönergeler için bkz [bir kullanıcı olarak PowerShell ile Azure stack'e bağlanma](azure-stack-powershell-configure-user.md).
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Bir kaynak grubu hangi Azure yığına kaynakları dağıtılan yönetilen ve mantıksal bir kapsayıcısıdır. Geliştirme Seti veya Azure tümleşik yığını sistem, bir kaynak grubu oluşturmak için aşağıdaki kod bloğu çalıştırın. Bu belgedeki tüm değişkenler için değerler atanır, bu değerleri kullanın veya yeni değerler atayın.
+Bir kaynak grubu ile hangi Azure Stack kaynakların dağıtıldığı ve yönetildiği mantıksal bir kapsayıcıdır. Uygulamanızı Geliştirme Seti veya Azure Stack tümleşik sistemi, bir kaynak grubu oluşturmak için aşağıdaki kod bloğu çalıştırın. Bu belgedeki tüm değişkenler için değerler atanır, şu değerleri kullanın veya yeni değerler atayın.
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -55,9 +57,9 @@ New-AzureRmResourceGroup `
   -Location $location
 ```
 
-## <a name="create-storage-resources"></a>Depolama kaynaklarını oluşturun
+## <a name="create-storage-resources"></a>Depolama kaynakları oluşturma
 
-Bir depolama hesabı ve Windows Server 2016 görüntüyü depolamak için bir depolama kapsayıcısı oluşturun.
+Bir depolama hesabı ve Windows Server 2016 görüntüsü depolamak için bir depolama kapsayıcısı oluşturun.
 
 ```powershell
 # Create variables to store the storage account name and the storage account SKU information
@@ -84,7 +86,7 @@ $container = New-AzureStorageContainer `
 
 ## <a name="create-networking-resources"></a>Ağ kaynakları oluşturma
 
-Bir sanal ağ, alt ağ ve genel IP adresi oluşturun. Bu kaynaklar, sanal makine için ağ bağlantısı sağlamak için kullanılır.
+Bir sanal ağ, alt ağ ve genel IP adresi oluşturun. Bu kaynaklar, sanal makineye ağ bağlantısı sağlamak için kullanılır.
 
 ```powershell
 # Create a subnet configuration
@@ -111,7 +113,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Ağ güvenliği grubu ve ağ güvenliği grup kuralı oluşturma
 
-Ağ güvenlik grubu, gelen ve giden kuralları kullanarak sanal makine güvenliğini sağlar. Gelen Uzak Masaüstü bağlantılarına izin verecek şekilde 3389 numaralı bağlantı noktası için bir gelen kuralı ve gelen web trafiği izin vermek için 80 numaralı bağlantı noktası için bir gelen kuralı oluşturma olanak sağlar.
+Ağ güvenlik grubu, gelen ve giden kuralları kullanarak sanal makinenin güvenliğini sağlar. Gelen Uzak Masaüstü bağlantılarına izin verecek şekilde 3389 numaralı bağlantı noktası için bir gelen kuralı ve gelen web trafiğine izin vermek için 80 numaralı bağlantı noktası için bir gelen kuralı oluşturma olanak tanır.
 
 ```powershell
 # Create an inbound network security group rule for port 3389
@@ -163,7 +165,7 @@ $nic = New-AzureRmNetworkInterface `
 
 ## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 
-Sanal makine yapılandırması oluşturun. Bu yapılandırma, sanal makine dağıtımı sırasında kullanılan ayarları içerir. Örneğin: kimlik bilgileri, boyut ve sanal makine görüntüsü.
+Sanal makine yapılandırması oluşturun. Bu yapılandırma, sanal makineyi dağıtırken kullanılan ayarları içerir. Örneğin: kimlik bilgileri, boyutu ve sanal makine görüntüsü.
 
 ```powershell
 # Define a credential object to store the username and password for the virtual machine
@@ -214,14 +216,14 @@ New-AzureRmVM `
 
 ## <a name="connect-to-the-virtual-machine"></a>Sanal makineye bağlanma
 
-Uzak önceki adımda oluşturduğunuz sanal makinede, ortak IP adresi gerekir. Sanal makinenin ortak IP adresini almak için aşağıdaki komutu çalıştırın:
+Önceki adımda oluşturduğunuz sanal makine için uzak, kendi genel IP adresi gereklidir. Sanal makinenin genel IP adresini almak için aşağıdaki komutu çalıştırın:
 
 ```powershell
 Get-AzureRmPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
 
-Sanal makineyle bir Uzak Masaüstü oturumu oluşturmak için aşağıdaki komutu kullanın. IP adresini, sanal makinenizin publicIPAddress değeriyle değiştirin. İstendiğinde, kullanıcı adı ve sanal makine oluştururken kullandığınız parolayı girin.
+Sanal makineyle bir Uzak Masaüstü oturumu oluşturmak için aşağıdaki komutu kullanın. IP adresini, sanal makinenizin publicIPAddress değeriyle değiştirin. İstendiğinde kullanıcı adı ve sanal makine oluştururken kullandığınız parolayı girin.
 
 ```powershell
 mstsc /v <publicIpAddress>
@@ -237,13 +239,13 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>IIS karşılama sayfasını görüntüleme
 
-IIS yüklü olan ve bağlantı noktası 80 üzerinde VM açık ile varsayılan IIS Karşılama sayfasını görüntülemek için tercih ettiğiniz bir web tarayıcısı kullanabilirsiniz. Kullanım *Publicıpaddress* varsayılan sayfasını ziyaret etmek için önceki bölümde belgelenen.
+IIS yüklü olan ve 80 numaralı bağlantı noktası sanal makinenizde, varsayılan IIS Karşılama sayfasını görüntülemek için seçtiğiniz bir web tarayıcısını kullanabilirsiniz. Kullanım *Publicıpaddress* varsayılan sayfayı ziyaret etmek için önceki bölümde belgelenmiştir.
 
 ![Varsayılan IIS sitesi](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png)
 
-## <a name="delete-the-virtual-machine"></a>Sanal makineyi silin
+## <a name="delete-the-virtual-machine"></a>Sanal makineyi silme
 
-Artık gerekli olduğunda, sanal makineyi ve ilgili kaynaklarını içeren kaynak grubunu kaldırmak için aşağıdaki komutu kullanın:
+Artık gerekli değilse sanal makine ve ilgili kaynaklarını içeren kaynak grubunu kaldırmak için aşağıdaki komutu kullanın:
 
 ```powershell
 Remove-AzureRmResourceGroup `
@@ -252,4 +254,4 @@ Remove-AzureRmResourceGroup `
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıç basit Windows sanal makine dağıttıktan sonra. Azure yığın sanal makineler hakkında daha fazla bilgi için devam [Azure yığınında sanal makineler için ilgili önemli noktalar](azure-stack-vm-considerations.md).
+Bu hızlı başlangıçta basit bir Windows sanal makine dağıttınız. Azure Stack sanal makineleri hakkında daha fazla bilgi için devam [sanal Makineler'de Azure Stack için Değerlendirmeler](azure-stack-vm-considerations.md).

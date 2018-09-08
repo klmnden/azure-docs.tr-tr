@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 0f681070df4b4b3384171c05edb3851abec2ab5c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 8ff78f46283d3ee4baa7310aa56bcdabde85f2cc
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235516"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159631"
 ---
 # <a name="quickstart-use-the-validation-as-a-service-portal-to-schedule-your-first-test"></a>Hızlı Başlangıç: doğrulama ilk test zamanlamak için bir servis portalı kullanma
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Doğrulama donanımınız denetlemek için hizmet (VaaS) portalı ile ilk test zamanlaması hakkında bilgi edinin. Yerel aracı doğrulama testlerini çalıştırmadan önce doğrulanması gereken Azure Stack çözüm dağıtılması gerekir.
 

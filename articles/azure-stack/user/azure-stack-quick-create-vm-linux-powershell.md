@@ -1,6 +1,6 @@
 ---
-title: Azure yığınında PowerShell kullanarak bir Linux sanal makine oluşturma | Microsoft Docs
-description: Azure yığınında PowerShell ile Linux sanal makine oluşturun.
+title: Azure Stack'te PowerShell kullanarak bir Linux sanal makinesi oluşturma | Microsoft Docs
+description: Azure stack'teki PowerShell ile Linux sanal makinesi oluşturun.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,39 +12,41 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/24/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 9d3c063dab11f31b10762e8399a1f11f2c28c3cd
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bb356a8b485817daae803d14b30832e7b1322f29
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227005"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158917"
 ---
-# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Hızlı Başlangıç: Azure yığınında PowerShell kullanarak Linux sunucusu sanal makine oluşturma
+# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Hızlı Başlangıç: Azure Stack'te PowerShell kullanarak bir Linux server sanal makinesi oluşturma
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Azure yığın PowerShell kullanarak bir Ubuntu Server 16.04 LTS sanal makine oluşturabilirsiniz. Bir sanal makine oluşturmak için bu makaledeki adımları izleyin.  Bu makalede ayrıca adımlarını sağlar:
+Azure Stack PowerShell kullanarak Ubuntu Server 16.04 LTS sanal makine oluşturabilirsiniz. Bir sanal makine oluşturup, bu makaledeki adımları izleyin.  Bu makalede ayrıca adımları sunar:
 
-* Uzak bir istemci ile sanal makineye bağlanabilirsiniz.
-* NGINX web sunucusu yüklemek ve varsayılan giriş sayfasını görüntüleyin.
-* Kullanılmayan kaynakları temizlemek.
+* Sanal Makine Uzak istemcisi ile bağlanın.
+* NGINX web sunucusu ve varsayılan giriş sayfasını görüntüleyin.
+* Kullanılmayan kaynakları temizleyin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* **Azure yığın Market Linux görüntüde**
+* **Azure Stack marketini içindeki bir Linux görüntüsü**
 
-   Azure yığın Market Linux görüntü varsayılan olarak içermiyor. Sağlamak üzere Azure yığın işleci alma **Ubuntu Server 16.04 LTS** ihtiyacınız görüntü. İşleç açıklanan adımları kullanabilirsiniz [karşıdan Market öğesi Azure'dan Azure yığınına](../azure-stack-download-azure-marketplace-item.md) makalesi.
+   Azure Stack marketini varsayılan olarak bir Linux görüntüsü içermiyor. Azure Stack operatörü sağlamak için alma **Ubuntu Server 16.04 LTS** ihtiyacınız görüntü. İşleç açıklanan bu adımları kullanabilirsiniz [indirme Market öğesi Azure'dan Azure Stack'e](../azure-stack-download-azure-marketplace-item.md) makalesi.
 
-* Azure yığını, Azure PowerShell oluşturmak ve kaynakları yönetmek için belirli bir sürümünü gerektirir. PowerShell Azure yığını için yapılandırılmış yoksa, oturum [Geliştirme Seti](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), veya kullanıyorsanız Windows tabanlı bir dış istemcinin [VPN üzerinden bağlı](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) ve adımlarını izleyin [ Yükleme](azure-stack-powershell-install.md) ve [yapılandırma](azure-stack-powershell-configure-user.md) PowerShell.
+* Azure Stack, Azure kaynaklarını oluşturmak ve yönetmek için PowerShell belirli bir sürümünü gerektirir. Azure Stack için yapılandırılmış PowerShell yoksa, adımları [yükleme](azure-stack-powershell-install.md) PowerShell.
 
-* Windows kullanıcı profiliniz .ssh dizinine adı id_rsa.pub ile SSH ortak anahtarı. SSH anahtarları oluşturma hakkında ayrıntılı bilgi için bkz: [oluşturma SSH anahtarları Windows'da](../../virtual-machines/linux/ssh-from-windows.md).
+* Azure Stack ayarlanan PowerShell ile Azure Stack ortamınıza bağlanmak gerekir. Yönergeler için bkz [bir kullanıcı olarak PowerShell ile Azure stack'e bağlanma](azure-stack-powershell-configure-user.md).
+
+* Bir ortak SSH anahtarının Windows kullanıcı profilinizin .ssh dizininde kaydedilen adı id_rsa.pub ile. SSH anahtarları oluşturma hakkında ayrıntılı bilgi için bkz: [oluşturma SSH anahtarlarını Windows üzerinde](../../virtual-machines/linux/ssh-from-windows.md).
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Bir kaynak grubu, dağıtmak ve Azure yığın kaynaklarını yönetmek mantıksal bir kapsayıcısıdır. Geliştirme Seti veya Azure tümleşik yığını sistem, bir kaynak grubu oluşturmak için aşağıdaki kod bloğu çalıştırın. Bu belgedeki tüm değişkenler için değerler atanır, bu değerleri kullanın veya yeni değerler atayın.
+Bir kaynak grubu, dağıtma ve Azure Stack kaynaklarını yönetme mantıksal bir kapsayıcıdır. Uygulamanızı Geliştirme Seti veya Azure Stack tümleşik sistemi, bir kaynak grubu oluşturmak için aşağıdaki kod bloğu çalıştırın. Bu belgedeki tüm değişkenler için değerler atanır, şu değerleri kullanın veya yeni değerler atayın.
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -56,9 +58,9 @@ New-AzureRmResourceGroup `
   -Location $location
 ```
 
-## <a name="create-storage-resources"></a>Depolama kaynaklarını oluşturun
+## <a name="create-storage-resources"></a>Depolama kaynakları oluşturma
 
-Depolama hesabı oluşturma ve Ubuntu Server 16.04 LTS görüntüsü için bir depolama kapsayıcısı oluşturun.
+Bir depolama hesabı oluşturun ve ardından Ubuntu Server 16.04 LTS görüntüsüne için bir depolama kapsayıcısı oluşturun.
 
 ```powershell
 # Create variables to store the storage account name and the storage account SKU information
@@ -85,7 +87,7 @@ $container = New-AzureStorageContainer `
 
 ## <a name="create-networking-resources"></a>Ağ kaynakları oluşturma
 
-Bir sanal ağ, alt ağ ve genel IP adresi oluşturun. Bu kaynaklar, sanal makine için ağ bağlantısı sağlamak için kullanılır.
+Bir sanal ağ, alt ağ ve genel IP adresi oluşturun. Bu kaynaklar, sanal makineye ağ bağlantısı sağlamak için kullanılır.
 
 ```powershell
 # Create a subnet configuration
@@ -113,7 +115,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Ağ güvenliği grubu ve ağ güvenliği grup kuralı oluşturma
 
-Ağ güvenlik grubu, gelen ve giden kuralları kullanarak sanal makine güvenliğini sağlar. Gelen Uzak Masaüstü bağlantılarına izin verecek şekilde 3389 numaralı bağlantı noktası için bir gelen kuralı ve gelen web trafiği izin vermek için 80 numaralı bağlantı noktası için bir gelen kuralı oluşturun.
+Ağ güvenlik grubu, gelen ve giden kuralları kullanarak sanal makinenin güvenliğini sağlar. Gelen Uzak Masaüstü bağlantılarına izin verecek şekilde 3389 numaralı bağlantı noktası için bir gelen kuralı ve gelen web trafiğine izin vermek için 80 numaralı bağlantı noktası için bir gelen kuralı oluşturun.
 
 ```powershell
 # Create variables to store the network security group and rules names.
@@ -154,7 +156,7 @@ $nic = New-AzureRmNetworkInterface `
 
 ## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 
-Sanal makine yapılandırması oluşturun. Bu yapılandırma, sanal makine dağıtımı sırasında kullanılan ayarları içerir. Örneğin: kullanıcı kimlik bilgileri, boyut ve sanal makine görüntüsü.
+Sanal makine yapılandırması oluşturun. Bu yapılandırma, sanal makineyi dağıtırken kullanılan ayarları içerir. Örneğin: kullanıcı kimlik bilgilerini, boyutu ve sanal makine görüntüsü.
 
 ```powershell
 # Define a credential object.
@@ -211,10 +213,10 @@ New-AzureRmVM `
   -VM $VirtualMachine
 ```
 
-## <a name="quick-create-virtual-machine---full-script"></a>Hızlı Oluştur sanal makine - tam komut dosyası
+## <a name="quick-create-virtual-machine---full-script"></a>Hızlı Oluştur sanal makinesi - tam betik
 
 > [!NOTE]
-> Birleştirilmiş kod yukarıdaki fazla veya az olduğundan, ancak kimlik doğrulaması için bir parola yerine ile SSH anahtarı.
+> Birleştirilmiş kod yukarıdaki fazla veya az olduğu, ancak kimlik doğrulaması için bir parola yerine SSH anahtarı.
 
 ```powershell
 ## Create a resource group
@@ -394,11 +396,11 @@ SSH yüklü olan bir istemci sisteminden sanal makineye bağlanmak için aşağ�
 ssh <Public IP Address>
 ```
 
-İstendiğinde, azureuser oturum açma kullanıcı olarak girin. SSH anahtarları oluşturduğunuzda bir parola kullandıysanız, parolayı sağlamanız gerekir.
+İstendiğinde azureuser oturum açma kullanıcı olarak girin. SSH anahtarları oluştururken bir parola kullandıysanız parolayı girmeniz gerekir.
 
 ## <a name="install-the-nginx-web-server"></a>NGINX web sunucusunu yükleme
 
-Paket kaynakları güncelleştirmek ve en son NGINX paketini yüklemek için aşağıdaki betiği çalıştırın:
+Paket kaynaklarını güncelleştirmek ve en son NGINX paketini yüklemek için aşağıdaki betiği çalıştırın:
 
 ```bash
 #!/bin/bash
@@ -412,13 +414,13 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>NGINX karşılama sayfasını görüntüleme
 
-Yüklü NGINX ve bağlantı noktası 80, sanal makinenizde açık ile sanal makinenin ortak IP adresini kullanarak web sunucusuna erişebilir. Bir web tarayıcısı açın ve gidin ```http://<public IP address>```.
+NGINX ve 80 numaralı bağlantı noktası, sanal makinede, sanal makinenin genel IP adresini kullanarak web sunucusuna erişebilirsiniz. Bir web tarayıcısı açın ve gidin ```http://<public IP address>```.
 
-![NGINX web server Karşılama sayfası](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
+![NGINX web-server-Hoş Geldiniz sayfası](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekmeyen kaynakları temizlemek. Kullanabileceğiniz [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1) bu kaynakları kaldırmak için komutu. Kaynak grubu ve tüm kaynaklarını silmek için aşağıdaki komutu çalıştırın:
+Artık ihtiyacınız olmayan kaynakları temizleyin. Kullanabileceğiniz [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1) bu kaynakları kaldırmak için komutu. Kaynak grubunu ve tüm kaynaklarını silmek için aşağıdaki komutu çalıştırın:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -426,4 +428,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıç temel Linux sunucusu sanal makine dağıtılabilir. Azure yığın sanal makineler hakkında daha fazla bilgi için şuraya gidin [Azure yığınında sanal makineler için ilgili önemli noktalar](azure-stack-vm-considerations.md).
+Bu hızlı başlangıçta, temel bir Linux sunucusu sanal makine dağıtıldı. Azure Stack sanal makineleri hakkında daha fazla bilgi için Git [sanal Makineler'de Azure Stack için Değerlendirmeler](azure-stack-vm-considerations.md).
