@@ -301,8 +301,6 @@ items:
         href: iot-hub-arduino-iot-devkit-az3166-door-monitor.md
     - name: Genişletilmiş IoT senaryoları
       items:
-      - name: iothub-explorer ile bulut cihaz mesajlaşmasını yönetme
-        href: iot-hub-explorer-cloud-device-messaging.md
       - name: VS Code için Azure IoT Araç Seti ile bulut cihazı mesajlaşmasını yönetme
         href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
       - name: IoT Hub iletilerini Azure Blob depolamaya kaydetme
@@ -315,8 +313,6 @@ items:
         href: iot-hub-weather-forecast-machine-learning.md
       - name: VS Code için Azure IoT Araç Seti ile cihaz yönetimi
         href: iot-hub-device-management-iot-toolkit.md
-      - name: iothub-explorer ile cihaz yönetimi
-        href: iot-hub-device-management-iothub-explorer.md
       - name: Azure CLI 2.0 için IoT uzantısıyla cihaz yönetimi
         href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
       - name: Logic Apps ile uzaktan izleme ve bildirimler
@@ -405,8 +401,6 @@ items:
     href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
   - name: iothub-diagnostics tool
     href: https://github.com/Azure/iothub-diagnostics
-  - name: iothub-explorer tool
-    href: https://github.com/Azure/iothub-explorer
   - name: Öğrenme yolu
     href: https://azure.microsoft.com/documentation/learning-paths/iot-hub/
   - name: MSDN forumu
@@ -423,9 +417,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: f9ec05dade065966d6ea1b3aa2a63598ca7c859c
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 2e2057fc75b808bf5989d263ce561d3cec4b8e2c
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143415"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160992"
