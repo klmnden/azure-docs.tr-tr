@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 09/06/2018
 ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: 2619f959dbefba84ea1a4d5aa974055998b78b5a
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b563117f4d4b0e3859f0478a66610b0238f265dd
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42060992"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092568"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Azure Stack için PowerShell'i yükleme
 
@@ -29,28 +29,27 @@ Bulut ile çalışmak için Azure Stack uyumlu PowerShell modülleri yüklemeniz
 
 API profillerini Azure ve Azure Stack arasında sürümü farkları yönetmek için bir yol sağlar. Bir API Sürüm profili belirli API sürümleri ile Azure Resource Manager PowerShell modüllerini kümesidir. Her bulut platformu desteklenen API sürümü profillerini kümesi vardır. Örneğin, Azure Stack gibi belirli tarihli profil sürümü destekleyen **2017-03-09-profile**, ve Azure'ı destekleyen **son** API Sürüm profili. Belirtilen profiliyle Azure Resource Manager PowerShell modülleri, bir profil yükleme sırasında yüklenir.
 
-Internet bağlı olarak kısmen bağlı veya bağlantısı kesilmiş bir senaryoda, Azure Stack uyumlu PowerShell modülleri yükleyebilirsiniz. Bu makalede, biz size bu senaryolar için Azure Stack için PowerShell yüklemeye yönelik ayrıntılı yönergeleri yol.
+Internet uyumlu PowerShell modülleri bağlı, kısmen bağlantılı veya bağlantısız senaryoları Azure Stack yükleyebilirsiniz. Bu makale, bu senaryolar için Azure Stack için PowerShell yüklemeye yönelik ayrıntılı yönergeleri size.
 
 ## <a name="1-verify-your-prerequisites"></a>1. Önkoşulların doğrulayın
 
-Önce get PowerShell ve Azure Stack ile başlatıldı, birkaç gereksinimleri sağladığınızdan gerekecektir.
+Azure Stack ve PowerShell ile çalışmaya başlamadan önce aşağıdaki önkoşullara sahip olmalıdır:
 
 - **PowerShell sürüm 5.0**  
-Sürümünüzü denetlemek için $PSVersionTable.PSVersion çalıştırmak ve karşılaştırmak **ana** sürümü. PowerShell 5.0 yoksa izleyin [bağlantı](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) PowerShell 5.0 yükseltmek için.
+Sürümünüzü denetlemek için çalıştırma **$PSVersionTable.PSVersion** ve karşılaştırma **ana** sürümü. PowerShell 5.0 yoksa izleyin [bağlantı](/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) PowerShell 5.0 yükseltmek için.
 
   > [!Note]  
   > PowerShell 5.0, Windows makine gerektirir.
 
-- **PowerShell'i yükseltilmiş istemi çalıştırın**  
-  Yönetici ayrıcalıklarıyla PowerShell çalıştırılabilmesi gerekir.
+- **Yükseltilmiş bir komut istemi PowerShell çalıştırın**  
+  PowerShell'i yönetici ayrıcalıklarıyla çalıştırmanız gerekir.
 
 - **PowerShell Galerisi erişim**  
-  Erişim için ihtiyacınız olacak [PowerShell Galerisi](https://www.powershellgallery.com). Galeri, PowerShell içeriği için merkezi depodur. **PowerShellGet** modülü bulma, yükleme, güncelleştirme, modüller, DSC kaynakları, rol işlevleri ve PowerShell Galerisi'nde ve diğer özel betikler gibi PowerShell yapıtları yayımlama için cmdlet'leri içerir Depo. Bağlantısı kesilmiş bir senaryoda PowerShell kullanıyorsanız, Internet'e bir bağlantı olan bir makineden kaynakları almak ve bağlantısı kesilmiş makinenize erişilebilir bir konumda depolanması gerekir.
-
+  Erişmeniz [PowerShell Galerisi](https://www.powershellgallery.com). Galeri, PowerShell içeriği için merkezi depodur. **PowerShellGet** modülü bulma, yükleme, güncelleştirme, modüller, DSC kaynakları, rol işlevleri ve PowerShell Galerisi'nde ve diğer özel betikler gibi PowerShell yapıtları yayımlama için cmdlet'leri içerir Depo. Bağlantısı kesilmiş bir senaryoda PowerShell kullanıyorsanız, Internet'e bir bağlantı olan bir makineden kaynakları almak ve bağlantısı kesilmiş makinenize erişilebilir bir konumda depolanması gerekir.
 
 <!-- Nuget? -->
 
-## <a name="2-validate-if-the-powershell-gallery-is-accessible"></a>2. PowerShell Galerisi erişilebilir durumda olduğunu doğrulayın
+## <a name="2-validate-the-powershell-gallery-accessibility"></a>2. PowerShell Galerisi erişilebilirlik doğrulama
 
 Bir depo PSGallery kayıtlıysa doğrulayın.
 
@@ -130,7 +129,7 @@ Yükleme başarılı olursa, AzureRM ve AzureStack modülleri çıktısında gö
 
 Bağlantısı kesilmiş bir senaryoda, PowerShell modülleri Internet bağlantısı olan bir makine için ilk indirme ve yükleme Azure Stack Geliştirme Seti için Aktarım gerekir.
 
-Burada Internet bağlantınız ve Azure Stack sürümünüze bağlı olarak yerel bilgisayarınıza Azure Resource Manager ve AzureStack paketleri indirmek için aşağıdaki betiklerden bir bilgisayarda oturum açın.
+Internet bağlantısına sahip bir bilgisayarda oturum açın ve Azure Stack sürümünüze bağlı olarak Azure Resource Manager ve AzureStack paketleri indirmek için aşağıdaki komut kullanın:
 
 
   - **Sürüm 1.3.0** (1804 veya büyük Azure Stack)
@@ -157,11 +156,11 @@ Burada Internet bağlantınız ve Azure Stack sürümünüze bağlı olarak yere
       Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
     ````
 
-2. İndirilen paketler bir USB cihazına kopyalayabilirsiniz.
+2. İndirilen paketler bir USB cihazına kopyalayın.
 
 3. İş istasyonunda oturum açabilir ve paketleri USB cihazından iş istasyonundaki bir konuma kopyalayın.
 
-4. Artık bu konum varsayılan depo Kaydet ve bu depodan AzureRM ve AzureStack modül yüklemeniz gerekir:
+4. Artık bu konum varsayılan depo Kaydet ve bu depodan AzureRM ve AzureStack modüllerini yükleyin:
 
    ```PowerShell
    #requires -Version 5
@@ -181,19 +180,18 @@ Burada Internet bağlantınız ve Azure Stack sürümünüze bağlı olarak yere
 
 ## <a name="6-configure-powershell-to-use-a-proxy-server"></a>6. PowerShell bir proxy sunucusu kullanacak şekilde yapılandırma
 
-Internet'e bir proxy sunucusu gerektiren senaryolar önce PowerShell var olan bir proxy sunucusu kullanacak şekilde yapılandırmanız gerekir.
+Internet'e bir proxy sunucusu gerektiren senaryolar önce mevcut proxy sunucusu kullanacak şekilde yapılandırmanız gerekir:
 
 1. Yükseltilmiş bir PowerShell istemi açın.
 2. Aşağıdaki komutları çalıştırın:
 
-````PowerShell  
-  #To use Windows credentials for proxy authentication
-  [System.Net.WebRequest]::DefaultWebProxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials
+   ```PowerShell  
+   #To use Windows credentials for proxy authentication
+   [System.Net.WebRequest]::DefaultWebProxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials
 
-  #Alternatively, to prompt for separate credentials that can be used for #proxy authentication
-
-  [System.Net.WebRequest]::DefaultWebProxy.Credentials = Get-Credential
-````
+   #Alternatively, to prompt for separate credentials that can be used for #proxy authentication
+   [System.Net.WebRequest]::DefaultWebProxy.Credentials = Get-Credential
+   ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

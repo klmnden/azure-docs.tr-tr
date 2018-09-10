@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 19ba4a97b93c01a049f921904d0f5aba4b8c0617
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 56f1721240d4b685133149d50dd7c2a0e6b7e974
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442063"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158850"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri öğesinden ve salesforce'a kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -293,7 +293,7 @@ Salesforce veri kopyalama yapılırken, SOQL sorgu veya SQL sorgusu kullanabilir
 | Sütun Seçimi | Ör sorgusunda kopyalanacak alanları için numaralandırılamadı gerekir `SELECT field1, filed2 FROM objectname` | `SELECT *` Sütun seçimini ek olarak desteklenir. |
 | Tırnak işaretleri | Dosyalanmış nesne adları tırnak içine olamaz. | Alan/nesne adları, örneğin tırnak içine `SELECT "id" FROM "Account"` |
 | Tarih/Saat biçimi |  Ayrıntılara bakın [burada](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) ve sonraki bölümdeki örnekler. | Ayrıntılara bakın [burada](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) ve sonraki bölümdeki örnekler. |
-| Boole değerleri | Olarak temsil edilen `False` ve `Ture`, örneğin `SELECT … WHERE IsDeleted=True`. | Örneğin 0 veya 1 temsil edilen `SELECT … WHERE IsDeleted=1`. |
+| Boole değerleri | Olarak temsil edilen `False` ve `True`, örneğin `SELECT … WHERE IsDeleted=True`. | Örneğin 0 veya 1 temsil edilen `SELECT … WHERE IsDeleted=1`. |
 | Sütun yeniden adlandırma | Desteklenmiyor. | Desteklenir, örneğin: `SELECT a AS b FROM …`. |
 | İlişki | Örneğin, desteklenen `Account_vod__r.nvs_Country__c`. | Desteklenmiyor. |
 
