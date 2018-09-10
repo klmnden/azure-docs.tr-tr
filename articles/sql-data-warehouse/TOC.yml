@@ -218,10 +218,12 @@ items:
     items:
     - name: İş yükünüzü izleme
       href: sql-data-warehouse-manage-monitor.md
-    - name: Veri ambarınızı geri yükleme
-      href: sql-data-warehouse-restore.md
     - name: Gen2'ye yükselt
       href: upgrade-to-latest-generation.md
+    - name: Gen2 önbelleğini izleme
+      href: sql-data-warehouse-how-to-monitor-cache.md
+    - name: Veri ambarınızı geri yükleme
+      href: sql-data-warehouse-restore.md
     - name: Performans seviyelerini otomatikleştirme
       href: manage-compute-with-azure-functions.md
   - name: Tümleştirme
@@ -278,9 +280,9 @@ items:
       href: sql-data-warehouse-partner-data-integration.md
     - name: Veri yönetimi
       href: sql-data-warehouse-partner-data-management.md
-ms.openlocfilehash: e072fc928466617303a5dc44a17a2c2b7c33c2c0
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: f7669d3ce2274367ef9d2753bd9018f5ffc8cd97
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782721"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091620"

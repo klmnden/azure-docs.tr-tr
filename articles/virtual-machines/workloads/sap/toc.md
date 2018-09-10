@@ -16,14 +16,21 @@
 ### [Ağ mimarisi](hana-network-architecture.md)
 ### [Depolama mimarisi](hana-storage-architecture.md)
 ### [HLI destekli senaryolar](hana-supported-scenario.md)
-## [Altyapı ve bağlantı](hana-overview-infrastructure-connectivity.md)
-## [SAP HANA yükleyin](hana-installation.md)
+## Altyapı ve bağlantı
+### [HLI dağıtımı](hana-overview-infrastructure-connectivity.md)
+### [Azure VM’lerini HANA Büyük Örneklerine bağlanma](hana-connect-azure-vm-large-instances.md)
+### [Sanal ağı HANA Büyük Örnek ExpressRoute’a bağlama](hana-connect-vnet-express-route.md)
+### [Ek ağ gereksinimleri](hana-additional-network-requirements.md)
+## SAP HANA yükleme
+### [Yapılandırmayı doğrulama](hana-installation.md)
+### [Örnek HANA yüklemesi](hana-example-installation.md)
 ## [Yüksek kullanılabilirlik ve olağanüstü durum kurtarma](hana-overview-high-availability-disaster-recovery.md)
 ## [Sorun giderme ve izleme](troubleshooting-monitoring.md)
 ## Nasıl yapılır
 ### [STONITH ile HA Kurulumu](ha-setup-with-stonith.md)
 ### [Type II SKU’lara yönelik İşletim Sistemi Yedeklemesi](os-backup-type-ii-skus.md)
 ### [HANA Büyük Örnekler için işletim sistemi yükseltmesi](os-upgrade-hana-large-instance.md)
+### [SUSE Linux için SMT sunucusu ayarlama](hana-setup-smt.md)
 # Azure Sanal Makinelerde SAP HANA
 ## [Tek örnek SAP HANA yüklemesi](hana-get-started.md)
 ## [S/4 HANA veya BW/4 HANA SAP CAL dağıtım kılavuzu](cal-s4h.md)
