@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 5ce08861934305cccca9933a822fccf642746a59
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: db44bfad5ece59ed3373699c10d6134201bf1879
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527713"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160090"
 ---
 # <a name="tutorial-review-endpoint-utterances"></a>Öğretici: Uç nokta konuşmalarını gözden geçirme
 Bu öğreticide, LUIS HTTP uç noktası üzerinden alınan konuşmaları doğrulayarak veya düzelterek uygulama tahminlerini geliştirin. 
@@ -27,7 +27,7 @@ Bu öğreticide, LUIS HTTP uç noktası üzerinden alınan konuşmaları doğrul
 > * Uygulamayı eğitme ve yayımlama
 > * LUIS JSON yanıtını görmek için uygulamanın uç noktasını sorgulama
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 [Yaklaşım](luis-quickstart-intent-and-sentiment-analysis.md) öğreticisinden İnsan Kaynakları uygulamanız yoksa, uygulamayı [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-sentiment-HumanResources.json) Github deposundan indirin. Bu öğreticiyi yeni, içeri aktarılan bir uygulama olarak kullanıyorsanız, ayrıca bunu eğitmeniz, yayımlamanız ve bir [betikle](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) veya tarayıcıda uç noktadan konuşmaları eklemeniz gerekir. Eklenecek konuşmalar:
@@ -104,19 +104,19 @@ Tüm yeni eklenen iş adlarıyla tümcecik listesini güncel tutun.
 
 LUIS eğitilene kadar bu değişiklikten haberdar olmaz. 
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Uç nokta URL'sini almak için uygulamayı yayımlama
 
 Bu uygulamayı içeri aktardıysanız, **Yaklaşım analizi**'ni seçmelisiniz.
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>Uç noktayı bir konuşmayla sorgulama
 
 Düzeltilmiş konuşmaya yakın bir konuşma deneyin. 
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Adres çubuğundaki URL'nin sonuna gidip `Are there any natural language processing jobs in my department right now?` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. 
 
@@ -230,7 +230,7 @@ Bu uygulamanın tahmin doğruluğu, uç noktadan konuşmalar gözden geçirilere
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: de295a93d395cee4c4dfbea4f2e7f7338036feb8
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 3f23ade2b0256c72c344e2a619227a79e3c79a47
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494382"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160124"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Öğretici: 1. Özel etki alanıyla bir uygulama derleme
 Bu öğreticide kullanıcının uygulamaya gönderdiği konuşmaya (metin) göre _amacını_ belirlemek için **amaçların** nasıl kullanılacağını gösteren bir uygulama oluşturacaksınız. İşlemi tamamladığınızda bulut üzerinde çalışan bir LUIS uç noktasına sahip olacaksınız.
@@ -32,7 +32,7 @@ Bu uygulama, konuşmalardan veri ayıklamadığından en basit LUIS uygulaması 
 > * ApplyForJob amacına örnek konuşmalar ekleme 
 > * Uç noktayı eğitme, yayımlama ve tekrar sorgulama 
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="purpose-of-the-app"></a>Uygulamanın amacı
 Bu uygulamanın birkaç amacı vardır. İlk amaç olan **`GetJobInformation`**, kullanıcının şirket içindeki işler hakkında bilgi istediğini belirtir. İkinci amaç olan **`None`**, diğer tüm konuşma türlerini belirtir. Hızlı başlangıcın ilerleyen bölümlerinde üçüncü amaç olan `ApplyForJob` eklenecektir. 
@@ -85,15 +85,15 @@ Bu uygulamanın birkaç amacı vardır. İlk amaç olan **`GetJobInformation`**,
 
 ## <a name="train-and-publish-the-app"></a>Uygulamayı eğitme ve yayımlama
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-app-to-endpoint"></a>Uygulamayı uç noktasına yayımlama
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="query-endpoint-for-getjobinformation-intent"></a>Uç noktayı GetJobInformation amacı için sorgulama
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Adres çubuğundaki URL'nin sonuna gidip `I'm looking for a job with Natual Language Processing` yazın. Son sorgu dizesi parametresi konuşma **sorgusu** olan `q` öğesidir. Bu konuşma, 4. adımdaki örnek konuşmalarla aynı olmadığından test için iyidir ve en yüksek puanlı amaç olarak `GetJobInformation` amacını döndürmelidir. 
 
@@ -147,7 +147,7 @@ LUIS web sitesinin tarayıcı sekmesine dönün ve işe başvurmak için yeni bi
 
 ## <a name="query-endpoint-for-applyforjob-intent"></a>Uç noktayı ApplyForJob amacı için sorgulama
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Yeni tarayıcı penceresinde URL'nin sonuna `Can I submit my resume for job 235986` yazın. 
 
@@ -186,7 +186,7 @@ LUIS uygulamasının bu istek üzerinde gerçekleştirebileceği işlemler bu ka
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
