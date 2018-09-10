@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: spelluru
-ms.openlocfilehash: f5d5b8064821dfb1aa6d4e99d0152e364f9a83fe
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 0299b05517629740576c562effaa41658f28532f
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700527"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163252"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure hizmet veri yolu AMQP 1.0: istek-yanıt tabanlı işlemler
 
@@ -142,6 +142,10 @@ Varlık açıklamasında belirtilen süreye göre bir iletinin kilit genişletir
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |`lock-tokens`|uuid dizisi|Evet|Yenilemek için ileti kilidi belirteçleri.|  
+
+> [!NOTE]
+> Kilit belirteçleri `DeliveryTag` alınan iletiler özelliği. Aşağıdaki örneğe bakın [.NET SDK'sı](https://github.com/Azure/azure-service-bus-dotnet/blob/6f144e91310dcc7bd37aba4e8aebd535d13fa31a/src/Microsoft.Azure.ServiceBus/Amqp/AmqpMessageConverter.cs#L336) Bu alan. Belirteç de görünebilir 'DeliveryAnnotations' 'x-opt-kilit-belirteci ' ancak, bu kesin değildir ve `DeliveryTag` tercih edilmelidir. 
+> 
   
 #### <a name="response"></a>Yanıt  
 

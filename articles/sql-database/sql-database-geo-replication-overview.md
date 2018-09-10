@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 71268c07f7e653e1f7cf545f373717fd2760fee9
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 026b9147bf6f0f5ab4732d1937bd61d803967854
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918244"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159529"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Genel Bakış: Etkin coğrafi çoğaltma ve otomatik yük devretme grupları
 
@@ -30,7 +30,7 @@ Etkin coğrafi çoğaltma, bir veri merkezi ölçek kesinti olması durumunda h�
 > Etkin coğrafi çoğaltma, yönetilen örneği'nde kullanılamaz.
 >  
 
-Otomatik Yük devretme grupları etkin coğrafi çoğaltma, bir uzantısıdır. Yük devretme birden çok coğrafi çoğaltmalı veritabanı sumultaneously kullanarak bir uygulama tarafından başlatılan yük devretme işlemlerini yönetmek için tasarlanan veya bir kullanıcıya bağlı SQL veritabanı hizmeti tarafından gerçekleştirilmesi için yük devretme için temsilci seçme tarafından tanımlanan ölçütleri. İkincisi, otomatik olarak geri dönülemez bir arıza ya da birincil bölgedeki SQL veritabanı hizmetinizin kullanılabilirliğini tam veya kısmi kaybı ile sonuçlanır diğer planlanmamış bir olay sonra ikincil bir bölgede birden çok ilişkili veritabanlarını kurtarmanıza olanak tanır. Ayrıca, okunabilir ikincil veritabanı salt okunur sorgu iş yükleri yük boşaltması için kullanabilirsiniz. Otomatik Yük devretme grupları, birden çok veritabanı içerdiğinden, bu veritabanları birincil sunucuda yapılandırılması gerekir. Yük devretme grubundaki veritabanları için birincil ve ikincil sunucular, aynı abonelikte olmalıdır. Otomatik Yük devretme grupları için farklı bir bölgedeki tek bir ikincil sunucu grubundaki tüm veritabanlarının çoğaltma destekler.
+Otomatik Yük devretme grupları etkin coğrafi çoğaltma, bir uzantısıdır. Aynı anda bir uygulama tarafından başlatılan yük devretme kullanan birden çok coğrafi çoğaltmalı veritabanı yük devretme yönetmek için tasarlanan veya bir kullanıcıya bağlı SQL veritabanı hizmeti tarafından gerçekleştirilmesi için yük devretme için temsilci seçme tarafından tanımlanan ölçütleri. İkincisi, otomatik olarak geri dönülemez bir arıza ya da birincil bölgedeki SQL veritabanı hizmetinizin kullanılabilirliğini tam veya kısmi kaybı ile sonuçlanır diğer planlanmamış bir olay sonra ikincil bir bölgede birden çok ilişkili veritabanlarını kurtarmanıza olanak tanır. Ayrıca, okunabilir ikincil veritabanı salt okunur sorgu iş yükleri yük boşaltması için kullanabilirsiniz. Otomatik Yük devretme grupları, birden çok veritabanı içerdiğinden, bu veritabanları birincil sunucuda yapılandırılması gerekir. Yük devretme grubundaki veritabanları için birincil ve ikincil sunucular, aynı abonelikte olmalıdır. Otomatik Yük devretme grupları için farklı bir bölgedeki tek bir ikincil sunucu grubundaki tüm veritabanlarının çoğaltma destekler.
 
 > [!NOTE]
 > Etkin coğrafi çoğaltma, birden fazla ikincil veritabanı gerekiyorsa kullanın.

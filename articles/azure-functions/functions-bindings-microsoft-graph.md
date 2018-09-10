@@ -3,20 +3,18 @@ title: Azure işlevleri için Microsoft Graph bağlamaları
 description: Azure işlevleri'nde Microsoft Graph Tetikleyicileri ve bağlamaları kullanma hakkında bilgi edinin.
 services: functions
 author: mattchenderson
-manager: cfowler
-editor: ''
-ms.service: functions
-ms.tgt_pltfrm: na
+manager: jeconnoc
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 06ee959d7b38f21684280a35cf770fdcc590b102
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 128e7f693755e7baf752d546fddd786b07c0de78
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287996"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093745"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure işlevleri için Microsoft Graph bağlamaları
 
@@ -1382,7 +1380,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**userId**|**Kullanıcı Kimliği**  |Gerekli ve yalnızca _kimlik_ ayarlanır `userFromId`. Daha önce oturum açmış bir kullanıcı ile ilişkili kullanıcı asıl kimliği.|
 |**userToken**|**userToken**|Gerekli ve yalnızca _kimlik_ ayarlanır `userFromToken`. İşlev uygulaması için geçerli bir belirteç. |
 |**Eylem**|**Eylem**|Gereklidir - bağlama eylem gerçekleştirmesi gerektiğini belirtir. Aşağıdaki değerlerden biri olabilir:<ul><li><code>create</code> -Yeni bir aboneliği kaydeder.</li><li><code>delete</code> -Belirtilen bir aboneliğe siler.</li><li><code>refresh</code> -Süresinin dolmasını tutmak için belirtilen abonelik yeniler.</li></ul>|
-|**subscriptionResource**|**SubscriptionResource**|Gerekli ve yalnızca _eylem_ ayarlanır `create`. Değişiklik izlemesi Microsoft Graph kaynağını belirtir. Bkz: [Microsoft Graph Web kancaları ile çalışma]. |
+|**subscriptionResource**|**subscriptionResource**|Gerekli ve yalnızca _eylem_ ayarlanır `create`. Değişiklik izlemesi Microsoft Graph kaynağını belirtir. Bkz: [Microsoft Graph Web kancaları ile çalışma]. |
 |**ChangeType**|**ChangeType**|Gerekli ve yalnızca _eylem_ ayarlanır `create`. Bir bildirim oluşturacak olan abone olunmuş kaynaktaki değişiklik türünü belirtir. Desteklenen değerler şunlardır: `created`, `updated`, `deleted`. Virgülle ayrılmış bir liste kullanarak birden çok değer birleştirilebilir.|
 
 ### <a name="webhook-output---usage"></a>Web kancası çıkışı - kullanım
