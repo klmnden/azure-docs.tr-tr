@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 90b5009b3b260a0f4245459467ae248f800ad818
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 18e4adb47ecf8e6d44edea873a4b3cc73492b273
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094544"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301492"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Azure portalında işlev uygulaması yönetme 
 
@@ -111,7 +111,7 @@ App Service ayarları ile çalışma hakkında daha fazla bilgi için bkz. [Azur
 
 | | |
 |-|-|
-| ![Azure portalında işlev uygulaması dağıtım seçenekleri](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | İşlevler, işlev kodunuzun yerel makinenizde geliştirmenize olanak tanır. Ardından, Azure'da yerel bir işlev uygulaması projenizi karşıya yükleyebilirsiniz. Yanı sıra geleneksel FTP karşıya yükleme, işlevler sağlar, GitHub, VSTS, Dropbox, Bitbucket ve diğerleri gibi popüler sürekli tümleştirme çözümlerini kullanarak işlev uygulamanızı dağıtın. Daha fazla bilgi için [Azure işlevleri için sürekli dağıtım](functions-continuous-deployment.md). FTP veya yerel Git kullanarak el ile karşıya yüklemek için ayrıca gerekir [dağıtım kimlik bilgilerinizi yapılandırın](functions-continuous-deployment.md#credentials). |
+| ![Azure portalında işlev uygulaması dağıtım seçenekleri](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | İşlevler, işlev kodunuzun yerel makinenizde geliştirmenize olanak tanır. Ardından, Azure'da yerel bir işlev uygulaması projenizi karşıya yükleyebilirsiniz. Yanı sıra geleneksel FTP karşıya yükleme, işlevler sağlar, GitHub, Azure DevOps, Dropbox, Bitbucket ve diğerleri gibi popüler sürekli tümleştirme çözümlerini kullanarak işlev uygulamanızı dağıtın. Daha fazla bilgi için [Azure işlevleri için sürekli dağıtım](functions-continuous-deployment.md). FTP veya yerel Git kullanarak el ile karşıya yüklemek için ayrıca gerekir [dağıtım kimlik bilgilerinizi yapılandırın](functions-continuous-deployment.md#credentials). |
 
 
 ### <a name="cors"></a>CORS

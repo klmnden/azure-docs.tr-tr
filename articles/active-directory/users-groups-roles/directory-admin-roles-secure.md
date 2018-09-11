@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: b52a447bf643510528e1bd8c6d473bf5d77731fe
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ead6202b0365df770382077618795cd6b6e57cd2
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056093"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346738"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD'de karma ve bulut dağıtımları için ayrıcalıklı erişim güvenliğini sağlama
 
@@ -300,7 +300,7 @@ Azure günlük tümleştirmesi, kuruluşunuzun mevcut güvenlik bilgileri ve Ola
 
 #### <a name="implement-user-provisioning-for-connected-apps"></a>Bağlı uygulamalar için kullanıcı sağlamayı uygulayın
 
-Azure AD, oluşturma, Bakım ve Dropbox ve Salesforce, ServiceNow gibi bulut (SaaS) uygulamaları kullanıcı kimliklerini kaldırılmasını otomatik hale getirmek ve benzeri olanak tanır. Daha fazla bilgi için [kullanıcı sağlamayı ve Azure AD ile SaaS uygulamalarına sağlama kaldırmayı otomatikleştirme](../active-directory-saas-app-provisioning.md).
+Azure AD, oluşturma, Bakım ve Dropbox ve Salesforce, ServiceNow gibi bulut (SaaS) uygulamaları kullanıcı kimliklerini kaldırılmasını otomatik hale getirmek ve benzeri olanak tanır. Daha fazla bilgi için [kullanıcı sağlamayı ve Azure AD ile SaaS uygulamalarına sağlama kaldırmayı otomatikleştirme](../manage-apps/user-provisioning.md).
 
 #### <a name="integrate-information-protection"></a>Information protection tümleştirme
 

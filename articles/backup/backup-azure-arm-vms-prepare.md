@@ -7,14 +7,14 @@ manager: carmonm
 keywords: yedeklemeleri; Yedekleme;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/21/2018
+ms.date: 9/10/2018
 ms.author: markgal
-ms.openlocfilehash: 40a83b93443ebe1482f89a114505a1ba27b93bd2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: dc9d7b924f51fb3a4e9662dfa7ad4b9557b481bc
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445752"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347010"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager ile dağıtılan sanal makineleri yedeklemek için ortamınızı hazırlama
 
@@ -46,6 +46,7 @@ Bu koşullar, ortamınızda zaten mevcutsa devam [Vm'lerinizi yedekleyin](backup
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Yedekleme ve bir VM geri yüklenirken uygulanan sınırlamalar
 Ortamınızı hazırlama önce bu sınırlamalar anladığınızdan emin olun:
 
+* Standart SSD ile Vm'leri yedekleme şu anda desteklenmiyor.
 * 16'dan fazla veri diski içeren sanal makineleri yedekleme desteklenmez.
 * Ayrılmış IP adresi ve tanımlanmış uç nokta içeren sanal makineleri yedeklemeyi desteklemez.
 * Linux Linux birleşik anahtar Kurulum (LUKS) şifreleme ile şifrelenmiş VM'ler için yedekleme desteklenmez.

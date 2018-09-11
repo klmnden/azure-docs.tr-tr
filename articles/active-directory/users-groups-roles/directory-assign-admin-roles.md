@@ -14,12 +14,12 @@ ms.date: 09/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 9aa8e5e6e683da0cb95583979e96c1d315dffff9
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 2768ba4726ccaf5e2249e356e425aeafaaaf91f6
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094307"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349254"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory’de yönetici rolü atama
 
@@ -86,7 +86,7 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
 
 * **[İş ortağı Tier2 desteği](#partner-tier2-support)**: kullanmayın. Bu rolü kullanım dışıdır ve gelecekte Azure AD'deki kaldırıldı. Bu rol, az sayıda Microsoft satışıyla iş ortakları tarafından kullanılmak üzere tasarlanmış ve genel kullanıma yönelik değildir.
 
-* **[Parola Yöneticisi / Yardım Masası Yöneticisi](#helpdesk-administrator)**: Bu role sahip olan kullanıcılar parolaları değiştirme, hizmet isteklerini yönetebilir ve hizmet durumunu izleyin. Yardım Masası yöneticileri yalnızca kullanıcıların ve diğer Yardım Masası yöneticileri için parolaları değiştirebilirsiniz. 
+* **[Parola Yöneticisi / Yardım Masası Yöneticisi](#helpdesk-administrator)**: Bu role sahip olan kullanıcılar parolaları değiştirme, yenileme belirteçleri geçersiz kılmak, hizmet isteklerini yönetebilir ve hizmet durumunu izleyin. Yardım Masası yöneticileri parolaları değiştirebilir ve yenileme belirteçleri yalnızca kullanıcıların ve diğer Yardım Masası yöneticileri için geçersiz. Bir yenileme belirteci geçersiz kılmalarını, kullanıcı yeniden oturum açmak için zorlar.
 
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell'de bu rol "Yardım Masası Yöneticisi" tanımlanır. "Parola Yöneticisi" olarak [Azure portalında](https://portal.azure.com/).
@@ -126,7 +126,7 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
   >
   >
 
-* **[Kullanıcı hesabı yöneticisi](#user-account-administrator)**: Bu role sahip kullanıcılar oluşturabilir ve kullanıcıların ve grupların tüm özelliklerini yönetebilir. Ayrıca bu rol, destek biletlerini yönetebilir ve hizmet durumu izleme olanağı içerir. Bazı kısıtlamalar geçerlidir. Örneğin, bu rolü genel yönetici silinmesine izin vermiyor değil. Kullanıcı hesabı yöneticileri, kullanıcılar, Yardım Masası yöneticileri ve diğer kullanıcı hesabı yöneticileri yalnızca değiştirebilirsiniz.
+* **[Kullanıcı hesabı yöneticisi](#user-account-administrator)**: Bu role sahip kullanıcılar oluşturabilir ve kullanıcıların ve grupların tüm özelliklerini yönetebilir. Ayrıca bu rol, destek biletlerini yönetebilir ve hizmet durumu izleme olanağı içerir. Bazı kısıtlamalar geçerlidir. Örneğin, bu rolü genel yönetici silinmesine izin vermiyor değil. Kullanıcı hesabı yöneticileri, parolaları değiştirmeniz ve diğer kullanıcı hesabı yöneticileri yalnızca kullanıcıların ve Yardım Masası yöneticileri için yenileme belirteçleri geçersiz. Bir yenileme belirteci geçersiz kılmalarını, kullanıcı yeniden oturum açmak için zorlar.
 
 | Yapabilirsiniz | Bunu yapamazsınız |
 | --- | --- |
@@ -1176,6 +1176,6 @@ Varsayılan rol üyesi kullanıcılar için. Tüm okuyabilir ve sınırlı sayı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bir Azure aboneliğine yönelik olarak yöneticileri değiştirme hakkında daha fazla bilgi için bkz. [Azure yönetici rollerini ekleme veya değiştirme](../../billing/billing-add-change-azure-subscription-administrator.md)
+* Bir Azure aboneliği Yöneticisi olarak kullanıcı atama hakkında daha fazla bilgi için bkz: [RBAC ve Azure portalını kullanarak erişimini yönetme](../../role-based-access-control/role-assignments-portal.md)
 * Microsoft Azure'da kaynak erişiminin nasıl denetlendiği konusunda daha fazla bilgi için bkz. [Azure'da kaynak erişimini anlama](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Azure Active Directory ile Azure aboneliğinizin arasındaki ilişki hakkında bilgi için bkz. [Azure aboneliklerinin Azure Active Directory ile ilişkisi](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

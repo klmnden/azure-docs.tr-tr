@@ -14,12 +14,12 @@ ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 1ac15ce8f8abf2b30b42f02b300a17448f86fc40
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: d17b5967519bc51e4fb33a410149d17c82c28d10
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052777"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347996"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?
 Çoklu oturum açma tüm uygulamalar ve yalnızca tek bir kullanıcı hesabı kullanarak bir kez oturum açarak iş yapmanız gereken kaynaklara erişmeye çalıştığında anlamına gelir. Oturum açtıktan sonra tüm gereken kimlik doğrulaması için gerekli olmadan uygulamaları erişebilirsiniz (örneğin, bir parola yazmak) ikinci kez.
@@ -89,7 +89,7 @@ Uygulama için Windows Server Active Directory veya Azure AD kimlik bilgileriniz
 
 Bir kullanıcı silindi veya Azure AD'de kendi bilgilerini değiştirir, bu değişiklikler ayrıca SaaS uygulamasında yansıtılır. Diğer bir deyişle, otomatik kimlik yaşam döngüsü yönetimini yapılandırma, yöneticilerin denetlemek ve otomatik sağlama ve sağlamayı SaaS uygulamaları sağlamak sağlar. Azure AD'de kullanıcı sağlamayı tarafından bu Otomasyon kimlik yaşam döngüsü yönetimi etkindir.
 
-Daha fazla bilgi için bkz: [otomatik kullanıcı hazırlama ve SaaS uygulamalarına sağlama kaldırmayı](../active-directory-saas-app-provisioning.md)
+Daha fazla bilgi için bkz: [otomatik kullanıcı hazırlama ve SaaS uygulamalarına sağlama kaldırmayı](user-provisioning.md)
 
 ## <a name="get-started-with-the-azure-ad-application-gallery"></a>Azure AD uygulama Galerisi'ni kullanmaya başlama
 Başlamaya hazır mısınız? Azure AD arasında çoklu oturum açmayı dağıtmayı ve kuruluşunuzun kullandığı, SaaS uygulamaları, şu yönergeleri izleyin.
@@ -109,7 +109,7 @@ Uygulamanızı bulduktan sonra çoklu oturum açmayı etkinleştirmek için adı
 ### <a name="application-not-in-the-gallery"></a>Uygulama galerisinde?
 Uygulamanızı Azure AD uygulama galerisinde bulunamazsa, bu seçenekler vardır:
 
-* **Kullanmakta olduğunuz listelenmemiş uygulama ekleme** -kuruluşunuz kullanarak listelenmemiş bir uygulamayı bağlamak için Azure portalındaki uygulama galerisinde özel kategorisini kullanın. Bir federasyon uygulaması olarak, SAML 2.0 destekleyen herhangi bir uygulama ya da bir HTML tabanlı oturum açma sayfasında parola SSO uygulama olarak olan herhangi bir uygulama ekleyebilirsiniz. Daha fazla ayrıntı için bu makaleye bakın [kendi uygulamanızı ekleme](../application-config-sso-how-to-configure-federated-sso-non-gallery.md).
+* **Kullanmakta olduğunuz listelenmemiş uygulama ekleme** -kuruluşunuz kullanarak listelenmemiş bir uygulamayı bağlamak için Azure portalındaki uygulama galerisinde özel kategorisini kullanın. Bir federasyon uygulaması olarak, SAML 2.0 destekleyen herhangi bir uygulama ya da bir HTML tabanlı oturum açma sayfasında parola SSO uygulama olarak olan herhangi bir uygulama ekleyebilirsiniz. Daha fazla ayrıntı için bu makaleye bakın [kendi uygulamanızı ekleme](configure-federated-single-sign-on-non-gallery-applications.md).
 * **Geliştirdiğiniz kendi uygulamanızı ekleyin** - kendiniz uygulama geliştirdiyseniz, Federasyon çoklu oturum açmayı uygulamak için Azure AD Geliştirici belgelerindeki yönergeleri izleyin veya graph API kullanarak Azure AD sağlama. Daha fazla bilgi için şu kaynaklara bakın:
   
   * [Azure AD için Kimlik Doğrulama Senaryoları](../develop/authentication-scenarios.md)

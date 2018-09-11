@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 2b2b44deacf8278b8e8c2554cc873c5d0b75f6f9
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 95d2f65e99b37b38f99ec5a750d74828661fe7ee
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366197"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349152"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure portalının kurumsal uygulamalar için sağlama kullanıcı hesabı yönetme
-Bu makalede nasıl kullanılacağını [Azure portalında](https://portal.azure.com) hesabı otomatik kullanıcı hazırlama ve "öneçıkan"Kategorieklenmişolanlarıözellikledestekleyenuygulamalariçinsağlamayıyönetme[ Azure Active Directory Uygulama galerisinde](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Otomatik kullanıcı hesabı sağlama ve nasıl çalıştığı hakkında daha fazla bilgi için bkz: [sağlama kaldırmayı Azure Active Directory ile SaaS uygulamalarına kullanıcı sağlamayı otomatikleştirin ve](../active-directory-saas-app-provisioning.md).
+Bu makalede nasıl kullanılacağını [Azure portalında](https://portal.azure.com) hesabı otomatik kullanıcı hazırlama ve "öneçıkan"Kategorieklenmişolanlarıözellikledestekleyenuygulamalariçinsağlamayıyönetme[ Azure Active Directory Uygulama galerisinde](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Otomatik kullanıcı hesabı sağlama ve nasıl çalıştığı hakkında daha fazla bilgi için bkz: [sağlama kaldırmayı Azure Active Directory ile SaaS uygulamalarına kullanıcı sağlamayı otomatikleştirin ve](user-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Portalda uygulamalarınızı bulma
 Çoklu oturum açma bir dizinde kullanarak dizin Yöneticisi tarafından yapılandırılan tüm uygulamalar [Azure Active Directory Uygulama galerisinde](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery), görüntülenebilen ve yönetilebilen [Azure portalında](https://portal.azure.com). Uygulamaları bulunabilir **tüm hizmetleri** &gt; **kurumsal uygulamalar** Portalı'nın bölümü. Kurumsal uygulamalar, dağıtıldığı ve kuruluşunuzda kullanılan uygulamalardır.
@@ -46,7 +46,7 @@ Kullanıcı hesabı sağlama ayarları seçerek yönetilebilir **sağlama** sold
 Seçme **otomatik** seçeneği dört bölümde bölünmüş bir ekran görüntüler:
 
 ### <a name="admin-credentials"></a>Yönetici Kimlik Bilgileri
-Bu bölüm, burada uygulamanın kullanıcı yönetimi için API girilen bağlanmak Azure AD için kimlik bilgileri gerekli değildir. Gerekli giriş uygulamaya bağlı olarak değişir. Kimlik bilgisi türlerinin ve belirli uygulamalar için gereksinimleri hakkında bilgi edinmek için bkz. [belirli bir uygulama için yapılandırma öğreticisini](../active-directory-saas-app-provisioning.md).
+Bu bölüm, burada uygulamanın kullanıcı yönetimi için API girilen bağlanmak Azure AD için kimlik bilgileri gerekli değildir. Gerekli giriş uygulamaya bağlı olarak değişir. Kimlik bilgisi türlerinin ve belirli uygulamalar için gereksinimleri hakkında bilgi edinmek için bkz. [belirli bir uygulama için yapılandırma öğreticisini](user-provisioning.md).
 
 Seçme **Bağlantıyı Sına** düğmesi sağlar, Azure'ı sağlayarak kimlik bilgilerini test etmek uygulamaya bağlanmak için AD girişim sağlanan kimlik bilgilerini kullanarak sağlama.
 
@@ -60,7 +60,7 @@ Bu bölüm Yöneticiler burada görüntüleyebilir ve Azure AD arasında hangi k
 Desteklenen özelleştirmeleri içerir:
 
 * Etkinleştirme ve SaaS uygulamasının kullanıcı nesnesi Azure AD kullanıcı nesnesini gibi belirli nesneler için eşlemelerini devre dışı bırakma.
-* Uygulamanın kullanıcı nesnesini Azure AD'ye kullanıcı nesneden akış öznitelikleri düzenleme. Öznitelik eşlemesi hakkında daha fazla bilgi için bkz. [öznitelik eşlemesi türlerini anlama](../active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
+* Uygulamanın kullanıcı nesnesini Azure AD'ye kullanıcı nesneden akış öznitelikleri düzenleme. Öznitelik eşlemesi hakkında daha fazla bilgi için bkz. [öznitelik eşlemesi türlerini anlama](customize-application-attributes.md#understanding-attribute-mapping-types).
 * Azure AD hedeflenen uygulamaya gerçekleştirir sağlama işlemleri filtreleyin. Azure AD'ye tam eşitleme sahip olmak yerine gerçekleştirilen eylemlerin sınırlayabilirsiniz. Örneğin, seçerek yalnızca **güncelleştirme**, var olan kullanıcı hesaplarını bir uygulamada ve yenilerini oluşturmaz yalnızca güncelleştirmeleri Azure AD. Yalnızca seçerek **Oluştur**, Azure yalnızca yeni kullanıcı hesaplarını oluşturur ancak mevcut olanları güncelleştirmez. Bu özellik, yöneticilerin iş akışları için hesap oluşturma farklı eşlemeleri oluşturmak sağlar.
 
 ### <a name="settings"></a>Ayarlar

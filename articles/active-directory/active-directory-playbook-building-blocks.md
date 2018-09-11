@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 41d495e38a8360609afe924bb49ccf2f6aea086e
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 4c8f2966df9c33ec227b14c00996f84f39043cdb
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340048"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349237"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook prova: yapı taşları
 
@@ -340,7 +340,7 @@ Uygulama sağlamayı etkinleştirilmiş sahipse, sağlama uygulaması bilgi çal
 | Adım | Kaynaklar |
 | --- | --- |
 | Kullanıcı, uygulamayı atanan grubundan kaldırın. | [Azure Active Directory kiracınızdaki kullanıcılar için Grup üyeliğini yönetme](fundamentals/active-directory-groups-members-azure-portal.md) |
-| Sağlamayı için birkaç dakika bekleyin | [SaaS uygulama kullanıcı sağlama Azure AD'de otomatik: otomatik sağlama iş nasıl yapar?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
+| Sağlamayı için birkaç dakika bekleyin | [SaaS uygulama kullanıcı sağlama Azure AD'de otomatik: otomatik sağlama iş nasıl yapar?](manage-apps/user-provisioning.md#how-does-automatic-provisioning-work) |
 | Ayrı bir tarayıcı oturumu, bilgi çalışanı my apps portalı olarak oturum açın ve kutucuğa eksik onaylayın | http://myapps.microsoft.com |
 
 

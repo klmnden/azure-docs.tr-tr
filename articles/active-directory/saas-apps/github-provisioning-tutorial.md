@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: ff22ad4f8abae019591150dd9a8ea2cd4ca4e5d9
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: f069134c0665769316b794122cc077b05941f635
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42061731"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346177"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Öğretici: GitHub için otomatik kullanıcı hazırlama yapılandırın
 
@@ -98,7 +98,7 @@ Bu bölümde, Azure AD sağlama API'si GitHub'ın kullanıcı hesabına bağlanm
 
 Bu işlem, herhangi bir kullanıcı ve/veya GitHub kullanıcılar ve Gruplar bölümünde atanan grupları ilk eşitleme başlar. İlk eşitleme hizmeti çalışıyor sürece yaklaşık 40 dakikada oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklayan etkinlik günlüklerini sağlama için bağlantıları izleyin.
 
-Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../active-directory-saas-provisioning-reporting.md).
+Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../manage-apps/check-status-user-account-provisioning.md).
 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
@@ -108,4 +108,4 @@ Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [he
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Günlükleri gözden geçirin ve sağlama etkinliği raporları alma hakkında bilgi edinin](../active-directory-saas-provisioning-reporting.md)
+* [Günlükleri gözden geçirin ve sağlama etkinliği raporları alma hakkında bilgi edinin](../manage-apps/check-status-user-account-provisioning.md)

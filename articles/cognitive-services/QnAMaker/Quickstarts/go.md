@@ -1,20 +1,21 @@
 ---
-title: Hızlı Başlangıç'ı Microsoft soru-cevap Oluşturucu API'si (V4) - Azure Bilişsel hizmetler için Git | Microsoft Docs
+title: "Hızlı Başlangıç: Soru-cevap Oluşturucu API'si (V4) için Git"
+titleSuffix: Azure Cognitive Services
 description: Microsoft Translator metin çevirisi API'si, Azure üzerinde Microsoft Bilişsel hizmetler kullanarak hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get başlayın.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: nitinme
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: d68ff91d74a6c43c6d492aa07e916a842b50e96f
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 5daf4d5e971e840db020e35d1997615723f8e06d
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867598"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349050"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-go"></a>Hızlı Başlangıç için Microsoft soru-cevap Oluşturucu API'si ile Git 
 <a name="HOLTop"></a>

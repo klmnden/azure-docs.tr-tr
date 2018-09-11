@@ -15,12 +15,12 @@ ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 4ce76f1156d4d8d85f5e10bb750b012f93ba7afb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 1178d85f295c6ac01f367db8adc2c9b855cdc829
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366689"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347843"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos kısıtlanmış temsil için çoklu oturum açma uygulamalarınıza uygulama ara sunucusu ile
 
@@ -135,12 +135,12 @@ Temsilci oturum açma kimliği kullanılırsa, değeri etki alanları veya kurul
    * Şirket içi SAM hesabı adı (etki alanı denetleyicisi yapılandırmasına bağlıdır)
 
 ### <a name="troubleshooting-sso-for-different-identities"></a>SSO için farklı kimliklere sorunlarını giderme
-SSO işleminde bir hata varsa, bağlayıcı makine olay günlüğünde açıklandığı gibi göründüğü [sorun giderme](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
+SSO işleminde bir hata varsa, bağlayıcı makine olay günlüğünde açıklandığı gibi göründüğü [sorun giderme](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
 Ancak, bu uygulama diğer çeşitli HTTP yanıtlarında yanıtlar karşın bazı durumlarda, istek başarıyla arka uç uygulaması için gönderilir. Bu gibi durumlarda sorun giderme bağlayıcı makinede uygulama ara sunucusu oturum olay günlüğündeki olay numarası 24029 inceleyerek başlamanız gerekir. Olay Ayrıntıları içinde "kullanıcı" alanında temsilci seçme için kullanılan kullanıcı kimliğini görünür. Oturum açma açmak için **Göster Analitik ve hata ayıklama günlüklerini** Olay Görüntüleyicisi'ni Görünüm menüsünde.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Kerberos kısıtlanmış temsili kullanmak üzere bir uygulama proxy'si uygulaması yapılandırma](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+* [Kerberos kısıtlanmış temsili kullanmak üzere bir uygulama proxy'si uygulaması yapılandırma](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Uygulama Ara sunucusu ile ilgili sorunları giderme](application-proxy-troubleshoot.md)
 
 

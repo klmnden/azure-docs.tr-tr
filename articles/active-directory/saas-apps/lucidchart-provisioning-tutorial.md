@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı LucidChart yapılandırma | Microsoft Docs'
-description: Otomatik olarak sağlamak ve kullanıcı hesaplarına LucidChart sağlanmasını için Azure Active Directory yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı hazırlama için LucidChart yapılandırma | Microsoft Docs'
+description: Otomatik olarak sağlama ve sağlamasını LucidChart kullanıcı hesaplarını Azure Active Directory yapılandırmayı öğrenin.
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
@@ -15,90 +15,90 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 2b08c863dfaa3b3fe281cc56a7ae2c53dde19397
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 011fa2dcce390597337ec583c1d5704177fda251
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223646"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347195"
 ---
-# <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Öğretici: LucidChart otomatik kullanıcı sağlamayı yapılandırın
+# <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Öğretici: LucidChart otomatik kullanıcı hazırlama için yapılandırma
 
 
-Bu öğreticinin amacı LucidChart ve Azure AD otomatik olarak sağlamak ve kullanıcı hesaplarına Azure AD'den LucidChart sağlanmasını gerçekleştirmek için gereken adımları Göster sağlamaktır. 
+Bu öğreticinin amacı LucidChart ve Azure AD sağlama ve sağlamasını LucidChart Azure AD'den kullanıcı hesaplarına otomatik olarak gerçekleştirmek için gereken adımları Göster sağlamaktır. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
+Bu öğreticide özetlenen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
 *   Bir Azure Active directory kiracısı
-*   LucidChart Kiracı ile [Kurumsal planı](https://www.lucidchart.com/user/117598685#/subscriptionLevel) veya daha iyi etkin 
+*   LucidChart kiracıyla [Kurumsal plan](https://www.lucidchart.com/user/117598685#/subscriptionLevel) ya da daha iyi etkin 
 *   LucidChart yönetici izinlerine sahip bir kullanıcı hesabı 
 
-## <a name="assigning-users-to-lucidchart"></a>Kullanıcılar için LucidChart atama
+## <a name="assigning-users-to-lucidchart"></a>LucidChart için kullanıcı atama
 
-Azure Active Directory "atamaları" adlı bir kavram hangi kullanıcıların seçili uygulamalara erişim alması belirlemek için kullanır. Otomatik olarak bir kullanıcı hesabı sağlama bağlamında, yalnızca kullanıcıların ve grupların "Azure AD uygulamada atanmış" eşitlenir. 
+Azure Active Directory "atamaları" adlı bir kavram, hangi kullanıcıların seçilen uygulamalara erişimi alması belirlemek için kullanır. Otomatik kullanıcı hesabı sağlama bağlamında, yalnızca kullanıcıların ve grupların, "Azure AD'de bir uygulama için atandı" eşitlenir. 
 
-Yapılandırma ve sağlama hizmeti etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD grupları LucidChart uygulamanıza erişimi olması gereken kullanıcılar temsil eden karar vermeniz gerekir. Karar sonra buradaki yönergeleri izleyerek, bu kullanıcılar LucidChart uygulamanıza atayabilirsiniz:
+Yapılandırma ve sağlama hizmetini etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD'de grupları LucidChart uygulamanıza erişmek isteyen kullanıcılar temsil karar vermeniz gerekir. Karar sonra buradaki yönergeleri izleyerek bu kullanıcılar LucidChart uygulamanıza atayabilirsiniz:
 
-[Bir kullanıcı veya grup için bir kuruluş uygulama atama](../manage-apps/assign-user-or-group-access-portal.md)
+[Kurumsal bir uygulamayı kullanıcı veya grup atama](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-lucidchart"></a>Kullanıcılar için LucidChart atamak için önemli ipuçları
 
-*   Önerilir tek bir Azure AD kullanıcısının sağlama yapılandırmayı test etmek için LucidChart atanır. Ek kullanıcı ve/veya grupları daha sonra atanabilir.
+*   Önerilir tek bir Azure AD kullanıcı sağlama yapılandırmayı test etmek için LucidChart atanır. Ek kullanıcılar ve/veya grupları daha sonra atanabilir.
 
-*   Bir kullanıcı için LucidChart atarken ya da seçmelisiniz **kullanıcı** rol ya da başka bir geçerli uygulamaya özgü rolü (varsa) atama iletişim. **Varsayılan erişim** rol sağlamak için çalışmaz ve bu kullanıcılar atlandı.
+*   Bir kullanıcı için LucidChart atarken ya da seçmelisiniz **kullanıcı** rol veya başka bir geçerli uygulamaya özgü rolü (varsa) atama iletişim. **Varsayılan erişim** rolü sağlama için çalışmaz ve bu kullanıcılar atlanır.
 
 
-## <a name="configuring-user-provisioning-to-lucidchart"></a>Kullanıcı için LucidChart sağlama yapılandırma 
+## <a name="configuring-user-provisioning-to-lucidchart"></a>LucidChart için kullanıcı sağlamayı yapılandırma 
 
-Bu bölümde Azure AD LucidChart'ın kullanıcı hesabına API sağlama konusunda size rehberlik eder ve oluşturmak için sağlama hizmeti yapılandırma güncelleştirin ve Azure AD'de kullanıcı ve grup atama göre LucidChart atanan kullanıcı hesaplarında devre dışı bırakın.
+Bu bölümde, Azure AD sağlama API'si LucidChart'ın kullanıcı hesabına bağlanma aracılığıyla size yol gösterir ve oluşturmak için sağlama hizmeti yapılandırma güncelleştirme ve Azure AD'de kullanıcı ve Grup atamasına dayalı LucidChart atanan kullanıcı hesaplarını devre dışı bırakın.
 
 > [!TIP]
-> Da tercih edebilirsiniz etkin SAML tabanlı çoklu oturum açma için LucidChart, yönergeleri izleyerek sağlanan [Azure portal](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
+> Ayrıca seçtiğiniz etkin SAML tabanlı çoklu oturum açma için LucidChart, yönergeleri izleyerek sağlanan [Azure portalında](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlama bağımsız olarak, çoklu oturum açma yapılandırılabilir.
 
 
-### <a name="configure-automatic-user-account-provisioning-to-lucidchart-in-azure-ad"></a>Otomatik olarak bir kullanıcı hesabı için LucidChart Azure AD'de sağlamayı Yapılandır
+### <a name="configure-automatic-user-account-provisioning-to-lucidchart-in-azure-ad"></a>Otomatik kullanıcı hesabı için LucidChart Azure AD'de sağlamayı Yapılandır
 
 
-1. İçinde [Azure portal](https://portal.azure.com), Gözat **Azure Active Directory > Kurumsal uygulamaları > tüm uygulamaları** bölümü.
+1. İçinde [Azure portalında](https://portal.azure.com), Gözat **Azure Active Directory > Kurumsal uygulamaları > tüm uygulamaları** bölümü.
 
-2. Çoklu oturum açma için LucidChart zaten yapılandırdıysanız arama alanı kullanarak LucidChart Örneğiniz için arama yapın. Aksi takdirde seçin **Ekle** arayın ve **LucidChart** uygulama galerisinde. Arama sonuçlarından LucidChart seçin ve uygulamaları listenize ekleyin.
+2. Çoklu oturum açma için LucidChart zaten yapılandırdıysanız arama alanını kullanarak LucidChart Örneğiniz için arama yapın. Aksi takdirde seçin **Ekle** araması **LucidChart** uygulama galerisinde. Arama sonuçlarından LucidChart seçin ve uygulama listenize ekleyin.
 
-3. LucidChart örneğiniz seçin ve ardından **sağlama** sekmesi.
+3. Örneğiniz LucidChart seçip **sağlama** sekmesi.
 
-4. Ayarlama **sağlama modunda** için **otomatik**.
+4. Ayarlama **hazırlama modu** için **otomatik**.
 
     ![LucidChart sağlama](./media/lucidchart-provisioning-tutorial/LucidChart1.png)
 
-5. Altında **yönetici kimlik bilgileri** bölümü, giriş **gizli belirteci** LucidChart'ın hesap tarafından oluşturulan (belirteç hesabınızın altında bulabilirsiniz: **takım**  >  **Uygulama tümleştirmesi** > **SCIM'yi**). 
+5. Altında **yönetici kimlik bilgileri** giriş bölümünde **gizli belirteç** , LucidChart'ın hesap tarafından oluşturulan (belirteç hesabınızın altında bulabilirsiniz: **takım**  >  **Uygulama tümleştirmesi** > **SCIM**). 
 
     ![LucidChart sağlama](./media/lucidchart-provisioning-tutorial/LucidChart2.png)
 
-6. Azure portalında tıklatın **Bağlantıyı Sına** Azure emin olmak için AD LucidChart uygulamanıza bağlanabilir. Bağlantı başarısız olursa LucidChart hesabınız yönetici izinlerine sahip olduğundan emin olun ve 5. adım yeniden deneyin.
+6. Azure portalında **Test Bağlantısı** Azure emin olmak için AD LucidChart uygulamanıza bağlanabilirsiniz. Bağlantı başarısız olursa LucidChart hesabınız yönetici izinlerine sahip olduğundan emin olun ve 5. adımı yeniden deneyin.
 
-7. Bir kişi veya sağlama hata bildirimleri alması gereken Grup e-posta adresini girin **bildirim e-posta** alanına ve "bir hata oluştuğunda e-posta bildirimi gönder." onay kutusunu işaretleyin
+7. Bir kişi veya grup sağlama hatası bildirimlerini alması gereken e-posta adresini girin **bildirim e-posta** alan ve "bir hata oluştuğunda e-posta bildirimi gönderin." onay kutusunu işaretleyin
 
 8. **Kaydet**’e tıklayın. 
 
 9. Eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları LucidChart**.
 
-10. İçinde **öznitelik eşlemelerini** bölümünde, LucidChart için Azure AD'den eşitlenen kullanıcı öznitelikleri gözden geçirin. Seçilen öznitelikler **eşleşen** özellikleri LucidChart kullanıcı hesaplarında güncelleştirme işlemleri için eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
+10. İçinde **öznitelik eşlemelerini** bölümünde, LucidChart için Azure AD'den eşitlenen kullanıcı özniteliklerini gözden geçirin. Seçilen öznitelikler **eşleşen** özellikleri LucidChart kullanıcı hesaplarını güncelleştirme işlemleri eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
 
-11. Azure AD hizmeti LucidChart için sağlama etkinleştirmek için değiştirmek **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü
+11. Azure AD sağlama hizmeti için LucidChart etkinleştirmek için değiştirin **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü
 
 12. **Kaydet**’e tıklayın. 
 
-Bu işlem, herhangi bir kullanıcı ve/veya grupları kullanıcıları ve grupları bölümünde LucidChart atanan ilk eşitleme başlatır. İlk eşitleme gerçekleştirmek yaklaşık 40 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve sağlama hizmeti tarafından gerçekleştirilen tüm eylemler anlatılmaktadır etkinlik günlükleri sağlamak için bağlantıları izleyin.
+Bu işlem, herhangi bir kullanıcı ve/veya LucidChart kullanıcılar ve Gruplar bölümünde atanan grupları ilk eşitleme başlar. İlk eşitleme hizmeti çalışıyor sürece yaklaşık 40 dakikada oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklayan etkinlik günlüklerini sağlama için bağlantıları izleyin.
 
-Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](../active-directory-saas-provisioning-reporting.md).
+Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../manage-apps/check-status-user-account-provisioning.md).
 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Kullanıcı hesabı Kurumsal uygulamaları için sağlama yönetme](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Kullanıcı hesabı, kurumsal uygulamalar için sağlamayı yönetme](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Günlüklerini gözden geçirin ve etkinlik sağlama raporları alma hakkında bilgi edinin](../active-directory-saas-provisioning-reporting.md)
+* [Günlükleri gözden geçirin ve sağlama etkinliği raporları alma hakkında bilgi edinin](../manage-apps/check-status-user-account-provisioning.md)

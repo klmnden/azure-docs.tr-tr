@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 09/10/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 89b21af5303afc2082d3d56ddb9e894f3ae4c4b8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 1ef5d51db34e0d0a947a4d6ba6c7e614b1ac3384
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158442"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348897"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Yükleme ve bir şirket içi veri ağ geçidi yapılandırma
 Aynı bölgede bir veya daha fazla Azure Analysis Services sunucusu şirket içi veri kaynaklarına bağlanmak için bir şirket içi veri ağ geçidi gereklidir. Ağ geçidi hakkında daha fazla bilgi için bkz. [şirket içi veri ağ geçidi](analysis-services-gateway.md).
@@ -35,9 +35,9 @@ Aynı bölgede bir veya daha fazla Azure Analysis Services sunucusu şirket içi
 * Azure ile ağ geçidi kaydı sırasında Kurulum sırasında aboneliğiniz için varsayılan bölge seçilir. Farklı bir bölge seçebilirsiniz. Birden fazla bölgede sunucunuz varsa, her bölge için bir ağ geçidi yüklemeniz gerekir. 
 * Ağ geçidini bir etki alanı denetleyicisine yüklenemez.
 * Yalnızca bir ağ geçidi tek bir bilgisayara yüklenebilir.
-* Varsayılan olarak, oturum açmak için NT servıce\pbıegwservice hesabı ağ geçidini kullanır. Farklı bir hesap, Kurulum sırasında veya hizmetleri belirtilebilir. Hizmet hesabının günlük hizmeti ayrıcalıklara sahip olduğundan emin olun Grup İlkesi ayarları sağlar.
 * Ağ geçidi üzerinde kalır ve uyku moduna geçmeyecek bir bilgisayara yükleyin.
 * Ağ geçidi, kablosuz ağa bağlı bir bilgisayarda yüklemeyin. Performans yayınladıklarını.
+* Ağ geçidini yüklerken, bilgisayarınızda oturum açmadıysanız kullanıcı hesabı günlük hizmeti ayrıcalıklar olmalıdır. Yükleme tamamlandığında, şirket içi veri ağ geçidi hizmeti bir hizmet olarak oturum açma için NT servıce\pbıegwservice hesabını kullanır. Kurulum tamamlandıktan sonra farklı bir hesap kurulumu sırasında veya hizmetleri belirtilebilir. Olun Grup İlkesi ayarları ile yüklerken oturumunuz hesabı hem seçtiğiniz hizmet hesabı, günlük hizmet ayrıcalıklarına sahip izin verin.
 * Azure'da oturum aç sahip bir hesap için aynı Azure AD'de [Kiracı](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) aboneliğinde ağ geçidi kaydettirmekte olduğunuz. Azure B2B yüklerken ve bir ağ geçidi kaydediliyor (konuk) hesapları desteklenmez.
 * Veri kaynakları, bir Azure sanal ağ (VNet) varsa, yapılandırmalısınız [AlwaysUseGateway](analysis-services-vnet-gateway.md) sunucu özelliği.
 * Burada açıklanan (Birleşik) ağ geçidi, Azure kamu, Azure Almanya ve Çin Azure bağımsız bölgeler desteklenmiyor. Kullanım **Azure Analysis Services için ayrılmış şirket içi ağ geçidi**, sunucunuzun yüklü **Hızlı Başlangıç** portalında. 
@@ -79,7 +79,7 @@ Azure'da bir ağ geçidi kaynağı oluşturmak için ağ geçidi bulut hizmetind
 ## <a name="create-resource"></a>Bir Azure ağ geçidi kaynağı oluşturma
 Yüklü ve kayıtlı ağ geçidi sonra Azure aboneliğinizde bir ağ geçidi kaynağı oluşturmak gerekir. Azure'a ağ geçidi kaydı sırasında kullanılan hesap ile oturum açın.
 
-1. Azure portalında **yeni bir hizmet oluşturma** > **Kurumsal tümleştirme** > **şirket içi veri ağ geçidi**  >   **Oluşturma**.
+1. Azure portalında **kaynak Oluştur** > **tümleştirme** > **şirket içi veri ağ geçidi**.
 
    ![Bir ağ geçidi kaynağı oluşturma](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 

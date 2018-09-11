@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 9c9cde23f8f8dc557b99d2f1508c923aaa2dce91
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: b7b1279dbb1256269705da3f8be6f6d2c1151368
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42059759"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346347"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>GRANT B2B kullanıcıları Azure AD'de, şirket içi uygulamalarınıza erişim
 
@@ -27,7 +27,7 @@ Azure ad iş ortağı kuruluşlardan Konuk kullanıcıları davet etmek için Az
 
 Şunların ikisini de yapmalısınız:
 
-- SAML galeri dışı uygulaması şablonu kullanılarak açıklandığı uygulamalarıyla [Azure Active Directory Uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açma yapılandırma](../active-directory-saas-custom-apps.md). İçin kullandığınız not aldığınızdan emin olun **oturum açma URL'si** değeri.
+- SAML galeri dışı uygulaması şablonu kullanılarak açıklandığı uygulamalarıyla [Azure Active Directory Uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açma yapılandırma](../manage-apps/configure-single-sign-on-non-gallery-applications.md). İçin kullandığınız not aldığınızdan emin olun **oturum açma URL'si** değeri.
 -  Azure AD uygulama ara sunucusu ile şirket içi uygulama yayımlamak için kullanmak **Azure Active Directory** kimlik kaynağı olarak yapılandırılır. Yönergeler için [Azure AD uygulama ara sunucusu kullanarak uygulama yayımlama](../manage-apps/application-proxy-publish-azure-portal.md). 
 
    Yapılandırdığınızda **iç Url** ayarı, Galeri dışı uygulama şablonunda belirtilen oturum açma URL'sini kullanın. Bu şekilde, kullanıcıların kuruluş sınırının dışında uygulamadan erişebilirsiniz. Uygulama proxy'si şirket içi uygulama için SAML çoklu oturum açma gerçekleştirir.

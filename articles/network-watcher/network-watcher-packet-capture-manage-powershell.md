@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: d13c02696c9babae9fd04233ae7d2fdc75fca25f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: d768367b8e35c30b1e8cb1646e6cbfceb6151dec
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090700"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348302"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>PowerShell kullanarak Azure Ağ İzleyicisi ile paket yakalamayı yönetme
 
@@ -35,7 +35,7 @@ Bu makalede paket yakalaması için şu anda kullanılabilir olan farklı yönet
 
 - [**Paket Yakalamayı Başlat**](#start-a-packet-capture)
 - [**Paket Yakalamayı Durdur**](#stop-a-packet-capture)
-- [**Bir paket yakalamasını Sil**](#delete-a-packet-capture)
+- [**bir paket yakalamasını Sil**](#delete-a-packet-capture)
 - [**Paket yakalaması indirin**](#download-a-packet-capture)
 
 ## <a name="before-you-begin"></a>Başlamadan önce
@@ -67,7 +67,7 @@ Aşağıdaki örnek çalıştırmak için gerekli uzantı bilgileri alır. `Set-
 Windows sanal makineler için:
 
 ```powershell
-$AzureNetworkWatcherExtension = Get-AzureRmVMExtensionImage -Location WestCentralUS -PublisherName Microsoft.Azure.NetworkWatcher -Type NetworkWatcherAgentWindows -Version 1.4.13.0
+$AzureNetworkWatcherExtension = Get-AzureRmVMExtensionImage -Location WestCentralUS -PublisherName Microsoft.Azure.NetworkWatcher -Type NetworkWatcherAgentWindows -Version 1.4.585.2
 $ExtensionName = "AzureNetworkWatcherExtension"
 Set-AzureRmVMExtension -ResourceGroupName $VM.ResourceGroupName  -Location $VM.Location -VMName $VM.Name -Name $ExtensionName -Publisher $AzureNetworkWatcherExtension.PublisherName -ExtensionType $AzureNetworkWatcherExtension.Type -TypeHandlerVersion $AzureNetworkWatcherExtension.Version.Substring(0,3)
 ```
@@ -144,7 +144,7 @@ $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName testrg -Name test
 Paket yakalaması tarafından depolanan verileri sınırlamak için filtreleri kullanılabilir. Aşağıdaki örnek, iki filtreleri ayarlar.  Bir filtre, 20, 80 ve 443 numaralı hedef bağlantı noktalarına giden TCP trafiğine yalnızca yerel IP 10.0.0.3 toplar.  İkinci filtre yalnızca UDP trafiğini toplar.
 
 ```powershell
-$filter1 = New-AzureRmPacketCaptureFilterConfig -Protocol TCP -RemoteIPAddress "1.1.1.1-255.255.255" -LocalIPAddress "10.0.0.3" -LocalPort "1-65535" -RemotePort "20;80;443"
+$filter1 = New-AzureRmPacketCaptureFilterConfig -Protocol TCP -RemoteIPAddress "1.1.1.1-255.255.255.255" -LocalIPAddress "10.0.0.3" -LocalPort "1-65535" -RemotePort "20;80;443"
 $filter2 = New-AzureRmPacketCaptureFilterConfig -Protocol UDP
 ```
 
@@ -255,7 +255,7 @@ Stop-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketC
 > [!NOTE]
 > Cmdlet hiç yanıt döndürür, o anda çalışan bir yakalama oturumu veya zaten durduran bir var olan oturumu çalıştı.
 
-## <a name="delete-a-packet-capture"></a>Bir paket yakalamasını Sil
+## <a name="delete-a-packet-capture"></a>bir paket yakalamasını Sil
 
 ```powershell
 Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"

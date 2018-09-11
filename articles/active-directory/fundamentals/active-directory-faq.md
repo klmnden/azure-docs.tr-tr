@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 419b5d480ebd1f978eb2a870231d151b549b25ea
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: cc9b5810085d3300861735a95a94e577bf61d70e
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056267"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346058"
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory ile ilgili SSS
 Azure Active Directory (Azure AD), kimlik, erişim yönetimi ve güvenliği tüm yönleriyle kapsayan bir hizmet olarak kimlik (IDaaS) çözümüdür.
@@ -48,14 +48,13 @@ Enterprise Mobility + Security gibi ücretli Azure AD hizmetleri, kurumsal ölç
 
 - - -
 
-**S:  Abonelik Yöneticisi ile Dizin Yöneticisi arasındaki farklar nelerdir?**
+**S: sahibi ve genel yönetici arasındaki farklar nelerdir?**
 
-**C:** Varsayılan olarak, Azure’a kaydolurken size Abonelik Yöneticisi rolü atanır. Abonelik yöneticisi bir Microsoft hesabı ya da Azure aboneliğinin ilişkili olduğu dizinden bir çalışma veya okul hesabı kullanabilir.  Bu rol Azure portaldaki hizmetleri yönetme yetkisine sahiptir.
+**Y:** varsayılan olarak, bir Azure aboneliği için kaydolan kişi Azure kaynakları için sahip rolü atanır. Sahibi, bir Microsoft hesabı ya da Azure aboneliğinin ilişkili olduğu dizinden bir iş veya Okul hesabı kullanabilirsiniz.  Bu rol Azure portaldaki hizmetleri yönetme yetkisine sahiptir.
 
-Başkalarının aynı aboneliği kullanarak oturum açması ve hizmetlere erişmesi gerekiyorsa bu kişileri ortak yönetici olarak ekleyebilirsiniz. Bu rol hizmet yöneticisi ile aynı erişim ayrıcalıklarına sahiptir, ancak aboneliklerin Azure dizinleriyle ilişkisini değiştiremez.  Abonelik yöneticileri hakkında ek bilgi için bkz. [Azure yönetici rolleri ekleme veya değiştirme](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator) ve [Azure aboneliklerinin Azure Active Directory ile ilişkisi](active-directory-how-subscriptions-associated-directory.md).
+Başkalarının oturum açın ve aynı aboneliği kullanarak hizmetlere erişmesi gerekiyorsa, bunları uygun atayabilirsiniz [yerleşik rol](../../role-based-access-control/built-in-roles.md). Ek bilgi için bkz: [RBAC ve Azure portalını kullanarak erişimini yönetme](../../role-based-access-control/role-assignments-portal.md).
 
-
-Azure AD, dizin ve kimlikle ilgili özelliklerin yönetilmesine ilişkin farklı bir yönetim rolleri dizisine sahiptir.  Bu yöneticiler, Azure portalında çeşitli özelliklere erişebilir. Yöneticinin rolü, kullanıcı oluşturma veya düzenleme, diğer kullanıcılara yönetici rolleri atama, kullanıcı parolalarını sıfırlama, kullanıcı lisanslarını yönetme veya etki alanlarını yönetme gibi yetkileri belirler.  Azure AD dizin yöneticileri ve rolleri hakkında daha fazla bilgi için bkz. [Azure Active Directory’de yönetici rolü atama](../users-groups-roles/directory-assign-admin-roles.md).
+Varsayılan olarak, bir Azure aboneliği için kaydolan kişi dizin için genel Yönetici rolüne atanır. Genel yönetici, tüm Azure AD directory özelliklerine erişebilir. Azure AD dizin ve kimlikle ilgili özelliklerin yönetilmesine yönetici rolleri farklı bir dizi vardır. Bu Yöneticiler, Azure portalında çeşitli özelliklere erişim gerekir. Yönetici rolü, oluşturma veya kullanıcıları Düzenle, diğerlerine yönetici rolleri atama, kullanıcı parolalarını sıfırlama, kullanıcı lisanslarını yönetme veya etki alanlarını yönetme gibi yapabileceklerini belirler.  Azure AD dizin yöneticileri ve rolleri hakkında ek bilgi için bkz: [bir kullanıcı Azure Active Directory'de yönetici rolleri atama](active-directory-users-assign-role-azure-portal.md) ve [AzureActiveDirectory'deyöneticirolleriatama](../users-groups-roles/directory-assign-admin-roles.md).
 
 Ayrıca, Enterprise Mobility + Security gibi ücretli Azure AD hizmetleri, kurumsal ölçekte kapsamlı yönetim ve güvenlik çözümleriyle Office 365 ve Microsoft Azure gibi diğer web hizmetlerini tamamlar.
 
@@ -163,7 +162,7 @@ Bu durum, parolaların “Parola” ve “123456” değerlerinin çeşitlemeler
 
 Daha fazla bilgi için bkz.
 
-* [Azure Active Directory uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açmayı yapılandırma](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
+* [Azure Active Directory uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açmayı yapılandırma](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [Kullanıcıların ve grupların Azure Active Directory'den uygulamalara otomatik olarak hazırlanmasını etkinleştirmek için SCIM'yi kullanma](../manage-apps/use-scim-to-provision-users-and-groups.md)
 
 - - -
@@ -208,7 +207,7 @@ Daha fazla bilgi için bkz. [Office 365'e ve Azure Active Directory'ye bağlı d
 
 **Y:** Birçok popüler bulut SaaS uygulamasında kullanıcı kimliklerinin oluşturulmasını, bakımını ve kaldırılmasını otomatik hale getirmek için Azure AD kullanın.
 
-Daha fazla bilgi için bkz. [Azure Active Directory ile SaaS uygulamalarına kullanıcı hazırlama ve sağlamayı kaldırma işlemlerini otomatik hale getirme](../active-directory-saas-app-provisioning.md).
+Daha fazla bilgi için bkz. [Azure Active Directory ile SaaS uygulamalarına kullanıcı hazırlama ve sağlamayı kaldırma işlemlerini otomatik hale getirme](../manage-apps/user-provisioning.md).
 
 - - -
 **S:  Azure AD ile güvenli bir LDAP bağlantısı oluşturabilir miyim?**

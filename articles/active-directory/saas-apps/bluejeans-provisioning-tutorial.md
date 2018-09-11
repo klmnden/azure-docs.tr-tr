@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı BlueJeans yapılandırma | Microsoft Docs'
-description: Otomatik olarak sağlamak ve kullanıcı hesaplarına BlueJeans sağlanmasını için Azure Active Directory yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı hazırlama için BlueJeans yapılandırma | Microsoft Docs'
+description: Otomatik olarak sağlama ve sağlamasını BlueJeans kullanıcı hesaplarını Azure Active Directory yapılandırmayı öğrenin.
 services: active-directory
 documentationcenter: ''
 author: zhchia
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2018
 ms.author: v-ant
-ms.openlocfilehash: d4fe2d14485207aae89c5f82d6c8eaf3ada7f28d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ce27a6f78dfdeb00e1e7b2c82c928d28f1504a1d
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226539"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347531"
 ---
-# <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Öğretici: BlueJeans otomatik kullanıcı sağlamayı yapılandırın
+# <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Öğretici: BlueJeans otomatik kullanıcı hazırlama için yapılandırma
 
-Bu öğreticinin amacı otomatik olarak sağlamak ve kullanıcılara ve/veya BlueJeans gruplarına sağlanmasını BlueJeans ve Azure Active Directory (Azure AD) Azure AD yapılandırmak için gerçekleştirilmesi için adımları göstermektir.
+Bu öğreticinin amacı otomatik olarak sağlamak ve kullanıcılara ve/veya gruplara BlueJeans sağlamasını BlueJeans ve Azure Active Directory (Azure AD) Azure AD yapılandırmak için gerçekleştirilmesi gereken adımlar göstermektir.
 
 > [!NOTE]
-> Bu öğretici Azure AD kullanıcı sağlama hizmeti üstünde oluşturulmuş bir bağlayıcı açıklar. Bu hizmet ne yaptığını, nasıl çalıştığı ve sık sorulan sorular önemli ayrıntılar için bkz: [otomatikleştirmek kullanıcı sağlama ve Azure Active Directory ile SaaS uygulamalarına etkinleştirmektir](./../active-directory-saas-app-provisioning.md).
+> Bu öğreticide, Azure AD kullanıcı sağlama hizmeti üzerinde oluşturulmuş bir bağlayıcı açıklanmaktadır. Bu hizmet yapar, nasıl çalıştığını ve sık sorulan sorular önemli ayrıntılar için bkz. [otomatik kullanıcı hazırlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına](../manage-apps/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticide verilen senaryoda aşağıdaki sahip olduğunuz varsayılmaktadır:
+Bu öğreticide özetlenen senaryo, aşağıdaki sahip olduğunuz varsayılır:
 
 *   Azure AD kiracısı
-*   BlueJeans Kiracı ile [Şirketim](https://www.BlueJeans.com/pricing) planlayabilir ya da daha iyi etkin
+*   BlueJeans kiracıyla [My Company](https://www.BlueJeans.com/pricing) planlayabilir ya da daha iyi etkin
 *   BlueJeans yönetici izinlerine sahip bir kullanıcı hesabı
 
 > [!NOTE]
-> Tümleştirme sağlama Azure AD dayanan [BlueJeans API](https://BlueJeans.github.io/developer), standart plan üzerinde BlueJeans ekipleri için kullanılabilir ya da daha iyi olduğu.
+> Azure AD tümleştirmesi sağlama dayanan [BlueJeans API](https://BlueJeans.github.io/developer), daha iyi veya standart plan BlueJeans takımlar için kullanılabilir.
 
 ## <a name="adding-bluejeans-from-the-gallery"></a>Galeriden BlueJeans ekleme
-Azure AD ile otomatik kullanıcı sağlamayı BlueJeans yapılandırmadan önce Azure AD uygulama Galeriden yönetilen SaaS uygulamaları listenize BlueJeans eklemeniz gerekir.
+Azure AD ile otomatik kullanıcı hazırlama için BlueJeans yapılandırmadan önce BlueJeans Azure AD uygulama galerisinden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-**Azure AD uygulama Galeriden BlueJeans eklemek için aşağıdaki adımları gerçekleştirin:**
+**Azure AD uygulama galerisinden BlueJeans eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panelde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, üzerinde sol gezinti bölmesinde, tıklayarak **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
 2. Gidin **kurumsal uygulamalar** > **tüm uygulamaları**.
 
-    ![Kuruluş uygulamaları bölümü][2]
+    ![Kurumsal uygulamalar bölümü][2]
     
-3. BlueJeans eklemek için tıklatın **yeni uygulama** iletişim kutusunun üst kısmında düğmesi.
+3. BlueJeans eklemek için tıklatın **yeni uygulama** iletişim kutusunun üst kısmındaki düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
 
@@ -61,36 +61,36 @@ Azure AD ile otomatik kullanıcı sağlamayı BlueJeans yapılandırmadan önce 
 
     ![BlueJeans sağlama](./media/bluejeans-provisioning-tutorial/BluejeansAppSearch.png)
 
-5. Sonuçlar panelinde seçin **BlueJeans**ve ardından **Ekle** BlueJeans SaaS uygulamaları listenize eklemek için düğmeyi.
+5. Sonuçlar panelinde seçin **BlueJeans**ve ardından **Ekle** düğmesini BlueJeans SaaS uygulamaları listenize ekleyin.
 
     ![BlueJeans sağlama](./media/bluejeans-provisioning-tutorial/BluejeansAppSearchResults.png)
 
     ![BlueJeans sağlama](./media/bluejeans-provisioning-tutorial/BluejeansAppCreate.png)
     
-## <a name="assigning-users-to-bluejeans"></a>Kullanıcılar için BlueJeans atama
+## <a name="assigning-users-to-bluejeans"></a>BlueJeans için kullanıcı atama
 
-Azure Active Directory "atamaları" adlı bir kavram hangi kullanıcıların seçili uygulamalara erişim alması belirlemek için kullanır. Otomatik kullanıcı sağlamayı bağlamında, yalnızca kullanıcı gruplarına ve/veya "Azure AD'de bir uygulamaya atanmış" eşitlenir.
+Azure Active Directory "atamaları" adlı bir kavram, hangi kullanıcıların seçilen uygulamalara erişimi alması belirlemek için kullanır. Otomatik kullanıcı hazırlama bağlamında, yalnızca kullanıcı ve/veya "Azure AD'de bir uygulama için atandı" grupları eşitlenir.
 
-Yapılandırma ve otomatik kullanıcı hazırlama etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD grupları BlueJeans erişmeniz karar vermeniz gerekir. Karar sonra buradaki yönergeleri izleyerek BlueJeans için bu kullanıcılara ve/veya grupları atayabilirsiniz:
+Yapılandırma ve otomatik kullanıcı hazırlama etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD'de grupları BlueJeans erişmesi karar vermeniz gerekir. Karar sonra buradaki yönergeleri izleyerek BlueJeans için bu kullanıcılara ve/veya grupları atayabilirsiniz:
 
-*   [Bir kullanıcı veya grup için bir kuruluş uygulama atama](../manage-apps/assign-user-or-group-access-portal.md)
+*   [Kurumsal bir uygulamayı kullanıcı veya grup atama](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-bluejeans"></a>Kullanıcılar için BlueJeans atamak için önemli ipuçları
 
-*   Önerilir tek bir Azure AD kullanıcısının yapılandırma sağlama otomatik kullanıcı test etmek için BlueJeans atanır. Ek kullanıcı ve/veya grupları daha sonra atanabilir.
+*   Önerilir tek bir Azure AD kullanıcı sağlama yapılandırmasını otomatik kullanıcı test etmek için BlueJeans atanır. Ek kullanıcılar ve/veya grupları daha sonra atanabilir.
 
-*   Bir kullanıcı için BlueJeans atarken, (varsa) geçerli bir uygulamaya özgü rol atama iletişim kutusunda seçmeniz gerekir. Kullanıcılarla **varsayılan erişim** rol sağlamasından dışlanır.
+*   Bir kullanıcı için BlueJeans atarken, (varsa) geçerli bir uygulamaya özgü rol ataması iletişim kutusunda seçmeniz gerekir. Kullanıcılarla **varsayılan erişim** rol sağlamasından dışlanır.
 
-## <a name="configuring-automatic-user-provisioning-to-bluejeans"></a>Otomatik kullanıcı sağlamayı BlueJeans için yapılandırma
+## <a name="configuring-automatic-user-provisioning-to-bluejeans"></a>BlueJeans için otomatik kullanıcı sağlamayı yapılandırma
 
-Bu bölümde, oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bırakmak için hizmet sağlama Azure AD'yi yapılandırma adımlarında size rehberlik eder ve/veya Azure AD'de kullanıcı ve/veya grup atamaları BlueJeans gruplarında tabanlı.
+Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bırakmak için sağlama hizmetini Azure AD'yi yapılandırma adımlarında size kılavuzluk eder ve/veya BlueJeans gruplarında Azure AD'de kullanıcı ve/veya grup atamaları temel alarak.
 
 > [!TIP]
-> Ayrıca aktarmızı SAML tabanlı çoklu oturum açma için BlueJeans etkinleştirmek, yönergeleri izleyerek sağlanan [oturum açma BlueJeans tek Öğreticisi](bluejeans-tutorial.md). Bu iki özellik birbirine tamamlayıcı rağmen otomatik kullanıcı sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
+> Uygulamayı da seçebilirsiniz SAML tabanlı çoklu oturum açma için BlueJeans etkinleştirmek, yönergeleri izleyerek sağlanan [oturum açma BlueJeans tek öğretici](bluejeans-tutorial.md). Bu iki özellik birbirine tamamlayıcı rağmen otomatik kullanıcı hazırlama bağımsız olarak, çoklu oturum açma yapılandırılabilir.
 
-### <a name="to-configure-automatic-user-provisioning-for-bluejeans-in-azure-ad"></a>Azure AD'de BlueJeans için otomatik kullanıcı sağlamayı yapılandırmak için:
+### <a name="to-configure-automatic-user-provisioning-for-bluejeans-in-azure-ad"></a>Azure AD'de BlueJeans için otomatik kullanıcı hazırlama yapılandırmak için:
 
-1. Oturum [Azure portal](https://portal.azure.com) ve **Azure Active Directory > Kurumsal uygulamalar > tüm uygulamaları**.
+1. Oturum [Azure portalında](https://portal.azure.com) ve **Azure Active Directory > Kurumsal uygulamalar > tüm uygulamaları**.
 
 2. BlueJeans SaaS uygulamaları listesinden seçin.
  
@@ -100,37 +100,37 @@ Bu bölümde, oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bı
 
     ![BlueJeans sağlama](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningTab.png)
 
-4. Ayarlama **sağlama modunda** için **otomatik**.
+4. Ayarlama **hazırlama modu** için **otomatik**.
 
     ![BlueJeans sağlama](./media/bluejeans-provisioning-tutorial/Bluejeans1.png)
 
-5. Altında **yönetici kimlik bilgileri** bölümü, giriş **yönetici kullanıcı adı**, ve **yönetici parolası** BlueJeans hesabınızın. Bu değerleri örnekleri şunlardır:
+5. Altında **yönetici kimlik bilgileri** giriş bölümünde **yönetici kullanıcı adı**, ve **yönetici parolası** BlueJeans hesabınızın. Bu değerleri örnekleri şunlardır:
 
-    *   İçinde **yönetici kullanıcı adı** alanında, doldurmak BlueJeans Kiracı yönetici hesabı kullanıcı adı. Örnek: admin@contoso.com.
+    *   İçinde **yönetici kullanıcı adı** alan, BlueJeans kiracınıza yönetici hesabının kullanıcı adını doldurun. Örnek: admin@contoso.com.
 
-    *   İçinde **yönetici parolası** alanında, yönetici kullanıcı adı için karşılık gelen parola doldurur.
+    *   İçinde **yönetici parolası** alan, yönetici kullanıcı adı için karşılık gelen parola doldurun.
 
-6. Adım 5'te gösterilen alanları doldurma sırasında tıklatın **Bağlantıyı Sına** Azure emin olmak için AD için BlueJeans bağlanabilir. Bağlantı başarısız olursa BlueJeans hesabınız yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
+6. 5. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD için BlueJeans bağlanabilirsiniz. Bağlantı başarısız olursa BlueJeans hesabınız yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
 
     ![BlueJeans sağlama](./media/bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
 
-7. İçinde **bildirim e-posta** alan, bir kişi veya grubun ve sağlama hata bildirimleri almak - onay e-posta adresini girin **birhataoluşursa,bire-postabildirimigönder**.
+7. İçinde **bildirim e-posta** alanında, bir kişi veya grubun ve sağlama hata bildirimleri almak - onay e-posta adresi girin **birhataoluşursa,bire-postabildirimigönder**.
 
     ![BlueJeans sağlama](./media/bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
 
 8. **Kaydet**’e tıklayın.
 
-9. Altında **eşlemeleri** bölümünde, select **eşitleme Azure Active Directory Kullanıcıları BlueJeans**.
+9. Altında **eşlemeleri** bölümünden **eşitleme Azure Active Directory Kullanıcıları BlueJeans**.
 
     ![BlueJeans sağlama](./media/bluejeans-provisioning-tutorial/BluejeansMapping.png)
 
-10. Azure AD içinde BlueJeans eşitlenir kullanıcı öznitelikleri gözden **eşleme özniteliği** bölümü. Seçilen öznitelikler **eşleşen** özellikleri BlueJeans kullanıcı hesaplarında güncelleştirme işlemleri için eşleştirmek için kullanılır. Seçin **kaydetmek** düğmesi değişiklikleri uygulayın.
+10. İçinde BlueJeans için Azure AD'den eşitlenen kullanıcı özniteliklerini gözden **eşleme özniteliği** bölümü. Seçilen öznitelikler **eşleşen** özellikleri BlueJeans kullanıcı hesaplarını güncelleştirme işlemleri eşleştirmek için kullanılır. Seçin **Kaydet** düğmesine değişiklikleri uygulayın.
 
     ![BlueJeans sağlama](./media/bluejeans-provisioning-tutorial/BluejeansUserMappingAtrributes.png)
 
-11. Kapsam filtrelerini yapılandırmak için sağlanan aşağıdaki yönergelerine bakın [Scoping filtre Öğreticisi](./../active-directory-saas-scoping-filters.md).
+11. Kapsam belirleme filtrelerini yapılandırmak için aşağıdaki yönergelere bakın [Scoping filtre öğretici](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. Azure AD hizmeti BlueJeans için sağlama etkinleştirmek için değiştirmek **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü.
+12. Azure AD sağlama hizmeti için BlueJeans etkinleştirmek için değiştirin **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü.
 
     ![BlueJeans sağlama](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningStatus.png)
 
@@ -138,26 +138,26 @@ Bu bölümde, oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bı
 
     ![BlueJeans sağlama](./media/bluejeans-provisioning-tutorial/UserGroupSelection.png)
 
-14. Sağlamak için hazır olduğunuzda tıklatın **kaydetmek**.
+14. Sağlama için hazır olduğunuzda, tıklayın **Kaydet**.
 
     ![BlueJeans sağlama](./media/bluejeans-provisioning-tutorial/SaveProvisioning.png)
 
-Bu işlem, tüm kullanıcıların ilk eşitleme başlar ve/veya tanımlanan gruplar **kapsam** içinde **ayarları** bölümü. İlk eşitleme gerçekleştirmek yaklaşık 40 dakikada hizmet sağlama Azure AD çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve BlueJeans hizmette sağlama Azure AD tarafından gerçekleştirilen tüm eylemler açıklanmaktadır Etkinlik Raporu sağlamak için bağlantıları izleyin.
+Bu işlem, tüm kullanıcıların ilk eşitleme başlar ve/veya tanımlı gruplar **kapsam** içinde **ayarları** bölümü. İlk eşitleme yaklaşık 40 dakikada Azure AD sağlama hizmeti çalışıyor sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve sağlama hizmeti BlueJeans üzerinde Azure AD tarafından gerçekleştirilen tüm eylemler açıklayan Etkinlik Raporu sağlama için bağlantıları izleyin.
 
-Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](../active-directory-saas-provisioning-reporting.md).
+Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Bağlayıcı sınırlamaları
 
-* Bluejeans 30 karakterden uzun kullanıcı adları izin verilmez.
+* Bluejeans 30 karakterden uzun kullanıcı adlarını izin vermez.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Kullanıcı hesabı Kurumsal uygulamaları için sağlama yönetme](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Kullanıcı hesabı, kurumsal uygulamalar için sağlamayı yönetme](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Günlüklerini gözden geçirin ve etkinlik sağlama raporları alma hakkında bilgi edinin](../active-directory-saas-provisioning-reporting.md)
+* [Günlükleri gözden geçirin ve sağlama etkinliği raporları alma hakkında bilgi edinin](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/bluejeans-provisioning-tutorial/tutorial_general_01.png

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 70552e982ff4c21d02b5f52ea48f108ce7f3b97e
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ce27f51dc5e80b4ce2bd83b5f9f6c75853a2ea73
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366818"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325286"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Grup İlkesi'ni kullanarak Internet Explorer için erişim paneli uzantısını dağıtma
 Bu öğreticide, uzaktan erişim paneli uzantısını Internet Explorer için kullanıcılarınızın makinelerde yüklemek için Grup İlkesi kullanımı gösterilmektedir. Bu uzantıyı kullanarak yapılandırılan uygulamalarında oturum açmak için gereken Internet Explorer kullanıcılar için gerekli olan [parola tabanlı çoklu oturum açma](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).
@@ -120,7 +120,7 @@ Seçili OU'ya makineler için şimdi Uzantının etkinleştirilmesi gerekir. [Et
 ## <a name="step-5-optional-disable-remember-password-prompt"></a>5. adım (isteğe bağlı): "Parolayı anımsa" istemi devre dışı bırak
 Kullanıcılar Web sitelerine erişim paneli uzantısını kullanarak oturum açtığınızda, Internet Explorer "parolanızı depolamak istiyorsunuz?" isteyen aşağıdaki istemi gösterebilir
 
-![](./media/active-directory-saas-ie-group-policy/remember-password-prompt.png)
+![Parola istemi](./media/active-directory-saas-ie-group-policy/remember-password-prompt.png)
 
 Ardından kullanıcılarınız bu istemi görüntülemesini engellemek istiyorsanız, otomatik tamamlama parolaları anımsamaya çalışmaktan gelen önlemek için aşağıdaki adımları izleyin:
 

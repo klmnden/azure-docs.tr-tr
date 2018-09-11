@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: makohli
-ms.openlocfilehash: 7bd0737e7fb26af95eed63696d1ac07c88a9dec4
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 541ab91bf3a79b1b91fa237880f48bd8e0ccc152
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42058768"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348081"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Advisor yüksek kullanılabilirlik önerisi
 
@@ -66,6 +66,10 @@ Verilen herhangi bir uç noktası başarısız olursa yüksek kullanılabilirlik
 Bir Traffic Manager profilinde yakınlık yönlendirme için yapılandırılan tüm uç noktalar aynı bölgedeyse kullanıcılar diğer bölgelerdeki bağlantı gecikmeleri karşılaşabilir. Ekleme veya başka bir bölgeye bir uç nokta taşıma genel performansını ve tüm uç noktaları bir bölgede başarısız olursa, daha iyi kullanılabilirlik sağlar. Danışman, Traffic Manager profillerini tüm uç noktalar aynı bölgede nerede yakınlık yönlendirme için yapılandırılan tanımlar ve ekleme veya başka bir Azure bölgesine bir uç nokta taşıma önerir.
 
 Traffic Manager profili devre dışı coğrafi yönlendirme için yapılandırılmışsa, trafiği tanımlanmış bölgelerine bağlı Uç noktalara yönlendirilir. Bir bölgede başarısız olursa, önceden tanımlanmış hiçbir yük devretme yoktur. Bölgesel gruplandırma "Tüm (dünya)" yapılandırıldığı bir uç noktaya sahip bırakılan trafik önlemek ve hizmet kullanılabilirliğini artırın. Danışman, Traffic Manager profillerini uç nokta "Tüm (World)" bölgesel gruplandırma olacak şekilde yapılandırılmış olduğu ve bu yapılandırma değişikliği yapmadan önerir coğrafi yönlendirme için yapılandırılan tanımlar.
+
+## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-in-the-event-of-accidental-overwrite-or-deletion"></a>Yazılım kullanım kaydetmek ve verileri yanlışlıkla üzerine yaz veya silinmesi durumunda kurtarma için Azure depolama hesabı Sil
+
+Etkinleştirme [geçici silme](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) silinen blobları geçiş kalıcı olan yerine geçici silinen durumuna, depolama hesabınız silindi. Verilerin üzerine, verilerin üzerine yazılması durumunu kaydetmek için geçici silinen bir anlık görüntü oluşturulur. Bu, yanlışlıkla silinmesi durumunda kurtarmanıza olanak tanır veya üzerine yazar. Danışman, geçici silme etkinleştirilebilir yoksa bir Azure depolama hesapları tanımlar ve bu etkinleştirmenizi önerir.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Yüksek kullanılabilirlik önerileri Danışman erişme
 

@@ -9,22 +9,23 @@ editor: ''
 ms.assetid: ''
 ms.service: security
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/17/2018
+ms.date: 9/10/2018
 ms.author: tomsh
-ms.openlocfilehash: cc922762f84b3a0658d503c4bfa6eb0079173e4e
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: b6953cc45305cf0812b185187c01149f0345756d
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841556"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346076"
 ---
 # <a name="azure-security-white-papers"></a>Azure güvenlik teknik incelemeler
 | | |
 |-|-|
 |[Giriş&nbsp;için&nbsp;Azure&nbsp;güvenlik](azure-security.md)|Hem müşterinin hem de Microsoft Operasyon perspektiften Azure'da gerçekleştirilen güvenlik denetimleri koleksiyonunu açıklar. Azure ile kullanılabilir olan müşterilere yönelik güvenlik denetimleri en kapsamlı bir bakış sağlar.|
+|[Azure çözümleri için önerilen güvenlik uygulamaları](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions)|Tasarlama, dağıtma ve Azure'ı kullanarak bulut çözümlerinizi yönetme kullanmak için en iyi güvenlik yöntemleri topluluğu.|
 |[Gelişmiş tehdit algılama](azure-threat-detection.md)|Azure size tehdit güvenlik açığı değerlendirmesi, tanılama ve analiz yaklaşıyor Kılavuzlar. Gelişmiş tehdit algılama mekanizması Microsoft'un platform güvenliğini sağlamak için nasıl kullandığını açıklar. Ayrıca, genel kullanıma yönelik özellikler ve Hizmetler Microsoft bu mekanizmaların nasıl içerir açıklar.|
 |[Azure veri şifreleme bekleyen](azure-security-encryption-atrest.md)|Verileri Azure ve veri koruma uygulamasında bölümü alma çeşitli bileşenleri bekleyen nasıl korunduğunu üzerinde odaklanılmıştır. Artıları ve eksileri farklı anahtar yönetimi koruma yaklaşımların inceler.|
 |[Azure günlük kaydı ve denetim](azure-log-audit.md)|Oluşturma, toplama ve Azure'da barındırılan hizmetlerden çözümlenirken güvenlik günlükleri için bir giriş sağlar. Bu günlükler, Azure dağıtımlarınızı güvenlik Öngörüler yardımcı olabilir. |

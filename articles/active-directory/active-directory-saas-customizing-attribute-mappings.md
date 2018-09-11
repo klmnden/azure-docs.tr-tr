@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: accc2e994e7ea361315d5dfb33b257e58410490c
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 4d3967acc7c6dc3b2c94236cc53e8b45e09e6b6d
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057052"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325388"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Kullanıcı Azure Active Directory'de SaaS uygulamaları için öznitelik eşlemelerini sağlama özelleştirme
 Microsoft Azure AD, Salesforce ve Google Apps gibi üçüncü taraf SaaS uygulamalarına kullanıcı hazırlama için destek sağlar. Etkin bir üçüncü taraf SaaS uygulaması için kullanıcı sağlamayı varsa, Azure portalı, öznitelik değerleri öznitelik eşlemeleri formunda denetler.
@@ -33,18 +33,18 @@ Microsoft Azure AD, Salesforce ve Google Apps gibi üçüncü taraf SaaS uygulam
 Azure AD Portalı'nda bu özelliği tıklayarak erişebilirsiniz bir **eşlemeleri** yapılandırmada **sağlama** içinde **Yönet** bölümünü bir  **Kurumsal uygulama**.
 
 
-![Salesforce][5] 
+![Salesforce](media/active-directory-saas-customizing-attribute-mappings/21.png) 
 
 Tıklayarak bir **eşlemeleri** yapılandırma, ilgili açılır **öznitelik eşlemesi** ekran. Bir SaaS uygulaması tarafından düzgün çalışması için gerekli olan öznitelik eşlemelerini vardır. İçin gerekli öznitelikler **Sil** özelliği kullanılamıyor.
 
 
-![Salesforce][6]  
+![Salesforce](media/active-directory-saas-customizing-attribute-mappings/22.png)
 
 Yukarıdaki örnekte, gördüğünüz gibi **kullanıcıadı** öznitelik, salesforce'ta yönetilen bir nesnenin ile doldurulur **userPrincipalName** bağlı Azure Active Directory nesne değeri.
 
 Varolan özelleştirebilirsiniz **öznitelik eşlemelerini** bir eşleme tıklayarak. Bu açılır **özniteliğini Düzenle** ekran.
 
-![Salesforce][7]  
+![Salesforce](media/active-directory-saas-customizing-attribute-mappings/23.png)
 
 
 ### <a name="understanding-attribute-mapping-types"></a>Öznitelik eşlemesi türlerini anlama
@@ -77,7 +77,7 @@ Bu özellik ek olarak, öznitelik eşlemelerini de aşağıdaki öznitelikleri d
 
 Seçilen sayısını, ServiceNow, Box ve Google Apps gibi uygulamaları, kullanıcı, nesneyi ek olarak Grup nesnelerini sağlamasını yapma özelliği destekler. Grup nesneleri, grup özellikleri gibi görünen adları içeren ve grup üyelerinin yanı sıra diğer adlar, e-posta.
 
-![ServiceNow][8]  
+![ServiceNow](media/active-directory-saas-customizing-attribute-mappings/24.png)
 
 Grup sağlama isteğe bağlı olarak etkinleştirilebilir veya devre dışı altında grubu eşlemeyi seçerek **eşlemeleri**ve ayarı **etkin** istenen seçeneğiyle **özniteliğieşleme** ekran.
 
@@ -104,7 +104,7 @@ Uygulama ve öznitelik listesini özelleştirmesini destekleyen sistemleri şunl
 >[!NOTE]
 >Desteklenen öznitelik listesini düzenlemek, yalnızca kendi uygulamalarınıza ve sistemlerinize şemasını özelleştirmiş ve nasıl kendi özel öznitelikler tanımlanan, birinci elden bilgisine sahip Yöneticiler için önerilir. Bu, bazen bir uygulama veya sistem tarafından sağlanan API'ler ve geliştiricilerin araçları konusunda gerektirir. 
 
-![Düzenleyici][9]  
+![Düzenleyici](media/active-directory-saas-customizing-attribute-mappings/25.png) 
 
 Desteklenen öznitelikler listesinde düzenlerken, aşağıdaki özellikler sunulur:
 
@@ -152,10 +152,4 @@ Sağlama hizmeti çalışırken bu seçeneğin belirlenmesi, tüm kullanıcılar
 * [Kullanıcıların ve grupların Azure Active Directory'den uygulamalara otomatik olarak hazırlanmasını etkinleştirmek için SCIM'yi kullanma](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [SaaS uygulamalarını tümleştirme hakkında öğreticiler listesi](saas-apps/tutorial-list.md)
 
-<!--Image references-->
-[5]: ./media/active-directory-saas-customizing-attribute-mappings/21.png
-[6]: ./media/active-directory-saas-customizing-attribute-mappings/22.png
-[7]: ./media/active-directory-saas-customizing-attribute-mappings/23.png
-[8]: ./media/active-directory-saas-customizing-attribute-mappings/24.png
-[9]: ./media/active-directory-saas-customizing-attribute-mappings/25.PNG
 

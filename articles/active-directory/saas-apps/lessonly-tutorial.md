@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 050e8efed38c40d8c7da292c0d6865869a07c9f9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2a4bae196e956d92548944637509b23f78ceb5d2
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121718"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348013"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Öğretici: Azure Active Directory Lessonly.com ile tümleştirme
 
@@ -126,7 +126,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve L
     | `https://<companyname>.lessonly.com/auth/saml/metadata`|
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [Lessonly.com istemci Destek ekibine](mailto:dev@lessonly.com) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [Lessonly.com istemci Destek ekibine](mailto:support@lessonly.com) bu değerleri almak için. 
 
 1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
@@ -165,7 +165,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve L
 
     ![Çoklu oturum açmayı yapılandırın](./media/lessonly-tutorial/tutorial_lessonly.com_configure.png)
 
-1. Çoklu oturum açmayı yapılandırma **Lessonly.com** tarafı, indirilen göndermek için ihtiyacınız **Certificate(Base64)** ve **SAML çoklu oturum açma hizmeti URL'sioturumkapatmaURL'siveSAMLvarlıkkimliği** için [Lessonly.com Destek ekibine](mailto:dev@lessonly.com).
+1. Çoklu oturum açmayı yapılandırma **Lessonly.com** tarafı, indirilen göndermek için ihtiyacınız **Certificate(Base64)** ve **SAML çoklu oturum açma hizmeti URL'sioturumkapatmaURL'siveSAMLvarlıkkimliği** için [Lessonly.com Destek ekibine](mailto:support@lessonly.com).
 
 > [!TIP]
 > İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -208,7 +208,7 @@ Bu bölümün amacı Lessonly.com Britta Simon adlı bir kullanıcı oluşturmak
 Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı henüz mevcut değilse Lessonly.com erişme denemesi sırasında oluşturulur.
 
 > [!NOTE]
-> Bir kullanıcı el ile oluşturmanız gerekiyorsa, iletişime geçmeniz [Lessonly.com Destek ekibine](mailto:dev@lessonly.com).
+> Bir kullanıcı el ile oluşturmanız gerekiyorsa, iletişime geçmeniz [Lessonly.com Destek ekibine](mailto:support@lessonly.com).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 

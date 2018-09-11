@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: glenga
-ms.openlocfilehash: 294dea695f120ff47712e0ccf79072a41baca07b
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: b33c9246bef2ca22542e338a1ec1f91a92aa300e
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092827"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324844"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -26,11 +26,11 @@ Azure işlevleri temel araçları, geliştirme ve yerel bilgisayarınızda bir k
 
 ## <a name="core-tools-versions"></a>Çekirdek araçları sürümleri
 
-Azure işlevleri çekirdek araçları iki sürümü vardır. Kullandığınız sürümü, yerel geliştirme ortamı, dil seçimi ve gerekli destek düzeyine bağlıdır:
+Azure işlevleri çekirdek araçları iki sürümü vardır. Kullandığınız sürümü, yerel geliştirme ortamınıza bağlıdır [dilinin seçim](supported-languages.md)ve gerekli destek düzeyi:
 
-+ [Sürüm 1.x](#v1): sürümünü destekleyen genel kullanıma (GA) çalışma zamanının 1.x. Araçlar'ın bu sürümü yalnızca Windows bilgisayarlarda desteklenir ve gelen yüklü bir [npm paket](https://docs.npmjs.com/getting-started/what-is-npm). Bu sürümle birlikte, resmi olarak desteklenmeyen Deneysel dillerde işlevleri oluşturabilirsiniz. Daha fazla bilgi için [Azure işlevleri'nde desteklenen diller](supported-languages.md)
++ [Sürüm 1.x](#v1): sürümünü destekleyen genel kullanıma (GA) çalışma zamanının 1.x. Araçlar'ın bu sürümü yalnızca Windows bilgisayarlarda desteklenir ve gelen yüklü bir [npm paket](https://docs.npmjs.com/getting-started/what-is-npm).
 
-+ [Sürüm 2.x](#v2): destekler [sürüm 2.x çalışma zamanı](functions-versions.md). Bu sürümü destekler [Windows](#windows-npm), [macOS](#brew), ve [Linux](#linux). Platforma özgü paket yöneticileri veya npm yükleme için kullanır. 2.x çalışma zamanı gibi çekirdek Araçları'nın bu sürümü şu anda Önizleme aşamasındadır. 
++ [Sürüm 2.x](#v2): destekler [sürüm 2.x çalışma zamanı](functions-versions.md). Bu sürümü destekler [Windows](#windows-npm), [macOS](#brew), ve [Linux](#linux). Platforma özgü paket yöneticileri veya npm yükleme için kullanır. 2.x çalışma zamanı gibi çekirdek Araçları'nın bu sürümü şu anda Önizleme aşamasındadır. Sürüm 2.x, bir işlev uygulamasında tüm işlevleri aynı dil çalışma zamanı kullanması gerekir.
 
 Aksi belirtilmediği sürece, bu makaledeki örnekler için sürümü olan 2.x. Sürüm önemli güncelleştirmeleri almak için Duyurular, izleme 2.x bozucu dahil olmak üzere, değişiklikleri [Azure App Service duyuruları](https://github.com/Azure/app-service-announcements/issues) depo.
 

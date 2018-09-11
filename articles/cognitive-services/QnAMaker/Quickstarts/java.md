@@ -1,20 +1,21 @@
 ---
-title: Java Hızlı Başlangıç için Microsoft soru-cevap Oluşturucu API'si (v4) - Azure Bilişsel hizmetler | Microsoft Docs
+title: "Hızlı Başlangıç: Soru-cevap Oluşturucu API'si (v4) Java"
+titleSuffix: Azure Cognitive Services
 description: Microsoft Translator metin çevirisi API'si, Azure üzerinde Microsoft Bilişsel hizmetler kullanarak hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get başlayın.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: nitinme
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: d8df77d43441331bdda38814e4bddfb29d1576c1
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: b436cbc1efde2e28b388e6bfc1843af1808ea993
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868407"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346682"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-java"></a>Hızlı Başlangıç için Microsoft soru-cevap Oluşturucu API'si ile Java 
 <a name="HOLTop"></a>

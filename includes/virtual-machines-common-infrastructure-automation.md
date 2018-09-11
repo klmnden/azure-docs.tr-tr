@@ -10,8 +10,7 @@ Oluşturup uygun ölçekte tutarlı bir şekilde Azure sanal makineleri (VM'ler)
     - [Azure Otomasyonu](#azure-automation) Azure ve şirket içi altyapınız genelinde eylemleri gerçekleştirebilirsiniz.
 
 - Uygulama dağıtımı ve teslim otomatikleştirin
-    - Örnekler [Visual Studio Team Services](#visual-studio-team-services) ve [Jenkins](#jenkins).
-
+    - Örnekler [Azure DevOps Hizmetleri](#visual-studio-team-services) ve [Jenkins](#jenkins).
 
 ## <a name="ansible"></a>Ansible
 [Ansible](https://www.ansible.com/) yapılandırma yönetimi, VM oluşturma ve uygulama dağıtımı için bir Otomasyon altyapısı. Ansible, kimlik doğrulaması ve hedef makineleri yönetmek için genellikle SSH anahtarlarıyla bir aracısız modelini kullanır. Belirli görevleri gerçekleştirmek kullanılabilir olan Ansible modül sayısı ile playbook'ları yapılandırma görevleri tanımlanır. Daha fazla bilgi için [Ansible nasıl çalıştığını](https://www.ansible.com/how-ansible-works).
@@ -114,12 +113,12 @@ Azure Otomasyonu, Vm'leri belirli bir dizi nasıl yapılandırılmalıdır tanı
 - [Azure Otomasyonu DSC kullanma](../articles/automation/automation-dsc-getting-started.md).
 
 
-## <a name="visual-studio-team-services"></a>Visual Studio Team Services
-[Team Services](https://www.visualstudio.com/team-services/) paylaşımı ve kod, otomatik derlemeler kullanın ve bir sürekli tümleştirme ve geliştirme (CI/CD) işlem hattı oluşturma izleme yardımcı olacak araçları paketidir. Team Services, kullanımı kolaylaştırmak için Visual Studio ve diğer düzenleyiciler ile tümleştirilir. Team Services oluşturabilir ve Azure Vm'leri yapılandırmak ve kod dağıtacaksınız.
+## <a name="azure-devops-services"></a>Azure DevOps Services
+[Azure DevOps hizmetleriyle](https://www.visualstudio.com/team-services/) paylaşımı ve kod, otomatik derlemeler kullanın ve bir sürekli tümleştirme ve geliştirme (CI/CD) işlem hattı oluşturma izleme yardımcı olacak araçları paketidir. Azure DevOps hizmetleriyle, kullanımı kolaylaştırmak için Visual Studio ve diğer düzenleyiciler ile tümleştirilir. Azure DevOps hizmetleriyle oluşturabilir ve Azure Vm'leri yapılandırabilir ve ardından kod bu bilgisayarlara dağıtın.
 
 Şunları nasıl yapacağınızı öğrenin:
 
-- [Team Services ile sürekli tümleştirme işlem hattı oluşturma](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
+- [Azure DevOps hizmetleriyle sürekli tümleştirme işlem hattı oluşturma](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
 
 
 ## <a name="jenkins"></a>Jenkins

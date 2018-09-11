@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 26715c6abb9c2c940090c84b64a30f7fb701d059
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 924584a77d36ec41488d8c76d9631baf484ff494
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445698"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346398"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için G Suite'i yapılandırma
 
 Bu öğreticinin amacı, size otomatik olarak sağlama ve sağlamasını G Suite Azure Active Directory (Azure AD) kullanıcı hesaplarını nasıl göstermektir.
 
 > [!NOTE]
-> Bu öğreticide, Azure AD kullanıcı sağlama hizmeti üzerinde oluşturulmuş bir bağlayıcı açıklanmaktadır. Bu hizmet yapar, nasıl çalıştığını ve sık sorulan sorular önemli ayrıntılar için bkz. [otomatik kullanıcı hazırlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına](./../active-directory-saas-app-provisioning.md).
+> Bu öğreticide, Azure AD kullanıcı sağlama hizmeti üzerinde oluşturulmuş bir bağlayıcı açıklanmaktadır. Bu hizmet yapar, nasıl çalıştığını ve sık sorulan sorular önemli ayrıntılar için bkz. [otomatik kullanıcı hazırlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına](../manage-apps/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 G Suite ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik bir G Suite çoklu oturum açma etkin
 - Google Apps aboneliği veya Google Cloud Platform abonelik.
 
@@ -88,7 +88,7 @@ Bu bölümde Azure AD'nize G Suite API'sini sağlama kullanıcı hesabı ile ba�
 
     b. Seçin **etki alanı adı** sol gezinti bölmesinde, seçip **Ekle**.
      
-     ![Etki alanı](./media/google-apps-provisioning-tutorial/domain_1.png)
+     ![Domain](./media/google-apps-provisioning-tutorial/domain_1.png)
 
      ![Etki alanı ekleme](./media/google-apps-provisioning-tutorial/domain_2.png)
 
@@ -100,7 +100,7 @@ Bu bölümde Azure AD'nize G Suite API'sini sağlama kullanıcı hesabı ile ba�
     
     Azure AD etki alanı adlarıyla doğrulama hakkında daha kapsamlı yönergeler için bkz: [kendi etki alanı adınızı Azure AD'ye ekleme](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
      
-     ![Etki alanı](./media/google-apps-provisioning-tutorial/domain_4.png)
+     ![Domain](./media/google-apps-provisioning-tutorial/domain_4.png)
 
     e. Dizininize eklemek istediğiniz tüm etki alanları için önceki adımları yineleyin.
 
@@ -172,13 +172,13 @@ Bu bölümde Azure AD'nize G Suite API'sini sağlama kullanıcı hesabı ile ba�
 
 Bu işlem, herhangi bir kullanıcı ya da G Suite kullanıcılar ve Gruplar bölümünde atanan grupları ilk eşitleme başlar. İlk eşitleme yaklaşık 40 dakikada hizmet çalışırken oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve etkinlik günlüklerini sağlama için bağlantıları izleyin. Bu günlükler, uygulamanızdan sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır.
 
-Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../active-directory-saas-provisioning-reporting.md).
+Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Kullanıcı hesabı, kurumsal uygulamalar için sağlamayı yönetme](tutorial-list.md)
 * [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
-* [Çoklu oturum açmayı yapılandırın](google-apps-tutorial.md)
+* [Çoklu oturum açmayı yapılandırma](google-apps-tutorial.md)
 
 
 

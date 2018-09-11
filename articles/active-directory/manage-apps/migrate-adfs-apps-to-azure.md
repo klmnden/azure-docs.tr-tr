@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: d22b86ad33db600eb5273e3ab09e71a1b1fd527b
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: cdce0ae223a637ac30ed472d2bf711aa36958414
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577505"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346772"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>AD FS şirket içi uygulamalarını Azure'a geçirme 
 
@@ -55,7 +55,7 @@ Zaten AD FS, Ping veya başka bir şirket içi kimlik doğrulama sağlayıcısı
 - SaaS uygulamaları için bir kimlik sağlayıcısı olan Azure AD, aşağıdakiler gibi ek özellikleri destekler:
   - Uygulama başına belirteç imzalama sertifikaları.
   - [Yapılandırılabilir sertifika sona erme tarihleri](manage-certificates-for-federated-single-sign-on.md).
-  - Azure AD kimlikleri temelinde kullanıcı hesaplarının (önemli Azure Market uygulamalarında) [otomatik sağlanması](../active-directory-saas-app-provisioning.md).
+  - Azure AD kimlikleri temelinde kullanıcı hesaplarının (önemli Azure Market uygulamalarında) [otomatik sağlanması](user-provisioning.md).
 
 **Şirket içi bir kimlik sağlayıcısının avantajlarını koruma**
 - Azure AD'nin avantajlarını elde ederken, kimlik doğrulaması için şirket içi çözümünüzü kullanmaya devam edebilirsiniz. Bu şekilde, şirket için Multi-Factor Authentication çözümleri, günlük ve denetim gibi avantajlar da yitirilmez. 
@@ -232,7 +232,7 @@ Yapılandırma daha önce **Identity** > **Single sign-on settings** altında ol
 ![Kimlik doğrulama hizmeti olarak Azure AD'yi seçme](media/migrate-adfs-apps-to-azure/migrate10.png)
 
 ### <a name="optional-configure-user-provisioning-in-azure-ad"></a>İsteğe bağlı: Azure AD'de kullanıcı sağlamayı yapılandırma
-Azure AD'nin SaaS uygulaması için kullanıcı sağlamayı doğrudan işlemesini istiyorsanız, bkz. [Azure Active Directory ile SaaS uygulamalarına kullanıcı sağlamayı ve kullanıcı sağlamasını kaldırmayı otomatikleştirme](../active-directory-saas-app-provisioning.md).
+Azure AD'nin SaaS uygulaması için kullanıcı sağlamayı doğrudan işlemesini istiyorsanız, bkz. [Azure Active Directory ile SaaS uygulamalarına kullanıcı sağlamayı ve kullanıcı sağlamasını kaldırmayı otomatikleştirme](user-provisioning.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

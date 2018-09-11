@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: 5895e918fbd3b67074069ccc81bd794a75725c9a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 388337fa80d174cb17dae12fa9d5f2fbdfe7e737
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620945"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347792"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory'de uygulamalar için SAML tabanlı çoklu oturum açma hata ayıklama
 
@@ -96,11 +96,11 @@ Hatayı gidermek için:
     - Belirtecinde verilen talepleri
     - Belirteç imzalamak için kullanılan sertifika. SAML yanıtını gözden geçirme hakkında daha fazla bilgi için bkz: [tek oturum açma SAML Protokolü](single-sign-on-saml-protocol.md).
 4. SAML yanıtını hakkında daha fazla bilgi için bkz. [tek oturum açma SAML Protokolü](single-sign-on-saml-protocol.md).
-5. SAML yanıtını gözden geçirdikten sonra bkz. [oturum açtıktan sonra bir uygulamanın sayfada hata](../application-sign-in-problem-application-error.md) sorunu çözme konusunda yönergeler için. 
+5. SAML yanıtını gözden geçirdikten sonra bkz. [oturum açtıktan sonra bir uygulamanın sayfada hata](../manage-apps/application-sign-in-problem-application-error.md) sorunu çözme konusunda yönergeler için. 
 6. Başarıyla oturum açmak hala kaldıramıyorsanız, SAML yanıttan eksik uygulamanın satıcısına isteyebilirsiniz.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Çoklu oturum açma uygulamanıza çalıştığından, yapabilirsiniz [otomatik kullanıcı hazırlama ve sağlamayı kaldırma SaaS uygulamalarına](../active-directory-saas-app-provisioning.md), veya [koşullu erişim ile çalışmaya başlama](../conditional-access/app-based-conditional-access.md).
+Çoklu oturum açma uygulamanıza çalıştığından, yapabilirsiniz [otomatik kullanıcı hazırlama ve sağlamayı kaldırma SaaS uygulamalarına](../manage-apps/user-provisioning.md), veya [koşullu erişim ile çalışmaya başlama](../conditional-access/app-based-conditional-access.md).
 
 

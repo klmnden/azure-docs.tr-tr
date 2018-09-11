@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3c0efe7fbeb3d3259d1e8505a965499cfb941e9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: b1ab1381271391da9f4775488908af4eb1e47f5d
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049397"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346279"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK SQL API'si için: yayın notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -52,6 +52,15 @@ ms.locfileid: "44049397"
 ## <a name="release-notes"></a>Sürüm Notları
 
 Azure Cosmos DB .NET Core SDK'sı özellik eşliği ile en son sürümüne sahip [Azure Cosmos DB .NET SDK'sı](sql-api-sdk-dotnet.md).
+
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+
+* Eklenen isteği iptal etme desteği.
+* Eklenen SetCurrentLocation için form veya ConnectionPolicy tercih edilen konumlar bölgeye göre otomatik olarak doldurur.
+* Çapraz bölüm Min/Maks ve sorgular tek bir bölüme belge eşleşen filtre hata düzeltildi.
+* DocumentClient yöntemleri artık IDocumentClient ile eşlik vardır.
+* Kurulan bağlantı sayısını azaltmak için güncelleştirilmiş doğrudan TCP taşıma yığını.
+* Windows olmayan istemciler için eklenen destek doğrudan modu TCP için.
 
 ### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
@@ -186,8 +195,7 @@ Bu SDK ilgili sorularınız varsa postalayabilir [StackOverflow](http://stackove
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
-| [2.0.0-preview2](#2.0.0-preview2) |26 Temmuz 2018 |--- |
-| [2.0.0-Preview](#2.0.0-preview) |11 Mayıs 2018 |--- |
+| [2.0.0](#2.0.0) |07 Eylül 2018'den |--- |
 | [1.9.1](#1.9.1) |09 Mart 2018 |--- |
 | [1.8.2](#1.8.2) |21 Şubat 2018 |--- |
 | [1.8.1](#1.8.1) |05 Şubat 2018 |--- |

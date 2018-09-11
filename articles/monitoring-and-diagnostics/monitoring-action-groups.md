@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/1/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 998f35c8957b63d73d7a3d15be76711198fa4833
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 441469e24de5324fb5bed40c75f9a6b26f85bcc5
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745716"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325065"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure portalında Eylem grupları oluşturma ve yönetme
 ## <a name="overview"></a>Genel Bakış ##
@@ -83,6 +83,7 @@ Eylem grupları yapılandırmak için Azure Resource Manager şablonlarını kul
 
 <dt>Runbook</dt>
 <dd>Bir eylem grubunda en fazla 10 Runbook eylemler olabilir</dd>
+<dd>Başvurmak [Azure abonelik hizmeti limitleri](../azure-subscription-service-limits.md) sınırları üzerinde Runbook yükler</dd>
 
 <dt>SMS</dt>
 <dd>Bir eylem grubunda en fazla 10 SMS eylemler olabilir</dd>

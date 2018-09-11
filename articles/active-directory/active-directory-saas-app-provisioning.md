@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 0d6f345a35275328212d6a245242083b809943b7
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 3ec19c2b8ef4ae75a28690fb7e38b80a454f8b0c
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144093"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325320"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Sağlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına kullanıcı otomatikleştirin
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>SaaS uygulamaları için kullanıcı sağlamayı otomatik nedir?
@@ -228,7 +228,7 @@ Nasıl okuma Azure portalında denetim günlükleri hakkında daha fazla bilgi i
 
 ##<a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>Kullanıcı hazırlama sorunlarını nasıl giderebilirim?
 
-Senaryo tabanlı otomatik kullanıcı hazırlama sorunlarını giderme konusunda yönergeler için bkz. [yapılandırmak ve uygulamaya kullanıcı hazırlama sorunlarını](active-directory-application-provisioning-content-map.md).
+Senaryo tabanlı otomatik kullanıcı hazırlama sorunlarını giderme konusunda yönergeler için bkz. [yapılandırmak ve uygulamaya kullanıcı hazırlama sorunlarını](application-provisioning-config-problem.md).
 
 
 ##<a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>Otomatik kullanıcı hazırlama kullanıma alma için en iyi uygulamalar nelerdir?

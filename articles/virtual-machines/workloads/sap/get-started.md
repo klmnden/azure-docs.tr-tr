@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3892b546bb6873a802d85b30cd89801abc9a7424
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 7653541a6a66ce5e94119dbb720213a4b40adc81
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162436"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303448"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Barındırma ve SAP iş yükü senaryoları çalıştırmak için Azure'ı kullanma
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -335,60 +335,22 @@ Sonraki adımlar:
 
 
 ## <a name="sap-hana-on-azure-virtual-machines"></a>Azure Sanal Makinelerde SAP HANA
+Belgelerinin bu bölümü, SAP HANA farklı yönlerini kapsar. Önkoşul Azure Iaas temel hizmetleri sağlayan asıl hizmetlerini Azure ile ilgili bilgi sahibi olması gerekir. çoğunlukla Azure bilgi işlem, depolama ve ağ. Çok sayıda Bu konular, SAP NetWeaver ilgili işlenir [Azure Planlama Kılavuzu](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/planning-guide). 
 
-### <a name="getting-started-with-sap-hana-on-azure"></a>Azure'da SAP HANA ile çalışmaya başlama
-Başlık: Azure vm'lerde SAP hana el ile yükleme Hızlı Başlangıç Kılavuzu
+Azure'da HANA için özel belgelere makaleleri heir alt makaleleri ve bu listesinden oluşur:
 
-Özet: Bu Hızlı Başlangıç Kılavuzu, bir tek örnek SAP HANA sistemi SAP NetWeaver 7.5 ve SAP HANA SP12 Azure vm'lerde el ile yükleme tarafından ayarlamak için yardımcı olur. Kılavuzu okuyucu Azure Iaas temel bilgileri gibi sanal makine veya sanal ağlar Azure portal veya Powershell/CLI gibi json şablonları kullanma seçeneği aracılığıyla dağıtma hakkında bilgi sahibi olduğunu varsayar. Ayrıca okuyucu SAP HANA, SAP NetWeaver ve şirket içi yükleme ile ilgili bilgi sahibi olduğunu beklenmektedir.
+- [Hızlı Başlangıç: Azure sanal makinelerinde tek örnek SAP hana el ile yükleme](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-get-started)
+- [SAP S/4HANA veya BW/4hana'yı azure'da dağıtın](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/cal-s4h)
+- [Azure'da SAP HANA altyapısı yapılandırmaları ve işlemleri](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations)
+- [Azure sanal makineler için SAP HANA yüksek kullanılabilirlik](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
+- [Bir Azure bölgesi içinde SAP HANA kullanılabilirliği](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
+- [Azure bölgeleri arasında SAP HANA kullanılabilirliği](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions)
+- [Azure sanal makineler'de SAP hana yüksek kullanılabilirlik](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-high-availability)
+- [SAP HANA için yedekleme Kılavuzu Azure sanal Makineler'de](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
+- [SAP HANA dosya düzeyi Azure yedekleme](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
+- [Depolama anlık görüntülerine dayalı SAP HANA yedeklemesi](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
 
-
-[Bu kılavuza buradan ulaşabilirsiniz](hana-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-### <a name="s4hana-sap-cal-deployment-on-azure"></a>S/4hana'yı Azure üzerindeki SAP CAL dağıtım
-Başlık: SAP S/4HANA veya BW/4hana'yı azure'da dağıtın
-
-Özet: Bu kılavuz, SAP S/4HANA, SAP Cloud Appliance Library kullanarak azure'da dağıtımını göstermek için yardımcı olur. SAP Cloud Appliance Library, Azure üzerinde SAP uygulamaları dağıtmanıza olanak tanıyan SAP tarafından bir hizmettir. Kılavuzda, dağıtım adım adım açıklanmaktadır.
-
-
-[Bu kılavuza buradan ulaşabilirsiniz](cal-s4h.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-### <a name="high-availability-of-sap-hana-in-azure-virtual-machines"></a>Azure sanal makineler'de SAP hana yüksek kullanılabilirlik
-Başlık: Azure sanal makineler'de SAP hana yüksek kullanılabilirlik
-
-Özet: Bu kılavuzda, HANA sistem çoğaltma otomatik yük devretme ile uyum sağlamak için SUSE 12 işletim sistemi ve SAP HANA yüksek kullanılabilirlik yapılandırması üzerinden yol gösterir. Kılavuzu, SUSE ve Azure sanal makineler için özeldir. Kılavuzu henüz Red Hat veya çıplak veya özel Bulut veya diğer Azure dışı genel bulut dağıtımları geçerli değildir.
-
-
-
-[Bu kılavuza buradan ulaşabilirsiniz](sap-hana-high-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-### <a name="sap-hana-backup-overview-on-azure-vms"></a>Azure vm'lerde SAP HANA yedeklemesine genel bakış
-Başlık: Azure sanal Makineler'de SAP HANA yedekleme Kılavuzu
-
-Özet: Bu kılavuzda, Azure sanal Makineler'de SAP HANA çalıştırmayı yedekleme olanaklar hakkında temel bilgiler sağlanır.
-
-
-
-[Bu kılavuza buradan ulaşabilirsiniz](sap-hana-backup-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-### <a name="sap-hana-file-level-backup-on-azure-vms"></a>Azure vm'lerde SAP HANA dosya düzeyi yedekleme
-Başlık: depolama anlık görüntülerine dayalı SAP HANA yedeklemesi
-
-Özet: Bu kılavuzda, Azure sanal Makineler'de SAP HANA çalıştırırken anlık görüntü tabanlı yedeklemelerin Azure Vm'lerinde kullanma hakkında bilgi sağlanır.
-
-
-
-[Bu kılavuza buradan ulaşabilirsiniz](sap-hana-backup-file-level.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-### <a name="sap-hana-snapshot-based-backups-on-azure-vms"></a>Azure vm'lerde SAP HANA tabanlı anlık görüntü yedeklemeleri
-Başlık: SAP HANA dosya düzeyi Azure yedekleme
-
-Özet: Bu kılavuzda Azure sanal Makineler'de SAP HANA çalıştırmayı SAP HANA dosya düzeyi yedekleme kullanma hakkında bilgi sağlar.
-
-
-
-[Bu kılavuza buradan ulaşabilirsiniz](sap-hana-backup-storage-snapshots.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
+ 
 
 ## <a name="sap-netweaver-deployed-on-azure-virtual-machines"></a>Dağıtılan Azure sanal Makineler'de SAP NetWeaver
 

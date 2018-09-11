@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91ed29b100e0fab0f0e386f771dc6f71d7b424c6
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 7b1f937a71a0ff5b8030c922073dc463af3c8430
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163422"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349271"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure sanal makineleri planlama ve uygulama için SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1921,6 +1921,7 @@ Aşağıdaki Azure yapıları, altyapı sorunları etkiyi en aza indirmek ve dü
 * Tam sistem (gerekli) bir Azure aboneliğinde çalıştırır.
 * Tam sistem bir Azure sanal (gerekli) ağ içinde çalışır.
 * Üç kullanılabilirlik kümelerine tek SAP sistemine sanal makinelerin ayrılması, aynı sanal ağa ait bile tüm sanal makineleri ile mümkündür.
+* (Örneğin DBMS, ASCS, uygulama sunucuları) her katman, ayrılmış bir kullanılabilirlik kümesi kullanmanız gerekir.
 * Tek SAP sistemine DBMS örneklerini çalışan tüm sanal makineler, bir kullanılabilirlik kümesi'nde ' dir. SQL Server AlwaysOn veya Oracle Data Guard gibi özellikleri kullanılır, yerel DBMS yüksek kullanılabilirlik beri sistem başına DBMS örneği çalıştıran birden fazla VM olduğunu varsayıyoruz.
 * DBMS örnekleri çalışan tüm sanal makineler, kendi depolama hesabını kullanırsınız. DBMS veri ve günlük dosyaları bir depolama hesabından diğerine verileri eşitlemek DBMS yüksek kullanılabilirlik işlevleri kullanarak başka bir depolama hesabına çoğaltılır. Bir depolama hesabı kullanım dışı kalması yetersizlik tek SQL Windows Küme düğümü, ancak değil tam SQL Server hizmetinin neden olur.
 * Tek SAP sistemine (A) SCS örneği çalışan tüm sanal makineler, bir kullanılabilirlik kümesi'nde ' dir. (A) korumak için bu sanal makineler içinde yapılandırılmış bir Windows Server Yük devretme kümesi (WSFC) SCS örneği.

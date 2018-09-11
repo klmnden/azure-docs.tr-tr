@@ -15,12 +15,12 @@ ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 20cc91a1754c3d68b447430abf21a3aad5925e05
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: aa7962e3659618b8c5a4f161d667c5e90477acc9
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365357"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347656"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Uygulama proxy'si sorunlarını ve hata iletileri sorunlarını giderme
 Yayımlanan bir uygulamaya erişen veya yayımlama uygulamalarda hata oluşursa, Microsoft Azure AD uygulama ara sunucusu doğru şekilde çalışıp çalışmadığını görmek için aşağıdaki seçeneklerden denetleyin:
@@ -67,7 +67,7 @@ Bu tablo, Kerberos Kurulum ve yapılandırma gelen daha yaygın hataları kapsar
 | 13016 - sınır belirteci veya erişim tanımlama bilgisi UPN olduğundan azure AD kullanıcı adına bir Kerberos anahtarı alınamıyor. | STS yapılandırmasında bir sorun yoktur. UPN talep yapılandırması içinde STS düzeltin. |
 | 13019 - azure AD, aşağıdaki genel API hatası nedeniyle kullanıcı adına bir Kerberos anahtarı alınamıyor. | Bu olay, Azure AD arasında yapılandırması yanlış gösterebilir ve etki alanı denetleyicisi sunucusuna veya her iki makinede saat ve tarih yapılandırmasında bir sorun. Etki alanı denetleyicisi, Azure AD tarafından oluşturulan Kerberos biletini reddetti. Doğrulayın, Azure AD ve arka uç uygulama sunucusu özellikle SPN yapılandırma doğru yapılandırılmış. Azure AD etki alanı denetleyicisi güven Azure AD ile başlatmasını sağlamak etki alanı denetleyicisi aynı etki alanına katılmış olduğundan emin olun. Emin olun Azure AD saat ve tarih yapılandırmasına ve etki alanı denetleyicisi eşitlenir. |
 | 13020 - arka uç sunucu SPN'si tanımlanmadığından azure AD kullanıcı adına bir Kerberos anahtarı alınamıyor. | Bu olay, Azure AD arasında yapılandırması yanlış gösterebilir ve etki alanı denetleyicisi sunucusuna veya her iki makinede saat ve tarih yapılandırmasında bir sorun. Etki alanı denetleyicisi, Azure AD tarafından oluşturulan Kerberos biletini reddetti. Doğrulayın, Azure AD ve arka uç uygulama sunucusu özellikle SPN yapılandırma doğru yapılandırılmış. Azure AD etki alanı denetleyicisi güven Azure AD ile başlatmasını sağlamak etki alanı denetleyicisi aynı etki alanına katılmış olduğundan emin olun. Emin olun Azure AD saat ve tarih yapılandırmasına ve etki alanı denetleyicisi eşitlenir. |
-| 13022 - Kerberos kimlik doğrulaması denemeleri ile bir HTTP 401 hata için arka uç sunucu yanıt verir çünkü azure AD kullanıcı kimlik doğrulaması yapamaz. | Bu olay, Azure AD arasında yapılandırması yanlış gösterebilir ve arka uç uygulama sunucusu veya her iki makinede saat ve tarih yapılandırmasında bir sorun. Arka uç sunucusu, Azure AD tarafından oluşturulan Kerberos biletini reddetti. Doğrulayın, Azure AD ve arka uç uygulama sunucusu doğru şekilde yapılandırılır. Emin olun Azure AD saat ve tarih yapılandırmasına ve arka uç uygulama sunucusu eşitlenir. Daha fazla bilgi için [sorun giderme Kerberos Kısıtlı temsilci yapılandırmaları için uygulama proxy'si](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md).  |
+| 13022 - Kerberos kimlik doğrulaması denemeleri ile bir HTTP 401 hata için arka uç sunucu yanıt verir çünkü azure AD kullanıcı kimlik doğrulaması yapamaz. | Bu olay, Azure AD arasında yapılandırması yanlış gösterebilir ve arka uç uygulama sunucusu veya her iki makinede saat ve tarih yapılandırmasında bir sorun. Arka uç sunucusu, Azure AD tarafından oluşturulan Kerberos biletini reddetti. Doğrulayın, Azure AD ve arka uç uygulama sunucusu doğru şekilde yapılandırılır. Emin olun Azure AD saat ve tarih yapılandırmasına ve arka uç uygulama sunucusu eşitlenir. Daha fazla bilgi için [sorun giderme Kerberos Kısıtlı temsilci yapılandırmaları için uygulama proxy'si](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).  |
 
 ## <a name="end-user-errors"></a>Son kullanıcı hataları
 

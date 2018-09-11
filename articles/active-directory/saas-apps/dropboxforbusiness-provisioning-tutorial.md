@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory ile otomatik olarak bir kullanıcı sağlamak için Dropbox yapılandırma | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ve iş için Dropbox arasında yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı hazırlama için Dropbox yapılandırma | Microsoft Docs'
+description: Azure Active Directory ve iş için Dropbox arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,89 +14,89 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: dcc11d9e1193f180390516e9dd75abbca0889b09
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8e61fe4af83ee72df74027b2e52a3e81db486798
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214442"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347316"
 ---
-# <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Öğretici: İş için Dropbox otomatik kullanıcı sağlamayı yapılandırın
+# <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Öğretici: İş için Dropbox için otomatik kullanıcı hazırlama yapılandırın
 
-Bu öğreticinin amacı, iş ve Azure AD otomatik olarak sağlamak ve kullanıcı hesaplarına Azure AD'den iş için Dropbox sağlanmasını için Dropbox gerçekleştirmek için gereken adımları Göster sağlamaktır.
+Bu öğreticinin amacı, iş ve Azure AD'ye otomatik olarak sağlama ve sağlamasını dropbox'a iş için Azure AD'den kullanıcı hesapları için Dropbox gerçekleştirmek için gereken adımları Göster sağlamaktır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
+Bu öğreticide özetlenen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
-*   Bir Azure Active directory kiracısı.
-*   Bir Dropbox iş çoklu oturum açma etkin abonelik için.
-*   İş için Dropbox takım yönetici izinlerine sahip bir kullanıcı hesabının.
+*   Azure Active directory kiracısı.
+*   Bir Dropbox iş çoklu oturum açma etkin aboneliği için.
+*   İş için Dropbox takım Yöneticisi izinlerine sahip bir kullanıcı hesabı.
 
-## <a name="assigning-users-to-dropbox-for-business"></a>İş için Dropbox kullanıcılar atama
+## <a name="assigning-users-to-dropbox-for-business"></a>İş için Dropbox kullanıcıları atama
 
-Azure Active Directory "atamaları" adlı bir kavram hangi kullanıcıların seçili uygulamalara erişim alması belirlemek için kullanır. Otomatik olarak bir kullanıcı hesabı sağlama bağlamında, yalnızca kullanıcıların ve grupların "Azure AD uygulamada atanmış" eşitlenir.
+Azure Active Directory "atamaları" adlı bir kavram, hangi kullanıcıların seçilen uygulamalara erişimi alması belirlemek için kullanır. Otomatik kullanıcı hesabı sağlama bağlamında, yalnızca kullanıcıların ve grupların, "Azure AD'de bir uygulama için atandı" eşitlenir.
 
-Yapılandırma ve sağlama hizmeti etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD grupları için iş uygulaması, Dropbox erişmek isteyen kullanıcıların temsil eden karar vermeniz gerekir. Karar sonra bu kullanıcılar, Dropbox iş uygulaması için buradaki yönergeleri izleyerek atayabilirsiniz:
+Yapılandırma ve sağlama hizmetini etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD grupları için iş kolu uygulaması, dropbox'a erişmek isteyen kullanıcılar temsil karar vermeniz gerekir. Karar sonra buradaki yönergeleri izleyerek, dropbox'a iş uygulaması için bu kullanıcılara atayabilirsiniz:
 
-[Bir kullanıcı veya grup için bir kuruluş uygulama atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Kurumsal bir uygulamayı kullanıcı veya grup atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-to-dropbox-for-business"></a>İş için Dropbox kullanıcılara atamak için önemli ipuçları
+### <a name="important-tips-for-assigning-users-to-dropbox-for-business"></a>İş için Dropbox kullanıcıları atamak için önemli ipuçları
 
-*   Önerilir tek bir Azure AD kullanıcısının iş sağlama yapılandırmayı test etmek için Dropbox atanır. Ek kullanıcı ve/veya grupları daha sonra atanabilir.
+*   Önerilir tek bir Azure AD kullanıcı sağlama yapılandırmasını test etmek iş için Dropbox atanır. Ek kullanıcılar ve/veya grupları daha sonra atanabilir.
 
-*   Bir kullanıcı, iş için Dropbox atarken, geçerli bir kullanıcı rolünün seçmeniz gerekir. "Varsayılan erişim" rolü sağlama için çalışmaz...
+*   İş için Dropbox için kullanıcı atama, geçerli bir kullanıcı rolü seçmeniz gerekir. "Varsayılan erişim" rolü sağlama için çalışmaz...
 
 ## <a name="enable-automated-user-provisioning"></a>Otomatik kullanıcı sağlamayı etkinleştirin
 
-Bu bölümde API sağlama işletmenin kullanıcı hesabı için Azure AD Dropbox'a konusunda size rehberlik eder ve oluşturmak için sağlama hizmeti yapılandırma güncelleştirin ve Azure AD'de kullanıcı ve grup atama temel iş için Dropbox atanan kullanıcı hesaplarında devre dışı bırakın.
+Bu bölümde, Azure AD sağlama API'si işletmenin kullanıcı hesabı için Dropbox'a bağlanma aracılığıyla size yol gösterir ve sağlama hizmeti oluşturmak için yapılandırma güncelleştirmesi ve atanan kullanıcı hesapları için kullanıcı ve Grup dayanan iş dropbox'ta devre dışı bırak Azure AD'de atama.
 
 >[!Tip]
->Da tercih edebilirsiniz etkin SAML tabanlı çoklu oturum açma iş için dropbox, yönergeleri izleyerek sağlanan [Azure portal](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
+>Ayrıca seçtiğiniz etkin SAML tabanlı çoklu oturum açma için iş için Dropbox, yönergeleri izleyerek sağlanan [Azure portalında](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlama bağımsız olarak, çoklu oturum açma yapılandırılabilir.
 
-### <a name="to-configure-automatic-user-account-provisioning"></a>Otomatik olarak bir kullanıcı hesabı sağlama yapılandırmak için:
+### <a name="to-configure-automatic-user-account-provisioning"></a>Otomatik kullanıcı hesabı sağlama yapılandırmak için:
 
-1. İçinde [Azure portal](https://portal.azure.com), Gözat **Azure Active Directory > Kurumsal uygulamaları > tüm uygulamaları** bölümü.
+1. İçinde [Azure portalında](https://portal.azure.com), Gözat **Azure Active Directory > Kurumsal uygulamaları > tüm uygulamaları** bölümü.
 
-2. Çoklu oturum açma için iş için Dropbox zaten yapılandırdıysanız arama alanı kullanarak iş için Dropbox örneğiniz arayın. Aksi takdirde seçin **Ekle** arayın ve **iş için Dropbox** uygulama galerisinde. İş için Dropbox Arama sonuçlarından seçin ve uygulamaları listenize ekleyin.
+2. Çoklu oturum açma için zaten iş için Dropbox yapılandırdıysanız, Örneğiniz için arama alanını kullanarak iş Dropbox arayın. Aksi takdirde seçin **Ekle** araması **iş için Dropbox** uygulama galerisinde. Arama sonuçlarından iş için Dropbox'ı seçin ve uygulama listenize ekleyin.
 
-3. İş için Dropbox örneğiniz seçin, sonra seçin **sağlama** sekmesi.
+3. İş için Dropbox'ın örneğinizi seçin ve ardından **sağlama** sekmesi.
 
-4. Ayarlama **sağlama modunda** için **otomatik**. 
+4. Ayarlama **hazırlama modu** için **otomatik**. 
 
     ![sağlama](./media/dropboxforbusiness-provisioning-tutorial/provisioning.png)
 
-5. Altında **yönetici kimlik bilgileri** 'yi tıklatın **Authorize**. Bir Dropbox iş oturum açma iletişim için yeni bir tarayıcı penceresinde açar.
+5. Altında **yönetici kimlik bilgileri** bölümünde **Authorize**. Bir Dropbox iş oturum açma iletişim kutusu için yeni bir tarayıcı penceresinde açar.
 
-6. Üzerinde **oturum açma için Azure AD ile bağlamak için Dropbox** iletişim kutusunda, Dropbox iş Kiracı için oturum açın.
+6. Üzerinde **oturum açma için Azure AD'ye bağlamak için Dropbox** iletişim kutusunda, Dropbox iş Kiracı için oturum açın.
 
-     ![Kullanıcı sağlamayı](./media/dropboxforbusiness-provisioning-tutorial/ic769518.png "kullanıcı hazırlama")
+     ![Kullanıcı sağlamayı](./media/dropboxforbusiness-provisioning-tutorial/ic769518.png "kullanıcı sağlama")
 
-7. Azure Active Directory, Dropbox iş Kiracı için değişiklik izni vermek istediğiniz onaylayın. Tıklatın **izin**.
+7. Dropbox iş Kiracı için değişiklik yapmak için Azure Active Directory izin vermek istediğinizi onaylayın. Tıklayın **izin**.
     
-      ![Kullanıcı sağlamayı](./media/dropboxforbusiness-provisioning-tutorial/ic769519.png "kullanıcı hazırlama")
+      ![Kullanıcı sağlamayı](./media/dropboxforbusiness-provisioning-tutorial/ic769519.png "kullanıcı sağlama")
 
-8. Azure portalında tıklatın **Bağlantıyı Sına** Azure emin olmak için AD, Dropbox iş uygulamasının bağlanabilir. Bağlantı başarısız olursa, iş hesabı Team yönetici izinleri olan için Dropbox emin olun ve deneyin **"Yetkilendir"** adım yeniden uygulayın.
+8. Azure portalında **Test Bağlantısı** Azure emin olmak için AD iş uygulaması için Dropbox bağlanabilirsiniz. Bağlantı başarısız olursa, iş hesabı takım Yöneticisi izinleri için Dropbox'emin olun ve deneyin **"Yetkilendir"** adım yeniden uygulayın.
 
-9. Bir kişi veya sağlama hata bildirimleri alması gereken Grup e-posta adresini girin **bildirim e-posta** alan ve onay kutusunu işaretleyin.
+9. Bir kişi veya grup sağlama hatası bildirimlerini alması gereken e-posta adresini girin **bildirim e-posta** alan ve onay kutusunu işaretleyin.
 
-10. Tıklatın **kaydedin.**
+10. Tıklayın **kaydedin.**
 
-11. Eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları iş için Dropbox için.**
+11. Eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları dropbox'a işletmeler için.**
 
-12. İçinde **öznitelik eşlemelerini** bölümünde, iş için Dropbox için Azure AD'den eşitlenen kullanıcı öznitelikleri gözden geçirin. Seçilen öznitelikler **eşleşen** özellikleri, iş için Dropbox kullanıcı hesaplarında güncelleştirme işlemleri için eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
+12. İçinde **öznitelik eşlemelerini** bölümünde, dropbox'a iş için Azure AD'den eşitlenen kullanıcı özniteliklerini gözden geçirin. Seçilen öznitelikler **eşleşen** özellikleri güncelleştirme işlemleri için iş için Dropbox kullanıcı hesaplarını eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
 
-13. İş için dropbox hizmet sağlama Azure AD etkinleştirmek için değiştirmek **sağlama durumu** için **üzerinde** ayarları bölümünde
+13. Azure AD sağlama hizmeti için iş için Dropbox'ı etkinleştirmek için değiştirin **sağlama durumu** için **üzerinde** Ayarlar bölümünde
 
-14. Tıklatın **kaydedin.**
+14. Tıklayın **kaydedin.**
 
-Herhangi bir kullanıcı ve/veya Dropbox kullanıcılar ve Gruplar bölümünde iş için atanan grupları ilk eşitleme başlatır. İlk eşitleme gerçekleştirmek yaklaşık 40 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve, Dropbox sağlama hizmeti iş uygulaması tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik günlükleri sağlamak için bağlantıları izleyin.
+Herhangi bir kullanıcı ve/veya Dropbox for Business kullanıcılar ve Gruplar bölümünde atanan grupları ilk eşitleme başlar. İlk eşitleme hizmeti çalışıyor sürece yaklaşık 40 dakikada oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve iş uygulaması için Dropbox üzerinde'sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklayan etkinlik günlüklerini sağlama için bağlantıları izleyin.
 
-Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](../active-directory-saas-provisioning-reporting.md).
+Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../manage-apps/check-status-user-account-provisioning.md).
 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Kullanıcı hesabı Kurumsal uygulamaları için sağlama yönetme](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Kullanıcı hesabı, kurumsal uygulamalar için sağlamayı yönetme](tutorial-list.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 * [Çoklu oturum açmayı yapılandırın](dropboxforbusiness-tutorial.md)

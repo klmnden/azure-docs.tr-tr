@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 2c641703547c391618d75fabfa181dff0b98f74f
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: c8bab609212c837802be6f70e7fc74df6b5eaf2e
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918779"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346262"
 ---
 # <a name="introduction-to-application-groups"></a>Uygulama gruplarına giriş
 Service Fabric'in Küme Kaynak Yöneticisi genellikle yük yayarak küme kaynaklarını yöneten (aracılığıyla temsil [ölçümleri](service-fabric-cluster-resource-manager-metrics.md)) kümesi boyunca eşit. Service Fabric kümesi ve kümedeki düğümlerin kapasitesini bir bütün olarak yöneten [kapasite](service-fabric-cluster-resource-manager-cluster-description.md). Ölçümler ve kapasite çok sayıda iş yükü, ancak bazen ek gereksinimleri Getir ağır kullanan farklı Service Fabric uygulama örneklerine desenleri için çok iyi çalışır. Örneğin, isteyebilirsiniz:
@@ -47,7 +47,7 @@ PowerShell
 
 ``` posh
 New-ServiceFabricApplication -ApplicationName fabric:/AppName -ApplicationTypeName AppType1 -ApplicationTypeVersion 1.0.0.0 -MaximumNodes 3
-Update-ServiceFabricApplication –Name fabric:/AppName –MaximumNodes 5
+Update-ServiceFabricApplication –ApplicationName fabric:/AppName –MaximumNodes 5
 ```
 
 C#

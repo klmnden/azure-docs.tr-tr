@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 09/10/2018
 ms.author: cherylmc
-ms.openlocfilehash: d89463826cb05bf4cafd36cf4a38e60852d93094
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 34d84a27406f0ebabd7bca576ee443da1d0c9bcd
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42061415"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348813"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>ExpressRoute için sanal ağ geçitleri hakkında
 Bir sanal ağ geçidi Azure sanal ağları arasında ağ trafiği göndermek için kullanılır ve şirket içi konumlar. Kullanabileceğiniz bir sanal ağ geçidi trafiği ExpressRoute veya VPN trafiği için kullanılabilir. Bu makalede, ExpressRoute sanal ağ geçitleri üzerinde odaklanır.
@@ -31,7 +31,7 @@ Bir sanal ağın her ağ geçidi türü için yalnızca bir sanal ağ geçidi ol
 ## <a name="gwsku"></a>Ağ Geçidi SKU'ları
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-Çoğu durumda, daha güçlü bir ağ geçidi SKU'sunu ağ geçidinize yükseltmek istiyorsanız, 'Yeniden boyutlandırma-AzureRmVirtualNetworkGateway' PowerShell cmdlet'ini kullanabilirsiniz. Bu, standart ve yüksek performanslı SKU'lar yükseltmeleri için çalışır. Ancak, UltraPerformance SKU'su için yükseltmek için ağ geçidini yeniden oluşturmanız gerekecektir.
+Çoğu durumda, daha güçlü bir ağ geçidi SKU'sunu ağ geçidinize yükseltmek istiyorsanız, 'Yeniden boyutlandırma-AzureRmVirtualNetworkGateway' PowerShell cmdlet'ini kullanabilirsiniz. Bu, standart ve yüksek performanslı SKU'lar yükseltmeleri için çalışır. Ancak, UltraPerformance SKU'su için yükseltmek için ağ geçidini yeniden oluşturmanız gerekecektir. Bir ağ geçidi yeniden kapalı kalma süresi artmasına neden olur.
 
 ### <a name="aggthroughput"></a>Ağ geçidi SKU'suna göre tahmini performans
 Aşağıdaki tabloda, ağ geçidi türleri ve tahmini performanslarını gösterir. Bu tablo hem Resource Manager, hem de klasik dağıtım modellerine uygulanır.

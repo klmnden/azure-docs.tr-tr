@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.component: common
-ms.openlocfilehash: e560eb9e0bbce09c541bfc66ea760ea3e636f841
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0807bc5df9d4ee8782ae017dbb7ed63c38a13443
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528723"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304688"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage izleme, tanılama ve sorun giderme
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -73,7 +73,7 @@ Uçtan uca Azure depolama uygulamalarda sorun giderme uygulamalı kılavuzu içi
   * [Ek 2: Ağ trafiğini yakalamak için Wireshark kullanma]
   * [Ek 3: Ağ trafiğini yakalamak Microsoft Message Analyzer kullanma]
   * [Ek 4: Ölçümleri görüntülemek ve verileri günlüğe kaydetmek için Excel kullanma]
-  * [Ek 5: Visual Studio Team Services için Application Insights ile izleme]
+  * [Ek 5: Azure DevOps için Application Insights ile izleme]
 
 ## <a name="introduction"></a>Giriş
 Bu kılavuz, Azure depolama analizi gibi özelliklerin nasıl kullanılacağını göstermektedir istemci-tarafı Azure depolama istemci kitaplığı ve diğer üçüncü taraf araçları tanımlamak, tanılamak ve Azure depolama sorunlarını giderme için günlük kaydı ile ilgili sorunlar.
@@ -125,7 +125,7 @@ Kullanabileceğiniz [Azure portalında](https://portal.azure.com) dünyanın dö
 [Azure portalında](https://portal.azure.com) çeşitli Azure hizmetlerini etkileyen olayların bildirimleri de sağlayabilirsiniz.
 Not: Bu bilgiler bunların birlikte çalışarak geçmiş verileri, üzerinde önceden kullanılabilen [Azure hizmet Panosu](http://status.azure.com).
 
-Sırada [Azure portalında](https://portal.azure.com) sistem bilgilerini toplar gelen (Inside out izleme), Azure veri merkezleri içinde ayrıca erişim düzenli aralıklarla yapay işlemler oluşturmak için bir dışarıdan içeriye yaklaşımı benimsemeyi göz önünde Azure'da barındırılan web uygulamanız birden fazla konumdan. Tarafından sunulan hizmetler [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) ve Visual Studio Team Services için Application Insights bu yaklaşım bir örnektir. Ek Visual Studio Team Services için Application Insights hakkında daha fazla bilgi için bkz. "[ek 5: Visual Studio Team Services için Application Insights ile izleme](#appendix-5)."
+Sırada [Azure portalında](https://portal.azure.com) sistem bilgilerini toplar gelen (Inside out izleme), Azure veri merkezleri içinde ayrıca erişim düzenli aralıklarla yapay işlemler oluşturmak için bir dışarıdan içeriye yaklaşımı benimsemeyi göz önünde Azure'da barındırılan web uygulamanız birden fazla konumdan. Tarafından sunulan hizmetler [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) ve Azure DevOps için Application Insights bu yaklaşım bir örnektir. Ek Azure DevOps için Application Insights hakkında daha fazla bilgi için bkz. "[ek 5: Azure DevOps için Application Insights ile izleme](#appendix-5)."
 
 ### <a name="monitoring-capacity"></a>İzleme kapasitesi
 Depolama ölçümleri bloblar genellikle büyük bir oranı, depolanan verilerin hesabı için blob hizmeti için kapasite ölçümlerini yalnızca depolar (makalenin yazıldığı sırada, tablolar ve Kuyruklar kapasitesini izlemek için depolama ölçümlerini kullanmak mümkün değildir). Bu verileri bulabilirsiniz **$MetricsCapacityBlob** Blob hizmeti için izleme etkinleştirilirse tablo. Depolama ölçümlerini, bu verileri günde bir kez kaydeder ve değerini kullanabilir **RowKey** satırının kullanıcı verileri için ilişkili varlık içerip içermediğini belirlemek için (değer **veri**) veya Analiz verilerini (değer **analytics**). Depolanan her varlık, kullanılan depolama miktarı hakkında bilgi içerir (**kapasite** bayt cinsinden ölçülür) ve kapsayıcılar geçerli sayısı (**ContainerCount**) ve bloblar (**ObjectCount** ) depolama hesabının kullanımda. Depolanan kapasite ölçümleri hakkında daha fazla bilgi için **$MetricsCapacityBlob** tablo bkz [Storage Analytics Ölçüm tablosu şeması](http://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -799,8 +799,8 @@ Blob depolama alanından indirdikten sonra depolama günlük verilerinizi Excel'
 
 Adım 1 / **metin İçeri Aktarma Sihirbazı'nı**seçin **noktalı virgül** yalnızca sınırlayıcı olarak çift tırnak olarak seçin **Metin niteleyicisi**. Ardından **son** ve çalışma kitabınızda veri yerleştirileceği yeri seçin.
 
-### <a name="appendix-5"></a>Ek 5: Visual Studio Team Services için Application Insights ile izleme
-Performans ve kullanılabilirlik izlemesi bir parçası olarak Visual Studio Team Services için Application Insights özelliğini de kullanabilirsiniz. Bu araç şunları yapabilir:
+### <a name="appendix-5"></a>Ek 5: Azure DevOps için Application Insights ile izleme
+Performans ve kullanılabilirlik izlemesi bir parçası olarak Azure DevOps için Application Insights özelliğini de kullanabilirsiniz. Bu araç şunları yapabilir:
 
 * Web hizmetinizin kullanılabilir ve yanıt verdiğinden emin olun. Uygulamanızı bir web sitesi veya web hizmeti kullanan bir cihaz uygulaması olsun, bu konumlardan dünyanın dört bir yanındaki birkaç dakikada URL'nizi test edin ve bir sorun olup olmadığını size bildirmek.
 * Herhangi bir web hizmetinizde özel durum veya performans sorunları hızla tanılayın. CPU veya diğer kaynaklara uzatılır, özel durumlardan yığın izlemelerini alın öğrenmek ve günlük izlemelerini kolayca arama yapın. Microsoft, uygulamanın performansı kabul edilebilir sınırları düşerse, bir e-posta gönderebilirsiniz. Hem .NET hem de Java web Hizmetleri'ni izleyebilirsiniz.
@@ -865,7 +865,7 @@ Daha fazla bilgi bulabilirsiniz [Application Insights nedir](../../application-i
 [Ek 2: Ağ trafiğini yakalamak için Wireshark kullanma]: #appendix-2
 [Ek 3: Ağ trafiğini yakalamak Microsoft Message Analyzer kullanma]: #appendix-3
 [Ek 4: Ölçümleri görüntülemek ve verileri günlüğe kaydetmek için Excel kullanma]: #appendix-4
-[Ek 5: Visual Studio Team Services için Application Insights ile izleme]: #appendix-5
+[Ek 5: Azure DevOps için Application Insights ile izleme]: #appendix-5
 
 <!--Image references-->
 [1]: ./media/storage-monitoring-diagnosing-troubleshooting/overview.png

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: cde70518164c386697127b079979b5b3b76ae088
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: cd95a1f1e0631340fa9844fd31c3d8c0af1168dd
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42055631"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347061"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory'de Uygulama Yönetimi için Makale Dizini
 Bu sayfa, Azure Active Directory (Azure AD) çeşitli uygulama ile ilgili özellikler hakkında yazılan her belgenin kapsamlı bir listesini sağlar.
@@ -42,7 +42,7 @@ Bu bölümde, ilgili sorun giderme kılavuzları, hızlı erişim sağlar. Bu sa
 | Özellik alanı |  |
 |:---:| --- |
 | Federasyon çoklu oturum açma |[SAML tabanlı çoklu oturum açma sorunlarını giderme](develop/howto-v1-debug-saml-sso-issues.md) |
-| Parola tabanlı çoklu oturum açma |[Erişim paneli uzantısını Internet Explorer için sorun giderme](active-directory-saas-ie-troubleshooting.md) |
+| Parola tabanlı çoklu oturum açma |[Erişim paneli uzantısını Internet Explorer için sorun giderme](manage-apps/manage-access-panel-browser-extension.md) |
 | Uygulama Ara Sunucusu |[Uygulama Ara sunucusu sorunlarını giderme kılavuzu](manage-apps/application-proxy-troubleshoot.md) |
 | Şirket içi arasında çoklu oturum açma AD ile Azure AD |[Parola Karması eşitleme sorunlarını giderme](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Parola geri yazma sorunlarını giderme](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Dinamik grup üyeliği |[Dinamik grup üyeliği sorunlarını giderme](users-groups-roles/groups-troubleshooting.md) |
@@ -56,7 +56,7 @@ Bu bölümde, ilgili sorun giderme kılavuzları, hızlı erişim sağlar. Bu sa
 | Federasyon ve diğer türleri oturum açma giriş |[Azure AD ile çoklu oturum açma](manage-apps/what-is-single-sign-on.md) |
 | Binlerce Azure ad ile önceden tümleştirilmiş SaaS uygulamasını tek oturum açma yapılandırma adımları Basitleştirilmiş |[Azure AD uygulama Galerisi'ni kullanmaya başlama](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Federasyon destekleyen önceden tümleştirilmiş uygulamaların tam listesi](saas-apps/tutorial-list.md)<br /><br />[Bir Azure AD uygulama galerisinde uygulamanızı ekleme](develop/howto-app-gallery-listing.md) |
 | 150'den fazla uygulama öğreticileri nasıl yapılandırılacağı hakkında çoklu oturum açma uygulamaları gibi [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md), [Workday](saas-apps/workday-tutorial.md)ve çok daha fazlası |[SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](saas-apps/tutorial-list.md) |
-| Nasıl el ile ayarlama ve özelleştirme, çoklu oturum açma yapılandırması |[İçin yapılandırma Federasyon çoklu oturum açma Azure Active Directory Uygulama galerisinde bulunmayan uygulamalar için nasıl](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Önceden tümleştirilmiş uygulamalar için SAML belirtecinde verilen talepleri özelleştirme](active-directory-saml-claims-customization.md) |
+| Nasıl el ile ayarlama ve özelleştirme, çoklu oturum açma yapılandırması |[İçin yapılandırma Federasyon çoklu oturum açma Azure Active Directory Uygulama galerisinde bulunmayan uygulamalar için nasıl](manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)<br /><br />[Önceden tümleştirilmiş uygulamalar için SAML belirtecinde verilen talepleri özelleştirme](active-directory-saml-claims-customization.md) |
 | SAML protokolü kullanan Federasyon uygulamaları için sorun giderme kılavuzu |[SAML tabanlı çoklu oturum açma sorunlarını giderme](develop/howto-v1-debug-saml-sso-issues.md) |
 | Uygulamanızın sertifikanın sona erme tarihi yapılandırma ve sertifikalarınızı yenileme |[Federasyon çoklu oturum açma için Azure Active Directory'de sertifikaları yönetme](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
 
@@ -70,7 +70,7 @@ Federasyon desteklemeyen uygulamalar için çoklu oturum açmayı etkinleştirme
 | Giriş nasıl parola tabanlı SSO çalışır ve kısa bir teknik genel bakış |[Parola tabanlı çoklu oturum açma Azure AD ile](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on) |
 | Hesap paylaşımı ve Azure AD tarafından bu sorunları nasıl çözülür ilgili senaryoları özeti |[Azure AD ile hesapları paylaşma](active-directory-sharing-accounts.md) |
 | Belirli uygulamalar için parola düzenli aralıklarla otomatik olarak değiştir |[Otomatik parola geçişi (Önizleme)](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
-| Dağıtımı ve sorun giderme kılavuzlarının Azure AD parola yönetimi uzantısı Internet Explorer sürümü |[Grup İlkesi'ni kullanarak Internet Explorer için erişim paneli uzantısını dağıtma](active-directory-saas-ie-group-policy.md)<br /><br />[Erişim paneli uzantısını Internet Explorer için sorun giderme](active-directory-saas-ie-troubleshooting.md) |
+| Dağıtımı ve sorun giderme kılavuzlarının Azure AD parola yönetimi uzantısı Internet Explorer sürümü |[Grup İlkesi'ni kullanarak Internet Explorer için erişim paneli uzantısını dağıtma](manage-apps/deploy-access-panel-browser-extension.md)<br /><br />[Erişim paneli uzantısını Internet Explorer için sorun giderme](manage-apps/manage-access-panel-browser-extension.md) |
 
 Parola tabanlı çoklu oturum açma için kullanıcı başına en fazla on uygulamaları için Azure AD'in tüm sürümlerinde kullanılabilir. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) sınırsız uygulamalarını destekler. Kuruluşunuzun varsa [Azure AD temel](https://azure.microsoft.com/pricing/details/active-directory/) veya [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), daha sonra [uygulamalara erişim atamak için grupları kullanma](#managing-access-to-applications). Otomatik parola geçişi olduğu bir [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) özelliği.
 
@@ -130,11 +130,11 @@ Oluşturma, Bakım ve Dropbox, Salesforce, ServiceNow ve diğer SaaS uygulamalar
 
 | Makale Kılavuzu |  |
 |:---:| --- |
-| Nasıl çalıştığı hakkında bilgi edinin ve sık sorulan soruların yanıtlarını bulun |[Sağlama ve sağlamayı kaldırma SaaS uygulamalarına kullanıcı otomatikleştirin](active-directory-saas-app-provisioning.md) |
-| Yapılandırma bilgileri Azure AD arasında nasıl eşlendiğini ve SaaS uygulamanız |[Öznitelik eşlemelerini özelleştirme](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Öznitelik eşlemeleri için ifadeler yazma](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
+| Nasıl çalıştığı hakkında bilgi edinin ve sık sorulan soruların yanıtlarını bulun |[Sağlama ve sağlamayı kaldırma SaaS uygulamalarına kullanıcı otomatikleştirin](manage-apps/user-provisioning.md) |
+| Yapılandırma bilgileri Azure AD arasında nasıl eşlendiğini ve SaaS uygulamanız |[Öznitelik eşlemelerini özelleştirme](manage-apps/customize-application-attributes.md)<br><br>[Öznitelik eşlemeleri için ifadeler yazma](manage-apps/functions-for-customizing-application-data.md) |
 | SCIM protokolünü destekleyen herhangi bir uygulama için otomatik sağlamayı etkinleştirme hakkında |[Otomatik kullanıcı hazırlama hiçbir SCIM-Enabled uygulamaya ayarlama](manage-apps/use-scim-to-provision-users-and-groups.md) |
-| Raporlama ve kullanıcı hazırlama sorunlarını giderme |[Otomatik kullanıcı hazırlama raporlama](active-directory-saas-provisioning-reporting.md)<br><br>[Kullanıcı hazırlama sorunlarını giderme](active-directory-application-provisioning-content-map.md) |
-| Sağlanan öznitelik değerlerine göre bir uygulama için sınırı |[Kapsam filtreleri](active-directory-saas-scoping-filters.md) |
+| Raporlama ve kullanıcı hazırlama sorunlarını giderme |[Otomatik kullanıcı hazırlama raporlama](manage-apps/check-status-user-account-provisioning.md)<br><br>[Kullanıcı hazırlama sorunlarını giderme](active-directory-application-provisioning-content-map.md) |
+| Sağlanan öznitelik değerlerine göre bir uygulama için sınırı |[Kapsam filtreleri](manage-apps/define-conditional-rules-for-provisioning-user-accounts.md) |
 
 Otomatik kullanıcı hazırlama, kullanıcı başına en fazla on uygulamaları için Azure AD, tüm sürümleri için kullanılabilir. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) sınırsız uygulamalarını destekler. Kuruluşunuzun varsa [Azure AD temel](https://azure.microsoft.com/pricing/details/active-directory/) veya [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), daha sonra [hangi kullanıcıların sağlanan ' ı yönetmek için grupları kullanma](#managing-access-to-applications).
 

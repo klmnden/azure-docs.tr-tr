@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: ca1ea5fb95ba1c49b5c1e3660c598e8f1443b43c
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 8680a8fa9c460983b88aa4845adcbe72d3a43abf
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666276"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325524"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 erişim denetimi
 
@@ -121,19 +121,7 @@ Bir Data Lake depolama Gen1 hesabı üzerinde belirli işlemlerin gerçekleştir
 * Listelenecek klasör için çağıranın **Okuma + Yürütme** izinlerine sahip olması gerekir.
 * Tüm üst klasörler için çağıranın **Yürütme** izinlerine sahip olması gerekir.
 
-## <a name="viewing-permissions-in-the-azure-portal"></a>Azure portalında görüntüleme izinleri
 
-Gelen **Veri Gezgini** Data Lake depolama Gen1 hesabı dikey penceresine tıklayın **erişim** dosya veya veri Gezgini'nde görüntülenmekte olan klasörün ACL'lerini görebilirsiniz. **mydatastore** hesabı altındaki **catalog** klasörüne ilişkin ACL’leri görmek için **Erişim**’e tıklayın.
-
-![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
-
-Bu dikey pencerenin üst kısmında sahiplerin izinleri gösterilir. (Ekran görüntüsünde Bob sahip olan kullanıcıdır.) Bunun ardından atanan Erişim ACL’leri gösterilir. 
-
-![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
-
-Varsayılan ACL’ler, maske ve süper kullanıcıların açıklamasının gösterildiği daha gelişmiş görünümü görmek için **Gelişmiş Görünüm**’e tıklayın.  Bu dikey pencere, geçerli klasörün izinlerine dayalı olarak alt dosyalar ve klasörler için yinelemeli olarak Erişim ve Varsayılan ACL’leri ayarlamanın bir yolunu sunar.
-
-![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
 ## <a name="the-super-user"></a>Süper kullanıcı
 
@@ -227,30 +215,27 @@ def access_check( user, desired_perms, path ) :
   return ( (desired_perms & perms & mask ) == desired_perms)
 ```
 
-## <a name="the-mask-and-effective-permissions"></a>Maske ve "etkili izinler"
+## <a name="the-mask"></a>Maskesi
 
-**Maske**, erişim denetimi algoritmasını gerçekleştirirken **adlandırılmış kullanıcılar**, **sahip olan grup** ve **adlandırılmış gruplar** için erişimi sınırlandırmak üzere kullanılan bir RWX değeridir. Maskeye ilişkin anahtar kavramlar aşağıda verilmiştir.
-
-* Maske, "etkili izinleri" oluşturur. Diğer bir deyişle, erişim denetimi zamanında izinleri değiştirir.
-* Maske doğrudan dosya sahibi ve herhangi bir süper kullanıcı tarafından düzenlenebilir.
-* Maske etkili izin oluşturmaya yönelik izinleri kaldırabilir. Maske etkili izne izinler *ekleyemez*.
-
-Bazı örneklere bakalım. Aşağıdaki örnekte maske **RWX** olarak ayarlanmıştır. Diğer bir deyişle maske herhangi bir izni kaldırmaz. Adlandırılmış kullanıcı, sahip olan kullanıcı ve adlandırılmış grup, erişim denetimi sırasında değiştirilmez.
-
-![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-acls-mask-1.png)
-
-Aşağıdaki örnekte maske **R-X** olarak ayarlanmıştır. Bu nedenle, erişim denetimi sırasında **adlandırılmış kullanıcı**, **sahip olan grup** ve **adlandırılmış grup** için **Yazma izinlerini kapatır**.
-
-![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-acls-mask-2.png)
-
-Başvuru için bir dosyanın veya klasörün maskesinin Azure portalında nerede göründüğü aşağıda gösterilmiştir.
-
-![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
+Erişim denetimi algoritması'içinde gösterildiği gibi erişim maskesi sınırlar **adlandırılmış kullanıcılar**, **sahip olan grup**, ve **adlandırılmış gruplar**.  
 
 > [!NOTE]
 > Yeni bir Data Lake depolama Gen1 hesabı için kök klasörün ("/") erişim ACL'si için maske varsayılan olarak RWX'tir.
 >
 >
+
+### <a name="the-sticky-bit"></a>Yapışkan bit
+
+Yapışkan bit POSIX dosya sisteminin daha gelişmiş bir özelliğidir. Data Lake depolama Gen1 bağlamında Yapışkan bitin gerekli olması düşüktür.
+
+Aşağıdaki tabloda Yapışkan bitin Data Lake depolama Gen1 içinde nasıl çalıştığı gösterilmektedir.
+
+| Kullanıcı grubu         | Dosya    | Klasör |
+|--------------------|---------|-------------------------|
+| Yapışkan bit **Kapalı** | Etki yok   | Etki yok.           |
+| Yapışkan bit **Açık**  | Etki yok   | Bir alt öğenin **süper kullanıcıları** ve **sahip olan kullanıcısı** dışında herkesin alt öğeyi silmesini veya yeniden adlandırmasını önler.               |
+
+Yapışkan bit Azure portalında gösterilmez.
 
 ## <a name="permissions-on-new-files-and-folders"></a>Yeni dosyalar ve klasörler üzerindeki izinler
 
@@ -278,34 +263,37 @@ Bir alt dosya veya klasör oluşturulduğunda, üst öğenin Varsayılan ACL’s
 
 Data Lake depolama Gen1 dosyaları veya klasörleri için ACL'lerin nasıl belirlendiğini anlamanıza yardımcı olan birkaç Gelişmiş konu aşağıda verilmiştir.
 
-### <a name="umasks-role-in-creating-the-access-acl-for-new-files-and-folders"></a>Yeni dosyalar ve klasörler için Erişim ACL’lerini oluşturmada Umask rolü
+### <a name="umask"></a>umask
 
-POSIX ile uyumlu bir sistemde genel kavram umask’in yeni bir alt klasör veya klasörün Erişim ACL’si üzerinde **sahip olan kullanıcı**, **sahip olan grup** ve **diğer** iznini dönüştürmek için kullanılan üst klasördeki 9 bitlik bir değer olmasıdır. Bir umask’in bit değerleri alt öğenin Erişim ACL’sinde hangi bitlerin kapatılacağını belirler. Bu nedenle **sahip olan kullanıcı**, **sahip olan grup** ve **diğer** için izinlerin yayılmasını seçici olarak önlemek üzere kullanılır.
+Bir dosyanın veya klasörün oluşturulduğu sırada umask varsayılan ACL'ler alt öğede nasıl ayarlanacağını değiştirmek için kullanılır. umask bir 9 bitlik bir RWX değeri için üst klasörlerinde 9 bitlik bir değer olan **sahip olan kullanıcı**, **sahip olan grup**, ve **diğer**.
 
-Bir HDFS sisteminde umask genellikle yöneticiler tarafından denetlenen site genelindeki bir yapılandırma seçeneğidir. Data Lake depolama Gen1 kullanan bir **hesap genelinde umask** , değiştirilemez. Aşağıdaki tabloda Data Lake depolama Gen1 için umask gösterilmektedir.
+Azure Data Lake depolama Gen1 bir sabit değeri için umask 007 için ayarlayın. Bu değer için çevirir
 
-| Kullanıcı grubu  | Ayar | Yeni alt öğenin Erişim ACL’si üzerindeki etkisi |
-|------------ |---------|---------------------------------------|
-| Sahip olan kullanıcı | ---     | Etki yok                             |
-| Sahip olan grup| ---     | Etki yok                             |
-| Diğer       | RWX     | Okuma + Yazma + Yürütme iznini kaldırma         |
+* umask.owning_user = 0 #---
+* umask.owning_group = 0 #---
+* umask.Other = 7 # RWX
 
-Aşağıdaki çizimde bu umask eylemi gösterilmektedir. Net etki **diğer** kullanıcı için **Okuma + Yazma + Yürütme** izninin kaldırılmasıdır. Umask **sahip olan kullanıcı** ve **sahip olan grup** için bitleri belirtmediğinden bu izinler dönüştürülmez.
+Bu umask değeri, değerin diğer ne varsayılan ACL gösterir bağımsız olarak yeni alt - varsayılan olarak hiçbir zaman iletilmez etkili bir şekilde anlamına gelir. 
 
-![Data Lake depolama Gen1 ACL'leri](./media/data-lake-store-access-control/data-lake-store-acls-umask.png)
+Aşağıdaki psuedocode umask bir alt öğesi ACL'leri oluştururken nasıl uygulanacağını gösterir.
 
-### <a name="the-sticky-bit"></a>Yapışkan bit
+```
+def set_default_acls_for_new_child(parent, child):
+    child.acls = []
+    foreach entry in parent.acls :
+        new_entry = None
+        if (entry.type == OWNING_USER) :
+            new_entry = entry.clone(perms = entry.perms & (~umask.owning_user))
+        elif (entry.type == OWNING_GROUP) :
+            new_entry = entry.clone(perms = entry.perms & (~umask.owning_group))
+        elif (entry.type == OTHER) :
+            new_entry = entry.clone(perms = entry.perms & (~umask.other))
+        else :
+            new_entry = entry.clone(perms = entry.perms )
+        child_acls.add( new_entry )
+```
 
-Yapışkan bit POSIX dosya sisteminin daha gelişmiş bir özelliğidir. Data Lake depolama Gen1 bağlamında Yapışkan bitin gerekli olması düşüktür.
 
-Aşağıdaki tabloda Yapışkan bitin Data Lake depolama Gen1 içinde nasıl çalıştığı gösterilmektedir.
-
-| Kullanıcı grubu         | Dosya    | Klasör |
-|--------------------|---------|-------------------------|
-| Yapışkan bit **Kapalı** | Etki yok   | Etki yok.           |
-| Yapışkan bit **Açık**  | Etki yok   | Bir alt öğenin **süper kullanıcıları** ve **sahip olan kullanıcısı** dışında herkesin alt öğeyi silmesini veya yeniden adlandırmasını önler.               |
-
-Yapışkan bit Azure portalında gösterilmez.
 
 ## <a name="common-questions-about-acls-in-data-lake-storage-gen1"></a>Data Lake depolama Gen1 ACL'ler hakkında sık sorulan sorular
 
@@ -348,15 +336,6 @@ Kullanıcı artık Azure AD’de mevcut değilse bir GUID gösterilir. Bu genell
 ### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>Data Lake depolama Gen1 ACL'lerin devralınmasını destekler mi?
 
 Hayır, ancak üst klasör altında yeni oluşturulan alt dosyalara ve klasöre yönelik ACL’yi ayarlamak için Varsayılan ACL’ler kullanılabilir.  
-
-### <a name="what-is-the-difference-between-mask-and-umask"></a>Maske ile umask arasındaki fark nedir?
-
-| maske | umask|
-|------|------|
-| **Maske** özelliği her dosya ve klasörde bulunur. | **Umask** Data Lake depolama Gen1 hesabının bir özelliğidir. Bu nedenle Data Lake depolama Gen1 yalnızca tek bir umask vardır.    |
-| Bir dosya veya klasördeki maske özelliği, dosyanın sahibi olan kullanıcı veya grup ya da süper kullanıcı tarafından değiştirilebilir. | Umask özelliği ise süper kullanıcı dahil hiçbir kullanıcı tarafından değiştirilemez. Bu özellik, değiştirilemeyen sabit bir değerdir.|
-| Maske özelliği bir kullanıcının dosya ya da klasör üzerinde işlem gerçekleştirme hakkına sahip olup olmadığını belirlemek üzere çalışma zamanındaki erişim denetimi algoritması sırasında kullanılır. Maskenin rolü, erişim denetimi sırasında "etkili izinleri" oluşturmaktır. | Umask, erişim denetimi sırasında hiç kullanılmaz. Umask bir klasörün yeni alt öğelerinin Erişim ACL’sini belirlemek için kullanılır. |
-| Maske, erişim denetimi sırasında adlandırılmış kullanıcı, sahip olan grup ve adlandırılmış grup için geçerli olan 3 bitlik bir RWX değeridir.| Umask ise yeni bir alt öğenin sahip olan kullanıcı, sahip olan grup ve **diğer** kullanıcısı için geçerli olan 9 bitlik bir değerdir.|
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>POSIX erişim denetimi modeli hakkında daha fazla bilgiyi nereden bulabilirim?
 

@@ -1,20 +1,21 @@
 ---
-title: C# Hızlı Başlangıç için Microsoft soru-cevap Oluşturucu API'si (V4) - Azure Bilişsel hizmetler | Microsoft Docs
+title: "Hızlı Başlangıç: C# için soru-cevap Oluşturucu API'si (V4)"
+titleSuffix: Azure Cognitive Services
 description: Microsoft Translator metin çevirisi API'si, Azure üzerinde Microsoft Bilişsel hizmetler kullanarak hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get başlayın.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: nitinme
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 4bcc52547b5610bcb8dfa9b0cc56b2afc40e3c32
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 3c0248b08dbaa1d81843474fcc65590c719e8170
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866092"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348319"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>Microsoft soru-cevap Oluşturucu API'si ile C# için hızlı başlangıç 
 <a name="HOLTop"></a>
@@ -38,7 +39,7 @@ Bu makalede nasıl kullanılacağını gösterir [Microsoft soru-cevap Oluşturu
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-İhtiyacınız olacak [Visual Studio 2017](https://www.visualstudio.com/downloads/) Windows üzerinde bu kodu çalıştırmak için. (Ücretsiz Community sürümü çalışır.)
+İhtiyacınız olacak [Visual Studio 2017](https://www.visualstudio.com/downloads/) Windows üzerinde bu kodu çalıştırmak için. (Ücretsiz Community Edition’ı kullanabilirsiniz.)
 
 Olmalıdır bir [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Microsoft soru-cevap Oluşturucu API'si**. Ücretli aboneliğe anahtarından gerekir, [Azure panosuna](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 

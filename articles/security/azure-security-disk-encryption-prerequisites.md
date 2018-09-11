@@ -1,24 +1,18 @@
 ---
 title: Azure Disk şifrelemesi önkoşulları | Microsoft Docs
 description: Bu makale, Iaas sanal makineleri için Microsoft Azure Disk şifrelemesi kullanılarak önkoşulları sağlar.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 1b2daefc-1326-44dd-9c8b-10e413769af7
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/29/2018
 ms.author: mstewart
-ms.openlocfilehash: 67c3591b0218beac6343b49ba7867294ebeb3f44
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.date: 09/10/2018
+ms.openlocfilehash: 0750ea0877d5f27a8ceb091f8c3904048c9314aa
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43381989"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348285"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure Disk şifrelemesi önkoşulları 
  Bu makalede, Azure Disk şifrelemesi önkoşulları, Azure Disk şifrelemesi kullanabilmeniz için önce karşılanması gereken öğeleri açıklar. Azure Disk şifrelemesi ile tümleşiktir [Azure anahtar kasası](https://docs.microsoft.com/azure/key-vault/) şifreleme anahtarlarını yönetmeye yardımcı olmak için. Kullanabileceğiniz [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/), veya [Azure portalında](https://portal.azure.com) Azure Disk şifrelemesini yapılandırmak için.
@@ -76,7 +70,7 @@ Veri diskleri bağlayın ve gerekli/etc/fstab girişleri oluşturmak için kulla
         -  PowerShell Core, .NET Core için Azure PowerShell'i yükleyin ve AzureRM.Netcore modülünü yükleme.
 
 2. AzureRM modülünü yüklü sürümlerini doğrulayın. Gerekirse, [Azure PowerShell modülü güncelleştirme](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module).
-    -  AzureRM modülü sürüm 6.0.0'dan olması gerekir veya üzeri.
+    -  AzureRM modülü 6.0.0 veya sonraki bir sürümü gerekir.
     - En son AzureRM modülü sürümü kullanılması önerilir.
 
      ```powershell
@@ -131,7 +125,7 @@ Veri diskleri bağlayın ve gerekli/etc/fstab girişleri oluşturmak için kulla
 Zaten Azure Disk şifrelemesi için Key Vault ve Azure AD önkoşulları alışık olduğunuz, kullanabileceğiniz [Azure Disk şifrelemesi önkoşulları PowerShell Betiği](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Önkoşulları betiği kullanma hakkında daha fazla bilgi için bkz. [VM hızlı başlangıç şifrelemek](quick-encrypt-vm-powershell.md) ve [Azure Disk şifrelemesi ek](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
 
 1. Gerekirse, bir kaynak grubu oluşturun.
-2. Anahtar kasası oluşturma. 
+2. Bir anahtar kasası oluşturma. 
 3. Set anahtar kasası erişim ilkeleri Gelişmiş.
  
 ## <a name="bkmk_KeyVault"></a> Anahtar kasası oluşturma 

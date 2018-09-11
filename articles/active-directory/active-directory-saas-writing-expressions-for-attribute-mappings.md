@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
-ms.openlocfilehash: 1c9fe9fb63b45233ed1a11bb63c0763c6103bc6d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a48b5aabdaf7f8f9e7269a995d92d046cca21786
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095190"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325575"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory'de öznitelik eşlemeleri için ifadeler yazma
 Bir SaaS uygulaması için sağlama yapılandırdığınızda, belirtebilmeniz için öznitelik eşlemelerini türdeki bir ifade eşleme biridir. Bu, kullanıcılarınızın verileri fazla SaaS uygulaması için kabul edilebilir biçimlere dönüştürme olanak tanıyan bir betik gibi ifade yazmanız gerekir.
@@ -269,6 +269,6 @@ Azure AD'de depolanan eyalet koduna göre kullanıcının saat dilimi tanımlama
 * [Kullanıcı sağlama için öznitelik eşlemelerini özelleştirme](active-directory-saas-customizing-attribute-mappings.md)
 * [Kullanıcı sağlama için kapsam oluşturma filtresi](active-directory-saas-scoping-filters.md)
 * [Kullanıcıların ve grupların Azure Active Directory'den uygulamalara otomatik olarak hazırlanmasını etkinleştirmek için SCIM'yi kullanma](manage-apps/use-scim-to-provision-users-and-groups.md)
-* [Hesap sağlama bildirimleri](active-directory-saas-account-provisioning-notifications.md)
+* [Hesap sağlama bildirimleri](active-directory-saas-app-provisioning.md)
 * [SaaS uygulamalarını tümleştirme hakkında öğreticiler listesi](saas-apps/tutorial-list.md)
 

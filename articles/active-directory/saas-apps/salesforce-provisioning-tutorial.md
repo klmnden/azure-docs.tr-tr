@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 9ece2e0f56522582e53e827ac6db7f33b1c8cb7e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a35682c1a647039fbb946c0ea79d92e0d3806d0c
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432557"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347231"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için Salesforce yapılandırın.
 
@@ -113,7 +113,7 @@ Bu bölümün amacı, Active Directory kullanıcı hesaplarının salesforce'a k
 
 Bu, herhangi bir kullanıcı ve/veya salesforce'a kullanıcılar ve Gruplar bölümünde atanan gruplar ilk eşitlemeyi başlatır. İlk eşitleme hizmetini çalıştıran sürece yaklaşık 40 dakikada oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve Salesforce uygulamanızdan sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklayan etkinlik günlüklerini sağlama için bağlantıları izleyin.
 
-Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../active-directory-saas-provisioning-reporting.md).
+Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

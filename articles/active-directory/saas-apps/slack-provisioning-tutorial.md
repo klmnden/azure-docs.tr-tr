@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 9763c7a9e79f4c9e9d6296efb79e944205e8a99c
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 7d6056987ee05f68eecf026e954327a2f62cf886
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264156"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348914"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için Slack yapılandırın.
 
@@ -111,7 +111,7 @@ Bu, herhangi bir kullanıcı ve/veya Slack kullanıcılar ve Gruplar bölümünd
 
 Bu sonucu Slack içinde atanmış herhangi bir grup nesne **kullanıcılar ve gruplar** Slack için Azure AD'den tam olarak eşitlenmekte olan bölüm. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve Slack uygulamanızdan sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklayan etkinlik günlüklerini sağlama için bağlantıları izleyin.
 
-Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../active-directory-saas-provisioning-reporting.md).
+Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../manage-apps/check-status-user-account-provisioning.md).
 
 
 ## <a name="additional-resources"></a>Ek Kaynaklar

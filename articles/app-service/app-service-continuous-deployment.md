@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: 4d3f1c66c6403720bf02c80af1d6833dc3cee3f1
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: bd440e0ef017e2bf116e80ad049883e2338efddb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42055597"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298956"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure uygulama Hizmeti'ne sürekli dağıtım
-Bu makale için sürekli dağıtım yapılandırma işlemi gösterilmektedir [Azure App Service](app-service-web-overview.md). App Service; BitBucket, GitHub, sürekli dağıtımı sağlar ve [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) Bu hizmetlerden biri olarak mevcut deponuzdaki en son güncelleştirmeleri çekerek.
+Bu makale için sürekli dağıtım yapılandırma işlemi gösterilmektedir [Azure App Service](app-service-web-overview.md). App Service; BitBucket, GitHub, sürekli dağıtımı sağlar ve [Azure DevOps Hizmetleri](https://www.visualstudio.com/team-services/) Bu hizmetlerden biri olarak mevcut deponuzdaki en son güncelleştirmeleri çekerek.
 
 El ile Azure portal tarafından listelenmeyen bir bulut deposunda sürekli dağıtımını yapılandırmak nasıl kaydolacağınızı (gibi [GitLab](https://gitlab.com/)), bkz: [el ile adımları kullanarak sürekli dağıtım ayarlama](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
-Hazırlanan deponuzu desteklenen hizmetlerden biri için yayımlayın. Projenizi bu hizmetlerde yayımlama hakkında daha fazla bilgi için bkz. [Depo oluşturma (GitHub)], [Depo oluşturma (BitBucket)] ve [VSTS kullanmaya başlama].
+Hazırlanan deponuzu desteklenen hizmetlerden biri için yayımlayın. Projenizi bu hizmetlerde yayımlama hakkında daha fazla bilgi için bkz: [depo oluşturma (GitHub)], [depo oluşturma (BitBucket)], ve [Azure DevOps hizmetleriyle çalışmaya başlama].
 
 ## <a name="deploy-continuously-from-github"></a>Github'dan sürekli dağıtım
 
@@ -47,18 +47,18 @@ GitHub ile bir kez yetkilendirmek yeterlidir. Zaten sahip olduğunuz, tıklaman�
 
 İçinde **yapılandırma** sayfasında, sürekli olarak dağıtmak istediğiniz kuruluş, depoyu ve dalı seçin. İşiniz bittiğinde tıklayın **devam**.
 
-### <a name="option-2-use-vsts-continuous-delivery"></a>2. seçenek: VSTS sürekli teslim kullanma
+### <a name="option-2-use-azure-devops-services-continuous-delivery"></a>2. seçenek: Azure DevOps Hizmetleri sürekli teslim kullanma
 
 > [!NOTE]
-> App Service'nın gerekli derleme ve yayın tanımları VSTS hesabınızdaki rolü Azure hesabınızın olması gerekir **sahibi** Azure aboneliğinizdeki.
+> App Service'nın Azure DevOps Hizmetleri kuruluşunuzda gerekli Azure işlem hatları oluşturmak rolü Azure hesabınızın olması gerekir **sahibi** Azure aboneliğinizdeki.
 >
 
 İçinde **yapılandırma** sayfasında **kod** bölümünde, sürekli olarak dağıtmak istediğiniz kuruluş, depoyu ve dalı seçin. İşiniz bittiğinde tıklayın **devam**.
 
-İçinde **yapılandırma** sayfasında **derleme** bölümünde, yeni bir VSTS hesabı yapılandırın veya mevcut bir hesabı belirtin. İşiniz bittiğinde tıklayın **devam**.
+İçinde **yapılandırma** sayfasında **derleme** bölümünde, yeni bir Azure DevOps Hizmetleri kuruluş yapılandırın veya mevcut bir kuruluşa belirtin. İşiniz bittiğinde tıklayın **devam**.
 
 > [!NOTE]
-> Listede olmayan mevcut bir VSTS hesabı kullanmak istiyorsanız, yapmanız [VSTS hesabı Azure aboneliğinize bağlayın](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Listede olmayan mevcut bir Azure DevOps Hizmetleri kuruluşa kullanmak istiyorsanız, yapmanız [Azure DevOps hizmetler kuruluşundan Azure aboneliğinize bağlayın](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 İçinde **Test** sayfasında, yük testleri etkinleştirin ve ardından yüklememeyi **devam**.
 
@@ -90,11 +90,11 @@ BitBucket ile bir kez yetkilendirmek yeterlidir. Zaten sahip olduğunuz, tıklam
 
 Yapılandırma tamamlandığında, seçili depo yeni işlemeler App Service uygulamanızı sürekli olarak dağıtılır.
 
-## <a name="deploy-continuously-from-vsts"></a>VSTS ile sürekli dağıtım
+## <a name="deploy-continuously-from-azure-devops-services"></a>Azure DevOps Services'den sürekli dağıtım
 
-VSTS ile sürekli dağıtımı etkinleştirmek için App Service uygulama sayfasına gidebilirsiniz [Azure portalında](https://portal.azure.com).
+Azure DevOps hizmetleriyle sürekli dağıtımını etkinleştirmek için App Service uygulama sayfasına gidebilirsiniz [Azure portalında](https://portal.azure.com).
 
-Sol menüde **Dağıtım Merkezi** > **VSTS** > **devam**. 
+Sol menüde **Dağıtım Merkezi** > **Azure DevOps Hizmetleri** > **devam**. 
 
 ![](media/app-service-continuous-deployment/vsts-choose-source.png)
 
@@ -102,20 +102,20 @@ Sol menüde **Dağıtım Merkezi** > **VSTS** > **devam**.
 
 ### <a name="option-1-use-app-service-kudu-build-server"></a>1. seçenek: App Service Kudu derleme sunucusu kullanma
 
-İçinde **yapılandırma** sayfasında, VSTS hesabı, proje, depo ve sürekli dağıtım istediğiniz dalı seçin. İşiniz bittiğinde tıklayın **devam**.
+İçinde **yapılandırma** sayfasında, Azure DevOps hizmetler kuruluşundan, proje, depo ve dal sürekli olarak dağıtmak istediğiniz seçin. İşiniz bittiğinde tıklayın **devam**.
 
-### <a name="option-2-use-vsts-continuous-delivery"></a>2. seçenek: VSTS sürekli teslim kullanma
+### <a name="option-2-use-azure-devops-services-continuous-delivery"></a>2. seçenek: Azure DevOps Hizmetleri sürekli teslim kullanma
 
 > [!NOTE]
-> App Service'nın gerekli derleme ve yayın tanımları VSTS hesabınızdaki rolü Azure hesabınızın olması gerekir **sahibi** Azure aboneliğinizdeki.
+> App Service'nın Azure DevOps Hizmetleri kuruluşunuzda gerekli Azure işlem hatları oluşturmak rolü Azure hesabınızın olması gerekir **sahibi** Azure aboneliğinizdeki.
 >
 
-İçinde **yapılandırma** sayfasında **kod** bölümünde, VSTS hesabı, proje, depo ve sürekli dağıtım istediğiniz dalı seçin. İşiniz bittiğinde tıklayın **devam**.
+İçinde **yapılandırma** sayfasında **kod** bölümünde, Azure DevOps hizmetler kuruluşundan, proje, depo ve dal sürekli olarak dağıtmak istediğiniz seçin. İşiniz bittiğinde tıklayın **devam**.
 
 > [!NOTE]
-> Listede olmayan mevcut bir VSTS hesabı kullanmak istiyorsanız, yapmanız [VSTS hesabı Azure aboneliğinize bağlayın](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Listede olmayan mevcut bir Azure DevOps Hizmetleri kuruluşa kullanmak istiyorsanız, yapmanız [Azure DevOps hizmetler kuruluşundan Azure aboneliğinize bağlayın](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
-İçinde **yapılandırma** sayfasında **derleme** bölümünde, VSTS, seçili depo için derleme görevleri çalıştırmak için kullanacağı dil çerçevesi belirtin. İşiniz bittiğinde tıklayın **devam**.
+İçinde **yapılandırma** sayfasında **derleme** bölümünde, Azure DevOps Hizmetleri, seçili depo için derleme görevleri çalıştırmak için kullanacağı dil çerçevesi belirtin. İşiniz bittiğinde tıklayın **devam**.
 
 İçinde **Test** sayfasında, yük testleri etkinleştirin ve ardından yüklememeyi **devam**.
 
@@ -131,7 +131,7 @@ Yapılandırma tamamlandığında, seçili depo yeni işlemeler App Service uygu
 
 Sürekli dağıtımı devre dışı bırakmak için App Service uygulama sayfasına gidebilirsiniz [Azure portalında](https://portal.azure.com).
 
-Sol menüde **Dağıtım Merkezi** > **GitHub** veya **VSTS** veya **BitBucket**  >  **Kesin**.
+Sol menüde **Dağıtım Merkezi** > **GitHub** veya **Azure DevOps Hizmetleri** veya **BitBucket**  >  **Kesin**.
 
 ![](media/app-service-continuous-deployment/disable.png)
 
@@ -153,4 +153,4 @@ Sol menüde **Dağıtım Merkezi** > **GitHub** veya **VSTS** veya **BitBucket**
 
 [Depo oluşturma (GitHub)]: https://help.github.com/articles/create-a-repo
 [Depo oluşturma (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
-[VSTS kullanmaya başlama]: https://www.visualstudio.com/docs/vsts-tfs-overview
+[Azure DevOps hizmetleriyle çalışmaya başlama]: https://www.visualstudio.com/docs/vsts-tfs-overview

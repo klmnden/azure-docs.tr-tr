@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/11/18
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: e382f53678806aa3442151703277c3a57bb30830
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2e74e45761a2f21c522f80d453da48948e17de58
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302286"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347759"
 ---
 # <a name="what-is-the-myapps-portal"></a>MyApps portalında nedir?
 
@@ -109,16 +109,6 @@ Azure Active Directory ekibi uygulamalarım mobil uygulamanın yayınlar. Uygula
 
 > [!NOTE]
 > (Salesforce, Google Apps, Dropbox, kutusu, Concur, Workday, Office 365 ve 70'ten fazla diğerleri dahil) Azure AD ile Federasyon destekleyen uygulamalar için herhangi bir cihazda herhangi bir web tarayıcısı üzerinde bir eklenti veya mobil uygulama gerek olmadan oturum açabilir. Mobil cihazda, diğer kullanılacak [MyApps portalında deneyimleri](https://myapps.microsoft.com/) uygulamalarım mobil uygulamaya da gerektirmez.
->
->
-
-### <a name="my-apps-for-android"></a>Android için uygulamalarım
-
-Android için uygulamalarım Android sürüm 4.1 veya üstünü çalıştıran tüm Android cihazlarda desteklenmektedir.  
-
-Adresten edinilebilir [Google Play Store'da](https://play.google.com/store/apps/details?id=com.microsoft.myapps).
-
-![Android için uygulamalarım][3]   
 
 ### <a name="my-apps-for-iphone-and-ipad"></a>İPhone ve iPad için uygulamalarım
 
@@ -129,13 +119,13 @@ Adresten edinilebilir [Apple App Store](https://itunes.apple.com/us/app/my-apps-
 ![İOS için uygulamalarım][4]    
 
 
-## <a name="managed-browser-for-my-apps"></a>Uygulamalarım için yönetilen tarayıcı
+## <a name="intune-managed-browser-for-my-apps"></a>Uygulamalarım için Intune Managed Browser
 
-Uygulamalarım ayrıca Intune Managed Browser ile tümleşiktir. İOS ve Android cihazları için Intune Managed Browser, mobil cihazlarda verilerin güvenli kalmasını sağlamaya yardımcı olacak önemli bir rol oynar. Tarayıcı, güvenli bir şekilde şirket bilgileri içerebilen Web sayfalarını gitmek ve görüntülemek sağlar ve onu güvenli bir web tarama deneyimi sağlamaya yardımcı olur.  
+Uygulamalarım ayrıca Intune Managed Browser ile tümleşiktir. İOS ve Android cihazları için Intune Managed Browser, daha güvenli bir şekilde şirket bilgileri içerebilen Web sayfalarını gitmek ve görüntülemek için daha güvenli bir web tarama deneyimi sağlamaya yardımcı yardımcı olur.  
 
-Daha az tıklamayla erişmek istediğiniz herhangi bir uygulama erişmek için gerekli olacak şekilde, Managed Browser giriş sayfasında ve, yer işaretleri uygulamalarım hızlı erişim sağlayın.
+Uygulamalarım için her iki Managed Browser giriş sayfasını ve yer işaretlerinizi, uygulamalarınıza erişmek için gereken daha az tıklamayla yok anlamına gelir elde edebilirsiniz.
 
-Intune Managed Browser kullanılabilir [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) ve [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser&hl=en).
+Intune Managed Browser kullanılabilir [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) ve [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
 
 ![Uygulamalarım için yönetilen tarayıcı][5]    
 
@@ -216,11 +206,10 @@ Uygulamanın AD FS 2.0 kullanarak kullanıcıların kimlik doğrulaması için y
  
 - Azure AD ile uygulamaları yönetme hakkında daha fazla bilgi için bkz: [Azure Active Directory ile çoklu oturum açma ve yönetme uygulaması erişimi için giriş](../manage-apps/what-is-single-sign-on.md).
  
-- Kullanıcı hazırlama hakkında daha fazla bilgi için bkz: [kullanıcı sağlamayı ve SaaS uygulamaları için sağlama kaldırmayı otomatikleştirme](../active-directory-saas-app-provisioning.md).
+- Kullanıcı hazırlama hakkında daha fazla bilgi için bkz: [kullanıcı sağlamayı ve SaaS uygulamaları için sağlama kaldırmayı otomatikleştirme](../manage-apps/user-provisioning.md).
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/01.png
 [2]: ./media/active-directory-saas-access-panel-introduction/02.png
-[3]: ./media/active-directory-saas-access-panel-introduction/03.png
 [4]: ./media/active-directory-saas-access-panel-introduction/04.png
 [5]: ./media/active-directory-saas-access-panel-introduction/05.png
