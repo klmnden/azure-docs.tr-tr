@@ -8,15 +8,15 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: c01fcc7e69cf5af26b127519f183062ccf4923cc
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 0d4121bd68611c1f3c6a8c89a0d60251401d670a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172753"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301302"
 ---
 # <a name="app-service-documentation"></a>App Service Belgeleri
-Azure App Service, altyapıyı veya dilin ya da web çerçevesinin çalışma zamanını yönetmeye gerek kalmadan, kendi seçtiğiniz programlama dilinde web uygulamaları oluşturmanıza ve barındırmanıza olanak tanır. Otomatik ölçeklendirme ve yüksek kullanılabilirlik sunar, hem Windows hem de Linux’ı destekler ve GitHub, Visual Studio Team Services veya herhangi bir Git deposundan otomatik dağıtım olanağı sağlar. Hızlı başlangıçlarımız, öğreticilerimiz ve örneklerimizle Azure App Service’i kullanmayı öğrenin.
+Azure App Service, altyapıyı veya dilin ya da web çerçevesinin çalışma zamanını yönetmeye gerek kalmadan, kendi seçtiğiniz programlama dilinde web uygulamaları oluşturmanıza ve barındırmanıza olanak tanır. Otomatik ölçeklendirme ve yüksek kullanılabilirlik sunar, hem Windows hem de Linux’ı destekler ve GitHub, Azure DevOps Services veya herhangi bir Git deposundan otomatik dağıtımlar sağlar. Hızlı başlangıçlarımız, öğreticilerimiz ve örneklerimizle Azure App Service’i kullanmayı öğrenin.
 
 ## <a name="windows-linux-and-docker"></a>Windows, Linux ve Docker
 [Web Apps](/app-service/app-service-web-overview), App Service’in Windows ortamlarını kullanarak web uygulamaları oluşturmaya ve barındırmaya yönelik sunduğu ana hizmettir. Linux ortamını tercih eden geliştiriciler[Linux için App Service](/app-service/containers/app-service-linux-intro)’i seçebilir. Geliştiriciler ayrıca özel çalışma zamanları/çerçeveler dağıtmak için Docker görüntülerini doğrudan Linux için App Service’e dağıtabilir.
