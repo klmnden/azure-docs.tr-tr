@@ -11,12 +11,12 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
-ms.openlocfilehash: 307f9988246f94c26e63bf8a26052890867aabbc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 850ed1418a8880e30273f62aec3b3420c41b2ef6
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608993"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294526"
 ---
 <div class="content">
     <h1>Azure’da Cloud Foundry</h1>
@@ -38,7 +38,7 @@ Cloud Foundry, çeşitli dillerde ve çerçevelerde geliştirilen 12 faktör uyg
 <a href="https://pivotal.io/partners/microsoft">Azure’da Pivotal Cloud Foundry</a><br/>
 <a href="/azure/cloudfoundry/how-cloud-foundry-integrates-with-azure">Cloud Foundry ile Azure'u tümleştirme</a><br/>
 <a href="https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html">Azure’da Cloud Foundry yükleme</a><br/>
-<a href="https://github.com/Microsoft/vsts-cloudfoundry">Cloud Foundry için Visual Studio Team Services eklentisi</a><br/>
+<a href="https://github.com/Microsoft/vsts-cloudfoundry">Cloud Foundry için Azure DevOps eklentisi</a><br/>
 <a href="https://github.com/Azure/oms-log-analytics-firehose-nozzle">Cloud Foundry için Microsoft Log Analytics Nozzle</a><br/>
 <a href="https://docs.cloudfoundry.org/">Cloud Foundry hakkında daha fazla bilgi edinin</a><br/>
 </div>

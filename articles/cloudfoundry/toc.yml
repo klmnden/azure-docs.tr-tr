@@ -1,29 +1,36 @@
+items:
 - name: Cloud Foundry Belgeleri
   href: index.md
 - name: Hızlı Başlangıçlar
-  expanded: true
   items:
-    - name: Market şablonu
-      href: 'https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry'
+  - name: Market şablonu
+    href: https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry
+  expanded: true
 - name: Öğreticiler
   items:
-    - name: CF Uygulamasını Azure’a dağıtma
-      href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
-    - name: Azure üzerinde CloudFoundry
-      href: /azure/virtual-machines/linux/cloudfoundry-get-started
-    - name: CF OMS Nozzle dağıtma
-      href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
-    - name: Cloud Foundry ile Azure’ı tümleştirme
-      href: /azure/cloudfoundry/how-cloud-foundry-integrates-with-azure
+  - name: CF Uygulamasını Azure’a dağıtma
+    href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
+  - name: Azure üzerinde CloudFoundry
+    href: /azure/virtual-machines/linux/cloudfoundry-get-started
+  - name: CF OMS Nozzle dağıtma
+    href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
+  - name: Cloud Foundry ile Azure’ı tümleştirme
+    href: /azure/cloudfoundry/how-cloud-foundry-integrates-with-azure
 - name: Kaynaklar
   items:
-    - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Cloud Foundry sitesi
-      href: 'https://docs.cloudfoundry.org/'
-    - name: Azure üzerinde CF yükleme
-      href: 'https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html'
-    - name: Pivotal ve Azure
-      href: 'https://pivotal.io/partners/microsoft'
-    - name: CF için VSTS eklentisi
-      href: 'https://github.com/Microsoft/vsts-cloudfoundry'
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/
+  - name: Cloud Foundry sitesi
+    href: https://docs.cloudfoundry.org/
+  - name: Azure üzerinde CF yükleme
+    href: https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html
+  - name: Pivotal ve Azure
+    href: https://pivotal.io/partners/microsoft
+  - name: CF için Azure DevOps eklentisi
+    href: https://github.com/Microsoft/vsts-cloudfoundry
+ms.openlocfilehash: ee63fd4e7387777a042c41a8b457f2d9d0ace8e5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294248"

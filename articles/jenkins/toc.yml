@@ -1,80 +1,87 @@
+items:
 - name: Azure üzerinde Jenkins
   href: index.yml
 - name: Genel Bakış
   items:
-    - name: Azure üzerinde Jenkins hakkında
-      href: overview.md
+  - name: Azure üzerinde Jenkins hakkında
+    href: overview.md
 - name: Hızlı Başlangıçlar
-  expanded: true
   items:
-    - name: Jenkins sunucusu oluşturma
-      href: /azure/jenkins/install-jenkins-solution-template
-      maintainContext: true
+  - name: Jenkins sunucusu oluşturma
+    href: /azure/jenkins/install-jenkins-solution-template
+    maintainContext: true
+  expanded: true
 - name: Öğreticiler
   items:
-    - name: App Service’e CI/CD
-      href: /azure/jenkins/java-deploy-webapp-tutorial
-    - name: Kubernetes’e CI/CD
-      href: /azure/container-service/kubernetes/container-service-kubernetes-jenkins
-      maintainContext: true
-    - name: Linux VM’lere CI/CD
-      href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
-      maintainContext: true
-    - name: İşlem hattı işinde Azure kaynakları oluşturma
-      href: /azure/jenkins/execute-cli-jenkins-pipeline
-    - name: Azure VM aracılarıyla ölçeklendirme
-      href: /azure/jenkins/jenkins-azure-vm-agents
-    - name: Azure Container Instances kullanarak derleme
-      href: /azure/container-instances/container-instances-jenkins
-      maintainContext: true
-    - name: Mavi/yeşil desen kullanarak AKS’ye dağıtma
-      href: /azure/jenkins/jenkins-aks-blue-green-deployment
+  - name: App Service’e CI/CD
+    href: /azure/jenkins/java-deploy-webapp-tutorial
+  - name: Kubernetes’e CI/CD
+    href: /azure/container-service/kubernetes/container-service-kubernetes-jenkins
+    maintainContext: true
+  - name: Linux VM’lere CI/CD
+    href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
+    maintainContext: true
+  - name: İşlem hattı işinde Azure kaynakları oluşturma
+    href: /azure/jenkins/execute-cli-jenkins-pipeline
+  - name: Azure VM aracılarıyla ölçeklendirme
+    href: /azure/jenkins/jenkins-azure-vm-agents
+  - name: Azure Container Instances kullanarak derleme
+    href: /azure/container-instances/container-instances-jenkins
+    maintainContext: true
+  - name: Mavi/yeşil desen kullanarak AKS’ye dağıtma
+    href: /azure/jenkins/jenkins-aks-blue-green-deployment
 - name: Nasıl yapılır
   items:
-    - name: Azure üzerinde Jenkins güvenliğini sağlama
-      href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
-    - name: App Service eklentisini kullanma
-      href: deploy-jenkins-app-service-plugin.md
-    - name: Azure Depolama’ya yayımlama
-      href: /azure/storage/storage-java-jenkins-continuous-integration-solution
-      maintainContext: true
-    - name: VSTS ile Jenkins kullanma
-      href: 'https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins'
-    - name: Service Fabric uygulamalarını dağıtma
-      href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
-      maintainContext: true
+  - name: Azure üzerinde Jenkins güvenliğini sağlama
+    href: https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/
+  - name: App Service eklentisini kullanma
+    href: deploy-jenkins-app-service-plugin.md
+  - name: Azure Depolama’ya yayımlama
+    href: /azure/storage/storage-java-jenkins-continuous-integration-solution
+    maintainContext: true
+  - name: Azure DevOps ile Jenkins kullanma
+    href: https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins
+  - name: Service Fabric uygulamalarını dağıtma
+    href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
+    maintainContext: true
 - name: Örnekler
   items:
-    - name: Örnek işler ve betikler
-      href: 'https://github.com/azure/jenkins'
+  - name: Örnek işler ve betikler
+    href: https://github.com/azure/jenkins
 - name: Kaynaklar
   items:
-    - name: Eklentiler
-      items:
-        - name: Azure App Service eklentisi
-          href: 'https://plugins.jenkins.io/azure-app-service'
-        - name: Azure AD eklentisi
-          href: 'https://plugins.jenkins.io/azure-ad'
-        - name: Azure Kapsayıcı Aracıları eklentisi
-          href: 'https://plugins.jenkins.io/azure-container-agents'
-        - name: Azure Container Service eklentisi
-          href: 'https://plugins.jenkins.io/azure-acs'
-        - name: Azure Kimlik Bilgisi eklentisi
-          href: 'https://plugins.jenkins.io/azure-credentials'
-        - name: Azure İşlev eklentisi
-          href: 'https://plugins.jenkins.io/azure-function'
-        - name: Azure Service Fabric eklentisi
-          href: 'https://plugins.jenkins.io/service-fabric'
-        - name: Azure Depolama eklentisi
-          href: 'https://plugins.jenkins.io/windows-azure-storage'
-        - name: Azure VM aracıları eklentisi
-          href: 'https://plugins.jenkins.io/azure-vm-agents'
-        - name: Azure VM ölçek kümesi eklentisi
-          href: 'https://plugins.jenkins.io/azure-vmss'
-    - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Jenkins giriş sayfası
-      href: 'https://jenkins.io/'
-    - name: Jenkins mimarisi
-      href: /azure/architecture/reference-architectures/jenkins/
-      maintainContext: true
+  - name: Eklentiler
+    items:
+    - name: Azure App Service eklentisi
+      href: https://plugins.jenkins.io/azure-app-service
+    - name: Azure AD eklentisi
+      href: https://plugins.jenkins.io/azure-ad
+    - name: Azure Kapsayıcı Aracıları eklentisi
+      href: https://plugins.jenkins.io/azure-container-agents
+    - name: Azure Container Service eklentisi
+      href: https://plugins.jenkins.io/azure-acs
+    - name: Azure Kimlik Bilgisi eklentisi
+      href: https://plugins.jenkins.io/azure-credentials
+    - name: Azure İşlev eklentisi
+      href: https://plugins.jenkins.io/azure-function
+    - name: Azure Service Fabric eklentisi
+      href: https://plugins.jenkins.io/service-fabric
+    - name: Azure Depolama eklentisi
+      href: https://plugins.jenkins.io/windows-azure-storage
+    - name: Azure VM aracıları eklentisi
+      href: https://plugins.jenkins.io/azure-vm-agents
+    - name: Azure VM ölçek kümesi eklentisi
+      href: https://plugins.jenkins.io/azure-vmss
+  - name: Azure Yol Haritası
+    href: https://azure.microsoft.com/roadmap/
+  - name: Jenkins giriş sayfası
+    href: https://jenkins.io/
+  - name: Jenkins mimarisi
+    href: /azure/architecture/reference-architectures/jenkins/
+    maintainContext: true
+ms.openlocfilehash: 9b7a9493dec61b110b8371510b3e1a3f1fb45acb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304212"

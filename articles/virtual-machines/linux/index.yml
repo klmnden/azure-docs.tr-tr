@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c1bb364bfedb24349f2b0bc92f99d482027f709d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 078da85f8ad4addd23a35b456a49d5a8248fc59b
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43185358"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294383"
 documentType: LandingData
 title: Linux Sanal Makineleri
 metadata:
@@ -71,7 +71,7 @@ sections:
     - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">VM'leri izleme ve güncelleştirme</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">VM’lerde güvenliği yönetme</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Jenkins, Docker ve GitHub ile CI/CD altyapısı oluşturma</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">Team Services ile CI/CD</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">Azure Pipelines ile CI/CD</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>, <a href="/azure/virtual-machines/linux/tutorial-lemp-stack">LEMP</a> veya <a href="/azure/virtual-machines/linux/tutorial-mean-stack">MEAN</a> ile bir web sunucusu yığını oluşturma
     - html: <a href="/azure/virtual-machines/linux/tutorial-secure-web-server">SSL ile bir web sunucusunun güvenliğini sağlama</a>
 - title: Ücretsiz Pluralsight Video Eğitimi

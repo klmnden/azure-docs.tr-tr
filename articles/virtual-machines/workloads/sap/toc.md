@@ -25,7 +25,9 @@
 ### [Yapılandırmayı doğrulama](hana-installation.md)
 ### [Örnek HANA yüklemesi](hana-example-installation.md)
 ## [Yüksek kullanılabilirlik ve olağanüstü durum kurtarma](hana-overview-high-availability-disaster-recovery.md)
-## [Sorun giderme ve izleme](troubleshooting-monitoring.md)
+## Sorun giderme ve izleme
+### [HLI izleme](troubleshooting-monitoring.md)
+### [HANA tarafından izleme ve sorun giderme](hana-monitor-troubleshoot.md)
 ## Nasıl yapılır
 ### [STONITH ile HA Kurulumu](ha-setup-with-stonith.md)
 ### [Type II SKU’lara yönelik İşletim Sistemi Yedeklemesi](os-backup-type-ii-skus.md)

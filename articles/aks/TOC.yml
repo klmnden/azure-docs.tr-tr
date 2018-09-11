@@ -73,12 +73,21 @@ items:
       href: static-ip.md
     - name: İç yük dengeleyici
       href: internal-lb.md
-    - name: Giriş ve TLS
-      href: ingress.md
+    - name: Giriş
+      items:
+      - name: Temel denetleyici oluşturma
+        href: ingress-basic.md
+      - name: HTTP uygulaması yönlendirmeyi kullanma
+        href: http-application-routing.md
+      - name: İç ağ kullanma
+        href: ingress-internal-ip.md
+      - name: TLS’yi Let’s Encrypt ile kullanma
+        href: ingress-tls.md
+        items:
+        - name: Statik genel IP kullanma
+          href: ingress-static-ip.md
     - name: Çıkış trafiği
       href: egress.md
-    - name: HTTP uygulaması yönlendirme
-      href: http-application-routing.md
   - name: Güvenlik ve kimlik doğrulaması
     items:
     - name: Hizmet sorumlusu oluşturma
@@ -162,9 +171,9 @@ items:
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: SSS
     href: faq.md
-ms.openlocfilehash: be17978b91f1664ea4917f7d9fcb0da5657d4832
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: d62907e0c9332975cb8361fc96698f75aa0f751d
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41944111"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345345"
