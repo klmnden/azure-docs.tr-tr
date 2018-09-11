@@ -1,5 +1,5 @@
 # Azure Dev Spaces
-## [Genel Bakış](azure-dev-spaces.md)
+## [Genel Bakış](index.yml)
 
 ## Hızlı Başlangıçlar
 ### [Java (VS Code ve CLI)](quickstart-java.md)

@@ -1,116 +1,123 @@
+items:
 - name: Azure İzleme Belgeleri
   href: index.md
 - name: Genel Bakış
   items:
-    - name: Azure'da izleme
-      href: monitoring-overview.md
+  - name: Azure'da izleme
+    href: monitoring-overview.md
 - name: Paylaşılan Hizmetler
   items:
-    - name: Uyarı
-      items:
-        - name: Azure uyarıları
-          href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Eylem grupları
-          href: ../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Operations Manager uyarılarını içeri aktarma
-          href: ../log-analytics/log-analytics-solution-alert-management.md?toc=%2fazure%2fmonitoring%2ftoc.json
+  - name: Uyarı
+    items:
+    - name: Azure uyarıları
+      href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Eylem grupları
+      href: ../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Operations Manager uyarılarını içeri aktarma
+      href: ../log-analytics/log-analytics-solution-alert-management.md?toc=%2fazure%2fmonitoring%2ftoc.json
+  - name: Otomatik Ölçeklendirme
+    items:
     - name: Otomatik Ölçeklendirme
-      items:
-        - name: Otomatik Ölçeklendirme
-          href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=%2fazure%2fmonitoring%2ftoc.json
+      href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=%2fazure%2fmonitoring%2ftoc.json
+  - name: Ölçümler
+    items:
     - name: Ölçümler
-      items:
-        - name: Ölçümler
-          href: ../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fmonitoring%2ftoc.json
-    - name: Günlükler
-      items:
-        - name: Etkinlik günlükleri
-          href: ../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Tanılama günlükleri
-          href: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Tüm Azure aboneliklerindeki günlükleri toplama
-          href: ../log-analytics/log-analytics-activity-logs-subscriptions.md?toc=%2fazure%2fmonitoring%2ftoc.json
+      href: ../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fmonitoring%2ftoc.json
+  - name: Günlükler
+    items:
+    - name: Etkinlik günlükleri
+      href: ../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Tanılama günlükleri
+      href: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Tüm Azure aboneliklerindeki günlükleri toplama
+      href: ../log-analytics/log-analytics-activity-logs-subscriptions.md?toc=%2fazure%2fmonitoring%2ftoc.json
 - name: Verileri izleme
   items:
-    - name: Veri türleri ve analiz araçları
-      href: monitoring-data-collection.md
-    - name: Azure veri kaynaklarını izleme
-      href: monitoring-data-sources.md
+  - name: Veri türleri ve analiz araçları
+    href: monitoring-data-collection.md
+  - name: Azure veri kaynaklarını izleme
+    href: monitoring-data-sources.md
 - name: Kaynakları izleme
   items:
-    - name: Uygulamalar
+  - name: Uygulamalar
+    items:
+    - name: Application Insights
+      href: ../application-insights/app-insights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Application Insights bağlayıcısı
+      href: ../log-analytics/log-analytics-app-insights-connector.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Key Vault Analytics
+      href: ../log-analytics/log-analytics-azure-key-vault.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Service Fabric Analytics
+      href: ../service-fabric/service-fabric-diagnostics-oms-setup.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Azure Web Apps Analytics
+      href: ../log-analytics/log-analytics-azure-web-apps-analytics.md?toc=%2fazure%2fmonitoring%2ftoc.json
+  - name: Kapsayıcılar
+    items:
+    - name: Kapsayıcıları İzlemeye genel bakış
+      href: monitoring-container-overview.md
+    - name: AKS kapsayıcı durumu
+      href: monitoring-container-health.md
+    - name: Docker ve Windows Kapsayıcıları’nı izleme
+      href: ../log-analytics/log-analytics-containers.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Docker uygulamalarını izleme
+      href: ../application-insights/app-insights-docker.md?toc=%2fazure%2fmonitoring%2ftoc.json
+  - name: Veritabanları
+    items:
+    - name: Azure SQL
+      href: ../log-analytics/log-analytics-azure-sql.md?toc=%2fazure%2fmonitoring%2ftoc.json
+  - name: Sanal makineler
+    items:
+    - name: Aracı Durumu
+      href: ../monitoring/monitoring-solution-agenthealth.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: VMWare Analizi
+      href: ../log-analytics/log-analytics-vmware.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Hizmet Eşlemesi
       items:
-        - name: Application Insights
-          href: ../application-insights/app-insights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Application Insights bağlayıcısı
-          href: ../log-analytics/log-analytics-app-insights-connector.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Key Vault Analytics
-          href: ../log-analytics/log-analytics-azure-key-vault.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Service Fabric Analytics
-          href: ../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Azure Web Apps Analytics
-          href: ../log-analytics/log-analytics-azure-web-apps-analytics.md?toc=%2fazure%2fmonitoring%2ftoc.json
-    - name: Kapsayıcılar
+      - name: Kullanım
+        href: monitoring-service-map.md
+      - name: Yapılandırma
+        href: monitoring-service-map-configure.md
+      - name: Operations Manager ile tümleştirme
+        href: monitoring-service-map-scom.md
+  - name: Diğer kaynaklar
+    items:
+    - name: AD Durumu Değerlendirmesi
+      href: ../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: AD Çoğaltma Durumu
+      href: ../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2fmonitoring%2ftoc.json
+    - name: Office 365
+      href: ../monitoring/monitoring-solution-office-365.md
+    - name: Surface Hub
+      href: ../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2fmonitoring%2ftoc.json
+  - name: Yönetim çözümleri
+    items:
+    - name: Kullanım
       items:
-        - name: Kapsayıcıları İzlemeye genel bakış
-          href: monitoring-container-overview.md
-        - name: AKS kapsayıcı durumu
-          href: monitoring-container-health.md
-        - name: Docker ve Windows Kapsayıcıları’nı izleme
-          href: ../log-analytics/log-analytics-containers.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Docker uygulamalarını izleme
-          href: ../application-insights/app-insights-docker.md?toc=%2fazure%2fmonitoring%2ftoc.json
-    - name: Veritabanları
+      - name: Çözüm yükleme ve kullanma
+        href: monitoring-solutions.md
+      - name: Çözüm envanteri
+        href: monitoring-solutions-inventory.md
+      - name: Hedef çözümler
+        href: monitoring-solution-targeting.md
+    - name: Oluştur
       items:
-        - name: Azure SQL
-          href: ../log-analytics/log-analytics-azure-sql.md?toc=%2fazure%2fmonitoring%2ftoc.json
-    - name: Sanal makineler
-      items:
-        - name: Aracı Durumu
-          href: ../monitoring/monitoring-solution-agenthealth.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: VMWare Analizi
-          href: ../log-analytics/log-analytics-vmware.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Hizmet Eşlemesi
-          items:
-            - name: Kullanım
-              href: monitoring-service-map.md
-            - name: Yapılandırma
-              href: monitoring-service-map-configure.md
-            - name: Operations Manager ile tümleştirme
-              href: monitoring-service-map-scom.md
-    - name: Diğer kaynaklar
-      items:
-        - name: AD Durumu Değerlendirmesi
-          href: ../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: AD Çoğaltma Durumu
-          href: ../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Office 365
-          href: ../monitoring/monitoring-solution-office-365.md
-        - name: Surface Hub
-          href: ../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2fmonitoring%2ftoc.json
-    - name: Yönetim çözümleri
-      items:
-        - name: Kullanım
-          items:
-            - name: Çözüm yükleme ve kullanma
-              href: monitoring-solutions.md
-            - name: Çözüm envanteri
-              href: monitoring-solutions-inventory.md
-            - name: Hedef çözümler
-              href: monitoring-solution-targeting.md
-        - name: Oluştur
-          items:
-            - name: Tasarım ve derleme
-              href: monitoring-solutions-creating.md
-            - name: Çözüm dosyası
-              href: monitoring-solutions-solution-file.md
-            - name: Otomasyon kaynakları
-              href: monitoring-solutions-resources-automation.md
-            - name: Günlük aramaları ve uyarıları
-              href: monitoring-solutions-resources-searches-alerts.md
-            - name: Görünümler
-              href: monitoring-solutions-resources-views.md
-            - name: En iyi uygulamalar
-              href: monitoring-solutions-best-practices.md
-            - name: Bir runbook’tan izleme verilerini toplama
-              href: monitoring-runbook-datacollect.md
+      - name: Tasarım ve derleme
+        href: monitoring-solutions-creating.md
+      - name: Çözüm dosyası
+        href: monitoring-solutions-solution-file.md
+      - name: Otomasyon kaynakları
+        href: monitoring-solutions-resources-automation.md
+      - name: Günlük aramaları ve uyarıları
+        href: monitoring-solutions-resources-searches-alerts.md
+      - name: Görünümler
+        href: monitoring-solutions-resources-views.md
+      - name: En iyi uygulamalar
+        href: monitoring-solutions-best-practices.md
+      - name: Bir runbook’tan izleme verilerini toplama
+        href: monitoring-runbook-datacollect.md
+ms.openlocfilehash: 190062c30d87628e9aba42c616815313c45b8623
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324708"
