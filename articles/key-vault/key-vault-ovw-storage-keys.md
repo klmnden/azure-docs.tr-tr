@@ -2,19 +2,19 @@
 ms.assetid: ''
 title: Azure anahtar kasası depolama hesabı anahtarları
 description: Depolama hesabı anahtarları Azure Key Vault ile anahtar tabanlı erişim arasında bir seemless tümleştirme için Azure depolama hesabı sağlayın.
-ms.topic: article
+ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
 author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 08/21/2017
-ms.openlocfilehash: 0112d48647c031845bc89ccebfcdd40954c59f14
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 7545a035541a4e464a6c82acb9fa9de18cf8e86d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42055878"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304331"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure anahtar kasası depolama hesabı anahtarları
 

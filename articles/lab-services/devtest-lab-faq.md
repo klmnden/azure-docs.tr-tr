@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: a295cad2bf1cafce4dc64909174e9417daa7918e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 08b27acc2d3114486b86aa0c311b9396c0bed48f
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38235457"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297324"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs SSS
 Azure DevTest Labs hakkında en yaygın soruların yanıtlarını alın.
@@ -88,17 +88,17 @@ Kapsamları hiyerarşik olduğundan, bir kullanıcı belirli bir kapsamda izinle
 
 **CI/CD tümleştirmesi ve Otomasyon**
 ## <a name="does-devtest-labs-integrate-with-my-cicd-toolchain"></a>DevTest Labs, my CI/CD araç zinciri ile tümleştiriliyor mu?
-Visual Studio Team Services kullanıyorsanız, kullanabileceğiniz bir [DevTest Labs görevlerini uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) DevTest labs'deki yayın işlem hattınızı otomatik hale getirmek için. Bu uzantı ile gerçekleştirebileceğiniz görevlerden bazıları şunlardır:
+Azure DevOps kullanıyorsanız, kullanabileceğiniz bir [DevTest Labs görevlerini uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) DevTest labs'deki yayın işlem hattınızı otomatik hale getirmek için. Bu uzantı ile gerçekleştirebileceğiniz görevlerden bazıları şunlardır:
 
-* Oluşturun ve otomatik olarak bir VM dağıtın. VM en son sürümle Azure dosya kopyalama ya da PowerShell Team Services görevleri kullanarak da yapılandırabilirsiniz.
+* Oluşturun ve otomatik olarak bir VM dağıtın. VM en son sürümle Azure dosya kopyalama veya PowerShell Azure DevOps Hizmetleri görevleri kullanarak da yapılandırabilirsiniz.
 * Daha fazla bilgi için aynı VM'de bir hatayı yeniden oluşturmak için test edildikten sonra otomatik olarak bir VM'nin durumunu yakalayın.
 * Sürüm ardışık düzeninin sonunda sanal makine artık gerekli değilse silin.
 
-Aşağıdaki blog teklif rehberlik ve Team Services uzantısı kullanma hakkında bilgi gönderir:
+Aşağıdaki blog teklif rehberlik ve Azure DevOps Hizmetleri Uzantısı kullanma hakkında bilgi gönderir:
 
-* [DevTest Labs ve Visual Studio Team Services uzantısı](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
-* [Yeni bir VM içinde varolan bir DevTest Labs Laboratuvar Team Services'ten dağıtma](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
-* [DevTest Labs'de sürekli dağıtımlar için Team Services sürüm Yönetimi'ni kullanma](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
+* [DevTest Labs ve Azure DevOps uzantısı](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
+* [Azure DevOps Services'dan bir DevTest Labs Laboratuvardaki yeni VM dağıtma](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
+* [DevTest Labs'de sürekli dağıtımlar için Azure DevOps Services sürüm Yönetimi'ni kullanma](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
 Diğer sürekli tümleştirme (CI) için / sürekli teslim (CD) araç zincirlerinden, aynı senaryoları elde edebileceğiniz dağıtma [Azure Resource Manager şablonları](https://aka.ms/dtlquickstarttemplate) kullanarak [Azure PowerShell cmdlet'lerini](../azure-resource-manager/resource-group-template-deploy.md) ve [.NET SDK'ları](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Ayrıca [için DevTest Labs REST API'leri](http://aka.ms/dtlrestapis) araç zincirinizi ile tümleştirmek için.  
 
@@ -112,7 +112,7 @@ Bir özel görüntü sanal sabit disk (VHD) hizmetidir. Formül, ek ayarlarla ya
 
 ## <a name="how-do-i-create-multiple-vms-from-the-same-template-at-once"></a>Nasıl birden çok VM aynı şablondan tek seferde oluşturabilirim?
 Aynı anda birden çok VM aynı şablonu oluşturmak için iki seçeneğiniz vardır:
-* Kullanabileceğiniz [Visual Studio Team Services görevleri uzantı](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks). 
+* Kullanabileceğiniz [Azure DevOps görev uzantımızı](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks). 
 * Yapabilecekleriniz [Resource Manager şablonu oluşturma](devtest-lab-add-vm.md#save-azure-resource-manager-template) bir VM oluştururken ve [Windows PowerShell Resource Manager şablonu dağıtmayı](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="how-do-i-move-my-existing-azure-vms-into-my-devtest-labs-lab"></a>Mevcut Azure Vm'lerimi my DevTest Labs Laboratuvar nasıl taşırım?
@@ -145,7 +145,7 @@ Laboratuvarınızı ile ilişkili hedef depolama hesabını bulmak için:
 2. Sol menüden **kaynak grupları**.
 3. Bulun ve Laboratuvarınızı ile ilişkili kaynak grubunu seçin.
 4. Altında **genel bakış**, depolama hesaplarından birini seçin.
-5. Seçin **Blobları**.
+5. **Bloblar**'ı seçin.
 6. Karşıya yükleme listesinde arayın. Yoksa, 4. adıma geri dönün ve başka bir depolama hesabı deneyin.
 7. Kullanım **URL** , AzCopy komutunda hedef olarak.
 
@@ -208,7 +208,7 @@ Laboratuvar oluşturulan VM'ler sayısı belirli bir sınır yoktur. Ancak, abon
 >
 >
 
-## <a name="what-is-a-microsoft-account"></a>Microsoft hesabı nedir?
+## <a name="what-is-a-microsoft-account"></a>Bir Microsoft hesabı nedir?
 Bir Microsoft hesabı olan neredeyse her şey Microsoft cihazlar ve hizmetler ile yapmak için kullandığınız hesaptır. Bir e-posta adresi ve Skype, Outlook.com, OneDrive, oturum açmak için kullandığınız parola olan Windows phone ve Xbox Live. Tek bir hesap, dosyaları, fotoğraflar, kişiler ve ayarları, tüm cihazlardan izleyebilirsiniz anlamına gelir.
 
 > [!NOTE]

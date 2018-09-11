@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4dfeff0e22a541a39a59c37c869af41a7e444fa6
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: c33d1fe1385619420215ec0f0fa3b0a2f90dddc0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842507"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299466"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL kaynak sağlayıcısı için barındırma sunucuları ekleme
 
@@ -38,13 +38,16 @@ SQL barındırma sunucusu eklemeden önce aşağıdaki zorunlu ve genel gereksin
 
 * SQL örneği kullanmak için kaynak sağlayıcısı ve kullanıcı iş yükleri tarafından atayın. Diğer bir tüketici tarafından kullanılan bir SQL örneği kullanamazsınız. Bu kısıtlama, uygulama hizmetleri için de geçerlidir.
 * Bir hesap (aşağıda açıklanmıştır) kaynak sağlayıcısı için uygun ayrıcalık düzeyleri ile yapılandırın.
-* İşiniz SQL örnekleri ve konaklarının yönetmekten sorumludur.  Örneğin, kaynak sağlayıcısı olmayan güncelleştirmeleri uygulamak, yedeklemeler işlemek veya işlemek kimlik bilgisi döndürme.
+* SQL örnekleri ve konaklarının yönetmekten sorumlu olursunuz.  Örneğin, kaynak sağlayıcısı olmayan güncelleştirmeleri uygulamak, yedeklemeler işlemek veya işlemek kimlik bilgisi döndürme.
 
 ### <a name="sql-server-virtual-machine-images"></a>SQL Server sanal makine görüntüleri
 
 SQL Iaas sanal makine görüntüleri, Market yönetimi özelliği yoluyla kullanılabilir. Bu görüntüler Azure'da kullanıma sunulan SQL VM'ler ile aynıdır.
 
 Her zaman en son sürümünü indirin emin olun **SQL Iaas uzantısı** bir Market öğesi kullanarak bir SQL VM dağıtmadan önce. Iaas uzantısı ve karşılık gelen portalı geliştirmeleri otomatik düzeltme eki uygulama gibi ek özellikler sağlamak ve yedekleyin. Bu uzantı hakkında daha fazla bilgi için bkz. [SQL Server Aracısı uzantısı ile Azure sanal Makineler'de yönetim görevlerini otomatikleştiren](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+
+> [!NOTE]
+> SQL Iaas uzantısı _gerekli_ Market'te; Windows görüntülerindeki tüm SQL VM uzantı yüklemedi alıyorsa, dağıtılacak başarısız olur. SQL Linux tabanlı sanal makine görüntüleriyle kullanılmaz.
 
 Şablonları dahil olmak üzere SQL Vm'leri dağıtmak için diğer seçenekler [Azure Stack hızlı başlama Galerisi](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
@@ -125,7 +128,7 @@ Tüm örneklerinde otomatik dengeli dağıtımı etkinleştirmek için düzenley
   GO
   ```
 
-Kullanılabilirlik grubu köşeli ayraçlar içine alınmalıdır unutmayın.
+Kullanılabilirlik grubu köşeli ayraçlar içine alınmalıdır.
 
 İkincil düğümlerinde aşağıdaki SQL komutunu çalıştırın:
 

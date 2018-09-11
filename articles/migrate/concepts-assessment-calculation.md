@@ -4,14 +4,14 @@ description: Azure geçişi hizmetinde değerlendirme hesaplamaları genel bir b
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/25/2018
+ms.date: 09/10/2018
 ms.author: raynew
-ms.openlocfilehash: 092f0844854c13898fd7f07ce9b7ddea98ff01ed
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 24033431bc170969ccbdf1e993e4b6a5501acd81
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286282"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325405"
 ---
 # <a name="assessment-calculations"></a>Değerlendirme hesaplamaları
 
@@ -72,9 +72,6 @@ Diğer işletim sistemleri<br/><br/> Örneğin, Oracle Solaris Apple Mac işleti
 
 Bir makine, Azure için hazır olarak işaretlendikten sonra Azure Geçişi sanal makine ve disklerine için Azure boyutları. Değerlendirme özelliklerinde belirtilen boyutlandırma ölçütü performansa dayalı boyutlandırma gerçekleştirmek amacıyla ise, Azure geçişi, makinenin Azure VM boyutu ve disk türünü tanımlamak için performans geçmişini dikkate alır. Bu yöntem, burada şirket içi VM fazladan ayrıldı ancak kullanımı düşüktür ve maliyetinden tasarruf etmek Azure sanal makineleri doğru boyuta istediğiniz senaryolarda yararlıdır.
 
-> [!NOTE]
-> Azure geçişi, şirket içi VM'lerin performans geçmişine göre vCenter Server'dan toplar. Doğru şekilde boyutlandırmaya emin olmak için vcenter Server'daki istatistik ayarı düzeyini 3 olarak ayarlandığından emin olun ve şirket içi sanal makinelerin keşif başlatılmadan önce en az bir gün bekleyin. Vcenter Server'daki istatistik ayarı düzeyini 3 ise, disk ve ağ için performans verileri toplanmaz.
-
 VM boyutu için performans geçmişini göz önünde bulundurun ve VM olarak almak istiyorsanız istemiyorsanız-olan, Azure'a boyutlandırma ölçütü olarak belirtebilirsiniz *şirket içi olarak* ve Azure geçişi ardından boyut şirket içi sanal makinelerinizi kullanım verileri dikkate almadan yapılandırması. Disk boyutlandırma, bu durumda, (standart disk veya Premium disk) değerlendirme özelliklerinde belirttiğiniz depolama türüne göre yapılır
 
 ### <a name="performance-based-sizing"></a>Performansa dayalı boyutlandırma
@@ -119,14 +116,24 @@ Performansa dayalı boyutlandırma için Azure Geçişi, CPU ile VM'nin belleği
    %61-%80 | 4 Yıldız
    %81-%100 | 5 Yıldız
 
-Aşağıdaki nedenlerle bir değerlendirme için tüm veri noktaları kullanılabilir olmayabilir:
-- vCenter Server'daki istatistik ayarı 3 düzeyine ayarlanmamıştır. vCenter Server’daki istatistik ayarı 3 düzeyinden küçükse vCenter Server’dan disk ve ağ için performans verileri toplanmaz. Bu durumda, Azure Geçişi tarafından disk ve ağ için sağlanan öneri, kullanım tabanlı olmaz. Azure Geçişi, diskin IOPS/iş hacmi göz önünde bulundurulmadan diskin Azure’da premium bir disk gerektirip gerektirmediğini belirleyemeyeceğinden, bu örnekte Azure Geçişi tüm diskler için standart diskleri önerir.
-- vCenter Server’daki istatistik ayarı, keşif başlatılmadan önce daha kısa süre bir için 3. düzey olarak ayarlanmıştır. Örneğin, bugün istatistik ayarı düzeyini 3 olarak değiştirdiğiniz, yarın ise (24 saat sonra) toplayıcı gerecini kullanarak keşfi başlattığınız bir senaryoyu ele alalım. Bir gün için değerlendirme oluşturuyorsanız tüm veri noktalarına sahip olursunuz ve değerlendirmenin güvenilirlik derecesi 5 yıldız olur. Ancak değerlendirme özelliklerinde performans süresini bir ay olarak değiştiriyorsanız, son bir ay için disk ve ağ performansı verileri kullanılabilir halde olmayacağından güvenilirlik derecesi düşer. Son bir ayın performans verilerini dikkate almak istiyorsanız, keşif başlatmadan önce bir ay boyunca vCenter Server istatistik ayarını 3 düzeyinde tutmanız önerilir.
-- Değerlendirmenin hesaplandığı dönem boyunca birkaç sanal makine kapatılmıştır. Herhangi bir sanal makine belirli bir süre boyunca kapatıldıysa vCenter Server o süreye ait performans verilerine sahip olmaz.
-- Değerlendirmenin hesaplandığı dönem boyunca birkaç sanal makine oluşturulmuştur. Örneğin, son bir ayın performans geçmişi için değerlendirme oluşturuyorsanız, ancak yalnızca bir hafta önce ortamda birkaç sanal makine oluşturulduysa. Bu tür durumlarda yeni sanal makinelerin performans geçmişi, sürenin tamamı boyunca mevcut olmaz.
+   Değerlendirme, düşük güvenilirlik derecelendirmesi alabilir neden aşağıdaki nedenlerle ilgili:
 
-> [!NOTE]
-> Herhangi bir değerlendirmenin güvenilirlik derecesi 4 Yıldız’ın altında ise vCenter Server istatistik ayarları düzeyini 3 olarak değiştirmeniz, değerlendirme için göz önünde bulundurmak istediğiniz süre (1 gün/1 hafta/1 ay) boyunca bekleyip daha sonra keşif ve değerlendirme gerçekleştirmeniz önerilir. Bu yapılamazsa, performansa dayalı boyutlandırma güvenilir olmayabilir ve değerlendirme özellikleri değiştirilerek *şirket içi olarak boyutlandırmaya* geçiş yapılması önerilir.
+   **Tek seferlik bulma**
+
+   - vCenter Server'daki istatistik ayarı 3 düzeyine ayarlanmamıştır. İstatistik vCenter Server'da ayarı 3 düzeyinden daha düşükse, vCenter Server istatistik ayarları tek seferlik modeli bağlı olduğundan, vCenter Server'dan disk ve ağ için performans verileri toplanmaz. Bu durumda, Azure Geçişi tarafından disk ve ağ için sağlanan öneri, kullanım tabanlı olmaz. Azure Geçişi, diskin IOPS/iş hacmi göz önünde bulundurulmadan diskin Azure’da premium bir disk gerektirip gerektirmediğini belirleyemeyeceğinden, bu örnekte Azure Geçişi tüm diskler için standart diskleri önerir.
+   - VCenter istatistik ayarı keşif başlatılmadan önce daha kısa bir süre için Server'daki 3 düzeyine ayarlanmıştır. Örneğin, bugün istatistik ayarı düzeyini 3 olarak değiştirdiğiniz, yarın ise (24 saat sonra) toplayıcı gerecini kullanarak keşfi başlattığınız bir senaryoyu ele alalım. Bir gün için değerlendirme oluşturuyorsanız tüm veri noktalarına sahip olursunuz ve değerlendirmenin güvenilirlik derecesi 5 yıldız olur. Ancak değerlendirme özelliklerinde performans süresini bir ay olarak değiştiriyorsanız, son bir ay için disk ve ağ performansı verileri kullanılabilir halde olmayacağından güvenilirlik derecesi düşer. Son bir ayın performans verilerini dikkate almak istiyorsanız, keşif başlatmadan önce bir ay boyunca vCenter Server istatistik ayarını 3 düzeyinde tutmanız önerilir.
+
+   **Sürekli bulma**
+
+   - Ortamınızı değerlendirme oluşturma süresi boyunca profil değil. Örneğin, performans süresi 1 gün olarak ayarlanmış olan değerlendirme oluşturuyorsanız, en az bir gün sonra toplanan almak tüm veri noktaları için bulmayı Başlat için beklemeniz gerekir.
+
+   **Yaygın nedenler**  
+
+   - Değerlendirmenin hesaplandığı dönem boyunca birkaç sanal makine kapatılmıştır. Herhangi bir VM için bazı süresi kapalı, biz o dönem için performans verilerini toplamak mümkün olmayacaktır.
+   - Değerlendirmenin hesaplandığı dönem boyunca birkaç sanal makine oluşturulmuştur. Örneğin, son bir ayın performans geçmişi için değerlendirme oluşturuyorsanız, ancak yalnızca bir hafta önce ortamda birkaç sanal makine oluşturulduysa. Bu tür durumlarda yeni sanal makinelerin performans geçmişi, sürenin tamamı boyunca mevcut olmaz.
+
+   > [!NOTE]
+   > Herhangi bir değerlendirmenin güvenilirlik derecesi 4 yıldız, tek seferlik modeli için altındaysa size vCenter Server istatistik ayarları düzeyini 3 olarak değiştirmeniz önerilir değerlendirme için dikkate alınması gereken istediğiniz süre için bekleyin (1 gün/1 hafta/1 ay) ve ardından yapın Keşif ve değerlendirme. Sürekli bulma modeli için gereç ortamı profilini oluşturmak için en az bir gün bekleyin ve ardından *yeniden hesapla* değerlendirme. Önceki yapılamaz, performansa dayalı boyutlandırma güvenilir olmayabilir ve geçmek için önerilen *şirket içi olarak boyutlandırma* değerlendirme özelliklerini değiştirerek.
 
 ## <a name="monthly-cost-estimation"></a>Aylık maliyet tahmini
 

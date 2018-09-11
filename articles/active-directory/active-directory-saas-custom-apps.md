@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 928e4811f15953313df167375043231478f5c11a
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 3dafef052f181a961cdf30cb647328ee1b2db601
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056457"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299925"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory Uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açma yapılandırma
 
@@ -42,17 +42,17 @@ Olarak da bilinen bu yeteneklerin *uygulama tümleştirme şablonları*, SAML, S
 ## <a name="adding-an-unlisted-application"></a>Listede bulunmayan bir uygulama eklendiğinde
 Bir uygulama tümleştirme şablonu kullanarak bir uygulamayı bağlamak için Azure Active Directory yönetici hesabınızı kullanarak Azure portalında oturum açın. Gözat **Active Directory > Kurumsal uygulamalar > Yeni Uygulama > galeri dışı uygulama** bölümünden **Ekle**, ardından **Galeriden bir uygulama ekleyin** .
 
-  ![](./media/active-directory-saas-custom-apps/customapp1.png)
+  ![Uygulama ekleme](./media/active-directory-saas-custom-apps/customapp1.png)
 
 App Galerisi'nde listelenmeyen bir uygulamayı seçerek ekleyebilirsiniz **galeri dışı uygulama** istenen uygulama bulunamazsa, arama sonuçlarında gösterilen bir kutucuk. Uygulamanız için bir ad girdikten sonra çoklu oturum açma seçenekleri ve davranışını yapılandırabilirsiniz. 
 
 **Hızlı İpucu**: en iyi uygulama, uygulama galerisinde bulunan uygulama zaten var olup olmadığını kontrol etmek için arama işlevini kullanın. Uygulama bulunamadı ve çoklu oturum açma açıklamasını bahsetmeleri, ardından uygulamayı zaten Federasyon çoklu oturum açma için desteklenir.
 
-  ![](./media/active-directory-saas-custom-apps/customapp2.png)
+  ![Arama](./media/active-directory-saas-custom-apps/customapp2.png)
 
 Bu şekilde bir uygulama eklendiğinde, önceden tümleştirilmiş uygulamalar için kullanılabilir bir benzer bir deneyim sağlar. Başlamak için seçim **yapılandırma çoklu oturum açma** veya tıkladığınızda **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde. Sonraki ekranda, çoklu oturum açmayı yapılandırma seçeneklerini sunar. Seçenekler, bu makalenin sonraki bölümlerinde açıklanmıştır.
   
-![](./media/active-directory-saas-custom-apps/customapp3.png)
+![Yapılandırma seçenekleri](./media/active-directory-saas-custom-apps/customapp3.png)
 
 ## <a name="saml-based-single-sign-on"></a>SAML tabanlı çoklu oturum açma
 Uygulama SAML tabanlı kimlik doğrulamasını yapılandırmak için bu seçeneği belirleyin. Bu, uygulamanın SAML 2.0 desteği gerektirir. Devam etmeden önce uygulamanın SAML işlevlerini nasıl kullanacağınız hakkında bilgi toplamak. Uygulama ve Azure AD arasında çoklu oturum açmayı yapılandırmak için aşağıdaki bölümleri tamamlayın.
@@ -98,7 +98,7 @@ Bir kullanıcı uygulama kimliğini doğruladığında, Azure AD bilgileri (veya
 
 Görüntüleyebilir veya altındaki uygulamaya SAML belirtecindeki gönderilen talep Düzenle **öznitelikleri** sekmesi.
 
-  ![](./media/active-directory-saas-custom-apps/customapp7.png)
+  ![Öznitelikler](./media/active-directory-saas-custom-apps/customapp7.png)
 
 SAML belirtecinde verilen talepleri düzenlemeniz gerekebilir neden iki nedeni vardır:
 
@@ -138,7 +138,7 @@ Ardından, uygulamanızın bir SAML tabanlı kimlik sağlayıcısı olarak Azure
 
 Uygulamanız için bir kullanıcı veya grup atamak için tıklatın **kullanıcıları atama** düğmesi. Kullanıcı veya grup atayın ve ardından istediğiniz seçin **atama** düğmesi.
 
-  ![](./media/active-directory-saas-custom-apps/customapp6.png)
+  ![Kullanıcıları atama](./media/active-directory-saas-custom-apps/customapp6.png)
 
 Kullanıcı atama, kullanıcı için bir belirteç vermek Azure AD izin verir. Bu uygulama, kullanıcının erişim panelinde görünmesi için bir kutucuk neden olur. Kullanıcının Office 365 kullanıyorsa, uygulama kutucuğu de Office 365 uygulama başlatıcısında görünecek. 
 
@@ -175,5 +175,5 @@ Seçtikten sonra **sonraki**, bağlamak için uygulamanın URL'sini girmeniz ist
 
 - [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)
 - [Önceden tümleştirilmiş uygulamalar için SAML belirtecinde verilen talepleri özelleştirme](active-directory-saml-claims-customization.md)
-- [SAML tabanlı çoklu oturum açma sorunlarını giderme](active-directory-saml-debugging.md)
+- [SAML tabanlı çoklu oturum açma sorunlarını giderme](develop/howto-v1-debug-saml-sso-issues.md)
 

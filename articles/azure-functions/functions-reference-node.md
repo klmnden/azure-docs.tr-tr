@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: 36307c86332ac331e444d65ba27c044585379e68
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d80914fcd1f667924b52122b39f95871c1e21532
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093414"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298021"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 
@@ -67,13 +67,19 @@ module.exports = function(context) {
 ```
 context.bindings
 ```
-Tüm girdi ve çıktı verilerini içeren adlandırılmış bir nesne döndürür. Örneğin, aşağıdaki bağlama tanımında, *function.json* kuyruktan içeriğini erişmenizi sağlar `context.bindings.myInput` nesne. 
+Tüm girdi ve çıktı verilerini içeren adlandırılmış bir nesne döndürür. Örneğin, aşağıdaki bağlama tanımlar, *function.json* kuyruktan içeriğini erişmenizi sağlar `context.bindings.myInput` ve kullanarak bir kuyruk çıkış atama `context.bindings.myOutput`.
 
 ```json
 {
     "type":"queue",
     "direction":"in",
     "name":"myInput"
+    ...
+},
+{
+    "type":"queue",
+    "direction":"out",
+    "name":"myOutput"
     ...
 }
 ```
@@ -87,25 +93,27 @@ context.bindings.myOutput = {
         a_number: 1 };
 ```
 
+Çıkış veri bağlama kullanarak tanımlamak seçebileceğinize dikkat edin `context.done` yöntemi yerine `context.binding` nesne (aşağıya bakın).
+
 ### <a name="contextdone-method"></a>Context.Done yöntemi
 ```
 context.done([err],[propertyBag])
 ```
 
-Kodunuzu bitirdi çalışma zamanı bildirir. İşlevinizi kullanıyorsa `async function` bildirimi (kullanılabilir işlevler sürüm 8 + düğümü kullanan 2.x), kullanın gerekmez `context.done()`. `context.done` Geri çağırma örtük olarak çağrılır.
+Kodunuzu bitirdi çalışma zamanı bildirir. İşlevinizi JavaScript kullanıyorsa [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) bildirimi (kullanılabilir işlevler sürüm 8 + düğümü kullanan 2.x), kullanın gerekmez `context.done()`. `context.done` Geri çağırma örtük olarak çağrılır.
 
 İşlevinizi bir zaman uyumsuz işlev değilse **çağırmalısınız `context.done`**  çalışma zamanının işlevinizi tamamlandığını bildirmek için. Yürütme zaman aşımı eksik olması durumunda olur.
 
-`context.done` Yöntemi sayesinde çalışma zamanı ve özellikler üzerine bir özellik paketi özellikleri hem de bir kullanıcı tanımlı hata geri geçirmek `context.bindings` nesne.
+`context.done` Yöntemi geri hem bir kullanıcı tanımlı hata çalışma zamanı ve çıktı bağlaması verilerini içeren bir JSON nesnesi geçirme olanak tanır. Geçirilen özellikleri `context.done` ayarlanan herhangi bir şey üzerine yazar `context.bindings` nesne.
 
 ```javascript
 // Even though we set myOutput to have:
-//  -> text: hello world, number: 123
+//  -> text: 'hello world', number: 123
 context.bindings.myOutput = { text: 'hello world', number: 123 };
 // If we pass an object to the done function...
 context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 // the done method will overwrite the myOutput binding to be: 
-//  -> text: hello there, world, noNumber: true
+//  -> text: 'hello there, world', noNumber: true
 ```
 
 ### <a name="contextlog-method"></a>Context.log yöntemi  
@@ -113,7 +121,7 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 ```
 context.log(message)
 ```
-Varsayılan izleme düzeyinde akış yönlendirilen konsol günlüklerini yazmanızı sağlar. Üzerinde `context.log`ek yöntemler günlüğe kaydetme, diğer izleme düzeylerinde konsol günlüğüne yazmanıza olanak tanıyan kullanılabilir:
+Varsayılan izleme düzeyinde akış işlev günlükleri yazmanızı sağlar. Üzerinde `context.log`ek yöntemler günlüğe kaydetme, işlev günlükleri ile diğer izleme düzeylerinde yazmanıza olanak tanıyan kullanılabilir:
 
 
 | Yöntem                 | Açıklama                                |
@@ -123,12 +131,14 @@ Varsayılan izleme düzeyinde akış yönlendirilen konsol günlüklerini yazman
 | **Info (_ileti_)**    | Oturum açma veya alt bilgi düzeyine yazar.    |
 | **ayrıntılı (_ileti_)** | Ayrıntılı düzeyinde günlüğe kaydetme için yazar.           |
 
-Aşağıdaki örnek, uyarı izleme düzeyini konsola yazar:
+Aşağıdaki örnek, bir uyarı izleme düzeyini günlüğüne yazar:
 
 ```javascript
 context.log.warn("Something has happened."); 
 ```
-Host.json dosyasında günlüğe kaydetme için izleme düzeyi eşiği ayarlamanıza veya kapatın.  Günlüklerin yazılacağı hakkında daha fazla bilgi için sonraki bölüme bakın.
+Yapabilecekleriniz [günlüğe kaydetme için izleme düzeyi eşiği yapılandırmak](#configure-the-trace-level-for-console-logging) host.json dosyasında. Günlükleri yazma ile ilgili daha fazla bilgi için bkz: [izleme çıkış yazma](#writing-trace-output-to-the-console) aşağıda.
+
+Okuma [Azure işlevleri izleme](functions-monitoring.md) görüntüleme ve işlev günlükleri sorgulama hakkında daha fazla bilgi edinmek için.
 
 ## <a name="binding-data-type"></a>Bağlama veri türü
 
@@ -143,11 +153,11 @@ Bir giriş bağlaması için veri türünü tanımlamak için `dataType` bağlam
 }
 ```
 
-Diğer seçenekler için `dataType` olan `stream` ve `string`.
+Seçenekler `dataType` şunlardır: `binary`, `stream`, ve `string`.
 
 ## <a name="writing-trace-output-to-the-console"></a>İzleme çıktısı konsola yazma 
 
-İşlevleri'nde, kullandığınız `context.log` konsola izleme çıkışını yazmak için yöntemleri. Bu noktada, kullanamazsınız `console.log` konsola yazma için.
+İşlevleri'nde, kullandığınız `context.log` konsola izleme çıkışını yazmak için yöntemleri. İşlevleri v1.x içinde kullanamazsınız `console.log` konsola yazma için. İşlevler'ın v2.x içinde aracılığıyla ouputs izleme `console.log` işlevi uygulama düzeyinde yakalanır. Gelen veren anlamına gelir `console.log` bir belirli bir işlev çağrısı için bağlı değil.
 
 Çağırdığınızda `context.log()`, iletinizin olduğundan varsayılan izleme düzeyini konsolda yazılan _bilgisi_ izleme düzeyi. Aşağıdaki kod, bilgi izleme düzeyini konsola yazar:
 
@@ -155,22 +165,21 @@ Diğer seçenekler için `dataType` olan `stream` ve `string`.
 context.log({hello: 'world'});  
 ```
 
-Yukarıdaki kod, aşağıdaki koda eşdeğerdir:
+Bu kod, yukarıdaki kod eşdeğerdir:
 
 ```javascript
 context.log.info({hello: 'world'});  
 ```
 
-Aşağıdaki kod, hata düzeyinde konsola yazar:
+Bu kod, hata düzeyinde konsola yazar:
 
 ```javascript
 context.log.error("An error has occurred.");  
 ```
 
-Çünkü _hata_ en yüksek izleme günlük kaydının etkin olduğu sürece düzeyi, bu izleme, tüm izleme çıkış yazılır.  
+Çünkü _hata_ en yüksek izleme günlük kaydının etkin olduğu sürece düzeyi, bu izleme, tüm izleme çıkış yazılır.
 
-
-Tüm `context.log` yöntemleri destekler Node.js tarafından desteklenen aynı parametre biçimi [util.format yöntemi](https://nodejs.org/api/util.html#util_util_format_format). Varsayılan izleme düzeyini kullanarak konsola aşağıdaki kodu göz önünde bulundurun:
+Tüm `context.log` yöntemleri destekler Node.js tarafından desteklenen aynı parametre biçimi [util.format yöntemi](https://nodejs.org/api/util.html#util_util_format_format). Varsayılan izleme düzeyini kullanarak işlev günlüklerini Yazar aşağıdaki kodu göz önünde bulundurun:
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=' + req.originalUrl);
@@ -204,7 +213,7 @@ HTTP ve Web kancası Tetikleyicileri ve bağlamaları, HTTP iletileri temsil etm
 
 ### <a name="request-object"></a>İstek nesnesi
 
-`request` Nesne, aşağıdaki özelliklere sahiptir:
+`context.req` (İstek) nesne, aşağıdaki özelliklere sahiptir:
 
 | Özellik      | Açıklama                                                    |
 | ------------- | -------------------------------------------------------------- |
@@ -219,7 +228,7 @@ HTTP ve Web kancası Tetikleyicileri ve bağlamaları, HTTP iletileri temsil etm
 
 ### <a name="response-object"></a>Yanıt nesnesi
 
-`response` Nesne, aşağıdaki özelliklere sahiptir:
+`context.res` (Yanıt) nesnesi aşağıdaki özelliklere sahiptir:
 
 | Özellik  | Açıklama                                               |
 | --------- | --------------------------------------------------------- |
@@ -230,13 +239,7 @@ HTTP ve Web kancası Tetikleyicileri ve bağlamaları, HTTP iletileri temsil etm
 
 ### <a name="accessing-the-request-and-response"></a>İstek ve yanıt erişme 
 
-HTTP tetikleyicileri ile çalışırken, HTTP istek ve yanıt nesneleri üç yoldan herhangi birini erişebilirsiniz:
-
-+ Adlandırılmış giriş ve çıkış bağlamaları. Bu şekilde, HTTP tetikleyicisini ve bağlamalarını aynı diğer herhangi bir bağlama olarak çalışır. Aşağıdaki örnek, bir adlandırılmış kullanarak yanıt nesnesini ayarlar `response` bağlama: 
-
-    ```javascript
-    context.bindings.response = { status: 201, body: "Insert succeeded." };
-    ```
+HTTP tetikleyicileri ile çalışırken, çeşitli yollarla HTTP istek ve yanıt nesneleri erişebilirsiniz:
 
 + Gelen `req` ve `res` özellikleri `context` nesne. Bu şekilde, geleneksel düzeni HTTP verilere tam kullanmak zorunda olmak yerine bağlamı nesnesinden kullanabileceğiniz `context.bindings.name` deseni. Aşağıdaki örnek nasıl erişeceğinizi gösterir `req` ve `res` üzerindeki nesneleri `context`:
 
@@ -247,7 +250,20 @@ HTTP tetikleyicileri ile çalışırken, HTTP istek ve yanıt nesneleri üç yol
     context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
     ```
 
-+ Çağırarak `context.done()`. Özel bir HTTP bağlaması için geçirilen yanıtı döndürür `context.done()` yöntemi. Aşağıdaki HTTP çıktı bağlamasını tanımlar bir `$return` çıkış parametresi:
++ Adlandırılmış giriş ve çıkış bağlamaları. Bu şekilde, HTTP tetikleyicisini ve bağlamalarını aynı diğer herhangi bir bağlama olarak çalışır. Aşağıdaki örnek, bir adlandırılmış kullanarak yanıt nesnesini ayarlar `response` bağlama: 
+
+    ```json
+    {
+        "type": "http",
+        "direction": "out",
+        "name": "response"
+    }
+    ```
+    ```javascript
+    context.bindings.response = { status: 201, body: "Insert succeeded." };
+    ```
+
++ [Yalnızca yanıtı] Çağırarak `context.done()`. Özel bir HTTP bağlaması için geçirilen yanıtı döndürür `context.done()` yöntemi. Aşağıdaki HTTP çıktı bağlamasını tanımlar bir `$return` çıkış parametresi:
 
     ```json
     {
@@ -256,15 +272,13 @@ HTTP tetikleyicileri ile çalışırken, HTTP istek ve yanıt nesneleri üç yol
       "name": "$return"
     }
     ``` 
-    Bu çıkış bağlaması, çağırdığınızda yanıt vermesini bekliyor `done()`gibi:
-
     ```javascript
      // Define a valid response object.
     res = { status: 201, body: "Insert succeeded." };
     context.done(null, res);   
     ```  
 
-## <a name="node-version-and-package-management"></a>Düğüm sürümü ve paket Yönetimi
+## <a name="node-version"></a>Düğüm sürümü
 
 Aşağıdaki tabloda her önemli işlevler çalışma zamanı sürümü tarafından kullanılan Node.js sürümü gösterilmektedir:
 
@@ -275,6 +289,7 @@ Aşağıdaki tabloda her önemli işlevler çalışma zamanı sürümü tarafın
 
 Çalışma zamanı tarafından yazdırma kullanarak geçerli sürümü gördüğünüz `process.version` herhangi bir işlevden.
 
+## <a name="package-management"></a>Paket yönetimi
 Aşağıdaki adımları paketleri işlev uygulamanıza eklemenize olanak tanır: 
 
 1. `https://<function_app_name>.scm.azurewebsites.net` kısmına gidin.

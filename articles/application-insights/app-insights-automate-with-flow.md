@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 28228755f76f38ef2ed5e50c776a99427118e090
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 449a6274b67f3eb72ea6d8bd19f555fc59158d7e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424560"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299109"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Microsoft Flow için Azure Application Insights işlemleri Bağlayıcısı ile otomatik hale getirin
 
@@ -25,7 +25,7 @@ Hizmetinizi düzgün çalışıp çalışmadığını denetlemek için telemetri
 
 Bu tümleştirme sayesinde tek bir satır kod yazmadan artık çok sayıda işlemi otomatikleştirebilirsiniz. Bir Application Insights eylemini kullanarak akış oluşturduktan sonra akış Application Insights Analytics sorgunuzun otomatik olarak çalıştırır. 
 
-Ek Eylemler ekleyebilirsiniz. Microsoft Flow eylemleri yüzlerce kullanılabilir hale getirir. Örneğin, Microsoft Flow otomatik olarak bir e-posta bildirimi gönder veya Visual Studio Team Services içinde bir hata oluşturmak için kullanabilirsiniz. Çok birini de kullanabilirsiniz [şablonları](https://ms.flow.microsoft.com/en-us/connectors/shared_applicationinsights/?slug=azure-application-insights) , bağlayıcı için Microsoft Flow için kullanılabilir. Bu şablonlar bir akış oluşturma işlemi hızlandırır. 
+Ek Eylemler ekleyebilirsiniz. Microsoft Flow eylemleri yüzlerce kullanılabilir hale getirir. Örneğin, Microsoft Flow otomatik olarak bir e-posta bildirimi gönderin ya da Azure DevOps bir hata oluşturmak için kullanabilirsiniz. Çok birini de kullanabilirsiniz [şablonları](https://ms.flow.microsoft.com/en-us/connectors/shared_applicationinsights/?slug=azure-application-insights) , bağlayıcı için Microsoft Flow için kullanılabilir. Bu şablonlar bir akış oluşturma işlemi hızlandırır. 
 
 <!--The Application Insights connector also works with [Azure Power Apps](https://powerapps.microsoft.com/en-us/) and [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/?v=17.23h). --> 
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 4d714d0c345f465fc4911d55f9c57cbfd99087df
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 5139f41832446add3431fc0f4e321af806342da2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128075"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296985"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Öğretici: Şifrelemek ve şifresini Azure anahtar Kasası'nı kullanarak Microsoft Azure depolama BLOB'ları
 ## <a name="introduction"></a>Giriş
@@ -45,7 +45,7 @@ Aşağıda, istemci tarafı şifreleme nasıl çalışır hakkında kısa bir a�
 ## <a name="set-up-your-azure-key-vault"></a>Azure anahtar kasası ayarlama
 Öğreticide gösterilen aşağıdaki adımları gerçekleştirmeniz gereken bu öğreticiyle devam edebilmek için [Azure anahtar kasası ile çalışmaya başlama](../../key-vault/key-vault-get-started.md):
 
-* Anahtar kasası oluşturma.
+* Bir anahtar kasası oluşturma.
 * Bir anahtar veya gizli anahtar Kasası'na ekleyin.
 * Bir uygulamayı Azure Active Directory ile kaydedin.
 * Anahtar veya gizli anahtarı kullanması için uygulamayı yetkilendirme.
@@ -61,9 +61,7 @@ Paket Yöneticisi Konsolu'nda gerekli nuget paketlerini ekleyin.
 
 ```
 Install-Package WindowsAzure.Storage
-
-// This is the latest stable release for ADAL.
-Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
+Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
 Install-Package Microsoft.Azure.KeyVault
 Install-Package Microsoft.Azure.KeyVault.Extensions

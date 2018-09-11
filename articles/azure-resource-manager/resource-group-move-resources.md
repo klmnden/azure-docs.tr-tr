@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 09/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: e0a2e26fb3dd0afeb4d1f3d030cb42bdc181e63c
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 807026d2de40de1b14d2eb1d9eeb9da0aade4ad7
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094969"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297766"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -163,7 +163,7 @@ Authorization: Bearer <access-token>
 
 ## <a name="services-that-can-be-moved"></a>Taşınabilir Hizmetleri
 
-Bir yeni kaynak grubuna ve aboneliğe geri taşıyarak sağlayan hizmetler şunlardır:
+Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizmetlerinin genel bir özeti verilmiştir. Daha fazla ayrıntı için bkz. [taşıma işlemi Destek kaynakları için](move-support-resources.md).
 
 * Analysis Services
 * API Management
@@ -173,6 +173,7 @@ Bir yeni kaynak grubuna ve aboneliğe geri taşıyarak sağlayan hizmetler şunl
 * Otomasyon
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Azure DevOps - Microsoft dışı uzantılı Azure DevOps kuruluşlarına satın gereken [aldıklarını iptal](https://go.microsoft.com/fwlink/?linkid=871160) abonelikler arasında hesap taşınabilmesi.
 * Azure Haritalar
 * Azure Geçişi
 * Azure Stack - kayıtları
@@ -227,12 +228,11 @@ Bir yeni kaynak grubuna ve aboneliğe geri taşıyarak sağlayan hizmetler şunl
 * Sanal makineler (Klasik) - bkz [Klasik dağıtım sınırlamalarını](#classic-deployment-limitations)
 * Sanal makine ölçek kümeleri - bkz [sanal makineler sınırlamaları](#virtual-machines-limitations)
 * Sanal ağlar - bkz [sanal ağlar sınırlamaları](#virtual-networks-limitations)
-* Visual Studio Team Services - VSTS hesapları ile Microsoft dışı uzantı satın gereken [aldıklarını iptal](https://go.microsoft.com/fwlink/?linkid=871160) abonelikler arasında hesap taşınabilmesi.
 * VPN Gateway
 
 ## <a name="services-that-cannot-be-moved"></a>Taşınamayan Hizmetleri
 
-Şu anda bir kaynak taşıma etkinleştirme hizmetler şunlardır:
+Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınamaz Azure hizmetlerinin genel bir özeti verilmiştir. Daha fazla ayrıntı için bkz. [taşıma işlemi Destek kaynakları için](move-support-resources.md).
 
 * AD etki alanı Hizmetleri
 * AD karma sistem durumu hizmeti

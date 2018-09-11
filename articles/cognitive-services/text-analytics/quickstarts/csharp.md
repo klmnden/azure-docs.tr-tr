@@ -1,5 +1,6 @@
 ---
-title: Bilişsel hizmetler metin analizi API'si için C# hızlı başlangıç | Microsoft Docs
+title: "Hızlı Başlangıç: C# kullanarak metin analizi API'sini çağırmak için | Microsoft Docs"
+titleSuffix: Azure Cognitive Services
 description: Bilgi ve kod örnekleri, Azure üzerinde Microsoft Bilişsel hizmetler metin analizi API'sini kullanarak ile hızlıca çalışmaya başlamanıza yardımcı olmak için alın.
 services: cognitive-services
 documentationcenter: ''
@@ -9,14 +10,14 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 42a682898303b742a17b0a6d4d98c2b9fedf9003
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: b4d945b7495897caf1f4edd1e909581614798a23
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841703"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303030"
 ---
-# <a name="quickstart-for-the-text-analytics-api-with-c"></a>Metin analizi API'si ile C# için hızlı başlangıç 
+# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Hızlı Başlangıç: C# kullanarak metin analizi Bilişsel hizmetini çağırmak için
 <a name="HOLTop"></a>
 
 Bu makalede, dili algılayın, duyguları çözümleyin ve kullanarak, anahtar tümcecikleri ayıklayın işlemini göstermektedir [metin analizi API'lerini](//go.microsoft.com/fwlink/?LinkID=759711) C# ile. Kodu en az başvurular dış kitaplıkları, bir .NET Core uygulaması ayrıca Linux veya Macos'ta çalıştırabilirsiniz şekilde çalışmak için yazılmıştır.

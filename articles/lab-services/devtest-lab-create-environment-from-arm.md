@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 143d0d4b66fc8e6e62364090e3d3187c4aa7bb51
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: e53e3e551041ed5bb04ae8e692a3fe3baf2521f8
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919015"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302248"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile çoklu VM ortamları ve PaaS kaynakları oluşturma
 
 [Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=525040) kolayca sağlayan [bir VM aynı anda bir laboratuvara ekleme](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Ancak, ortamı birden fazla VM varsa, her VM'yi ayrı ayrı oluşturulmalıdır. Çok katmanlı Web uygulaması veya SharePoint grubu gibi senaryolar için bir mekanizma tek bir adımda birden çok VM oluşturulmasına izin vermek için gereklidir. Azure Resource Manager şablonlarını kullanarak, şimdi altyapısını ve yapılandırmasını kullanarak Azure çözümünüzün tanımlayın ve sürekli olarak tutarlı bir durumda birden çok VM dağıtın. Bu özellik aşağıdaki yararları sağlar:
 
-- Azure Resource Manager şablonları, doğrudan, kaynak denetimi deposundan (GitHub veya Team Services Git) yüklenir.
+- Azure Resource Manager şablonları, doğrudan, kaynak denetimi deposundan (GitHub veya Azure DevOps Hizmetleri Git) yüklenir.
 - Diğer türleri ile yaparken yapılandırıldıktan sonra kullanıcılarınızın bir ortam Azure portalından, bir Azure Resource Manager şablonu seçerek oluşturabilirsiniz [VM tabanlarını](./devtest-lab-comparing-vm-base-image-types.md).
 - Azure PaaS kaynakları Iaas Vm'leri yanı sıra bir Azure Resource Manager şablonundan bir ortamda sağlanabilir.
 - Ortamları maliyetini Laboratuvardaki diğer tabanların türleri tarafından oluşturulan tek VM'ler ek olarak izlenebilir.
@@ -42,7 +42,7 @@ ms.locfileid: "42919015"
 Azure DevTest Labs sahip bir [Azure Resource Manager şablonları, ortak depo](https://github.com/Azure/azure-devtestlab/tree/master/Environments) kendiniz bir dış GitHub kaynağına bağlanmak zorunda kalmadan ortamlar oluşturmak için kullanabileceğiniz. Bu depo, Azure Web Apps, Service Fabric kümesi ve SharePoint grubu ortamı geliştirme gibi sık kullanılan şablonları içerir. Bu özellik, oluşturduğunuz her bir laboratuvar için gelen ortak depo yapıtları benzer. Ortam depo labs PaaS kaynaklar için bir yumuşak Başlarken deneyimini ile sağlamak için en düşük giriş parametrelerini içeren önceden yazılmış ortam şablonlarını kullanmaya hızlıca başlayın sağlar. Daha fazla bilgi için [yapılandırma ve kullanım ortak ortamlardaki DevTest labs'deki](devtest-lab-configure-use-public-environments.md).
 
 ## <a name="configure-your-own-template-repositories"></a>Kendi şablon depoları yapılandırın
-Kod olarak altyapı ve yapılandırma olarak kodu ile en iyi biri olarak ortam şablonlarını kaynak denetiminde yönetilmelidir. Azure DevTest Labs, bu yöntem izler ve doğrudan, GitHub veya VSTS Git depolarından tüm Azure Resource Manager şablonlarını yükler. Sonuç olarak, Resource Manager şablonları, test ortamından üretim ortamına tüm sürüm döngüsü boyunca kullanılabilir.
+Kod olarak altyapı ve yapılandırma olarak kodu ile en iyi biri olarak ortam şablonlarını kaynak denetiminde yönetilmelidir. Azure DevTest Labs, bu yöntem izler ve doğrudan, GitHub veya Azure DevOps Hizmetleri Git depolarından tüm Azure Resource Manager şablonlarını yükler. Sonuç olarak, Resource Manager şablonları, test ortamından üretim ortamına tüm sürüm döngüsü boyunca kullanılabilir.
 
 DevTest Labs ekibi tarafından oluşturulan şablonlarını kullanıma [ortak GitHub deposu](https://github.com/Azure/azure-devtestlab/tree/master/Environments). Bu genel depoda başkaları tarafından doğrudan kullanın veya bunları ihtiyaçlarınıza uyacak şekilde özelleştirmeniz paylaşılan şablonları görüntüleyebilirsiniz. Şablonunuzu oluşturduktan sonra başkalarıyla paylaşmak için bu depoyu depolayın. Ayrıca, kendi Git deposu ile bulut ortamlarında ayarlamak için kullanılan şablonları da ayarlayabilirsiniz. 
 
@@ -79,9 +79,9 @@ Aşağıdaki adımları, laboratuvarınız için Azure portalını kullanarak bi
 1. Seçin **Ekle +** Azure Resource Manager şablonu deponuza eklemek için.
 1. Zaman ikinci **depoları** bölmesini açar, gerekli bilgileri aşağıdaki gibi girin:
     - **Ad** -laboratuar ortamında kullanılan depo adını girin.
-    - **Git kopya URL'si** -GitHub veya Visual Studio Team Services GIT HTTPS kopya URL'sini girin.  
+    - **Git kopya URL'si** -GitHub ya da Azure DevOps Hizmetleri HTTPS GIT kopya URL'si girin.  
     - **Dal** -Azure Resource Manager şablonu tanımlarınızı erişmek için dal adı girin. 
-    - **Kişisel erişim belirteci** -kişisel erişim belirteci güvenli bir şekilde deponuza erişmek için kullanılır. Visual Studio Team Services belirtecinizi ulaşmak için  **&lt;adınız >> Profilimi > Güvenlik > Genel erişim belirteci**. Github'dan belirtecinizi almak için avatarınız seçerek ve ardından seçin **ayarlar > Genel erişim belirteci**. 
+    - **Kişisel erişim belirteci** -kişisel erişim belirteci güvenli bir şekilde deponuza erişmek için kullanılır. Azure DevOps hizmetlerinden belirtecinizi ulaşmak için  **&lt;adınız >> Profilimi > Güvenlik > Genel erişim belirteci**. Github'dan belirtecinizi almak için avatarınız seçerek ve ardından seçin **ayarlar > Genel erişim belirteci**. 
     - **Klasör yolları** -iki giriş alanlarını birini kullanarak bir eğik çizgiyle - / - başlar ve göreli ya da, Git clone URI'si yapıt tanımları klasör yolunu girin (ilk giriş alanı) veya Azure Resource Manager şablonu tanımlarınızı .   
     
         ![Genel depo](./media/devtest-lab-create-environment-from-arm/repo-values.png)

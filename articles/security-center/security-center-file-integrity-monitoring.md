@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2018
 ms.author: terrylan
-ms.openlocfilehash: 187253bc2ef4a61b7a241b8f5c121bf3eec73eae
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: e8455dddf62c16cb5ebcf20622580fad82d783a7
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162011"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296245"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Dosya bütünlüğünü Azure Güvenlik Merkezi'nde izleme
 Dosya bütünlüğünü izleme (FIM), Azure Güvenlik Merkezi'nde bu kılavuzu kullanarak yapılandırmayı öğrenin.
@@ -175,7 +175,7 @@ Altında **değişiklik izleme için düzenleme** şunları yapabilirsiniz:
 
 4. Altında **çalışma alanı yapılandırması**, bir grup seçin burada **etkin** ayarlanır true.
 
-  ![Çalışma alanı yapılandırması][18]
+  ![Çalışma Alanı Yapılandırması][18]
 
 5. Altında **değişiklik izleme için düzenleme** penceresi kümesi **etkin** false.
 

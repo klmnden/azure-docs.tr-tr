@@ -17,12 +17,12 @@ ms.date: 08/31/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: e5db7b9bed674011c2922f026c301172f347f53f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: d5c00e9df9c1bfee0c665cafc763c52a36f98052
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666317"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345854"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory uygulama galerisinde uygulamanızı listeleme
 
@@ -69,7 +69,7 @@ Uygulamanın Azure AD uygulama galerisinde listelemek için öncelikle bir Azure
 
     * Erişim ile ilgili herhangi bir sorun varsa, kişi [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** veya **WS-Federasyon**: uygulamanız SAML 2.0 destekliyorsa, doğrudan Azure AD kiracısı ile kullanarak tümleştirebilirsiniz [özel bir uygulama eklemek için yönergeleri](../active-directory-saas-custom-apps.md).
+*   **SAML 2.0** veya **WS-Federasyon**: uygulamanız SAML 2.0 destekliyorsa, doğrudan Azure AD kiracısı ile kullanarak tümleştirebilirsiniz [özel bir uygulama eklemek için yönergeleri](../manage-apps/configure-single-sign-on-non-gallery-applications.md).
 
     ![Galeri SAML 2.0 veya WS-Federasyon uygulamasına listeleme, zaman çizelgesi](./media/howto-app-gallery-listing/saml.png)
 

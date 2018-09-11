@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 4b0c5d55c8a62dadbe11382997f4d258e66e1a31
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 0c5cfaad096b5702f321eead1f3da0d9225f4b53
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951150"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302869"
 ---
-# <a name="platforms-and-tools-for-data-science-team-projects"></a>Takım projeleri Platform ve veri bilimi için Araçlar
+# <a name="platforms-and-tools-for-data-science-projects"></a>Platformlar ve araçlar için veri bilimi projeleri
 
 Microsoft, hem bulut hem de şirket içi platformlar için bir tam spektrumlu veri ve Analiz Hizmetleri ve kaynakları sağlar. Veri bilimi projelerinizi yürütülmesini etkili ve ölçeklenebilir hale getirmek için dağıtılabilir. Veri bilimi projeleri bir izlenebilir uygulayan ekipler için yönergeler, sürüm denetimli ve işbirliğine dayalı yolu tarafından sağlanan [Team Data Science Process](overview.md) (TDSP).  Personel roller ve bir veri bilimi takım bu işlemle ilgili hale getirerek işlenen ilişkilendirilen görevlerinin ana hat için bkz. [Team Data Science Process rolleri ve görevleri](roles-tasks.md).
 
@@ -126,7 +126,7 @@ TDSP takip ediyorsanız **Windows**, yüklemeniz gereken **Git Credential Manage
 
 ### <a name="generate-public-ssh-key-on-linux-centos-machines"></a>(CentOS) Linux makinelerinde genel SSH anahtarı oluşturma
 
-Git komutlarını çalıştırmak için Linux (CentOS) makineleri kullanıyorsanız, bu makine VSTS sunucu tarafından değerlendirilmiştir. böylece, makinenizin ortak SSH anahtarının VSTS sunucunuza eklemeniz gerekir. İlk olarak, bir ortak SSH anahtarını oluşturun ve SSH ortak anahtarları, VSTS güvenlik ayar sayfasında anahtarın eklemek gerekir. 
+Git komutlarını çalıştırmak için Linux (CentOS) makineleri kullanıyorsanız, bu makine Azure DevOps Hizmetleri tarafından değerlendirilmiştir. böylece, makinenizin ortak SSH anahtarının, Azure DevOps hizmetlerinizi eklemeniz gerekir. İlk olarak, bir ortak SSH anahtarını oluşturun ve SSH ortak anahtarları, Azure DevOps Hizmetleri Güvenlik ayar sayfasında anahtarın eklemek gerekir. 
 
 - SSH anahtarı oluşturmak için aşağıdaki iki komutu çalıştırın: 
 
@@ -136,7 +136,7 @@ Git komutlarını çalıştırmak için Linux (CentOS) makineleri kullanıyorsan
 ![](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - Kopyalama tüm ssh anahtarı dahil olmak üzere *ssh-rsa*. 
-- VSTS sunucunuza oturum açın. 
+- Azure DevOps hizmetleriniz için oturum açın. 
 - Tıklayın **< adınız\>**  tıklayın ve sayfanın sağ üst köşesinde, **güvenlik**. 
     
     ![](./media/platforms-and-tools/resources-2-user-setting.png)

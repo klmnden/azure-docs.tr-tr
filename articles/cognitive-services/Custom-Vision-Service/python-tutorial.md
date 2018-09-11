@@ -1,41 +1,41 @@
 ---
-title: Bir özel görme hizmet Python Eğitmen - Azure Bilişsel hizmetler oluşturma | Microsoft Docs
-description: Microsoft Bilişsel Hizmetleri'nde özel görme API'sini kullanan basit bir Python uygulaması keşfedin. Bir proje oluşturun, etiket ekleme, resimler yükleyin, projenizin eğitmek ve varsayılan uç nokta kullanarak tahminde bulunmak.
+title: Azure Bilişsel hizmetler Custom Vision Service Python öğreticisi için - Oluştur | Microsoft Docs
+description: Microsoft Bilişsel hizmetler özel görüntü işleme API'sini kullanan temel bir Python uygulaması keşfedin. Bir proje oluşturun, etiketler ekleyin, görüntüleri karşıya yüklemek, projenizi eğitmek ve varsayılan uç nokta kullanarak bir tahminde bulunmak.
 services: cognitive-services
 author: areddish
 manager: chbuehle
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 0359935bf266d4f2a5cf845dd0d23183f4f77b72
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: df0bdc0bbd2768566336323851f366c9ae280a88
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353285"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301608"
 ---
-# <a name="custom-vision-api-python-tutorial"></a>Özel görme API Python Eğitmen
+# <a name="custom-vision-api-python-tutorial"></a>Özel görüntü işleme API'si Python Öğreticisi
 
-Özel görme hizmeti ve temel bir Python betiği ile bir görüntü sınıflandırma projesi oluşturmayı öğrenin. Oluşturulduktan sonra etiket ekleme, resimler yükleyin, proje Eğitimi, projenin varsayılan tahmin uç noktasının URL'sini alın ve program aracılığıyla bir görüntü sınamak için kullanın. Bu açık kaynak örneği özel görme API'sini kullanarak kendi uygulamanızı oluşturmak için şablon olarak kullanın.
+Custom Vision Service'e ve temel bir Python betiği ile bir görüntü sınıflandırma projesi oluşturmayı öğrenin. Oluşturulduktan sonra etiketler ekleyin, görüntüleri karşıya yüklemek, proje Eğitimi, projenin varsayılan tahmin uç nokta URL'sini alma ve program aracılığıyla resim test etmek için kullanın. Bu açık kaynaklı örneği, özel görüntü işleme API'sini kullanarak kendi uygulamanızı oluşturmaya yönelik şablon olarak kullanın.
 
 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Python 2.7 + veya Python 3.5 +.
-- PIP aracı.
+- Pip aracı.
 
-## <a name="get-the-training-and-prediction-keys"></a>Eğitim ve tahmin anahtarı alma
+## <a name="get-the-training-and-prediction-keys"></a>Eğitim ve tahmin anahtarları alma
 
-Bu örnekte kullanılan anahtarlarını almak için şurayı ziyaret edin [özel görme web sayfası](https://customvision.ai) seçip __dişli simgesi__ sağ üst. İçinde __hesapları__ bölümünde, değerleri kopyalamak __eğitim anahtar__ ve __tahmin anahtar__ alanları.
+Bu örnekte kullanılan anahtarlarını almak için şurayı ziyaret edin [Custom Vision web sayfası](https://customvision.ai) seçip __dişli simgesini__ sağ üst köşedeki. İçinde __hesapları__ bölümünde, değerleri kopyalayın __eğitim anahtarı__ ve __tahmin anahtar__ alanları.
 
 ![UI anahtarları görüntüsü](./media/python-tutorial/training-prediction-keys.png)
 
-## <a name="install-the-custom-vision-service-sdk"></a>Özel görme hizmeti SDK'sını yükleyin
+## <a name="install-the-custom-vision-service-sdk"></a>Özel görüntü işleme hizmeti SDK'sını yükleme
 
-Özel görme hizmeti SDK'sını yüklemek için aşağıdaki komutu kullanın:
+Custom Vision Service SDK'sını yüklemek için aşağıdaki komutu kullanın:
 
 ```
 pip install azure-cognitiveservices-vision-customvision
@@ -43,16 +43,16 @@ pip install azure-cognitiveservices-vision-customvision
 
 ## <a name="get-example-images"></a>Örnek görüntüleri alma
 
-Bu örnek görüntülerden kullanır `Samples/Images` dizininde [ https://github.com/Microsoft/Cognitive-CustomVision-Windows ](https://github.com/Microsoft/Cognitive-CustomVision-Windows/tree/master/Samples/Images) projesi. Kopyalama veya karşıdan yükleyip geliştirme ortamınızı projeyi ayıklayın.
+Bu örnekte görüntülerden `Samples/Images` dizininde [ https://github.com/Microsoft/Cognitive-CustomVision-Windows ](https://github.com/Microsoft/Cognitive-CustomVision-Windows/tree/master/Samples/Images) proje. Kopyalayın veya indirin ve sonra da projenin geliştirme ortamınıza ayıklayın.
 
-## <a name="create-a-custom-vision-service-project"></a>Bir özel görme hizmet projesi oluşturma
+## <a name="create-a-custom-vision-service-project"></a>Custom Vision Service projesi oluşturma
 
-Yeni özel görme hizmet projesi oluşturmak için adlı yeni dosya oluşturun `sample.py`. Aşağıdaki kodu dosyanın içeriği kullanın:
+Yeni bir özel görüntü işleme hizmeti projesi oluşturmak için adlı yeni bir dosya oluşturmak `sample.py`. Dosya içeriği aşağıdaki kodu kullanın:
 
 > [!IMPORTANT]
-> Ayarlama `training_key` daha önce eğitim anahtar değeri.
+> Ayarlama `training_key` daha önce aldığınız eğitim anahtar değeri.
 >
-> Ayarlama `prediction_key` daha önce tahmin anahtar değeri.
+> Ayarlama `prediction_key` daha önce aldığınız tahmin anahtar değeri.
 
 ```python
 from azure.cognitiveservices.vision.customvision.training import training_api
@@ -69,9 +69,9 @@ print ("Creating project...")
 project = trainer.create_project("My Project")
 ```
 
-## <a name="add-tags-to-your-project"></a>Projeniz için etiketler ekleme
+## <a name="add-tags-to-your-project"></a>Etiket projenize ekleme
 
-Etiketler projenize eklemek için sonuna aşağıdaki kodu ekleyin `sample.py` dosyası:
+Etiket projenize eklemek için sonuna aşağıdaki kodu ekleyin `sample.py` dosyası:
 
 ```python
 # Make two tags in the new project
@@ -79,13 +79,13 @@ hemlock_tag = trainer.create_tag(project.id, "Hemlock")
 cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
 ```
 
-## <a name="upload-images-to-the-project"></a>Görüntüleri projesine karşıya yükleme
+## <a name="upload-images-to-the-project"></a>Projeye görüntüleri karşıya yükleme
 
-Örnek görüntüler projeye eklemek için etiketi oluşturulduktan sonra aşağıdaki kodu ekleyin. Bu kod, karşılık gelen etiketi görüntüsüyle yükler:
+Örnek görüntüleri projeye eklemek için etiketi oluşturulduktan sonra aşağıdaki kodu ekleyin. Bu kod, karşılık gelen etiket görüntüyü yükler:
 
 > [!IMPORTANT]
 >
-> Cognitive CustomVision Windows projesi daha önce indirdiğiniz üzerinde temel görüntülerine yolu değiştirin.
+> Bilişsel CustomVision Windows proje daha önce indirdiğiniz üzerinde temel görüntülerin yolunu değiştirin.
 
 ```python
 base_image_url = "https://raw.githubusercontent.com/Microsoft/Cognitive-CustomVision-Windows/master/Samples/"
@@ -134,9 +134,9 @@ trainer.update_iteration(project.id, iteration.id, is_default=True)
 print ("Done!")
 ```
 
-## <a name="get-and-use-the-default-prediction-endpoint"></a>Alın ve varsayılan tahmin uç noktası kullan
+## <a name="get-and-use-the-default-prediction-endpoint"></a>Alma ve varsayılan tahmin uç noktası kullanma
 
-Bir görüntü tahmin uç noktasına göndermek ve tahmin almak için sonuna aşağıdaki kodu ekleyin `sample.py` dosyası:
+Görüntü tahmin uç noktasına göndermesi ve öngörü almak için sonuna aşağıdaki kodu ekleyin `sample.py` dosyası:
 
 ```python
 from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
@@ -169,7 +169,7 @@ for prediction in results.predictions:
 python sample.py
 ```
 
-Uygulamanın çıkışı aşağıdaki metne benzer:
+Uygulama çıktısı aşağıdaki metne benzer:
 
 ```
 Creating project...

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: spelluru
-ms.openlocfilehash: bafc08eae4a32f803f485097401a586a662f64e9
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a8213ebfe1d2643fd3c38e655b2571de82ef048f
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700416"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346569"
 ---
 # <a name="message-browsing"></a>İletilere göz atma
 
-("Gözatma") gözatma ileti bulunan bir kuyrukta veya abonelikte, genellikle için tanılama ve hata ayıklama amacıyla tüm iletileri numaralandırmak bir Service Bus istemci sağlar.
+İletilere gözatma veya gözatma, bir kuyrukta veya abonelikte, tanılama ve hata ayıklama amaçları için tipik olarak bulunan tüm iletileri numaralandırmak bir Service Bus istemci sağlar.
 
 Göz atma işlemleri mevcut tüm iletileri kuyruk veya abonelik ileti günlüğünde, yalnızca bu ile hemen alım için kullanılabilir dönüş `Receive()` veya `OnMessage()` döngü. `State` Her iletinin özelliği bildirir, ileti etkin olup (alınabilmesi kullanılabilir), [ertelenmiş](message-deferral.md), veya [zamanlanmış](message-sequencing.md).
 
@@ -30,13 +30,13 @@ Tüketilen ve süresi dolan iletileri Temizlenen bir zaman uyumsuz "Çöp toplam
 
 Bu, özellikle bir kuyruktan ertelenmiş ileti kurtarmayı denediğinizde göz önünde bulundurmanız önemlidir. Kendisi için bir ileti [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) anında sonlanana gözlem tarafından bile döndürülüyor olduğunda artık diğer yollarla normal alma için uygun değil. Özet günlüğü geçerli durumunu yansıtan bir tanılama aracı olduğundan bu iletiler döndüren öğrenirken değerindedir.
 
-Özet ayrıca kilitlenmiş ve diğer alıcılar tarafından işlenmekte, ancak henüz tamamlanmadı iletileri döndürür. Gözlem bağlantısı kesilmiş bir anlık görüntü döndürdüğünden, ancak iletinin kilit durumu baktı iletilerde nebyly nalezeny instance ve [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.lockeduntilutc#Microsoft_Azure_ServiceBus_Core_MessageReceiver_LockedUntilUtc) ve [LockToken](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.locktoken#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_LockToken) özellikleri throw bir [ InvalidOperationException](/dotnet/api/system.invalidoperationexception) çalıştığında uygulama bunları okuyun.
+Özet ayrıca kilitlenmiş ve diğer alıcılar tarafından işlenmekte, ancak henüz tamamlamadıysanız iletileri döndürür. Gözlem bağlantısı kesilmiş bir anlık görüntü döndürdüğünden, ancak iletinin kilit durumu baktı iletilerde nebyly nalezeny instance ve [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) ve [LockToken](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.locktoken#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_LockToken) özellikleri throw bir [ InvalidOperationException](/dotnet/api/system.invalidoperationexception) çalıştığında uygulama bunları okuyun.
 
 ## <a name="peek-apis"></a>Özet API'leri
 
 [Gözlem/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) ve [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) yöntemleri mevcut tüm .NET ve Java istemci kitaplıkları ve tüm alıcı nesneleri: **MessageReceiver**, **MessageSession**, **QueueClient**, ve **SubscriptionClient**. Tüm Kuyruklar, abonelikler ve bunların ilgili edilemeyen gözlem çalışır.
 
-Art arda çağrıldığında, Peek metodunu dizisi sayısı, sırası en yüksek kullanılabilir dizisi en düşük sayıya kuyruk veya abonelik günlüğünde kayıtlı tüm iletileri numaralandırır. Bu, sıraya alınan iletileri olan sırasıdır; hangi iletileri sonunda alınması sırası değildir.
+Art arda çağrıldığında, Peek metodunu dizisi sayısı, sırası en yüksek kullanılabilir dizisi en düşük sayıya kuyruk veya abonelik günlüğünde kayıtlı tüm iletileri numaralandırır. Bu, sıraya alınan iletileri olan sırasını ve hangi iletilerin sonunda alınması sırası değildir.
 
 [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) birden çok ileti alır ve bunları bir sabit listesi döndürür. İleti kullanılabilir olduğunda sabit listesi nesnesi boş, null olur.
 

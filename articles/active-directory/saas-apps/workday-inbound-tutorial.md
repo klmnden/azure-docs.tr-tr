@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 0df23d50fa208482e45d2d35555ec79c587cc80a
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 930ca49a63e34214ec197d8dd37f38361b34fe90
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445669"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347044"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>Öğretici: Workday otomatik kullanıcı hazırlama (Önizleme) için yapılandırma
 
@@ -27,7 +27,7 @@ Bu öğreticinin amacı, kişiler için Workday bazı öznitelikler isteğe bağ
 
 ## <a name="overview"></a>Genel Bakış
 
-[Azure Active Directory kullanıcı sağlama hizmeti](../active-directory-saas-app-provisioning.md) ile tümleşir [Workday, İnsan Kaynakları API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) kullanıcı hesapları sağlamak için. Azure AD sağlama iş akışları şu kullanıcının etkinleştirmek için bu bağlantı kullanır:
+[Azure Active Directory kullanıcı sağlama hizmeti](../manage-apps/user-provisioning.md) ile tümleşir [Workday, İnsan Kaynakları API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) kullanıcı hesapları sağlamak için. Azure AD sağlama iş akışları şu kullanıcının etkinleştirmek için bu bağlantı kullanır:
 
 * **Active Directory kullanıcılara sağlama** -workday'deki kullanıcıları ayıklayıp sorgulayabilecek seçili kümesi bir veya daha fazla Active Directory ormanları eşitleyin.
 
@@ -39,13 +39,13 @@ Bu öğreticinin amacı, kişiler için Workday bazı öznitelikler isteğe bağ
 
 Azure AD kullanıcı sağlama hizmeti tarafından desteklenen Workday kullanıcı sağlama iş akışları şu İnsan Kaynakları ve kimlik yaşam döngüsü yönetim senaryolarının otomasyonunu sağlar:
 
-* **Yeni çalışanların işe** - yeni bir çalışan için Workday, eklendiğinde, bir kullanıcı hesabı Active Directory, Azure Active Directory ve Office 365 isteğe bağlı olarak otomatik olarak oluşturulur ve [AzureADtarafındandesteklenendiğerSaaSuygulamaları](../active-directory-saas-app-provisioning.md), e-posta adresinin Workday geri yazma özelliğiyle.
+* **Yeni çalışanların işe** - yeni bir çalışan için Workday, eklendiğinde, bir kullanıcı hesabı Active Directory, Azure Active Directory ve Office 365 isteğe bağlı olarak otomatik olarak oluşturulur ve [AzureADtarafındandesteklenendiğerSaaSuygulamaları](../manage-apps/user-provisioning.md), e-posta adresinin Workday geri yazma özelliğiyle.
 
-* **Çalışan özniteliği ve profili güncelleştirmeleri** - bir çalışan kaydı (kendi ad, başlık veya Yöneticisi gibi) iş günü içinde güncelleştirilir, kendi kullanıcı hesabına otomatik olarak Active Directory, Azure Active Directory ve Office 365 isteğe bağlı olarak güncelleştirilmesi ve [Azure AD tarafından desteklenen diğer SaaS uygulamalarına](../active-directory-saas-app-provisioning.md).
+* **Çalışan özniteliği ve profili güncelleştirmeleri** - bir çalışan kaydı (kendi ad, başlık veya Yöneticisi gibi) iş günü içinde güncelleştirilir, kendi kullanıcı hesabına otomatik olarak Active Directory, Azure Active Directory ve Office 365 isteğe bağlı olarak güncelleştirilmesi ve [Azure AD tarafından desteklenen diğer SaaS uygulamalarına](../manage-apps/user-provisioning.md).
 
-* **Çalışan sonlandırmalar** -, Workday'de bir çalışan sonlandırıldığında, kullanıcı hesabı otomatik olarak Active Directory, Azure Active Directory ve Office 365 isteğe bağlı olarak devre dışıdır ve [Azure tarafından desteklenen diğer SaaS uygulamaları AD](../active-directory-saas-app-provisioning.md).
+* **Çalışan sonlandırmalar** -, Workday'de bir çalışan sonlandırıldığında, kullanıcı hesabı otomatik olarak Active Directory, Azure Active Directory ve Office 365 isteğe bağlı olarak devre dışıdır ve [Azure tarafından desteklenen diğer SaaS uygulamaları AD](../manage-apps/user-provisioning.md).
 
-* **Çalışan yeniden hires** - bir çalışan, iş günü içinde rehired eski, hesap otomatik olarak yeniden veya Active Directory, Azure Active Directory ve isteğe bağlı olarak Office 365 ve (tercihinizebağlıolarak)yenidensağlanan[Azure AD tarafından desteklenen diğer SaaS uygulamalarına](../active-directory-saas-app-provisioning.md).
+* **Çalışan yeniden hires** - bir çalışan, iş günü içinde rehired eski, hesap otomatik olarak yeniden veya Active Directory, Azure Active Directory ve isteğe bağlı olarak Office 365 ve (tercihinizebağlıolarak)yenidensağlanan[Azure AD tarafından desteklenen diğer SaaS uygulamalarına](../manage-apps/user-provisioning.md).
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>İçin en iyi bu kullanıcı sağlama çözümünü kim uygun?
 
@@ -327,7 +327,7 @@ Bu bölümde, Active Directory'ye Workday'den kullanıcı verilerin nasıl aktı
 
          * **Sabit** -AD özniteliği için bir statik, sabit dize değeri yazın
 
-         * **İfade** – bir veya daha fazla Workday özniteliklerine dayalı, AD özniteliği için özel bir değer yazmanızı sağlar. [Daha fazla bilgi için bu makalede ifadelerini bkz](../active-directory-saas-writing-expressions-for-attribute-mappings.md).
+         * **İfade** – bir veya daha fazla Workday özniteliklerine dayalı, AD özniteliği için özel bir değer yazmanızı sağlar. [Daha fazla bilgi için bu makalede ifadelerini bkz](../manage-apps/functions-for-customizing-application-data.md).
 
       * **Kaynak özniteliği** -Workday kullanıcı özniteliği. Aradığınız özniteliği mevcut değilse bkz [Workday kullanıcı özniteliklerinin listesi özelleştirme](#customizing-the-list-of-workday-user-attributes).
 
@@ -356,7 +356,7 @@ Bu bölümde, Active Directory'ye Workday'den kullanıcı verilerin nasıl aktı
 
 -   UserPrincipalName özniteliği Active Directory'de Workday'deki kullanıcı kimliği bir etki alanı soneki ile birleştirerek oluşturulur
 
--   [Burada ifadeler yazma belgeleri yoktur](../active-directory-saas-writing-expressions-for-attribute-mappings.md). Bu özel karakterleri kaldırma örnekleri içerir.
+-   [Burada ifadeler yazma belgeleri yoktur](../manage-apps/functions-for-customizing-application-data.md). Bu özel karakterleri kaldırma örnekleri içerir.
 
   
 | WORKDAY ÖZNİTELİĞİ | ACTIVE DIRECTORY ÖZNİTELİĞİ |  KİMLİĞİ EŞLEŞİYOR MU? | OLUŞTURMA / GÜNCELLEŞTİRME |
@@ -490,7 +490,7 @@ Powershell komutlarında sağlanan Active Directory veya Azure Active Directory 
 
 3. Bu, değişken sayıda Workday'de kaç kullanıcının olduğunu bağlı olarak saat sürebilir ilk eşitlemeyi başlatır.
 
-4. Herhangi bir zamanda denetleyin **denetim günlükleri** Azure portalında sağlama hizmeti gerçekleştirdiği eylemleri görmek için sekmesinde. Denetim günlüklerini olduğu gibi kullanıcıların Workday dışında okuma gönderildiğini ve ardından daha sonra eklendiğinde veya Active Directory sağlama hizmeti tarafından gerçekleştirilen tüm bireysel eşitleme olayları listeler. **[Denetim günlüklerini okumak hakkında ayrıntılı yönergeler için sağlama raporlama kılavuzuna bakın](../active-directory-saas-provisioning-reporting.md)**
+4. Herhangi bir zamanda denetleyin **denetim günlükleri** Azure portalında sağlama hizmeti gerçekleştirdiği eylemleri görmek için sekmesinde. Denetim günlüklerini olduğu gibi kullanıcıların Workday dışında okuma gönderildiğini ve ardından daha sonra eklendiğinde veya Active Directory sağlama hizmeti tarafından gerçekleştirilen tüm bireysel eşitleme olayları listeler. **[Denetim günlüklerini okumak hakkında ayrıntılı yönergeler için sağlama raporlama kılavuzuna bakın](../manage-apps/check-status-user-account-provisioning.md)**
 
 1.  Denetleme [Windows olay günlüğü](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) yeni hatalar veya uyarılar için aracıyı barındıran Windows Server makinesinde. Bu olaylar başlatarak görüntülenebilir **Eventvwr.msc** sunucuda seçerek **Windows Günlükleri > Uygulama**. Altında kaynak sağlama ile ilgili tüm iletileri günlüğe kaydedilen **AADSyncAgent**.
 
@@ -581,7 +581,7 @@ Bu bölümde, kullanıcı verilerini Workday'den Azure Active Directory'ye yaln�
 
       * **Sabit** -AD özniteliği için bir statik, sabit dize değeri yazın
 
-      * **İfade** – bir veya daha fazla Workday özniteliklerine dayalı, AD özniteliği için özel bir değer yazmanızı sağlar. [Daha fazla bilgi için bu makalede ifadelerini bkz](../active-directory-saas-writing-expressions-for-attribute-mappings.md).
+      * **İfade** – bir veya daha fazla Workday özniteliklerine dayalı, AD özniteliği için özel bir değer yazmanızı sağlar. [Daha fazla bilgi için bu makalede ifadelerini bkz](../manage-apps/functions-for-customizing-application-data.md).
 
    * **Kaynak özniteliği** -Workday kullanıcı özniteliği. Aradığınız özniteliği mevcut değilse bkz [Workday kullanıcı özniteliklerinin listesi özelleştirme](#customizing-the-list-of-workday-user-attributes).
 
@@ -611,7 +611,7 @@ Bu bölümde, kullanıcı verilerini Workday'den Azure Active Directory'ye yaln�
 
 3. Bu, değişken sayıda Workday'de kaç kullanıcının olduğunu bağlı olarak saat sürebilir ilk eşitlemeyi başlatır.
 
-4. Bireysel eşitleme olayları görüntülenebilir **denetim günlüklerini** sekmesi. **[Denetim günlüklerini okumak hakkında ayrıntılı yönergeler için sağlama raporlama kılavuzuna bakın](../active-directory-saas-provisioning-reporting.md)**
+4. Bireysel eşitleme olayları görüntülenebilir **denetim günlüklerini** sekmesi. **[Denetim günlüklerini okumak hakkında ayrıntılı yönergeler için sağlama raporlama kılavuzuna bakın](../manage-apps/check-status-user-account-provisioning.md)**
 
 5. Bir tamamlandı, bu denetim özet raporu yazacak **sağlama** sekmesinde, aşağıda gösterildiği gibi.
 
@@ -669,7 +669,7 @@ Bu bölümde, Active Directory'ye Workday'den kullanıcı verilerin nasıl aktı
 
 3. Bu, değişken sayıda Workday'de kaç kullanıcının olduğunu bağlı olarak saat sürebilir ilk eşitlemeyi başlatır.
 
-4. Bireysel eşitleme olayları görüntülenebilir **denetim günlüklerini** sekmesi. **[Denetim günlüklerini okumak hakkında ayrıntılı yönergeler için sağlama raporlama kılavuzuna bakın](../active-directory-saas-provisioning-reporting.md)**
+4. Bireysel eşitleme olayları görüntülenebilir **denetim günlüklerini** sekmesi. **[Denetim günlüklerini okumak hakkında ayrıntılı yönergeler için sağlama raporlama kılavuzuna bakın](../manage-apps/check-status-user-account-provisioning.md)**
 
 5. Bir tamamlandı, bu denetim özet raporu yazacak **sağlama** sekmesinde, aşağıda gösterildiği gibi.
 
@@ -808,7 +808,7 @@ Bunu yapmak için kullanmanız gerekir [Workday Studio](https://community.workda
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Günlükleri gözden geçirin ve sağlama etkinliği raporları alma hakkında bilgi edinin](../active-directory-saas-provisioning-reporting.md)
+* [Günlükleri gözden geçirin ve sağlama etkinliği raporları alma hakkında bilgi edinin](../manage-apps/check-status-user-account-provisioning.md)
 * [Workday Azure Active Directory ile çoklu oturum açmayı yapılandırma hakkında bilgi edinin](workday-tutorial.md)
 * [Diğer SaaS uygulamalarına Azure Active Directory ile tümleştirme hakkında bilgi edinin](tutorial-list.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Ekip Görevleri - Azure veri bilimi işlem proje sağlama | Microsoft Docs
-description: Veri bilimi takım projesi üzerinde proje lideri görevlerde ana hattı.
+title: Görevler - Azure veri bilimi proje işlem neden takım | Microsoft Docs
+description: Veri bilimi takım projesi üzerinde bir proje lideri için görevleri bir özetini.
 documentationcenter: ''
 author: deguhath
 manager: cgronlun
@@ -14,108 +14,108 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 58c5826240b7c49ba29c0d8e86a2896e3ce2f7f7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6a618efc6860371883bff7ebb953880293ad3120
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838407"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303890"
 ---
-# <a name="project-lead-tasks"></a>Proje sağlama görevleri
+# <a name="project-lead-tasks"></a>Proje lideri görevleri
 
-Bu öğretici anahatları proje lideri olan görevleri güncelleştirmesini proje ekibi tamamlanması bekleniyor. Amaç üzerinde standartlaştıran ekip işbirliği ortamı belirtmektir [takım veri bilimi işlemi](overview.md) (TDSP). TDSP etkinlikleri bulut tabanlı, Tahmine dayalı analiz çözümleri verimli bir şekilde çalıştırmak için yapılandırılmış bir dizi sağlayan Microsoft tarafından geliştirilen bir çerçevedir. Bu işlem üzerinde Standartlaştırma personel rolleri ve veri bilimi ekibi tarafından işlenen ilişkilendirilen görevlerinin bir özetini görmek [takım veri bilimi işlemi rolleri ve görevleri](roles-tasks.md).
+Bu öğretici anahatlarını proje lideri olan görevleri onun proje ekibi için tamamlanması bekleniyor. Hedefi üzerinde standartlaştırır ekip işbirliği ortamı oluşturmaktır [Team Data Science Process](overview.md) (TDSP). TDSP, etkinlikleri, bulut tabanlı ve Tahmine dayalı analiz çözümleri verimli bir şekilde yürütmek için yapılandırılmış bir dizi sağlayan Microsoft tarafından geliştirilen bir çerçevedir. Bu işlemi, standart personel rolleri ve veri bilimi ekibi tarafından işlenen ilişkilendirilen görevlerinin bir özetini görmek [Team Data Science Process rolleri ve görevleri](roles-tasks.md).
 
-A **proje neden** ayrı veri bilimcilerine belirli veri bilimi projedeki günlük etkinliklerini yönetir. İş akışı bu ortamı ayarlamak için Proje müşteri adayları tarafından tamamlanması gereken görevler için aşağıdaki resimde gösterilen:
+A **proje sağlama** belirli veri bilimi proje üzerinde tek tek veri bilimcileri günlük etkinliklerini yönetir. Bu ortamı ayarlamak için proje liderleri olarak tamamlanacak görevler için iş akışını aşağıdaki şekilde gösterilen:
 
 ![1](./media/project-lead-tasks/project-leads-1-tdsp-creating-projects.png)
 
-Bu konu, şu anda bu iş akışı için Proje müşteri adayları, görevleri 1,2 ve 6 kapsar.
+Bu konu, şu anda proje liderleri için bu iş akışı görevleri 1,2 ve 6 kapsar.
 
->[AZURE.NOTE] Visual Studio Team Services (VSTS) aşağıdaki yönergeleri kullanarak bir proje için bir TDSP takım ortamı kurmak için gerekli adımları ana hatlarını vermektedir. Biz, biz Microsoft'taki TDSP nasıl uygulamak olduğundan bu görevlerin VSTS ile nasıl gerçekleştirileceğini belirtin. Grubunuz için başka bir kod barındırma platformu kullanılıyorsa, ekip lideri tarafından genellikle tamamlanması gereken görevler değiştirmeyin. Ancak bu görevleri tamamlamak için yol farklı olacak.
+>[AZURE.NOTE] Azure DevOps aşağıdaki yönergeleri kullanarak bir proje için TDSP takım ortamını ayarlamak için gerekli olan adımları genel çizgileriyle belirtin. Biz, biz Microsoft'ta TDSP nasıl uygulama olduğundan, Azure DevOps ile bu görevleri gerçekleştirmek üzere nasıl belirtin. Grubunuz için başka bir kod barındırma platformu kullanılıyorsa, ekip lideri tarafından genellikle tamamlanması gereken görevler değiştirmeyin. Ancak bu görevleri tamamlamak için yol farklı zordur.
 
 
 ## <a name="repositories-and-directories"></a>Depoları ve dizinler
 
-Bu öğretici depoları ve dizinleri kısaltılmış adlarını kullanır. Bu adları depoları ve dizinler arasında işlemleri izlemek kolaylaştırır. Bu gösterim (R Git depoları için) ve D, DSVM yerel dizinleri için aşağıdaki bölümlerde kullanılır:
+Bu öğreticide, kısaltılmış depoları ve dizinler için kullanılır. Bu adlar dizinlerini ve depoları işlemleri izlemenizi kolaylaştırır. Bu gösterim (Git depoları için R) ve D DSVM'ye yerel dizinleri için aşağıdaki bölümlerde kullanılır:
 
-- **R3**: Takım **ProjectTemplate** Ekip Lideri ayarlamak Git deposunu.
-- **R5**: Git projeniz için Kurulum projesi havuzda.
-- **D3**: yerel dizin R3 kopyalanabilir.
-- **D5**: yerel dizin R5 kopyalanabilir.
+- **R3**: Takım **ProjectTemplate** , ekip lideri ayarlanmış bir Git deposunda.
+- **R5**: Kurulum projeniz için Git proje havuzda.
+- **D3**: yerel dizin R3 ' kopyalanabilir.
+- **D5**: yerel dizin R5 kopyalandı.
 
 
 ## <a name="0-prerequisites"></a>0. Önkoşullar
 
-Özetlenen, Grup Yöneticisi atanan görevleri tamamlayarak önkoşullara uyduğunuzdan [grup yöneticisi görevleri için bir veri bilimi ekibi](group-manager-tasks.md) ve için özetlenen sağlama takım [veri bilimi ekibinEkipsağlamagörevleri](team-lead-tasks.md). 
+Özetlenen, Grup Yöneticisi atanan görevlerin tamamlayarak önkoşullara uyduğunuzdan [grup yöneticisi görevleri için bir veri bilimi ekip](group-manager-tasks.md) ve müşteri adayı özetlenen takım için [ekip sağlama görevleri için bir veri bilimi takım](team-lead-tasks.md). 
 
-Burada özetlemek için aşağıdaki gereksinimleri ekip sağlama görevleri başlamadan önce yerine getirmeniz gerekir: 
+Burada özetlemek gerekirse, aşağıdaki gereksinimleri ekip sağlama görevlerini başlamadan önce yerine getirmeniz gerekir: 
 
-- **Grup VSTS sunucu** (veya grubu hesabı kodu barındıran herhangi bir platform üzerinde), grup yöneticisi tarafından ayarlanmış.
-- **TeamProjectTemplate depo** (R3) ayarlanmış Grup hesabınızın altında kod barındırma platformunda kullanmayı düşünüyorsanız, ekip lideri tarafından.
+- **Azure DevOps Services grubunda** (veya grup hesabı barındırma kodunu herhangi bir platform üzerinde), Grup Yöneticisi ayarlandı.
+- **TeamProjectTemplate depo** (R3) ayarlanmış grubu hesabınız kapsamında kullanmayı planladığınız barındırma kodunu platformunda, ekip lideri tarafından.
 - Size verilmiş olması **yetkili** depoları ekibiniz için Grup hesabınızı oluşturmak için Ekip Lideri tarafından.
-- Makinenizde Git yüklenmesi gerekir. Bir veri bilimi sanal makine (DSVM) kullanıyorsanız, Git önceden yüklenmiş ve hazırsınız. Aksi takdirde bkz [platformları ve araçlarına ek](platforms-and-tools.md#appendix).  
-- Kullanıyorsanız bir **Windows DSVM**, olmasına gerek [Git kimlik bilgisi Yöneticisi (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) makinenize yüklü. README.md dosyasında doğru aşağı kaydırın **yükleyip** 'ye tıklayın *son yükleyici*. Bu son yükleyici sayfasına götürür. .Exe yükleyici buradan indirin ve çalıştırın. 
-- Kullanıyorsanız **Linux DSVM**, bir SSH ortak anahtarı, DSVM üzerinde oluşturun ve Grup VSTS sunucunuzu ekleyin. SSH hakkında daha fazla bilgi için bkz: **oluşturma SSH ortak anahtarı** bölümüne [platformları ve araçlarına ek](platforms-and-tools.md#appendix). 
+- Git makinenizde yüklü olması gerekir. Bir veri bilimi sanal makinesi (DSVM) kullanıyorsanız, Git önceden yüklenmiş ve hazırsınız demektir. Aksi takdirde bkz [platformları ve araçlarıyla ek](platforms-and-tools.md#appendix).  
+- Kullanıyorsanız bir **Windows DSVM**, ihtiyacınız [Git Credential Manager'ı (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) makinenizde yüklü. README.md dosyasında doğru aşağı kaydırın **indirme ve yükleme** tıklayın ve bölüm *en son yükleyicisi*. Bu en son yükleyici sayfasına götürür. .Exe yükleyiciyi buradan indirin ve çalıştırın. 
+- Kullanıyorsanız **Linux DSVM'sini**, bir SSH ortak anahtarı üzerinde DSVM oluşturma ve Grup Azure DevOps hizmetlerinizi ekleyin. SSH hakkında daha fazla bilgi için bkz: **oluşturma SSH ortak anahtarı** konusundaki [platformları ve araçlarıyla ek](platforms-and-tools.md#appendix). 
 
 
-## <a name="1-create-a-project-repository-r5"></a>1. Proje deposu (R5) oluşturma
+## <a name="1-create-a-project-repository-r5"></a>1. Proje deposu (R5) oluşturun
 
-- Oturum açtığınızda, Grup VSTS sunucuda *https://\<VSTS sunucu adı\>. visualstudio.com*. 
-- Altında **son projeler & takımlar**, tıklatın **Gözat**. Açılır bir pencere VSTS sunucu üzerindeki tüm ekip projeleri listeler. 
+- Oturum açma konumunda Grup Azure DevOps Services *https://\<Azure DevOps Hizmetleri adı\>. visualstudio.com*. 
+- Altında **son projeler ve takımlar**, tıklayın **Gözat**. Açılır bir pencere, Azure DevOps hizmetler tüm projeleri listeler. 
 
     ![2](./media/project-lead-tasks/project-leads-2-create-project-repo.png)
 
-- Proje deposu oluşturma olacak ekip projesi adını tıklatın. Bu örnekte **MyTeam**. 
-- Ardından **Bul** takım projesi giriş sayfasına yönlendirilmesine **MyTeam**:
+- Proje deponuzu oluşturma olacak proje adına tıklayın. Bu örnekte, tıklayın **MyTeam**. 
+- ' A tıklayarak **Navigate** projenin ana sayfaya yönlendirilmek için **MyTeam**:
 
     ![3](./media/project-lead-tasks/project-leads-3-create-project-repo-2.png)
 
-- Tıklatın **kodu işbirliği** takım projenizin git giriş sayfasına yönlendirilecek.  
+- Tıklayın **kod üzerinde işbirliği** git giriş sayfasına projenizin yönlendirilecek.  
 
     ![4](./media/project-lead-tasks/project-leads-4-create-project-repo-3.png)
 
-- Sol üst köşesinde aşağı oku tıklatın ve seçin **+ yeni bir havuz**. 
+- Sol üst köşedeki aşağı oka tıklatın ve seçin **+ yeni havuz**. 
     
     ![5](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
 
-- İçinde **yeni bir havuz oluşturma** penceresinde, proje git deposu için bir ad girin. Seçtiğinizden emin olun **Git** depo türü. Bu örnekte, kullanırız adı *DSProject1*. 
+- İçinde **yeni depo Oluştur** penceresinde proje git deponuz için bir ad girin. Seçtiğinizden emin olun **Git** Havuz türü olarak. Bu örnekte, adını kullanıyoruz *DSProject1*. 
 
     ![6](./media/project-lead-tasks/project-leads-6-create-project-repo-5.png)
 
-- Oluşturmak için ***DSProject1*** proje git deposu'ye tıklayın **oluşturma**.
+- Oluşturmak için ***DSProject1*** proje git deposu, tıklayın **Oluştur**.
 
 
 ## <a name="2-seed-the-dsproject1-project-repository"></a>2. Çekirdek DSProject1 proje deposu
 
-Burada için çekirdek görevdir **DSProject1** takım projesi şablonu deponuza (R3) proje depodan (R5). Dengeli dağıtım yordam D3 ve D5 dizinlere, yerel DSVM üzerinde Ara hazırlama siteler olarak kullanır. Özet olarak, dengeli dağıtım yoludur: R3 -> D3 D5 -> R5 ->.
+Burada için çekirdek görevdir **DSProject1** proje şablonu deponuzu (R3) (R5) deposundan proje. Dengeli dağıtım yordam D3 ve D5 dizinleri yerel DSVM'ye Ara hazırlama siteler olarak kullanır. Özet olarak, dengeli dağıtım yoludur: R3 -> D3 D5 -> R5 ->.
 
-Özelleştirmeniz gerekiyorsa, **DSProject1** bazı belirli karşılamak için proje deposu proje ihtiyaçlarını, aşağıdaki yordamı sondan adımında bunu. İçeriği oluşturmak için kullanılan adımlarla bir özeti aşağıda verilmiştir **DSProject1** proje deposu. Tek tek adımları dengeli dağıtım yordamdaki alt bölümleri karşılık gelir:
+Özelleştirmeniz gerekirse, **DSProject1** bazı belirli karşılamak için proje deposuna proje gereksinimleriniz, aşağıdaki yordamın sondan adımında bunu. İçeriği sağlamak için kullanılan adımlarla bir özeti aşağıda verilmiştir **DSProject1** proje deposu. Her bir adımı alt bölümlere dengeli dağıtım yordamda karşılık gelir:
 
-- Kopya takım projesi şablonu yerel dizin depoya: klonlanmış yerel D3 -> için R3 - ekip.
-- Yerel bir dizine kopya DSProject1 deposu: klonlanmış yerel D5 -> için R5 - ekip.
-- Kopyalanan takım projesi şablon içeriği DSProject1 deposu yerel kopyasını kopyalayın: D3 - kopyalanır D5 -> içeriği.
-- (İsteğe bağlı) Özelleştirme yerel D5.
-- Takım depoları için yerel DSProject1 anında içerik: D5 - içeriği eklemek takım R5 ->.
+- Proje şablonu depoyu yerel dizine kopyala: yerel D3 -> için kopyalanan R3 - takım.
+- Yerel bir dizine DSProject1 depoyu Kopyala: yerel D5 -> için kopyalanan R5 - takım.
+- Kopyalanan proje şablonu içeriği DSProject1 depo yerel kopyasını kopyalayın: D3 - D5 -> için kopyalanan içeriği.
+- (İsteğe bağlı) Yerel D5 özelleştirme.
+- Takım depolarını yerel DSProject1 anında içerik: D5 - içeriğini Ekle -> takım R5.
 
 
-### <a name="clone-your-team-project-template-repository-r3-to-a-directory-d3-on-your-local-machine"></a>Takım projesi şablonu deponuza (R3) yerel makinenizde bir dizin (D3) kopyalayın.
+### <a name="clone-your-project-template-repository-r3-to-a-directory-d3-on-your-local-machine"></a>Proje şablonu deponuza (R3) bir ' % s'dizini (D3) yerel makinenize kopyalayın.
 
 Yerel makinenizde bir dizin oluşturun:
 
 - *C:\GitRepos\MyTeamCommon* Windows için 
-- *$home/GitRepos/MyTeamCommon* Linux için
+- *$home/GitRepos/MyTeamCommon* Linux
 
-Bu dizine geçin. Ardından, takım projesi şablonu deponuza yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın. 
+Bu dizine geçin. Daha sonra proje şablonu deposunu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın. 
 
 **Windows**
             
     git clone <the HTTPS URL of the TeamProjectTemplate repository>
     
-Genellikle, kod barındırma platformu olarak VSTS kullanıyorsanız, *takım projesi şablonu deponuz HTTPS URL'sini* olan:
+Azure DevOps kod barındırma platformu olarak genellikle kullanıyorsanız *HTTPS URL'si proje şablonu deponuzun* olan:
 
- ***https://\<VSTS sunucu adı\>.visualstudio.com/\<takım projenizin adına\>/_git/\<, takım projesi şablonu depo adını\>***. 
+ ***https://\<Azure DevOps Hizmetleri adı\>.visualstudio.com/\<projenizin adına\>/_git/\<proje şablonu depo adınızı\>***. 
 
-Bu örnekte, biz vardır:
+Bu örnekte, sunuyoruz:
 
 ***https://mysamplegroup.visualstudio.com/MyTeam/_git/MyTeamProjectTemplate***. 
 
@@ -127,17 +127,17 @@ Bu örnekte, biz vardır:
         
 ![8](./media/project-lead-tasks/project-leads-8-clone-team-project-template-linux.png)
 
-Genellikle, kod barındırma platformu olarak VSTS kullanıyorsanız, *SSH takım projesi şablonu depo URL'si* değil:
+Azure DevOps kod barındırma platformu olarak genellikle kullanıyorsanız *SSH proje şablonu depo URL'si* olan:
 
-***SSH: / /\<VSTS sunucu adı\>@\<VSTS sunucu adı\>.visualstudio.com:22/\<takım projesi adınız > /_git/\<takım projesi şablon depo adı \>.*** 
+***SSH: / /\<Azure DevOps Hizmetleri adı\>@\<Azure DevOps Hizmetleri adı\>.visualstudio.com:22/\<proje adınız > /_git/\<, proje şablonu Depo adı\>.*** 
 
-Bu örnekte, biz vardır:
+Bu örnekte, sunuyoruz:
 
 ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/MyTeamProjectTemplate***. 
 
-### <a name="clone-dsproject1-repository-r5-to-a-directory-d5-on-your-local-machine"></a>Yerel makinenizde bir dizine (D5) DSProject1 depoyu (R5) kopyalayın
+### <a name="clone-dsproject1-repository-r5-to-a-directory-d5-on-your-local-machine"></a>Yerel makinenizde bir dizin (D5) (R5) DSProject1 deposunu kopyalayın
 
-Değişiklik dizinine **GitRepos**, ve yerel makinenize proje deponuza kopyalamak için aşağıdaki komutu çalıştırın. 
+Dizini **GitRepos**, ve, proje depoyu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın. 
 
 **Windows**
             
@@ -145,7 +145,7 @@ Değişiklik dizinine **GitRepos**, ve yerel makinenize proje deponuza kopyalama
 
 ![9](./media/project-lead-tasks/project-leads-9-clone-project-repository.png)
 
-VSTS kod barındırma platformu olarak genellikle kullanıyorsanız _proje depo HTTPS URL'si_ olan ***https://\<VSTS sunucu adı\>.visualstudio.com/\<bilgisayarınızı ekibi Proje adı > /_git/ < proje deposu adınızı\>***. Bu örnekte, sahibiz ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1***.
+Azure DevOps kod barındırma platformu olarak genellikle kullanıyorsanız _proje depo HTTPS URL'si_ olduğu ***https://\<Azure DevOps Hizmetleri adı\>.visualstudio.com/\<Proje adınız > /_git/ < proje depo adınızı\>***. Bu örnekte, sahip olduğumuz ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1***.
 
 **Linux**
 
@@ -153,11 +153,11 @@ VSTS kod barındırma platformu olarak genellikle kullanıyorsanız _proje depo 
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
-Genellikle, kod barındırma platformu olarak VSTS kullanıyorsanız, _SSH proje depo URL'si_ _ssh olduğu: / / < VSTS sunucu adı\>@< VSTS sunucu adı\>.visualstudio.com:22/<Your Team Project Name> / \_git / < proje deposu adınızı\>. Bu örnekte, sahibiz ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
+Azure DevOps kod barındırma platformu olarak genellikle kullanıyorsanız _SSH proje depo URL'si_ _ssh olduğu: / / < Azure DevOps Hizmetleri adı\>@< Azure DevOps Hizmetleri adı\>. VisualStudio.com:22/<Your Project Name>/\_git / < proje depo adınızı\>. Bu örnekte, sahip olduğumuz ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
 
-### <a name="copy-contents-of-d3-to-d5"></a>İçin D5 D3 içeriğini kopyalayın 
+### <a name="copy-contents-of-d3-to-d5"></a>D5 için D3 içeriğini kopyalayın 
 
-Yerel makinenizde içeriğini kopyalamanız gerekir. Şimdi _D3_ için _D5_, hariç .git dizininde git meta verileri. Aşağıdaki betikler iş yapın. Dizinlere doğru ve tam yollarda yazdığınızdan emin olun. Kaynak klasördür ekibiniz için (_D3_); hedef klasördür projeniz için bir (_D5_).    
+Artık yerel makinenize içeriğini kopyalayın gerekiyor. _D3_ için _D5_, dışındaki git meta verilerde .git dizini. Aşağıdaki komut, işi yapar. Dizinleri doğru ve tam yollarını yazın emin olun. Ekibiniz için bir kaynak klasörü olduğu (_D3_); projeniz için bir hedef klasör olduğu (_D5_).    
 
 **Windows**
     
@@ -166,7 +166,7 @@ Yerel makinenizde içeriğini kopyalamanız gerekir. Şimdi _D3_ için _D5_, har
     
 ![11](./media/project-lead-tasks/project-leads-11-local-copy-project-lead-new.png)
 
-Görebilirsiniz artık _DSProject1_ klasöründe (.git hariç) tüm dosyaları gelen kopyalanır _MyTeamProjectTemplate_.
+Şimdi, gördüğünüz _DSProject1_ klasöründe (.git hariç) tüm dosyalar gelen kopyalanır _MyTeamProjectTemplate_.
 
 ![12](./media/project-lead-tasks/project-leads-12-teamprojectTemplate_copied_to_local.png)
 
@@ -177,48 +177,48 @@ Görebilirsiniz artık _DSProject1_ klasöründe (.git hariç) tüm dosyaları g
         
 ![13](./media/project-lead-tasks/project-leads-13-local_copy_project_lead_linux_new.png)
 
-Görebilirsiniz artık _DSProject1_ klasöründe (dışında meta verilerde .git) tüm dosyaları gelen kopyalanır _MyTeamProjectTemplate_.
+Şimdi, gördüğünüz _DSProject1_ klasöründe (.git meta verilerde) dışındaki tüm dosyaları gelen kopyalanır _MyTeamProjectTemplate_.
 
 ![14](./media/project-lead-tasks/project-leads-14-teamprojectTemplate_copied_to_local_linux_new.png)
 
 
 ### <a name="customize-d5-if-you-need-to-optional"></a>(İsteğe bağlı) gerekiyorsa D5 Özelleştirme
 
-Projenizi bazı belirli dizinleri ya da belgeler gerekirse, (D5 dizininize önceki adımda kopyaladığınız), takım projesi şablondan alma dışındaki, D5 içeriğini şimdi özelleştirebilirsiniz. 
+Projenize bazı belirli dizinleri veya belgeler gerekiyorsa (önceki adımda D5 dizinine kopyalanır), proje şablonundan alma olanlar dışındaki D5 içeriği artık özelleştirebilirsiniz. 
 
-### <a name="add-contents-of-dsproject1-in-d5-to-r5-on-your-group-vsts-server"></a>DSProject1 içeriğini içinde D5 R5 için Grup VSTS sunucunuzda ekleme
+### <a name="add-contents-of-dsproject1-in-d5-to-r5-on-your-group-azure-devops-services"></a>DSProject1 içeriğini R5 Grup Azure DevOps hizmetlerinizi şirket içinde D5 ekleyin
 
-Şimdi içeriği göndermek gereken **_DSProject1_** için _R5_ takım projenizin grubunuzun VSTS sunucuda deposunda. 
+Şimdi içeriği itin gerekir **_DSProject1_** için _R5_ grubunuzun Azure DevOps Services projenizde depo. 
 
 
-- Değiştirme dizinine **D5**. 
-- İçeriği eklemek için aşağıdaki git komutlarını kullanın **D5** için **R5**. Komutları, Windows ve Linux sistemleri için aynıdır. 
+- Dizinine değiştirin **D5**. 
+- İçeriği eklemek için aşağıdaki git komutlarını kullanmak **D5** için **R5**. Komutlar, hem Windows hem de Linux sistemleri için aynıdır. 
     
-    Git durum git ekleyin.
-    Git yürütme -m "gönderme temelli win DSVM gelen" git itme
+    Git durumu git ekleyin.
+    Git commit -m "win DSVM gelen anında iletme" git gönderimi
     
-- Değişiklik ve anında iletme uygulayın. 
+- Anında iletme ve değişikliği işleyin. 
 
->[AZURE.NOTE] Bir Git deposuna yürüttükten ilk kez kullanıyorsanız, genel parametreleri yapılandırmanız gereken *user.name* ve *user.email* çalıştırmadan önce `git commit` komutu. Aşağıdaki iki komutu çalıştırın:
+>[AZURE.NOTE] Bu bir Git deposuna işleme ilk kez kullanıyorsanız, genel parametrelerini yapılandırmanıza gerek *user.name* ve *user.email* çalıştırmadan önce `git commit` komutu. Aşağıdaki iki komutu çalıştırın:
         
     git config --global user.name <your name>
     git config --global user.email <your email address>
  
-> Birden çok Git depoları için yürütülmekte olan, bunların tümünün arasında aynı ad ve e-posta adresi kullanın. Powerbı panolar üzerinde birden çok depoları Git etkinlikleri izlemenize oluştururken aynı ad ve e-posta adresini kullanarak daha sonra uygun kanıtlar.
+> Birden çok Git deposu için yürütülmekte olan, bunların tümünün arasında aynı adı ve e-posta adresi kullanın. Git etkinliklerinizi birden çok depolara göre izlemek için Power BI panoları oluşturduğunuzda aynı ad ve e-posta adresi kullanarak daha sonra uygun kanıtlar.
 
 ![15](./media/project-lead-tasks/project-leads-15-git-config-name.png)
 
 
-## <a name="6-create-and-mount-azure-file-storage-as-project-resources-optional"></a>6. Oluşturma ve Azure dosya depolama proje kaynakları (isteğe bağlı) bağlama
+## <a name="6-create-and-mount-azure-file-storage-as-project-resources-optional"></a>6. Oluşturma ve (isteğe bağlı) project kaynakları olarak Azure dosya depolama bağlama
 
-Veri paylaşımı için Azure dosya depolama alanı oluşturmak istiyorsanız, projenin gibi ham veriler veya tüm proje üyeleri aynı veri kümeleri için birden çok DSVMs erişimi böylece projeniz için oluşturulan özellikler bölüm 3 ve 4'ndaki yönergeleri izleyin [ Bir veri bilimi ekibi için sağlama görevleri ekip](team-lead-tasks.md). 
+Azure dosya depolama, veri paylaşımı oluşturmak istiyorsanız, proje gibi ham veriler veya projeniz için tüm proje üyeleri aynı veri kümelerine erişim, birden çok Dsvm'leri sahiptir. böylece oluşturulan özellikler 3 ve 4. Bölüm'ndaki yönergeleri izleyin [ Müşteri adayı görev bir veri bilimi takım için takım](team-lead-tasks.md). 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Burada, rolleri ve görevleri takım veri bilimi işlem tarafından tanımlanan daha ayrıntılı açıklamaları bağlantıları verilmiştir:
+Team Data Science Process tarafından tanımlanan görevleri ve rolleri ayrıntılı açıklamaları için bağlantılar şunlardır:
 
-- [Bir veri bilimi ekibi için Grup yöneticisi görevleri](group-manager-tasks.md)
-- [Bir veri bilimi ekibi için takım sağlama görevleri](team-lead-tasks.md)
-- [Proje veri bilimi ekibi için sağlama görevleri](project-lead-tasks.md)
-- [Proje veri bilimi ekibi için tek tek Katkıda Bulunanlar](project-ic-tasks.md)
+- [Bir veri bilimi takım için Grup yöneticisi görevleri](group-manager-tasks.md)
+- [Bir veri bilimi takım için takım sağlama görevleri](team-lead-tasks.md)
+- [Proje için bir veri bilimi ekibi müşteri adayı görevleri](project-lead-tasks.md)
+- [Bir veri bilimi takım için proje bağımsız katılımcıları](project-ic-tasks.md)

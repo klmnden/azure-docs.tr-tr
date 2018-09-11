@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: f24b1e4a-cc36-4542-b21e-041453cdfcd8
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1439696c35b56a5c65a976fe4e5991dec1c1833e
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: ab8a289ea0de263871b76788514052c09a6bf4da
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028634"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295746"
 ---
-# <a name="security-policy-settings"></a>Güvenlik İlkesi ayarları
+# <a name="security-policy-settings"></a>Güvenlik ilkesi ayarları
 Bu makalede Güvenlik Merkezi'ndeki ilke ayarları güvenliğine genel bakış sağlar.
 
 ## <a name="what-are-security-policies"></a>Güvenlik ilkeleri nedir?

@@ -1,6 +1,6 @@
 ---
-title: Microsoft azure'da bulut Foundry ilk uygulamanızı dağıtma | Microsoft Docs
-description: Bulut Foundry azure'da bir uygulamayı dağıtma
+title: Microsoft Azure üzerinde Cloud Foundry için ilk uygulamanızı dağıtma | Microsoft Docs
+description: Azure'da Cloud Foundry uygulama dağıtma
 services: virtual-machines-linux
 documentationcenter: ''
 author: seanmck
@@ -16,72 +16,72 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 5e7b321c9fc8f8568cd8109cea0ae877048d3663
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6e2fa77273ef35fae6c3b232cb36fa913faf879d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841427"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299058"
 ---
-# <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Microsoft azure'da bulut Foundry ilk uygulamanızı dağıtma
+# <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Microsoft Azure üzerinde Cloud Foundry için ilk uygulamanızı dağıtma
 
-[Bulut Foundry](http://cloudfoundry.org) popüler açık kaynak uygulama platformu Microsoft Azure üzerinde kullanılabilir. Bu makalede, dağıtmak ve uygulamayı bulut Foundry üzerinde bir Azure ortamı yönetmek nasıl gösterir.
+[Cloud Foundry](http://cloudfoundry.org) popüler açık kaynak uygulama platformunu Microsoft Azure'da kullanıma sunuldu. Bu makalede, dağıtmak ve Cloud Foundry üzerinde bir uygulamayı Azure ortamınızda yönetmek nasıl göstereceğiz.
 
-## <a name="create-a-cloud-foundry-environment"></a>Bir bulut Foundry ortam oluşturma
+## <a name="create-a-cloud-foundry-environment"></a>Cloud Foundry ortamı oluşturma
 
-Azure üzerinde bir bulut Foundry ortamı oluşturmak için birkaç seçenek vardır:
+Azure'da Cloud Foundry ortamı oluşturmak için birkaç seçenek vardır:
 
-- Kullanım [Bileşendirler bulut Foundry teklif] [ pcf-azuremarketplace] PCF Ops Manager ve Azure hizmet aracısı içeren standart bir ortam oluşturmak için Azure Market'te. Bulabileceğiniz [tamamlamak yönergeleri] [ pcf-azuremarketplace-pivotaldocs] Market dağıtmak için Bileşendirler belgelerde sunar.
-- Tarafından özelleştirilmiş bir ortam oluşturmak [Bileşendirler bulut Foundry el ile dağıtma][pcf-custom].
-- [Açık kaynak bulut Foundry paketlerini doğrudan dağıtma] [ oss-cf-bosh] ayarıyla bir [BOSH](http://bosh.io) director, bulut Foundry ortamı dağıtımını koordine eden bir VM.
+- Kullanım [Pivotal Cloud Foundry teklif] [ pcf-azuremarketplace] PCF Ops Manager ve Azure hizmet Aracısı'nı içeren standart bir ortam oluşturmak için Azure Market'te. Bulabilirsiniz [tamamlamak yönergeleri] [ pcf-azuremarketplace-pivotaldocs] Market dağıtmak için Pivotal belgelerinde sunar.
+- Özelleştirilmiş bir ortamı tarafından oluşturma [el ile Pivotal Cloud Foundry dağıtma][pcf-custom].
+- [Açık kaynaklı Cloud Foundry paketlerini doğrudan dağıtma] [ oss-cf-bosh] oluşturarak bir [BOSH](http://bosh.io) Direktörü, Cloud Foundry ortamın dağıtımı koordine eden bir VM.
 
 > [!IMPORTANT] 
-> Azure Marketi'nden PCF dağıtıyorsanız, SYSTEMDOMAINURL ve her ikisi de Market Dağıtım Kılavuzu'nda açıklanan Bileşendirler uygulamaları Yöneticisi'ne erişmek için gereken yönetici kimlik bilgilerini not edin. Bu öğreticiyi tamamlamak için gereklidir. Market dağıtımları için SYSTEMDOMAINURL biçimindedir https://system. *IP adresi*. cf.pcfazure.com.
+> Azure Market'ten PCF dağıtıyorsanız, SYSTEMDOMAINURL ve ikisi için de Market Dağıtım Kılavuzu'nda açıklanan Pivotal uygulamaları Yöneticisi'ne erişmek için gereken yönetici kimlik bilgilerini not edin. Bu öğreticiyi tamamlamak için gereklidir. Market dağıtımları için SYSTEMDOMAINURL biçimindedir https://system. *IP adresi*. cf.pcfazure.com.
 
-## <a name="connect-to-the-cloud-controller"></a>Bulut denetleyicisine bağlanma
+## <a name="connect-to-the-cloud-controller"></a>Bulut denetleyiciyi bağlama
 
-Bulut denetleyicisi uygulamaları dağıtma ve yönetme için bir bulut Foundry ortam için birincil giriş noktasıdır. Çekirdek bulut denetleyicisi API (CCAPI), REST API olmakla birlikte çeşitli araçları üzerinden erişilebilir. Bu durumda, biz üzerinden etkileşimde [bulut Foundry CLI][cf-cli]. Linux, MacOS veya Windows CLI yükleyebilirsiniz, ancak bunu hiç yüklemeyi tercih ediyorsanız, önceden yüklenmiş kullanılabilir [Azure bulut Kabuk][cloudshell-docs].
+Bulutu denetleyicisi, Cloud Foundry ortamına dağıtmak ve uygulamaları yönetmek için birincil giriş noktasıdır. Çekirdek bulut denetleyicisi API (CCAPI) REST API, ancak çeşitli araçlar üzerinden erişilebilir. Bu durumda, biz üzerinden etkileşimde [Cloud Foundry CLI][cf-cli]. Linux, MacOS veya Windows üzerinde CLI'yi yükleyebilirsiniz, ancak bu hiç yüklememeyi tercih ederseniz, önceden yüklenmiş kullanılabilir [Azure Cloud Shell][cloudshell-docs].
 
-Oturum açmak için başına `api` Market dağıtımından elde SYSTEMDOMAINURL için. Varsayılan dağıtım otomatik olarak imzalanan bir sertifika kullandığından, da bulundurmalısınız `skip-ssl-validation` geçin.
+Oturum açmak için önüne ekleyin `api` Market dağıtımından elde ettiğiniz SYSTEMDOMAINURL için. Varsayılan dağıtım otomatik olarak imzalanan bir sertifika kullandığından, aynı zamanda içermelidir `skip-ssl-validation` geçin.
 
 ```bash
 cf login -a https://api.SYSTEMDOMAINURL --skip-ssl-validation
 ```
 
-Bulut Denetleyicisi oturum istenir. Market dağıtım yer alan adımları aldığınız Yönetici hesap kimlik bilgilerini kullanın.
+Oturum açmak için bulut denetleyici istenir. Market dağıtım adımları aldığınız yönetici hesabı kimlik bilgilerini kullanın.
 
-Bulut Foundry sağlar *düzenlemeler* ve *alanları* ekipleri ve ortamlar paylaşılan bir dağıtım içinde yalıtmak için ad alanları olarak. Varsayılan PCF Market dağıtımının *sistem* org ve alanları temel bileşenler içerecek şekilde oluşturulmuş bir dizi gibi otomatik ölçeklendirmeyi hizmeti ve Azure hizmet Aracısı. Şimdilik, seçin *sistem* alanı.
+Cloud Foundry sağlar *düzenlemeler* ve *alanları* ekipler ve ortamlar paylaşılan bir dağıtım içinde yalıtmak için ad alanları olarak. PCF Market dağıtım varsayılan içerir *sistem* kuruluş ve bir dizi temel bileşenler içerecek şekilde oluşturulan alanları otomatik ölçeklendirme hizmeti ve Azure hizmet aracısı gibi. Şimdilik seçin *sistem* alanı.
 
 
 ## <a name="create-an-org-and-space"></a>Bir kuruluş oluşturup alanı
 
-Yazarsanız, `cf apps`, sistem Krlş. içinde sistem alanında dağıtılan sistem uygulamaları bakın 
+Yazarsanız `cf apps`, bir dizi sistem Krlş. içinde sistem alanında dağıtılan sistem uygulamaları bakın 
 
-Bulundurmanız gereken *sistem* sistem uygulamaları için ayrılmış org dolayısıyla oluşturun org ve örnek uygulamamız barındırmak için alanı.
+Tutmanız gerekir *sistem* kuruluş sistem uygulamaları için ayrılmış şekilde bir kuruluş ve örnek uygulamamız barındırmak için alanı oluşturma.
 
 ```bash
 cf create-org myorg
 cf create-space dev -o myorg
 ```
 
-Yeni org ve alan geçiş yapmak için hedef komutu kullanın:
+Alan ve yeni bir kuruluş için geçiş yapmak için hedef komutu kullanın:
 
 ```bash
 cf target -o testorg -s dev
 ```
 
-Şimdi, bir uygulamayı dağıttığınızda, otomatik olarak yeni org ve alanı oluşturulur. Olduğunu şu anda hiçbir uygulamanın yeni org/alan doğrulamak için şunu yazın `cf apps` yeniden.
+Artık, bir uygulamayı dağıttığınızda, otomatik olarak yeni bir kuruluş ve alanı oluşturulur. Şu anda hiçbir uygulamaların olduğuna yeni kuruluş/alanı doğrulamak için şunu yazın `cf apps` yeniden.
 
 > [!NOTE] 
-> Düzenlemeler ve alanları ve rol tabanlı erişim denetimi (RBAC) bunlar nasıl kullanılabileceği hakkında daha fazla bilgi için bkz: [bulut Foundry belgelerine][cf-orgs-spaces-docs].
+> Düzenlemeler ve alanları ve rol tabanlı erişim denetimi (RBAC), nasıl kullanılabileceği hakkında daha fazla bilgi için bkz. [Cloud Foundry belgeleri][cf-orgs-spaces-docs].
 
 ## <a name="deploy-an-application"></a>Uygulama dağıtma
 
-Merhaba yay Java'da yazılmış ve temel bulut adlı örnek bir bulut Foundry uygulama kullanalım [yay Framework](http://spring.io) ve [yay önyükleme](http://projects.spring.io/spring-boot/).
+Hello Spring Java dilinde yazılmış olan ve temel Cloud, adında örnek Cloud Foundry uygulama kullanalım [Spring Framework](http://spring.io) ve [Spring Boot](http://projects.spring.io/spring-boot/).
 
-### <a name="clone-the-hello-spring-cloud-repository"></a>Merhaba yay bulut depoyu kopyalayın
+### <a name="clone-the-hello-spring-cloud-repository"></a>Hello Spring Cloud depoyu kopyalama
 
-Merhaba yay bulut örnek uygulama, GitHub üzerinde kullanılabilir. Ortamınız için kopyalama ve yeni dizine değiştirin:
+Hello Spring Cloud örnek uygulama, Github'da kullanılabilir. Ortamınıza kopyalayın ve yeni dizine değiştirin:
 
 ```bash
 git clone https://github.com/cloudfoundry-samples/hello-spring-cloud
@@ -96,36 +96,36 @@ Uygulamasını kullanarak yapı [Apache Maven](http://maven.apache.org).
 mvn clean package
 ```
 
-### <a name="deploy-the-application-with-cf-push"></a>Uygulama cf itme ile dağıtma
+### <a name="deploy-the-application-with-cf-push"></a>Cf itme ile uygulama dağıtma
 
-Bulut Foundry kullanmanın çoğu uygulamaları dağıtabilirsiniz `push` komutu:
+Cloud Foundry kullanmaya çoğu uygulama dağıtabileceğiniz `push` komutu:
 
 ```bash
 cf push
 ```
 
-Olduğunda, *itme* bir uygulama, bulut Foundry uygulamada (Bu durumda, Java uygulaması) türünü algılar ve bağımlılıklarını (Bu durumda, yay framework) tanımlar. Bunun ardından olarak bilinen bir tek başına kapsayıcı görüntüsü kodunuzu çalıştırmak için gereken her şeyi paketleri bir *Damlacık*. Son olarak, bulut Foundry ortamınızdaki kullanılabilir makineleri birindeki uygulama zamanlar ve size, komut çıktısında kullanılabilir olduğu ulaşabilecekleri bir URL oluşturur.
+Olduğunda, *anında iletme* Cloud Foundry uygulamanın türü uygulama (Bu durumda, bir uygulamada Java) algılar ve bağımlılıkları (Bu durumda, Spring framework) tanımlar. Bunun ardından olarak bilinen bir tek başına bir kapsayıcı görüntüsü kodunuzu çalıştırmak için gereken her şeyi paketleri bir *Damlacık*. Son olarak, Cloud Foundry, biri ortamınızdaki kullanılabilir makineler, uygulamayı zamanlar ve size, komut çıktısında kullanılabildiği ulaşabilecekleri bir URL oluşturur.
 
-![Cf itme komut çıktısı][cf-push-output]
+![Cf anında iletme komut çıktısı][cf-push-output]
 
-Merhaba yay bulut uygulaması görmek için sağlanan URL'nin tarayıcınızda açın:
+Merhaba spring cloud uygulamayı görmek için belirtilen URL'yi tarayıcınızda açın:
 
-![Merhaba yay bulut için varsayılan kullanıcı Arabirimi][hello-spring-cloud-basic]
+![Merhaba Spring bulut için varsayılan kullanıcı Arabirimi][hello-spring-cloud-basic]
 
 > [!NOTE] 
-> Sırasında neler olduğu hakkında daha fazla bilgi için `cf push`, bkz: [uygulamaları nasıl hazırlanır] [ cf-push-docs] bulut Foundry belgelerinde.
+> Sırasında neler olduğu hakkında daha fazla bilgi edinmek için `cf push`, bkz: [uygulamaları nasıl hazırlanır] [ cf-push-docs] Cloud Foundry belgelerinde.
 
 ## <a name="view-application-logs"></a>Uygulama günlüklerini görüntüle
 
-Bulut Foundry CLI adını kullanarak bir uygulama için günlükleri görüntülemek için kullanabilirsiniz:
+Cloud Foundry CLI adını kullanarak bir uygulama için günlükleri görüntülemek için kullanabilirsiniz:
 
 ```bash
 cf logs hello-spring-cloud
 ```
 
-Varsayılan olarak, günlükler kullanan komut *tail*, yazıldığı gibi yeni günlükler gösterir. Yeni günlükler görünür görmek için tarayıcıda hello yay bulut uygulama yenileyin.
+Varsayılan olarak, günlükleri kullanan komut *tail*, yazıldıkları şekilde yeni günlüklerini gösterir. Görünen yeni günlüklerini görmek için tarayıcıdaki Merhaba spring cloud app yenileyin.
 
-Zaten yazılmış günlükleri görüntülemek için add `recent` geçin:
+Zaten yazıldığını günlükleri görüntülemek için Ekle `recent` geçin:
 
 ```bash
 cf logs --recent hello-spring-cloud
@@ -133,20 +133,20 @@ cf logs --recent hello-spring-cloud
 
 ## <a name="scale-the-application"></a>Uygulama ölçeklendirme
 
-Varsayılan olarak, `cf push` yalnızca uygulamanızın tek bir örneğini oluşturur. Yüksek kullanılabilirlik sağlamak ve ölçek genişletme için daha yüksek verimlilik etkinleştirmek için genellikle uygulamalarınızı birden fazla örneğini çalıştıran istersiniz. Zaten dağıtılmış uygulamalarının kullanarak kolayca ölçeklendirebilirsiniz `scale` komutu:
+Varsayılan olarak, `cf push` yalnızca tek bir uygulama örneği oluşturur. Yüksek kullanılabilirlik ve ölçek genişletme için daha yüksek performans sağlamak için genellikle birden fazla örneğini uygulamalarınızı çalıştırmak istersiniz. Zaten dağıtılmış uygulamalarının kullanarak kolayca ölçeklendirebilirsiniz `scale` komutu:
 
 ```bash
 cf scale -i 2 hello-spring-cloud
 ```
 
-Çalışan `cf app` uygulama komutunda gösterir bulut Foundry uygulama başka bir örneği oluşturmaktır. Uygulama başlatıldıktan sonra bulut Foundry Yük Dengeleme trafiğini onu otomatik olarak başlar.
+Çalışan `cf app` uygulamasında komut, Cloud Foundry uygulamanın başka bir örneğini oluşturuyor gösterir. Uygulama başlatıldıktan sonra Cloud Foundry, Yük Dengeleme, trafik otomatik olarak başlar.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Bulut Foundry belgeleri okuyun][cloudfoundry-docs]
-- [Visual Studio Team Services eklentisi bulut Foundry için ayarlama][vsts-plugin]
-- [Microsoft günlük analizi kafa bulut Foundry için yapılandırma][loganalytics-nozzle]
+- [Cloud Foundry belgeleri okuyun][cloudfoundry-docs]
+- [Azure DevOps Services eklentisi, Cloud Foundry için ayarlayın][vsts-plugin]
+- [Cloud Foundry için Microsoft Log Analytics Nozzle yapılandırın][loganalytics-nozzle]
 
 <!-- LINKS -->
 

@@ -9,12 +9,12 @@ ms.author: dacoulte
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc0e49f2857468338f6e1f16462ed814893ea6e7
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 100b3fa0e43be054a85ca9e32d9bb1b11033afb8
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42061476"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296270"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Kullanım örneği: Sanal makinelere Otomasyon durum yapılandırması ve Chocolatey kullanarak sürekli dağıtım
 
@@ -182,7 +182,7 @@ Bu nuspec derlenmiş ve NuGet sunucunuzun depolanır. Bu işlem açıklanan [bur
 ## <a name="step-6-tying-it-all-together"></a>6. adım: tümünü bir araya getirmeye kadar
 
 Sürüm QA geçirir ve onaylanır her zaman dağıtım için paketin oluşturulduğu, nuspec ve güncelleştirilen ve NuGet sunucuya dağıtılan nupkg. Ayrıca, yeni sürüm numarasıyla kabul etmek için ' % s'yapılandırması (yukarıdaki adım 4) güncelleştirilmesi gerekir. Çekme sunucusuna gönderilen ve derlenmiş gerekir.
-Bu noktadan itibaren güncelleştirme çekme ve yüklemek için bu yapılandırmasına göre değişir Vm'leri aittir. Bu güncelleştirmelerin her biri basit - yalnızca bir çizgi veya iki PowerShell. Söz konusu olduğunda, Visual Studio Team Services, bunlardan bazıları bir yapı içinde birbirine zincirlenebilir derleme görevleri içinde kapsüllenir. Bu [makale](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery) daha fazla ayrıntı sağlar. Bu [GitHub deposunu](https://github.com/Microsoft/vso-agent-tasks) çeşitli kullanılabilir yapı görevleri ayrıntıları.
+Bu noktadan itibaren güncelleştirme çekme ve yüklemek için bu yapılandırmasına göre değişir Vm'leri aittir. Bu güncelleştirmelerin her biri basit - yalnızca bir çizgi veya iki PowerShell. Azure DevOps söz konusu olduğunda, bunlardan bazıları bir yapı içinde birbirine zincirlenebilir derleme görevleri kapsüllenir. Bu [makale](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery) daha fazla ayrıntı sağlar. Bu [GitHub deposunu](https://github.com/Microsoft/vso-agent-tasks) çeşitli kullanılabilir yapı görevleri ayrıntıları.
 
 ## <a name="notes"></a>Notlar
 

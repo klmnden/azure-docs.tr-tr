@@ -11,28 +11,38 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 07/24/2018
+ms.date: 09/07/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 1a1635e0ba16bdc0fa6dc90aa0e1a417f43e04ac
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: de1d29d3ab1b370257c3a2d6b6ff9f677197fc2a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190185"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303073"
 ---
 # <a name="email-notifications-in-pim"></a>PIM e-posta bildirimleri
 
-Azure AD Privileged Identity Management (PIM) anahtar olaylar meydana geldiğinde, ilgili yönetici veya kullanıcı için e-posta bildirimi gönderilir. Örneğin, PIM aşağıdaki olaylar için e-posta gönderir:
+Azure AD Privileged Identity Management (PIM) anahtar olaylar meydana geldiğinde, e-posta bildirimi gönderilir. Örneğin, PIM aşağıdaki olaylar için e-posta gönderir:
 
 - Ayrıcalıklı rol Etkinleştirme Onayı Beklemede olduğunda
-- Ne zaman ayrıcalıklı rol etkinleştirme isteği Onaylandı
+- Ayrıcalıklı rol etkinleştirme isteği tamamlandığında
 - Ayrıcalıklı rol etkinleştirildiğinde
 - Ayrıcalıklı rol atandığında
 - Azure AD PIM etkinleştirildiğinde
 
-PIM ile gönderilen e-posta bildirimleri Temmuz 2018 sonunda başlayarak, yeni bir gönderen e-posta adresi ve yeni bir görsel tasarım olacaktır. Bu güncelleştirme, Azure AD için her iki PIM etkiler ve Azure kaynakları için PIM. Daha önce bir e-posta bildirimi tetiklenen tüm olaylar bir e-posta göndermeye devam eder. Bazı e-posta içeriği güncelleştirdiniz mi daha hedefe yönelik bilgileri sağlama.
+Aşağıdaki yöneticilere e-posta bildirimi gönderilir:
+
+- Ayrıcalıklı Rol Yöneticisi
+- Güvenlik Yöneticisi
+
+Aşağıdaki olaylar için ayrıcalıklı rol olan son kullanıcıya e-posta bildirimleri de gönderilir:
+
+- Ayrıcalıklı rol etkinleştirme isteği tamamlandığında
+- Ayrıcalıklı rol atandığında
+
+PIM e-posta bildirimi, Temmuz 2018 sonunda başlayarak, yeni bir gönderen e-posta adresi ve yeni bir görsel tasarım sahip. Bu güncelleştirme, Azure AD için her iki PIM etkiler ve Azure kaynakları için PIM. Daha önce bir e-posta bildirimi tetiklenen tüm olaylar bir e-posta göndermeye devam eder. Bazı e-posta içeriği güncelleştirdiniz mi daha hedefe yönelik bilgileri sağlama.
 
 ## <a name="sender-email-address"></a>Gönderenin e-posta adresi
 

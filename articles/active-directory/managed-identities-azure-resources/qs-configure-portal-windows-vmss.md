@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: e2bc6f9444d7e413612dbbbb4ade2c5e1f1722f2
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: cfd9936a4eb43fcecb66e672767b6f1133262c1d
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157794"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345729"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Azure kaynakları için yönetilen kimlikleri, Azure portalını kullanarak bir sanal makine ölçek üzerinde yapılandırma
 
@@ -31,7 +31,9 @@ Bu makalede, PowerShell kullanarak, Azure kaynaklarını bir sanal makine ölçe
 
 - Azure kaynakları için yönetilen kimliklerle bilmiyorsanız kullanıma [genel bakış bölümünde](overview.md).
 - Henüz bir Azure hesabınız yoksa, devam etmeden önce [ücretsiz bir hesaba kaydolun](https://azure.microsoft.com/free/).
-- Bu makalede yönetim işlemlerini gerçekleştirmek için aşağıdaki rol ataması hesabınızın gerekir:
+- Bu makalede yönetim işlemlerini gerçekleştirmek için aşağıdaki Azure rol tabanlı erişim denetimi atamalarını hesabınızın gerekir:
+    > [!NOTE]
+    > Hiçbir ek Azure AD dizini rol atamaları gerekli.
     - [Sanal makine Katılımcısı](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) etkinleştirmek ve yönetilen kimlik sistem tarafından atanan bir sanal makine ölçek kümesinden kaldırmak için.
 
 ## <a name="system-assigned-managed-identity"></a>Sistem tarafından atanan yönetilen kimlik

@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: app-mgmt
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 3231792ed1cb7f80cd2a106faf3760c48dd13c19
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 47ce9729e25fdfe3b72f45b3090473bb7dbeaa7a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057144"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296338"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Öğretici: hesap otomatik kullanıcı hazırlama raporlama
 
@@ -30,11 +30,11 @@ Bu makalede, bunlar ayarlanan sonra işleri sağlama durumunu denetleme ve birey
 
 ## <a name="overview"></a>Genel Bakış
 
-Sağlama bağlayıcılar ayarlanır ve kullanılarak yapılandırılan [Azure portalında](https://portal.azure.com), izleyerek [sağlanan belgeler](saas-apps/tutorial-list.md) desteklenen uygulama için. Yapılandırılmış ve çalışıyor sonra işleri sağlama iki yöntemden biri kullanılarak bildirilebilir:
+Sağlama bağlayıcılar ayarlanır ve kullanılarak yapılandırılan [Azure portalında](https://portal.azure.com), izleyerek [sağlanan belgeler](./saas-apps/tutorial-list.md) desteklenen uygulama için. Yapılandırılmış ve çalışıyor sonra işleri sağlama iki yöntemden biri kullanılarak bildirilebilir:
 
 * **Azure Yönetim Portalı** -bu makalede, öncelikli olarak rapor bilgileri alınırken açıklanır [Azure portalında](https://portal.azure.com), hem bir özet raporu sağlama hem de sağlama ayrıntılı denetim günlükleri için sağlayan bir Belirtilen uygulama.
 
-* **API denetim** -Azure Active Directory sağlama ayrıntılı denetim günlüklerini programlı alınmasını sağlayan denetim API'si de sağlar. Bkz: [Azure Active Directory denetim API Başvurusu](active-directory-reporting-api-audit-reference.md) bu API'yi kullanarak belirli belgeleri. Bu makalede özellikle API'SİNİN nasıl kullanılacağı ele alınmamaktadır olsa da Denetim günlüğüne kaydedilen olayları sağlama türleri açıklamaktadır.
+* **API denetim** -Azure Active Directory sağlama ayrıntılı denetim günlüklerini programlı alınmasını sağlayan denetim API'si de sağlar. Bkz: [Azure Active Directory denetim API Başvurusu](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) bu API'yi kullanarak belirli belgeleri. Bu makalede özellikle API'SİNİN nasıl kullanılacağı ele alınmamaktadır olsa da Denetim günlüğüne kaydedilen olayları sağlama türleri açıklamaktadır.
 
 ### <a name="definitions"></a>Tanımlar
 
@@ -131,7 +131,7 @@ Azure portalında en iyi okunabilirlik açısından seçin **sütunları** düğ
 
 Sağlama özet raporu ve Denetim günlükleri, yöneticiler çeşitli kullanıcı hesabı sağlama sorunlarını gidermenize yardımcı olacak önemli bir rol oynar.
 
-Senaryo tabanlı otomatik kullanıcı hazırlama sorunlarını giderme konusunda yönergeler için bkz. [yapılandırmak ve uygulamaya kullanıcı hazırlama sorunlarını](active-directory-application-provisioning-content-map.md).
+Senaryo tabanlı otomatik kullanıcı hazırlama sorunlarını giderme konusunda yönergeler için bkz. [yapılandırmak ve uygulamaya kullanıcı hazırlama sorunlarını](application-provisioning-config-problem.md).
 
 
 ## <a name="additional-resources"></a>Ek Kaynaklar

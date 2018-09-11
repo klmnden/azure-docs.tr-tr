@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: marsma
-ms.openlocfilehash: 34036c5ec9ccd8c502104ce862e4749c59be62b9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 86d85f9f84b8d3ae3c31ff59089ce264d5e3192e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43112971"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304348"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Azure Container ınstances'da bir gitRepo birimi
 
@@ -90,17 +90,17 @@ Kapsayıcı örneği dağıtımıyla bir Azure Resource Manager şablonu ile bir
 --gitrepo-url https://gituser:abcdef1234fdsa4321abcdef@github.com/GitUser/some-private-repository
 ```
 
-Bir VSTS Gıt deponuzda için geçerli bir PAT birlikte ("vstsuser" aşağıdaki örnekte olduğu gibi kullanabilirsiniz) herhangi bir kullanıcı adı belirtin:
+Azure DevOps Git deposu için geçerli bir PAT birlikte ("azuredevopsuser" aşağıdaki örnekte olduğu gibi kullanabilirsiniz) herhangi bir kullanıcı adı belirtin:
 
 ```azurecli
---gitrepo-url https://vstsuser:abcdef1234fdsa4321abcdef@vstsaccountname.visualstudio.com/_git/some-private-repository
+--gitrepo-url https://azuredevopsuser:abcdef1234fdsa4321abcdef@azuredevopsorganizationname.visualstudio.com/_git/some-private-repository
 ```
 
-GitHub ve VSTS kişisel erişim belirteçleri hakkında daha fazla bilgi için aşağıdakilere bakın:
+GitHub ve Azure DevOps için kişisel erişim belirteçleri hakkında daha fazla bilgi için aşağıdakilere bakın:
 
 GitHub: [komut satırı için bir kişisel erişim belirteci oluşturma][pat-github]
 
-VSTS: [kimlik doğrulaması yapmak için kişisel erişim belirteçleri oluşturun][pat-vsts]
+Azure DevOps: [kimlik doğrulaması yapmak için kişisel erişim belirteçleri oluşturun][pat-vsts]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

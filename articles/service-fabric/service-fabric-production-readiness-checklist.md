@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: subramar
-ms.openlocfilehash: 5092bf377f6ab213a2db52e01fb7b89ff0c218ce
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 6ebe83794f23ed3cf637f668d2810b9ba7521084
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39127609"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295879"
 ---
 # <a name="production-readiness-checklist"></a>Üretim hazırlığı denetim listesi
 
@@ -45,7 +45,7 @@ Uygulama ve küme üretim trafiği almaya hazır mı? Çalıştırma ve test, uy
 15. Hizmetiniz bir kurtarma noktası hedefi (RPO) oluşturmak ve ayarlanmış bir [olağanüstü durum kurtarma işlemi](service-fabric-disaster-recovery.md) ve test etmek.
 16. Planlama [ölçeklendirme](service-fabric-cluster-scaling.md) kümenizi el ile veya programlama yoluyla.
 17. Planlama [düzeltme eki uygulama](service-fabric-patch-orchestration-application.md) Küme düğümlerinizi. 
-18. Böylece son değişikliklerinizi sürekli olarak test edilen bir CI/CD işlem hattı oluşturun. Örneğin, kullanarak [VSTS](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) veya [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+18. Böylece son değişikliklerinizi sürekli olarak test edilen bir CI/CD işlem hattı oluşturun. Örneğin, kullanarak [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) veya [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 19. Test, geliştirme ve kümeleri ile yük altında hazırlama [hata analizi hizmeti](service-fabric-testability-overview.md) ve denetlenen anlamına [chaos](service-fabric-controlled-chaos.md). 
 20. Planlama [ölçeklendirme](service-fabric-concepts-scalability.md) uygulamalarınızı. 
 

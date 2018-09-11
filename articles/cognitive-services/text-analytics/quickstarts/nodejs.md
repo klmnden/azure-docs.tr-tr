@@ -1,5 +1,6 @@
 ---
-title: Node.js Hızlı Başlangıç için Azure Bilişsel hizmetler, metin analizi API'si | Microsoft Docs
+title: "Hızlı Başlangıç: Metin analizi API'sini çağırmak için Node.js kullanarak | Microsoft Docs"
+titleSuffix: Azure Cognitive Services
 description: Hızlı bir şekilde yardımcı olması için alma bilgileri ve kod örnekleri, Azure üzerinde Microsoft Bilişsel hizmetler metin analizi API'sini kullanarak başlayın.
 services: cognitive-services
 documentationcenter: ''
@@ -9,14 +10,14 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 9c4ff79384399cb7efd70393cb65f8ff055251ed
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 6cb02ea6c886b3c784826f41f6c3cb638e7104e0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840431"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297086"
 ---
-# <a name="quickstart-for-text-analytics-api-with-nodejs"></a>Hızlı Başlangıç için metin analizi API'si ile Node.js 
+# <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Hızlı Başlangıç: Node.js kullanarak metin analizi Bilişsel hizmet çağrısı
 <a name="HOLTop"></a>
 
 Bu makalede gösterilmektedir için [dili algılayın](#Detect), [düşüncelerini çözümleme](#SentimentAnalysis), [anahtar tümcecikleri ayıklayın](#KeyPhraseExtraction), ve [bağlı varlıkları tanımlama](#Entities) kullanma [metin analizi API'lerini](//go.microsoft.com/fwlink/?LinkID=759711) Node.JS ile.

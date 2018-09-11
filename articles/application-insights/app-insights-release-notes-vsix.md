@@ -1,6 +1,6 @@
 ---
-title: Geliştirici analiz için Visual Studio uzantısı için sürüm notları
-description: Geliştirici analiz için Visual Studio Araçları için en son güncelleştirmeleri.
+title: Geliştirici analizleri için Visual Studio uzantısı için sürüm notları
+description: En son güncelleştirmeleri için Visual Studio Geliştirici analiz araçları.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -10,31 +10,33 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/20/2017
-ms.author: mbullwin; aruna
-ms.openlocfilehash: 53a4d7fe1d92826b92866e170fd731edbd5ba1bf
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: aruna
+ms.author: mbullwin
+ms.openlocfilehash: 016d13a08ea3fe591529ad6dd29b25534d9c603d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303753"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Geliştirici Analizi Araçları Sürüm Notları
 
 ## <a name="version-718-visual-studio-2015"></a>Sürüm 7.18 (Visual Studio 2015)
 
-* Yeniden tasarlanan bildirimleri.
-* Uygulama Insights arama olayları için "Değil" ayrıntılı filtreler görüntüleyin.
+* Yeniden tasarlanan kutlama bildirimleri.
+* Application Insights arama olayları için "Not" ayrıntılı filtreler görüntüleyin.
 * Hata düzeltmeleri
 
-## <a name="version-86-visual-studio-2017-rtw-and-rc4-and-version-717-visual-studio-2015"></a>Sürüm 8.6 (Visual Studio 2017 RTW ve RC4) ve sürümü 7.17 (Visual Studio 2015)
+## <a name="version-86-visual-studio-2017-rtw-and-rc4-and-version-717-visual-studio-2015"></a>Sürüm 8.6 (Visual Studio 2017 RTW ve RC4'ü) ve sürümü 7.17 (Visual Studio 2015)
 
-* Ek açıklamalar, uygulamanızı Visual Studio'dan yayımladığınızda işaretleme verilerinizi Azure Portal'da ölçümleri Explorer'da şimdi yapılır
-* İşaretçileri uygulama ilişkin bilgiler için kırmızı ve sarı CodeLens uyarıları karşılık gelen scrollbars kod dosyalarında şimdi ekleniyor
+* Uygulamanızı Visual Studio'dan yayımladığınızda işaretleme ek açıklamalar Azure Portal'daki ölçüm Gezgini'nde verilerinizi artık yapılır
+* İşaretçileri artık kırmızı ve sarı CodeLens uyarı karşılık gelen Application Insights'tan kaydırma çubukları kodu dosyalarında eklenir
 * Fiyatlandırma bilgileri yapılandırma penceresinde güncelleştirildi
 * Hata düzeltmeleri
 
-[Burada ayrıntılı notlara bakın](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes#devanalytics)
+[Ayrıntılı Notlar buraya bakın](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes#devanalytics)
 
 ## <a name="version-716-visual-studio-2015"></a>Sürüm 7.16 (Visual Studio 2015)
 
@@ -42,17 +44,17 @@ ms.lasthandoff: 05/08/2018
 
 ## <a name="version-85-visual-studio-2017-rc3-and-version-715-visual-studio-2015"></a>Sürüm 8.5 (Visual Studio 2017 RC3) ve sürüm 7.15 (Visual Studio 2015)
 
-* CodeLens artık hem hata ayıklama hem de dinamik telemetri verilerini Application Insights kaynağı için verileri gönder projelerinde gösterir
-* Fiyatlandırma bilgileri artık yapılandırma penceresinde görüntülenen uygulama Öngörüler
-* CodeLens istekler ve özel durumlar için artık Visual Basic'te yazılmış ASP.NET projeleri destekler
-* Uygulama Insights arama şimdi örneklenen olayları beklemediğiniz örneklenen olay sayılarını gösterir
+* CodeLens artık hem hata ayıklama hem de canlı telemetri verilerini bir Application Insights kaynağına veri gönderen projelerde gösterir
+* Application Insights fiyatlandırma bilgileri artık yapılandırma penceresinde gösterilmektedir
+* İstekler ve özel durumlar için CodeLens artık Visual Basic'te yazılmış ASP.NET projeleri destekler
+* Application Insights arama gösterdiğini örneklenen olaylar için beklemediğiniz örneklenen olay sayısı
 * Hata düzeltmeleri
 
 ## <a name="version-714-visual-studio-2015"></a>Sürüm 7.14 (Visual Studio 2015)
 
 * Kullanılabilirlik (web testi) ve sayfa görünümü etkinliklerine arama desteği
 * Kullanılabilirlik (web testi) ve sayfa görünümü etkinliklerine eğilimleri desteği
-* Tanılama araçları ve Olay Ayrıntıları etiketini SDK Uyarlamalı örnekleme
+* Tanılama araçları ve SDK'sı Uyarlamalı örnekleme Olay Ayrıntıları etiketi
 * Hata düzeltmeleri
 
 ## <a name="version-712-visual-studio-2015"></a>Sürüm 7.12 (Visual Studio 2015)
@@ -60,47 +62,47 @@ ms.lasthandoff: 05/08/2018
 * Yeni bildirim biçimi Yayımla
 * Hata düzeltmeleri
 
-## <a name="version-84-visual-studio-2017-rc2-and-version-711-visual-studio-2015"></a>Sürüm 8.4 (Visual Studio 2017 RC2) ve sürüm 7.11 size yapılan (Visual Studio 2015)
+## <a name="version-84-visual-studio-2017-rc2-and-version-711-visual-studio-2015"></a>Sürüm (Visual Studio 2017 RC2) 8.4 ve sürüm 7.11 size yapılan (Visual Studio 2015)
 
-* Yerel hata ayıklama oturumları için Application Insights SDK'sı ile projeleri için istekleri CodeLens gösterir
-* CodeLens doğrudan uygulama kullanıcı etkisini görmek için analitik alabilir
-* Sayfa görünümleri toplamak için JavaScript Ekle
+* CodeLens, Application Insights SDK'yi içeren projelerde yerel hata ayıklama oturumları için istekleri gösterir.
+* CodeLens doğrudan kullanıcı etkisini görmek için uygulama analizi için alabilir.
+* Sayfa görünümlerini toplama için JavaScript ekleme
 * Hata düzeltmeleri
 
 ## <a name="version-710-visual-studio-2015"></a>Sürüm 7.10 (Visual Studio 2015)
 
-* Yeni Tasarım uygulama Öngörüler Yapılandırması penceresi için
+* Application Insights yapılandırma penceresi için yeni tasarım
 * Hata düzeltmeleri
 
 ## <a name="version-79-visual-studio-2015"></a>Sürüm 7,9 (Visual Studio 2015)
 
-* Application Insights SDK'sı ile projeleri için yerel hata ayıklama oturumları sırasında oluşan özel durumlar CodeLens gösterir
+* CodeLens Application Insights SDK'yi içeren projelerde yerel hata ayıklama oturumları sırasında oluşan özel durumları gösterir.
 * Hata düzeltmeleri
 
-## <a name="version-83-visual-studio-2017-rc-and-version-78-visual-studio-2015"></a>Sürüm 8.3 (Visual Studio 2017 RC) ve sürüm 7,8 (Visual Studio 2015)
+## <a name="version-83-visual-studio-2017-rc-and-version-78-visual-studio-2015"></a>Sürümü 8.3 (Visual Studio 2017 RC) ve sürümü 7.8 (Visual Studio 2015)
 
 * Application Insights yapılandırma penceresinde eklemek için yeni deneyim
 * Hata düzeltmeleri
 
 ## <a name="version-77-visual-studio-2015"></a>Sürüm 7.7 (Visual Studio 2015)
 
-* Özel ASP.NET yönlendirme kullanarak yöntemlerine telemetri olaylardan daha doğru eşlemeleri
+* Özel ASP.NET yönlendirmesi kullanan yöntemleri için telemetri olaylardan daha doğru eşlemeleri
 * Hata düzeltmeleri
 
 ## <a name="version-76-visual-studio-2015"></a>Sürüm 7.6 (Visual Studio 2015)
 
-* Arama aracında olaylar üzerinde bir işlemi yeni izleme işlemi sekmesinden dahil edilen olayları analiz
+* Yeni işlemi İzle sekmesinden bir işlem olayları arama aracında ilgili olayları çözümleme
 * Hata düzeltmeleri
 
 ## <a name="version-75-visual-studio-2015"></a>Sürüm 7.5 (Visual Studio 2015)
 
-* Tanılama Araçları'nda istekleri için üretim telemetri bilgileri
-* Arama aracında ilgili öğelerinden öğesi oluşturma çalışma
+* Tanılama Araçları'nda istekler için üretim telemetri bilgileri
+* İş öğesi arama aracında ilgili öğeleri oluşturma
 * Hata düzeltmeleri
 
 ## <a name="version-74-visual-studio-2015"></a>Sürüm 7.4 (Visual Studio 2015)
 
-* Filtre Bölmesi'nde eğilimleri şimdi yeniden boyutlandırılabilir
+* Eğilimleri'ndeki filtre bölmesi artık yeniden boyutlandırılabilir
 * Hata düzeltmeleri
 
 ## <a name="version-73-visual-studio-2015"></a>Sürüm 7.3 (Visual Studio 2015)
@@ -116,112 +118,112 @@ ms.lasthandoff: 05/08/2018
 
 ## <a name="version-71-visual-studio-2015"></a>Sürüm 7.1 (Visual Studio 2015)
 
-* Application Insights eğilimleri telemetri hazırlık göstergesi
+* Application Insights eğilimleri telemetri hazır olma durumu göstergesi
 * Hata düzeltmeleri
 
 ## <a name="version-70"></a>Sürüm 7.0
 ### <a name="azure-application-insights-trends"></a>Azure Application Insights eğilimleri
-Azure Application Insights, Visual Studio'da uygulamanız zaman içinde nasıl çalıştığı analiz etmenize yardımcı olmak için kullanabileceğiniz yeni bir aracıdır. , Üzerinde çalışmaya başlamak için **Application Insights** araç çubuğu düğmesini veya uygulama Insights arama penceresinde seçin **Telemetri eğilimlerini keşfet**. Veya, **Görünüm** menüsünde tıklatın **diğer pencereler**ve ardından **Application Insights eğilimleri**. Başlamak için beş genel sorgudan birini seçin. Telemetri türlerini, zaman aralıkları ve diğer özellikleri göre farklı veri kümelerinin analiz edebilirsiniz. Verilerinizi daha fazla bilgi bulmak için anomali seçeneklerden birini seçin **görünüm türü** aşağı açılan liste. Pencerenin altındaki filtreleme seçenekleri, telemetrinizdeki belirli alt kümelere odaklanmayı kolaylaştırır.
+Azure Application Insights, uygulamanızın zaman içinde nasıl çalıştığı analiz etmenize yardımcı olmak için kullanabileceğiniz Visual Studio'da yeni bir aracıdır. , On kullanmaya başlamak için **Application Insights** araç çubuğu düğmesini veya Application Insights arama penceresinde **Telemetri eğilimlerini keşfet**. Veya **görünümü** menüsünü tıklatın **diğer Windows**ve ardından **Application Insights eğilimleri**. Başlamak için beş genel sorgudan birini seçin. Telemetri türlerini, zaman aralıkları ve diğer özelliklere göre farklı veri kümelerini çözümleyebilirsiniz. Verilerinizdeki anormallikleri bulmak için anormallik seçeneklerinden birini seçin: **görünüm türü** aşağı açılan listesi. Pencerenin altındaki filtreleme seçenekleri, telemetrinizdeki belirli alt kümelere odaklanmayı kolaylaştırır.
 
 ![Application Insights eğilimleri](./media/app-insights-release-notes-vsix/Trends.png)
 
 ### <a name="exceptions-in-codelens"></a>CodeLens’teki özel durumlar
-Özel durum telemetrisi şimdi CodeLens görüntülenir. Projeniz için Application Insights hizmeti bağlanmadıysanız, son 24 saat içinde üretim ortamında her yöntemi oluşan özel durum sayısı görürsünüz. CodeLens daha ayrıntılı özel durumlar araştırmak için arama veya eğilimleri atlayabilirsiniz.
+Özel durum telemetrisi artık Codelens'te görüntülenir. Projenize Application Insights hizmetine bağladıysanız, son 24 saat içinde üretim ortamında her yöntemi ortaya çıkan özel durumların sayısını görürsünüz. Codelens'i, arama veya eğilimleri daha ayrıntılı özel durumlar araştırmaya atlayabilirsiniz.
 
 ![CodeLens’teki özel durumlar](./media/app-insights-release-notes-vsix/ExceptionsCodeLens.png)
 
-### <a name="aspnet-core-support"></a>ASP.NET çekirdeği desteği
-Application Insights Visual Studio artık ASP.NET Core RC2 projelerine destekler. Yeni ASP.NET Core RC2 projeleri için Application Insights Ekle **yeni proje** iletişim kutusunda, aşağıdaki ekran görüntüsünde olduğu gibi. Veya varolan bir projeye ekleyin, Çözüm Gezgini'nde projeye sağ tıklayın ve ardından **Application Insights Telemetrisi Ekle**.
+### <a name="aspnet-core-support"></a>ASP.NET Core desteği
+Application Insights Visual Studio artık ASP.NET Core RC2 projeleri destekler. Yeni ASP.NET Core RC2 projeleri için Application Insights Ekle **yeni proje** iletişim kutusunda, aşağıdaki ekran görüntüsünde gösterildiği gibi. Veya varolan bir projeye ekleyin, Çözüm Gezgini'nde projeye sağ tıklayın ve ardından **Application Insights Telemetrisi Ekle**.
 
-![ASP.NET çekirdeği desteği](./media/app-insights-release-notes-vsix/NetCoreSupport.png)
+![ASP.NET Core desteği](./media/app-insights-release-notes-vsix/NetCoreSupport.png)
 
-ASP.NET 5 RC1 ve ASP.NET Core RC2 projelerine yeni Destek Tanılama Araçları penceresinde de. Bilgisayarınızda yerel olarak hata ayıklama sırasında Application Insights olaylarını istekler ve özel durumlar gibi ASP.NET uygulamanızdan görürsünüz. Her olayından tıklatın **arama** daha fazla bilgi için detaya gitmek için.
+Ayrıca ASP.NET 5 RC1 ve ASP.NET Core RC2 projelerine yeni Destek Tanılama Araçları penceresinde vardır. Bilgisayarınızda yerel olarak hata ayıklama sırasında Application Insights olayları istekler ve özel durumlar gibi ASP.NET uygulamanızdan görürsünüz. Her olay, tıklayın **arama** daha fazla bilgi için detaya gitme.
 
-![Destek Tanılama araçları](./media/app-insights-release-notes-vsix/DiagnosticTools.png)
+![Tanılama araçları desteği](./media/app-insights-release-notes-vsix/DiagnosticTools.png)
 
 ### <a name="hockeyapp-for-universal-windows-apps"></a>Evrensel Windows uygulamaları için HockeyApp
-Beta dağılımı ve kullanıcı geri bildirim ek olarak, Evrensel Windows uygulamaları için raporlama symbolicated kilitlenme HockeyApp sağlar. Bu HockeyApp SDK'sı ekleme daha kolay yaptık: Evrensel Windows projenize sağ tıklayın ve ardından **hokey App - kilitlenme analizi etkinleştir**. Bu SDK yükler, kilitlenme koleksiyonunu ayarlar ve HockeyApp kaynak bulutundaki tüm HockeyApp hizmete uygulamanızı karşıya olmadan sağlar.
+Beta dağıtım ve kullanıcı geri bildirim yanı sıra, HockeyApp simgeleştirilmiş kilitlenme raporlama, Evrensel Windows uygulamaları için sağlar. HockeyApp SDK'sı ekleme daha kolay kolaylaştırdık: Evrensel Windows projenizde sağ tıklayın ve ardından **Hockey App - kilitlenme analizi etkinleştirme**. Bu SDK'sını yükler, kilitlenme koleksiyonunu ayarlar ve HockeyApp hizmeti için tüm uygulama yüklenmeden kaydedilip bulutta, HockeyApp kaynak sağlar.
 
 Diğer yeni özellikler:
 
-* Uygulama Insights arama deneyimi daha hızlı ve daha sezgisel yaptık. Bunları seçerken şimdi, zaman aralıkları ve ayrıntı filtreleri otomatik olarak uygulanır.
-* Ayrıca uygulama Öngörüler aramada artık doğrudan isteği telemetrisinden koda atlamak için bir seçenek yoktur.
-* HockeyApp oturum açma deneyimi geliştirmeler yaptık.
-* Tanılama araçlarındaki özel durumlara üretim telemetri bilgileri görüntülenir.
+* Application Insights arama deneyimini daha hızlı ve daha sezgisel yaptık. Bunları seçerken artık, zaman aralıkları ve ayrıntı filtreleri otomatik olarak uygulanır.
+* Ayrıca Application Insights araması'nda artık doğrudan istek telemetrisi koda gitmek için seçeneği mevcuttur.
+* HockeyApp oturum açma deneyimine yönelik iyileştirmeler yaptık.
+* Tanılama Araçları'nda, özel durumlar için üretim telemetri bilgileri görüntülenir.
 
 ## <a name="version-52"></a>5.2 sürümü
-Visual Studio HockeyApp senaryolarda giriş duyurmaktan Mutluluk duyuyoruz. Beta dağılımı Evrensel Windows uygulamaları ve Visual Studio içinde Windows Forms uygulamalardan ilk tümleştirme kullanılıyor.
+Visual Studio HockeyApp senaryolarda sunulmasıyla duyurmaktan Mutluluk duyuyoruz. İlk Evrensel Windows uygulamaları ve Visual Studio içinde Windows Forms uygulamalardan beta dağıtımı, tümleştirmedir.
 
-Beta dağılımı ile uygulamalarınızı'nın önceki sürümlerinde dağıtım müşterilerinin ya da Sınayıcılar için seçilen alt için HockeyApp yükleyin. Geniş çaplı bir yayın yapmadan önce beta dağılımı, HockeyApp kilitlenme koleksiyonunu ve kullanıcı geri bildirim özellikleriyle birlikte, uygulamanız hakkında değerli bilgiler sağlayabilir. Önlemenize veya düşük uygulama derecelendirmeleri, negatif geri bildirim vb. gibi gelecekteki sorunları en aza indirmek için uygulamanızı sorunları gidermek için bu bilgileri kullanabilirsiniz.
+Beta dağılımı ile uygulamalarınızı'nın önceki sürümlerinde dağıtım müşterilerinin ya da test edenler için seçilen alt kümesine Hockeyapp'e yükleyin. Geniş bir yayın yapmadan önce Beta dağıtımlar yapma, HockeyApp kilitlenme koleksiyonu ve kullanıcı geri bildirim özellikleri ile birlikte, uygulamanız hakkında değerli bilgiler sağlayabilir. Engellemek ya da düşük uygulama derecelendirmeleri, negatif geri bildirim ve benzeri gibi gelecekteki sorunları en aza indirmek, uygulamanızla ilgili sorunları gidermek için bu bilgileri kullanabilirsiniz.
 
-Visual Studio içinde beta dağıtılmak karşıya nasıl basit olan çıkışı onay oluşturur.
+Visual Studio içinde beta dağıtım noktasından için karşıya yükleme işleminin ne kadar kolay olduğunu çıkış denetimi oluşturur.
 
 ### <a name="universal-windows-apps"></a>Evrensel Windows uygulamaları
-Evrensel Windows uygulaması projesi düğümüne için bağlam menüsünde artık, derleme için HockeyApp karşıya yüklemek için bir seçenek içerir.
+Bir evrensel Windows uygulaması proje düğümü için bağlam menüsünü şimdi yapınızı Hockeyapp'e karşıya yüklemek için bir seçenek içerir.
 
 ![Evrensel Windows uygulamaları için proje bağlam menüsü](./media/app-insights-release-notes-vsix/UniversalContextMenu.png)
 
-Öğe ve karşıya yükleme iletişim kutusu açılır HockeyApp seçin. Yapınızın karşıya yüklemek için HockeyApp hesabı gerekir. Yeni bir kullanıcı yoksa endişelenmeyin. Hesap oluşturma basit bir işlemdir.
+Öğe ve karşıya yükleme iletişim kutusu açılır HockeyApp seçin. Derleme karşıya yüklemek için bir HockeyApp hesabı gerekir. Yeni bir kullanıcı yoksa endişelenmeyin. Hesap oluşturma basit bir işlemdir.
 
-Bağlandığınızda, iletişim karşıya yükle formunu görürsünüz.
+Bağlandığınızda, iletişim kutusunda karşıya yükle formunu görürsünüz.
 
-![İletişim kutusu Evrensel Windows uygulamaları için karşıya yükleme](./media/app-insights-release-notes-vsix/UniversalUploadDialog.png)
+![Karşıya Yükle iletişim kutusu için evrensel Windows uygulamaları](./media/app-insights-release-notes-vsix/UniversalUploadDialog.png)
 
-(.Appxbundle veya .appx dosyası) karşıya yüklemek istediğiniz içeriği seçin ve ardından Sihirbazı'nda sürüm seçenekleri seçin. İsteğe bağlı olarak, bir sonraki sayfada sürüm notları ekleyebilirsiniz. Seçin **son** karşıya yüklemeyi başlatmak için.
+(.Appxbundle veya .appx dosyası) yüklemek istediğiniz içeriği seçin ve ardından Sihirbazı'nda sürüm seçenekleri seçin. İsteğe bağlı olarak, sonraki sayfada sürüm notları ekleyebilirsiniz. Seçin **son** karşıya yüklemeyi başlatmak için.
 
-Karşıya yükleme tamamlandığında, onay ve HockeyApp Portalı'nda uygulamaya bir bağlantı içeren bir HockeyApp bildirim görüntülenir.
+Karşıya yükleme tamamlandığında, onay ve HockeyApp Portalı'nda uygulama bağlantısını içeren bir HockeyApp bildirimi görünür.
 
-![Tam bildirim karşıya yükle](./media/app-insights-release-notes-vsix/UploadComplete.png)
+![Karşıya yükleme tamamlandı bildirimi](./media/app-insights-release-notes-vsix/UploadComplete.png)
 
-Bu kadar! Beta dağılımı yalnızca birkaç tıklama ile bir yapı yalnızca yüklediğiniz.
+Bu kadar! Yalnızca bir derleme için beta dağıtımı yalnızca birkaç tıklamayla yüklediğiniz.
 
-Uygulamanızı HockeyApp Portalı'nda çeşitli yollarla yönetebilirsiniz. Bu kullanıcılar, kilitlenme raporları görüntüleme davet içerir ve geri bildirim değiştirme, Ayrıntılar ve benzeri.
+Uygulamanızı çeşitli yollarla HockeyApp portalında yönetebilirsiniz. Bu kullanıcılar, kilitlenme raporları görüntüleme davet içerir ve geri bildirim değiştirme, ayrıntıları ve benzeri.
 
 ![HockeyApp portalı](./media/app-insights-release-notes-vsix/HockeyAppPortal.png)
 
 Bkz: [HockeyApp Bilgi Bankası](http://support.hockeyapp.net/kb/app-management-2) uygulama yönetimi hakkında daha fazla ayrıntı için.
 
 ### <a name="windows-forms-apps"></a>Windows Forms uygulamaları
-Windows Form proje düğümüne için bağlam menüsünde artık, derleme için HockeyApp karşıya yüklemek için bir seçenek içerir.
+Bir Windows Form projesi düğümü için bağlam menüsü artık derleme Hockeyapp'e karşıya yüklemek için bir seçenek içerir.
 
 ![Windows Forms uygulamaları için proje bağlam menüsü](./media/app-insights-release-notes-vsix/WinFormContextMenu.png)
 
-Bu, bir evrensel Windows uygulaması birinde benzer HockeyApp karşıya yükleme iletişim kutusunu açar.
+Bu bir evrensel Windows uygulaması birinde benzer HockeyApp karşıya yükleme iletişim kutusunu açar.
 
-![Windows Forms uygulamaları için iletişim karşıya yükle](./media/app-insights-release-notes-vsix/WinFormsUploadDialog.png)
+![Karşıya Yükle iletişim kutusu Windows Forms uygulamaları](./media/app-insights-release-notes-vsix/WinFormsUploadDialog.png)
 
-Uygulama sürümü belirtmek için bu Sihirbazı'nda yeni bir alan unutmayın. Evrensel Windows uygulamaları için bilgi bildirimden doldurulur. Windows Forms uygulamaları, ne yazık ki, bu özellik için bir eşdeğeri yoktur. El ile belirtmeniz gerekir.
+Uygulama sürümünü belirtmek için bu Sihirbazı'nda yeni bir alan unutmayın. Evrensel Windows uygulamaları için bildirim bilgileri doldurulur. Windows Forms uygulamaları, ne yazık ki, eşdeğer bu özelliğe sahip değilsiniz. Bunları el ile belirtmeniz gerekir.
 
-Akış kalan için evrensel Windows uygulamaları benzer: derleme seçin ve yayın seçenekleri, yayın eklemeniz Notlar karşıya yükleyin ve HockeyApp portalında yönetin.
+Evrensel Windows uygulamaları için benzer bir akış rest: Azure işlem hatları Seçenekleri'ni seçin, yayın ekleyin notlar, karşıya yükleme ve HockeyApp Portal'da yönetin.
 
-Aynı gibi basit bir işlemdir. Bir deneyin ve Bize düşüncelerinizi iletin.
+Bu kadar basit bir işlemdir. Deneyin ve düşüncelerinizi bize bildirin.
 
 ## <a name="version-43"></a>Sürümü 4.3
-### <a name="search-telemetry-from-local-debug-sessions"></a>Yerel hata ayıklama oturumları arama telemetrisinden
-Bu sürümle birlikte, artık Visual Studio hata ayıklama oturumu sırasında oluşturulan Application Insights telemetri arayabilirsiniz. Daha önce yalnızca Application Insights ile uygulamanızı kayıtlı arama kullanabilirsiniz. Şimdi, uygulamanızın yalnızca Application Insights SDK için yerel telemetrisini arama yüklü olması gerekir.
+### <a name="search-telemetry-from-local-debug-sessions"></a>Yerel hata ayıklama oturumlarından gelen telemetri arama
+Bu sürümle birlikte, artık Visual Studio hata ayıklama oturumunda oluşturulan Application Insights telemetri arayabilirsiniz. Daha önce yalnızca uygulamanızı Application Insights ile kayıtlı arama kullanabilirsiniz. Şimdi uygulamanıza yalnızca Application Insights SDK için yerel telemetrisini arama yüklü olması gerekir.
 
-Application Insights SDK'sı ile ASP.NET uygulaması varsa, arama kullanmak için aşağıdaki adımları uygulayın.
+Application Insights SDK'sı ile bir ASP.NET uygulaması varsa, arama kullanmak için aşağıdaki adımları uygulayın.
 
 1. Uygulamanızda hata ayıklama.
-2. Uygulama Insights arama şu yollardan biriyle açın:
-   * Üzerinde **Görünüm** menüsünde tıklatın **diğer pencereler**ve ardından **uygulama Insights arama**.
-   * Tıklatın **Application Insights** araç çubuğu düğmesi.
-   * Çözüm Gezgini'nde genişletin **Applicationınsights.config**ve ardından **arama hata ayıklama oturumu telemetri**.
-3. Application Insights ile kaydolmuş olmasanız, arama penceresinde hata ayıklama oturumu telemetri modunda açın.
-4. Tıklatın **arama** simgesi yerel telemetrinize bakın.
+2. Application Insights arama aşağıdaki yöntemlerden birini açın:
+   * Üzerinde **görünümü** menüsünde tıklatın **diğer Windows**ve ardından **Application Insights arama**.
+   * Tıklayın **Application Insights** araç çubuğu düğmesi.
+   * Çözüm Gezgini'nde **Applicationınsights.config**ve ardından **arama hata ayıklama oturumu telemetrisi**.
+3. Application Insights ile kaydolmadıysanız, arama penceresi hata ayıklama oturumu telemetrisi modunda açılır.
+4. Tıklayın **arama** yerel telemetrinizi görmek için simge.
 
 ![Karşıya yükleme tamamlandı](./media/app-insights-release-notes-vsix/LocalSearch.png)
 
 ## <a name="version-42"></a>4.2 sürümü
-Bu sürümde, verilerin olayları bağlamında kolayca daha fazla veri olaylarını ve günlük verilerini Application Insights'a gönderme için kolay bir deneyim koda atlama olanağı arama kolaylaştıran özellikler eklendi. Bu uzantı aylık güncelleştirilir. Geri bildirim ya da özellik isteğiniz varsa, göndermeden aidevtools@microsoft.com.
+Bu sürümde, daha fazla veri olaylarını ve günlük verileriniz Application Insights'a gönderme için kolay bir deneyim koda atlama olanağı ile olayları bağlamında daha kolay veri arama yapmak için özellikler ekledik. Bu uzantı aylık güncelleştirilir. Geri bildirim ya da özellik isteğiniz varsa, kendisine göndermek aidevtools@microsoft.com.
 
-### <a name="no-click-logging-experience"></a>Hayır'ı tıklatın günlük deneyimi
-NLog, log4net veya System.Diagnostics.Tracing zaten kullanıyorsanız, tüm, izlemeleri Application Insights'a taşıma hakkında endişelenmeniz gerekmez. Bu sürümde, biz normal yapılandırma deneyimi Application Insights günlük bağdaştırıcıları entegre ettik.
-Önceden yapılandırılmış bu günlük altyapılarından birini varsa, aşağıdaki bölümde nasıl açıklanmaktadır.
-**Application Insights eklediyseniz:**
+### <a name="no-click-logging-experience"></a>Hayır'a tıklayın, günlüğe kaydetme deneyimi
+NLog, log4net veya System.Diagnostics.Tracing zaten kullanıyorsanız, tüm uygulamanızı Application Insights'a taşıma hakkında endişelenmeniz gerekmez. Bu sürümde, biz normal yapılandırma deneyimi ile günlük Application Insights bağdaştırıcılarını entegre ettik.
+Önceden yapılandırılmış bu günlük altyapılarından birini varsa, aşağıdaki bölümde nasıl açıklar.
+**Application Insights'ı zaten eklediyseniz:**
 
-1. Proje düğümüne sağ tıklayın ve ardından **Application Insights**ve ardından **yapılandırma Application Insights**. Doğru bağdaştırıcıyı yapılandırma penceresinde ekleme seçeneğini gördüğünüzden emin olun.
-2. Alternatif olarak, çözümü yapılandırdığınızda, üstte görüntülenen açılır pencerede Not sağına tıklayın ve ekranı **yapılandırma**.
+1. Proje düğümüne sağ tıklayın ve ardından **Application Insights**ve ardından **Application ınsights'ı Yapılandır**. Doğru bağdaştırıcıyı yapılandırma penceresinde ekleme seçeneği gördüğünüzden emin olun.
+2. Üstte görünen açılır penceresinde çözüm derlediğinizde, alternatif olarak, Not sağına tıklayın ve ekranı **yapılandırma**.
 
 ![Günlük bildirimi](./media/app-insights-release-notes-vsix/LoggingToast.png)
 
@@ -229,63 +231,63 @@ Yüklü günlük bağdaştırıcısı varsa, uygulamanızı çalıştırın ve T
 
 ![İzlemeler](./media/app-insights-release-notes-vsix/Traces.png)
 
-### <a name="jump-to-or-find-the-code-where-the-telemetry-event-property-is-emitted"></a>Atlamak veya telemetri olay özelliği burada gösterilen kod Bul
-Yeni sürümde kullanıcı üzerinde herhangi bir değer Olay Ayrıntısı tıklatabilirsiniz ve bu açık geçerli çözümde eşleşen bir dize arar. Sonuçları gösterir Visual Studio'da "Bul sonuçları" listesi aşağıda gösterildiği gibi:
+### <a name="jump-to-or-find-the-code-where-the-telemetry-event-property-is-emitted"></a>Atlayın veya telemetri olay özelliği nereden yayılan kod bulma
+Yeni sürümle birlikte kullanıcının herhangi bir değer Olay Ayrıntısı tıklayabileceği ve bunu geçerli açık çözümde eşleşen bir dize arar. Sonuçları görünecektir Visual Studio'da "Sonuçları bulma", aşağıda gösterildiği gibi listeleyin:
 
-![İçin eşleşme bulunamadı](./media/app-insights-release-notes-vsix/FindMatch.png)
+![Eşleşme bulunamadı](./media/app-insights-release-notes-vsix/FindMatch.png)
 
-### <a name="new-search-window-for-when-you-are-not-signed-in"></a>Ne zaman, oturum açmış durumda değilsiniz için yeni bir arama penceresi
-Biz uygulamanızı üretim aşamasında olsa da, verilerinizi aramanıza yardımcı olması için uygulama Insights arama penceresinin görünümünü geliştirdik.
+### <a name="new-search-window-for-when-you-are-not-signed-in"></a>Ne zaman, oturum için yeni arama penceresi
+Uygulamanızı üretimde olmakla birlikte, verilerinizi aramanıza yardımcı olması için Application Insights arama penceresinden görünümünü iyileştirdik.
 
 ![Arama penceresi](./media/app-insights-release-notes-vsix/SearchWindow.png)
 
-### <a name="see-all-telemetry-events-associated-with-the-event"></a>Olayla ilişkili tüm telemetri olaylarını görme
-Kullanıcı, Olay Ayrıntıları sekmesini yanındaki görüntüleyen telemetri olayı ilgili tüm veriler için önceden tanımlanmış sorgular ile yeni bir sekme ekledik. Örneğin, bir isteği adlı bir alan olduğundan **işlem kimliği**. Bu istek için ilişkili her olay için aynı değere sahip **işlem kimliği**. İşlem isteği işlerken bir özel durum oluşursa, özel durum bulmayı kolaylaştırmak için istek olarak aynı işlem kimliği verilir. Bir isteğiyle arıyorsanız tıklatın **bu işlem için tüm telemetri** yeni arama sonuçlarını görüntüler yeni bir sekme açın.
+### <a name="see-all-telemetry-events-associated-with-the-event"></a>Olay ile ilişkili tüm telemetri olaylarını bakın
+Kullanıcı, olay ayrıntıları için sekmesinde yanındaki görüntüleyen önceden tanımlanmış sorgular ve telemetri olayla ilişkili tüm veriler ile yeni bir sekme ekledik. Örneğin, bir istek adında bir alan içeriyor **işlem kimliği**. Bu istek için ilgili her olay için aynı değere sahip **işlem kimliği**. İşlem isteği işlerken bir özel durum oluşursa özel durum bulmayı kolaylaştırmak için istek olarak aynı işlem kimliği verilir. Bir istek arıyorsanız tıklayın **bu işlem için tüm telemetri** yeni arama sonuçlarını görüntüleyen yeni bir sekme açın.
 
 ![İlgili öğeler](./media/app-insights-release-notes-vsix/RelatedItems.png)
 
 ### <a name="forward-and-back-history-in-search"></a>İleri ve geri arama geçmişinde
-Şimdi arama sonuçları arasında ileri ve geri dönebilirsiniz.
+Artık arama sonuçları arasında ileri ve geri gidebilirsiniz.
 
 ![Geri dön](./media/app-insights-release-notes-vsix/GoBAck.png)
 
-## <a name="version-41"></a>Sürümü 4.1
-Bu sürüm, çok sayıda yeni özellikler ve Güncelleştirmeler ile birlikte gelir. Güncelleştirme 1'in bu sürümü yüklemeyi yüklü olması gerekir.
+## <a name="version-41"></a>Sürüm 4.1
+Bu sürümdeki birkaç yeni özellikler ve Güncelleştirmeler ile birlikte gelir. Güncelleştirme 1'in bu sürümü yüklemek için yüklü olması gerekir.
 
-### <a name="jump-from-an-exception-to-method-in-source-code"></a>Kaynak kodu yöntemi bir özel durumundan atlamak
-Üretim uygulamanızdan uygulama Insights arama penceresinde özel durumlarını görüntülemek, şimdi, yönteme kodunuzda özel durumu oluştuğu atlayabilirsiniz. Yalnızca doğru projeyi yüklü olması gerekir ve Application Insights kalan mvc'deki! (Uygulama Insights arama penceresi hakkında daha fazla bilgi için sürüm notları aşağıdaki bölümlerdeki sürüm 4.0 için bkz.)
+### <a name="jump-from-an-exception-to-method-in-source-code"></a>Bir özel kaynak kod içindeki Metoda atlama
+Üretim uygulamanızdan Application Insights arama penceresinde özel durum görüntülerseniz, artık, yönteme kodunuzda özel durumun oluştuğu atlayabilirsiniz. Yalnızca doğru projeyi yüklü olması gerekir ve Application Insights geri kalanını üstlenir! (Application Insights arama penceresi hakkında daha fazla bilgi için sürüm notları aşağıdaki bölümlerde sürüm 4.0 için bkz.)
 
-Nasıl çalışır? Bir çözüm bile açık değilken, uygulamaları Öngörüler aramayı kullanabilirsiniz. Yığın İzleme alanı bir bilgi iletisi görüntüler ve yığın izleme öğelerinin çoğunu kullanılamaz.
+Nasıl çalışır? Bir çözüm açık olmadığında bile uygulamaları Insights aramayı kullanabilirsiniz. Yığın izleme alanında bir bilgi iletisi görüntülenir ve yığın izlemesi öğeleri birçoğu kullanılamaz.
 
-Dosya bilgileri varsa, bazı öğeler bağlantılar olabilir, ancak çözüm bilgileri öğesi hala görünür olacaktır.
+Dosya bilgileri mevcutsa bazı öğeler bağlantıları olabilir, ancak çözüm bilgi öğesi görünmeye devam edecektir.
 
-Köprü tıklarsanız, kodunuzda seçilen yöntemi konuma atlama. Sürüm numarası bir fark olabilir, ancak kodu doğru sürüme atlamak için özelliği, daha sonraki sürümlerde gelecektir.
+Köprüyü tıkladığınızda, kodunuzda seçilen yöntemin konuma atlamasına. Sürüm numarası bir fark olabilir, ancak daha sonraki sürümlerde, kodun doğru sürüme atlamak için özelliği gelir.
 
-![Özel durum ayrıntıları tıklatın](./media/app-insights-release-notes-vsix/jumptocode.png)
+![Özel durum ayrıntıları tıklayın](./media/app-insights-release-notes-vsix/jumptocode.png)
 
-### <a name="new-entry-points-to-the-search-experience-in-solution-explorer"></a>Çözüm Gezgini'nde yeni giriş noktaları arama deneyimi
+### <a name="new-entry-points-to-the-search-experience-in-solution-explorer"></a>Çözüm Gezgini içinde yeni giriş noktaları arama deneyimi
 Artık arama Çözüm Gezgini aracılığıyla erişebilirsiniz.
 
-![Çözüm Gezgini'nde arama](./media/app-insights-release-notes-vsix/searchentry.png)
+![Çözüm Gezgini'nde Ara](./media/app-insights-release-notes-vsix/searchentry.png)
 
-### <a name="displays-a-notification-when-publish-is-completed"></a>Bir bildirim görüntüler yayımlarken tamamlandı
-Proje çevrimiçi yayımlandığında, Application Insights verilerinizi üretimde görüntüleyebilmesi için bir açılır iletişim kutusu görüntülenir.
+### <a name="displays-a-notification-when-publish-is-completed"></a>Bir bildirim görüntüler yayımladığınızda tamamlandı
+Proje çevrimiçi yayımlandığında Application Insights verilerini üretimde görüntüleyebilmesi için bir açılır iletişim kutusu görüntülenir.
 
-![Tam bildirim yayımlama](./media/app-insights-release-notes-vsix/publishtoast.png)
+![Yayımlama tamamlandı bildirimi](./media/app-insights-release-notes-vsix/publishtoast.png)
 
 ## <a name="version-40"></a>Sürüm 4.0
-### <a name="search-application-insights-data-from-within-visual-studio"></a>Visual Studio içindeki verileri Application Insights arama
-Olayları tek tek inceleyin ve olay türleri, özellik değerleri ve metni ara ve Visual Studio'da, filtre uygulayabilirsiniz artık Application Insights portalı arama işlevinde gibi.
+### <a name="search-application-insights-data-from-within-visual-studio"></a>Visual Studio Application Insights verileri arama
+Olay türleri, özellik değerleri ve metin arama ve filtre uygulayabilirsiniz Visual Studio'da artık Application Insights portalında arama işlevini ister ve ardından tek tek olayları inceleyin.
 
 ![Arama penceresi](./media/app-insights-release-notes-vsix/search.png)
 
-### <a name="see-data-coming-from-your-local-computer-in-diagnostic-tools"></a>Tanılama Araçları'nda, yerel bilgisayarınızdan gelen veri bakın
-Hata ayıklama diğer verilerin yanı sıra, telemetri Visual Studio tanılama araçlarını sayfasında görüntüleyebilirsiniz. Yalnızca ASP.NET 4.5 desteklenir.
+### <a name="see-data-coming-from-your-local-computer-in-diagnostic-tools"></a>Tanılama Araçları'nda yerel bilgisayarınızdan gelen verileri bakın
+Diğer hata ayıklama verileri yanı sıra, telemetri Visual Studio tanılama araçları sayfasında görüntüleyebilirsiniz. Yalnızca ASP.NET 4.5 desteklenir.
 
 ![Tanılama araçları sayfası](./media/app-insights-release-notes-vsix/diagtools.png)
 
 ### <a name="add-the-sdk-to-your-project-without-signing-in-to-azure"></a>Azure'da oturum açma olmadan projenize SDK ekleme
-Artık, projenizi, yoluyla Application Insights paketleri eklemek için Azure'da oturum açın zorunda **yeni proje** iletişim veya proje bağlam menüsünden. Oturum, SDK'sı yüklü ve önce portala telemetri gönderecek şekilde yapılandırılabilir. Oturum yok, SDK'yı projenize eklenir ve tanılama hub'ına yönelik telemetri oluşturur. İsterseniz, daha sonra yapılandırabilirsiniz.
+Artık Application Insights paketlerini projenize aracılığıyla eklemek için Azure'da oturum açmanız gerekmez **yeni proje** iletişim veya proje bağlam menüsü. Oturum, SDK'sı yüklü ve önce portalına telemetri gönderecek şekilde yapılandırılabilir. Oturum yoksa, SDK'sını projenize eklenir ve tanılama hub'ı için telemetri oluşturur. İsterseniz, daha sonra yapılandırabilirsiniz.
 
 ![Yeni Proje iletişim kutusu](./media/app-insights-release-notes-vsix/newproject.png)
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 1b52c64db29e17a0c52eb63721be81844e856b64
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: cd022677da59588eca910a508b2596aa513eff4b
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42059209"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302818"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>OAuth 2.0 kullanarak Azure API Management'ta Geliştirici hesaplarını yetkilendirme nasıl
 
@@ -63,9 +63,9 @@ Bu kılavuz, OAuth 2.0 yetkilendirme için geliştirici hesapları kullanmak iç
 
     ![OAuth 2.0 yeni sunucu](./media/api-management-howto-oauth2/oauth-03.png)
 
-    Bir Azure Active Directory OAuth 2.0 sunucusu **belirteç uç noktası URL'si** aşağıdaki biçimde olan burada `<APPID>` biçimi olan `yourapp.onmicrosoft.com`.
+    Bir Azure Active Directory OAuth 2.0 sunucusu **belirteç uç noktası URL'si** aşağıdaki biçimde olan burada `<TenantID>` biçimi olan `yourapp.onmicrosoft.com`.
 
-    `https://login.microsoftonline.com/<APPID>/oauth2/token`
+    `https://login.microsoftonline.com/<TenantID>/oauth2/token`
 
     Varsayılan ayarı **istemci kimlik doğrulama yöntemleri** olduğu **temel**, ve **erişim belirteci gönderme yöntemi** olduğu **yetkilendirme üst bilgisi**. Bu değerleri ile birlikte bu bölümünde bir form üzerinde yapılandırılan **varsayılan kapsam**.
 

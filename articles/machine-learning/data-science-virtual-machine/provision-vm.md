@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: 8131122f78f743d04e332bfc8dfeba87a8c34236
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 37a30055e567b27f4e215dac162642d4447a8e49
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782663"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298218"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Azure üzerinde Windows veri bilimi sanal makinesi sağlama
 Microsoft Veri bilimi sanal makinesi (DSVM), bir Windows Azure sanal makine (VM) görüntüsüdür. Bu önceden yüklenmiş ve veri analizi ve makine öğrenimi için kullanılan çeşitli araçlar ile yapılandırılmış. Aşağıdaki araçları dahil edilir:
@@ -40,7 +40,7 @@ Microsoft Veri bilimi sanal makinesi (DSVM), bir Windows Azure sanal makine (VM)
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/). Görsel verileri araştırma ve makine öğrenimi Java'da yazılım.
   * [Apache ayrıntıya](https://drill.apache.org/). Bir şemasız SQL sorgu alt Apache Hadoop, NoSQL ve bulut depolama.  ODBC ve JDBC arabirimleri, NoSQL ve Power BI, Microsoft Excel ve Tableau gibi standart BI araçlarından dosyaları'nı sorgulamak için destekler.
 * Kitaplıklarında, R ve Python için Azure Machine Learning ve diğer Azure hizmetlerini kullanın.
-* Git, GitHub ve Visual Studio Team Services içeren kaynak kodu depoları ile çalışmak için Git Bash dahil. Git, Git Bash ve bir komut istemi erişilebilir çeşitli popüler Linux komut satırı yardımcı programları sağlar. Awk, sed, perl, grep, bulma, wget ve curl örnek verilebilir.
+* Git, GitHub ve Azure DevOps içeren kaynak kodu depoları ile çalışmak için Git Bash dahil. Git, Git Bash ve bir komut istemi erişilebilir çeşitli popüler Linux komut satırı yardımcı programları sağlar. Awk, sed, perl, grep, bulma, wget ve curl örnek verilebilir.
 
 Veri bilimi görevleri bir dizi üzerinde yineleme içerir:
 

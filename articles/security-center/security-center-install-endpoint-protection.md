@@ -1,6 +1,6 @@
 ---
-title: Endpoint protection sorunlarını Azure Güvenlik Merkezi ile yönetme | Microsoft Docs
-description: Azure Güvenlik Merkezi'nde bitiş noktası sorunları yönetmeyi öğrenin.
+title: Azure Güvenlik Merkezi ile uç nokta koruma sorunları yönetme | Microsoft Docs
+description: Azure Güvenlik Merkezi'nde uç nokta koruma sorunları yönetmeyi öğrenin.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,104 +9,104 @@ editor: ''
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: terrylan
-ms.openlocfilehash: abbcb0a8e0206d78ca94520dfa81ab92506c47af
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: a3ac23f3874b85da9c0641264ca6f9c55a7b0515
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
-ms.locfileid: "23936297"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300012"
 ---
-# <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Endpoint protection sorunlarını Azure Güvenlik Merkezi ile yönetme
-Azure Güvenlik Merkezi, kötü amaçlı yazılım korumasını durumunu izler ve bu rapor, Endpoint protection sorunlarını dikey penceresinde altında. Güvenlik Merkezi tehdit algılanan ve sanal makineleri (VM'ler) ve bilgisayarları kötü amaçlı yazılım tehditlerine yapabilirsiniz yetersiz koruma gibi sorunlar vurgular. Altında verilen bilgileri kullanarak **bitiş noktası sorunları**, tanımlanan tüm sorunların yönelik bir plan tanımlayabilirsiniz.
+# <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Azure Güvenlik Merkezi ile uç nokta koruma sorunları yönetme
+Azure Güvenlik Merkezi, kötü amaçlı yazılımdan korunma durumunu izler ve bu uç nokta koruma sorunları dikey penceresi bildirir. Güvenlik Merkezi, algılanan tehditlere ve sanal makinelerinizi (VM) ve bilgisayarları kötü amaçlı yazılım tehditlerine karşı savunmasız hale getirebilirsiniz yetersiz koruma gibi sorunlar vurgular. Altında verilen bilgileri kullanarak **uç nokta koruma sorunları**, tanımlanan tüm sorunların ele almak için bir plan belirleyebilirsiniz.
 
-Güvenlik Merkezi aşağıdaki bitiş noktası sorunları raporları:
+Güvenlik Merkezi şu uç nokta koruma sorunları bildirir:
 
-- Azure Vm'lerinde – desteklenen kötü amaçlı yazılımdan koruma çözümünü yüklenmemiş endpoint protection bu Azure Vm'lerinde yüklü değil.
-- Uç nokta koruma Azure olmayan bilgisayarlara – yüklenmemiş desteklenen kötü amaçlı yazılımdan koruma bu Azure olmayan bilgisayarlara yüklü değil.
-- Uç nokta koruma durum:
+- Bu Azure Vm'lere endpoint protection Azure Vm'lerinde – desteklenen kötü amaçlı yazılımdan koruma çözümü yüklenmedi yüklü değil.
+- Endpoint protection yüklenmedi – Azure dışı bilgisayarların desteklenen bir kötü amaçlı yazılımdan koruma bu Azure dışı bilgisayarlara yüklü değil.
+- Endpoint protection sistem durumu:
 
-   - İmza kötü amaçlı yazılımdan koruma çözümünü bu sanal makineleri ve bilgisayarlara yüklenir, ancak çözüm en son kötü amaçlı yazılımdan koruma imzaları yok güncel –.
-   - Gerçek zamanlı koruma yok – kötü amaçlı yazılımdan koruma çözümünü bu sanal makineleri ve bilgisayarlara yüklenir, ancak gerçek zamanlı koruma için yapılandırılmamış.   Hizmet devre dışı veya Güvenlik Merkezi çözümü desteklenmediğinden durumu alınamıyor olabilir. Bkz: [ortak tümleştirme](security-center-partner-integration.md) desteklenen çözümleri listesi.
+   - Kötü amaçlı yazılımdan koruma çözümünü bu Vm'lere ve bilgisayarlara yüklenir, ancak çözümüne sahip en son kötü amaçlı yazılımdan koruma imzaları güncel – imzası.
+   - Gerçek zamanlı koruma yok – kötü amaçlı yazılımdan koruma çözümünü bu Vm'lere ve bilgisayarlara yüklenir, ancak gerçek zamanlı koruma için yapılandırılmamış.   Hizmet devre dışı bırakılabilir veya Güvenlik Merkezi çözüm desteklenmediğinden durumu alınamıyor olabilir. Bkz: [iş ortağı tümleştirmesi](security-center-partner-integration.md) desteklenen çözümleri listesi.
    - Raporlama – kötü amaçlı yazılımdan koruma çözümünü yüklenir, ancak raporlama verilerini değil.
-   - Bilinmiyor – kötü amaçlı yazılımdan koruma çözümünü yüklendi, ancak bilinmeyen veya bilinmeyen bir hata raporlama durumundadır.
+   - Bilinmiyor – kötü amaçlı yazılımdan koruma çözümünü yüklü ancak bilinmeyen veya bilinmeyen bir hata raporlama durumundadır.
 
    > [!NOTE]
-   > Bkz: [güvenlik çözümlerini tümleştirmenize](security-center-partner-integration.md#integrated-azure-security-solutions) Güvenlik Merkezi ile tümleşik uç nokta koruma güvenlik çözümleri listesi.
+   > Bkz: [güvenlik çözümlerini tümleştirme](security-center-partner-integration.md#integrated-azure-security-solutions) uç nokta koruma güvenlik çözümlerini Güvenlik Merkezi ile tümleşik bir listesi.
    >
    >
 
-## <a name="implement-the-recommendation"></a>Öneriyi uygulamayı
-Bitiş noktası sorunları, Güvenlik Merkezi'nde bir öneri olarak sunulur.  Altında ortamınıza kötü amaçlı yazılım tehditlerine karşı savunmasız ise, bu öneri görüntülenir **önerileri** ve altında **işlem**. Görmek için **Endpoint protection sorunlarını Pano**, işlem iş akışı izlemeniz gerekir.
+## <a name="implement-the-recommendation"></a>Önerisini uygulama
+Uç nokta koruma sorunları, Güvenlik Merkezi'nde bir öneri olarak sunulur.  Altında ortamınıza kötü amaçlı yazılım tehditlerine karşı savunmasız ise, bu öneriyi görüntülenecektir **önerileri** altında **işlem**. Görmek için **uç nokta koruma Pano sorunları**, bilgi işlem iş akışını takip etmek gerekir.
 
-Bu örnekte, kullanacağız **işlem**.  Kötü amaçlı yazılımdan koruma Azure vm'lerinde ve Azure olmayan bilgisayarlara nasıl yükleneceği ele alacağız.
+Bu örnekte, kullanacağız **işlem**.  Azure sanal makinelerinde ve Azure harici bilgisayarları kötü amaçlı yazılımdan koruma yükleme atacağız.
 
 ## <a name="install-antimalware-on-azure-vms"></a>Azure Vm'lerinde kötü amaçlı yazılımdan koruma yükleyin
 
-1. Seçin **işlem** Güvenlik Merkezi ana menüsündeki veya **genel bakış**.
+1. Seçin **işlem** altındaki Güvenlik Merkezi ana menüsünde veya **genel bakış**.
 
    ![İşlem seçin][1]
 
-2. Altında **işlem**seçin **bitiş noktası sorunları**. **Bitiş noktası sorunları** panosu açılır.
+2. Altında **işlem**seçin **uç nokta koruma sorunları**. **Uç nokta koruma sorunları** panosu açılır.
 
-   ![Bitiş noktası sorunları seçin][2]
+   ![Uç nokta koruma sorunları seçin][2]
 
-   Pano üstündeki sağlar:
+   Panonun üst tarafındaki sağlar:
 
-   - Endpoint protection sağlayıcıları - listeleri Güvenlik Merkezi tarafından tanımlanan farklı sağlayıcı yüklü.
-   - Yüklü uç nokta koruma durumu - VMs ve yüklü bir uç nokta koruma çözümüne sahip bilgisayarların sistem durumunu gösterir. Grafik VM'ler ve iyi durumda olan bilgisayarların sayısını ve yetersiz koruma numarasıyla gösterir.
-   - Güvenlik Merkezi yeri bildiren bilgisayarların kötü amaçlı yazılım algıladı ve kötü amaçlı yazılım algılanan – VM'lerin sayısını gösterir.
-   - Saldırıya uğrayan bilgisayarlar – VM'ler ve Güvenlik Merkezi tarafından kötü amaçlı yazılımların saldırıları burada bildiriyor bilgisayarların sayısını gösterir.
+   - Endpoint protection sağlayıcıları - Güvenlik Merkezi tarafından tanımlanan farklı sağlayıcıları listeler yüklü.
+   - Yüklü endpoint protection sistem durumu - Vm'leri ve yüklü bir uç nokta koruma çözümüne sahip bilgisayarların sistem durumunu gösterir. Grafik, VM'ler ve iyi durumda olan bilgisayarların sayısını ve koruması yetersiz olan numarasını gösterir.
+   - Kötü amaçlı yazılım algılanan – VM sayısını gösterir ve burada Güvenlik Merkezi raporlama bilgisayarları kötü amaçlı yazılım algıladı.
+   - Saldırılan bilgisayarlar – Vm'leri ve Bilgisayarları Güvenlik Merkezi tarafından kötü amaçlı yazılımların saldırıları burada bildiriyor sayısını gösterir.
 
-   Pano alt kısmında, aşağıdaki bilgileri içeren koruma sorunları uç nokta listesi vardır:  
+   Pano altındaki aşağıdaki bilgileri içeren koruma sorunları uç nokta listesi vardır:  
 
-   - **Toplam** -VMs ve bilgisayarların sayısını sorundan etkilenen.
-   - VM'ler ve bu sorundan etkilenen bilgisayarların sayısını toplayarak çubuğu A. Renkleri çubuğunda öncelik tanımlayın:
+   - **Toplam** -VM'ler ve bilgisayarların sayısı, sorundan etkilenen.
+   - VM'ler ve bu sorundan etkilenen bilgisayarların sayısını toplayarak çubuğu A. Çubuk renklerini öncelik tanımlayın:
 
       - Kırmızı - yüksek öncelikli ve hemen ilgilenilmesi gerekir
-      - Turuncu - Orta öncelikli ve hemen ilgilenilmesi gerekir
+      - Turuncu - Orta önceliklidir ve hemen ilgilenilmesi gerekir
 
-3. Seçin **Azure Vm'lerinde yüklenmemiş Endpoint protection**.
+3. Seçin **Endpoint protection yüklenmedi Azure Vm'lerinde**.
 
-   ![Azure Vm'lerinde yüklenmemiş Endpoint protection seçin][3]
+   ![Azure Vm'leri üzerinde yüklü olmayan Endpoint protection seçin][3]
 
-4. Altında **Azure Vm'lerinde yüklenmemiş Endpoint protection** Azure VM'ler, kötü amaçlı yazılımdan koruma yüklü olmayan bir listesi verilmiştir.  Listedeki tüm VM'ler kötü amaçlı yazılımdan koruma yükleyin veya kötü amaçlı yazılımdan koruma belirli VM'de tıklayarak yüklemek için tek tek sanal makineleri seçin seçebilirsiniz.
+4. Altında **Endpoint protection yüklenmedi Azure Vm'lerinde** Azure Vm'leri, yüklü kötü amaçlı yazılımdan koruma sahip olmayan bir listesidir.  Listedeki tüm vm'lerde kötü amaçlı yazılımdan koruma yüklemeyi veya kötü amaçlı yazılımdan koruma belirli VM'ye tıklayarak yüklemek için tek tek sanal makineleri seçebilirsiniz.
 5. Altında **işaretleyin Endpoint protection**, kullanmak istediğiniz uç nokta koruma çözümü seçin. Bu örnekte seçin **Microsoft Antimalware**.
-6. Uç nokta koruma çözümü hakkında ek bilgi görüntülenir. **Oluştur**’u seçin.
+6. Uç nokta koruma çözümü hakkında ek bilgiler görüntülenir. **Oluştur**’u seçin.
 
-## <a name="install-antimalware-on-non-azure-computers"></a>Kötü amaçlı yazılımdan koruma Azure olmayan bilgisayarlara yükleme
+## <a name="install-antimalware-on-non-azure-computers"></a>Azure dışı bilgisayarlara kötü amaçlı yazılımdan koruma yükleyin
 
-1. Geri dönerek **bitiş noktası sorunları** seçip **Azure olmayan bilgisayarlarda yüklü olmayan Endpoint protection**.
+1. Geri Git **uç nokta koruma sorunları** seçip **Endpoint protection yüklenmedi Azure dışı bilgisayarlara**.
 
    ![Azure olmayan bilgisayarlarda yüklü olmayan Endpoint protection seçin][4]
 
-2. Altında **Azure olmayan bilgisayarlarda yüklü olmayan Endpoint protection**, bir çalışma alanı seçin. Çalışma alanına filtrelenmiş bir günlük analizi arama sorgusu açar ve kötü amaçlı yazılımdan koruma eksik bilgisayarları listeler. Daha fazla bilgi için listeden bir bilgisayar seçin.
+2. Altında **Endpoint protection yüklenmedi Azure dışı bilgisayarlara**, bir çalışma alanı seçin. Çalışma alanına filtrelenmiş bir Log Analytics arama sorgu açılır ve kötü amaçlı yazılımdan koruma eksik bilgisayarları listeler. Daha fazla bilgi için listeden bir bilgisayar seçin.
 
-   ![Günlük analizi arama][5]
+   ![Log Analytics arama][5]
 
-Bu bilgisayar için yalnızca filtrelenen bilgilerle başka bir arama sonucu açar.
+Bu bilgisayar için yalnızca filtrelenen bilgilerle başka bir arama sonucu açılır.
 
-  ![Günlük analizi arama][6]
+  ![Log Analytics arama][6]
 
 > [!NOTE]
-> Endpoint protection tüm sanal makineleri ve bilgisayarlar için tanımlamak ve virüsler, casus yazılım ve diğer kötü amaçlı yazılımları kaldırmak hazırlanması öneririz.
+> Tüm VM'ler ve bilgisayarlar için belirlenmesi ve virüslerin, casus yazılımların ve diğer kötü amaçlı yazılım kaldırılmasına yardımcı olmak uç nokta koruma sağlanması öneririz.
 >
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede "Endpoint Protection yükle." Güvenlik Merkezi öneriyi uygulamayı nasıl oluşturulacağını gösterir Microsoft Antimalware Azure etkinleştirme hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
+Bu makalede Güvenlik Merkezi'nin önerisini "Endpoint Protection yükle." uygulama nasıl oluşturulacağını gösterir Azure'da Microsoft Antimalware etkinleştirme hakkında daha fazla bilgi edinmek için aşağıdaki belgelere bakın:
 
-* [Bulut Hizmetleri ve sanal makineleri için Microsoft Antimalware](../security/azure-security-antimalware.md) --Microsoft Antimalware dağıtmayı öğrenin.
+* [Bulut Hizmetleri ve sanal makineler için Microsoft Antimalware](../security/azure-security-antimalware.md) --Microsoft Antimalware dağıtmayı öğrenin.
 
 Güvenlik Merkezi hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) --güvenlik ilkeleri yapılandırmayı öğrenin.
-* [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --nasıl önerilerin Azure kaynaklarınızı korumanıza yardımcı öğrenin.
-* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) --Azure kaynaklarınızı sağlığını izlemek öğrenin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) --güvenlik ilkelerinin nasıl yapılandırılacağını öğrenin.
+* [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.
+* [Güvenlik durumunu, Azure Güvenlik Merkezi'nde izleme](security-center-monitoring.md) --Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) - İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) -- Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.

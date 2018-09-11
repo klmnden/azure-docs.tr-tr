@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: raynew
-ms.openlocfilehash: ff195093f97f00fca54e4e1c5800b6b0ecf7605a
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 58ea0859af42f7614e69d1693bbd9f8e3a17ccb8
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054470"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300554"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Contoso geçiş: şirket içi bir uygulamayı Azure'da yeniden oluşturun
 
@@ -23,19 +23,21 @@ Bu belge, Contoso adlı kurgusal şirketin şirket içi kaynaklara Microsoft Azu
 
 **Makale** | **Ayrıntılar** | **Durum**
 --- | --- | ---
-[Makale 1: genel bakış](contoso-migration-overview.md) | Makale serisi, Contoso'nun geçiş stratejisi ve dizisinde kullanılan örnek uygulamalar genel bakış. | Kullanılabilir
-[2. makale: Azure altyapısı dağıtma](contoso-migration-infrastructure.md) | Contoso şirket içi altyapısını ve Azure altyapısını geçiş için hazırlar. Altyapıyı, serideki tüm geçiş makaleleri için kullanılır. | Kullanılabilir
-[3. makale: şirket içi kaynaklarınızı Azure'a geçiş için değerlendirme](contoso-migration-assessment.md)  | Contoso, Vmware'de çalıştırılan şirket içi SmartHotel360 uygulamasının bir değerlendirme çalışır. Contoso Azure geçişi hizmeti ve veri geçiş Yardımcısı'nı kullanarak uygulama SQL Server veritabanı kullanarak uygulama Vm'leri değerlendirir. | Kullanılabilir
-[4. makale: bir uygulamayı bir Azure VM ve SQL veritabanı yönetilen örneği yeniden barındırma](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso, Azure'a lift-and-shift ile taşıma geçiş için kendi şirket içi SmartHotel360 uygulaması çalışır. Contoso geçirir uygulama ön uç VM kullanarak [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso geçirir uygulama veritabanını kullanarak bir Azure SQL veritabanı yönetilen örneği [Azure veritabanı geçiş hizmeti](https://docs.microsoft.com/azure/dms/dms-overview). | Kullanılabilir   
-[Makale 5: bir uygulamayı Azure vm'lerinde yeniden barındırma](contoso-migration-rehost-vm.md) | Contoso, kendi SmartHotel360 uygulama sanal makinelerini Site Recovery hizmetini kullanarak Azure Vm'lerine geçirir. | Kullanılabilir [makale 5: bir uygulamayı Azure vm'lerinde yeniden barındırma](contoso-migration-rehost-vm.md) | Contoso, SmartHotel360 uygulama sanal makinelerini Azure Site Recovery hizmetini kullanarak sanal makineleri geçirir. | Kullanılabilir
-[Makale 6: Azure sanal makinelerinde ve SQL Server AlwaysOn Kullanılabilirlik grubuna bir uygulamayı barındırma](contoso-migration-rehost-vm-sql-ag.md) | Contoso SmartHotel360 uygulamaya geçirir. Contoso, uygulama sanal makinelerini geçirmek için Site Recovery kullanır. Veritabanı geçiş hizmeti uygulama veritabanı AlwaysOn Kullanılabilirlik grubu tarafından korunan bir SQL Server kümesine geçirmek için kullanır. | Kullanılabilir [7 MS.prod: Azure sanal makineler'de Linux uygulaması barındırma](contoso-migration-rehost-linux-vm.md) | Contoso Azure vm'lerine, Site Recovery hizmetini kullanarak kendi Linux osTicket uygulamasının lift-and-shift ile taşıma geçiş tamamlanır. | Kullanılabilir
-[Makale 8: MySQL için Azure sanal makineler ve Azure veritabanı üzerinde bir Linux uygulaması barındırma](contoso-migration-rehost-linux-vm-mysql.md) | Contoso, Linux osTicket uygulaması, Site Recovery kullanarak Azure Vm'lerine geçirir. Bu uygulama veritabanı için Azure veritabanı için MySQL MySQL Workbench kullanarak geçirir. | Kullanılabilir
-[Makale 9: bir uygulamayı bir Azure web uygulaması ve Azure SQL veritabanı yeniden düzenleme](contoso-migration-refactor-web-app-sql.md) | Contoso, SmartHotel360 uygulama için bir Azure web uygulaması geçirir ve uygulama veritabanı için veritabanı geçiş Yardımcısı'nı kullanarak bir Azure SQL Server örneği geçirir. | Kullanılabilir    
-[Makale 10: MySQL için bir Azure web uygulaması ve Azure veritabanı'nda bir Linux uygulama yeniden düzenleyin](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso, bir Azure web uygulamasına GitHub ile sürekli teslim için tümleşik Azure Traffic Manager'ı kullanarak birden fazla Azure bölgesini üzerinde kendi Linux osTicket uygulaması geçirir. Contoso uygulaması veritabanı örneği MySQL için Azure veritabanı geçirir. | Kullanılabilir
-[Makale 11: Team Foundation Server'ı Visual Studio Team Services ile yeniden düzenleyin.](contoso-migration-tfs-vsts.md) | Contoso, Visual Studio Team Services azure'da, şirket içi Team Foundation Server dağıtımı geçirir. | Kullanılabilir
-[Makale 12: bir uygulamayı Azure kapsayıcıları ve Azure SQL veritabanı yeniden oluşturma](contoso-migration-rearchitect-container-sql.md) | Contoso, SmartHotel360 uygulamayı Azure'a geçirir. Ardından, Azure Service Fabric ve Azure SQL veritabanı ile veritabanı çalıştıran bir Windows kapsayıcısı olarak app web katmanından rearchitects. | Kullanılabilir 
-Makale 13: uygulamanızı Azure'a yeniden oluşturun. | Contoso Azure özellikleri ve Hizmetleri, Azure App Service, Azure Kubernetes Service (AKS), Azure işlevleri, Azure Bilişsel hizmetler ve Azure Cosmos DB dahil olmak üzere çeşitli kullanarak kendi SmartHotel360 uygulaması oluşturur. | Bu makalede
+[Makale 1: genel bakış](contoso-migration-overview.md) | Contoso'nun geçiş stratejisi, makale dizisini ve kullandığımız örnek uygulamaları genel bir bakış sağlar. | Kullanılabilir
+[2. makale: bir Azure altyapısını dağıtma](contoso-migration-infrastructure.md) | Açıklayan nasıl kendi şirket içi ve Azure altyapı Contoso bu geçiş için hazırlar. Altyapıyı, tüm geçiş makaleleri için kullanılır. | Kullanılabilir
+[3. makale: şirket içi kaynaklara değerlendirin](contoso-migration-assessment.md)  | Contoso değerlendirme Wmware'de çalışan bir şirket içi iki katmanlı SmartHotel360 uygulamanın nasıl çalıştığını gösterir. Contoso uygulaması Vm'lerle değerlendirir [Azure geçişi](migrate-overview.md) hizmet ve uygulama SQL Server veritabanıyla [veritabanı geçiş Yardımcısı'nı](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Kullanılabilir
+[4. makale: Azure sanal makineler ve yönetilen bir SQL örneği üzerinde bir uygulamayı barındırma](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso lift-and-shift ile taşıma geçiş Azure'a SmartHotel360 uygulama için nasıl çalıştığını gösterir. Contoso VM ön uç uygulamasını kullanarak geçirir [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)ve SQL yönetilen örneği, uygulama veritabanını kullanarak [Azure veritabanı geçiş hizmeti](https://docs.microsoft.com/azure/dms/dms-overview). | Kullanılabilir
+[Makale 5: bir uygulamayı Azure vm'lerinde yeniden barındırma](contoso-migration-rehost-vm.md) | Contoso geçirme SmartHotel360 uygulama yalnızca Site RECOVERY'yi kullanarak VM'lerin nasıl gösterir. | Kullanılabilir
+[Makale 6: Azure sanal makineleri ve SQL Server Always On kullanılabilirlik grubu için bir uygulama barındırma](contoso-migration-rehost-vm-sql-ag.md) | Contoso SmartHotel360 uygulamayı nasıl geçirdiğini gösterir. Contoso, uygulama sanal makinelerini ve veritabanı geçiş hizmeti uygulama veritabanı AlwaysOn Kullanılabilirlik grubu tarafından korunan bir SQL Server kümesine geçirmek için geçirmek için Site Recovery kullanır. | Kullanılabilir
+[Makale 7: Azure sanal makineler'de Linux uygulaması barındırma](contoso-migration-rehost-linux-vm.md) | Nasıl Contoso Linux osTicket uygulamayı lift-and-shift ile taşıma geçişini Azure Vm'leri için Site RECOVERY'yi kullanarak yaptığını gösterir. | Kullanılabilir
+[Makale 8: Azure sanal makineler ve Azure MySQL sunucusu üzerinde bir Linux uygulaması barındırma](contoso-migration-rehost-linux-vm-mysql.md) | Contoso Linux osTicket uygulaması için Azure Site RECOVERY'yi kullanarak VM'lerin nasıl geçirdiğini gösterir ve uygulama veritabanı, MySQL Workbench kullanarak Azure MySQL Server örneğine geçirir. | Kullanılabilir
+[Makale 9: bir uygulamayı Azure Web Apps ve Azure SQL veritabanında yeniden düzenleme](contoso-migration-refactor-web-app-sql.md) | Nasıl Contoso SmartHotel360 uygulamayı bir Azure Web uygulamasına geçirir ve uygulama veritabanının Azure SQL Server örneğine geçirir gösterir | Kullanılabilir
+[Makale 10: Azure Web Apps ve Azure MySQL için bir Linux uygulaması yeniden düzenleyin.](contoso-migration-refactor-linux-app-service-mysql.md) | Linux osTicket uygulaması Contoso birden çok sitede, GitHub ile sürekli teslim için tümleşik Azure Web Apps'e nasıl geçirdiğini gösterir. Bunlar, Azure MySQL örneğine uygulama veritabanına geçirin. | Kullanılabilir
+[Makale 11: TFS Azure DevOps hizmetleri yeniden düzenleyin.](contoso-migration-tfs-vsts.md) | Nasıl geçiş yaparak Contoso şirket içi Team Foundation Server (TFS) dağıtımı geçirdiğini gösterir, azure'da Azure DevOps hizmetlerine. | Kullanılabilir
+[Makale 12: bir uygulamayı Azure kapsayıcıları ve SQL veritabanı yeniden oluşturma](contoso-migration-rearchitect-container-sql.md) | Contoso geçirir ve Azure SmartHotel uygulamasının rearchitects nasıl gösterir. Bunlar, bir Windows kapsayıcısı ve bir Azure SQL veritabanı'nda uygulama veritabanı uygulama web katmanla yeniden oluşturma. | Kullanılabilir
+Makale 13: bir uygulamayı Azure'da yeniden oluşturun. | Contoso Azure özellikleri ve Hizmetleri, uygulama hizmetleri, Azure Kubernetes, Azure işlevleri, Bilişsel hizmetler ve Cosmos DB dahil olmak üzere çeşitli kullanarak SmartHotel uygulamasının nasıl yeniden gösterir. | Bu makalede.
 
+Bu makalede, iki katmanlı Windows Contoso geçirir. Azure'a VMware Vm'lerinde çalışan NET SmartHotel360 uygulaması. Bu uygulamayı kullanmak istiyorsanız, açık kaynak sağlanır ve buradan indirebileceğiniz [GitHub](https://github.com/Microsoft/SmartHotel360).
 
 ## <a name="business-drivers"></a>İş sürücüleri
 
@@ -77,8 +79,8 @@ Hedefleri ve gereksinimleri sabitleme sonra Contoso tasarlar ve bir dağıtım �
 - Ön uç uygulaması, birincil bir Azure bölgesinde bir Azure App Services Web uygulaması olarak dağıtılır.
 - Evcil hayvan fotoğrafları karşıya yükleme bir Azure işlevi sağlar ve site bu işlevselliği ile etkileşime geçer.
 - Evcil hayvan fotoğraf işlevi, Bilişsel hizmetler görüntü işleme API'si ve CosmosDB yararlanır.
-- Sitenin arka ucu, mikro hizmetler kullanır. Bu yönetilen Azure Kubernetes Service'i (AKS) kapsayıcıları dağıtılır.
-- Kapsayıcılar VSTS kullanılarak oluşturulan ve Azure Container Registry (ACR) için gönderildi.
+- Sitenin arka uç, mikro hizmetler kullanılarak oluşturulmuştur. Bu yönetilen Azure Kubernetes Service'i (AKS) kapsayıcıları dağıtılır.
+- Kapsayıcıları Azure DevOps kullanılarak oluşturulan ve Azure Container Registry (ACR) gönderdiniz.
 - Şimdilik, Contoso Web app ve işlev kodunuzu Visual Studio kullanarak el ile dağıtır.
 - Mikro hizmetler, Kubernetes komut satırı araçları çağıran bir PowerShell Betiği kullanılarak dağıtılır.
 
@@ -98,17 +100,11 @@ Contoso, Artıları ve eksileri listesini birbirine koyarak önerilen tasarım d
 
 ### <a name="migration-process"></a>Geçiş işlemi
 
-1. Contoso hazırlar ve ihtiyaç duydukları altyapı ve hizmetleri sağlar:
-
- - AKS ve ACR kullanarak yönetilen Kubernetes küme.
- - Bir Cosmos DB evcil hayvan fotoğrafları için.
- - Evcil hayvan fotoğraflarını sağlamak için bir Azure işlevi yükler.
- - Evcil hayvan fotoğrafları ve ön uç uygulama ayarları için kapsayıcı tutmak için bir depolama hesabı.
- - Evcil hayvan fotoğraflar uygulaması için değerlendirilecek görüntü işleme API'si.
- - Bir Azure Web uygulaması.
- 
-2. Altyapısı yerleştirildikten sonra bir DevOps Contoso ayarlar derleme ve yayın işlem oluşturma, gönderme ve ACR için kapsayıcı sürekli olarak tümleştirin.  
-3. Son olarak, Contoso site ön uç için VSTS projeleri dağıtır ve anında iletme ve sürekli olarak Azure'a kodu tümleştirmek için bir işlem hattı ayarlar.
+1. Contoso, ACR, AKS ve CosmosDB sağlayın.
+2. Bunlar, Azure Web uygulaması, depolama hesabı, işlevi ve API dahil olmak üzere dağıtımı için altyapı sağlayın. 
+3. Altyapısı yerleştirildikten sonra mikro hizmetler kullanarak bunları ACR'ye gönderim Azure DevOps, kapsayıcı görüntüleri oluşturacaksınız.
+4. Contoso Bu mikro hizmetler için bir PowerShell betiğini kullanarak ASK dağıtır.
+5. Son olarak, bunlar Azure işlevi ve Web uygulaması dağıtacaksınız.
 
     ![Geçiş işlemi](./media/contoso-migration-rebuild/migration-process.png) 
 
@@ -138,10 +134,12 @@ Bu senaryoda Contoso gerekenler şu şekildedir:
 Contoso geçişi nasıl çalışacağını aşağıda verilmiştir:
 
 > [!div class="checklist"]
-> * **1. adım: Arka uç kaynak sağlayın**: Contoso AKS ve Azure container Registry'yi kullanarak yönetilen bir Kubernetes kümesi sağlar.
-> * **2. adım: arka uç için bir işlem hattı ayarlayın**: Contoso bir DevOps iş akışını ayarlar. Bunlar, VSTS git deposunu içeri aktarma ve yeni bir derleme işlem hattı oluşturursunuz. Bunlar, Docker kapsayıcılarını oluşturun ve bunları ACR'ye gönderir. Derleme işleminden sonra ACR (kapsayıcılar ile doldurulur) yeni depoları görünür. Contoso, arka uç geçirmek için arka uç altyapısını geri kalanı daha sonra dağıtır.
-> * **3. adım: Ön uç kaynakları sağlama**: Contoso evcil hayvan fotoğrafları için blob depolama evcil hayvan bilgilerle belgeleri depolamak için Cosmos veritabanı ve Web sitesi için görüntü işleme API'si dahil olmak üzere, ön uç altyapısını dağıtır.
-> * **4. adım: ön uç için bir işlem hattı ayarlayın**: Contoso SmartHotel360 uygulamasını Azure App Service'e yayımlar ve PetCheck işlev uygulaması dağıtır. Bu, farklı yayın döngüleri için izin vermek için iki ayrı işlem hatları olarak işlenir.
+> * **1. adım: Sağlama AKS ve ACR**: Contoso yönetilen AKS kümesi ve PowerShell kullanarak Azure kapsayıcı kayıt defteri sağlar
+> * **2. adım: Docker kapsayıcıları oluşturma**: Azure DevOps kullanarak Docker kapsayıcılar için CI ' ayarlama ve bunları ACR'ye gönderin.
+> * **3. adım: arka uç mikro Hizmetleri dağıtma**: arka uç mikro hizmetler tarafından kullanılan altyapı geri kalanını dağıttıkları.
+> * **4. adım: ön uç altyapıyı**: inlcuding evcil hayvan telefonlar, Cosmos DB ve görüntü işleme API'si için blob depolama, ön uç altyapısı dağıttıkları.
+> * **5. adım: arka uç geçirme**: mikro Hizmetleri dağıtın ve arka uç geçirmek için AKS üzerinde çalıştırın.
+> * **6. adım: ön uç yayımlama**: Bunlar Azure App service ve evcil hayvan hizmet tarafından çağrılacak işlev uygulaması için SmartHotel360 uygulamayı yayımlayın.
 
 
 
@@ -215,68 +213,68 @@ Contoso yöneticileri gibi sağlayın:
 
 ## <a name="step-2-configure-the-back-end-pipeline"></a>2. adım: arka uç ardışık düzen yapılandırma
 
-### <a name="create-a-vsts-project-and-build-the-pipeline"></a>VSTS proje oluşturma ve işlem hattı oluşturma
+### <a name="create-an-azure-devops-project-and-build"></a>Azure DevOps projesi oluşturma ve derleme
 
-Contoso yöneticileri bir VSTS projesi oluşturun ve kapsayıcı oluşturmak için bir CI yapı yapılandırma ve ardından ACR'ye iter. Bu yönergeleri bölümdeki [SmartHotel360-Azure-Backend](https://github.com/Microsoft/SmartHotel360-Azure-backend) depo.
+Contoso bir Azure DevOps projesi oluşturur ve kapsayıcı oluşturmak için bir CI yapı yapılandırır ve ardından ACR'ye iter. Bu yönergeleri bölümdeki [SmartHotel360-Azure-Backend](https://github.com/Microsoft/SmartHotel360-Azure-backend) repository.r
 
-1. Bunlar, VisualStudio.com yeni bir hesap oluşturun (**contosodevops360.visualstudio.com**) ve Git kullanacak şekilde yapılandırın.
+1. Yeni bir kuruluş, VisualStudio.com oluşturdukları (**contosodevops360.visualstudio.com**) ve Git kullanacak şekilde yapılandırın.
 
 2. Bunlar yeni bir proje oluşturun (**SmartHotelBackend**) Git sürüm denetimi ve Çevik iş akışını kullanarak.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts1.png) 
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts1.png) 
 
 
 3. Bunlar, GitHub deposunu içeri aktarın.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts2.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts2.png)
     
-4. İçinde **derleme ve yayın**, bir kaynaktan alınan olarak VSTS Gıt kullanarak yeni bir derleme işlem hattı oluşturdukları **SmartHotelBackend** depo. 
+4. İçinde **derleme ve yayın**, bunlar bir kaynaktan alınan olarak Azure depoları Git kullanarak yeni bir işlem hattı oluşturma **smarthotel** depo. 
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts3.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts3.png)
 
 6. Boş bir işlem hattı ile başlatmak için seçin.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts4.png)  
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts4.png)  
 
-7. Seçmeleri **barındırılan Linux Önizleme** derleme tanımı için.
+7. Seçmeleri **barındırılan Linux Önizleme** derleme işlem hattı için.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts5.png) 
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts5.png) 
  
 8. İçinde **1. Aşama**, ekledikleri bir **Docker Compose** görev. Bu görev yapılar Docker compose.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts6.png) 
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts6.png) 
 
 9. Tekrarlayın ve başka bir **Docker Compose** görev. Bu, ACR kapsayıcıları iter.
 
-     ![VSTS](./media/contoso-migration-rebuild/vsts7.png) 
+     ![Azure DevOps](./media/contoso-migration-rebuild/vsts7.png) 
 
 8. Bunlar ilk görevi (oluşturmak için) seçin ve yapı Azure aboneliği, yetkilendirme ve ACR ile yapılandırın. 
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts8.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts8.png)
 
-9. Bunlar yolunu belirtin **docket compose.yaml** dosyasındaki **src** deposunun klasör. Hizmet görüntülerinizi oluşturmak ve son etiket eklemek için seçin. Eylemi değiştiğinde **derleme hizmeti görüntüleri**, VSTS görev adı değişiklikleri **hizmetleri otomatik olarak oluşturun**
+9. Bunlar yolunu belirtin **docket compose.yaml** dosyasındaki **src** deposunun klasör. Hizmet görüntülerinizi oluşturmak ve son etiket eklemek için seçin. Eylem değiştiğinde **derleme hizmeti görüntüleri**, Azure DevOps görev adını değişiklikleri **derleme hizmetleri otomatik olarak**
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts9.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts9.png)
 
 10. Şimdi, (göndermek için) ikinci Docker görev yapılandırın. Bunlar aboneliği seçin ve **smarthotelacreus2** ACR. 
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts10.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts10.png)
 
-11. Yeniden, bunların dosya docker compose.yaml dosyasına girin ve seçin **hizmet görüntüleri itme** ve son etiket içerir. Eylem değiştiğinde **hizmet görüntüleri itme**, VSTS görev adını değişiklikleri **anında iletme hizmetlerini otomatik olarak**
+11. Yeniden, bunların dosya docker compose.yaml dosyasına girin ve seçin **hizmet görüntüleri itme** ve son etiket içerir. Eylem değiştiğinde **hizmet görüntüleri itme**, Azure DevOps görev adını değişiklikleri **anında iletme hizmetlerini otomatik olarak**
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts11.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts11.png)
 
-12. Yapılandırılmış VSTS görevleri ile Contoso yöneticileri yapı tanımını kaydedin ve yapı işlemi başlatın.
+12. Azure DevOps görevlerle yapılandırılmış Contoso derleme işlem hattı kaydeder ve yapı işlemini başlatır.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts12.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts12.png)
 
 13. Bunlar üzerinde derleme işinin ilerleme durumunu denetlemek için tıklayın.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts13.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts13.png)
 
 14. Derleme tamamlandıktan sonra ACR mikro hizmetler tarafından kullanılan kapsayıcıları ile doldurulmuş yeni depoları gösterir.
 
-    ![VSTS](./media/contoso-migration-rebuild/vsts14.png)
+    ![Azure DevOps](./media/contoso-migration-rebuild/vsts14.png)
 
 
 ### <a name="deploy-the-back-end-infrastructure"></a>Arka uç altyapısı dağıtma

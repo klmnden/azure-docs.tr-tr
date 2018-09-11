@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 7b655ee21fccb0031137d7c3d71b89c82bf4abec
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3d2dafd409c6c7b2be06a6f18c3d392aff681efe
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430245"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345786"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için GoToMeeting yapılandırın.
 
@@ -88,7 +88,7 @@ Bu bölümde, Azure AD sağlama API'si GoToMeeting'ın kullanıcı hesabına ba�
 
 Herhangi bir kullanıcı ve/veya GoToMeeting kullanıcılar ve Gruplar bölümünde atanan grupları ilk eşitleme başlar. İlk eşitleme hizmeti çalışıyor sürece yaklaşık 40 dakikada oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve GoToMeeting uygulamanızdan sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklayan etkinlik günlüklerini sağlama için bağlantıları izleyin.
 
-Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../active-directory-saas-provisioning-reporting.md).
+Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

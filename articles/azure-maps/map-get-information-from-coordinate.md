@@ -3,18 +3,18 @@ title: Azure haritalar koordinatıyla ilgili bilgileri gösterme | Microsoft Doc
 description: Bir kullanıcı bir koordinat seçtiğinde harita üzerinde bir adresi hakkında bilgi görüntüleme
 author: jingjing-z
 ms.author: jinzh
-ms.date: 09/07/2018
+ms.date: 09/08/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d1baa4adc555e65c4a25928d19f201dba6109142
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 993d1da4b2a99ec0f30a5a685835d9f6b6d35a9e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157693"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302903"
 ---
 # <a name="get-information-from-a-coordinate"></a>Bir koordinattan bilgi alma
 
@@ -22,7 +22,7 @@ Bu makalede bir ters adresi arama yapın ve bir fare tıklaması tıklandı konu
 
 Ters adresi arama yapmak için iki yolu vardır, biridir sorgulayarak [Azure haritalar ters adresi arama API'si](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) modülü ve diğer hizmet aracılığıyla olan yaparak bir [XMLHttpRequest](https://xhr.spec.whatwg.org/) API sorgulamak için adresi. Her ikisi de aşağıda ele alır.
 
-## <a name="use-the-service-module-to-make-a-reverse-address-search"></a>Hizmeti modülü ters adresi arama yapma
+## <a name="making-a-reverse-search-request-via-service-module"></a>Hizmeti modülü aracılığıyla geriye doğru arama istekte
 
 ### <a name="understand-the-code"></a>Kodu anlama
 
@@ -41,7 +41,7 @@ Son kod bloğu için fare tıklama olay dinleyicisi ekler. Fare tıklatın, bir 
 
 Başarılı bir yanıt için tıklatılan konumu adresi toplar ve açılan içeriğini ve konumunu aracılığıyla tanımlar [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setpopupoptions) açılan sınıfının işlevi.
 
-## <a name="use-xmlhttprequest-to-make-a-reverse-address-search"></a>XMLHTTPRequest ters adresi arama yapma
+## <a name="making-a-reverse-search-request-via-xmlhttprequest"></a>XMLHttpRequest aracılığıyla geriye doğru arama istekte
 
 ### <a name="understand-the-code"></a>Kodu anlama
 

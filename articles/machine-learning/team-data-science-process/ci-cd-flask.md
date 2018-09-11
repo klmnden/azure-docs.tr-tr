@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: 6de1832dde1764b2655d4c34643d6a026e198f64
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: b0368e742c990feed626a1c4982bfedc35785b49
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052233"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304297"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>Yapay zeka (AI) uygulamalar için DevOps: Azure'da Docker ve Kubernetes kullanarak sürekli tümleştirme işlem hattı oluşturma
 Yapay ZEKA uygulaması için iş, veri Bilimcileri makine öğrenimi modelleri ve bir uygulama oluşturmak ve kullanmak için son kullanıcılara gösterme uygulama geliştiriciler genellikle iki akışlarını vardır. Bu makalede, biz nasıl sürekli tümleştirme (CI) uygulanacağını gösteren / sürekli teslim (CD) işlem hattı için yapay ZEKA uygulama. Yapay ZEKA uygulaması, uygulama kodu kullanan machine learning (ML) bir modelle katıştırılmış birleşimidir. Bu makalede, biz pretrained modeli özel Azure blob depolama hesabından getiriliyor, AWS S3 hesabı da olabilir. Makale için bir basit bir python flask web uygulaması kullanacağız.
@@ -35,7 +35,7 @@ Kaynak kodundan indirebileceğiniz [GitHub](https://github.com/Azure/DevOps-For-
 
 ## <a name="pre-requisites"></a>Ön koşullar
 Aşağıda açıklanan CI/CD işlem hattı izleyen için ön koşullar şunlardır:
-* [Visual Studio Team Services hesabı](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student)
+* [Azure DevOps kuruluş](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Kubernetes çalıştıran azure Container Service (AKS) kümesi](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
 * [Azure Container kayıt defteri (ACR) hesabı](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
@@ -53,12 +53,12 @@ Uygulamayı bir Azure depolama hesabı ve paketlerin en son modelden, uygulaman�
 
 ## <a name="steps-of-the-cicd-pipeline"></a>CI/CD işlem hattının adımları
 1. Geliştirici uygulama kodu kendi tercih ettiğiniz IDE'de çalışın.
-2. Bunlar kaynak denetimine (VSTS çeşitli kaynak denetimleri iyi desteği olan) kendi seçtikleri kod işle
+2. Bunlar kaynak denetimine (Azure DevOps çeşitli kaynak denetimleri iyi desteği olan) kendi seçtikleri kod işle
 3. Ayrıca, veri uzmanı iş modellerindeki geliştirmeye.
 4. Bu durumda mutlu sonra bunlar için bir model deposu modeli yayımlayın, blob depolama hesabı kullanıyoruz. Bu kolayca Azure ML Workbench'ın Model Yönetimi hizmeti, REST API'ler aracılığıyla ile değiştirilebilir.
-5. Bir derleme vsts'de github'da işleme dayalı başlatılır.
-6. VSTS derleme işlem hattı, en son modele Blob kapsayıcısından çeker ve bir kapsayıcı oluşturur.
-7. VSTS görüntüyü Azure Container Registry'de özel görüntü deposuna gönderir.
+5. Azure DevOps github'da işleme dayalı olarak bir yapı başlatılır.
+6. Azure DevOps derleme işlem hattı, en son modele Blob kapsayıcısından çeker ve bir kapsayıcı oluşturur.
+7. Azure DevOps, Azure Container Registry'de özel görüntü deposu için görüntüyü gönderir.
 8. Belirlenmiş bir zamanlamaya göre (gecelik), yayın işlem hattı başlatılır.
 9. ACR son görüntüden çekilen ve ACS Kubernetes kümesinde arasında dağıtılır.
 10. Uygulama için kullanıcıların isteği, DNS sunucusu üzerinden gider.

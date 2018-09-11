@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6055dbab85acb1e5fed9679a5072144bc84712c
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: f58c156019048a4e6b08267bf28325857ec69b3a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917132"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302218"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Azure aboneliğinin sahipliğini başka bir hesaba aktarma
 
@@ -33,7 +33,7 @@ Aboneliğiniz, hesap Merkezi'nde Hesap Yöneticisi değiştirmek ve abonelik fat
 > Yeni bir Azure AD aboneliği transfer ederseniz Kiracı, tüm rol atamalarında [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/overview.md) kaynak kiracıdan kalıcı olarak silinir ve hedef kiracıya geçirilmez.
 
 > [!div class="nextstepaction"]
-> [Azure faturalama belgeleri geliştirilmesine yardımcı olun](https://go.microsoft.com/fwlink/p/?linkid=2010091)
+> [Azure faturalama belgelerinin iyileştirilmesine yardımcı olun](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Bir Azure aboneliğinin sahipliğini devretme
 
@@ -77,7 +77,7 @@ Kuruluş Yöneticisi bir kayıt aboneliklerini sahipliğini aktarabilir. Başlam
 
 ## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Aboneliğin sahipliğini kabul sonraki adımlar
 
-1. Artık Hesap Yöneticisi Gözden geçirin ve Hizmet Yöneticisi ve ortak Yöneticiler diğer RBAC rollerini güncelleştirin. Daha fazla bilgi için bkz. [aboneliği veya hizmetleri yöneten Azure yöneticisi rollerini ekleme veya değiştirme](billing-add-change-azure-subscription-administrator.md).
+1. Artık Hesap Yöneticisi Gözden geçirin ve Hizmet Yöneticisi ve ortak Yöneticiler diğer RBAC rollerini güncelleştirin. Daha fazla bilgi için bkz. [ekleme veya değiştirme Azure aboneliği yöneticileri](billing-add-change-azure-subscription-administrator.md) ve [RBAC ve Azure portalını kullanarak erişimini yönetme](../role-based-access-control/role-assignments-portal.md).
 1. Dahil olmak üzere bu aboneliğin hizmetleriyle ilişkili kimlik bilgilerini güncelleştirin:
    1. Yönetici hakları abonelik kaynaklarına kullanıcı yönetim sertifikaları. Daha fazla bilgi için [oluşturup Azure için bir yönetim sertifikası yükleme](../cloud-services/cloud-services-certs-create.md)
    1. Depolama Hizmetleri için erişim anahtarlarını ister. Daha fazla bilgi için [Azure depolama hesapları hakkında](../storage/common/storage-create-storage-account.md)

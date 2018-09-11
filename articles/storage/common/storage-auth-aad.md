@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 78df10f3b6062a157e1ec5a057e9f39fc40193e5
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 802eefb7ed8191525a8a4a6601b620ca5dfd5faa
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091774"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300622"
 ---
 # <a name="authenticate-access-to-azure-storage-using-azure-active-directory-preview"></a>Azure Active Directory (Önizleme) kullanarak Azure depolama erişimi kimlik doğrulaması
 
@@ -33,12 +33,12 @@ Azure AD kullanarak Azure Depolama'ya erişen uygulamalar yetkilendirme üst dü
 - Azure depolama, hem yerleşik hem de özel RBAC rollerini destekler. Abonelik, kaynak grubu, depolama hesabı veya bir kapsayıcının veya sıra kapsamı roller atayabilirsiniz.
 - Azure AD tümleştirme desteklemekte Azure depolama istemci kitaplıkları şunları içerir:
     - [.NET](https://www.nuget.org/packages/WindowsAzure.Storage)
-    - [Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) (7.1.x-Preview kullanın)
+    - [Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)
     - Python
-        - [Blob](https://github.com/Azure/azure-storage-python/releases/tag/v1.2.0rc1-blob)
-        - [Kuyruk](https://github.com/Azure/azure-storage-python/releases/tag/v1.2.0rc1-queue)
+        - [Blob](https://github.com/Azure/azure-storage-python/releases/tag/)
+        - [Kuyruk](https://github.com/Azure/azure-storage-python/releases/tag/)
     - [Node.js](https://www.npmjs.com/package/azure-storage)
-    - [JavaScript](https://aka.ms/downloadazurestoragejs))
+    - [JavaScript](https://aka.ms/downloadazurestoragejs)
 
 [!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 

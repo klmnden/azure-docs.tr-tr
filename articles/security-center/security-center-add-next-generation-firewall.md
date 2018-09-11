@@ -1,6 +1,6 @@
 ---
 title: Azure Güvenlik Merkezi'nde yeni nesil güvenlik duvarı ekleme | Microsoft Docs
-description: Bu belgede Azure Güvenlik Merkezi önerileri uygulamak gösterilmiştir **yeni nesil güvenlik duvarı ekleme** ve **yalnızca rota traffice NGFW aracılığıyla**.
+description: Bu belge Azure Güvenlik Merkezi önerilerinin uygulanması gösterilmektedir **yeni nesil güvenlik duvarı ekleme** ve **yalnızca rota traffice NGFW aracılığıyla**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,62 +9,62 @@ editor: ''
 ms.assetid: 48b99015-4db8-4ce8-85e4-b544c0fa203e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 25601b01489b95de0e86b314b4b934d3cffd38c2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ff5c667318f961dddcab02cb1b2b679285d8c790
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330749"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294026"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde yeni nesil güvenlik duvarı ekleme
-Azure Güvenlik Merkezi bir Microsoft iş ortağı güvenlik korumaları artırmak için yeni nesil Güvenlik Duvarı (NGFW) eklediğiniz önerebilir. Bu belge, bunun nasıl yapılacağı örneği aracılığıyla açıklanmaktadır.
+Azure Güvenlik Merkezi, yeni nesil Güvenlik Duvarı (NGFW) eklemeniz, bir Microsoft iş ortağından, güvenlik korumaları artırmak için önerebilir. Bu belgede Bunu yapmak nasıl bir örnek sizi yönlendirir.
 
 > [!NOTE]
 > Bu belge, örnek bir dağıtım kullanarak hizmeti tanıtır.  Bu, adım adım ilerleyen bir kılavuz değildir.
 >
 >
 
-## <a name="implement-the-recommendation"></a>Öneriyi uygulamayı
-1. İçinde **önerileri** dikey penceresinde, select **yeni nesil güvenlik duvarı ekleme**.
+## <a name="implement-the-recommendation"></a>Önerisini uygulama
+1. İçinde **önerileri** dikey penceresinde **yeni nesil güvenlik duvarı ekleme**.
    ![Yeni Nesil Güvenlik Duvarı ekleme][1]
 2. İçinde **yeni nesil güvenlik duvarı ekleme** dikey penceresinde, bir uç nokta seçin.
    ![Bir uç nokta seçin][2]
-3. İkinci bir **yeni nesil güvenlik duvarı ekleme** dikey pencere açılır. Varsa varolan bir çözümü kullanmayı seçebilirsiniz veya yeni bir tane oluşturabilirsiniz. Bu örnekte, yok varolan çözüm bir NGFW oluşturuyoruz şekilde.
+3. İkinci **yeni nesil güvenlik duvarı ekleme** dikey penceresi açılır. Varolan bir çözümü varsa kullanmayı seçebilirsiniz veya yeni bir tane oluşturabilirsiniz. Bu örnekte, kullanılabilir var olan çözüm şekilde bir NGFW oluştururuz.
    ![Yeni nesil güvenlik duvarı oluşturma][3]
-4. Bir NGFW oluşturmak için bir çözüm tümleşik ortakları listesinden seçin. Bu örnekte, biz seçin **Check Point**.
+4. Bir NGFW oluşturmak için tümleştirilmiş iş ortaklarının listeden bir çözüm seçin. Bu örnekte, seçiyoruz **denetim noktası**.
    ![Yeni nesil güvenlik duvarı çözümü seçin][4]
-5. **Check Point** dikey pencere açılır iş ortağı çözümü hakkında bilgi sağlar. Seçin **oluşturma** bilgi dikey penceresinde.
+5. **Denetim noktası** dikey penceresi açılır iş ortağı çözümü hakkında bilgi sağlar. Seçin **Oluştur** bilgi dikey penceresinde.
    ![Güvenlik Duvarı bilgileri dikey penceresi][5]
-6. **Sanal makine oluşturma** dikey pencere açılır. Buraya bir NGFW'nun çalıştıran sanal makineyi (VM) dönmesi için gerekli bilgileri girebilirsiniz. Aşağıdaki adımları uygulayın ve gerekli NGFW bilgileri sağlayın. Uygulamak için Tamam'ı seçin.
+6. **Sanal makine oluşturma** dikey penceresi açılır. Burada bir sanal NGFW'nun çalışan makinesini (VM) dönmesi için gerekli bilgileri girebilirsiniz. Adımları ve gerekli NGFW bilgileri sağlayın. Uygulamak için Tamam'ı seçin.
    ![NGFW çalıştırmak için sanal makine oluşturma][6]
 
 ## <a name="route-traffic-through-ngfw-only"></a>Trafiği yalnızca NGFW aracılığıyla yönlendirme
-Geri dönüp **önerileri** dikey. Güvenlik Merkezi, adlı aracılığıyla bir NGFW eklendikten sonra yeni bir giriş oluşturulan **rota yalnızca trafiği NGFW aracılığıyla**. Bu öneri, yalnızca Güvenlik Merkezi aracılığıyla, NGFW yüklediyseniz oluşturulur. Internet'e yönelik uç noktaları varsa, Güvenlik Merkezi, NGFW aracılığıyla, VM'ye gelen trafiği zorla ağ güvenlik grubu kurallarını yapılandırmak önerir.
+Geri dönüp **önerileri** dikey penceresi. Adlı Güvenlik Merkezi aracılığıyla bir NGFW eklendikten sonra yeni bir girişin üretildiği **trafiği yalnızca NGFW aracılığıyla yönlendirme**. Bu öneri, yalnızca Güvenlik Merkezi aracılığıyla, NGFW yüklediyseniz oluşturulur. Internet'e yönelik uç noktaları varsa, Güvenlik Merkezi, NGFW aracılığıyla sanal makinenize gelen trafiği zorlamak ağ güvenlik grubu kurallarını yapılandırma önerir.
 
-1. İçinde **öneriler dikey**seçin **rota yalnızca trafiği NGFW aracılığıyla**.
+1. İçinde **öneriler dikey**seçin **trafiği yalnızca NGFW aracılığıyla yönlendirme**.
    ![Trafiği yalnızca NGFW aracılığıyla yönlendirme][7]
-2. Bu dikey pencere açılır **rota yalnızca trafiği NGFW aracılığıyla**, trafiği yönlendirebilir sanal makineleri listeler. VM listeden seçin.
-   ![Bir VM seçin][8]
-3. İlgili gelen kuralları görüntüleme seçili VM için bir dikey pencere açılır. Bir açıklama olası sonraki adımlar hakkında daha fazla bilgi sağlar. Seçin **gelen kuralları Düzenle** bir gelen kuralı düzenleme ile devam etmek için. Beklentisi **kaynak** ayarlanmazsa **herhangi** NGFW'nun ile bağlantılı Internet'e yönelik uç noktalar için. Gelen kuralı özellikleri hakkında daha fazla bilgi için bkz: [güvenlik kuralları](../virtual-network/security-overview.md#security-rules).
+2. Bu dikey pencereyi açar **trafiği yalnızca NGFW aracılığıyla yönlendirme**, trafiği yönlendirebilen Vm'leri listeler. Listeden bir VM seçin.
+   ![Bir sanal Makineyi seçin][8]
+3. Seçili VM için bir dikey pencere açılır ve ilgili gelen kuralları görüntüler. Bir açıklama olası sonraki adımlarla ilgili daha fazla bilgi sağlar. Seçin **gelen kurallarını Düzenle** bir gelen kuralı düzenlemeye devam etmek için. Beklenti olan **kaynak** ayarlı değil **herhangi** NGFW'nun ile bağlantılı Internet'e yönelik uç noktalar için. Gelen kuralı özellikleri hakkında daha fazla bilgi için bkz. [güvenlik kuralları](../virtual-network/security-overview.md#security-rules).
    ![Erişimi sınırlamak için kurallar Yapılandır][9]
-   ![düzenleme gelen kuralı][10]
+   ![gelen kuralı Düzenle][10]
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Bu belgede Güvenlik Merkezi öneri "Ekleme yeni nesil güvenlik duvarı." uygulamak nasıl oluşturulacağını gösterir NGFWs ve denetim noktası iş ortağı çözümü hakkında daha fazla bilgi için aşağıdakilere bakın:
+Bu belgede Güvenlik Merkezi önerisini "Yeni nesil güvenlik duvarı Ekle." uygulama nasıl oluşturulacağını gösterir NGFWs ve denetim noktası iş ortağı çözümü hakkında daha fazla bilgi için şunlara bakın:
 
 * [Yeni nesil güvenlik duvarı](https://en.wikipedia.org/wiki/Next-Generation_Firewall)
 * [Denetim noktası vSEC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec)
 
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) --güvenlik ilkeleri yapılandırmayı öğrenin.
-* [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --nasıl önerilerin Azure kaynaklarınızı korumanıza yardımcı öğrenin.
-* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) --Azure kaynaklarınızı sağlığını izlemek öğrenin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) --güvenlik ilkelerinin nasıl yapılandırılacağını öğrenin.
+* [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.
+* [Güvenlik durumunu, Azure Güvenlik Merkezi'nde izleme](security-center-monitoring.md) --Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) - İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) -- Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.

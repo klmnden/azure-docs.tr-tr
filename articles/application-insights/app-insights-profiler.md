@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6048a17bf50ecac691c7cf687f87e454c54ee9d9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 790d192823867ee858a7fa6bf030721002a6bd94
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521892"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296882"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Application Insights ile canlı Azure web apps profili
 
@@ -204,7 +204,7 @@ Profiler etkin ile web uygulamanıza Web Apps kaynak dağıtıyorsanız, aşağ�
 
 *Dizin boş değil ' D:\\giriş\\site\\wwwroot\\App_Data\\işlerin*
 
-Web dağıtımı betikleri veya Visual Studio Team Services dağıtım ardışık çalıştırırsanız, bu hata oluşur. Web dağıtımı görevi aşağıdaki ek dağıtım parametreleri eklemek için bir çözümdür:
+Web dağıtımı komut dosyaları veya Azure DevOps dağıtım işlem hattı çalıştırırsanız, bu hata oluşur. Web dağıtımı görevi aşağıdaki ek dağıtım parametreleri eklemek için bir çözümdür:
 
 ```
 -skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'

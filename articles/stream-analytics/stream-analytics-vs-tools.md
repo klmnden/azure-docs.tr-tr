@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: 0df7c7680137be9a4b2c7c3cedb46330f4d3e5bd
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: dba0474e83c886edcad1101083e45ff39ee222dd
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056274"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300232"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Azure Stream Analytics işleri görüntülemek için Visual Studio
 
@@ -88,5 +88,5 @@ Giriş ve çıkış bağlantıları, gelen edilebilirler **iş görünümü** bi
 
 * [İzleme ve Visual Studio kullanarak Azure Stream Analytics işlerini yönetme](stream-analytics-monitor-jobs-use-vs.md)
 * [Hızlı Başlangıç: Visual Studio kullanarak Stream Analytics işi oluşturma](stream-analytics-quick-create-vs.md)
-* [Öğretici: Azure Stream Analytics işi ile CI/VSTS kullanarak CD dağıtma](stream-analytics-tools-visual-studio-cicd-vsts.md)
+* [Öğretici: Azure Stream Analytics işi ile CI/Azure işlem hatları kullanarak CD dağıtma](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Stream Analytics araçlarıyla sürekli tümleştirme ve geliştirme](stream-analytics-tools-for-visual-studio-cicd.md)

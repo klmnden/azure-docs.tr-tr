@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 97bf33cb882d5a121b9811a8e36a1d26f9a954f8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 14ac23e6b69302ac412aac3ecab06345e5d722fd
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715378"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296355"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>RBAC ve Azure portalı kullanarak erişimi yönetme
 
@@ -89,7 +89,7 @@ Erişim yönetimi sırasında erişim sahibi olanları, izinlerini ve izin düze
 
     ![Erişim denetimi (IAM) dikey penceresinde bir abonelik için](./media/role-assignments-portal/subscription-access-control.png)
 
-    RBAC modelinde, klasik abonelik yöneticileri ve ortak yöneticileri aboneliğin sahipleri olarak kabul edilir.
+    Klasik abonelik yöneticileri ve ortak yöneticileri aboneliğin RBAC modelinde sahipleri olarak kabul edilir.
 
 ### <a name="list-role-assignments-for-a-management-group"></a>Bir yönetim grubu için rol atamalarını listelemek
 
@@ -109,9 +109,9 @@ Erişim yönetimi sırasında erişim sahibi olanları, izinlerini ve izin düze
 
 ## <a name="grant-access"></a>Erişim verme
 
-RBAC'de erişim vermek için bir rol ataması oluşturmanız gerekir. Farklı kapsamlarda erişim vermek için aşağıdaki adımları izleyin.
+RBAC, erişim vermek için bir rol atayın. Farklı kapsamlarda erişim vermek için aşağıdaki adımları izleyin.
 
-### <a name="create-a-role-assignment-at-a-resource-group-scope"></a>Kaynak grubu kapsamında rol ataması oluşturma
+### <a name="assign-a-role-at-a-resource-group-scope"></a>Bir kaynak grubu kapsamında bir rol atayın
 
 1. Gezinti bölmesinde **Kaynak grupları**'nı seçin.
 
@@ -131,11 +131,11 @@ RBAC'de erişim vermek için bir rol ataması oluşturmanız gerekir. Farklı ka
 
 1. **Seç** listesinde bir kullanıcı, grup veya uygulama seçin. Listede güvenlik sorumlusunu görmüyorsanız **Seç** kutusuna giriş yaparak dizinde görünen ad, e-posta adresi ve nesne tanımlayıcısı arayabilirsiniz.
 
-1. Rol atamasını oluşturmak için **Kaydet**'i seçin.
+1. Seçin **Kaydet** rol atamak için.
 
    Birkaç dakika sonra güvenlik sorumlusuna kaynak grubu kapsamında rol atanmış olur.
 
-### <a name="create-a-role-assignment-at-a-subscription-scope"></a>Abonelik kapsamında rol ataması oluşturma
+### <a name="assign-a-role-at-a-subscription-scope"></a>Bir abonelik kapsamda bir rol atayın
 
 1. Azure portalda **Tüm hizmetler**'i ve ardından **Abonelikler**'i seçin.
 
@@ -155,11 +155,37 @@ RBAC'de erişim vermek için bir rol ataması oluşturmanız gerekir. Farklı ka
 
 1. **Seç** listesinde bir kullanıcı, grup veya uygulama seçin. Listede güvenlik sorumlusunu görmüyorsanız **Seç** kutusuna giriş yaparak dizinde görünen ad, e-posta adresi ve nesne tanımlayıcısı arayabilirsiniz.
 
-1. Rol atamasını oluşturmak için **Kaydet**'i seçin.
+1. Seçin **Kaydet** rol atamak için.
 
    Birkaç dakika sonra güvenlik sorumlusuna abonelik kapsamında rol atanmış olur.
 
-### <a name="create-a-role-assignment-at-a-management-group-scope"></a>Bir yönetim grubu kapsamda bir rol ataması oluşturun
+### <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>Bir abonelik Yöneticisi olarak kullanıcı atama
+
+Bir kullanıcının bir Azure aboneliğinin bir yöneticisi olmak için bunları atayın [sahibi](built-in-roles.md#owner) abonelik kapsamında bir rol. Sahip rolü, diğerleri erişim hakkı dahil olmak üzere, Abonelikteki tüm kaynaklara kullanıcı tam erişim sağlar. Bu adımları herhangi bir rol ataması ile aynıdır.
+
+1. Azure portalda **Tüm hizmetler**'i ve ardından **Abonelikler**'i seçin.
+
+1. Aboneliğinizi seçin.
+
+1. **Erişim denetimi (IAM)** bölümünde abonelik kapsamındaki mevcut rol ataması listesini görebilirsiniz.
+
+   ![Erişim denetimi (IAM) dikey penceresinde bir abonelik için](./media/role-assignments-portal/grant-subscription-access-control.png)
+
+1. **Ekle**'yi seçerek **İzin ekle** bölmesini açın.
+
+   Rol atamak için gerekli izinlere sahip değilseniz **Ekle** seçeneği görüntülenmez.
+
+   ![İzin ekleme bölmesi](./media/role-assignments-portal/add-permissions.png)
+
+1. İçinde **rol** aşağı açılan listesinden **sahibi** rol.
+
+1. İçinde **seçin** listesinde, bir kullanıcı seçin. Kullanıcı listede görmüyorsanız, yazabilirsiniz **seçin** kutusunu dizin görünen adları için arama yapın ve e-posta adresleri.
+
+1. Seçin **Kaydet** rol atamak için.
+
+   Birkaç dakika sonra kullanıcıya abonelik kapsamında bir sahip rolü atanır.
+
+### <a name="assign-a-role-at-a-management-group-scope"></a>Bir yönetim grubu kapsamındaki rol atama
 
 1. Azure portalında, **tüm hizmetleri** ardından **Yönetim grupları**.
 
@@ -185,7 +211,7 @@ RBAC'de erişim vermek için bir rol ataması oluşturmanız gerekir. Farklı ka
 
 1. **Seç** listesinde bir kullanıcı, grup veya uygulama seçin. Listede güvenlik sorumlusunu görmüyorsanız **Seç** kutusuna giriş yaparak dizinde görünen ad, e-posta adresi ve nesne tanımlayıcısı arayabilirsiniz.
 
-1. Rol atamasını oluşturmak için **Kaydet**'i seçin.
+1. Seçin **Kaydet** rol atamak için.
 
    Birkaç dakika sonra güvenlik sorumlusu yönetim grubu kapsamındaki rolü atanır.
 

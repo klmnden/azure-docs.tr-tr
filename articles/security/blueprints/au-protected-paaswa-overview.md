@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 7d200cfa6a529c33555a18cd6598183fedbfd2fc
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ea9c9d773cb863c6ee2b052fcbd097275f00fc87
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818282"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300996"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Azure güvenlik ve uyumluluk planı - PaaS Web uygulaması için Avustralya korumalı
 
@@ -101,7 +101,7 @@ Bu mimari için App Service ortamları kullanımını aşağıdaki denetimleri/y
 - [Web uygulaması güvenlik duvarı – veri kısıtlama](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
 - İzin [Azure SQL veritabanı trafiği](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)
 
-**Azure Web uygulaması**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) müşterilerin oluşturmanıza ve altyapı yönetimine gerek kalmadan kendi seçtiğiniz programlama dilinde web uygulamaları barındırmanıza olanak sağlar. Otomatik ölçeklendirme ve yüksek kullanılabilirlik sunar, hem Windows hem de Linux’ı destekler ve GitHub, Visual Studio Team Services veya herhangi bir Git deposundan otomatik dağıtım olanağı sağlar.
+**Azure Web uygulaması**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) müşterilerin oluşturmanıza ve altyapı yönetimine gerek kalmadan kendi seçtiğiniz programlama dilinde web uygulamaları barındırmanıza olanak sağlar. Otomatik ölçeklendirme sunar ve yüksek kullanılabilirlik, hem Windows hem de Linux'ı destekler ve GitHub, Azure DevOps Services veya herhangi bir Git deposundan otomatik dağıtımlar sağlar.
 
 ### <a name="virtual-network"></a>Sanal Ağ
 10.200.0.0/16 bir adres alanı ile özel bir sanal ağ mimarisini tanımlar.
@@ -202,7 +202,7 @@ Aşağıdaki Log Analytics [yönetim çözümleri](https://docs.microsoft.com/az
 
 **Azure İzleyici**: [Azure İzleyici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) kullanıcıların performans izleme, güvenliği koruma ve denetim, uyarılar oluşturabilir ve bunların Azure'da API çağrıları izleme dahil olmak üzere, verileri arşivlemek kuruluşların etkinleştirerek eğilimleri belirlemenize yardımcı olur kaynaklar.
 
-Azure Ağ İzleyicisi: [Azure Ağ İzleyicisi] 9https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) izleyin, tanılayın, ölçümleri görüntüleyin ve etkinleştirme veya günlükleri için bir Azure sanal ağ içindeki kaynaklarla devre dışı araçları sağlar.  Uluslar varlıklar, Nsg ve sanal makineler için Ağ İzleyicisi akış günlükleri uygulamalıdır. Bu günlükler, yalnızca güvenlik günlükleri depolanır ve depolama hesabına erişim için rol tabanlı erişim denetimleri ile güvenli hale getirilmelidir ayrılmış bir depolama hesabında depolanmalıdır.
+Azure Ağ İzleyicisi: [Azure Ağ İzleyicisi] 9 https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) izleyin, tanılayın, ölçümleri görüntüleyin ve etkinleştirme veya günlükleri için bir Azure sanal ağ içindeki kaynaklarla devre dışı araçları sağlar.  Uluslar varlıklar, Nsg ve sanal makineler için Ağ İzleyicisi akış günlükleri uygulamalıdır. Bu günlükler, yalnızca güvenlik günlükleri depolanır ve depolama hesabına erişim için rol tabanlı erişim denetimleri ile güvenli hale getirilmelidir ayrılmış bir depolama hesabında depolanmalıdır.
 
 ## <a name="threat-model"></a>Tehdit modeli
 

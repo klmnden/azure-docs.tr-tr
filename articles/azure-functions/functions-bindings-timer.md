@@ -10,15 +10,15 @@ ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 08/08/2018
+ms.date: 09/08/2018
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: e6a3df79bf0786b536dc4c454d19beea2730125a
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: c033a465bb6e8e03c909ac7bc5a233f6b8b4cd76
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093133"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298095"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure işlevleri için Zamanlayıcı tetikleyicisi 
 
@@ -191,10 +191,13 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**direction** | yok | "İçin" ayarlanmalıdır. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır. |
 |**Adı** | yok | İşlev kodunu Zamanlayıcı nesneyi temsil eden değişken adı. | 
 |**schedule**|**ScheduleExpression**|A [CRON ifadesi](#cron-expressions) veya [TimeSpan](#timespan) değeri. A `TimeSpan` bir App Service planı üzerinde çalıştırılan bir işlev uygulaması için kullanılabilir. Bir uygulama ayarında zamanlama ifadeyi ve ayar adı içinde sarmalanmış bir uygulama için bu özelliği ayarlayın **%** Bu örnekte olduğu gibi işaretlere: "% ScheduleAppSetting %". |
-|**runOnStartup**|**runOnStartup**|Varsa `true`, çalışma zamanı başladığında işlevi çağrılır. Örneğin, işlev uygulaması uyanır eylemsizlik nedeniyle boşta filtrelemesinden geçtikten sonra çalışma zamanı başlatır. ne zaman işlev uygulaması, işlev değişiklikleri nedeniyle ve işlev uygulamasını kullanıma ölçeklendirildiğinde yeniden başlatır. Bu nedenle **runOnStartup** nadiren şimdiye kadar ayarlanması gerekir `true`yüksek oranda beklenmeyen zamanlarda execute kodunu hale getirecek şekilde.|
+|**runOnStartup**|**runOnStartup**|Varsa `true`, çalışma zamanı başladığında işlevi çağrılır. Örneğin, işlev uygulaması uyanır eylemsizlik nedeniyle boşta filtrelemesinden geçtikten sonra çalışma zamanı başlatır. ne zaman işlev uygulaması, işlev değişiklikleri nedeniyle ve işlev uygulamasını kullanıma ölçeklendirildiğinde yeniden başlatır. Bu nedenle **runOnStartup** olursa, nadiren hiç ayarlanmalıdır `true`, özellikle de üretim. |
 |**useMonitor**|**useMonitor**|Kümesine `true` veya `false` zamanlama izlenmesi gereken olup olmadığını belirtmek için. İzleme zamanlaması bile işlevi uygulama örneklerini yeniden başlattığınızda zamanlama doğru yönetilmesini sağlamak yardımcı olmak için zamanlama örnekleri'ni kalıcıdır. Açıkça ayarlanmazsa varsayılan olup olmadığını `true` bir yinelenme aralığı 1 dakikadan daha uzun olan zamanlamalar. Dakika başına birden çok kez tetikleyen zamanlamalar için varsayılandır `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+> [!CAUTION]
+> Ayar karşı öneririz **runOnStartup** için `true` üretimde. Bu ayar kullanılarak yüksek oranda beklenmeyen zamanlarda execute kodunu sağlar. Bu ek yürütmeleri belirli üretim ayarlarında tüketim planlarında barındırılan uygulamalar için önemli ölçüde daha yüksek maliyetleri neden olabilir. Örneğin, **runOnStartup** işlev uygulamanızı ölçeklendirilir çağrılır tetikleyici etkin. Tam olarak anlamanız işlevlerinizi üretim davranışını etkinleştirmeden önce emin **runOnStartup** üretimde.   
 
 ## <a name="usage"></a>Kullanım
 

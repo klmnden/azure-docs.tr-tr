@@ -4,36 +4,20 @@ description: Otomatik olarak imzalanan kök sertifika oluşturma, ortak anahtar�
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: b2f31761e4560cf4b9b9a5b92f5de9982a663a75
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3ff7e754a55e15a8fa8a32f846efbbbe5025e46e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38651796"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297868"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Oluşturma ve MakeCert kullanarak noktadan siteye bağlantılar için sertifikaları dışarı aktarma
 
-Noktadan siteye bağlantılar, kimlik doğrulaması için sertifikaları kullanır. Bu makalede bir otomatik olarak imzalanan kök sertifika oluşturma ve MakeCert kullanarak istemci sertifikalarını oluşturmak nasıl gösterir. Kök sertifikalarını karşıya yükleme gibi noktadan siteye yapılandırma adımlarını arıyorsanız ' yapılandırma noktadan siteye ' makaleleri birini aşağıdaki listeden seçin:
-
-> [!div class="op_single_selector"]
-> * [Otomatik olarak imzalanan sertifika oluşturma - PowerShell](vpn-gateway-certificates-point-to-site.md)
-> * [MakeCert - otomatik olarak imzalanan sertifikalar oluşturma](vpn-gateway-certificates-point-to-site-makecert.md)
-> * [Noktadan siteye - Resource Manager - Azure portalında yapılandırma](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> * [Noktadan siteye - Resource Manager - PowerShell yapılandırma](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Noktadan siteye - Klasik - Azure portalında yapılandırma](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-> 
-> 
+Noktadan siteye bağlantılar, kimlik doğrulaması için sertifikaları kullanır. Bu makalede bir otomatik olarak imzalanan kök sertifika oluşturma ve MakeCert kullanarak istemci sertifikalarını oluşturmak nasıl gösterir. Farklı bir sertifika yönergeler arıyorsanız bkz [sertifikalar - PowerShell](vpn-gateway-certificates-point-to-site.md) veya [sertifikalar - Linux](vpn-gateway-certificates-point-to-site-linux.md).
 
 Kullanmanızı öneririz ancak [Windows 10 PowerShell adımları](vpn-gateway-certificates-point-to-site.md) isteğe bağlı bir yöntem olarak bu MakeCert yönergeleri sağlarız sertifikalarınızı oluşturmak için. Her iki yöntemi kullanarak oluşturduğunuz sertifika yüklenebilir [herhangi bir desteklenen istemci işletim sistemini](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq). Ancak, MakeCert aşağıdaki sınırlamalara sahiptir:
 

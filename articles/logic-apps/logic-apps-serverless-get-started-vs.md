@@ -11,12 +11,12 @@ ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 08/01/2018
-ms.openlocfilehash: a69c129d5ae1405462e3a54a24cd2edbad2a86a7
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f5555d9a60934529bf8fed6db6a18dd783f46075
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126786"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297477"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Azure Logic Apps ve Azure işlevleri - Visual Studio ile ilk sunucusuz uygulamanızı oluşturun
 
@@ -122,7 +122,7 @@ JavaScript, Python, F #, PowerShell, toplu veya Bash ile işlevi ve işlev proje
 
 ## <a name="deploy-functions-from-visual-studio"></a>İşlevleri Visual Studio'dan dağıtma
 
-Sahip olduğunuz değişken tarafından belirtilen Git deposundan çözümünüzdeki tüm Azure işlevleri, dağıtım şablonu dağıtır `azuredeploy.json` dosya. Oluşturursanız ve İşlevler projeniz çözümünüzde yazar, Git kaynak denetimi, örneğin, GitHub veya Visual Studio Team Services içinde bu proje denetleyin ve ardından güncelleştirme `repo` değişken böylece şablonu, Azure işleviniz dağıtır.
+Sahip olduğunuz değişken tarafından belirtilen Git deposundan çözümünüzdeki tüm Azure işlevleri, dağıtım şablonu dağıtır `azuredeploy.json` dosya. Oluşturma ve İşlevler projeniz çözümünüzde yazar, proje Git kaynak denetimine, örneğin, GitHub veya Azure DevOps, denetleyebilir ve ardından güncelleştirme `repo` değişken böylece şablonu, Azure işleviniz dağıtır.
 
 ## <a name="manage-logic-apps-and-view-run-history"></a>Logic apps ve çalıştırma geçmişi görünümü yönetme
 

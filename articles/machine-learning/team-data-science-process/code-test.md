@@ -1,5 +1,5 @@
 ---
-title: Veri bilimi kodu Azure'da UCI yetişkinlere yönelik gelir tahmin kümesiyle - Team Data Science Process ve Visual Studio Team Services test etme
+title: Veri bilimi kodu Azure'da UCI yetişkinlere yönelik gelir tahmin kümesiyle - Team Data Science Process ve Azure DevOps Hizmetleri test etme
 description: Veri bilimi kodu UCI yetişkinlere yönelik gelir tahmin verileriyle test etme
 services: machine-learning, team-data-science-process
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
-ms.openlocfilehash: 46d156ce09b1ebcdcceb27ede6e7fa1595d30da6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ad0a8b5b0bb9afbbe626c9481961f20ccd4797bf
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439506"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294711"
 ---
 # <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Veri bilimi kodu UCI yetişkinlere yönelik gelir tahmin veri kümesi ile test etme
 Bu makalede, kodu test etmek için bir veri bilimi iş akışında başlangıç yönergeleri sağlar. Veri bilimcileri, bu tür bir testi beklenen sonuç kodlarını ve kalite kontrol etmek için sistematik ve etkili bir yol sağlar. Team Data Science işlem (TDSP) kullanıyoruz [UCI yetişkinlere yönelik gelir veri kümesini kullanan proje](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) biz nasıl kodu test yapılabilir göstermek için daha önce yayımlanmış. 
@@ -37,8 +37,8 @@ Bu makale, "" kod testiyle."birim testi" terimi yerine geçer Belirli bir adım�
 
 Bu makalede, başvuru faydalı kaynaklar sağlar.
 
-## <a name="visual-studio-team-services-for-the-testing-framework"></a>Test çerçevesi için Visual Studio Team Services
-Bu makalede, Visual Studio Team Services (VSTS) kullanarak testi otomatikleştirme ve gerçekleştirmek açıklar. Diğer araçları kullanmaya karar verebilirsiniz. VSTS kullanarak otomatik bir derlemeyi Ayarla ve yapı aracılarını nasıl da gösteriyoruz. Derleme aracıları için Azure veri bilimi sanal makineleri (Dsvm'leri) kullanıyoruz.
+## <a name="azure-devops-for-the-testing-framework"></a>Azure DevOps için test çerçevesi
+Bu makalede, Azure DevOps kullanarak testi otomatikleştirme ve gerçekleştirmek açıklar. Diğer araçları kullanmaya karar verebilirsiniz. Azure DevOps kullanarak otomatik bir derlemeyi Ayarla ve yapı aracılarını nasıl da gösteriyoruz. Derleme aracıları için Azure veri bilimi sanal makineleri (Dsvm'leri) kullanıyoruz.
 
 ## <a name="flow-of-code-testing"></a>Kodu test akışı
 Genel iş akışını bir veri bilimi proje test kod şöyle görünür: 
@@ -48,7 +48,7 @@ Genel iş akışını bir veri bilimi proje test kod şöyle görünür:
     
 ## <a name="detailed-steps"></a>Ayrıntılı adımlar
 
-Ayarlanmış ve bir yapı aracısı ve VSTS kullanarak kodu test etme ve otomatik bir yapı çalıştırmak için aşağıdaki adımları kullanın:
+Ayarlanmış ve bir yapı aracısı ve Azure DevOps kullanarak kodu test etme ve otomatik bir yapı çalıştırmak için aşağıdaki adımları kullanın:
 
 1. Visual Studio masaüstü uygulaması, bir proje oluşturun:
 
@@ -60,7 +60,7 @@ Ayarlanmış ve bir yapı aracısı ve VSTS kullanarak kodu test etme ve otomati
 
     ![Çözüm Gezgini](./media/code-test/solution_explorer_in_vs.PNG)
 
-1. Proje kodunuzu VSTS proje kod deposuna akış: 
+1. Proje kodunuzu Azure DevOps projesi kod deposuna akış: 
 
     ![Proje kod deposu](./media/code-test/create_repo.PNG)
 
@@ -108,13 +108,13 @@ Ayarlanmış ve bir yapı aracısı ve VSTS kullanarak kodu test etme ve otomati
 
     ![Testleri çalıştırma](./media/code-test/run_tests.PNG)
 
-1. Proje deposu için Git komutlarını kullanarak iade edin. En son işi, kısa bir süre sonra VSTS'de yansıtılır.
+1. Proje deposu için Git komutlarını kullanarak iade edin. En son işi, kısa süre içinde Azure DevOps yansıtılır.
 
     ![Kodu iade etme Git komutları](./media/code-test/git_check_in.PNG)
 
-    ![VSTS en son iş](./media/code-test/git_check_in_most_recent_work.PNG)
+    ![Azure DevOps en son iş](./media/code-test/git_check_in_most_recent_work.PNG)
 
-1. Otomatik yapı ayarlayın ve VSTS'de test:
+1. Otomatik yapı ayarlayın ve Azure DevOps test:
 
     a. Proje deposu seçin **derleme ve yayın**ve ardından **+ yeni** yeni bir yapı işlemi oluşturmak için.
 
@@ -128,7 +128,7 @@ Ayarlanmış ve bir yapı aracısı ve VSTS kullanarak kodu test etme ve otomati
 
        ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
-    d. Derleme adı ve Aracı'nı seçin. Yapı işlemini tamamlamak için bir DSVM kullanmak istiyorsanız, varsayılan buradan seçebilirsiniz. Ayar aracıları hakkında daha fazla bilgi için bkz. [derleme ve yayın aracıları](https://docs.microsoft.com/vsts/build-release/concepts/agents/agents?view=vsts).
+    d. Derleme adı ve Aracı'nı seçin. Yapı işlemini tamamlamak için bir DSVM kullanmak istiyorsanız, varsayılan buradan seçebilirsiniz. Ayar aracıları hakkında daha fazla bilgi için bkz. [derleme ve yayın aracıları](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
     
        ![Build and agent selections](./media/code-test/select_agent.PNG)
 
@@ -142,17 +142,17 @@ Ayarlanmış ve bir yapı aracısı ve VSTS kullanarak kodu test etme ve otomati
     
        ![PowerShell details](./media/code-test/powershell_scripts.PNG)
 
-    g. Seçin **Kaydet ve kuyruğa** derleme tanımı işlemini tamamlamak için.
+    g. Seçin **Kaydet ve kuyruğa** derleme işlem hattı işlemini tamamlamak için.
 
        !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
 
 Artık her seferinde yeni bir işleme kodu depoya gönderildiğinde, yapı işlemi otomatik olarak başlatılacak. (Ana depo burada kullanıyoruz, ancak herhangi bir dala tanımlayabilirsiniz.) İşlem sürerken **test1.py** kod içinde tanımlanan her şeyin düzgün çalıştığından emin olmak için aracı makinede dosyasında. 
 
-Uyarılar doğru şekilde ayarlanmışsa, derleme tamamlandığında e-posta ile bildirilir. Ayrıca vsts'de yapı durumunu kontrol edebilirsiniz. Başarısız olursa, derleme ayrıntılarını kontrol edin ve hangi parçanın bozuk olduğunu öğrenin.
+Uyarılar doğru şekilde ayarlanmışsa, derleme tamamlandığında e-posta ile bildirilir. Ayrıca, Azure DevOps içindeki derleme durumunu kontrol edebilirsiniz. Başarısız olursa, derleme ayrıntılarını kontrol edin ve hangi parçanın bozuk olduğunu öğrenin.
 
 ![Yapı Başarı e-posta bildirimi](./media/code-test/email_build_succeed.PNG)
 
-![VSTS bildirim derleme başarısı](./media/code-test/vs_online_build_succeed.PNG)
+![Azure DevOps bildirimi derleme başarısı](./media/code-test/vs_online_build_succeed.PNG)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bkz: [UCI gelir tahmin depo](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) veri bilimi senaryoları için birim testleri somut örnekleri için.
@@ -161,5 +161,5 @@ Uyarılar doğru şekilde ayarlanmışsa, derleme tamamlandığında e-posta ile
 ## <a name="references"></a>Başvurular
 * [Team Data Science Process](https://aka.ms/tdsp)
 * [Visual Studio Test Araçları](https://www.visualstudio.com/vs/features/testing-tools/)
-* [VSTS test kaynakları](https://www.visualstudio.com/team-services/)
+* [Azure DevOps test kaynakları](https://www.visualstudio.com/team-services/)
 * [Veri bilimi sanal makineleri](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

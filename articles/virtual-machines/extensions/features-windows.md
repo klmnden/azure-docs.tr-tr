@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc2433b8ac12bc1d485b6f23b56f356041e5128e
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 4fd6175f68f98cce726e70e76b0b884a7a31fbda
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783109"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325337"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Sanal makine uzantıları ve özellikleri Windows için
 
@@ -66,7 +66,7 @@ Bazı uzantılar tüm işletim sistemlerinde desteklenmez ve yayabilir *hata kod
 Uzantı paketleri Azure depolama uzantısı deposundan yüklenir ve uzantı durumu karşıya Azure Depolama'ya gönderilen değerler. Kullanırsanız [desteklenen](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) aracıların sürümünü, gereksinim gibi aracı iletişimi Azure yapı denetleyicisi için aracı iletişimlerini yeniden yönlendirmek için kullanabilirsiniz VM bölgesindeki Azure Depolama'da erişime izin vermek. Bir desteklenmeyen Aracı sürümünde varsa, Azure depolama bu bölgede VM'den giden erişime izin gerekir.
 
 > [!IMPORTANT]
-> Erişim engellenirse *168.63.129.1* Konuk Güvenlik Duvarı'nı kullanarak, daha sonra uzantıları yukarıdaki bağımsız olarak başarısız.
+> Erişim engellenirse *168.63.129.16* Konuk Güvenlik Duvarı'nı kullanarak, daha sonra uzantıları yukarıdaki bağımsız olarak başarısız.
 
 Aracıları yalnızca uzantı paketleri ve raporlama durumu indirmek için kullanılabilir. Örneğin, bir uzantı yükleme (özel betik) Github'dan bir betik indirmeniz gerekiyor veya Azure depolama (Azure Backup) sonra erişim ek gerekirse Güvenlik Duvarı/güvenlik ağ Grup bağlantı noktaları açılması gerekir. Uygulamaları kendi sağ olduğundan farklı uzantılarına farklı gereksinimlere sahiptir. Azure depolama erişimi gerektiren uzantılar için Azure NSG hizmet etiketleri kullanarak erişim izni verebilirsiniz [depolama](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 

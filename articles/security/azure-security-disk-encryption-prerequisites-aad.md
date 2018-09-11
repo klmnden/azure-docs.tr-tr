@@ -1,24 +1,18 @@
 ---
 title: Azure AD uygulama önkoşulları (önceki sürüm) ile Azure Disk şifrelemesi | Microsoft Docs
 description: Bu makale, Iaas sanal makineleri için Microsoft Azure Disk şifrelemesi kullanılarak önkoşulları sağlar.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 973cbdc1-12bc-4e0e-90cd-f19b045417a2
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/28/2018
 ms.author: mstewart
-ms.openlocfilehash: 701418c4c2f17d151061ffde704b5a7f05551d9c
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.date: 09/10/2018
+ms.openlocfilehash: 510ca032f77da25238ec060d4122a25345c9fb90
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338470"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346657"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure Disk şifrelemesi önkoşulları (önceki sürüm)
 
@@ -142,7 +136,7 @@ Veri diskleri bağlayın ve gerekli/etc/fstab girişleri oluşturmak için kulla
 
 Zaten Azure Disk şifrelemesi için Key Vault ve Azure AD önkoşulları alışık olduğunuz, kullanabileceğiniz [Azure Disk şifrelemesi önkoşulları PowerShell Betiği](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Önkoşulları betiği kullanma hakkında daha fazla bilgi için bkz. [VM hızlı başlangıç şifrelemek](quick-encrypt-vm-powershell.md) ve [Azure Disk şifrelemesi ek](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
 
-1. Anahtar kasası oluşturma. 
+1. Bir anahtar kasası oluşturma. 
 2. Bir Azure AD uygulaması ve hizmet sorumlusu ayarlayın.
 3. Azure AD uygulaması için anahtar kasası erişim ilkesi ayarlayın.
 4. Set anahtar kasası erişim ilkeleri Gelişmiş.

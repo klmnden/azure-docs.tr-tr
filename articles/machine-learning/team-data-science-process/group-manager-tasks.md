@@ -1,6 +1,6 @@
 ---
-title: Takım veri bilimi işlem grup yöneticisi görevleri - Azure | Microsoft Docs
-description: Grup Yöneticisi veri bilimi takım projesi üzerinde görevlerde ana hattı.
+title: Takım veri bilimi işlem grubu yöneticisi görevleri - Azure | Microsoft Docs
+description: Görev bir veri bilimi takım projesindeki bir grup yöneticisi için ana hat.
 documentationcenter: ''
 author: deguhath
 manager: cgronlun
@@ -14,199 +14,199 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: a6cf6627d18917a2102dc0537cd44dc7701b063f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a89c0f916f67de1bae81a5e1b3dcfc2cae41d248
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837251"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304195"
 ---
 # <a name="group-manager-tasks"></a>Grup yöneticisi görevleri
 
-Grup yöneticisi beklenen görevleri tamamlamak için hist bu konuda anahatları / kendi veri bilimi kuruluş. Amaç üzerinde standartlaştıran işbirliğine dayalı Grup ortamı belirtmektir [takım veri bilimi işlemi](overview.md) (TDSP). Bu işlem üzerinde Standartlaştırma personel rolleri ve veri bilimi ekibi tarafından işlenen ilişkilendirilen görevlerinin bir özetini görmek [takım veri bilimi işlemi rolleri ve görevleri](roles-tasks.md).
+Bu konuda anahatları grup yöneticisi beklenen görevleri tamamlamak için hist / veri bilimi organizasyonunda. Hedefi üzerinde standartlaştırır işbirliğine dayalı Grup ortamı oluşturmaktır [Team Data Science Process](overview.md) (TDSP). Bu işlemi, standart personel rolleri ve veri bilimi ekibi tarafından işlenen ilişkilendirilen görevlerinin bir özetini görmek [Team Data Science Process rolleri ve görevleri](roles-tasks.md).
 
-**Grup Yöneticisi** bir kuruluştaki tüm veri bilimi biriminin yöneticisidir. Bir veri bilimi birimi, her biri ayrı iş verticals birden çok veri bilimi proje üzerinde çalıştığı birden çok ekibin olabilir. Grup Yöneticisi görevlerini bir yedek için temsilci, ancak rol ile ilişkili görevleri aynıdır. Aşağıdaki çizimde gösterildiği gibi altı ana görevleri şunlardır:
+**Grup Yöneticisi** kuruluştaki tüm veri bilimi biriminin yöneticisidir. Bir veri bilimi birimi, birden çok takıma, her biri ayrı iş sıralamasına koydunuz birden çok veri bilimi proje üzerinde çalışıyor olabilir. Grup Yöneticisi görevlerini bir yedek için temsilci, ancak rol ile ilişkili görevleri aynıdır. Aşağıdaki diyagramda gösterildiği gibi altı ana görevler şunlardır:
 
 ![0](./media/group-manager-tasks/tdsp-group-manager.png)
 
 
->[AZURE.NOTE] VSTS aşağıdaki yönergeleri kullanarak TDSP grubu ortamı kurmak için gerekli adımları ana hatlarını vermektedir. Biz, biz Microsoft'taki TDSP nasıl uygulamak olduğundan bu görevlerin VSTS ile nasıl gerçekleştirileceğini belirtin. Grubunuz için başka bir kod barındırma platformu kullanılıyorsa, grup yöneticisi tarafından genellikle tamamlanması gereken görevler değiştirmeyin. Ancak bu görevleri tamamlamak için yol farklı olacak.
+>[AZURE.NOTE] Azure DevOps Hizmetleri'ni kullanarak aşağıdaki yönergelerde TDSP grubu ortamı ayarlama için gerekli olan adımları genel çizgileriyle belirtin. Biz nasıl biz Microsoft'ta TDSP uygulama olduğu için bu görevlerin Azure DevOps hizmetleriyle nasıl gerçekleştirileceğini belirtin. Grubunuz için başka bir kod barındırma platformu kullanılıyorsa, genel olarak grup yöneticisi tarafından tamamlanması gereken görevler değiştirmeyin. Ancak bu görevleri tamamlamak için yol farklı zordur.
 
-1. Ayarlanan **Visual Studio Team Services (VSTS) sunucu** grubu için.
-2. Oluşturma bir **Grup takım projesi** Visual Studio Team Services sunucusunda (VSTS kullanıcılar için)
-3. Oluşturma **GroupProjectTemplate** deposu
-4. Oluşturma **GroupUtilities** deposu
-5. Çekirdek **GroupProjectTemplate** ve **GroupUtilities** depoları TDSP depoları içerikten VSTS sunucusuyla için.
-6. Ayarlanan **güvenlik denetimleri** ekip üyelerinin GroupProjectTemplate ve GroupUtilities depoları için erişim.
+1. Ayarlanan **Azure DevOps Hizmetleri** grubu için.
+2. Oluşturma bir **grubu projesi** Azure DevOps hizmetlerine (Azure DevOps Hizmetleri kullanıcılar için)
+3. Oluşturma **GroupProjectTemplate** depo
+4. Oluşturma **GroupUtilities** depo
+5. Çekirdek **GroupProjectTemplate** ve **GroupUtilities** TDSP depoları içerik Azure DevOps hizmetleriyle için depolar.
+6. Ayarlanan **güvenlik denetimleri** için GroupProjectTemplate ve GroupUtilities depolarınıza erişmek takım üyeleri için.
 
-Yukarıdaki adımların her biri ayrıntılı olarak açıklanmıştır. Ancak önce biz kısaltmalar ile hakkında bilgi edinin ve depoları ile çalışmak için ön koşullar tartışın.
+Yukarıdaki adımların her birini ayrıntılı olarak açıklanmıştır. Ancak, ilk olarak, kısaltmalar ile tanıyın ve depoları ile çalışmak için ön koşullar tartışın.
 
-### <a name="abbreviations-for-repositories-and-directories"></a>Kısaltmalar depoları ve dizinler
+### <a name="abbreviations-for-repositories-and-directories"></a>Depoları ve dizinleri kısaltmaları
 
-Bu öğretici depoları ve dizinleri kısaltılmış adlarını kullanır. Bu tanımları depoları ve dizinler arasında işlemleri izlemek kolaylaştırır. Aşağıdaki bölümlerde bu gösterim kullanılır:
+Bu öğreticide, kısaltılmış depoları ve dizinler için kullanılır. Bu tanımları dizinlerini ve depoları işlemleri izlemenizi kolaylaştırır. Aşağıdaki bölümlerde bu gösterim kullanılır:
 
-- **G1**: Proje şablonu deposu geliştirilen ve Microsoft TDSP ekibi tarafından yönetilebilir.
-- **G2**: yardımcı programlar depo geliştirilen ve Microsoft TDSP ekibi tarafından yönetilebilir.
-- **R1**: GroupProjectTemplate Git deposunu sizin ayarladığınız VSTS Grup sunucunuz üzerinde.
-- **R2**: GroupUtilities Git deposunu sizin ayarladığınız VSTS Grup sunucunuz üzerinde.
-- **LG1** ve **LG2**: G1 ve G2 için sırasıyla kopyalama makinenizde yerel dizinleri.
-- **LR1** ve **LR2**: R1 ve R2 için sırasıyla kopyalama makinenizde yerel dizinleri.
+- **G1**: Proje şablonu deposuna geliştirilen ve Microsoft TDSP ekibi tarafından yönetilebilir.
+- **G2**: yardımcı programları depoyu geliştirilen ve Microsoft TDSP ekibi tarafından yönetilebilir.
+- **R1**: Git deposunu GroupProjectTemplate ayarladığınız Azure DevOps Grup sunucunuz üzerinde.
+- **R2**: Git deposunu GroupUtilities ayarladığınız Azure DevOps Grup sunucunuz üzerinde.
+- **LG1** ve **LG2**: G1 ve G2 için sırasıyla kopyalama makinenizde yerel dizin.
+- **LR1** ve **LR2**: R1 ve R2 için sırasıyla kopyalama makinenizde yerel dizin.
 
-### <a name="pre-requisites-for-cloning-repositories-and-checking-code-in-and-out"></a>Depoları kopyalama ve kod giriş ve çıkış denetimi için ön koşullar
+### <a name="pre-requisites-for-cloning-repositories-and-checking-code-in-and-out"></a>Ön koşullar depoların kopyalanması ve kodu açma ve kapatma
  
-- Makinenizde Git yüklenmesi gerekir. Bir veri bilimi sanal makine (DSVM) kullanıyorsanız, Git önceden yüklenmiş ve hazırsınız. Aksi takdirde bkz [platformları ve araçlarına ek](platforms-and-tools.md#appendix).  
-- Kullanıyorsanız bir **Windows DSVM**, olmasına gerek [Git kimlik bilgisi Yöneticisi (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) makinenize yüklü. README.md dosyasında doğru aşağı kaydırın **yükleyip** 'ye tıklayın *son yükleyici*. Bu adım en son yükleyici sayfasına gidersiniz. .Exe yükleyici buradan indirin ve çalıştırın. 
-- Kullanıyorsanız **Linux DSVM**, bir SSH ortak anahtarı, DSVM üzerinde oluşturun ve Grup VSTS sunucunuzu ekleyin. SSH hakkında daha fazla bilgi için bkz: **oluşturma SSH ortak anahtarı** bölümüne [platformları ve araçlarına ek](platforms-and-tools.md#appendix). 
+- Git makinenizde yüklü olması gerekir. Bir veri bilimi sanal makinesi (DSVM) kullanıyorsanız, Git önceden yüklenmiş ve hazırsınız demektir. Aksi takdirde bkz [platformları ve araçlarıyla ek](platforms-and-tools.md#appendix).  
+- Kullanıyorsanız bir **Windows DSVM**, ihtiyacınız [Git Credential Manager'ı (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) makinenizde yüklü. README.md dosyasında doğru aşağı kaydırın **indirme ve yükleme** tıklayın ve bölüm *en son yükleyicisi*. Bu adım, en son yükleyici sayfasına götürür. .Exe yükleyiciyi buradan indirin ve çalıştırın. 
+- Kullanıyorsanız **Linux DSVM'sini**, bir SSH ortak anahtarı üzerinde DSVM oluşturma ve Grup Azure DevOps hizmetlerinizi ekleyin. SSH hakkında daha fazla bilgi için bkz: **oluşturma SSH ortak anahtarı** konusundaki [platformları ve araçlarıyla ek](platforms-and-tools.md#appendix). 
 
 
-## <a name="1-create-account-on-vsts-server"></a>1. VSTS sunucuda hesabı oluşturma
+## <a name="1-create-account-on-azure-devops-services"></a>1. Azure DevOps Services hesabı oluşturma
 
-VSTS sunucunun aşağıdaki depoları barındırır:
+Azure DevOps hizmetler aşağıdaki depolardan barındırır:
 
-- **Ortak depoları grup**: birden çok veri bilimi proje için bir grup içindeki birden çok ekibin tarafından benimsenen genel amaçlı depoları. Örneğin, *GroupProjectTemplate* ve *GroupUtilities* depoları.
-- **Ekip depoları**: bir grup içindeki belirli takımlar için depoları. Bu depoları bir ekibin gereksinimini özeldir ve bu ekibi tarafından yürütülen birden çok proje tarafından kabul edilen, ancak genel yeterli veri bilimi grup içindeki birden çok ekibin kullanışlı olması için olabilir. 
-- **Proje depoları**: depoları belirli projeler için kullanılabilir. Bu tür depoları birden çok proje ekibi tarafından gerçekleştirilen ve veri bilimi grubunda birden çok ekibin kullanışlı olması için genel olmayabilir.
+- **Ortak depoları grup**: birden çok veri bilimi proje için bir grup içindeki birden çok takımı tarafından benimsenen genel amaçlı depolar. Örneğin, *GroupProjectTemplate* ve *GroupUtilities* depolar.
+- **Takım depolarını**: bir gruptaki belirli takımlar için depolar. Bu depolar, belirli bir ekibin gereksinimini ve bu takım tarafından yürütülen birden fazla proje tarafından benimsenen, ancak genel yeterli bir veri bilimi grubu içinde birden çok takımlar için yararlı olabilir. 
+- **Proje depoları**: depoları belirli projeleri için kullanılabilir. Bu tür depolara birden çok proje ekibi tarafından gerçekleştirilen ve bir veri bilimi grubundaki birden fazla takımlar için yararlı olacak genel olmayabilir.
 
 
-### <a name="setting-up-the-vsts-server-sign-into-your-microsoft-account"></a>Microsoft hesabınızda VSTS sunucu oturum ayarlama
+### <a name="setting-up-the-azure-devops-services-sign-into-your-microsoft-account"></a>Microsoft hesabınızda Azure DevOps Hizmetleri oturum ayarlama
     
-Git [Visual Studio online](https://www.visualstudio.com/), tıklatın **oturum** sağ üst köşesinde ve Microsoft hesabınızda oturum. 
+Git [Visual Studio Team Services](https://www.visualstudio.com/), tıklayın **oturum** simgesine tıklayın veya dokunun ve Microsoft hesabınızda oturum. 
     
 ![1](./media/group-manager-tasks/login.PNG)
 
-Bir Microsoft hesabınız yoksa tıklatın **şimdi kaydolun** bir Microsoft hesabı oluşturun ve sonra bu hesabı kullanarak oturum açın. 
+Bir Microsoft hesabınız yoksa tıklayın **şimdi kaydolun** bir Microsoft hesabı oluşturun ve ardından bu hesabı kullanarak oturum açın. 
 
-Kuruluşunuz bir Visual Studio/MSDN aboneliğiniz varsa, yeşil tıklatın **iş veya Okul hesabınızla oturum açın** kutusu ve bu abonelikle ilişkili kimlik bilgileriyle oturum açın. 
+Kuruluşunuzun Visual Studio/MSDN aboneliği varsa, yeşil tıklayın **iş veya Okul hesabınızla oturum** kutusuna ve bu abonelikle ilişkili kimlik bilgileriyle oturum açın. 
         
 ![2](./media/group-manager-tasks/signin.PNG)
 
 
         
-Oturum açtıktan sonra tıklatın **yeni hesap oluştur** aşağıdaki resimde gösterildiği gibi sağ üst köşesindeki:
+Oturum açtıktan sonra tıklayın **yeni hesap oluştur** aşağıdaki görüntüde gösterildiği gibi sağ üst köşedeki:
         
 ![3](./media/group-manager-tasks/create-account-1.PNG)
         
-Oluşturmak istediğiniz VSTS sunucu bilgileri doldurun **hesabınızı oluşturmak** aşağıdaki değerlerle Sihirbazı: 
+Oluşturmak istediğiniz Azure DevOps Hizmetleri için bilgileri doldurun **hesabınızı oluşturun** aşağıdaki değerlerle Sihirbazı: 
 
-- **Sunucu URL'si**: Değiştir *mysamplegroup* kendi değerlerinizle *sunucu adı*. Sunucunuzun URL'sini olacağını: *https://\<servername\>. visualstudio.com*. 
-- **Kod kullanarak yönetme:** seçin  **_Git_**.
+- **Sunucu URL'si**: değiştirin *mysamplegroup* ile kendi *sunucu adı*. Sunucunuzun URL'sini olacağı: *https://\<servername\>. visualstudio.com*. 
+- **Kodu şunu kullanarak Yönet:** seçin  **_Git_**.
 - **Proje adı:** Enter *GroupCommon*. 
-- **İş kullanarak düzenlemek:** Seç *Çevik*.
-- **Projelerinizde barındırmak:** bir coğrafi konum seçin. Bu örnekte, biz seçin *Orta Güney ABD*. 
+- **Şunu kullanarak çalışmayı Düzenle:** Seç *Çevik*.
+- **Projelerinizi barındırın:** coğrafi konumu seçin. Bu örnekte, Seçtiğimiz *Orta Güney ABD*. 
         
 ![4](./media/group-manager-tasks/fill-in-account-information.png)
 
->[AZURE.NOTE] ' Ya tıkladıktan sonra aşağıdaki açılır pencere görüyorsanız, **yeni hesabı oluşturma**, tıklamanız gerekir sonra **değiştirmek ayrıntıları** listelenen tüm alanları görüntülemek için.
+>[AZURE.NOTE] Tıkladıktan sonra aşağıdaki açılır penceresi görürseniz **yeni hesap oluşturun**, sonra da'ye tıklamanız **değiştirme ayrıntıları** listelenen tüm alanları görüntülemek için.
 
 ![5](./media/group-manager-tasks/create-account-2.png)
 
 
-Tıklatın **devam**. 
+Tıklayın **devam**. 
 
-## <a name="2-groupcommon-team-project"></a>2. GroupCommon takım projesi
+## <a name="2-groupcommon-project"></a>2. GroupCommon proje
 
-**GroupCommon** sayfa (*https://\<servername\>.visualstudio.com/GroupCommon*) VSTS sunucunuz oluşturulduktan sonra açılır.
+**GroupCommon** sayfa (*https://\<servername\>.visualstudio.com/GroupCommon*), Azure DevOps hizmetlerinizi oluşturulduktan sonra açılır.
                             
 ![6](./media/group-manager-tasks/server-created-2.PNG)
 
-## <a name="3-create-the-grouputilities-r2-repository"></a>3. GroupUtilities (R2) deposu oluşturma
+## <a name="3-create-the-grouputilities-r2-repository"></a>3. GroupUtilities (R2) depo oluştur
 
-Oluşturmak için **GroupUtilities** (R2) deposu VSTS sunucusu altında:
+Oluşturulacak **GroupUtilities** Azure DevOps Hizmetleri altında (R2) depo:
 
-- Açmak için **yeni bir havuz oluşturma** Sihirbazı'nı tıklatın **yeni bir havuz** üzerinde **sürüm denetimi** takım projenizin sekmesi. 
+- Açmak için **yeni depo Oluştur** Sihirbazı'nı tıklatın **yeni depo** üzerinde **sürüm denetimi** projenizin sekmesi. 
 
 ![7](./media/group-manager-tasks/create-grouputilities-repo-1.png) 
 
-- Seçin *Git* olarak **türü**ve girin *GroupUtilities* olarak **adı**ve ardından **oluşturma**. 
+- Seçin *Git* olarak **türü**girin *GroupUtilities* olarak **adı**ve ardından **Oluştur**. 
 
 ![8](./media/group-manager-tasks/create-grouputilities-repo-2.png)
                 
-Artık iki Git depoları görmelisiniz **GroupProjectTemplate** ve **GroupUtilities** sol sütununda **sürüm denetimi** sayfa: 
+Artık iki Git depoları görmelisiniz **GroupProjectTemplate** ve **GroupUtilities** sol sütununda **sürüm denetimi** sayfası: 
 
 ![9](./media/group-manager-tasks/two-repo-under-groupCommon.PNG)
 
 
-## <a name="4-create-the-groupprojecttemplate-r1-repository"></a>4. GroupProjectTemplate (R1) deposu oluşturma
+## <a name="4-create-the-groupprojecttemplate-r1-repository"></a>4. GroupProjectTemplate (R1) depo oluştur
 
-Depoları VSTS grubu sunucusu için Kurulum iki görevden oluşur:
+Azure DevOps grubu sunucusu için depoları kurulumu iki görevden oluşur:
 
-- Varsayılan yeniden adlandırma **GroupCommon** deposu***GroupProjectTemplate***.
-- Oluşturma **GroupUtilities** takım projesi altında VSTS sunucuda deposu **GroupCommon**. 
+- Varsayılan Yeniden Adlandır **GroupCommon** depo***GroupProjectTemplate***.
+- Oluşturma **GroupUtilities** depo hizmetlerdeki Azure DevOps projesi altındaki **GroupCommon**. 
 
-Yönergeler için ilk görev adlandırma kuralları ilgili açıklamalar veya bizim depoları ve dizinleri sonra bu bölümde yer alır. Aşağıdaki bölümde 4. adım için ikinci görev için yönergeler bulunur.
+Yönergeler için ilk görev adlandırma kuralları ile ilgili açıklamalar veya bizim depoları ve dizinleri sonra bu bölümde yer alır. Aşağıdaki bölümde 4. adım için ikinci görev için yönergeler yer alır.
 
-### <a name="rename-the-default-groupcommon-repository"></a>Varsayılan GroupCommon depo yeniden adlandırma
+### <a name="rename-the-default-groupcommon-repository"></a>Varsayılan GroupCommon depoyu yeniden adlandır
 
 Varsayılan yeniden adlandırmak için **GroupCommon** deposu olarak *GroupProjectTemplate* (olarak adlandırılan **R1** bu öğreticideki):
     
-- Tıklatın **işbirliği kodu** üzerinde **GroupCommon** takım projesi sayfası. Bu takım projesi varsayılan Git deposu sayfasına götürür **GroupCommon**. Şu anda bu Git deposu boştur. 
+- Tıklayın **kod üzerinde işbirliği** üzerinde **GroupCommon** proje sayfası. Bu projenin varsayılan Git deposu sayfasına götürür **GroupCommon**. Şu anda bu Git deposu boş olur. 
 
 ![10](./media/group-manager-tasks/rename-groupcommon-repo-3.png)
         
-- Tıklatın **GroupCommon** (aşağıdaki şekilde kırmızı kutu ile vurgulanan) sol üst köşede Git deposu sayfasında üzerinde **GroupCommon** seçip **depolarıyönetme**(aşağıdaki şekilde yeşil bir kutusuyla vurgulanan). Bu yordamı getirir **denetim MASASI**. 
-- Seçin **sürüm denetimi** takım projenizin sekmesi. 
+- Tıklayın **GroupCommon** (kırmızı kutu içinde aşağıdaki şekilde ile vurgulanan) sol üst köşedeki Git deposu sayfasında üzerinde **GroupCommon** seçip **depolarıYönet**(aşağıdaki şekilde yeşil bir kutuyla vurgulanmış). Bu yordamı getirir **denetim MASASI**. 
+- Seçin **sürüm denetimi** projenizin sekmesi. 
 
 ![11](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
 
-- Tıklatın **...**  sağındaki **GroupCommon** sol panelde ve seçim deposu **yeniden adlandır deposu**. 
+- Tıklayın **...**  sağındaki **GroupCommon** depo Sol paneli ve seçim **yeniden adlandırma depo**. 
 
 ![12](./media/group-manager-tasks/rename-groupcommon-repo-5.png)
         
-- İçinde **GroupCommon depo yeniden adlandırma** açılarak girin Sihirbazı'nı *GroupProjectTemplate* içinde **depo adını** kutusuna ve ardından **yeniden adlandır** . 
+- İçinde **GroupCommon depoyu yeniden adlandırabilir** açılarak girin Sihirbazı *GroupProjectTemplate* içinde **depo adı** kutusuna ve ardından **yeniden adlandır** . 
 
 ![13](./media/group-manager-tasks/rename-groupcommon-repo-6.png)
 
 
 
-## <a name="5-seed-the-r1--r2-repositories-on-the-vsts-server"></a>5. VSTS sunucuda R1 ve R2 depoları çekirdek
+## <a name="5-seed-the-r1--r2-repositories-on-the-azure-devops-services"></a>5. Azure DevOps hizmetler R1 ve R2 depoları temel
 
-Yordamın bu aşamasında, çekirdek *GroupProjectTemplate* (R1) ve *GroupUtilities* önceki bölümde ayarlayın (R2) depoları. Bu depoları ile sağlanmış ***ProjectTemplate*** (**G1**) ve ***yardımcı programları*** (**G2**) tarafından yönetilen depoları Microsoft Team veri bilimi işlemi için. Bu dengeli tamamlandığında:
+Yordamın bu aşamada, temel *GroupProjectTemplate* (R1) ve *GroupUtilities* önceki bölümde belirlediğiniz (R2) depolar. Bu depolar ile sağlanmış ***ProjectTemplate*** (**G1**) ve ***yardımcı programları*** (**G2**) tarafından yönetilen bir depo Microsoft Team Data Science Process için. Bu dengeli dağıtım tamamlandığında:
 
-- R1 deponuz G1 mu dizinler ve belge şablonları aynı kümesini olacaktır
-- R2 deponuz veri bilimi yardımcı programları Microsoft tarafından geliştirilen kümesini içeren zordur.
+- R1 deponuzu G1 yapan dizin ve belge şablonları aynı dizi olacaktır
+- Microsoft tarafından geliştirilen veri bilimi yardımcı programları kümesini içeren R2 deponuzu zordur.
 
-Dengeli dağıtım yordam dizinleri, yerel DSVM üzerinde Ara hazırlama siteler olarak kullanır. Bu bölümde ardından adımlar şunlardır:
+Dengeli dağıtım yordam dizinleri yerel DSVM'ye Ara hazırlama siteler olarak kullanır. Bu bölümde izleyen adımlar şunlardır:
 
-- G1 & G2 - klonlanmış LG1 & LG2 -> için
-- R1 ve R2 - klonlanmış LR1 & LR2 -> için
-- LG1 & LG2 - kopyalanır dosyaları LR1 & LR2 ->
-- LR1 & LR2 (isteğe bağlı) özelleştirme
-- LR1 & LR2 - içeriği eklemek R1 ve R2 ->
+- G1 & G2 - kopyalanmış LG1 & LG2 -> için
+- R1 ve R2 - kopyalanmış LR1 & LR2 -> için
+- LG1 & LG2 - kopyalanmasını dosyaları LR1 & LR2 ->
+- LR1 & LR2 özelleştirme (isteğe bağlı)
+- LR1 & LR2 - içeriğini Ekle R1 ve R2 ->
 
 
-### <a name="clone-g1--g2-repositories-to-your-local-dsvm"></a>Yerel DSVM için kopya G1 & G2 depoları
+### <a name="clone-g1--g2-repositories-to-your-local-dsvm"></a>Yerel DSVM'ye için G1 & G2 depoları kopyalayın
 
-Bu adımda, takım veri bilimi işlem (TDSP) ProjectTemplate depo (G1) ve yardımcı programları (G2) da TDSP github depolarının klasörlere LG1 ve LG2 olarak, yerel DSVM içinde kopyalama:
+Bu adımda, yerel DSVM'ye LG1 ve LG2 içinde Team Data Science işlem (TDSP) ProjectTemplate depo (G1) ve hizmet programları (G2) TDSP github depolarından klasörleri kopyalama:
 
-- Depolarının, tüm kopyalarını barındırmak için kök dizini olarak hizmet verecek bir dizin oluşturun. 
-    -  Windows DSVM içinde bir dizin oluşturun *C:\GitRepos\TDSPCommon*. 
-    -  Linux DSVM içinde bir dizin oluşturun *GitRepos\TDSPCommon* giriş dizininizdeki. 
+- Tüm klonları depolar barındırmak için kök dizini olarak görev yapacak bir dizin oluşturun. 
+    -  Windows DSVM içinde bir dizin oluşturma *C:\GitRepos\TDSPCommon*. 
+    -  Linux DSVM'sini içinde bir dizin oluşturma *GitRepos\TDSPCommon* giriş dizininizde. 
 
-- Aşağıdaki komutları çalıştırarak *GitRepos\TDSPCommon* dizini.
+- Aşağıdaki komutları kümesini çalıştırmak *GitRepos\TDSPCommon* dizin.
 
     `git clone https://github.com/Azure/Azure-TDSP-ProjectTemplate`<br>
     `git clone https://github.com/Azure/Azure-TDSP-Utilities`
         
 ![14](./media/group-manager-tasks/two-folder-cloned-from-TDSP-windows.PNG)
 
-- Bizim kısaltılmış deposu adlarını kullanarak, bu komut dosyalarını elde ettikleri şudur: 
-    - İçine klonlanmış G1 - LG1 ->
-    - İçine klonlanmış G2 - LG2 ->
-- Kopyalama tamamlandıktan sonra iki dizini görüyor olmalısınız _ProjectTemplate_ ve _yardımcı programları_altında **GitRepos\TDSPCommon** dizini. 
+- Bizim kısaltılmış depo adları kullanarak, bu betikleri elde ettikleri budur: 
+    - İçine kopyalanan G1 - LG1 ->
+    - G2 - içine kopyalanan LG2 ->
+- Kopyalama tamamlandıktan sonra iki dizin görmeye olmalısınız _ProjectTemplate_ ve _yardımcı programları_altında **GitRepos\TDSPCommon** dizin. 
 
-### <a name="clone-r1--r2-repositories-to-your-local-dsvm"></a>Yerel DSVM için kopya R1 ve R2 depoları
+### <a name="clone-r1--r2-repositories-to-your-local-dsvm"></a>Yerel DSVM'ye için R1 ve R2 depoları kopyalayın
 
-Bu adımda, GroupProjectTemplate depo (R1) ve (sırasıyla LR1 ve LR2, adlandırılır) yerel dizinlerde GroupUtilities havuzda (R2) kopyalama **GitRepos\GroupCommon** , DSVM üzerinde.
+Bu adımda, GroupProjectTemplate depo (R1) ve (sırasıyla LR1 ve LR2, olarak bilinir) yerel dizinlerde GroupUtilities havuzda (R2) kopyalama **GitRepos\GroupCommon** DSVM üzerinde.
 
-- R1 ve R2 depoları URL'lerini almak için şu adrese gidin, **GroupCommon** VSTS giriş sayfasında. Bu genellikle URL'sine sahip *https://\<VSTS sunucu adınız\>.visualstudio.com/GroupCommon*. 
-- Tıklatın **kod**. 
-- Seçin **GroupProjectTemplate** ve **GroupUtilities** depoları. Kopyalayın ve her (HTTPS için Windows; URL'leri kaydedin Linux için SSH) gelen **kopya URL** öğesi, ardından, aşağıdaki komut dosyaları kullanmak için:  
+- R1 ve R2 depoları URL'lerini almak için Git, **GroupCommon** Azure DevOps Services giriş sayfasında. Bu URL genellikle sahip *https://\<uygulamanızın Azure DevOps Hizmetleri adı\>.visualstudio.com/GroupCommon*. 
+- Tıklayın **kod**. 
+- Seçin **GroupProjectTemplate** ve **GroupUtilities** depolar. Kopyalayabilir ve URL'lerin (HTTPS için Windows; Kaydet Linux için SSH) öğesinden **kopya URL'si** öğesinde açın, aşağıdaki komut dosyaları kullanmak için:  
 
 ![15](./media/group-manager-tasks/find_https_ssh_2.PNG)
 
-- Dönüştürme **GitRepos\GroupCommon** , Windows veya Linux DSVM ve aşağıdaki adımlardan birini R1 ve R2 bu dizine kopyalama komutları çalıştırma bir dizin.
+- Dönüştürme **GitRepos\GroupCommon** , Windows veya Linux DSVM'sini ve çalıştırma komutları R1 ve R2 bu dizine kopyalamak için aşağıdaki adımlardan birini dizin.
         
-Windows ve Linux komutlar şunlardır:
+Windows ve Linux betikler şunlardır:
 
     # Windows DSVM
 
@@ -222,21 +222,21 @@ Windows ve Linux komutlar şunlardır:
 
 ![17](./media/group-manager-tasks/clone-two-empty-group-reo-linux-2.PNG)
 
->[AZURE.NOTE] LR1 ve LR2 boş uyarı iletileri almak bekler.    
+>[AZURE.NOTE] Uyarı iletileri LR1 ve LR2 boş beklenir.    
 
-- Bizim kısaltılmış deposu adlarını kullanarak, bu komut dosyalarını elde ettikleri şudur: 
-    - İçine klonlanmış R1 - LR1 ->
-    - İçine klonlanmış R2 - LR2 ->   
+- Bizim kısaltılmış depo adları kullanarak, bu betikleri elde ettikleri budur: 
+    - R1 - içine kopyalanan LR1 ->
+    - R2 - içine kopyalanan LR2 ->   
 
 
-### <a name="seed-your-groupprojecttemplate-lr1-and-grouputilities-lr2"></a>GroupProjectTemplate (LR1) ve GroupUtilities (LR2) çekirdek
+### <a name="seed-your-groupprojecttemplate-lr1-and-grouputilities-lr2"></a>GroupProjectTemplate (LR1) ve GroupUtilities (LR2) temel
 
-Ardından, yerel makinenizde içeriği ProjectTemplate ve yardımcı programlar dizinlerin (dışında meta verileri .git dizinlerde) altında GitRepos\TDSPCommon GroupProjectTemplate ve GroupUtilities dizinlerinizi altında kopyalamayı **GitRepos\ GroupCommon**. Bu adımı tamamlamak için iki görevler şunlardır:
+Ardından, yerel makinenize GroupProjectTemplate ve GroupUtilities dizinlere altında altında GitRepos\TDSPCommon ProjectTemplate ve yardımcı programlar dizinleri (dışında .git dizinlerde meta veriler) içeriğini kopyalayın **GitRepos\ GroupCommon**. Bu adımda iki görevlerin şunlardır:
 
 - İçinde GitRepos\TDSPCommon\ProjectTemplate dosyaları kopyalayın (**LG1**) GitRepos\GroupCommon\GroupProjectTemplate için (**LR1**) 
 - İçinde GitRepos\TDSPCommon\Utilities dosyaları kopyalayın (**LG2** GitRepos\GroupCommon\Utilities için (**LR2**). 
 
-Bu iki görevleri elde etmek için aşağıdaki betikler PowerShell konsolunda (Windows) veya kabuk komut konsolunda (Linux) çalıştırın. Tam yollar LG1, LR1, LG2 ve LR2 giriş istenir. Girdiğiniz yol doğrulanır. Var olmayan bir dizin girişi, yeniden giriş istenir. 
+Bu iki görevleri gerçekleştirmek için aşağıdaki komut kabuğu komut konsolunda (Linux) veya PowerShell konsolunu (Windows) çalıştırın. Tam yolları LG1, LR1 LG2 ve LR2 giriş istenir. Girdiğiniz yolları doğrulanır. Var olmayan bir dizin girişi yeniden giriş istenir. 
 
     # Windows DSVM      
     
@@ -245,7 +245,7 @@ Bu iki görevleri elde etmek için aşağıdaki betikler PowerShell konsolunda (
 
 ![18](./media/group-manager-tasks/copy-two-folder-to-group-folder-windows-2.PNG)
 
-Şimdi (dışında .git dizindeki dosyaları) LG1 ve LG1 dizinlerdeki dosyaları LR1 ve LR2, sırasıyla kopyalandığını görebilirsiniz.
+Artık dosyaları (.git dizini dosyalarında) dışındaki dizinlerde LG1 ve LG1 LR1 ve LR2, sırasıyla kopyalandığını görebilirsiniz.
 
 ![19](./media/group-manager-tasks/copy-two-folder-to-group-folder-windows.PNG)
 
@@ -256,68 +256,68 @@ Bu iki görevleri elde etmek için aşağıdaki betikler PowerShell konsolunda (
 
 ![20](./media/group-manager-tasks/copy-two-folder-to-group-folder-linux-2.PNG)
         
-Şimdi (dışında .git dizindeki dosyaları) iki klasörlerdeki dosyaların GroupProjectTemplate ve GroupUtilities için sırasıyla kopyalandığından emin bakın.
+Şimdi iki klasör (dışında .git dizini dosyalarında) dosyalarında GroupProjectTemplate ve GroupUtilities sırasıyla kopyalandığını görürsünüz.
     
 ![21](./media/group-manager-tasks/copy-two-folder-to-group-folder-linux.PNG)
 
-- Bizim kısaltılmış deposu adlarını kullanarak, bu komut dosyalarını elde ettikleri şudur:
-    - LG1 - LR1 içine kopyalanan dosya ->
-    - LG2 - LR2 içine kopyalanan dosya ->
+- Bizim kısaltılmış depo adları kullanarak, bu betikleri elde ettikleri budur:
+    - LG1 - LR1 kopyalanmasını Dosya ->
+    - LG2 - LR2 kopyalanmasını Dosya ->
 
-### <a name="option-to-customize-the-contents-of-lr1--lr2"></a>LR1 & LR2 içeriğini özelleştirmek için seçeneği
+### <a name="option-to-customize-the-contents-of-lr1--lr2"></a>Seçenek LR1 & LR2 içeriğini özelleştirmek için
     
-LR1 ve LR2 grubunuz belirli ihtiyaçlarını karşılamak üzere içeriğini özelleştirmek istiyorsanız, burada uygun yordamı aşaması budur. Şablon belgeleri değiştirebilir, dizin yapısını değiştirmek ve grubunuzun geliştirmiştir veya tüm grubunuz için yararlı olan mevcut yardımcı programları ekleyebilirsiniz. 
+İçeriğini LR1 ve LR2 grubunuzun belirli gereksinimlerini karşılayacak şekilde özelleştirmek istiyorsanız, burada uygun yordamı aşaması budur. Şablon belgeleri değiştirmek, dizin yapısını değiştirmek ve grubunuz geliştiren veya, tüm grup için yararlı olan mevcut programları ekleyin. 
 
-### <a name="add-the-contents-in-lr1--lr2-to-r1--r2-on-group-server"></a>İçeriği LR1 & LR2 R1 ve R2 grup sunucuya ekleme
+### <a name="add-the-contents-in-lr1--lr2-to-r1--r2-on-group-server"></a>İçeriği LR1 & LR2 R1 ve R2 için grubu sunucusuna ekleme
 
-Şimdi, LR1 ve LR2 R1 ve R2 depoları içeriği eklemeniz gerekir. Windows PowerShell veya Linux çalıştırabilirsiniz bash komutlar git şunlardır. 
+Artık depoları R1 ve R2 LR1 ve LR2 içeriği eklemeniz gerekir. Linux veya Windows PowerShell çalıştırabileceğiniz bash komutları git aşağıdadır. 
 
-GitRepos\GroupCommon\GroupProjectTemplate dizininden aşağıdaki komutları çalıştırın:
+GitRepos\GroupCommon\GroupProjectTemplate dizinden aşağıdaki komutları çalıştırın:
 
     git status
     git add .
     git commit -m"push from DSVM"
     git push
 
--M seçeneği git işleme için bir ileti ayarlamanıza olanak tanır.
+-M seçeneği, git işleme için bir ileti ayarlamanıza olanak tanır.
 
 ![22](./media/group-manager-tasks/push-to-group-server-2.PNG)
 
-Grubunuzun VSTS Server'daki GroupProjectTemplate deposunda dosyaları hemen eşitlendiğini görebilirsiniz.
+GroupProjectTemplate depodaki grubunuzun Azure DevOps Hizmetleri'nde dosyaları anında eşitlendiğini görebilirsiniz.
 
 ![23](./media/group-manager-tasks/push-to-group-server-showed-up-2.PNG)
 
-Son olarak, Dönüştür **GitRepos\GroupCommon\GroupUtilities** directory ve çalışma kümesine git bash komutlar:
+Son olarak, geçin **GitRepos\GroupCommon\GroupUtilities** directory ve çalışma aynı kümesini git bash komutları:
 
     git status
     git add .
     git commit -m"push from DSVM"
     git push
 
->[AZURE.NOTE] Bir Git deposuna yürüttükten ilk kez kullanıyorsanız, genel parametreleri yapılandırmanız gereken *user.name* ve *user.email* çalıştırmadan önce `git commit` komutu. Aşağıdaki iki komutu çalıştırın:
+>[AZURE.NOTE] Bu bir Git deposuna işleme ilk kez kullanıyorsanız, genel parametrelerini yapılandırmanıza gerek *user.name* ve *user.email* çalıştırmadan önce `git commit` komutu. Aşağıdaki iki komutu çalıştırın:
         
     git config --global user.name <your name>
     git config --global user.email <your email address>
  
->Birden çok Git depoları için yürütülmekte olan, her birine yaparsanız aynı ad ve e-posta adresi kullanın. Powerbı panolar üzerinde birden çok depoları Git etkinlikleri izlemenize oluştururken aynı ad ve e-posta adresini kullanarak daha sonra uygun kanıtlar.
+>Birden çok Git deposu için yürütülmekte olan, her birine işlemesini oluştururken aynı ad ve e-posta adresi kullanın. Git etkinliklerinizi birden çok depolara göre izlemek için Power BI panoları oluşturduğunuzda aynı ad ve e-posta adresi kullanarak daha sonra uygun kanıtlar.
 
 
-- Bizim kısaltılmış deposu adlarını kullanarak, bu komut dosyalarını elde ettikleri şudur:
-    - LR1 - içeriği eklemek R1 ->
-    - LR2 - içeriği eklemek R2 ->
+- Bizim kısaltılmış depo adları kullanarak, bu betikleri elde ettikleri budur:
+    - LR1 - içeriğini Ekle R1 ->
+    - LR2 - içeriğini Ekle R2 ->
 
-## <a name="6-add-group-members-to-the-group-server"></a>6. Grup üyelerinin grup sunucuya ekleyin
+## <a name="6-add-group-members-to-the-group-server"></a>6. Grup üyelerinin grup sunucuya ekleyin.
 
-Grup VSTS sunucunuzun giriş sayfasından tıklatın **dişli simgesi** kullanıcı adınızı yanındaki sağ üst köşesinde, ardından **güvenlik** sekmesi. Grubunuzun burada çeşitli izinlerle üyeler ekleyebilirsiniz.
+Grup Azure DevOps hizmetlerinizi'nın giriş sayfasından tıklayın **dişli simgesini** sağ üst köşesinde kullanıcı adınızı yanında, ardından **güvenlik** sekmesi. Grubunuz burada çeşitli izinlerine sahip üyeleri ekleyebilirsiniz.
 
 ![24](./media/group-manager-tasks/add_member_to_group.PNG) 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Burada, rolleri ve görevleri takım veri bilimi işlem tarafından tanımlanan daha ayrıntılı açıklamaları bağlantıları verilmiştir:
+Team Data Science Process tarafından tanımlanan görevleri ve rolleri ayrıntılı açıklamaları için bağlantılar şunlardır:
 
-- [Bir veri bilimi ekibi için Grup yöneticisi görevleri](group-manager-tasks.md)
-- [Bir veri bilimi ekibi için takım sağlama görevleri](team-lead-tasks.md)
-- [Proje veri bilimi ekibi için sağlama görevleri](project-lead-tasks.md)
-- [Proje veri bilimi ekibi için tek tek Katkıda Bulunanlar](project-ic-tasks.md)
+- [Bir veri bilimi takım için Grup yöneticisi görevleri](group-manager-tasks.md)
+- [Bir veri bilimi takım için takım sağlama görevleri](team-lead-tasks.md)
+- [Proje için bir veri bilimi ekibi müşteri adayı görevleri](project-lead-tasks.md)
+- [Bir veri bilimi takım için proje bağımsız katılımcıları](project-ic-tasks.md)

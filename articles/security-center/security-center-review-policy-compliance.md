@@ -1,6 +1,6 @@
 ---
-title: Güvenlik Merkezi ilke uyumluluğu Azure REST API ile gözden geçirme | Microsoft Docs
-description: Güvenlik Merkezi ilkelerle geçerli uyumluluk gözden geçirmek için Azure REST API'lerini kullanmayı öğrenin.
+title: Azure REST API'si ile Güvenlik Merkezi ilke uyumluluğunu gözden geçirme | Microsoft Docs
+description: Güvenlik Merkezi ilkelerle geçerli uyumluluğu gözden geçirmek için Azure REST API'lerini kullanmayı öğrenin.
 services: security-center
 documentationcenter: na
 author: lleonard-msft
@@ -9,46 +9,47 @@ editor: ''
 ms.assetid: 82D50B98-40F2-44B1-A445-4391EA9EBBAA
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: alleonar
-ms.openlocfilehash: 6c6764eec59633f0bdd0fa396c1581117a0c1e1d
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 1443486590859aac5591aff2ab0551bed9228d7b
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301758"
 ---
 # <a name="review-security-center-policy-compliance-using-rest-apis"></a>REST API'lerini kullanarak gözden geçirme Güvenlik Merkezi ilke uyumluluğu
 
-Güvenlik Merkezi düzenli aralıklarla Azure kaynaklarınızın tanımlı güvenlik ilkelerinizi karşı doğrular. Güvenlik Merkezi, ayrıca, uyumluluk kendi uygulamalardan gözden geçirmenize olanak sağlayan bir REST API'si sağlar; Hizmet doğrudan sorgu veya diğer uygulamalara JSON sonuçları alın. 
+Güvenlik Merkezi düzenli aralıklarla Azure kaynaklarınızın tanımlı güvenlik ilkelerinizi karşı doğrular. Güvenlik Merkezi ayrıca kendi uygulamalarınızı uyumluluğunu gözden geçirme olanak sağlayan bir REST API'si sağlar. Hizmet doğrudan sorgulamak veya JSON sonuçları diğer uygulamalara içeri aktarın. 
 
-Burada, bir aboneliği ile ilişkili tüm Azure kaynakları önerileri geçerli kümesini almak öğrenin.
+Burada, bir aboneliği ile ilişkili tüm Azure kaynaklarını setini öneriler almak öğrenin.
 
-Geçerli dizi öneriyi almak için:
+Geçerli kümesini öneriler almak için:
 ``` http
 GET https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Security/tasks?api-version={api-version}
 Content-Type: application/json   
 Authorization: Bearer
 ```
 
-## <a name="build-the-request"></a>Oluşturma isteği  
+## <a name="build-the-request"></a>Derleme isteği  
 
-`{subscription-id}` Parametresi gereklidir ve politikalarını Azure aboneliği için abonelik Kimliğini içermelidir. Birden çok aboneliğiniz varsa, bkz: [birden çok abonelik ile çalışma](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions).  
+`{subscription-id}` Parametresi gereklidir ve ilkeler tanımlayarak Azure aboneliği için abonelik Kimliğini içermelidir. Birden fazla aboneliğiniz varsa, bkz. [birden çok abonelik ile çalışma](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions).  
 
-`api-version` Parametresi gereklidir. Şu anda bu uç noktalar yalnızca desteklenen `api-version=2015-06-01-preview`. 
+`api-version` Parametresi gereklidir. Şu anda bu uç noktalar için yalnızca desteklenen `api-version=2015-06-01-preview`. 
 
 Aşağıdaki üst bilgiler gereklidir: 
 
 |İstek üstbilgisi|Açıklama|  
 |--------------------|-----------------|  
-|*Content-Type:*|Gereklidir. Kümesine `application/json`.|  
-|*Yetkilendirme:*|Gereklidir. Geçerli bir ayarla `Bearer` [erişim belirteci](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |  
+|*İçerik türü:*|Gereklidir. Kümesine `application/json`.|  
+|*Yetkilendirme:*|Gereklidir. Geçerli bir kümesi `Bearer` [erişim belirteci](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |  
 
 ## <a name="response"></a>Yanıt  
 
-Durum kodu 200 (Tamam) Azure kaynaklarınızı güvenli hale getirmek için önerilen görevlerin bir listesi içeren başarılı bir yanıt için döndürülür.
+Durum kodu 200 (Tamam) kullanarak Azure kaynaklarınızı güvenli hale getirmek için önerilen görevlerinin listesini içeren başarılı bir yanıt için döndürülür.
 
 ``` json
 {  
@@ -68,19 +69,19 @@ Durum kodu 200 (Tamam) Azure kaynaklarınızı güvenli hale getirmek için öne
 }  
 ```  
 
-Her öğe **değeri** bir öneri temsil eder:
+Her öğe **değer** bir öneriyi temsil eder:
 
 |Yanıt özelliği|Açıklama|
 |----------------|----------|
-|**Durumu** | Öneri olup olmadığını belirten `active` veya `resolved`. |
-|**creationTimeUtc** | Tarih ve öneri ne zaman oluşturulduğunu gösteren UTC saat. |
+|**durumu** | Öneri olup olmadığını belirten `active` veya `resolved`. |
+|**CreationTimeUtc** | Tarih ve saat, öneri ne zaman oluşturulduğunu gösteren, UTC diliminde saat. |
 |**lastStateChangeUtc** | Tarih ve saat, son durum değişikliği, varsa, UTV. |
-|**securityTaskParameters** | Öneri ayrıntılarını; Özellikler, temel alınan öneri göre farklılık gösterir. |
+|**securityTaskParameters** | Öneri ayrıntıları; özellikleri, temel alınan öneri göre farklılık gösterir. |
 ||
   
-Şu anda desteklenen önerileri için bkz: [uygulayan güvenlik önerileri](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
+Şu anda desteklenen önerileri için bkz: [güvenlik önerilerini uygulama](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
 
-Diğer durum kodları hata koşulları belirtin. Bu durumlarda, isteğin neden başarısız açıklayan bir açıklama yanıt nesnesini içerir.
+Diğer durum kodları hata koşulları belirtin. Bu gibi durumlarda yanıt nesnesini isteğin neden başarısız olduğunu açıklayan bir açıklama içerir.
 
 ``` json
 {  
@@ -139,9 +140,9 @@ Diğer durum kodları hata koşulları belirtin. Bu durumlarda, isteğin neden b
 }  
 ```  
 
-Bu yanıt iki öneriler gösterir; Listedeki her bir öğe için belirli bir öneri karşılık gelir. Linux sanal makine depolama şifreleme ilk önerir ve ikinci bir SQL server için denetimi etkinleştirmek önerir.
+Bu yanıt iki öneriler gösterir. Listedeki her öğe için belirli bir öneri karşılık gelir. İlk Linux sanal makinesinde depolama şifreleme önerir ve ikinci bir SQL server için denetimi etkinleştirme önerir.
 
-Öneriler, etkinleştirdikten ilkelerine göre değişir. Şu anda kullanılabilir öneriler dahil olmak üzere daha fazla bilgi için bkz: [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
+Öneriler, etkinleştirdiğiniz ilkelerine göre farklılık gösterir. Şu anda kullanılabilir öneriler de dahil olmak üzere daha fazla bilgi için bkz. [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
 
 
 ## <a name="see-also"></a>Ayrıca bkz.  

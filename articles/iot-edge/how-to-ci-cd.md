@@ -1,6 +1,6 @@
 ---
-title: Azure IOT kenar sürekli tümleştirme ve sürekli dağıtımı | Microsoft Docs
-description: Azure IOT kenar için sürekli dağıtım ve sürekli tümleştirme genel bakış
+title: Azure IOT Edge sürekli tümleştirme ve sürekli dağıtım | Microsoft Docs
+description: Sürekli tümleştirme ve sürekli dağıtım Azure IOT Edge için genel bakış
 author: shizn
 manager: ''
 ms.author: xshi
@@ -8,38 +8,38 @@ ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 62d8d770f6b4c3a62a2395eb8c1505dbc3835c28
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5099ca70503ba2ed4ae8f4969a9199816c4986fb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047464"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302580"
 ---
-# <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Sürekli tümleştirme ve Azure IOT ucunu sürekli dağıtım
+# <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Sürekli tümleştirme ve sürekli dağıtım için Azure IOT Edge
 
-Bu makalede, nasıl sürekli tümleştirme ve sürekli dağıtımı özellikleri Visual Studio Team Services (VSTS) ve Microsoft Team Foundation Server (TFS) için derleme, test ve uygulamaları için Azure hızlı ve verimli bir şekilde dağıtmak için kullanabileceğiniz gösterilmektedir. IOT kenar. 
+Bu makalede, derleme, test etme ve uygulamaları, Azure IOT Edge için hızlı ve verimli bir şekilde dağıtmak için sürekli tümleştirme ve sürekli dağıtım Özelliği Azure DevOps Hizmetleri ve Microsoft Team Foundation Server (TFS) nasıl kullanabileceğinizi gösterir. 
 
 Bu makalede, öğreneceksiniz nasıl yapılır:
-* Oluşturun ve bir örnek IOT kenar çözüm içeren birim testleri denetleyin.
-* Azure IOT kenar uzantı için VSTS yükleyin.
-* Sürekli Tümleştirme (CI) çözümü oluşturmak ve birim testleri çalıştırmak için yapılandırın.
+* Oluşturma ve bir örnek IOT Edge çözümü içeren birim testleri denetleyin.
+* Azure DevOps için Azure IOT Edge uzantısını yükleyin.
+* Sürekli Tümleştirme (CI) çözümü oluşturun ve birim testlerini çalıştırmak için yapılandırın.
 * Çözümü dağıtmak ve yanıtları görüntülemek için sürekli dağıtım (CD) yapılandırın.
 
-Bu makaledeki adımları tamamlanması 30 dakika sürer.
+Bu makaledeki adımlarda tamamlanması 30 dakika sürer.
 
 ![CI ve CD](./media/how-to-ci-cd/cd.png)
 
-## <a name="create-a-sample-azure-iot-edge-solution-using-visual-studio-code"></a>Visual Studio Code kullanarak örnek bir Azure IOT kenar çözüm oluşturma
+## <a name="create-a-sample-azure-iot-edge-solution-using-visual-studio-code"></a>Visual Studio Code kullanarak örnek bir Azure IOT Edge çözüm oluşturma
 
-Bu bölümde, oluşturma işleminin bir parçası olarak çalışabilecek çözüm birim testleri içeren bir örnek IOT kenar oluşturur. Bu bölümde yer alan yönergeleri izlemeden önce bölümündeki adımları tamamlamanız [IOT kenar çözümünü birden fazla modülü Visual Studio Code ile geliştirme](tutorial-multiple-modules-in-vscode.md).
+Bu bölümde, yapı işleminin bir parçası olarak yürütebilen çözüm birim testleri içeren örnek bir IOT Edge oluşturacaksınız. Bu bölümdeki yönergeleri izlemeden önce bölümündeki adımları tamamlamanız [bir IOT Edge çözümü Visual Studio code'da birden çok modül ile geliştirme](tutorial-multiple-modules-in-vscode.md).
 
-1. VS Code komutu palette yazın ve şu komutu çalıştırın **kenar: yeni IOT uç çözümünün**. Çalışma klasörü seçin, çözüm adı belirtin (varsayılan ad **EdgeSolution**) ve bir C# modül oluşturun (**FilterModule**) Bu çözümdeki ilk kullanıcı modülü olarak. İlk modülünüz için Docker görüntü deposunu da belirtmeniz gerekir. Varsayılan görüntü deposu yerel bir Docker kayıt defteri tabanlı (`localhost:5000/filtermodule`). Azure kapsayıcı kayıt defterine değiştirmeniz gerekir (`<your container registry address>/filtermodule`) veya daha fazla sürekli tümleştirme için Docker Hub.
+1. VS Code komut paleti yazın ve şu komutu çalıştırın **Edge: IOT Edge yeni çözüm**. Çalışma alanı klasörünüzde'ı seçin, çözüm adı sağlayın (varsayılan ad **EdgeSolution**) ve bir C# modülü oluşturun (**FilterModule**) Bu çözümdeki ilk kullanıcı modülü olarak. İlk modülünüz için Docker görüntü deposunu da belirtmeniz gerekir. Varsayılan görüntü deposu yerel bir Docker kayıt defteri bağlıdır (`localhost:5000/filtermodule`). Azure Container Registry'ye değiştirmeniz gerekir (`<your container registry address>/filtermodule`) veya daha fazla sürekli tümleştirme için Docker hub'ı.
 
     ![ACR Kurulumu](./media/how-to-ci-cd/acr.png)
 
-2. VS Code penceresini IOT kenar çözüm çalışma alanınızı yükler. İsteğe bağlı olarak yazdığınızda veya çalıştırmak **kenar: eklemek IOT kenar Modülü** daha fazla modül eklemek için. Var olan bir `modules` klasörü, bir `.vscode` klasörü ve bir dağıtım bildirim şablon dosyası kök klasöründe. Tüm kullanıcı modülü kodları alt klasörü altında olacak `modules`. `deployment.template.json` Dağıtım bildirim şablonudur. Bazı parametrelerin bu dosyadaki gelen ayrıştırılır `module.json`, her modül klasöründe bulunmaktadır.
+2. VS Code penceresinin, IOT Edge çözüm çalışma alanı yükler. İsteğe bağlı olarak yazın ve çalıştırabilirsiniz **Edge: IOT Edge Modülü Ekle** daha fazla modül eklemek için. Var olan bir `modules` klasöründe bir `.vscode` klasörü ve dağıtım bildirim şablonu dosyası kök klasöründe. Tüm kullanıcı modülü kodları alt klasörü altında olacak `modules`. `deployment.template.json` Dağıtım bildirimi şablonudur. Bazı parametreler bu dosyadaki gelen ayrıştırılacak `module.json`, her modül klasöründe bulunmaktadır.
 
-3. Artık IOT uç çözümünün örneğinizi hazırdır. Varsayılan C# modül kanal iletisi modül olarak davranır. İçinde `deployment.template.json`, bu çözüm içeren iki modülleri görürsünüz. İleti kaynaklandığı `tempSensor` modül ve aracılığıyla doğrudan yöneltilen `FilterModule`, IOT hub'ına gönderilen. Tüm Değiştir **Program.cs** altındaki içerik dosya ile. Bu kod parçacığını hakkında daha fazla bilgi için başvurabilirsiniz [bir IOT kenar C# modülü projesi oluşturmak](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module#create-an-iot-edge-module-project).
+3. Artık IOT Edge çözüm örneğinizi hazırdır. Varsayılan C# modülü kanal iletisi modül olarak görev yapar. İçinde `deployment.template.json`, bu çözümü içeren iki modül görürsünüz. İleti kaynaklandığı `tempSensor` modülü ve aracılığıyla doğrudan yöneltilen `FilterModule`, ardından IOT hub'ına gönderilen. Tüm değiştirin **Program.cs** dosya içeriği. Bu kod parçacığı hakkında daha fazla bilgi için başvurabilirsiniz [bir IOT Edge C# modülü projesi oluşturma](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module#create-an-iot-edge-module-project).
 
     ```csharp
     namespace FilterModule
@@ -183,7 +183,7 @@ Bu bölümde, oluşturma işleminin bir parçası olarak çalışabilecek çöz�
     }
     ```
 
-4. Bir .net oluşturma çekirdek birim testi projesi. VS Code dosya Gezgini'nde, yeni bir klasör oluşturun **tests\FilterModuleTest** çalışma alanınızdaki. VS Code tümleşik Terminal sonra (**Ctrl + '**), komutları bir xunit test projesi oluşturmak ve başvuru eklemek için aşağıdaki çalışma **FilterModule** projesi.
+4. Oluşturma bir.Net Core birim testi projesi. VS Code dosya Gezgini'nde, yeni bir klasör oluşturun **tests\FilterModuleTest** çalışma alanınızdaki. VS Code tümleşik Terminalini sonra (**Ctrl + '**), komutları bir xunit test projesi oluşturun ve referansı eklemek için aşağıdaki çalıştırma **FilterModule** proje.
 
     ```cmd
     cd tests\FilterModuleTest
@@ -193,7 +193,7 @@ Bu bölümde, oluşturma işleminin bir parçası olarak çalışabilecek çöz�
 
     ![Klasör yapısı](./media/how-to-ci-cd/add-test-project.png)
 
-5. İçinde **FilterModuleTest** klasör, dosya adı, güncelleştirme **UnitTest1.cs** için **FilterModuleTest.cs**. Seçin ve açın **FilterModuleTest.cs**, FilterModule projesine karşı birim testleri içeren kod parçacığı aşağıda tüm kod ile değiştirin.
+5. İçinde **FilterModuleTest** klasör, dosya adını güncelleştirme **UnitTest1.cs** için **FilterModuleTest.cs**. Seçin ve açın **FilterModuleTest.cs**, FilterModule projesine karşı birim testleri içeren kod parçacığı aşağıda tüm kod ile değiştirin.
 
     ```csharp
     using Xunit;
@@ -270,82 +270,82 @@ Bu bölümde, oluşturma işleminin bir parçası olarak çalışabilecek çöz�
     }
     ```
 
-6. Tümleşik terminale birim testleri yerel olarak çalıştırmak için komutları girebilirsiniz. 
+6. Tümleşik terminalde aşağıdaki komutları yerel olarak birim testlerini çalıştırmak için girebilirsiniz. 
     ```cmd
     dotnet test
     ```
 
     ![Birim testi](./media/how-to-ci-cd/unit-test.png)
 
-7. Bu projeleri kaydedin, sonra VSTS veya TFS depoya denetleyin.
+7. Bu projeler kaydettikten sonra Azure DevOps veya TFS depoya denetleyin.
     
 
 > [!NOTE]
-> Kod depoları VSTS kullanma hakkında daha fazla bilgi için bkz: [kodunuzu paylaşımı Visual Studio ve VSTS Git](https://docs.microsoft.com/vsts/git/share-your-code-in-git-vs?view=vsts).
+> Azure depoları kullanma hakkında daha fazla bilgi için bkz. [Visual Studio ve Azure depoları ile kodunuzu paylaşmaya](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
 
 
-## <a name="configure-continuous-integration"></a>Sürekli Tümleştirme yapılandırın
-Bu bölümde IOT uç çözümünün örnek değişiklikleri iade ettiğinizde otomatik olarak çalışacak şekilde yapılandırılmış bir derleme tanımınız oluşturacak ve içerdiği birim testleri otomatik olarak çalıştırır.
+## <a name="configure-continuous-integration"></a>Sürekli tümleştirmeyi yapılandırın
+Bu bölümde, IOT Edge çözüm örnek değişiklikleri iade ettiğinizde otomatik olarak çalışacak şekilde yapılandırılmış bir derleme işlem hattı oluşturur ve içerdiği birim testlerini otomatik olarak çalıştırır.
 
-1. VSTS hesabınızda oturum (**https://**_hesabınız_**. visualstudio.com**) ve örnek uygulama yeri işaretli projesini açın.
+1. Azure DevOps kuruluşunuz oturum (**https://**_hesabınızı_**. visualstudio.com**) ve örnek uygulamada nereye iade projeyi açın.
 
-    ![Giriş kodu](./media/how-to-ci-cd/init-project.png)
+    ![Kod iade etme](./media/how-to-ci-cd/init-project.png)
 
-1. Ziyaret [VSTS için Azure IOT kenar](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) VSTS Market'te. Tıklatın **ücretsiz almak** ve VSTS hesabı veya indirmek için TFS için bu uzantıyı yüklemek için sihirbazı izleyin.
+1. Ziyaret [Azure DevOps için Azure IOT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) Azure DevOps Market'te. Tıklayın **Ücretsiz edinin** ve Azure DevOps kuruluşunuz veya indirmek için TFS için bu uzantıyı yüklemek için sihirbazı izleyin.
 
     ![Uzantıyı yükleme](./media/how-to-ci-cd/install-extension.png)
 
-1. VSTS içinde açmak **yapı &amp; sürüm** hub hem de **derlemeler** sekmesinde, seçin **+ yeni tanımı**. Veya derleme tanımı varsa, seçin **+ yeni** düğmesi. 
+1. Azure DevOps açın **derleme &amp; yayın** hub hem de **oluşturur** sekmesini, **+ yeni işlem hattı**. Ya da derleme işlem hatlarını zaten varsa, seçin **+ yeni** düğmesi. 
 
-    ![Yeni bir derleme](./media/how-to-ci-cd/add-new-build.png)
+    ![Yeni derleme](./media/how-to-ci-cd/add-new-build.png)
 
-1. İstenirse, seçin **VSTS Git** kaynak türünü; proje, depo ve kodunuzu bulunduğu dalı seçin. Seçin **devam**.
+1. İstenirse, seçin **Azure DevOps Git** kaynak türü; ardından Proje, depo ve dal kodunuzu nerede'ı seçin. Seçin **devam**.
 
-    ![VSTS git seçin](./media/how-to-ci-cd/select-vsts-git.png)
+    ![Azure DevOps gıt'i seçin](./media/how-to-ci-cd/select-vsts-git.png)
 
-1. İçinde **bir şablon seçin** penceresinde, seçin **boş bir işlemle Başlat**.
+1. İçinde **bir şablon seçin** penceresinde seçin **boş bir işlemle başlangıç**.
 
     ![Boş Başlat](./media/how-to-ci-cd/start-with-empty.png)
 
-1. Tıklatın **+** sağ tarafında **Aşama 1** aşamasına bir görev eklemek için. Ardından arayın ve seçin **.Net Core**, tıklatıp **Ekle** aşamasına bu görev eklemek için.
+1. Tıklayın **+** sağ alt tarafında **1. Aşama** aşamaya bir görev eklemek için. Seçin ve ardından arama **.Net Core**, tıklatıp **Ekle** aşaması için bu görev eklemek için.
 
-    ![DotNet test](./media/how-to-ci-cd/add-dot-net-core.png)
+    ![DotNet testi](./media/how-to-ci-cd/add-dot-net-core.png)
 
-1. Güncelleştirme **görünen adı** için **dotnet test**hem de **komutu** açılır listesinden, **test**. Yolu altındaki eklemek **proje yoluna**.
+1. Güncelleştirme **görünen ad** için **dotnet testi**hem de **komut** açılan listesinden **test**. Aşağıdaki yolu Ekle **projelerin yolu**.
 
     ```
     tests/FilterModuleTest/*.csproj
     ```
 
-    ![DotNet test yapılandırın](./media/how-to-ci-cd/dotnet-test.png)
+    ![DotNet testi Yapılandır](./media/how-to-ci-cd/dotnet-test.png)
 
-1. Tıklatın **+** sağ tarafında **Aşama 1** aşamasına bir görev eklemek için. Ardından arayın ve seçin **Azure IOT kenar**, tıklatıp **Ekle** düğmesini **iki kez** bu görevleri aşamasına eklemek için.
+1. Tıklayın **+** sağ alt tarafında **1. Aşama** aşamaya bir görev eklemek için. Seçin ve ardından arama **Azure IOT Edge**, tıklatıp **Ekle** düğmesi **iki kez** aşaması için bu görevleri eklemek için.
 
     ![IoT Edge](./media/how-to-ci-cd/add-azure-iot-edge.png)
 
-1. İlk Azure IOT kenar görevde güncelleştirme **görünen adı** için **modülü oluşturmak ve anında iletme**hem de **eylem** açılır listesinden, **yapı veGönderme**. İçinde **Module.json dosya** metin kutusuna, aşağıdaki yolu ekleyin. Ardından **kapsayıcı kayıt defteri türü**, yapılandırmak ve aynı kayıt defteri kodunuzda seçin emin olun. Bu görev oluşturacak ve tüm modüllerin çözümde anında ve belirttiğiniz kapsayıcı kayıt defterine yayımlayın. Modüllerinizi farklı kayıt defterleri gönderilir, birden çok olabilir **modülü oluşturmak ve anında iletme** görevler.
+1. İlk Azure IOT Edge görevi güncelleştirme **görünen ad** için **modülü oluşturmak ve anında iletme**ve **eylem** açılan listesinden **oluşturun vegönderin**. İçinde **Module.json dosya** metin kutusuna aşağıdaki yolu ekleyin. Ardından **kapsayıcı kayıt defteri türü**, yapılandırma ve kodunuzda aynı kayıt defteri seçin emin olun. Bu görev oluşturacak ve Çözümdeki tüm modüllerin gönderin ve belirttiğiniz kapsayıcı kayıt defterine yayımlama. Farklı kayıt defterlerinde modüllerinizi gönderilir, birden çok olabilir **modülü oluşturmak ve anında iletme** görevleri.
 
     ```
     **/module.json
     ```
 
-    ![Modül oluşturma ve gönderme](./media/how-to-ci-cd/module-build-push.png)
+    ![Modül derleme ve gönderme](./media/how-to-ci-cd/module-build-push.png)
 
-1. İkinci Azure IOT kenar görevde güncelleştirme **görünen adı** için **IOT sınır cihazı Dağıt**ve **eylem** açılır listesinden, **IOT ucunu dağıtma Aygıt**. Azure aboneliğinizi seçin ve IOT Hub adınızı girin. Bir IOT kenar dağıtım kimliği ve dağıtım önceliğini belirtebilirsiniz. Tek veya birden çok aygıta dağıtmayı seçebilirsiniz. Birden çok aygıta dağıtıyorsanız, cihaz hedef durumu belirtmeniz gerekir. Örneğin, aygıt etiketleri koşul olarak kullanmak istiyorsanız, karşılık gelen aygıtlarınızı etiketleri dağıtımdan önce güncelleştirmeniz gerekir. 
+1. İkinci Azure IOT Edge görevde güncelleştirme **görünen ad** için **IOT Edge cihazına dağıtma**hem de **eylem** açılan listesinden **IOT Edge dağıtma cihaz**. Azure aboneliğinizi seçin ve IOT Hub adınızı girin. Bir IOT Edge dağıtımı kimliği ile dağıtım önceliğini belirtebilirsiniz. Tek veya birden çok cihaza dağıtmayı seçebilirsiniz. Birden çok aygıta dağıtıyorsanız, cihaz hedef koşulu belirtmek gerekir. Örneğin, cihaz etiketleri koşul olarak kullanmak istiyorsanız, ilgili cihazlarınızı etiketleri dağıtımdan önce güncelleştirmeniz gerekiyor. 
 
-    ![Kenara dağıtma](./media/how-to-ci-cd/deploy-to-edge.png)
+    ![Uca dağıtma](./media/how-to-ci-cd/deploy-to-edge.png)
 
-1. Tıklatın **işlem** ve emin olun, **Aracısı sırası** olan **barındırılan Linux Önizleme**.
+1. Tıklayın **işlem** ve emin olun, **aracı kuyruğu** olduğu **barındırılan Linux Önizleme**.
 
     ![Yapılandırma](./media/how-to-ci-cd/configure-env.png)
 
-1. Açık **Tetikleyicileri** sekmesinde ve Aç **sürekli tümleştirme** tetikleyici. Kodunuzu içeren şube dahil olduğundan emin olun.
+1. Açık **Tetikleyicileri** sekmesini ve açma **sürekli tümleştirme** tetikleyici. Kodunuzu içeren dal dahil olduğundan emin olun.
 
     ![Tetikleyici](./media/how-to-ci-cd/configure-trigger.png)
 
-1. Yeni derleme tanımı kaydedin ve yeni bir yapıyı sıraya al. Tıklatın **sıraya & Kaydet** düğmesi.
+1. Yeni derleme işlem hattı kaydedin ve yeni bir yapıyı kuyruğa alın. Tıklayın **Kaydet ve kuyruğa** düğmesi.
 
-1. Yapı bağlantısını görüntülenen ileti çubuğunda seçin. Veya yapı son sıraya alınan derleme işi görmek için tanımı gidin.
+1. Yapı bağlantısını görüntülenen ileti çubuğu seçin. Veya en son sıraya alınan derleme işi görmek için işlem hattı oluşturma gidin.
 
     ![Oluşturma](./media/how-to-ci-cd/build-def.png)
 
@@ -353,20 +353,20 @@ Bu bölümde IOT uç çözümünün örnek değişiklikleri iade ettiğinizde ot
     
     ![Tamamlama](./media/how-to-ci-cd/complete.png)
 
-1. VS Code geri dönün ve IOT Hub cihaz explorer denetleyin. Sınır cihazı modülüyle çalıştıran başlamanız gerekir (emin olun kenar çalışma zamanı için kayıt defteri kimlik eklediğiniz).
+1. VS Code için geri dönün ve IOT Hub cihaz Gezgini denetleyin. Sınır cihazı modülü ile çalışan başlamalıdır (emin olun, kayıt defteri kimlik bilgilerini Edge çalışma zamanı'na eklediğiniz).
 
-    ![Çalışan sınır](./media/how-to-ci-cd/edge-running.png)
+    ![Edge çalıştırma](./media/how-to-ci-cd/edge-running.png)
 
-## <a name="continuous-deployment-to-iot-edge-devices"></a>IOT sınır cihazları için sürekli dağıtım
+## <a name="continuous-deployment-to-iot-edge-devices"></a>IOT Edge cihazları için sürekli dağıtım
 
-Sürekli dağıtımını etkinleştirmek için temel CI işler uygun IOT sınır cihazları ile ayarlamak etkinleştirilmesi gerekir **Tetikleyicileri** , Dallarınızı projenizdeki için. Klasik bir DevOps uygulamada bir proje iki ana dalları içerir. Ana dala kodu kararlı sürümü olmalıdır ve en son kod değişiklikleri geliştirme şube içerir. Her geliştiricinin ekipteki kaldırmalıdır geliştirme dala çatallaştırma veya tüm anlamına uygulayan kod güncelleştirme başlangıç özelliğini olduğunda kendi özellik şube geliştirme şube dallandırır. Ve her basılmış işleme CI sistem test edilmelidir. Tam kod yerel olarak test sonra bir çekme isteği aracılığıyla geliştirme şube özelliği şube birleştirilemez. Geliştirici şube kodu CI sistem sınandığında bir çekme isteği aracılığıyla ana dala birleştirilebilir.
+Sürekli dağıtımı etkinleştirme için temel CI işler doğru IOT Edge cihazları ile ayarlamak etkinleştirilmesi gerekir **Tetikleyicileri** projenizdeki dallarınız için. Klasik bir DevOps uygulamada iki ana dalı bir proje içerir. Ana daldaki kodu kararlı bir sürüm olmalıdır ve en son kod değişikliklerini geliştirme dalı içerir. Takım her geliştiricinin geliştirme dalı HIS çatal oluşturun veya anlamına gelen tüm işlemeler kodunu güncelleştirme başlatılıyor özelliği olduğunda kendi özellik dalı dallar geliştirme dalı devre dışı. Ve CI sistemi gönderilen her işleme test edilmelidir. Tam olarak kodu yerel olarak test sonra özellik geliştirme dalına bir çekme isteği aracılığıyla dalıyla. Geliştirici dal kodu CI sistemi sınanırken, ana dala bir çekme isteği aracılığıyla birleştirilebilir.
 
-Bu nedenle, IOT sınır cihazları dağıtırken, üç ana ortamları vardır.
-- Özellik dalda, geliştirme makinenizde benzetimli IOT sınır cihazı kullanın ya da fiziksel bir IOT sınır cihazı dağıtma.
-- Üzerinde şube geliştirmek, fiziksel bir IOT sınır cihazı dağıtmanız gerekir.
-- Ana dala üzerinde hedef IOT sınır cihazları üretim aygıtları olmalıdır.
+Bu nedenle, IOT Edge cihazlarına dağıtım yapılırken üç ana ortamları vardır.
+- Özellik dalı üzerinde geliştirme makinenizde sanal IOT Edge cihazı kullanın ya da fiziksel bir IOT Edge cihazına dağıtma.
+- Dal üzerinde geliştirmek, fiziksel bir IOT Edge cihazına dağıtmanız gerekir.
+- Ana dalda, hedef IOT Edge cihazları üretim cihazları olmalıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* IOT kenar dağıtımda anlamak [anlamak IOT kenar dağıtımları tek cihazlar için veya ölçekte](module-deployment-monitoring.md)
-* Oluştur, Güncelleştir veya bir dağıtımda silmek için izleyeceğiniz adımlarda size yol [dağıtma ve izleme IOT kenar modülleri ölçekte](how-to-deploy-monitor.md).
+* IOT Edge dağıtımı anlamak [IOT Edge dağıtımlarını anlama tek tek cihazlarda veya uygun ölçekte](module-deployment-monitoring.md)
+* Oluşturmak, güncelleştirmek veya bir dağıtımda silmek için adımlarında yol [dağıtma ve izleme uygun ölçekte IOT Edge modülleri](how-to-deploy-monitor.md).

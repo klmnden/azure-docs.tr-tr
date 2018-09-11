@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: spelluru
-ms.openlocfilehash: 100559f86a72cd5a5148d1db99764e5b04f3e3b1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 44c25aa589b757ec29dad6863ff1969e76aed872
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702485"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346245"
 ---
 # <a name="messages-payloads-and-serialization"></a>İletiler, yükler ve serileştirme
 
@@ -36,7 +36,7 @@ AMQP protokol düzeyinde kullanılan eşdeğer adları ayraç içinde listelenmi
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype) (içerik-tür)           | İsteğe bağlı olarak, iletinin yükü RFC2045, 5. bölüm biçimi şu tanımlayıcı ile açıklar; Örneğin, `application/json`.                                                                                                                                                                                                                                                                                             |
 |  [Correlationıd](/dotnet/api/microsoft.azure.servicebus.message.correlationid#Microsoft_Azure_ServiceBus_Message_CorrelationId) (bağıntı kimliği)       | İleti için bir bağlam amacıyla bağıntı belirtmek bir uygulama sağlar; Örneğin, yansıtma **MessageID** için yanıtlanamadığından bir ileti.                                                                                                                                                                                                                                                                  |
-| [DeadLetterSource](/dotnet/api/microsoft.azure.servicebus.message.deadlettersource)                      | Yalnızca eski lettered ve daha sonra otomatik-forwarded edilemeyen kuyruğu'ndan başka bir varlıkla iletileri ayarlayın. Varlık, eski lettered ileti gösterir. Bu özellik salt okunurdur.                                                                                                                                                                                                                                  |
+| [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource)                      | Yalnızca eski lettered ve daha sonra otomatik-forwarded edilemeyen kuyruğu'ndan başka bir varlıkla iletileri ayarlayın. Varlık, eski lettered ileti gösterir. Bu özellik salt okunurdur.                                                                                                                                                                                                                                  |
 | [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deliverycount)                         | Bu ileti için yapılmaya çalışılan teslimat sayısı. Sayı, bir iletinin kilit süresi ya da ileti alıcı tarafından açıkça terk artırılır. Bu özellik salt okunurdur.                                                                                                                                                                                                                                                  |
 | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber)                | Otomatik iletimli olan iletileri için bu özelliği ilk ileti gönderimi kendi özgün noktada için atanmış bir sıra numarası yansıtır. Bu özellik salt okunurdur.                                                                                                                                                                                                                                                                |
 | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc)                       | Hangi ileti kabul etti ve varlık içinde depolanan UTC anlık. Alıcı, gönderenin saat güven istemediği gerektiğinde bu değeri bir yetkili ve nötr varış zamanı göstergesi kullanılabilir. Bu özellik salt okunurdur.                                                                                                                                                                                                   |

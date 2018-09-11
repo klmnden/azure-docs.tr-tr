@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: marsma
-ms.openlocfilehash: e78be76d68cf75cf9d59f5b5dff86c65524275a9
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 16349af5932987cc0db4295355a0365c8579fcbf
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697250"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345749"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Ağ yapılandırması Azure Kubernetes Service (AKS)
 
@@ -173,11 +173,14 @@ Aşağıdaki sorular ve yanıtlar uygulamak **Gelişmiş** ağ yapılandırması
 
 Aşağıdaki makalelerde AKS de ağ oluşturmayla ilgili daha fazla bilgi edinin:
 
-[Azure Kubernetes Service (AKS) yük dengeleyiciyle bir statik IP adresi kullanın](static-ip.md)
+- [Azure Kubernetes Service (AKS) yük dengeleyiciyle bir statik IP adresi kullanın](static-ip.md)
+- [Azure Container Service (AKS) ile iç yük dengeleyici kullanın](internal-lb.md)
 
-[Azure Container Service (AKS) üzerindeki HTTPS giriş](ingress.md)
-
-[Azure Container Service (AKS) ile iç yük dengeleyici kullanın](internal-lb.md)
+- [Dış ağ bağlantısına sahip bir temel giriş denetleyicisi oluşturun][aks-ingress-basic]
+- [HTTP uygulama yönlendirme eklentiyi etkinleştir][aks-http-app-routing]
+- [Bir özel, iç ağ ve IP adresi kullanan bir giriş denetleyicisini oluşturma][aks-ingress-internal]
+- [Dinamik genel IP ile bir giriş denetleyicisi oluşturmak ve TLS sertifikalarını otomatik olarak oluşturmak için şimdi şifreleme yapılandırma][aks-ingress-tls]
+- [Giriş denetleyicisine statik bir genel IP oluşturun ve otomatik olarak TLS sertifikalarını oluşturmak için şimdi şifreleme yapılandırma][aks-ingress-static-tls]
 
 ### <a name="acs-engine"></a>ACS altyapısı
 
@@ -200,3 +203,8 @@ ACS altyapısı ile oluşturulmuş Kubernetes kümeleri destekleyen hem de [kube
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-ssh]: ssh.md
 [ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object
+[aks-ingress-basic]: ingress-basic.md
+[aks-ingress-tls]: ingress-tls.md
+[aks-ingress-static-tls]: ingress-static-ip.md
+[aks-http-app-routing]: http-application-routing.md
+[aks-ingress-internal]: ingress-internal-ip.md

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: db3cc8bb546758402e4f0b3fe91449e597e754fa
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: d0bf66a224a8a42f813bc817f78321167e309bdb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42056967"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303532"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Öğretici: Azure portal ile DevOps
 Azure platformu esnek DevOps iş akışları ile doludur. Bu öğreticide, geliştirme, test, dağıtma, sorun giderme, izleme ve çalışan uygulamaları yönetmek için Azure portalında özelliklerini kullanmayı öğrenin. Bu öğretici aşağıdakilere odaklanır:
@@ -82,7 +82,7 @@ Azure platformu esnek DevOps iş akışları ile doludur. Bu öğreticide, geli�
     
     ![image15][image15]
     
-    Azure portal ile sürekli dağıtımı etkinleştirme kolay bir deneyimdir. Ayrıca daha karmaşık yayın işlem hatları oluşturabilir ve otomatik derleme ile yayın yönetimi sistemlerinden yararlanma dahil olmak üzere var olan kaynak denetimi ve Azure’a dağıtılacak sürekli tümleştirme sistemleri ile diğer birçok tekniği kullanabilirsiniz.
+    Azure portal ile sürekli dağıtımı etkinleştirme kolay bir deneyimdir. Ayrıca daha karmaşık yayın işlem hatları oluşturabilir ve mevcut kaynak denetimiyle diğer birçok tekniği kullanabilirsiniz ve Azure işlem hatları yönetim sistemleri gibi yararlanarak Azure'a dağıtılacak sürekli tümleştirme sistemleri otomatik.
 
 ## <a name="develop-and-test-an-app"></a>Uygulama geliştirme ve test etme
 Ardından, kod temelinde bazı değişiklikler yapın ve bu değişiklikleri hızlıca dağıtın. Bazı performans Web uygulaması için testleri ayarlayacaksınız.
@@ -99,7 +99,7 @@ Ardından, kod temelinde bazı değişiklikler yapın ve bu değişiklikleri hı
 4. Konsol penceresinde uygulamanız için dinamik komutlar verebilirsiniz. Dir komutunu yazın ve enter tuşuna basın. Yükseltilmiş ayrıcalıklar gerektiren komutlar çalışmaz.
    
    ![image19][image19]
-5. Geliştirme kategorisine geri dönün ve Visual Studio Online’ı seçin. Note: Visual Studio Online artık Visual Studio Team Services olarak adlandırılmaktadır.
+5. Geliştirme kategorisine geri dönün ve Visual Studio Online’ı seçin. Not: Visual Studio Online artık Azure DevOps Hizmetleri olarak adlandırılır.
    
    ![image20][image20]
 6. Uygulamanız için tarayıcı içi düzenleme deneyimini açın.
@@ -125,7 +125,7 @@ Ardından, kod temelinde bazı değişiklikler yapın ve bu değişiklikleri hı
 12. Araçlar dikey penceresine geri gidin ve Geliştirme kategorisi altında Performans Testi’ne tıklayın.
     
     ![image28][image28]
-13. Bir Team Services hesabı ayarlamanız gerekir. Daha fazla ayrıntı için buraya bakın: [Team Services hesabı oluşturma](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
+13. Azure DevOps Hizmetleri kuruluş ayarlamanız gerekir. Daha fazla ayrıntı için buraya bakın: [Azure DevOps Hizmetleri kuruluş oluştur](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
 14. Performans testi oluşturmak için Yeni’ye tıklayın.
     
     ![image29][image29]

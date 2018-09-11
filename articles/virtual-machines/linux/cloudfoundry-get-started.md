@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 42910675bcf512a3d6c76369adc9f41215420a78
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 18aa5ab16a1690fdcead46ebc15d72837f62612d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972300"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302478"
 ---
 # <a name="cloud-foundry-on-azure"></a>Azure’da Cloud Foundry
 
@@ -60,9 +60,9 @@ Hizmet Aracısı Pivotal Cloud Foundry kullanıyorsanız, aynı zamanda olan [bi
 
 ## <a name="related-resources"></a>İlgili kaynaklar
 
-### <a name="visual-studio-team-services-plugin"></a>Visual Studio Team Services eklentisi
+### <a name="azure-devops-services-plugin"></a>Azure DevOps Services eklentisi
 
-Cloud Foundry sürekli tümleştirme (CI) ve sürekli teslim (CD) kullanımı dahil olmak üzere, Çevik Yazılım Geliştirme için oldukça uygundur. Projelerinizi yönetin için Visual Studio Team Services (VSTS) kullanın ve ayarlamak istiyorsanız Cloud Foundry hedefleyen bir CI/CD işlem hattı, kullanabileceğiniz [VSTS Cloud Foundry derleme uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). Eklenti Azure'da veya başka bir çalışan olup olmadığını yapılandırın ve Cloud Foundry, dağıtımları otomatik hale getirmek kolaylaştırır ortam.
+Cloud Foundry sürekli tümleştirme (CI) ve sürekli teslim (CD) kullanımı dahil olmak üzere, Çevik Yazılım Geliştirme için oldukça uygundur. Azure DevOps hizmetleri yönetmek için kullanmak ve ayarlamak istediğiniz Cloud Foundry hedefleyen bir CI/CD işlem hattı, kullanabileceğiniz [Azure DevOps Hizmetleri Cloud Foundry derleme uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). Eklenti Azure'da veya başka bir çalışan olup olmadığını yapılandırın ve Cloud Foundry, dağıtımları otomatik hale getirmek kolaylaştırır ortam.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,5 +1,6 @@
 ---
-title: PHP Hızlı Başlangıç için Azure Bilişsel hizmetler, metin analizi API'si | Microsoft Docs
+title: "Hızlı Başlangıç: Metin analizi API'sini çağırmak için PHP kullanma | Microsoft Docs"
+titleSuffix: Azure Cognitive Services
 description: Hızlı bir şekilde yardımcı olması için alma bilgileri ve kod örnekleri, Azure üzerinde Microsoft Bilişsel hizmetler metin analizi API'sini kullanarak başlayın.
 services: cognitive-services
 documentationcenter: ''
@@ -9,14 +10,14 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 2f654736e998652ecaf8825b308c7ff3bf84a924
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 602988747f54c3dbdfa933986d47b631b757db65
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840779"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298718"
 ---
-# <a name="quickstart-for-text-analytics-api-with-php"></a>Hızlı Başlangıç için metin analizi API'si ile PHP 
+# <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Hızlı Başlangıç: Metin analizi Bilişsel hizmetini çağırmak için PHP kullanma
 <a name="HOLTop"></a>
 
 Bu makalede gösterilmektedir için [dili algılayın](#Detect), [düşüncelerini çözümleme](#SentimentAnalysis), [anahtar tümcecikleri ayıklayın](#KeyPhraseExtraction), ve [bağlı varlıkları tanımlama](#Entities) kullanma [metin analizi API'lerini](//go.microsoft.com/fwlink/?LinkID=759711) PHP ile.

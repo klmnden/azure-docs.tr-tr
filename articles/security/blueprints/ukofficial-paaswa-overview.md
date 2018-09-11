@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: f465a6e6cb0642f64670a8d2727c939f91bad134
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 6fe85d7ac527179ab39e89739f5744f3aa1ef8e2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617258"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297564"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure güvenlik ve uyumluluk planı: PaaS Web UK resmi iş yükleri için uygulama barındırma
 
@@ -27,7 +27,7 @@ Azure güvenlik ve uyumluluk planı sağlayan bir Microsoft Azure sunmak için r
 
 Bu plan, Birleşik Krallık Ulusal siber Güvenlik Merkezi (NCSC tarafından) Gözden geçirildi ve NCSC 14 bulut güvenliği prensipleri hizalar.
 
-Mimaride, Azure [bir hizmet olarak platform](https://azure.microsoft.com/overview/what-is-paas/) gider ve satın yazılım lisanslarını, uygulama altyapının yönetme karmaşasından kaçınmak müşterilerin izin veren bir ortam sunmak için bileşenleri ve ara yazılım veya geliştirme araçları ve diğer kaynaklar. Müşteriyi yönetiyorsanız geliştirme, hizmetleri ve uygulamaları Microsoft Azure sanal makineler, depolama gibi diğer Azure kaynaklarını yöneten artırabileceksiniz Kurumsal değer sunmaya ve ağ, daha fazla yerleştirme odaklanarak [bölümü Sorumluluk](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility) için altyapı yönetimi, Azure platformu açın. [Azure uygulama hizmetleri](https://azure.microsoft.com/services/app-service/) otomatik ölçeklendirme, yüksek kullanılabilirlik sunar, Windows ve Linux'ı destekler ve GitHub, Visual Studio Team Services veya herhangi bir Git deposu varsayılan Hizmetleri olarak otomatik dağıtımlar sağlar. Uygulama hizmetleri kullanarak aracılığıyla geliştiricilerin altyapı yönetme yükü olmadan Kurumsal değer sunmaya odaklanabilirsiniz. Sıfırdan yeni Java, PHP, Node.js, Python, HTML veya C# web uygulamaları oluşturun veya var olan bir buluta geçirmek için olası veya şirket içi web uygulamaları için Azure uygulama Hizmetleri (kapsamlı rağmen dikkatli olmanızı ve test nedeniyle performans gerekli olup olmadığını onaylamak için).
+Mimaride, Azure [bir hizmet olarak platform](https://azure.microsoft.com/overview/what-is-paas/) gider ve satın yazılım lisanslarını, uygulama altyapının yönetme karmaşasından kaçınmak müşterilerin izin veren bir ortam sunmak için bileşenleri ve ara yazılım veya geliştirme araçları ve diğer kaynaklar. Müşteriyi yönetiyorsanız geliştirme, hizmetleri ve uygulamaları Microsoft Azure sanal makineler, depolama gibi diğer Azure kaynaklarını yöneten artırabileceksiniz Kurumsal değer sunmaya ve ağ, daha fazla yerleştirme odaklanarak [bölümü Sorumluluk](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility) için altyapı yönetimi, Azure platformu açın. [Azure uygulama hizmetleri](https://azure.microsoft.com/services/app-service/) otomatik ölçeklendirme, yüksek kullanılabilirlik sunar, Windows ve Linux'ı destekler ve GitHub, Azure DevOps ya da herhangi bir Git deposu varsayılan Hizmetleri olarak otomatik dağıtımlar sağlar. Uygulama hizmetleri kullanarak aracılığıyla geliştiricilerin altyapı yönetme yükü olmadan Kurumsal değer sunmaya odaklanabilirsiniz. Sıfırdan yeni Java, PHP, Node.js, Python, HTML veya C# web uygulamaları oluşturun veya var olan bir buluta geçirmek için olası veya şirket içi web uygulamaları için Azure uygulama Hizmetleri (kapsamlı rağmen dikkatli olmanızı ve test nedeniyle performans gerekli olup olmadığını onaylamak için).
 
 Bu plan güvenli bir temel sağlama üzerinde odaklanır [bir hizmet olarak platform](https://azure.microsoft.com/overview/what-is-paas/) genel ve de arka ofis kullanıcıları için web tabanlı arabirim. Bu şema tasarım senaryosu burada genel bir kullanıcı güvenli bir şekilde gönderme, görüntüleyebilir ve hassas verileri yönetmek, Hizmetleri web tabanlı Azure kullanımını barındırılan olarak kabul eder; Ayrıca arka ofis veya kamu işleci ortak kullanıcı gönderdiği hassas verileri güvenli bir şekilde işleyebilir. Bu senaryo için kullanım örnekleri içerebilir:
 
@@ -103,7 +103,7 @@ Veriler aktarım sırasında dışında ve Azure bileşenleri arasında kullanı
 
 #### <a name="azure-app-service"></a>Azure App Service
 
-Azure Web Apps barındırma ortamı altyapıyı yönetmek zorunda kalmadan, Java, PHP, Node.js, Python, HTML ve C# içinde geliştirilen web uygulaması için tam olarak yönetilen bir web sunar. Otomatik ölçeklendirme sunar ve yüksek kullanılabilirlik, hem Windows hem de Linux destekler ve otomatik dağıtımlar sağlar [Visual Studio Team Services](https://azure.microsoft.com/services/visual-studio-team-services/) veya herhangi bir Git tabanlı deposundan.
+Azure Web Apps barındırma ortamı altyapıyı yönetmek zorunda kalmadan, Java, PHP, Node.js, Python, HTML ve C# içinde geliştirilen web uygulaması için tam olarak yönetilen bir web sunar. Otomatik ölçeklendirme sunar ve yüksek kullanılabilirlik, hem Windows hem de Linux destekler ve otomatik dağıtımlar sağlar [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) veya herhangi bir Git tabanlı deposundan.
 
 App Service, [ISO, SOC ve PCI uyumlu](https://www.microsoft.com/TrustCenter/) ve ile kullanıcıların kimliklerini doğrulayabilirsiniz [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) veya sosyal oturum açma ([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication), [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication), [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication), ve [Microsoft kimlik doğrulama](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication).
 

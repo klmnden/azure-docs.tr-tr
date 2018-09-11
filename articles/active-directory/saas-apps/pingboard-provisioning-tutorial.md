@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 93c3b0cbc3ce063aaeb086d089631a8810293bbe
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: e96ea7d212f1a34bb6d10f8c49a15e1b34bfc469
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382542"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348965"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Öğretici: Pingboard otomatik kullanıcı hazırlama için yapılandırma
 
@@ -89,7 +89,7 @@ Bu bölümde, Azure AD sağlama API'si Pingboard kullanıcı hesabına bağlama 
 
 1. Altında **eşlemeleri** bölümünden **eşitleme Azure Active Directory Kullanıcıları Pingboard**.
 
-1. İçinde **öznitelik eşlemelerini** bölümünde, Azure AD'den Pingboard için eşitlenmesi gereken kullanıcı özniteliklerini gözden geçirin. Seçilen öznitelikler **eşleşen** özellikleri Pingboard kullanıcı hesaplarını güncelleştirme işlemleri eşleştirmek için kullanılır. Seçin **Kaydet** değişiklikleri uygulamak için. Daha fazla bilgi için [sağlama öznitelik eşlemelerini özelleştirme kullanıcı](../active-directory-saas-customizing-attribute-mappings.md).
+1. İçinde **öznitelik eşlemelerini** bölümünde, Azure AD'den Pingboard için eşitlenmesi gereken kullanıcı özniteliklerini gözden geçirin. Seçilen öznitelikler **eşleşen** özellikleri Pingboard kullanıcı hesaplarını güncelleştirme işlemleri eşleştirmek için kullanılır. Seçin **Kaydet** değişiklikleri uygulamak için. Daha fazla bilgi için [sağlama öznitelik eşlemelerini özelleştirme kullanıcı](../manage-apps/customize-application-attributes.md).
 
 1. Azure AD içinde sağlama hizmeti için Pingboard, etkinleştirmek için **ayarları** bölümünde **sağlama durumu** için **üzerinde**.
 
@@ -97,7 +97,7 @@ Bu bölümde, Azure AD sağlama API'si Pingboard kullanıcı hesabına bağlama 
 
 İlk eşitleme hizmeti çalışıyor sürece yaklaşık 40 dakikada oluşan aşağıdaki eşitlemeler çalışması daha uzun sürer. Kullanım **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve etkinlik günlüklerini sağlama için bağlantıları izleyin. Günlükleri Pingboard uygulamanızdan sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır.
 
-Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporu](../active-directory-saas-provisioning-reporting.md).
+Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporu](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

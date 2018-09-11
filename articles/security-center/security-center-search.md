@@ -1,6 +1,6 @@
 ---
-title: Azure Güvenlik Merkezi arama | Microsoft Docs
-description: Günlük analizi arama Azure Güvenlik Merkezi almak ve güvenlik verilerinizi çözümlemek için nasıl kullandığını öğrenin.
+title: Azure Güvenlik Merkezi araması | Microsoft Docs
+description: Log Analytics arama Azure Güvenlik Merkezi güvenlik verilerinizi analiz edin ve almak için nasıl kullandığını öğrenin.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,59 +9,59 @@ editor: ''
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: terrylan
-ms.openlocfilehash: 513c98237a322dabd6b2bf13443e8998ca843b1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec8c11dcea825dfaab19643e7aefc68a82542fa9
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23866404"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301540"
 ---
 # <a name="azure-security-center-search"></a>Azure Güvenlik Merkezi arama
-Azure Güvenlik Merkezi kullanan [günlük analizi arama](../log-analytics/log-analytics-log-searches.md) almak ve güvenlik verilerinizi çözümlemek için. Günlük analizi hızlı bir şekilde almak ve veri birleştirmek için bir sorgu dili içerir. Güvenlik Merkezi'nden sorgularınızı oluşturmaya ve toplanan verileri çözümlemek için günlük analizi arama yararlanabilirsiniz.
+Azure Güvenlik Merkezi kullanan [Log Analytics arama](../log-analytics/log-analytics-log-searches.md) almak ve güvenlik verilerinizi analiz edin. Log Analytics, hızlı bir şekilde verileri almak ve birleştirmek için bir sorgu dili içerir. Güvenlik Merkezi'nden Log Analytics arama sorguları oluşturma ve toplanan verileri çözümlemek için yararlanabilirsiniz.
 
-Arama, ücretsiz katmanı ve Güvenlik Merkezi'nin standart katmanı kullanılabilir.  Günlük aramalarınız kullanılabilir veri alanınıza uygulanan katmanı düzeyini bağımlıdır.  Güvenlik Merkezi bkz [fiyatlandırma sayfası](../security-center/security-center-pricing.md) daha fazla bilgi için.
+Arama, ücretsiz katman ve Güvenlik Merkezi'nin standart katmanında kullanılabilir.  Günlük aramalarınızı kullanılabilir verileri çalışma alanınıza uygulanan katman düzeyi bağlıdır.  Güvenlik Merkezi'ni [fiyatlandırma sayfası](../security-center/security-center-pricing.md) daha fazla bilgi için.
 
 
 > [!NOTE]
-> Güvenlik Merkezi, ücretsiz katmanı altında bir çalışma alanı için güvenlik verileri kaydetmez. Çalışma alanına ücretsiz katmanı ve bu verileri arama altında günlükleri çeşitli gönderebilirsiniz ancak arama sonuçları Güvenlik Merkezi verilerinden içermez. Güvenlik Merkezi, verileri yalnızca standart katmanı altında bir çalışma alanına kaydeder.
+> Güvenlik Merkezi'nin ücretsiz katmanı altında bir çalışma alanı için güvenlik verilerini kaydetmez. Bir çalışma alanı söz konusu veriler üzerinde arama ve ücretsiz katmanı altında günlükleri çeşitli gönderebilir, ancak arama sonuçları, Güvenlik Merkezi verilerinden içermez. Güvenlik Merkezi standart katmanı altında bir çalışma alanı yalnızca veri kaydeder.
 >
 >
 
 ## <a name="access-search"></a>Erişim arama
-1. Güvenlik Merkezi ana menüsündeki seçin **arama**.
+1. Güvenlik Merkezi ana menüsünde seçin **arama**.
 
-  ![Günlük Ara'yı seçin][1]
+  ![Günlük araması'nı seçin][1]
 
-2. Güvenlik Merkezi, Azure aboneliklerinize altındaki tüm çalışma alanları listeler. Bir çalışma alanı seçin. (Yalnızca bir çalışma alanı varsa, bu çalışma alanı seçicisinde görünmez.)
+2. Güvenlik Merkezi, Azure aboneliklerinizle altındaki tüm çalışma alanlarını listeler. Bir çalışma alanı seçin. (Yalnızca bir çalışma alanı varsa, bu çalışma alanı Seçici görüntülenmez.)
 
-  ![Bir çalışma alanı seçin][2]
+  ![Çalışma alanı seçin][2]
 
-3. **Arama oturum** açar. Seçilen çalışma alanı altında daha fazla veri sorgulamak için bu örnek sorgu girin:
+3. **Günlük arama** açılır. Seçilen çalışma alanı altında daha fazla veri sorgulamak için bu örnek sorgu girin:
 
-  SecurityEvent | Burada EventID 4625 == | TargetAccount tarafından Count() özetler
+  SecurityEvent | Burada EventID 4625 == | Count() by TargetAccount özetleme
 
-  Sonuç (olay 4625) oturum açılamadı. tüm hesapları gösterir.
+  Sonucu (olay 4625) oturum açmak için başarısız olan tüm hesapları gösterir.
 
   ![Arama sonuçları][3]
 
-Bkz: [günlük analizi sorgu dili](../log-analytics/log-analytics-search-reference.md) sorgulamak için seçilen çalışma alanı altında verileri hakkında daha fazla bilgi için.
+Bkz: [Log Analytics sorgu diline](../log-analytics/log-analytics-search-reference.md) seçilen çalışma alanı altında verileri için sorgulama hakkında daha fazla bilgi için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede Güvenlik Merkezi'nde arama erişim öğrendiniz. Güvenlik Merkezi günlük analizi arama kullanır. Günlük analizi arama hakkında daha fazla bilgi için bkz:
+Bu makalede Güvenlik Merkezi'ndeki arama erişim öğrendiniz. Güvenlik Merkezi, Log Analytics arama kullanır. Log Analytics arama hakkında daha fazla bilgi için bkz:
 
-- [Log Analytics nedir?](../log-analytics/log-analytics-overview.md) – Günlük analizi genel bakış
-- [Anlama günlük arar günlük analizi](../log-analytics/log-analytics-log-search-new.md) - günlük aramaları günlük analizi nasıl kullanıldığını açıklar ve günlük arama oluşturmadan önce anlaşılmalıdır kavramları sağlar
-- [Günlük analizi günlük aramaları kullanarak veri bulma](../log-analytics/log-analytics-log-searches.md) – günlük arama kullanma Öğreticisi
-- [Günlük analizi arama başvuru](../log-analytics/log-analytics-search-reference.md) – günlük analizi sorgu dilinde açıklar
+- [Log Analytics nedir?](../log-analytics/log-analytics-overview.md) – Log Analytics'e genel bakış
+- [Günlük aramalarını anlama Log Analytics'te](../log-analytics/log-analytics-log-search-new.md) - Log Analytics'te günlük aramaları nasıl kullanıldığını açıklar ve bir günlük araması oluşturmadan önce anlaşılması kavramlar sağlar
+- [Log Analytics'te günlük aramaları kullanarak veri bulmalarına](../log-analytics/log-analytics-log-searches.md) – günlük araması kullanma Öğreticisi
+- [Log Analytics Arama başvurusu](../log-analytics/log-analytics-search-reference.md) – Log Analytics sorgu dilinde tanımlar
 
 Güvenlik Merkezi hakkında daha fazla bilgi için bkz:
 
-- [Güvenlik Merkezi'ne genel bakış](security-center-intro.md) – Describes Güvenlik Merkezi'nin anahtar özellikleri
+- [Güvenlik merkezine genel bakış](security-center-intro.md) – Describes Güvenlik Merkezi'nin temel özellikleri
 
 <!--Image references-->
 [1]: ./media/security-center-search/search.png

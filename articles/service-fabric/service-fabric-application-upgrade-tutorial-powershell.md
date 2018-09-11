@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 0238dce3f8cbf838e7fce3afefb866e3aaa791bc
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: c1005d60df0b1cfd3b24be954ab4ff1b18c8f7a8
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056249"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348778"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>PowerShell kullanarak Service Fabric uygulaması yükseltme
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Derleme ve uygulamayı uygulama projesine sağ tıklayarak yayımlama **VisualOb
 > 
 > 
 
-Visual Studio projeyi oluşturduktan sonra PowerShell komutu kullanabilirsiniz [kopyalama ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) ImageStore için uygulama paketi kopyalamak için. Uygulama paketi yerel olarak doğrulamak istediğiniz kullanırsanız [Test ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet'i. Service Fabric çalışma zamanı kullanmak için uygulamayı kaydetmek için sonraki adımdır [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet'i. Uygulamanın bir örneğini kullanarak başlatmak için aşağıdaki adımdır [yeni ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet'i.  Bu üç adımı kullanarak benzer **Dağıt** Visual Studio'daki menü öğesi.  Sağlama tamamlandıktan sonra kullanılan kaynaklar azaltmak için görüntü deposundan kopyalanan uygulama paketi oluşturan temizlemelidir.  Uygulama türü artık gerekli değilse, aynı nedenden dolayı kaydı olmalıdır. Bkz: [PowerShell kullanarak dağıtma ve Kaldır uygulamaları](service-fabric-application-upgrade-tutorial-powershell.md) daha fazla bilgi için.
+Visual Studio projeyi oluşturduktan sonra PowerShell komutu kullanabilirsiniz [kopyalama ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) ImageStore için uygulama paketi kopyalamak için. Uygulama paketi yerel olarak doğrulamak istediğiniz kullanırsanız [Test ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage) cmdlet'i. Service Fabric çalışma zamanı kullanmak için uygulamayı kaydetmek için sonraki adımdır [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype) cmdlet'i. Uygulamanın bir örneğini kullanarak başlatmak için aşağıdaki adımdır [yeni ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet'i.  Bu üç adımı kullanarak benzer **Dağıt** Visual Studio'daki menü öğesi.  Sağlama tamamlandıktan sonra kullanılan kaynaklar azaltmak için görüntü deposundan kopyalanan uygulama paketi oluşturan temizlemelidir.  Uygulama türü artık gerekli değilse, aynı nedenden dolayı kaydı olmalıdır. Bkz: [PowerShell kullanarak dağıtma ve Kaldır uygulamaları](service-fabric-application-upgrade-tutorial-powershell.md) daha fazla bilgi için.
 
 Şimdi, kullanabileceğiniz [Service Fabric Explorer'ı, küme ve uygulamayı görüntülemek için](service-fabric-visualizing-your-cluster.md). Uygulama bir web hizmeti için Internet Explorer'da yazarak gezinilebilir sahip [ http://localhost:8081/visualobjects ](http://localhost:8081/visualobjects) adres çubuğundaki.  Ekranda Dolaşma bazı kayan görsel nesneler görmeniz gerekir.  Ayrıca, kullanabileceğiniz [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) uygulama durumunu denetlemek için.
 

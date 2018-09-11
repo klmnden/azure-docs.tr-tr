@@ -1,24 +1,18 @@
 ---
 title: Azure Disk şifrelemesi Windows Iaas Vm'leri için etkinleştirme | Microsoft Docs
 description: Bu makalede, Microsoft Azure Disk şifrelemesi için Windows Iaas Vm'leri etkinleştirme hakkında yönergeler sağlar.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 8b3905c8-844f-4ec7-ad95-b386e9843053
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: 2d43c906fa717b036382a119efbaa2551fe50b1f
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 09/10/2018
+ms.openlocfilehash: d827c2f0a53a1292dd3ba6e15015d9132a45441b
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887898"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346313"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Windows Iaas Vm'leri için Azure Disk şifrelemesini etkinleştirme 
 
@@ -31,7 +25,7 @@ Ele bir [anlık görüntü](../virtual-machines/windows/snapshot-copy-managed-di
 
 
 ## <a name="bkmk_RunningWinVM"></a> Var olan veya Iaas Windows Vm'leri çalıştırma şifrelemeyi etkinleştir
-Bu senaryoda, bir şablon, PowerShell cmdlet'leri veya CLI komutları kullanarak şifreleyebilirsiniz. Aşağıdaki bölümlerde, Azure Disk şifrelemesi etkinleştirme konusunda daha ayrıntılı olarak açıklanmaktadır. 
+Bu senaryoda, bir şablon, PowerShell cmdlet'leri veya CLI komutları kullanarak şifreleyebilirsiniz. Aşağıdaki bölümlerde, Azure Disk şifrelemesi etkinleştirme konusunda daha ayrıntılı olarak açıklanmaktadır. Sanal makine uzantısı için şema bilgileri gerekiyorsa bkz [Windows için Azure Disk şifrelemesi uzantı](../virtual-machines/extensions/azure-disk-enc-windows.md) makalesi.
 
 >[!IMPORTANT]
  >Anlık görüntü için zorunludur ve/veya yedekleme yönetilen disk sanal makine örneğinin dışında ve Azure Disk şifrelemesi etkinleştirilmeden önce temel. Yönetilen diskin anlık görüntüsünü portaldan alınabilir veya [Azure Backup](../backup/backup-azure-vms-encryption.md) kullanılabilir. Yedekleme kurtarma seçeneğini şifreleme sırasında beklenmeyen bir hata olması durumunda olası olduğundan emin olun. Bir yedekleme yapıldıktan sonra Set-AzureRmVMDiskEncryptionExtension cmdlet - skipVmBackup parametresini belirterek yönetilen disklerini şifrelemek için kullanılabilir. Set-AzureRmVMDiskEncryptionExtension komut karşı temel alan bir yönetilen disk Vm'leri yedekleme yapılan ve bu parametre belirtilen kadar başarısız olur. 

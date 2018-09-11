@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: deguhath
-ms.openlocfilehash: e44b21530cb3db8a2ba354ef19ebb3d2c557ecae
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 2cce0b883c18a813aed386186c825c26b0e4b674
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125768"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303787"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Team Data Science Process nedir?
 
@@ -71,7 +71,7 @@ Aşağıdaki diyagramda görevlerinde (mavi) ve bu rolleri (dikey eksende) için
 
 ## <a name="standardized-project-structure"></a>Standart Proje yapısı
 
-Bir dizin yapısına paylaşın ve proje belgelerini şablonlarını kullanma tüm projeleri sahip, onların projeleri hakkında bilgi, takım üyeleri için kolaylaştırır. Tüm kod ve belgelere işbirliğini etkinleştirmek için Git, TFS veya Subversion gibi bir sürüm denetim sistemi (VC) depolanır. İzleme görevleri ve izleme sistemi Jıra gibi bir Çevik proje özelliklerinde, yarışı, Visual Studio Team Services sağlayan tek tek özellikler için kodun yakın izleme. Bu tür izleme de daha iyi maliyet tahminlerini almak takımların imkan tanır. TDSP, sürüm oluşturma, bilgi güvenliği ve işbirliği için VC'ler her proje için ayrı bir depo oluşturmanızı önerir. Tüm projeler için standartlaştırılmış yapısı kuruluş genelinde kurumsal bilgi yapı yardımcı olur.
+Bir dizin yapısına paylaşın ve proje belgelerini şablonlarını kullanma tüm projeleri sahip, onların projeleri hakkında bilgi, takım üyeleri için kolaylaştırır. Tüm kod ve belgelere işbirliğini etkinleştirmek için Git, TFS veya Subversion gibi bir sürüm denetim sistemi (VC) depolanır. İzleme görevleri ve izleme sistemi Jıra, yarışı ve Azure DevOps gibi bir Çevik proje özelliklerinde, tek tek özellikler için kodun yakın izleme sağlar. Bu tür izleme de daha iyi maliyet tahminlerini almak takımların imkan tanır. TDSP, sürüm oluşturma, bilgi güvenliği ve işbirliği için VC'ler her proje için ayrı bir depo oluşturmanızı önerir. Tüm projeler için standartlaştırılmış yapısı kuruluş genelinde kurumsal bilgi yapı yardımcı olur.
 
 Klasör yapısını ve standart olmayan konumlara gerekli belgeleri için şablonlar sağlar. Veri keşfi ve özellik ayıklama kodunu içeren ve bu modeli yinelemeler kayıt dosyaları bu klasör yapısını düzenler. Bu şablonlar, başkaları tarafından yapılan iş anlamak ve takıma yeni üyeler eklemek için takım üyeleri için kolaylaştırır. Belge şablonları markdown biçiminde görebilecek ve kolay bir işlemdir. Anahtar sorular sorun iyi tanımlanmış ve teslim edilebilirler beklenen kaliteyi karşıladığını sağlamak üzere her proje için denetim listeleri sağlamak için şablonları kullanın. Örneklere şunlar dahildir:
 

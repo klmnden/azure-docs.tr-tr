@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: e90ffa0a7b5eb9e622a666fdcfa956763abd7633
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: d52ec316f9f5540d4d0d0fe0bc4e4bf778e1daf7
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162810"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345458"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Azure Active Directory alma uygulamaları ile tümleştirme için Başlangıç Kılavuzu
 
@@ -85,7 +85,7 @@ Azure uygulama galerisinde özel uygulamanıza eklemek istiyorsanız, bkz. ["ken
 Aşağıdaki makaleler Azure AD bağlayıcıları kullanarak Azure AD ile Azure AD ile tümleşik olan sonra uygulamalara erişimi yönetebilir yolları açıklanmaktadır.
 
 * [Azure AD kullanarak uygulamalara erişimi yönetme](what-is-access-management.md)
-* [Azure AD bağlayıcıları ile otomatikleştirme](../active-directory-saas-app-provisioning.md)
+* [Azure AD bağlayıcıları ile otomatikleştirme](user-provisioning.md)
 * [Uygulamaya kullanıcı atama](../active-directory-applications-guiding-developers-assigning-users.md)
 * [Uygulamaya grup atama](../active-directory-applications-guiding-developers-assigning-groups.md)
 * [Hesapları paylaşma](../active-directory-sharing-accounts.md)

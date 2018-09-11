@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: b3550c771b4c2916987c66f318010e5bb246fa39
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 80abe29c80898b691aa6e5e47bf068a9e69e50e4
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446859"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303379"
 ---
 # <a name="use-an-app-service-environment"></a>Bir App Service ortamını kullanma #
 
@@ -136,7 +136,7 @@ Dış ASE ile yayımlama bu seçeneklerin tümü aynı şekilde davranır. Daha 
 
 ILB ASE ile ilgili en önemli fark yayımlama var. Bir ILB ASE ile yayımlama uç noktaları yalnızca ILB ile tüm büyük/küçük harf kullanılabilir. ILB ASE alt ağdaki sanal ağdaki bir özel IP açıktır. ILB ağ erişimi yoksa, bu ASE üzerinde herhangi bir uygulamayı yayımlayamazsınız. Belirtilen [oluşturma ve kullanma ILB ASE][MakeILBASE], DNS, sistemdeki uygulamalar için yapılandırmanız gerekir. Bu, SCM uç noktasının içerir. Bunlar düzgün tanımlanmamışsa, yayımlanamıyor. Ayrıca, IDE'ler doğrudan yayımlamak için ILB ağ erişiminiz olması gerekir.
 
-Yayımlama uç nokta Internet erişilebilir olmadığından, Internet tabanlı CI sistemleri, GitHub ve Visual Studio Team Services gibi bir ILB ASE ile çalışmaz. Bunun yerine, Dropbox gibi çekme modeli kullanan bir CI sistemi kullanmanız gerekir.
+Internet tabanlı CI sistemleri, GitHub ve Azure DevOps gibi yayımlama uç nokta Internet erişilebilir olmadığı için bir ILB ASE ile çalışmaz. Bunun yerine, Dropbox gibi çekme modeli kullanan bir CI sistemi kullanmanız gerekir.
 
 Bir ILB ASE’deki uygulamalar için yayımlama uç noktaları, ILB ASE oluşturulurken kullanılan etki alanını kullanır. Uygulamanın yayımlama profilinde ve uygulamanın portal dikey penceresinde görebilirsiniz (içinde **genel bakış** > **Essentials** ve ayrıca **özellikleri**). 
 

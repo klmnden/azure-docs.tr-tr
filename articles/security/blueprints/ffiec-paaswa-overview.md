@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
-ms.openlocfilehash: 4a124299b8f70ce5c5b1518d923efb2f8e75097f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: f31bb6fe713514b7b34f5b16693cf7ea31db757f
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37908262"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302435"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-ffiec-financial-services"></a>Azure güvenlik ve uyumluluk planı: FFIEC finansal hizmetler için PaaS Web uygulaması
 
@@ -103,7 +103,7 @@ App Service ortamı için bu mimari için aşağıdaki yapılandırmaları kulla
 - [Web uygulaması güvenlik duvarı – veri kısıtlama](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
 - İzin [Azure SQL veritabanı trafiği](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)
 
-**Azure Web uygulaması**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) müşterilerin oluşturmanıza ve altyapı yönetimine gerek kalmadan kendi seçtiğiniz programlama dilinde web uygulamaları barındırmanıza olanak sağlar. Otomatik ölçeklendirme ve yüksek kullanılabilirlik sunar, hem Windows hem de Linux’ı destekler ve GitHub, Visual Studio Team Services veya herhangi bir Git deposundan otomatik dağıtım olanağı sağlar.
+**Azure Web uygulaması**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) müşterilerin oluşturmanıza ve altyapı yönetimine gerek kalmadan kendi seçtiğiniz programlama dilinde web uygulamaları barındırmanıza olanak sağlar. Otomatik ölçeklendirme sunar ve yüksek kullanılabilirlik, hem Windows hem de Linux'ı destekler ve GitHub, Azure DevOps ya da herhangi bir Git deposundan otomatik dağıtımlar sağlar.
 
 ### <a name="virtual-network"></a>Sanal Ağ
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: jomolesk
-ms.openlocfilehash: 319c89969e98eafd792af078bf3094ca0aa9a7dd
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 8c5e36daf8d404bd4db3a53769db45754f2734be
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343035"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301992"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-uk-nhs"></a>Azure güvenlik ve uyumluluk planı: UK NHS için PaaS Web uygulaması
 
@@ -79,7 +79,7 @@ App Service ortamı için bu mimari için aşağıdaki denetimleri/yapılandırm
 - [Web uygulaması güvenlik duvarı – veri kısıtlama](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
 - İzin [Azure SQL veritabanı trafiği](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)
 
-**Azure Web uygulaması**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) müşterilerin oluşturmanıza ve altyapı yönetimine gerek kalmadan kendi seçtiğiniz programlama dilinde web uygulamaları barındırmanıza olanak sağlar. Otomatik ölçeklendirme ve yüksek kullanılabilirlik sunar, hem Windows hem de Linux’ı destekler ve GitHub, Visual Studio Team Services veya herhangi bir Git deposundan otomatik dağıtım olanağı sağlar.
+**Azure Web uygulaması**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) müşterilerin oluşturmanıza ve altyapı yönetimine gerek kalmadan kendi seçtiğiniz programlama dilinde web uygulamaları barındırmanıza olanak sağlar. Otomatik ölçeklendirme sunar ve yüksek kullanılabilirlik, hem Windows hem de Linux'ı destekler ve GitHub, Azure DevOps ya da herhangi bir Git deposundan otomatik dağıtımlar sağlar.
 
 ### <a name="virtual-network"></a>Sanal Ağ
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Güvenlik Merkezi'nde izinleri | Microsoft Docs
-description: Bu makalede, rol tabanlı erişim denetimini Azure Güvenlik Merkezi kullanıcılara izinler atamak için nasıl kullandığını açıklar ve her rol için izin verilen eylemleri tanımlar.
+title: Azure Güvenlik Merkezi'nde izinler | Microsoft Docs
+description: Bu makalede rol tabanlı erişim denetimi Azure Güvenlik Merkezi kullanıcılara izinler atamak için nasıl kullandığını açıklar ve her rol için izin verilen eylemleri tanımlar.
 services: security-center
 cloud: na
 documentationcenter: na
@@ -11,53 +11,53 @@ ms.service: security-center
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/13/2017
 ms.author: terrylan
-ms.openlocfilehash: f85f49bd54eacbca67143b35eaf555cfb744a41d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b93b57d50ccf5d5dfb092bdb71820da77f345878
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31410531"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295471"
 ---
-# <a name="permissions-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde izinleri
+# <a name="permissions-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde izinler
 
 Azure Güvenlik Merkezi kullanan [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/role-assignments-portal.md), sağlayan [yerleşik roller](../role-based-access-control/built-in-roles.md) kullanıcıları, grupları ve Azure Hizmetleri için atanabilir.
 
-Güvenlik Merkezi güvenlik sorunları ve güvenlik açıklarını tanımlamak için kaynaklarınızı yapılandırmasını değerlendirir. Güvenlik Merkezi'nde, yalnızca kaynak sahibi, katkıda bulunan veya okuyucu rolü abonelik veya kaynak ait olduğu kaynak grubu için atandığında ilgili bilgileri görebilirsiniz.
+Güvenlik Merkezi, güvenlik sorunlarını ve güvenlik açıklarını tanımlamak amacıyla kaynaklarınızın yapılandırmasını değerlendirir. Güvenlik Merkezi'nde, yalnızca bir kaynağa sahip, katkıda bulunan veya okuyucu rolü bir kaynağın ait olduğu kaynak grubu veya abonelik atandığında ilgili bilgiler görürsünüz.
 
 Bu rollere ek olarak iki özel Güvenlik Merkezi rolü vardır:
 
-* **Güvenlik okuyucu**: Bu role ait olan bir kullanıcı haklarını Güvenlik Merkezi'ne görüntüleme sahiptir. Kullanıcı öneriler, uyarılar, bir güvenlik ilkesi ve güvenlik durumları görüntüleyebilir ancak değişiklik yapamazsınız.
-* **Güvenlik Yöneticisi**: Bu role ait bir kullanıcı güvenlik okuyucu aynı haklarına sahiptir ve ayrıca güvenlik ilkesini güncelleştirin ve uyarısı ve öneri yok sayın.
+* **Güvenlik okuyucusu**: Güvenlik Merkezi'ne hakları görüntüleme, bu role ait kullanıcı vardır. Kullanıcı, öneriler, uyarılar, bir güvenlik ilkesi ve güvenlik durumları görüntüleyebilir ancak değişiklik yapamaz.
+* **Güvenlik Yöneticisi**: Bu role ait bir kullanıcı güvenlik okuyucu aynı haklarına sahiptir ve güvenlik ilkesini güncelleştirme da uyarıları ve öneriler kapat.
 
 > [!NOTE]
-> Güvenlik rolleri, güvenlik okuyucu ve Güvenlik Yöneticisi, yalnızca Güvenlik Merkezi'nde erişebilirsiniz. Güvenlik rolleri, Azure depolama, Web ve mobil veya nesnelerin interneti gibi diğer hizmet alanlara erişimi yoktur.
+> Güvenlik rollerini, güvenlik okuyucu ve Güvenlik Yöneticisi, yalnızca Güvenlik Merkezi'ndeki erişebilir. Güvenlik rolleri, Azure depolama, Web ve mobil veya nesnelerin interneti gibi diğer hizmet alanlarına erişimi yoktur.
 >
 >
 
-## <a name="roles-and-allowed-actions"></a>Rol ve izin verilen eylemleri
+## <a name="roles-and-allowed-actions"></a>Rolleri ve izin verilen eylemleri
 
-Aşağıdaki tabloda rollerini görüntüler ve Güvenlik Merkezi'nde Eylemler izin. Bir X eylemi bu rol için izin verildiğini gösterir.
+Aşağıdaki tabloda rollerini görüntüler ve Güvenlik Merkezi'nde eylemlerine izin. Bir X eylemi o rol için izin verildiğini gösterir.
 
-| Rol | Güvenlik ilkesini Düzenle | Bir kaynak için güvenlik önerilerini uygulama | Uyarılar ve öneriler kapatın | Uyarıları görüntüle ve öneriler |
+| Rol | Güvenlik ilkesini Düzenle | Bir kaynak için güvenlik önerilerini uygulama | Uyarıları ve öneriler Kapat | Uyarıları görüntüleme ve öneriler |
 |:--- |:---:|:---:|:---:|:---:|
 | Abonelik sahibi | X | X | X | X |
-| Abonelik katkıda bulunan | X | X | X | X |
-| Kaynak grubunun sahibi | -- | X | -- | X |
-| Kaynak grubu katkıda bulunan | -- | X | -- | X |
+| Abonelik Katkıda Bulunanı | X | X | X | X |
+| Kaynak grubu sahibi | -- | X | -- | X |
+| Kaynak grubu Katılımcısı | -- | X | -- | X |
 | Okuyucu | -- | -- | -- | X |
 | Güvenlik Yöneticisi | X | -- | X | X |
 | Güvenlik Okuyucu | -- | -- | -- | X |
 
 > [!NOTE]
-> Kullanıcılara, görevlerini tamamlamak için gereken rolleri en alt seviyede esneklik sunacak şekilde atamanızı öneririz. Örneğin, yalnızca bir kaynak güvenlik durumu hakkındaki bilgileri görüntüleyebilir, ancak önerileri uygulamak veya ilkeleri düzenleme gibi bir eylemde bulunmamasını gereken kullanıcılar için okuyucu rolüne atayın.
+> Kullanıcılara, görevlerini tamamlamak için gereken rolleri en alt seviyede esneklik sunacak şekilde atamanızı öneririz. Örneğin, önerileri uygulamak veya ilkeleri düzenleme eyleme geçmeyecek ancak bir kaynak güvenlik durumu hakkındaki bilgileri görüntülemek için yalnızca ihtiyaç duyan kullanıcılar okuyucu rolüne atayın.
 >
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede RBAC Güvenlik Merkezi kullanıcılara izinler atamak için nasıl kullandığı açıklanmıştır ve her rol için izin verilen eylemleri tanımlanır. Aboneliğinizi güvenlik durumunu izlemek için gerekli rol atamalarını ile tanıdık, güvenlik ilkeleri, düzenleme ve önerileri geçerlidir, öğrenme nasıl yapılır:
+Bu makalede RBAC Güvenlik Merkezi kullanıcılara izinler atamak için nasıl kullandığı açıklanmıştır ve her rol için izin verilen eylemleri belirledik. Aboneliğiniz güvenlik durumunu izlemek için gereken rol atamaları ile ilgili bilgi sahibi olduğunuz, güvenlik ilkelerini düzenleme ve öneriler geçerlidir, öğrenme nasıl yapılır:
 
 - [Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md)
 - [Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md)

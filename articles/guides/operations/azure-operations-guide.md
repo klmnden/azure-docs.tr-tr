@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 06365e4397075d18150095f7e77367f457e3308c
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 28eeae8906480a5a160bfe11386da96b646f7427
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190434"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296865"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure BT operatörleri için Başlarken
 
@@ -149,7 +149,7 @@ Azure kullanımının beneﬁts dünyanın çeşitli veri merkezleri, uygulamala
 
 ### <a name="azure-portal"></a>Azure portal
 
-Azure portalında Azure kaynaklarını ve Hizmetleri Kaldır oluşturmak ve yönetmek için kullanılan bir web tabanlı bir uygulamadır. Azure portalında şu konumdadır [Shell.Azure.com](https://portal.azure.com). Bu, özelleştirilebilir bir Pano ve Azure kaynaklarını yönetmek için Araçlar içerir. Ayrıca, faturalandırma ve abonelik bilgileri sağlar. Daha fazla bilgi için [Microsoft Azure portalına genel bakış](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) ve [Azure kaynaklarınızı portal üzerinden yönetme](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
+Azure portalında Azure kaynaklarını ve Hizmetleri Kaldır oluşturmak ve yönetmek için kullanılan bir web tabanlı bir uygulamadır. Azure portalında şu konumdadır [portal.azure.com](https://portal.azure.com). Bu, özelleştirilebilir bir Pano ve Azure kaynaklarını yönetmek için Araçlar içerir. Ayrıca, faturalandırma ve abonelik bilgileri sağlar. Daha fazla bilgi için [Microsoft Azure portalına genel bakış](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) ve [Azure kaynaklarınızı portal üzerinden yönetme](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
 ### <a name="resources"></a>Kaynaklar
 
@@ -185,7 +185,7 @@ Yöneticiler, Azure PowerShell ve Azure CLI'yı Azure Cloud Shell adlı tarayıc
 
 ## <a name="azure-subscriptions"></a>Azure abonelikleri
 
-Bir Azure hesabına bağlı mantıksal bir gruplandırması olan Azure hizmetlerini bir aboneliktir. Bir Azure hesabı singe birden fazla abonelik içerebilir. Azure Hizmetleri için faturalama, abonelik başına temelinde gerçekleştirilir. Abonelik üzerinde tam denetime sahip bir Hesap Yöneticisi ve Abonelikteki tüm hizmetleri üzerinde denetime sahip bir Hizmet Yöneticisi Azure aboneliğiniz yok. Yöneticiler ek olarak, bireysel hesaplar verilebilir ayrıntılı rol tabanlı erişim denetimi (RBAC) aracılığıyla Azure kaynak denetimi.
+Bir Azure hesabına bağlı mantıksal bir gruplandırması olan Azure hizmetlerini bir aboneliktir. Tek bir Azure hesabı, birden fazla abonelik içerebilir. Azure Hizmetleri için faturalama, abonelik başına temelinde gerçekleştirilir. Abonelik üzerinde tam denetime sahip bir Hesap Yöneticisi ve tüm hizmetleri denetime sahip abonelikte Hizmet Yöneticisi, Azure aboneliğiniz yok. Klasik abonelik yöneticileri hakkında daha fazla bilgi için bkz: [ekleme veya değiştirme Azure aboneliği yöneticileri](../../billing/billing-add-change-azure-subscription-administrator.md). Yöneticiler ek olarak, bireysel hesaplar verilebilir ayrıntılı denetim kullanarak Azure kaynaklarınızın [rol tabanlı erişim denetimi (RBAC)](../../role-based-access-control/overview.md).
 
 ### <a name="select-and-enable-an-azure-subscription"></a>Seçin ve bir Azure aboneliği etkinleştir
 
@@ -205,13 +205,9 @@ Kredi miktarı aşarsanız, hizmetiniz devre dışı bırakıldı sonraki ayın 
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Bir Azure aboneliğine yönetim erişimi verme
 
-Birden çok hesap yöneticisi rolleri yüklenebilir ve herhangi bir zamanda değiştirilebilir. İki anahtar rolü şunlardır:
+RBAC izinler atamak için kullanabileceğiniz birkaç yerleşik rol yok. Bir kullanıcının bir Azure aboneliğinin bir yöneticisi olmak için bunları atayın [sahibi](../../role-based-access-control/built-in-roles.md#owner) abonelik kapsamında bir rol. Sahip rolü, diğerleri erişim hakkı dahil olmak üzere, Abonelikteki tüm kaynaklara kullanıcı tam erişim sağlar.
 
-- **Hizmet Yöneticisi**: Bu rol, Azure hizmetlerini yönetmek için yetkisi. Varsayılan olarak, verilen hesap yöneticisi olarak aynı hesabına erişim.
-
-- **Ortak yönetici**: Bu rol Hizmet Yöneticisi ile aynı erişime sahiptir. Ancak, bu rolü Azure dizinleriyle ilişkisini aboneliği değiştiremezsiniz.
-
-Daha fazla bilgi için [Azure yöneticisi rollerini ekleme veya değiştirme yapma](../../billing/billing-add-change-azure-subscription-administrator.md).
+Daha fazla bilgi için [RBAC ve Azure portalını kullanarak erişimini yönetme](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Azure portalında faturalama bilgileri görüntüleyin
 
@@ -307,7 +303,7 @@ Kullanıcı hesaplarını belirli bir kapsamda işletimsel erişimi verebilir: A
 
 Erişim vermek için kullanıcı veya kullanıcı grubunun bir rol atayın. Birçok önceden tanımlı roller bulunur. Ayrıca, kendi özel rollerinizi de tanımlayabilirsiniz.
 
-Azure'da yerleşik olan birkaç örnek rolleri şunlardır:
+İşte birkaç örnek [azure'da yerleşik roller](../../role-based-access-control/built-in-roles.md):
 
 - **Sahibi**: Bu role sahip bir kullanıcı erişim dahil her şeyi yönetebilir.
 
@@ -321,7 +317,7 @@ Azure'da yerleşik olan birkaç örnek rolleri şunlardır:
 
 - **Depolama hesabı Katılımcısı**: Bu role sahip bir kullanıcı depolama hesaplarını yönetebilir, ancak depolama hesaplarına erişim yönetemez.
 
-Daha fazla bilgi için [Azure abonelik kaynaklarınıza erişimi yönetmek için rol atamalarını kullanma](../../role-based-access-control/role-assignments-portal.md).
+Daha fazla bilgi için [RBAC ve Azure portalını kullanarak erişimini yönetme](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="azure-virtual-machines"></a>Azure Sanal Makineler
 

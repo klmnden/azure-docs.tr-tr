@@ -1,6 +1,6 @@
 ---
-title: Abonelik bulunamadı hatası Azure portalında veya Azure hesap merkezi oturum açmaya çalıştığınızda | Microsoft Docs
-description: Hayır abonelik bulunamadı hata oluşur. sorunu için çözüm sağlar Azure portalında veya Azure hesap merkezi ne zaman oturum açın.
+title: Abonelik bulunamadı hatası olduğunda Azure portalında veya Azure hesap merkezi oturum açmayı deneyin | Microsoft Docs
+description: Hayır abonelikleri bulunduğu hata oluşursa bir sorun için çözüm sağlar, Azure portalında veya Azure hesap merkezi oturum.
 services: ''
 documentationcenter: ''
 author: genlin
@@ -15,44 +15,44 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 475a4ad72a1c2fc2ebf99387e193713797cc2586
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: b5fd1db06d13ce0c12a80752e64a6f5c64867761
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070626"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298260"
 ---
-# <a name="no-subscriptions-found-error-in-azure-portal-or-azure-account-center"></a>Abonelik Azure portalında veya Azure hesap merkezi hata bulunamadı
+# <a name="no-subscriptions-found-error-in-azure-portal-or-azure-account-center"></a>Azure portalında veya Azure hesap merkezi portalında abonelik hata bulunamadı
 
-Oturum açmaya çalıştığınızda "abonelik bulunamadı" hata iletisini alabilirsiniz [Azure portal](https://portal.azure.com/) veya [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions). Bu makalede, bu sorun için bir çözüm sağlar.
+Oturum açmaya çalıştığınızda "abonelik bulunamadı" hata iletisini alabilirsiniz [Azure portalında](https://portal.azure.com/) veya [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions). Bu makalede, bu sorun için bir çözüm sağlar.
 
 ## <a name="symptom"></a>Belirti
 
-Oturum açmaya çalıştığınızda [Azure portal](https://portal.azure.com/) veya [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions), aşağıdaki hata iletisini alıyorsunuz: "abonelik bulunamadı".
+Oturum açmaya çalıştığınızda [Azure portalında](https://portal.azure.com/) veya [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions), aşağıdaki hata iletisini alıyorsunuz: "abonelik bulunamadı".
 
 ## <a name="cause"></a>Nedeni
 
-Yanlış dizininde seçtiyseniz veya yeterli izinlere hesabınız yoksa, bu sorun oluşur. 
+Yanlış dizin seçtiyseniz veya hesabınızın yeterli izinlere sahip değilse bu sorun oluşur. 
 
 ## <a name="solution"></a>Çözüm
 
-### <a name="scenario-1-error-message-is-received-in-the-azure-portalhttpsportalazurecom"></a>Senaryo 1: Hata iletisi alındığında [Azure portalı](https://portal.azure.com)
+### <a name="scenario-1-error-message-is-received-in-the-azure-portalhttpsportalazurecom"></a>Senaryo 1: Hata iletisi e-posta [Azure portalı](https://portal.azure.com)
 
 Bu sorunu gidermek için:
 
-* Hesabınızı sağ üst köşedeki tıklayarak doğru Azure directory seçildiğinden emin olun.
+* Doğru Azure directory sağ üst köşedeki hesabınızı tıklayarak seçili olduğundan emin olun.
 
   ![Üst dizini seçin Azure portalının sağ](./media/billing-no-subscriptions-found/directory-switch.png)
-* Sağ Azure directory seçilir, ancak hata iletisini almaya devam [sahibi olarak eklenen hesabınızın](billing-add-change-azure-subscription-administrator.md).
+* Doğru Azure directory seçilir, ancak hata iletisini almaya devam [hesabınıza sahip rolü atamak](../role-based-access-control/role-assignments-portal.md).
 
-### <a name="scenario-2-error-message-is-received-in-the-azure-account-centerhttpsaccountwindowsazurecomsubscriptions"></a>Senaryo 2: Hata iletisi alındığında [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions)
+### <a name="scenario-2-error-message-is-received-in-the-azure-account-centerhttpsaccountwindowsazurecomsubscriptions"></a>Senaryo 2: Hata iletisi e-posta [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions)
 
 Kullandığınız hesabın hesap yöneticisi olup olmadığını denetleyin. Hesap Yöneticisi olan doğrulamak için aşağıdaki adımları izleyin:
 
-1. Oturum [abonelikleri görmek Azure portalında](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Denetleyin ve altında aramak istediğiniz aboneliği seçin **ayarları**.
+1. Oturum [Azure portalında abonelikleri görmek](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Kontrol edin ve ardından altına bakın istediğiniz aboneliği seçin **ayarları**.
 1. Seçin **özellikleri**. Aboneliğin Hesap Yöneticisi görüntülenen **Hesap Yöneticisi** kutusu.  
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
 
-Hala yardıma gereksiniminiz varsa [desteğine başvurun](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) hızla çözümlenen sorunu almak için. 
+Hala yardıma ihtiyacınız varsa [desteğe](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) sorununuzun hızlıca çözülebilmesi için. 

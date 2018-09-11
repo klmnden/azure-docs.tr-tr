@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 0f053c0293488f19adcd058f1ba8304d8d238738
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 3ec67488b238118067e771baf3dd5124308a84cf
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128315"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296202"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Azure App Service'te yavaş web uygulaması performans sorunlarını giderme
 Bu makale, yavaş bir web uygulaması performans sorunlarını gidermenize yardımcı olur. [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -88,7 +88,7 @@ Kullanarak da uygulama performansınızı izleyebilirsiniz bir *site uzantısı*
 
 Her App Service web uygulaması, site uzantısı dağıtılan araçları güçlü bir dizi kullanmanıza olanak sağlayan bir genişletilebilen yönetim uç noktası sağlar. Uzantılara şunlar dahildir: 
 
-- Kaynak kod düzenleyicilerinden ister [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
+- Kaynak kod düzenleyicilerinden ister [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Yönetim Araçları gibi bir MySQL veritabanına bağlı kaynaklar için bir web uygulamasına bağlı.
 
 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) olduğu bir performans izleme de kullanılabilir olan site uzantısı. Application Insights'ı kullanmak için bir SDK'sı ile kodunuzu yeniden oluşturun. Ayrıca, ek verilere erişim sağlayan bir uzantı yükleyebilirsiniz. SDK'sı, uygulamanızın daha ayrıntılı performans ve kullanımı izlemek için kod yazmanıza olanak sağlar. Daha fazla bilgi için [web uygulamalarının performansını izleme](../application-insights/app-insights-web-monitor-performance.md).
@@ -158,7 +158,7 @@ Kudu sağlayan şeylerden bazıları şunlardır:
 
 Başka bir kullanışlı Kudu durumunda, uygulamanız, ilk şans özel durumları atma Kudu kullanabilirsiniz ve bellek oluşturmak için Procdump SysInternals aracı dökümleri, özelliğidir. Bu bellek dökümlerini işleminin anlık görüntüleri ve genellikle web uygulamanızla daha karmaşık sorunları gidermenize yardımcı olabilir.
 
-Kudu içinde kullanılabilen özellikler hakkında daha fazla bilgi için bkz. [bilmeniz gereken Azure Web siteleri Team Services Araçları](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
+Kudu içinde kullanılabilen özellikler hakkında daha fazla bilgi için bkz. [bilmeniz gereken Azure DevOps Araçları](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 

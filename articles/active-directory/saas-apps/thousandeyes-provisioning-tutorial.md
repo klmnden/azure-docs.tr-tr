@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı ThousandEyes yapılandırma | Microsoft Docs'
-description: Otomatik olarak sağlamak ve kullanıcı hesaplarına ThousandEyes sağlanmasını için Azure Active Directory yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı hazırlama için ThousandEyes yapılandırma | Microsoft Docs'
+description: Otomatik olarak sağlama ve sağlamasını ThousandEyes kullanıcı hesaplarını Azure Active Directory yapılandırmayı öğrenin.
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
@@ -15,93 +15,93 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 71101ef119db719d281f3e6db4e0c3dee023c4d4
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d2912c687d4968a239d5af747df4115ffd71bbeb
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210148"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345769"
 ---
-# <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Öğretici: ThousandEyes otomatik kullanıcı sağlamayı yapılandırın
+# <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Öğretici: ThousandEyes otomatik kullanıcı hazırlama için yapılandırma
 
 
-Bu öğreticinin amacı ThousandEyes ve Azure AD otomatik olarak sağlamak ve kullanıcı hesaplarına Azure AD'den ThousandEyes sağlanmasını gerçekleştirmek için gereken adımları Göster sağlamaktır. 
+Bu öğreticinin amacı ThousandEyes ve Azure AD sağlama ve sağlamasını ThousandEyes Azure AD'den kullanıcı hesaplarına otomatik olarak gerçekleştirmek için gereken adımları Göster sağlamaktır. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
+Bu öğreticide özetlenen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
 *   Bir Azure Active directory kiracısı
-*   ThousandEyes Kiracı ile [standart planı](https://www.thousandeyes.com/pricing) veya daha iyi etkin 
+*   ThousandEyes kiracıyla [standart plan](https://www.thousandeyes.com/pricing) ya da daha iyi etkin 
 *   ThousandEyes yönetici izinlerine sahip bir kullanıcı hesabı 
 
 > [!NOTE]
-> Tümleştirme sağlama Azure AD dayanan [ThousandEyes SCIM'yi API](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK), standart plan üzerinde ThousandEyes ekipleri için kullanılabilir ya da daha iyi olduğu.
+> Azure AD tümleştirmesi sağlama dayanan [ThousandEyes SCIM API](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK), daha iyi veya standart plan ThousandEyes takımlar için kullanılabilir.
 
-## <a name="assigning-users-to-thousandeyes"></a>Kullanıcılar için ThousandEyes atama
+## <a name="assigning-users-to-thousandeyes"></a>ThousandEyes için kullanıcı atama
 
-Azure Active Directory "atamaları" adlı bir kavram hangi kullanıcıların seçili uygulamalara erişim alması belirlemek için kullanır. Otomatik olarak bir kullanıcı hesabı sağlama bağlamında, yalnızca kullanıcıların ve grupların "Azure AD uygulamada atanmış" eşitlenir. 
+Azure Active Directory "atamaları" adlı bir kavram, hangi kullanıcıların seçilen uygulamalara erişimi alması belirlemek için kullanır. Otomatik kullanıcı hesabı sağlama bağlamında, yalnızca kullanıcıların ve grupların, "Azure AD'de bir uygulama için atandı" eşitlenir. 
 
-Yapılandırma ve sağlama hizmeti etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD grupları ThousandEyes uygulamanıza erişimi olması gereken kullanıcılar temsil eden karar vermeniz gerekir. Karar sonra buradaki yönergeleri izleyerek, bu kullanıcılar ThousandEyes uygulamanıza atayabilirsiniz:
+Yapılandırma ve sağlama hizmetini etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD'de grupları ThousandEyes uygulamanıza erişmek isteyen kullanıcılar temsil karar vermeniz gerekir. Karar sonra buradaki yönergeleri izleyerek bu kullanıcılar ThousandEyes uygulamanıza atayabilirsiniz:
 
-[Bir kullanıcı veya grup için bir kuruluş uygulama atama](../manage-apps/assign-user-or-group-access-portal.md)
+[Kurumsal bir uygulamayı kullanıcı veya grup atama](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-thousandeyes"></a>Kullanıcılar için ThousandEyes atamak için önemli ipuçları
 
-*   Önerilir tek bir Azure AD kullanıcısının sağlama yapılandırmayı test etmek için ThousandEyes atanır. Ek kullanıcı ve/veya grupları daha sonra atanabilir.
+*   Önerilir tek bir Azure AD kullanıcı sağlama yapılandırmayı test etmek için ThousandEyes atanır. Ek kullanıcılar ve/veya grupları daha sonra atanabilir.
 
-*   Bir kullanıcı için ThousandEyes atarken ya da seçmelisiniz **kullanıcı** rol ya da başka bir geçerli uygulamaya özgü rolü (varsa) atama iletişim. **Varsayılan erişim** rol sağlamak için çalışmaz ve bu kullanıcılar atlandı.
+*   Bir kullanıcı için ThousandEyes atarken ya da seçmelisiniz **kullanıcı** rol veya başka bir geçerli uygulamaya özgü rolü (varsa) atama iletişim. **Varsayılan erişim** rolü sağlama için çalışmaz ve bu kullanıcılar atlanır.
 
 
-## <a name="configuring-user-provisioning-to-thousandeyes"></a>Kullanıcı için ThousandEyes sağlama yapılandırma 
+## <a name="configuring-user-provisioning-to-thousandeyes"></a>ThousandEyes için kullanıcı sağlamayı yapılandırma 
 
-Bu bölümde Azure AD ThousandEyes'ın kullanıcı hesabına API sağlama konusunda size rehberlik eder ve oluşturmak için sağlama hizmeti yapılandırma güncelleştirin ve Azure AD'de kullanıcı ve grup atama göre ThousandEyes atanan kullanıcı hesaplarında devre dışı bırak .
+Bu bölümde, Azure AD sağlama API'si ThousandEyes'ın kullanıcı hesabına bağlanma aracılığıyla size yol gösterir ve oluşturmak için sağlama hizmeti yapılandırma güncelleştirme ve Azure AD'de kullanıcı ve Grup atamasına dayalı ThousandEyes atanan kullanıcı hesaplarını devre dışı bırak .
 
 > [!TIP]
-> Da tercih edebilirsiniz etkin SAML tabanlı çoklu oturum açma için ThousandEyes, yönergeleri izleyerek sağlanan [Azure portal](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
+> Ayrıca seçtiğiniz etkin SAML tabanlı çoklu oturum açma için ThousandEyes, yönergeleri izleyerek sağlanan [Azure portalında](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlama bağımsız olarak, çoklu oturum açma yapılandırılabilir.
 
 
-### <a name="configure-automatic-user-account-provisioning-to-thousandeyes-in-azure-ad"></a>Otomatik olarak bir kullanıcı hesabı için ThousandEyes Azure AD'de sağlamayı Yapılandır
+### <a name="configure-automatic-user-account-provisioning-to-thousandeyes-in-azure-ad"></a>Otomatik kullanıcı hesabı için ThousandEyes Azure AD'de sağlamayı Yapılandır
 
 
-1. İçinde [Azure portal](https://portal.azure.com), Gözat **Azure Active Directory > Kurumsal uygulamaları > tüm uygulamaları** bölümü.
+1. İçinde [Azure portalında](https://portal.azure.com), Gözat **Azure Active Directory > Kurumsal uygulamaları > tüm uygulamaları** bölümü.
 
-2. Çoklu oturum açma için ThousandEyes zaten yapılandırdıysanız arama alanı kullanarak ThousandEyes Örneğiniz için arama yapın. Aksi takdirde seçin **Ekle** arayın ve **ThousandEyes** uygulama galerisinde. Arama sonuçlarından ThousandEyes seçin ve uygulamaları listenize ekleyin.
+2. Çoklu oturum açma için ThousandEyes zaten yapılandırdıysanız arama alanını kullanarak ThousandEyes Örneğiniz için arama yapın. Aksi takdirde seçin **Ekle** araması **ThousandEyes** uygulama galerisinde. Arama sonuçlarından ThousandEyes seçin ve uygulama listenize ekleyin.
 
-3. ThousandEyes örneğiniz seçin ve ardından **sağlama** sekmesi.
+3. Örneğiniz ThousandEyes seçip **sağlama** sekmesi.
 
-4. Ayarlama **sağlama modunda** için **otomatik**.
+4. Ayarlama **hazırlama modu** için **otomatik**.
 
     ![ThousandEyes sağlama](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
-5. Altında **yönetici kimlik bilgileri** bölümü, giriş **gizli belirteci** ThousandEyes'ın hesap tarafından oluşturulan (belirteç ThousandEyes hesabınızın altında bulabilirsiniz: **güvenlik & Kimlik doğrulama**). 
+5. Altında **yönetici kimlik bilgileri** giriş bölümünde **gizli belirteç** , ThousandEyes'ın hesap tarafından oluşturulan (belirteç ThousandEyes hesabınızın altında bulabilirsiniz: **güvenlik & Kimlik doğrulaması**). 
 
     ![ThousandEyes sağlama](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 
-6. Azure portalında tıklatın **Bağlantıyı Sına** Azure emin olmak için AD ThousandEyes uygulamanıza bağlanabilir. Bağlantı başarısız olursa ThousandEyes hesabınız yönetici izinlerine sahip olduğundan emin olun ve 5. adım yeniden deneyin.
+6. Azure portalında **Test Bağlantısı** Azure emin olmak için AD ThousandEyes uygulamanıza bağlanabilirsiniz. Bağlantı başarısız olursa ThousandEyes hesabınız yönetici izinlerine sahip olduğundan emin olun ve 5. adımı yeniden deneyin.
 
-7. Bir kişi veya sağlama hata bildirimleri alması gereken Grup e-posta adresini girin **bildirim e-posta** alanına ve "bir hata oluştuğunda e-posta bildirimi gönder." onay kutusunu işaretleyin
+7. Bir kişi veya grup sağlama hatası bildirimlerini alması gereken e-posta adresini girin **bildirim e-posta** alan ve "bir hata oluştuğunda e-posta bildirimi gönderin." onay kutusunu işaretleyin
 
 8. **Kaydet**’e tıklayın. 
 
 9. Eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları ThousandEyes**.
 
-10. İçinde **öznitelik eşlemelerini** bölümünde, ThousandEyes için Azure AD'den eşitlenen kullanıcı öznitelikleri gözden geçirin. Seçilen öznitelikler **eşleşen** özellikleri ThousandEyes kullanıcı hesaplarında güncelleştirme işlemleri için eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
+10. İçinde **öznitelik eşlemelerini** bölümünde, ThousandEyes için Azure AD'den eşitlenen kullanıcı özniteliklerini gözden geçirin. Seçilen öznitelikler **eşleşen** özellikleri ThousandEyes kullanıcı hesaplarını güncelleştirme işlemleri eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
 
-11. Azure AD hizmeti ThousandEyes için sağlama etkinleştirmek için değiştirmek **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü
+11. Azure AD sağlama hizmeti için ThousandEyes etkinleştirmek için değiştirin **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü
 
 12. **Kaydet**’e tıklayın. 
 
-Bu işlem, herhangi bir kullanıcı ve/veya grupları kullanıcıları ve grupları bölümünde ThousandEyes atanan ilk eşitleme başlatır. İlk eşitleme gerçekleştirmek yaklaşık 40 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve sağlama hizmeti tarafından gerçekleştirilen tüm eylemler anlatılmaktadır etkinlik günlükleri sağlamak için bağlantıları izleyin.
+Bu işlem, herhangi bir kullanıcı ve/veya ThousandEyes kullanıcılar ve Gruplar bölümünde atanan grupları ilk eşitleme başlar. İlk eşitleme hizmeti çalışıyor sürece yaklaşık 40 dakikada oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklayan etkinlik günlüklerini sağlama için bağlantıları izleyin.
 
-Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](../active-directory-saas-provisioning-reporting.md).
+Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../manage-apps/check-status-user-account-provisioning.md).
 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Kullanıcı hesabı Kurumsal uygulamaları için sağlama yönetme](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
+* [Kullanıcı hesabı, kurumsal uygulamalar için sağlamayı yönetme](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Günlüklerini gözden geçirin ve etkinlik sağlama raporları alma hakkında bilgi edinin](../active-directory-saas-provisioning-reporting.md)
+* [Günlükleri gözden geçirin ve sağlama etkinliği raporları alma hakkında bilgi edinin](../manage-apps/check-status-user-account-provisioning.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: genli
-ms.openlocfilehash: 448622f0406eb709c8d94d60722edb4ef00f42de
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 1eb2a3c13a1bbf7f2fd7a9691d833fc9c4b3a2b8
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669923"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294043"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Azure harcama limiti ve nasıl kaldırılacağını anlama
 
@@ -64,7 +64,7 @@ Harcama limitini kaldırmak için şu adımları izleyin:
 
 Harcama limiti dağıtma veya belirli bir üçüncü taraf ve Microsoft hizmetlerini kullanarak engelleyebilir. Aboneliğinizdeki harcama limitini kaldırmanızı gerektiren senaryolar aşağıda belirtilmiştir.
 
-* Oracle gibi birinci taraf görüntülerini ve Visual Studio Team Services gibi hizmetleri dağıtmayı planlıyorsunuz. Bu senaryo, harcama limitiniz neredeyse anında aşılacak neden olur ve aboneliğiniz devre dışı bırakılmasına neden olur.
+* Oracle ve Azure DevOps Hizmetleri gibi hizmetleri gibi birinci taraf görüntülerini dağıtımını yapmayı planlıyorsunuz. Bu senaryo, harcama limitiniz neredeyse anında aşılacak neden olur ve aboneliğiniz devre dışı bırakılmasına neden olur.
 * Kesintiye uğramaması gereken hizmetleriniz var.
 * Sanal IP adresleri gibi ayarlar içeren, kaybetmek istemediğiniz hizmet ve kaynaklarınız var. Hizmetler ve kaynaklar serbest olduğunda bu ayarlar kaybolur.
 

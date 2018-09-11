@@ -2,19 +2,19 @@
 title: 'Azure yedekleme: Azure portalını kullanarak sanal makineleri geri yükleme'
 description: Bir Azure sanal makinesi, Azure portalını kullanarak bir kurtarma noktasından geri yükleme
 services: backup
-author: markgalioto
-manager: carmonm
+author: geethalakshmig
+manager: vijayts
 keywords: yedeklemeyi geri yükleme; geri yükleme; kurtarma noktası;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
-ms.author: markgal
-ms.openlocfilehash: 872bfc0027fd5b69bb42f391c036f7116789f529
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: geetha.g
+ms.openlocfilehash: c0dc738af450711c129b6c1802aec34c6b1da6ec
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431156"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346228"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Sanal makineleri geri yükleme için Azure portalını kullanma
 Tanımlı aralıklarla verilerinizin anlık görüntülerini alarak verilerinizi koruyun. Bu anlık görüntüler, Kurtarma noktaları olarak bilinir ve kurtarma Hizmetleri kasalarında depolandıkları. Onarım veya bir sanal makine (VM) yeniden gerekliyse, kaydedilmiş kurtarma noktalarının birini VM geri yükleyebilirsiniz. Bir kurtarma noktasından geri yüklediğinizde, şunları yapabilirsiniz:

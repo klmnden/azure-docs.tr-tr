@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: dc70a20667db7e59f0fe77ec4d84831cfb7e75a5
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: d1d17ff331d3e770b77ce729904e57cf88ebc16c
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617227"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348577"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric kümesi kapasite planlaması konuları
 Herhangi bir üretim dağıtımı için kapasite planlaması önemli bir adımdır. Bu işlemin bir parçası olarak dikkate almanız gereken öğelerden bazıları aşağıda verilmiştir.
@@ -51,7 +51,7 @@ Her düğüm türü ayrı bir ölçek kümesi ölçeklendirilebilir veya Aşağ�
 
 Service Fabric kümesi birden fazla düğüm türü oluşabilir. Bu olay tek bir birincil düğüm türü küme oluşur ve bir veya daha fazla birincil olmayan düğüm türleri.
 
-Tek bir düğüm türü, yalnızca sanal makine ölçek kümesi başına 100 düğüm aşamaz. Sanal makine ölçek kümeleri hedeflenen ölçeğe ulaşmak için ve otomatik ölçeklendirme olamaz automagically eklemeniz gerekebilir sanal makine ölçek kümeleri ekleyin. Yerinde sanal makine ölçek kümeleri ekleme dinamik bir kümeye bir görevdir ve yaygın olarak kullanıcıların yeni küme oluşturma sırasında sağlanan uygun düğümü türleri ile sağlama sonuçlanır. 
+Tek bir düğüm türü, sanal makine ölçek kümesi SF uygulamalar için başına 100 düğüm ötesinde güvenilir bir şekilde ölçeklendirilemez; güvenilir bir şekilde 100 düğüm büyük gerçekleştirmekten, ek sanal makine ölçek kümeleri eklemenizi gerektirir.
 
 ### <a name="primary-node-type"></a>Birincil düğüm türü
 

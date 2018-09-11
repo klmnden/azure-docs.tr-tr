@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 57109848bf78311ea4d601b135c5dd304d613aeb
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ece3511d0d3c12be13a649385ea9b6dd5c75bfe0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008136"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303719"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Nasıl bir bulut hizmeti oluşturma ve dağıtma
 Azure portalında bir bulut hizmeti oluşturma ve dağıtma iki yol sunar: *hızlı Oluştur* ve *özel Oluştur*.
@@ -27,7 +27,7 @@ Azure portalında bir bulut hizmeti oluşturma ve dağıtma iki yol sunar: *hız
 Bu makalede yeni bir bulut hizmeti oluşturma ve sorgulama hızlı oluşturma yöntemini kullanmayı açıklar **karşıya** karşıya yükleme ve Azure'a bir bulut hizmeti paketi dağıtma. Bu yöntemi kullandığınızda, Azure portalında kullandıkça için tüm gereksinimi tamamlamada kullanılabilir bağlantılar sağlar. Oluşturduğunuzda bulut hizmetinizin dağıtmak hazırsanız özel Oluştur kullanarak aynı anda hem de yapabilirsiniz.
 
 > [!NOTE]
-> Visual Studio Team Services (VSTS) gelen bulut hizmetinizi yayımlayın planlıyorsanız, hızlı Oluştur özelliğini kullanın ve ardından Azure hızlı başlangıç ya da Pano VSTS yayımlama Ayarla. Daha fazla bilgi için [kullanarak Visual Studio Team Services ile azure'a sürekli teslim][TFSTutorialForCloudService], veya Yardım **Hızlı Başlangıç** sayfası.
+> Bulut hizmetinizdeki Azure DevOps yayımlamayı düşünüyorsanız, hızlı Oluştur özelliğini kullanın ve ardından Azure DevOps yayımlama Azure hızlı başlangıç ya da Pano Ayarla. Daha fazla bilgi için bkz. [kullanarak Azure DevOps ile azure'a sürekli teslimi][TFSTutorialForCloudService], veya Yardım **Hızlı Başlangıç** sayfası.
 >
 >
 

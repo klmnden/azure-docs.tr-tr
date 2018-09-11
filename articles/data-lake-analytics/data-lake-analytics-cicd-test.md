@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: ae34355485f7d5081cc11ce4dd36df5ba81ae320
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 82ffcc6f891a64650375121b9418daad33dc2628
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041237"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301709"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>Azure Data Lake Analytics kodunuzu test etme
 
@@ -111,11 +111,11 @@ UDO işlevleri çağırdıktan sonra C# onay işlevlerini kullanarak ve şema sa
 
 Ancak test projesini derledikten sonra tüm test çalışmalarını çalıştırabilirsiniz **Test Gezgini > çalma listesi**, veya .cs dosyasını sağ tıklatın ve seçin **çalıştırmak testlerini**.
 
-## <a name="run-test-cases-in-visual-studio-team-service"></a>Visual Studio Team Service sınama çalışmalarını çalıştırma
+## <a name="run-test-cases-in-azure-devops"></a>Azure DevOps sınama çalışmalarını çalıştırma
 
-Her ikisi de **U-SQL betiği test projeleri** ve **C# UDO'su test projeleri** C# birim testi projelerini devralır. [Visual Studio test görevi](https://docs.microsoft.com/vsts/pipelines/test/getting-started-with-continuous-testing?view=vsts) Visual Studio Team Services içinde bu test çalışmalarını çalıştırabilirsiniz. 
+Her ikisi de **U-SQL betiği test projeleri** ve **C# UDO'su test projeleri** C# birim testi projelerini devralır. [Visual Studio test görevi](https://docs.microsoft.com/azure/devops/pipelines/test/getting-started-with-continuous-testing?view=vsts) Azure DevOps bu test çalışmalarını çalıştırabilirsiniz. 
 
-### <a name="run-u-sql-test-cases-in-visual-studio-team-service"></a>Visual Studio Team Service U-SQL sınama çalışmalarını çalıştırma
+### <a name="run-u-sql-test-cases-in-azure-devops"></a>Azure DevOps U-SQL sınama çalışmalarını çalıştırma
 
 U-SQL test için yüklediğiniz emin `CPPSDK` derleme makinesi ve sonra geçişi `CPPSDK` USqlScriptTestRunner yoluna (cppSdkFolderFullPath: @"").
 
@@ -126,16 +126,16 @@ CPPSDK Microsoft Visual C++ 14 ve Windows SDK'sı 10.0.10240.0 içeren bir paket
 - Altında olan Visual Studio 2015 için `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Microsoft Azure Data Lake Tools for Visual Studio 2015\X.X.XXXX.X\CppSDK`
 - Altında olan Visual Studio 2017 için `C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\SDK\ScopeCppSDK`
 
-**Visual Studio Team Services derleme aracı CPPSDK hazırlama**
+**Azure DevOps yapı aracısı CPPSDK hazırlama**
 
-Visual Studio Team Service CPPSDK bağımlılığı hazırlamak için en yaygın yolu aşağıdaki gibidir:
+Azure DevOps CPPSDK bağımlılığı hazırlamak için en yaygın yolu aşağıdaki gibidir:
 
 1.  CPPSDK kitaplıkları içeren klasör zip.
 2.  Kaynak Denetim sisteminize .zip dosyasını inceleyin. (.Zip dosyası, böylece bazı dosyalar ".gitignore" tarafından göz ardı olmayan CPPSDK klasörü altındaki tüm kitaplıkları iade sağlar.)   
 3.  Derleme işlem hattı, .zip dosyasını çıkartın.
 4.  Noktası `USqlScriptTestRunner` derleme makinesi üzerindeki sıkıştırması bu klasöre.
 
-### <a name="run-c-udo-test-cases-in-visual-studio-team-services"></a>Visual Studio Team Services C# UDO'su sınama çalışmalarını çalıştırma
+### <a name="run-c-udo-test-cases-in-azure-devops"></a>Azure DevOps C# UDO'su sınama çalışmalarını çalıştırma
 
 C# UDO'su test için Udo'lar için gerekli olan aşağıdaki derlemelere başvuru emin olun. Bloblarda başvuruyorsa [Nuget paketini Microsoft.Azure.DataLake.USQL.Interfaces](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.Interfaces/), kendi derleme işlem hattı, bir NuGet Restore görevi eklediğinizden emin olun.
 

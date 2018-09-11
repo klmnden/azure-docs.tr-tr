@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: raynew
-ms.openlocfilehash: eacad4acbae0565cbd894d3f51665d751eb9a6e2
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 00a0f396160c964144019b4cb8014f8abc34fe7a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783143"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304671"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Contoso geçiş: bir Azure kapsayıcı ve Azure SQL veritabanı için bir şirket içi uygulamayı yeniden oluşturma
 
@@ -32,9 +32,9 @@ Bu belge, Contoso adlı kurgusal şirketin şirket içi kaynaklara Microsoft Azu
 [Makale 8: Azure sanal makineler ve Azure MySQL üzerinde bir Linux uygulaması barındırma](contoso-migration-rehost-linux-vm-mysql.md) | Contoso, Azure Site Recovery kullanarak Azure Vm'leri için Linux osTicket uygulaması geçirir ve uygulama veritabanı, MySQL Workbench kullanarak Azure MySQL Server örneğine geçirir. | Kullanılabilir
 [Makale 9: bir uygulamayı Azure Web Apps ve Azure SQL veritabanında yeniden düzenleme](contoso-migration-refactor-web-app-sql.md) | Contoso SmartHotel360 uygulamayı bir Azure Web uygulamasına geçirir ve uygulama veritabanı için veritabanı geçiş Yardımcısı'nı kullanarak bir Azure SQL Server örneği geçirir | Kullanılabilir
 [Makale 10: Azure Web Apps ve Azure MySQL üzerinde bir Linux uygulaması yeniden düzenleyin.](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso, bir Azure web uygulamasına GitHub ile sürekli teslim için tümleşik Azure Traffic Manager'ı kullanarak birden fazla Azure bölgesini üzerinde kendi Linux osTicket uygulaması geçirir. Contoso uygulaması veritabanı örneği MySQL için Azure veritabanı geçirir. | Kullanılabilir 
-[Makale 11: TFS VSTS üzerinde yeniden düzenleyin.](contoso-migration-tfs-vsts.md) | Contoso, Visual Studio Team Services azure'da, şirket içi Team Foundation Server dağıtımı geçirir. | Kullanılabilir
-Makale 12: bir uygulamayı Azure kapsayıcıları ve Azure SQL veritabanı yeniden oluşturma | Contoso, SmartHotel360 uygulamayı Azure'a geçirir. Ardından, Azure Service Fabric ve Azure SQL veritabanı ile veritabanı çalıştıran bir Windows kapsayıcısı olarak app web katmanından rearchitects. | Bu makalede
-[Makale 13: uygulamanızı Azure'a yeniden oluşturun.](contoso-migration-rebuild.md) | Contoso Azure özellikleri ve Hizmetleri, Azure App Service, Azure Kubernetes Service (AKS), Azure işlevleri, Azure Bilişsel hizmetler ve Azure Cosmos DB dahil olmak üzere çeşitli kullanarak kendi SmartHotel360 uygulaması oluşturur. | Kullanılabilir  
+[Makale 11: TFS Azure DevOps hizmetleri yeniden düzenleyin.](contoso-migration-tfs-vsts.md) | Contoso, Azure DevOps Hizmetleri azure'da, şirket içi Team Foundation Server dağıtımı geçirir. | Kullanılabilir
+Makale 12: bir uygulamayı Azure kapsayıcıları ve Azure SQL veritabanı yeniden oluşturma | Contoso, SmartHotel uygulamayı Azure'a geçirir. Ardından, Azure Service Fabric ve Azure SQL veritabanı ile veritabanı çalıştıran bir Windows kapsayıcısı olarak app web katmanından rearchitects. | Bu makalede
+[Makale 13: uygulamanızı Azure'a yeniden oluşturun.](contoso-migration-rebuild.md) | Contoso Azure özellikleri ve Hizmetleri, Azure App Service, Azure Kubernetes Service (AKS), Azure işlevleri, Azure Bilişsel hizmetler ve Azure Cosmos DB dahil olmak üzere çeşitli kullanarak kendi SmartHotel uygulama oluşturur... | Kullanılabilir    
 
 Bu makalede, iki katmanlı Windows Contoso geçirir. Azure'a VMware Vm'lerinde çalışan NET SmartHotel360 uygulaması. Bu uygulamayı kullanmak istiyorsanız, açık kaynak sağlanır ve buradan indirebileceğiniz [GitHub](https://github.com/Microsoft/SmartHotel360).
 
@@ -57,7 +57,7 @@ Contoso bulut takım hedeflerini bu geçiş için aşağı sabitlenmiş. Bu hede
 **Uygulama reqs** | Uygulamanızı Azure'a bugün olduğu gibi kritik olarak kalır.<br/><br/> Şu anda bir VMWare içinde olduğu gibi aynı performans özelliklerine sahip olmalıdır.<br/><br/> Contoso, üzerinde uygulama şu anda çalışır ve uygulamada yatırım yapmaya hazır olduğunuz Windows Server 2008 R2, desteğini durduracak ister.<br/><br/> Contoso Yönetimi gereksinimini en aza indirecek bir modern PaaS veritabanı platform, SQL Server 2008 R2 uzağa taşımak istiyor.<br/><br/> Contoso istediğiniz mümkün olduğunda kendi SQL Server Lisanslama ve Yazılım Güvencesi yatırım yararlanın.<br/><br/> Contoso uygulaması web katmanını ölçeklendirmek atabilmek istiyor.
 **Sınırlamalar** | Bir ASP.NET uygulaması ve aynı VM'de çalışan bir WCF hizmeti uygulaması oluşur. Contoso, bunu Azure App Service kullanarak iki web uygulaması arasında bölmek istiyor. 
 **Azure reqs** | Contoso, uygulamayı Azure'a taşıyabilir ve uygulama yaşam genişletmek için bir kapsayıcıda çalıştırmak istiyor. Tamamen Azure'da uygulama sıfırdan başlamak istememektedir. 
-**DevOps** | Contoso, Visual Studio Team Services (VSTS) kod yapıları taşıma DevOps kullanarak model ve yayın işlem ister.
+**DevOps** | Azure DevOps Hizmetleri için kod oluşturur bir DevOps kullanarak modelinize taşıyın ve yayın işlem contoso istiyor.
 
 ## <a name="solution-design"></a>Çözüm tasarımı
 
@@ -82,7 +82,7 @@ Hedefleri ve gereksinimleri sabitleme sonra Contoso tasarlar ve bir dağıtım �
 - Uygulama web katmanı için Contoso verdi Visual Studio kullanarak Windows kapsayıcısına Dönüştür.
     - Contoso Azure Service Fabric kullanarak uygulamayı dağıtma ve Azure Container Registry (ACR) gelen Windows kapsayıcı görüntüsü çekin.
     - Bir prototip uygulamasının yaklaşım analizi de içerecek şekilde genişletmek için Service Fabric, Cosmos DB'ye bağlı başka bir hizmet olarak uygulanacaktır.  Bu bilgileri Tweetleri okuyun ve üzerinde uygulamayı görüntüleyin.
-- DevOps işlem hattı uygulamak için Contoso VSTS kaynak kodu Yönetimi (SCM), Git depoları için kullanır.  Otomatik derleme ve yayınlar kod oluşturmak için kullanılan ve Azure Service Fabric ve Azure Container Registry'yi dağıtma.
+- DevOps işlem hattı uygulamak için Contoso Git depoları ile Azure DevOps Hizmetleri için kaynak kodu Yönetimi (SCM) kullanır.  Otomatik derleme ve yayınlar kod oluşturmak için kullanılan ve Azure Service Fabric ve Azure Container Registry'yi dağıtma.
 
     ![Senaryo mimarisi](./media/contoso-migration-rearchitect-container-sql/architecture.png) 
 
@@ -135,9 +135,9 @@ Contoso geçişi nasıl çalıştığını şu şekildedir:
 > * **1. adım: Azure SQL veritabanı örneğinde sağlama**: Contoso azure'da bir SQL örneği sağlar. Ön uç web VM için bir Azure kapsayıcı geçirildikten sonra uygulamanın web ön ucu ile kapsayıcı örneği bu veritabanına işaret etmesini sağlayacaksınız.
 > * **2. adım: Azure Container Registry (ACR) oluşturma**: Contoso bir kurumsal kapsayıcı kayıt defteri docker kapsayıcı görüntüleri için hazırlar.
 > * **3. adım: Sağlama Azure Service Fabric**: Service Fabric kümesi sağlar.
-> * **4. adım: service fabric sertifikaları yönetme**: Contoso VSTS erişim küme için sertifika ayarlar.
+> * **4. adım: service fabric sertifikaları yönetme**: Contoso kümeye Azure DevOps Services erişimi için sertifika ayarlar.
 > * **5. adım: DMA veritabanıyla geçirme**: veritabanı geçiş Yardımcısı'nı uygulama veritabanıyla geçirir.
-> * **6. adım: VSTS'yi ayarlama**: Contoso vsts'deki yeni bir proje ayarlar ve kod Git deposuna içeri aktarır.
+> * **6. adım: Azure DevOps Hizmetleri'ni ayarlama**: Contoso Azure DevOps Hizmetleri'ndeki yeni bir proje ayarlar ve kod Git deposuna içeri aktarır.
 > * **7. adım: uygulamayı dönüştürmek**: Contoso uygulaması için Visual Studio ve SDK araçları kullanarak kapsayıcı dönüştürür.
 > * **8. adım: derleme ve yayın ayarlama**: Contoso oluşturmak ve uygulamayı Service Fabric kümesi ve ACR yayımlamak için derleme ve yayın işlem hatları ayarlar.
 > * **9. adım: uygulamayı genişletmek**: uygulama genel sonra Contoso Azure özelliklerinden yararlanmak için genişletir ve bu işlem hattını kullanarak Azure'a yeniden yayımlar.
@@ -254,7 +254,7 @@ SmartHotel360 kapsayıcı, Azure Service Fabric Sluster içinde çalışır. Con
 
 ## <a name="step-4-manage-service-fabric-certificates"></a>Adım 4: Service Fabric sertifikaları yönetme
 
-Contoso küme VSTS erişmesine izin vermek için küme sertifikası gerekir. Bunu ayarlamanız contoso yöneticileri.
+Contoso küme Azure DevOps Hizmetleri erişmesine izin vermek için küme sertifikası gerekir. Bunu ayarlamanız contoso yöneticileri.
 
 1. Bunlar, Azure portalını açın ve anahtar kasası için göz atın.
 2. Bunlar, sertifikalar ve sağlama işlemi sırasında oluşturulan sertifikanın parmak izini kopyalayın.
@@ -262,7 +262,7 @@ Contoso küme VSTS erişmesine izin vermek için küme sertifikası gerekir. Bun
     ![Parmak izini kopyalayın](./media/contoso-migration-rearchitect-container-sql/cert1.png)
  
 3. Bunlar daha sonra başvurmak için bir metin dosyasına kopyalayın.
-4. Şimdi küme üzerinde bir yönetici istemci sertifikası olacak bir istemci sertifikası ekleyin. Bu uygulama dağıtım yayın ardışık düzeni kümeye bağlanmak VSTS sağlar. Yapmak için bunlar, bunlar KeyVault portalda açın ve seçin **sertifikaları** > **Oluştur/içeri aktarma**.
+4. Şimdi küme üzerinde bir yönetici istemci sertifikası olacak bir istemci sertifikası ekleyin. Bu uygulama dağıtım yayın ardışık düzeni kümeye bağlanmak, Azure DevOps hizmetleri sağlar. Yapmak için bunlar, bunlar KeyVault portalda açın ve seçin **sertifikaları** > **Oluştur/içeri aktarma**.
 
     ![İstemci sertifikası oluşturma](./media/contoso-migration-rearchitect-container-sql/cert2.png)
 
@@ -278,7 +278,7 @@ Contoso küme VSTS erişmesine izin vermek için küme sertifikası gerekir. Bun
 
      ![İstemci sertifikası parmak izi](./media/contoso-migration-rearchitect-container-sql/cert5.png)
 
-8. VSTS dağıtımı için sertifikanın bir Base64 değeri belirlemek gerekir. PowerShell kullanarak yerel geliştirici iş istasyonu bunu. Bunlar, çıktı daha sonra kullanmak için bir metin dosyasına yapıştırın.
+8. Azure DevOps Hizmetleri dağıtımı için Sertifikayı Base64 değerini belirlemek ihtiyaç duydukları. PowerShell kullanarak yerel geliştirici iş istasyonu bunu. Bunlar, çıktı daha sonra kullanmak için bir metin dosyasına yapıştırın.
 
     ```
         [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("C:\path\to\certificate.pfx")) 
@@ -359,11 +359,11 @@ Contoso yöneticileri artık veritabanına geçirin.
      ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-9.png)
 
 
-## <a name="step-6-set-up-vsts"></a>6. adım: VSTS ayarlama
+## <a name="step-6-set-up-azure-devops-services"></a>6. adım: Azure DevOps Services'ı ayarlama
 
-Contoso uygulaması için işlem hatları ve DevOps altyapı oluşturmak gerekir.  Bunu yapmak için Contoso yöneticileri yeni VSTS projesi oluşturma, kendi kodlarını alma ve ardından derleme ve yayın işlem hatları.
+Contoso uygulaması için işlem hatları ve DevOps altyapı oluşturmak gerekir.  Bunu yapmak için Contoso yöneticileri yeni bir Azure DevOps projesi oluşturun, kendi kodlarını alma ve ardından derleme ve yayın işlem hatları.
 
-1.   Bunlar Contoso VSTS hesabında yeni bir proje oluşturun (**ContosoSmartHotelRearchitect**) seçip **Git** sürüm denetimi.
+1.   Bunlar Contoso Azure DevOps hesabında yeni bir proje oluşturun (**ContosoSmartHotelRearchitect**) seçip **Git** sürüm denetimi.
 
     ![Yeni proje](./media/contoso-migration-rearchitect-container-sql/vsts1.png)
 
@@ -424,19 +424,19 @@ Contoso yöneticileri uygulamayı Visual Studio ve SDK Tools kullanarak, aşağ�
 
     ![Bağlantı dizesi](./media/contoso-migration-rearchitect-container-sql/container8.png)
 
-10. Güncelleştirilen kodun işlenmesinden ya VSTS'ye gönderin.
+10. Güncelleştirilen kodun işlenmesinden ya Azure DevOps Services'a iletin.
 
     ![İşleme](./media/contoso-migration-rearchitect-container-sql/container9.png)
 
-## <a name="step-8-build-and-release-pipelines-in-vsts"></a>8. adım: Derleme ve yayın işlem hatları vsts'de
+## <a name="step-8-build-and-release-pipelines-in-azure-devops-services"></a>8. adım: Derleme ve yayın işlem hatları Azure DevOps Hizmetleri'nde
 
-Contoso yöneticileri artık VSTS derleme gerçekleştirmek ve eylem işlemine DevOps uygulamalarını serbest bırakmak için yapılandırın.
+Contoso yöneticileri artık yapı gerçekleştirin ve eylem işlemine DevOps uygulamalarını serbest bırakmak için Azure DevOps Hizmetleri yapılandırın.
 
-1. Bunlar, VSTS'de tıklayın **derleme ve yayın** > **yeni işlem hattı**.
+1. Azure DevOps Hizmetleri'nde bunlar tıklayın **derleme ve yayın** > **yeni işlem hattı**.
 
     ![Yeni ardışık düzen](./media/contoso-migration-rearchitect-container-sql/pipeline1.png)
 
-2. Seçmeleri **VSTS Gıt** ve ilgili depo.
+2. Seçmeleri **Azure DevOps Hizmetleri Git** ve ilgili depo.
 
     ![Git ve depo](./media/contoso-migration-rearchitect-container-sql/pipeline2.png)
 
@@ -454,7 +454,7 @@ Contoso yöneticileri artık VSTS derleme gerçekleştirmek ve eylem işlemine D
     ![Tetikleyiciler](./media/contoso-migration-rearchitect-container-sql/pipeline5.png)
 
 7. Simgeye **Kaydet ve kuyruğa al** derlemeyi başlatmak için.
-8. Derleme başarılı olduktan sonra yayın işlem hattı taşıyın. VSTS'de bunlar tıklayın **yayınlar** > **yeni işlem hattı**.
+8. Derleme başarılı olduktan sonra yayın işlem hattı taşıyın. Azure DevOps bunlar Hizmetleri **yayınlar** > **yeni işlem hattı**.
 
     ![Yayın ardışık düzeni](./media/contoso-migration-rearchitect-container-sql/pipeline6.png)    
 
@@ -470,7 +470,7 @@ Contoso yöneticileri artık VSTS derleme gerçekleştirmek ve eylem işlemine D
 
     ![Yeni bağlantı](./media/contoso-migration-rearchitect-container-sql/pipeline9.png)
 
-12. İçinde **ekleme Service Fabric hizmeti bağlantısı**, bağlantı ve uygulama dağıtmak için VSTS tarafından kullanılacak kimlik doğrulama ayarlarını yapılandırın. Küme uç noktasına, Azure portalında bulunabilir ve bunlar ekleme **tcp: / /** öneki olarak.
+12. İçinde **ekleme Service Fabric hizmeti bağlantısı**, bağlantı ve uygulama dağıtmak için Azure DevOps Hizmetleri tarafından kullanılacak kimlik doğrulama ayarlarını yapılandırın. Küme uç noktasına, Azure portalında bulunabilir ve bunlar ekleme **tcp: / /** öneki olarak.
 13. Topladıkları sertifika bilgileri de giriş **sunucu sertifikası parmak izi** ve **istemci sertifikası**.
 
     ![Sertifika](./media/contoso-migration-rearchitect-container-sql/pipeline10.png)
@@ -580,7 +580,7 @@ Sağlanan Cosmos DB ile uygulama bağlanmak için Contoso Yöneticiler yapıland
 
 Uygulama genişletildikten sonra Contoso yöneticileri, işlem hattını kullanarak Azure'a yeniden yayımlayın.
 
-1. Bunlar, yürütme ve kodlarını VSTS'ye gönderin. Bu, derleme ve yayın işlem hattını başlatıyor.
+1. Bunlar, yürütme ve kodlarını Azure DevOps Services'a iletin. Bu, derleme ve yayın işlem hattını başlatıyor.
 
 2. Derleme ve dağıtım bittikten sonra SmartHotel360 artık Service Fabric çalıştırırsınız. Listeleme doku Yönetimi konsolunda, artık üç hizmetler gösterilmektedir.
 

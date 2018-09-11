@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 766f617f3534ffaccdc326e7de8155adb84a69ce
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: da5905af4a861502f190cd873033923d8fd0bfa7
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162152"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349101"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-Factor Authentication ayarlarını yapılandırma
 
@@ -200,7 +200,7 @@ Güvenilen IP'ler özellik etkinleştirilip etkinleştirilmediği bağımsız ol
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Güvenilen IP'ler özelliği hizmet ayarlarını kullanarak etkinleştirin.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Sol tarafta, seçin **Azure Active Directory** > **kullanıcılar ve gruplar** > **tüm kullanıcılar**.
+2. Sol tarafta, seçin **Azure Active Directory** > **kullanıcılar**.
 3. Seçin **çok faktörlü kimlik doğrulaması**.
 4. Multi-Factor Authentication'ın altında seçin **hizmet ayarları**.
 5. Üzerinde **hizmet ayarları** sayfasındaki **güvenilen IP'ler**, aşağıdaki iki seçeneklerden birini seçin:

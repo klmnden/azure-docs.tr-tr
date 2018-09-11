@@ -10,14 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/09/2018
-ms.author: sdash ; mbullwin
-ms.openlocfilehash: c97b45616a58035dd5a1d7e832212fb90694ccce
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.reviewer: sdash
+ms.author: mbullwin
+ms.openlocfilehash: 392abef7f92dce024ba6e4af091cf58fde5119b6
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302400"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Web sitelerinin kullanılabilirlik ve yanıt hızını izleme
 Web uygulamanızı veya web sitenizi herhangi bir sunucuya dağıttıktan sonra kullanılabilirlik ve yanıt hızını izlemeye yönelik testler ayarlayabilirsiniz. [Azure Application Insights](app-insights-overview.md), dünyanın her yerindeki noktalarından uygulamanıza düzenli aralıklarla web istekleri gönderir. Uygulamanız yanıt vermezse veya yavaş yanıt verirse sizi uyarır.
@@ -113,7 +115,7 @@ Bir kullanılabilirlik testi sonucundan şunları yapabilirsiniz:
 
 * Sunucunuzdan alınan yanıtı denetleme.
 * Başarısız istek örneği işlenirken toplanan sunucu tarafı telemetrisi ile hatayı tanılayın.
-* Sorunu izlemek için bir sorunu veya iş öğesini Git’te ya da VSTS’de günlüğe kaydetme. Hata, bu olayın bir bağlantısını içerir.
+* Bir sorun oturum veya bir sorunu izlemek için Git veya Azure DevOps iş öğesi. Hata, bu olayın bir bağlantısını içerir.
 * Web testi sonucunu Visual Studio’da açın.
 
 *Sorunsuz görünüyor ancak hata olarak mı bildiriliyor?* Gürültüyü azaltma yolları için bkz. [SSS](#qna).
@@ -180,7 +182,9 @@ Web oturumu kaydetmek için Visual Studio Enterprise kullanın.
 
 Tek url testlerinde olduğu gibi test sonuçlarını ve hatalarını görüntüleyin.
 
-Ayrıca, test sonuçlarını indirerek Visual Studio’da görüntüleyebilirsiniz.
+Visual Studio'da bunları görüntülemek için test sonuçlarını da indirebilirsiniz.
+
+Test sonuçları karşıdan yüklemek için. Kullanılabilirlik testi özetine gidin, kullanılabilirlik test sonuç penceresini açmak için grafikte bir sonuç tıklayın ve ardından **Visual Studio'da açın** test sonucu indirilemedi.
 
 #### <a name="too-many-failures"></a>Çok fazla hata mı var?
 
@@ -253,7 +257,7 @@ Testinizde OAuth kullanılarak oturum açılması gerekiyorsa, genel yaklaşım 
 ## <a name="performance-tests"></a>Performans testleri
 Web sitenizde bir yük testi çalıştırabilirsiniz. Kullanılabilirlik testinde olduğu gibi dünyanın dört bir yanındaki noktalarımızdan basit istekler ya da çok adımlı istekler gönderebilirsiniz. Kullanılabilirlik testinden farklı olarak eşzamanlı birden fazla kullanıcıyı benzeten çok sayıda istek gönderilir.
 
-Genel Bakış dikey penceresinde **Ayarlar**, **Performans Testleri**’ni açın. Bir test oluşturduğunuzda Visual Studio Team Services hesabı oluşturmaya davet edilirsiniz.
+Genel Bakış dikey penceresinde **Ayarlar**, **Performans Testleri**’ni açın. Bir test oluşturduğunuzda, bağlanma veya bir Azure DevOps hizmetler kuruluşundan oluşturma davetlidir.
 
 Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 

@@ -4,36 +4,20 @@ description: Otomatik olarak imzalanan kök sertifika oluşturma, ortak anahtar�
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 27b99f7c-50dc-4f88-8a6e-d60080819a43
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/12/2018
+ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: 385b6ed2e8104fd2e15e6e55d46dcd12b963ec6b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 18d705f68ff06621e30c051dac9fb9607fd043ac
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696557"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300945"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Oluşturma ve noktadan siteye için sertifika dışarı aktarma PowerShell'i kullanma
 
-Noktadan siteye bağlantılar, kimlik doğrulaması için sertifikaları kullanır. Bu makalede bir otomatik olarak imzalanan kök sertifika oluşturma ve Windows 10 veya Windows Server 2016 üzerinde PowerShell kullanarak istemci sertifikalarını oluşturmak nasıl gösterir. Kök sertifikalarını karşıya yükleme gibi noktadan siteye yapılandırma adımlarını arıyorsanız ' yapılandırma noktadan siteye ' makaleleri birini aşağıdaki listeden seçin:
-
-> [!div class="op_single_selector"]
-> * [Otomatik olarak imzalanan sertifika oluşturma - PowerShell](vpn-gateway-certificates-point-to-site.md)
-> * [MakeCert - otomatik olarak imzalanan sertifikalar oluşturma](vpn-gateway-certificates-point-to-site-makecert.md)
-> * [Noktadan siteye - Resource Manager - Azure portalında yapılandırma](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> * [Noktadan siteye - Resource Manager - PowerShell yapılandırma](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Noktadan siteye - Klasik - Azure portalında yapılandırma](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-> 
-> 
+Noktadan siteye bağlantılar, kimlik doğrulaması için sertifikaları kullanır. Bu makalede bir otomatik olarak imzalanan kök sertifika oluşturma ve Windows 10 veya Windows Server 2016 üzerinde PowerShell kullanarak istemci sertifikalarını oluşturmak nasıl gösterir. Farklı bir sertifika yönergeler arıyorsanız bkz [sertifikalar - Linux](vpn-gateway-certificates-point-to-site-linux.md) veya [sertifikalar - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md).
 
 Windows 10 veya Windows Server 2016 çalıştıran bir bilgisayarda bu makaledeki adımları gerçekleştirmeniz gerekir. Sertifikaları oluşturmak için kullanabileceğiniz PowerShell cmdlet'leri, işletim sisteminin bir parçasıdır ve diğer Windows sürümlerinde çalışmaz. Windows 10 veya Windows Server 2016 bilgisayarı, yalnızca sertifikalarını oluşturmak için gereklidir. Sertifikaları oluşturduktan sonra bunları karşıya yükleyebilir veya bunları tüm desteklenen istemci işletim sistemine yükleyin. 
 

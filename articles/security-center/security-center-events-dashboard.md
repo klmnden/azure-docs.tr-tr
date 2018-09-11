@@ -1,6 +1,6 @@
 ---
 title: İzleme ve Azure Güvenlik Merkezi'nde güvenlik olaylarını işleme | Microsoft Docs
-description: Güvenlik olayları, Azure Vm'leri ve Azure olmayan bilgisayarlardan görmek için Güvenlik Merkezi'nin olayları Pano nasıl kullanabileceğinizi öğrenin.
+description: Azure Vm'lerinizden ve Azure dışı bilgisayarların güvenlik olaylarını görmek için Güvenlik Merkezi'nin olaylar Panosu nasıl kullanabileceğinizi öğrenin.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,123 +9,123 @@ editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: terrylan
-ms.openlocfilehash: 367067874b167268bd690a9e0b55412e92e08122
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32273647d0f773c3f47653ac6fc87fef48630c0a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23926532"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299296"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>İzleme ve Azure Güvenlik Merkezi'nde güvenlik olaylarını işleme
-Olayları Pano zaman ve dikkat etmeniz gereken önemli olaylar listesi toplanan güvenlik olaylarının sayısına genel bir bakış sağlar.  
+Olaylar Panosu, zaman ve ilgilenmenizi gerektiren önemli olayların bir listesi üzerinden toplanan güvenlik olay sayısı için genel bir bakış sağlar.  
 
 > [!NOTE]
-> Bu özelliği kullanmak için çalışma alanınızı günlük analizi sürüm 2 çalıştırıyor olabilir ve Güvenlik Merkezi'nin standart katmanında olması gerekir. Güvenlik Merkezi bkz [fiyatlandırma sayfası](security-center-pricing.md) standart katmanı hakkında daha fazla bilgi.
+> Bu özelliği kullanmak için çalışma alanınızı Log Analytics sürüm 2 çalıştırıyor olması ve Güvenlik Merkezi'nin standart katmanında olmanız gerekir. Güvenlik Merkezi'ni [fiyatlandırma sayfası](security-center-pricing.md) standart katman hakkında daha fazla bilgi.
 >
 >
 
-## <a name="what-is-a-security-event"></a>Güvenlik olayı nedir?
-Güvenlik Merkezi kullanımlarını çeşitli güvenlik toplamak için Microsoft Monitoring Agent, makinelerden ilgili yapılandırmaları ve olayları ve bu olaylar, çalışma alanları depolar. Bu tür verilerin örnekleri şunlardır: işletim sistemi günlükleri (Windows olay günlükleri), çalışan işler ve güvenlik çözümleri olaylarından Tümleşik Güvenlik Merkezi ile. Microsoft Monitoring Agent ayrıca kilitlenme bilgi dökümü dosyalarını da çalışma alanlarınıza kopyalar.
+## <a name="what-is-a-security-event"></a>Bir güvenlik olayı nedir?
+Güvenlik Merkezi kullanan çeşitli güvenlik toplamak için Microsoft Monitoring Agent, makinelerinizden yapılandırmaları ve olayları ilgili ve bu olayları, çalışma Alanlarınızda depolanır. Bu tür verilerin örnekleri şunlardır: işletim sistemi günlükleri (Windows olay günlükleri), çalışan işler ve güvenlik çözümlerinden gelen olayları Güvenlik Merkezi ile tümleşiktir. Microsoft Monitoring Agent ayrıca kilitlenme bilgi dökümü dosyalarını da çalışma alanlarınıza kopyalar.
 
-## <a name="events-processed-dashboard"></a>İşlenen olayların Panosu
-Size erişim **olayları** Güvenlik Merkezi ana menüsünden veya Güvenlik Merkezi Panosu **genel bakış** dikey.  
+## <a name="events-processed-dashboard"></a>İşlenen olaylar Panosu
+Size erişim **olayları** Güvenlik Merkezi ana menüsünde veya Güvenlik Merkezi panosunda **genel bakış** dikey penceresi.  
 
-![İşlenen olayların Panosu][1]
+![İşlenen olaylar Panosu][1]
 
-**Olayları** altında döşeme **Güvenlik Merkezi** Güvenlik Merkezi'nden Azure Vm'leri ve Azure olmayan bilgisayarları içine akan olayların sayısını görüntüler.
+**Olayları** altında kutucuğuna **Güvenlik Merkezi** Azure Vm'lerinizden ve Azure harici bilgisayarları Güvenlik Merkezi ile akan olay sayısını görüntüler.
 
-**Olayları Pano** işlenen olayların mesai sayısını ve olayların listesini genel bir bakış sağlar.
+**Olaylar Panosu** işlenen olaylar mesai sayısı ve olaylarının bir listesi hakkında genel bir bakış sağlar.
 
  ![Pano][2]
 
- Pano'nin üst yarısı son bir hafta içinde işlenen tüm olayları eğilimlerin. Alt önemli olaylar ve türe göre tüm olaylar Pano yarısı listeler:
+ Panonun üst kısmında geçen hafta işlenen tüm olaylar eğilimler. Alt önemli olayları ve türe göre tüm olaylar Panosu yarısını listeler:
 
- - **Önemli olayları** Güvenlik Merkezi sağlar olay sorguları ve oluşturmak ve eklediğiniz olay sorgularını içerir. Pano ayrıca her önemli olay sayısı içine hızlı bir görünümünü sağlar.
- - **Türe göre tüm olayları** alınma olay türlerini ve her tür için bir sayı gösterir. Olay türü SecurityEvent, CommonSecurityLog, WindowsFirewall ve W3CIISLog gösterilebilir.
+ - **Önemli olayları** Güvenlik Merkezi'nin sağladığı olay sorgularını ve ve eklediğiniz olay sorguları içerir. Pano, ayrıca her önemli olay sayısı hızlıca görüntülemenizi sağlar.
+ - **Türe göre tüm olaylar** alınan olay türleri ve her tür sayısını gösterir. SecurityEvent, CommonSecurityLog WindowsFirewall ve w3cııslog olay türü örnekleridir.
 
 > [!NOTE]
-> Önemli olayları dahil [web temeli değerlendirme](https://docs.microsoft.com/azure/operations-management-suite/oms-security-web-baseline-assessment). Web Temeli değerlendirmesinin amacı, savunmasız olabilecek web sunucusu ayarlarını bulmaktır.
+> Önemli olayları dahil [web temeli değerlendirmesi](https://docs.microsoft.com/azure/operations-management-suite/oms-security-web-baseline-assessment). Web Temeli değerlendirmesinin amacı, savunmasız olabilecek web sunucusu ayarlarını bulmaktır.
 
-## <a name="view-processed-event-details"></a>İşlenen olay ayrıntılarını görüntüleyin
-1. Altında **Güvenlik Merkezi** ana menü, select **olayları**.
-2. **Olayları Pano** çalışma alanı seçicisinde açın. Yalnızca bir çalışma alanı varsa, bu çalışma alanı seçicisinde görünmez. Birden fazla çalışma alanı varsa, işlenen olay ayrıntılarını görüntülemek için bir çalışma alanı seçmeniz gerekir. Birden fazla çalışma alanı varsa, bir çalışma alanı listeden seçin.
+## <a name="view-processed-event-details"></a>İşlenen olay ayrıntılarına bakın
+1. Altında **Güvenlik Merkezi** ana menüsünde, select **olayları**.
+2. **Olaylar Panosu** çalışma alanı seçicisini açın. Yalnızca bir çalışma alanı varsa, bu çalışma alanı Seçici görüntülenmez. Birden fazla çalışma alanı varsa, işlenen olay ayrıntılarını görüntülemek için bir çalışma alanı seçmeniz gerekir. Birden fazla çalışma alanı varsa, listeden bir çalışma alanı seçin.
 
   ![Çalışma alanı listesi][3]
 
-3. **Olayları Pano** seçilen çalışma alanı için olay ayrıntılarına gösteren açar. Önemli olaylar ve türe göre tüm olayları görüntüleyebilirsiniz.  Bu örnekte, seçtik **önemli olayları**.
+3. **Olaylar Panosu** açılarak, seçilen çalışma alanı için olay ayrıntılarını gösterir. Önemli olayları ve türe göre tüm olaylar görüntüleyebilirsiniz.  Biz bu örnekte, seçili **önemli olayları**.
 
-  ![Önemli olay][4]
+  ![Önemli etkinlik][4]
 
-4. Olay türü seçerek çalışma alanı altında daha fazla veri sorgulama yapabilirsiniz. Bu örnekte, seçtik **SecurityEvent**.
+4. Bir olay türü seçerek çalışma alanı altında daha fazla veri sorgulayabilirsiniz. Biz bu örnekte, seçili **SecurityEvent**.
 
-  ![Olay türü seçme][5]
+  ![Bir olay türü seçme][5]
 
-5. **Arama oturum** ek ayrıntılı olay türü ile açılır.
+5. **Günlük arama** olayın türüne ek ayrıntı ile açılır.
 
   ![Günlük araması][6]
 
-## <a name="add-a-notable-event"></a>Önemli bir olay ekleyin
-Güvenlik Merkezi Giden kutusu önemli olayları sağlar. Kendi sorgu kullanımına dayalı önemli olayları ekleyebilirsiniz [günlük analizi sorgu dili](../log-analytics/log-analytics-search-reference.md). İçin getireceğiz **olayları Pano** önemli bir olay eklemek için.
+## <a name="add-a-notable-event"></a>Önemli olay Ekle
+Güvenlik Merkezi, Giden kutusu önemli olayları sağlar. Kendi sorgu kullanımına dayalı önemli olayları ekleyebilirsiniz [Log Analytics sorgu diline](../log-analytics/log-analytics-search-reference.md). İçin getireceğiz **olaylar Panosu** önemli bir olay eklemek için.
 
-1. Seçin **önemli olay eklemek**.
+1. Seçin **önemli olay Ekle**.
 
-  ![Önemli bir olay ekleyin][7]
+  ![Önemli olay Ekle][7]
 
-2. **Özel dikkat çekici olay eklemek** açar.  Altında **görünen adı**, önemli olay için bir ad girin. Altında **arama sorgusu**, olayı için sorgunuzu girin.
+2. **Özel önemli olay Ekle** açılır.  Altında **görünen ad**, önemli olay için bir ad girin. Altında **arama sorgusu**, olay için sorgunuzu girin.
 
-  ![Sorgunuz girin][8]
+  ![Sorgunuzu girin][8]
 
 4. **Tamam**’ı seçin.
 
-## <a name="update-your-workspace-for-events-processing"></a>Olayları işleme için çalışma alanınızı güncelleştir
-Çalışma alanınızı günlük analizi sürüm 2 çalıştırıyor olabilir ve Güvenlik Merkezi'nin standart katmanı Güvenlik Merkezi'nde Olay işleme kullanmak için açık olması gerekir. **Olayları Pano** çalışma alanı seçicisinde bu gereksinimleri karşılamayan çalışma alanları tanımlar.
+## <a name="update-your-workspace-for-events-processing"></a>Olayları işleme için çalışma alanınızı güncelleştirmek
+Çalışma alanınız, Log Analytics sürüm 2 çalıştırıyor olması ve olay işleme Güvenlik Merkezi'nde kullanılacak Güvenlik Merkezi'nin standart katmanında olmanız gerekir. **Olaylar Panosu** çalışma alanı Seçici bu gereksinimleri karşılamayan çalışma alanlarını tanımlar.
 
 ![Çalışma alanı gereksinimlerini karşılamıyor][9]
 
 Çalışma alanı satır:
 
-- İçeren **gerektirir güncelleştirme** -sürüm 2 günlük analizi çalışma alanınız güncelleştirmeniz gerekir
-- İçeren **yükseltme planlama** – çalışma alanınızı Güvenlik Merkezi'nin standart katmanına yükseltme gerekiyor
-- Boş - çalışma alanınızı gereksinimlerini karşıladığından ve bir çalışma alanı seçerek alır, Pano için
+- İçeren **yükseltme gerekiyor** -Log Analytics sürüm 2 için çalışma alanınızı güncelleştirmek için ihtiyacınız
+- İçeren **planı YÜKSELT** – çalışma alanınızda, Güvenlik Merkezi'nin standart katmana yükseltme gerekiyor
+- Boş - çalışma alanınız gereksinimlerini karşıladığından ve bir çalışma alanını seçmeyi alır, panoya
 
 > [!NOTE]
-> Altında **olayları Pano**, **olayları** sütun her çalışma olayları miktarını belirtir.  Bu çalışma alanına Güvenlik Merkezi'nin ücretsiz katmanı uygulandığından bu bazı çalışma alanları için boş bir sütundur. Ücretsiz katmanı altında Güvenlik Merkezi olayları toplar ancak olayları günlük analizi kaydedilmez ve Panoda kullanılabilir değil.
+> Altında **olaylar Panosu**, **olayları** sütunu her çalışma olayları miktarını gösterir.  Bu sütun, Güvenlik Merkezi'nin ücretsiz katmanı, bu çalışma alanına uygulandığından bazı çalışma alanları için boştur. Ücretsiz katmanı altında Güvenlik Merkezi olayları toplar ancak olayları Log Analytics'te kaydedilmez ve Pano kullanılabilir değil.
 >
 >
 
-## <a name="update-workspace-to-log-analytics-version-2"></a>Sürüm 2 günlük analizi çalışma alanı güncelleştir
-1. Bir çalışma alanı seçin, **güncelleştirme gerekiyor**.
-2. **Arama yükseltme** açar. Seçin **Şimdi Yükselt**.
+## <a name="update-workspace-to-log-analytics-version-2"></a>Çalışma alanı Log Analytics'e sürüm 2 güncelleştirme
+1. Bir çalışma alanı seçin, **için güncelleştirme gerekiyor**.
+2. **Arama yükseltmesi** açılır. Seçin **şimdi yükseltin**.
 
-  ![Şimdi Yükselt][10]
+  ![Şimdi yükseltin][10]
 
-## <a name="upgrade-to-security-centers-standard-tier"></a>Güvenlik Merkezi'nin standart katmanına yükseltme
-1. Bir çalışma alanıyla seçin **yükseltme planlama**.
-2. **Olayları Pano** açar. Seçin **deneyin olayları Pano**.
+## <a name="upgrade-to-security-centers-standard-tier"></a>Güvenlik Merkezi'nin standart katmana yükseltme
+1. Bir çalışma alanı ile **planı YÜKSELT**.
+2. **Olaylar Panosu** açılır. Seçin **deneyin olaylar Panosu**.
 
-  ![Pano deneyin][11]
+  ![Panosunu deneyin][11]
 
-3. Altında **Onboarding Gelişmiş Güvenlik**, Yükseltmekte olduğunuz çalışma alanını seçin.
+3. Altında **Gelişmiş güvenliğe ekleme**, Yükseltmekte olduğunuz çalışma alanını seçin.
 4. Altında **fiyatlandırma**seçin **standart**.
 5. **Kaydet**’i seçin.
 
-  ![Standart katmana yükseltin][12]
+  ![Standart katmana yükseltme][12]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede Güvenlik Merkezi'nin olay Panoyu kullanma hakkında bilgi edindiniz. Pano nasıl çalıştığı hakkında daha fazla bilgi edinin ve kendi olay sorguları yazmaya bakın:
+Bu makalede Güvenlik Merkezi'nin olay panonun nasıl kullanılacağı hakkında bilgi edindiniz. Pano nasıl çalıştığı hakkında daha fazla bilgi edinin ve kendi olay sorguları yazma bakın:
 
-- [Log Analytics nedir?](../log-analytics/log-analytics-overview.md) – Günlük analizi genel bakış
-- [Anlama günlük arar günlük analizi](../log-analytics/log-analytics-log-search-new.md) - günlük aramaları günlük analizi nasıl kullanıldığını açıklar ve günlük arama oluşturmadan önce anlaşılmalıdır kavramları sağlar
-- [Günlük analizi arama başvuru](../log-analytics/log-analytics-search-reference.md) – günlüğüne sorgu dili kullanarak kendi olay sorguları yazma öğrenin
+- [Log Analytics nedir?](../log-analytics/log-analytics-overview.md) – Log Analytics'e genel bakış
+- [Günlük aramalarını anlama Log Analytics'te](../log-analytics/log-analytics-log-search-new.md) - Log Analytics'te günlük aramaları nasıl kullanıldığını açıklar ve bir günlük araması oluşturmadan önce anlaşılması kavramlar sağlar
+- [Log Analytics Arama başvurusu](../log-analytics/log-analytics-search-reference.md) – günlüğünde sorgu dilini kullanarak kendi olay sorguları yazmayı öğrenin
 
 Güvenlik Merkezi hakkında daha fazla bilgi için bkz:
 
-- [Güvenlik Merkezi'ne genel bakış](security-center-intro.md) – Describes Güvenlik Merkezi'nin anahtar özellikleri
+- [Güvenlik merkezine genel bakış](security-center-intro.md) – Describes Güvenlik Merkezi'nin temel özellikleri
 
 <!--Image references-->
 [1]: ./media/security-center-events-dashboard/events-processed.png

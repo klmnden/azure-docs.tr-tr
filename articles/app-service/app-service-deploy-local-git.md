@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: f461a9a7cc900ce5f8fdba7b255417b1790d3f4d
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: ae8739a65efbe7662a8f72e961d772fecaf4b527
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056254"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303707"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service için Yerel Git Dağıtımı
 
@@ -101,10 +101,10 @@ git push azure master
 
 İçerik dağıtıldığını doğrulamak için uygulamanıza göz atın.
 
-## <a name="deploy-from-local-git-with-vsts-builds"></a>VSTS derleme ile yerel Git dağıtımı
+## <a name="deploy-from-local-git-with-azure-devops-services-builds"></a>Azure DevOps Hizmetleri derlemeyle yerel Git dağıtımı
 
 > [!NOTE]
-> App Service'nın gerekli derleme ve yayın tanımları VSTS hesabınızdaki rolü Azure hesabınızın olması gerekir **sahibi** Azure aboneliğinizdeki.
+> App Service'nın Azure DevOps Hizmetleri kuruluşunuzda gerekli Azure işlem hatları oluşturmak rolü Azure hesabınızın olması gerekir **sahibi** Azure aboneliğinizdeki.
 >
 
 Kudu derleme sunucusu ile uygulamanıza yönelik yerel Git dağıtımını etkinleştirmek için uygulamanıza gidin: [Azure portalında](https://portal.azure.com).
@@ -113,14 +113,14 @@ Uygulaması sayfanızın sol gezinti bölmesinde tıklayın **Dağıtım Merkezi
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-Tıklayın **VSTS sürekli teslim** > **devam**.
+Tıklayın **Azure DevOps, sürekli teslim Hizmetleri** > **devam**.
 
 ![](media/app-service-deploy-local-git/vsts-build-server.png)
 
-İçinde **yapılandırma** sayfasında, yeni bir VSTS hesabı yapılandırın veya mevcut bir hesabı belirtin. İşiniz bittiğinde tıklayın **devam**.
+İçinde **yapılandırma** sayfasında, yeni bir Azure DevOps Hizmetleri kuruluş yapılandırın veya mevcut bir kuruluşa belirtin. İşiniz bittiğinde tıklayın **devam**.
 
 > [!NOTE]
-> Listede olmayan mevcut bir VSTS hesabı kullanmak istiyorsanız, yapmanız [VSTS hesabı Azure aboneliğinize bağlayın](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Listede olmayan mevcut bir Azure DevOps Hizmetleri kuruluşa kullanmak istiyorsanız, yapmanız [Azure DevOps hizmetler kuruluşundan Azure aboneliğinize bağlayın](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 İçinde **Test** sayfasında, yük testleri etkinleştirin ve ardından yüklememeyi **devam**.
 
@@ -128,7 +128,7 @@ Yapılandırmanıza bağlı olarak [fiyatlandırma katmanı](https://azure.micro
 
 İçinde **özeti** sayfasında, seçeneklerinizi doğrulayın ve tıklayın **son**.
 
-VSTS hesabınız hazır olması birkaç dakika sürer. Hazır olduğunda dağıtım merkezinde Git deposu URL'sini kopyalayın.
+Azure DevOps hizmetler kuruluşundan hazır olması birkaç dakika sürer. Hazır olduğunda dağıtım merkezinde Git deposu URL'sini kopyalayın.
 
 ![](media/app-service-deploy-local-git/vsts-repo-ready.png)
 
@@ -138,7 +138,7 @@ _Yerel terminal penceresine_ dönüp yerel Git deponuza bir Azure uzak deposu ek
 git remote add vsts <url>
 ```
 
-Aşağıdaki komutla uygulamanızı dağıtmak için Azure uzak deposuna gönderin. Git kimlik bilgileri Yöneticisi tarafından istendiğinde, visualstudio.com kullanıcı bilgilerinizle oturum açın. Ek kimlik doğrulama yöntemleri için bkz. [VSTS kimlik doğrulamasına genel bakış](/vsts/git/auth-overview?view=vsts).
+Aşağıdaki komutla uygulamanızı dağıtmak için Azure uzak deposuna gönderin. Git kimlik bilgileri Yöneticisi tarafından istendiğinde, visualstudio.com kullanıcı bilgilerinizle oturum açın. Ek kimlik doğrulama yöntemleri için bkz. [Azure DevOps Hizmetleri kimlik doğrulamasına genel bakış](/vsts/git/auth-overview?view=vsts).
 
 ```bash
 git push vsts master

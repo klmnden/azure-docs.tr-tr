@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9f28c97fed2a5fa4990c1310e8389868c6b7dc20
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 1da742f54a9a415c6078a6185a9605db700dffd5
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369089"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324963"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Kapsam filtreleri ile öznitelik tabanlı uygulama sağlama
 Bu makalenin amacı, bir uygulamaya hangi kullanıcılar sağlanır belirlemek öznitelik tabanlı kurallar tanımlamak için kapsam belirleme filtrelerini kullanma açıklanmaktadır sağlamaktır.
@@ -115,7 +115,7 @@ Kapsam belirleme filtrelerini bağlayıcı sağlama her bir Azure AD kullanıcı
 * [Sağlama ve sağlamayı kaldırma SaaS uygulamalarına kullanıcı otomatikleştirin](active-directory-saas-app-provisioning.md)
 * [Kullanıcı sağlama için öznitelik eşlemelerini özelleştirme](active-directory-saas-customizing-attribute-mappings.md)
 * [Öznitelik eşlemeleri için ifadeler yazma](active-directory-saas-writing-expressions-for-attribute-mappings.md)
-* [Hesap sağlama bildirimleri](active-directory-saas-account-provisioning-notifications.md)
+* [Hesap sağlama bildirimleri](active-directory-saas-app-provisioning.md)
 * [Kullanıcılar ve grupların Azure Active Directory'den uygulamalara otomatik olarak hazırlanmasını etkinleştirmek için SCIM'yi kullanma](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [SaaS uygulamalarını tümleştirme hakkında öğreticiler listesi](saas-apps/tutorial-list.md)
 

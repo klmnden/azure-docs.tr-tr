@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: c6e82dfef55a49a8db70bdbefd0d7150b4fbac40
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c08dba56e3a7d9590ea95e7e4c569839f3a32100
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43305191"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324861"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory karma kimlik çözümünüz için doğru kimlik doğrulama yöntemini seçin 
 
@@ -171,7 +171,7 @@ Aşağıdaki diyagramlarda, Azure AD karma kimlik çözümü ile kullandığın�
 |Koşullu erişim seçenekleri nelerdir?|[Azure AD koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD koşullu erişim](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[AD FS talep kuralları](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
 |Desteklenen eski protokolleri engelliyor?|[Evet](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Evet](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Evet](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |Logosu, resmi ve oturum açma sayfalarındaki açıklama özelleştirebilir miyim?|[Evet, Azure AD Premium ile](https://docs.microsoft.com/azure/active-directory/customize-branding)|[Evet, Azure AD Premium ile](https://docs.microsoft.com/azure/active-directory/customize-branding)|[Evet](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#customlogo)|
-|Hangi Gelişmiş senaryolar desteklenir?|[Akıllı parola kilitleme](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)<br><br>[Kimlik bilgileri rapor sızmasına](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)|[Akıllı parola kilitleme](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|Çok siteli düşük gecikme süreli kimlik doğrulama sistemi<br><br>[AD FS extranet kilitleme](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-lockout-protection)<br><br>[Üçüncü taraf kimlik sistemleriyle tümleşme](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
+|Hangi Gelişmiş senaryolar desteklenir?|[Akıllı parola kilitleme](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)<br><br>[Kimlik bilgileri rapor sızmasına](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)|[Akıllı parola kilitleme](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|Çok siteli düşük gecikme süreli kimlik doğrulama sistemi<br><br>[AD FS extranet kilitleme](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[Üçüncü taraf kimlik sistemleriyle tümleşme](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
 
 > [!NOTE] 
 > Azure AD koşullu erişim özel denetimlerinde şu anda desteklemiyor cihaz kaydı.

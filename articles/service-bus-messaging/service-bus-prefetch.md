@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: spelluru
-ms.openlocfilehash: ff0e3124168927d03816079a4f5ab322663459ac
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e6dd30fc8da919995849ba818f608604a57a0b37
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702461"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346835"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Azure Service Bus iletileri önceden getirme
 
@@ -44,7 +44,7 @@ Bu ayar alış tarafı kolayca ekleyebilirsiniz [QueuesGettingStarted](https://g
 
 İçinde [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) modu Al, iletileri önceden getirme arabelleğe alınan kilitli bir durumda arabelleğine alınan ve kilit şekilde ilerleyen zaman aşımı saati sahip. Önceden getirme arabellek büyükse ve işleme kadar önceden getirme arabelleğinde veya bile uygulamanın iletiyi işlerken bulunan sırasında kilit süresi sona bu iletiyi alır, uygulamanın işlemek kafa karıştırıcı bazı olaylar olabilir.
 
-Uygulama, süresi dolmuş veya imminently sona eren bir kilit içeren bir ileti almanız. Bu durumda, uygulama iletiyi işleyen, ancak sonra bunu bir kilit zaman aşımı nedeniyle tamamlayamıyor bulun. Uygulama denetleyebilirsiniz [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.lockeduntilutc#Microsoft_Azure_ServiceBus_Core_MessageReceiver_LockedUntilUtc) (saat aracısı ve yerel makine saat arasında eğriltme tabidir) özelliği. İletinin kilit süresi dolmuşsa, uygulamanın ileti yoksayması gereken; herhangi bir API çağrısı, ya da ileti ile yapılmalıdır. İleti süresinin dolmadığını, ancak Süre sonu yaklaşan kilidi yenilenmesi ve başka bir varsayılan kilit nokta çağırarak Genişletilmiş [ileti. RenewLock()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_)
+Uygulama, süresi dolmuş veya imminently sona eren bir kilit içeren bir ileti almanız. Bu durumda, uygulama iletiyi işleyen, ancak sonra bunu bir kilit zaman aşımı nedeniyle tamamlayamıyor bulun. Uygulama denetleyebilirsiniz [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) (saat aracısı ve yerel makine saat arasında eğriltme tabidir) özelliği. İletinin kilit süresi dolmuşsa, uygulamanın ileti yoksayması gereken; herhangi bir API çağrısı, ya da ileti ile yapılmalıdır. İleti süresinin dolmadığını, ancak Süre sonu yaklaşan kilidi yenilenmesi ve başka bir varsayılan kilit nokta çağırarak Genişletilmiş [ileti. RenewLock()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_)
 
 Kilit sessizce önceden getirme arabelleğinde dolarsa iletisi bırakılmış olarak kabul edilir ve yeniden kuyruğa alma için kullanılabilir hale getirileceğini. Önceden getirme belleğe getirilmesi için neden olabilir; sonunda yerleştirilir. Önceden getirme arabellek genellikle üzerinden ileti süre çalışması olamaz, bu iletileri (geçerli kilitli) kullanılabilir durumda hiçbir zaman etkili bir şekilde teslim sürekli olarak önceden getirilmiş olması neden olur ve sonunda eski ileti sırası için bir kez taşınır en fazla teslim sayısı aşıldı.
 

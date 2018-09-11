@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 37323bacf47613c0faf7769701808ecef2645115
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: cb0d5d7239095b67235cc68233d9492377178362
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157962"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295542"
 ---
 # <a name="show-directions-from-a-to-b"></a>A'dan B'ye yönleri gösterme 
 
 Bu makalede bir rota istekte bulunmak ve harita üzerinde yolu göstermek gösterilmektedir.
 
-Bunu yapmak için iki yolu vardır, tek yönlü tarafından sorgulayarak [Azure haritalar rota API'si](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) modülü ve diğer hizmet aracılığıyla olan yaparak bir [XMLHttpRequest](https://xhr.spec.whatwg.org/) API. Her ikisi de aşağıda ele alınmıştır.
+Bunu yapmak için iki yolu vardır, tek yönlü sorgulayarak [Azure haritalar rota API'si](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) modülü ve diğer hizmet aracılığıyla olan yaparak bir [XMLHttpRequest](https://xhr.spec.whatwg.org/) API. Her ikisi de aşağıda ele alınmıştır.
 
-## <a name="use-service-module-to-query-for-a-route"></a>Hizmeti modülü sorgulamak için bir yol kullanın
+## <a name="querying-the-route-via-service-module"></a>Rota hizmeti modülü üzerinden sorgulama
 
 ## <a name="understand-the-code"></a>Kodu anlama
 
@@ -43,7 +43,7 @@ Altıncı kod bloğu bir rota sorgu oluşturur.
 
 Azure haritalar yönlendirme hizmeti aracılığıyla son kod bloğunu sorgular [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) başlangıç ve hedef noktası arasındaki bir yolu almak için yöntemi. GeoJSON biçiminde kullanarak yanıt ayrıştırılır [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes) yöntemi. Rota işlemek için haritada tüm bu satırlara ekler. Gördüğünüz [harita üzerinde bir satır ekleyin](./map-add-shape.md#addALine) daha fazla bilgi için.
 
-## <a name="use-xmlhttprequest-to-query-for-a-route"></a>XMLHTTPRequest sorgu için bir yol kullanın.
+## <a name="querying-the-route-via-xmlhttprequest"></a>Rota XMLHttpRequest üzerinden sorgulama
 
 ## <a name="understand-the-code"></a>Kodu anlama
 

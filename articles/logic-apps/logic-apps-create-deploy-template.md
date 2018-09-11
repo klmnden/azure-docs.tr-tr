@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: 68e655490470db6aade53c6f3523d0c9d87c3fbd
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 393543bbb1891e14ed67487aff26a7bda1eebcd5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123474"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304246"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Mantıksal uygulamalar dağıtmak için Azure Resource Manager şablonları oluşturma
 
@@ -173,7 +173,7 @@ Mevcut bir kaynak grubu projesi varsa, mantıksal uygulamanızın JSON ana hatt�
 
 ## <a name="deploy-a-logic-app-template"></a>Bir mantıksal uygulama şablonunu dağıtma
 
-PowerShell, REST API gibi herhangi bir aracı kullanarak, şablonunuzu dağıtmak [Visual Studio Team Services Release Management](#team-services)ve Azure portalı üzerinden şablon dağıtımı.
+PowerShell, REST API gibi herhangi bir aracı kullanarak, şablonunuzu dağıtmak [Azure DevOps Release Management](#team-services)ve Azure portalı üzerinden şablon dağıtımı.
 Ayrıca, parametreleri için değerleri depolamak için oluşturduğunuz öneririz bir [parametre dosyası](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
 Bilgi edinmek için nasıl [kaynakları Azure Resource Manager şablonları ve PowerShell ile dağıtma](../azure-resource-manager/resource-group-template-deploy.md) veya [kaynakları Azure Resource Manager şablonları ve Azure portalı ile dağıtma](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
@@ -185,13 +185,13 @@ OAuth bağlantılarını yetkilendirmek için Logic Apps Tasarımcısı'nda mant
 Altında github'daki bir örnek betiği yoktur [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) proje.
 
 <a name="team-services"></a>
-## <a name="visual-studio-team-services-release-management"></a>Visual Studio Team Services yayın Yönetimi
+## <a name="azure-devops-release-management"></a>Azure DevOps sürüm Yönetimi
 
-Dağıtma ve bir ortamı yönetmek için yaygın bir senaryo, bir mantıksal uygulama dağıtım şablonunu ile Visual Studio Team Services Release Management gibi bir araç kullanmaktır. Visual Studio Team Services'ı içeren bir [Azure kaynak grubu dağıtma](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) eklemek için herhangi bir derleme veya yayın işlem hattı görev. İhtiyacınız bir [hizmet sorumlusu](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) için dağıtmak için yetkilendirme ve ardından, yayın tanımı oluşturabilirsiniz.
+Dağıtma ve bir ortamı yönetmek için yaygın bir senaryo, bir mantıksal uygulama dağıtım şablonu ile Azure DevOps, sürüm yönetimi gibi bir araçla kullanmaktır. Azure DevOps içeren bir [Azure kaynak grubu dağıtma](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) eklemek için herhangi bir derleme veya yayın işlem hattı görev. İhtiyacınız bir [hizmet sorumlusu](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) için dağıtmak için yetkilendirme ve ardından, yayın ardışık düzeni oluşturabilir.
 
-1. Sürüm Yönetimi'nde seçin **boş** böylece boş bir tanımı oluşturun.
+1. Sürüm Yönetimi'nde seçin **boş** böylece boş bir işlem hattı oluşturun.
 
-    ![Boş tanımı oluşturma][1]
+    ![Boş bir işlem hattı oluşturma][1]
 
 2. Bunun için büyük olasılıkla el ile veya yapı işleminin bir parçası olarak oluşturulan mantıksal uygulama şablonunu dahil olmak üzere ihtiyacınız olan tüm kaynakları seçin.
 3. Ekleme bir **Azure kaynak grubu dağıtımı** görev.

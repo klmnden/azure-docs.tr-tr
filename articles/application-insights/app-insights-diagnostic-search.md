@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a343e238662393995404b8e4c705cf799866855
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 4d49b6c4fca668a6afe88ade5fbafb0ea9c02dfc
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39137384"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296168"
 ---
 # <a name="using-search-in-application-insights"></a>Uygulama anlayışları'nda arama kullanma
 Arama özelliği, [Application Insights](app-insights-overview.md) bulmak ve sayfa görüntülemeleri, özel durumlar gibi tek bir telemetri öğelerini keşfedin veya web istekleri için kullanın. Ve günlük izlemeleri ve kodlanmış olayları görüntüleyebilir.
@@ -133,13 +133,13 @@ Uygulamanız çok sayıda telemetri oluşturuyorsa (ve ASP.NET SDK sürüm 2.0.0
 [Örnekleme hakkında bilgi edinin](app-insights-sampling.md).
 
 ## <a name="create-work-item"></a>İş öğesi oluştur
-Tüm telemetri öğesinin Ayrıntıları ile GitHub veya Visual Studio Team Services içinde bir hata oluşturabilirsiniz. 
+Tüm telemetri öğesinin Ayrıntıları ile GitHub ya da Azure DevOps bir hata oluşturabilirsiniz. 
 
 ![Yeni iş öğesini, alanları düzenleyin ve sonra Tamam'a tıklayın.](./media/app-insights-diagnostic-search/42.png)
 
-Project ve Team Services hesabı bağlantısını yapılandırmak için bunu ilk kez istenir.
+Azure DevOps kuruluşunuz ve proje bağlantısını yapılandırmak için bunu ilk kez istenir.
 
-![Team Services sunucunuza ve proje adı URL'sini girin ve Yetkilendir'e tıklayın](./media/app-insights-diagnostic-search/41.png)
+![Azure DevOps hizmetlerinizi ve proje adı URL'sini girin ve Yetkilendir'e tıklayın](./media/app-insights-diagnostic-search/41.png)
 
 (Ayrıca bağlantı iş öğeleri dikey penceresinde yapılandırabilirsiniz.)
 

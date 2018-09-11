@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: makohli
-ms.openlocfilehash: c2d7cc21b1546c9594a2ef174927777f583a6841
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 9516534216c4a2c0f61e33ea3cbf1bbcb2ab58c7
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42055999"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301319"
 ---
 # <a name="advisor-performance-recommendations"></a>Danışmanı performans önerileri
 
@@ -60,6 +60,10 @@ Veri dengesizliği gereksiz veri hareketi veya kaynak darboğazları yükünüz 
 ## <a name="create-or-update-outdated-table-statistics-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Sorgu performansını artırmak için SQL veri ambarı tablosu güncel olmayan tablo istatistikleri güncelle
 
 Advisor tanımlayan güncel olmayan tablolar [tablo istatistikleri](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) ve tablo istatistikleri oluşturmak veya güncelleştirmek önerir. Sorgu iyileştiricisi, en hızlı performans için yüksek kaliteli bir sorgu planı oluşturmak sorgu iyileştiricisi sağlayan sorgu sonucu satır sayısı ve kardinalite tahmin etmek için güncel statikler kullanır. SQL veri ambarı.
+
+## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Depolama hesabınızı tüm en yeni Azure özellikleri almak için Azure Resource Manager'a geçiş
+
+Depolama hesabı, dağıtım modeli için Azure Resource Manager (şablon dağıtımları, ek güvenlik seçenekleri ve Azure Depolama'nın en son özelliklerin kullanımı bir GPv2 hesabına yükseltme olanağı yararlanmak için ARM) geçirin. Danışman, Klasik dağıtım modelini kullanarak herhangi bir tek başına bir depolama hesabı tanımlayacak ve ARM dağıtım modeline geçirilmesi önerir. 
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Nasıl Danışmanı performans önerileri
 

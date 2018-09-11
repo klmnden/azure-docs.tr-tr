@@ -1,6 +1,6 @@
 ---
-title: Azure Güvenlik Merkezi'nde Internet'e yönelik uç noktalar aracılığıyla erişimi kısıtlama | Microsoft Docs
-description: Bu belgede Azure Güvenlik Merkezi öneriyi uygulamayı gösterilmiştir **Internet'e yönelik uç noktası aracılığıyla erişimi kısıtlamak**.
+title: Azure Güvenlik Merkezi'nde Internet'e yönelik uç noktalarla erişimi sınırlama | Microsoft Docs
+description: Bu belge Azure Güvenlik Merkezi önerinin nasıl uygulanacağını gösterir **Internet'e yönelik uç noktalarla erişimi sınırlama**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,54 +9,54 @@ editor: ''
 ms.assetid: 727d88c9-163b-4ea0-a4ce-3be43686599f
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
-ms.openlocfilehash: 92906d31f4db21f37094f192dadd080e28cc6e8e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0b7de1f63f765705a78535ae04c1b844e06c029c
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363062"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301166"
 ---
-# <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde Internet'e yönelik uç noktalar aracılığıyla erişimi kısıtlama
-Azure Güvenlik Merkezi, herhangi bir ağ güvenlik grupları (Nsg'ler) varsa, "tüm" kaynak IP adresleri erişime izin verecek bir veya daha fazla gelen kuralları Internet'e yönelik uç noktalar aracılığıyla erişimi kısıtlamak önerir. "Herhangi bir" erişim açma kaynaklarınıza erişmek saldırganlar sağlayabilir. Güvenlik Merkezi, aslında erişmesi gereken kaynak IP adresleri için erişimi kısıtlamak için bu gelen kuralları Düzenle önerir.
+# <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde Internet'e yönelik uç noktalarla erişimi sınırlama
+Azure Güvenlik Merkezi, herhangi bir ağ güvenlik grupları (Nsg) varsa "tümü" kaynak IP adresinden erişime izin veren bir veya daha fazla gelen kuralları Internet'e yönelik uç noktalarla erişimi sınırlama önerir. "Herhangi bir" Access'i açıp saldırganların kaynaklarınıza erişimi sağlayabilir. Güvenlik Merkezi, gerçekten erişmesi gereken kaynak IP adresleri için erişimi kısıtlamak için aşağıdaki gelen kurallarını düzenlemenizi önerir.
 
-Bu öneri, "" kaynağı olarak içeren herhangi bir web dışı bağlantı için oluşturulur.
+Bu öneri "tümü" kaynağı var olmayan web bağlantı noktası oluşturulur.
 
 > [!NOTE]
 > Bu belge, örnek bir dağıtım kullanarak hizmeti tanıtır. Bu, adım adım ilerleyen bir kılavuz değildir.
 >
 >
 
-## <a name="implement-the-recommendation"></a>Öneriyi uygulamayı
-1. İçinde **öneriler dikey**seçin **Internet'e yönelik uç noktası aracılığıyla erişimi kısıtlamak**.
+## <a name="implement-the-recommendation"></a>Önerisini uygulama
+1. İçinde **öneriler dikey**seçin **Internet'e yönelik uç noktalarla erişimi sınırlama**.
 
    ![İnternet'e yönelik uç nokta ile erişimi kısıtlama][1]
-2. Bu dikey pencere açılır **Internet'e yönelik uç noktası aracılığıyla erişimi kısıtlamak**. Bu dikey potansiyel bir güvenlik sorunu oluşturmak gelen kuralları ile sanal makineleri (VM'ler) listeler. Bir VM'yi seçin.
+2. Bu dikey pencereyi açar **Internet'e yönelik uç noktalarla erişimi sınırlama**. Bu dikey pencereyi, olası bir güvenlik sorununa gelen kuralları ile sanal makineleri (VM'ler) listeler. Bir VM'yi seçin.
 
-   ![Bir VM seçin][2]
-3. **NSG** ağ güvenlik grubu bilgileri, ilgili gelen kuralları ve ilişkili VM dikey penceresinde görüntülenir. Seçin **gelen kuralları Düzenle** bir gelen kuralı düzenleme ile devam etmek için.
+   ![Bir sanal Makineyi seçin][2]
+3. **NSG** ağ güvenlik grubu bilgileri, ilgili gelen kuralları ve ilişkili VM dikey penceresinde görüntülenir. Seçin **gelen kurallarını Düzenle** bir gelen kuralı düzenlemeye devam etmek için.
 
    ![Ağ güvenlik grubu dikey penceresi][3]
-4. Üzerinde **gelen güvenlik kuralları** dikey penceresinde düzenlemek için gelen kuralı seçin. Bu örnekte, şimdi seçin **AllowWeb**.
+4. Üzerinde **gelen güvenlik kuralları** dikey düzenlemek için bir gelen kuralı seçin. Bu örnekte, seçelim **AllowWeb**.
 
    ![Gelen güvenlik kuralları][4]
 
-   Not, ayrıca seçebilirsiniz **varsayılan kuralları** tüm Nsg'ler tarafından bulunan varsayılan kurallar kümesini görmek için. Varsayılan kurallar silinemez ancak daha düşük bir öncelik atandığı için oluşturduğunuz kurallar tarafından kılınabilir. Daha fazla bilgi edinmek [varsayılan kuralları](../virtual-network/security-overview.md#default-security-rules).
+   Unutmayın, ayrıca seçebilirsiniz **varsayılan kuralları** varsayılan kuralları tarafından tüm Nsg'ler yer alan kümesini görmek için. Varsayılan kurallar silinemez ancak daha düşük bir öncelik atanmış oldukları oluşturduğunuz kurallar tarafından geçersiz kılınabilir. Daha fazla bilgi edinin [varsayılan kuralları](../virtual-network/security-overview.md#default-security-rules).
 
    ![Varsayılan kurallar][5]
-5. Üzerinde **AllowWeb** dikey penceresinde, gelen kuralı özelliklerini düzenlemek için **kaynak** bir IP adresi veya IP adresleri bloğu. Gelen kuralı özellikleri hakkında daha fazla bilgi için bkz: [NSG kuralları](../virtual-network/security-overview.md#security-rules).
+5. Üzerinde **AllowWeb** dikey penceresinde, gelen kuralı özelliklerini düzenlemek için **kaynak** bir IP adresi veya IP adresi bloğu. Gelen kuralı özellikleri hakkında daha fazla bilgi için bkz. [NSG kuralları](../virtual-network/security-overview.md#security-rules).
 
    ![Gelen kuralını Düzenle][6]
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Bu makalede "Internet'e yönelik uç nokta aracılığıyla erişimi kısıtlama". Güvenlik Merkezi öneriyi uygulamayı nasıl oluşturulacağını gösterir Nsg'ler ve kurallarını etkinleştirme hakkında daha fazla bilgi edinmek için aşağıdakilere bakın:
+Bu makalede Güvenlik Merkezi'nin önerisini "Internet'e yönelik uç nokta ile erişimi kısıtlama". uygulama nasıl oluşturulacağını gösterir Nsg'leri ve kuralları'nı etkinleştirme hakkında daha fazla bilgi edinmek için aşağıdakilere bakın:
 
 * [Ağ Güvenlik Grubu (NSG) Nedir?](../virtual-network/security-overview.md)
-* [Bir ağ güvenlik grubunu yönetme](../virtual-network/manage-network-security-group.md)
+* [Bir ağ güvenlik grubu yönetme](../virtual-network/manage-network-security-group.md)
 
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 

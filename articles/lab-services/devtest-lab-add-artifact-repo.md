@@ -1,6 +1,6 @@
 ---
 title: Git deposu için Azure DevTest labs'deki bir laboratuvara ekleme | Microsoft Docs
-description: Azure DevTest Labs'de bir GitHub veya Visual Studio Team Services Git deposunda özel yapıtlar kaynağınız için eklemeyi öğrenin.
+description: Azure DevTest Labs'de bir GitHub veya Azure DevOps Services Git deposunda özel yapıtlar kaynağınız için eklemeyi öğrenin.
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: spelluru
@@ -14,35 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 80724a7d8d2b5cec19bdbce27cdafd4a9c09eb47
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e6c6f36d877f220bcc8d83b75750f54f85dcc198
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452507"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299891"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Özel yapıtlar ve Resource Manager şablonları depolamak için bir Git deposu ekleme
 
-Yapabilecekleriniz [özel yapıtlar oluşturma](devtest-lab-artifact-author.md) laboratuvarınızda, VM'ler veya [özel test ortamı oluşturmak için Azure Resource Manager şablonlarını kullanma](devtest-lab-create-environment-from-arm.md). Yapılar veya takımınızın oluşturan Resource Manager şablonları için özel bir Git deposuna eklemeniz gerekir. Depo barındırılabilen [GitHub](https://github.com) veya [Visual Studio Team Services](https://visualstudio.com).
+Yapabilecekleriniz [özel yapıtlar oluşturma](devtest-lab-artifact-author.md) laboratuvarınızda, VM'ler veya [özel test ortamı oluşturmak için Azure Resource Manager şablonlarını kullanma](devtest-lab-create-environment-from-arm.md). Yapılar veya takımınızın oluşturan Resource Manager şablonları için özel bir Git deposuna eklemeniz gerekir. Depo barındırılabilen [GitHub](https://github.com) veya [Azure DevOps Hizmetleri](https://visualstudio.com).
 
 Sunuyoruz bir [GitHub deposu yapıtları](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) olarak dağıtabileceğiniz-olan veya laboratuvarlarınızı için özelleştirebilirsiniz. Özelleştirme veya bir yapı oluşturmak, genel depoda yapıt depolanamıyor. Özel yapıtlar ve oluşturduğunuz yapıtları için kendi özel deponuzu oluşturmanız gerekir. 
 
 Bir VM oluşturduğunuzda, Resource Manager şablonu kaydedin, özelleştirin ve ardından daha sonra daha fazla sanal makine oluşturmak için bunu kullanın. Özel Resource Manager şablonlarınızı depolamak için kendi özel deponuzu oluşturmanız gerekir.  
 
 * Bir GitHub deposu oluşturmayı öğrenmek için bkz: [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-* Bir Git deposu olmayan bir Team Services projesine oluşturmayı öğrenmek için bkz: [Visual Studio Team Services'a bağlanma](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+* Bir Git deposuna sahip olan bir Azure DevOps Hizmetleri projeyi oluşturmayı öğrenmek için bkz: [Azure DevOps hizmetlere bağlanma](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
 Aşağıdaki şekilde Github'da yapıt yok bir depoyu nasıl görünebileceği, bir örnek verilmiştir:  
 
 ![Örnek GitHub yapıt deposu](./media/devtest-lab-add-repo/devtestlab-github-artifact-repo-home.png)
 
 ## <a name="get-the-repository-information-and-credentials"></a>Depo bilgilerini ve kimlik bilgilerini alma
-Laboratuvarınız için bir depo eklemek için ilk olarak, deponuzdan anahtarı bilgilerini alın. Aşağıdaki bölümlerde, GitHub veya Visual Studio Team Services üzerinde barındırılan depolar için gerekli bilgileri almak nasıl açıklanmaktadır.
+Laboratuvarınız için bir depo eklemek için ilk olarak, deponuzdan anahtarı bilgilerini alın. Aşağıdaki bölümlerde, GitHub veya Azure DevOps hizmetleriyle ilgili barındırılan depolar için gerekli bilgileri almak nasıl açıklanmaktadır.
 
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>GitHub depo kopya URL'si ve kişisel erişim belirteci alma
 
 1. Yapıt ya da Resource Manager şablonu tanımlarını içeren GitHub deposunun giriş sayfasına gidin.
-2. Seçin **Kopyala veya indir**.
+2. **Clone or download**'u (Kopyala veya indir) seçin.
 3. URL'yi panoya kopyalamak için seçin **HTTPS kopyası URL'si** düğmesi. Daha sonra kullanmak için URL'yi kaydedin.
 4. GitHub sağ üst köşesindeki profil resmini seçin ve ardından **ayarları**.
 5. İçinde **kişisel ayarlarını** seçin sol taraftaki menüsünden **kişisel erişim belirteçleri**.
@@ -52,7 +52,7 @@ Laboratuvarınız için bir depo eklemek için ilk olarak, deponuzdan anahtarı 
 9. GitHub'ı kapatın.   
 10. Devam [Laboratuvarınızı depoya bağlanmak](#connect-your-lab-to-the-repository) bölümü.
 
-### <a name="get-the-visual-studio-team-services-repository-clone-url-and-personal-access-token"></a>Visual Studio Team Services depo kopya URL'si ve kişisel erişim belirteci alma
+### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Azure depolarda kopya URL'si ve kişisel erişim belirteci alma
 
 1. Takım koleksiyonunuzun giriş sayfasına gidin (örneğin, https://contoso-web-team.visualstudio.com)ve ardından projenizi seçin.
 2. Proje giriş sayfasında **kod**.
@@ -79,9 +79,9 @@ Laboratuvarınız için bir depo eklemek için ilk olarak, deponuzdan anahtarı 
     ![Depo Ekle düğmesi](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. İkinci **depoları** sayfasında, aşağıdaki bilgileri belirtin:
   1. **Ad**. Depo için bir ad girin.
-  2. **Git kopya URL'si**. Daha önce kopyaladığınız GitHub veya Visual Studio Team Services Git HTTPS kopya URL girin.
+  2. **Git kopya URL'si**. Daha önce kopyaladığınız Azure DevOps Services veya GitHub Git HTTPS kopya URL girin.
   3. **Dal**. Tanımlarınızı almak için dal girin.
-  4. **Kişisel erişim belirteci**. GitHub veya Visual Studio Team Services daha önce aldığınız kişisel erişim belirteci girin.
+  4. **Kişisel erişim belirteci**. Azure DevOps Services veya GitHub daha önce aldığınız kişisel erişim belirteci girin.
   5. **Klasör yolları**. Yapı ya da Resource Manager şablonu tanımlarını içeren kopya URL göreli en az bir klasör yolu girin. Bir alt belirttiğinizde, klasör yoluna eğik çizgi dahil emin olun.
 
      ![Depoları alanı](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)

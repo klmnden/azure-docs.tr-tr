@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: 53a5de98ccdae4d4a73d8dc7b150c8e333024b33
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d7396ddb94017048247050726f83b0302e946633
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095173"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347129"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Azure işlevleri için zip dağıtım
 
@@ -93,7 +93,7 @@ Yerel bilgisayarınızda Azure CLI'yı kullanırken `<zip_file_path>` bilgisayar
 > [!NOTE]
 > İşlev uygulamanızın dağıtım paketinden çalıştırma olanağı Önizleme aşamasındadır.
 
-Zip dağıtım tümleşen işlev uygulama ayarını etkinleştirebilirsiniz. Bu özellik ile `WEBSITE_RUN_FROM_ZIP` değerini `1`. Daha fazla bilgi için [bir dağıtım paketi dosyasından işlevlerinizin çalıştığı](run-functions-from-deployment-package.md).
+Zip dağıtım tümleşen işlev uygulama ayarını etkinleştirebilirsiniz. Bu özellik ile `WEBSITE_RUN_FROM_PACKAGE` değerini `1`. Daha fazla bilgi için [bir dağıtım paketi dosyasından işlevlerinizin çalıştığı](run-functions-from-deployment-package.md).
 
 [!INCLUDE [app-service-deploy-zip-push-custom](../../includes/app-service-deploy-zip-push-custom.md)]
 

@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: bbee7f0e6022e2945563c102a851819734d52e77
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 4f6297fa8477ff4794bee589737e047993427c06
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40107329"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345871"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Öğretici: Tableau çevrimiçi otomatik kullanıcı hazırlama için yapılandırma
 
 Bu öğreticinin amacı, Tableau çevrimiçi ve Azure Active Directory (Azure AD) Azure AD yapılandırmak için otomatik olarak sağlamak ve kullanıcılara ve/veya gruplara Tableau çevrimiçi sağlamasını için gerçekleştirilmesi gereken adımlar göstermektir.
 
 > [!NOTE]
-> Bu öğreticide, Azure AD kullanıcı sağlama hizmeti üzerinde oluşturulmuş bir bağlayıcı açıklanmaktadır. Bu hizmet yapar, nasıl çalıştığını ve sık sorulan sorular önemli ayrıntılar için bkz. [otomatik kullanıcı hazırlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına](../active-directory-saas-app-provisioning.md).
+> Bu öğreticide, Azure AD kullanıcı sağlama hizmeti üzerinde oluşturulmuş bir bağlayıcı açıklanmaktadır. Bu hizmet yapar, nasıl çalıştığını ve sık sorulan sorular önemli ayrıntılar için bkz. [otomatik kullanıcı hazırlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına](../manage-apps/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -149,7 +149,7 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılara ve/veya Tableau i
 
     ![Tableau çevrimiçi sağlama](./media/tableau-online-provisioning-tutorial/GroupAttributeMapping.png)
 
-15. Kapsam belirleme filtrelerini yapılandırmak için aşağıdaki yönergelere bakın [Scoping filtre öğretici](../active-directory-saas-scoping-filters.md).
+15. Kapsam belirleme filtrelerini yapılandırmak için aşağıdaki yönergelere bakın [Scoping filtre öğretici](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 16. Azure AD sağlama hizmeti için Tableau çevrimiçi etkinleştirmek için değiştirin **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü.
 
@@ -165,7 +165,7 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılara ve/veya Tableau i
 
 Bu işlem, tüm kullanıcıların ilk eşitleme başlar ve/veya tanımlı gruplar **kapsam** içinde **ayarları** bölümü. İlk eşitleme yaklaşık 40 dakikada Azure AD sağlama hizmeti çalışıyor sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve sağlama Tableau Online hizmeti Azure AD tarafından gerçekleştirilen tüm eylemler açıklayan Etkinlik Raporu sağlama için bağlantıları izleyin.
 
-Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../active-directory-saas-provisioning-reporting.md).
+Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -175,7 +175,7 @@ Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [he
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Günlükleri gözden geçirin ve sağlama etkinliği raporları alma hakkında bilgi edinin](../active-directory-saas-provisioning-reporting.md)
+* [Günlükleri gözden geçirin ve sağlama etkinliği raporları alma hakkında bilgi edinin](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/tableau-online-provisioning-tutorial/tutorial_general_01.png

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: 4ebbf4c69f589c105aa3e7553a6b24470e266382
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f09704a5befedb99625595e50587fa6bbd704899
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161892"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304161"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure kaynakları için yönetilen kimlikleri destekleyen hizmetler
 

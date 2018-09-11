@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 0e03b524834f528ddb7555a344fbebe720b4d9ff
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d3c89e2028986e05d5d3957c9805d22f07a840b3
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446984"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298123"
 ---
 # <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Azure Stack Ethereum blok zinciri çözüm şablonları
 
@@ -25,16 +25,14 @@ Birkaç kullanıcı girişleri ve Azure Stack Kiracı Portalı aracılığıyla 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Aşağıdaki indirme [marketten](azure-stack-download-azure-marketplace-item.md):
+En son öğeleri indirmek [marketten](azure-stack-download-azure-marketplace-item.md):
 
-* Ubuntu Server 16.04 LTS sürümünü 16.04.201802220
-* Windows Server 2016 
-* Linux 2.0 için özel betik 
-* Özel Betik Uzantısı 
+* Ubuntu Server 16.04 LTS
+* Windows Server 2016
+* Linux 2.0 için özel betik
+* Windows için özel betik uzantısı
 
-Azure'da blok zinciri senaryolarını hakkında daha fazla bilgi için bkz. [Ethereum iş kavram consortium çözüm şablonu](../blockchain-workbench/ethereum-deployment-guide.md).
-
-Birden fazla sanal makine dağıtımı destekleyen bir Azure aboneliği gereklidir. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
+Blok zinciri senaryoları hakkında daha fazla bilgi için bkz. [Ethereum iş kavram consortium çözüm şablonu](../blockchain-workbench/ethereum-deployment-guide.md).
 
 ## <a name="deployment-architecture"></a>Dağıtım mimarisi
 
@@ -43,6 +41,7 @@ Bu çözüm şablonu, tek veya çok üye Ethereum Konsorsiyum ağı dağıtabili
 ## <a name="deployment-use-cases"></a>Dağıtım kullanım örneklerinize
 
 Şablonu Ethereum consortium lider ve üye birleştirme çeşitli yollarla dağıtabilirsiniz, Test ettiğimiz olanları şunlardır:
+
 - Sağlama ve üye aynı aboneliği kullanarak Azure AD veya AD FS, bir çok düğümlü Azure Stack'te dağıtın veya farklı abonelikler.
 - (Azure AD ile) bir tek düğümlü Azure Stack'te sağlama ve üye aynı aboneliği kullanarak dağıtın.
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4ae5adaf37f49e9909fa80fd31f088ed6ee1b081
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 91b5c2c23445e5cd3445d1d5b640cb3ecb8e5e7a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449872"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301200"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Logic Apps'i kullanarak Application Insights süreçlerini otomatikleştirin
 
@@ -25,7 +25,7 @@ Hizmetinizi düzgün çalışıp çalışmadığını denetlemek için telemetri
 
 Bu tümleştirme sayesinde, tek satırlık bir kod yazmaya gerek kalmadan çok sayıda işlemi otomatikleştirebilirsiniz. Herhangi bir Application Insights işlem hızlı bir şekilde otomatikleştirmek için Application Insights Bağlayıcısı ile bir mantıksal uygulama oluşturabilirsiniz. 
 
-Ek Eylemler ekleyebilirsiniz. Azure App Service'in Logic Apps özelliği, Eylemler yüzlerce kullanılabilir hale getirir. Örneğin, bir mantıksal uygulama kullanarak, otomatik olarak bir e-posta bildirimi gönder veya Visual Studio Team Services içinde bir hata oluşturun. Kullanılabilir çok birini de kullanabilirsiniz [şablonları](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) mantıksal uygulamanızı oluşturma sürecini hızlandırmak amacıyla. 
+Ek Eylemler ekleyebilirsiniz. Azure App Service'in Logic Apps özelliği, Eylemler yüzlerce kullanılabilir hale getirir. Örneğin, bir mantıksal uygulama kullanarak, otomatik olarak bir e-posta bildirimi gönder veya Azure DevOps bir hata oluşturun. Kullanılabilir çok birini de kullanabilirsiniz [şablonları](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) mantıksal uygulamanızı oluşturma sürecini hızlandırmak amacıyla. 
 
 ## <a name="create-a-logic-app-for-application-insights"></a>Application Insights için bir mantıksal uygulama oluşturma
 

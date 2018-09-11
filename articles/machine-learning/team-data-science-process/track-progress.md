@@ -1,6 +1,6 @@
 ---
-title: Veri bilimi projeleri - Azure Machine Learning yürütülmesi | Microsoft Docs
-description: Nasıl veri Bilimcisi veri bilimi proje ilerlemesini izleyebilirsiniz.
+title: Veri bilimi projeleri - Azure Machine Learning yürütülmesini | Microsoft Docs
+description: Nasıl bir veri Bilimcisi bir veri bilimi projenizin ilerlemesini izleyebilirsiniz.
 documentationcenter: ''
 author: deguhath
 manager: cgronlun
@@ -14,43 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: deguhath
-ms.openlocfilehash: e50390a1b6385cabfd0e6b30340634860a062d8d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 32390b05d2ec258a68ed4f53135399675105a7e9
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838951"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302094"
 ---
-# <a name="track-progress-of-data-science-projects"></a>Veri bilimi projeleri ilerlemesini izlemek
+# <a name="track-progress-of-data-science-projects"></a>Veri bilimi projeleri ilerlemesini
 
-Veri bilimi grup yöneticileri, takım müşteri adayları ve takım projelerini ilerlemesini izlemek için Proje müşteri adayları gereksinimi, hangi iş bunlardaki ve kim tarafından yapılır ve yapılacaklar listelerinde üzerinde kalır. 
+Veri bilimi grup yöneticileri, takım Liderleri ve proje liderleri gerek projelerini ilerlemesini izlemek için hangi iş bunları ve kim tarafından yapılan ve yapılacaklar listelerinde kalır. 
 
-## <a name="vsts-dashboards"></a>VSTS panoları
-Visual Studio Team Services (VSTS) kullanıyorsanız, derleme panoları etkinliklerini ve verilen Çevik proje ile ilişkili iş öğelerini izlemek için kullanabilirsiniz. 
+## <a name="azure-devops-dashboards"></a>Azure DevOps panolar
+Azure DevOps kullanıyorsanız, etkinlikler ve belirli bir Çevik proje ile ilişkili iş öğelerini izlemek için panolar oluşturma olanağına sahip olursunuz. 
 
-Oluşturma ve panolar ve Visual Studio Team Services pencere öğeleri özelleştirme hakkında daha fazla bilgi için aşağıdaki yönergeleri bakın:
+Oluşturma ve pencere öğeleri ve panolarda Azure DevOps üzerine özelleştirme hakkında daha fazla bilgi için aşağıdaki yönergeler kümesini bakın:
 
-- [Ekleme ve panolar yönetme](https://docs.microsoft.com/vsts/report/dashboards/dashboards)
-- [Bir Pano pencere öğeleri ekleyin](https://docs.microsoft.com/vsts/report/dashboards/add-widget-to-dashboard).
+- [Ekleme ve panoları Yönet](https://docs.microsoft.com/azure/devops/report/dashboards/dashboards)
+- [Panoya pencere öğeleri ekleme](https://docs.microsoft.com/azure/devops/report/dashboards/add-widget-to-dashboard).
 
 ## <a name="example-dashboard"></a>Örnek Pano
 
-Burada, ilişkili depoları yürütme sayısı yanı sıra, Çevik veri bilimi projesinde sprint etkinliklerini izlemek için yerleşik bir basit bir örnek Pano verilmiştir. **Üst sol** panel gösterir:
+İlişkili depolara işleme sayısını yanı sıra bir Çevik veri bilimi proje sprint etkinliklerini izlemek için yerleşik bir Basit örnek Pano aşağıda verilmiştir. **Üst sol** panelinde gösterir:
 
-- geri sayım geçerli oturumla 
-- Son 7 gün içinde her depo yürütme sayısı
+- geri sayım geçerli sprint 
+- Son 7 gün içindeki her bir depo işleme sayısını
 - belirli kullanıcılar için iş öğesi. 
 
-Kalan paneller toplu akış diyagramı (CFD), burndown ve bir proje için burnup göster:
+Paneller kalan birikmeli akış diyagramı (CFD), burndown ve bir projenin tamamlanma durumunu göster:
 
-- **Sol alt**: mavi renkte kaydedilen ve yeşil bitti gri onaylanan gösteren CFD belirli bir durumda iş miktarı.
-- **Sağ üst**: burndown grafik karşı kalan süre tamamlamak için kalan çalışma).
-- **Sağ alt**: burnup grafik toplam çalışma miktarı karşı tamamlanmış iş.
+- **Alt sol**: CFD gri mavi olarak kabul edilen ve yeşil renkte Bitti, onaylanan gösteren belirli bir durumdaki iş miktarı.
+- **Sağ üst**: burndown grafiği ve kalan süre tamamlamak için kalan iş).
+- **Sağ alt**: toplam miktarı iş tamamlanan iş tamamlanma durumunu grafik.
 
 ![pano](./media/track-progress/dashboard.png)
 
-Bu grafikler oluşturma açıklaması için bkz: quickstarts ve öğreticiler adresindeki [panolar](https://docs.microsoft.com/vsts/report/dashboards/).
+Hızlı başlangıçlar ve öğreticiler, bu grafikler oluşturmak nasıl bir açıklaması için bkz: [panolar](https://docs.microsoft.com/azure/devops/report/dashboards/).
  
 ## <a name="next-steps"></a>Sonraki adımlar
 
-İşlem için tüm adımları gösteren talimatlara **belirli senaryolar** de sağlanır. Listelenen ve küçük resim açıklamasında ile bağlantılı [örnek izlenecek yollar](walkthroughs.md) makalesi. Bunlar, bulut, şirket içi araçları ve Hizmetleri bir iş akışı veya akıllı bir uygulama oluşturmak için ardışık düzen birleştirmek nasıl koruduğu gösterilmiştir. 
+İşlem için tüm adımları gösteren talimatlara **belirli senaryoları** de sağlanır. Listelenen ve küçük resim açıklamasında ile bağlantılı [örnek izlenecek yollar](walkthroughs.md) makalesi. Bunlar, bulut, şirket içi araçları ve Hizmetleri, bir iş akışı veya akıllı bir uygulama oluşturmak için işlem hattı birleştirme işlemini göstermektedir. 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 0055968e4333f5ac7653a37fcd728b040024ee55
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 6010ea7f4997e4604e72cdf4a993956ab76b1ef2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629856"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296576"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
@@ -64,7 +64,7 @@ Microsoft'tan aşağıdaki bulut uygulamaları için koşullu erişim ilkesi ata
 
 - Microsoft Power BI 
 
-- Microsoft Visual Studio Team Services
+- Azure DevOps
 
 - Microsoft Teams
 
@@ -192,7 +192,7 @@ Bu ayar, aşağıdaki mobil uygulamalar ve masaüstü istemciler yapılan erişi
 |Outlook mobil uygulaması|Office 365 Exchange Online|Android, iOS|
 |Power BI uygulaması|Power BI hizmeti|Windows 10, Windows 8.1, Windows 7, Android ve iOS|
 |Skype Kurumsal|Office 365 Exchange Online|Android, IOS |
-|Visual Studio Team Services ile uygulama|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS ve Android|
+|Azure DevOps uygulama|Azure DevOps|Windows 10, Windows 8.1, Windows 7, iOS ve Android|
 
 
 

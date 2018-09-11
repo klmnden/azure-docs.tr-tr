@@ -1,6 +1,6 @@
 ---
 title: Azure Güvenlik Merkezi'nde güncelleştirme işletim sistemi sürümü | Microsoft Docs
-description: Bu makalede Azure Güvenlik Merkezi öneriyi uygulamayı gösterilmiştir ** güncelleştirme işletim sistemi sürümü **.
+description: Bu makalede, Azure Güvenlik Merkezi önerinin nasıl uygulanacağını gösterir **işletim sistemi sürümünü Güncelleştir**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,33 +9,33 @@ editor: ''
 ms.assetid: aa372492-ecdb-4368-8fdd-d8ed31e216ee
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2016
 ms.author: terrylan
-ms.openlocfilehash: ce0d178914907750e5da59f223a4b1e04b9bb6fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cab773412005093f8acabe9bd6e93e8740b14ece
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23866516"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298415"
 ---
-# <a name="update-os-version-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güncelleştirme işletim sistemi sürümü
-İçindeki sanal makineler için (VM) bulut Hizmetleri, Azure Güvenlik Merkezi, daha yeni bir sürüm kullanılabilir işletim sistemi (OS) güncelleştirilmesi önerilir.  Yalnızca bulut yuvaları izlenen üretimde çalışan web ve çalışan rolleri Hizmetleri.
+# <a name="update-os-version-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde işletim sistemi sürümünü güncelleştirme
+Sanal makinelerine (VM) bulut hizmetlerinde, Azure Güvenlik Merkezi, daha yeni bir sürümü kullanılabilir işletim sistemi (OS) güncelleştirilmesi önerilir.  Yuva izlenen üretimde çalışan web ve çalışan rolleri yalnızca bulut Hizmetleri.
 
 > [!NOTE]
 > Bu belge, örnek bir dağıtım kullanarak hizmeti tanıtır.  Bu, adım adım ilerleyen bir kılavuz değildir.
 > 
 > 
 
-## <a name="implement-the-recommendation"></a>Öneriyi uygulamayı
-1. İçinde **önerileri** dikey penceresinde, select **güncelleştirme işletim sistemi sürümü**.
+## <a name="implement-the-recommendation"></a>Önerisini uygulama
+1. İçinde **önerileri** dikey penceresinde **işletim sistemi sürümünü Güncelleştir**.
    ![İşletim sistemi sürümünü güncelleştirme][1]
-2. Bu dikey pencere açılır **güncelleştirme işletim sistemi sürümü**. İşletim sistemi sürümü güncelleştirmek için bu dikey'ndaki adımları izleyin.
+2. Bu dikey pencereyi açar **işletim sistemi sürümünü Güncelleştir**. İşletim sistemi sürümünü güncelleştirmek için bu dikey pencerede adımları izleyin.
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Bu makalede "Güncelleştirme işletim sistemi sürümü." Güvenlik Merkezi öneriyi uygulamayı nasıl oluşturulacağını gösterir Bulut Hizmetleri ve bir bulut hizmeti için işletim sistemi sürümü güncelleştirme hakkında daha fazla bilgi için bkz:
+Bu makalede Güvenlik Merkezi'nin önerisini "Güncelleştirme işletim sistemi sürümü." uygulama nasıl oluşturulacağını gösterir Bulut Hizmetleri ve bir bulut hizmeti için işletim sistemi sürümünü güncelleştirme hakkında daha fazla bilgi için bkz:
 
 * [Cloud Services’e genel bakış](../cloud-services/cloud-services-choose-me.md)
 * [Bir bulut hizmeti güncelleştirme](../cloud-services/cloud-services-update-azure-service.md)
@@ -44,8 +44,8 @@ Bu makalede "Güncelleştirme işletim sistemi sürümü." Güvenlik Merkezi ön
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
 * [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --nasıl önerilerin Azure kaynaklarınızı korumanıza yardımcı öğrenin.
-* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) --Azure kaynaklarınızı sağlığını izlemek öğrenin.
+* [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.
+* [Güvenlik durumunu, Azure Güvenlik Merkezi'nde izleme](security-center-monitoring.md) --Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) - İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) -- Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.

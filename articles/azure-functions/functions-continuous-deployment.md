@@ -11,15 +11,15 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: 4561b343fa15346388572a70616840be0dd06679
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 7529d20535eedab92d164df5a0435efeda83fca2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095496"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301557"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Azure İşlevleri için sürekli dağıtım
-Azure işlevleri işlev uygulamanızı App Service'e sürekli tümleştirme kullanarak dağıtma kolaylaştırır. İşlevleri, BitBucket, Dropbox, GitHub ve Visual Studio Team Services (VSTS) ile tümleşir. Bu, Azure'a bu tümleşik hizmetler tetikleyici dağıtımı birini kullanarak yapılan işlev kodunu burada güncelleştirmeleri bir iş akışı sağlar. Azure işlevleri'ne yeni başladıysanız, başlayan [Azure işlevlerine genel bakış](functions-overview.md).
+Azure işlevleri işlev uygulamanızı App Service'e sürekli tümleştirme kullanarak dağıtma kolaylaştırır. İşlevleri, BitBucket, Dropbox, GitHub ve Azure DevOps ile tümleşir. Bu, Azure'a bu tümleşik hizmetler tetikleyici dağıtımı birini kullanarak yapılan işlev kodunu burada güncelleştirmeleri bir iş akışı sağlar. Azure işlevleri'ne yeni başladıysanız, başlayan [Azure işlevlerine genel bakış](functions-overview.md).
 
 Sürekli dağıtım, birden fazla ve sık gerçekleşen katkıların tümleştirildiği projeler için mükemmel bir seçenektir. Ayrıca işlev kodunuz üzerinde kaynak denetimi sağlamanıza olanak tanır. Aşağıdaki dağıtım kaynakları şu anda desteklenir:
 
@@ -29,7 +29,7 @@ Sürekli dağıtım, birden fazla ve sık gerçekleşen katkıların tümleştir
 * [Yerel Git deposu](../app-service/app-service-deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
-* [Visual Studio Team Services](https://www.visualstudio.com/team-services/)
+* [Azure DevOps Hizmetleri](https://www.visualstudio.com/team-services/)
 
 Dağıtımları, bir işlev başına uygulama başına yapılandırılır. Sürekli dağıtım etkinleştirildikten sonra portalda işlev kodunu erişimi kümesine *salt okunur*.
 
@@ -39,10 +39,10 @@ Dağıtım kaynağı, sürekli dağıtım ayarlama önce dağıtım kaynağını
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-VSTS'den dağıtın edebilmek için VSTS hesabınızı Azure aboneliğinizle bağlamanız gerekir. Daha fazla bilgi için [VSTS hesabınız için fatura bilgilerini ayarlayın](https://docs.microsoft.com/vsts/billing/set-up-billing-for-your-account-vs?view=vsts#set-up-billing-via-the-azure-portal).
+Azure DevOps dağıtın edebilmek için Azure DevOps kuruluşunuzun Azure aboneliğinizle bağlamanız gerekir. Daha fazla bilgi için [Azure DevOps kuruluşunuz için fatura bilgilerini ayarlayın](https://docs.microsoft.com/azure/devops/organizations/billing/set-up-billing-for-your-organization-vs?view=vsts#set-up-billing-via-the-azure-portal).
 
 ## <a name="set-up-continuous-deployment"></a>Sürekli dağıtım ayarlama
-Var olan bir işlev uygulaması için sürekli dağıtımını yapılandırmak için bu yordamı kullanın. Bir GitHub deposu ile tümleştirme adımları gösterir, ancak Visual Studio Team Services veya diğer Dağıtım Hizmetleri için benzer adımları uygulayın.
+Var olan bir işlev uygulaması için sürekli dağıtımını yapılandırmak için bu yordamı kullanın. Bir GitHub deposu ile tümleştirme adımları gösterir, ancak Azure DevOps veya diğer Dağıtım Hizmetleri için benzer adımları uygulayın.
 
 1. İşlev uygulamanıza [Azure portalında](https://portal.azure.com), tıklayın **Platform özellikleri** ve **dağıtım seçenekleri**. 
    

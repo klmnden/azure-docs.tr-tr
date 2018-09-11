@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0cc0ec79cf23d3bba01845ed64493df010c1ca66
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b324d0a68fde8f47072a087330f2e40a99378984
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161705"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299483"
 ---
 # <a name="show-search-results-on-the-map"></a>Harita üzerinde arama sonuçlarını göster
 
@@ -22,7 +22,7 @@ Bu makalede ilgi konumu aramak ve arama sonuçlarını haritada gösterme göste
 
 İlgi alanı, tek yönlü bir konumu arama istekte bulunmak için hizmet modül kullanarak ve diğer arama isteği aracılığıyla yaparak arama iki yolla bir [XMLHttpRequest](https://xhr.spec.whatwg.org/) için [Azure haritalar belirsiz arama API'si](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy). Her ikisi de aşağıda ele alır.
 
-## <a name="use-service-module-to-make-a-search-request"></a>Arama istekte bulunmak için kullanım hizmeti Modülü
+## <a name="making-a-search-request-via-service-module"></a>Bir arama hizmeti modülü aracılığıyla isteğinde
 
 ### <a name="understand-the-code"></a>Kodu anlama
 
@@ -36,7 +36,7 @@ Yukarıdaki kod, kod bloğunun ilk eşleme nesnesi oluşturur ve istemci hizmeti
 Haritanın kullanarak son blok kod eşlemesi için kamera sınırları ayarlar [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) özelliği.
 
 
-## <a name="search-by-xmlhttprequest"></a>XMLHttpRequest göre ara
+##  <a name="making-a-search-request-via-xmlhttprequest"></a>Bir arama isteğinde XMLHttpRequest aracılığıyla
 
 ### <a name="understand-the-code"></a>Kodu anlama
 

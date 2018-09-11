@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 56c464b9fbc9fe5f2d9acd1a403333fd1c729113
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 05a7dda67ca9747c5d6205952bc9337af628de8f
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023401"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296746"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure depolama güvenlik duvarlarını ve sanal ağları yapılandırma
 Azure depolama, belirli bir ağa izin kümesi, depolama hesaplarınıza güvenli olanak tanıyan bir katmanlı güvenlik modeli sağlar.  Ağ kuralları yapılandırıldığında, yalnızca izin verilen ağları uygulamalardan bir depolama hesabına erişebilir.  İzin verilen bir ağdan çağırırken uygulamalar (geçerli bir erişim anahtarı veya SAS belirteci) depolama hesabına erişmek için uygun yetkilendirme gerektirecek şekilde devam edin.
@@ -208,7 +208,7 @@ Depolama hesapları için IP ağ kuralları, Azure portal, PowerShell veya CLIv2
 2. Adlı ayarları menüsünde **güvenlik duvarları ve sanal ağlar**.
 3. 'Seçili ağlar' dan erişime izin vermek seçtiniz emin olun.
 4. Vermek için internet'e bir IP aralığı erişmek için IP adresi veya adres aralığı (CIDR biçiminde) altında güvenlik duvarı, adres aralığı girin.
-5. Bir IP ağ kuralı kaldırmak için tıklayın kural için bağlam menüsünü açmak için "..." ve "Kaldır" a tıklayın.
+5. Bir IP ağ kuralı kaldırmak için ağ kuralı yanındaki çöp kutusu simgesine tıklayın.
 6. Tıklayın *Kaydet* yaptığınız değişiklikleri uygulamak için.
 
 #### <a name="powershell"></a>PowerShell

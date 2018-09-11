@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 2097ce5cf249e7ff895769142d63b6cf47eed06d
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5d3833d3218a4b6252c9591bb67686ddc1c3cdf9
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161016"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298585"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Azure multi-Factor Authentication sunucusu için yüksek kullanılabilirliği yapılandırma
 
@@ -29,9 +29,9 @@ Azure MFA sunucusu hizmet mimarisi, aşağıdaki diyagramda gösterildiği gibi 
 
 MFA sunucusu yüklü olan Azure multi-Factor Authentication yazılım bir Windows Server ' dir. MFA sunucusu örneğinin çalışması için Azure MFA hizmeti tarafından etkinleştirilmelidir. Birden fazla MFA sunucusu şirket yüklü olabilir.
 
-Yüklenen ilk MFA sunucusu MFA sunucusu tarafından varsayılan olarak Azure MFA hizmetini etkinleştirme sırasında yöneticisidir. Ana MFA sunucusu PhoneFactor.pfdata veritabanı yazılabilir bir kopyasına sahip olur. MFA sunucusu örneğini izleyen yüklemelerde alt sunucuları bilinir. MFA bağımlıları'nı çoğaltılmış salt okunur veritabanının bir kopyasını PhoneFactor.pfdata vardır. MFA sunucularını uzaktan yordam çağrısı (RPC) kullanarak bilgileri çoğaltın. Tüm MFA sunucularının topluca ya da etki alanına katılmış veya bilgi çoğaltmak için bağımsız olması gerekir.
+Yüklenen ilk MFA sunucusu MFA sunucusu tarafından varsayılan olarak Azure MFA hizmetini etkinleştirme sırasında yöneticisidir. Ana MFA sunucusu PhoneFactor.pfdata veritabanı yazılabilir bir kopyasına sahip olur. MFA sunucusu örneğini izleyen yüklemelerde Astları bilinir. MFA Astları çoğaltılmış salt okunur veritabanının bir kopyasını PhoneFactor.pfdata vardır. MFA sunucularını uzaktan yordam çağrısı (RPC) kullanarak bilgileri çoğaltın. Tüm MFA sunucularının topluca ya da etki alanına katılmış veya bilgi çoğaltmak için bağımsız olması gerekir.
 
-İki öğeli kimlik doğrulaması gerekli olduğunda hem MFA ana şablonunun hem de ikincil MFA sunucularının MFA hizmeti ile iletişim kurar. Örneğin, bir kullanıcı iki öğeli kimlik doğrulama gerektiren bir uygulamaya erişim kazanmak çalıştığında, kullanıcının ilk gibi Active Directory (AD) bir kimlik sağlayıcısı tarafından doğrulanır.
+İki öğeli kimlik doğrulaması gerekli olduğunda hem MFA ana şablonunun hem de bağımlı MFA sunucularını MFA hizmeti ile iletişim kurar. Örneğin, bir kullanıcı iki öğeli kimlik doğrulama gerektiren bir uygulamaya erişim kazanmak çalıştığında, kullanıcının ilk gibi Active Directory (AD) bir kimlik sağlayıcısı tarafından doğrulanır.
 
 AD ile başarılı kimlik doğrulamasından sonra MFA sunucusu MFA hizmeti ile iletişim kurar. MFA sunucusu veya uygulama için kullanıcı erişimini engellediği için mfa'yı hizmetinden bildirim bekler.
 
@@ -42,7 +42,7 @@ MFA ana sunucu çevrimdışı olursa, kimlik doğrulamaları işlenmeye devam ed
 Azure MFA sunucusu ve ilgili bileşenlerini Yük Dengeleme için aşağıdaki önemli noktalara dikkat edin.
 
 * **Yüksek kullanılabilirlik elde etmek için RADIUS standardını kullanarak**. RADIUS sunucuları olarak Azure MFA sunucusu kullanıyorsanız, birincil RADIUS kimlik doğrulaması hedefi ve diğer Azure MFA sunucusu ikincil kimlik doğrulaması hedefleri olarak olası bir MFA sunucusu yapılandırabilirsiniz. Ancak, ikincil kimlik doğrulaması hedefe karşı doğrulanabilmesinden önce birincil kimlik doğrulaması hedef kimlik doğrulama başarısız olduğunda gerçekleşmesi bir zaman aşımı süresi için beklemeniz gerekir çünkü bu yöntem, yüksek kullanılabilirlik elde etmek için pratik olmayabilir. RADIUS istemcisi ve RADIUS sunucuları (Bu durumda, Azure MFA RADIUS sunucuları olarak davranan sunucuları) arasındaki RADIUS trafiği Yük Dengelemesi daha verimli olur böylece işaret edebilir tek bir URL ile RADIUS istemcileri yapılandırabilirsiniz.
-* **MFA bağımlıları'nı el ile yükseltmeniz gerekir**. Ana Azure MFA sunucusu çevrimdışı olursa, ikincil Azure MFA sunucularının MFA istekleri işlemeye devam eder. Ancak, bir ana MFA sunucusu kullanılabilir olana kadar Yöneticileri olmayan kullanıcılar ekleyebilir veya MFA ayarlarını değiştirin ve kullanıcılar kullanıcı portalını kullanarak değişiklikler yapabilir değil. Bir MFA bağımlı Yöneticisi rolüne yükseltme her zaman el ile yapılan bir işlemdir.
+* **MFA Astları el ile yükseltmeniz gerekir**. Ana Azure MFA sunucusu çevrimdışı olursa, ikincil Azure MFA sunucularının MFA istekleri işlemeye devam eder. Ancak, bir ana MFA sunucusu kullanılabilir olana kadar Yöneticileri olmayan kullanıcılar ekleyebilir veya MFA ayarlarını değiştirin ve kullanıcılar kullanıcı portalını kullanarak değişiklikler yapabilir değil. Bir MFA yükseltme yöneticisi rolünü bağımlı her zaman elle yapılan bir işlemdir.
 * **Bileşenlerin separability**. Azure MFA sunucusu, aynı Windows Server örneğine veya farklı örneklerinde yüklü birden fazla bileşenden oluşur. Bu bileşenler, kullanıcı portalı, mobil uygulama Web hizmeti ve ADFS bağdaştırıcısını (aracı) içerir. Bu separability, kullanıcı portalı ve mobil uygulama Web sunucusu çevre ağından yayımlamak için Web uygulaması Ara sunucusu kullanmayı mümkün kılar. Bu tür bir yapılandırma, aşağıdaki diyagramda gösterildiği gibi tasarım genel güvenlik ekler. MFA Kullanıcı Portalı ve mobil uygulama Web sunucusu ayrıca HA yük dengeli yapılandırmasında dağıtılabilir.
 
    ![MFA sunucusu ile bir çevre ağı](./media/howto-mfaserver-deploy-ha/mfasecurity.png)
@@ -62,7 +62,7 @@ Yukarıdaki diyagramda şu öğelerden gelenlere numaralandırılmış alan içi
    ![Azure MFA Server - App server HA](./media/howto-mfaserver-deploy-ha/mfaapp.png)
 
    > [!NOTE]
-   > RPC dinamik bağlantı noktaları kullandığından, güvenlik duvarları RPC potansiyel olarak kullanabileceğiniz dinamik bağlantı noktası aralığını kadar açmak için önerilmez. Bir güvenlik duvarınız varsa **arasında** MFA uygulama sunucularınız bir statik bağlantı çoğaltma trafiği bağımlı ve asıl sunucuları arasında iletişim kurmak ve bu, güvenlik duvarı bağlantı noktasını açmak için MFA sunucusu yapılandırmanız gerekir. Bir DWORD kayıt defteri değerinde oluşturarak statik bağlantı noktasını zorlayabilirsiniz ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor``` adlı ```Pfsvc_ncan_ip_tcp_port``` ve uygun bir statik bağlantı noktası değerini ayarlar. Bağlantıları her zaman ana bağımlı MFA sunucuları tarafından başlatılan, statik bağlantı noktasını yalnızca ana gereklidir, ancak bir ikincil asıl herhangi bir zamanda olacak şekilde yükseltebilirsiniz olduğundan, tüm MFA sunucularındaki statik bağlantı noktasını ayarlamanız gerekir.
+   > RPC dinamik bağlantı noktaları kullandığından, güvenlik duvarları RPC potansiyel olarak kullanabileceğiniz dinamik bağlantı noktası aralığını kadar açmak için önerilmez. Bir güvenlik duvarınız varsa **arasında** MFA uygulama sunucularınız bir statik bağlantı çoğaltma trafiği bağımlı ve asıl sunucuları arasında iletişim kurmak ve bu, güvenlik duvarı bağlantı noktasını açmak için MFA sunucusu yapılandırmanız gerekir. Bir DWORD kayıt defteri değerinde oluşturarak statik bağlantı noktasını zorlayabilirsiniz ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor``` adlı ```Pfsvc_ncan_ip_tcp_port``` ve uygun bir statik bağlantı noktası değerini ayarlar. Bağlantıları her zaman ana bağımlı MFA sunucuları tarafından başlatılan, statik bağlantı noktasını yalnızca ana gereklidir, ancak herhangi bir zamanda Yöneticisi olarak bir alt yükseltebilirsiniz olduğundan, tüm MFA sunucularındaki statik bağlantı noktasını ayarlamanız gerekir.
 
 2. İki kullanıcı portalı/MFA mobil uygulama sunucularını (MFA yukarı MAS1 ve MFA yukarı MAS2) içinde Yük Dengelemesi yapılıyor bir **durum bilgisi olan** yapılandırma (mfa.contoso.com). Yapışkan oturumlar MFA Kullanıcı Portalı ve mobil uygulama hizmeti Yük Dengeleme gereksinimini olduğunu hatırlayın.
    ![Azure MFA sunucusu - kullanıcı portalı ve mobil uygulama hizmeti HA](./media/howto-mfaserver-deploy-ha/mfaportal.png)

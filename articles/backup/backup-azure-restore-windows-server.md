@@ -6,14 +6,14 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/6/2018
+ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: ddde297de49edb5f6543d03dfdb972771533301b
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 20d2f289f4d40d773fde9f6b770dc49b87c34804
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576194"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297256"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Resource Manager dağıtım modelini kullanarak bir Windows sunucusu veya Windows istemci makinesine dosyaları geri yükleme
 
@@ -54,6 +54,9 @@ Yanlışlıkla silinen bir dosya ve (yedeğin alındığı) aynı makinede geri 
 > [!IMPORTANT]
 > Geri Yükle seçeneğini *dosyalara ve klasörlere* .NET Framework 4.5.2 gerektirir veya üzeri. Görmüyorsanız, *dosyalara ve klasörlere* seçeneği, .NET Framework sürüm 4.5.2 yükseltmelisiniz ya da daha yüksek ve yeniden deneyin.
 
+> [!TIP]
+> *Dosyalara ve klasörlere* seçeneği kurtarma noktası verilere hızlı erişim sağlar. Fazla 80 GB boyutunda Örneğimiz boyutları ile tek tek dosyaların kurtarılması için uygundur ve teklifler aktarma/kopyalama, Kurtarma sırasında en fazla 6 MB/sn hızlandırır. *Birim* seçeneği belirli bir birimdeki tüm yedeklenen verileri kurtarır. Bu seçenek, yüksek aktarım hızları sağlar (en fazla 60 MB/sn), büyük kurtarılması için ideal olan boyutta veri veya tüm birimleri.
+
 5. Üzerinde **birim ve tarih seçin** bölmesinde, dosyaları ve/veya geri yüklemek istediğiniz klasörleri içeren birimi seçin.
 
     Takvimde bir kurtarma noktası seçin. Zaman içinde herhangi bir kurtarma noktasından geri yükleyebilirsiniz. Tarihler **kalın** en az bir kurtarma noktasının kullanılabilirliğini gösterir. Birden fazla kurtarma noktası mevcutsa bir tarih seçtiğinizde belirli bir kurtarma noktasından seçin **zaman** açılan menüsü.
@@ -72,6 +75,7 @@ Yanlışlıkla silinen bir dosya ve (yedeğin alındığı) aynı makinede geri 
 8. Windows Gezgini'nde, dosyaları ve/veya klasörleri geri yükleme ve sunucu veya bilgisayar için yerel olan herhangi bir konuma yapıştırın istediğiniz kopyalayın. Açabilir veya doğrudan kurtarma biriminden dosyaları akışla aktarma ve doğru sürümleri kurtarmakta olduğunu doğrulayın.
 
     ![Dosyaları ve yerel konum takılı birim klasörleri kopyalama ve yapıştırma](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
+
 
 9. İşiniz bittiğinde şirket dosyaları ve/veya klasörleri geri **göz atma ve kurtarılan dosyaların** bölmesinde tıklayın **çıkarma**. Ardından **Evet** birimi çıkarmak istediğinizi onaylayın.
 

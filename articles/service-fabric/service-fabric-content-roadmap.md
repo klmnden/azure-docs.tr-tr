@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: b24860aaf10ba483aeab54d215816314a7d0bc36
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: edb1638f4568656761f923c73ba8cdc0dd968d96
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162861"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296491"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Bu nedenle, Service Fabric hakkında öğrenmek ister misiniz?
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur.  Ancak, Service Fabric, büyük bir yüzey alanı vardır ve öğreneceğiniz çok şey yoktur.  Bu makale, Service fabric'in bir özeti sağlar ve programlama modellerini, uygulama yaşam döngüsü, test, kümeler ve sistem durumu izleme temel kavramları açıklar. Okuma [genel bakış](service-fabric-overview.md) ve [mikro hizmetler nedir?](service-fabric-overview-microservices.md) giriş ve Service Fabric mikro hizmetler oluşturmak için nasıl kullanılabilir. Bu makalede, kapsamlı bir içerik listesi içermiyor, ancak genel bakış ve Service Fabric için her bir alanı Başlarken makaleleri bağlantı. 
@@ -104,7 +104,7 @@ A [Konuk yürütülebilir dosyası](service-fabric-guest-executables-introductio
 ## <a name="application-lifecycle"></a>Uygulama yaşam döngüsü
 Diğer platformlar ile Service fabric'te uygulama genellikle aşağıdaki aşamaları geçtikçe: tasarım, geliştirme, test, dağıtım, yükseltme, Bakım ve kaldırma. Service Fabric, nihai yetkisinin alınması için bulut uygulamaları, geliştirme, dağıtım, günlük yönetim ve Bakım tam uygulama yaşam döngüsü için birinci sınıf destek sağlar. Hizmet modeli, uygulama yaşam döngüsü içinde bağımsız olarak katılmak birkaç farklı rol sağlar. [Service Fabric uygulama yaşam döngüsü](service-fabric-application-lifecycle.md) API'leri ve Service Fabric uygulama yaşam döngüsünün aşamaları boyunca farklı rolleri tarafından nasıl kullanıldıkları hakkında genel bir bakış sağlar. 
 
-Tüm uygulama yaşam döngüsü kullanılarak yönetilebilir [PowerShell cmdlet'leri](/powershell/module/ServiceFabric/), [CLI komutları](service-fabric-sfctl.md), [C# API](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java API](/java/api/system.fabric), ve [ REST API'leri](/rest/api/servicefabric/). Gibi araçları kullanarak sürekli tümleştirme/sürekli dağıtım işlem hatlarını de ayarlayabilirsiniz [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) veya [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
+Tüm uygulama yaşam döngüsü kullanılarak yönetilebilir [PowerShell cmdlet'leri](/powershell/module/ServiceFabric/), [CLI komutları](service-fabric-sfctl.md), [C# API](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java API](/java/api/system.fabric._application_management_client), ve [ REST API'leri](/rest/api/servicefabric/). Gibi araçları kullanarak sürekli tümleştirme/sürekli dağıtım işlem hatlarını de ayarlayabilirsiniz [Azure işlem hatları](service-fabric-set-up-continuous-integration.md) veya [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 
 Aşağıdaki Microsoft Virtual Academy video, uygulama yaşam döngünüz yönetme işlemi açıklanmaktadır: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">

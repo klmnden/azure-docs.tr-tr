@@ -1,6 +1,6 @@
 ---
 title: Web uygulaması performans izleme - Azure Application Insights | Microsoft Docs
-description: Application Insights devOps döngüsü nasıl uyduğunu
+description: Application Insights devOps döngüsü ile nasıl uyduğunu
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -13,156 +13,156 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: a9a6e513d95df5dafba82556f74ec209529ff58d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e77389411e52853efb52252a17c8612f0480fa61
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294920"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298651"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Application Insights ile ayrıntılı web uygulaması ve hizmet tanılama
-## <a name="why-do-i-need-application-insights"></a>Application Insights neden gerekiyor mu?
-Application Insights çalışan web uygulamanızı izler. Hataları ve performans sorunları hakkında bildirir ve müşteriler, uygulamanızın kullanımını analiz etmenize yardımcı olur. Birçok platformda (ASP.NET, J2EE, Node.js,...) üzerinde çalışan uygulamalar için çalışır ve Bulut veya şirket içi barındırılır. 
+## <a name="why-do-i-need-application-insights"></a>Application Insights neden gerekiyor?
+Application Insights çalışan web uygulamanızı izler. Hataları ve performans sorunları hakkında size bildirir ve müşterilerin uygulamanızı kullanımını analiz etmenize yardımcı olur. Bu, birçok platformda (ASP.NET, J2EE, Node.js,...) üzerinde çalışan uygulamalar için çalışır ve Bulut veya şirket içinde barındırılan. 
 
-![Web uygulamaları teslim karmaşıklığını yönleri](./media/app-insights-devops/010.png)
+![Web uygulamaları sunmaya karmaşıklığı yönleri](./media/app-insights-devops/010.png)
 
-Modern uygulama çalışırken izlemek için gereklidir. En önemlisi, müşterilerinizin çoğunu önce hatalarını algılayacak istiyor. Ayrıca bulmak ve değil yıkıcı sırada performans sorunları, düzeltmek istediğiniz, belki de sistemi yavaşlatır veya bazı rahatsızlıktan kullanıcılarınıza neden. Ve hangi kullanıcıların ile yaptıklarını öğrenmek istiyorsanız sistem virüsten koruma yazılımını gerçekleştirirken: en son özelliğini kullanıyor? Bunlar ile başarılı oluyor?
+Çalışırken, modern bir uygulama izlemek için gereklidir. En önemlisi, müşterilerin çoğu yapmadan önce hatalarını algılamak istediğiniz. Ayrıca bulmak ve yıkıcı değil ancak performans sorunları, düzeltmek istediğiniz, belki de trafiği yavaşlatmak veya bazı dileriz kullanıcılarınıza neden. Ve sistem için tatmininizi gerçekleştirirken, hangi kullanıcıların ile yaptıklarını öğrenmek istiyorsanız: en yeni özellik kullandıkları? Bunlar birlikte başarılı oluyor?
 
-Modern web uygulamaları kesintisiz teslim döngüsünde geliştirilen: yeni bir özellik ya da geliştirme; sürüm kullanıcılar için ne kadar iyi çalıştığı inceleyin; Bu bilgilere dayanan geliştirme, bir sonraki adımını planlayın. Bu döngü önemli bir parçası gözlem aşamasıdır. Application Insights performans ve kullanım için bir web uygulaması izlemek için araçlar sağlar.
+Modern web uygulamaları, bir sürekli teslim dönemi içinde geliştirilen: yeni bir özellik veya geliştirme; sürüm kullanıcılar için nasıl çalıştığını inceleyin; Bu bilgilere dayanan geliştirme bir sonraki adımını planlayın. Bu döngü önemli bir parçası gözlem aşamasıdır. Application Insights, bir web uygulaması performansını ve kullanımını izlemek için araçlar sağlar.
 
-En önemli bu işlem tanılama ve tanılama yönüdür. Uygulama başarısız olursa, sonra iş kaybolmasına. Birinci izleme framework'ün bu nedenle güvenilir bir şekilde hatalarını algılayacak, sizi hemen uyarır ve sorunu tanılamak için gereken bilgilerle sunmak için rolüdür. Bu, tam olarak Application Insights ne olur.
+Bu işlemin en önemli bir yönüdür tanılama ve Tanılama ' dir. Uygulama başarısız olursa, ardından iş kaybolur. Birinci izleme framework'ün bu nedenle güvenilir bir şekilde hatalarını algılamak için hemen bildir ve sorunu tanılamak için gereken bilgilerle sunmak için rolüdür. Application Insights'ın yaptığı tam olarak budur.
 
-### <a name="where-do-bugs-come-from"></a>Hatalar alınacağı yeri?
-Web sistemlerinde hataları, genellikle yapılandırma sorunları veya birçok bileşenleri arasındaki hatalı etkileşimler ortaya çıkar. Canlı site olay tackling ilk görevi bu nedenle sorun locus belirlemektir: hangi bileşen veya ilişki nedeni?
+### <a name="where-do-bugs-come-from"></a>Burada hataları gelir?
+Web sistemlerinde hataları genellikle yapılandırma sorunlarını veya birçok bileşenleri arasında hatalı etkileşimleri durumlardan kaynaklanır. Canlı site olayı bağlayabileceğiniz ilk görevi bu nedenle sorunun locus belirlemektir: hangi bileşen veya ilişki nedeni?
 
-Bazı gri artı olanlar bize, bilgisayar programı bir bilgisayarda çalıştırıldığı daha basit bir dönem anımsamasını sağlayabilirsiniz. Geliştiriciler göndermeden önce baştan sona test; ve, gönderilen nadiren bakın veya bu konuda yeniden düşünün. Kullanıcılar ile fazlalık hataları yıllardır put etmesi gerekir. 
+Bazı gri artı olanlar bize, bilgisayar programı bir bilgisayarda çalıştırıldığı daha basit bir dönem hatırlayabileceğiniz. Geliştiriciler göndermeden önce kapsamlı olarak sınamak; ve, nadiren bakın veya bunu yeniden düşünün. Kullanıcıların yıllardır kalan hatalarla put etmesi gerekir. 
 
-Şimdi bu nedenle çok farklı noktalardır. Uygulamanızı çalıştırmak için farklı cihaz sayısız varsa ve her biri üzerinde tam aynı davranışı sağlamak zor olabilir. Uygulamalarını bulutta barındırma hızlı hataların düzeltilmesi, ancak sürekli rekabet ve yeni özellikleri beklentisi sık aralıklarla de anlamına gelir. 
+Artık böylece çok farklı noktalardır. Uygulamanızı çalıştırmak için farklı cihaz deseninizi oluşturmayı vardır ve her birinde aynı davranış tam garanti etmek zor olabilir. Uygulamalarını bulutta barındırma, hızlı hataların düzeltilmesi ancak sürekli bir yarışma ve yeni özelliklerin beklentisi sık aralıklarla anlamına da gelir anlamına gelir. 
 
-Bu koşullar, hata sayısı kesin bir denetim tutmak için yalnızca otomatik birim testi yoludur. Her teslim üzerindeki her şeyi yeniden el ile test etmek mümkün olacaktır. Birim testi şimdi bir sıradan yapı işleminin parçasıdır. Xamarin Test Cloud gibi araçları birden çok tarayıcı sürümlerinde test otomatikleştirilmiş UI sağlayarak yardımcı olur. Bu test regimes bize en az bir uygulama içinde bulunan hataların oranını tutulabilir umuyoruz izin verir.
+Bu koşullarda, kesin bir denetim üzerinde hata sayısını tutmak tek otomatik birim testi yoludur. Her teslimat üzerinde her şeyi yeniden el ile test mümkün olacaktır. Birim testi şimdi bir sıradan yapı işleminin parçasıdır. Xamarin Test Cloud'a gibi araçlar, otomatik UI testi birden çok tarayıcı sürümlerinde sağlayarak yardımcı olur. Bu test regimes için en az bir uygulama içinde bulunan hatalar oranını tutulabilir umuyoruz olanak tanır.
 
-Normal web uygulamaları birçok Canlı bileşeni vardır. (Uygulamasında bir tarayıcı veya aygıt) istemci ve web sunucusuna ek olarak, yoktur önemli arka uç işleme olması muhtemeldir. Belki de arka uç bileşenlerinin bir ardışık düzen veya iş parça ok koleksiyonu ' dir. Ve bunların kaç, denetiminde olmayacaktır - dış hizmetler, bağımlı oldukları.
+Tipik web uygulamalarının çoğu Canlı bileşenleri vardır. İstemci (tarayıcı veya cihaz uygulaması) ve web sunucusuna ek olarak, var. büyük olasılıkla önemli bir arka uç işleme Belki de arka uç bileşenlerinin bir işlem hattı veya iş Birliği yapan parçaları bazı koleksiyonu ' dir. Ve kaç tanesinin denetiminizi olmayacaktır - kullandığınız dış hizmetler oldukları.
 
-Bu gibi yapılandırmalarında zor ve için test veya, her olası hata modu Canlı sisteminde dışında öngörüyor uneconomical olabilir. 
+Bunlar gibi yapılandırmalarında zor ve test ya da, her olası hata modunun dışındaki Canlı sistem öngörüyor uneconomical olabilir. 
 
-### <a name="questions-"></a>Soru...
-Biz web sistemi geliştirirken size bazı sorular sorun:
+### <a name="questions-"></a>Sorular...
+Biz web sistemi geliştirirken bazı sorular isteriz:
 
-* Uygulamam kilitlenen? 
-* Tam olarak ne oldu? -Bir istek başarısız olursa nasıl var. taşınmadığını bilmek istiyorum. Bir izleme olaylarının ihtiyacımız...
-* Uygulamam yeterince hızlı mı? Ne kadar tipik isteklerini yanıtlamak için sürer?
-* Sunucunun yükünü işleyebilir? İstekleri oranını miktarı artar, yanıt süresi sürekli içeriyor mu?
-* Nasıl yanıt vereceğini my - REST API'leri, veritabanları ve Uygulamam çağırır diğer bileşenleri bağımlılıklardır. Özellikle, sistem yavaşsa, my bileşenidir veya yavaş yanıt birisinden alıyorum?
-* Uygulamam yukarı veya aşağı mi? Bu gelen tüm dünyada görülebilir mi? Durdurur, bilmeniz izin ver...
-* Kök nedeni nedir? My bileşeni ya da bir bağımlılık hatası oldu mu? Bir iletişim sorunu mu?
-* Kaç kullanıcının etkilenen? Üstesinden gelmek için birden fazla sorun varsa, bu en önemli olduğu?
+* Uygulamamı kilitlenmesi? 
+* Tam olarak ne oldu? -Bir istek başarısız olursa nasıl var. alındı bilmek istiyorum. Bir izleme olaylarının ihtiyacımız...
+* Uygulamamı yeterince hızlı mı? Ne kadar normal isteklerine yanıt vermek için sürer?
+* Sunucu yükü işleyebilirsiniz? İstekleri oranını arttığında yanıt süresi sabit içeriyor mu?
+* Yanıt verme düzeyi my - REST API'ler, veritabanları ve uygulamamı çağıran diğer bileşenleri bağımlılıklardır. Özellikle sistem yavaşsa, bu benim bileşendir veya yavaş yanıtlar birisinden alıyorum?
+* Uygulamamı yukarı veya aşağı mi? Bu gelen tüm dünyada görülebilir? Vermemeye başlarsa haberim...
+* Kök nedeni nedir? My bileşen ya da bağımlılık hatası oldu mu? Bir iletişim sorununu nedir?
+* Kaç kullanıcının etkilendiğini? En önemli olan gidermek için birden çok sorun varsa?
 
 ## <a name="what-is-application-insights"></a>Application Insights nedir?
-![Application Insights temel iş akışı](./media/app-insights-devops/020.png)
+![Application Insights'ın temel iş akışı](./media/app-insights-devops/020.png)
 
-1. Application Insights uygulamanızı Instruments ve uygulama çalışırken ilgili telemetri gönderir. Application Insights SDK'sı uygulamaya oluşturabilir ya da çalışma zamanında izleme uygulayabilirsiniz. Kendi telemetrinizi normal modüller ekleyebilirsiniz gibi eski yöntemi daha esnektir.
-2. Burada, depolanan işlenen ve Application Insights portalındaki telemetriyi gönderilir. (Application Insights Microsoft Azure üzerinde barındırılan olsa da, tüm web uygulamaları - yalnızca Azure uygulamalarını izleyebilirsiniz.)
-3. Telemetri grafikleri biçimidir ve olayların tabloları size sunulur.
+1. Application Insights, uygulamanızın Instruments ve uygulama çalışırken ilgili telemetri gönderir. Application Insights SDK'sını uygulamaya oluşturabilir ya da çalışma zamanında izleme uygulayabilirsiniz. İlk yöntem daha esnek aynıdır, kendi telemetrinizi normal modüllerine ekleyebilirsiniz.
+2. Burada, depolanan işlenen ve Application Insights portalına telemetri gönderilir. (Application Insights, Microsoft Azure'da barındırılan olsa da, tüm web uygulamaları - yalnızca Azure uygulamalarını izleyebilirsiniz.)
+3. Telemetri, formun grafikleri ve tabloları olayların size sunulur.
 
-Telemetri iki ana türü vardır: toplanan ve raw örnekleri. 
+Telemetri iki ana türü vardır: toplanmış ve ham örnekleri. 
 
-* Örnek veri Örneğin, web uygulamanız tarafından alınan bir isteğin bir rapor içerir. İçin bulun ve Application Insights portalında arama aracını kullanarak bir istek ayrıntılarını inceleyin. Örnek uygulamanızı nasıl uzun sürdüğü için istek, yanı sıra istenen URL yanıt, istemci ve diğer verileri konumunu yaklaşık gibi verileri dahildir.
-* Böylece yanıt süreleri ile istekleri oranını karşılaştırabilirsiniz birim saat başına olay sayısı toplanan verileri içerir. Ayrıca, ortalama istek yanıt süreleri gibi ölçümleri içerir.
+* Örnek verilerini, örneğin, web uygulamanız tarafından alınan isteği bir rapor içerir. Bulma ve Application Insights portalında arama aracını kullanarak bir isteği ayrıntılarını inceleyin. Örnek uygulamanızın ne kadar sürdüğünü isteği, yanı sıra istenen URL'ye yanıt, istemci ve diğer verileri konumunu yaklaşık gibi verileri dahildir.
+* Yanıt süreleri ile isteklerinin hızı karşılaştırabilmeniz için toplanan veri birimi saati başına olay sayısı içerir. Ayrıca, ortalama istek yanıt süreleri gibi ölçümleri içerir.
 
-Veri ana kategorileri şunlardır:
+Ana veri kategorileri şunlardır:
 
 * Uygulamanıza (genellikle HTTP istekleri), URL, yanıt süresi ve başarı veya başarısızlık verileriyle istek sayısı.
-* Bağımlılıklar - URI, yanıt sürelerini ve başarı ile de uygulamanız tarafından oluşturulan REST ve SQL çağrıları
-* Yığın izlemeleri dahil olmak üzere özel durumlar.
-* Kullanıcıların tarayıcılardan gelen sayfası görünüm verileri.
+* Bağımlılıkları - URI, yanıt süreleri ve başarı ile de uygulamanız tarafından yapılan BEKLEYEN ve SQL çağrıları
+* Yığın izlemeleri gibi durumlar.
+* Kullanıcıların tarayıcılardan gelen sayfanın görünüm verileri.
 * Ölçüm ölçümleri yanı sıra, performans sayaçları gibi kendiniz yazın. 
 * İş olaylarını izlemek için kullanabileceğiniz özel olaylar
-* Günlük izlemelerini hata ayıklama için kullanılır.
+* Günlük izlemelerini, hata ayıklama için kullanılır.
 
-## <a name="case-study-real-madrid-fc"></a>Örnek olay incelemesi: Gerçek Madrid F.C.
-Web hizmetinin [gerçek Madrid futbol kulübü](http://www.realmadrid.com/) hakkında 450 milyon fanlar dünyanın işlevi görür. Fan hem web tarayıcıları ve Kulübe'nın mobil uygulamaları aracılığıyla erişim. Fan yalnızca biletleri kitap, ancak sonuçları, oynatıcıları ve yaklaşan oyunlar bilgileri ve video klip de erişim. Hedefleri sayıda belirtmek gibi filtrelerle arama yapabilirsiniz. Sosyal medya bağlantılar da vardır. Kullanıcı deneyimini yüksek oranda kişiselleştirilmiş ve iki yönlü iletişim fanlar bulunmaya tasarlanmıştır.
+## <a name="case-study-real-madrid-fc"></a>Örnek olay incelemesi: Real Madrid'in F.C.
+Web hizmeti, [Real Madrid futbol kulübü](http://www.realmadrid.com/) 450 milyon dünyanın işlevi görür. Fanlar, hem web tarayıcıları ve mobil uygulamalar kulübü'nın aracılığıyla erişin. Fanlar yalnızca biletleri kitap, ancak ayrıca sonuçları, oyuncuların ve yaklaşan oyun bilgileri ve video klipleri erişim. Hedefleri sayıda puanlanmış gibi filtrelerle arama yapabilirsiniz. Sosyal medya bağlantıları vardır. Kullanıcı deneyimi, yüksek oranda kişiselleştirilmiş ve iki yönlü bir iletişim fanlar etkileşim kurmak amacıyla tasarlanmıştır.
 
-Çözüm [hizmetler ve uygulamalar Microsoft azure'da oluşan bir sistemdir](https://www.microsoft.com/en-us/enterprise/microsoftcloud/realmadrid.aspx). Ölçeklenebilirlik anahtar bir gereksinimdir: trafiği değişkendir ve çok yüksek birimleri sırasında ve eşleşmeleri geçici ulaşabilirsiniz.
+Çözüm [hizmet ve uygulamaların Microsoft Azure üzerinde bir sistem](https://www.microsoft.com/en-us/enterprise/microsoftcloud/realmadrid.aspx). Ölçeklenebilirlik temel bir gereksinimdir: trafik değişkendir ve çok yüksek miktarlarda sırasında ve eşleşme etrafında ulaşabilirsiniz.
 
-İçin gerçek Madrid, sistem performansını izlemek için önemlidir. Azure Application Insights, bir güvenilir ve yüksek düzeyde hizmet sağlama, sistem üzerindeki kapsamlı bir görünüm sağlar. 
+İçin Real Madrid, sistemin performansını izlemek önemlidir. Azure Application Insights, bir güvenilir ve yüksek düzeyde hizmet sağlama, sistem kapsamlı bir görünüm sağlar. 
 
-Club Ayrıca kendi fanların ayrıntılı anlama alır: oldukları (% 3'yalnızca olan İspanya '), hangi ilgi sahip oldukları oynatıcılar, geçmiş sonuçları ve yaklaşan oyunları ve nasıl bunlar sonuçlar eşleşecek şekilde yanıt.
+Kulübü Ayrıca kendi fanlar derinlemesine anlamak alır: nerede (yalnızca %3 olan İspanya'da) hangi ilgi sahip oldukları oyuncuların, geçmiş sonuçlarını ve yaklaşan oyunlar ve bunların sonuçlarını eşleştirilecek vereceği.
 
-Bu telemetri verileri çoğu çözüm Basitleştirilmiş ve azaltılmış işletim karmaşıklığını hiçbir eklenen kodu ile otomatik olarak toplanır.  İçin gerçek Madrid, Application Insights, her ay 3.8 milyar telemetri noktaları ile ilgilidir.
+Bu telemetri verilerini çoğu çözüm Basitleştirilmiş ve işletimsel karmaşıklığın daha az hiçbir eklenen kodu ile otomatik olarak toplanır.  İçin Real Madrid, Application Insights, her ay 3.8 milyar telemetri noktaları ile ilgilidir.
 
-Gerçek Madrid Power BI modülü kendi telemetri görüntülemek için kullanır.
+Real Madrid, telemetri verilerini görüntülemek için Power BI modülü kullanır.
 
-![Application Insights telemetri Power BI görünümü](./media/app-insights-devops/080.png)
+![Application Insights telemetri Power BI görüntüle](./media/app-insights-devops/080.png)
 
 ## <a name="smart-detection"></a>Akıllı algılama
-[Öngörülü tanılama](app-insights-proactive-diagnostics.md) yeni bir özelliktir. Herhangi bir özel yapılandırma sizin tarafınızdan olmadan Application Insights otomatik olarak algılar ve olağan dışı miktarı artar, uygulamanızda başarısızlık oranları içinde hakkında sizi uyarır. Arka plan zaman hataları ve ayrıca bir artışa istekleri yalnızca ile orantılı olan miktarı artar yoksaymayı akıllıca olur. Sonra e-postası Ara hemen hakkında anlarsınız dolayısıyla Örneğin, bağımlı hizmetleri birinde bir hata olduğunda ya da yeni, henüz dağıtılan yapı kadar iyi çalışmıyor. (Ve Web kancalarını diğer uygulamalar tetiklersiniz.)
+[Proaktif tanılama](app-insights-proactive-diagnostics.md) yeni bir özelliktir. Herhangi bir özel yapılandırma sizin tarafınızdan olmadan Application ınsights'ı otomatik olarak algılar ve hata oranları uygulamanızda olağan dışı artışlar hakkında uyarır. Bu hatalar yaşanacağı beklentisiyle ve ayrıca bir artış istekleri, yalnızca orantılı olan yükseldiğinde bir arka plan yok saymak akıllı bir işlemdir. Sonra e-postası Ara hemen sonra bunu anlarsınız Örneğin, bağımlı hizmetlerden biri başarısız olursa veya yeni dağıttığınız yeni derleme yaparsanız düzgün şekilde çalışmıyor. (Ve Web kancaları ve böylece diğer uygulamalar tetikleyebilirsiniz.)
 
-Bu özellik bir diğer unsuru bulmak sabit olağan dışı desenleri performans için arayan telemetrinize günlük ayrıntılı bir analizini gerçekleştirir. Örneğin, belirli bir coğrafi bölge ile veya belirli bir tarayıcı sürümü ile ilişkili yavaş performans bulabilirsiniz.
+Bu özellik, bir diğer unsuru günlük derinlemesine bir analize telemetrinizin bulmak zor olan olağan dışı performans için desenler arama gerçekleştirir. Örneğin, belirli bir coğrafi bölgeye veya belirli tarayıcı sürümü ile ilişkili yavaş performans bulabilirsiniz.
 
-Her iki durumda da uyarı yalnızca, bulunduğundan, ancak ilgili özel durum raporları gibi sorunu tanılamalarına yardımcı olmak için gereksinim duyduğunuz veri sunar Belirtiler bildirir.
+Her iki durumda da uyarı yalnızca, bulunduğunda ancak ilgili özel durum raporları gibi sorunun tanılanmasına yardımcı olmak için ihtiyacınız olan verileri de size belirtileri bildirir.
 
-![Öngörülü tanılama e-posta](./media/app-insights-devops/030.png)
+![Proaktif tanılama e-postası](./media/app-insights-devops/030.png)
 
-Müşteri Samtec belirtilmektedir: "son özelliğini sırasında cutover altında ölçeklendirilmiş kaynak sınırlarına basarsa ve zaman aşımlarına neden olan bir veritabanı bulduk. Öngörülü algılama Uyarıları gelen tam anlamıyla biz tanıtılan gibi çok yakın gerçek zamanlı sorun önceliklendirmek gibi. Azure platformu uyarılarla birlikte bu uyarı bize neredeyse anında sorunu düzeltin olunmasına yardımcı oldu. Toplam kapalı kalma süresi < 10 dakika."
+Bununla birlikte, müşteri Samtec: "bir yeni özellik sırasında tam geçişi, kaynak sınırlarını ulaşma ve zaman aşımlarına neden olan bir altında ölçeklendirilmiş veritabanı bulduk. Proaktif algılama Uyarıları gelen tam anlamıyla biz bildirilen çok neredeyse gerçek zamanlı sorun önceliklendirme şekilde. Azure platformu uyarılarla birlikte bu uyarıyı neredeyse anında sorunu yardımcı olmuştur. Toplam kapalı kalma süresi < 10 dakika."
 
 ## <a name="live-metrics-stream"></a>Canlı Ölçüm Akışı
-En son sürüme dağıtma harcad bir deneyim olabilir. Herhangi bir sorun varsa, böylece, gerekirse yedekleyebilirsiniz, bunlarla ilgili hemen bilmek ister. Ölçümler bir canlı akışı hakkında bir saniye gecikmeyle anahtar ölçümleri sağlar.
+En son derleme dağıtımı yüzünde Endişeli bir deneyim olabilir. Herhangi bir sorun varsa, gerekirse yedekleyebilirsiniz böylece bunlar hakkında hemen bilmek istiyorsunuz. Canlı ölçümler Stream yaklaşık bir saniye gecikmeyle ana ölçümleri sağlar.
 
 ![Canlı ölçümleri](./media/app-insights-devops/040.png)
 
-Ve hemen bir örnek herhangi bir hata veya özel durumları inceleyin olanak tanır.
+Hemen tüm hataları ve özel durumların bir örneği incelemenize olanak tanır.
 
 ![Canlı hata olayları](./media/app-insights-devops/live-stream-failures.png)
 
 ## <a name="application-map"></a>Uygulama Eşlemesi
-Uygulama eşlemesi, kolayca performans sorunlarını ve sorunlu akışları dağıtılmış ortamınızda çoğaltmanın tanımlamanıza olanak üstünde performans bilgileri yerleştirmede uygulama topolojinizi otomatik olarak bulur. Azure Hizmetleri Uygulama bağımlılıklarını bulmasını sağlar. Kod ilgili ise veya bağımlılık ilgili ve ilgili tanılama tek konumdan ayrıntıya gelen deneyimi anlayarak sorun önceliklendirme. Örneğin, uygulamanızın SQL katmanındaki performans düşüşünü nedeniyle başarısız. Uygulama eşlemesi ile hemen görmek ve SQL dizin Danışmanı'nı detaya veya sorgu öngörüleri karşılaşabilirsiniz.
+Uygulama Haritası, kolayca performans sorunlarını ve sorunlu akışlar dağıtılmış ortamınız genelinde belirlemenize izin vermek için bunun üstünde performans bilgilerini düzenleme uygulamanızın topolojisini, otomatik olarak bulur. Azure hizmetlerine Uygulama bağımlılıklarını bulmasını sağlar. Kodla ilgili veya bağımlılık ilgili ve ilgili tanılama tek bir yerde ayrıntıya gelen deneyimi anlayarak sorunu önceliklendirmenize. Örneğin, uygulamanızın performansında SQL katmanında nedeniyle başarısız olabilir. Uygulama Haritası ile hemen görmek ve SQL dizin Danışmanı ayrıntıya veya sorgu öngörüleri karşılaşırsınız.
 
 ![Uygulama Eşlemesi](./media/app-insights-devops/050.png)
 
-## <a name="application-insights-analytics"></a>Uygulama Öngörüler analizi
-İle [Analytics](app-insights-analytics.md), rasgele sorgular güçlü SQL benzeri bir dil yazabilirsiniz.  Tüm uygulama yığınını arasında tanılama çeşitli yönlerden bağlanın ve hizmet performansı iş ölçümleri ve müşteri deneyimi ile ilişkilendirmek için doğru soruları sorabilirsiniz kolay olur. 
+## <a name="application-insights-analytics"></a>Application Insights Analytics
+İle [Analytics](app-insights-analytics.md), güçlü SQL benzeri bir dildir içinde rastgele sorgularınızı yazabilirsiniz.  Tüm uygulama yığınını arasında tanılama çeşitli yönlerden bağlanın ve hizmet performansı, iş ölçümleri ve müşteri deneyimini ilişkilendirmek için doğru soruları sormanız kolay bir hale gelir. 
 
-Tüm telemetri örneği ve Portalı'nda depolanan ölçüm ham verileri sorgulayabilirsiniz. Dil filtresi, birleştirme, toplama ve diğer işlemleri içerir. Alanlarını hesaplamak ve istatistiksel çözümleme gerçekleştirin. Tablo ve grafik görselleştirmeleri vardır.
+Tüm telemetri örneği ve Portalı'nda depolanan ölçüm ham verileri sorgulayabilirsiniz. Dil filtresi, birleştirme, toplama ve diğer işlemleri içerir. Alanlarını hesaplamak ve istatistiksel analiz gerçekleştirin. Tablo ve grafik görselleştirmeleri vardır.
 
-![Analytics sorgu ve sonuçları grafiği](./media/app-insights-devops/025.png)
+![Analiz sorgusu ve sonuçları grafiği](./media/app-insights-devops/025.png)
 
-Örneğin, kolay olduğundan:
+Örneğin, kolaydır:
 
-* Uygulamanızın istek performans verileri deneyimlerini anlamak için müşterinin katmanları göre segmentlere ayırmak.
-* Belirli hata kodları veya özel olay adları sırasında dinamik site araştırmalar arayın.
-* Özellikleri nasıl edinilen ve benimsenen anlamak için belirli müşterilere'nın uygulama kullanımını detaya.
-* Oturumlar ve anında müşteri desteği sağlamak destek ve işlemleri ekipleri etkinleştirmek belirli kullanıcılar için yanıt sürelerini izleyen.
+* Uygulama isteği performans verilerini deneyimlerini anlamak için müşteri katmanlara göre segmentlere ayırın.
+* Belirli hata kodlarıyla veya özel olay adlarının sırasında Canlı site araştırmalar'ı arayın.
+* Özellikleri nasıl elde ve benimsenen anlamak için belirli müşterilere uygulama kullanımını detayına gidin.
+* Oturumlarının ve anında müşteri desteği sağlamak desteği ve operasyon ekipleri etkinleştirmek belirli kullanıcılar için yanıt sürelerini izleyin.
 * Özellik öncelik soruları yanıtlamak için sık kullanılan uygulama özelliklerini belirler.
 
-Müşteri DNN belirtilmektedir: "Application Insights sağlanan bizimle olan denklemi eksik parçası mümkün birleştirme, sıralama, sorgu ve filtre veri gerektiğinde. Ekibimiz güçlü sorgu dili verileri bize Öngörüler bulmak ve sorunları çözmek izin bulmak için kendi resimleri ve deneyimi kullanmasını sağlayan bile biz vardı biliyoruz alamadık. Başlayarak soruları gelen çok ilginç yanıtların *' ı şimdi çok daha güzel If...'.*"
+Müşteri DNN söylenebilir: "Application Insights sağlanan mümkün bize teşekkür denklemi eksik bir parçası olan birleştirme, sıralama, sorgu ve filtre veri gerektiğinde. Ekibimiz, güçlü bir sorgu dili ile veri öngörüleri bulmak ve sorunları çözmek etmemizi de sağladı bulmak için kendi resimleri ve deneyimi kullanmasını sağlayan bile vardı biliyoruz kaydetmedi. Çok ilginç yanıtların başlayarak soruları geldiğini *' ı elmas if...'.*"
 
 ## <a name="development-tools-integration"></a>Geliştirme araçları tümleştirme
-### <a name="configuring-application-insights"></a>Application Insights yapılandırma
-Visual Studio ve Eclipse geliştirdiğiniz projenin doğru SDK paketleri yapılandırmak için araçlar vardır. Application Insights eklemek için menü komutu yoktur.
+### <a name="configuring-application-insights"></a>Application Insights'ı yapılandırma
+Visual Studio ve Eclipse geliştirdiğiniz proje için doğru SDK paketlerini yapılandırmak için araçları elde edersiniz. Application Insights eklemek için bir menü komutu yoktur.
 
-Ardından framework Log4N, NLog veya System.Diagnostics.Trace gibi oturum izleme kullanılmasını görülüyorsa, böylece istekleri, bağımlılık çağrıları ve özel durumları ile kolayca izlemeleri ilişkilendirebilirsiniz günlükleri diğer telemetri ile birlikte Application Insights'a gönderme seçeneği alın.
+Log4N, NLog veya System.Diagnostics.Trace gibi bir izleme günlüğe kaydetme çerçevesi kullanıyorsanız gerçekleşir, istekler, bağımlılık izlemeleri kolayca ilişkilendirebilmek ardından günlükleri diğer telemetri yanı sıra Application Insights'a gönderme seçeneği alırsınız çağrıları ve özel durumlar.
 
-### <a name="search-telemetry-in-visual-studio"></a>Visual Studio'da arama telemetri
-Geliştirme ve bir özellik hatalarını ayıklarken görüntülemek ve doğrudan Visual Studio'da web portalı olduğu gibi aynı arama özellikleri kullanarak, telemetri arayın.
+### <a name="search-telemetry-in-visual-studio"></a>Visual Studio'da telemetri arama
+Geliştirme ve hata ayıklama bir özelliği sırasında görüntüleyebilir ve doğrudan web portalında olduğu gibi aynı arama özelliklerini kullanarak Visual Studio'nun içinde telemetri arayın.
 
-Ve Application Insights bir özel durum kapattığında, Visual Studio'da veri noktası görüntülemek ve doğrudan ilgili koda atlama.
+Ve Application Insights bir özel durum oturum açtığında, Visual Studio'da veri noktası görüntüleyebilir ve doğrudan ilgili koda atlama.
 
 ![Visual Studio arama](./media/app-insights-devops/060.png)
 
-Hata ayıklama sırasında Visual Studio ancak portala göndermeden görüntüleme telemetri geliştirme Makinenizde tutmak için seçeneğiniz vardır. Bu yerel seçeneği üretim telemetri ile hata ayıklama karıştırma önler.
+Hata ayıklama sırasında Visual Studio'da ancak portala göndermeden görüntüleme geliştirme makinenizde telemetri tutmak seçeneğiniz vardır. Bu yerel seçenek üretim telemetri ile hata ayıklama karıştırma önler.
 
 ### <a name="build-annotations"></a>Ek açıklamaları oluşturma
-Yapı ve uygulamanızı dağıtmak için Visual Studio Team Services kullanıyorsanız dağıtım ek açıklamaları grafiklerde Portalı'nda görünür. En son sürüm ölçümleri herhangi bir etkisi olsaydı, belirgin olur.
+Azure DevOps oluşturmak ve uygulamanızı dağıtmak için kullandığınız dağıtım ek açıklamalarını grafiklerde portalında gösterilir. En yeni sürümünüzün ölçümler üzerinde hiçbir etkisi olsaydı, belirgin hale gelir.
 
 ![Ek açıklamaları oluşturma](./media/app-insights-devops/070.png)
 
 ### <a name="work-items"></a>İş öğeleri
-Bir uyarı oluştuğunda, Application Insights, otomatik olarak bir iş öğesi izleme sistemi çalışmanızı oluşturabilirsiniz.
+Bir uyarı oluştuğunda, Application Insights izleme sistemi işinizi otomatik olarak bir iş öğesi oluşturabilirsiniz.
 
 ## <a name="but-what-about"></a>Ancak ne...?
 * [Gizlilik ve depolama](app-insights-data-retention-privacy.md) -telemetrinizi Azure güvenli sunucularda tutulur.
-* Performans - etkisi çok düşüktür. Telemetri toplu hale.
-* [Fiyatlandırma](app-insights-pricing.md) -, ücretsiz kullanmaya başlayabilir ve düşük biriminde iken sürdürür.
+* -Performans etkisi çok düşüktür. Telemetri toplu.
+* [Fiyatlandırma](app-insights-pricing.md) -, ücretsiz kullanmaya başlayabilir ve düşük birimi iken sürdürür.
 
 
 ## <a name="video"></a>Video
@@ -170,9 +170,9 @@ Bir uyarı oluştuğunda, Application Insights, otomatik olarak bir iş öğesi 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Application Insights ile Başlarken kolaydır. Ana Seçenekler şunlardır:
+Application Insights ile çalışmaya başlamak kolaydır. Ana Seçenekler şunlardır:
 
-* Zaten çalışan web uygulaması izleme. Bu, tüm yerleşik performans telemetrisini sağlar. İçin kullanılabilir [Java](app-insights-java-live.md) ve [IIS sunucuları](app-insights-monitor-performance-live-website-now.md), için ve ayrıca [Azure web uygulamaları](app-insights-azure.md).
-* Projenizi geliştirme sırasında izleme. Bunu yapabilmeniz [ASP.NET](app-insights-asp-net.md) veya [Java](app-insights-java-get-started.md) uygulamaları yanı [Node.js](app-insights-nodejs.md) ve ana bilgisayar [diğer türleri](app-insights-platforms.md). 
-* Aracı [herhangi bir web sayfasında](app-insights-javascript.md) kısa kod parçacığını ekleyerek düzenleyin.
+* Zaten çalışan bir web uygulaması izleme. Bu, tüm yerleşik performans telemetrisine sağlar. İçin kullanılabilir [Java](app-insights-java-live.md) ve [IIS sunucuları](app-insights-monitor-performance-live-website-now.md), için ve ayrıca [Azure web apps](app-insights-azure.md).
+* Projeniz, geliştirme sırasında izleyin. Bunu yapabilmeniz [ASP.NET](app-insights-asp-net.md) veya [Java](app-insights-java-get-started.md) uygulamaları yanı [Node.js](app-insights-nodejs.md) ve çok sayıda [diğer türleri](app-insights-platforms.md). 
+* Gereç [herhangi bir web sayfasında](app-insights-javascript.md) kısa kod parçacığını ekleyerek.
 

@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: af7c0f9d7e02e4a3074f2fddbdf8a6e0ab52d423
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: ec3b1f43c7b89a545ee5bb26c4cc0d068a993021
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024333"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295862"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Azure Stack'te Azure CLI 2.0 ile API Sürüm profillerini kullanma
 
@@ -160,8 +160,11 @@ Azure Stack'e bağlanmak için aşağıdaki adımları kullanın:
 
    ```azurecli
    az cloud update \
-     --profile 2017-03-09-profile
+     --profile 2018-03-01-hybrid
    ```
+
+    >[!NOTE]  
+    >Azure Stack 1808 yapıdan önceki bir sürümünü çalıştırıyorsanız, API Sürüm profili kullanmak zorunda olacaktır **2017-03-09-profile** API Sürüm profili yerine **2018-03-01-karma**.
 
 1. Azure Stack ortamınıza kullanarak oturum açın `az login` komutu. Azure Stack ortamına veya bir kullanıcı olarak oturum bir [hizmet sorumlusu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 

@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 98dc33cc961c5c90fc3f6737a1cc470d4a753fd0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c731fd78ed7052697b3a5bd7c4da3a743e5a208d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048766"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299622"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Bir Azure Data Lake için U-SQL veritabanı geliştirme için U-SQL veritabanı projesi kullanın
 
@@ -57,7 +57,7 @@ Bir derleme nesne için derlemeyi kayıt ve DLL dosyaları ve diğer ek dosyalar
 
 U-SQL veritabanı projesi sonekiyle adlı bir U-SQL veritabanı dağıtım paketi için çıkış derleme `.usqldbpack`. `.usqldbpack` Pakettir tüm DDL deyimleri içinde tek bir U-SQL betiği içeren bir .zip dosyası **DDL** klasöründe ve tüm DLL'ler ve içindeki derlemeler için ek dosyaları **Temp** klasör.
 
-Daha fazla bilgi edinin [MSBuild ile U-SQL veritabanı projesi oluşturmak için görev komut satırı ve bir Visual Studio Team Services derleme nasıl](data-lake-analytics-cicd-overview.md).
+Daha fazla bilgi edinin [MSBuild ile U-SQL veritabanı projesi oluşturmak için görev komut satırı ve bir Azure DevOps Hizmetleri oluşturmasına nasıl](data-lake-analytics-cicd-overview.md).
 
 ## <a name="deploy-a-u-sql-database"></a>U-SQL veritabanı dağıtma
 
@@ -94,7 +94,7 @@ Bir U-SQL veritabanı bir U-SQL veritabanı projesi veya Visual Studio'da .usqld
 
 `PackageDeploymentTool.exe` programlama ve U-SQL veritabanları dağıtma için komut satırı arabirimi sağlar. SDK'sı dahil [U-SQL SDK'sı Nuget paketi](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)konumunda bulunan `build/runtime/PackageDeploymentTool.exe`.
 
-[SDK ve U-SQL veritabanı dağıtımı için CI/CD işlem hattı ayarlama hakkında daha fazla bilgi](data-lake-analytics-cicd-overview.md#deploy-u-sql-database-through-visual-studio-team-service).
+[SDK ve U-SQL veritabanı dağıtımı için CI/CD işlem hattı ayarlama hakkında daha fazla bilgi](data-lake-analytics-cicd-overview.md#deploy-u-sql-database-through-azure-devops).
 
 ## <a name="reference-a-u-sql-database-project"></a>U-SQL veritabanı projesi başvurusu
 

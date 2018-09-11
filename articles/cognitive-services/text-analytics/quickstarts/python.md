@@ -1,6 +1,7 @@
 ---
-title: Azure Bilişsel hizmetler, metin analizi API için Python hızlı başlangıç | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get metin Analytics API Azure üzerinde Microsoft Bilişsel Hizmetleri'ndeki kullanmaya başlayın.
+title: "Hızlı Başlangıç: Metin analizi API'sini çağırmak için Python kullanarak | Microsoft Docs"
+titleSuffix: Azure Cognitive Services
+description: Hızlı bir şekilde yardımcı olması için alma bilgileri ve kod örnekleri, Azure üzerinde Microsoft Bilişsel hizmetler metin analizi API'sini kullanarak başlayın.
 services: cognitive-services
 author: ashmaka
 ms.service: cognitive-services
@@ -8,31 +9,31 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: ashmaka
-ms.openlocfilehash: b4c02767320b71912050ad511811767e6b5decf4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8e570aac2c2d89a8147d179c4b0f9155497c5188
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352715"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298701"
 ---
-# <a name="quickstart-for-text-analytics-api-with-python"></a>Metin analizi API'si ile Python için hızlı başlangıç 
+# <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Hızlı Başlangıç: Python kullanarak metin analizi Bilişsel hizmet çağrısı
 <a name="HOLTop"></a>
 
-Bu kılavuz size nasıl gösterir için [dili Algıla](#Detect), [düşünceleri analiz](#SentimentAnalysis), ve [anahtar tümcecikleri ayıklamak](#KeyPhraseExtraction) kullanarak [metin Analytics API'leri](//go.microsoft.com/fwlink/?LinkID=759711)Python ile.
+Bu izlenecek yol size nasıl gösterir için [dili algılayın](#Detect), [düşüncelerini çözümleme](#SentimentAnalysis), ve [anahtar tümcecikleri ayıklayın](#KeyPhraseExtraction) kullanarak [metin analizi API'lerini](//go.microsoft.com/fwlink/?LinkID=759711)Python ile.
 
-Bu örneği Jupyter not defteri çalıştırmak [MyBinder](https://mybinder.org) başlatılırken bağlayıcı tıklayarak göstergeye: 
+Bu örnek bir Jupyter not defteri çalıştırma [MyBinder](https://mybinder.org) bağlayıcı başlatma sırasında tıklayarak rozet: 
 
 [![Bağlayıcı](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=TextAnalytics.ipynb)
 
-Başvurmak [API tanımlarını](//go.microsoft.com/fwlink/?LinkID=759346) API için teknik belgeler için.
+Başvurmak [API tanımlarını](//go.microsoft.com/fwlink/?LinkID=759346) API'leri için teknik belgeler için.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Sahip olmanız gerekir bir [Bilişsel Hizmetleri API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **metin Analytics API**. Kullanabileceğiniz **5.000 işlemleri/ay ücretsiz katmanına** bu yönlendirmeyi tamamlamak için.
+Olmalıdır bir [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **metin analizi API'si**. Kullanabileceğiniz **5.000 işlem/ay için ücretsiz katman** Bu izlenecek yolu tamamlamak için.
 
-Ayrıca olmalıdır [endpoint ve erişim anahtarı](../How-tos/text-analytics-how-to-access-key.md) üretilen sizin için kayıt sırasında. 
+Sahip olmalısınız [uç noktası ve erişim anahtarı](../How-tos/text-analytics-how-to-access-key.md) oluşturulan, kayıt sırasında. 
 
-Bu kılavuzda ile devam etmek için değiştirmek `subscription_key` daha önce aldığınız bir geçerli abonelik anahtar.
+Bu adım adım kılavuza devam etmek yerine `subscription_key` ile daha önce edindiğiniz bir geçerli abonelik anahtarı.
 
 
 ```python
@@ -40,7 +41,7 @@ subscription_key = None
 assert subscription_key
 ```
 
-Ardından, doğrulayın bölgede `text_analytics_base_url` Servis ayarladığınızda kullanılan karşılık gelir. Ücretsiz bir deneme anahtarı kullanıyorsanız, değişikliği gerekmez.
+Ardından, doğrulayın bölgede `text_analytics_base_url` Servis ayarladığınızda kullanılan karşılık gelir. Ücretsiz bir deneme sürümü anahtarı kullanıyorsanız, herhangi bir ayarı değiştirmek gerekmez.
 
 
 ```python
@@ -49,9 +50,9 @@ text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/tex
 
 <a name="Detect"></a>
 
-## <a name="detect-languages"></a>Dilleri Algıla
+## <a name="detect-languages"></a>Dilleri algılayın
 
-Bir metin dilini dil algılama API algılar belge, kullanarak [algılamak dil yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7). Dil algılama API bölgeniz için hizmet uç noktası aşağıdaki URL yoluyla kullanılabilir:
+Dil algılama API bir metnin dilini algılar kullanarak belge [dil algılama yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7). Dil algılama API bölgeniz için hizmet uç noktası, aşağıdaki URL kullanılabilir:
 
 
 ```python
@@ -62,9 +63,9 @@ print(language_api_url)
     https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
 
 
-API yükü bir listesinden oluşur `documents`, her sırayla içeren, bir `id` ve `text` özniteliği. `text` Öznitelik depoları çözümlenecek metin. 
+API yükü bir listesinden oluşur `documents`, her sırayla içeren, bir `id` ve `text` özniteliği. `text` Öznitelik depolarının Analiz edilecek metin. 
 
-Değiştir `documents` dil algılama için herhangi bir metin ile sözlük. 
+Değiştirin `documents` dil algılama için herhangi bir metin ile bir sözlük. 
 
 
 ```python
@@ -75,7 +76,7 @@ documents = { 'documents': [
 ]}
 ```
 
-Sonraki birkaç satır kod dilini kullanarak algılama API duyurmak `requests` belgeleri dilde belirlemek için Python kitaplığında.
+Sonraki birkaç satır kod kullanarak dil algılama API duyurmak `requests` Kitaplığı'nda Python belgeleri dilde belirlemek için.
 
 
 ```python
@@ -102,7 +103,7 @@ pprint(languages)
      'errors': []}
 
 
-Aşağıdaki kod satırlarını JSON verilerini bir HTML tablosu olarak işleyebilir.
+Aşağıdaki kod satırlarını JSON verilerini HTML tablosu olarak işleyin.
 
 
 ```python
@@ -119,9 +120,9 @@ HTML("<table><tr><th>Text</th><th>Detected languages(scores)</th></tr>{0}</table
 
 ## <a name="analyze-sentiment"></a>Yaklaşımı analiz etme
 
-Düşünceleri analiz API detexts kullanarak metin kayıt kümesinin düşünceleri [düşünceleri yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). Aşağıdaki örnek, bir giriş İngilizce ve İspanyolca başka bir, iki belge puanlar.
+Yaklaşım analizi API'sini detexts yaklaşımı kullanarak bir metin kayıt kümesinin [yaklaşım yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). Aşağıdaki örnek, bir giriş İngilizce ve İspanyolca başka iki belge puanlar.
 
-Hizmet uç noktası düşünceleri çözümleme için bölgenizi aşağıdaki URL'yi aracılığıyla edinilebilir:
+Yaklaşım analizi için hizmet uç noktası için bölgenize aşağıdaki URL aracılığıyla kullanılabilir:
 
 
 ```python
@@ -132,7 +133,7 @@ print(sentiment_api_url)
     https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
 
 
-Dil algılama örnekle hizmeti ile bir sözlük ile sağlanan bir `documents` belgelerin bir listesi oluşur anahtarı. Her bir belgedir oluşan bir tanımlama grubu `id`, `text` çözümlenecek ve `language` metin. Bu alan doldurmak için önceki bölümden dil algılama API kullanın. 
+Dil algılama örneğiyle hizmeti ile bir sözlük ile sağlanan bir `documents` belgelerin listesini içeren anahtar. Her bir belgedir oluşan bir demet `id`, `text` Analiz edilecek ve `language` metin. Bu alan doldurmak için önceki bölümden dil algılama API kullanın. 
 
 
 ```python
@@ -144,7 +145,7 @@ documents = {'documents' : [
 ]}
 ```
 
-API düşünceleri artık kendi düşüncelerin belgeleri analiz etmek için kullanılabilir.
+Yaklaşım API'si artık sözcükle ilgili belgeler analiz etmek için kullanılabilir.
 
 
 ```python
@@ -160,15 +161,15 @@ pprint(sentiments)
      'errors': []}
 
 
-Bir belge düşünceleri puanını $0$ ile $1$ daha pozitif düşünceleri belirten için daha yüksek bir puan arasındadır.
+Bir belge için yaklaşım puanını $0$ ile 1 USD$ daha pozitif yaklaşımı belirten için daha yüksek bir puan arasındadır.
 
 <a name="KeyPhraseExtraction"></a>
 
 ## <a name="extract-key-phrases"></a>Anahtar ifadeleri ayıklama
 
-Anahtar tümcecik ayıklama API anahtarı tümcecikleri bir metinden ayıklar belge, kullanarak [anahtar tümcecikleri yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Kılavuzu'nun bu bölümünde İngilizce ve İspanyolca belgeler için anahtar tümcecikleri ayıklar.
+Anahtar tümcecik ayıklama API anahtar tümcecikleri metinden ayıklar kullanarak belge [anahtar tümcecikleri yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Kılavuzun bu bölümünde, anahtar tümcecikleri İngilizce ve İspanyolca belgeler için ayıklar.
 
-Anahtar tümcecik ayıklama hizmeti için hizmet uç noktası aşağıdaki URL yoluyla erişilir:
+Anahtar ifade ayıklama hizmeti için hizmet uç noktası aşağıdaki URL erişilebilir:
 
 
 ```python
@@ -179,7 +180,7 @@ print(key_phrase_api_url)
     https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
 
 
-Belgeleri topluluğu ne düşünceleri çözümlemesi için kullanılan aynı değil.
+Belgelerin koleksiyonu ne yaklaşım analizi için kullanılan aynıdır.
 
 
 ```python
@@ -205,7 +206,7 @@ pprint(key_phrases)
     }
 
 
-JSON nesnesi bir kez daha aşağıdaki kod satırlarını kullanarak bir HTML tablosu olarak işlenip:
+JSON nesnesi, aşağıdaki satır kod kullanarak bir HTML tablosu yeniden işlenebilir:
 
 
 ```python
@@ -218,11 +219,11 @@ for document in key_phrases["documents"]:
 HTML("<table><tr><th>Text</th><th>Key phrases</th></tr>{0}</table>".format("\n".join(table)))
 ```
 
-## <a name="identify-linked-entities"></a>Bağlantılı varlıkları tanımlayın
+## <a name="identify-linked-entities"></a>Bağlı varlıkları tanımlama
 
-Bir metin iyi bilinen varlıklarda varlık bağlama API tanımlayan belge, kullanarak [varlık bağlama yöntemini](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). Aşağıdaki örnek varlıklar İngilizce belgeler için tanımlar.
+Varlık bağlama API'si metin bilinen varlıklar tanımlayan kullanarak belge [varlık bağlama yöntemini](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). Aşağıdaki örnek İngilizce belgeler için varlıklar tanımlayan.
 
-Varlık bağlama hizmeti için hizmet uç noktası aşağıdaki URL yoluyla erişilir:
+Varlık bağlama hizmeti için hizmet uç noktası aşağıdaki URL erişilebilir:
 
 
 ```python
@@ -233,7 +234,7 @@ print(entity_linking_api_url)
     https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/entities
 
 
-Belgeleri topluluğu aşağıdadır:
+Belge koleksiyonu, aşağıda verilmiştir:
 
 
 ```python
@@ -243,7 +244,7 @@ documents = {'documents' : [
 ]}
 ```
 
-Şimdi, belgeleri metin Analytics API'sine yanıt almayı gönderilebilir.
+Şimdi, belge için metin analizi API'si yanıtını almak için gönderilebilir.
 
 ```python
 headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
@@ -315,5 +316,5 @@ entities = response.json()
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
- [Metin analizi genel bakış](../overview.md)  
+ [Metin Analizi'ne genel bakış](../overview.md)  
  [Sık sorulan sorular (SSS)](../text-analytics-resource-faq.md)

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: 8411e9d2d4118c4e1f656b5bc6e9dafb311aeb26
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 8212788eb775e86918c7111265f3276c7bd99d91
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391756"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304229"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-nist-special-publication-800-171"></a>Azure güvenlik ve uyumluluk planı - NIST özel yayını 800-171 için PaaS Web uygulaması
 
@@ -83,7 +83,7 @@ Bu çözüm aşağıdaki yapılandırmaları olan bir etki alanına katılmış 
 -   Bir [otomatik kapatma ilke](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) kullanımda olmadığında sanal makine kaynakların tüketimini azaltmak için
 -   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) kimlik bilgilerini ve diğer gizli dizileri çalışan işletim sisteminden yalıtılmış korumalı bir ortamda çalıştırın böylece etkin
 
-**Azure Web uygulaması**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) müşterilerin oluşturmanıza ve altyapı yönetimine gerek kalmadan kendi seçtiğiniz programlama dilinde web uygulamaları barındırmanıza olanak sağlar. Otomatik ölçeklendirme ve yüksek kullanılabilirlik sunar, hem Windows hem de Linux’ı destekler ve GitHub, Visual Studio Team Services veya herhangi bir Git deposundan otomatik dağıtım olanağı sağlar.
+**Azure Web uygulaması**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) müşterilerin oluşturmanıza ve altyapı yönetimine gerek kalmadan kendi seçtiğiniz programlama dilinde web uygulamaları barındırmanıza olanak sağlar. Otomatik ölçeklendirme sunar ve yüksek kullanılabilirlik, hem Windows hem de Linux'ı destekler ve GitHub, Azure DevOps ya da herhangi bir Git deposundan otomatik dağıtımlar sağlar.
 
 **Uygulama Service ortamı v2**: [Azure uygulama hizmeti ortamı](https://docs.microsoft.com/azure/app-service/environment/intro) güvenli bir App Service uygulamaları çalıştırmak için tam yalıtılmış ve ayrılmış bir ortam sağlayan bir App Service özelliğidir bir yüksek ölçek.
 

@@ -4,21 +4,19 @@ description: Toplayıcı gerecini ve nasıl yapılandırılacağına ilişkin ge
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/25/2018
+ms.date: 09/10/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 74caf0ab052e1f6558dc20d15d84c01177b3f9cb
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: dae6cc9a55049e2b44291eb105288b33a1db9e7b
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665589"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325541"
 ---
 # <a name="collector-appliance"></a>Toplayıcı Gereci
 
 [Azure geçişi](migrate-overview.md) Azure'a geçiş için şirket içi iş yüklerini değerlendirir. Bu makalede, Toplayıcı gerecini kullanma hakkında bilgi sağlar.
-
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -27,6 +25,17 @@ Azure geçişi toplayıcısı şirket içi vCenter ortamınızı bulmak için ku
 Toplayıcı gerecini Azure geçişi projeden indirebileceğiniz bir OVF ' dir. 4 çekirdek, 8 GB RAM ve 80 GB'lık bir disk ile VMware sanal makine örneğini oluşturduğunda. Windows Server 2012 R2 (64-bit) gerecinin işletim sistemidir.
 
 Toplayıcı adımları izleyerek oluşturabilirsiniz burada - [Toplayıcı VM'yi oluşturma işlemini](tutorial-assessment-vmware.md#create-the-collector-vm).
+
+## <a name="discovery-methods"></a>Bulma yöntemleri
+
+Şirket içi ortamınızı bulduğunuz iki yöntem vardır:
+
+a. **Tek seferlik:** Bu model, Toplayıcının vCenter sanal makineleri ile ilgili meta verileri toplamak için sunucu ile iletişim kurar. Performans verileri toplama VM'lerin geçmiş performans verileri vCenter Server'da depolanan kullanır ve son bir ayın performans geçmişi toplar. Bu modelde, Azure geçişi toplar (yoğun sayacı) için her bir ölçüm sayaç ortalama, [daha fazla bilgi] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) Azure geçişi tarafından toplanan performans sayaçları ile ilgili. Bir kerelik bulma olduğundan, gereç bu durumda sürekli olarak projeye bağlı değil. Bulma tamamlandıktan sonra bu nedenle, şirket içi ortamda değişiklikleri Azure geçişi içinde yansıtılmaz. Aynı projeye aynı ortamın bir yeniden bulma yapmak zorunda isterseniz yansıtacak şekilde değişir.
+
+b. **Sürekli bulma:** Toplayıcı gerecini Bu model için sürekli olarak Azure geçişi projesine bağlıdır. Sürekli olarak, şirket içi ortamda, her 20 saniyede gerçek zamanlı kullanım verilerini toplamak için profil. Gereç ardından pay 20 saniye örnekleri yukarı ve Azure'a gönderilen en yüksek değer seçerek boyunca 15 dakikada bir tek veri noktası oluşturur. Bu model için performans verilerini toplama vCenter Server'ın istatistik ayarları, bağlı değildir. Sürekli dilediğiniz zaman Gereci profil oluşturma durdurabilirsiniz.
+
+> [!NOTE]
+> Sürekli bulma işlevi Önizleme aşamasındadır.
 
 ## <a name="collector-communication-diagram"></a>Toplayıcı iletişim diyagramı
 
@@ -39,13 +48,9 @@ Toplayıcı adımları izleyerek oluşturabilirsiniz burada - [Toplayıcı VM'yi
 | Toplayıcı      | vCenter Server        | Varsayılan 443                             | Toplayıcı vCenter sunucusu ile iletişim kurabildiğini olmalıdır. 443 üzerinden vCenter varsayılan olarak bağlanır. VCenter farklı bir bağlantı noktasında dinliyorsa, bağlantı noktası Toplayıcı üzerinde giden bağlantı noktası olarak kullanılabilir olması gerekir |
 | Toplayıcı      | RDP|   | TCP 3389 | Toplayıcı makineye yönelik RDP kullanabilmek için |
 
-
-
-
-
 ## <a name="collector-pre-requisites"></a>Toplayıcı ön koşullar
 
-Azure geçişi hizmetine bağlanın ve bulunan verileri karşıya yükleme emin olmak için birkaç önkoşul denetimlerini geçmek Toplayıcı gerekir. Bu makalede her Önkoşullar görünür ve neden gerekli olduğunu anlamalısınız.
+Azure geçişi hizmetine bağlanın ve bulunan verileri karşıya yükleme emin olmak için birkaç önkoşul denetimlerini geçmek Toplayıcı gerekir. Bu makalede her Önkoşullar görünür ve neden gerekli olduğunu anlar.
 
 ### <a name="internet-connectivity"></a>İnternet bağlantısı
 
@@ -69,7 +74,7 @@ Proxy sunucunun internet'e bağlanmak için kullandığınız bir araya giren bi
     ![Sertifika aracı](./media/concepts-intercepting-proxy/certificates-tool.png)
 
 3. Toplayıcı sanal makinesi, proxy sertifikasını kopyalayın. Bu sertifikayı edinmek için kuruluşunuzdaki ağ yöneticisi ekibine ulaşmak olabilir.
-4. Çift sertifikayı açmak için tıklayın. Tıklayın **Sertifika Yükle**. Bu Sertifika Alma Sihirbazı götürür.
+4. Sertifika açmak için çift tıklayın. Tıklayın **Sertifika Yükle**. Bu Sertifika Alma Sihirbazı götürür.
 5. Sertifika İçeri Aktarma Sihirbazı'nda Store konumu seçin **yerel makine**. **İleri'ye**.
 
     ![Sertifika depolama konumu](./media/concepts-intercepting-proxy/certificate-store-location.png)
@@ -77,8 +82,8 @@ Proxy sunucunun internet'e bağlanmak için kullandığınız bir araya giren bi
 6. Seçeneği için **tüm sertifikaları aşağıdaki depolama alanına yerleştir**. Tıklayın **Gözat** seçip **Güvenilen Yayımcılar** gündeme sertifikalar listesinden. **İleri**’ye tıklayın.
 
     ![Sertifika deposu](./media/concepts-intercepting-proxy/certificate-store.png)
-    
-7. **Son**'a tıklayın. Bu sertifikayı içeri aktaracaksınız. 
+
+7. **Son**'a tıklayın. Bu sertifikayı içeri aktaracaksınız.
 8. İsteğe bağlı olarak, adım 1 ve 2 numaralı olduğu gibi sertifika Aracı'nı açarak sertifika içeri doğrulayabilirsiniz.
 9. Azure geçişi toplayıcısı uygulama, internet bağlantısı Önkoşul denetimi başarılı olduğunu doğrulayın.
 
@@ -166,7 +171,7 @@ Bulma işlemi başladıktan sonra vCenter sanal makineler bulunur ve meta verile
 
 ### <a name="what-data-is-collected"></a>Verilerin ne toplanır?
 
-Seçili sanal makinelerle ilgili olarak aşağıdaki statik meta veri toplama işini bulur.
+Seçili sanal makinelerle ilgili olarak aşağıdaki statik meta veri toplayıcı gerecini bulur.
 
 1. VM görünen adı (temel, vCenter)
 2. Sanal makinenin envanteri yolu (konak/klasör vcenter)
@@ -177,7 +182,9 @@ Seçili sanal makinelerle ilgili olarak aşağıdaki statik meta veri toplama i�
 6. Bellek boyutu, Disk boyutları
 7. Ve VM, disk ve aşağıdaki tabloda listelendiği gibi ağ performans sayaçları.
 
-Aşağıdaki tabloda toplanır ve aynı zamanda belirli bir sayaç alınamadı, etkilenen değerlendirme sonuçları listeler performans sayaçları listeler.
+Aşağıdaki tabloda, zamanında bulma modeli için toplanır ve aynı zamanda belirli bir sayaç alınamadı, etkilenen değerlendirme sonuçları listeler tam performans sayaçları listeler.
+
+Sürekli bulma için sayaçları (20 saniye aralığı) gerçek zamanlı olarak toplanır. vCenter istatistikleri düzeyi üzerinde hiçbir bağımlılık şekilde. Gereç ardından pay en yüksek değeri 20 saniye örnekleri seçerek boyunca 15 dakikada bir tek veri noktası oluşturmak için 20 saniye örnekleri yukarı ve Azure'a gönderir.
 
 |Sayaç                                  |Düzey    |Cihaz başına düzeyi  |Etki değerlendirmesi                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
@@ -191,16 +198,20 @@ Aşağıdaki tabloda toplanır ve aynı zamanda belirli bir sayaç alınamadı, 
 |NET.transmitted.average                  | 2       |3                 |VM boyutu ve ağ maliyeti                        |
 
 > [!WARNING]
-> Daha yüksek bir istatistik düzeyini yeni ayarladıysanız, bir gün için performans sayaçları oluşturma sürer. Bu nedenle, bir gün sonra bulma çalıştırmanızı öneririz.
+> Daha yüksek bir istatistik düzeyini yalnızca ayarladıysanız, tek seferlik bulma için bir gün için performans sayaçları oluşturma sürer. Bu nedenle, bir gün sonra bulma çalıştırmanızı öneririz. Sürekli bulma modeli için ortamı profili ve ardından değerlendirme oluşturmak Gereci için bulma işlemi başlatılıyor sonra en az bir gün bekleyin.
 
 ### <a name="time-required-to-complete-the-collection"></a>Koleksiyon tamamlamak için gereken süre
 
-Toplayıcı yalnızca makine verileri bulur ve projeye gönderir. Proje bulunan verileri portalda görüntülenir ve değerlendirme oluşturmaya başlamadan önce ek zaman alabilir.
+**Tek seferlik bulma**
 
-Seçilen kapsamda sanal makinelerin sayısına bağlı olarak, en fazla 15 dakika projeye statik meta veri göndermek için sürer. Statik meta verileri portalda kullanılabilir duruma geldikten sonra portalda makineler listesini görmek ve grupları oluşturmaya başlayın. Koleksiyon işi tamamlar ve proje işlenen veri kadar bir değerlendirme oluşturulamaz. Bir kez toplama işi Toplayıcısında tamamlandı, uygulamanın en fazla sürebilir bir saat için portalda kullanılabilir olması performans verilerini seçilen kapsam sanal makinelerin sayısına dayalı olarak.
+Bu modelde, Toplayıcı VM yapılandırma ve performans geçmişi vCenter Server'dan toplar ve projeye gönderir. Gereç bu durumda sürekli olarak projeye bağlı değil. Seçilen kapsamda sanal makinelerin sayısına bağlı olarak, projeye yapılandırma meta verilerini gönderme 15 dakika sürer. Yapılandırma meta verileri portalda kullanılabilir duruma geldikten sonra portalda makineler listesini görmek ve grupları oluşturmaya başlayın. Yapılandırma verileri toplandıktan sonra portalda kullanılabilir olması performans verileri için bir saate kadar sürebilir seçilen kapsam içindeki sanal makinelerin sayısına dayalı olarak.
+
+**Sürekli bulma**
+
+Bu modelde, bulma ve performans verilerini tetiklemenin 1 saat 2 saat sonra kullanılabilir hale gelmeden başladıktan sonra yapılandırma verilerini şirket içi sanal makinelerin kullanılabilir. Bu sürekli bir modeli olduğundan, Toplayıcı sürekli olarak performans verileri için Azure geçişi projesini göndermeye devam eder.
 
 ## <a name="locking-down-the-collector-appliance"></a>Toplayıcı gerecini kilitleme
-Toplayıcı gerecini üzerinde sürekli Windows güncelleştirmeleri çalıştırmanızı öneririz. Bir Toplayıcı 60 gün boyunca güncelleştirilmezse, Toplayıcı makinesi otomatik olarak kapatılıyor başlar. Bir bulma çalışıyorsa, 60 gün süresi olsa bile makine kapalı, açılır değil. POST bulma işi tamamlar, makine kapatılır. Toplayıcı 45 günden fazla bir süre için kullanıyorsanız, her zaman çalışan Windows update tarafından güncelleştirme zamanı makine tutma öneririz.
+Toplayıcı gerecini üzerinde sürekli Windows güncelleştirmeleri çalıştırmanızı öneririz. Bir Toplayıcı 60 gün boyunca güncelleştirilmezse, Toplayıcı makinesi otomatik olarak kapatılıyor başlar. Bir bulma çalışıyorsa, 60 günlük süresi olsa bile makine kapalı, açılır değil. POST bulma işi tamamlar, makine kapatılır. Toplayıcı 45 günden fazla bir süre için kullanıyorsanız, her zaman çalışan Windows update tarafından güncelleştirme zamanı makine tutma öneririz.
 
 Ayrıca gerecinize güvenliğini sağlamak için aşağıdaki adımları öneririz
 1. Paylaşım değil veya yönetici parolaları yetkisiz kişilerle misplace.

@@ -8,33 +8,33 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 1c2a4f1e463fff278981de2297662a94cca8944e
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: c212bda3b59037f99139e02ee6adc63b0084cbe5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850823"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44305623"
 ---
-## <a name="prepare-your-repository"></a>Deponuzda hazırlama
+## <a name="prepare-your-repository"></a>Deponuzu hazırlama
 
-Uygulama hizmeti Kudu Yapı sunucusundan otomatik derlemeleri almak için depo kök projenizdeki doğru dosyalar sahip olduğundan emin olun.
+App Service Kudu derleme sunucusundan otomatik derlemeler almak için depo kökünüzde projenize doğru dosya olduğundan emin olun.
 
 | Çalışma Zamanı | Kök dizin dosyaları |
 |-|-|
 | ASP.NET (yalnızca Windows) | _*.sln_, _*.csproj_, veya _default.aspx_ |
 | ASP.NET Çekirdeği | _*.sln_ veya _*.csproj_ |
-| PHP | _PHP için index.php'dir_ |
+| PHP | _index.php_ |
 | Ruby (yalnızca Linux) | _Gemfile_ |
-| Node.js | _Server.js_, _app.js_, veya _package.json_ başlangıç komut dosyası |
+| Node.js | _Server.js_, _app.js_, veya _package.json_ bir başlangıç betiği ile |
 | Python (yalnızca Windows) | _\*.PY_, _requirements.txt_, veya _runtime.txt_ |
 | HTML | _default.htm_, _default.html_, _default.asp_, _index.htm_, _index.html_, veya  _iisstart.htm_ |
-| WebJobs | _\<job_name > / çalıştırın. \<uzantısı >_ altında _uygulama\_veri/işleri/sürekli_ (için sürekli Webjob'lar) veya _uygulama\_veri/işleri/tetiklenen_ (tetiklenir için Web işleri). Daha fazla bilgi için bkz: [Kudu Web işleri belgeleri](https://github.com/projectkudu/kudu/wiki/WebJobs) |
+| WebJobs | _\<job_name > / çalıştırın. \<uzantısı >_ altında _uygulama\_veri/iş/continuous_ (için sürekli WebJobs) veya _uygulama\_veri/iş/triggered_ (tetiklenen için Web işleri). Daha fazla bilgi için [Kudu WebJobs belgeleri](https://github.com/projectkudu/kudu/wiki/WebJobs) |
 | İşlevler | Bkz: [Azure işlevleri için sürekli dağıtım](../articles/azure-functions/functions-continuous-deployment.md#continuous-deployment-requirements). |
 
-Dağıtımınızı özelleştirmek için dahil bir _.deployment_ depo kök dosyasında. Daha fazla bilgi için bkz: [dağıtımlarını özelleştirme](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) ve [özel dağıtım betiği](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
+Dağıtımınızı özelleştirmek için dahil bir _.deployment_ depo köküne dosya. Daha fazla bilgi için [dağıtımlarını özelleştirme](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) ve [özel dağıtım betiği](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 
 > [!NOTE]
-> Visual Studio'da geliştiriyorsanız izin [Visual Studio sizin için bir havuz oluşturma](/vsts/git/tutorial/creatingrepo?view=vsts&tabs=visual-studio). Proje Git kullanarak dağıtılacak hemen hazırdır.
+> Visual Studio'da oluşturursanız, izin [Visual Studio sizin için bir depo oluşturma](/azure/devops/repos/git/creatingrepo?view=vsts&tabs=visual-studio). Proje Git kullanarak dağıtılacak hemen hazırdır.
 >
 >
 

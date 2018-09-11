@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 2c6db85763b448133d53b22c0600b27b533b2041
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 468c6486274b8bf1dc202716f525c39face91862
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424237"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297307"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure geliştiricileri için kullanmaya başlama kılavuzu
 
@@ -58,7 +58,7 @@ Web uygulamaları, mobil uygulama arka uçları ve API apps oluşturabilirsiniz.
 
 Tüm üç uygulama türü, App Service çalışma zamanı paylaştığından, Web sitesi barındırma, mobil istemciler desteklemek ve API'leri, azure'da tümü aynı proje veya çözümü kullanıma sunma. App Service hakkında daha fazla bilgi için bkz: [Azure Web Apps nedir](../../app-service/app-service-web-overview.md).
 
-App Service ile DevOps aklınızda tasarlanmıştır. Bu, GitHub Web kancası, Jenkins, Visual Studio Team Services, TeamCity ve diğerleri dahil olmak üzere yayımlama ve sürekli tümleştirme dağıtımları için çeşitli araçlar destekler.
+App Service ile DevOps aklınızda tasarlanmıştır. Bu, GitHub Web kancası, Jenkins, Azure DevOps, TeamCity ve diğerleri dahil olmak üzere yayımlama ve sürekli tümleştirme dağıtımları için çeşitli araçlar destekler.
 
 Kullanarak mevcut uygulamalarınızı App Service'e geçirebilirsiniz [çevrimiçi geçiş aracı](https://www.migratetoazure.net/).
 
@@ -186,7 +186,7 @@ Uygulamanızı ayarlama ve Azure'da çalışan ile performansı izlemek için so
 
 ### <a name="devops-integration"></a>DevOps tümleştirmesi
 
-VM'ler sağlamayı veya sürekli tümleştirme ile web uygulamalarınızı yayımlamak ister, Azure ile birçok popüler DevOps araçlarıyla tümleşir. Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, VSTS ve diğerleri gibi araçlar için destekle, zaten yüklü ve mevcut deneyiminizi en üst düzeye araçları ile çalışabilirsiniz.
+VM'ler sağlamayı veya sürekli tümleştirme ile web uygulamalarınızı yayımlamak ister, Azure ile birçok popüler DevOps araçlarıyla tümleşir. Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, Azure DevOps ve diğerleri gibi araçlar için destekle, zaten yüklü ve mevcut deneyiminizi en üst düzeye araçları ile çalışabilirsiniz.
 
 >**Şimdi deneyin:** [birkaç DevOps tümleştirmeleri'ni deneyin](https://azure.microsoft.com/try/devops/).
 
@@ -269,19 +269,7 @@ Kimlikleri olarak da bilinir, tek tek Azure tanımlanmasına ek olarak hesap *ku
 
 ### <a name="manage-your-subscriptions"></a>Aboneliklerinizi yönetme
 
-Bir Azure hesabına bağlı bir mantıksal birim Azure hizmetlerinin bir aboneliktir. İlişkili her hesabın bir aboneliği bir role sahiptir. Azure Hizmetleri için faturalama, abonelik başına temelinde gerçekleştirilir. Kullanılabilir abonelik teklifleri türüne göre bir listesi için bkz. [Microsoft Azure Teklif Ayrıntıları](https://azure.microsoft.com/support/legal/offer-details/).
-
-#### <a name="administrator-roles"></a>Yönetici rolleri
-
-Bir Azure aboneliği olan herhangi bir zamanda atayabilirsiniz birden çok hesap yöneticisi rol yok.
-
--   **Hesap Yöneticisi**: Bu rolü abonelik üzerinde tam denetime sahiptir ve faturadan sorumlu hesaptır.
-
--   **Hizmet Yöneticisi**: Bu rol, abonelikte tüm hizmetleri denetime sahiptir. Varsayılan olarak, aynı hesabı yöneticisi olarak hesap budur.
-
--   **Ortak yönetici**: bir Azure dizinine abonelik ilişkisini değiştiremezsiniz dışında bu rol Hizmet Yöneticisi olarak erişebilir.
-
-Yönetici rolleri hakkında daha fazla bilgi için bkz. [Azure yöneticisi rollerini ekleme veya değiştirme yapma](../../billing/billing-add-change-azure-subscription-administrator.md#add-an-admin-for-a-subscription).
+Bir Azure hesabına bağlı mantıksal bir gruplandırması olan Azure hizmetlerini bir aboneliktir. Tek bir Azure hesabı, birden fazla abonelik içerebilir. Azure Hizmetleri için faturalama, abonelik başına temelinde gerçekleştirilir. Kullanılabilir abonelik teklifleri türüne göre bir listesi için bkz. [Microsoft Azure Teklif Ayrıntıları](https://azure.microsoft.com/support/legal/offer-details/). Abonelik üzerinde tam denetime sahip bir Hesap Yöneticisi ve tüm hizmetleri denetime sahip abonelikte Hizmet Yöneticisi, Azure aboneliğiniz yok. Klasik abonelik yöneticileri hakkında daha fazla bilgi için bkz: [ekleme veya değiştirme Azure aboneliği yöneticileri](../../billing/billing-add-change-azure-subscription-administrator.md). Yöneticiler ek olarak, bireysel hesaplar verilebilir ayrıntılı denetim kullanarak Azure kaynaklarınızın [rol tabanlı erişim denetimi (RBAC)](../../role-based-access-control/overview.md).
 
 #### <a name="resource-groups"></a>Kaynak grupları
 
@@ -293,11 +281,11 @@ Azure kaynak Gezgini, aboneliğinizde zaten oluşturduğunuz kaynakları görsel
 
 Azure kaynaklarına erişime izin verdiğinizde, her zaman belirli bir görevi gerçekleştirmek için gereken en az ayrıcalık ile kullanıcılara sağlamak için en iyi uygulama olan.
 
--   **Rol tabanlı erişim denetimi (RBAC)**:, Azure, belirli bir kapsamda (asıl hesaplar) kullanıcı hesaplarına erişim vermek: Abonelik, kaynak grubu veya tek tek kaynaklar. RBAC, bir kaynak grubunda bir kaynak kümesini dağıtmak ve belirli kullanıcı veya grup için izinler sağlar. Ayrıca, hedef kaynak grubuna ait kaynaklara erişimini sağlar. Ayrıca, bir sanal makine veya sanal ağ gibi tek bir kaynağa erişim izni verebilirsiniz. Erişim vermek için kullanıcı, Grup veya hizmet sorumlusu için bir rol atayın. Birçok önceden tanımlı roller vardır ve kendi özel rollerinizi de tanımlayabilirsiniz.
+-   **Rol tabanlı erişim denetimi (RBAC)**:, Azure, belirli bir kapsamda (asıl hesaplar) kullanıcı hesaplarına erişim vermek: Abonelik, kaynak grubu veya tek tek kaynaklar. RBAC, bir kaynak grubunda bir kaynak kümesini dağıtmak ve belirli kullanıcı veya grup için izinler sağlar. Ayrıca, hedef kaynak grubuna ait kaynaklara erişimini sağlar. Ayrıca, bir sanal makine veya sanal ağ gibi tek bir kaynağa erişim izni verebilirsiniz. Erişim vermek için kullanıcı, Grup veya hizmet sorumlusu için bir rol atayın. Birçok önceden tanımlı roller vardır ve kendi özel rollerinizi de tanımlayabilirsiniz. Daha fazla bilgi için bkz. [rol tabanlı erişim denetimi (RBAC) nedir?](../../role-based-access-control/overview.md).
 
-    >**Ne zaman kullanılacağı**: gerektiğinde ayrıntılı erişim yönetimi kullanıcılar ve gruplar için.
+    >**Ne zaman kullanılacağı**: Kullanıcıları ve grupları veya bir kullanıcı bir abonelik sahibi olmak gerektiğinde için ayrıntılı erişim yönetimi gerektiğinde.
 
-    >**Başlama**: daha fazla bilgi için bkz. [Azure portalında erişim yönetimini kullanmaya başlama](../../role-based-access-control/overview.md).
+    >**Başlama**: daha fazla bilgi için bkz. [RBAC ve Azure portalını kullanarak erişimini yönetme](../../role-based-access-control/role-assignments-portal.md).
 
 -   **Hizmet sorumlusu nesneleri**: kullanıcı asıl adları ve gruplara erişim sağlamanın yanı sıra hizmet sorumlusu aynı erişim verebilirsiniz.
 

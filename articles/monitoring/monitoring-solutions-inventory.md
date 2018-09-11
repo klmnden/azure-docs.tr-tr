@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 40b8f51c66ebe98cd1c312002b7bd5e96e5032bd
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 3154a2f8b283f68ec3e10ba621ccba3ee6d77de2
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112714"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324759"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure yönetim çözümlerine için veri koleksiyonu ayrıntıları
 Bu makalede bir listesini içerir [yönetim çözümleri](monitoring-solutions.md) kullanımına Microsoft gelen bağlantılarla ilgili ayrıntılı belgelere.  Ayrıca kendi yöntemi ve Log Analytics ile veri toplama sıklığı hakkında bilgiler sağlar.  Farklı çözümlerin tanımlamak ve farklı yönetim çözümleri için veri akışı ve bağlantı gereksinimlerini anlamak için bu makaledeki bilgileri kullanabilirsiniz. 
@@ -65,7 +65,7 @@ Sütunların açıklamaları aşağıdaki gibidir:
 | [Ağ Performansı İzleyicisi](../log-analytics/log-analytics-network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP el sıkışmaları veri her 5 saniyede 3 dakikada gönderilen. |
 | [Office 365 Analytics (Önizleme)](../operations-management-suite/oms-solution-office-365.md) |Windows | | | | | |bildirim |
 | **Yönetim çözümü** | **Platform** | **Microsoft İzleme Aracısı** | **Operations Manager Aracısı** | **Azure depolama alanı** | **Operations Manager gerekli?** | **Operations Manager aracısı veri yönetim grubu gönderilir.** | **Toplama sıklığı** |
-| [Service Fabric analizi (Önizleme)](../log-analytics/log-analytics-service-fabric.md) |Windows | | |&#8226; | | |5 dakika |
+| [Service Fabric Analizi](../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 dakika |
 | [Hizmet Eşlemesi](../operations-management-suite/operations-management-suite-service-map.md) | Windows ve Linux | &#8226; | &#8226; |  |  |  | 15 saniye |
 | [SQL Değerlendirmesi](../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 gün |
 | [SurfaceHub](../log-analytics/log-analytics-surface-hubs.md) |Windows |&#8226; | | | | |geldiğinde |

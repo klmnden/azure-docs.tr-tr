@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/03/2018
 ms.author: snehaa
-ms.openlocfilehash: ce9dc4aab26b99bbb1e9f24f018354b8c91f66f4
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: f4ce2130b18b183f633c649f98fc1add30753a27
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699973"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296016"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure geçişi - sık sorulan sorular (SSS)
 
@@ -41,7 +41,7 @@ Azure geçişi, şirket içi iş yüklerinizi bulmak ve azure'a geçişinizi pla
 Azure geçişi planlama aracı geçiş ve Azure Site Recovery dağıtım planlayıcısı aracı planlama bir olağanüstü durum kurtarma (DR).
 
 **Vmware'den azure'a geçiş**: şirket içi iş yüklerinizi Azure'a geçirmek istiyorsanız, Azure geçişi geçiş planlaması için kullanın. Azure geçişi, şirket içi iş yüklerini değerlendirir ve rehberlik, Öngörüler ve Azure'a geçirmenizde yardımcı mekanizmaları sağlar. Geçiş planınızla hazır olduktan sonra makineleri Azure'a geçirmek için Azure Site Recovery ve Azure veritabanı geçiş hizmeti gibi hizmetleri kullanabilirsiniz.
-
+ 
 **Hyper-v'den azure'a geçiş**: Azure geçişi şu anda yalnızca destekler değerlendirme VMware sanal makinelerini Azure'a geçiş için. Hyper-V desteği, Azure geçişi için yol haritası açıktır. Bu arada, Site Recovery dağıtım Planlayıcısı'nı kullanabilirsiniz. Hyper-V desteği, Azure Geçişi'nde etkinleştirildikten sonra Azure geçişi Hyper-V iş yüklerinin geçişini planlama için kullanabilirsiniz.
 
 **Vmware'den/Hyper-v'den azure'a olağanüstü durum kurtarma**: Azure Site Recovery (Site Recovery) kullanarak azure'da olağanüstü durum kurtarma (DR) yapmak istiyorsanız, Site Recovery dağıtım Planlayıcısı planlama DR için kullanın. Site Recovery dağıtım Planlayıcısı, bir şirket içi ortamınızı kapsamlı ve ASR özgü değerlendirmesinin yapar. Bu, çoğaltma, yük devretme sanal makinelerinizin gibi başarılı DR işlemler için Site Recovery tarafından gerekli önerileri sağlar.  
@@ -87,6 +87,10 @@ Gereç tabanlı bulma şirket içi sanal makineleri ile ilgili meta verileri top
   - Ağ dışına
 
 Aracı tabanlı bulma alet tabanlı bulma üzerinde sunulan bir seçenektir ve müşterilere yardımcı [bağımlılıkları görselleştirme](how-to-create-group-machine-dependencies.md) şirket içi sanal makinelerin. Bağımlılık aracıları toplamak ayrıntıları gibi FQDN, işletim sistemi, IP adresi, MAC adresi, VM'den VM ve gelen ve giden TCP bağlantılarını içinde çalışan işlemler. Aracı tabanlı bulma isteğe bağlıdır ve sanal makinelerin bağımlılıklarını görselleştirin istemiyorsanız aracıları yüklememeyi seçebilirsiniz.
+
+### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Analiz edilen ESXi ana bilgisayar ortamının üzerinde bir performans etkisi olması?
+
+VCenter server bilgileri toplarız beri ESXi konakları üzerinde performans etkisi yoktur. Hatta vCenter sunucusu üzerinde neredeyse sıfır performans etkisi yoktur.
 
 ### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>Toplanan verileri uzun depolanan ve için nasıl nerede?
 

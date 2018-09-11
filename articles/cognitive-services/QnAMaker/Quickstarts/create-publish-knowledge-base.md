@@ -1,21 +1,20 @@
 ---
-title: Bir KB --soru cevap oluşturma - Azure Bilişsel hizmetler oluşturma Hızlı başlangıcı | Microsoft Docs
-titleSuffix: Azure
-description: Soru-cevap Oluşturucu Bilgi Bankası oluşturmaya ilişkin adım adım öğretici
-services: cognitive-services
-author: nstulasi
-manager: sangitap
+title: 'Hızlı Başlangıç: bir KB - soru-cevap Oluşturucu Oluşturma'
+titleSuffix: Azure Cognitive Services
+description: Kendi içeriğinden SSS veya ürün kılavuzlarını gibi bir soru-cevap Oluşturucu Bilgi Bankası (KB) oluşturabilirsiniz. Bu örnekte soru-cevap Oluşturucu KB BitLocker anahtar kurtarma ilgili soruları yanıtlamak için basit bir SSS Web oluşturulur.
+author: nitinme
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: saneppal
-ms.openlocfilehash: 49a21e8cf4e45fc4408f6c8039c3f0c7cc455e7a
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 2b8573da6cc87af39a7681fa369940fa7a0b8eb3
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028849"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345242"
 ---
 # <a name="create-train-and-publish-your-knowledge-base"></a>Oluşturmak, eğitmek ve, Bilgi Bankası yayımlama
 

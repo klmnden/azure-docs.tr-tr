@@ -1,5 +1,5 @@
 ---
-title: Azure faturalama rollerini kullanarak erişimi yönetme | Microsoft Docs
+title: Azure faturalandırma rollerini kullanarak erişimi yönetme | Microsoft Docs
 description: ''
 services: ''
 documentationcenter: ''
@@ -15,68 +15,68 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: vikdesai
-ms.openlocfilehash: 7329b06171bd538cc6e9aa8172380a2d4dd47dae
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 38702fde344bb5fb831f7c26177438456035beae
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33204131"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294468"
 ---
-# <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Rol tabanlı erişim denetimini kullanarak Azure için faturalama bilgilerini erişimi yönetme
+# <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Rol tabanlı erişim denetimi kullanarak Azure için fatura bilgilerini erişimi yönetme
 
-Aşağıdaki kullanıcı rollerinden birini aboneliğinize atayarak ekibinizin üyeleri için Azure faturalama bilgilerini erişim verebilirsiniz: Hesap Yöneticisi, Hizmet Yöneticisi, ortak yönetici, sahibi, katkıda bulunan, okuyucu ve fatura okuyucu. Faturalama bilgileri erişime sahip [Azure portal](https://portal.azure.com/), ve kullanabileceklerini [fatura API'leri](billing-usage-rate-card-overview.md) programlı olarak (bir kez seçti-gelen) faturaları ve kullanım ayrıntıları almak için. Hakkında daha fazla bilgi için kimin verin rollerini ve hangi rollerin ne, bkz: [Azure RBAC rollerinde](../role-based-access-control/built-in-roles.md).
+Aşağıdaki kullanıcı rollerinden aboneliğinize atayarak takım üyeleriniz için Azure fatura bilgileri için erişim verebilirsiniz: Hesap Yöneticisi, Hizmet Yöneticisi, ortak yönetici, sahibi, katkıda bulunan, okuyucu ve faturalandırma okuyucusu. Fatura bilgilerine erişimleri [Azure portalında](https://portal.azure.com/), ve kullanabilecekleri [faturalandırma API'lerini](billing-usage-rate-card-overview.md) programlı olarak (bir kez kabul-gelen) faturaları ve kullanım ayrıntılarını almak için. Hakkında daha fazla bilgi için kimin rolleri ve verin hangi rollerin neler, bkz: [Azure RBAC rolleri](../role-based-access-control/built-in-roles.md).
 
-## <a name="opt-in"></a> Ek kullanıcıların faturaları erişmesine izin verme
+## <a name="opt-in"></a> Faturalar erişmek ek kullanıcılara izin verilmesi
 
-Hesap Yöneticisi kullanarak opt gerekir [Azure portal](https://portal.azure.com/) diğer kullanıcılar için ve API aracılığıyla faturalar erişmesine izin vermek.
+Hesap Yöneticisi kullanarak etmeniz gerekir [Azure portalında](https://portal.azure.com/) faturaları API aracılığıyla ve diğer kullanıcılar için erişime.
 
-1. Hesap Yöneticisi olarak aboneliğinizden seçin [abonelikleri dikey](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) Azure portalında.
+1. Hesap Yöneticisi olarak aboneliğinizden seçin [abonelikler dikey penceresinden](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) Azure portalında.
 
-1. Seçin **faturalar** ve ardından **faturalar erişimi**.
+1. Seçin **faturalar** ardından **faturalar erişimi**.
 
-    ![Ekran görüntüsü, faturalar erişimin nasıl gösterir](./media/billing-manage-access/AA-optin.png)
+    ![Faturalar erişimi devretmek nasıl ekran gösterir](./media/billing-manage-access/AA-optin.png)
 
-1. Kapatma **üzerinde** kullanıcıların abonelikte izin vermek için değişiklikleri kaydederek ve ardından erişim kapsamına fatura indirmek için rolleri.
+1. Kapatma **üzerinde** kullanıcıların abonelikte izin vermek için değişiklikleri kaydederek ve ardından erişim kapsamı karşıdan yükleme faturası için roller.
 
-    ![Ekran görüntüsü, açık-fatura erişimi devretmek için kapalı gösterir](./media/billing-manage-access/AA-optinAllow.png)
+    ![Ekran görüntüsü üzerinde faturaya erişim devretmek için alma gösterir](./media/billing-manage-access/AA-optinAllow.png)
 
-Seçim PDF faturalar Azure portalında indirmek için abonelikte Hizmet Yöneticisi, ortak yönetici, sahibi, katkıda bulunan, okuyucu ve faturalama okuyucu sağlar. Ancak, faturalar aralık 2016'den daha eski şimdilik yalnızca Hesap Yöneticisi için kullanılabilir.
+Seçim Azure portalında PDF fatura indirmek için abonelikte Hizmet Yöneticisi, ortak yönetici, sahibi, katkıda bulunan, okuyucu ve faturalandırma okuyucusu sağlar. Ancak, aralık 2016'dan daha eski faturalar şimdilik yalnızca Hesap Yöneticisi için kullanılabilir.
 
-Hesap Yöneticisi, e-posta ile gönderilen faturalar sağlamak için de yapılandırabilirsiniz. Daha fazla bilgi için bkz: [faturanızı e-posta ile almak](billing-download-azure-invoice-daily-usage-date.md).
+Hesap Yöneticisi, e-posta ile gönderilen faturalar için de yapılandırabilirsiniz. Daha fazla bilgi için bkz. [faturanızı e-posta ile alın](billing-download-azure-invoice-daily-usage-date.md).
 
-## <a name="adding-users-to-the-billing-reader-role"></a>Faturalama okuyucu rolüne kullanıcı ekleme
+## <a name="adding-users-to-the-billing-reader-role"></a>Faturalandırma okuyucusu rolüne kullanıcı ekleme
 
-Faturalama okuyucu rolüne sanal makineleri ve depolama hesapları gibi hizmetleri için erişim yok ve abonelik faturalama bilgileri Azure portalında salt okunur erişimi vardır. Abonelik faturalama bilgileri ancak değil Azure Hizmetleri yönetme yeteneği erişmesi birine faturalama okuyucu rolüne atayın. Bu rol yalnızca Azure aboneliklerini finansal ve maliyet Yönetimi gerçekleştiren bir kuruluştaki kullanıcılar için uygun değildir.
+Faturalandırma okuyucusu rolü, Azure portalında abonelik fatura bilgilerini yalnızca okuma erişimi ve sanal makineleri ve depolama hesapları gibi hizmetlere erişim yok sahiptir. Abonelik fatura bilgilerini ancak değil Azure hizmetlerini yönetme özelliği erişmesi birine faturalandırma okuyucusu rolü atayın. Bu rolün yalnızca bir Azure aboneliğine mali ve maliyet Yönetimi gerçekleştiren bir kuruluştaki kullanıcı için uygundur.
 
-1. Aboneliğinizden seçin [abonelikleri dikey](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) Azure portalında.
+1. Aboneliğinizden seçin [abonelikler dikey penceresinden](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) Azure portalında.
 
 1. Seçin **erişim denetimi (IAM)** ve ardından **Ekle**.
 
     ![Ekran görüntüsü IAM abonelik dikey penceresinde gösterir.](./media/billing-manage-access/select-iam.PNG)
 
-1. Seçin **faturalama okuyucu** içinde **bir rol seçin** sayfası.
+1. Seçin **faturalandırma okuyucusu** içinde **bir rol seçin** sayfası.
 
-    ![Ekran görüntüsü, faturalama okuyucu açılan görünümünde gösterir.](./media/billing-manage-access/select-roles.PNG)
+    ![Ekran görüntüsü, faturalandırma okuyucusu açılan görünümünde gösterir.](./media/billing-manage-access/select-roles.PNG)
 
-1. Davet etmek ve ardından istediğiniz kullanıcı için e-posta türü **Tamam** daveti göndermek için.
+1. Davet edin ve ardından istediğiniz kullanıcının e-posta türü **Tamam** davet gönderilecek.
 
-    ![Kişileri davet etmek için e-posta girmek için gösteren ekran görüntüsü](./media/billing-manage-access/add-user.PNG)
+    ![Davet e-posta girmesini gösteren ekran görüntüsü](./media/billing-manage-access/add-user.PNG)
 
-1. Faturalama okuyucu olarak oturum açmak için davet e-postadaki yönergeleri izleyin.
+1. Faturalama okuyucusu olarak oturum açmak için davet e-postadaki yönergeleri izleyin.
 
-    ![Azure portalında faturalama okuyucu görebileceklerini gösteren ekran görüntüsü](./media/billing-manage-access/billing-reader-view.png)
+    ![Azure portalında faturalama okuyucusu görebileceklerini gösteren ekran görüntüsü](./media/billing-manage-access/billing-reader-view.png)
 
 > [!NOTE]
-> Faturalama okuyucu özellik Önizleme aşamasındadır ve kurumsal (EA) abonelikleri veya genel olmayan bulut henüz desteklemiyor.
+> Faturalandırma okuyucusu özellik Önizleme aşamasındadır ve enterprise (EA) abonelikleri veya genel olmayan bulutlarda henüz desteklemiyor.
 
-## <a name="adding-users-to-other-roles"></a>Diğer roller için kullanıcı ekleme
+## <a name="adding-users-to-other-roles"></a>Diğer rollere kullanıcı ekleme
 
-Sahibi veya katkıda, gibi diğer rolleri yalnızca fatura bilgilerini, ancak Azure hizmetlerine erişebilir. Bu rolleri yönetmek için bkz: [abonelik ya da hizmetleri yönetmek ekleme veya değiştirme Azure yönetici rolleri](billing-add-change-azure-subscription-administrator.md).
+Sahibi veya katkıda bulunan gibi diğer rolleri yalnızca fatura bilgilerini, ancak Azure hizmetlerine erişebilirsiniz. Bu rolleri yönetmek için bkz: [RBAC ve Azure portalını kullanarak erişimini yönetme](../role-based-access-control/role-assignments-portal.md).
 
-## <a name="who-can-access-the-account-centerhttpsaccountwindowsazurecom"></a>Kimin erişebileceği [hesap Merkezi'nde](https://account.windowsazure.com)?
+## <a name="who-can-access-the-account-centerhttpsaccountwindowsazurecom"></a>Kimin erişebileceği [hesap Merkezi](https://account.windowsazure.com)?
 
-Yalnızca hesap yöneticisi hesap Merkezi'nde oturum açabilir. Hesap Yöneticisi abonelik yasal sahibi. Varsayılan olarak, kaydolup veya Azure aboneliği satın Hesap Yöneticisi sürece kişidir [abonelik sahipliği aktarılan](billing-subscription-transfer.md) başka birine. Hesap Yöneticisi abonelikleri oluşturma, aboneliklerinizi iptal edin, bir abonelik için fatura adresini değiştirmek ve abonelik için erişim ilkelerini yönetme.
+Yalnızca hesap yöneticisi hesap Merkezi'nde oturum açabilir. Hesap Yöneticisi, aboneliğin yasal sahibi değil. Varsayılan olarak, kaydolduğunuz veya Azure aboneliği satın aldığınız Hesap Yöneticisi sürece kişidir [aboneliğin sahipliğini aktarılan](billing-subscription-transfer.md) başka birine. Hesap Yöneticisi abonelikleri oluşturabilir, aboneliklerinizi iptal etmeniz, bir abonelik için fatura adresini değiştirmek ve abonelik için erişim ilkelerini yönetme.
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
 
-Hala daha fazla, sorularınız varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.
+Hala başka sorularınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.

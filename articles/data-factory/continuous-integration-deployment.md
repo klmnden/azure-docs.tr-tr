@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 8bbc64a34b5ae95e044b95f921770adc9045574c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 57c691271c2b2673ade40d600162934341e18a81
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057060"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300249"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Sürekli tümleştirme ve dağıtım Azure Data factory'de
 
@@ -53,9 +53,9 @@ Seçin **yük dosyası** dışarı aktarılan Resource Manager şablonu seçin v
 ![Bağlantı dizesini görmek için kod görünümü Aç](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## <a name="continuous-integration-lifecycle"></a>Sürekli Tümleştirme yaşam döngüsü
-Sürekli tümleştirme ve kullanabileceğiniz dağıtımı için tüm yaşam döngüsüne İşte VSTS GIT tümleştirmesi Data Factory kullanıcı arabiriminde etkinleştirdikten sonra:
+Sürekli tümleştirme ve kullanabileceğiniz dağıtımı için tüm yaşam döngüsüne İşte Azure DevOps Hizmetleri GIT tümleştirmesi Data Factory kullanıcı arabiriminde etkinleştirdikten sonra:
 
-1.  Tüm geliştiriciler işlem hatları, veri kümeleri ve diğerleri gibi Data Factory kaynaklarını yazabilirsiniz VSTS ile geliştirme veri fabrikası oluşturun.
+1.  Azure DevOps tüm geliştiriciler işlem hatları, veri kümeleri ve diğerleri gibi Data Factory kaynaklarını yazabilirsiniz Hizmetleri ile geliştirme veri fabrikası oluşturun.
 
 1.  Geliştiriciler, işlem hatları gibi kaynakları daha sonra değiştirebilirsiniz. Bunlar, değişiklikler gibi seçebilirsiniz **hata ayıklama** işlem hattı en son değişikliklerle nasıl çalıştığını görmek için.
 
@@ -67,25 +67,25 @@ Sürekli tümleştirme ve kullanabileceğiniz dağıtımı için tüm yaşam dö
 
 1.  Dışarı aktarılan Resource Manager şablonu test Fabrika hem de üretim fabrikası için farklı parametre dosyaları ile dağıtılabilir.
 
-## <a name="automate-continuous-integration-with-vsts-releases"></a>Sürekli Tümleştirme ile VSTS yayın otomatikleştirme
+## <a name="automate-continuous-integration-with-azure-devops-services-releases"></a>Azure DevOps Hizmetleri sürümleri ile sürekli tümleştirme otomatikleştirin
 
-Veri Fabrikası birden çok ortama dağıtımı otomatik hale getirmek için bir VSTS yayını Ayarla için adımlar aşağıda verilmiştir.
+Veri Fabrikası birden çok ortama dağıtımı otomatik hale getirmek için bir Azure DevOps Hizmetleri yayını Ayarla için adımlar aşağıda verilmiştir.
 
-![VSTS ile sürekli tümleştirme diyagramı](media/continuous-integration-deployment/continuous-integration-image12.png)
+![Azure DevOps hizmetleriyle sürekli tümleştirme diyagramı](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### <a name="requirements"></a>Gereksinimler
 
--   Bir Azure aboneliğine bağlı Team Foundation Server veya VSTS'yi kullanmaya [ *Azure Resource Manager hizmet uç noktası*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+-   Bir Azure aboneliğine bağlı Team Foundation Server veya Azure DevOps Hizmetleri kullanılarak [ *Azure Resource Manager hizmet uç noktası*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
--   Data Factory ile yapılandırılmış VSTS Gıt.
+-   Azure DevOps Hizmetleri yapılandırılmış Git ile veri fabrikası.
 
 -   Bir [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) gizli dizileri içeren.
 
-### <a name="set-up-a-vsts-release"></a>Bir VSTS yayını Ayarla
+### <a name="set-up-a-azure-devops-services-release"></a>Azure DevOps Hizmetleri yayını Ayarla
 
-1.  Data Factory ile yapılandırılmış bir olarak aynı projede VSTS sayfanıza gidin.
+1.  Data Factory ile yapılandırılmış bir olarak aynı projede Azure DevOps Hizmetleri sayfanıza gidin.
 
-1.  Üst menü çubuğunda **derleme ve yayın** &gt; **yayınlar** &gt; **Oluştur yayın tanımı**.
+1.  Üst menü çubuğunda **Azure işlem hatları** &gt; **yayınlar** &gt; **Oluştur yayın tanımı**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
@@ -113,15 +113,15 @@ Veri Fabrikası birden çok ortama dağıtımı otomatik hale getirmek için bir
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-1.  Yayın tanımını kaydedin.
+1.  Sürüm ardışık kaydedin.
 
-1.  Bu yayın tanımındaki yeni bir yayın oluşturun.
+1.  Bu yayın ardışık düzeni yeni bir yayın oluşturun.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
 ### <a name="optional---get-the-secrets-from-azure-key-vault"></a>İsteğe bağlı: Azure Key Vault'tan gizli dizileri Al
 
-Bir Azure Resource Manager şablonunda geçirmek için gizli dizileri varsa, Azure Key Vault ile VSTS yayın kullanmanızı öneririz.
+Bir Azure Resource Manager şablonunda geçirmek için gizli dizileri varsa, Azure Key Vault Azure DevOps Hizmetleri sürümüyle kullanmanızı öneririz.
 
 Gizli dizileri işlemek için iki yolu vardır:
 
@@ -148,7 +148,7 @@ Gizli dizileri işlemek için iki yolu vardır:
 
     -   Parametre dosyasını yayımlama dalında de olması gerekir.
 
-1.  Ekleme bir [Azure anahtar kasası görev](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) Azure Resource Manager önceki bölümde açıklanan dağıtımdan önce:
+1.  Ekleme bir [Azure anahtar kasası görev](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) Azure Resource Manager önceki bölümde açıklanan dağıtımdan önce:
 
     -   Seçin **görevleri** sekmesinde, yeni bir görev oluşturma, arama **Azure anahtar kasası** ve ekleyin.
 
@@ -156,13 +156,13 @@ Gizli dizileri işlemek için iki yolu vardır:
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### <a name="grant-permissions-to-the-vsts-agent"></a>VSTS aracısına izin ver
-Azure Key Vault Görev ilk kez bir erişim reddedildi hatası ile başarısız olabilir. Yayın günlükleri indirmek ve bulun `.ps1` VSTS aracıya izin vermek için komut dosyası. Komutu doğrudan çalıştırabilirsiniz veya asıl kimliği dosyasından kopyalayın ve erişim ilkesi, Azure portalında el ile ekleyin. (*Alma* ve *listesi* olan gerekli en düşük izinleri).
+### <a name="grant-permissions-to-the-azure-devops-services-agent"></a>Azure DevOps Hizmetleri aracısına izin ver
+Azure Key Vault Görev ilk kez bir erişim reddedildi hatası ile başarısız olabilir. Yayın günlükleri indirmek ve bulun `.ps1` Azure DevOps Hizmetleri aracıya izin vermek için komut dosyası. Komutu doğrudan çalıştırabilirsiniz veya asıl kimliği dosyasından kopyalayın ve erişim ilkesi, Azure portalında el ile ekleyin. (*Alma* ve *listesi* olan gerekli en düşük izinleri).
 
 ### <a name="update-active-triggers"></a>Güncelleştirme etkin Tetikleyicileri
 Etkin Tetikleyicileri güncelleştirmeye çalışırsanız, dağıtım başarısız olabilir. Etkin Tetikleyicileri güncelleştirmek için el ile sonlandırmasına ve bunları dağıtımdan sonra başlatmak gerekir. Aşağıdaki örnekte gösterildiği gibi bu amaç için bir Azure Powershell görev ekleyebilirsiniz:
 
-1.  VSTS yayın görevleri sekmede arama **Azure Powershell** ve ekleyin.
+1.  Azure DevOps Hizmetleri yayın görevleri sekmede arama **Azure Powershell** ve ekleyin.
 
 1.  Seçin **Azure Resource Manager** bağlantı olarak yazın ve aboneliğinizi seçin.
 
@@ -180,7 +180,7 @@ Benzer adımları izleyin ve benzer bir kod kullanın (ile `Start-AzureRmDataFac
 
 ## <a name="sample-deployment-template"></a>Örnek dağıtım şablonu
 
-VSTS'de içeri aktarabileceğiniz bir örnek dağıtım şablonu aşağıda verilmiştir.
+Azure DevOps Hizmetleri'nde aktarabileceğiniz bir örnek dağıtım şablonu aşağıda verilmiştir.
 
 ```json
 {

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: d3438f42753cba82a28d16be2b63926c4762b26b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 35b8ae347181d272dc899f41f07af36a611aa9f0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421942"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299160"
 ---
 # <a name="deploy-docker-ce-cluster"></a>Docker CE kümesi dağıtma
 
@@ -169,7 +169,7 @@ Bu hızlı başlangıçta, önceden oluşturulmuş kapsayıcı görüntüleri ku
 
 Bu hızlı başlangıçta, bir Docker Swarm kümesi dağıtıp ve bu kümeye çok kapsayıcılı bir uygulama dağıttınız.
 
-Docker Swarm'u Visual Studio Team Services ile tümleştirme hakkında bilgi edinmek için Docker Swarm ve VSTS ile CI/CD'ye devam edin.
+Docker swarm ile Azure DevOps tümleştirme hakkında bilgi edinmek için Docker Swarm ve Azure DevOps ile CI/CD'ye devam edin.
 
 > [!div class="nextstepaction"]
-> [Docker Swarm ve VSTS ile CI/CD](./container-service-docker-swarm-setup-ci-cd.md)
+> [Docker Swarm ve Azure DevOps ile CI/CD](./container-service-docker-swarm-setup-ci-cd.md)

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 676d5e553e2929ae09d447141ca315fd1cc448e3
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c88ae933360b5040ad3d2b877041049512f08b0d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450270"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303413"
 ---
 # <a name="permissions-on-the-azureiotsolutionscom-site"></a>Azureiotsolutions.com sitesindeki izinler
 
@@ -62,7 +62,7 @@ Kullanıcılar ve AAD rolleri hakkında daha fazla bilgi için aşağıdaki kayn
 
 Azure yöneticisi rolleri bir Azure aboneliği bir AAD kiracısıyla eşleme özelliğini denetler.
 
-Bu makalede Azure yönetici rolleri hakkında daha fazla bilgi edinin [ekleme veya Azure ortak yönetici, Hizmet Yöneticisi ve Hesap Yöneticisi değiştirme][lnk-admin-roles].
+Bu makalede Azure yönetici rolleri hakkında daha fazla bilgi edinin [ekleme veya değiştirme Azure aboneliği yöneticileri][lnk-admin-roles].
 
 ## <a name="faq"></a>SSS
 

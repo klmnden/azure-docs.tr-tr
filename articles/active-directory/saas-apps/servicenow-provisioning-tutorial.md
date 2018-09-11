@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 8d05e314cb31aaba96e7db79e0e4dd287e6d2184
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b3ef6e2a6b9b51c271372aa3c9342b52a4260788
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426913"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348115"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Öğretici: Azure Active Directory ile otomatik kullanıcı hazırlama için servicenow'ı yapılandırma
 
 Bu öğreticinin amacı, ServiceNow ve Azure AD'deki otomatik olarak sağlama ve sağlamasını ServiceNow için Azure AD'den kullanıcı hesapları için gerçekleştirmeniz gereken adımlar gösterir sağlamaktır.
 
 > [!NOTE]
-> Bu öğreticide, Azure AD kullanıcı sağlama hizmeti üzerinde oluşturulmuş bir bağlayıcı açıklanmaktadır. Bu hizmet yapar, nasıl çalıştığını ve sık sorulan sorular önemli ayrıntılar için bkz. [otomatik kullanıcı hazırlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına](./../active-directory-saas-app-provisioning.md).
+> Bu öğreticide, Azure AD kullanıcı sağlama hizmeti üzerinde oluşturulmuş bir bağlayıcı açıklanmaktadır. Bu hizmet yapar, nasıl çalıştığını ve sık sorulan sorular önemli ayrıntılar için bkz. [otomatik kullanıcı hazırlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına](../manage-apps/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirmesi ServiceNow ile yapılandırma için aşağıdakiler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Servicenow'ı, bir örnek veya Kiracı, ServiceNow, Calgary sürümü veya üzeri
 - Servicenow'ı hızlı, ServiceNow Express, Helsinki sürümü örneğini veya üzeri
 
@@ -100,7 +100,7 @@ Bu bölümde, Azure AD sağlama API'si ServiceNow'ın kullanıcı hesabına bağ
 
 Herhangi bir kullanıcı ve/veya ServiceNow kullanıcılar ve Gruplar bölümünde atanan grupları ilk eşitleme başlar. İlk eşitleme hizmeti çalışıyor sürece yaklaşık 40 dakikada oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve ServiceNow uygulamanızdan sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklayan etkinlik günlüklerini sağlama için bağlantıları izleyin.
 
-Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../active-directory-saas-provisioning-reporting.md).
+Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

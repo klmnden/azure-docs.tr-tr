@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: fc45cde1a5f0f287274302541ac0115569e2239d
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: cf0c9b76a7edace9f2a9147823b292e218e20bf7
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666345"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300282"
 ---
 # <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>PIM'de yönetebilmeniz için azure AD Dizin rolleri
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -63,21 +63,19 @@ Kullanıcının PIM gerektiren rollerini PIM yönetmek için başka bir kullanı
 ## <a name="roles-not-managed-in-pim"></a>Yönetilmeyen PIM rolleri
 Exchange Online veya SharePoint Online içinde bir rol, yukarıda belirtilen hariç Azure AD'de temsil edilmez ve bu nedenle PIM'de görünür değildir. Bu Office 365 hizmetlerindeki ayrıntılı rol atamalarını değiştirme hakkında daha fazla bilgi için bkz. [izinleri Office 365'te](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Ayrıca Azure Abonelikleriniz ve kaynak gruplarınız Azure AD'de temsil edilmez. Azure Aboneliklerini yönetmek için bkz: [Azure yöneticisi rollerini ekleme veya değiştirme yapma](../../billing/billing-add-change-azure-subscription-administrator.md) ve Azure RBAC hakkında daha fazla bilgi için bkz. [Azure rol tabanlı erişim denetimi](../../role-based-access-control/role-assignments-portal.md).
-
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
 
 ## <a name="user-roles-and-signing-in"></a>Kullanıcı rolleri ve oturum açma
 Bazı Microsoft Hizmetleri ve uygulamaları için kullanıcı rol atama yönetici kullanıcının etkinleştirmek yeterli olmayabilir.
 
-Azure Aboneliklerini yönetmek kullanıcı gerekmiyor olsa bile bir Hizmet Yöneticisi veya Azure aboneliğinin ortak yönetici kullanıcı olması Azure portalına erişim gerektirir.  Örneğin, Azure AD için yapılandırma ayarlarını yönetmek için bir kullanıcı Azure AD'de genel yönetici hem de Azure aboneliğinin bir aboneliğin ortak yönetici olması gerekir.  Azure abonelikleri için kullanıcı ekleme konusunda bilgi almak için bkz: [Azure yöneticisi rollerini ekleme veya değiştirme yapma](../../billing/billing-add-change-azure-subscription-administrator.md).
+Azure Aboneliklerini yönetmek kullanıcı gerekmiyor olsa bile Azure portalına erişim kullanıcının bir Azure aboneliğinin sahibi olmanız gerekir.  Örneğin, Azure AD için yapılandırma ayarlarını yönetmek için bir kullanıcı her iki genel yönetici Azure AD'de olmalıdır ve bir Azure aboneliğine sahip.  Azure abonelikleri için kullanıcı ekleme konusunda bilgi almak için bkz: [RBAC ve Azure portalını kullanarak erişimini yönetme](../..//role-based-access-control/role-assignments-portal.md).
 
 Kullanıcı ayrıca atanmış bir lisansı hizmetin portalını açın veya yönetim görevlerini gerçekleştirmek için önce Microsoft Online hizmetlerine erişim gerektirebilir.
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Azure AD'de bir kullanıcıya lisans atama
 
-1. Oturum [Azure portalında](http://portal.azure.com) ile bir genel yönetici veya ortak yönetici hesabı.
+1. Oturum [Azure portalında](http://portal.azure.com) genel Yöneticisi veya sahibi rolüne sahip.
 
 1. Lisansları ile ilişkili olan ve çalışmak istediğiniz Azure AD dizini seçin.
 
