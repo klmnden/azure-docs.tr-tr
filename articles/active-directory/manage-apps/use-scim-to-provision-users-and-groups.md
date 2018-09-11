@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: b696325c19d4e1d9c9fe6b85a3c46add756340ea
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4247ef1ffd1b8d5c5ec393e3ebff20c3e04e32b3
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443520"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347707"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Kullanıcılar ve grupların Azure Active Directory'den uygulamalara otomatik olarak sağlamak için sistem etki alanları arası Kimlik Yönetimi (SCIM) kullanma
 
@@ -84,7 +84,7 @@ Bu makalede açıklanan SCIM profilini destekleyen uygulamalar, Azure Active Dir
 13. Tıklayın **Kaydet** Azure AD sağlama hizmeti başlatılamadı. 
 14. Eşitleme yalnızca kullanıcılar ve gruplar (önerilen) atadıysanız, seçtiğinizden emin olun **kullanıcılar ve gruplar** sekmesini ve kullanıcılara ve/veya eşitlemek istediğiniz grupları atayabilirsiniz.
 
-İlk eşitleme başlatıldıktan sonra kullanabileceğiniz **denetim günlükleri** uygulamanızdan sağlama hizmeti tarafından gerçekleştirilen tüm eylemler gösteren ilerlemeyi izleme için sekmesinde. Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../active-directory-saas-provisioning-reporting.md).
+İlk eşitleme başlatıldıktan sonra kullanabileceğiniz **denetim günlükleri** uygulamanızdan sağlama hizmeti tarafından gerçekleştirilen tüm eylemler gösteren ilerlemeyi izleme için sekmesinde. Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](check-status-user-account-provisioning.md).
 
 >[!NOTE]
 >İlk eşitleme hizmeti çalışıyor sürece yaklaşık 40 dakikada oluşan sonraki eşitlemeler uzun sürer. 
@@ -152,7 +152,7 @@ Azure ad sağlama isteklerini kabul edebilen bir SCIM uç noktası uygulamak iç
 13. Tıklayın **Kaydet** Azure AD sağlama hizmeti başlatılamadı. 
 14. Eşitleme yalnızca kullanıcılar ve gruplar (önerilen) atadıysanız, seçtiğinizden emin olun **kullanıcılar ve gruplar** sekmesini ve kullanıcılara ve/veya eşitlemek istediğiniz grupları atayabilirsiniz.
 
-İlk eşitleme başlatıldıktan sonra kullanabileceğiniz **denetim günlükleri** uygulamanızdan sağlama hizmeti tarafından gerçekleştirilen tüm eylemler gösteren ilerlemeyi izleme için sekmesinde. Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](../active-directory-saas-provisioning-reporting.md).
+İlk eşitleme başlatıldıktan sonra kullanabileceğiniz **denetim günlükleri** uygulamanızdan sağlama hizmeti tarafından gerçekleştirilen tüm eylemler gösteren ilerlemeyi izleme için sekmesinde. Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [hesabı otomatik kullanıcı hazırlama raporlama](check-status-user-account-provisioning.md).
 
 Örnek doğrulama son adım, Windows makinenizde \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug klasöründeki TargetFile.csv dosya açmaktır. Sağlama işlemi çalıştırıldıktan sonra bu dosya tüm ayrıntılarını atanan ve kullanıcıları ve grupları sağlanan gösterir.
 
@@ -692,11 +692,11 @@ Aşağıdaki çizimde gösterildiği Azure AcD bir grubu başka bir kimlik depos
 
 ## <a name="related-articles"></a>İlgili makaleler
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](../active-directory-apps-index.md)
-* [Kullanıcı sağlama/sağlamayı kaldırma SaaS uygulamaları için otomatik hale getirin](../active-directory-saas-app-provisioning.md)
-* [Kullanıcı sağlama için öznitelik eşlemelerini özelleştirme](../active-directory-saas-customizing-attribute-mappings.md)
-* [Öznitelik eşlemeleri için ifadeler yazma](../active-directory-saas-writing-expressions-for-attribute-mappings.md)
-* [Kullanıcı sağlama için kapsam oluşturma filtresi](../active-directory-saas-scoping-filters.md)
-* [Hesap sağlama bildirimleri](../active-directory-saas-app-provisioning.md)
+* [Kullanıcı sağlama/sağlamayı kaldırma SaaS uygulamaları için otomatik hale getirin](user-provisioning.md)
+* [Kullanıcı sağlama için öznitelik eşlemelerini özelleştirme](customize-application-attributes.md)
+* [Öznitelik eşlemeleri için ifadeler yazma](functions-for-customizing-application-data.md)
+* [Kullanıcı sağlama için kapsam oluşturma filtresi](define-conditional-rules-for-provisioning-user-accounts.md)
+* [Hesap sağlama bildirimleri](user-provisioning.md)
 * [SaaS uygulamalarını tümleştirme hakkında öğreticiler listesi](../saas-apps/tutorial-list.md)
 
 <!--Image references-->

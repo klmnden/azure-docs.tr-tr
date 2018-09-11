@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/04/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 391cc4ca4b34149aeda54a60bfe6f6949e5a379b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 773acd3a22244403548ef4ce35164291f5c0be7d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697756"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300844"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack'te uygulama dağıtma
 
@@ -30,7 +30,7 @@ Bir uygulamayı Azure ve Azure Stack kullanarak karma sürekli tümleştirme/sü
 Bu öğreticide, bir örnek ortama oluşturacaksınız:
 
 > [!div class="checklist"]
-> * Visual Studio Team Services (VSTS) deponuza kod tamamlama dayalı yeni bir derleme başlatır.
+> * Azure DevOps Hizmetleri deponuza kod tamamlama dayalı yeni bir derleme başlatır.
 > * Otomatik olarak kullanıcı kabul testi için genel Azure uygulamanıza dağıtın.
 > * Kodunuzu test geçtiğinde, aynı zamanda Azure Stack için otomatik olarak uygulamayı dağıtın.
 
@@ -81,30 +81,30 @@ Bu öğreticide, Azure ve Azure Stack bazı temel bilgi sahibi olduğunuzu varsa
  * Oluşturma [planı/teklifler](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) Azure Stack'te.
  * Oluşturma bir [Kiracı aboneliği](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) Azure Stack'te.
  * Bir Web uygulaması, Kiracı aboneliği oluşturabilir. Daha sonra kullanmak için yeni Web App URL'si not edin.
- * Kiracı abonelik VSTS sanal makine dağıtın.
+ * Kiracı abonelik Azure DevOps Hizmetleri sanal makine dağıtın.
 * Bir Windows Server 2016 görüntüsü ile .NET 3.5 bir sanal makine (VM) sağlayın. Bu sanal Makineyi bir özel yapı aracısı Azure Stack oluşturulur.
 
 ### <a name="developer-tool-requirements"></a>Geliştirici aracı gereksinimleri
 
-* Oluşturma bir [VSTS çalışma](https://docs.microsoft.com/vsts/repos/tfvc/create-work-workspaces). Kayıt işlemini adlı bir proje oluşturur **MyFirstProject**.
-* [Visual Studio 2017'yi](https://docs.microsoft.com/visualstudio/install/install-visual-studio) ve [oturum açma vsts'ye](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
+* Oluşturma bir [Azure DevOps Hizmetleri çalışma](https://docs.microsoft.com/azure/devops/repos/tfvc/create-work-workspaces). Kayıt işlemini adlı bir proje oluşturur **MyFirstProject**.
+* [Visual Studio 2017'yi](https://docs.microsoft.com/visualstudio/install/install-visual-studio) ve [oturum açma Azure DevOps hizmetlerine](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Projenize bağlayın ve [yerel ortamda kopyalayın](https://www.visualstudio.com/docs/git/gitquickstart).
 
  > [!Note]
  > Windows Server ve SQL Server çalıştırmak için Dağıtılmış doğru görüntüleri, Azure Stack ortamınıza gerekir. Ayrıca dağıtılan App Service olması gerekir.
 
-## <a name="prepare-the-private-build-and-release-agent-for-visual-studio-team-services-integration"></a>Özel derleme ve yayın Aracısı Visual Studio Team Services tümleştirme için hazırlama
+## <a name="prepare-the-private-azure-pipelines-agent-for-azure-devops-services-integration"></a>Azure DevOps Hizmetleri Tümleştirme için özel Azure işlem hatları Aracısı'nı hazırlama
 
 ### <a name="prerequisites"></a>Önkoşullar
 
-Visual Studio Team Services (VSTS) hizmet sorumlusu kullanarak Azure Resource Manager karşı doğrular. VSTS olmalıdır **katkıda bulunan** Azure Stack aboneliği'ndeki sağlamak için rol.
+Azure DevOps hizmetleriyle Azure Resource Manager'da bir hizmet sorumlusunu kullanarak kimliğini doğrular. Azure DevOps hizmetleriyle olmalıdır **katkıda bulunan** Azure Stack aboneliği'ndeki sağlamak için rol.
 
 Aşağıdaki adımlar, hangi kimlik doğrulamasını yapılandırmak için gereken açıklar:
 
 1. Hizmet sorumlusu oluşturma veya mevcut bir hizmet sorumlusunu kullanın.
 2. Kimlik doğrulaması anahtarları, hizmet sorumlusu oluşturun.
 3. Azure Stack aboneliğine hizmet asıl adı (Katkıda bulunanın rolünün bir parçası olarak SPN) izin vermek için rol tabanlı erişim denetimi aracılığıyla doğrulayın.
-4. Azure Stack uç noktaları ve SPN bilgileri kullanarak VSTS'de yeni bir hizmet tanımı oluşturun.
+4. Azure DevOps hizmetlerinde Azure Stack uç noktaları ve SPN bilgileri kullanarak yeni bir hizmet tanımı oluşturun.
 
 ### <a name="create-a-service-principal"></a>Hizmet sorumlusu oluşturma
 
@@ -122,7 +122,7 @@ Bir hizmet sorumlusu kimlik doğrulaması için bir anahtar gerektirir. Bir anah
 
     ![Uygulamayı seçin](media\azure-stack-solution-hybrid-pipeline\000_01.png)
 
-2. Değerini not edin **uygulama kimliği**. Hizmet uç noktası VSTS'de yapılandırırken bu değeri kullanır.
+2. Değerini not edin **uygulama kimliği**. Azure DevOps Hizmetleri'nde hizmet uç noktasını yapılandırırken bu değeri kullanır.
 
     ![Uygulama Kimliği](media\azure-stack-solution-hybrid-pipeline\000_02.png)
 
@@ -144,7 +144,7 @@ Bir hizmet sorumlusu kimlik doğrulaması için bir anahtar gerektirir. Bir anah
 
 ### <a name="get-the-tenant-id"></a>Kiracı Kimliğinizi alma
 
-Hizmet uç noktası yapılandırmasının bir parçası olarak, VSTS gerektirir **Kiracı kimliği** karşılık gelen AAD dizinine, Azure Stack damga dağıtılır. Kiracı kimliği edinmek için aşağıdaki adımları kullanın.
+Hizmet uç noktası yapılandırmasının bir parçası olarak, Azure DevOps hizmetleri gerektirir **Kiracı kimliği** karşılık gelen AAD dizinine, Azure Stack damga dağıtılır. Kiracı kimliği edinmek için aşağıdaki adımları kullanın.
 
 1. **Azure Active Directory**'yi seçin.
 
@@ -194,20 +194,21 @@ Abonelik, kaynak grubu veya kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha 
 
 Azure rol tabanlı erişim denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak, kullanıcıların işlerini yapmak için gereken erişim düzeyini denetleyebilirsiniz. Rol tabanlı erişim denetimi hakkında daha fazla bilgi için bkz. [Azure abonelik kaynaklarına erişimi yönetme](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json).
 
-### <a name="vsts-agent-pools"></a>VSTS aracı havuzları
+### <a name="azure-devops-services-agent-pools"></a>Azure DevOps aracı havuzları Hizmetleri
 
-Her bir aracıyı ayrı ayrı yönetmek yerine, aracı havuzlarına aracıları düzenleyebilirsiniz. Bir aracı havuzu paylaşım sınırı, havuzdaki tüm aracılar için tanımlar. VSTS'de, takım projeleri arasında bir aracı havuzu paylaşabildiği anlamına gelir VSTS hesabına aracı havuzları belirlenir. Aracı havuzları hakkında daha fazla bilgi için bkz: [aracı havuzları oluşturma ve kuyruklar](https://docs.microsoft.com/vsts/build-release/concepts/agents/pools-queues?view=vsts).
+Her bir aracıyı ayrı ayrı yönetmek yerine, aracı havuzlarına aracıları düzenleyebilirsiniz. Bir aracı havuzu paylaşım sınırı, havuzdaki tüm aracılar için tanımlar. Azure DevOps Hizmetleri'nde aracı havuzları projeler arasında bir aracı havuzu paylaşabildiği anlamına gelir Azure DevOps Hizmetleri kuruluşun kapsamına eklenir. Aracı havuzları hakkında daha fazla bilgi için bkz: [aracı havuzları oluşturma ve kuyruklar](https://docs.microsoft.com/azure/devops/pipelines/agents/pools-queues?view=vsts).
 
 ### <a name="add-a-personal-access-token-pat-for-azure-stack"></a>Azure Stack için kişisel erişim belirteci (PAT) Ekle
 
-Bir kişisel erişim VSTS erişim belirteci oluşturun.
+Bir kişisel erişim Azure DevOps hizmetlerine erişmek için belirteci oluşturun.
 
-1. VSTS hesabınızda oturum açın ve hesap profil adınızı seçin.
+1. Azure DevOps Hizmetleri kuruluşunuz oturum açın ve kuruluşunuzun profil adı seçin.
+
 2. Seçin **Güvenliği Yönet** için erişim belirteci oluşturma sayfası.
 
     ![Kullanıcı oturumu açma](media\azure-stack-solution-hybrid-pipeline\000_17.png)
 
-    ![Takım projesi seçin](media\azure-stack-solution-hybrid-pipeline\000_18.png)
+    ![Bir proje seçin](media\azure-stack-solution-hybrid-pipeline\000_18.png)
 
     ![Kişisel erişim belirteci ekleme](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
 
@@ -220,7 +221,7 @@ Bir kişisel erişim VSTS erişim belirteci oluşturun.
 
     ![Kişisel erişim belirteci](media\azure-stack-solution-hybrid-pipeline\000_19.png)
 
-### <a name="install-the-vsts-build-agent-on-the-azure-stack-hosted-build-server"></a>Azure Stack'te VSTS derleme aracısı yükleme barındırılan derleme sunucusu
+### <a name="install-the-azure-devops-services-build-agent-on-the-azure-stack-hosted-build-server"></a>Azure Stack'te Azure DevOps hizmetler derleme aracısı yükleme barındırılan derleme sunucusu
 
 1. Derleme, Azure Stack konakta dağıtılan sunucunuza bağlanın.
 2. Yükleme ve dağıtma yapı aracısını kullanarak kişisel bir hizmet olarak erişim belirteci (PAT) ve VM Yöneticisi farklı çalıştır hesabı.
@@ -237,17 +238,17 @@ Bir kişisel erişim VSTS erişim belirteci oluşturun.
 
     ![Yapı Aracısı klasör güncelleştirme](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
 
-    VSTS klasöründeki aracı görebilirsiniz.
+    Azure DevOps Hizmetleri klasörü aracıyı görebilirsiniz.
 
 ## <a name="endpoint-creation-permissions"></a>Uç nokta oluşturma izinleri
 
-Visual Studio Online (VSTO) derleme, uç noktaları oluşturarak, Azure Stack için Azure hizmet uygulamaları dağıtabilirsiniz. Azure Stack'e bağlanır yapı aracısı VSTS bağlanır.
+Visual Studio Online (VSTO) derleme, uç noktaları oluşturarak, Azure Stack için Azure hizmet uygulamaları dağıtabilirsiniz. Azure DevOps Hizmetleri Azure Stack'e bağlanır yapı aracısı bağlanır.
 
 ![VSTO NorthwindCloud örnek uygulaması](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
 
 1. VSTO için oturum açın ve uygulama ayarları sayfasına gidin.
 2. Üzerinde **ayarları**seçin **güvenlik**.
-3. İçinde **VSTS grupları**seçin **uç noktasını oluşturanlar**.
+3. İçinde **Azure DevOps Hizmetleri gruplarında**seçin **uç noktasını oluşturanlar**.
 
     ![NorthwindCloud uç noktasını oluşturanlar](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
 
@@ -257,7 +258,7 @@ Visual Studio Online (VSTO) derleme, uç noktaları oluşturarak, Azure Stack i�
 
 5. İçinde **kullanıcılar ve gruplar ekleme**, bir kullanıcı adı girin ve kullanıcının kullanıcılar listesinden seçin.
 6. Seçin **değişiklikleri kaydetmek**.
-7. İçinde **VSTS grupları** listesinden **uç nokta yöneticileri**.
+7. İçinde **Azure DevOps Hizmetleri gruplarında** listesinden **uç nokta yöneticileri**.
 
     ![NorthwindCloud uç nokta yöneticileri](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
 
@@ -265,6 +266,7 @@ Visual Studio Online (VSTO) derleme, uç noktaları oluşturarak, Azure Stack i�
 9. İçinde **kullanıcılar ve gruplar ekleme**, bir kullanıcı adı girin ve kullanıcının kullanıcılar listesinden seçin.
 10. Seçin **değişiklikleri kaydetmek**.
 
+Mevcut uç nokta bilgileri, Azure Stack bağlantı Azure DevOps Hizmetleri'nin kullanıma hazırdır. Yapı aracısının Azure Stack'te Azure DevOps hizmetlerinden yönergeler alır ve ardından aracıyı Azure Stack ile iletişim için uç nokta bilgileri iletmez.
 ## <a name="create-an-azure-stack-endpoint"></a>Bir Azure Stack uç noktası oluşturma
 
 ' Ndaki yönergeleri takip edebilirsiniz [bir Azure Resource Manager hizmet bağlantısı ile mevcut bir hizmet sorumlusu oluşturma ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) makale bir hizmet bağlantısı ile mevcut bir hizmet sorumlusu oluşturma ve aşağıdaki eşlemeyi kullanın:
@@ -285,18 +287,18 @@ Uç nokta oluşturulduktan sonra Azure Stack bağlantı VSTS'ye kullanıma hazı
 
 Öğreticinin bu bölümünde, gerekir:
 
-* VSTS projesi için kod ekleyin.
+* Bir Azure DevOps Services projesi için kod ekleyin.
 * Kendi içinde bir web uygulaması dağıtımı oluşturun.
 * Sürekli dağıtım işlemi yapılandırma
 
 > [!Note]
  > Windows Server ve SQL Server çalıştırmak için Dağıtılmış doğru görüntüleri, Azure Stack ortamınıza gerekir. Ayrıca dağıtılan App Service olması gerekir. Azure Stack operatörü gereksinimleri için "Önkoşullar" bölümüne App Service belgelerini inceleyin.
 
-Karma CI/CD, hem uygulama kodunda hem de altyapı kodunu uygulayabilirsiniz. Kullanım [Azure Resource Manager şablonları gibi web ](https://azure.microsoft.com/resources/templates/) hem bulutlara dağıtmak için vsts'den uygulama kodu.
+Karma CI/CD, hem uygulama kodunda hem de altyapı kodunu uygulayabilirsiniz. Kullanım [Azure Resource Manager şablonları gibi web ](https://azure.microsoft.com/resources/templates/) hem bulutlara dağıtmak için Azure DevOps hizmetlerden uygulama kodu.
 
-### <a name="add-code-to-a-vsts-project"></a>VSTS projesi için kod ekleyin
+### <a name="add-code-to-an-azure-devops-services-project"></a>Bir Azure DevOps Services projesi için kod ekleyin
 
-1. VSTS'ye Azure Stack üzerinde proje oluşturma haklarına sahip bir hesapla oturum açın. Sonraki ekran görüntüsü yakalamayı HybridCICD projesine bağlanma işlemi gösterilmektedir.
+1. Azure DevOps Hizmetleri için Azure Stack üzerinde proje oluşturma haklarına sahip bir kuruluş ile oturum açın. Sonraki ekran görüntüsü yakalamayı HybridCICD projesine bağlanma işlemi gösterilmektedir.
 
     ![Bir projeye bağlanın](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
 
@@ -310,37 +312,38 @@ Karma CI/CD, hem uygulama kodunda hem de altyapı kodunu uygulayabilirsiniz. Kul
 
     ![Runtimeidentifier yapılandırın](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
 
-2. VSTS kodunu denetlemek için Takım Gezgini'ni kullanın.
+2. Azure DevOps hizmetlerine kodunu denetlemek için Takım Gezgini'ni kullanın.
 
-3. Uygulama kodu Visual Studio Team Services'e denetlendi onaylayın.
+3. Uygulama kodu Azure DevOps hizmetlerine denetlendi onaylayın.
 
-### <a name="create-the-build-definition"></a>Derleme tanımını oluşturun
+### <a name="create-the-build-pipeline"></a>Derleme işlem hattı oluşturma
 
-1. VSTS derleme tanımı oluşturabilirsiniz bir hesapla oturum açın.
+1. Azure DevOps Hizmetleri için bir derleme işlem hattı oluşturmak bir kuruluş ile oturum açın.
+
 2. Gidin **Web uygulaması derleme** proje sayfası.
 
 3. İçinde **bağımsız değişkenleri**, ekleme **- r win10-x64** kod. .Net Core ile kendi içinde bir dağıtım tetiklemek için bu gereklidir.
 
-    ![Bağımsız değişken derleme tanımı Ekle](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
+    ![Bağımsız değişken derleme işlem hattı ekleyin](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
 
 4. Yapı çalıştırın. [Müstakil dağıtım derleme](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) işlem, Azure ve Azure Stack üzerinde çalışabilen yapıtları yayımlar.
 
 ### <a name="use-an-azure-hosted-build-agent"></a>Azure kullanım barındırılan derleme aracısı
 
-VSTS'de barındırılan derleme Aracısı'nı kullanarak, oluşturmak ve web uygulamalarını dağıtmak için kullanışlı bir seçenektir. Aracı Bakımı ve yükseltmeler, sürekli ve kesintisiz geliştirme döngüsü sağlayan Microsoft Azure tarafından otomatik olarak gerçekleştirilir.
+Barındırılan derleme aracısı, Azure DevOps Hizmetleri'ni kullanarak, oluşturmak ve web uygulamalarını dağıtmak için kullanışlı bir seçenektir. Aracı Bakımı ve yükseltmeler, sürekli ve kesintisiz geliştirme döngüsü sağlayan Microsoft Azure tarafından otomatik olarak gerçekleştirilir.
 
 ### <a name="configure-the-continuous-deployment-cd-process"></a>Sürekli dağıtım (CD) işlem yapılandırma
 
-Visual Studio Team Services (VSTS) ve Team Foundation Server (TFS) yüksek oranda yapılandırılabilir ve yönetilebilir bir işlem hattı geliştirme gibi birden çok ortama yayınlar için hazırlama, kalite güvencesi kapsayan (QA) ve üretim sağlar. Bu işlem, belirli bir uygulama yaşam döngüsü aşamalarında onay gerektiren içerebilir.
+Azure DevOps Hizmetleri ve Team Foundation Server (TFS) geliştirme, hazırlama, kalite güvencesi kapsayan (QA) ve üretim gibi birden çok ortama yayınlar için son derece yapılandırılabilir ve yönetilebilir bir işlem hattı sağlar. Bu işlem, belirli bir uygulama yaşam döngüsü aşamalarında onay gerektiren içerebilir.
 
-### <a name="create-release-definition"></a>Yayın tanımı oluşturma
+### <a name="create-release-pipeline"></a>Yayın işlem hattı oluşturma
 
-Bir yayın tanımı oluşturma işleminin son adımında, uygulamanızın yapı işlemi var. Bu yayın tanımı, bir yayın oluşturun ve bir yapı dağıtmak için kullanılır.
+Yayın işlem hattı oluşturmak, son adım, uygulamanızdaki yapı işlemi olur. Bu yayın ardışık düzeni, bir yayın oluşturun ve bir yapı dağıtmak için kullanılır.
 
-1. VSTS oturum açın ve gidin **derleme ve yayın** projeniz için.
+1. Azure DevOps Hizmetleri için oturum açın ve gidin **Azure işlem hatları** projeniz için.
 2. Üzerinde **yayınlar** sekmesinde  **\[ +]** ve ardından çekme **Oluştur yayın tanımı**.
 
-   ![Yayın tanımı oluşturma](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+   ![Yayın işlem hattı oluşturma](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
 
 3. Üzerinde **bir şablon seçin**, seçin **Azure uygulama hizmeti dağıtımının**ve ardından **Uygula**.
 
@@ -427,11 +430,11 @@ Bir yayın tanımı oluşturma işleminin son adımında, uygulamanızın yapı 
 23. Yaptığınız tüm değişiklikleri kaydedin.
 
 > [!Note]
-> Yayın görevleri için bazı ayarları otomatik olarak tanımlanmış olabilir [ortam değişkenlerini](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) bir şablondan bir yayın tanımı oluşturduğunuzda. Bu ayarlar görev ayarlarını değiştirilemez. Ancak, bu ayarları üst ortam öğelerini düzenleyebilirsiniz.
+> Yayın görevleri için bazı ayarları otomatik olarak tanımlanmış olabilir [ortam değişkenlerini](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts#custom-variables) bir şablondan bir yayın ardışık düzeni oluşturduğunuzda. Bu ayarlar görev ayarlarını değiştirilemez. Ancak, bu ayarları üst ortam öğelerini düzenleyebilirsiniz.
 
 ## <a name="create-a-release"></a>Bir yayın oluşturun
 
-Yayın tanımı değişiklikleri tamamladığınıza göre bu dağıtımı başlatmak için saattir. Bunu yapmak için yayın tanımındaki bir yayın oluşturun. Bir yayın otomatik olarak oluşturulabilir; Örneğin, sürekli dağıtım tetikleyicisi, yayın tanımında ayarlanır. Kaynak kodun değiştirilmesiyle tp'nin yeni bir derleme başlayacağı anlamına gelir ve bundan, yeni bir sürüm. Ancak, bu bölümde, yeni bir yayın el ile oluşturacaksınız.
+Yayın ardışık düzeni için yapılan değişiklikleri tamamladığınıza göre bu dağıtımı başlatmak için saattir. Bunu yapmak için sürüm yayın işlem hattı oluşturun. Bir yayın otomatik olarak oluşturulabilir; Örneğin, sürekli dağıtım tetikleyicisi, yayın işlem hattında ayarlanır. Kaynak kodun değiştirilmesiyle tp'nin yeni bir derleme başlayacağı anlamına gelir ve bundan, yeni bir sürüm. Ancak, bu bölümde, yeni bir yayın el ile oluşturacaksınız.
 
 1. Üzerinde **işlem hattı** sekmesini **yayın** açılan listesindeki **yayın oluştur**.
 
