@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: aliceku
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: 0ed05fd2d55f1c4c80bec9f64925be2eddddc067
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: afc53fc1abce74b247ec2e25bc3e4845bc870860
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043980"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380208"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>SQL veritabanı ve veri ambarı için saydam veri şifrelemesi
 
@@ -128,7 +128,7 @@ REST API aracılığıyla saydam veri şifrelemesini yapılandırmak için Azure
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Saydam veri şifrelemesi genel bir açıklaması için bkz. [saydam veri şifrelemesi] ((https://docs.microsoft.com/sql/relational-databases/security/transparent-data-encryption).
+- Saydam veri şifrelemesi genel bir açıklaması için bkz. [saydam veri şifrelemesi](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption).
 - SQL veritabanı ve veri ambarı için kendi anahtarını Getir desteği ile saydam veri şifrelemesi hakkında daha fazla bilgi için bkz: [kendi anahtarınızı getirin desteği ile saydam veri şifrelemesi](transparent-data-encryption-byok-azure-sql.md).
 - Kendi anahtarınızı getirin desteği ile saydam veri şifrelemesi'ni kullanmaya başlamak için nasıl yapılır Kılavuzu [PowerShell kullanarak Key vault'tan kendi anahtarınızı saydam veri şifrelemesini açma](transparent-data-encryption-byok-azure-sql-configure.md).
 - Key Vault hakkında daha fazla bilgi için bkz. [Key Vault belgeleri sayfasını](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).

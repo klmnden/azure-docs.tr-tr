@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7b1f937a71a0ff5b8030c922073dc463af3c8430
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 274f9d89113f583cc7b65ae01f3132d35b82b920
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349271"
+ms.locfileid: "44380429"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure sanal makineleri planlama ve uygulama için SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -511,7 +511,7 @@ Azure Resource Manager, uygulamalarınızı bildirim temelli bir şablon aracıl
 
 Resource Manager şablonlarını kullanma hakkında daha fazla bilgi burada bulunabilir:
 
-* [Dağıtmak ve Azure Resource Manager şablonları ve Azure CLI kullanarak sanal makineleri yönetme] [../../linux/create-ssh-secured-vm-from-template.md]
+* [Azure Resource Manager şablonları ve Azure CLI kullanarak sanal makineleri yönetme ve dağıtma](../../linux/create-ssh-secured-vm-from-template.md)
 * [Azure Resource Manager ve PowerShell kullanarak sanal makineleri yönetme][virtual-machines-deploy-rmtemplates-powershell]
 * <https://azure.microsoft.com/documentation/templates/>
 

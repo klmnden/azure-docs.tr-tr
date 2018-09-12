@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: f729a7972a36d53cb8f4f3769aedde4ca2005d80
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 77953884253002c6da7b0151151d97bb65a6c659
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346143"
+ms.locfileid: "44377097"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Azure kaynakları için yönetilen kimlikleri Azure portalını kullanarak bir VM yapılandırma
 
@@ -34,8 +34,10 @@ Bu makalede, Azure sanal makine (Azure portalı kullanarak VM için), sistem ve 
 - Azure kaynakları için yönetilen kimliklerle bilmiyorsanız kullanıma [genel bakış bölümünde](overview.md).
 - Henüz bir Azure hesabınız yoksa, devam etmeden önce [ücretsiz bir hesaba kaydolun](https://azure.microsoft.com/free/).
 - Bu makalede yönetim işlemlerini gerçekleştirmek için aşağıdaki Azure rol tabanlı erişim denetimi atamalarını hesabınızın gerekir:
+
     > [!NOTE]
     > Hiçbir ek Azure AD dizini rol atamaları gerekli.
+
     - [Sanal makine Katılımcısı](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) etkinleştirip yönetilen kimlik sistem tarafından atanan bir Azure VM'den kaldırın.
 
 ## <a name="system-assigned-managed-identity"></a>Sistem tarafından atanan yönetilen kimlik

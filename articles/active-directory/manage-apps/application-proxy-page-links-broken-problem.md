@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/18/2018
+ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 505b3e7df64ef804448bd5753bdaa6148b22a2c3
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 382b484f5ed1e45863d24635554cd7c3a55176a4
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357699"
+ms.locfileid: "44378423"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Bir uygulama proxy'si uygulaması için çalışma sayfasındaki bağlantılar çalışmıyor
 
@@ -43,9 +43,7 @@ Bu sorunu çözmek için üç yolu vardır. Aşağıdaki seçenek artan karmaş�
 
     Bu seçenek, iç URL uygulamaya içindeki bağlantılar da harici olarak tanınır olduğundan uygulamanız bağlantıları uygulama proxy'si aracılığıyla harici olarak erişilebilen olmasını sağlar. Yayımlanan bir uygulamaya ait tüm bağlantıları yine de gerekir. Ancak, bu seçenekle bağlantıları aynı uygulamaya ait gerekmez ve birden çok uygulamalara ait olabilir.
 
-3.  Bu seçeneklerin ikisi de uygulanabilir ise, URL çevirisi/yeniden yazma gerçekleştiren yeni bir özellik önizleyebilirsiniz. Bu özellik ile iç URL'ler veya mevcut uygulamalarınızı HTML gövdesinde bağlantıları çevrilmiş veya "Eşlenmiş, yayımlanan dış uygulama ara sunucusu URL'lerini". Bu çeviri yalnızca, CSS ve HTML bağlantılar üzerinde çalışır ve JS ile bağlantınız oluşturulursa yardımcı olmaz. 
-
-Sonuç olarak, kullanarak öneririz [özel etki alanları](application-proxy-configure-custom-domain.md) mümkünse çözüm. Önizlemeye katılmak istemiyorsanız, e-posta <aadapfeedback@microsoft.com> applicationId(s) ile.
+3.  Bu seçeneklerin ikisi de uygulanabilir, satır içi bağlantı çeviri etkinleştirmek için birden çok seçenek vardır. Bu seçeneklerin, Intune Managed Browser, uygulamalarım uzantısı veya uygulama bağlantısını çeviri ayarı kullanarak içerir. Tüm bu seçenekler ve bunları etkinleştirme hakkında daha fazla bilgi için bkz: [yeniden yönlendirme, Azure AD uygulama ara sunucusu ile yayımlanan uygulamalar için sabit kodlanmış bağlantı](application-proxy-configure-hard-coded-link-translation.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Mevcut şirket içi proxy sunucuları ile çalışma](application-proxy-configure-connectors-with-proxy-servers.md)

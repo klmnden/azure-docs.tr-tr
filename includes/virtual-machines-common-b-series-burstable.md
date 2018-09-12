@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 533fa1a8491a701571011f407b338e04fb6a7e8b
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 14feb7ad09a24904034f9ae90cf4a54cf786a44c
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40182963"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44369468"
 ---
 B serisi VM ailesi, hangi sanal makine boyutu %100 Intel® Broadwell E5-2673 v4'üne kadar CPU performans düzeyine çıkış yapması özelliği sayesinde, iş yükü için gereken temel düzeyde performans sağlar seçmenizi sağlar 2.3 GHz veya bir Intel® Haswell 2.4 GHz E5-2673 v3 işlemci vCPU.
 
-B serisi sanal makineler, CPU'nun tam performansta küçük veritabanları ve geliştirme gibi web sunucuları gibi sürekli olarak gerekir ve test ortamları iş yükleri için idealdir. Bu iş yükleri genellikle seri aktarıma uygun performans gereksinimleri vardır. B serisi, bir VM boyutu temel performans satın almanıza olanak sağlar ve taban sayısından az kullanılırken, sanal makine örneği kredi oluşturur. VM VM kredi toplandığında, daha yüksek bir CPU performans uygulamanızın gerektirdiği kadar vCPU %100 kullandığınızda temel veri bloğu.
+B serisi sanal makineler, web sunucuları gibi kavramları, küçük veritabanları ve geliştirme yapı ortamları sağlama CPU'nun tam performansta sürekli olarak ihtiyacınız olan iş yükleri için idealdir. Bu iş yükleri genellikle seri aktarıma uygun performans gereksinimleri vardır. B serisi, bir VM boyutu temel performans satın almanıza olanak sağlar ve taban sayısından az kullanılırken, sanal makine örneği kredi oluşturur. VM VM kredi toplandığında, daha yüksek bir CPU performans uygulamanızın gerektirdiği kadar vCPU %100 kullandığınızda temel veri bloğu.
 
 B serisi, aşağıdaki altı VM boyutlarında gelir:
 
@@ -47,11 +47,11 @@ B serisi, aşağıdaki altı VM boyutlarında gelir:
 ### <a name="q-how-are-credits-accumulated"></a>S: nasıl KREDİLERİ toplanır?
 **A**: VM birikmesi ve Tüketim oranları, tamamen kendi temel performans düzeyinde çalışan bir VM ağ birikmesi veya KREDİLERİ Patlaması, tüketim ne sağlayacak şekilde ayarlanır.  Bir VM, temel performans düzeyinin altında çalışır durumda olduğunda krediler net bir artış olacaktır ve VM temel performans düzeyiyle birden çok CPU kullanan her KREDİLERİ net bir düşüş olur.
 
-**Örnek**: küçük zaman ve katılım veritabanı Uygulamam için B1ms boyutunu kullanarak VM dağıtabilir. Bu boyut en fazla %20 bir vCPU,.2 kredi veya banka kullanabilirim dakika başına my taban çizgisi olarak kullanılacak Uygulamam sağlar. 
+**Örnek**: küçük zaman ve katılım veritabanı Uygulamam için B1ms boyutunu kullanarak VM dağıtabilir. Bu boyut en fazla %20 bir vCPU, 0.2 kredi veya banka kullanabilirim dakika başına my taban çizgisi olarak kullanılacak Uygulamam sağlar. 
 
-Uygulamamın 7:00-9:00 ÖÖ ve 4:00-18:00:00 arasında my çalışanların iş günü sonunda ve başındaki meşgul. Diğer 20 saatleri günün Uygulamam genellikle olduğu anda, yalnızca % 10 ' vCPU kullanarak boş. Yoğun olmayan saatler miyim dakika başına 0.2 KREDİLERİ kazanın ancak sanal Makinem 60 x.1 banka şekilde yalnızca dakika başına 0.l aktarımla birlikte bunların 6 KREDİLERİ / saat =.  20, ı yoğun olmayan saatler için ı 120 KREDİLERİ banka.  
+Uygulamamın 7:00-9:00 ÖÖ ve 4:00-18:00:00 arasında my çalışanların iş günü sonunda ve başındaki meşgul. Diğer 20 saatleri günün Uygulamam genellikle olduğu anda, yalnızca % 10 ' vCPU kullanarak boş. Yoğun olmayan saatlere miyim dakika başına 0.2 KREDİLERİ kazanın, ancak sanal Makinem 0,1 x 60 = 6 banka şekilde yalnızca dakika başına 0.l aktarımla birlikte bunların KREDİLERİ / saat.  20, ı yoğun olmayan saatler için ı 120 KREDİLERİ banka.  
 
-Yoğun saatlerde Uygulamam % 60 vCPU kullanımı ortalama, ı hala dakika başına 0.2 KREDİLERİ kazanın ancak ben dakika başına 0,6 aktarımla birlikte bunların,.4 KREDİLERİ net maliyeti için bir dakika ya da.4 x 60 = 24 saatlik kredisi. En yüksek kullanımı, günde 4 saat sahibim 4 x 24 = 96 maliyetleri için en yüksek kullanımı için kredi.
+Yoğun saatlerde Uygulamam % 60 vCPU kullanımı ortalama, ı hala dakika başına 0.2 KREDİLERİ kazanın ancak ben dakika başına 0,6 aktarımla birlikte bunların, 0,4 KREDİLERİ net maliyeti için bir dakika ya da 0.4 x 60 = 24 saatlik kredisi. En yüksek kullanımı, günde 4 saat sahibim 4 x 24 = 96 maliyetleri için en yüksek kullanımı için kredi.
 
 120 miyim kazanılan krediler yoğun alın ve benim için tepe zamanları kullandım 96 KREDİLERİ çıkarma, ı kullanabileceğim diğer etkinlik patlamalarına günde bir ek 24 KREDİLERİ banka.
 

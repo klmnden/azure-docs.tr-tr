@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: de9abac2839341e1744a694daaaa0befdff4e7fa
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 704534ed50e12e7f9290cb321ad3b9e1b99117d5
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668589"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377897"
 ---
 # <a name="supported-languages-for-speech-service"></a>Konuşma hizmeti için desteklenen diller
 
@@ -29,13 +29,22 @@ Microsoft konuşma tanıma API'si aşağıdaki dilleri desteklemektedir.
  ar EG | Arapça (Mısır) modern standart | Hayır | Evet | Hayır
  İt-IT | İtalyanca (İtalya) | Hayır | Evet | Hayır 
  de-DE | Almanca (Almanya) | Hayır | Evet | Evet
- ja-JP | Japonca (Japonya) | Hayır | Evet | Hayır
- tr-TR | İngilizce (ABD) | Evet | Evet | Evet
- pt-BR | Portekizce (Brezilya) | Hayır | Evet | Hayır
- es-ES | İspanyolca (İspanya) | Hayır | Evet | Hayır
- ru-RU | Rusça (Rusya) | Hayır | Evet | Hayır
  fr-FR | Fransızca (Fransa) | Hayır | Evet | Hayır
+ tr-TR | İngilizce (ABD) | Evet | Evet | Evet
+ en-GB | İngilizce (İngiltere) | Hayır | Evet | Hayır
+ CA tr | İngilizce (Kanada) | Hayır | Evet | Hayır
+ tr-AU | İngilizce (Avustralya) | Hayır | Evet | Hayır
+ es-ES | İspanyolca (İspanya) | Hayır | Evet | Hayır
+ NL-NL | Hollanda dili (Hollanda) | Hayır | Evet | Hayır
+ pt-PT | Portoguese (Portogal) | Hayır | Evet | Hayır
+ tr-TR | Türkçe (Türkiye) | Hayır | Evet | Hayır
+ pt-BR | Portekizce (Brezilya) | Hayır | Evet | Hayır
+ ru-RU | Rusça (Rusya) | Hayır | Evet | Hayır
  zh-CN | Çince (Basitleştirilmiş Mandarin) | Hayır | Evet | Hayır
+ zh-HK | Çince (Mandarin, Geleneksel) | Hayır | Evet | Hayır
+ zh-TW | Çince (Tayvan Mandarin) | Hayır | Evet | Hayır
+ ja-JP | Japonca (Japonya) | Hayır | Evet | Hayır
+ ko-KR | Korece (Kore) | Hayır | Evet | Hayır
 
 ## <a name="text-to-speech"></a>Metin Okuma
 

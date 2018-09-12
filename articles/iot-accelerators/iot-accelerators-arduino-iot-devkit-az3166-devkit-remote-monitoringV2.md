@@ -7,23 +7,22 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.devlang: c
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 05/09/2018
 ms.author: isacabe
-ms.openlocfilehash: d3175290c1a7fca5e35f4438392f29324868f1a3
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 35ef6ef02e5ae8a4b9231121615f44e0dc00ad15
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054925"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378746"
 ---
 # <a name="connect-mxchip-iot-devkit-az3166-to-the-iot-remote-monitoring-solution-accelerator"></a>MXChip IOT DevKit AZ3166 IOT Uzaktan izleme çözüm hızlandırıcısına bağlamayı
-
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 Bu öğreticide, DevKit çözüm hızlandırıcınız sensör verilerini göndermek için örnek uygulamayı çalıştırma konusunda bilgi edinin.
 
-[MXChip IOT DevKit](https://aka.ms/iot-devkit) bir hepsi bir arada Arduino uyumlu zengin çevre ve sensörlerden panosudur. Onu kullanarak geliştirebilirsiniz [Arduino için Visual Studio Code uzantısı](https://aka.ms/arduino). Ve büyüyen ile birlikte gelen [projeleri Kataloğu](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) prototip nesnelerin interneti (IOT) çözümleri, Microsoft Azure hizmetlerinden yararlanan size yol gösterecek.
+[MXChip IOT DevKit](https://aka.ms/iot-devkit) bir hepsi bir arada Arduino uyumlu zengin çevre ve sensörlerden panosudur. Onu kullanarak geliştirebilirsiniz [Azure IOT Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) Visual Studio code'da. Ve büyüyen ile birlikte gelen [projeleri Kataloğu](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) prototip nesnelerin interneti (IOT) çözümleri, Microsoft Azure hizmetlerinden yararlanan size yol gösterecek.
 
 ## <a name="what-you-need"></a>Ne gerekiyor
 
@@ -35,95 +34,117 @@ Git aracılığıyla [Başlarken Kılavuzu](https://docs.microsoft.com/azure/iot
 * Geliştirme ortamını hazırlama
 
 
-## <a name="open-the-remotemonitoring-sample-in-vs-code"></a>VS Code'da RemoteMonitoring örneği açın
+## <a name="create-an-azure-iot-remote-monitoring-solution-accelerator"></a>Bir Azure IOT Uzaktan izleme çözüm Hızlandırıcısını oluşturma
 
-1. Bağlı olup olmadığını MXChip DevKit bilgisayarınızdan bağlantısını kesin.
+Bu öğreticide oluşturduğunuz AZ3166 cihaz Uzaktan izleme çözüm Hızlandırıcısını örneğine verileri gönderir. Örneği Azure hesabınızda henüz hazırlamadıysanız izleyin [hızlı](https://docs.microsoft.com/azure/iot-accelerators/quickstart-remote-monitoring-deploy) Bunu yapmak için Kılavuzu.
 
-2. VS Code'u başlatın.
+Uzaktan izleme çözümü dağıtım tamamlandığında, çözüm panosunu açın.
 
-3. MXChip DevKit bilgisayarınıza bağlayın.
+![Çözüm Panosu](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-dashboard-info.png)
 
-4. Kullanım `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) komut paletini açmak için şunu yazın **Arduino**ve ardından bulmak ve seçmek **Arduino: örnekler**.
+## <a name="add-a-device-to-the-remote-monitoring-solution"></a>Bir cihazı Uzaktan izleme çözümü Ekle
 
- 5. Sol tarafındaki genişletme **ARDUINO ÖRNEKLER** bölümünde **MXCHIP AZ3166 için örnek > AzureIoT**seçip **RemoteMonitoringv2**. Bu proje klasöründe ile yeni bir VS Code penceresinin açılır.
+1. Panoda Git **cihazları** tıklayın ve bölüm **yeni cihaz**.
+   ![Yeni bir cihaz ekleme](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-add-device.png)
 
-  > [!NOTE]
-  > Görmüyorsanız **örnekler için MXCHIP**, kullanın `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) türü ve komut paletini açın **Arduino Panosu Manager**. Dosyayı seçin ve ardından arama **AZ3166** Pano Yöneticisi'ni içinde. Ardından yukarıdaki 5. adımı yineleyin ve örneklere bakın olmalıdır.
+2. ' A tıklayın ve aşağıdaki bilgileri kullanarak cihaz yapılandırma **Uygula**.
+  * Cihaz türü: **fiziksel**
+  * Cihaz kimliği: **AZ3166**
+  * Kimlik doğrulaması türü: **simetrik anahtar**
+  * Kimlik doğrulama anahtarı: **anahtarları otomatik olarak oluştur**
+  
+  ![Yeni bir cihaz form ekleme](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-add-new-device-form.png)
 
-  ![Uzaktan izleme Proje Aç](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-arduino-examples.png)
+3. Yeni cihaz oluşturulduktan sonra kopyalama **birincil anahtar bağlantı dizesini**. Azure IOT hub'ı yeni oluşturduğunuz cihaz budur.
+  
+  ![Cihaz bağlantı dizesi](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-new-device-connstring.png)
 
-  > [!NOTE]
-  > Bölmesini kapatmak için MSDN aboneliğine, yeniden açabilirsiniz. Kullanım `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) komut paletini açmak için şunu yazın **Arduino**ve ardından bulmak ve seçmek **Arduino: örnekler**.
+## <a name="open-the-remote-monitoring-sample-in-vs-code"></a>Uzaktan izleme örnek VS Code'da açın
 
-## <a name="build-and-upload-the-device-code-to-your-mxchip"></a>Derleme ve cihaz kodu, MXChip için karşıya yükleme
+1. Kendi IOT DevKit olduğundan emin olun **bağlı** bilgisayarınıza. VS Code ilk kez başlatın ve ardından DevKit bilgisayarınıza bağlayın.
 
-1. Kullanım `Ctrl+P` (macOS: `Cmd + P`) ve türü **görev yapılandırma cihaz bağlantısı**.
+1. Tıklayın `F1` komut paleti, türü ve select açmak için **IOT Workbench: örnekler**. Ardından **IOT DevKit** tablosu olarak.
 
-  ![Azure aboneliğinizi ve IOT Hub'ı seçin](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/iot-suite-task-config-device-conexion.png)
+1. Bulma **Uzaktan izleme** tıklatıp **açık örnek**. Proje klasöründe ile yeni bir VS Code penceresinin açılır.
+  ![IOT Workbench, select Uzaktan izleme örneği](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-example.png)
 
-2. Terminalde, kullanmak istediğiniz IOT cihaz bağlantı dizesini kullanmak isteyip istemediğinizi sorar. Seçin *Yeni Oluştur*, artık kopyalayıp yapıştırın.
+## <a name="configure-iot-hub-device-connection-string"></a>IOT Hub cihaz bağlantı dizesini yapılandırma
 
-  ![bağlantı dizesini yapıştırın](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/iot-suite-task-config-device-conexion-choose-iot-hub-press-button-A.png)
+1. IOT DevKit içine geçiş **yapılandırma modunu**. Bunu yapmak için:
+   * Düğmesini basılı **A**.
+   * Anında iletme ve yayın **sıfırlama** düğmesi.
 
-3. Terminal bazen yapılandırma modunu girmenizi ister. Bunu yapmak için basılı **bir düğme**, ardından gönderin ve yayın **Sıfırla düğmesi** ve A. düğmesini bırakın Ekran DevKit Kimliğine ve 'Configuration' görüntüler.
+2. Ekran DevKit Kimliğine ve 'Configuration' görüntüler.
+   
+  ![IOT DevKit yapılandırma modu](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/devkit-configuration-mode.png)
 
-  ![Cihaz DevKit ekranı](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-devkit-screen.png)
+3. Tıklayın `F1` komut paleti, türü ve select açmak için **IOT Workbench: cihaz > yapılandırma cihaz ayarlarından**.
 
-  > [!NOTE]
-  > Bu öğreticinin son bölümde izlediyseniz bağlantı dizesini panonuza kaydedilmesi gerekir. Aksi durumda, Azure portalına gidin ve Uzaktan izleme kaynak grubunuz için IOT Hub bakın. Burada, IOT hub'ı bağlı cihazlar ve cihaz bağlantı dizesini kopyalayın görebilirsiniz.
+4. Az önce kopyaladığınız tıklatın bağlantı dizesini yapıştırın `Enter` yapılandırmak için.
 
-  ![bağlantı dizesini arayın](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-connection-string-of-a-device.png)
+## <a name="build-and-upload-the-device-code"></a>Derleme ve cihaz kodu yükleyin
 
-  Artık bağlı ve başarıyla MXChip Cihazınızı IOT hub'ına doğrulandı. Yeni fiziksel Cihazınızı VS Code bölümünde "Azure IOT Hub cihazları" görmek için yüklemelidir [Azure IOT Toolkit uzantısını.](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) 
+1. Tıklayın `F1` komut paleti, türü ve select açmak için **IOT Workbench: cihaz > cihaz yükleme**.
+  ![IOT Workbench: Cihaz - > karşıya yükle](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-device-upload.png)
 
-  Artık, yeni fiziksel Cihazınızı VS Code bölümünde "Azure IOT Hub cihazları" görebilirsiniz:
+1. VS Code, ardından derlemeyi ve kod, Devkit'e karşıya yükleme başlar.
+  ![IOT Workbench: Cihaz - > karşıya yüklendi](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-device-uploaded.png)
 
-  ![Yeni IOT Hub cihazı dikkat edin.](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/iot-suite-new-iot-hub-device.png)
-
-4. Son olarak, MxChip IOT çözüm hızlandırıcınız verileri göndermeye başlamak için üzerine RemoteMonitoringV2.ino kod yükleyeceksiniz. Kullanım `Ctrl + Shift + P` (macOS: `Cmd + Shift + P`) ve türü **Arduino karşıya**. VS Code, ardından kod, MXChip üzerine karşıya yüklemeyi başlatmak ve tamamlandığında size bildirir. 
+DevKit yeniden başlatır ve kod çalışmaya başlar.
 
 ## <a name="test-the-project"></a>Test projesi
 
-Örnek uygulama çalıştırıldığında, MXChip DevKit sensör verilerini IOT çözüm hızlandırıcılarınız Wi-Fi gönderir. Sonuçları görmek için aşağıdaki adımları izleyin:
+### <a name="view-the-telemetry-sent-to-remote-monitoring-solution"></a>Uzaktan izleme çözümüne gönderilen telemetri görüntüleme
 
-1. IOT çözüm hızlandırıcınız gidip tıklatın **PANO**.
+Örnek uygulama çalıştığında, Uzaktan izleme çözümünüzü DevKit sensör verilerini Wi-Fi gönderir. Sonuçları görmek için aşağıdaki adımları izleyin:
 
-2. IOT Çözüm Hızlandırıcısı konsolda MXChip DevKit algılayıcı durumunuzu görürsünüz. 
+1. Çözüm panonuza gidin ve tıklatın **cihazları**.
 
-![IOT Çözüm Hızlandırıcıları sensör verisi](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-dashboard.png)
+1. Algılayıcı durumu DevKit üzerinde gerçek zamanlı olarak görebileceğiniz bir Pano sağ tarafında bir sekme açılır cihaz adı (AZ3166) tıklayın.
+  ![Azure IOT paketi sensör verisi](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-dashboard.png)
 
-Algılayıcı adı (AZ3166) tıklatırsanız, gerçek zamanlı MXChip sensörlerden grafik görebileceğiniz bir Pano sağ tarafında bir sekme açılır.
+### <a name="send-a-c2d-message"></a>C2D ileti gönderme
 
+Uzaktan izleme çözümü, uzak yöntemi cihazda çağırmak sağlar. Sxample kod görebilirsiniz üç yöntem yayımlar **yöntemi** algılayıcı seçildiğinde bölümü.
 
-## <a name="send-a-c2d-message"></a>C2D ileti gönderme
-Uzaktan izleme v2 cihazda uzak yöntem çağırma olanak sağlar.
-MX yonga örnek kod, algılayıcı seçildiğinde yöntemi bölümünde görebileceğiniz üç yöntem yayımlar.
+![IOT DevKit yöntemleri](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-methods.png)
 
-![MX yonga yöntemleri](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-methods.png)
+Bize DevKit "LedColor" yöntemiyle LED'lerini birinin rengini değiştirmek deneyin.
 
-MX yonga "LedColor" yöntemiyle LED'lerini birinin rengini değiştirebilirsiniz. Bunu yapmak, cihazın onay kutusunu seçin ve zamanlama düğmesine tıklayın. 
+1. Seçin **AZ3166** cihaz listesi ve tıklayarak **işleri**.
 
-![MX yonga yöntemleri](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-schedule.png)
+  ![Bir iş oluşturma](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-job.png)
 
-Burada tüm yöntemleri görünen bir ad yazın ve uygulama açılır menüde ChangeColor adlı yöntemi seçin.
+2. İşleri aşağıdaki gibi yapılandırın ve tıklayın **Uygula**.
+  * Select iş: **Run yöntemi**
+  * Yöntem adı: **LedColor**
+  * İş adı: **ChangeLedColor**
+  
+  ![Proje ayarları](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
 
-![Açılan MX yonga](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/iot-suite-change-color.png)
+Birkaç saniye içinde DevKit RGB LED'i (Aşağıda, bir düğme) rengini değiştirmeniz gerekir.
 
-Birkaç saniye içinde fiziksel MX yonganız RGB LED'i rengini değiştirmek (aşağıda bir düğme)
+![IOT DevKit kırmızı yönlendirdi](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-devkit-led.png)
 
-![LED MX yonga](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-devkit-led.png)
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Öğreticilere devam etmeyi planlıyorsanız Uzaktan İzleme çözümü hızlandırıcısı dağıtımını bırakın.
+
+Çözüm Hızlandırıcısını artık ihtiyacınız kalmadığında, seçerek ve ardından silme çözüm tıklayarak sağlanan çözümleri sayfasından silin:
+
+![Çözümü sil](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
 ## <a name="problems-and-feedback"></a>Sorunları ve geri bildirim
 
-Sorunlarla karşılaşırsanız, başvurmak [SSS](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) veya aşağıdaki kanal aracılığıyla bize ulaşın:
+Sorunlarla karşılaşırsanız, başvurmak [IOT DevKit SSS'leri](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) veya aşağıdaki kanalları kullanarak bize ulaşın:
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-IOT çözüm hızlandırıcılarınız DevKit cihaz bağlanıp algılayıcı verilerini görselleştirme öğrendiniz, önerilen sonraki adımlar şunlardır:
+Algılayıcı verilerini Görselleştirme ve DevKit cihaz, Azure IOT Uzaktan izleme çözüm hızlandırıcısına bağlamayı öğrendiniz, önerilen sonraki adımlar şunlardır:
 
-* [IOT çözüm hızlandırıcılarına genel bakış](https://docs.microsoft.com/azure/iot-suite/)
-* [MXChip IOT DevKit cihaz Microsoft IoT Central uygulamanızı bağlayın](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
-* [IOT Geliştirici Seti](https://microsoft.github.io/azure-iot-developer-kit/)
+* [Azure IOT çözüm hızlandırıcılarına genel bakış](https://docs.microsoft.com/azure/iot-suite/)
+* [Kullanıcı arabirimini özelleştirme](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)
+* [IOT DevKit Azure IOT Central uygulamanızı bağlayın](../iot-central/howto-connect-devkit.md)

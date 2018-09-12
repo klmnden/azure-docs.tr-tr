@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 9d33ccf9262d4432ac7255121e97f318d00b5145
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bc57d445c334baeb32dbffda814cb10a35956d03
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050658"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380225"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure Stack profilleri tarafından desteklenen kaynak sağlayıcısı API sürümleri
 
@@ -56,7 +56,7 @@ Bir API profillerini ve açıklama sürüm yayın temposudur için Azure Stack i
 
 Daha fazla sürümlerinin listesi için her kaynak türü için API Profil sağlayıcıları için bkz. [2018-03-01-karma ayrıntılarını](#details-for-the-2018-03-01-hybrid) profili.
 
-## <a name="overview-of-2017-03-09-profile"></a>2017-03-09-profile genel bakış
+## <a name="overview-of-2018-03-01-hybrid"></a>2018-03-01-karma genel bakış
 
 | Kaynak sağlayıcısı | API sürümü |
 |------------------------------------------------|------------------------------|
@@ -76,7 +76,7 @@ Daha fazla sürümlerinin listesi için her kaynak türü için API Profil sağl
 | Resources_Locks | 2016-09-01 |
 | Abonelikler | 2016-06-1 |
 
-Daha fazla sürümlerinin listesi için her kaynak türü için API Profil sağlayıcıları için bkz. [2017-03-09-profile için Ayrıntılar](#details-for-the-2017-03-09-profile)
+Daha fazla sürümlerinin listesi için her kaynak türü için API Profil sağlayıcıları için bkz. [2018-03-01-karma için Ayrıntılar](#details-for-the-2018-03-01-hybrid)
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>Ayrıntılar için 2018-03-01-karma
 
@@ -231,7 +231,7 @@ Depolama kaynak Sağlayıcısı'nı (SRP), depolama hesabı ve anahtarları prog
 | StorageAccounts | 2016-01-01 |
 | Kullanımları | 2016-01-01 |
 
-## <a name="details-for-the-2017-03-09-profile"></a>2017-03-09-profile için Ayrıntılar
+## <a name="details-for-the-2018-03-01-hybrid"></a>Ayrıntılar için 2018-03-01-karma
 
 ### <a name="microsoft-authorization"></a>Microsoft Yetkilendirmesi
 

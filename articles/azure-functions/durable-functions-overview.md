@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 136316feab5a08308a9f10e499f645aaee0c90d3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 1d6160f8c66fd749942be581cb2992977da82911
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093252"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377998"
 ---
 # <a name="durable-functions-overview"></a>Dayanıklı işlevler genel bakış
 
@@ -334,7 +334,7 @@ Arka planda üst kısmındaki dayanıklı işlevler uzantısını oluşturulmuş
 
 ### <a name="event-sourcing-checkpointing-and-replay"></a>Olay kaynağını belirleme, denetim noktası ve yeniden yürütme
 
-Orchestrator İşlevler, yürütme durumlarını olarak bilinen bir bulut tasarım modeli kullanarak güvenilir bir şekilde korumak [olay kaynağını belirleme](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). Doğrudan depolamak yerine *geçerli* düzenleme, dayanıklı uzantısı durumunu kaydetmek için bir yalnızca ekleme deposu kullanan *tam Eylemler dizisi* işlevi düzenleme tarafından gerçekleştirilen. Bu performansı, ölçeklenebilirliği ve yanıt hızını "tam çalışma zamanı durumunu dökme" karşılaştırıldığında iyileştirme de dahil olmak üzere birçok avantaj sunar. Diğer avantajları işlem verilerinde nihai tutarlılık sağlayan ve tam denetim kayıtlarını ve geçmişini içerir. Denetim kayıtlarını güvenilir telafi eylemlerine olanak.
+Orchestrator İşlevler, yürütme durumlarını olarak bilinen bir tasarım desenini kullanarak güvenilir bir şekilde korumak [olay kaynağını belirleme](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). Doğrudan depolamak yerine *geçerli* düzenleme, dayanıklı uzantısı durumunu kaydetmek için bir yalnızca ekleme deposu kullanan *tam Eylemler dizisi* işlevi düzenleme tarafından gerçekleştirilen. Bu performansı, ölçeklenebilirliği ve yanıt hızını "tam çalışma zamanı durumunu dökme" karşılaştırıldığında iyileştirme de dahil olmak üzere birçok avantaj sunar. Diğer avantajları işlem verilerinde nihai tutarlılık sağlayan ve tam denetim kayıtlarını ve geçmişini içerir. Denetim kayıtlarını güvenilir telafi eylemlerine olanak.
 
 Olay kaynağını belirleme kullanımını bu uzantı tarafından saydamdır. Kapak altında `await` orchestrator işlevde işlecini verir orchestrator iş parçacığının denetim dayanıklı görev Framework dağıtıcısıyla. Dağıtıcı, orchestrator işlevi (bir veya daha fazla alt işlevlerini çağırma veya kalıcı bir zamanlayıcı zamanlama) planlanan yeni eylemler ardından depolama alanına kaydeder. Bu saydam işleme eylemi ekler *yürütme geçmişini* düzenleme örneği. Geçmiş depolama tablosunda depolanır. İşleme işlem iletileri asıl işi zamanlamak için bir kuyruk ekler. Bu noktada, orchestrator işlevi bellekten olabilir. Azure işlevleri tüketim planı kullanıyorsanız, bunu faturalandırması durdurur.  Yapmak için daha fazla iş olduğunda işlevi yeniden başlatılır ve durumunu yeniden düzenlenir.
 
@@ -369,6 +369,8 @@ Dayanıklı işlevler uzantısını, yürütme geçmişini durumu ve tetikleyici
 Orchestrator işlevleri, etkinlik işlevlerini zamanlayabilir ve yanıtlarını iç iletileri aracılığıyla alırsınız. Bir işlev uygulaması Azure işlevleri tüketim planında çalıştığında, bu kuyruk tarafından izlenen [Azure işlevlerini ölçeklendirme denetleyicisi](functions-scale.md#how-the-consumption-plan-works) ve yeni örnekleri, gerektikçe eklenir işlem. Çağrı etkinlik işlevlere birkaç farklı Vm'lere çalıştırırken bir düzenleyici işlevi için birden çok VM ölçeği, bir VM üzerinde çalıştırabilirsiniz. Dayanıklı işlevler ölçek davranışı üzerinde daha fazla ayrıntı bulabilirsiniz [performansı ve ölçeği](durable-functions-perf-and-scale.md).
 
 Tablo depolama, orchestrator hesapları için yürütme geçmişi depolamak için kullanılır. Belirli bir VM örneği rehydrates olduğunda, böylece yerel durumunu yeniden oluşturabilirsiniz, yürütme geçmişini tablo Depolama'yı getirir. Geçmiş tablo depolamada kullanılabilir olması hakkında kullanışlı şeylerden biri olduğundan göz atın ve gibi araçları kullanarak, düzenlemeleri geçmişini görebilir [Microsoft Azure Depolama Gezgini](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+
+Depolama BLOB'ları orchestration örneklerinin genişleme birden çok VM arasında koordine etmek için öncelikle bir kiralama mekanizmasının kullanılır. Bunlar doğrudan tabloları veya Kuyrukları depolanamaz büyük iletiler için verileri tutmak için kullanılır.
 
 ![Azure Depolama Gezgini ekran görüntüsü](media/durable-functions-overview/storage-explorer.png)
 

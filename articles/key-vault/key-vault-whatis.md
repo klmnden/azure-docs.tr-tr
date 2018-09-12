@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: d7357dc7e8fa473bd8517dd80ede749b9d8e3f07
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 580ebbf219daa4c22034ffbf9ee3abbbdd0c8130
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162844"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378772"
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Anahtar Kasası nedir?
 
 Azure Key Vault, aşağıdaki sorunların çözülmesine yardımcı olur
-- Belirteçleri, parolaları, sertifikaları, API anahtarlarını ve diğer gizli dizileri Güvenle depolamak ve bunlara erişimi sıkı bir şekilde denetlemek için Azure Key Vault kullanılabilir
-- Azure Key Vault, Anahtar Yönetimi çözümü olarak da kullanılabilir. Azure Key Vault, verilerinizi şifrelemek için kullanılan şifreleme anahtarlarını oluşturmayı ve denetlemeyi kolaylaştırır. 
-- Azure Key Vault aynı zamanda, Azure ve bağlı iç kaynaklarınızla kullanım için genel ve özel Güvenli Yuva Katmanı/Aktarım Katmanı Güvenliği (SSL/TLS) sertifikalarını kolayca hazırlamanıza, yönetmenize ve dağıtmanıza olanak sağlayan bir hizmettir. 
-- Gizli diziler ve anahtarlar yazılım tarafından korunabilir veya FIPS 140-2 Düzey 2, HSM'leri doğrular
+- **Gizli dizileri Yönetim** -Azure Key Vault, güvenli bir şekilde saklayın ve sıkı bir şekilde belirteçleri, parolaları, sertifikaları, API anahtarlarını ve diğer gizli dizileri erişimi denetlemek için kullanılabilir
+- **Anahtar Yönetimi** -Azure anahtar kasası anahtar yönetimi çözümü olarak da kullanılabilir. Azure Key Vault, verilerinizi şifrelemek için kullanılan şifreleme anahtarlarını oluşturmayı ve denetlemeyi kolaylaştırır. 
+- **Sertifika yönetimi** - Azure Key Vault, da kolayca sağlama sağlayan bir hizmettir, yönetmek ve ortak ve özel Azure ve kendi dahili bağlı ile kullanım için Güvenli Yuva Katmanı/Aktarım Katmanı Güvenliği (SSL/TLS) sertifikalarını dağıtma kaynaklar. 
+- **Donanım güvenlik modülleri** -gizli dizileri ve anahtarları korunan yazılım veya FIPS 140-2 Düzey 2 HSM'ler doğrular.
 
 ## <a name="basic-concepts"></a>Temel kavramlar
 

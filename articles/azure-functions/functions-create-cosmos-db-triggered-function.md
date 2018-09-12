@@ -4,24 +4,20 @@ description: Azure İşlevleri kullanarak Azure Cosmos DB’de bir veritabanına
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
-ms.service: functions; cosmos-db
+ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 03/27/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: ec594a4ba3a794ca1b4c52962ff190b86dce5a81
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 5ae81824c2f35dd2ad26d64f3a343fecc549d805
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051366"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095224"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Azure Cosmos DB tarafından tetiklenen bir işlev oluşturma
 
@@ -115,7 +111,7 @@ Daha sonra, Azure Cosmos DB hesabınız bağlar ve veritabanında **Görevler** 
     | **Koleksiyon Kimliği** | Öğeler | Yeni koleksiyonun adı. Bu, işlev bağlamanızda tanımlanan adla eşleşmelidir.  |
     | **Depolama kapasitesi** | Sabit (10 GB)|Varsayılan değeri kullanın. Bu değer, veritabanının depolama kapasitesidir. |
     | **Aktarım hızı** |400 RU| Varsayılan değeri kullanın. Daha sonra gecikme süresini azaltmak isterseniz aktarım hızının ölçeğini artırabilirsiniz. |
-    | **[Bölüm anahtarı](../cosmos-db/partition-data.md#design-for-scale)** | /kategori|Verileri her bölüme eşit şekilde dağıtan bir bölüm anahtarı. Koleksiyon performansının yüksek olması için doğru bölüm anahtarının seçilmesi önemlidir. | 
+    | **[Bölüm anahtarı](../cosmos-db/partition-data.md#best-practices-when-choosing-a-partition-key)** | /kategori|Verileri her bölüme eşit şekilde dağıtan bir bölüm anahtarı. Koleksiyon performansının yüksek olması için doğru bölüm anahtarının seçilmesi önemlidir. | 
 
 1. **Görevler** koleksiyonunu oluşturmak için **Tamam**’a tıklayın. Koleksiyonun oluşturulması biraz zaman alabilir.
 

@@ -9,12 +9,12 @@ ms.custom: mvc,migrate
 ms.topic: tutorial
 ms.date: 07/02/2018
 ms.author: carlrab
-ms.openlocfilehash: ceab627d98149774a3eb767ee56d688f9c11ff99
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1d8ec772293354c059f21aaae8006f5c40540058
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346850"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050213"
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>DMA kullanarak SQL Server veritabanınızı Azure SQL Veritabanı’na geçirme
 
@@ -43,7 +43,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığı
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
 
-[Azure Portal](https://portal.azure.com/)’da oturum açın.
+[Azure Portal](https://portal.azure.com/) oturum açın.
 
 ## <a name="create-a-blank-sql-database"></a>Boş bir SQL veritabanı oluşturma
 
@@ -133,7 +133,7 @@ Artık SQL Server Management Studio’yu, Veri Geçiş Yardımcısı'nı veya se
 
 Azure SQL Veritabanı sunucunuzun tam sunucu adını Azure portaldan alabilirsiniz. Veri Geçiş Yardımcısı ve SQL Server Management Studio gibi istemci araçlarını kullanarak Azure SQL sunucunuza bağlanmak için tam sunucu adını kullanırsınız.
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
 3. Veritabanınızın Azure portal sayfasındaki **Temel Bilgiler** bölmesinde, **Sunucu adını** bulup kopyalayın.
 

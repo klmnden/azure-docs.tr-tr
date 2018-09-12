@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 09/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 41e75fcfd0b88d5c37bb8dd6fcc16b1767b34dba
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: bc3b5cfc106fdb90e99fb918113f4f371f928b26
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285366"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377964"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sorunsuz çoklu oturum açma
 
 ## <a name="what-is-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sorunsuz çoklu oturum açma nedir?
 
-Azure Active Directory sorunsuz çoklu oturum açma (Azure AD sorunsuz çoklu oturum açma) otomatik olarak açarsa Kurumsal cihazlarından şirket ağınıza bağlı olduklarında kullanıcıların. Etkin olduğunda, kullanıcıların Azure AD'de oturum ve genellikle bunların usernames öğesinde bile yazın parolalarını yazın gerekmez. Bu özellik, kullanıcılarınızın herhangi bir şirket içi bileşenleri gerek kalmadan bulut tabanlı uygulamalarınızı kolayca erişmenizi sağlar.
+Azure Active Directory Sorunsuz Çoklu Oturum Açma (Azure AD Sorunsuz SSO) özelliği, kurumsal ağınıza bağlı kuruluş cihazlarını kullanan kullanıcıların otomatik olarak oturum açmasını sağlar. Etkin olduğunda, kullanıcıların Azure AD'de oturum ve genellikle bunların usernames öğesinde bile yazın parolalarını yazın gerekmez. Bu özellik kullanıcılarınızın şirket içi ek bileşenlere ihtiyaç duymadan bulut tabanlı uygulamalarınıza kolayca erişmesini sağlar.
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
@@ -62,13 +62,15 @@ Sorunsuz çoklu oturum açma ile birleştirilebilir [parola karması eşitleme](
 
 | OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Evet|Hayır|Evet|Evet\*|Yok
-|Windows 8.1|Evet|Yok|Evet|Evet\*|Yok
-|Windows 8|Evet|Yok|Evet|Evet\*|Yok
-|Windows 7|Evet|Yok|Evet|Evet\*|Yok
-|Mac OS X|Yok|Yok|Evet\*|Evet\*|Evet\*
+|Windows 10|Evet\*|Hayır|Evet|Evet\*\*|Yok
+|Windows 8.1|Evet\*|Yok|Evet|Evet\*\*|Yok
+|Windows 8|Evet\*|Yok|Evet|Evet\*\*|Yok
+|Windows 7|Evet\*|Yok|Evet|Evet\*\*|Yok
+|Mac OS X|Yok|Yok|Evet\*\*|Evet\*\*|Evet\*
 
-\*Gerektirir [ek yapılandırma](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
+\*Internet Explorer sürüm 10 gerektirir veya üzeri
+
+\*\*Gerektirir [ek yapılandırma](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
 >Windows 10 için zamanlayıcısının [Azure AD'ye katılımı](../active-directory-azureadjoin-overview.md) en iyi çoklu oturum açma deneyimi için Azure AD ile.

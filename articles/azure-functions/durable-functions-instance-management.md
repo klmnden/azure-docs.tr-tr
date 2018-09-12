@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 08/31/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 72ea5e54bf86ce408700c0456f6d37f5f3c29924
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 70ea13c1badf79c86bed53a34d9036706dbbac6a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091791"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378165"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) örneklerini yönetme
 
@@ -145,8 +145,6 @@ Parametreleri [RaiseEventAsync](https://azure.github.io/azure-functions-durable-
 * **EventData**: örneğine göndermek için bir JSON seri hale getirilebilir yükü.
 
 ```csharp
-#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
-
 [FunctionName("RaiseEvent")]
 public static Task Run(
     [OrchestrationClient] DurableOrchestrationClient client,
@@ -207,7 +205,8 @@ Orchestration örneğinden yanıt almak için gereken süreyi bağlı olarak iki
             "id": "d3b72dddefce4e758d92f4d411567177",
             "sendEventPostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/raiseEvent/{eventName}?taskHub={taskHub}&connection={connection}&code={systemKey}",
             "statusQueryGetUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177?taskHub={taskHub}&connection={connection}&code={systemKey}",
-            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
+            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}",
+            "rewindPostUri": "https://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/rewind?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
         }
     ```
 
@@ -228,12 +227,12 @@ Yöntem bir örneğini döndürür [HttpManagementPayload](https://azure.github.
 * **StatusQueryGetUri**: düzenleme örneğinin durumu URL'si.
 * **SendEventPostUri**: düzenleme örneğinin "raise olay" URL'si.
 * **TerminatePostUri**: düzenleme örneği "sonlandırma" URL'si.
+* **RewindPostUri**: düzenleme örneği "geri" URL'si.
 
 Etkinlik işlevleri örneği gönderebilir [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) izlemek veya bir düzenleme için bir olay için harici sistemlere bağlanma:
 
 ```csharp
-#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
-
+[FunctionName("SendInstanceInfo")]
 public static void SendInstanceInfo(
     [ActivityTrigger] DurableActivityContext ctx,
     [OrchestrationClient] DurableOrchestrationClient client,
@@ -246,6 +245,29 @@ public static void SendInstanceInfo(
 
     // send the payload to Cosmos DB
     document = new { Payload = payload, id = ctx.InstanceId };
+}
+```
+
+## <a name="rewinding-instances-preview"></a>Geri sarma örnekleri (Önizleme)
+
+Başarısız düzenleme örnek olabilir *rewound* kullanarak daha önce sağlıklı duruma [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) API. Yeniden düzenleme koyarak çalıştığını *çalıştıran* durumu ve orchestration hata nedeniyle etkinlik ve/veya alt düzenleme yürütme hataları yeniden çalıştırma.
+
+> [!NOTE]
+> Bu API yerine uygun hata işleme ve yeniden deneme ilkelerine yönelik değildir. Bunun yerine, yalnızca, burada düzenleme örnekleri beklenmeyen nedenlerle başarısız durumda kullanılmak üzere tasarlanmıştır. Hata işleme ve yeniden deneme ilkeleri hakkında daha fazla ayrıntı için lütfen bkz [hata işleme](durable-functions-error-handling.md) konu.
+
+Örnek Kullanım örneği için *rewind* bir dizi içeren bir iş akışı [İnsan bir onayları](durable-functions-overview.md#pattern-5-human-interaction). Birisi onaylarını gereklidir bildirir etkinlik işlevler bir dizi vardır varsayalım ve gerçek zamanlı yanıt bekleyin. Tüm etkinlikleri yanıtları onayını aldığınız veya zaman aşımına uğradı, bir uygulama yanlış yapılandırma nedeniyle (örneğin bir geçersiz veritabanı bağlantı dizesi) başka bir etkinlik başarısız olur. Sonucu bir düzenleme hatası olan iş akışı inin. İle `RewindAsync` API, bir uygulama Yöneticisi yapılandırma hatası düzeltebileceğinizi ve *rewind* başarısız düzenleme yedekleme durumunu hemen önce hata. İnsan etkileşimi adımlardan hiçbiri yeniden onaylanmış olması gerekir ve orchestration artık başarıyla tamamlayabilir.
+
+> [!NOTE]
+> *Rewind* özellik dayanıklı zamanlayıcılar kullanan geri sarma düzenleme örnekleri desteklemez.
+
+```csharp
+[FunctionName("RewindInstance")]
+public static Task Run(
+    [OrchestrationClient] DurableOrchestrationClient client,
+    [ManualTrigger] string instanceId)
+{
+    string reason = "Orchestrator failed and needs to be revived.";
+    return client.RewindAsync(instanceId, reason);
 }
 ```
 

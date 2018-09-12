@@ -10,15 +10,15 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: befb4cc075841d45cae769b5ddf924434e65eff3
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 3500754c7e9cb14ea86e9c0e562ec5f98fc1fc94
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307256"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377777"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Azure SQL veri ambarı sorunlarını giderme
-Bu konu, genel sorun giderme soru listeler.
+Bu makalede, genel sorun giderme soru listelenmektedir.
 
 ## <a name="connecting"></a>Bağlanıyor
 | Sorun | Çözüm |
@@ -33,7 +33,7 @@ Bu konu, genel sorun giderme soru listeler.
 | Sorun | Çözüm |
 |:--- |:--- |
 | AAD kullanıcıları Visual Studio nesne Gezgini'nde eksik |Bu bilinen bir sorundur.  Geçici çözüm olarak, kullanıcılar görüntülemek [sys.database_principals][sys.database_principals].  Bkz: [kimlik doğrulaması için Azure SQL veri ambarı] [ Authentication to Azure SQL Data Warehouse] SQL veri ambarı ile Azure Active Directory kullanma hakkında daha fazla bilgi edinmek için. |
-|Komut dosyası, komut dosyası Sihirbazı'nı kullanarak veya SSMS ile bağlanma kılavuzdur, yavaş, askıda veya üretim hataları| Kullanıcı ana veritabanında oluşturduğunuz emin olun. Betik oluşturma seçenekleri, ayrıca altyapı sürümü "Microsoft Azure SQL veri ambarı sürümü olarak" olarak ayarlanır ve "Microsoft Azure SQL veritabanı" altyapısı türüdür emin olun.|
+|Komut dosyası, komut dosyası Sihirbazı'nı kullanarak veya SSMS ile bağlanma kılavuzdur, yavaş, askıda veya üretim hataları| Ana veritabanında kullanıcılar oluşturduğunuzdan emin olun. Betik oluşturma seçenekleri, ayrıca altyapı sürümü "Microsoft Azure SQL veri ambarı sürümü olarak" olarak ayarlanır ve "Microsoft Azure SQL veritabanı" altyapısı türüdür emin olun.|
 
 ## <a name="performance"></a>Performans
 | Sorun | Çözüm |
@@ -102,7 +102,7 @@ Sorununuz için çözüm bulma daha fazla yardım için deneyebileceğiniz bazı
 [Unsupported data types]: sql-data-warehouse-tables-data-types.md#unsupported-data-types
 [Overview]: sql-data-warehouse-tables-overview.md
 [Data types]: sql-data-warehouse-tables-data-types.md
-[Distribute]:/sql-data-warehouse-tables-distribute.md
+[Distribute]: sql-data-warehouse-tables-distribute.md
 [Index]: sql-data-warehouse-tables-index.md
 [Partition]: sql-data-warehouse-tables-partition.md
 [Statistics]: sql-data-warehouse-tables-statistics.md

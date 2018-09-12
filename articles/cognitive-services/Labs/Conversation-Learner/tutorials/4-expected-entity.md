@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: fb9193066c9501341efb779b9f9e2ccace02cccf
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: a43c52143f936eaefd4383714b1c67b6b74d34e8
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888213"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378678"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Eylemler "varlık bekleniyor" özelliğini kullanma
 
@@ -65,7 +65,7 @@ Bir eylemin "varlık bekleniyor" alanı $entity ve ardından İleri kullanıcı 
     - Bu değer, bu soruyu sormak ve kullanıcı yanıtı algılanan herhangi bir varlık yok, robot kullanıcının yanıtın tamamını varlıktır varsayacaktır anlamına gelir.
 2. Eylemler ve ardından yeni bir eylem ikinci bir eylem oluşturmak için tıklayın.
 3. Yanıtta 'Hello $name' yazın.
-    - Varlık, gerekli bir varlık olarak otomatik olarak eklenir. 
+    - Varlık, gerekli bir varlık olarak otomatik olarak eklendiğini unutmayın. 
 4. Kaydet’e tıklayın.
 
 Artık iki eylem var.

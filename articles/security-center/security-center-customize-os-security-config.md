@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 18/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: f43ebff65cf32dce1dae6bb9a592b491e56c8810
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 08174a6781772abdebd9e203a3433a1a4ac82859
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295404"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378372"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>İşletim sistemi güvenlik yapılandırmaları (Önizleme) Azure Güvenlik Merkezi'nde özelleştirme
 
@@ -69,9 +69,11 @@ Güvenlik Merkezi'nde varsayılan işletim sistemi güvenlik yapılandırmasın�
    > Varsayılan olarak, karşıdan yapılandırma dosyasının bulunduğu *json* biçimi. Bu dosyayı değiştirme hakkında yönergeler için Git [yapılandırma dosyasını özelleştirme](#customize-the-configuration-file).
    >
 
-   Dosya başarıyla kaydettikten sonra yapılandırma tüm Vm'lere ve abonelik altındaki tüm çalışma alanlarına bağlı bilgisayarlara uygulanır. İşlem, genellikle birkaç dakika sürer ancak altyapı boyutuna bağlı olarak daha uzun sürebilir.
-
 6. Değişikliği kaydetmek için seçin **Kaydet**. Aksi takdirde, ilke depolanmaz.
+
+    ![Kaydet düğmesi](media/security-center-customize-os-security-config/save-successfully.png)
+
+   Dosya başarıyla kaydettikten sonra yapılandırma tüm Vm'lere ve abonelik altında çalışma alanlarına bağlı bilgisayarlara uygulanır. İşlem, genellikle birkaç dakika sürer ancak altyapı boyutuna bağlı olarak daha uzun sürebilir.
 
 Herhangi bir noktada, varsayılan durumuna getirmek geçerli ilke yapılandırmasının sıfırlayabilirsiniz. Bunu yapmak için **Düzenle işletim sistemi güvenlik yapılandırması kurallarını** penceresinde **sıfırlama**. Bu seçeneği işaretleyerek onaylayın **Evet** onay açılır pencerede.
 

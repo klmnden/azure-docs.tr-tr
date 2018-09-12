@@ -14,12 +14,12 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 118f8258673c8a19d5f06e5fc62ff56d0fb44ea1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ec84cdb4e226eea4d16d28d63acd7be59241b973
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398373"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346925"
 ---
 # <a name="understand-azure-identity-solutions"></a>Azure kimlik çözümlerini anlama
 Microsoft Azure Active Directory (Azure AD) dizin hizmetleri, kimlik yönetimi ve uygulama erişim yönetimi özellikleri sunan bir kimlik ve erişim yönetimi bulut çözümüdür. Azure AD, [Azure AD uygulama galerisindeki](https://azure.microsoft.com/marketplace/active-directory/all/) binlerce önceden tümleştirilmiş ticari ve özel uygulamada [çoklu oturum açmayı (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) hızlı bir şekilde etkinleştirmenizi sağlar. Bu uygulamaların çoğu Office 365, Salesforce.com, Box, ServiceNow, Workday gibi muhtemelen kullanmakta olduğunuz uygulamalardır.
@@ -110,10 +110,10 @@ Azure AD hakkında bilgi edinmenize yardımcı olacak birçok çevrimiçi kayna�
 
 * [Dizininizi Azure AD Connect ile karma yönetim için etkinleştirme](../connect/active-directory-aadconnect.md)
 * [Bağlantılı bir dünya için ek güvenlik adımları](../authentication/multi-factor-authentication.md)
-* [Azure Active Directory ile SaaS Uygulamalarına Kullanıcı Hazırlama ve Sağlamayı Kaldırma İşlemlerini Otomatik Hale Getirme](../active-directory-saas-app-provisioning.md)
+* [Azure Active Directory ile SaaS Uygulamalarına Kullanıcı Hazırlama ve Sağlamayı Kaldırma İşlemlerini Otomatik Hale Getirme](../manage-apps/user-provisioning.md)
 * [Parolalarınızı istediğiniz yerden yönetin](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
-* [Azure Active Directory ile SaaS Uygulamalarına Kullanıcı Hazırlama ve Sağlamayı Kaldırma İşlemlerini Otomatik Hale Getirme](../active-directory-saas-app-provisioning.md)
+* [Azure Active Directory ile SaaS Uygulamalarına Kullanıcı Hazırlama ve Sağlamayı Kaldırma İşlemlerini Otomatik Hale Getirme](../manage-apps/user-provisioning.md)
 * [Şirket içi uygulamalara güvenli uzaktan erişim sağlama](../manage-apps/application-proxy.md)
 * [Azure Active Directory grupları ile kaynaklara erişimi yönetme](active-directory-manage-groups.md)
 * [Microsoft Azure Active Directory lisansı nedir?](active-directory-licensing-whatis-azure-portal.md)

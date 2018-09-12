@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/03/2018
 ms.author: snehaa
-ms.openlocfilehash: f4ce2130b18b183f633c649f98fc1add30753a27
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 16fce3eb5ab3874f7106d05bf99dc795cc22a528
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296016"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377558"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure geçişi - sık sorulan sorular (SSS)
 
@@ -48,13 +48,13 @@ Azure geçişi planlama aracı geçiş ve Azure Site Recovery dağıtım planlay
 
 ### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Hangi Azure bölgeleri, Azure geçişi tarafından destekleniyor mu?
 
-Azure geçişi şu anda Doğu ABD ve Batı Orta ABD geçiş projesi konumları destekler. Yalnızca Batı Orta ABD ve Doğu ABD geçiş projeleri oluşturabilirsiniz olsa da, makineleriniz için hala değerlendirebilirsiniz Not [birden çok hedef konumları](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). Proje konumu yalnızca bulunan verileri depolamak için kullanılır.
+Azure geçişi şu anda Doğu ABD ve Batı Orta ABD geçiş projesi konumları destekler. Yalnızca Batı Orta ABD ve Doğu ABD geçiş projeleri oluşturabilirsiniz, ancak yine de makineleriniz için değerlendirebilirsiniz [birden çok hedef konumları](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). Proje konumu yalnızca bulunan verileri depolamak için kullanılır.
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Şirket içi siteyle Azure geçişi için nasıl bağlanıyor?
 
 Bağlantı ortak eşleme ExpressRoute kullanabilir veya internet üzerinden olabilir.
 
-### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Ayarlama VM sağlamlaştırmak. OVA şablon?
+### <a name="can-i-harden-the-vm-set-up-with-theova-template"></a>Ayarlama VM sağlamlaştırmak. OVA şablon?
 
 Ek bileşenler (örneğin, virüsten koruma) içine eklenebilir. OVA şablonu çalışmak Azure geçişi Gereci için gerekli iletişim ve güvenlik duvarı kuralları olarak bırakılır sürece içindir.   
 
@@ -90,7 +90,9 @@ Aracı tabanlı bulma alet tabanlı bulma üzerinde sunulan bir seçenektir ve m
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Analiz edilen ESXi ana bilgisayar ortamının üzerinde bir performans etkisi olması?
 
-VCenter server bilgileri toplarız beri ESXi konakları üzerinde performans etkisi yoktur. Hatta vCenter sunucusu üzerinde neredeyse sıfır performans etkisi yoktur.
+Durumunda, [zaman bulma yaklaşımlardan](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods)performans verilerini toplamak için vCenter sunucusundaki istatistik düzeyini 3 olarak ayarlamanız gerekir. Bu düzeyini ayarlamak vCenter Server veritabanında depolanan veriler, sorun giderme işlemlerinin büyük bir miktar toplayın. Bu nedenle vcenter Server'da bazı performans sorunlarına neden olabilir. ESXi ana bilgisayarındaki göz ardı edilebilir etkisi olacaktır.
+
+(Önizleme aşamasında olan) performans verilerinin sürekli profil oluşturma ekledik. Sürekli profil oluşturma ile artık yoktur vCenter Server istatistik düzeyini performans tabanlı bir değerlendirme çalıştırmak için değiştirmeniz gerekmez. Toplayıcı gerecini artık sanal makinelerin performans verileri şirket içi makinelerin profil. VCenter Server yanı sıra ESXi konakları bu neredeyse sıfır performans etkisi yoktur.
 
 ### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>Toplanan verileri uzun depolanan ve için nasıl nerede?
 

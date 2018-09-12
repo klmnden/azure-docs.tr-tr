@@ -8,21 +8,24 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 1606b5e38b79cb535108ca747783a05de1fbc982
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: eac6c6d76bcc3b3d9cfeda7d8ca4e52e28ba9d8f
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40026829"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44369315"
 ---
 Dengeli CPU / bellek oranı genel amaçlı sanal makine boyutları sağlar. Test ve geliştirme, küçük - orta boyutlu veritabanları, düşük - orta yoğunluklu trafiğe sahip web sunucuları için idealdir. Bu makalede, Vcpu, veri diskleri ve NIC yanı sıra bu gruplandırmaki boyutları için depolama aktarım hızı sayısı hakkında bilgi sağlar. 
 
-- Av2 serisi VM'ler, çeşitli donanım türleri ve işlemciler üzerinde dağıtılabilir. Dağıtıldığı donanımdan bağımsız olarak, çalışan örneğe tutarlı işlemci performansı sunmak için boyut donanıma göre genişletilir. Bu boyutun dağıtıldığı fiziksel donanımı belirlemek için Sanal Makinenin içinden sanal donanımı sorgulayın.
+- Av2 serisi VM'ler, çeşitli donanım türleri ve işlemciler üzerinde dağıtılabilir. A serisi VM'ler, geliştirme ve test gibi giriş düzeyinde iş yüküne en uygun CPU performansına ve bellek yapılandırmasına sahiptir. Dağıtıldığı donanımdan bağımsız olarak, çalışan örneğe tutarlı işlemci performansı sunmak için boyut donanıma göre genişletilir. Bu boyutun dağıtıldığı fiziksel donanımı belirlemek için Sanal Makinenin içinden sanal donanımı sorgulayın.
 
-- Orijinal D Serisinin üzerine geliştirilen Dv2 Serisi, daha güçlü bir CPU'ya sahiptir. Dv2 Serisi CPU, D Serisi CPU'dan yaklaşık %35 daha hızlıdır. Temel en yeni nesil Intel Xeon® E5-2673 v3 (Haswell) 2,4 GHz veya E5-2673 v4 (Broadwell) 2,3 GHz işlemcileri ve Intel Turbo Boost Technology 2.0 ile 3,1 GHz'e varan hızlara çıkabilir. Dv2 Serisi, D Serisi ile aynı bellek ve disk yapılandırmalarına sahiptir.
+  Kullanım örnekleri, geliştirme içerir ve sunucuları, düşük trafikli web sunucuları, Orta büyüklükte veri tabanları, kavram kanıtı ve kod depoları küçük test edin.
+
+- Dv2 serisi, orijinal D serisinin devamı daha güçlü bir CPU ve üretim iş yüklerinin çoğu için uygun hale getirme en iyi CPU / bellek yapılandırması sunar. Dv2 Serisi CPU, D Serisi CPU'dan yaklaşık %35 daha hızlıdır. Temel en yeni nesil Intel Xeon® E5-2673 v3 (Haswell) 2,4 GHz veya E5-2673 v4 (Broadwell) 2,3 GHz işlemcileri ve Intel Turbo Boost Technology 2.0 ile 3,1 GHz'e varan hızlara çıkabilir. Dv2 Serisi, D Serisi ile aynı bellek ve disk yapılandırmalarına sahiptir.
 
 - Dv3 serisi özellikleri 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) işlemci veya en son 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell) işlemciyi sağlayarak daha iyi bir değer önerisi en genel amaçlı iş yükleri için hiper iş parçacıklı bir yapılandırmada,.  Disk ve ağ sınırlarını hiper iş parçacıklı Git ile hizalamak için çekirdek başına temelinde ayarlanmış durumdayken (Başlangıç ~3.5 GiB/vCPU için 4 GiB/vCPU) bellek genişletildi.  Dv3 artık yüksek bellek VM boyutları D/Dv2 ailelerinin sahipse, bu yeni Ev3 ailesi için taşınmıştır.
 
+  D serisi kullanım örnekleri, kurumsal düzeyde uygulamalar, ilişkisel veritabanları, bellek içi önbelleğe alma ve analiz içerir. 
 
 ## <a name="b-series"></a>B serisi
 
@@ -31,6 +34,8 @@ Premium Depolama: desteklenir
 Premium depolama önbelleğe alma: Desteklenmez
 
 B serisi seri aktarıma uygun VM'ler CPU'nun tam performansta küçük veritabanları ve geliştirme gibi web sunucuları gibi sürekli olarak gerekir ve test ortamları iş yükleri için idealdir. Bu iş yükleri genellikle seri aktarıma uygun performans gereksinimleri vardır. B serisi, bu müşteriler VM temel performansını sayısından az kullanarak kredi oluşturulacak VM örneği izin veren bir fiyat bilinçli temel performans ile bir VM boyutu satın almanıza olanak sağlar. VM VM kredi toplandığında, daha yüksek bir CPU performans uygulamanızın gerektirdiği en fazla % 100 CPU kullandığınızda sanal makinenin temel veri bloğu.
+
+Örnek kullanım durumları, geliştirme ve test sunucuları, düşük trafikli web sunucuları, küçük veritabanları, mikro hizmetler, -kavram, derleme sunucuları için sunucuları içerir.
 
 
 | Boyut             | Sanal işlemci  | Bellek: GiB | Yerel SSD: GiB | Bir çekirdeği temel performans | Bankaya nakledilen KREDİLERİ / saat | En fazla KREDİLERİ Bankaya nakledilen | Maksimum veri diskleri | Maksimum yerel disk perf: IOPS / MB/sn | Maksimum önbelleğe alınmamış disk perf: IOPS / MB/sn | En fazla NIC |          

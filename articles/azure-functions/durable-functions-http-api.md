@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3fa4f230f5e2d15e815c47792c3955aa93d29fc4
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 29fd4e62c13852e23e15f89ab6b4e2976fc42b25
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094748"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377149"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) HTTP API'leri
 
@@ -45,6 +45,7 @@ Bu örnek işlevi aşağıdaki JSON yanıt verilerini oluşturur. Tüm alanlar v
 | statusQueryGetUri |Orchestration örneği durumu URL'si. |
 | sendEventPostUri  |Orchestration örneği "raise olay" URL'si. |
 | terminatePostUri  |Orchestration örneği "sonlandırma" URL'si. |
+| rewindPostUri     |Orchestration örneği "geri" URL'si. |
 
 Bir yanıt örneği aşağıda verilmiştir:
 
@@ -52,13 +53,14 @@ Bir yanıt örneği aşağıda verilmiştir:
 HTTP/1.1 202 Accepted
 Content-Length: 923
 Content-Type: application/json; charset=utf-8
-Location: https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 
 {
     "id":"34ce9a28a6834d8492ce6a295f1a80e2",
-    "statusQueryGetUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "sendEventPostUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "terminatePostUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
+    "statusQueryGetUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "sendEventPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "terminatePostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
 > [!NOTE]
@@ -110,7 +112,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 İşlevler 2.0 biçimi, aynı parametrelere sahip ancak biraz farklı bir URL ön eki vardır:
 
 ```http
-GET /runtime/webhooks/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
+GET /runtime/webhooks/durabletask/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
 #### <a name="response"></a>Yanıt
@@ -121,6 +123,7 @@ Birkaç olası durum kodu değeri döndürülür.
 * **202 (kabul edildi) HTTP**: belirtilen örneği devam ediyor.
 * **HTTP 400 (Hatalı istek)**: Belirtilen örnek başarısız oldu veya sonlandırıldı.
 * **HTTP 404 (bulunamadı)**: Belirtilen örnek yok ya da çalışan başlatılmadı.
+* **HTTP 500 (iç sunucu hatası)**: belirtilen örneği işlenmeyen bir özel durumla başarısız oldu.
 
 Yanıt yükü **HTTP 200** ve **HTTP 202** durumda şu alanlara sahip bir JSON nesnesi:
 
@@ -206,7 +209,7 @@ GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connecti
 İşlevler 2.0 aynı parametreleri ancak biraz farklı bir URL ön eki biçimdedir: 
 
 ```http
-GET /runtime/webhooks/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+GET /runtime/webhooks/durabletask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 #### <a name="response"></a>Yanıt
@@ -281,7 +284,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{e
 İşlevler 2.0 biçimi, aynı parametrelere sahip ancak biraz farklı bir URL ön eki vardır:
 
 ```http
-POST /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
+POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
 ```
 
 Aşağıdaki benzersiz parametreleri yanı sıra daha önce bahsedilen varsayılan belirlenen parametreler bu API için istek:
@@ -321,13 +324,13 @@ Bu API için yanıtlar herhangi bir içerik içermez.
 İşlevleri 1.0 için istek biçimi aşağıdaki gibidir:
 
 ```http
-DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 İşlevler 2.0 biçimi, aynı parametrelere sahip ancak biraz farklı bir URL ön eki vardır:
 
 ```http
-DELETE /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 İstek parametreleri bu API için şu benzersiz parametre yanı sıra daha önce bahsedilen varsayılan kümesi içerir.
@@ -347,7 +350,47 @@ Birkaç olası durum kodu değeri döndürülür.
 Çalışan bir örneği sona erer ve bir nedenini belirten bir örnek istek işte **buggy**:
 
 ```
-DELETE /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason=buggy&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason=buggy&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+```
+
+Bu API için yanıtlar herhangi bir içerik içermez.
+
+## <a name="rewind-instance-preview"></a>Geri Sar örneği (Önizleme)
+
+En son başarısız işlemleri yeniden yürüterek çalışır duruma başarısız düzenleme örneğine yükler.
+
+#### <a name="request"></a>İstek
+
+İşlevleri 1.0 için istek biçimi aşağıdaki gibidir:
+
+```http
+POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/rewind?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+İşlevler 2.0 biçimi, aynı parametrelere sahip ancak biraz farklı bir URL ön eki vardır:
+
+```http
+POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+İstek parametreleri bu API için şu benzersiz parametre yanı sıra daha önce bahsedilen varsayılan kümesi içerir.
+
+| Alan       | Parametre türü  | Veri Türü | Açıklama |
+|-------------|-----------------|-----------|-------------|
+| reason      | Sorgu dizesi    | dize    | İsteğe bağlı. Orchestration örneği geri sarma nedeni. |
+
+#### <a name="response"></a>Yanıt
+
+Birkaç olası durum kodu değeri döndürülür.
+
+* **202 (kabul edildi) HTTP**: Geri Sar istek işleme için kabul edildi.
+* **HTTP 404 (bulunamadı)**: Belirtilen örnek bulunamadı.
+* **HTTP (Gone) 410**: Belirtilen örnek tamamlandı veya sonlandırıldı.
+
+Başarısız bir olayı geri sarar ve bir nedenini belirten bir örnek istek işte **sabit**:
+
+```
+POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/rewind?reason=fixed&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 ```
 
 Bu API için yanıtlar herhangi bir içerik içermez.

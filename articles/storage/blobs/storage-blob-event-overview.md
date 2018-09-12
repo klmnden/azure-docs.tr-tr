@@ -8,16 +8,18 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: d38ab71ed2d2ebff04004f02589cfccca4199318
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: c6dfb8ac36f3b5d51cc1d6126449b458f8f4946c
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42060383"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377438"
 ---
 # <a name="reacting-to-blob-storage-events"></a>BLOB Depolama olaylarına tepki verme
 
-Azure Depolama olaylarını uygulamaların oluşturulmasını ve modern sunucusuz mimarileri kullanarak blobları silme işlemi için tepki verin. Bunu karmaşık kod veya pahalı ve verimsiz yoklama Hizmetleri gerek kalmadan yapar.  Bunun yerine, olayların gönderilmesini [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) gibi abonelere [Azure işlevleri](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), ve hatta kendi özel http dinleyicisi ve yalnızca kullandığınız kadarı için ödeme yaparsınız. 
+Azure Depolama olaylarını uygulamaların oluşturulmasını ve modern sunucusuz mimarileri kullanarak blobları silme işlemi için tepki verin. Bunu karmaşık kod veya pahalı ve verimsiz yoklama Hizmetleri gerek kalmadan yapar.  Bunun yerine, olayların gönderilmesini [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) gibi abonelere [Azure işlevleri](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), ve hatta kendi özel http dinleyicisi ve yalnızca kullandığınız kadarı için ödeme yaparsınız.
+
+BLOB Depolama olaylarını güvenilir bir şekilde zengin yeniden deneme ilkelerini ve teslim edilemeyen bir deneyimle uygulamalarınızda güvenilir teslim hizmetleri sağlayan olay Kılavuzu hizmetine gönderilir.
 
 Ortak Blob Depolama olayı senaryolar resim veya video işleme, arama dizini oluşturma veya tüm dosya odaklı iş akışı içerir.  Zaman uyumsuz dosya yüklemeleri olayları için harika bir uygun olan.  Seyrek görülen değişiklikler, ancak senaryonuza anında yanıt verme hızını gerektirir, olay tabanlı mimari özellikle etkili olabilir.
 

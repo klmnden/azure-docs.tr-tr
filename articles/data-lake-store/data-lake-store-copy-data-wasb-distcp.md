@@ -1,6 +1,6 @@
 ---
-title: Veri WASB gelen ve giden Distcp'yi kullanarak Data Lake Store kopyalama | Microsoft Docs
-description: Azure Storage Bloblarında gelen ve Data Lake Store'a veri kopyalamak için Distcp'yi aracını kullanın
+title: Distcp kullanma WASB Azure Data Lake depolama Gen1 içine gelen ve giden veri kopyalama | Microsoft Docs
+description: Azure Data Lake depolama Gen1 ve Azure depolama bloblarından veri kopyalamak için Distcp aracını kullanın
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,109 +12,109 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: d6f4d1f7b974a3cd44e7cb9ffc2c63548f0bc321
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9740de34fe7cf7d06af1803cc6d77d7e89bbb73f
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624405"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391530"
 ---
-# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-store"></a>Azure Depolama Blobları ile Data Lake Store arasında veri kopyalamak için Distcp kullanma
+# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>Azure depolama BLOB'ları ile Azure Data Lake depolama Gen1 arasında veri kopyalamak için Distcp kullanma
 > [!div class="op_single_selector"]
 > * [DistCp’yi kullanma](data-lake-store-copy-data-wasb-distcp.md)
 > * [AdlCopy’yi kullanma](data-lake-store-copy-data-azure-storage-blob.md)
 >
 >
 
-Data Lake Store'a erişimi olan bir Hdınsight kümeniz varsa, veri kopyalamak için Distcp'yi gibi Hadoop ekosistemi araçları kullanabilirsiniz **ve ondan** Data Lake Store hesabında bir Hdınsight küme depolama (WASB). Bu makale, yönergeler Distcp'yi aracını sağlar.
+Azure Data Lake depolama Gen1 erişimi olan bir HDInsight kümesine varsa, verileri kopyalamak için Distcp gibi Hadoop ekosistemi araçları kullanabilirsiniz **kitaplıklarından** bir Data Lake depolama Gen1 hesabına bir HDInsight kümesi depolama (WASB). Bu makalede, yönergeler Distcp aracını sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
-* **Bir Azure Data Lake Store hesabı**. Bir oluşturma hakkında yönergeler için bkz: [Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md)
-* **Azure Hdınsight kümesi** bir Data Lake Store hesabına erişim. Bkz: [Data Lake Store ile bir Hdınsight kümesi oluşturmayı](data-lake-store-hdinsight-hadoop-use-portal.md). Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
+* **Bir Azure Data Lake depolama Gen1 hesap**. Bir oluşturma hakkında yönergeler için bkz: [Azure Data Lake depolama Gen1 ile çalışmaya başlama](data-lake-store-get-started-portal.md)
+* **Azure HDInsight kümesinde** bir Data Lake depolama Gen1 hesabına erişim. Bkz: [ile Data Lake depolama Gen1 bir HDInsight kümesi oluşturma](data-lake-store-hdinsight-hadoop-use-portal.md). Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
 
 ## <a name="do-you-learn-fast-with-videos"></a>Videolarla daha hızlı mı öğreniyorsunuz?
-[Bu videoyu izleyin](https://mix.office.com/watch/1liuojvdx6sie) Azure Storage Bloblarında ve Distcp'yi kullanarak Data Lake Store arasında veri kopyalama hakkında.
+[Bu videoyu](https://mix.office.com/watch/1liuojvdx6sie) nasıl Azure depolama Blobları ile Data Lake depolama Gen1 arasında veri kopyalamak DistCp kullanma.
 
-## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Bir Hdınsight Linux kümeden Distcp'yi kullanın
+## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Bir HDInsight Linux kümesinden Distcp kullanma
 
-Hdınsight kümesi bir Hdınsight kümesine farklı kaynaklardan veri kopyalamak için kullanılan Distcp'yi yardımcı programı ile birlikte gelir. Hdınsight kümesi Data Lake Store ek depolama alanı olarak kullanmak için yapılandırdıysanız, kullanılan out-of-- ve da Data Lake Store hesabından veri kopyalamak için box Distcp'yi yardımcı olabilir. Bu bölümde, Distcp'yi yardımcı programını kullanmak üzere nasıl tümleştirildiği incelenmektedir.
+Bir HDInsight kümesi, bir HDInsight kümesine farklı kaynaklardan gelen verileri kopyalamak için kullanılan Distcp yardımcı programı ile birlikte gelir. HDInsight kümesi, ek depolama alanı olarak Data Lake depolama Gen1 kullanmak için yapılandırdıysanız, kullanılan,-de bir Data Lake depolama Gen1 hesabı ve veri kopyalamak için hazır Distcp yardımcı olabilir. Bu bölümde, Distcp yardımcı programını kullanmak nasıl tümleştirildiği incelenmektedir.
 
-1. Masaüstünüzdeki, SSH kümeye bağlanmak için kullanın. Bkz: [Linux tabanlı Hdınsight kümesine bağlanma](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md). Komutları SSH isteminden çalıştırın.
+1. Masaüstünüzde, kümeye bağlanmak için SSH kullanın. Bkz: [Linux tabanlı HDInsight kümesine bağlanma](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md). Komutları SSH isteminden çalıştırın.
 
-2. Azure Storage Blobları (WASB) erişim olup olmadığını doğrulayın. Şu komutu çalıştırın:
+2. Azure depolama BLOB'ları (WASB) erişim sağlayıp sağlayamadığınızı doğrulayın. Şu komutu çalıştırın:
 
         hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
 
-    Çıktı depolama blobu içeriğini listesini sağlamanız gerekir.
+    Çıktı, depolama BLOB içeriği listesini sağlamanız gerekir.
 
-3. Benzer şekilde, Data Lake Store hesabı kümeden erişip erişemeyeceğini doğrulayın. Şu komutu çalıştırın:
+3. Benzer şekilde, kümeden Data Lake depolama Gen1 hesap erişim sağlayıp sağlayamadığınızı doğrulayın. Şu komutu çalıştırın:
 
-        hdfs dfs -ls adl://<data_lake_store_account>.azuredatalakestore.net:443/
+        hdfs dfs -ls adl://<data_lake_storage_gen1_account>.azuredatalakestore.net:443/
 
-    Çıktı dosyaların/klasörlerin Data Lake Store hesabındaki listesini sağlamanız gerekir.
+    Çıkış, Data Lake depolama Gen1 hesabındaki dosyaların/klasörlerin listesini sağlamanız gerekir.
 
-4. Verileri WASB bir Data Lake Store hesabına kopyalamak için Distcp'yi kullanın.
+4. Bir Data Lake depolama Gen1 hesabına WASB veri kopyalamak için Distcp kullanma.
 
-        hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder
+        hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_storage_gen1_account>.azuredatalakestore.net:443/myfolder
 
-    Komut içeriğini kopyalar **/örnek/data/gutenberg/** için WASB klasöründe **/myfolder** Data Lake Store hesabındaki.
+    Komut içeriğini kopyalar **/örnek/data/gutenberg/** WASB için klasöründe **/myfolder** Data Lake depolama Gen1 hesabı.
 
-5. Benzer şekilde, WASB için Data Lake Store hesabından veri kopyalamak için Distcp'yi kullanın.
+5. Benzer şekilde, WASB için Data Lake depolama Gen1 hesabından veri kopyalamak için Distcp kullanma.
 
-        hadoop distcp adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg
+        hadoop distcp adl://<data_lake_storage_gen1_account>.azuredatalakestore.net:443/myfolder wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg
 
-    Komut içeriğini kopyalar **/myfolder** için Data Lake Store hesabındaki **/örnek/data/gutenberg/** WASB klasöründe.
+    Komut içeriğini kopyalar **/myfolder** için Data Lake depolama Gen1 hesabındaki **/örnek/data/gutenberg/** WASB klasöründe.
 
-## <a name="performance-considerations-while-using-distcp"></a>Distcp'yi kullanırken performans etkenleri
+## <a name="performance-considerations-while-using-distcp"></a>DistCp kullanırken performans konuları
 
-Distcp'yi'nin en düşük ayrıntı düzeyi tek bir dosya olduğundan, en fazla sayıda eşzamanlı kopyasını Data Lake Store karşı iyileştirmek için en önemli parametre ayardır. Eşzamanlı kopya sayısını mappers sayısını ayarlayarak denetlenir ('M ') komut satırı parametresi. Bu parametre veri kopyalamak için kullanılan mappers üst sınırını belirtir. Varsayılan değer 20'dir.
+DistCp'ın en düşük ayrıntı düzeyi, tek bir dosya olduğundan, en fazla eş zamanlı kopyaların sayısı ayarını Data Lake depolama Gen1 iyileştirmek için en önemli parametredir. Eş zamanlı kopyaların sayısı azaltıcının sayısını ayarlayarak denetlenir ('M ') komut satırı parametresi. Bu parametre, verileri kopyalamak için kullanılan azaltıcının en fazla sayısını belirtir. Varsayılan değer 20'dir.
 
 **Örnek**
 
-    hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder -m 100
+    hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_storage_gen1_account>.azuredatalakestore.net:443/myfolder -m 100
 
-### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>Kullanılacak mappers sayısını nasıl belirlerim?
+### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>Kullanılacak azaltıcının sayısını nasıl belirlerim?
 
 Aşağıda kullanabileceğiniz bazı yönergeler verilmiştir.
 
-* **1. adım: toplam YARN bellek belirlemek** -Distcp'yi iş çalıştırdığı küme için kullanılabilir YARN bellek belirlemek için ilk adımdır. Bu bilgiler, kümeyle ilişkili ambarı portalında kullanılabilir. YARN için gidin ve YARN bellek görmek için yapılandırmalar sekmesini görüntüleyin. Toplam YARN bellek almak için kümedeki sahip YARN bellek düğüm sayısı ile düğümü başına çarpın.
+* **1. adım: toplam YARN bellek belirlemek** -DistCp işi çalıştırdığı kümenin YARN bellek belirlemek için ilk adımdır. Bu bilgiler, kümeyle ilişkili Ambari portalında kullanılabilir. YARN için gidin ve YARN bellek görmek için yapılandırmaları sekmesini görüntüleyin. Toplam YARN bellek elde etmek için kümenizdeki sahip YARN bellek düğüm düğüm sayısı ile çarpın.
 
-* **2. adım: mappers sayısını hesaplayın** -değerini **m** bölü YARN kapsayıcı boyutundan toplam YARN bellek sayının eşittir. YARN kapsayıcı boyutu bilgileri Ambari Portalı'nda da kullanılabilir. YARN için gidin ve yapılandırmalar sekmesini görüntüleyin. YARN kapsayıcı boyutu Bu pencerede görüntülenir. Mappers numaradan gelmesi denklemi (**m**) değil
+* **2. adım: azaltıcının sayısını hesaplamak** -değerini **m** toplam YARN bellek YARN kapsayıcı boyutuna göre bölünen sayının eşittir. YARN kapsayıcı boyutu bilgileri de Ambari portalda kullanılabilir. YARN için gidin ve yapılandırmaları sekmesini görüntüleyin. YARN kapsayıcı boyutu Bu pencerede görüntülenir. Azaltıcının numaradan ulaşması için eşitlik (**m**) olan
 
         m = (number of nodes * YARN memory for each node) / YARN container size
 
 **Örnek**
 
-Kümede 4 D14v2s düğüm varsa ve 10 farklı klasörlerden 10 TB'lık veriyi aktarmaya çalıştığınız varsayalım. Klasörlerinin her biri değişen miktarda veri içerir ve her klasördeki dosya boyutları farklıdır.
+Bir 4 D14v2s düğüm kümedeki sahip ve 10 farklı klasörlerinden 10 TB veri aktarımı çalıştığınız varsayalım. Her değişken miktarda veri içerir ve her klasördeki dosya boyutları farklı.
 
-* Toplam YARN bellek - gelen Ambari portal YARN bellek D14 düğümü için 96 GB olduğunu belirler. Bu nedenle, dört düğümlü küme için toplam YARN bellek şöyledir: 
+* Toplam YARN bellek - gelen Ambari portalı YARN bellek D14 düğümü için 96 GB olduğunu belirler. Bu nedenle, dört düğümlü küme için toplam YARN bellek şöyledir: 
 
         YARN memory = 4 * 96GB = 384GB
 
-* Sayısı mappers - gelen Ambari portal YARN kapsayıcı boyutu D14 küme düğümü için 3072 olduğunu belirler. Bu nedenle, mappers sayısıdır:
+* Sayısı azaltıcının - gelen Ambari portalı YARN kapsayıcı boyutu D14 küme düğümü için 3072 olduğunu belirler. Bu nedenle, azaltıcının sayısıdır:
 
         m = (4 nodes * 96GB) / 3072MB = 128 mappers
 
-Daha sonra diğer uygulamaları bellek kullanıyorsanız, yalnızca kümenizin YARN belleğin bir kısmını için Distcp'yi kullanmayı da tercih edebilirsiniz.
+Ardından bellek kullanan diğer uygulamalar, yalnızca, kümenin YARN belleğin bir kısmını için DistCp kullanmayı da tercih edebilirsiniz.
 
 ### <a name="copying-large-datasets"></a>Büyük veri kümelerini kopyalama
 
-Taşınacak veri kümesi boyutunu olduğunda büyük (örneğin, > 1 TB) veya birçok farklı klasörleri varsa, birden çok Distcp'yi işleri kullanmayı düşünmeniz gerekir. Büyük olasılıkla bir performans kazancı yoktur, ancak herhangi bir işi başarısız olursa, yalnızca tüm iş yerine özel bir işi yeniden başlatmanız gerekir böylece işleri yayar.
+Taşınacak veri kümesi boyutu olduğunda büyük (örneğin, > 1 TB) veya birçok farklı bir klasör varsa, birden çok DistCp iş kullanmayı düşünmeniz gerekir. Büyük olasılıkla herhangi bir performans kazancı yoktur, ancak herhangi bir işi başarısız olursa projenin tamamı yerine özel bir işi yeniden başlatmak yeterlidir, böylece işleri yayar.
 
 ### <a name="limitations"></a>Sınırlamalar
 
-* Distcp'yi boyutunun performansını iyileştirmek için benzer mappers oluşturmayı dener. Mappers sayısını artırmak her zaman performansı artırabilir değil.
+* DistCp performansına boyutunda benzer azaltıcının oluşturmaya çalışır. Azaltıcının sayısını artırmak her zaman performansı artırabilir değil.
 
-* Dosya başına yalnızca bir Eşleyici Distcp'yi sınırlıdır. Bu nedenle, dosyaları olandan daha fazla mappers olmamalıdır. Distcp'yi yalnızca bir dosyaya bir Eşleyici atayabilirsiniz olduğundan, bu büyük dosyaları kopyalamak için kullanılan eşzamanlılık miktarını sınırlar.
+* DistCp dosya başına yalnızca bir Eşleyici sınırlıdır. Bu nedenle, dosyaları olandan daha fazla azaltıcının olmamalıdır. DistCp bir dosyaya yalnızca bir Eşleyici atayabilirsiniz olduğundan, bu büyük dosyaları kopyalamak için kullanılan eşzamanlılık miktarını sınırlar.
 
-* Az sayıda büyük dosyalar varsa, bunları daha fazla olası eşzamanlılık vermek için 256 MB dosya parçalara bölünmesi. 
+* Büyük dosyaların küçük bir sayı varsa, bunları size daha fazla olası eşzamanlılık 256 MB dosya öbeklere bölünmesi. 
  
-* Bir Azure Blob Depolama hesabından kopyalıyorsanız kopyalama işini blob depolama tarafında kısıtlanan. Bu, kopyalama işinin performansı düşürür. Azure Blob Depolama sınırları hakkında daha fazla bilgi için bkz: Azure Storage sınırlarını adresindeki [Azure aboneliği ve hizmet sınırları](../azure-subscription-service-limits.md).
+* Bir Azure Blob Depolama hesabından kopyalıyorsanız kopyalama işiniz blob depolama tarafında kısıtlanmış. Bu, kopyalama işinin performansı düşürür. Azure Blob Depolama sınırları hakkında daha fazla bilgi için Azure depolama sınırları görmek [Azure aboneliği ve hizmet sınırlamaları](../azure-subscription-service-limits.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Azure Storage Bloblarından Data Lake Store'a veri kopyalama](data-lake-store-copy-data-azure-storage-blob.md)
-* [Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
-* [Azure Data Lake Analytics'i Data Lake Store ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Azure HDInsight'ı Data Lake Store ile kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Data Lake depolama Gen1 için Azure depolama Bloblarından veri kopyalama](data-lake-store-copy-data-azure-storage-blob.md)
+* [Data Lake Storage Gen1'de verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
+* [Azure Data Lake Analytics'i Data Lake depolama Gen1 ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Azure HDInsight ile Data Lake depolama Gen1 kullanın](data-lake-store-hdinsight-hadoop-use-portal.md)

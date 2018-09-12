@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 09/05/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0b19fe7441d3c2c5222095c31d9c3677b8c9cf34
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6bf9eb2cd2ebdf5f6d53e00923146bab49a142bf
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092726"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377914"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) hataları işleme
 
@@ -92,7 +92,7 @@ Otomatik yeniden deneme ilkesi özelleştirmek için birkaç seçenek vardır. B
 * **Geri alma katsayısı**: geri alma sayısında artış oranını belirlemek için kullanılan katsayısı. Varsayılan olarak 1.
 * **En fazla yeniden deneme aralığı**: yeniden denemeler arasında beklenecek en uzun süreyi.
 * **Yeniden deneme zaman aşımının**: harcama yapmak için en uzun süreyi yeniden dener. Süresiz olarak yeniden denemek için varsayılan davranıştır.
-* **Özel**: bir işlev çağrısı denenen olup olmadığını belirleyen kullanıcı tanımlı bir geri çağırma belirtilebilir.
+* **Tanıtıcı**: bir işlev çağrısı denenen olup olmadığını belirleyen kullanıcı tanımlı bir geri çağırma belirtilebilir.
 
 ## <a name="function-timeouts"></a>İşlevi zaman aşımları
 

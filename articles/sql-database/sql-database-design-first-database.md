@@ -9,12 +9,12 @@ ms.custom: mvc,develop databases
 ms.topic: tutorial
 ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 6f12c44c2d65eef7e8d3345ec79b812304fe9791
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: ed2d4654163881b3258c4a98632d48acd0e80fb5
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091552"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055378"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Öğretici: SSMS kullanarak ilk Azure SQL veritabanınızı tasarlama
 
@@ -41,7 +41,7 @@ Bu öğreticiyi tamamlamak için şunları yüklediğinizden emin olun:
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
 
-[Azure Portal](https://portal.azure.com/)’da oturum açın.
+[Azure Portal](https://portal.azure.com/) oturum açın.
 
 ## <a name="create-a-blank-sql-database"></a>Boş bir SQL veritabanı oluşturma
 
@@ -131,7 +131,7 @@ Artık SQL Server Management Studio’yu veya seçtiğiniz başka bir aracı kul
 
 Azure SQL Veritabanı sunucunuzun tam sunucu adını Azure portaldan alabilirsiniz. SQL Server Management Studio kullanarak sunucunuza bağlanmak için tam sunucu adını kullanırsınız.
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
 3. Veritabanınızın Azure portal sayfasındaki **Temel Bilgiler** bölmesinde, **Sunucu adını** bulup kopyalayın.
 

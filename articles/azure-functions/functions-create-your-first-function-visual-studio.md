@@ -4,25 +4,21 @@ description: Visual Studio kullanarak HTTP tarafından tetiklenen bir Azure İş
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure işlevleri, işlevler, olay işleme, işlem, sunucusuz mimari
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: azure-vs
 ms.date: 05/22/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, , vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: 48e4d809177c07005b142c25f1a8adef39776100
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 582e949c6fdf4333690264dfd5b1cf04234efdd4
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42394161"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092861"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Visual Studio kullanarak ilk işlevinizi oluşturma
 

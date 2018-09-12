@@ -3,7 +3,7 @@ title: GRUB ve tek kullanıcı modu Azure seri konsol | Microsoft Docs
 description: Azure sanal makineler'de grub seri konsol kullanarak.
 services: virtual-machines-linux
 documentationcenter: ''
-author: alsin
+author: asinn826
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 059cb0cbc7e62af16dbf95693be421feebcc1ee0
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 9952720e917dc9202630b2feda0fadd0402d9eb6
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061146"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377879"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>GRUB ve tek kullanıcı modu erişmek için seri Konsolu
 Tek kullanıcı modunda, en az bir işlevselliğe sahip en az bir ortamdır. Daha az Hizmetleri arka planda çalıştırabilir ve çalışma düzeyi bağlı olarak bir dosya sistemi bile otomatik olarak takılı önyükleme sorunlarını araştırmanıza veya ağ sorunları için faydalı olabilir. Bu, bozuk bir dosya, bozuk bir fstab sistemi gibi durumlarda araştırmak veya ağ bağlantısı (yanlış iptables yapılandırması) kullanışlıdır.
+
+GRUB erişmek için seri konsol dikey penceresini açık tutarken, sanal Makinenizin yeniden başlatmanız gerekir. Bu bir SysRq ile yapılabilir `'b'` komutunu ya da yeniden tıklayarak genel bakış dikey penceresinde düğmesi. Bazı dağıtım paketlerini GRUB, diğer otomatik olarak birkaç saniye önyüklemede GRUB Göster ve klavye girişini zaman aşımı iptal etmek kullanıcı girişine izin sırada gösterilecek klavye girdisi gerektirir. 
 
 Sanal makine için önyükleme kaydedemediği bazı dağıtım paketlerini otomatik olarak, tek kullanıcı modunda veya Acil Durum modunda kaldıracağız. Bunlar, tek kullanıcılı veya Acil Durum modunda otomatik olarak bırakabilirsiniz önce diğer ancak ek kurulum gerektirir.
 

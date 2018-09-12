@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 07/11/2018
 ms.author: meirm
 ms.component: na
-ms.openlocfilehash: 7e555eb2618dbebf939fe0ab2f313b88299cd2d0
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 7898af1a8d516fa74deef5614b5373f1dbd22f5a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346211"
+ms.locfileid: "44378611"
 ---
 # <a name="log-analytics-for-service-providers"></a>Hizmet sağlayıcıları için log Analytics
 Log Analytics, yönetilen hizmet sağlayıcılarına (msp), büyük kuruluşlar, bağımsız yazılım satıcılarına (ISV) ve müşterinin şirket içi veya Bulut altyapı sunucularını izleme ve yönetme barındırma hizmeti sağlayıcılarına yardımcı olabilir. 
@@ -84,4 +84,4 @@ Log Analytics'te merkezi bir konum uygulamak için iki seçenek vardır:
 * Çalışma alanlarını kullanarak oluşturulmasını otomatikleştirin [PowerShell](log-analytics-powershell-workspace-configuration.md) 
 * Kullanım [uyarılar](log-analytics-alerts.md) var olan sistemlerle tümleştirmek için
 * Özet raporları kullanarak oluşturmak [Power BI](log-analytics-powerbi.md)
-
+* Gözden geçirme sürecini [birden çok CSP müşterileri izlemek için Log Analytics ve Power BI'ı yapılandırma](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers)

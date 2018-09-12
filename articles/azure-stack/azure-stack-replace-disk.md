@@ -1,6 +1,6 @@
 ---
-title: Fiziksel disk Azure yığınında değiştirme | Microsoft Docs
-description: Bir fiziksel disk Azure yığınında değiştirme işlemini açıklar.
+title: Azure stack'teki fiziksel disk değiştirme | Microsoft Docs
+description: Azure Stack fiziksel diskleri değiştirme işlemini açıklar.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,46 +12,46 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: f168c005c729ae75a5369b80b3dc5eab03ee0243
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 7ce501be5458282273e51a5b2bc18482592d2333
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30311330"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44376961"
 ---
-# <a name="replace-a-physical-disk-in-azure-stack"></a>Azure yığınında fiziksel disk değiştirme
+# <a name="replace-a-physical-disk-in-azure-stack"></a>Azure stack'teki fiziksel disk değiştirme
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Bu makalede Azure yığınında fiziksel diski değiştirmek için genel işlem açıklanır. Bir fiziksel disk başarısız olursa, mümkün olan en kısa sürede değiştirmelisiniz.
+Bu makalede, Azure Stack'te fiziksel diski değiştirmek için genel süreç açıklanır. Bir fiziksel disk başarısız olursa, olabildiğince çabuk değiştirmelisiniz.
 
-Tümleşik sistemleri ve hot Swap disklere sahip Geliştirme Seti dağıtımları için bu yordamı kullanabilirsiniz.
+Tümleşik sistemler ve kullanılan diskleri olan Geliştirme Seti dağıtımlar için bu yordamı kullanabilirsiniz.
 
-Gerçek disk değiştirme adımları farklılık gösterir, özgün donanım üreticisi (OEM) donanım satıcınıza temel. Sisteme özgü ayrıntılı adımlar için satıcınızın alan değiştirilebilen biriminin (FRU) belgelerine bakın. 
+Gerçek disk değiştirme adımları farklılık gösterir, orijinal ekipman üreticisi (OEM) donanım satıcınıza temel. Sisteme özgü ayrıntılı adımlar için satıcınızın alan bulunduğu yerde değiştirilebilen biriminin (FRU) belgelerine bakın. 
 
 ## <a name="review-disk-alert-information"></a>Disk uyarı bilgileri gözden geçirin
-Bir disk başarısız olduğunda, bir fiziksel disk bağlantısı kaybedildi bildiren bir uyarı alırsınız. 
+Bir disk başarısız olduğunda, bir fiziksel disk için bağlantı kaybedildi bildiren bir uyarı alırsınız. 
 
- ![Fiziksel disk uyarı gösterme bağlantısı kesildi.](media/azure-stack-replace-disk/DiskAlert.png)
+ ![Fiziksel diske uyarı gösteren bağlantısı kesilmiş](media/azure-stack-replace-disk/DiskAlert.png)
 
-Uyarı açarsanız, uyarı açıklaması ölçek birimi düğümü ve değiştirmeniz gereken disk tam fiziksel yuva konumunu içerir. Daha fazla Azure yığın başarısız disk LED göstergesi yeteneklerini kullanarak belirlemenize yardımcı olabilir.
+Uyarı açarsanız, uyarı açıklaması ölçek birimi düğüm ve tam fiziksel yuvası konumunu değiştirmeniz gereken diski içerir. Daha fazla Azure Stack LED göstergesi özelliklerini kullanarak hatalı bir diski tanımlamanıza yardımcı olur.
 
  ## <a name="replace-the-disk"></a>Disk değiştirme
 
-Gerçek disk değiştirme OEM donanım satıcısının FRU yönergeleri izleyin.
+Gerçek disk değiştirme OEM donanım satıcınızın FRU yönergelerini izleyin.
 
 > [!note]
-> Bir ölçek birimi düğümü için diskleri aynı anda değiştirin. Sanal disk onarım işleri sonraki ölçek birimi düğüme geçmeden önce tamamlanması için bekleyin
+> Bir ölçek birimi düğümü disklerinde aynı anda değiştirin. Sanal disk onarma işleri sonraki ölçek birimi düğüme geçmeden önce tamamlanması bekle
 
-Tümleşik bir sistemde desteklenmeyen bir diske kullanılmasını önlemek için sistem satıcınız tarafından desteklenmeyen diskleri engeller. Desteklenmeyen bir diske kullanmayı denerseniz, yeni bir uyarı, bir disk desteklenmeyen modeli veya bellenim nedeniyle karantinaya alınan olduğunu bildirir.
+Tümleşik bir sistemde desteklenmeyen bir disk kullanımını önlemek için sistemi satıcınız tarafından desteklenmeyen diskleri engeller. Desteklenmeyen bir disk kullanmayı denerseniz, bir diski bir desteklenmeyen model veya üretici yazılımı nedeniyle karantinaya alındı, yeni bir uyarı bildirir.
 
-Disk değiştirdikten sonra Azure yığın otomatik olarak yeni disk bulur ve sanal disk onarım işlemi başlatır.  
+Disk değiştirdikten sonra Azure Stack, otomatik olarak yeni disk bulur ve sanal disk onarım işlemini başlatır.  
  
- ## <a name="check-the-status-of-virtual-disk-repair"></a>Sanal disk onarım durumunu denetleme
+ ## <a name="check-the-status-of-virtual-disk-repair"></a>Sanal disk onarma durumunu denetleyin
  
- Disk değiştirdikten sonra sanal disk sistem durumu izleme ve ayrıcalıklı uç nokta kullanarak iş ilerleme durumunu onarın. Ayrıcalıklı uç ağ bağlantısına sahip herhangi bir bilgisayardan aşağıdaki adımları izleyin.
+ Disk değiştirdikten sonra sanal disk sistem durumunu izleyebilir ve ayrıcalıklı uç nokta kullanarak işin ilerleme durumunu onarın. Ayrıcalıklı uç noktasına ağ bağlantısı olan herhangi bir bilgisayardan aşağıdaki adımları izleyin.
 
 1. Bir Windows PowerShell oturumu açın ve ayrıcalıklı uç noktasına bağlanın.
     ````PowerShell
@@ -72,9 +72,9 @@ Disk değiştirdikten sonra Azure yığın otomatik olarak yeni disk bulur ve sa
     ````
       ![PowerShell Get-StorageJob komutunun çıktısı](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
-## <a name="troubleshoot-virtual-disk-repair"></a>Sanal disk onarım sorun giderme
+## <a name="troubleshoot-virtual-disk-repair"></a>Sanal disk onarım sorunlarını giderme
 
-Sanal disk onarım durumunda iş takılan, olarak görünür ve işi yeniden başlatmak için aşağıdaki komutu çalıştırın:
+Sanal disk onarma, işi takılan, olarak gösterilir ve işi yeniden başlatmak için aşağıdaki komutu çalıştırın:
   ````PowerShell
         Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
   ```` 

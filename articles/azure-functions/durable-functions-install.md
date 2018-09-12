@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 08/31/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 8c5f3114172a7d27685e7aee2972b43b9ebef4e9
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 3f9bdcb67628a6780e42ef16acea2b91ca9817d9
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093015"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377029"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Örnekler (Azure işlevleri) ve dayanıklı işlevler uzantısını yükleme
 
@@ -31,12 +31,12 @@ Visual Studio şu anda dayanıklı işlevler kullanan uygulamalar geliştirmek i
 
 ### <a name="prerequisites"></a>Önkoşullar
 
-* Yükleme [Visual Studio'nun en son sürümünü](https://www.visualstudio.com/downloads/) (sürüm 15.3 veya üzeri). Dahil **Azure geliştirme** iş yükü, Kurulum Seçenekleri.
+* Yükleme [Visual Studio'nun en son sürümünü](https://www.visualstudio.com/downloads/) (sürüm 15.6 veya üzeri). Dahil **Azure geliştirme** iş yükü, Kurulum Seçenekleri.
 
 ### <a name="start-with-sample-functions"></a>Örnek işlevleri ile Başlat 
 
 1. İndirme [Visual Studio için örnek uygulamayı .zip dosyasını](https://azure.github.io/azure-functions-durable-extension/files/VSDFSampleApp.zip). Örnek Proje zaten sahip olduğu NuGet başvuru eklemeniz gerekmez.
-2. Yükleme ve çalıştırma [Azure Storage öykünücüsü](https://docs.microsoft.com/azure/storage/storage-use-emulator) 5.2 veya sonraki bir sürümü. Alternatif olarak, güncelleştirme *local.appsettings.json* gerçek Azure depolama bağlantı dizeleri içeren dosya.
+2. Yükleme ve çalıştırma [Azure Storage öykünücüsü](https://docs.microsoft.com/azure/storage/storage-use-emulator) 5.6 veya sonraki bir sürümü. Alternatif olarak, güncelleştirme *local.appsettings.json* gerçek Azure depolama bağlantı dizeleri içeren dosya.
 3. Projeyi Visual Studio 2017'de açın. 
 4. Örneği çalıştırmak yönergeler için başlayan [Function zincirleme - Hello dizisi örnek](durable-functions-sequence.md). Örnek, yerel olarak çalıştırmak veya Azure'da yayımlanan.
 
@@ -45,7 +45,7 @@ Visual Studio şu anda dayanıklı işlevler kullanan uygulamalar geliştirmek i
 Örnek ile başlayan olduğu gibi aynı yönergeleri izleyin, ancak indirmek yerine aşağıdaki adımları uygulayın *.zip* dosyası:
 
 1. Bir işlev uygulaması projesi oluşturun.
-2. Aşağıdaki NuGet paketi başvurusu kullanarak arama *NuGet paketlerini Yönet* ve projeye ekleyin: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.5.0
+2. Aşağıdaki NuGet paketi başvurusu kullanarak arama *NuGet paketlerini Yönet* ve projeye ekleyin: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.6.0
    
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -63,7 +63,7 @@ Visual Studio Code, başlıca platformların tümüne - Windows, macOS ve Linux 
     >[!IMPORTANT]
     >Dayanıklı işlevler javascript'teki sürüm gerektirir, Azure işlevleri çekirdek araçları 2.x.
 
-*  Bir Windows makinede mevcut değilse, yükleyin ve çalıştırın [Azure Storage öykünücüsü](https://docs.microsoft.com/azure/storage/storage-use-emulator) 5.2 veya sonraki bir sürümü. Alternatif olarak, güncelleştirme *local.appsettings.json* gerçek Azure depolama bağlantılı dosya. 
+*  Bir Windows makinede mevcut değilse, yükleyin ve çalıştırın [Azure Storage öykünücüsü](https://docs.microsoft.com/azure/storage/storage-use-emulator) 5.6 veya sonraki bir sürümü. Alternatif olarak, güncelleştirme *local.appsettings.json* gerçek Azure depolama bağlantılı dosya. 
 
 
 ### <a name="start-with-sample-functions"></a>Örnek işlevleri ile Başlat
@@ -75,12 +75,12 @@ Visual Studio Code, başlıca platformların tümüne - Windows, macOS ve Linux 
 3. Azure işlevleri dayanıklı uzantısı aşağıdaki bir komut çalıştırarak yükleme istemi / terminal penceresi:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.0
     ```
 4. Aşağıdaki komutta çalıştırarak Azure işlevleri Twilio uzantısı yükleme istemi / terminal penceresi:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta5
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta8
     ```
 5. Azure Storage öykünücüsü veya güncelleştirme çalıştırması *local.appsettings.json* gerçek Azure depolama bağlantı dizesi içeren dosya.
 6. Visual Studio Code'da projeyi açın. 
@@ -97,7 +97,7 @@ Visual Studio Code, başlıca platformların tümüne - Windows, macOS ve Linux 
 3. Azure işlevleri dayanıklı uzantısı aşağıdaki bir komut çalıştırarak yükleme istemi / terminal penceresi:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.0
     ```
 4. Aşağıdaki komutta çalıştırarak npm paketlerini geri yükleme istemi / terminal penceresi:
     
@@ -118,7 +118,7 @@ Visual Studio Code, başlıca platformların tümüne - Windows, macOS ve Linux 
 2. Aşağıdaki komutta çalıştırarak Azure işlevleri dayanıklı uzantıyı yükleme istemi / terminal penceresi:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.0
     ```
 3. Aşağıdaki komutu çalıştırarak bir işlev uygulaması projesi oluşturun:
 

@@ -14,21 +14,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: db6b1c196cb468f41c7a7ce34758de346b522abb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4be0695402b66fdb2a027bfbada0e0b26e02d36f
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23867818"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378729"
 ---
 # <a name="scheduler-limits-and-defaults"></a>Scheduler sınırları ve Varsayılanları
-## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>Zamanlayıcı kotaları, sınırları, Varsayılanları ve kısıtlamaları
+## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>Zamanlayıcı kotaları, sınırları, Varsayılanları ve kısıtlamalar
 [!INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
-## <a name="the-x-ms-request-id-header"></a>X-ms-request-id üstbilgisi
-Adlı bir yanıt üstbilgisi karşı Zamanlayıcı hizmeti yapılan her isteği döndürür**x-ms-request-id**. Bu başlığı istek benzersiz olarak tanımlayan genel olmayan bir değer içerir.
+## <a name="the-x-ms-request-id-header"></a>X-ms-request-id üst bilgisi
+Zamanlayıcı hizmetine karşı yapılan her isteği adlı bir yanıt üstbilgisi döndürür **x-ms-request-id**. Bu üst bilgi isteği benzersiz olarak tanımlayan genel olmayan bir değer içerir.
 
-Bir istek sürekli olarak başarısız oluyor ve istek düzgün şeklide doğruladıktan, Microsoft'a hata raporu için bu değeri kullanabilirsiniz. Raporunuzda, x-ms-request-id, isteği yapıldı yaklaşık zaman değeri, abonelik, iş koleksiyonu ve/veya iş ve istek çalıştı işlemi türünü tanımlayıcısını içerir.
+Bir isteği tutarlı olarak başarısız oluyor ve istek düzgün şeklide doğruladıktan, sorunu Microsoft'a bildirmek için bu değeri kullanabilir. Raporu, x-ms-request-id, isteği gereken yaklaşık süreyi değerini, abonelik, iş koleksiyonu ve/veya iş ve istek Denenen işlem türü tanımlayıcısını içerir.
 
 ## <a name="see-also"></a>Ayrıca Bkz.
  [Scheduler nedir?](scheduler-intro.md)

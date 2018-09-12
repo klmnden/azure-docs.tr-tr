@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 387c4ce51d7bc9b618bb87fd347b9448926452b7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ef9fe0e05343f9c99656634a075b1bd464a13c7e
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426804"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379598"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Azure Stack PKI sertifikaları dağıtımı için hazırlama
 Sertifika dosyalarını [seçim, CA'dan alınan](azure-stack-get-pki-certs.md) içeri ve dışarı Azure yığını'nın sertifika gereksinimleri eşleşen özelliklere sahip.

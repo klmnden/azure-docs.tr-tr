@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: roiyz
-ms.openlocfilehash: c00d4d481c992e90597276d0ce8655aef2be731f
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 40f9e8ec394385691f74d021829ca2366f480717
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054555"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377658"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows için özel betik uzantısı
 
@@ -139,7 +139,8 @@ Azure VM uzantıları Azure Resource Manager şablonları ile dağıtılabilir. 
 
 ## <a name="powershell-deployment"></a>PowerShell dağıtım
 
-`Set-AzureRmVMCustomScriptExtension` Komutu, mevcut bir sanal makine için özel betik uzantısı eklemek için kullanılabilir. Daha fazla bilgi için [kümesi AzureRmVMCustomScriptExtension ](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension).
+`Set-AzureRmVMCustomScriptExtension` Komutu, mevcut bir sanal makine için özel betik uzantısı eklemek için kullanılabilir. Daha fazla bilgi için [kümesi AzureRmVMCustomScriptExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension).
+
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -VMName myVM `

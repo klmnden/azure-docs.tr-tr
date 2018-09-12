@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/21/2018
-ms.openlocfilehash: 7494f139f824d3794fced3a0eb4f8d676f3961f5
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 18f6647a8412477384a48aa777461f99b2fbcb0a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173716"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379559"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Fiyatlandırma katmanları PostgreSQL için Azure veritabanı
 
@@ -46,7 +46,7 @@ Bir sunucu oluşturduktan sonra sanal çekirdek, donanım oluşturma ve fiyatlan
 
 | **Azure bölgesi** | **4. nesil** | **5. nesil** |
 |:---|:----------:|:--------------------:|
-| Orta ABD | X |  |
+| Orta ABD | X | X |
 | Doğu ABD | X | X |
 | Doğu ABD 2 | X | X |
 | Orta Kuzey ABD | X | X |

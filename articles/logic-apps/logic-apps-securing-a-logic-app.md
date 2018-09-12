@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 11/22/2016
-ms.openlocfilehash: fc4fdff5080e6ebe13850157e8d560a1d31e7719
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 1307b6df22c51af9710d44abb23178d65e3507aa
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127488"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377403"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Azure Logic apps'te güvenli erişim
 
@@ -77,7 +77,7 @@ Bu ayar, mantıksal uygulama ayarlarında yapılandırılabilir:
 1. Tıklayın **iş akışı ayarları** menü öğesi altında **ayarları**
 1. Tetik tarafından kabul edilmesi için IP adresi aralıkları listesini belirtin
 
-Geçerli bir IP aralığı biçimini alır `192.168.1.1/255`. Mantıksal uygulamanın yalnızca iç içe geçmiş mantıksal uygulama harekete istiyorsanız belirleyin **yalnızca diğer mantıksal uygulamalar** seçeneği. Bu seçenek, anlamı yalnızca hizmetin kendisini (üst mantıksal uygulamalar) çağırır kaynak için boş bir dizi Yazar başarıyla yangın.
+Geçerli bir IP aralığı biçimini alır `192.168.1.1/32`. Mantıksal uygulamanın yalnızca iç içe geçmiş mantıksal uygulama harekete istiyorsanız belirleyin **yalnızca diğer mantıksal uygulamalar** seçeneği. Bu seçenek, anlamı yalnızca hizmetin kendisini (üst mantıksal uygulamalar) çağırır kaynak için boş bir dizi Yazar başarıyla yangın.
 
 > [!NOTE]
 > Yine de bir mantıksal uygulama istek tetikleyicisi ile REST API aracılığıyla çalıştırabileceğiniz / Yönetim `/triggers/{triggerName}/run` IP ne olursa olsun. Bu senaryo Azure REST API'sine karşı kimlik doğrulaması gerektirir ve tüm olayları Azure denetim günlüğünde görünür. Kümesi erişimi ilkeleri buna göre denetler.

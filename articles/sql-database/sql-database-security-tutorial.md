@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,security
 ms.topic: tutorial
-ms.date: 04/24/2018
+ms.date: 09/07/2018
 ms.author: daredis
-ms.openlocfilehash: 54ec3c1386d6ce2023106367a6af1915e754948f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d805a39831ce2eea204689a4daa069d10b757e8
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193470"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054079"
 ---
 # <a name="secure-your-azure-sql-database"></a>Azure SQL Veritabanınızın güvenliğini sağlama
 
@@ -46,11 +46,11 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yaptığınızdan emin olun:
 
 - [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)’nun (SSMS) en yeni sürümü yüklendi. 
 - Microsoft Excel yükleme
-- Bir Azure SQL sunucusu ve veritabanı oluşturma - Bkz. [Azure portalında Azure SQL veritabanı oluşturma](sql-database-get-started-portal.md), [Azure CLI kullanarak tek bir Azure SQL veritabanı oluşturma](sql-database-get-started-cli.md) ve [PowerShell kullanarak tek bir Azure SQL veritabanı oluşturma](sql-database-get-started-powershell.md). 
+- Bir Azure SQL sunucusu ve veritabanı oluşturma - Bkz. [Azure portalında Azure SQL veritabanı oluşturma](sql-database-get-started-portal.md), [Azure CLI kullanarak tek bir Azure SQL veritabanı oluşturma](sql-database-cli-samples.md) ve [PowerShell kullanarak tek bir Azure SQL veritabanı oluşturma](sql-database-powershell-samples.md). 
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
 
-[Azure Portal](https://portal.azure.com/)’da oturum açın.
+[Azure Portal](https://portal.azure.com/) oturum açın.
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Azure portalında sunucu düzeyinde bir güvenlik duvarı kuralı oluşturma
 

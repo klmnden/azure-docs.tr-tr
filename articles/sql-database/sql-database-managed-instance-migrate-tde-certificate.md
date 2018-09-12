@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/09/2018
 ms.author: mlandzic
 manager: craigg
-ms.openlocfilehash: afecd69cdf9832e1c6dc294ca01968ee50a3eabd
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 73990d6feeed56114bc3c66164bbb53c093bbe21
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41918956"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050620"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-managed-instance"></a>TDE korumalı veritabanının sertifikasını Azure SQL Yönetilen Örneği’ne geçirme
 
@@ -141,4 +141,4 @@ Sertifikaya artık belirtilen Yönetilen Örnekten ulaşılabilir ve buna karş�
 
 Bu makalede, Saydam Veri Şifrelemesi ile veritabanının şifreleme anahtarını koruyarak sertifikayı şirket içi veya IaaS SQL Server’dan Azure SQL Yönetilen Örneği’ne geçirmeyi öğrendiniz.
 
-Azure SQL Veritabanı Yönetilen Örneği’nde veritabanı yedeğini geri yüklemeyi öğrenmek için bkz. [Veritabanı yedeğini Azure SQL Veritabanı Yönetilen Örneği’ne geri yükleme](sql-database-managed-instance-restore-from-backup-tutorial.md).
+Azure SQL Veritabanı Yönetilen Örneği’nde veritabanı yedeğini geri yüklemeyi öğrenmek için bkz. [Veritabanı yedeğini Azure SQL Veritabanı Yönetilen Örneği’ne geri yükleme](sql-database-managed-instance-get-started-restore.md).

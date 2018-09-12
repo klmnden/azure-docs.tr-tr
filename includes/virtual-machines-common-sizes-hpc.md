@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: ac8686d0ea5704492bfc2e08972a2f70c9b34c43
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 16e2a9cfbd9f08428fddade290117b27bc3401f7
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37906828"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44369427"
 ---
-Azure H serisi sanal makineler en son Vm'leri molekül modellemeleri ve hesaplama sıvı dinamiği gibi yüksek son işlem hesaplama gereksinimlerine yönelik yüksek performanslı bilgi işlem olur. Bu 8 ve 16 vCPU VM'ler Intel Haswell E5-2667 V3 işlemci teknolojisini DDR4 bellek ve SSD tabanlı geçici depolama üzerinde oluşturulur. 
+Azure H serisi sanal makineler en yüksek performanslı bilgi işlem VM'ler toplu işlem, analiz, moleküler modelleme ve akışkanlar dinamiği gibi iş yükleri işleme sırasında amaçlayan olur. Bu 8 ve 16 vCPU VM'ler Intel Haswell E5-2667 V3 işlemci teknolojisini DDR4 bellek ve SSD tabanlı geçici depolama üzerinde oluşturulur. 
 
 H Serisi önemli miktarda CPU gücünün yanı sıra, FDR InfiniBand ile düşük gecikmeli RDMA ağ iletişimi için farklı seçeneklere ek olarak yoğun bellek kullanımlı işlem gereksinimlerini için çok sayıda bellek yapılandırması sunar.
 

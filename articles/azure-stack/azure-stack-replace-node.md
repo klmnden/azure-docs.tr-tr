@@ -1,6 +1,6 @@
 ---
-title: Bir Azure tümleşik yığını sistemi bir ölçek birimi düğümünde Değiştir | Microsoft Docs
-description: Bir Azure tümleşik yığını sistem fiziksel ölçek birimi düğümde Değiştir öğrenin.
+title: Bir ölçek birimi düğüm bir Azure Stack tümleşik sisteminde Değiştir | Microsoft Docs
+description: Bir Azure Stack tümleşik sistemi fiziksel ölçek birimi düğümde nasıl değiştirileceğini öğrenin.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,61 +12,61 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 468af385833395963ef8acad905b99a9b7e6b8fa
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 1b37b150dad4951a4ade81f226b515ce9cae9053
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27598782"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377063"
 ---
-# <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Bir Azure tümleşik yığını sistemi bir ölçek birimi düğümünde değiştirin
+# <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Bir ölçek birimi düğüm bir Azure Stack tümleşik sisteminde değiştirin
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri*
 
-Bu makalede bir fiziksel bilgisayara değiştirmek için genel işlem (olarak da adlandırılan bir *ölçek birimi düğümü*) bir Azure yığında sistem tümleşik. Gerçek ölçek birimi düğümü değiştirme adımları farklılık gösterir, özgün donanım üreticisi (OEM) donanım satıcınıza temel. Sisteme özgü ayrıntılı adımlar için satıcınızın alan değiştirilebilen biriminin (FRU) belgelerine bakın.
+Bu makalede bir fiziksel bilgisayar için genel süreç (olarak da adlandırılan bir *ölçek birimi düğüm*) üzerinde bir Azure Stack tümleşik sistemi. Gerçek bir ölçek birimi düğüm değiştirme adımları farklılık gösterir, orijinal ekipman üreticisi (OEM) donanım satıcınıza temel. Sisteme özgü ayrıntılı adımlar için satıcınızın alan bulunduğu yerde değiştirilebilen biriminin (FRU) belgelerine bakın.
 
-Aşağıdaki akış diyagramı tüm ölçek birimi düğümü değiştirmek için genel FRU işlemi gösterilmektedir.
+Aşağıdaki akış diyagramı bir tüm ölçek birimi düğümü değiştirmek için genel FRU işlemi gösterilmektedir.
 
-![Değiştir düğümü işlemi için akış çizelgesi](media/azure-stack-replace-node/replacenodeflow.png)
+![Değiştir düğümü işlemi akış çizelgesi](media/azure-stack-replace-node/replacenodeflow.png)
 
-* Bu eylem donanım fiziksel koşula göre gerekli olmayabilir.
+* Bu eylem fiziksel donanım koşula göre gerekli olmayabilir.
 
 ## <a name="review-alert-information"></a>Uyarı bilgileri gözden geçirin
 
-Bir ölçek birimi düğümü kapalı ise, aşağıdaki kritik uyarılar alırsınız:
+Bir ölçek birimi düğüm kapalı ise, aşağıdaki kritik uyarılar alırsınız:
 
-- Düğüm ağ denetleyicisine bağlı değil
-- Sanal makine yerleştirme için erişilemez düğümü
-- Ölçek birimi düğümü çevrimdışı
+- Düğüm ağ Denetleyicisi'ne bağlı değil
+- Düğüm sanal makine yerleştirme için erişilemez
+- Ölçek birimi düğümü çevrimdışı.
 
 ![Ölçek birimi için uyarıların listesi](media/azure-stack-replace-node/nodedownalerts.png)
 
-Açarsanız **ölçek birimi düğüm çevrimdışıysa** uyarı, uyarı açıklaması erişilemez ölçek birimi düğümü içerir. Donanım yaşam döngüsü konakta çalıştığından OEM özgü izleme çözümde ek uyarıları da alabilirsiniz.
+Açarsanız **ölçek birimi düğümü çevrimdışı** uyarı, uyarı açıklaması erişilemez ölçek birimi düğümü içerir. OEM özel izleme çözümündeki donanım yaşam döngüsü konakta çalıştığından, ek uyarılar da alabilirsiniz.
 
-![Düğüm çevrimdışı uyarı ayrıntıları](media/azure-stack-replace-node/nodeoffline.png)
+![Düğümü çevrimdışı uyarının ayrıntıları](media/azure-stack-replace-node/nodeoffline.png)
 
-## <a name="scale-unit-node-replacement-process"></a>Ölçek birimi düğümü değiştirme işlemini
+## <a name="scale-unit-node-replacement-process"></a>Ölçek birimi düğüm değiştirme işlemini
 
-Aşağıdaki adımlar, bir üst düzey genel bakış ölçek birimi düğümü değiştirme işlemini sağlanır. Sisteme özgü ayrıntılı adımlar için OEM donanım satıcısının FRU belgelerine bakın. OEM tarafından sağlanan belgelerinize bakarak olmadan adımları izlemeyin.
+Ölçek birimi düğüm değiştirme işleminin üst düzey bir genel aşağıdaki adımları sağlanır. Sisteme özgü ayrıntılı adımlar için OEM donanım satıcınızın FRU belgelerine bakın. OEM tarafından sağlanan belgelerinize başvuruda bulunmadan bu adımları izlemeyin.
 
-1. Kullanım [boşaltma](azure-stack-node-actions.md#scale-unit-node-actions) ölçek birimi düğümü bakım moduna eylem. Bu eylem donanım fiziksel koşula göre gerekli olmayabilir.
+1. Kullanım [boşaltma](azure-stack-node-actions.md#scale-unit-node-actions) ölçek birimi düğümü bakım moduna almak için eylem. Bu eylem fiziksel donanım koşula göre gerekli olmayabilir.
 
    > [!NOTE]
-   > Herhangi bir durumda, yalnızca tek bir düğüme boşaltmış ve değiştirebilirsiniz aynı anda S2D bozmadan kapalı (depolama alanları doğrudan).
+   > Herhangi bir durumda, yalnızca bir düğüm kullanılabilir boşaltılır ve aynı anda S2D bozmadan kapalı (depolama alanları doğrudan).
 
-2. Düğüme hala açık olduğundan kullanırsanız [kapatmak](azure-stack-node-actions.md#scale-unit-node-actions) eylem. Bu eylem donanım fiziksel koşula göre gerekli olmayabilir.
+2. Düğüme hala çalışır durumda kullanırsanız [gücünün kapatılmasını](azure-stack-node-actions.md#scale-unit-node-actions) eylem. Bu eylem fiziksel donanım koşula göre gerekli olmayabilir.
  
    > [!NOTE]
-   > Eylem kapatma işe yaramazsa olası durumda da, temel kart yönetim denetleyicisi (BMC) web arabirimi kullanın.
+   > Eylem kapatma çalışmıyor olası durumda da, temel kart yönetim denetleyicisine (BMC) web arabirimini kullanın.
 
 1. Fiziksel bilgisayar değiştirin. Genellikle, bu OEM donanım satıcınız tarafından gerçekleştirilir.
-2. Kullanım [onarım](azure-stack-node-actions.md#scale-unit-node-actions) ölçek birimi için yeni fiziksel bilgisayar eklemek için eylem.
-3. Ayrıcalıklı uç noktasına kullanmak [sanal disk onarım durumunu denetleme](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Yeni bir veri sürücüsü ile tam depolama onarım iş sistem yükü bağlı olarak birkaç saat sürebilir ve alan tüketilen.
+2. Kullanım [onarım](azure-stack-node-actions.md#scale-unit-node-actions) Ölçek birimine yeni fiziksel bilgisayar eklemek için eylem.
+3. Ayrıcalıklı uç noktasına kullanın [sanal disk onarma durumunu](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Yeni veri sürücüleri ile tam depolama Onar işi sistem yüküne bağlı olarak birkaç saat sürebilir ve kullanılan alanı.
 4. Onarım işlemi tamamlandıktan sonra tüm etkin uyarıları otomatik olarak kapatılan doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Hot Swap fiziksel disk değiştirme hakkında daha fazla bilgi için bkz: [disk değiştirme](azure-stack-replace-disk.md). 
-- Olmayan hot Swap donanım bileşeni değiştirme hakkında daha fazla bilgi için bkz: [donanım bileşeni Değiştir](azure-stack-replace-component.md).
+- Sık erişimli çıkarılabilen bir fiziksel disk değiştirme hakkında daha fazla bilgi için bkz. [disk değiştirme](azure-stack-replace-disk.md). 
+- Bir olmayan hot çıkarılabilen bir donanım bileşenini değiştirme hakkında daha fazla bilgi için bkz: [bir donanım bileşenini değiştirme](azure-stack-replace-component.md).

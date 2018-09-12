@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ea8c275e5cc37f8c5ecd7c29491b7146669d00fb
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: c84977dacddcf9ccca7fde735ad4acb8a1523fa9
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092912"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378712"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Dayanıklı işlevler - Hello dizisi örnek zincirleme işlevi
 
@@ -104,6 +104,9 @@ Yürütülecek `E1_HelloSequence` düzenleme, aşağıdaki HTTP POST isteği gö
 ```
 POST http://{host}/orchestrators/E1_HelloSequence
 ```
+
+> [!NOTE]
+> Önceki HTTP kod parçacığı bir giriş olduğunu varsayar `host.json` varsayılan kaldıran dosya `api/` tüm HTTP tetikleyicisi işlevlerini URL'lerden öneki. Bu yapılandırma için işaretleme bulabilirsiniz `host.json` örnekleri dosyasında.
 
 Örneğin, "myfunctionapp" adlı bir işlev uygulamasında örneğe çalıştırıyorsanız, "{konak}", "myfunctionapp.azurewebsites.net" ile değiştirin.
 

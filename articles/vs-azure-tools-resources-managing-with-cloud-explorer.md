@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/25/2017
 ms.author: ghogen
-ms.openlocfilehash: a4be3f063c51f26e1df9ecf4cca4ae0655554750
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 596db56a71d4cc73517b9a9cbfe9b97e536aa83a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42059670"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378855"
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>Azure, Visual Studio Cloud Explorer hesaplarıyla ilişkili kaynakları yönetme
 Bulut Gezgini, Azure kaynaklarını ve kaynak gruplarını görüntüleme, özelliklerini inceleme ve Visual Studio içinde temel Geliştirici tanılama eylemleri gerçekleştirmek sağlar. 
@@ -40,9 +40,9 @@ Bir Azure hesabı ile ilişkili kaynakları görüntülemek için hesap için Cl
 
     ![Cloud Explorer Azure hesap ayarları simgesi](media/vs-azure-tools-resources-managing-with-cloud-explorer/azure-account-settings.png)
 
-1. Seçin **yeni hesap Ekle**. 
+1. Seçin **hesapları yönetme**. 
 
-    ![Cloud Explorer ekleme hesabının bağlantısı](media/vs-azure-tools-resources-managing-with-cloud-explorer/add-account-link.png)
+    ![Cloud Explorer ekleme hesabının bağlantısı](media/vs-azure-tools-resources-managing-with-cloud-explorer/manage-accounts-link.png)
 
 1. Gözatmak istediğiniz kaynakları Azure hesabında oturum açın. 
 
@@ -56,13 +56,17 @@ Bir Azure hesabı ile ilişkili kaynakları görüntülemek için hesap için Cl
 
 ## <a name="remove-an-azure-account-from-cloud-explorer"></a>Bir Azure hesabı bulut gezgininden Kaldır 
 
-1. İçinde **Cloud Explorer**seçin **Azure hesap ayarları**.
+1. İçinde **Cloud Explorer**seçin **hesap yönetimi**.
 
     ![Cloud Explorer Azure hesap ayarları simgesi](media/vs-azure-tools-resources-managing-with-cloud-explorer/azure-account-settings.png)
 
-1. Kaldırmak istediğiniz hesabı yanındaki seçin **Kaldır**.
+1. Kaldırmak istediğiniz hesabı yanındaki seçin **hesaplarını yönetme**.
 
     ![Cloud Explorer Azure hesap ayarları simgesi](media/vs-azure-tools-resources-managing-with-cloud-explorer/remove-account.png)
+
+1. Seçin **Kaldır** hesabı kaldırmak için.
+
+    ![Cloud Explorer'ı yönetme hesapları iletişim kutusu](media/vs-azure-tools-resources-managing-with-cloud-explorer/accountmanage.PNG)
 
 ## <a name="view-resource-types-or-resource-groups"></a>Kaynak türleri veya kaynak grupları görüntüleyin
 Azure kaynaklarınızı görüntülemek için ya da seçebilirsiniz **kaynak türleri** veya **kaynak grupları** görünümü.

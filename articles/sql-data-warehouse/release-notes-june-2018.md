@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 6dff2d1886a560e3a7e2758816a884782e33787f
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 12023216575b08732f3ef2d04bac9e825621f720
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287979"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44376978"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Haziran 2018
 Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Haziran 2018'de sunulan değişiklikler ve yeni özellikleri açıklar. 
@@ -23,7 +23,7 @@ Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Hazi
 ## <a name="user-defined-restore-points"></a>Kullanıcı tanımlı geri yükleme noktaları
 SQL veri ambarı, veri ambarınızın anlık görüntüleri otomatik olarak her 8 saatte bir sekiz saatlik kurtarma noktası hedefi (RPO) güvence altına almak alır. Bu anlık görüntüler bir kolayca veri Ambarınızı çalışan yönetim yükünü otomatik karşın, iş gereksinimlerinize göre kritik zamanlarda anlık gerek yoktur. Örneğin, önemli veri yüklemesi ya da dağıtımı yeni komut dosyaları hemen önce bir anlık görüntü işlemi hemen önce geri yükleme noktası etkinleştirmek için veri ambarı'na yönlendiriliyorsunuz. 
 
-SQL veri ambarı destekler [kullanıcı tanımlı bir geri yükleme noktaları](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) aracılığıyla [yeni AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoin) cmdlet'i.
+SQL veri ambarı destekler [kullanıcı tanımlı bir geri yükleme noktaları](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) aracılığıyla [yeni AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint) cmdlet'i.
 
 ```PowerShell
 New-AzureRmSqlDatabaseRestorePoint
@@ -50,7 +50,7 @@ The SELECT permission was denied on the column 'SSN' of the object 'Membership',
 ```
 
 ## <a name="objectschemaname"></a>OBJECT_SCHEMA_NAME
-[OBJECT_SCHEMA_NAME()]() işlevi şema kapsamlı nesneler için veritabanı şema adını döndürür. Bu işlev ETL araçlarındaki yaygın haline gelmiştir zaman şema doğrulama nesnesi. 
+[OBJECT_SCHEMA_NAME()](https://docs.microsoft.com/sql/t-sql/functions/object-schema-name-transact-sql) işlevi şema kapsamlı nesneler için veritabanı şema adını döndürür. Bu işlev ETL araçlarındaki yaygın haline gelmiştir zaman şema doğrulama nesnesi. 
 
 ```sql
 SELECT

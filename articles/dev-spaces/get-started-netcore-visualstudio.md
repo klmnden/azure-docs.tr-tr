@@ -13,12 +13,12 @@ ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
 manager: douge
-ms.openlocfilehash: 155f823b53ac6a6e391b1f4f71994d896070092a
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: ac1872cf3f5ee8b83da9fa4c489188504aa8ad22
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42110196"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161552"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>.NET Core ve Visual Studio ile Azure Dev Spaces’ı Kullanmaya Başlama
 
@@ -29,9 +29,9 @@ Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 - İki ayrı hizmeti bağımsız olarak geliştirin ve Kubernetes’in DNS hizmet bulma yöntemini kullanarak başka bir hizmete çağrı yapın.
 - Kodunuzu bir ekip ortamında verimli bir şekilde geliştirip test edin.
 
-[!INCLUDE[](includes/see-troubleshooting.md)]
+[!INCLUDE [](includes/see-troubleshooting.md)]
 
-[!INCLUDE[](includes/portal-aks-cluster.md)]
+[!INCLUDE [](includes/portal-aks-cluster.md)]
 
 ## <a name="get-the-visual-studio-tools"></a>Visual Studio araçlarını edinme
 1. En son [Visual Studio 2017](https://www.visualstudio.com/vs/) sürümünü yükleme

@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 07/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 48d64873f0a8c3754ac5c3ecda2294c0f337b9d5
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 57bce631a570f549d46a9b0beefcb5adce4decfc
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094613"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380123"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>SQL veri ambarı önerileri
 
@@ -37,6 +37,6 @@ Veri dengesizliği yükünüz çalıştırırken ek veri hareketi veya kaynak da
 
 Yetersiz sorgu planlarına oluşturmak SQL veri ambarı sorgu iyileştiricisi neden olabileceği yetersiz istatistik sorgu performansı önemli ölçüde etkileyebilir. Aşağıdaki belgeler, oluşturma ve istatistikleri güncelleştirmeyi en iyi uygulamalar açıklanmaktadır:
 
-- [Tablo istatistikleri oluşturma ve güncelleştirme](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistic)
+- [Tablo istatistikleri oluşturma ve güncelleştirme](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics)
 
 Bu öneri tarafından etkilenen tabloların listesini görmek için aşağıdaki komutu çalıştırın. [T-SQL betiği](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). Danışman, sürekli olarak bu önerileri oluşturmak için aynı T-SQL betiği çalıştırır.

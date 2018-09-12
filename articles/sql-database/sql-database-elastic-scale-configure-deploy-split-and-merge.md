@@ -9,12 +9,12 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 10ba369c9627f7492f9776a757d4bccb74013b5f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c7682b63689d9b47fce5fa65a3c0a2301d53502a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349203"
+ms.locfileid: "44379206"
 ---
 # <a name="deploy-a-split-merge-service"></a>Ayırma-birleştirme hizmetini dağıtma
 Ayırma-Birleştirme aracı, parçalı veritabanları arasında veri taşımanıza olanak tanır. Bkz: [ölçeği genişletilen bulut veritabanları arasında veri taşıma](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -143,7 +143,7 @@ Lütfen şifreleme, sunucu sertifikası ve istemci sertifikaları için CA serti
 
 ## <a name="test-the-service-deployment"></a>Hizmet dağıtımı test etme
 ### <a name="connect-with-a-web-browser"></a>Bir web tarayıcısı ile bağlanma
-Ayırma-birleştirme hizmeti web uç noktası belirleyin. Giderek bu Azure Klasik portalında bulabilirsiniz **Pano** bulut hizmetinizin ve altında bakarak **Site URL'si** işlecin sağ tarafındaki. Değiştirin **http://** ile **https://** sonra HTTP uç noktasına varsayılan güvenlik ayarlarını devre dışı bırakın. Sayfa için bu URL'yi tarayıcınıza yükleyin.
+Ayırma-birleştirme hizmeti web uç noktası belirleyin. Giderek bu portalda bulabilirsiniz **genel bakış** bulut hizmetinizin ve altında bakarak **Site URL'si** işlecin sağ tarafındaki. Değiştirin **http://** ile **https://** sonra HTTP uç noktasına varsayılan güvenlik ayarlarını devre dışı bırakın. Sayfa için bu URL'yi tarayıcınıza yükleyin.
 
 ### <a name="test-with-powershell-scripts"></a>PowerShell betikleri ile test
 Dağıtım ve ortamınızı dahil edilmiş örnek PowerShell betiklerini çalıştırarak test edilebilir.

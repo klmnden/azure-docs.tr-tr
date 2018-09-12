@@ -14,22 +14,21 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: a55c99764cf9d77ab3ee269e3f5b0c2a13ec1ac7
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: b509bf9575c3fdeedd1673d4ffe1395d46e3d919
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42023467"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051621"
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Anahtar Kasası nedir?
 
-Azure Key Vault, güvenli bir gizli dizi deposu olarak çalışan bir bulut hizmetidir.
+Azure Key Vault, aşağıdaki sorunların çözülmesine yardımcı olur
+- Belirteçleri, parolaları, sertifikaları, API anahtarlarını ve diğer gizli dizileri Güvenle depolamak ve bunlara erişimi sıkı bir şekilde denetlemek için Azure Key Vault kullanılabilir
+- Azure Key Vault, Anahtar Yönetimi çözümü olarak da kullanılabilir. Azure Key Vault, verilerinizi şifrelemek için kullanılan şifreleme anahtarlarını oluşturmayı ve denetlemeyi kolaylaştırır. 
+- Azure Key Vault aynı zamanda, Azure ve bağlı iç kaynaklarınızla kullanım için genel ve özel Güvenli Yuva Katmanı/Aktarım Katmanı Güvenliği (SSL/TLS) sertifikalarını kolayca hazırlamanıza, yönetmenize ve dağıtmanıza olanak sağlayan bir hizmettir. 
+- Gizli diziler ve anahtarlar yazılım tarafından korunabilir veya FIPS 140-2 Düzey 2, HSM'leri doğrular
 
-Parolalarınız, bağlantı dizeleriniz ve uygulamanızı çalışır durumda tutmak için gereken diğer bilgileriniz vardır. Bu bilgilerin kullanılabilir ancak güvenli olduğundan emin olmak istersiniz. Azure Key Vault bu noktada yardımcı olur. Azure Key Vault, uygulama gizli dizilerini güvenli bir şekilde depolayıp yönetmenize yardımcı olabilir.
-
-Key Vault, kasa adlı birden fazla güvenli kapsayıcı oluşturmanıza imkan tanır. Bu kasalar, donanım güvenlik modülleri (HSM) tarafından desteklenir. Kasalar, uygulama gizli dizilerinin depolanmasını merkezi hale getirerek güvenlik bilgilerini kazayla kaybetme olasılığını azaltmaya yardımcı olur. Anahtar Kasaları ayrıca içlerinde depolanmış her şeye erişimi denetler ve günlüğe kaydeder. Azure Key Vault, sağlam bir sertifika yaşam döngüsü yönetim çözümü için gereken özellikleri sağlayarak Aktarım Katmanı Güvenliği (TLS) sertifikalarını isteme ve yenileme işlemlerini gerçekleştirebilir.
-
- Azure Key Vault, her türlü gizli diziyi desteklemek için tasarlanmıştır. Başka bir deyişle Key Vault parolaları, veritabanı kimlik bilgilerini, API anahtarlarını ve sertifikaları (yazılım korumalı veya HSM korumalı) depolamak için kullanılabilir
 ## <a name="why-use-azure-key-vault"></a>Neden Azure Key Vault kullanmalıyım?
 
 ### <a name="centralize-application-secrets"></a>Uygulama gizli dizilerini merkezi hale getirme

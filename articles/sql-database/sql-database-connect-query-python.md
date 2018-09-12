@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 07/02/2018
 ms.author: carlrab
-ms.openlocfilehash: e88c069bed40bcdf1eae9d356403cc772a11ea85
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2f907ccd371a9b2c4601a5ea266326a32c4f665d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704782"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054942"
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>Python kullanarak Azure SQL veritabanı sorgulama
 
@@ -27,7 +27,7 @@ Bu hızlı başlangıcı tamamlamak için aşağıdakilere sahip olduğunuzdan e
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Bu hızlı başlangıçta kullanacağınız bilgisayarın genel IP adresi için [sunucu düzeyinde bir güvenlik duvarı kuralı](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
+- Bu hızlı başlangıçta kullanacağınız bilgisayarın genel IP adresi için [sunucu düzeyinde bir güvenlik duvarı kuralı](sql-database-get-started-portal-firewall.md).
 
 - İşletim sisteminiz için Python ve ilgili yazılımları yüklediniz:
 

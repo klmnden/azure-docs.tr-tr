@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/04/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a66a17a0f8daed5f61753dd7c20ed5d9987c0b15
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 7fec050f43ed6facef548ea19d1d67030458fbb1
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053909"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380259"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Geliştirme ve C# modülleri, Azure IOT Edge için hata ayıklama için Visual Studio Code'u kullanın
 
@@ -116,6 +116,9 @@ IOT Edge C# modülü olan bir.Net Core uygulaması. Ve Azure IOT C# cihaz SDK's�
 3. VS Code hata ayıklama görünümüne gidin. Hata ayıklama Yapılandırması **ModuleName yerel hata ayıklama (.NET Core)**. 
 
 4. Tıklayın **hata ayıklamayı Başlat** veya basın **F5**. Hata ayıklama oturumu başlar.
+
+   > [!NOTE]
+   > Varsa,.Net Core `TargetFramework` program yolunuzda ile tutarlı değil `launch.json`. Program yolu el ile güncelleştirmeniz gerekir `launch.json` cevaben `TargetFramework` .csproj dosyanızda. Bu nedenle, VS Code Bu program başarıyla başlatabilirsiniz.
 
 5. VS Code tümleşik terminale göndermek için aşağıdaki komutu çalıştırın bir **Hello World** modülünüzde ileti. Önceki adımda gösterilen komut budur zaman IOT Edge simulator'ı başarıyla ayarlandı.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 196882cf4515be8afd129128402e9eaee322cb4b
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 1bb6e464b748f2558cec35a95554bb3e08b667f0
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093592"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378338"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Sanal makinenin seri konsol (Önizleme) 
 
@@ -98,7 +98,10 @@ Seri konsol, aşağıda gösterilen komut çubuğunda klavye simgesini kullanara
 Kilitlenme bilgi dökümü bir NMI aldığında oluşturmak için Windows yapılandırma hakkında daha fazla bilgi için bkz: [tam kilitlenme bilgi döküm dosyası veya bir çekirdek kilitlenme dökümü dosyalarının Windows tabanlı bir sistemde bir NMI kullanarak oluşturma](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
 ## <a name="disable-serial-console"></a>Seri konsol devre dışı bırak
-Varsayılan olarak, seri konsol erişimi tüm VM'ler için Etkin Abonelikler var. Abonelik düzeyinde veya VM düzeyi seri konsol devre dışı bırakabilir.
+Varsayılan olarak, seri konsol erişimi tüm VM'ler için Etkin Abonelikler var. Abonelik düzeyinde veya VM düzeyi seri konsol devre dışı bırakabilir. 
+
+> [!Note] 
+> Etkinleştirmek veya devre dışı seri konsol için bir abonelik için abonelik için yazma izinleri olmalıdır. Bu, içerir, ancak için yönetici veya sahip rollerinin sınırlı değildir. Özel roller ayrıca yazma izinlerine sahip.
 
 ### <a name="subscription-level-disable"></a>Abonelik düzeyinde devre dışı bırak
 Seri konsol devre dışı bırakılabilir bir tüm abonelik tarafından için [devre dışı konsol REST API çağrısı](https://aka.ms/disableserialconsoleapi). API belgeleri sayfasında "Try It" kullanılabilen İşlevler, devre dışı bırakın ve bir abonelik için seri konsol etkinleştirmek için kullanabilir. Girin, `subscriptionId`, "varsayılan" `default` alan ve Çalıştır'a tıklayın. Azure CLI komutları henüz kullanıma sunulmamıştır ve daha sonraki bir tarihte ulaşır. [REST API çağrısı burada deneyin](https://aka.ms/disableserialconsoleapi).
@@ -190,7 +193,6 @@ Hala Önizleme aşamaları seri konsol erişimi için de bizim yaptığımız gi
 
 Sorun                             |   Risk azaltma 
 :---------------------------------|:--------------------------------------------|
-Sanal makine ölçek kümesi örneği seri konsolu ile seçeneği yoktur | Önizleme sırasında sanal makine ölçek kümesi örneklerine ait seri konsoluna erişimi desteklenmiyor.
 Ulaşmaktan bağlantı başlık satırında bir günlük göstermez sonra girin | Lütfen şu sayfaya bakın: [Hitting girin hiçbir şey yapmaz](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Bu özel bir VM çalıştırıyorsanız, gereç sağlamlaştırılmış olması veya düzgün bir şekilde seri bağlantı noktasına bağlanmak başarısız olmasına, causers Windows yapılandırma kaz.
 Yalnızca sistem durumu bilgileri, bir Windows VM'ye bağlanırken gösterilir.| Bu özel Yönetim Konsolu Windows görüntünüzü için etkinleştirilmemiş olmadığını gösterilir. Bkz: [erişim seri konsol için Windows](#access-serial-console-for-windows) SAC, Windows VM'de el ile etkinleştirme hakkında yönergeler için. Daha fazla ayrıntı şu adreste bulunabilir: [Windows durum sinyallerini](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 Çekirdek hata ayıklamasını etkin olduğunda SAC komut istemi türü oluşturulamıyor | VM ve çalıştırmak için RDP `bcdedit /debug {current} off` yükseltilmiş bir komut isteminden. RDP gerçekleştiremezsiniz, bunun yerine başka bir Azure VM için işletim sistemi diski ve kullanarak bir veri diski olarak bağlı durumdayken değiştirmek `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, ardından diski geri değiştirme.
@@ -203,9 +205,25 @@ Bu sanal makinenin önyükleme tanılaması depolama hesabı erişirken 'Yasak' 
 
 A. Giderek bir sorun geri bildirim sağlamak https://aka.ms/serialconsolefeedback. Alternatif olarak daha az (tercih edilen) gönderme aracılığıyla geri bildirim azserialhelp@microsoft.com veya sanal makine kategorisi http://feedback.azure.com
 
-**SORU. Burada bir destek talebi belirtebileceği seri konsoluna erişmek gönderemiyorum?**
+**SORU. Seri konsol kopyala/yapıştır destekliyor mu?**
 
-A. Bu önizleme özelliği Azure Önizleme koşulları kapsamındadır. Desteği, en iyi yukarıda belirtilen kanallar aracılığıyla işlenir. 
+A. Evet, bunu yapar. Kopyalama ve yapıştırma terminale Ctrl + Shift + C ve Ctrl + Shift + V kullanın.
+
+**SORU. Kimler etkinleştirebilir veya seri konsol için Aboneliğim devre dışı?**
+
+A. Etkinleştirmek veya devre dışı bir aboneliği genelinde düzeyinde seri konsol için abonelik yazma izinleri olmalıdır. Yazmak için izne sahip roller içerir ancak için yönetici veya sahip rollerinin sınırlı değildir. Özel roller ayrıca yazma izinlerine sahip.
+
+**SORU. Sanal Makinem için seri konsol erişebilecek mi?**
+
+A. Katkıda bulunan düzeyinde erişime sahip olmalıdır veya üzeri bir VM sanal makinenin seri konsol erişebilmek için. 
+
+**SORU. Seri konsolumda herhangi bir şey ne yapmalıyım gösterilmiyor?**
+
+A. Görüntünüzü seri konsol erişimi için büyük olasılıkla yanlış yapılandırılmış. Bkz: [eski veya özel görüntüleri seri konsolunda etkinleştirme](#Enable-Serial-Console-in-custom-or-older-images) görüntünüzü seri konsol etkinleştirmek için yapılandırma hakkında ayrıntılar için.
+
+**SORU. Seri konsol sanal makine ölçek kümeleri için kullanılabilir mi?**
+
+A. Seri konsol erişimi için sanal makine ölçek kümesi örneklerine şu anda desteklenmiyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * CMD ve PowerShell komutları, Windows SAC içinde kullanabileceğiniz kapsamlı bir kılavuzu için tıklayın [burada](serial-console-cmd-ps-commands.md).
