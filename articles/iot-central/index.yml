@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: f8dcee53aecfcb7468d87c480c68f14715dea035
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391581"
 documentType: LandingData
 title: Azure IoT Central (önizleme) Belgeleri
 metadata:
@@ -11,15 +17,13 @@ metadata:
   ms.service: iot-central
   services: iot-central
   manager: timlt
-  ms.openlocfilehash: df6acc821183e7336d8079895c7494eed397eea1
-  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-  ms.translationtype: HT
-  ms.contentlocale: tr-TR
-  ms.lasthandoff: 06/01/2018
-  ms.locfileid: "34628581"
 abstract:
   description: Azure IoT Central, IoT varlıklarınızı uygun ölçekte bağlamanızı, izlemenizi ve yönetmenizi kolaylaştıran, tamamen yönetilen bir SaaS (hizmet olarak yazılım) çözümüdür. Azure IoT Central, IoT çözümünüzün ilk kurulumunu basitleştirir ve yönetim yüklerini, operasyonel maliyetleri ve normal bir IoT projesinin ek yüklerini ortadan kaldırır. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak Azure IoT Central uygulamasını oluşturmayı, özelleştirmeyi, yönetmeyi ve kullanmayı öğrenin.
 sections:
+- title: Yaklaşan değişiklik
+  items:
+  - type: paragraph
+    text: Azure IoT Central önümüzdeki birkaç hafta içinde tüm cihaz bağlantıları için Azure IoT Hub Cihazı Sağlama Hizmeti’ni (DPS) kullanmak üzere geçiş yapacak. Bu değişiklik yayımlandığında cihazları kaydedip bağlamak için DPS SDK’sını kullanmak üzere cihaz kodunuzu güncelleştirmeniz gerekecek. Sürekli veri aktarma özelliğini kullanan tüm uygulamaların ve/veya Power BI çözüm şablonunun hedef depolama kapsayıcısını değiştirmesi ve yeni bir çözüm şablonu oluşturması gerekecek. <a href="https://aka.ms/iotcentral-create-technical-support-ticket">Daha fazla bilgi için lütfen teknik desteğe başvurun.</a>
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph

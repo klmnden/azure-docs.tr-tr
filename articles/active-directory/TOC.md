@@ -197,6 +197,7 @@
 #### [Kiracı kısıtlamaları](manage-apps/tenant-restrictions.md)
 #### [SCIM kullanıcı sağlama hizmetinden yararlanma](manage-apps/use-scim-to-provision-users-and-groups.md)
 
+### [Azure AD uygulaması onay deneyimlerini anlama](application-consent-experience.md)
 
 ### Sorun giderme
 

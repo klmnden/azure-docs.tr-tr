@@ -1,0 +1,126 @@
+items:
+- name: Azure AD Uygulama Yönetimi Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+  - name: Uygulama yönetimi hakkında
+    href: what-is-application-management.md
+- name: Hızlı Başlangıçlar
+  items:
+  - name: Uygulama ekleme - portal
+    href: add-application-portal.md
+  - name: Kiracı uygulamalarını görüntüleme - portal
+    href: view-applications-portal.md
+  expanded: true
+- name: Öğreticiler
+  items:
+  - name: Çoklu oturum açmayı yapılandırma - portal
+    href: configure-single-sign-on-portal.md
+- name: Kavramlar
+  items:
+  - name: Bulut uygulaması tümleştirme işlemi planlama
+    items:
+    - name: Uygulama eklediğinizde ne olur?
+      href: plan-an-application-integration.md
+  - name: Şirket içi uygulama tümleştirmesi planlama
+    items:
+    - name: Uygulama Ara Sunucusu
+      href: application-proxy.md
+    - name: Bağlayıcılar
+      href: application-proxy-connectors.md
+    - name: Bağlayıcı grupları
+      href: application-proxy-connector-groups.md
+    - name: Güvenlik
+      href: application-proxy-security.md
+    - name: Ağ topolojisi
+      href: application-proxy-network-topology.md
+    - name: Uzaktan erişim çözümlerini karşılaştırma
+      href: application-proxy-migration.md
+  - name: Kullanıcıları ve grupları sağlama
+    items:
+    - name: Otomatik kullanıcı sağlama
+      href: configure-automatic-user-provisioning-portal.md
+    - name: SCIM etkin uygulamalar
+      href: use-scim-to-provision-users-and-groups.md
+  - name: Uygulama güvenliği
+    items:
+    - name: Uygulama erişim seçenekleri
+      href: what-is-access-management.md
+    - name: Sertifika imzalama seçenekleri
+      href: certificate-signing-options.md
+    - name: Sertifikaları yönetme
+      href: manage-certificates-for-federated-single-sign-on.md
+  - name: Çoklu oturum açma
+    items:
+    - name: SSO yöntemleri
+      href: application-proxy-single-sign-on.md
+    - name: Giriş Bölgesi Bulma
+      href: configure-authentication-for-federated-users-portal.md
+    - name: Kerberos Kısıtlanmış Temsili (KCD)
+      href: application-proxy-configure-single-sign-on-with-kcd.md
+    - name: Parola kasası oluşturma
+      href: application-proxy-configure-single-sign-on-password-vaulting.md
+    - name: Ping erişimi
+      href: application-proxy-configure-single-sign-on-with-ping-access.md
+- name: Nasıl yapılır kılavuzları
+  items:
+  - name: Bulut uygulaması tümleştirme
+    items:
+    - name: Ad veya logo değiştirme
+      href: change-name-or-logo-portal.md
+  - name: Şirket içi uygulama tümleştirmesi
+    items:
+    - name: Uygulama Ara Sunucusunu etkinleştirme
+      href: application-proxy-enable.md
+    - name: Uzaktan erişim için uygulama yayımlama
+      href: application-proxy-publish-azure-portal.md
+    - name: Bağlayıcıları yapılandırma
+      href: application-proxy-configure-connectors-with-proxy-servers.md
+    - name: Talep kullanan uygulamaları yapılandırma
+      href: application-proxy-configure-for-claims-aware-applications.md
+    - name: Kayıt bağlayıcısı - sessiz yükleme
+      href: application-proxy-register-connector-powershell.md
+    - name: Yerel istemci uygulamalarını yapılandırma
+      href: application-proxy-configure-native-client-application.md
+    - name: Özel giriş sayfası yapılandırma
+      href: application-proxy-configure-custom-home-page.md
+    - name: Satır içi bağlantıları çevirme
+      href: application-proxy-configure-hard-coded-link-translation.md
+    - name: Joker karakterleri kullanarak yayımlama
+      href: application-proxy-wildcard.md
+    - name: Kişisel verileri kaldırma
+      href: application-proxy-remove-personal-data.md
+    - name: Özel etki alanı yapılandırma
+      href: application-proxy-configure-custom-domain.md
+    - name: Uzak Masaüstü ile tümleştirme
+      href: application-proxy-integrate-with-remote-desktop-services.md
+    - name: SharePoint ile tümleştirme
+      href: application-proxy-integrate-with-sharepoint-server.md
+    - name: Teams ile tümleştirme
+      href: application-proxy-integrate-with-teams.md
+    - name: Tableau ile tümleştirme
+      href: application-proxy-integrate-with-tableau.md
+    - name: Qlik ile tümleştirme
+      href: application-proxy-qlik.md
+    - name: Yapılandırma hataları
+      href: application-proxy-troubleshoot.md
+  - name: Uygulama erişimi
+    items:
+    - name: Kullanıcıyı uygulamaya atama
+      href: assign-user-or-group-access-portal.md
+    - name: Kullanıcı veya grup erişimini kaldırma
+      href: remove-user-or-group-access-portal.md
+    - name: Kullanıcıdan uygulama gizleme
+      href: hide-application-from-user-portal.md
+    - name: Kullanıcılar için oturum açmayı devre dışı bırakma
+      href: disable-user-sign-in-portal.md
+  - name: Geçiş
+    items:
+    - name: ADFS uygulamasını Azure’a geçirme
+      href: migrate-adfs-apps-to-azure.md
+ms.openlocfilehash: 57a377c56764272b70814bc78b31f718d3d902b7
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44381845"

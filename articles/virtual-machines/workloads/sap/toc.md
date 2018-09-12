@@ -24,7 +24,11 @@
 ## SAP HANA yükleme
 ### [Yapılandırmayı doğrulama](hana-installation.md)
 ### [Örnek HANA yüklemesi](hana-example-installation.md)
-## [Yüksek kullanılabilirlik ve olağanüstü durum kurtarma](hana-overview-high-availability-disaster-recovery.md)
+## Yüksek kullanılabilirlik ve olağanüstü durum kurtarma
+### [Seçenekler ve dikkat edilmesi gerekenler](hana-overview-high-availability-disaster-recovery.md)
+### [Yedekleme ve geri yükleme](hana-backup-restore.md)
+### [İlkeler ve hazırlık](hana-concept-preparation.md)
+### [Olağanüstü durum kurtarma yük devretme yordamı](hana-failover-procedure.md)
 ## Sorun giderme ve izleme
 ### [HLI izleme](troubleshooting-monitoring.md)
 ### [HANA tarafından izleme ve sorun giderme](hana-monitor-troubleshoot.md)
